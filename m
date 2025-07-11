@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C65EC83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 07:57:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0719C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 08:00:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1jefdio8tGYsknTVzQh6U96XwdfPTWnq4uBGNVmYT48=; b=qLL62OoHME6WoauJ6UQdIp6jA9
-	BWhhl/Ml70h53lx7jsji09bHcd13DOa2q6A8TzgdinU2ZwIKlkhYzXzaweEx4ZNZiKdUgNxRtuJ6T
-	QLllMg/zXSJ66MPrAF7mrepI4J+10uygs3rvlXwFRXx2dMcocwkHs8ZdnF7q6qwzPqjfV4mb4H998
-	kF9jWC4k5rVoA823ZQWoAE0IapZ3WlXnYIDinbkpDNs0+xxbX1tom53VMciAjLQVLayD1bu+K5p/Z
-	wrryGvOYE/AxnIjN/rR+sqF6F2c94uDq4yODvd61yVU1m/9R4UzmdASOJNShnGKksqucSQv+V0mwk
-	834P8cCw==;
+	bh=gZN3hcPUL4hWbXo3h+Lxw7iME9a4OEx7USCL3CmDjHM=; b=ny7Gm0KIlzkMUpXinLzXt1LaIG
+	CyPHvGMWwnxJnp5fq640LXerBtlXIGoN57Zpx+R6X3l477vU8K31xORXYPym7RZg1rRZTNh51Az3Z
+	/FUJkS2VtH6vvskr3LXmucScwkyA8NvRoeTFdwfsFqp13BXq15jvTSTzb28W3+U/eaTuLWHWs82qs
+	p19DbvKnNZqRtEU7VNqc8TITRpVkT+chtQbbYS/vE6NtXqRI1hVaFvLdBhFP1IsAQX4DExGl1SVQz
+	x6EcrGlKqeRcQobw73TfT2CTDU3lmB6jhzXuQ8vGWAL28LmVIjGq0bRS7LcAzNpM7SC9Jd/5tlHid
+	DzF4uWGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ua8de-0000000E3Ao-2ZLT;
-	Fri, 11 Jul 2025 07:57:46 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1ua8fy-0000000E3WS-2rdH;
+	Fri, 11 Jul 2025 08:00:10 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ua8JK-0000000Dzow-1SfR
+	id 1ua8KT-0000000E00O-0Tih
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Jul 2025 07:36:47 +0000
+	Fri, 11 Jul 2025 07:37:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2EC4D452B2;
-	Fri, 11 Jul 2025 07:36:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7A59FC4CEED;
-	Fri, 11 Jul 2025 07:36:43 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 8BC7D6115D;
+	Fri, 11 Jul 2025 07:37:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AF13BC4CEED;
+	Fri, 11 Jul 2025 07:37:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752219404;
-	bh=a0wdQROj3hyxjpHmI3TPp1B/1v9dnKkpod7Q3zxg27o=;
+	s=k20201202; t=1752219476;
+	bh=hlaTSOfwU5t5uUBJH15EMSZMX/iXkdPXO1i1im6HrmY=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=pDiyKLTj2+sXbOPoA09zNCj+YoGUJjOjlVrtsiy2CXqLzoOX57nGU7EqPOQre5vS5
-	 SA9h4C+3e0Itmc0CPM/zi7oX76RjAbolfE8D1d8V6CHKfAbiXJnudy5TmDfu2QMuNP
-	 y5L9Ese8GdUsfdKg9WekbMeczMdcyvsPUBBsN9boSbSzQovZVqAsCBRiWoINqgINJ7
-	 vYFi2Pexu7Sl1acSNEPKZiYH/RUIQjzmcNmIxTcnDXIiZM28G/+QHuqjpiEmKSpvqR
-	 QzR9ipvKvQR7nUJh2Sq2wINeUPQO3Y0XtsJGgt20qywberxIUO1y6y8sXM93YskG9H
-	 2d+YQDEjcDTZg==
-Date: Fri, 11 Jul 2025 09:36:41 +0200
+	b=EJ21gcZ6wG8Uj0HdA04vOksRm0n2/UU4SoJfCNz3NmrhNV24uv9zxFXii8sKLVNsF
+	 m5Rh6w1zUQTpkVJ9HyCfSpFEmRrTJVXUQf2AAAe1P/5dPD6/o8wXhhcVJ5eZ/FoMn4
+	 Fq52ac5fiXga0CofTseD3XacSQs3FADD8hmgVHT+KSbm57/u9WPDrCT4uqguPk0GL1
+	 t54Z43UWfWMTQthbWjWwB1DmU/bNbVU7t9TN+FKgVqAlpikG0MggjHm8/UNFEN3jaR
+	 YIVdQs0LoW+Qz4ZCcItWXfbs9tcjH136a6cOD+VlNjHO7BrcZWtpUPWucg66dF69hS
+	 rGyIlMUNsP1DA==
+Date: Fri, 11 Jul 2025 09:37:53 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Andrei Stefanescu <andrei.stefanescu@oss.nxp.com>
 Cc: linus.walleij@linaro.org, brgl@bgdev.pl, robh@kernel.org, 
@@ -56,16 +56,13 @@ Cc: linus.walleij@linaro.org, brgl@bgdev.pl, robh@kernel.org,
 	vincent.guittot@linaro.org
 Subject: Re: [PATCH v7 01/12] dt-bindings: mfd: add support for the NXP SIUL2
  module
-Message-ID: <20250711-fluorescent-malamute-of-glory-b1c585@krzk-bin>
+Message-ID: <20250711-lean-burrowing-jacamar-38fcc5@krzk-bin>
 References: <20250710142038.1986052-1-andrei.stefanescu@oss.nxp.com>
  <20250710142038.1986052-2-andrei.stefanescu@oss.nxp.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 In-Reply-To: <20250710142038.1986052-2-andrei.stefanescu@oss.nxp.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250711_003646_412502_80351F1D 
-X-CRM114-Status: GOOD (  11.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,18 +78,32 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On Thu, Jul 10, 2025 at 05:20:24PM +0300, Andrei Stefanescu wrote:
-> Add the dt-bindings for the NXP SIUL2 module which is a multi
-> function device. It can export information about the SoC, configure
-> the pinmux&pinconf for pins and it is also a GPIO controller with
-> interrupt capability.
-> 
-> Signed-off-by: Andrei Stefanescu <andrei.stefanescu@oss.nxp.com>
-> ---
->  .../bindings/mfd/nxp,s32g2-siul2.yaml         | 163 ++++++++++++++++++
->  1 file changed, 163 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/mfd/nxp,s32g2-siul2.yaml
+> +        properties:
+> +          bias-disable: true
+> +          bias-high-impedance: true
+> +          bias-pull-up: true
+> +          bias-pull-down: true
+> +          drive-open-drain: true
+> +          input-enable: true
+> +          output-enable: true
+> +
+> +          pinmux:
+> +            description: |
+> +              An integer array for representing pinmux configurations of
+> +              a device. Each integer consists of a PIN_ID and a 4-bit
+> +              selected signal source(SSS) as IOMUX setting, which is
+> +              calculated as: pinmux = (PIN_ID << 4 | SSS)
+> +
+> +          slew-rate:
+> +            description: Supported slew rate based on Fmax values (MHz)
+> +            enum: [83, 133, 150, 166, 208]
+> +        required:
+> +          - pinmux
+> +
+> +        unevaluatedProperties: false
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+I noticed Frank's comment and he pointed out that this changed, so all
+':true' lines before should be removed as well.
 
 Best regards,
 Krzysztof
