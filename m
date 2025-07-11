@@ -4,82 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF6B8C8303C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 06:45:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6420EC8303C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 06:47:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:In-Reply-To:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GFDyMbCkO2ZwbHpRqQKoKj9ZE4qcw7HW3UuqnlBlvfI=; b=lz5p3EohDP8DYLLmeoInYFs6/d
-	pHb/hmn+mT7jKNZ9LtKwAMBKHes7Cjr6b0mp6FSKDItKVkTCdlA6x6KYQLsyD0DZ2cLjdQqzMNGnB
-	pPMFibkgEWC4ZrsgYCdVURD6LvMneBMT7UV8C6GTdENvl7tjGh+wxrWyy9wPRSEbTclSfMCQPWAQ3
-	VH+dM93OBmmBYphekLIGnwmKtZCPAxN5GbTh1AgPBMlCeX9qbrIxOp4koh2MEx2BV9uUQ0zW7hoPy
-	3tL9SCYZ46BJvApH0wu2FOwcke5EN3jvSiK/xE9mVFoNlDXdwU9n4y4TFr4fLgDhYpUabDd+SLhBR
-	sgYbcyRQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=gflhu1bWtTuver2SAemQHT0VTVk7DgnlQ/aWJMNvXnM=; b=CaSC2w2VcGzsxGPdpjXWOtPeU8
+	MDkSv/+Lxrhi4hFDuigQR4fmKA996LduJHPqhlBB1kbggirr94+LDwFAO01lUOMweapuD0elnEqP+
+	CV9HbYJmZWYNa7ghQt935YWzpUQFOkNLNjgst4fsCHb3VUrF5saJnGo1Khqu7UqQ65F9gqtx/ZPkM
+	iZ2iEy2LH+M7iMAIwUaYl3yQLOLetIFUbZpf6sLZRjFoaTjJjJZgN21iA9+UEX3gdyFI2+pobEesz
+	jVff6iRnbVw3MmYLJddaLbpcxIAwsD/zbky+rOW0BU3pevLq8loEbISBAzxkYgBDa8Xlvb78Z3FEK
+	GmVzlD0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ua7Vc-0000000DsxH-3GYX;
-	Fri, 11 Jul 2025 06:45:24 +0000
-Received: from mailout1.samsung.com ([203.254.224.24])
+	id 1ua7Xw-0000000Dt6U-27IG;
+	Fri, 11 Jul 2025 06:47:48 +0000
+Received: from szxga07-in.huawei.com ([45.249.212.35])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ua7Mx-0000000Drf1-0SWQ
+	id 1ua7Nm-0000000Drrx-2jLB
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Jul 2025 06:36:28 +0000
-Received: from epcas5p3.samsung.com (unknown [182.195.41.41])
-	by mailout1.samsung.com (KnoxPortal) with ESMTP id 20250711063625epoutp019a642052e5dcb318284d8deb84b09529~RHvkonA2m0226502265epoutp01t
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Jul 2025 06:36:25 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.samsung.com 20250711063625epoutp019a642052e5dcb318284d8deb84b09529~RHvkonA2m0226502265epoutp01t
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1752215785;
-	bh=GFDyMbCkO2ZwbHpRqQKoKj9ZE4qcw7HW3UuqnlBlvfI=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=MeRlB3yb1Bbfqs555VrbWIvza6o8vxQFUQTIuazCHXsZWUBilkMpFwATvqgZFCZPT
-	 GvOMQbJHclpxJmjVNrBxfG2NgjO4k/1XM+XLPXugi6snOMB+nuE+4cdjPJK8gC/DsJ
-	 +dJfY9JCD7ROK2t5HC9Cu+9yBHs/+wsCMfg8V2yw=
-Received: from epsnrtp03.localdomain (unknown [182.195.42.155]) by
-	epcas5p3.samsung.com (KnoxPortal) with ESMTPS id
-	20250711063624epcas5p3398f1d9b43f4dd34f41b8367e7cc6607~RHvj82xRm0433604336epcas5p3-;
-	Fri, 11 Jul 2025 06:36:24 +0000 (GMT)
-Received: from epcas5p3.samsung.com (unknown [182.195.38.176]) by
-	epsnrtp03.localdomain (Postfix) with ESMTP id 4bdhnL5YzVz3hhTM; Fri, 11 Jul
-	2025 06:36:22 +0000 (GMT)
-Received: from epsmtip1.samsung.com (unknown [182.195.34.30]) by
-	epcas5p2.samsung.com (KnoxPortal) with ESMTPA id
-	20250710082538epcas5p2556f80b4193a046262808ae7742675be~Q1lpZdY_s0977409774epcas5p2X;
-	Thu, 10 Jul 2025 08:25:38 +0000 (GMT)
-Received: from bose.samsungds.net (unknown [107.108.83.9]) by
-	epsmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20250710082536epsmtip12dd8cd863df7974d872c656c4082f2fa~Q1ln5BXAh0693006930epsmtip12;
-	Thu, 10 Jul 2025 08:25:36 +0000 (GMT)
-From: Devang Tailor <dev.tailor@samsung.com>
-To: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	alim.akhtar@samsung.com, alexandre.belloni@bootlin.com,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-rtc@vger.kernel.org, faraz.ata@samsung.com
-Cc: Devang Tailor <dev.tailor@samsung.com>
-Subject: [PATCH v2 3/3] arm64: dts: exynosautov9: add RTC DT node
-Date: Thu, 10 Jul 2025 14:04:34 +0530
-Message-Id: <20250710083434.1821671-4-dev.tailor@samsung.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250710083434.1821671-1-dev.tailor@samsung.com>
+	Fri, 11 Jul 2025 06:37:20 +0000
+Received: from mail.maildlp.com (unknown [172.19.88.234])
+	by szxga07-in.huawei.com (SkyGuard) with ESMTP id 4bdhlw6PS6z2Bcp0;
+	Fri, 11 Jul 2025 14:35:08 +0800 (CST)
+Received: from dggemv706-chm.china.huawei.com (unknown [10.3.19.33])
+	by mail.maildlp.com (Postfix) with ESMTPS id 4D308140119;
+	Fri, 11 Jul 2025 14:37:07 +0800 (CST)
+Received: from kwepemn100009.china.huawei.com (7.202.194.112) by
+ dggemv706-chm.china.huawei.com (10.3.19.33) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Fri, 11 Jul 2025 14:37:07 +0800
+Received: from localhost.localdomain (10.50.165.33) by
+ kwepemn100009.china.huawei.com (7.202.194.112) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Fri, 11 Jul 2025 14:37:06 +0800
+From: Huisong Li <lihuisong@huawei.com>
+To: <xuwei5@huawei.com>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>
+CC: <linuxarm@huawei.com>, <jonathan.cameron@huawei.com>,
+	<zhanjie9@hisilicon.com>, <lihuisong@huawei.com>
+Subject: [PATCH] soc: hisilicon: kunpeng_hccs: Fix incorrect log information
+Date: Fri, 11 Jul 2025 14:37:06 +0800
+Message-ID: <20250711063706.3121253-1-lihuisong@huawei.com>
+X-Mailer: git-send-email 2.33.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20250710082538epcas5p2556f80b4193a046262808ae7742675be
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-Sendblock-Type: REQ_APPROVE
-CMS-TYPE: 105P
-cpgsPolicy: CPGSC10-542,Y
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250710082538epcas5p2556f80b4193a046262808ae7742675be
-References: <20250710083434.1821671-1-dev.tailor@samsung.com>
-	<CGME20250710082538epcas5p2556f80b4193a046262808ae7742675be@epcas5p2.samsung.com>
+Content-Type: text/plain
+X-Originating-IP: [10.50.165.33]
+X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
+ kwepemn100009.china.huawei.com (7.202.194.112)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250710_233627_458703_F2D1D116 
-X-CRM114-Status: GOOD (  14.84  )
+X-CRM114-CacheID: sfid-20250710_233718_878121_2564ADE1 
+X-CRM114-Status: GOOD (  10.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,51 +73,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add DT node for on-chip RTC for ExynosAutov9
+The hccs_get_all_spec_port_idle_sta() will tell user which port
+is busy when firmware doesn't allow to decrease HCCS lane number.
+However, the current log prints the index of die and port instead
+of the hardware ID user perceived.
 
-Signed-off-by: Devang Tailor <dev.tailor@samsung.com>
+Signed-off-by: Huisong Li <lihuisong@huawei.com>
 ---
- arch/arm64/boot/dts/exynos/exynosautov9-sadk.dts |  4 ++++
- arch/arm64/boot/dts/exynos/exynosautov9.dtsi     | 10 ++++++++++
- 2 files changed, 14 insertions(+)
+ drivers/soc/hisilicon/kunpeng_hccs.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/exynos/exynosautov9-sadk.dts b/arch/arm64/boot/dts/exynos/exynosautov9-sadk.dts
-index de2c1de51a76..5f5167571f7a 100644
---- a/arch/arm64/boot/dts/exynos/exynosautov9-sadk.dts
-+++ b/arch/arm64/boot/dts/exynos/exynosautov9-sadk.dts
-@@ -106,6 +106,10 @@ &pwm {
- 	status = "okay";
- };
- 
-+&rtc {
-+	status = "okay";
-+};
-+
- &serial_0 {
- 	pinctrl-0 = <&uart0_bus_dual>;
- 	status = "okay";
-diff --git a/arch/arm64/boot/dts/exynos/exynosautov9.dtsi b/arch/arm64/boot/dts/exynos/exynosautov9.dtsi
-index 66628cb32776..afa6b258153c 100644
---- a/arch/arm64/boot/dts/exynos/exynosautov9.dtsi
-+++ b/arch/arm64/boot/dts/exynos/exynosautov9.dtsi
-@@ -1633,6 +1633,16 @@ pwm: pwm@103f0000 {
- 			clock-names = "timers";
- 			status = "disabled";
- 		};
-+
-+		rtc: rtc@10540000 {
-+			compatible = "samsung,exynosautov9-rtc";
-+			reg = <0x10540000 0x100>;
-+			interrupts = <GIC_SPI 26 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 27 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&xtcxo>;
-+			clock-names = "rtc";
-+			status = "disabled";
-+		};
- 	};
- };
- 
+diff --git a/drivers/soc/hisilicon/kunpeng_hccs.c b/drivers/soc/hisilicon/kunpeng_hccs.c
+index 7fc353732d55..65ff45fdcac7 100644
+--- a/drivers/soc/hisilicon/kunpeng_hccs.c
++++ b/drivers/soc/hisilicon/kunpeng_hccs.c
+@@ -1295,11 +1295,11 @@ static int hccs_get_all_spec_port_idle_sta(struct hccs_dev *hdev, u8 port_type,
+ 				if (ret) {
+ 					dev_err(hdev->dev,
+ 						"hccs%u on chip%u/die%u get idle status failed, ret = %d.\n",
+-						k, i, j, ret);
++						port->port_id, chip->chip_id, die->die_id, ret);
+ 					return ret;
+ 				} else if (idle == 0) {
+ 					dev_info(hdev->dev, "hccs%u on chip%u/die%u is busy.\n",
+-						k, i, j);
++						 port->port_id, chip->chip_id, die->die_id);
+ 					return 0;
+ 				}
+ 			}
 -- 
-2.34.1
+2.33.0
 
 
