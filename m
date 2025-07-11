@@ -4,72 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C509C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 01:21:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 826FDC83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 01:21:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7K1E4onc8T9wuaMsKhC2ju7DHVZQyGZS0DzCMv+rjJc=; b=NGakOEnqAD6uFvAE60Ia4Drmih
-	VRVdzKSU6wtBida+tMf1XHavw/sloHqiNOjGqhFdz2ii1uI6oxiEXuhMD+/kFGaJhB/qkY3I2bsFG
-	+AH0c67adbLO0cWoFG/nDwxI9Uxm2LwSH9K+1mRJCGYwA+D3PtihWLZ/BbB6sKLSas0eR4KH5dBtZ
-	CzspIMcN3pe17n/ZmWeRU8zeLQqh9K8365pohoK8aRZS38P66otW58Pafumkl8nxnbSRZggMueq6y
-	n8cN5DvRjHWE8fpKGe/37J4nyIa6RZPdOHStRnXeCBKKK7WXH4QgCfT/SEyOaloFhgfe+eFdpSdC8
-	BSxsazQQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ULf5p4iyc/rpc+brScYeHoFj0F/8Xr7XnVO3qStJl20=; b=eNJYFZQjz8Hl2+qqGV7yqHx1Od
+	l6lLHynCkt8sB+kywGCjN4SQtCUBM4MCaNSI0FSE3UmtjNrmYmnz8m6gTQ1/D5FGM5bLjSNCHU6Rs
+	nespYdL20UALS1629uk0lp6qFcJg81LnfUHqtYrc1E6hbdvd1TdLyWOauEEnBJoEMZ8BQQVkDrJpZ
+	GVix8hGdMTKhiZZPGAcW0YY5XHToNS8yZAM7tS9kG7wrN4gsaBn9vZYXdkPRdmFGqdTmW3zZChY8Q
+	iYO8nrUgYiJfExx2TbphHLihBM3uM4xMTtonww9mDtVsnL/W3pYkR2M00600rFg8qYKQlRo+ZlY1A
+	DvxLbsKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ua2Rm-0000000DSZH-1IBb;
-	Fri, 11 Jul 2025 01:21:06 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1ua2Rs-0000000DShv-0964;
+	Fri, 11 Jul 2025 01:21:12 +0000
+Received: from mgamail.intel.com ([198.175.65.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ua1f1-0000000DMRY-0cnZ;
-	Fri, 11 Jul 2025 00:30:44 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 323B2A54AFA;
-	Fri, 11 Jul 2025 00:30:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CAA6FC4CEE3;
-	Fri, 11 Jul 2025 00:30:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752193841;
-	bh=EUY3LTEqVfnyft6jycovUuD3pKLNok7s/ZTVTtqQMRI=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=qDXgPd5682nZ7FxAb4YqDdWOGHXZssyZ1ldAX7Z5B3DUTn9/3iaDtxIGl+IU25+/6
-	 lCszKV01HyORq6wQmXt1o3uXd1KhkRXh5SXKFDB0hrzfQQBQ8ZapuKqBDA93f85QFc
-	 26fFctGAWw/B1xy0XKWQ9VkKYx78xtROUAJZkcmN3OzZOyZJZVMe2vVjYwaOqoSblB
-	 v2XnV+3u2o//Jcy4jn/7uzkGWOWL3IRyDiTnp183+Q3udj7HgOZYITzn1+F0vX0JT9
-	 C4DtjnvVrsqV6x3f7tIZFUbLHaRVg333LZU2L+hV6FrTFfigtTI771vxvSIJZIQfIN
-	 B+p/Kkkq6AYSA==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 33CE0383B266;
-	Fri, 11 Jul 2025 00:31:05 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	id 1ua2LP-0000000DPXW-32xI
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 11 Jul 2025 01:14:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1752196472; x=1783732472;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=q6bgf8nbsmbq7qhLfWYwY4RarY9tPzXyKzdsj2l6iwc=;
+  b=AUVkKRShHyqQVggD0hmWZ2EPddyPK5yICgjqwS/ziVzYNw+AuppgIqvW
+   PB8vxo0Jz0SG6l4ATmExWkvO3XEOn6cuSQXPgjxrAp+BPmLmJlYfUvXTP
+   w7koSzkKbZ/uKP43JEbfw8HZVFg76ytCEHapDAhThxWdCy10WgQiUzRww
+   fUblfuXsJX8GCKzQWwcwDXtMmNPmF/cmrbwh0+x3ZCcRTgIB7CL/mJaky
+   eiUs6lzsTbKdW8Xy2F4wQJf6H46pa02Z7rGY4buMpamJ4Ab0Ifohyg7yg
+   ww/hx9Qlc1fUgHuvtcbHkprf1M4f80jrRSZbpsnVCkZUwYL5a47hxbKmC
+   w==;
+X-CSE-ConnectionGUID: DiJR29eIQtK3m9niUM6NyA==
+X-CSE-MsgGUID: GZf6BH3dQEy0wotScOvy+Q==
+X-IronPort-AV: E=McAfee;i="6800,10657,11490"; a="65940551"
+X-IronPort-AV: E=Sophos;i="6.16,302,1744095600"; 
+   d="scan'208";a="65940551"
+Received: from orviesa002.jf.intel.com ([10.64.159.142])
+  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Jul 2025 18:14:29 -0700
+X-CSE-ConnectionGUID: vsVsUFYdRBmlwmDGaNYNHA==
+X-CSE-MsgGUID: b/jQH0PhRbS5yqpTSE21Qw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.16,302,1744095600"; 
+   d="scan'208";a="187242746"
+Received: from lkp-server01.sh.intel.com (HELO 9ee84586c615) ([10.239.97.150])
+  by orviesa002.jf.intel.com with ESMTP; 10 Jul 2025 18:14:21 -0700
+Received: from kbuild by 9ee84586c615 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1ua2LC-0005h9-0j;
+	Fri, 11 Jul 2025 01:14:18 +0000
+Date: Fri, 11 Jul 2025 09:14:05 +0800
+From: kernel test robot <lkp@intel.com>
+To: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>,
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Souvik Chakravarty <Souvik.Chakravarty@arm.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Andy Yan <andy.yan@rock-chips.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>, Olof Johansson <olof@lixom.net>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	cros-qcom-dts-watchers@chromium.org, Vinod Koul <vkoul@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Elliot Berman <elliotb317@gmail.com>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	Stephen Boyd <swboyd@chromium.org>, linux-pm@vger.kernel.org,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	Andre Draszik <andre.draszik@linaro.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	linux-samsung-soc@vger.kernel.org, Wei Xu <xuwei5@hisilicon.com>
+Subject: Re: [PATCH v10 01/10] power: reset: reboot-mode: Add device tree
+ node-based registration
+Message-ID: <202507110849.ahNmViin-lkp@intel.com>
+References: <20250710-arm-psci-system_reset2-vendor-reboots-v10-1-b2d3b882be85@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next v2 0/3] riscv: sophgo: Add ethernet support for
- SG2042
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <175219386374.1715084.5771017921965824302.git-patchwork-notify@kernel.org>
-Date: Fri, 11 Jul 2025 00:31:03 +0000
-References: <20250708064052.507094-1-inochiama@gmail.com>
-In-Reply-To: <20250708064052.507094-1-inochiama@gmail.com>
-To: Inochi Amaoto <inochiama@gmail.com>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, unicorn_wang@outlook.com, mcoquelin.stm32@gmail.com,
- alexandre.torgue@foss.st.com, paul.walmsley@sifive.com, palmer@dabbelt.com,
- aou@eecs.berkeley.edu, alex@ghiti.fr, rmk+kernel@armlinux.org.uk,
- prabhakar.mahadev-lad.rj@bp.renesas.com, joe@pf.is.s.u-tokyo.ac.jp,
- l.rubusch@gmail.com, quentin.schulz@cherry.de, peppe.cavallaro@st.com,
- joabreu@synopsys.com, netdev@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, sophgo@lists.linux.dev,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
- dlan@gentoo.org, looong.bin@gmail.com
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250710-arm-psci-system_reset2-vendor-reboots-v10-1-b2d3b882be85@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250710_173043_252562_D7383A58 
-X-CRM114-Status: GOOD (  10.51  )
+X-CRM114-CacheID: sfid-20250710_181431_806455_7FDDCF3C 
+X-CRM114-Status: GOOD (  14.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,35 +110,164 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
+Hi Shivendra,
 
-This series was applied to netdev/net-next.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
+kernel test robot noticed the following build errors:
 
-On Tue,  8 Jul 2025 14:40:48 +0800 you wrote:
-> The ethernet controller of SG2042 is Synopsys DesignWare IP with
-> tx clock. Add device id for it.
-> 
-> This patch can only be tested on a SG2042 evb board, as pioneer
-> does not expose this device.
-> 
-> The user dts patch link:
-> https://lore.kernel.org/linux-riscv/cover.1751700954.git.rabenda.cn@gmail.com
-> 
-> [...]
+[auto build test ERROR on 58ba80c4740212c29a1cf9b48f588e60a7612209]
 
-Here is the summary with links:
-  - [net-next,v2,1/3] dt-bindings: net: sophgo,sg2044-dwmac: Add support for Sophgo SG2042 dwmac
-    https://git.kernel.org/netdev/net-next/c/e281c48a7336
-  - [net-next,v2,2/3] net: stmmac: dwmac-sophgo: Add support for Sophgo SG2042 SoC
-    https://git.kernel.org/netdev/net-next/c/543009e2d4cd
-  - [net-next,v2,3/3] net: stmmac: platform: Add snps,dwmac-5.00a IP compatible string
-    https://git.kernel.org/netdev/net-next/c/d40c1ddd9b4d
+url:    https://github.com/intel-lab-lkp/linux/commits/Shivendra-Pratap/power-reset-reboot-mode-Add-device-tree-node-based-registration/20250710-172104
+base:   58ba80c4740212c29a1cf9b48f588e60a7612209
+patch link:    https://lore.kernel.org/r/20250710-arm-psci-system_reset2-vendor-reboots-v10-1-b2d3b882be85%40oss.qualcomm.com
+patch subject: [PATCH v10 01/10] power: reset: reboot-mode: Add device tree node-based registration
+config: i386-buildonly-randconfig-006-20250711 (https://download.01.org/0day-ci/archive/20250711/202507110849.ahNmViin-lkp@intel.com/config)
+compiler: clang version 20.1.8 (https://github.com/llvm/llvm-project 87f0227cb60147a26a1eeb4fb06e3b505e9c7261)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250711/202507110849.ahNmViin-lkp@intel.com/reproduce)
 
-You are awesome, thank you!
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202507110849.ahNmViin-lkp@intel.com/
+
+All error/warnings (new ones prefixed by >>):
+
+>> drivers/power/reset/reboot-mode.c:15:9: warning: 'pr_fmt' macro redefined [-Wmacro-redefined]
+      15 | #define pr_fmt(fmt)     "reboot-mode: " fmt
+         |         ^
+   include/linux/printk.h:397:9: note: previous definition is here
+     397 | #define pr_fmt(fmt) fmt
+         |         ^
+>> drivers/power/reset/reboot-mode.c:86:10: error: call to undeclared function 'kzalloc'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+      86 |                 info = kzalloc(sizeof(*info), GFP_KERNEL);
+         |                        ^
+>> drivers/power/reset/reboot-mode.c:86:8: error: incompatible integer to pointer conversion assigning to 'struct mode_info *' from 'int' [-Wint-conversion]
+      86 |                 info = kzalloc(sizeof(*info), GFP_KERNEL);
+         |                      ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>> drivers/power/reset/reboot-mode.c:94:4: error: call to undeclared function 'kfree'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+      94 |                         kfree(info);
+         |                         ^
+   drivers/power/reset/reboot-mode.c:139:3: error: call to undeclared function 'kfree'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+     139 |                 kfree(info);
+         |                 ^
+   1 warning and 4 errors generated.
+
+
+vim +/kzalloc +86 drivers/power/reset/reboot-mode.c
+
+    13	
+    14	#define PREFIX "mode-"
+  > 15	#define pr_fmt(fmt)	"reboot-mode: " fmt
+    16	
+    17	struct mode_info {
+    18		const char *mode;
+    19		u32 magic;
+    20		struct list_head list;
+    21	};
+    22	
+    23	static unsigned int get_reboot_mode_magic(struct reboot_mode_driver *reboot,
+    24						  const char *cmd)
+    25	{
+    26		const char *normal = "normal";
+    27		struct mode_info *info;
+    28		char cmd_[110];
+    29	
+    30		if (!cmd)
+    31			cmd = normal;
+    32	
+    33		list_for_each_entry(info, &reboot->head, list)
+    34			if (!strcmp(info->mode, cmd))
+    35				return info->magic;
+    36	
+    37		/* try to match again, replacing characters impossible in DT */
+    38		if (strscpy(cmd_, cmd, sizeof(cmd_)) == -E2BIG)
+    39			return 0;
+    40	
+    41		strreplace(cmd_, ' ', '-');
+    42		strreplace(cmd_, ',', '-');
+    43		strreplace(cmd_, '/', '-');
+    44	
+    45		list_for_each_entry(info, &reboot->head, list)
+    46			if (!strcmp(info->mode, cmd_))
+    47				return info->magic;
+    48	
+    49		return 0;
+    50	}
+    51	
+    52	static int reboot_mode_notify(struct notifier_block *this,
+    53				      unsigned long mode, void *cmd)
+    54	{
+    55		struct reboot_mode_driver *reboot;
+    56		unsigned int magic;
+    57	
+    58		reboot = container_of(this, struct reboot_mode_driver, reboot_notifier);
+    59		magic = get_reboot_mode_magic(reboot, cmd);
+    60		if (magic)
+    61			reboot->write(reboot, magic);
+    62	
+    63		return NOTIFY_DONE;
+    64	}
+    65	
+    66	/**
+    67	 * reboot_mode_register - register a reboot mode driver
+    68	 * @reboot: reboot mode driver
+    69	 * @np: Pointer to device tree node
+    70	 *
+    71	 * Returns: 0 on success or a negative error code on failure.
+    72	 */
+    73	int reboot_mode_register(struct reboot_mode_driver *reboot, struct device_node *np)
+    74	{
+    75		struct mode_info *info;
+    76		struct property *prop;
+    77		size_t len = strlen(PREFIX);
+    78		int ret;
+    79	
+    80		INIT_LIST_HEAD(&reboot->head);
+    81	
+    82		for_each_property_of_node(np, prop) {
+    83			if (strncmp(prop->name, PREFIX, len))
+    84				continue;
+    85	
+  > 86			info = kzalloc(sizeof(*info), GFP_KERNEL);
+    87			if (!info) {
+    88				ret = -ENOMEM;
+    89				goto error;
+    90			}
+    91	
+    92			if (of_property_read_u32(np, prop->name, &info->magic)) {
+    93				pr_err("reboot mode %s without magic number\n", info->mode);
+  > 94				kfree(info);
+    95				continue;
+    96			}
+    97	
+    98			info->mode = kstrdup_const(prop->name + len, GFP_KERNEL);
+    99			if (!info->mode) {
+   100				ret =  -ENOMEM;
+   101				goto error;
+   102			} else if (info->mode[0] == '\0') {
+   103				kfree_const(info->mode);
+   104				ret = -EINVAL;
+   105				pr_err("invalid mode name(%s): too short!\n", prop->name);
+   106				goto error;
+   107			}
+   108	
+   109			list_add_tail(&info->list, &reboot->head);
+   110		}
+   111	
+   112		reboot->reboot_notifier.notifier_call = reboot_mode_notify;
+   113		register_reboot_notifier(&reboot->reboot_notifier);
+   114	
+   115		return 0;
+   116	
+   117	error:
+   118		list_for_each_entry(info, &reboot->head, list)
+   119			kfree_const(info->mode);
+   120	
+   121		return ret;
+   122	}
+   123	EXPORT_SYMBOL_GPL(reboot_mode_register);
+   124	
+
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
