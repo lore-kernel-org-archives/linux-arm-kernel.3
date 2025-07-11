@@ -4,87 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D108C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 22:26:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7661C83F1B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 22:29:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Content-Type:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ku+08PMO7/vjq2Tw85ozrppxDpvyl6Hgmrcst5Ryypw=; b=Z5jpMuksbIzZ/nXVfxUQLfCG6g
-	LUTCS5GnA3DDuuz/t9xXQV+X/sDuY7ZNwUL06M2+p74avX2tFBUwsfriuEPwVSknjQ3LtXgOYTtvf
-	SOTEmziovU0nkyfsV5W3vefTKHrHxIDqboFYa/vsjZ8aCQAiRWlq0T/YZOiNd9urlesQx+kSuusyI
-	ZspHodsJmMWdvJZQLcSutQbxA3C9aLUT8ZjYaonBNN/ht+RJ6Alo4GaEyWspT3psGJgcE79i6L8Re
-	HS5GULuhwuRveJW9zXUeWlb5Ea0MQoW4iahe2zBb8pzE5QeM6Xbitc/AxZJpPR/MRVbSPNYpyQbQ9
-	3h8eqLBA==;
+	bh=6Gk8E+s9RWyBn5WK+KrEq4ZIzC8Xh0foVp5UKjjOUlg=; b=dtxrh4duZqL+A0n9maeP0i3kEN
+	OgcYBS8aVJfsHQuFwtqsHRRJn9bI6WoZP2z1A2+wor5i4TtmPgwImgf/gRZpyYI59oAHrgPo+TRlg
+	EQB9ymnduRqMzUmsIWs2fVdhYFrheaf3u1Ay5VLBKGk7khd6MEP+YUWl4J8jdBpN1V2i6XvnAygxW
+	7A7hh3D7TkOVvigxOK7hHKG/fGlMP+PyUPzkbwAEtPYNZX8bdg9fyu19Aul42y+bSWfafkXhdLH+E
+	+bNZTKABKd12owM8WfvLijHmpt+jIjMBtehUpeKR6j1U3VAPnR/H2ysgULww/YE0Q1cpxJ7LxNzX7
+	Z0WsepZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaMCS-0000000Fx89-44VQ;
-	Fri, 11 Jul 2025 22:26:36 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uaMEm-0000000FxGB-2oyk;
+	Fri, 11 Jul 2025 22:29:00 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaLwR-0000000Fw2e-0zKI
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 11 Jul 2025 22:10:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:Content-Type:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=ku+08PMO7/vjq2Tw85ozrppxDpvyl6Hgmrcst5Ryypw=; b=LvpKx8HdMDTg1s7q8Uj3Ctrxn9
-	9WoQpldcUYLJkfLVcbAF0WfhO4F/7kKZfniT9IsjVYoWaW7rkldJmJT+H4WMI3qnq/CYJmdZFXvlq
-	6TN0Krnuo/sDOvNLoOIkN4GgGDfpBhQbtUh/Bm4kq+eQ82an0urb7LyGmpG2Inn3ZWfTW4zYCowq5
-	nljNFIcvI1DaQi1VVtfm6TL2BmCJXLuVRJav/fXff7HKs3BbRXlG1rxqhAZw7t9x+LCbbCCj73Rok
-	YGOH9Unm5CYOPQ97+KMpgWBonQ67gr9/7vioOh7ISjHvRP93FgmpiaihNLcPuzRuJeARdiQ1jgBif
-	gbtDgALw==;
-Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaLwN-00000009Mtl-15FD
+	id 1uaLwR-0000000Fw2f-2CLO
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Jul 2025 22:10:01 +0000
-Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-3a54700a463so1495675f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Jul 2025 15:09:58 -0700 (PDT)
+	Fri, 11 Jul 2025 22:10:04 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-455b00283a5so5990595e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Jul 2025 15:10:03 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1752271798; x=1752876598; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1752271802; x=1752876602; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=ku+08PMO7/vjq2Tw85ozrppxDpvyl6Hgmrcst5Ryypw=;
-        b=Y3sN6yEvMLEWtd7StGm7uLcRyww/sWWI2FEdDYeishQ9Y4hzKQO0cOzwGUO2QwORqW
-         qA5zgR2QNWOYUwVkEUGuRMMKYxxiRecshntBTrR5l6wBgxExsqOMxEraiBR8xXpb60Rt
-         Wed5npc1Lv8iNHDThkMgUeuAy/4V5cx7ACkbDUay92WnOlTiVYtENshLTU2nQl5+fF+D
-         gHodn8NEU9WkV/PTUJsUGKHBb4SBMlpJGcSsfdEhm7eXVK+HfpwvjcH5+EBSAflTTh5j
-         xoLXG5dn2e8BISSLsHPlLA3FJWWrrmShHgdu6LpWEGeQvzYNb09zyqRsycSaIGCrSkOj
-         isoA==
+        bh=6Gk8E+s9RWyBn5WK+KrEq4ZIzC8Xh0foVp5UKjjOUlg=;
+        b=edHOIayXXr4JqxhZFZWGlHG9ct9XvDsNOEHn3PGk+h36QktAt0PBJT+TiJ2F/i6Dfz
+         bYtmOhCOpxbwFjVDGIosbyYt5jltEQxePg3tq+uqgBqkfklvR1FO+Y04/hZajdYReua+
+         dlUnJNLE7kyjceUYbmxd/xDJ4k0BP7rgjHzOV/rAwIyoiMLe2qJrJqfc8Pm2549YlDjY
+         MIJyyd/xBEKYxNQ08N4aSYLS6PsrTgHZcHc8/3e/KLfqbq0Hju8eczxuL7/IKG/uo0zg
+         ykNln/bhrm+MXQlEqQA+1xPZaDUkg8n90lGgxrKoPMA+horQHucoco1ppW2sgl/Sc4qU
+         ZgTA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752271798; x=1752876598;
+        d=1e100.net; s=20230601; t=1752271802; x=1752876602;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=ku+08PMO7/vjq2Tw85ozrppxDpvyl6Hgmrcst5Ryypw=;
-        b=eRWNWz58NM/ow88rGgy7vOWJXXwY4h3jIekiP2W2QZG0sl9XQFA85lYQDvnLpN8+uW
-         RWyxbznxSyPeGDFvy+akkMIoIOGCeSY7IBbOIL28y/e8WJZ41G5LDx+1KYuKIxr0mW+J
-         id7kpRN8r5kzNA0QRy2/r95Sh5gkKli8j0Q3dc1Tc5qqSYUlFp82BfNHTy5Mp//IAwos
-         lmYP/bwqTEtJNMDcteyU3lnADmi0eEhjjqyXgTBIwGmdD8hHJZXP+oXyQoSiuiUypwuV
-         HrIhOy80HTGsEfotiifmeqv2l50v7YYMFxKxZxogHEs3KwJi+eWxL/gEAuLerpI7zwFN
-         Aq0g==
-X-Forwarded-Encrypted: i=1; AJvYcCWnAPsRDJNxRfPPYYDzf7XE9Hs6a18R7fH10AsPBa3TV1LhPZ9oOVEnvgZrQ7OaSYecSWdyeak6Svl4C8uZcg11@lists.infradead.org
-X-Gm-Message-State: AOJu0YxcO1iRcuML8m0t6B25HjbUPLcaOt+3z9olXv/y1nAxyye6GfQJ
-	Vpf0DkMUWPH44R+GHXpDGEWEArQHNsN6rWHU4mGqWqbWARgpWk4CkbUS
-X-Gm-Gg: ASbGncvx8Fze6Qy7gNtPlK+vb5roqOw3pfAcjJKR8IB8OwWyV9VG/s4z1rJ+J+kCPU6
-	XXcAPJ6I8BOwYG+9FT/Ip9VQt+dtOvoV6f3eO9vTTJ4RXZ8jdMer8cn9id7+5bUEWO5w2Lm+2AQ
-	ydLGT4AfoSPrRmfpTlfToHqKI6M1NPb81Za+Xoy08hm6uUxefk5EYlZUXCf8bvqQSlKgp8ID15g
-	OKm8lpU99KQ1CdXgWhKFEHchGK+rHAXUuaImWqRBQNMl5HrZUqOFghVht5GISvxal2Gp6xconK9
-	oj/uQN+D6OAixp+Nb0C0M5G/CSNHMJPqRN199Xx+VjpgcgXgRyNMAmfkpaQPAbCTdaeR5yqZ/kn
-	BTKqyHk6L5x+1RNkZ2R5rIseNhBC5ovx4dtFGLYFepQ8SXJHtqQjcqixUI+BJ0asWBMVlJYE7rI
-	XFMZNL/VwRr/+0Kg==
-X-Google-Smtp-Source: AGHT+IHipbiPzHtHT9lAlbF3iUj7vcZpxHsOY228G614wvileARaAiUqQeN6JuMPlvDPl0+rJezgFQ==
-X-Received: by 2002:a05:6000:2706:b0:3a4:d9d3:b7cc with SMTP id ffacd0b85a97d-3b5e7f3d0c4mr5790806f8f.28.1752271797634;
-        Fri, 11 Jul 2025 15:09:57 -0700 (PDT)
+        bh=6Gk8E+s9RWyBn5WK+KrEq4ZIzC8Xh0foVp5UKjjOUlg=;
+        b=haZ7J0UyZtFvRDtybe+aMWo79U+9eMC4T0gNzMH57ePdEncQloSdrge+pE9hHeSMZG
+         du+bqMDFme8oc90BqzsOSUB7WA0M+O7/XTc+Q2X9Q3uD0YZdCxUXpIXQvgVD8F5RPq05
+         nTTsF/7kZ5kvffBb/5mx0k4zPr2CLhUGJB9IHDFXTtzOd4QNbRkONU0sMt0NU+7tnFH/
+         qBEWLe3jARxNCcUPP49X+Fm9y6g6Zm2BkNIosIdy5kg7K2Y4FOJtPJtxUI7A8C4z/qo4
+         qAHdnHDyx0FC33iW6ICT+x9nOr5Psl7Jgj8Vw/kYoBSh7ubdTi4AaaHw/wS/ohp9W3zc
+         ct0w==
+X-Forwarded-Encrypted: i=1; AJvYcCW4pUQqX4H11XywsvUHtYYVnapxswTxpr5zhdlE89jT0HAzfwVrSpnoiiO7cEHU4zEp+WASWpz/pSsMhl8yh+UJ@lists.infradead.org
+X-Gm-Message-State: AOJu0YxvMsMwAdpkWKnkdBt8/SBZRrsfgvFZMIajHYGqX5K3lNcmkqCw
+	4TbzrQJ4nulVjxWMaWOigLXsMy2OWRWqEaHc9PAhubxzL6UYHt4aJRDs
+X-Gm-Gg: ASbGncsknn/7zdTmUVbunvRGZTT5T+q/Qx9S4GsTqgEjfhBSDRALE2uURggE6trvGKt
+	eCr8vQF4tvxfAfQZcEyJl7C9bvkTmdb9E7yda5uKzH07bVJZ0i5PBoKxDfpcsNXXdH+XsSofTF+
+	ksYBl0uSwqenLFWhrjMeOEgPmawMVenZfOsetJnIsuJBmxIi5QWkwJtnKtHIaO+zQDi+7EoGlDu
+	e3nM+rO8QapFc40V1o6R18dMH5nCCz6Vw+qiCkYeyTef8ysf7LIbadhO6FiWcmXTBRZWmoYzDQ5
+	vZQrp0MPJcqoZAwaX72Sh7UyCUKf6NgXFXCDlW3FEo0Zygf0470yK5qq4y4NXEzICa9h7KjpP8L
+	yVbMK6WB7KfH2JpZdbOBQECgmNsiAfy4Mw5Bs8Vup10gfQmQlJYnF330Ij83zN+i14VnR0E/SjX
+	vR7lNHS5jtzg39GfNiQ2dsLIz/
+X-Google-Smtp-Source: AGHT+IHy8K+cMlEn6WaDFY14pAsG9qqBk8/FSdFXqmhoAJtzNEuZl2gUeQ1mPurKUKcz5UGZPQj7jQ==
+X-Received: by 2002:a05:600c:4f4d:b0:450:d37d:7c with SMTP id 5b1f17b1804b1-456058e1e70mr909075e9.21.1752271801720;
+        Fri, 11 Jul 2025 15:10:01 -0700 (PDT)
 Received: from localhost (p200300e41f4e9b00f22f74fffe1f3a53.dip0.t-ipconnect.de. [2003:e4:1f4e:9b00:f22f:74ff:fe1f:3a53])
-        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-3b5e8e0d5f5sm5633411f8f.56.2025.07.11.15.09.56
+        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-454d50df5a1sm97491575e9.22.2025.07.11.15.10.00
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 11 Jul 2025 15:09:56 -0700 (PDT)
+        Fri, 11 Jul 2025 15:10:00 -0700 (PDT)
 From: Thierry Reding <thierry.reding@gmail.com>
 To: arm@kernel.org,
 	soc@kernel.org
@@ -92,9 +77,9 @@ Cc: Thierry Reding <thierry.reding@gmail.com>,
 	Jon Hunter <jonathanh@nvidia.com>,
 	linux-tegra@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org
-Subject: [GIT PULL 6/8] ARM: tegra: Device tree changes for v6.17-rc1
-Date: Sat, 12 Jul 2025 00:09:39 +0200
-Message-ID: <20250711220943.2389322-6-thierry.reding@gmail.com>
+Subject: [GIT PULL 8/8] arm64: tegra: Default configuration updates for v6.17-rc1
+Date: Sat, 12 Jul 2025 00:09:41 +0200
+Message-ID: <20250711220943.2389322-8-thierry.reding@gmail.com>
 X-Mailer: git-send-email 2.50.0
 In-Reply-To: <20250711220943.2389322-1-thierry.reding@gmail.com>
 References: <20250711220943.2389322-1-thierry.reding@gmail.com>
@@ -102,8 +87,9 @@ Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250711_231000_429662_2BE3F939 
-X-CRM114-Status: GOOD (  10.24  )
+X-CRM114-CacheID: sfid-20250711_151003_563883_D90EB623 
+X-CRM114-Status: UNSURE (   9.37  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,32 +112,28 @@ The following changes since commit 19272b37aa4f83ca52bdf9c16d5d81bdd1354494:
 
 are available in the Git repository at:
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/tegra/linux.git tags/tegra-for-6.17-arm-dt
+  git://git.kernel.org/pub/scm/linux/kernel/git/tegra/linux.git tags/tegra-for-6.17-arm64-defconfig
 
-for you to fetch changes up to 3c2c00572fc3e0b128f75c7ce9c3f70ca457cc3b:
+for you to fetch changes up to bd3b8e53e244fec2255ab037242230847559161a:
 
-  ARM: tegra: chagall: Add embedded controller node (2025-07-11 17:11:18 +0200)
+  arm64: defconfig: Enable Tegra241 and Tegra264 (2025-07-10 23:16:40 +0200)
 
 Thanks,
 Thierry
 
 ----------------------------------------------------------------
-ARM: tegra: Device tree changes for v6.17-rc1
+arm64: tegra: Default configuration updates for v6.17-rc1
 
-Add support for two Tegra30 ASUS devices and enable the embedded
-controller on Pegatron Chagall.
+Enable the HSP and BPMP via the configuration instead of selecting them,
+which can lead to problems. Also enable support for Tegra241, which was
+never done after support for it was added, and Tegra264.
 
 ----------------------------------------------------------------
-Svyatoslav Ryhel (3):
-      ARM: tegra: Add device-tree for ASUS VivoTab RT TF600T
-      ARM: tegra: Add device-tree for Asus Portable AiO P1801-T
-      ARM: tegra: chagall: Add embedded controller node
+Thierry Reding (2):
+      arm64: defconfig: Enable Tegra HSP and BPMP
+      arm64: defconfig: Enable Tegra241 and Tegra264
 
- arch/arm/boot/dts/nvidia/Makefile                  |    2 +
- arch/arm/boot/dts/nvidia/tegra30-asus-p1801-t.dts  | 2087 ++++++++++++++++
- arch/arm/boot/dts/nvidia/tegra30-asus-tf600t.dts   | 2500 ++++++++++++++++++++
- .../boot/dts/nvidia/tegra30-pegatron-chagall.dts   |   16 +
- 4 files changed, 4605 insertions(+)
- create mode 100644 arch/arm/boot/dts/nvidia/tegra30-asus-p1801-t.dts
- create mode 100644 arch/arm/boot/dts/nvidia/tegra30-asus-tf600t.dts
+ arch/arm64/configs/defconfig | 4 ++++
+ drivers/soc/tegra/Kconfig    | 9 ---------
+ 2 files changed, 4 insertions(+), 9 deletions(-)
 
