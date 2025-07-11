@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D05EDC83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 08:09:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15763C8303C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 08:12:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=soCA1TZ0DhY5YcbIv8yTONB+anARgZKgPRV/EvTfcRg=; b=SksWOn16BZUJz+UVTyXdNjCpLM
-	7sqqngEb2PBE5FBssiUnbsi5w7pZCImzoDj3DVBYQgKwLQMfTjar/8C77GtDN9mvHOnaSPmheokLg
-	C6aS4gfC+7GxCPdByTE168Nm/QFvy18RMDlXxGx9laZmuleuTQbEbrYfY4zWPjzh0LcVtDJsn2Jsw
-	2VYVaAmFwTSrOozMdBOBpEg/+aNoPHTKRcIYPUTAhknvPhwovpLY/6Op4xpumIVCI0sph6z2EkvC5
-	uWyoFuYnW0sdYfsOAgaGRVyC1/rwwY8YKN/MQml/BYHky/udn621wEILoWhGhQA0WngnRAmfQu71b
-	e9XkNJPw==;
+	bh=vCMmTABrSBqeAhv7e77caexkaudNwZFg/B0FOzQ1fiU=; b=PwSn+ICzcofGoJy3VSns0/BFhF
+	/kxVJsPg6oL59qMLZmF7LV/FjBAiMxfbSGceSsnN7dvlbioCntxmEviLoP/32kw63UNC+EoYapCtK
+	0uj7xXeTvImgEmttwtPOE86kARiM+AiwUlk/mYnN5gfIl+A6Md4mY+ldBvZJVmoVW0GExtE2C3aTE
+	GHoOYzyOo/V6HmYRD14+kpy5XAfQpJ1PVq3Z7WVkJokTp87kL4ItX8JFm9tDQNs4J2TpjDpL5rOkK
+	9monpmMOF5X1nOv/eawNnCZfGNIS7TBS/HV/nj7RXNSFs88r3cnxClj8jkq3mr1KY/SsqOVDs349S
+	z1pkJpWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ua8pG-0000000E5KT-1LK6;
-	Fri, 11 Jul 2025 08:09:46 +0000
+	id 1ua8ra-0000000E5pL-4BsE;
+	Fri, 11 Jul 2025 08:12:11 +0000
 Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ua8Q9-0000000E0l9-2QJn
+	id 1ua8QA-0000000E0lK-1xq8
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 11 Jul 2025 07:43:52 +0000
-Received: from pps.filterd (m0241204.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56B6d1H1005183;
-	Fri, 11 Jul 2025 09:43:37 +0200
+Received: from pps.filterd (m0369458.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56B30ckx014453;
+	Fri, 11 Jul 2025 09:43:38 +0200
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	soCA1TZ0DhY5YcbIv8yTONB+anARgZKgPRV/EvTfcRg=; b=U5tJqTX58u5gclYU
-	gZP8ypa6Es0JxUubJoRquJEJZhTgwwqn/S2Q7JIK9Tr8yA9103NebQbDu4YDIYly
-	gpWSkWyI1shezADYrcoNo35UTuM4rFpNjNpHYCr27uFuj8xlQXc0Tex04Zt4ytfE
-	5LuntdNu+QY4/0ZPIQBN3E/uxon2WKTPPOD4cOG1sgxVquWibD+f4FvRtzmUV8x+
-	UeccT6J7Zo1UoREI6hWjvWgOvlhzvBrVNZamt4upCmyVjX/vTRligvWSvnQxBUVV
-	hZa4EsxkmijI4SnHgV4FJnIYvOoK3Xvh48rNPb5Gl2dQsA6kEop0OBPJ9FgRWkxw
-	TX/4MA==
+	vCMmTABrSBqeAhv7e77caexkaudNwZFg/B0FOzQ1fiU=; b=05Z7EaRfhT7myXFk
+	wytVQoJhBlgAdS7ffz9ZcQJXkIjfVi8O6VgkZHi+n/FDbvNdZFmABzYrE/ROdl7T
+	EvIY77AITnLvybk3haIHyYTae45do3P2lcR3/wI4CBvixZCNmsWWHkvjMeKm9+vb
+	WG0eCX5e0mSgWn4iDHpBSekRQckMJ/9xf9rcHhiVuxvpXtuOXnIkM8tAzvDBlCpp
+	EMRpsMRVyzieUDuVkRyCNoIr9sWTVpEoVOzYo4eKkfuDUpSare5b7M2nIKMgPbz7
+	TbN4Bvtt9X+OL1NmyBcyqtdma1KFQwo4dLVCMeJPy3VHsOEkDT77F94UO7u0+AUF
+	oJ0H1g==
 Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 47pud3ne8a-1
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 47qdm6arhn-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 11 Jul 2025 09:43:37 +0200 (MEST)
+	Fri, 11 Jul 2025 09:43:38 +0200 (MEST)
 Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id BAE1D40050;
-	Fri, 11 Jul 2025 09:42:37 +0200 (CEST)
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id D536B40049;
+	Fri, 11 Jul 2025 09:42:26 +0200 (CEST)
 Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 55C8DB157CA;
-	Fri, 11 Jul 2025 09:41:43 +0200 (CEST)
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 6CD83B11278;
+	Fri, 11 Jul 2025 09:41:42 +0200 (CEST)
 Received: from localhost (10.252.16.187) by SHFDAG1NODE2.st.com (10.75.129.70)
  with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Fri, 11 Jul
- 2025 09:41:43 +0200
+ 2025 09:41:42 +0200
 From: =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>
-Date: Fri, 11 Jul 2025 09:41:25 +0200
-Subject: [PATCH v7 7/8] ARM: dts: stm32: add alternate pinmux for HDP pin
- and add HDP pinctrl node
+Date: Fri, 11 Jul 2025 09:41:24 +0200
+Subject: [PATCH v7 6/8] ARM: dts: stm32: add Hardware debug port (HDP) on
+ stm32mp25
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-ID: <20250711-hdp-upstream-v7-7-faeecf7aaee1@foss.st.com>
+Message-ID: <20250711-hdp-upstream-v7-6-faeecf7aaee1@foss.st.com>
 References: <20250711-hdp-upstream-v7-0-faeecf7aaee1@foss.st.com>
 In-Reply-To: <20250711-hdp-upstream-v7-0-faeecf7aaee1@foss.st.com>
 To: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
@@ -89,8 +89,8 @@ X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.7,FMLib:17.12.80.40
  definitions=2025-07-11_02,2025-07-09_01,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250711_004350_258192_0070B1AE 
-X-CRM114-Status: GOOD (  10.86  )
+X-CRM114-CacheID: sfid-20250711_004350_788878_8246AFEB 
+X-CRM114-Status: GOOD (  10.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,58 +105,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce hdp node to output a user defined value on port hdp2.
-Add pinctrl nodes to be able to output this signal on one SoC pin.
+Add the hdp devicetree node for stm32mp25 SoC family
 
-Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
+Keep the node disabled as HDP needs the pinctrl SoC configuration to be
+able to output its mux output signal outside of the SoC, on the SoC pad.
+This configuration is provided in the board dtsi file through 'pinctrl-*'
+properties as well as HDP mux configuration.
+Thus, if needed, HDP should be enabled in board dtsi file.
+
 Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
 ---
- arch/arm/boot/dts/st/stm32mp15-pinctrl.dtsi | 25 +++++++++++++++++++++++++
- 1 file changed, 25 insertions(+)
+ arch/arm64/boot/dts/st/stm32mp251.dtsi | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-diff --git a/arch/arm/boot/dts/st/stm32mp15-pinctrl.dtsi b/arch/arm/boot/dts/st/stm32mp15-pinctrl.dtsi
-index 40605ea85ee1..4a31e9f7a897 100644
---- a/arch/arm/boot/dts/st/stm32mp15-pinctrl.dtsi
-+++ b/arch/arm/boot/dts/st/stm32mp15-pinctrl.dtsi
-@@ -5,6 +5,14 @@
-  */
- #include <dt-bindings/pinctrl/stm32-pinfunc.h>
- 
-+&hdp {
-+	/omit-if-no-ref/
-+	hdp2_gpo: hdp2-pins {
-+		function = "gpoval2";
-+		pins = "HDP2";
-+	};
-+};
-+
- &pinctrl {
- 	/omit-if-no-ref/
- 	adc1_ain_pins_a: adc1-ain-0 {
-@@ -731,6 +739,23 @@ pins {
+diff --git a/arch/arm64/boot/dts/st/stm32mp251.dtsi b/arch/arm64/boot/dts/st/stm32mp251.dtsi
+index 8d87865850a7..fa2b6a1881f2 100644
+--- a/arch/arm64/boot/dts/st/stm32mp251.dtsi
++++ b/arch/arm64/boot/dts/st/stm32mp251.dtsi
+@@ -1148,6 +1148,13 @@ package_otp@1e8 {
+ 			};
  		};
- 	};
  
-+	/omit-if-no-ref/
-+	hdp2_pins_a: hdp2-0 {
-+		pins {
-+			pinmux = <STM32_PINMUX('E', 13, AF0)>; /* HDP2 */
-+			bias-disable;
-+			drive-push-pull;
-+			slew-rate = <2>;
++		hdp: pinctrl@44090000 {
++			compatible = "st,stm32mp251-hdp";
++			reg = <0x44090000 0x400>;
++			clocks = <&rcc CK_BUS_HDP>;
++			status = "disabled";
 +		};
-+	};
 +
-+	/omit-if-no-ref/
-+	hdp2_sleep_pins_a: hdp2-sleep-0 {
-+		pins {
-+			pinmux = <STM32_PINMUX('E', 13, ANALOG)>; /* HDP2 */
-+		};
-+	};
-+
- 	/omit-if-no-ref/
- 	i2c1_pins_a: i2c1-0 {
- 		pins {
+ 		rcc: clock-controller@44200000 {
+ 			compatible = "st,stm32mp25-rcc";
+ 			reg = <0x44200000 0x10000>;
 
 -- 
 2.43.0
