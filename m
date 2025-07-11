@@ -4,107 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 525DBC83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 23:29:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C124C83F1B
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Jul 2025 00:00:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Content-Type:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WiEoirSuxHsjo9/zUoypts93ySUADZW6qbVGNgsxEik=; b=Zo93hhlWRWPlWk/t06QRYDSJSm
-	Lrew7atDaokJEwT+iv9Y9dQVd2s2Gb+qexWjSvOxRpf+nJm3Yn/gfK560n9EGxaN1Tp5JD9X5pbE3
-	NThTZU7Y3VydIY9goZuTjZr5XftDXOFdO9CDUTux/WvQksIycj2DnHriFBj+eCmW4cIx4EsA8nhMk
-	qiC4DsNoNt4NSVIOUYIyI/KzHvVcqCN9rhoYB3wLUvMD+AbB+FWufLBfeyGIXwflTkLaEkc3kzlTL
-	z+GyYrY52E7Y0B3I3ZCHkfB/Byt0Ns/12jflkmXXTHDyUmxqCunzPTeZYz96O7eSbQ1sZC2j38wmk
-	XaINVNrg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wXS3+l0HFVbrEYwBiR8y+uXlGglyko62xlDpA9oVLaU=; b=u8gSF7utzQu00E3Y5wSpPRy/li
+	zq0OiRHSM4sAawFmjoIWvuSyUaFyZRJo4Td7KOo2WCNl9Fr+7bHeJ4UpHtCETE4XV2katdvAU+C4Z
+	J8271IURsbCLB/QrgO0ECqfw/3fDYO6BgQJxAu+P/oQ6jzVzSfjt/qC20qT5XxApdyZ+QLn3yRWSX
+	Q+LoeO3JfOBHexi/orjiiVI7Rw8XF4ANoOFv/oQ4Xx/q7qBR4OoSfVrF6gdmmLIbbBfOBL7P4jH0F
+	etckobi6x0pQF2oqFYAZd6P7lOU8p94+IUsA7LX9HgRZlqUDIBryB1iGp4kRF+5iUSWNgzjkhAUnZ
+	XYeGmNGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaNB9-0000000G1Tt-2YDu;
-	Fri, 11 Jul 2025 23:29:19 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uaNev-0000000G4XP-3tZP;
+	Sat, 12 Jul 2025 00:00:05 +0000
+Received: from mgamail.intel.com ([198.175.65.19])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaLwH-0000000Fw15-4B4M
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 11 Jul 2025 22:09:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:Content-Type:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=WiEoirSuxHsjo9/zUoypts93ySUADZW6qbVGNgsxEik=; b=MOSrfsP1Ex0imUmqclC/A2d4wB
-	uMwSfeZI8RaITH8yOuQXPhHSBOeAfb+Oj5BNMxw1nZDDcr99roThYwGG0C5lIKXDE6tw0s83Gp880
-	/kGxR7CYlC171bpHjWBpjJPcNrAUMcI+2VVaQ9uK4IXPXXlqM7fva4B+80boq6A/vXksLgMjOAN6h
-	I76y9zUvOY4tQyiKnYKhPCAfJC4DvBvrsaO4fhVRjkkAJaMjD0TGXTlsHeYGhYWGl4c2J5nT8YnM4
-	teYH/A6XYHpdxgKRmszOi+2jnTTXnZ7dU73gUmP7Hv/qevO5NQFwgRhy5DiNywfMfQj50hIg5q03V
-	EcXvl3dA==;
-Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaLwE-00000009Msn-3wHu
+	id 1uaNcY-0000000G3yI-0iHc
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Jul 2025 22:09:52 +0000
-Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-3b5e6bfb427so1358659f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Jul 2025 15:09:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1752271789; x=1752876589; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=WiEoirSuxHsjo9/zUoypts93ySUADZW6qbVGNgsxEik=;
-        b=VTHvgIapP806yg23nwN9GNfEl7LBWTlxUkHvy4GpHEZm34qBBltTJ1sw3NGUmRBKBY
-         Pnm0TSzHgwfEZIq9gnYkzs03cliRzMamutsIjIe3A9RF6fI4exVu0RkOgOA+k0GdC/uo
-         a6XGe+VDHPDa4n4I6kxoMRHAFFRlhvsUhkhm6U/zBjZL27P6bSQL4WNvsjy8IAMsSoq5
-         4KYcaeQpqGQwFMgpi2WidOy+oGLTwym28GezJaVhIfLlG+bgNycmiJ/6hqLVKIrH1/BJ
-         TkxuDrXkQm+u/Vw6250qAAZZjSJSA5ah7deEpPGNIB6nD3vDYN7bQiKYIc2vT4Zz7O3a
-         ndpA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752271789; x=1752876589;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=WiEoirSuxHsjo9/zUoypts93ySUADZW6qbVGNgsxEik=;
-        b=vg2KSOq8y4BucRUK58O79J3HYRZP1n4ky7sUKDlfdRNkjExZzPlO9xhyednyGqJuU0
-         Ua5fvuNjIl2dZKHtQKRwh+ZX9VSqaZR1S+/1PqPIS+81YwrLkyJfJCdSvq8i4n0+4zHD
-         YQExd26vFBXL/s9dpAw7qozNJB9+hDg8vm902XcHw2NOW+OjHJ4VMyGQLAiq6LSCNghA
-         9GVSLX5S8alaImm04SyXV57knGTbZj2KSzmhezk1KdR9A09fP9dVoH1DlJabDFiQewY/
-         W8/IPGfJOtrKVmYeQ5PTZKvwwdHTyZI/6N7g3XiOIzL0BueqCHykJI2YQHmQOHaf5Iul
-         C4kw==
-X-Forwarded-Encrypted: i=1; AJvYcCXbQ1xeIIqxEJoZfzdpiCBkpzMC+pQICYGvBIvirV4UNEou6lCC6/P2IqxRApZcBcI/It1wUdqTlvBknPup9PXg@lists.infradead.org
-X-Gm-Message-State: AOJu0YxHQpv8vHYM8bE6B4LxDV0JbWawLfHGoirysHeqj/6JsiFZVHu9
-	902WU7YMllYcGAWkgLa+D7Qvtlti7Wgt8Wkeu7ku6Z58Ri8+zPloOvay
-X-Gm-Gg: ASbGnct8tmGqhJ45u43pFQtvTSixPXkQIaByInlw0tJZOSQzlK4DG+Vs//aK+b+udSu
-	DHzDeYz0tpQKxOiftyclRxB3+QY9Go5UsbUegUFoWO4Q3JR6nNnV/wg8xVk23VxVIvJji3W36+q
-	Q8272LqbPx+WGD8wxQtXJlIMX89NiTIvq4WoBGWiyl9bEJjeUZWYBR3NhrLKjcG4VXgvNeuS7+A
-	6bNHb2as/A8yIRsuTgdu7AZE+VxE9jRu+fJkMiw5e2wQJa+tIppwUiWGi/OB+ng3/SIn/jiS/nV
-	eUbngtNjtRuBjGQB9Nka3LM4IGGh9cVm392G0YM8NyZcrbMEWewCqSX7k0H3s7BjfaM+pj3XHR8
-	46Y7iAfLVsmEGvplCU1P1qX/Cn80ievCsyHVlYWump422HrcPQfsei54HWHt7gxkj/cad+Jq/S6
-	yrCcIyPF6bltd1iA==
-X-Google-Smtp-Source: AGHT+IH1Nwmj1nJTt0Sx523oF3zbT+IqMBHza1/CIgwExgeLZ19zMtKml+bp6x6d1S9hslRC9/KXMw==
-X-Received: by 2002:adf:fc11:0:b0:3b3:a6d1:6b57 with SMTP id ffacd0b85a97d-3b5f18d96e8mr3631673f8f.44.1752271788727;
-        Fri, 11 Jul 2025 15:09:48 -0700 (PDT)
-Received: from localhost (p200300e41f4e9b00f22f74fffe1f3a53.dip0.t-ipconnect.de. [2003:e4:1f4e:9b00:f22f:74ff:fe1f:3a53])
-        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-3b5e8e1e1a5sm5495462f8f.74.2025.07.11.15.09.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 11 Jul 2025 15:09:47 -0700 (PDT)
-From: Thierry Reding <thierry.reding@gmail.com>
-To: arm@kernel.org,
-	soc@kernel.org
-Cc: Thierry Reding <thierry.reding@gmail.com>,
-	Jon Hunter <jonathanh@nvidia.com>,
-	linux-tegra@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [GIT PULL 2/8] firmware: tegra: Updates for v6.17-rc1
-Date: Sat, 12 Jul 2025 00:09:35 +0200
-Message-ID: <20250711220943.2389322-2-thierry.reding@gmail.com>
-X-Mailer: git-send-email 2.50.0
-In-Reply-To: <20250711220943.2389322-1-thierry.reding@gmail.com>
-References: <20250711220943.2389322-1-thierry.reding@gmail.com>
-Content-Type: text/plain; charset="utf-8"
+	Fri, 11 Jul 2025 23:57:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1752278258; x=1783814258;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=5tT9ORXucLaTLjjDZNriJx1evuX5cza/Yehns8ks1zc=;
+  b=fBN0zW80/ynfIeDO1Co799mzwmVBPAdyGCyMk2YcvPl5pyHnYEi+7I6P
+   z/PGtmj07HLtHEQXx/d2HroeXvddsc6MIPclKR1SPeflMCQ9aILplsvlU
+   6nv/B/UmDz5bJAdr7vMyFC0lbwI4SHL9lcuwITf4MCOcrqUPSqM6qXkcN
+   qQM7A9mz0lqkoos9cWfrrY31CSNOYuP6NfzYQcBRaRAk5KsJjePYJ/aSp
+   UdXrNQs7mIQjNlU60BOcVaSdE/Hg8q2/rknImbdYCM4M5CIKONSXFJ2eg
+   Mh+GXB+z2+LrZgesCOwMB5hy93xz4jeyA2d/7DmipT5vKOBV9mn/CGdIB
+   Q==;
+X-CSE-ConnectionGUID: 2hFoxzxCQYuxshvfl+hXDg==
+X-CSE-MsgGUID: hUswufowQbqfKTsWZz1Iyg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11491"; a="54436383"
+X-IronPort-AV: E=Sophos;i="6.16,305,1744095600"; 
+   d="scan'208";a="54436383"
+Received: from fmviesa006.fm.intel.com ([10.60.135.146])
+  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Jul 2025 16:57:36 -0700
+X-CSE-ConnectionGUID: OqbzDUo+S4e1ZPXqnfb15g==
+X-CSE-MsgGUID: /djIIIW1RIyf+YXjuYsB/w==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.16,305,1744095600"; 
+   d="scan'208";a="156572850"
+Received: from lkp-server01.sh.intel.com (HELO 9ee84586c615) ([10.239.97.150])
+  by fmviesa006.fm.intel.com with ESMTP; 11 Jul 2025 16:57:32 -0700
+Received: from kbuild by 9ee84586c615 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1uaNcP-0006uV-37;
+	Fri, 11 Jul 2025 23:57:29 +0000
+Date: Sat, 12 Jul 2025 07:57:00 +0800
+From: kernel test robot <lkp@intel.com>
+To: iuncuim <iuncuim@gmail.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.or>
+Cc: oe-kbuild-all@lists.linux.dev, dri-devel@lists.freedesktop.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
+Subject: Re: [PATCH v2 2/3] arm64: dts: allwinner: a523: add Mali GPU node
+Message-ID: <202507120723.0s2u9rLs-lkp@intel.com>
+References: <20250711035730.17507-3-iuncuim@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250711035730.17507-3-iuncuim@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250711_230951_244826_D9179592 
-X-CRM114-Status: UNSURE (   9.99  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250711_165738_246471_3A6D2763 
+X-CRM114-Status: GOOD (  12.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,44 +97,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi ARM SoC maintainers,
+Hi iuncuim,
 
-The following changes since commit 19272b37aa4f83ca52bdf9c16d5d81bdd1354494:
+kernel test robot noticed the following build errors:
 
-  Linux 6.16-rc1 (2025-06-08 13:44:43 -0700)
+[auto build test ERROR on sunxi/sunxi/for-next]
+[also build test ERROR on robh/for-next linus/master v6.16-rc5 next-20250711]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-are available in the Git repository at:
+url:    https://github.com/intel-lab-lkp/linux/commits/iuncuim/dt-bindings-gpu-mali-bifrost-Add-Allwinner-A523-compatible/20250711-120104
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/sunxi/linux.git sunxi/for-next
+patch link:    https://lore.kernel.org/r/20250711035730.17507-3-iuncuim%40gmail.com
+patch subject: [PATCH v2 2/3] arm64: dts: allwinner: a523: add Mali GPU node
+config: arm64-randconfig-001-20250712 (https://download.01.org/0day-ci/archive/20250712/202507120723.0s2u9rLs-lkp@intel.com/config)
+compiler: aarch64-linux-gcc (GCC) 12.3.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250712/202507120723.0s2u9rLs-lkp@intel.com/reproduce)
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/tegra/linux.git tags/tegra-for-6.17-firmware
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202507120723.0s2u9rLs-lkp@intel.com/
 
-for you to fetch changes up to 83f96a7eaaf0e3ac1b1447f74a8d3b2213187b6e:
+All errors (new ones prefixed by >>):
 
-  firmware: tegra: bpmp: Fix build failure for tegra264-only config (2025-07-11 14:50:35 +0200)
+>> Error: arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi:119.29-30 syntax error
+   FATAL ERROR: Unable to parse input tree
 
-Thanks,
-Thierry
-
-----------------------------------------------------------------
-firmware: tegra: Updates for v6.17-rc1
-
-Add Tegra264 support for the BPMP, fix some dependency issues and clean
-up some code using new OF helpers.
-
-----------------------------------------------------------------
-Arnd Bergmann (1):
-      firmware: tegra: bpmp: Fix build failure for tegra264-only config
-
-Rob Herring (Arm) (1):
-      firmware: tegra: bpmp: Use of_reserved_mem_region_to_resource() for "memory-region"
-
-Thierry Reding (2):
-      firmware: tegra: Fix IVC dependency problems
-      firmware: tegra: bpmp: Add support on Tegra264
-
- drivers/firmware/tegra/Kconfig         | 5 +++--
- drivers/firmware/tegra/Makefile        | 1 +
- drivers/firmware/tegra/bpmp-private.h  | 6 ------
- drivers/firmware/tegra/bpmp-tegra186.c | 9 ++-------
- drivers/firmware/tegra/bpmp.c          | 6 ++++--
- 5 files changed, 10 insertions(+), 17 deletions(-)
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
