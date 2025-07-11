@@ -4,73 +4,167 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CB24C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 08:41:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBE33C8303C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 08:43:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ugJYj+exyps/6wR5MX4czRxtXgkmuqVMFOJv2QPxESU=; b=SkJsYl8HobsbRR+jgbma59QIss
-	+m3FZTfKP+y+x3Hu8EGrneqFRDkjy3YVq7RV1HLEbZGZGJQUWEuWlC/BMIpQ/an/wtVcKl9S38zKl
-	gwmVzrU3f50NZ/7KHHmJa1zxZmeqwFVJCroMNkd95TH866H1Ce0gCb+v49njC7RE28daHiZb+8grg
-	P8rcKMMYG8FYmclHzF4BxfDMEzRD1sMpdRu/q7Vdh+e3Epo3xDYP6VcBCNYEMkZ0NZWXDyyyDEx8c
-	cUFI4BT/sLuA8wPrUicfiz1uPJVTEAdKjfNdXq/2vuGkcH9A+TnUIF8PQ6qTQ+VECPHjR0sNDSmuD
-	Ur/ADfVQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uDWDsBwoUQT91boUlemzuOV1XcbJCJBQPx69MBrkmgs=; b=ztIkRnUEMl9fq2AVklk5oeLA65
+	4rMM+ao4Gs8o+/V64rVHupaHxgqpZAWTqMuJyQ7fu/HwH7KbO+wJE+WQCt3Vp/8/9pykpwJURkxIu
+	zBoSARhrahS/GLBfybVkpzhJslY7+vfWQFgL5df61NEO53kHrjGe23HjVHHKOIjfE1cinXPwE7YXF
+	5b6cLYDzvIBQuoXiF1dne5Dk3ay0itgjfonvOtfFAuKbnHSu6CB37YO60Omp61scMHOk40Ux00nWs
+	5HUgmofw7XCAyL5PmnZ2rSDeIHYo/v/foIBjcNANIECO6uhStZAXihnM83RyIGvp7J0SGKD3g1j7Q
+	saIxt3tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ua9JY-0000000EBlV-1lEU;
-	Fri, 11 Jul 2025 08:41:05 +0000
-Received: from mail-m49214.qiye.163.com ([45.254.49.214])
+	id 1ua9Lp-0000000ECDw-2hqD;
+	Fri, 11 Jul 2025 08:43:25 +0000
+Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ua8WU-0000000E29B-46Qw;
-	Fri, 11 Jul 2025 07:50:24 +0000
-Received: from [172.16.12.26] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 1baf32046;
-	Fri, 11 Jul 2025 15:50:18 +0800 (GMT+08:00)
-Message-ID: <84b8fe6e-0d33-42a9-9f8f-ed10998429e8@rock-chips.com>
-Date: Fri, 11 Jul 2025 15:50:18 +0800
-MIME-Version: 1.0
+	id 1ua8ar-0000000E2oD-0YKy
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 11 Jul 2025 07:54:54 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=H/TS5bCWXfvZZ5L62hGG7Oc1vauALwT9tQGZXm5z7XBlTdbWaGm6SjmYBV1w/ZC8zYGcNeqSWVSXhTUTdhzXS38oIwBY4RLBTRto40xyJvxrvewTaKszQtBCdcZ8oy0KNsoq0U3rEggJIuvtbTFq4zSgxPkeUFRwhHYv7/UWk0gpgKyG0423JhnfHE/m2GO7c8kVGYqeUjEjQLvPYgii/tqs64nOQzPGmqw4ywAdd27ffgRjeYWSG0Up9VhMWBfDCAtxwPSFBOHlBrjldqyb6eIEuhU+dgnLLU80EDiufu8bojK7sZO1cAcbhDWM+NIIsVz1wOcCumyY3cuVqXe2UQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=uDWDsBwoUQT91boUlemzuOV1XcbJCJBQPx69MBrkmgs=;
+ b=OoVX7jcLtZ9wqlAPauJlEiLKWJ1RF2Y0zXW6mh4Sc4GtChG/YVxuf0BZqdx15ooZWnBmstMUoXm2Ix92sRfShvLtEdiySdm8rX+ouC1LjKcahWyL+vTRlhoK8vyovk4F4DuIu7rn7aC2L4tdmK3OZ8pdK/rakE+Z120HCMIZLiTtUt1I61XVrmeWSi+5uszPVcxLeoUn9MhP+Y4cnjL6hL++r4Z14lKZ5zpx/inyC49JJMtQouWWfmQ+zAxo+q8vxauz8L6LewghElmODBo0Px44PkmCaq0aNvqZFUL77R5s9shjD8NNREUJZGc39/zoPZev24ZVfg07TkPdCG+qSQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=uDWDsBwoUQT91boUlemzuOV1XcbJCJBQPx69MBrkmgs=;
+ b=IKR9JrYgY79bbtGl7nw+mH2iVM5s8t2g/XnlGkMa2rNkdin28WP3rWlwtcEqVffWvOqhuDC9aSZQC/Qtkfh+CqKUDM94WunMeL6PcXMv1Vc9/E7b+pq5Mfj0WaxY7arw+IW6pfjZyrevWV9cUoBI4RtIokVm3TX3Pgzy1p+MbnttkEwZG71eA01NqYfuvSj8xS7ArUjFMuQMSTun45wALp71DfElcqvE+12xUCOvB/KDT1GQyca6E7lUd9aPvpc6tq7uDRrXbLTKT7AudwjWnl6+7x5gT+S11qtraO15wLAntQebyRC04ck0xVH7ByhDvJva9ZcrjRCXOW8Lce360g==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AM9PR04MB8907.eurprd04.prod.outlook.com (2603:10a6:20b:40a::22)
+ by AM9PR04MB8922.eurprd04.prod.outlook.com (2603:10a6:20b:409::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8922.25; Fri, 11 Jul
+ 2025 07:54:44 +0000
+Received: from AM9PR04MB8907.eurprd04.prod.outlook.com
+ ([fe80::a361:2618:7785:3bc9]) by AM9PR04MB8907.eurprd04.prod.outlook.com
+ ([fe80::a361:2618:7785:3bc9%3]) with mapi id 15.20.8922.023; Fri, 11 Jul 2025
+ 07:54:43 +0000
+Message-ID: <71b45ffd-b554-4369-b988-860bdcfe4ee3@nxp.com>
+Date: Fri, 11 Jul 2025 10:54:41 +0300
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 12/12] drm/bridge: analogix_dp: Apply
- drm_bridge_connector helper
-To: =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
- andrzej.hajda@intel.com, neil.armstrong@linaro.org, rfoss@kernel.org
-Cc: Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
- jernej.skrabec@gmail.com, maarten.lankhorst@linux.intel.com,
- mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
- jingoohan1@gmail.com, inki.dae@samsung.com, sw0312.kim@samsung.com,
- kyungmin.park@samsung.com, krzk@kernel.org, alim.akhtar@samsung.com,
- hjc@rock-chips.com, andy.yan@rock-chips.com,
- dmitry.baryshkov@oss.qualcomm.com, l.stach@pengutronix.de,
- dianders@chromium.org, dri-devel@lists.freedesktop.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, linux-rockchip@lists.infradead.org
-References: <20250709070139.3130635-1-damon.ding@rock-chips.com>
- <20250709070139.3130635-13-damon.ding@rock-chips.com>
- <6140569.FjKLVJYuhi@diego>
+Subject: Re: [PATCH v2 1/2] remoteproc: imx_dsp_rproc: Add support of recovery
+ process
+To: Mathieu Poirier <mathieu.poirier@linaro.org>,
+ Shengjiu Wang <shengjiu.wang@nxp.com>, daniel.baluta@nxp.com
+Cc: andersson@kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de,
+ kernel@pengutronix.de, festevam@gmail.com, linux-remoteproc@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20250704052529.1040602-1-shengjiu.wang@nxp.com>
+ <20250704052529.1040602-2-shengjiu.wang@nxp.com> <aG_SosukEqUxrHvH@p14s>
 Content-Language: en-US
-From: Damon Ding <damon.ding@rock-chips.com>
-In-Reply-To: <6140569.FjKLVJYuhi@diego>
+From: Iuliana Prodan <iuliana.prodan@nxp.com>
+In-Reply-To: <aG_SosukEqUxrHvH@p14s>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGUIeS1YYSUJKSUpMQkgfTxhWFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
-	hVSktLVUpCS0tZBg++
-X-HM-Tid: 0a97f876b52003a3kunm13db4e75f3c74a
-X-HM-MType: 1
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6PxA6GCo*KjE2Lx8SUSk5EgEj
-	C08wCj5VSlVKTE5JSUlLSUlLTEJNVTMWGhIXVR8aFhQVVR8SFRw7CRQYEFYYExILCFUYFBZFWVdZ
-	EgtZQVlOQ1VJSVVMVUpKT1lXWQgBWUFPT0lMNwY+
-DKIM-Signature: a=rsa-sha256;
-	b=f3ABdV+J9ZF4Xh4dDg/WOg07CApS5rihUgUFAvDfOc0Q3Sk0KKlc5dUnKK0B8PkH67LddM3XLMInqreiNp6Iq4k45NkImv8eCKuNN/9Qarq/wNQ452zop5AwY0dB2gNx8FzkKokv0WlZypir9qZ2d0Pl+UxU4dsxr9HRKS+eZqs=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=ugJYj+exyps/6wR5MX4czRxtXgkmuqVMFOJv2QPxESU=;
-	h=date:mime-version:subject:message-id:from;
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: FR2P281CA0079.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:9a::19) To AM9PR04MB8907.eurprd04.prod.outlook.com
+ (2603:10a6:20b:40a::22)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM9PR04MB8907:EE_|AM9PR04MB8922:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3dacb592-42d9-4297-6fb9-08ddc050326d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|19092799006|7416014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?R3p3ZE9NU2NwVldRb1ZNWFZpUUFpcEhWRjRVTzQrUG5aU3dtVEZydUlUenlK?=
+ =?utf-8?B?ZnNhYVZSZkRhdXZPZHAyOCs5OHZYTWpoQUIvQmxVZm43dFRIVjVrY1FBU3VV?=
+ =?utf-8?B?ZTkvQUxuOGFQUlU0cFRIU0FIMDJTN2tvOFN1dEN6U2QrSEJaQXJmTHExbkFG?=
+ =?utf-8?B?NFp6N1BEUnEvOWt3TmVYQkg3a0ZlWmtEcVMvdzBMMEZtWDREb3daWGMydFlo?=
+ =?utf-8?B?MWo5dDExZ1lSNGpZWW4zR0M3elhWdzB4ekRHR3dmRStERU84MytZZmhwR0sw?=
+ =?utf-8?B?bmNWazBtd1lnSUVuMzJabkx5bXVTclU5TmpMWEViOFdNNFRTV1dFeG91Skg1?=
+ =?utf-8?B?UnlabWNWdUxwQ0JSOXlja1BxSXhGU09CRDNNaThpODFVU25BK21BeXEzSzZY?=
+ =?utf-8?B?OXZ0enNBcTBrQW9wRm4zZmE3UjZwVmlQa0ZucjBsbzR4bHczb3JSWDU2UkR2?=
+ =?utf-8?B?OUlucHowQzlBUS93bGRQOGRKQ0NNcjNiRzhkNVgyYVdNWlRrL1EvZG5yQ1Vj?=
+ =?utf-8?B?YUR5MlA0clNOeGcyT0VzYW9JYkVvL2hNalRqTWg4TVpDemhNQVlHZHNHazNE?=
+ =?utf-8?B?U3cvRmpTdUpXRmxqeVF4NFg0Tnh6ZnNHTHVhcGVtRmdhYzNrY1RjSTJPOGE0?=
+ =?utf-8?B?RVRGcm95SG4vNDEwRFBrVlhkSi9jMUU2WE5lWEdqUkdCYkdxOEhiUlc0aW5y?=
+ =?utf-8?B?K0Z1ZmQwT1lubnRSRkFhdUlGdExpL0NDM21JS2pjNDcyRGgxcW5RM3E1WHNl?=
+ =?utf-8?B?SzR5K25lSGFJYWxkdlFHU1FWUHk0YTN0T3dJU3I4Lzd3WTJVZURQU3FIMU5P?=
+ =?utf-8?B?MzFKTkFsS096U1dxT0VSL2RMS3Rxdm9SQjlQczBQMVRQU050b082dnlxVFht?=
+ =?utf-8?B?MCs1WnpocU1Wa21RTG5DU3NMNjltcWZpdU1jVlErTlFvVnh5UFFhaWg3enZV?=
+ =?utf-8?B?VVQrSDJUN0hIbWc2SXFMQWtVa2ZvbmJ5RXNnMVh1R3BoaUM0cDFPa2Q0OE1m?=
+ =?utf-8?B?eFBDY3NrRXY0VXF4cy91aFdQSm1lcFhhalNqS0VzbUVmSFhVNlduVUptQlUy?=
+ =?utf-8?B?cXlRUDZVeXRHWGgvRndNMDRNQngzdHRKU2lFQmVkSDhtcnpCL0hYbVE3dWdi?=
+ =?utf-8?B?ZjlOZFpiZTBXWWJ5ZGRrOEVVRFR1TzlNWUZwNlJNT0Z6QitRRFdWUU5RaWVZ?=
+ =?utf-8?B?UDBzNUxTSy9QZTB2R3lPdXNGYWQwSFdZZHJNaVprZFZHb24ydE1GWnUwNm4y?=
+ =?utf-8?B?Uit4MWRkZDNJd1oxM2IyTXFBNUhra1A2Z1RRNnFtNkEyc2RmNTlEem9hUitY?=
+ =?utf-8?B?djlDbnkvZERaUGFGWTBMOHBaNzNuczBwS05MeXB6RTk2em9TYk91cmFLTEVj?=
+ =?utf-8?B?UGVSQ21UdGJVa0JhcTJ2SHdEV1hub3o1MkJVNzI3M1NlRTNEaGd1UUZ6SGV6?=
+ =?utf-8?B?aXRUcnRTMkdUYlR4bVRGT2lLcEd0NW94Wk9wcXNJNGtJM1diazIydHhpNEFS?=
+ =?utf-8?B?SjV3K2RLL045OUZRWldQam5nSlJCRXpUVGNkamQ0dmozd3BoY2FiYXZjNzZN?=
+ =?utf-8?B?c3FkN2huZk9NenJwYjhEa2ExNDFLM2ZwOE5Ia3pQZFVYNmRZUnpXZ296VEtJ?=
+ =?utf-8?B?Rmk2M1daK0Q5YVBEZGVoeXF6dHhuU2VzM2hqaE4yU291UHE1b1l4UVp2YkNz?=
+ =?utf-8?B?MFlRRE0zZ1Z2cHNlMU9oQUM1aTJPRHJWUk9raFZiSittTitjUjJ1dHVCMVA0?=
+ =?utf-8?B?MjlDQW1ZQTFlRzg1V3R3cnptSkFkalNycEdCZ3h5ZGtMZEllZDVtK3hoelVI?=
+ =?utf-8?B?ZFBMYlFqV2pjY0R3WmNRSEtkSU5RWTJRMUVNbm1Jck16Q3VpcFM1MFlUU0pD?=
+ =?utf-8?B?cGRpaHI4ZHEraUR6NE5vR1BFd2xkQm9CbWU5d1YvbTRwamdzTE82QUVSMzhl?=
+ =?utf-8?Q?4h+O2P0zeQE=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8907.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(19092799006)(7416014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?L21YejFac1JiSjJpVEcrazR0MHdpKzlNZ0JpV3pUTTRDYlZ1K1BVZjY5VEtE?=
+ =?utf-8?B?Y0lhdWpYb3FEUWV4cmgweTlNRHQvU3hmRkRsbGt3OVZyaVFKTHZzdTRUR3N4?=
+ =?utf-8?B?VHZMUUFlWktKaWx1anpTcHRLcWtiNmVEcDNCTHlrN3grTUxCdFRnN3duSTFH?=
+ =?utf-8?B?SzdPUkVtckVHeHhpWiszVTBSNU1wQVFJcTBGcVBTZ0Z3dUpyZnIyc0VYUUlP?=
+ =?utf-8?B?a2ozZUhnbDBOMmNSOWFwTEpsMUdEK2Zhb2lucThnbTRqRW9meExadjE0R2to?=
+ =?utf-8?B?LzQrU3NwWXhvZDJhNXNNNHFQODZzS1F5dzFwMTFLQlZOdVQ5eUJUbzRKZFk1?=
+ =?utf-8?B?SnA3eWdSak1IcHdVMThyTjc2L1ZnMk1ydmxYTmEvME1PbWJTbStqaHRJOHUx?=
+ =?utf-8?B?bDIxVk96MmU2RVpyWE9GWHRjWjVrcGZ2cXdpSExBTFFVRk44V1VqeFRtMklp?=
+ =?utf-8?B?U1pWY1BZOXlSWE0wM1JEMDRFMTV4WThpdkEyenJ4WFJKYndNYUtwWXBBUmhx?=
+ =?utf-8?B?Nk5ZQkM0UUlmMm9PMzhEMGt1WlROMGlOdThRWnE0dVhoRmphZDU0WVRlMEh0?=
+ =?utf-8?B?TG1EREc5NFVMRVlLSENwa1N4QU4xWHhINWRjYXl6Slo1SjBDUkI3TElHbFhK?=
+ =?utf-8?B?TmMxd1lJRUhpZDdrRGR0STdNV2Y5SUR1Yi9BREhOQktsSXlWZFhBTnhtc1lR?=
+ =?utf-8?B?SzhnZmhiTFdDa0kxa0Frb0RLVTNtTHJyWWlMWTcxSjZPdTNrbXJiakYrRjIv?=
+ =?utf-8?B?RHJnTlRISnBkaGdSUXJYOXhlK2tka1ZuOENZUmVYNDNCc1FYNCtQQTFvNWtp?=
+ =?utf-8?B?bzRuWldLdWJIelp2MUdkeCtNSlcrYXh2bE1pU1M3QTFIRHZqNlU2cGtWbFk5?=
+ =?utf-8?B?Y28vb1REc0s4VHl5bzRvcUozcUJKbzJVeXhJa1BoYjd4ZGVlSG45RDk1V1lB?=
+ =?utf-8?B?UTNYa2V3RG9xaGVDL2VzbzhleWNvb04zcUhHL1BYekxSQkhZKzNWZHBPblpa?=
+ =?utf-8?B?RFlacmF2Sm1ibVovcUlKdWZveXpzaTlaSS9QZmJFenl3UnQ1bkVHREl3dVdk?=
+ =?utf-8?B?eHdoQUhDTG9ybmhpaEUwTGRyOGNISHE4ZXBWWndkaFlqdkZTY0tsem9CSFFZ?=
+ =?utf-8?B?NEg5T1pTVStKQVlxcWg0V0FTM1lCS1FBWkJpbTFZcUVZRW5BUW0vZUpEczF5?=
+ =?utf-8?B?dnVYS0poZ3pSd1VTaGJ3RGozUjRzQTRidS9ZeHJZYkdOU0crWlFuSFBCNGhD?=
+ =?utf-8?B?OU5qT3ZZR1Q1aElYSXBkS3JvTkFHQW9UU1J5Qk11R0d0TGhrc0pJcTV6SE9Z?=
+ =?utf-8?B?SjNsTTNhekk0UnlrNHlFYVg4bGVjc1p6T0tvd2N6aGp3a2FPK3R1YlRCRit2?=
+ =?utf-8?B?TFpBbTBVa0kvK3llOG5ZYXdEMWRmbER5bkljQW5MaEhKMG4xbTBoT2xOa0RE?=
+ =?utf-8?B?UmlQMHFBOStFL09jYTNRd3FKemd3b21CVGlBdzlCckFiOUg1M1VHTFhwR01S?=
+ =?utf-8?B?YnhTZW5sZnBWMVVZdnlydE1KTkZQNjhudE44Z2Y4UUhZTHNaZ2FDbnNrVUJP?=
+ =?utf-8?B?SmtsSVNDcCtMRkV1N0NDV3FnK1JEYUNabzFPeG9qMzF4SjZQSS9qWEdxR1po?=
+ =?utf-8?B?T3ZOK1A0VGlQd0wrelJZUVUwNzZxMTRiNEZkaEZNWXhVNWtrK0x3WklrNjcr?=
+ =?utf-8?B?ekVuVU9xUUkvcTF3SlFKZG5jYThNNkJzam9VdnYzQVRtUGdQTnF6ZmVmNldy?=
+ =?utf-8?B?Z0Q1aGFMOWFrKzRkZm1oOUZTNm41czFxbit1U0dGY0NiMTRVaElqM2FXRUxP?=
+ =?utf-8?B?SnJ3VFdZZldqaDFpSml1eU5NdDBUMU0wZkJzWnVVNFN2ZHhjUG9RVG5ZTkN2?=
+ =?utf-8?B?aWJqL0tzRTZ4RXVwa0dIbDlnVGV5T1ZrYWdSYy9aa2xCQ3JBWnVocHdsem4y?=
+ =?utf-8?B?cFp6LzFWYkthdGtKZjQ4QzV4dEdXUXpXeXJBaDBzZlp6ZUFmN0kwTCt2Skxl?=
+ =?utf-8?B?ellkbjdqNzBtVEllVlE3K0trSU55Z1NsSmNpZlFTeVpXYVNtNVhIUFF1aWVo?=
+ =?utf-8?B?cUFuWnptUFozQWVpTXNTcFFqK1k5SzNKTFEvWlY4eU5QQzhxMUZzZE5zYTVJ?=
+ =?utf-8?Q?jBBSNnO92GPTRobfRxt+LRCW0?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3dacb592-42d9-4297-6fb9-08ddc050326d
+X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8907.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Jul 2025 07:54:43.7594
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: qEUxhfus8GMhnwQTjSM0w9o0/DevTRy2v50rrj1iXWbvWmirtV/wWx1MsZr+SZKahNPxEAPlzlgdUdwJ3dp2Vw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8922
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250711_005023_210870_B76748FE 
-X-CRM114-Status: GOOD (  16.44  )
+X-CRM114-CacheID: sfid-20250711_005453_180214_55D09930 
+X-CRM114-Status: GOOD (  22.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,90 +179,123 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Heiko,
+Hello Mathieu, Shengjiu,
 
-On 2025/7/10 4:11, Heiko Stübner wrote:
-> Am Mittwoch, 9. Juli 2025, 09:01:39 Mitteleuropäische Sommerzeit schrieb Damon Ding:
->> Apply drm_bridge_connector helper for Analogix DP driver.
+On 7/10/2025 5:48 PM, Mathieu Poirier wrote:
+> On Fri, Jul 04, 2025 at 01:25:28PM +0800, Shengjiu Wang wrote:
+>> When recovery is triggered, rproc_stop() is called first then
+>> rproc_start(), but there is no rproc_unprepare_device() and
+>> rproc_prepare_device() in the flow. As the software reset is needed
+>> before DSP starts, so move software reset from imx_dsp_runtime_resume()
+>> to .load() to make the recovery work. And make sure memory is cleared
+>> before loading firmware.
 >>
->> The following changes have been made:
->> - Remove &analogix_dp_device.connector and change
->>    &analogix_dp_device.bridge from a pointer to an instance.
->> - Apply devm_drm_bridge_alloc() to allocate &analogix_dp_device that
->>    contains &drm_bridge.
->> - Apply drm_bridge_connector helper to get rid of &drm_connector_funcs
->>    and &drm_connector_helper_funcs.
->>
->> Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
->>
->> ------
->>
->> Changes in v2:
->> - For &drm_bridge.ops, remove DRM_BRIDGE_OP_HPD and add
->>    DRM_BRIDGE_OP_EDID.
->> - Add analogix_dp_bridge_edid_read().
->> - Move &analogix_dp_plat_data.skip_connector deletion to the previous
->>    patches.
+>> Signed-off-by: Shengjiu Wang <shengjiu.wang@nxp.com>
 >> ---
->>   .../drm/bridge/analogix/analogix_dp_core.c    | 169 ++++++++----------
->>   .../drm/bridge/analogix/analogix_dp_core.h    |   4 +-
->>   2 files changed, 80 insertions(+), 93 deletions(-)
+>>   drivers/remoteproc/imx_dsp_rproc.c | 43 +++++++++++++++++++-----------
+>>   1 file changed, 27 insertions(+), 16 deletions(-)
 >>
->> diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
->> index abc64cc17e4c..fb510e55ef06 100644
->> --- a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
->> +++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
->> @@ -23,6 +23,7 @@
->>   #include <drm/drm_atomic.h>
->>   #include <drm/drm_atomic_helper.h>
->>   #include <drm/drm_bridge.h>
->> +#include <drm/drm_bridge_connector.h>
->>   #include <drm/drm_crtc.h>
->>   #include <drm/drm_device.h>
->>   #include <drm/drm_edid.h>
->> @@ -948,23 +949,13 @@ static int analogix_dp_disable_psr(struct analogix_dp_device *dp)
->>   	return analogix_dp_send_psr_spd(dp, &psr_vsc, true);
+>> diff --git a/drivers/remoteproc/imx_dsp_rproc.c b/drivers/remoteproc/imx_dsp_rproc.c
+>> index 5ee622bf5352..ba764fc55686 100644
+>> --- a/drivers/remoteproc/imx_dsp_rproc.c
+>> +++ b/drivers/remoteproc/imx_dsp_rproc.c
+>> @@ -774,7 +774,6 @@ static int imx_dsp_rproc_prepare(struct rproc *rproc)
+>>   {
+>>   	struct imx_dsp_rproc *priv = rproc->priv;
+>>   	struct device *dev = rproc->dev.parent;
+>> -	struct rproc_mem_entry *carveout;
+>>   	int ret;
+>>   
+>>   	ret = imx_dsp_rproc_add_carveout(priv);
+>> @@ -785,15 +784,6 @@ static int imx_dsp_rproc_prepare(struct rproc *rproc)
+>>   
+>>   	pm_runtime_get_sync(dev);
+>>   
+>> -	/*
+>> -	 * Clear buffers after pm rumtime for internal ocram is not
+>> -	 * accessible if power and clock are not enabled.
+>> -	 */
+>> -	list_for_each_entry(carveout, &rproc->carveouts, node) {
+>> -		if (carveout->va)
+>> -			memset(carveout->va, 0, carveout->len);
+>> -	}
+>> -
+>>   	return  0;
 >>   }
 >>   
->> -static int analogix_dp_get_modes(struct drm_connector *connector)
->> +static int analogix_dp_bridge_get_modes(struct drm_bridge *bridge, struct drm_connector *connector)
->>   {
->> -	struct analogix_dp_device *dp = to_dp(connector);
->> -	const struct drm_edid *drm_edid;
->> +	struct analogix_dp_device *dp = to_dp(bridge);
->>   	int num_modes = 0;
+>> @@ -1022,13 +1012,39 @@ static int imx_dsp_rproc_parse_fw(struct rproc *rproc, const struct firmware *fw
+>>   	return 0;
+>>   }
 >>   
->>   	if (dp->plat_data->panel) {
->>   		num_modes += drm_panel_get_modes(dp->plat_data->panel, connector);
+>> +static int imx_dsp_rproc_load(struct rproc *rproc, const struct firmware *fw)
+>> +{
+>> +	struct imx_dsp_rproc *priv = rproc->priv;
+>> +	const struct imx_dsp_rproc_dcfg *dsp_dcfg = priv->dsp_dcfg;
+>> +	struct rproc_mem_entry *carveout;
+>> +	int ret;
+>> +
+>> +	/* Reset DSP if needed */
+>> +	if (dsp_dcfg->reset)
+>> +		dsp_dcfg->reset(priv);
+>> +	/*
+>> +	 * Clear buffers after pm rumtime for internal ocram is not
+>> +	 * accessible if power and clock are not enabled.
+>> +	 */
+>> +	list_for_each_entry(carveout, &rproc->carveouts, node) {
+>> +		if (carveout->va)
+>> +			memset(carveout->va, 0, carveout->len);
+>> +	}
+>> +
+>> +	ret = imx_dsp_rproc_elf_load_segments(rproc, fw);
+>> +	if (ret)
+>> +		return ret;
+>> +
+>> +	return 0;
+>> +}
+>> +
 > 
-> here is one example where a panel_bridge would help :-)
-> 
-> I.e. I'd think without it the code would need some sort of
-> 
->    	if (dp->plat_data->bridge) {
->    		num_modes += drm_bridge_get_modes(dp->plat_data->bridge, connector);
-> 
-> thing?
+> This is a much better approach.  During my last review I said that I would not
+> move forward with this work until Daniel or Iuliana provide their R-B and yet,
+> they have not been added to the recipient list.
 > 
 
-Oh, the handling of bridge here is indeed not well thought out. I will 
-implement the panel-bridge in the next version.
+I will have a look at this patchset at the beginning of next week.
+I also plan to test it.
 
->> -	} else {
->> -		drm_edid = drm_edid_read_ddc(connector, &dp->aux.ddc);
->> -
->> -		drm_edid_connector_update(&dp->connector, drm_edid);
->> -
->> -		if (drm_edid) {
->> -			num_modes += drm_edid_connector_add_modes(&dp->connector);
->> -			drm_edid_free(drm_edid);
->> -		}
+Iulia
+
+>>   static const struct rproc_ops imx_dsp_rproc_ops = {
+>>   	.prepare	= imx_dsp_rproc_prepare,
+>>   	.unprepare	= imx_dsp_rproc_unprepare,
+>>   	.start		= imx_dsp_rproc_start,
+>>   	.stop		= imx_dsp_rproc_stop,
+>>   	.kick		= imx_dsp_rproc_kick,
+>> -	.load		= imx_dsp_rproc_elf_load_segments,
+>> +	.load		= imx_dsp_rproc_load,
+>>   	.parse_fw	= imx_dsp_rproc_parse_fw,
+>>   	.handle_rsc	= imx_dsp_rproc_handle_rsc,
+>>   	.find_loaded_rsc_table = rproc_elf_find_loaded_rsc_table,
+>> @@ -1214,7 +1230,6 @@ static int imx_dsp_runtime_resume(struct device *dev)
+>>   {
+>>   	struct rproc *rproc = dev_get_drvdata(dev);
+>>   	struct imx_dsp_rproc *priv = rproc->priv;
+>> -	const struct imx_dsp_rproc_dcfg *dsp_dcfg = priv->dsp_dcfg;
+>>   	int ret;
+>>   
+>>   	/*
+>> @@ -1235,10 +1250,6 @@ static int imx_dsp_runtime_resume(struct device *dev)
+>>   		return ret;
 >>   	}
 >>   
->>   	if (dp->plat_data->get_modes)
-> 
-
-Best regards,
-Damon
+>> -	/* Reset DSP if needed */
+>> -	if (dsp_dcfg->reset)
+>> -		dsp_dcfg->reset(priv);
+>> -
+>>   	return 0;
+>>   }
+>>   
+>> -- 
+>> 2.34.1
+>>
 
 
