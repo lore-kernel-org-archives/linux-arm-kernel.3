@@ -4,86 +4,134 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0A8DC83F22
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 12:12:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34465C83F21
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 12:12:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Hz2Y2XXBlVSsD0ujhohRc4qeLOJqXVC+eP3fnFk9s0g=; b=F6ukdr3fGKSIioSmWGNuZ/7Zen
-	kMctQbNBJa5oA8L23AhWvWlq1CCdIkCzsRQEeaOkFy6Dz8noqliGPN0MKwNZck7OQDfO66RuWX8ZZ
-	pm8BgZ1N77/+O+1n8l3MZwOOJ/Dy05Xt191Nlp//SkzfTB7ki821zgvjcXhlRKxuw5ekW4yBALGkJ
-	QpCyYgLZQW3x9NJ2nEFPtondGhpD1KEFeJacGnT/ETye+PB3KNOPiaeGQkRkbJjqTtdcBn3Q9/5GK
-	ROCowJ6GVkUAQ6706A9C2QQpcnDy2TykrZu2bx2NXKruvciFFMCzO3a419PO7Y6yNOeHdw4NFgNZ6
-	TgrmDJeg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+McHn7DalzcIgymFaZSpYE2KY4wWUGqal/hKL4lE/Vk=; b=lP0X2l1pJHK/dBNHp+/OoXBp8n
+	g859SIW9fJPploeAMK4+qqaUpt8oon0f8QzTPTwfFYai29Z19rdVkccRaOuMq+VvKus1wZFFU6iIe
+	3SAZ7Ve18ZTg9jX2IRyaorcWV6Yzj9W4z70S6mRV80w9o7J6FyrOsWS2zOKc+7u8G4gBCvwDf9utr
+	ujqsqp099sn5TZ4BE82LVpTa1Ad05YvTxvaQ1aK+aZQ3HCXYuv2l3V989xyVVe+9dCv1e9wNBGCer
+	OOCjO0O3ULIENE3wtFIQ6CkygHyV+ePbaMUPiA5dPbDdZs6zpFO86YvthHVu6LgGHmX4NZa/bh0vj
+	LeiMbytg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaCbi-0000000EhZS-03Aj;
-	Fri, 11 Jul 2025 12:12:02 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uaCbj-0000000Eha7-0P4D;
+	Fri, 11 Jul 2025 12:12:03 +0000
+Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaCLE-0000000Efn1-1naY
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 11 Jul 2025 11:55:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:From:Date:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=Hz2Y2XXBlVSsD0ujhohRc4qeLOJqXVC+eP3fnFk9s0g=; b=Ma+kMwoRUayj63gy9rQQguidj9
-	wphJ7eda0MlFguC49cDfOKQSX3X9zDDudhC+Vr7s6koMd1FiJFY9mrB1bOG9QNfXvtcd3CiUQd++Q
-	1GAM5siBDSFuswDAnVHgO0gSO8yGWVM1gCVlb2L0wnMvPBrIuTfBbgc39lSK61JjCfJsP4d8iAj1e
-	xLlCHBkP3/fuqqZMGRO6ht9kVXhvknBGtc0r5kQOG/oFbsMnmYKWNF8c6Wm1BMI9RNRF8DmucfkcE
-	IDIvPg/1ZaMmqhpkulV7rnN3614w4vvlqe5IwZ2gW/cOf5t9ksbJQvDWKqP5L4DaUolH8RgOMa+wS
-	i7P2Wmiw==;
-Received: from frasgout.his.huawei.com ([185.176.79.56])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaCLB-00000009Fq3-2ZLa
+	id 1uaCRs-0000000EgZG-1n07
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Jul 2025 11:54:59 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.31])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4bdqml1fHPz6L52V;
-	Fri, 11 Jul 2025 19:51:19 +0800 (CST)
-Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
-	by mail.maildlp.com (Postfix) with ESMTPS id 3542B1402EF;
-	Fri, 11 Jul 2025 19:54:37 +0800 (CST)
-Received: from localhost (10.203.177.66) by frapeml500008.china.huawei.com
- (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Fri, 11 Jul
- 2025 13:54:36 +0200
-Date: Fri, 11 Jul 2025 12:54:34 +0100
-From: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-To: <dan.j.williams@intel.com>
-CC: Catalin Marinas <catalin.marinas@arm.com>, <james.morse@arm.com>,
-	<linux-cxl@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-acpi@vger.kernel.org>, <linux-arch@vger.kernel.org>,
-	<linux-mm@kvack.org>, <gregkh@linuxfoundation.org>, Will Deacon
-	<will@kernel.org>, Davidlohr Bueso <dave@stgolabs.net>, Yicong Yang
-	<yangyicong@huawei.com>, <linuxarm@huawei.com>, Yushan Wang
-	<wangyushan12@huawei.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, "Mark
- Rutland" <mark.rutland@arm.com>, Dave Hansen <dave.hansen@linux.intel.com>,
-	Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>, <x86@kernel.org>, H Peter Anvin
-	<hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>, Peter Zijlstra
-	<peterz@infradead.org>
-Subject: Re: [PATCH v2 1/8] memregion: Support fine grained invalidate by
- cpu_cache_invalidate_memregion()
-Message-ID: <20250711125434.000050f3@huawei.com>
-In-Reply-To: <686eedb25ed02_24471002e@dwillia2-xfh.jf.intel.com.notmuch>
-References: <20250624154805.66985-1-Jonathan.Cameron@huawei.com>
-	<20250624154805.66985-2-Jonathan.Cameron@huawei.com>
-	<686eedb25ed02_24471002e@dwillia2-xfh.jf.intel.com.notmuch>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	Fri, 11 Jul 2025 12:01:53 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=pQThHdpofwtDsXZs+MsQ58jbtkYUuaB+6wfZA3DLxnIjOn4Eu67AjIqsZinKBMAcoy1/ZbSkzs/MIh0GyYvwH3LQsMpX3AZr2wz5TzgWL4QGboPDopxJdC5gKUhCHlRbgs/lpaBSkE0D92ZZUyfNXihpYpLHHwYuR9/8gkh1bK234q79a6R0UrBdAM3oWsj95ncT3fLiwiGUuUmW7QlMxl8BXttr3KWENOl9JF/b5eTK8qxMNPTw4Guclu9PxPer60+w5CXPw6EuuqqB97Twd36vVupYzc0triEEOzxEuWk5YQyxqXLiZF3KOufzA3hcRXGAhv6HTF8S71Vu6zhXAg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=+McHn7DalzcIgymFaZSpYE2KY4wWUGqal/hKL4lE/Vk=;
+ b=nlzATvy/6qUbU4Ibx5DsoSzJIKp4HIgmXGuaQpU6z76R13OK+eEzONbtzT7+EMXUWQAR5Sh3Q6DGfKqMPbyiBmuNBJuGXt/ipvUL7tiBozJfccxnf/45Qi6CM3oOIS4OpeAv7MoRMnGV6TpXzScKTAEciC3c5Ax6XqgTGXas//k0c13wjY1UcLwlRWn7Aiz3UzJ3LKGMRWJvJDhwADbycZombKlpQ8EBBmG/nm3PlCzbrIrciEdJWjA5BrW/J8EGRT3JsoP5q23HDg1LcwdBRr9t2gaJXsrkxT+YJYLYoflnJVgjGzhmpAJKriGJfyid87IwTU4fSdOVr2IMt3w/dw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 217.111.95.7) smtp.rcpttodomain=kernel.org smtp.mailfrom=arri.de; dmarc=fail
+ (p=none sp=none pct=100) action=none header.from=arri.de; dkim=none (message
+ not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arri.de; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=+McHn7DalzcIgymFaZSpYE2KY4wWUGqal/hKL4lE/Vk=;
+ b=XUTDNfBhnSDtsDBP2GWoF4wJSOJGJa5j9QzEJLLn0GqU0iuARVhtd1014fJxzLoNurhtYkXv7FOHH5zlQc8Kd4qDsuIVX94QE9dPPlcrunq/Ht6aUc3LC67p2e9xrxapAHKLBlnmtnNjUpexzO6hQ3AolaMmN+8ZCqTck/el6tQ=
+Received: from DUZPR01CA0035.eurprd01.prod.exchangelabs.com
+ (2603:10a6:10:468::13) by DB3PR0302MB9205.eurprd03.prod.outlook.com
+ (2603:10a6:10:429::20) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8922.25; Fri, 11 Jul
+ 2025 12:01:48 +0000
+Received: from DB3PEPF0000885E.eurprd02.prod.outlook.com
+ (2603:10a6:10:468:cafe::95) by DUZPR01CA0035.outlook.office365.com
+ (2603:10a6:10:468::13) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8922.26 via Frontend Transport; Fri,
+ 11 Jul 2025 12:02:09 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 217.111.95.7)
+ smtp.mailfrom=arri.de; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=arri.de;
+Received-SPF: Fail (protection.outlook.com: domain of arri.de does not
+ designate 217.111.95.7 as permitted sender) receiver=protection.outlook.com;
+ client-ip=217.111.95.7; helo=mta.arri.de;
+Received: from mta.arri.de (217.111.95.7) by
+ DB3PEPF0000885E.mail.protection.outlook.com (10.167.242.9) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8922.22 via Frontend Transport; Fri, 11 Jul 2025 12:01:48 +0000
+Received: from N9W6SW14.arri.de (192.168.54.39) by mta.arri.de (10.10.18.5)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1258.38; Fri, 11 Jul
+ 2025 14:01:47 +0200
+From: Christian Eggers <ceggers@arri.de>
+To: Srinivas Kandagatla <srini@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>, Dmitry Baryshkov <lumag@kernel.org>,
+	=?UTF-8?q?Rafa=C5=82=20Mi=C5=82ecki?= <rafal@milecki.pl>
+CC: Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam
+	<festevam@gmail.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "Sasha
+ Levin" <sashal@kernel.org>, <imx@lists.linux.dev>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	Christian Eggers <ceggers@arri.de>, <stable@vger.kernel.org>
+Subject: [PATCH 2/2] nvmem: imx: Swap only the first 6 bytes of the MAC address
+Date: Fri, 11 Jul 2025 13:55:48 +0200
+Message-ID: <20250711120110.12885-3-ceggers@arri.de>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250711120110.12885-1-ceggers@arri.de>
+References: <20250711120110.12885-1-ceggers@arri.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.203.177.66]
-X-ClientProxiedBy: lhrpeml500001.china.huawei.com (7.191.163.213) To
- frapeml500008.china.huawei.com (7.182.85.71)
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [192.168.54.39]
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB3PEPF0000885E:EE_|DB3PR0302MB9205:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3f2b530f-8218-4ede-9fbb-08ddc072b6d3
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|7416014|36860700013|82310400026;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?UoSWV1gOseHX7y6xKQr+fh605K1pMtmd7w4uBcCiNbwx07idvarmXAodQjAp?=
+ =?us-ascii?Q?qiCTmY6MwRx+rT5RyiQhaIP0oeH1DMqZjms/4numrrFl97Y81KWRaPMH50vR?=
+ =?us-ascii?Q?hzwABq8XPxGbKQzvMeZebkG+k9Du/8wrMNdRiL0kYVbQnUJAY9MKwHe5Azxl?=
+ =?us-ascii?Q?xB8q7/UxrbPojqetQoc/QfBo5fEBh4s3NqMtEjCxk9cPOnfTWmDzhU4zSC4H?=
+ =?us-ascii?Q?jx9bya0eglQDh/B30R/buDygqok9/6Loey8tGAsZNTXrjIUgVlDFjcMMtC5D?=
+ =?us-ascii?Q?HOKLIG3bOkunZTuvyx+dIfWafp8vlrVVHpp/0b/cWCBQGz9N3Hykoes8p3kb?=
+ =?us-ascii?Q?2vU6aRwZeKY0e79zgqO4Fl1oe709x8jR+GSEg9MHQYP9WumJFvoP7haxwau6?=
+ =?us-ascii?Q?ReXvIq8earlLuMt/4rxyiiV/pZVi8yy2Hn2HGKqDjxiMIgzKaCw2iEfvlt4v?=
+ =?us-ascii?Q?wGjA7QbNskZyii7WynZUFMtaKdRNTk7rF6jNSDHdpT9GVpWbQ0c4YndHCvZG?=
+ =?us-ascii?Q?9fXlRfXyGvIeShtwNR06P4ymlsd/ldvv4/ck838XvWAR8trdlVy+ONLlnvlk?=
+ =?us-ascii?Q?t1bItFQ53Za86ImFs79SEXE+VSp+C6V96/UxIesmIjajfk7MPTgwVRKbF1dI?=
+ =?us-ascii?Q?TwaR27/chqqbuxV739Rh9bJAlMxFE/WppyRrTjL63MRzB1NT2fo21mEQZc07?=
+ =?us-ascii?Q?IZq6HmI8vgFxUNbpqzVd30zbp66nrdhmG91uXQ3qAnQCd8ClJH/YKFVYzOEi?=
+ =?us-ascii?Q?mrNUKINnPKtBO9EnWjpU8vXtYFoybB9OQCctBv/vAT/Wrjf7yWUw65en9QYy?=
+ =?us-ascii?Q?zTwl1/jTo8y1tnxPYndX/AWt1ERB2bkUn7LQXfpRzP2OVEDAXwZLKTbi6Nlv?=
+ =?us-ascii?Q?3f36WMdtN/0/PNRK5QhwR1OBf+MhzWO2qKEfsS/H0q8FZl6RadSdFGXyXAFn?=
+ =?us-ascii?Q?b34t+XufsVeHLWCmvr44GTg3ldA87wHQKU7S9KxtB7u8m20M2kWURUOkatXP?=
+ =?us-ascii?Q?iwsNrYUXqrcSlxUA4ncRJwpHTngw6uBly49fx9LTV9XjdRRtjOudRVe2AHVA?=
+ =?us-ascii?Q?Ug+RdVsyW6GEuVVA4eA38HEAmpOgmh2qg+ngz0CRBoNOM/SplFyQ+tK+EQym?=
+ =?us-ascii?Q?aK0wUFkt/0D09ofpPSybuvIrmeXwiIuGzb//WUrTDccm+MnUs07vpFkFzru9?=
+ =?us-ascii?Q?Wci8Ny2hKaX787tVYTr3Y/Y6ISFgQD7PI1xrVK6bPzAGVfTGDgdF0HHmWgqe?=
+ =?us-ascii?Q?1uRUOZPrxzS++uVe1zj0wZc+jnLy/Py3mWH2x40ikStqBAzjlkwqX5DP7EoA?=
+ =?us-ascii?Q?ZncmM5WUzD3CMflui0wpjxw7pLaWxV1Huql3pZqGSH1AUVbC/iKKn8jSF3eP?=
+ =?us-ascii?Q?SVzBi+cTgPmKE/xGW2HNTNOU0QwX0v1TrXmqcQ9tD8kb7aNFnzHqCQNGXf3t?=
+ =?us-ascii?Q?nLEssVX7uX+RRBhf+MW1hZf78vbSwlbgSCiAWbN1ef18luxt4f0lUA49b/vS?=
+ =?us-ascii?Q?+POBTaaN0UHfbU6VIZkyeugsX1oHoJPKcwJu?=
+X-Forefront-Antispam-Report: CIP:217.111.95.7;CTRY:DE;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mta.arri.de;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(1800799024)(7416014)(36860700013)(82310400026);DIR:OUT;SFP:1101;
+X-OriginatorOrg: arri.de
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Jul 2025 12:01:48.1855
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3f2b530f-8218-4ede-9fbb-08ddc072b6d3
+X-MS-Exchange-CrossTenant-Id: e6a73a5a-614d-4c51-b3e3-53b660a9433a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e6a73a5a-614d-4c51-b3e3-53b660a9433a;Ip=[217.111.95.7];Helo=[mta.arri.de]
+X-MS-Exchange-CrossTenant-AuthSource: DB3PEPF0000885E.eurprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB3PR0302MB9205
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250711_125457_777930_1664D3FB 
-X-CRM114-Status: GOOD (  20.34  )
+X-CRM114-CacheID: sfid-20250711_050152_605485_5C36E67B 
+X-CRM114-Status: GOOD (  13.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,71 +146,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 9 Jul 2025 15:31:14 -0700
-<dan.j.williams@intel.com> wrote:
+Since commit 55d4980ce55b ("nvmem: core: support specifying both: cell
+raw data & post read lengths"), the aligned length (e.g. '8' instead of
+'6') is passed to the read_post_process callback. This causes that the 2
+bytes following the MAC address in the ocotp are swapped to the
+beginning of the address. As a result, an invalid MAC address is
+returned and to make it even worse, this address can be equal on boards
+with the same OUI vendor prefix.
 
-> Jonathan Cameron wrote:
-> > From: Yicong Yang <yangyicong@hisilicon.com>
-> > 
-> > Extend cpu_cache_invalidate_memregion() to support invalidate certain
-> > range of memory. Control of types of invlidation is left for when  
-> 
-> s/invlidation/invalidation/
-> 
-> > usecases turn up. For now everything is Clean and Invalidate.
-> > 
-> > Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
-> > Signed-off-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-> > ---
-> >  arch/x86/mm/pat/set_memory.c | 2 +-
-> >  drivers/cxl/core/region.c    | 6 +++++-
-> >  drivers/nvdimm/region.c      | 3 ++-
-> >  drivers/nvdimm/region_devs.c | 3 ++-
-> >  include/linux/memregion.h    | 8 ++++++--
-> >  5 files changed, 16 insertions(+), 6 deletions(-)
-> > 
-> > diff --git a/arch/x86/mm/pat/set_memory.c b/arch/x86/mm/pat/set_memory.c
-> > index 46edc11726b7..8b39aad22458 100644
-> > --- a/arch/x86/mm/pat/set_memory.c
-> > +++ b/arch/x86/mm/pat/set_memory.c
-> > @@ -368,7 +368,7 @@ bool cpu_cache_has_invalidate_memregion(void)
-> >  }
-> >  EXPORT_SYMBOL_NS_GPL(cpu_cache_has_invalidate_memregion, "DEVMEM");
-> >  
-> > -int cpu_cache_invalidate_memregion(int res_desc)
-> > +int cpu_cache_invalidate_memregion(int res_desc, phys_addr_t start, size_t len)
-> >  {
-> >  	if (WARN_ON_ONCE(!cpu_cache_has_invalidate_memregion()))
-> >  		return -ENXIO;
-> > diff --git a/drivers/cxl/core/region.c b/drivers/cxl/core/region.c
-> > index 6e5e1460068d..6e6e8ace0897 100644
-> > --- a/drivers/cxl/core/region.c
-> > +++ b/drivers/cxl/core/region.c
-> > @@ -237,7 +237,11 @@ static int cxl_region_invalidate_memregion(struct cxl_region *cxlr)
-> >  		return -ENXIO;
-> >  	}
-> >  
-> > -	cpu_cache_invalidate_memregion(IORES_DESC_CXL);
-> > +	if (!cxlr->params.res)
-> > +		return -ENXIO;
-> > +	cpu_cache_invalidate_memregion(IORES_DESC_CXL,
-> > +				       cxlr->params.res->start,
-> > +				       resource_size(cxlr->params.res));  
-> 
-> So lets abandon the never used @res_desc argument. It was originally
-> there for documentation and the idea that with HDM-DB CXL invalidation
-> could be triggered from the device. However, that never came to pass,
-> and the continued existence of the option is confusing especially if
-> the range may not be a strict subset of the res_desc.
-> 
-> Alternatively, keep the @res_desc parameter and have the backend lookup
-> the ranges to flush from the descriptor, but I like that option less.
-> 
+Fixes: 55d4980ce55b ("nvmem: core: support specifying both: cell raw data & post read lengths")
+Signed-off-by: Christian Eggers <ceggers@arri.de>
+Cc: stable@vger.kernel.org
+---
+Tested on i.MX6ULL, but I assume that this is also required for.
+imx-ocotp-ele.c (i.MX93).
 
-I'll do that as a precursor so we can keep the discussion of that
-vs the range being added separate.
+ drivers/nvmem/imx-ocotp-ele.c | 5 +++--
+ drivers/nvmem/imx-ocotp.c     | 5 +++--
+ 2 files changed, 6 insertions(+), 4 deletions(-)
 
-Jonathan
-
+diff --git a/drivers/nvmem/imx-ocotp-ele.c b/drivers/nvmem/imx-ocotp-ele.c
+index 83617665c8d7..07830785ebf1 100644
+--- a/drivers/nvmem/imx-ocotp-ele.c
++++ b/drivers/nvmem/imx-ocotp-ele.c
+@@ -6,6 +6,7 @@
+  */
+ 
+ #include <linux/device.h>
++#include <linux/if_ether.h>
+ #include <linux/io.h>
+ #include <linux/module.h>
+ #include <linux/nvmem-provider.h>
+@@ -119,8 +120,8 @@ static int imx_ocotp_cell_pp(void *context, const char *id, int index,
+ 
+ 	/* Deal with some post processing of nvmem cell data */
+ 	if (id && !strcmp(id, "mac-address"))
+-		for (i = 0; i < bytes / 2; i++)
+-			swap(buf[i], buf[bytes - i - 1]);
++		for (i = 0; i < ETH_ALEN / 2; i++)
++			swap(buf[i], buf[ETH_ALEN - i - 1]);
+ 
+ 	return 0;
+ }
+diff --git a/drivers/nvmem/imx-ocotp.c b/drivers/nvmem/imx-ocotp.c
+index 22cc77908018..4dd3b0f94de2 100644
+--- a/drivers/nvmem/imx-ocotp.c
++++ b/drivers/nvmem/imx-ocotp.c
+@@ -16,6 +16,7 @@
+ 
+ #include <linux/clk.h>
+ #include <linux/device.h>
++#include <linux/if_ether.h>
+ #include <linux/io.h>
+ #include <linux/module.h>
+ #include <linux/nvmem-provider.h>
+@@ -228,8 +229,8 @@ static int imx_ocotp_cell_pp(void *context, const char *id, int index,
+ 
+ 	/* Deal with some post processing of nvmem cell data */
+ 	if (id && !strcmp(id, "mac-address"))
+-		for (i = 0; i < bytes / 2; i++)
+-			swap(buf[i], buf[bytes - i - 1]);
++		for (i = 0; i < ETH_ALEN / 2; i++)
++			swap(buf[i], buf[ETH_ALEN - i - 1]);
+ 
+ 	return 0;
+ }
+-- 
+2.43.0
 
 
