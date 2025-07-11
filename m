@@ -4,66 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4DBFC83F1B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 14:24:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4553C83F1B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 14:26:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=a7esEd3ailkeF/Q/XQhi2QK9gaqyy6WqycrTHKBNRAs=; b=bQ21c+706MWlPnnkKiTjOdx3Rm
-	OHzeipPIk9tm/lnMkWLYb0U5VJSjzW/R0nbmYYkejWzX+FGljpm9cJH+2M1dT1wsvh6DYKWqCo8d0
-	HnlGJfuPrkAKd4g7V9/Sd1TmMn71KWVMkNFUcN6TtXRnJyzUKQBX59WTZ9oULIEgmzD3aSBPzqsM6
-	obj4HH/6IlvMlDPVW8jODqyZQbPeUmSwf/M//nsHmReSs73cELmuxjPFUiXPOtKaQXMLRLxSgyzVO
-	FZ/xM4e6ItQTrGQMVPhN5kE/sGTEftasYqzNQd96oa1zDtbW3NGjvcLEbdY8TmFvUDrbzzPsqMo5f
-	KIyfODjw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=dhtbCU3GSz2mEXV2JGmRz2FQjficBt4XaAng4rRz9xo=; b=3EWTRHHcAUqeo0UFa3VLD2SC6w
+	Ub+Fnha1fEnk8P2l9JVE1K3KuNH6Yw5g/AIT925KjHq7gNfDXwMZputWvbShW9raIlCIJgPRekuBj
+	euYiXCGt0V66lv/qob2/B4ufTTLqhwJeSNqhBVwcSBw/gzYEyl5gpSLTgqHRD57uT65knQptq//wy
+	KnoOzV+bh5b08pSu9Au9r+P2uMDrWWZPqF1p4FVhZ/TNm1jISBVSnhsvP/uRD0zAJWBh0C7TLauEM
+	C7GQdo0w5lbbmcZb1xhSAuod/bXo8hx7KitUBsVCwjGrUhdZt7goG1BKV67U/F8QqTBZ5VbcyImfM
+	wu66bCmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaEfO-0000000F1EW-3wO3;
-	Fri, 11 Jul 2025 14:23:58 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1uaEhi-0000000F1TR-40kf;
+	Fri, 11 Jul 2025 14:26:22 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaEd2-0000000F0xJ-2M4f
+	id 1uaEdp-0000000F132-0vvW
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 11 Jul 2025 14:22:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=dhtbCU3GSz2mEXV2JGmRz2FQjficBt4XaAng4rRz9xo=; b=iayynzXaOwJt735ZltZ8z/vEYA
+	HL4WkcaKX7lbvp8MUijFqhQVLcrgt3ZaTE27kxNhZvt4Qvd/btc1Jir3HKajfRHPo+fYa4NHNE185
+	mcm94Zi2T2BucldpkA+bht55qpGEghdYYO21coYZMKRrZRSceZC7twV4JQhXGvLqaZ995/dC5vfxm
+	RoCtF5zYHxAKf/2gNWN0OuhK/IpG9myDUoZUje6Fo6YR3LCzu6FzjoV9vuH+Ay9ExX3ZAvOMlsvjZ
+	beT3/MG/Fc70z/tFzb7gGVHD87cSr0H9ALzFcnYvdyRuh04H237Pmeb2dI4lIZhwal02M6+cRrzCG
+	A9jC01DA==;
+Received: from out-182.mta1.migadu.com ([95.215.58.182])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uaEdk-00000009I5V-231Y
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Jul 2025 14:21:34 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.31])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4bdv273Qt7z6L55H;
-	Fri, 11 Jul 2025 22:18:07 +0800 (CST)
-Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
-	by mail.maildlp.com (Postfix) with ESMTPS id BABF81402EF;
-	Fri, 11 Jul 2025 22:21:25 +0800 (CST)
-Received: from localhost (10.203.177.66) by frapeml500008.china.huawei.com
- (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Fri, 11 Jul
- 2025 16:21:25 +0200
-Date: Fri, 11 Jul 2025 15:21:23 +0100
-From: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-To: Ben Horgan <ben.horgan@arm.com>
-CC: James Morse <james.morse@arm.com>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, Greg Kroah-Hartman
-	<gregkh@linuxfoundation.org>, "Rafael J . Wysocki" <rafael@kernel.org>,
-	<sudeep.holla@arm.com>, Rob Herring <robh@kernel.org>, Catalin Marinas
-	<catalin.marinas@arm.com>, <WillDeaconwill@kernel.org>
-Subject: Re: [PATCH v2 1/3] cacheinfo: Set cache 'id' based on DT data
-Message-ID: <20250711152123.00002153@huawei.com>
-In-Reply-To: <9a1ae272-3128-425b-828d-50b2289a6cb8@arm.com>
-References: <20250704173826.13025-1-james.morse@arm.com>
-	<20250704173826.13025-2-james.morse@arm.com>
-	<9495df36-053e-49a3-8046-1e6aed63b4af@arm.com>
-	<20250707133207.00001b88@huawei.com>
-	<89c6f2a2-e084-4899-a6d6-819917eb6324@arm.com>
-	<9a1ae272-3128-425b-828d-50b2289a6cb8@arm.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	Fri, 11 Jul 2025 14:22:19 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow.org; s=key1;
+	t=1752243715;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=dhtbCU3GSz2mEXV2JGmRz2FQjficBt4XaAng4rRz9xo=;
+	b=Lg5ijLxO5CRdonuTMfVh2iFNTsNoo2FIm5duJWI8gUfMuR2Bqp0Ouoql8t8y8woakXJqf6
+	J1nUXUX/uEN47Dn/ddcfqA1zfk/F8U6dPoCltAT9zwjL86Iv0q4nJAG0xdcOMw52fwzcWF
+	gZOugybV2W0FrVZbF35XoUoWeG9Du6Fl8y3aPoMnVlPQK2t5B/y9EQqkK2IkToQoTUQqqZ
+	wtbLxp/eiSnvAJ6i02TlLOjtVu3CRZrkwGL2TfBYcT8nRDWFbfddTefKRjDs26GK4wRUOF
+	c8mnidSdNzSl9ti5K23O3vOZMZy0YFuY2YPTqNQbeKkctXD1RhKNuDMizKBINw==
+From: Diederik de Haas <didi.debian@cknow.org>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>
+Cc: devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Diederik de Haas <didi.debian@cknow.org>
+Subject: [PATCH v2] arm64: dts: rockchip: Add reset button to NanoPi R5S
+Date: Fri, 11 Jul 2025 16:20:37 +0200
+Message-ID: <20250711142138.197445-1-didi.debian@cknow.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.203.177.66]
-X-ClientProxiedBy: lhrpeml500005.china.huawei.com (7.191.163.240) To
- frapeml500008.china.huawei.com (7.182.85.71)
+Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250711_072132_893763_4BA93A5F 
-X-CRM114-Status: GOOD (  30.91  )
+X-CRM114-CacheID: sfid-20250711_152217_057262_39330B0D 
+X-CRM114-Status: GOOD (  10.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,106 +87,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 10 Jul 2025 12:24:01 +0100
-Ben Horgan <ben.horgan@arm.com> wrote:
+The NanoPi R5S LTS version has a reset button, which is connected via
+GPIO. Note that the non-LTS version does not have the reset button and
+therefore on page 19 of the schematic version 2204 it is marked 'NC',
+but it is connected on the LTS version.
 
-> Hi James and Jonathan,
-> 
-> On 7/10/25 12:15, James Morse wrote:
-> > Hi Ben, Jonathan,
-> > 
-> > On 07/07/2025 13:32, Jonathan Cameron wrote:  
-> >> On Mon, 7 Jul 2025 11:27:06 +0100
-> >> Ben Horgan <ben.horgan@arm.com> wrote:  
-> >>> On 7/4/25 18:38, James Morse wrote:  
-> >>>> From: Rob Herring <robh@kernel.org>
-> >>>> Use the minimum CPU h/w id of the CPUs associated with the cache for the
-> >>>> cache 'id'. This will provide a stable id value for a given system. As
-> >>>> we need to check all possible CPUs, we can't use the shared_cpu_map
-> >>>> which is just online CPUs. As there's not a cache to CPUs mapping in DT,
-> >>>> we have to walk all CPU nodes and then walk cache levels.
-> >>>>
-> >>>> The cache_id exposed to user-space has historically been 32 bits, and
-> >>>> is too late to change. This value is parsed into a u32 by user-space
-> >>>> libraries such as libvirt:
-> >>>> https://github.com/libvirt/libvirt/blob/master/src/util/virresctrl.c#L1588
-> >>>>
-> >>>> Give up on assigning cache-id's if a CPU h/w id greater than 32 bits
-> >>>> is found.  
-> >   
-> >>>> diff --git a/drivers/base/cacheinfo.c b/drivers/base/cacheinfo.c
-> >>>> index cf0d455209d7..df593da0d5f7 100644
-> >>>> --- a/drivers/base/cacheinfo.c
-> >>>> +++ b/drivers/base/cacheinfo.c
-> >>>> @@ -183,6 +184,42 @@ static bool cache_node_is_unified(struct cacheinfo *this_leaf,
-> >>>>    	return of_property_read_bool(np, "cache-unified");
-> >>>>    }
-> >>>>    
-> >>>> +static bool match_cache_node(struct device_node *cpu,
-> >>>> +			     const struct device_node *cache_node)
-> >>>> +{
-> >>>> +	for (struct device_node *cache __free(device_node) = of_find_next_cache_node(cpu);  
-> >>> Looks like the creation of this helper function has upset the
-> >>> device_node reference counting. This first __free(device_node) will only
-> >>> cause of_node_put() to be called in the case of the early return from
-> >>> the loop. You've dropped the second __free(device_node) which accounts
-> >>> for 'cache' changing on each iteration.  
-> > 
-> > Heh, I just took this hunk verbatim. Fixing this up with the __free() magic is tricky as
-> > the existing patterns all drop the reference to cpu, which we don't want to do here. I
-> > think at this point the __free() magic is just making this harder to understand. How about
-> > the old fashioned way:
-> > 
-> > | static bool match_cache_node(struct device_node *cpu,
-> > |                              const struct device_node *cache_node)
-> > | {
-> > |         struct device_node *prev, *cache = of_find_next_cache_node(cpu);
-> > |
-> > |         while (cache) {
-> > |                 if (cache == cache_node) {
-> > |                         of_node_put(cache);
-> > |                         return true;
-> > |                 }
-> > |
-> > |                 prev = cache;
-> > |                 cache = of_find_next_cache_node(cache);
-> > |                 of_node_put(prev);
-> > |         }
-> > |
-> > |         return false;
-> > | }  
-> Ok with me.
-Agreed. 
+Signed-off-by: Diederik de Haas <didi.debian@cknow.org>
+---
+Changes in v2:
+- add 'pin' suffix to pinctrl nodes names/labels
 
-> > 
-> >   
-> >> Good catch - this behaves differently from many of the of_get_next* type
-> >> helpers in that it doesn't drop the reference to the previous iteration
-> >> within the call.
-> >>
-> >> Maybe it should?
-> >>
-> >> I checked a few of the call sites and some would be simplified if it did
-> >> others would need some more complex restructuring but might benefit as
-> >> well.  
-> > 
-> > If it did, we'd end up dropping the reference to cpu on the way in, which
-> > of_get_next_cpu_node() in for_each_of_cpu_node() was expecting to do.  
-> 
-> Yes, I think the blurring of the lines between a cpu node and cache node 
-> is at least partially to blame for the confusion here.
-Yes.  That is more than a little ugly!
+ .../boot/dts/rockchip/rk3568-nanopi-r5s.dts   | 19 +++++++++++++++++++
+ 1 file changed, 19 insertions(+)
 
-> > 
-> > 
-> > Thanks,
-> > 
-> > James  
-> 
-> Thanks,
-> 
-> Ben
-> 
-> 
+diff --git a/arch/arm64/boot/dts/rockchip/rk3568-nanopi-r5s.dts b/arch/arm64/boot/dts/rockchip/rk3568-nanopi-r5s.dts
+index 3b31f0dd8f3b..c12bd01e2805 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3568-nanopi-r5s.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3568-nanopi-r5s.dts
+@@ -17,6 +17,19 @@ aliases {
+ 		ethernet0 = &gmac0;
+ 	};
+ 
++	gpio-keys {
++		compatible = "gpio-keys";
++		pinctrl-0 = <&gpio4_a0_k1_pin>;
++		pinctrl-names = "default";
++
++		button-reset {
++			debounce-interval = <50>;
++			gpios = <&gpio4 RK_PA0 GPIO_ACTIVE_LOW>;
++			label = "RESET";
++			linux,code = <KEY_RESTART>;
++		};
++	};
++
+ 	gpio-leds {
+ 		compatible = "gpio-leds";
+ 		pinctrl-names = "default";
+@@ -127,6 +140,12 @@ eth_phy0_reset_pin: eth-phy0-reset-pin {
+ 		};
+ 	};
+ 
++	gpio-keys {
++		gpio4_a0_k1_pin: gpio4-a0-k1-pin {
++			rockchip,pins = <4 RK_PA0 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++	};
++
+ 	gpio-leds {
+ 		lan1_led_pin: lan1-led-pin {
+ 			rockchip,pins = <3 RK_PD6 RK_FUNC_GPIO &pcfg_pull_none>;
+-- 
+2.50.0
 
 
