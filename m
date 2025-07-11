@@ -4,109 +4,139 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B29E4C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 21:59:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6ECF7C83F1B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 21:59:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CnoRRDhtGSOPAPWiKhq8LlJyfNIEUB0lnKlvZ+LO7jU=; b=gmbC6BOQea0MTQlb5HEXY4LX5b
-	FYffQZxmlp3o/hFLeh7C+PqwEtBiRVzYoK/xRm6UZ9YsKhRletmlZFkC/X0+w+mPDq3daJPdZTCPw
-	iADGKq3tXyEoxUjaJ4OIgvNHDvFUg5ZaNEb7QMTOdS2dA0mCYr95dHS4ZDC2CJQdkBukCqlHxMu8t
-	eNP2bhEArP5tV61dQiX5MT+tNofivzjr2YnnXB8TwjpmiFBV/kTgad5w2MapaxUY3QZryHPPkycZ5
-	LANiu87TRCnL3DJoNGzwuHgyncGpf03H3eBrPfFT1Y0/4OoUJwT0WUy/pIuf+pY0FnYihmNsvTsNZ
-	w4KCRFDw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=figFQ8fxg9cXbHIG0cfZPreruTH0LhnZAOnvAX19R1M=; b=rUWkpv2EPytWZUbTuOhhnzHZfn
+	qTWKDK6VlF9o27M14Obf2MppBszI27IO7g19QABxxHExIvOwbOu5b+46LdrCPpVm8Knr+3hxM44Mo
+	+2PNxKt5e7mpL/qU1J20to9BPrm8+iubRBPo/NPzHrgHUUFXgOQ3wKUjl430Mq+V7OqhpcZ3v6zjX
+	BbtujNFUbBRwWSa1VFBcG2TkLHFRnvV8Cv1pwVAee9OgnHKQVYwcj0lFo/1vsc28SwK7h7qBa1AiF
+	QKCmFNih2Q15sqI2lhfiCL5bCZo0a6f5UMzYCUxapFD8lLTj27M1iT4U7SqKuv+Umbj7VipSOaizz
+	LUYtwlfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaLm2-0000000FvPO-2S3J;
-	Fri, 11 Jul 2025 21:59:18 +0000
-Received: from mail-qt1-x836.google.com ([2607:f8b0:4864:20::836])
+	id 1uaLm3-0000000FvPu-2Zk2;
+	Fri, 11 Jul 2025 21:59:19 +0000
+Received: from mail-mw2nam12on20614.outbound.protection.outlook.com ([2a01:111:f403:200a::614] helo=NAM12-MW2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaJwm-0000000FkoW-15td
+	id 1uaKYJ-0000000FnyU-1mKe
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Jul 2025 20:02:17 +0000
-Received: by mail-qt1-x836.google.com with SMTP id d75a77b69052e-4a58d95ea53so31203121cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Jul 2025 13:02:16 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ndufresne-ca.20230601.gappssmtp.com; s=20230601; t=1752264135; x=1752868935; darn=lists.infradead.org;
-        h=mime-version:user-agent:autocrypt:references:in-reply-to:date:cc:to
-         :from:subject:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=CnoRRDhtGSOPAPWiKhq8LlJyfNIEUB0lnKlvZ+LO7jU=;
-        b=1HYUFcO16dth0IYdoFQ61IO7+BEWhGud5e7/W3vyoCUsxh/L3L+3Vizi1DbzdMR9BE
-         9DlDEeMIO19205E8ymSkH231iICmq85mqKqFlvPAyfIRa50s9J/+kH9kYS9Spm6ohU0F
-         WYc44Vq83j/JyTKvsDLh9W/ZTlCHM/AhGam1KTLAxd39yHp5cFVICIRSAqFxOoTrPSGG
-         vaSBY/tGRus+rSAUccZUHIWgzsjcVRcSOPqWdlupkLAeRTqgvZntY/Q+ayscCG+Vu+AK
-         2rvCszXTJOVpKtdlbqdXpA2Q1uWdqFGOyFGsbW4/GqPR3viH8xk7LCN+8zfqstYkAmZQ
-         DRMQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752264135; x=1752868935;
-        h=mime-version:user-agent:autocrypt:references:in-reply-to:date:cc:to
-         :from:subject:message-id:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=CnoRRDhtGSOPAPWiKhq8LlJyfNIEUB0lnKlvZ+LO7jU=;
-        b=ilxxRFBZkOethjCPEi37CkLy1KwP2PPEstsggqUHDq/Fv1MGEF6ugdo3bkxYiJ0kPj
-         C+yeRJMgVJjXXdL1v/kA9evDaOSQ52GDNtPuOhQNH/2Laj+rZ6PK5LENx2CIF6ANhLFt
-         kt4joHSSsU8J4BUEKrma41nxfHMXNDjnNRq6xH9J32IQEpWfwKSKoDhNhPXIv+K8ijRF
-         wIBtwSTSwAHUTAHrs6t729LZSlX2IFFr1a6Hv1mZutMWKePF8vU0LqP9dkZahKOTRAbe
-         UQR8aFv7px7MzOyx8JkITJ7I+vfywhIY5rFiNWY9Ouj//bHHjCsdVBpAe347PV8CIFKu
-         ibdA==
-X-Forwarded-Encrypted: i=1; AJvYcCWZUDuALWw/kd9fUEOAz8RdmnDO8QyqA6Gf04f4pNGi/MpZ6//mdK+RvRwSb8WXoIkuM2KiaaCRpBhR3Zg5aVN+@lists.infradead.org
-X-Gm-Message-State: AOJu0YzXETFV0nQIf2+jEzD8i+uOqntpMhT+IbTZbo63OwzPiDQA1MYK
-	GXkLceGdDr5yzTfJ1wB/FSZmg+hVjV6ARIQb1PcSHXkjXqCBWgY/2MO9rnaW4yoiRao=
-X-Gm-Gg: ASbGncsg4lVORp4lP0HYbh3uoR5WB0ZvrxHsJvHMuztp7FDdyUH9SCE7uQAwwdURtvB
-	sn6jrccjpYHIAyxRYRI0ejAM0cxRMwZekKyJxw43O4yaDM26ehcMVHLQHGSuAdaaskKrx6N5tQz
-	NLRC7bDjGMDXvJxRiL4KwTnj8X45UdRfcJoEvCM7WQMHGSxTPzGoAVpH5z625OMEmXnxWqavuyU
-	1B+HHz4HEiTwyq3Yio1Lj6EwPpp3esQnV6EZ0ZxKnGuExLTJmj504iczynC5R6owdANieM68psE
-	Uj1Fs2ylCAQlWKy8phjj2PpvY9Qqbe/dJn3/8KQn6biomt7cDuVzj+VMgb8T04UBa19MqzR3L+z
-	v4e8oaaYRXsaK5Wp/qZOBE8vPbpqSRSALY55X5A==
-X-Google-Smtp-Source: AGHT+IEuLOxF/UAqwKLexQXJclEkYrpc7aYrRvWVeUsA+st+Tdi3sBUDzBI9yFbWLfbip40hyoxWTg==
-X-Received: by 2002:a05:622a:a38c:b0:4ab:37d7:c3c2 with SMTP id d75a77b69052e-4ab37d7c5b1mr34888811cf.14.1752264135009;
-        Fri, 11 Jul 2025 13:02:15 -0700 (PDT)
-Received: from ?IPv6:2606:6d00:17:b699::5ac? ([2606:6d00:17:b699::5ac])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-4a9edefb923sm24313601cf.75.2025.07.11.13.02.12
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 11 Jul 2025 13:02:13 -0700 (PDT)
-Message-ID: <447205bfe4089eb6231fa17a1fff3d58806ec7d3.camel@ndufresne.ca>
-Subject: Re: [PATCH 8/8] media: rkvdec: Unstage the driver
-From: Nicolas Dufresne <nicolas@ndufresne.ca>
-To: Detlev Casanova <detlev.casanova@collabora.com>, 
-	linux-kernel@vger.kernel.org
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-  Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Sebastian Reichel	 <sebastian.reichel@collabora.com>, Cristian Ciocaltea	
- <cristian.ciocaltea@collabora.com>, Alexey Charkov <alchark@gmail.com>, 
- Dragan Simic <dsimic@manjaro.org>, Jianfeng Liu
- <liujianfeng1994@gmail.com>, Nicolas Frattaroli	
- <nicolas.frattaroli@collabora.com>, Kever Yang <kever.yang@rock-chips.com>,
-  Andy Yan <andy.yan@rock-chips.com>, Frank Wang
- <frank.wang@rock-chips.com>, 	devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, 	linux-rockchip@lists.infradead.org,
- Ezequiel Garcia	 <ezequiel@vanguardiasur.com.ar>, Mauro Carvalho Chehab
- <mchehab@kernel.org>,  Hans Verkuil <hverkuil@xs4all.nl>, Ricardo Ribalda
- <ribalda@chromium.org>, Hans de Goede <hansg@kernel.org>,  Yunke Cao
- <yunkec@google.com>, linux-media@vger.kernel.org, kernel@collabora.com
-Date: Fri, 11 Jul 2025 16:02:11 -0400
-In-Reply-To: <20250623160722.55938-9-detlev.casanova@collabora.com>
-References: <20250623160722.55938-1-detlev.casanova@collabora.com>
-	 <20250623160722.55938-9-detlev.casanova@collabora.com>
-Autocrypt: addr=nicolas@ndufresne.ca; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0MU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAY29sbGFib3JhLmNvbT6ImQQTFg
- oAQQIbAwULCQgHAgIiAgYVCgkICwIEFgIDAQIeBwIXgBYhBO8NUoEVxMPCGgRvEtlBlFEpYHL0BQJ
- oLLLGBQkJZfd1AAoJENlBlFEpYHL0BEkA/3qkWYt99myYFSmTJUF8UB/7OroEm3vr1HRqXeQe9Qp2
- AP0bsoAe6KjEPa/pJfuJ2khrOPPHxvyt/PBNbI5BYcIABLQnTmljb2xhcyBEdWZyZXNuZSA8bmljb
- 2xhc0BuZHVmcmVzbmUuY2E+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4AWIQ
- TvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyy+AUJCWX3dQAKCRDZQZRRKWBy9FJ5AQCNy8SX8DpHbLa
- cy58vgDwyIpB89mok9eWGGejY9mqpRwEAhHzs+/n5xlVlM3bqy1yHnAzJqVwqBE1D0jG0a9V6VQI=
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-TRLqz3hiMlUTgCc1wc3h"
-User-Agent: Evolution 3.56.2 (3.56.2-1.fc42) 
+	Fri, 11 Jul 2025 20:41:07 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=A7/LWwvh+FO+yVLuYiGr76g1OcVnyW1JcMwQp1GTWo+dxSdqtgCJP5hmi0Pl8RoxX2PkZVr1GhNHpxxiWUE1WuEE4Irn4xBl/RS1ihZcSEK+fnZ1vfWwq3TqTXN09AXBTaU++lpd0TWcUTzMvY7PxnLp8ZLaAVwRKx4dU2LkCEZ9oyuK9NY5YzgEoPTypB2/V7uh3TyeC6iwywZY92FC8yn3/oSH6AbGm3VR2as1YNM4xEreK3tTiLNEDteo0Z/2Z6ez9FY0WK7v4D+cDeW4Q9B2+Sscgugb/yTv98a8V+Xd8bRUMb7J8TzhodDZkM/Vnk78illYee4/hvswaCR1Zw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=figFQ8fxg9cXbHIG0cfZPreruTH0LhnZAOnvAX19R1M=;
+ b=rOiv6+R57yn9bx8a8MPLrkt4XNZTTmtLh1m86wZdlh2YycIBtOaKFnQ6NxcVUPAh6Hr9gHA7NKQiTHF44+Wt9IWs5c7o9szaY2a10VBO7GVDp54xR0BwQjdSV2rsXMpbR566D8Kuzou4c7IgWS5cB0747c5jBs8o/5/0AYPxLTwgo8ZimAHl/f0CeT55zq/B/bc3vGsE3MKoyLZmD1jtzpOvSuZb+/FLS762DKs5taYaBWAIotus1GV7ND/dcYvTTfib9GVK+Rc7xElC7NLJn/4ceggQLVu6jrKV57YpaEDyhbYoE7sUUUnIvv1t13mjG2z6u6LsWHsFfqrEBPDEHg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.118.232) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=figFQ8fxg9cXbHIG0cfZPreruTH0LhnZAOnvAX19R1M=;
+ b=PgxEg9DllxhG3c+oDMq0SqbQVZrcWuVomMZRxR7MC6u4d5D1QIftmWVYgAYWJ4cJgTReb6zNDqPQIcgxVFNo6OTa0vOeSjcZsaAKp8Bs1pS1L7jcxzuIRFxC2OjmvF4jnI6QWnxdJxsR8I18nwOmpc0hTret3otxO02RhN6pHI3af0nBB/n1UvZl3xfGAE/x3NJePzNKf7yEzsOkU1DrkLmjSj0HwXJHWygStSpHby0XOoBvPov/QhHtaKKGzQmsLCv1qekxPTVRa5Mw9fNF+mBTPgwwmVlAmRFdFQG+PjUhsfzzuvrwFGYqooDcTtexddaQod54qEivny8Abb+aDw==
+Received: from BN9PR03CA0734.namprd03.prod.outlook.com (2603:10b6:408:110::19)
+ by DM6PR12MB4316.namprd12.prod.outlook.com (2603:10b6:5:21a::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8922.27; Fri, 11 Jul
+ 2025 20:40:54 +0000
+Received: from BN2PEPF000044AA.namprd04.prod.outlook.com
+ (2603:10b6:408:110:cafe::2d) by BN9PR03CA0734.outlook.office365.com
+ (2603:10b6:408:110::19) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8901.27 via Frontend Transport; Fri,
+ 11 Jul 2025 20:40:54 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.232)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.118.232) by
+ BN2PEPF000044AA.mail.protection.outlook.com (10.167.243.105) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8922.22 via Frontend Transport; Fri, 11 Jul 2025 20:40:54 +0000
+Received: from drhqmail201.nvidia.com (10.126.190.180) by mail.nvidia.com
+ (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Fri, 11 Jul
+ 2025 13:40:45 -0700
+Received: from drhqmail202.nvidia.com (10.126.190.181) by
+ drhqmail201.nvidia.com (10.126.190.180) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.14; Fri, 11 Jul 2025 13:40:44 -0700
+Received: from Asurada-Nvidia.nvidia.com (10.127.8.14) by mail.nvidia.com
+ (10.126.190.181) with Microsoft SMTP Server id 15.2.1544.14 via Frontend
+ Transport; Fri, 11 Jul 2025 13:40:44 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: <will@kernel.org>
+CC: <robin.murphy@arm.com>, <joro@8bytes.org>, <jgg@nvidia.com>,
+	<praan@google.com>, <baolu.lu@linux.intel.com>,
+	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>
+Subject: [PATCH rc v2] iommu/arm-smmu-v3: Revert vmaster in the error path
+Date: Fri, 11 Jul 2025 13:40:20 -0700
+Message-ID: <20250711204020.1677884-1-nicolinc@nvidia.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-NV-OnPremToCloud: AnonymousSubmission
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN2PEPF000044AA:EE_|DM6PR12MB4316:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2b206e98-ee5f-4861-1717-08ddc0bb3b5d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700013|376014|82310400026;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?5YPZkHDndP+silLWCJAHeKRNLgeA0ts3ocW08jIsZhWa7Wkl0CoUCu+WSymG?=
+ =?us-ascii?Q?K06RA/zfL2aTbkxoo405qFl5SIKNrhtBqE5BTdvWdjkuRam0Q9qSNk+4dizA?=
+ =?us-ascii?Q?2L96a5L+99dmYABl/IGpaMQ4Q6RAQG6byD7Z6YISmqKua8iqSViFrhlnDpUr?=
+ =?us-ascii?Q?/M8z9KX/vw0XH/w7i6Z3Xh0VfdQqT5vXJu6VmMWdWoqwZP02uFYNI8ysaNFN?=
+ =?us-ascii?Q?iQGgRr7e6Dipdc+MhdvrwG7VSc6R8fs4InoBSqWZXomqufpQMnWDYJvL2GH3?=
+ =?us-ascii?Q?HBCztV/ETV84kei68lfEXocUrZmGvl36GlOCgBGhzLPhW8ebWc/coRvoMQ0b?=
+ =?us-ascii?Q?JAmj3Xm7yCn1PcmLk8hi0RHZDNqKpBxqqMO9A+F9wKMUuxeTLtmzEZf3Qwr1?=
+ =?us-ascii?Q?VHWJXzUvZwOMW7vYHwPliA6B76mzgLxsYwcM1T8hjiwZg4bObqt5+mw8hstl?=
+ =?us-ascii?Q?p/+04XfmCB/bE6PgBmfQXB63FanewINO+zUvm/na/MPaKsBtXLH9aAhsUL6z?=
+ =?us-ascii?Q?yYHZY6aP5VNVbLL96Z0ujDZrmSBIdniOgH7Zhs+WGyMg0lsmzNECAZ8aTyBh?=
+ =?us-ascii?Q?QiCr5Ut8JDv5y26D2c39D1I7uRVUg3W7w4xbXAfd0tbL6H9JEw7SaXkWeDvW?=
+ =?us-ascii?Q?S9ArrYWNVoa86gVkE8LUZJIgsqkKzM6/RF3RGpq9DpFFf9FWsipxiZ1QAB9N?=
+ =?us-ascii?Q?pcRuKpymRw6SKxl3FwlgDMi8RxlIl6Tg+tQF2H/eQZH9q2+7Gwa121pmkTM+?=
+ =?us-ascii?Q?FneEhRhEs9nEnjF/2nw/o7KykC3Agi7+6cQ0N59Cea7OLLWAd9t/CfEv4pmG?=
+ =?us-ascii?Q?ThyLPY+hP5UsngSbR0xcfEKgxgjCbn2IZEEXR09pQF9utnBIr9+9P+rMgOZR?=
+ =?us-ascii?Q?UPzP4vW2YF0f8asLTDvtl8eFKbz/G3sDPDJOzkBFkfuJvU7Q6nwm4pZI42Wr?=
+ =?us-ascii?Q?IXpOZA4v5LGNT/w3oD4QbRdjbDUfSCEytRorrynIgD0dkn8rbhd+fYdaVSpr?=
+ =?us-ascii?Q?TN5RKvQQY5HetAkurh9Zra+w6ivRW3WO33e7vDjS/dfGcxjrWY/eQV3Apg8i?=
+ =?us-ascii?Q?3/ldh+DMIcn3WsmNUnZxV9+8mTnmi9BIn5aKjQZa5Z6YdRaJOv7qiRjEnBzY?=
+ =?us-ascii?Q?B71o48GiNDI8xHMIT8EHVCcP3lOAJh5dMt7vstFeVGFCDPNCkzyT/NYQym4j?=
+ =?us-ascii?Q?p2ozMjKgT1AgkbT2xj+uQLI5iaTeRhxfqE6imMtMbl82jaTqggiTtzclptIk?=
+ =?us-ascii?Q?0Jnj5YB8XT2Vr8EYD6pV6bm9lc/l/YrU1CADqY2AwALm5lqNvsP6f7AimXeN?=
+ =?us-ascii?Q?Na5QuIuXlvEXonhFdQzcmqbgnGUKrRI4rZE7baxyG/MVrW6YV5dGzbJZwDGV?=
+ =?us-ascii?Q?yKBZ4i7010Y3ODG0jMyMIYdqTfY2i4ZLuphdHw/Dd9Jm6A/DgCeeAjcLnewF?=
+ =?us-ascii?Q?yKd8gGSvkV/Zk5P+vfevxRrQjoM9//pcdJRXpkCC1QPRV5KkgrjXYuxbFjRU?=
+ =?us-ascii?Q?iluhGBNqXOkptj+XUtHxaRuxqVsSbHvwG/k2QAtBTL//pSQn2CsNJ5fFig?=
+ =?us-ascii?Q?=3D=3D?=
+X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(36860700013)(376014)(82310400026);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Jul 2025 20:40:54.1914
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2b206e98-ee5f-4861-1717-08ddc0bb3b5d
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN2PEPF000044AA.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR12MB4316
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250711_130216_305676_E5C42236 
-X-CRM114-Status: GOOD (  16.27  )
+X-CRM114-CacheID: sfid-20250711_134103_647896_02F8FFFA 
+X-CRM114-Status: UNSURE (   8.60  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,191 +151,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The error path for err_free_master_domain leaks the vmaster. Move all
+the kfrees for vmaster into the goto error section.
 
---=-TRLqz3hiMlUTgCc1wc3h
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Fixes: cfea71aea921 ("iommu/arm-smmu-v3: Put iopf enablement in the domain attach path")
+Cc: stable@vger.kernel.org
+Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+Reviewed-by: Pranjal Shrivastava <praan@google.com>
+Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+---
+Changelog
+v2:
+ * Simplify commit message
+ * Add "Reviewed-by" from Jason and Pranjal
+v1:
+ https://lore.kernel.org/all/20250710233003.1662029-1-nicolinc@nvidia.com/
 
-Le lundi 23 juin 2025 =C3=A0 12:07 -0400, Detlev Casanova a =C3=A9crit=C2=
-=A0:
-> The TODO list for unstaging being empty, the driver can now be moved to t=
-he
-> main media folder.
->=20
-> Also add myself as maintainer.
->=20
-> Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 7 ++++---
+ 1 file changed, 4 insertions(+), 3 deletions(-)
 
-Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+index 181d07bc1a9d..3c79cdbbd9e7 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+@@ -2906,8 +2906,8 @@ int arm_smmu_attach_prepare(struct arm_smmu_attach_state *state,
+ 
+ 		master_domain = kzalloc(sizeof(*master_domain), GFP_KERNEL);
+ 		if (!master_domain) {
+-			kfree(state->vmaster);
+-			return -ENOMEM;
++			ret = -ENOMEM;
++			goto err_free_vmaster;
+ 		}
+ 		master_domain->domain = new_domain;
+ 		master_domain->master = master;
+@@ -2941,7 +2941,6 @@ int arm_smmu_attach_prepare(struct arm_smmu_attach_state *state,
+ 		    !arm_smmu_master_canwbs(master)) {
+ 			spin_unlock_irqrestore(&smmu_domain->devices_lock,
+ 					       flags);
+-			kfree(state->vmaster);
+ 			ret = -EINVAL;
+ 			goto err_iopf;
+ 		}
+@@ -2967,6 +2966,8 @@ int arm_smmu_attach_prepare(struct arm_smmu_attach_state *state,
+ 	arm_smmu_disable_iopf(master, master_domain);
+ err_free_master_domain:
+ 	kfree(master_domain);
++err_free_vmaster:
++	kfree(state->vmaster);
+ 	return ret;
+ }
+ 
+-- 
+2.43.0
 
-> ---
-> =C2=A0MAINTAINERS=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 | =
-8 ++++++++
-> =C2=A0drivers/media/platform/rockchip/Kconfig=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0 | 1 +
-> =C2=A0drivers/media/platform/rockchip/Makefile=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
- | 1 +
-> =C2=A0.../media =3D> media/platform/rockchip}/rkvdec/Kconfig=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0 | 0
-> =C2=A0.../media =3D> media/platform/rockchip}/rkvdec/Makefile=C2=A0=C2=A0=
-=C2=A0=C2=A0 | 0
-> =C2=A0.../platform/rockchip}/rkvdec/rkvdec-h264.c=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 | 0
-> =C2=A0.../platform/rockchip}/rkvdec/rkvdec-regs.h=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 | 0
-> =C2=A0.../media =3D> media/platform/rockchip}/rkvdec/rkvdec-vp9.c | 0
-> =C2=A0.../media =3D> media/platform/rockchip}/rkvdec/rkvdec.c=C2=A0=C2=A0=
-=C2=A0=C2=A0 | 0
-> =C2=A0.../media =3D> media/platform/rockchip}/rkvdec/rkvdec.h=C2=A0=C2=A0=
-=C2=A0=C2=A0 | 0
-> =C2=A0drivers/staging/media/Kconfig=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 | 2 --
-> =C2=A0drivers/staging/media/Makefile=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 | 1 -
-> =C2=A012 files changed, 10 insertions(+), 3 deletions(-)
-> =C2=A0rename drivers/{staging/media =3D> media/platform/rockchip}/rkvdec/=
-Kconfig
-> (100%)
-> =C2=A0rename drivers/{staging/media =3D> media/platform/rockchip}/rkvdec/=
-Makefile
-> (100%)
-> =C2=A0rename drivers/{staging/media =3D> media/platform/rockchip}/rkvdec/=
-rkvdec-
-> h264.c (100%)
-> =C2=A0rename drivers/{staging/media =3D> media/platform/rockchip}/rkvdec/=
-rkvdec-
-> regs.h (100%)
-> =C2=A0rename drivers/{staging/media =3D> media/platform/rockchip}/rkvdec/=
-rkvdec-vp9.c
-> (100%)
-> =C2=A0rename drivers/{staging/media =3D> media/platform/rockchip}/rkvdec/=
-rkvdec.c
-> (100%)
-> =C2=A0rename drivers/{staging/media =3D> media/platform/rockchip}/rkvdec/=
-rkvdec.h
-> (100%)
->=20
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index c3f7fbd0d67af..d05a153c21526 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -21466,6 +21466,14 @@ S:	Maintained
-> =C2=A0F:	Documentation/devicetree/bindings/media/rockchip-rga.yaml
-> =C2=A0F:	drivers/media/platform/rockchip/rga/
-> =C2=A0
-> +ROCKCHIP RKVDEC VIDEO DECODER DRIVER
-> +M:	Detlev Casanova <detlev.casanova@collabora.com>
-> +L:	linux-media@vger.kernel.org
-> +L:	linux-rockchip@lists.infradead.org
-> +S:	Maintained
-> +F:	Documentation/devicetree/bindings/media/rockchip,vdec.yaml
-> +F:	drivers/media/platform/rockchip/rkvdec/
-> +
-> =C2=A0ROCKCHIP RK3308 INTERNAL AUDIO CODEC
-> =C2=A0M:	Luca Ceresoli <luca.ceresoli@bootlin.com>
-> =C2=A0S:	Maintained
-> diff --git a/drivers/media/platform/rockchip/Kconfig
-> b/drivers/media/platform/rockchip/Kconfig
-> index b41d3960c1b41..9bbeec4996aa2 100644
-> --- a/drivers/media/platform/rockchip/Kconfig
-> +++ b/drivers/media/platform/rockchip/Kconfig
-> @@ -4,3 +4,4 @@ comment "Rockchip media platform drivers"
-> =C2=A0
-> =C2=A0source "drivers/media/platform/rockchip/rga/Kconfig"
-> =C2=A0source "drivers/media/platform/rockchip/rkisp1/Kconfig"
-> +source "drivers/media/platform/rockchip/rkvdec/Kconfig"
-> diff --git a/drivers/media/platform/rockchip/Makefile
-> b/drivers/media/platform/rockchip/Makefile
-> index 4f782b876ac9b..286dc5c53f7e1 100644
-> --- a/drivers/media/platform/rockchip/Makefile
-> +++ b/drivers/media/platform/rockchip/Makefile
-> @@ -1,3 +1,4 @@
-> =C2=A0# SPDX-License-Identifier: GPL-2.0-only
-> =C2=A0obj-y +=3D rga/
-> =C2=A0obj-y +=3D rkisp1/
-> +obj-y +=3D rkvdec/
-> diff --git a/drivers/staging/media/rkvdec/Kconfig
-> b/drivers/media/platform/rockchip/rkvdec/Kconfig
-> similarity index 100%
-> rename from drivers/staging/media/rkvdec/Kconfig
-> rename to drivers/media/platform/rockchip/rkvdec/Kconfig
-> diff --git a/drivers/staging/media/rkvdec/Makefile
-> b/drivers/media/platform/rockchip/rkvdec/Makefile
-> similarity index 100%
-> rename from drivers/staging/media/rkvdec/Makefile
-> rename to drivers/media/platform/rockchip/rkvdec/Makefile
-> diff --git a/drivers/staging/media/rkvdec/rkvdec-h264.c
-> b/drivers/media/platform/rockchip/rkvdec/rkvdec-h264.c
-> similarity index 100%
-> rename from drivers/staging/media/rkvdec/rkvdec-h264.c
-> rename to drivers/media/platform/rockchip/rkvdec/rkvdec-h264.c
-> diff --git a/drivers/staging/media/rkvdec/rkvdec-regs.h
-> b/drivers/media/platform/rockchip/rkvdec/rkvdec-regs.h
-> similarity index 100%
-> rename from drivers/staging/media/rkvdec/rkvdec-regs.h
-> rename to drivers/media/platform/rockchip/rkvdec/rkvdec-regs.h
-> diff --git a/drivers/staging/media/rkvdec/rkvdec-vp9.c
-> b/drivers/media/platform/rockchip/rkvdec/rkvdec-vp9.c
-> similarity index 100%
-> rename from drivers/staging/media/rkvdec/rkvdec-vp9.c
-> rename to drivers/media/platform/rockchip/rkvdec/rkvdec-vp9.c
-> diff --git a/drivers/staging/media/rkvdec/rkvdec.c
-> b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
-> similarity index 100%
-> rename from drivers/staging/media/rkvdec/rkvdec.c
-> rename to drivers/media/platform/rockchip/rkvdec/rkvdec.c
-> diff --git a/drivers/staging/media/rkvdec/rkvdec.h
-> b/drivers/media/platform/rockchip/rkvdec/rkvdec.h
-> similarity index 100%
-> rename from drivers/staging/media/rkvdec/rkvdec.h
-> rename to drivers/media/platform/rockchip/rkvdec/rkvdec.h
-> diff --git a/drivers/staging/media/Kconfig b/drivers/staging/media/Kconfi=
-g
-> index b442148543995..b9d52a51841b5 100644
-> --- a/drivers/staging/media/Kconfig
-> +++ b/drivers/staging/media/Kconfig
-> @@ -32,8 +32,6 @@ source "drivers/staging/media/max96712/Kconfig"
-> =C2=A0
-> =C2=A0source "drivers/staging/media/meson/vdec/Kconfig"
-> =C2=A0
-> -source "drivers/staging/media/rkvdec/Kconfig"
-> -
-> =C2=A0source "drivers/staging/media/starfive/Kconfig"
-> =C2=A0
-> =C2=A0source "drivers/staging/media/sunxi/Kconfig"
-> diff --git a/drivers/staging/media/Makefile b/drivers/staging/media/Makef=
-ile
-> index ad4e9619a9e07..102ca632ddf5c 100644
-> --- a/drivers/staging/media/Makefile
-> +++ b/drivers/staging/media/Makefile
-> @@ -4,7 +4,6 @@ obj-$(CONFIG_INTEL_ATOMISP)=C2=A0=C2=A0=C2=A0=C2=A0 +=3D =
-atomisp/
-> =C2=A0obj-$(CONFIG_VIDEO_IMX_MEDIA)	+=3D imx/
-> =C2=A0obj-$(CONFIG_VIDEO_MAX96712)	+=3D max96712/
-> =C2=A0obj-$(CONFIG_VIDEO_MESON_VDEC)	+=3D meson/vdec/
-> -obj-$(CONFIG_VIDEO_ROCKCHIP_VDEC)	+=3D rkvdec/
-> =C2=A0obj-$(CONFIG_VIDEO_STARFIVE_CAMSS)	+=3D starfive/
-> =C2=A0obj-$(CONFIG_VIDEO_SUNXI)	+=3D sunxi/
-> =C2=A0obj-$(CONFIG_VIDEO_TEGRA)	+=3D tegra-video/
-
---=-TRLqz3hiMlUTgCc1wc3h
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaHFtwwAKCRDZQZRRKWBy
-9D0OAQDCzPQPG7xg4OYY8o6mQuA7YYMPvLnXfsqOsELbI81nggEAn4NKzS6Zv5SL
-gInU8ELc0LBcICoE9Vc3ZGnrhMUvzQo=
-=TPsc
------END PGP SIGNATURE-----
-
---=-TRLqz3hiMlUTgCc1wc3h--
 
