@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DF54C83F1B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 19:33:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F473C83F1B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 19:35:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7a5PfLhYOuj6b6qeBb33u5eNJig7vHPlSiz5Wp0Mb4s=; b=dZ71rKrafQ3Iz+qR54cquYUwB3
-	plfXnmtdL09a1+t23vliOTrUb4bkE6B0UITAad63PyLG9hOoha3bteWdCxbo/KtzJUo3IWJHEI8Dn
-	9Au6wWfy7tTEcmjLIn67kzQFazDMkGDWfWHxyW/USI0GQoaP7wUdPN1s3ctySZ5n4O0+1hwn6vX/H
-	q/9fJyyDISLjqh2xeOZCexFfjgw3R5wO7Sv5PbBW0fFadkWo69b9h6R9uW4EtlHR+s4XTGt3UxzT1
-	B/b40g3tPhPVOjU797gC3xQGweY2C7rMK5dFRYXS6g3O2J8ABUROnE7XFefaAUzyoK6j69cdOJtzD
-	ehamXm5Q==;
+	bh=6EiQ5h4jhONVSDaSxsZZlMhVj4CkiYpExfd2W8fXySY=; b=xWx6xdFM6HX7FOv64O+Dbwmwjj
+	MyyyXk0E8sM89Y8jH1exDH986J74GPMwRSdKQX5H9zwvLOGNBPmCbwloey+O1wRRZ6GobB5AE+b2T
+	mjUYbKF7k9JwIUmoa1/mtQ6H4TYNUwYBsbgaGc7kQyZFTZzZ8DdKeVpguc3ACLqQETYRorTZa1Asu
+	sI8LTopYvbZj0h1MlmQkK6j6p3y40wm2gfxi/kEbZsqNoboR0ozJG4oZyWpYqj10ymJr5eeZvKGN/
+	C8of3zvQsnchDt+vAYkj1hev4QI2QMmZ+ZU+GFcoRwS0vGGHQFo3BFCuzKlVCXh1kY1GWx/oYi+NK
+	Et1VlHCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaJUR-0000000FeYZ-33id;
-	Fri, 11 Jul 2025 19:32:59 +0000
+	id 1uaJWl-0000000FesD-21EJ;
+	Fri, 11 Jul 2025 19:35:23 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaIdN-0000000FXOP-47ZX
+	id 1uaIdR-0000000FXPG-0jrJ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Jul 2025 18:38:11 +0000
+	Fri, 11 Jul 2025 18:38:14 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 16DFD16F8;
-	Fri, 11 Jul 2025 11:37:59 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4BFB22247;
+	Fri, 11 Jul 2025 11:38:02 -0700 (PDT)
 Received: from merodach.members.linode.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 85D853F694;
-	Fri, 11 Jul 2025 11:38:06 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D6B873F694;
+	Fri, 11 Jul 2025 11:38:09 -0700 (PDT)
 From: James Morse <james.morse@arm.com>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org
@@ -58,19 +58,18 @@ Cc: Rob Herring <robh@kernel.org>,
 	Rex Nie <rex.nie@jaguarmicro.com>,
 	Dave Martin <dave.martin@arm.com>,
 	Koba Ko <kobak@nvidia.com>,
-	James Morse <james.morse@arm.com>,
-	Dave Martin <Dave.Martin@arm.com>
-Subject: [RFC PATCH 20/36] arm_mpam: Probe the hardware features resctrl supports
-Date: Fri, 11 Jul 2025 18:36:32 +0000
-Message-Id: <20250711183648.30766-21-james.morse@arm.com>
+	James Morse <james.morse@arm.com>
+Subject: [RFC PATCH 21/36] arm_mpam: Merge supported features during mpam_enable() into mpam_class
+Date: Fri, 11 Jul 2025 18:36:33 +0000
+Message-Id: <20250711183648.30766-22-james.morse@arm.com>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20250711183648.30766-1-james.morse@arm.com>
 References: <20250711183648.30766-1-james.morse@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250711_113810_118916_9D4090B6 
-X-CRM114-Status: GOOD (  21.24  )
+X-CRM114-CacheID: sfid-20250711_113813_307185_E5754105 
+X-CRM114-Status: GOOD (  24.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,286 +84,278 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Expand the probing support with the control and monitor types
-we can use with resctrl.
+To make a decision about whether to expose an mpam class as
+a resctrl resource we need to know its overall supported
+features and properties.
 
-CC: Dave Martin <Dave.Martin@arm.com>
+Once we've probed all the resources, we can walk the tree
+and produced overall values by merging the bitmaps. This
+eliminates features that are only supported by some MSC
+that make up a component or class.
+
+If bitmap properties are mismatched within a component we
+cannot support the mismatched feature.
+
+Care has to be taken as vMSC may hold mismatched RIS.
+
 Signed-off-by: James Morse <james.morse@arm.com>
 ---
- drivers/platform/arm64/mpam/mpam_devices.c  | 154 +++++++++++++++++++-
- drivers/platform/arm64/mpam/mpam_internal.h |  53 +++++++
- 2 files changed, 206 insertions(+), 1 deletion(-)
+ drivers/platform/arm64/mpam/mpam_devices.c  | 215 ++++++++++++++++++++
+ drivers/platform/arm64/mpam/mpam_internal.h |   8 +
+ 2 files changed, 223 insertions(+)
 
 diff --git a/drivers/platform/arm64/mpam/mpam_devices.c b/drivers/platform/arm64/mpam/mpam_devices.c
-index 8646fb85ad09..61911831ab39 100644
+index 61911831ab39..7b042a35405a 100644
 --- a/drivers/platform/arm64/mpam/mpam_devices.c
 +++ b/drivers/platform/arm64/mpam/mpam_devices.c
-@@ -102,7 +102,7 @@ static LLIST_HEAD(mpam_garbage);
+@@ -1186,8 +1186,223 @@ static struct platform_driver mpam_msc_driver = {
+ 	.remove = mpam_msc_drv_remove,
+ };
  
- static u32 __mpam_read_reg(struct mpam_msc *msc, u16 reg)
- {
--	WARN_ON_ONCE(reg > msc->mapped_hwpage_sz);
-+	WARN_ON_ONCE(reg + sizeof(u32) > msc->mapped_hwpage_sz);
- 	WARN_ON_ONCE(!cpumask_test_cpu(smp_processor_id(), &msc->accessibility));
- 
- 	return readl_relaxed(msc->mapped_hwpage + reg);
-@@ -131,6 +131,20 @@ static inline void _mpam_write_partsel_reg(struct mpam_msc *msc, u16 reg, u32 va
- }
- #define mpam_write_partsel_reg(msc, reg, val)  _mpam_write_partsel_reg(msc, MPAMCFG_##reg, val)
- 
-+static inline u32 _mpam_read_monsel_reg(struct mpam_msc *msc, u16 reg)
++/* Any of these features mean the BWA_WD field is valid. */
++static bool mpam_has_bwa_wd_feature(struct mpam_props *props)
 +{
-+	mpam_mon_sel_lock_held(msc);
-+	return __mpam_read_reg(msc, reg);
++	if (mpam_has_feature(mpam_feat_mbw_min, props))
++		return true;
++	if (mpam_has_feature(mpam_feat_mbw_max, props))
++		return true;
++	if (mpam_has_feature(mpam_feat_mbw_prop, props))
++		return true;
++	return false;
 +}
-+#define mpam_read_monsel_reg(msc, reg) _mpam_read_monsel_reg(msc, MSMON_##reg)
 +
-+static inline void _mpam_write_monsel_reg(struct mpam_msc *msc, u16 reg, u32 val)
-+{
-+	mpam_mon_sel_lock_held(msc);
-+	__mpam_write_reg(msc, reg, val);
-+}
-+#define mpam_write_monsel_reg(msc, reg, val)   _mpam_write_monsel_reg(msc, MSMON_##reg, val)
++#define MISMATCHED_HELPER(parent, child, helper, field, alias)		\
++	helper(parent) &&						\
++	((helper(child) && (parent)->field != (child)->field) ||	\
++	 (!helper(child) && !(alias)))
 +
- static u64 mpam_msc_read_idr(struct mpam_msc *msc)
- {
- 	u64 idr_high = 0, idr_low;
-@@ -645,6 +659,137 @@ static struct mpam_msc_ris *mpam_get_or_create_ris(struct mpam_msc *msc,
- 	return found;
- }
- 
++#define MISMATCHED_FEAT(parent, child, feat, field, alias)		     \
++	mpam_has_feature((feat), (parent)) &&				     \
++	((mpam_has_feature((feat), (child)) && (parent)->field != (child)->field) || \
++	 (!mpam_has_feature((feat), (child)) && !(alias)))
++
++#define CAN_MERGE_FEAT(parent, child, feat, alias)			\
++	(alias) && !mpam_has_feature((feat), (parent)) &&		\
++	mpam_has_feature((feat), (child))
++
 +/*
-+ * IHI009A.a has this nugget: "If a monitor does not support automatic behaviour
-+ * of NRDY, software can use this bit for any purpose" - so hardware might not
-+ * implement this - but it isn't RES0.
-+ *
-+ * Try and see what values stick in this bit. If we can write either value,
-+ * its probably not implemented by hardware.
++ * Combime two props fields.
++ * If this is for controls that alias the same resource, it is safe to just
++ * copy the values over. If two aliasing controls implement the same scheme
++ * a safe value must be picked.
++ * For non-aliasing controls, these control different resources, and the
++ * resulting safe value must be compatible with both. When merging values in
++ * the tree, all the aliasing resources must be handled first.
++ * On mismatch, parent is modified.
 + */
-+#define mpam_ris_hw_probe_hw_nrdy(_ris, _mon_reg, _result)			\
-+do {										\
-+	u32 now;								\
-+	u64 mon_sel;								\
-+	bool can_set, can_clear;						\
-+	struct mpam_msc *_msc = _ris->vmsc->msc;				\
-+										\
-+	if (WARN_ON_ONCE(!mpam_mon_sel_inner_lock(_msc))) {			\
-+		_result = false;						\
-+		break;								\
-+	}									\
-+	mon_sel = FIELD_PREP(MSMON_CFG_MON_SEL_MON_SEL, 0) |			\
-+		  FIELD_PREP(MSMON_CFG_MON_SEL_RIS, _ris->ris_idx);		\
-+	mpam_write_monsel_reg(_msc, CFG_MON_SEL, mon_sel);			\
-+										\
-+	mpam_write_monsel_reg(_msc, _mon_reg, MSMON___NRDY);			\
-+	now = mpam_read_monsel_reg(_msc, _mon_reg);				\
-+	can_set = now & MSMON___NRDY;						\
-+										\
-+	mpam_write_monsel_reg(_msc, _mon_reg, 0);				\
-+	now = mpam_read_monsel_reg(_msc, _mon_reg);				\
-+	can_clear = !(now & MSMON___NRDY);					\
-+	mpam_mon_sel_inner_unlock(_msc);					\
-+										\
-+	_result = (!can_set || !can_clear);					\
-+} while (0)
-+
-+static void mpam_ris_hw_probe(struct mpam_msc_ris *ris)
++static void __props_mismatch(struct mpam_props *parent,
++			     struct mpam_props *child, bool alias)
 +{
-+	int err;
-+	struct mpam_msc *msc = ris->vmsc->msc;
-+	struct mpam_props *props = &ris->props;
-+
-+	lockdep_assert_held(&msc->probe_lock);
-+	lockdep_assert_held(&msc->part_sel_lock);
-+
-+	/* Cache Portion partitioning */
-+	if (FIELD_GET(MPAMF_IDR_HAS_CPOR_PART, ris->idr)) {
-+		u32 cpor_features = mpam_read_partsel_reg(msc, CPOR_IDR);
-+
-+		props->cpbm_wd = FIELD_GET(MPAMF_CPOR_IDR_CPBM_WD, cpor_features);
-+		if (props->cpbm_wd)
-+			mpam_set_feature(mpam_feat_cpor_part, props);
++	if (CAN_MERGE_FEAT(parent, child, mpam_feat_cpor_part, alias)) {
++		parent->cpbm_wd = child->cpbm_wd;
++	} else if (MISMATCHED_FEAT(parent, child, mpam_feat_cpor_part,
++				   cpbm_wd, alias)) {
++		pr_debug("%s cleared cpor_part\n", __func__);
++		mpam_clear_feature(mpam_feat_cpor_part, &parent->features);
++		parent->cpbm_wd = 0;
 +	}
 +
-+	/* Memory bandwidth partitioning */
-+	if (FIELD_GET(MPAMF_IDR_HAS_MBW_PART, ris->idr)) {
-+		u32 mbw_features = mpam_read_partsel_reg(msc, MBW_IDR);
-+
-+		/* portion bitmap resolution */
-+		props->mbw_pbm_bits = FIELD_GET(MPAMF_MBW_IDR_BWPBM_WD, mbw_features);
-+		if (props->mbw_pbm_bits &&
-+		    FIELD_GET(MPAMF_MBW_IDR_HAS_PBM, mbw_features))
-+			mpam_set_feature(mpam_feat_mbw_part, props);
-+
-+		props->bwa_wd = FIELD_GET(MPAMF_MBW_IDR_BWA_WD, mbw_features);
-+		if (props->bwa_wd && FIELD_GET(MPAMF_MBW_IDR_HAS_MAX, mbw_features))
-+			mpam_set_feature(mpam_feat_mbw_max, props);
++	if (CAN_MERGE_FEAT(parent, child, mpam_feat_mbw_part, alias)) {
++		parent->mbw_pbm_bits = child->mbw_pbm_bits;
++	} else if (MISMATCHED_FEAT(parent, child, mpam_feat_mbw_part,
++				   mbw_pbm_bits, alias)) {
++		pr_debug("%s cleared mbw_part\n", __func__);
++		mpam_clear_feature(mpam_feat_mbw_part, &parent->features);
++		parent->mbw_pbm_bits = 0;
 +	}
 +
-+	/* Performance Monitoring */
-+	if (FIELD_GET(MPAMF_IDR_HAS_MSMON, ris->idr)) {
-+		u32 msmon_features = mpam_read_partsel_reg(msc, MSMON_IDR);
++	/* bwa_wd is a count of bits, fewer bits means less precision */
++	if (alias && !mpam_has_bwa_wd_feature(parent) && mpam_has_bwa_wd_feature(child)) {
++		parent->bwa_wd = child->bwa_wd;
++	} else if (MISMATCHED_HELPER(parent, child, mpam_has_bwa_wd_feature,
++				     bwa_wd, alias)) {
++		pr_debug("%s took the min bwa_wd\n", __func__);
++		parent->bwa_wd = min(parent->bwa_wd, child->bwa_wd);
++	}
 +
-+		/*
-+		 * If the firmware max-nrdy-us property is missing, the
-+		 * CSU counters can't be used. Should we wait forever?
-+		 */
-+		err = device_property_read_u32(&msc->pdev->dev,
-+					       "arm,not-ready-us",
-+					       &msc->nrdy_usec);
++	/* For num properties, take the minimum */
++	if (CAN_MERGE_FEAT(parent, child, mpam_feat_msmon_csu, alias)) {
++		parent->num_csu_mon = child->num_csu_mon;
++	} else if (MISMATCHED_FEAT(parent, child, mpam_feat_msmon_csu,
++				   num_csu_mon, alias)) {
++		pr_debug("%s took the min num_csu_mon\n", __func__);
++		parent->num_csu_mon = min(parent->num_csu_mon, child->num_csu_mon);
++	}
 +
-+		if (FIELD_GET(MPAMF_MSMON_IDR_MSMON_CSU, msmon_features)) {
-+			u32 csumonidr;
++	if (CAN_MERGE_FEAT(parent, child, mpam_feat_msmon_mbwu, alias)) {
++		parent->num_mbwu_mon = child->num_mbwu_mon;
++	} else if (MISMATCHED_FEAT(parent, child, mpam_feat_msmon_mbwu,
++				   num_mbwu_mon, alias)) {
++		pr_debug("%s took the min num_mbwu_mon\n", __func__);
++		parent->num_mbwu_mon = min(parent->num_mbwu_mon, child->num_mbwu_mon);
++	}
 +
-+			csumonidr = mpam_read_partsel_reg(msc, CSUMON_IDR);
-+			props->num_csu_mon = FIELD_GET(MPAMF_CSUMON_IDR_NUM_MON, csumonidr);
-+			if (props->num_csu_mon) {
-+				bool hw_managed;
++	if (alias) {
++		/* Merge features for aliased resources */
++		parent->features |= child->features;
++	} else {
++		/* Clear missing features for non aliasing */
++		parent->features &= child->features;
++	}
++}
 +
-+				mpam_set_feature(mpam_feat_msmon_csu, props);
++/*
++ * If a vmsc doesn't match class feature/configuration, do the right thing(tm).
++ * For 'num' properties we can just take the minimum.
++ * For properties where the mismatched unused bits would make a difference, we
++ * nobble the class feature, as we can't configure all the resources.
++ * e.g. The L3 cache is composed of two resources with 13 and 17 portion
++ * bitmaps respectively.
++ */
++static void
++__class_props_mismatch(struct mpam_class *class, struct mpam_vmsc *vmsc)
++{
++	struct mpam_props *cprops = &class->props;
++	struct mpam_props *vprops = &vmsc->props;
 +
-+				/* Is NRDY hardware managed? */
-+				mpam_mon_sel_outer_lock(msc);
-+				mpam_ris_hw_probe_hw_nrdy(ris, CSU, hw_managed);
-+				mpam_mon_sel_outer_unlock(msc);
-+				if (hw_managed)
-+					mpam_set_feature(mpam_feat_msmon_csu_hw_nrdy, props);
-+			}
++	lockdep_assert_held(&mpam_list_lock); /* we modify class */
 +
-+			/*
-+			 * Accept the missing firmware property if NRDY appears
-+			 * un-implemented.
-+			 */
-+			if (err && mpam_has_feature(mpam_feat_msmon_csu_hw_nrdy, props))
-+				pr_err_once("Counters are not usable because not-ready timeout was not provided by firmware.");
-+		}
-+		if (FIELD_GET(MPAMF_MSMON_IDR_MSMON_MBWU, msmon_features)) {
-+			bool hw_managed;
-+			u32 mbwumonidr = mpam_read_partsel_reg(msc, MBWUMON_IDR);
++	pr_debug("%s: Merging features for class:0x%lx &= vmsc:0x%lx\n",
++		 dev_name(&vmsc->msc->pdev->dev),
++		 (long)cprops->features, (long)vprops->features);
 +
-+			props->num_mbwu_mon = FIELD_GET(MPAMF_MBWUMON_IDR_NUM_MON, mbwumonidr);
-+			if (props->num_mbwu_mon)
-+				mpam_set_feature(mpam_feat_msmon_mbwu, props);
++	/* Take the safe value for any common features */
++	__props_mismatch(cprops, vprops, false);
++}
 +
-+			if (FIELD_GET(MPAMF_MBWUMON_IDR_HAS_RWBW, mbwumonidr))
-+				mpam_set_feature(mpam_feat_msmon_mbwu_rwbw, props);
++static void
++__vmsc_props_mismatch(struct mpam_vmsc *vmsc, struct mpam_msc_ris *ris)
++{
++	struct mpam_props *rprops = &ris->props;
++	struct mpam_props *vprops = &vmsc->props;
 +
-+			/* Is NRDY hardware managed? */
-+			mpam_mon_sel_outer_lock(msc);
-+			mpam_ris_hw_probe_hw_nrdy(ris, MBWU, hw_managed);
-+			mpam_mon_sel_outer_unlock(msc);
-+			if (hw_managed)
-+				mpam_set_feature(mpam_feat_msmon_mbwu_hw_nrdy, props);
++	lockdep_assert_held(&mpam_list_lock); /* we modify vmsc */
 +
-+			/*
-+			 * Don't warn about any missing firmware property for
-+			 * MBWU NRDY - it doesn't make any sense!
-+			 */
++	pr_debug("%s: Merging features for vmsc:0x%lx |= ris:0x%lx\n",
++		 dev_name(&vmsc->msc->pdev->dev),
++		 (long)vprops->features, (long)rprops->features);
++
++	/*
++	 * Merge mismatched features - Copy any features that aren't common,
++	 * but take the safe value for any common features.
++	 */
++	__props_mismatch(vprops, rprops, true);
++}
++
++/*
++ * Copy the first component's first vMSC's properties and features to the
++ * class. __class_props_mismatch() will remove conflicts.
++ * It is not possible to have a class with no components, or a component with
++ * no resources. The vMSC properties have already been built.
++ */
++static void mpam_enable_init_class_features(struct mpam_class *class)
++{
++	struct mpam_vmsc *vmsc;
++	struct mpam_component *comp;
++
++	comp = list_first_entry_or_null(&class->components,
++					struct mpam_component, class_list);
++	if (WARN_ON(!comp))
++		return;
++
++	vmsc = list_first_entry_or_null(&comp->vmsc,
++					struct mpam_vmsc, comp_list);
++	if (WARN_ON(!vmsc))
++		return;
++
++	class->props = vmsc->props;
++}
++
++static void mpam_enable_merge_vmsc_features(struct mpam_component *comp)
++{
++	struct mpam_vmsc *vmsc;
++	struct mpam_msc_ris *ris;
++	struct mpam_class *class = comp->class;
++
++	list_for_each_entry(vmsc, &comp->vmsc, comp_list) {
++		list_for_each_entry(ris, &vmsc->ris, vmsc_list) {
++			__vmsc_props_mismatch(vmsc, ris);
++			class->nrdy_usec = max(class->nrdy_usec,
++					       vmsc->msc->nrdy_usec);
 +		}
 +	}
 +}
 +
- static int mpam_msc_hw_probe(struct mpam_msc *msc)
++static void mpam_enable_merge_class_features(struct mpam_component *comp)
++{
++	struct mpam_vmsc *vmsc;
++	struct mpam_class *class = comp->class;
++
++	list_for_each_entry(vmsc, &comp->vmsc, comp_list)
++		__class_props_mismatch(class, vmsc);
++}
++
++/*
++ * Merge all the common resource features into class.
++ * vmsc features are bitwise-or'd together, this must be done first.
++ * Next the class features are the bitwise-and of all the vmsc features.
++ * Other features are the min/max as appropriate.
++ *
++ * To avoid walking the whole tree twice, the class->nrdy_usec property is
++ * updated when working with the vmsc as it is a max(), and doesn't need
++ * initialising first.
++ */
++static void mpam_enable_merge_features(struct list_head *all_classes_list)
++{
++	struct mpam_class *class;
++	struct mpam_component *comp;
++
++	lockdep_assert_held(&mpam_list_lock);
++
++	list_for_each_entry(class, all_classes_list, classes_list) {
++		list_for_each_entry(comp, &class->components, class_list)
++			mpam_enable_merge_vmsc_features(comp);
++
++		mpam_enable_init_class_features(class);
++
++		list_for_each_entry(comp, &class->components, class_list)
++			mpam_enable_merge_class_features(comp);
++	}
++}
++
+ static void mpam_enable_once(void)
  {
- 	u64 idr;
-@@ -665,6 +810,7 @@ static int mpam_msc_hw_probe(struct mpam_msc *msc)
- 
- 	idr = mpam_msc_read_idr(msc);
- 	mutex_unlock(&msc->part_sel_lock);
++	mutex_lock(&mpam_list_lock);
++	mpam_enable_merge_features(&mpam_classes);
++	mutex_unlock(&mpam_list_lock);
 +
- 	msc->ris_max = FIELD_GET(MPAMF_IDR_RIS_MAX, idr);
- 
- 	/* Use these values so partid/pmg always starts with a valid value */
-@@ -685,6 +831,12 @@ static int mpam_msc_hw_probe(struct mpam_msc *msc)
- 		ris = mpam_get_or_create_ris(msc, ris_idx);
- 		if (IS_ERR(ris))
- 			return PTR_ERR(ris);
-+		ris->idr = idr;
-+
-+		mutex_lock(&msc->part_sel_lock);
-+		__mpam_part_sel(ris_idx, 0, msc);
-+		mpam_ris_hw_probe(ris);
-+		mutex_unlock(&msc->part_sel_lock);
- 	}
- 
- 	spin_lock(&partid_max_lock);
+ 	mutex_lock(&mpam_cpuhp_state_lock);
+ 	cpuhp_remove_state(mpam_cpuhp_state);
+ 	mpam_cpuhp_state = 0;
 diff --git a/drivers/platform/arm64/mpam/mpam_internal.h b/drivers/platform/arm64/mpam/mpam_internal.h
-index 42a454d5f914..ae6fd1f62cc4 100644
+index ae6fd1f62cc4..be56234b84b4 100644
 --- a/drivers/platform/arm64/mpam/mpam_internal.h
 +++ b/drivers/platform/arm64/mpam/mpam_internal.h
-@@ -136,6 +136,55 @@ static inline void mpam_mon_sel_lock_held(struct mpam_msc *msc)
- 		lockdep_assert_preemption_enabled();
+@@ -185,12 +185,20 @@ static inline void mpam_set_feature(enum mpam_device_features feat,
+ 	props->features |= (1 << feat);
  }
  
-+/*
-+ * When we compact the supported features, we don't care what they are.
-+ * Storing them as a bitmap makes life easy.
-+ */
-+typedef u16 mpam_features_t;
-+
-+/* Bits for mpam_features_t */
-+enum mpam_device_features {
-+	mpam_feat_ccap_part = 0,
-+	mpam_feat_cpor_part,
-+	mpam_feat_mbw_part,
-+	mpam_feat_mbw_min,
-+	mpam_feat_mbw_max,
-+	mpam_feat_mbw_prop,
-+	mpam_feat_msmon,
-+	mpam_feat_msmon_csu,
-+	mpam_feat_msmon_csu_capture,
-+	mpam_feat_msmon_csu_hw_nrdy,
-+	mpam_feat_msmon_mbwu,
-+	mpam_feat_msmon_mbwu_capture,
-+	mpam_feat_msmon_mbwu_rwbw,
-+	mpam_feat_msmon_mbwu_hw_nrdy,
-+	mpam_feat_msmon_capt,
-+	MPAM_FEATURE_LAST,
-+};
-+#define MPAM_ALL_FEATURES      ((1 << MPAM_FEATURE_LAST) - 1)
-+
-+struct mpam_props {
-+	mpam_features_t		features;
-+
-+	u16			cpbm_wd;
-+	u16			mbw_pbm_bits;
-+	u16			bwa_wd;
-+	u16			num_csu_mon;
-+	u16			num_mbwu_mon;
-+};
-+
-+static inline bool mpam_has_feature(enum mpam_device_features feat,
-+				    struct mpam_props *props)
++static inline void mpam_clear_feature(enum mpam_device_features feat,
++				      mpam_features_t *supported)
 +{
-+	return (1 << feat) & props->features;
-+}
-+
-+static inline void mpam_set_feature(enum mpam_device_features feat,
-+				    struct mpam_props *props)
-+{
-+	props->features |= (1 << feat);
++	*supported &= ~(1 << feat);
 +}
 +
  struct mpam_class {
  	/* mpam_components in this class */
  	struct list_head	components;
-@@ -175,6 +224,8 @@ struct mpam_vmsc {
- 	/* mpam_msc_ris in this vmsc */
- 	struct list_head	ris;
- 
-+	struct mpam_props	props;
-+
- 	/* All RIS in this vMSC are members of this MSC */
- 	struct mpam_msc		*msc;
- 
-@@ -186,6 +237,8 @@ struct mpam_vmsc {
- 
- struct mpam_msc_ris {
- 	u8			ris_idx;
-+	u64			idr;
-+	struct mpam_props	props;
  
  	cpumask_t		affinity;
+ 
++	struct mpam_props	props;
++	u32			nrdy_usec;
+ 	u8			level;
+ 	enum mpam_class_types	type;
  
 -- 
 2.39.5
