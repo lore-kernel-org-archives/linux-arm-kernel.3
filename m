@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0310C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 01:28:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9700C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 02:17:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l4UlN0Wafho6MahmKxGDM1wRAp7sFrpVKSoHrCpTA4c=; b=Np32isp/PIk7w0HZAbY38W+QZw
-	QRwyh9GiL6fnbFNFcuexVqU+rbOpT44Tu95/+JKz/dlNkuxcntblrRtx0zaMFrWX4O75JJuyT2XxI
-	gaB2isvh91DFCYYGUnp0oQC3sleLsQ16/mTLynBIUz7x6TtX+XG/M5YSG1X1+kBAGCt1JlBVFy3wk
-	vsU5e2pKd9OhBD3tv9dxVccsDC3MeRfJufYa5b72N5pTUGrZOhjpdP8GlAaBPohSB4efzoDFVVRPV
-	c9+inb9yTbPb80cqdvswGTUX6+/EuoxmMm6NbVYauqmYNxRkbu+M773b7EaDvgFNsgDoXznxYLNMN
-	rJChm7Cg==;
+	bh=zmiWBqek51VzZAyzv7udCGLaQxhBVLGFuRDlpB6UWk4=; b=zVilfxVJFwdvRpMU1UXR2+sAly
+	nEKzIYRjsxQVXPmjHT5BDTCxRtU3D8CnPUxZOSixGqPm6haBY0Nj0duZRrRYqIpggNs9xzBu9mWU5
+	cNU01HbLV38gUHdJM4c/k+kZjOQiAX2+SOfnRKIgEdYJT3jYZYY0H6uvJujJz788erW2n7Em49Ihl
+	FF5An92kwjK1iW5251nQ2L6rP0MN/uOgGJMYkf3E17Hvx22Odsp2JhTg+qccrN/8oGpV+s7oOgry2
+	p+KkdrlBGP/qdlbbdcN5MT1ptRFV7DNevBvwE/rwaIbw9v1SEL6UCyX6uf5qBbc4lz4EW7z1dEbaw
+	bmfqizMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ua2Z4-0000000DTpe-2oGI;
-	Fri, 11 Jul 2025 01:28:38 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1ua3K3-0000000DWca-424t;
+	Fri, 11 Jul 2025 02:17:11 +0000
+Received: from szxga04-in.huawei.com ([45.249.212.190])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ua2Qv-0000000DR84-3PYq
+	id 1ua3Hh-0000000DWTw-2XXR
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Jul 2025 01:20:17 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 83F6347155;
-	Fri, 11 Jul 2025 01:20:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5F2D8C4CEF4;
-	Fri, 11 Jul 2025 01:20:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752196811;
-	bh=IHx4h69R13Or67ZMOMaSeRoVxPzmcWG/NZh6P4Ei+UE=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=NIN+1oRO/ktlMLvxpr5oyhzKdiKGbY37jGX1lxWxCpJkzHZ++lY+dmePCONpYbsoU
-	 1FTjG8FW1ThT69hHy4BW4BxdBeWnACSykXHqLKShlqHZGufGNYWZUjj2d63oOMUfEf
-	 8sM+J+1Q47VeVnzSHkcdCnUgbRVHs74LbjCLjSSgGjM5HYykkNs/uj6OH3EiNb9ycg
-	 ysjFsmQQbHC8pWtSlRE1Mh9btbyasQVJkb8fy2IfvB+6hC5D+fcg9JR5xFNxq4fTAn
-	 0Ar+E8cdOe5XdB/SAXEi/WHWrbKwGpAtGZljUN1OsSe0o3kPLx7v+wjqX9FmawNXPL
-	 ly+HdBmwlqvIA==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id AE060383B266;
-	Fri, 11 Jul 2025 01:20:34 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	Fri, 11 Jul 2025 02:14:47 +0000
+Received: from mail.maildlp.com (unknown [172.19.162.112])
+	by szxga04-in.huawei.com (SkyGuard) with ESMTP id 4bdZtX72Whz2Cdk8;
+	Fri, 11 Jul 2025 10:10:28 +0800 (CST)
+Received: from kwepemh100007.china.huawei.com (unknown [7.202.181.92])
+	by mail.maildlp.com (Postfix) with ESMTPS id 90F0A140278;
+	Fri, 11 Jul 2025 10:14:33 +0800 (CST)
+Received: from [10.67.111.31] (10.67.111.31) by kwepemh100007.china.huawei.com
+ (7.202.181.92) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Fri, 11 Jul
+ 2025 10:14:32 +0800
+Message-ID: <3654a091-053a-4330-a019-a681d06166be@huawei.com>
+Date: Fri, 11 Jul 2025 10:14:31 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC 0/4] Reintroduce the sm2 algorithm
+To: "Jason A. Donenfeld" <Jason@zx2c4.com>
+CC: Herbert Xu <herbert@gondor.apana.org.au>, David Howells
+	<dhowells@redhat.com>, David Woodhouse <dwmw2@infradead.org>, Lukas Wunner
+	<lukas@wunner.de>, Ignat Korchagin <ignat@cloudflare.com>, "David S . Miller"
+	<davem@davemloft.net>, Jarkko Sakkinen <jarkko@kernel.org>, Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Eric Biggers <ebiggers@kernel.org>, Ard Biesheuvel <ardb@kernel.org>, Tianjia
+ Zhang <tianjia.zhang@linux.alibaba.com>, Dan Carpenter
+	<dan.carpenter@linaro.org>, <keyrings@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-crypto@vger.kernel.org>,
+	<linux-stm32@st-md-mailman.stormreply.com>,
+	<linux-arm-kernel@lists.infradead.org>, Lu Jialin <lujialin4@huawei.com>,
+	GONG Ruiqi <gongruiqi1@huawei.com>
+References: <20250630133934.766646-1-gubowen5@huawei.com>
+ <aGaCTOJ30KNPOBIC@zx2c4.com>
+Content-Language: en-US
+From: Gu Bowen <gubowen5@huawei.com>
+In-Reply-To: <aGaCTOJ30KNPOBIC@zx2c4.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 8bit
-Subject: Re: [net-next v4 0/4] net: ftgmac100: Add SoC reset support for RMII
- mode
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <175219683324.1724831.15355320324094175037.git-patchwork-notify@kernel.org>
-Date: Fri, 11 Jul 2025 01:20:33 +0000
-References: <20250709070809.2560688-1-jacky_chou@aspeedtech.com>
-In-Reply-To: <20250709070809.2560688-1-jacky_chou@aspeedtech.com>
-To: Jacky Chou <jacky_chou@aspeedtech.com>
-Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
- andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, joel@jms.id.au, andrew@codeconstruct.com.au,
- mturquette@baylibre.com, sboyd@kernel.org, p.zabel@pengutronix.de,
- horms@kernel.org, jacob.e.keller@intel.com, u.kleine-koenig@baylibre.com,
- hkallweit1@gmail.com, BMC-SW@aspeedtech.com
+X-Originating-IP: [10.67.111.31]
+X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
+ kwepemh100007.china.huawei.com (7.202.181.92)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250710_182015_763681_5E4D8975 
-X-CRM114-Status: GOOD (  12.71  )
+X-CRM114-CacheID: sfid-20250710_191445_944305_8D699524 
+X-CRM114-Status: GOOD (  29.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,35 +82,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
+Hi,
 
-This series was applied to netdev/net-next.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
-
-On Wed, 9 Jul 2025 15:08:05 +0800 you wrote:
-> This patch series adds support for an optional reset line to the
-> ftgmac100 ethernet controller, as used on Aspeed SoCs. On these SoCs,
-> the internal MAC reset is not sufficient to reset the RMII interface.
-> By providing a SoC-level reset via the device tree "resets" property,
-> the driver can properly reset both the MAC and RMII logic, ensuring
-> correct operation in RMII mode.
+On 7/3/2025 9:14 PM, Jason A. Donenfeld wrote:
+> Hi,
 > 
-> [...]
+> On Mon, Jun 30, 2025 at 09:39:30PM +0800, Gu Bowen wrote:
+>> To reintroduce the sm2 algorithm, the patch set did the following:
+>>   - Reintroduce the mpi library based on libgcrypt.
+>>   - Reintroduce ec implementation to MPI library.
+>>   - Rework sm2 algorithm.
+>>   - Support verification of X.509 certificates.
+>>
+>> Gu Bowen (4):
+>>    Revert "Revert "lib/mpi: Extend the MPI library""
+>>    Revert "Revert "lib/mpi: Introduce ec implementation to MPI library""
+>>    crypto/sm2: Rework sm2 alg with sig_alg backend
+>>    crypto/sm2: support SM2-with-SM3 verification of X.509 certificates
+> 
+> I am less than enthusiastic about this. Firstly, I'm kind of biased
+> against the whole "national flag algorithms" thing. But I don't know how
+> much weight that argument will have here. More importantly, however,
+> implementing this atop MPI sounds very bad. The more MPI we can get rid
+> of, the better.
+> 
+> Is MPI constant time? Usually the good way to implement EC algorithms
+> like this is to very carefully work out constant time (and fast!) field
+> arithmetic routines, verify their correctness, and then implement your
+> ECC atop that. At this point, there's *lots* of work out there on doing
+> fast verified ECC and a bunch of different frameworks for producing good
+> implementations. There are also other implementations out there you
+> could look at that people have presumably studied a lot. This is old
+> news. (In 3 minutes of scrolling around, I noticed that
+> count_leading_zeros() on a value is used as a loop index, for example.
+> Maybe fine, maybe not, I dunno; this stuff requires analysis.)
 
-Here is the summary with links:
-  - [net-next,v4,1/4] dt-bindings: net: ftgmac100: Add resets property
-    https://git.kernel.org/netdev/net-next/c/fc6c8af6d784
-  - [net-next,v4,2/4] dt-bindings: clock: ast2600: Add reset definitions for MAC1 and MAC2
-    https://git.kernel.org/netdev/net-next/c/4dc5f7b2c0cc
-  - [net-next,v4,3/4] ARM: dts: aspeed-g6: Add resets property for MAC controllers
-    (no matching commit)
-  - [net-next,v4,4/4] net: ftgmac100: Add optional reset control for RMII mode on Aspeed SoCs
-    https://git.kernel.org/netdev/net-next/c/af350ee72e9d
+Actually, I wasn't very familiar with MPI in the past. Previously, the 
+implementation of sm2 was done through MPI, so I used it as well. 
+Perhaps I could try using the ecc algorithm in the kernel.
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
+> On the other hand, maybe you don't care because you only implement
+> verification, not signing, so all info is public? If so, the fact that
+> you don't care about CT should probably be made pretty visible. But
+> either way, you should still be concerned with having an actually good &
+> correct implementation of which you feel strongly about the correctness.
+> 
+> Secondly, the MPI stuff you're proposing here adds a 25519 and 448
+> implementation, and support for weierstrauss, montgomery, and edwards,
+> and... surely you don't need all of this for SM-2. Why add all this
+> unused code? Presumably because you don't really understand or "own" all
+> of the code that you're proposing to add. And that gives me a lot of
+> hesitation, because somebody is going to have to maintain this, and if
+> the person sending patches with it isn't fully on top of it, we're not
+> off to a good start.
+> 
+> Lastly, just to nip in the bud the argument, "but weierstrauss is all
+> the same, so why not just have one library to do all possible
+> weierstrauss curves?" -- the fact that this series reintroduces the
+> removed "generic EC library" indicates there's actually not another user
+> of it, even before we get into questions of whether it's a good idea.
+
+Thank you for your advice, it has been very beneficial for me as I just 
+started participating in the community. I will try to implement the 
+functionality with more robust code and only submit parts that I fully 
+understand.
+
+Best Regards，
+Guber
 
 
 
