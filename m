@@ -4,72 +4,135 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01398C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 12:12:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E590C8303C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 12:12:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q0a74CRDfle7fzEwfUGNPCxbgsBDZp3A3culNU1YvnU=; b=htFjTj2Y1KdOIC8ZajTAHQtgN7
-	V1G40j+sddB9eJLIYePqO2+ToSZLT2eogYlNefRYgQ1MRQgahYlpSRbbj5WORJTb+iy6V8I0HBz1q
-	wia3mvPI98rPFhi9DYMS7j8UgL3ieAp0qvqdFpjYHZZbB3Wpn+HU+iObt2fOlE30+Xc0y13q2nhZJ
-	s2u/trSJeup7vj+gwFsnGkB6yAGGvyFHa1Nupcybz69uaFlLQuvbvkA+oZ7aBIdn3cKpsiuahMOvR
-	0Jh8duHiWpaHzCOZQeLcJuff1/Cf54TC6CmqQ4adhy5TG7+dj4j8z3j7cOZkfIvDHcJ0Ex+cMSNMO
-	VOkDRicw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VrJ+nPgqSQzLzJMZ8lQd1TWE3VQTpIhJGub411SIjQo=; b=d46eQ0aPSsMHBkk1uj2n2svKTG
+	XGB9vp3Obz3Xc7c0mv26/8YZGb3z9xj03ENyKLjGD0WtvKT4cdUUE08l8X+o7otXCIb9CzCUjH9cX
+	Cix+vGqXwcGXmCvjAxoWxq56RPWwTV63MBtA+zUGeHma83ZWHz/vw2pswRhv8VxDA1MZrLqRS7kXk
+	IOkhumNEbD3gW5r+AG7o2kvdcRvOsUmz70nMTWsBvrw+ygFyPrKxjmKkJeVF+NStSAFRDa2GK34jR
+	VBRwMCQfMjXs170Cjn2mm/0DMIcnQNeJb1ivdx17D3igQI9M+favmem47AnkIhCH+DZmw9T3sJ+Ia
+	VZ/jARjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaCbh-0000000EhYt-15JK;
-	Fri, 11 Jul 2025 12:12:01 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1uaCbk-0000000Ehc1-1CtG;
+	Fri, 11 Jul 2025 12:12:04 +0000
+Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaCJo-0000000Efdd-3bxJ
+	id 1uaCRv-0000000EgYi-3HTh
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Jul 2025 11:53:34 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.31])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4bdqlT12Ykz6L53x;
-	Fri, 11 Jul 2025 19:50:13 +0800 (CST)
-Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
-	by mail.maildlp.com (Postfix) with ESMTPS id 1F3E01400D3;
-	Fri, 11 Jul 2025 19:53:31 +0800 (CST)
-Received: from localhost (10.203.177.66) by frapeml500008.china.huawei.com
- (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Fri, 11 Jul
- 2025 13:53:30 +0200
-Date: Fri, 11 Jul 2025 12:53:28 +0100
-From: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-To: "H. Peter Anvin" <hpa@zytor.com>
-CC: <dan.j.williams@intel.com>, Catalin Marinas <catalin.marinas@arm.com>,
-	<james.morse@arm.com>, <linux-cxl@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-acpi@vger.kernel.org>,
-	<linux-arch@vger.kernel.org>, <linux-mm@kvack.org>,
-	<gregkh@linuxfoundation.org>, Will Deacon <will@kernel.org>, Davidlohr Bueso
-	<dave@stgolabs.net>, "Yicong Yang" <yangyicong@huawei.com>,
-	<linuxarm@huawei.com>, Yushan Wang <wangyushan12@huawei.com>, Lorenzo
- Pieralisi <lpieralisi@kernel.org>, "Mark Rutland" <mark.rutland@arm.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>, Thomas Gleixner
-	<tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov
-	<bp@alien8.de>, <x86@kernel.org>, Andy Lutomirski <luto@kernel.org>, Peter
- Zijlstra <peterz@infradead.org>
-Subject: Re: [PATCH v2 2/8] generic: Support
- ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION
-Message-ID: <20250711125328.00002334@huawei.com>
-In-Reply-To: <C8F33767-6C7F-4CDA-8B78-6857AA771AD3@zytor.com>
-References: <20250624154805.66985-1-Jonathan.Cameron@huawei.com>
-	<20250624154805.66985-3-Jonathan.Cameron@huawei.com>
-	<686f565121ea5_1d3d100ee@dwillia2-xfh.jf.intel.com.notmuch>
-	<C8F33767-6C7F-4CDA-8B78-6857AA771AD3@zytor.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	Fri, 11 Jul 2025 12:01:56 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=BAw0AZ+llqaz+hcvke8PxKrOYq/Y8suEOscPTAIZvCwxrjuXlBx1v3FDfRDBX94uD9IKcazz7pnS4T++o9OGkDLVl8ztDORBylUTSfzgYZB10u1ZMjBo9VmjfamshDJQFSlutJ0QfIziW29yLh89Hm/dbCFRtUI7tIYAvG/Dke+nplgdU3yt9x/PKdRNsCNuwny5Y/q0aXTOsbzw81h5g785JipUXmsiKcoWwIRwIwe5300Mp80m0d9pHolYcD3fPCWWO0whRWnTNxcYjtP8z3Ehu8O9CRpHyRVT9BSdRMMP2RhLVMCZbA4mzIueNMowQRUWS2U8AVwWRJYFp3206A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=VrJ+nPgqSQzLzJMZ8lQd1TWE3VQTpIhJGub411SIjQo=;
+ b=PbUFvc50aXAy0aR7pMAmyjSSzwRt79E2/3uaEChKaN5MC46J/NFb70qR07Kbw96N++uOdzpiyXjy+suaKO3xUYaqNBoUhr1owlchJoKBt4D+Ob3Z5k2rOEkB4+wXvkd6asrRKcm9SxdNrgSv4yfjKr3E4JDqE/J2tAe/TuvoSnHe/8Slzq+mJNDm65pvZgBWqx+OtUoSBk1uXzd5dW3VIThuMvHKUuT0hIWU7xpTPr7G+eHj2/eAbrk0ocW9LVuVp0ZfMvyfdWlG7ItEDOagP7qK4HjdPfV3/PgRbMBkoECY+NzMwIJEd216xbji8Xs0f6D9lu+YSryGSn+luXrkhQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 217.111.95.7) smtp.rcpttodomain=kernel.org smtp.mailfrom=arri.de; dmarc=fail
+ (p=none sp=none pct=100) action=none header.from=arri.de; dkim=none (message
+ not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arri.de; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=VrJ+nPgqSQzLzJMZ8lQd1TWE3VQTpIhJGub411SIjQo=;
+ b=aUaSRnYIGmzGuAJnbOKRflScVCSt0YiWthAoVPhlOwF151y1OVvWep0yTZ8CdGGklXJ5CyEbTMR12qHsfRdyXuGXDKQpTpPH1bgSTQGBavF3K3mewW6KZPjEPpL93Li55K5WtIj+L5aAdclTyhBnfvXCZTT6qG3wTfZa2OjQ7js=
+Received: from DB8P191CA0016.EURP191.PROD.OUTLOOK.COM (2603:10a6:10:130::26)
+ by GV1PR03MB10727.eurprd03.prod.outlook.com (2603:10a6:150:210::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8901.24; Fri, 11 Jul
+ 2025 12:01:40 +0000
+Received: from DB3PEPF0000885A.eurprd02.prod.outlook.com
+ (2603:10a6:10:130:cafe::98) by DB8P191CA0016.outlook.office365.com
+ (2603:10a6:10:130::26) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8922.23 via Frontend Transport; Fri,
+ 11 Jul 2025 12:01:40 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 217.111.95.7)
+ smtp.mailfrom=arri.de; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=arri.de;
+Received-SPF: Fail (protection.outlook.com: domain of arri.de does not
+ designate 217.111.95.7 as permitted sender) receiver=protection.outlook.com;
+ client-ip=217.111.95.7; helo=mta.arri.de;
+Received: from mta.arri.de (217.111.95.7) by
+ DB3PEPF0000885A.mail.protection.outlook.com (10.167.242.5) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8922.22 via Frontend Transport; Fri, 11 Jul 2025 12:01:39 +0000
+Received: from N9W6SW14.arri.de (192.168.54.39) by mta.arri.de (10.10.18.5)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1258.38; Fri, 11 Jul
+ 2025 14:01:38 +0200
+From: Christian Eggers <ceggers@arri.de>
+To: Srinivas Kandagatla <srini@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>, Dmitry Baryshkov <lumag@kernel.org>,
+	=?UTF-8?q?Rafa=C5=82=20Mi=C5=82ecki?= <rafal@milecki.pl>
+CC: Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam
+	<festevam@gmail.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "Sasha
+ Levin" <sashal@kernel.org>, <imx@lists.linux.dev>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	Christian Eggers <ceggers@arri.de>, <stable@vger.kernel.org>
+Subject: [PATCH 1/2] nvmem: imx: assign nvmem_cell_info::raw_len
+Date: Fri, 11 Jul 2025 13:55:47 +0200
+Message-ID: <20250711120110.12885-2-ceggers@arri.de>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250711120110.12885-1-ceggers@arri.de>
+References: <20250711120110.12885-1-ceggers@arri.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.203.177.66]
-X-ClientProxiedBy: lhrpeml500001.china.huawei.com (7.191.163.213) To
- frapeml500008.china.huawei.com (7.182.85.71)
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [192.168.54.39]
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB3PEPF0000885A:EE_|GV1PR03MB10727:EE_
+X-MS-Office365-Filtering-Correlation-Id: 289fdbd2-c1e9-43a4-45ac-08ddc072b1ad
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|36860700013|82310400026|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?ppA/u/88Da5jpXyrMAksQEMx9zY1C6Lrn6hElksX4sFonvrEgQg201Mx24up?=
+ =?us-ascii?Q?aujZCroh7Jc9xy7y5Cxbop4j7xf0Xpm1XRqaKRJmX5wx7Eu5YBIFTVB7ZHvS?=
+ =?us-ascii?Q?4TwSxDInvNdz2EcsNDbj9XLL6AIku5m4biygR+P7pleiz6dNtOxCVOUHLty6?=
+ =?us-ascii?Q?/yemQ7MqrSZ3upGImkSblCTCDwkKU9+1l5kVt3DILIU5axqbg4qB5XsQfoA0?=
+ =?us-ascii?Q?EIwZ6robuLH9Mgu/j/kawsrdufS6RVam1jZoftq24zzTxyzsNB3K61VVAKfv?=
+ =?us-ascii?Q?U8Y8N/5u3w+pugV5G6Y/wdeXBsj6vyf1xl2wKgiwSUtd8O1p3jqdPfjjhK46?=
+ =?us-ascii?Q?nKgICgtVBK2Ww5uJBz94Ucku9GefC6pnlzBq5B5XuSU+4j6JcgnHjh/RIK93?=
+ =?us-ascii?Q?7A4gk8WudViO1DQ5MXH2HviK5Idc+SF3PEtLU1g/RawMJb6d8viNN/0vHO2g?=
+ =?us-ascii?Q?FmEOvY2//cPWZ3OYZVEMHGpLcMmLc5qGlU88d6WqApzzKX0LedMkH9omCW6Z?=
+ =?us-ascii?Q?nnzOln5EIGeDlg9QfX9AOlpQe59nl5sqh0GqVMP6ZK3kmW5BJe75Tl/oquMc?=
+ =?us-ascii?Q?F4Iu9HHOzaHyo7anUO0kOYOC8SViVkenTefxVHoj8yDNuY9SmmrqqWohYBLh?=
+ =?us-ascii?Q?vzdmoGWSrG1vTitzGm84gM0cTrrgXv+478NcDAidzQxv8DkjDioGv8N7+TCa?=
+ =?us-ascii?Q?ZdbaaTHz35raE/FZvn0DLcE/8KdTayGGm9ngRKSWgSYJjCr/1PEYlea2p45d?=
+ =?us-ascii?Q?yeUDo+0uZYvAjJ1kJLojrQw372+fSemlhwmPcfHQRKjYT/S4Rjwa4Pwv0X2o?=
+ =?us-ascii?Q?OqX5IB4ncg35h5qoNMDd10OVT/HSAC5o/R+HRVKGN9mTRiRFOGaAcoUNDVQB?=
+ =?us-ascii?Q?JqRtdAMFZALB8apqkn0ngK1CABP/qb9JH5R0pZNEW2dKPuzCjqQXh5LiqAFv?=
+ =?us-ascii?Q?27KQbQCOkNbGUB4RtwmUc59KQfQzlwOuRoLZjeCyeY4RFRmL9NG4Oio6BMdt?=
+ =?us-ascii?Q?6X+PSMMaoxUXUdQ53qYAptqvPNOJUvkwx/Mq2gCKN+AXzb3rbxQKDgAbZgYU?=
+ =?us-ascii?Q?OyPtiLLPXD3ddHVEd8R15n6Dd0FiLeVRD0ccHXO28EIuUWhz+ktOXmJyDrTH?=
+ =?us-ascii?Q?rnCMinpS0AwYmNAmLQqraowGxM7pNYerlu4TP5aMnofn4ditiS47MI47dvyv?=
+ =?us-ascii?Q?AmvwfDSy/JfFTu9102mEbVVRrAtxEy3omaBkqsWLE8RGtMW+mzwlutmStCar?=
+ =?us-ascii?Q?TJBtDDcT2Z5cgAUqjTlnhnNu28Yqu7tj66xIJAuHr66l8MsXv7sa65a6W58F?=
+ =?us-ascii?Q?3SSh+9upkdBpbu4d0SYtENEkcphjl4y48Y5lnLHUg4JIifCmmEE9cF0vzmWO?=
+ =?us-ascii?Q?e6bzWwboI3fkglRGqa+PsQoF4e+49HUkSxdknFUS/71NmUACYdcvKXD1EbsK?=
+ =?us-ascii?Q?4qx16+mCBxGhalJH511b79ppJZXrrT1v1arUEhLmqdGlJDgk+NzhZ6I6AzlJ?=
+ =?us-ascii?Q?uuGTdELFZEufLkIzV0YP0DCADuqTkgJ/1vcv?=
+X-Forefront-Antispam-Report: CIP:217.111.95.7;CTRY:DE;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mta.arri.de;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(7416014)(36860700013)(82310400026)(1800799024);DIR:OUT;SFP:1101;
+X-OriginatorOrg: arri.de
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Jul 2025 12:01:39.4662
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 289fdbd2-c1e9-43a4-45ac-08ddc072b1ad
+X-MS-Exchange-CrossTenant-Id: e6a73a5a-614d-4c51-b3e3-53b660a9433a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e6a73a5a-614d-4c51-b3e3-53b660a9433a;Ip=[217.111.95.7];Helo=[mta.arri.de]
+X-MS-Exchange-CrossTenant-AuthSource: DB3PEPF0000885A.eurprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR03MB10727
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250711_045333_209873_2E907554 
-X-CRM114-Status: GOOD (  36.19  )
+X-CRM114-CacheID: sfid-20250711_050155_820748_9453FC25 
+X-CRM114-Status: UNSURE (   9.95  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,176 +147,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 09 Jul 2025 23:01:50 -0700
-"H. Peter Anvin" <hpa@zytor.com> wrote:
+Avoid getting error messages at startup like the following on i.MX6ULL:
 
-> On July 9, 2025 10:57:37 PM PDT, dan.j.williams@intel.com wrote:
-> >Jonathan Cameron wrote:  
-> >> From: Yicong Yang <yangyicong@hisilicon.com>
-> >> 
-> >> ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION provides the mechanism for
-> >> invalidate certain memory regions in a cache-incoherent manner.
-> >> Currently is used by NVIDMM adn CXL memory. This is mainly done
-> >> by the system component and is implementation define per spec.
-> >> Provides a method for the platforms register their own invalidate
-> >> method and implement ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION.  
-> >
-> >Please run spell-check on changelogs.
-> >  
-> >> 
-> >> Architectures can opt in for this support via
-> >> CONFIG_GENERIC_CPU_CACHE_INVALIDATE_MEMREGION.
-> >> 
-> >> Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
-> >> Signed-off-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-> >> ---
-> >>  drivers/base/Kconfig             |  3 +++
-> >>  drivers/base/Makefile            |  1 +
-> >>  drivers/base/cache.c             | 46 ++++++++++++++++++++++++++++++++  
-> >
-> >I do not understand what any of this has to do with drivers/base/.
-> >
-> >See existing cache management memcpy infrastructure in lib/Kconfig.
-> >  
-> >>  include/asm-generic/cacheflush.h | 12 +++++++++
-> >>  4 files changed, 62 insertions(+)
-> >> 
-> >> diff --git a/drivers/base/Kconfig b/drivers/base/Kconfig
-> >> index 064eb52ff7e2..cc6df87a0a96 100644
-> >> --- a/drivers/base/Kconfig
-> >> +++ b/drivers/base/Kconfig
-> >> @@ -181,6 +181,9 @@ config SYS_HYPERVISOR
-> >>  	bool
-> >>  	default n
-> >>  
-> >> +config GENERIC_CPU_CACHE_INVALIDATE_MEMREGION
-> >> +	bool
-> >> +
-> >>  config GENERIC_CPU_DEVICES
-> >>  	bool
-> >>  	default n
-> >> diff --git a/drivers/base/Makefile b/drivers/base/Makefile
-> >> index 8074a10183dc..0fbfa4300b98 100644
-> >> --- a/drivers/base/Makefile
-> >> +++ b/drivers/base/Makefile
-> >> @@ -26,6 +26,7 @@ obj-$(CONFIG_DEV_COREDUMP) += devcoredump.o
-> >>  obj-$(CONFIG_GENERIC_MSI_IRQ) += platform-msi.o
-> >>  obj-$(CONFIG_GENERIC_ARCH_TOPOLOGY) += arch_topology.o
-> >>  obj-$(CONFIG_GENERIC_ARCH_NUMA) += arch_numa.o
-> >> +obj-$(CONFIG_GENERIC_CPU_CACHE_INVALIDATE_MEMREGION) += cache.o
-> >>  obj-$(CONFIG_ACPI) += physical_location.o
-> >>  
-> >>  obj-y			+= test/
-> >> diff --git a/drivers/base/cache.c b/drivers/base/cache.c
-> >> new file mode 100644
-> >> index 000000000000..8d351657bbef
-> >> --- /dev/null
-> >> +++ b/drivers/base/cache.c
-> >> @@ -0,0 +1,46 @@
-> >> +// SPDX-License-Identifier: GPL-2.0
-> >> +/*
-> >> + * Generic support for CPU Cache Invalidate Memregion
-> >> + */
-> >> +
-> >> +#include <linux/spinlock.h>
-> >> +#include <linux/export.h>
-> >> +#include <asm/cacheflush.h>
-> >> +
-> >> +
-> >> +static const struct system_cache_flush_method *scfm_data;
-> >> +DEFINE_SPINLOCK(scfm_lock);
-> >> +
-> >> +void generic_set_sys_cache_flush_method(const struct system_cache_flush_method *method)
-> >> +{
-> >> +	guard(spinlock_irqsave)(&scfm_lock);
-> >> +	if (scfm_data || !method || !method->invalidate_memregion)
-> >> +		return;
-> >> +
-> >> +	scfm_data = method;  
-> >
-> >The lock looks unnecessary here, this is just atomic_cmpxchg().
-> >  
-> >> +}
-> >> +EXPORT_SYMBOL_GPL(generic_set_sys_cache_flush_method);
-> >> +
-> >> +void generic_clr_sys_cache_flush_method(const struct system_cache_flush_method *method)
-> >> +{
-> >> +	guard(spinlock_irqsave)(&scfm_lock);
-> >> +	if (scfm_data && scfm_data == method)
-> >> +		scfm_data = NULL;  
-> >
-> >Same here, but really what is missing is a description of the locking
-> >requirements of cpu_cache_invalidate_memregion().
-> >
-> >  
-> >> +}
-> >> +
-> >> +int cpu_cache_invalidate_memregion(int res_desc, phys_addr_t start, size_t len)
-> >> +{
-> >> +	guard(spinlock_irqsave)(&scfm_lock);
-> >> +	if (!scfm_data)
-> >> +		return -EOPNOTSUPP;
-> >> +
-> >> +	return scfm_data->invalidate_memregion(res_desc, start, len);  
-> >
-> >Is it really the case that you need to disable interrupts during cache
-> >operations? For potentially flushing 10s to 100s of gigabytes, is it
-> >really the case that all archs can support holding interrupts off for
-> >that event?
-> >
-> >A read lock (rcu or rwsem) seems sufficient to maintain registration
-> >until the invalidate operation completes.
-> >
-> >If an arch does need to disable interrupts while it manages caches that
-> >does not feel like something that should be enforced for everyone at
-> >this top-level entry point.
-> >  
-> >> +}
-> >> +EXPORT_SYMBOL_NS_GPL(cpu_cache_invalidate_memregion, "DEVMEM");
-> >> +
-> >> +bool cpu_cache_has_invalidate_memregion(void)
-> >> +{
-> >> +	guard(spinlock_irqsave)(&scfm_lock);
-> >> +	return !!scfm_data;  
-> >
-> >Lock seems pointless here.
-> >
-> >More concerning is this diverges from the original intent of this
-> >function which was to disable physical address space manipulation from
-> >virtual environments.
-> >
-> >Now, different archs may have reason to diverge here but the fact that
-> >the API requirements are non-obvious points at a minimum to missing
-> >documentation if not missing cross-arch consensus.
-> >  
-> >> +}
-> >> +EXPORT_SYMBOL_NS_GPL(cpu_cache_has_invalidate_memregion, "DEVMEM");
-> >> diff --git a/include/asm-generic/cacheflush.h b/include/asm-generic/cacheflush.h
-> >> index 7ee8a179d103..87e64295561e 100644
-> >> --- a/include/asm-generic/cacheflush.h
-> >> +++ b/include/asm-generic/cacheflush.h
-> >> @@ -124,4 +124,16 @@ static inline void flush_cache_vunmap(unsigned long start, unsigned long end)
-> >>  	} while (0)
-> >>  #endif
-> >>  
-> >> +#ifdef CONFIG_GENERIC_CPU_CACHE_INVALIDATE_MEMREGION
-> >> +
-> >> +struct system_cache_flush_method {
-> >> +	int (*invalidate_memregion)(int res_desc,
-> >> +				    phys_addr_t start, size_t len);
-> >> +};  
-> >
-> >The whole point of ARCH_HAS facilities is to resolve symbols like this
-> >at compile time. Why does this need a indirect function call at all?  
-> 
-> Yes, blocking interrupts is much like the problem with WBINVD.
-> 
-> More or less, once user space is running, this isn't acceptable.
-It's a bug that I missed in dragging this from a very different implementation.
+nvmem imx-ocotp0: cell mac-addr raw len 6 unaligned to nvmem word size 4
+nvmem imx-ocotp0: cell mac-addr raw len 6 unaligned to nvmem word size 4
 
-Will fix for v3.
+This shouldn't cause any functional change as this alignment would
+otherwise be done in nvmem_cell_info_to_nvmem_cell_entry_nodup().
 
-J
-> 
+Fixes: 4327479e559c ("nvmem: core: verify cell's raw_len")
+Signed-off-by: Christian Eggers <ceggers@arri.de>
+Cc: stable@vger.kernel.org
+---
+Tested on i.MX6ULL, but I assume that this is also required for 
+imx-ocotp-ele.c (i.MX93).
+
+ drivers/nvmem/imx-ocotp-ele.c | 1 +
+ drivers/nvmem/imx-ocotp.c     | 1 +
+ 2 files changed, 2 insertions(+)
+
+diff --git a/drivers/nvmem/imx-ocotp-ele.c b/drivers/nvmem/imx-ocotp-ele.c
+index ca6dd71d8a2e..83617665c8d7 100644
+--- a/drivers/nvmem/imx-ocotp-ele.c
++++ b/drivers/nvmem/imx-ocotp-ele.c
+@@ -128,6 +128,7 @@ static int imx_ocotp_cell_pp(void *context, const char *id, int index,
+ static void imx_ocotp_fixup_dt_cell_info(struct nvmem_device *nvmem,
+ 					 struct nvmem_cell_info *cell)
+ {
++	cell->raw_len = round_up(cell->bytes, 4);
+ 	cell->read_post_process = imx_ocotp_cell_pp;
+ }
+ 
+diff --git a/drivers/nvmem/imx-ocotp.c b/drivers/nvmem/imx-ocotp.c
+index 79dd4fda0329..22cc77908018 100644
+--- a/drivers/nvmem/imx-ocotp.c
++++ b/drivers/nvmem/imx-ocotp.c
+@@ -586,6 +586,7 @@ MODULE_DEVICE_TABLE(of, imx_ocotp_dt_ids);
+ static void imx_ocotp_fixup_dt_cell_info(struct nvmem_device *nvmem,
+ 					 struct nvmem_cell_info *cell)
+ {
++	cell->raw_len = round_up(cell->bytes, 4);
+ 	cell->read_post_process = imx_ocotp_cell_pp;
+ }
+ 
+-- 
+2.43.0
 
 
