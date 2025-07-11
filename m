@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1427C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 16:27:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DC64C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 16:29:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k7skpOByzW+hOTXagKwoSr9X/HjtkTFtxhdBwxlew5M=; b=JxqbNMhJXOGuweq8kOVGj08FTh
-	73rag17yXCQbliPcLWBT1xKUTVc8MjHdsLMxOriLpYOqZ6PIMHw+b7ZDMw4Sx2Q9Cjnze6e153Z0U
-	6eKGFP78XdKxMl9RLbqQFkKMX9MSZo0m0wlF6gmHY852112vVzTyVhFQYCMZz4FVM1GOI/nTVAhjm
-	cuDmf9HEimXbDEm/Jbp0CelhgF3o3Ted45kcDptfVWSAuSpQCBQylV5mdxYzoRzAJimJLMvdbuzTS
-	VeI+GPXxVkyrlYNskCwxJJDr/leL2UnG4OHM+M72GA7GjsPR21dzSOMYFXlwXoT55lP/b+uYMAyAv
-	G0BQOJhQ==;
+	bh=NH82M7Wpg8q915gzukGl/UR0qvoygGIK5SM365nsKWY=; b=uOOvC/fB3TWpo3zW7Wf510F/EM
+	6P3Q2PoXI4rOLvL8H3uSjkKhnAF6BqZhOPWVqxKHD/VoNcMao/AQvFZhlciRTfHcmDPepHxHWLHaK
+	YA0nyGj6z/Ov7yiXgzontytrjPwTMqK1A7Ltfbl7o1OrFT1E5mBrkP4MreiIemDRGkUB1UpwMwXVY
+	uBOu09Q8LWQe7N2McOsDskc8LLDV5sxTKlscCBSqIANM+kDEEC7tUwf9oXNLPSy7d/PM6kgxP1xYk
+	bHGbXjNEBtRm+uouDdL+3adQRPlZjDIjmUl9iu91Plwt70dax4bYP1KJu31DJLl1jv99KDMaYLo8x
+	N8XvFgpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaGak-0000000FHfX-2CFq;
-	Fri, 11 Jul 2025 16:27:18 +0000
-Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
+	id 1uaGd5-0000000FI4X-0tzh;
+	Fri, 11 Jul 2025 16:29:43 +0000
+Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaFtS-0000000FAxS-18jp
+	id 1uaFtW-0000000FAyV-1hOI
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Jul 2025 15:42:35 +0000
-Received: by mail-pf1-x42a.google.com with SMTP id d2e1a72fcca58-7494999de5cso1546940b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Jul 2025 08:42:34 -0700 (PDT)
+	Fri, 11 Jul 2025 15:42:39 +0000
+Received: by mail-pf1-x42d.google.com with SMTP id d2e1a72fcca58-742c7a52e97so2085103b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Jul 2025 08:42:38 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1752248553; x=1752853353; darn=lists.infradead.org;
+        d=broadcom.com; s=google; t=1752248557; x=1752853357; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=k7skpOByzW+hOTXagKwoSr9X/HjtkTFtxhdBwxlew5M=;
-        b=Vwo585TDIGwrCXS0tF/R7nLVxARok8zWKoDWIncI9lkOTAKXrZjKc23BjBp+xpuWNl
-         fpB3gexs2boFlQim+9TCz7FkZe9Cpw/nO44qAVLoPY8M1veipq566W27Wcl3Qz3rjg6c
-         oymTHyZDkFjPgKyHMGXHkBxAX1tN0LHnODWXY=
+        bh=NH82M7Wpg8q915gzukGl/UR0qvoygGIK5SM365nsKWY=;
+        b=FVnEmXOHGPcjWnsL0hd0kxXuPZAABcM39AFJRcAOSU2lYanEBce08TfAkFo9BWMlpp
+         4v1BVs4ZJ1KCASSoURhQIZOk54YCt6txtM0Wj7Vnnob6SICGjl8ARpryJexj7omSjSm7
+         jjwelSF6v3v5AlvaKhFJPL03JYS9U1gONW4Gs=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752248553; x=1752853353;
+        d=1e100.net; s=20230601; t=1752248557; x=1752853357;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=k7skpOByzW+hOTXagKwoSr9X/HjtkTFtxhdBwxlew5M=;
-        b=SUhHNmH3HXhilQEhO3xXePBF0hFliFhx7ZV57JZnvdGDkdmUWRKAVFJ+BfjGvctx6K
-         Sxl0xWVee4BkMAhqmwfZ+0YzDa63qxsxDmdY2x+lGSEurY00hH8jOFICmG25ELQfAudE
-         o3KQQh/icKVJulpDqVGu4aim25GXm2lm8ycYx0k0TOcRq8Wapc+AbCmr46JLv6pt84eK
-         SbY67n6B+/qvNvITZcdEbusj1QA7lt22T7QFiH1J1Mci95c4XbnqqpfiJjNUmYthIU/n
-         7IsKU9Kr0VCAIyN3HGIoidIA5OVma6U9m0az1GSj5nCi36sbUJhz6vmitNuuYI9+D73E
-         ih4w==
-X-Forwarded-Encrypted: i=1; AJvYcCWotNnBj0tX93gw+NePoC8JQTRY0tuP3tbBx0aqAGwCinXrMTwW9Azxvo1zijIHCbC0OQhBs0fTOmYp90lnQxWn@lists.infradead.org
-X-Gm-Message-State: AOJu0YwtRghMRqxyTKrzq0vcQRx4akZOWdX4QgNcScg8MM/jdJ1VqAeh
-	bO7qI6gSGCv3TZxluN091hJUu8S2uIgumiSipmpf9PHqB5vFmU4bV577d9Ncs48LNA==
-X-Gm-Gg: ASbGnctTczocCEN9MUINPBTz0lLiIq1pyBguDcUJDAnVt40CPToQkvycf/QQQVMx9wT
-	RaUUuDdjDSfb3H36qjXxBml420JodkoT+vIrpw2yKjuAH7mHYNn+227RYnY3LggUa1febFKf9NM
-	DSEvtp5eT+ET1dhri6SBhhVXHctaiWuZennHpogKGPtWfsXpXq+JGKNGvwKsUmT3/Xcf1i4yFFe
-	3RJU7YJl394ONWKqz2t+N7rAI9cN15ygFoxJGWbUMYAryY9vywlDpyLKItPYHCjO4flfwsldllE
-	Q4jBtRBSVwK0dZPcOW7auPr47I/nSiU7ocUyghpYktwxMeCYKGmYegyOa9yKOJl/9IyjJNqpNQn
-	a1dKWZXtxls5380GYB9321HqbwBUEGwCf1ZKySFGtXyQ+lNf9NDYoBjRd/Q==
-X-Google-Smtp-Source: AGHT+IGDEkar+diQDXAFzWseo9mmENOlTrd0V0FLWObaE74a9KCtE2gcym2rmo5BmC5WxmqYeQa0ow==
-X-Received: by 2002:a05:6a00:188c:b0:74d:3a57:81d9 with SMTP id d2e1a72fcca58-74ee0ab538cmr5458867b3a.8.1752248553448;
-        Fri, 11 Jul 2025 08:42:33 -0700 (PDT)
+        bh=NH82M7Wpg8q915gzukGl/UR0qvoygGIK5SM365nsKWY=;
+        b=R07i06qQRnUG0JeZLSd738KLLA+Y4VxZfgFeQ1iXGQ4cs6fH7L+eaQwlmeDmeSuABc
+         HASH2c+yuiVe2RUTjSC+D79/wi9B2z578iKaGSvGxvq4fc5BEdflp4/+u3bcPjzjAidD
+         wh0Sx9fhhftgdPChPJOblikQH2FhnFBTP5hMZ3SMZ8cRNVbUzi3Lu35+cESqvgwWJRen
+         ye3MndDOOA+elAimohWI3U6rzEz4ZfTjGnTlF/4jpnJNt1T5nk3Q6BvqMeR6MTjRX87b
+         0NlRnuGfTSRYGX18IoR6mZwOcmtGcdnvcLCokpaUJdnp1PX1qxNWf3TnGze1CQ/EqjXS
+         UHBQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUqsXFAfc8mlsXkRoKsSC5/9wGo4HY/ysnGPO1I8FCJJXdfJt1PqCPzeIfngAToYFtjpuVNoFxUwX68n+uWoHuD@lists.infradead.org
+X-Gm-Message-State: AOJu0YzR5ks1R2z8UKtqTQ4VJylM5mhImsqUhjzM4bS8AnszdBuRASb4
+	IMgeWtOjSIgpqaXgf1VEbsYTCZ2z5f2Lu5lYGCzsuyOEcSo9nWENMReHnKkGSWZT/w==
+X-Gm-Gg: ASbGncvTcUe2vFEp2rdNUCPQyLuKXnF27biUXkpvU7ldmv+WBfYVaubb0l3OIp/u6vQ
+	0OsOBFBsVxM3aySXzD9LRnMYXdpUVuP5vqOqET6uZkkwXMM3nOYQcPUm1WQfhfvkbOgvRKa1Ffd
+	6KDc9BeZmfRO0UvzRIGLzbUhgoS31U5FoxciyN5d5mPEJWdSCRbSHaSbK643h191m0w/e8rYBq5
+	sd7KIO4FHEWtNt+xlHYdIIf5kZX8P2nFWUUa1orzWIXbXksJy/JeVu1IIwSwpzMf8QU2Xc8cih9
+	Fd9jEWgSTE4wLPtWWVZQtJy++u+NMcy90Y/6Mjjg/mjbqxzqY21bzdQ5ZTN8nfMQ8nEMn4JLmL3
+	8Tf7i94KE+fBRNdW222cJVIgfm/Ji00wvt1cIs2U+Cu9lCEDgli/VXfvHXQ==
+X-Google-Smtp-Source: AGHT+IGikmpmpoiahS6C039EIM4FWOINmFiK6nKg81tKKKY6N2Q8zXv85yrb97AEzFO3cAhGLIqJ9g==
+X-Received: by 2002:a05:6a21:48b:b0:22f:8484:5ac2 with SMTP id adf61e73a8af0-23120df88c2mr6194764637.38.1752248557400;
+        Fri, 11 Jul 2025 08:42:37 -0700 (PDT)
 Received: from mail.broadcom.net ([192.19.144.250])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-74eb9dd5ccesm5762420b3a.27.2025.07.11.08.42.31
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-74eb9dd5ccesm5762420b3a.27.2025.07.11.08.42.34
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 11 Jul 2025 08:42:32 -0700 (PDT)
+        Fri, 11 Jul 2025 08:42:36 -0700 (PDT)
 From: Kamal Dasu <kamal.dasu@broadcom.com>
 To: andersson@kernel.org,
 	baolin.wang@linux.alibaba.com,
@@ -81,18 +81,19 @@ Cc: bcm-kernel-feedback-list@broadcom.com,
 	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	linux-mmc@vger.kernel.org
-Subject: [PATCH 0/4] mmc: sdhci-brcmstb: rpmb sharing by claiming host for TZOS
-Date: Fri, 11 Jul 2025 11:42:17 -0400
-Message-Id: <20250711154221.928164-2-kamal.dasu@broadcom.com>
+	linux-mmc@vger.kernel.org,
+	Kamal Dasu <kdasu@broadcom.com>
+Subject: [PATCH 1/4] dt-bindings: brcmstb-hwspinlock: support for hwspinlock
+Date: Fri, 11 Jul 2025 11:42:18 -0400
+Message-Id: <20250711154221.928164-3-kamal.dasu@broadcom.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250711154221.928164-1-kamal.dasu@broadcom.com>
 References: <20250711154221.928164-1-kamal.dasu@broadcom.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250711_084234_308475_5EC920AF 
-X-CRM114-Status: GOOD (  13.50  )
+X-CRM114-CacheID: sfid-20250711_084238_442236_891DFD4F 
+X-CRM114-Status: GOOD (  12.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,40 +108,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch adds support to claim host for TZOS RPMB access and synchronized
-access to the controller hardware using hwspinlock framework.
-To achieve this Linux OS and the secure TZOS make use of:
-- shared hardware semaphore register
-- a set of SDIO shared work registers and
-- IPI interrupt registers 
+From: Kamal Dasu <kdasu@broadcom.com>
 
-The currently running OS that needs access to the controller puts itself in its
-slot of work register and if its next in line it can try to grab the hardware
-semaphore and complete its mmc requests. The shared work registers indicate next
-in queue to access the controller, and current agent in the queue. Next agent
-queue state is changed under the hwspinlock is owned by the current OS accessing
-the controller hardware before release the semaphore, send and receive IPI
-interrupts between linux and secure world are used to indicate completion of
-transaction to the waiting OS. TZOS has its own RPMB driver which accesses
-partition when it wants to read/write RPMB frames. Current implementation
-assumes Linux and TZOS as the two work agents.
+Adding brcmstb_hwspinlock bindings.
 
-Kamal Dasu (4):
-  dt-bindings: brcmstb-hwspinlock: support for hwspinlock
-  hwspinlock: brcmstb hardware semaphore support
-  dt-bindings: mmc: add brcmstb share register and hwlocks reference
-  mmc: sdhci-brcmstb: rpmb sharing by claiming host for TZOS
-
- .../hwlock/brcm,brcmstb-hwspinlock.yaml       |  36 +++
- .../bindings/mmc/brcm,sdhci-brcmstb.yaml      |  29 ++-
- drivers/hwspinlock/Kconfig                    |   9 +
- drivers/hwspinlock/Makefile                   |   1 +
- drivers/hwspinlock/brcmstb_hwspinlock.c       |  98 +++++++
- drivers/mmc/host/sdhci-brcmstb.c              | 243 +++++++++++++++++-
- 6 files changed, 413 insertions(+), 3 deletions(-)
+Signed-off-by: Kamal Dasu <kamal.dasu@broadcom.com>
+---
+ .../hwlock/brcm,brcmstb-hwspinlock.yaml       | 36 +++++++++++++++++++
+ 1 file changed, 36 insertions(+)
  create mode 100644 Documentation/devicetree/bindings/hwlock/brcm,brcmstb-hwspinlock.yaml
- create mode 100644 drivers/hwspinlock/brcmstb_hwspinlock.c
 
+diff --git a/Documentation/devicetree/bindings/hwlock/brcm,brcmstb-hwspinlock.yaml b/Documentation/devicetree/bindings/hwlock/brcm,brcmstb-hwspinlock.yaml
+new file mode 100644
+index 000000000000..b49ead166b1e
+--- /dev/null
++++ b/Documentation/devicetree/bindings/hwlock/brcm,brcmstb-hwspinlock.yaml
+@@ -0,0 +1,36 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/hwlock/brcm,brcmstb-hwspinlock.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Broadcom settop Hardware Spinlock
++
++maintainers:
++  - Kamal Dasu <kamal.dasu@broadcom.com>
++
++properties:
++  "#hwlock-cells":
++    const: 1
++
++  compatible:
++    const: brcm,brcmstb-hwspinlock
++
++  reg:
++    maxItems: 1
++
++required:
++  - "#hwlock-cells"
++  - compatible
++  - reg
++
++additionalProperties: false
++
++examples:
++  - |
++    hwspinlock@8404038 {
++        compatible = "brcm,brcmstb-hwspinlock";
++        #hwlock-cells = <1>;
++        reg = <0x8404038 0x40>;
++    };
++
 -- 
 2.34.1
 
