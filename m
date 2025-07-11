@@ -4,141 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D21FC83F22
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D0EBC83F24
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 12:12:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:CC:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=JK1YU7vrA4jzIzkmhhrn/QsxdsaSkSX2s+X4Jf9xBvo=; b=uyepRlHOhfga1kyDoMxqcjkNWs
-	R07iTwnb4Fudk6czns5hd8YoIRQkRMD1U9ztjPZNxMUGDLpZtzavAVkPLORC1R3ReRVopl9AVmZs6
-	eeydK19wY7UVjl+IhkLIHEbIGj+ols+E7A67Iewp6+zfJFNuE2BcH+mDpMH6TZm2AmG7CGYFxeMlR
-	kJ6/kW+vdwiUfr5Tip1gDP9ghXFZCDd+/XnEstCCafdRnA+xGQZr5OwwWA2COfFTP8Ok+XXYk4DCh
-	Wu5FFBUogtkvoMxUdVdUMpgqa5f7hTCJzRD/bF7MDuv/TBXu3pMu0QNAeGMkZLLiQZqLBWIvF7j5v
-	497kJhDQ==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2AEASaq5CDzhb6ktnTbfQ22tIfOZRPSGaJHgFyQUuec=; b=uIFGrMB25ezaYrrSGjfyS1wFx4
+	m/WCwsGdEbH2ExN3aYswtAXB6uVV9NijKvn3czVW48Y6A9c0L0ZlUcD2667CyWvWmwFvMJkIgKVUW
+	TYUY51eNkbmpEXWXB1hHKhzEGNuzueM+TCEph+iFxXP4g4AwztSMGicB42+7MVhAl/IZ/U2soWL2y
+	llxbe1MItXHv4qJUWfmQDwCHlzF3KGA/PQN8OXMVMd/VrToXft4WAHkQRnZ5AXG2KnHh53dAJpS1U
+	AFTgBTEeRRcHr95rmxSH1IcuJjvelfF2xsCKWVuc5QrjyWFlzGNS/wov9KJTEXR4rf+4TMzNzx5jw
+	nJAKee/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaCbj-0000000EhbX-31uI;
-	Fri, 11 Jul 2025 12:12:03 +0000
-Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1uaCbk-0000000Ehch-3f5v;
+	Fri, 11 Jul 2025 12:12:04 +0000
+Received: from mail-lf1-x130.google.com ([2a00:1450:4864:20::130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaCRs-0000000EgXa-1VXC
+	id 1uaCVP-0000000EgvP-12Rm
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Jul 2025 12:01:54 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=BgyEHny30ZPOjqW3qS2F1ht0piZJIQvRKfmFmtg0H9ZehupatdTRMYT4MnzGFGpbklBQhbqBALcTKd7zSEe7FWJ/FGTQ+mjb65xjx1sueRbeamZ4TOuBTLl5fONcmKDMdgcPzZgHIBYhx8l+y6PItioxrysFv3WuR0OC0ssck7F5F+j9ylHDhT/NkKQ2vz07ju96M6utg/xs9S6mVZVOi2keEueknDBXKA69AIHcyeoECp6tThBz0gLSKjcX0gI/+y7BmH+jv+VNErd9/vwamzYcaC3omnAwjLlyob6lp0GhZOc9Jza2w1lKd4mZ7cAT0kM+yMh5D/Ls3yRoNoI+PA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=JK1YU7vrA4jzIzkmhhrn/QsxdsaSkSX2s+X4Jf9xBvo=;
- b=iSBywuRe+NKUHVUxVmURWD6Cl9QuS8t23ACYkir/do59cs3d7V0PTVzQUVzCXoCF/KVfj3YsSeToouZT7YI0jFcuuooQIrfHJjCa3DaPBM8RL98bpNHoLYzCRnD0gSqlaVoI3uC8ubA4rZMMSGJswXukRqIhDQYugG1ouejoeMPZw+7QKZdqS8mcgl3mqLKPLGdQGPB0WLvqUcbTUtDdvOXmDRSRnNB9ZLtSbFItyjAwOe5xACdoTXlW5kfbAmACexKIW5NaHpNbG18kSW69J2oFysdr0H8ydAtbm+c9mC/NgtRV8PpuvHvh9zQeMw3DlTPOKTXO7KvLqsksNaRzoQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 217.111.95.7) smtp.rcpttodomain=kernel.org smtp.mailfrom=arri.de; dmarc=fail
- (p=none sp=none pct=100) action=none header.from=arri.de; dkim=none (message
- not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arri.de; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=JK1YU7vrA4jzIzkmhhrn/QsxdsaSkSX2s+X4Jf9xBvo=;
- b=AS5tKXc59BTuA0GOQ13D0i851g7DFFDPoOcDoTaU2x/kdHqrk4cPNXVc938o/gV1S4DTVq7jlln3NpZQz6aIEsX0iBa+mpQuaciYvbIa3tcBBCIsAgxQgKggjQfjIxf2R77ytXDDgetoZdPcZXMrr4dXNWB/iJUNmIXSEb6hpBs=
-Received: from DU6P191CA0062.EURP191.PROD.OUTLOOK.COM (2603:10a6:10:53e::11)
- by DB3PR0302MB8941.eurprd03.prod.outlook.com (2603:10a6:10:43b::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8922.25; Fri, 11 Jul
- 2025 12:01:31 +0000
-Received: from DB3PEPF0000885F.eurprd02.prod.outlook.com
- (2603:10a6:10:53e:cafe::a0) by DU6P191CA0062.outlook.office365.com
- (2603:10a6:10:53e::11) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8922.25 via Frontend Transport; Fri,
- 11 Jul 2025 12:01:31 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 217.111.95.7)
- smtp.mailfrom=arri.de; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=arri.de;
-Received-SPF: Fail (protection.outlook.com: domain of arri.de does not
- designate 217.111.95.7 as permitted sender) receiver=protection.outlook.com;
- client-ip=217.111.95.7; helo=mta.arri.de;
-Received: from mta.arri.de (217.111.95.7) by
- DB3PEPF0000885F.mail.protection.outlook.com (10.167.242.10) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8922.22 via Frontend Transport; Fri, 11 Jul 2025 12:01:30 +0000
-Received: from N9W6SW14.arri.de (192.168.54.39) by mta.arri.de (10.10.18.5)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1258.38; Fri, 11 Jul
- 2025 14:01:29 +0200
-From: Christian Eggers <ceggers@arri.de>
-To: Srinivas Kandagatla <srini@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>, Dmitry Baryshkov <lumag@kernel.org>,
-	=?UTF-8?q?Rafa=C5=82=20Mi=C5=82ecki?= <rafal@milecki.pl>
-CC: Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam
-	<festevam@gmail.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Sasha
- Levin <sashal@kernel.org>, <imx@lists.linux.dev>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH 0/2] nvmem: Fix reading MAC address from OCOTP on i.MX
-Date: Fri, 11 Jul 2025 13:55:46 +0200
-Message-ID: <20250711120110.12885-1-ceggers@arri.de>
-X-Mailer: git-send-email 2.43.0
+	Fri, 11 Jul 2025 12:05:32 +0000
+Received: by mail-lf1-x130.google.com with SMTP id 2adb3069b0e04-555024588a8so1795355e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Jul 2025 05:05:29 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1752235528; x=1752840328; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=2AEASaq5CDzhb6ktnTbfQ22tIfOZRPSGaJHgFyQUuec=;
+        b=EyRuwHwc3a1LFS35jEBvZnlr0mZameXX7DOMIExeFpkp0HN4Qz8DUFH1EpQZyk4Pl2
+         qi3VLADYB6ADLjWVhChn7B3HCsPo+NgEQkLkDqe+uBaPsHVyP2KGNoHJSQxWGDjqB0SE
+         DHFQ4MdjhVVK2wYrKVQ/6Yv7kN/XiH3zeR7qTd8i0FeW8YD83/l3geFAIk20gW2qc4dg
+         3BvWh3A2/AjJg8jOJsH7CchFrrR/fAgfWIyCyAisTDRYnvvgEWZGX+8F0NiysnOLuz/g
+         eocuCINUq2reZOQxJ1IMkaeMJbEAqjegiv+fopK8WSJ8vnrry7PAHlHATv8QnXwavouh
+         re0g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1752235528; x=1752840328;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=2AEASaq5CDzhb6ktnTbfQ22tIfOZRPSGaJHgFyQUuec=;
+        b=WuWfd7j23e3TlnJqncx9oeWlNwmuYvyKbxN87IOCbvSY2fHb2q1JyBDHey9XYNBbmh
+         BMUqv/B7SPjJpvFeHFmXx/WN13s+qpgrL/aphV0vqki7InXVhOSxgyjITiGECggVRVh9
+         hu3N4wZTcW16g2YbSSJoNlH2Sb2vRgcb/ZoPaGfYGtjiUaPDZizC24+AI1vjMynh3+MD
+         PWtBCtADtB0VpLastWDLO+9CDbN++HRy/XszgxZ8VVMa3nmMjuN9K9C/Oid06aHYehzz
+         Gp0xwRd7CSkJLpc2YWj108II9CnbP537DMTg4Aw0JXNuVk5+Baea+d1TfeP8vWiskfVb
+         ag7g==
+X-Forwarded-Encrypted: i=1; AJvYcCVnZPJ8OVua/fV5Tc0nE5sLtQ3f1DmG2mvCVJxQp5hsv72C98b+dxqgxswoj0VLNViBnzXDY4yGQTgop3cZBel1@lists.infradead.org
+X-Gm-Message-State: AOJu0YwC7C/9eqdz23hjEbnWIn/iP0S9ncpVfXhKQTzzGeXlHx2q31KX
+	JSqGUFsnB/fgTlelBkZtj2SKAJ1FDpIREV5r+AhZZigPOBzSQhW6G6CW7GFvEEdpt+o5YqagC/f
+	U2GNP+huJTfSUKZOZEGnfN8BVGhsxZbk=
+X-Gm-Gg: ASbGncteTQcGMYVmbaRrCoq6S1LyhI4w0pnvbSYlj1IGdfmavWiiwS07+9sRBm3Zruk
+	AJCwTUYfvTQi+zJPmGPKLdTUV6Xk3wuApPOb+QZ3rGOwQqlbBMUjl3agGgLHVSFzLczpktEL0g4
+	6W9YqhpK/hYuguPHs1aEHDNr1LiwVdCmksp+zpUKktH30Pt4/la8h0FV5gQfMm1sbP5boxrInVu
+	0gFy7sjC2U1WFvt5Pf8LaQOUxKwwsJ5kXSyagg=
+X-Google-Smtp-Source: AGHT+IFl+IoLWuIaEOcASJ3YDYcH5iOQ7KM94YNp90zKqQwivksqlWt3cmzdDFclUAJWq5ZCcUCbfLJPflKvNsW1j6Q=
+X-Received: by 2002:a05:6512:234f:b0:553:2645:4e90 with SMTP id
+ 2adb3069b0e04-55a046448c7mr1047920e87.52.1752235527861; Fri, 11 Jul 2025
+ 05:05:27 -0700 (PDT)
 MIME-Version: 1.0
+References: <20250711120110.12885-1-ceggers@arri.de> <20250711120110.12885-3-ceggers@arri.de>
+In-Reply-To: <20250711120110.12885-3-ceggers@arri.de>
+From: Fabio Estevam <festevam@gmail.com>
+Date: Fri, 11 Jul 2025 09:05:16 -0300
+X-Gm-Features: Ac12FXxXhUl0pWyBQ1-EtucR0saC40xWMP_mrTY-Vw0EB65wy0G0ZSkmB17HgQ4
+Message-ID: <CAOMZO5BNgGao-+B_K8+7juBXTHVKr72NCRRk5NMpr2ew=t0+aQ@mail.gmail.com>
+Subject: Re: [PATCH 2/2] nvmem: imx: Swap only the first 6 bytes of the MAC address
+To: Christian Eggers <ceggers@arri.de>, =?UTF-8?Q?Steffen_B=C3=A4tz?= <steffen@innosonix.de>
+Cc: Srinivas Kandagatla <srini@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Dmitry Baryshkov <lumag@kernel.org>, 
+	=?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Sasha Levin <sashal@kernel.org>, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	stable@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [192.168.54.39]
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB3PEPF0000885F:EE_|DB3PR0302MB8941:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0498dbd7-bf44-4e34-aa03-08ddc072ac71
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|7416014|36860700013|1800799024|376014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?WmgxQXlIZCtlRklTbGk2MzdqaS9jd3ZQZGFmU1JBMkgvWm4wcmRjcDlLaUli?=
- =?utf-8?B?c1B6cHovZGhrMk10czRNcUtja2RBV3M2ZkRxdExPeWRRR2RvZDVuUXlZUk5N?=
- =?utf-8?B?TFVmQ3R6WDdUaHo3aGU4MmZDeE96aWxKcFRRWE8xWVA5eXZaR0grRE9CclA2?=
- =?utf-8?B?TkkzakFCRDQwOTBwb0wvOEJROGpuU2xLeG1ubVptS3lSOFE0OTJrbmEySitp?=
- =?utf-8?B?VjRwa3NJQzdnSmhrVGdIVlZjZDlVbWVMNDQxOWVRU3oyT2ZEZWhMMDNRYkN5?=
- =?utf-8?B?cndQUnY2SkJ6aVJ0OWw5OWhqSzJOYkg2OHJWdFgwaEw3TFAyVFdOblpaM01I?=
- =?utf-8?B?UjJtMWQvNDdHMlFRTjhQejVkSkNnTng2SUhHR1pHYTlZS05idVB3T0ptYVFk?=
- =?utf-8?B?MG1Tb1NkVmo4OW5MVE05eDgxS0ZVeTFIL1M1M2F3QzVNeGNSSXhzdEowZE1V?=
- =?utf-8?B?a21sQkR5RlFDT2dmR1lxUnpTeTZkQzFvOEFUM3RIZ2U3S0ZzSUU4dmZtL0xz?=
- =?utf-8?B?Qkc5RzJRUkJnYlBnMktFOW8vN2x5dFJtOXREK0lKWVIxWnIzVWlrVE1yanZt?=
- =?utf-8?B?eUNmYy9aQ2E4WENiY2pjczV4WVVia3ZTTnNGdFZHbjBkWkg5Lyt4bmZMVzlV?=
- =?utf-8?B?ZmpoS3RaUWREN0tTTStkSzZXOWt4UXNTOHhueEFnd3ZTUU42YUZkVGcrcjVK?=
- =?utf-8?B?dFg4ODYrQ3RtOUNRVEhkN0JYREl5Z293WUJJUVJQWG1tUVV4UXhZcDVBTFYw?=
- =?utf-8?B?UXRWZElQT0lwMjFYNTB4VnJ2cmRFMlQrRWYrU0tSU3lJd0NBenBDT0pKY1Fu?=
- =?utf-8?B?Qzcxb24rNlJyS0JXaUVzb3dyeU9kMnZIS0VHdFArbmhRNURXQ3plSXhhajlO?=
- =?utf-8?B?N3dvVmgxNlRuSFZXQTBpWTlYNnNKM1dtbXdqbTRJN1ZnZHY5RmZaazZmRGVo?=
- =?utf-8?B?ekZrRVhvZ0NVbTB0Nlc5eHBrZ3JSLzU2dHVKSEdjaDZsSTZBeXdIK0hrbWgv?=
- =?utf-8?B?dWUvRGtPZ0ZETU1PaEtqOHpBSTJKRVUvSlRZS3V5U21YQUJ0dDJRcVdvckRw?=
- =?utf-8?B?ZnIwTFFPb0xON3IwdG5RUk5meWo0ZTlITEx1c2Z2Q2M1OGZNMmVhOHAvK3Nv?=
- =?utf-8?B?dklhNHNFL1l2N0xZSS84dFJlcXlPNFYwNWdtUTJRaVcxWE1NV3Q4WTdPNHI1?=
- =?utf-8?B?cmhTSWF2NGI2KzFVanZoMERXV2x2RzRRZzI2WDhTYWxhUVZQNHFqUm92bG1H?=
- =?utf-8?B?bklKOWhQWmxwTlM2QVFVbDE0TjZWQjZ5UzgzZnlJcndxdzBZZG5XNFhLa0sx?=
- =?utf-8?B?bUpSbW9DWFRCb1IvSnFIUkpBdFZkQWlNS1JSMk80bVZIcjMyV2xURzdqOTFm?=
- =?utf-8?B?ZWJ2L1hzbUVmeXdIaU9hZUlDbkFmNmw4U1NYVStkRDVzQXo5QzNZQVM4eXli?=
- =?utf-8?B?SjZ0VVgwcXpEQU45VG05UWRvRjQvcTg4RHVzZHhWMWtIVTBESDBRcVpvZ016?=
- =?utf-8?B?cHY2ODh4OWt3RitzTVFzQW4rbmx2SzJiOW1HK3FsOFpBaTltekI2a2FxN3lB?=
- =?utf-8?B?eTZ4eHhwN2srMDFhbkpoS3JmM29zQ0VkbTkxRDV4OUcwelBDNzVRYTZPUStR?=
- =?utf-8?B?TkNyUG5HYzJvdnBiaDlzempXaHh5S0NGd2RGVG5ySHRWYVUweGpVcU1qZGJT?=
- =?utf-8?B?SzN3ekZmWExhVmNYMWNQY1hvZFRZbmtjdERYZXdUc0MraFA3VHhRaWNtWFNS?=
- =?utf-8?B?MDVzZnZMTVIwdWg5dktxSE1HaVRwVUt6TmxtNko4dTNVRjUrWVZyOW9sQW5M?=
- =?utf-8?B?WlZlTmJ0WnQxSnVDcGlPVVhuT040aE1iU21tcFIvQVRHQkd3bTFnNDNaUmJC?=
- =?utf-8?B?OWsrdWFWT1EwS0NMcXNsdklvNWZOQUJmVk5XdU5JZGN3VUFsM0lHbGNOMU9j?=
- =?utf-8?B?VVEvTWZZZkRjNnRMOWFQZFVrWGRwUWNEeDJONzUwdHFPaFdMMFl4MUVxbEJG?=
- =?utf-8?B?bkhNaDFuODd3S0d6VGs5VTA1aDVHYzJTNzE1eFdadlByeU9odHBTMWZ1ZkhY?=
- =?utf-8?Q?gzEwNC?=
-X-Forefront-Antispam-Report: CIP:217.111.95.7;CTRY:DE;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mta.arri.de;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(7416014)(36860700013)(1800799024)(376014);DIR:OUT;SFP:1101;
-X-OriginatorOrg: arri.de
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Jul 2025 12:01:30.7699
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0498dbd7-bf44-4e34-aa03-08ddc072ac71
-X-MS-Exchange-CrossTenant-Id: e6a73a5a-614d-4c51-b3e3-53b660a9433a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e6a73a5a-614d-4c51-b3e3-53b660a9433a;Ip=[217.111.95.7];Helo=[mta.arri.de]
-X-MS-Exchange-CrossTenant-AuthSource: DB3PEPF0000885F.eurprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB3PR0302MB8941
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250711_050152_620112_0EA776C4 
-X-CRM114-Status: UNSURE (   6.10  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250711_050531_287031_DE560BAE 
+X-CRM114-Status: GOOD (  13.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,13 +100,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-There is a (minor?) regression (also propagated via -stable series)
-which causes wrong Ethernet MAC addresses read from internal OTP.
+Hi Christian,
 
-Probably this doesn't affect many system as usually the MAC address is
-already read from OTP (called OCOTP on i.MX) by the boot loader and
-then passed verbatim to the kernel via device tree fixups. Only if the
-MAC isn't present in the device tree, the kernel reads it from the OTP
-itself.
+On Fri, Jul 11, 2025 at 9:01=E2=80=AFAM Christian Eggers <ceggers@arri.de> =
+wrote:
+>
+> Since commit 55d4980ce55b ("nvmem: core: support specifying both: cell
+> raw data & post read lengths"), the aligned length (e.g. '8' instead of
+> '6') is passed to the read_post_process callback. This causes that the 2
+> bytes following the MAC address in the ocotp are swapped to the
+> beginning of the address. As a result, an invalid MAC address is
+> returned and to make it even worse, this address can be equal on boards
+> with the same OUI vendor prefix.
+>
+> Fixes: 55d4980ce55b ("nvmem: core: support specifying both: cell raw data=
+ & post read lengths")
+> Signed-off-by: Christian Eggers <ceggers@arri.de>
+> Cc: stable@vger.kernel.org
+> ---
+> Tested on i.MX6ULL, but I assume that this is also required for.
+> imx-ocotp-ele.c (i.MX93).
 
+Steffen has recently sent a similar fix:
+
+https://lore.kernel.org/linux-arm-kernel/20250708101206.70793-1-steffen@inn=
+osonix.de/
+
+Does this work for you?
 
