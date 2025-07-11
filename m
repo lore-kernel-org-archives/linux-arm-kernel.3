@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C4E0C83F1A
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F5B1C83F21
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 12:44:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,44 +12,44 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=X5eycw+cztZ82tcWFUCBaHqi/zjlZsCZCpaV+CP0FP8=; b=sAQzxvQn2S6Ksww0fHrS0g/NfO
-	aBaQ1QQ7I6lm9ibqYbtHpUQ6LAxYijc8f57ESZt/nhS2px7elIcCnB0dxz8MzNsOe1UbsnVdIfJAE
-	MF8TlsgSxMFq+DPPystizTh/U9wOkG56JpL0kFiEDxBZVFZAKICOC+5CTMgYPrRzJdq9Tr+HEn4R8
-	haYAqHxDgX4TVF6K9GKnt0TpBCzupTaH5qJwax/7yYC60ZNrKjpjFrsAJ7j7Y7l/ce4MP+0B2EtYY
-	nOTJTX9fzv+I/uxRwGV7AXxfbrm65emFR97jnIuomIQQkSoP/zoyxb0v9E1+1GVrMPJ5B6weVBz3R
-	x76PuoFw==;
+	bh=oIZhzni/Xra4eajZGR01qYVb7cR5J/of1W+Qdl1h+kM=; b=4TJKnO9VOXFBtC2wVeQwpk3jYc
+	x1lPQ731POyJuoD/+1l0KwdJUR9eRxAvXfKb008NFwe9+/aAcZdzbcyhDdvxpfWjc+540O4tJkC/a
+	ye2jyPIHYeuZxkH6lEAfzE/a+B0I/2VeIRp4O4x5YlebeNKBXbWkB6zS+Fe1VEoTsTKhnvbBquSXw
+	7H82zTA7CufvKli0c1LrvQsYIQOn8w0R6IGkQ4d5iW7wb810nHt5TuV+fnHoa0TlMGKqKVtToV/x9
+	ytZDhGsI6zlsPPnEElKUnJG7ZxHE3o6jiYthiBuwIsMMm1RX9xtVodUx8YBKoW4Ad8JNTu5zbUTOj
+	+7JJNqRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaD6u-0000000Em07-26w2;
-	Fri, 11 Jul 2025 12:44:16 +0000
+	id 1uaD6t-0000000Elzq-4Ass;
+	Fri, 11 Jul 2025 12:44:15 +0000
 Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaBLy-0000000EWZd-1Qfo
+	id 1uaBKy-0000000EWPa-3zFG
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Jul 2025 10:51:43 +0000
+	Fri, 11 Jul 2025 10:50:42 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id A60F6A54DE0;
-	Fri, 11 Jul 2025 10:51:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 49E6DC4CEF4;
-	Fri, 11 Jul 2025 10:51:41 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 47595A54DE2;
+	Fri, 11 Jul 2025 10:50:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DFC15C4CEF5;
+	Fri, 11 Jul 2025 10:50:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752231101;
-	bh=84BMvuy9Pk8YrU/GpAF8QkVxJqmSioEdul6p6Hjaas8=;
+	s=k20201202; t=1752231039;
+	bh=dD8GS8ul7phy4LdinMkrKS1K1DjQK6F/gbzcXGnRx0w=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=j8hj78NkD71YdFzBqvHsQJbSBSgu9I4hzkRnOEj/kjR36IMWi68LRMOzqoUQPn2x5
-	 6pIzQK5S+UYCJVZxQ1NFAmQ0FCdQsPdKxtf0vG8wCudjXLSmchmTL+aDsmkXyTRpvl
-	 MhYKPu7xnvwdeWPlJ5DZ5OqvpqQkVmezKz6SFoFnihU9MwLhx/momFAOxAEGwdIwwG
-	 LwaFbPNIe/nIceApqIht/C5MEZjbkyztuCcQL2UIgC8nIeeTs26ae6QLLZSBn2iomN
-	 RAXxnD81+Nvirs2ZQpTz3D5TCPKYc24jH1xlp32xHmUh5HM49fzaTadIg9mViuIkwA
-	 myZTLQaGFiZgw==
+	b=W/2w+G9JMQnc4kkJpJyoCK5jU06t5x1vF8oxlB86Hcyo4bRcllrdGg6GVAn+NQH9w
+	 uqATVRfXV1ELh91RJTJk3cwGqu/iAHX8OAL7HN2Evn+/sCoedgolL4qskzt7m15hXq
+	 N7qd3U7s4Cm2Q5FoxHtgN9AljbZN5JS4NAcoO4/brkevISzLNGo/fRamN0CbI+B0NE
+	 lUI8wRqFHwk0j33Rm1xaiPLdTrhtEdhpjKYipJHawkZb6hBl3nvHRdNmDM5M5vPaGQ
+	 wdpk90I7QOxycAVjOdhT4DCNPUM2Gz5bRiorA1VEQNG/d0MlgxubK5RcZ7NOMpDW6j
+	 Cyzx46LzrNURg==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1uaBLv-00EqW3-79;
-	Fri, 11 Jul 2025 11:51:39 +0100
-Date: Fri, 11 Jul 2025 11:51:38 +0100
-Message-ID: <86cya79f0l.wl-maz@kernel.org>
+	id 1uaBKv-00EqV9-Qe;
+	Fri, 11 Jul 2025 11:50:38 +0100
+Date: Fri, 11 Jul 2025 11:50:37 +0100
+Message-ID: <86ecun9f2a.wl-maz@kernel.org>
 From: Marc Zyngier <maz@kernel.org>
 To: Lorenzo Pieralisi <lpieralisi@kernel.org>
 Cc: linux-pci@vger.kernel.org,	linux-arm-kernel@lists.infradead.org,
@@ -58,11 +58,10 @@ Cc: linux-pci@vger.kernel.org,	linux-arm-kernel@lists.infradead.org,
  Sadhasivam <mani@kernel.org>,	Rob Herring <robh@kernel.org>,	Bjorn Helgaas
  <bhelgaas@google.com>,	Thomas Gleixner <tglx@linutronix.de>
 Subject: Re: [PATCH v2 09/13] PCI: xgene-msi: Sanitise MSI allocation and affinity setting
-In-Reply-To: <aHDjNr59aMzVQ5iA@lpieralisi>
+In-Reply-To: <aHDfhVRa1lhu7qPg@lpieralisi>
 References: <20250708173404.1278635-1-maz@kernel.org>
 	<20250708173404.1278635-10-maz@kernel.org>
 	<aHDfhVRa1lhu7qPg@lpieralisi>
-	<aHDjNr59aMzVQ5iA@lpieralisi>
 User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
  FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
  (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
@@ -73,8 +72,8 @@ X-SA-Exim-Rcpt-To: lpieralisi@kernel.org, linux-pci@vger.kernel.org, linux-arm-k
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250711_035142_442356_EE481812 
-X-CRM114-Status: GOOD (  19.76  )
+X-CRM114-CacheID: sfid-20250711_035041_120518_48837857 
+X-CRM114-Status: GOOD (  29.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,31 +88,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 11 Jul 2025 11:11:02 +0100,
+On Fri, 11 Jul 2025 10:55:17 +0100,
 Lorenzo Pieralisi <lpieralisi@kernel.org> wrote:
 > 
-> On Fri, Jul 11, 2025 at 11:55:17AM +0200, Lorenzo Pieralisi wrote:
-> > On Tue, Jul 08, 2025 at 06:34:00PM +0100, Marc Zyngier wrote:
+> On Tue, Jul 08, 2025 at 06:34:00PM +0100, Marc Zyngier wrote:
+> >  static void xgene_compose_msi_msg(struct irq_data *data, struct msi_msg *msg)
+> >  {
+> >  	struct xgene_msi *msi = irq_data_get_irq_chip_data(data);
+> > -	u32 reg_set = hwirq_to_reg_set(data->hwirq);
+> > -	u32 group = hwirq_to_group(data->hwirq);
+> > -	u64 target_addr = msi->msi_addr + (((8 * group) + reg_set) << 16);
+> > +	u64 target_addr;
+> > +	u32 frame, msir;
+> > +	int cpu;
+> >  
+> > -	msg->address_hi = upper_32_bits(target_addr);
+> > -	msg->address_lo = lower_32_bits(target_addr);
+> > -	msg->data = hwirq_to_msi_data(data->hwirq);
+> > -}
+> > +	cpu	= cpumask_first(irq_data_get_effective_affinity_mask(data));
+> > +	msir	= FIELD_GET(GENMASK(6, 4), data->hwirq);
 > 
-> [...]
-> 
-> > We could use MSInRx_HWIRQ_MASK, I can update it.
-> > 
-> > More importantly, what code would set data->hwirq[6:4] (and
-> > data->hwirq[7:7] below) ?
-> 
-> Forget it. It is the hwirq allocation itself that sets those bits,
-> 256 HWIRQs you use the effective cpu affinity to steer the frame,
-> it makes sense now.
+> We could use MSInRx_HWIRQ_MASK, I can update it.
 
-Exactly.
+Yes, I appear to have missed that one. It'd be good if you could fix
+it up.
 
-> 
-> I can update the code to use the mask above and merge it.
-> 
-> Sorry for the noise,
+> More importantly, what code would set data->hwirq[6:4] (and
+> data->hwirq[7:7] below) ?
 
-No worries, and thanks for looking at it!
+That's obviously driven by the hwirq allocation, which is guaranteed
+to happen in the 0:255 range.
+
+[...]
+
+> > @@ -173,23 +167,20 @@ static int xgene_irq_domain_alloc(struct irq_domain *domain, unsigned int virq,
+> >  				  unsigned int nr_irqs, void *args)
+> >  {
+> >  	struct xgene_msi *msi = domain->host_data;
+> > -	int msi_irq;
+> > +	irq_hw_number_t hwirq;
+> >  
+> >  	mutex_lock(&msi->bitmap_lock);
+> >  
+> > -	msi_irq = bitmap_find_next_zero_area(msi->bitmap, NR_MSI_VEC, 0,
+> > -					     num_possible_cpus(), 0);
+> > -	if (msi_irq < NR_MSI_VEC)
+> > -		bitmap_set(msi->bitmap, msi_irq, num_possible_cpus());
+> > -	else
+> > -		msi_irq = -ENOSPC;
+> > +	hwirq = find_first_zero_bit(msi->bitmap, NR_MSI_VEC);
+> > +	if (hwirq < NR_MSI_VEC)
+> > +		set_bit(hwirq, msi->bitmap);
+> >  
+> >  	mutex_unlock(&msi->bitmap_lock);
+> >  
+> > -	if (msi_irq < 0)
+> > -		return msi_irq;
+> > +	if (hwirq >= NR_MSI_VEC)
+> > +		return -ENOSPC;
+> >  
+> > -	irq_domain_set_info(domain, virq, msi_irq,
+> > +	irq_domain_set_info(domain, virq, hwirq,
+> >  			    &xgene_msi_bottom_irq_chip, domain->host_data,
+> >  			    handle_simple_irq, NULL, NULL);
+> 
+> This is something I don't get. We alloc an MSI, set a bit in the bitmap
+> and the hwirq to that value, when we handle the IRQ below in
+> 
+> xgene_msi_isr()
+> 
+> hwirq = compute_hwirq(msi_grp, msir_idx, intr_idx);
+> ret = generic_handle_domain_irq(xgene_msi->inner_domain, hwirq);
+> 
+> imagining that we changed the affinity for the IRQ so that the computed
+> HWIRQ does not have zeros in bits[7:4], how would the domain HWIRQ
+> matching work ?
+
+No. The whole point of this series is that hwirq is now *constant*, no
+matter what the affinity says.
+
+> Actually, how would an IRQ fire causing the hwirq[7:4] bits to be != 0
+> in the first place ?
+
+hwirq[7:4] is a function of what IRQ fired (giving you a register
+frame), and what register was accessed. That 's what allows you to
+*rebuild* hwirq as the HW doesn't give it you on a plate (only the
+bottom 4 bits are more or less given as a bitmap).
+
+> Forgive me if I am missing something obvious, the *current* MSI handling
+> is very hard to grok, it is certain I misunderstood it entirely.
+
+Ignore the current code, it does things that are completely forbidden
+by law in any civilised country (although I find it difficult to name
+a single civilised country these days).
+
+Thanks,
 
 	M.
 
