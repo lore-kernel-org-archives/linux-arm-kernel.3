@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DF75C8303C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 04:05:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B8D8C8303C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 04:08:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=//d0bJWkNr8qRs213bW7gb4xunennUE1PJsDFQia6Eo=; b=0yPYYnDaiPPzGuwCjHJBn7foz4
-	DxTcD1PZOHWla29mk4RumJRqmoPA5xIYg81hP+UsVzhTHC4H5kfqZXOVPUooq/kz2Oe6M9dFhYxj2
-	D4LhGV3VLPnoKuU8vfN13hhgQgUhtI6x/QKpvUts6qGtiz4nkNaK+z2kTTXInGu4rBm/x4txjkqnL
-	cUtalers0WmxK5WK6VunQp4hUr532MYH5k5QlvUfooYlKJB3KpGkxoisGK5KOmC+HBqdrNIk8w3t+
-	+7qUYmqiV9iyu6Jr76T07SLVJ0idtSzm8u53hEkaWgkiVmzRlfsrKjIwKsM35RjT+HWxbr+jvvXGo
-	SAHIlOUQ==;
+	bh=85nfx4ldL54wSVT5XtoQ/mvHVV77q6rK3dhp/Wa5E+U=; b=SPvDLPafrkaJi36rYjBST+k/cI
+	2ChRaho290M88s5HUBWnwzItWB0AmAYlgN0cg/+dgY7QB2Fbcq/1RhAv68B2xPqxxb5L/0srAXNfy
+	3oYhpG03gY+20kbTv3lNzkJk/qD3EbFqSKp20w9JhgMutfIm44sw3284F/ihlLz34/gqvhsLQXmG+
+	6PKrD1XopOVu7Zubv6tNMLui7GuCS0Sv8LoplibCTFjB0iTo125ZftxQGr9HXlrvDs4vIeuqKOLSK
+	HerPqqTKU1uKalls+3SPFPK33W/55TKxCilPie8gisri3OZ5i5xPrQtCXzgQJI7lGqsqgECjFlbLF
+	hsVRhziA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ua510-0000000Dd5H-07L7;
-	Fri, 11 Jul 2025 04:05:38 +0000
-Received: from mail-lf1-x133.google.com ([2a00:1450:4864:20::133])
+	id 1ua53P-0000000DdLn-3JV4;
+	Fri, 11 Jul 2025 04:08:07 +0000
+Received: from mail-lf1-x135.google.com ([2a00:1450:4864:20::135])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ua4uU-0000000DcQ9-3W7u
+	id 1ua4uj-0000000DcUW-3nNr
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Jul 2025 03:58:55 +0000
-Received: by mail-lf1-x133.google.com with SMTP id 2adb3069b0e04-5550dca1241so1578412e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Jul 2025 20:58:54 -0700 (PDT)
+	Fri, 11 Jul 2025 03:59:10 +0000
+Received: by mail-lf1-x135.google.com with SMTP id 2adb3069b0e04-553be4d2fbfso1837549e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Jul 2025 20:59:09 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1752206333; x=1752811133; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1752206348; x=1752811148; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=//d0bJWkNr8qRs213bW7gb4xunennUE1PJsDFQia6Eo=;
-        b=fJLakxCIVzqGq0hROMq8/cfxug+g3IjxOnIaCC43x+dQkyM7xUTfFkLEnJYXrgBC19
-         h/467+h7frmGIRwl3qvVUeWeaIjBCcxSU3kFs1gPDk1zkqac+oy934p8Lvp8nN397k14
-         7QFtW2BQRbCV5G/pGvox/KTIlfYdDn3cgm11jnbMGNaDLVL18FVGrZ1aUAvs+KkEWz0z
-         nBSAVtSdFJcv0VIZfRG6AbrkYu3TbfDy34OqbFAf4QlXyiVTkE2eqyfENOTd9IgI5tpY
-         YkieY+RVFaQaYFj3huMXDnTiHY2U41mNAeZ/nSqGprfBX3l072diIJGrsrQTWRYCaPuW
-         68cg==
+        bh=85nfx4ldL54wSVT5XtoQ/mvHVV77q6rK3dhp/Wa5E+U=;
+        b=WQTSt/rhXplQkhpCtJjI+2rTZx4uiMMW6ZQvURIE7v38pIreSTaqFZIZWD9GzMXv3K
+         qehO3nMD8EcCWRX82i6nDMltKHnVOMoaUBKB/Z1TYUXlTYtUij5eBgtn2tqAS3md5qrD
+         LbqsKA0SxPfJ8Mgx+DgkwxE+f8GdcZ/dzwt2h6A79VHMTlG5uUaRj6wDTWjYMFcQIxU8
+         yICeuQlrqotwSNK9ktTYdyLA9VJPkUGEJBY/nszPa8dAbZ6JtztelCnScN9o0u3wm+GI
+         WzBjTBSDRpoAe63vldnsCZdbDuc0/ChSPutzl5/ap6mIFjCB/psQT+889kU/XK4TdZ6H
+         69Ag==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752206333; x=1752811133;
+        d=1e100.net; s=20230601; t=1752206348; x=1752811148;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=//d0bJWkNr8qRs213bW7gb4xunennUE1PJsDFQia6Eo=;
-        b=ZYrBuqNdsWzfQSAJVe45wapH74oVXwdoX4a+6oafjwHWDEBA3ccglouByCZoDdFWwe
-         7cANtJj/REqAI5TlBb9Y9NmFaRCgdFsEs6W6VZTvQtq8CHeL8WoV++X1SNY9hQQ/0Ix7
-         GcfoG30cyo9rClaA7G0FdWWxrdqBaHUXBMuBmukShN7C1qB4AiMaGNibQkzAl36lSZ60
-         ph52pq/ikNU8jkPwsbfXZ7N/6a/7oGtRWGB08pyYsP2E11jnAp+s3A98avipUrdEl9lj
-         hMDQ3DrmO0AWKn6Zp0SFEeqAL0M9if2TyCC7lukjSY1DLhZkK5E/AvCBfIrY/k+YbblX
-         FzPA==
-X-Forwarded-Encrypted: i=1; AJvYcCXIXn6hRQFZ2mQqb42s6+fac+m6NI6a9MnaG8msdD8w60qIJvIXJW5ZERF/+EVgLMvwVv4a6fqqc1q+Mg+mwQH8@lists.infradead.org
-X-Gm-Message-State: AOJu0YyyN7sh5yC2C4ZHa3uSQJgGFGq+OBigtqh/50z2mOBFsTnQKNbG
-	ldQk1b/+XK4p+xvVLpzOqgzw8fHvjYMr+QcKkxMyyO/cYzkTSvL9Ho1P
-X-Gm-Gg: ASbGncvt2I4+RqY85wE/jhlzrQx+ekTocjvYhvzPiq/0XL9fCscxKayT2ttQ8EQi452
-	6OyT9E359N/KfzgQtvLk6jebfW2VKaDUAJTwgsPXNF0r2qNamZUSJiB4eGtkILRzz/78sI5c/Ts
-	jLPqG9BU2iYgMVDg1W6PG6WELC0xdVZbRygZnwfnD5Kzp68H51a39/VsNlwjgoIHrpEwzJ0aWDK
-	seIiPIYd2ZuZTxXqaVVVmttPtcEHRNOQt+4eYNMzGDKuDz+XsiGSrKfwcoo9HTdOevPqqi+4NiP
-	EgUKL2svttCBikbkdn+johwy9osq70Z7IcL/5FIzxB2a8Ax8ZfFtL6Grw1lx4FtNfdvC7jk45G+
-	Wk7E7OZqwptE=
-X-Google-Smtp-Source: AGHT+IGkeSBXm/EW3UWMspIGCG+IQIIuepjGaDlwWyIf9NR5Xr+PDLCyR3s4y1gsKiBc5fqAWrIf5A==
-X-Received: by 2002:a2e:be0e:0:b0:32a:8297:54e3 with SMTP id 38308e7fff4ca-33053293f75mr4620471fa.6.1752206332869;
-        Thu, 10 Jul 2025 20:58:52 -0700 (PDT)
+        bh=85nfx4ldL54wSVT5XtoQ/mvHVV77q6rK3dhp/Wa5E+U=;
+        b=anFF0gflFsd8shqXJ4GMVTDPnK4PozE3aTbIRs4pY1hn1SGxCNHVQB7HDzrAz6MLda
+         ACyHgtYs2nRNr5MjW1MwVj5w8qRPweyR6WHHJBKe8nDKFZLPnfC6cpDS5pIxGNFAZkv9
+         dC9gG6kSSYEVPQTVGli5KI2ggzrr/+09/Snx4ndmf3Uuymy4BAFtq2mscdLSJ5h4r6fz
+         fOuLT7sN6uSDcYTbBcKylYcbs4uYS22GTfmEb+8DCA9bQOL/ercZG/jK07a+LxmEQYAw
+         v0tWtXWB40opHC0qDzYQKV+V7ugactewj8K5SXBtfz3LtiFy/B4GLSOJGarQjLp+nu/m
+         dKYQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVxiQjvyH+RFy7C8MbfJklNSmmOUxM+OMe0/q4hhUMvqqHnuG98ti5cAAvMlOPftqFo8xtQCsLaErhCTNx7t/1g@lists.infradead.org
+X-Gm-Message-State: AOJu0YxoAT8U4OGQsT/5eQdqSPqt4ED5T4zQExvEn/4+hOqhlTz5KaqZ
+	5jySxzx1rgbLL2lXV81T0ElkNZFKKL9F0yeI6bPbwsr/rxedUCSJxNnd
+X-Gm-Gg: ASbGnctpe48CCXS0h3BGH4h2WX9m/7U48HiI1ejz54JhYItQ5Xaiv8lOcW57ZEfA1By
+	eGjso/F4ckY+KWdN8+2u9EZoJoFAJh/lnuX6yuqBXiuwRkUXJO6BfiDZqkyT9nRl6GLp9LYb9JI
+	R/bIQMoU1PhJw6H08kl22gr09SNJL2D/LwbvJLdJ7pY1RuDFsEY4iO5g86usQ8ede6ndnLeF81w
+	cjm4+BVgZvy9d7oXL4S8Du2Mv73kly8jzIcZFbj5AYU1xlOQ0d0Nhno/FjStulweaJOJRD6mWrd
+	LA+P3bfuvTwU3W9dLtExQSm17lRU54ZDRpc966rPK63vCPlh2wW0JVVovr/83mD65B5nJYBjFhM
+	LtuvqHpgEi0c=
+X-Google-Smtp-Source: AGHT+IF2Vs2taWbckoiIUXDCtLJBtsJW8Ugy8fMUOW8WzA36Et0dLFCN8dorIxDAVjB7GGJ88bp0Fg==
+X-Received: by 2002:a05:651c:555:b0:32b:7ddd:279e with SMTP id 38308e7fff4ca-330532dfb0emr4152281fa.14.1752206347958;
+        Thu, 10 Jul 2025 20:59:07 -0700 (PDT)
 Received: from junAIR ([212.192.12.80])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-32fa2943d46sm4971191fa.40.2025.07.10.20.58.39
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-32fa2943d46sm4971191fa.40.2025.07.10.20.58.53
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 10 Jul 2025 20:58:52 -0700 (PDT)
+        Thu, 10 Jul 2025 20:59:07 -0700 (PDT)
 From: iuncuim <iuncuim@gmail.com>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
 	Maxime Ripard <mripard@kernel.org>,
@@ -86,18 +86,17 @@ Cc: dri-devel@lists.freedesktop.org,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-sunxi@lists.linux.dev
-Subject: [PATCH v2 2/3] arm64: dts: allwinner: a523: add Mali GPU node
-Date: Fri, 11 Jul 2025 11:57:28 +0800
-Message-ID: <20250711035730.17507-3-iuncuim@gmail.com>
+Subject: [PATCH v2 3/3] arm64: dts: allwinner: a523: enable Mali GPU for all boards
+Date: Fri, 11 Jul 2025 11:57:29 +0800
+Message-ID: <20250711035730.17507-4-iuncuim@gmail.com>
 X-Mailer: git-send-email 2.50.0
 In-Reply-To: <20250711035730.17507-1-iuncuim@gmail.com>
 References: <20250711035730.17507-1-iuncuim@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250710_205854_886293_5B3EC97D 
-X-CRM114-Status: GOOD (  12.02  )
+X-CRM114-CacheID: sfid-20250710_205909_939516_720228EC 
+X-CRM114-Status: GOOD (  12.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,44 +113,84 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Mikhail Kalashnikov <iuncuim@gmail.com>
 
-The Allwinner A523 SoC features the Mali-G57 MC1 GPU, which belongs
-to the Mali Valhall (v9) family. There is a power domain specifically
-for this GPU that needs to be enabled to utilize it.
+All devices based on the A523/A527/H728/T527 processors contain a G57 MC1 GPU.
 
-To enable in a specific device, we need to enable the gpu node and specify
-the “mali-supply” regulator additionally in the device tree.
+Enable the DT nodes for this GPU and specify a regulator that supplies power
+to the SoC's VDD_GPU pins. The other parameters are set in the SoC dtsi,
+so are board independent.
 
 Signed-off-by: Mikhail Kalashnikov <iuncuim@gmail.com>
 ---
- arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi | 15 +++++++++++++++
- 1 file changed, 15 insertions(+)
+ arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dts   | 5 +++++
+ arch/arm64/boot/dts/allwinner/sun55i-h728-x96qpro+.dts    | 5 +++++
+ arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts   | 5 +++++
+ arch/arm64/boot/dts/allwinner/sun55i-t527-orangepi-4a.dts | 5 +++++
+ 4 files changed, 20 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi b/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
-index dd6fa22f9..d3528d498 100644
---- a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
-+++ b/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
-@@ -108,6 +108,21 @@ soc {
- 		#size-cells = <1>;
- 		ranges = <0x0 0x0 0x0 0x40000000>;
+diff --git a/arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dts b/arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dts
+index 8bc0f2c72..553ad774e 100644
+--- a/arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dts
++++ b/arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dts
+@@ -66,6 +66,11 @@ &gmac0 {
+ 	status = "okay";
+ };
  
-+		gpu: gpu@1800000 {
-+			compatible = "allwinner,sun55i-a523-mali",
-+				     "arm,mali-valhall-jm";
-+			reg = <0x1800000 0x10000>;
-+			interrupts = <GIC_SPI 117 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 118 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 119 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-names = "job", "mmu", "gpu";
-+			clocks = <&ccu CLK_GPU>, <&ccu CLK_BUS_GPU>;
-+			clock-names = "core", "bus";
-+			power-domains = <&pck600 PD_GPU>;
-+			resets = <&ccu RST_BUS_GPU>;
-+			status = "disabled";
-+		};
++&gpu {
++	mali-supply = <&reg_dcdc2>;
++	status = "okay";
++};
 +
- 		pio: pinctrl@2000000 {
- 			compatible = "allwinner,sun55i-a523-pinctrl";
- 			reg = <0x2000000 0x800>;
+ &mdio0 {
+ 	ext_rgmii_phy: ethernet-phy@1 {
+ 		compatible = "ethernet-phy-ieee802.3-c22";
+diff --git a/arch/arm64/boot/dts/allwinner/sun55i-h728-x96qpro+.dts b/arch/arm64/boot/dts/allwinner/sun55i-h728-x96qpro+.dts
+index 59db10354..a96927fbd 100644
+--- a/arch/arm64/boot/dts/allwinner/sun55i-h728-x96qpro+.dts
++++ b/arch/arm64/boot/dts/allwinner/sun55i-h728-x96qpro+.dts
+@@ -54,6 +54,11 @@ &ehci1 {
+ 	status = "okay";
+ };
+ 
++&gpu {
++	mali-supply = <&reg_dcdc2>;
++	status = "okay";
++};
++
+ &mmc0 {
+ 	vmmc-supply = <&reg_vcc3v3>;
+ 	cd-gpios = <&pio 5 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>; /* PF6 */
+diff --git a/arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts b/arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts
+index 142177c1f..b9eeb6753 100644
+--- a/arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts
++++ b/arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts
+@@ -76,6 +76,11 @@ &gmac0 {
+ 	status = "okay";
+ };
+ 
++&gpu {
++	mali-supply = <&reg_dcdc2>;
++	status = "okay";
++};
++
+ &mdio0 {
+ 	ext_rgmii_phy: ethernet-phy@1 {
+ 		compatible = "ethernet-phy-ieee802.3-c22";
+diff --git a/arch/arm64/boot/dts/allwinner/sun55i-t527-orangepi-4a.dts b/arch/arm64/boot/dts/allwinner/sun55i-t527-orangepi-4a.dts
+index 5f97505ec..d07bb9193 100644
+--- a/arch/arm64/boot/dts/allwinner/sun55i-t527-orangepi-4a.dts
++++ b/arch/arm64/boot/dts/allwinner/sun55i-t527-orangepi-4a.dts
+@@ -95,6 +95,11 @@ &ehci1 {
+ 	status = "okay";
+ };
+ 
++&gpu {
++	mali-supply = <&reg_dcdc2>;
++	status = "okay";
++};
++
+ &mmc0 {
+ 	vmmc-supply = <&reg_cldo3>;
+ 	cd-gpios = <&pio 5 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>; /* PF6 */
 -- 
 2.50.0
 
