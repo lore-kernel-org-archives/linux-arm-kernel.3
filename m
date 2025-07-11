@@ -4,83 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E447C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 09:50:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5242EC83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 09:53:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ksn587LwQGnOVtjPmSeGM14Xwc66lrZWBn8JfHWAj9I=; b=sDrVddHNlD+l/xXuYyQyh0uCaN
-	I4VMDIjkB21wT1/NEv5EOGG1EzMykMmBbTXEIBE56qMrCPBZbQXSHYVRL12+nArwA24jr80iYMAFZ
-	KaZiZ5p8/cyWavew1S51exd2SU8H1gvSZtUtDTOZLhHfZkGtnejNksvGnzAJdgpBXLBcQqyvePYi1
-	ZyxYx+JEDR4rM0ac6y/hnimAXDRPtfext/e1MuJEI1uGa9ULvxVu7pgumifqz8mzIvxeJ2wy1dKbK
-	bX4a75CD3IQrMjC70dcxj31bfxRgt0dDosS0WK6x2XqssHLKRM3pIbjlt9xRVTVmHXw4hg66L+H/l
-	mwG5A4DA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WF9+3lnjfRQwgjXKff+rlIuGBtZEcHO9FtUjx6kias8=; b=uWF6lY5/S4p/ck1BbnuOfkMKOi
+	MTWQPQl7421OuYfDxqaYtegQktT+jQYK0rn1FCAAcGVAb6hdFz60P7Qmf1ZHA78Rd3YAm1W5rLDlN
+	qfFAmdhBJidvzykFVhPGuMWscSP85ASW4xd6MlSkWhasg4ZP9zKv5fvvdo4djmHDJ2HVQ4HUFLxCx
+	iCKBlyNztJ/fe9J63NcpMQOupQ0CIEerOu26F7IjIyYaURf5uPxxKVoDBeUALwoBkdFSPVbpaRza1
+	r1NU+2Hf9W6LnXHIrFJ09u+cYnwAw82uGEWyook3BMOFXf6pGsIP9y6fhwGdMeE8wKQ06rsm8oC97
+	zWj687DQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaAOo-0000000ENRM-2kwT;
-	Fri, 11 Jul 2025 09:50:35 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uaAR8-0000000ENp2-1SqN;
+	Fri, 11 Jul 2025 09:52:58 +0000
+Received: from fout-b6-smtp.messagingengine.com ([202.12.124.149])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ua9LK-0000000EC6s-1a75
+	id 1ua9N8-0000000ECWp-1eaC
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Jul 2025 08:42:55 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 829775C62A9;
-	Fri, 11 Jul 2025 08:42:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 57547C4CEED;
-	Fri, 11 Jul 2025 08:42:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752223373;
-	bh=Ksn587LwQGnOVtjPmSeGM14Xwc66lrZWBn8JfHWAj9I=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=KPDJ634INOzYR5WVlOFN6hgNAUb2r3fN1dKrdghH7OOwASHtsPjVgU3/sZ3oz4r+v
-	 4/dQB2yxCTnvhuAK32QPrvKu7GixkBHTZzTUgkJPZ2RzqINnAdLEu8GHL+DWoCd5Yx
-	 qiRbnAOx08Od9VmKi2qwypohZ+m5aNosps+826CXxnaybcMvbn3Bh0gTi/Fy3NapVU
-	 jRdE7UWULkn+c8UtMDoa/1fqAdZd9gOD8oyd0SRG7Ys+1u9oCgmMvEAJzOKGi15lG+
-	 rk8rIQUOizEocjrWlhfTdeO82Wy04bzlToCNxOP1Qi6SSQyGB/wX5ds1IDlrGbsuy8
-	 BbkHhIMAt4sJw==
-Date: Fri, 11 Jul 2025 09:42:48 +0100
-From: Mark Brown <broonie@kernel.org>
-To: George Verhaegen <verhaegen@google.com>
-Cc: Vinod Koul <vkoul@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>, Liam Girdwood <lgirdwood@gmail.com>,
-	Charles Keepax <ckeepax@opensource.cirrus.com>,
-	Richard Fitzgerald <rf@opensource.cirrus.com>,
-	David Rhodes <david.rhodes@cirrus.com>,
-	Cezary Rojewski <cezary.rojewski@intel.com>,
-	Peter Ujfalusi <peter.ujfalusi@linux.intel.com>,
-	Bard Liao <yung-chuan.liao@linux.intel.com>,
-	Ranjani Sridharan <ranjani.sridharan@linux.intel.com>,
-	Kai Vehmanen <kai.vehmanen@linux.intel.com>,
-	Pierre-Louis Bossart <pierre-louis.bossart@linux.dev>,
-	Srinivas Kandagatla <srini@kernel.org>,
-	Daniel Baluta <daniel.baluta@nxp.com>,
-	Orson Zhai <orsonzhai@gmail.com>,
-	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	Chunyan Zhang <zhang.lyra@gmail.com>,
-	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
-	Masami Hiramatsu <mhiramat@kernel.org>, kernel-team@android.com,
-	linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org,
-	patches@opensource.cirrus.com, linux-arm-msm@vger.kernel.org,
-	sound-open-firmware@alsa-project.org,
-	linux-arm-kernel@lists.infradead.org, David Li <dvdli@google.com>,
-	Miller Liang <millerliang@google.com>
-Subject: Re: [PATCH v1 4/4] ASoC: codecs: Implement 64-bit pointer operation
-Message-ID: <aHDOiIPriOa65BL-@finisterre.sirena.org.uk>
-References: <20250711082441.4193295-1-verhaegen@google.com>
- <20250711082441.4193295-5-verhaegen@google.com>
+	Fri, 11 Jul 2025 08:44:47 +0000
+Received: from phl-compute-05.internal (phl-compute-05.phl.internal [10.202.2.45])
+	by mailfout.stl.internal (Postfix) with ESMTP id B79D51D00196;
+	Fri, 11 Jul 2025 04:44:44 -0400 (EDT)
+Received: from phl-imap-02 ([10.202.2.81])
+  by phl-compute-05.internal (MEProxy); Fri, 11 Jul 2025 04:44:45 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm1; t=1752223484;
+	 x=1752309884; bh=WF9+3lnjfRQwgjXKff+rlIuGBtZEcHO9FtUjx6kias8=; b=
+	f+M6x8Y0HndHChIkB8MeA9N8XNUieosjoUTIRKrau18t/2QYFOlQWoYitW1TmEb+
+	rTEhX9DgfWQ3Cyi3d1ib8e0KlG7F4/+K/hWAgh/3zLciRW1CaG+P7fMV82f9qj4F
+	GRsrUGq8/egpnDsrcJm10KjBF2+mIkOyqDv85tJuQgVQWOZSpi5MMuoFfbygHZ6g
+	eufDRX88veq5Yaz0mMnP0ywyLPVu35Dd1V4LLocpQyctzzYdBImDHuzDI5jas1mM
+	+eeFJSDYttr1h5esvRuZQZVMQefAfG7pcAxpDSo8jQVe+pugKJ9gj4S95CHaSvYd
+	znXFzkrMMQbh2ipK0G8U0w==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1752223484; x=
+	1752309884; bh=WF9+3lnjfRQwgjXKff+rlIuGBtZEcHO9FtUjx6kias8=; b=T
+	Z8qZah+Cmf8xJp574+jQX3xXwYoX29M3NDYTDUn2Dnh9wSr4LxiC+ginx345EiUj
+	GVomuFeA+AffIM9kApK1kcQqA3RP2LjOqCPVuqKiW6YkLqbFfEDzM3nW7cKloCek
+	8Ixu0TXh7NaNQos5qmRvN7Zci4WLM+2bVNTDzfqGuCKW4Kv7xiez8tVblgZmlSc7
+	/AAW2Bdk4QhjZO9ZUDMIer692BwVlW6EMwowk/wqIH3wC8/Y/7JVPgG4mvUpMQfa
+	pGPqvdnYbrJrSiDn4DTuE/Fsyg+YMJc0I1iVx1fIWxt9Fo2aDj2O3dWNVRp3Q114
+	6dfbC6iPQLy/+qJKc/S7w==
+X-ME-Sender: <xms:_M5waMgf0kLBZEvO31KLd-ufnzkzdKZceigRcicAKX-Vy62LOAcAJw>
+    <xme:_M5waFBUW0B_ADYmdYZXkA5MohRKGXfbL_E8Z54xvNfU6_EKqZ4JcSbetfhTB4cqi
+    OSHDSqwIvXEu7OcZhE>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdegvdekjecutefuodetggdotefrod
+    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
+    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
+    hrpefoggffhffvvefkjghfufgtgfesthejredtredttdenucfhrhhomhepfdetrhhnugcu
+    uegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrghtthgvrh
+    hnpefhtdfhvddtfeehudekteeggffghfejgeegteefgffgvedugeduveelvdekhfdvieen
+    ucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegrrhhnug
+    esrghrnhgusgdruggvpdhnsggprhgtphhtthhopedugedpmhhouggvpehsmhhtphhouhht
+    pdhrtghpthhtoheptggrthgrlhhinhdrmhgrrhhinhgrshesrghrmhdrtghomhdprhgtph
+    htthhopehjrghmvghsrdhmohhrshgvsegrrhhmrdgtohhmpdhrtghpthhtohepjhhovgih
+    rdhgohhulhihsegrrhhmrdgtohhmpdhrtghpthhtohepshhuiihukhhirdhpohhulhhosh
+    gvsegrrhhmrdgtohhmpdhrtghpthhtohephihuiigvnhhghhhuiheshhhurgifvghirdgt
+    ohhmpdhrtghpthhtoheprghrnhgusehkvghrnhgvlhdrohhrghdprhgtphhtthhopegsrh
+    hoohhnihgvsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehmrgiisehkvghrnhgvlhdr
+    ohhrghdprhgtphhtthhopeifihhllheskhgvrhhnvghlrdhorhhg
+X-ME-Proxy: <xmx:_M5waMWQuoGjN1oG0tLpj-JLUAa5yoEhNFbvncX31tnlEFQnhnZHDA>
+    <xmx:_M5waAsz2GgojV1bHBhimTh3axof-BXQv5qfKy-t-hxJJQDWZ1e8Cg>
+    <xmx:_M5waH2yQgEEGDfEMJo06TofDflV849Gz6G1Bew4f9JZRmXn4bLo_w>
+    <xmx:_M5waB7txBNOs5S3ip5-OOQqV4xX1iGrbRURCimKl6Al1RKENIgU6A>
+    <xmx:_M5waCU8xS5oq00KRT1drlLUekAtItX4rNohIRUt8bTEetT13qtPTEzf>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id E762F700068; Fri, 11 Jul 2025 04:44:43 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="R6veuuaDGFY/uZCc"
-Content-Disposition: inline
-In-Reply-To: <20250711082441.4193295-5-verhaegen@google.com>
-X-Cookie: Do not cut switchbacks.
+X-ThreadId: T7965fc80e983b7bf
+Date: Fri, 11 Jul 2025 10:44:23 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Marc Zyngier" <maz@kernel.org>, "Arnd Bergmann" <arnd@kernel.org>
+Cc: "Oliver Upton" <oliver.upton@linux.dev>,
+ "Catalin Marinas" <catalin.marinas@arm.com>, "Will Deacon" <will@kernel.org>,
+ "Joey Gouly" <joey.gouly@arm.com>,
+ "Suzuki K Poulose" <suzuki.poulose@arm.com>,
+ "Zenghui Yu" <yuzenghui@huawei.com>, "Mark Brown" <broonie@kernel.org>,
+ "James Morse" <james.morse@arm.com>, "Sebastian Ott" <sebott@redhat.com>,
+ linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+ linux-kernel@vger.kernel.org
+Message-Id: <4befb9eb-96e6-4a7c-9746-286144564f4e@app.fastmail.com>
+In-Reply-To: <86h5zj9laj.wl-maz@kernel.org>
+References: <20250711072752.2781647-1-arnd@kernel.org>
+ <86h5zj9laj.wl-maz@kernel.org>
+Subject: Re: [PATCH] KVM: arm64: fix u64_replace_bits() usage
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250711_014254_498053_2DD68A75 
-X-CRM114-Status: GOOD (  10.15  )
+X-CRM114-CacheID: sfid-20250711_014446_825952_D1043851 
+X-CRM114-Status: GOOD (  10.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,42 +120,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, Jul 11, 2025, at 10:36, Marc Zyngier wrote:
+> On Fri, 11 Jul 2025 08:27:47 +0100, Arnd Bergmann <arnd@kernel.org> wrote:
+>>  	if (hpmn > vcpu->kvm->arch.nr_pmu_counters) {
+>>  		hpmn = vcpu->kvm->arch.nr_pmu_counters;
+>> -		u64_replace_bits(val, hpmn, MDCR_EL2_HPMN);
+>> +		val = u64_replace_bits(val, hpmn, MDCR_EL2_HPMN);
+>>  	}
+>>  
+>>  	__vcpu_assign_sys_reg(vcpu, MDCR_EL2, val);
+>
+> This is only in -next, right? Because I have a fix for this already
+> queued for 6.16, as per [1].
 
---R6veuuaDGFY/uZCc
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Yes, as far as I can tell, the warning only showed up in linux-next
+after f66f9c3d09c1 ("bitfield: Ensure the return values of helper
+functions are checked").
 
-On Fri, Jul 11, 2025 at 09:24:36AM +0100, George Verhaegen wrote:
-> From: Joris Verhaegen <verhaegen@google.com>
->=20
-> Signed-off-by: Joris Verhaegen <verhaegen@google.com>
-> Tested-by: Joris Verhaegen <verhaegen@google.com>
-> Reviewed-by: David Li <dvdli@google.com>
-> Reviewed-by: Miller Liang <millerliang@google.com>
-> ---
+As far as I can tell, Ben added the check in linux/bitfield.h
+when he sent you his version of the fix, they just ended up
+in linux-next in the wrong order, so I ended up recreating his
+original fix slightly differently.
 
-You've not provided a Signed-off-by for this so I can't do anything with
-it, please see Documentation/process/submitting-patches.rst for details
-on what this is and why it's important.
-
-(I suspect you've actually written your name in a different forms in
-your git config and mail client but it's not adequately obvious.)
-
---R6veuuaDGFY/uZCc
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmhwzocACgkQJNaLcl1U
-h9D8TQf/TfiZ5LH0t2t/gOySQJEWcgmIAuNt3zfQsrVDV8A5qqKogbPV75loZN6m
-Eyvcog4WCIoJ4w+VNEL8E439Uk73Z25kCbdPYWnwQhZSFgE8ZpR7HD/LSbKFhc6d
-emjLxS+zGnk6t/sl32u6/gLpr/aONk7oYV5e5vhxFuIsyfhttyBSFLWBANDkfegR
-NTakl5zHb8GwXTdioJciuBnfyk2A+VHk+jdE9Wd13fi8Mpq6OB08OufGE9SFbMx7
-hbdO7t82aZcBIILzKP+op7T62kV1SOOboIT7yomeLLUQMHkxA3s4eQ3oEy10o24L
-tSUYZbnJm2Gx7zFMZZfCaR6Jik9plg==
-=v/M6
------END PGP SIGNATURE-----
-
---R6veuuaDGFY/uZCc--
+      Arnd
 
