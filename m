@@ -4,91 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33705C83F1B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 20:21:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2EF3C83F1B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 20:23:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lnMNvTF+R8ofXhs9BIQ7FQl/jHKBWLPO/PBptuTPHgQ=; b=dKXXvDAL0UfWuAoP300poDMekk
-	LYoim6n7LRTAP0TnbKqdxg5w+n3heRLtBZxpbyFt2vLTqccwQxz824zMqkDOZkSg9ZKikVBwxY6j5
-	vtrvLBcxmAJN5b/Hm5Bz4giOJyJF1kcPgwmYiHczE0fioH3qTJejML254MXgXmtl0uyMCQ6b+F0Gy
-	APeRC9uVjPFahtYNRE2LYXsQkBZXIMAQvPCcILTYKPPzZlf3E76c1ZnQGoF9ElNGuZlcfw9eI/wHz
-	UwGv7Fe0EHH861gKMNan6Af+NL8Gbm6kCctl+3ueSes6WLkeKYd4xtqEFk0+dWNGCfrBPymRkRis0
-	H7jnhqIw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zB3nLqeWt+qguptVCdAOuCrM7R4ZMkMuyw2GtOCjbFU=; b=GqitGPN0p9RLAPIIZtn9OIV/pz
+	/zZWasA7MmsCHrQwYhLDysnSRmtJQPx656hkE16dr+OVrIksmbZkOaK/u9F2+eubU7w5dGjWGvCxZ
+	FZqr+LY929x8fg7+MCfgIT7GXbDzfE9JqqYUlq+mBKC3OOAAJBWVhOVWoKlrP0VpWycb3MggWp6wC
+	H3uL3QCKbFJChw1xdtvSHBUIVrvZIBzO42FoAdpBaHDEY6LE5k48v2AQDTChL26tmeEVcojQbUjHI
+	eAnSj+mXZPwbLLYRK0Y+My8Lm7I7ywslCvpdL1G+TefN3UA8lTunL6A4yim+iniL7zuAD1Z3j2Fy9
+	6B0yH9CA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaKEs-0000000FmNC-0BBB;
-	Fri, 11 Jul 2025 20:20:58 +0000
-Received: from mail-yb1-xb35.google.com ([2607:f8b0:4864:20::b35])
+	id 1uaKHB-0000000FmWJ-3HYE;
+	Fri, 11 Jul 2025 20:23:21 +0000
+Received: from mgamail.intel.com ([198.175.65.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaIs1-0000000FaNR-03Ej
+	id 1uaIw6-0000000Fakr-2o5Q
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Jul 2025 18:53:18 +0000
-Received: by mail-yb1-xb35.google.com with SMTP id 3f1490d57ef6-e812fc35985so2152221276.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Jul 2025 11:53:16 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1752259996; x=1752864796; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=lnMNvTF+R8ofXhs9BIQ7FQl/jHKBWLPO/PBptuTPHgQ=;
-        b=cOJxjb8qgXEaRyH6r3MrKTUjQyS0+ZhdxSxOrorFYzNxcI+s9AqEWRly3mHm27FhZ9
-         xFhPYtZTr7R37i2Xr4+nTBeMkM9juls7Pj9+C46XSzvWhMlBVx3u1PKbRJPe9QlD4F2N
-         cb+klfFA0Ei9Rxq0hX6OuVnTNKFUkmfoKHrpBKWHLL3IL6S0t8mM5ygmIq/t/ZMDvQBc
-         TKZXOTgeNmBDqxxu9bfB+vmPpKjiC6FuLr0PU0IXIvdK1Ekf2jRxGFibPLoBoF/KDsgn
-         9ik9T4aMmRLf6fgciF94a2wJ8F8y3l+cQ8zN+/jiEIETsh1akiIhGL9npuisOHdpoIeQ
-         UsVQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752259996; x=1752864796;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=lnMNvTF+R8ofXhs9BIQ7FQl/jHKBWLPO/PBptuTPHgQ=;
-        b=FuxWgQzfqZ0DOEOib6pQj+1fvhq62b/EizFFbb/g+UvFQKwNdDl4U/GNJkoU/P0T8D
-         ch2YRcJyXZFbfJDqo8BoLyv/dKX9Dm0j+qzTZIgyhx9piBVynCzVNVUk2iRoLBm8aDgz
-         Rrgr1z9kc6SFQZ9oyWvvDPSRSqetufpup0AScbb12p2KBUdIknIXues8XJhxDqn5EfqY
-         1p/4fui5okw/GP5rKx59mowRufXkFseEQzY3xK57UT0OuXbCD4uaNBNl/nYJ/k5e1kuG
-         sUkjinvMCiCpK0U0iioDbQtPSYYbMk5E5z6CB9rTcpm5EMcuQjgNLqH4BJFscJTvu0lG
-         +N6A==
-X-Forwarded-Encrypted: i=1; AJvYcCXDXJmj6/Dh7/PEDwQzoT0qMbzhvBE0QyT0SQDFY2V087KkX5pJwS8+l9xjc++lv9OeT1Jcfy6flGEFfwfXuDoa@lists.infradead.org
-X-Gm-Message-State: AOJu0YxU3zDYfPWegqk7Jyfv4IyUS7ZaVn6fS0AhRaf60Xh9YJLuCXJ7
-	QQLiNodN9JXMjPmEY56zR02kO1JXup2tLACYyTTNkDQcrHn5qmR78A1s5nfHSYOw4K58yYbSKCl
-	CMQuJK+Mk1bbkzy+3ZbgLiODM9mJD3x2vIOlCMV2tJQ==
-X-Gm-Gg: ASbGncs9K4E4jkNu00C+4fNuTYSnAdE5GslhW/RijAw52LEbadYkRt0kMdejsAG07nd
-	m30W/ZUwptzOC676qdJYXQYqpSAMTfSniiUq+JszzJ9aYMkeRAxNRcBmz6WVytTCnQiqzPvvem1
-	HOKH/kdJOjaNvIYoH3kUCHXxU4Z7i6DBKi4c6cN0FMQYD1K4mjVaKtPruGsycndI7ht7SXdqbTP
-	9UOYJQIjynJq7G5VA==
-X-Google-Smtp-Source: AGHT+IHNGHaJapXfEwRUcTXNTWlTsMHXEiPIQ/b0KTpye4KQsUdp1sxBRmAZdNG++EC1bw7xLSQza58HYJgLAxUXYQU=
-X-Received: by 2002:a05:690c:6282:b0:70f:87c5:5270 with SMTP id
- 00721157ae682-717d5daccbfmr86777077b3.19.1752259996008; Fri, 11 Jul 2025
- 11:53:16 -0700 (PDT)
+	Fri, 11 Jul 2025 18:57:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1752260251; x=1783796251;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=1Gc88Na8gcluHywQcvviPDhvVUUkPoMZ9NE3iFFxsTI=;
+  b=NT6nfkFPGVTbywMFw3cphwIcAYSrdCynfC9HybeKuBVRaADHdlEe1aEF
+   BkYyIjHxMefW26OHv6ZvrlPfQpocbbCmiJcslZPOiCvtTn2hEhBupkXSe
+   5fY9itKBRLJ/xvL4O38sgLAJSSx0/DgUh/gFNr3PlLwdS4DIp6MpSaBd7
+   n2/N7HPUUb6KxVnVPG/5ZwQhanUCarq1p+v4FXvac8+Z7U2y95pWcWpeq
+   5kh9YzOrnO2eR0mMOkbYneDDJJAlX48gYVY4tGUx5IH4SYesfPrSDK8IG
+   YHH7fHa+RfaOBU4Jq/beEjuK+iysSpB9/RvpLXZt5JXOHk+DQtI3oedag
+   w==;
+X-CSE-ConnectionGUID: 6au0jusfRqO0t0DthvdtfQ==
+X-CSE-MsgGUID: 2GJ+NhiUQdu9IiKJcPYgnA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11491"; a="66009059"
+X-IronPort-AV: E=Sophos;i="6.16,304,1744095600"; 
+   d="scan'208";a="66009059"
+Received: from orviesa001.jf.intel.com ([10.64.159.141])
+  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Jul 2025 11:57:29 -0700
+X-CSE-ConnectionGUID: 3A+5pspgS4+KsV6bdhFhow==
+X-CSE-MsgGUID: 6Yx/7JndQue2UoQSnaIVDA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.16,304,1744095600"; 
+   d="scan'208";a="193632104"
+Received: from black.fi.intel.com ([10.237.72.28])
+  by orviesa001.jf.intel.com with ESMTP; 11 Jul 2025 11:57:26 -0700
+Received: by black.fi.intel.com (Postfix, from userid 1003)
+	id 8CE2E1A1; Fri, 11 Jul 2025 21:57:24 +0300 (EEST)
+Date: Fri, 11 Jul 2025 21:57:24 +0300
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Qianfeng Rong <rongqianfeng@vivo.com>
+Cc: wsa+renesas@sang-engineering.com, Jonathan.Cameron@huawei.com,
+	Patrice Chotard <patrice.chotard@foss.st.com>,
+	Andi Shyti <andi.shyti@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4] i2c: busses: Use min() to improve code
+Message-ID: <aHFelLqnfsuaeh2Q@black.fi.intel.com>
+References: <20250709042347.550993-1-rongqianfeng@vivo.com>
 MIME-Version: 1.0
-References: <20250711-hdp-upstream-v7-0-faeecf7aaee1@foss.st.com>
-In-Reply-To: <20250711-hdp-upstream-v7-0-faeecf7aaee1@foss.st.com>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Fri, 11 Jul 2025 20:52:58 +0200
-X-Gm-Features: Ac12FXxLjA7peUDZIWJhb4cndI_Q2FwVXxO2uVEd8E-6LJKHyzTLqNgXqkM6VhY
-Message-ID: <CACRpkda9M6R_vi5FMGvo6PyThB8OJjX7PMMusHjjs5HcX0OF4g@mail.gmail.com>
-Subject: Re: [PATCH v7 0/8] Introduce HDP support for STM32MP platforms
-To: =?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, Bartosz Golaszewski <brgl@bgdev.pl>, 
-	Antonio Borneo <antonio.borneo@foss.st.com>, 
-	=?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <legoffic.clement@gmail.com>, 
-	linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, 
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250709042347.550993-1-rongqianfeng@vivo.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250711_115317_052980_56DAD348 
-X-CRM114-Status: UNSURE (   9.07  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250711_115730_747579_CD16C347 
+X-CRM114-Status: GOOD (  10.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,26 +89,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 11, 2025 at 9:43=E2=80=AFAM Cl=C3=A9ment Le Goffic
-<clement.legoffic@foss.st.com> wrote:
+On Wed, Jul 09, 2025 at 12:23:46PM +0800, Qianfeng Rong wrote:
+> Use min() to reduce the code and improve its readability.
+> 
+> The type of the max parameter in the st_i2c_rd_fill_tx_fifo()
+> was changed from int to u32, because the max parameter passed
+> in is always greater than 0.
 
-> Cl=C3=A9ment Le Goffic (8):
->       dt-bindings: pinctrl: stm32: Introduce HDP
->       pinctrl: stm32: Introduce HDP driver
->       MAINTAINERS: add Cl=C3=A9ment Le Goffic as STM32 HDP maintainer
+...
 
-The three patches applied to the pinctrl tree.
+>  #include <linux/of.h>
+>  #include <linux/pinctrl/consumer.h>
+>  #include <linux/platform_device.h>
+> +#include <linux/minmax.h>
 
->       ARM: dts: stm32: add Hardware debug port (HDP) on stm32mp13
->       ARM: dts: stm32: add Hardware debug port (HDP) on stm32mp15
->       ARM: dts: stm32: add Hardware debug port (HDP) on stm32mp25
->       ARM: dts: stm32: add alternate pinmux for HDP pin and add HDP pinct=
-rl node
->       ARM: dts: stm32: add Hardware debug port (HDP) on stm32mp157c-dk2 b=
-oard
+Do not blindly add a new inclusion to the end of the list. The list as you may
+notice even on this small context suggests that it's ordered. Please, keep
+things in order.
 
-Please apply these through the SoC tree.
+Andi, if you don't mind, please fix this.
 
-Yours,
-Linus Walleij
+-- 
+With Best Regards,
+Andy Shevchenko
+
+
 
