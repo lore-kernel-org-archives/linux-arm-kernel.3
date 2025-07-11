@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C40EDC8303C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 04:59:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC1C1C8303C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 05:01:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+ASpOxMdhH1Ni6FA6cOiOM+xnxokYtM9/grNQla7mZ4=; b=FtLOTDSdQ813vvw4JsixajHIil
-	YC9+0H3ietQg9HIFDByWuIEii9ZtP6+f+pzn95yuSDd7hFNLNRKla0tLUKqmz8ZpRKIZKBaRzCmJ8
-	VSMFzL4aYu20cOKqOWWlEnIuaed4+ioPRe3ieeIS861yo10U909vfhQz1UAbWMxWOMV9FtMtG/cQl
-	PfFjCx/H2OBANnkx3hT2PWFfV/JjkcWhCDrmJUbGmkQ2R4l+0ZCkTHMrd7nsC+z007+Dyc3xL5Tnb
-	lApB3kXjAiqeJ8o1rLcrcE1rGOjaPDpOfnWTp6wdsKUGHZxGaHxkPZLYueRI2F2dqq8hpZsApwwq7
-	NbZjOhIA==;
+	bh=XK5bdt887duIlbvqWjutT9zbGbRguv0UFPjU/94wLiI=; b=xhsaTB4Ehu0l5cPpT5b/usDfk6
+	X2Y2HmJfBPZRAixpiPyxjc5eJyjRCUWgvO2F3BdPybJFQbZnSSXTEE/lbbepDWeI2SrAOnF0595gj
+	DGsFgdJbIwJbXEmx/y7XWsWJ0E2i51shFaIh0qAg3YkvUAZIHhkxVSeG5Wsz2Na0YrXedd+9gJz0R
+	wuLKmkmTNPkM9bwAg5pa2oKnUGZrD8/VUvsjVpvp3+rUq9by8eMcpL/Ajvv5Mx2KRSNMIZkZ/8DS8
+	uutI/k8q0e+TAqASfTiLJsVnO4E6Uv4wh52YZFFHBTrO3WZidGvTRXHFgwgtb8nmKdxbLFgu6Jwuz
+	zKvOFewQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ua5qr-0000000DhsG-3m7W;
-	Fri, 11 Jul 2025 04:59:13 +0000
+	id 1ua5tA-0000000Di11-2YrQ;
+	Fri, 11 Jul 2025 05:01:36 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ua5Rb-0000000DfWM-0tvK
+	id 1ua5Ri-0000000DfZe-1wA0
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Jul 2025 04:33:08 +0000
+	Fri, 11 Jul 2025 04:33:15 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1752208386;
+	s=mimecast20190719; t=1752208393;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=+ASpOxMdhH1Ni6FA6cOiOM+xnxokYtM9/grNQla7mZ4=;
-	b=LAzLnZtcRUgLfB6enTGVDQ+jtP5mTRyJq2tNr2bDGjqKTnOf27P/9zQ+tblVEDwmdNnpHf
-	TW4kaXqW47SpdzcbpkkO6RfdVOuc+h1REylpCIr/ixmQtbE5m0d/bByEc1N9k53PhybQmf
-	r/Karv64UPL7mvJbqEzGdBCJG6SR3xg=
-Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
+	bh=XK5bdt887duIlbvqWjutT9zbGbRguv0UFPjU/94wLiI=;
+	b=XrI2sa5oI8XzQNHkMOn6SgxMWjhhpNKXOFfY95hMJsnHjsVX2og4BnL0+5l3l0zyaOBHYz
+	pmokEBlBsXNdaqlxqg+diAWWAyG86ONBTapVPsBVfSlY8QJ8u6UXPUwrLJw0pLtsLYEnJM
+	aQsyEwEu/HNFz4Kg/ExL0pTWlTTf7oE=
+Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
  (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-99-0afFhi0sNVKFQBd9kZ0sUQ-1; Fri,
- 11 Jul 2025 00:33:02 -0400
-X-MC-Unique: 0afFhi0sNVKFQBd9kZ0sUQ-1
-X-Mimecast-MFC-AGG-ID: 0afFhi0sNVKFQBd9kZ0sUQ_1752208380
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-479-OfZ38x9TNE-qZrPbdjthjA-1; Fri,
+ 11 Jul 2025 00:33:10 -0400
+X-MC-Unique: OfZ38x9TNE-qZrPbdjthjA-1
+X-Mimecast-MFC-AGG-ID: OfZ38x9TNE-qZrPbdjthjA_1752208388
 Received: from mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.111])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 98CF418089B4;
-	Fri, 11 Jul 2025 04:33:00 +0000 (UTC)
+	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id DDC6F180028A;
+	Fri, 11 Jul 2025 04:33:07 +0000 (UTC)
 Received: from asrivats-na.rmtustx.csb (unknown [10.2.16.240])
-	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 818CE180045B;
-	Fri, 11 Jul 2025 04:32:57 +0000 (UTC)
+	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id B8DE51803AF2;
+	Fri, 11 Jul 2025 04:33:04 +0000 (UTC)
 From: Anusha Srivatsa <asrivats@redhat.com>
-Date: Thu, 10 Jul 2025 23:31:21 -0500
-Subject: [PATCH 10/14] drm/panel/lpm102a188a: Use refcounted allocation in
- place of devm_kzalloc()
+Date: Thu, 10 Jul 2025 23:31:23 -0500
+Subject: [PATCH 12/14] drm/panel/himax-hx83102: Use refcounted allocation
+ in place of devm_kzalloc()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250710-b4-driver-convert-last-part-july-v1-10-de73ba81b2f5@redhat.com>
+Message-Id: <20250710-b4-driver-convert-last-part-july-v1-12-de73ba81b2f5@redhat.com>
 References: <20250710-b4-driver-convert-last-part-july-v1-0-de73ba81b2f5@redhat.com>
 In-Reply-To: <20250710-b4-driver-convert-last-part-july-v1-0-de73ba81b2f5@redhat.com>
 To: Neil Armstrong <neil.armstrong@linaro.org>, 
@@ -76,17 +76,17 @@ To: Neil Armstrong <neil.armstrong@linaro.org>,
 Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
  linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
  Anusha Srivatsa <asrivats@redhat.com>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1752208280; l=1518;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1752208280; l=1488;
  i=asrivats@redhat.com; s=20250122; h=from:subject:message-id;
- bh=76yWT/SXjPcOqdfDoug/udmadP1Sboehs0wZbeLGz0I=;
- b=CQH52r9at6hFa1Ymf8GJHoUDHfBxW7YTCZJGYAmSh6pqT6Q+ZQB3zYIxMmVhn63/Z8u5Zik6u
- XP2rofWeeouCEuvIMkofaRsIK4J8YECn/v8jJIHDz+9k8N2ynZA3brP
+ bh=+qytONX5qdNYsbSY96SUao7oslIs6VJcUi2ae56BVbA=;
+ b=YzQp+0zPuATiOdY8n/ZqoUHfDmb0JE/RqAmDPPQNILpZaEZj/Dv+suOONBpeYpzY2RXLcHdhu
+ fdHTZ746oDVAwLcEEBTA0/6hvAaqhL1ess1aqqdsI8ow1gLqPAnnYGA
 X-Developer-Key: i=asrivats@redhat.com; a=ed25519;
  pk=brnIHkBsUZEhyW6Zyn0U92AeIZ1psws/q8VFbIkf1AU=
 X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.111
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250710_213307_317996_8B5A5E33 
-X-CRM114-Status: GOOD (  13.33  )
+X-CRM114-CacheID: sfid-20250710_213314_581421_69239CB2 
+X-CRM114-Status: GOOD (  13.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,40 +107,37 @@ __typeof() for more type safety.
 
 Signed-off-by: Anusha Srivatsa <asrivats@redhat.com>
 ---
- drivers/gpu/drm/panel/panel-jdi-lpm102a188a.c | 12 ++++++------
- 1 file changed, 6 insertions(+), 6 deletions(-)
+ drivers/gpu/drm/panel/panel-himax-hx83102.c | 10 +++++-----
+ 1 file changed, 5 insertions(+), 5 deletions(-)
 
-diff --git a/drivers/gpu/drm/panel/panel-jdi-lpm102a188a.c b/drivers/gpu/drm/panel/panel-jdi-lpm102a188a.c
-index 5b5082efb282bcf705cf2d38dea24901e9803648..5f897e143758c2be51c39a20eeda2ecd09e1fbee 100644
---- a/drivers/gpu/drm/panel/panel-jdi-lpm102a188a.c
-+++ b/drivers/gpu/drm/panel/panel-jdi-lpm102a188a.c
-@@ -435,9 +435,6 @@ static int jdi_panel_add(struct jdi_panel *jdi)
- 		return dev_err_probe(dev, PTR_ERR(jdi->backlight),
- 				     "failed to create backlight\n");
+diff --git a/drivers/gpu/drm/panel/panel-himax-hx83102.c b/drivers/gpu/drm/panel/panel-himax-hx83102.c
+index 66abfc44e424829e295f5848153d548176b9dda9..4c432d207634d2d976a9e7cb7744b1fefa10420d 100644
+--- a/drivers/gpu/drm/panel/panel-himax-hx83102.c
++++ b/drivers/gpu/drm/panel/panel-himax-hx83102.c
+@@ -989,8 +989,6 @@ static int hx83102_panel_add(struct hx83102 *ctx)
  
--	drm_panel_init(&jdi->base, &jdi->link1->dev, &jdi_panel_funcs,
+ 	ctx->base.prepare_prev_first = true;
+ 
+-	drm_panel_init(&ctx->base, dev, &hx83102_drm_funcs,
 -		       DRM_MODE_CONNECTOR_DSI);
--
- 	drm_panel_add(&jdi->base);
+ 	err = of_drm_get_panel_orientation(dev->of_node, &ctx->orientation);
+ 	if (err < 0)
+ 		return dev_err_probe(dev, err, "failed to get orientation\n");
+@@ -1013,9 +1011,11 @@ static int hx83102_probe(struct mipi_dsi_device *dsi)
+ 	int ret;
+ 	const struct hx83102_panel_desc *desc;
  
- 	return 0;
-@@ -475,10 +472,13 @@ static int jdi_panel_dsi_probe(struct mipi_dsi_device *dsi)
- 
- 	/* register a panel for only the DSI-LINK1 interface */
- 	if (secondary) {
--		jdi = devm_kzalloc(&dsi->dev, sizeof(*jdi), GFP_KERNEL);
--		if (!jdi) {
-+		jdi = devm_drm_panel_alloc(&dsi->dev, __typeof(*jdi),
-+					   base, &jdi_panel_funcs,
-+					   DRM_MODE_CONNECTOR_DSI);
+-	ctx = devm_kzalloc(&dsi->dev, sizeof(*ctx), GFP_KERNEL);
+-	if (!ctx)
+-		return -ENOMEM;
++	ctx = devm_drm_panel_alloc(&dsi->dev, __typeof(*ctx), base,
++				   &hx83102_drm_funcs, DRM_MODE_CONNECTOR_DSI);
 +
-+		if (IS_ERR(jdi)) {
- 			put_device(&secondary->dev);
--			return -ENOMEM;
-+			return PTR_ERR(jdi);
- 		}
++	if (IS_ERR(ctx))
++		return PTR_ERR(ctx);
  
- 		mipi_dsi_set_drvdata(dsi, jdi);
+ 	desc = of_device_get_match_data(&dsi->dev);
+ 	dsi->lanes = 4;
 
 -- 
 2.48.1
