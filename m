@@ -4,81 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7FA4C8303C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 12:42:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C4E0C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 12:44:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Bu3FAa+z6N3hVnON67ovhY2EugPyrb49rIyQZVspucI=; b=U4T8ayWkJTJyArnUWuqSszMQPJ
-	qgVPIeSkNImREOrm+JU88mvVhsdJjSX+vSTUSCY2hAPy1m9D6Aya4gl5yxi/zHXzx8lQaEeRnwHHi
-	hz1YlGxJi+AmD3UbCQvyJKEnvIy94B0u02h2kmknoZThMiCKyVW20D4g9c8XwlCbntwHJYxnVsx0G
-	ITa+0V1JHFqjsbf24PHIu59z5o44AAa76wsXYaO+xOgBE3v/YbUrHHHzXFgT17mt8SL18bbnie3QR
-	M1uZySnljmyw7al1//vsvssZtBEN6+9zSXdlc9tBDV2yqIAB2yJan5bUSc4Tshndwx2MMw1cPmNbk
-	LMxR2egA==;
+	bh=X5eycw+cztZ82tcWFUCBaHqi/zjlZsCZCpaV+CP0FP8=; b=sAQzxvQn2S6Ksww0fHrS0g/NfO
+	aBaQ1QQ7I6lm9ibqYbtHpUQ6LAxYijc8f57ESZt/nhS2px7elIcCnB0dxz8MzNsOe1UbsnVdIfJAE
+	MF8TlsgSxMFq+DPPystizTh/U9wOkG56JpL0kFiEDxBZVFZAKICOC+5CTMgYPrRzJdq9Tr+HEn4R8
+	haYAqHxDgX4TVF6K9GKnt0TpBCzupTaH5qJwax/7yYC60ZNrKjpjFrsAJ7j7Y7l/ce4MP+0B2EtYY
+	nOTJTX9fzv+I/uxRwGV7AXxfbrm65emFR97jnIuomIQQkSoP/zoyxb0v9E1+1GVrMPJ5B6weVBz3R
+	x76PuoFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaD5R-0000000ElkL-39aj;
-	Fri, 11 Jul 2025 12:42:45 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uaD6u-0000000Em07-26w2;
+	Fri, 11 Jul 2025 12:44:16 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaCx6-0000000Ekty-0LPM
+	id 1uaBLy-0000000EWZd-1Qfo
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Jul 2025 12:34:09 +0000
+	Fri, 11 Jul 2025 10:51:43 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2EAD344E9E;
-	Fri, 11 Jul 2025 12:34:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 50D88C4CEED;
-	Fri, 11 Jul 2025 12:34:06 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id A60F6A54DE0;
+	Fri, 11 Jul 2025 10:51:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 49E6DC4CEF4;
+	Fri, 11 Jul 2025 10:51:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752237247;
-	bh=OaM04B/jvmRCFs9Pga6hG/UcJ4uI5yYpfmWIbmK2Zyc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=dTLAhLTCRZXAC4B/2QKacwHAUGAi6WddnWYmmBZEgz/U07KVHiwt0PANdevA2fmRW
-	 gWM2pmMus+RFmABeOsW5pGonIvo+KiacmI3KBi8rnrjRN94re/ZOvPYIzGBYXeRvzT
-	 3269c/hfw6YgxKqV/Awqvy4tCE9NZwhyGtcY82Ee5wUEIiRFf63Vw4UcSpGevnYBeF
-	 RuN1yBG0+m2E2XfP+2Nnf3S5jG/ZJpo0fFxVK8AIi6RgJiIbBHP41De+ubmZGo0oVx
-	 br3pXXJLxUgerpY8f1BoD4YWU63zHnTMWLq4RxQi9r2mnnkoUlVHMRRlKd/PT1wHO8
-	 sYlGlN6t2JKdQ==
-Date: Fri, 11 Jul 2025 18:04:03 +0530
-From: Vinod Koul <vkoul@kernel.org>
-To: George Verhaegen <verhaegen@google.com>
-Cc: Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>,
-	Charles Keepax <ckeepax@opensource.cirrus.com>,
-	Richard Fitzgerald <rf@opensource.cirrus.com>,
-	David Rhodes <david.rhodes@cirrus.com>,
-	Cezary Rojewski <cezary.rojewski@intel.com>,
-	Peter Ujfalusi <peter.ujfalusi@linux.intel.com>,
-	Bard Liao <yung-chuan.liao@linux.intel.com>,
-	Ranjani Sridharan <ranjani.sridharan@linux.intel.com>,
-	Kai Vehmanen <kai.vehmanen@linux.intel.com>,
-	Pierre-Louis Bossart <pierre-louis.bossart@linux.dev>,
-	Srinivas Kandagatla <srini@kernel.org>,
-	Daniel Baluta <daniel.baluta@nxp.com>,
-	Orson Zhai <orsonzhai@gmail.com>,
-	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	Chunyan Zhang <zhang.lyra@gmail.com>,
-	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
-	Masami Hiramatsu <mhiramat@kernel.org>, kernel-team@android.com,
-	linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org,
-	patches@opensource.cirrus.com, linux-arm-msm@vger.kernel.org,
-	sound-open-firmware@alsa-project.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v1 0/4] ALSA: compress_offload: Add 64-bit safe timestamp
- API
-Message-ID: <aHEEu1eSSGRhITmW@vaman>
-References: <20250711082441.4193295-1-verhaegen@google.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250711082441.4193295-1-verhaegen@google.com>
+	s=k20201202; t=1752231101;
+	bh=84BMvuy9Pk8YrU/GpAF8QkVxJqmSioEdul6p6Hjaas8=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=j8hj78NkD71YdFzBqvHsQJbSBSgu9I4hzkRnOEj/kjR36IMWi68LRMOzqoUQPn2x5
+	 6pIzQK5S+UYCJVZxQ1NFAmQ0FCdQsPdKxtf0vG8wCudjXLSmchmTL+aDsmkXyTRpvl
+	 MhYKPu7xnvwdeWPlJ5DZ5OqvpqQkVmezKz6SFoFnihU9MwLhx/momFAOxAEGwdIwwG
+	 LwaFbPNIe/nIceApqIht/C5MEZjbkyztuCcQL2UIgC8nIeeTs26ae6QLLZSBn2iomN
+	 RAXxnD81+Nvirs2ZQpTz3D5TCPKYc24jH1xlp32xHmUh5HM49fzaTadIg9mViuIkwA
+	 myZTLQaGFiZgw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uaBLv-00EqW3-79;
+	Fri, 11 Jul 2025 11:51:39 +0100
+Date: Fri, 11 Jul 2025 11:51:38 +0100
+Message-ID: <86cya79f0l.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>
+Cc: linux-pci@vger.kernel.org,	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,	Toan Le <toan@os.amperecomputing.com>,
+	Krzysztof =?UTF-8?B?V2lsY3p5xYRza2k=?= <kwilczynski@kernel.org>,	Manivannan
+ Sadhasivam <mani@kernel.org>,	Rob Herring <robh@kernel.org>,	Bjorn Helgaas
+ <bhelgaas@google.com>,	Thomas Gleixner <tglx@linutronix.de>
+Subject: Re: [PATCH v2 09/13] PCI: xgene-msi: Sanitise MSI allocation and affinity setting
+In-Reply-To: <aHDjNr59aMzVQ5iA@lpieralisi>
+References: <20250708173404.1278635-1-maz@kernel.org>
+	<20250708173404.1278635-10-maz@kernel.org>
+	<aHDfhVRa1lhu7qPg@lpieralisi>
+	<aHDjNr59aMzVQ5iA@lpieralisi>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: lpieralisi@kernel.org, linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, toan@os.amperecomputing.com, kwilczynski@kernel.org, mani@kernel.org, robh@kernel.org, bhelgaas@google.com, tglx@linutronix.de
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250711_053408_162620_516486A5 
-X-CRM114-Status: GOOD (  19.17  )
+X-CRM114-CacheID: sfid-20250711_035142_442356_EE481812 
+X-CRM114-Status: GOOD (  19.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,87 +89,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11-07-25, 09:24, George Verhaegen wrote:
-> From: Joris Verhaegen <verhaegen@google.com>
+On Fri, 11 Jul 2025 11:11:02 +0100,
+Lorenzo Pieralisi <lpieralisi@kernel.org> wrote:
 > 
-> The current compress offload timestamping API relies on
-> struct snd_compr_tstamp, whose cumulative counters like
-> copied_total are defined as __u32. On long-running high-resolution
-> audio streams, these 32-bit counters can overflow,
-> causing incorrect availability calculations.
+> On Fri, Jul 11, 2025 at 11:55:17AM +0200, Lorenzo Pieralisi wrote:
+> > On Tue, Jul 08, 2025 at 06:34:00PM +0100, Marc Zyngier wrote:
+> 
+> [...]
+> 
+> > We could use MSInRx_HWIRQ_MASK, I can update it.
+> > 
+> > More importantly, what code would set data->hwirq[6:4] (and
+> > data->hwirq[7:7] below) ?
+> 
+> Forget it. It is the hwirq allocation itself that sets those bits,
+> 256 HWIRQs you use the effective cpu affinity to steer the frame,
+> it makes sense now.
 
-In your testing when did you observe the overflow condition?
+Exactly.
 
-> This patch series introduces a parallel, 64-bit safe API to solve
-> this problem while maintaining perfect backward compatibility with the
-> existing UAPI. A new pointer64 operation and corresponding ioctls
-> are added to allow the kernel to track counters using u64 and expose
-> these full-width values to user-space.
+> 
+> I can update the code to use the mask above and merge it.
+> 
+> Sorry for the noise,
 
-Please share patches for tinycompress support too, we need those to test
-this
+No worries, and thanks for looking at it!
 
-> The series is structured as follows:
-> 
-> Patch 1: Introduces the new internal pointer64 op, refactors the
-> core logic to use it, and defines the new UAPI structs.
-> 
-> Patch 2: Exposes the SNDRV_COMPRESS_TSTAMP64 ioctl.
-> 
-> Patch 3: Exposes the corresponding SNDRV_COMPRESS_AVAIL64 ioctl.
-> 
-> Patch 4: Implements the new .pointer64 operation in various ASoC
-> drivers that support compress offload.
-> 
-> This series has been tested on a Pixel 9 device. All compress offload
-> use cases, including long-running playback, were verified to work
-> correctly with the new 64-bit API, and no regressions were observed
-> when using the legacy API.
-> 
-> Thanks,
-> George (Joris) Verhaegen
-> 
-> Signed-off-by: Joris Verhaegen <verhaegen@google.com>
-> 
-> ---
-> 
-> Joris Verhaegen (4):
->   ALSA: compress_offload: Add 64-bit safe timestamp infrastructure
->   ALSA: compress_offload: Add SNDRV_COMPRESS_TSTAMP64 ioctl
->   ALSA: compress_offload: Add SNDRV_COMPRESS_AVAIL64 ioctl
->   ASoC: codecs: Implement 64-bit pointer operation
-> 
->  include/sound/compress_driver.h               |   3 +
->  include/sound/soc-component.h                 |   5 +
->  include/sound/soc-dai.h                       |   6 +
->  include/uapi/sound/compress_offload.h         |  32 +++
->  sound/core/compress_offload.c                 | 210 ++++++++++++++----
->  sound/soc/codecs/cs47l15.c                    |   1 +
->  sound/soc/codecs/cs47l24.c                    |   1 +
->  sound/soc/codecs/cs47l35.c                    |   1 +
->  sound/soc/codecs/cs47l85.c                    |   1 +
->  sound/soc/codecs/cs47l90.c                    |   1 +
->  sound/soc/codecs/cs47l92.c                    |   1 +
->  sound/soc/codecs/wm5102.c                     |   1 +
->  sound/soc/codecs/wm5110.c                     |   1 +
->  sound/soc/codecs/wm_adsp.c                    |  53 ++++-
->  sound/soc/codecs/wm_adsp.h                    |   3 +
->  .../intel/atom/sst-mfld-platform-compress.c   |  17 +-
->  sound/soc/intel/atom/sst-mfld-platform.h      |   2 +
->  sound/soc/intel/atom/sst/sst_drv_interface.c  |  43 +++-
->  sound/soc/qcom/qdsp6/q6asm-dai.c              |  41 +++-
->  sound/soc/soc-component.c                     |  20 ++
->  sound/soc/soc-compress.c                      |  21 ++
->  sound/soc/soc-dai.c                           |  14 ++
->  sound/soc/sof/compress.c                      |  44 +++-
->  sound/soc/sprd/sprd-pcm-compress.c            |  28 ++-
->  sound/soc/sprd/sprd-pcm-dma.h                 |   2 +-
->  sound/soc/uniphier/aio-compress.c             |  40 +++-
->  26 files changed, 503 insertions(+), 89 deletions(-)
-> 
-> -- 
-> 2.50.0.727.gbf7dc18ff4-goog
+	M.
 
 -- 
-~Vinod
+Without deviation from the norm, progress is not possible.
 
