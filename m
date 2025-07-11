@@ -4,68 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6248C8303C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 09:31:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 135BCC83F1D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 09:33:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8Y8yX5xQMywwx2BGoeeybXxG1RrCPIPIZg9LEWNi+Ro=; b=2SGcIq/gHWblL+mc647C1w4Z8d
-	ifeuPeLs3cLBgslYaU2XaxSpen4GW+Hm9MDGVWB/etFO/Cz9jEm1yio0yyNDEGW1TOrF2NVGW9+iW
-	Wg9WiYGfTf/g6WZnIkzXRNPsg2GSrZa6AQ7TO8BA9E3sc46gN75vhlsX+OSXb9wEHb/B1ZmaPNk38
-	eoRaFsVJM33WGZ3imlVRvwH15JllIMirvGzRiZAHr4p0n/6oYGE+lJYSq890jGafzzbG/ElkBeGHX
-	FrVTvCGw2UMgMZGeDFKoK12NyPShTfWXd4PEx6cDfBjrYj4hWIPviewdtPQZeRJcEx2GNoH806tkG
-	DI03KCwQ==;
+	bh=nSUtgfD6aFF0FvkLtZVPSAzltpz5icpTn3cREw68zfw=; b=IZ6tm4PU8bQIJ5OZYw7GMK5L6D
+	8DiXhNyJl/kqyH8c1Hu+nWS2/CZh6ICfyNRSSvnIEXo8qM+cX3HSqRrJz44QnotZLokrIOwPbD66F
+	QcDuZHOc1KuGWz7H9MQls9dDofnUnrSBzqh6sY+9GTszrDO0Zr9lxdh/IfoYGOV3FJW+KG+KaA7rY
+	9L4bdxEPDx40Y3hRbDMpQB4QJdn0nl3pKOPyvm1/zd7iyzNh/TvZw+E+bCiCom5DfheWHdOkJyBpK
+	R37KZw/u3MgYUaoo7lO3etJUBbeYqsEMwbIxCVxS7oMPImdQS6XQ2HIPzQtXxWvo110wE7/ownCZw
+	3Dc1PEtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaA6D-0000000EJdN-1ECB;
-	Fri, 11 Jul 2025 09:31:21 +0000
-Received: from mail-m16.yeah.net ([220.197.32.16])
+	id 1uaA8Y-0000000EK2z-0JqL;
+	Fri, 11 Jul 2025 09:33:46 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ua9Bu-0000000E9kJ-1ifQ
+	id 1ua9Eo-0000000EAWw-19TG
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Jul 2025 08:33:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
-	s=s110527; h=Date:From:To:Subject:Message-ID:MIME-Version:
-	Content-Type; bh=8Y8yX5xQMywwx2BGoeeybXxG1RrCPIPIZg9LEWNi+Ro=;
-	b=mKdXnCiZUf47xRIbDuBBOxjfsin0f++eakr7LNJiHSWmspHUYDLbebDA0qS/kL
-	RbCf5oo/221nhX+1BHS8NfcT0SFBIuLno0YnufWl1otMcqUaXj6lSblWPEkqCdNs
-	RhgMy6gZfj1MA3zVputyRAp2JE4ylScqYni8SogkboY04=
-Received: from dragon (unknown [])
-	by gzsmtp2 (Coremail) with SMTP id Ms8vCgDXTwYnzHBog9pTAA--.57224S3;
-	Fri, 11 Jul 2025 16:32:41 +0800 (CST)
-Date: Fri, 11 Jul 2025 16:32:39 +0800
-From: Shawn Guo <shawnguo2@yeah.net>
-To: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
-Cc: Shawn Guo <shawnguo@kernel.org>,
+	Fri, 11 Jul 2025 08:36:11 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 58E115C10E0;
+	Fri, 11 Jul 2025 08:36:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F2B9CC4CEED;
+	Fri, 11 Jul 2025 08:36:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1752222969;
+	bh=WqaMVMtIl2BY0yJd5CvxPYfpxaVADTlSmJgSDpmxLE0=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=bJN/yZ1B7JH5u2g8tysgTDGGgHkuqdBey4fIkeux/UL66WXv21R+ybSxjeYhj2pwU
+	 DG6JoRCsZ5f3A16iQ3h/Ba+V4IpC9UzqDoTI154bM6kzmH9k+tb7yjqTbd0YFAAJLN
+	 q+YeSY2DbCp4PTrVilZhsVaWVd6JXR2+gkyq4ZPWfZVeYi41esCQI2gQpqHvF5thYc
+	 8OFuiSeO7+AM+ROcdLYFenKVxbtXrrKp+YMBwjw2EKKLHpngqypRmdGjdinldKf5pP
+	 7N2vHN9bo6QfArtVfxfQSQL/M7veeObctrfQR3xtkQL+1GMUtynJb2LZO1Gkczy5zp
+	 muOlwXGK6Rr/A==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1ua9Ei-00Enn5-El;
+	Fri, 11 Jul 2025 09:36:05 +0100
+Date: Fri, 11 Jul 2025 09:36:04 +0100
+Message-ID: <86h5zj9laj.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Arnd Bergmann <arnd@kernel.org>
+Cc: Oliver Upton <oliver.upton@linux.dev>,
 	Catalin Marinas <catalin.marinas@arm.com>,
 	Will Deacon <will@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Alexander Stein <alexander.stein@ew.tq-group.com>,
-	Mark Brown <broonie@kernel.org>, Fabio Estevam <festevam@gmail.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev
-Subject: Re: [PATCH 1/2] bus: imx-aipstz: allow creating pdevs for child buses
-Message-ID: <aHDMJ2U6H88uN6ow@dragon>
-References: <20250707234628.164151-1-laurentiumihalcea111@gmail.com>
- <20250707234628.164151-2-laurentiumihalcea111@gmail.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250707234628.164151-2-laurentiumihalcea111@gmail.com>
-X-CM-TRANSID: Ms8vCgDXTwYnzHBog9pTAA--.57224S3
-X-Coremail-Antispam: 1Uf129KBjvdXoW7XFWfur4xXF13Gr48GF4xXrb_yoWkurgE9r
-	10qFWkCr1rKwn3K3Zayr13urW093yUZFZ8Jr4vqrZIqa43tr9rJrs09r93ZF1UuFs7ZryU
-	Jwnrtw4Y9r45ujkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7IU8HUDJUUUUU==
-X-Originating-IP: [114.216.146.217]
-X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiBBmHZWhwjvrM-wAAsg
+	Arnd Bergmann <arnd@arndb.de>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Mark Brown <broonie@kernel.org>,
+	James Morse <james.morse@arm.com>,
+	Sebastian Ott <sebott@redhat.com>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] KVM: arm64: fix u64_replace_bits() usage
+In-Reply-To: <20250711072752.2781647-1-arnd@kernel.org>
+References: <20250711072752.2781647-1-arnd@kernel.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: arnd@kernel.org, oliver.upton@linux.dev, catalin.marinas@arm.com, will@kernel.org, arnd@arndb.de, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, broonie@kernel.org, james.morse@arm.com, sebott@redhat.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250711_013310_798114_0250B92D 
-X-CRM114-Status: GOOD (  12.07  )
+X-CRM114-CacheID: sfid-20250711_013610_388993_30DDA5DA 
+X-CRM114-Status: GOOD (  23.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,28 +94,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 07, 2025 at 07:46:27PM -0400, Laurentiu Mihalcea wrote:
-> From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+On Fri, 11 Jul 2025 08:27:47 +0100,
+Arnd Bergmann <arnd@kernel.org> wrote:
 > 
-> devm_of_platform_populate() passes a NULL as the bus OF match table
-> to the underlying of_platform_populate(), meaning child bus devices
-> of the AIPSTZ bridge will not have its children devices created. Since
-> some SoCs (e.g. i.MX8MP) use this particular setup (e.g. SPBA bus, which
-> is a child of AIPSTZ5 and has multiple child nodes), the driver needs to
-> support it.
+> From: Arnd Bergmann <arnd@arndb.de>
 > 
-> Therefore, replace devm_of_platform_populate() with of_platform_populate()
-> and pass a reference to the bus OF match table to it. For now, the only
-> possible child buses are simple buses.
+> u64_replace_bits() returns a modified word but does not actually modify
+> its argument, as pointed out by this new warning:
 > 
-> Since the usage of devres is dropped, the complementary operation of
-> of_platform_populate() needs to be called during the driver's removal.
+> arch/arm64/kvm/sys_regs.c: In function 'access_mdcr':
+> arch/arm64/kvm/sys_regs.c:2654:17: error: ignoring return value of 'u64_replace_bits' declared with attribute 'warn_unused_result' [-Werror=unused-result]
+>  2654 |                 u64_replace_bits(val, hpmn, MDCR_EL2_HPMN);
 > 
-> Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
-> Fixes: 796cba2dd4d9 ("bus: add driver for IMX AIPSTZ bridge")
-> Reported-by: Alexander Stein <alexander.stein@ew.tq-group.com>
-> Closes: https://lore.kernel.org/lkml/5029548.31r3eYUQgx@steina-w/#t
+> The intention here must have been to update 'val', so do that instead.
+> 
+> Fixes: efff9dd2fee7 ("KVM: arm64: Handle out-of-bound write to MDCR_EL2.HPMN")
+> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+> ---
+>  arch/arm64/kvm/sys_regs.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+> index 33aa4f5071b8..793fb19bebd6 100644
+> --- a/arch/arm64/kvm/sys_regs.c
+> +++ b/arch/arm64/kvm/sys_regs.c
+> @@ -2651,7 +2651,7 @@ static bool access_mdcr(struct kvm_vcpu *vcpu,
+>  	 */
+>  	if (hpmn > vcpu->kvm->arch.nr_pmu_counters) {
+>  		hpmn = vcpu->kvm->arch.nr_pmu_counters;
+> -		u64_replace_bits(val, hpmn, MDCR_EL2_HPMN);
+> +		val = u64_replace_bits(val, hpmn, MDCR_EL2_HPMN);
+>  	}
+>  
+>  	__vcpu_assign_sys_reg(vcpu, MDCR_EL2, val);
 
-Applied this one, thanks!
+This is only in -next, right? Because I have a fix for this already
+queued for 6.16, as per [1].
 
+Thanks,
+
+	M.
+
+[1] https://lore.kernel.org/r/20250709093808.920284-2-ben.horgan@arm.com
+
+-- 
+Without deviation from the norm, progress is not possible.
 
