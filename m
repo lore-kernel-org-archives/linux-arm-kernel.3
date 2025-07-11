@@ -4,67 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8ABB6C83F1B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 15:53:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E36A3C83F1B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 15:56:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HC5FV0lhnO8jUrqSZ/Q26h4GS5/5YY/C3gSMSJtZllY=; b=ctMl8+3mSqelICB3CjgU/0CiHh
-	+iVXQhhAuzg8OXi5zbcSNww9mzMKv5LH9W9uBkbUuOTIWCuKhoZShEgVENfwn4NhxhO/cHTTs0huu
-	OmUkXAsvHXzMvmhUtJTD6L8+o//RY2q6WwkfrxOp68ygu/U1M7doEN/Dyb1FBwA5hmxhE4O3e3ms/
-	2EgJ+2PX1/OLfPnkAZwdnsPDeb8sNwQ/xDhQ9Kx76/ZyAjLWrbQ7B0lxQGyqsraAO+xex/C+4sOJ8
-	oaC2p1jw2WXYDFEZ/ipVQgMaebVfWD36L7yBdmXfxI7ofAIAgep/eo+vZ5W2TQxqzwFHlbEwj9UmM
-	WphGa6sQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CduGbGCgZgrIiGpShxYzu7ZwtkhOzQeZqH2gFZ0QHdk=; b=kcwMVa9aFy9lWB7BizIZ2S+HQR
+	mjuKc5XXcG6tpzVs0wwt8WpP2SeNEU9taDg6aSPK99acYIYXRu1FpAOWzZqPJlvO9IVywJb7fp//F
+	bZ2Qb+fSwEKVMNOa4beOy1g5OWJC2kwrjT08LU5NDVqh8V90s7m59TehbhtC/DY/RY0SXSdzPNCsX
+	J+uoTRGt61E2/n71A9s7a7lTcpw72VyyNtvQ6687rguLQQcK0MZYeH4V1o1OJC7usoBits+/DFid8
+	aJVSjQsnyo/BI/rVTzwAJsoWFioEflas83KI7+E/W2l+U3KPCbhAsWNc6Oz67AjeBq+qeJYosnAW/
+	5R9EP/TA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaG4J-0000000FCbD-1gyo;
-	Fri, 11 Jul 2025 15:53:47 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uaG6d-0000000FCwO-2tHp;
+	Fri, 11 Jul 2025 15:56:11 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaFU0-0000000F87l-1T4q
+	id 1uaFrW-0000000FAUH-43qT
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Jul 2025 15:16:17 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0F8C4448B9;
-	Fri, 11 Jul 2025 15:16:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3AD35C4CEED;
-	Fri, 11 Jul 2025 15:16:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752246975;
-	bh=dK4M9uBPxqDrfMVxnPZkLcSIMXrTxzxvvSQ7wb4uqbg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=iXQg5Ts3IrsbbjjSFPKGVDejC9h+eWfW6B6lymOICjdMqvZMystoiJ/5rHxJ5pOzf
-	 JCDmctGd+pQPeIOyd3M4+h4HSegH+98ZM+j2+4e6VUZ2tR0BjGur+IGS6I1IqarUQx
-	 iAdNkzRmA7eTsUERje7NPM7rbN0ZVAFrwG8DIh/E3iyRyOXgIFw/b+C4wQP1t/VfTw
-	 XFqI3KvIgVmNWSAQj66XSXgYdbjbODKMEYMWxhdlCu+WZbNwzuoznPf914oBYMKVT0
-	 JVFoG1SqHnsoTFmqGfP0e8mFAHCi0CC4DECIWnA6na2kYGzzVsmnV5hqKPiu2yWQSC
-	 HCkqRecou2UOA==
-Date: Fri, 11 Jul 2025 16:16:11 +0100
-From: Will Deacon <will@kernel.org>
-To: Stefano Stabellini <stefano.stabellini@amd.com>
-Cc: Robin Murphy <robin.murphy@arm.com>,
-	Michal Simek <michal.simek@amd.com>,
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
-	iommu@lists.linux.dev,
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
-	"Sarangi, Anirudha" <anirudha.sarangi@amd.com>, maz@kernel.org,
-	xueqi.zhang@mediatek.com
-Subject: Re: SMMUv3 interrupt handling via custom logic
-Message-ID: <aHEqu5mGannB0w6D@willie-the-truck>
-References: <0482d84e-871b-4522-b94b-29a97c87ff66@amd.com>
- <43acfcd8-b359-448f-bbb6-da1b71a64f45@arm.com>
- <alpine.DEB.2.22.394.2506271219070.862517@ubuntu-linux-20-04-desktop>
+	Fri, 11 Jul 2025 15:40:36 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.231])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4bdwnG30Qlz6L563;
+	Fri, 11 Jul 2025 23:37:06 +0800 (CST)
+Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
+	by mail.maildlp.com (Postfix) with ESMTPS id D2EA5140279;
+	Fri, 11 Jul 2025 23:40:24 +0800 (CST)
+Received: from localhost (10.203.177.66) by frapeml500008.china.huawei.com
+ (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Fri, 11 Jul
+ 2025 17:40:24 +0200
+Date: Fri, 11 Jul 2025 16:40:22 +0100
+From: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+To: Koichi Okuno <fj2767dz@fujitsu.com>
+CC: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	Jonathan Corbet <corbet@lwn.net>, Catalin Marinas <catalin.marinas@arm.com>,
+	Gowthami Thiagarajan <gthiagarajan@marvell.com>, Linu Cherian
+	<lcherian@marvell.com>, Robin Murphy <robin.murphy@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>, Bjorn Andersson
+	<quic_bjorande@quicinc.com>, Geert Uytterhoeven <geert+renesas@glider.be>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, Konrad Dybcio
+	<konradybcio@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, "Arnd
+ Bergmann" <arnd@arndb.de>, "=?ISO-8859-1?Q?N=EDcolas?= \"F. R. A. Prado\""
+	<nfraprado@collabora.com>, Thomas Gleixner <tglx@linutronix.de>, "Peter
+ Zijlstra" <peterz@infradead.org>, <linux-doc@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v6 1/2] perf: Fujitsu: Add the Uncore MAC PMU driver
+Message-ID: <20250711164022.000059b9@huawei.com>
+In-Reply-To: <20250711071404.2138816-2-fj2767dz@fujitsu.com>
+References: <20250711071404.2138816-1-fj2767dz@fujitsu.com>
+	<20250711071404.2138816-2-fj2767dz@fujitsu.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <alpine.DEB.2.22.394.2506271219070.862517@ubuntu-linux-20-04-desktop>
+Content-Type: text/plain; charset="US-ASCII"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.203.177.66]
+X-ClientProxiedBy: lhrpeml500010.china.huawei.com (7.191.174.240) To
+ frapeml500008.china.huawei.com (7.182.85.71)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250711_081616_435646_0CC09B75 
-X-CRM114-Status: GOOD (  38.93  )
+X-CRM114-CacheID: sfid-20250711_084035_299895_31E8411F 
+X-CRM114-Status: GOOD (  43.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,92 +81,353 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hey Stefano, [+Marc]
+On Fri, 11 Jul 2025 16:13:39 +0900
+Koichi Okuno <fj2767dz@fujitsu.com> wrote:
 
-On Fri, Jun 27, 2025 at 12:20:37PM -0700, Stefano Stabellini wrote:
-> On Fri, 27 Jun 2025, Robin Murphy wrote:
-> > On 2025-06-27 8:19 am, Michal Simek wrote:
-> > > We are using smmu-v3 in our SOC and I would like to ask you for
-> > > recommendation how to handle our interrupt cases.
-> > > 
-> > > here is description which we are using
-> > > 
-> > > smmu: iommu@ec000000 {
-> > >      compatible = "arm,smmu-v3";
-> > >      reg = <...>;
-> > >      #iommu-cells = <1>;
-> > >      interrupt-names = "combined";
-> > >      interrupts = <0 169 4>;
-> > > };
-> > > 
-> > > but it is missing one important detail which just arise that actually there
-> > > is additional HW logic which deals with SMMU interrupts separately.
-> > > There is a secure part (global, cmd, event - gerror, cmdq-sync, eventq in
-> > > DT)
-> > > and non secure part (pri, global, cmd, event - priq, gerror, cmdq-sync,
-> > > eventq in DT).
-> > > Based on my information all these interrupts should be acked once handled to
-> > > be able to get another one.
-> > > The driver itself is able to handle them separately but we didn't create any
-> > > solution to reach custom HW to do it.
-> > > 
-> > > I looked at f935448acf46 ("iommu/arm-smmu-v3: Add workaround for Cavium
-> > > ThunderX2 erratum #126") which introduced combined IRQs but it looks like
-> > > that there is no need for additional ACK of that IRQs.
-> > 
-> > Per the architecture, SMMU interrupts are logically edge-triggered so there is
-> > nothing to clear at the SMMU end (the "interrupt status" is implicit in
-> > whatever condition caused an interrupt to be sent, e.g. the event queue
-> > becoming non-empty, SMMU_GERROR becoming different from SMMU_GERRORN, etc.)
-> > 
-> > If this is an Arm SMMU IP (MMU-600/700/S3) then the physical interrupt outputs
-> > are most definitely rising-edge. If somone's stuck some interrupt combiner in
-> > between those and the main interrupt controller, then yes, that interrupt
-> > combiner really should have its own driver.
-> > 
-> > > The HW logic itself is handling secure and non secure settings for SMMU
-> > > that's why would be the best to avoid directly mapping it in Linux.
-> > > 
-> > > One way to go is to create secondary interrupt controller driver
-> > > a) ioremap one with notice about secure part because we are using SMMU only
-> > > with NS world
-> > > b) firmware based to tunnel accesses via SMCs and allow only access to
-> > > limited amount of registers
-> > > 
-> > > The second way is likely create any hooks in the driver to be able to
-> > > provide additional SOC specific hooks.
-> > 
-> > If this thing is munging *all* the SMMU interrupt outputs as I suspect, then
-> > the big problem with that idea is that "the driver" is at least two separate
-> > drivers (SMMU and PMU), 3 if it has RAS and you ever want to entertain the
-> > idea of kernel-first handling.
+> This adds two new dynamic PMUs to the Perf Events framework to program
+> and control the Uncore MAC PMUs in Fujitsu chips.
 > 
-> Yeah... I tend to favor simple solutions when possible and the secondary
-> interrupt controller driver approach is looking increasingly complex.
+> These drivers were created with reference to drivers/perf/qcom_l3_pmu.c.
+> 
+> These drivers export formatting and event information to sysfs so they can
+> be used by the perf user space tools with the syntaxes:
+> 
+> perf stat -e mac_iod0_mac0_ch0/ea-mac/ ls
+> perf stat -e mac_iod0_mac0_ch0/event=0x80/ ls
+> 
+> FUJITSU-MONAKA PMU Events Specification v1.1 URL:
+> https://github.com/fujitsu/FUJITSU-MONAKA
+> 
+> Signed-off-by: Koichi Okuno <fj2767dz@fujitsu.com>
+Hi
 
-I think that's probably the right way to go, though. Moving the
-configuration to firmware just means you now have two problems instead
-of one.
+We may have discussed on an earlier version and I've forgotten about it
+(in which case sorry!) but why can't this be modular?
 
-It looks like MTK may have done something similar:
+Given the chances are we will want it in standard distributions, a
+bool kconfig seems to ensure bloat that people are not going to want to
+see.
 
-https://lore.kernel.org/r/20250616025628.25454-7-xueqi.zhang@mediatek.com
+A few other minor comments inline.
 
-so if changes are needed to irqchip to handle the limited capabilities
-of the extra logic (as per Marc's comments in the thread above), it
-would be good to make sure that's reusable. What I really _don't_ want
-is a half-baked, custom interrupt handling mechanism in the IOMMU code.
+Thanks,
 
-> In addition to what Robin mentioned, I understand that this email is
-> directed to linux-arm-kernel and the LKML, so the focus is naturally to
-> solve the problem for Linux. However, let me point out that this issue
-> also affects Xen, all hypervisors, and proprietary operating systems.
-> The "big problem" is even bigger :-(  Complexity will multiply very
-> quickly.
+Jonathan
 
-Sounds like you need to feed that back to the geniuses who designed this
-hardware :). If you want your hardware to work well with existing
-software, it's generally best to build it to spec.
+> ---
+>  .../admin-guide/perf/fujitsu_mac_pmu.rst      |  73 +++
+>  Documentation/admin-guide/perf/index.rst      |   1 +
+>  drivers/perf/Kconfig                          |   9 +
+>  drivers/perf/Makefile                         |   1 +
+>  drivers/perf/fujitsu_mac_pmu.c                | 569 ++++++++++++++++++
+>  5 files changed, 653 insertions(+)
+>  create mode 100644 Documentation/admin-guide/perf/fujitsu_mac_pmu.rst
+>  create mode 100644 drivers/perf/fujitsu_mac_pmu.c
+> 
+> diff --git a/Documentation/admin-guide/perf/fujitsu_mac_pmu.rst b/Documentation/admin-guide/perf/fujitsu_mac_pmu.rst
+> new file mode 100644
+> index 000000000000..383f3c1bbde7
+> --- /dev/null
+> +++ b/Documentation/admin-guide/perf/fujitsu_mac_pmu.rst
+> @@ -0,0 +1,73 @@
+> +====================================================
+> +Fujitsu Uncore MAC Performance Monitoring Unit (PMU)
+> +====================================================
+> +
+> +This driver supports the Uncore MAC PMUs found in Fujitsu chips.
+> +Each MAC PMU on these chips is exposed as a uncore perf PMU with device name
+> +mac_iod<iod>_mac<mac>_ch<ch>.
+> +
+> +The driver provides a description of its available events and configuration
+> +options in sysfs, see /sys/bus/event_sources/devices/mac_iod<iod>_mac<mac>_ch<ch>/.
+> +This driver exports:
+> +- formats, used by perf user space and other tools to configure events
+> +- events, used by perf user space and other tools to create events
+> +  symbolically, e.g.:
+> +    perf stat -a -e mac_iod0_mac0_ch0/event=0x21/ ls
+> +- cpumask, used by perf user space and other tools to know on which CPUs
+> +  to open the events
+> +
+> +This driver supports the following events:
+> +- cycles
+> +  This event counts MAC cycles at MAC frequency.
 
-Will
+Trivial but you could shorten all these by rewording to drop the This Event and counts
+as both obvious from context.
+
+  - cycles
+    MAC Cycles at MAC frequency.
+  - read-count
+    Number of read requests to MAC.
+etc
+
+> +- read-count
+> +  This event counts the number of read requests to MAC.
+> +- read-count-request
+> +  This event counts the number of read requests including retry to MAC.
+> +- read-count-return
+> +  This event counts the number of responses to read requests to MAC.
+> +- read-count-request-pftgt
+> +  This event counts the number of read requests including retry with PFTGT
+> +  flag.
+> +- read-count-request-normal
+> +  This event counts the number of read requests including retry without PFTGT
+> +  flag.
+> +- read-count-return-pftgt-hit
+> +  This event counts the number of responses to read requests which hit the
+> +  PFTGT buffer.
+> +- read-count-return-pftgt-miss
+> +  This event counts the number of responses to read requests which miss the
+> +  PFTGT buffer.
+> +- read-wait
+> +  This event counts outstanding read requests issued by DDR memory controller
+> +  per cycle.
+> +- write-count
+> +  This event counts the number of write requests to MAC (including zero write,
+> +  full write, partial write, write cancel).
+> +- write-count-write
+> +  This event counts the number of full write requests to MAC (not including
+> +  zero write).
+> +- write-count-pwrite
+> +  This event counts the number of partial write requests to MAC.
+> +- memory-read-count
+> +  This event counts the number of read requests from MAC to memory.
+> +- memory-write-count
+> +  This event counts the number of full write requests from MAC to memory.
+> +- memory-pwrite-count
+> +  This event counts the number of partial write requests from MAC to memory.
+> +- ea-mac
+> +  This event counts energy consumption of MAC.
+> +- ea-memory
+> +  This event counts energy consumption of memory.
+> +- ea-memory-mac-write
+> +  This event counts the number of write requests from MAC to memory.
+> +- ea-ha
+> +  This event counts energy consumption of HA.
+> +
+> +  'ea' is the abbreviation for 'Energy Analyzer'.
+> +
+> +Examples for use with perf::
+> +
+> +  perf stat -e mac_iod0_mac0_ch0/ea-mac/ ls
+> +
+> +Given that these are uncore PMUs the driver does not support sampling, therefore
+> +"perf record" will not work. Per-task perf sessions are not supported.
+
+> diff --git a/drivers/perf/Kconfig b/drivers/perf/Kconfig
+> index 278c929dc87a..269bf72a512a 100644
+> --- a/drivers/perf/Kconfig
+> +++ b/drivers/perf/Kconfig
+> @@ -178,6 +178,15 @@ config FSL_IMX9_DDR_PMU
+>  	 can give information about memory throughput and other related
+>  	 events.
+>  
+> +config FUJITSU_MAC_PMU
+> +	bool "Fujitsu Uncore MAC PMU"
+
+We may have discussed this in an earlier version but why not
+tristate? + module_init() 
+
+> +	depends on (ARM64 && (ACPI || COMPILE_TEST))
+> +	help
+> +	 Provides support for the Uncore MAC performance monitor unit (PMU)
+> +	 in Fujitsu processors.
+> +	 Adds the Uncore MAC PMU into the perf events subsystem for
+> +	 monitoring Uncore MAC events.
+> +
+>  config QCOM_L2_PMU
+>  	bool "Qualcomm Technologies L2-cache PMU"
+>  	depends on ARCH_QCOM && ARM64 && ACPI
+
+> diff --git a/drivers/perf/fujitsu_mac_pmu.c b/drivers/perf/fujitsu_mac_pmu.c
+> new file mode 100644
+> index 000000000000..3c5e838b9894
+> --- /dev/null
+> +++ b/drivers/perf/fujitsu_mac_pmu.c
+> @@ -0,0 +1,569 @@
+
+> +
+> +#include <linux/acpi.h>
+> +#include <linux/bitops.h>
+> +#include <linux/interrupt.h>
+> +#include <linux/io.h>
+> +#include <linux/list.h>
+> +#include <linux/mod_devicetable.h>
+> +#include <linux/module.h>
+> +#include <linux/perf_event.h>
+> +#include <linux/platform_device.h>
+> +
+> +/* Number of counters on each PMU */
+> +#define MAC_NUM_COUNTERS  8
+> +/* Mask for the event type field within perf_event_attr.config and EVTYPE reg */
+> +#define MAC_EVTYPE_MASK   0xFF
+> +
+> +/* Perfmon registers */
+> +#define MAC_PM_EVCNTR(__cntr) (0x000 + (__cntr) * 8)
+> +#define MAC_PM_CNTCTL(__cntr) (0x100 + (__cntr) * 8)
+> +#define MAC_PM_EVTYPE(__cntr) (0x200 + (__cntr) * 8)
+> +#define MAC_PM_CR         0x400
+> +#define MAC_PM_CNTENSET   0x410
+> +#define MAC_PM_CNTENCLR   0x418
+> +#define MAC_PM_INTENSET   0x420
+> +#define MAC_PM_INTENCLR   0x428
+> +#define MAC_PM_OVSR       0x440
+
+> +
+> +/* MAC_PM_INTENCLR */
+> +#define PMINTENCLR(__cntr)    BIT(__cntr)
+> +#define PM_INTENCLR_RESET     0xFF
+> +
+> +/* MAC_PM_OVSR */
+
+I'd rather see the macros named to make it clear which register
+they apply to sufficiently that the comments aren't needed.
+Also in my view good to put them directly under the register definine.
+
+> +#define PMOVSRCLR(__cntr)     BIT(__cntr)
+Not used.
+> +#define PMOVSRCLR_RESET       0xFF
+
+
+> +/*
+> + * We must NOT create groups containing events from multiple hardware PMUs,
+> + * although mixing different software and hardware PMUs is allowed.
+> + */
+> +static bool fujitsu_mac__validate_event_group(struct perf_event *event)
+> +{
+> +	struct perf_event *leader = event->group_leader;
+> +	struct perf_event *sibling;
+> +	int counters = 0;
+
+Value never used.
+
+> +
+> +	if (leader->pmu != event->pmu && !is_software_event(leader))
+> +		return false;
+> +
+> +	/* The sum of the counters used by the event and its leader event */
+> +	counters = 2;
+> +
+> +	for_each_sibling_event(sibling, leader) {
+> +		if (is_software_event(sibling))
+> +			continue;
+> +		if (sibling->pmu != event->pmu)
+> +			return false;
+> +		counters++;
+> +	}
+> +
+> +	/*
+> +	 * If the group requires more counters than the HW has, it
+> +	 * cannot ever be scheduled.
+> +	 */
+> +	return counters <= MAC_NUM_COUNTERS;
+> +}
+
+> +static int fujitsu_mac_pmu_probe(struct platform_device *pdev)
+> +{
+> +	struct device *dev = &pdev->dev;
+> +	struct acpi_device *acpi_dev;
+> +	struct mac_pmu *macpmu;
+> +	struct resource *memrc;
+> +	char *name;
+> +	int ret;
+> +	u64 uid;
+> +
+> +	acpi_dev = ACPI_COMPANION(dev);
+> +	if (!acpi_dev)
+> +		return -ENODEV;
+> +
+> +	ret = acpi_dev_uid_to_integer(acpi_dev, &uid);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "unable to read ACPI uid\n");
+> +
+> +	macpmu = devm_kzalloc(dev, sizeof(*macpmu), GFP_KERNEL);
+> +	if (!macpmu)
+> +		return -ENOMEM;
+> +
+> +	name = devm_kasprintf(dev, GFP_KERNEL, "mac_iod%llu_mac%llu_ch%llu",
+> +			  (uid >> 8) & 0xF, (uid >> 4) & 0xF, uid & 0xF);
+> +	if (!name)
+> +		return -ENOMEM;
+> +
+> +	macpmu->pmu = (struct pmu) {
+> +		.parent		= dev,
+> +		.task_ctx_nr	= perf_invalid_context,
+> +
+> +		.pmu_enable	= fujitsu_mac__pmu_enable,
+> +		.pmu_disable	= fujitsu_mac__pmu_disable,
+> +		.event_init	= fujitsu_mac__event_init,
+> +		.add		= fujitsu_mac__event_add,
+> +		.del		= fujitsu_mac__event_del,
+> +		.start		= fujitsu_mac__event_start,
+> +		.stop		= fujitsu_mac__event_stop,
+> +		.read		= fujitsu_mac__event_read,
+> +
+> +		.attr_groups	= fujitsu_mac_pmu_attr_grps,
+> +		.capabilities	= PERF_PMU_CAP_NO_EXCLUDE | PERF_PMU_CAP_NO_INTERRUPT,
+> +	};
+> +
+> +	macpmu->regs = devm_platform_get_and_ioremap_resource(pdev, 0, &memrc);
+> +	if (IS_ERR(macpmu->regs))
+> +		return PTR_ERR(macpmu->regs);
+> +
+> +	fujitsu_mac__init(macpmu);
+> +
+> +	ret = platform_get_irq(pdev, 0);
+> +	if (ret < 0)
+> +		return ret;
+> +
+> +	ret = devm_request_irq(dev, ret, fujitsu_mac__handle_irq, 0,
+> +						   name, macpmu);
+
+Unusual indentation.  Normally second line of parametes should just be
+aligned under first set of parameters.  E.g.
+
+	ret = devm_request_irq(dev, ret, fujitsu_mac__handle_irq, 0,
+			       name, macpmu);
+
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "Request for IRQ failed for slice @%pa\n",
+> +							 &memrc->start);
+
+Similar for this second line set of parameters.
+
+> +
+> +	/* Add this instance to the list used by the offline callback */
+> +	ret = cpuhp_state_add_instance(mac_pmu_cpuhp_state, &macpmu->node);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "Error registering hotplug");
+> +
+> +	ret = perf_pmu_register(&macpmu->pmu, name, -1);
+> +	if (ret < 0)
+> +		return dev_err_probe(dev, ret, "Failed to register MAC PMU\n");
+> +
+> +	dev_dbg(dev, "Registered %s, type: %d\n", name, macpmu->pmu.type);
+> +
+> +	return 0;
+> +}
+
+
+> +static int __init register_fujitsu_mac_pmu_driver(void)
+> +{
+> +	int ret;
+> +
+> +	/* Install a hook to update the reader CPU in case it goes offline */
+> +	ret = cpuhp_setup_state_multi(CPUHP_AP_ONLINE_DYN,
+> +				      "perf/fujitsu/mac:online",
+> +				      fujitsu_mac_pmu_online_cpu,
+> +				      fujitsu_mac_pmu_offline_cpu);
+> +	if (ret < 0)
+> +		return ret;
+> +
+> +	mac_pmu_cpuhp_state = ret;
+> +	return platform_driver_register(&fujitsu_mac_pmu_driver);
+> +}
+> +device_initcall(register_fujitsu_mac_pmu_driver);
+
+Perhaps add a comment on why this can be a module? Would need a trivial
+exit plus to use module_init() / module_exit()
+ 
+
+
 
