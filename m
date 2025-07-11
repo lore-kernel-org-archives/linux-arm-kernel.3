@@ -4,110 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9761AC83F1B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 17:19:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F4FBC83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 17:21:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KVqtR2y37+fGKASYTrCFwyYcRTeea2/g0YbtiZzMR3k=; b=VO7exXFngIuRDzv8CfB78z7O4S
-	unRHCKsRNoOCaKgTFjah1Qv1tb9w1EEXNxcnBBaFQoX0zAjGLJKZjSyJM4KxQuMDWl3WSyVIE/TqF
-	ExATUdn3q61jWjqtJTSDDYL6p86yHIuqba6it6WFGAqllgllLs6H/C+jTqcgnbVfJftsu9ha96YOn
-	kPs7xDS9CE3yeC/+572AO6mOBNYl5+3U8enK7911NX9NlRGOCHg+/DA+GI04iXN6grawHJbIEYrbR
-	onthasQJZYKH03KyKDw+sUHj9GonWKryRLhslRYsB3Fwo+rCk+row+rcJVEAFb1HtVdJVJjs31reT
-	dZ/mIJag==;
+	bh=qnbQX61ol/JubNY/hK/jIj+g9ZOMyzdsK4utADcduf8=; b=OQ25WzZ5UIjgogVgL77l8vtU7l
+	afuKgKiB9l9NH3plCU0dAmYHSlTreACEUZe4/R5g9Ta1jSnyMPUh0lhC4dWOk3t4/cqcTk27xgoxz
+	4tflv0D6Sy03mGd/VS1Dp+dc1Lt7+jJlE5F7E9PrbzYPUfH0I+MsyVvFbyWyzlQYZg2e164bP967j
+	vToch1MDfRpF2P1IptrumRWdn1ZZEok+dQxMGtcFsDe2kW09UlvYTKxeD81g2vNXXrsNcCIhkWPZi
+	8biHyciN5geErCxlJXWeooxJFOwxDk2jxiZmA+VveGvfWDNVSWQYoVJQxhXzFZ6yFXiY3FMXC4/Az
+	1KHyMNXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaHOl-0000000FNsP-1HNV;
-	Fri, 11 Jul 2025 17:18:59 +0000
-Received: from mail-yb1-xb35.google.com ([2607:f8b0:4864:20::b35])
+	id 1uaHR4-0000000FO9D-2x25;
+	Fri, 11 Jul 2025 17:21:22 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaGsr-0000000FKQU-1GUY
+	id 1uaGRj-0000000FGG6-0QWg
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Jul 2025 16:46:02 +0000
-Received: by mail-yb1-xb35.google.com with SMTP id 3f1490d57ef6-e740a09eae0so2341538276.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Jul 2025 09:46:01 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tomeuvizoso-net.20230601.gappssmtp.com; s=20230601; t=1752252360; x=1752857160; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=KVqtR2y37+fGKASYTrCFwyYcRTeea2/g0YbtiZzMR3k=;
-        b=BcECeeox9Jh5YwObZThyGJVThzVgbmesPS16A4xQ3t3h93xW01CgsEIcNh8ugBpWH/
-         FPYZ/x6CoYaP+1GtKi6xNttzH0OJ86YzAfNp6lcDiI2lxRtHfYU/Iye5s+lQfcW2fbqo
-         Lkndcp0HGSVoA1FBuG4HWSj1ZEYi8Jd2bMh3iUjg+4wdujnpYLEgKhgetNoDYO2YJAse
-         DlMX0V6rKPSbzj4IGZPoYcggffu82A7gW1j0kSAYJLbJZpeJHh9nZqUpUwF9+9K4REgy
-         SBmy8eVNCSlw0dHCkPoN0ap0ubUxmcxAEykoB/sh6BTLplP6gMbIX8clYWtx50V9XRkz
-         sKfQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752252360; x=1752857160;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=KVqtR2y37+fGKASYTrCFwyYcRTeea2/g0YbtiZzMR3k=;
-        b=e7Fe3YhGNY+4x0F07cnq5o8P5dTbuiKYcsNbUiPHaIrW32R1LGcLG0pllUFM6gu8YR
-         cQ4BuQG1SZJc8XgWnmU05yQBxJXLNw2JuN4A3z47ijngqBEcRreT4Lniv9UQ8MKu8qhf
-         yVSEdEj4CD0R17dUqyLzIwrtaMLjwwy8UaDUACprvBQiTAGv62rctSYlilr0e+CwUoCr
-         V9l2dhW284fz8J4MWYHKG2yBdeuvWmy3XKrM2QraDI3QriAZw91m5Fp/qCTxCnVl3JQ8
-         bBBgTZYBIffhjTgw4ykDvphZzuA2UG+bcUTgHRz5Q0PzTm7GokN4sDkAEM6p6Kch0HNi
-         j4cQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXrSFyvxIJgNvIN7d1NUWTlJeyN4MOubELMzOuTvqRoZ4SRh6BpcOrAQzunE+IaFBCyJ84lrkwIyUThRVs3Otdu@lists.infradead.org
-X-Gm-Message-State: AOJu0YxhpdHz/DrhQc8AwSkEn+1Vd7QEpsphO6wss8JD85ol/IvPlsG0
-	dSAMF2g+fvri3o2ZKNvgZgzR1EXuTAPLUog0At9v0vg8slSK+xmdlSstoOrEn6mjqIdGVlcX4DT
-	UajiveoKbwQ==
-X-Gm-Gg: ASbGnct3lzVAJGiMswZ1uF3HODeR6D+oBCWI8UTkM88rD+9zK+NbzXve/2GdVLU5yDy
-	nI3T1DCbMb/Th72ecC+ijRq41/XHc8CbpCH3e9mKcb/FoxUabg8qrhEeGQgz5xTEi2d8AEH948L
-	sqg3weDFx89FUGWXETJlWkGcPWZSgzLFbaHtsEqiYzUoI4AH2R4oO3r73umP4ypcJLvGE6FENwW
-	GEeO59FDTjvIwADA0dklO3eCdQPO/77iHQMTQoaJhna67BXn2D8mGxfffdeLGMLeXgPW7aZ1LaM
-	YLDWjtOc4ws23uTrhndxMMX/C+ufaG0/GBf6V0qyvwzhEmTJjFESdhPX0jSynCYnaIA9pia3mX3
-	Jox/MFgeLWCCQHLH2ZGIrgnrzA15Fc62jWH2DIc5SXuK0I2hieAMFu+57L2ZrDOBuLpDCgwsgO3
-	2V
-X-Google-Smtp-Source: AGHT+IGtVS9SdGaNkm12NB6sgpUZkmcGlzbATSLa3Xe3qzCmWhoozVo6W1zjM9hTj8Gto2Is1sv7rg==
-X-Received: by 2002:a05:690c:4b92:b0:70e:185b:356d with SMTP id 00721157ae682-717d5d7bb05mr67681657b3.14.1752252360357;
-        Fri, 11 Jul 2025 09:46:00 -0700 (PDT)
-Received: from mail-yb1-f170.google.com (mail-yb1-f170.google.com. [209.85.219.170])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-717c61b4b7dsm8196597b3.58.2025.07.11.09.45.59
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 11 Jul 2025 09:45:59 -0700 (PDT)
-Received: by mail-yb1-f170.google.com with SMTP id 3f1490d57ef6-e740a09eae0so2341503276.1;
-        Fri, 11 Jul 2025 09:45:59 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCXH5R7bZid+t8AL+rv3ag5lstJf69ESeEcic51U0m6CgVxswSXL7vXyef/jPrMnRg3RvthrYuM7a2+8/r9P3S8=@lists.infradead.org, AJvYcCXS9fzB/In5TCGKuS+zZmpyw2lLLE/8kpJdhjNR8e8IJNAqzk1dc9V+y0oyWebGrn5pkpvtvaErcsqSmFBCFlaq@lists.infradead.org
-X-Received: by 2002:a05:690c:fc9:b0:711:406f:7735 with SMTP id
- 00721157ae682-717d5d7b900mr75779167b3.13.1752252358549; Fri, 11 Jul 2025
- 09:45:58 -0700 (PDT)
+	Fri, 11 Jul 2025 16:17:59 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 7D8FF6144A;
+	Fri, 11 Jul 2025 16:17:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4AA6CC4CEF5;
+	Fri, 11 Jul 2025 16:17:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1752250678;
+	bh=LMvMiVr8imwSxfMPioAfx2yF722cKWt6LDwVcW9+tc8=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=irmQpPh0ukhYGhD3/z2Ca8EgS4PotewgF87LD8sxI5OTQ9i7FjNqoGmH0xDEqTQGg
+	 DIzUYkrPh17m+lP1WCMHSt76s7ILKZUv0IgQ6M47f0A2AVrrEbBZJ6A/DmZTKexfT1
+	 RM+Xvt656cmaKYDw+F+erL1lMiMn8X3TTatTk7sO0Mi7oFffUWyoSPkWS6WJYMRETk
+	 qohSOsmIYEMuzfGEiHTp/n56JYCSEoWc3yQyxB9vPNPwqDY13DCLRc56lRmn/pmIpH
+	 JWACO2zveIEBTiuUBLfM/pOdOt52/U9m+paPaXup0u/y77RgwQSO9K1QDWyhCsaJlo
+	 6bt+Aw4Gn4ccg==
+From: Will Deacon <will@kernel.org>
+To: linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org,
+	Will Deacon <will@kernel.org>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Linus Torvalds <torvalds@linux-foundation.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Marc Zyngier <maz@kernel.org>
+Subject: [PATCH 07/10] arm64: mm: Push __TLBI_VADDR() into __tlbi_level()
+Date: Fri, 11 Jul 2025 17:17:29 +0100
+Message-Id: <20250711161732.384-8-will@kernel.org>
+X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20250711161732.384-1-will@kernel.org>
+References: <20250711161732.384-1-will@kernel.org>
 MIME-Version: 1.0
-References: <20250606-6-10-rocket-v7-0-dc16cfe6fe4e@tomeuvizoso.net>
- <20250606-6-10-rocket-v7-4-dc16cfe6fe4e@tomeuvizoso.net> <fcb3ca23-7ebd-4f48-92d2-969b24936b9b@arm.com>
- <CAAObsKBiSX0HcxJJjTNGgE4FD4eAYW5wvY=bROtdkZ1mqf_0VQ@mail.gmail.com> <a1a93c41-4c21-4b7a-a8b8-5d4e83d73931@arm.com>
-In-Reply-To: <a1a93c41-4c21-4b7a-a8b8-5d4e83d73931@arm.com>
-From: Tomeu Vizoso <tomeu@tomeuvizoso.net>
-Date: Fri, 11 Jul 2025 18:45:46 +0200
-X-Gmail-Original-Message-ID: <CAAObsKAgmDANvWop-GRAqE6eFRHeQiVHkF1nSwEqyWWY=mdRfg@mail.gmail.com>
-X-Gm-Features: Ac12FXx7z145GnPjkDCiCeIztHHyJGSgIFJExInPlpkFTI1qLEtbnsvv5usQDuA
-Message-ID: <CAAObsKAgmDANvWop-GRAqE6eFRHeQiVHkF1nSwEqyWWY=mdRfg@mail.gmail.com>
-Subject: Re: [PATCH v7 04/10] accel/rocket: Add job submission IOCTL
-To: Robin Murphy <robin.murphy@arm.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Oded Gabbay <ogabbay@kernel.org>, 
-	Jonathan Corbet <corbet@lwn.net>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Sumit Semwal <sumit.semwal@linaro.org>, =?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
-	Sebastian Reichel <sebastian.reichel@collabora.com>, 
-	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, Kever Yang <kever.yang@rock-chips.com>, 
-	Daniel Stone <daniel@fooishbar.org>, Da Xue <da@libre.computer>, 
-	Jeff Hugo <jeff.hugo@oss.qualcomm.com>, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, 
-	linux-doc@vger.kernel.org, linux-media@vger.kernel.org, 
-	linaro-mm-sig@lists.linaro.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250711_094601_340273_FB0EB00D 
-X-CRM114-Status: GOOD (  23.02  )
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,83 +75,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 11, 2025 at 6:40=E2=80=AFPM Robin Murphy <robin.murphy@arm.com>=
- wrote:
->
-> On 11/07/2025 5:00 pm, Tomeu Vizoso wrote:
-> > On Tue, Jun 24, 2025 at 3:50=E2=80=AFPM Robin Murphy <robin.murphy@arm.=
-com> wrote:
-> >>
-> >> On 2025-06-06 7:28 am, Tomeu Vizoso wrote:
-> >> [...]
-> >>> diff --git a/drivers/accel/rocket/rocket_device.h b/drivers/accel/roc=
-ket/rocket_device.h
-> >>> index 10acfe8534f00a7985d40a93f4b2f7f69d43caee..50e46f0516bd1615b5f82=
-6c5002a6c0ecbf9aed4 100644
-> >>> --- a/drivers/accel/rocket/rocket_device.h
-> >>> +++ b/drivers/accel/rocket/rocket_device.h
-> >>> @@ -13,6 +13,8 @@
-> >>>    struct rocket_device {
-> >>>        struct drm_device ddev;
-> >>>
-> >>> +     struct mutex sched_lock;
-> >>> +
-> >>>        struct mutex iommu_lock;
-> >>
-> >> Just realised I missed this in the last patch, but iommu_lock appears =
-to
-> >> be completely unnecessary now.
-> >>
-> >>>        struct rocket_core *cores;
-> >> [...]
-> >>> +static void rocket_job_hw_submit(struct rocket_core *core, struct ro=
-cket_job *job)
-> >>> +{
-> >>> +     struct rocket_task *task;
-> >>> +     bool task_pp_en =3D 1;
-> >>> +     bool task_count =3D 1;
-> >>> +
-> >>> +     /* GO ! */
-> >>> +
-> >>> +     /* Don't queue the job if a reset is in progress */
-> >>> +     if (atomic_read(&core->reset.pending))
-> >>> +             return;
-> >>> +
-> >>> +     task =3D &job->tasks[job->next_task_idx];
-> >>> +     job->next_task_idx++;
-> >>> +
-> >>> +     rocket_pc_writel(core, BASE_ADDRESS, 0x1);
-> >>> +
-> >>> +     rocket_cna_writel(core, S_POINTER, 0xe + 0x10000000 * core->ind=
-ex);
-> >>> +     rocket_core_writel(core, S_POINTER, 0xe + 0x10000000 * core->in=
-dex);
-> >>
-> >> Those really look like bitfield operations rather than actual arithmet=
-ic
-> >> to me.
-> >>
-> >>> +
-> >>> +     rocket_pc_writel(core, BASE_ADDRESS, task->regcmd);
-> >>
-> >> I don't see how regcmd is created (I guess that's in userspace?), but
-> >> given that it's explicitly u64 all the way through - and especially
-> >> since you claim to support 40-bit DMA addresses - it definitely seems
-> >> suspicious that the upper 32 bits never seem to be consumed anywhere :=
-/
-> >
-> > Yeah, but there's no other register for BASE_ADDRESS address in the TRM=
-.
->
-> That only reaffirms the question then - if this value is only ever
-> written verbatim to a 32-bit register, why is it 64-bit?
+The __TLBI_VADDR() macro takes an ASID and an address and converts them
+into a single argument formatted correctly for a TLB invalidation
+instruction.
 
-Ah, sure, it will be 32-bit in v8.
+Rather than have callers worry about this (especially in the case where
+the ASID is zero), push the macro down into __tlbi_level() via a new
+__tlbi_level_asid() helper.
 
-Thanks,
+Signed-off-by: Will Deacon <will@kernel.org>
+---
+ arch/arm64/include/asm/tlbflush.h | 14 ++++++++++----
+ arch/arm64/kernel/sys_compat.c    |  2 +-
+ arch/arm64/kvm/hyp/nvhe/mm.c      |  2 +-
+ arch/arm64/kvm/hyp/pgtable.c      |  4 ++--
+ 4 files changed, 14 insertions(+), 8 deletions(-)
 
-Tomeu
+diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
+index a8d21e52ef3a..434b9fdb340a 100644
+--- a/arch/arm64/include/asm/tlbflush.h
++++ b/arch/arm64/include/asm/tlbflush.h
+@@ -128,9 +128,10 @@ enum tlbi_op {
+ 	___GEN_TLBI_OP_CASE(op);					\
+ 		break
+ 
+-static __always_inline void __tlbi_level(const enum tlbi_op op, u64 addr, u32 level)
++static __always_inline void __tlbi_level_asid(const enum tlbi_op op, u64 addr,
++					      u32 level, u16 asid)
+ {
+-	u64 arg = addr;
++	u64 arg = __TLBI_VADDR(addr, asid);
+ 
+ 	if (alternative_has_cap_unlikely(ARM64_HAS_ARMv8_4_TTL) && level <= 3) {
+ 		u64 ttl = level | (get_trans_granule() << 2);
+@@ -154,6 +155,11 @@ static __always_inline void __tlbi_level(const enum tlbi_op op, u64 addr, u32 le
+ #undef __GEN_TLBI_OP_ASID_CASE
+ #undef ___GEN_TLBI_OP_CASE
+ 
++static inline void __tlbi_level(const enum tlbi_op op, u64 addr, u32 level)
++{
++	__tlbi_level_asid(op, addr, level, 0);
++}
++
+ /*
+  * This macro creates a properly formatted VA operand for the TLB RANGE. The
+  * value bit assignments are:
+@@ -449,8 +455,7 @@ do {									\
+ 		if (!system_supports_tlb_range() ||			\
+ 		    __flush_pages == 1 ||				\
+ 		    (lpa2 && __flush_start != ALIGN(__flush_start, SZ_64K))) {	\
+-			addr = __TLBI_VADDR(__flush_start, asid);	\
+-			__tlbi_level(op, addr, tlb_level);		\
++			__tlbi_level_asid(op, __flush_start, tlb_level, asid);	\
+ 			__flush_start += stride;			\
+ 			__flush_pages -= stride >> PAGE_SHIFT;		\
+ 			continue;					\
+@@ -580,6 +585,7 @@ static inline void arch_tlbbatch_add_pending(struct arch_tlbflush_unmap_batch *b
+ 	__flush_tlb_range_nosync(mm, start, end, PAGE_SIZE, true, 3);
+ }
+ 
++#undef __TLBI_VADDR
+ #undef __tlbi_user
+ #endif
+ #endif
+diff --git a/arch/arm64/kernel/sys_compat.c b/arch/arm64/kernel/sys_compat.c
+index 4a609e9b65de..ad4857df4830 100644
+--- a/arch/arm64/kernel/sys_compat.c
++++ b/arch/arm64/kernel/sys_compat.c
+@@ -36,7 +36,7 @@ __do_compat_cache_op(unsigned long start, unsigned long end)
+ 			 * The workaround requires an inner-shareable tlbi.
+ 			 * We pick the reserved-ASID to minimise the impact.
+ 			 */
+-			__tlbi(aside1is, __TLBI_VADDR(0, 0));
++			__tlbi(aside1is, 0UL);
+ 			dsb(ish);
+ 		}
+ 
+diff --git a/arch/arm64/kvm/hyp/nvhe/mm.c b/arch/arm64/kvm/hyp/nvhe/mm.c
+index ae8391baebc3..581385b21826 100644
+--- a/arch/arm64/kvm/hyp/nvhe/mm.c
++++ b/arch/arm64/kvm/hyp/nvhe/mm.c
+@@ -270,7 +270,7 @@ static void fixmap_clear_slot(struct hyp_fixmap_slot *slot)
+ 	 * https://lore.kernel.org/kvm/20221017115209.2099-1-will@kernel.org/T/#mf10dfbaf1eaef9274c581b81c53758918c1d0f03
+ 	 */
+ 	dsb(ishst);
+-	__tlbi_level(vale2is, __TLBI_VADDR(addr, 0), level);
++	__tlbi_level(vale2is, addr, level);
+ 	dsb(ish);
+ 	isb();
+ }
+diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
+index c351b4abd5db..540691987e13 100644
+--- a/arch/arm64/kvm/hyp/pgtable.c
++++ b/arch/arm64/kvm/hyp/pgtable.c
+@@ -472,14 +472,14 @@ static int hyp_unmap_walker(const struct kvm_pgtable_visit_ctx *ctx,
+ 
+ 		kvm_clear_pte(ctx->ptep);
+ 		dsb(ishst);
+-		__tlbi_level(vae2is, __TLBI_VADDR(ctx->addr, 0), TLBI_TTL_UNKNOWN);
++		__tlbi_level(vae2is, ctx->addr, TLBI_TTL_UNKNOWN);
+ 	} else {
+ 		if (ctx->end - ctx->addr < granule)
+ 			return -EINVAL;
+ 
+ 		kvm_clear_pte(ctx->ptep);
+ 		dsb(ishst);
+-		__tlbi_level(vale2is, __TLBI_VADDR(ctx->addr, 0), ctx->level);
++		__tlbi_level(vale2is, ctx->addr, ctx->level);
+ 		*unmapped += granule;
+ 	}
+ 
+-- 
+2.50.0.727.gbf7dc18ff4-goog
 
-> Thanks,
-> Robin.
 
