@@ -4,89 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4B3AC83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 05:09:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34D79C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 05:11:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=v5NQY7SJ4LLppWBDJBpdzLvXvWEVdpffYWehFNWdW2o=; b=jJ72yYPmAeGHwpkT7G7EQef8DJ
-	c9zXYaKi9Fb/2iMmdV+tlTZsPO1FbO07G36zyfMx1g3Pd8OO5rcrR0P0CwD57MEUKrUIsfJrkD2lP
-	j45gCVyjPoHrRnIftUtZ60P5w8oXA76CllfZA7bkPNV3AgYpuE5jGl1lkYyYfH/z/6h/pINPyX1cD
-	6KHoxnmTr4XImSg2aRztBaPWjgsDWMOa02fiM4j5ZG09y2X+M82UgSRfOaOH8LwI5bwNZ4Es6xgCT
-	0cqHthMJ2RjSojkQbWXMf+VyvzGmVsitzTsLguhfowJOAAaZ9isjCBQgngZGaqtL3JBTD7m5EwjJu
-	SSiW0jhA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RDjqQI7xGn6ZAkyB8A2JVUVNfkN4kR0P7+fd79Lw4zk=; b=nS3ZcMDHhAV8pK+eHlLbzOD6dd
+	4kkFHqyykj3qUBS+AQ67zh5l7aAp/FaWoghiquF/6d/Ufz2EIxrNLjgucLp2b1Mqnj7RglOcSEiqc
+	QXXWjJXbU5CBqfuHroiIh7yaxJYVfcn8yu8e575WtZ4h720bIGbUqOC3pFaZdb46eAyi1F0dMoRJL
+	I5yBTHR4URF/hNlXgYhpnfP7+RfuIvHzsjmKHKQxUrCvKbS1Jtd+soLpKLDqbRWqqvMNUaH47syQX
+	Y3QH9vQabA/n6TTno4q0WyGZyOKwuGABcJxj/lP/fN+iAoTMcFOA5VZYVHiIOp8KK0qV92W3jXZ+p
+	sBko63qA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ua60M-0000000Dith-07fC;
-	Fri, 11 Jul 2025 05:09:02 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1ua62e-0000000Dj8j-3461;
+	Fri, 11 Jul 2025 05:11:24 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ua5Rp-0000000DfeH-0FrF
+	id 1ua5S1-0000000Dfij-1XRH
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Jul 2025 04:33:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1752208400;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=v5NQY7SJ4LLppWBDJBpdzLvXvWEVdpffYWehFNWdW2o=;
-	b=SVtHU0LRhNeZD31nglhH0kZbKZSPjeHlVnWw1SMf2hY4o7CwU9hki34XsR6ocTQREJ8ugQ
-	I94rj+fKKXycHbnFYojA941bNg6dtPHnboaOHVvvICpnK1e/em8nN9SBoBvlrCnzy24sa2
-	8g8Qhs5CQkOlqF6noS8hj6/SfJg+VlM=
-Received: from mx-prod-mc-04.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-270-ZqAmy-P-Nxe49eipFG5q7Q-1; Fri,
- 11 Jul 2025 00:33:16 -0400
-X-MC-Unique: ZqAmy-P-Nxe49eipFG5q7Q-1
-X-Mimecast-MFC-AGG-ID: ZqAmy-P-Nxe49eipFG5q7Q_1752208394
-Received: from mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.111])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-04.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id A1C4A19560AD;
-	Fri, 11 Jul 2025 04:33:14 +0000 (UTC)
-Received: from asrivats-na.rmtustx.csb (unknown [10.2.16.240])
-	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 9090018046C6;
-	Fri, 11 Jul 2025 04:33:11 +0000 (UTC)
-From: Anusha Srivatsa <asrivats@redhat.com>
-Date: Thu, 10 Jul 2025 23:31:25 -0500
-Subject: [PATCH 14/14] drm/panel/boe-himax8279d: Use refcounted allocation
- in place of devm_kzalloc()
+	Fri, 11 Jul 2025 04:33:34 +0000
+Received: from fllvem-sh03.itg.ti.com ([10.64.41.86])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 56B4XMCW1341376;
+	Thu, 10 Jul 2025 23:33:22 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1752208402;
+	bh=RDjqQI7xGn6ZAkyB8A2JVUVNfkN4kR0P7+fd79Lw4zk=;
+	h=Date:From:To:CC:Subject:References:In-Reply-To;
+	b=RSaWinhFcfF/pN8NNbcj/1+Yo1dbwdpKtCU+wXuEQAW6THaJ/JHa5Rmz3WnH3oNkb
+	 KYDWaNYMXrkYdNzCjkoNcjcv9yWjnHMmRrXoAnLiuFd0oqSbLcvnNMMiONxtAUJOQA
+	 KUSjB1u6+6CUOEGYJmdB3d80Jzmatb54kJb77Yb0=
+Received: from DLEE107.ent.ti.com (dlee107.ent.ti.com [157.170.170.37])
+	by fllvem-sh03.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 56B4XMkr3687438
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Thu, 10 Jul 2025 23:33:22 -0500
+Received: from DLEE100.ent.ti.com (157.170.170.30) by DLEE107.ent.ti.com
+ (157.170.170.37) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Thu, 10
+ Jul 2025 23:33:21 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE100.ent.ti.com
+ (157.170.170.30) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Thu, 10 Jul 2025 23:33:21 -0500
+Received: from localhost (uda0492258.dhcp.ti.com [172.24.227.169])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 56B4XKG12538132;
+	Thu, 10 Jul 2025 23:33:21 -0500
+Date: Fri, 11 Jul 2025 10:03:20 +0530
+From: Siddharth Vadapalli <s-vadapalli@ti.com>
+To: Hrushikesh Salunke <h-salunke@ti.com>
+CC: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
+        <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <s-vadapalli@ti.com>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <danishanwar@ti.com>
+Subject: Re: [PATCH v2] arm64: dts: ti: k3-am69-sk: Add idle-states for
+ remaining SERDES instances
+Message-ID: <fcf7ca92-2963-4545-ac9a-e96787c2548f@ti.com>
+References: <20250708113942.4137917-1-h-salunke@ti.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250710-b4-driver-convert-last-part-july-v1-14-de73ba81b2f5@redhat.com>
-References: <20250710-b4-driver-convert-last-part-july-v1-0-de73ba81b2f5@redhat.com>
-In-Reply-To: <20250710-b4-driver-convert-last-part-july-v1-0-de73ba81b2f5@redhat.com>
-To: Neil Armstrong <neil.armstrong@linaro.org>, 
- Jessica Zhang <jessica.zhang@oss.qualcomm.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Florian Fainelli <florian.fainelli@broadcom.com>, 
- Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
- Sumit Semwal <sumit.semwal@linaro.org>, 
- Casey Connolly <casey.connolly@linaro.org>, 
- Jerry Han <hanxu5@huaqin.corp-partner.google.com>
-Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
- linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
- Anusha Srivatsa <asrivats@redhat.com>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1752208280; l=1431;
- i=asrivats@redhat.com; s=20250122; h=from:subject:message-id;
- bh=pasqR+ymXP+Ee0FMYpSDIKGKmE5tAtwA2XZu07wcBdw=;
- b=u+ndzt2KL06RSFFMDzl6bT+IEYcNTgF84vu96MNw+nOmxxJr1GlYVtAQLfs8CGyXu1Ckjz/WX
- uBxj0txISPOBBDcU5PPuuWd/bJfGl252+cOYgZIY6NOFoelCBDPZ5HA
-X-Developer-Key: i=asrivats@redhat.com; a=ed25519;
- pk=brnIHkBsUZEhyW6Zyn0U92AeIZ1psws/q8VFbIkf1AU=
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.111
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20250708113942.4137917-1-h-salunke@ti.com>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250710_213321_166445_CBDC6214 
-X-CRM114-Status: GOOD (  12.51  )
+X-CRM114-CacheID: sfid-20250710_213333_505002_72E1C84B 
+X-CRM114-Status: GOOD (  14.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,46 +85,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Move to using the new API devm_drm_panel_alloc() to allocate the
-panel. In the call to the new API, avoid using explicit type and use
-__typeof() for more type safety.
+On Tue, Jul 08, 2025 at 05:09:42PM +0530, Hrushikesh Salunke wrote:
+> In AM69 SoC there are 4 instances of the 4 lane SERDES. So in
+> "serdes_ln_ctrl" node there are total 16 entries in "mux-reg-mask"
+> property. But "idle-states" is defined only for the lanes of first two
+> SERDES instances. SERDES lane mapping is left at its reset state of
+> "zero" for all four lanes of SERDES2 and SERDES4. The reset state of
+> "zero" corresponds to the following configuration:
+> 
+> Lanes 0 and 1 of SERDES2 are unused
+> CPSW MAC Ports 1 and 2 mapped to lanes 2 and 3 of SERDES2
+> EDP Lanes 0, 1, 2 and 3 mapped to lanes 0, 1, 2 and 3 of SERDES4
+> 
+> For completeness, define the "idle-states" for the lanes of remaining
+> SERDES instances.
+> 
+> Signed-off-by: Hrushikesh Salunke <h-salunke@ti.com>
+> ---
+> This patch is based on commit
+> 26ffb3d6f02c  Add linux-next specific files for 20250704
+> 
+> Changes since v1
+> As pointed by out by Siddharth, setting lanes of remaining SERDES
+> to "unused" will cause regression on AM69-SK as these lanes are used
+> by CPSW and Display. Updated patch to set the desired values for
+> remaining serdes lanes.
 
-Signed-off-by: Anusha Srivatsa <asrivats@redhat.com>
----
- drivers/gpu/drm/panel/panel-boe-himax8279d.c | 11 +++++------
- 1 file changed, 5 insertions(+), 6 deletions(-)
+Reviewed-by: Siddharth Vadapalli <s-vadapalli@ti.com>
 
-diff --git a/drivers/gpu/drm/panel/panel-boe-himax8279d.c b/drivers/gpu/drm/panel/panel-boe-himax8279d.c
-index df746baae301cf70d9fa940b36aae2712e73b3e3..4a8560b4b899a4da3b307dcb43682303d0543813 100644
---- a/drivers/gpu/drm/panel/panel-boe-himax8279d.c
-+++ b/drivers/gpu/drm/panel/panel-boe-himax8279d.c
-@@ -847,9 +847,6 @@ static int panel_add(struct panel_info *pinfo)
- 						 "failed to get enable gpio\n");
- 	}
- 
--	drm_panel_init(&pinfo->base, dev, &panel_funcs,
--		       DRM_MODE_CONNECTOR_DSI);
--
- 	ret = drm_panel_of_backlight(&pinfo->base);
- 	if (ret)
- 		return ret;
-@@ -865,9 +862,11 @@ static int panel_probe(struct mipi_dsi_device *dsi)
- 	const struct panel_desc *desc;
- 	int err;
- 
--	pinfo = devm_kzalloc(&dsi->dev, sizeof(*pinfo), GFP_KERNEL);
--	if (!pinfo)
--		return -ENOMEM;
-+	pinfo = devm_drm_panel_alloc(&dsi->dev, __typeof(*pinfo), base,
-+				     &panel_funcs, DRM_MODE_CONNECTOR_DSI);
-+
-+	if (IS_ERR(pinfo))
-+		return PTR_ERR(pinfo);
- 
- 	desc = of_device_get_match_data(&dsi->dev);
- 	dsi->mode_flags = desc->mode_flags;
-
--- 
-2.48.1
-
+Regards,
+Siddharth.
 
