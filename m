@@ -4,84 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4A05C8303C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 05:13:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 017B5C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 05:16:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9izDSDydIUGaRPwUsjxklYAtHYhhvUYwvryRWYNjnJs=; b=OsvLAsiJdo4wfVCVcCtxXXtEma
-	acHUj86EPJq8gST+00Xs9SP1t3K7ARYj9gMdQjIkYAsuXmlwl2TXV+biQhdz3189IvRV5koQHfGgM
-	Zur0FdkdLjHbF5iMv9szZpughc4glXqeD9oIrnAqrpXKh+TNsWmXQ7JsrzeOz9EWIAq+xtzSNeTEx
-	op9GeVria2bvIj4EmZyYNBSlPQhbP1j+wnGfMeBQGpGjUZYQBkdhG7TiFEtGEV/xZvrOT+WVoAhOd
-	/1kQ7IOpibniws3HuQ/DAoic2zdh++Lw1wvRxh/4zfGCzUxbZjIDc9HHGEISvhb0WIEwueQTPEvrx
-	diI+Is4Q==;
+	bh=If/5UB61e2uhkmoPY7NnwrYxADXd+FZxWUm6GwDZ55M=; b=iwYZwhoG9paXOyJmvzUGGWUc9m
+	V1Jfj2wjHn5g9zT3R4Q2Q5jAVrrGaE0m5857Chk70q35L+PF+75va1d2mcF7oSiyheVoe2romG+lp
+	qwPx8vKgb3VXDs2La8aZkqqyJMh0NYHZX0KycslyRqoIuMiT56GTiVSJyxOSFazbrV3Hw/9TopSQW
+	JYXpRXJcbJDbeQAvKmWcSadrWqqo9anMmDw7tq5GCwS2Et2Du5gQWUJafYbpHZ58MUL0yjUVem8GE
+	t8Ze2eYM6Ph3V/v4VEiOaSoW+ia9QkKb0MLl6vcFIdJRm3L6MvY0gOYoKFSudoXP929GVMJpXtBaN
+	MRze0+6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ua64x-0000000DjSb-2Xqz;
-	Fri, 11 Jul 2025 05:13:47 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1ua67H-0000000Djg0-2XQK;
+	Fri, 11 Jul 2025 05:16:11 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ua5ZP-0000000DgeL-3tii
+	id 1ua5au-0000000DglC-1xmQ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Jul 2025 04:41:13 +0000
+	Fri, 11 Jul 2025 04:42:45 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1752208870;
+	s=mimecast20190719; t=1752208963;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=9izDSDydIUGaRPwUsjxklYAtHYhhvUYwvryRWYNjnJs=;
-	b=ggpYHaztQeLAYHgGLOiPyM/IEmsUdSX/Ny+56FBQSEcWwPRaeFGkm/RV7MR6u8LDAYpNxb
-	N5tt9VCPBa6wkSi3Uvh+PIXx2+dtmeieKTJIm2XAvHwTSLiZdg/r6C7P/PYTjIO7q3aTT6
-	MWwApyNrKUdStuhUDGILMbR1t7cG+/Y=
-Received: from mail-pg1-f199.google.com (mail-pg1-f199.google.com
- [209.85.215.199]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=If/5UB61e2uhkmoPY7NnwrYxADXd+FZxWUm6GwDZ55M=;
+	b=NQ9gCbcLvnc5uWA48xTC9rrD8+ynuC2CRoszLi5L8UkBtZOiK5VaDonX60DvevqCxMsIF8
+	Wn7SQub1rusl/flxePJst9DYFZHFOeynUrJEIPP4mLX2uBEiBXEM116qEOvc2F/FL+LJNX
+	4UciHXG/SmWENz53uawFIIfKtJiLUbw=
+Received: from mail-pj1-f69.google.com (mail-pj1-f69.google.com
+ [209.85.216.69]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-250-FehrCldSNO-tQVlMC0UNug-1; Fri, 11 Jul 2025 00:41:09 -0400
-X-MC-Unique: FehrCldSNO-tQVlMC0UNug-1
-X-Mimecast-MFC-AGG-ID: FehrCldSNO-tQVlMC0UNug_1752208868
-Received: by mail-pg1-f199.google.com with SMTP id 41be03b00d2f7-b3642ab4429so1331301a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Jul 2025 21:41:09 -0700 (PDT)
+ us-mta-401-8gymTNxMOC6Isxwpbd5Wag-1; Fri, 11 Jul 2025 00:42:42 -0400
+X-MC-Unique: 8gymTNxMOC6Isxwpbd5Wag-1
+X-Mimecast-MFC-AGG-ID: 8gymTNxMOC6Isxwpbd5Wag_1752208961
+Received: by mail-pj1-f69.google.com with SMTP id 98e67ed59e1d1-3132e7266d3so1774638a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Jul 2025 21:42:42 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752208868; x=1752813668;
+        d=1e100.net; s=20230601; t=1752208961; x=1752813761;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=9izDSDydIUGaRPwUsjxklYAtHYhhvUYwvryRWYNjnJs=;
-        b=poYlgL+o/7znkJUYGUBV0bUF9sktMyy2hMcSRQN1mmyGse0L57ALzoaiEBy1HsCBte
-         PLQ3r+XI5n1PjK9KQzUbJe+fkhMwlwLR6lo72XN3KptEACl12+S6O08H3FNboVZTx1ka
-         HpmYpyR5krnDDdooaAbnKMmKaSvqnF8iKj4kqoKA8F8wt4rvCPg32jhx76BH3m6mEOO/
-         erC0Zy5+I3jaqOqjqmgeCQyOwfhXv+2BLDP9e3NHYtHXdfRywTtgdpAwbFTrgnSxvAK2
-         4pdns2uUSS/K8JyMBXVRMooTr9Q7Z/oQazH5pKAt75n4qW3xfH6iFfNgMc4g5fS8hhJJ
-         6Zdg==
-X-Forwarded-Encrypted: i=1; AJvYcCU8u0gwuq/7UfT/fVW5LbPXyTpByKEjVjYUfyfanXeDyPdP8tqNN0tuipy/ywhH7CwgBNRUh+kP8mBchgFh2so/@lists.infradead.org
-X-Gm-Message-State: AOJu0YyXxiDq/hGx3SNd83IbW3br+M3utM3zTmDOjM6hpRopzcibjMIC
-	3PkB/6B+AYoA0qZXxDVgNA1kvKaWv5F/kX2mu54Poai1wTLR0meCprEj1gkEU+uTVjwIf4f9LlS
-	yz3dOx243hiJQYbgwT2YpM4aDymjfmzw5934n73UKfj1zP399P2OOTOXqp3Y2dzqgv5upEaiWFr
-	Cz
-X-Gm-Gg: ASbGncvAnAUOqEpp7Z60Dkgsa9urlSja874TJd/G8lHsQJCYSxuHzO2lwJomfjhz63s
-	k9/4pIl8O0xT4zYT0UGH0gfwdGVW2Z4iZtOE1YG0sOa8ehYT/Uju1CQeXL2FuiI8QUDjYqsJ5SK
-	X7iHx+gPa6o4ag8zYoaUP/hd1qViMTMmVErS7Ys8zCKdNEK3Xq+YofmP9+v2i1V8/ra9KHVJPrA
-	f2725/9sajFjRslPeTPr6u9CSFphvInNVx2aP8s/iOHZ26fKRoVfmnXpC4waKrClZ5M06uhC3ri
-	Ga8+rMW+y6BvmVJmr4uMngqwuGI/NMQblyK9xmZmfGde8x+eifN6hz/UVs3BhMqOHiQXLnHB6FV
-	Qq+E=
-X-Received: by 2002:a05:6a20:728c:b0:230:fd1b:349d with SMTP id adf61e73a8af0-2312030f0admr2706286637.20.1752208868340;
-        Thu, 10 Jul 2025 21:41:08 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGMcdYm35nToxnJP8Gajj/OPdLKsWwG1PNdKCTG1ie9e/dq0pxdheySQPgc7+73HN9/wlq8Bg==
-X-Received: by 2002:a05:6a20:728c:b0:230:fd1b:349d with SMTP id adf61e73a8af0-2312030f0admr2706255637.20.1752208867967;
-        Thu, 10 Jul 2025 21:41:07 -0700 (PDT)
+        bh=If/5UB61e2uhkmoPY7NnwrYxADXd+FZxWUm6GwDZ55M=;
+        b=QVBcPjEtXnvM+aAeu0fPpuzidZUK8lFpDGcnklcaMNEP+0jOqQx1EA45GCfFS9dR81
+         GOPS11rEWtUc/8pUN3WYtBSQntdD3JhJHHprvcHjp2mtfcu2nYpkWUsv75Z6KiICyV4J
+         uggyJeubPX0r/Z+VtscnU6P1I3dYQZKtYzCj2m2LvexnvwDKl6fcmchg5cjkUKG+iDFh
+         qyzIqg45RCWGAJhMzPpUFaiUl/sxM4IFSAKAEE6zYl7uKvEGJBlg7/yywx5banGHorz/
+         dKi65uIYEoAtEUw/qjatLm+QDdQIQ6GFKrryCekebHz6wZGdtWGo7+gqICW3S5ZhX37p
+         UbQg==
+X-Forwarded-Encrypted: i=1; AJvYcCV0LHscB1Ipwsz76qaZ03iTIEFP0cs7ZR0x91VmHKFwa6HuAdNqJ3CWOVwNWHwb2SOQAIwn9TFXSGlVxsbe/rSI@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx9sk/oApzJvG4oPnEQOUQc7ArH4aflrYZeA9ElEwkQaK1VL6aZ
+	xa8wfBfI1iO2u3qRx6sm6ZAnOe4834y2plbUCVwfA21Yt17w0R0XK11u5kX9No6RChR9zvN81Pm
+	y8pYZUyh1k216T4YQeaBqOV/NTbxPRM05RemRdoMoTmTwIY9fq8PN2stbN+VcbHtlLyk96JQakF
+	br
+X-Gm-Gg: ASbGncsoOLs/kyIUIL03/KQMIYRw//U6uYzW08s7J5EYJM0NA4ACzCI58ULVMxutsVB
+	YM/rQz+uZJiWzYfj5RyDqpXrdYxKNQMZV0BIbJN4NC2M8pxbbyxK1G69OOLS3hQwUlIPq14ztE2
+	tO5MexzicINXWp5RMZvY8ZK5pNx3kzmR1uZLJTVDq/k45njDZFHQYwvoPRk81fD+/52qtN23DHN
+	20ksxta8UcSKKj0rgsQXz1xQdBbi+Q4svj2qLcrVQqz1hoQ3MXtfPitXZromm35lmzb6l1RLqse
+	d4oML2jgSGx8WXUFOB8INFmjS9IS/qggSNz8j5xyvWLXL6yPWZubQVq9QzZr+IiwxFLUq6MbjHS
+	FmKM=
+X-Received: by 2002:a17:902:cf0e:b0:234:c549:d9f1 with SMTP id d9443c01a7336-23dee3a6040mr25269725ad.47.1752208961086;
+        Thu, 10 Jul 2025 21:42:41 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IEceQJQw9Quj4aBv3qS+MmneGwIAixnuZknrzMzoYVfnNj+UGg775KAKT4tNEkyT8JSIPKn3w==
+X-Received: by 2002:a17:902:cf0e:b0:234:c549:d9f1 with SMTP id d9443c01a7336-23dee3a6040mr25269255ad.47.1752208960547;
+        Thu, 10 Jul 2025 21:42:40 -0700 (PDT)
 Received: from [192.168.68.51] (n175-34-62-5.mrk21.qld.optusnet.com.au. [175.34.62.5])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b3bbe52edd5sm4007254a12.3.2025.07.10.21.41.03
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23de42b01dbsm36977215ad.85.2025.07.10.21.42.36
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 10 Jul 2025 21:41:07 -0700 (PDT)
-Message-ID: <2b245785-7cad-4b27-81a6-7e87160049ab@redhat.com>
-Date: Fri, 11 Jul 2025 14:41:01 +1000
+        Thu, 10 Jul 2025 21:42:40 -0700 (PDT)
+Message-ID: <5147e48d-2376-4b0c-adff-b8663e56f152@redhat.com>
+Date: Fri, 11 Jul 2025 14:42:34 +1000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/3] cacheinfo: Set cache 'id' based on DT data
+Subject: Re: [PATCH v2 2/3] cacheinfo: Add arch hook to compress CPU h/w id
+ into 32 bits for cache-id
 To: James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org
 Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
@@ -90,18 +91,18 @@ Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
  Jonathan Cameron <jonathan.cameron@huawei.com>,
  Catalin Marinas <catalin.marinas@arm.com>, WillDeaconwill@kernel.org
 References: <20250704173826.13025-1-james.morse@arm.com>
- <20250704173826.13025-2-james.morse@arm.com>
+ <20250704173826.13025-3-james.morse@arm.com>
 From: Gavin Shan <gshan@redhat.com>
-In-Reply-To: <20250704173826.13025-2-james.morse@arm.com>
+In-Reply-To: <20250704173826.13025-3-james.morse@arm.com>
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: vigBbCQrscSLyWtVk7Uy8p5rEwqF0beGmM_Zl_GhW4A_1752208868
+X-Mimecast-MFC-PROC-ID: g0zNXQwvu0SL0NPNqhKTin0veY4QmnYYrAhWtS_mimM_1752208961
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250710_214112_219277_B537DF33 
-X-CRM114-Status: GOOD (  22.86  )
+X-CRM114-CacheID: sfid-20250710_214244_585385_3B3D91B6 
+X-CRM114-Status: GOOD (  17.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,48 +118,28 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 7/5/25 3:38 AM, James Morse wrote:
-> From: Rob Herring <robh@kernel.org>
+> Filesystems like resctrl use the cache-id exposed via sysfs to identify
+> groups of CPUs. The value is also used for PCIe cache steering tags. On
+> DT platforms cache-id is not something that is described in the
+> device-tree, but instead generated from the smallest CPU h/w id of the
+> CPUs associated with that cache.
 > 
-> Use the minimum CPU h/w id of the CPUs associated with the cache for the
-> cache 'id'. This will provide a stable id value for a given system. As
-> we need to check all possible CPUs, we can't use the shared_cpu_map
-> which is just online CPUs. As there's not a cache to CPUs mapping in DT,
-> we have to walk all CPU nodes and then walk cache levels.
+> CPU h/w ids may be larger than 32 bits.
 > 
-> The cache_id exposed to user-space has historically been 32 bits, and
-> is too late to change. This value is parsed into a u32 by user-space
-> libraries such as libvirt:
-> https://github.com/libvirt/libvirt/blob/master/src/util/virresctrl.c#L1588
+> Add a hook to allow architectures to compress the value from the devicetree
+> into 32 bits. Returning the same value is always safe as cache_of_set_id()
+> will stop if a value larger than 32 bits is seen.
 > 
-> Give up on assigning cache-id's if a CPU h/w id greater than 32 bits
-> is found.
+> For example, on arm64 the value is the MPIDR affinity register, which only
+> has 32 bits of affinity data, but spread accross the 64 bit field. An
+> arch-specific bit swizzle gives a 32 bit value.
 > 
-> Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-> Cc: "Rafael J. Wysocki" <rafael@kernel.org>
-> Signed-off-by: Rob Herring <robh@kernel.org>
-> [ ben: converted to use the __free cleanup idiom ]
-> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
-> [ morse: Add checks to give up if a value larger than 32 bits is seen. ]
 > Signed-off-by: James Morse <james.morse@arm.com>
+> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
 > ---
-> Use as a 32bit value has also been seen in DPDK patches here:
-> http://inbox.dpdk.org/dev/20241021015246.304431-2-wathsala.vithanage@arm.com/
+>   drivers/base/cacheinfo.c | 5 +++++
+>   1 file changed, 5 insertions(+)
 > 
-> Changes since v1:
->   * Remove the second loop in favour of a helper.
->   
-> An open question from v1 is whether it would be preferable to use an
-> index into the DT of the CPU nodes instead of the hardware id. This would
-> save an arch specific swizzle - but the numbers would change if the DT
-> were changed. This scheme isn't sensitive to the order of DT nodes.
-> 
-> ---
->   drivers/base/cacheinfo.c | 38 ++++++++++++++++++++++++++++++++++++++
->   1 file changed, 38 insertions(+)
-> 
-
-With Ben Horgan's concern addressed, LGTM:
-
 Reviewed-by: Gavin Shan <gshan@redha.com>
 
 
