@@ -4,94 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B1CEC83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 15:29:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A962C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 15:31:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m0lq1OIgFanrAlOkaMFS5bhIY9bDen0M4DlSw6NBW5c=; b=QOh9VuUaHy2RWN31Sz+00s1n93
-	6ct/J1+GRyHWaPeKMvjila/W5eOob7+Q/7pzqyDrODZVd2lq4fWBc3N+HBz6ZLrg1y+am1xB9ReXu
-	BEJuM2rdCRq1uySl1/IUMI2c2OFLIAKnTRKeizvO283MfQOw9Hfxsqp3D2nyrXgE7LwhJGVRzmrQF
-	dchLuPv9/9SgqQy2YI+OA1t6aGwIIxBNj43CeMC/+HptMkYFSlDnEeYn5Nw2aXt7D0aJFh3J07dWa
-	6eeffsWHKOTWYuWx9pCtBR5yKTbh2VS9oKrSB8B2qhoMPRtEfWVPm40tr7RbaimIkI5ffRCcCiXN5
-	vSIWcOoQ==;
+	bh=W7lja2ibWXfiVo4eDJLx4tgeIggbs4JL9GjrFt29DoI=; b=TzDgRx12d0wunGQXuR3TCilp9t
+	RJcSgDQz8CwHfURrgsFPLZUNGYMbcLFLJ2kHdVKhU3q5IqjsyB+OQHnmO5I7X1ixH06XHMFASj/Vz
+	OOP5FlL4fGnfW2i6uhZueMPBh9pUYw1KqXeOPpp0fsAW7rfAiOWXS9vKIZJrIqeX+t7KIosO+96WW
+	O6yOZW16fV5imzGCaWOaZLu3/KSdzXrR6099FI8Ub3l+0u6NG5THZbUswQpZareEQ+gd91/NX2O8E
+	LWpJcgIggYhHaCjTspjW7rIDGeQsBzzp/wNpKgf89peFD2hjVtURQ5ZQl9yzT9Eojf2aONCAcTmMu
+	Z1j0BkcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaFga-0000000F9T6-3kDd;
-	Fri, 11 Jul 2025 15:29:16 +0000
-Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
+	id 1uaFij-0000000F9pU-1RsK;
+	Fri, 11 Jul 2025 15:31:29 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaEO0-0000000EzCk-2FAd
+	id 1uaF7B-0000000F4Qw-3yAB
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Jul 2025 14:06:01 +0000
-Received: by mail-ed1-x52c.google.com with SMTP id 4fb4d7f45d1cf-60c4521ae2cso3938313a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Jul 2025 07:06:00 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1752242759; x=1752847559; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=m0lq1OIgFanrAlOkaMFS5bhIY9bDen0M4DlSw6NBW5c=;
-        b=dksySGkc25+uxEQBAMMNmSOpcUFDLb1rXsACRMPsJWQOlK2nkXvK2EZLWeeoNcIoPH
-         zN51A58zNxZ2kk/SqJGlk1ANKRe1AQqcQ/SO2kk6YGgFg4IUPL4ZKjt+AwK1BLfsFncf
-         aujk1A7q+rb3B8bZ+KMNwXBV2L4o3SC37Ug8+aN2x1mD8abn0FQkv3FK/Bfc1dX9V0wy
-         xeaYujkalgwUJcWf4AUVLBxv+3mvLq0+X0vJC0v5krtno/bq0ZbqroNz5fFxfYsnzL/y
-         JFTn6QgXsige0ivea8SkvnKd9DjUoYgltpn+b2dP7Gdqpo93iL2S2CHwDLg+Xc6Oow+a
-         GDmw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752242759; x=1752847559;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=m0lq1OIgFanrAlOkaMFS5bhIY9bDen0M4DlSw6NBW5c=;
-        b=hhaELuEPaJEuJgnO+Lmdr4b8tHPoj1pQcdI6XLKaQqX8p21PTezygg0juvTxmufnAn
-         qcA33kpJNaQLSxG6NNL0YDfm6oXswADstkCz+RXu4V+w26DqIfZhXnCJMwVRa4IibmcS
-         FdZGNTKvGIExiy2c+WsGjDcppE+Zpjty5Ij/9GKW1RCWCf3mpynAQhxRW8p3hXKvrWNt
-         7lytKpFXBqkaTy1yMiemRNk4ylmGI0DBIJlryVZUQzYjQGFUQ95bRtLC6fw4TjVFDbiQ
-         pXq6rgzqgDrqlVXFdQr1HVkFQ+hLSolCWp9R3xSm0XDL3O7fULvxDAhmLxw0zyaBPgso
-         hB7A==
-X-Forwarded-Encrypted: i=1; AJvYcCXnf9r9X2QRi6/n5hJzbYiZpD/hopI38tu7DPe5XfXcJZ6xwvL+i9pl1VsGoJAeA3scZdxoULWclemWoNSlDzsY@lists.infradead.org
-X-Gm-Message-State: AOJu0YyUxs+YFkP6G0hNRtwY9npxFdWLEPtkUPId3eRz6XDwZa0yssGr
-	68XRPW58QEuEfbQlWsyn0WPZmLODFbX9tMPAxpKkgr6JwmJ2enexbnZ/
-X-Gm-Gg: ASbGncs4hi9GNACckBIOHAok8wT/9wQ50dgNfVOtyizHQP/HZcLO0sZYBcmKqfdbwiH
-	uRfBGx2Mzw+7MyiTyQRjGcSGyZIJoJiua3fsp7gtQeCCJleDm+2ruQbYgcQwxb8n9+vgtveIUhT
-	cvw49RxD7BmMI/q+SHA6TYyaNzS8B47v58xLg5Dj36hEPcsRecW6M9kxTYSO5zei2Qkwhfc0B/X
-	1S34adF3SmujWLY4zX5w8jH1oKQWHD1KEtreaYaSDeTuqwMzUYQ+jCeOpwmEWYd7J5kxrlDUDi9
-	wnVCzPEVY0ux87liYuE0pMG8Pc67akimXles+AWWxq29nxQnW5788TkdqstCKj5tMn7Jx+1ErvO
-	msEvK8nnw9mZWrpn5PjA31NFdfIcdQjzHPMYZweKI2A8N1miZV3JxVRKJSg1ROeQpEMwe1fvZCC
-	qwsEOfdQ==
-X-Google-Smtp-Source: AGHT+IGxH5BTjf1Kt9lT03bzBZo+3sP09q8Dt1kE1+MNl0aAO+bPTpPIcyv9jsN5s3ahzst+vypxhw==
-X-Received: by 2002:a17:907:f815:b0:ae3:6a82:e6a2 with SMTP id a640c23a62f3a-ae6fbfa9d7emr367690966b.29.1752242758297;
-        Fri, 11 Jul 2025 07:05:58 -0700 (PDT)
-Received: from Lord-Beerus.station (net-93-70-53-177.cust.vodafonedsl.it. [93.70.53.177])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ae6e8294bd9sm303435166b.132.2025.07.11.07.05.57
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 11 Jul 2025 07:05:57 -0700 (PDT)
-From: Stefano Radaelli <stefano.radaelli21@gmail.com>
-To: devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: Stefano Radaelli <stefano.radaelli21@gmail.com>,
-	Nishanth Menon <nm@ti.com>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Tero Kristo <kristo@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v4 2/3] arm64: dts: ti: Add support for Variscite VAR-SOM-AM62P
-Date: Fri, 11 Jul 2025 16:04:57 +0200
-Message-ID: <20250711140507.17574-3-stefano.radaelli21@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250711140507.17574-1-stefano.radaelli21@gmail.com>
-References: <20250711140507.17574-1-stefano.radaelli21@gmail.com>
+	Fri, 11 Jul 2025 14:52:43 +0000
+Received: from pps.filterd (m0046661.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56BEmNdp005606;
+	Fri, 11 Jul 2025 16:52:34 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	W7lja2ibWXfiVo4eDJLx4tgeIggbs4JL9GjrFt29DoI=; b=1ZURePmnZeaZ54yK
+	7qmrdu8IHz9Trtrfydl84qU/yad8TzwZo8Yu1i6zmBEN/lqgDxzUqdhHktrF2TOq
+	g4IJ/U23sLhX829JkG/Fr01o2lG7OTSDCwXZSEkHzZSHijt0ajgjyyrA9ScArOss
+	rpMRpWAKiTFhCh+xCIIV8E2nU8eLlMLVFw/VgOSnlQkxozgC1OTRCqR5UnlP7apb
+	UgqYdmnwViGtsXNaHehCVbXxwIoPRbUmD9wZkalzde+fuVWLEZZj43Z9WjSwu5Z5
+	4R44KDUC+kVd/Tkf2Nd8awLDK11jnA2Re/cXYB2C88sv8HWkuS+290MPCE6pQ1a3
+	wMwbDA==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 47ptxjpx0d-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 11 Jul 2025 16:52:34 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id D01C940050;
+	Fri, 11 Jul 2025 16:51:18 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 7C16BB55584;
+	Fri, 11 Jul 2025 16:49:21 +0200 (CEST)
+Received: from localhost (10.252.16.187) by SHFDAG1NODE2.st.com (10.75.129.70)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Fri, 11 Jul
+ 2025 16:49:21 +0200
+From: =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>
+Date: Fri, 11 Jul 2025 16:49:02 +0200
+Subject: [PATCH v2 10/16] Documentation: perf: stm32: add ddrperfm support
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+Message-ID: <20250711-ddrperfm-upstream-v2-10-cdece720348f@foss.st.com>
+References: <20250711-ddrperfm-upstream-v2-0-cdece720348f@foss.st.com>
+In-Reply-To: <20250711-ddrperfm-upstream-v2-0-cdece720348f@foss.st.com>
+To: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+        Rob
+ Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor
+ Dooley <conor+dt@kernel.org>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Philipp Zabel
+	<p.zabel@pengutronix.de>,
+        Jonathan Corbet <corbet@lwn.net>,
+        Gatien Chevallier
+	<gatien.chevallier@foss.st.com>,
+        Michael Turquette <mturquette@baylibre.com>,
+        Stephen Boyd <sboyd@kernel.org>,
+        Gabriel Fernandez
+	<gabriel.fernandez@foss.st.com>,
+        Krzysztof Kozlowski <krzk@kernel.org>,
+        Le
+ Goffic <legoffic.clement@gmail.com>
+CC: <linux-arm-kernel@lists.infradead.org>, <linux-perf-users@vger.kernel.org>,
+        <devicetree@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-kernel@vger.kernel.org>, <linux-doc@vger.kernel.org>,
+        <linux-clk@vger.kernel.org>,
+        =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>
+X-Mailer: b4 0.15-dev-7616d
+X-Originating-IP: [10.252.16.187]
+X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE2.st.com
+ (10.75.129.70)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.7,FMLib:17.12.80.40
+ definitions=2025-07-11_03,2025-07-09_01,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250711_070600_575749_F0FC8151 
-X-CRM114-Status: GOOD (  17.59  )
+X-CRM114-CacheID: sfid-20250711_075242_266337_F191C113 
+X-CRM114-Status: GOOD (  16.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,454 +113,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add device tree support for the Variscite VAR-SOM-AM62P system on module.
-This SOM is designed to be used with various carrier boards.
+The DDRPERFM is the DDR Performance Monitor embedded in STM32MPU SoC.
 
-The module includes:
-- AM62P Sitara MPU processor
-- Up to 8GB of DDR4-3733 memory
-- eMMC storage memory
-- PS6522430 chip as a Power Management Integrated circuit (PMIC)
-- Integrated 10/100/1000 Mbps Ethernet Transceiver Analog Devices ADIN1300
-- Resistive touch panel interface controller TI TSC2046
-- I2C interfaces
+This documentation introduces the DDRPERFM, the stm32-ddr-pmu driver
+supporting it and how to use it with the perf tool.
 
-Only SOM-specific peripherals are enabled by default. Carrier board
-specific interfaces are left disabled to be enabled in the respective
-carrier board device trees.
-
-Link: https://www.variscite.it/product/system-on-module-som/cortex-a53-krait/var-som-am62p-ti-sitara-am62px/
-
-Signed-off-by: Stefano Radaelli <stefano.radaelli21@gmail.com>
+Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
 ---
-v4:
- - Moved every MCUs-related node into the SOM dtsi
- - Removed unused audio node
-v3:
- - Change compatible string to match existing mainline format
- - Lower case hex digits
- - Generic node names
-v2:
- - Fixed warnings and cleanup
+ Documentation/admin-guide/perf/index.rst         |  1 +
+ Documentation/admin-guide/perf/stm32-ddr-pmu.rst | 86 ++++++++++++++++++++++++
+ 2 files changed, 87 insertions(+)
 
- arch/arm64/boot/dts/ti/k3-am62p5-var-som.dtsi | 408 ++++++++++++++++++
- 1 file changed, 408 insertions(+)
- create mode 100644 arch/arm64/boot/dts/ti/k3-am62p5-var-som.dtsi
-
-diff --git a/arch/arm64/boot/dts/ti/k3-am62p5-var-som.dtsi b/arch/arm64/boot/dts/ti/k3-am62p5-var-som.dtsi
+diff --git a/Documentation/admin-guide/perf/index.rst b/Documentation/admin-guide/perf/index.rst
+index 072b510385c4..33aedc4ee5c3 100644
+--- a/Documentation/admin-guide/perf/index.rst
++++ b/Documentation/admin-guide/perf/index.rst
+@@ -29,3 +29,4 @@ Performance monitor support
+    cxl
+    ampere_cspmu
+    mrvl-pem-pmu
++   stm32-ddr-pmu
+diff --git a/Documentation/admin-guide/perf/stm32-ddr-pmu.rst b/Documentation/admin-guide/perf/stm32-ddr-pmu.rst
 new file mode 100644
-index 000000000000..9c8046111701
+index 000000000000..5b02bf44dd7a
 --- /dev/null
-+++ b/arch/arm64/boot/dts/ti/k3-am62p5-var-som.dtsi
-@@ -0,0 +1,408 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Common dtsi for Variscite VAR-SOM-AM62P
-+ *
-+ * Copyright (C) 2025 Variscite Ltd. - https://www.variscite.com/
-+ *
-+ */
++++ b/Documentation/admin-guide/perf/stm32-ddr-pmu.rst
+@@ -0,0 +1,86 @@
++.. SPDX-License-Identifier: GPL-2.0
 +
-+/dts-v1/;
++========================================
++STM32 DDR Performance Monitor (DDRPERFM)
++========================================
 +
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/input/input.h>
-+#include <dt-bindings/interrupt-controller/arm-gic.h>
-+#include <dt-bindings/leds/common.h>
-+#include <dt-bindings/pwm/pwm.h>
-+#include "k3-am62p5.dtsi"
++The DDRPERFM is the DDR Performance Monitor embedded in STM32MPU SoC.
++The DDR controller provides events to DDRPERFM, once selected they are counted in the DDRPERFM
++peripheral.
 +
-+/ {
-+	compatible = "variscite,var-som-am62p", "ti,am62p5";
++In MP1 family, the DDRPERFM is able to count 4 different events at the same time.
++However, the 4 events must belong to the same set.
++One hardware counter is dedicated to the time counter, `time_cnt`.
 +
-+	wifi_pwrseq: wifi-pwrseq {
-+		compatible = "mmc-pwrseq-simple";
-+		post-power-on-delay-ms = <100>;
-+		power-off-delay-us = <10000>;
-+		reset-gpios = <&main_gpio0 54 GPIO_ACTIVE_LOW>,	/* WIFI_PWR_EN */
-+			      <&main_gpio0 59 GPIO_ACTIVE_LOW>;	/* WIFI_EN */
-+	};
++In MP2 family, the DDRPERFM is able to select between 44 different DDR events.
++As for MP1, there is a dedicated hardware counter for the time.
++It is incremented every 4 DDR clock cycles.
++All the other counters can be freely allocated to count any other DDR event.
 +
-+	mmc_pwrseq: mmc-pwrseq {
-+		compatible = "mmc-pwrseq-emmc";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_mmc_pwrseq>;
-+		reset-gpios = <&main_gpio0 49 GPIO_ACTIVE_LOW>;
-+	};
++The stm32-ddr-pmu driver relies on the perf PMU framework to expose the counters via sysfs:
 +
-+	memory@80000000 {
-+		/* 8G RAM */
-+		reg = <0x00000000 0x80000000 0x00000000 0x80000000>,
-+		      <0x00000008 0x80000000 0x00000001 0x80000000>;
-+		device_type = "memory";
-+		bootph-pre-ram;
-+	};
++On MP1:
 +
-+	opp-table {
-+		/* Add 1.4GHz OPP for am62p5-sk board. Requires VDD_CORE at 0v85 */
-+		opp-1400000000 {
-+			opp-hz = /bits/ 64 <1400000000>;
-+			opp-supported-hw = <0x01 0x0004>;
-+			clock-latency-ns = <6000000>;
-+		};
-+	};
++    .. code-block:: bash
 +
-+	reserved_memory: reserved-memory {
-+		#address-cells = <2>;
-+		#size-cells = <2>;
-+		ranges;
++        $ ls /sys/bus/event_source/devices/stm32_ddr_pmu/events/
++        cactive_ddrc                 perf_lpr_req_with_no_credit  perf_op_is_wr
++        ctl_idle                     perf_lpr_xact_when_critical  perf_selfresh_mode
++        dfi_lp_req                   perf_op_is_activate          perf_wr_xact_when_critical
++        dfi_lp_req_cpy               perf_op_is_enter_powerdown   time_cnt
++        perf_hpr_req_with_no_credit  perf_op_is_rd
++        perf_hpr_xact_when_critical  perf_op_is_refresh
 +
-+		rtos_ipc_memory_region: rtos-ipc-memory@9b500000 {
-+			compatible = "shared-dma-pool";
-+			reg = <0x00 0x9b500000 0x00 0x00300000>;
-+			no-map;
-+		};
++On MP2:
 +
-+		mcu_r5fss0_core0_dma_memory_region: mcu-r5fss-dma-memory-region@9b800000 {
-+			compatible = "shared-dma-pool";
-+			reg = <0x00 0x9b800000 0x00 0x00100000>;
-+			no-map;
-+		};
++    .. code-block:: bash
 +
-+		mcu_r5fss0_core0_memory_region: mcu-r5fss-memory-region@9b900000 {
-+			compatible = "shared-dma-pool";
-+			reg = <0x00 0x9b900000 0x00 0x00f00000>;
-+			no-map;
-+		};
++        $ ls /sys/bus/event_source/devices/stm32_ddr_pmu/events/
++        dfi_is_act       perf_hpr_req_with_nocredit   perf_op_is_spec_ref
++        dfi_is_mpc       perf_hpr_xact_when_critical  perf_op_is_wr
++        dfi_is_mrr       perf_lpr_req_with_nocredit   perf_op_is_zqcal
++        dfi_is_mrw       perf_lpr_xact_when_critical  perf_rank
++        dfi_is_mwr       perf_op_is_act               perf_raw_hazard
++        dfi_is_mwra      perf_op_is_crit_ref          perf_rdwr_transitions
++        dfi_is_preab     perf_op_is_enter_powdn       perf_read_bypass
++        dfi_is_prepb     perf_op_is_enter_selfref     perf_war_hazard
++        dfi_is_rd        perf_op_is_mwr               perf_waw_hazard
++        dfi_is_rda       perf_op_is_pre               perf_window_limit_reached_rd
++        dfi_is_refab     perf_op_is_pre_for_others    perf_window_limit_reached_wr
++        dfi_is_refpb     perf_op_is_pre_for_rdwr      perf_wr_xact_when_critical
++        dfi_is_wr        perf_op_is_rd                time_cnt
++        dfi_is_wra       perf_op_is_rd_activate
++        perf_act_bypass  perf_op_is_ref
 +
-+		wkup_r5fss0_core0_dma_memory_region: r5f-dma-memory@9c800000 {
-+			compatible = "shared-dma-pool";
-+			reg = <0x00 0x9c800000 0x00 0x00100000>;
-+			no-map;
-+		};
 +
-+		wkup_r5fss0_core0_memory_region: r5f-memory@9c900000 {
-+			compatible = "shared-dma-pool";
-+			reg = <0x00 0x9c900000 0x00 0x01e00000>;
-+			no-map;
-+		};
++The perf PMU framework is usually invoked via the 'perf stat' tool.
 +
-+		secure_tfa_ddr: tfa@9e780000 {
-+			reg = <0x00 0x9e780000 0x00 0x80000>;
-+			no-map;
-+		};
 +
-+		secure_ddr: optee@9e800000 {
-+			reg = <0x00 0x9e800000 0x00 0x01800000>; /* for OP-TEE */
-+			no-map;
-+		};
-+	};
++Example:
 +
-+	reg_3v3: regulator-3v3 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "On-module +V3.3";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		regulator-always-on;
-+		regulator-boot-on;
-+	};
++    .. code-block:: bash
 +
-+	reg_1v8: regulator-1v8 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "On-module +V1.8";
-+		regulator-min-microvolt = <1800000>;
-+		regulator-max-microvolt = <1800000>;
-+		vin-supply = <&reg_3v3>;
-+		regulator-always-on;
-+		regulator-boot-on;
-+	};
++        $ perf stat --timeout 60000 -e stm32_ddr_pmu/dfi_is_act/,\
++        > stm32_ddr_pmu/dfi_is_rd/,\
++        > stm32_ddr_pmu/dfi_is_wr/,\
++        > stm32_ddr_pmu/dfi_is_refab/,\
++        > stm32_ddr_pmu/dfi_is_mrw/,\
++        > stm32_ddr_pmu/dfi_is_rda/,\
++        > stm32_ddr_pmu/dfi_is_wra/,\
++        > stm32_ddr_pmu/dfi_is_mrr/,\
++        > stm32_ddr_pmu/time_cnt/ \
++        > -a sleep 5
 +
-+	reg_3v3_phy: regulator-3v3-phy {
-+		compatible = "regulator-fixed";
-+		regulator-name = "On-module +V3.3_PHY";
-+		gpios = <&main_gpio0 45 GPIO_ACTIVE_HIGH>;
-+		enable-active-high;
-+		regulator-always-on;
-+		status="okay";
-+	};
-+};
++         Performance counter stats for 'system wide':
 +
-+&cpsw3g {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_rgmii1>;
-+};
++                    481025      stm32_ddr_pmu/dfi_is_act/
++                    732166      stm32_ddr_pmu/dfi_is_rd/
++                    144926      stm32_ddr_pmu/dfi_is_wr/
++                    644154      stm32_ddr_pmu/dfi_is_refab/
++                         0      stm32_ddr_pmu/dfi_is_mrw/
++                         0      stm32_ddr_pmu/dfi_is_rda/
++                         0      stm32_ddr_pmu/dfi_is_wra/
++                         0      stm32_ddr_pmu/dfi_is_mrr/
++                 752347686      stm32_ddr_pmu/time_cnt/
 +
-+&cpsw3g_mdio {
-+	status = "okay";
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_mdio1>;
-+	cpsw3g_phy0: ethernet-phy@4 {
-+		reg = <4>;
-+		compatible = "ethernet-phy-id0283.bc30";
-+		reset-gpios = <&main_gpio0 46 GPIO_ACTIVE_LOW>;
-+		reset-assert-us = <10000>;
-+		reset-deassert-us = <100000>;
-+	};
-+};
-+
-+&cpsw_port1 {
-+	/*
-+	 * The required RGMII TX and RX 2ns delays are implemented directly
-+	 * in hardware via passive delay elements on the SOM PCB.
-+	 * No delay configuration is needed in software via PHY driver.
-+	 */
-+	phy-mode = "rgmii";
-+	phy-handle = <&cpsw3g_phy0>;
-+	status = "okay";
-+};
-+
-+&main_i2c2 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_i2c2>;
-+	clock-frequency = <400000>;
-+	status = "okay";
-+};
-+
-+&main_i2c3 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_i2c3>;
-+	clock-frequency = <400000>;
-+	status = "okay";
-+};
-+
-+&main_pmx0 {
-+	pinctrl_mmc_pwrseq: main-emmc-pwrseq-pins {
-+		pinctrl-single,pins = <
-+			AM62PX_IOPAD(0x00c8, PIN_OUTPUT, 7) /* (AB23) VOUT0_DATA4.GPIO0_49 */
-+		>;
-+	};
-+
-+	pinctrl_i2c2: main-i2c2-default-pins {
-+		pinctrl-single,pins = <
-+			AM62PX_IOPAD(0x00b0, PIN_INPUT_PULLUP, 1) /* (T22) GPMC0_CSn2.I2C2_SCL */
-+			AM62PX_IOPAD(0x00b4, PIN_INPUT_PULLUP, 1) /* (U25) GPMC0_CSn3.I2C2_SDA */
-+		>;
-+	};
-+
-+	pinctrl_i2c3: main-i2c3-default-pins {
-+		pinctrl-single,pins = <
-+			AM62PX_IOPAD(0x01d0, PIN_INPUT_PULLUP, 2) /* (A23) UART0_CTSn.I2C3_SCL */
-+			AM62PX_IOPAD(0x01d4, PIN_INPUT_PULLUP, 2) /* (C22) UART0_RTSn.I2C3_SDA */
-+		>;
-+	};
-+
-+	pinctrl_mdio1: main-mdio1-default-pins {
-+		pinctrl-single,pins = <
-+			AM62PX_IOPAD(0x0160, PIN_OUTPUT, 0) /* (F17) MDIO0_MDC */
-+			AM62PX_IOPAD(0x015c, PIN_INPUT, 0) /* (F16) MDIO0_MDIO */
-+		>;
-+	};
-+
-+	pinctrl_mmc2: main-mmc2-default-pins {
-+		pinctrl-single,pins = <
-+			AM62PX_IOPAD(0x0120, PIN_INPUT_PULLUP, 0) /* (K24) MMC2_CMD */
-+			AM62PX_IOPAD(0x0118, PIN_INPUT_PULLDOWN, 0) /* (K21) MMC2_CLK */
-+			AM62PX_IOPAD(0x011c, PIN_INPUT_PULLUP, 0) /* () MMC2_CLKLB */
-+			AM62PX_IOPAD(0x0114, PIN_INPUT_PULLUP, 0) /* (K23) MMC2_DAT0 */
-+			AM62PX_IOPAD(0x0110, PIN_INPUT_PULLUP, 0) /* (K22) MMC2_DAT1 */
-+			AM62PX_IOPAD(0x010c, PIN_INPUT_PULLUP, 0) /* (L20) MMC2_DAT2 */
-+			AM62PX_IOPAD(0x0108, PIN_INPUT_PULLUP, 0) /* (L21) MMC2_DAT3 */
-+		>;
-+	};
-+
-+	pinctrl_rgmii1: main-rgmii1-default-pins {
-+		pinctrl-single,pins = <
-+			AM62PX_IOPAD(0x014c, PIN_INPUT, 0) /* (B15) RGMII1_RD0 */
-+			AM62PX_IOPAD(0x0150, PIN_INPUT, 0) /* (B16) RGMII1_RD1 */
-+			AM62PX_IOPAD(0x0154, PIN_INPUT, 0) /* (A14) RGMII1_RD2 */
-+			AM62PX_IOPAD(0x0158, PIN_INPUT, 0) /* (B14) RGMII1_RD3 */
-+			AM62PX_IOPAD(0x0148, PIN_INPUT, 0) /* (A16) RGMII1_RXC */
-+			AM62PX_IOPAD(0x0144, PIN_INPUT, 0) /* (A15) RGMII1_RX_CTL */
-+			AM62PX_IOPAD(0x0134, PIN_INPUT, 0) /* (A18) RGMII1_TD0 */
-+			AM62PX_IOPAD(0x0138, PIN_INPUT, 0) /* (C17) RGMII1_TD1 */
-+			AM62PX_IOPAD(0x013c, PIN_INPUT, 0) /* (A17) RGMII1_TD2 */
-+			AM62PX_IOPAD(0x0140, PIN_INPUT, 0) /* (C16) RGMII1_TD3 */
-+			AM62PX_IOPAD(0x0130, PIN_INPUT, 0) /* (B17) RGMII1_TXC */
-+			AM62PX_IOPAD(0x012c, PIN_INPUT, 0) /* (B18) RGMII1_TX_CTL */
-+		>;
-+		bootph-all;
-+	};
-+
-+	pinctrl_spi0: main-spi0-default-pins {
-+		pinctrl-single,pins = <
-+			AM62PX_IOPAD(0x01bc, PIN_OUTPUT, 0) /* (B21) SPI0_CLK */
-+			AM62PX_IOPAD(0x01b4, PIN_OUTPUT, 0) /* (D20) SPI0_CS0 */
-+			AM62PX_IOPAD(0x01c0, PIN_OUTPUT, 0) /* (B20) SPI0_D0 */
-+			AM62PX_IOPAD(0x01c4, PIN_INPUT, 0) /* (C21) SPI0_D1 */
-+		>;
-+	};
-+
-+	pinctrl_uart5: main-uart5-default-pins {
-+		pinctrl-single,pins = <
-+			AM62PX_IOPAD(0x00ec, PIN_INPUT, 4) /* (AC21) VOUT0_DATA13.UART5_CTSn */
-+			AM62PX_IOPAD(0x00e8, PIN_OUTPUT, 4) /* (AD21) VOUT0_DATA12.UART5_RTSn */
-+			AM62PX_IOPAD(0x00d0, PIN_INPUT, 4) /* (AC23) VOUT0_DATA6.UART5_RXD */
-+			AM62PX_IOPAD(0x00d4, PIN_OUTPUT, 4) /* (AE23) VOUT0_DATA7.UART5_TXD */
-+		>;
-+	};
-+
-+	pinctrl_bt: main-btgrp-pins {
-+		pinctrl-single,pins = <
-+			AM62PX_IOPAD(0x00f4, PIN_OUTPUT, 7) /* (Y20) VOUT0_DATA15.GPIO0_60 (BT_EN) */
-+		>;
-+	};
-+
-+	pinctrl_restouch: main-restouch-pins {
-+		pinctrl-single,pins = <
-+			AM62PX_IOPAD(0x00c4, PIN_INPUT_PULLUP, 7) /* (Y23) VOUT0_DATA3.GPIO0_48 */
-+		>;
-+	};
-+
-+	pinctrl_wifi: main-wifi-default-pins {
-+		pinctrl-single,pins = <
-+			AM62PX_IOPAD(0x00dc, PIN_OUTPUT, 7) /* (AC22) VOUT0_DATA9.GPIO0_54 - WIFI_PWR_EN - */
-+			AM62PX_IOPAD(0x00f0, PIN_OUTPUT, 7) /* (AA20) VOUT0_DATA14.GPIO0_59 - WIFI_EN - */
-+		>;
-+	};
-+};
-+
-+&mcu_pmx0 {
-+	pinctrl_wkup_clkout0: wkup-clkout0-default-pins {
-+		pinctrl-single,pins = <
-+			AM62PX_MCU_IOPAD(0x0084, PIN_OUTPUT, 0) /* (F13) WKUP_CLKOUT0 */
-+		>;
-+	};
-+};
-+
-+&main_spi0 {
-+	status = "okay";
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_spi0>;
-+	ti,pindir-d0-out-d1-in;
-+
-+	touchscreen@0 {
-+		compatible = "ti,ads7846";
-+		reg = <0>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_restouch>;
-+		interrupt-parent = <&main_gpio0>;
-+		interrupts = <48 IRQ_TYPE_EDGE_FALLING>;
-+		spi-max-frequency = <1500000>;
-+		pendown-gpio = <&main_gpio0 48 GPIO_ACTIVE_LOW>;
-+		ti,x-min = /bits/ 16 <125>;
-+		ti,x-max = /bits/ 16 <4008>;
-+		ti,y-min = /bits/ 16 <282>;
-+		ti,y-max = /bits/ 16 <3864>;
-+		ti,x-plate-ohms = /bits/ 16 <180>;
-+		ti,pressure-max = /bits/ 16 <255>;
-+		ti,debounce-max = /bits/ 16 <10>;
-+		ti,debounce-tol = /bits/ 16 <3>;
-+		ti,debounce-rep = /bits/ 16 <1>;
-+		ti,settle-delay-usec = /bits/ 16 <150>;
-+		ti,keep-vref-on;
-+		wakeup-source;
-+	};
-+};
-+
-+&main_uart5 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_uart5>, <&pinctrl_bt>;
-+	uart-has-rtscts;
-+	status = "okay";
-+
-+	bluetooth {
-+		compatible = "nxp,88w8987-bt";
-+	};
-+};
-+
-+&sdhci0 {
-+	status = "okay";
-+	ti,driver-strength-ohm = <50>;
-+	mmc-pwrseq = <&mmc_pwrseq>;
-+	disable-wp;
-+	bootph-all;
-+};
-+
-+&sdhci2 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_mmc2>, <&pinctrl_wifi>;
-+	bus-width = <4>;
-+	disable-wp;
-+	non-removable;
-+	keep-power-in-suspend;
-+	mmc-pwrseq = <&wifi_pwrseq>;
-+	ti,fails-without-test-cd;
-+	status = "okay";
-+};
-+
-+&usbss0 {
-+	ti,vbus-divider;
-+};
-+
-+&usbss1 {
-+	ti,vbus-divider;
-+};
-+
-+&mailbox0_cluster0 {
-+	status = "okay";
-+
-+	mbox_r5_0: mbox-r5-0 {
-+		ti,mbox-rx = <0 0 0>;
-+		ti,mbox-tx = <1 0 0>;
-+	};
-+};
-+
-+&mailbox0_cluster1 {
-+	status = "okay";
-+
-+	mbox_mcu_r5_0: mbox-mcu-r5-0 {
-+		ti,mbox-rx = <0 0 0>;
-+		ti,mbox-tx = <1 0 0>;
-+	};
-+};
-+
-+&mcu_r5fss0 {
-+	status = "okay";
-+};
-+
-+&mcu_r5fss0_core0 {
-+	mboxes = <&mailbox0_cluster1 &mbox_mcu_r5_0>;
-+	memory-region = <&mcu_r5fss0_core0_dma_memory_region>,
-+			<&mcu_r5fss0_core0_memory_region>;
-+};
-+
-+&wkup_r5fss0 {
-+	status = "okay";
-+};
-+
-+&wkup_r5fss0_core0 {
-+	mboxes = <&mailbox0_cluster0 &mbox_r5_0>;
-+	memory-region = <&wkup_r5fss0_core0_dma_memory_region>,
-+			<&wkup_r5fss0_core0_memory_region>;
-+};
-+
-+/* mcu_gpio0 and mcu_gpio_intr are reserved for mcu firmware usage */
-+&mcu_gpio0 {
-+	status = "reserved";
-+};
-+
-+&mcu_gpio_intr {
-+	status = "reserved";
-+};
-+
-+&wkup_rtc0 {
-+	status = "disabled";
-+};
-+
-+&wkup_rti0 {
-+	/* WKUP RTI0 is used by DM firmware */
-+	status = "reserved";
-+};
-+
-+&wkup_uart0 {
-+	/* WKUP UART0 is used by DM firmware */
-+	status = "reserved";
-+};
-+
-+&main_uart1 {
-+	/* Main UART1 is used by TIFS firmware */
-+	status = "reserved";
-+};
++               5.014910750 seconds time elapsed
+
 -- 
 2.43.0
 
