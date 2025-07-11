@@ -4,99 +4,153 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B8D8C8303C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 04:08:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A249FC83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 04:10:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=85nfx4ldL54wSVT5XtoQ/mvHVV77q6rK3dhp/Wa5E+U=; b=SPvDLPafrkaJi36rYjBST+k/cI
-	2ChRaho290M88s5HUBWnwzItWB0AmAYlgN0cg/+dgY7QB2Fbcq/1RhAv68B2xPqxxb5L/0srAXNfy
-	3oYhpG03gY+20kbTv3lNzkJk/qD3EbFqSKp20w9JhgMutfIm44sw3284F/ihlLz34/gqvhsLQXmG+
-	6PKrD1XopOVu7Zubv6tNMLui7GuCS0Sv8LoplibCTFjB0iTo125ZftxQGr9HXlrvDs4vIeuqKOLSK
-	HerPqqTKU1uKalls+3SPFPK33W/55TKxCilPie8gisri3OZ5i5xPrQtCXzgQJI7lGqsqgECjFlbLF
-	hsVRhziA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6+0rZkrQpOxV7V+r21Nnsh/bW8MW4ZCy8VKc/lQzlTQ=; b=OR/HgjG6aYWv92rubKaWurX2zD
+	dYXL85S5Whx40KxbYMkzz929VQ5LB8+CAzOhiMtGH9hqoGD4geIygS/vVdlEN2fVmIFryy3UQifo+
+	o+LyT1yT6DytY1g4WtLr/u3C+QgdwZqIVSc8wzPJ85k+7Xy+7nXqxozJ1zxSTpZHhA78boPR8+Li7
+	WVv+FKqjAGmS5UMnUa8Q7oI5NtmT9fe/JRxaq/ugWzL7sunxIPPS3uihOoWYQS3irFGil0FBgsCx0
+	KN0QKBKDzgfFv0sHATDRqIJOrTprHKwlzOS/F3z8F72x6+IAzMdKaz+vUk6ngyE9bGlJ/juW4ebXZ
+	C6b73Ofg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ua53P-0000000DdLn-3JV4;
-	Fri, 11 Jul 2025 04:08:07 +0000
-Received: from mail-lf1-x135.google.com ([2a00:1450:4864:20::135])
+	id 1ua55i-0000000DdSS-28uU;
+	Fri, 11 Jul 2025 04:10:30 +0000
+Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ua4uj-0000000DcUW-3nNr
+	id 1ua4z6-0000000Dcu5-27Me
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Jul 2025 03:59:10 +0000
-Received: by mail-lf1-x135.google.com with SMTP id 2adb3069b0e04-553be4d2fbfso1837549e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Jul 2025 20:59:09 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1752206348; x=1752811148; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=85nfx4ldL54wSVT5XtoQ/mvHVV77q6rK3dhp/Wa5E+U=;
-        b=WQTSt/rhXplQkhpCtJjI+2rTZx4uiMMW6ZQvURIE7v38pIreSTaqFZIZWD9GzMXv3K
-         qehO3nMD8EcCWRX82i6nDMltKHnVOMoaUBKB/Z1TYUXlTYtUij5eBgtn2tqAS3md5qrD
-         LbqsKA0SxPfJ8Mgx+DgkwxE+f8GdcZ/dzwt2h6A79VHMTlG5uUaRj6wDTWjYMFcQIxU8
-         yICeuQlrqotwSNK9ktTYdyLA9VJPkUGEJBY/nszPa8dAbZ6JtztelCnScN9o0u3wm+GI
-         WzBjTBSDRpoAe63vldnsCZdbDuc0/ChSPutzl5/ap6mIFjCB/psQT+889kU/XK4TdZ6H
-         69Ag==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752206348; x=1752811148;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=85nfx4ldL54wSVT5XtoQ/mvHVV77q6rK3dhp/Wa5E+U=;
-        b=anFF0gflFsd8shqXJ4GMVTDPnK4PozE3aTbIRs4pY1hn1SGxCNHVQB7HDzrAz6MLda
-         ACyHgtYs2nRNr5MjW1MwVj5w8qRPweyR6WHHJBKe8nDKFZLPnfC6cpDS5pIxGNFAZkv9
-         dC9gG6kSSYEVPQTVGli5KI2ggzrr/+09/Snx4ndmf3Uuymy4BAFtq2mscdLSJ5h4r6fz
-         fOuLT7sN6uSDcYTbBcKylYcbs4uYS22GTfmEb+8DCA9bQOL/ercZG/jK07a+LxmEQYAw
-         v0tWtXWB40opHC0qDzYQKV+V7ugactewj8K5SXBtfz3LtiFy/B4GLSOJGarQjLp+nu/m
-         dKYQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVxiQjvyH+RFy7C8MbfJklNSmmOUxM+OMe0/q4hhUMvqqHnuG98ti5cAAvMlOPftqFo8xtQCsLaErhCTNx7t/1g@lists.infradead.org
-X-Gm-Message-State: AOJu0YxoAT8U4OGQsT/5eQdqSPqt4ED5T4zQExvEn/4+hOqhlTz5KaqZ
-	5jySxzx1rgbLL2lXV81T0ElkNZFKKL9F0yeI6bPbwsr/rxedUCSJxNnd
-X-Gm-Gg: ASbGnctpe48CCXS0h3BGH4h2WX9m/7U48HiI1ejz54JhYItQ5Xaiv8lOcW57ZEfA1By
-	eGjso/F4ckY+KWdN8+2u9EZoJoFAJh/lnuX6yuqBXiuwRkUXJO6BfiDZqkyT9nRl6GLp9LYb9JI
-	R/bIQMoU1PhJw6H08kl22gr09SNJL2D/LwbvJLdJ7pY1RuDFsEY4iO5g86usQ8ede6ndnLeF81w
-	cjm4+BVgZvy9d7oXL4S8Du2Mv73kly8jzIcZFbj5AYU1xlOQ0d0Nhno/FjStulweaJOJRD6mWrd
-	LA+P3bfuvTwU3W9dLtExQSm17lRU54ZDRpc966rPK63vCPlh2wW0JVVovr/83mD65B5nJYBjFhM
-	LtuvqHpgEi0c=
-X-Google-Smtp-Source: AGHT+IF2Vs2taWbckoiIUXDCtLJBtsJW8Ugy8fMUOW8WzA36Et0dLFCN8dorIxDAVjB7GGJ88bp0Fg==
-X-Received: by 2002:a05:651c:555:b0:32b:7ddd:279e with SMTP id 38308e7fff4ca-330532dfb0emr4152281fa.14.1752206347958;
-        Thu, 10 Jul 2025 20:59:07 -0700 (PDT)
-Received: from junAIR ([212.192.12.80])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-32fa2943d46sm4971191fa.40.2025.07.10.20.58.53
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 10 Jul 2025 20:59:07 -0700 (PDT)
-From: iuncuim <iuncuim@gmail.com>
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.or>
-Cc: dri-devel@lists.freedesktop.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev
-Subject: [PATCH v2 3/3] arm64: dts: allwinner: a523: enable Mali GPU for all boards
-Date: Fri, 11 Jul 2025 11:57:29 +0800
-Message-ID: <20250711035730.17507-4-iuncuim@gmail.com>
-X-Mailer: git-send-email 2.50.0
-In-Reply-To: <20250711035730.17507-1-iuncuim@gmail.com>
-References: <20250711035730.17507-1-iuncuim@gmail.com>
+	Fri, 11 Jul 2025 04:03:41 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=xPdGkn0iwi0d2dsBNaV4Se+HVr47tc8s9XI12bGSOa4Js0oh4xnJhB420i+sQuMLj7PGeC8T5qcN3GD/y7GYZjIlQwmK9CqazYSyU2TeacBOU+O3GwiPTinDWwOavduTa3ZmxNZAOZ7cyHoYa2vXU2WFvhUDI/XiX8iBupVifNMwwgNlShYHxwMpNUrg0LHR5gvnvPZCaUNOH9Oa7mZYzlBxGW0BmRAxZxTeY0viiZgfsq8B9EXC+RNeGFMOtFooNCxE+x/9LrHxWc5u8x2DBOtZhobWj2Vhn52+MxCbA5ksMY2hVH7eeC55weaA9XgmhvKtGI4wAE3IaDAZAF997w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=6+0rZkrQpOxV7V+r21Nnsh/bW8MW4ZCy8VKc/lQzlTQ=;
+ b=D65+uwqVASWdGjMYW8+Pyw0TnSB+G3hwHWCbACFFn2g+JGCvtPJOvHclEPbjE605QzNS1NRLlcI8hX64c8Ikmk1z1pmOi6FcskPM2TC3Jg03OV92YZTOqRB8mXL9VbxMhdDYLID9mrr7f1DA1yobvwGZEYfe2Mt1w18O4DLrTCDAx6MLUG/XXdoHMGFwYhsV0DMY8rdsWCMfThsgn5T+8G30He4ZfxUEwYwHFRdSWMeLMFfRQiwR4SFPLOBaxvnfm9m9EzELQQtfH/Tv0ux8XWYI2nRxHMIwRqQLJCcnDxHgpEAvw871V+YRPRsZvucqpcD6THnbmjQ6BcPDcR6VbA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=6+0rZkrQpOxV7V+r21Nnsh/bW8MW4ZCy8VKc/lQzlTQ=;
+ b=buvUSmpjA5OjSRZdiKVskohw9GmXyPvbyiDk4fh3820iuTk5tNCmtFqSrTURN73+U/7sUd8IvIHTbBqyHT17U+uSUfx4CAaMA1KAw3O6dMUdFcubWwOkPJcTD1OFYfen0S9TPGNkoCvXJXmCHVKAlvA5LGVYuP/6Ocz+825jGkO317zQ/e904DcntRzTXAg/iGwu+LLAK3d0R85MMnOPGGhL30HoN2aPSfOzABkhbmmaXpJvmcS9lst4KGm+VGc8oT5i3hZTuGH9tJz0cGPutFP9SmdgP/tdK94e5KZrKT43GMRQ+QGlhRS+fqQObus+Gu0AplX25kPtOQ6fAcGPIQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by AS8PR04MB8245.eurprd04.prod.outlook.com (2603:10a6:20b:3f9::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8922.25; Fri, 11 Jul
+ 2025 04:03:29 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%5]) with mapi id 15.20.8922.023; Fri, 11 Jul 2025
+ 04:03:28 +0000
+Date: Fri, 11 Jul 2025 00:03:22 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
+Cc: imx@lists.linux.dev, Abel Vesa <abelvesa@kernel.org>,
+	Peng Fan <peng.fan@nxp.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, dri-devel@lists.freedesktop.org,
+	Abel Vesa <abel.vesa@linaro.org>, linux-clk@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/8] clk: imx95-blk-ctl: Cache registers when RPM
+ routines are called
+Message-ID: <aHCNCokZxIRNPgT6@lizhi-Precision-Tower-5810>
+References: <20250709122332.2874632-1-laurentiu.palcu@oss.nxp.com>
+ <20250709122332.2874632-2-laurentiu.palcu@oss.nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250709122332.2874632-2-laurentiu.palcu@oss.nxp.com>
+X-ClientProxiedBy: AM0PR08CA0001.eurprd08.prod.outlook.com
+ (2603:10a6:208:d2::14) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|AS8PR04MB8245:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1377af6e-ff13-4130-7fe1-08ddc02fe48b
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|1800799024|52116014|7416014|376014|366016|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?c7n4L8jXFME5f/oJvXOUtiy1fxaB1zPHLeJmC9fYrKE+uOxahP3h6J8LFC03?=
+ =?us-ascii?Q?ICX/5WplC8V7Wvvke1VfMJ2MRsPa62RGybzTbb0BCHJZb9C4i+UzKpwFWouF?=
+ =?us-ascii?Q?AIwVsCljv8gpvHwWg20IgnMd3n0FkpQed2jcQ5GxmfzDJRBM4KF3KJOAzJJP?=
+ =?us-ascii?Q?EuN2HLoRmNz1q4cb9zbpMZqVTyzccyBomGJKOBrMAjHznm6sgoWSWfUrQErr?=
+ =?us-ascii?Q?a5CdcwlzotrXrLC/Rhr93zFYLTtcvDJpcJ1QBFoBLcr++j5QgA+xVbXFWeUn?=
+ =?us-ascii?Q?ue6gkLeEqRCb+JKQ8B854YavOMsO31AbobSAF9qvh24n5O9vzCvWT1dkMC9C?=
+ =?us-ascii?Q?CYt+/a/LkNSLhdvKwiHdEwmXg3hQNxt1GtlgnFujz9797NKPYu3EeEY+71oY?=
+ =?us-ascii?Q?bdOTKfna5nfwaaXEvL1fyVJY6rYMvShdFgCGYbPIrTeVfxnvx3YXamvBzXSl?=
+ =?us-ascii?Q?NNcLAK2NcVdTCsZ8AwkKYZVjpi+clTYJpFlVffiMlvpKwmXBBx9Z4hMohUlL?=
+ =?us-ascii?Q?pWPZ/Knt4AFmDKtAvAkuxwbRh25+ejScZ3dQu3gt96aOuC479AHoF5oseUTD?=
+ =?us-ascii?Q?MP6f2NPMvFXatYA91drmGWQEQ6YWPQIcwjexEb+G9ffIFgYwpbb6F/oIRQzm?=
+ =?us-ascii?Q?dUmEdo8K36MgAQiEHLhur6BRmCl2eJ1GJqDXhevhU/NUOSV3Lq6nSRFYvGgx?=
+ =?us-ascii?Q?WvNYhd8+k4c2VKoZzBUFWTxKOPW4zb8AIDDK+jjt3CGFZZCvhzsH5CL/gADG?=
+ =?us-ascii?Q?dHpZvIFOT0jR5EBbOyqpueUpN+UQ57kr4vU1MxQB4iJjgwZyechE3GZc+4QU?=
+ =?us-ascii?Q?ygl8o4AqIY6sLV1iGK87PaMLYl14kB9++MAgmXApxyKzQJWcjW0RpN+ZArEc?=
+ =?us-ascii?Q?TEoG0zVaUt/If4GnjsuaNRXtWHS5K1XrYeNSbj1Zw4KmDfZO1ETH8JhtuKsB?=
+ =?us-ascii?Q?3GzApXX07oYIE2T6KfvtnVN7O36NF51ApL03x4VJyHleG9L6KnWcN7hCfUcb?=
+ =?us-ascii?Q?xvVElLgwJhl98ZVFAMNCWnICNFbN+LaNOt+fWNqMZnQ1dcHVW/z5gn2pjLDZ?=
+ =?us-ascii?Q?uLv0YypOumqXHPQYj02MHmXkC+SftL8JBq7ffPqzRmfpWamjD0ARwH8egrCH?=
+ =?us-ascii?Q?5VFLbQaPYoNJxASUJqHYt9DR2eStMwdTMe/pAuE/ehtC9bZwFNCw092kJRt2?=
+ =?us-ascii?Q?lmUevQQVamyOxKYNCjO3wJ+/UQs9lmMP1Fqp40e/EJrmQqFOGvKUBseh9kO2?=
+ =?us-ascii?Q?0j//m54i3duKpAeU29UttUwge0gp0Fv+B/T4SpY0vTY8Fyhup7CVvVmKUmVh?=
+ =?us-ascii?Q?CGEpkXK6If1Q29TYq7L01US0ddRxaUTMhq6kePJXNBb4nhmRsEIWhtMNi1jv?=
+ =?us-ascii?Q?zAlQZ0/cAz+4FgyaFWPUIe6NlP//6VEGu5ne5pIDMqDaW0Z3TQXy6utypFDg?=
+ =?us-ascii?Q?g8wFqsVo3Ebqf4htIzwi7hDfGfSiMDDvf24y8Uuksm5x0YdC0G7iyd4anyUK?=
+ =?us-ascii?Q?70M2G/NqHRM+/Ws=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(52116014)(7416014)(376014)(366016)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?KC1lwv5xDqhTHj8jqSyLw3bPiR2VDnIV6MlO1yPWNic+QkMyAOdTcQNaRZmI?=
+ =?us-ascii?Q?yqXoWlNksSTSU3d7bLrWberjcM7SZ1RMUPWuFInexSsrmM8covVpe9S265S4?=
+ =?us-ascii?Q?cXwDc6XQhskmf8c6SSpKaNLCkFpQl//IaoFVOSfFbhLhbLDa/knm+5tCXAfh?=
+ =?us-ascii?Q?wZWK3T8F/SLb4afWY8E/MNQ5HITjawJZ3fxbIQBXhvyD2Rurum/n6YZxs0WK?=
+ =?us-ascii?Q?RgtLWHlqEHwFrU80hg8ZSenHhtagUMyNQ0h+IvyoVwXYmM21kCqGqObjKgcM?=
+ =?us-ascii?Q?afLvykWvoXjh2ExFnbt34UmX9haLeqj1z0qHwYjCgKgNby9KgeSliEDqC+Su?=
+ =?us-ascii?Q?BCCMFgyy4udVHMu6l8tyYR9ECuBR6p/x5URonLKT3UEWf0VGVrRck0C0FalZ?=
+ =?us-ascii?Q?9dEbldK6F9BM6kkyXDoEgf0nRKqoZFoxIiVTXGUf2TxS74CShm5U7Pds+qnx?=
+ =?us-ascii?Q?1N/58KH4YLMEoj1JZ6MFCsqZva1pbjrnxuOkiyE8SfEWAO8Qn8AKmH2YQ+cw?=
+ =?us-ascii?Q?tJbyyVeYGLkCr5F7zcjs0pHeXGh4WrYLcFGLc+bjwI/QwsFyCGOSb3yhBLVI?=
+ =?us-ascii?Q?SZPxVDFO4Q2MvXZpGbI0wUQt/pGs5igHupCS9SZ0vqNwWz+0VWMl396SpHki?=
+ =?us-ascii?Q?eQkNKiMOvXKo6+D5u8O/qiweCnixxlG9Tp5Kdyouty2fVj6xX6NAt6Z2UDYW?=
+ =?us-ascii?Q?8eE7F8IbLKMl4YJYMzH/txUFR9UcwXPopThrTM3Ja87cgQnYHNP2Kbh+1MaB?=
+ =?us-ascii?Q?TUbV7uv610H5SS0Ls+Uc1ihVrJ9RMRvTDP3UtXetnwDCZsIUf28pNbTsyDds?=
+ =?us-ascii?Q?Ml6woTc1bmtKHicIuSjyP+t/fXoJYbkWeDmT+/3vg0SxAMy4foipZWQNuVqx?=
+ =?us-ascii?Q?HrSLrUgOsCHPu0YD9YpbGAbnUi+2cn3gJbLDZVKZ1UnFyuj7teyFOPq9Nzlv?=
+ =?us-ascii?Q?LkTfiifi/slnfKjWjMl49YTOYZeHsZVr/ydJ60SWIZV8+sjL3Chq4SXxPNPf?=
+ =?us-ascii?Q?bN0HLmt6vcK9trTHO0ELuzyFczOPTJ8LH03JLIkpoIlDUpsJ4TCbHqTU7WdP?=
+ =?us-ascii?Q?ikWe5NivtV0onX+hj7xbdmX/PhTSj7PaYz25RgNUUxYLvrVER6x3rep2ZTaX?=
+ =?us-ascii?Q?bsBabFhs6gPcrZXXPoKaBTG9uHQ2CfHKRXuAvXLOfe7c7y2MzGu5YvrFI42g?=
+ =?us-ascii?Q?IPtAoQEvpOZ2OELicEJYtOJIQEX2gtAjDiwIyfaJvui+tRj2MaTxcMXOqXtV?=
+ =?us-ascii?Q?d/Clxe9WhH/5oKv08+skOcqzoOlEpKQl2NBmyGa+SKNZ/hAWaeXTdrvrm9Pp?=
+ =?us-ascii?Q?KSgiZ06/GOgsmclN1BAfhJ5vZGJaCXAumh7h0PJoNXsd8vnkdzHXqzqk0s+5?=
+ =?us-ascii?Q?0R+EhfLRu7gYeDg++rbT7RpowQwA1iuA68trWjq4qxyVf6oVbYZ4+uYDPuxK?=
+ =?us-ascii?Q?YLPh0dXrCIL1ZyUVdL52Rn0gHJM+A/mteFeOKA3uMA3Bhx9ddQYejNPxVEBW?=
+ =?us-ascii?Q?VIB0/WuM25lJN4xwpvJ+AkIt38VyXpGLF6o/5jvJ4pKBsScYknIL/p1iFAmD?=
+ =?us-ascii?Q?ZMlEeztGo92JMKoqn30dp0lvYaREqgVNEmu8YIHf?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1377af6e-ff13-4130-7fe1-08ddc02fe48b
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Jul 2025 04:03:28.8657
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: BFbkk66Gellz2ENpPSYARcAzmPQKpHypC4o44UJ2prZy5VZbpoIfzxtioYsSjbO2EzM+V8akfDFUJmGAuCF1kQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8245
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250710_205909_939516_720228EC 
-X-CRM114-Status: GOOD (  12.65  )
+X-CRM114-CacheID: sfid-20250710_210340_546464_AEF49055 
+X-CRM114-Status: GOOD (  26.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,87 +165,155 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Mikhail Kalashnikov <iuncuim@gmail.com>
+Subject:
+save and store registers at suspend()/resume() function
 
-All devices based on the A523/A527/H728/T527 processors contain a G57 MC1 GPU.
+On Wed, Jul 09, 2025 at 03:23:20PM +0300, Laurentiu Palcu wrote:
+> If runtime PM is used for the clock providers and they're part of a
+> power domain, then the power domain supply will be cut off when runtime
+> suspended. That means all BLK CTL registers belonging to that power
+> domain will be reset. Hence, the clock settings will revert to default
+> values messing up the consumer clock settings.
 
-Enable the DT nodes for this GPU and specify a regulator that supplies power
-to the SoC's VDD_GPU pins. The other parameters are set in the SoC dtsi,
-so are board independent.
+Needn't "hence ..."
 
-Signed-off-by: Mikhail Kalashnikov <iuncuim@gmail.com>
----
- arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dts   | 5 +++++
- arch/arm64/boot/dts/allwinner/sun55i-h728-x96qpro+.dts    | 5 +++++
- arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts   | 5 +++++
- arch/arm64/boot/dts/allwinner/sun55i-t527-orangepi-4a.dts | 5 +++++
- 4 files changed, 20 insertions(+)
+Save/restore register value at suspend/resume functions to fix this problem.
 
-diff --git a/arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dts b/arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dts
-index 8bc0f2c72..553ad774e 100644
---- a/arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dts
-+++ b/arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dts
-@@ -66,6 +66,11 @@ &gmac0 {
- 	status = "okay";
- };
- 
-+&gpu {
-+	mali-supply = <&reg_dcdc2>;
-+	status = "okay";
-+};
-+
- &mdio0 {
- 	ext_rgmii_phy: ethernet-phy@1 {
- 		compatible = "ethernet-phy-ieee802.3-c22";
-diff --git a/arch/arm64/boot/dts/allwinner/sun55i-h728-x96qpro+.dts b/arch/arm64/boot/dts/allwinner/sun55i-h728-x96qpro+.dts
-index 59db10354..a96927fbd 100644
---- a/arch/arm64/boot/dts/allwinner/sun55i-h728-x96qpro+.dts
-+++ b/arch/arm64/boot/dts/allwinner/sun55i-h728-x96qpro+.dts
-@@ -54,6 +54,11 @@ &ehci1 {
- 	status = "okay";
- };
- 
-+&gpu {
-+	mali-supply = <&reg_dcdc2>;
-+	status = "okay";
-+};
-+
- &mmc0 {
- 	vmmc-supply = <&reg_vcc3v3>;
- 	cd-gpios = <&pio 5 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>; /* PF6 */
-diff --git a/arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts b/arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts
-index 142177c1f..b9eeb6753 100644
---- a/arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts
-+++ b/arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts
-@@ -76,6 +76,11 @@ &gmac0 {
- 	status = "okay";
- };
- 
-+&gpu {
-+	mali-supply = <&reg_dcdc2>;
-+	status = "okay";
-+};
-+
- &mdio0 {
- 	ext_rgmii_phy: ethernet-phy@1 {
- 		compatible = "ethernet-phy-ieee802.3-c22";
-diff --git a/arch/arm64/boot/dts/allwinner/sun55i-t527-orangepi-4a.dts b/arch/arm64/boot/dts/allwinner/sun55i-t527-orangepi-4a.dts
-index 5f97505ec..d07bb9193 100644
---- a/arch/arm64/boot/dts/allwinner/sun55i-t527-orangepi-4a.dts
-+++ b/arch/arm64/boot/dts/allwinner/sun55i-t527-orangepi-4a.dts
-@@ -95,6 +95,11 @@ &ehci1 {
- 	status = "okay";
- };
- 
-+&gpu {
-+	mali-supply = <&reg_dcdc2>;
-+	status = "okay";
-+};
-+
- &mmc0 {
- 	vmmc-supply = <&reg_cldo3>;
- 	cd-gpios = <&pio 5 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>; /* PF6 */
--- 
-2.50.0
+>
+> Also, fix the suspend/resume routines as well, as the clock was left ON
+> when going to suspend.
 
+Do you means fix the problem clock left ON after suspend?
+
+Pomain cut off, why clock can left on?
+
+>
+> Fixes: 5224b189462f ("clk: imx: add i.MX95 BLK CTL clk driver")
+> Signed-off-by: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
+> ---
+>  drivers/clk/imx/clk-imx95-blk-ctl.c | 55 ++++++++++++++++++-----------
+>  1 file changed, 34 insertions(+), 21 deletions(-)
+>
+> diff --git a/drivers/clk/imx/clk-imx95-blk-ctl.c b/drivers/clk/imx/clk-imx95-blk-ctl.c
+> index 7e88877a62451..7f9bbca517284 100644
+> --- a/drivers/clk/imx/clk-imx95-blk-ctl.c
+> +++ b/drivers/clk/imx/clk-imx95-blk-ctl.c
+> @@ -448,12 +448,36 @@ static int imx95_bc_probe(struct platform_device *pdev)
+>  	return ret;
+>  }
+>
+> +static void __maybe_unused imx95_bc_save_reg(struct imx95_blk_ctl *bc)
+> +{
+> +	const struct imx95_blk_ctl_dev_data *bc_data;
+> +
+> +	bc_data = of_device_get_match_data(bc->dev);
+> +	if (!bc_data)
+> +		return;
+> +
+> +	bc->clk_reg_restore = readl(bc->base + bc_data->clk_reg_offset);
+> +}
+> +
+> +static void __maybe_unused imx95_bc_restore_reg(struct imx95_blk_ctl *bc)
+> +{
+> +	const struct imx95_blk_ctl_dev_data *bc_data;
+> +
+> +	bc_data = of_device_get_match_data(bc->dev);
+
+Generally, bc_data should in imx95_blk_ctl_dev_data and set once at probe.
+
+So imx95_bc_save_reg() and imx95_bc_restore_reg() will be simpfied.
+
+> +	if (!bc_data)
+> +		return;
+> +
+> +	writel(bc->clk_reg_restore, bc->base + bc_data->clk_reg_offset);
+> +}
+> +
+>  #ifdef CONFIG_PM
+>  static int imx95_bc_runtime_suspend(struct device *dev)
+>  {
+>  	struct imx95_blk_ctl *bc = dev_get_drvdata(dev);
+>
+> +	imx95_bc_save_reg(bc);
+
+this help function just one line. direct use
+
+writel(bc->clk_reg_restore, bc->base + bc->bc_data->clk_reg_offset);
+
+>  	clk_disable_unprepare(bc->clk_apb);
+> +
+>  	return 0;
+>  }
+>
+> @@ -461,7 +485,10 @@ static int imx95_bc_runtime_resume(struct device *dev)
+>  {
+>  	struct imx95_blk_ctl *bc = dev_get_drvdata(dev);
+>
+> -	return clk_prepare_enable(bc->clk_apb);
+> +	clk_prepare_enable(bc->clk_apb);
+
+Need check ret value;
+
+> +	imx95_bc_restore_reg(bc);
+> +
+> +	return 0;
+>  }
+>  #endif
+>
+> @@ -469,22 +496,12 @@ static int imx95_bc_runtime_resume(struct device *dev)
+>  static int imx95_bc_suspend(struct device *dev)
+>  {
+>  	struct imx95_blk_ctl *bc = dev_get_drvdata(dev);
+> -	const struct imx95_blk_ctl_dev_data *bc_data;
+> -	int ret;
+>
+> -	bc_data = of_device_get_match_data(dev);
+> -	if (!bc_data)
+> +	if (pm_runtime_suspended(dev))
+>  		return 0;
+>
+> -	if (bc_data->rpm_enabled) {
+> -		ret = pm_runtime_get_sync(bc->dev);
+> -		if (ret < 0) {
+> -			pm_runtime_put_noidle(bc->dev);
+> -			return ret;
+> -		}
+> -	}
+> -
+> -	bc->clk_reg_restore = readl(bc->base + bc_data->clk_reg_offset);
+> +	imx95_bc_save_reg(bc);
+> +	clk_disable_unprepare(bc->clk_apb);
+>
+>  	return 0;
+>  }
+> @@ -492,16 +509,12 @@ static int imx95_bc_suspend(struct device *dev)
+>  static int imx95_bc_resume(struct device *dev)
+>  {
+>  	struct imx95_blk_ctl *bc = dev_get_drvdata(dev);
+> -	const struct imx95_blk_ctl_dev_data *bc_data;
+>
+> -	bc_data = of_device_get_match_data(dev);
+> -	if (!bc_data)
+> +	if (pm_runtime_suspended(dev))
+>  		return 0;
+>
+> -	writel(bc->clk_reg_restore, bc->base + bc_data->clk_reg_offset);
+> -
+> -	if (bc_data->rpm_enabled)
+> -		pm_runtime_put(bc->dev);
+> +	clk_prepare_enable(bc->clk_apb);
+> +	imx95_bc_restore_reg(bc);
+>
+>  	return 0;
+>  }
+
+look like imx95_bc_suspend(resume) is simple enough
+
+Can you use DEFINE_RUNTIME_DEV_PM_OPS?
+
+Frank
+
+> --
+> 2.46.1
+>
 
