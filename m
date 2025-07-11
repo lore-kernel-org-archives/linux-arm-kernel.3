@@ -4,126 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 956C7C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 16:03:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CF89C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 16:05:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=brFnAh/YUrEXC18snDoiMV6YgR34Ku0ps2YTOINPKp4=; b=Slb6hL8ssf10Dcd/68NUg2CtOI
-	yzQNTcdhu5N7zMi2qTzcH7wS+WyjEKQGwehGpnlPFnVliOiIkyws2NQChwzUUyXeF5DFzErb/crAc
-	GV1uSrwVUsPE4/ItSykESWBdgUyzk7oYmtq2pvncKmrTQ/jrkdIYvHRgPuTuq4VHWmr14dtsBo7Ls
-	gMMaucBfhu8Nj3q6p7xMuFAj67v3UenLgBZC8WPSqQXmgF3jxvm+5w0i17v62ioXZL3dd/5K/mYQL
-	tqJxQVOjMVT/hcBNOF8VDhmCaax8X0xIu+Er9asLRb+u/RyCqN49QV6eVqkFOu1ZDUAXnt5QIzLeK
-	K5/Vlyjg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=t0chg3P4XqvgAZUIms8Yq5sWYUihi9BDdnPNYfdKkT4=; b=RldM/k8+DTdDkJ
+	E5FPr3StsrXyBTxK9+Drj6LYD/TCNSDS7HiFW8iBFB1yHBnka9YkEt/uhzt4bUje9CBjaor3be5P9
+	b+xRqbp+ttQr5WpMb256AWnjmBf8QZBL7LipH22Ff2VfkmgruPQg3lVrBvtlfckgoJw54mwdXCmJB
+	mSvjzV3LwTlH9uHqBbPZvuNcstvXiMj180SeEvwmWtz7xYSCoIr7QQg7zoQ4TOwh2J4MdEd8/zqj9
+	wz+cWh8M25V6JrazLjvfe1228oFJN/4uwWtm5/usUepYvBdCxWWSOMMGd0nyDs9rUfy5HWkHl9woc
+	+exrrNadMvGzvznwL6eQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaGDZ-0000000FDlr-3yqP;
-	Fri, 11 Jul 2025 16:03:21 +0000
-Received: from mout.gmx.net ([212.227.15.15])
+	id 1uaGFt-0000000FE7X-35qm;
+	Fri, 11 Jul 2025 16:05:45 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaFrs-0000000FAZP-3CJ4
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Jul 2025 15:40:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
-	s=s31663417; t=1752248449; x=1752853249; i=wahrenst@gmx.net;
-	bh=brFnAh/YUrEXC18snDoiMV6YgR34Ku0ps2YTOINPKp4=;
-	h=X-UI-Sender-Class:From:To:Cc:Subject:Date:Message-Id:In-Reply-To:
-	 References:MIME-Version:Content-Type:Content-Transfer-Encoding:cc:
-	 content-transfer-encoding:content-type:date:from:message-id:
-	 mime-version:reply-to:subject:to;
-	b=oU7isWcCDPrUs4R5IIi4gjbvyhmb0Fp4q0k2lpfKuvDyP50eCYALMhExwCwHX7HQ
-	 Zn7D469Uu5VqmRV+TnRhN517+YqRMQalTsGRrnBX3AkGaB5GEZrNjdh/GJJmZ0KKG
-	 oA4GxJusnOq0VaFdo78jEJZWCIkc/pdZxisYnJ1qAznanP17x41Muf/h0egGpbyuI
-	 xYftjH6TZxbQ1aSdSBeaBPnnQ1yEmW5a48QYh4UjWGuhSppP+9Kg86JfcpUt7o6Ex
-	 AVBBMmgD02mj49lBUMTyUdEX26gPmOjWQeMhKGbtkz8Sn1vRb94mA+TFAinuJttCc
-	 XjrNOng5AeFqqFAaHQ==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from stefanw-SCHENKER ([91.41.216.208]) by mail.gmx.net (mrgmx004
- [212.227.17.190]) with ESMTPSA (Nemesis) id 1MfYLa-1v7Nkk34Zc-00egZv; Fri, 11
- Jul 2025 17:40:46 +0200
-From: Stefan Wahren <wahrenst@gmx.net>
-To: Florian Fainelli <florian.fainelli@broadcom.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Dan Carpenter <dan.carpenter@linaro.org>,
-	linux-arm-kernel@lists.infradead.org,
-	bcm-kernel-feedback-list@broadcom.com,
-	kernel-list@raspberrypi.com,
-	linux-staging@lists.linux.dev,
-	Stefan Wahren <wahrenst@gmx.net>,
-	=?UTF-8?q?Ma=C3=ADra=20Canal?= <maira.canal@usp.br>,
-	stable@kernel.org
-Subject: [PATCH 2/3] Revert "staging: vchiq_arm: Create keep-alive thread during probe"
-Date: Fri, 11 Jul 2025 17:40:30 +0200
-Message-Id: <20250711154031.24178-3-wahrenst@gmx.net>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250711154031.24178-1-wahrenst@gmx.net>
-References: <20250711154031.24178-1-wahrenst@gmx.net>
+	id 1uaFCD-0000000F5Vt-0H9g;
+	Fri, 11 Jul 2025 14:57:54 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1752245865; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=BKXSQmTRtZE4n/PLG40EzPKN3e2ZCFPV2jt/BgYTlrlobqCUMqYt9hdAOlPNsgpGjPGSrG8izWIOy4L1yb4k7MGlLsYD5keiHPQUIdWp1xDXHTKpjiEJFciYqBjqh7yU5G/YKhfVbMBG5yA2ceRzXJlIJSyW2ZYG944CCpbbCw8=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1752245865; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=t0chg3P4XqvgAZUIms8Yq5sWYUihi9BDdnPNYfdKkT4=; 
+	b=OBlXM7syQnZanUMLqHGxwSEkqXDEB38Obj7ERRSuZ0idi08ZmGycssqqGQ/7wjXWmjUtH8QPNpUUQMSCstJbZD0KjeL4ztqc+9lgp060KH/hjS4SRFuBR95SULi/XmSqn64KyEyhoOpV8jrLk2hBvge7FRzkQSu4lh2hTAeeUYc=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1752245865;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:Subject:Subject:Date:Date:Message-Id:Message-Id:MIME-Version:Content-Type:Content-Transfer-Encoding:To:To:Cc:Cc:Reply-To;
+	bh=t0chg3P4XqvgAZUIms8Yq5sWYUihi9BDdnPNYfdKkT4=;
+	b=Ejmyyd4r2PfMQXooQj/iEZ7wQ49PnjK4PrYSt8mit6FbtiEgEIUj16e+FcwdRN5E
+	ukMbsM6eWIwnMgA7xGah1DRYgBMgoS4z/IYJu8tge1Sbqm1co/WvJG3ewqir8VfsutB
+	G29v0IV6azuNyNKIer6rI3MBCjioGglFyK1weBWs=
+Received: by mx.zohomail.com with SMTPS id 1752245863784678.2744682613209;
+	Fri, 11 Jul 2025 07:57:43 -0700 (PDT)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Subject: [PATCH 0/5] MT8196 CPUFreq Support
+Date: Fri, 11 Jul 2025 16:57:32 +0200
+Message-Id: <20250711-mt8196-cpufreq-v1-0-e1b0a3b4ac61@collabora.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:iQ+mfMQgYDa4LGt86vwa7KXqc4RyIl/YZQLn2lRdclPrN4+ym0t
- Aw9K9dBAv5avBRVSqdv9m0Fm+XMt5eVye78UNFAknM588p8ReH4OtTKs/wUQiDDNtmrFSXJ
- WsoK6DeyIoW0jn0rXfn8vF9CjI+Unk97euwnO4VNnx6vbeGA+1qGuWEaXJJgujvP7Ou4xR0
- OzRtFbW3v8AXEvrvGkCxA==
-UI-OutboundReport: notjunk:1;M01:P0:txfjVgtOJtk=;LjzrWJ+2CEwpjNsjQNsQyodP0KP
- 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
- uQr2Q=
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAFwmcWgC/zWMQQqDMBBFrxJm3YEkpal6leJC41hnkahJLIJ49
+ w6VLt/nv3dApsSUoVEHJPpw5jkKmJsCP3XxTciDMFhtH/ppDIZSmdqhX7Yx0YqVG2pnyN617kG
+ kJdHI+y/4ai+W2ybdco3Qd5nQzyFwaVSkveC/De15fgFkX5LDkQAAAA==
+X-Change-ID: 20250711-mt8196-cpufreq-86d961e2300b
+To: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ "Rafael J. Wysocki" <rafael@kernel.org>, 
+ Viresh Kumar <viresh.kumar@linaro.org>, 
+ Hector Yuan <hector.yuan@mediatek.com>
+Cc: kernel@collabora.com, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, linux-pm@vger.kernel.org, 
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250711_084057_100116_A04413CB 
-X-CRM114-Status: GOOD (  13.11  )
+X-CRM114-CacheID: sfid-20250711_075753_171028_0A853BBA 
+X-CRM114-Status: UNSURE (   9.31  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,150 +88,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The commit 86bc88217006 ("staging: vchiq_arm: Create keep-alive thread
-during probe") introduced a regression for certain configurations,
-which doesn't have a VCHIQ user. This results in a unused and hanging
-keep-alive thread:
+This series adds the necessary bindings and driver changes to integrate
+MT8196 CPUFreq into the existing mediatek-cpufreq-hw driver. This
+necessitated two preparatory cleanup patches to the driver.
 
-  INFO: task vchiq-keep/0:85 blocked for more than 120 seconds.
-        Not tainted 6.12.34-v8-+ #13
-  "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message=
-.
-  task:vchiq-keep/0    state:D stack:0 pid:85    tgid:85    ppid:2
-  Call trace:
-   __switch_to+0x188/0x230
-   __schedule+0xa54/0xb28
-   schedule+0x80/0x120
-   schedule_preempt_disabled+0x30/0x50
-   kthread+0xd4/0x1a0
-   ret_from_fork+0x10/0x20
+The CPU frequency was verified to actually be changing by comparing
+sysbench cpu numbers between fdvfs being enabled and it not being
+enabled.
 
-Fixes: 86bc88217006 ("staging: vchiq_arm: Create keep-alive thread during =
-probe")
-Reported-by: Ma=C3=ADra Canal <maira.canal@usp.br>
-Closes: https://lore.kernel.org/linux-staging/ba35b960-a981-4671-9f7f-060d=
-a10feaa1@usp.br/
-Cc: <stable@kernel.org>
-Signed-off-by: Stefan Wahren <wahrenst@gmx.net>
-=2D--
- .../interface/vchiq_arm/vchiq_arm.c           | 69 ++++++++++---------
- 1 file changed, 35 insertions(+), 34 deletions(-)
+Enablement in the DT will be done once the MT8196 DT lands, so don't be
+surprised that no node uses these new compatibles so far.
 
-diff --git a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.c=
- b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.c
-index cdf5687ad4f0..6434cbdc1a6e 100644
-=2D-- a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.c
-+++ b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.c
-@@ -280,6 +280,29 @@ static int vchiq_platform_init(struct platform_device=
- *pdev, struct vchiq_state
- 	return 0;
- }
-=20
-+int
-+vchiq_platform_init_state(struct vchiq_state *state)
-+{
-+	struct vchiq_arm_state *platform_state;
-+
-+	platform_state =3D devm_kzalloc(state->dev, sizeof(*platform_state), GFP=
-_KERNEL);
-+	if (!platform_state)
-+		return -ENOMEM;
-+
-+	rwlock_init(&platform_state->susp_res_lock);
-+
-+	init_completion(&platform_state->ka_evt);
-+	atomic_set(&platform_state->ka_use_count, 0);
-+	atomic_set(&platform_state->ka_use_ack_count, 0);
-+	atomic_set(&platform_state->ka_release_count, 0);
-+
-+	platform_state->state =3D state;
-+
-+	state->platform_state =3D (struct opaque_platform_state *)platform_state=
-;
-+
-+	return 0;
-+}
-+
- static struct vchiq_arm_state *vchiq_platform_get_arm_state(struct vchiq_=
-state *state)
- {
- 	return (struct vchiq_arm_state *)state->platform_state;
-@@ -988,39 +1011,6 @@ vchiq_keepalive_thread_func(void *v)
- 	return 0;
- }
-=20
--int
--vchiq_platform_init_state(struct vchiq_state *state)
--{
--	struct vchiq_arm_state *platform_state;
--	char threadname[16];
--
--	platform_state =3D devm_kzalloc(state->dev, sizeof(*platform_state), GFP=
-_KERNEL);
--	if (!platform_state)
--		return -ENOMEM;
--
--	snprintf(threadname, sizeof(threadname), "vchiq-keep/%d",
--		 state->id);
--	platform_state->ka_thread =3D kthread_create(&vchiq_keepalive_thread_fun=
-c,
--						   (void *)state, threadname);
--	if (IS_ERR(platform_state->ka_thread)) {
--		dev_err(state->dev, "couldn't create thread %s\n", threadname);
--		return PTR_ERR(platform_state->ka_thread);
--	}
--
--	rwlock_init(&platform_state->susp_res_lock);
--
--	init_completion(&platform_state->ka_evt);
--	atomic_set(&platform_state->ka_use_count, 0);
--	atomic_set(&platform_state->ka_use_ack_count, 0);
--	atomic_set(&platform_state->ka_release_count, 0);
--
--	platform_state->state =3D state;
--
--	state->platform_state =3D (struct opaque_platform_state *)platform_state=
-;
--
--	return 0;
--}
--
- int
- vchiq_use_internal(struct vchiq_state *state, struct vchiq_service *servi=
-ce,
- 		   enum USE_TYPE_E use_type)
-@@ -1341,6 +1331,7 @@ void vchiq_platform_conn_state_changed(struct vchiq_=
-state *state,
- 				       enum vchiq_connstate newstate)
- {
- 	struct vchiq_arm_state *arm_state =3D vchiq_platform_get_arm_state(state=
-);
-+	char threadname[16];
-=20
- 	dev_dbg(state->dev, "suspend: %d: %s->%s\n",
- 		state->id, get_conn_state_name(oldstate), get_conn_state_name(newstate)=
-);
-@@ -1355,7 +1346,17 @@ void vchiq_platform_conn_state_changed(struct vchiq=
-_state *state,
-=20
- 	arm_state->first_connect =3D 1;
- 	write_unlock_bh(&arm_state->susp_res_lock);
--	wake_up_process(arm_state->ka_thread);
-+	snprintf(threadname, sizeof(threadname), "vchiq-keep/%d",
-+		 state->id);
-+	arm_state->ka_thread =3D kthread_create(&vchiq_keepalive_thread_func,
-+					      (void *)state,
-+					      threadname);
-+	if (IS_ERR(arm_state->ka_thread)) {
-+		dev_err(state->dev, "suspend: Couldn't create thread %s\n",
-+			threadname);
-+	} else {
-+		wake_up_process(arm_state->ka_thread);
-+	}
- }
-=20
- static const struct of_device_id vchiq_of_match[] =3D {
-=2D-=20
-2.34.1
+Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+---
+Nicolas Frattaroli (5):
+      dt-bindings: mfd: syscon: Add mt8196 fdvfs syscons
+      dt-bindings: cpufreq: mediatek-hw: add mt8196 cpufreq binding
+      cpufreq: mediatek-hw: Refactor match data into struct
+      cpufreq: mediatek-hw: Separate per-domain and per-instance data
+      cpufreq: mediatek-hw: Add support for MT8196
+
+ .../bindings/cpufreq/cpufreq-mediatek-hw.yaml      |  64 +++++++++-
+ Documentation/devicetree/bindings/mfd/syscon.yaml  |   4 +
+ drivers/cpufreq/mediatek-cpufreq-hw.c              | 140 +++++++++++++++++----
+ 3 files changed, 184 insertions(+), 24 deletions(-)
+---
+base-commit: 42f78243e0c6fe42f2710f98513a55c102347ff0
+change-id: 20250711-mt8196-cpufreq-86d961e2300b
+
+Best regards,
+-- 
+Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 
 
