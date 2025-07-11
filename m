@@ -4,154 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D225C83F1B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 13:05:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71768C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 13:15:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=99/nrZ3jMvnnDXT1EtGRSVK6t1HpEMJ2yRrbZ2a36ss=; b=SxFlW1+ysC49lly+m6uM4fV+Zk
-	nIR87GV7+gX2nzpiS35O4/Q+oBzB9IIceCP1Td75ijFNhr5UqOM8+NPU0qnrYBrGpQKw8KJpDJW9t
-	/U+UKCB018W5nlYGwuSbBLPjLO9GHTZMAk/D0gfaLXi2DBc7rveBqFMgL0WGahR2zhiXf/Jc8bPmr
-	V55kEvVVntOA8qE2ozLOqRErPpwzDTIdYs6lQ0vi3Uv1CH2xuN8uq6YI/fDaxMk4vePxVP45moJDX
-	iXsOUKwVDKOfMlWLovZD6fIYaHuvdIZ5Q7a8Sp7qoXrgWW/vTasT94LDOzcrNEB0AGfRkktU/stZm
-	WrUuxr8w==;
+	bh=a7BfEZoZQu3SwuJ/rpFiN0PyHfNhO1g9QtS0vUT2TR8=; b=O2npTdEXKL+IsRUkuO5jU/WlUz
+	XbbcVZvVYxgEyB/4hecEBu1WLk6U26egmRKKY223G3AQAM95sZde+7Nv9QJUsGDKOuG53VM/8xlJ/
+	huQx2ojwcVVtqh8AO9RK/vo67FeRAtBXqpjcZjEgiS9J2yjeOBgfGuc6GHadnyAoK7Ajiq3EPogeC
+	fy98ckhNV74tMERgQLg0qgqZ36PrfR/RZO/DGW4hAZIZ8E61vxNHxef4+M6Vg75EFmJBzsLppy3XL
+	WlrQVf67TVc4idtndE8Mp9H64ASFgW/u4MqwzqujgYdxsPFM86fZnizMtGwH5pNd7sZwwHzWl/vux
+	La0Tk2iA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaDRJ-0000000EpPj-2mLx;
-	Fri, 11 Jul 2025 13:05:21 +0000
-Received: from smtp-out1.suse.de ([195.135.223.130])
+	id 1uaDaZ-0000000EqtM-0QcC;
+	Fri, 11 Jul 2025 13:14:55 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaDN6-0000000EoSE-0voU
+	id 1uaDYD-0000000EqbX-0mgG
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Jul 2025 13:01:01 +0000
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id 8E277211A1;
-	Fri, 11 Jul 2025 13:00:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1752238858; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=99/nrZ3jMvnnDXT1EtGRSVK6t1HpEMJ2yRrbZ2a36ss=;
-	b=EIabZncsmdgObTpqbVT7iazVG+CJVs8CfHJkhkXVBdUNKSNxb2qpFnFsxczCd6mJHRJipR
-	K5ZWX0c1IV83fRF5+ACDnDYOPwQJLLKYktLx9PIZW2/B4cGFPW29JD0vZSTCR8ofzNgvXp
-	dztMQ2eWHdEW8GHQqwo2xDxePWV9Ed8=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1752238858;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=99/nrZ3jMvnnDXT1EtGRSVK6t1HpEMJ2yRrbZ2a36ss=;
-	b=UfGei8LTKPLOBPN2mXLGtctqnYSsqbb/d3+1+IFV5osq3wVnWWCXEf7ARCmOywavObR0cP
-	4axW4ATOf+VF0EBw==
-Authentication-Results: smtp-out1.suse.de;
-	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=EIabZncs;
-	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=UfGei8LT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1752238858; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=99/nrZ3jMvnnDXT1EtGRSVK6t1HpEMJ2yRrbZ2a36ss=;
-	b=EIabZncsmdgObTpqbVT7iazVG+CJVs8CfHJkhkXVBdUNKSNxb2qpFnFsxczCd6mJHRJipR
-	K5ZWX0c1IV83fRF5+ACDnDYOPwQJLLKYktLx9PIZW2/B4cGFPW29JD0vZSTCR8ofzNgvXp
-	dztMQ2eWHdEW8GHQqwo2xDxePWV9Ed8=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1752238858;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=99/nrZ3jMvnnDXT1EtGRSVK6t1HpEMJ2yRrbZ2a36ss=;
-	b=UfGei8LTKPLOBPN2mXLGtctqnYSsqbb/d3+1+IFV5osq3wVnWWCXEf7ARCmOywavObR0cP
-	4axW4ATOf+VF0EBw==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id E2EC413918;
-	Fri, 11 Jul 2025 13:00:57 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id i29HNgkLcWj7NgAAD6G6ig
-	(envelope-from <tiwai@suse.de>); Fri, 11 Jul 2025 13:00:57 +0000
-Date: Fri, 11 Jul 2025 15:00:53 +0200
-Message-ID: <87wm8eg9ve.wl-tiwai@suse.de>
-From: Takashi Iwai <tiwai@suse.de>
-To: Joris Verhaegen <verhaegen@google.com>
-Cc: Charles Keepax <ckeepax@opensource.cirrus.com>,
-	Vinod Koul <vkoul@kernel.org>,
-	Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>,
-	Richard Fitzgerald <rf@opensource.cirrus.com>,
-	David Rhodes <david.rhodes@cirrus.com>,
-	Cezary Rojewski <cezary.rojewski@intel.com>,
-	Peter Ujfalusi <peter.ujfalusi@linux.intel.com>,
-	Bard Liao <yung-chuan.liao@linux.intel.com>,
-	Ranjani Sridharan <ranjani.sridharan@linux.intel.com>,
-	Kai Vehmanen <kai.vehmanen@linux.intel.com>,
-	Pierre-Louis Bossart <pierre-louis.bossart@linux.dev>,
-	Srinivas Kandagatla <srini@kernel.org>,
-	Daniel Baluta <daniel.baluta@nxp.com>,
-	Orson Zhai <orsonzhai@gmail.com>,
-	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	Chunyan Zhang <zhang.lyra@gmail.com>,
-	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	kernel-team@android.com,
-	linux-sound@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	patches@opensource.cirrus.com,
-	linux-arm-msm@vger.kernel.org,
-	sound-open-firmware@alsa-project.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 0/4] ALSA: compress_offload: Add 64-bit safe timestamp API
-In-Reply-To: <8734b2hpcu.wl-tiwai@suse.de>
-References: <20250711093636.28204-1-verhaegen@google.com>
-	<aHD7/9MZbcOmn+08@opensource.cirrus.com>
-	<8734b2hpcu.wl-tiwai@suse.de>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) Emacs/27.2 Mule/6.0
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-Spamd-Result: default: False [-2.01 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	SUSPICIOUS_RECIPS(1.50)[];
-	MID_CONTAINS_FROM(1.00)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	MX_GOOD(-0.01)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	ARC_NA(0.00)[];
-	FUZZY_RATELIMITED(0.00)[rspamd.com];
-	RCPT_COUNT_TWELVE(0.00)[29];
-	MIME_TRACE(0.00)[0:+];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com];
-	FREEMAIL_CC(0.00)[opensource.cirrus.com,kernel.org,perex.cz,suse.com,gmail.com,cirrus.com,intel.com,linux.intel.com,linux.dev,nxp.com,linux.alibaba.com,socionext.com,android.com,vger.kernel.org,alsa-project.org,lists.infradead.org];
-	RCVD_TLS_ALL(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	TO_DN_SOME(0.00)[];
-	DNSWL_BLOCKED(0.00)[2a07:de40:b281:106:10:150:64:167:received];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	TAGGED_RCPT(0.00)[];
-	DKIM_TRACE(0.00)[suse.de:+];
-	R_RATELIMIT(0.00)[to_ip_from(RLzj6aswpe58r68z1acwzd13oz)];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:mid,suse.de:dkim,imap1.dmz-prg2.suse.org:helo,imap1.dmz-prg2.suse.org:rdns]
-X-Rspamd-Queue-Id: 8E277211A1
-X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
-X-Rspamd-Action: no action
+	Fri, 11 Jul 2025 13:12:30 +0000
+Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56BAJxcX003966;
+	Fri, 11 Jul 2025 13:12:21 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	a7BfEZoZQu3SwuJ/rpFiN0PyHfNhO1g9QtS0vUT2TR8=; b=Fww49xq9hTDViQjw
+	0A+jEU9FS4uNrgLsvcNW8ddu1ST2AhGMEMWe9h3x0mUHXMihGlX4FDl5U94r38Js
+	NNzelpyM5agVW2+EUTh9d2WcB8zuTAuVLbHCi4kK+XLP84zwFjU2AwEqAvI3P7Ta
+	7DlDyPaSNXwcnNopvH1tJyMPIAO6Q9S9qyQdMojJrLscqGuRVmDQ5rJKFuoJXeKW
+	f+C9On32rnT8k+4v1aAV+O64Uu1VjvPkQGZoDTyrdyFZ3ZXTFg6UrsNMva92/xJM
+	cnbHYdKsb/PzpvAGTEGhgg3HBOq1tYk4/bhZBmtmyabpJUNjGaaR9U4fFARD8ioe
+	Qc0R8w==
+Received: from nasanppmta02.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 47smbp0qrk-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 11 Jul 2025 13:12:21 +0000 (GMT)
+Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
+	by NASANPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 56BDCKhn008326
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 11 Jul 2025 13:12:20 GMT
+Received: from hu-vikramsa-hyd.qualcomm.com (10.80.80.8) by
+ nasanex01b.na.qualcomm.com (10.46.141.250) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1748.10; Fri, 11 Jul 2025 06:12:14 -0700
+From: Vikram Sharma <quic_vikramsa@quicinc.com>
+To: <rfoss@kernel.org>, <todor.too@gmail.com>, <bryan.odonoghue@linaro.org>,
+        <mchehab@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+        <conor+dt@kernel.org>, <andersson@kernel.org>,
+        <konradybcio@kernel.org>, <hverkuil-cisco@xs4all.nl>,
+        <cros-qcom-dts-watchers@chromium.org>, <catalin.marinas@arm.com>,
+        <will@kernel.org>
+CC: <linux-arm-kernel@lists.infradead.org>, <quic_vikramsa@quicinc.com>,
+        <quic_svankada@quicinc.com>, <linux-media@vger.kernel.org>,
+        <linux-arm-msm@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>
+Subject: [PATCH v2 2/7] arm64: dts: qcom: qcs8300: Add support for camss
+Date: Fri, 11 Jul 2025 18:41:29 +0530
+Message-ID: <20250711131134.215382-3-quic_vikramsa@quicinc.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20250711131134.215382-1-quic_vikramsa@quicinc.com>
+References: <20250711131134.215382-1-quic_vikramsa@quicinc.com>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nasanex01b.na.qualcomm.com (10.46.141.250)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNzExMDA5MyBTYWx0ZWRfXxAkp7CgCyCBk
+ pjxZT/zOCMsTKZWjjbGN1TlWYBKpHiJd7GmcQN/gZVlj8ier8IY/MHNfhBdEWWhBR7N7zfaEpaL
+ xpFx3GhDyLABAxCfP40BDhyJyeEge4ptTf5nHCB+E093SGCquy/CExEWJTrFVviMpGFfSEvxwQp
+ bNcrPJQw2Vb/AIclMSSawmT1XReEn/6o+TKcmFZC2z4ROc20TNSLRvb9LE3zUUpjOVA6RpcE4/p
+ f7VXdCWi8iO4gmYEQzXIQQlNMtW1O8Wv9J42BhlqEO2qN8goaxwiLxYMTKlNNu2ctkhVnnfEBcF
+ wj6kKYtrO5Pp8wzvHnWoSmgGLmHwjZ1hkpoq5IjkoC4SLH7rNKae6p25tSjhN/PxMuzT1chMp89
+ VepU5z4jUB1Yd3aHGMvJ8K74Pwg77hl2jaubVPe/2EtsKQThdWp9EQyYodcivQaZr3QsDDXp
+X-Authority-Analysis: v=2.4 cv=QM1oRhLL c=1 sm=1 tr=0 ts=68710db5 cx=c_pps
+ a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
+ a=GEpy-HfZoHoA:10 a=Wb1JkmetP80A:10 a=COk6AnOGAAAA:8 a=AC53fZwHxVk_KJ4oawMA:9
+ a=r64JXrcYgPYOjR7z:21 a=TjNXssC_j7lpFel5tvFf:22
+X-Proofpoint-ORIG-GUID: gAqV8pyWZ1MA6SvKz_hZ56t1jvq4rE5G
+X-Proofpoint-GUID: gAqV8pyWZ1MA6SvKz_hZ56t1jvq4rE5G
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.7,FMLib:17.12.80.40
+ definitions=2025-07-11_03,2025-07-09_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 impostorscore=0 malwarescore=0 suspectscore=0
+ lowpriorityscore=0 priorityscore=1501 bulkscore=0 adultscore=0 mlxscore=0
+ phishscore=0 mlxlogscore=908 spamscore=0 classifier=spam authscore=0
+ authtc=n/a authcc= route=outbound adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2505280000 definitions=main-2507110093
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250711_060100_838100_812BCBAC 
-X-CRM114-Status: GOOD (  33.12  )
+X-CRM114-CacheID: sfid-20250711_061229_220790_0BD95508 
+X-CRM114-Status: GOOD (  11.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,69 +116,196 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 11 Jul 2025 14:41:05 +0200,
-Takashi Iwai wrote:
-> 
-> On Fri, 11 Jul 2025 13:56:47 +0200,
-> Charles Keepax wrote:
-> > 
-> > On Fri, Jul 11, 2025 at 10:36:26AM +0100, Joris Verhaegen wrote:
-> > > The current compress offload timestamping API relies on
-> > > struct snd_compr_tstamp, whose cumulative counters like
-> > > copied_total are defined as __u32. On long-running high-resolution
-> > > audio streams, these 32-bit counters can overflow,
-> > > causing incorrect availability calculations.
-> > > 
-> > > This patch series introduces a parallel, 64-bit safe API to solve
-> > > this problem while maintaining perfect backward compatibility with the
-> > > existing UAPI. A new pointer64 operation and corresponding ioctls
-> > > are added to allow the kernel to track counters using u64 and expose
-> > > these full-width values to user-space.
-> > > 
-> > > The series is structured as follows:
-> > > 
-> > > Patch 1: Introduces the new internal pointer64 op, refactors the
-> > > core logic to use it, and defines the new UAPI structs.
-> > > 
-> > > Patch 2: Exposes the SNDRV_COMPRESS_TSTAMP64 ioctl.
-> > > 
-> > > Patch 3: Exposes the corresponding SNDRV_COMPRESS_AVAIL64 ioctl.
-> > > 
-> > > Patch 4: Implements the new .pointer64 operation in various ASoC
-> > > drivers that support compress offload.
-> > > 
-> > > This series has been tested on a Pixel 9 device. All compress offload
-> > > use cases, including long-running playback, were verified to work
-> > > correctly with the new 64-bit API, and no regressions were observed
-> > > when using the legacy API.
-> > > 
-> > > Thanks,
-> > > Joris (George) Verhaegen
-> > > 
-> > > Signed-off-by: Joris Verhaegen <verhaegen@google.com>
-> > > 
-> > > ---
-> > 
-> > Would it not be slightly simpler to just update all the in kernel
-> > bits to use 64-bit and then only convert to 32-bit for the
-> > existing 32-bit IOCTLs? Why do we need 32-bit callbacks into the
-> > drivers for example?
-> 
-> Right, it's a usual pattern to have only the 64bit ops in the kernel
-> driver side while providing the 32bit stuff converted in the core
-> layer.  Having two different ops are rather confusing and
-> superfluous after conversions.
-> 
-> If there are tons of users for this API, it'd be needed to convert
-> gradually, and eventually drop the 32bit ops at the end.  But in this
-> case, there doesn't seem so many relevant drivers, hence the
-> conversion can be done in a shot as done in your patch 4.
+Add changes to support the camera subsystem on the QCS8300.
 
-Also, don't forget to increase the protocol version if you change the
-ABI.
+Signed-off-by: Vikram Sharma <quic_vikramsa@quicinc.com>
+---
+ arch/arm64/boot/dts/qcom/qcs8300.dtsi | 171 ++++++++++++++++++++++++++
+ 1 file changed, 171 insertions(+)
 
+diff --git a/arch/arm64/boot/dts/qcom/qcs8300.dtsi b/arch/arm64/boot/dts/qcom/qcs8300.dtsi
+index 7ada029c32c1..a54172fa9b0e 100644
+--- a/arch/arm64/boot/dts/qcom/qcs8300.dtsi
++++ b/arch/arm64/boot/dts/qcom/qcs8300.dtsi
+@@ -4295,6 +4295,177 @@ videocc: clock-controller@abf0000 {
+ 			#power-domain-cells = <1>;
+ 		};
+ 
++		camss: isp@ac7a000 {
++			compatible = "qcom,qcs8300-camss";
++
++			reg = <0x0 0xac7a000 0x0 0x0f00>,
++			      <0x0 0xac7c000 0x0 0x0f00>,
++			      <0x0 0xac84000 0x0 0x0f00>,
++			      <0x0 0xac88000 0x0 0x0f00>,
++			      <0x0 0xac8c000 0x0 0x0f00>,
++			      <0x0 0xac90000 0x0 0x0f00>,
++			      <0x0 0xac94000 0x0 0x0f00>,
++			      <0x0 0xac78000 0x0 0x1000>,
++			      <0x0 0xac9c000 0x0 0x2000>,
++			      <0x0 0xac9e000 0x0 0x2000>,
++			      <0x0 0xaca0000 0x0 0x2000>,
++			      <0x0 0xacac000 0x0 0x0400>,
++			      <0x0 0xacad000 0x0 0x0400>,
++			      <0x0 0xacae000 0x0 0x0400>,
++			      <0x0 0xac4d000 0x0 0xf000>,
++			      <0x0 0xac60000 0x0 0xf000>,
++			      <0x0 0xac85000 0x0 0x0d00>,
++			      <0x0 0xac89000 0x0 0x0d00>,
++			      <0x0 0xac8d000 0x0 0x0d00>,
++			      <0x0 0xac91000 0x0 0x0d00>,
++			      <0x0 0xac95000 0x0 0x0d00>;
++			reg-names = "csid0",
++				    "csid1",
++				    "csid_lite0",
++				    "csid_lite1",
++				    "csid_lite2",
++				    "csid_lite3",
++				    "csid_lite4",
++				    "csid_wrapper",
++				    "csiphy0",
++				    "csiphy1",
++				    "csiphy2",
++				    "tpg0",
++				    "tpg1",
++				    "tpg2",
++				    "vfe0",
++				    "vfe1",
++				    "vfe_lite0",
++				    "vfe_lite1",
++				    "vfe_lite2",
++				    "vfe_lite3",
++				    "vfe_lite4";
++
++			clocks = <&camcc CAM_CC_CAMNOC_AXI_CLK>,
++				 <&camcc CAM_CC_CORE_AHB_CLK>,
++				 <&camcc CAM_CC_CPAS_AHB_CLK>,
++				 <&camcc CAM_CC_CPAS_FAST_AHB_CLK>,
++				 <&camcc CAM_CC_CPAS_IFE_LITE_CLK>,
++				 <&camcc CAM_CC_CPAS_IFE_0_CLK>,
++				 <&camcc CAM_CC_CPAS_IFE_1_CLK>,
++				 <&camcc CAM_CC_CSID_CLK>,
++				 <&camcc CAM_CC_CSIPHY0_CLK>,
++				 <&camcc CAM_CC_CSI0PHYTIMER_CLK>,
++				 <&camcc CAM_CC_CSIPHY1_CLK>,
++				 <&camcc CAM_CC_CSI1PHYTIMER_CLK>,
++				 <&camcc CAM_CC_CSIPHY2_CLK>,
++				 <&camcc CAM_CC_CSI2PHYTIMER_CLK>,
++				 <&camcc CAM_CC_CSID_CSIPHY_RX_CLK>,
++				 <&gcc GCC_CAMERA_HF_AXI_CLK>,
++				 <&gcc GCC_CAMERA_SF_AXI_CLK>,
++				 <&camcc CAM_CC_ICP_AHB_CLK>,
++				 <&camcc CAM_CC_IFE_0_CLK>,
++				 <&camcc CAM_CC_IFE_0_FAST_AHB_CLK>,
++				 <&camcc CAM_CC_IFE_1_CLK>,
++				 <&camcc CAM_CC_IFE_1_FAST_AHB_CLK>,
++				 <&camcc CAM_CC_IFE_LITE_CLK>,
++				 <&camcc CAM_CC_IFE_LITE_AHB_CLK>,
++				 <&camcc CAM_CC_IFE_LITE_CPHY_RX_CLK>,
++				 <&camcc CAM_CC_IFE_LITE_CSID_CLK>;
++			clock-names = "camnoc_axi",
++				      "core_ahb",
++				      "cpas_ahb",
++				      "cpas_fast_ahb_clk",
++				      "cpas_vfe_lite",
++				      "cpas_vfe0",
++				      "cpas_vfe1",
++				      "csid",
++				      "csiphy0",
++				      "csiphy0_timer",
++				      "csiphy1",
++				      "csiphy1_timer",
++				      "csiphy2",
++				      "csiphy2_timer",
++				      "csiphy_rx",
++				      "gcc_axi_hf",
++				      "gcc_axi_sf",
++				      "icp_ahb",
++				      "vfe0",
++				      "vfe0_fast_ahb",
++				      "vfe1",
++				      "vfe1_fast_ahb",
++				      "vfe_lite",
++				      "vfe_lite_ahb",
++				      "vfe_lite_cphy_rx",
++				      "vfe_lite_csid";
++
++			interrupts = <GIC_SPI 565 IRQ_TYPE_EDGE_RISING>,
++				     <GIC_SPI 564 IRQ_TYPE_EDGE_RISING>,
++				     <GIC_SPI 468 IRQ_TYPE_EDGE_RISING>,
++				     <GIC_SPI 359 IRQ_TYPE_EDGE_RISING>,
++				     <GIC_SPI 759 IRQ_TYPE_EDGE_RISING>,
++				     <GIC_SPI 758 IRQ_TYPE_EDGE_RISING>,
++				     <GIC_SPI 604 IRQ_TYPE_EDGE_RISING>,
++				     <GIC_SPI 477 IRQ_TYPE_EDGE_RISING>,
++				     <GIC_SPI 478 IRQ_TYPE_EDGE_RISING>,
++				     <GIC_SPI 479 IRQ_TYPE_EDGE_RISING>,
++				     <GIC_SPI 545 IRQ_TYPE_EDGE_RISING>,
++				     <GIC_SPI 546 IRQ_TYPE_EDGE_RISING>,
++				     <GIC_SPI 547 IRQ_TYPE_EDGE_RISING>,
++				     <GIC_SPI 465 IRQ_TYPE_EDGE_RISING>,
++				     <GIC_SPI 467 IRQ_TYPE_EDGE_RISING>,
++				     <GIC_SPI 469 IRQ_TYPE_EDGE_RISING>,
++				     <GIC_SPI 360 IRQ_TYPE_EDGE_RISING>,
++				     <GIC_SPI 761 IRQ_TYPE_EDGE_RISING>,
++				     <GIC_SPI 760 IRQ_TYPE_EDGE_RISING>,
++				     <GIC_SPI 605 IRQ_TYPE_EDGE_RISING>;
++			interrupt-names = "csid0",
++					  "csid1",
++					  "csid_lite0",
++					  "csid_lite1",
++					  "csid_lite2",
++					  "csid_lite3",
++					  "csid_lite4",
++					  "csiphy0",
++					  "csiphy1",
++					  "csiphy2",
++					  "tpg0",
++					  "tpg1",
++					  "tpg2",
++					  "vfe0",
++					  "vfe1",
++					  "vfe_lite0",
++					  "vfe_lite1",
++					  "vfe_lite2",
++					  "vfe_lite3",
++					  "vfe_lite4";
++
++			interconnects = <&gem_noc MASTER_APPSS_PROC QCOM_ICC_TAG_ACTIVE_ONLY
++					 &config_noc SLAVE_CAMERA_CFG QCOM_ICC_TAG_ACTIVE_ONLY>,
++					<&mmss_noc MASTER_CAMNOC_HF QCOM_ICC_TAG_ALWAYS
++					 &mc_virt SLAVE_EBI1 QCOM_ICC_TAG_ALWAYS>;
++			interconnect-names = "ahb",
++					     "hf_0";
++
++			iommus = <&apps_smmu 0x2400 0x20>;
++
++			power-domains = <&camcc CAM_CC_TITAN_TOP_GDSC>;
++			power-domain-names = "top";
++
++			status = "disabled";
++
++			ports {
++				#address-cells = <1>;
++				#size-cells = <0>;
++				port@0 {
++					reg = <0>;
++				};
++
++				port@1 {
++					reg = <1>;
++				};
++
++				port@2 {
++					reg = <2>;
++				};
++			};
++		};
++
+ 		camcc: clock-controller@ade0000 {
+ 			compatible = "qcom,qcs8300-camcc";
+ 			reg = <0x0 0x0ade0000 0x0 0x20000>;
+-- 
+2.25.1
 
-thanks,
-
-Takashi
 
