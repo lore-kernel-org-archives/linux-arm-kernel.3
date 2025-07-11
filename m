@@ -4,62 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C42ADC83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 07:55:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C65EC83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 07:57:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JCOrXCKgge6QOZkLglkzmUiuLURITUpakbtlFPV6PUU=; b=QcSd/lQe5XhuQ+7yFUHy5ebilq
-	iUZoWFty8QxoeWtNwLIS8c277PlNU/1JNsmigWlRNjh4zAU9CHDTP76Sl6P6fkgZWvj6fEvrkkU/d
-	U0IH09CI16qn4yub0lpJh9f7t3b9w5unBcYUyFjx4t8NiE6t+NAuQ+HKFrkUCJaPPLEEsX3ws6rmb
-	qlT0EAHbLL7KInYK0LLUxcL4S/dJl0voK/XxCjCEsvhEtWPGNCGh12oJW724ORvv8rSeDq4xyy+ld
-	g/aYA8uf5w/xzXB6nI7eV/vcA1fljyfIyxOFUlQe+KhvWMf/9kGJDYdJad+0oCa/BzyXsCyntCjo7
-	cXUz+ciQ==;
+	bh=1jefdio8tGYsknTVzQh6U96XwdfPTWnq4uBGNVmYT48=; b=qLL62OoHME6WoauJ6UQdIp6jA9
+	BWhhl/Ml70h53lx7jsji09bHcd13DOa2q6A8TzgdinU2ZwIKlkhYzXzaweEx4ZNZiKdUgNxRtuJ6T
+	QLllMg/zXSJ66MPrAF7mrepI4J+10uygs3rvlXwFRXx2dMcocwkHs8ZdnF7q6qwzPqjfV4mb4H998
+	kF9jWC4k5rVoA823ZQWoAE0IapZ3WlXnYIDinbkpDNs0+xxbX1tom53VMciAjLQVLayD1bu+K5p/Z
+	wrryGvOYE/AxnIjN/rR+sqF6F2c94uDq4yODvd61yVU1m/9R4UzmdASOJNShnGKksqucSQv+V0mwk
+	834P8cCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ua8bL-0000000E2s5-3pmG;
-	Fri, 11 Jul 2025 07:55:23 +0000
-Received: from mail-m16.yeah.net ([1.95.21.15])
+	id 1ua8de-0000000E3Ao-2ZLT;
+	Fri, 11 Jul 2025 07:57:46 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ua8HW-0000000DzZm-3rNi
+	id 1ua8JK-0000000Dzow-1SfR
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Jul 2025 07:34:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
-	s=s110527; h=Date:From:To:Subject:Message-ID:MIME-Version:
-	Content-Type; bh=JCOrXCKgge6QOZkLglkzmUiuLURITUpakbtlFPV6PUU=;
-	b=StSQw2gMDVcKBlj/kC6pXaz74v2b/6RJZmQOmPuvZ5U9poIWWbaLWyKnIREPGs
-	9xtId/de7VmDDL2cJ9fxdZQfq8pcFnrZjc09LVg5WMz0Mn86efAX/DE7uYulYou7
-	jb7d2wY0AP+uwA1AWfKZSQTrWHtK/v0smcIMAFAzUk+ZA=
-Received: from dragon (unknown [])
-	by gzsmtp2 (Coremail) with SMTP id Ms8vCgDnzyKKvnBopsxSAA--.57501S3;
-	Fri, 11 Jul 2025 15:34:36 +0800 (CST)
-Date: Fri, 11 Jul 2025 15:34:34 +0800
-From: Shawn Guo <shawnguo2@yeah.net>
-To: Ioana Ciornei <ioana.ciornei@nxp.com>
-Cc: Shawn Guo <shawnguo@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64: dts: lx2160a-qds: add the two on-board RGMII PHYs
-Message-ID: <aHC-ir_1X0RO6MJF@dragon>
-References: <20250707153331.1372606-1-ioana.ciornei@nxp.com>
+	Fri, 11 Jul 2025 07:36:47 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 2EC4D452B2;
+	Fri, 11 Jul 2025 07:36:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7A59FC4CEED;
+	Fri, 11 Jul 2025 07:36:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1752219404;
+	bh=a0wdQROj3hyxjpHmI3TPp1B/1v9dnKkpod7Q3zxg27o=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=pDiyKLTj2+sXbOPoA09zNCj+YoGUJjOjlVrtsiy2CXqLzoOX57nGU7EqPOQre5vS5
+	 SA9h4C+3e0Itmc0CPM/zi7oX76RjAbolfE8D1d8V6CHKfAbiXJnudy5TmDfu2QMuNP
+	 y5L9Ese8GdUsfdKg9WekbMeczMdcyvsPUBBsN9boSbSzQovZVqAsCBRiWoINqgINJ7
+	 vYFi2Pexu7Sl1acSNEPKZiYH/RUIQjzmcNmIxTcnDXIiZM28G/+QHuqjpiEmKSpvqR
+	 QzR9ipvKvQR7nUJh2Sq2wINeUPQO3Y0XtsJGgt20qywberxIUO1y6y8sXM93YskG9H
+	 2d+YQDEjcDTZg==
+Date: Fri, 11 Jul 2025 09:36:41 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Andrei Stefanescu <andrei.stefanescu@oss.nxp.com>
+Cc: linus.walleij@linaro.org, brgl@bgdev.pl, robh@kernel.org, 
+	krzk+dt@kernel.org, conor+dt@kernel.org, chester62515@gmail.com, mbrugger@suse.com, 
+	Ghennadi.Procopciuc@nxp.com, larisa.grigore@nxp.com, lee@kernel.org, shawnguo@kernel.org, 
+	s.hauer@pengutronix.de, festevam@gmail.com, aisheng.dong@nxp.com, ping.bai@nxp.com, 
+	gregkh@linuxfoundation.org, rafael@kernel.org, srini@kernel.org, linux-gpio@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, s32@nxp.com, clizzi@redhat.com, aruizrui@redhat.com, 
+	eballetb@redhat.com, echanude@redhat.com, kernel@pengutronix.de, imx@lists.linux.dev, 
+	vincent.guittot@linaro.org
+Subject: Re: [PATCH v7 01/12] dt-bindings: mfd: add support for the NXP SIUL2
+ module
+Message-ID: <20250711-fluorescent-malamute-of-glory-b1c585@krzk-bin>
+References: <20250710142038.1986052-1-andrei.stefanescu@oss.nxp.com>
+ <20250710142038.1986052-2-andrei.stefanescu@oss.nxp.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250707153331.1372606-1-ioana.ciornei@nxp.com>
-X-CM-TRANSID: Ms8vCgDnzyKKvnBopsxSAA--.57501S3
-X-Coremail-Antispam: 1Uf129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
-	VFW2AGmfu7bjvjm3AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxUrwZ2UUUUU
-X-Originating-IP: [114.216.146.217]
-X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiIQwJbmhwvoxSOQAA3L
+In-Reply-To: <20250710142038.1986052-2-andrei.stefanescu@oss.nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250711_003455_259549_F24AE161 
-X-CRM114-Status: UNSURE (   6.34  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250711_003646_412502_80351F1D 
+X-CRM114-Status: GOOD (  11.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,12 +80,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 07, 2025 at 06:33:31PM +0300, Ioana Ciornei wrote:
-> Describe the two LX2160AQDS on-board RGMII PHYs on their respective MDIO
-> buses behind the MDIO multiplexer.
+On Thu, Jul 10, 2025 at 05:20:24PM +0300, Andrei Stefanescu wrote:
+> Add the dt-bindings for the NXP SIUL2 module which is a multi
+> function device. It can export information about the SoC, configure
+> the pinmux&pinconf for pins and it is also a GPIO controller with
+> interrupt capability.
 > 
-> Signed-off-by: Ioana Ciornei <ioana.ciornei@nxp.com>
+> Signed-off-by: Andrei Stefanescu <andrei.stefanescu@oss.nxp.com>
+> ---
+>  .../bindings/mfd/nxp,s32g2-siul2.yaml         | 163 ++++++++++++++++++
+>  1 file changed, 163 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/mfd/nxp,s32g2-siul2.yaml
 
-Applied, thanks!
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+
+Best regards,
+Krzysztof
 
 
