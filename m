@@ -4,93 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 208CBC83F1B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 16:22:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76164C83F1B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 16:25:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=pUwufIkKlgwPmaoI7EtkILOQ2opwehMJ+nCT/MIXFWY=; b=noH7zmXbecaZgBQk73wfnnu0gh
-	J1VjXrZy/deuxRvgto7chTr5y5xLpDV/+T42ZfllMRaXboHEpDsrNWBQdT3gjn1TwS/aU9OfPd3cI
-	NgMEQWqPP9t9JaKN6MMBlKqWjZzB4M1J6jm3aynbg66ajsFtMMuRtRw3ctvSQXuaUn1twWWcuLJCC
-	fW5n+ZaC3Us55vn3ad+gu55RqNBB9j/4ql3Xk88JgEOPaiqPZQ/T0PbSVesr6wk6uBmIJEqSc8aaR
-	l22LT7u3/0SvoDXQKh9lslTSyAfmpx+joroVOYD54EjAlmjuMja/4yhbGTE6hoLc0l7gMfjL5XpvB
-	GmoQn+QA==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AcgRkyxo9E7UnokfhANIlL1J4t9z0TT6l/cY+hvpOeM=; b=PHS/Qm56Emqz7h7vRhOjAgDbrG
+	Nc1kjIULILPvKwqEmphvWgnckO+CMMLy3lUzCW4fqUVLFmAuKyFF9WPsR6/aZ5GpezqxAryzLeIO4
+	FUz/80JCPAa5NMNfsVxkc0PqKl0/OW+XIGCg8yrZ1lE0E88X1s5BNjL25ebZ9lEoRLP7TvNvDls8V
+	23fGS0t1xanwWlmIWOVlcI6Ni03wXjRQsnQf7bDja62W4AO2HsXwVEhTCtTamfW0iWo50h2a2eOEE
+	o2kx8YMDm8nPHjezAHGm/TNsvWm/gFFxgTKaj896fwnav+ZQiYV4bYiUbeSFFb7dX2szUAIDnnZwI
+	jChGhMMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaGW6-0000000FGwq-43xU;
-	Fri, 11 Jul 2025 16:22:30 +0000
-Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
+	id 1uaGYQ-0000000FHFH-2uIt;
+	Fri, 11 Jul 2025 16:24:54 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaFtM-0000000FAvy-3U47
+	id 1uaFtR-0000000FAwq-1Y7K
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 11 Jul 2025 15:42:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:From:Date:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=AcgRkyxo9E7UnokfhANIlL1J4t9z0TT6l/cY+hvpOeM=; b=SurklKqiaobfZ3pHJNv9TscSef
+	gZ71Y7M+o1JWfX3s/eLJFKVCW6dKLfU4O6YDaw/ggmrEZDbGTmV/6Tc9ewcmIvyITWnw16OMKmlWy
+	lmAWwNo5pK7IFqjc06xfGFp+NxKDDsCIeKSAPKsAMc76P3qHp11rkOZMpMZwLp0SQuOUAuwc+OUcr
+	Kkq+45Gl4z8LFHfKwADZBvTIAIYNFSj9e0CEqXHOYOluDLTQ7pUw/v/H4AAsgr+Le9f2cUhVjH43k
+	6FIu7h84gL5tSJnvSdmP3s2OA/QdlwUVXaCLpgj0cf47FJWj/KjaqBA3qJ61ITxv5TvgNfjhN2Z8b
+	fo6/Buew==;
+Received: from frasgout.his.huawei.com ([185.176.79.56])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uaFtM-00000009Iox-2Iad
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Jul 2025 15:42:30 +0000
-Received: by mail-pf1-x434.google.com with SMTP id d2e1a72fcca58-73c17c770a7so3030304b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Jul 2025 08:42:28 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1752248548; x=1752853348; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=pUwufIkKlgwPmaoI7EtkILOQ2opwehMJ+nCT/MIXFWY=;
-        b=JXqvyuE0A3+9RBsUlpKDLBs8XL/MKjMHYv0Pbt2wuzpLtXGJYMNOmAEDppbkmoom6a
-         mrog+UvF8O4Pq8uhR7eiUcwz/ygZUegluHVd6DBN2xjp78xhrDGT5YPtZhkJILeuiCk5
-         8+yhUF+nG9l/7s0A/Jbq8PIWOAEbQuB6dGw2k=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752248548; x=1752853348;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=pUwufIkKlgwPmaoI7EtkILOQ2opwehMJ+nCT/MIXFWY=;
-        b=sCV0mmHTtXn3pC0w77KyU9RDLnQQct+zgLpZzpUyozKrnBJ2++eJjArC4WUL7A6ZMi
-         TjsAAwbeUK6CNkgLpB0eGhgXohnYu4VhwkvVlDkeXH7jsZk2V/pva/8uU2uX0Dn0w3Le
-         tPZzZpBENWoDYK9BpK8fAyDpImCQwLjzV3Q1KvHyejb+xALJhdVTNlEhhe11jjaLmQRC
-         c3QsJuoPSlsza7kru6fv6RAwrmErPjtFhM0JdUV4QzN/r38JpCXZJzgx8rgi9YKlwJg5
-         hhRYjRWwKOYrh6vn3odwLKg2FwALC2mJPKwkWRfylulKXsSI0SfyjtBH/8zZTaRwnmmd
-         Li/w==
-X-Forwarded-Encrypted: i=1; AJvYcCXtvlqvj+5joDfk1JMIAOl3QNezzkssC57+12eVOkLPuMf8lzSBk9j8zQ450oBqvqpdPlZLk5hF9AOWBATcLQC2@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzi4q91lPfBn84qN1tW74K4OJKOJLLHwCwtYs1tGNrnsZQ6Bao0
-	ZiL4eqyo+aqkK5dUWTATz2R3CGcijt3sU1WVvJMoMvlqCH/U1dXAUeABkDhUrvsUB+KLRdd6lnr
-	Q5Ac=
-X-Gm-Gg: ASbGncsM9FLMGItltH3rEeHyFNRJJFha4iZA1hfjPWCZ1x7UdNOFFaHyUFuytFaLNYW
-	RRlYjeHBwoWz4YetMnk/sLdloEHrHoUVShx/yKWiYkxifLTCF8rGRMfvf1pvUnHifmA6ewV4rJ5
-	vfV8PFlMc+/Nae2n3uYE1X8ua8+NsFrBmJg2n7YbK6jfLZpLgAj3xPuzcP7OmD+Rw8rh3AQ/Z1V
-	ZwAaqL/OCsypgYXTViFTVBHDyXFZ35pUfGnHKAKPGStF2pFh+DOMaQSTNyOeOb8r7mTuJO+uV6d
-	SN+4XIqkiXop9Fz8nEkQNMlOj7Gj9kSguzduZ2gupDq5Wdf9lNxrHGpsLhrey594cCO/FkTYsTU
-	DuedBlgW8zdYrvyoTSdES9pYJCX8d62CiGAA/QL8TD2n/wzMB4xQ1WCca+w==
-X-Google-Smtp-Source: AGHT+IHFZKUgGL0wxuQrtMVNJArFfFZ4ZiEznQy74X/s9Jn/0gsJzLOGIMGF63s8wwcASQkDocGp0g==
-X-Received: by 2002:a05:6a00:1743:b0:74a:e29c:287d with SMTP id d2e1a72fcca58-74ee244a366mr5107688b3a.11.1752248547651;
-        Fri, 11 Jul 2025 08:42:27 -0700 (PDT)
-Received: from mail.broadcom.net ([192.19.144.250])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-74eb9dd5ccesm5762420b3a.27.2025.07.11.08.42.25
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 11 Jul 2025 08:42:27 -0700 (PDT)
-From: Kamal Dasu <kamal.dasu@broadcom.com>
-To: andersson@kernel.org,
-	baolin.wang@linux.alibaba.com,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	florian.fainelli@broadcom.com,
-	ulf.hansson@linaro.org,
-	adrian.hunter@intel.com
-Cc: bcm-kernel-feedback-list@broadcom.com,
-	kamal.dasu@broadcom.com,
-	linux-remoteproc@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-mmc@vger.kernel.org
-Subject: [PATCH 0/4] mmc: sdhci-brcmstb: rpmb sharing by claiming host for TZOS
-Date: Fri, 11 Jul 2025 11:42:16 -0400
-Message-Id: <20250711154221.928164-1-kamal.dasu@broadcom.com>
-X-Mailer: git-send-email 2.34.1
+	Fri, 11 Jul 2025 15:42:32 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.231])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4bdwqT1jQ0z6L56x;
+	Fri, 11 Jul 2025 23:39:01 +0800 (CST)
+Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
+	by mail.maildlp.com (Postfix) with ESMTPS id A774D140279;
+	Fri, 11 Jul 2025 23:42:19 +0800 (CST)
+Received: from localhost (10.203.177.66) by frapeml500008.china.huawei.com
+ (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Fri, 11 Jul
+ 2025 17:42:18 +0200
+Date: Fri, 11 Jul 2025 16:42:17 +0100
+From: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+To: Koichi Okuno <fj2767dz@fujitsu.com>
+CC: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	Jonathan Corbet <corbet@lwn.net>, Catalin Marinas <catalin.marinas@arm.com>,
+	Gowthami Thiagarajan <gthiagarajan@marvell.com>, Linu Cherian
+	<lcherian@marvell.com>, Robin Murphy <robin.murphy@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>, Bjorn Andersson
+	<quic_bjorande@quicinc.com>, Geert Uytterhoeven <geert+renesas@glider.be>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, Konrad Dybcio
+	<konradybcio@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, "Arnd
+ Bergmann" <arnd@arndb.de>, "=?ISO-8859-1?Q?N=EDcolas?= \"F. R. A. Prado\""
+	<nfraprado@collabora.com>, Thomas Gleixner <tglx@linutronix.de>, "Peter
+ Zijlstra" <peterz@infradead.org>, <linux-doc@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v6 2/2] perf: Fujitsu: Add the Uncore PCI PMU driver
+Message-ID: <20250711164217.00006ea7@huawei.com>
+In-Reply-To: <20250711071404.2138816-3-fj2767dz@fujitsu.com>
+References: <20250711071404.2138816-1-fj2767dz@fujitsu.com>
+	<20250711071404.2138816-3-fj2767dz@fujitsu.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="US-ASCII"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.203.177.66]
+X-ClientProxiedBy: lhrpeml500010.china.huawei.com (7.191.174.240) To
+ frapeml500008.china.huawei.com (7.182.85.71)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250711_084229_068094_81B95FCF 
-X-CRM114-Status: GOOD (  13.59  )
+X-CRM114-CacheID: sfid-20250711_164229_006744_CB07E44F 
+X-CRM114-Status: GOOD (  10.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,45 +96,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch adds support to claim host for TZOS RPMB access and synchronized
-access to the controller hardware using hwspinlock framework.
-To achieve this Linux OS and the secure TZOS make use of:
-- shared hardware semaphore register
-- a set of SDIO shared work registers and
-- IPI interrupt registers 
+On Fri, 11 Jul 2025 16:13:40 +0900
+Koichi Okuno <fj2767dz@fujitsu.com> wrote:
 
-The currently running OS that needs access to the controller puts itself in its
-slot of work register and if its next in line it can try to grab the hardware
-semaphore and complete its mmc requests. The shared work registers indicate next
-in queue to access the controller, and current agent in the queue. Next agent
-queue state is changed under the hwspinlock is owned by the current OS accessing
-the controller hardware before release the semaphore, send and receive IPI
-interrupts between linux and secure world are used to indicate completion of
-transaction to the waiting OS. TZOS has its own RPMB driver which accesses
-partition when it wants to read/write RPMB frames. Current implementation
-assumes Linux and TZOS as the two work agents.
+> This adds two new dynamic PMUs to the Perf Events framework to program
+> and control the Uncore PCI PMUs in Fujitsu chips.
+> 
+> These drivers were created with reference to drivers/perf/qcom_l3_pmu.c.
+> 
+> These drivers export formatting and event information to sysfs so they can
+> be used by the perf user space tools with the syntaxes:
+> 
+> perf stat -e pci_iod0_pci0/ea-pci/ ls
+> perf stat -e pci_iod0_pci0/event=0x80/ ls
+> 
+> FUJITSU-MONAKA PMU Events Specification v1.1 URL:
+> https://github.com/fujitsu/FUJITSU-MONAKA
+> 
+> Signed-off-by: Koichi Okuno <fj2767dz@fujitsu.com>
+Hi.
 
-This patchset is an alternative method to initial RFC patch:
-[PATCH RFC 0/3] mmc: sdhci-brcmstb: Add rpmb sharing support	
-https://lkml.org/lkml/2025/2/6/1711
+As much comments would be much the same as on patch 1
+I'll wait for v7 to take another look at this one.
 
-Kamal Dasu (4):
-  dt-bindings: brcmstb-hwspinlock: support for hwspinlock
-  hwspinlock: brcmstb hardware semaphore support
-  dt-bindings: mmc: add brcmstb share register and hwlocks reference
-  mmc: sdhci-brcmstb: rpmb sharing by claiming host for TZOS
+In general both are really clean drivers so just minor stuff
+to work on for v7.
 
- .../hwlock/brcm,brcmstb-hwspinlock.yaml       |  36 +++
- .../bindings/mmc/brcm,sdhci-brcmstb.yaml      |  29 ++-
- drivers/hwspinlock/Kconfig                    |   9 +
- drivers/hwspinlock/Makefile                   |   1 +
- drivers/hwspinlock/brcmstb_hwspinlock.c       |  98 +++++++
- drivers/mmc/host/sdhci-brcmstb.c              | 243 +++++++++++++++++-
- 6 files changed, 413 insertions(+), 3 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/hwlock/brcm,brcmstb-hwspinlock.yaml
- create mode 100644 drivers/hwspinlock/brcmstb_hwspinlock.c
+Thanks,
 
--- 
-2.34.1
+Jonathan
 
 
