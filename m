@@ -4,88 +4,146 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D0EBC83F24
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 12:12:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 263E7C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 12:14:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2AEASaq5CDzhb6ktnTbfQ22tIfOZRPSGaJHgFyQUuec=; b=uIFGrMB25ezaYrrSGjfyS1wFx4
-	m/WCwsGdEbH2ExN3aYswtAXB6uVV9NijKvn3czVW48Y6A9c0L0ZlUcD2667CyWvWmwFvMJkIgKVUW
-	TYUY51eNkbmpEXWXB1hHKhzEGNuzueM+TCEph+iFxXP4g4AwztSMGicB42+7MVhAl/IZ/U2soWL2y
-	llxbe1MItXHv4qJUWfmQDwCHlzF3KGA/PQN8OXMVMd/VrToXft4WAHkQRnZ5AXG2KnHh53dAJpS1U
-	AFTgBTEeRRcHr95rmxSH1IcuJjvelfF2xsCKWVuc5QrjyWFlzGNS/wov9KJTEXR4rf+4TMzNzx5jw
-	nJAKee/A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eu+/VXj8EEj6fDefO7UeEIL/X0DwT4lTVMp6TCSIFf8=; b=CqqjtNgi4XNq/1iTKFYeUvVUDO
+	of+trTiqFtU2HEdVnQLnz82jWwSmFF0AKM5f2H3k62bpJrLKd4rB+V8vobomMjsH6SjbahqmWVA1O
+	4D7dl0RAtYcg6wwehZU9nox2yXjFW4cyAY0HMZONaoXxXAk98gSIJwQP7CLp2L/5cdunIvpOgwQTz
+	i7g1qgYitsgmqSIYa+MHmSWjdsA59P78rKFjrzxL31Ju3LNgFcgxhgO5aD1jJ377bTccxbd7ftELa
+	lzvaKn+9ImRKnqDpoFsCrlZdigPZCSqxXJwQFL7KLGVh6O6d+g54Wg77k1UI2oFmogmch+DPV9qwh
+	W/Y+NO5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaCbk-0000000Ehch-3f5v;
-	Fri, 11 Jul 2025 12:12:04 +0000
-Received: from mail-lf1-x130.google.com ([2a00:1450:4864:20::130])
+	id 1uaCe6-0000000EiGF-0dH6;
+	Fri, 11 Jul 2025 12:14:30 +0000
+Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaCVP-0000000EgvP-12Rm
+	id 1uaCbj-0000000EhYs-0F5X
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Jul 2025 12:05:32 +0000
-Received: by mail-lf1-x130.google.com with SMTP id 2adb3069b0e04-555024588a8so1795355e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Jul 2025 05:05:29 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1752235528; x=1752840328; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=2AEASaq5CDzhb6ktnTbfQ22tIfOZRPSGaJHgFyQUuec=;
-        b=EyRuwHwc3a1LFS35jEBvZnlr0mZameXX7DOMIExeFpkp0HN4Qz8DUFH1EpQZyk4Pl2
-         qi3VLADYB6ADLjWVhChn7B3HCsPo+NgEQkLkDqe+uBaPsHVyP2KGNoHJSQxWGDjqB0SE
-         DHFQ4MdjhVVK2wYrKVQ/6Yv7kN/XiH3zeR7qTd8i0FeW8YD83/l3geFAIk20gW2qc4dg
-         3BvWh3A2/AjJg8jOJsH7CchFrrR/fAgfWIyCyAisTDRYnvvgEWZGX+8F0NiysnOLuz/g
-         eocuCINUq2reZOQxJ1IMkaeMJbEAqjegiv+fopK8WSJ8vnrry7PAHlHATv8QnXwavouh
-         re0g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752235528; x=1752840328;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=2AEASaq5CDzhb6ktnTbfQ22tIfOZRPSGaJHgFyQUuec=;
-        b=WuWfd7j23e3TlnJqncx9oeWlNwmuYvyKbxN87IOCbvSY2fHb2q1JyBDHey9XYNBbmh
-         BMUqv/B7SPjJpvFeHFmXx/WN13s+qpgrL/aphV0vqki7InXVhOSxgyjITiGECggVRVh9
-         hu3N4wZTcW16g2YbSSJoNlH2Sb2vRgcb/ZoPaGfYGtjiUaPDZizC24+AI1vjMynh3+MD
-         PWtBCtADtB0VpLastWDLO+9CDbN++HRy/XszgxZ8VVMa3nmMjuN9K9C/Oid06aHYehzz
-         Gp0xwRd7CSkJLpc2YWj108II9CnbP537DMTg4Aw0JXNuVk5+Baea+d1TfeP8vWiskfVb
-         ag7g==
-X-Forwarded-Encrypted: i=1; AJvYcCVnZPJ8OVua/fV5Tc0nE5sLtQ3f1DmG2mvCVJxQp5hsv72C98b+dxqgxswoj0VLNViBnzXDY4yGQTgop3cZBel1@lists.infradead.org
-X-Gm-Message-State: AOJu0YwC7C/9eqdz23hjEbnWIn/iP0S9ncpVfXhKQTzzGeXlHx2q31KX
-	JSqGUFsnB/fgTlelBkZtj2SKAJ1FDpIREV5r+AhZZigPOBzSQhW6G6CW7GFvEEdpt+o5YqagC/f
-	U2GNP+huJTfSUKZOZEGnfN8BVGhsxZbk=
-X-Gm-Gg: ASbGncteTQcGMYVmbaRrCoq6S1LyhI4w0pnvbSYlj1IGdfmavWiiwS07+9sRBm3Zruk
-	AJCwTUYfvTQi+zJPmGPKLdTUV6Xk3wuApPOb+QZ3rGOwQqlbBMUjl3agGgLHVSFzLczpktEL0g4
-	6W9YqhpK/hYuguPHs1aEHDNr1LiwVdCmksp+zpUKktH30Pt4/la8h0FV5gQfMm1sbP5boxrInVu
-	0gFy7sjC2U1WFvt5Pf8LaQOUxKwwsJ5kXSyagg=
-X-Google-Smtp-Source: AGHT+IFl+IoLWuIaEOcASJ3YDYcH5iOQ7KM94YNp90zKqQwivksqlWt3cmzdDFclUAJWq5ZCcUCbfLJPflKvNsW1j6Q=
-X-Received: by 2002:a05:6512:234f:b0:553:2645:4e90 with SMTP id
- 2adb3069b0e04-55a046448c7mr1047920e87.52.1752235527861; Fri, 11 Jul 2025
- 05:05:27 -0700 (PDT)
-MIME-Version: 1.0
-References: <20250711120110.12885-1-ceggers@arri.de> <20250711120110.12885-3-ceggers@arri.de>
-In-Reply-To: <20250711120110.12885-3-ceggers@arri.de>
-From: Fabio Estevam <festevam@gmail.com>
-Date: Fri, 11 Jul 2025 09:05:16 -0300
-X-Gm-Features: Ac12FXxXhUl0pWyBQ1-EtucR0saC40xWMP_mrTY-Vw0EB65wy0G0ZSkmB17HgQ4
-Message-ID: <CAOMZO5BNgGao-+B_K8+7juBXTHVKr72NCRRk5NMpr2ew=t0+aQ@mail.gmail.com>
+	Fri, 11 Jul 2025 12:12:04 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=KGQWgsCIQfPaiReZDWwlt9ibM6autw6QOSa/PiwfIhQ/cg2eRClcxWT2pUU2suunjfuobO4t0k4+89OHzRYeobqtYdF1wsWHOWQfigFOU8Tg4dVLxGHzpZBtU4SNXw9NqLoVPHeUnHgsXDzwL5f/5jNXv7gH9yY2xc1snQhZqllBRh2q+GrXk0XggBgmE+OkmBhb8OLFbI8pqRZIGs7hCunXgOecQRkaJ2N5a5U1kDcBmSZbEdiVH0CpgzySO4ON0Vv+sW+GwNZXRdBbCQ3KstfIUH0tYZNirRd+TtJir8NhFt3FNrBGKJ8qn8n2dUlKPvZwraCjwJHKBY/OAplzeA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=eu+/VXj8EEj6fDefO7UeEIL/X0DwT4lTVMp6TCSIFf8=;
+ b=P6lJeuNT25y0FMcVEB/VjuGTshAh62ZjrFEAhCYQLBEJif0ZUaE1zAVFyCzYoRrBL15BbhKv8kQyVTjIRIyBg3ww4tn56SRKqN6Hej0xVP6tCBZNW57NzpJ+evh6jMC5QjBtSmoVfYzPxK3MehPKDwf4uPd/iAe/c/xGVzgSOm9IyDvdGmyDPHiyxlUjxDE1q/WoHNKk9mXb43V9V2AntjEKixow7M9xm6VQCsgH96n9kmorjOzO423Y5LbEk6zSiQUPfWjMpRRALKngXaOhBKRCZV61T+f/hSntjHeAmJnSRUu2OJg4s+/UkSgVTQxoDYWvVV0vNNwekxDTMjDaJA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 217.111.95.7) smtp.rcpttodomain=innosonix.de smtp.mailfrom=arri.de;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=arri.de;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arri.de; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=eu+/VXj8EEj6fDefO7UeEIL/X0DwT4lTVMp6TCSIFf8=;
+ b=GrDlkGDq0WDS4kaOZPOk7it+CptzrK03RRzpv1TOXUwdAgmEwEcbqtVNqEnizX77ND1PtifMn33peJr2Bamn+rzczp92exBOR+0OIMOmhCywmsbBnw8cWSKgHhMkAqm7mc/SfN/brHmGMJ4XnkbMo8ByTVDhfTb0VPDjMEHNeLQ=
+Received: from DUZPR01CA0096.eurprd01.prod.exchangelabs.com
+ (2603:10a6:10:4bb::19) by AM0PR03MB6241.eurprd03.prod.outlook.com
+ (2603:10a6:20b:156::8) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8901.27; Fri, 11 Jul
+ 2025 12:11:59 +0000
+Received: from DU2PEPF00028CFD.eurprd03.prod.outlook.com
+ (2603:10a6:10:4bb:cafe::86) by DUZPR01CA0096.outlook.office365.com
+ (2603:10a6:10:4bb::19) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8922.26 via Frontend Transport; Fri,
+ 11 Jul 2025 12:12:04 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 217.111.95.7)
+ smtp.mailfrom=arri.de; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=arri.de;
+Received-SPF: Fail (protection.outlook.com: domain of arri.de does not
+ designate 217.111.95.7 as permitted sender) receiver=protection.outlook.com;
+ client-ip=217.111.95.7; helo=mta.arri.de;
+Received: from mta.arri.de (217.111.95.7) by
+ DU2PEPF00028CFD.mail.protection.outlook.com (10.167.242.181) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8922.22 via Frontend Transport; Fri, 11 Jul 2025 12:11:58 +0000
+Received: from n9w6sw14.localnet (192.168.54.39) by mta.arri.de (10.10.18.5)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1258.38; Fri, 11 Jul
+ 2025 14:11:57 +0200
+From: Christian Eggers <ceggers@arri.de>
+To: Steffen =?ISO-8859-1?Q?B=E4tz?= <steffen@innosonix.de>, Fabio Estevam
+	<festevam@gmail.com>
+CC: Srinivas Kandagatla <srini@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>, Dmitry Baryshkov <lumag@kernel.org>,
+	=?utf-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>, Pengutronix Kernel Team
+	<kernel@pengutronix.de>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Sasha Levin <sashal@kernel.org>, <imx@lists.linux.dev>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<stable@vger.kernel.org>
 Subject: Re: [PATCH 2/2] nvmem: imx: Swap only the first 6 bytes of the MAC address
-To: Christian Eggers <ceggers@arri.de>, =?UTF-8?Q?Steffen_B=C3=A4tz?= <steffen@innosonix.de>
-Cc: Srinivas Kandagatla <srini@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Dmitry Baryshkov <lumag@kernel.org>, 
-	=?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Sasha Levin <sashal@kernel.org>, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Date: Fri, 11 Jul 2025 14:11:57 +0200
+Message-ID: <2192511.9o76ZdvQCi@n9w6sw14>
+Organization: Arnold & Richter Cine Technik GmbH & Co. Betriebs KG
+In-Reply-To: <CAOMZO5BNgGao-+B_K8+7juBXTHVKr72NCRRk5NMpr2ew=t0+aQ@mail.gmail.com>
+References: <20250711120110.12885-1-ceggers@arri.de>
+ <20250711120110.12885-3-ceggers@arri.de>
+ <CAOMZO5BNgGao-+B_K8+7juBXTHVKr72NCRRk5NMpr2ew=t0+aQ@mail.gmail.com>
+MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="UTF-8"
+X-Originating-IP: [192.168.54.39]
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU2PEPF00028CFD:EE_|AM0PR03MB6241:EE_
+X-MS-Office365-Filtering-Correlation-Id: d87f4ce2-ce9e-4bbb-b738-08ddc07422a6
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|82310400026|1800799024|7416014|376014|7053199007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?V09pR3p1cXozQWRmNkVmTmtyT1FTcExvdzh3cXpiaXpZd0hOeStoYmw3T2NZ?=
+ =?utf-8?B?ZkZiZVBVUXFkK2E5ZzJsQTZweUVKZjNSK3ZjdnQvcDhZbDhyWFBmNWFsT1ZJ?=
+ =?utf-8?B?cnBlMllYOFpTQnVIRmFHTUFvd2Q4cTZnanh0RjZpUDJWd1p6TUNNSWU3Y08z?=
+ =?utf-8?B?QzQyQnJGS2s1QzcyaGJaRmF0b29wYnZtMU9ydFRMN3BML0VsMFhCWDNNZzVB?=
+ =?utf-8?B?SHhLa3dhaEl4dXlsek1DczVMZE5SQ2FYNXpUdlpKWGFvVFB5RWxoaFFqWSs5?=
+ =?utf-8?B?WkJwcnJBaHRPSlBYUUsxUTZrbUtQZjhNSDUrTGxqNWNVSTIxamNpZjhCamFy?=
+ =?utf-8?B?enhFeXBoS2lhU1lxa0hqVmJmR1loMW4rT3FoRWNNVXVSZnpEeDZOUzBLZW90?=
+ =?utf-8?B?SS8zMmJWWFdWTHBubk1COUFxRFlWUnMwUXlHN012QzRGZ2pIbUN6aithUUI3?=
+ =?utf-8?B?ZGJ2N3UrUnNaMDMwc0pOSXpBTUVJOU1sbkxGclNKbGg0OXZFU3BNTVRZN1k3?=
+ =?utf-8?B?S3FSRFlJSG51NEt2ZTJEd3JiZmhpVXp0SlAwdi9KaGZKZDdNZFhBaWErSUZo?=
+ =?utf-8?B?ZVV6WU5EVUNqR1kveGhwazN0ODc5M0I1SFIzT1hDc3lHU2plMEdBTTJRaGpO?=
+ =?utf-8?B?QWxFc2hVd3FGb1BqMGxsclI2dC96RTZUYTAvL3NJYXNpUEh5NFJaZ0hUTWhi?=
+ =?utf-8?B?U1Z5WHJkRFpDZitEQmZlbGx5TkswamNseFFEUEFUc2JiOWp0Y3V6NVFlYkxj?=
+ =?utf-8?B?dnJlUklEOW5zT09FSWJlOFhJTGxtOXVvRXl0T2lFUjA1Mkg3QU1RWDdqZVJJ?=
+ =?utf-8?B?WlllaVJ5amlQS2JnMzhjRzlEUUoyc3lOdEUvSkY5R29wSW0vNnNTbXFwa3hK?=
+ =?utf-8?B?RXRSV1N3UC9yWnNHcVZENW1Qc3NsY0phNDlhRDNuLy9qYyszLzhGaXZxQXlx?=
+ =?utf-8?B?eGYrZjBtM0JJOGMyUjhWY3BDbWlnLzY2dDMvOHBod2VIc0F3OU1DdDA1L0ZJ?=
+ =?utf-8?B?NWpqaEI1T2NYdlk4VHVQOExhYnRmaTAvY3ZUMnlFM2RGNXo5Wi9INFhyZWE3?=
+ =?utf-8?B?WlpaWktNV3RUWGxac3VBRllad2k0amNQYWo5SXZ5TGJyUHBXRGlUOHRnMUVY?=
+ =?utf-8?B?T3VpU2R5dWIwV1IvaFg1MmtXdmNKSklLc2FqMXpGMnpIQ2tRN2NSRy9VZEFx?=
+ =?utf-8?B?MDVEYXJHZVpWV0ZVV2szVkZjNVFnNHFlSnQ4VjQyL1NDVE84YkwvMDB1Qy83?=
+ =?utf-8?B?Rmp1aWlkQUxsZmZYbnZLUDlFcncxOStrQ0hlejdTMiszeUJnT0cvWDQrc296?=
+ =?utf-8?B?dERMWjNyMmd4RVQ3Q2hZNjdHaXhZRUVPa0g1RE9FdnhTZkh6M2hwc1BLRVc4?=
+ =?utf-8?B?WG1BeC9QRHR6allZdStNOWF4a2cyQXoxbExTdFdnbkRjTlViMFV1RnlJeUNv?=
+ =?utf-8?B?Nk9JVFA4eHMwVW1wNmUyS2w4VjNsUEFISm1Dblk2dEJVL1YvQTNWcjhYcm1K?=
+ =?utf-8?B?Vmp2TXF1QWZ2WG9pY1JqV3puTTNHY0RUY1dyVVFHOFY1ZUxLZy9IdmMvQlN3?=
+ =?utf-8?B?TFFMaGloV3pqOFpKRHE3bk5tL2tpWlY4YzdvZG9UU1NXYTRYWDJiS2p1OFIv?=
+ =?utf-8?B?OUxsVEM1ZFZub1psdTI3WWQ1RTBTSjRVZnpwSTgxVFgzZFJKVDFpY1dMUWZx?=
+ =?utf-8?B?dHptVk5lUlNVTVVGQ0lqdUZzeTYzRVdZaDNMWmtUd3dvT3YzV0tRQ3lzdm5K?=
+ =?utf-8?B?ckduTWlNUHFFQnBUaHRacjhscXBHdy9sQzhnN0RiOUt2Q1dPRlZJL2hMV1Vl?=
+ =?utf-8?B?NXFhYXJ1MThDcEZTZGNjQlR6elJnZ0k0VFpEWW8vVTd6VjI5N2Z0SHNjUzdD?=
+ =?utf-8?B?dDdzbkRJSEl0ODlzd1p0a2hvMDBUa2djeWVyclJGbzB3Mm9oRUpLSS9pTm1V?=
+ =?utf-8?B?WStmNHFtUU1uNG11YlNwZ0Vhcm81Vmg0d1VMZm45UkJRcW9xYW9VdVhsM3Yx?=
+ =?utf-8?B?dzNEaGx2QmtUMGQ3Vjd5eGtmVk5MeDVGQzRHRGhrMkZHTUxBSEVUWnNYbGNv?=
+ =?utf-8?Q?JtvEXu?=
+X-Forefront-Antispam-Report: CIP:217.111.95.7;CTRY:DE;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mta.arri.de;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700013)(82310400026)(1800799024)(7416014)(376014)(7053199007);DIR:OUT;SFP:1101;
+X-OriginatorOrg: arri.de
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Jul 2025 12:11:58.5843
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: d87f4ce2-ce9e-4bbb-b738-08ddc07422a6
+X-MS-Exchange-CrossTenant-Id: e6a73a5a-614d-4c51-b3e3-53b660a9433a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e6a73a5a-614d-4c51-b3e3-53b660a9433a;Ip=[217.111.95.7];Helo=[mta.arri.de]
+X-MS-Exchange-CrossTenant-AuthSource: DU2PEPF00028CFD.eurprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR03MB6241
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250711_050531_287031_DE560BAE 
-X-CRM114-Status: GOOD (  13.23  )
+X-CRM114-CacheID: sfid-20250711_051203_148989_62135DC6 
+X-CRM114-Status: GOOD (  14.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,31 +158,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Christian,
+Hi Fabio, hi Steffen,
 
-On Fri, Jul 11, 2025 at 9:01=E2=80=AFAM Christian Eggers <ceggers@arri.de> =
-wrote:
->
-> Since commit 55d4980ce55b ("nvmem: core: support specifying both: cell
-> raw data & post read lengths"), the aligned length (e.g. '8' instead of
-> '6') is passed to the read_post_process callback. This causes that the 2
-> bytes following the MAC address in the ocotp are swapped to the
-> beginning of the address. As a result, an invalid MAC address is
-> returned and to make it even worse, this address can be equal on boards
-> with the same OUI vendor prefix.
->
-> Fixes: 55d4980ce55b ("nvmem: core: support specifying both: cell raw data=
- & post read lengths")
-> Signed-off-by: Christian Eggers <ceggers@arri.de>
-> Cc: stable@vger.kernel.org
-> ---
-> Tested on i.MX6ULL, but I assume that this is also required for.
-> imx-ocotp-ele.c (i.MX93).
+On Friday, 11 July 2025, 14:05:16 CEST, Fabio Estevam wrote:
+> Hi Christian,
+>=20
+> On Fri, Jul 11, 2025 at 9:01=E2=80=AFAM Christian Eggers <ceggers@arri.de=
+> wrote:
+> >
+> > Since commit 55d4980ce55b ("nvmem: core: support specifying both: cell
+> > raw data & post read lengths"), the aligned length (e.g. '8' instead of
+> > '6') is passed to the read_post_process callback. This causes that the 2
+> > bytes following the MAC address in the ocotp are swapped to the
+> > beginning of the address. As a result, an invalid MAC address is
+> > returned and to make it even worse, this address can be equal on boards
+> > with the same OUI vendor prefix.
+> >
+> > Fixes: 55d4980ce55b ("nvmem: core: support specifying both: cell raw da=
+ta & post read lengths")
+> > Signed-off-by: Christian Eggers <ceggers@arri.de>
+> > Cc: stable@vger.kernel.org
+> > ---
+> > Tested on i.MX6ULL, but I assume that this is also required for.
+> > imx-ocotp-ele.c (i.MX93).
+>=20
+> Steffen has recently sent a similar fix:
+>=20
+> https://lore.kernel.org/linux-arm-kernel/20250708101206.70793-1-steffen@i=
+nnosonix.de/
+>=20
+> Does this work for you?
+your patch does obviously the same as mine. So the answer is 'yes'
 
-Steffen has recently sent a similar fix:
+regards,
+Christian
 
-https://lore.kernel.org/linux-arm-kernel/20250708101206.70793-1-steffen@inn=
-osonix.de/
 
-Does this work for you?
+
+
 
