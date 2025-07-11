@@ -4,73 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34D79C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 05:11:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4A05C8303C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 05:13:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RDjqQI7xGn6ZAkyB8A2JVUVNfkN4kR0P7+fd79Lw4zk=; b=nS3ZcMDHhAV8pK+eHlLbzOD6dd
-	4kkFHqyykj3qUBS+AQ67zh5l7aAp/FaWoghiquF/6d/Ufz2EIxrNLjgucLp2b1Mqnj7RglOcSEiqc
-	QXXWjJXbU5CBqfuHroiIh7yaxJYVfcn8yu8e575WtZ4h720bIGbUqOC3pFaZdb46eAyi1F0dMoRJL
-	I5yBTHR4URF/hNlXgYhpnfP7+RfuIvHzsjmKHKQxUrCvKbS1Jtd+soLpKLDqbRWqqvMNUaH47syQX
-	Y3QH9vQabA/n6TTno4q0WyGZyOKwuGABcJxj/lP/fN+iAoTMcFOA5VZYVHiIOp8KK0qV92W3jXZ+p
-	sBko63qA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9izDSDydIUGaRPwUsjxklYAtHYhhvUYwvryRWYNjnJs=; b=OsvLAsiJdo4wfVCVcCtxXXtEma
+	acHUj86EPJq8gST+00Xs9SP1t3K7ARYj9gMdQjIkYAsuXmlwl2TXV+biQhdz3189IvRV5koQHfGgM
+	Zur0FdkdLjHbF5iMv9szZpughc4glXqeD9oIrnAqrpXKh+TNsWmXQ7JsrzeOz9EWIAq+xtzSNeTEx
+	op9GeVria2bvIj4EmZyYNBSlPQhbP1j+wnGfMeBQGpGjUZYQBkdhG7TiFEtGEV/xZvrOT+WVoAhOd
+	/1kQ7IOpibniws3HuQ/DAoic2zdh++Lw1wvRxh/4zfGCzUxbZjIDc9HHGEISvhb0WIEwueQTPEvrx
+	diI+Is4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ua62e-0000000Dj8j-3461;
-	Fri, 11 Jul 2025 05:11:24 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1ua64x-0000000DjSb-2Xqz;
+	Fri, 11 Jul 2025 05:13:47 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ua5S1-0000000Dfij-1XRH
+	id 1ua5ZP-0000000DgeL-3tii
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Jul 2025 04:33:34 +0000
-Received: from fllvem-sh03.itg.ti.com ([10.64.41.86])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 56B4XMCW1341376;
-	Thu, 10 Jul 2025 23:33:22 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1752208402;
-	bh=RDjqQI7xGn6ZAkyB8A2JVUVNfkN4kR0P7+fd79Lw4zk=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To;
-	b=RSaWinhFcfF/pN8NNbcj/1+Yo1dbwdpKtCU+wXuEQAW6THaJ/JHa5Rmz3WnH3oNkb
-	 KYDWaNYMXrkYdNzCjkoNcjcv9yWjnHMmRrXoAnLiuFd0oqSbLcvnNMMiONxtAUJOQA
-	 KUSjB1u6+6CUOEGYJmdB3d80Jzmatb54kJb77Yb0=
-Received: from DLEE107.ent.ti.com (dlee107.ent.ti.com [157.170.170.37])
-	by fllvem-sh03.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 56B4XMkr3687438
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Thu, 10 Jul 2025 23:33:22 -0500
-Received: from DLEE100.ent.ti.com (157.170.170.30) by DLEE107.ent.ti.com
- (157.170.170.37) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Thu, 10
- Jul 2025 23:33:21 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE100.ent.ti.com
- (157.170.170.30) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Thu, 10 Jul 2025 23:33:21 -0500
-Received: from localhost (uda0492258.dhcp.ti.com [172.24.227.169])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 56B4XKG12538132;
-	Thu, 10 Jul 2025 23:33:21 -0500
-Date: Fri, 11 Jul 2025 10:03:20 +0530
-From: Siddharth Vadapalli <s-vadapalli@ti.com>
-To: Hrushikesh Salunke <h-salunke@ti.com>
-CC: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
-        <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <s-vadapalli@ti.com>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <danishanwar@ti.com>
-Subject: Re: [PATCH v2] arm64: dts: ti: k3-am69-sk: Add idle-states for
- remaining SERDES instances
-Message-ID: <fcf7ca92-2963-4545-ac9a-e96787c2548f@ti.com>
-References: <20250708113942.4137917-1-h-salunke@ti.com>
+	Fri, 11 Jul 2025 04:41:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1752208870;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=9izDSDydIUGaRPwUsjxklYAtHYhhvUYwvryRWYNjnJs=;
+	b=ggpYHaztQeLAYHgGLOiPyM/IEmsUdSX/Ny+56FBQSEcWwPRaeFGkm/RV7MR6u8LDAYpNxb
+	N5tt9VCPBa6wkSi3Uvh+PIXx2+dtmeieKTJIm2XAvHwTSLiZdg/r6C7P/PYTjIO7q3aTT6
+	MWwApyNrKUdStuhUDGILMbR1t7cG+/Y=
+Received: from mail-pg1-f199.google.com (mail-pg1-f199.google.com
+ [209.85.215.199]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-250-FehrCldSNO-tQVlMC0UNug-1; Fri, 11 Jul 2025 00:41:09 -0400
+X-MC-Unique: FehrCldSNO-tQVlMC0UNug-1
+X-Mimecast-MFC-AGG-ID: FehrCldSNO-tQVlMC0UNug_1752208868
+Received: by mail-pg1-f199.google.com with SMTP id 41be03b00d2f7-b3642ab4429so1331301a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 10 Jul 2025 21:41:09 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1752208868; x=1752813668;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=9izDSDydIUGaRPwUsjxklYAtHYhhvUYwvryRWYNjnJs=;
+        b=poYlgL+o/7znkJUYGUBV0bUF9sktMyy2hMcSRQN1mmyGse0L57ALzoaiEBy1HsCBte
+         PLQ3r+XI5n1PjK9KQzUbJe+fkhMwlwLR6lo72XN3KptEACl12+S6O08H3FNboVZTx1ka
+         HpmYpyR5krnDDdooaAbnKMmKaSvqnF8iKj4kqoKA8F8wt4rvCPg32jhx76BH3m6mEOO/
+         erC0Zy5+I3jaqOqjqmgeCQyOwfhXv+2BLDP9e3NHYtHXdfRywTtgdpAwbFTrgnSxvAK2
+         4pdns2uUSS/K8JyMBXVRMooTr9Q7Z/oQazH5pKAt75n4qW3xfH6iFfNgMc4g5fS8hhJJ
+         6Zdg==
+X-Forwarded-Encrypted: i=1; AJvYcCU8u0gwuq/7UfT/fVW5LbPXyTpByKEjVjYUfyfanXeDyPdP8tqNN0tuipy/ywhH7CwgBNRUh+kP8mBchgFh2so/@lists.infradead.org
+X-Gm-Message-State: AOJu0YyXxiDq/hGx3SNd83IbW3br+M3utM3zTmDOjM6hpRopzcibjMIC
+	3PkB/6B+AYoA0qZXxDVgNA1kvKaWv5F/kX2mu54Poai1wTLR0meCprEj1gkEU+uTVjwIf4f9LlS
+	yz3dOx243hiJQYbgwT2YpM4aDymjfmzw5934n73UKfj1zP399P2OOTOXqp3Y2dzqgv5upEaiWFr
+	Cz
+X-Gm-Gg: ASbGncvAnAUOqEpp7Z60Dkgsa9urlSja874TJd/G8lHsQJCYSxuHzO2lwJomfjhz63s
+	k9/4pIl8O0xT4zYT0UGH0gfwdGVW2Z4iZtOE1YG0sOa8ehYT/Uju1CQeXL2FuiI8QUDjYqsJ5SK
+	X7iHx+gPa6o4ag8zYoaUP/hd1qViMTMmVErS7Ys8zCKdNEK3Xq+YofmP9+v2i1V8/ra9KHVJPrA
+	f2725/9sajFjRslPeTPr6u9CSFphvInNVx2aP8s/iOHZ26fKRoVfmnXpC4waKrClZ5M06uhC3ri
+	Ga8+rMW+y6BvmVJmr4uMngqwuGI/NMQblyK9xmZmfGde8x+eifN6hz/UVs3BhMqOHiQXLnHB6FV
+	Qq+E=
+X-Received: by 2002:a05:6a20:728c:b0:230:fd1b:349d with SMTP id adf61e73a8af0-2312030f0admr2706286637.20.1752208868340;
+        Thu, 10 Jul 2025 21:41:08 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGMcdYm35nToxnJP8Gajj/OPdLKsWwG1PNdKCTG1ie9e/dq0pxdheySQPgc7+73HN9/wlq8Bg==
+X-Received: by 2002:a05:6a20:728c:b0:230:fd1b:349d with SMTP id adf61e73a8af0-2312030f0admr2706255637.20.1752208867967;
+        Thu, 10 Jul 2025 21:41:07 -0700 (PDT)
+Received: from [192.168.68.51] (n175-34-62-5.mrk21.qld.optusnet.com.au. [175.34.62.5])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b3bbe52edd5sm4007254a12.3.2025.07.10.21.41.03
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 10 Jul 2025 21:41:07 -0700 (PDT)
+Message-ID: <2b245785-7cad-4b27-81a6-7e87160049ab@redhat.com>
+Date: Fri, 11 Jul 2025 14:41:01 +1000
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20250708113942.4137917-1-h-salunke@ti.com>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/3] cacheinfo: Set cache 'id' based on DT data
+To: James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ "Rafael J . Wysocki" <rafael@kernel.org>, sudeep.holla@arm.com,
+ Rob Herring <robh@kernel.org>, Ben Horgan <ben.horgan@arm.com>,
+ Jonathan Cameron <jonathan.cameron@huawei.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, WillDeaconwill@kernel.org
+References: <20250704173826.13025-1-james.morse@arm.com>
+ <20250704173826.13025-2-james.morse@arm.com>
+From: Gavin Shan <gshan@redhat.com>
+In-Reply-To: <20250704173826.13025-2-james.morse@arm.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: vigBbCQrscSLyWtVk7Uy8p5rEwqF0beGmM_Zl_GhW4A_1752208868
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250710_213333_505002_72E1C84B 
-X-CRM114-Status: GOOD (  14.33  )
+X-CRM114-CacheID: sfid-20250710_214112_219277_B537DF33 
+X-CRM114-Status: GOOD (  22.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,34 +116,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 08, 2025 at 05:09:42PM +0530, Hrushikesh Salunke wrote:
-> In AM69 SoC there are 4 instances of the 4 lane SERDES. So in
-> "serdes_ln_ctrl" node there are total 16 entries in "mux-reg-mask"
-> property. But "idle-states" is defined only for the lanes of first two
-> SERDES instances. SERDES lane mapping is left at its reset state of
-> "zero" for all four lanes of SERDES2 and SERDES4. The reset state of
-> "zero" corresponds to the following configuration:
+On 7/5/25 3:38 AM, James Morse wrote:
+> From: Rob Herring <robh@kernel.org>
 > 
-> Lanes 0 and 1 of SERDES2 are unused
-> CPSW MAC Ports 1 and 2 mapped to lanes 2 and 3 of SERDES2
-> EDP Lanes 0, 1, 2 and 3 mapped to lanes 0, 1, 2 and 3 of SERDES4
+> Use the minimum CPU h/w id of the CPUs associated with the cache for the
+> cache 'id'. This will provide a stable id value for a given system. As
+> we need to check all possible CPUs, we can't use the shared_cpu_map
+> which is just online CPUs. As there's not a cache to CPUs mapping in DT,
+> we have to walk all CPU nodes and then walk cache levels.
 > 
-> For completeness, define the "idle-states" for the lanes of remaining
-> SERDES instances.
+> The cache_id exposed to user-space has historically been 32 bits, and
+> is too late to change. This value is parsed into a u32 by user-space
+> libraries such as libvirt:
+> https://github.com/libvirt/libvirt/blob/master/src/util/virresctrl.c#L1588
 > 
-> Signed-off-by: Hrushikesh Salunke <h-salunke@ti.com>
+> Give up on assigning cache-id's if a CPU h/w id greater than 32 bits
+> is found.
+> 
+> Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+> Cc: "Rafael J. Wysocki" <rafael@kernel.org>
+> Signed-off-by: Rob Herring <robh@kernel.org>
+> [ ben: converted to use the __free cleanup idiom ]
+> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
+> [ morse: Add checks to give up if a value larger than 32 bits is seen. ]
+> Signed-off-by: James Morse <james.morse@arm.com>
 > ---
-> This patch is based on commit
-> 26ffb3d6f02c  Add linux-next specific files for 20250704
+> Use as a 32bit value has also been seen in DPDK patches here:
+> http://inbox.dpdk.org/dev/20241021015246.304431-2-wathsala.vithanage@arm.com/
 > 
-> Changes since v1
-> As pointed by out by Siddharth, setting lanes of remaining SERDES
-> to "unused" will cause regression on AM69-SK as these lanes are used
-> by CPSW and Display. Updated patch to set the desired values for
-> remaining serdes lanes.
+> Changes since v1:
+>   * Remove the second loop in favour of a helper.
+>   
+> An open question from v1 is whether it would be preferable to use an
+> index into the DT of the CPU nodes instead of the hardware id. This would
+> save an arch specific swizzle - but the numbers would change if the DT
+> were changed. This scheme isn't sensitive to the order of DT nodes.
+> 
+> ---
+>   drivers/base/cacheinfo.c | 38 ++++++++++++++++++++++++++++++++++++++
+>   1 file changed, 38 insertions(+)
+> 
 
-Reviewed-by: Siddharth Vadapalli <s-vadapalli@ti.com>
+With Ben Horgan's concern addressed, LGTM:
 
-Regards,
-Siddharth.
+Reviewed-by: Gavin Shan <gshan@redha.com>
+
 
