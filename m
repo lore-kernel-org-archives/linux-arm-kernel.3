@@ -4,82 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 135BCC83F1D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 09:33:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE36DC83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 09:36:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nSUtgfD6aFF0FvkLtZVPSAzltpz5icpTn3cREw68zfw=; b=IZ6tm4PU8bQIJ5OZYw7GMK5L6D
-	8DiXhNyJl/kqyH8c1Hu+nWS2/CZh6ICfyNRSSvnIEXo8qM+cX3HSqRrJz44QnotZLokrIOwPbD66F
-	QcDuZHOc1KuGWz7H9MQls9dDofnUnrSBzqh6sY+9GTszrDO0Zr9lxdh/IfoYGOV3FJW+KG+KaA7rY
-	9L4bdxEPDx40Y3hRbDMpQB4QJdn0nl3pKOPyvm1/zd7iyzNh/TvZw+E+bCiCom5DfheWHdOkJyBpK
-	R37KZw/u3MgYUaoo7lO3etJUBbeYqsEMwbIxCVxS7oMPImdQS6XQ2HIPzQtXxWvo110wE7/ownCZw
-	3Dc1PEtw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=gVAMKzhcaXlu8FsqtMyYdkQe8c4jjQ1pemL98owXOhA=; b=ZPuLyaJOpV5cYzoG3eeUpDwO38
+	Kq+MiWuTtf0RjJO0+iJJMRpqoOv+XIAB880ZMP9DeV3pIwp5Bos7OtkaoY0TMnroTGFOdl1mQhbON
+	f96rHhsyhwvQGN5tnIGyYqafNsPAlm5dknGRmxDssjq0nN4J1H7CfFlFP0p48PvXCNd8l8PJqPRrB
+	J1saWcBwiiMFeoPoEHaTNTdD6f8nZ3YieaRLdLbH5yklTLJZ99u5CsZGB/g/vhZ4g+DbrUe0ERWLH
+	2NxfIOHGbJcxgB4sky2GD6V0gbJVuOgONxttefoSpZMCn5adJg5Sh/I65YQyLC1XTCUbwqCOe3spk
+	7HjKsqNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaA8Y-0000000EK2z-0JqL;
-	Fri, 11 Jul 2025 09:33:46 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uaAAr-0000000EKZ8-3Q8u;
+	Fri, 11 Jul 2025 09:36:09 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ua9Eo-0000000EAWw-19TG
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Jul 2025 08:36:11 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 58E115C10E0;
-	Fri, 11 Jul 2025 08:36:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F2B9CC4CEED;
-	Fri, 11 Jul 2025 08:36:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752222969;
-	bh=WqaMVMtIl2BY0yJd5CvxPYfpxaVADTlSmJgSDpmxLE0=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=bJN/yZ1B7JH5u2g8tysgTDGGgHkuqdBey4fIkeux/UL66WXv21R+ybSxjeYhj2pwU
-	 DG6JoRCsZ5f3A16iQ3h/Ba+V4IpC9UzqDoTI154bM6kzmH9k+tb7yjqTbd0YFAAJLN
-	 q+YeSY2DbCp4PTrVilZhsVaWVd6JXR2+gkyq4ZPWfZVeYi41esCQI2gQpqHvF5thYc
-	 8OFuiSeO7+AM+ROcdLYFenKVxbtXrrKp+YMBwjw2EKKLHpngqypRmdGjdinldKf5pP
-	 7N2vHN9bo6QfArtVfxfQSQL/M7veeObctrfQR3xtkQL+1GMUtynJb2LZO1Gkczy5zp
-	 muOlwXGK6Rr/A==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1ua9Ei-00Enn5-El;
-	Fri, 11 Jul 2025 09:36:05 +0100
-Date: Fri, 11 Jul 2025 09:36:04 +0100
-Message-ID: <86h5zj9laj.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Arnd Bergmann <arnd@kernel.org>
-Cc: Oliver Upton <oliver.upton@linux.dev>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Mark Brown <broonie@kernel.org>,
-	James Morse <james.morse@arm.com>,
-	Sebastian Ott <sebott@redhat.com>,
+	id 1ua9Fd-0000000EAli-3UCw;
+	Fri, 11 Jul 2025 08:37:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1752223019;
+	bh=y0aPRwANdifwMCZnj1MfkC/ifenoxmwVdFLzlQuwxU8=;
+	h=From:To:Cc:Subject:Date:From;
+	b=II1l4k+gHS1NleBNhkPr2q8EcW/7zv/oI/OSLcIrDt1AEZKVqOn7idHE7W6tcS/XO
+	 hCDPK9vbn/WNilDEUif61OSnuUYr56GTqEo5Hjs7Lz7DdZNN84D+arSB13UZm89XHw
+	 wRw+ZwXzuo+WlEfRP53cTbgoNoHvZUDr8zGXCypYUeEFSzzrgaADUQR3g78YOxO3fK
+	 jmbRXSqW1SOPTFWufCASSbxSjVg8pspTStWpG7+mYiRyOJ7U4tpqBmB/jPFI/ciUk+
+	 RG00SaL3otd7b5uImQWaRc8qMxtY5FM8Fh69ZkfWzAIccauPcxDmXylLrY+iL6lNKG
+	 MHXrPHZ2GPrKQ==
+Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id A42EB17E0EBD;
+	Fri, 11 Jul 2025 10:36:58 +0200 (CEST)
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+To: arm-soc <arm@kernel.org>,
+	soc <soc@kernel.org>
+Cc: matthias.bgg@kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] KVM: arm64: fix u64_replace_bits() usage
-In-Reply-To: <20250711072752.2781647-1-arnd@kernel.org>
-References: <20250711072752.2781647-1-arnd@kernel.org>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: arnd@kernel.org, oliver.upton@linux.dev, catalin.marinas@arm.com, will@kernel.org, arnd@arndb.de, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, broonie@kernel.org, james.morse@arm.com, sebott@redhat.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	linux-mediatek@lists.infradead.org
+Subject: [GIT,PULL,1/4] MediaTek arm32 updates for v6.17
+Date: Fri, 11 Jul 2025 10:36:45 +0200
+Message-ID: <20250711083656.33538-1-angelogioacchino.delregno@collabora.com>
+X-Mailer: git-send-email 2.50.1
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250711_013610_388993_30DDA5DA 
-X-CRM114-Status: GOOD (  23.08  )
+X-CRM114-CacheID: sfid-20250711_013702_044174_CD23F45D 
+X-CRM114-Status: UNSURE (   7.42  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,49 +73,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 11 Jul 2025 08:27:47 +0100,
-Arnd Bergmann <arnd@kernel.org> wrote:
-> 
-> From: Arnd Bergmann <arnd@arndb.de>
-> 
-> u64_replace_bits() returns a modified word but does not actually modify
-> its argument, as pointed out by this new warning:
-> 
-> arch/arm64/kvm/sys_regs.c: In function 'access_mdcr':
-> arch/arm64/kvm/sys_regs.c:2654:17: error: ignoring return value of 'u64_replace_bits' declared with attribute 'warn_unused_result' [-Werror=unused-result]
->  2654 |                 u64_replace_bits(val, hpmn, MDCR_EL2_HPMN);
-> 
-> The intention here must have been to update 'val', so do that instead.
-> 
-> Fixes: efff9dd2fee7 ("KVM: arm64: Handle out-of-bound write to MDCR_EL2.HPMN")
-> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
-> ---
->  arch/arm64/kvm/sys_regs.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-> index 33aa4f5071b8..793fb19bebd6 100644
-> --- a/arch/arm64/kvm/sys_regs.c
-> +++ b/arch/arm64/kvm/sys_regs.c
-> @@ -2651,7 +2651,7 @@ static bool access_mdcr(struct kvm_vcpu *vcpu,
->  	 */
->  	if (hpmn > vcpu->kvm->arch.nr_pmu_counters) {
->  		hpmn = vcpu->kvm->arch.nr_pmu_counters;
-> -		u64_replace_bits(val, hpmn, MDCR_EL2_HPMN);
-> +		val = u64_replace_bits(val, hpmn, MDCR_EL2_HPMN);
->  	}
->  
->  	__vcpu_assign_sys_reg(vcpu, MDCR_EL2, val);
+The following changes since commit 19272b37aa4f83ca52bdf9c16d5d81bdd1354494:
 
-This is only in -next, right? Because I have a fix for this already
-queued for 6.16, as per [1].
+  Linux 6.16-rc1 (2025-06-08 13:44:43 -0700)
 
-Thanks,
+are available in the Git repository at:
 
-	M.
+  https://git.kernel.org/pub/scm/linux/kernel/git/mediatek/linux.git tags/mtk-arm32-for-v6.17
 
-[1] https://lore.kernel.org/r/20250709093808.920284-2-ben.horgan@arm.com
+for you to fetch changes up to 20e672e65844469fc36a52326dfea80f1068705a:
 
--- 
-Without deviation from the norm, progress is not possible.
+  ARM: mediatek: add MT6572 smp bring up code (2025-07-11 10:04:08 +0200)
+
+----------------------------------------------------------------
+MediaTek mach ARM32 updates
+
+This adds support for the MediaTek MT6572 SoC, found in various
+old smartphones and tablets from various manufacturers.
+
+In particular, this adds a board_dt_compat entry for this SoC
+and its SMP bring up sequence to enable secondary cores.
+
+----------------------------------------------------------------
+Max Shevchenko (2):
+      ARM: mediatek: add board_dt_compat entry for the MT6572 SoC
+      ARM: mediatek: add MT6572 smp bring up code
+
+ arch/arm/mach-mediatek/Kconfig    | 4 ++++
+ arch/arm/mach-mediatek/mediatek.c | 1 +
+ arch/arm/mach-mediatek/platsmp.c  | 7 +++++++
+ 3 files changed, 12 insertions(+)
+
 
