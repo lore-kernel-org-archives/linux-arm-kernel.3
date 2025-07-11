@@ -4,63 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0A37C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 17:28:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53C6EC83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 17:31:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Wkfa5pAJKxIqPlBx+fWFvWr54MX+QpMRkraYtSKtrTw=; b=JtVmTz6h4u6k4U8POiCmG/+15B
-	0DT9O5VNfpTjTZAITne2+YI8AjqVKlwCxwNQXSaCEuJ2bZuNnycuLp2s+LRnWVo4lczuY9hI7Z0Vf
-	35lJmJctCGwJc7KHBmF6W0xObTlv2vx/YqGBdx5eVMOflITWNmPOpuDA/NFSElXKAGwyJIWwaIDCU
-	ECOmxlgD0qt//EswV6xcjQ0VG3way/iPvgnV/3O9SV2e0RM7ecKYQm4HYZ+VZE3dS9c+JjcV+zIFk
-	ZEhhQwoLZ9119AZtdI5XD7Wbx597MCiuteufppLEvW8kgfCbYwNuTz9C0F4YxXfCRIjpfdiwj46DS
-	wqOlL27A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Fd/EMmvBgaYToBsHafzJw2ZvnAqIig4ogpEOlH1qL1E=; b=KpLWIC+r/HS4SArXxy+a6rdkoy
+	NMO13gdywryXVMph2vWOT+KiVxl5XL80cElsxrYsH0WD7+G1Bep+1GwonRUh1hirTEP+fvn6DmTo2
+	7J922LEfrnIHAIQtAiRLHOIPqLgqHix6UQAmDPh09h3BUxGwlM18VbJPsDzQMhpXYdLj+45hJ1PG0
+	gp/ZvYtmpNe/VZgyRmPF+dO5jCqdmFmPoaV/44rSUUjqyd5lX4D53wwHpnWUjkEqhGwG6RtLTSQIN
+	OKuTnoL2mXNAYhw4P3psNIDX4xvVQdAGngkoeNHS44+XfFNG3mCEo9YySuNMdyNKh7VvIPH45AJHv
+	hFsmYVhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaHXz-0000000FOzF-3pN8;
-	Fri, 11 Jul 2025 17:28:31 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uaHaI-0000000FPAz-2poC;
+	Fri, 11 Jul 2025 17:30:54 +0000
+Received: from mx0b-0016f401.pphosted.com ([67.231.156.173])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaGRq-0000000FGIH-1yyl
+	id 1uaGZq-0000000FHUe-3seO
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Jul 2025 16:18:06 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E18AC61443;
-	Fri, 11 Jul 2025 16:18:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A8A8AC4CEEF;
-	Fri, 11 Jul 2025 16:18:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752250685;
-	bh=dlETiSCP0bE/7Eo8LNeRjL0vHF3yV9EuAqXo0Nii9Qo=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=gUUS7ykYexH4zJ5LeQzrknTtSpvDTGSrjRCCI3ivPvxM00SmGnWwhhvuHWCGpkXT9
-	 gt0hJzVqbFvq5jJt7orVDYOtf5INnTQKdfDvPshlFZ98vgfC6TbjPzuB0PBlpiuEW5
-	 vlJseJ8qKce72EIX9QuzcGs2zn0QybPYFhidA1fNQAyDJYWNym6hZQwpRwfoNBddyg
-	 FCkxwyVGD6yhLGX5Cctw1oizVqPJ+36kchYXqKd/Ou4NQafNI6z1Y4Dxu43XQtq88a
-	 JGgYX9NbtwPXMaRInCfT0//2bLgSpQIrzjVCvPMFJwDAUz8DwVfaagxMbG6vJoUO0p
-	 6VNKKoKwp5yfQ==
-From: Will Deacon <will@kernel.org>
-To: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org,
-	Will Deacon <will@kernel.org>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Linus Torvalds <torvalds@linux-foundation.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Marc Zyngier <maz@kernel.org>
-Subject: [PATCH 10/10] arm64: mm: Re-implement the __flush_tlb_range_op macro in C
-Date: Fri, 11 Jul 2025 17:17:32 +0100
-Message-Id: <20250711161732.384-11-will@kernel.org>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250711161732.384-1-will@kernel.org>
-References: <20250711161732.384-1-will@kernel.org>
+	Fri, 11 Jul 2025 16:26:24 +0000
+Received: from pps.filterd (m0045851.ppops.net [127.0.0.1])
+	by mx0b-0016f401.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56BDKZdn015681;
+	Fri, 11 Jul 2025 09:26:15 -0700
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=marvell.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pfpt0220; bh=Fd/EMmvBgaYToBsHafzJw2Zvn
+	AqIig4ogpEOlH1qL1E=; b=JZUhVmV/7o1mDLab+UP7TZ9GjLbeB78vKQ5CYSZm/
+	dvQ3AoJLOww5kVIA+IRzWh+CmA+D74rEPPeu1uG1nOqswL4E9lJLT9fuh7W+EtCZ
+	mLZZNbhnzB4RPIXmto1C8paj1bTT2OuWa7tD0dqLLlvIhI6L3xkTuFjUtcw0J4r7
+	YGB2La3/vCDN0IkmwQjb44P5oJo89UZoTu07vnye3YqbUjIPTCbignCkdK3x2JUf
+	fquNrvFjcdCir6hCPg3gH6j3yX4xgkQUWVlMLsIxzxqSdwVSzU58RSw/mC6/cKNG
+	3t/5XORrGkAfGaaR1Kd/PcVddSzREpMSMP/9Cru1bAIsQ==
+Received: from dc5-exch05.marvell.com ([199.233.59.128])
+	by mx0b-0016f401.pphosted.com (PPS) with ESMTPS id 47u3d2rccp-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 11 Jul 2025 09:26:14 -0700 (PDT)
+Received: from DC5-EXCH05.marvell.com (10.69.176.209) by
+ DC5-EXCH05.marvell.com (10.69.176.209) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.4; Fri, 11 Jul 2025 09:26:12 -0700
+Received: from maili.marvell.com (10.69.176.80) by DC5-EXCH05.marvell.com
+ (10.69.176.209) with Microsoft SMTP Server id 15.2.1544.4 via Frontend
+ Transport; Fri, 11 Jul 2025 09:26:12 -0700
+Received: from ff87d1e86a04 (unknown [10.193.79.61])
+	by maili.marvell.com (Postfix) with SMTP id F257F3F7043;
+	Fri, 11 Jul 2025 09:26:09 -0700 (PDT)
+Date: Fri, 11 Jul 2025 16:26:08 +0000
+From: Subbaraya Sundeep <sbhatta@marvell.com>
+To: Suraj Gupta <suraj.gupta2@amd.com>
+CC: <andrew+netdev@lunn.ch>, <davem@davemloft.net>, <kuba@kernel.org>,
+        <pabeni@redhat.com>, <michal.simek@amd.com>, <vkoul@kernel.org>,
+        <radhey.shyam.pandey@amd.com>, <netdev@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <dmaengine@vger.kernel.org>, <harini.katakam@amd.com>
+Subject: Re: [PATCH V2 2/4] dmaengine: xilinx_dma: Fix irq handler and start
+ transfer path for AXI DMA
+Message-ID: <aHE7II-tL6zAzNYB@ff87d1e86a04>
+References: <20250710101229.804183-1-suraj.gupta2@amd.com>
+ <20250710101229.804183-3-suraj.gupta2@amd.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20250710101229.804183-3-suraj.gupta2@amd.com>
+X-Authority-Analysis: v=2.4 cv=IOsCChvG c=1 sm=1 tr=0 ts=68713b27 cx=c_pps a=rEv8fa4AjpPjGxpoe8rlIQ==:117 a=rEv8fa4AjpPjGxpoe8rlIQ==:17 a=kj9zAlcOel0A:10 a=Wb1JkmetP80A:10 a=zd2uoN0lAAAA:8 a=GxtMjvDmutgGo7HIGz4A:9 a=CjuIK1q_8ugA:10
+X-Proofpoint-GUID: M1ENkY8N2dSvyOTTYEHgkbY9i52JgnTS
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNzExMDExOSBTYWx0ZWRfX1LfXBd1YRCa+ rq8f2i8PJ1cgCUvQzEhF4zRq2xgIb5NRAE9E9EBQUKbTp0+Xgwj2HrHfPR5g1p6hahyv8l3ahU7 xAhvyMLbJt1voK6YV1fq36LBhxjNJ1UpPRXGZj4blkO+ItC5JmuIG0SXpUxWxp9d8hp2TyobsjN
+ eiBO3eAOV/cR+1wmLa2MVZLiurRcCCKI6m/pfCy/g8ds6GI2WtrDF8ZTBAlCKLWSEpmp9gCkl81 VGcWGK6nIfYZsiHCqfxFl2U5lpp9W+1zaA5O7O8pZ1PCMC3Lad/+8WFYtQA6raDU1jRgSCk8IBL dXSUIfWwO0e72yc0Kg0wcqSz/K9n/Dq9ORgc2NSJv30G/gpoxksMgtX7WZAlW7qw9VcrPVqPpDE
+ T/3qGg6797Nkmy5NaSFH4gR5cEqQ2FqgSDlOEgtUpOZW4vDlTJBbJ7DgPeQI0ZevC5Viu3cb
+X-Proofpoint-ORIG-GUID: M1ENkY8N2dSvyOTTYEHgkbY9i52JgnTS
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.7,FMLib:17.12.80.40
+ definitions=2025-07-11_04,2025-07-09_01,2025-03-28_01
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250711_092623_079602_F5994D75 
+X-CRM114-Status: GOOD (  19.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,104 +96,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The __flush_tlb_range_op() macro is horrible and has been a previous
-source of bugs thanks to multiple expansions of its arguments (see
-commit f7edb07ad7c6 ("Fix mmu notifiers for range-based invalidates")).
+On 2025-07-10 at 10:12:27, Suraj Gupta (suraj.gupta2@amd.com) wrote:
+> AXI DMA driver incorrectly assumes complete transfer completion upon
+> IRQ reception, particularly problematic when IRQ coalescing is active.
+> Updating the tail pointer dynamically fixes it.
+> Remove existing idle state validation in the beginning of
+> xilinx_dma_start_transfer() as it blocks valid transfer initiation on
+> busy channels with queued descriptors.
+> Additionally, refactor xilinx_dma_start_transfer() to consolidate coalesce
+> and delay configurations while conditionally starting channels
+> only when idle.
+> 
+> Signed-off-by: Suraj Gupta <suraj.gupta2@amd.com>
+> Fixes: Fixes: c0bba3a99f07 ("dmaengine: vdma: Add Support for Xilinx AXI Direct Memory Access Engine")
 
-Rewrite the thing in C.
+You series looks like net-next material and this one is fixing some
+existing bug. Send this one patch seperately to net.
+Also include net or net-next in subject.
 
-Suggested-by: Linus Torvalds <torvalds@linux-foundation.org>
-Signed-off-by: Will Deacon <will@kernel.org>
----
- arch/arm64/include/asm/tlbflush.h | 63 +++++++++++++++++--------------
- 1 file changed, 34 insertions(+), 29 deletions(-)
-
-diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
-index 2541863721af..ee69efdc12ab 100644
---- a/arch/arm64/include/asm/tlbflush.h
-+++ b/arch/arm64/include/asm/tlbflush.h
-@@ -376,12 +376,12 @@ static inline void arch_tlbbatch_flush(struct arch_tlbflush_unmap_batch *batch)
- /*
-  * __flush_tlb_range_op - Perform TLBI operation upon a range
-  *
-- * @op:	TLBI instruction that operates on a range (has 'r' prefix)
-+ * @op:		TLBI instruction that operates on a range
-  * @start:	The start address of the range
-  * @pages:	Range as the number of pages from 'start'
-  * @stride:	Flush granularity
-  * @asid:	The ASID of the task (0 for IPA instructions)
-- * @tlb_level:	Translation Table level hint, if known
-+ * @level:	Translation Table level hint, if known
-  * @lpa2:	If 'true', the lpa2 scheme is used as set out below
-  *
-  * When the CPU does not support TLB range operations, flush the TLB
-@@ -439,33 +439,38 @@ static __always_inline void __tlbi_range(const enum tlbi_op op, u64 addr,
- #undef ___GEN_TLBI_OP_CASE
- #undef __GEN_TLBI_OP_CASE
- 
--#define __flush_tlb_range_op(op, start, pages, stride,			\
--				asid, tlb_level, lpa2)			\
--do {									\
--	typeof(start) __flush_start = start;				\
--	typeof(pages) __flush_pages = pages;				\
--	int num = 0;							\
--	int scale = 3;							\
--									\
--	while (__flush_pages > 0) {					\
--		if (!system_supports_tlb_range() ||			\
--		    __flush_pages == 1 ||				\
--		    (lpa2 && __flush_start != ALIGN(__flush_start, SZ_64K))) {	\
--			__tlbi_level_asid(op, __flush_start, tlb_level, asid);	\
--			__flush_start += stride;			\
--			__flush_pages -= stride >> PAGE_SHIFT;		\
--			continue;					\
--		}							\
--									\
--		num = __TLBI_RANGE_NUM(__flush_pages, scale);		\
--		if (num >= 0) {						\
--			__tlbi_range(op, __flush_start, asid, scale, num, tlb_level, lpa2); \
--			__flush_start += __TLBI_RANGE_PAGES(num, scale) << PAGE_SHIFT; \
--			__flush_pages -= __TLBI_RANGE_PAGES(num, scale);\
--		}							\
--		scale--;						\
--	}								\
--} while (0)
-+static __always_inline void __flush_tlb_range_op(const enum tlbi_op op,
-+						 u64 start, size_t pages,
-+						 u64 stride, u16 asid,
-+						 u32 level, bool lpa2)
-+{
-+	u64 addr = start, end = start + pages * PAGE_SIZE;
-+	int scale = 3;
-+
-+	while (addr != end) {
-+		int num;
-+
-+		pages = (end - addr) >> PAGE_SHIFT;
-+
-+		if (!system_supports_tlb_range() || pages == 1)
-+			goto invalidate_one;
-+
-+		if (lpa2 && !IS_ALIGNED(addr, SZ_64K))
-+			goto invalidate_one;
-+
-+		num = __TLBI_RANGE_NUM(pages, scale);
-+		if (num >= 0) {
-+			__tlbi_range(op, addr, asid, scale, num, level, lpa2);
-+			addr += __TLBI_RANGE_PAGES(num, scale) << PAGE_SHIFT;
-+		}
-+
-+		scale--;
-+		continue;
-+invalidate_one:
-+		__tlbi_level_asid(op, addr, level, asid);
-+		addr += stride;
-+	}
-+}
- 
- #define __flush_s2_tlb_range_op(op, start, pages, stride, tlb_level) \
- 	__flush_tlb_range_op(op, start, pages, stride, 0, tlb_level, kvm_lpa2_is_enabled());
--- 
-2.50.0.727.gbf7dc18ff4-goog
-
+Thanks,
+Sundeep
+> ---
+>  drivers/dma/xilinx/xilinx_dma.c | 20 ++++++++++----------
+>  1 file changed, 10 insertions(+), 10 deletions(-)
+> 
+> diff --git a/drivers/dma/xilinx/xilinx_dma.c b/drivers/dma/xilinx/xilinx_dma.c
+> index a34d8f0ceed8..187749b7b8a6 100644
+> --- a/drivers/dma/xilinx/xilinx_dma.c
+> +++ b/drivers/dma/xilinx/xilinx_dma.c
+> @@ -1548,9 +1548,6 @@ static void xilinx_dma_start_transfer(struct xilinx_dma_chan *chan)
+>  	if (list_empty(&chan->pending_list))
+>  		return;
+>  
+> -	if (!chan->idle)
+> -		return;
+> -
+>  	head_desc = list_first_entry(&chan->pending_list,
+>  				     struct xilinx_dma_tx_descriptor, node);
+>  	tail_desc = list_last_entry(&chan->pending_list,
+> @@ -1558,23 +1555,24 @@ static void xilinx_dma_start_transfer(struct xilinx_dma_chan *chan)
+>  	tail_segment = list_last_entry(&tail_desc->segments,
+>  				       struct xilinx_axidma_tx_segment, node);
+>  
+> +	if (chan->has_sg && list_empty(&chan->active_list))
+> +		xilinx_write(chan, XILINX_DMA_REG_CURDESC,
+> +			     head_desc->async_tx.phys);
+> +
+>  	reg = dma_ctrl_read(chan, XILINX_DMA_REG_DMACR);
+>  
+>  	if (chan->desc_pendingcount <= XILINX_DMA_COALESCE_MAX) {
+>  		reg &= ~XILINX_DMA_CR_COALESCE_MAX;
+>  		reg |= chan->desc_pendingcount <<
+>  				  XILINX_DMA_CR_COALESCE_SHIFT;
+> -		dma_ctrl_write(chan, XILINX_DMA_REG_DMACR, reg);
+>  	}
+>  
+> -	if (chan->has_sg)
+> -		xilinx_write(chan, XILINX_DMA_REG_CURDESC,
+> -			     head_desc->async_tx.phys);
+>  	reg  &= ~XILINX_DMA_CR_DELAY_MAX;
+>  	reg  |= chan->irq_delay << XILINX_DMA_CR_DELAY_SHIFT;
+>  	dma_ctrl_write(chan, XILINX_DMA_REG_DMACR, reg);
+>  
+> -	xilinx_dma_start(chan);
+> +	if (chan->idle)
+> +		xilinx_dma_start(chan);
+>  
+>  	if (chan->err)
+>  		return;
+> @@ -1914,8 +1912,10 @@ static irqreturn_t xilinx_dma_irq_handler(int irq, void *data)
+>  		      XILINX_DMA_DMASR_DLY_CNT_IRQ)) {
+>  		spin_lock(&chan->lock);
+>  		xilinx_dma_complete_descriptor(chan);
+> -		chan->idle = true;
+> -		chan->start_transfer(chan);
+> +		if (list_empty(&chan->active_list)) {
+> +			chan->idle = true;
+> +			chan->start_transfer(chan);
+> +		}
+>  		spin_unlock(&chan->lock);
+>  	}
+>  
+> -- 
+> 2.25.1
+> 
 
