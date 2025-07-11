@@ -4,138 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5349C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 14:48:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D8DAC83F1B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 14:50:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hkFSXr7AU4WvmRzO82oca+vfaj/I9fJ285U+GlYMs4Y=; b=pNBmn3I8b0Gm0ass1ACHNTNrUe
-	PHhLAo2KRdcTFnS2h1G7MaXAvIQXqy9YNtNDxyqhEZqz5DSeAhpwh7bCMl7RLKSbj9h/qBo4gzop9
-	vf92sW9iWZWHSZW2K8Yus7hjziQtQJ8bD36iVJqk/PGfyD35X/2k2c1Dtczaioh3IWBcURuf94rns
-	6OQyqDTdg7eFK/GsUJBdylqJ+C0H25xJVzjFx3sa6NS1mYuJsyyMDcfCb2quTUUMOYPBxo3MCDFJA
-	q99Tiq2qiDVpax7ZlzMYUwT+7uOCjgG/CpbVY6qvwNYcZaLMSqkNNU9crBkocAxiWvEi+9Uaz7Mj/
-	h9AHZy7A==;
+	bh=TF2ad9jDmce9fWZCwLAmAOC2Q859QMus7oJbOJ61q7s=; b=lJqDKaXPPrPj8FveOyEeCu/6Tk
+	WzKBBQO10cEBU6cv/vM+34yEVQxV32gTkoo9Ms8nVQs20JU5KlEnyVI/QdoXLigX0OChy488+23Aq
+	JOG2m4FlaJbSPDxhtUTKyVZHALa+G1hWQlATrs/+tXKES6ykq0X5MT4p7ipqMcnBYok2Sl+XoWlRZ
+	NP1SGGKkZPjCdPr1mCIElMEXtTFbmubvSUvT6NMboZa1cbxwT/Z4VhuS9q8AwWST98ITqJhUk3qQP
+	+DR5qsId0xBzRaKS+ENfxfeCd6xbPCd1mOsNI62+ZXtnRxz1P3UPOsW9QjVgDkPXY0u/lROYLy2oY
+	LTH3mJ5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaF2z-0000000F3d4-2jQJ;
-	Fri, 11 Jul 2025 14:48:21 +0000
-Received: from flow-b7-smtp.messagingengine.com ([202.12.124.142])
+	id 1uaF5I-0000000F3y8-37sE;
+	Fri, 11 Jul 2025 14:50:44 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaEze-0000000F3G1-1wq9;
-	Fri, 11 Jul 2025 14:44:56 +0000
-Received: from phl-compute-05.internal (phl-compute-05.phl.internal [10.202.2.45])
-	by mailflow.stl.internal (Postfix) with ESMTP id ECDA41300588;
-	Fri, 11 Jul 2025 10:44:51 -0400 (EDT)
-Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-05.internal (MEProxy); Fri, 11 Jul 2025 10:44:53 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1752245091;
-	 x=1752252291; bh=hkFSXr7AU4WvmRzO82oca+vfaj/I9fJ285U+GlYMs4Y=; b=
-	WDGJzIpwx45Q6sqhljeaGH2cOTdluGUt24Ot4wUGxawP4eTO1H9k4pflkdGWEvB3
-	VWNVb6H3IA5D6yP6J6o65PYmbVtj0XG7bDroUx5Mrfo8u5atRVyv5+krwpkb0XI0
-	W8VMgEB2O1WYBsRFlOhqPv9wSsp3SlUP9hzhulqdKbUQxKHSZ6XPNcQffiekdA2E
-	ewOAoROdJ68hKcSmbBg147lb7m1RY446qKkssUPRLSbgOfdNZg8CgasIxYV/tLs3
-	81S8lriNz7Ybj+/QTXe7Ib4sdjo3Ox77REKYHRXCyi8fqkqTq9Fp9tBEGv7Vi2rA
-	u0ozRr7nQSZ982SS69XSQw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1752245091; x=
-	1752252291; bh=hkFSXr7AU4WvmRzO82oca+vfaj/I9fJ285U+GlYMs4Y=; b=K
-	f5ZIUcClhfndy6bg0ErwfbauVr1PYBBIIEkkX0qMxOE6m9/I9BqyEg7lDZQIbaJD
-	24DJw98ecPKnEZZZ+4J04iSq1mbYn75GAA8dntf2p6cQMTsh1wNi+vycdNRRFcJm
-	GxECjfikZJFsfksv3qHQDNLyiVk4o4GWqc3BRk+W8t65kPasbxP358C5naNbYe68
-	GmAiAuYtwlGIKqiVPtsiV/JhgByRsgLtIlrpIvDftAfQSYGX2Jh5f9OhpoFx0Gwd
-	Kubx5EeitgcW7c54xY4XVUAzFvUyKCFZVgZim8Gh7u7ipCeB+LSVdZk+mNcdGBTe
-	nufnpqtsC6TbjwU3pn2XQ==
-X-ME-Sender: <xms:YCNxaFZClDNB8V8d2nAY_Ew4n9dxS66oEtyoWWiM3qBWaC9jhuGo0A>
-    <xme:YCNxaMae9yxxOrDU5MguHRWe4ID5My4nit7k0UfizUfavF3zgEwVdu61IxG90rZTG
-    mjD0D4KKsWAaNWMm0M>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdegfeeitdcutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
-    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
-    hrpefoggffhffvvefkjghfufgtgfesthejredtredttdenucfhrhhomhepfdetrhhnugcu
-    uegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrghtthgvrh
-    hnpefhtdfhvddtfeehudekteeggffghfejgeegteefgffgvedugeduveelvdekhfdvieen
-    ucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegrrhhnug
-    esrghrnhgusgdruggvpdhnsggprhgtphhtthhopeegfedpmhhouggvpehsmhhtphhouhht
-    pdhrtghpthhtohepshhouhhvihhkrdgthhgrkhhrrghvrghrthihsegrrhhmrdgtohhmpd
-    hrtghpthhtoheptggrthgrlhhinhdrmhgrrhhinhgrshesrghrmhdrtghomhdprhgtphht
-    thhopehmrghrkhdrrhhuthhlrghnugesrghrmhdrtghomhdprhgtphhtthhopehsuhguvg
-    gvphdrhhholhhlrgesrghrmhdrtghomhdprhgtphhtthhopegrlhgvgigrnhgurhgvrdgs
-    vghllhhonhhisegsohhothhlihhnrdgtohhmpdhrtghpthhtohepsggtmhdqkhgvrhhnvg
-    hlqdhfvggvuggsrggtkhdqlhhishhtsegsrhhorggutghomhdrtghomhdprhgtphhtthho
-    pehflhhorhhirghnrdhfrghinhgvlhhlihessghrohgruggtohhmrdgtohhmpdhrtghpth
-    htoheprhhjuhhisegsrhhorggutghomhdrtghomhdprhgtphhtthhopehssghrrghnuggv
-    nhessghrohgruggtohhmrdgtohhm
-X-ME-Proxy: <xmx:YSNxaF0GQ2fa_1SuFfOdOhuhu0Zy36UfpH2r-1ugIAx3Raw8Lckepw>
-    <xmx:YSNxaHx6LIEqH4Y9FZ15zgykV3RRQn0SymX0zo76bvrZzyGy6X62gw>
-    <xmx:YSNxaN6C-9gfSyFHrY25SMmGx_DUe4WBzIiGs4pI1tGLmBcVJAj_Tw>
-    <xmx:YSNxaA-8DMjc745DJxU5J0QF345BoWMq-R8duUpQzgRO49VjxMVCaQ>
-    <xmx:YyNxaHIvxWMwaZjAcDljwq14_YEVEBsGlu7kFX79ffc30VsP2_yKMSEg>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id DC056700065; Fri, 11 Jul 2025 10:44:48 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	id 1uaF09-0000000F3KZ-14uZ
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 11 Jul 2025 14:45:27 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.31])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4bdvYg0ZQbz6L55x;
+	Fri, 11 Jul 2025 22:41:59 +0800 (CST)
+Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
+	by mail.maildlp.com (Postfix) with ESMTPS id 5AC321402F7;
+	Fri, 11 Jul 2025 22:45:17 +0800 (CST)
+Received: from localhost (10.203.177.66) by frapeml500008.china.huawei.com
+ (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Fri, 11 Jul
+ 2025 16:45:16 +0200
+Date: Fri, 11 Jul 2025 15:45:14 +0100
+From: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+To: Vivek Yadav <vivek.2311@samsung.com>
+CC: <pankaj.dubey@samsung.com>, <ravi.patel@samsung.com>,
+	<shradha.t@samsung.com>, <mturquette@baylibre.com>, <sboyd@kernel.org>,
+	<robh@kernel.org>, <krzk@kernel.org>, <krzk+dt@kernel.org>,
+	<conor+dt@kernel.org>, <will@kernel.org>, <mark.rutland@arm.com>,
+	<s.nawrocki@samsung.com>, <cw00.choi@samsung.com>, <alim.akhtar@samsung.com>,
+	<linux-fsd@tesla.com>, <linux-clk@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-perf-users@vger.kernel.org>,
+	<linux-samsung-soc@vger.kernel.org>
+Subject: Re: [PATCH 4/6] drivers: perf: samsung: Add PPMU driver support
+Message-ID: <20250711154514.000008eb@huawei.com>
+In-Reply-To: <20250708103208.79444-5-vivek.2311@samsung.com>
+References: <20250708103208.79444-1-vivek.2311@samsung.com>
+	<CGME20250708103240epcas5p336539d4c3a1fb489708c61f9aae6bfa8@epcas5p3.samsung.com>
+	<20250708103208.79444-5-vivek.2311@samsung.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-X-ThreadId: T7b8765a73c29189d
-Date: Fri, 11 Jul 2025 16:44:28 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Shivendra Pratap" <shivendra.pratap@oss.qualcomm.com>,
- "Rob Herring" <robh@kernel.org>
-Cc: "Bartosz Golaszewski" <bartosz.golaszewski@linaro.org>,
- "Bjorn Andersson" <andersson@kernel.org>,
- "Sebastian Reichel" <sre@kernel.org>,
- "Sudeep Holla" <sudeep.holla@arm.com>,
- "Souvik Chakravarty" <Souvik.Chakravarty@arm.com>,
- "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
- "Conor Dooley" <conor+dt@kernel.org>,
- "Andy Yan" <andy.yan@rock-chips.com>,
- "Mark Rutland" <mark.rutland@arm.com>,
- "Lorenzo Pieralisi" <lpieralisi@kernel.org>,
- "Olof Johansson" <olof@lixom.net>,
- "Konrad Dybcio" <konradybcio@kernel.org>,
- cros-qcom-dts-watchers@chromium.org, "Vinod Koul" <vkoul@kernel.org>,
- "Catalin Marinas" <catalin.marinas@arm.com>,
- "Will Deacon" <will@kernel.org>,
- "Florian Fainelli" <florian.fainelli@broadcom.com>,
- "Elliot Berman" <elliotb317@gmail.com>,
- "Stephen Boyd" <swboyd@chromium.org>, linux-pm@vger.kernel.org,
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
- =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- "Alim Akhtar" <alim.akhtar@samsung.com>,
- linux-samsung-soc@vger.kernel.org, "Wei Xu" <xuwei5@hisilicon.com>,
- linux-rockchip@lists.infradead.org,
- "Baolin Wang" <baolin.wang@linux.alibaba.com>,
- "Sen Chu" <sen.chu@mediatek.com>, "Sean Wang" <sean.wang@mediatek.com>,
- "Macpaul Lin" <macpaul.lin@mediatek.com>,
- "AngeloGioacchino Del Regno" <angelogioacchino.delregno@collabora.com>,
- "Ray Jui" <rjui@broadcom.com>, "Scott Branden" <sbranden@broadcom.com>,
- bcm-kernel-feedback-list@broadcom.com,
- "Nicolas Ferre" <nicolas.ferre@microchip.com>,
- "Alexandre Belloni" <alexandre.belloni@bootlin.com>,
- "Elliot Berman" <quic_eberman@quicinc.com>,
- "Srinivas Kandagatla" <srini@kernel.org>
-Message-Id: <454c8361-151e-42b3-adfc-d82d2af62299@app.fastmail.com>
-In-Reply-To: <cdadd6cf-18c9-15c7-c58a-b5d56b53452a@oss.qualcomm.com>
-References: <20250710-arm-psci-system_reset2-vendor-reboots-v10-0-b2d3b882be85@oss.qualcomm.com>
- <20250710-arm-psci-system_reset2-vendor-reboots-v10-2-b2d3b882be85@oss.qualcomm.com>
- <20250710224740.GA15385-robh@kernel.org>
- <cdadd6cf-18c9-15c7-c58a-b5d56b53452a@oss.qualcomm.com>
-Subject: Re: [PATCH v10 02/10] dt-bindings: power: reset: Document reboot-mode cookie
-Content-Type: text/plain
+Content-Type: text/plain; charset="US-ASCII"
 Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.203.177.66]
+X-ClientProxiedBy: lhrpeml100002.china.huawei.com (7.191.160.241) To
+ frapeml500008.china.huawei.com (7.182.85.71)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250711_074454_829533_86087B8D 
-X-CRM114-Status: GOOD (  14.96  )
+X-CRM114-CacheID: sfid-20250711_074525_592834_6498FE4B 
+X-CRM114-Status: GOOD (  33.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,35 +79,571 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 11, 2025, at 14:32, Shivendra Pratap wrote:
-> On 7/11/2025 4:17 AM, Rob Herring wrote:
->> On Thu, Jul 10, 2025 at 02:45:44PM +0530, Shivendra Pratap wrote:
->>>    All mode properties are vendor specific, it is a indication to tell
->>>    the bootloader what to do when the system reboots, and should be named
->>> -  as mode-xxx = <magic> (xxx is mode name, magic should be a non-zero value).
->>> +  as mode-xxx = <magic cookie> (xxx is mode name, magic should be a
->>> +  non-zero value, cookie is optional).
->> 
->> I don't understand the distinction between magic and cookie... Isn't all 
->> just magic values and some platform needs more than 32-bits of it?
-> Need two different arguments. Will try to clarify a bit below.
-> PSCI defines SYSTEM_RESET2 vendor-specific resets which takes two
-> parameters - reset_type and cookie. Both parameters are independent and
-> used by firmware to define different types of resets or shutdown.
-> As per spec:
-> reset_type: Values in the range 0x80000000-0xFFFFFFFF of the reset_type 
-> parameter
-> can be used to request vendor-specific resets or shutdowns.
-> cookie: the cookie parameter can be used to pass additional data to the 
-> implementation.
+On Tue,  8 Jul 2025 16:02:06 +0530
+Vivek Yadav <vivek.2311@samsung.com> wrote:
 
-I don't see any distinction here either. As Rob says, you have to
-get both 32-bit numbers from DT in order to get the desired reboot-mode,
-and you have to pass them both to the firmware when rebooting.
+> Add Samsung PPMU driver support in the Linux perf subsystem.
+> 
+> PPMU24 driver configures the PPMU24 hardware which is found
+> in the Samsung SoCs like Tesla FSD.
+> 
+> Signed-off-by: Ravi Patel <ravi.patel@samsung.com>
+> Signed-off-by: Vivek Yadav <vivek.2311@samsung.com>
+Hi,
 
-The distinction between cookie and magic value may be relevant in the
-context of the psci specification, but for the Linux driver, this is
-really just a 64-bit magic number.
+My main feedback here is that you have a layer of abstraction that is
+not currently useful. So unless you plan to include another driver
+that makes use of the ops structures etc, just squash the whole thing into
+one much simpler c file without any of the ops stuff.
 
-     Arnd
+Should simplify the code a lot and generally accelerate it getting
+reviewed and merged.
+
+If it becomes useful to have that abstraction in the future, that is the
+point when you should add it.
+
+Jonathan
+
+> diff --git a/drivers/perf/samsung/Makefile b/drivers/perf/samsung/Makefile
+> new file mode 100644
+> index 000000000000..c9ed1e1a986e
+> --- /dev/null
+> +++ b/drivers/perf/samsung/Makefile
+> @@ -0,0 +1,2 @@
+> +# SPDX-License-Identifier: GPL-2.0-only
+> +obj-$(CONFIG_SAMSUNG_PPMU24) += ppmu_platform.o ppmu.o
+
+Not immediately obvious why this is multiple files. (no exports needed
+anyway as Krzysztof pointed out.
+
+> diff --git a/drivers/perf/samsung/ppmu.c b/drivers/perf/samsung/ppmu.c
+> new file mode 100644
+> index 000000000000..cacb9cdec79f
+> --- /dev/null
+> +++ b/drivers/perf/samsung/ppmu.c
+> @@ -0,0 +1,494 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * Samsung Platform Performance Measuring Unit (PPMU) driver
+> + *
+> + * Copyright (c) 2024-25 Samsung Electronics Co., Ltd.
+> + *
+> + * Authors: Vivek Yadav <vivek.2311@samsung.com>
+> + *          Ravi Patel <ravi.patel@samsung.com>
+> + */
+> +
+> +#include <linux/idr.h>
+> +#include <linux/of.h>
+> +#include <linux/perf_event.h>
+> +#include <linux/platform_device.h>
+> +#include "samsung_ppmu.h"
+> +
+> +#define PPMU_CLEAR_FLAG				(GENMASK(3, 0) | BIT(31))
+> +
+> +#define PPMU_PMCNT3_HIGH_VAL			(3)
+> +#define PPMU_PMCNT2_HIGH_VAL			(2)
+> +#define PPMU_RESET_CCNT				BIT(2)
+> +#define PPMU_RESET_PMCNT			BIT(1)
+> +
+> +#define PPMU_PMNC_OP_MODE_MASK			(GENMASK(21, 20))
+> +#define PPMU_PMNC_OP_MODE_OFF			(20)
+> +#define PPMU_MANUAL_MODE_VAL			(0x0)
+> +#define PPMU_PMNC_GLB_CNT_EN_VAL		(BIT(0))
+> +#define PPMU_PMNC_RESET_PMCNT_VAL		(BIT(1))
+> +#define PPMU_PMNC_RESET_CCNT_VAL		(BIT(2))
+> +
+> +#define PPMU_V24_IDENTIFIER			(0x45)
+> +
+> +#define PPMU_CCNT_IDX				(4)
+> +#define PPMU_CCNT_POS_OFF			(31)
+> +#define PPMU_VERSION_CHECK			(GENMASK(19, 12))
+> +
+> +#define PPMU_SM_ENABLE_ALL_CNT			(0xf)
+> +#define PPMU_ENABLE_CCNT			BIT(31)
+> +#define PPMU_FILTER_MASK			(0x7)
+> +
+> +/* ID of event type */
+> +enum {
+> +	PPMU_EVENT_READ_CHANNEL_ACTIVE		= (0x00),
+> +	PPMU_EVENT_WRITE_CHANNEL_ACTIVE		= (0x01),
+> +	PPMU_EVENT_READ_REQUEST			= (0x02),
+> +	PPMU_EVENT_WRITE_REQUEST		= (0x03),
+> +	PPMU_EVENT_READ_DATA			= (0x04),
+> +	PPMU_EVENT_WRITE_DATA			= (0x05),
+> +	PPMU_EVENT_WRITE_RESPONSE		= (0x06),
+> +	PPMU_EVENT_LAST_READ_DATA		= (0x07),
+> +	PPMU_EVENT_LAST_WRITE_DATA		= (0x08),
+> +	PPMU_EVENT_READ_REQUEST_BOLCKING	= (0x10),
+> +	PPMU_EVENT_WRITE_REQUEST_BOLCKING	= (0x11),
+> +	PPMU_EVENT_READ_DATA_BLOCKING		= (0x12),
+> +	PPMU_EVENT_WRITE_DATA_BLOCKING		= (0x13),
+> +	PPMU_EVENT_WRITE_RESPONSE_BLOCKING	= (0x14),
+> +	PPMU_EVENT_READ_BURST_LENGTH		= (0x2a),
+> +	PPMU_EVENT_WRITE_BURST_LENGTH		= (0x2b),
+> +	PPMU_EVENT_CCNT				= (0xfe),
+> +	PPMU_EVENT_MAX				= (0xff),
+> +};
+> +
+> +/* Register offsets */
+> +enum ppmu_reg {
+> +	PPMU_VERSION				= (0x0000),
+> +	PPMU_PMNC				= (0x0004),
+> +	PPMU_CNTENS				= (0x0008),
+> +	PPMU_CNTENC				= (0x000c),
+> +	PPMU_INTENS				= (0x0010),
+> +	PPMU_INTENC				= (0x0014),
+> +	PPMU_FLAG				= (0x0018),
+> +	PPMU_CIG_CFG0				= (0x001c),
+> +	PPMU_CIG_CFG1				= (0x0020),
+> +	PPMU_CIG_CFG2				= (0x0024),
+> +	PPMU_CIG_RESULT				= (0x0028),
+> +	PPMU_CNT_RESET				= (0x002c),
+> +	PPMU_CNT_AUTO				= (0x0030),
+> +	PPMU_PMCNT0				= (0x0034),
+> +	PPMU_PMCNT1				= (0x0038),
+> +	PPMU_PMCNT2				= (0x003c),
+> +	PPMU_PMCNT3_LOW				= (0x0040),
+> +	PPMU_PMCNT3_HIGH			= (0x0044),
+> +	PPMU_CCNT				= (0x0048),
+> +	PPMU_PMCNT2_HIGH			= (0x0054),
+> +	PPMU_CONFIG_INFO			= (0X005c),
+> +	PPMU_INTERRUPT_TEST			= (0x0060),
+> +	PPMU_EVENT_EV0_TYPE			= (0x0200),
+> +	PPMU_EVENT_EV1_TYPE			= (0x0204),
+> +	PPMU_EVENT_EV2_TYPE			= (0x0208),
+> +	PPMU_EVENT_EV3_TYPE			= (0x020c),
+> +	PPMU_EVENT_SM_ID_MASK			= (0x0220),
+> +	PPMU_EVENT_SM_ID_VALUE			= (0x0224),
+> +	PPMU_EVENT_SM_ID_A			= (0x0228),
+> +	PPMU_EVENT_SM_OTHERS_V			= (0x022c),
+> +	PPMU_EVENT_SM_OTHERS_A			= (0x0230),
+> +	PPMU_EVENT_SAMPLE_RD_ID_MASK		= (0x0234),
+> +	PPMU_EVENT_SAMPLE_RD_ID_VALUE		= (0x0238),
+> +	PPMU_EVENT_SAMPLE_WR_ID_MASK		= (0x023c),
+> +	PPMU_EVENT_SAMPLE_WD_ID_VALUE		= (0x0240),
+> +	PPMU_EVENT_AXI_CH_TYPE			= (0x0244),
+> +	PPMU_EVENT_MO_INFO			= (0x0250),
+> +	PPMU_EVENT_MO_INFO_SM_ID		= (0x0254),
+> +	PPMU_EVENT_MO_INFO_SAMPLE		= (0x0258),
+> +	PPMU_EVENT_IMPRECISE_ERR		= (0x0260),
+
+Brackets () not adding anything useful.
+
+
+> +static void samsung_ppmu_get_stop_counters(struct samsung_ppmu *s_ppmu)
+> +{
+> +	u32 val;
+> +
+> +	/* Stop counters */
+> +	val = readl(s_ppmu->base + PPMU_PMNC);
+> +	val &= (~PPMU_PMNC_GLB_CNT_EN_VAL);
+> +	writel(val, s_ppmu->base + PPMU_PMNC);
+> +
+> +	s_ppmu->status = PPMU_STOP;
+If it only takes states on and off make it a bool and give it
+name to indicate directly what the two states are.
+
+	s_ppmu->started = false;
+
+> +}
+
+> +static const struct samsung_ppmu_ops samsung_ppmu_plat_ops = {
+
+If there is only one implementation in a patch set it is best
+to avoid abstractions and ops tables like this.
+
+If you have multiple implementations then submit them all at once
+so we can see how this is used.  For now it complicates the
+driver for no known reason.
+
+
+> +	.write_evtype		= samsung_ppmu_write_evtype,
+> +	.get_event_idx		= samsung_ppmu_get_event_idx,
+> +	.read_counter		= samsung_ppmu_get_read_counter,
+> +	.enable_counter		= samsung_ppmu_get_enable_counter,
+> +	.disable_counter	= samsung_ppmu_get_disable_counter,
+> +	.start_counters		= samsung_ppmu_get_start_counters,
+> +	.stop_counters		= samsung_ppmu_get_stop_counters,
+> +	.get_int_status		= samsung_ppmu_get_int_status,
+> +	.clear_int_status	= samsung_ppmu_clear_int_status,
+> +};
+> +
+> +static int ppmu_clock_init(struct samsung_ppmu *s_ppmu)
+> +{
+> +	int ret = 0;
+> +	struct device *dev = s_ppmu->dev;
+> +
+> +	s_ppmu->clks[PPMU_ACLK].id = "aclk";
+> +	s_ppmu->clks[PPMU_PCLK].id = "pclk";
+> +
+> +	ret = devm_clk_bulk_get(dev, PPMU_CLK_COUNT, s_ppmu->clks);
+> +	if (ret) {
+> +		dev_err(dev, "Failed to get clocks. Err %d\n", ret);
+> +		return ret;
+> +	}
+> +
+> +	ret = clk_bulk_prepare_enable(PPMU_CLK_COUNT, s_ppmu->clks);
+
+> +	if (ret)
+> +		dev_err(dev, "Clock enable failed. Err %d\n", ret);
+> +
+> +	return ret;
+> +}
+> +
+> +static int samsung_ppmu_probe(struct platform_device *pdev)
+> +{
+> +	struct samsung_ppmu *s_ppmu;
+> +	struct device *dev = &pdev->dev;
+> +	u32 version;
+> +	char *name;
+> +	int ret;
+> +
+> +	s_ppmu = devm_kzalloc(dev, sizeof(*s_ppmu), GFP_KERNEL);
+> +	if (!s_ppmu)
+> +		return -ENOMEM;
+> +
+> +	s_ppmu->dev = &pdev->dev;
+> +
+> +	s_ppmu->id = idr_alloc(&my_idr, dev, 0, 2, GFP_KERNEL);
+
+Mixing devm cleaned up stuff and things that aren't is usuall a bad
+idea.  You can use devm_add_action_or_reset() to deal with allocations
+and configuration that does not have it's own devm interfaces.
+
+> +	if (s_ppmu->id < 0) {
+> +		dev_err(dev, "Failed to allocate ID dynamically\n");
+> +		return s_ppmu->id;
+> +	}
+> +
+> +	/* Register base address */
+> +	s_ppmu->base = devm_platform_ioremap_resource(pdev, 0);
+> +	if (IS_ERR(s_ppmu->base)) {
+> +		dev_err(dev, "IO remap failed\n");
+> +		return PTR_ERR(s_ppmu->base);
+> +	}
+> +
+> +	/* Register IRQ */
+> +	ret = samsung_ppmu_init_irq(s_ppmu, pdev);
+> +	if (ret)
+> +		return ret;
+> +
+> +	s_ppmu->check_event = PPMU_EVENT_MAX;
+> +	s_ppmu->num_counters = PPMU_MAX_COUNTERS;
+> +	s_ppmu->on_cpu = 0;
+> +	s_ppmu->identifier = PPMU_V24_IDENTIFIER;
+> +
+> +	s_ppmu->ppmu_data = device_get_match_data(&pdev->dev);
+> +	if (!s_ppmu->ppmu_data) {
+> +		dev_err(&pdev->dev, "No matching device data found\n");
+> +		return -ENODEV;
+> +	}
+> +
+> +	/* Register PPMU driver ops */
+> +	s_ppmu->pmu_events.attr_groups = s_ppmu->ppmu_data->ppmu_attr_group;
+> +	s_ppmu->ops = &samsung_ppmu_plat_ops;
+> +
+> +	/* Set private data to platform_device structure */
+> +	platform_set_drvdata(pdev, s_ppmu);
+> +
+> +	/* Initialize the PPMU */
+> +	samsung_ppmu_init(s_ppmu, THIS_MODULE);
+> +
+> +	ret = ppmu_clock_init(s_ppmu);
+> +	if (ret)
+> +		return ret;
+> +
+> +	version = readl(s_ppmu->base + PPMU_VERSION);
+> +	version &= PPMU_VERSION_CHECK;
+> +	version >>= 12;
+> +	s_ppmu->samsung_ppmu_version = version;
+> +
+> +	name = devm_kasprintf(&pdev->dev, GFP_KERNEL, "ppmu_v_%x_%d", version, s_ppmu->id);
+> +	if (!name)
+> +		return -ENOMEM;
+> +
+> +	ret = perf_pmu_register(&s_ppmu->pmu, name, -1);
+> +	if (ret) {
+> +		clk_bulk_disable_unprepare(PPMU_CLK_COUNT, s_ppmu->clks);
+> +		dev_err(dev, "Failed to register PPMU in perf. Err %d\n", ret);
+> +	}
+> +
+> +	return ret;
+> +}
+> +
+> +static void samsung_ppmu_remove(struct platform_device *pdev)
+> +{
+> +	struct samsung_ppmu *s_ppmu = platform_get_drvdata(pdev);
+> +
+> +	clk_bulk_disable_unprepare(PPMU_CLK_COUNT, s_ppmu->clks);
+
+Should reverse what happens in probe.  Here you turn off clocks bfore
+you remove userspace interfaces which looks unlikely to be correct.
+
+> +
+> +	perf_pmu_unregister(&s_ppmu->pmu);
+> +
+> +	idr_remove(&my_idr, s_ppmu->id);
+> +}
+
+> diff --git a/drivers/perf/samsung/ppmu_platform.c b/drivers/perf/samsung/ppmu_platform.c
+> new file mode 100644
+> index 000000000000..ee11311d5a61
+> --- /dev/null
+> +++ b/drivers/perf/samsung/ppmu_platform.c
+> @@ -0,0 +1,338 @@
+
+> +int samsung_ppmu_init_irq(struct samsung_ppmu *samsung_ppmu,
+> +			  struct platform_device *pdev)
+> +{
+> +	int irq0, irq1, ret, irq_count;
+> +
+> +	irq0 = platform_get_irq(pdev, 0);
+> +	if (irq0 < 0) {
+> +		dev_err(&pdev->dev, "Failed to get IRQ 0\n");
+In stuff that only happens from probe() use
+		return dev_err_probe(&pdev->dev, irq0, "Failed to get IRQ 0\n");
+etc
+
+> +		return irq0;
+> +	}
+> +
+> +	ret = devm_request_irq(&pdev->dev, irq0, samsung_ppmu_isr,
+> +			       IRQF_NOBALANCING | IRQF_NO_THREAD | IRQF_SHARED,
+> +			       dev_name(&pdev->dev), samsung_ppmu);
+> +	if (ret) {
+> +		dev_err(&pdev->dev,
+> +			"Fail to request IRQ: %d ret: %d.\n", irq0, ret);
+> +		return ret;
+> +	}
+> +
+> +	samsung_ppmu->irq0 = irq0;
+> +
+> +	irq_count = of_property_count_elems_of_size(pdev->dev.of_node, "interrupts", sizeof(u32));
+> +	if (irq_count > 1) {
+> +		irq1 = platform_get_irq(pdev, 1);
+> +		if (irq1 < 0) {
+> +			dev_err(&pdev->dev, "Failed to get IRQ 0\n");
+> +			return irq1;
+> +		}
+> +
+> +		ret = devm_request_irq(&pdev->dev, irq1, samsung_ppmu_isr,
+> +				       IRQF_NOBALANCING | IRQF_NO_THREAD | IRQF_SHARED,
+> +				       dev_name(&pdev->dev), samsung_ppmu);
+> +		if (ret) {
+> +			dev_err(&pdev->dev,
+> +				"Fail to request IRQ: %d ret: %d.\n", irq1, ret);
+> +			return ret;
+> +		}
+> +		samsung_ppmu->irq1 = irq1;
+> +	}
+> +
+> +	return ret;
+
+If you know it's 0, then hard code that to make it obvious that this
+is the good exit path.
+
+	return 0;
+
+> +}
+> +EXPORT_SYMBOL_GPL(samsung_ppmu_init_irq);
+
+> +void samsung_ppmu_disable(struct pmu *pmu)
+> +{
+> +	struct samsung_ppmu *samsung_ppmu = to_samsung_ppmu(pmu);
+> +
+> +	samsung_ppmu->ops->stop_counters(samsung_ppmu);
+> +}
+> +EXPORT_SYMBOL_GPL(samsung_ppmu_disable);
+
+As noted, 1 module so no exports needed.
+As in many comments in this review, if you don't have multiple
+stop_counters implementations, don't have these ops wrappers.
+They massively increase code complexity for no gain yet.
+
+> +
+> +void samsung_ppmu_init(struct samsung_ppmu *s_ppmu, struct module *module)
+> +{
+> +	struct pmu *pmu = &s_ppmu->pmu;
+> +
+> +	pmu->module		= module;
+> +	pmu->task_ctx_nr	= perf_invalid_context;
+> +	pmu->event_init		= samsung_ppmu_event_init;
+> +	pmu->pmu_enable		= samsung_ppmu_enable;
+> +	pmu->pmu_disable	= samsung_ppmu_disable;
+> +	pmu->add		= samsung_ppmu_add;
+> +	pmu->del		= samsung_ppmu_del;
+> +	pmu->start		= samsung_ppmu_start;
+> +	pmu->stop		= samsung_ppmu_stop;
+> +	pmu->read		= samsung_ppmu_read;
+> +	pmu->attr_groups	= s_ppmu->pmu_events.attr_groups;
+> +	pmu->capabilities	= PERF_PMU_CAP_NO_EXCLUDE;
+> +}
+> +EXPORT_SYMBOL_GPL(samsung_ppmu_init);
+
+> diff --git a/drivers/perf/samsung/samsung_ppmu.h b/drivers/perf/samsung/samsung_ppmu.h
+> new file mode 100644
+> index 000000000000..2cad75cfa97b
+> --- /dev/null
+> +++ b/drivers/perf/samsung/samsung_ppmu.h
+
+Squashing the lot into 1 c file with no header will end up simpler I think.
+
+> @@ -0,0 +1,128 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only */
+> +/*
+> + * Samsung Platform Performance Measuring Unit (PPMU) headers
+> + *
+> + * Copyright (c) 2024-25 Samsung Electronics Co., Ltd.
+> + *
+> + * Authors: Vivek Yadav <vivek.2311@samsung.com>
+> + *          Ravi Patel <ravi.patel@samsung.com>
+> + */
+> +
+> +#ifndef __SAMSUNG_PPMU_H__
+> +#define __SAMSUNG_PPMU_H__
+> +
+> +#include <linux/clk.h>
+> +
+> +#define PPMU_MAX_COUNTERS	(5)
+
+It's a number not a macro parameter, so no need for ()
+
+> +
+> +#define to_samsung_ppmu(p)	(container_of(p, struct samsung_ppmu, pmu))
+> +
+> +#define SAMSUNG_PPMU_ATTR(_name, _func, _config)			\
+> +	(&((struct dev_ext_attribute[]) {				\
+> +		{ __ATTR(_name, 0444, _func, NULL), (void *)_config }	\
+> +	})[0].attr.attr)
+> +
+> +#define SAMSUNG_PPMU_FORMAT_ATTR(_name, _config)		\
+> +	SAMSUNG_PPMU_ATTR(_name, samsung_ppmu_format_sysfs_show, (void *)_config)
+> +#define SAMSUNG_PPMU_EVENT_ATTR(_name, _config)		\
+> +	SAMSUNG_PPMU_ATTR(_name, samsung_ppmu_event_sysfs_show, (unsigned long)_config)
+> +
+> +#define SAMSUNG_PPMU_GET_EVENTID(ev) ((ev)->hw.config_base & 0xff)
+> +
+> +enum ppmu_clock_type {
+> +	PPMU_ACLK,
+> +	PPMU_PCLK,
+> +	PPMU_CLK_COUNT,
+
+Given this is (I think) just here as a counter element and hence must always
+be last, good to drop the trailing ,
+
+> +};
+> +
+> +enum ppmu_status {
+> +	PPMU_STOP,
+> +	PPMU_START,
+> +};
+> +
+> +struct samsung_ppmu;
+> +
+> +struct samsung_ppmu_ops {
+
+As mentioned above, a ops table for one implementation looks like preparation
+for generalization that may never happen.  If you don't have a second
+user today, just squash the calls inline and drop this.  It is easy to
+bring the abstraction back at the point where it is useful (1st patch in a series
+that adds a second user of shared infrastructure)
+
+> +	void (*write_evtype)(struct samsung_ppmu *s_ppmu, int idx, u32 type);
+> +	int (*get_event_idx)(struct perf_event *event);
+> +	u64 (*read_counter)(struct samsung_ppmu *s_ppmu, struct hw_perf_event *event);
+> +	void (*enable_counter)(struct samsung_ppmu *s_ppmu, struct hw_perf_event *event);
+> +	void (*disable_counter)(struct samsung_ppmu *s_ppmu, struct hw_perf_event *event);
+> +	void (*start_counters)(struct samsung_ppmu *s_ppmu);
+> +	void (*stop_counters)(struct samsung_ppmu *s_ppmu);
+> +	u32 (*get_int_status)(struct samsung_ppmu *s_ppmu);
+> +	void (*clear_int_status)(struct samsung_ppmu *s_ppmu, int idx);
+> +};
+> +
+> +/* Describes the Samsung PPMU features information */
+> +struct samsung_ppmu_dev_info {
+
+Not used that I can see.  You have an instance in the structure
+below but nothing ever sets it.
+
+
+> +	const char *name;
+> +	const struct attribute_group **attr_groups;
+> +	void *private;
+> +};
+> +
+> +struct samsung_ppmu_hwevents {
+If this is never used except as encapsulation of related
+fields in the main structure below then no need for the type.
+Just have the structure defined inline in struct samsung_ppmu
+
+> +	struct perf_event *hw_events[PPMU_MAX_COUNTERS];
+> +	DECLARE_BITMAP(used_mask, PPMU_MAX_COUNTERS);
+> +	const struct attribute_group **attr_groups;
+> +};
+> +
+> +struct samsung_ppmu_drv_data {
+
+Currently only one value - as such just hard code it in
+the driver (all these comments only apply if you don't have another
+driver to post that also uses the shared infrastructure).
+
+> +	const struct attribute_group **ppmu_attr_group;
+> +};
+> +
+> +/* Generic pmu struct for different pmu types */
+> +struct samsung_ppmu {
+> +	struct pmu pmu;
+> +	const struct samsung_ppmu_ops *ops;
+> +	const struct samsung_ppmu_dev_info *dev_info;
+> +	struct samsung_ppmu_hwevents pmu_events;
+> +	const struct samsung_ppmu_drv_data *ppmu_data;
+> +	u32 samsung_ppmu_version;
+> +	u32 samsung_ppmu_master_id_val;
+> +	u8 status;
+> +	u8 id;
+> +	/* CPU used for counting */
+> +	int on_cpu;
+> +	int irq0;
+> +	int irq1;
+> +	struct device *dev;
+> +	struct hlist_node node;
+> +	void __iomem *base;
+> +	int num_counters;
+> +	u32 counter_overflow[PPMU_MAX_COUNTERS];
+> +	u64 prev_counter[PPMU_MAX_COUNTERS];
+> +	/* check event code range */
+> +	int check_event;
+> +	u32 identifier;
+> +	struct clk_bulk_data clks[PPMU_CLK_COUNT];
+> +};
+> +
+> +void samsung_ppmu_read(struct perf_event *event);
+> +int samsung_ppmu_add(struct perf_event *event, int flags);
+> +void samsung_ppmu_del(struct perf_event *event, int flags);
+> +void samsung_ppmu_start(struct perf_event *event, int flags);
+> +void samsung_ppmu_stop(struct perf_event *event, int flags);
+> +void samsung_ppmu_set_event_period(struct perf_event *event);
+> +void samsung_ppmu_event_update(struct perf_event *event);
+> +int samsung_ppmu_event_init(struct perf_event *event);
+> +void samsung_ppmu_enable(struct pmu *pmu);
+> +void samsung_ppmu_disable(struct pmu *pmu);
+> +ssize_t samsung_ppmu_event_sysfs_show(struct device *dev,
+> +				      struct device_attribute *attr, char *buf);
+> +ssize_t samsung_ppmu_format_sysfs_show(struct device *dev,
+> +				       struct device_attribute *attr, char *buf);
+> +ssize_t samsung_ppmu_cpumask_sysfs_show(struct device *dev,
+> +					struct device_attribute *attr, char *buf);
+> +int samsung_ppmu_online_cpu(unsigned int cpu, struct hlist_node *node);
+> +int samsung_ppmu_offline_cpu(unsigned int cpu, struct hlist_node *node);
+> +
+> +ssize_t samsung_ppmu_identifier_attr_show(struct device *dev,
+> +					  struct device_attribute *attr,
+> +					  char *page);
+> +int samsung_ppmu_init_irq(struct samsung_ppmu *samsung_ppmu,
+> +			  struct platform_device *pdev);
+> +
+> +void samsung_ppmu_init(struct samsung_ppmu *samsung_ppmu, struct module *module);
+> +
+> +#endif /* __SAMSUNG_PPMU_H__ */
+
 
