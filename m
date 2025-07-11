@@ -4,65 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB303C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 08:02:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9E54C8303C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 08:05:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nk+EQqCDIxxjmOF3zd1UNxDjJumJjZiZwdMUJY6YIxc=; b=OD37iVfLKz1F0aKssH+ppvAdkg
-	LlpW0yLjOVDH11YLhWy3KnqIdJNshq1ZySt/7XxSyUiMlgf3wg1S9S8+WSUbWzT1BKITIger6EPoU
-	Etfj7Diiv+xJoBRDsyF6GOdgidr0TmALqlJpVwrUrGTrjP5e9sZYbJNhdX2a/xYzgHJ3n5n97CSpk
-	Vzg1gT3F04fUXZGpoH8sJSiO3wwQ6Bg2rAKfke2kCKWjPuoBaDGB1UmJqk/99R9OuZDeu6/HTtBF1
-	bM6TJp9K/Iq3/392t98YZrkH78hZqu4770rc7gvlw9PJia3WqAVnS4GEGRDBbETNs5xNskSehNh6C
-	x8+6eYIA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vYnuM/WIrDM+HxkaZr79Qv/uzCSKH0uzs/xyR50RsYA=; b=CinOlkK42sS5Z7l9I0f2MEu8gz
+	WGfnrelrgM7pn2n01mcyO+yvPBbBJ16grMKQ6HqLbs4MUFChguEd2mgNwDbCUKKph0iHf71xvaL5m
+	I2ia/Gnr09+KpnwUTsnfve4ccaHy89SMxUG4/OuJAXY2B+o85/J5gFk3HD7WeCgtk0zI4BqtU45nA
+	rEC4TqV0lG0sf96Xqws3yU3fHfPH7PGrO+M/ooegqkXuWm2lMgcxmmwaD+wcBME9kyb1PbcVUMEKz
+	3Cfy7GGuGQbhWZ9/bBB2EEOeXOAzm/zqjKyepeNmAaMgweVOrnP1cnlsyaSUzT2WHGw7OSOLuZN+2
+	cj6pj4qg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ua8iJ-0000000E41M-0dgK;
-	Fri, 11 Jul 2025 08:02:35 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1ua8kd-0000000E4bt-3KHf;
+	Fri, 11 Jul 2025 08:04:59 +0000
+Received: from mail-m3286.qiye.163.com ([220.197.32.86])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ua8MU-0000000E0KO-0ODa
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Jul 2025 07:40:02 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7B02061360;
-	Fri, 11 Jul 2025 07:40:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9C18BC4CEED;
-	Fri, 11 Jul 2025 07:40:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752219601;
-	bh=v1UKmxLgqeJQ99ZtIwzdfNnTf17LbvFnV7H8H/rBmII=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=B59pt+FBc4SVitZEEflQkbZNoMBo9iDvTidx1AFsec47Vzgp/aG3u+fnOvxg2nMVQ
-	 a/PJNdf/I7OrxIBSRjQ4/02rOG77wMSmtRTCr8LenaXpIMsAe4sEAQ79fV4RLzJs8/
-	 wALzB/zSRV+Y4lgU7iAq+C0EezzPbt/ItCuVkkGc5HgrpB5JpRmyL4qigo2+YZbx6W
-	 CoVbCOuO4GvdPIQjwP9WqoIJcJc5EAjgJLaVdNsSebl0HebeQRUZZ62jYPncNa4eSq
-	 o1FvJ1v9YIxSAzCV5GwHGwC6RFpuCzbLtPHpjYDEa9nsTcDVdQV748GiZSHQych1uR
-	 hKrdP0Mn0Q2JQ==
-Date: Fri, 11 Jul 2025 09:39:58 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Andrei Stefanescu <andrei.stefanescu@oss.nxp.com>
-Cc: linus.walleij@linaro.org, brgl@bgdev.pl, robh@kernel.org, 
-	krzk+dt@kernel.org, conor+dt@kernel.org, chester62515@gmail.com, mbrugger@suse.com, 
-	Ghennadi.Procopciuc@nxp.com, larisa.grigore@nxp.com, lee@kernel.org, shawnguo@kernel.org, 
-	s.hauer@pengutronix.de, festevam@gmail.com, aisheng.dong@nxp.com, ping.bai@nxp.com, 
-	gregkh@linuxfoundation.org, rafael@kernel.org, srini@kernel.org, linux-gpio@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, s32@nxp.com, clizzi@redhat.com, aruizrui@redhat.com, 
-	eballetb@redhat.com, echanude@redhat.com, kernel@pengutronix.de, imx@lists.linux.dev, 
-	vincent.guittot@linaro.org
-Subject: Re: [PATCH v7 01/12] dt-bindings: mfd: add support for the NXP SIUL2
- module
-Message-ID: <20250711-enchanted-blond-manul-f8bd3d@krzk-bin>
-References: <20250710142038.1986052-1-andrei.stefanescu@oss.nxp.com>
- <20250710142038.1986052-2-andrei.stefanescu@oss.nxp.com>
+	id 1ua8O9-0000000E0WS-3Oey;
+	Fri, 11 Jul 2025 07:41:47 +0000
+Received: from [172.16.12.26] (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 1baedbbda;
+	Fri, 11 Jul 2025 15:41:38 +0800 (GMT+08:00)
+Message-ID: <0a4d5e97-a143-4293-987c-5682be60023d@rock-chips.com>
+Date: Fri, 11 Jul 2025 15:41:38 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20250710142038.1986052-2-andrei.stefanescu@oss.nxp.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 07/12] drm/bridge: analogix_dp: Add support to find
+ panel or bridge
+To: =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
+ andrzej.hajda@intel.com, neil.armstrong@linaro.org, rfoss@kernel.org
+Cc: Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
+ jernej.skrabec@gmail.com, maarten.lankhorst@linux.intel.com,
+ mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
+ jingoohan1@gmail.com, inki.dae@samsung.com, sw0312.kim@samsung.com,
+ kyungmin.park@samsung.com, krzk@kernel.org, alim.akhtar@samsung.com,
+ hjc@rock-chips.com, andy.yan@rock-chips.com,
+ dmitry.baryshkov@oss.qualcomm.com, l.stach@pengutronix.de,
+ dianders@chromium.org, dri-devel@lists.freedesktop.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, linux-rockchip@lists.infradead.org
+References: <20250709070139.3130635-1-damon.ding@rock-chips.com>
+ <20250709070139.3130635-8-damon.ding@rock-chips.com>
+ <4555084.IFkqi6BYcA@diego>
+Content-Language: en-US
+From: Damon Ding <damon.ding@rock-chips.com>
+In-Reply-To: <4555084.IFkqi6BYcA@diego>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGRodHlZLSxkeSRgZSUNPT0JWFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
+	hVSktLVUpCS0tZBg++
+X-HM-Tid: 0a97f86ec69303a3kunmd7d7e8ccf38b0e
+X-HM-MType: 1
+X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6PC46Ggw*IjExNx8rPyIUNjEJ
+	PBhPCxhVSlVKTE5JSUpCTEtKSE1DVTMWGhIXVR8aFhQVVR8SFRw7CRQYEFYYExILCFUYFBZFWVdZ
+	EgtZQVlOQ1VJSVVMVUpKT1lXWQgBWUFNSkJNNwY+
+DKIM-Signature: a=rsa-sha256;
+	b=I73tuKANV9uKyRok2N9ZcKiqfcsrTwuKJMN5/dQHhdFxk7pahy1W3RoQBYBD8Sl31ir9t+rz5HRKBQEDaOOODVrslC63ZYEKn1MQDTAU1e7vCJDMoixXOdF//+IEkg+8vA2U4Fvb1mOuGa65Y/9FpvLM36du1TAzXW2BrxD/QV8=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=vYnuM/WIrDM+HxkaZr79Qv/uzCSKH0uzs/xyR50RsYA=;
+	h=date:mime-version:subject:message-id:from;
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250711_004146_349319_3EDD339D 
+X-CRM114-Status: GOOD (  22.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,74 +85,133 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 10, 2025 at 05:20:24PM +0300, Andrei Stefanescu wrote:
-> Add the dt-bindings for the NXP SIUL2 module which is a multi
-> function device. It can export information about the SoC, configure
-> the pinmux&pinconf for pins and it is also a GPIO controller with
-> interrupt capability.
-> 
-> Signed-off-by: Andrei Stefanescu <andrei.stefanescu@oss.nxp.com>
-> ---
->  .../bindings/mfd/nxp,s32g2-siul2.yaml         | 163 ++++++++++++++++++
->  1 file changed, 163 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/mfd/nxp,s32g2-siul2.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/mfd/nxp,s32g2-siul2.yaml b/Documentation/devicetree/bindings/mfd/nxp,s32g2-siul2.yaml
-> new file mode 100644
-> index 000000000000..8ae185b4bc78
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/mfd/nxp,s32g2-siul2.yaml
-> @@ -0,0 +1,163 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +# Copyright 2024 NXP
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/mfd/nxp,s32g2-siul2.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: NXP S32 System Integration Unit Lite2 (SIUL2)
-> +
-> +maintainers:
-> +  - Andrei Stefanescu <andrei.stefanescu@oss.nxp.com>
-> +
-> +description: |
-> +  SIUL2 is a hardware block which implements pinmuxing,
-> +  pinconf, GPIOs (some with interrupt capability) and
-> +  registers which contain information about the SoC.
-> +  There are generally two SIUL2 modules whose functionality
-> +  is grouped together. For example interrupt configuration
-> +  registers are part of SIUL2_1 even though interrupts are
-> +  also available for SIUL2_0 pins.
-> +
-> +  The following register types are exported by SIUL2:
-> +    - MIDR (MCU ID Register) - information related to the SoC
-> +    - interrupt configuration registers
-> +    - MSCR (Multiplexed Signal Configuration Register) - pinmuxing and pinconf
-> +    - IMCR (Input Multiplexed Signal Configuration Register)- pinmuxing
-> +    - PGPDO (Parallel GPIO Pad Data Out Register) - GPIO output value
-> +    - PGPDI (Parallel GPIO Pad Data In Register) - GPIO input value
-> +
-> +  Most registers are 32bit wide with the exception of PGPDO/PGPDI which are
-> +  16bit wide.
-> +
-> +properties:
-> +  compatible:
-> +    oneOf:
-> +      - const: nxp,s32g2-siul2
-> +      - items:
-> +          - enum:
-> +              - nxp,s32g3-siul2
-> +          - const: nxp,s32g2-siul2
-> +
-> +  reg:
-> +    minItems: 2
+Hi Heiko,
 
-Eh, and after reading your deprecated patch I went back here and see
-this changed... Why? Why are you making random changes?
+On 2025/7/10 4:07, Heiko Stübner wrote:
+> Hi Damon,
+> 
+> Am Mittwoch, 9. Juli 2025, 09:01:34 Mitteleuropäische Sommerzeit schrieb Damon Ding:
+>> Since the panel/bridge should logically be positioned behind the
+>> Analogix bridge in the display pipeline, it makes sense to handle
+>> the panel/bridge parsing on the Analogix side.
+>>
+>> Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
+>> ---
+>>   .../drm/bridge/analogix/analogix_dp_core.c    | 48 +++++++++++++++++++
+>>   include/drm/bridge/analogix_dp.h              |  2 +
+>>   2 files changed, 50 insertions(+)
+>>
+>> diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
+>> index 78d68310e4f6..660f95e90490 100644
+>> --- a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
+>> +++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
+>> @@ -19,12 +19,14 @@
+>>   #include <linux/platform_device.h>
+>>   
+>>   #include <drm/bridge/analogix_dp.h>
+>> +#include <drm/display/drm_dp_aux_bus.h>
+>>   #include <drm/drm_atomic.h>
+>>   #include <drm/drm_atomic_helper.h>
+>>   #include <drm/drm_bridge.h>
+>>   #include <drm/drm_crtc.h>
+>>   #include <drm/drm_device.h>
+>>   #include <drm/drm_edid.h>
+>> +#include <drm/drm_of.h>
+>>   #include <drm/drm_panel.h>
+>>   #include <drm/drm_print.h>
+>>   #include <drm/drm_probe_helper.h>
+>> @@ -1707,6 +1709,52 @@ struct drm_dp_aux *analogix_dp_get_aux(struct analogix_dp_device *dp)
+>>   }
+>>   EXPORT_SYMBOL_GPL(analogix_dp_get_aux);
+>>   
+>> +static int analogix_dp_aux_done_probing(struct drm_dp_aux *aux)
+>> +{
+>> +	struct analogix_dp_device *dp = to_dp(aux);
+>> +	struct analogix_dp_plat_data *plat_data = dp->plat_data;
+>> +	int port = plat_data->dev_type == EXYNOS_DP ? 0 : 1;
+>> +	int ret;
+>> +
+>> +	/*
+>> +	 * If drm_of_find_panel_or_bridge() returns -ENODEV, there may be no valid panel
+>> +	 * or bridge nodes. The driver should go on for the driver-free bridge or the DP
+>> +	 * mode applications.
+>> +	 */
+>> +	ret = drm_of_find_panel_or_bridge(dp->dev->of_node, port, 0,
+>> +					  &plat_data->panel, &plat_data->bridge);
+> 
+> Could you check if this can use a panel-bridge?
+> See for example
+> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/gpu/drm/rockchip/rockchip_rgb.c#n138
+> or a lot of other places for drm_panel_bridge_add()
+> 
+> So if drm_of_find_panel_or_bridge() finds a bridge, just use it; if it
+> finds a panel, drm_panel_bridge_add() just wraps a bridge around it
+> and all the code can just assume everything is bridge after that.
+> 
+> 
 
-I retract my review, I was too hasty.
+Yes, that is a good approach. Using the panel-bridge will make the 
+related checks more concise.
+
+> 
+>> +	if (ret && ret != -ENODEV)
+>> +		return ret;
+>> +
+>> +	return component_add(dp->dev, plat_data->ops);
+>> +}
+>> +
+>> +int analogix_dp_find_panel_or_bridge(struct analogix_dp_device *dp)
+>> +{
+>> +	int ret;
+>> +
+>> +	ret = devm_of_dp_aux_populate_bus(&dp->aux, analogix_dp_aux_done_probing);
+>> +	if (ret) {
+>> +		/*
+>> +		 * If devm_of_dp_aux_populate_bus() returns -ENODEV, the done_probing() will
+>> +		 * not be called because there are no EP devices. Then the callback function
+>> +		 * analogix_dp_aux_done_probing() will be called directly in order to support
+>> +		 * the other valid DT configurations.
+>> +		 *
+>> +		 * NOTE: The devm_of_dp_aux_populate_bus() is allowed to return -EPROBE_DEFER.
+>> +		 */
+>> +		if (ret != -ENODEV) {
+>> +			dev_err(dp->dev, "failed to populate aux bus\n");
+>> +			return ret;
+>> +		}
+>> +
+>> +		return analogix_dp_aux_done_probing(&dp->aux);
+>> +	}
+>> +
+>> +	return 0;
+>> +}
+>> +EXPORT_SYMBOL_GPL(analogix_dp_find_panel_or_bridge);
+>> +
+>>   MODULE_AUTHOR("Jingoo Han <jg1.han@samsung.com>");
+>>   MODULE_DESCRIPTION("Analogix DP Core Driver");
+>>   MODULE_LICENSE("GPL v2");
+>> diff --git a/include/drm/bridge/analogix_dp.h b/include/drm/bridge/analogix_dp.h
+>> index 202e5eafb2cc..0b6d85f1924e 100644
+>> --- a/include/drm/bridge/analogix_dp.h
+>> +++ b/include/drm/bridge/analogix_dp.h
+>> @@ -30,6 +30,7 @@ struct analogix_dp_plat_data {
+>>   	struct drm_bridge *bridge;
+>>   	struct drm_encoder *encoder;
+>>   	struct drm_connector *connector;
+>> +	const struct component_ops *ops;
+>>   
+>>   	int (*power_on)(struct analogix_dp_plat_data *);
+>>   	int (*power_off)(struct analogix_dp_plat_data *);
+>> @@ -52,5 +53,6 @@ int analogix_dp_stop_crc(struct drm_connector *connector);
+>>   
+>>   struct analogix_dp_plat_data *analogix_dp_aux_to_plat_data(struct drm_dp_aux *aux);
+>>   struct drm_dp_aux *analogix_dp_get_aux(struct analogix_dp_device *dp);
+>> +int analogix_dp_find_panel_or_bridge(struct analogix_dp_device *dp);
+>>   
+>>   #endif /* _ANALOGIX_DP_H_ */
+>>
+> 
 
 Best regards,
-Krzysztof
+Damon
 
 
