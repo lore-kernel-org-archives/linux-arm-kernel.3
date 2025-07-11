@@ -4,66 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B44CDC8303C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 10:55:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6FF2C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 10:58:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xOe0DECHbh24BVQ5E5u9fAtHwwKQN2MvVta0PHunC5I=; b=q0JAh+4j1i1q3pbHUouQ1jr9mc
-	3/92OcBDFT23kY/2wp7zt850SFZ/tg+6D/Mlhd8iuOd3ebG7+ps8nHJLla/RdIGmvUVZ+wxP05AkY
-	vl5vcDWBXZ8Jej8/ZHxPza67enKk/wQ5wbfX6CoDcLjo2Z/UkYC8Ii9gj6UR549EF/oH4EUlq4mLP
-	msZelSKA7AksfAeF5cku7QLkQs7XIFQ6i26fdzh3uJ/5Nu7pFfjkJstP9rbnlR+QoheCMBn6iyj4i
-	8j1iEj8orrhjtEBl4q3NAdqufn+95gHtkgcsMjS8oC0LOeAgr+RVBBj1clgRmYfqx3KAvyp9sabKY
-	rdfCdJUg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vAwz9VEcVoGTEWC7hvIYLB6gYXgNjSsl+blGys6F9pY=; b=MDmInhbA+bpwh+Klvs3D31yzUW
+	rKvICt5rLfPUA/eDT42Sxi56g4f81UaZc0fjVQf5yCgglkVPJbfXP6m4oJrN541rpg7VCwqZo/M/O
+	MOxPiUHTQDsfpdEQjuAWW06FidnFxmpj5lcTYqWredsr+FHA+REFCSn9Wg+cIDOUGvJQoRuNf1PTP
+	fSCeB2gyVDaP5Yekh3YH5sL7iixkM3iAOH1DGwA5TTAbR5SceamBNnjBzrdXLh26tLipCXOvzmpjh
+	aeNh+qSATEGULZzPp6WzsDAA4hIyr3VdFoAoOUW5juTDryY2YC1BOvsK3n49dfgbKAP03fqheTGHB
+	3NwmuUFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaBQ0-0000000EXLB-41JM;
-	Fri, 11 Jul 2025 10:55:52 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaA3n-0000000EIvc-0wrw
+	id 1uaBSL-0000000EXkj-0UCd;
+	Fri, 11 Jul 2025 10:58:17 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uaAOg-0000000ENQX-3BPZ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Jul 2025 09:28:52 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.216])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4bdmXS37K6z6L4yR;
-	Fri, 11 Jul 2025 17:25:28 +0800 (CST)
-Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
-	by mail.maildlp.com (Postfix) with ESMTPS id 2177D14020C;
-	Fri, 11 Jul 2025 17:28:46 +0800 (CST)
-Received: from localhost (10.203.177.66) by frapeml500008.china.huawei.com
- (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Fri, 11 Jul
- 2025 11:28:45 +0200
-Date: Fri, 11 Jul 2025 10:28:43 +0100
-From: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-To: Alireza Sanaee <alireza.sanaee@huawei.com>
-CC: <krzk@kernel.org>, <robh@kernel.org>, <coresight@lists.linaro.org>,
-	<devicetree@vger.kernel.org>, <dianders@chromium.org>,
-	<james.clark@linaro.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <linux-perf-users@vger.kernel.org>,
-	<linuxarm@huawei.com>, <mark.rutland@arm.com>, <mike.leach@linaro.org>,
-	<ruanjinjie@huawei.com>, <saravanak@google.com>,
-	<shameerali.kolothum.thodi@huawei.com>, Suzuki K Poulose
-	<suzuki.poulose@arm.com>
-Subject: Re: [PATCH v2 3/5] coresight: cti: Use of_cpu_phandle_to_id for
- grabbing CPU id
-Message-ID: <20250711102843.000003e6@huawei.com>
-In-Reply-To: <20250708151502.561-4-alireza.sanaee@huawei.com>
-References: <20250708151502.561-1-alireza.sanaee@huawei.com>
-	<20250708151502.561-4-alireza.sanaee@huawei.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	Fri, 11 Jul 2025 09:50:28 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 70BB216F2;
+	Fri, 11 Jul 2025 02:50:15 -0700 (PDT)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B26EC3F6A8;
+	Fri, 11 Jul 2025 02:50:25 -0700 (PDT)
+Date: Fri, 11 Jul 2025 10:50:23 +0100
+From: Leo Yan <leo.yan@arm.com>
+To: Breno Leitao <leitao@debian.org>
+Cc: Mark Rutland <mark.rutland@arm.com>, ankita@nvidia.com,
+	bwicaksono@nvidia.com, rmk+kernel@armlinux.org.uk,
+	catalin.marinas@arm.com, linux-serial@vger.kernel.org,
+	rmikey@meta.com, linux-arm-kernel@lists.infradead.org,
+	usamaarif642@gmail.com, linux-kernel@vger.kernel.org,
+	paulmck@kernel.org
+Subject: Re: arm64: csdlock at early boot due to slow serial (?)
+Message-ID: <20250711095023.GB1093654@e132581.arm.com>
+References: <aGVn/SnOvwWewkOW@gmail.com>
+ <aGZbYmV26kUKJwu_@J2N7QTR9R3>
+ <aGaQBghdAl8VGWmV@gmail.com>
+ <aGawTd8N2i8MDCmL@J2N7QTR9R3>
+ <aG0kYjl/sphGqd4r@gmail.com>
+ <juiog3337iozva23zpf4apdydegj4z7jibqykfvcgnkabemw4w@z5g5hhwrqr2w>
+ <20250710133557.GA1093654@e132581.arm.com>
+ <jlhgtwkeezoca34wbqipvsgr4muxov5wmgrswleo2k7zqitzfr@4ngriyb2udra>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.203.177.66]
-X-ClientProxiedBy: lhrpeml100002.china.huawei.com (7.191.160.241) To
- frapeml500008.china.huawei.com (7.182.85.71)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <jlhgtwkeezoca34wbqipvsgr4muxov5wmgrswleo2k7zqitzfr@4ngriyb2udra>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250711_022851_410132_E9A377EB 
-X-CRM114-Status: GOOD (  15.03  )
+X-CRM114-CacheID: sfid-20250711_025026_892679_FDBCD96F 
+X-CRM114-Status: GOOD (  23.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,49 +73,138 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 8 Jul 2025 16:15:00 +0100
-Alireza Sanaee <alireza.sanaee@huawei.com> wrote:
+Hi Breno,
 
-> Use the newly created API to grab CPU id.
+On Thu, Jul 10, 2025 at 10:30:45AM -0700, Breno Leitao wrote:
+
+[...]
+
+> > The atomic path is introduced recently by the commit:
+> > 
+> >   2eb2608618ce ("serial: amba-pl011: Implement nbcon console")
+> > 
+> > My conclusion is that changing the initcall will not disable the atomic
+> > path, changing to console_initcall() will cause AMBA device init
+> > failure, and as a result, the clock operations will not be invoked.
+> > Thus, I am curious if you have ruled out the issue is caused by the UART
+> > clock (as I mentioned in another reply).
+> > 
+> > BTW, since the atomic path is enabled in the commit 2eb2608618ce, what
+> > is the result after reverting the commit?
 > 
-> Signed-off-by: Alireza Sanaee <alireza.sanaee@huawei.com>
-> ---
->  .../hwtracing/coresight/coresight-cti-platform.c   | 14 +-------------
->  1 file changed, 1 insertion(+), 13 deletions(-)
+> I've reverted commit 2eb2608618ce ("serial: amba-pl011: Implement nbcon
+> console"), and I don't see the CSD locks anymoer. The serial speed is
+> the same and continue to be slow, but, the CSD lock is not there. Here
+> is the time spent on the serial flush when reverting the commit above
 > 
-> diff --git a/drivers/hwtracing/coresight/coresight-cti-platform.c b/drivers/hwtracing/coresight/coresight-cti-platform.c
-> index d0ae10bf6128..e1dc559d54aa 100644
-> --- a/drivers/hwtracing/coresight/coresight-cti-platform.c
-> +++ b/drivers/hwtracing/coresight/coresight-cti-platform.c
-> @@ -41,20 +41,8 @@
->   */
->  static int of_cti_get_cpu_at_node(const struct device_node *node)
->  {
-> -	int cpu;
-> -	struct device_node *dn;
-> +	int cpu = of_cpu_phandle_to_id(node, NULL, 0);
+> 	[    0.309561] printk: legacy console [ttyAMA0] enabled
+> 	[    8.657938] ACPI: PCI Root Bridge [PCI2] (domain 0002 [bus 00-ff])
 
-Could do a single line - kind of down to coresight maintainers preference though!
+From this result, we can know both the atomic path and the thread path
+take a long time polling.
 
-	return (of_cpu_phandle_to_id(node, NULL, 0) < 0) ? -1; cpu;
+Since both paths configure the UART clock, I'm curious about the
+behaviour if the UART clock is untouched. The relevant code is shown
+below.
 
-+CC Suzuki (you got the two reviewers in the +CC but not the maintainer)
+I may seem a bit stubborn in suspecting a clock issue :) But if you
+have confirmed that a standard pl011 UART IP is being used, then the
+only external factor I am aware of is the clock.
 
+Thanks,
+Leo
 
->  
-> -	if (node == NULL)
-> -		return -1;
-> -
-> -	dn = of_parse_phandle(node, "cpu", 0);
-> -	/* CTI affinity defaults to no cpu */
-> -	if (!dn)
-> -		return -1;
-> -	cpu = of_cpu_node_to_id(dn);
-> -	of_node_put(dn);
-> -
-> -	/* No Affinity  if no cpu nodes are found */
->  	return (cpu < 0) ? -1 : cpu;
->  }
->  
+---8<---
 
+diff --git a/drivers/amba/bus.c b/drivers/amba/bus.c
+index 71482d639a6d..b04773ba2602 100644
+--- a/drivers/amba/bus.c
++++ b/drivers/amba/bus.c
+@@ -64,6 +64,8 @@ static int amba_get_enable_pclk(struct amba_device *pcdev)
+ {
+ 	int ret;
+ 
++	return 0;
++
+ 	pcdev->pclk = clk_get(&pcdev->dev, "apb_pclk");
+ 	if (IS_ERR(pcdev->pclk))
+ 		return PTR_ERR(pcdev->pclk);
+@@ -77,8 +79,8 @@ static int amba_get_enable_pclk(struct amba_device *pcdev)
+ 
+ static void amba_put_disable_pclk(struct amba_device *pcdev)
+ {
+-	clk_disable_unprepare(pcdev->pclk);
+-	clk_put(pcdev->pclk);
++	//clk_disable_unprepare(pcdev->pclk);
++	//clk_put(pcdev->pclk);
+ }
+ 
+ 
+diff --git a/drivers/tty/serial/amba-pl011.c b/drivers/tty/serial/amba-pl011.c
+index 22939841b1de..9ba24afb6e4f 100644
+--- a/drivers/tty/serial/amba-pl011.c
++++ b/drivers/tty/serial/amba-pl011.c
+@@ -1777,7 +1777,7 @@ static int pl011_hwinit(struct uart_port *port)
+ 	/*
+ 	 * Try to enable the clock producer.
+ 	 */
+-	retval = clk_prepare_enable(uap->clk);
++	retval = clk_prepare(uap->clk);
+ 	if (retval)
+ 		return retval;
+ 
+@@ -1934,7 +1934,7 @@ static int pl011_startup(struct uart_port *port)
+ 	return 0;
+ 
+  clk_dis:
+-	clk_disable_unprepare(uap->clk);
++	//clk_disable_unprepare(uap->clk);
+ 	return retval;
+ }
+ 
+@@ -2025,7 +2025,7 @@ static void pl011_shutdown(struct uart_port *port)
+ 	/*
+ 	 * Shut down the clock producer
+ 	 */
+-	clk_disable_unprepare(uap->clk);
++	//clk_disable_unprepare(uap->clk);
+ 	/* Optionally let pins go into sleep states */
+ 	pinctrl_pm_select_sleep_state(port->dev);
+ 
+@@ -2524,7 +2524,7 @@ pl011_console_write_atomic(struct console *co, struct nbcon_write_context *wctxt
+ 	if (!nbcon_enter_unsafe(wctxt))
+ 		return;
+ 
+-	clk_enable(uap->clk);
++	//clk_enable(uap->clk);
+ 
+ 	if (!uap->vendor->always_enabled) {
+ 		old_cr = pl011_read(uap, REG_CR);
+@@ -2542,7 +2542,7 @@ pl011_console_write_atomic(struct console *co, struct nbcon_write_context *wctxt
+ 	if (!uap->vendor->always_enabled)
+ 		pl011_write(old_cr, uap, REG_CR);
+ 
+-	clk_disable(uap->clk);
++	//clk_disable(uap->clk);
+ 
+ 	nbcon_exit_unsafe(wctxt);
+ }
+@@ -2556,7 +2556,7 @@ pl011_console_write_thread(struct console *co, struct nbcon_write_context *wctxt
+ 	if (!nbcon_enter_unsafe(wctxt))
+ 		return;
+ 
+-	clk_enable(uap->clk);
++	//clk_enable(uap->clk);
+ 
+ 	if (!uap->vendor->always_enabled) {
+ 		old_cr = pl011_read(uap, REG_CR);
+@@ -2586,7 +2586,7 @@ pl011_console_write_thread(struct console *co, struct nbcon_write_context *wctxt
+ 	if (!uap->vendor->always_enabled)
+ 		pl011_write(old_cr, uap, REG_CR);
+ 
+-	clk_disable(uap->clk);
++	//clk_disable(uap->clk);
+ 
+ 	nbcon_exit_unsafe(wctxt);
+ }
 
