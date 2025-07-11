@@ -4,127 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6186C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 13:39:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7029FC83F1B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 13:41:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hVS97d7MJNsARObM2+ftRjP75nOmFiQEKsv7hh3XWUw=; b=kZwVbGPwMIiO+NySf+CbOxFOnc
-	VKGmN7SYGGbV1FQOG6/dSS2CYbSzppjwke6Bus5bw++cggVmVeUEAYqraxiTjXhMncXGdMKWEs5yE
-	b2wvpcsHkUVRTVRJ2ErQiioMl4Y3o3wZMN8WwN49MV8sQtn04Psyou8eWw/a9MIdFNn96n7R4pvF/
-	juBWbgiGk+C3EW2p5WqSvrgzwQOSF7qyxEGSWaoY1Mb0uRUio8qxRSRiPC7OsyFQYKeDOCfCP9c+a
-	Lu7sxhg50GfnwgZhCCowyj11lk6avXHu7Wtv7Tu7eiKQ0xN8oeW3f/lsAX420wZc32RNW8gVguUd/
-	hLl2GhWg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pPQRVC+gYXzA0BtSE8rtHH/2+eUDBChSDQmEkeHBXgE=; b=4BLC1EHfmmu8qlT5vtslSVihf3
+	Z1bwIq+XTLjKpiGQdeA0sLWkfZuL+dP4L7xKW8g44jGkOGFyWTdryRYLECuoUZpgLXxZnVOES8HE2
+	czZM5CFZ/NPQW9WIoTtXEhPvE6H3NGOQn2Xyfh8jIdwc3V8C7eMCjfacGkaGRGPqVlNo6XESTyuuL
+	YMnfmU1nrItZdIAqAmdzLLKnTpe+vx02y4HoOj2Jyq6ayh1mSv68+P9tCwZwgFGhms9f6yoneLpV3
+	v7L9saeb5Ik0wXN7CvErNsTXnPAXKjdLGvfZg+IV8Aq7B0XBbm7IQlcedamdxs2uWXYMWJ7PQET+t
+	8sWSilvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaDxm-0000000Euls-0O1M;
-	Fri, 11 Jul 2025 13:38:54 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1uaE06-0000000EvLd-0Gbx;
+	Fri, 11 Jul 2025 13:41:18 +0000
+Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaDlU-0000000EsHn-0FSZ
+	id 1uaDoe-0000000EslV-19Td
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Jul 2025 13:26:13 +0000
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56BBGFGs001260
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Jul 2025 13:26:11 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	hVS97d7MJNsARObM2+ftRjP75nOmFiQEKsv7hh3XWUw=; b=V1QdnfhA44Cnyk8Y
-	oiW9MnIiYE5juU9bHra1u9W53iKnCh1n/4bVHvCl4GFB1d6c19FpkesKKXWSi3Rq
-	6YuToKYwvn4dR2WceBhbyEO5gu4N+zl8Mudgs8iSIKLub4J3amFDwi9rULNz9ALB
-	RupkJ7Ux3KDJ+WDbmfua93FxJTxYiZCmNImjTvlgLflwN9H6ocuB2xtY1VKclnAE
-	djIGakjV55DDrrKbg4WpzxrUEQXi7OZSQiqOpeVtPOpxBPavJELY7CESzOINZfsx
-	Y9igsqQ/Ba3+KTgRgzbLYFrnrtEkGMj8Ypo6BaFgguVmdCAUrBcuK8eO2uk4P0r+
-	29QkwA==
-Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com [209.85.222.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 47pucnc544-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Jul 2025 13:26:10 +0000 (GMT)
-Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-7dfeacb6dbdso6644185a.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Jul 2025 06:26:10 -0700 (PDT)
+	Fri, 11 Jul 2025 13:29:29 +0000
+Received: by mail-pj1-x102f.google.com with SMTP id 98e67ed59e1d1-3138b2f0249so1808263a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Jul 2025 06:29:27 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1752240567; x=1752845367; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=pPQRVC+gYXzA0BtSE8rtHH/2+eUDBChSDQmEkeHBXgE=;
+        b=ikodZZBFcGFyPSYzhjET0JPXe75B4mnFX3cgJaXLogHgRSFRO/UlqXmbe4tQn5pcfz
+         ZXZCzU/IVeUO3jC1obfto1BPRO8LGi2Z580hWnbdj2lWhNLRYTo/0axbLRdwr9VVWn3B
+         +4hLzgnUGQ6iczMRxvzCwEO7/ny8OLCf+JloZJ64ZoCgiopmu0y5XhVasabNF/NS3Qgt
+         V6cilm0cL0QWsigcnAC04VQPwTqFQBvOsGelS4cE0K4UOmS1HijdBWyB6Ncy7E4w5BFk
+         EhqJxEsvKlHURwlKRxygiupnKGZgLddVdWuwscDJVo/vElavnPQHEnft21V/ZkRQu1aC
+         hm9g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752240370; x=1752845170;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=hVS97d7MJNsARObM2+ftRjP75nOmFiQEKsv7hh3XWUw=;
-        b=fo0j+Tt6eI5xkMLTN1w80SGGE0Oh5X+JPRN6NkrG/vC6DRiWdu5aQ6TcvX4UkB9K/l
-         dsns1Ez6KWdHYWnP/lTCpswx/p5cdhLtAdLr7iVBtZpsJGTRAAEpSfIOuBRmPJfRcSS5
-         sGmULm0cf9AFXDwH/1Tu1ZnFztwak/iTLkwyEEflby5qG7DR4klN0bvKLNiBQx8WNUkh
-         j+ZBcuvfmuJYqxxm4dKzX6GWnKD7CRQqQS1zAnILrFBnhYggBjW+GdpJFM+AW9KbQC95
-         UvE1LGjhI5HwUAQWqvS9HNp+JUquDhvX2xR3L9ohOMM28bCYIMC9E+IIlfTTwFCMkCHA
-         oVEw==
-X-Forwarded-Encrypted: i=1; AJvYcCWW9io+rbEPW3dE1mCVqZk8vu+366UwzIWeR3cFtu34uMS2RuqRYfEdxefP6TvipmpnTJ4po8weQIc5G0osZApY@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzu5CjBAf83j7IM8QWyr23ODTqaLS7K7KTEUP+rypfV5lzdMPby
-	NVPc9RccBNxBCjV2p7KHasqnp4BwPmamXfIs/x2e5Hno3+JgSXyEDlEaGAYNcQONXPGee+vOVW6
-	eLwsxyAylg/1Y2APNU9clr20UWwxuQjvjcn+R3k4FIL/RUtpO/Vef3MStV5jP+JabUi/qeiBIwx
-	BJFNH9HQgBsA==
-X-Gm-Gg: ASbGncs3IVGopTYlDkEMewshw0Cr/IGKq8BQEsftmRMOVAemLMpeDZHnFvv3SQesEYs
-	oDFvC7qealPS/8RkHi16Kmj5PNU/DmG9coTqKsLeTkF+Xs9sE82jqdP0UDzC253cjFvwJIX4JBB
-	hPZEAbNDIWaW75H905jTcjNu81vFiJHFhtp7pnOn7GgT2yTClASn5DcIxZstDeGZYtfKNkSqi9O
-	mhGQ+K3Yjd5BbpCtzeWLuGD1+08hn8tqtnrhRYkTBfoRvMZZ48vH6A0cZ0X04jVQm+J9G/ynmm9
-	wWdTR84LIjwRsoNDSU4FB/Sqa7kufrXVGuZBLJV0fS8+RJGevnucokmnk4NLvdYYVX2iypbIp/E
-	q5R/CMsIfQijsEuBuQrOR
-X-Received: by 2002:a05:620a:458c:b0:7d4:5d37:4169 with SMTP id af79cd13be357-7ddec64be74mr189854185a.15.1752240369623;
-        Fri, 11 Jul 2025 06:26:09 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGrnu8dcEhZSYwibX0MN3BjvYt7cX3AvTEFAod/2sdxyQmMhviAkK4/cJknuEH/hjlqf6Oc7w==
-X-Received: by 2002:a05:620a:458c:b0:7d4:5d37:4169 with SMTP id af79cd13be357-7ddec64be74mr189852285a.15.1752240369024;
-        Fri, 11 Jul 2025 06:26:09 -0700 (PDT)
-Received: from [192.168.143.225] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ae6e826462bsm299427066b.104.2025.07.11.06.26.06
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 11 Jul 2025 06:26:08 -0700 (PDT)
-Message-ID: <6cc5bb7a-344c-45fa-a8cc-cea34493c759@oss.qualcomm.com>
-Date: Fri, 11 Jul 2025 15:26:05 +0200
+        d=1e100.net; s=20230601; t=1752240567; x=1752845367;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=pPQRVC+gYXzA0BtSE8rtHH/2+eUDBChSDQmEkeHBXgE=;
+        b=sWkL+n0CsYn0s8oiyDmGeHb0LhmHRxj0I1Ca1NWE/oQU0rvJVT2GSB8U4wxBESFc5O
+         pkLaM6ePAQNvoiEA1pTfUefNh8n70eJdj2DTAT/evGT09uIY3CJOV+WqGxjyBsiphzW0
+         el1QQyfEGopFDSgX5EsXM04LTE0YPLQ6yEdVyECmnzMaS0U/2bMocAMgmQq46QnlsPVo
+         h2Ijw5CzWcN8x75mfPYiHLAkTpB5kQs5ioX92KooA4XQwVoZ9sU2QEJvj6bfxZWDaNHK
+         fAmTz6MlbyKeaVKY1WAJk1ryExFjuH/5ep7oWOBFvV1seuNpnmunPbJzvqlNXypNByuE
+         D7Jw==
+X-Forwarded-Encrypted: i=1; AJvYcCXOMwKq71BkYXZguKiRyr5h6dLShF76E8yqmXAFFpj+yXl5cpMDQVSWGMy4seixiS1fwKsxKu7quvtrblyfo2kX@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxtzw4UcdEuFZIiGLXK0a8oTPD07ya9kt9yGvS8qnqa4vS+801C
+	NP//0riQAbarDgTD807g/1P+VtJltOqyQu2bSB6nLPNTHbQ9aFmg5JRb427QNvofYkewsGAEQ0H
+	GQBwMitl5ux5XfS8kYrbtZ2LNp71ymRvknKxqzibtGw==
+X-Gm-Gg: ASbGncvmXDa/dVHJ+qFGFamfl3E0qu5Ls9W2WyrmBrUb7ZmeM4bEGGIw9Uydza7pz94
+	1/atY63WdjEGpTSCD9+w/Ut2AfAQzZ4NBK7q4BuVXF6dZEG6xIxCP1hijcPV4p5Rvvgpl3f1Oya
+	t5bYi6uIVSGfSZs1PYBQwaDGRcxA/YGkL25qe6irHg/pNgDFoVlKHli8xguHlIHdyobEJXiBTdB
+	GYis1mHhCB9DIGzBBBqfeF8e1sCdY1GpOkMHoVL
+X-Google-Smtp-Source: AGHT+IG4zXliACGrQprvEQ5wj7JsyfYLrvCmNiaEH+tMrZ+FZGuEDY+CASzdByOLlOs/WswgsUHGYzyvgG94wPmljLk=
+X-Received: by 2002:a17:90b:4b8d:b0:313:b1a:3939 with SMTP id
+ 98e67ed59e1d1-31c50da140amr3325921a91.15.1752240566909; Fri, 11 Jul 2025
+ 06:29:26 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] iommu/qcom: Fix pgsize_bitmap
-To: Jason Gunthorpe <jgg@nvidia.com>, iommu@lists.linux.dev,
-        Joerg Roedel <joro@8bytes.org>, linux-arm-kernel@lists.infradead.org,
-        linux-arm-msm@vger.kernel.org,
-        Rob Clark <robin.clark@oss.qualcomm.com>,
-        Robin Murphy <robin.murphy@arm.com>, Will Deacon <will@kernel.org>
-Cc: Joerg Roedel <joerg.roedel@amd.com>, Kevin Tian <kevin.tian@intel.com>,
-        Linux Kernel Functional Testing <lkft@linaro.org>,
-        Naresh Kamboju <naresh.kamboju@linaro.org>,
-        Nicolin Chen <nicolinc@nvidia.com>, patches@lists.linux.dev
-References: <0-v1-65a7964d2545+195-qcom_pgsize_jgg@nvidia.com>
-Content-Language: en-US
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <0-v1-65a7964d2545+195-qcom_pgsize_jgg@nvidia.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Authority-Analysis: v=2.4 cv=GdQXnRXL c=1 sm=1 tr=0 ts=687110f2 cx=c_pps
- a=qKBjSQ1v91RyAK45QCPf5w==:117 a=FpWmc02/iXfjRdCD7H54yg==:17
- a=IkcTkHD0fZMA:10 a=Wb1JkmetP80A:10 a=VwQbUJbxAAAA:8 a=pGLkceISAAAA:8
- a=KKAkSRfTAAAA:8 a=Ikd4Dj_1AAAA:8 a=EUspDBNiAAAA:8 a=bnN0queyXqPnPK5F75AA:9
- a=NqO74GWdXPXpGKcKHaDJD/ajO6k=:19 a=QEXdDO2ut3YA:10 a=NFOGd7dJGGMPyQGDc5-O:22
- a=cvBusfyB2V15izCimMoJ:22
-X-Proofpoint-GUID: Lqfyz5CyLZB7DIIZzkTwwpbPrP5BQSJg
-X-Proofpoint-ORIG-GUID: Lqfyz5CyLZB7DIIZzkTwwpbPrP5BQSJg
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNzExMDA5NSBTYWx0ZWRfXweB3YYu0Txip
- aiM1H+SVEQ6OKmAU44185HHH9ApEFd5o3PAWmYpDahTS08XfGpmrir3YBy7LlwYRKqL7Sgn8MSX
- 2PWoNJ0ZKRYyPGfgpce6TXt3Xg+LpBZyPa66SnXevGn0VeQVG4UYzRVT+7Igb2w1C97U7Fe49G0
- XAPVJdSxbZ2iQdHUTSHYbTg9EG6i2S+db9XQ/4JBnfuPUjfPBMSqxYshsod6PenzKNXjzNrrNfK
- lkGQ6fZBvTxLCuoMWrQGC0yzI757X6svKJFLoFajzmqdQBvMn5VIfR7yFrdEO6eSuUdkfTj31Oc
- JI6E3pl4xxUJmtHagNDu5LkG1IGbdYLSVAS/qQ9NT4EHO7dvG6Du/L8+NLB2R43DAnAvA+1mljZ
- cQtxSZxmfJjtWXluR9wCTrX6c7GxKdxtcWTRm7Ql2RLQ4BfwGCfqaStmbN7tCZ+uPQPRaYFw
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.7,FMLib:17.12.80.40
- definitions=2025-07-11_03,2025-07-09_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- lowpriorityscore=0 phishscore=0 adultscore=0 bulkscore=0 clxscore=1015
- spamscore=0 suspectscore=0 mlxlogscore=999 priorityscore=1501 impostorscore=0
- malwarescore=0 mlxscore=0 classifier=spam authscore=0 authtc=n/a authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2505280000
- definitions=main-2507110095
+References: <20250711094031.4171091-1-quic_jinlmao@quicinc.com>
+In-Reply-To: <20250711094031.4171091-1-quic_jinlmao@quicinc.com>
+From: Mike Leach <mike.leach@linaro.org>
+Date: Fri, 11 Jul 2025 14:29:14 +0100
+X-Gm-Features: Ac12FXz2yLkWQDmM32aTY0N8Gj1hFRU1asfRpnUpH_TzU92dKa2GOxAV8v2hkGM
+Message-ID: <CAJ9a7VhmHooDpht-gU7eAA5O028Tn=CVmCNHU6Qg+UYXp6kUQg@mail.gmail.com>
+Subject: Re: [PATCH v6 0/5] coresight: Add remote etm support
+To: Mao Jinlong <quic_jinlmao@quicinc.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, James Clark <james.clark@linaro.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Bjorn Andersson <andersson@kernel.org>, 
+	Konrad Dybcio <konradybcio@kernel.org>, coresight@lists.linaro.org, 
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250711_062612_217839_BD704ADF 
-X-CRM114-Status: GOOD (  14.36  )
+X-CRM114-CacheID: sfid-20250711_062928_316610_F7651E22 
+X-CRM114-Status: GOOD (  31.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,33 +97,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/11/25 3:16 PM, Jason Gunthorpe wrote:
-> qcom uses the ARM_32_LPAE_S1 format which uses the ARM long descriptor
-> page table. Eventually arm_32_lpae_alloc_pgtable_s1() will adjust
-> the pgsize_bitmap with:
-> 
-> 	cfg->pgsize_bitmap &= (SZ_4K | SZ_2M | SZ_1G);
-> 
-> So the current declaration is nonsensical. Fix it to be just SZ_4K which
-> is what it has actually been using so far. Most likely the qcom driver
-> copy and pasted the pgsize_bitmap from something using the ARM_V7S format.
-> 
-> Fixes: db64591de4b2 ("iommu/qcom: Remove iommu_ops pgsize_bitmap")
-> Reported-by: Naresh Kamboju <naresh.kamboju@linaro.org>
-> Closes: https://lore.kernel.org/all/CA+G9fYvif6kDDFar5ZK4Dff3XThSrhaZaJundjQYujaJW978yg@mail.gmail.com/
-> Tested-by: Linux Kernel Functional Testing <lkft@linaro.org>
-> Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
-> ---
+Hi,
 
-The downstream driver from >10y ago for this era of hardware
-suggests (at least some?) users of this driver can issue a magic
-TZ call to switch to (IIUC) ARM_64_LPAE_S1, but there's no
-implementation upstream, so:
+The majority of this code should not be in the coresight drivers
+directory as it is not actually coresight.
 
-(adding a couple folks interested in the hardware museum to CC to
-bring this to their attention, nothing to act on though)
+This seems to be a communications bus system for various SoC
+components - one of which happens to be a remote etm. It really needs
+to be in a qcom-qmi subdirectory - which would also remove your
+reliance on the coresight maintainers for getting all the qmi drivers
+upstreamed. I note that there is a CONFIG dependency of
+QCOM_QMI_HELPERS, which implies there is already a set of QMI
+functionality not in the coresight directory.
 
-Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+We already have  a dummy coresight driver to cover these cases where
+the actual etm source or sink might be in a different subsystem. This
+could be extended in a generic manner to have an associated driver /
+component, with the dummy source then forwarding the enable / disable
+commands and acting as the coresight device for the purposes of
+enabling the trace path from source to sink.
 
-Konrad
+Thus the "coresight-remote-etm" driver becomes "qmi-node-etm" driver,
+with the proprietary comms info, instance IDs etc encapsulated away
+from any generic coresight information, and has an associated
+coresight-dummy-source to handle the connection to the coresight trace
+framework. I imagine the association could easily be modeled in device
+tree using a phandle reference.
+
+This would not change your usage model, but would give better
+separation between what is clearly the QMI comms subsystem, and what
+is needed to handle coresight connectivity.
+
+Moreover, having the generic coresight dummy driver extended in this
+way would allow other underlying communication systems to be used on
+other devices in future.
+
+Best Regards
+
+Mike
+
+
+On Fri, 11 Jul 2025 at 10:40, Mao Jinlong <quic_jinlmao@quicinc.com> wrote:
+>
+> The system on chip (SoC) consists of main APSS(Applications processor
+> subsytem) and additional processors like modem, lpass. There is
+> coresight-etm driver for etm trace of APSS. Coresight remote etm driver
+> is for enabling and disabling the etm trace of remote processors.
+> It uses QMI interface to communicate with remote processors' software
+> and uses coresight framework to configure the connection from remote
+> etm source to TMC sinks.
+>
+> Example to capture the remote etm trace:
+>
+> Enable source:
+> echo 1 > /sys/bus/coresight/devices/tmc_etf0/enable_sink
+> echo 1 > /sys/bus/coresight/devices/remote_etm0/enable_source
+>
+> Capture the trace:
+> cat /dev/tmc_etf0 > /data/remote_etm.bin
+>
+> Disable source:
+> echo 0 > /sys/bus/coresight/devices/remote_etm0/enable_source
+>
+> Changes since V5:
+> 1. Fix the warning and error when compile.
+> 2. Add traceid for remote etm.
+> 3. Change qcom,qmi-id tp qcom,qmi-instance-id.
+>
+> Changes since V4:
+> 1. Add coresight QMI driver
+> 2. Add coresight qmi node and qcom,qmi-id of modem-etm in msm8996 dtsi
+> V5: https://lwn.net/ml/all/20250424115854.2328190-1-quic_jinlmao@quicinc.com/
+>
+> Changes since V3:
+> 1. Use different compatible for different remote etms in dt.
+> 2. Get qmi instance id from the match table data in driver.
+>
+> Change since V2:
+> 1. Change qcom,inst-id to qcom,qmi-id
+> 2. Fix the error in code for type of remote_etm_remove
+> 3. Depend on QMI helper in Kconfig
+>
+> Changes since V1:
+> 1. Remove unused content
+> 2. Use CORESIGHT_DEV_SUBTYPE_SOURCE_OTHERS as remote etm source type.
+> 3. Use enabled instead of enable in driver data.
+> 4. Validate instance id value where it's read from the DT.
+>
+> Mao Jinlong (5):
+>   dt-bindings: arm: Add CoreSight QMI component description
+>   coresight: Add coresight QMI driver
+>   dt-bindings: arm: Add qcom,qmi-id for remote etm
+>   coresight: Add remote etm support
+>   arm64: dts: qcom: msm8996: Add coresight qmi node
+>
+>  .../bindings/arm/qcom,coresight-qmi.yaml      |  65 +++++
+>  .../arm/qcom,coresight-remote-etm.yaml        |   9 +
+>  arch/arm64/boot/dts/qcom/msm8996.dtsi         |  11 +
+>  drivers/hwtracing/coresight/Kconfig           |  23 ++
+>  drivers/hwtracing/coresight/Makefile          |   2 +
+>  drivers/hwtracing/coresight/coresight-qmi.c   | 198 +++++++++++++
+>  drivers/hwtracing/coresight/coresight-qmi.h   | 101 +++++++
+>  .../coresight/coresight-remote-etm.c          | 262 ++++++++++++++++++
+>  8 files changed, 671 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/arm/qcom,coresight-qmi.yaml
+>  create mode 100644 drivers/hwtracing/coresight/coresight-qmi.c
+>  create mode 100644 drivers/hwtracing/coresight/coresight-qmi.h
+>  create mode 100644 drivers/hwtracing/coresight/coresight-remote-etm.c
+>
+> --
+> 2.25.1
+>
+
+
+--
+Mike Leach
+Principal Engineer, ARM Ltd.
+Manchester Design Centre. UK
 
