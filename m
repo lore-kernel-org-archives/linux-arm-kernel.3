@@ -4,39 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE74FC83F1B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 20:28:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE42AC83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 20:30:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=aAe39mLA5/fPJxqo8iO/ISlY7rAtO3PyDDUS3k0p3cI=; b=y8eoWIytb+GIdKJDS2COOEkgBB
-	3ag5KMTnyDIeC9hg9K0Fe3L7G5D4vR2hoYuUh/fsBOONE9iMKUucwk7Bnij8nTWAGF/K62DKrDKrU
-	gch0SLrsksovsd/o/ubxIyFwF9J44jmmYVS8Q3urqZyQtBvrDXugQvcc2h3yaUJ3abtfxWjZRTwqc
-	fA4aFW7317aa2rPC4IGgmy00Ieiq14BRdgMPIcILwrBItw3Kone/b5ELZ15gdlne2ZeNWOZlp6PxR
-	Qcjl5Xm07SrfeP3ciZ/cz3rYykAAvv0X+tkNH7n7mmbKpdgic6UN/i33MlTYBjj1sRvh+rK4dTIOJ
-	c7Xjjtuw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UMFPZ8IrMjqiIE9bHcG8tr3UGU/I4RiiuVq8nzCqZJ4=; b=1qrezO1cVD/zbel1qH8U7UIBAx
+	umG4erUPznmp3KlvVi/Dzqc6G2bz3t5hTKHf9oyydmx/4jFIE4JMMnRl/gNHfJGDXYKNOE6NFutzh
+	ooDWLXlgzs4Z5HgF4bcej+KVpnL6yobqITUGaqu2vek5dEl1lAtO2LZ3kBsZfXOAXSJyYYB/DGAb0
+	5aDYgPiWlOzajN7x3LBL2L1hSJS1Z9TbRDs8UXamrtN+p8A/gcGxOlsbO7OeYdRN+b0tiVTcoognZ
+	p16m2hrJCxE9VPM6CErsu7wLpissGZ4h75Xcf8fjjEBPXW1lQ3dQUJCOEqz2YqTErKDnF1TDwRD7Z
+	CFyG8RFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaKLo-0000000Fn8T-1LlS;
-	Fri, 11 Jul 2025 20:28:08 +0000
+	id 1uaKO7-0000000FnHg-49CI;
+	Fri, 11 Jul 2025 20:30:31 +0000
 Received: from linux.microsoft.com ([13.77.154.182])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaJGr-0000000Fcuk-3XAB
+	id 1uaJGr-0000000Fcuh-3bIs
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Jul 2025 19:18:58 +0000
+	Fri, 11 Jul 2025 19:18:59 +0000
 Received: by linux.microsoft.com (Postfix, from userid 1032)
-	id 8495121151BB; Fri, 11 Jul 2025 12:18:55 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 8495121151BB
+	id 955732115802; Fri, 11 Jul 2025 12:18:55 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 955732115802
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
 	s=default; t=1752261535;
-	bh=aAe39mLA5/fPJxqo8iO/ISlY7rAtO3PyDDUS3k0p3cI=;
-	h=From:To:Cc:Subject:Date:From;
-	b=tLAD1uEPz9Axn6TCbuWFL94QgYLEMSZssf7UtNswEAI7frs1J2XLdUbMyIL5WnsUD
-	 jm94PAdBbd9Cw78unAxNu5fqd0P9b4uaQkxd1cUXRMTXZdK62neOtURdi61158EYz5
-	 yqtNTTHR3FZ/Gs7IzXPy1sboX+jw6Y7m/jwcajEE=
+	bh=UMFPZ8IrMjqiIE9bHcG8tr3UGU/I4RiiuVq8nzCqZJ4=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=BcKyRt95LY91swi1TdKcoT+mfHyF8tYy50XkcwH3KV167LODNbEpbYPioy6kFWxCO
+	 dF+ZYckPR0PiLgpf/y5W1z7ynyZJ3RLJDs1ZQ32UnXd3dI/ndJe/RFCCgk2J9ThxGg
+	 69MVy8hY5lgivpclVpsy5xpMjZp+LNQPaEVhusq8=
 From: Nuno Das Neves <nunodasneves@linux.microsoft.com>
 To: linux-hyperv@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -64,13 +64,15 @@ Cc: kys@microsoft.com,
 	mrathor@linux.microsoft.com,
 	x86@kernel.org,
 	Nuno Das Neves <nunodasneves@linux.microsoft.com>
-Subject: [PATCH v3 0/3] Nested virtualization fixes for root partition
-Date: Fri, 11 Jul 2025 12:18:49 -0700
-Message-Id: <1752261532-7225-1-git-send-email-nunodasneves@linux.microsoft.com>
+Subject: [PATCH v3 1/3] Drivers: hv: Use nested hypercall for post message and signal event
+Date: Fri, 11 Jul 2025 12:18:50 -0700
+Message-Id: <1752261532-7225-2-git-send-email-nunodasneves@linux.microsoft.com>
 X-Mailer: git-send-email 1.8.3.1
+In-Reply-To: <1752261532-7225-1-git-send-email-nunodasneves@linux.microsoft.com>
+References: <1752261532-7225-1-git-send-email-nunodasneves@linux.microsoft.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250711_121857_901110_F101E468 
-X-CRM114-Status: GOOD (  10.51  )
+X-CRM114-CacheID: sfid-20250711_121857_942459_42C4536E 
+X-CRM114-Status: GOOD (  10.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,45 +87,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fixes for running as nested root partition on the Microsoft Hypervisor.
+When running nested, these hypercalls must be sent to the L0 hypervisor
+or VMBus will fail.
 
-The first patch changes vmbus to make hypercalls to the L0 hypervisor
-instead of the L1. This is needed because L0 hypervisor, not the L1, is
-the one hosting the Windows root partition with the VMM that provides
-vmbus.
+Remove hv_do_nested_hypercall() and hv_do_fast_nested_hypercall8()
+altogether and open-code these cases, since there are only 2 and all
+they do is add the nested bit.
 
-The 2nd and 3rd patches fix interrupt unmasking on nested. In this
-scenario, the L1 (nested) hypervisor does the interrupt mapping to root
-partition cores. The vectors just need to be mapped with
-MAP_DEVICE_INTERRUPT instead of affinitized with RETARGET_INTERRUPT.
+Signed-off-by: Nuno Das Neves <nunodasneves@linux.microsoft.com>
+Reviewed-by: Roman Kisel <romank@linux.microsoft.com>
+---
+ arch/x86/include/asm/mshyperv.h | 20 --------------------
+ drivers/hv/connection.c         |  5 ++++-
+ drivers/hv/hv.c                 |  6 ++++--
+ 3 files changed, 8 insertions(+), 23 deletions(-)
 
-Changes in v3:
-- Remove 3 patches (#1,#3,#4 from v2) which were merged already (Wei Liu)
-- Fix bug in #1 introduced in v2 (Michael Kelley)
-- Improve commit message in #2 (Michael Kelley)
-- Document return value of hv_map_msi_interrupt() in #2 (Michael Kelley)
-
-Changes in v2:
-- Reword commit messages for clarity (Michael Kelley, Bjorn Helgaas)
-- Open-code nested hypercalls to reduce unnecessary code (Michael Kelley)
-- Add patch (#3) to fix cpu_online_mask issue (Thomas Gleixner)
-- Add patch (#4) to fix error return values (Michael Kelley)
-- Remove several redundant error messages and checks (Michael Kelley)
-
-Nuno Das Neves (1):
-  Drivers: hv: Use nested hypercall for post message and signal event
-
-Stanislav Kinsburskii (2):
-  x86/hyperv: Expose hv_map_msi_interrupt()
-  PCI: hv: Use the correct hypercall for unmasking interrupts on nested
-
- arch/x86/hyperv/irqdomain.c         | 40 +++++++++++++++++++++--------
- arch/x86/include/asm/mshyperv.h     | 22 ++--------------
- drivers/hv/connection.c             |  5 +++-
- drivers/hv/hv.c                     |  6 +++--
- drivers/pci/controller/pci-hyperv.c | 18 +++++++++++--
- 5 files changed, 55 insertions(+), 36 deletions(-)
-
+diff --git a/arch/x86/include/asm/mshyperv.h b/arch/x86/include/asm/mshyperv.h
+index e1752ba47e67..ab097a3a8b75 100644
+--- a/arch/x86/include/asm/mshyperv.h
++++ b/arch/x86/include/asm/mshyperv.h
+@@ -112,12 +112,6 @@ static inline u64 hv_do_hypercall(u64 control, void *input, void *output)
+ 	return hv_status;
+ }
+ 
+-/* Hypercall to the L0 hypervisor */
+-static inline u64 hv_do_nested_hypercall(u64 control, void *input, void *output)
+-{
+-	return hv_do_hypercall(control | HV_HYPERCALL_NESTED, input, output);
+-}
+-
+ /* Fast hypercall with 8 bytes of input and no output */
+ static inline u64 _hv_do_fast_hypercall8(u64 control, u64 input1)
+ {
+@@ -165,13 +159,6 @@ static inline u64 hv_do_fast_hypercall8(u16 code, u64 input1)
+ 	return _hv_do_fast_hypercall8(control, input1);
+ }
+ 
+-static inline u64 hv_do_fast_nested_hypercall8(u16 code, u64 input1)
+-{
+-	u64 control = (u64)code | HV_HYPERCALL_FAST_BIT | HV_HYPERCALL_NESTED;
+-
+-	return _hv_do_fast_hypercall8(control, input1);
+-}
+-
+ /* Fast hypercall with 16 bytes of input */
+ static inline u64 _hv_do_fast_hypercall16(u64 control, u64 input1, u64 input2)
+ {
+@@ -223,13 +210,6 @@ static inline u64 hv_do_fast_hypercall16(u16 code, u64 input1, u64 input2)
+ 	return _hv_do_fast_hypercall16(control, input1, input2);
+ }
+ 
+-static inline u64 hv_do_fast_nested_hypercall16(u16 code, u64 input1, u64 input2)
+-{
+-	u64 control = (u64)code | HV_HYPERCALL_FAST_BIT | HV_HYPERCALL_NESTED;
+-
+-	return _hv_do_fast_hypercall16(control, input1, input2);
+-}
+-
+ extern struct hv_vp_assist_page **hv_vp_assist_page;
+ 
+ static inline struct hv_vp_assist_page *hv_get_vp_assist_page(unsigned int cpu)
+diff --git a/drivers/hv/connection.c b/drivers/hv/connection.c
+index be490c598785..1fe3573ae52a 100644
+--- a/drivers/hv/connection.c
++++ b/drivers/hv/connection.c
+@@ -519,7 +519,10 @@ void vmbus_set_event(struct vmbus_channel *channel)
+ 		else
+ 			WARN_ON_ONCE(1);
+ 	} else {
+-		hv_do_fast_hypercall8(HVCALL_SIGNAL_EVENT, channel->sig_event);
++		u64 control = HVCALL_SIGNAL_EVENT;
++
++		control |= hv_nested ? HV_HYPERCALL_NESTED : 0;
++		hv_do_fast_hypercall8(control, channel->sig_event);
+ 	}
+ }
+ EXPORT_SYMBOL_GPL(vmbus_set_event);
+diff --git a/drivers/hv/hv.c b/drivers/hv/hv.c
+index 308c8f279df8..b14c5f9e0ef2 100644
+--- a/drivers/hv/hv.c
++++ b/drivers/hv/hv.c
+@@ -85,8 +85,10 @@ int hv_post_message(union hv_connection_id connection_id,
+ 		else
+ 			status = HV_STATUS_INVALID_PARAMETER;
+ 	} else {
+-		status = hv_do_hypercall(HVCALL_POST_MESSAGE,
+-					 aligned_msg, NULL);
++		u64 control = HVCALL_POST_MESSAGE;
++
++		control |= hv_nested ? HV_HYPERCALL_NESTED : 0;
++		status = hv_do_hypercall(control, aligned_msg, NULL);
+ 	}
+ 
+ 	local_irq_restore(flags);
 -- 
 2.34.1
 
