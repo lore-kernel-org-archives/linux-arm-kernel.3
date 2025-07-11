@@ -4,54 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03F35C83F1B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 18:25:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61DAFC83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 18:28:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=igBDrPgeF7zw7cysjaIjY2opgQPtN9f1PRK9cX/bWGk=; b=jeKxwkRJHYYP2gpndPY/nHpUYx
-	ir/ErQ2pSpNZkyl7wv3RpYDWN74hr9b2qafSmFzBc1YX6V4kAEnhczZ2N22MN9p9hOfoE1lCM4YqA
-	cJ6dFeVvEKh8q48Dvodwcd1AWkPQLHU2m3pYvdhqg7o0qsDtWutLNpaADiwmp1vbuPhB2NZ1B8JaD
-	ktHQ7FfwNzSWcI64WcsvBDJni6Glu2/ETb3M7vFWq644ihcNq4a3JrZM4HvpLYEdHtT9MEvQYLPHm
-	sE3CTV+q/Gp7/Sf5+tnyMLqhtcxiQBJp4sfJQAPkYLzW7ShQ5voMWOX8/8X7INrMwzmDj/nSynRhs
-	eRMHeMAQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GrN2boTDwdY7zzXQMC0DmC8Xqjzwg7Z5l0fiFiA7274=; b=2Rkv8OsSO+VIV8S0mI+HB/s+kr
+	2KXUCYvMJnw001o0KnL6Cwx+gF9DbBHiTMorE0WZ1lKYj8Aw1LacQH4NQcjSkx1aofUsfFsZX10uW
+	fUn9OJPj4Ww+Ys2TZeP+n2K11gTz7hk/RLlzBCd6mJ7KHxh5Ssgy7B8XskQPNV6KDbAiMnnlE27M0
+	Otb8akml+okbe5rcjKNYsg1KOLWFgWMbN70bWSmuhPMJAnX7b5qPKHhCA6SxqEZE8w+iRqbKcTyAx
+	lVcGSG7ixRFPyNdRCeEpoYDwNQojZg4tUT9zKYlCeOjZ/PMomOQVBe9Z254xRZng1NiT3mku8jDNW
+	kS7c01jg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaIRB-0000000FVFy-3G1U;
-	Fri, 11 Jul 2025 18:25:33 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaIHX-0000000FUBU-1fXp
+	id 1uaITU-0000000FVQb-23Qo;
+	Fri, 11 Jul 2025 18:27:56 +0000
+Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uaIIm-0000000FUIF-0ffd
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Jul 2025 18:15:36 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2C2BB16F8;
-	Fri, 11 Jul 2025 11:15:24 -0700 (PDT)
-Received: from e121345-lin.cambridge.arm.com (e121345-lin.cambridge.arm.com [10.1.196.50])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id C07BD3F6A8;
-	Fri, 11 Jul 2025 11:15:33 -0700 (PDT)
-From: Robin Murphy <robin.murphy@arm.com>
-To: will@kernel.org
-Cc: mark.rutland@arm.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org,
-	allen.wang@hj-micro.com,
-	peter.du@hj-micro.com,
-	andy.xu@hj-micro.com
-Subject: [PATCH v2 2/2] perf/arm-ni: Support sharing IRQs within an NI instance
-Date: Fri, 11 Jul 2025 19:15:17 +0100
-Message-Id: <f62db639d3b54c959ec477db7b8ccecbef1ca310.1752256072.git.robin.murphy@arm.com>
-X-Mailer: git-send-email 2.39.2.101.g768bb238c484.dirty
-In-Reply-To: <cover.1752256072.git.robin.murphy@arm.com>
-References: <cover.1752256072.git.robin.murphy@arm.com>
+	Fri, 11 Jul 2025 18:16:53 +0000
+Received: by mail-ed1-x52a.google.com with SMTP id 4fb4d7f45d1cf-60c93c23b08so4556469a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Jul 2025 11:16:51 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linux-foundation.org; s=google; t=1752257810; x=1752862610; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=GrN2boTDwdY7zzXQMC0DmC8Xqjzwg7Z5l0fiFiA7274=;
+        b=APbOeUw/p9XbwiuppllSb/3UnRQCoSQaXPqiQtTvLY/eiWjWf7syOd3R7jh24tSNU6
+         zFkY1cwQhsiC4JiyWcSHK44KLTYtPqSidPDYS9aZ4Fqi8YPl6hs+q0qBMMbWNGVIUJQE
+         Ck1Gfh8qaxVwXxyXjXuPPRYJYd+spMOvVRu0E=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1752257810; x=1752862610;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=GrN2boTDwdY7zzXQMC0DmC8Xqjzwg7Z5l0fiFiA7274=;
+        b=RWLQOQ8rtRdspPhq6UdNfT7jdlO0JwCIBWdLa1BUGAv+fEzurEM2lMCCQJiBV1hVwO
+         pcZv8yq1b0IGYk9ig3GoJrup/3cM6eXbzauLcYnouKJIwBtRPrg/ePb/LHDIol+xBxV6
+         O8QKtOS5fI7yPlfre6+BTo0BHpVZIvQ4J6w4RgGj2WI4N/8Qpmh/ui3udbOfYLfKlJhg
+         0BxdFMGnY3CDb++DaCGhN2uwsUDXxetjmd1QmfAn/7SOCqxC2ybrV51pCWNPZhEqdni4
+         CuzAtYikpkrvP7/xNvUqqJlxhhTM4objSlkcsV785zeVeKwqMr59PixdBJbYlKBqo1D4
+         HApA==
+X-Gm-Message-State: AOJu0YyN2roFHTUYIqNLV8eec3LsIYOqTW0H1sLPxzS6mGvjLTqNlGbI
+	EQPtNG89t+WB3cHJ+8pntUUSDmAAMiMQO4xjN5f/H0PDX3efsnK/DsSlstQ4QKoEsF1dLK5ir83
+	whqrlqjznaA==
+X-Gm-Gg: ASbGncvfS8FrkO1EQXC7S7mdRw93S+oU0DuNpbXK4FLu62N8uJbkTrQLwNciGTMN0y2
+	RAYrUVCedeWQ9m9voPp7ygnIS+Eqx7p2H2JTefpWP8OzFlEPKb/k5BDTmgMsWLeO18HKm2p/yKh
+	t5HuAWhq2BBtQrgIvs87GjXX/enuZLuHdAVlLpyAfocu5kgGldf3WmVoZUPLnumAuUpALBHtCS8
+	iMTUFb1fscFznEQXkYoewXuYRvukOCSREqnxmtLeFDz7sobbYgRYr4JjKfMBjcufzP25HlowQSR
+	ZMi1BWqSA0apJaUDzg17ZbVMO7PgwHeCGr9LWJ1g9kp9RxG/1hEjn560DVgu0pukMezDbuUCo+g
+	lEtwXssk/foU7OTefDuNximNY5G7xi+o4K465rgqgH/CeI+6WVg0rcXaczZdzpmot8tSPIms2
+X-Google-Smtp-Source: AGHT+IGgqMywC44NUdkloFe6zkoDTRF+nkl43XFq+2TiwardG8JLAuzi3F5yym5qAcXmJNm6ThRoYw==
+X-Received: by 2002:a05:6402:3889:b0:60e:726f:8e30 with SMTP id 4fb4d7f45d1cf-611e84a35fbmr4006892a12.18.1752257809993;
+        Fri, 11 Jul 2025 11:16:49 -0700 (PDT)
+Received: from mail-ed1-f42.google.com (mail-ed1-f42.google.com. [209.85.208.42])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-611c94f48eesm2480974a12.3.2025.07.11.11.16.48
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 11 Jul 2025 11:16:49 -0700 (PDT)
+Received: by mail-ed1-f42.google.com with SMTP id 4fb4d7f45d1cf-6070293103cso3642387a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Jul 2025 11:16:48 -0700 (PDT)
+X-Received: by 2002:a05:6402:454b:b0:604:e85d:8bb4 with SMTP id
+ 4fb4d7f45d1cf-611e84a3613mr2945462a12.21.1752257808496; Fri, 11 Jul 2025
+ 11:16:48 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20250711161732.384-1-will@kernel.org> <20250711161732.384-11-will@kernel.org>
+In-Reply-To: <20250711161732.384-11-will@kernel.org>
+From: Linus Torvalds <torvalds@linux-foundation.org>
+Date: Fri, 11 Jul 2025 11:16:32 -0700
+X-Gmail-Original-Message-ID: <CAHk-=wijmAO=-dWc8HUMdUbkdGqgNtiO6mntAcTekWc5qN3YjQ@mail.gmail.com>
+X-Gm-Features: Ac12FXzHjD0wng1ky85XRCcFPrfFYtoOUVtma4lAy9KVvuoCMzEgKe72-0_IGfY
+Message-ID: <CAHk-=wijmAO=-dWc8HUMdUbkdGqgNtiO6mntAcTekWc5qN3YjQ@mail.gmail.com>
+Subject: Re: [PATCH 10/10] arm64: mm: Re-implement the __flush_tlb_range_op
+ macro in C
+To: Will Deacon <will@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Ard Biesheuvel <ardb@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Ryan Roberts <ryan.roberts@arm.com>, Mark Rutland <mark.rutland@arm.com>, 
+	Oliver Upton <oliver.upton@linux.dev>, Marc Zyngier <maz@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250711_111535_529244_F963A27A 
-X-CRM114-Status: GOOD (  18.00  )
+X-CRM114-CacheID: sfid-20250711_111652_320742_0605EFC7 
+X-CRM114-Status: GOOD (  15.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,166 +104,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Shouping Wang <allen.wang@hj-micro.com>
+On Fri, 11 Jul 2025 at 09:18, Will Deacon <will@kernel.org> wrote:
+>
+> The __flush_tlb_range_op() macro is horrible and has been a previous
+> source of bugs thanks to multiple expansions of its arguments (see
+> commit f7edb07ad7c6 ("Fix mmu notifiers for range-based invalidates")).
+>
+> Rewrite the thing in C.
 
-NI-700 has a distinct PMU interrupt output for each Clock Domain,
-however some integrations may still combine these together externally.
-The initial driver didn't attempt to support this, in anticipation of a
-more general solution for IRQ sharing between system PMU instances, but
-that's still a way off, so let's make this intermediate step for now to
-at least allow sharing IRQs within an individual NI instance.
+So I do think this is better than the old case, but I think you could
+go one step further...
 
-Now that CPU affinity and migration are cleaned up, it's fairly
-straightforward to adopt similar logic to arm-cmn, to identify CDs with
-a common interrupt and loop over them directly in the handler.
+> +static __always_inline void __flush_tlb_range_op(const enum tlbi_op op,
+> +                                                u64 start, size_t pages,
+> +                                                u64 stride, u16 asid,
+> +                                                u32 level, bool lpa2)
 
-Signed-off-by: Shouping Wang <allen.wang@hj-micro.com>
-[ rm: Rework for affinity handling, cosmetics, new commit message ]
-Signed-off-by: Robin Murphy <robin.murphy@arm.com>
----
+If you replaced that "enum tlbi_op op" with two function pointers
+instead (for "the invalidate range" and "invalidate one" cases
+respectively), I think you could make this code much more obvious.
 
-v2: Delay enabling IRQs for the sake of reasoning
+And exactly like how you depend on that 'op' value being
+constant-folded because all the different levels are inline functions,
+the same thing ends up happening with function pointers where inlining
+will result in a constant function pointer becoming just a static call
+(and in turn inlined as well).
 
- drivers/perf/arm-ni.c | 82 +++++++++++++++++++++++++++++--------------
- 1 file changed, 55 insertions(+), 27 deletions(-)
+And then the actual *callers* would use the "look up op" thing, but I
+suspect that in many cases those could then be in turn also simplified
+to not use that op-number at all, but just end up using the op-name.
 
-diff --git a/drivers/perf/arm-ni.c b/drivers/perf/arm-ni.c
-index 168750e78fc4..3c505352e302 100644
---- a/drivers/perf/arm-ni.c
-+++ b/drivers/perf/arm-ni.c
-@@ -102,6 +102,7 @@ struct arm_ni_unit {
- struct arm_ni_cd {
- 	void __iomem *pmu_base;
- 	u16 id;
-+	s8 irq_friend;
- 	int num_units;
- 	int irq;
- 	struct pmu pmu;
-@@ -448,33 +449,37 @@ static irqreturn_t arm_ni_handle_irq(int irq, void *dev_id)
- {
- 	struct arm_ni_cd *cd = dev_id;
- 	irqreturn_t ret = IRQ_NONE;
--	u32 reg = readl_relaxed(cd->pmu_base + NI_PMOVSCLR);
- 
--	if (reg & (1U << NI_CCNT_IDX)) {
--		ret = IRQ_HANDLED;
--		if (!(WARN_ON(!cd->ccnt))) {
--			arm_ni_event_read(cd->ccnt);
--			arm_ni_init_ccnt(cd);
-+	for (;;) {
-+		u32 reg = readl_relaxed(cd->pmu_base + NI_PMOVSCLR);
-+
-+		if (reg & (1U << NI_CCNT_IDX)) {
-+			ret = IRQ_HANDLED;
-+			if (!(WARN_ON(!cd->ccnt))) {
-+				arm_ni_event_read(cd->ccnt);
-+				arm_ni_init_ccnt(cd);
-+			}
- 		}
--	}
--	for (int i = 0; i < NI_NUM_COUNTERS; i++) {
--		if (!(reg & (1U << i)))
--			continue;
--		ret = IRQ_HANDLED;
--		if (!(WARN_ON(!cd->evcnt[i]))) {
--			arm_ni_event_read(cd->evcnt[i]);
--			arm_ni_init_evcnt(cd, i);
-+		for (int i = 0; i < NI_NUM_COUNTERS; i++) {
-+			if (!(reg & (1U << i)))
-+				continue;
-+			ret = IRQ_HANDLED;
-+			if (!(WARN_ON(!cd->evcnt[i]))) {
-+				arm_ni_event_read(cd->evcnt[i]);
-+				arm_ni_init_evcnt(cd, i);
-+			}
- 		}
-+		writel_relaxed(reg, cd->pmu_base + NI_PMOVSCLR);
-+		if (!cd->irq_friend)
-+			return ret;
-+		cd += cd->irq_friend;
- 	}
--	writel_relaxed(reg, cd->pmu_base + NI_PMOVSCLR);
--	return ret;
- }
- 
- static int arm_ni_init_cd(struct arm_ni *ni, struct arm_ni_node *node, u64 res_start)
- {
- 	struct arm_ni_cd *cd = ni->cds + node->id;
- 	const char *name;
--	int err;
- 
- 	cd->id = node->id;
- 	cd->num_units = node->num_components;
-@@ -534,20 +539,11 @@ static int arm_ni_init_cd(struct arm_ni *ni, struct arm_ni_node *node, u64 res_s
- 		       cd->pmu_base + NI_PMCR);
- 	writel_relaxed(U32_MAX, cd->pmu_base + NI_PMCNTENCLR);
- 	writel_relaxed(U32_MAX, cd->pmu_base + NI_PMOVSCLR);
--	writel_relaxed(U32_MAX, cd->pmu_base + NI_PMINTENSET);
- 
- 	cd->irq = platform_get_irq(to_platform_device(ni->dev), cd->id);
- 	if (cd->irq < 0)
- 		return cd->irq;
- 
--	err = devm_request_irq(ni->dev, cd->irq, arm_ni_handle_irq,
--			       IRQF_NOBALANCING | IRQF_NO_THREAD,
--			       dev_name(ni->dev), cd);
--	if (err)
--		return err;
--
--	irq_set_affinity(cd->irq, cpumask_of(ni->cpu));
--
- 	cd->pmu = (struct pmu) {
- 		.module = THIS_MODULE,
- 		.parent = ni->dev,
-@@ -593,6 +589,34 @@ static void arm_ni_probe_domain(void __iomem *base, struct arm_ni_node *node)
- 	node->num_components = readl_relaxed(base + NI_CHILD_NODE_INFO);
- }
- 
-+static int arm_ni_init_irqs(struct arm_ni *ni)
-+{
-+	int err;
-+
-+	ni_for_each_cd(ni, cd) {
-+		for (struct arm_ni_cd *prev = cd; prev-- > ni->cds; ) {
-+			if (prev->irq == cd->irq) {
-+				prev->irq_friend = cd - prev;
-+				goto set_inten;
-+			}
-+		}
-+		err = devm_request_irq(ni->dev, cd->irq, arm_ni_handle_irq,
-+				       IRQF_NOBALANCING | IRQF_NO_THREAD | IRQF_NO_AUTOEN,
-+				       dev_name(ni->dev), cd);
-+		if (err)
-+			return err;
-+
-+		irq_set_affinity(cd->irq, cpumask_of(ni->cpu));
-+set_inten:
-+		writel_relaxed(U32_MAX, cd->pmu_base + NI_PMINTENSET);
-+	}
-+	/* Look Ma, no absurdly theoretical race conditions! */
-+	ni_for_each_cd(ni, cd)
-+		if (!cd->irq_friend)
-+			enable_irq(cd->irq);
-+	return 0;
-+}
-+
- static int arm_ni_probe(struct platform_device *pdev)
- {
- 	struct arm_ni_node cfg, vd, pd, cd;
-@@ -677,7 +701,11 @@ static int arm_ni_probe(struct platform_device *pdev)
- 		}
- 	}
- 
--	return 0;
-+	ret = arm_ni_init_irqs(ni);
-+	if (ret)
-+		arm_ni_remove(pdev);
-+
-+	return ret;
- }
- 
- #ifdef CONFIG_OF
--- 
-2.39.2.101.g768bb238c484.dirty
+I didn't try to actually create that series - and I think you'd want
+to do it in multiple steps just to make each individual step small and
+obvious - but I think it would end up looking nicer.
 
+            Linus
 
