@@ -4,157 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63B9DC83F1B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 12:52:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6AABC83F1B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 13:00:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n9QOyGddPPJaljr4xCRagD2vcJ3JwZH0mhLiORQ5XOc=; b=vUD0+zHQpk3mzUDmLE5dVClSQp
-	/H3okEDzX8Z4HJfTZdVO4IAO+XL0WLVDyGgM1X4K0J5izhO5lDEJub5foyNDe68IGpvT9lur/3Npc
-	gQEih6VyNCZUgXilJPkrv0F0ZbWArSjPfzlXgBlCPjPbaUmm1+ywGJloSDqdnizSBv+kWO+c2SJDJ
-	/BM7WoTMfu5SsR+J8mC7cnoS5fVP+DsFkemgLmJNN1Xid7HeaeVF7Og1LGeLt3HiBE2JhRVJqHvAH
-	EOCmmtrF4C41/FKHVV90oWgbuJw26G28Ot6VrjodNwDPxWZJKUf87byqPf/PAjIu6t5CjwH3SL84v
-	tMcyvxPw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=92a1BMGAgSFSlfdbtWZOCIjPJqcTtzOvDqxTIQeL8pE=; b=4fvQiwxetaB2i9i3FtAHmOQ15J
+	HdBGTgx3i7R84On5y1L23mYzCDckKWgsEYJG4ljrrrwYFU+yyXfVyJjfSpLVolD90RHf7jsPUqgmi
+	kCnlMnuM87HujEauCIUMLEFfM+6sJG254n+k6lSheX4YgiHuXYCloD++oguo0cnE6HPnNbX5xNvTC
+	MYrmXHy525KaezuDzEQBs1Pw5c+d+m199MTQ+JNMxU5H/YrjWGbncLaDN8bliqYYtgkLkTUjvBv4n
+	OhUCIecFCVaqmpVmQzQhHh9YQwh4muOSqQdmBMG8eYRZC7VX52SXJtTgzuoxWorO3FZR5eSj7u0ym
+	zlkZ7Aig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaDEl-0000000EnCV-0ikh;
-	Fri, 11 Jul 2025 12:52:23 +0000
-Received: from smtp-out2.suse.de ([2a07:de40:b251:101:10:150:64:2])
+	id 1uaDMe-0000000EoLX-0ph9;
+	Fri, 11 Jul 2025 13:00:32 +0000
+Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaD85-0000000EmLu-0hpS
+	id 1uaDKG-0000000EntJ-2A5p
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Jul 2025 12:45:30 +0000
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id 8EFE31F453;
-	Fri, 11 Jul 2025 12:45:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1752237927; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=n9QOyGddPPJaljr4xCRagD2vcJ3JwZH0mhLiORQ5XOc=;
-	b=jssuio6tNgnHVwlkEa6FIRhudj+VYwsOB2xhNIUngKVRemgyuasRAezhLMVKKgg4KEicEl
-	e7EufgO1rDD/VmEbl3kViWVX1iaj1DTccNOx0jtTG4yuMW0lHjbXGTyNPr7FJirbHF4wSZ
-	FXKmVWY2ge4Dk+Ehqmmo5RefxHyvV5Y=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1752237927;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=n9QOyGddPPJaljr4xCRagD2vcJ3JwZH0mhLiORQ5XOc=;
-	b=5hO5/8BTOzWzxv/ng54VblrIVwaJktTYgbmLt0I+OgfxMKn3/JSDq8JpV+cvXDyDItnui+
-	eAYDrxls6v70B8DA==
-Authentication-Results: smtp-out2.suse.de;
-	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=jssuio6t;
-	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b="5hO5/8BT"
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1752237927; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=n9QOyGddPPJaljr4xCRagD2vcJ3JwZH0mhLiORQ5XOc=;
-	b=jssuio6tNgnHVwlkEa6FIRhudj+VYwsOB2xhNIUngKVRemgyuasRAezhLMVKKgg4KEicEl
-	e7EufgO1rDD/VmEbl3kViWVX1iaj1DTccNOx0jtTG4yuMW0lHjbXGTyNPr7FJirbHF4wSZ
-	FXKmVWY2ge4Dk+Ehqmmo5RefxHyvV5Y=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1752237927;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=n9QOyGddPPJaljr4xCRagD2vcJ3JwZH0mhLiORQ5XOc=;
-	b=5hO5/8BTOzWzxv/ng54VblrIVwaJktTYgbmLt0I+OgfxMKn3/JSDq8JpV+cvXDyDItnui+
-	eAYDrxls6v70B8DA==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id C5979138A5;
-	Fri, 11 Jul 2025 12:45:26 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id Bsr+LmYHcWj0MQAAD6G6ig
-	(envelope-from <tiwai@suse.de>); Fri, 11 Jul 2025 12:45:26 +0000
-Date: Fri, 11 Jul 2025 14:45:26 +0200
-Message-ID: <871pqmhp5l.wl-tiwai@suse.de>
-From: Takashi Iwai <tiwai@suse.de>
-To: Joris Verhaegen <verhaegen@google.com>
-Cc: Vinod Koul <vkoul@kernel.org>,
-	Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>,
-	Charles Keepax <ckeepax@opensource.cirrus.com>,
-	Richard Fitzgerald <rf@opensource.cirrus.com>,
-	David Rhodes <david.rhodes@cirrus.com>,
-	Cezary Rojewski <cezary.rojewski@intel.com>,
-	Peter Ujfalusi <peter.ujfalusi@linux.intel.com>,
-	Bard Liao <yung-chuan.liao@linux.intel.com>,
-	Ranjani Sridharan <ranjani.sridharan@linux.intel.com>,
-	Kai Vehmanen <kai.vehmanen@linux.intel.com>,
-	Pierre-Louis Bossart <pierre-louis.bossart@linux.dev>,
-	Srinivas Kandagatla <srini@kernel.org>,
-	Daniel Baluta <daniel.baluta@nxp.com>,
-	Orson Zhai <orsonzhai@gmail.com>,
-	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	Chunyan Zhang <zhang.lyra@gmail.com>,
-	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	kernel-team@android.com,
-	linux-sound@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	patches@opensource.cirrus.com,
-	linux-arm-msm@vger.kernel.org,
-	sound-open-firmware@alsa-project.org,
-	linux-arm-kernel@lists.infradead.org,
-	David Li <dvdli@google.com>,
-	Miller Liang <millerliang@google.com>
-Subject: Re: [PATCH v2 2/4] ALSA: compress_offload: Add SNDRV_COMPRESS_TSTAMP64 ioctl
-In-Reply-To: <20250711093636.28204-3-verhaegen@google.com>
-References: <20250711093636.28204-1-verhaegen@google.com>
-	<20250711093636.28204-3-verhaegen@google.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) Emacs/27.2 Mule/6.0
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-Spamd-Result: default: False [-2.01 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	SUSPICIOUS_RECIPS(1.50)[];
-	MID_CONTAINS_FROM(1.00)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	MX_GOOD(-0.01)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	FUZZY_RATELIMITED(0.00)[rspamd.com];
-	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	RCPT_COUNT_TWELVE(0.00)[31];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	MIME_TRACE(0.00)[0:+];
-	ARC_NA(0.00)[];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com];
-	FREEMAIL_CC(0.00)[kernel.org,perex.cz,suse.com,gmail.com,opensource.cirrus.com,cirrus.com,intel.com,linux.intel.com,linux.dev,nxp.com,linux.alibaba.com,socionext.com,android.com,vger.kernel.org,alsa-project.org,lists.infradead.org,google.com];
-	RCVD_TLS_ALL(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	DNSWL_BLOCKED(0.00)[2a07:de40:b281:106:10:150:64:167:received];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	TO_DN_SOME(0.00)[];
-	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	TAGGED_RCPT(0.00)[];
-	DKIM_TRACE(0.00)[suse.de:+];
-	R_RATELIMIT(0.00)[to_ip_from(RLzj6aswpe58r68z1acwzd13oz)];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:mid,suse.de:dkim,imap1.dmz-prg2.suse.org:helo,imap1.dmz-prg2.suse.org:rdns]
-X-Rspamd-Queue-Id: 8EFE31F453
-X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
-X-Rspamd-Action: no action
+	Fri, 11 Jul 2025 12:58:05 +0000
+Received: by mail-ej1-x636.google.com with SMTP id a640c23a62f3a-ae0c4945c76so329272166b.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Jul 2025 05:58:03 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=tuxon.dev; s=google; t=1752238682; x=1752843482; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=92a1BMGAgSFSlfdbtWZOCIjPJqcTtzOvDqxTIQeL8pE=;
+        b=V8nrjwRG1RmQDWGjvHnTIFHEtR4+38LHxyoBiqMtrDMo5yOEBZgV/2059OxQsYdkTe
+         QlM8S77EPF8zzN+JW9GwFKfBiElPi/J29WQACNGPlIKKJPvKeM0Ieu5S7hD2HHI+FP5D
+         wG3Lv4Z6+8oMCPmlyle/dqQvZqVVsUSzsJCPxjWX2VT0KupYZNcwJyg7AW2X2+B4G9LI
+         w5+Dz9XOhvjN+Z9xpCXVRdI4AL2/0mc/wL3pPj7a/K1vfkxX2sB9o7phNxLbCbuzIXug
+         W/NyYSLDatzi1iEnvNQx3j1lI/IZDhc9+XCbWg4ekg5RVKDUd0ejaGnChZbna8Cg2Qv3
+         y4yg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1752238682; x=1752843482;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=92a1BMGAgSFSlfdbtWZOCIjPJqcTtzOvDqxTIQeL8pE=;
+        b=vZM68YtyUBVFcw+WRaDw0gmQc1pX54DkOLdQ0yST0wG8c7PO8yIwqv8c0axfbnNs7j
+         byWDs/18s1gUXIi/uMUWNAvHJw7jZH7lieMZHMfRjIaMCX/bngVl/C+0WOsY/Vp91lw9
+         Vlvyq3QjdrOCbQ7JgTy/+1bZB63Oa5zFR7AcYNWzeH9uReTr1fCL7Fr2TpLqbvx2Ko6q
+         bF8jZVluNpoY6OgriYxm/VmQBg6fnz/ST9m0to4yi2a2gQ73kquU16Nq1WlZcpiVl+Cl
+         s4k/8NmhB83g1fqfJZvCMu2uN0oXG528S2WmJx6yy49rwVXtdm3CR8U0OnG5iiZXLhu/
+         jMpQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXSz1HP4YHiuarZGDn8pUiLL96wBs+y0eYcrVEjKO3poAKBpsNJxguUKvB3wRpXdznddBEYqcKdgKKwHVdgxfxd@lists.infradead.org
+X-Gm-Message-State: AOJu0YwTU2PgKpAiHa6rl3BhzUMJ6be7M7TUwlxeyZZoOb5EYVxaB6yo
+	TD7WIK0AqbT2ytayFIV0WE+yvUjcLhDEnIKGYCuCUO89HF/cPhDMHcipKUio66SY2m5wXdzuJa7
+	0104t
+X-Gm-Gg: ASbGnctxX+TqS95aryJ/tLZyKk4+aCK0rLmBl44iA4/KL3uoaIP4k/DgKM8BLwJYQ1i
+	dPku2y7oJJNp6Hdp/I9hiI+JB+3LZb1wQigyDXpB6fYKyuEeG0b5BUtgJzCYv78vdN80206RIMQ
+	g/qWsaODcLGrHNct1yDAa8GZwGsga5H4EtYDvu9OmCcm3xRPkncQ6y32kZkMjPFtwVZgUTUfIZ/
+	Acyu0US5pAwneoMOvwPfDK46eq551hFqnP4h9HUWbAQeSO9RYIVZ0bAsODtpsw+lelEH9pzpO+S
+	Zc6pymLjMySUa9VeJjcMskzpY5smzNui+CM9hABeYnipgndNGxYyeXdDSreGckCmuzZXJs1Uvcf
+	rZtXztMohv1eTi7auzAtW5aCzeCHgxQ==
+X-Google-Smtp-Source: AGHT+IGQ76WU0AB+rvk/zt28ZNRFOKV2e22kKyB0M5bcv4nzPUIbvT27s8Y8oQFLMrTvDQ/Em2YmUg==
+X-Received: by 2002:a17:907:2684:b0:ade:36e4:ceba with SMTP id a640c23a62f3a-ae6fc3c4510mr344276566b.52.1752238682247;
+        Fri, 11 Jul 2025 05:58:02 -0700 (PDT)
+Received: from [192.168.50.4] ([82.78.167.30])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ae6e8293ff2sm294908766b.111.2025.07.11.05.58.01
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 11 Jul 2025 05:58:01 -0700 (PDT)
+Message-ID: <38b14d24-534a-447e-a930-6a96c693b7e4@tuxon.dev>
+Date: Fri, 11 Jul 2025 15:58:00 +0300
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] clk: at91: sam9x7: update pll clk ranges
+To: Varshini.Rajendran@microchip.com, mturquette@baylibre.com,
+ sboyd@kernel.org, Nicolas.Ferre@microchip.com,
+ alexandre.belloni@bootlin.com, linux-clk@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Cc: Patrice.Vilchez@microchip.com
+References: <20250610084503.69749-1-varshini.rajendran@microchip.com>
+ <c51b2b64-24a7-4e14-bdd8-c4a356423100@tuxon.dev>
+ <0652df01-13e8-4fb8-a2e0-35820d83ac3d@microchip.com>
+ <d1a16315-8e17-446e-87f2-57f18046288c@tuxon.dev>
+ <e59a1c94-e6b3-49c8-aa78-78d031e8a6ec@microchip.com>
+From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+Content-Language: en-US
+In-Reply-To: <e59a1c94-e6b3-49c8-aa78-78d031e8a6ec@microchip.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250711_054529_500466_76DBD32D 
-X-CRM114-Status: GOOD (  11.15  )
+X-CRM114-CacheID: sfid-20250711_055804_668378_2D5589B8 
+X-CRM114-Status: GOOD (  31.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -169,29 +107,160 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 11 Jul 2025 11:36:28 +0200,
-Joris Verhaegen wrote:
-> @@ -1355,7 +1389,9 @@ static long snd_compr_ioctl(struct file *f, unsigned int cmd, unsigned long arg)
->  
->  	switch (_IOC_NR(cmd)) {
->  	case _IOC_NR(SNDRV_COMPRESS_TSTAMP):
-> -		return snd_compr_tstamp(stream, arg);
-> +		return snd_compr_tstamp32(stream, arg);
-> +	case _IOC_NR(SNDRV_COMPRESS_TSTAMP64):
-> +		return snd_compr_tstamp64(stream, arg);
->  	case _IOC_NR(SNDRV_COMPRESS_AVAIL):
->  		return snd_compr_ioctl_avail(stream, arg);
->  	case _IOC_NR(SNDRV_COMPRESS_PAUSE):
+Hi, Varshini,
 
-This function was recently updated to evaluate the ioctl cmd value as
-is, as found in commit 19c4096ccdd809c6213e2e62b0d4f57c880138cd
-    ALSA: compress_offload: tighten ioctl command number checks
-in sound git tree (likely included in 6.16-rc7).
+On 11.07.2025 10:38, Varshini.Rajendran@microchip.com wrote:
+> Hi Claudiu,
+> 
+> On 10/07/25 1:48 pm, Claudiu Beznea wrote:
+>> EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
+>>
+>> Hi, Varshini,
+>>
+>> On 24.06.2025 12:09, Varshini.Rajendran@microchip.com wrote:
+>>> Hi Claudiu,
+>>>
+>>> On 24/06/25 12:34 pm, Claudiu Beznea wrote:
+>>>> EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
+>>>>
+>>>> Hi, Varshini,
+>>>>
+>>>> On 10.06.2025 11:45, Varshini Rajendran wrote:
+>>>>> Update the min, max ranges of the PLL clocks according to the latest
+>>>>> datasheet to be coherent in the driver. This patch apparently solves
+>>>>> issues in obtaining the right sdio frequency.
+>>>>>
+>>>>> Fixes: 33013b43e271 ("clk: at91: sam9x7: add sam9x7 pmc driver")
+>>>>> Suggested-by: Patrice Vilchez <Patrice.Vilchez@microchip.com>
+>>>>> Signed-off-by: Varshini Rajendran <varshini.rajendran@microchip.com>
+>>>>> ---
+>>>>>    drivers/clk/at91/sam9x7.c | 20 ++++++++++----------
+>>>>>    1 file changed, 10 insertions(+), 10 deletions(-)
+>>>>>
+>>>>> diff --git a/drivers/clk/at91/sam9x7.c b/drivers/clk/at91/sam9x7.c
+>>>>> index cbb8b220f16b..ffab32b047a0 100644
+>>>>> --- a/drivers/clk/at91/sam9x7.c
+>>>>> +++ b/drivers/clk/at91/sam9x7.c
+>>>>> @@ -61,44 +61,44 @@ static const struct clk_master_layout sam9x7_master_layout = {
+>>>>>
+>>>>>    /* Fractional PLL core output range. */
+>>>>>    static const struct clk_range plla_core_outputs[] = {
+>>>>> -     { .min = 375000000, .max = 1600000000 },
+>>>>> +     { .min = 800000000, .max = 1600000000 },
+>>>>>    };
+>>>>>
+>>>>>    static const struct clk_range upll_core_outputs[] = {
+>>>>> -     { .min = 600000000, .max = 1200000000 },
+>>>>> +     { .min = 600000000, .max = 960000000 },
+>>>>>    };
+>>>>>
+>>>>>    static const struct clk_range lvdspll_core_outputs[] = {
+>>>>> -     { .min = 400000000, .max = 800000000 },
+>>>>> +     { .min = 600000000, .max = 1200000000 },
+>>>>>    };
+>>>>>
+>>>>>    static const struct clk_range audiopll_core_outputs[] = {
+>>>>> -     { .min = 400000000, .max = 800000000 },
+>>>>> +     { .min = 600000000, .max = 1200000000 },
+>>>>>    };
+>>>>>
+>>>>>    static const struct clk_range plladiv2_core_outputs[] = {
+>>>>> -     { .min = 375000000, .max = 1600000000 },
+>>>>> +     { .min = 800000000, .max = 1600000000 },
+>>>>>    };
+>>>>>
+>>>>>    /* Fractional PLL output range. */
+>>>>>    static const struct clk_range plla_outputs[] = {
+>>>>> -     { .min = 732421, .max = 800000000 },
+>>>>> +     { .min = 400000000, .max = 800000000 },
+>>>>>    };
+>>>>>
+>>>>>    static const struct clk_range upll_outputs[] = {
+>>>>> -     { .min = 300000000, .max = 600000000 },
+>>>>> +     { .min = 300000000, .max = 480000000 },
+>>>>>    };
+>>>>>
+>>>>>    static const struct clk_range lvdspll_outputs[] = {
+>>>>> -     { .min = 10000000, .max = 800000000 },
+>>>>> +     { .min = 175000000, .max = 550000000 },
+>>>>>    };
+>>>>>
+>>>>>    static const struct clk_range audiopll_outputs[] = {
+>>>>> -     { .min = 10000000, .max = 800000000 },
+>>>>> +     { .min = 0, .max = 300000000 },
+>>>>
+>>>> Is this min value something valid?
+>>>
+>>> Yes. This is a valid value mentioned in the datasheet. This is the range
+>>> that fixes the issue of not being able to set low frequency values for
+>>> the SDIO interface for instance.
+>>
+>> Sorry for the late reply. This range is for audiopll. Can you please
+>> explain in the commit message why this fixes issues with the SDIO interface.
+> 
+> I can do that, while doing so, I can rephrase it as well. SDIO is just 
+> an example, It can potentially fix any range issues in any clock 
+> associated with peripherals can have.
+> 
+>>
+>> Also, having zero here as min rate would involve, as of my code inspection,
+>> setting frac->mul = -1 for disabled PLLs on probe (I suppose audio PLLs are
+>> among them). Please check:
+>>
+>> https://elixir.bootlin.com/linux/v6.15.5/source/drivers/clk/at91/clk-sam9x60-pll.c#L693
+>>
+>> Having frac->mul = -1 means frac->mul = 0xff meaning the HW registers will
+>> be set with the maximum multiplier. If my assumption is right, for a
+>> reference clock of 24MHz this will mean the Fcorepll will be 384MHz which
+>> is not in range for Fcorepll specifications (described by
+>> audiopll_core_outputs[]).
+>>
+>> This may be harmless if the PLL is unused at boot time, or reconfigured
+>> later, but if the PLL is just enabled later (w/o setting again the
+>> frequency) and the core output frequency is not in range (described by
+>> audiopll_core_outputs[]) it will lead to PLL lock to take forever and the
+>> execution to stuck.
+>>
+>> Can you please check this?
+> 
+> I inspected the code on my side and did the calculations and I didn't 
+> quite get the part how you arrived at the value 384MHz, my bad. But I 
+> did get your point.
+> 
+> What if I set the minimum AudioPLL output that can be obtained from the 
+> coreclk output range which is 600MHz minimum, which gives us 2343750Hz 
+> as the minimum AudioPLL frequency achievable from the divider part. If 
+> that is okay I can send another version of this patch.
+> 
 
-Please adjust your patch accordingly.
+I've rechecked this on my side and I concluded I was wrong. The call:
+
+ret = sam9x60_frac_pll_compute_mul_frac(&frac->core,
+                                       characteristics->core_output[0].min,
+                                       parent_rate, true);
+
+from sam9x60_clk_register_frac_pll() is using
+characteristics->core_output[0].min as parameter but not
+characteristics->output[0].min as I initially considered. So, the change
+here should be OK.
+
+Sorry for confusion! Please re-send with the patch description adjusted and
+I'll apply it.
+
+Thank you,
+Claudiu
 
 
-thanks,
+> Thank you for spending the time to review my patch and for the detailed 
+> explanations.
+> 
+>>
+>> Thank you,
+>> Claudiu
+>>
+>>
+>>
+> 
+> 
 
-Takashi
 
