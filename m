@@ -4,90 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D0BCC83F1B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 21:45:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B29E4C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 21:59:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D8bQcfc+4HcIDaLexAmw+aHcXqsxhhNo0fO7Rgf5vPk=; b=PfpmeK1FHf78tYgcmoz2dR6jwa
-	E+1srJdMDvdV0Ds6EF7u60zfRvOCvZ7KyT9gh8EZXwJHb03CIzmZTNwsSuAQZKi2W9YWH5+fONSuV
-	kh75Kh+ttG8HgFUNJafeWBr3MewdH1d+gQ//VqUqLfal8zm4ukFfz9iGBXwGazp3PKwWcxa/kVLEa
-	rB1kRU9HdKMCTA2CoUpOcq7PPZMnSLWIsA9ULbYTovtLoX8iWpGN1NKvVbAtbIUsVmUSYAkjVr3M4
-	x4ydKQw3LGjcbRRDfKjQcNkE+1FhI8hLFkrcCojWsNRiiRuL4vhcuOO1dgZY8P52NrbLlNtzpT9y/
-	i+EYw+2w==;
+	bh=CnoRRDhtGSOPAPWiKhq8LlJyfNIEUB0lnKlvZ+LO7jU=; b=gmbC6BOQea0MTQlb5HEXY4LX5b
+	FYffQZxmlp3o/hFLeh7C+PqwEtBiRVzYoK/xRm6UZ9YsKhRletmlZFkC/X0+w+mPDq3daJPdZTCPw
+	iADGKq3tXyEoxUjaJ4OIgvNHDvFUg5ZaNEb7QMTOdS2dA0mCYr95dHS4ZDC2CJQdkBukCqlHxMu8t
+	eNP2bhEArP5tV61dQiX5MT+tNofivzjr2YnnXB8TwjpmiFBV/kTgad5w2MapaxUY3QZryHPPkycZ5
+	LANiu87TRCnL3DJoNGzwuHgyncGpf03H3eBrPfFT1Y0/4OoUJwT0WUy/pIuf+pY0FnYihmNsvTsNZ
+	w4KCRFDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaLYy-0000000FuWa-3MqP;
-	Fri, 11 Jul 2025 21:45:48 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uaLm2-0000000FvPO-2S3J;
+	Fri, 11 Jul 2025 21:59:18 +0000
+Received: from mail-qt1-x836.google.com ([2607:f8b0:4864:20::836])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaLWe-0000000FuRp-32i6
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 11 Jul 2025 21:43:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=D8bQcfc+4HcIDaLexAmw+aHcXqsxhhNo0fO7Rgf5vPk=; b=c4pZH1cOYKLGhDaT6bG2JCw3Iw
-	x2VHLrhXq7orZH/dKNcR8D4B9lOBnbOqeD9EKLiNlj6ZqG0epQtxqjU2w8UX2QdwxsRUIabVvURBi
-	3k89Z3YuItRCJGDL9YKAMmhWlD/1wd+kavRsgrpwg4YeGPNM/cM/0TnHsqnN67gma2E2l8O48ORmg
-	V1Rfdi1FXo3EtlR60nlRSMK16g+Cm+BYBD3Fpfx3wY/99+/mfwOXN9JgJmO44zFdYrUhG3tiQoqkz
-	lN36FnbZg0HdMxQdyxbJW6XcZdu/IWm/UCu9sUtx5aDCMu9ZiKgPaAe9/rR3/iaQUGo+c6ZhMeY1L
-	wddkfQpg==;
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaLWa-00000009MQu-384m
+	id 1uaJwm-0000000FkoW-15td
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Jul 2025 21:43:23 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 50870A55079;
-	Fri, 11 Jul 2025 21:43:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CF348C4CEED;
-	Fri, 11 Jul 2025 21:43:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752270196;
-	bh=2iGSv1shlQW/GDV5PkKrsfbLlImUxc27gjcBAIAsHRs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Ecg1nzsGNnELmIWOaKkmu8EL9wQQWtIlR5h0t8I7cOHOYRPgolkANBSwZY/ArX8fb
-	 zbBsNer8f3cqIGY5GVf5l+tvpaAowo0kvwOTHS1KDQ2EMZaZ3c7700HAVeEYB0/+z/
-	 PcojdDftByIlyx1bCSBKKIPOlSpBl60M+HB7ukmyRETE+Q0/u8Rg9CNLIopGxDu/m5
-	 kT6qWquYUru3Gtk5IqRNlyjQJMmTWYBx71ItOagNVdiPDRpkptDAvVhcNfkqDQZ28l
-	 o3LILzbLCGbUlDg8Tsoi0QNRxq4V2f3ia0br66XBKRCj3wtfGBHdb6sX7HChQCR/i1
-	 Ns6cjTh4iNCig==
-Date: Fri, 11 Jul 2025 16:43:14 -0500
-From: Rob Herring <robh@kernel.org>
-To: James Morse <james.morse@arm.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	Ben Horgan <ben.horgan@arm.com>,
-	Rohit Mathew <rohit.mathew@arm.com>,
-	Shanker Donthineni <sdonthineni@nvidia.com>,
-	Zeng Heng <zengheng4@huawei.com>,
-	Lecopzer Chen <lecopzerc@nvidia.com>,
-	Carl Worth <carl@os.amperecomputing.com>,
-	shameerali.kolothum.thodi@huawei.com,
-	D Scott Phillips OS <scott@os.amperecomputing.com>,
-	lcherian@marvell.com, bobo.shaobowang@huawei.com,
-	tan.shaopeng@fujitsu.com, baolin.wang@linux.alibaba.com,
-	Jamie Iles <quic_jiles@quicinc.com>,
-	Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
-	dfustini@baylibre.com, amitsinght@marvell.com,
-	David Hildenbrand <david@redhat.com>,
-	Rex Nie <rex.nie@jaguarmicro.com>,
-	Dave Martin <dave.martin@arm.com>, Koba Ko <kobak@nvidia.com>
-Subject: Re: [RFC PATCH 11/36] dt-bindings: arm: Add MPAM MSC binding
-Message-ID: <20250711214314.GA1376683-robh@kernel.org>
-References: <20250711183648.30766-1-james.morse@arm.com>
- <20250711183648.30766-12-james.morse@arm.com>
+	Fri, 11 Jul 2025 20:02:17 +0000
+Received: by mail-qt1-x836.google.com with SMTP id d75a77b69052e-4a58d95ea53so31203121cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Jul 2025 13:02:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ndufresne-ca.20230601.gappssmtp.com; s=20230601; t=1752264135; x=1752868935; darn=lists.infradead.org;
+        h=mime-version:user-agent:autocrypt:references:in-reply-to:date:cc:to
+         :from:subject:message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=CnoRRDhtGSOPAPWiKhq8LlJyfNIEUB0lnKlvZ+LO7jU=;
+        b=1HYUFcO16dth0IYdoFQ61IO7+BEWhGud5e7/W3vyoCUsxh/L3L+3Vizi1DbzdMR9BE
+         9DlDEeMIO19205E8ymSkH231iICmq85mqKqFlvPAyfIRa50s9J/+kH9kYS9Spm6ohU0F
+         WYc44Vq83j/JyTKvsDLh9W/ZTlCHM/AhGam1KTLAxd39yHp5cFVICIRSAqFxOoTrPSGG
+         vaSBY/tGRus+rSAUccZUHIWgzsjcVRcSOPqWdlupkLAeRTqgvZntY/Q+ayscCG+Vu+AK
+         2rvCszXTJOVpKtdlbqdXpA2Q1uWdqFGOyFGsbW4/GqPR3viH8xk7LCN+8zfqstYkAmZQ
+         DRMQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1752264135; x=1752868935;
+        h=mime-version:user-agent:autocrypt:references:in-reply-to:date:cc:to
+         :from:subject:message-id:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=CnoRRDhtGSOPAPWiKhq8LlJyfNIEUB0lnKlvZ+LO7jU=;
+        b=ilxxRFBZkOethjCPEi37CkLy1KwP2PPEstsggqUHDq/Fv1MGEF6ugdo3bkxYiJ0kPj
+         C+yeRJMgVJjXXdL1v/kA9evDaOSQ52GDNtPuOhQNH/2Laj+rZ6PK5LENx2CIF6ANhLFt
+         kt4joHSSsU8J4BUEKrma41nxfHMXNDjnNRq6xH9J32IQEpWfwKSKoDhNhPXIv+K8ijRF
+         wIBtwSTSwAHUTAHrs6t729LZSlX2IFFr1a6Hv1mZutMWKePF8vU0LqP9dkZahKOTRAbe
+         UQR8aFv7px7MzOyx8JkITJ7I+vfywhIY5rFiNWY9Ouj//bHHjCsdVBpAe347PV8CIFKu
+         ibdA==
+X-Forwarded-Encrypted: i=1; AJvYcCWZUDuALWw/kd9fUEOAz8RdmnDO8QyqA6Gf04f4pNGi/MpZ6//mdK+RvRwSb8WXoIkuM2KiaaCRpBhR3Zg5aVN+@lists.infradead.org
+X-Gm-Message-State: AOJu0YzXETFV0nQIf2+jEzD8i+uOqntpMhT+IbTZbo63OwzPiDQA1MYK
+	GXkLceGdDr5yzTfJ1wB/FSZmg+hVjV6ARIQb1PcSHXkjXqCBWgY/2MO9rnaW4yoiRao=
+X-Gm-Gg: ASbGncsg4lVORp4lP0HYbh3uoR5WB0ZvrxHsJvHMuztp7FDdyUH9SCE7uQAwwdURtvB
+	sn6jrccjpYHIAyxRYRI0ejAM0cxRMwZekKyJxw43O4yaDM26ehcMVHLQHGSuAdaaskKrx6N5tQz
+	NLRC7bDjGMDXvJxRiL4KwTnj8X45UdRfcJoEvCM7WQMHGSxTPzGoAVpH5z625OMEmXnxWqavuyU
+	1B+HHz4HEiTwyq3Yio1Lj6EwPpp3esQnV6EZ0ZxKnGuExLTJmj504iczynC5R6owdANieM68psE
+	Uj1Fs2ylCAQlWKy8phjj2PpvY9Qqbe/dJn3/8KQn6biomt7cDuVzj+VMgb8T04UBa19MqzR3L+z
+	v4e8oaaYRXsaK5Wp/qZOBE8vPbpqSRSALY55X5A==
+X-Google-Smtp-Source: AGHT+IEuLOxF/UAqwKLexQXJclEkYrpc7aYrRvWVeUsA+st+Tdi3sBUDzBI9yFbWLfbip40hyoxWTg==
+X-Received: by 2002:a05:622a:a38c:b0:4ab:37d7:c3c2 with SMTP id d75a77b69052e-4ab37d7c5b1mr34888811cf.14.1752264135009;
+        Fri, 11 Jul 2025 13:02:15 -0700 (PDT)
+Received: from ?IPv6:2606:6d00:17:b699::5ac? ([2606:6d00:17:b699::5ac])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-4a9edefb923sm24313601cf.75.2025.07.11.13.02.12
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 11 Jul 2025 13:02:13 -0700 (PDT)
+Message-ID: <447205bfe4089eb6231fa17a1fff3d58806ec7d3.camel@ndufresne.ca>
+Subject: Re: [PATCH 8/8] media: rkvdec: Unstage the driver
+From: Nicolas Dufresne <nicolas@ndufresne.ca>
+To: Detlev Casanova <detlev.casanova@collabora.com>, 
+	linux-kernel@vger.kernel.org
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+  Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Sebastian Reichel	 <sebastian.reichel@collabora.com>, Cristian Ciocaltea	
+ <cristian.ciocaltea@collabora.com>, Alexey Charkov <alchark@gmail.com>, 
+ Dragan Simic <dsimic@manjaro.org>, Jianfeng Liu
+ <liujianfeng1994@gmail.com>, Nicolas Frattaroli	
+ <nicolas.frattaroli@collabora.com>, Kever Yang <kever.yang@rock-chips.com>,
+  Andy Yan <andy.yan@rock-chips.com>, Frank Wang
+ <frank.wang@rock-chips.com>, 	devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, 	linux-rockchip@lists.infradead.org,
+ Ezequiel Garcia	 <ezequiel@vanguardiasur.com.ar>, Mauro Carvalho Chehab
+ <mchehab@kernel.org>,  Hans Verkuil <hverkuil@xs4all.nl>, Ricardo Ribalda
+ <ribalda@chromium.org>, Hans de Goede <hansg@kernel.org>,  Yunke Cao
+ <yunkec@google.com>, linux-media@vger.kernel.org, kernel@collabora.com
+Date: Fri, 11 Jul 2025 16:02:11 -0400
+In-Reply-To: <20250623160722.55938-9-detlev.casanova@collabora.com>
+References: <20250623160722.55938-1-detlev.casanova@collabora.com>
+	 <20250623160722.55938-9-detlev.casanova@collabora.com>
+Autocrypt: addr=nicolas@ndufresne.ca; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0MU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAY29sbGFib3JhLmNvbT6ImQQTFg
+ oAQQIbAwULCQgHAgIiAgYVCgkICwIEFgIDAQIeBwIXgBYhBO8NUoEVxMPCGgRvEtlBlFEpYHL0BQJ
+ oLLLGBQkJZfd1AAoJENlBlFEpYHL0BEkA/3qkWYt99myYFSmTJUF8UB/7OroEm3vr1HRqXeQe9Qp2
+ AP0bsoAe6KjEPa/pJfuJ2khrOPPHxvyt/PBNbI5BYcIABLQnTmljb2xhcyBEdWZyZXNuZSA8bmljb
+ 2xhc0BuZHVmcmVzbmUuY2E+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4AWIQ
+ TvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyy+AUJCWX3dQAKCRDZQZRRKWBy9FJ5AQCNy8SX8DpHbLa
+ cy58vgDwyIpB89mok9eWGGejY9mqpRwEAhHzs+/n5xlVlM3bqy1yHnAzJqVwqBE1D0jG0a9V6VQI=
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-TRLqz3hiMlUTgCc1wc3h"
+User-Agent: Evolution 3.56.2 (3.56.2-1.fc42) 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250711183648.30766-12-james.morse@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250711_224321_357781_2BC6569F 
-X-CRM114-Status: GOOD (  32.01  )
+X-CRM114-CacheID: sfid-20250711_130216_305676_E5C42236 
+X-CRM114-Status: GOOD (  16.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,286 +121,191 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 11, 2025 at 06:36:23PM +0000, James Morse wrote:
-> From: Rob Herring <robh@kernel.org>
-> 
-> The binding is designed around the assumption that an MSC will be a
-> sub-block of something else such as a memory controller, cache controller,
-> or IOMMU. However, it's certainly possible a design does not have that
-> association or has a mixture of both, so the binding illustrates how we can
-> support that with RIS child nodes.
-> 
-> A key part of MPAM is we need to know about all of the MSCs in the system
-> before it can be enabled. This drives the need for the genericish
-> 'arm,mpam-msc' compatible. Though we can't assume an MSC is accessible
-> until a h/w specific driver potentially enables the h/w.
-> 
-> Cc: James Morse <james.morse@arm.com>
-> Signed-off-by: Rob Herring <robh@kernel.org>
-> Signed-off-by: James Morse <james.morse@arm.com>
+
+--=-TRLqz3hiMlUTgCc1wc3h
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Le lundi 23 juin 2025 =C3=A0 12:07 -0400, Detlev Casanova a =C3=A9crit=C2=
+=A0:
+> The TODO list for unstaging being empty, the driver can now be moved to t=
+he
+> main media folder.
+>=20
+> Also add myself as maintainer.
+>=20
+> Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
+
+Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+
 > ---
->  .../devicetree/bindings/arm/arm,mpam-msc.yaml | 227 ++++++++++++++++++
->  1 file changed, 227 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/arm/arm,mpam-msc.yaml
+> =C2=A0MAINTAINERS=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 | =
+8 ++++++++
+> =C2=A0drivers/media/platform/rockchip/Kconfig=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0 | 1 +
+> =C2=A0drivers/media/platform/rockchip/Makefile=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+ | 1 +
+> =C2=A0.../media =3D> media/platform/rockchip}/rkvdec/Kconfig=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0 | 0
+> =C2=A0.../media =3D> media/platform/rockchip}/rkvdec/Makefile=C2=A0=C2=A0=
+=C2=A0=C2=A0 | 0
+> =C2=A0.../platform/rockchip}/rkvdec/rkvdec-h264.c=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 | 0
+> =C2=A0.../platform/rockchip}/rkvdec/rkvdec-regs.h=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 | 0
+> =C2=A0.../media =3D> media/platform/rockchip}/rkvdec/rkvdec-vp9.c | 0
+> =C2=A0.../media =3D> media/platform/rockchip}/rkvdec/rkvdec.c=C2=A0=C2=A0=
+=C2=A0=C2=A0 | 0
+> =C2=A0.../media =3D> media/platform/rockchip}/rkvdec/rkvdec.h=C2=A0=C2=A0=
+=C2=A0=C2=A0 | 0
+> =C2=A0drivers/staging/media/Kconfig=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 | 2 --
+> =C2=A0drivers/staging/media/Makefile=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 | 1 -
+> =C2=A012 files changed, 10 insertions(+), 3 deletions(-)
+> =C2=A0rename drivers/{staging/media =3D> media/platform/rockchip}/rkvdec/=
+Kconfig
+> (100%)
+> =C2=A0rename drivers/{staging/media =3D> media/platform/rockchip}/rkvdec/=
+Makefile
+> (100%)
+> =C2=A0rename drivers/{staging/media =3D> media/platform/rockchip}/rkvdec/=
+rkvdec-
+> h264.c (100%)
+> =C2=A0rename drivers/{staging/media =3D> media/platform/rockchip}/rkvdec/=
+rkvdec-
+> regs.h (100%)
+> =C2=A0rename drivers/{staging/media =3D> media/platform/rockchip}/rkvdec/=
+rkvdec-vp9.c
+> (100%)
+> =C2=A0rename drivers/{staging/media =3D> media/platform/rockchip}/rkvdec/=
+rkvdec.c
+> (100%)
+> =C2=A0rename drivers/{staging/media =3D> media/platform/rockchip}/rkvdec/=
+rkvdec.h
+> (100%)
+>=20
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index c3f7fbd0d67af..d05a153c21526 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -21466,6 +21466,14 @@ S:	Maintained
+> =C2=A0F:	Documentation/devicetree/bindings/media/rockchip-rga.yaml
+> =C2=A0F:	drivers/media/platform/rockchip/rga/
+> =C2=A0
+> +ROCKCHIP RKVDEC VIDEO DECODER DRIVER
+> +M:	Detlev Casanova <detlev.casanova@collabora.com>
+> +L:	linux-media@vger.kernel.org
+> +L:	linux-rockchip@lists.infradead.org
+> +S:	Maintained
+> +F:	Documentation/devicetree/bindings/media/rockchip,vdec.yaml
+> +F:	drivers/media/platform/rockchip/rkvdec/
+> +
+> =C2=A0ROCKCHIP RK3308 INTERNAL AUDIO CODEC
+> =C2=A0M:	Luca Ceresoli <luca.ceresoli@bootlin.com>
+> =C2=A0S:	Maintained
+> diff --git a/drivers/media/platform/rockchip/Kconfig
+> b/drivers/media/platform/rockchip/Kconfig
+> index b41d3960c1b41..9bbeec4996aa2 100644
+> --- a/drivers/media/platform/rockchip/Kconfig
+> +++ b/drivers/media/platform/rockchip/Kconfig
+> @@ -4,3 +4,4 @@ comment "Rockchip media platform drivers"
+> =C2=A0
+> =C2=A0source "drivers/media/platform/rockchip/rga/Kconfig"
+> =C2=A0source "drivers/media/platform/rockchip/rkisp1/Kconfig"
+> +source "drivers/media/platform/rockchip/rkvdec/Kconfig"
+> diff --git a/drivers/media/platform/rockchip/Makefile
+> b/drivers/media/platform/rockchip/Makefile
+> index 4f782b876ac9b..286dc5c53f7e1 100644
+> --- a/drivers/media/platform/rockchip/Makefile
+> +++ b/drivers/media/platform/rockchip/Makefile
+> @@ -1,3 +1,4 @@
+> =C2=A0# SPDX-License-Identifier: GPL-2.0-only
+> =C2=A0obj-y +=3D rga/
+> =C2=A0obj-y +=3D rkisp1/
+> +obj-y +=3D rkvdec/
+> diff --git a/drivers/staging/media/rkvdec/Kconfig
+> b/drivers/media/platform/rockchip/rkvdec/Kconfig
+> similarity index 100%
+> rename from drivers/staging/media/rkvdec/Kconfig
+> rename to drivers/media/platform/rockchip/rkvdec/Kconfig
+> diff --git a/drivers/staging/media/rkvdec/Makefile
+> b/drivers/media/platform/rockchip/rkvdec/Makefile
+> similarity index 100%
+> rename from drivers/staging/media/rkvdec/Makefile
+> rename to drivers/media/platform/rockchip/rkvdec/Makefile
+> diff --git a/drivers/staging/media/rkvdec/rkvdec-h264.c
+> b/drivers/media/platform/rockchip/rkvdec/rkvdec-h264.c
+> similarity index 100%
+> rename from drivers/staging/media/rkvdec/rkvdec-h264.c
+> rename to drivers/media/platform/rockchip/rkvdec/rkvdec-h264.c
+> diff --git a/drivers/staging/media/rkvdec/rkvdec-regs.h
+> b/drivers/media/platform/rockchip/rkvdec/rkvdec-regs.h
+> similarity index 100%
+> rename from drivers/staging/media/rkvdec/rkvdec-regs.h
+> rename to drivers/media/platform/rockchip/rkvdec/rkvdec-regs.h
+> diff --git a/drivers/staging/media/rkvdec/rkvdec-vp9.c
+> b/drivers/media/platform/rockchip/rkvdec/rkvdec-vp9.c
+> similarity index 100%
+> rename from drivers/staging/media/rkvdec/rkvdec-vp9.c
+> rename to drivers/media/platform/rockchip/rkvdec/rkvdec-vp9.c
+> diff --git a/drivers/staging/media/rkvdec/rkvdec.c
+> b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+> similarity index 100%
+> rename from drivers/staging/media/rkvdec/rkvdec.c
+> rename to drivers/media/platform/rockchip/rkvdec/rkvdec.c
+> diff --git a/drivers/staging/media/rkvdec/rkvdec.h
+> b/drivers/media/platform/rockchip/rkvdec/rkvdec.h
+> similarity index 100%
+> rename from drivers/staging/media/rkvdec/rkvdec.h
+> rename to drivers/media/platform/rockchip/rkvdec/rkvdec.h
+> diff --git a/drivers/staging/media/Kconfig b/drivers/staging/media/Kconfi=
+g
+> index b442148543995..b9d52a51841b5 100644
+> --- a/drivers/staging/media/Kconfig
+> +++ b/drivers/staging/media/Kconfig
+> @@ -32,8 +32,6 @@ source "drivers/staging/media/max96712/Kconfig"
+> =C2=A0
+> =C2=A0source "drivers/staging/media/meson/vdec/Kconfig"
+> =C2=A0
+> -source "drivers/staging/media/rkvdec/Kconfig"
+> -
+> =C2=A0source "drivers/staging/media/starfive/Kconfig"
+> =C2=A0
+> =C2=A0source "drivers/staging/media/sunxi/Kconfig"
+> diff --git a/drivers/staging/media/Makefile b/drivers/staging/media/Makef=
+ile
+> index ad4e9619a9e07..102ca632ddf5c 100644
+> --- a/drivers/staging/media/Makefile
+> +++ b/drivers/staging/media/Makefile
+> @@ -4,7 +4,6 @@ obj-$(CONFIG_INTEL_ATOMISP)=C2=A0=C2=A0=C2=A0=C2=A0 +=3D =
+atomisp/
+> =C2=A0obj-$(CONFIG_VIDEO_IMX_MEDIA)	+=3D imx/
+> =C2=A0obj-$(CONFIG_VIDEO_MAX96712)	+=3D max96712/
+> =C2=A0obj-$(CONFIG_VIDEO_MESON_VDEC)	+=3D meson/vdec/
+> -obj-$(CONFIG_VIDEO_ROCKCHIP_VDEC)	+=3D rkvdec/
+> =C2=A0obj-$(CONFIG_VIDEO_STARFIVE_CAMSS)	+=3D starfive/
+> =C2=A0obj-$(CONFIG_VIDEO_SUNXI)	+=3D sunxi/
+> =C2=A0obj-$(CONFIG_VIDEO_TEGRA)	+=3D tegra-video/
 
-Is there any DT based h/w using this? I'm not aware of any. I would 
-prefer not merging this until there is. I have little insight whether 
-these genericish compatibles will be sufficient, but I have lots of 
-experience to say they won't be. I would also suspect that if anyone has 
-started using this, they've just extended/modified it however they 
-wanted and no feedback got to me.
+--=-TRLqz3hiMlUTgCc1wc3h
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
 
+-----BEGIN PGP SIGNATURE-----
 
-> diff --git a/Documentation/devicetree/bindings/arm/arm,mpam-msc.yaml b/Documentation/devicetree/bindings/arm/arm,mpam-msc.yaml
-> new file mode 100644
-> index 000000000000..9d542ecb1a7d
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/arm/arm,mpam-msc.yaml
-> @@ -0,0 +1,227 @@
-> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/arm/arm,mpam-msc.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Arm Memory System Resource Partitioning and Monitoring (MPAM)
-> +
-> +description: |
-> +  The Arm MPAM specification can be found here:
-> +
-> +  https://developer.arm.com/documentation/ddi0598/latest
-> +
-> +maintainers:
-> +  - Rob Herring <robh@kernel.org>
-> +
-> +properties:
-> +  compatible:
-> +    items:
-> +      - const: arm,mpam-msc                   # Further details are discoverable
-> +      - const: arm,mpam-memory-controller-msc
-> +
-> +  reg:
-> +    maxItems: 1
-> +    description: A memory region containing registers as defined in the MPAM
-> +      specification.
-> +
-> +  interrupts:
-> +    minItems: 1
-> +    items:
-> +      - description: error (optional)
-> +      - description: overflow (optional, only for monitoring)
-> +
-> +  interrupt-names:
-> +    oneOf:
-> +      - items:
-> +          - enum: [ error, overflow ]
-> +      - items:
-> +          - const: error
-> +          - const: overflow
-> +
-> +  arm,not-ready-us:
-> +    description: The maximum time in microseconds for monitoring data to be
-> +      accurate after a settings change. For more information, see the
-> +      Not-Ready (NRDY) bit description in the MPAM specification.
-> +
-> +  numa-node-id: true # see NUMA binding
-> +
-> +  '#address-cells':
-> +    const: 1
-> +
-> +  '#size-cells':
-> +    const: 0
-> +
-> +patternProperties:
-> +  '^ris@[0-9a-f]$':
-> +    type: object
-> +    additionalProperties: false
-> +    description: |
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaHFtwwAKCRDZQZRRKWBy
+9D0OAQDCzPQPG7xg4OYY8o6mQuA7YYMPvLnXfsqOsELbI81nggEAn4NKzS6Zv5SL
+gInU8ELc0LBcICoE9Vc3ZGnrhMUvzQo=
+=TPsc
+-----END PGP SIGNATURE-----
 
-'|' can be dropped.
-
-> +      RIS nodes for each RIS in an MSC. These nodes are required for each RIS
-> +      implementing known MPAM controls
-> +
-> +    properties:
-> +      compatible:
-> +        enum:
-> +            # Bulk storage for cache
-> +          - arm,mpam-cache
-> +            # Memory bandwidth
-> +          - arm,mpam-memory
-> +
-> +      reg:
-> +        minimum: 0
-> +        maximum: 0xf
-> +
-> +      cpus:
-> +        $ref: '/schemas/types.yaml#/definitions/phandle-array'
-
-Don't need the type. It's in the core schemas now.
-
-> +        description:
-> +          Phandle(s) to the CPU node(s) this RIS belongs to. By default, the parent
-> +          device's affinity is used.
-> +
-> +      arm,mpam-device:
-> +        $ref: '/schemas/types.yaml#/definitions/phandle'
-
-Don't need quotes. This should be a warning, but no testing happened 
-because the DT list and maintainers weren't CCed.
-
-> +        description:
-> +          By default, the MPAM enabled device associated with a RIS is the MSC's
-> +          parent node. It is possible for each RIS to be associated with different
-> +          devices in which case 'arm,mpam-device' should be used.
-> +
-> +    required:
-> +      - compatible
-> +      - reg
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +
-> +dependencies:
-> +  interrupts: [ interrupt-names ]
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    /*
-> +    cpus {
-> +        cpu@0 {
-> +            next-level-cache = <&L2_0>;
-> +        };
-> +        cpu@100 {
-> +            next-level-cache = <&L2_1>;
-> +        };
-> +    };
-> +    */
-> +    L2_0: cache-controller-0 {
-> +        compatible = "cache";
-> +        cache-level = <2>;
-> +        cache-unified;
-> +        next-level-cache = <&L3>;
-> +
-> +    };
-> +
-> +    L2_1: cache-controller-1 {
-> +        compatible = "cache";
-> +        cache-level = <2>;
-> +        cache-unified;
-> +        next-level-cache = <&L3>;
-> +
-> +    };
-
-All the above should be dropped. Not part of this binding.
-
-> +
-> +    L3: cache-controller@30000000 {
-> +        compatible = "arm,dsu-l3-cache", "cache";
-
-Pretty sure this is a warning because that compatible doesn't exist.
-
-> +        cache-level = <3>;
-> +        cache-unified;
-> +
-> +        ranges = <0x0 0x30000000 0x800000>;
-> +        #address-cells = <1>;
-> +        #size-cells = <1>;
-> +
-> +        msc@10000 {
-> +            compatible = "arm,mpam-msc";
-> +
-> +            /* CPU affinity implied by parent cache node's  */
-> +            reg = <0x10000 0x2000>;
-> +            interrupts = <1>, <2>;
-> +            interrupt-names = "error", "overflow";
-> +            arm,not-ready-us = <1>;
-> +        };
-> +    };
-> +
-> +    mem: memory-controller@20000 {
-> +        compatible = "foo,a-memory-controller";
-> +        reg = <0x20000 0x1000>;
-> +
-> +        #address-cells = <1>;
-> +        #size-cells = <1>;
-> +        ranges;
-> +
-> +        msc@21000 {
-> +            compatible = "arm,mpam-memory-controller-msc", "arm,mpam-msc";
-> +            reg = <0x21000 0x1000>;
-> +            interrupts = <3>;
-> +            interrupt-names = "error";
-> +            arm,not-ready-us = <1>;
-> +            numa-node-id = <1>;
-> +        };
-> +    };
-> +
-> +    iommu@40000 {
-> +        reg = <0x40000 0x1000>;
-> +
-> +        ranges;
-> +        #address-cells = <1>;
-> +        #size-cells = <1>;
-> +
-> +        msc@41000 {
-> +            compatible = "arm,mpam-msc";
-> +            reg = <0 0x1000>;
-> +            interrupts = <5>, <6>;
-> +            interrupt-names = "error", "overflow";
-> +            arm,not-ready-us = <1>;
-> +
-> +            #address-cells = <1>;
-> +            #size-cells = <0>;
-> +
-> +            ris@2 {
-> +                compatible = "arm,mpam-cache";
-> +                reg = <0>;
-> +                // TODO: How to map to device(s)?
-> +            };
-> +        };
-> +    };
-> +
-> +    msc@80000 {
-> +        compatible = "foo,a-standalone-msc";
-> +        reg = <0x80000 0x1000>;
-> +
-> +        clocks = <&clks 123>;
-> +
-> +        ranges;
-> +        #address-cells = <1>;
-> +        #size-cells = <1>;
-> +
-> +        msc@10000 {
-> +            compatible = "arm,mpam-msc";
-> +
-> +            reg = <0x10000 0x2000>;
-> +            interrupts = <7>;
-> +            interrupt-names = "overflow";
-> +            arm,not-ready-us = <1>;
-> +
-> +            #address-cells = <1>;
-> +            #size-cells = <0>;
-> +
-> +            ris@0 {
-> +                compatible = "arm,mpam-cache";
-> +                reg = <0>;
-> +                arm,mpam-device = <&L2_0>;
-> +            };
-> +
-> +            ris@1 {
-> +                compatible = "arm,mpam-memory";
-> +                reg = <1>;
-> +                arm,mpam-device = <&mem>;
-> +            };
-> +        };
-> +    };
-> +
-> +...
-> -- 
-> 2.39.5
-> 
+--=-TRLqz3hiMlUTgCc1wc3h--
 
