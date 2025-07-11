@@ -4,75 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAE31C83F1B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 20:33:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EDAEC83F1B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 20:35:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sFZ1PcBMw9jT/La9cSdzjaxoBiffb+KtiJHzK65ieQw=; b=DIiyouZDgyP0AiUrbOEEoz4KhS
-	rP+Gc2w8TXD+m6rRItDTNd87+gEhm1OYk4YCMseYBwapH4OwDecmMA0D54qFAkpnjJ8RbAS54JK4+
-	NUqnCW00mOZSxQSH/sxdrShX00AN2BeugFL2P6GnYhPKp05oNYoqpSdldZa3U8kdGm3myUbGIfAXl
-	q4jIE8RafHDrrUVaLnlwExJ9QVOW1OGODsI56e+Jy8MDTfx28tMH6OzsxLgGgbFyhfGdXfIm/Im8W
-	v8D9M2Xey8cYrkVjpt8XzpU2e9y+v5dpvs+7vDPDpwzS9SMedwJpIYHkHK8znpOVCV0G1B1iWxxQp
-	lgrTYOIg==;
+	bh=uNvvkskXp7Cg+F+CbxxvFURzasXWU7IBDnvWLNqRbkA=; b=C7lJK9p4axR18EjkawpBTvYbJM
+	xhtM3YrzE1ND8TO+uc2i5fGsMSQhVBvQQ/hyX0rBRqXsLuf0ywD1Jum12itMo2TdZ9PWYA7xjgCkr
+	opuDA5Rg3z9zkYu3MKjD6SBQq9rukBJccK/uw1w1e72ISPSdh1CHkA7NJ6OodO2UJY+FYD3gy/mh6
+	J3rCsHrBS+oD966ZQ5srPjkKwmKCE1sS/qaVszFw7m4P6j9540p1g/xw4FEOj6H/E7WpSpxIPAzuG
+	xmKk2o9YRCVdeaZJQcTe2I/lk/tAAJxYZ8fvnw4vmV8oM2l+YpeOKzroCJd1b36RO6znPxV+/62FA
+	XNNEwVSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaKQR-0000000FnQU-2uBC;
-	Fri, 11 Jul 2025 20:32:55 +0000
-Received: from linux.microsoft.com ([13.77.154.182])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaJGr-0000000Fcug-3rKF
+	id 1uaKSk-0000000FnZM-1qs0;
+	Fri, 11 Jul 2025 20:35:18 +0000
+Received: from mail-sn1nam02olkn20818.outbound.protection.outlook.com ([2a01:111:f403:2c06::818] helo=NAM02-SN1-obe.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uaJNU-0000000Fdk8-1cvw
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Jul 2025 19:18:59 +0000
-Received: by linux.microsoft.com (Postfix, from userid 1032)
-	id A457E2115803; Fri, 11 Jul 2025 12:18:55 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com A457E2115803
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1752261535;
-	bh=sFZ1PcBMw9jT/La9cSdzjaxoBiffb+KtiJHzK65ieQw=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=IfUwr2/BEJV/P4zK1EjlNTEelPgd1NC6Ma6c441y229FZuK4SpVs/JIOZubMCVfIn
-	 X9TfP/crS1nj2rMG21JWMTRSBs71bAZy6OzatcO0AFosl9oi0+zThIbtvrLQ8OZDKR
-	 LfOAzdrs3Wo5lwcITYz1E96de0zkpiUX7FHk4YeM=
-From: Nuno Das Neves <nunodasneves@linux.microsoft.com>
-To: linux-hyperv@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-pci@vger.kernel.org,
-	wei.liu@kernel.org,
-	mhklinux@outlook.com,
-	tglx@linutronix.de,
-	bhelgaas@google.com,
-	romank@linux.microsoft.com
-Cc: kys@microsoft.com,
-	haiyangz@microsoft.com,
-	decui@microsoft.com,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	mingo@redhat.com,
-	bp@alien8.de,
-	dave.hansen@linux.intel.com,
-	hpa@zytor.com,
-	lpieralisi@kernel.org,
-	kw@linux.com,
-	robh@kernel.org,
-	jinankjain@linux.microsoft.com,
-	skinsburskii@linux.microsoft.com,
-	mrathor@linux.microsoft.com,
-	x86@kernel.org,
-	Nuno Das Neves <nunodasneves@linux.microsoft.com>
-Subject: [PATCH v3 2/3] x86/hyperv: Expose hv_map_msi_interrupt()
-Date: Fri, 11 Jul 2025 12:18:51 -0700
-Message-Id: <1752261532-7225-3-git-send-email-nunodasneves@linux.microsoft.com>
-X-Mailer: git-send-email 1.8.3.1
-In-Reply-To: <1752261532-7225-1-git-send-email-nunodasneves@linux.microsoft.com>
+	Fri, 11 Jul 2025 19:25:49 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Pjd+7ErW53Dzat65p8aRRV9OO5mZAGnYun6isaE0i2LRfrMbRdp3eK8oGwaLlv82SuoWnb6OAFMrFhYqpn+N8DOPlnHl0rSaE2nYWb5mWrV06DENnMW02RdnDWggbdsxIaPj5Haks4RFGz82aKUt0V2jHCnLOgPQJBYwbQwmQXXW3aJ2ojuselAv0fbCFaXkAUutUiZuCMWluFcq4N7KCEqzER+N+VzgBupnTf8ibN8EN4T/AemMZ4Hw9u6XjYZFMCtEd0rI7IVH4RuNlFSGbFtpS/IhB+8o04dTNIzJCezguTUhbAinSpy5X9vfSbp388s3EFtavNjaMZF7hf02ww==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=uNvvkskXp7Cg+F+CbxxvFURzasXWU7IBDnvWLNqRbkA=;
+ b=Li9BcmvBGsMtXLUQkGWckk4PJmtod6Wf20uMIzRb+jdbeVeimLaoG0dVS+mOI8jjCkl8fvPh75zyK+d4/woV5nwDbRHcEGthXMmv2f/ytcRkcCln69/h2wvGP3iJqz4WRJMlMKAS6aU7Gw8lUZKzeW/LUA3xqSh5J5WbYJVXlaCDS9lWDLyh+8D8AYqY8Mua0VbuPkqdw4R5Fdh4RY1KO+BML9R54flL1PuXMTMQLf3ZYyLbf4jYoVch0yVQMciW0CjJ7XUkHJbAKqKQHSKnTCQl1dkVG+Onl6EeXYuqPU0X11lXp4Y+3j/5KDziyiULzRf87DxXB6LQViprhGILBA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=uNvvkskXp7Cg+F+CbxxvFURzasXWU7IBDnvWLNqRbkA=;
+ b=CBNMepAWgzAflW53SQqq1/G+87TV6VhNFK9JGQPnkioUywqEfTZwyDxVgOtnN7kM3Rk5XMRSgoyLHdFJWpJo6bOW1bG24nKDtUp0awghgf0W9euZSAQNKe/WhG2fDHqCLcqgqfpJgpe34MTEc7YrOa5lUdWYC+r+LyMM3yAeZbDnn1WRKfRVpFCuYibJz7cP3CbKZNAiEy0T3cpYIaMm++L2kbXn18L58gReZM1EhvPmOog1rtg8OQcFwriHje2y6NlWhkOER77ZSDd07CwNWVFRS8PWtrZdldj7+3h35FXp1xmDlTcoRxChsVgv9GL/R1zJHZsMrIb9WQoJOJn1NQ==
+Received: from SN6PR02MB4157.namprd02.prod.outlook.com (2603:10b6:805:33::23)
+ by CH0PR02MB8058.namprd02.prod.outlook.com (2603:10b6:610:107::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8922.27; Fri, 11 Jul
+ 2025 19:25:30 +0000
+Received: from SN6PR02MB4157.namprd02.prod.outlook.com
+ ([fe80::cedd:1e64:8f61:b9df]) by SN6PR02MB4157.namprd02.prod.outlook.com
+ ([fe80::cedd:1e64:8f61:b9df%4]) with mapi id 15.20.8901.018; Fri, 11 Jul 2025
+ 19:25:30 +0000
+From: Michael Kelley <mhklinux@outlook.com>
+To: Nuno Das Neves <nunodasneves@linux.microsoft.com>,
+	"linux-hyperv@vger.kernel.org" <linux-hyperv@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-pci@vger.kernel.org"
+	<linux-pci@vger.kernel.org>, "wei.liu@kernel.org" <wei.liu@kernel.org>,
+	"tglx@linutronix.de" <tglx@linutronix.de>, "bhelgaas@google.com"
+	<bhelgaas@google.com>, "romank@linux.microsoft.com"
+	<romank@linux.microsoft.com>
+CC: "kys@microsoft.com" <kys@microsoft.com>, "haiyangz@microsoft.com"
+	<haiyangz@microsoft.com>, "decui@microsoft.com" <decui@microsoft.com>,
+	"catalin.marinas@arm.com" <catalin.marinas@arm.com>, "will@kernel.org"
+	<will@kernel.org>, "mingo@redhat.com" <mingo@redhat.com>, "bp@alien8.de"
+	<bp@alien8.de>, "dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
+	"hpa@zytor.com" <hpa@zytor.com>, "lpieralisi@kernel.org"
+	<lpieralisi@kernel.org>, "kw@linux.com" <kw@linux.com>, "robh@kernel.org"
+	<robh@kernel.org>, "jinankjain@linux.microsoft.com"
+	<jinankjain@linux.microsoft.com>, "skinsburskii@linux.microsoft.com"
+	<skinsburskii@linux.microsoft.com>, "mrathor@linux.microsoft.com"
+	<mrathor@linux.microsoft.com>, "x86@kernel.org" <x86@kernel.org>
+Subject: RE: [PATCH v3 1/3] Drivers: hv: Use nested hypercall for post message
+ and signal event
+Thread-Topic: [PATCH v3 1/3] Drivers: hv: Use nested hypercall for post
+ message and signal event
+Thread-Index: AQHb8pinAf9oVnDbFE6auSrIod2ERrQtTXZQ
+Date: Fri, 11 Jul 2025 19:25:30 +0000
+Message-ID: <SN6PR02MB41578D12A564ECC32BEFD6F1D44BA@SN6PR02MB4157.namprd02.prod.outlook.com>
 References: <1752261532-7225-1-git-send-email-nunodasneves@linux.microsoft.com>
+ <1752261532-7225-2-git-send-email-nunodasneves@linux.microsoft.com>
+In-Reply-To: <1752261532-7225-2-git-send-email-nunodasneves@linux.microsoft.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: SN6PR02MB4157:EE_|CH0PR02MB8058:EE_
+x-ms-office365-filtering-correlation-id: 7b56ade6-ae8d-43ea-7756-08ddc0b0b2c2
+x-microsoft-antispam: BCL:0;ARA:14566002|461199028|15080799012|41001999006|440099028|40105399003|51005399003|3412199025|102099032;
+x-microsoft-antispam-message-info: =?us-ascii?Q?SXbPwa/dr7Zo7bNvsCmPDa3AKEdu+jsw8p7NfzDSNw8195ic8gHO0hBhtq+N?=
+ =?us-ascii?Q?cZb2cXJ4PjlLg4u0p19YtGtkp87hDV3A8vkGXeecGfzmqC8YaUGcrEDWYOHj?=
+ =?us-ascii?Q?rmoajJ4qS8CFFd+BRbYkJu6wGIHYBcqZoA89s+aw1avx3tJywuXoCvdDDlLw?=
+ =?us-ascii?Q?KMIteGIjASI+a3uu+u08L06pzhGqUyp3Ofwfc7vjxRYjxu/ulvrAIbg4ZDMx?=
+ =?us-ascii?Q?f9/QP3lnVa5B1efIL7rhL2buj7mWvYOK2AghIjmq1KcSXW4vD9JSlVgBECYL?=
+ =?us-ascii?Q?LM1MXPr0gWu74W9PuOAec5L733ATChPtC3hnQdk1vjOifzZBDXuZanR2Ljf2?=
+ =?us-ascii?Q?mOS+0438CWAl31I/B16qgGPyn92ZpvkiOH5VyPNdaN0cEDu6BB0wzq+jQBFx?=
+ =?us-ascii?Q?h1d3gSghX0bBu4E16l1xYIxCDgACZOveCXhnnMssthV1GZG0MDxUijVZsLfI?=
+ =?us-ascii?Q?saaiIg1d1e+uzkoMwH+Kqoxy2qESp8Dt63Z8HLzYjJS+XAPwUv/ZwYz6AgNW?=
+ =?us-ascii?Q?Jy6l6VLE4o35PWQUwOlpZENEAjaYe70RwcbPeJjhCCMw2P83ZW4RqDvXur0L?=
+ =?us-ascii?Q?KLRvouVWDiv1iOlTA7sYspjMQXY6irQz5E+vUpkP4U8osE17CKo7YiaTw8eW?=
+ =?us-ascii?Q?T1JpAbMpLI4soY0inbZt5zkr/5SzFQZGE+B7NqCOi3O+AbFLKnhmb/HMNS3y?=
+ =?us-ascii?Q?pMr41WMtVXWPm8/4HswI0zcts15BasHzhQX8PNcJXTyqmjgNS8al9YEVGudW?=
+ =?us-ascii?Q?cY3L8NwlzBi6ctefTnFbCp7cs7RArSGEkSAKbBzHYrmfniJ4T3WS+SuA5iYf?=
+ =?us-ascii?Q?MW37U9L+9I2/NQvBm+a9CL3s2suT/toJANUtKkT4vtXpv5vnf4rryde8vbYI?=
+ =?us-ascii?Q?XCybKnkeZGVOPtcKsqt1MfOw0nrvHnAtvWReBo/hq5heWvtS6PaKcbuwobua?=
+ =?us-ascii?Q?3kldBKnsyy35jRCev+8Db/frlKmW8+cd6uqJ73GcuDFhEzzwndTu77et1/rH?=
+ =?us-ascii?Q?08riUPZYIGrpD8CS99C0LvXt7YGqLPyV24y9RzfTXh0McSlPLv+lUph8Ewzt?=
+ =?us-ascii?Q?K6dCcZNJBsiivYCa8xOu9Oh9oKzv7A=3D=3D?=
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?yD2ocXiuq+U96AyiimJjRUkB0rMOrunxYATUDojH3ERHafO4gtDZRDC6AE9M?=
+ =?us-ascii?Q?nV35Xv5LmVEMl+Ex9b5wL1yoEdSQQQb/ds1BFRmHIwGX4sORavsVYx3K6HjX?=
+ =?us-ascii?Q?1ctfZAjcDU+bgAdAmVwn429W7Axf6D9I1+CKRXLSWImCXg2uQce23zHSqnwv?=
+ =?us-ascii?Q?LyNPIcBpkDgI735a9uASRe2KTNRwWWMAglpq6iT8lAvLnjZXoWf5Q05AHrin?=
+ =?us-ascii?Q?JF2l0XvEX/20CeyQ68nUfp8DTWPmXeAPER1rpB6yl8vZ+oM2vU0JSqnlNJAh?=
+ =?us-ascii?Q?By2ILH67MfIPvomTtYrobOZMTSi3KmSKOB1sgXV2I5eHY4PFYepTfZobvJo7?=
+ =?us-ascii?Q?2NogX+mpWC8AzN+cIJeLy5SC4oAaDSU4QXDDj1G+C0H7ouEfKo+F4s9xTi8z?=
+ =?us-ascii?Q?O6NPKFh921n++dgnXl7JR2DdObETAN06O2IFkiZXE4RhUwrEc+w9miEfroAF?=
+ =?us-ascii?Q?DgeYqgSTmsDwCeEWxmLqPJBTETLdrtkMUPjvsoETXinp5Aof0ZQviGg0vmaK?=
+ =?us-ascii?Q?XM09B4EUgTdNtgflFEixQsiYfnALY31uRnVFNZt60Hyhz/0TlNNQCUhTWwXD?=
+ =?us-ascii?Q?fOjYbL120E7H2zOKDPQwltlB21Ttoy/DLja5Hdzyt+ZfSEgLnZNPhcA+xhE3?=
+ =?us-ascii?Q?vFD6WhJau2XgmI2N32VghGU7mF6QlDoyAmYOMH9YPtNhp3vax/EP8HQNzWVt?=
+ =?us-ascii?Q?bFYg2LVfYD04dgVzg0h0TYwvIzQV7H/zRN7PIw0jJlsxQZA+2wEPOzA9c5RC?=
+ =?us-ascii?Q?9EqtCb0tKA1v7K+WQiyd6cwfVloB45+Z8xOq9VWnd+htt4fuMejA9C50/Q2L?=
+ =?us-ascii?Q?it44gSdUbznmsFOCi9GJWUOCGkCFghICedxmEC62+INhbT4TFe8OeRbyrNHO?=
+ =?us-ascii?Q?SeL9M/PcLqJkQoVxAyFMAY1pVj59yCwX9oyg6IhgSh73jsBeRfLPH0Qsz6k0?=
+ =?us-ascii?Q?VvzZoXho5oTulgvva4Rmw29hQ2QQLHzOUuGT8uJfwAC5VSWQcbMOWd8OeWJa?=
+ =?us-ascii?Q?BeUic1GhXs4b4vMe6/qL/aFz1ay6G0Fun+qHQlThGdgBQirEm0m6m0kUTvTP?=
+ =?us-ascii?Q?63AqpxRXoXh6kgIKp9r+gqSKUN3NMgVsqq/tvzk3sQbpSk9jKdZcpcZ2lXFw?=
+ =?us-ascii?Q?bLGAA3kVwvdMWYn3yNiJvmRsph0hXH0dvVaXfitlEKYWs6TSQZD8/grILAfk?=
+ =?us-ascii?Q?CzzaaHZvLWoGTjjJuEhtSui3XqIKWtg5OpSZWF86QuccZfRj37edAdMrh/8?=
+ =?us-ascii?Q?=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: SN6PR02MB4157.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7b56ade6-ae8d-43ea-7756-08ddc0b0b2c2
+X-MS-Exchange-CrossTenant-originalarrivaltime: 11 Jul 2025 19:25:30.2252
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-rms-persistedconsumerorg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH0PR02MB8058
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250711_121858_009758_E8F7A477 
-X-CRM114-Status: GOOD (  14.47  )
+X-CRM114-CacheID: sfid-20250711_122548_423388_3E93BA86 
+X-CRM114-Status: GOOD (  16.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,119 +162,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>
+From: Nuno Das Neves <nunodasneves@linux.microsoft.com> Sent: Friday, July =
+11, 2025 12:19 PM
+>=20
+> When running nested, these hypercalls must be sent to the L0 hypervisor
+> or VMBus will fail.
+>=20
+> Remove hv_do_nested_hypercall() and hv_do_fast_nested_hypercall8()
+> altogether and open-code these cases, since there are only 2 and all
+> they do is add the nested bit.
+>=20
+> Signed-off-by: Nuno Das Neves <nunodasneves@linux.microsoft.com>
+> Reviewed-by: Roman Kisel <romank@linux.microsoft.com>
+> ---
+>  arch/x86/include/asm/mshyperv.h | 20 --------------------
+>  drivers/hv/connection.c         |  5 ++++-
+>  drivers/hv/hv.c                 |  6 ++++--
+>  3 files changed, 8 insertions(+), 23 deletions(-)
+>=20
+> diff --git a/arch/x86/include/asm/mshyperv.h b/arch/x86/include/asm/mshyp=
+erv.h
+> index e1752ba47e67..ab097a3a8b75 100644
+> --- a/arch/x86/include/asm/mshyperv.h
+> +++ b/arch/x86/include/asm/mshyperv.h
+> @@ -112,12 +112,6 @@ static inline u64 hv_do_hypercall(u64 control, void =
+*input, void *output)
+>  	return hv_status;
+>  }
+>=20
+> -/* Hypercall to the L0 hypervisor */
+> -static inline u64 hv_do_nested_hypercall(u64 control, void *input, void =
+*output)
+> -{
+> -	return hv_do_hypercall(control | HV_HYPERCALL_NESTED, input, output);
+> -}
+> -
+>  /* Fast hypercall with 8 bytes of input and no output */
+>  static inline u64 _hv_do_fast_hypercall8(u64 control, u64 input1)
+>  {
+> @@ -165,13 +159,6 @@ static inline u64 hv_do_fast_hypercall8(u16 code, u6=
+4 input1)
+>  	return _hv_do_fast_hypercall8(control, input1);
+>  }
+>=20
+> -static inline u64 hv_do_fast_nested_hypercall8(u16 code, u64 input1)
+> -{
+> -	u64 control =3D (u64)code | HV_HYPERCALL_FAST_BIT | HV_HYPERCALL_NESTED=
+;
+> -
+> -	return _hv_do_fast_hypercall8(control, input1);
+> -}
+> -
+>  /* Fast hypercall with 16 bytes of input */
+>  static inline u64 _hv_do_fast_hypercall16(u64 control, u64 input1, u64 i=
+nput2)
+>  {
+> @@ -223,13 +210,6 @@ static inline u64 hv_do_fast_hypercall16(u16 code, u=
+64 input1, u64 input2)
+>  	return _hv_do_fast_hypercall16(control, input1, input2);
+>  }
+>=20
+> -static inline u64 hv_do_fast_nested_hypercall16(u16 code, u64 input1, u6=
+4 input2)
+> -{
+> -	u64 control =3D (u64)code | HV_HYPERCALL_FAST_BIT | HV_HYPERCALL_NESTED=
+;
+> -
+> -	return _hv_do_fast_hypercall16(control, input1, input2);
+> -}
+> -
+>  extern struct hv_vp_assist_page **hv_vp_assist_page;
+>=20
+>  static inline struct hv_vp_assist_page *hv_get_vp_assist_page(unsigned i=
+nt cpu)
+> diff --git a/drivers/hv/connection.c b/drivers/hv/connection.c
+> index be490c598785..1fe3573ae52a 100644
+> --- a/drivers/hv/connection.c
+> +++ b/drivers/hv/connection.c
+> @@ -519,7 +519,10 @@ void vmbus_set_event(struct vmbus_channel *channel)
+>  		else
+>  			WARN_ON_ONCE(1);
+>  	} else {
+> -		hv_do_fast_hypercall8(HVCALL_SIGNAL_EVENT, channel->sig_event);
+> +		u64 control =3D HVCALL_SIGNAL_EVENT;
+> +
+> +		control |=3D hv_nested ? HV_HYPERCALL_NESTED : 0;
+> +		hv_do_fast_hypercall8(control, channel->sig_event);
+>  	}
+>  }
+>  EXPORT_SYMBOL_GPL(vmbus_set_event);
+> diff --git a/drivers/hv/hv.c b/drivers/hv/hv.c
+> index 308c8f279df8..b14c5f9e0ef2 100644
+> --- a/drivers/hv/hv.c
+> +++ b/drivers/hv/hv.c
+> @@ -85,8 +85,10 @@ int hv_post_message(union hv_connection_id connection_=
+id,
+>  		else
+>  			status =3D HV_STATUS_INVALID_PARAMETER;
+>  	} else {
+> -		status =3D hv_do_hypercall(HVCALL_POST_MESSAGE,
+> -					 aligned_msg, NULL);
+> +		u64 control =3D HVCALL_POST_MESSAGE;
+> +
+> +		control |=3D hv_nested ? HV_HYPERCALL_NESTED : 0;
+> +		status =3D hv_do_hypercall(control, aligned_msg, NULL);
+>  	}
+>=20
+>  	local_irq_restore(flags);
+> --
+> 2.34.1
 
-Move some of the logic of hv_irq_compose_irq_message() into
-hv_map_msi_interrupt(). Make hv_map_msi_interrupt() a globally-available
-helper function, which will be used to map PCI interrupts when running
-in the root partition.
-
-Signed-off-by: Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>
-Signed-off-by: Nuno Das Neves <nunodasneves@linux.microsoft.com>
-Reviewed-by: Roman Kisel <romank@linux.microsoft.com>
----
- arch/x86/hyperv/irqdomain.c     | 40 ++++++++++++++++++++++++---------
- arch/x86/include/asm/mshyperv.h |  2 ++
- 2 files changed, 31 insertions(+), 11 deletions(-)
-
-diff --git a/arch/x86/hyperv/irqdomain.c b/arch/x86/hyperv/irqdomain.c
-index ad4dff48cf14..090f5ac9f492 100644
---- a/arch/x86/hyperv/irqdomain.c
-+++ b/arch/x86/hyperv/irqdomain.c
-@@ -173,13 +173,34 @@ static union hv_device_id hv_build_pci_dev_id(struct pci_dev *dev)
- 	return dev_id;
- }
- 
--static int hv_map_msi_interrupt(struct pci_dev *dev, int cpu, int vector,
--				struct hv_interrupt_entry *entry)
-+/**
-+ * hv_map_msi_interrupt() - "Map" the MSI IRQ in the hypervisor.
-+ * @data:      Describes the IRQ
-+ * @out_entry: Hypervisor (MSI) interrupt entry (can be NULL)
-+ *
-+ * Map the IRQ in the hypervisor by issuing a MAP_DEVICE_INTERRUPT hypercall.
-+ *
-+ * Return: 0 on success, -errno on failure
-+ */
-+int hv_map_msi_interrupt(struct irq_data *data,
-+			 struct hv_interrupt_entry *out_entry)
- {
--	union hv_device_id device_id = hv_build_pci_dev_id(dev);
-+	struct irq_cfg *cfg = irqd_cfg(data);
-+	struct hv_interrupt_entry dummy;
-+	union hv_device_id device_id;
-+	struct msi_desc *msidesc;
-+	struct pci_dev *dev;
-+	int cpu;
- 
--	return hv_map_interrupt(device_id, false, cpu, vector, entry);
-+	msidesc = irq_data_get_msi_desc(data);
-+	dev = msi_desc_to_pci_dev(msidesc);
-+	device_id = hv_build_pci_dev_id(dev);
-+	cpu = cpumask_first(irq_data_get_effective_affinity_mask(data));
-+
-+	return hv_map_interrupt(device_id, false, cpu, cfg->vector,
-+				out_entry ? out_entry : &dummy);
- }
-+EXPORT_SYMBOL_GPL(hv_map_msi_interrupt);
- 
- static inline void entry_to_msi_msg(struct hv_interrupt_entry *entry, struct msi_msg *msg)
- {
-@@ -192,11 +213,11 @@ static inline void entry_to_msi_msg(struct hv_interrupt_entry *entry, struct msi
- static int hv_unmap_msi_interrupt(struct pci_dev *dev, struct hv_interrupt_entry *old_entry);
- static void hv_irq_compose_msi_msg(struct irq_data *data, struct msi_msg *msg)
- {
--	struct hv_interrupt_entry out_entry, *stored_entry;
-+	struct hv_interrupt_entry *stored_entry;
- 	struct irq_cfg *cfg = irqd_cfg(data);
- 	struct msi_desc *msidesc;
- 	struct pci_dev *dev;
--	int cpu, ret;
-+	int ret;
- 
- 	msidesc = irq_data_get_msi_desc(data);
- 	dev = msi_desc_to_pci_dev(msidesc);
-@@ -206,8 +227,6 @@ static void hv_irq_compose_msi_msg(struct irq_data *data, struct msi_msg *msg)
- 		return;
- 	}
- 
--	cpu = cpumask_first(irq_data_get_effective_affinity_mask(data));
--
- 	if (data->chip_data) {
- 		/*
- 		 * This interrupt is already mapped. Let's unmap first.
-@@ -234,15 +253,14 @@ static void hv_irq_compose_msi_msg(struct irq_data *data, struct msi_msg *msg)
- 		return;
- 	}
- 
--	ret = hv_map_msi_interrupt(dev, cpu, cfg->vector, &out_entry);
-+	ret = hv_map_msi_interrupt(data, stored_entry);
- 	if (ret) {
- 		kfree(stored_entry);
- 		return;
- 	}
- 
--	*stored_entry = out_entry;
- 	data->chip_data = stored_entry;
--	entry_to_msi_msg(&out_entry, msg);
-+	entry_to_msi_msg(data->chip_data, msg);
- 
- 	return;
- }
-diff --git a/arch/x86/include/asm/mshyperv.h b/arch/x86/include/asm/mshyperv.h
-index ab097a3a8b75..abc4659f5809 100644
---- a/arch/x86/include/asm/mshyperv.h
-+++ b/arch/x86/include/asm/mshyperv.h
-@@ -242,6 +242,8 @@ static inline void hv_apic_init(void) {}
- 
- struct irq_domain *hv_create_pci_msi_domain(void);
- 
-+int hv_map_msi_interrupt(struct irq_data *data,
-+			 struct hv_interrupt_entry *out_entry);
- int hv_map_ioapic_interrupt(int ioapic_id, bool level, int vcpu, int vector,
- 		struct hv_interrupt_entry *entry);
- int hv_unmap_ioapic_interrupt(int ioapic_id, struct hv_interrupt_entry *entry);
--- 
-2.34.1
+Reviewed-by: Michael Kelley <mhklinux@outlook.com>
 
 
