@@ -4,87 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5C87C83F1B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 22:21:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38959C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 22:24:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Content-Type:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rUDfhSJE8vypj2jOQNw79mTid7Mo8GDTdgpT5HJAMuY=; b=PcUyrLEOKclggmhk660I0GekVJ
-	OSKTM93FSgZsUysc4FysWt5f8jzAK0L6MP1JZIcddRGFv7fDGJP9iWJWSTccSiOWGTYy1W5xazM2X
-	tvMGD9QsaqVlXiFN6qqkaUvZqZXUNHDf0nNg5CiwhXn2WMf3kNqeqXGtYHLBvoXd0O0XLtpn3DB4x
-	atjHKdC6x2/7v9DNpNKi9E3K2Nom7HbAXdsUxsaA5HX/cfpIdztujyYRCPP5tBW5cwPEHme1DMo5H
-	UP0tWyvJvk4sduhj0bR3SG9qL9gG0Ne3Iq5MJ4jbw1gjbOoO44w5gC5CjHyQD1rU9pXH2korQhg59
-	4sRYhOZw==;
+	bh=kbtR0HiiakPIrzdYCLsFZ7Pb8EfrjpxSPtZBTo8vi/M=; b=bxmpVHsrSvSP0QyhK9KkuhUft2
+	K+79qY1O1ZwZ28d6UTnGj48KsHd64NiohrQNHZUusSOgaN3NiwnssnuyGRs0+jwCCUBOnXdsQPAFP
+	kYvSIY8lJ2GcAlKtnK4K2XDRmY7B3EyXUg3hopDz4rgSKHa7cvHmjwtYZotF4jnJj/QdFRZfliAEb
+	AEX3a4BA5wtXKVqA981qtoAdkF0l8Xulv1yBnvCis8444ZV36dldJtj6gPDZAuVweJZkjE6Ev44lP
+	ixmFqR8kEzk8MxoGdZ/AtaIzG8LRxPX48UNd9PIu3pwtAONBKN43LTLx9wrq19NOJeKqTLumQL2ir
+	pMQHJNOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaM7q-0000000FwoP-21OS;
-	Fri, 11 Jul 2025 22:21:50 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uaMAA-0000000Fx1N-0qzU;
+	Fri, 11 Jul 2025 22:24:14 +0000
+Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaLwN-0000000Fw1f-14xi
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 11 Jul 2025 22:09:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:Content-Type:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=rUDfhSJE8vypj2jOQNw79mTid7Mo8GDTdgpT5HJAMuY=; b=Q13sweHCptS7XpvpgagPjfpqDj
-	OnGVV/GIaOBOxXj/CQM73IaQby+5baxzqvcGo6bFKquDnR+Pe7UL8CvtVvAyqwHqg/kY4rd/w6au4
-	PQzPSXDqV8PP0lgYLiW8TZc10PNp7YEluOAN/lXo8de5Q6vLqealJQHYzQEAdcjuWx2e39JdZPz3S
-	BVWrd9ISJoeSfOdDWFFJicOdzChtjgt0Osg/C+zMOkbJm7nQq7qsrUnu9T8WxTsP6fT78Ft3lbTK1
-	V8eLd/rmD5pOgv6YbN1hjCJTTUBNr/RFi1BsQ+pNNEwJhI784Trb6O4W8Q16IeUIzZ6w0fQBvpYy8
-	9jqkw2sg==;
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaLwJ-00000009MtO-15Fo
+	id 1uaLwP-0000000Fw1y-0tiA
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Jul 2025 22:09:58 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-3b5e6bfb427so1358684f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Jul 2025 15:09:54 -0700 (PDT)
+	Fri, 11 Jul 2025 22:10:02 +0000
+Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-3a531fcaa05so1480984f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 11 Jul 2025 15:10:00 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1752271794; x=1752876594; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1752271800; x=1752876600; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=rUDfhSJE8vypj2jOQNw79mTid7Mo8GDTdgpT5HJAMuY=;
-        b=htHFSpLBTdhNoyDYYB0fa5h9u7uS9H1ySxTVf+sJ/9zDyzIwCiNi0rQ3/bQon/sTR4
-         tKK4IvPmhACijH4vVQfiQbL+0QrSoPyRn4yITBTsM5ScS2IErXGHeLgSdqWCvVA05ptL
-         J9w9EdIAdGU+SKkOd/pHR6PbfbWhjAwQvKl+OVqK+01vv1hcKnnHFtPRKlRajFWMQrDW
-         x9I7vdL7iY0/FBmEe+U0xs6a9NPwzuEFZZktPo3Y2wrEo9VcAVcTtvvhA7TRrJoNoEXN
-         ySXkGpfpdmCPZJM6MF1tYRs3tZbA99c/OC9VE8h7WOgv/+61Hmy1MbV51dcw91lD09Rf
-         4olw==
+        bh=kbtR0HiiakPIrzdYCLsFZ7Pb8EfrjpxSPtZBTo8vi/M=;
+        b=c/Grj0ST6G0517FqL3ZkSgWMY567UOwOJyr7CU21lQxkNkafZSkHaDoS5Uu7Ryo8Yo
+         oxbYCJVPFZYmoYpO79FEJ3YUoUDegSzXe1LtNsFGMYGpbhrzo5djgtrZP9VL1xDDlo9M
+         CfBdm0oXqHP+KvGkXgqgXjzI8+OUKdMP3C8m7Qi6yeIvAkV9CLFRM9I4vLh6B9SRpDqu
+         yd8RnJju+PtueLYmgHfuHuPkb9/gxccX821lN+FWfHsjPMoeYOE97VbD9uVrr3nWFLZK
+         O2+sPFG+lui8iq3aEAx7clu4zZ4YXKJbCT3ImCKfprzewZljO0aE7cCcQGmvHWZ9At5N
+         MqQA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752271794; x=1752876594;
+        d=1e100.net; s=20230601; t=1752271800; x=1752876600;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=rUDfhSJE8vypj2jOQNw79mTid7Mo8GDTdgpT5HJAMuY=;
-        b=nDFSQylRlbYRpHhi+WTUa6lRMy8UstbXayJ03l98YuB5o2kooDuoNMSZ5qCJXOIVqT
-         v+BBz8PMj8Y2ih5VzzMhMAl+4sQXqlERkNqVyyskomUG5Jl82m3l06sEnryUqebbtjKn
-         9alESnajv4OOOXOox0FNqOxQqU/kxWYLm/PotaByMdzX1h+yORRQOJcBTUkRpZ3jTJl3
-         rJCxkdpQUp6O6SxEtp/tnYiiWlZo4D06RegrgLwrXU8EN2Aw5WqspHStRe0HE2PqaLxL
-         f7IOct/wGeeCAastqU4x9nERdrt/vKgO+HdXu8MwDYnFq5yZcua6L60TjYDxzPa0YsGL
-         qPVw==
-X-Forwarded-Encrypted: i=1; AJvYcCWQYTxy2FXQrTUTf0ll4h72nZd7hPoNsr46DG3uJfKQhHLdXORL/OzibxrsP6e7xrMX/kBPrP2DmcJahhRt05ri@lists.infradead.org
-X-Gm-Message-State: AOJu0YwnT2V9H3o3JkWt/CMCdQ4DD5V7RJ0KieM9H77UCoNCO9t03Gzc
-	vUSAJTafmEi6I+/VeC7poJjF9wdsOJYDFa8h3keMgeOcbKtOaS7Cqaaa
-X-Gm-Gg: ASbGnctqrkynD66WSikyPcl2j+3wHYeOpxRPLSXv6vAvtwRZ4+lx0uTBu16FI7VB2Ma
-	4C8cLRJ3uo4ZIbpN1TT6ckZDtKAmTjqd+e5fHmQzbx+OPzFAqYZAoDOpgmi1Q3cnyJb+nWuh99S
-	FCp5zDrMMNsY/3KvyaFodqBsLKlXl8Iko1w9GEdmuXt621sIUcjEpFgQwtW5DTrg0wjMm/+ZQkd
-	DBvr4J/RQoLdwZgi12yipSpzsT5eXzxoRlN5nVPNm/XBkKev4OGvkQIrlkVzpziGr8f741F5EK3
-	ThBahu52v6QqNgo0thhkt/q6VagCi8gNNSsT6dowNboa58Z84LoEglImDgagmmK9FP2Jt7YcKVj
-	IF5LHetzVN88siiU9FuW/ZB5Qq89YFYbqbVkfuIREMLdiTEavPxQELQfA/XkQLWCwA5fh3/mzB9
-	xtcQqV5w8LsaJ1FA==
-X-Google-Smtp-Source: AGHT+IFrfogdrgCJD9N76R6dzps69tuCBPv2TcIdLoEKcZbRZKlsXRZeI4f3CBmq7rSlADwE0IUmWw==
-X-Received: by 2002:a5d:4389:0:b0:3a5:8905:2df9 with SMTP id ffacd0b85a97d-3b5f18cebf9mr4138320f8f.37.1752271793586;
-        Fri, 11 Jul 2025 15:09:53 -0700 (PDT)
+        bh=kbtR0HiiakPIrzdYCLsFZ7Pb8EfrjpxSPtZBTo8vi/M=;
+        b=tNf/3IsT1wSk8tx0S4ShWKihZM7xklNl83g6BFU2Is4oBR+5SHRhs5BOwmVuMwJ9TR
+         80lKlukJB7jIzpZuGOaoGKnAlmdyXzGqpt7yfSlQen+4vz+yZiUHSZpM57GKPT81ZOpJ
+         nDS0umJDLNrV6Ktze17DtoqHYJJ2pMA5qT3yJdogbPBPNPHMvAi5CMAEB4MXZFhBryp0
+         efArdMy3vm76eh2YambdWrK/y+RlM/cGAtIUTS24xUuiiqyW5c7DIwOMWgkuiotLb5NK
+         e3d62QRBCgX+ovi7Ufu9cgQMYPxTh+nDTfNE35YGCMLVyY1sFA3zQjXCJaIOq5GWvD61
+         03+g==
+X-Forwarded-Encrypted: i=1; AJvYcCVLRVtrXw7eb7xIrNy7DD9gEYiRKDfU8u9hFYVk3FKZCKuUEbjcn5BnF9nZM90wiwH7LshiFyYbMd33BSS6TUKt@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxyln+j1vUWXv5Lbb7EUexBw3ysInDItvrUKeeBw9cVQzGifYc8
+	Dq07cnGV36mX0JL5SocAFSFTuglL3YNah3ln6H6k33na+9xR6mcmPor55dvdFw==
+X-Gm-Gg: ASbGnctWOeKFMck05HlkbT9CcakbY0DnU4wpKYJ+Qk/nCOAZyQeTZoUvXJnxWBOqhip
+	PkDtdbvP06leXkq+dKlUf3ec/DaSkBTfJfuoeKTBUwbc9gWC0zEN/LmDE7P9IjIwkqL8eCWlH35
+	l5b5Shw6BlVNd6w6nMrLoK+i0B/REb9tT2oPWCemOLIk4yT8r4ZQTdziNurY/yaSlZHtkKzELm+
+	OOIOJjn3hCQ+KrVqdEKRaQictDi7Y0MH7cpAdKgpFmRgtZpbVoXwhhJ99mXEB4d9iVpUdMX2ijZ
+	ElBoGT9/bB8j7dFLYpdD2uzGvC/iXzzXE4qJ3Z0nW3Oo7XIZOGFe5nF9/0rDdQtitdspcGshtP2
+	2Bs3pqEc4PRXnWcB6jQFBqqSZGlgXozGuO9AyqdKy+6xIqWiV+MZKOUzYfX4yXMSSdVO/tzI9Sj
+	Bos+HkPOp30bG9Ew==
+X-Google-Smtp-Source: AGHT+IHVLhu9sQqqVzUADbZibqpiOXQmra1YzYG8sZbz+5Usd1b/VVnMLyp9rN8lFuXsffC1HiqoUQ==
+X-Received: by 2002:a05:6000:4108:b0:3a8:38b4:1d55 with SMTP id ffacd0b85a97d-3b5f18dc7dfmr4258546f8f.28.1752271799602;
+        Fri, 11 Jul 2025 15:09:59 -0700 (PDT)
 Received: from localhost (p200300e41f4e9b00f22f74fffe1f3a53.dip0.t-ipconnect.de. [2003:e4:1f4e:9b00:f22f:74ff:fe1f:3a53])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-454dd54c512sm59580125e9.37.2025.07.11.15.09.52
+        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-3b5e8dc9349sm5520827f8f.45.2025.07.11.15.09.58
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 11 Jul 2025 15:09:52 -0700 (PDT)
+        Fri, 11 Jul 2025 15:09:58 -0700 (PDT)
 From: Thierry Reding <thierry.reding@gmail.com>
 To: arm@kernel.org,
 	soc@kernel.org
@@ -92,9 +77,9 @@ Cc: Thierry Reding <thierry.reding@gmail.com>,
 	Jon Hunter <jonathanh@nvidia.com>,
 	linux-tegra@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org
-Subject: [GIT PULL 4/8] memory: tegra: Updates for v6.17-rc1
-Date: Sat, 12 Jul 2025 00:09:37 +0200
-Message-ID: <20250711220943.2389322-4-thierry.reding@gmail.com>
+Subject: [GIT PULL 7/8] arm64: tegra: Changes for v6.17-rc1
+Date: Sat, 12 Jul 2025 00:09:40 +0200
+Message-ID: <20250711220943.2389322-7-thierry.reding@gmail.com>
 X-Mailer: git-send-email 2.50.0
 In-Reply-To: <20250711220943.2389322-1-thierry.reding@gmail.com>
 References: <20250711220943.2389322-1-thierry.reding@gmail.com>
@@ -102,8 +87,8 @@ Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250711_230956_493109_5366C103 
-X-CRM114-Status: GOOD (  11.58  )
+X-CRM114-CacheID: sfid-20250711_151001_256892_8A39C858 
+X-CRM114-Status: GOOD (  11.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,40 +111,48 @@ The following changes since commit 19272b37aa4f83ca52bdf9c16d5d81bdd1354494:
 
 are available in the Git repository at:
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/tegra/linux.git tags/tegra-for-6.17-memory
+  git://git.kernel.org/pub/scm/linux/kernel/git/tegra/linux.git tags/tegra-for-6.17-arm64-dt
 
-for you to fetch changes up to 2401dc4dcdd02920faa9a8c4384f1503a15e779a:
+for you to fetch changes up to d01e4f1e7aa8833f549ac61a0bbcdc395533269b:
 
-  memory: tegra: Add Tegra264 MC and EMC support (2025-07-11 16:49:42 +0200)
+  arm64: tegra: Add p3971-0089+p3834-0008 support (2025-07-11 16:57:47 +0200)
 
 Thanks,
 Thierry
 
 ----------------------------------------------------------------
-memory: tegra: Updates for v6.17-rc1
+arm64: tegra: Changes for v6.17-rc1
 
-Enable support for the memory and external memory controllers found on
-Tegra264.
+Add support for the Tegra264 SoC and the corresponding engineering
+reference hardware (P3971-0089+P3834-0008).
 
 ----------------------------------------------------------------
-Sumit Gupta (2):
+Sumit Gupta (1):
       dt-bindings: memory: tegra: Add Tegra264 support
-      memory: tegra: Add Tegra264 MC and EMC support
 
-Thierry Reding (1):
-      Merge branch 'for-6.17/dt-bindings' into for-6.17/memory
+Thierry Reding (4):
+      Merge branch 'for-6.17/dt-bindings' into for-6.17/arm64/dt
+      arm64: tegra: Add Tegra264 support
+      arm64: tegra: Add memory controller on Tegra264
+      arm64: tegra: Add p3971-0089+p3834-0008 support
 
- .../memory-controllers/nvidia,tegra186-mc.yaml     |  84 +++++-
- drivers/memory/tegra/Makefile                      |   2 +
- drivers/memory/tegra/mc.c                          |   5 +-
- drivers/memory/tegra/mc.h                          |   9 +-
- drivers/memory/tegra/tegra186-emc.c                |   5 +-
- drivers/memory/tegra/tegra186.c                    |  17 +-
- drivers/memory/tegra/tegra264-bwmgr.h              |  50 ++++
- drivers/memory/tegra/tegra264.c                    | 313 +++++++++++++++++++++
- include/dt-bindings/memory/nvidia,tegra264.h       | 136 +++++++++
- 9 files changed, 613 insertions(+), 8 deletions(-)
- create mode 100644 drivers/memory/tegra/tegra264-bwmgr.h
- create mode 100644 drivers/memory/tegra/tegra264.c
+ .../memory-controllers/nvidia,tegra186-mc.yaml     |  84 ++++-
+ arch/arm64/boot/dts/nvidia/Makefile                |   2 +
+ .../arm64/boot/dts/nvidia/tegra264-p3834-0008.dtsi |   7 +
+ arch/arm64/boot/dts/nvidia/tegra264-p3834.dtsi     |  30 ++
+ .../dts/nvidia/tegra264-p3971-0089+p3834-0008.dts  |  11 +
+ .../boot/dts/nvidia/tegra264-p3971-0089+p3834.dtsi |  14 +
+ .../arm64/boot/dts/nvidia/tegra264-p3971-0089.dtsi |   3 +
+ arch/arm64/boot/dts/nvidia/tegra264-p3971.dtsi     |   4 +
+ arch/arm64/boot/dts/nvidia/tegra264.dtsi           | 415 +++++++++++++++++++++
+ include/dt-bindings/memory/nvidia,tegra264.h       | 136 +++++++
+ 10 files changed, 704 insertions(+), 2 deletions(-)
+ create mode 100644 arch/arm64/boot/dts/nvidia/tegra264-p3834-0008.dtsi
+ create mode 100644 arch/arm64/boot/dts/nvidia/tegra264-p3834.dtsi
+ create mode 100644 arch/arm64/boot/dts/nvidia/tegra264-p3971-0089+p3834-0008.dts
+ create mode 100644 arch/arm64/boot/dts/nvidia/tegra264-p3971-0089+p3834.dtsi
+ create mode 100644 arch/arm64/boot/dts/nvidia/tegra264-p3971-0089.dtsi
+ create mode 100644 arch/arm64/boot/dts/nvidia/tegra264-p3971.dtsi
+ create mode 100644 arch/arm64/boot/dts/nvidia/tegra264.dtsi
  create mode 100644 include/dt-bindings/memory/nvidia,tegra264.h
 
