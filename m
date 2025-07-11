@@ -4,59 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98082C83F1D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 09:09:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C17BC83F22
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 09:12:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4/aZCDy6+OLc/2oaT1Ymq1VEimlmXh8N0CxTQH58OWo=; b=KLPrRkHj5SQWq8/7/z78HnTI9S
-	Euq2Ilp/MVOgjr56KvHY9V7wTOpPsUqeQEZz8p/aBbPLhFfAiNbcd+fmpNMhwlSEuVEqFsrN3yL8Q
-	ylcsgOnJRSmE/e9ORsb5zKjg6JBREW4iuE989V+OVe2beG3gVJiqsK3iWACQhQsSvQakqAtDcmGrt
-	Rz8flVRRDwEDxddBBh6BZ4a4RM42sjD2lqJCnbHk5a+JNCFQYhZcpbWUfGe0T84EhfvEahUUXNJs4
-	USyEXbV31cs+5hj87mZAvP6gMeMBhwqLLg5tqYhZORgeVmtFkNp7u6ewACSD++36Hjv4qZRn9Y02H
-	fd9ZP9sQ==;
+	bh=5DNNk/IFBr7dWHafFiTpxKVod8W0wZpsk+DYFpT8gb8=; b=E3khlWtOLFHUOvQ5DLwMS05b1y
+	2QCTpvPJ74jsXFVyysTjbt39tDqhg5zqW7GuvdegFudzWnZcsZBBZW0/roog0fl92DGy8JCjdc+o4
+	AYTdbIS/iXzkBAdPikB4LGH991Jzah9xPWgWedboxa0mWXEneCidSzEeCgN5Hmf0LVviHvXiDR6vn
+	x15/FMY4dgHkmkLsN2jss7ld8Ac2fvyi38FI+oav98eZwMmnNP0C3yj971jRzM5IyuvPDoipJlimA
+	9VxpWRzxL0X7XsHea+TvruBac1TjNt1euutrPEec0sb3KtBsXeo0aKgFwLOkooO1A1T8Ozd+hjibP
+	VTRGARZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ua9lL-0000000EGX6-2vaJ;
-	Fri, 11 Jul 2025 09:09:47 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1ua9ne-0000000EGrM-3Mox;
+	Fri, 11 Jul 2025 09:12:10 +0000
+Received: from mail-m16.yeah.net ([220.197.32.18])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ua91M-0000000E70J-2uTC;
-	Fri, 11 Jul 2025 08:22:16 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4C44B611BD;
-	Fri, 11 Jul 2025 08:22:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 92992C4CEED;
-	Fri, 11 Jul 2025 08:22:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752222135;
-	bh=V0vPUEIisTa6mtflTRv2e4S7Ta+SaccNSSFcmicIeeE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=mWfNc/3IX9QBE778jmKcZgu3d3usjMtmaD3yQMlf24TBG+b7vQZw0rRe98p3QHFDX
-	 lVvJdsicnnB+XJZSW7mSRjZaM26uF9Pv473eZ3sJaDx5oLYZNXj9EYByBeeRut6zdc
-	 2uC3sIeXIKPrk5ixEnX90A0Ethia6GFJfqDGWvLKQJXR3csoTbnaOrCNYmBRFARR6J
-	 Wu8FW1o8qbpjJXoO03NY+I/rq4GVR37Lx02kGdu/YrLBuv4PwFMppxlVJWOFW0d5jY
-	 L9Hx7ru7hgoG+VR5fOjupa13qEN0Y7V7w1B75Q6vXcmPVsRMhcVXE0kx8JXCWqyRRt
-	 iJBMR60kbLZyA==
-Date: Fri, 11 Jul 2025 10:22:12 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Jonas Karlman <jonas@kwiboo.se>
-Cc: Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Yao Zi <ziyao@disroot.org>, 
-	Chukun Pan <amadeus@jmu.edu.cn>, linux-rockchip@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 5/6] dt-bindings: arm: rockchip: Add FriendlyElec
- NanoPi Zero2
-Message-ID: <20250711-jumping-macho-pillbug-43fcd1@krzk-bin>
-References: <20250710202958.3717181-1-jonas@kwiboo.se>
- <20250710202958.3717181-6-jonas@kwiboo.se>
+	id 1ua91l-0000000E780-1Znz
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 11 Jul 2025 08:22:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
+	s=s110527; h=Date:From:To:Subject:Message-ID:MIME-Version:
+	Content-Type; bh=5DNNk/IFBr7dWHafFiTpxKVod8W0wZpsk+DYFpT8gb8=;
+	b=CJGcPeIRE536pGuDchS6MFgy7xfKfvIHrm9oeN67Xg7F46TetVArLXzWE2RXjC
+	JyQ5FoXFDyQ8yG7aGTOwSZyvJ2C58D5ZBZh94bBfGV03NlYkRVN7QNrxIkGB9jzr
+	qQF1+kQMuHItotKguJqj9rq87mCfEk5gHdN7PpRjF+EP8=
+Received: from dragon (unknown [])
+	by gzsmtp1 (Coremail) with SMTP id Mc8vCgCXx8OuyXBoQ7lTAA--.14846S3;
+	Fri, 11 Jul 2025 16:22:08 +0800 (CST)
+Date: Fri, 11 Jul 2025 16:22:06 +0800
+From: Shawn Guo <shawnguo2@yeah.net>
+To: Frieder Schrempf <frieder@fris.de>
+Cc: linux-arm-kernel@lists.infradead.org,
+	Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	linux-kernel@vger.kernel.org, Rob Herring <robh@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Eberhard Stoll <eberhard.stoll@kontron.de>,
+	Frieder Schrempf <frieder.schrempf@kontron.de>,
+	Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.Li@nxp.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>
+Subject: Re: [PATCH v3 1/2] ARM: dts: imx6ul-kontron-sl-common: Add SPI NOR
+ partitions
+Message-ID: <aHDJrr-zjPxXvMu8@dragon>
+References: <20250709071557.20602-1-frieder@fris.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250710202958.3717181-6-jonas@kwiboo.se>
+In-Reply-To: <20250709071557.20602-1-frieder@fris.de>
+X-CM-TRANSID: Mc8vCgCXx8OuyXBoQ7lTAA--.14846S3
+X-Coremail-Antispam: 1Uf129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
+	VFW2AGmfu7bjvjm3AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxUoYLvDUUUU
+X-Originating-IP: [114.216.146.217]
+X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiBBmHZWhwjvrFiAAAse
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250711_012241_725444_9538BAF9 
+X-CRM114-Status: UNSURE (   8.70  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,23 +80,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 10, 2025 at 08:29:44PM +0000, Jonas Karlman wrote:
-> The NanoPi Zero2 is small single board computer developed by
-> FriendlyElec, based on the Rockchip RK3528A SoC.
+On Wed, Jul 09, 2025 at 09:15:54AM +0200, Frieder Schrempf wrote:
+> From: Eberhard Stoll <eberhard.stoll@kontron.de>
 > 
-> Add devicetree binding documentation for the FriendlyElec NanoPi Zero2
-> board.
+> Describe the partitions for the bootloader and the environment
+> on the SPI NOR. While at it also fix the order of the properties
+> in the flash node itself.
 > 
-> Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
-> ---
-> v2: No change
-> ---
->  Documentation/devicetree/bindings/arm/rockchip.yaml | 5 +++++
->  1 file changed, 5 insertions(+)
+> Signed-off-by: Eberhard Stoll <eberhard.stoll@kontron.de>
+> Signed-off-by: Frieder Schrempf <frieder.schrempf@kontron.de>
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-
-Best regards,
-Krzysztof
+Applied both, thanks!
 
 
