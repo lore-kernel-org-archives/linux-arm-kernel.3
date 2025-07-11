@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00EBFC83F1B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 18:35:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C835C83F1B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 18:37:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/eUFkCjBuj9qn0bgnM4aSUuOFHUMlpETuZGRyjXcKkY=; b=TLevBLoeW0f8kaCRinX1H4NpBu
-	aLHE64wNmzN/uDlHek2l/xbwpsLEL5lJqP1hGlvE5neql/b9buYf7dFOZLn+Ot5sA7zmJ3NeEDWKB
-	sGcc5pJ4XFqYFTawzKqxnDjkuhEnV4EkgP76jRsGKnd0MwggbAOQ2CbTNiZknzTp7dGrlbaHxbTF9
-	oH8Vvwwdkvco/eugHNzBlo/qXvWcEaodhp0YimTh58QCfOKc2TMaXBW5FVsfFGTTiRMG9Kxp13hjY
-	osUqvpYsztOvF/mW6v/O69ioE5815zWtOCcsWY4POLtsz76eJoPl1jBU4LiIQbqHk4bZ03We+8MGv
-	6h800IFQ==;
+	bh=pF2ilvzgigORaz6Bo1QuhE62TmEJP1XtLmZc5o40K1E=; b=tXy6Qlvo7CDeKY5sCiNpe6D8bK
+	+NdCwE8lp5kFvbMOuQg73ryynSfz/1c6ct9uNFrA2/q7W3WJByEWRELaZa1V4smJabbp0t3f3BnjH
+	0Zh+pE0JribsXcIz18CjsVhXy3JOgWPjSwFlsjif8p0gKHFNJ3x/He5DkOZ53v/U2BHBtEw69QVFx
+	4LnmC6S0wnrqBzQkBGUzielHSr6EIoqN+xM0bKa47kjh9wM7xCbFYrk0EEAQWxfrrVgKi6v4axqM5
+	Ts8xFJNpvw4uOcLUoaM8Fy/cg1taRhlR/DZ8Zev2U9HyvMmXcv0P+FyqEcg7/btWrEp1nga9Acmen
+	TJcm/hCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaIal-0000000FWiV-0P8n;
-	Fri, 11 Jul 2025 18:35:27 +0000
+	id 1uaId4-0000000FXEH-3pZi;
+	Fri, 11 Jul 2025 18:37:50 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaITb-0000000FVSw-2Ac0
+	id 1uaITd-0000000FVUK-15UZ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Jul 2025 18:28:05 +0000
+	Fri, 11 Jul 2025 18:28:06 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9FD592682;
-	Fri, 11 Jul 2025 11:27:52 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6A95F16F8;
+	Fri, 11 Jul 2025 11:27:54 -0700 (PDT)
 Received: from merodach.members.linode.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A77063F694;
-	Fri, 11 Jul 2025 11:28:01 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 70C1B3F694;
+	Fri, 11 Jul 2025 11:28:03 -0700 (PDT)
 From: James Morse <james.morse@arm.com>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org
@@ -46,17 +46,17 @@ Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	Will Deacon <will@kernel.org>,
 	James Morse <james.morse@arm.com>,
 	Gavin Shan <gshan@redhat.com>
-Subject: [PATCH v3 2/3] cacheinfo: Add arch hook to compress CPU h/w id into 32 bits for cache-id
-Date: Fri, 11 Jul 2025 18:27:42 +0000
-Message-Id: <20250711182743.30141-3-james.morse@arm.com>
+Subject: [PATCH v3 3/3] arm64: cacheinfo: Provide helper to compress MPIDR value into u32
+Date: Fri, 11 Jul 2025 18:27:43 +0000
+Message-Id: <20250711182743.30141-4-james.morse@arm.com>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20250711182743.30141-1-james.morse@arm.com>
 References: <20250711182743.30141-1-james.morse@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250711_112803_596426_7094DA96 
-X-CRM114-Status: GOOD (  13.60  )
+X-CRM114-CacheID: sfid-20250711_112805_335320_B3D5134D 
+X-CRM114-Status: GOOD (  14.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,49 +74,61 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 Filesystems like resctrl use the cache-id exposed via sysfs to identify
 groups of CPUs. The value is also used for PCIe cache steering tags. On
 DT platforms cache-id is not something that is described in the
-device-tree, but instead generated from the smallest CPU h/w id of the
-CPUs associated with that cache.
+device-tree, but instead generated from the smallest MPIDR of the CPUs
+associated with that cache. The cache-id exposed to user-space has
+historically been 32 bits.
 
-CPU h/w ids may be larger than 32 bits.
+MPIDR values may be larger than 32 bits.
 
-Add a hook to allow architectures to compress the value from the devicetree
-into 32 bits. Returning the same value is always safe as cache_of_set_id()
-will stop if a value larger than 32 bits is seen.
+MPIDR only has 32 bits worth of affinity data, but the aff3 field lives
+above 32bits. The corresponding lower bits are masked out by
+MPIDR_HWID_BITMASK and contain an SMT flag and Uni-Processor flag.
 
-For example, on arm64 the value is the MPIDR affinity register, which only
-has 32 bits of affinity data, but spread accross the 64 bit field. An
-arch-specific bit swizzle gives a 32 bit value.
+Swizzzle the aff3 field into the bottom 32 bits and using that.
+
+In case more affinity fields are added in the future, the upper RES0
+area should be checked. Returning a value greater than 32 bits from
+this helper will cause the caller to give up on allocating cache-ids.
 
 Signed-off-by: James Morse <james.morse@arm.com>
 Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
 Reviewed-by: Gavin Shan <gshan@redhat.com>
 ---
- drivers/base/cacheinfo.c | 5 +++++
- 1 file changed, 5 insertions(+)
+Changes since v1:
+ * Removal of unrelated changes.
+ * Added a comment about how the RES0 bit safety net works.
+---
+ arch/arm64/include/asm/cache.h | 17 +++++++++++++++++
+ 1 file changed, 17 insertions(+)
 
-diff --git a/drivers/base/cacheinfo.c b/drivers/base/cacheinfo.c
-index 4e2f60c85e74..613410705a47 100644
---- a/drivers/base/cacheinfo.c
-+++ b/drivers/base/cacheinfo.c
-@@ -203,6 +203,10 @@ static bool match_cache_node(struct device_node *cpu,
- 	return false;
- }
+diff --git a/arch/arm64/include/asm/cache.h b/arch/arm64/include/asm/cache.h
+index 99cd6546e72e..09963004ceea 100644
+--- a/arch/arm64/include/asm/cache.h
++++ b/arch/arm64/include/asm/cache.h
+@@ -87,6 +87,23 @@ int cache_line_size(void);
  
-+#ifndef arch_compact_of_hwid
-+#define arch_compact_of_hwid(_x)	(_x)
-+#endif
+ #define dma_get_cache_alignment	cache_line_size
+ 
++/* Compress a u64 MPIDR value into 32 bits. */
++static inline u64 arch_compact_of_hwid(u64 id)
++{
++	u64 aff3 = MPIDR_AFFINITY_LEVEL(id, 3);
 +
- static void cache_of_set_id(struct cacheinfo *this_leaf,
- 			    struct device_node *cache_node)
- {
-@@ -212,6 +216,7 @@ static void cache_of_set_id(struct cacheinfo *this_leaf,
- 	for_each_of_cpu_node(cpu) {
- 		u64 id = of_get_cpu_hwid(cpu, 0);
- 
-+		id = arch_compact_of_hwid(id);
- 		if (FIELD_GET(GENMASK_ULL(63, 32), id)) {
- 			of_node_put(cpu);
- 			return;
++	/*
++	 * These bits are expected to be RES0. If not, return a value with
++	 * the upper 32 bits set to force the caller to give up on 32 bit
++	 * cache ids.
++	 */
++	if (FIELD_GET(GENMASK_ULL(63, 40), id))
++		return id;
++
++	return (aff3 << 24) | FIELD_GET(GENMASK_ULL(23, 0), id);
++}
++#define arch_compact_of_hwid	arch_compact_of_hwid
++
+ /*
+  * Read the effective value of CTR_EL0.
+  *
 -- 
 2.39.5
 
