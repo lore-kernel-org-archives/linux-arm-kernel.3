@@ -4,74 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BA0EC83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 05:40:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15E47C8303C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 11 Jul 2025 05:42:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:
-	Subject:To:From:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CJlNBkuWVdutfVbuSjBJz+KoaFUSj5G+qp8tZ+jXmq0=; b=URrXXqeqa0QXNgVX9aiXke+igR
-	e1PXlswk1j2+So87VY1s1hoCfxs/2Dlx981mKP1k2Pr/OKItEZqalMMxbe3/q8dw0EFc9K9O82P9O
-	1hik9LERy2308mXY8/rowcAffcKutuy4pOtq1+nsUEQPUi0H4argGBU0ZSOHfSv4LIVf7yyRdl2nA
-	sudGElYSPmD65o9LlRx7+joF9IdVquq2jBz+ze+7X7+GaWqGgwSwWexqYVn9mEuJpVh/UjfchfOQV
-	QloqdNb+AWoHfrxmNNHWahIoe5DBhOE+VR7fYS5E9aZDJiSkvAR9NiQaqbvCGTp5BGIkk6Gw7Uo7O
-	B/Z3VgXw==;
+	bh=r96/LWevDQA5QoU12k6l8P8gXdbwX2VPCNFYESFP6u0=; b=Xch8hD5olFxB9gfY8QP3uyNlH7
+	XL/xwGRrnHT7rLZpliFatufWRrO2D97+OBr1scOM7FVqaGOylpzrRK4nFEt2E7ttk8qGtkPcpWlQX
+	pmgxsa3IFy6aB6Y6TGc4HcsKTdI9ArJYvcFEvBdYld/4wIvxLZIrXTk1OAb5uPKeqqis6rxnIFt51
+	Uo8K1FUdiR1lA765q1lbWeHLhfRtH4UDVcPKhxjkLPQn/PQLdeX3EYyl7q4lj7EPNSMflN4PBjIXA
+	B0qDZ3kwtGBGvJa2z8gTm8XXrB5b5uZQoZ/RmBK+8962bkM48QYbMyr9QHk7hIp2a+4AJUD+Q/WnK
+	cVC55d+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ua6UO-0000000DlzF-3rOe;
-	Fri, 11 Jul 2025 05:40:04 +0000
-Received: from www522.your-server.de ([195.201.215.122])
+	id 1ua6Wh-0000000DmHK-2b4c;
+	Fri, 11 Jul 2025 05:42:27 +0000
+Received: from fout-b4-smtp.messagingengine.com ([202.12.124.147])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ua6NA-0000000Dl5K-1aYP
+	id 1ua6Ro-0000000DlXK-3X6r
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 11 Jul 2025 05:32:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=folker-schwesinger.de; s=default2212; h=In-Reply-To:References:Cc:Subject:
-	To:From:Message-Id:Date:Content-Type:Content-Transfer-Encoding:Mime-Version:
-	Sender:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=CJlNBkuWVdutfVbuSjBJz+KoaFUSj5G+qp8tZ+jXmq0=; b=VSHEWIr/Q4cpHcFIHJHdzn+y98
-	pjzy2Y48KJiQp5RUcaSueaoIMtfYKfd5LohJGE5MllPzmdinbR3rEetsobSI4jNcu0jolOHr7cJtI
-	yuU5Dwp3ClaeCMdYczFDhcoOQ363R4K82HswyGr/z0qrPX4LynzVX+TMyjJnW/8sFTwzmnNT7+Oaa
-	En92c7kj2yaRxsqDSQMpWUMyhCmyOkxp/oU81Y8yt63RFB7aq09BUzNyf7aS2mt4MsIN0ihhIMUD8
-	yfHYvnl/vLfUgaFJXrgBJMTARK7bq8AUZJyxQ52DmFTnMrRpqYTX1HAKOAiPaVJjL99o4fkc7PWDF
-	EYUEWJCA==;
-Received: from sslproxy06.your-server.de ([78.46.172.3])
-	by www522.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.96.2)
-	(envelope-from <dev@folker-schwesinger.de>)
-	id 1ua6My-00006M-1w;
-	Fri, 11 Jul 2025 07:32:24 +0200
-Received: from localhost ([127.0.0.1])
-	by sslproxy06.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <dev@folker-schwesinger.de>)
-	id 1ua6My-0002Gq-07;
-	Fri, 11 Jul 2025 07:32:24 +0200
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Fri, 11 Jul 2025 05:32:23 +0000
-Message-Id: <DB8ZAMDZH15T.2BGP4DG9MBAGU@folker-schwesinger.de>
-From: "Folker Schwesinger" <dev@folker-schwesinger.de>
-To: "Suraj Gupta" <suraj.gupta2@amd.com>, <andrew+netdev@lunn.ch>,
- <davem@davemloft.net>, <kuba@kernel.org>, <pabeni@redhat.com>,
- <michal.simek@amd.com>, <vkoul@kernel.org>, <radhey.shyam.pandey@amd.com>
-Subject: Re: [PATCH V2 2/4] dmaengine: xilinx_dma: Fix irq handler and start
- transfer path for AXI DMA
-Cc: <netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- <linux-kernel@vger.kernel.org>, <dmaengine@vger.kernel.org>,
- <harini.katakam@amd.com>
-X-Mailer: aerc 0.20.1-112-gd31995f1e20b
-References: <20250710101229.804183-1-suraj.gupta2@amd.com>
- <20250710101229.804183-3-suraj.gupta2@amd.com>
-In-Reply-To: <20250710101229.804183-3-suraj.gupta2@amd.com>
-X-Virus-Scanned: Clear (ClamAV 1.0.7/27695/Thu Jul 10 11:08:41 2025)
+	Fri, 11 Jul 2025 05:37:26 +0000
+Received: from phl-compute-05.internal (phl-compute-05.phl.internal [10.202.2.45])
+	by mailfout.stl.internal (Postfix) with ESMTP id B9A911D001EE;
+	Fri, 11 Jul 2025 01:37:22 -0400 (EDT)
+Received: from phl-imap-02 ([10.202.2.81])
+  by phl-compute-05.internal (MEProxy); Fri, 11 Jul 2025 01:37:23 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm1; t=1752212242;
+	 x=1752298642; bh=r96/LWevDQA5QoU12k6l8P8gXdbwX2VPCNFYESFP6u0=; b=
+	irAa5DHEYglNfT2T8x7duweSdMgX43U9kXf45akuXeKt5xTvr6LAVzMvmnlz8UrU
+	7cKNVBLyyfVBLrxW7wLKEL38/21mDS+7fuxClLh+49Tw0JGfRRU7uz96lnlxoE25
+	qW7ZoLDffY/WP/WPaILMZLIkduPBnTvTDLR86gTqET3BmuUqHQgFfboy1J16spWR
+	cm0dmoeQ83v+RoA9oVLfMNP7PxUBaOUVOffVL3HLWSDs72szszfwHyP4w/yFtd8o
+	TqBu7DKmRORa9pxAXKZtOpanrrotN97N2IWhJhmBdysI10hSEN2L6MgckOcoclRl
+	G4Qnn8WJGYZoAXT/KkA/Qg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1752212242; x=
+	1752298642; bh=r96/LWevDQA5QoU12k6l8P8gXdbwX2VPCNFYESFP6u0=; b=N
+	N1NCPa6QCdGpKZXD31k3JOkNFeFzL/4R8MNVDiyj6QDY10oKeF3JoU+DSWHu30TV
+	LKJEnH95ZqnVRv0boeZMMdJojqZLFoVcPt1oEz20h+kUlwj0lPq3i1WMamNApqcN
+	SxIaJFiSkMkZnH5kbO1tKSOlmKgcfsd7H3U9ULq11mveKeuMrStcQpxesZfrYxrX
+	PmRrQ4bVXtLNOIjvMM3FTIEKc06Y5Qw80BGC1uzkwqlhN/jw4p0RqOb5S2R2YWvw
+	u08N9ybF7voulAm3MaaeD9ZGSETK7CRrBpIev/zm+3Ymd42D5snzl2M08bGDk8M1
+	LUER2LaBm3XypDeRFs+qg==
+X-ME-Sender: <xms:EqNwaP6hZjoBie5RLQl2Av8zKn0lrUJxOdQxU7XMCX0OCGF8F8LAeA>
+    <xme:EqNwaE5JW_UJd4XWI0aZjNC3W7P2tYnK0EahLKzGR_lGYuga-dVSDFP8VQOjGPrYd
+    J_jAWfGNfD6izfy2-I>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdegvdehtdcutefuodetggdotefrod
+    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
+    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
+    hrpefoggffhffvvefkjghfufgtgfesthejredtredttdenucfhrhhomhepfdetrhhnugcu
+    uegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrghtthgvrh
+    hnpefhtdfhvddtfeehudekteeggffghfejgeegteefgffgvedugeduveelvdekhfdvieen
+    ucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegrrhhnug
+    esrghrnhgusgdruggvpdhnsggprhgtphhtthhopeefuddpmhhouggvpehsmhhtphhouhht
+    pdhrtghpthhtohepsghrghhlsegsghguvghvrdhplhdprhgtphhtthhopegthhgvshhtvg
+    hriedvheduheesghhmrghilhdrtghomhdprhgtphhtthhopehfvghsthgvvhgrmhesghhm
+    rghilhdrtghomhdprhgtphhtthhopegtohhnohhrodgutheskhgvrhhnvghlrdhorhhgpd
+    hrtghpthhtohepkhhriihkodgutheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhgv
+    vgeskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheprhgrfhgrvghlsehkvghrnhgvlhdroh
+    hrghdprhgtphhtthhopehrohgshheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepshhh
+    rgifnhhguhhosehkvghrnhgvlhdrohhrgh
+X-ME-Proxy: <xmx:EqNwaPurB6eFkk7DG09IAWVeSIcArnv3j9fMMUDYuwXzjo1B-lRHPg>
+    <xmx:EqNwaAb9jDevrQdh1WxnAWyBkv0ji7_019Wwp73nEh8oOLeGeK4gvw>
+    <xmx:EqNwaOU95NeDE3iOPYNGpaEWgHi_xT_ybrH5N3VHcQSANIkOblu8Lg>
+    <xmx:EqNwaDJtrv1hyYthi53dfAhJaIVaAeuPdac623zJH2wudMn7uspiWA>
+    <xmx:EqNwaOv28YUbdR5nbbgAHZ7XUk4RF2ouQkGKfXZ0id1-h6ecNmvvOJGq>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id F0641700065; Fri, 11 Jul 2025 01:37:21 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
+MIME-Version: 1.0
+X-ThreadId: T0d3a9be5bc6b3506
+Date: Fri, 11 Jul 2025 07:37:01 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Andrei Stefanescu" <andrei.stefanescu@oss.nxp.com>,
+ "Linus Walleij" <linus.walleij@linaro.org>,
+ "Bartosz Golaszewski" <brgl@bgdev.pl>, "Rob Herring" <robh@kernel.org>,
+ krzk+dt@kernel.org, "Conor Dooley" <conor+dt@kernel.org>,
+ "Chester Lin" <chester62515@gmail.com>,
+ "Matthias Brugger" <mbrugger@suse.com>,
+ "Ghennadi Procopciuc" <Ghennadi.Procopciuc@nxp.com>,
+ "Larisa Grigore" <larisa.grigore@nxp.com>, "Lee Jones" <lee@kernel.org>,
+ "Shawn Guo" <shawnguo@kernel.org>, "Sascha Hauer" <s.hauer@pengutronix.de>,
+ "Fabio Estevam" <festevam@gmail.com>, aisheng.dong@nxp.com,
+ "Jacky Bai" <ping.bai@nxp.com>,
+ "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>,
+ "Rafael J . Wysocki" <rafael@kernel.org>,
+ "Srinivas Kandagatla" <srini@kernel.org>
+Cc: "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, "NXP S32 Linux Team" <s32@nxp.com>,
+ "Christophe Lizzi" <clizzi@redhat.com>, "Alberto Ruiz" <aruizrui@redhat.com>,
+ "Enric Balletbo" <eballetb@redhat.com>, echanude@redhat.com,
+ "Pengutronix Kernel Team" <kernel@pengutronix.de>, imx@lists.linux.dev,
+ "Vincent Guittot" <vincent.guittot@linaro.org>
+Message-Id: <9d004ea4-0bb2-4a21-8501-82ecf3482c3e@app.fastmail.com>
+In-Reply-To: <20250710142038.1986052-11-andrei.stefanescu@oss.nxp.com>
+References: <20250710142038.1986052-1-andrei.stefanescu@oss.nxp.com>
+ <20250710142038.1986052-11-andrei.stefanescu@oss.nxp.com>
+Subject: Re: [PATCH v7 10/12] nvmem: s32g2_siul2: add NVMEM driver for SoC information
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250710_223236_742335_1FAFEBCF 
-X-CRM114-Status: GOOD (  14.51  )
+X-CRM114-CacheID: sfid-20250710_223725_389771_D38868D6 
+X-CRM114-Status: UNSURE (   7.15  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,91 +133,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu Jul 10, 2025 at 12:12 PM CEST, Suraj Gupta wrote:
-> AXI DMA driver incorrectly assumes complete transfer completion upon
-> IRQ reception, particularly problematic when IRQ coalescing is active.
-> Updating the tail pointer dynamically fixes it.
-> Remove existing idle state validation in the beginning of
-> xilinx_dma_start_transfer() as it blocks valid transfer initiation on
-> busy channels with queued descriptors.
-> Additionally, refactor xilinx_dma_start_transfer() to consolidate coalesc=
-e
-> and delay configurations while conditionally starting channels
-> only when idle.
+On Thu, Jul 10, 2025, at 16:20, Andrei Stefanescu wrote:
+> The SIUL2 hardware module has registers which expose information about
+> the given SoC (version, SRAM size, presence of some hw modules).
 >
-> Signed-off-by: Suraj Gupta <suraj.gupta2@amd.com>
-> Fixes: Fixes: c0bba3a99f07 ("dmaengine: vdma: Add Support for Xilinx AXI =
-Direct Memory Access Engine")
+> Signed-off-by: Andrei Stefanescu <andrei.stefanescu@oss.nxp.com>
 
-This fixes an issue I recently ran into which prevented starting
-consecutive transfers. Thanks and:
+This does not look like an nvmem at all, it appears that you
+are creating an alternative to the soc_device infrastructure
+based on a binary interface tunneled through the nvmem subsystem.
 
-Tested-by: Folker Schwesinger <dev@folker-schwesinger.de>
+Why not just make this a soc_device and have drivers use
+soc_device_match() if they need to know what chip they are
+running on?
 
-> ---
->  drivers/dma/xilinx/xilinx_dma.c | 20 ++++++++++----------
->  1 file changed, 10 insertions(+), 10 deletions(-)
->
-> diff --git a/drivers/dma/xilinx/xilinx_dma.c b/drivers/dma/xilinx/xilinx_=
-dma.c
-> index a34d8f0ceed8..187749b7b8a6 100644
-> --- a/drivers/dma/xilinx/xilinx_dma.c
-> +++ b/drivers/dma/xilinx/xilinx_dma.c
-> @@ -1548,9 +1548,6 @@ static void xilinx_dma_start_transfer(struct xilinx=
-_dma_chan *chan)
->  	if (list_empty(&chan->pending_list))
->  		return;
-> =20
-> -	if (!chan->idle)
-> -		return;
-> -
->  	head_desc =3D list_first_entry(&chan->pending_list,
->  				     struct xilinx_dma_tx_descriptor, node);
->  	tail_desc =3D list_last_entry(&chan->pending_list,
-> @@ -1558,23 +1555,24 @@ static void xilinx_dma_start_transfer(struct xili=
-nx_dma_chan *chan)
->  	tail_segment =3D list_last_entry(&tail_desc->segments,
->  				       struct xilinx_axidma_tx_segment, node);
-> =20
-> +	if (chan->has_sg && list_empty(&chan->active_list))
-> +		xilinx_write(chan, XILINX_DMA_REG_CURDESC,
-> +			     head_desc->async_tx.phys);
-> +
->  	reg =3D dma_ctrl_read(chan, XILINX_DMA_REG_DMACR);
-> =20
->  	if (chan->desc_pendingcount <=3D XILINX_DMA_COALESCE_MAX) {
->  		reg &=3D ~XILINX_DMA_CR_COALESCE_MAX;
->  		reg |=3D chan->desc_pendingcount <<
->  				  XILINX_DMA_CR_COALESCE_SHIFT;
-> -		dma_ctrl_write(chan, XILINX_DMA_REG_DMACR, reg);
->  	}
-> =20
-> -	if (chan->has_sg)
-> -		xilinx_write(chan, XILINX_DMA_REG_CURDESC,
-> -			     head_desc->async_tx.phys);
->  	reg  &=3D ~XILINX_DMA_CR_DELAY_MAX;
->  	reg  |=3D chan->irq_delay << XILINX_DMA_CR_DELAY_SHIFT;
->  	dma_ctrl_write(chan, XILINX_DMA_REG_DMACR, reg);
-> =20
-> -	xilinx_dma_start(chan);
-> +	if (chan->idle)
-> +		xilinx_dma_start(chan);
-> =20
->  	if (chan->err)
->  		return;
-> @@ -1914,8 +1912,10 @@ static irqreturn_t xilinx_dma_irq_handler(int irq,=
- void *data)
->  		      XILINX_DMA_DMASR_DLY_CNT_IRQ)) {
->  		spin_lock(&chan->lock);
->  		xilinx_dma_complete_descriptor(chan);
-> -		chan->idle =3D true;
-> -		chan->start_transfer(chan);
-> +		if (list_empty(&chan->active_list)) {
-> +			chan->idle =3D true;
-> +			chan->start_transfer(chan);
-> +		}
->  		spin_unlock(&chan->lock);
->  	}
-> =20
-
+    Arnd
 
