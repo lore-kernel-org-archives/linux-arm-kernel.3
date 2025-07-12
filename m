@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CF11C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Jul 2025 07:53:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 542D3C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Jul 2025 07:55:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vq7gy5nQxsQuljOk7mn0HP7Jn24hnv3mEkkxpZ10O5s=; b=AJlWDaF+RMF2msN3e8lDsQTlIS
-	6ggIEpcUW9z1LP4QjdfL+/hINiAPzAtfHuWVMFHFLrFurk+PMD1m+ebh21pRbflgKiLbAZQNIuuu/
-	rBICRkNpRtmdTqLjpeIvlymTJDtGT4Kj9gGjQQobC6J3siOzmOoda47I7BBNab+tgLk7CSQsd/i+j
-	FB6vJIirBRTPSqC2aQ4K/4yKv1ce0N3uBgCyQHiTMW+iX6Z0PrBvkFZh+Z7xEhuvHTlH7yq8rJzMy
-	1/S3Z50vhB66P6awYM1R3lOLHEy3OVw8+LvvuN1wESSqBG/ZeH8gcQUGi36cCp71bECDPU4HDVUzr
-	v8u+guUA==;
+	bh=A5dxBcOAcxTKSjfDBsqK/4k0cs1olf+oJR2oRww/n9c=; b=X6RSNO/LsDkJTFpp0Qd1wvPrQy
+	KzG807EhJnnOB4q7P0CqFWXK3zGkPv1r/9M+uOyGwD/WjPr9LSql2oYGOG4Qkc9S3Og9zNQlEegiF
+	MmcUlJ31AhaWdtx2PcRXDtlLX9UoI4JHyRYfKM0+0NDRPXF9e9hWGMlazN6EpV0fVdXDqu4h4QIqq
+	xL4AE8VPiBuSRHoJtIJd8I6PrWfLjsFVkRCLYAMZwBgax9ms0xCR4ugOdJr+lEOWF2GYlg/OoD1Qa
+	P/maANUnofkdoMwTqOFkIgeqyNK8Zgk/pYgso798TeQZQDDgS8jI5DuBrVSzezi6YE8a2iP+67Ijq
+	qnlzgvig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaV2Z-0000000GNgX-46fs;
-	Sat, 12 Jul 2025 07:52:59 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uaV4u-0000000GNnm-30CM;
+	Sat, 12 Jul 2025 07:55:24 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaUql-0000000GMlg-2p8U
+	id 1uaUqm-0000000GMmQ-1GdA
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 12 Jul 2025 07:40:49 +0000
+	Sat, 12 Jul 2025 07:40:50 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 2C763A544E1;
-	Sat, 12 Jul 2025 07:40:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6C6A2C4CEF4;
-	Sat, 12 Jul 2025 07:40:45 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 0D9664720A;
+	Sat, 12 Jul 2025 07:40:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C7F01C4CEF4;
+	Sat, 12 Jul 2025 07:40:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752306045;
-	bh=Q6nAgSUeScunA7Cy3L5NXY072V+uXnej/Z2sR3Zl66U=;
+	s=k20201202; t=1752306047;
+	bh=BnVNBCmaGD8QKefYif7ONwqBQvBpS1QUbrNhxe9uuik=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=jK0Zw/U0hjtPWLjojRMurFzl7NBY1lwGSl9bxABYDqnkVy49Y5AbPiq4vmbQcnG0K
-	 BVsnmuEznH36Y65UXGM1DHpmPfVhsnWf7gsNwoYpJY6DKr0HfgEnFc3dGOUaQs8A4t
-	 kRRa7VKcYRwAQd4M0XIumlRD2KkooOc1PB7uGzkEzIZyKeCkEBjLjnM9JfaMkdzvQ8
-	 Ick0/v0ciqMHuVAMKHGmxd3IOvHnsV4vNmamV/UEITLvKYeVbFPsfhQo2ZYj4Tki7T
-	 E/9zs0IdmvmhPs85b+SXWaX5y7K2qCAJ+9zl6Mlwr26Lej9Eiu5XFO66612y46Tlq1
-	 t4F1KIvEqCIrg==
+	b=vIS1XkB+tIS1q6MQDWPYVYScsNdG2z77DV9w8N8KxXTvLXA9YHLvi60ba+oFPXWcY
+	 +r3z0elC2niosw3oU7y4doGzoYq1FsiPCkMYHvhfElysMhNcFmkY5tq53tJ0SBL+3I
+	 bCB1pb0Qbrc/2QWK+GpiGpbOHsXwxzcmzWXYq7U3cJFtk1BLuNz5uF/pA8+L41iNNV
+	 7fOk8kwSy4csNkTvX/ct0WHC0en/IyEfOmABzqJz9c3f3kWvxEoSQrriSG20+xixTa
+	 o2i6/qEayA9qH7JESWDcB4+9VS5eKb1Pc80vd9N3Hby1cMa9sokeXg1+FeI4VZ21gg
+	 M//C9KshEDeXA==
 Received: by wens.tw (Postfix, from userid 1000)
-	id 9ED7D5FB60; Sat, 12 Jul 2025 15:40:42 +0800 (CST)
+	id C36FA5FF44; Sat, 12 Jul 2025 15:40:42 +0800 (CST)
 From: Chen-Yu Tsai <wens@kernel.org>
 To: Chen-Yu Tsai <wens@csie.org>,
 	Jernej Skrabec <jernej@kernel.org>,
@@ -58,17 +58,17 @@ Cc: Andre Przywara <andre.przywara@arm.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	linux-pm@vger.kernel.org
-Subject: [PATCH v3 5/5] arm64: dts: allwinner: a523: Add power controller device nodes
-Date: Sat, 12 Jul 2025 15:40:21 +0800
-Message-Id: <20250712074021.805953-6-wens@kernel.org>
+Subject: [PATCH v3 1/5] dt-bindings: power: Add A523 PPU and PCK600 power controllers
+Date: Sat, 12 Jul 2025 15:40:17 +0800
+Message-Id: <20250712074021.805953-2-wens@kernel.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250712074021.805953-1-wens@kernel.org>
 References: <20250712074021.805953-1-wens@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250712_004047_774662_26F23949 
-X-CRM114-Status: GOOD (  11.38  )
+X-CRM114-CacheID: sfid-20250712_004048_385408_0FCCAA23 
+X-CRM114-Status: GOOD (  16.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,64 +85,90 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Chen-Yu Tsai <wens@csie.org>
 
-The A523 SoC family has two power controllers, one based on the existing
-PPU, and one newer one based on ARM's PCK-600.
+The A523 PPU is likely the same kind of hardware seen on previous SoCs.
 
-Add device nodes for both of them.
+The A523 PCK600, as the name suggests, is likely a customized version
+of ARM's PCK-600 power controller. Comparing the BSP driver against
+ARM's PPU datasheet shows that the basic registers line up, but
+Allwinner's hardware has some additional delay controls in the reserved
+register range. As such it is likely not fully compatible with the
+standard ARM version.
+
+Document A523 PPU and PCK600 compatibles.
+
+Also reorder the compatible string entries so they are grouped and
+ordered by family first, then by SoC model.
 
 Reviewed-by: Andre Przywara <andre.przywara@arm.com>
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 Signed-off-by: Chen-Yu Tsai <wens@csie.org>
-
 ---
-Changes since v2:
-- Fixed pck-600 header path
+Changes since v1:
+- Re-order compatible string entries
+- Fix name of header file to match compatible string
 ---
- arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi | 18 ++++++++++++++++++
- 1 file changed, 18 insertions(+)
+ .../bindings/power/allwinner,sun20i-d1-ppu.yaml   |  4 +++-
+ .../power/allwinner,sun55i-a523-pck-600.h         | 15 +++++++++++++++
+ .../dt-bindings/power/allwinner,sun55i-a523-ppu.h | 12 ++++++++++++
+ 3 files changed, 30 insertions(+), 1 deletion(-)
+ create mode 100644 include/dt-bindings/power/allwinner,sun55i-a523-pck-600.h
+ create mode 100644 include/dt-bindings/power/allwinner,sun55i-a523-ppu.h
 
-diff --git a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi b/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
-index cf0bc39aab04..2ac6580b2497 100644
---- a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
-+++ b/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
-@@ -7,6 +7,8 @@
- #include <dt-bindings/clock/sun55i-a523-r-ccu.h>
- #include <dt-bindings/reset/sun55i-a523-ccu.h>
- #include <dt-bindings/reset/sun55i-a523-r-ccu.h>
-+#include <dt-bindings/power/allwinner,sun55i-a523-ppu.h>
-+#include <dt-bindings/power/allwinner,sun55i-a523-pck-600.h>
+diff --git a/Documentation/devicetree/bindings/power/allwinner,sun20i-d1-ppu.yaml b/Documentation/devicetree/bindings/power/allwinner,sun20i-d1-ppu.yaml
+index f578be6a3bc8..a28e75a9cb6a 100644
+--- a/Documentation/devicetree/bindings/power/allwinner,sun20i-d1-ppu.yaml
++++ b/Documentation/devicetree/bindings/power/allwinner,sun20i-d1-ppu.yaml
+@@ -16,8 +16,10 @@ description:
+ properties:
+   compatible:
+     enum:
+-      - allwinner,sun20i-d1-ppu
+       - allwinner,sun8i-v853-ppu
++      - allwinner,sun20i-d1-ppu
++      - allwinner,sun55i-a523-pck-600
++      - allwinner,sun55i-a523-ppu
  
- / {
- 	interrupt-parent = <&gic>;
-@@ -576,6 +578,14 @@ mdio0: mdio {
- 			};
- 		};
- 
-+		ppu: power-controller@7001400 {
-+			compatible = "allwinner,sun55i-a523-ppu";
-+			reg = <0x07001400 0x400>;
-+			clocks = <&r_ccu CLK_BUS_R_PPU1>;
-+			resets = <&r_ccu RST_BUS_R_PPU1>;
-+			#power-domain-cells = <1>;
-+		};
+   reg:
+     maxItems: 1
+diff --git a/include/dt-bindings/power/allwinner,sun55i-a523-pck-600.h b/include/dt-bindings/power/allwinner,sun55i-a523-pck-600.h
+new file mode 100644
+index 000000000000..6b3d8ea7bb69
+--- /dev/null
++++ b/include/dt-bindings/power/allwinner,sun55i-a523-pck-600.h
+@@ -0,0 +1,15 @@
++/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
 +
- 		r_ccu: clock-controller@7010000 {
- 			compatible = "allwinner,sun55i-a523-r-ccu";
- 			reg = <0x7010000 0x250>;
-@@ -622,6 +632,14 @@ r_i2c_pins: r-i2c-pins {
- 			};
- 		};
- 
-+		pck600: power-controller@7060000 {
-+			compatible = "allwinner,sun55i-a523-pck-600";
-+			reg = <0x07060000 0x8000>;
-+			clocks = <&r_ccu CLK_BUS_R_PPU0>;
-+			resets = <&r_ccu RST_BUS_R_PPU0>;
-+			#power-domain-cells = <1>;
-+		};
++#ifndef _DT_BINDINGS_POWER_SUN55I_A523_PCK600_H_
++#define _DT_BINDINGS_POWER_SUN55I_A523_PCK600_H_
 +
- 		r_i2c0: i2c@7081400 {
- 			compatible = "allwinner,sun55i-a523-i2c",
- 				     "allwinner,sun8i-v536-i2c",
++#define PD_VE			0
++#define PD_GPU			1
++#define PD_VI			2
++#define PD_VO0			3
++#define PD_VO1			4
++#define PD_DE			5
++#define PD_NAND			6
++#define PD_PCIE			7
++
++#endif /* _DT_BINDINGS_POWER_SUN55I_A523_PCK600_H_ */
+diff --git a/include/dt-bindings/power/allwinner,sun55i-a523-ppu.h b/include/dt-bindings/power/allwinner,sun55i-a523-ppu.h
+new file mode 100644
+index 000000000000..bc9aba73c19a
+--- /dev/null
++++ b/include/dt-bindings/power/allwinner,sun55i-a523-ppu.h
+@@ -0,0 +1,12 @@
++/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
++
++#ifndef _DT_BINDINGS_POWER_SUN55I_A523_PPU_H_
++#define _DT_BINDINGS_POWER_SUN55I_A523_PPU_H_
++
++#define PD_DSP			0
++#define PD_NPU			1
++#define PD_AUDIO		2
++#define PD_SRAM			3
++#define PD_RISCV		4
++
++#endif /* _DT_BINDINGS_POWER_SUN55I_A523_PPU_H_ */
 -- 
 2.39.5
 
