@@ -4,92 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA0C5C83F10
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Jul 2025 23:23:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CE40C83F1D
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Jul 2025 23:29:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OJFl78XZ+XY3PQ6hqlxJcMbRGA/vaIbR4su4ePprkx4=; b=GNRCNRPgiigDKSRLlwGfzw9cOE
-	IS3owvDba2j+c3RxRl37BV9YwsNfhKFMXBp7Yb19P9jNDjjeS8kiR46JxolgJqr4H7FdyP+jytu66
-	GcV9capro5D7cgbXJwsj7pqhUQYCRxc/rvGHNwB1Ex6/vfE+PjhhreV8ud4sdzAp5MJKGCGwy42X4
-	PsQomzRQjy3upIvfI0MM+R+F8/dK+BBDxyX/BIWwyl9cIG9MiWEPPanBW5mScQvM4c0L0JQ4wUeER
-	jM4FUdwlRUN8Ltn9uef39m6UBiE79HhPzd9ofv6O5av31kLmzuTNePot/OVSRNox276/u55zN4OLp
-	nqKboIsA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=z1TM8Od99wuYclTDLWGv6JtFTG6Viorx2Pkrg7ZTDGo=; b=Q5uS8AGHA3V6nxo36jiDYeWsUN
+	e8PL2Yp6ebOP4RjY06XQ0zI/73GHhi3ypNZcYVn7VfBDWrmcuN+aZu5vkVlT6f0DbJeIIDA0bDH1u
+	Utxj5x8Q0SaH3vGpul6gCZXBWGSsdfIKudSmgjnYW4BI9G6ibTcBh2jZskVK84Z9MWTwiadawan0H
+	ku1I3Zh06RSfi7KEfbCB1RLn9LwXouO+702w7AnCmbxjTqyM0ADtmHpomQG7KRj9ytNCEtuFh7Sc0
+	kE+LzVZ28YRR6ssyx7rU/nwNwPKOVmM4FKUwEVE1H6Fik4vXFgFVVQmC1wEjekG5XfASkKctUdecE
+	KSOwfeIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uajYT-0000000H7M2-48Ss;
-	Sat, 12 Jul 2025 23:22:53 +0000
-Received: from mail-qv1-xf29.google.com ([2607:f8b0:4864:20::f29])
+	id 1uajeH-0000000H8RF-1h0E;
+	Sat, 12 Jul 2025 23:28:53 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uajW5-0000000H7GH-1ndB;
-	Sat, 12 Jul 2025 23:20:26 +0000
-Received: by mail-qv1-xf29.google.com with SMTP id 6a1803df08f44-6faf66905baso41838846d6.2;
-        Sat, 12 Jul 2025 16:20:24 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1752362424; x=1752967224; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=OJFl78XZ+XY3PQ6hqlxJcMbRGA/vaIbR4su4ePprkx4=;
-        b=VMblYQSIJcWZRsANO/c6N+bRxyaM+g5MHc09P47MElP2j+PHJ9D+Q3Dodslzd2rs4W
-         58j3viHzrsqD346z0eaE1NXVzZW1Kwj6qItLuDAm72VKfxjLXnSYz7SVM5tZ22aWv4XP
-         OvTJL0N5SN1wdLmarCCtZ05DWlPgfk4oPgSYISoA9vYTOMMpFA3Yp0Xwn2NJbKD1VybR
-         eOIFtjrWFkcLwbMpGI+Lgn4N49xT59nbXRuuj6nd0rhH8EwjGQIZ//VH50XxptxN7wy3
-         jw4qOzUY523at4qrQfUtW0gr8oyZWEH6zGbUvWeRrgCnQpEAOMknHaDx3x8sp+BdZ3Nt
-         hy9Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752362424; x=1752967224;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=OJFl78XZ+XY3PQ6hqlxJcMbRGA/vaIbR4su4ePprkx4=;
-        b=hdQm0H3DogDIS68A7ePz0epQRMsQmrPrhDgjxDeRh2WsyjiVYbOGYDNtBwRTLA2m4h
-         gqBiAtaPlSLnJlsfO4DeKprmUL7s3uTut8ZWj9SOs3mn/QfuK72LfT4LE5yB5Xi+ehBb
-         t/dplt4eJMpUT8c+Lpslh5T4tx1zfvEGOD37Esp68cjEQ244AFJ34LEKmrTINMkQHYvM
-         J91Djv1cMHenWi7oXlbsVzzIz3XeVUCh0f4icPXb+q32UXRKtf/JBBkPQJjUmswpVUNL
-         pl9+YhrC7jwK+ZPxyu/nvBV8UKDD3Pktk3Xvk4SXelzz6CjKmzve/vs7nPUrjTnb2pRk
-         ZGZQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWDcpcYIT1aGwegIBKgT3l1xu5/o5XWacG8los/Xx1Fl9hAcqwg8WhY4+pfNP9585hdSbR59wxpbq9UJCH7Saw=@lists.infradead.org, AJvYcCX4nE+M9g4lcj5AWJ2uQJ/5wdsxi7q06pjON1kQ5qVFnpz5XLNU/7RljsWhHEh4klEP1+QOItJGLwRkckT5AmOb@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw7+JzNE8r6x144ywnwDkbqejZrGK3Q47cWqiddKQDX5ZA1s42C
-	JzBf5Md12xBCRlPcCawQZ35M3PzabqspMa2D/oo5cFqvcDc7pKYnFHYF4bqr7eNixpPJ8H+NJtW
-	s7GqgMFlra3FRAhUFT2FiEKzFI3kzGcHHSw==
-X-Gm-Gg: ASbGncvnwHribhi8ruPCsz6gLIWSps2D2DxPXylpTeUGxpCOZZdT9FlyO2GNdlpICOI
-	7ymJ13emtl13dyU8pk/JwCJDoyQI+eWat/p06PNYZH+Wu0IUSKCCAo3TBA73dVCPlmvn2Fjt18U
-	yuC+n0f3tX+vh6wEagZrhJXoZi6ext8PsFv9Y81/eY4A9r8g/7l6VdjqM/3HeJfX165HL0Ybrvq
-	CmmBpg=
-X-Google-Smtp-Source: AGHT+IFxoLdRf98+nAnGYYkZ3v8X8Zabbt4512qKXAZnA97TDHShi9FJhWzH8PYyZvNSK3yat23YgSRK0z1vNWmf/lY=
-X-Received: by 2002:a05:6214:2b86:b0:702:c939:9d9d with SMTP id
- 6a1803df08f44-704a4220990mr161700106d6.28.1752362423744; Sat, 12 Jul 2025
- 16:20:23 -0700 (PDT)
+	id 1uajbp-0000000H7Uu-40RN
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 12 Jul 2025 23:26:23 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id DB88B5C0662;
+	Sat, 12 Jul 2025 23:26:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EA2EEC4CEEF;
+	Sat, 12 Jul 2025 23:26:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1752362780;
+	bh=Wm+b+cUSHRkFTh2D1w+em+29oqKwtZr3rYSZ3dM2NKk=;
+	h=From:To:Cc:Subject:Date:From;
+	b=BXGecH2Oi09zYYogLQHo2bcCstSs3o8GTy/y92HPFCq1Vd1rAkWZDhHndg8qF7W9t
+	 hY7U8iag2AUbYsiKLN3G0YIlG4R3dwHnDcePSMDa4a/qmR6ruDaJYbtFY8Two6AY4+
+	 7qzComryaIIpcoUBCP4hHCTfmnsSsJzMbgLZH62EkCgnIIOWHpuygf4BYTME+XdxXI
+	 zXtsID8UasU+xHkOi2LOcQC4dX9EBk5jnaAjd22aerVY2n7+JISpevPL8uzubPkLTn
+	 jzSWK2I+AzXSQ6LPbtB5yzjG7yed3vDW9oqHq9T9T+XfD+wHRIRpSNmG/aMOAzNcDm
+	 N4SU7huVFEjrA==
+From: Eric Biggers <ebiggers@kernel.org>
+To: linux-crypto@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org,
+	Ard Biesheuvel <ardb@kernel.org>,
+	"Jason A . Donenfeld" <Jason@zx2c4.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mips@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-s390@vger.kernel.org,
+	sparclinux@vger.kernel.org,
+	x86@kernel.org,
+	Eric Biggers <ebiggers@kernel.org>
+Subject: [PATCH 00/26] SHA-1 library functions
+Date: Sat, 12 Jul 2025 16:22:51 -0700
+Message-ID: <20250712232329.818226-1-ebiggers@kernel.org>
+X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
-References: <20250710200820.262295-1-rosenp@gmail.com> <20250710200820.262295-8-rosenp@gmail.com>
- <d8b0abb2-1a12-42bf-aafd-4cd1e21babd6@kernel.org> <CAKxU2N-c2tHBYWBM+FJGqdSaqzw9u0O8e0G7AVqk6b0QdRnPTw@mail.gmail.com>
- <20250711-invisible-dainty-jackrabbit-acbf8f@krzk-bin> <20250712104006.GA13512@wp.pl>
- <e435a765-fb91-408f-81dd-01a73fc43b6b@kernel.org> <23e629cb-0698-4a9c-aa18-9a7e71aa8b73@kernel.org>
-In-Reply-To: <23e629cb-0698-4a9c-aa18-9a7e71aa8b73@kernel.org>
-From: Julian Calaby <julian.calaby@gmail.com>
-Date: Sun, 13 Jul 2025 09:20:12 +1000
-X-Gm-Features: Ac12FXzHmWw2pTYCCUYiI4xo0Q3W3oiBA__ty2FODlbGDbYFA2NA_IcVvNhC2_U
-Message-ID: <CAGRGNgVk9__2mCE-hYSP7T0yKLjPsDkvG6+NghJMXazYXUid1w@mail.gmail.com>
-Subject: Re: [PATCHv3 wireless-next 7/7] dt-bindings: net: wireless: rt2800: add
-To: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>
-Cc: Stanislaw Gruszka <stf_xl@wp.pl>, Rosen Penev <rosenp@gmail.com>, linux-wireless@vger.kernel.org, 
-	Johannes Berg <johannes@sipsolutions.net>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, open list <linux-kernel@vger.kernel.org>, 
-	"open list:MIPS" <linux-mips@vger.kernel.org>, 
-	"moderated list:ARM/Mediatek SoC support" <linux-arm-kernel@lists.infradead.org>, 
-	"moderated list:ARM/Mediatek SoC support" <linux-mediatek@lists.infradead.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250712_162025_474014_088C7047 
-X-CRM114-Status: GOOD (  30.27  )
+X-CRM114-CacheID: sfid-20250712_162622_079112_D9FA5AA7 
+X-CRM114-Status: GOOD (  20.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,100 +77,202 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof and Rob,
+This series is also available at:
 
-On Sun, Jul 13, 2025 at 2:59=E2=80=AFAM Krzysztof Kozlowski <krzk@kernel.or=
-g> wrote:
->
-> On 12/07/2025 18:53, Krzysztof Kozlowski wrote:
-> > On 12/07/2025 12:40, Stanislaw Gruszka wrote:
-> >> Hi Krzysztof,
-> >>
-> >> On Fri, Jul 11, 2025 at 09:48:49AM +0200, Krzysztof Kozlowski wrote:
-> >>> On Thu, Jul 10, 2025 at 03:40:30PM -0700, Rosen Penev wrote:
-> >>>> On Thu, Jul 10, 2025 at 2:40=E2=80=AFPM Krzysztof Kozlowski <krzk@ke=
-rnel.org> wrote:
-> >>>>>
-> >>>>> On 10/07/2025 22:08, Rosen Penev wrote:
-> >>>>>> Add device-tree bindings for the RT2800 SOC wifi device found in o=
-lder
-> >>>>>> Ralink/Mediatek devices.
-> >>>>>>
-> >>>>>> Signed-off-by: Rosen Penev <rosenp@gmail.com>
-> >>>>>> ---
-> >>>>>>  .../bindings/net/wireless/ralink,rt2800.yaml  | 47 ++++++++++++++=
-+++++
-> >>>>>>  1 file changed, 47 insertions(+)
-> >>>>>>  create mode 100644 Documentation/devicetree/bindings/net/wireless=
-/ralink,rt2800.yaml
-> >>>>>>
-> >>>>>> diff --git a/Documentation/devicetree/bindings/net/wireless/ralink=
-,rt2800.yaml b/Documentation/devicetree/bindings/net/wireless/ralink,rt2800=
-.yaml
-> >>>>>> new file mode 100644
-> >>>>>> index 000000000000..8c13b25bd8b4
-> >>>>>> --- /dev/null
-> >>>>>> +++ b/Documentation/devicetree/bindings/net/wireless/ralink,rt2800=
-.yaml
-> >>>>>
-> >>>>> Filename should match compatible. You were already changing somethi=
-ng
-> >>>>> here...
-> >>>> hrm? that makes no sense. Various drivers have multiple compatible l=
-ines.
-> >>>
-> >>> Luckily we do not speak about drivers here. Anyway, follow standard
-> >>> review practices, you don't get special rules.
-> >>
-> >> Could you please elaborate what you mean ?
-> >
-> > Rosen replied in abrasive way, so I am not going to dig this.
-> >
-> >>
-> >> I greped through Documentation/devicetree/bindings/*/*.yaml and plenty
-> >
-> > I assume you refer to last 2 years bindings, not something older, right=
-?
-> > It is really poor argument to find old files and use them as example
-> > "they did like that".
-> >
-> >> of "compatible:" items do not match the filename. So hard to tell
-> >
-> > I did not ask for compatible to match filename.
-> >
-> >> what rule you are referencing, as it seems it's not really applied.
-> > Check reviews on the lists. It is pretty standard review. Everyone gets
-> > it for this case here - single device, single compatible.
->
-> BTW, it is not hiding on the lists:
->
-> https://lore.kernel.org/linux-devicetree/?q=3Df%3Aherring+filename
-> https://lore.kernel.org/linux-devicetree/?q=3Df%3Akozlowski+filename
+    git fetch https://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux.git sha1-lib-v1
 
-I just had a quick look through the in-tree documentation on device
-tree bindings and can't find this rule there.
+Patches 1-14 reorganize the kernel's SHA-1 code to be consistent with
+the way the SHA-2 code is now organized:
 
-It's good that you and Rob are consistent in applying this rule, but
-pointing to the mailing list archives instead of the documentation
-makes it feel like patch submissions in this space are judged by some
-arbitrary set of undocumented rules.
+- Add SHA-1 and HMAC-SHA1 library functions.
+- Make the SHA-1 (and HMAC-SHA1) library functions use the existing
+  architecture-optimized SHA-1 code, which is moved into lib/crypto/.
+- Reimplement the old-school crypto API's "sha1" and "hmac(sha1)"
+  algorithms on top of the SHA-1 and HMAC-SHA1 library functions.
 
-Could you please update the documentation with the current set of
-requirements so that people who are new to this space have a
-consistent set of rules they can apply to their work?
+The diffstat for that part is:
 
-I understand that Krzysztof doesn't particularly like having
-discussions around the rules given his usual abrasive manner, so
-having the full rules documented would be a way to shift these
-conversations into something a bit more like how Greg applies stable
-rules: if you get it wrong, you get a link to the documentation, which
-should clarify most issues without any further discussion.
+    65 files changed, 1052 insertions(+), 1582 deletions(-)
 
-Thanks,
+This hopefully should look quite boring and familiar by now, as
+essentially the same cleanup was already applied to SHA-2.
 
---=20
-Julian Calaby
+Patch 15 adds sha1_kunit.
 
-Email: julian.calaby@gmail.com
-Profile: http://www.google.com/profiles/julian.calaby/
+Note that while SHA-1 is a legacy algorithm, it still has many in-kernel
+users for legacy protocols.  So it's not like we'll be able to remove
+the SHA-1 code from the kernel anytime soon.  And some of these users
+are currently having to jump through some *major* hoops to work around
+the limitations of the old-school crypto API.  The library API greatly
+simplifies things, and it makes the SHA-1 code consistent with the SHA-2
+code.  So, IMO it's well worth doing this reorganization of the SHA-1
+code, even though SHA-1 is a legacy algorithm.
+
+To show this even more clearly, patches 16-26 convert various users to
+use the SHA-1 library API (or both SHA-1 and SHA-2, in the case of some
+users that use both algorithms).  The diffstat for that part is:
+
+    27 files changed, 169 insertions(+), 903 deletions(-)
+
+For 6.17, I'd like to take patches 1-15 at the most.  Patches 16-26
+would be for later, and I'll probably resend them individually later for
+subsystem maintainers to take.
+
+Eric Biggers (26):
+  crypto: x86/sha1 - Rename conflicting symbol
+  lib/crypto: sha1: Rename sha1_init() to sha1_init_raw()
+  lib/crypto: sha1: Add SHA-1 library functions
+  lib/crypto: sha1: Add HMAC support
+  crypto: sha1 - Wrap library and add HMAC support
+  crypto: sha1 - Use same state format as legacy drivers
+  lib/crypto: arm/sha1: Migrate optimized code into library
+  lib/crypto: arm64/sha1: Migrate optimized code into library
+  lib/crypto: mips/sha1: Migrate optimized code into library
+  lib/crypto: powerpc/sha1: Migrate optimized code into library
+  lib/crypto: s390/sha1: Migrate optimized code into library
+  lib/crypto: sparc/sha1: Migrate optimized code into library
+  lib/crypto: x86/sha1: Migrate optimized code into library
+  crypto: sha1 - Remove sha1_base.h
+  lib/crypto: tests: Add KUnit tests for SHA-1 and HMAC-SHA1
+  bpf: Use sha1() instead of sha1_transform() in bpf_prog_calc_tag()
+  sctp: Use HMAC-SHA1 and HMAC-SHA256 library functions
+  ipv6: sr: Use HMAC-SHA1 and HMAC-SHA256 library functions
+  tee: Use SHA-1 library instead of crypto_shash
+  lib/digsig: Use SHA-1 library instead of crypto_shash
+  drm/bridge: it6505: Use SHA-1 library instead of crypto_shash
+  nfc: s3fwrn5: Use SHA-1 library instead of crypto_shash
+  ppp: mppe: Use SHA-1 library instead of crypto_shash
+  KEYS: trusted_tpm1: Use SHA-1 library instead of crypto_shash
+  ipv6: Switch to higher-level SHA-1 functions
+  lib/crypto: sha1: Remove low-level functions from API
+
+ arch/arm/configs/exynos_defconfig             |   1 -
+ arch/arm/configs/milbeaut_m10v_defconfig      |   2 -
+ arch/arm/configs/multi_v7_defconfig           |   2 -
+ arch/arm/configs/omap2plus_defconfig          |   1 -
+ arch/arm/configs/pxa_defconfig                |   1 -
+ arch/arm/crypto/Kconfig                       |  31 --
+ arch/arm/crypto/Makefile                      |   6 -
+ arch/arm/crypto/sha1-ce-glue.c                |  72 ----
+ arch/arm/crypto/sha1_glue.c                   |  75 ----
+ arch/arm/crypto/sha1_neon_glue.c              |  83 -----
+ arch/arm64/configs/defconfig                  |   1 -
+ arch/arm64/crypto/Kconfig                     |  11 -
+ arch/arm64/crypto/Makefile                    |   3 -
+ arch/arm64/crypto/sha1-ce-glue.c              | 118 -------
+ arch/mips/cavium-octeon/crypto/Makefile       |   1 -
+ arch/mips/cavium-octeon/crypto/octeon-sha1.c  | 146 --------
+ arch/mips/configs/cavium_octeon_defconfig     |   1 -
+ arch/mips/crypto/Kconfig                      |  10 -
+ arch/powerpc/configs/44x/akebono_defconfig    |   1 -
+ arch/powerpc/configs/powernv_defconfig        |   1 -
+ arch/powerpc/configs/ppc64_defconfig          |   1 -
+ arch/powerpc/crypto/Kconfig                   |  16 -
+ arch/powerpc/crypto/Makefile                  |   4 -
+ arch/powerpc/crypto/sha1-spe-glue.c           | 107 ------
+ arch/powerpc/crypto/sha1.c                    |  78 -----
+ arch/s390/configs/debug_defconfig             |   1 -
+ arch/s390/configs/defconfig                   |   1 -
+ arch/s390/crypto/Kconfig                      |  10 -
+ arch/s390/crypto/Makefile                     |   1 -
+ arch/s390/crypto/sha1_s390.c                  | 103 ------
+ arch/sparc/crypto/Kconfig                     |  10 -
+ arch/sparc/crypto/Makefile                    |   2 -
+ arch/sparc/crypto/sha1_glue.c                 |  94 -----
+ arch/x86/crypto/Kconfig                       |  14 -
+ arch/x86/crypto/Makefile                      |   3 -
+ arch/x86/crypto/sha1_ssse3_glue.c             | 324 ------------------
+ crypto/Makefile                               |   2 +-
+ crypto/sha1.c                                 | 201 +++++++++++
+ crypto/sha1_generic.c                         |  87 -----
+ crypto/testmgr.c                              |   6 +
+ drivers/crypto/img-hash.c                     |   2 +-
+ drivers/gpu/drm/bridge/Kconfig                |   3 +-
+ drivers/gpu/drm/bridge/ite-it6505.c           |  33 +-
+ drivers/net/ppp/Kconfig                       |   3 +-
+ drivers/net/ppp/ppp_mppe.c                    | 109 +-----
+ drivers/nfc/s3fwrn5/Kconfig                   |   3 +-
+ drivers/nfc/s3fwrn5/firmware.c                |  17 +-
+ drivers/tee/Kconfig                           |   3 +-
+ drivers/tee/tee_core.c                        |  55 +--
+ include/crypto/sha1.h                         | 186 +++++++++-
+ include/crypto/sha1_base.h                    |  82 -----
+ include/linux/filter.h                        |   6 -
+ include/net/sctp/auth.h                       |  12 +-
+ include/net/sctp/constants.h                  |   2 -
+ include/net/sctp/structs.h                    |   5 -
+ include/net/seg6_hmac.h                       |  12 -
+ kernel/bpf/core.c                             |  49 +--
+ lib/Kconfig                                   |   3 +-
+ lib/crypto/Kconfig                            |  14 +
+ lib/crypto/Makefile                           |  23 +-
+ .../crypto/arm}/sha1-armv4-large.S            |   0
+ .../crypto/arm}/sha1-armv7-neon.S             |  13 +-
+ .../crypto => lib/crypto/arm}/sha1-ce-core.S  |   4 +-
+ lib/crypto/arm/sha1.h                         |  46 +++
+ .../crypto/arm64}/sha1-ce-core.S              |  40 +--
+ lib/crypto/arm64/sha1.h                       |  39 +++
+ lib/crypto/mips/sha1.h                        |  81 +++++
+ .../crypto/powerpc}/sha1-powerpc-asm.S        |   0
+ .../crypto/powerpc}/sha1-spe-asm.S            |   0
+ lib/crypto/powerpc/sha1.h                     |  67 ++++
+ lib/crypto/s390/sha1.h                        |  28 ++
+ lib/crypto/sha1.c                             | 267 ++++++++++++---
+ lib/crypto/sparc/sha1.h                       |  43 +++
+ .../crypto => lib/crypto/sparc}/sha1_asm.S    |   0
+ lib/crypto/tests/Kconfig                      |  10 +
+ lib/crypto/tests/Makefile                     |   1 +
+ lib/crypto/tests/sha1-testvecs.h              | 212 ++++++++++++
+ lib/crypto/tests/sha1_kunit.c                 |  39 +++
+ .../crypto/x86/sha1-avx2-asm.S                |   7 +-
+ .../crypto/x86/sha1-ni-asm.S                  |  23 +-
+ .../crypto/x86/sha1-ssse3-and-avx.S           |  13 +-
+ lib/crypto/x86/sha1.h                         |  75 ++++
+ lib/digsig.c                                  |  46 +--
+ net/ipv6/Kconfig                              |   6 +-
+ net/ipv6/addrconf.c                           |  23 +-
+ net/ipv6/seg6.c                               |   7 -
+ net/ipv6/seg6_hmac.c                          | 199 ++---------
+ net/sctp/Kconfig                              |  15 +-
+ net/sctp/auth.c                               | 153 ++-------
+ net/sctp/socket.c                             |  10 -
+ security/keys/trusted-keys/Kconfig            |   4 +-
+ security/keys/trusted-keys/trusted_tpm1.c     | 221 ++----------
+ 92 files changed, 1472 insertions(+), 2474 deletions(-)
+ delete mode 100644 arch/arm/crypto/sha1-ce-glue.c
+ delete mode 100644 arch/arm/crypto/sha1_glue.c
+ delete mode 100644 arch/arm/crypto/sha1_neon_glue.c
+ delete mode 100644 arch/arm64/crypto/sha1-ce-glue.c
+ delete mode 100644 arch/mips/cavium-octeon/crypto/octeon-sha1.c
+ delete mode 100644 arch/powerpc/crypto/sha1-spe-glue.c
+ delete mode 100644 arch/powerpc/crypto/sha1.c
+ delete mode 100644 arch/s390/crypto/sha1_s390.c
+ delete mode 100644 arch/sparc/crypto/sha1_glue.c
+ delete mode 100644 arch/x86/crypto/sha1_ssse3_glue.c
+ create mode 100644 crypto/sha1.c
+ delete mode 100644 crypto/sha1_generic.c
+ delete mode 100644 include/crypto/sha1_base.h
+ rename {arch/arm/crypto => lib/crypto/arm}/sha1-armv4-large.S (100%)
+ rename {arch/arm/crypto => lib/crypto/arm}/sha1-armv7-neon.S (98%)
+ rename {arch/arm/crypto => lib/crypto/arm}/sha1-ce-core.S (96%)
+ create mode 100644 lib/crypto/arm/sha1.h
+ rename {arch/arm64/crypto => lib/crypto/arm64}/sha1-ce-core.S (76%)
+ create mode 100644 lib/crypto/arm64/sha1.h
+ create mode 100644 lib/crypto/mips/sha1.h
+ rename {arch/powerpc/crypto => lib/crypto/powerpc}/sha1-powerpc-asm.S (100%)
+ rename {arch/powerpc/crypto => lib/crypto/powerpc}/sha1-spe-asm.S (100%)
+ create mode 100644 lib/crypto/powerpc/sha1.h
+ create mode 100644 lib/crypto/s390/sha1.h
+ create mode 100644 lib/crypto/sparc/sha1.h
+ rename {arch/sparc/crypto => lib/crypto/sparc}/sha1_asm.S (100%)
+ create mode 100644 lib/crypto/tests/sha1-testvecs.h
+ create mode 100644 lib/crypto/tests/sha1_kunit.c
+ rename arch/x86/crypto/sha1_avx2_x86_64_asm.S => lib/crypto/x86/sha1-avx2-asm.S (98%)
+ rename arch/x86/crypto/sha1_ni_asm.S => lib/crypto/x86/sha1-ni-asm.S (90%)
+ rename arch/x86/crypto/sha1_ssse3_asm.S => lib/crypto/x86/sha1-ssse3-and-avx.S (97%)
+ create mode 100644 lib/crypto/x86/sha1.h
+
+-- 
+2.50.1
+
 
