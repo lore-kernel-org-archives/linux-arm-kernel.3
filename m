@@ -4,68 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAFDDC83F1D
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Jul 2025 13:57:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C06FC83F10
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Jul 2025 14:00:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=kRD9GIGPAcl9+9P+wxlR8UOcfZFBQSucv2vMLbdggbU=; b=kHuWoXB6JSG5/JiqyLyjgcqVk8
-	2cZyDlVJMJiHeMhnCPI4avVsH7QrdVCQ9NQu87KCYToIucmKMQS4bAWjFmL8D7K7szOG3SceRi9F/
-	ttJXYGTGlpNHxqIkjwtnDX+NoDS4p05shJAZKNVYPtWoQUfTpw6jCabX9kOdRafe2Ho12u+Dq2Y3Y
-	o1Y22ftrUfWfmo4/LOPpWfM4CB8G2ehwd7B6a0iFdX5i4z7gjwJEHOtjR/ulvpyT8jM7Aev/zncRk
-	yxASDDwsKVrszMLf9K35cfKPvwtCYllRS6YMSvPCQz38HAeFeNPIf1q6g/QTlMtQo53J11gFdkLLh
-	UeuGij7A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RKgGfotXYydNQpTmp9EldXAQ8RrwqhRJUaEpLQizexw=; b=1ITndDYy6MV8yYlNnFxxGaVwBb
+	mChVAkETujvx8vr+wZprsIZ7hwG229TlMP5Ej5AAG2oOpBwl4xX+qZnwfkxIn9QPYCQTpFdIXjYkB
+	ZRd7NquF3j7k3aSxMbrZIn6am8GwhYrvsNgF/8O2QtzPP8lufFp0SScMvYILASpnAMJMDgC0G7zxZ
+	zdX/mmpFqpanC/iVcXweOHFMv0pzkGLh82If5v9UWloVI8vf3tT6mo5qWrOjozFTIz+IgM+7g8b/8
+	UasDB4zLksgSbdIRZlVgORQP4UqD2zh5pC/ht65WIB+Y9EFzyDuuVURGfzx+0uOFLbtJ5jMh1s2Mj
+	ku4X5wbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaajO-0000000GgyI-2kci;
-	Sat, 12 Jul 2025 13:57:34 +0000
-Received: from out-182.mta0.migadu.com ([2001:41d0:1004:224b::b6])
+	id 1uaall-0000000GhDC-1Swj;
+	Sat, 12 Jul 2025 14:00:01 +0000
+Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaagz-0000000Ggmt-2CqG
+	id 1uaahG-0000000GgqB-2Lgz
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 12 Jul 2025 13:55:07 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1752328484;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=kRD9GIGPAcl9+9P+wxlR8UOcfZFBQSucv2vMLbdggbU=;
-	b=xLIuR7XxssCPgWrpAWX6KhdeLgfSZm9ysPUvboMvBIo8LQL8Ap9TdANcGPc/8jgXMKRJMj
-	nlHqr7f5qAtor9nOxYXwezNvzz812lHV+5C1xl1y9qVCiLI4mF+6sOSNsF0YLLIeMqFg2L
-	kCI3TzVhwtdOJlyNU6yq9/WlC9Rr13o=
-From: Troy Mitchell <troy.mitchell@linux.dev>
-Date: Sat, 12 Jul 2025 21:54:35 +0800
-Subject: [PATCH] ASoC: rockchip: i2s: simplify clock handling and error
- cleanup in probe
+	Sat, 12 Jul 2025 13:55:23 +0000
+Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-236377f00a1so27992295ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 12 Jul 2025 06:55:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1752328522; x=1752933322; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=RKgGfotXYydNQpTmp9EldXAQ8RrwqhRJUaEpLQizexw=;
+        b=W19KKI7bUP6qgg9DH3RnuEJBgvz4egjyYB2yAtzAZyA5TA285pkwR2sUkDDlO2HgMu
+         1lQwDNXHs819kcWDiTjmlC9J0IhZqUgpwRI6gddZ5ENPJx/U4EWYDHub/lsHKUNNdEJ4
+         RWcmOnH4O7RubW5/QFPY2P7W/xZdAlYoXWJbadg/V3fDyrJ2sJSrQvgJ3TQVNOhvG74u
+         SciNyxtS4CCwN90Xu++ajxJMVoWubUVN0St0JlEe3qWtj/J+pbsgWnni/GNUKnbdKsES
+         Mh90zSH+QYz1btaOnq8bGi/3sIhxXzsF/+GCef4c6rDuOzH4YIwOWoHUaIZ8wVoiJPsf
+         UenA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1752328522; x=1752933322;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=RKgGfotXYydNQpTmp9EldXAQ8RrwqhRJUaEpLQizexw=;
+        b=OTww9Zt74ooXRNf1gq3ScfUrGjcu5X/Ip0pA4RhQ2Bz7jembnynBXO0CqMajsA1ioz
+         4DZeM8siy2t5A5HLiRpTh9566vTlTaPqu/nPLBXsB/8VMqoUHdzxs8EXxSLGA8Ln71c1
+         hN6xRu6MHMU16AfesUjUk40wMG0L3LRs9Cf9/M6p57ASdRt29LpPy4SZk0jkcLqmhekC
+         FokOkOhYL/enduA17kfp0k+CkZmqAh80sOH2Aea0ilsHjBKklhg/x7yTQhk/MaiWxHeH
+         HdBLUmzSxnCh7kzcVhJ1b4Zvxl9s2B9FhQYHa/m3F2trkTNOS0yo8O0m6iSEV00xhmZR
+         jj0A==
+X-Forwarded-Encrypted: i=1; AJvYcCVJhVTPdgRWFR6MtR790bel2vJO8CcfiJcinopZ8KjRRMtUDfK8XKlkylU7UzTpZx1gb0m3dgljyNG81+19/AHj@lists.infradead.org
+X-Gm-Message-State: AOJu0YzvBJ2pPwuiIcSNLVv6MXWaWfevSJYdeH4JJbrhqudAmiJHjvTn
+	m6YNNOjYkRGnjNhQjfHltXQtqFpTriLJdXPNUq0XycNkI1kIkM4/lKw4
+X-Gm-Gg: ASbGncskosaZVP4qa4Pxt4BBertPwJv4pIYk1JWwR3hXU2WmrLnjtCSTiXs+BoDMZ6M
+	72pxJhxEuowccLKzRuAUxiyAFNjQwh5ICCD9a6vd9g1cwBlqOVsDhWh2yYIt5e86CWJkFHMR2At
+	WMRamcGH38g+w7B9T2bKEOiCToToXOowMcJCeAQPKBs3LBxmNUUbka/PuJLa6IlcQYHqYnstMG8
+	Um+zvMZUj/W+yZKykkS/tTuuWz6PVt2sFWmbEFeS+6rMqQdu4oRUxDPQAgKqbs4+BiuKYpwNKJO
+	Qc7xe+UpU0SgOIQX7ritppToxm4gZXZUYStbE9bclwWZzrlFZQGiMNL92fjT1czlSRI/iWWvytx
+	YCYC7AEVGAD/AF6naHiPOGF61QxALDpcjG/QI
+X-Google-Smtp-Source: AGHT+IH6HY+p7Hp/Yk/auxux6EFH/0htf4yyEg33W/v6Shc5j9xmPAHiObaFWd+rVZyTMTg5E1r2zw==
+X-Received: by 2002:a17:903:fa7:b0:234:11f9:a72b with SMTP id d9443c01a7336-23dede96972mr84775955ad.50.1752328521616;
+        Sat, 12 Jul 2025 06:55:21 -0700 (PDT)
+Received: from daerolee-Swift-SF316-51.. ([49.142.96.162])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23de43227acsm65559485ad.124.2025.07.12.06.55.16
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 12 Jul 2025 06:55:20 -0700 (PDT)
+From: daeroro <skseofh@gmail.com>
+X-Google-Original-From: daeroro <skseofh@naver.com>
+To: will@kernel.org
+Cc: alexandru.elisei@arm.com,
+	james.morse@arm.com,
+	kernel-team@android.com,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	maz@kernel.org,
+	oliver.upton@linux.dev,
+	qperret@google.com,
+	sebastianene@google.com,
+	sudeep.holla@arm.com,
+	suzuki.poulose@arm.com,
+	tabba@google.com
+Subject: [QUESTION] KVM: arm64: Handle FFA_MEM_LEND calls from the host
+Date: Sat, 12 Jul 2025 22:55:13 +0900
+Message-Id: <20250712135513.608609-1-skseofh@naver.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20230523101828.7328-9-will@kernel.org>
+References: <20230523101828.7328-9-will@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250712-rockchip-i2s-simplify-clk-v1-1-3b23fd1b3e26@linux.dev>
-X-B4-Tracking: v=1; b=H4sIABppcmgC/x3MQQqDMBBG4avIrDuQRCXQq5Qu2jjRH62GDEgle
- HeDy2/xXiGVDFF6NoWy7FBsa4V9NBSmzzoKY6gmZ1xvvHWctzCHCYnhlBW/tCAeHJaZxXjT9T4
- O39ZS7VOWiP/9fr3P8wLSOgSMawAAAA==
-X-Change-ID: 20250712-rockchip-i2s-simplify-clk-e070457fdb31
-To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
- Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
- Heiko Stuebner <heiko@sntech.de>
-Cc: linux-sound@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Troy Mitchell <troy.mitchell@linux.dev>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1752328479; l=4147;
- i=troy.mitchell@linux.dev; s=20250712; h=from:subject:message-id;
- bh=3bgcB1TurwhT7L9X2KCmbojs72aEaLZWW2bUy/QsO0Y=;
- b=p4ygt/SPN0WzYAquOnuf0wpNUMCA+lbmD7jSoi9sBqx1GRoMNauMF41Zbx2G6x+OmQYVZFzsi
- opM26vamUVkAZG6iJJch82NRs8/tqFdUlNa9fx84WRY72rxTvOpvL7T
-X-Developer-Key: i=troy.mitchell@linux.dev; a=ed25519;
- pk=zhRP1xE0bftrurqSWI+SzcSdJGIZ0BTTY9Id0ESzqlI=
-X-Migadu-Flow: FLOW_OUT
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250712_065505_921425_002FF8F1 
-X-CRM114-Status: GOOD (  13.15  )
+X-CRM114-CacheID: sfid-20250712_065522_597446_DF9D6A31 
+X-CRM114-Status: UNSURE (   8.16  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,129 +110,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Replace devm_clk_get + clk_prepare_enable with devm_clk_get_enabled
-to simplify clock acquisition and enabling.
+> Handle FFA_MEM_LEND calls from the host by treating them identically to
+> FFA_MEM_SHARE calls for the purposes of the host stage-2 page-table, but
+> forwarding on the original request to EL3.
 
-Use dev_err_probe for concise error logging and return handling,
-reducing boilerplate code and improving readability.
+Hello Will,
+I have a question about your patch.
 
-Signed-off-by: Troy Mitchell <troy.mitchell@linux.dev>
----
- sound/soc/rockchip/rockchip_i2s.c | 51 +++++++++++----------------------------
- 1 file changed, 14 insertions(+), 37 deletions(-)
-
-diff --git a/sound/soc/rockchip/rockchip_i2s.c b/sound/soc/rockchip/rockchip_i2s.c
-index 0a0a95b4f5204701b52ca924683d51c29992015d..bd1b5771ae7c6f91e57c0fe3579a3d9974839f8e 100644
---- a/sound/soc/rockchip/rockchip_i2s.c
-+++ b/sound/soc/rockchip/rockchip_i2s.c
-@@ -31,7 +31,6 @@ struct rk_i2s_pins {
- struct rk_i2s_dev {
- 	struct device *dev;
- 
--	struct clk *hclk;
- 	struct clk *mclk;
- 
- 	struct snd_dmaengine_dai_dma_data capture_dma_data;
-@@ -739,6 +738,7 @@ static int rockchip_i2s_probe(struct platform_device *pdev)
- 	struct snd_soc_dai_driver *dai;
- 	struct resource *res;
- 	void __iomem *regs;
-+	struct clk *clk;
- 	int ret;
- 
- 	i2s = devm_kzalloc(&pdev->dev, sizeof(*i2s), GFP_KERNEL);
-@@ -757,38 +757,23 @@ static int rockchip_i2s_probe(struct platform_device *pdev)
- 	}
- 
- 	/* try to prepare related clocks */
--	i2s->hclk = devm_clk_get(&pdev->dev, "i2s_hclk");
--	if (IS_ERR(i2s->hclk)) {
--		dev_err(&pdev->dev, "Can't retrieve i2s bus clock\n");
--		return PTR_ERR(i2s->hclk);
--	}
--	ret = clk_prepare_enable(i2s->hclk);
--	if (ret) {
--		dev_err(i2s->dev, "hclock enable failed %d\n", ret);
--		return ret;
--	}
-+	clk = devm_clk_get_enabled(&pdev->dev, "i2s_hclk");
-+	if (IS_ERR(clk))
-+		return dev_err_probe(&pdev->dev, PTR_ERR(clk), "hclock enable failed");
- 
- 	i2s->mclk = devm_clk_get(&pdev->dev, "i2s_clk");
--	if (IS_ERR(i2s->mclk)) {
--		dev_err(&pdev->dev, "Can't retrieve i2s master clock\n");
--		ret = PTR_ERR(i2s->mclk);
--		goto err_clk;
--	}
-+	if (IS_ERR(i2s->mclk))
-+		return dev_err_probe(&pdev->dev, PTR_ERR(i2s->mclk),
-+				     "Can't retrieve i2s master clock");
- 
- 	regs = devm_platform_get_and_ioremap_resource(pdev, 0, &res);
--	if (IS_ERR(regs)) {
--		ret = PTR_ERR(regs);
--		goto err_clk;
--	}
-+	if (IS_ERR(regs))
-+		dev_err_probe(&pdev->dev, PTR_ERR(regs), "Can't ioremap registers");
- 
- 	i2s->regmap = devm_regmap_init_mmio(&pdev->dev, regs,
- 					    &rockchip_i2s_regmap_config);
--	if (IS_ERR(i2s->regmap)) {
--		dev_err(&pdev->dev,
--			"Failed to initialise managed register map\n");
--		ret = PTR_ERR(i2s->regmap);
--		goto err_clk;
--	}
-+	if (IS_ERR(i2s->regmap))
-+		return dev_err_probe(&pdev->dev, ret, "Failed to initialise managed register map");
- 
- 	i2s->bclk_ratio = 64;
- 	i2s->pinctrl = devm_pinctrl_get(&pdev->dev);
-@@ -796,11 +781,9 @@ static int rockchip_i2s_probe(struct platform_device *pdev)
- 		i2s->bclk_on = pinctrl_lookup_state(i2s->pinctrl, "bclk_on");
- 		if (!IS_ERR_OR_NULL(i2s->bclk_on)) {
- 			i2s->bclk_off = pinctrl_lookup_state(i2s->pinctrl, "bclk_off");
--			if (IS_ERR_OR_NULL(i2s->bclk_off)) {
--				dev_err(&pdev->dev, "failed to find i2s bclk_off\n");
--				ret = -EINVAL;
--				goto err_clk;
--			}
-+			if (IS_ERR_OR_NULL(i2s->bclk_off))
-+				return dev_err_probe(&pdev->dev, -EINVAL,
-+						     "failed to find i2s bclk_off");
- 		}
- 	} else {
- 		dev_dbg(&pdev->dev, "failed to find i2s pinctrl\n");
-@@ -843,20 +826,14 @@ static int rockchip_i2s_probe(struct platform_device *pdev)
- 		i2s_runtime_suspend(&pdev->dev);
- err_pm_disable:
- 	pm_runtime_disable(&pdev->dev);
--err_clk:
--	clk_disable_unprepare(i2s->hclk);
- 	return ret;
- }
- 
- static void rockchip_i2s_remove(struct platform_device *pdev)
- {
--	struct rk_i2s_dev *i2s = dev_get_drvdata(&pdev->dev);
--
- 	pm_runtime_disable(&pdev->dev);
- 	if (!pm_runtime_status_suspended(&pdev->dev))
- 		i2s_runtime_suspend(&pdev->dev);
--
--	clk_disable_unprepare(i2s->hclk);
- }
- 
- static const struct dev_pm_ops rockchip_i2s_pm_ops = {
-
----
-base-commit: 733923397fd95405a48f165c9b1fbc8c4b0a4681
-change-id: 20250712-rockchip-i2s-simplify-clk-e070457fdb31
-
-Best regards,
--- 
-Troy Mitchell <troy.mitchell@linux.dev>
-
+Does treating FFA_MEM_LEND as identical to FFA_MEM_SHARE imply that the host
+can still access the memory even after it has been 'lent'?
 
