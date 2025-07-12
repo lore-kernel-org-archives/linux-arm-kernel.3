@@ -4,107 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D4DAC83F10
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Jul 2025 07:57:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D084C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Jul 2025 08:00:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2kzV5mI5e3oH2Tgq5a4VKPX1/1e0I5y7GIWFJrZRKmo=; b=VPhX5ltD/7xMoyssitoaUg/Ffr
-	V/x+Ciad1ywocK3ePt+CVv7OxZ+BxWzzYTXiXQMfA7Oq50ZbKeZfYWms+Lck4733RYrSq5Rjdt27d
-	RklWeiHgKc8GM9Ktc2KuXE6cxhig4SA/TbWeMwDHiQA03v5910CG5bSVxHZLu7We/AeMpfbI/LOWj
-	3s8Qq6AgObMqfNC9eXl6rqHSZyxtTIc3xsKh+e6HR4gU8Rr1EXX+ouJ9hGdDelsE43rG7PEmH+GHz
-	AQFhdfW35atcqHC3D9HuHFGY5Wf28MTfxJmMpy174gCNzHlVzbILeeUBIQsYkAEPIPQ/sNiU47+e7
-	R8LEXoQw==;
+	bh=eHQ3vqiw7OuvvBYNY5ALvsuueTwg408Nk66Wf0qs9Ws=; b=4NRNP/XkZmOGRCwk5KhZSG1bGu
+	nd2N/5ERMVgOOtYXunvT6XJMUw4L+SRW4rhj/dr2PiR9S23fl+O+Qs+6IsPUmfGNfQFvFZxoIqFEm
+	K/YWxkBvvwJHdvgxZ91Zq3tvvNIx53OwWsIyGN1brSah2k2s3d3VyMpyOYMdwK0kmcd+/7xT/b+55
+	nt0gB8VaqaEIoLlm+XT37DNR6wxaXFxbG645bPKzxJDiXJoy73iRFq6aQjcWYBymHq8hmQXtWaGHx
+	B/mOCTcPskdH6PfBKfFhWs7xP2OLXj67X5R50BQfybBArUx2TXDPmsLPmKUbsFMSgguCZc+wBXAZY
+	fj0Mo/rw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaV7H-0000000GOIi-2Pus;
-	Sat, 12 Jul 2025 07:57:51 +0000
+	id 1uaV9d-0000000GOdM-17VG;
+	Sat, 12 Jul 2025 08:00:17 +0000
 Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaV2E-0000000GNd4-1PJb
+	id 1uaV67-0000000GO8q-1rEN
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 12 Jul 2025 07:52:39 +0000
+	Sat, 12 Jul 2025 07:56:40 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 350E9A54C87;
-	Sat, 12 Jul 2025 07:52:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1F96DC4CEEF;
-	Sat, 12 Jul 2025 07:52:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752306756;
-	bh=Ovl3SBGISov0rIfRZoGndqdQZutg9gmcb12N601d76M=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=BVUob5A/gBKrAEWEqetuMhE854N/Cx9j+wTJxPEGV75EdKnFCWjWYJRqCf6K5d4wz
-	 f+LEiPVa935i3LQF3TSdyoK5l4CIAf/HV0vTGvfd8ai+dWtTmJ+w2931kd/t6oupiV
-	 x6HVNOvSLPLGgMCFRmDEqEBY9kytRzo/aDWeb1C9Kju0wGbOxq+tSfvzgssin3VYv4
-	 7uhSyNP1NlTJYC84V/S5/j7nRHfkhvkOX1SHlA0uVCeplcmh9EZJ5cdJspza1wS1jy
-	 T5kObBFNrqgZ92JmvS8hEaQBrz+3sItytNXIUDuDZQPXDcvOcwLQXQjhhjSKrcqdxm
-	 yKFhyk9LtWIxw==
-Message-ID: <be042c1e-fac0-4928-a378-1fe3fec14a9e@kernel.org>
-Date: Sat, 12 Jul 2025 09:52:33 +0200
+	by nyc.source.kernel.org (Postfix) with ESMTP id B6714A54673;
+	Sat, 12 Jul 2025 07:56:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4A5B0C4CEEF;
+	Sat, 12 Jul 2025 07:56:38 +0000 (UTC)
+Received: from wens.tw (localhost [127.0.0.1])
+	by wens.tw (Postfix) with ESMTP id B0B945F939;
+	Sat, 12 Jul 2025 15:56:35 +0800 (CST)
+From: Chen-Yu Tsai <wens@csie.org>
+To: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
+ linux-gpio@vger.kernel.org, Paul Kocialkowski <paulk@sys-base.io>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Samuel Holland <samuel@sholland.org>, 
+ Linus Walleij <linus.walleij@linaro.org>, 
+ Andre Przywara <andre.przywara@arm.com>
+In-Reply-To: <20250707165155.581579-1-paulk@sys-base.io>
+References: <20250707165155.581579-1-paulk@sys-base.io>
+Subject: Re: (subset) [PATCH v2 0/4] Allwinner A100/A133 Ethernet MAC
+ (EMAC0) Support
+Message-Id: <175230699566.812115.14917196143990668369.b4-ty@csie.org>
+Date: Sat, 12 Jul 2025 15:56:35 +0800
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] pmdomain: samsung: Fix splash-screen handover by
- enforcing a sync_state
-To: Ulf Hansson <ulf.hansson@linaro.org>,
- Marek Szyprowski <m.szyprowski@samsung.com>, linux-pm@vger.kernel.org
-Cc: Alim Akhtar <alim.akhtar@samsung.com>,
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20250711114719.189441-1-ulf.hansson@linaro.org>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250711114719.189441-1-ulf.hansson@linaro.org>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250712_005238_511223_C220DC2F 
-X-CRM114-Status: GOOD (  11.69  )
+X-CRM114-CacheID: sfid-20250712_005639_552969_908A358C 
+X-CRM114-Status: UNSURE (   8.51  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,26 +73,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/07/2025 13:47, Ulf Hansson wrote:
-> It's has been reported that some Samsung platforms fails to boot with
-> genpd's new sync_state support.
+On Mon, 07 Jul 2025 18:51:51 +0200, Paul Kocialkowski wrote:
+> This series adds support for the Alwinner A100/A133 Ethernet MAC (EMAC0)
+> and uses it in the Liontron H-A133L board.
 > 
-> Typically the problem exists for platforms where bootloaders are turning on
-> the splash-screen and handing it over to be managed by the kernel. However,
-> at this point, it's not clear how to correctly solve the problem.
+> Changes since v1:
+> - Reverted the emac0 to emac rename;
+> - Added collected tags.
 > 
-> Although, to make the platforms boot again, let's add a temporary hack in
-> the samsung power-domain provider driver, which enforces a sync_state that
-> allows the power-domains to be reset before consumer devices starts to be
-> attached.
-> 
-> Reported-by: Marek Szyprowski <m.szyprowski@samsung.com>
-> Link: https://lore.kernel.org/all/212a1a56-08a5-48a5-9e98-23de632168d0@samsung.com
-> Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
-> ---
+> [...]
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Applied to sunxi/dt-for-6.17 in local tree, thanks!
+
+[2/4] arm64: dts: allwinner: a100: Add pin definitions for RGMII/RMII
+      commit: 28e4499a9ad68129d41db10b7481c61738fdb3d1
+[3/4] arm64: dts: allwinner: a100: Add EMAC support
+      commit: 4e3be5629f1f6de30d3fbcdc357e7da948ccf698
+[4/4] arm64: dts: allwinner: a133-liontron-h-a133l: Add Ethernet support
+      commit: 8f128f357dfe5907a6f3432ffb1f444e93f1fbf2
 
 Best regards,
-Krzysztof
+-- 
+Chen-Yu Tsai <wens@csie.org>
+
 
