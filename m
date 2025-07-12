@@ -4,67 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 711B3C83F10
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Jul 2025 15:30:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 551DFC83F1D
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Jul 2025 16:24:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lZx2NZXuKQJ5MZ9Menod0GULsbjcKgAMbN3yCF9Zij0=; b=D9tl/y81ejigKu//i2etae3e4a
-	j+2okt8T6K3wZ6HNnmEJfeRn/LgxAJ2Gbc1ZgQoORY9+II1vqgRqXZoPfbH83VY3AAUx1LTceuF9U
-	wOaa6EWeq+gtnGLzGYVnAmltvXo4SUFrxFXM/URUH/EFLQcpqvMcDeyOGPKOyc4iRZB2ZVzk8Q3vH
-	QlOVlxoAdP5sWJ/dWh48JQO+j9GOoHiDLU8mGKn6Cm/+3vQU7ybJmSnbzwcbkM3QYGaSgWIvkmpvn
-	EEJ23kZK337//h5dAAMGdMMNVBiokfDWgOr2T3vT/oXZF8BVcxuMRaDWh4mpawhpdCHE8G433zMZU
-	pxRuZ3/w==;
+	MIME-Version:Date:Subject:Cc:To:From:Message-ID:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=HB1hz+ricoDCLB7RNvWCnPHdSK4a0MIDQPyM96qZLrk=; b=Mzdoh80+oNAAe+hOnc9b2CugO9
+	dtvGDHEZNNv+aH+vqUJi/gtgOomT9S8Rvfb8ahZKCZcGB+XZO40L73+He5J1+F8Kf66d6bo3TMTne
+	ClFkK6nChFfkhtB78CoGu0gM8ylZhYsvD72TzoJSd2pqj6iDMpSD4byK3Sk42RLvv1opJCEz9CUO3
+	pkP2RUI5NX5xBbEUxRVUQc26IeLIn/S7jYspXmnNCV2Nz1RQihtBOMrWNtc8FSE09RAPjyu4WJHcX
+	JsSJA86ucj5Hm40AooN931cDRX7F0P7XbugygNvJUinctLSRkuhoRV+GMVdILgQg8HTjFNP6+Bur/
+	EdxVRADA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uacBa-0000000GlXo-1Anh;
-	Sat, 12 Jul 2025 15:30:46 +0000
-Received: from smtp.forwardemail.net ([121.127.44.73])
+	id 1uad1I-0000000GndP-3b5H;
+	Sat, 12 Jul 2025 16:24:12 +0000
+Received: from out203-205-221-235.mail.qq.com ([203.205.221.235])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uac9A-0000000GlSi-3uly
+	id 1uacyu-0000000Gna3-1Hmd
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 12 Jul 2025 15:28:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
- h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
- Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
- s=fe-e1b5cab7be; t=1752334093;
- bh=lZx2NZXuKQJ5MZ9Menod0GULsbjcKgAMbN3yCF9Zij0=;
- b=uQ8haAeCDZvZPeMmV/lOzU4dUUFRUPwhGYxhVn0NeCPSU5s00bgrBV1N0r6wbYK6FmQkXEYoI
- 4J7SD9WMkw6FIwaQckg59iMYdiCJBeBwxpet/8C6PCLRv46l+91rYWVxKyKpZzxQdOxEgIAEEeO
- Xzepq7v4X1ykFgY8BExwV22VdKrbNJWdNRn+/+qflCc98OCy64fJEl6W3+ROcHzySwJ0jMa/lnm
- 1i0PSmcCtCx7mFlSLcBOgluhFpuAT2eKZC7h/qdqeDgorK1B2tktCLPk9tphuTjFlMAJOUqPPXR
- i4C8NORCZEgFBl2SCd/8ttmS1IhyhEwnAoID6kyPJbUA==
-X-Forward-Email-ID: 68727c4bd7dd91652d167c59
-X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
- 121.127.44.73
-X-Forward-Email-Version: 1.1.6
-X-Forward-Email-Website: https://forwardemail.net
-X-Complaints-To: abuse@forwardemail.net
-X-Report-Abuse: abuse@forwardemail.net
-X-Report-Abuse-To: abuse@forwardemail.net
-Message-ID: <d4bc7bf4-bc56-4fd8-9121-379ac974b236@kwiboo.se>
-Date: Sat, 12 Jul 2025 17:16:23 +0200
+	Sat, 12 Jul 2025 16:21:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foxmail.com;
+	s=s201512; t=1752336989;
+	bh=HB1hz+ricoDCLB7RNvWCnPHdSK4a0MIDQPyM96qZLrk=;
+	h=From:To:Cc:Subject:Date;
+	b=CxyoSBkT5zD1U4U0BAScl2G0/2v6aoluF/JbafR+mGvo8DZQKwmAn9BbvBF4HfqW6
+	 3hqjT5chbAvhqowp0px+qEvIm3/eigNdxcJdUqneytoWyoq0YnTUfkYYtlT4mS4LaD
+	 Fpzb0PKyoYqzRLXkXSds9VUxx/FZTZ3NmaGtz0NA=
+Received: from KernelDevBox.byted.org ([115.190.40.10])
+	by newxmesmtplogicsvrszc16-0.qq.com (NewEsmtp) with SMTP
+	id 419B4E38; Sun, 13 Jul 2025 00:16:25 +0800
+X-QQ-mid: xmsmtpt1752336985tmnmdg17y
+Message-ID: <tencent_22664B08ACDCE35DE10E5546C2FB26B59605@qq.com>
+X-QQ-XMAILINFO: M84Ob7gbJGBWc01xJ7vkYkFSoybpZ2krgmPfjVOYXJ91Ln8jjLUHzFW0alz+Oj
+	 X2oy1OQm8f+cdzMidft6pl81ZjcmuCSuDXpQcWuPMfG2Pi2YWF62hfR0OiwNYK1f7e2gYmxXErba
+	 OV7OBlODTowdCIiY16gYCTeGutRSKz75a2MSsjGe2GuEwNMeHPrJf6ijIQrbxB+qneOp9rPMFuDx
+	 xcdRQx1RZe+Ekc740wBdVOhxVWHe0qBhGqDIsjPpjSOLzbCyBqxKMP3gtxLSDRLSbqH8I6/TFqCo
+	 BWwrR/FKIVeOdAXRCzVNlpckbMWjW3TyePIoo+NeTLN4uFLh0LWzJPY9JihqVXqXozr8F3+kjqLQ
+	 ZS8LqGw8tsRGY2c8bQgMsWCLd11LSKtu86Us787fVGi15F06adnHgjGoqyI1eHf3w1R+eqI4yZv9
+	 oUHyhMrOvUE/YVSrRIhSD5kx0fXU/yhTjDHmCr3bv3GTgZP1xxt2pGWlzs1nFuubEX+XsdL35YWz
+	 ArVv+QR8Jd4psGTurfjNH85xlAbGM94TSc/noMf++dyXNYkJG0uqEx0EhyhziY8IqW94DRAz9WLH
+	 /9YhpQ08Zqff0uiR07UbAhSk0/7e/yhdSMx5bvn7FXO5N7lBpJ7d5CAnae6f8zSKfOQz8Tpn2bJp
+	 ik268Hs2psc9pqOYzKvZ2KXDq0jW+LADhrBC3VcObXcynvpXJULaDGFvTSGplHjgmDW+TEmlKVRQ
+	 2tyyasOsfVRwFBxTTav88lw4fARkWW7obuGmqd+ZXMXCqgDUOMcY+OVathhVzp6hZAjTqKqZnHPW
+	 14P+87DYKbw8xD5xTDA/vqRsrX5AnyCh37RnTcaRVQL75pHe76/lK79rcxcaLVY2qFpUlDbvPrgP
+	 eWImY5bNSZaiKsuvIglIVgaR9O9Cp5il0GBWmx+5SQd2wHSJfu+07Y59c/FSrT1QiAZ6k8z3Hcos
+	 7EKs10ZOvXHhB8BD2Mqiwtx6e/WACgJ+PxuA6Wwx+51uX+WPJvwl/HXTt1dSBsVChhma/vFTg/Cg
+	 MtibJS5w==
+X-QQ-XMRINFO: Nq+8W0+stu50PRdwbJxPCL0=
+From: Zhang Shurong <zhang_shurong@foxmail.com>
+To: sven@kernel.org
+Cc: j@jannau.net,
+	alyssa@rosenzweig.io,
+	neal@gompa.dev,
+	joro@8bytes.org,
+	will@kernel.org,
+	robin.murphy@arm.com,
+	asahi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Zhang Shurong <zhang_shurong@foxmail.com>
+Subject: [PATCH] iommu/dart: add missing put_device() call in apple_dart_of_xlate
+Date: Sun, 13 Jul 2025 00:16:24 +0800
+X-OQ-MSGID: <20250712161624.1850171-1-zhang_shurong@foxmail.com>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 4/6] arm64: dts: rockchip: Add ArmSoM Sige1
-To: Chukun Pan <amadeus@jmu.edu.cn>
-Cc: conor+dt@kernel.org, devicetree@vger.kernel.org, heiko@sntech.de,
- krzk+dt@kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org,
- ziyao@disroot.org
-References: <acbbf570-7a56-4d88-a631-32acd13d29c7@kwiboo.se>
- <20250712040019.165440-1-amadeus@jmu.edu.cn>
-Content-Language: en-US
-From: Jonas Karlman <jonas@kwiboo.se>
-In-Reply-To: <20250712040019.165440-1-amadeus@jmu.edu.cn>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250712_082817_091317_0332AEEF 
-X-CRM114-Status: GOOD (  15.34  )
+X-CRM114-CacheID: sfid-20250712_092144_638356_BD8AC540 
+X-CRM114-Status: GOOD (  10.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,53 +91,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+The apple_dart_of_xlate() function obtains a platform device reference
+via of_find_device_by_node() but doesn't release it with put_device().
+This patch adds proper device reference handling to prevent memory
+leaks.
 
-On 7/12/2025 6:00 AM, Chukun Pan wrote:
-> Hi,
-> 
->>> Should this label be named as led-0/led-1?
-> 
->> The nodes must include 'led' anywhere in their name according to schema:
->>
->> """
->> patternProperties:
->>   # The first form is preferred, but fall back to just 'led' anywhere in the
->>   # node name to at least catch some child nodes.
->>   "(^led-[0-9a-f]$|led)":
->> """
->>
->> Using the color name similar to the the pin labels in schematics made
->> most sense to me.
->>
->> Do you want me to change these to conform to the more restricted
->> ^led-[0-9a-f]$ pattern?
-> 
-> This will be better.
+Fixes: 46d1fb072e76 ("iommu/dart: Add DART iommu driver")
+Signed-off-by: Zhang Shurong <zhang_shurong@foxmail.com>
+---
+ drivers/iommu/apple-dart.c | 10 ++++++++--
+ 1 file changed, 8 insertions(+), 2 deletions(-)
 
-Will change the node names of the leds in a v3.
-
-> 
->> I only try to enable controllers for devices that are properly described,
->> so I ignored the pwm-fan and its required pwm6 controller. Mostly
->> because it make more sense to describe the fan once thermal support is
->> completed, work [1] currently being blocked by a rk356x otp series [2]
->> and that depends on a rk3576 thermal series [3].
-> 
-> Ok, I got it. Is usb2.0 also stuck?
-
-USB2.0 is mostly stuck due to my limited time and possible power-domain,
-will try to send the USB2.0 patches to mailing list tomorrow.
-
-Regards,
-Jonas
-
-> 
-> Thanks,
-> Chukun
-> 
-> --
-> 2.25.1
-> 
+diff --git a/drivers/iommu/apple-dart.c b/drivers/iommu/apple-dart.c
+index 190f28d76615..811bf5176568 100644
+--- a/drivers/iommu/apple-dart.c
++++ b/drivers/iommu/apple-dart.c
+@@ -796,8 +796,10 @@ static int apple_dart_of_xlate(struct device *dev,
+ 
+ 	if (!cfg) {
+ 		cfg = kzalloc(sizeof(*cfg), GFP_KERNEL);
+-		if (!cfg)
++		if (!cfg)  {
++			put_device(&iommu_pdev->dev);
+ 			return -ENOMEM;
++		}
+ 		/* Will be ANDed with DART capabilities */
+ 		cfg->supports_bypass = true;
+ 	}
+@@ -805,8 +807,10 @@ static int apple_dart_of_xlate(struct device *dev,
+ 
+ 	cfg_dart = cfg->stream_maps[0].dart;
+ 	if (cfg_dart) {
+-		if (cfg_dart->pgsize != dart->pgsize)
++		if (cfg_dart->pgsize != dart->pgsize) {
++			put_device(&iommu_pdev->dev);
+ 			return -EINVAL;
++		}
+ 	}
+ 
+ 	cfg->supports_bypass &= dart->supports_bypass;
+@@ -825,6 +829,8 @@ static int apple_dart_of_xlate(struct device *dev,
+ 		}
+ 	}
+ 
++
++	put_device(&iommu_pdev->dev);
+ 	return -EINVAL;
+ }
+ 
+-- 
+2.39.5
 
 
