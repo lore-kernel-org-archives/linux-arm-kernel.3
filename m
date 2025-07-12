@@ -4,65 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D865C83F10
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Jul 2025 08:16:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED16AC83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Jul 2025 08:19:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=v33ms5k4ow2UJ0hsUXUa+jBKMK5UF8r7ojvVY8bJsp4=; b=rwfO7NypgolMOLg9GAlpLYFmRv
-	GXirajTmpySEVoGWptyj77giPfAAJAhy4Ghjf16spMQm8yx8mbqFs4ZVwAzyYk3k4ykuXhz+1gRSg
-	uwEAWm4k/B69VU/zefmFt66jFf2WLU462BlRF5VX+09G8B4kuApdaB3yjifcLAdpDEj+7QHmbwCdi
-	/HZcDiUHUJpllKae4+GMXQ1NGSnlq65oz/RAV9A+INvba4ev0zm8RJXtOLCJDrsLdrEBpo7silNcT
-	LjmYAPhISSbLA+NC6MiQStSu5TEw6DI636QM3uGoec3UlA6jM6IOOFjp65R9JI+qPABHDVtM5GZyK
-	hytvFHyQ==;
+	bh=BOlQis5FhKl/4xPQKhMceoRjThDMw6WyFQn2v9oVcg8=; b=Moo4acHCCbdH69oTD8AuRcDp8U
+	mLveN/U8YBVM7MNiEJu4ksCE+W0c+T+4uyxV16zIxptXiDTnXPTVaDpMEcfZO6CogNXmcxeE8LCQU
+	ZYG2ert4v7a5fsVX50zAJtkBAAieAGsYearbBnI1ItDL2hRsgBpzFfByBYkdiNmY3i9oa3TZAemky
+	QCjTc7xYSJLMXlla2SO1cw7QQDTMCS4VvJ1zlfaQb7wO5YlvCVqZ0UI5qpwCst73jlJek8HEkwMbQ
+	pnX/wT7GCe2zHgt6G3VS5y5CL9jqTw2dxZRBt8N5xFqALDhrc3IDjl3M5SyiEUoD5TVrFVrT2GJSt
+	g0uYezMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaVPI-0000000GPhU-3SPY;
-	Sat, 12 Jul 2025 08:16:28 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uaVRe-0000000GPrM-0Ueb;
+	Sat, 12 Jul 2025 08:18:54 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaVMu-0000000GPQ5-1G9f;
-	Sat, 12 Jul 2025 08:14:01 +0000
+	id 1uaVPA-0000000GPgA-3zUB;
+	Sat, 12 Jul 2025 08:16:22 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id B57AA5C48AA;
-	Sat, 12 Jul 2025 08:13:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4BB08C4CEEF;
-	Sat, 12 Jul 2025 08:13:53 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 0BBF6A54CF5;
+	Sat, 12 Jul 2025 08:16:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C9FC1C4CEEF;
+	Sat, 12 Jul 2025 08:16:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752308039;
-	bh=VA30t7dnvV2wR8+/G/Sx+Tt/ksk9TRh6rruNucHezUA=;
+	s=k20201202; t=1752308179;
+	bh=fQo4K2HEVBu7amyJdMssKDsDgVHS7eWNIAwuuStgM+s=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=QJ7WnKkbEcxdwG+1MxX+s8ajsFIOU1r7Nvufpt/Y7fT+Hle06/5txFU6XxWWDyUak
-	 QlK43GRwI36NsDQRurVYr5U6PxrWP43R497gp3Ms6Gahwc3hR00cJHG6XZxVN0LWVC
-	 HvMGpWfH9KyfBVnqWLJy2pnEBCiUAV9CbNKTnNNo9Q20p71Lb3sZ+y0U+/l8eRHXxY
-	 JVFoxoGJ3f87maqVa1VMhc/naXqtuZ458PvRq22Di55FFuxNQBCy9HvZNPSMP0gd4G
-	 hUbc/+Iz7Vjz7ZgVk6Hsk3jev82n2RAkrd8OkHy36WZXjFidu1U2ia/zqT+rz+a1Ps
-	 W7pVDDKmpfweA==
-Message-ID: <9a2d0ad7-cb1f-473d-a91a-3a1b59b71280@kernel.org>
-Date: Sat, 12 Jul 2025 10:13:51 +0200
+	b=H4h3f0M6RL7BWmgXq6jGkkhbjLOIkn7KQ6bslA+r7BrRSju49TS6ochVYpoW/DzEG
+	 llOtm5LCN/pTrUV8sgVyjmn4Tc2eGiBI0IAsTiv0qE1gU0l4zkSaInYVxdG4knxLMy
+	 gl9GUSfmA1MVtaq5qcdhGz+udmaMeRZ/hQve36YVvB296xNjpcN1C5OPi+2zpxzolV
+	 K2hE4arC57ZmqERaKBIUWTC4T8hQW8PQdCIVS2Qw74eNNuf5u5dzK2TKGFTgT+ReCW
+	 y0y8dwywE3QjzxZAxJgF8JjPjBiX+1MHzqWvfy/SQ4pcVTBycIABrbyF9uEQxjOGkQ
+	 LhclI/sRaGO/w==
+Message-ID: <40c06385-26bc-4d5f-8fdc-fee2600afdeb@kernel.org>
+Date: Sat, 12 Jul 2025 10:16:11 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 1/6] dt-bindings: phy: samsung,usb3-drd-phy: add
- ExynosAutov920 HS phy compatible
-To: Pritam Manohar Sutar <pritam.sutar@samsung.com>,
- 'Krzysztof Kozlowski' <krzysztof.kozlowski@linaro.org>
-Cc: vkoul@kernel.org, kishon@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, alim.akhtar@samsung.com, andre.draszik@linaro.org,
- peter.griffin@linaro.org, neil.armstrong@linaro.org, kauschluss@disroot.org,
+Subject: Re: [PATCH v4 2/6] phy: exynos5-usbdrd: support HS phy for
+ ExynosAutov920
+To: Pritam Manohar Sutar <pritam.sutar@samsung.com>, vkoul@kernel.org,
+ kishon@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ alim.akhtar@samsung.com, andre.draszik@linaro.org, peter.griffin@linaro.org,
+ neil.armstrong@linaro.org, kauschluss@disroot.org,
  ivo.ivanov.ivanov1@gmail.com, m.szyprowski@samsung.com,
- s.nawrocki@samsung.com, linux-phy@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- rosa.pila@samsung.com, dev.tailor@samsung.com, faraz.ata@samsung.com,
- muhammed.ali@samsung.com, selvarasu.g@samsung.com
+ s.nawrocki@samsung.com
+Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, rosa.pila@samsung.com,
+ dev.tailor@samsung.com, faraz.ata@samsung.com, muhammed.ali@samsung.com,
+ selvarasu.g@samsung.com
 References: <20250701120706.2219355-1-pritam.sutar@samsung.com>
- <CGME20250701115955epcas5p320cfe73ca33522cd2f9f7970cfde1c63@epcas5p3.samsung.com>
- <20250701120706.2219355-2-pritam.sutar@samsung.com>
- <20250706-fresh-meaty-cougar-5af170@krzk-bin>
- <07d301dbf0ae$0658cbe0$130a63a0$@samsung.com>
+ <CGME20250701115959epcas5p40f28954777a620b018251301eea13873@epcas5p4.samsung.com>
+ <20250701120706.2219355-3-pritam.sutar@samsung.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -108,12 +106,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <07d301dbf0ae$0658cbe0$130a63a0$@samsung.com>
+In-Reply-To: <20250701120706.2219355-3-pritam.sutar@samsung.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250712_011400_421188_024F3B44 
-X-CRM114-Status: GOOD (  15.18  )
+X-CRM114-CacheID: sfid-20250712_011621_122611_9FF905F4 
+X-CRM114-Status: GOOD (  13.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,134 +126,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 09/07/2025 10:46, Pritam Manohar Sutar wrote:
-> Hi Krzysztof,
+On 01/07/2025 14:07, Pritam Manohar Sutar wrote:
+> This SoC has a single USB 3.1 DRD combo phy that supports both
+> UTMI+ (HS) and PIPE3 (SS) and three USB2.0 DRD HS phy controllers
+> those only support the UTMI+ (HS) interface.
 > 
->> -----Original Message-----
->> From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
->> Sent: 06 July 2025 03:11 PM
->> To: Pritam Manohar Sutar <pritam.sutar@samsung.com>
->> Cc: vkoul@kernel.org; kishon@kernel.org; robh@kernel.org;
->> krzk+dt@kernel.org; conor+dt@kernel.org; alim.akhtar@samsung.com;
->> andre.draszik@linaro.org; peter.griffin@linaro.org; neil.armstrong@linaro.org;
->> kauschluss@disroot.org; ivo.ivanov.ivanov1@gmail.com;
->> m.szyprowski@samsung.com; s.nawrocki@samsung.com; linux-
->> phy@lists.infradead.org; devicetree@vger.kernel.org; linux-
->> kernel@vger.kernel.org; linux-arm-kernel@lists.infradead.org; linux-samsung-
->> soc@vger.kernel.org; rosa.pila@samsung.com; dev.tailor@samsung.com;
->> faraz.ata@samsung.com; muhammed.ali@samsung.com;
->> selvarasu.g@samsung.com
->> Subject: Re: [PATCH v4 1/6] dt-bindings: phy: samsung,usb3-drd-phy: add
->> ExynosAutov920 HS phy compatible
->>
->> On Tue, Jul 01, 2025 at 05:37:01PM +0530, Pritam Manohar Sutar wrote:
->>> Add a dedicated compatible string for USB HS phy found in this SoC.
->>> The SoC requires two clocks, named "phy" and "ref" (same as clocks
->>> required by Exynos850).
->>>
->>> It also requires various power supplies (regulators) for the internal
->>> circuitry to work. The required voltages are:
->>> * avdd075_usb - 0.75v
->>> * avdd18_usb20 - 1.8v
->>> * avdd33_usb20 - 3.3v
->>>
->>> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
->>
->> No, really. Look:
->>
->>> Signed-off-by: Pritam Manohar Sutar <pritam.sutar@samsung.com>
->>> ---
->>>  .../bindings/phy/samsung,usb3-drd-phy.yaml    | 37 +++++++++++++++++++
->>>  1 file changed, 37 insertions(+)
->>>
->>> diff --git
->>> a/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml
->>> b/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml
->>> index e906403208c0..2e29ff749bba 100644
->>> --- a/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml
->>> +++ b/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml
->>> @@ -34,6 +34,7 @@ properties:
->>>        - samsung,exynos7870-usbdrd-phy
->>>        - samsung,exynos850-usbdrd-phy
->>>        - samsung,exynos990-usbdrd-phy
->>> +      - samsung,exynosautov920-usbdrd-phy
->>>
->>>    clocks:
->>>      minItems: 1
->>> @@ -110,6 +111,15 @@ properties:
->>>    vddh-usbdp-supply:
->>>      description: VDDh power supply for the USB DP phy.
->>>
->>> +  avdd075_usb-supply:
->>> +    description: 0.75V power supply for USB phy
->>> +
->>> +  avdd18_usb20-supply:
->>> +    description: 1.8V power supply for USB phy
->>> +
->>> +  avdd33_usb20-supply:
->>> +    description: 3.3V power supply for USB phy
->>> +
->>
->> None of these were here. Follow DTS coding style... but why are you adding
->> completely new supplies?
+> Support only UTMI+ port for this SoC which is very similar to what
+> the existing Exynos850 supports.
 > 
-> Digital supplies were here. Need Analog supplies for exynosautov920, hence added new Analog supplies; 'a'vdd075_usb, 'a'vdd18_usb20, 'a'vdd33_usb20
+> This SoC shares phy isol between USBs. Bypass PHY isol when first USB
+> is powered on and enable it when all of then are powered off. Add
+> required change in phy driver to support HS phy for this SoC.
 > 
-> Will add "full stops" for DTS coding style in description.
+> Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
 
-You cannot grow one line change into 50 line change and retain the review.
+Drop
+
+You again added significant changes and claimed they were reviewed.
+
+> Signed-off-by: Pritam Manohar Sutar <pritam.sutar@samsung.com>
+> ---
+>  drivers/phy/samsung/phy-exynos5-usbdrd.c    | 131 ++++++++++++++++++++
+>  include/linux/soc/samsung/exynos-regs-pmu.h |   2 +
+>  2 files changed, 133 insertions(+)
 > 
->>
->>
->>>  required:
->>>    - compatible
->>>    - clocks
->>> @@ -235,6 +245,33 @@ allOf:
->>>
->>>          reg-names:
->>>            maxItems: 1
->>> +  - if:
->>> +      properties:
->>> +        compatible:
->>> +          contains:
->>> +            enum:
->>> +              - samsung,exynosautov920-usbdrd-phy
->>> +    then:
->>> +      properties:
->>> +        clocks:
->>> +          minItems: 2
->>> +          maxItems: 2
->>> +
->>> +        clock-names:
->>> +          items:
->>> +            - const: phy
->>> +            - const: ref
->>> +
->>> +        reg:
->>> +          maxItems: 1
->>> +
->>> +        reg-names:
->>> +          maxItems: 1
->>> +
->>> +      required:
->>> +        - avdd075_usb-supply
->>> +        - avdd18_usb20-supply
->>> +        - avdd33_usb20-supply
->>
->> Neither was this entire diff hunk here.
->>
->> This was part of other block for a reason.
-> 
-> Added regulators in driver. This block is added for regulators (other block does not have "required" field for power supplies)
-> if excluded this block,  
-> "make ARCH=arm64 dtbs_check DT_SCHEMA_FILES=Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml" will fail as mentioned below 
+> diff --git a/drivers/phy/samsung/phy-exynos5-usbdrd.c b/drivers/phy/samsung/phy-exynos5-usbdrd.c
+> index dd660ebe8045..64f3316f6ad4 100644
+> --- a/drivers/phy/samsung/phy-exynos5-usbdrd.c
+> +++ b/drivers/phy/samsung/phy-exynos5-usbdrd.c
+> @@ -480,6 +480,8 @@ struct exynos5_usbdrd_phy {
+>  	enum typec_orientation orientation;
+>  };
+>  
+> +static atomic_t usage_count = ATOMIC_INIT(0);
 
-
-Nothing is explained in changelog/cover letter. You claim you only added
-Rb tag. This is an entirely silent change while keeping the review.
-Combined with not even following DTS style!
-
-It's not acceptable.
+No, you cannot have singletons. How are you going to handle two
+independent phys?
 
 Best regards,
 Krzysztof
