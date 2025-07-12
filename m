@@ -4,69 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84ABBC83F1D
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Jul 2025 21:07:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28C78C83F10
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Jul 2025 21:09:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=qfLL9MbScUSlOSjyWm24E58Y3rU7LU4fcYrGg0K5EsA=; b=UnhcfkBwI/G105Dhdx6a8wMfwQ
-	osVhv7/+G0+0Xk/LeoEVT3+sWxWZR8eYTaEEQn+5GaavuI3BOnt0u2QulDpg4X5uSxskYcWMIUl/d
-	rfAo4/i3rTm/XASdAcr93rGgNN1Iayx/8YtGgFxCWzO4iCBFixTi2RYlwdOiks/ej8KxFDUd5Lp8U
-	kB8AOYxex+6EXWe5SO1gBdy9g6IIygJCsPqirF/6kazJ+acJQ6m3T60+w6z5IzXfZ5EF6XSvIZkv/
-	XW4OMqScX4DwKmPkiKYht3ClgKlGsn9UAy29y/9ncuYxBTtUyezH/bs62ZWMVKbnr5miOOrtDUNDu
-	6pz/i24g==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SfbqWqhAF1GPPRiAu1364uXMrz946WcMqg/i/HnGuaI=; b=t475uMwxhQxjA6YjxvtnTAsVpq
+	jf3aDy0B2+uewegYdArHOvruqtLR4GvQBu7D7uN/e9Yj5V5AeFGrfJBMUEfKvgcjTRAaQLqcBk/dB
+	df6Ot+2uKxeydP187EuIEt2gdlTTOJ8Yl/pDtfdwojRy7QMcJWHsGbtbo2T04TXKdUZh4gC20wzG6
+	ZDPpqyhOb27lzwe4N3B3ZWZz2EPD9R0M/8bqO5dQWwPU6CDqzkMN/B0NYixyKrzkP/gRUA3mBiu0y
+	yPl8KXQggT8qz6ohjG6NTS/HRIU7bGi/LdoMseIi+JMZptNyS9EC3pzhSdUE7WsTX9YRujjgO2cWy
+	bFigvfNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uahRK-0000000H1d8-2bnT;
-	Sat, 12 Jul 2025 21:07:22 +0000
-Received: from mail-pf1-x435.google.com ([2607:f8b0:4864:20::435])
+	id 1uahTi-0000000H1ls-2vTi;
+	Sat, 12 Jul 2025 21:09:50 +0000
+Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uahOt-0000000H1C5-21zE;
-	Sat, 12 Jul 2025 21:04:52 +0000
-Received: by mail-pf1-x435.google.com with SMTP id d2e1a72fcca58-7425bd5a83aso2613716b3a.0;
-        Sat, 12 Jul 2025 14:04:50 -0700 (PDT)
+	id 1uahOu-0000000H1Cb-1tmR;
+	Sat, 12 Jul 2025 21:04:53 +0000
+Received: by mail-pf1-x42a.google.com with SMTP id d2e1a72fcca58-74b27c1481bso1973749b3a.2;
+        Sat, 12 Jul 2025 14:04:52 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1752354290; x=1752959090; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=qfLL9MbScUSlOSjyWm24E58Y3rU7LU4fcYrGg0K5EsA=;
-        b=HeGTrSwISw2DvqsESIA2gJA4A+4yxuCfpqsNacmZylKTjZ1/DJr2gFUvZ4iajO4zaF
-         +tnFJKvHGLn5Knm+AQFIv60V9HvDLTlCQ7OtXyLRmMs6gbmnwwQWlpYYBtlMOZ3t7WDd
-         6Zz1+3bNICfHLIFHJt1P2vHdNb2iFXbiO0XF3yNZ5gv7/6Sp0M48dMv9KjHbrtuD60er
-         rIAV+7qR5QYuoE7egfGc0dG3e2f1riRLbU9p8M+SwplT0zSMOxZR7VpU0dDKtJ/zvK3u
-         2ywoovd4o8T/hDIu0qm9DwI+d+Nh+aYz6qwWLtLttXNt/2Th5iP4FJ3DEGqqxVXL2fI0
-         8b1w==
+        d=gmail.com; s=20230601; t=1752354292; x=1752959092; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=SfbqWqhAF1GPPRiAu1364uXMrz946WcMqg/i/HnGuaI=;
+        b=ZZSntWhdgkzYuVHcjCPbByYnX1Co7hdE4O+he5pvqjwu0ew5AZgJIpzyfX5twdiiBt
+         bSLxDUPj3trSNPkxKhp7wax3CGKiNNVROZKUTf1Vn53sDlt9pzh6wQldk7b73YYy22iw
+         XZmsZyQkn3Hh0dPgs5p3loK6924WLJx0psqsvUYdF6Ed2TmZLFHmY79Nfxibva5fr95m
+         Rv/14JZ8yljlu/Sy08YXj++6yBESw32UXY+aRVfq5YUgfJIRV1y55QkJJbGCz6LYC0U9
+         Eaveq8pzLkOu453yhlxJJC5vR7tW/8qySsvaJKZ9wutE61BmENhc5oNra0vfH9c+Zdf0
+         QXSA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752354290; x=1752959090;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=qfLL9MbScUSlOSjyWm24E58Y3rU7LU4fcYrGg0K5EsA=;
-        b=ni9JrX1toLmZzcFX6nfsD4qbXoqeeUm+9P0PXtDwzzJcrsLmqJfd5qAQHRxIPzJzFj
-         KUAM3xr/EgGShHsfQt0T1B5VFESjpA1wbRalAVX9o/zCMeGpcHmwL+FGjA+xOBZcnjoy
-         fGpgvilIFUn2L+hvKW6AgOjiw1LcQhpjLu2bG0HMJIMoAtSXix1ioV1BVX2NJKV9mYdl
-         97LJJLQJS9Rl5IuVKjI3scPF6XceSL++jY0G12qfeGsPiI3sikT9vzf+LgWmxo75PM0y
-         RhKNwcegLN+jGKaag4gIBUEtJ2noG//eszVbeQpRS7tyr1YO17ZPukQxyfS4sx3zLdqm
-         Dong==
-X-Forwarded-Encrypted: i=1; AJvYcCUm26wD6e+g6TnY2ktnNu2o5aljHPK/kZcWwWuEKOXlG0SXmmFuCGGUkno4Fd7v43Efhzgji5ga45goNtosjR4=@lists.infradead.org, AJvYcCVFomaQGP8DbbFIzQNHgpzwdYjs0/+1heVnYWCrZ/2LWjrydoSkhpl2MAVYm/oNyPar6X08x9xsivsH849C7ezt@lists.infradead.org
-X-Gm-Message-State: AOJu0YxsvVS7/4lXxlWy8YHrlMA4PfsmRkwb3rvF1iTyYDQktz2BULM/
-	NWds4V1ETyhtBhr8/NMp6RnS98w2mRrkAmhlTVsIX/jprwlpwSxO1tIw
-X-Gm-Gg: ASbGnctGxtoO5+3/DNDdMCMCPHGSE/kCFsEHhazaEs+tYZt4oPenCJVKMM6XenVFoNZ
-	G6RupnliTSK91C4GxEZqSyVC2fGMNSwCViKg1zIGLk/vmG6YOGDZ+KbLfesME+B083lLtxH/Exy
-	SbsyNlHGHBd1+NjN5N75AhsWQID7zhRzifZ+ZoJEfO1w0trbsxyDRQVfRbokiNB9Z5KVD7Qan3C
-	VI+X8+RQ3gey+b0zp4AR3hE3VN6O0g1aiczI8he6f+56EBBbGkf+PRio+ZeXSNCKS9vBFS07BNK
-	MgG86kgER7IDA/NbxykU+k6esy78rf55TZb87UVzaTEQLCyZSvLEb+xdSrJj/PJfk+pw+xOdL3t
-	X1K8=
-X-Google-Smtp-Source: AGHT+IEmaDL+eIW50uO1oQuIKN5GC4YkbvTHfY3hEE3Iole2C/tppuO6g6t8PhNj8q6jTNSWze+VEw==
-X-Received: by 2002:a05:6a21:9004:b0:220:2da8:325c with SMTP id adf61e73a8af0-23131b04c94mr15471348637.0.1752354290253;
-        Sat, 12 Jul 2025 14:04:50 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1752354292; x=1752959092;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=SfbqWqhAF1GPPRiAu1364uXMrz946WcMqg/i/HnGuaI=;
+        b=Ka0V62Kywah6QstPKMKHtRc8kiW8u2kr+qUZwdcPx3uV9R5/c7ETRm9QWhwcRGnhG/
+         fzYmm9QyNBR5c04Sc/UWUIA/OlPRIcgMc6WmZv/klytD8eI70q3i3jpEqO7SUye/rSkG
+         TRNIJQbF9/8CMeEsaFmh/qXt8wJmo2Lf81gzLhMgsx93b6vsuu7AKFSwoFwOSLzVIJD3
+         h5nLqTLrT60XR58fzflbHSBTd9s9cAGhGSIzVuQiQ9cfbAkxB+WXRJ+Wn3p4SnUvhTis
+         ThDN/++xUjmW8i9LFcxbrdx+bkszXCeAi5SI4M+9arITc6t8FqctCWIZCcmcqq50RZyl
+         DZOw==
+X-Forwarded-Encrypted: i=1; AJvYcCUjXcYsrETQ+RGRy3EeLZ2cLbNlOc5xmg6Xqpq7c2z+Ex5SVE8SpWE+uUUnLGw7p/ub/oBrI4Fp5TUfjQpl5fc=@lists.infradead.org, AJvYcCVI62XNqGFhi11ObFaV2nFNTfaeOfnprd2RPGnNq4ir/vOCIEacsVVBR0v1J4cV0ah4VFpeKhdoDE785mSzcdsP@lists.infradead.org
+X-Gm-Message-State: AOJu0YyGZAAzvKl5/oZCQbGzEaDsCyIA8BugL2ZozqJlFK8tEp69R+N8
+	otV+lZAg4mGOeDHE3aTNtM/TpCHBydZIbDczDcwRpmlQP47+/rxCbrQ5bwFoyPx7
+X-Gm-Gg: ASbGncvP1fDyXqLexlkAzKTp/xwXRLQHH4KWW5yAfjs50tCraYXhX05QDF0sdmeyVJx
+	NI5RQ3lruNN2o905prFTM/KVJvQ6+92in7j3DMTt/wXuzJg/4xYvZTHoFTYmSJaYE3CbrReZ0rB
+	I8vqjfTaPeFl0Pwzs4J1rz0ygPbWPqmpr9XZ77IjQF8p296F8837aJu+3gJGL0nx74vteReYXCA
+	nErwhTjTPv6/4D+uppQHERD4bZ84Nwuv4J6Zf/NNspCb2jCuwfmH6gVEIqBA4u7Ja/elL7NNF6q
+	38C8shn09DC3vyh3HZ6dYLrgT1Q2Tyg0/lpXpJdSWMIhDhYHXZDXotVCmZJQ48/iXIWw0t5x7a9
+	Q9PU=
+X-Google-Smtp-Source: AGHT+IHNhPABi5WGgAsr77y9g6llbfq85pqYA/U1Ld31ANa2lqUSnt9jUyA7+28dGs1pA54AczxQfQ==
+X-Received: by 2002:a05:6a00:10cf:b0:748:f3b0:4db6 with SMTP id d2e1a72fcca58-74f1e7dffdfmr10394456b3a.11.1752354291601;
+        Sat, 12 Jul 2025 14:04:51 -0700 (PDT)
 Received: from archlinux.lan ([2601:644:8200:dab8::1f6])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-74eb9dd5d30sm7988645b3a.5.2025.07.12.14.04.49
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-74eb9dd5d30sm7988645b3a.5.2025.07.12.14.04.50
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 12 Jul 2025 14:04:49 -0700 (PDT)
+        Sat, 12 Jul 2025 14:04:51 -0700 (PDT)
 From: Rosen Penev <rosenp@gmail.com>
 To: linux-wireless@vger.kernel.org
 Cc: Johannes Berg <johannes@sipsolutions.net>,
@@ -82,16 +83,17 @@ Cc: Johannes Berg <johannes@sipsolutions.net>,
 	linux-mips@vger.kernel.org (open list:MIPS),
 	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Mediatek SoC support),
 	linux-mediatek@lists.infradead.org (moderated list:ARM/Mediatek SoC support)
-Subject: [PATCHv4 wireless-next 0/7] wifi: rt2x00: add OF bindings + cleanup
-Date: Sat, 12 Jul 2025 14:04:41 -0700
-Message-ID: <20250712210448.429318-1-rosenp@gmail.com>
+Subject: [PATCHv4 wireless-next 1/7] wifi: rt2x00: add COMPILE_TEST
+Date: Sat, 12 Jul 2025 14:04:42 -0700
+Message-ID: <20250712210448.429318-2-rosenp@gmail.com>
 X-Mailer: git-send-email 2.50.0
+In-Reply-To: <20250712210448.429318-1-rosenp@gmail.com>
+References: <20250712210448.429318-1-rosenp@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250712_140451_514365_A2852F21 
-X-CRM114-Status: UNSURE (   8.98  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250712_140452_488156_D5732088 
+X-CRM114-Status: GOOD (  12.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,39 +108,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-It doesn't even compile. Added OF bindings, documentation, and other
-stuff to hopefully this doesn't happen again.
+While this driver is for a specific arch, there is nothing preventing it
+from being compiled on other platforms.
 
-v2: move all of 2x00soc to 2800soc. I didn't realize only two functions
-remained for no good reason.
-Fixed typos.
-Slightly changed probe for clarity.
+Allows the various bots to test compilation and complain if a patch is
+bad.
 
-v3: fix wrong compatible in Documentation.
+Signed-off-by: Rosen Penev <rosenp@gmail.com>
+Acked-by: Stanislaw Gruszka <stf_xl@wp.pl>
+---
+ drivers/net/wireless/ralink/rt2x00/Kconfig | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-v4: renamed documentation file as there's only a single compatible.
-
-Rosen Penev (7):
-  wifi: rt2x00: add COMPILE_TEST
-  wifi: rt2x00: remove mod_name from platform_driver
-  wifi: rt2800soc: allow loading from OF
-  wifi: rt2800: move 2x00soc to 2800soc
-  wifi: rt2x00: soc: modernize probe
-  MIPS: dts: ralink: mt7620a: add wifi
-  dt-bindings: net: wireless: rt2800: add
-
- .../bindings/net/wireless/ralink,rt2800.yaml  |  47 ++++++
- arch/mips/boot/dts/ralink/mt7620a.dtsi        |  10 ++
- drivers/net/wireless/ralink/rt2x00/Kconfig    |   7 +-
- drivers/net/wireless/ralink/rt2x00/Makefile   |   1 -
- .../net/wireless/ralink/rt2x00/rt2800soc.c    | 102 +++++++++++-
- .../net/wireless/ralink/rt2x00/rt2x00soc.c    | 151 ------------------
- .../net/wireless/ralink/rt2x00/rt2x00soc.h    |  29 ----
- 7 files changed, 156 insertions(+), 191 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/net/wireless/ralink,rt2800.yaml
- delete mode 100644 drivers/net/wireless/ralink/rt2x00/rt2x00soc.c
- delete mode 100644 drivers/net/wireless/ralink/rt2x00/rt2x00soc.h
-
+diff --git a/drivers/net/wireless/ralink/rt2x00/Kconfig b/drivers/net/wireless/ralink/rt2x00/Kconfig
+index d1fd66d44a7e..3a32ceead54f 100644
+--- a/drivers/net/wireless/ralink/rt2x00/Kconfig
++++ b/drivers/net/wireless/ralink/rt2x00/Kconfig
+@@ -202,7 +202,7 @@ endif
+ 
+ config RT2800SOC
+ 	tristate "Ralink WiSoC support"
+-	depends on SOC_RT288X || SOC_RT305X || SOC_MT7620
++	depends on SOC_RT288X || SOC_RT305X || SOC_MT7620 || COMPILE_TEST
+ 	select RT2X00_LIB_SOC
+ 	select RT2X00_LIB_MMIO
+ 	select RT2X00_LIB_CRYPTO
 -- 
 2.50.0
 
