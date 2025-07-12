@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C64E7C83F10
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Jul 2025 00:15:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28995C83F1D
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Jul 2025 00:18:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FOQYeR1Imky+uHgb1aIFEcLF55/W66IY68Lpn9DOSc0=; b=MTuVBeTSXifMIJ7tO5Tj/XSwIt
-	CQEn4hNuFA3kZKfmasJkR0nUkcojvHPEGCE5jbXRCkA8zr1nQxsweqYzDZ2g9Pf1cRXz7+vCKDzeZ
-	wOo3sAC5XcEbH3YuRwvlCyMPqRveypfIeP2j5Qieq/HrAaZU4HWx0g/7QoZAK5OS4uU5s/3EMyTgh
-	KbuMcghDJYrCYouNCx4kFZMWypgru2LAr1Qr1ROdXc5Eu/5WTjMYC+BVKyXBv0QkL7iL+RHMIrqVX
-	2ELA/ylXvBttVh13wV/jc0Z4IvPpU8zZ4W5FOXe1U2E66Fir8entLSI33yu6ps5WADp7gWsucvm1G
-	KZNCEx2A==;
+	bh=1mHLTwFMLZNWIPVX7xkCR7n4zKTPhjmG7XvO5fHd2JI=; b=VAlgTJ2komOKKP9xI/cVHMGt1T
+	Z7syyV8hKhpwf5xX+t0LI0Bx3TKw0Y55uvfsvWiSaGqcwbC0Hwsk3wE2K1vQtw6iOUQZVElV1cuto
+	z+7Hecrc87EBydH6qN7YkFVDkZQniN0W33WThW+Q1DRcMa4gA30xt2XcqpnaAfm9fUTChBMXjXRRH
+	rnE5zrpeDc1ICF+wC2WMmgLldUl+jKCxFhGDJTq6leAttg4Vmz3lM6NJHlv3EWbbRxjRqqHY+49Hl
+	WKe2phWa7oipIvTZgw2WrUvuGMs5dPQzBbSJVl8Dx+m3eaOojSAgno8hpgv86tF5iKQdsxGvvGUz7
+	naOGb/LA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uakNI-0000000HBy4-330X;
-	Sun, 13 Jul 2025 00:15:24 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uakPh-0000000HC5v-1shl;
+	Sun, 13 Jul 2025 00:17:53 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uajbw-0000000H7c8-1MLp
+	id 1uajbw-0000000H7d1-489b
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 12 Jul 2025 23:26:32 +0000
+	Sat, 12 Jul 2025 23:26:33 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id A8132A5479A;
-	Sat, 12 Jul 2025 23:26:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 06D6EC4CEF8;
+	by dfw.source.kernel.org (Postfix) with ESMTP id 743515C5596;
+	Sat, 12 Jul 2025 23:26:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EAF27C4CEF8;
 	Sat, 12 Jul 2025 23:26:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752362787;
-	bh=SgVXlLx3zUAsItbZlZ/zxXFpPKAtVke822Qe2qamSSM=;
+	s=k20201202; t=1752362788;
+	bh=KTb/kHlWd3wQdhu+ilLCvMKl6qovl3HZh1pimsnVPTg=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Yxndy/IvzWQWbnUBanLC+u/ucTDuAYy1aNSJJAU+8jT6By1Yjj55SBXvhvlCNFg8f
-	 SSB/HGy8c08shz70GBPTJUmHm2K1xOOz9Edp95QUJXtDsDU/DSP6yr/Pqi+XhzTm8m
-	 RJ74HNLpE5gvL0EEE5JEPfAkiODQR5wBJREtlYGT4tpkkL70Pp5sSHZ0c3Uu+GT3xH
-	 i9G0dQntawA946l/N9LEsyjdsG9KqnL/rqHTgoaZkNL/MA4nt1D0UmRo2H/0xvfe1I
-	 6LpPC7PxtGTQj3VyBwGC1FCxsI/m3zd6UmUb4iFaliNUr3VAEWgoMUHBM29ibV1OeH
-	 bIRg/MvNWEtFw==
+	b=mxUS8aLDzLz2lxZ7FY8YXhwan3picqBL4U0OESweinppoghCLFI2054GFQg+jkmnY
+	 DdhCc8Q8jLcHHO7wsDr62KIh0C1HowwzStV/jMEpViJ+KMHH/y/G0DrdDEB0Rw5anz
+	 DpqBniSkST9kWPQ8P997D4snILzkc1TorIdOr5tMqAoNKwi64MfNv59v41EkLBo9FT
+	 xjZ+qOZTB3FscgyvkMngJyaQ93UKpSLhzCx7R3Dp+bPpl4MAdT5Vrptt7okpvbn13M
+	 V7Jor9AXxyEcCNR6okV8WW/b6NR2rQzclvSIfn63GAwGHo5jykU+2Fx6C76eJZtcIN
+	 vMk5dzFz9MGtw==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -54,17 +54,17 @@ Cc: linux-kernel@vger.kernel.org,
 	sparclinux@vger.kernel.org,
 	x86@kernel.org,
 	Eric Biggers <ebiggers@kernel.org>
-Subject: [PATCH 15/26] lib/crypto: tests: Add KUnit tests for SHA-1 and HMAC-SHA1
-Date: Sat, 12 Jul 2025 16:23:06 -0700
-Message-ID: <20250712232329.818226-16-ebiggers@kernel.org>
+Subject: [PATCH 17/26] sctp: Use HMAC-SHA1 and HMAC-SHA256 library functions
+Date: Sat, 12 Jul 2025 16:23:08 -0700
+Message-ID: <20250712232329.818226-18-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20250712232329.818226-1-ebiggers@kernel.org>
 References: <20250712232329.818226-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250712_162628_533966_EB0472E7 
-X-CRM114-Status: GOOD (  19.10  )
+X-CRM114-CacheID: sfid-20250712_162629_126086_7795E78D 
+X-CRM114-Status: GOOD (  32.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,321 +79,480 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a KUnit test suite for the SHA-1 library functions, including the
-corresponding HMAC support.  The core test logic is in the
-previously-added hash-test-template.h.  This commit just adds the actual
-KUnit suite, and it adds the generated test vectors to the tree so that
-gen-hash-testvecs.py won't have to be run at build time.
+For SCTP authenticated chunks, use the HMAC-SHA1 and HMAC-SHA256 library
+functions instead of crypto_shash.  This is simpler and faster.
 
 Signed-off-by: Eric Biggers <ebiggers@kernel.org>
 ---
- lib/crypto/tests/Kconfig         |  10 ++
- lib/crypto/tests/Makefile        |   1 +
- lib/crypto/tests/sha1-testvecs.h | 212 +++++++++++++++++++++++++++++++
- lib/crypto/tests/sha1_kunit.c    |  39 ++++++
- 4 files changed, 262 insertions(+)
- create mode 100644 lib/crypto/tests/sha1-testvecs.h
- create mode 100644 lib/crypto/tests/sha1_kunit.c
+ include/net/sctp/auth.h      |  12 +--
+ include/net/sctp/constants.h |   2 -
+ include/net/sctp/structs.h   |   5 --
+ net/sctp/Kconfig             |  15 ++--
+ net/sctp/auth.c              | 153 +++++------------------------------
+ net/sctp/socket.c            |  10 ---
+ 6 files changed, 32 insertions(+), 165 deletions(-)
 
-diff --git a/lib/crypto/tests/Kconfig b/lib/crypto/tests/Kconfig
-index 65f462754419d..de7e8babb6afc 100644
---- a/lib/crypto/tests/Kconfig
-+++ b/lib/crypto/tests/Kconfig
-@@ -7,10 +7,20 @@ config CRYPTO_LIB_POLY1305_KUNIT_TEST
- 	select CRYPTO_LIB_BENCHMARK_VISIBLE
- 	select CRYPTO_LIB_POLY1305
- 	help
- 	  KUnit tests for the Poly1305 library functions.
+diff --git a/include/net/sctp/auth.h b/include/net/sctp/auth.h
+index d4b3b2dcd15b7..02e13e126ceb7 100644
+--- a/include/net/sctp/auth.h
++++ b/include/net/sctp/auth.h
+@@ -20,20 +20,15 @@
  
-+config CRYPTO_LIB_SHA1_KUNIT_TEST
-+	tristate "KUnit tests for SHA-1" if !KUNIT_ALL_TESTS
-+	depends on KUNIT
-+	default KUNIT_ALL_TESTS || CRYPTO_SELFTESTS
-+	select CRYPTO_LIB_BENCHMARK_VISIBLE
+ struct sctp_endpoint;
+ struct sctp_association;
+ struct sctp_authkey;
+ struct sctp_hmacalgo;
+-struct crypto_shash;
+ 
+-/*
+- * Define a generic struct that will hold all the info
+- * necessary for an HMAC transform
+- */
++/* Defines an HMAC algorithm supported by SCTP-AUTH */
+ struct sctp_hmac {
+-	__u16 hmac_id;		/* one of the above ids */
+-	char *hmac_name;	/* name for loading */
+-	__u16 hmac_len;		/* length of the signature */
++	__u16 hmac_id;		/* one of SCTP_AUTH_HMAC_ID_* */
++	__u16 hmac_len;		/* length of the HMAC signature in bytes */
+ };
+ 
+ /* This is generic structure that containst authentication bytes used
+  * as keying material.  It's a what is referred to as byte-vector all
+  * over SCTP-AUTH
+@@ -76,11 +71,10 @@ struct sctp_shared_key *sctp_auth_get_shkey(
+ 				__u16 key_id);
+ int sctp_auth_asoc_copy_shkeys(const struct sctp_endpoint *ep,
+ 				struct sctp_association *asoc,
+ 				gfp_t gfp);
+ int sctp_auth_init_hmacs(struct sctp_endpoint *ep, gfp_t gfp);
+-void sctp_auth_destroy_hmacs(struct crypto_shash *auth_hmacs[]);
+ struct sctp_hmac *sctp_auth_get_hmac(__u16 hmac_id);
+ struct sctp_hmac *sctp_auth_asoc_get_hmac(const struct sctp_association *asoc);
+ void sctp_auth_asoc_set_default_hmac(struct sctp_association *asoc,
+ 				     struct sctp_hmac_algo_param *hmacs);
+ int sctp_auth_asoc_verify_hmac_id(const struct sctp_association *asoc,
+diff --git a/include/net/sctp/constants.h b/include/net/sctp/constants.h
+index 5859e0a16a584..81dde3c3e6a58 100644
+--- a/include/net/sctp/constants.h
++++ b/include/net/sctp/constants.h
+@@ -415,13 +415,11 @@ enum sctp_lower_cwnd {
+  */
+ enum {
+ 	SCTP_AUTH_HMAC_ID_RESERVED_0,
+ 	SCTP_AUTH_HMAC_ID_SHA1,
+ 	SCTP_AUTH_HMAC_ID_RESERVED_2,
+-#if defined (CONFIG_CRYPTO_SHA256) || defined (CONFIG_CRYPTO_SHA256_MODULE)
+ 	SCTP_AUTH_HMAC_ID_SHA256,
+-#endif
+ 	__SCTP_AUTH_HMAC_MAX
+ };
+ 
+ #define SCTP_AUTH_HMAC_ID_MAX	__SCTP_AUTH_HMAC_MAX - 1
+ #define SCTP_AUTH_NUM_HMACS 	__SCTP_AUTH_HMAC_MAX
+diff --git a/include/net/sctp/structs.h b/include/net/sctp/structs.h
+index 1ad7ce71d0a78..1de69a236754f 100644
+--- a/include/net/sctp/structs.h
++++ b/include/net/sctp/structs.h
+@@ -1327,15 +1327,10 @@ struct sctp_endpoint {
+ 	__u32 sndbuf_policy;
+ 
+ 	/* rcvbuf acct. policy.	*/
+ 	__u32 rcvbuf_policy;
+ 
+-	/* SCTP AUTH: array of the HMACs that will be allocated
+-	 * we need this per association so that we don't serialize
+-	 */
+-	struct crypto_shash **auth_hmacs;
+-
+ 	/* SCTP-AUTH: hmacs for the endpoint encoded into parameter */
+ 	 struct sctp_hmac_algo_param *auth_hmacs_list;
+ 
+ 	/* SCTP-AUTH: chunks to authenticate encoded into parameter */
+ 	struct sctp_chunks_param *auth_chunk_list;
+diff --git a/net/sctp/Kconfig b/net/sctp/Kconfig
+index 24d5a35ce894a..192027555b4d8 100644
+--- a/net/sctp/Kconfig
++++ b/net/sctp/Kconfig
+@@ -5,13 +5,12 @@
+ 
+ menuconfig IP_SCTP
+ 	tristate "The SCTP Protocol"
+ 	depends on INET
+ 	depends on IPV6 || IPV6=n
+-	select CRYPTO
+-	select CRYPTO_HMAC
+-	select CRYPTO_SHA1
 +	select CRYPTO_LIB_SHA1
-+	help
-+	  KUnit tests for the SHA-1 cryptographic hash function and its
-+	  corresponding HMAC.
-+
- # Option is named *_SHA256_KUNIT_TEST, though both SHA-224 and SHA-256 tests are
- # included, for consistency with the naming used elsewhere (e.g. CRYPTO_SHA256).
- config CRYPTO_LIB_SHA256_KUNIT_TEST
- 	tristate "KUnit tests for SHA-224 and SHA-256" if !KUNIT_ALL_TESTS
- 	depends on KUNIT
-diff --git a/lib/crypto/tests/Makefile b/lib/crypto/tests/Makefile
-index d33f6d85ecaa8..8601dccd6fdda 100644
---- a/lib/crypto/tests/Makefile
-+++ b/lib/crypto/tests/Makefile
-@@ -1,5 +1,6 @@
- # SPDX-License-Identifier: GPL-2.0-or-later
++	select CRYPTO_LIB_SHA256
+ 	select NET_CRC32C
+ 	select NET_UDP_TUNNEL
+ 	help
+ 	  Stream Control Transmission Protocol
  
- obj-$(CONFIG_CRYPTO_LIB_POLY1305_KUNIT_TEST) += poly1305_kunit.o
-+obj-$(CONFIG_CRYPTO_LIB_SHA1_KUNIT_TEST) += sha1_kunit.o
- obj-$(CONFIG_CRYPTO_LIB_SHA256_KUNIT_TEST) += sha224_kunit.o sha256_kunit.o
- obj-$(CONFIG_CRYPTO_LIB_SHA512_KUNIT_TEST) += sha384_kunit.o sha512_kunit.o
-diff --git a/lib/crypto/tests/sha1-testvecs.h b/lib/crypto/tests/sha1-testvecs.h
-new file mode 100644
-index 0000000000000..f5d050122e84f
---- /dev/null
-+++ b/lib/crypto/tests/sha1-testvecs.h
-@@ -0,0 +1,212 @@
-+/* SPDX-License-Identifier: GPL-2.0-or-later */
-+/* This file was generated by: ./scripts/crypto/gen-hash-testvecs.py sha1 */
-+
-+static const struct {
-+	size_t data_len;
-+	u8 digest[SHA1_DIGEST_SIZE];
-+} hash_testvecs[] = {
-+	{
-+		.data_len = 0,
-+		.digest = {
-+			0xda, 0x39, 0xa3, 0xee, 0x5e, 0x6b, 0x4b, 0x0d,
-+			0x32, 0x55, 0xbf, 0xef, 0x95, 0x60, 0x18, 0x90,
-+			0xaf, 0xd8, 0x07, 0x09,
-+		},
-+	},
-+	{
-+		.data_len = 1,
-+		.digest = {
-+			0x0a, 0xd0, 0x52, 0xdd, 0x9f, 0x32, 0x40, 0x55,
-+			0x21, 0xe4, 0x3c, 0x6e, 0xbd, 0xc5, 0x2f, 0x5a,
-+			0x02, 0x54, 0x93, 0xb2,
-+		},
-+	},
-+	{
-+		.data_len = 2,
-+		.digest = {
-+			0x13, 0x83, 0x82, 0x03, 0x23, 0xff, 0x46, 0xd6,
-+			0x12, 0x7f, 0xad, 0x05, 0x2b, 0xc3, 0x4a, 0x42,
-+			0x49, 0x6a, 0xf8, 0x84,
-+		},
-+	},
-+	{
-+		.data_len = 3,
-+		.digest = {
-+			0xe4, 0xdf, 0x7b, 0xdc, 0xe8, 0x6e, 0x81, 0x97,
-+			0x1e, 0x0f, 0xe8, 0x8b, 0x76, 0xa8, 0x59, 0x04,
-+			0xae, 0x92, 0x1a, 0x7c,
-+		},
-+	},
-+	{
-+		.data_len = 16,
-+		.digest = {
-+			0x8c, 0x1c, 0x30, 0xd8, 0xbc, 0xc4, 0xc3, 0xf5,
-+			0xf8, 0x83, 0x0d, 0x1e, 0x04, 0x5d, 0x29, 0xb5,
-+			0x68, 0x89, 0xc1, 0xe9,
-+		},
-+	},
-+	{
-+		.data_len = 32,
-+		.digest = {
-+			0x6c, 0x1d, 0x72, 0x31, 0xa5, 0x03, 0x4f, 0xdc,
-+			0xff, 0x2d, 0x06, 0x3e, 0x24, 0x26, 0x34, 0x8d,
-+			0x60, 0xa4, 0x67, 0x16,
-+		},
-+	},
-+	{
-+		.data_len = 48,
-+		.digest = {
-+			0x37, 0x53, 0x33, 0xfa, 0xd0, 0x21, 0xad, 0xe7,
-+			0xa5, 0x43, 0xf1, 0x94, 0x64, 0x11, 0x47, 0x9c,
-+			0x72, 0xb5, 0x78, 0xb4,
-+		},
-+	},
-+	{
-+		.data_len = 49,
-+		.digest = {
-+			0x51, 0x5c, 0xd8, 0x5a, 0xa9, 0xde, 0x7b, 0x2a,
-+			0xa2, 0xff, 0x70, 0x09, 0x56, 0x88, 0x40, 0x2b,
-+			0x50, 0x93, 0x82, 0x47,
-+		},
-+	},
-+	{
-+		.data_len = 63,
-+		.digest = {
-+			0xbc, 0x9c, 0xab, 0x93, 0x06, 0xd5, 0xdb, 0xac,
-+			0x2c, 0x33, 0x15, 0x83, 0x56, 0xf6, 0x91, 0x20,
-+			0x09, 0xc7, 0xb2, 0x6b,
-+		},
-+	},
-+	{
-+		.data_len = 64,
-+		.digest = {
-+			0x26, 0x90, 0x3b, 0x47, 0xe1, 0x92, 0x42, 0xd0,
-+			0x85, 0x63, 0x2e, 0x6b, 0x68, 0xa4, 0xc4, 0x4c,
-+			0xe6, 0xf4, 0xb0, 0x52,
-+		},
-+	},
-+	{
-+		.data_len = 65,
-+		.digest = {
-+			0x55, 0x6f, 0x87, 0xdc, 0x34, 0x3d, 0xe2, 0x4f,
-+			0xc3, 0x81, 0xa4, 0x82, 0x79, 0x84, 0x64, 0x01,
-+			0x55, 0xa0, 0x1e, 0x36,
-+		},
-+	},
-+	{
-+		.data_len = 127,
-+		.digest = {
-+			0xb7, 0xd5, 0x5f, 0xa4, 0xef, 0xbf, 0x4f, 0x96,
-+			0x01, 0xc1, 0x06, 0xe3, 0x75, 0xa8, 0x90, 0x92,
-+			0x4c, 0x5f, 0xf1, 0x21,
-+		},
-+	},
-+	{
-+		.data_len = 128,
-+		.digest = {
-+			0x70, 0x0c, 0xea, 0xa4, 0x93, 0xd0, 0x56, 0xf0,
-+			0x6f, 0xbb, 0x53, 0x42, 0x5b, 0xe3, 0xf2, 0xb0,
-+			0x30, 0x66, 0x8e, 0x75,
-+		},
-+	},
-+	{
-+		.data_len = 129,
-+		.digest = {
-+			0x15, 0x01, 0xbc, 0xb0, 0xee, 0xd8, 0xeb, 0xa8,
-+			0x7d, 0xd9, 0x4d, 0x50, 0x2e, 0x41, 0x30, 0xba,
-+			0x41, 0xaa, 0x7b, 0x02,
-+		},
-+	},
-+	{
-+		.data_len = 256,
-+		.digest = {
-+			0x98, 0x05, 0x52, 0xf5, 0x0f, 0xf0, 0xd3, 0x97,
-+			0x15, 0x8c, 0xa3, 0x9a, 0x2b, 0x4d, 0x67, 0x57,
-+			0x29, 0xa0, 0xac, 0x61,
-+		},
-+	},
-+	{
-+		.data_len = 511,
-+		.digest = {
-+			0x1f, 0x47, 0xf0, 0xcc, 0xd7, 0xda, 0xa5, 0x3b,
-+			0x39, 0xb4, 0x5b, 0xa8, 0x33, 0xd4, 0xca, 0x2f,
-+			0xdd, 0xf2, 0x39, 0x89,
-+		},
-+	},
-+	{
-+		.data_len = 513,
-+		.digest = {
-+			0xb9, 0x75, 0xe6, 0x57, 0x42, 0x7f, 0x8b, 0x0a,
-+			0xcc, 0x53, 0x10, 0x69, 0x45, 0xac, 0xfd, 0x11,
-+			0xf7, 0x1f, 0x4e, 0x6f,
-+		},
-+	},
-+	{
-+		.data_len = 1000,
-+		.digest = {
-+			0x63, 0x66, 0xcb, 0x44, 0xc1, 0x2c, 0xa2, 0x06,
-+			0x5d, 0xb9, 0x8e, 0x31, 0xcb, 0x4f, 0x4e, 0x49,
-+			0xe0, 0xfb, 0x3c, 0x4e,
-+		},
-+	},
-+	{
-+		.data_len = 3333,
-+		.digest = {
-+			0x35, 0xbc, 0x74, 0xfb, 0x31, 0x9c, 0xd4, 0xdd,
-+			0xe8, 0x87, 0xa7, 0x56, 0x3b, 0x08, 0xe5, 0x49,
-+			0xe1, 0xe9, 0xc9, 0xa8,
-+		},
-+	},
-+	{
-+		.data_len = 4096,
-+		.digest = {
-+			0x43, 0x00, 0xea, 0xcd, 0x4e, 0x7c, 0xe9, 0xe4,
-+			0x32, 0xce, 0x25, 0xa8, 0xcd, 0x20, 0xa8, 0xaa,
-+			0x7b, 0x63, 0x2c, 0x3c,
-+		},
-+	},
-+	{
-+		.data_len = 4128,
-+		.digest = {
-+			0xd0, 0x67, 0x26, 0x0e, 0x22, 0x72, 0xaa, 0x63,
-+			0xfc, 0x34, 0x55, 0x07, 0xab, 0xc8, 0x64, 0xb6,
-+			0xc4, 0xea, 0xd5, 0x7c,
-+		},
-+	},
-+	{
-+		.data_len = 4160,
-+		.digest = {
-+			0x6b, 0xc9, 0x5e, 0xb9, 0x41, 0x19, 0x50, 0x35,
-+			0xf1, 0x39, 0xfe, 0xd9, 0x72, 0x6d, 0xd0, 0x55,
-+			0xb8, 0x1f, 0x1a, 0x95,
-+		},
-+	},
-+	{
-+		.data_len = 4224,
-+		.digest = {
-+			0x70, 0x5d, 0x10, 0x2e, 0x4e, 0x44, 0xc9, 0x80,
-+			0x8f, 0xba, 0x13, 0xbc, 0xd0, 0x77, 0x78, 0xc7,
-+			0x84, 0xe3, 0x24, 0x43,
-+		},
-+	},
-+	{
-+		.data_len = 16384,
-+		.digest = {
-+			0xa8, 0x82, 0xca, 0x08, 0xb4, 0x84, 0x09, 0x13,
-+			0xc0, 0x9c, 0x26, 0x18, 0xcf, 0x0f, 0xf3, 0x08,
-+			0xff, 0xa1, 0xe4, 0x5d,
-+		},
-+	},
-+};
-+
-+static const u8 hash_testvec_consolidated[SHA1_DIGEST_SIZE] = {
-+	0xe1, 0x72, 0xa5, 0x3c, 0xda, 0xf2, 0xe5, 0x56,
-+	0xb8, 0xb5, 0x35, 0x6e, 0xce, 0xc8, 0x37, 0x57,
-+	0x31, 0xb4, 0x05, 0xdd,
-+};
-+
-+static const u8 hmac_testvec_consolidated[SHA1_DIGEST_SIZE] = {
-+	0x9d, 0xe5, 0xb1, 0x43, 0x97, 0x95, 0x16, 0x52,
-+	0xa0, 0x7a, 0xc0, 0xe2, 0xc1, 0x60, 0x64, 0x7c,
-+	0x24, 0xf9, 0x34, 0xd7,
-+};
-diff --git a/lib/crypto/tests/sha1_kunit.c b/lib/crypto/tests/sha1_kunit.c
-new file mode 100644
-index 0000000000000..24ba8d5669c8f
---- /dev/null
-+++ b/lib/crypto/tests/sha1_kunit.c
-@@ -0,0 +1,39 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later
-+/*
-+ * Copyright 2025 Google LLC
-+ */
+@@ -77,19 +76,21 @@ endchoice
+ 
+ config SCTP_COOKIE_HMAC_MD5
+ 	bool "Enable optional MD5 hmac cookie generation"
+ 	help
+ 	  Enable optional MD5 hmac based SCTP cookie generation
+-	select CRYPTO_HMAC if SCTP_COOKIE_HMAC_MD5
+-	select CRYPTO_MD5 if SCTP_COOKIE_HMAC_MD5
++	select CRYPTO
++	select CRYPTO_HMAC
++	select CRYPTO_MD5
+ 
+ config SCTP_COOKIE_HMAC_SHA1
+ 	bool "Enable optional SHA1 hmac cookie generation"
+ 	help
+ 	  Enable optional SHA1 hmac based SCTP cookie generation
+-	select CRYPTO_HMAC if SCTP_COOKIE_HMAC_SHA1
+-	select CRYPTO_SHA1 if SCTP_COOKIE_HMAC_SHA1
++	select CRYPTO
++	select CRYPTO_HMAC
++	select CRYPTO_SHA1
+ 
+ config INET_SCTP_DIAG
+ 	depends on INET_DIAG
+ 	def_tristate INET_DIAG
+ 
+diff --git a/net/sctp/auth.c b/net/sctp/auth.c
+index c58fffc86a0c2..21d679a2ffb60 100644
+--- a/net/sctp/auth.c
++++ b/net/sctp/auth.c
+@@ -10,40 +10,41 @@
+  *
+  * Written or modified by:
+  *   Vlad Yasevich     <vladislav.yasevich@hp.com>
+  */
+ 
+-#include <crypto/hash.h>
 +#include <crypto/sha1.h>
-+#include "sha1-testvecs.h"
-+
-+#define HASH sha1
-+#define HASH_CTX sha1_ctx
-+#define HASH_SIZE SHA1_DIGEST_SIZE
-+#define HASH_INIT sha1_init
-+#define HASH_UPDATE sha1_update
-+#define HASH_FINAL sha1_final
-+#define HMAC_KEY hmac_sha1_key
-+#define HMAC_CTX hmac_sha1_ctx
-+#define HMAC_PREPAREKEY hmac_sha1_preparekey
-+#define HMAC_INIT hmac_sha1_init
-+#define HMAC_UPDATE hmac_sha1_update
-+#define HMAC_FINAL hmac_sha1_final
-+#define HMAC hmac_sha1
-+#define HMAC_USINGRAWKEY hmac_sha1_usingrawkey
-+#include "hash-test-template.h"
-+
-+static struct kunit_case hash_test_cases[] = {
-+	HASH_KUNIT_CASES,
-+	KUNIT_CASE(benchmark_hash),
-+	{},
-+};
-+
-+static struct kunit_suite hash_test_suite = {
-+	.name = "sha1",
-+	.test_cases = hash_test_cases,
-+	.suite_init = hash_suite_init,
-+	.suite_exit = hash_suite_exit,
-+};
-+kunit_test_suite(hash_test_suite);
-+
-+MODULE_DESCRIPTION("KUnit tests and benchmark for SHA-1 and HMAC-SHA1");
-+MODULE_LICENSE("GPL");
++#include <crypto/sha2.h>
+ #include <linux/slab.h>
+ #include <linux/types.h>
+-#include <linux/scatterlist.h>
+ #include <net/sctp/sctp.h>
+ #include <net/sctp/auth.h>
+ 
+ static struct sctp_hmac sctp_hmac_list[SCTP_AUTH_NUM_HMACS] = {
+ 	{
+ 		/* id 0 is reserved.  as all 0 */
+ 		.hmac_id = SCTP_AUTH_HMAC_ID_RESERVED_0,
+ 	},
+ 	{
+ 		.hmac_id = SCTP_AUTH_HMAC_ID_SHA1,
+-		.hmac_name = "hmac(sha1)",
+ 		.hmac_len = SCTP_SHA1_SIG_SIZE,
+ 	},
+ 	{
+ 		/* id 2 is reserved as well */
+ 		.hmac_id = SCTP_AUTH_HMAC_ID_RESERVED_2,
+ 	},
+-#if IS_ENABLED(CONFIG_CRYPTO_SHA256)
+ 	{
+ 		.hmac_id = SCTP_AUTH_HMAC_ID_SHA256,
+-		.hmac_name = "hmac(sha256)",
+ 		.hmac_len = SCTP_SHA256_SIG_SIZE,
+ 	}
+-#endif
+ };
+ 
++static bool sctp_hmac_supported(__u16 hmac_id)
++{
++	return hmac_id < ARRAY_SIZE(sctp_hmac_list) &&
++	       sctp_hmac_list[hmac_id].hmac_len != 0;
++}
+ 
+ void sctp_auth_key_put(struct sctp_auth_bytes *key)
+ {
+ 	if (!key)
+ 		return;
+@@ -442,79 +443,10 @@ struct sctp_shared_key *sctp_auth_get_shkey(
+ 	}
+ 
+ 	return NULL;
+ }
+ 
+-/*
+- * Initialize all the possible digest transforms that we can use.  Right
+- * now, the supported digests are SHA1 and SHA256.  We do this here once
+- * because of the restrictiong that transforms may only be allocated in
+- * user context.  This forces us to pre-allocated all possible transforms
+- * at the endpoint init time.
+- */
+-int sctp_auth_init_hmacs(struct sctp_endpoint *ep, gfp_t gfp)
+-{
+-	struct crypto_shash *tfm = NULL;
+-	__u16   id;
+-
+-	/* If the transforms are already allocated, we are done */
+-	if (ep->auth_hmacs)
+-		return 0;
+-
+-	/* Allocated the array of pointers to transorms */
+-	ep->auth_hmacs = kcalloc(SCTP_AUTH_NUM_HMACS,
+-				 sizeof(struct crypto_shash *),
+-				 gfp);
+-	if (!ep->auth_hmacs)
+-		return -ENOMEM;
+-
+-	for (id = 0; id < SCTP_AUTH_NUM_HMACS; id++) {
+-
+-		/* See is we support the id.  Supported IDs have name and
+-		 * length fields set, so that we can allocated and use
+-		 * them.  We can safely just check for name, for without the
+-		 * name, we can't allocate the TFM.
+-		 */
+-		if (!sctp_hmac_list[id].hmac_name)
+-			continue;
+-
+-		/* If this TFM has been allocated, we are all set */
+-		if (ep->auth_hmacs[id])
+-			continue;
+-
+-		/* Allocate the ID */
+-		tfm = crypto_alloc_shash(sctp_hmac_list[id].hmac_name, 0, 0);
+-		if (IS_ERR(tfm))
+-			goto out_err;
+-
+-		ep->auth_hmacs[id] = tfm;
+-	}
+-
+-	return 0;
+-
+-out_err:
+-	/* Clean up any successful allocations */
+-	sctp_auth_destroy_hmacs(ep->auth_hmacs);
+-	ep->auth_hmacs = NULL;
+-	return -ENOMEM;
+-}
+-
+-/* Destroy the hmac tfm array */
+-void sctp_auth_destroy_hmacs(struct crypto_shash *auth_hmacs[])
+-{
+-	int i;
+-
+-	if (!auth_hmacs)
+-		return;
+-
+-	for (i = 0; i < SCTP_AUTH_NUM_HMACS; i++) {
+-		crypto_free_shash(auth_hmacs[i]);
+-	}
+-	kfree(auth_hmacs);
+-}
+-
+-
+ struct sctp_hmac *sctp_auth_get_hmac(__u16 hmac_id)
+ {
+ 	return &sctp_hmac_list[hmac_id];
+ }
+ 
+@@ -541,30 +473,14 @@ struct sctp_hmac *sctp_auth_asoc_get_hmac(const struct sctp_association *asoc)
+ 
+ 	n_elt = (ntohs(hmacs->param_hdr.length) -
+ 		 sizeof(struct sctp_paramhdr)) >> 1;
+ 	for (i = 0; i < n_elt; i++) {
+ 		id = ntohs(hmacs->hmac_ids[i]);
+-
+-		/* Check the id is in the supported range. And
+-		 * see if we support the id.  Supported IDs have name and
+-		 * length fields set, so that we can allocate and use
+-		 * them.  We can safely just check for name, for without the
+-		 * name, we can't allocate the TFM.
+-		 */
+-		if (id > SCTP_AUTH_HMAC_ID_MAX ||
+-		    !sctp_hmac_list[id].hmac_name) {
+-			id = 0;
+-			continue;
+-		}
+-
+-		break;
++		if (sctp_hmac_supported(id))
++			return &sctp_hmac_list[id];
+ 	}
+-
+-	if (id == 0)
+-		return NULL;
+-
+-	return &sctp_hmac_list[id];
++	return NULL;
+ }
+ 
+ static int __sctp_auth_find_hmacid(__be16 *hmacs, int n_elts, __be16 hmac_id)
+ {
+ 	int  found = 0;
+@@ -604,31 +520,23 @@ int sctp_auth_asoc_verify_hmac_id(const struct sctp_association *asoc,
+  *   algorithm it supports.
+  */
+ void sctp_auth_asoc_set_default_hmac(struct sctp_association *asoc,
+ 				     struct sctp_hmac_algo_param *hmacs)
+ {
+-	struct sctp_endpoint *ep;
+ 	__u16   id;
+ 	int	i;
+ 	int	n_params;
+ 
+ 	/* if the default id is already set, use it */
+ 	if (asoc->default_hmac_id)
+ 		return;
+ 
+ 	n_params = (ntohs(hmacs->param_hdr.length) -
+ 		    sizeof(struct sctp_paramhdr)) >> 1;
+-	ep = asoc->ep;
+ 	for (i = 0; i < n_params; i++) {
+ 		id = ntohs(hmacs->hmac_ids[i]);
+-
+-		/* Check the id is in the supported range */
+-		if (id > SCTP_AUTH_HMAC_ID_MAX)
+-			continue;
+-
+-		/* If this TFM has been allocated, use this id */
+-		if (ep->auth_hmacs[id]) {
++		if (sctp_hmac_supported(id)) {
+ 			asoc->default_hmac_id = id;
+ 			break;
+ 		}
+ 	}
+ }
+@@ -707,13 +615,12 @@ int sctp_auth_recv_cid(enum sctp_cid chunk, const struct sctp_association *asoc)
+ void sctp_auth_calculate_hmac(const struct sctp_association *asoc,
+ 			      struct sk_buff *skb, struct sctp_auth_chunk *auth,
+ 			      struct sctp_shared_key *ep_key, gfp_t gfp)
+ {
+ 	struct sctp_auth_bytes *asoc_key;
+-	struct crypto_shash *tfm;
+ 	__u16 key_id, hmac_id;
+-	unsigned char *end;
++	size_t data_len;
+ 	int free_key = 0;
+ 	__u8 *digest;
+ 
+ 	/* Extract the info we need:
+ 	 * - hmac id
+@@ -731,23 +638,19 @@ void sctp_auth_calculate_hmac(const struct sctp_association *asoc,
+ 			return;
+ 
+ 		free_key = 1;
+ 	}
+ 
+-	/* set up scatter list */
+-	end = skb_tail_pointer(skb);
+-
+-	tfm = asoc->ep->auth_hmacs[hmac_id];
+-
++	data_len = skb_tail_pointer(skb) - (u8 *)auth;
+ 	digest = (u8 *)(&auth->auth_hdr + 1);
+-	if (crypto_shash_setkey(tfm, &asoc_key->data[0], asoc_key->len))
+-		goto free;
+-
+-	crypto_shash_tfm_digest(tfm, (u8 *)auth, end - (unsigned char *)auth,
+-				digest);
++	if (hmac_id == SCTP_AUTH_HMAC_ID_SHA1)
++		hmac_sha1_usingrawkey(asoc_key->data, asoc_key->len,
++				      (u8 *)auth, data_len, digest);
++	else
++		hmac_sha256_usingrawkey(asoc_key->data, asoc_key->len,
++					(u8 *)auth, data_len, digest);
+ 
+-free:
+ 	if (free_key)
+ 		sctp_auth_key_put(asoc_key);
+ }
+ 
+ /* API Helpers */
+@@ -786,18 +689,15 @@ int sctp_auth_ep_set_hmacs(struct sctp_endpoint *ep,
+ 	 * SHA1 is specified.
+ 	 */
+ 	for (i = 0; i < hmacs->shmac_num_idents; i++) {
+ 		id = hmacs->shmac_idents[i];
+ 
+-		if (id > SCTP_AUTH_HMAC_ID_MAX)
++		if (!sctp_hmac_supported(id))
+ 			return -EOPNOTSUPP;
+ 
+ 		if (SCTP_AUTH_HMAC_ID_SHA1 == id)
+ 			has_sha1 = 1;
+-
+-		if (!sctp_hmac_list[id].hmac_name)
+-			return -EOPNOTSUPP;
+ 	}
+ 
+ 	if (!has_sha1)
+ 		return -EINVAL;
+ 
+@@ -1019,12 +919,10 @@ int sctp_auth_deact_key_id(struct sctp_endpoint *ep,
+ 	return 0;
+ }
+ 
+ int sctp_auth_init(struct sctp_endpoint *ep, gfp_t gfp)
+ {
+-	int err = -ENOMEM;
+-
+ 	/* Allocate space for HMACS and CHUNKS authentication
+ 	 * variables.  There are arrays that we encode directly
+ 	 * into parameters to make the rest of the operations easier.
+ 	 */
+ 	if (!ep->auth_hmacs_list) {
+@@ -1058,32 +956,23 @@ int sctp_auth_init(struct sctp_endpoint *ep, gfp_t gfp)
+ 		auth_chunks->param_hdr.length =
+ 				htons(sizeof(struct sctp_paramhdr));
+ 		ep->auth_chunk_list = auth_chunks;
+ 	}
+ 
+-	/* Allocate and initialize transorms arrays for supported
+-	 * HMACs.
+-	 */
+-	err = sctp_auth_init_hmacs(ep, gfp);
+-	if (err)
+-		goto nomem;
+-
+ 	return 0;
+ 
+ nomem:
+ 	/* Free all allocations */
+ 	kfree(ep->auth_hmacs_list);
+ 	kfree(ep->auth_chunk_list);
+ 	ep->auth_hmacs_list = NULL;
+ 	ep->auth_chunk_list = NULL;
+-	return err;
++	return -ENOMEM;
+ }
+ 
+ void sctp_auth_free(struct sctp_endpoint *ep)
+ {
+ 	kfree(ep->auth_hmacs_list);
+ 	kfree(ep->auth_chunk_list);
+ 	ep->auth_hmacs_list = NULL;
+ 	ep->auth_chunk_list = NULL;
+-	sctp_auth_destroy_hmacs(ep->auth_hmacs);
+-	ep->auth_hmacs = NULL;
+ }
+diff --git a/net/sctp/socket.c b/net/sctp/socket.c
+index 1e5739858c206..1f3f1e7e1793b 100644
+--- a/net/sctp/socket.c
++++ b/net/sctp/socket.c
+@@ -9579,20 +9579,10 @@ static int sctp_sock_migrate(struct sock *oldsk, struct sock *newsk,
+ 	err = sctp_bind_addr_dup(&newsp->ep->base.bind_addr,
+ 				 &oldsp->ep->base.bind_addr, GFP_KERNEL);
+ 	if (err)
+ 		return err;
+ 
+-	/* New ep's auth_hmacs should be set if old ep's is set, in case
+-	 * that net->sctp.auth_enable has been changed to 0 by users and
+-	 * new ep's auth_hmacs couldn't be set in sctp_endpoint_init().
+-	 */
+-	if (oldsp->ep->auth_hmacs) {
+-		err = sctp_auth_init_hmacs(newsp->ep, GFP_KERNEL);
+-		if (err)
+-			return err;
+-	}
+-
+ 	sctp_auto_asconf_init(newsp);
+ 
+ 	/* Move any messages in the old socket's receive queue that are for the
+ 	 * peeled off association to the new socket's receive queue.
+ 	 */
 -- 
 2.50.1
 
