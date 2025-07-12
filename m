@@ -4,69 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 363A4C83F10
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Jul 2025 17:55:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8D90C83F1D
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Jul 2025 17:58:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qYfHoSX4b3htp+5TO0OpaAQ8vTO0p4OZ9z8N/ozHauM=; b=4dSTaseGV/oJytzclEuZBCXXAj
-	/OmD08VdwE0YsInCXdlXV48OQWbEevucVMGRQf+YxqXt03Vji8uEiPLnX2SsTo7cUH3qLHGm3ipWh
-	AqxYOEuudORMB/pjwXco5Ip7NPy/fJ7xWr4LsW0xBoq3XIVy87aL7UyCke0Kl8eHOztXXdfPjNEVR
-	4myMLglmKk13Kau/A7tFMt3ilHyiMrkBsgSD5VlfVDvUd6jiDIaqA/HD2QxLKZGGVcB5Ywozxn/52
-	KHex6ZP5Rs0Q6Mmqm7n7xRZim81vTfiR71UDwtIn4zNozh18YOa0FuqU3PskjAAq/LPXcOOtwiTb7
-	vovChLaQ==;
+	bh=thH9EAHPzziUut2cdCdvAN0XZAFb7Ym4ozCX4uuM7Rk=; b=VQaOCoGCJswsE0RRd+nWUOJgHG
+	5V8jJW262SddNFBDHzd45xNk2ezemLBdezqVUqe85/GyhR5uGgvKpV6SRFkqH37wKIa20rjQMgqgZ
+	RGt0eGSp/aQ0A3vfop7eZcBray1t9pMOuiJdcvtHxj8c1YuxmZqQdENSTeRLvnQLxJJG9bu90Poco
+	TA+O9o3UUUT0WyLyXKWtC+hrNDm3AGATwnHMTYT0XSbRVzxJmKx+nH10JR2+F5iVCV3+bziySpWyG
+	cNzIuq5oV+LvihENdj2x8+0WP6Hxj8MPeMF1cPsg/X8IpEv23OWvdOokPchf8FpNc9Ds6zaQTWqoZ
+	5yOf6oKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaeRb-0000000Grsm-494y;
-	Sat, 12 Jul 2025 17:55:27 +0000
-Received: from smtp.forwardemail.net ([149.28.215.223])
+	id 1uaeTy-0000000Gs5b-39AS;
+	Sat, 12 Jul 2025 17:57:54 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaeBU-0000000Gqbw-2IGt
+	id 1uaeFR-0000000Gqxn-3wbs
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 12 Jul 2025 17:38:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
- h=Content-Transfer-Encoding: MIME-Version: References: In-Reply-To:
- Message-ID: Date: Subject: Cc: To: From; q=dns/txt; s=fe-e1b5cab7be;
- t=1752341928; bh=qYfHoSX4b3htp+5TO0OpaAQ8vTO0p4OZ9z8N/ozHauM=;
- b=Baf2vvjmIqIJuDezJi90SxxStxh3HOWdpgecNbW6jxoQ8iRzqZGLg8qtxit6IcPECKJTpJuqK
- 9jlLdliiS3MGm++PiNaYWx85WmGaxFY63oTIKOrqeKDkthQEsrHiZ+uzBMJFiFjgRo5A9IZiMff
- arF0y0oQU4nnpvUCSlBoQyFpBrPuQcYH6ZxStbhbJ2HtDpfj1OiWZEW7X8v6cC+svSglOwHA8Gz
- l8jsKFVzrydieg3pjHXcyQNftkr3DLQC0LvbPScAOWg5Q9Fnzrx8v6ANXU0D8GFGjZ4njp4z3RH
- 2bGEv04D5QYixAp17qZUWbnyJp9d88SL0l4Lb3c/hK+g==
-X-Forward-Email-ID: 68729da4d7dd91652d16c1f0
-X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
- 149.28.215.223
-X-Forward-Email-Version: 1.1.6
-X-Forward-Email-Website: https://forwardemail.net
-X-Complaints-To: abuse@forwardemail.net
-X-Report-Abuse: abuse@forwardemail.net
-X-Report-Abuse-To: abuse@forwardemail.net
-From: Jonas Karlman <jonas@kwiboo.se>
-To: Heiko Stuebner <heiko@sntech.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: Yao Zi <ziyao@disroot.org>,
-	Chukun Pan <amadeus@jmu.edu.cn>,
-	linux-rockchip@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Jonas Karlman <jonas@kwiboo.se>
-Subject: [PATCH v3 6/6] arm64: dts: rockchip: Add FriendlyElec NanoPi Zero2
-Date: Sat, 12 Jul 2025 17:37:48 +0000
-Message-ID: <20250712173805.584586-7-jonas@kwiboo.se>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250712173805.584586-1-jonas@kwiboo.se>
-References: <20250712173805.584586-1-jonas@kwiboo.se>
+	Sat, 12 Jul 2025 17:42:55 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 4992E5C5496;
+	Sat, 12 Jul 2025 17:42:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D51ECC4CEEF;
+	Sat, 12 Jul 2025 17:42:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1752342172;
+	bh=+pGZw3FTFYX0NdM3RCCNoB5wrejY5dMIea8ed3laJNY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=XT62ffBKtI8kHsasgFZRrTXV2FoYIF00anz3mzwIUPSg23g43di1Sbg16J69x2H8L
+	 +fdWwnE9gd5aPDM+lnyDgTH5bBUY96RVtlywez5XaEUKfbNJ31T6gNwKegnstU2gkO
+	 x2nrg6rLaZnTAUHVXXYkX3u8xxbu+dofZ+44iVA9Q3iX3csXw5WZrur+IionzMEEWC
+	 QNuQcmuIypAt8qFgDGDrp2C+4WGSb2qj18dkR+odhFwssedcyi3eCL63Zyj0hOdrEv
+	 rrSAQFCEG31MHS2Er6RmvrUNMDv+XRCyXXycFQ3XMnjhglK6nu9zvXeHgMRbAkZ5GO
+	 xS83pg4EURufA==
+Message-ID: <5597644b-267d-40d0-aa33-a8a665cebd70@kernel.org>
+Date: Sat, 12 Jul 2025 19:42:46 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6] soc: samsung: exynos-pmu: Enable CPU Idle for gs101
+To: Peter Griffin <peter.griffin@linaro.org>,
+ =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+ Tudor Ambarus <tudor.ambarus@linaro.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>
+Cc: William Mcvicker <willmcvicker@google.com>,
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, kernel-team@android.com, sudeep.holla@arm.com
+References: <20250711-gs101-cpuidle-v6-1-503ec55fc2f9@linaro.org>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20250711-gs101-cpuidle-v6-1-503ec55fc2f9@linaro.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250712_103848_619274_3B5892A1 
-X-CRM114-Status: GOOD (  13.27  )
+X-CRM114-CacheID: sfid-20250712_104254_073244_A6FE8DDC 
+X-CRM114-Status: GOOD (  19.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,387 +121,139 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The NanoPi Zero2 is a small single board computer developed by
-FriendlyElec, based on the Rockchip RK3528A SoC.
+On 11/07/2025 15:50, Peter Griffin wrote:
+>  
+>  #include <linux/soc/samsung/exynos-regs-pmu.h>
+> @@ -35,6 +37,14 @@ struct exynos_pmu_context {
+>  	const struct exynos_pmu_data *pmu_data;
+>  	struct regmap *pmureg;
+>  	struct regmap *pmuintrgen;
+> +	/*
+> +	 * Serialization lock for CPU hot plug and cpuidle ACPM hint
+> +	 * programming. Also protects the in_hotplug flag.
+> +	 */
+> +	raw_spinlock_t cpupm_lock;
+> +	bool *in_hotplug;
 
-Add initial device tree for the FriendlyElec NanoPi Zero2 board.
+This should be bitmap - more obvious code.
 
-Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
-Tested-by: Yao Zi <ziyao@disroot.org>
----
-Changes in v3:
-- Rename led nodes to led-0/led-1 (Chukun Pan)
+> +	atomic_t sys_suspended;
+> +	atomic_t sys_rebooting;
+>  };
+>  
+>  void __iomem *pmu_base_addr;
+> @@ -221,6 +231,15 @@ static const struct regmap_config regmap_smccfg = {
+>  	.reg_read = tensor_sec_reg_read,
+>  	.reg_write = tensor_sec_reg_write,
+>  	.reg_update_bits = tensor_sec_update_bits,
+> +	.use_raw_spinlock = true,
+> +};
+> +
+> +static const struct regmap_config regmap_pmu_intr = {
+> +	.name = "pmu_intr_gen",
+> +	.reg_bits = 32,
+> +	.reg_stride = 4,
+> +	.val_bits = 32,
+> +	.use_raw_spinlock = true,
+>  };
+>  
+>  static const struct exynos_pmu_data gs101_pmu_data = {
+> @@ -330,13 +349,19 @@ struct regmap *exynos_get_pmu_regmap_by_phandle(struct device_node *np,
+>  EXPORT_SYMBOL_GPL(exynos_get_pmu_regmap_by_phandle);
+>  
 
-Changes in v2:
-- Drop clock-output-names prop from rtc node (Chukun Pan)
-- Collect t-b tag
 
-Schematics: https://wiki.friendlyelec.com/wiki/images/3/37/NanoPi_Zero2_2407_SCH.pdf
----
- arch/arm64/boot/dts/rockchip/Makefile         |   1 +
- .../boot/dts/rockchip/rk3528-nanopi-zero2.dts | 340 ++++++++++++++++++
- 2 files changed, 341 insertions(+)
- create mode 100644 arch/arm64/boot/dts/rockchip/rk3528-nanopi-zero2.dts
+...
 
-diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/dts/rockchip/Makefile
-index 206fb8572cf7..0662fcf00628 100644
---- a/arch/arm64/boot/dts/rockchip/Makefile
-+++ b/arch/arm64/boot/dts/rockchip/Makefile
-@@ -90,6 +90,7 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3399-sapphire.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3399-sapphire-excavator.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3399pro-rock-pi-n10.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3528-armsom-sige1.dtb
-+dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3528-nanopi-zero2.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3528-radxa-e20c.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3528-rock-2a.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3528-rock-2f.dtb
-diff --git a/arch/arm64/boot/dts/rockchip/rk3528-nanopi-zero2.dts b/arch/arm64/boot/dts/rockchip/rk3528-nanopi-zero2.dts
-new file mode 100644
-index 000000000000..9f683033c5f3
---- /dev/null
-+++ b/arch/arm64/boot/dts/rockchip/rk3528-nanopi-zero2.dts
-@@ -0,0 +1,340 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+
-+/dts-v1/;
-+
-+#include <dt-bindings/input/input.h>
-+#include <dt-bindings/leds/common.h>
-+#include <dt-bindings/pwm/pwm.h>
-+#include "rk3528.dtsi"
-+
-+/ {
-+	model = "FriendlyElec NanoPi Zero2";
-+	compatible = "friendlyarm,nanopi-zero2", "rockchip,rk3528";
-+
-+	aliases {
-+		ethernet0 = &gmac1;
-+		i2c1 = &i2c1;
-+		mmc0 = &sdhci;
-+		mmc1 = &sdmmc;
-+		serial0 = &uart0;
-+	};
-+
-+	chosen {
-+		stdout-path = "serial0:1500000n8";
-+	};
-+
-+	adc-keys-0 {
-+		compatible = "adc-keys";
-+		io-channels = <&saradc 0>;
-+		io-channel-names = "buttons";
-+		keyup-threshold-microvolt = <1800000>;
-+		poll-interval = <100>;
-+
-+		button-maskrom {
-+			label = "MASK";
-+			linux,code = <KEY_SETUP>;
-+			press-threshold-microvolt = <0>;
-+		};
-+	};
-+
-+	adc-keys-1 {
-+		compatible = "adc-keys";
-+		io-channels = <&saradc 1>;
-+		io-channel-names = "buttons";
-+		keyup-threshold-microvolt = <1800000>;
-+		poll-interval = <100>;
-+
-+		button-recovery {
-+			label = "RECOVERY";
-+			linux,code = <KEY_VENDOR>;
-+			press-threshold-microvolt = <0>;
-+		};
-+	};
-+
-+	leds {
-+		compatible = "gpio-leds";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&led1>, <&led_sys>;
-+
-+		led-0 {
-+			color = <LED_COLOR_ID_RED>;
-+			default-state = "on";
-+			function = LED_FUNCTION_HEARTBEAT;
-+			gpios = <&gpio4 RK_PB0 GPIO_ACTIVE_HIGH>;
-+			linux,default-trigger = "heartbeat";
-+		};
-+
-+		led-1 {
-+			color = <LED_COLOR_ID_GREEN>;
-+			default-state = "on";
-+			function = LED_FUNCTION_STATUS;
-+			gpios = <&gpio4 RK_PB1 GPIO_ACTIVE_HIGH>;
-+			linux,default-trigger = "default-on";
-+		};
-+	};
-+
-+	vcc0v6_ddr: regulator-0v6-vcc-ddr {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc0v6_ddr";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <600000>;
-+		regulator-max-microvolt = <600000>;
-+		vin-supply = <&vcc5v0_sys>;
-+	};
-+
-+	vdd_0v9: regulator-0v9-vdd {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vdd_0v9";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <900000>;
-+		regulator-max-microvolt = <900000>;
-+		vin-supply = <&vcc5v0_sys>;
-+	};
-+
-+	vcc_ddr: regulator-1v1-vcc-ddr {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc_ddr";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <1100000>;
-+		regulator-max-microvolt = <1100000>;
-+		vin-supply = <&vcc5v0_sys>;
-+	};
-+
-+	vcc_1v8: regulator-1v8-vcc {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc_1v8";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <1800000>;
-+		regulator-max-microvolt = <1800000>;
-+		vin-supply = <&vcc_3v3>;
-+	};
-+
-+	vcc_3v3: regulator-3v3-vcc {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc_3v3";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		vin-supply = <&vcc5v0_sys>;
-+	};
-+
-+	vcc3v3_sd: regulator-3v3-vcc-sd {
-+		compatible = "regulator-fixed";
-+		gpios = <&gpio4 RK_PA1 GPIO_ACTIVE_LOW>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&sdmmc_pwren_l>;
-+		regulator-name = "vcc3v3_sd";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		vin-supply = <&vcc_3v3>;
-+	};
-+
-+	vcc5v0_sys: regulator-5v0-vcc-sys {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc5v0_sys";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+	};
-+
-+	usb2_host_5v: regulator-5v0-usb2-host {
-+		compatible = "regulator-fixed";
-+		enable-active-high;
-+		gpios = <&gpio4 RK_PB5 GPIO_ACTIVE_HIGH>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&usb20_host1_pwren>;
-+		regulator-name = "usb2_host_5v";
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+		vin-supply = <&vcc5v0_sys>;
-+	};
-+
-+	vccio_sd: regulator-vccio-sd {
-+		compatible = "regulator-gpio";
-+		gpios = <&gpio4 RK_PB6 GPIO_ACTIVE_HIGH>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&sdmmc_vol_ctrl_h>;
-+		regulator-name = "vccio_sd";
-+		regulator-min-microvolt = <1800000>;
-+		regulator-max-microvolt = <3300000>;
-+		states = <1800000 0x0>, <3300000 0x1>;
-+		vin-supply = <&vcc5v0_sys>;
-+	};
-+
-+	vdd_arm: regulator-vdd-arm {
-+		compatible = "pwm-regulator";
-+		pwms = <&pwm1 0 5000 PWM_POLARITY_INVERTED>;
-+		pwm-supply = <&vcc5v0_sys>;
-+		regulator-name = "vdd_arm";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <746000>;
-+		regulator-max-microvolt = <1201000>;
-+		regulator-settling-time-up-us = <250>;
-+	};
-+
-+	vdd_logic: regulator-vdd-logic {
-+		compatible = "pwm-regulator";
-+		pwms = <&pwm2 0 5000 PWM_POLARITY_INVERTED>;
-+		pwm-supply = <&vcc5v0_sys>;
-+		regulator-name = "vdd_logic";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <705000>;
-+		regulator-max-microvolt = <1006000>;
-+		regulator-settling-time-up-us = <250>;
-+	};
-+};
-+
-+&cpu0 {
-+	cpu-supply = <&vdd_arm>;
-+};
-+
-+&cpu1 {
-+	cpu-supply = <&vdd_arm>;
-+};
-+
-+&cpu2 {
-+	cpu-supply = <&vdd_arm>;
-+};
-+
-+&cpu3 {
-+	cpu-supply = <&vdd_arm>;
-+};
-+
-+&gmac1 {
-+	clock_in_out = "output";
-+	phy-handle = <&rgmii_phy>;
-+	phy-mode = "rgmii-id";
-+	phy-supply = <&vcc_3v3>;
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&rgmii_miim>, <&rgmii_tx_bus2>, <&rgmii_rx_bus2>,
-+		    <&rgmii_rgmii_clk>, <&rgmii_rgmii_bus>;
-+	status = "okay";
-+};
-+
-+&gpu {
-+	mali-supply = <&vdd_logic>;
-+	status = "okay";
-+};
-+
-+&i2c1 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&i2c1m0_xfer>;
-+	status = "okay";
-+
-+	hym8563: rtc@51 {
-+		compatible = "haoyu,hym8563";
-+		reg = <0x51>;
-+		#clock-cells = <0>;
-+		interrupt-parent = <&gpio4>;
-+		interrupts = <RK_PC1 IRQ_TYPE_LEVEL_LOW>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&rtc_int_l>;
-+		wakeup-source;
-+	};
-+};
-+
-+&mdio1 {
-+	rgmii_phy: ethernet-phy@1 {
-+		compatible = "ethernet-phy-ieee802.3-c22";
-+		reg = <0x1>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&gmac1_rstn_l>;
-+		reset-assert-us = <20000>;
-+		reset-deassert-us = <100000>;
-+		reset-gpios = <&gpio4 RK_PC2 GPIO_ACTIVE_LOW>;
-+	};
-+};
-+
-+&pinctrl {
-+	ethernet {
-+		gmac1_rstn_l: gmac1-rstn-l {
-+			rockchip,pins = <4 RK_PC2 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+
-+	leds {
-+		led1: led1 {
-+			rockchip,pins = <4 RK_PB1 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+
-+		led_sys: led-sys {
-+			rockchip,pins = <4 RK_PB0 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+
-+	rtc {
-+		rtc_int_l: rtc-int-l {
-+			rockchip,pins = <4 RK_PC1 RK_FUNC_GPIO &pcfg_pull_up>;
-+		};
-+	};
-+
-+	sdmmc {
-+		sdmmc_vol_ctrl_h: sdmmc-vol-ctrl-h {
-+			rockchip,pins = <4 RK_PB6 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+
-+		sdmmc_pwren_l: sdmmc-pwren-l {
-+			rockchip,pins = <4 RK_PA1 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+
-+	usb {
-+		usb20_host1_pwren: usb20-host1-pwren {
-+			rockchip,pins = <4 RK_PB5 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+};
-+
-+&pwm1 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pwm1m0_pins>;
-+	status = "okay";
-+};
-+
-+&pwm2 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pwm2m0_pins>;
-+	status = "okay";
-+};
-+
-+&saradc {
-+	vref-supply = <&vcc_1v8>;
-+	status = "okay";
-+};
-+
-+&sdhci {
-+	bus-width = <8>;
-+	cap-mmc-highspeed;
-+	mmc-hs200-1_8v;
-+	no-sd;
-+	no-sdio;
-+	non-removable;
-+	vmmc-supply = <&vcc_3v3>;
-+	vqmmc-supply = <&vcc_1v8>;
-+	status = "okay";
-+};
-+
-+&sdmmc {
-+	bus-width = <4>;
-+	cap-mmc-highspeed;
-+	cap-sd-highspeed;
-+	disable-wp;
-+	sd-uhs-sdr104;
-+	vmmc-supply = <&vcc3v3_sd>;
-+	vqmmc-supply = <&vccio_sd>;
-+	status = "okay";
-+};
-+
-+&uart0 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&uart0m0_xfer>;
-+	status = "okay";
-+};
--- 
-2.49.0
+> +/* Called from CPU PM notifier (CPUIdle code path) with IRQs disabled */
+> +static int gs101_cpu_pmu_offline(void)
+> +{
+> +	int cpu;
+> +
+> +	raw_spin_lock(&pmu_context->cpupm_lock);
+> +	cpu = smp_processor_id();
+> +
+> +	if (pmu_context->in_hotplug[cpu]) {
+> +		raw_spin_unlock(&pmu_context->cpupm_lock);
+> +		return NOTIFY_BAD;
+> +	}
+> +
+> +	__gs101_cpu_pmu_offline(cpu);
+> +	raw_spin_unlock(&pmu_context->cpupm_lock);
+> +
+> +	return NOTIFY_OK;
+> +}
+> +
+> +/* Called from CPU hot plug callback with IRQs enabled */
+> +static int gs101_cpuhp_pmu_offline(unsigned int cpu)
+> +{
+> +	unsigned long flags;
+> +
+> +	raw_spin_lock_irqsave(&pmu_context->cpupm_lock, flags);
+> +	/*
+> +	 * Mark this CPU as entering hotplug. So as not to confuse
+> +	 * ACPM the CPU entering hotplug should not enter C2 idle state.
+> +	 */
+> +	pmu_context->in_hotplug[cpu] = true;
+> +	__gs101_cpu_pmu_offline(cpu);
+> +
+> +	raw_spin_unlock_irqrestore(&pmu_context->cpupm_lock, flags);
+> +
+> +	return 0;
+> +}
+> +
+> +static int gs101_cpu_pm_notify_callback(struct notifier_block *self,
+> +					unsigned long action, void *v)
+> +{
+> +	switch (action) {
+> +	case CPU_PM_ENTER:
+> +		/*
+> +		 * Ignore CPU_PM_ENTER event in reboot or
+> +		 * suspend sequence.
+> +		 */
+> +
+> +		if (atomic_read(&pmu_context->sys_suspended) ||
+> +		    atomic_read(&pmu_context->sys_rebooting))
 
+I don't get exactly why you need here atomics. You don't have here
+barriers, so ordering is not kept (non-RMW atomics are unordered), so
+maybe ordering was not the problem to be solved here. But then you don't
+use these at all as RMW and this is even explicitly described in atomic doc!
+
+"Therefore, if you find yourself only using the Non-RMW operations of
+atomic_t, you do not in fact need atomic_t at all and are doing it wrong."
+
+And it is right. READ/WRITE_ONCE gives you the same.
+
+The question is whether you need ordering or barriers in general
+(atomics don't give you these) - you have here control dependency
+if-else, however it is immediately followed with gs101_cpu_pmu_offline()
+which will use spin-lock (so memory barrier).
+
+Basically you should have here comment explaining why there is no
+barrier - you rely on barrier from spin lock in next calls.
+
+And if my reasoning is correct, then you should use just READ/WRITE_ONCE.
+
+
+> +			return NOTIFY_OK;
+> +
+> +		return gs101_cpu_pmu_offline();
+> +
+> +	case CPU_PM_EXIT:
+> +
+> +		if (atomic_read(&pmu_context->sys_rebooting))
+> +			return NOTIFY_OK;
+> +
+> +		return gs101_cpu_pmu_online();
+> +	}
+> +
+> +	return NOTIFY_OK;
+> +}
+
+The rest looked fine.
+
+
+Best regards,
+Krzysztof
 
