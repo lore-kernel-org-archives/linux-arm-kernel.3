@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C15C6C83F10
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Jul 2025 00:10:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94AC0C83F1D
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Jul 2025 00:13:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jCXigeeWTrQIReJtJOpqtuS2wbvv8dq2DBtYSLrukBQ=; b=TTucW91xL5LS3tvmXhnfQ0I/j7
-	Y9tneq3+iZ58YnTPq9fjouwBMezm39nSKq9E2QmxLVHQzkB9z3EGow2J1BB7D8Ew80fYykWAoeQYR
-	Nduk0hstPdoOK19SzjvBXc4UfdWkBWjzrA9qtXEXMVM3y0Wlqly8crYYLiZKTQAZbXLcnvYr4AaE9
-	dxHyWwZd00r4+z7DBAtrylBcRc+r57rX2xWv4zk0iUcT9q27fSUUry3vjIJngQ2TwZKqFIwG3Xh/o
-	JV8lMb7Zirn0C0DDedaipu8uowKmqzi+OggdKquNIkJbOUoJOgyDguoJ3UOY2oSus9RI8CyUJtPRK
-	HTs7ma5g==;
+	bh=WLl0ya5eXGc1QzUphNtDcQRNvmr9D8SInxfRd+Jb+pA=; b=SjedTToSDFANDRku6l3oGt5UEz
+	ZcRrJqLK78MycfA15sy+d+dPJpIkTvNr1hQWzUUGSzP3r49jwPSH8PGVSW70cJS+xXrYP+h/jq6mg
+	2vLUAyZyRDz1mENUdi2+oGw1BScoJLcajKnRuWjVLu7lByUKMa4p/TU4v/EY62BgsWTVMNuFQfLfC
+	wgzEe+zL7NegK3d4yz/XQQzQkf8Av5AJ398DzPjR5Q2p+qCtsYdJhGzngU3YDCojFoqgBKbmZ2VeS
+	pM5SHE+rwbAuT2TtejH9c/CldCe7sOR0IRKxQQ44q08sQ1diYakUE1El1rhCsgWKBIDu447mIPlal
+	KGLqRzqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uakIY-0000000HBkV-0qdp;
-	Sun, 13 Jul 2025 00:10:30 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uakKv-0000000HBr4-07PO;
+	Sun, 13 Jul 2025 00:12:57 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uajbw-0000000H7XR-0eek
+	id 1uajbz-0000000H7g9-3yqu
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 12 Jul 2025 23:26:31 +0000
+	Sat, 12 Jul 2025 23:26:32 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 042415C5570;
-	Sat, 12 Jul 2025 23:26:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 791B6C4CEEF;
-	Sat, 12 Jul 2025 23:26:27 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 5C2586114D;
+	Sat, 12 Jul 2025 23:26:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B87F5C4CEF8;
+	Sat, 12 Jul 2025 23:26:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752362787;
-	bh=0uuH9SjZ8K8+ACPJuo2m4qDOTTccNZS9uJItjIz8lEA=;
+	s=k20201202; t=1752362791;
+	bh=rfJ72uWvvK+whDF9VjkI5SYPfCKh27VtzjmWTwXhIJA=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=dH9DsS2Xw3covYFWQE+Ugk+mBSxQ6BXP2pO4QGhLwVyEe44kLlMwoYGDWYEj3LbYU
-	 gNdRwNL79zti3WDAQqGT1htMpRbssnwYwxtC6lzR2Z7iMnN/nb5/eKFRmZfAYAyb7V
-	 n+j/QkLGWP4ObgYdRFiUCOqHz+h6ker+Ij6lHGSukFAD+bse5ep9FHfZvIUfPLxf24
-	 EWrvdOPariUuQs9pPs+WP2TbaKFCh/iYI+jCyHvElw1B3YGPSTjJIys9WkZcYN0Qv9
-	 x4K/cOgDkQB3FhwoiAqugSoucfjpSWvoeIMRrzhIV5GFjQ7fRsJv6EFguXNtbqYWBp
-	 h+kGyp8qif+ZQ==
+	b=adPuDNFTOjCINdd++ewChJOGNbvpvPCdKMgJfTgRQVWFOLKuAr3v2d13HC1FITvPY
+	 gL08rEFOe6I2qF2+ngmp0urjV0YUz6HmCSL1V8p3M1gV9CyYQMgLkCJS+O+7bq/Pd/
+	 ELxAGoNm19hqjcz2MxC3qh2PLrusWwnTLczFTZqnDSGLkcEJvnUS8MeuaBWVioD+9M
+	 Ek1NkQVcy8IFlqynbsqyE5FOtX0PqYijraDbs8A7GLcrL32Zrb9sK1oM6D6Bhe1T2G
+	 AEDIb2+J1IXfEmKx8lL4J44Lyw1N73Qnd6JzBQB9Ltysfp/U2VnrpBGKTh7PN2Vof2
+	 BtNUAszxW2+rQ==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -54,17 +54,14 @@ Cc: linux-kernel@vger.kernel.org,
 	sparclinux@vger.kernel.org,
 	x86@kernel.org,
 	Eric Biggers <ebiggers@kernel.org>
-Subject: [PATCH 16/26] bpf: Use sha1() instead of sha1_transform() in bpf_prog_calc_tag()
-Date: Sat, 12 Jul 2025 16:23:07 -0700
-Message-ID: <20250712232329.818226-17-ebiggers@kernel.org>
+Subject: [PATCH 23/26] ppp: mppe: Use SHA-1 library instead of crypto_shash
+Date: Sat, 12 Jul 2025 16:23:14 -0700
+Message-ID: <20250712232329.818226-24-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20250712232329.818226-1-ebiggers@kernel.org>
 References: <20250712232329.818226-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250712_162628_290122_AABD600D 
-X-CRM114-Status: GOOD (  14.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,121 +76,268 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Now that there's a proper SHA-1 library API, just use that instead of
-the low-level SHA-1 compression function.  This eliminates the need for
-bpf_prog_calc_tag() to implement the SHA-1 padding itself.  No
-functional change.
+Use the SHA-1 library instead of crypto_shash.  This is simpler and
+faster.
 
 Signed-off-by: Eric Biggers <ebiggers@kernel.org>
 ---
- include/linux/filter.h |  6 ------
- kernel/bpf/core.c      | 49 +++++++-----------------------------------
- 2 files changed, 8 insertions(+), 47 deletions(-)
+ drivers/net/ppp/Kconfig    |   3 +-
+ drivers/net/ppp/ppp_mppe.c | 109 +++++++------------------------------
+ 2 files changed, 20 insertions(+), 92 deletions(-)
 
-diff --git a/include/linux/filter.h b/include/linux/filter.h
-index f5cf4d35d83e9..3aa33e904a4ed 100644
---- a/include/linux/filter.h
-+++ b/include/linux/filter.h
-@@ -995,16 +995,10 @@ void bpf_prog_change_xdp(struct bpf_prog *prev_prog, struct bpf_prog *prog);
- static inline u32 bpf_prog_insn_size(const struct bpf_prog *prog)
- {
- 	return prog->len * sizeof(struct bpf_insn);
- }
+diff --git a/drivers/net/ppp/Kconfig b/drivers/net/ppp/Kconfig
+index 8c9ed1889d1af..a1806b4b84beb 100644
+--- a/drivers/net/ppp/Kconfig
++++ b/drivers/net/ppp/Kconfig
+@@ -83,13 +83,12 @@ config PPP_FILTER
+ 	  If unsure, say N.
  
--static inline u32 bpf_prog_tag_scratch_size(const struct bpf_prog *prog)
+ config PPP_MPPE
+ 	tristate "PPP MPPE compression (encryption)"
+ 	depends on PPP
+-	select CRYPTO
+-	select CRYPTO_SHA1
+ 	select CRYPTO_LIB_ARC4
++	select CRYPTO_LIB_SHA1
+ 	help
+ 	  Support for the MPPE Encryption protocol, as employed by the
+ 	  Microsoft Point-to-Point Tunneling Protocol.
+ 
+ 	  See http://pptpclient.sourceforge.net/ for information on
+diff --git a/drivers/net/ppp/ppp_mppe.c b/drivers/net/ppp/ppp_mppe.c
+index bcc1eaedf58fb..126908549f9c7 100644
+--- a/drivers/net/ppp/ppp_mppe.c
++++ b/drivers/net/ppp/ppp_mppe.c
+@@ -41,11 +41,11 @@
+  *                    MOD_DEC_USAGE_COUNT/MOD_INC_USAGE_COUNT which are
+  *                    deprecated in 2.6
+  */
+ 
+ #include <crypto/arc4.h>
+-#include <crypto/hash.h>
++#include <crypto/sha1.h>
+ #include <linux/err.h>
+ #include <linux/fips.h>
+ #include <linux/module.h>
+ #include <linux/kernel.h>
+ #include <linux/init.h>
+@@ -53,11 +53,10 @@
+ #include <linux/slab.h>
+ #include <linux/string.h>
+ #include <linux/mm.h>
+ #include <linux/ppp_defs.h>
+ #include <linux/ppp-comp.h>
+-#include <linux/scatterlist.h>
+ #include <linux/unaligned.h>
+ 
+ #include "ppp_mppe.h"
+ 
+ MODULE_AUTHOR("Frank Cusack <fcusack@fcusack.com>");
+@@ -65,35 +64,19 @@ MODULE_DESCRIPTION("Point-to-Point Protocol Microsoft Point-to-Point Encryption
+ MODULE_LICENSE("Dual BSD/GPL");
+ MODULE_ALIAS("ppp-compress-" __stringify(CI_MPPE));
+ MODULE_VERSION("1.0.2");
+ 
+ #define SHA1_PAD_SIZE 40
+-
+-/*
+- * kernel crypto API needs its arguments to be in kmalloc'd memory, not in the module
+- * static data area.  That means sha_pad needs to be kmalloc'd.
+- */
+-
+-struct sha_pad {
+-	unsigned char sha_pad1[SHA1_PAD_SIZE];
+-	unsigned char sha_pad2[SHA1_PAD_SIZE];
+-};
+-static struct sha_pad *sha_pad;
+-
+-static inline void sha_pad_init(struct sha_pad *shapad)
 -{
--	return round_up(bpf_prog_insn_size(prog) +
--			sizeof(__be64) + 1, SHA1_BLOCK_SIZE);
+-	memset(shapad->sha_pad1, 0x00, sizeof(shapad->sha_pad1));
+-	memset(shapad->sha_pad2, 0xF2, sizeof(shapad->sha_pad2));
 -}
--
- static inline unsigned int bpf_prog_size(unsigned int proglen)
++static const u8 sha_pad1[SHA1_PAD_SIZE] = { 0 };
++static const u8 sha_pad2[SHA1_PAD_SIZE] = { [0 ... SHA1_PAD_SIZE - 1] = 0xF2 };
+ 
+ /*
+  * State for an MPPE (de)compressor.
+  */
+ struct ppp_mppe_state {
+ 	struct arc4_ctx arc4;
+-	struct shash_desc *sha1;
+-	unsigned char *sha1_digest;
++	unsigned char sha1_digest[SHA1_DIGEST_SIZE];
+ 	unsigned char master_key[MPPE_MAX_KEY_LEN];
+ 	unsigned char session_key[MPPE_MAX_KEY_LEN];
+ 	unsigned keylen;	/* key length in bytes             */
+ 	/* NB: 128-bit == 16, 40-bit == 8! */
+ 	/* If we want to support 56-bit,   */
+@@ -128,28 +111,27 @@ struct ppp_mppe_state {
+  * Key Derivation, from RFC 3078, RFC 3079.
+  * Equivalent to Get_Key() for MS-CHAP as described in RFC 3079.
+  */
+ static void get_new_key_from_sha(struct ppp_mppe_state * state)
  {
- 	return max(sizeof(struct bpf_prog),
- 		   offsetof(struct bpf_prog, insns[proglen]));
- }
-diff --git a/kernel/bpf/core.c b/kernel/bpf/core.c
-index dae281a1286d5..a1b727ffa4548 100644
---- a/kernel/bpf/core.c
-+++ b/kernel/bpf/core.c
-@@ -287,32 +287,23 @@ void __bpf_prog_free(struct bpf_prog *fp)
- 	vfree(fp);
+-	crypto_shash_init(state->sha1);
+-	crypto_shash_update(state->sha1, state->master_key,
+-			    state->keylen);
+-	crypto_shash_update(state->sha1, sha_pad->sha_pad1,
+-			    sizeof(sha_pad->sha_pad1));
+-	crypto_shash_update(state->sha1, state->session_key,
+-			    state->keylen);
+-	crypto_shash_update(state->sha1, sha_pad->sha_pad2,
+-			    sizeof(sha_pad->sha_pad2));
+-	crypto_shash_final(state->sha1, state->sha1_digest);
++	struct sha1_ctx ctx;
++
++	sha1_init(&ctx);
++	sha1_update(&ctx, state->master_key, state->keylen);
++	sha1_update(&ctx, sha_pad1, sizeof(sha_pad1));
++	sha1_update(&ctx, state->session_key, state->keylen);
++	sha1_update(&ctx, sha_pad2, sizeof(sha_pad2));
++	sha1_final(&ctx, state->sha1_digest);
  }
  
- int bpf_prog_calc_tag(struct bpf_prog *fp)
+ /*
+  * Perform the MPPE rekey algorithm, from RFC 3078, sec. 7.3.
+  * Well, not what's written there, but rather what they meant.
+  */
+ static void mppe_rekey(struct ppp_mppe_state * state, int initial_key)
  {
--	const u32 bits_offset = SHA1_BLOCK_SIZE - sizeof(__be64);
--	u32 raw_size = bpf_prog_tag_scratch_size(fp);
--	u32 digest[SHA1_DIGEST_WORDS];
--	u32 ws[SHA1_WORKSPACE_WORDS];
--	u32 i, bsize, psize, blocks;
-+	size_t size = bpf_prog_insn_size(fp);
-+	u8 digest[SHA1_DIGEST_SIZE];
- 	struct bpf_insn *dst;
- 	bool was_ld_map;
--	u8 *raw, *todo;
--	__be32 *result;
--	__be64 *bits;
-+	u32 i;
++	static_assert(SHA1_DIGEST_SIZE >= MPPE_MAX_KEY_LEN);
+ 	get_new_key_from_sha(state);
+ 	if (!initial_key) {
+ 		arc4_setkey(&state->arc4, state->sha1_digest, state->keylen);
+ 		arc4_crypt(&state->arc4, state->session_key, state->sha1_digest,
+ 			   state->keylen);
+@@ -169,43 +151,19 @@ static void mppe_rekey(struct ppp_mppe_state * state, int initial_key)
+  * Allocate space for a (de)compressor.
+  */
+ static void *mppe_alloc(unsigned char *options, int optlen)
+ {
+ 	struct ppp_mppe_state *state;
+-	struct crypto_shash *shash;
+-	unsigned int digestsize;
  
--	raw = vmalloc(raw_size);
--	if (!raw)
-+	dst = vmalloc(size);
-+	if (!dst)
- 		return -ENOMEM;
+ 	if (optlen != CILEN_MPPE + sizeof(state->master_key) ||
+ 	    options[0] != CI_MPPE || options[1] != CILEN_MPPE ||
+ 	    fips_enabled)
+-		goto out;
++		return NULL;
  
--	sha1_init_raw(digest);
--	memset(ws, 0, sizeof(ws));
+ 	state = kzalloc(sizeof(*state), GFP_KERNEL);
+ 	if (state == NULL)
+-		goto out;
 -
- 	/* We need to take out the map fd for the digest calculation
- 	 * since they are unstable from user space side.
+-
+-	shash = crypto_alloc_shash("sha1", 0, 0);
+-	if (IS_ERR(shash))
+-		goto out_free;
+-
+-	state->sha1 = kmalloc(sizeof(*state->sha1) +
+-				     crypto_shash_descsize(shash),
+-			      GFP_KERNEL);
+-	if (!state->sha1) {
+-		crypto_free_shash(shash);
+-		goto out_free;
+-	}
+-	state->sha1->tfm = shash;
+-
+-	digestsize = crypto_shash_digestsize(shash);
+-	if (digestsize < MPPE_MAX_KEY_LEN)
+-		goto out_free;
+-
+-	state->sha1_digest = kmalloc(digestsize, GFP_KERNEL);
+-	if (!state->sha1_digest)
+-		goto out_free;
++		return NULL;
+ 
+ 	/* Save keys. */
+ 	memcpy(state->master_key, &options[CILEN_MPPE],
+ 	       sizeof(state->master_key));
+ 	memcpy(state->session_key, state->master_key,
+@@ -215,34 +173,20 @@ static void *mppe_alloc(unsigned char *options, int optlen)
+ 	 * We defer initial key generation until mppe_init(), as mppe_alloc()
+ 	 * is called frequently during negotiation.
  	 */
--	dst = (void *)raw;
- 	for (i = 0, was_ld_map = false; i < fp->len; i++) {
- 		dst[i] = fp->insnsi[i];
- 		if (!was_ld_map &&
- 		    dst[i].code == (BPF_LD | BPF_IMM | BPF_DW) &&
- 		    (dst[i].src_reg == BPF_PSEUDO_MAP_FD ||
-@@ -328,37 +319,13 @@ int bpf_prog_calc_tag(struct bpf_prog *fp)
- 			dst[i].imm = 0;
- 		} else {
- 			was_ld_map = false;
- 		}
- 	}
+ 
+ 	return (void *)state;
 -
--	psize = bpf_prog_insn_size(fp);
--	memset(&raw[psize], 0, raw_size - psize);
--	raw[psize++] = 0x80;
--
--	bsize  = round_up(psize, SHA1_BLOCK_SIZE);
--	blocks = bsize / SHA1_BLOCK_SIZE;
--	todo   = raw;
--	if (bsize - psize >= sizeof(__be64)) {
--		bits = (__be64 *)(todo + bsize - sizeof(__be64));
--	} else {
--		bits = (__be64 *)(todo + bsize + bits_offset);
--		blocks++;
+-out_free:
+-	kfree(state->sha1_digest);
+-	if (state->sha1) {
+-		crypto_free_shash(state->sha1->tfm);
+-		kfree_sensitive(state->sha1);
 -	}
--	*bits = cpu_to_be64((psize - 1) << 3);
--
--	while (blocks--) {
--		sha1_transform(digest, todo, ws);
--		todo += SHA1_BLOCK_SIZE;
--	}
--
--	result = (__force __be32 *)digest;
--	for (i = 0; i < SHA1_DIGEST_WORDS; i++)
--		result[i] = cpu_to_be32(digest[i]);
--	memcpy(fp->tag, result, sizeof(fp->tag));
--
--	vfree(raw);
-+	sha1((const u8 *)dst, size, digest);
-+	memcpy(fp->tag, digest, sizeof(fp->tag));
-+	vfree(dst);
- 	return 0;
+-	kfree(state);
+-out:
+-	return NULL;
  }
  
- static int bpf_adj_delta_to_imm(struct bpf_insn *insn, u32 pos, s32 end_old,
- 				s32 end_new, s32 curr, const bool probe_pass)
+ /*
+  * Deallocate space for a (de)compressor.
+  */
+ static void mppe_free(void *arg)
+ {
+ 	struct ppp_mppe_state *state = (struct ppp_mppe_state *) arg;
+-	if (state) {
+-		kfree(state->sha1_digest);
+-		crypto_free_shash(state->sha1->tfm);
+-		kfree_sensitive(state->sha1);
+-		kfree_sensitive(state);
+-	}
++
++	kfree_sensitive(state);
+ }
+ 
+ /*
+  * Initialize (de)compressor state.
+  */
+@@ -647,42 +591,27 @@ static struct compressor ppp_mppe = {
+ 	.decomp_stat    = mppe_comp_stats,
+ 	.owner          = THIS_MODULE,
+ 	.comp_extra     = MPPE_PAD,
+ };
+ 
+-/*
+- * ppp_mppe_init()
+- *
+- * Prior to allowing load, try to load the arc4 and sha1 crypto
+- * libraries.  The actual use will be allocated later, but
+- * this way the module will fail to insmod if they aren't available.
+- */
+-
+ static int __init ppp_mppe_init(void)
+ {
+ 	int answer;
+-	if (fips_enabled || !crypto_has_ahash("sha1", 0, CRYPTO_ALG_ASYNC))
+-		return -ENODEV;
+ 
+-	sha_pad = kmalloc(sizeof(struct sha_pad), GFP_KERNEL);
+-	if (!sha_pad)
+-		return -ENOMEM;
+-	sha_pad_init(sha_pad);
++	if (fips_enabled)
++		return -ENODEV;
+ 
+ 	answer = ppp_register_compressor(&ppp_mppe);
+ 
+ 	if (answer == 0)
+ 		printk(KERN_INFO "PPP MPPE Compression module registered\n");
+-	else
+-		kfree(sha_pad);
+ 
+ 	return answer;
+ }
+ 
+ static void __exit ppp_mppe_cleanup(void)
+ {
+ 	ppp_unregister_compressor(&ppp_mppe);
+-	kfree(sha_pad);
+ }
+ 
+ module_init(ppp_mppe_init);
+ module_exit(ppp_mppe_cleanup);
 -- 
 2.50.1
 
