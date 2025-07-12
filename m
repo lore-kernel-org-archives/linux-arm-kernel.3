@@ -4,49 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37B78C83F10
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Jul 2025 16:56:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32E83C83F1D
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Jul 2025 17:02:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dNx+oVdzU/T4ymnb8SG/nSOZ8RNEHbbFZ3pz/iveVcw=; b=me4E8D7yu/rOXGMO3BRQV6RStI
-	zkonlpC/te4+yc9bfdsANODoCFy7fvEmfLyG6QKR/QfVCv+p9KWlXbJqV4QwOHARZWvDR0abUXjkw
-	sFgvEfLYzGZNK6WYBUAAcdx3yilsOiKcnspFxXai+JMgvJxzSP6akyQAZFBXJARYxOdi09A+qPcT4
-	VsTsJTy9+PFhmmV6MCHhCcW79nb0Ucimdldml5yY+gOE2U+aMyu7kZlO3PKgfKMJqPEvCKTQ+IjfM
-	A2YqJ802+mcBmjZ2eAzKmwdI3QNCRwJ5NQOfxrPJUolRsmtQZSe6Oj6XqVgcwDawwimRUaZV/DvtW
-	97LRwl9w==;
+	bh=gB3WX02p54AooZqDnhzq9COITrk6u/2kQg8kh9DSxso=; b=aAXCr77INcydk2KZqKZAwRdLbT
+	5HBymyqF2AKxBxHjTOdC+UV7O4Gx7l66cgd40yYnYkCnx103iBFBqmvxNA+nh0gLkF46ctdhq+Arc
+	zzh63q5yZNWwZS/wWzHyixTonNf4kaVJWM4xSehDbgAl9eKneH6+kasqVvE51cQYhLtlX/qjZZP2y
+	8zjmsSi2dzB1uHkayykOMf8aLfz53z2w25f5B4nykDr490BtdteYAf79TcdGlr2Yw1KQGFLIK5Dsd
+	OBDa7VAGzz1J+KRK1iNGlyYz0Yx4JWCeEIRMHOTKoGS8UNOsWqUIXwyGfvfXFVtVSZsAPkq9BmqaY
+	TO0cC9Cw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uadWH-0000000GouX-2HnL;
-	Sat, 12 Jul 2025 16:56:13 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uadbu-0000000GpJw-3VfH;
+	Sat, 12 Jul 2025 17:02:02 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uadTs-0000000GolS-3ItO;
-	Sat, 12 Jul 2025 16:53:45 +0000
+	id 1uadZV-0000000GpBa-3FrU;
+	Sat, 12 Jul 2025 16:59:35 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 015C4A54BB3;
-	Sat, 12 Jul 2025 16:53:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4FB3AC4CEEF;
-	Sat, 12 Jul 2025 16:53:40 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 432155C4BD2;
+	Sat, 12 Jul 2025 16:59:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 764FEC4CEEF;
+	Sat, 12 Jul 2025 16:59:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752339223;
-	bh=tW1N0tkK1B6gjOAFUX2iqzAUwiIyvzfA0KIAbOuUz7k=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=PkUJztUb2b/iaBuKzmxVtkpmImoyRyvLufwYqlIPkTG2oDvfT0JBskTgl/IztJMPt
-	 2PZJE93XUIxpKPTam67rvmpwj5AFhx3KZxR4Q6Gi2mm0ijskK69nutoJZqXmd/Ce1k
-	 STDSlU7ZVTnIPNQfuoSkyNgvPiL594BuOeYIC/Yty7wGKEhLwxqnECJIp8nLJjiniF
-	 TGaNQAAg9IMgIWrgT+CESbnIMAmiuSNMUSUX1r5LmDxQMYFfCvy74i0U4TkWV5TNNJ
-	 mFEfIiXb5DlV3qyYVWywPDrWB0kTI5JxLjrFlu5eT9jHQJZVbCy/nEAjGLFwQDXecV
-	 2n83HJFDYaoCA==
-Message-ID: <e435a765-fb91-408f-81dd-01a73fc43b6b@kernel.org>
-Date: Sat, 12 Jul 2025 18:53:38 +0200
+	s=k20201202; t=1752339571;
+	bh=O6/br0HScFLjxFbUFDku985RqpRVfW8PbxO4etqtAeo=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
+	b=B8dtt/mNnQuXk73OIgDAEefgL+cjk4d2PkFYjC4FBG6AIMDS7ggf2ReZKwhJ2BJ03
+	 LwZPDHqE2TPIMQyORbUjDB5rC2w95bs/mv0C8zvMBYd4wsUI+jt5DzEjubxKgyyVnP
+	 4dCVS0dB7rb1fhp6N4vRcYHCYYZKIHGlhmC8IWOaeqqzeTCQpE1ga7jCwiTKqoUs8L
+	 0dD6Es8xCiPN8iFmNMtxDPc8JM8OJyknplW2FTPZKClJueYgqY9cIH3QC4zmwnN/XZ
+	 CXjg3FED78ntmr3mTDjoAKtIFEDDiGLYUIhiATo59f51hRhldezOK5RxmGnfds7HiK
+	 1UrwIKV1/K3Wg==
+Message-ID: <23e629cb-0698-4a9c-aa18-9a7e71aa8b73@kernel.org>
+Date: Sat, 12 Jul 2025 18:59:24 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCHv3 wireless-next 7/7] dt-bindings: net: wireless: rt2800:
  add
+From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Stanislaw Gruszka <stf_xl@wp.pl>
 Cc: Rosen Penev <rosenp@gmail.com>, linux-wireless@vger.kernel.org,
  Johannes Berg <johannes@sipsolutions.net>, Rob Herring <robh@kernel.org>,
@@ -67,7 +68,7 @@ References: <20250710200820.262295-1-rosenp@gmail.com>
  <CAKxU2N-c2tHBYWBM+FJGqdSaqzw9u0O8e0G7AVqk6b0QdRnPTw@mail.gmail.com>
  <20250711-invisible-dainty-jackrabbit-acbf8f@krzk-bin>
  <20250712104006.GA13512@wp.pl>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+ <e435a765-fb91-408f-81dd-01a73fc43b6b@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
@@ -112,12 +113,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250712104006.GA13512@wp.pl>
+In-Reply-To: <e435a765-fb91-408f-81dd-01a73fc43b6b@kernel.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250712_095344_954562_8913E04F 
-X-CRM114-Status: GOOD (  15.02  )
+X-CRM114-CacheID: sfid-20250712_095933_900906_4F591B37 
+X-CRM114-Status: GOOD (  17.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,54 +133,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/07/2025 12:40, Stanislaw Gruszka wrote:
-> Hi Krzysztof,
-> 
-> On Fri, Jul 11, 2025 at 09:48:49AM +0200, Krzysztof Kozlowski wrote:
->> On Thu, Jul 10, 2025 at 03:40:30PM -0700, Rosen Penev wrote:
->>> On Thu, Jul 10, 2025 at 2:40 PM Krzysztof Kozlowski <krzk@kernel.org> wrote:
->>>>
->>>> On 10/07/2025 22:08, Rosen Penev wrote:
->>>>> Add device-tree bindings for the RT2800 SOC wifi device found in older
->>>>> Ralink/Mediatek devices.
->>>>>
->>>>> Signed-off-by: Rosen Penev <rosenp@gmail.com>
->>>>> ---
->>>>>  .../bindings/net/wireless/ralink,rt2800.yaml  | 47 +++++++++++++++++++
->>>>>  1 file changed, 47 insertions(+)
->>>>>  create mode 100644 Documentation/devicetree/bindings/net/wireless/ralink,rt2800.yaml
->>>>>
->>>>> diff --git a/Documentation/devicetree/bindings/net/wireless/ralink,rt2800.yaml b/Documentation/devicetree/bindings/net/wireless/ralink,rt2800.yaml
->>>>> new file mode 100644
->>>>> index 000000000000..8c13b25bd8b4
->>>>> --- /dev/null
->>>>> +++ b/Documentation/devicetree/bindings/net/wireless/ralink,rt2800.yaml
->>>>
->>>> Filename should match compatible. You were already changing something
->>>> here...
->>> hrm? that makes no sense. Various drivers have multiple compatible lines.
+On 12/07/2025 18:53, Krzysztof Kozlowski wrote:
+> On 12/07/2025 12:40, Stanislaw Gruszka wrote:
+>> Hi Krzysztof,
 >>
->> Luckily we do not speak about drivers here. Anyway, follow standard
->> review practices, you don't get special rules.
+>> On Fri, Jul 11, 2025 at 09:48:49AM +0200, Krzysztof Kozlowski wrote:
+>>> On Thu, Jul 10, 2025 at 03:40:30PM -0700, Rosen Penev wrote:
+>>>> On Thu, Jul 10, 2025 at 2:40 PM Krzysztof Kozlowski <krzk@kernel.org> wrote:
+>>>>>
+>>>>> On 10/07/2025 22:08, Rosen Penev wrote:
+>>>>>> Add device-tree bindings for the RT2800 SOC wifi device found in older
+>>>>>> Ralink/Mediatek devices.
+>>>>>>
+>>>>>> Signed-off-by: Rosen Penev <rosenp@gmail.com>
+>>>>>> ---
+>>>>>>  .../bindings/net/wireless/ralink,rt2800.yaml  | 47 +++++++++++++++++++
+>>>>>>  1 file changed, 47 insertions(+)
+>>>>>>  create mode 100644 Documentation/devicetree/bindings/net/wireless/ralink,rt2800.yaml
+>>>>>>
+>>>>>> diff --git a/Documentation/devicetree/bindings/net/wireless/ralink,rt2800.yaml b/Documentation/devicetree/bindings/net/wireless/ralink,rt2800.yaml
+>>>>>> new file mode 100644
+>>>>>> index 000000000000..8c13b25bd8b4
+>>>>>> --- /dev/null
+>>>>>> +++ b/Documentation/devicetree/bindings/net/wireless/ralink,rt2800.yaml
+>>>>>
+>>>>> Filename should match compatible. You were already changing something
+>>>>> here...
+>>>> hrm? that makes no sense. Various drivers have multiple compatible lines.
+>>>
+>>> Luckily we do not speak about drivers here. Anyway, follow standard
+>>> review practices, you don't get special rules.
+>>
+>> Could you please elaborate what you mean ?
 > 
-> Could you please elaborate what you mean ?
-
-Rosen replied in abrasive way, so I am not going to dig this.
-
+> Rosen replied in abrasive way, so I am not going to dig this.
 > 
-> I greped through Documentation/devicetree/bindings/*/*.yaml and plenty
+>>
+>> I greped through Documentation/devicetree/bindings/*/*.yaml and plenty
+> 
+> I assume you refer to last 2 years bindings, not something older, right?
+> It is really poor argument to find old files and use them as example
+> "they did like that".
+> 
+>> of "compatible:" items do not match the filename. So hard to tell
+> 
+> I did not ask for compatible to match filename.
+> 
+>> what rule you are referencing, as it seems it's not really applied.
+> Check reviews on the lists. It is pretty standard review. Everyone gets
+> it for this case here - single device, single compatible.
 
-I assume you refer to last 2 years bindings, not something older, right?
-It is really poor argument to find old files and use them as example
-"they did like that".
+BTW, it is not hiding on the lists:
 
-> of "compatible:" items do not match the filename. So hard to tell
-
-I did not ask for compatible to match filename.
-
-> what rule you are referencing, as it seems it's not really applied.
-Check reviews on the lists. It is pretty standard review. Everyone gets
-it for this case here - single device, single compatible.
+https://lore.kernel.org/linux-devicetree/?q=f%3Aherring+filename
+https://lore.kernel.org/linux-devicetree/?q=f%3Akozlowski+filename
 
 Best regards,
 Krzysztof
