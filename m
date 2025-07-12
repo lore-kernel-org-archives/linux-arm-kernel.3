@@ -4,121 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32E83C83F1D
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Jul 2025 17:02:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43CFFC83F10
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Jul 2025 17:40:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gB3WX02p54AooZqDnhzq9COITrk6u/2kQg8kh9DSxso=; b=aAXCr77INcydk2KZqKZAwRdLbT
-	5HBymyqF2AKxBxHjTOdC+UV7O4Gx7l66cgd40yYnYkCnx103iBFBqmvxNA+nh0gLkF46ctdhq+Arc
-	zzh63q5yZNWwZS/wWzHyixTonNf4kaVJWM4xSehDbgAl9eKneH6+kasqVvE51cQYhLtlX/qjZZP2y
-	8zjmsSi2dzB1uHkayykOMf8aLfz53z2w25f5B4nykDr490BtdteYAf79TcdGlr2Yw1KQGFLIK5Dsd
-	OBDa7VAGzz1J+KRK1iNGlyYz0Yx4JWCeEIRMHOTKoGS8UNOsWqUIXwyGfvfXFVtVSZsAPkq9BmqaY
-	TO0cC9Cw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=TilQ8i0bxzGSbTWKnj6uJy6hAD8gixd/aU3B3kF+KTo=; b=1X5mUORmp/yV63Sm2iCx2AJD+5
+	cZ90/n9u1aNwApzmYlQknTC4j1QvjDepIGDsjAo5AGwgtjeI49u8oz5J/R9Aqdinz4tB8Hy2Z1gIY
+	HyvQrE2vHZizMhT0w8kyP4WGfKrShdK26t6gpwxEpoDxHKpn0YOuUvnZBtvrx+VyTn5WtRd9phU6w
+	M6FtJI+iz6jD0jVmJ1SBjfGgj0JDQJgJc9IxCqvdNrerWekDHOVpxxBGN305/Vb/RaGWn9aGxLR4p
+	5U6fSwng9Cz4dQF6TeJjiKtvB4hsb01q6gLBokk0+2HDVbu6zd2ALdxmAhx4wvagFSW+7usy8YTIE
+	Mk6JvrWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uadbu-0000000GpJw-3VfH;
-	Sat, 12 Jul 2025 17:02:02 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uaeDP-0000000Gqr8-2JbR;
+	Sat, 12 Jul 2025 17:40:47 +0000
+Received: from smtp.forwardemail.net ([121.127.44.73])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uadZV-0000000GpBa-3FrU;
-	Sat, 12 Jul 2025 16:59:35 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 432155C4BD2;
-	Sat, 12 Jul 2025 16:59:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 764FEC4CEEF;
-	Sat, 12 Jul 2025 16:59:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752339571;
-	bh=O6/br0HScFLjxFbUFDku985RqpRVfW8PbxO4etqtAeo=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
-	b=B8dtt/mNnQuXk73OIgDAEefgL+cjk4d2PkFYjC4FBG6AIMDS7ggf2ReZKwhJ2BJ03
-	 LwZPDHqE2TPIMQyORbUjDB5rC2w95bs/mv0C8zvMBYd4wsUI+jt5DzEjubxKgyyVnP
-	 4dCVS0dB7rb1fhp6N4vRcYHCYYZKIHGlhmC8IWOaeqqzeTCQpE1ga7jCwiTKqoUs8L
-	 0dD6Es8xCiPN8iFmNMtxDPc8JM8OJyknplW2FTPZKClJueYgqY9cIH3QC4zmwnN/XZ
-	 CXjg3FED78ntmr3mTDjoAKtIFEDDiGLYUIhiATo59f51hRhldezOK5RxmGnfds7HiK
-	 1UrwIKV1/K3Wg==
-Message-ID: <23e629cb-0698-4a9c-aa18-9a7e71aa8b73@kernel.org>
-Date: Sat, 12 Jul 2025 18:59:24 +0200
+	id 1uaeAy-0000000GqS2-2jyF
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 12 Jul 2025 17:38:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
+ h=Content-Transfer-Encoding: MIME-Version: Message-ID: Date: Subject: Cc:
+ To: From; q=dns/txt; s=fe-e1b5cab7be; t=1752341896;
+ bh=TilQ8i0bxzGSbTWKnj6uJy6hAD8gixd/aU3B3kF+KTo=;
+ b=INc6eFNH+rp2E8JQKvongvR/WVdP2qI3GN74d1b9ahynZheytKXKe/c7Txvbh1Eln+nZ3dApt
+ o9SNywqrC3jushmdsYcl4D3R7QY5G/4umZlGqlj7T6YmhpgPxTjiGKdQZTWc9eTnj4GvDk16FnL
+ NJA+AuOIkTrZIhx0ju8UpuTaAnvpQnRbUUoP6OD1sc8eH2ru1T204Uz/ovWwWsPPoeGw4YBI9MO
+ CbAy9QrC7nzpozkjZgdB2C48nQSrtAv//TBN6nF3sBa0juusyWoe6FuYJTogcZ6tXjZXCgy7dSk
+ cgRHzAEZ+LzZZ3PC/qQBWGPjFocRPk+pefgJmTdQ4yCQ==
+X-Forward-Email-ID: 68729d83d7dd91652d16c15f
+X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
+ 121.127.44.73
+X-Forward-Email-Version: 1.1.6
+X-Forward-Email-Website: https://forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Report-Abuse-To: abuse@forwardemail.net
+From: Jonas Karlman <jonas@kwiboo.se>
+To: Heiko Stuebner <heiko@sntech.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: Yao Zi <ziyao@disroot.org>,
+	Chukun Pan <amadeus@jmu.edu.cn>,
+	linux-rockchip@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Jonas Karlman <jonas@kwiboo.se>
+Subject: [PATCH v3 0/6] arm64: dts: rockchip: Add ROCK 2A/2F, Sige1 and NanoPi Zero2
+Date: Sat, 12 Jul 2025 17:37:42 +0000
+Message-ID: <20250712173805.584586-1-jonas@kwiboo.se>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCHv3 wireless-next 7/7] dt-bindings: net: wireless: rt2800:
- add
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Stanislaw Gruszka <stf_xl@wp.pl>
-Cc: Rosen Penev <rosenp@gmail.com>, linux-wireless@vger.kernel.org,
- Johannes Berg <johannes@sipsolutions.net>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
- <devicetree@vger.kernel.org>, open list <linux-kernel@vger.kernel.org>,
- "open list:MIPS" <linux-mips@vger.kernel.org>,
- "moderated list:ARM/Mediatek SoC support"
- <linux-arm-kernel@lists.infradead.org>,
- "moderated list:ARM/Mediatek SoC support"
- <linux-mediatek@lists.infradead.org>
-References: <20250710200820.262295-1-rosenp@gmail.com>
- <20250710200820.262295-8-rosenp@gmail.com>
- <d8b0abb2-1a12-42bf-aafd-4cd1e21babd6@kernel.org>
- <CAKxU2N-c2tHBYWBM+FJGqdSaqzw9u0O8e0G7AVqk6b0QdRnPTw@mail.gmail.com>
- <20250711-invisible-dainty-jackrabbit-acbf8f@krzk-bin>
- <20250712104006.GA13512@wp.pl>
- <e435a765-fb91-408f-81dd-01a73fc43b6b@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <e435a765-fb91-408f-81dd-01a73fc43b6b@kernel.org>
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250712_095933_900906_4F591B37 
-X-CRM114-Status: GOOD (  17.65  )
+X-CRM114-CacheID: sfid-20250712_103817_103492_5050B76C 
+X-CRM114-Status: GOOD (  11.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,61 +79,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/07/2025 18:53, Krzysztof Kozlowski wrote:
-> On 12/07/2025 12:40, Stanislaw Gruszka wrote:
->> Hi Krzysztof,
->>
->> On Fri, Jul 11, 2025 at 09:48:49AM +0200, Krzysztof Kozlowski wrote:
->>> On Thu, Jul 10, 2025 at 03:40:30PM -0700, Rosen Penev wrote:
->>>> On Thu, Jul 10, 2025 at 2:40 PM Krzysztof Kozlowski <krzk@kernel.org> wrote:
->>>>>
->>>>> On 10/07/2025 22:08, Rosen Penev wrote:
->>>>>> Add device-tree bindings for the RT2800 SOC wifi device found in older
->>>>>> Ralink/Mediatek devices.
->>>>>>
->>>>>> Signed-off-by: Rosen Penev <rosenp@gmail.com>
->>>>>> ---
->>>>>>  .../bindings/net/wireless/ralink,rt2800.yaml  | 47 +++++++++++++++++++
->>>>>>  1 file changed, 47 insertions(+)
->>>>>>  create mode 100644 Documentation/devicetree/bindings/net/wireless/ralink,rt2800.yaml
->>>>>>
->>>>>> diff --git a/Documentation/devicetree/bindings/net/wireless/ralink,rt2800.yaml b/Documentation/devicetree/bindings/net/wireless/ralink,rt2800.yaml
->>>>>> new file mode 100644
->>>>>> index 000000000000..8c13b25bd8b4
->>>>>> --- /dev/null
->>>>>> +++ b/Documentation/devicetree/bindings/net/wireless/ralink,rt2800.yaml
->>>>>
->>>>> Filename should match compatible. You were already changing something
->>>>> here...
->>>> hrm? that makes no sense. Various drivers have multiple compatible lines.
->>>
->>> Luckily we do not speak about drivers here. Anyway, follow standard
->>> review practices, you don't get special rules.
->>
->> Could you please elaborate what you mean ?
-> 
-> Rosen replied in abrasive way, so I am not going to dig this.
-> 
->>
->> I greped through Documentation/devicetree/bindings/*/*.yaml and plenty
-> 
-> I assume you refer to last 2 years bindings, not something older, right?
-> It is really poor argument to find old files and use them as example
-> "they did like that".
-> 
->> of "compatible:" items do not match the filename. So hard to tell
-> 
-> I did not ask for compatible to match filename.
-> 
->> what rule you are referencing, as it seems it's not really applied.
-> Check reviews on the lists. It is pretty standard review. Everyone gets
-> it for this case here - single device, single compatible.
+This series adds dt-bindings and initial device tree for the following
+Rockchip RK3528A boards:
+- Radxa ROCK 2A/2F
+- ArmSoM Sige1
+- FriendlyElec NanoPi Zero2
 
-BTW, it is not hiding on the lists:
+The bt/wifi_reg_on pins are described in the device tree using
+rfkill-gpio nodes.
 
-https://lore.kernel.org/linux-devicetree/?q=f%3Aherring+filename
-https://lore.kernel.org/linux-devicetree/?q=f%3Akozlowski+filename
+Changes in v3:
+- Rename led nodes to led-0/led-1
+- Remove pinctrl* props from sdio0
+- Collect a-b tags
 
-Best regards,
-Krzysztof
+Changes in v2:
+- Limit sdmmc max-frequency to 100 MHz on ROCK 2A/2F
+- Drop clock-output-names prop from rtc node on Sige1 and NanoPi Zero2
+- Drop regulator-boot-on from usb 2.0 host regulators on Sige1
+- Add bluetooth and wifi nodes on Sige1
+- Collect t-b tag for NanoPi Zero2
+
+These boards can be booted from emmc or sd-card using the U-Boot 2025.07
+generic-rk3528 target or work-in-progress patches for these boards [1].
+
+For working bluetooth on ArmSoM Sige1 the patch "arm64: dts: rockchip:
+Fix UART DMA support for RK3528" [2] is required.
+
+[1] https://source.denx.de/u-boot/contributors/kwiboo/u-boot/-/commits/rk3528
+[2] https://lore.kernel.org/r/20250709210831.3170458-1-jonas@kwiboo.se
+
+Jonas Karlman (6):
+  dt-bindings: arm: rockchip: Add Radxa ROCK 2A/2F
+  arm64: dts: rockchip: Add Radxa ROCK 2A/2F
+  dt-bindings: arm: rockchip: Add ArmSoM Sige1
+  arm64: dts: rockchip: Add ArmSoM Sige1
+  dt-bindings: arm: rockchip: Add FriendlyElec NanoPi Zero2
+  arm64: dts: rockchip: Add FriendlyElec NanoPi Zero2
+
+ .../devicetree/bindings/arm/rockchip.yaml     |  17 +
+ arch/arm64/boot/dts/rockchip/Makefile         |   4 +
+ .../boot/dts/rockchip/rk3528-armsom-sige1.dts | 465 ++++++++++++++++++
+ .../boot/dts/rockchip/rk3528-nanopi-zero2.dts | 340 +++++++++++++
+ .../boot/dts/rockchip/rk3528-rock-2.dtsi      | 293 +++++++++++
+ .../boot/dts/rockchip/rk3528-rock-2a.dts      |  82 +++
+ .../boot/dts/rockchip/rk3528-rock-2f.dts      |  10 +
+ 7 files changed, 1211 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3528-armsom-sige1.dts
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3528-nanopi-zero2.dts
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3528-rock-2.dtsi
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3528-rock-2a.dts
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3528-rock-2f.dts
+
+-- 
+2.49.0
+
 
