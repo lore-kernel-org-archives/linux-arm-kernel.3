@@ -4,82 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB098C83F10
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Jul 2025 11:05:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAA99C83F20
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Jul 2025 11:52:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
-	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5naVjINQX4Xjj0ZFaYnKa5ZruP4xAPMmRrYWsqkMAAs=; b=V8G1QZXdEpnQSSi5vzd2gsnv4m
-	ehSdzjTg3qx6A8W2geEPpqxDov7tr792i29vLtWeBjLkFlYhLgY4AISMTzD6ambsBXXvOFzgHyC0z
-	gXqpoAaGLss/G/vQvWv25BN6icZ7yjJ4U1EcrBSbHPNqlusAK1jybbE0AhJk1eS99cHe6o462cFwn
-	PycZVPJZbhGuSpAHAD+wLIz8UzdoCJWr7sg7yEphqHjp7DlAWf3jYWNnhIRKgN6djnx7Yyr4k44Bw
-	KjT5Ner5Odl/iivt7tsNI5Iaytp66HfD55/bNfSa8/WHMwvprM0+PhPCbHeZruD7dLo0y9K0OJsN6
-	ZaBf8VKg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ai364oIW0GIV6B01LL+dC4X0QE3Rv5aY/QRzCb2lB/Y=; b=Fx19qXExMnXP2Rta4jFzOaCURA
+	hiuTxBuw9OW6ZvLE151S91rFy97JMLQVjdtcEvqIZounpFxqb8CpfxM0hc1sMlQiutiyv1OJKBBDR
+	nEq2S+aWxNhyic/imZ5495XyN/4jRzFAaF4FkGr8ixi6U1CJxyT/Ua1vo2VvswJ/BDKoOAbvnZoLS
+	jrlK9xpEjXje4tK7QD6D4mlAlZWuHyJnP8mW3LeuwSqHNNBy+BWeZ87w+XHb+YRWT8xuAV92/kxtO
+	p9nGDOfVY6hhrZDUmiQtcA/rsiktqVC5MEmcRBAzzwDqyaLl86ljLbuf1R847NhNavYx6RqB0p9M/
+	nyMPP09g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaY2l-0000000GZil-3aWH;
-	Sat, 12 Jul 2025 11:05:23 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uaYmN-0000000GcM1-2hjD;
+	Sat, 12 Jul 2025 11:52:31 +0000
+Received: from layka.disroot.org ([178.21.23.139])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaY0N-0000000GZZr-0fEJ
+	id 1uaYjy-0000000GcEb-3C43
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 12 Jul 2025 11:02:56 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 081A94448F;
-	Sat, 12 Jul 2025 11:02:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D4064C4CEEF;
-	Sat, 12 Jul 2025 11:02:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752318173;
-	bh=jzMQOv6iAdvYpHha5k/NLNgXonjVTEht8vlZgL3t88s=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=CcOB1mT7v+VIyTjxEWq0QBlFYvrwN8MSsuWw87TGYM0lqVdcqqq/QEM6ZW0FO7vGU
-	 kWnc0DgrKvkKAGQ7orW/8hnyMVS4QsbEsrEVphRBnfL+wj9FGZEToxM33UQ6SWCx4k
-	 H/Kn+seJcwGE87CrR9LpzRc0XiHz5/hMKuS4GG8EaRvWFgLQquSTq/LqmzGUefvWDM
-	 JF4+OOGcirhW8Ekfe9cOFhUSOhlvmmlYA9SqJB/jjgIHae6l7/x4oIqg/oNFzHsCWJ
-	 eoDRkrdWB76z1uno8/rozEwqtDE1pH/Kldqdup2r4D0vxlk8NI8wFTwfxUowhYeSbq
-	 fstC3/DkN8Pcg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1uaY0J-00F6gZ-Cg;
-	Sat, 12 Jul 2025 12:02:51 +0100
-Date: Sat, 12 Jul 2025 12:02:51 +0100
-Message-ID: <864ivhacys.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
-Cc: Thomas Gleixner <tglx@linutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Lucas Stach <l.stach@pengutronix.de>,
-	Aisheng Dong <aisheng.dong@nxp.com>,
-	linux-kernel@vger.kernel.org,
-	kernel-janitors@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH] irqchip/imx-irqsteer: Fix irq handling if an error occurs in imx_irqsteer_irq_handler()
-In-Reply-To: <a0e9473f-81a4-4933-aa63-e66fbeaf0824@wanadoo.fr>
-References: <ad6514c771fef0ac2d1b3c050c6db5d5e0fd034d.1731842478.git.christophe.jaillet@wanadoo.fr>
-	<a0e9473f-81a4-4933-aa63-e66fbeaf0824@wanadoo.fr>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: christophe.jaillet@wanadoo.fr, tglx@linutronix.de, shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, l.stach@pengutronix.de, aisheng.dong@nxp.com, linux-kernel@vger.kernel.org, kernel-janitors@vger.kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Sat, 12 Jul 2025 11:50:04 +0000
+Received: from mail01.disroot.lan (localhost [127.0.0.1])
+	by disroot.org (Postfix) with ESMTP id 3C1D825D28;
+	Sat, 12 Jul 2025 13:49:58 +0200 (CEST)
+X-Virus-Scanned: SPAM Filter at disroot.org
+Received: from layka.disroot.org ([127.0.0.1])
+ by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
+ id UdEQUmxa2Ljx; Sat, 12 Jul 2025 13:49:57 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
+	t=1752320997; bh=S+tYkmbasYOAVw0o6YkfoWz4FtmHaFsF4csZGWOvnmk=;
+	h=From:Date:Subject:To:Cc;
+	b=IAslfoZLT3WCtll3Oqe0CeZ14PDMLkGO+Mkzk+z9CLeJ9LNnX9w8mT+z/85MxOvya
+	 F0fBcPK6ZCCyHEZHD+skxRk0J3rrJyWj3NuBbHYp7s7OnT4IGbdq6BC3huxAGyD+Mq
+	 piYjNY+QfL6zgFBqY5zMvTBrfLXFMfWLRiSBjmhvzRM+mou1OhgdJ+8zLlDoCspGt3
+	 ZRWCSNaQUAOJuJvR7L8vmPAOJMUFuD4NJVzDamzwMLVHJV/7VINa624PryIQoq2djV
+	 6BVztx3RX2wPI5X/RJjmxaOkjNUMRCg3AEYo+viyXjckO5MMf9VZ18m2e4Nsn653i+
+	 bARP1Jm/ZwsBA==
+From: Kaustabh Chakraborty <kauschluss@disroot.org>
+Date: Sat, 12 Jul 2025 17:19:30 +0530
+Subject: [PATCH] iommu/exynos: add support for reserved regions
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250712-exynos-sysmmu-resv-regions-v1-1-e79681fcab1a@disroot.org>
+X-B4-Tracking: v=1; b=H4sIAMlLcmgC/x2MMQqAMAwAvyKZDWjAUv2KOIiNNYNVGhRF/LvB5
+ eCGuweUs7BCVzyQ+RSVLZnUZQHTMqbIKMEcqKKmctQiX3faFPXWdT0ws56GaJWic/VM3reBQgM
+ 22DPPcv3zfnjfDywU1kRsAAAA
+X-Change-ID: 20250629-exynos-sysmmu-resv-regions-661f2889d2d5
+To: Marek Szyprowski <m.szyprowski@samsung.com>, 
+ Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>, 
+ Robin Murphy <robin.murphy@arm.com>, Krzysztof Kozlowski <krzk@kernel.org>, 
+ Alim Akhtar <alim.akhtar@samsung.com>
+Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Kaustabh Chakraborty <kauschluss@disroot.org>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1752320988; l=1824;
+ i=kauschluss@disroot.org; s=20250202; h=from:subject:message-id;
+ bh=S+tYkmbasYOAVw0o6YkfoWz4FtmHaFsF4csZGWOvnmk=;
+ b=XrB80dr8a+JpILdcBo5C8ky8eoGj9SFiZjVCtse37Zu1p3PeiZQKE+VHre362XvQFhPjcTFZo
+ rQBP0wI1zv3AWTuPsfcXTXWutuy7l58dImvg6ZriUEHbco9XIsfAiW1
+X-Developer-Key: i=kauschluss@disroot.org; a=ed25519;
+ pk=h2xeR+V2I1+GrfDPAhZa3M+NWA0Cnbdkkq1bH3ct1hE=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250712_040255_236233_DF6BA0AC 
-X-CRM114-Status: GOOD (  25.82  )
+X-CRM114-CacheID: sfid-20250712_045003_206756_45F03882 
+X-CRM114-Status: GOOD (  12.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,76 +85,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 12 Jul 2025 10:58:35 +0100,
-Christophe JAILLET <christophe.jaillet@wanadoo.fr> wrote:
->=20
-> Le 17/11/2024 =C3=A0 12:21, Christophe JAILLET a =C3=A9crit=C2=A0:
-> > chained_irq_enter(() should be paired with a corresponding
-> > chained_irq_exit().
-> >=20
-> > Here, if (hwirq < 0), a early return occurs and chained_irq_exit() is n=
-ot
-> > called.
->=20
-> After several month without any feedback, this is a polite ping.
-> Is this patch correct?
+The bootloader configures a reserved memory region for framebuffer,
+which is protected by the IOMMU. The kernel-side driver is oblivious as
+of which memory region is set up by the bootloader. In such case, the
+IOMMU tries to reference the reserved region - which is not reserved in
+the kernel anymore - and it results in an unrecoverable page fault. More
+information about it is provided in [1].
 
-An untested patch is unlikely to make a lot of forward progress, to
-be honest.
+Add support for reserved regions using iommu_dma_get_resv_regions().
+For OF supported boards, this requires defining the region in the
+iommu-addresses property of the IOMMU owner's node.
 
->=20
-> CJ
->=20
->=20
-> >=20
-> > Add a new label and a goto for fix it.
-> >=20
-> > Fixes: 28528fca4908 ("irqchip/imx-irqsteer: Add multi output interrupts=
- support")
-> > Signed-off-by: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
-> > ---
-> > Compile tested only.
-> >=20
-> > Review with care, irq handling is sometimes tricky...
-> > ---
-> >   drivers/irqchip/irq-imx-irqsteer.c | 3 ++-
-> >   1 file changed, 2 insertions(+), 1 deletion(-)
-> >=20
-> > diff --git a/drivers/irqchip/irq-imx-irqsteer.c b/drivers/irqchip/irq-i=
-mx-irqsteer.c
-> > index 75a0e980ff35..59abe5a8beb8 100644
-> > --- a/drivers/irqchip/irq-imx-irqsteer.c
-> > +++ b/drivers/irqchip/irq-imx-irqsteer.c
-> > @@ -135,7 +135,7 @@ static void imx_irqsteer_irq_handler(struct irq_des=
-c *desc)
-> >   	if (hwirq < 0) {
-> >   		pr_warn("%s: unable to get hwirq base for irq %d\n",
-> >   			__func__, irq);
-> > -		return;
-> > +		goto out;
-> >   	}
-> >     	for (i =3D 0; i < 2; i++, hwirq +=3D 32) {
-> > @@ -153,6 +153,7 @@ static void imx_irqsteer_irq_handler(struct irq_des=
-c *desc)
-> >   			generic_handle_domain_irq(data->domain, pos + hwirq);
-> >   	}
-> >   +out:
-> >   	chained_irq_exit(irq_desc_get_chip(desc), desc);
-> >   }
+Link: https://lore.kernel.org/r/544ad69cba52a9b87447e3ac1c7fa8c3@disroot.org [1]
+Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
+---
+ drivers/iommu/exynos-iommu.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-The real question is *how* do you end-up in this situation.
+diff --git a/drivers/iommu/exynos-iommu.c b/drivers/iommu/exynos-iommu.c
+index b62a8f35c3e8516ead6a41f92dc7c8dc057986a8..b6edd178fe25e7c258cc82c47e9170fb4db74064 100644
+--- a/drivers/iommu/exynos-iommu.c
++++ b/drivers/iommu/exynos-iommu.c
+@@ -22,6 +22,7 @@
+ #include <linux/pm_runtime.h>
+ #include <linux/slab.h>
+ 
++#include "dma-iommu.h"
+ #include "iommu-pages.h"
+ 
+ typedef u32 sysmmu_iova_t;
+@@ -1479,6 +1480,7 @@ static const struct iommu_ops exynos_iommu_ops = {
+ 	.device_group = generic_device_group,
+ 	.probe_device = exynos_iommu_probe_device,
+ 	.release_device = exynos_iommu_release_device,
++	.get_resv_regions = iommu_dma_get_resv_regions,
+ 	.of_xlate = exynos_iommu_of_xlate,
+ 	.default_domain_ops = &(const struct iommu_domain_ops) {
+ 		.attach_dev	= exynos_iommu_attach_device,
 
-To trigger this case, you need a mux interrupt that is handled by
-imx_irqsteer_irq_handler(), but for which you haven't got a
-translation from DT the first place. Do you see the chicken and egg
-problem?
+---
+base-commit: a62b7a37e6fcf4a675b1548e7c168b96ec836442
+change-id: 20250629-exynos-sysmmu-resv-regions-661f2889d2d5
 
-In summary, this driver is checking for conditions that can't possibly
-happen, and this check should simply be deleted instead of being
-blindly "fixed".
+Best regards,
+-- 
+Kaustabh Chakraborty <kauschluss@disroot.org>
 
-	M.
-
---=20
-Without deviation from the norm, progress is not possible.
 
