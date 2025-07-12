@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E96CC83F10
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Jul 2025 23:58:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1C37C83F10
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Jul 2025 00:00:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YyW68gMBiKeRO9dxsH8aK6akyJ/CCbRVkgsVIUa+9nY=; b=WKbmGvDsv3gFUZL4vhYjsyVfDU
-	gAwu6lXY1FSnMZv8l0OHybGAkrpjnkkQeD2JxlxG+SZprtN9Fbu+4Suxu4fgZ9xE9s6efz6cMpuTS
-	DN42KUKV+johzetqeFfUuA+ItmvO9r6kofO4ncKF95s8qKPh+vS7Io/pBnhUSojMOn7VMqvrSmUcI
-	U91OvHaxmKCskM8Q4SEe1yGnVOkFLLCg62kFKH14uHYjeqBqA3YIFRBKQm9OeGr4zlu9N1w7giHco
-	nREPZOX32E1wFeSA2yRE9ZacPE9Ch0l03MorOKebIgZONQEm6LgTjQg3QUoEAoZPhaWE70aeAFoDC
-	rl/NV4IQ==;
+	bh=X2MGdzYvcst5IMa/Q4V1TYN4Ms7TUXjTRtBPro8Troo=; b=Ju0i8TOxtX9IDF59DcjOl+6cc6
+	q0vnfZ5BuLtW6Gz6oVR/pfvatE3B83gWqEuh5Hro5JGFcteRgmthBbhtWUmsntR6A04NEP75slx6G
+	J6h0m4AUc8wQRlszFuYxiudwys8TH3MEQlPDonPwXL9PXI8SQ4NKoVDGWDPdrTrk9wjvv88PHLE+M
+	Ow5AULQ0Mw4C7LhJudKrfmeOVdv6yf4uzonzalbmrMkTCd4mP4/EbkOr7ejzmjSF591pYkPe3790g
+	wxLzPcDGy7cvR9T4B59CL2a43ww3jYkLF2KmJZ/eLR5Adct2y6F5stKnNlIkCmmx+d/Ig5htD0BBq
+	psbdW9ig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uak6k-0000000HAtg-2SXD;
-	Sat, 12 Jul 2025 23:58:18 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uak96-0000000HB24-1CZN;
+	Sun, 13 Jul 2025 00:00:44 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uajbu-0000000H7aG-3fza
+	id 1uajby-0000000H7eG-0e4t
 	for linux-arm-kernel@lists.infradead.org;
 	Sat, 12 Jul 2025 23:26:30 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 3B546A54798;
-	Sat, 12 Jul 2025 23:26:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8D961C4CEF7;
-	Sat, 12 Jul 2025 23:26:25 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 7C70E61127;
+	Sat, 12 Jul 2025 23:26:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D9DD0C4CEEF;
+	Sat, 12 Jul 2025 23:26:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752362785;
-	bh=LruJqtF+TwmkPV/aEz/JpTzpQv42VX6b1q36sAkdMHQ=;
+	s=k20201202; t=1752362789;
+	bh=RedRxFFHKVy5vtVyY+MZJNiBk1oOHQ1I/68b2H+lbA4=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=NHeLA/KHLKl2QWc9TBszQnASmUzxeJUh4BNHOt6A3lNhYy9I4pp3sYrQKd72LR60z
-	 KGyJEWc1AzAAFX0ofjFZOaBPDWGm3LabMi5tr448sdAoMQAjXowUc2H82oe4Urk6qV
-	 GosEozTuBSz9eu2210F9B6S64TfigAzo5I5P25QUBsw50TxOqjpT+KMGWe/IcoB1AZ
-	 7gDqTHuRg1Ry3yGHTSm37EYcGLJFyh4cXIHMKu1j7fuB5ltEkmNCkhf0jYwsA2L88E
-	 y/V+h9TEba4VUQqRGtSmZ0vKvRQv3S8nFvJSvdRakRfQNE6hSFJyOT0BR021XuPglF
-	 jGIUNOMddbOZA==
+	b=TruHvLVHxzmKSDlYw1X7RzNkw2reqbswxSziZxBysLXETgCfeJYJssRnoaL1nzchi
+	 mi9LuEPvy1/hCsL7g5ruwnoqxWESCQwA0R6D++X5zLp+a1AP/SYpw+WEAZjvmFQX6i
+	 m5sZe95u3ReCd2zA9v1HzPEzPx2HWU3ceCbr7feHlOPjPGB1S+Avh8UHhOh6Qd9t+q
+	 9f4qhYO4xgQ30f+8sg3fvb3SJc4mvuEfy5lY9MGKg3uEMndll+YQh3+Gn88Rkq4xXy
+	 9QbE4KXhY4FA2wx4Y5mO4lq71JIx2mLl3fKyCGcWwCY0X/KHwZI+dqmIh49OgDsD95
+	 5DEcBVAIH3xUw==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -54,17 +54,14 @@ Cc: linux-kernel@vger.kernel.org,
 	sparclinux@vger.kernel.org,
 	x86@kernel.org,
 	Eric Biggers <ebiggers@kernel.org>
-Subject: [PATCH 12/26] lib/crypto: sparc/sha1: Migrate optimized code into library
-Date: Sat, 12 Jul 2025 16:23:03 -0700
-Message-ID: <20250712232329.818226-13-ebiggers@kernel.org>
+Subject: [PATCH 19/26] tee: Use SHA-1 library instead of crypto_shash
+Date: Sat, 12 Jul 2025 16:23:10 -0700
+Message-ID: <20250712232329.818226-20-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20250712232329.818226-1-ebiggers@kernel.org>
 References: <20250712232329.818226-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250712_162627_085583_C8946A93 
-X-CRM114-Status: GOOD (  18.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,264 +76,143 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Instead of exposing the sparc-optimized SHA-1 code via sparc-specific
-crypto_shash algorithms, instead just implement the sha1_blocks()
-library function.  This is much simpler, it makes the SHA-1 library
-functions be sparc-optimized, and it fixes the longstanding issue where
-the sparc-optimized SHA-1 code was disabled by default.  SHA-1 still
-remains available through crypto_shash, but individual architectures no
-longer need to handle it.
-
-Note: to see the diff from arch/sparc/crypto/sha1_glue.c to
-lib/crypto/sparc/sha1.h, view this commit with 'git show -M10'.
+Use the SHA-1 library functions instead of crypto_shash.  This is
+simpler and faster.
 
 Signed-off-by: Eric Biggers <ebiggers@kernel.org>
 ---
- arch/sparc/crypto/Kconfig                     | 10 --
- arch/sparc/crypto/Makefile                    |  2 -
- arch/sparc/crypto/sha1_glue.c                 | 94 -------------------
- lib/crypto/Kconfig                            |  1 +
- lib/crypto/Makefile                           |  1 +
- lib/crypto/sparc/sha1.h                       | 43 +++++++++
- .../crypto => lib/crypto/sparc}/sha1_asm.S    |  0
- 7 files changed, 45 insertions(+), 106 deletions(-)
- delete mode 100644 arch/sparc/crypto/sha1_glue.c
- create mode 100644 lib/crypto/sparc/sha1.h
- rename {arch/sparc/crypto => lib/crypto/sparc}/sha1_asm.S (100%)
+ drivers/tee/Kconfig    |  3 +--
+ drivers/tee/tee_core.c | 55 +++++++-----------------------------------
+ 2 files changed, 10 insertions(+), 48 deletions(-)
 
-diff --git a/arch/sparc/crypto/Kconfig b/arch/sparc/crypto/Kconfig
-index 9d8da9aef3a41..f5b2e720fec3c 100644
---- a/arch/sparc/crypto/Kconfig
-+++ b/arch/sparc/crypto/Kconfig
-@@ -24,20 +24,10 @@ config CRYPTO_MD5_SPARC64
- 	help
- 	  MD5 message digest algorithm (RFC1321)
- 
- 	  Architecture: sparc64 using crypto instructions, when available
- 
--config CRYPTO_SHA1_SPARC64
--	tristate "Hash functions: SHA-1"
--	depends on SPARC64
+diff --git a/drivers/tee/Kconfig b/drivers/tee/Kconfig
+index 61b507c187801..a84767940fbfc 100644
+--- a/drivers/tee/Kconfig
++++ b/drivers/tee/Kconfig
+@@ -1,12 +1,11 @@
+ # SPDX-License-Identifier: GPL-2.0-only
+ # Generic Trusted Execution Environment Configuration
+ menuconfig TEE
+ 	tristate "Trusted Execution Environment support"
+ 	depends on HAVE_ARM_SMCCC || COMPILE_TEST || CPU_SUP_AMD
+-	select CRYPTO
 -	select CRYPTO_SHA1
--	select CRYPTO_HASH
--	help
--	  SHA-1 secure hash algorithm (FIPS 180)
--
--	  Architecture: sparc64
--
- config CRYPTO_AES_SPARC64
- 	tristate "Ciphers: AES, modes: ECB, CBC, CTR"
- 	depends on SPARC64
- 	select CRYPTO_SKCIPHER
++	select CRYPTO_LIB_SHA1
+ 	select DMA_SHARED_BUFFER
+ 	select GENERIC_ALLOCATOR
  	help
-diff --git a/arch/sparc/crypto/Makefile b/arch/sparc/crypto/Makefile
-index 99a7e8fd13bc9..0d05a17988c4c 100644
---- a/arch/sparc/crypto/Makefile
-+++ b/arch/sparc/crypto/Makefile
-@@ -1,18 +1,16 @@
- # SPDX-License-Identifier: GPL-2.0
- #
- # Arch-specific CryptoAPI modules.
- #
+ 	  This implements a generic interface towards a Trusted Execution
+ 	  Environment (TEE).
+diff --git a/drivers/tee/tee_core.c b/drivers/tee/tee_core.c
+index acc7998758ad8..4c82a171bff20 100644
+--- a/drivers/tee/tee_core.c
++++ b/drivers/tee/tee_core.c
+@@ -12,11 +12,10 @@
+ #include <linux/module.h>
+ #include <linux/overflow.h>
+ #include <linux/slab.h>
+ #include <linux/tee_core.h>
+ #include <linux/uaccess.h>
+-#include <crypto/hash.h>
+ #include <crypto/sha1.h>
+ #include "tee_private.h"
  
--obj-$(CONFIG_CRYPTO_SHA1_SPARC64) += sha1-sparc64.o
- obj-$(CONFIG_CRYPTO_MD5_SPARC64) += md5-sparc64.o
+ #define TEE_NUM_DEVICES	32
  
- obj-$(CONFIG_CRYPTO_AES_SPARC64) += aes-sparc64.o
- obj-$(CONFIG_CRYPTO_DES_SPARC64) += des-sparc64.o
- obj-$(CONFIG_CRYPTO_CAMELLIA_SPARC64) += camellia-sparc64.o
- 
--sha1-sparc64-y := sha1_asm.o sha1_glue.o
- md5-sparc64-y := md5_asm.o md5_glue.o
- 
- aes-sparc64-y := aes_asm.o aes_glue.o
- des-sparc64-y := des_asm.o des_glue.o
- camellia-sparc64-y := camellia_asm.o camellia_glue.o
-diff --git a/arch/sparc/crypto/sha1_glue.c b/arch/sparc/crypto/sha1_glue.c
-deleted file mode 100644
-index ef19d5023b1bc..0000000000000
---- a/arch/sparc/crypto/sha1_glue.c
-+++ /dev/null
-@@ -1,94 +0,0 @@
--// SPDX-License-Identifier: GPL-2.0-only
--/* Glue code for SHA1 hashing optimized for sparc64 crypto opcodes.
-- *
-- * This is based largely upon arch/x86/crypto/sha1_ssse3_glue.c
-- *
-- * Copyright (c) Alan Smithee.
-- * Copyright (c) Andrew McDonald <andrew@mcdonald.org.uk>
-- * Copyright (c) Jean-Francois Dive <jef@linuxbe.org>
-- * Copyright (c) Mathias Krause <minipli@googlemail.com>
-- */
+@@ -140,72 +139,36 @@ static int tee_release(struct inode *inode, struct file *filp)
+  * UUIDv5 is specific in RFC 4122.
+  *
+  * This implements section (for SHA-1):
+  * 4.3.  Algorithm for Creating a Name-Based UUID
+  */
+-static int uuid_v5(uuid_t *uuid, const uuid_t *ns, const void *name,
+-		   size_t size)
++static void uuid_v5(uuid_t *uuid, const uuid_t *ns, const void *name,
++		    size_t size)
+ {
++	struct sha1_ctx ctx;
+ 	unsigned char hash[SHA1_DIGEST_SIZE];
+-	struct crypto_shash *shash = NULL;
+-	struct shash_desc *desc = NULL;
+-	int rc;
 -
--#define pr_fmt(fmt)	KBUILD_MODNAME ": " fmt
--
--#include <asm/elf.h>
--#include <asm/opcodes.h>
--#include <asm/pstate.h>
--#include <crypto/internal/hash.h>
--#include <crypto/sha1.h>
--#include <crypto/sha1_base.h>
--#include <linux/kernel.h>
--#include <linux/module.h>
--
--asmlinkage void sha1_sparc64_transform(struct sha1_state *digest,
--				       const u8 *data, int rounds);
--
--static int sha1_sparc64_update(struct shash_desc *desc, const u8 *data,
--			       unsigned int len)
--{
--	return sha1_base_do_update_blocks(desc, data, len,
--					  sha1_sparc64_transform);
--}
--
--/* Add padding and return the message digest. */
--static int sha1_sparc64_finup(struct shash_desc *desc, const u8 *src,
--			      unsigned int len, u8 *out)
--{
--	sha1_base_do_finup(desc, src, len, sha1_sparc64_transform);
--	return sha1_base_finish(desc, out);
--}
--
--static struct shash_alg alg = {
--	.digestsize	=	SHA1_DIGEST_SIZE,
--	.init		=	sha1_base_init,
--	.update		=	sha1_sparc64_update,
--	.finup		=	sha1_sparc64_finup,
--	.descsize	=	SHA1_STATE_SIZE,
--	.base		=	{
--		.cra_name	=	"sha1",
--		.cra_driver_name=	"sha1-sparc64",
--		.cra_priority	=	SPARC_CR_OPCODE_PRIORITY,
--		.cra_flags	=	CRYPTO_AHASH_ALG_BLOCK_ONLY,
--		.cra_blocksize	=	SHA1_BLOCK_SIZE,
--		.cra_module	=	THIS_MODULE,
+-	shash = crypto_alloc_shash("sha1", 0, 0);
+-	if (IS_ERR(shash)) {
+-		rc = PTR_ERR(shash);
+-		pr_err("shash(sha1) allocation failed\n");
+-		return rc;
 -	}
--};
 -
--static bool __init sparc64_has_sha1_opcode(void)
--{
--	unsigned long cfr;
--
--	if (!(sparc64_elf_hwcap & HWCAP_SPARC_CRYPTO))
--		return false;
--
--	__asm__ __volatile__("rd %%asr26, %0" : "=r" (cfr));
--	if (!(cfr & CFR_SHA1))
--		return false;
--
--	return true;
--}
--
--static int __init sha1_sparc64_mod_init(void)
--{
--	if (sparc64_has_sha1_opcode()) {
--		pr_info("Using sparc64 sha1 opcode optimized SHA-1 implementation\n");
--		return crypto_register_shash(&alg);
+-	desc = kzalloc(sizeof(*desc) + crypto_shash_descsize(shash),
+-		       GFP_KERNEL);
+-	if (!desc) {
+-		rc = -ENOMEM;
+-		goto out_free_shash;
 -	}
--	pr_info("sparc64 sha1 opcode not available.\n");
--	return -ENODEV;
--}
 -
--static void __exit sha1_sparc64_mod_fini(void)
--{
--	crypto_unregister_shash(&alg);
--}
--
--module_init(sha1_sparc64_mod_init);
--module_exit(sha1_sparc64_mod_fini);
--
--MODULE_LICENSE("GPL");
--MODULE_DESCRIPTION("SHA1 Secure Hash Algorithm, sparc64 sha1 opcode accelerated");
--
--MODULE_ALIAS_CRYPTO("sha1");
--
--#include "crop_devid.c"
-diff --git a/lib/crypto/Kconfig b/lib/crypto/Kconfig
-index 2c55b75cea525..3405789bebbe6 100644
---- a/lib/crypto/Kconfig
-+++ b/lib/crypto/Kconfig
-@@ -149,10 +149,11 @@ config CRYPTO_LIB_SHA1_ARCH
- 	default y if ARM
- 	default y if ARM64 && KERNEL_MODE_NEON
- 	default y if MIPS && CPU_CAVIUM_OCTEON
- 	default y if PPC
- 	default y if S390
-+	default y if SPARC64
+-	desc->tfm = shash;
  
- config CRYPTO_LIB_SHA256
- 	tristate
- 	help
- 	  Enable the SHA-256 library interface. This interface may be fulfilled
-diff --git a/lib/crypto/Makefile b/lib/crypto/Makefile
-index 3f4199c079307..6e49e00b4a0a2 100644
---- a/lib/crypto/Makefile
-+++ b/lib/crypto/Makefile
-@@ -81,10 +81,11 @@ endif
- libsha1-$(CONFIG_ARM64) += arm64/sha1-ce-core.o
- ifeq ($(CONFIG_PPC),y)
- libsha1-y += powerpc/sha1-powerpc-asm.o
- libsha1-$(CONFIG_SPE) += powerpc/sha1-spe-asm.o
- endif
-+libsha1-$(CONFIG_SPARC) += sparc/sha1_asm.o
- endif # CONFIG_CRYPTO_LIB_SHA1_ARCH
+-	rc = crypto_shash_init(desc);
+-	if (rc < 0)
+-		goto out_free_desc;
+-
+-	rc = crypto_shash_update(desc, (const u8 *)ns, sizeof(*ns));
+-	if (rc < 0)
+-		goto out_free_desc;
+-
+-	rc = crypto_shash_update(desc, (const u8 *)name, size);
+-	if (rc < 0)
+-		goto out_free_desc;
+-
+-	rc = crypto_shash_final(desc, hash);
+-	if (rc < 0)
+-		goto out_free_desc;
++	sha1_init(&ctx);
++	sha1_update(&ctx, (const u8 *)ns, sizeof(*ns));
++	sha1_update(&ctx, (const u8 *)name, size);
++	sha1_final(&ctx, hash);
  
- ################################################################################
+ 	memcpy(uuid->b, hash, UUID_SIZE);
  
- obj-$(CONFIG_CRYPTO_LIB_SHA256) += libsha256.o
-diff --git a/lib/crypto/sparc/sha1.h b/lib/crypto/sparc/sha1.h
-new file mode 100644
-index 0000000000000..5015f93584b7e
---- /dev/null
-+++ b/lib/crypto/sparc/sha1.h
-@@ -0,0 +1,43 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+/*
-+ * SHA-1 accelerated using the sparc64 crypto opcodes
-+ *
-+ * Copyright (c) Alan Smithee.
-+ * Copyright (c) Andrew McDonald <andrew@mcdonald.org.uk>
-+ * Copyright (c) Jean-Francois Dive <jef@linuxbe.org>
-+ * Copyright (c) Mathias Krause <minipli@googlemail.com>
-+ */
-+
-+#include <asm/elf.h>
-+#include <asm/opcodes.h>
-+#include <asm/pstate.h>
-+
-+static __ro_after_init DEFINE_STATIC_KEY_FALSE(have_sha1_opcodes);
-+
-+asmlinkage void sha1_sparc64_transform(struct sha1_block_state *state,
-+				       const u8 *data, size_t nblocks);
-+
-+static void sha1_blocks(struct sha1_block_state *state,
-+			const u8 *data, size_t nblocks)
-+{
-+	if (static_branch_likely(&have_sha1_opcodes))
-+		sha1_sparc64_transform(state, data, nblocks);
-+	else
-+		sha1_blocks_generic(state, data, nblocks);
-+}
-+
-+#define sha1_mod_init_arch sha1_mod_init_arch
-+static inline void sha1_mod_init_arch(void)
-+{
-+	unsigned long cfr;
-+
-+	if (!(sparc64_elf_hwcap & HWCAP_SPARC_CRYPTO))
-+		return;
-+
-+	__asm__ __volatile__("rd %%asr26, %0" : "=r" (cfr));
-+	if (!(cfr & CFR_SHA1))
-+		return;
-+
-+	static_branch_enable(&have_sha1_opcodes);
-+	pr_info("Using sparc64 sha1 opcode optimized SHA-1 implementation\n");
-+}
-diff --git a/arch/sparc/crypto/sha1_asm.S b/lib/crypto/sparc/sha1_asm.S
-similarity index 100%
-rename from arch/sparc/crypto/sha1_asm.S
-rename to lib/crypto/sparc/sha1_asm.S
+ 	/* Tag for version 5 */
+ 	uuid->b[6] = (hash[6] & 0x0F) | 0x50;
+ 	uuid->b[8] = (hash[8] & 0x3F) | 0x80;
+-
+-out_free_desc:
+-	kfree(desc);
+-
+-out_free_shash:
+-	crypto_free_shash(shash);
+-	return rc;
+ }
+ 
+ int tee_session_calc_client_uuid(uuid_t *uuid, u32 connection_method,
+ 				 const u8 connection_data[TEE_IOCTL_UUID_LEN])
+ {
+ 	gid_t ns_grp = (gid_t)-1;
+ 	kgid_t grp = INVALID_GID;
+ 	char *name = NULL;
+ 	int name_len;
+-	int rc;
++	int rc = 0;
+ 
+ 	if (connection_method == TEE_IOCTL_LOGIN_PUBLIC ||
+ 	    connection_method == TEE_IOCTL_LOGIN_REE_KERNEL) {
+ 		/* Nil UUID to be passed to TEE environment */
+ 		uuid_copy(uuid, &uuid_null);
+@@ -258,11 +221,11 @@ int tee_session_calc_client_uuid(uuid_t *uuid, u32 connection_method,
+ 	default:
+ 		rc = -EINVAL;
+ 		goto out_free_name;
+ 	}
+ 
+-	rc = uuid_v5(uuid, &tee_client_uuid_ns, name, name_len);
++	uuid_v5(uuid, &tee_client_uuid_ns, name, name_len);
+ out_free_name:
+ 	kfree(name);
+ 
+ 	return rc;
+ }
 -- 
 2.50.1
 
