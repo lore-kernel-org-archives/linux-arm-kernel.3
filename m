@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 142EAC83F10
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Jul 2025 00:22:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 993AAC83F1D
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Jul 2025 00:25:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zx0KRsr6Z94mFqcy8f/S8MW+ZSAXG2w2PHmp+/LpmB8=; b=OYaYFL09TZAJn+kamAIMXSj0Xe
-	q0yR5k6fKaX01PA8ci2tLZeMJ+BvY0HXQyKZVKjmXbe7IXt/XqGCc9683I7E7WUsho6ubAj0vvoAm
-	PB4QBZGJAiRZkPtWipEUFV5VuZ1EeGfdHDsVTXJPTlpxLA2TiQNLkYCWQ8d3EjzFg7y4A7U56bU5I
-	pKTvQ5gWSwmmClbBtD+6bnEuS8wTneGeOU6ViCaQBHmOuII3zWzhKq57W/+HU20KueBRxWpVw4ODF
-	nJDDxlTnZcoamGsb928ST7vdwgJSdRuXP15vPQQj+4D1rGXug1y4P9jAdLnTJtCYS/rOlpMX/+hD5
-	NLu/e7OA==;
+	bh=WPwaVUIfaPDf/RF35jf+vhXRp68NNhuAGrTDFUW4Q6o=; b=HEBFoIOS9c00gnmX8vUE8fkDe/
+	2hsWsCPCczWWu1SYgqBAfV/HR4ph1Lpa20QFIh18u0WpyylkXQn/0PWc1AsM3chqw5hD47QHgZpew
+	RMAQHjWU2Z2v3JC9WGT1CrZSkYDY25RO2LgpJDd1tRqCgitVdOBZwnZPl90FsnKpGih/oFI79wYls
+	+T5vkUI2XSArS0vOFnAsonPXBHPU04bybNw+JveAMWk7ufT5bgg4DvroE7VXd7OGnGMMLuQzlq4Dg
+	tbxfzckgnfFewZ50NyPuqNtLoL11IZsUGP6tfW0I7G5jPZ/ZJVawTD/ldKUQworfVP7HiLQmMb2D+
+	XuDX5TMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uakUR-0000000HCNC-446U;
-	Sun, 13 Jul 2025 00:22:47 +0000
+	id 1uakWp-0000000HCVo-2tPS;
+	Sun, 13 Jul 2025 00:25:15 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uajbz-0000000H7fU-12p6
+	id 1uajbz-0000000H7bc-3ur3
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 12 Jul 2025 23:26:34 +0000
+	Sat, 12 Jul 2025 23:26:35 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id C44DE5C5586;
-	Sat, 12 Jul 2025 23:26:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 46D7EC4CEF7;
-	Sat, 12 Jul 2025 23:26:30 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id B405E5C559F;
+	Sat, 12 Jul 2025 23:26:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 361B2C4CEEF;
+	Sat, 12 Jul 2025 23:26:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752362790;
-	bh=CDCYvw9FzfgzLkUqSoVUscxv3AohvreIQRjFCF8Awe8=;
+	s=k20201202; t=1752362791;
+	bh=yMm/MFGISASr8eQF+DRkJnRm7ToRkQJ87GfJAV9pLPk=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=IPqiN3o3F2CcnU/lSiSEcezOvpLqcfESj5gdIyQXIgp9TcpJNc4+SEOkjA/C+spGj
-	 Zfst73HKBkJ3RTDUfFDKvQl7Mmw5pFdQYEglIXAhZC+EODLHKRSiXTX9qIZsb0r+6+
-	 1IfmLcXJraIBl0WHAvq6RVh9qLNWkjfrS6B3lhzdE9bVdL3PclsJIcFWKGGHADQexc
-	 oT0UaUvZGa0iS8nC0/6k8yEYGLRNGqkkHiXlesa3+yHAYn4wA3zfIhdu47yh0jD44S
-	 7YhcfQhrICpQD72yjxbbQ4I94wj4xoa+kWSTHNjoYKh6ovpvEJkyWDNQRcS909kSeF
-	 7YLhXtd85zZdA==
+	b=hxrat3AU+uS8Fsd4qkVKddMNU8Tvc6x8NYEaAuXu8iD1taJ26o/23h0SEKxM2HTKf
+	 2nI3g2MTjZGgaxKozBsz4uRO5d/vI9SGUFWCmBK1huSIe2uqH2AzBPXn2CMzMhnxBJ
+	 hxlZD6R7vbUYdNO1ilkGUBHg5WqFsIokkTqHUZF9XcKVtI/P3F8zoDfuP9xwd49NiO
+	 Q5mN5IcR++bmWT7or0aSekU3BR+hT8npj5SuOrN0osGgeCRMieMqkJ64lXgzpfhgC5
+	 Clid2oofX3CNXKkXeL5ybQfy/veXWedNDrvyGhzQsOX4AunEdT7dDYAXT63Vj/3vCC
+	 tu0Wng+DxQbKQ==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -54,17 +54,17 @@ Cc: linux-kernel@vger.kernel.org,
 	sparclinux@vger.kernel.org,
 	x86@kernel.org,
 	Eric Biggers <ebiggers@kernel.org>
-Subject: [PATCH 22/26] nfc: s3fwrn5: Use SHA-1 library instead of crypto_shash
-Date: Sat, 12 Jul 2025 16:23:13 -0700
-Message-ID: <20250712232329.818226-23-ebiggers@kernel.org>
+Subject: [PATCH 24/26] KEYS: trusted_tpm1: Use SHA-1 library instead of crypto_shash
+Date: Sat, 12 Jul 2025 16:23:15 -0700
+Message-ID: <20250712232329.818226-25-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20250712232329.818226-1-ebiggers@kernel.org>
 References: <20250712232329.818226-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250712_162631_441990_9A2B2160 
-X-CRM114-Status: GOOD (  12.40  )
+X-CRM114-CacheID: sfid-20250712_162632_097403_D6C1E7BC 
+X-CRM114-Status: GOOD (  18.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,80 +79,468 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use the SHA-1 library instead of crypto_shash.  This is simpler and
-faster.
+Use the SHA-1 library functions instead of crypto_shash.  This is
+simpler and faster.
 
 Signed-off-by: Eric Biggers <ebiggers@kernel.org>
 ---
- drivers/nfc/s3fwrn5/Kconfig    |  3 +--
- drivers/nfc/s3fwrn5/firmware.c | 17 +----------------
- 2 files changed, 2 insertions(+), 18 deletions(-)
+ security/keys/trusted-keys/Kconfig        |   4 +-
+ security/keys/trusted-keys/trusted_tpm1.c | 221 ++++------------------
+ 2 files changed, 35 insertions(+), 190 deletions(-)
 
-diff --git a/drivers/nfc/s3fwrn5/Kconfig b/drivers/nfc/s3fwrn5/Kconfig
-index 8a6b1a79de253..96386b73fa2b6 100644
---- a/drivers/nfc/s3fwrn5/Kconfig
-+++ b/drivers/nfc/s3fwrn5/Kconfig
-@@ -1,10 +1,9 @@
- # SPDX-License-Identifier: GPL-2.0-only
- config NFC_S3FWRN5
- 	tristate
--	select CRYPTO
--	select CRYPTO_HASH
-+	select CRYPTO_LIB_SHA1
- 	help
- 	  Core driver for Samsung S3FWRN5 NFC chip. Contains core utilities
- 	  of chip. It's intended to be used by PHYs to avoid duplicating lots
- 	  of common code.
+diff --git a/security/keys/trusted-keys/Kconfig b/security/keys/trusted-keys/Kconfig
+index 1fb8aa0019953..7685457ffcb41 100644
+--- a/security/keys/trusted-keys/Kconfig
++++ b/security/keys/trusted-keys/Kconfig
+@@ -3,13 +3,11 @@ config HAVE_TRUSTED_KEYS
  
-diff --git a/drivers/nfc/s3fwrn5/firmware.c b/drivers/nfc/s3fwrn5/firmware.c
-index 781cdbcac104c..64d61b2a715ae 100644
---- a/drivers/nfc/s3fwrn5/firmware.c
-+++ b/drivers/nfc/s3fwrn5/firmware.c
-@@ -6,11 +6,10 @@
-  * Robert Baldyga <r.baldyga@samsung.com>
+ config TRUSTED_KEYS_TPM
+ 	bool "TPM-based trusted keys"
+ 	depends on TCG_TPM >= TRUSTED_KEYS
+ 	default y
+-	select CRYPTO
+-	select CRYPTO_HMAC
+-	select CRYPTO_SHA1
++	select CRYPTO_LIB_SHA1
+ 	select CRYPTO_HASH_INFO
+ 	select ASN1_ENCODER
+ 	select OID_REGISTRY
+ 	select ASN1
+ 	select HAVE_TRUSTED_KEYS
+diff --git a/security/keys/trusted-keys/trusted_tpm1.c b/security/keys/trusted-keys/trusted_tpm1.c
+index 89c9798d18007..d1a66a0287fa5 100644
+--- a/security/keys/trusted-keys/trusted_tpm1.c
++++ b/security/keys/trusted-keys/trusted_tpm1.c
+@@ -5,89 +5,36 @@
+  *
+  * See Documentation/security/keys/trusted-encrypted.rst
   */
  
- #include <linux/completion.h>
- #include <linux/firmware.h>
+ #include <crypto/hash_info.h>
++#include <crypto/sha1.h>
+ #include <linux/init.h>
+ #include <linux/slab.h>
+ #include <linux/parser.h>
+ #include <linux/string.h>
+ #include <linux/err.h>
+ #include <keys/trusted-type.h>
+ #include <linux/key-type.h>
+-#include <linux/crypto.h>
 -#include <crypto/hash.h>
- #include <crypto/sha1.h>
+-#include <crypto/sha1.h>
+ #include <linux/tpm.h>
+ #include <linux/tpm_command.h>
  
- #include "s3fwrn5.h"
- #include "firmware.h"
+ #include <keys/trusted_tpm.h>
  
-@@ -409,31 +408,17 @@ bool s3fwrn5_fw_check_version(const struct s3fwrn5_fw_info *fw_info, u32 version
- int s3fwrn5_fw_download(struct s3fwrn5_fw_info *fw_info)
+-static const char hmac_alg[] = "hmac(sha1)";
+-static const char hash_alg[] = "sha1";
+ static struct tpm_chip *chip;
+ static struct tpm_digest *digests;
+ 
+-struct sdesc {
+-	struct shash_desc shash;
+-	char ctx[];
+-};
+-
+-static struct crypto_shash *hashalg;
+-static struct crypto_shash *hmacalg;
+-
+-static struct sdesc *init_sdesc(struct crypto_shash *alg)
+-{
+-	struct sdesc *sdesc;
+-	int size;
+-
+-	size = sizeof(struct shash_desc) + crypto_shash_descsize(alg);
+-	sdesc = kmalloc(size, GFP_KERNEL);
+-	if (!sdesc)
+-		return ERR_PTR(-ENOMEM);
+-	sdesc->shash.tfm = alg;
+-	return sdesc;
+-}
+-
+-static int TSS_sha1(const unsigned char *data, unsigned int datalen,
+-		    unsigned char *digest)
+-{
+-	struct sdesc *sdesc;
+-	int ret;
+-
+-	sdesc = init_sdesc(hashalg);
+-	if (IS_ERR(sdesc)) {
+-		pr_info("can't alloc %s\n", hash_alg);
+-		return PTR_ERR(sdesc);
+-	}
+-
+-	ret = crypto_shash_digest(&sdesc->shash, data, datalen, digest);
+-	kfree_sensitive(sdesc);
+-	return ret;
+-}
+-
+ static int TSS_rawhmac(unsigned char *digest, const unsigned char *key,
+ 		       unsigned int keylen, ...)
  {
- 	struct device *dev = &fw_info->ndev->nfc_dev->dev;
- 	struct s3fwrn5_fw_image *fw = &fw_info->fw;
- 	u8 hash_data[SHA1_DIGEST_SIZE];
--	struct crypto_shash *tfm;
- 	u32 image_size, off;
+-	struct sdesc *sdesc;
++	struct hmac_sha1_ctx hmac_ctx;
+ 	va_list argp;
+ 	unsigned int dlen;
+ 	unsigned char *data;
+-	int ret;
+-
+-	sdesc = init_sdesc(hmacalg);
+-	if (IS_ERR(sdesc)) {
+-		pr_info("can't alloc %s\n", hmac_alg);
+-		return PTR_ERR(sdesc);
+-	}
++	int ret = 0;
+ 
+-	ret = crypto_shash_setkey(hmacalg, key, keylen);
+-	if (ret < 0)
+-		goto out;
+-	ret = crypto_shash_init(&sdesc->shash);
+-	if (ret < 0)
+-		goto out;
++	hmac_sha1_init_usingrawkey(&hmac_ctx, key, keylen);
+ 
+ 	va_start(argp, keylen);
+ 	for (;;) {
+ 		dlen = va_arg(argp, unsigned int);
+ 		if (dlen == 0)
+@@ -95,19 +42,15 @@ static int TSS_rawhmac(unsigned char *digest, const unsigned char *key,
+ 		data = va_arg(argp, unsigned char *);
+ 		if (data == NULL) {
+ 			ret = -EINVAL;
+ 			break;
+ 		}
+-		ret = crypto_shash_update(&sdesc->shash, data, dlen);
+-		if (ret < 0)
+-			break;
++		hmac_sha1_update(&hmac_ctx, data, dlen);
+ 	}
+ 	va_end(argp);
+ 	if (!ret)
+-		ret = crypto_shash_final(&sdesc->shash, digest);
+-out:
+-	kfree_sensitive(sdesc);
++		hmac_sha1_final(&hmac_ctx, digest);
+ 	return ret;
+ }
+ 
+ /*
+  * calculate authorization info fields to send to TPM
+@@ -115,53 +58,41 @@ static int TSS_rawhmac(unsigned char *digest, const unsigned char *key,
+ int TSS_authhmac(unsigned char *digest, const unsigned char *key,
+ 			unsigned int keylen, unsigned char *h1,
+ 			unsigned char *h2, unsigned int h3, ...)
+ {
+ 	unsigned char paramdigest[SHA1_DIGEST_SIZE];
+-	struct sdesc *sdesc;
++	struct sha1_ctx sha_ctx;
+ 	unsigned int dlen;
+ 	unsigned char *data;
+ 	unsigned char c;
+-	int ret;
++	int ret = 0;
+ 	va_list argp;
+ 
+ 	if (!chip)
+ 		return -ENODEV;
+ 
+-	sdesc = init_sdesc(hashalg);
+-	if (IS_ERR(sdesc)) {
+-		pr_info("can't alloc %s\n", hash_alg);
+-		return PTR_ERR(sdesc);
+-	}
+-
+ 	c = !!h3;
+-	ret = crypto_shash_init(&sdesc->shash);
+-	if (ret < 0)
+-		goto out;
++	sha1_init(&sha_ctx);
+ 	va_start(argp, h3);
+ 	for (;;) {
+ 		dlen = va_arg(argp, unsigned int);
+ 		if (dlen == 0)
+ 			break;
+ 		data = va_arg(argp, unsigned char *);
+ 		if (!data) {
+ 			ret = -EINVAL;
+ 			break;
+ 		}
+-		ret = crypto_shash_update(&sdesc->shash, data, dlen);
+-		if (ret < 0)
+-			break;
++		sha1_update(&sha_ctx, data, dlen);
+ 	}
+ 	va_end(argp);
+ 	if (!ret)
+-		ret = crypto_shash_final(&sdesc->shash, paramdigest);
++		sha1_final(&sha_ctx, paramdigest);
+ 	if (!ret)
+ 		ret = TSS_rawhmac(digest, key, keylen, SHA1_DIGEST_SIZE,
+ 				  paramdigest, TPM_NONCE_SIZE, h1,
+ 				  TPM_NONCE_SIZE, h2, 1, &c, 0, 0);
+-out:
+-	kfree_sensitive(sdesc);
+ 	return ret;
+ }
+ EXPORT_SYMBOL_GPL(TSS_authhmac);
+ 
+ /*
+@@ -180,11 +111,11 @@ int TSS_checkhmac1(unsigned char *buffer,
+ 	unsigned char *enonce;
+ 	unsigned char *continueflag;
+ 	unsigned char *authdata;
+ 	unsigned char testhmac[SHA1_DIGEST_SIZE];
+ 	unsigned char paramdigest[SHA1_DIGEST_SIZE];
+-	struct sdesc *sdesc;
++	struct sha1_ctx sha_ctx;
+ 	unsigned int dlen;
+ 	unsigned int dpos;
+ 	va_list argp;
  	int ret;
  
- 	image_size = fw_info->sector_size * fw->image_sectors;
+@@ -201,53 +132,33 @@ int TSS_checkhmac1(unsigned char *buffer,
+ 		return -EINVAL;
+ 	authdata = buffer + bufsize - SHA1_DIGEST_SIZE;
+ 	continueflag = authdata - 1;
+ 	enonce = continueflag - TPM_NONCE_SIZE;
  
- 	/* Compute SHA of firmware data */
+-	sdesc = init_sdesc(hashalg);
+-	if (IS_ERR(sdesc)) {
+-		pr_info("can't alloc %s\n", hash_alg);
+-		return PTR_ERR(sdesc);
+-	}
+-	ret = crypto_shash_init(&sdesc->shash);
+-	if (ret < 0)
+-		goto out;
+-	ret = crypto_shash_update(&sdesc->shash, (const u8 *)&result,
+-				  sizeof result);
+-	if (ret < 0)
+-		goto out;
+-	ret = crypto_shash_update(&sdesc->shash, (const u8 *)&ordinal,
+-				  sizeof ordinal);
+-	if (ret < 0)
+-		goto out;
++	sha1_init(&sha_ctx);
++	sha1_update(&sha_ctx, (const u8 *)&result, sizeof(result));
++	sha1_update(&sha_ctx, (const u8 *)&ordinal, sizeof(ordinal));
+ 	va_start(argp, keylen);
+ 	for (;;) {
+ 		dlen = va_arg(argp, unsigned int);
+ 		if (dlen == 0)
+ 			break;
+ 		dpos = va_arg(argp, unsigned int);
+-		ret = crypto_shash_update(&sdesc->shash, buffer + dpos, dlen);
+-		if (ret < 0)
+-			break;
++		sha1_update(&sha_ctx, buffer + dpos, dlen);
+ 	}
+ 	va_end(argp);
+-	if (!ret)
+-		ret = crypto_shash_final(&sdesc->shash, paramdigest);
+-	if (ret < 0)
+-		goto out;
++	sha1_final(&sha_ctx, paramdigest);
+ 
+ 	ret = TSS_rawhmac(testhmac, key, keylen, SHA1_DIGEST_SIZE, paramdigest,
+ 			  TPM_NONCE_SIZE, enonce, TPM_NONCE_SIZE, ononce,
+ 			  1, continueflag, 0, 0);
+ 	if (ret < 0)
+-		goto out;
++		return ret;
+ 
+ 	if (memcmp(testhmac, authdata, SHA1_DIGEST_SIZE))
+-		ret = -EINVAL;
+-out:
+-	kfree_sensitive(sdesc);
+-	return ret;
++		return -EINVAL;
++	return 0;
+ }
+ EXPORT_SYMBOL_GPL(TSS_checkhmac1);
+ 
+ /*
+  * verify the AUTH2_COMMAND (unseal) result from TPM
+@@ -271,11 +182,11 @@ static int TSS_checkhmac2(unsigned char *buffer,
+ 	unsigned char *continueflag2;
+ 	unsigned char *authdata2;
+ 	unsigned char testhmac1[SHA1_DIGEST_SIZE];
+ 	unsigned char testhmac2[SHA1_DIGEST_SIZE];
+ 	unsigned char paramdigest[SHA1_DIGEST_SIZE];
+-	struct sdesc *sdesc;
++	struct sha1_ctx sha_ctx;
+ 	unsigned int dlen;
+ 	unsigned int dpos;
+ 	va_list argp;
+ 	int ret;
+ 
+@@ -294,62 +205,40 @@ static int TSS_checkhmac2(unsigned char *buffer,
+ 	continueflag1 = authdata1 - 1;
+ 	continueflag2 = authdata2 - 1;
+ 	enonce1 = continueflag1 - TPM_NONCE_SIZE;
+ 	enonce2 = continueflag2 - TPM_NONCE_SIZE;
+ 
+-	sdesc = init_sdesc(hashalg);
+-	if (IS_ERR(sdesc)) {
+-		pr_info("can't alloc %s\n", hash_alg);
+-		return PTR_ERR(sdesc);
+-	}
+-	ret = crypto_shash_init(&sdesc->shash);
+-	if (ret < 0)
+-		goto out;
+-	ret = crypto_shash_update(&sdesc->shash, (const u8 *)&result,
+-				  sizeof result);
+-	if (ret < 0)
+-		goto out;
+-	ret = crypto_shash_update(&sdesc->shash, (const u8 *)&ordinal,
+-				  sizeof ordinal);
+-	if (ret < 0)
+-		goto out;
++	sha1_init(&sha_ctx);
++	sha1_update(&sha_ctx, (const u8 *)&result, sizeof(result));
++	sha1_update(&sha_ctx, (const u8 *)&ordinal, sizeof(ordinal));
+ 
+ 	va_start(argp, keylen2);
+ 	for (;;) {
+ 		dlen = va_arg(argp, unsigned int);
+ 		if (dlen == 0)
+ 			break;
+ 		dpos = va_arg(argp, unsigned int);
+-		ret = crypto_shash_update(&sdesc->shash, buffer + dpos, dlen);
+-		if (ret < 0)
+-			break;
++		sha1_update(&sha_ctx, buffer + dpos, dlen);
+ 	}
+ 	va_end(argp);
+-	if (!ret)
+-		ret = crypto_shash_final(&sdesc->shash, paramdigest);
+-	if (ret < 0)
+-		goto out;
++	sha1_final(&sha_ctx, paramdigest);
+ 
+ 	ret = TSS_rawhmac(testhmac1, key1, keylen1, SHA1_DIGEST_SIZE,
+ 			  paramdigest, TPM_NONCE_SIZE, enonce1,
+ 			  TPM_NONCE_SIZE, ononce, 1, continueflag1, 0, 0);
+ 	if (ret < 0)
+-		goto out;
+-	if (memcmp(testhmac1, authdata1, SHA1_DIGEST_SIZE)) {
+-		ret = -EINVAL;
+-		goto out;
+-	}
++		return ret;
++	if (memcmp(testhmac1, authdata1, SHA1_DIGEST_SIZE))
++		return -EINVAL;
+ 	ret = TSS_rawhmac(testhmac2, key2, keylen2, SHA1_DIGEST_SIZE,
+ 			  paramdigest, TPM_NONCE_SIZE, enonce2,
+ 			  TPM_NONCE_SIZE, ononce, 1, continueflag2, 0, 0);
+ 	if (ret < 0)
+-		goto out;
++		return ret;
+ 	if (memcmp(testhmac2, authdata2, SHA1_DIGEST_SIZE))
+-		ret = -EINVAL;
+-out:
+-	kfree_sensitive(sdesc);
+-	return ret;
++		return -EINVAL;
++	return 0;
+ }
+ 
+ /*
+  * For key specific tpm requests, we will generate and send our
+  * own TPM command packets using the drivers send function.
+@@ -496,13 +385,11 @@ static int tpm_seal(struct tpm_buf *tb, uint16_t keytype,
+ 	dump_sess(&sess);
+ 
+ 	/* calculate encrypted authorization value */
+ 	memcpy(td->xorwork, sess.secret, SHA1_DIGEST_SIZE);
+ 	memcpy(td->xorwork + SHA1_DIGEST_SIZE, sess.enonce, SHA1_DIGEST_SIZE);
+-	ret = TSS_sha1(td->xorwork, SHA1_DIGEST_SIZE * 2, td->xorhash);
+-	if (ret < 0)
+-		goto out;
++	sha1(td->xorwork, SHA1_DIGEST_SIZE * 2, td->xorhash);
+ 
+ 	ret = tpm_get_random(chip, td->nonceodd, TPM_NONCE_SIZE);
+ 	if (ret < 0)
+ 		goto out;
+ 
+@@ -987,44 +874,10 @@ static int trusted_tpm_unseal(struct trusted_key_payload *p, char *datablob)
+ static int trusted_tpm_get_random(unsigned char *key, size_t key_len)
+ {
+ 	return tpm_get_random(chip, key, key_len);
+ }
+ 
+-static void trusted_shash_release(void)
+-{
+-	if (hashalg)
+-		crypto_free_shash(hashalg);
+-	if (hmacalg)
+-		crypto_free_shash(hmacalg);
+-}
 -
--	tfm = crypto_alloc_shash("sha1", 0, 0);
--	if (IS_ERR(tfm)) {
--		dev_err(dev, "Cannot allocate shash (code=%pe)\n", tfm);
--		return PTR_ERR(tfm);
+-static int __init trusted_shash_alloc(void)
+-{
+-	int ret;
+-
+-	hmacalg = crypto_alloc_shash(hmac_alg, 0, 0);
+-	if (IS_ERR(hmacalg)) {
+-		pr_info("could not allocate crypto %s\n",
+-			hmac_alg);
+-		return PTR_ERR(hmacalg);
 -	}
 -
--	ret = crypto_shash_tfm_digest(tfm, fw->image, image_size, hash_data);
--
--	crypto_free_shash(tfm);
--	if (ret) {
--		dev_err(dev, "Cannot compute hash (code=%d)\n", ret);
--		return ret;
+-	hashalg = crypto_alloc_shash(hash_alg, 0, 0);
+-	if (IS_ERR(hashalg)) {
+-		pr_info("could not allocate crypto %s\n",
+-			hash_alg);
+-		ret = PTR_ERR(hashalg);
+-		goto hashalg_fail;
 -	}
-+	sha1(fw->image, image_size, hash_data);
+-
+-	return 0;
+-
+-hashalg_fail:
+-	crypto_free_shash(hmacalg);
+-	return ret;
+-}
+-
+ static int __init init_digests(void)
+ {
+ 	int i;
  
- 	/* Firmware update process */
+ 	digests = kcalloc(chip->nr_allocated_banks, sizeof(*digests),
+@@ -1047,19 +900,14 @@ static int __init trusted_tpm_init(void)
+ 		return -ENODEV;
  
- 	dev_info(dev, "Firmware update: %s\n", fw_info->fw_name);
+ 	ret = init_digests();
+ 	if (ret < 0)
+ 		goto err_put;
+-	ret = trusted_shash_alloc();
+-	if (ret < 0)
+-		goto err_free;
+ 	ret = register_key_type(&key_type_trusted);
+ 	if (ret < 0)
+-		goto err_release;
++		goto err_free;
+ 	return 0;
+-err_release:
+-	trusted_shash_release();
+ err_free:
+ 	kfree(digests);
+ err_put:
+ 	put_device(&chip->dev);
+ 	return ret;
+@@ -1068,11 +916,10 @@ static int __init trusted_tpm_init(void)
+ static void trusted_tpm_exit(void)
+ {
+ 	if (chip) {
+ 		put_device(&chip->dev);
+ 		kfree(digests);
+-		trusted_shash_release();
+ 		unregister_key_type(&key_type_trusted);
+ 	}
+ }
  
+ struct trusted_key_ops trusted_key_tpm_ops = {
 -- 
 2.50.1
 
