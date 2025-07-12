@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88390C83F10
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Jul 2025 07:43:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB7DAC83F10
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Jul 2025 07:45:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QoB2/iVlKaKGeio/FHAuWA9mz1o0gTZXFPAhxud1wyc=; b=xMqBnHyZgr9L3B5BQ/jkjhv4U9
-	/AKxNtnWZ2k7WWKXPpBsWFzKAgIydbYTqxym+AYMS7CSZ0Se8jczenAWmOoUUWOIcG27GH0WV/EiM
-	q9ITGrHdenEaxW/Skc93gmtSeBsry89DZcaeUWT6cpVSg3nnfaslBNly0TVUCB53yEvPcEP4nEFrV
-	3vVfkL0xhE9KjI3D7qDj0MWOSdIQchRGLOwt+IoDEUFI4+Jasq9Dlq6npfDIuQPL9hXzcB3BhauWe
-	3zIDkqXafPNO/TSBleUKGrpCLr1TMjIBWewf+mO7DXZ4MtZC4riTjwln/i2HlVHwtfdyafLQqKADl
-	8xi71Edw==;
+	bh=RMiENT7nzxfoafiX1IT5aN+t/mOi7FUDDhH/7DvLxK8=; b=xgXwxHnjGWfBIqwc9NzYA/c2hh
+	aolHR3BDf195J1up0W4xF9Plt2gFABTOFxJylACmoTg0QNI3FTD62ytXJxcP9Kw1QHH/nDxMV6c/V
+	uTvS6oGB+I+ojEwLcr9lYEJ6LR35/fLD6ccn4bFwmi/zaWUyug5SXgsjmN9owrR27k9YylPO/z1hV
+	wBctFIEhnkM6NpjYYSoEYrMG/HqPnIQ06Odjv71ku8G2rCiStfoccae/ua3JPvm1rvH8Fjxd+mpjA
+	yNeQ7sEyKYiGOR4PDZOX/s+xZ4z1G7pQ91N1xNccQfNevgd9H6Kd+bemmlqdD71WmmDJK5lN3IWdK
+	gvYQgPTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaUt9-0000000GN3J-0NkT;
-	Sat, 12 Jul 2025 07:43:15 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uaUvX-0000000GNA6-3J4J;
+	Sat, 12 Jul 2025 07:45:43 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaUql-0000000GMle-1Nva
+	id 1uaUql-0000000GMlf-2czu
 	for linux-arm-kernel@lists.infradead.org;
 	Sat, 12 Jul 2025 07:40:48 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D6DF54682E;
-	Sat, 12 Jul 2025 07:40:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 70CECC4CEF6;
+	by nyc.source.kernel.org (Postfix) with ESMTP id 2ABEDA5432F;
+	Sat, 12 Jul 2025 07:40:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 68302C4CEEF;
 	Sat, 12 Jul 2025 07:40:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1752306045;
-	bh=6uHbo6HUenPSIvGsm+OeKmKy0pXsvQeHi/n/do9ag0k=;
+	bh=X99T3zLCk1wsD+6/htrl/rppok06x79Qi4swnOe3K4Y=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Yn3HgoY6eLTvQY6S6cDuf2aghwU79S3PZ0Tbv+hkCb9apGhxhd9IPYR6M/x3f/7My
-	 idhO6DhRZ8OU/2/HpBZvK3EhRiffItHCh7iZp/hsFB9g/qQlW/4PV1OpvekDx9WRyr
-	 wV83uWA0Pvl8w3KB1OQXu4M/GNh6OdWtyy8iCRl30oqWoeAQMW6dZEiRDOokIpANTq
-	 uabHlUeX5EHOyBuyRHFhOfft6Wb/nqEL00L4hpOp88XkxN6nb4H7O2q6Sy3j/Rj+Bj
-	 JeKxPqbovPxGs/T72Wa1XrISH3Dhj7Wf/SwPqNeexFgVZ2X61SW7iGXpj6/PRVpqz3
-	 37tNPWINycrDg==
+	b=EXx/CJqomtgwnQpJxpChoXEzdGcCj3/cylxa19BsoEuF0KP+/Czb+5Qtsht5dfxae
+	 CfCBnGkU+sEjBuJwqDtweKUohnCss917/CIaza7JWUQ3OFHlXvX8vaTPjiXn+eBYU0
+	 2WcoqImW+GvOtb8a5k8TEwlEhQ1kSXqarPhnGgwZOtdCPoHGicfosFiasQmE1w6bGJ
+	 7IuM4LeZbRDp37GcVCxW57q1z/0Pl/kVMIakyV71AUstnUZbJSwNYX87eXGsGFibXO
+	 u+1ztghFrTCkXwcjHJ+jb4uR1pyzPBel0NZ3C5lRFk5V/FQcOIsKDrBZ1Olu6oWM7p
+	 sLY6aEXeVsQow==
 Received: by wens.tw (Postfix, from userid 1000)
-	id A3B8A5FFD1; Sat, 12 Jul 2025 15:40:42 +0800 (CST)
+	id B4E6C5FF71; Sat, 12 Jul 2025 15:40:42 +0800 (CST)
 From: Chen-Yu Tsai <wens@kernel.org>
 To: Chen-Yu Tsai <wens@csie.org>,
 	Jernej Skrabec <jernej@kernel.org>,
@@ -58,17 +58,17 @@ Cc: Andre Przywara <andre.przywara@arm.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	linux-pm@vger.kernel.org
-Subject: [PATCH v3 4/5] pmdomain: sunxi: sun20i-ppu: change to tristate and enable for ARCH_SUNXI
-Date: Sat, 12 Jul 2025 15:40:20 +0800
-Message-Id: <20250712074021.805953-5-wens@kernel.org>
+Subject: [PATCH v3 2/5] pmdomain: sunxi: sun20i-ppu: add A523 support
+Date: Sat, 12 Jul 2025 15:40:18 +0800
+Message-Id: <20250712074021.805953-3-wens@kernel.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250712074021.805953-1-wens@kernel.org>
 References: <20250712074021.805953-1-wens@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250712_004047_394526_E1A17200 
-X-CRM114-Status: GOOD (  12.94  )
+X-CRM114-CacheID: sfid-20250712_004047_727007_2C600882 
+X-CRM114-Status: GOOD (  12.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,46 +85,51 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Chen-Yu Tsai <wens@csie.org>
 
-There is no reason why the sun20i-ppu cannot be built as a module. So
-change it to tristate.
+A523 has a PPU like the one in the Allwinner D1 SoC.
 
-Also enable it by default for ARCH_SUNXI since this driver is required
-for some peripherals to work, and update the help text to reflect this
-requirement.
+Add a compatible entry and a list of power domain names for it.
 
-This aligns it with the new PCK-600 driver.
-
+Reviewed-by: Andre Przywara <andre.przywara@arm.com>
 Signed-off-by: Chen-Yu Tsai <wens@csie.org>
 ---
-Changes since v2:
-- New patch
----
- drivers/pmdomain/sunxi/Kconfig | 8 +++++---
- 1 file changed, 5 insertions(+), 3 deletions(-)
+ drivers/pmdomain/sunxi/sun20i-ppu.c | 17 +++++++++++++++++
+ 1 file changed, 17 insertions(+)
 
-diff --git a/drivers/pmdomain/sunxi/Kconfig b/drivers/pmdomain/sunxi/Kconfig
-index eb1ce2dd8e53..858446594c88 100644
---- a/drivers/pmdomain/sunxi/Kconfig
-+++ b/drivers/pmdomain/sunxi/Kconfig
-@@ -1,13 +1,15 @@
- # SPDX-License-Identifier: GPL-2.0-only
+diff --git a/drivers/pmdomain/sunxi/sun20i-ppu.c b/drivers/pmdomain/sunxi/sun20i-ppu.c
+index 9f002748d224..b65876a68cc1 100644
+--- a/drivers/pmdomain/sunxi/sun20i-ppu.c
++++ b/drivers/pmdomain/sunxi/sun20i-ppu.c
+@@ -193,6 +193,19 @@ static const struct sun20i_ppu_desc sun8i_v853_ppu_desc = {
+ 	.num_domains	= ARRAY_SIZE(sun8i_v853_ppu_pd_names),
+ };
  
- config SUN20I_PPU
--	bool "Allwinner D1 PPU power domain driver"
-+	tristate "Allwinner D1 PPU power domain driver"
- 	depends on ARCH_SUNXI || COMPILE_TEST
- 	depends on PM
-+	default ARCH_SUNXI
- 	select PM_GENERIC_DOMAINS
- 	help
--	  Say y to enable the PPU power domain driver. This saves power
--	  when certain peripherals, such as the video engine, are idle.
-+	  Say y to enable the PPU power domain driver. This is required
-+	  to enable power to certain peripherals, such as the display
-+	  engine.
- 
- config SUN50I_H6_PRCM_PPU
- 	tristate "Allwinner H6 PRCM power domain driver"
++static const char *const sun55i_a523_ppu_pd_names[] = {
++	"DSP",
++	"NPU",
++	"AUDIO",
++	"SRAM",
++	"RISCV",
++};
++
++static const struct sun20i_ppu_desc sun55i_a523_ppu_desc = {
++	.names		= sun55i_a523_ppu_pd_names,
++	.num_domains	= ARRAY_SIZE(sun55i_a523_ppu_pd_names),
++};
++
+ static const struct of_device_id sun20i_ppu_of_match[] = {
+ 	{
+ 		.compatible	= "allwinner,sun20i-d1-ppu",
+@@ -202,6 +215,10 @@ static const struct of_device_id sun20i_ppu_of_match[] = {
+ 		.compatible	= "allwinner,sun8i-v853-ppu",
+ 		.data		= &sun8i_v853_ppu_desc,
+ 	},
++	{
++		.compatible	= "allwinner,sun55i-a523-ppu",
++		.data		= &sun55i_a523_ppu_desc,
++	},
+ 	{ }
+ };
+ MODULE_DEVICE_TABLE(of, sun20i_ppu_of_match);
 -- 
 2.39.5
 
