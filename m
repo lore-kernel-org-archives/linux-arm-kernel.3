@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03A3EC83F10
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Jul 2025 07:16:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A340C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Jul 2025 07:33:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
 	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=lhL7PfnizkqG+2sFgwH446grqf7sguuWteQXghRaF3o=; b=Uc3XyFzRHQmCnBkIMWydxEZYCq
-	8nYeYEDTVlhzDI1TIBCd1gth6tDDwk8ffptDnpzV4ROmDAvkP8Mdbfos02628ksqFCB3U6dxL8Viv
-	UvLsy4FHHA1w8nAl4vKNfiRSu67h/HjEyi1jI2iOl1P7GwqG5Y4HRscoWz1mJ+vBZR7tW1bfG3eiD
-	zmzGX+kzlpW7h/DM83PFebP3oW8YyM2QbYVnbPpsqUSfXxMFj1kWhlRoAcwzUQ05qL+EBgW3uisGM
-	nNgfxrGyVeFHROpgueRL2yysJcRa8EEeJLPJdapBBSGRazwTUbpIYqSwOEb7PoACy2XQp3BqG9qYB
-	wgn51s5g==;
+	bh=da+9bmvi3Jg89/BGQHoSjew3e4Qq37AJHsvC3r/iNQM=; b=hLQPL1ut8NZnapGfOfK/6KwrZx
+	voVpR434C1C+bfM53EYoxcOfp/SIVgrgly+yovPlp0yD+ZPMF+7+Wizr6C2qfPEPMWsGqP7O5L6NB
+	lBUODbIzkH30tkAd7n7VEf8zYa99s3rgXXnGAkUN8imwX23wLVQmUG340DsQ+Z2SjF1E6CCcyQ4WP
+	0PlkFGv7iLx9XoSr5b1XPoG1mw0lOqD8Ha5vO6bWw3W+IIB3zXcfoAZP0Z/d8Z6QlGqd40+FEFs+2
+	Pt95kWWre30NPEeK00YENegnXYDQa8Pyn/BzYI4XDXgkVDRA3pzfFIqNPOHjFwVP+tKVd0jVH+SBh
+	j92UWO/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaUTT-0000000GM2Z-2JlY;
-	Sat, 12 Jul 2025 07:16:43 +0000
-Received: from mgamail.intel.com ([198.175.65.20])
+	id 1uaUjx-0000000GMX3-3Z79;
+	Sat, 12 Jul 2025 07:33:45 +0000
+Received: from mgamail.intel.com ([192.198.163.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaUR5-0000000GLyf-1YI2
+	id 1uaUhZ-0000000GMPs-2Qe1
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 12 Jul 2025 07:14:16 +0000
+	Sat, 12 Jul 2025 07:31:18 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1752304455; x=1783840455;
+  t=1752305478; x=1783841478;
   h=date:from:to:cc:subject:message-id;
-  bh=ubYgNtqYSv52ogb2mOhAd83md1r0TcpqcDFZRO9sBdk=;
-  b=bHE90/5QLRb0eYPP3TDwHZSHXFRcEuvgAma3j4JrDgvYCp68QUaThKle
-   78dvw2OVFkoeTjApYL/7mkVmwlgp7SGltPiw54dMlvPByeTnzxBQjygfI
-   +QzvTjFt1up+NkZ8TSf5cNz8h0GCoRGLjJarS8QYJVesxNnyx7P0Nmeh8
-   BPbNwb634lpOD3feVTKfOjjGZHlfRxJA50Osq+gX/gECCoYA9HQHMA7tY
-   RrrI3keKulp/UoCSr7ZjhNYZinJRiBQgbd3KCOTOARnMDaLBKAj8+9nkm
-   Qos9Vobw03y24lqo48HeP0ekYFCW0fBDwY7+7UuIx2eOjo0k+yONX5F34
-   g==;
-X-CSE-ConnectionGUID: mUI0yXllSpyPbGdhoN4ZfQ==
-X-CSE-MsgGUID: PD2E6GjOQJGNMILJXQoPhA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11491"; a="54303941"
+  bh=MAluNc23D/neCm+nrplMJv21x6H60DDWPSV3f1ldhSw=;
+  b=gDHG0pho0FVjQbzMSGkl5l5Rv7LsBmHU8PzjE4875Kc3k+9s35L5ht2O
+   6raPSxEzxTdYIXdJuj7ercUeio2BePxRL8Kjy6XjalbX4BQkohZqmAFv+
+   tERjhWu8RGsSAjnlBSzy1FJ0v5pvUJcW8Kj7SnYKBA/F12Kxg0CcdHPZL
+   1Al8T30ynFIB8WEnnlGr7/utfuxtwQQKIb05DSQg3bjphKI6vtUAJXKXh
+   QzS5HwiAZN/jwol5hESDIHkeesVbJBuiW2474gz69IeBkx6qPMgKXdOSB
+   DeqMHQ+XZkj/IAvau19j2/ypLqKtOTEl/DOvQ92s7Bq7uciZU+D7Ri+W6
+   w==;
+X-CSE-ConnectionGUID: JY8xcxYHRS6b0Jc2dBhvKQ==
+X-CSE-MsgGUID: 4Fp+1mC7SROrEEI/kLheUA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11491"; a="54746176"
 X-IronPort-AV: E=Sophos;i="6.16,306,1744095600"; 
-   d="scan'208";a="54303941"
-Received: from fmviesa001.fm.intel.com ([10.60.135.141])
-  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Jul 2025 00:14:10 -0700
-X-CSE-ConnectionGUID: ETDmGI7WSUCKuvGwb2W3hA==
-X-CSE-MsgGUID: TrF29oq7TwaaM4677hCNSA==
+   d="scan'208";a="54746176"
+Received: from orviesa001.jf.intel.com ([10.64.159.141])
+  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Jul 2025 00:31:13 -0700
+X-CSE-ConnectionGUID: wDMkAPdQTz6aUM6X2Vra0Q==
+X-CSE-MsgGUID: qek1eAQhQuqC2n8Nm5lUJg==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.16,306,1744095600"; 
-   d="scan'208";a="187504224"
+   d="scan'208";a="193733313"
 Received: from lkp-server01.sh.intel.com (HELO 9ee84586c615) ([10.239.97.150])
-  by fmviesa001.fm.intel.com with ESMTP; 12 Jul 2025 00:14:09 -0700
+  by orviesa001.jf.intel.com with ESMTP; 12 Jul 2025 00:31:12 -0700
 Received: from kbuild by 9ee84586c615 with local (Exim 4.96)
 	(envelope-from <lkp@intel.com>)
-	id 1uaUQw-00078B-33;
-	Sat, 12 Jul 2025 07:14:06 +0000
-Date: Sat, 12 Jul 2025 15:13:39 +0800
+	id 1uaUhR-000797-0C;
+	Sat, 12 Jul 2025 07:31:09 +0000
+Date: Sat, 12 Jul 2025 15:30:33 +0800
 From: kernel test robot <lkp@intel.com>
 To: Arnd Bergmann <arnd@arndb.de>
 Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
-Subject: [soc:soc/newsoc] BUILD SUCCESS
- 9cf8d2b8a0764a074725921177caa0860fca5eb3
-Message-ID: <202507121526.mMS3jqaE-lkp@intel.com>
+Subject: [soc:for-next] BUILD SUCCESS
+ bda58e97c081104ecf8dd7bc864a3aa7a39b1486
+Message-ID: <202507121520.5VsMlSmN-lkp@intel.com>
 User-Agent: s-nail v14.9.24
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250712_001415_502440_CBD2DD56 
+X-CRM114-CacheID: sfid-20250712_003117_660889_83B82024 
 X-CRM114-Status: UNSURE (   5.72  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -83,28 +83,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git soc/newsoc
-branch HEAD: 9cf8d2b8a0764a074725921177caa0860fca5eb3  Merge branch 'newsoc/pxa1908' into soc/newsoc
+tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git for-next
+branch HEAD: bda58e97c081104ecf8dd7bc864a3aa7a39b1486  Merge branch 'soc/newsoc' into for-next
 
-elapsed time: 1150m
+elapsed time: 1167m
 
-configs tested: 242
+configs tested: 247
 configs skipped: 4
 
 The following configs have been built successfully.
 More configs may be tested in the coming days.
 
 tested configs:
+alpha                             allnoconfig    clang-21
 alpha                             allnoconfig    gcc-15.1.0
 alpha                            allyesconfig    gcc-15.1.0
 alpha                               defconfig    clang-19
 arc                              allmodconfig    clang-19
 arc                              allmodconfig    gcc-15.1.0
+arc                               allnoconfig    clang-21
 arc                               allnoconfig    gcc-15.1.0
 arc                              allyesconfig    clang-19
 arc                              allyesconfig    gcc-15.1.0
 arc                                 defconfig    clang-19
-arc                         haps_hs_defconfig    gcc-15.1.0
 arc                   randconfig-001-20250711    gcc-8.5.0
 arc                   randconfig-001-20250712    gcc-13.4.0
 arc                   randconfig-002-20250711    gcc-8.5.0
@@ -115,8 +116,6 @@ arm                               allnoconfig    clang-21
 arm                              allyesconfig    clang-19
 arm                              allyesconfig    gcc-15.1.0
 arm                                 defconfig    clang-19
-arm                          gemini_defconfig    clang-20
-arm                         lpc18xx_defconfig    clang-21
 arm                   randconfig-001-20250711    clang-19
 arm                   randconfig-001-20250712    gcc-13.4.0
 arm                   randconfig-002-20250711    clang-21
@@ -127,6 +126,7 @@ arm                   randconfig-004-20250711    clang-20
 arm                   randconfig-004-20250712    gcc-13.4.0
 arm                        spear6xx_defconfig    clang-21
 arm64                            allmodconfig    clang-19
+arm64                             allnoconfig    clang-21
 arm64                             allnoconfig    gcc-15.1.0
 arm64                               defconfig    clang-19
 arm64                 randconfig-001-20250711    clang-18
@@ -137,6 +137,7 @@ arm64                 randconfig-003-20250711    gcc-12.3.0
 arm64                 randconfig-003-20250712    gcc-13.4.0
 arm64                 randconfig-004-20250711    clang-21
 arm64                 randconfig-004-20250712    gcc-13.4.0
+csky                              allnoconfig    clang-21
 csky                              allnoconfig    gcc-15.1.0
 csky                                defconfig    clang-19
 csky                  randconfig-001-20250711    gcc-14.3.0
@@ -192,30 +193,32 @@ loongarch             randconfig-001-20250711    clang-21
 loongarch             randconfig-001-20250712    gcc-11.5.0
 loongarch             randconfig-002-20250711    clang-21
 loongarch             randconfig-002-20250712    gcc-11.5.0
-m68k                             allmodconfig    clang-19
 m68k                             allmodconfig    gcc-15.1.0
 m68k                              allnoconfig    gcc-15.1.0
-m68k                             allyesconfig    clang-19
 m68k                             allyesconfig    gcc-15.1.0
 m68k                                defconfig    clang-19
-microblaze                       allmodconfig    clang-19
 microblaze                       allmodconfig    gcc-15.1.0
 microblaze                        allnoconfig    gcc-15.1.0
-microblaze                       allyesconfig    clang-19
 microblaze                       allyesconfig    gcc-15.1.0
 microblaze                          defconfig    gcc-15.1.0
 mips                              allnoconfig    gcc-15.1.0
-mips                         rt305x_defconfig    clang-21
+mips                           gcw0_defconfig    clang-21
+mips                           ip27_defconfig    gcc-15.1.0
+mips                           xway_defconfig    clang-21
+nios2                         10m50_defconfig    gcc-14.2.0
 nios2                             allnoconfig    gcc-14.2.0
+nios2                             allnoconfig    gcc-15.1.0
 nios2                               defconfig    gcc-15.1.0
 nios2                 randconfig-001-20250711    gcc-10.5.0
 nios2                 randconfig-001-20250712    gcc-11.5.0
 nios2                 randconfig-002-20250711    gcc-14.2.0
 nios2                 randconfig-002-20250712    gcc-11.5.0
+openrisc                          allnoconfig    clang-21
 openrisc                          allnoconfig    gcc-15.1.0
 openrisc                         allyesconfig    gcc-15.1.0
 openrisc                            defconfig    gcc-12
 parisc                           allmodconfig    gcc-15.1.0
+parisc                            allnoconfig    clang-21
 parisc                            allnoconfig    gcc-15.1.0
 parisc                           allyesconfig    gcc-15.1.0
 parisc                              defconfig    gcc-15.1.0
@@ -225,18 +228,20 @@ parisc                randconfig-002-20250711    gcc-14.3.0
 parisc                randconfig-002-20250712    gcc-11.5.0
 parisc64                            defconfig    gcc-15.1.0
 powerpc                          allmodconfig    gcc-15.1.0
+powerpc                           allnoconfig    clang-21
 powerpc                           allnoconfig    gcc-15.1.0
 powerpc                          allyesconfig    clang-21
+powerpc                      ep88xc_defconfig    gcc-15.1.0
 powerpc                          g5_defconfig    clang-21
-powerpc                 linkstation_defconfig    clang-20
 powerpc                   motionpro_defconfig    clang-21
-powerpc                      ppc64e_defconfig    gcc-15.1.0
+powerpc                  mpc866_ads_defconfig    clang-21
 powerpc               randconfig-001-20250711    clang-18
 powerpc               randconfig-001-20250712    gcc-11.5.0
 powerpc               randconfig-002-20250711    clang-21
 powerpc               randconfig-002-20250712    gcc-11.5.0
 powerpc               randconfig-003-20250711    clang-21
 powerpc               randconfig-003-20250712    gcc-11.5.0
+powerpc                    sam440ep_defconfig    gcc-15.1.0
 powerpc                     sequoia_defconfig    clang-21
 powerpc                     skiroot_defconfig    clang-21
 powerpc64             randconfig-001-20250711    clang-21
@@ -245,6 +250,7 @@ powerpc64             randconfig-002-20250712    gcc-11.5.0
 powerpc64             randconfig-003-20250711    gcc-13.4.0
 powerpc64             randconfig-003-20250712    gcc-11.5.0
 riscv                            allmodconfig    clang-21
+riscv                             allnoconfig    clang-21
 riscv                             allnoconfig    gcc-15.1.0
 riscv                            allyesconfig    clang-16
 riscv                               defconfig    gcc-12
@@ -265,12 +271,11 @@ sh                               allmodconfig    gcc-15.1.0
 sh                                allnoconfig    gcc-15.1.0
 sh                               allyesconfig    gcc-15.1.0
 sh                                  defconfig    gcc-12
-sh                     magicpanelr2_defconfig    gcc-15.1.0
 sh                    randconfig-001-20250711    gcc-12.4.0
 sh                    randconfig-001-20250712    gcc-8.5.0
 sh                    randconfig-002-20250711    gcc-15.1.0
 sh                    randconfig-002-20250712    gcc-8.5.0
-sh                           se7751_defconfig    gcc-15.1.0
+sh                             sh03_defconfig    gcc-15.1.0
 sh                              ul2_defconfig    clang-21
 sparc                            allmodconfig    gcc-15.1.0
 sparc                             allnoconfig    gcc-15.1.0
