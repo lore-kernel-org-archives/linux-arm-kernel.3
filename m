@@ -4,78 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F485C83F20
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Jul 2025 10:42:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB098C83F10
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 12 Jul 2025 11:05:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
+	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qTgJpmSd6LhUXQuIB22IcfoJEWSMVfDYaSNR4+UA678=; b=Vk2PJc7P1MjNfUHyyW87x5EKd1
-	NK+V8VWJ7EIq9JaV1cxEM/OGzhtwhaAZOXBdGKlvi3eaGdNNZbhcE10zXPdjqGxi6HZBd53lVSOiS
-	7JDgqsa4PqxG9kAcqSvIx7L5QOZhjI3CVt/KhZYzR32dMQxuNhXPMtxQa5EYtXhbEkn2F2FNHtdaL
-	VJYWZy4M2R7/ML+Axd+CRMMczL+K698HyAFpecOXNPTD6m2KgGyY/ox5KpZwwAOLHL5VtX299k1n5
-	747MF3a5ZfLztrjFZf/UBvGVI6rp8/4bCuvlP+hpsTEEU9wYprTZKqMSae1+NFowQ0ez2P9wD8a0r
-	3DuuPJRw==;
+	bh=5naVjINQX4Xjj0ZFaYnKa5ZruP4xAPMmRrYWsqkMAAs=; b=V8G1QZXdEpnQSSi5vzd2gsnv4m
+	ehSdzjTg3qx6A8W2geEPpqxDov7tr792i29vLtWeBjLkFlYhLgY4AISMTzD6ambsBXXvOFzgHyC0z
+	gXqpoAaGLss/G/vQvWv25BN6icZ7yjJ4U1EcrBSbHPNqlusAK1jybbE0AhJk1eS99cHe6o462cFwn
+	PycZVPJZbhGuSpAHAD+wLIz8UzdoCJWr7sg7yEphqHjp7DlAWf3jYWNnhIRKgN6djnx7Yyr4k44Bw
+	KjT5Ner5Odl/iivt7tsNI5Iaytp66HfD55/bNfSa8/WHMwvprM0+PhPCbHeZruD7dLo0y9K0OJsN6
+	ZaBf8VKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaXgk-0000000GY8X-22br;
-	Sat, 12 Jul 2025 10:42:38 +0000
-Received: from mx4.wp.pl ([212.77.101.12])
+	id 1uaY2l-0000000GZil-3aWH;
+	Sat, 12 Jul 2025 11:05:23 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaXeM-0000000GXsf-1u0q
+	id 1uaY0N-0000000GZZr-0fEJ
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 12 Jul 2025 10:40:11 +0000
-Received: (wp-smtpd smtp.wp.pl 42019 invoked from network); 12 Jul 2025 12:40:07 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wp.pl; s=20241105;
-          t=1752316807; bh=qTgJpmSd6LhUXQuIB22IcfoJEWSMVfDYaSNR4+UA678=;
-          h=From:To:Cc:Subject;
-          b=yv0ZYtfYVIyUtWCPL0JQMBhSr+6rYxg/gu36uJsHkR9DG+bwk4cRSrZ+HM4sRq85R
-           oCgJNh/5S5u+D3P2NjBIRNurak3N3BAk6Jfa8zrsVFv+abBriFKs1giWDJHePdnTn8
-           awhIFsMi/PKXJqSUusvyXjpptxLNdVQvqlLmdv0dmWScKu80wFw6BwsyzYhid3V9zI
-           pxKcDiiBlJHQGVc5Z10eaAuuMAlbd3Z4fzLBHSaSKiDTdeH6+Zk+ngsuyku6PkmItS
-           Om36QpxAKISBedjxPiyfqVH+FU0ySxOhUu85Bjeuw4Zllr5EEPt9bG3yNSHvRU6xnN
-           tNRKX1G04TYFg==
-Received: from 89-64-3-180.dynamic.play.pl (HELO localhost) (stf_xl@wp.pl@[89.64.3.180])
-          (envelope-sender <stf_xl@wp.pl>)
-          by smtp.wp.pl (WP-SMTPD) with ECDHE-RSA-AES256-GCM-SHA384 encrypted SMTP
-          for <krzk@kernel.org>; 12 Jul 2025 12:40:07 +0200
-Date: Sat, 12 Jul 2025 12:40:06 +0200
-From: Stanislaw Gruszka <stf_xl@wp.pl>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Rosen Penev <rosenp@gmail.com>, linux-wireless@vger.kernel.org,
-	Johannes Berg <johannes@sipsolutions.net>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
-	open list <linux-kernel@vger.kernel.org>,
-	"open list:MIPS" <linux-mips@vger.kernel.org>,
-	"moderated list:ARM/Mediatek SoC support" <linux-arm-kernel@lists.infradead.org>,
-	"moderated list:ARM/Mediatek SoC support" <linux-mediatek@lists.infradead.org>
-Subject: Re: [PATCHv3 wireless-next 7/7] dt-bindings: net: wireless: rt2800:
- add
-Message-ID: <20250712104006.GA13512@wp.pl>
-References: <20250710200820.262295-1-rosenp@gmail.com>
- <20250710200820.262295-8-rosenp@gmail.com>
- <d8b0abb2-1a12-42bf-aafd-4cd1e21babd6@kernel.org>
- <CAKxU2N-c2tHBYWBM+FJGqdSaqzw9u0O8e0G7AVqk6b0QdRnPTw@mail.gmail.com>
- <20250711-invisible-dainty-jackrabbit-acbf8f@krzk-bin>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250711-invisible-dainty-jackrabbit-acbf8f@krzk-bin>
-X-WP-MailID: c2d83bddf527eb597eb6cc17933b5770
-X-WP-AV: skaner antywirusowy Poczty Wirtualnej Polski
-X-WP-SPAM: NO 0000000 [EbNB]                               
+	Sat, 12 Jul 2025 11:02:56 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 081A94448F;
+	Sat, 12 Jul 2025 11:02:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D4064C4CEEF;
+	Sat, 12 Jul 2025 11:02:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1752318173;
+	bh=jzMQOv6iAdvYpHha5k/NLNgXonjVTEht8vlZgL3t88s=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=CcOB1mT7v+VIyTjxEWq0QBlFYvrwN8MSsuWw87TGYM0lqVdcqqq/QEM6ZW0FO7vGU
+	 kWnc0DgrKvkKAGQ7orW/8hnyMVS4QsbEsrEVphRBnfL+wj9FGZEToxM33UQ6SWCx4k
+	 H/Kn+seJcwGE87CrR9LpzRc0XiHz5/hMKuS4GG8EaRvWFgLQquSTq/LqmzGUefvWDM
+	 JF4+OOGcirhW8Ekfe9cOFhUSOhlvmmlYA9SqJB/jjgIHae6l7/x4oIqg/oNFzHsCWJ
+	 eoDRkrdWB76z1uno8/rozEwqtDE1pH/Kldqdup2r4D0vxlk8NI8wFTwfxUowhYeSbq
+	 fstC3/DkN8Pcg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uaY0J-00F6gZ-Cg;
+	Sat, 12 Jul 2025 12:02:51 +0100
+Date: Sat, 12 Jul 2025 12:02:51 +0100
+Message-ID: <864ivhacys.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
+Cc: Thomas Gleixner <tglx@linutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Lucas Stach <l.stach@pengutronix.de>,
+	Aisheng Dong <aisheng.dong@nxp.com>,
+	linux-kernel@vger.kernel.org,
+	kernel-janitors@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH] irqchip/imx-irqsteer: Fix irq handling if an error occurs in imx_irqsteer_irq_handler()
+In-Reply-To: <a0e9473f-81a4-4933-aa63-e66fbeaf0824@wanadoo.fr>
+References: <ad6514c771fef0ac2d1b3c050c6db5d5e0fd034d.1731842478.git.christophe.jaillet@wanadoo.fr>
+	<a0e9473f-81a4-4933-aa63-e66fbeaf0824@wanadoo.fr>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: christophe.jaillet@wanadoo.fr, tglx@linutronix.de, shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, l.stach@pengutronix.de, aisheng.dong@nxp.com, linux-kernel@vger.kernel.org, kernel-janitors@vger.kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250712_034010_653658_4B3837A6 
-X-CRM114-Status: GOOD (  16.00  )
+X-CRM114-CacheID: sfid-20250712_040255_236233_DF6BA0AC 
+X-CRM114-Status: GOOD (  25.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,41 +94,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
+On Sat, 12 Jul 2025 10:58:35 +0100,
+Christophe JAILLET <christophe.jaillet@wanadoo.fr> wrote:
+>=20
+> Le 17/11/2024 =C3=A0 12:21, Christophe JAILLET a =C3=A9crit=C2=A0:
+> > chained_irq_enter(() should be paired with a corresponding
+> > chained_irq_exit().
+> >=20
+> > Here, if (hwirq < 0), a early return occurs and chained_irq_exit() is n=
+ot
+> > called.
+>=20
+> After several month without any feedback, this is a polite ping.
+> Is this patch correct?
 
-On Fri, Jul 11, 2025 at 09:48:49AM +0200, Krzysztof Kozlowski wrote:
-> On Thu, Jul 10, 2025 at 03:40:30PM -0700, Rosen Penev wrote:
-> > On Thu, Jul 10, 2025 at 2:40 PM Krzysztof Kozlowski <krzk@kernel.org> wrote:
-> > >
-> > > On 10/07/2025 22:08, Rosen Penev wrote:
-> > > > Add device-tree bindings for the RT2800 SOC wifi device found in older
-> > > > Ralink/Mediatek devices.
-> > > >
-> > > > Signed-off-by: Rosen Penev <rosenp@gmail.com>
-> > > > ---
-> > > >  .../bindings/net/wireless/ralink,rt2800.yaml  | 47 +++++++++++++++++++
-> > > >  1 file changed, 47 insertions(+)
-> > > >  create mode 100644 Documentation/devicetree/bindings/net/wireless/ralink,rt2800.yaml
-> > > >
-> > > > diff --git a/Documentation/devicetree/bindings/net/wireless/ralink,rt2800.yaml b/Documentation/devicetree/bindings/net/wireless/ralink,rt2800.yaml
-> > > > new file mode 100644
-> > > > index 000000000000..8c13b25bd8b4
-> > > > --- /dev/null
-> > > > +++ b/Documentation/devicetree/bindings/net/wireless/ralink,rt2800.yaml
-> > >
-> > > Filename should match compatible. You were already changing something
-> > > here...
-> > hrm? that makes no sense. Various drivers have multiple compatible lines.
-> 
-> Luckily we do not speak about drivers here. Anyway, follow standard
-> review practices, you don't get special rules.
+An untested patch is unlikely to make a lot of forward progress, to
+be honest.
 
-Could you please elaborate what you mean ?
+>=20
+> CJ
+>=20
+>=20
+> >=20
+> > Add a new label and a goto for fix it.
+> >=20
+> > Fixes: 28528fca4908 ("irqchip/imx-irqsteer: Add multi output interrupts=
+ support")
+> > Signed-off-by: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
+> > ---
+> > Compile tested only.
+> >=20
+> > Review with care, irq handling is sometimes tricky...
+> > ---
+> >   drivers/irqchip/irq-imx-irqsteer.c | 3 ++-
+> >   1 file changed, 2 insertions(+), 1 deletion(-)
+> >=20
+> > diff --git a/drivers/irqchip/irq-imx-irqsteer.c b/drivers/irqchip/irq-i=
+mx-irqsteer.c
+> > index 75a0e980ff35..59abe5a8beb8 100644
+> > --- a/drivers/irqchip/irq-imx-irqsteer.c
+> > +++ b/drivers/irqchip/irq-imx-irqsteer.c
+> > @@ -135,7 +135,7 @@ static void imx_irqsteer_irq_handler(struct irq_des=
+c *desc)
+> >   	if (hwirq < 0) {
+> >   		pr_warn("%s: unable to get hwirq base for irq %d\n",
+> >   			__func__, irq);
+> > -		return;
+> > +		goto out;
+> >   	}
+> >     	for (i =3D 0; i < 2; i++, hwirq +=3D 32) {
+> > @@ -153,6 +153,7 @@ static void imx_irqsteer_irq_handler(struct irq_des=
+c *desc)
+> >   			generic_handle_domain_irq(data->domain, pos + hwirq);
+> >   	}
+> >   +out:
+> >   	chained_irq_exit(irq_desc_get_chip(desc), desc);
+> >   }
 
-I greped through Documentation/devicetree/bindings/*/*.yaml and plenty
-of "compatible:" items do not match the filename. So hard to tell
-what rule you are referencing, as it seems it's not really applied.
+The real question is *how* do you end-up in this situation.
 
-Regards
-Stanislaw
+To trigger this case, you need a mux interrupt that is handled by
+imx_irqsteer_irq_handler(), but for which you haven't got a
+translation from DT the first place. Do you see the chicken and egg
+problem?
+
+In summary, this driver is checking for conditions that can't possibly
+happen, and this check should simply be deleted instead of being
+blindly "fixed".
+
+	M.
+
+--=20
+Without deviation from the norm, progress is not possible.
 
