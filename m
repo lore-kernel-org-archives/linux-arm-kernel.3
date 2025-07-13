@@ -4,82 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC385C83F10
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Jul 2025 00:32:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A90D6C83F10
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Jul 2025 00:35:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zUlm4PeJQztSEdAXDcmnmQt+VbS5kv2O484A8pafujA=; b=Yb/u/nWnMcwSlPfIkPX6aPMEnG
-	7EeZjX5MdOvzT2r1tfXlG8JPcEo1CrLUh8LEfgDTkCJCcDn2u6TZ/Q2/T+9/evy9n2gP8ZvA0TyHt
-	7SNsoQOH8KxmooouAz8bY72I60/POKOKExYupU2Mukm6mYrFkLJpsIPzzsywBhEoSBoHYzVcfvEIN
-	tjxR+Qj0eXMO+eEpBqrg3fcdeHz4Us4Eu+aBXX6LVNX8Jc0WSlRCvCde67vdJ1yJymgjq74BNoTu9
-	E/oeuG3CICyUAboKIhktnYGHJCOWAuHi+poeYGXC4IG61ZAGk3ddwwmvMlO9ap03ZiZe/mE0OKu4D
-	5idAQzuQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:To:From:Subject
+	:Message-ID:Date:MIME-Version:Reply-To:Cc:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Ea3qbdppzHtrp+OgojMx38Fd+crkA6AwPr5+Agag3ZU=; b=T9ze6wzLY2rNPV+7ad/bgCZwX2
+	fUWH99qDhmCBK9v6sUoIb6nvqnebmlhVaqoiddl5adHVNlxwOl8ppQTsnTGTwZG1Tl+yXRImAGnxy
+	rzUHlkhCFCKgIPvImV7J0KN6p2H/MV5MY/QlL+xcPKX0btBPBKARVXiox8BKSO5IaNMhfhECRURip
+	mwWcClKwCe86lSJIofNTs6frqHi0DAADUDq/iZa6c0ay8Zrv4/qjpZncGu+EXn/jdbvXlotG0xkx7
+	WSJzDZLZAK3oYNfg0nn0tGim8md/1jWTdurT6ovGwJwaqxmICmC/+sNPsbx0lU6pne9Szo6eQQxPD
+	CZw7TKMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uakdx-0000000HD0R-3pMl;
-	Sun, 13 Jul 2025 00:32:37 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uakgK-0000000HDAf-2u8D;
+	Sun, 13 Jul 2025 00:35:04 +0000
+Received: from mail-io1-f77.google.com ([209.85.166.77])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uajcS-0000000H7ra-2c0K
-	for linux-arm-kernel@bombadil.infradead.org;
-	Sat, 12 Jul 2025 23:27:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=zUlm4PeJQztSEdAXDcmnmQt+VbS5kv2O484A8pafujA=; b=N7b8DLr4YYnklGPfPxo76mit9G
-	BxZmamZPH2uJCOtNsCFRt2KlR5cp+YzMjSWN4vCBUCUK/lDZhe1DLRqHAqkFSzUsYLD9Twnm/NqbD
-	TObL5TvoM77TLvteZsTNM9sDnBmmU5Ion52elk7DzSbyRFNCjlXjIpqXXHkHSw3xZm/yQG9Ar0LQE
-	M4ttBb1tgA5wN8uuEQNuX8obwo+Dt1xh2Jyy1tbgayRayy+iX1EkzBTJaNrm7G0GRzPuK4loIgVPZ
-	3AFe88s3OmtNGcBhylYShcMaqi5JFNsYEfd623gXWa53CAScLtu7jbd+JYiTy7tFqVB7MhQc2QTjI
-	J2DgYkxQ==;
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uajcA-00000009Uxq-3J1k
+	id 1uakEj-0000000HBWr-0Oix
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 12 Jul 2025 23:26:59 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9435844A09;
-	Sat, 12 Jul 2025 23:26:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 25260C4CEF7;
-	Sat, 12 Jul 2025 23:26:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752362792;
-	bh=yc9nP0AyrYTSdnZBDBrGS14R619T+8Od6p+X/EDi6Wk=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=fX0E8o1k57ipPAfx4Uzk0gPIv9zXrwOi7EklV1MTTwN4CCofX0j1AgCETrLo46xpR
-	 Fb/HAiIDk0Q2P043QlgVPWAz6ctV/JLTH2RJwvNw1pAU/2HI7xBrHJ7zDBInTtl6pG
-	 mzEoqG3qquK7rGUpI1L2ysFaTLshgPnAeVAFNEt+PnuRxP2jzd7FmS0aJqJE6xV0G4
-	 UAiLiC0Y1UK5bxhY8SxwNggognGdbLAPtfPBg71+lwZI1/NRIuLrUi/bGrX7oCfzlo
-	 jkJE8G03Pxs0HpkZAiPARUZk5aGWGElD8l3JOFy2Vc19sZYmnKIZ8d0fCNYAFiC01z
-	 WBJQa9HaiH7NQ==
-From: Eric Biggers <ebiggers@kernel.org>
-To: linux-crypto@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org,
-	Ard Biesheuvel <ardb@kernel.org>,
-	"Jason A . Donenfeld" <Jason@zx2c4.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mips@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-s390@vger.kernel.org,
-	sparclinux@vger.kernel.org,
-	x86@kernel.org,
-	Eric Biggers <ebiggers@kernel.org>
-Subject: [PATCH 26/26] lib/crypto: sha1: Remove low-level functions from API
-Date: Sat, 12 Jul 2025 16:23:17 -0700
-Message-ID: <20250712232329.818226-27-ebiggers@kernel.org>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20250712232329.818226-1-ebiggers@kernel.org>
-References: <20250712232329.818226-1-ebiggers@kernel.org>
+	Sun, 13 Jul 2025 00:06:36 +0000
+Received: by mail-io1-f77.google.com with SMTP id ca18e2360f4ac-86cf753423cso290212339f.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 12 Jul 2025 17:06:30 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1752365190; x=1752969990;
+        h=to:from:subject:message-id:date:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=Ea3qbdppzHtrp+OgojMx38Fd+crkA6AwPr5+Agag3ZU=;
+        b=MD4oGhnLz2d2UOYgDmbKaeIZj1wR2UX0KAT9KOBb5CqyKdjYFyEtevzrLJlgLaaSv+
+         yvhWIJInHgw5FX/caKXQJUr8qcVYCxGj8OxWqwGs2zQwoSPupJ7ZNplj0c0BkGuKsirf
+         f7oqtp8/gB9jpEt5d0phBuhIE/kFio6UlmV70xn8TaoIbfb3QKYY+YIHbiLf12aa9QRu
+         24tWYJOYYHgLt4STir5vPgBmNOxCPMGAxicx5E07W2cpUFq3quJcyZA9AeLdHfqrICjH
+         xJ3P6pyNdNGVYsnokd4TEoQDeRGPdWh9tqbzZiVIvhPBuSSIVhG0yoKU9OH5yN9XdlDr
+         vXDg==
+X-Forwarded-Encrypted: i=1; AJvYcCVIWDmIoMAzQb5Pb/wda8cjT+pN4xupzdKhR9YRRSpFxUDO2Vo0S22IEJ25WmFn7L3fNC0Haxs0OpyaBBUEwDmK@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzyn927Rc6wvxgZ8WFccPoDWetEy5z1cCJ7kmFgCWhCniC1kx8L
+	KI7QjkacuEWnON2IFOHyfyVcGO/1rObrYIZU6FlCiDt+iGeOhNqYz15MMYK6yvMXOx/5BPULGn9
+	3Z0y7PyKgcNHNDWur+EPUH8cW1F58xKVZHq66PM/iMGcJytRA1zCxc//M1eU=
+X-Google-Smtp-Source: AGHT+IEn2iy03zAoER7fhAagB2X3tgSkQ4pMNqBWX0o7nANF/t35cPk7BhMK5Uk659GNlsCe1vfG1R/XR9Km2pqB+RIvXdMOiW6X
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-Received: by 2002:a05:6602:4010:b0:86d:71:d9a with SMTP id
+ ca18e2360f4ac-879787b862emr869201339f.2.1752365190087; Sat, 12 Jul 2025
+ 17:06:30 -0700 (PDT)
+Date: Sat, 12 Jul 2025 17:06:30 -0700
+X-Google-Appengine-App-Id: s~syzkaller
+X-Google-Appengine-App-Id-Alias: syzkaller
+Message-ID: <6872f886.a70a0220.3b380f.000d.GAE@google.com>
+Subject: [syzbot] [kvmarm?] WARNING in pend_serror_exception
+From: syzbot <syzbot+1f6f096afda6f4f8f565@syzkaller.appspotmail.com>
+To: catalin.marinas@arm.com, joey.gouly@arm.com, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	maz@kernel.org, oliver.upton@linux.dev, suzuki.poulose@arm.com, 
+	syzkaller-bugs@googlegroups.com, will@kernel.org, yuzenghui@huawei.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250713_002644_047941_0576871B 
-X-CRM114-Status: GOOD (  18.56  )
+X-CRM114-CacheID: sfid-20250712_170633_138993_6D26700A 
+X-CRM114-Status: UNSURE (   7.58  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,159 +78,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Now that there are no users of the low-level SHA-1 interface, remove it.
+Hello,
 
-Specifically:
+syzbot found the following issue on:
 
-- Remove SHA1_DIGEST_WORDS (no longer used)
-- Remove sha1_init_raw() (no longer used)
-- Rename sha1_transform() to sha1_block_generic() and make it static
-- Move SHA1_WORKSPACE_WORDS into lib/crypto/sha1.c
+HEAD commit:    15724a984643 Merge branch 'kvm-arm64/doublefault2' into kv..
+git tree:       git://git.kernel.org/pub/scm/linux/kernel/git/kvmarm/kvmarm.git next
+console output: https://syzkaller.appspot.com/x/log.txt?x=123090f0580000
+kernel config:  https://syzkaller.appspot.com/x/.config?x=82bd3cd421993314
+dashboard link: https://syzkaller.appspot.com/bug?extid=1f6f096afda6f4f8f565
+compiler:       Debian clang version 20.1.7 (++20250616065708+6146a88f6049-1~exp1~20250616065826.132), Debian LLD 20.1.7
+userspace arch: arm64
+syz repro:      https://syzkaller.appspot.com/x/repro.syz?x=1324fe8c580000
+C reproducer:   https://syzkaller.appspot.com/x/repro.c?x=1206ed82580000
 
-Signed-off-by: Eric Biggers <ebiggers@kernel.org>
+Downloadable assets:
+disk image (non-bootable): https://storage.googleapis.com/syzbot-assets/fa3fbcfdac58/non_bootable_disk-15724a98.raw.xz
+vmlinux: https://storage.googleapis.com/syzbot-assets/ec0f03d375a1/vmlinux-15724a98.xz
+kernel image: https://storage.googleapis.com/syzbot-assets/a36232f8c6dd/Image-15724a98.gz.xz
+
+IMPORTANT: if you fix the issue, please add the following tag to the commit:
+Reported-by: syzbot+1f6f096afda6f4f8f565@syzkaller.appspotmail.com
+
+------------[ cut here ]------------
+WARNING: CPU: 0 PID: 3603 at arch/arm64/kvm/inject_fault.c:71 pend_serror_exception+0x19c/0x5ac arch/arm64/kvm/inject_fault.c:71
+Modules linked in:
+CPU: 0 UID: 0 PID: 3603 Comm: syz.2.16 Not tainted 6.16.0-rc3-syzkaller-g15724a984643 #0 PREEMPT 
+Hardware name: linux,dummy-virt (DT)
+pstate: 81402009 (Nzcv daif +PAN -UAO -TCO +DIT -SSBS BTYPE=--)
+pc : pend_serror_exception+0x19c/0x5ac arch/arm64/kvm/inject_fault.c:71
+lr : pend_serror_exception+0x19c/0x5ac arch/arm64/kvm/inject_fault.c:71
+sp : ffff80008e807930
+x29: ffff80008e807930 x28: d7f0000016ae8028 x27: 0000000000000001
+x26: 0000000000000000 x25: 0000000000000001 x24: 00000000000000d7
+x23: d7f0000016ae82a8 x22: 00000000000000d7 x21: d7f0000016ae8e81
+x20: 0000000000000007 x19: efff800000000000 x18: 0000000000000000
+x17: 000000000000005a x16: ffff800080011d9c x15: 0000000020000200
+x14: ffffffffffffffff x13: 0000000000000028 x12: 0000000000000081
+x11: 81f000001f049564 x10: 0000000000ff0100 x9 : 0000000000000000
+x8 : 81f000001f048000 x7 : ffff800080b08704 x6 : ffff80008e807a88
+x5 : ffff80008e807a88 x4 : 0000000000000001 x3 : ffff8000801a2e80
+x2 : 0000000000000000 x1 : 0000000000000002 x0 : 0000000000000000
+Call trace:
+ pend_serror_exception+0x19c/0x5ac arch/arm64/kvm/inject_fault.c:71 (P)
+ kvm_inject_serror_esr+0x274/0xe40 arch/arm64/kvm/inject_fault.c:330
+ __kvm_arm_vcpu_set_events+0x1d4/0x238 arch/arm64/kvm/guest.c:-1
+ kvm_arm_vcpu_set_events arch/arm64/kvm/arm.c:1698 [inline]
+ kvm_arch_vcpu_ioctl+0xed8/0x16b0 arch/arm64/kvm/arm.c:1810
+ kvm_vcpu_ioctl+0x5c4/0xc2c virt/kvm/kvm_main.c:4632
+ vfs_ioctl fs/ioctl.c:51 [inline]
+ __do_sys_ioctl fs/ioctl.c:907 [inline]
+ __se_sys_ioctl fs/ioctl.c:893 [inline]
+ __arm64_sys_ioctl+0x18c/0x244 fs/ioctl.c:893
+ __invoke_syscall arch/arm64/kernel/syscall.c:35 [inline]
+ invoke_syscall+0x90/0x2b4 arch/arm64/kernel/syscall.c:49
+ el0_svc_common+0x180/0x2f4 arch/arm64/kernel/syscall.c:132
+ do_el0_svc+0x58/0x74 arch/arm64/kernel/syscall.c:151
+ el0_svc+0x58/0x160 arch/arm64/kernel/entry-common.c:767
+ el0t_64_sync_handler+0x78/0x108 arch/arm64/kernel/entry-common.c:786
+ el0t_64_sync+0x198/0x19c arch/arm64/kernel/entry.S:600
+irq event stamp: 2728
+hardirqs last  enabled at (2727): [<ffff80008653cb88>] __raw_read_unlock_irqrestore include/linux/rwlock_api_smp.h:241 [inline]
+hardirqs last  enabled at (2727): [<ffff80008653cb88>] _raw_read_unlock_irqrestore+0x44/0xbc kernel/locking/spinlock.c:268
+hardirqs last disabled at (2728): [<ffff800086517e08>] el1_dbg+0x24/0x80 arch/arm64/kernel/entry-common.c:511
+softirqs last  enabled at (2702): [<ffff8000800c988c>] local_bh_enable+0x10/0x34 include/linux/bottom_half.h:32
+softirqs last disabled at (2700): [<ffff8000800c9858>] local_bh_disable+0x10/0x34 include/linux/bottom_half.h:19
+---[ end trace 0000000000000000 ]---
+
+
 ---
- include/crypto/sha1.h | 10 -------
- lib/crypto/sha1.c     | 63 ++++++++++++-------------------------------
- 2 files changed, 17 insertions(+), 56 deletions(-)
+This report is generated by a bot. It may contain errors.
+See https://goo.gl/tpsmEJ for more information about syzbot.
+syzbot engineers can be reached at syzkaller@googlegroups.com.
 
-diff --git a/include/crypto/sha1.h b/include/crypto/sha1.h
-index 162a529ec8413..34658f4d76e3b 100644
---- a/include/crypto/sha1.h
-+++ b/include/crypto/sha1.h
-@@ -24,20 +24,10 @@ struct sha1_state {
- 	u32 state[SHA1_DIGEST_SIZE / 4];
- 	u64 count;
- 	u8 buffer[SHA1_BLOCK_SIZE];
- };
- 
--/*
-- * An implementation of SHA-1's compression function.  Don't use in new code!
-- * You shouldn't be using SHA-1, and even if you *have* to use SHA-1, this isn't
-- * the correct way to hash something with SHA-1 (use crypto_shash instead).
-- */
--#define SHA1_DIGEST_WORDS	(SHA1_DIGEST_SIZE / 4)
--#define SHA1_WORKSPACE_WORDS	16
--void sha1_init_raw(__u32 *buf);
--void sha1_transform(__u32 *digest, const char *data, __u32 *W);
--
- /* State for the SHA-1 compression function */
- struct sha1_block_state {
- 	u32 h[SHA1_DIGEST_SIZE / 4];
- };
- 
-diff --git a/lib/crypto/sha1.c b/lib/crypto/sha1.c
-index 89831f7f27793..87a76bf97f445 100644
---- a/lib/crypto/sha1.c
-+++ b/lib/crypto/sha1.c
-@@ -49,11 +49,11 @@ static const struct sha1_block_state sha1_iv = {
- #else
-   #define setW(x, val) (W(x) = (val))
- #endif
- 
- /* This "rolls" over the 512-bit array */
--#define W(x) (array[(x)&15])
-+#define W(x) (workspace[(x)&15])
- 
- /*
-  * Where do we get the source from? The first 16 iterations get it from
-  * the input data, the next mix it from the 512-bit array.
-  */
-@@ -70,38 +70,24 @@ static const struct sha1_block_state sha1_iv = {
- #define T_16_19(t, A, B, C, D, E) SHA_ROUND(t, SHA_MIX, (((C^D)&B)^D) , 0x5a827999, A, B, C, D, E )
- #define T_20_39(t, A, B, C, D, E) SHA_ROUND(t, SHA_MIX, (B^C^D) , 0x6ed9eba1, A, B, C, D, E )
- #define T_40_59(t, A, B, C, D, E) SHA_ROUND(t, SHA_MIX, ((B&C)+(D&(B^C))) , 0x8f1bbcdc, A, B, C, D, E )
- #define T_60_79(t, A, B, C, D, E) SHA_ROUND(t, SHA_MIX, (B^C^D) ,  0xca62c1d6, A, B, C, D, E )
- 
--/**
-- * sha1_transform - single block SHA1 transform (deprecated)
-- *
-- * @digest: 160 bit digest to update
-- * @data:   512 bits of data to hash
-- * @array:  16 words of workspace (see note)
-- *
-- * This function executes SHA-1's internal compression function.  It updates the
-- * 160-bit internal state (@digest) with a single 512-bit data block (@data).
-- *
-- * Don't use this function.  SHA-1 is no longer considered secure.  And even if
-- * you do have to use SHA-1, this isn't the correct way to hash something with
-- * SHA-1 as this doesn't handle padding and finalization.
-- *
-- * Note: If the hash is security sensitive, the caller should be sure
-- * to clear the workspace. This is left to the caller to avoid
-- * unnecessary clears between chained hashing operations.
-- */
--void sha1_transform(__u32 *digest, const char *data, __u32 *array)
-+#define SHA1_WORKSPACE_WORDS 16
-+
-+static void sha1_block_generic(struct sha1_block_state *state,
-+			       const u8 data[SHA1_BLOCK_SIZE],
-+			       u32 workspace[SHA1_WORKSPACE_WORDS])
- {
- 	__u32 A, B, C, D, E;
- 	unsigned int i = 0;
- 
--	A = digest[0];
--	B = digest[1];
--	C = digest[2];
--	D = digest[3];
--	E = digest[4];
-+	A = state->h[0];
-+	B = state->h[1];
-+	C = state->h[2];
-+	D = state->h[3];
-+	E = state->h[4];
- 
- 	/* Round 1 - iterations 0-16 take their input from 'data' */
- 	for (; i < 16; ++i)
- 		T_0_15(i, A, B, C, D, E);
- 
-@@ -119,39 +105,24 @@ void sha1_transform(__u32 *digest, const char *data, __u32 *array)
- 
- 	/* Round 4 */
- 	for (; i < 80; ++i)
- 		T_60_79(i, A, B, C, D, E);
- 
--	digest[0] += A;
--	digest[1] += B;
--	digest[2] += C;
--	digest[3] += D;
--	digest[4] += E;
--}
--EXPORT_SYMBOL(sha1_transform);
--
--/**
-- * sha1_init_raw - initialize the vectors for a SHA1 digest
-- * @buf: vector to initialize
-- */
--void sha1_init_raw(__u32 *buf)
--{
--	buf[0] = 0x67452301;
--	buf[1] = 0xefcdab89;
--	buf[2] = 0x98badcfe;
--	buf[3] = 0x10325476;
--	buf[4] = 0xc3d2e1f0;
-+	state->h[0] += A;
-+	state->h[1] += B;
-+	state->h[2] += C;
-+	state->h[3] += D;
-+	state->h[4] += E;
- }
--EXPORT_SYMBOL(sha1_init_raw);
- 
- static void __maybe_unused sha1_blocks_generic(struct sha1_block_state *state,
- 					       const u8 *data, size_t nblocks)
- {
- 	u32 workspace[SHA1_WORKSPACE_WORDS];
- 
- 	do {
--		sha1_transform(state->h, data, workspace);
-+		sha1_block_generic(state, data, workspace);
- 		data += SHA1_BLOCK_SIZE;
- 	} while (--nblocks);
- 
- 	memzero_explicit(workspace, sizeof(workspace));
- }
--- 
-2.50.1
+syzbot will keep track of this issue. See:
+https://goo.gl/tpsmEJ#status for how to communicate with syzbot.
 
+If the report is already addressed, let syzbot know by replying with:
+#syz fix: exact-commit-title
+
+If you want syzbot to run the reproducer, reply with:
+#syz test: git://repo/address.git branch-or-commit-hash
+If you attach or paste a git patch, syzbot will apply it before testing.
+
+If you want to overwrite report's subsystems, reply with:
+#syz set subsystems: new-subsystem
+(See the list of subsystem names on the web dashboard)
+
+If the report is a duplicate of another one, reply with:
+#syz dup: exact-subject-of-another-report
+
+If you want to undo deduplication, reply with:
+#syz undup
 
