@@ -4,65 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3BD8C83F1D
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Jul 2025 16:30:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7D93C83F1D
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Jul 2025 16:36:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FcAfXwZTwhsFOnTv8hjkbY6OakGWxcNlPUDqFClSedg=; b=LQWze3AIsprLuAgSyfjNdI6wAc
-	v/RRuSz6Kai7XXQKNhLSi+dWI0PS1mhv3YGv8HRZiVtOeJE1QHotzNc8uWoGiE4rNG09MDIvLVYiV
-	/Bt4+FU45+8LGAeAFAWPzb+dzrcEDB14ZR/gSvAunBpIODRkMWnoFvAW5PSPIhHBVN6uFKKXkv3lm
-	iJ02leJTo49DXpc4dpH/mhiFyYD2fkGpZr3163n7B06PPLdlKRZ7t8LXTKKU66L+LKMPdh/FI7DYD
-	a5rU5YQbhvKnBjOXHGQHgHfnVATxG/C8czwQjeEVVzcgHc8RCeBx2JOHouewqvhq4pG6os/UaCwxa
-	vm8MWkzw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=fuRb4Qiqsz/z/G1pp2Nj7uCsktPKwK6K200MetOeQyA=; b=E5q+e5H35knZ77PUI2v6HSu2qV
+	mIDNjZqrjLLTJcQ7b3+p5gkd07tlj31EQ4L8epg4W8vPg7Ch1nFvx2xMDMbCU2kV/VO0CDJndEewZ
+	NXlTG+3P/5EYGbJTgxP0/TwpUVOkIxSMOwWBOZVuAASk+hy/ZfKbxUsIIVWi+TDoP7gOhViRpRutb
+	sQYupY50gvqBxkcyVcNVljf4ZARnfhVuHknQ+v8cwGh5LevOLQN0MqTAmsRiDzuiMRQNU20s8xLUX
+	toCnNetaN7G02nMxiOTv1RtcEGIZTb3buiEHvKlJVe0a6EltcHZdxca/rlkMrSJ1BQRmVxnunuFvT
+	Jua4s3rg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uazag-00000000NvB-2VX7;
-	Sun, 13 Jul 2025 16:30:14 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uazg9-00000000OIR-0JjO;
+	Sun, 13 Jul 2025 16:35:53 +0000
+Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uazYD-00000000Nl3-1jFZ
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 13 Jul 2025 16:27:42 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 42019A4FD1C;
-	Sun, 13 Jul 2025 16:27:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 95CD6C4CEE3;
-	Sun, 13 Jul 2025 16:27:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752424059;
-	bh=os7v1CoGQxJnQ+61L30sCkA48/y+wIkRcL+WdNgUE2s=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=I7hUGwAQ0aw2rJZSbXsemST2c73iBGjy9KFwZLcz2MUTMNqDO83PmoEvO7Me/DsWv
-	 q+3ngqUR7q7ytHY5Ep5lKshzJKaz68BGGlr+ch0YAaGGJvI6yIrLYCn/pxG3EyS0ET
-	 tV4zRluMnf75avHqkJp69JcTh/+uWac30GeutgLhczSsoOG+CuwRip+jaBIF13xgcT
-	 KyKQ9KwWU+qZYL0xEkLkIVPCWWDXqcg1NouSEApPiYie5W/T8Knha/C9jMzlQEKS1W
-	 wYykANdPHZyn3Agn3Xzeb6ZBBMzDMwRSAJ5zvKs042xBaSTrbm5yfPfDXvi0seMyMl
-	 nTv+jFHqq0xfw==
-Date: Sun, 13 Jul 2025 17:27:32 +0100
-From: Jonathan Cameron <jic23@kernel.org>
-To: Yicong Yang <yangyicong@huawei.com>
-Cc: <will@kernel.org>, <mark.rutland@arm.com>, <yangyicong@hisilicon.com>,
- <hejunhao3@huawei.com>, <jonathan.cameron@huawei.com>,
- <prime.zeng@hisilicon.com>, <linuxarm@huawei.com>,
- <wangyushan12@huawei.com>, <linux-arm-kernel@lists.infradead.org>,
- <linux-kernel@vger.kernel.org>
-Subject: Re: [RESEND PATCH v3 0/8] General updates and two new drivers for
- HiSilicon Uncore PMU
-Message-ID: <20250713172732.13100182@jic23-huawei>
-In-Reply-To: <c5a99a5a-20d9-ef07-1cc3-cb025f446619@huawei.com>
-References: <20250619125557.57372-1-yangyicong@huawei.com>
-	<c5a99a5a-20d9-ef07-1cc3-cb025f446619@huawei.com>
-X-Mailer: Claws Mail 4.3.1 (GTK 3.24.49; x86_64-pc-linux-gnu)
+	id 1uazdg-00000000O5e-3Tpb;
+	Sun, 13 Jul 2025 16:33:22 +0000
+Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-235f9ea8d08so31449765ad.1;
+        Sun, 13 Jul 2025 09:33:20 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1752424400; x=1753029200; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=fuRb4Qiqsz/z/G1pp2Nj7uCsktPKwK6K200MetOeQyA=;
+        b=lXLdmIuP7osz31H0vLcO/223Enlejpl/I2x6onMYn8w3aOG0q2pfDQy/FgAAtp4iOd
+         ElDJCNCB3OWZTtSjFeRjrewQ9LIGno44EoHgQIp0hQCXKP/DyvR/1m9W/jmEXnwfapq/
+         bDVwdFlpjU9VEJYU7pwtkEMglcRy+ijQN272MjVpMP3MEeyJN8o5T+tHwI5/O0XtW0VN
+         jJkiSWBJ/NmISnkfpVp1sfD03CWxzi4JnpM2g46AU7TvGWnwQIuMqrunGKobPtsc9xC7
+         16ixqK/yKfBT2vUoU4YwIq5Ct4X6Fj26PGKyUnyvDluhsQEebJkxPWaxwK/YxGPwcK1E
+         ATDw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1752424400; x=1753029200;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=fuRb4Qiqsz/z/G1pp2Nj7uCsktPKwK6K200MetOeQyA=;
+        b=F6IE5/S9d99dOYfHq+Z55SimFyZImNuepTVCQQTAxmJl3WoQH3j0jpNJm7hJ5Logb5
+         8eM+lmjiYjKyFOy/N6LGLC6xVaSis3y6GWlpfvW7dsr55z64CWdUZEX/iUOdEh8H0bJM
+         yGg0eXJnW/JqBtn2xmTvD544bImlpclXP4ZnC3ar7cGkafmoXni69cKCHLyARaSfvZyD
+         9LFklbyoCr+Nf4ssLtql9nroHeIxeVhwvQmKxENHfAVw9UXZON49u9m8PvsJdP7uZQ4w
+         JqvfnVejVYahHWuUXliMi140DUo5SdFmqKQ83TTj4mFk8fwEinqpckrcLljb+caUbolP
+         f2wg==
+X-Forwarded-Encrypted: i=1; AJvYcCXXJoatfJLutopSQHZmRfDtioizKePSJeLYaVviOx9hxUIKHAehBPWR/AwuzWXssFv0oZKD0IqoiXs65elRmQk=@lists.infradead.org, AJvYcCXYAOyP9VFAgblC9tdjdJWAsha2Lxc+wAJcxryK4SLUC+/htuX+HzbfZ9dvZINCHrUnCcNda0/IZSwzxizVt0kC@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywi00/oQVgW8NNdE3KcoqeTT7l2BWBs0zhVaRS25JZE/M17sI2T
+	Odj9jK/z6Dn2X0ovMDTinYlifnWHyj+jmyIYEJBEvtZgkdTAWQ8DDdIO
+X-Gm-Gg: ASbGncuB7yNyj+8clLOwWF26H4jlatV8djep8SKuoH1a8SQGsMWTPSqNaaVihUQv+yN
+	M6FgV3YDtlUKyKqJrCBe8h6L02iOpP8Umr2rbKZDaONeLgCMqeJYlrGkqu2LIIgiYo/EpGOQWqQ
+	L3vQEnleQAXKTXYsHbT9QolO8ERlFr3DsjD0l5jqM4vRGQ87hLPfOD0nVttYzAT+dMapP3p5/Ts
+	ii1McrNUg86ZzdR9ay5pVzyXIrUrYutRhOLmJATgh5LKzFY/k/xbGys0b43JbRq7Or0eDdJoMy5
+	gKtiVuV9Q+gQ7OS6YKWRPCMY56t5bzhGrpcuM/cuIXGm/CMgFv4MukvT3NPI8pTAdmEaiw3mFbe
+	cV4Osi8wYaN5fhfD76HCWtohthQ6ZT6pbbjA=
+X-Google-Smtp-Source: AGHT+IGCO4liv93JPPoLPS2XAKJCjFoSU4kfGGUjaOrz6VjqZtPcVHjum/sjVr3U2YnYlhY1JRCo8A==
+X-Received: by 2002:a17:903:244a:b0:232:1daf:6f06 with SMTP id d9443c01a7336-23dede94c3fmr158131165ad.47.1752424399645;
+        Sun, 13 Jul 2025 09:33:19 -0700 (PDT)
+Received: from arch.localdomain ([155.117.228.70])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23de4285ecbsm80809655ad.48.2025.07.13.09.33.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 13 Jul 2025 09:33:19 -0700 (PDT)
+From: Jun Yan <jerrysteve1101@gmail.com>
+To: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	heiko@sntech.de,
+	quentin.schulz@cherry.de,
+	dsimic@manjaro.org,
+	naoki@radxa.com
+Cc: devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	Jun Yan <jerrysteve1101@gmail.com>
+Subject: [PATCH 0/3] board: rockchip: add OneThing Cloud OEC turbo
+Date: Mon, 14 Jul 2025 00:32:52 +0800
+Message-ID: <20250713163255.163669-1-jerrysteve1101@gmail.com>
+X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250713_092741_589510_95DF1FAA 
-X-CRM114-Status: GOOD (  23.01  )
+X-CRM114-CacheID: sfid-20250713_093320_869568_C4A9EC7B 
+X-CRM114-Status: UNSURE (   7.97  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,76 +103,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 1 Jul 2025 20:36:11 +0800
-Yicong Yang <yangyicong@huawei.com> wrote:
+This series adds support for the OneThing Cloud OEC Turbo, which was
+initially marketed by OneThing Tech as a PCDN (P2P Content Delivery
+Network) device.
 
-> Hi Will and Mark,
-> 
-> just want to make sure the mail's not lost somehow, it's been skipped for the last cycle and
-> no further comment since v2.
+Jun Yan (3):
+  dt-bindings: vendor-prefixes: Add Shenzhen OneThing Technologies Co.,
+    Ltd.
+  dt-bindings: arm: rockchip: Add OneThing Cloud OEC turbo
+  arm64: dts: rockchip: Add OneThing Cloud OEC turbo
 
-Hi Will and Mark,
+ .../devicetree/bindings/arm/rockchip.yaml     |   5 +
+ .../devicetree/bindings/vendor-prefixes.yaml  |   2 +
+ arch/arm64/boot/dts/rockchip/Makefile         |   1 +
+ .../rk3566-onething-cloud-oec-turbo.dts       | 313 ++++++++++++++++++
+ 4 files changed, 321 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3566-onething-cloud-oec-turbo.dts
 
-This one is still outstanding and Yicong mentioned some recent issues with
-some Huawei emails being taken out by spam filters.  As such, a quick
-ping from an account that shouldn't suffer that fate!
-
-Jonathan
-
-> 
-> thanks.
-> 
-> On 2025/6/19 20:55, Yicong Yang wrote:
-> > From: Yicong Yang <yangyicong@hisilicon.com>
-> > 
-> > Support new version of DDRC/SLLC PMU identified with updated ACPI HID and
-> > register definition. In order to support this, we do a preliminary refactor
-> > to initialize device of each version by using driver data of each HID
-> > rather than checking the version. This will also make the driver easier to
-> > maintain and extend, since only the HID specific information along
-> > with the new HID will be added to support the new version without touching
-> > the common logic.
-> > 
-> > Two new Uncore PMU drivers is also added to support the monitoring the
-> > events of the system bus (by NoC PMU) and the DVM operations (by MN PMU).
-> > 
-> > Change since v2:
-> > - Rebase on 6.15-rc1, add Jonathan's tag.
-> > Link: https://lore.kernel.org/linux-arm-kernel/20250321073846.23507-1-yangyicong@huawei.com/
-> > 
-> > Change since v1:
-> > - Fold patch which extending the struct hisi_pmu_dev_info into its user
-> > - Use bit shift rather than bit mask for SLLC PMU registers configuration
-> > - Address other comments by Jonathan, thanks
-> > Link: https://lore.kernel.org/linux-arm-kernel/20250218092000.41641-1-yangyicong@huawei.com/
-> > 
-> > Junhao He (6):
-> >   drivers/perf: hisi: Simplify the probe process for each DDRC version
-> >   drivers/perf: hisi: Add support for HiSilicon DDRC v3 PMU driver
-> >   drivers/perf: hisi: Use ACPI driver_data to retrieve SLLC PMU
-> >     information
-> >   drivers/perf: hisi: Add support for HiSilicon SLLC v3 PMU driver
-> >   drivers/perf: hisi: Relax the event number check of v2 PMUs
-> >   drivers/perf: hisi: Add support for HiSilicon MN PMU driver
-> > 
-> > Yicong Yang (2):
-> >   drivers/perf: hisi: Support PMUs with no interrupt
-> >   drivers/perf: hisi: Add support for HiSilicon NoC PMU
-> > 
-> >  Documentation/admin-guide/perf/hisi-pmu.rst   |  11 +
-> >  drivers/perf/hisilicon/Makefile               |   3 +-
-> >  drivers/perf/hisilicon/hisi_uncore_ddrc_pmu.c | 354 ++++++++--------
-> >  drivers/perf/hisilicon/hisi_uncore_hha_pmu.c  |   6 +-
-> >  drivers/perf/hisilicon/hisi_uncore_mn_pmu.c   | 355 ++++++++++++++++
-> >  drivers/perf/hisilicon/hisi_uncore_noc_pmu.c  | 392 ++++++++++++++++++
-> >  drivers/perf/hisilicon/hisi_uncore_pa_pmu.c   |   2 +-
-> >  drivers/perf/hisilicon/hisi_uncore_pmu.c      |  11 +-
-> >  drivers/perf/hisilicon/hisi_uncore_pmu.h      |   2 +
-> >  drivers/perf/hisilicon/hisi_uncore_sllc_pmu.c | 220 +++++++---
-> >  10 files changed, 1098 insertions(+), 258 deletions(-)
-> >  create mode 100644 drivers/perf/hisilicon/hisi_uncore_mn_pmu.c
-> >  create mode 100644 drivers/perf/hisilicon/hisi_uncore_noc_pmu.c
-> >   
-> 
+-- 
+2.50.1
 
 
