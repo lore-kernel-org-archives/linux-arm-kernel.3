@@ -4,95 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6062CC83F1D
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Jul 2025 09:24:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91853C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Jul 2025 09:27:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pOOUWMIdhHkQ+tRZU4YDol3EV+jZsKR5HFpybqxFDYA=; b=Rge7c0X1ISMXSTce3eV3Nx/WuG
-	dFqbL6vpFdaKZpv/qMK0XYwYYVaMeqqiVKuRQiBNrlSMcB4MGznWnLo6VVT5eMEvL+nJ82qwP7qkv
-	6VDjZe0jPaff1ZGlSBMa8wGgaonO4Cq8nG7eusOkif25xgB2IyedKbunoPx+/wKykp0GiG9ZG2DWX
-	fIXvgfmk+rDajROobAyIquT4lcyshfjr+NdlwMmjjnBQfdKmCr2Zjf4SxR2t7s1KU2JaoGTygWYNh
-	/tuZff2dhVN3AoS/5xxLOSFwFvuzQ2TD29xpPd10Rzzt4xYX+taC5Dc5YQuzvV0FgSe6AK6Kp0UJj
-	Indprtng==;
+	bh=i68FJiG6+f1ETXgbeYCotuF64Qw8JxOf1zX940i2cSU=; b=j06bmVA8gSXJjzGR7cPc/SxOg5
+	vk65WUiZE71pRenM8YN3LEzKvjp9ggHQ3ykkMmcU7ctaggGpYVBgzKamVCo5cL3bkDIW6kdS3g9Qb
+	sKI9F4iBnadl9g6G3LQxMgolcG4BgBvcOuGhnM9hnDW/5QszAJ07rTTgy9pmsfTw196nlbxe+VEE3
+	qQWLHdJ4UoysMRf7x7P8sSmfws1D1Zb0hAwUDN0AWdclVu/75Ub70TNckBZxcuoBxaHC6RyiPOS6z
+	qPkTGHgLlstiAxU2EXhQAT9UeOxWKLK0J3JyOXN3/3pfMOuEfk4G0zdzQXS+GrmFEzxGe3YQSjtwy
+	iiHaahdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaswj-000000000a9-3Liw;
-	Sun, 13 Jul 2025 09:24:33 +0000
-Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	id 1uasz5-000000000hM-2Bnu;
+	Sun, 13 Jul 2025 09:26:59 +0000
+Received: from mail-lf1-x134.google.com ([2a00:1450:4864:20::134])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uasKq-0000000HYJR-1z42
+	id 1uasOy-0000000HYcj-0ODV
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 13 Jul 2025 08:45:25 +0000
-Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-3a5123c1533so1767277f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 13 Jul 2025 01:45:24 -0700 (PDT)
+	Sun, 13 Jul 2025 08:49:41 +0000
+Received: by mail-lf1-x134.google.com with SMTP id 2adb3069b0e04-555024588a8so3056252e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 13 Jul 2025 01:49:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1752396323; x=1753001123; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1752396578; x=1753001378; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=pOOUWMIdhHkQ+tRZU4YDol3EV+jZsKR5HFpybqxFDYA=;
-        b=PmXQY9KQzf1l9S/zct/tHhmmjGYTfP0qFxHi9yGXy3Z2ANFyNYG8jhDZNUKwgLTFOb
-         W5PjHmDr9Hzrh0tJZQ8iKi2sj/6DwAAPLL2DSnwo1BqVe3EhBYWGnUy1RgEsG/yhZDP1
-         KsAxCwFL+cP9rNslCSsVqJRDDXLoDEowKsf4G+3THf7jV/EIQdSBtBBDgSg0rquOC3ik
-         7n3YuCU+r8l8SNliY9SZFS1YvZ5A7C1WSrXsA2Zhs8c0OHM2p+Eon5p7LBKjoFlitfZA
-         GnKxwvypC18BFy1l5c2MizvNn2t3X25Nv+BwV1Enu1xn42rQ1xVRiIWZnVmI8jJuWFhl
-         7Eig==
+        bh=i68FJiG6+f1ETXgbeYCotuF64Qw8JxOf1zX940i2cSU=;
+        b=wx2r35OZxDRDrbfZ9olqEhVLFZAOSTA3AdDQOAwj9buInlN41YlzuYpkftEZEadNDl
+         Xdq4jAlR9Zu660spkQJ/AVnxmUan2EBW0Q9oZVPml2Mq1CQ16T3YAmIlQ4mFE5YTWlNm
+         aKstGs/3oip49KgOXRZALcYSuAuuYw8aP6JXSK3gfRC3hMWYwb7TfzOhciUXFx0ppXWy
+         lGjUVJOR91bxRPOBkgA5xr8znvJtDnuHSyB9BaV2SeNSqBf+g8AQZH/Z1j8rV5PZpXyJ
+         ZZWOoZU8UrUPzFvsvPuWn69Oof7ZqtxxuSOsRO2B6Fz97tEvlkMEd88voBDoA7ENOerp
+         mhjA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752396323; x=1753001123;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20230601; t=1752396578; x=1753001378;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=pOOUWMIdhHkQ+tRZU4YDol3EV+jZsKR5HFpybqxFDYA=;
-        b=PDIGCZyI2tpO5MuUvFCB1tJPQiowsg5hdQoGDKgxPkqhexaKjCw6yBs/jWKnMMp7d7
-         LCP20jW0fI1Y6W9o4dzJnMS2lVvuU+3qh0WSm8/ezIqwsWmu6e6RwzkUiATF00wbCtcK
-         vhbKMYfi7QDMnhhlskJ8NYMsgIU3nfVyRu76n5AssFK/nJMROdxYf79BDwC1jKCnAvSn
-         75LBxsQVsKeibi6LaCJLAPP0wD4aW1MHA7RBCsVJZojZVfxRsbq9Sag8zrG00dR9O8Cx
-         /RSS5DKTdjFJX1rFqKOrz4P2XKxOOtmA0EV/WkgRRru6fLAaQwbQCHagtENdNfGOnGOU
-         aZAw==
-X-Forwarded-Encrypted: i=1; AJvYcCXCfCKUiVIFfNVwvYro6E/g68/vWcUhBSPYnnu+GCn476qE5jkVhHxPcwYBwT5G546ZmxwzRR3+QBO7TTWweTYb@lists.infradead.org
-X-Gm-Message-State: AOJu0YzpBNPGT2CACBPe5iPKPSfEzs2hFWY4zXnkn8+fI1wG7NYBVDUS
-	H8rfiL5Fnw/ggu5oh8fjWqqZ0Ov/CYz1KdnHGP+Fpw0zKJu3ZoxGAkc2YhszLiIflFM=
-X-Gm-Gg: ASbGncsnPiHGkYyl+P77Wq642u8Ks6/AYI+BtjMUA+cb0DX8XcfsX5P34BKrtieOTBR
-	xIMiVNR0/CNVgM0+6VTEDbUX3J93RCmq2bL5p4xHzBii5CqY/092kEOuQwUPazAtxH0d16QU7Cv
-	4/M0gCmF0VF2+E83UrW46I0kzPYJr1sAw9f7YmmMbs52twknJ8H0oPmCVW09/G6qdRa0/0QuAaa
-	7jjPOWOc8c5KzfTUgTRgle7nYX2lQaVO97e51v+WBj9A2PbeANSu01JwLcqFHlR6NC52klVbbwY
-	g2vWdHyIOXS3f7CBFMr5Oz0UhBvRTwDfCn95EhJdsjzjp9D6ZTT9J6NXy1rYLJkXRFCXy9gRw3V
-	rMDNbyYy6FD2doictMQ2yI1A=
-X-Google-Smtp-Source: AGHT+IFA2prv4K400SGiTJz+5nwQs90KuarJOb9H+jJVA2bKFFKRJN7i5BSkPopM07i32Va/RQqyOA==
-X-Received: by 2002:adf:e18c:0:b0:3a5:2cb5:642f with SMTP id ffacd0b85a97d-3b5f18dc494mr8398012f8f.34.1752396322894;
-        Sun, 13 Jul 2025 01:45:22 -0700 (PDT)
-Received: from brgl-uxlite.home ([2a01:cb1d:dc:7e00:f695:8645:1433:4418])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-454d50ded8csm134569945e9.20.2025.07.13.01.45.22
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 13 Jul 2025 01:45:22 -0700 (PDT)
-From: Bartosz Golaszewski <brgl@bgdev.pl>
-To: Linus Walleij <linus.walleij@linaro.org>,
-	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Viresh Kumar <vireshk@kernel.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>
-Cc: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
-	linux-gpio@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux@ew.tq-group.com,
-	linux-arm-kernel@lists.infradead.org,
-	virtualization@lists.linux.dev
-Subject: Re: [PATCH 00/12] gpio: use new GPIO line value setter callbacks
-Date: Sun, 13 Jul 2025 10:45:21 +0200
-Message-ID: <175239631858.6478.15774208043366926710.b4-ty@linaro.org>
-X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20250707-gpiochip-set-rv-gpio-round4-v1-0-35668aaaf6d2@linaro.org>
-References: <20250707-gpiochip-set-rv-gpio-round4-v1-0-35668aaaf6d2@linaro.org>
+        bh=i68FJiG6+f1ETXgbeYCotuF64Qw8JxOf1zX940i2cSU=;
+        b=eaIWxDlmYPp49GbapJ81avLzpVVREUqoYCKlp/F/EiVaw2tLGipXXNchFt1nU1lctI
+         lccBrx/Q2cQDGxnOO3iEwHQ28x0V+26VM88Mdn9QQH1X4U8F422osTdroPjbqxdDuxOW
+         zXb32KsLT3w+95hXjaMRrlsK3gx/6pveK3Czu4qpseQyUjjxRIebMh5M2TuYDYAAYnkL
+         9GdEVK6UCYq7Pesf2vPz+EGMGk1doBZDJ0VTOS2DZpyiYVBJwdWPjZNOD12oCeLqSChb
+         JKUlAnBleIbFeCJsLxGFrcYXj6dKZNbpGZJI+q+pZKag8qm/+VllONuKfGEShmJhj6N1
+         NRBg==
+X-Forwarded-Encrypted: i=1; AJvYcCX1c1kxDFzi0HDuT9FXJ2rMtGGCBOBg3BE/YbZHoJ0YWrx+wKu/Ldqb+nz/mlZcBCrWaYNjuUv1Q51KLf8QRHKd@lists.infradead.org
+X-Gm-Message-State: AOJu0YwDCcs281r7hvB91RsXL6+6p9vGPKSTAKqTyao7RxbhLpXOXEqM
+	scBhbE5EabCDNV5aww4r9K/F9fN+uNKxJhxzCavhpb/BLcMpcQWPs2rWeWQ/dFMuJTAGv2oXnyt
+	8FtjxV3B/DUWu07/R/18xZhGCJcres5ymUCvz6UC4qg==
+X-Gm-Gg: ASbGnct2EHO08DEGCJ1cqYBKd4urLPPa36Ub0mzVw39OX7E5F3v7yjCYI8AeMEMTI1J
+	MTTDDiHLmWn5Fdmwp2v3Mk8QYMabDr7PC4H8pXuNWWlinMtAIh6/THlfJW7DCYs+SrPs0Yu02yd
+	qnMNx5E9mHBJuxLrsNkqY2L3Ix3Im4/Jhg5n9ze+uGbxJt9pukDtlMSpa2C0NTE5FO1pcAJQ+WG
+	gmEXGnEwKIIb1fP5+mvyPc6rdW1cqQFENzEnVV1DcEUwNalqQ==
+X-Google-Smtp-Source: AGHT+IHSVlR3f84ykKc18xLN16yOuI1UBS+R1HGXkNcrI5d6VuncH7GOy5up7ZkTvuUg5ocaceSyWG2pJHHAQMTtfQA=
+X-Received: by 2002:a05:6512:6cd:b0:553:2355:1f26 with SMTP id
+ 2adb3069b0e04-55a0463d16fmr3003378e87.50.1752396578149; Sun, 13 Jul 2025
+ 01:49:38 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+References: <20250610-gpiochip-set-rv-soc-v1-0-1a0c36c9deed@linaro.org> <20250610-gpiochip-set-rv-soc-v1-1-1a0c36c9deed@linaro.org>
+In-Reply-To: <20250610-gpiochip-set-rv-soc-v1-1-1a0c36c9deed@linaro.org>
+From: Bartosz Golaszewski <brgl@bgdev.pl>
+Date: Sun, 13 Jul 2025 10:49:27 +0200
+X-Gm-Features: Ac12FXyhZJT7lfbn0I6DoUYvpi_8wvzLxArloCSn9kbjMpsbWPmC7MSTvAUWCwE
+Message-ID: <CAMRc=Mc1UyWgWwUFVGw=1EVJb1u4MQYUKcguiQedmbxTK6pY1w@mail.gmail.com>
+Subject: Re: [PATCH 1/2] soc: fsl: qe: use new GPIO line value setter callbacks
+To: Qiang Zhao <qiang.zhao@nxp.com>, Christophe Leroy <christophe.leroy@csgroup.eu>, 
+	Linus Walleij <linus.walleij@linaro.org>, Bartosz Golaszewski <brgl@bgdev.pl>, 
+	Geert Uytterhoeven <geert+renesas@glider.be>, Magnus Damm <magnus.damm@gmail.com>
+Cc: linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org, 
+	linux-renesas-soc@vger.kernel.org, 
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250713_014524_513372_0FAB2C05 
-X-CRM114-Status: GOOD (  10.01  )
+X-CRM114-CacheID: sfid-20250713_014940_133318_09C21D4B 
+X-CRM114-Status: GOOD (  19.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,48 +99,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+On Tue, Jun 10, 2025 at 2:38=E2=80=AFPM Bartosz Golaszewski <brgl@bgdev.pl>=
+ wrote:
+>
+> From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+>
+> struct gpio_chip now has callbacks for setting line values that return
+> an integer, allowing to indicate failures. Convert the driver to using
+> them.
+>
+> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+> ---
+>  drivers/soc/fsl/qe/gpio.c | 6 ++++--
+>  1 file changed, 4 insertions(+), 2 deletions(-)
+>
+> diff --git a/drivers/soc/fsl/qe/gpio.c b/drivers/soc/fsl/qe/gpio.c
+> index 3ef24ba0245b75471ffa10f579bb744c0c3b7e43..5391cce4e6efe6d120db7fdf7=
+509dc5eb840f344 100644
+> --- a/drivers/soc/fsl/qe/gpio.c
+> +++ b/drivers/soc/fsl/qe/gpio.c
+> @@ -57,7 +57,7 @@ static int qe_gpio_get(struct gpio_chip *gc, unsigned i=
+nt gpio)
+>         return !!(ioread32be(&regs->cpdata) & pin_mask);
+>  }
+>
+> -static void qe_gpio_set(struct gpio_chip *gc, unsigned int gpio, int val=
+)
+> +static int qe_gpio_set(struct gpio_chip *gc, unsigned int gpio, int val)
+>  {
+>         struct of_mm_gpio_chip *mm_gc =3D to_of_mm_gpio_chip(gc);
+>         struct qe_gpio_chip *qe_gc =3D gpiochip_get_data(gc);
+> @@ -75,6 +75,8 @@ static void qe_gpio_set(struct gpio_chip *gc, unsigned =
+int gpio, int val)
+>         iowrite32be(qe_gc->cpdata, &regs->cpdata);
+>
+>         spin_unlock_irqrestore(&qe_gc->lock, flags);
+> +
+> +       return 0;
+>  }
+>
+>  static void qe_gpio_set_multiple(struct gpio_chip *gc,
+> @@ -317,7 +319,7 @@ static int __init qe_add_gpiochips(void)
+>                 gc->direction_input =3D qe_gpio_dir_in;
+>                 gc->direction_output =3D qe_gpio_dir_out;
+>                 gc->get =3D qe_gpio_get;
+> -               gc->set =3D qe_gpio_set;
+> +               gc->set_rv =3D qe_gpio_set;
+>                 gc->set_multiple =3D qe_gpio_set_multiple;
+>
+>                 ret =3D of_mm_gpiochip_add_data(np, mm_gc, qe_gc);
+>
+> --
+> 2.48.1
+>
 
+Christophe: let me reping you here as there's no reason for this
+relatively trivial patch to miss the upcoming merge window. Do you
+have any objections to me queueing it via the GPIO tree?
 
-On Mon, 07 Jul 2025 09:50:13 +0200, Bartosz Golaszewski wrote:
-> Commit 98ce1eb1fd87e ("gpiolib: introduce gpio_chip setters that return
-> values") added new line setter callbacks to struct gpio_chip. They allow
-> to indicate failures to callers. We're in the process of converting all
-> GPIO controllers to using them before removing the old ones. This series
-> converts another round of GPIO drivers.
-> 
-> To:
-> 
-> [...]
-
-Applied, thanks!
-
-[01/12] gpio: tps65910: use new GPIO line value setter callbacks
-        https://git.kernel.org/brgl/linux/c/3e498b3c7b96a17037b5777c56ccff33d3bfbca5
-[02/12] gpio: tps65912: check the return value of regmap_update_bits()
-        https://git.kernel.org/brgl/linux/c/a0b2a6bbff8c26aafdecd320f38f52c341d5cafa
-[03/12] gpio: tps65912: use new GPIO line value setter callbacks
-        https://git.kernel.org/brgl/linux/c/22cbcfe36e9724fda06ca873e20777d863445ab8
-[04/12] gpio: tps68470: use new GPIO line value setter callbacks
-        https://git.kernel.org/brgl/linux/c/e41e51f07b1c8a642fed121d01da37c1c2994f89
-[05/12] gpio: tqmx86: use new GPIO line value setter callbacks
-        https://git.kernel.org/brgl/linux/c/9ade48906b62fc7c5b999422891408a4f02c255a
-[06/12] gpio: ts4900: use new GPIO line value setter callbacks
-        https://git.kernel.org/brgl/linux/c/ed8497dc6683cd285ef4335a315d398524c4af52
-[07/12] gpio: twl4030: use new GPIO line value setter callbacks
-        https://git.kernel.org/brgl/linux/c/0446ce284bebe192be6e0da6e969379dc3dac587
-[08/12] gpio: twl6040: use new GPIO line value setter callbacks
-        https://git.kernel.org/brgl/linux/c/77ba4640cc1564f29b280040b312688b79039c4c
-[09/12] gpio: twl6040: set line value in .direction_out()
-        https://git.kernel.org/brgl/linux/c/79880eba2c0feed895e6d2aa8f7e5489d113d653
-[10/12] gpio: uniphier: use new GPIO line value setter callbacks
-        https://git.kernel.org/brgl/linux/c/42fbbe31634d116a7f6bee75c0ae455bf10a7737
-[11/12] gpio: viperboard: use new GPIO line value setter callbacks
-        https://git.kernel.org/brgl/linux/c/55e2d1eec110f1278324882714b64465e4e58ced
-[12/12] gpio: virtio: use new GPIO line value setter callbacks
-        https://git.kernel.org/brgl/linux/c/e502df58b5e3767c00e887744b6eff43b7fde3ea
-
-Best regards,
--- 
-Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Bartosz
 
