@@ -4,69 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7D93C83F1D
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Jul 2025 16:36:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF2CAC83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Jul 2025 16:38:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=fuRb4Qiqsz/z/G1pp2Nj7uCsktPKwK6K200MetOeQyA=; b=E5q+e5H35knZ77PUI2v6HSu2qV
-	mIDNjZqrjLLTJcQ7b3+p5gkd07tlj31EQ4L8epg4W8vPg7Ch1nFvx2xMDMbCU2kV/VO0CDJndEewZ
-	NXlTG+3P/5EYGbJTgxP0/TwpUVOkIxSMOwWBOZVuAASk+hy/ZfKbxUsIIVWi+TDoP7gOhViRpRutb
-	sQYupY50gvqBxkcyVcNVljf4ZARnfhVuHknQ+v8cwGh5LevOLQN0MqTAmsRiDzuiMRQNU20s8xLUX
-	toCnNetaN7G02nMxiOTv1RtcEGIZTb3buiEHvKlJVe0a6EltcHZdxca/rlkMrSJ1BQRmVxnunuFvT
-	Jua4s3rg==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dUlKkkT9yWJ7b1HYL1nvFWc53qv/qhzbMN9WpuA6OBE=; b=wdIOIzNqAUUCgGHn19lbJ1u9un
+	wdDDACzZbJ/Lk588qCS6AEmXmqwIMGVJavdHYMjwloTy01EDqxzzj5seQKT144p+ct0cYf7nq4Td8
+	neesuiZBSOk6uFUdIELT2tqjxX4QnB84dcsus/uleI65nX3OHkrFqXwBWL3SBXqF2FZrSpBh/76uo
+	3z9tE5WFCoiGGcnCWHrQ3bd3/3EWZ6PEWp3se698BLRDjpTnCVY5gorwE77hWhvpKokSubm7bpTcM
+	GHIhXM/2uQUXv9x1UxjWzZUE3LVrbqMfkk/OiyPvrAN2ILWh5P0mkt/gDicd3wBj+sHGX5qBTUT5O
+	zw8SHLxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uazg9-00000000OIR-0JjO;
-	Sun, 13 Jul 2025 16:35:53 +0000
-Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
+	id 1uaziY-00000000OQy-1zZe;
+	Sun, 13 Jul 2025 16:38:22 +0000
+Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uazdg-00000000O5e-3Tpb;
-	Sun, 13 Jul 2025 16:33:22 +0000
-Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-235f9ea8d08so31449765ad.1;
-        Sun, 13 Jul 2025 09:33:20 -0700 (PDT)
+	id 1uaze6-00000000O71-18Gq;
+	Sun, 13 Jul 2025 16:33:47 +0000
+Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-235ef62066eso52259235ad.3;
+        Sun, 13 Jul 2025 09:33:46 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1752424400; x=1753029200; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=fuRb4Qiqsz/z/G1pp2Nj7uCsktPKwK6K200MetOeQyA=;
-        b=lXLdmIuP7osz31H0vLcO/223Enlejpl/I2x6onMYn8w3aOG0q2pfDQy/FgAAtp4iOd
-         ElDJCNCB3OWZTtSjFeRjrewQ9LIGno44EoHgQIp0hQCXKP/DyvR/1m9W/jmEXnwfapq/
-         bDVwdFlpjU9VEJYU7pwtkEMglcRy+ijQN272MjVpMP3MEeyJN8o5T+tHwI5/O0XtW0VN
-         jJkiSWBJ/NmISnkfpVp1sfD03CWxzi4JnpM2g46AU7TvGWnwQIuMqrunGKobPtsc9xC7
-         16ixqK/yKfBT2vUoU4YwIq5Ct4X6Fj26PGKyUnyvDluhsQEebJkxPWaxwK/YxGPwcK1E
-         ATDw==
+        d=gmail.com; s=20230601; t=1752424425; x=1753029225; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=dUlKkkT9yWJ7b1HYL1nvFWc53qv/qhzbMN9WpuA6OBE=;
+        b=SkzMrClQuIpgSwpCRZ0rtFjzIA8qkvUN5yH16KWmlIDx53RJdeDhLScTw630B9Mpen
+         nkn/8eLCnrH9xE/erP8PheL8JR7cJrxBliQE4nzU8YnYE5yiUQk7I6TwmxM7FVDfCXKo
+         nvxxtXFmnRTJCbL/03I6XXU1TTZK2Z2Kr8sezBXhLs7DGz67Z3ve3btvG6Z7/UUoJT8H
+         xdnC+Qlg+INbxRvZ1YRJkDnm3CdtBjj86UsSB+JToYBvw4qTes0ZPoind2VWwDKvoYs7
+         wEZOvrB3NpiJcLxWewjd+IvmO1DYhvp7NTf3jy36Tl+E/mN0G/okU2BUFGDJPyjfMwDl
+         boeg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752424400; x=1753029200;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=fuRb4Qiqsz/z/G1pp2Nj7uCsktPKwK6K200MetOeQyA=;
-        b=F6IE5/S9d99dOYfHq+Z55SimFyZImNuepTVCQQTAxmJl3WoQH3j0jpNJm7hJ5Logb5
-         8eM+lmjiYjKyFOy/N6LGLC6xVaSis3y6GWlpfvW7dsr55z64CWdUZEX/iUOdEh8H0bJM
-         yGg0eXJnW/JqBtn2xmTvD544bImlpclXP4ZnC3ar7cGkafmoXni69cKCHLyARaSfvZyD
-         9LFklbyoCr+Nf4ssLtql9nroHeIxeVhwvQmKxENHfAVw9UXZON49u9m8PvsJdP7uZQ4w
-         JqvfnVejVYahHWuUXliMi140DUo5SdFmqKQ83TTj4mFk8fwEinqpckrcLljb+caUbolP
-         f2wg==
-X-Forwarded-Encrypted: i=1; AJvYcCXXJoatfJLutopSQHZmRfDtioizKePSJeLYaVviOx9hxUIKHAehBPWR/AwuzWXssFv0oZKD0IqoiXs65elRmQk=@lists.infradead.org, AJvYcCXYAOyP9VFAgblC9tdjdJWAsha2Lxc+wAJcxryK4SLUC+/htuX+HzbfZ9dvZINCHrUnCcNda0/IZSwzxizVt0kC@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywi00/oQVgW8NNdE3KcoqeTT7l2BWBs0zhVaRS25JZE/M17sI2T
-	Odj9jK/z6Dn2X0ovMDTinYlifnWHyj+jmyIYEJBEvtZgkdTAWQ8DDdIO
-X-Gm-Gg: ASbGncuB7yNyj+8clLOwWF26H4jlatV8djep8SKuoH1a8SQGsMWTPSqNaaVihUQv+yN
-	M6FgV3YDtlUKyKqJrCBe8h6L02iOpP8Umr2rbKZDaONeLgCMqeJYlrGkqu2LIIgiYo/EpGOQWqQ
-	L3vQEnleQAXKTXYsHbT9QolO8ERlFr3DsjD0l5jqM4vRGQ87hLPfOD0nVttYzAT+dMapP3p5/Ts
-	ii1McrNUg86ZzdR9ay5pVzyXIrUrYutRhOLmJATgh5LKzFY/k/xbGys0b43JbRq7Or0eDdJoMy5
-	gKtiVuV9Q+gQ7OS6YKWRPCMY56t5bzhGrpcuM/cuIXGm/CMgFv4MukvT3NPI8pTAdmEaiw3mFbe
-	cV4Osi8wYaN5fhfD76HCWtohthQ6ZT6pbbjA=
-X-Google-Smtp-Source: AGHT+IGCO4liv93JPPoLPS2XAKJCjFoSU4kfGGUjaOrz6VjqZtPcVHjum/sjVr3U2YnYlhY1JRCo8A==
-X-Received: by 2002:a17:903:244a:b0:232:1daf:6f06 with SMTP id d9443c01a7336-23dede94c3fmr158131165ad.47.1752424399645;
-        Sun, 13 Jul 2025 09:33:19 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1752424425; x=1753029225;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=dUlKkkT9yWJ7b1HYL1nvFWc53qv/qhzbMN9WpuA6OBE=;
+        b=fXJSPszsM5kEdGbr26ijbY9gQb1eH+1PkK8EFKLaGhXc/ME60CpKyjuA5hyA7sAEEv
+         EsxYtn5XD2YHf8HkWh1ap2u/twUqkAZht1/GNx31KnZqKXvhdX1Hqv+3kSSPflyNNoO0
+         0RHIU5ZGtElRbdr95+7aFZg7xRhmbKnAxRuwKi2koXx6SnNarw5TC6jgqwv/1RBhFgMG
+         vzVvQAsfYuO9cGqXVbvwssXDXN7Heaq3rfsRRUz5U10WUelaJyBfwytOkO6Fd+CO/0iE
+         gn347kmmvCbFXNCNnKyhCeiElCvXarmdZPyw85MQY/oRyV7hWYkd/adiUpU/B7qqpLaS
+         xyhg==
+X-Forwarded-Encrypted: i=1; AJvYcCVlu5frNu7qMuWAbqLhNtzig30SgRVH5gdr87ZY8h2U5xJqEXH0usb8IltwZgwtKAt6IiDlmT+nWXG8lkL4psAs@lists.infradead.org, AJvYcCXrGjqf/G/n44kzrs+muYBDtib4aIoZ4FSudeaic03MF2ELdT8YEEURRFXp2LmU4IoIOzHLYqn+s4X/xiwO90g=@lists.infradead.org
+X-Gm-Message-State: AOJu0YwNlhvWnZhRrNZjyGG8xAYnPcHoc9CXKBRq98E/BB/9sJJkio4k
+	Px8UwC91cvDKueVVaocOqjgb1Cc5SUw9s/D1feOd5ro9JQm+P3xIyuoK
+X-Gm-Gg: ASbGncsc2JpaEgccfuZ+Z5+xE4tYxiC5WYnTQY3NJUZV0WBE4V7rcMyRKRnwfjYrF7n
+	xKZ601r3QVjfExG6CKgkg5EQERxWJKL+0I1H9w0yJCpW+5A0g6Opwwej5Y+PRcHlSMvj6GMQHTB
+	UFoxVjykh3RW7t51xVrQVy4DlYJvMkzFMpIrPUgoi9b8yuBx1pEaJl/bKeZ9WRUAW+blD6jQlzk
+	1Pv4NM7POF4k3VGTlSw/lg6UdxSQy7wYo6h9zmH1vWOBBTnjwheuRP+LzPZTt6WBfZXqFyDL0BD
+	F6U4apkTfDK6NUDeyp6oClJKKzj8sOCMgNMZ8lPb4b2dE0hiE/JKcUw2EEc5t4R1aiY58Z6kuw+
+	6ngDh39XOIAhJ5++YBS0Jy2VN/f+NI969qfo=
+X-Google-Smtp-Source: AGHT+IH6E5UEkJSfiF+dSq+9DovIWQcD7yf6qUoqec9uZOt2S1XrHYXoTzVMb5+OVnAaJl1+LFcIvA==
+X-Received: by 2002:a17:902:8b8b:b0:238:f2a:8893 with SMTP id d9443c01a7336-23dede984b9mr91199825ad.42.1752424425482;
+        Sun, 13 Jul 2025 09:33:45 -0700 (PDT)
 Received: from arch.localdomain ([155.117.228.70])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23de4285ecbsm80809655ad.48.2025.07.13.09.33.13
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23de4285ecbsm80809655ad.48.2025.07.13.09.33.34
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 13 Jul 2025 09:33:19 -0700 (PDT)
+        Sun, 13 Jul 2025 09:33:45 -0700 (PDT)
 From: Jun Yan <jerrysteve1101@gmail.com>
 To: robh@kernel.org,
 	krzk+dt@kernel.org,
@@ -79,15 +80,17 @@ Cc: devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-rockchip@lists.infradead.org,
 	Jun Yan <jerrysteve1101@gmail.com>
-Subject: [PATCH 0/3] board: rockchip: add OneThing Cloud OEC turbo
-Date: Mon, 14 Jul 2025 00:32:52 +0800
-Message-ID: <20250713163255.163669-1-jerrysteve1101@gmail.com>
+Subject: [PATCH 1/3] dt-bindings: vendor-prefixes: Add Shenzhen OneThing Technologies Co., Ltd.
+Date: Mon, 14 Jul 2025 00:32:53 +0800
+Message-ID: <20250713163255.163669-2-jerrysteve1101@gmail.com>
 X-Mailer: git-send-email 2.50.1
+In-Reply-To: <20250713163255.163669-1-jerrysteve1101@gmail.com>
+References: <20250713163255.163669-1-jerrysteve1101@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250713_093320_869568_C4A9EC7B 
-X-CRM114-Status: UNSURE (   7.97  )
+X-CRM114-CacheID: sfid-20250713_093346_309895_ACC03F87 
+X-CRM114-Status: UNSURE (   8.36  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -103,23 +106,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series adds support for the OneThing Cloud OEC Turbo, which was
-initially marketed by OneThing Tech as a PCDN (P2P Content Delivery
-Network) device.
+OneThing is a company engaged in edge computing.
 
-Jun Yan (3):
-  dt-bindings: vendor-prefixes: Add Shenzhen OneThing Technologies Co.,
-    Ltd.
-  dt-bindings: arm: rockchip: Add OneThing Cloud OEC turbo
-  arm64: dts: rockchip: Add OneThing Cloud OEC turbo
+Signed-off-by: Jun Yan <jerrysteve1101@gmail.com>
+---
+ Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
+ 1 file changed, 2 insertions(+)
 
- .../devicetree/bindings/arm/rockchip.yaml     |   5 +
- .../devicetree/bindings/vendor-prefixes.yaml  |   2 +
- arch/arm64/boot/dts/rockchip/Makefile         |   1 +
- .../rk3566-onething-cloud-oec-turbo.dts       | 313 ++++++++++++++++++
- 4 files changed, 321 insertions(+)
- create mode 100644 arch/arm64/boot/dts/rockchip/rk3566-onething-cloud-oec-turbo.dts
-
+diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+index 5d2a7a8d3ac6..77fbbe040706 100644
+--- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
++++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+@@ -1108,6 +1108,8 @@ patternProperties:
+     description: OLIMEX Ltd.
+   "^olpc,.*":
+     description: One Laptop Per Child
++  "^onething,.*":
++    descriotion: Shenzhen OneThing Technologies Co., Ltd.
+   "^oneplus,.*":
+     description: OnePlus Technology (Shenzhen) Co., Ltd.
+   "^onie,.*":
 -- 
 2.50.1
 
