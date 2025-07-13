@@ -4,111 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B776C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Jul 2025 08:50:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 837C1C83F1D
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Jul 2025 08:52:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jV981Goqvb0xOYgIiJTi+HLBP/myLoojKWXaOItKtDs=; b=MMDLcVnpcl4I8yrRAl/yVqAzg8
-	s5tQIOcIBGgfEsY/xYEi5mE62G5/898Xvk8rr+nTPY663GyrHSJYPgEkQdSH7Na/bpFlcsvZ0mLy0
-	NfVximh7p0ACwdpVDLtEdovfQwoepeKkKUI5GqbmaCwdGlnluevQAjNT+hrWEl1jan0cMzCul9yBs
-	KUPKwO2HxAabUI2Qf+QhVuB3Szk5BWm0hUQFjxtPPpZUkXyvveUBk7M+MavCa4ldXHKYW0SO04bDc
-	1/hnJ6nLDa+4+XO9uIkeW95TNMKkJMhFNwiP6uVKa5gk8QegflE09P/LjZYHsA+UFy+gtBYyWUsnA
-	ZCU9rROg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=iox57DVjdaoaKfxo5AboCSCO4GMqqNFB8Dj9mmEAG9U=; b=omMY9Ij9nSu5T2
+	c1PFxs0W+PAgDgBV+IuNsC+oAvlYIOojaakLARdjsU+gJsqN+kw32lj/1Khu33kwU6FFKzcLIumJd
+	68jcIpR4hDl9BgharUtva0S7wT4yYzR1EIZAoNOHOMwOdulKp4zp2MivBcMQckt2+oQb1p7EaNxr2
+	3XTQ6v8KMeTunkwNbCMl/OzFSeX1U+8B/ERGqvaWNs+Wl6F/ABk2nJDQSC0qoRcXUqk+5UZ+GAjbn
+	eNIFmeFbokIOUcUNOhXE7iItyjDYx8ENuIchrvQ7QtP2VO9obX1Z/prglgDwud+j/T5bEnkSY69ki
+	SpMsGCzv6vSoU6Ub2wDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uasPL-0000000HYgJ-2a4Q;
-	Sun, 13 Jul 2025 08:50:03 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uasRi-0000000HYoa-1uYn;
+	Sun, 13 Jul 2025 08:52:30 +0000
+Received: from mail-ej1-f43.google.com ([209.85.218.43])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uasCy-0000000HX12-0EZE
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 13 Jul 2025 08:37:17 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 5D2DF5C4D8D;
-	Sun, 13 Jul 2025 08:37:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4FFA4C4CEE3;
-	Sun, 13 Jul 2025 08:37:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752395834;
-	bh=tCn/GrV9aszlId7gS/rKno0Y7spGuGu52u2u8jFFXys=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=KhfAKbyqI8BmLdtOcSLrH4WbNY57A3RyKLUnP8dhWquM4/H/K/mpWFo0Q27sShGdX
-	 jxo5oRxBDebsIC4BlIfmxgfkmYC6seYt2HXNK3dgkv7APgHFplKAmo1RqButyY7MDI
-	 uBjPLvwfWxbKh0gHJqubuN5JYudHOaFQCjGgKI6YX7PEd1iUrLX6XUXzVwej7jVkDC
-	 XqN1JVW9KycsqnE0CqvF65lM5fEzvrp9quyNTAGLyvpuVItLD88CD6MilrDcxu7rju
-	 FXEtw0T+tgQm/Wodubjdu3X/d5KpiUi53DkUnwM3auS9ahetmqV/jYqliZVSZMsRez
-	 +KZeheT1dvz2A==
-Message-ID: <b6259b4c-fb65-4494-bd0c-8bb8a6bd1b86@kernel.org>
-Date: Sun, 13 Jul 2025 10:37:08 +0200
+	id 1uasEe-0000000HX8k-3rXN;
+	Sun, 13 Jul 2025 08:39:02 +0000
+Received: by mail-ej1-f43.google.com with SMTP id a640c23a62f3a-ae361e8ec32so625784766b.3;
+        Sun, 13 Jul 2025 01:39:00 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1752395939; x=1753000739;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=iox57DVjdaoaKfxo5AboCSCO4GMqqNFB8Dj9mmEAG9U=;
+        b=WjcGleMGzfO5oCa6W6VQqL2xFjdpKR5a3Pxl2VOOLPjavTvHnKbpL8f+N8wHEFNEUp
+         H9Lo3ovtQYuI/X8xKkwIFtb52yqcFE5NDFwjCH9PufDLkr36VPLWx5OH5fAa+HqZAnfG
+         d+F8o6+zoaXjVCbXJVqWCgPN58d5+cW2g/QokHN1UNec93u5Me+Ek29mWsPwHy9saz4C
+         4w1+NNOdo62op/T44hFCm/Qr3NHB5JYC7TyjA/1YOxamcz98G4ZeBmi+4w7klTZMWeCB
+         7d/nK1DEZSUozch/2xtDggLaotBVldNJu6b8yLJwfp28r75LNQg36r+azb3Av2rIal0z
+         h7+g==
+X-Forwarded-Encrypted: i=1; AJvYcCVYc3kUNaDArAE5VBwpPl6LABA9WkDVOrQuRIyZU/74gQCyLLgwM4hD3k/9gw/Dddd3c3h/3ZK533tHw1w9hpgT@lists.infradead.org, AJvYcCXCJLKQe3ebJ/LZzDizAubV5SzhVwQNlwPairRoTTgIz45Araogvr0uyOoAChhUfvU8joLyPCdAFbhRCKVMsR4=@lists.infradead.org
+X-Gm-Message-State: AOJu0YwEC3EVmPKW8Q+4yMjORiISRSDd0sE64Hh6Fa29a8hkbXVyvoYf
+	hhffpwlC0XTo9t6i3aIB30IqeqrLvC3A3heQL9Swy/Bf9fJwXkl6o+TIKY102B8G
+X-Gm-Gg: ASbGncvLji2cRUZTsyWsiEI+mGGZA3YAS+Z+KTHgARSYbGzpHtWg1R99VTYmFgRAQqH
+	/e7HY8R3An5DsqMqadS5uQn2sGAdio1/adXhiL7uC2vaz8xjMPKycVzw1IqaY2H5M3qGfqnz44+
+	jpeKa+XM69t5vDCIUac7HsDrUC2vhGEzskxr8VMq5yOAPI2x6t0JTr2r4CwIs800N3CajXJIStB
+	DZ+Lq90xO3GnQtRtIJ9MQOiAwU/uIfCrYrROgLwvldq7aQzzVBM8g2JyeV6Wtzn1IXhzU6f/f8o
+	B1AndLJFVr3pRCISSvN+3uwayEHV0kN/f56FgkEWCPu7x36fnIZZEGdsTvyYJwNQpmK7NUztZxh
+	i4Kl0Xpx5q+GWla4NDRqxsFgPURkv91PJzDIb/kK6IPEYGuqj2I46IWXN
+X-Google-Smtp-Source: AGHT+IGQt4zhcJArH6o30HJl75IntEaAKyUOXg4i37WOL0jJEDPrPv4BbMBWt/Q2KxZH+6OQZBiXZg==
+X-Received: by 2002:a17:907:3cc8:b0:ae6:f663:7232 with SMTP id a640c23a62f3a-ae701371015mr731574466b.61.1752395938613;
+        Sun, 13 Jul 2025 01:38:58 -0700 (PDT)
+Received: from [10.42.0.1] (cst-prg-46-162.cust.vodafone.cz. [46.135.46.162])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ae6e7e90a42sm610876266b.27.2025.07.13.01.38.56
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 13 Jul 2025 01:38:58 -0700 (PDT)
+From: Tomeu Vizoso <tomeu@tomeuvizoso.net>
+Subject: [PATCH v8 00/10] New DRM accel driver for Rockchip's RKNN NPU
+Date: Sun, 13 Jul 2025 10:38:50 +0200
+Message-Id: <20250713-6-10-rocket-v8-0-64fa3115e910@tomeuvizoso.net>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/4] dt-bindings: brcmstb-hwspinlock: support for
- hwspinlock
-To: Kamal Dasu <kamal.dasu@broadcom.com>, andersson@kernel.org,
- baolin.wang@linux.alibaba.com, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, florian.fainelli@broadcom.com, ulf.hansson@linaro.org,
- adrian.hunter@intel.com
-Cc: bcm-kernel-feedback-list@broadcom.com, linux-remoteproc@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-mmc@vger.kernel.org,
- Kamal Dasu <kdasu@broadcom.com>
-References: <20250711154221.928164-1-kamal.dasu@broadcom.com>
- <20250711154221.928164-3-kamal.dasu@broadcom.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250711154221.928164-3-kamal.dasu@broadcom.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAJpwc2gC/3XQwUrEMBAG4FdZcjYySZNJ68n3EA/pZOIGsZG2F
+ nXpu5suyLYSj//AfPwzFzHxmHgSD6eLGHlJU8pDCe3dSdDZDy8sUyhZaNAGUGmJUoEcM73yLLt
+ GYeBIypATZeN95Jg+r9rTc8nnNM15/Lrii9qmdWdREiQgsGmZvbbwOOc3/ljSd57y/cCz2LRF/
+ woWtLZHQRchmNBT9FsfVReam2AVHoWmCK6MPXVFD31dMHuhOwpm64AhRuwNgee6YHeChqNgi6B
+ a6shDpL6huoA3AcEcBSyCbpwnZ0Po7T8d3F748we3XUEKKTJGNhVhXdcfpsU+mTgCAAA=
+X-Change-ID: 20240612-6-10-rocket-9316defc14c7
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+ Oded Gabbay <ogabbay@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Sumit Semwal <sumit.semwal@linaro.org>, 
+ =?utf-8?q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
+ Sebastian Reichel <sebastian.reichel@collabora.com>, 
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
+ Kever Yang <kever.yang@rock-chips.com>, Robin Murphy <robin.murphy@arm.com>, 
+ Daniel Stone <daniel@fooishbar.org>, Da Xue <da@libre.computer>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, 
+ Jeff Hugo <jeff.hugo@oss.qualcomm.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org, 
+ linux-media@vger.kernel.org, linaro-mm-sig@lists.linaro.org, 
+ Tomeu Vizoso <tomeu@tomeuvizoso.net>, Robert Foss <rfoss@kernel.org>, 
+ Jeff Hugo <jeff.hugo@oss.qualcomm.com>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250713_013716_182225_5EF8948B 
-X-CRM114-Status: GOOD (  13.52  )
+X-CRM114-CacheID: sfid-20250713_013900_969959_3BD86C06 
+X-CRM114-Status: GOOD (  16.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,88 +108,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/07/2025 17:42, Kamal Dasu wrote:
-> From: Kamal Dasu <kdasu@broadcom.com>
-> 
-> Adding brcmstb_hwspinlock bindings.
-> 
-> Signed-off-by: Kamal Dasu <kamal.dasu@broadcom.com>
+This series adds a new driver for the NPU that Rockchip includes in its
+newer SoCs, developed by them on the NVDLA base.
 
-Please use subject prefixes matching the subsystem. You can get them for
-example with `git log --oneline -- DIRECTORY_OR_FILE` on the directory
-your patch is touching. For bindings, the preferred subjects are
-explained here:
-https://www.kernel.org/doc/html/latest/devicetree/bindings/submitting-patches.html#i-for-patch-submitters
+In its current form, it supports the specific NPU in the RK3588 SoC.
 
-missing hwlock prefix
+The userspace driver is part of Mesa and an initial draft can be found at:
 
-> ---
->  .../hwlock/brcm,brcmstb-hwspinlock.yaml       | 36 +++++++++++++++++++
->  1 file changed, 36 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/hwlock/brcm,brcmstb-hwspinlock.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/hwlock/brcm,brcmstb-hwspinlock.yaml b/Documentation/devicetree/bindings/hwlock/brcm,brcmstb-hwspinlock.yaml
-> new file mode 100644
-> index 000000000000..b49ead166b1e
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/hwlock/brcm,brcmstb-hwspinlock.yaml
-> @@ -0,0 +1,36 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/hwlock/brcm,brcmstb-hwspinlock.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Broadcom settop Hardware Spinlock
-> +
-> +maintainers:
-> +  - Kamal Dasu <kamal.dasu@broadcom.com>
-> +
-> +properties:
-> +  "#hwlock-cells":
-> +    const: 1
-> +
-> +  compatible:
-> +    const: brcm,brcmstb-hwspinlock
+https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/29698
 
-Please use SoC specific compatibles. Then also filename will change.
+Signed-off-by: Tomeu Vizoso <tomeu@tomeuvizoso.net>
+---
+Changes in v8:
+- Kconfig improvements
+- Removed notion of top core, all cores are equivalent now
+- Explicitly allocate DMA addresses
+- Sync BOs always in both directions
+- UAPI improvements
+- Simplified job scheduling
+- Misc. style improvements
+- Link to v7: https://lore.kernel.org/r/20250606-6-10-rocket-v7-0-dc16cfe6fe4e@tomeuvizoso.net
 
-Compatible always goes first. See 99% of other bindings and DTS coding
-style.
+Changes in v7:
+- Actually enable process isolation by allocating its own IOMMU domain
+  to each DRM client.
+- Link to v6: https://lore.kernel.org/r/20250604-6-10-rocket-v6-0-237ac75ddb5e@tomeuvizoso.net
 
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +required:
-> +  - "#hwlock-cells"
-> +  - compatible
+Changes in v6:
+- Make all cores depend on pclk and npu clocks
+- Fix BO sync direction logic
+- Misc. cleanups
+- Link to v5: https://lore.kernel.org/r/20250520-6-10-rocket-v5-0-18c9ca0fcb3c@tomeuvizoso.net
 
-Same here
+Changes in v5:
+- Use bulk clk API
+- Rename bindings file
+- Syntax improvement to bindings
+- Link to v4: https://lore.kernel.org/r/20250519-6-10-rocket-v4-0-d6dff6b4c0ae@tomeuvizoso.net
 
-> +  - reg
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    hwspinlock@8404038 {
+Changes in v4:
+- Several fixes to DT bindings.
+- Link to v3: https://lore.kernel.org/r/20250516-6-10-rocket-v3-0-7051ac9225db@tomeuvizoso.net
 
-hwlock@
+Changes in v3:
+- Reference in the device tree only the register blocks that are
+  actually used.
+- Several style and robustness fixes suggested in the mailing list.
+- Added patches from Nicolas Frattaroli that add support to the NPU for
+  the Rock 5B board.
+- Link to v2: https://lore.kernel.org/r/20250225-6-10-rocket-v2-0-d4dbcfafc141@tomeuvizoso.net
 
-> +        compatible = "brcm,brcmstb-hwspinlock";
+Changes in v2:
+- Drop patch adding the rk3588 compatible to rockchip-iommu (Sebastian Reichel)
+- Drop patch adding support for multiple power domains to rockchip-iommu (Sebastian Reichel)
+- Link to v1: https://lore.kernel.org/r/20240612-6-10-rocket-v1-0-060e48eea250@tomeuvizoso.net
 
-And this you got right...
+---
+Nicolas Frattaroli (2):
+      arm64: dts: rockchip: add pd_npu label for RK3588 power domains
+      arm64: dts: rockchip: enable NPU on ROCK 5B
 
-> +        #hwlock-cells = <1>;
-> +        reg = <0x8404038 0x40>;
+Tomeu Vizoso (8):
+      accel/rocket: Add registers header
+      accel/rocket: Add a new driver for Rockchip's NPU
+      accel/rocket: Add IOCTL for BO creation
+      accel/rocket: Add job submission IOCTL
+      accel/rocket: Add IOCTLs for synchronizing memory accesses
+      dt-bindings: npu: rockchip,rknn: Add bindings
+      arm64: dts: rockchip: Add nodes for NPU and its MMU to rk3588-base
+      arm64: dts: rockchip: Enable the NPU on quartzpro64
 
-But this not. Use order from DTS codinh style.
-
-> +    };
-> +
-
+ Documentation/accel/index.rst                      |    1 +
+ Documentation/accel/rocket/index.rst               |   19 +
+ .../bindings/npu/rockchip,rk3588-rknn-core.yaml    |  112 +
+ MAINTAINERS                                        |   10 +
+ arch/arm64/boot/dts/rockchip/rk3588-base.dtsi      |   93 +-
+ .../arm64/boot/dts/rockchip/rk3588-quartzpro64.dts |   30 +
+ arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dtsi   |   57 +
+ drivers/accel/Kconfig                              |    1 +
+ drivers/accel/Makefile                             |    1 +
+ drivers/accel/rocket/Kconfig                       |   24 +
+ drivers/accel/rocket/Makefile                      |   10 +
+ drivers/accel/rocket/rocket_core.c                 |  110 +
+ drivers/accel/rocket/rocket_core.h                 |   64 +
+ drivers/accel/rocket/rocket_device.c               |   60 +
+ drivers/accel/rocket/rocket_device.h               |   30 +
+ drivers/accel/rocket/rocket_drv.c                  |  290 ++
+ drivers/accel/rocket/rocket_drv.h                  |   30 +
+ drivers/accel/rocket/rocket_gem.c                  |  181 +
+ drivers/accel/rocket/rocket_gem.h                  |   34 +
+ drivers/accel/rocket/rocket_job.c                  |  636 +++
+ drivers/accel/rocket/rocket_job.h                  |   52 +
+ drivers/accel/rocket/rocket_registers.h            | 4404 ++++++++++++++++++++
+ include/uapi/drm/rocket_accel.h                    |  142 +
+ 23 files changed, 6390 insertions(+), 1 deletion(-)
+---
+base-commit: 156faa3ffe21347203b35a3edb6d2bcb663f429b
+change-id: 20240612-6-10-rocket-9316defc14c7
 
 Best regards,
-Krzysztof
+-- 
+Tomeu Vizoso <tomeu@tomeuvizoso.net>
+
 
