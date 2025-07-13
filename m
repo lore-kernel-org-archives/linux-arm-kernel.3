@@ -4,79 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5128C83F1D
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Jul 2025 08:25:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9ADCCC83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Jul 2025 08:28:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6lM8usxsSz+hgDvjepavl+3hVj5I731y8p/a4jtJD7g=; b=jv7Hito9jUMzr3TsWxbWcwBhz9
-	aEf2ayIQjPpib6Ca60QE3U50GSDpNYcsY4GWm5OxtxKXUokXFODm8qqqjsPy0Kn/dBaB26fUGMYph
-	b3L7WejFXizM/YcSAsplRKUBCW525s02VS/PrHdGcYnOvX+Tb6OhwY4WfSZLnivoeIE6Gj4fGYVmi
-	tjLEx0Xaeo9FaT4HzBXW8jtPloT0C+igbNSrkni1d9WWkvu/3zWj2wnENeyhMeAmCi7F/+I1BE+5B
-	kJEIC0vJtoJdCdxfFAgKUO7Tug/EV+Z5mS6zolFmwE1/meLiY60/tOfgkFTZEuwTX0VqBUHwXFYZv
-	Y65f8KGg==;
+	bh=aJyl6Itr2J8CcBOnf8YZMhnDEgMz2YqGF17cfLG0u0w=; b=nFqE6Vnb72D8DrvvpPiU9KARqH
+	av5UGEeMRHV+aSNDoIvWsFeUp2V6rI13rIUJpceNZTO5pKFP/2sJH5ovuaujc95mDiAbY8FJTnJEK
+	FkVQaLxeaLmrl9lFciIRgLNRpomWONFoSFoIRtFMjj1Qhb9Vk7kxYS6289975WQysQWQslnjf3bLY
+	sQAmAFJJqaLtLmHIo0NMQMrh1igbiFooPaQigZg+pSFVEapjN0d2UfLTz425VuC66ADY0MBFeJ7Uh
+	Jr3kidHUlRTFvt1TZCdzmCIBp9ZmaV5Dcv/2w8oB2/7AWisnrZt7IMwz5e3ORnhF/2EZavbV4VYhl
+	OO4NO1sQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uas1g-0000000HWCt-2siz;
-	Sun, 13 Jul 2025 08:25:36 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1uas43-0000000HWJC-1q4t;
+	Sun, 13 Jul 2025 08:28:03 +0000
+Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uarjl-0000000HUKr-11xF
+	id 1uarjw-0000000HUNO-44aU
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 13 Jul 2025 08:07:06 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-454f428038eso18833215e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 13 Jul 2025 01:07:04 -0700 (PDT)
+	Sun, 13 Jul 2025 08:07:18 +0000
+Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-3a50956e5d3so2692739f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 13 Jul 2025 01:07:16 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=fairphone.com; s=fair; t=1752394024; x=1752998824; darn=lists.infradead.org;
+        d=fairphone.com; s=fair; t=1752394035; x=1752998835; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=6lM8usxsSz+hgDvjepavl+3hVj5I731y8p/a4jtJD7g=;
-        b=A9UGXbgtD9FbKE76L6d6OV5361EVWWtfRZjOoBHldulDZocx1VyQ0kvNuj4vkoy1Mx
-         1F6NV2I39w7LG37oL5lwhonaA5WW7/T0u5O22M818HxsD1uDhe71sL1eA/mvlLVcS7bm
-         GqGpMO7VFy27+njug3Uetju4R4fryNKMY86PROpETc7n83ufC48p6qKLvK8oMyby7VRS
-         LxBciFFQ1H5IvhM0GqyIdYxBxnzfDFVGtvEUb7UjTNZtQKDUWc2H2GiLULr1kfK/nOW6
-         yXGO62A0tQeX5E9SWsTyD4Qf9t2Dhs68oIduwojvZBqmhUqv7+FDQ1isnS3Xype6Bvnu
-         zFCw==
+        bh=aJyl6Itr2J8CcBOnf8YZMhnDEgMz2YqGF17cfLG0u0w=;
+        b=oO2xtdtfOiZJnkfjos7JE2NRqoCiRJcTEcNKqbMNZEL1JR+Vk6OAHnG1KdQRDMUkVF
+         rj6AQGsu5jJkjbWoyrpeQQN7UWoMbZNVJZ2HIwQ48pH+RmaiBfRnpGvDqlQdjTvPFbfT
+         o8UTVfPVd0GfDu3ldRKRdXHQGsHqaNssuNgOexADbRgALqw2arGecYXg+HsI8ikWI/Pw
+         gzPFtnkH3CpwIZeNMkspk1aVtJuAwxEGXOjMzrP2sP2IIjOOaOIVrkUboGLd/WhLsde5
+         95JRLKsL9B1RLHL03paxI18uX8Q5qU+Q5cZQOK9gBnBLQFzDo1ROY8J3Ks4nccpgLp7A
+         J7Ng==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752394024; x=1752998824;
+        d=1e100.net; s=20230601; t=1752394035; x=1752998835;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=6lM8usxsSz+hgDvjepavl+3hVj5I731y8p/a4jtJD7g=;
-        b=iqM6OIA/Kumlo0E4GCalRTZHLAMiVdHR3UIiULjbN+Gut7pEs+34ClFy8tzvtdE/fh
-         WRDCdbSu8B6WNSVRk+dseqf6KlwLe3yGqrTERMtygTfVQ8TeomZ4ckuNlhvhOqSM4Sh2
-         9iMUxYqDG511vCd2arKLmiSaUISqkD6SG/RmpXB0kuSb6BDYrvOGay6CgolID8gXghVI
-         7GOXDljasJxwcStOt08jIn2EoCiohVFiV8PgcGSR7OqwsS/9ospCKVEX1fBJTRp7KgPZ
-         PurevY2IDBeXiF0vfsJbgJOeDbplaJbwIIvMG1irFxEORAtzPIgg9UQNXpfMDYaQzfZ+
-         rw2Q==
-X-Forwarded-Encrypted: i=1; AJvYcCUfUMcEuLagPix/e+1WZhcf6xBd+PETEISVMHTPK2qo1ovbGp9bHeqgubC7XVmX9JI8pfueNrMDwghGkRXmOJRR@lists.infradead.org
-X-Gm-Message-State: AOJu0YwFScynKoPWVt/SEvs0dGp3s1P2IOq7d3vm1mCCVb4RFaqq9tqP
-	TMFKdZCYv+lKfcxEWPAHhuux1L8Dy/FdmxQH2WgkLxgvmbvgell99dWHPszOw2/NFFw=
-X-Gm-Gg: ASbGncvYIHiLuHgK/xEn/F5u5cGZROmYHBUybg6AQVpe6VZRKpdvN+Cfgwd+HyVA+7l
-	gKYfx444g0ixcMaEs+H9uSm081ZW2tI4h6XrcL8nTD3+1axiXZT+ZOen1XOVNpu8xxOfIeTC//m
-	8D4NXwehQ/CXUJNW02i2X54pan4Twn8zxkiX/5L0aTlEy/3Ij3c7+ZQbqwqkLu+asEz4Cvg/cth
-	nT86kCTV0jqwlaQVItnG4H6lldJZBcKeJ4sMk6ExnXICnKX2gMoBNHNTsjSeePRUCKudpYJgdZQ
-	K9/lKi0XR78vgjqxMOHxXiGSrCr4ZucDU52Z+7Euw1elHfZhGuWgm6eFdSJCItjJdcSjP454al1
-	1AtiRJxXn32bqE0YWsx+M/vDY47ZR2WYWuvSR
-X-Google-Smtp-Source: AGHT+IG3pwvpc6BxS1YVZvmLXezCAzje9Y6cdBA2Ax5A0e9Me5Q1M68h5GqdQnaD8/2y2jlQ5aoTTQ==
-X-Received: by 2002:a05:600c:1c95:b0:453:86cc:739c with SMTP id 5b1f17b1804b1-454ec14a50bmr77388375e9.1.1752394023657;
-        Sun, 13 Jul 2025 01:07:03 -0700 (PDT)
+        bh=aJyl6Itr2J8CcBOnf8YZMhnDEgMz2YqGF17cfLG0u0w=;
+        b=W8A5L74sIm1ulXfQ8w4r2b0Be+pSz6/2XTb5pl2Ots4VinjPQcni5iVPmh/vs/Ui/v
+         vp6GSgN4yOaePu0IRwjXVHnhlVPA2Ekom/yO0i1jeu+rxSWU0i/7fOUczGIZKIMRFeYA
+         fngLt9y/kiZ1sYnBYfWshxLNqwspunqwLW9SRY8Vg7dVqULgMAR9ChvrVFGWD9LNbl4A
+         8otVNWfafHjFktnO/xHBanFaaVbCOOSjCLgXMhc+a1MJqW3g/8gm7Ay4hHlo3714KeZf
+         G5wD+r0F4Gv385bCX+PN0wfJ4RD5TajM8dLhMSt0QsfzsGshidBu42bEkVsmMKlslFio
+         lqug==
+X-Forwarded-Encrypted: i=1; AJvYcCWyABvMMocNW9IMTrJpgNE7UX8CUD03dFDIt+gi0/yySZtdNtH6ru6dAic+szYcEQLHFgm9DoEwT+CUgq0N/p0Y@lists.infradead.org
+X-Gm-Message-State: AOJu0YzsDB67FdaYfgSbGTwZ/0joHTmKpkuoRxFjDHUcZI57n6VRe/rp
+	yS173BqGOc+4iZTo4ZTL9CH3RH6ombMMAMAKzcziJcaoerUqN5g/gSbi75cH0+/VStQ=
+X-Gm-Gg: ASbGncujS6YrgR18fddr5gsSPs7Gah0nf25rLKM1Cq5Jic6fgT7eQYTepiqq4v2EuZf
+	QEQ5y6GF7zMhIOS3X/cpaQOupsPt14HptMXpHEYmNY18TDjSHG2hdn+tvu7Pr5cVazJlDhyYcFG
+	J1H8Os5614u34weSJQ0rnUkqblD97elCtWAKaIgSQieHY7xgc/ZeJP+whQfcoTONK2p8ep0/xZt
+	KlecBAfCG5MdFhqIRFmj3HwY9S2FO9gxBdmLDqRI7Zd0OVlpn4P3/aQYJQV2veNiTifrgMKoZhh
+	xvs9Y/Xg6bOxuJiGMyAXY3WWLjwEFWgG2nskwzh/HWP8s2CGdBQwZdCbLug5bKglW9Te6LJ813j
+	6KwMcdMNyKmuH2GjgAH+1c6L7kbdUgTrDKWpl
+X-Google-Smtp-Source: AGHT+IFDkaJX0TEdwthvnMnibkv7x2m1KVCrimnEeDmcfRvTFWioaF6EXSVrFnCJ2KS+deMt9VV08Q==
+X-Received: by 2002:adf:ae4a:0:b0:3a4:f787:9b58 with SMTP id ffacd0b85a97d-3b5f18abc86mr5290060f8f.58.1752394035324;
+        Sun, 13 Jul 2025 01:07:15 -0700 (PDT)
 Received: from [192.168.224.50] ([213.208.155.167])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3b5e8dc22a8sm9386608f8f.34.2025.07.13.01.06.52
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3b5e8dc22a8sm9386608f8f.34.2025.07.13.01.07.04
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 13 Jul 2025 01:07:03 -0700 (PDT)
+        Sun, 13 Jul 2025 01:07:14 -0700 (PDT)
 From: Luca Weiss <luca.weiss@fairphone.com>
-Date: Sun, 13 Jul 2025 10:05:29 +0200
-Subject: [PATCH v2 07/15] dt-bindings: soc: qcom,aoss-qmp: document the
- Milos Always-On Subsystem side channel
+Date: Sun, 13 Jul 2025 10:05:30 +0200
+Subject: [PATCH v2 08/15] dt-bindings: thermal: qcom-tsens: document the
+ Milos Temperature Sensor
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250713-sm7635-fp6-initial-v2-7-e8f9a789505b@fairphone.com>
+Message-Id: <20250713-sm7635-fp6-initial-v2-8-e8f9a789505b@fairphone.com>
 References: <20250713-sm7635-fp6-initial-v2-0-e8f9a789505b@fairphone.com>
 In-Reply-To: <20250713-sm7635-fp6-initial-v2-0-e8f9a789505b@fairphone.com>
 To: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, 
@@ -101,16 +101,16 @@ Cc: ~postmarketos/upstreaming@lists.sr.ht, phone-devel@vger.kernel.org,
  linux-crypto@vger.kernel.org, dmaengine@vger.kernel.org, 
  linux-mmc@vger.kernel.org, Luca Weiss <luca.weiss@fairphone.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1752393945; l=838;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1752393945; l=844;
  i=luca.weiss@fairphone.com; s=20250611; h=from:subject:message-id;
- bh=psKgizPd8idK+9Xng1zZOiGE+n8ZxAcQQoK6CGGlaAM=;
- b=OPdqk8kzOonRIU/FvMHf4OTch/jvk1/7G0B29tz1FcPCzLFyfw2MFYAPDwPtuFr0E3EKR2CfP
- Ni3Mb/Ur7LsDyQ+nsHsg5e6NHg8v4v7jXauIS2CrOl7e6VQ6BFwELcm
+ bh=ZPOAK3xFvDZxKtMubUGBzI+X0LzZj/ehseUCLqV9308=;
+ b=g6khw9Eoj3k7qdE6HzUK3LwUa3ARHqiUtNifgmAtPNMijChPBfhsPG+M6zDWw7Jp/LdMvpqx0
+ G/ABS6yAzifCr1yjRWLDxYJ5Q3VDCx3clJN4ZacevbE60KKq1Tn9u0D
 X-Developer-Key: i=luca.weiss@fairphone.com; a=ed25519;
  pk=O1aw+AAust5lEmgrNJ1Bs7PTY0fEsJm+mdkjExA69q8=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250713_010705_286528_EC860090 
-X-CRM114-Status: UNSURE (   9.93  )
+X-CRM114-CacheID: sfid-20250713_010717_012897_84D27F54 
+X-CRM114-Status: UNSURE (   9.66  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -126,25 +126,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Document the Always-On Subsystem side channel on the Milos SoC.
+Document the Temperature Sensor (TSENS) on the Milos SoC.
 
 Signed-off-by: Luca Weiss <luca.weiss@fairphone.com>
 ---
- Documentation/devicetree/bindings/soc/qcom/qcom,aoss-qmp.yaml | 1 +
+ Documentation/devicetree/bindings/thermal/qcom-tsens.yaml | 1 +
  1 file changed, 1 insertion(+)
 
-diff --git a/Documentation/devicetree/bindings/soc/qcom/qcom,aoss-qmp.yaml b/Documentation/devicetree/bindings/soc/qcom/qcom,aoss-qmp.yaml
-index 41fbbe059d80cebb214317df8ae15b86573546bc..d11bb623d08c0877cbef8e8ce4795974188b2fbb 100644
---- a/Documentation/devicetree/bindings/soc/qcom/qcom,aoss-qmp.yaml
-+++ b/Documentation/devicetree/bindings/soc/qcom/qcom,aoss-qmp.yaml
-@@ -25,6 +25,7 @@ properties:
-   compatible:
-     items:
-       - enum:
-+          - qcom,milos-aoss-qmp
-           - qcom,qcs615-aoss-qmp
-           - qcom,qcs8300-aoss-qmp
-           - qcom,qdu1000-aoss-qmp
+diff --git a/Documentation/devicetree/bindings/thermal/qcom-tsens.yaml b/Documentation/devicetree/bindings/thermal/qcom-tsens.yaml
+index 0e653bbe9884953b58c4d8569b8d096db47fd54f..94311ebd7652d42eb6f3ae0dba792872c90b623f 100644
+--- a/Documentation/devicetree/bindings/thermal/qcom-tsens.yaml
++++ b/Documentation/devicetree/bindings/thermal/qcom-tsens.yaml
+@@ -49,6 +49,7 @@ properties:
+       - description: v2 of TSENS
+         items:
+           - enum:
++              - qcom,milos-tsens
+               - qcom,msm8953-tsens
+               - qcom,msm8996-tsens
+               - qcom,msm8998-tsens
 
 -- 
 2.50.1
