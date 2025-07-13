@@ -4,59 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3870BC83F1D
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Jul 2025 20:40:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC2BBC83F1D
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Jul 2025 20:43:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p7stzLVndc/b9y6vJvGeTTcJyYaISRRTWNly5Dkcffs=; b=tSy59mLAFKu97ik6WL28DKbJBy
-	Tc/dd71pdGruSLc16uFhf00G8qVWk+syOBY48l4NG3Ivsp6xCX2wlSm/hEzlw1kLswBa5uW07Iq8g
-	4EkDSmt5nePn4/+nKxr0p408cJBFfZwrylu94go8x2r91/tfYAHh0bUtUvMK3eSF5H1UDCylJ7FZH
-	XLg57sMqxEWSDob/QoGbx/NJNgfQXbKQf4UEiWjsnGjglcZkQtVvzllA6zZXz4erxGfJsNHz59R4q
-	YgHfv/UwfRiRstDM/jXBwA403/jQ/sNxD4/YoBItdvxklzXTZVCogNlUu31g3q8lCAKsDa7b9Tgy9
-	3sZuwh2g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=qP6KoV5CXuuAkUdr031k/qKYDOKU34Hd4PhkXMn82q8=; b=B59rNPn9Q+zjkrigcKzSKURDnq
+	ReDwSHz9y7R6vKyk1k5KqHokVw/wBNHcfZe2S/Scs7BO8X7mAK2cIBZQsIF2eCr/XzSdjVcd+KapG
+	ZrsUg57eL+jhienB0lZE8bj/z/Uv1PA6tk082/1AOYHI1yOzgxhQ3XECFYVak+Nm6BK+yI0vU1oVf
+	mV7NONt491BF49AxvCqqrOvSWsd3erWsQnYBCluhKEGa2c4rZVkgg6Z/DJq2S6kD1QGIHSxSuAZC+
+	yBzals1rzEJ8vD0a2eWYH1HhiO73G4U3yB3NfmTGsMjn/v7iaQRnItlKaOlklFIhIZ3ARoqzeSF8r
+	+qC82/XA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ub3UV-00000000c18-0g0N;
-	Sun, 13 Jul 2025 20:40:07 +0000
-Received: from pidgin.makrotopia.org ([2a07:2ec0:3002::65])
+	id 1ub3Xj-00000000cAX-1OO4;
+	Sun, 13 Jul 2025 20:43:27 +0000
+Received: from mail.blochl.de ([151.80.40.192] helo=smtp.blochl.de)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ub3RR-00000000bqY-3V7H;
-	Sun, 13 Jul 2025 20:36:58 +0000
-Received: from local
-	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256)
-	 (Exim 4.98.2)
-	(envelope-from <daniel@makrotopia.org>)
-	id 1ub3R7-000000002gs-20cO;
-	Sun, 13 Jul 2025 20:36:37 +0000
-Date: Sun, 13 Jul 2025 21:36:34 +0100
-From: Daniel Golle <daniel@makrotopia.org>
-To: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
-Cc: "Chester A. Unal" <chester.a.unal@arinc9.com>,
-	DENG Qingfang <dqfext@gmail.com>,
-	Sean Wang <sean.wang@mediatek.com>, Andrew Lunn <andrew@lunn.ch>,
-	Vladimir Oltean <olteanv@gmail.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-kernel@vger.kernel.org, kernel-janitors@vger.kernel.org,
-	netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH net-next] net: dsa: mt7530: Constify struct regmap_config
-Message-ID: <aHQY0hVsua5pP0QC@makrotopia.org>
-References: <1b20b2e717e9ff15aa0d1e73442dde613174cfef.1752419299.git.christophe.jaillet@wanadoo.fr>
+	id 1ub3VJ-00000000c6X-2K8z
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 13 Jul 2025 20:40:59 +0000
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.blochl.de B84804466439
+Authentication-Results: mail.blochl.de; dmarc=none (p=none dis=none) header.from=blochl.de
+Authentication-Results: mail.blochl.de; spf=fail smtp.mailfrom=blochl.de
+Received: from workknecht.fritz.box (ppp-93-104-0-143.dynamic.mnet-online.de [93.104.0.143])
+	by smtp.blochl.de (Postfix) with ESMTPSA id B84804466439;
+	Sun, 13 Jul 2025 20:21:45 +0000 (UTC)
+X-Virus-Status: Clean
+X-Virus-Scanned: clamav-milter 1.4.2 at 472b552e6fe8
+From: =?utf-8?q?Markus_Bl=C3=B6chl?= <markus@blochl.de>
+Date: Sun, 13 Jul 2025 22:21:41 +0200
+Subject: [PATCH net] net: stmmac: intel: populate entire
+ system_counterval_t in get_time_fn() callback
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <1b20b2e717e9ff15aa0d1e73442dde613174cfef.1752419299.git.christophe.jaillet@wanadoo.fr>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Message-Id: <20250713-stmmac_crossts-v1-1-31bfe051b5cb@blochl.de>
+X-B4-Tracking: v=1; b=H4sIAFQVdGgC/x3MSQqAMAxA0atI1hY6KA5XEZFao2ZhK00RQby7x
+ eVb/P8AYyRk6IsHIl7EFHyGKgtwu/UbClqyQUtdy0YZwek4rJtcDMyJhamW1s5t10llIUdnxJX
+ ufziAxwTj+37rhsIvZQAAAA==
+X-Change-ID: 20250713-stmmac_crossts-34d8ab89901a
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Thomas Gleixner <tglx@linutronix.de>
+Cc: Lakshmi Sowjanya D <lakshmi.sowjanya.d@intel.com>, 
+ Richard Cochran <richardcochran@gmail.com>, 
+ John Stultz <jstultz@google.com>, netdev@vger.kernel.org, 
+ linux-stm32@st-md-mailman.stormreply.com, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ markus.bloechl@ipetronik.com, 
+ =?utf-8?q?Markus_Bl=C3=B6chl?= <markus@blochl.de>
+X-Mailer: b4 0.14.2
+X-Greylist: Sender succeeded SMTP AUTH, not delayed by milter-greylist-4.6.4 (smtp.blochl.de [0.0.0.0]); Sun, 13 Jul 2025 20:21:46 +0000 (UTC)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250713_133657_873434_BAE020A9 
-X-CRM114-Status: GOOD (  18.04  )
+X-CRM114-CacheID: sfid-20250713_134057_728084_30821D4B 
+X-CRM114-Status: UNSURE (   6.86  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,65 +80,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jul 13, 2025 at 05:09:24PM +0200, Christophe JAILLET wrote:
-> 'struct regmap_config' are not modified in these drivers. They be
-> statically defined instead of allocated and populated at run-time.
-> 
-> The main benefits are:
->   - it saves some memory at runtime
->   - the structures can be declared as 'const', which is always better for
->     structures that hold some function pointers
->   - the code is less verbose
-> 
-> Signed-off-by: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
-> ---
->  drivers/net/dsa/mt7530-mdio.c | 21 +++++++++------------
->  drivers/net/dsa/mt7530-mmio.c | 21 ++++++++++-----------
->  2 files changed, 19 insertions(+), 23 deletions(-)
-> 
-> diff --git a/drivers/net/dsa/mt7530-mdio.c b/drivers/net/dsa/mt7530-mdio.c
-> index 51df42ccdbe6..0286a6cecb6f 100644
-> --- a/drivers/net/dsa/mt7530-mdio.c
-> +++ b/drivers/net/dsa/mt7530-mdio.c
-> @@ -136,10 +136,17 @@ static const struct of_device_id mt7530_of_match[] = {
->  };
->  MODULE_DEVICE_TABLE(of, mt7530_of_match);
->  
-> +static const struct regmap_config regmap_config = {
+get_time_fn() callback implementations are expected to fill out the
+entire system_counterval_t struct as it may be initially uninitialized.
 
-Maybe calling this one 'regmap_config_mdio'...
+This broke with the removal of convert_art_to_tsc() helper functions
+which left use_nsecs uninitialized.
 
+Initially assign the entire struct with default values.
 
-> +	.reg_bits = 16,
-> +	.val_bits = 32,
-> +	.reg_stride = 4,
-> +	.max_register = MT7530_CREV,
-> +	.disable_locking = true,
-> +};
-> +
-> ...
+Fixes: f5e1d0db3f02 ("stmmac: intel: Remove convert_art_to_tsc()")
+Cc: stable@vger.kernel.org
+Signed-off-by: Markus Blöchl <markus@blochl.de>
+---
+Notes:
+    Related-To: <https://lore.kernel.org/lkml/txyrr26hxe3xpq3ebqb5ewkgvhvp7xalotaouwludjtjifnah2@7tmgczln4aoo/>
+    Related-To: <https://lore.kernel.org/lkml/20250709-e1000e_crossts-v2-1-2aae94384c59@blochl.de/>
+    Only compile tested
+---
+ drivers/net/ethernet/stmicro/stmmac/dwmac-intel.c | 8 +++++++-
+ 1 file changed, 7 insertions(+), 1 deletion(-)
 
-> diff --git a/drivers/net/dsa/mt7530-mmio.c b/drivers/net/dsa/mt7530-mmio.c
-> index 842d74268e77..1dc8b93fb51a 100644
-> --- a/drivers/net/dsa/mt7530-mmio.c
-> +++ b/drivers/net/dsa/mt7530-mmio.c
-> @@ -18,10 +18,17 @@ static const struct of_device_id mt7988_of_match[] = {
->  };
->  MODULE_DEVICE_TABLE(of, mt7988_of_match);
->  
-> +static const struct regmap_config sw_regmap_config = {
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-intel.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-intel.c
+index 9a47015254bbe60b806b00b80dbd5b1d8f78a7c6..ea33ae39be6bbca5dc32c73e6d02e86a9d8d6e62 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-intel.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-intel.c
+@@ -433,6 +433,12 @@ static int intel_crosststamp(ktime_t *device,
+ 		return -ETIMEDOUT;
+ 	}
+ 
++	*system = (struct system_counterval_t) {
++		.cycles = 0,
++		.cs_id = CSID_X86_ART,
++		.use_nsecs = false,
++	};
++
+ 	num_snapshot = (readl(ioaddr + GMAC_TIMESTAMP_STATUS) &
+ 			GMAC_TIMESTAMP_ATSNS_MASK) >>
+ 			GMAC_TIMESTAMP_ATSNS_SHIFT;
+@@ -448,7 +454,7 @@ static int intel_crosststamp(ktime_t *device,
+ 	}
+ 
+ 	system->cycles *= intel_priv->crossts_adj;
+-	system->cs_id = CSID_X86_ART;
++
+ 	priv->plat->flags &= ~STMMAC_FLAG_INT_SNAPSHOT_EN;
+ 
+ 	return 0;
 
-... and this one 'regmap_config_mmio' would be a bit nicer.
+---
+base-commit: 3cd752194e2ec2573d0e740f4a1edbfcc28257f5
+change-id: 20250713-stmmac_crossts-34d8ab89901a
 
-> +	.name = "switch",
-> +	.reg_bits = 16,
-> +	.val_bits = 32,
-> +	.reg_stride = 4,
-> +	.max_register = MT7530_CREV,
-> +};
-> +
+Best regards,
+-- 
+Markus Blöchl <markus@blochl.de>
 
-Other than that:
-
-Reviewed-by: Daniel Golle <daniel@makrotopia.org>
 
