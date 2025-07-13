@@ -4,67 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74CA8C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Jul 2025 21:42:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DF38C83F1D
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Jul 2025 22:48:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QwQeVLxj3XfkfWgGw3amjmtds/bFedPxXMSoyVp4I0M=; b=25d1LF93i0JWkgRw69RyO33EK6
-	UU5WKpK5LpjINfylo8zDZqvLwB3S4K10qdHcYqRGN/g8hFPNSoJi+dJfSn4/q8RXKNs0OTnb5h0wU
-	vELg3gPIfKSUMEa9WntUXR1srXwGUM8FsHsBjVpCRiZ6KdwfMDWTH1+xH/HtSCFykqyboAldS2Hzq
-	k3u5Mipy9enTOVLnBCT/tcj3mguHpcCOZ1buzBWvyk0s6ZkLYEWnL/9S8PKU5MeScXlqxybU/0m59
-	JM0f4XwImpYkYZEeOqQx23OYBZnfYNQFonVTuWfUAb3DWBvukB5E9tfcWkwYhEV2I5A7Ba31pQSyv
-	WFJQM5Uw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CYXn32s/xxT3jvoAIsR5spgK8iD2v662pvFF1rwfLDk=; b=EBWoNH2uB5budvaRdpyfV+z2Xd
+	90YVnQRsqr9dGiAALVVl0D7Nl6hLWOWw/MsPm3ohvu8SM0Q39dVfItMuczaCFkGSyxn1ji32B10W4
+	OWaA91YcJBqPgpeD3ptGcG5vLY8t8tsk43dRdLkj/7sdVO3AXowvZNLQGJxfr9NKqxOKCAT7PbQTa
+	xyotM0DNoAz7hJzP5yoGLp2zAZ7i6X9WNWyMOmFVWqJxwcpllU94o8/GYkn68RPnaePprHG5Y9N5r
+	+UJmgH11nXj69R25sQXZZcDwgrUQcS3sv0NYR2s/BHSBro+Hxq/4yuHi3XLDHJuQGub7wheDMl9DW
+	FRp18XRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ub4Sd-00000000fNU-40JQ;
-	Sun, 13 Jul 2025 21:42:15 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1ub5Ux-00000000isv-3jCt;
+	Sun, 13 Jul 2025 22:48:43 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ub4QE-00000000fB0-2FvS;
-	Sun, 13 Jul 2025 21:39:47 +0000
+	id 1ub5SX-00000000idl-1ign
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 13 Jul 2025 22:46:14 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 21AAAA50AF5;
-	Sun, 13 Jul 2025 21:39:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BC5E5C4CEE3;
-	Sun, 13 Jul 2025 21:39:44 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 40C83A507C2;
+	Sun, 13 Jul 2025 22:46:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5F4AEC4CEE3;
+	Sun, 13 Jul 2025 22:46:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752442784;
-	bh=l2albCRDOERfrgRCczAdSrxmVZTv8VNwn1plCuVvM3Y=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=ShuzarwHk3Fd/ohRYVCkhatKqA4VRuupYJGUvUUsECMi/QCozlyF4PS6/WqbIOMlt
-	 FfIj8NCLJii01L/GeR/B1dZqlLyJluLcXSVe7My/ZGKT25nj7uTXY/1aduEOS43K7g
-	 AIwXcFjIzj7Xo3qal371jjI8rP76tzNjyMgQSj+JdpNIRKzXTWd2RCBCzch6XKW/bw
-	 f5QtrdkGYCP005/ffIAkKRAdZI7xlXU6Gw4YE63+GO3pck+N0yxxZ+v6QiAUbcCmf1
-	 Zgte4oZwgIwK9rDUa8oKiAzxmdLih+XWE3nzTja6iYuKNK8TB8k/mbVx7f5MngFyUw
-	 PK3qOVkg09qvA==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 33ECA383B276;
-	Sun, 13 Jul 2025 21:40:07 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	s=k20201202; t=1752446771;
+	bh=JnUp2yg/CJKtlP4jODU9pih+4FgginRFGssMqlN1RLs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ZTjTzON5a4Tk1uNO38cGBNO//z0NCoHFguYe+iRgTbJZhV8go8vunUI2GS5ATblfY
+	 bfMH+BQkV5BlKFjDOnZ8niG8WlxWAyAjhqc4ZargukHFamFu4a5tBV0qLoBrpLNAfo
+	 0YIPpfjZ8RanOter/N9CbDVA1O743qZM49h8qkHWtJnGDvgvkPQ9Ir2DCJVRSQemq+
+	 mrwdMfYdfL40qVdrufLTdLJxZcgBvuXzkejEm7b/is0mmYyQDIim5pa8uAtgTIuIXB
+	 Q1v7ibj91unzhLXdEGjOGRhaXYELUFL1gi1dYfN6YjDA7M9VXdVLiy9I2L95+8Vlxx
+	 VRU7kKQ+S97QQ==
+Date: Sun, 13 Jul 2025 23:46:06 +0100
+From: Will Deacon <will@kernel.org>
+To: Breno Leitao <leitao@debian.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kernel-team@meta.com, osandov@fb.com, leo.yan@arm.com,
+	rmikey@meta.com
+Subject: Re: [PATCH] arm64: traps: Mark kernel as tainted on SError panic
+Message-ID: <aHQ3Lu27_mLfR8Ke@willie-the-truck>
+References: <20250710-arm_serror-v1-1-2a3def3740d7@debian.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next] net: dsa: mt7530: Constify struct regmap_config
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <175244280602.2861491.4513725766921457476.git-patchwork-notify@kernel.org>
-Date: Sun, 13 Jul 2025 21:40:06 +0000
-References: <1b20b2e717e9ff15aa0d1e73442dde613174cfef.1752419299.git.christophe.jaillet@wanadoo.fr>
-In-Reply-To: <1b20b2e717e9ff15aa0d1e73442dde613174cfef.1752419299.git.christophe.jaillet@wanadoo.fr>
-To: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
-Cc: chester.a.unal@arinc9.com, daniel@makrotopia.org, dqfext@gmail.com,
- sean.wang@mediatek.com, andrew@lunn.ch, olteanv@gmail.com,
- davem@davemloft.net, edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
- matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
- linux-kernel@vger.kernel.org, kernel-janitors@vger.kernel.org,
- netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250710-arm_serror-v1-1-2a3def3740d7@debian.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250713_143946_644247_2FA39488 
-X-CRM114-Status: UNSURE (   9.82  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250713_154613_509641_1A258713 
+X-CRM114-Status: GOOD (  14.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,31 +73,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
-
-This patch was applied to netdev/net-next.git (main)
-by David S. Miller <davem@davemloft.net>:
-
-On Sun, 13 Jul 2025 17:09:24 +0200 you wrote:
-> 'struct regmap_config' are not modified in these drivers. They be
-> statically defined instead of allocated and populated at run-time.
+On Thu, Jul 10, 2025 at 03:46:35AM -0700, Breno Leitao wrote:
+> Set TAINT_MACHINE_CHECK when SError interrupts trigger a panic to
+> flag potential hardware faults. This tainting mechanism aids in
+> debugging and enables correlation of hardware-related crashes in
+> large-scale deployments.
 > 
-> The main benefits are:
->   - it saves some memory at runtime
->   - the structures can be declared as 'const', which is always better for
->     structures that hold some function pointers
->   - the code is less verbose
+> This change aligns with similar patches[1] that mark machine check
+> events when the system crashes due to hardware errors.
 > 
-> [...]
+> Link: https://lore.kernel.org/all/20250702-add_tain-v1-1-9187b10914b9@debian.org/ [1]
+> Signed-off-by: Breno Leitao <leitao@debian.org>
+> ---
+>  arch/arm64/kernel/traps.c | 1 +
+>  1 file changed, 1 insertion(+)
+> 
+> diff --git a/arch/arm64/kernel/traps.c b/arch/arm64/kernel/traps.c
+> index 9bfa5c944379d..7468b22585cef 100644
+> --- a/arch/arm64/kernel/traps.c
+> +++ b/arch/arm64/kernel/traps.c
+> @@ -931,6 +931,7 @@ void __noreturn panic_bad_stack(struct pt_regs *regs, unsigned long esr, unsigne
+>  
+>  void __noreturn arm64_serror_panic(struct pt_regs *regs, unsigned long esr)
+>  {
+> +	add_taint(TAINT_MACHINE_CHECK, LOCKDEP_STILL_OK);
+>  	console_verbose();
+>  
+>  	pr_crit("SError Interrupt on CPU%d, code 0x%016lx -- %s\n",
 
-Here is the summary with links:
-  - [net-next] net: dsa: mt7530: Constify struct regmap_config
-    https://git.kernel.org/netdev/net-next/c/9eb73f92a0b0
+If we're going to taint for SError, shouldn't we also taint for an
+unclaimed SEA?
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
+Will
 
