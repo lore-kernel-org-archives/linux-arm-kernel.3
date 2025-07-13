@@ -4,77 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 841C6C83F1D
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Jul 2025 18:32:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32AE8C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Jul 2025 18:40:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QQW2piFd37q2SVJWdr1fEbUbrygpT8SHRdtBeH6fKJQ=; b=UC9+CdQHj4fc2o51AZZMELbvMM
-	fMIcf62IB3bkS4yG/3a8EdlZY6MZQKfPwJ0YUcShuBM+4UdeX+3fAaVfZXNEqaGf3SpeTKDHYIMDU
-	3sdXLXNmu5Cny0WiijxS7Xlh+HyZuAVrWZ8NsaIu9rVWN8NmS7IUSz9nDER6N7ILnTiEVPYnA1cTg
-	hi4zOimVCqtB+FWDjmjRG9GcnPZuYlDQsqjLG3tooU5SZZuLna35oFvAp51IdO8c+UTtH/CI2GJ6M
-	9N9UX10/VIGfFHQPIRXOF+Ba23xjQlOUL5j/ar69YqrCtBgIheUY5PC18dT++VaKqey4kmee5TAO0
-	fOPfMcxw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PbKaHcS3QJn7SdNwNE2YWZWoy+MjFIGdTIwG2Oc9+s4=; b=SfTmwgaywIoYSeoNJv0wCNXO2W
+	rkHlfvlGI/BgfMyU2UkSB0YqzaAxYsG4NzQ2xwqDwDjVpMoCizVGsxDUd8jIc/+ltyotqHZNuo2l2
+	GYe3Dk2tqKmvLBOdWX4sfYIlcDR83ewEJKqxKquePZh2Td6M/+EoIGko2S82GCISDIpmj9MovEo1R
+	P6rNQA7OXKDIZNmFIz2pGuYTyUsVXRIGTrJXrfxFMA4maCO0YM1RZ0uyc0AHIfIZ+ziHj8Y5d/mFj
+	OC9Nju1sjCpXk2jzbk0VvCRk1TAa4oJfR9cAPEL+PTvQ5FCmc6MUyoqyC9eR6dajdlaecRdDKX0Qm
+	/qxoFZrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ub1V7-00000000Vb2-1NEQ;
-	Sun, 13 Jul 2025 18:32:37 +0000
-Received: from mail.alien8.de ([65.109.113.108])
+	id 1ub1cq-00000000Vor-1z0d;
+	Sun, 13 Jul 2025 18:40:36 +0000
+Received: from fanzine2.igalia.com ([213.97.179.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ub1Sg-00000000VOw-3ojo
+	id 1ub1aR-00000000VlY-1lPl
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 13 Jul 2025 18:30:08 +0000
-Received: from localhost (localhost.localdomain [127.0.0.1])
-	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTP id D0CE740E019D;
-	Sun, 13 Jul 2025 18:29:54 +0000 (UTC)
-X-Virus-Scanned: Debian amavisd-new at mail.alien8.de
-Authentication-Results: mail.alien8.de (amavisd-new); dkim=pass (4096-bit key)
-	header.d=alien8.de
-Received: from mail.alien8.de ([127.0.0.1])
-	by localhost (mail.alien8.de [127.0.0.1]) (amavisd-new, port 10026)
-	with ESMTP id qfbbGh1WaMFR; Sun, 13 Jul 2025 18:29:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=alien8.de; s=alien8;
-	t=1752431390; bh=QQW2piFd37q2SVJWdr1fEbUbrygpT8SHRdtBeH6fKJQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ZOCdCNIGz2UbfaA9XtLgczLO2znitTyc/ycye3F/YcjtOP+zFtc/F/GDTbkA5CGxu
-	 FtVOoBpA7gjeso3pWRj389EtpcAxv8HPXuUl1Hlrm02haUWTA57DcB0MYJbPDCyd4k
-	 d0EFjAi3QBnSDxwEVtpr9Bpxjzmi4Fy+T6s74f64rhZ9+THuBnxkTsiFn3Zks45Vtl
-	 2zXfwYw8YrsYZr9KGX3RJEPXVC5zXcF4VvHXE3qmwRbAoFo+qNQxs/NlOaqWhLmxX6
-	 8+HktBiAMXSNNJN7KrhaiD/T1m06RMgpFHuw5DuG7fOyup6T7SyK3UG61GWvKQhNYv
-	 xhYUi+X97VcFkx3rxKFsahXL8uthqR1oekB2LNrl0xJaBHceL29iaGdM6SnTSgWdG3
-	 inm7myHZMnTj/kZqvQsuzAjrd2I7shWd0nXz5KMdA2rEwW7mkK9wJgtpxVlVUnxcgH
-	 14xTElzILcd1tc2S6Xk2E80qdNluf2HJ0fr8QR7oikov+pglYfjJF6RNMZJDx29b8T
-	 R0T+431EDsZOGBKlhOZPpM784RV2RB3dCsCTj0eYgG1E43ZqQLRtHPKiJf9XCLu1l0
-	 5wDymncSN+SqrRrpGfnmQcvOlobjPBXbz1DUW38UkoN6/lYfaNjrqb/COs7CdVwsQJ
-	 81RTtifcEKul35uPkF6ekZ2o=
-Received: from zn.tnic (p57969c58.dip0.t-ipconnect.de [87.150.156.88])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-256) server-signature ECDSA (P-256) server-digest SHA256)
-	(No client certificate requested)
-	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTPSA id B275B40E00DD;
-	Sun, 13 Jul 2025 18:29:39 +0000 (UTC)
-Date: Sun, 13 Jul 2025 20:29:33 +0200
-From: Borislav Petkov <bp@alien8.de>
-To: Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>
-Cc: linux-edac@vger.kernel.org, git@amd.com, shubhrajyoti.datta@gmail.com,
-	Michal Simek <michal.simek@amd.com>,
-	Tony Luck <tony.luck@intel.com>, James Morse <james.morse@arm.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Robert Richter <rric@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] EDAC/synopsys: Clear the ECC counters at init
-Message-ID: <20250713182933.GDaHP7DdAhX-8OoaP-@fat_crate.local>
-References: <20250713050753.7042-1-shubhrajyoti.datta@amd.com>
+	Sun, 13 Jul 2025 18:38:09 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
+	s=20170329; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
+	References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=PbKaHcS3QJn7SdNwNE2YWZWoy+MjFIGdTIwG2Oc9+s4=; b=Z4rqyT6oeXVUU+yARVsY1Y7lOC
+	zrx7ehdRpmQ51udCGGb56OomStd2puSS2vP35h6hi05meF0+GAuBHh6PMLcWFJk7MX/DT/itDzWVo
+	DJ+NVcoqKasOFO0I9iW5f/9WWcR1wWmnsQUnqGnupLoqKvLdT+RiY2g4cHid/QAZAd72qEqc1ET35
+	JjVxh8rIFpawWEZaylVTZK7JvEy+Xd/mbUVKyrKZMidOJuXJEU+tsSVmFA1xbS+r6oAXvEqXtYLj4
+	fbXHUnWl+P4o4V1LBvnOnszIQGIgVjSBV2HT2qNIlDkhMo/ErdmeuYTi6Y5iXyVSjCAqw2C6z6Kbm
+	jqWsvy+g==;
+Received: from [187.36.210.68] (helo=[192.168.1.103])
+	by fanzine2.igalia.com with esmtpsa 
+	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_128_GCM:128) (Exim)
+	id 1ub1aE-00G92m-4h; Sun, 13 Jul 2025 20:37:54 +0200
+Message-ID: <5a211d35-c634-4700-a8f7-29015fe83730@igalia.com>
+Date: Sun, 13 Jul 2025 15:37:47 -0300
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20250713050753.7042-1-shubhrajyoti.datta@amd.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/3] Revert "staging: vchiq_arm: Improve initial VCHIQ
+ connect"
+To: Stefan Wahren <wahrenst@gmx.net>,
+ Florian Fainelli <florian.fainelli@broadcom.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Dan Carpenter <dan.carpenter@linaro.org>,
+ linux-arm-kernel@lists.infradead.org, bcm-kernel-feedback-list@broadcom.com,
+ kernel-list@raspberrypi.com, linux-staging@lists.linux.dev, stable@kernel.org
+References: <20250711154031.24178-1-wahrenst@gmx.net>
+ <20250711154031.24178-2-wahrenst@gmx.net>
+Content-Language: en-US
+From: =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>
+In-Reply-To: <20250711154031.24178-2-wahrenst@gmx.net>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250713_113007_097766_DA22FD74 
-X-CRM114-Status: GOOD (  14.43  )
+X-CRM114-CacheID: sfid-20250713_113807_764548_7624B1A5 
+X-CRM114-Status: GOOD (  18.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,36 +79,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jul 13, 2025 at 10:37:53AM +0530, Shubhrajyoti Datta wrote:
-> Clear ECC error and counter registers during initialization/ probe
-> to avoid reporting stale errors that may have occurred before EDAC
-> registration.
+On 11/07/25 12:40, Stefan Wahren wrote:
+> The commit 3e5def4249b9 ("staging: vchiq_arm: Improve initial VCHIQ connect")
+> based on the assumption that in good case the VCHIQ connect always happen and
+> therefore the keep-alive thread is guaranteed to be woken up. This is wrong,
+> because in certain configurations there are no VCHIQ users and so the VCHIQ
+> connect never happen. So revert it.
 > 
-> Key changes
-> - Introduced a unified `get_ecc_state()` function that handles ECC state detection
->   and register clearing for both Zynq and ZynqMP platforms.
-> - Removed platform-specific `get_ecc_state` function pointers from the platform
->   data structures.
-> - Added a new `platform` enum field to `synps_platform_data` to identify the
->   target hardware platform.
-> 
-> Signed-off-by: Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>
+> Fixes: 3e5def4249b9 ("staging: vchiq_arm: Improve initial VCHIQ connect")
+> Reported-by: Maíra Canal <mcanal@igalia.com>
+> Closes: https://lore.kernel.org/linux-staging/ba35b960-a981-4671-9f7f-060da10feaa1@usp.br/
+> Cc: <stable@kernel.org>
+> Signed-off-by: Stefan Wahren <wahrenst@gmx.net>
+
+Reviewed-by: Maíra Canal <mcanal@igalia.com>
+
+Best Regards,
+- Maíra
+
 > ---
+>   .../interface/vchiq_arm/vchiq_arm.c           | 28 ++++++++++++++-----
+>   .../interface/vchiq_arm/vchiq_core.c          |  1 -
+>   .../interface/vchiq_arm/vchiq_core.h          |  2 --
+>   3 files changed, 21 insertions(+), 10 deletions(-)
 > 
-> Changes in v2:
-> - Update the commit message
-> - Add the zynq reset changes
-> - remove the function pointer
-> - Use a plat field instead of the quirk
-> 
->  drivers/edac/synopsys_edac.c | 96 +++++++++++++++++-------------------
->  1 file changed, 45 insertions(+), 51 deletions(-)
+> diff --git a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.c b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.c
+> index 5dbf8d53db09..cdf5687ad4f0 100644
+> --- a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.c
+> +++ b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.c
+> @@ -97,6 +97,13 @@ struct vchiq_arm_state {
+>   	 * tracked separately with the state.
+>   	 */
+>   	int peer_use_count;
+> +
+> +	/*
+> +	 * Flag to indicate that the first vchiq connect has made it through.
+> +	 * This means that both sides should be fully ready, and we should
+> +	 * be able to suspend after this point.
+> +	 */
+> +	int first_connect;
+>   };
+>   
+>   static int
+> @@ -1329,19 +1336,26 @@ vchiq_check_service(struct vchiq_service *service)
+>   	return ret;
+>   }
+>   
+> -void vchiq_platform_connected(struct vchiq_state *state)
+> -{
+> -	struct vchiq_arm_state *arm_state = vchiq_platform_get_arm_state(state);
+> -
+> -	wake_up_process(arm_state->ka_thread);
+> -}
+> -
+>   void vchiq_platform_conn_state_changed(struct vchiq_state *state,
+>   				       enum vchiq_connstate oldstate,
+>   				       enum vchiq_connstate newstate)
+>   {
+> +	struct vchiq_arm_state *arm_state = vchiq_platform_get_arm_state(state);
+> +
+>   	dev_dbg(state->dev, "suspend: %d: %s->%s\n",
+>   		state->id, get_conn_state_name(oldstate), get_conn_state_name(newstate));
+> +	if (state->conn_state != VCHIQ_CONNSTATE_CONNECTED)
+> +		return;
+> +
+> +	write_lock_bh(&arm_state->susp_res_lock);
+> +	if (arm_state->first_connect) {
+> +		write_unlock_bh(&arm_state->susp_res_lock);
+> +		return;
+> +	}
+> +
+> +	arm_state->first_connect = 1;
+> +	write_unlock_bh(&arm_state->susp_res_lock);
+> +	wake_up_process(arm_state->ka_thread);
+>   }
+>   
+>   static const struct of_device_id vchiq_of_match[] = {
+> diff --git a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.c b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.c
+> index e7b0c800a205..e2cac0898b8f 100644
+> --- a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.c
+> +++ b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.c
+> @@ -3343,7 +3343,6 @@ vchiq_connect_internal(struct vchiq_state *state, struct vchiq_instance *instanc
+>   			return -EAGAIN;
+>   
+>   		vchiq_set_conn_state(state, VCHIQ_CONNSTATE_CONNECTED);
+> -		vchiq_platform_connected(state);
+>   		complete(&state->connect);
+>   	}
+>   
+> diff --git a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.h b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.h
+> index 3b5c0618e567..9b4e766990a4 100644
+> --- a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.h
+> +++ b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.h
+> @@ -575,8 +575,6 @@ int vchiq_send_remote_use(struct vchiq_state *state);
+>   
+>   int vchiq_send_remote_use_active(struct vchiq_state *state);
+>   
+> -void vchiq_platform_connected(struct vchiq_state *state);
+> -
+>   void vchiq_platform_conn_state_changed(struct vchiq_state *state,
+>   				       enum vchiq_connstate oldstate,
+>   				  enum vchiq_connstate newstate);
 
-Applied, thanks.
-
--- 
-Regards/Gruss,
-    Boris.
-
-https://people.kernel.org/tglx/notes-about-netiquette
 
