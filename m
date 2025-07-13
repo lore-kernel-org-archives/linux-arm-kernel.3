@@ -4,107 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EC27C83F1D
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Jul 2025 13:30:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E6CDC83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Jul 2025 13:33:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=VaDhpruGzyBKIl+96KmB7UZrakWcIwfKbPxghFfeQnw=; b=N3XGh49jF9IDB1
-	yCUTV1KvdoHpq0xBEe8/5wD7U8DcUbS1ttRxpvthZjPUPXv4JIqUd0AQRIMVR6TNYVP42qq7HDTt8
-	VNZ5s/WF5eD1EIgc2rs4yaW/HUK3MoPhN/VoEgOjeJchrsGcQdvGXIzNzIRlAuEbBPB13/FJO1mO+
-	cr1FPXgSJmVttj6k5Q1+XYSsK9nYWmr3tSiJ4gnCkBmF6WfERw+WWd9Z6fTOPhwxqDTaFm94mm7rR
-	/n+3OP5QD90Je/DMb9yF0LIc5dXr2b20N2QXD41fxf+3kRti6kOY3yU7gdcXuhewh/A726ttGR4Xf
-	tcSRdDZRBvntXgp1MeXg==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=o7jORbIueyPIb6P/w2OASxcewnEp80SmMswdiqTs/zA=; b=ItsVyNxp661m6Ydo9ZmU95gL9n
+	D0dx7Z3DxyT+WUcAGvvw4ZkC38hpDjifSCh6YqwPY0nYwU7xk/w3Z5qAzYDD8Ys40PblVPpZMRSbn
+	46wuQNzTC0ndQkvP9pE75G+yMSW7IncEXCS/SVAqKZo1Kyi7MhMlybDxyPiF2PS09imz6oA5a+820
+	3ycQKU+VeLvQa1iXrPMxncR9D/qzdAeTk43EiD9gz+HnaVeOqwnLoogcGPDDXVvKy6QkfvOIPg0LQ
+	sMVFRinNbO5C9sengt9BToa6bhN7wNpZZHJ5t2SS30LQrKaGg9QxOI8siBsnRWK1Aq0CT/j0NzBSK
+	lzoQuhJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uawn4-00000000C28-0VtV;
-	Sun, 13 Jul 2025 13:30:50 +0000
-Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
+	id 1uawpQ-00000000CB7-3RU8;
+	Sun, 13 Jul 2025 13:33:16 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uawke-00000000Bnt-3UDw
+	id 1uawkf-00000000Bnx-20jG
 	for linux-arm-kernel@lists.infradead.org;
 	Sun, 13 Jul 2025 13:28:22 +0000
-Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-3b5e6bfb427so1817968f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 13 Jul 2025 06:28:20 -0700 (PDT)
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-4561a4a8bf2so1429885e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 13 Jul 2025 06:28:21 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1752413299; x=1753018099; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=VaDhpruGzyBKIl+96KmB7UZrakWcIwfKbPxghFfeQnw=;
-        b=K6f/SWLYM9lPYIexAhOJwCkmRuR4OOJROf4hodOZxJU+UBL9plzZzaWc8LLrtteNcN
-         I6wr9iSaf8kYIf2djyrkVfdMUSOA9yQtGpppz4EK7rQ6BQH19+7lzvQ3cXPWKQrLniwS
-         v1Ej4DsDdO9LBFlse3ypcj0NMI7SmIJ7lwzIU55u21aT2cBDv01E5mtFYczLUFJs7w7E
-         DJRVEx9kCQ2KoVKK+MmhQI3KF3PA/hzDPhKysUzTjldIFlvUYe2WlzTPTfYivjTZ3ZgU
-         UlEni6BI4tVnGde8ueLzr7BFpOnk4A2Fz6qzRdWCP7WsKUc18QUEuGQcY2ok8xf1j8OT
-         Ua7g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752413299; x=1753018099;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=gmail.com; s=20230601; t=1752413300; x=1753018100; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=VaDhpruGzyBKIl+96KmB7UZrakWcIwfKbPxghFfeQnw=;
-        b=sIQrJP1ylQwWfeUWa1VRl2hvk+ur6E7AMnbQqUMmvKc9ne4/AGzoHvnO/KNzc5U7Yq
-         5J6AoHtp1xI0aBCkg1VOI5D5Y51jiinhRUVWZ9w1uQYvQItnEvqhGz38qRhTE6T/iHSh
-         s75IFhUuRwlvTS2fQ7B+Ii7sseoTYMyF0iU/+MbtvgT4xRftZo9PbeEJ1AcpJACRJcq3
-         OY6ZZ7WkAR3d20NHP1rVfIFLtgM5KlGtJ7C8GdIbqF1GIuhjyN8xVY3rowbewuvpqwG1
-         +smQJfHlVoQ0HjQmojcIW/1wWulBrHGV8Qm+OQTXs/FA5hXrkKGsezcqvmM3YndYIO6Z
-         C7fw==
-X-Forwarded-Encrypted: i=1; AJvYcCWU6DegmN/2i9rTgRLc28vWjsrXVmfjlY2G4HYVWGn4Gap48Se+TGTKd1d9XS9H3osjsuzZth4KxY+xQGuf0Ock@lists.infradead.org
-X-Gm-Message-State: AOJu0YyET++suVABJrMOE6d5fpx3v/tcv41/knBC8MjOrqhYrQCYT1s8
-	GMtIV94rNcuaf4XuJp+CtzGCzqAj+WrGgiSo/Y3NWoCGOHIlPc5sCo/xCCBx7A==
-X-Gm-Gg: ASbGncuyRsqgoQCRok4TkxUu0AlZeRqjzcDmfXPilvXzaChcPdrE05FM0cc9XGQd5Ku
-	hqmoNee6fNPW0Kb0tfSCwTzDECfZFBK/QPcqwEoG4kIt9RllWHHBBGHOwMoN2VMKsjAQsIZsbl8
-	FXNaFqwqrkZnXTzq/adNVWI4D8vnBuqYTMjQ3SDYqoDtraiwEjLi9IRbgSUDn/jKaTtfS3LphRZ
-	bJavjwocy6OYLgEy4GJGWMpU7WdOhDsp53fsun7J6mH1hYWE8Qt7G4bBzMOsJVPN8WDAhoQNFyg
-	eOb68Thmh11DCvdDU14Qctrpk6DIw5U+mRw/Zu00sui1Oi4xGj8JurhyOu8NfQVsZK7RvH7ntnG
-	d9thzBlsNJd9AnUgFpHCkiiFDrUWXElxb
-X-Google-Smtp-Source: AGHT+IEb82Sb0pRwWgTx1F6OqGVNlsLz2nBGkO/sgHqx0xurUJK84Sk0nksT2BL2PzLKJl3uGHhARA==
-X-Received: by 2002:a5d:648c:0:b0:3a6:d604:a017 with SMTP id ffacd0b85a97d-3b5f1890d17mr7238434f8f.24.1752413298673;
-        Sun, 13 Jul 2025 06:28:18 -0700 (PDT)
+        bh=o7jORbIueyPIb6P/w2OASxcewnEp80SmMswdiqTs/zA=;
+        b=kIVOGlTiXcuBNYkuK1deneQMRkvI/gvtQGH2e242HyA4eRYIfiXMuFkFDASZ/TnXAB
+         A8LJKEOHLhZ0GLcR3mG9oRgaH+mh91Wyq0emFu9saiMy49Ky2BfRmU4c66ZllT2a3g1G
+         9gT7JIA3eZlLVvci5ZKeI8n+qSK9qXh+v8r82qEyk//9SYy77731yOAGpMjgJJ49eSNK
+         x8pr/m6nf0InC3Y9nfWgFDaqJ7Pi5Q/Txf3RLv0BwzRSm4/EKbh1/KsNidEKU/nadYgE
+         0ubuA2j6JLNCv9cQbBE+Y9FnMgbZm1bNwEZu7Fz/9Oh+b62nMrCC0mM4s57C1PYaXXV9
+         3dvQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1752413300; x=1753018100;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=o7jORbIueyPIb6P/w2OASxcewnEp80SmMswdiqTs/zA=;
+        b=gbghPBgE0j52tkTLynRtqt9ZaxzKTOLYqXQqPrOc4anvueuqSdn/r67tTDPP466pxd
+         O37e2yzNcDZf7v9PlHXgb05VAOMggAnmpkPrN+HnjHqg1ZZ3BRPApjFSsgjERnMZJUX8
+         lkYupQqmLbCWghSO+5OQ0WwE76bLRbUCS/0BLi22PelBinDPZFLRy+sIPVH3FyfeM9Rl
+         MwolKgx6Hs0wdwBGLWdbWHvtptGofzgYurgAwHt8U/BiLH6y8opLcOh7AnmwULy+P61J
+         0SiP9XlNJ2cYGyu4dOzYewzuZ05Kdu3+yEhuMTh2oicZ2pH0arcQ0jjr9crOL+g4IVoV
+         CQpA==
+X-Forwarded-Encrypted: i=1; AJvYcCUsD73MlqJE3E1B6r3U1qu4cdciULDkd37txqDe3y9QdDB5gYr0lps/FS79DGM+VA9+IO7ttb1xBqs73bXYFzUP@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxz4/2344HLnjMViI6sPwYJSk9IQmZCTnnGzqA1aoD1THbq6tz4
+	9v5XkW1k5GuVtFEX5djmOZWBFmn/u6MagwcVt2KegLIMDqRI4syoE6QE52rSiA==
+X-Gm-Gg: ASbGncvgQlDtR4yyKUn6/OFmydrBE0eJa9CUgenQIe11HbV8l/qrDaK+VCA+oOzMFNe
+	H8N+6yuVpeBxTcd0E4E+472/djWAPtyu64nq7bx+q9apNzX2FsePqIXDgsZ+DVX6JqRjdC8bi7n
+	/oitNtZKbmViR6jXNq5L0QLe8RfELtKzaMQtQpADzEwl3iZ4uSp70B3wTH8CfKs5TycpCYrvdkI
+	T8jq093jiHDaHk+UNDh2qNa+LC2LgHyuXAH59MnEt/OxVm/I+V0KMg2r/uQ6FBnIKMGkPzkf6YL
+	HRJibUKvTwgLb2G0wcxv+vfXnHbj29mh3XYUS9ZEzI+GZkFcEWNT9yJ4Xf5CnkuXtJRlsf8J1uQ
+	UDjAyVRjHGr72GFdz7gtAvg==
+X-Google-Smtp-Source: AGHT+IG/isp/+F+EMDVBOgXHpFpGEyNOHJ4lSuJEljVjZygZXcw4Si/+IZOv9cUpilTVsp23fcjb5w==
+X-Received: by 2002:a05:6000:1ac8:b0:3a5:21c8:af31 with SMTP id ffacd0b85a97d-3b5f2dc2178mr7549692f8f.16.1752413299626;
+        Sun, 13 Jul 2025 06:28:19 -0700 (PDT)
 Received: from localhost ([2001:861:3385:e20:6384:4cf:52c5:3194])
-        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-3b5e8bd1741sm9917933f8f.18.2025.07.13.06.28.18
+        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-3b5e8dc91e3sm9675321f8f.43.2025.07.13.06.28.19
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 13 Jul 2025 06:28:18 -0700 (PDT)
+        Sun, 13 Jul 2025 06:28:19 -0700 (PDT)
 From: Raphael Gallais-Pou <rgallaispou@gmail.com>
-Subject: [PATCH 0/3] STi device-tree cleanup
-Date: Sun, 13 Jul 2025 15:27:27 +0200
-Message-Id: <20250713-sti-rework-v1-0-6716a09e538d@gmail.com>
+Date: Sun, 13 Jul 2025 15:27:28 +0200
+Subject: [PATCH 1/3] dt-bindings: arm: sti: drop B2120 board support
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAD+0c2gC/03M0QrCIBTG8VcZ5zrjaNNYV71H7EKd2w61OXRYM
- Xz3bBB0+f/g+20QXSAX4VJtEFyiSH4uwQ8V2FHPg2PUlQaBQmKNnMWVWHBPH+7MIDZScn1SwkI
- 5LMH19NqxW1t6pLj68N7tJL7rj1H/TBIMWceN4r3Bc1Or6zBpehytn6DNOX8A7qr4j6QAAAA=
-X-Change-ID: 20250401-sti-rework-b009551a362c
+Message-Id: <20250713-sti-rework-v1-1-6716a09e538d@gmail.com>
+References: <20250713-sti-rework-v1-0-6716a09e538d@gmail.com>
+In-Reply-To: <20250713-sti-rework-v1-0-6716a09e538d@gmail.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, 
  Patrice Chotard <patrice.chotard@foss.st.com>, 
  Russell King <linux@armlinux.org.uk>
 Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, Alain Volmat <avolmat@me.com>
+ linux-arm-kernel@lists.infradead.org
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1377; i=rgallaispou@gmail.com;
- h=from:subject:message-id; bh=1a3LShyOJLFrkGYDCOQ3bEAtoIgGE8npT434+VJo3l8=;
- b=owEBbQKS/ZANAwAKAechimjUEsK1AcsmYgBoc7RppZRgvTFRUNu14QfN57tb2+/jkTn1NBfeI
- D62xzH5O7eJAjMEAAEKAB0WIQQgmXv2E+fvbV/9ui/nIYpo1BLCtQUCaHO0aQAKCRDnIYpo1BLC
- tQdGD/9OC8WwhZlQhRcLN5Y1LTH/7AWEc5MdVm9P7PJH3xyrDcVde/8o4suEfngdigri3XKekIc
- OGBAlASxOdk8JiLDfqsHsIhxFBsu9q5XfUV8J+QdC7ukQi9sYxcx6ar721/gC4c0HcE1zL5iT/J
- 3uAnXa0jQldxPK1Ql5iy4GoSKQXc0lOPOUf02QT+ceC9wcjzs5FnLGfC3cxs1S1kXFEl0rRzFDO
- dC8U/LAx8EnRC5zZGcpROfAr+/acadbLEVPX2X+YuZPQATZtBFQ+C9Wp8CyVAe+EKehjJzlh2c8
- PmrlZ7JM8Rn55UaXh+M+5bH2K/PXg7RQ4P5bJQnFae5vKNGQcb5eyuhyZhMfR+5wkBL1hvoRT9g
- iDgZitJEUs0JyO/M2KeZkTUv5GnfxUhuROrWVEyk1HIFnmSMrct8Z5k6xcALLKTlg3CoswuU4Xn
- RXK3XwbWapL+JdDazouB5AOdpGfYfMSmX7bkqvTd0zMRZ6ORD7mTAziyzRz4lIeKhiA09Ft0HN7
- KOwrhi/JzDtFMxaq1bcnJAE3s7tjNdOPzSDK4bkVSfYGdxXzorO+WK3GS1AvXuyDg0gRqSlq5kA
- lbGkrfrG8HkIA2+qRHduE0cEN7axcjSaKRvuT+UeRC0+c5BpxiSsiGQn+bjdYOoPBDHrVZAXzph
- GpVC4Leg49e983Q==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=908; i=rgallaispou@gmail.com;
+ h=from:subject:message-id; bh=RK0JVUrTFe6QafY5lJlDHH3DxsifRIzU9YPxeSRbzQ0=;
+ b=owEBbQKS/ZANAwAKAechimjUEsK1AcsmYgBoc7RxJv58Vyo6mm9ZDyB8hIwNrQrJV1bkcFgWU
+ 0Dbln56RKGJAjMEAAEKAB0WIQQgmXv2E+fvbV/9ui/nIYpo1BLCtQUCaHO0cQAKCRDnIYpo1BLC
+ teUFEACOFmkruLOIg/Y7ihznC/BTFhzPpjSv6zwPE0K2BUQQ5AzUEQvCvvVNC1k/uc/XBTwx2g5
+ b5L6ufz32SQYF4hWzi8TknveSmfjOatXaSKgtOPMM/A8YjfrmfbC2ILL2pNOLK6cHn+C2zkv1zZ
+ SNhPNicebQW3C/Tj0rnvd8diYzPgUSFvzEVagypx3GbnhSWvC64y6F/QD8YbNj4xXC5sZ9Vy8Gz
+ AGR1nV6feOlsGW6lfIIr4Kdao/qZfESNaQkf8spfCbx7jNSzVhuQbRQLcz/6orxb49QPycA6vFz
+ ZpQ7jxnQ3SlpbI1o944eXsMefGDKoC/2Owg2HRMIw8sSg3LHNzO6drKKYVTiHC8Ui11KIAX82P8
+ 9aHdz0OeHblpB611X5Q5zoIRqNW9lK++5xJ93pXWd78jMH9wAKfkxG7L8LQlzhgEgwi6y6n7YaJ
+ H8LSYyPxbRfNt1tgjWLSSZR6azuYuIu6zzmLpgpI7i23Hq6vHMxFau7+pCsmdKvM9EYKX8wfHw6
+ kSezz05dCGeHg87zFsLoqz/rLjj4Bc1HTIv8jV5Hk3xCDxwBU5+pxKxYsy6oxcs9gSuVyqR0S7k
+ 9Jj9aHd+3zDCSxqM8scNvXu8r/Wnropgqv73POVDnOq7hDhRRbzCJbIixuTDSIbPi4KSqfl9GXI
+ NI+GKecY89gf/dg==
 X-Developer-Key: i=rgallaispou@gmail.com; a=openpgp;
  fpr=20997BF613E7EF6D5FFDBA2FE7218A68D412C2B5
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250713_062820_874729_782333C8 
-X-CRM114-Status: UNSURE (   9.02  )
+X-CRM114-CacheID: sfid-20250713_062821_521944_5EAF6636 
+X-CRM114-Status: UNSURE (   9.87  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -120,41 +119,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This serie aims to cleanup and rework the STi device-tree.
+B2120 boards are internal boards which never were commercialised.
 
-STiH415/STIh416 SoCs are not supported anymore and B2120 boards are
-internal boards.  Update the documentation and drop the related DT
-files.
-
-Patch [4/6] has already been sent by Alain several months ago, but got
-no response [1].
-
-[1] https://lore.kernel.org/all/20230416185939.18497-1-avolmat@me.com
+Remove them from bindings.
 
 Signed-off-by: Raphael Gallais-Pou <rgallaispou@gmail.com>
 ---
-Alain Volmat (1):
-      ARM: sti: removal of stih415/stih416 related entries
+ Documentation/devicetree/bindings/arm/sti.yaml | 4 ----
+ 1 file changed, 4 deletions(-)
 
-Raphael Gallais-Pou (2):
-      dt-bindings: arm: sti: drop B2120 board support
-      ARM: sti: drop B2120 board support
+diff --git a/Documentation/devicetree/bindings/arm/sti.yaml b/Documentation/devicetree/bindings/arm/sti.yaml
+index 842def3e3f2bce470763d3665c7603b9058b1e4e..177358895fe1c9f80f8c825142cf015d04286ce8 100644
+--- a/Documentation/devicetree/bindings/arm/sti.yaml
++++ b/Documentation/devicetree/bindings/arm/sti.yaml
+@@ -14,12 +14,8 @@ properties:
+     const: '/'
+   compatible:
+     oneOf:
+-      - items:
+-          - const: st,stih407-b2120
+-          - const: st,stih407
+       - items:
+           - enum:
+-              - st,stih410-b2120
+               - st,stih410-b2260
+           - const: st,stih410
+       - items:
 
- Documentation/devicetree/bindings/arm/sti.yaml |   4 -
- arch/arm/boot/dts/st/Makefile                  |   2 -
- arch/arm/boot/dts/st/stih407-b2120.dts         |  27 ----
- arch/arm/boot/dts/st/stih407.dtsi              | 145 -----------------
- arch/arm/boot/dts/st/stih410-b2120.dts         |  66 --------
- arch/arm/boot/dts/st/stihxxx-b2120.dtsi        | 206 -------------------------
- arch/arm/mach-sti/Kconfig                      |  20 +--
- arch/arm/mach-sti/board-dt.c                   |   2 -
- 8 files changed, 1 insertion(+), 471 deletions(-)
----
-base-commit: a6cfa4c8833944f8912c1fa7f95795753f6376ea
-change-id: 20250401-sti-rework-b009551a362c
-
-Best regards,
 -- 
-Raphael Gallais-Pou <rgallaispou@gmail.com>
+2.50.1
 
 
