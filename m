@@ -4,67 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4E44C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Jul 2025 13:40:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C3ADC83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Jul 2025 13:43:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=okr5jDoE3JdaDsUXrKzXUsBgmXUxrvNedkl92ILBvow=; b=wQuGRyWmAw0+YAP4S/TwbFz7DZ
-	0r7lILQRtQM74X3WB0G86BGy+Ia9JLGzHB1vjk1eMrf8inSwoRECxwrnVX3MHZ2ScgtJHbBXuvyTY
-	eW0KE8sufGjoAT2idCpAfxXdYhdXJfV2Ehlf7aSZnEX2RJNAQ8ev9BNUVmZF5WAyfeu498E8tnOO/
-	SppTnGJAXlAoaowRGdG2hbPG2qSsj2ShQ3CnO/etqCN+m0e69pTHdU0zzHXkTOAtYz6kHhLN9uT2V
-	rlZbpblYQ8imDSvz1C41AdeMmHvgLpTSW32due1Dqf5eXAyXeNKprjaOfwDUwJ4522g5d0S70gn6s
-	7TW165Eg==;
+	bh=YT6mBkNvA55W9TAZdl/rS+IneWyQxqbDeT2M187YKTU=; b=3IBODR/tHTbsDT1Iowr/4Zv1d5
+	z7QM6mR8YMwpXQIjYXdbRbIp9wIiWSfStNWO9GR8Rd7mQKvUwY+m84z44f05lTZtZKt6e8pyzOpSo
+	belmWuxRD4UTOBPVtdY971bcT8RHAN2Z1JeAyiWNMCJ9gbb5e4UxeyDGN9Er9QWpFeZfPyaR6Hj4B
+	qkQ4NMo9bpsGfFyJ7riFK8MpxvNBjQwzKiU1S+qyArMt93kqWw0lvBereYS3WGgQsGFU6u5L0faCV
+	0sUZGPquJ5Aq7FvUPBOmb1piLu3F5pknZf0urW8hO9kzv0csi2jk6Ztx8PSpmB0i5jAJ7Y2ueDSX1
+	FUaFeqdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uawwW-00000000Chx-3gwg;
-	Sun, 13 Jul 2025 13:40:36 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uawyt-00000000CvC-02Ch;
+	Sun, 13 Jul 2025 13:43:03 +0000
+Received: from layka.disroot.org ([178.21.23.139])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uawrq-00000000CLg-0Ljp
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 13 Jul 2025 13:35:47 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 7E1C85C4B84;
-	Sun, 13 Jul 2025 13:35:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 795A2C4CEE3;
-	Sun, 13 Jul 2025 13:35:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752413745;
-	bh=mBU5USz8BZIF/JIkJTQAznKlxvdAyXWf9AuUzuPluIg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=bCPum5uyXpu9VX4xtKlkj7VMlS30iuqvm8kOOJCpTGCIIS2/1UebZV3FLZ4fYqNV+
-	 xNhUyt2aU9Sysf9o0Uo8y07It0xxyKRkjA3gyBgSu3eqAyH83IZRITgN0zhBOv5Jzg
-	 ugXcqhUKjtiRtHlVoPWgu8iAAuSHcrIUpzFCIDu/7yQSOOQYY3MBjBvOvfMJLDaw6D
-	 GNu8J5nMkhP6ez0cRdr8JLKJORImC8zWN602KGTUvNrTD/CSrRv1xFj3JiNn2aLYv7
-	 maqJVW3wLnInXlVXHezdE9nxN9cLsCspGynML3YIQ1KoVvCFiVHqD7Qm5Ehm2WWWsR
-	 4dp0RLgGeuzCQ==
-Date: Sun, 13 Jul 2025 14:35:40 +0100
-From: Will Deacon <will@kernel.org>
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Marc Zyngier <maz@kernel.org>
-Subject: Re: [PATCH 10/10] arm64: mm: Re-implement the __flush_tlb_range_op
- macro in C
-Message-ID: <aHO2LAoDpciZftP_@willie-the-truck>
-References: <20250711161732.384-1-will@kernel.org>
- <20250711161732.384-11-will@kernel.org>
- <CAHk-=wijmAO=-dWc8HUMdUbkdGqgNtiO6mntAcTekWc5qN3YjQ@mail.gmail.com>
+	id 1uawvM-00000000Cd2-0ZwE;
+	Sun, 13 Jul 2025 13:39:26 +0000
+Received: from mail01.disroot.lan (localhost [127.0.0.1])
+	by disroot.org (Postfix) with ESMTP id C04C722C21;
+	Sun, 13 Jul 2025 15:39:19 +0200 (CEST)
+X-Virus-Scanned: SPAM Filter at disroot.org
+Received: from layka.disroot.org ([127.0.0.1])
+ by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
+ id ifD--ucc6E1n; Sun, 13 Jul 2025 15:39:19 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
+	t=1752413958; bh=ipxl4zfw0YG+RKZ7tPVA6e20g09wAN/2FpTRmkI4s4k=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=TgFdNYAUHEcFBuxzTSDNUnNhncmZAe6GQlUQlfQY/42yHIuSGVm9hY236iFYe41ex
+	 W4tcGSwc+o0NhGlHWGM/t9xUadlWPIw6gGXN7Kz0IVQzEen3AcYZwQyKNk4xxl2myR
+	 8qNNsnHrDsujTZkuQ7jlOHSGgtN4fduFqwUs7eYOSnwgByCmg0ddEX4xM6DK/n5i4d
+	 LSsL2cSb9G8D85nziJlJ5tr/c2ANeFekmb/9snyyy9V3ETCst5zwfutSmG2o2096DQ
+	 sYpS0B5ZVESxWbeftkAgPrStWxtgAIv81DkA9Jaig0UdVw4qMRWs/7Sq4sDHHxPZ6m
+	 fy1FKRDkrGgcA==
+Date: Sun, 13 Jul 2025 13:39:06 +0000
+From: Yao Zi <ziyao@disroot.org>
+To: Jonas Karlman <jonas@kwiboo.se>, Heiko Stuebner <heiko@sntech.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: Chukun Pan <amadeus@jmu.edu.cn>, linux-rockchip@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 2/6] arm64: dts: rockchip: Add Radxa ROCK 2A/2F
+Message-ID: <aHO2-l7MuaouBNmw@pie.lan>
+References: <20250712173805.584586-1-jonas@kwiboo.se>
+ <20250712173805.584586-3-jonas@kwiboo.se>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <CAHk-=wijmAO=-dWc8HUMdUbkdGqgNtiO6mntAcTekWc5qN3YjQ@mail.gmail.com>
+In-Reply-To: <20250712173805.584586-3-jonas@kwiboo.se>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250713_063546_168991_AC955221 
-X-CRM114-Status: GOOD (  22.61  )
+X-CRM114-CacheID: sfid-20250713_063924_585169_01521039 
+X-CRM114-Status: GOOD (  11.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,50 +76,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 11, 2025 at 11:16:32AM -0700, Linus Torvalds wrote:
-> On Fri, 11 Jul 2025 at 09:18, Will Deacon <will@kernel.org> wrote:
-> >
-> > The __flush_tlb_range_op() macro is horrible and has been a previous
-> > source of bugs thanks to multiple expansions of its arguments (see
-> > commit f7edb07ad7c6 ("Fix mmu notifiers for range-based invalidates")).
-> >
-> > Rewrite the thing in C.
+On Sat, Jul 12, 2025 at 05:37:44PM +0000, Jonas Karlman wrote:
+> The ROCK 2A and ROCK 2F is a high-performance single board computer
+> developed by Radxa, based on the Rockchip RK3528A SoC.
 > 
-> So I do think this is better than the old case, but I think you could
-> go one step further...
+> Add initial device tree for the Radxa ROCK 2A and ROCK 2F boards.
 > 
-> > +static __always_inline void __flush_tlb_range_op(const enum tlbi_op op,
-> > +                                                u64 start, size_t pages,
-> > +                                                u64 stride, u16 asid,
-> > +                                                u32 level, bool lpa2)
+> Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
+
+Tested on my Radxa 2A board, the SD card could be read out at 45MB/s,
+the GbE port reaches 942Mbps with iperf, and the EEPROM could be read
+out correctly. I also saw the heartbeat LED blinking,
+
+Tested-by: Yao Zi <ziyao@disroot.org>
+
+> ---
+> v3: Rename led nodes to led-0/led-1 (Chukun Pan)
+> v2: Limit sdmmc max-frequency to 100 MHz (Yao Zi)
 > 
-> If you replaced that "enum tlbi_op op" with two function pointers
-> instead (for "the invalidate range" and "invalidate one" cases
-> respectively), I think you could make this code much more obvious.
-> 
-> And exactly like how you depend on that 'op' value being
-> constant-folded because all the different levels are inline functions,
-> the same thing ends up happening with function pointers where inlining
-> will result in a constant function pointer becoming just a static call
-> (and in turn inlined as well).
-
-So I don't _strictly_ rely on the constant-folding and replacing that
-BUILD_BUG_ON() with a BUG_ON() would still give functionally correct
-code if inlining didn't occur. I just much preferred catching a wonky
-TLBI op at compile-time, which is why I ended up with this but I hadn't
-considered that this would allow us to inline indirect function calls.
-
-> And then the actual *callers* would use the "look up op" thing, but I
-> suspect that in many cases those could then be in turn also simplified
-> to not use that op-number at all, but just end up using the op-name.
-
-Right, I think we'd drop the enum entirely if we went down this route.
-
-> I didn't try to actually create that series - and I think you'd want
-> to do it in multiple steps just to make each individual step small and
-> obvious - but I think it would end up looking nicer.
-
-I'll have a play...
-
-Will
+> Schematics:
+> - https://dl.radxa.com/rock2/2a/v1.2/radxa_rock_2a_v1.2_schematic.pdf
+> - https://dl.radxa.com/rock2/2f/radxa_rock2f_v1.01_schematic.pdf
+> ---
+>  arch/arm64/boot/dts/rockchip/Makefile         |   2 +
+>  .../boot/dts/rockchip/rk3528-rock-2.dtsi      | 293 ++++++++++++++++++
+>  .../boot/dts/rockchip/rk3528-rock-2a.dts      |  82 +++++
+>  .../boot/dts/rockchip/rk3528-rock-2f.dts      |  10 +
+>  4 files changed, 387 insertions(+)
+>  create mode 100644 arch/arm64/boot/dts/rockchip/rk3528-rock-2.dtsi
+>  create mode 100644 arch/arm64/boot/dts/rockchip/rk3528-rock-2a.dts
+>  create mode 100644 arch/arm64/boot/dts/rockchip/rk3528-rock-2f.dts
 
