@@ -4,133 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF914C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Jul 2025 20:24:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52884C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Jul 2025 20:26:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RpFAQxSgGTRwLN3XBjmCpwo+7oOQXzK6md8F5R3vllY=; b=uBZwjuWiQejPwSA7rdQ3bc8CCC
-	o6WR0v5mnf+70iP/4Kq/z6sTE9LTkiLsxxcNzRu0OsCtj90yHTKWzlr+kq0Jj5OxVGIQQPxHOg29q
-	j+8vUp85XBgZM4qND/tLmZREv1eDE+YduIjd5Ee1p4i447d4bJZIb+zoyfVsXUP4nURt5VZyNETME
-	uFGK8LzbpDonHecB0EvGV9eOp1uK02t9HbLqJFrovbJca79dH+DNCZ3dqE9uy6odTw9HU89Y0eKHp
-	SpKH/sH9x1w6n7hriy9r06Tv6i18YkdKdaeTUdTzVVuUk0XKF+Nv8E3H+1fixBstf2Tbnf4ZL9FsN
-	bU0EK4XA==;
+	bh=4U+mcZEzIP2ITFV/NhCq+SDVBQUz67IM7MGDWjmhx2c=; b=VJklGIoTgBPPAVnIgcTXg0Q49N
+	mcydWUQW9QjfnBL5kMDAAvj4eXSMCbv66e52QlfDwW/yCbpfMemautQ0ez+fGviZHnCP6pH72bfIS
+	LGfPkUzFVzDrVwdG+IECDbX0UdJNsDM8n3oU/HOjn1Pi2FFk4kAgwyGQY2nTv09cIXqCTULaBNQzd
+	STwXLkTs4vDcOFEUl3iLs1eg0P20PUgeARAnwRNa/oORLa4u9Ndb/pw8svnPjWiCV4S2fk5JDKS/P
+	MWY4tXY2od5iv46uTQ/w4NN6v+xxP7eHx7jQoz2IJdnq0EzUeVtlHv1mOySd+GQu+ncWnhtHvCZu5
+	ob6L9ffA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ub3FE-00000000bGb-3y52;
-	Sun, 13 Jul 2025 20:24:20 +0000
-Received: from mout.gmx.net ([212.227.17.22])
+	id 1ub3Hb-00000000bNl-2vk6;
+	Sun, 13 Jul 2025 20:26:47 +0000
+Received: from smtp.forwardemail.net ([121.127.44.73])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ub3By-00000000b0m-49bL
+	id 1ub3F7-00000000bFb-44Dl
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 13 Jul 2025 20:21:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
-	s=s31663417; t=1752438049; x=1753042849; i=wahrenst@gmx.net;
-	bh=RpFAQxSgGTRwLN3XBjmCpwo+7oOQXzK6md8F5R3vllY=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
-	 References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=PN3/3PG3aj9673wi/GoddkX0PhpqiWk79J+f94orWicoY8oSkZlw/PZ5M3Iumoyg
-	 g1k0s06WLtEid7h4ETzS4bjcwEa9pjwrhNhKOKQoXkrYVI/7SiySwyO0QhN8vfP5g
-	 d81yJpIAB+kjOsWxjp88F0JhvkvE8KkPDWZEsGpnkwe+Ehdhx/2XHPNqa9Im9cpST
-	 9jBWj0SLoul4cICl3El9A45sP87etxq+WiJcmuaLvhaI0SVX6WymuXfcDRrKJ3VoZ
-	 /G/Wh3hBoC0i60BFBhOhoPWzxu0j0/mwW38SkHeyImtcIFiRln9Vm0928ZEQHFsP5
-	 xMot9bqHWHOmJc12Jg==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from [192.168.1.105] ([91.41.216.208]) by mail.gmx.net (mrgmx105
- [212.227.17.168]) with ESMTPSA (Nemesis) id 1MOREc-1uGlBv1tEc-00VwNd; Sun, 13
- Jul 2025 22:20:49 +0200
-Message-ID: <2bc1070a-58c3-47ff-bedf-3ee48b6fc71b@gmx.net>
-Date: Sun, 13 Jul 2025 22:20:48 +0200
+	Sun, 13 Jul 2025 20:24:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
+ h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
+ Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
+ s=fe-e1b5cab7be; t=1752438251;
+ bh=4U+mcZEzIP2ITFV/NhCq+SDVBQUz67IM7MGDWjmhx2c=;
+ b=sU5PHW41mnu0S8HmTZfswWu5vvwJ+tQfWdcNvzdFg7n0rUvvrnJIEeVWuMFMCMFYCaNq19tEM
+ i6R1ton+ZNVjo1thn+wQJIRVJj3ffvVA+UZ7K+I8UBY31+FNBidVi44r3QBzOceImnn+GBmQ6cr
+ 83xOmW0AtM6qSceo5OvmeDlsDGnUxhnA3Gix7CXD6U9xxh0Zac5l/ctKVMMT2Xkd7vXtwNJLZfY
+ 2UJjUkCHbNBkHB36llx4BfIV5mZxhGgI7UZsrV7Ymej1IBO5aMufojkfJ8qBHq5x7U9PG49Cr7u
+ AJZqCXtal2XJSmmYTHqX75kYBNowcZeH4zQuX6oyh/xA==
+X-Forward-Email-ID: 6874138a1bd28f931143727b
+X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
+ 121.127.44.73
+X-Forward-Email-Version: 1.1.6
+X-Forward-Email-Website: https://forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Report-Abuse-To: abuse@forwardemail.net
+Message-ID: <9aae8b30-23ae-4866-9ce8-02bbc8b44a82@kwiboo.se>
+Date: Sun, 13 Jul 2025 22:13:57 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/3] staging: vchiq_arm: Make vchiq_shutdown never fail
-To: =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>,
- Florian Fainelli <florian.fainelli@broadcom.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Dan Carpenter <dan.carpenter@linaro.org>,
- linux-arm-kernel@lists.infradead.org, bcm-kernel-feedback-list@broadcom.com,
- kernel-list@raspberrypi.com, linux-staging@lists.linux.dev
-References: <20250711154031.24178-1-wahrenst@gmx.net>
- <20250711154031.24178-4-wahrenst@gmx.net>
- <b60b89b9-40e2-476c-ad67-1a5df548a167@igalia.com>
+Subject: Re: [PATCH v3 0/6] arm64: dts: rockchip: Add ROCK 2A/2F, Sige1 and
+ NanoPi Zero2
+To: Alex Bee <knaerzche@gmail.com>
+Cc: Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Yao Zi <ziyao@disroot.org>,
+ Chukun Pan <amadeus@jmu.edu.cn>, linux-rockchip@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20250712173805.584586-1-jonas@kwiboo.se>
+ <702dc4bb-7b3c-4647-b84f-8516989b0836@gmail.com>
 Content-Language: en-US
-From: Stefan Wahren <wahrenst@gmx.net>
-Autocrypt: addr=wahrenst@gmx.net; keydata=
- xjMEZ1dOJBYJKwYBBAHaRw8BAQdA7H2MMG3q8FV7kAPko5vOAeaa4UA1I0hMgga1j5iYTTvN
- IFN0ZWZhbiBXYWhyZW4gPHdhaHJlbnN0QGdteC5uZXQ+wo8EExYIADcWIQT3FXg+ApsOhPDN
- NNFuwvLLwiAwigUCZ1dOJAUJB4TOAAIbAwQLCQgHBRUICQoLBRYCAwEAAAoJEG7C8svCIDCK
- JQ4BAP4Y9uuHAxbAhHSQf6UZ+hl5BDznsZVBJvH8cZe2dSZ6AQCNgoc1Lxw1tvPscuC1Jd1C
- TZomrGfQI47OiiJ3vGktBc44BGdXTiQSCisGAQQBl1UBBQEBB0B5M0B2E2XxySUQhU6emMYx
- f5QR/BrEK0hs3bLT6Hb9WgMBCAfCfgQYFggAJhYhBPcVeD4Cmw6E8M000W7C8svCIDCKBQJn
- V04kBQkHhM4AAhsMAAoJEG7C8svCIDCKJxoA/i+kqD5bphZEucrJHw77ujnOQbiKY2rLb0pE
- aHMQoiECAQDVbj827W1Yai/0XEABIr8Ci6a+/qZ8Vz6MZzL5GJosAA==
-In-Reply-To: <b60b89b9-40e2-476c-ad67-1a5df548a167@igalia.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:5F+JETWpf8bWTqwNzk1Kd5F8ODdkHfQZB2orji01Nqe1sDx7ara
- zqerku7d9h5YzjPus8WqX3xVg7UErhcfRbJb0eInwXSzVxTZHpqltQ56s4UtlaPtar0JzhM
- /O9NqJ55KOH8lzCSs1tQyw5bfudcoIk8HxWBgGy4klrxUHjuJD7HNuC365/IECBCJf6XRpT
- dexDyBKNJ7v45toJuxjiw==
-UI-OutboundReport: notjunk:1;M01:P0:2b5h/w/OlJ4=;hburTxvQEQKZ5vaLVVKqCU/kqKF
- 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
+From: Jonas Karlman <jonas@kwiboo.se>
+In-Reply-To: <702dc4bb-7b3c-4647-b84f-8516989b0836@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250713_132059_330444_746EDDF0 
-X-CRM114-Status: GOOD (  12.98  )
+X-CRM114-CacheID: sfid-20250713_132414_105893_9B292CC7 
+X-CRM114-Status: GOOD (  27.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,49 +82,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am 13.07.25 um 20:46 schrieb Ma=C3=ADra Canal:
-> Hi Stefan,
->
-> On 11/07/25 12:40, Stefan Wahren wrote:
->> Most of the users of vchiq_shutdown ignore the return value,
->> which is bad because this could lead to resource leaks.
->> So instead of changing all calls to vchiq_shutdown, it's easier
->> to make vchiq_shutdown never fail.
->>
->> Fixes: 71bad7f08641 ("staging: add bcm2708 vchiq driver")
->> Signed-off-by: Stefan Wahren <wahrenst@gmx.net>
->> ---
->> =C2=A0 drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.c | =
-3 +--
->> =C2=A0 1 file changed, 1 insertion(+), 2 deletions(-)
->>
->> diff --git=20
->> a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.c=20
->> b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.c
->> index 6434cbdc1a6e..721b15b7e13b 100644
->> --- a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.c
->> +++ b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.c
->> @@ -393,8 +393,7 @@ int vchiq_shutdown(struct vchiq_instance *instance)
->
-> If vchiq_shutdown() will always return 0 and most users ignore the
-> return value, how about turning it into a void function?
-I will send a separate patch for this later, because this fix is easier=20
-to backport.
+Hi Alex,
 
-Regards
->
-> Best Regards,
-> - Ma=C3=ADra
->
->> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 struct vchiq_state *state =3D instance->=
-state;
->> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 int ret =3D 0;
->> =C2=A0 -=C2=A0=C2=A0=C2=A0 if (mutex_lock_killable(&state->mutex))
->> -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 return -EAGAIN;
->> +=C2=A0=C2=A0=C2=A0 mutex_lock(&state->mutex);
->> =C2=A0 =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 /* Remove all services */
->> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 vchiq_shutdown_internal(state, instance)=
-;
->
+On 7/13/2025 9:13 PM, Alex Bee wrote:
+> Hi list, Hi Jonas,
+> 
+>> This series adds dt-bindings and initial device tree for the following
+>> Rockchip RK3528A boards:
+>> - Radxa ROCK 2A/2F
+>> - ArmSoM Sige1
+>> - FriendlyElec NanoPi Zero2
+> 
+> 
+> this only sub-related to this series: Is there any particular reason, why
+> we call the compatible "rockchip,rk3528" and not "rockchip,rk3528a"? From
+> what I can see all boards currently supported (and those in this series)
+> are having the RK3528A version of the SoC. I didn't follow the development
+> here, but there are differences - I did a quick compare of the datasheets
+> of those two SoC versions - it looks like RK3528 version has USB3-DRD
+> controller, while RK3528A has USB3 host-only controller. Also it seems to
+> have different video codec IPs and the DRAM controller additionally
+> supports LPDDR4X.
+
+What datasheet versions did you check? I can only find:
+- RK3528 Rev 1.0 (2023-05-22)
+- RK3528A Rev 1.2 (2024-04-10)
+
+And both list LPDDR4X support and the A-variant seem to list USB3-DRD
+support, did you mix them up above?
+
+I think these SoCs are similar to rk3228/rk3229, rk3228h/rk3328 and now
+rk3528/rk3528a, in that only the second variant support VP9 decoding.
+
+Use of rockchip,rk3528a compatible could be something to change,
+could also be something that bootloader set at runtime, similar to
+what it does for rk3288w.
+
+> I guess it would be good to discuss this before this series is merged,
+> because re-naming *.dts files after they have been in a release is somewhat
+> impossible.
+
+I think renaming the device tree files is unnecessary, as there seem to
+be very little difference. All boards I have come across are currently
+RK3528A variants. How would we treat the Radxa E20C?, it is not named
+rk3528-radxa-e20c.dtb, yet uses the A-variant.
+
+For mainline U-Boot I have included printing out the SoC-variant,
+however the compatible is not adjusted:
+
+  Model: Radxa E20C
+  SoC:   RK3528A
+  DRAM:  2 GiB
+
+Regards,
+Jonas
+
+> 
+> Regards,
+> Alex
+>>
+>> The bt/wifi_reg_on pins are described in the device tree using
+>> rfkill-gpio nodes.
+>>
+>> Changes in v3:
+>> - Rename led nodes to led-0/led-1
+>> - Remove pinctrl* props from sdio0
+>> - Collect a-b tags
+>>
+>> Changes in v2:
+>> - Limit sdmmc max-frequency to 100 MHz on ROCK 2A/2F
+>> - Drop clock-output-names prop from rtc node on Sige1 and NanoPi Zero2
+>> - Drop regulator-boot-on from usb 2.0 host regulators on Sige1
+>> - Add bluetooth and wifi nodes on Sige1
+>> - Collect t-b tag for NanoPi Zero2
+>>
+>> These boards can be booted from emmc or sd-card using the U-Boot 2025.07
+>> generic-rk3528 target or work-in-progress patches for these boards [1].
+>>
+>> For working bluetooth on ArmSoM Sige1 the patch "arm64: dts: rockchip:
+>> Fix UART DMA support for RK3528" [2] is required.
+>>
+>> [1] https://source.denx.de/u-boot/contributors/kwiboo/u-boot/-/commits/rk3528
+>> [2] https://lore.kernel.org/r/20250709210831.3170458-1-jonas@kwiboo.se
+>>
+>> Jonas Karlman (6):
+>>    dt-bindings: arm: rockchip: Add Radxa ROCK 2A/2F
+>>    arm64: dts: rockchip: Add Radxa ROCK 2A/2F
+>>    dt-bindings: arm: rockchip: Add ArmSoM Sige1
+>>    arm64: dts: rockchip: Add ArmSoM Sige1
+>>    dt-bindings: arm: rockchip: Add FriendlyElec NanoPi Zero2
+>>    arm64: dts: rockchip: Add FriendlyElec NanoPi Zero2
+>>
+>>   .../devicetree/bindings/arm/rockchip.yaml     |  17 +
+>>   arch/arm64/boot/dts/rockchip/Makefile         |   4 +
+>>   .../boot/dts/rockchip/rk3528-armsom-sige1.dts | 465 ++++++++++++++++++
+>>   .../boot/dts/rockchip/rk3528-nanopi-zero2.dts | 340 +++++++++++++
+>>   .../boot/dts/rockchip/rk3528-rock-2.dtsi      | 293 +++++++++++
+>>   .../boot/dts/rockchip/rk3528-rock-2a.dts      |  82 +++
+>>   .../boot/dts/rockchip/rk3528-rock-2f.dts      |  10 +
+>>   7 files changed, 1211 insertions(+)
+>>   create mode 100644 arch/arm64/boot/dts/rockchip/rk3528-armsom-sige1.dts
+>>   create mode 100644 arch/arm64/boot/dts/rockchip/rk3528-nanopi-zero2.dts
+>>   create mode 100644 arch/arm64/boot/dts/rockchip/rk3528-rock-2.dtsi
+>>   create mode 100644 arch/arm64/boot/dts/rockchip/rk3528-rock-2a.dts
+>>   create mode 100644 arch/arm64/boot/dts/rockchip/rk3528-rock-2f.dts
+>>
+> 
 
 
