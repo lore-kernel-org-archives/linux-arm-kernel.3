@@ -4,91 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96E8AC83F10
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Jul 2025 02:45:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FA64C83F1D
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Jul 2025 04:53:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=30Xr3GjHx9JM48k5qZe/WnzL0VPEvAcLel6Lrxu+plE=; b=kSbY5Uy34cgiP6Edc/XXFjgjxC
-	En5iwetJsOG3RK4sNREs4g2wAPjJ0tASLF+HP75IAMHUuPNP8Gnf4wVSW+DTlW4GSSQe7pJUzztjH
-	wROsCCAOMRXoM9NokUhRsEkaN+VcE0Cc3o4/t8pHBs+bLvjc/+htwte0x2Lo5Y7XW/jK6AlLpKe9/
-	jLi06mo0/+R05qlMDIq+WnJaK0nVqUL5pw/qPrYAgXL5mqBIxE93NNB/7Yuzw0MyJ/Vh4zYXzn52F
-	hvlM/3PyyIuU3+AHgi0HmWj/fWoh8RNdH5vkWDCbiMuEaK+0IT+m73hwuAHDTir70ujFzaHQyV43E
-	7H2vhDtA==;
+	bh=dhVnn9oBQOlvVq1kk6qTWJFdDnYAyts4LCi2yUiUKEE=; b=s44YNiqHrW357zUA+H7RDmqb6g
+	yfzLmWHKUfiF4LK2coUMqRfMYvr+tjniVk+XHXyxCmBmlfd6Nk1BSuI2uG7l25OQRaoJs1EmzMfmY
+	UH1W2BjSMqicg6U+6xn/Ehc+o4Y8b9f7jOCtTBprvp5ZATEDOYwBcCLgwuMjhqLAc0ESS7gfVHhkE
+	evS+6IvkRHGm0HQRNgP62dtXFBnx6zCAWzWk2SW8PX1rtPzQC0Q3sFYp8B7H95AAigpVQZ6Oc0E1Z
+	kf9D375u3tAcCRET68S7LA1VXAgfQqSjFGWdB0up4F6uF7i6D7YYzAJy8qAWMMF2QG3958SBHNz7m
+	GvLmxAQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uami2-0000000HHNH-09cI;
-	Sun, 13 Jul 2025 02:44:58 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1uaoiQ-0000000HLLB-0f0X;
+	Sun, 13 Jul 2025 04:53:32 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uamfd-0000000HHFy-1vEa
+	id 1uaog2-0000000HLGi-2YEs
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 13 Jul 2025 02:42:30 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-45390dcca6dso31365e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 12 Jul 2025 19:42:27 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1752374546; x=1752979346; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=30Xr3GjHx9JM48k5qZe/WnzL0VPEvAcLel6Lrxu+plE=;
-        b=VD+mLuHhDhQHB/hggx0OuYnk9tG5A73R7FcMyxCG0yLzBO/nJukBakZVwlLzrS2xBV
-         Xk3mPvzUcG+595Ilgqbpxgd/kWI1HkGYDsstVuKHksHb/Ej1jNzgCg8XmyGuSH3ZXQRQ
-         U67Q5J/xMJ3K8MWgt2qsPO4rsxeGDjUhmDsMWl+fn/PZqtvb5RaENEeSn0KrYDdVTEqX
-         xlLU+C/dJ3bebk/FC32V1QuGysM3prgAE24skDp/NXOgXbQSFezq6wqaDzo1DRPw+O0k
-         0oT5WzWOooNyOQaPZBE6ZFrpgvy0s5F5HmSamNSvgIpZL3PXPmtwx8xDt3IJs5lNxClT
-         Zxgg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752374546; x=1752979346;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=30Xr3GjHx9JM48k5qZe/WnzL0VPEvAcLel6Lrxu+plE=;
-        b=UqrdLjGvqnakAw/0eSu+gPjGyPbRYX/SkTU+wKRHDUWULpMw6fXVuJJjUDP2t956fw
-         8yp5+BTbaUsPLeiI0X8lLb55KjlUs1LHHN+TfNVUqfCOsFVPGTscrye73SEMJiLHIRE3
-         fe+HnUnkgPWPFU6Je0kuUaNFy0nn9NZ73sY2H+ExQPsGguDqVtbL3giuYgZ6V0LaEhxR
-         UpTPhjH7D0bheVDoz6fpuzeXwaKSRwA5VsU8wztxqC6rxcY9ycVPEOXs01MGa4UbXADz
-         O/wL+c/r75nksRGBQgxNkAYPj92c2mc3kjc5Ogzo7SWEPLO59JavqGf1jAEemWow1YUn
-         msUQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVJKfoJX1BL/DFUa5RzFo/O6XCwOr/5cvTxAXAq6nkHGi2j0re8YcjoSyP/vZJ8IPzqP878nWhx5Kqh9rVXkosK@lists.infradead.org
-X-Gm-Message-State: AOJu0YwMgF7slmph356erm7swnptqtUL4BVEEom+ZCE8dJsWCybQDKPu
-	xExPtHTFWCHWmGqhv8pAI9oEtT5GaFt+M0wIESrTtZgy7a2afA/cctOicqkyAAIkylSpI5IkZt2
-	xFomKh3g/zuLUZthAkwKz/W7CuZmVisfyrl6cDV6y
-X-Gm-Gg: ASbGncs8fMVAi/e9H97RHY4mKVABSSHTKwLFhDxep4+cHZZN2ViMYU7zRsBPxSc2H3I
-	0Ex4OnTwNhkQigDKo36SU+huOmyJbiNm7z9jWWQ0ImVRLQuPo8cDMavp9/Z5g0CftCSXpdG3xxg
-	t3hN2U+6acfoJ/83Frdxl53JkiUfm+VP/a5dW/5+XMsniWdQywij5zLECjV4PdhIZ6Kzbk1oaqU
-	Nmza6EY+iv1x6GfGT+H+MGialcvOk+5Lvei10IO
-X-Google-Smtp-Source: AGHT+IEleF8ivksR26XpmTWXy3KCMqLtp7lcXHp94NqMETszAgAyRO8FnYgynO7hXWeiXu6R0Q4pDW3VdH8z0Y3FkYk=
-X-Received: by 2002:a05:600c:5023:b0:453:79c3:91d6 with SMTP id
- 5b1f17b1804b1-45604733553mr1556035e9.1.1752374546338; Sat, 12 Jul 2025
- 19:42:26 -0700 (PDT)
+	Sun, 13 Jul 2025 04:51:03 +0000
+Received: from pps.filterd (m0353725.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56D3lKHd001746;
+	Sun, 13 Jul 2025 04:50:32 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=dhVnn9
+	oBQOlvVq1kk6qTWJFdDnYAyts4LCi2yUiUKEE=; b=oIblAkQU6ToqN0WUEt+A5X
+	/pIeB9f0kW65XcJPOeCDnyatJQewfof8YfosZr02ntbnDw3ov0A668KFA1BwR7vg
+	rEvCawvBffmgImGePQclGxKty42egtoTbew3Fxq1FLonKHzb8LHUJKRp7vfp/0i+
+	2AzbxSTJ08vuTy9lXdOzQuNZmCqV9pimGUYsgIfytQQJmi6D40n5YsaMEtPr+kpr
+	0ex4vGmCrGJHK2zZ4sM6Gqkf+HMI27qSY1mT4VDtwaIC93rK77y46BSw0Ze8T0Ti
+	bBd7S38TuiyUPmCY5Dyj47oA35+vnnlniOrA5mAZ6iH6jm1PEmzcLNgIUOCrLW1g
+	==
+Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 47ue4tkwa3-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Sun, 13 Jul 2025 04:50:31 +0000 (GMT)
+Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma23.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 56D1rY6P008988;
+	Sun, 13 Jul 2025 04:50:31 GMT
+Received: from smtprelay07.fra02v.mail.ibm.com ([9.218.2.229])
+	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 47v3hm8emn-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Sun, 13 Jul 2025 04:50:31 +0000
+Received: from smtpav02.fra02v.mail.ibm.com (smtpav02.fra02v.mail.ibm.com [10.20.54.101])
+	by smtprelay07.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 56D4oTMd51708184
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Sun, 13 Jul 2025 04:50:29 GMT
+Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 26F4920043;
+	Sun, 13 Jul 2025 04:50:29 +0000 (GMT)
+Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 2E17820040;
+	Sun, 13 Jul 2025 04:50:26 +0000 (GMT)
+Received: from [9.124.216.30] (unknown [9.124.216.30])
+	by smtpav02.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Sun, 13 Jul 2025 04:50:25 +0000 (GMT)
+Message-ID: <3de6a9db-a122-420d-a845-2087136a0d6c@linux.ibm.com>
+Date: Sun, 13 Jul 2025 10:20:25 +0530
 MIME-Version: 1.0
-References: <20250604050902.3944054-1-jiaqiyan@google.com> <20250604050902.3944054-4-jiaqiyan@google.com>
- <aHFpIpIfqVCQZVgG@linux.dev> <CACw3F51xRWr5LXz4-JhK+mjizY7D7Oa+GrJ-OZHktfPzFGKeiw@mail.gmail.com>
- <aHK7w4TTEm7a1mco@linux.dev>
-In-Reply-To: <aHK7w4TTEm7a1mco@linux.dev>
-From: Jiaqi Yan <jiaqiyan@google.com>
-Date: Sat, 12 Jul 2025 19:42:15 -0700
-X-Gm-Features: Ac12FXxcNa4e9HwM2rPqBWqAlsG9UDRsiS6fK2kefjn5JOWhY0L8gHWyQHAnvJ0
-Message-ID: <CACw3F50mTCB0h4GbdcERz4j=CcnwVCfA0Mc9OL-u0nJCJPEVnA@mail.gmail.com>
-Subject: Re: [PATCH v2 3/6] KVM: arm64: Allow userspace to inject external
- instruction aborts
-To: Oliver Upton <oliver.upton@linux.dev>
-Cc: maz@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, 
-	yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, 
-	pbonzini@redhat.com, corbet@lwn.net, shuah@kernel.org, kvm@vger.kernel.org, 
-	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, 
-	linux-kselftest@vger.kernel.org, duenwen@google.com, rananta@google.com, 
-	jthoughton@google.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/1] sched: preempt: Move dynamic keys into kernel/sched
+To: Mark Rutland <mark.rutland@arm.com>, catalin.marinas@arm.com,
+        will@kernel.org, maddy@linux.ibm.com
+Cc: mingo@redhat.com, peterz@infradead.org, juri.lelli@redhat.com,
+        vincent.guittot@linaro.org, tglx@linutronix.de, bigeasy@linutronix.de,
+        vschneid@redhat.com, dietmar.eggemann@arm.com, rostedt@goodmis.org,
+        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+References: <20250610075344.1379597-1-sshegde@linux.ibm.com>
+ <20250610075344.1379597-2-sshegde@linux.ibm.com>
+ <aFBIPxOGbWfTCWLm@J2N7QTR9R3>
+From: Shrikanth Hegde <sshegde@linux.ibm.com>
+Content-Language: en-US
+In-Reply-To: <aFBIPxOGbWfTCWLm@J2N7QTR9R3>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-TM-AS-GCONF: 00
+X-Authority-Analysis: v=2.4 cv=baBrUPPB c=1 sm=1 tr=0 ts=68733b17 cx=c_pps a=3Bg1Hr4SwmMryq2xdFQyZA==:117 a=3Bg1Hr4SwmMryq2xdFQyZA==:17 a=IkcTkHD0fZMA:10 a=Wb1JkmetP80A:10 a=VnNF1IyMAAAA:8 a=7CQSdrXTAAAA:8 a=4h1QD_Op0GHrj0-FCVcA:9 a=QEXdDO2ut3YA:10
+ a=a-qgeE7W1pNrGK8U0ZQC:22
+X-Proofpoint-GUID: skcW1Oe02RnZYG-SKJ1KYpXU51jS84kk
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNzEzMDAyNiBTYWx0ZWRfXwrfTMly69tXK uvZUPlOwIZIWBb/7OLnKcJ0518rgZEB44HexOIlE/uNGm25iwK4hU9rTr0dO2Re6rxND8tndjCM y06JtwSpz2xJwQaZRZC10+VaOGTZ46U7hd9iX8MuFwCG/kz6g4KfvJzjz2cd6i1ndXOmCUNX6X+
+ EUAefFzdyoW+gifKce1c4iLDv6hTAA1tUb3lQ/5rqybzWtORbwrQFwFV6of9VxAArX3VDenZ8RQ gGjTbZpQVZtCUFjC0yadlBDx02jPsGDhJiGGjNM+HQkxT3px01seye+jZmsP+kJoUMR32pbv711 5giQoYiu/qS3OoCbv48htI9O8QbDnie+q1eBMU5pCi02Zx4c5KssGjRCzymTVoS4oZK8wDPnTvh
+ sVARekjjEIJot2r3HwpIFmGZ+DZ8E0CiYvGUMwx69H0IcR7YORtsYUsA7BzXUTVh/3xU0G13
+X-Proofpoint-ORIG-GUID: skcW1Oe02RnZYG-SKJ1KYpXU51jS84kk
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.7,FMLib:17.12.80.40
+ definitions=2025-07-13_01,2025-07-09_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 bulkscore=0 mlxlogscore=999
+ suspectscore=0 adultscore=0 impostorscore=0 phishscore=0
+ lowpriorityscore=0 priorityscore=1501 clxscore=1015 mlxscore=0
+ malwarescore=0 spamscore=0 classifier=spam authscore=0 authtc=n/a authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2505280000
+ definitions=main-2507130026
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250712_194229_519019_1F8B1748 
-X-CRM114-Status: GOOD (  31.83  )
+X-CRM114-CacheID: sfid-20250712_215102_760895_92DACF72 
+X-CRM114-Status: GOOD (  18.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,123 +117,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Jul 12, 2025 at 12:47=E2=80=AFPM Oliver Upton <oliver.upton@linux.d=
-ev> wrote:
+
+> On Tue, Jun 10, 2025 at 01:23:44PM +0530, Shrikanth Hegde wrote:
+>> Dynamic preemption can be static key or static call based.
+>> Static key is used to check kernel preemption depending on
+>> the current preemption model. i.e enable for lazy, full.
+>>
+>> Code is spread currently across entry/common.c, arm64 and latest being
+>> powerpc. There is little arch specific to it. For example, arm64,
+>> powerpc does the same thing. It is better to move it into kernel/sched
+>> since preemption is more closely associated with scheduler.
+>>
+>> Plus, Any new arch that wants dynamic preemption enabled need to have
+>> only HAVE_PREEMPT_DYNAMIC_KEY.
+>>
+>> This is more of code movement. No functional change.
+>>
+>> Suggested-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+>> Signed-off-by: Shrikanth Hegde <sshegde@linux.ibm.com>
+> 
+> I've tested this on arm64 atop v6.16-rc2, building and booting defconfig
+> and defconfig + PREEMPT_DYNAMIC=y.
+> 
+
+Hi Mark. Thanks for testing it. Sorry for delayed response.
+
+> It builds cleanly, boots fine, and I think this is obviously correct
+> given it's just moving things around, so FWIW:
+> 
+> Acked-by: Mark Rutland <mark.rutland@arm.com>
+> 
+> Catalin, Will, are you happy with this?
 >
-> On Fri, Jul 11, 2025 at 04:58:57PM -0700, Jiaqi Yan wrote:
-> > On Fri, Jul 11, 2025 at 12:42=E2=80=AFPM Oliver Upton <oliver.upton@lin=
-ux.dev> wrote:
-> > >
-> > > On Wed, Jun 04, 2025 at 05:08:58AM +0000, Jiaqi Yan wrote:
-> > > > From: Raghavendra Rao Ananta <rananta@google.com>
-> > > >
-> > > > When KVM returns to userspace for KVM_EXIT_ARM_SEA, the userspace i=
-s
-> > > > encouraged to inject the abort into the guest via KVM_SET_VCPU_EVEN=
-TS.
-> > > >
-> > > > KVM_SET_VCPU_EVENTS currently only allows injecting external data a=
-borts.
-> > > > However, the synchronous external abort that caused KVM_EXIT_ARM_SE=
-A
-> > > > is possible to be an instruction abort. Userspace is already able t=
-o
-> > > > tell if an abort is due to data or instruction via kvm_run.arm_sea.=
-esr,
-> > > > by checking its Exception Class value.
-> > > >
-> > > > Extend the KVM_SET_VCPU_EVENTS ioctl to allow injecting instruction
-> > > > abort into the guest.
-> > > >
-> > > > Signed-off-by: Raghavendra Rao Ananta <rananta@google.com>
-> > > > Signed-off-by: Jiaqi Yan <jiaqiyan@google.com>
-> > >
-> > > Hmm. Since we expose an ESR value to userspace I get the feeling that=
- we
-> > > should allow the user to supply an ISS for the external abort, simila=
-r
-> > > to what we already do for SErrors.
-> >
-> > Oh, I will create something in v3, by extending kvm_vcpu_events to
-> > something like:
-> >
-> > struct {
-> >   __u8 serror_pending;
-> >   __u8 serror_has_esr;
-> >   __u8 ext_dabt_pending;
-> >   __u8 ext_iabt_pending;
-> >   __u8 ext_abt_has_esr;  // <=3D new
-> >   /* Align it to 8 bytes */
-> >   __u8 pad[3];
-> >   union {
-> >     __u64 serror_esr;
-> >     __u64 ext_abt_esr;  // <=3D new
->
-> This doesn't work. The ABI allows userspace to pend both an SError and
-> SEA, so we can't use the same storage for the ESR.
 
-You are right, the implementation (__kvm_arm_vcpu_set_events) indeed
-continues to inject SError after injecting SEA.
+Thank you will for the tags.
 
-Then we may have to extend the size of exception and meanwhile reduce
-the size of reserved, because I believe we want to place ext_abt_esr
-into kvm_vcpu_events.exception. Something like:
-struct kvm_vcpu_events {
-  struct {
-    __u8 serror_pending;
-    __u8 serror_has_esr;
-    __u8 ext_dabt_pending;
-    __u8 ext_iabt_pending;
-    __u8 ext_abt_has_esr;
-    __u8 pad[3];
-    __u64 serror_esr;
-    __u64 ext_abt_esr;  // <=3D +64 bits
-  } exception;
-  __u32 reserved[10];  // <=3D -64 bits
-};
 
-The offset to kvm_vcpu_events .reserved changes; I don' think
-userspace will read/write reserved (so its offset is probably not very
-important?), but theoretically this is an ABI break.
+> I assume this would go via the tip tree?
+> 
 
-Another safer but not very readable way is to add at the end:
-struct kvm_vcpu_events {
-  struct {
-    __u8 serror_pending;
-    __u8 serror_has_esr;
-    __u8 ext_dabt_pending;
-    __u8 ext_iabt_pending;
-    __u8 ext_abt_has_esr;
-    __u8 pad[3];
-    __u64 serror_esr;
-  } exception;
-  __u32 reserved[10];  // <=3D -64 bits
-  __u64 ext_abt_esr;  // <=3D +64 bits
-};
+Maddy, are you okay with this?
 
-Any better suggestions?
-
->
-> >   };
-> > } exception;
-> >
-> > One question about the naming since we cannot change it once
-> > committed. Taking the existing SError injection as example, although
-> > the name in kvm_vcpu_events is serror_has_esr, it is essentially just
-> > the ISS fields of the ESR (which is also written in virt/kvm/api.rst).
-> > Why named after "esr" instead of "iss"? The only reason I can think of
-> > is, KVM wants to leave the room to accept more fields than ISS from
-> > userspace. Does this reason apply to external aborts? Asking in case
-> > if "iss" is a better name in kvm_vcpu_events, maybe for external
-> > aborts, we should use ext_abt_has_iss?
->
-> We will probably need to include more ESR fields in the future, like
-> ESR_ELx.ISS2. So let's just keep the existing naming if that's OK with
-> you.
-
-Ack to "esr", thanks Oliver!
-
->
-> Thanks,
-> Oliver
+I would request it to go via tip tree.
 
