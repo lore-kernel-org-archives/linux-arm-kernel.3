@@ -4,92 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D16CC83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Jul 2025 14:30:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20E16C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Jul 2025 14:44:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mkyQWYlswEIA/awfOx7Ojl2ZOMViZ7vIFKeJUQPM2ig=; b=Mgw8lvtspq0fJCO8htMXcv8mpa
-	FPSljBiWWi9+tt+iOWGHlZTBVAc+0uJNjNXTTVCiJOWpvo0ikPeZyBodmA0MlK3Ih8zr5ucJnluPd
-	LYw72csxet213h679L+svShDyX3FPX77zHnQhAMHVkH1DVj+3l1aNkZMRtoY3SjpSVRuwTpHOxvxE
-	SNaVv4otofzzZleUUNBQx3mC1GnHUlQES3/6qLpRoHWtBnY/ohAu1+szCZ4o+K7HFj5tPxQ145RCo
-	fOw0lbfFSg6GhWK3urIjZJzQEK2La/rQlynmfK6YuZY5sge4Vz76ZLJdb/aOpBsPnR+PSMrSL5a5r
-	kf/WccAA==;
+	bh=si+h6u1Ok5Jd4XG1DJhVcKWyG2WYFe2V83jsQ94HFkY=; b=Bp9eg+l454e0Y25609h6Udcpfd
+	3ReYMuwK3lzJRbXnj8HxqtX9UjkvqrvD09EIQMODLbC/Jeq7jthYhPyv0W6EJgVMjoMRRrHayJU+2
+	SwgDf+tQLmrw1TqluDuChbcTWRO+pk8a6aI2nPlZBjce21EtDaDDWrE8LBD+JJP+sjxPFyQowUVXi
+	PTIWOGHq53Kpmi+1n0hVvIgksZ6PA5cN7IOcC+fa5XIIwg/7rXnN8U1AWoP4wb+vH+aAmAJSqhrIr
+	z9FtbIae6sRietlr6FVgi/3VmwmtmWUJpnDonqLEQkpixqzlIiH1Sdmy7Q58yBZQFrIjFb7k8ahPF
+	FgkkiBWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaxiJ-00000000Fnu-2tTn;
-	Sun, 13 Jul 2025 14:29:59 +0000
-Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
+	id 1uaxwX-00000000Gcc-3eNp;
+	Sun, 13 Jul 2025 14:44:41 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uaxds-00000000FSr-3cqv;
-	Sun, 13 Jul 2025 14:25:26 +0000
-Received: by mail-pf1-x42b.google.com with SMTP id d2e1a72fcca58-748e60725fcso432971b3a.3;
-        Sun, 13 Jul 2025 07:25:24 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1752416724; x=1753021524; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=mkyQWYlswEIA/awfOx7Ojl2ZOMViZ7vIFKeJUQPM2ig=;
-        b=Sycv70jtYHyIAQAsjvystiYXTT+fOCR4V2GCQT/3xOGuQ8tiDv+wB8/mbAUr8s5hcL
-         Hq4oLMf1Xw0JQkuseaHcBExCk+VSuJPZ974kBxYHsQqti2GDp25xsIkf91TdD5PMrrK7
-         NSyRLftCyJobVKOMNHA0ktxaikQ4JkSGSJDLHqlIi2Y/RWjEKht7JE2HIARurXLseFv0
-         f0ZYkXFG5w8faIHaGVnqVC1f1v9c4tLClTVdNoWpNsNTXE6F851wHgqMSNwHpMfpfgtK
-         zMgD44WSJPqM1rJ3ljYmOfT+/VMD1XOCb6ITTLmrPXNa/tXi55YFpWMJBFeMQm2He7Tc
-         Pq1w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752416724; x=1753021524;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=mkyQWYlswEIA/awfOx7Ojl2ZOMViZ7vIFKeJUQPM2ig=;
-        b=lshhLbCod2w9WSRkTXwnJB6W5ME39NQcUYmDARilOxbXLPVmYNW1C6B4fOTjvDp6jd
-         cqawQI8HIjdp3ms4iMpGJlnBwmGYRkLYPe0jEnkPSVxWkyLmCJ/bGNQ204pKUla/DWa9
-         U7umbvWz3gjyB1SxJxAzjE2gV7q94QY36ANwX/qyyuvF4nw3vHi8MTy8TPef3tnxleHx
-         upV46AyXWAoZIqZ3yfFck3LlrSyl2TPwebgi+yH9nso9QkJ6Demt+7Va4Kqk4B1/AI8D
-         pqM2rVWT/KqkJji8Vpit3I4q+0XCYyAci3IKQs9Hpo16xCHV4gM+9NchtfSegC4yWGJd
-         SMhw==
-X-Forwarded-Encrypted: i=1; AJvYcCWsnbE+vyI9GJx//l52GreOIg04RaLLmTu1TXGzbVL4tf03K3DPDzm3MrUdNOzSaTqAcV1NarBvW+xwrWmy3Yk=@lists.infradead.org, AJvYcCXrzhhfQVpbq4zn9y5kd8Ok11oiZP5suqL3TsmCmg/6F+bjeNCHrkdBX9QcCjX/syROeiP+U0HBPDaWojHt1bvv@lists.infradead.org
-X-Gm-Message-State: AOJu0YzvijTG+CWZtKf4oGpZLdxqKW17bUQtgxLof2sK8BdDe5mdnSeD
-	akUX3XdgmYFdP3AADNLoaB+f4ID8dc8CwHK13j2Xqa89SnBDyMhsXZ4dxAx1Hm4h
-X-Gm-Gg: ASbGncucdGoV7vP2KK/f/kTTQDqCd9UyTjxeH6imJ2e6FfDCcV3+ELjpw+37hyuSDpY
-	oRMSHmTEAOE8PD2ulCss0IhUwdEAARqKpulJCGqNjgQKgxFevzkIZWWMZUHMVp4rfr3gyFmgY2k
-	fJ0FSuEc6asvLcHtrQzxh5EqWrXfuyde2a+sx6haGn+7CLZ9lpWtXXY1K0X7huhPsSCEh9nNZa1
-	LfYmuuFv82Hfhhb8JXTapyNIoHruEVRnlvbLhzEuVYjBn5ZtJoWowL4WN72XUapceqyqtyFD4Ep
-	rNQqcW//DyyZ32yMiHC8QKRSopmZFOGGyPTLN6KD0SGH3V8YIx/o88ESL7u3Xt/RM1re69FLu7T
-	1WRk+QP86yY0x/ec5QhzKXcLvIE8k
-X-Google-Smtp-Source: AGHT+IFe8Nke6gA7rUZjK0GXgdQSkFeo3RLnI6nP7zfSRLpGatQXNVoWZbEIqke10QCKsGdaZplJwQ==
-X-Received: by 2002:a05:6a00:b1d:b0:747:b043:41d4 with SMTP id d2e1a72fcca58-74ee3b110b4mr3471889b3a.4.1752416723683;
-        Sun, 13 Jul 2025 07:25:23 -0700 (PDT)
-Received: from rock-5b.. ([111.172.109.98])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-74eb9dd7140sm8810149b3a.24.2025.07.13.07.25.19
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 13 Jul 2025 07:25:23 -0700 (PDT)
-From: Jianfeng Liu <liujianfeng1994@gmail.com>
-To: detlev.casanova@collabora.com
-Cc: heiko@sntech.de,
-	kernel@collabora.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-media@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	mchehab@kernel.org,
-	nicolas.dufresne@collabora.com,
-	nicolas.frattaroli@collabora.com
-Subject: Re:[PATCH 00/12] media: rkvdec: Add support for VDPU381 and VDPU383
-Date: Sun, 13 Jul 2025 22:25:14 +0800
-Message-ID: <20250713142514.56742-1-liujianfeng1994@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250708151946.374349-1-detlev.casanova@collabora.com>
-References: <20250708151946.374349-1-detlev.casanova@collabora.com>
+	id 1uaxu8-00000000GVA-3jUy
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 13 Jul 2025 14:42:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id B653B5C5417;
+	Sun, 13 Jul 2025 14:42:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9C67FC4CEE3;
+	Sun, 13 Jul 2025 14:42:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1752417731;
+	bh=LDMQLC4jsaFTpUK1BZdmSDSto2ZfOdVLJVSKsQpk7uI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=TOc4OKOR0ZvClWt5tQdvhvUZmviDkvelBhuFtBT8tSB/wE/tz2dw4uZe6dGq6NQoX
+	 D+Ph7kZmYxkA4/6Ng7aRUEBVDaEYghHtJ/e34GpLfuc47LerzvnI/0JpCmSJbXiNwD
+	 GanstEHyY72bUBGMFcGDGEpXJNDbqMyPbX4DgHd0XtDBJ8EamVhD6b9hdvF/EzVtGH
+	 FU4VMoCMGCnYIv7g/vpyuTygLGAw+uc0Duja2H+zwSJGcVCeiPsrh/HcSbfz6V/3sG
+	 AEUduAamcsYZ8EN0nN1H9g/J4oIdtEGCtCDz5kNf/Kewn72G5A6AT2hCb8ptA0kFk5
+	 azhr3krhm6UVA==
+Message-ID: <1517bd84-40bb-46a6-bfc6-5afa51bbcdbd@kernel.org>
+Date: Sun, 13 Jul 2025 16:42:06 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/3] dt-bindings: arm: sti: drop B2120 board support
+To: Raphael Gallais-Pou <rgallaispou@gmail.com>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Patrice Chotard <patrice.chotard@foss.st.com>,
+ Russell King <linux@armlinux.org.uk>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20250713-sti-rework-v1-0-6716a09e538d@gmail.com>
+ <20250713-sti-rework-v1-1-6716a09e538d@gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20250713-sti-rework-v1-1-6716a09e538d@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250713_072524_906448_92D506F1 
-X-CRM114-Status: UNSURE (   8.68  )
+X-CRM114-CacheID: sfid-20250713_074213_021981_A9795652 
+X-CRM114-Status: UNSURE (   6.35  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -105,26 +122,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On 13/07/2025 15:27, Raphael Gallais-Pou wrote:
+> B2120 boards are internal boards which never were commercialised.
+> 
+> Remove them from bindings.
+> 
+> Signed-off-by: Raphael Gallais-Pou <rgallaispou@gmail.com>
 
-On Tue,  8 Jul 2025 11:19:33 -0400, Detlev Casanova wrote:
->As there is a considerable part of the code that can be shared with the
->already supported rkvdec decoder driver, the support for these variants
->is added here rather than writing a new driver.
+Just like remove() and probe() driver callbacks, cleanup should be
+reversed from adding, so you drop the docs in the last patch, otherwise
+your patchset is not really bisectable and at this point it reports
+warnings.
 
-I have tested the new series on rk3588 and rk3399 with chromium. Since the
-HEVC decoder need EXT_SPS_RPS related patches, I ony test the H264 decoder.
-There are two issues:
 
-1, The decoder max size is detected 1920x1088, which should be the fallback
-size when queryig VIDIOC_ENUM_FRAMESIZES[1].
-
-2, Playing H264 videos ends up with green screen.
-
-These above issues don't happen with the old rkvdec2 series.
-
-[1] https://github.com/chromium/chromium/blob/138.0.7204.92/media/gpu/v4l2/v4l2_utils.cc#L520-L533
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
 Best regards,
-Jianfeng
+Krzysztof
 
