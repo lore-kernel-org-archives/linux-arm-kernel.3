@@ -4,98 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75D4BC83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Jul 2025 15:02:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C76DC83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Jul 2025 15:05:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/dv5EhjifjcDzCNkO87ZY3qnAuLmZGZmKdrNsDLf9+s=; b=wY+3SPwfRinTT99iSuuH8FZO4r
-	q8Y1FzhSt9KHy5jfud/Xl8N74MhQFwFG19bxGrR4edqcztQwnfknpqomj3H829BbbOadZ8tiKUXEk
-	LA4ZtW5nj97GPgKH6zWo/x68faY9FdjfnMhYYwOQtlLLss1xwjdN3zp35eNrAiBSlgIs1QGByL/qI
-	wzlCUz40B3dnNOb1rUZ55JkZCvlt5n+yVJ2kcn1Ku2Zz3biH/8VWwijK2M6Sltxs8kdSoBfs3uVXy
-	2SrTrkChJWRjc2BRQFac5cjJpuYeytkyi+YXgIcbXQKekMqoX2WdsaaLH9/kmPpXPBm+YKsRyuTZM
-	TXGQGRnw==;
+	bh=aI3IegnHLk1YlYH5OXrEqUKPGdDnDTtSiSUAXFYZdTw=; b=kkT0aR8JJQXmepuIIcjgnuysQf
+	4s30z3vfWy3fxWTRjv4Kt7LiCU2jtY7Lh2ws9nvQWESt+mUXhgDqbL2W9BJMX54HHMm6DM9/EgV9T
+	3cLwWB1+weevQcmyzhH/F4gz4OBanAX9fpCwjyI+xoG2k6+4ERMuz+RK2IqBnsJesQTomUSg3eOnZ
+	6xQid54zE2ioMbUkcqEmRA+jpOMcKy6DlEJ0rNPTK0XfvBDjuEqUmLy03EdhFrjp5/88Jfdm4X3/o
+	o46h0yGt+T1v7wnxWZHDi/sh4T9IbpvG6I4fQb3wzOMTKqJcJzGDZtuw6FAWb76J1KS22qLA0tkZi
+	+a2S6Ukg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uayE3-00000000Hgl-3d20;
-	Sun, 13 Jul 2025 15:02:47 +0000
-Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
+	id 1uayGg-00000000Hzj-1Qkx;
+	Sun, 13 Jul 2025 15:05:30 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uayBV-00000000HLc-3PH5
+	id 1uayEG-00000000Hll-1EZb
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 13 Jul 2025 15:00:10 +0000
-Received: by mail-pf1-x42a.google.com with SMTP id d2e1a72fcca58-74931666cbcso2781608b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 13 Jul 2025 08:00:08 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1752418808; x=1753023608; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=/dv5EhjifjcDzCNkO87ZY3qnAuLmZGZmKdrNsDLf9+s=;
-        b=mui1CgHrU0hoxa2qVxo2MUOSN/u0P24L3YDgP0YVlzLFsQF6dzi4H4zgruRbuayUQO
-         IOwRBRlepZiuGvx580kbTqLanUjPgSXqfjl/FXbUnjiZ8eeKx7YLRKRnt+KE09eRkAo+
-         jJUXPcYKqBkicOgrHYeK74B5ImE46HM863/bnMNCw9H9WEYxKHTk2rQV/4oGd3pOFY6b
-         YYDk7GSikPNLMiJI0zTPJJuWVQghxQbb/mXo7D14bWpO7re0GYNX4ciZ3dkw3PvnCwI6
-         XoC+FdaavvO4R2QBHmTzCZO+/gqx9Q/HnW/UPIDYWLXCANe4ZLLPM7VqlR/pkE/u8ioy
-         Bgeg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752418808; x=1753023608;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=/dv5EhjifjcDzCNkO87ZY3qnAuLmZGZmKdrNsDLf9+s=;
-        b=Zvm3ozq8TrFqhGr1OH+vWvsloTxM9PNBR7uq59qblVP+9yQD+pH+B5GVjW1TF9ADD8
-         rib1XCJoLx4s4B4oydXhnykoe7ohwwkalZzWmPha/A9e6QsPhdKd1g3RvlJgcUIZDxJw
-         kUKSpt49uvvmtD6roftXrvU/ro9E1hZj8QMoHhIGBJk0n9zZbqhB0YGcoCwCJhpfpgzf
-         vrEqGLCudW51mUdYW2z+/M503GJ+Elr1rVpbAY/aZv3oiwHzSoivRLBsIHstzcEN6SqQ
-         rkEVX0YpTpCAVFrOQFSwBzaL+Ldb/9i0SWrIXb5bLvXY/GNa7uRJ8Y97U06l1vuRVIm5
-         No6A==
-X-Forwarded-Encrypted: i=1; AJvYcCXgEYkz4O/KsxDChoID1dn/b4vBeF8dKDcAAetxgTTL+XT1C1ePCzA29bndG9phPvzwjbfFnFCMRWGWwp8xINWa@lists.infradead.org
-X-Gm-Message-State: AOJu0YzFKDd1BWuXUVjzpZJnEia0dp85pVU9NpX+5kWhsejkgS+sbUG8
-	5y/ouen1CeYUjizM3jaKXxI2QwtV1igw6rNmk5CW9GLv0ltrr3NoyBv6
-X-Gm-Gg: ASbGncsP2n+6tydYLRXSxNwcj5yUC8K+/yzVs3+J6I39N0GHNAKbWl2XlqVv/G65WYG
-	RBTt8boSVFW10nUaR0DDssS26MhXn4WoVN6LiAOF0Ux6iqgEmOeNlpSByMw78gC1rQsdMlCzeNK
-	STwjxb96WZhox4/cZupgW4Nrf8gjgJn4CNp3ZmE0x2vDjC3e4bKkP+ed89OB52l2Wbmf3oxSeQH
-	pOCxSJtKgbbpxFPRUElQ0Cy0uyS9DJmgFoQEGFpFdqeIadN2X2RbGbKWoGYjzUHeFO+girzbj+W
-	pLyPOfTPonO4P2wXRuueOYlyvbkXmgxarT8xDMh0nRVGlGpeNzhYQkzDaRBOYdZqxZfwRT6m1KO
-	H45Nyq71lrDTwTIvIoFMJItvE904hOwmHxaUy
-X-Google-Smtp-Source: AGHT+IFC6klH+DUaMNBobnXfYHSVyx0IO6xBlZQmjyeAecZZVdEr8LbAxJeI6zh63pFNGLXODs6Nxw==
-X-Received: by 2002:a05:6a00:ad5:b0:746:31d1:f7d0 with SMTP id d2e1a72fcca58-74ee148c825mr13183813b3a.9.1752418807472;
-        Sun, 13 Jul 2025 08:00:07 -0700 (PDT)
-Received: from daerolee-Swift-SF316-51.. ([49.142.96.162])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-74eb9f1b6fbsm8650669b3a.84.2025.07.13.08.00.01
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 13 Jul 2025 08:00:06 -0700 (PDT)
-From: DaeRo Lee <skseofh@gmail.com>
-X-Google-Original-From: DaeRo Lee <skseofh@naver.com>
-To: will@kernel.org
-Cc: alexandru.elisei@arm.com,
-	james.morse@arm.com,
-	kernel-team@android.com,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	maz@kernel.org,
-	oliver.upton@linux.dev,
-	qperret@google.com,
-	sebastianene@google.com,
-	skseofh@gmail.com,
-	sudeep.holla@arm.com,
-	suzuki.poulose@arm.com,
-	tabba@google.com
-Subject: Re: [PATCH v3 08/10] KVM: arm64: Handle FFA_MEM_LEND calls from the host
-Date: Sun, 13 Jul 2025 23:59:57 +0900
-Message-Id: <20250713145957.623842-1-skseofh@naver.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <aHOXzUvGaQ1Bz3jG@willie-the-truck>
-References: <aHOXzUvGaQ1Bz3jG@willie-the-truck>
+	Sun, 13 Jul 2025 15:03:01 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 0580EA4C138;
+	Sun, 13 Jul 2025 15:02:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 29D22C4CEE3;
+	Sun, 13 Jul 2025 15:02:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1752418978;
+	bh=j/0dmZ5J6FfiPtzDxVic7+L+BjaVfzjdrObrU3kASsg=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=XRu/mA34eHN+f2azJjwRmOiDaO9ZEnXvbFqybf7em3oBrHOwbYMSn0e0Kd3+NCif/
+	 VThzq94RuGyI07eh0N+JQHVszh7pEXnAyP+zaEB2AO3wdwkvYn6LdNT7wFo54L7QGv
+	 naagZcPV40gl90P/8f0zLu6TWYWN0ZQYCZcPXMvA7Caz0NbLoitpDNMpy+xPWHPg+0
+	 0kzaQNuH7775QSrL6DmiOoYcA0ciC+STsKck7bbtWtk4GEShcqPdnD8/6NOQJgLeqd
+	 Gc/hLiwqVfkuiljn9QyaYUDh/XCXV80+DAeex8urQtgEd94G3cel8YIvbvol8NAe4H
+	 Qnejh6/EoTNWA==
+Date: Sun, 13 Jul 2025 16:02:47 +0100
+From: Jonathan Cameron <jic23@kernel.org>
+To: David Lechner <dlechner@baylibre.com>
+Cc: Primoz Fiser <primoz.fiser@norik.com>, Haibo Chen <haibo.chen@nxp.com>,
+ Nuno Sa <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>, Rob
+ Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor
+ Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
+ <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, linux-iio@vger.kernel.org,
+ imx@lists.linux.dev, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ upstream@lists.phytec.de, andrej.picej@norik.com
+Subject: Re: [PATCH 1/2] dt-bindings: iio: adc: imx93: Add calibration
+ properties
+Message-ID: <20250713160247.0f22bbfe@jic23-huawei>
+In-Reply-To: <2bcd758b-c2d0-488a-8ead-ec7fb39f93e2@baylibre.com>
+References: <20250710073905.1105417-1-primoz.fiser@norik.com>
+	<20250710073905.1105417-2-primoz.fiser@norik.com>
+	<2bcd758b-c2d0-488a-8ead-ec7fb39f93e2@baylibre.com>
+X-Mailer: Claws Mail 4.3.1 (GTK 3.24.49; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250713_080009_871480_3197F59F 
-X-CRM114-Status: GOOD (  15.23  )
+X-CRM114-CacheID: sfid-20250713_080300_473713_81F30406 
+X-CRM114-Status: GOOD (  21.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,29 +82,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> > > Handle FFA_MEM_LEND calls from the host by treating them identically to
-> > > FFA_MEM_SHARE calls for the purposes of the host stage-2 page-table, but
-> > > forwarding on the original request to EL3.
+On Thu, 10 Jul 2025 10:46:44 -0500
+David Lechner <dlechner@baylibre.com> wrote:
+
+> On 7/10/25 2:39 AM, Primoz Fiser wrote:
+> > From: Andrej Picej <andrej.picej@norik.com>
 > > 
-> > I have a question about your patch.
-> > Does treating FFA_MEM_LEND as identical to FFA_MEM_SHARE imply that
-> > the host can still access the memory even after it has been lent?
->
-> Only if your TZ implementation is broken and relies on the NS hypervisor
-> for isolation.
+> > Document i.MX93 ADC calibration properties and how to set them.
+> > 
+> > Signed-off-by: Andrej Picej <andrej.picej@norik.com>
+> > Signed-off-by: Primoz Fiser <primoz.fiser@norik.com>
+> > ---
+> >  .../bindings/iio/adc/nxp,imx93-adc.yaml       | 21 +++++++++++++++++++
+> >  1 file changed, 21 insertions(+)
+> > 
+> > diff --git a/Documentation/devicetree/bindings/iio/adc/nxp,imx93-adc.yaml b/Documentation/devicetree/bindings/iio/adc/nxp,imx93-adc.yaml
+> > index c2e5ff418920..d1c04cf85fe6 100644
+> > --- a/Documentation/devicetree/bindings/iio/adc/nxp,imx93-adc.yaml
+> > +++ b/Documentation/devicetree/bindings/iio/adc/nxp,imx93-adc.yaml
+> > @@ -52,6 +52,27 @@ properties:
+> >    "#io-channel-cells":
+> >      const: 1
+> >  
+> > +  nxp,calib-avg-en:
+> > +    default: 1
+> > +    description:
+> > +      Enable or disable calibration averaging function (AVGEN).
+> > +    $ref: /schemas/types.yaml#/definitions/uint32
+> > +    enum: [ 0, 1 ]
+> > +
+> > +  nxp,calib-nr-samples:
+> > +    default: 512
+> > +    description:
+> > +      Selects number of samples (NRSMPL) to be used during calibration.
+> > +    $ref: /schemas/types.yaml#/definitions/uint32
+> > +    enum: [ 16, 32, 128, 512 ]
 
-I believe pKVM is managing stage 2 isolation between Host and Non-secure Guest
-VMs or between Non-secure Guest VMs
+Allow 1 as a value and drop the enabled above.   Averaging over 1 sample
+is same as no averaging and gives simpler binding.
 
-<Quote DEN0140_FF-A_Memory Management Protocol>
-2.2.1.2 Relayer responsibilities
-10. Unmap the memory region from the translation regime of the Lender, if
-managed by the Relayer as specified in 1.2 Address translation regimes. This 
-must be done only if the memory region is in the Owner-EA state. This includes
-removing access to the memory region from any DMA capable devices assigned to 
-the Lender.
+> > +
+> > +  nxp,calib-t-sample:
+> > +    default: 22
+> > +    description:
+> > +      Selects sample time (TSAMP) of calibration conversions in ADC clock cycles
+> > +    $ref: /schemas/types.yaml#/definitions/uint32
+> > +    enum: [ 8, 16, 22, 32 ]
+> > +
+> >  required:
+> >    - compatible
+> >    - reg  
+> 
+> This seem like things that should be set at runtime rather than
+> in the devicetree. Unless there is some justification on why
+> these values depend on how the chip is wired up?
 
-From the content, it seems that when performing a Lend operation, it's
-necessary to perform a Stage 2 unmap of the host memory area. Am I understanding
-this correctly?
+Further to that, I'd like to see some explanation of why we care
+to change it at all. Is it ever a bad idea to enable averaging and
+pick a large number of samples for calibration?
+
+> 
+> 
+
 
