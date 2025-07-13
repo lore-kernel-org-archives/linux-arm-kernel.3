@@ -4,70 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52884C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Jul 2025 20:26:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5F40C83F1D
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 13 Jul 2025 20:37:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4U+mcZEzIP2ITFV/NhCq+SDVBQUz67IM7MGDWjmhx2c=; b=VJklGIoTgBPPAVnIgcTXg0Q49N
-	mcydWUQW9QjfnBL5kMDAAvj4eXSMCbv66e52QlfDwW/yCbpfMemautQ0ez+fGviZHnCP6pH72bfIS
-	LGfPkUzFVzDrVwdG+IECDbX0UdJNsDM8n3oU/HOjn1Pi2FFk4kAgwyGQY2nTv09cIXqCTULaBNQzd
-	STwXLkTs4vDcOFEUl3iLs1eg0P20PUgeARAnwRNa/oORLa4u9Ndb/pw8svnPjWiCV4S2fk5JDKS/P
-	MWY4tXY2od5iv46uTQ/w4NN6v+xxP7eHx7jQoz2IJdnq0EzUeVtlHv1mOySd+GQu+ncWnhtHvCZu5
-	ob6L9ffA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RQ6idt8wXYfGLyA4P/4xIcoRSI8FZxbhnZ/aUjNlza8=; b=UFsTSJQG+BTVNKVXLEge0nGfCI
+	58yje0XMwoHyjmRBP09y7OhdWu99pnvGO44550HRoR1sj9KFnvhbobnjGzOFu/5PnVdA8pN5ulzIY
+	ux9eNaEh/esMVz1P1qrZLIikTZZVwBy8JsTMKDGVABkhRPzgIf9XnvPImd0PZ0r6+UtXL1X2/mzBA
+	ZKJ80Goh1i3xZOl/dRuCgrTk2SjKxwZNY/2vm//3GVHFo7c9mMWIP424VdUsw6KCZj+sBvVKg7xW4
+	4bBgLrTTtrzBgrGo5Cdi3onvwcpDQnn2PQoCp4QbXbK+RkLc/gjJtzvMFo5RtfMooO9Z5rg5ejgzQ
+	Hs+Qa9uA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ub3Hb-00000000bNl-2vk6;
-	Sun, 13 Jul 2025 20:26:47 +0000
-Received: from smtp.forwardemail.net ([121.127.44.73])
+	id 1ub3S8-00000000buk-1wS4;
+	Sun, 13 Jul 2025 20:37:40 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ub3F7-00000000bFb-44Dl
+	id 1ub3Pj-00000000bkh-1u5p
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 13 Jul 2025 20:24:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
- h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
- Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
- s=fe-e1b5cab7be; t=1752438251;
- bh=4U+mcZEzIP2ITFV/NhCq+SDVBQUz67IM7MGDWjmhx2c=;
- b=sU5PHW41mnu0S8HmTZfswWu5vvwJ+tQfWdcNvzdFg7n0rUvvrnJIEeVWuMFMCMFYCaNq19tEM
- i6R1ton+ZNVjo1thn+wQJIRVJj3ffvVA+UZ7K+I8UBY31+FNBidVi44r3QBzOceImnn+GBmQ6cr
- 83xOmW0AtM6qSceo5OvmeDlsDGnUxhnA3Gix7CXD6U9xxh0Zac5l/ctKVMMT2Xkd7vXtwNJLZfY
- 2UJjUkCHbNBkHB36llx4BfIV5mZxhGgI7UZsrV7Ymej1IBO5aMufojkfJ8qBHq5x7U9PG49Cr7u
- AJZqCXtal2XJSmmYTHqX75kYBNowcZeH4zQuX6oyh/xA==
-X-Forward-Email-ID: 6874138a1bd28f931143727b
-X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
- 121.127.44.73
-X-Forward-Email-Version: 1.1.6
-X-Forward-Email-Website: https://forwardemail.net
-X-Complaints-To: abuse@forwardemail.net
-X-Report-Abuse: abuse@forwardemail.net
-X-Report-Abuse-To: abuse@forwardemail.net
-Message-ID: <9aae8b30-23ae-4866-9ce8-02bbc8b44a82@kwiboo.se>
-Date: Sun, 13 Jul 2025 22:13:57 +0200
+	Sun, 13 Jul 2025 20:35:12 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-45610582d07so5695005e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 13 Jul 2025 13:35:10 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1752438909; x=1753043709; darn=lists.infradead.org;
+        h=mime-version:references:in-reply-to:message-id:date:subject:cc:to
+         :from:from:to:cc:subject:date:message-id:reply-to;
+        bh=RQ6idt8wXYfGLyA4P/4xIcoRSI8FZxbhnZ/aUjNlza8=;
+        b=e220aHWdXYjaOaAKq38QOi9siere/WFBw/WUNKsIcncWJtwU+xo+dg4oB4X3WD+ysx
+         s0A9sDwuzIsizT5kzk3FUlJuzChD8v7TMjBjGfDg/HtFHYxMnEWulIB/gu297mg2f0wC
+         BtuYGFxF6/t6ppShLLUv6Lv8hjU1TKBo/6yP694XAfwjpCbSzZCua862yh4cVoN8XQwV
+         uOIB0uNZLykxigNkxB1XnpwXQEyXCsUXpvvW/d5m+doDB9qv2wj0YT2sblIv5cn/H6Gf
+         p9w2WOp1D0JI8Dw6AKBHmNBlZSLeSlZkBrk4m1hr1mBZhztYyspaTk/ObnTWqrp82rs3
+         IBRw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1752438909; x=1753043709;
+        h=mime-version:references:in-reply-to:message-id:date:subject:cc:to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=RQ6idt8wXYfGLyA4P/4xIcoRSI8FZxbhnZ/aUjNlza8=;
+        b=vc96vgBsYOqLs44AXmgNgRigqV+7V2q6/04dQN2vOOtrLOwwVZpjnYOqe8pnhH3WlV
+         HuuZXLWEX0jTLTmGSYok3eoJZyYRdPj7lfnaTYZhec5TJCQA0nQFDj3Yz6i7DD8KW6fG
+         qQpi6uzInM6rfVoPV1T3EwbkcqYxT27v5dSM2r3SLA90ki9hnRlQVE8G/HlEbRmf6Ics
+         Dai0w30D6DVK+b6CUDM5suaG1AyBKKGI/3+wEqn3EB3phEYkOkda2iOgHDGFEDKnIEWg
+         eP4h/KK2m0n/tXJN2MWuK9idbtQZtFt3gGxm7PRzLoU6v/fP2V1Df4IpvMlovNH/Ja1l
+         IWuQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWOagkqJnzpcDHPo/pvuDnMHOkPB0QjBvlAWyHNngik1q713u4mvOU+jkQwbZri31XAvy6XajXxxb1uWKtFa6bN@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx/70VK9jXXqITE/qOp0nEoLY/YuxwZLf5TGa9dmUy6L6ahaF4K
+	kTJa0wvpybdLnzqDb7wzisR7DWi6/HHlkBSPySJT8qWnXWn+A+VhtmLn
+X-Gm-Gg: ASbGncuoGZPa+84aRGRIkDQBfqAgo6yTOEBatLAMkw9uvWZKskyKPMJtZ9tQMc7Mer9
+	FnUu2LmBULAAWMoaUV4mOLE3RPaOflDVv5MwemXDAiQXfn/pCJpSSkkTjlwkKg5pxC67ZKysdEH
+	WJywrF/mg/zuZ1dPPbJ58TYhwJ+/vL5PCGx5B30ABX0b56jbBPdCM2q4Gi4ibiYpMj5KP4Ln/9d
+	KdXnSTJfLjt1xJ+ZI45J8a91LWxO2iiQhuGIBmOuPxQYRMREXKykWL6iVa5ukW5azf2rOyN0s8C
+	foJiynW51buo4ZfWlXG1VOAPduIgIxnZBPrA6DD1RfSgqVfvgIIyuaMu/a+98ULGOmKg6nIJWEQ
+	lTgI2ejfVBH4dts+o6X8TxqaH6pZThaz84Ho90+iA8HV8hR2MlBV++vAm0sgCjxbZmy4kKEzgT0
+	ZejdNojbeYEOgACifpq+9/rBw=
+X-Google-Smtp-Source: AGHT+IH4AVDkH02c07HSfsSSYjsNFz8Gnpusc8AYfW7vNFYqCGsRW7lQ5eG2tpWiRi0fKTIFLEfChA==
+X-Received: by 2002:a05:600c:4ed0:b0:456:1a41:f932 with SMTP id 5b1f17b1804b1-4561a41fd79mr11636015e9.22.1752438909101;
+        Sun, 13 Jul 2025 13:35:09 -0700 (PDT)
+Received: from dell.localnet (2a01-114f-400e-9dc0-0000-0000-0000-0540.ea.ipv6.supernova.orange.pl. [2a01:114f:400e:9dc0::540])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3b5e8dc22a8sm10793602f8f.34.2025.07.13.13.35.07
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 13 Jul 2025 13:35:08 -0700 (PDT)
+From: Janusz Krzysztofik <jmkrzyszt@gmail.com>
+To: Paul Walmsley <paul@pwsan.com>, Aaro Koskinen <aaro.koskinen@iki.fi>,
+ Tony Lindgren <tony@atomide.com>, Russell King <linux@armlinux.org.uk>,
+ Andreas Kemnade <andreas@kemnade.info>, Kevin Hilman <khilman@baylibre.com>,
+ Roger Quadros <rogerq@kernel.org>, Linus Walleij <linus.walleij@linaro.org>,
+ Liviu Dudau <liviu.dudau@arm.com>, Sudeep Holla <sudeep.holla@arm.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Maxime Ripard <mripard@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
+ Brian Masney <bmasney@redhat.com>
+Cc: linux-clk@vger.kernel.org, linux-omap@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Brian Masney <bmasney@redhat.com>
+Subject: Re: [PATCH 1/3] ARM: OMAP1: clock: convert from round_rate() to
+ determine_rate()
+Date: Sun, 13 Jul 2025 22:35:06 +0200
+Message-ID: <6172340.lOV4Wx5bFT@dell>
+In-Reply-To: <20250710-arm32-clk-round-rate-v1-1-a9146b77aca9@redhat.com>
+References: <20250710-arm32-clk-round-rate-v1-0-a9146b77aca9@redhat.com>
+ <20250710-arm32-clk-round-rate-v1-1-a9146b77aca9@redhat.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 0/6] arm64: dts: rockchip: Add ROCK 2A/2F, Sige1 and
- NanoPi Zero2
-To: Alex Bee <knaerzche@gmail.com>
-Cc: Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Yao Zi <ziyao@disroot.org>,
- Chukun Pan <amadeus@jmu.edu.cn>, linux-rockchip@lists.infradead.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20250712173805.584586-1-jonas@kwiboo.se>
- <702dc4bb-7b3c-4647-b84f-8516989b0836@gmail.com>
-Content-Language: en-US
-From: Jonas Karlman <jonas@kwiboo.se>
-In-Reply-To: <702dc4bb-7b3c-4647-b84f-8516989b0836@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/signed; boundary="nextPart5023095.31r3eYUQgx";
+ micalg="pgp-sha512"; protocol="application/pgp-signature"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250713_132414_105893_9B292CC7 
-X-CRM114-Status: GOOD (  27.32  )
+X-CRM114-CacheID: sfid-20250713_133511_502826_60E7236B 
+X-CRM114-Status: GOOD (  22.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,111 +107,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Alex,
+--nextPart5023095.31r3eYUQgx
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="utf-8"; protected-headers="v1"
+From: Janusz Krzysztofik <jmkrzyszt@gmail.com>
+Date: Sun, 13 Jul 2025 22:35:06 +0200
+Message-ID: <6172340.lOV4Wx5bFT@dell>
+MIME-Version: 1.0
 
-On 7/13/2025 9:13 PM, Alex Bee wrote:
-> Hi list, Hi Jonas,
+On Friday, 11 July 2025 01:42:16 CEST Brian Masney wrote:
+> The round_rate() clk ops is deprecated, so migrate this driver from
+> round_rate() to determine_rate() using the Coccinelle semantic patch
+> on the cover letter of this series.
 > 
->> This series adds dt-bindings and initial device tree for the following
->> Rockchip RK3528A boards:
->> - Radxa ROCK 2A/2F
->> - ArmSoM Sige1
->> - FriendlyElec NanoPi Zero2
+> Signed-off-by: Brian Masney <bmasney@redhat.com>
+
+Acked-by: Janusz Krzysztofik <jmkrzyszt@gmail.com>
+
+> ---
+>  arch/arm/mach-omap1/clock.c | 19 +++++++++++++------
+>  1 file changed, 13 insertions(+), 6 deletions(-)
+> 
+> diff --git a/arch/arm/mach-omap1/clock.c b/arch/arm/mach-omap1/clock.c
+> index 83381e23fab983522ca01b8feffb861b02fee730..afc6404f62d39c4ddbac6f1ee04d889be6c47186 100644
+> --- a/arch/arm/mach-omap1/clock.c
+> +++ b/arch/arm/mach-omap1/clock.c
+> @@ -705,14 +705,21 @@ static unsigned long omap1_clk_recalc_rate(struct clk_hw *hw, unsigned long p_ra
+>  	return clk->rate;
+>  }
+>  
+> -static long omap1_clk_round_rate(struct clk_hw *hw, unsigned long rate, unsigned long *p_rate)
+> +static int omap1_clk_determine_rate(struct clk_hw *hw,
+> +				    struct clk_rate_request *req)
+>  {
+>  	struct omap1_clk *clk = to_omap1_clk(hw);
+>  
+> -	if (clk->round_rate != NULL)
+> -		return clk->round_rate(clk, rate, p_rate);
+> +	if (clk->round_rate != NULL) {
+> +		req->rate = clk->round_rate(clk, req->rate,
+> +					    &req->best_parent_rate);
+>  
+> -	return omap1_clk_recalc_rate(hw, *p_rate);
+> +		return 0;
+> +	}
+> +
+> +	req->rate = omap1_clk_recalc_rate(hw, req->best_parent_rate);
+> +
+> +	return 0;
+>  }
+>  
+>  static int omap1_clk_set_rate(struct clk_hw *hw, unsigned long rate, unsigned long p_rate)
+> @@ -771,7 +778,7 @@ const struct clk_ops omap1_clk_gate_ops = {
+>  
+>  const struct clk_ops omap1_clk_rate_ops = {
+>  	.recalc_rate	= omap1_clk_recalc_rate,
+> -	.round_rate	= omap1_clk_round_rate,
+> +	.determine_rate = omap1_clk_determine_rate,
+>  	.set_rate	= omap1_clk_set_rate,
+>  	.init		= omap1_clk_init_op,
+>  };
+> @@ -784,7 +791,7 @@ const struct clk_ops omap1_clk_full_ops = {
+>  	.disable_unused	= omap1_clk_disable_unused,
+>  #endif
+>  	.recalc_rate	= omap1_clk_recalc_rate,
+> -	.round_rate	= omap1_clk_round_rate,
+> +	.determine_rate = omap1_clk_determine_rate,
+>  	.set_rate	= omap1_clk_set_rate,
+>  	.init		= omap1_clk_init_op,
+>  };
 > 
 > 
-> this only sub-related to this series: Is there any particular reason, why
-> we call the compatible "rockchip,rk3528" and not "rockchip,rk3528a"? From
-> what I can see all boards currently supported (and those in this series)
-> are having the RK3528A version of the SoC. I didn't follow the development
-> here, but there are differences - I did a quick compare of the datasheets
-> of those two SoC versions - it looks like RK3528 version has USB3-DRD
-> controller, while RK3528A has USB3 host-only controller. Also it seems to
-> have different video codec IPs and the DRAM controller additionally
-> supports LPDDR4X.
 
-What datasheet versions did you check? I can only find:
-- RK3528 Rev 1.0 (2023-05-22)
-- RK3528A Rev 1.2 (2024-04-10)
 
-And both list LPDDR4X support and the A-variant seem to list USB3-DRD
-support, did you mix them up above?
+--nextPart5023095.31r3eYUQgx
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part.
+Content-Transfer-Encoding: 7Bit
 
-I think these SoCs are similar to rk3228/rk3229, rk3228h/rk3328 and now
-rk3528/rk3528a, in that only the second variant support VP9 decoding.
+-----BEGIN PGP SIGNATURE-----
 
-Use of rockchip,rk3528a compatible could be something to change,
-could also be something that bootloader set at runtime, similar to
-what it does for rk3288w.
+iQEzBAABCgAdFiEEnyr6IsGnTYAeAkHJ2WqSnltsjBoFAmh0GHoACgkQ2WqSnlts
+jBr2jAf/bEu29PFvQWChV00x7wXHruop7Es3gHolRxKbv8LxnEtWZm4kkGIk36p2
+FQMQZxPbpRfn3zanPLBWAsmiXy+nvWrk9zBu/OEEY8r8QsVLZwU9VV81SAI6rNrz
+Tp89RkhQV8FsCoXVKZAIdvj1WOzpxVTeYJP3ds0IzQ49+Fpg+nWLSiaNH+awHky8
+Xqms5mXh/SP9almdFvaZKmeAVTPUQpxsUmGMCSxWuEoWaDHKxpDa6FcaZMGetg2C
+M7ZW3GznaKmZt906lQdvj2YcjonHirbjX3TULqMaDc16h/7h6BUWXr4Xt06VWTm6
+LLLhsNUuQjG59V9d6+CFawQ+CzteNw==
+=7sdR
+-----END PGP SIGNATURE-----
 
-> I guess it would be good to discuss this before this series is merged,
-> because re-naming *.dts files after they have been in a release is somewhat
-> impossible.
+--nextPart5023095.31r3eYUQgx--
 
-I think renaming the device tree files is unnecessary, as there seem to
-be very little difference. All boards I have come across are currently
-RK3528A variants. How would we treat the Radxa E20C?, it is not named
-rk3528-radxa-e20c.dtb, yet uses the A-variant.
 
-For mainline U-Boot I have included printing out the SoC-variant,
-however the compatible is not adjusted:
-
-  Model: Radxa E20C
-  SoC:   RK3528A
-  DRAM:  2 GiB
-
-Regards,
-Jonas
-
-> 
-> Regards,
-> Alex
->>
->> The bt/wifi_reg_on pins are described in the device tree using
->> rfkill-gpio nodes.
->>
->> Changes in v3:
->> - Rename led nodes to led-0/led-1
->> - Remove pinctrl* props from sdio0
->> - Collect a-b tags
->>
->> Changes in v2:
->> - Limit sdmmc max-frequency to 100 MHz on ROCK 2A/2F
->> - Drop clock-output-names prop from rtc node on Sige1 and NanoPi Zero2
->> - Drop regulator-boot-on from usb 2.0 host regulators on Sige1
->> - Add bluetooth and wifi nodes on Sige1
->> - Collect t-b tag for NanoPi Zero2
->>
->> These boards can be booted from emmc or sd-card using the U-Boot 2025.07
->> generic-rk3528 target or work-in-progress patches for these boards [1].
->>
->> For working bluetooth on ArmSoM Sige1 the patch "arm64: dts: rockchip:
->> Fix UART DMA support for RK3528" [2] is required.
->>
->> [1] https://source.denx.de/u-boot/contributors/kwiboo/u-boot/-/commits/rk3528
->> [2] https://lore.kernel.org/r/20250709210831.3170458-1-jonas@kwiboo.se
->>
->> Jonas Karlman (6):
->>    dt-bindings: arm: rockchip: Add Radxa ROCK 2A/2F
->>    arm64: dts: rockchip: Add Radxa ROCK 2A/2F
->>    dt-bindings: arm: rockchip: Add ArmSoM Sige1
->>    arm64: dts: rockchip: Add ArmSoM Sige1
->>    dt-bindings: arm: rockchip: Add FriendlyElec NanoPi Zero2
->>    arm64: dts: rockchip: Add FriendlyElec NanoPi Zero2
->>
->>   .../devicetree/bindings/arm/rockchip.yaml     |  17 +
->>   arch/arm64/boot/dts/rockchip/Makefile         |   4 +
->>   .../boot/dts/rockchip/rk3528-armsom-sige1.dts | 465 ++++++++++++++++++
->>   .../boot/dts/rockchip/rk3528-nanopi-zero2.dts | 340 +++++++++++++
->>   .../boot/dts/rockchip/rk3528-rock-2.dtsi      | 293 +++++++++++
->>   .../boot/dts/rockchip/rk3528-rock-2a.dts      |  82 +++
->>   .../boot/dts/rockchip/rk3528-rock-2f.dts      |  10 +
->>   7 files changed, 1211 insertions(+)
->>   create mode 100644 arch/arm64/boot/dts/rockchip/rk3528-armsom-sige1.dts
->>   create mode 100644 arch/arm64/boot/dts/rockchip/rk3528-nanopi-zero2.dts
->>   create mode 100644 arch/arm64/boot/dts/rockchip/rk3528-rock-2.dtsi
->>   create mode 100644 arch/arm64/boot/dts/rockchip/rk3528-rock-2a.dts
->>   create mode 100644 arch/arm64/boot/dts/rockchip/rk3528-rock-2f.dts
->>
-> 
 
 
