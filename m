@@ -4,107 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 313C9C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 14:06:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4198AC83F1B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 14:09:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j1GozZmv2KllVJbD8Fsx904y25bNOuqAn9ZG+CR28Ew=; b=bwn/qPgE95/1906Na0GXcWvmWm
-	vqVTOQjLJGn5ylcQQyBDrGFXfVizZog+U3YIszo/H12w4+gMqR/1RnAUOtyF5nhYYEDJXHrfBu2Ha
-	AjwPD2jgqkrcoR7vTT/knH2b2fpZ8Y/iV0YPojSTeIyEofyFcKVQJf8NE9fxucmExQlWW/OzVZLJO
-	07T+ancGLd0pijlf63o2rp9pb/0J6oQ+vXQG//fWZzEDUzqnfm8AMJnJ5Fz1Nd3bOuElZlTJGcv4+
-	cPyv3gX6aXKXSldW5DN2oK0GCmai2UqBzaEdGbRA7yGyxlQocA+7wUw9ungceS5FpQTKvtvWZGXk7
-	tkmDckgw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nZNLxJE5074iW2AdF0fYSL1uiuKPt3IvDV5Ff8wSngM=; b=j8TWAnwt/Jo64Ow/SaCNKsHiXu
+	EZeuOfsFrPy24TGSCqJWcHiORq+KD1GOhcD4BcY3oUiZzJJiBMMdQ89MMEAc9jHhAmfndmx0WYGp4
+	bgyx+K8j/wJy8VkfVSugVXxtwWE5g+AusX+WHNopIjGdgSmvfl7paKb1CADC/ziTY4P4FjrF8TKzF
+	ZKHi48uf/yrwWZ552U/7/S6YViAUDK5eV+2IhsxRYUtWg54sR5jR3X9knLZnvJTQeqdspRD4UJj+E
+	bMU3AKSXNW6kcpMziveZBGNj5O6jquAp0L8Tt8are0KSLB0WrYXFujt7KvXcmfB3HV0N/F6VEdL2z
+	rYKm3CqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubJpA-00000002Py0-0bQo;
-	Mon, 14 Jul 2025 14:06:32 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1ubJrb-00000002QLp-0FA8;
+	Mon, 14 Jul 2025 14:09:03 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubJdm-00000002NOu-3Xov
+	id 1ubJe6-00000002NVW-3CBa
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Jul 2025 13:54:47 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-45600581226so22529245e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Jul 2025 06:54:46 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1752501285; x=1753106085; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=j1GozZmv2KllVJbD8Fsx904y25bNOuqAn9ZG+CR28Ew=;
-        b=gejFUn8rBT0PQB8Ct9mL4AGup9aZILvioSwq4H4joC0kpW9ZbLupGkH8G0MDvhy9Su
-         BkicA+DIwno5h3FPsd1BG43QTJwsQwZA0BQDLfEW/0VsnEKlkDwzj/KQyd/9AKQrinT6
-         MefDywFPestn32u/rFkt9yjBVA2TMsKSVMmNx4cLf0yVgTLdxzmAb6FE3Uel+9RGioLw
-         DAJllwDvZkAobS0J/XAHRElYUm0kc0gs3g3k9Uaz8Xgsjr0tEu6Pd05ZdJlZyteGPN/j
-         TmDpLP9RumFWYQ9NJnEie1gA/ADddhZUCM2LbDmbPCpNgdXEbUy8o3oHMYfcj1kJhWZG
-         4Hgw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752501285; x=1753106085;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=j1GozZmv2KllVJbD8Fsx904y25bNOuqAn9ZG+CR28Ew=;
-        b=BvnuFdsDDZwkJUmMFU0OzMJx9yiQxiZhaI1KJ0VHun0FaOufcCZeb3z/S5n+4MuQ1/
-         kPb83Vv/37U2T65W5edz0RNmt3zptpG3R7vCcH6Y8j36CjJp/SLMR9mjw8RtD4+HxRzH
-         Meod+4qORPbv1LD2EVYd0s97YPxlTDQyCoUV54FXl6z5NJ0KEVt3JmWNet0if32nZCep
-         0IsMy9WAHrdWLUadEXjTCHPkX2qPJMrCDCXgT3LcttKydPwmOrQ4HwiOsOOkc3g5utoH
-         xPZRH6yK8bIVKGxs9plSo9v9SYmupnPLl1sfD0QSHQ4RCWWZp6VO1wBQ4alyx4mlFR43
-         o8sQ==
-X-Forwarded-Encrypted: i=1; AJvYcCX7FV/tUKSZ/6JK8ZZuwF+Jb+EewMzRpP1FzKnVYzM7lthIaEOlM4Ps9isiCwUCAEBcj2iWtMMpd1MwQw9cHsAc@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzd8wj0z60F4uMKV1gB3k86PSHGUVA9eMtFRsxXTFo3S9CoVtHe
-	AYoE2XjH9oZYbeZ/lRgwyLNTx/EZW7jJYI3EsQRzHLLHG05tuixGqsdx
-X-Gm-Gg: ASbGncvU+AfNu6mBfVgYUkmCf57Z0apSf7tj5AMfFvWa9W5x2mZ1SC0S2tKNTUjmetL
-	vCAxfBYyHlihSrTZlKBAziYYbbe5gdfpmyd/Ffm2u/IXizHNlscUU4uwIxVaCZT1lLd0Y81Fq7J
-	0RFWMyMFfBiX3wKbi6UDlSzOH0Dgv17nF6rtFBF3rzjuMNFlUucVE8n48aG8r2NflXB2u6HwltF
-	VPxlxPxx2xOCZFPZym0Fda5wdk+CaQNwAvB6lVkjPjvkJM0Rx0Zl3zAVSFcmc83qCaiq5tIBfwF
-	j0OrbY4B1APazgvS8g4SLcJS/NZKilQTnkzHjodbiyMntHp+RsSMdhvA4f/jRHCeHYrnhRCRh5Z
-	P7k1/LqGpFylYFfcdHU/BPcg=
-X-Google-Smtp-Source: AGHT+IEmMJQ9IUdhNJsjC3avx3ABcycM1c378Tv3VK+BRI3i+Yh0RCHDP+vvN/eoeQA1/W5WoDqLKw==
-X-Received: by 2002:a05:600c:5253:b0:442:e9eb:cba2 with SMTP id 5b1f17b1804b1-454e337dbbcmr147287115e9.0.1752501285089;
-        Mon, 14 Jul 2025 06:54:45 -0700 (PDT)
-Received: from localhost ([2001:861:3385:e20:2acd:89a8:83d9:4be5])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-4561323a488sm51228055e9.1.2025.07.14.06.54.44
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 14 Jul 2025 06:54:44 -0700 (PDT)
-From: Raphael Gallais-Pou <rgallaispou@gmail.com>
-Date: Mon, 14 Jul 2025 15:49:16 +0200
-Subject: [PATCH v2 3/3] dt-bindings: arm: sti: drop B2120 board support
+	Mon, 14 Jul 2025 13:55:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 0CAF6A5713C;
+	Mon, 14 Jul 2025 13:55:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C6438C4CEED;
+	Mon, 14 Jul 2025 13:55:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1752501305;
+	bh=SsDJZedGWgEi2BKmb66mOY5op0SJ42iRGSbd4YnIV8w=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Kdl3S+vLRtZWBuqnyVvLDBGEiSQ8tPChA9ba9F6FokLDS+mmIPv17jkqYGxc7Qx2B
+	 cD7S5UlGpnMsdqM0tkC/edGc2W+EBHd3o1Tw4nM4WFrM64PxIewSARZPHleeTtIUp5
+	 1h1qC7duFHHetvOrGA1YcArcNWi4AJKfltmgQXcJkSkHibFhwUDdZoufD43GwEhYaN
+	 sOVLKO4DanJ+LB+KnRbIPEl6YxXWXwdqB446mBP8IST/mMcHYjT2QBJLkQ7ubB40yn
+	 hUbfva7GkltBHybjFJhHFvJagzFIbIm5JYxkbzic5uzE/JdgFQ3UgYObJqN4qCXr7Y
+	 rjVxp5L6kZnyA==
+Date: Mon, 14 Jul 2025 14:54:58 +0100
+From: Will Deacon <will@kernel.org>
+To: James Clark <james.clark@linaro.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>, leo.yan@arm.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-perf-users@vger.kernel.org, linux-doc@vger.kernel.org,
+	kvmarm@lists.linux.dev
+Subject: Re: [PATCH v3 04/10] arm64/boot: Enable EL2 requirements for
+ SPE_FEAT_FDS
+Message-ID: <aHUMMk9JUdK6luLN@willie-the-truck>
+References: <20250605-james-perf-feat_spe_eft-v3-0-71b0c9f98093@linaro.org>
+ <20250605-james-perf-feat_spe_eft-v3-4-71b0c9f98093@linaro.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250714-sti-rework-v2-3-f4274920858b@gmail.com>
-References: <20250714-sti-rework-v2-0-f4274920858b@gmail.com>
-In-Reply-To: <20250714-sti-rework-v2-0-f4274920858b@gmail.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Patrice Chotard <patrice.chotard@foss.st.com>, 
- Russell King <linux@armlinux.org.uk>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, 
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1075; i=rgallaispou@gmail.com;
- h=from:subject:message-id; bh=yGLjgfrG7ccJQbLP1bUn+mq45lSVOGYqttRomiLzHu0=;
- b=owEBbQKS/ZANAwAKAechimjUEsK1AcsmYgBodQwg5KARvxWXSIY/kUAlwKR257nuONcT6QTUp
- C5bMLobvVeJAjMEAAEKAB0WIQQgmXv2E+fvbV/9ui/nIYpo1BLCtQUCaHUMIAAKCRDnIYpo1BLC
- tW24EACasd9KNofpB284fozmyUvUB6lKSFy9eXLzG3zktdFVfbs5l7c84Q7DCsjO7cvFJgT4vRa
- d+JfNJgLwNUODi59Zs8fEdos5RmbZRE97oCD6HwJ5PVUNymCVnDyiiga8KQ9s8nTKnKY5wMch+t
- nzNl+78zaCfUkeqCLct1JdsAAi71deF+SRcsBdmWgTH6rhV2OrLpMCJEtOCEPVlORPexCOOE99N
- b4vG5t05I8KRIbKiN+r27cYmRvNYc5huAxYK8VXi5cmEqJ6yH32CU+BWEBtRwhkcmsU2Sfr3xTs
- 8JcIMi7BO09SyFWG4yyIScart0pLwa6lPqhkRc0EgI8JTR1L4sOT3iAixMJmJNT01CMnLjIkc6E
- E6qtworoQY0pVfblCf4KrEukIFukjM8SL1IgGx/0u63j28HVjKbsAdeLAjh3mr7I0NcJVQPwbQj
- eCblYz+FEWDK/nkRKR8G25gJdGIfX0ritMAE06LReWaBzCLhsoRZ+s2Onu6ShYONhmCUx2Fvam5
- 2zzvfGePfnQJZEphh+5AeuNFkZ4ITmJivxg795je4BQhrMZioue5kTeXZdKHoxdfY9eg3Ui+eMW
- tdBrkLaE59OlW9ArSpOtbBapXFht+FSd7Lk9SZWSDty3GkWm45+VuzrKO41oR2LFOFqcXFzXzJd
- WP/1m9HhMUr0nWw==
-X-Developer-Key: i=rgallaispou@gmail.com; a=openpgp;
- fpr=20997BF613E7EF6D5FFDBA2FE7218A68D412C2B5
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250605-james-perf-feat_spe_eft-v3-4-71b0c9f98093@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250714_065446_893198_7A0DDDF2 
-X-CRM114-Status: GOOD (  11.04  )
+X-CRM114-CacheID: sfid-20250714_065506_923710_81FC4299 
+X-CRM114-Status: GOOD (  19.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,40 +88,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-B2120 boards are internal boards which never were commercialised.
+On Thu, Jun 05, 2025 at 11:49:02AM +0100, James Clark wrote:
+> SPE data source filtering (optional from Armv8.8) requires that traps to
+> the filter register PMSDSFR be disabled. Document the requirements and
+> disable the traps if the feature is present.
+> 
+> Tested-by: Leo Yan <leo.yan@arm.com>
+> Signed-off-by: James Clark <james.clark@linaro.org>
+> ---
+>  Documentation/arch/arm64/booting.rst | 11 +++++++++++
+>  arch/arm64/include/asm/el2_setup.h   | 14 ++++++++++++++
+>  2 files changed, 25 insertions(+)
+> 
+> diff --git a/Documentation/arch/arm64/booting.rst b/Documentation/arch/arm64/booting.rst
+> index dee7b6de864f..abd75085a239 100644
+> --- a/Documentation/arch/arm64/booting.rst
+> +++ b/Documentation/arch/arm64/booting.rst
+> @@ -404,6 +404,17 @@ Before jumping into the kernel, the following conditions must be met:
+>      - HDFGWTR2_EL2.nPMICFILTR_EL0 (bit 3) must be initialised to 0b1.
+>      - HDFGWTR2_EL2.nPMUACR_EL1 (bit 4) must be initialised to 0b1.
+>  
+> +  For CPUs with SPE data source filtering (FEAT_SPE_FDS):
+> +
+> +  - If EL3 is present:
+> +
+> +    - MDCR_EL3.EnPMS3 (bit 42) must be initialised to 0b1.
+> +
+> +  - If the kernel is entered at EL1 and EL2 is present:
+> +
+> +    - HDFGRTR2_EL2.nPMSDSFR_EL1 (bit 19) must be initialised to 0b1.
+> +    - HDFGWTR2_EL2.nPMSDSFR_EL1 (bit 19) must be initialised to 0b1.
+> +
+>    For CPUs with Memory Copy and Memory Set instructions (FEAT_MOPS):
+>  
+>    - If the kernel is entered at EL1 and EL2 is present:
+> diff --git a/arch/arm64/include/asm/el2_setup.h b/arch/arm64/include/asm/el2_setup.h
+> index 1e7c7475e43f..02b4a7fc016e 100644
+> --- a/arch/arm64/include/asm/el2_setup.h
+> +++ b/arch/arm64/include/asm/el2_setup.h
+> @@ -279,6 +279,20 @@
+>  	orr	x0, x0, #HDFGRTR2_EL2_nPMICFILTR_EL0
+>  	orr	x0, x0, #HDFGRTR2_EL2_nPMUACR_EL1
+>  .Lskip_pmuv3p9_\@:
+> +	mrs	x1, id_aa64dfr0_el1
+> +	ubfx	x1, x1, #ID_AA64DFR0_EL1_PMSVer_SHIFT, #4
+> +	/* If SPE is implemented, */
+> +	cmp	x1, #ID_AA64DFR0_EL1_PMSVer_IMP
+> +	b.lt	.Lskip_spefds_\@
+> +	/* we can read PMSIDR and */
+> +	mrs_s	x1, SYS_PMSIDR_EL1
+> +	and	x1, x1,  #PMSIDR_EL1_FDS
+> +	/* if FEAT_SPE_FDS is implemented, */
+> +	cbz	x1, .Lskip_spefds_\@
+> +	/* disable traps to PMSDSFR. */
+> +	orr	x0, x0, #HDFGRTR2_EL2_nPMSDSFR_EL1
 
-Remove them from bindings.
+Why is this being done here rather than alongside the existing SPE
+configuration of HDFGRTR_EL2 and HDFGWTR_EL2 near the start of
+__init_el2_fgt?
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Signed-off-by: Raphael Gallais-Pou <rgallaispou@gmail.com>
-
----
-Changes in v2:
-- Added Krzysztof's acked-by
-- Put this patch last to get a bisectable series
----
- Documentation/devicetree/bindings/arm/sti.yaml | 4 ----
- 1 file changed, 4 deletions(-)
-
-diff --git a/Documentation/devicetree/bindings/arm/sti.yaml b/Documentation/devicetree/bindings/arm/sti.yaml
-index 842def3e3f2bce470763d3665c7603b9058b1e4e..177358895fe1c9f80f8c825142cf015d04286ce8 100644
---- a/Documentation/devicetree/bindings/arm/sti.yaml
-+++ b/Documentation/devicetree/bindings/arm/sti.yaml
-@@ -14,12 +14,8 @@ properties:
-     const: '/'
-   compatible:
-     oneOf:
--      - items:
--          - const: st,stih407-b2120
--          - const: st,stih407
-       - items:
-           - enum:
--              - st,stih410-b2120
-               - st,stih410-b2260
-           - const: st,stih410
-       - items:
-
--- 
-2.50.1
-
+Will
 
