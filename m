@@ -4,66 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04ECBC83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 07:54:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC410C83F1B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 07:57:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vKBrsnVS6ESCJZGI5RMdRp2cdl53npmsWzq9LRe1fPY=; b=zMAZbHvNB7zt2pVsvp6rHlfAJr
-	JCYyAWPaPMcQWpXsbm6GNy708005CJ/LmbtU6iSLirpmNZHvm4GH14GNHTTbHyjP/3m7C20LsocLW
-	3jdaM3hZ6JwrbiXiCHTEdNr73pQISbdO8ke3Q3I3s1SD0RWcFR9gJnp2gN0kjusSqtrSGfoJcjV/B
-	e2ll0DzewqyTdzJVOw/3gslO9TTqc/iHz/vmph6kvrfbzIa9C6m+5ojss7yVeObiz+rzRTueftdRj
-	a6mlx8jk+hiDkTjt0uUyvmCsNqRNZYTjI6DfgIY4Q4xXn/30o3ONcfctRKWIy+Sl/X5CqDl+glsgH
-	cJVGvJ4w==;
+	bh=dvXKz/E9SZxBWQpFeVDtddrzB1CFtBXseJOLQ0jG35c=; b=fwX/nWvp/5sLp7jdEOTVnI/lep
+	lw1g77BtHkg7zClUSU7M/kOqMCc/SQWYsv+miwP2Tncz2dUxngOi/YKtlk2Id1zsgRHPWmK6oGA09
+	zow4+btoZ0grGf4BtYXvG1QJ+3yt9d/TwXXMOmSRJwX15MZ0/lEliammMEQMZHGEaz7fooVQI3riC
+	JXHgc9SDG3pSGo7OCwLyQteG9OffZ+xIO+iNnlUsZrmcDlhIM3XZfs3HGVI6DWrNf3lxjnY+sk/iq
+	ylRrnIJXK6XycIOHUiVsR2ORRcAhUU9VKfAw8ZZf3j+McGRL0krP4Q6QQsHpbOx/mK9EVfw8AZq6G
+	L3oyqWyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubE1V-00000001X6F-2HWu;
-	Mon, 14 Jul 2025 07:54:53 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1ubE3u-00000001Xat-1Ben;
+	Mon, 14 Jul 2025 07:57:22 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubDmd-00000001Uvy-3ZTE;
-	Mon, 14 Jul 2025 07:39:33 +0000
+	id 1ubDoZ-00000001V8x-0ulE;
+	Mon, 14 Jul 2025 07:41:31 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 10F5CA530A7;
-	Mon, 14 Jul 2025 07:39:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 44792C4CEED;
-	Mon, 14 Jul 2025 07:39:26 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 3BE0B60053;
+	Mon, 14 Jul 2025 07:41:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8AA89C4CEED;
+	Mon, 14 Jul 2025 07:41:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752478770;
-	bh=isH+LNOSuSMjjTwgNJb2F7KxIlurX0tYxz+h39DW+Pc=;
+	s=k20201202; t=1752478889;
+	bh=c5oXUnZQjWluCTOADuJWO/SA6yL+BgCzjJwJnzdWKSs=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=AOD/KYobuLtBzyTbgiLp2pSrxVLtnp6Hhh49MCaM6g4HZNQpxAwHJJSvcdca3M8AM
-	 wyrlyS2GtsoYLpjaQTq27xjyrs/Fs2hH/GFIDdHFu4k4QYbnxGUxlofgPu16Ijlvle
-	 240zI9WDPWsPokYVvJ7try3I/M0yGgAqX0WJ3jjmyF5GxBeXrCeqfnumtiRFp9oKcT
-	 zGKFFJI4makuzZoLOBWuODbyFzGSerXiT9lox9wgLA/9oEERYx24rRUxLh+DCBXCIJ
-	 Mdc3y6VktUZKbE9Bn7OPaqXv285Yl7ryOXRmsU7Uu0OQWU9ZE1fRFElySSVdL2jQ/R
-	 ogqeu3NDl2wZQ==
-Message-ID: <623a647b-806a-4324-9c59-fcad3127f906@kernel.org>
-Date: Mon, 14 Jul 2025 09:39:24 +0200
+	b=mU2U9pudA34L6ZiTZwOpRWNtYJ3H1Y338t0tS3T2N+/32adGBbSvved1vdIhlaAm2
+	 hdXHQn2O5WQ7vQonLFtzgq0eC6zO3RkW3X306xPNlRrNzBoJO42EqCzPLIY9K9ziiX
+	 yPp91In6NmyCz7sXvzLyhngebYvySBmBCM6zb9YvxQLMg19lkGHMS2tlBRYJoii+yP
+	 Xslz+zQYBbUqU5WfdaiBxmxQp4A8fCzBQByjxLQorqKTmiKvpCtciwiGb+vC/h5rhb
+	 ltq9zxtpG+etPqq8eckfTsjxSnAEAFCZnBxL1jDlmJIXGfiimOrVMYn79ZjBrFsOpL
+	 3NEGgifh0eXSw==
+Message-ID: <222133f7-9483-4e4b-b3fe-90e2e830fcf6@kernel.org>
+Date: Mon, 14 Jul 2025 09:41:16 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v2 2/7] net: airoha: npu: Add NPU wlan memory
- initialization commands
-To: Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+Subject: Re: [PATCH v8 02/16] dt-bindings: net: mediatek,net: allow up to 8
+ IRQs
+To: frank-w@public-files.de,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Frank Wunderlich <linux@fw-web.de>
+Cc: MyungJoo Ham <myungjoo.ham@samsung.com>,
+ Kyungmin Park <kyungmin.park@samsung.com>,
+ Chanwoo Choi <cw00.choi@samsung.com>, Georgi Djakov <djakov@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Andrew Lunn <andrew@lunn.ch>,
+ Vladimir Oltean <olteanv@gmail.com>, "David S. Miller"
  <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
  Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, Simon Horman <horms@kernel.org>,
- Felix Fietkau <nbd@nbd.name>
-References: <20250705-airoha-en7581-wlan-offlaod-v2-0-3cf32785e381@kernel.org>
- <20250705-airoha-en7581-wlan-offlaod-v2-2-3cf32785e381@kernel.org>
- <20250707-agile-aardwolf-of-politeness-29fead@krzk-bin>
- <aGt2L1e3xbWVoqOO@lore-desk>
- <679e6fd2-967f-4057-9ccd-92a37ecc4819@kernel.org>
- <aGvmoJ83EtYOIa0K@lore-desk>
- <904d1165-185e-43ac-9b52-a2f17f774e80@kernel.org>
- <aGzJ1vFufzBts_yG@lore-desk>
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ Johnson Wang <johnson.wang@mediatek.com>, =?UTF-8?B?QXLEsW7DpyDDnE5BTA==?=
+ <arinc.unal@arinc9.com>, Landen Chao <Landen.Chao@mediatek.com>,
+ DENG Qingfang <dqfext@gmail.com>, Sean Wang <sean.wang@mediatek.com>,
+ Daniel Golle <daniel@makrotopia.org>, Lorenzo Bianconi <lorenzo@kernel.org>,
+ Felix Fietkau <nbd@nbd.name>, linux-pm@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org
+References: <20250706132213.20412-1-linux@fw-web.de>
+ <20250706132213.20412-3-linux@fw-web.de>
+ <20250707-modest-awesome-baboon-aec601@krzk-bin>
+ <B875B8FF-FEDB-4BBD-8843-9BA6E4E89A45@fw-web.de>
+ <90a3191f-882d-4302-afd5-e73e751b5b95@collabora.com>
+ <9696BB13-9D1E-48D3-B323-03AD23110CF5@public-files.de>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -109,12 +118,9 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <aGzJ1vFufzBts_yG@lore-desk>
+In-Reply-To: <9696BB13-9D1E-48D3-B323-03AD23110CF5@public-files.de>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250714_003932_027206_7FE717A0 
-X-CRM114-Status: GOOD (  13.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,36 +135,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 08/07/2025 09:33, Lorenzo Bianconi wrote:
+On 07/07/2025 12:43, Frank Wunderlich wrote:
+> Hi Angelo,
 > 
->>
->>> posted net-next patches as preliminary ones for MT76 changes).
->>> Moreover, this is the same approach we used when we added WED support to
->>> mtk_eth_soc driver and the related MT76 support.
->>> However, I am fine to post the MT76 changes as RFC and just refer to it in
->>> this series cover-letter. Agree? 
->>>
+> Am 7. Juli 2025 12:06:02 MESZ schrieb AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>:
+>> Il 07/07/25 09:30, Frank Wunderlich ha scritto:
+>>> Am 7. Juli 2025 08:31:11 MESZ schrieb Krzysztof Kozlowski <krzk@kernel.org>:
+>>>> On Sun, Jul 06, 2025 at 03:21:57PM +0200, Frank Wunderlich wrote:
+>>>>> From: Frank Wunderlich <frank-w@public-files.de>
+>>>>>
+>>>>> Increase the maximum IRQ count to 8 (4 FE + 4 RSS/LRO).
 >>>>
->>>> So far I see ABI break, but without user cannot judge. And that's the
->>>> hard reason this cannot be accepted.
+>>>> Because? Hardware was updated? It was missing before?
 >>>
->>> if you mean the dts changes, I will fix them in v3.
+>>> There is no RSS support in driver yet,so IRQs were not added to existing DTS yet.
 >>>
->> No, I mean driver.
+>>
+>> That's the problem. It's the hardware that you should've described, not the driver.
+>>
+>> In short, you should've allowed the interrupts from the get-go, and you wouldn't
+>> be in this situation now :-)
 > 
-> Sorry, can you please explain what is the ABI break in the driver codebase?
-> airoha_npu_wlan_init_memory() is executed by MT76 driver and not during NPU
-> probe phase.
+> I have not upstreamed MT7981 or MT7986. I also do not want to say anybody else did this wrong.
+> I'm happy that MT7986 is working in mainline. It was basicly not taken into account that these IRQs may be needed in future.
 > 
+> The technical documents are often not complete and we get some information step-by-step while testing.
+> Or it was not seen when documents are too large :) many reasons why it was "forgotten to add".
+> We use what we get from sdk and docs and try to make it compatible with mainline....no optimal process,but it is like it is.
 
-Read the first problem I pointed out - no user. Your new ABI returns
-error and you changed binding in incompatible way.
 
-Binding change is ABI break and its impact is impossible to judge due to
-missing code. I am speaking about this since beginning, but if you keep
-insisting that the driver does not matter then this is a NAK because you
-change ABI in the binding.
+Then explain in the commit msg that hardware description was incomplete
+and was missing this and that.
 
+This is the valid reason for doing the change.
 
 Best regards,
 Krzysztof
