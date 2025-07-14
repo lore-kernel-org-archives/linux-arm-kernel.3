@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBA34C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 18:50:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D30A1C83F2E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 18:50:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lzWaCHnho2bMyMzPaPLKOwqgDp5H9X/Keu6ZixtPxUE=; b=ukiktQm/wVkX8TCeQOaPzWr9jZ
-	hOA8Fsx31YwtOyTxHesmAL9KMxP0fn1dU43zHScQF2kCkAZ2Kepl9PseQ+mOL+zSt8Dme4IZOZV14
-	KB2fufqSD6e7+xlj3usrPDLYpUwbzacjZ6a0gwYdtezBD3XR2aCfDPVXRdUmbGIGg2pWPYdYGVlN+
-	yNFtUCg5gMoo7czs1d3VFjeclRbHahLYTM/iUHbl6lTEdpahnTiQpXFi/BmSKSacv+rtPYMD9DGzd
-	6GpaOVfi0ZT6bQh8+NDi+YML+FgWZFFNF/Oxz7EciBAek5hBh2mYKvEZuO1roRnoDa0/WEvsBwxCa
-	AkNsoxXQ==;
+	bh=IasJyxSkXshcO+VKhSMBxmefFShzlgMTav2anEQ/+mw=; b=OiO9E2L5RkwQ9W8A+h74m96M97
+	X98b4xALZMcaVR4SNW4o1iD1zjL9d4lcPP36wCxfAafG/CLMXw1Hdr4rVFhcQDK60k47O8PDXo8SL
+	oEDigpQ021T6C/Oje3hWlyWzEV2SWwvetO0QDKsfm3xiBvHcW8ZoI18w4/fxN+dWppsYYIYUB27Tu
+	Hwj2mD3HanaXxTZuvVFZA0eh6QhIAKMA+xnMB6QLbVrSTIzmM4IhdEojjnqDoS7yixR51dN/e+E2d
+	f9ey0RPG1Ls1VzQHLTAcQbrsbEBE0CL/rIkSywJUIUGGb6ZtGIyozxq8mGo4TPze08MnyeqquuMca
+	/45HST0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubOFa-0000000346h-3QE4;
-	Mon, 14 Jul 2025 18:50:07 +0000
+	id 1ubOFc-00000003494-1W70;
+	Mon, 14 Jul 2025 18:50:08 +0000
 Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubMAx-00000002qj0-2ayC
+	id 1ubMAz-00000002qjr-0WsF
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Jul 2025 16:37:13 +0000
+	Mon, 14 Jul 2025 16:37:14 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1752511031; x=1784047031;
+  t=1752511033; x=1784047033;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=tTBbCPNjh3kndWKdQLLOC9WO7P6uncnMXrl9fKN6diI=;
-  b=M0dD65X53D7YKq5Z5hKnxOaSv0TwsmDAsoNQGOJBMSaxmYuP2O3HOVUW
-   wGguN8SR0/oxcU49PddK2bsAbThHFlFRvqUCTtkOjrZKy1ygRAgtEuI0r
-   XyXtQ8u1EXyp+TGtE616ZznSeZVscsOjvz7zVaVeAGWysKq6Dns+OR/CB
-   olKD6KZ596ubltWrh1hHnpLVQNYagF7OfWqhA4RB+okD0uQkFvXOamNy4
-   f/7MBaki6CJJsfP0whFcZbq5sqiCHB2oKgRJXapWOrr1R5rvrCmOx4GDz
-   JvGxwIThFjU5ge8g9oMDlyjCsv84PZuMPsAaAww/aNULGFzeXoMWw1/LR
-   A==;
+  bh=yReikR58Lp8W/7OGiLE+dcPuXMVnnclT1LFvehcRPsU=;
+  b=dNIbFwJZ6ycZwk9Z7bDsWi2MG0+LfvUf0P9BEooVXbXTE6kJ2Yf2WeNL
+   Hmjxj5XAmjIlnmJlEgb4UNKtUfHE3r/Z4moiZCVPBPP+mnHKshERoU6+g
+   5wGendWgyX3W084grwWFlfDEMufzO9WU9sBdp64aefDwn+W1evqYkI/EE
+   Sc550QfeSO/DX+i1YxpovxX69shp8hhOC2uVGG8F52j9WXHF9Recp5khX
+   kmZd3lJrRU4WDzFRJYGxPX9bEAI9f0wr7x0MBCipO2z+H/gqoo3/dvKbt
+   U2YeCzhxEze8pGO1koSybqaXu1+EzM6izSIEa2JR/iklzKo+kSap79yrb
+   g==;
 X-CSE-ConnectionGUID: hBq1ljEWSkqL674rDMJkcA==
-X-CSE-MsgGUID: ImMng/ZlRaCQ7+lJv5BLcQ==
+X-CSE-MsgGUID: iEPb35OVRjOOUiIF1VgRIw==
 X-IronPort-AV: E=Sophos;i="6.16,311,1744095600"; 
-   d="scan'208";a="211399321"
+   d="scan'208";a="211399323"
 X-Amp-Result: SKIPPED(no attachment in message)
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 14 Jul 2025 09:37:09 -0700
+  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 14 Jul 2025 09:37:10 -0700
 Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
  chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
@@ -61,11 +61,10 @@ To: <andrew+netdev@lunn.ch>, <davem@davemloft.net>, <edumazet@google.com>,
 	<alexandre.belloni@bootlin.com>, <claudiu.beznea@tuxon.dev>
 CC: <netdev@vger.kernel.org>, <devicetree@vger.kernel.org>,
 	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>, "Ryan
- Wanner" <Ryan.Wanner@microchip.com>, Conor Dooley
-	<conor.dooley@microchip.com>
-Subject: [PATCH v2 1/5] dt-bindings: net: cdns,macb: Add external REFCLK property
-Date: Mon, 14 Jul 2025 09:36:59 -0700
-Message-ID: <d558467c4d5b27fb3135ffdead800b14cd9c6c0a.1752510727.git.Ryan.Wanner@microchip.com>
+ Wanner" <Ryan.Wanner@microchip.com>
+Subject: [PATCH v2 2/5] net: cadence: macb: Expose REFCLK as a device tree property
+Date: Mon, 14 Jul 2025 09:37:00 -0700
+Message-ID: <7f9b65896d6b7b48275bc527b72a16347f8ce10a.1752510727.git.Ryan.Wanner@microchip.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <cover.1752510727.git.Ryan.Wanner@microchip.com>
 References: <cover.1752510727.git.Ryan.Wanner@microchip.com>
@@ -73,8 +72,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250714_093711_900173_29E9290B 
-X-CRM114-Status: GOOD (  10.17  )
+X-CRM114-CacheID: sfid-20250714_093713_229606_3F6A199D 
+X-CRM114-Status: GOOD (  13.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,35 +90,46 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Ryan Wanner <Ryan.Wanner@microchip.com>
 
-REFCLK can be provided by an external source so this should be exposed
-by a DT property. The REFCLK is used for RMII and in some SoCs that use
-this driver the RGMII 125MHz clk can also be provided by an external
-source.
+The RMII and RGMII can both support internal or external provided
+REFCLKs 50MHz and 125MHz respectively. Since this is dependent on
+the board that the SoC is on this needs to be set via the device tree.
+
+This property flag is checked in the MACB DT node so the REFCLK cap is
+configured the correct way for the RMII or RGMII is configured on the
+board.
 
 Signed-off-by: Ryan Wanner <Ryan.Wanner@microchip.com>
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- Documentation/devicetree/bindings/net/cdns,macb.yaml | 7 +++++++
+ drivers/net/ethernet/cadence/macb_main.c | 7 +++++++
  1 file changed, 7 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/net/cdns,macb.yaml b/Documentation/devicetree/bindings/net/cdns,macb.yaml
-index 8d69846b2e09..e69f60c37793 100644
---- a/Documentation/devicetree/bindings/net/cdns,macb.yaml
-+++ b/Documentation/devicetree/bindings/net/cdns,macb.yaml
-@@ -114,6 +114,13 @@ properties:
-   power-domains:
-     maxItems: 1
+diff --git a/drivers/net/ethernet/cadence/macb_main.c b/drivers/net/ethernet/cadence/macb_main.c
+index d1f1ae5ea161..9ebe1062b359 100644
+--- a/drivers/net/ethernet/cadence/macb_main.c
++++ b/drivers/net/ethernet/cadence/macb_main.c
+@@ -4109,8 +4109,12 @@ static const struct net_device_ops macb_netdev_ops = {
+ static void macb_configure_caps(struct macb *bp,
+ 				const struct macb_config *dt_conf)
+ {
++	struct device_node *np = bp->pdev->dev.of_node;
++	bool refclk_ext;
+ 	u32 dcfg;
  
-+  cdns,refclk-ext:
-+    type: boolean
-+    description:
-+      This selects if the REFCLK for RMII is provided by an external source.
-+      For RGMII mode this selects if the 125MHz REF clock is provided by an external
-+      source.
++	refclk_ext = of_property_read_bool(np, "cdns,refclk-ext");
 +
-   cdns,rx-watermark:
-     $ref: /schemas/types.yaml#/definitions/uint32
-     description:
+ 	if (dt_conf)
+ 		bp->caps = dt_conf->caps;
+ 
+@@ -4141,6 +4145,9 @@ static void macb_configure_caps(struct macb *bp,
+ 		}
+ 	}
+ 
++	if (refclk_ext)
++		bp->caps |= MACB_CAPS_USRIO_HAS_CLKEN;
++
+ 	dev_dbg(&bp->pdev->dev, "Cadence caps 0x%08x\n", bp->caps);
+ }
+ 
 -- 
 2.43.0
 
