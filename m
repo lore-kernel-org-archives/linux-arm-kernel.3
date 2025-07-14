@@ -4,76 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68446C83F1B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 13:38:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93E22C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 13:41:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=47bHO58vgJ57qoX7LfobNf05gWeEK8YWrZPwsxwYZuA=; b=XbtUg+rdWdYxAMvnQ/qa30SIWk
-	LBG8lV+DUF8DieZZkUgeH/05BAyim3/0S4f3smBITkKOyo5mPSjIRuQ00TMvw26wzu5buW1ZTa2kO
-	NYNhb/BeVMTh8eGZB7HB4aSFfUu/jfIY16jh4VjBm1UvTXsFap2lKJen4JIkiZZfdKVooQZOsQRee
-	2c6EreBatN29gsIucX4Bd4n2QEa+CF0H5tMSiN6d2tD8UUGbYa4+p84ZcEh4451aJXCsjyZX4w7OD
-	ozPlKk9MMoVM3psbzY96M2qNJ0eZcWiFcpPUEYzI8/syQqqapdJ8NUYjic+BvPgrF1BYC4cJ9EGWh
-	gXijpUNg==;
+	bh=rkKA5JFXkaqeIgKnZeTRvq/H+eMfFQ7tSAFHadzv+i4=; b=vaQJzAe0qTfxLASnPGx8XLXfur
+	TpAAl4OwThYsb4IHFKu+xpPMdzT4WafsZo9if87RFinIQltBvQD5Vrf0yz1iCuu3wI7asJxuD7PmJ
+	3J0Gt/lBDDsqEOnbrkj/m4zN5bspTQycliwn75ubMcSB4a+uwI6P5FtVqODQauVqAKHeJv34fHOg1
+	MOa2HFOfnqhtxZiJFxVICJzarykBEsT6amvMpqnRkAWKe3cZl5/zQjqpYnSfDQlvemTvIz8GKWIwX
+	CE6uaHXE5j7INFC9zwXALkeUyNpbeMYlrr6EZathUUKL2SQB+pNvuo96S0/cO09fv7SylunJ4alG9
+	jvwzp1YA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubJOB-00000002KOo-1Dg3;
-	Mon, 14 Jul 2025 13:38:39 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1ubJQc-00000002L0g-0DQU;
+	Mon, 14 Jul 2025 13:41:10 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubJIU-00000002JIf-1qZN
+	id 1ubJKc-00000002JgS-0iRN
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Jul 2025 13:32:47 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id B4889A56F57;
-	Mon, 14 Jul 2025 13:32:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7BCD2C4CEF6;
-	Mon, 14 Jul 2025 13:32:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752499965;
-	bh=zYLFg0UGybuPu0kCXHDSNl+grvOFE2zIo70Nf4XZjj4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=touKXH+Qb7rjyg66pw1fVCbvQAzWsmxh7egKqLtOjYEBZTBcu2FM0jsxz01I+6I+W
-	 qpx2dBxkQUHNwnTr8g1wySB0VzzJkWQ1HkEjzP4H8qQMlmS3GYAOFlQtFBEfgwfD7f
-	 h9qKA82Xbb2GMrrQe4yEps7c9OUXrT0CB4zDSq9VuSMxBa2jpXnFQy32+n0EtlT9Rx
-	 vR8aRyRhZVeIpSYKNV9CsRLZMcKy721QXGwV6BIr/1tB5qXF4dJDGrsZ3FEHOGaUbF
-	 51B6L3i/YubBnIfdXnO/Z1yeEBc84d8Fn4m5sKHweSjgXUhqzUH/jqTes+x+lxunU9
-	 cvDEhaNXyyZyA==
-Date: Mon, 14 Jul 2025 14:32:37 +0100
-From: Will Deacon <will@kernel.org>
-To: James Clark <james.clark@linaro.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>, leo.yan@arm.com,
+	Mon, 14 Jul 2025 13:34:59 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=rkKA5JFXkaqeIgKnZeTRvq/H+eMfFQ7tSAFHadzv+i4=; b=qPYqJaoStTW6WZY8E3xsfppAcV
+	GciwfhUoAIxtaUx5hRVyOQZL595Nutl12IeZGQ+2QwMLot/GFSllOAsMkFzzwfSJiTKTwqNREFIWM
+	u1tdKdG9gNKJ9cvGzr99Z+DlXIe3rzBruOF4Hcro7UHi3k4oDscE48rIsYpUmNuaWcqU=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1ubJKR-001SkI-Ao; Mon, 14 Jul 2025 15:34:47 +0200
+Date: Mon, 14 Jul 2025 15:34:47 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: rohan.g.thomas@altera.com
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Serge Semin <fancer.lancer@gmail.com>,
+	Romain Gantois <romain.gantois@bootlin.com>, netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-perf-users@vger.kernel.org, linux-doc@vger.kernel.org,
-	kvmarm@lists.linux.dev
-Subject: Re: [PATCH v3 01/10] arm64: sysreg: Add new PMSFCR_EL1 fields and
- PMSDSFR_EL1 register
-Message-ID: <aHUG9bVy9pdwfumh@willie-the-truck>
-References: <20250605-james-perf-feat_spe_eft-v3-0-71b0c9f98093@linaro.org>
- <20250605-james-perf-feat_spe_eft-v3-1-71b0c9f98093@linaro.org>
+	Matthew Gerlach <matthew.gerlach@altera.com>
+Subject: Re: [PATCH net-next 1/3] net: stmmac: xgmac: Disable RX FIFO
+ Overflow interrupts
+Message-ID: <bef4d761-8909-4f90-8822-8c344291cb93@lunn.ch>
+References: <20250714-xgmac-minor-fixes-v1-0-c34092a88a72@altera.com>
+ <20250714-xgmac-minor-fixes-v1-1-c34092a88a72@altera.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250605-james-perf-feat_spe_eft-v3-1-71b0c9f98093@linaro.org>
+In-Reply-To: <20250714-xgmac-minor-fixes-v1-1-c34092a88a72@altera.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250714_063246_536959_FF956C5C 
-X-CRM114-Status: GOOD (  11.60  )
+X-CRM114-CacheID: sfid-20250714_063458_209452_EB806899 
+X-CRM114-Status: GOOD (  19.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,18 +78,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 05, 2025 at 11:48:59AM +0100, James Clark wrote:
-> Add new fields and register that are introduced for the features
-> FEAT_SPE_EFT (extended filtering) and FEAT_SPE_FDS (data source
-> filtering).
+On Mon, Jul 14, 2025 at 03:59:17PM +0800, Rohan G Thomas via B4 Relay wrote:
+> From: Rohan G Thomas <rohan.g.thomas@altera.com>
 > 
-> Tested-by: Leo Yan <leo.yan@arm.com>
-> Signed-off-by: James Clark <james.clark@linaro.org>
+> Enabling RX FIFO Overflow interrupts is counterproductive
+> and causes an interrupt storm when RX FIFO overflows.
+> Disabling this interrupt has no side effect and eliminates
+> interrupt storms when the RX FIFO overflows.
+> 
+> Commit 8a7cb245cf28 ("net: stmmac: Do not enable RX FIFO
+> overflow interrupts") disables RX FIFO overflow interrupts
+> for DWMAC4 IP and removes the corresponding handling of
+> this interrupt. This patch is doing the same thing for
+> XGMAC IP.
+> 
+> Signed-off-by: Rohan G Thomas <rohan.g.thomas@altera.com>
+> Reviewed-by: Matthew Gerlach <matthew.gerlach@altera.com>
+
+Please take a read of:
+
+https://www.kernel.org/doc/html/latest/process/maintainer-netdev.html
+
+This appears to be a fixed, so the Subject: line should indicate this.
+Please also include a Fixes: tag, and Cc: stable.
+
 > ---
->  arch/arm64/tools/sysreg | 13 +++++++++++--
->  1 file changed, 11 insertions(+), 2 deletions(-)
+>  drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c | 4 ----
+>  1 file changed, 4 deletions(-)
+> 
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c
+> index 5dcc95bc0ad28b756accf9670c5fa00aa94fcfe3..7201a38842651a865493fce0cefe757d6ae9bafa 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c
+> @@ -203,10 +203,6 @@ static void dwxgmac2_dma_rx_mode(struct stmmac_priv *priv, void __iomem *ioaddr,
+>  	}
+>  
+>  	writel(value, ioaddr + XGMAC_MTL_RXQ_OPMODE(channel));
+> -
+> -	/* Enable MTL RX overflow */
+> -	value = readl(ioaddr + XGMAC_MTL_QINTEN(channel));
+> -	writel(value | XGMAC_RXOIE, ioaddr + XGMAC_MTL_QINTEN(channel));
 
-Acked-by: Will Deacon <will@kernel.org>
+What is the reset default? Would it make sense to explicitly disable
+it, rather than never enable it? What does 8a7cb245cf28 do?
 
-Will
+    Andrew
+
+---
+pw-bot: cr
+
+
 
