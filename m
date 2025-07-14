@@ -4,67 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E25F7C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 21:27:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D41ACC83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 21:33:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qggdjPd0uCxL6yB0E8Ml7RKhraXV+K7ax0wriGHEiGQ=; b=mV2Rx3VV8LJxt58dmCc4jgODCA
-	NWzHIc4dHIs1jFXUpalCm0ud7PWr/wRl8fovbGLvBwGDKblqNfMQux3afreHVDeMa/V07L4X3jLMM
-	/3XhKs7pcUOPgQBa/BzIbm4gc/HFTKtibD3lKH+73w++ceoIZ7bIwX3FOPwLVDvia9VGpy+jjy+Ov
-	3uUdzYPsuetfk5HoCt33CfR7+kb8EODbcFHMWBe4HYWCfuOg3+OOdtMMuO+UWWVj4N9a4OQBoV2TM
-	xrGckhDxz/yuRJs3CpWOrYmcCcAHH+JDbZuI4KIlkIRfVY5iyylyFtkKvtSImkLz4U8XWJ+sFxvde
-	nq+CU/8A==;
+	bh=LdQ7wO/JRGgWx4qUXQxXpyLZ2vVfBTl337MYXCiXXn4=; b=PDuqw1lQHZZyRlNfMhjPBRigfN
+	7gvVoSMTfjbQUevvaxwhVIwRmDKGHyeDcehTXQwBfoQxSHF99snWuYTQTV1Pu3igKxd+rdpPS52d4
+	flCfTFo0FrZqqnjMOyMJgTTMMAC0d3ECEpuhbjEqTG2G+IPpduIok9qGj/7klIiR5PiWm7qKPtjtu
+	PUCZQg0Q+5ajvofIJQiFhx3XLPFUEIxw7l4kG030zr9Cguzo36MpTQusnkJaGjqy3bcLFxKBVmAUu
+	gSJ7g75+I5hBQLpviSK6WOCrNucEfMr0z3c8FyaJP7F4MRjT9OyafjKU+3P6Yp93jTXJo7Cc7PAEO
+	6YVixoig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubQi7-00000003JEk-2HgC;
-	Mon, 14 Jul 2025 21:27:43 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1ubQnO-00000003JhD-2TMy;
+	Mon, 14 Jul 2025 21:33:10 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubQfg-00000003IsY-0Uxl
+	id 1ubQkx-00000003JaS-1sRY
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Jul 2025 21:25:13 +0000
+	Mon, 14 Jul 2025 21:30:40 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C835744543;
-	Mon, 14 Jul 2025 21:25:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8367EC4CEED;
-	Mon, 14 Jul 2025 21:25:11 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id D7B71A573EF;
+	Mon, 14 Jul 2025 21:30:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D6178C4CEED;
+	Mon, 14 Jul 2025 21:30:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752528311;
-	bh=b9BS5SuhpnpfhpBqkFecFWoYS4AXrJnOWQBm51fbwPQ=;
+	s=k20201202; t=1752528637;
+	bh=aVMDG6JzIpk4Eo+Pl5FCirxkYzovLZhgl/i7XFV8zEc=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=DrCtW2o+Cg3AuKLuivXpz0UEOzfwogaMgn7S68rRCsQlX91c2avHcF1JrOgrv8K3u
-	 7lIAEMPSBknsrpvrS7ekAEwSanvLX++uC6606gbo274AndqbjXFM8NXSvFlPFKZRgL
-	 DfiVARwSFHEWyOadeF89Eb6DHAK1U2zl+fKVshYLjQhfXWXFd6zpKKHPHPryl061wg
-	 WXzNDzDmSXlsv92BLtmZOM5a2R65b2MO17gC1clN6RdPPV2tZraahe7ueS+O+mL9A1
-	 VvrcQJenJWeQvxFz6vkfmfcJsUyfe+81U0vokSzWuBIBmo0BKiGxdX4izDNJPUaRLA
-	 2CFNOOIQTQXuQ==
-Date: Mon, 14 Jul 2025 16:25:10 -0500
-From: Rob Herring <robh@kernel.org>
-To: Daniel Scally <dan.scally@ideasonboard.com>
-Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, Anthony.McGivern@arm.com,
-	jacopo.mondi@ideasonboard.com, nayden.kanchev@arm.com,
-	mchehab@kernel.org, krzysztof.kozlowski+dt@linaro.org,
-	conor+dt@kernel.org, jerome.forissier@linaro.org,
-	kieran.bingham@ideasonboard.com, laurent.pinchart@ideasonboard.com,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: Re: [PATCH v11 07/19] dt-bindings: media: Add bindings for ARM
- mali-c55
-Message-ID: <20250714212510.GA3193902-robh@kernel.org>
-References: <20250714-c55-v11-0-bc20e460e42a@ideasonboard.com>
- <20250714-c55-v11-7-bc20e460e42a@ideasonboard.com>
+	b=fv8PUTR1NHH8rdlrIjssAdpWfw5mwtJ5DNRFbgoL21MHikLHTctDgj9m0l+s1TTfJ
+	 3BVuVhpqRyhET2DfZzstugtlJYK+gTnoH0jlrdmr4aw+TXw8qUcvWxXdhdtzuVqADS
+	 gAAIaJdjfQj8CBTI2HWzg77kqTUNtE3t2Jyq8cFjOcq1zWCXB3OFqr1/XpErYaA9xZ
+	 iccXCBDDcU1nFwRBlALl/HO7lhlehm3BVg9R+f5dEVGTatn44j2PCIhstp2YGdFgtV
+	 w5VUxZHUlkklM4rw6xqa4wDxGZEMEqYc9FFQL0F36x7Q4fhf63uOmQbpJGBi8jIXuU
+	 7x4FxFWjww8SQ==
+Date: Mon, 14 Jul 2025 23:30:33 +0200
+From: Andi Shyti <andi.shyti@kernel.org>
+To: Jian Zhang <zhangjian.3032@bytedance.com>
+Cc: Ryan Chen <ryan_chen@aspeedtech.com>, 
+	Benjamin Herrenschmidt <benh@kernel.crashing.org>, Joel Stanley <joel@jms.id.au>, 
+	Andrew Jeffery <andrew@codeconstruct.com.au>, linux-i2c@vger.kernel.org, openbmc@lists.ozlabs.org, 
+	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] i2c: aspeed: change debug level in irq handler
+Message-ID: <bhgxk2qopxguthrismqwif4d7xiqals7kwqq2nxvioxr7wriib@b5ee654pfxnm>
+References: <20250618102148.3085214-1-zhangjian.3032@bytedance.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250714-c55-v11-7-bc20e460e42a@ideasonboard.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250618102148.3085214-1-zhangjian.3032@bytedance.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250714_142512_174126_F63AAA37 
-X-CRM114-Status: GOOD (  12.64  )
+X-CRM114-CacheID: sfid-20250714_143039_556118_3E929252 
+X-CRM114-Status: GOOD (  15.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,32 +74,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 14, 2025 at 04:06:33PM +0100, Daniel Scally wrote:
-> Add the yaml binding for ARM's Mali-C55 Image Signal Processor.
+Hi Jian,
+
+On Wed, Jun 18, 2025 at 06:21:48PM +0800, Jian Zhang wrote:
+> In interrupt context, using dev_err() can potentially cause latency
+> or affect system responsiveness due to printing to console.
 > 
-> Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> Acked-by: Nayden Kanchev <nayden.kanchev@arm.com>
-> Co-developed-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-> Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-> Signed-off-by: Daniel Scally <dan.scally@ideasonboard.com>
-> ---
-> Changes in v11:
+> In our scenario, under certain conditions, i2c1 repeatedly printed
+> "irq handled != irq. expected ..." around 20 times within 1 second.
+> Each dev_err() log introduced approximately 10ms of blocking time,
+> which delayed the handling of other interrupts — for example, i2c2.
 > 
-> 	- Dropped in arm,inline_mode property. This is now identical to the
-> 	  reviewed version 8, so I have kept the tags on there.
+> At the time, i2c2 was performing a PMBus firmware upgrade. The
+> target device on i2c2 was time-sensitive, and the upgrade protocol
+> was non-retryable. As a result, the delay caused by frequent error
+> logging led to a timeout and ultimately a failed firmware upgrade.
+> 
+> Frequent error printing in interrupt context can be dangerous,
+> as it introduces latency and interferes with time-critical tasks.
+> This patch changes the log level from dev_err() to dev_dbg() to
+> reduce potential impact.
 
-[...]
+this change doesn't fix any issue. This might improve it in your
+system because maybe your printing level does not include debug
+messages. But if you increase the printing level you would
+immediately fall into this same issue.
 
-> +  arm,inline_mode:
-> +    description:
-> +      The ISP can be either electrically connected to sensor and CSI-2 receiver
-> +      or driven through a DMA input device. This property declares the ISP as
-> +      being electrically connected to the source of image data.
-> +    type: boolean
+...
 
-Except you didn't drop it.
+> @@ -665,7 +665,7 @@ static irqreturn_t aspeed_i2c_bus_irq(int irq, void *dev_id)
+>  
+>  	irq_remaining &= ~irq_handled;
+>  	if (irq_remaining)
+> -		dev_err(bus->dev,
+> +		dev_dbg(bus->dev,
+>  			"irq handled != irq. expected 0x%08x, but was 0x%08x\n",
+>  			irq_received, irq_handled);
 
-Rob
+I agree that this is excessive logging and in my opinion you can
+completely remove this line. But what other error are you
+hitting?
 
+Andi
+
+>  
+> -- 
+> 2.47.0
+> 
 
