@@ -4,69 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6458FC83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 23:50:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BEFAC83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 23:52:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=M3xq61Ak0c1ca5gbgp53wDmnmDBLKzZR4Y7JN/f5xOU=; b=uFTBFWlPcuDxJgBp5/1/2ZLhbL
-	hpa8u7jlrlxSAc/PRkv532MDvvvzi7Laqp03SOQO8cPrPED7jks2YU8GZGNPWxHYG0kHKHXYgkL7Z
-	lR2GEb3iu+h9lUR7yTrCfoehOV3WbUOzDQO1uCfHLCj0nd+j+hemp1lNcs0/AyTIWZRe649wNWSSx
-	XVqP+QCPDEvhDMPUz6dDgADjlC0ifznh2HzeOsSDvcdUf/TSBzKkEpp9GA9/rSBkb+YmaYC7mm3QU
-	op531qs9G/S2CoWsG4O3dWaOZnR52Hv/X1BKJycIysvYqvSrpKaAEkrXgIrxG0n9JBP1k2rfJdpDi
-	Jev5tYSA==;
+	bh=owVeMj/9hQdREoMrYrf+cb3JPwx5Updk91QFCpBYEPQ=; b=CIgb/2MrqBOCDDKI3SGqGxk6pP
+	r5LdGOhwNTOujMCNYAtt+cbOE0j19qmF3oxVdnS0BimhOxnEL7y0siV7F7fuepfeaAGCR9uhxcpIE
+	aAkmL95QBL4sHAqcmV8MGg6DaXUTu3NZInQTcPNN+FVZe7FuD7Qv5cc7yhJGFsBzahf77QwscTudO
+	HwxvbW9yKJWMFumT3DLOlf4PcNU8cI6Dm9r+vfD8mj88RBJJj8Wwt8+snWidAoSspLVsP6aNiXLfj
+	l4yUoEznt6GcUw+ciPkLsRbGFXeHQHvNyD9ZLQ+p5tr0hIaNttj8oyjGUrz5UDtfVLOUEqs8T/rl8
+	W4ILxFsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubSvv-00000003ZuX-1XFp;
-	Mon, 14 Jul 2025 23:50:07 +0000
+	id 1ubSyJ-00000003a5i-0eJL;
+	Mon, 14 Jul 2025 23:52:35 +0000
 Received: from mail-il1-x149.google.com ([2607:f8b0:4864:20::149])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubS9H-00000003SYc-4AYY
+	id 1ubS9I-00000003SbL-1Ix3
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 14 Jul 2025 22:59:53 +0000
-Received: by mail-il1-x149.google.com with SMTP id e9e14a558f8ab-3ddc0a6d4bdso47816295ab.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Jul 2025 15:59:47 -0700 (PDT)
+Received: by mail-il1-x149.google.com with SMTP id e9e14a558f8ab-3df309d9842so115618775ab.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Jul 2025 15:59:51 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1752533987; x=1753138787; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1752533991; x=1753138791; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=M3xq61Ak0c1ca5gbgp53wDmnmDBLKzZR4Y7JN/f5xOU=;
-        b=vjNpFRBxscLFtdnsuqrl/fsoo/Y2LqdYSFCWasnES8PrZodLGQkwMhYFjDOHzkHPrz
-         anqxBuhRrWK2ZCQYvK+/HuwIDxGPUJd7igvG3nx3dxHt2lUxPdaV8Zk/0Y8oI+f95e7Z
-         vaHzw5wCxX34JqkEK1XZggi53aiq22KhIzJV5qchkTSFKUgcCzV+fiGZ9HruPr48A4Uh
-         ZRHSjw6TyUCoJyif0yg1sAZOFuKUbwabk0SCStc3H72h5Cee+N0+1ABchRycwUG2lBEk
-         /jma13L1ITo8liO+PyQyt9oHNOBIVn/zI8J4S/s3oPW0m2aJzhzwgLI2xEbCdig/9Kk4
-         SMnw==
+        bh=owVeMj/9hQdREoMrYrf+cb3JPwx5Updk91QFCpBYEPQ=;
+        b=jlvjB1kuMivaXPHXIcRRPqAge28YWozAm6Cx9s2dPXubEYv2QXotRME3H/a2qbrMZW
+         e0BEPupnI9APQUo0568thK0sCQKd8EPFcAmODfzv/EmCTgJ12WFbYWAaLJlI3apIE7fz
+         SNaoX5dwDwGCc0cDdhs00tk30CyWQWEJxgPr43JUARu1GC9Jcld8adluwr03cgRKY+oh
+         78lNTkpiPL4XY/BwDWASpVeyUm8onkHND3Tw4ZZOEqAPuicZy2Eq6vXJ8Q9fmMyN59eM
+         wOONaOooLrJjgb02TTOXxzWZyc5nLD+GCerdpue26Ve7KplgAYD8JO1aPdvdArXuRlow
+         QqVg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752533987; x=1753138787;
+        d=1e100.net; s=20230601; t=1752533991; x=1753138791;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=M3xq61Ak0c1ca5gbgp53wDmnmDBLKzZR4Y7JN/f5xOU=;
-        b=J/Lb1mxLlWc0o+RzLSVTI+z83YAFIM6oy7WdAMzK4UdlrWEwI7QCGUS92B8PxsCeEW
-         izoQksh83x6XVSbHZ5zm5VUnfr3gz1MJWdynKGn7Br8VdJlzCcSUY6m9BO2V5mfGvd41
-         UktiWzHoZochUzvc45aEC7xKsC+7WiyG49bFjaeEKnAwAZwsbiWoK4hYoek/ru4TmNPB
-         g/1SrFLzJrRc3twABJRdqGRhVz6NvQQzEHWLaq574pjNAvpgArYVeYnbwyiHhDAyi8to
-         uQ67CpWz8BYLBB9nCX6pUq+BcNZ4Q3RcRcxOdnlZ2PU3e5Q1aIJ/1nTIphQs1DhtN69/
-         r6bQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXTNtksdazAOwtfEXS/CMGT4D4ANoSQUHKKqaCvcS5NBFs09Zny+VCEWqnCPB+srqRnDw2uj1VcCEG+v+NaujzV@lists.infradead.org
-X-Gm-Message-State: AOJu0YzyOA7Xm0Yjn2RLpQq9QYSdOvTJzaJCljZVx1XbG6gFl17YIQQl
-	ge33B6ezxG1YrGzuTnTIj5ZhGMnTsUP2/VfOBN/1peCt8AI4MJnIN1M5QqaMKH+f9XU0mD1Ksv9
-	3eErCeyRHoeP+jh8RJ6Sp3WdsVw==
-X-Google-Smtp-Source: AGHT+IGGNXzJ6MClaCHEDVsCSHTe4Mc4/qt4oPTSISuzvsle4ctKRqVs+0zuaGbv1rchsoKRxFJJDAgeqhZ1oRbZOQ==
-X-Received: from ilbbz8.prod.google.com ([2002:a05:6e02:2688:b0:3e2:5969:18b5])
+        bh=owVeMj/9hQdREoMrYrf+cb3JPwx5Updk91QFCpBYEPQ=;
+        b=o1/+ZgVBhJ0VMlr16mGZ1WWUup0GfHvaByvnoB+YASaqfcAextnC4vtwqTwVU4+xGy
+         1OANf9Sz9o+KZBT+jAd4BHDsiu4FO7sZQ+JV369qyrkHcqIOFZ43+gZEfJilWcb0KhHk
+         qTBLYFgAQBMbMa84IYlHzvWcghpqyWkR/zhEI5EOOfaJ5lUy8zRXW7za2XGhACKKMrXJ
+         vk/Fj5YZDs26t+iZqS/ix5c2NZCKCNN1jkIfAkgQgMWc0vrhtxQW7LVwd3JmEL8ysCZE
+         dvcaWCQvfPrO0jxuR7/8iVXu4OcINerCjdMEqIuzZY5V/ecPFQviKCwAdOiILHgF1cIx
+         Itdg==
+X-Forwarded-Encrypted: i=1; AJvYcCVD5sEm2ynUfltuqy2yB7evN2mdZkVFQ3Ceb6/UPHh3JwnVjcvJw9YtrV9Th77YcVy+9OR6BJykfUKPKGJYNM2g@lists.infradead.org
+X-Gm-Message-State: AOJu0YzFOL5G+JNMseHvDtxDjZvXS80TAwNaKEcP5su/xQr+zF2Xg4Hd
+	qBxDZqfJ2fJzvEu4HGIYTkjFS+ngpRXiauMdIad4JAAMItWk76fMfBDlkq3h3ZojBpe95G+iBvh
+	VnEpvtmI3Xbpz5xzaMVVND74fHg==
+X-Google-Smtp-Source: AGHT+IFhP5mgyGUmG3pmQj8bVOziDPF6iO6lkJxF0ZjHKQgYCC4Elel7HDH7jDBm3sU0yo1Sa4ndzKb0EA7KNwiitw==
+X-Received: from ilbea23-n1.prod.google.com ([2002:a05:6e02:4517:10b0:3dd:78b6:1265])
  (user=coltonlewis job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6e02:1544:b0:3dc:8b29:30b1 with SMTP id e9e14a558f8ab-3e2533103e1mr154939995ab.14.1752533986898;
- Mon, 14 Jul 2025 15:59:46 -0700 (PDT)
-Date: Mon, 14 Jul 2025 22:59:10 +0000
+ 2002:a05:6e02:1c05:b0:3e0:ec1e:18fe with SMTP id e9e14a558f8ab-3e25332ed05mr145231275ab.15.1752533991250;
+ Mon, 14 Jul 2025 15:59:51 -0700 (PDT)
+Date: Mon, 14 Jul 2025 22:59:14 +0000
 In-Reply-To: <20250714225917.1396543-1-coltonlewis@google.com>
 Mime-Version: 1.0
 References: <20250714225917.1396543-1-coltonlewis@google.com>
 X-Mailer: git-send-email 2.50.0.727.gbf7dc18ff4-goog
-Message-ID: <20250714225917.1396543-17-coltonlewis@google.com>
-Subject: [PATCH v4 16/23] KVM: arm64: Context swap Partitioned PMU guest registers
+Message-ID: <20250714225917.1396543-21-coltonlewis@google.com>
+Subject: [PATCH v4 20/23] perf: arm_pmuv3: Handle IRQs for Partitioned PMU
+ guest counters
 From: Colton Lewis <coltonlewis@google.com>
 To: kvm@vger.kernel.org
 Cc: Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>, 
@@ -80,8 +81,8 @@ Cc: Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>,
 	linux-kselftest@vger.kernel.org, Colton Lewis <coltonlewis@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250714_155952_039841_AB3305FE 
-X-CRM114-Status: GOOD (  17.82  )
+X-CRM114-CacheID: sfid-20250714_155952_354113_F3C2E414 
+X-CRM114-Status: GOOD (  15.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,188 +97,123 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Save and restore newly untrapped registers that can be directly
-accessed by the guest when the PMU is partitioned.
-
-* PMEVCNTRn_EL0
-* PMCCNTR_EL0
-* PMICNTR_EL0
-* PMUSERENR_EL0
-* PMSELR_EL0
-* PMCR_EL0
-* PMCNTEN_EL0
-* PMINTEN_EL1
-
-If we know we are not using FGT (that is, trapping everything), then
-return immediately. Either the PMU is not partitioned, or it is but
-all register writes are being written through the VCPU fields to
-hardware, so all values are fresh.
+Guest counters will still trigger interrupts that need to be handled
+by the host PMU interrupt handler. Clear the overflow flags in
+hardware to handle the interrupt as normal, but record which guest
+overflow flags were set in the virtual overflow register for later
+injecting the interrupt into the guest.
 
 Signed-off-by: Colton Lewis <coltonlewis@google.com>
 ---
- arch/arm64/include/asm/kvm_pmu.h |   4 ++
- arch/arm64/kvm/arm.c             |   2 +
- arch/arm64/kvm/pmu-direct.c      | 101 +++++++++++++++++++++++++++++++
- 3 files changed, 107 insertions(+)
+ arch/arm/include/asm/arm_pmuv3.h |  6 ++++++
+ arch/arm64/include/asm/kvm_pmu.h |  2 ++
+ arch/arm64/kvm/pmu-direct.c      | 17 +++++++++++++++++
+ drivers/perf/arm_pmuv3.c         |  9 +++++++++
+ 4 files changed, 34 insertions(+)
 
+diff --git a/arch/arm/include/asm/arm_pmuv3.h b/arch/arm/include/asm/arm_pmuv3.h
+index 5f6269039f44..36638efe4258 100644
+--- a/arch/arm/include/asm/arm_pmuv3.h
++++ b/arch/arm/include/asm/arm_pmuv3.h
+@@ -180,6 +180,11 @@ static inline void write_pmintenset(u32 val)
+ 	write_sysreg(val, PMINTENSET);
+ }
+ 
++static inline u32 read_pmintenset(void)
++{
++	return read_sysreg(PMINTENSET);
++}
++
+ static inline void write_pmintenclr(u32 val)
+ {
+ 	write_sysreg(val, PMINTENCLR);
+@@ -249,6 +254,7 @@ static inline u64 kvm_pmu_guest_counter_mask(struct arm_pmu *pmu)
+ 	return ~0;
+ }
+ 
++static inline void kvm_pmu_handle_guest_irq(u64 govf) {}
+ 
+ static inline bool has_vhe(void)
+ {
 diff --git a/arch/arm64/include/asm/kvm_pmu.h b/arch/arm64/include/asm/kvm_pmu.h
-index 35674879aae0..4f0741bf6779 100644
+index 47cfff7ebc26..6149eb051ff9 100644
 --- a/arch/arm64/include/asm/kvm_pmu.h
 +++ b/arch/arm64/include/asm/kvm_pmu.h
-@@ -98,6 +98,8 @@ void kvm_pmu_host_counters_disable(void);
+@@ -96,6 +96,7 @@ u64 kvm_pmu_host_counter_mask(struct arm_pmu *pmu);
+ u64 kvm_pmu_guest_counter_mask(struct arm_pmu *pmu);
+ void kvm_pmu_host_counters_enable(void);
+ void kvm_pmu_host_counters_disable(void);
++void kvm_pmu_handle_guest_irq(u64 govf);
  
- u8 kvm_pmu_guest_num_counters(struct kvm_vcpu *vcpu);
- u8 kvm_pmu_hpmn(struct kvm_vcpu *vcpu);
-+void kvm_pmu_load(struct kvm_vcpu *vcpu);
-+void kvm_pmu_put(struct kvm_vcpu *vcpu);
+ bool kvm_pmu_regs_free(struct kvm_vcpu *vcpu);
+ bool kvm_pmu_regs_host_owned(struct kvm_vcpu *vcpu);
+@@ -310,6 +311,7 @@ static inline u64 kvm_pmu_guest_counter_mask(struct arm_pmu *pmu)
  
- #if !defined(__KVM_NVHE_HYPERVISOR__)
- bool kvm_vcpu_pmu_is_partitioned(struct kvm_vcpu *vcpu);
-@@ -169,6 +171,8 @@ static inline u8 kvm_pmu_hpmn(struct kvm_vcpu *vcpu)
- {
- 	return 0;
- }
-+static inline void kvm_pmu_load(struct kvm_vcpu *vcpu) {}
-+static inline void kvm_pmu_put(struct kvm_vcpu *vcpu) {}
- static inline void kvm_pmu_set_counter_value(struct kvm_vcpu *vcpu,
- 					     u64 select_idx, u64 val) {}
- static inline void kvm_pmu_set_counter_value_user(struct kvm_vcpu *vcpu,
-diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-index e452aba1a3b2..7c007ee44ecb 100644
---- a/arch/arm64/kvm/arm.c
-+++ b/arch/arm64/kvm/arm.c
-@@ -616,6 +616,7 @@ void kvm_arch_vcpu_load(struct kvm_vcpu *vcpu, int cpu)
- 		kvm_vcpu_load_vhe(vcpu);
- 	kvm_arch_vcpu_load_fp(vcpu);
- 	kvm_vcpu_pmu_restore_guest(vcpu);
-+	kvm_pmu_load(vcpu);
- 	if (kvm_arm_is_pvtime_enabled(&vcpu->arch))
- 		kvm_make_request(KVM_REQ_RECORD_STEAL, vcpu);
+ static inline void kvm_pmu_host_counters_enable(void) {}
+ static inline void kvm_pmu_host_counters_disable(void) {}
++static inline void kvm_pmu_handle_guest_irq(u64 govf) {}
  
-@@ -658,6 +659,7 @@ void kvm_arch_vcpu_put(struct kvm_vcpu *vcpu)
- 	kvm_timer_vcpu_put(vcpu);
- 	kvm_vgic_put(vcpu);
- 	kvm_vcpu_pmu_restore_host(vcpu);
-+	kvm_pmu_put(vcpu);
- 	if (vcpu_has_nv(vcpu))
- 		kvm_vcpu_put_hw_mmu(vcpu);
- 	kvm_arm_vmid_clear_active();
+ #endif
+ 
 diff --git a/arch/arm64/kvm/pmu-direct.c b/arch/arm64/kvm/pmu-direct.c
-index 0fac82b152ca..16b01320ca77 100644
+index 28d8540c5ed2..3f9e0d4a74e1 100644
 --- a/arch/arm64/kvm/pmu-direct.c
 +++ b/arch/arm64/kvm/pmu-direct.c
-@@ -9,6 +9,7 @@
- #include <linux/perf/arm_pmuv3.h>
- 
- #include <asm/arm_pmuv3.h>
-+#include <asm/kvm_emulate.h>
- #include <asm/kvm_pmu.h>
- 
- /**
-@@ -193,3 +194,103 @@ u8 kvm_pmu_hpmn(struct kvm_vcpu *vcpu)
- 
- 	return hpmn;
+@@ -339,3 +339,20 @@ void kvm_pmu_put(struct kvm_vcpu *vcpu)
+ 	val = read_pmintenset();
+ 	__vcpu_assign_sys_reg(vcpu, PMINTENSET_EL1, val & mask);
  }
 +
 +/**
-+ * kvm_pmu_load() - Load untrapped PMU registers
-+ * @vcpu: Pointer to struct kvm_vcpu
++ * kvm_pmu_handle_guest_irq() - Record IRQs in guest counters
++ * @govf: Bitmask of guest overflowed counters
 + *
-+ * Load all untrapped PMU registers from the VCPU into the PCPU. Mask
-+ * to only bits belonging to guest-reserved counters and leave
-+ * host-reserved counters alone in bitmask registers.
++ * Record IRQs from overflows in guest-reserved counters in the VCPU
++ * register for the guest to clear later.
 + */
-+void kvm_pmu_load(struct kvm_vcpu *vcpu)
++void kvm_pmu_handle_guest_irq(u64 govf)
 +{
-+	struct arm_pmu *pmu = vcpu->kvm->arch.arm_pmu;
-+	u64 mask = kvm_pmu_guest_counter_mask(pmu);
-+	u8 i;
-+	u64 val;
++	struct kvm_vcpu *vcpu = kvm_get_running_vcpu();
 +
-+	/*
-+	 * If we aren't using FGT then we are trapping everything
-+	 * anyway, so no need to bother with the swap.
-+	 */
-+	if (!kvm_vcpu_pmu_use_fgt(vcpu))
++	if (!vcpu)
 +		return;
 +
-+	for (i = 0; i < pmu->hpmn_max; i++) {
-+		val = __vcpu_sys_reg(vcpu, PMEVCNTR0_EL0 + i);
-+		write_pmevcntrn(i, val);
-+	}
-+
-+	val = __vcpu_sys_reg(vcpu, PMCCNTR_EL0);
-+	write_pmccntr(val);
-+
-+	val = __vcpu_sys_reg(vcpu, PMUSERENR_EL0);
-+	write_pmuserenr(val);
-+
-+	val = __vcpu_sys_reg(vcpu, PMSELR_EL0);
-+	write_pmselr(val);
-+
-+	val = __vcpu_sys_reg(vcpu, PMCR_EL0);
-+	write_pmcr(val);
-+
-+	/*
-+	 * Loading these registers is tricky because of
-+	 * 1. Applying only the bits for guest counters (indicated by mask)
-+	 * 2. Setting and clearing are different registers
-+	 */
-+	val = __vcpu_sys_reg(vcpu, PMCNTENSET_EL0);
-+	write_pmcntenset(val & mask);
-+	write_pmcntenclr(~val & mask);
-+
-+	val = __vcpu_sys_reg(vcpu, PMINTENSET_EL1);
-+	write_pmintenset(val & mask);
-+	write_pmintenclr(~val & mask);
++	__vcpu_rmw_sys_reg(vcpu, PMOVSSET_EL0, |=, govf);
 +}
+diff --git a/drivers/perf/arm_pmuv3.c b/drivers/perf/arm_pmuv3.c
+index bc8a99cf4f88..6307cd851eb6 100644
+--- a/drivers/perf/arm_pmuv3.c
++++ b/drivers/perf/arm_pmuv3.c
+@@ -755,6 +755,8 @@ static u64 armv8pmu_getreset_flags(void)
+ 
+ 	/* Write to clear flags */
+ 	value &= ARMV8_PMU_CNT_MASK_ALL;
++	/* Only reset interrupt enabled counters. */
++	value &= read_pmintenset();
+ 	write_pmovsclr(value);
+ 
+ 	return value;
+@@ -857,6 +859,7 @@ static void armv8pmu_stop(struct arm_pmu *cpu_pmu)
+ static irqreturn_t armv8pmu_handle_irq(struct arm_pmu *cpu_pmu)
+ {
+ 	u64 pmovsr;
++	u64 govf;
+ 	struct perf_sample_data data;
+ 	struct pmu_hw_events *cpuc = this_cpu_ptr(cpu_pmu->hw_events);
+ 	struct pt_regs *regs;
+@@ -911,6 +914,12 @@ static irqreturn_t armv8pmu_handle_irq(struct arm_pmu *cpu_pmu)
+ 		 */
+ 		perf_event_overflow(event, &data, regs);
+ 	}
 +
-+/**
-+ * kvm_pmu_put() - Put untrapped PMU registers
-+ * @vcpu: Pointer to struct kvm_vcpu
-+ *
-+ * Put all untrapped PMU registers from the VCPU into the PCPU. Mask
-+ * to only bits belonging to guest-reserved counters and leave
-+ * host-reserved counters alone in bitmask registers.
-+ */
-+void kvm_pmu_put(struct kvm_vcpu *vcpu)
-+{
-+	struct arm_pmu *pmu = vcpu->kvm->arch.arm_pmu;
-+	u64 mask = kvm_pmu_guest_counter_mask(pmu);
-+	u8 i;
-+	u64 val;
++	govf = pmovsr & kvm_pmu_guest_counter_mask(cpu_pmu);
 +
-+	/*
-+	 * If we aren't using FGT then we are trapping everything
-+	 * anyway, so no need to bother with the swap.
-+	 */
-+	if (!kvm_vcpu_pmu_use_fgt(vcpu))
-+		return;
++	if (kvm_pmu_is_partitioned(cpu_pmu) && govf)
++		kvm_pmu_handle_guest_irq(govf);
 +
-+	for (i = 0; i < pmu->hpmn_max; i++) {
-+		val = read_pmevcntrn(i);
-+		__vcpu_assign_sys_reg(vcpu, PMEVCNTR0_EL0 + i, val);
-+	}
-+
-+	val = read_pmccntr();
-+	__vcpu_assign_sys_reg(vcpu, PMCCNTR_EL0, val);
-+
-+	val = read_pmuserenr();
-+	__vcpu_assign_sys_reg(vcpu, PMUSERENR_EL0, val);
-+
-+	val = read_pmselr();
-+	__vcpu_assign_sys_reg(vcpu, PMSELR_EL0, val);
-+
-+	val = read_pmcr();
-+	__vcpu_assign_sys_reg(vcpu, PMCR_EL0, val);
-+
-+	/* Mask these to only save the guest relevant bits. */
-+	val = read_pmcntenset();
-+	__vcpu_assign_sys_reg(vcpu, PMCNTENSET_EL0, val & mask);
-+
-+	val = read_pmintenset();
-+	__vcpu_assign_sys_reg(vcpu, PMINTENSET_EL1, val & mask);
-+}
+ 	armv8pmu_start(cpu_pmu);
+ 
+ 	return IRQ_HANDLED;
 -- 
 2.50.0.727.gbf7dc18ff4-goog
 
