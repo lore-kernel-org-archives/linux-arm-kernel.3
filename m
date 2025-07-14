@@ -4,62 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09123C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 22:56:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C504AC83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 23:00:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DhtNZ/JtE06J68JlpKj4Qz5mfna8Ev77cq2FCJzJbDA=; b=bZEnyTf8QkUtrJ9WoTF5HLDapq
-	718UetuL+WhRLeqGSFqPCGHavTzc4+IQA5nilqjGjOkLJ3fz5JQfnZJH88j3aaz1sRUJ1okx0rRCY
-	FC0LdOZZ8sMx19yTUFWU4ljMdk4lk64uXKXetLEXJ2xhXtKZNHmQUe4wNqftaPqV4FkkXmdY901wC
-	qimquXyR56CSzSKxB+JoVhFfGE00RXqoOGyz1+43ZuJCqXCZSrUb4gmeDAB3HZinF6PN6bul7pJwb
-	vsSjzwiHqGx+fIfxHGV0jIPs06B2JCq/k++sDGqrj5xD+QQpovoU11qnyCIGoeezjYkwXzpEuy9fv
-	8ASEXy5w==;
+	bh=re5vEpWzxNdWCjr9r1o7knlAw2oLCVrTuWhoL9AZx4g=; b=Egxy0DAGdd3VehMxZhpjftSuuq
+	TEHMfX0+giFsEFmXR08PHq0TI6UAvaBL+P0QoD9cxr4j1n6OiYu2m/FYpF6PVfF7UB8NiQZTAhuPi
+	7cYGLt4C40rwK7KO5bxiOHKQ1fOwIJel73609/nL9ZrQC7I7KVWBm6CekBWY4Y6HTdaabczyoDVr0
+	Sry0d9Dh6mSU8n0cs7AwW8KiJiit8UJs7GITy0YSVU5U432VgjVxsz2XKFG3Qzp5EVfSnDP3qyXfx
+	QmH4R0LE82cTkitfaH0qKdGYEOgh9uUPwYJeSF7mNrcFMRCOWkHHKKuIYmALLz7zzRgWiG7z65jLP
+	9twnuDfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubS5b-00000003Rwm-2Cgp;
-	Mon, 14 Jul 2025 22:56:03 +0000
-Received: from out-172.mta0.migadu.com ([91.218.175.172])
+	id 1ubS9x-00000003Snu-1s14;
+	Mon, 14 Jul 2025 23:00:33 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubS1h-00000003RQe-1MkH
+	id 1ubS7W-00000003SHz-2vfW
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Jul 2025 22:52:02 +0000
-Date: Tue, 15 Jul 2025 07:49:35 +0900
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1752533383;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=DhtNZ/JtE06J68JlpKj4Qz5mfna8Ev77cq2FCJzJbDA=;
-	b=pLGbGjVPwMzShT4hZLTlUsfwQBtVQZU3JxxzrWFNTOUAoeFswsmrcA8U9uiQJ9p500v82m
-	xG50W5KzoG2V4ZCFyy0TtZuD+2Bau24F9p1yuk9VrZmh0fv2yXYY3Xzm9t2Q7nmtaSDiXy
-	613C6kK74poB1oKrh7zS+x9XNIqlDeY=
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Itaru Kitayama <itaru.kitayama@linux.dev>
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	kvm@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Eric Auger <eric.auger@redhat.com>,
-	Peter Maydell <peter.maydell@linaro.org>
-Subject: Re: [PATCH 09/11] KVM: arm64: selftests: get-reg-list: Simplify
- feature dependency
-Message-ID: <aHWJf4JrcclSnJSo@vm4>
-References: <20250714122634.3334816-1-maz@kernel.org>
- <20250714122634.3334816-10-maz@kernel.org>
+	Mon, 14 Jul 2025 22:58:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=re5vEpWzxNdWCjr9r1o7knlAw2oLCVrTuWhoL9AZx4g=; b=fwkO7GOy6gh70PKilmMQibFb0V
+	+X4ndIAYAZUUWrnjfTRP7MHxTmBVi+zHqVuapH+IzjGGDso9u2dFZSrzGOP8AGHidmECNpmwKXGGh
+	CG4oA5yqgTt3iutTmvACQjNmfT/f0eZzSKKNYQZPTskc1ActSOjcK2horL4AroxCqVGA=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1ubS7N-001W4h-3e; Tue, 15 Jul 2025 00:57:53 +0200
+Date: Tue, 15 Jul 2025 00:57:53 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Matthew Gerlach <matthew.gerlach@altera.com>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+	kuba@kernel.org, pabeni@redhat.com, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com, dinguyen@kernel.org,
+	maxime.chevallier@bootlin.com, richardcochran@gmail.com,
+	netdev@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 3/4] arm64: dts: socfpga: agilex5: enable gmac2 on the
+ Agilex5 dev kit
+Message-ID: <8b7f0946-4c95-465a-a462-48fa9887aade@lunn.ch>
+References: <20250714152528.311398-1-matthew.gerlach@altera.com>
+ <20250714152528.311398-4-matthew.gerlach@altera.com>
+ <de1e4302-0262-4bcc-b324-49bfc2f5fd11@lunn.ch>
+ <256054d7-351a-4b1c-8e1a-48628ace091d@altera.com>
+ <86e1e04a-3242-482c-adb0-dde7375561c1@lunn.ch>
+ <baed95d4-c220-4d3b-8173-fc673660432d@altera.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250714122634.3334816-10-maz@kernel.org>
-X-Migadu-Flow: FLOW_OUT
+In-Reply-To: <baed95d4-c220-4d3b-8173-fc673660432d@altera.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250714_155201_501629_80C077DD 
-X-CRM114-Status: GOOD (  18.27  )
+X-CRM114-CacheID: sfid-20250714_155802_733716_81A16291 
+X-CRM114-Status: UNSURE (   7.42  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,95 +80,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 14, 2025 at 01:26:32PM +0100, Marc Zyngier wrote:
-> Describing the dependencies between registers and features is on
-> the masochistic side of things, with hard-coded values that would
-> be better taken from the existing description.
-> 
-> Add a couple of helpers to that effect, and repaint the dependency
-> array. More could be done to improve this test, but my interest is
-> wearing  thin...
-> 
-> Signed-off-by: Marc Zyngier <maz@kernel.org>
-> ---
->  .../selftests/kvm/arm64/get-reg-list.c        | 52 ++++++++-----------
->  1 file changed, 22 insertions(+), 30 deletions(-)
-> 
-> diff --git a/tools/testing/selftests/kvm/arm64/get-reg-list.c b/tools/testing/selftests/kvm/arm64/get-reg-list.c
-> index d01798b6b3b47..a35b01d08cc63 100644
-> --- a/tools/testing/selftests/kvm/arm64/get-reg-list.c
-> +++ b/tools/testing/selftests/kvm/arm64/get-reg-list.c
-> @@ -15,6 +15,12 @@
->  #include "test_util.h"
->  #include "processor.h"
->  
-> +#define SYS_REG(r)	ARM64_SYS_REG(sys_reg_Op0(SYS_ ## r),	\
-> +				      sys_reg_Op1(SYS_ ## r),	\
-> +				      sys_reg_CRn(SYS_ ## r),	\
-> +				      sys_reg_CRm(SYS_ ## r),	\
-> +				      sys_reg_Op2(SYS_ ## r))
-> +
->  struct feature_id_reg {
->  	__u64 reg;
->  	__u64 id_reg;
-> @@ -22,37 +28,23 @@ struct feature_id_reg {
->  	__u64 feat_min;
->  };
->  
-> -static struct feature_id_reg feat_id_regs[] = {
-> -	{
-> -		ARM64_SYS_REG(3, 0, 2, 0, 3),	/* TCR2_EL1 */
-> -		ARM64_SYS_REG(3, 0, 0, 7, 3),	/* ID_AA64MMFR3_EL1 */
-> -		0,
-> -		1
-> -	},
-> -	{
-> -		ARM64_SYS_REG(3, 0, 10, 2, 2),	/* PIRE0_EL1 */
-> -		ARM64_SYS_REG(3, 0, 0, 7, 3),	/* ID_AA64MMFR3_EL1 */
-> -		8,
-> -		1
-> -	},
-> -	{
-> -		ARM64_SYS_REG(3, 0, 10, 2, 3),	/* PIR_EL1 */
-> -		ARM64_SYS_REG(3, 0, 0, 7, 3),	/* ID_AA64MMFR3_EL1 */
-> -		8,
-> -		1
-> -	},
-> -	{
-> -		ARM64_SYS_REG(3, 0, 10, 2, 4),	/* POR_EL1 */
-> -		ARM64_SYS_REG(3, 0, 0, 7, 3),	/* ID_AA64MMFR3_EL1 */
-> -		16,
-> -		1
-> -	},
-> -	{
-> -		ARM64_SYS_REG(3, 3, 10, 2, 4),	/* POR_EL0 */
-> -		ARM64_SYS_REG(3, 0, 0, 7, 3),	/* ID_AA64MMFR3_EL1 */
-> -		16,
-> -		1
-> +#define FEAT(id, f, v)					\
-> +	.id_reg		= SYS_REG(id),			\
-> +	.feat_shift	= id ## _ ## f ## _SHIFT,	\
-> +	.feat_min	= id ## _ ## f ## _ ## v
-> +
-> +#define REG_FEAT(r, id, f, v)			\
-> +	{					\
-> +		.reg = SYS_REG(r),		\
-> +		FEAT(id, f, v)			\
->  	}
-> +
-> +static struct feature_id_reg feat_id_regs[] = {
-> +	REG_FEAT(TCR2_EL1,	ID_AA64MMFR3_EL1, TCRX, IMP),
-> +	REG_FEAT(PIRE0_EL1,	ID_AA64MMFR3_EL1, S1PIE, IMP),
-> +	REG_FEAT(PIR_EL1,	ID_AA64MMFR3_EL1, S1PIE, IMP),
-> +	REG_FEAT(POR_EL1,	ID_AA64MMFR3_EL1, S1POE, IMP),
-> +	REG_FEAT(POR_EL0,	ID_AA64MMFR3_EL1, S1POE, IMP),
->  };
->  
->  bool filter_reg(__u64 reg)
+> Currently the
+> driver, drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c, and its
+> bindings, Documentation/devicetree/bindings/net/altr,socfpga-stmmac.yaml,
+> allow all rgmii phy-modes.
 
-After applied this series against kvm-next as of today, I testes this selftest on RevC FVP model with kvm-arm.mode=nested. All PASSed.
+There is nothing unusual about allowing all four RGMII modes. Somebody
+might design a board with the 2ns delay via extra long clocks lines,
+or some other form of delay lines. Such a board would need 'rgmii',
+and they do exist, a board like this was added this cycle. There is
+one rather odd board with a DT file which has extra long clock line
+for TX, but not RX! That needs rgmii-rxid. The majority of boards
+don't have any delays on the PCB, so need 'rgmii-id'.
 
-Tested-by: Itaru Kitayama <itaru.kitayama@fujitsu.com>
-
-
+	Andrew
 
