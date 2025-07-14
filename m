@@ -4,78 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1797C83F1B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 10:35:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B12FC83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 10:37:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VwUUlthEB0GL/tkuBikSXADM+QDOu8qT0EBANwcGFUY=; b=svq/7M1BiRGGSIk/IGlGpepBMZ
-	Z8qIKrO4nD0f/aKnHSh3CdGXf+77ZpkHnCcsnGWxDZpTomPL8lROQfD+9Mmg0U2HkYv4Ehgzht5q4
-	+8YESJlBP4CDZK77IFY6Ixfn1quLPJXMoUkg1UNbTUcD9sf87OvKIw/hZlUSAdrjd3bja3lp9GXNv
-	8Zdu6D4FSCgAfPB6PmonzqbxFW81N9ASpRb2StWkaGI8KaOEwmpnI5vPfOsKjk/S4naeZseBfW3gd
-	s+jJefDNZqeC6emQ8lNaXjJMWFiiVkXBlRq9/P/ZhmW5Zm8GJQkX23P0AxHmD+gBZ5BPzvSHbRntZ
-	JrjEvbhg==;
+	bh=NtxXcDCqfiGII0Xf9/UXqR9nqnexrG5WzyX4OINKMY4=; b=Q3gC+YnCN8AdAjtJ54aA7nn49F
+	qfBKCaTSFFoBj/iIe1iBr6BD8Q7bs0FWhgjia2X1N1MlDvR0DO4dxVfhNcbqt7Yfz3j9IjUNI2Q46
+	8/oKFk5rR7BZkisaYZh72SboclYTXCFGPM+5KwiwfBtqGsLHg3Yp1colBswN7R2qNaW2+R5LfQEHQ
+	FUvS6dDHElETNVIqwgoFaK6vWjzUyCt+etQRfInxQ6ra2a06igebx5xiJdzFgXtH79GPlPAlGIzAp
+	hXjsKpQiXGHJ36VGMja2W2toeG8MvtDxJK4I+OIfHfcLsxEdV4BtiJNyoysZsPEluumg/XTw3xq9w
+	xG/XGvog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubGWn-00000001vFh-28Ac;
-	Mon, 14 Jul 2025 10:35:21 +0000
-Received: from relay15.mail.gandi.net ([2001:4b98:dc4:8::235])
+	id 1ubGZD-00000001vQf-177k;
+	Mon, 14 Jul 2025 10:37:51 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubGUK-00000001uzu-2pUx
+	id 1ubGVG-00000001v6v-3asS
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Jul 2025 10:32:50 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id DF62543190;
-	Mon, 14 Jul 2025 10:32:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1752489165;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=VwUUlthEB0GL/tkuBikSXADM+QDOu8qT0EBANwcGFUY=;
-	b=ptl6aTRU6q2sZbmunyCwSMALBSosgd8KoJVbC3EzqraKunIc8Bw4Tpl7qUSwGsyZvAJpaX
-	nxMpym+ISlifa6M9yfjJNuBfLLdo8NnAo486ZnY4IyX534YPVR9/7GeHoutnlRUe8eCYoB
-	xuOKJ8T3tP2c1OnpGLpDazsGB18BEKP0R0S1NdNt+nk8q7ZsE3QZ5jucNavPk/ZPUX1Yzi
-	cyhzvnlezCJPyP3rz6Itw/IFMPyCvo9ivUjCAWMKzL+KgIdlSHKnXBbeUaOD7/p7zNvCWh
-	KsDCZ4A9j6u5VXp4d0KbE/LFj1zKX/F4YKG3yWpau0gvUZeMVJ8cajQgbuMF/A==
-Date: Mon, 14 Jul 2025 12:32:40 +0200
-From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-To: Maxime Ripard <mripard@kernel.org>
-Cc: Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong
- <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, Laurent
- Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman
- <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, Maarten
- Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann
- <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter
- <simona@ffwll.ch>, Liu Ying <victor.liu@nxp.com>, Shawn Guo
- <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix
- Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
- Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, Philipp Zabel
- <p.zabel@pengutronix.de>, Hui Pu <Hui.Pu@gehealthcare.com>, Thomas
- Petazzoni <thomas.petazzoni@bootlin.com>, linux-kernel@vger.kernel.org,
- dri-devel@lists.freedesktop.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 4/9] drm/omapdrm: use drm_bridge_chain_get_last_bridge()
-Message-ID: <20250714123240.16d8dcb1@booty>
-In-Reply-To: <20250710-daffy-mini-booby-574fca@houat>
-References: <20250709-drm-bridge-alloc-getput-drm_bridge_get_next_bridge-v1-0-48920b9cf369@bootlin.com>
-	<20250709-drm-bridge-alloc-getput-drm_bridge_get_next_bridge-v1-4-48920b9cf369@bootlin.com>
-	<20250710-daffy-mini-booby-574fca@houat>
-Organization: Bootlin
-X-Mailer: Claws Mail 4.3.1 (GTK 3.24.49; x86_64-redhat-linux-gnu)
+	Mon, 14 Jul 2025 10:33:48 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 663EE4403D;
+	Mon, 14 Jul 2025 10:33:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 07B13C4CEED;
+	Mon, 14 Jul 2025 10:33:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1752489225;
+	bh=SWVRq9s8qi4vJBJhqL/e4RYaOr864sv/OrB9hMLrPRU=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=fsheUnp8PcWtoHD4n4iByTCF0+zkJyNJoOSR9CqUIgZwegpP1OvJD5XY5YhXFL0rF
+	 C/v3rr28VzO4eWGcz5DwxfY090knqgTsRWL1b6wsVYjeHR44QWVUsm9kNQ9AfhMnUz
+	 vhu3bGMrqqQjCcWKZ5/I3DkqJCFgrFNM/x6W/aX+bOO6kBzB5IKDyMXF88or3UzvV1
+	 1ajGThnWfNVIimAHj+pfBASJrDXjWwoBXHwNImGC1tbkz64Ooh0hOgj3rEC6wBrWU6
+	 PVSKAEpxT5oUa2ntL1oAKRb0UqkhbtwEXNDCid/L/tyewT/9NvON99OGN5iBJzNfn2
+	 69HyLmi/jyc7A==
+From: Mark Brown <broonie@kernel.org>
+To: Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ "Rob Herring (Arm)" <robh@kernel.org>
+Cc: linux-spi@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+In-Reply-To: <20250703183537.2075746-1-robh@kernel.org>
+References: <20250703183537.2075746-1-robh@kernel.org>
+Subject: Re: [PATCH] spi: stm32-ospi: Use
+ of_reserved_mem_region_to_resource() for "memory-region"
+Message-Id: <175248922378.18393.12584887132414171200.b4-ty@kernel.org>
+Date: Mon, 14 Jul 2025 11:33:43 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdehudejvdcutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepfffhvfevuffkjghfohfogggtgfesthejredtredtvdenucfhrhhomhepnfhutggrucevvghrvghsohhlihcuoehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeeglefffefghefhtddvfeeufeeiveekgffgleekieduteekkeetvdehudekgfdvvdenucffohhmrghinhepsghoohhtlhhinhdrtghomhenucfkphepvdgrtddvmeeijedtmedvtddvtdemvggrtddumegsvgegudemleehvgejmeefgeefmeeludefvgenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtvdemieejtdemvddtvddtmegvrgdtudemsggvgedumeelhegvjeemfeegfeemledufegvpdhhvghlohepsghoohhthidpmhgrihhlfhhrohhmpehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopedvgedprhgtphhtthhopehmrhhiphgrrhgusehkvghrnhgvlhdrohhrghdprhgtphhtthhopegrnhgurhiivghjrdhhrghjuggrsehinhhtvghlrdgtohhmpdhrtghpthhtohepnhgvihhlrdgrrhhmshhtrhhonhhgsehlihhnrghro
- hdrohhrghdprhgtphhtthhopehrfhhoshhssehkvghrnhgvlhdrohhrghdprhgtphhtthhopefnrghurhgvnhhtrdhpihhntghhrghrthesihguvggrshhonhgsohgrrhgurdgtohhmpdhrtghpthhtohepjhhonhgrsheskhifihgsohhordhsvgdprhgtphhtthhopehjvghrnhgvjhdrshhkrhgrsggvtgesghhmrghilhdrtghomhdprhgtphhtthhopehmrggrrhhtvghnrdhlrghnkhhhohhrshhtsehlihhnuhigrdhinhhtvghlrdgtohhm
+X-Mailer: b4 0.15-dev-cff91
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250714_033249_180013_05A69460 
-X-CRM114-Status: GOOD (  21.28  )
+X-CRM114-CacheID: sfid-20250714_033346_920651_8581261B 
+X-CRM114-Status: UNSURE (   9.82  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,54 +76,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Maxime,
-
-On Thu, 10 Jul 2025 09:13:46 +0200
-Maxime Ripard <mripard@kernel.org> wrote:
-
-> On Wed, Jul 09, 2025 at 06:48:03PM +0200, Luca Ceresoli wrote:
-> > Use drm_bridge_chain_get_last_bridge() instead of open coding a loop with
-> > two invocations of drm_bridge_get_next_bridge() per iteration.
-> > 
-> > Besides being cleaner and more efficient, this change is necessary in
-> > preparation for drm_bridge_get_next_bridge() to get a reference to the
-> > returned bridge.
-> > 
-> > Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
-> > ---
-> >  drivers/gpu/drm/omapdrm/omap_drv.c | 8 ++++----
-> >  1 file changed, 4 insertions(+), 4 deletions(-)
-> > 
-> > diff --git a/drivers/gpu/drm/omapdrm/omap_drv.c b/drivers/gpu/drm/omapdrm/omap_drv.c
-> > index 054b71dba6a75b8c42198c4b102a093f43a675a2..3bbcec01428a6f290afdfa40ef6f79629539a584 100644
-> > --- a/drivers/gpu/drm/omapdrm/omap_drv.c
-> > +++ b/drivers/gpu/drm/omapdrm/omap_drv.c
-> > @@ -378,12 +378,12 @@ static int omap_display_id(struct omap_dss_device *output)
-> >  	struct device_node *node = NULL;
-> >  
-> >  	if (output->bridge) {
-> > -		struct drm_bridge *bridge = output->bridge;
-> > -
-> > -		while (drm_bridge_get_next_bridge(bridge))
-> > -			bridge = drm_bridge_get_next_bridge(bridge);
-> > +		struct drm_bridge *bridge =
-> > +			drm_bridge_chain_get_last_bridge(output->bridge->encoder);
-> >  
-> >  		node = bridge->of_node;
-> > +
-> > +		drm_bridge_put(bridge);  
+On Thu, 03 Jul 2025 13:35:37 -0500, Rob Herring (Arm) wrote:
+> Use the newly added of_reserved_mem_region_to_resource() function to
+> handle "memory-region" properties.
 > 
-> Any reason you're not using __free(drm_bridge_put) here?
+> 
 
-Just because the code is simple enough that an explicit
-drm_bridge_put() is clearly sufficient.
+Applied to
 
-Do you think __free() should be used even in such trivial cases?
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-next
 
-Luca
+Thanks!
 
--- 
-Luca Ceresoli, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+[1/1] spi: stm32-ospi: Use of_reserved_mem_region_to_resource() for "memory-region"
+      commit: defe01abfb7f5c5bd53c723b8577d4fcd64faa5a
+
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
+
 
