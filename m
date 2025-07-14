@@ -4,104 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9DA4C83F1D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 02:42:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA0C6C83F1D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 03:15:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Bf5S4048FcWc3B1FqRM2/R+3RGsbaTnBh6RLy9sZTSQ=; b=ofO8wmXnLUqyhqZ9G1sIeCRN6m
-	GfpRg1oGt8N6RWfukzAIxTWNPsUcg93DheYkcEfriTzmrCzwXMw3IdlmBAAWuamuiXd+7Zk0GuWQp
-	SI5/DeJCnYdxdlBzGCn1aJ+SyYgjg5rhWSgCsOlv855skOzMh1pX5W7aEwfu2adRmx7XUJQCfdgZE
-	1PCFkSbii8bHggslwqz43WmcgkKSItrdJkeUK2uIuju1seG4y7F39wVShgPeWGgTVwIgZ4peFkPPF
-	+COEQGRJK1QvM/1cj73a7KW/kApuv5Ikxu3giONKCu+J+8CvbBJShXRI2D+/b+OVQJA3aIrtUwJVN
-	eYAIXOsw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=BxcDKexXWuT4NP9CyC4svWm4vuNSuBq6bwSD9ExfgVw=; b=aXaOWPBm12lmvW7gYE4Xh517Da
+	pD1Z344uWLK/gLLrCn7+d/0COaHJA9676S+nEqMOvdZl5dvqPHddB/5uvLJ9Cr08BdV8VV7b11aTs
+	BHyuB5htfbNRrkCeVk93AzE5Y29Smh5CkFq/Aj+MDIh2sLnYv0Vi3UU7nHkuEIBlq7utjdto5q9Ll
+	bHn5Oyl9wfaN5MmAtXiMn7yXLOImEYJn2imW3bZIGf2K7F0CIOq9e03f9IDW8TWLuoWn3ctn/Spzm
+	EDuQZmEr9T1Bh8nt5kn5J21NSDSZL30GkaVpuUhxeuwgopFDZVoyjG67Kif5HPxkyIEbptBQQsBeb
+	iJ7xaYKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ub98t-00000000zp2-119f;
-	Mon, 14 Jul 2025 02:42:11 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	id 1ub9f5-000000012EI-1Ipc;
+	Mon, 14 Jul 2025 03:15:27 +0000
+Received: from mx1.unisoc.com ([222.66.158.135] helo=SHSQR01.spreadtrum.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ub96T-00000000zgb-1O4m
+	id 1ub9cf-000000011wq-0Hpj
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Jul 2025 02:39:42 +0000
-Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56DAkgep001869;
-	Mon, 14 Jul 2025 02:39:22 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=Bf5S40
-	48FcWc3B1FqRM2/R+3RGsbaTnBh6RLy9sZTSQ=; b=TRNqCX/FZWYJZxmUavldIZ
-	mEQ/6StlwurHB26t9LR/6dGaWGtGBg4FCMWvxLN68J11QDNEVJx1CEmr0EMjbONN
-	o/211JcJ2sMH12jEoBEg8sygCQNozTZUxEnrNW3hJnGCXz+aioyR3k9dOAJZkPN9
-	0RrAFKnC4rJtdySytQL5/q238bBmiLnZfrE9YxM7pQNZthgGY4LARl560KQayGNv
-	HA8xDH+KRTuLhFuMZkWbBzdKVUkNyOW8S01k4CxjK6+MMGIzcTvKw0b8PEBOWw0/
-	Rv/b8hJKjEBNMM1H552Wn5hUUP6rTIMDRFsCBIjp/CR11pNUqwSzJQT9pLzQQflA
-	==
-Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 47vamtje7u-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 14 Jul 2025 02:39:21 +0000 (GMT)
-Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma23.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 56E06sQW008957;
-	Mon, 14 Jul 2025 02:39:21 GMT
-Received: from smtprelay06.wdc07v.mail.ibm.com ([172.16.1.73])
-	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 47v3hmbw6u-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 14 Jul 2025 02:39:21 +0000
-Received: from smtpav01.wdc07v.mail.ibm.com (smtpav01.wdc07v.mail.ibm.com [10.39.53.228])
-	by smtprelay06.wdc07v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 56E2dKSO32834240
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 14 Jul 2025 02:39:20 GMT
-Received: from smtpav01.wdc07v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 9A3E25805B;
-	Mon, 14 Jul 2025 02:39:20 +0000 (GMT)
-Received: from smtpav01.wdc07v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 175095804B;
-	Mon, 14 Jul 2025 02:39:15 +0000 (GMT)
-Received: from [9.39.29.80] (unknown [9.39.29.80])
-	by smtpav01.wdc07v.mail.ibm.com (Postfix) with ESMTP;
-	Mon, 14 Jul 2025 02:39:14 +0000 (GMT)
-Message-ID: <4e1d5259-ac93-4e22-8f3b-4683333e7928@linux.ibm.com>
-Date: Mon, 14 Jul 2025 08:09:13 +0530
+	Mon, 14 Jul 2025 03:12:59 +0000
+Received: from dlp.unisoc.com ([10.29.3.86])
+	by SHSQR01.spreadtrum.com with ESMTP id 56E3Cbuq039454;
+	Mon, 14 Jul 2025 11:12:37 +0800 (+08)
+	(envelope-from haiyan.liu@unisoc.com)
+Received: from SHDLP.spreadtrum.com (bjmbx01.spreadtrum.com [10.0.64.7])
+	by dlp.unisoc.com (SkyGuard) with ESMTPS id 4bgS1y5m2hz2PtpG2;
+	Mon, 14 Jul 2025 11:08:22 +0800 (CST)
+Received: from BJMBX01.spreadtrum.com (10.0.64.7) by BJMBX01.spreadtrum.com
+ (10.0.64.7) with Microsoft SMTP Server (TLS) id 15.0.1497.48; Mon, 14 Jul
+ 2025 11:12:34 +0800
+Received: from BJMBX01.spreadtrum.com ([fe80::54e:9a:129d:fac7]) by
+ BJMBX01.spreadtrum.com ([fe80::54e:9a:129d:fac7%16]) with mapi id
+ 15.00.1497.048; Mon, 14 Jul 2025 11:12:34 +0800
+From: =?gb2312?B?wfW6o9HgIChIYWl5YW4gTGl1KQ==?= <haiyan.liu@unisoc.com>
+To: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+        "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>,
+        "rust-for-linux@vger.kernel.org"
+	<rust-for-linux@vger.kernel.org>
+CC: =?gb2312?B?tPrX086qIChaaXdlaSBEYWkp?= <Ziwei.Dai@unisoc.com>,
+        =?gb2312?B?1tzGvSAoUGluZyBaaG91LzkwMzIp?= <Ping.Zhou1@unisoc.com>,
+        =?gb2312?B?0e7A9sTIIChMaW5hIFlhbmcp?= <lina.yang@unisoc.com>,
+        =?gb2312?B?zfXLqyAoU2h1YW5nIFdhbmcp?= <shuang.wang@unisoc.com>
+Subject: Meet compiled kernel binaray abnormal issue while enabling generic
+ kasan in kernel 6.12 with some default KBUILD_RUSTFLAGS on
+Thread-Topic: Meet compiled kernel binaray abnormal issue while enabling
+ generic kasan in kernel 6.12 with some default KBUILD_RUSTFLAGS on
+Thread-Index: Adv0awkF3quLQs5+RfaRTr3Yr7SnUQ==
+Date: Mon, 14 Jul 2025 03:12:33 +0000
+Message-ID: <4c459085b9ae42bdbf99b6014952b965@BJMBX01.spreadtrum.com>
+Accept-Language: zh-CN, en-US
+Content-Language: zh-CN
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-exchange-transport-fromentityheader: Hosted
+x-originating-ip: [10.0.93.65]
+Content-Type: text/plain; charset="gb2312"
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/1] sched: preempt: Move dynamic keys into kernel/sched
-To: Shrikanth Hegde <sshegde@linux.ibm.com>, mingo@redhat.com,
-        peterz@infradead.org, juri.lelli@redhat.com,
-        vincent.guittot@linaro.org
-Cc: tglx@linutronix.de, bigeasy@linutronix.de, vschneid@redhat.com,
-        dietmar.eggemann@arm.com, rostedt@goodmis.org,
-        linux-kernel@vger.kernel.org, catalin.marinas@arm.com, will@kernel.org,
-        linux-arm-kernel@lists.infradead.org, mark.rutland@arm.com
-References: <20250610075344.1379597-1-sshegde@linux.ibm.com>
- <20250610075344.1379597-2-sshegde@linux.ibm.com>
-Content-Language: en-US
-From: Madhavan Srinivasan <maddy@linux.ibm.com>
-In-Reply-To: <20250610075344.1379597-2-sshegde@linux.ibm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-GUID: fg443fqEHyJ7fvCV7VAhRgbFCw3LLA3H
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNzE0MDAxMCBTYWx0ZWRfX+TeXTkJS6gxs vl8BNYc2HFs1bgGPKgEJog0BxqpnIF3QdIyMzdRZttnVKy4V3dNv+YHP74+d+5+akTrvNpOPGJl 0ISD7T1ezzZTLcI0GTGAYit5UBdRlUhQwyeru+buUZFymZ57K2iChFqhd1NtPW4MR0/JAtThAqf
- 9dRuzI8lAatMqnN5iQHDrSHocwHxpl2E21fx9kXe9iXx9nZBFSfEUVuXQ3fOpQMEN67PFTT8chF gyvxZ+M+YkGxmHrRBTmAEv4kARUMHZFverZkLjA9NAG0tNWe/DEIPIWhQq0yhMu/TCQ/eYPZzs1 /XRqxf64PYUJ6QbExn7xsxdJj71n3YPNbC/cjAdodg/2/vWeyaFKnTi2/xEpSRV+4PijoLQ9Djt
- W3tXHMezCnUci97e3CG3rdjTAzrUaUfb5du1G1mS6AI0KqBVVjM/L6OuIXxhl97OxmOuW8ay
-X-Proofpoint-ORIG-GUID: fg443fqEHyJ7fvCV7VAhRgbFCw3LLA3H
-X-Authority-Analysis: v=2.4 cv=dNSmmPZb c=1 sm=1 tr=0 ts=68746dd9 cx=c_pps a=3Bg1Hr4SwmMryq2xdFQyZA==:117 a=3Bg1Hr4SwmMryq2xdFQyZA==:17 a=IkcTkHD0fZMA:10 a=Wb1JkmetP80A:10 a=VnNF1IyMAAAA:8 a=zBvrq1Qxmeus1JvfWqgA:9 a=QEXdDO2ut3YA:10
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.7,FMLib:17.12.80.40
- definitions=2025-07-14_01,2025-07-09_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 priorityscore=1501
- mlxlogscore=999 bulkscore=0 lowpriorityscore=0 suspectscore=0 spamscore=0
- clxscore=1011 phishscore=0 malwarescore=0 mlxscore=0 adultscore=0
- impostorscore=0 classifier=spam authscore=0 authtc=n/a authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2505280000
- definitions=main-2507140010
+X-MAIL: SHSQR01.spreadtrum.com 56E3Cbuq039454
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250713_193941_485857_3670C7F6 
-X-CRM114-Status: GOOD (  26.70  )
+X-CRM114-CacheID: sfid-20250713_201257_553407_35C5B72F 
+X-CRM114-Status: UNSURE (   7.56  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,167 +85,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 6/10/25 1:23 PM, Shrikanth Hegde wrote:
-> Dynamic preemption can be static key or static call based.
-> Static key is used to check kernel preemption depending on
-> the current preemption model. i.e enable for lazy, full. 
-> 
-> Code is spread currently across entry/common.c, arm64 and latest being
-> powerpc. There is little arch specific to it. For example, arm64,
-> powerpc does the same thing. It is better to move it into kernel/sched 
-> since preemption is more closely associated with scheduler.  
-> 
-> Plus, Any new arch that wants dynamic preemption enabled need to have 
-> only HAVE_PREEMPT_DYNAMIC_KEY. 
-> 
-> This is more of code movement. No functional change. 
-> 
-
-For powerpc changes
-Acked-by: Madhavan Srinivasan <maddy@linux.ibm.com>
-
-
-> Suggested-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-> Signed-off-by: Shrikanth Hegde <sshegde@linux.ibm.com>
-> ---
->  arch/arm64/include/asm/preempt.h   |  1 -
->  arch/arm64/kernel/entry-common.c   |  8 --------
->  arch/powerpc/include/asm/preempt.h | 16 ----------------
->  arch/powerpc/kernel/interrupt.c    |  4 ----
->  include/linux/entry-common.h       |  1 -
->  include/linux/sched.h              |  8 ++++++++
->  kernel/entry/common.c              |  1 -
->  kernel/sched/core.c                |  4 ++++
->  8 files changed, 12 insertions(+), 31 deletions(-)
->  delete mode 100644 arch/powerpc/include/asm/preempt.h
-> 
-> diff --git a/arch/arm64/include/asm/preempt.h b/arch/arm64/include/asm/preempt.h
-> index 0159b625cc7f..a9348e65d75e 100644
-> --- a/arch/arm64/include/asm/preempt.h
-> +++ b/arch/arm64/include/asm/preempt.h
-> @@ -87,7 +87,6 @@ void preempt_schedule_notrace(void);
->  
->  #ifdef CONFIG_PREEMPT_DYNAMIC
->  
-> -DECLARE_STATIC_KEY_TRUE(sk_dynamic_irqentry_exit_cond_resched);
->  void dynamic_preempt_schedule(void);
->  #define __preempt_schedule()		dynamic_preempt_schedule()
->  void dynamic_preempt_schedule_notrace(void);
-> diff --git a/arch/arm64/kernel/entry-common.c b/arch/arm64/kernel/entry-common.c
-> index b260ddc4d3e9..b1c854fb4884 100644
-> --- a/arch/arm64/kernel/entry-common.c
-> +++ b/arch/arm64/kernel/entry-common.c
-> @@ -259,14 +259,6 @@ static void noinstr arm64_exit_el1_dbg(struct pt_regs *regs)
->  		lockdep_hardirqs_on(CALLER_ADDR0);
->  }
->  
-> -#ifdef CONFIG_PREEMPT_DYNAMIC
-> -DEFINE_STATIC_KEY_TRUE(sk_dynamic_irqentry_exit_cond_resched);
-> -#define need_irq_preemption() \
-> -	(static_branch_unlikely(&sk_dynamic_irqentry_exit_cond_resched))
-> -#else
-> -#define need_irq_preemption()	(IS_ENABLED(CONFIG_PREEMPTION))
-> -#endif
-> -
->  static void __sched arm64_preempt_schedule_irq(void)
->  {
->  	if (!need_irq_preemption())
-> diff --git a/arch/powerpc/include/asm/preempt.h b/arch/powerpc/include/asm/preempt.h
-> deleted file mode 100644
-> index 000e2b9681f3..000000000000
-> --- a/arch/powerpc/include/asm/preempt.h
-> +++ /dev/null
-> @@ -1,16 +0,0 @@
-> -/* SPDX-License-Identifier: GPL-2.0 */
-> -#ifndef __ASM_POWERPC_PREEMPT_H
-> -#define __ASM_POWERPC_PREEMPT_H
-> -
-> -#include <asm-generic/preempt.h>
-> -
-> -#if defined(CONFIG_PREEMPT_DYNAMIC)
-> -#include <linux/jump_label.h>
-> -DECLARE_STATIC_KEY_TRUE(sk_dynamic_irqentry_exit_cond_resched);
-> -#define need_irq_preemption() \
-> -	(static_branch_unlikely(&sk_dynamic_irqentry_exit_cond_resched))
-> -#else
-> -#define need_irq_preemption()   (IS_ENABLED(CONFIG_PREEMPTION))
-> -#endif
-> -
-> -#endif /* __ASM_POWERPC_PREEMPT_H */
-> diff --git a/arch/powerpc/kernel/interrupt.c b/arch/powerpc/kernel/interrupt.c
-> index e0c681d0b076..4d62d785ad26 100644
-> --- a/arch/powerpc/kernel/interrupt.c
-> +++ b/arch/powerpc/kernel/interrupt.c
-> @@ -25,10 +25,6 @@
->  unsigned long global_dbcr0[NR_CPUS];
->  #endif
->  
-> -#if defined(CONFIG_PREEMPT_DYNAMIC)
-> -DEFINE_STATIC_KEY_TRUE(sk_dynamic_irqentry_exit_cond_resched);
-> -#endif
-> -
->  #ifdef CONFIG_PPC_BOOK3S_64
->  DEFINE_STATIC_KEY_FALSE(interrupt_exit_not_reentrant);
->  static inline bool exit_must_hard_disable(void)
-> diff --git a/include/linux/entry-common.h b/include/linux/entry-common.h
-> index f94f3fdf15fc..8624faa1f8b9 100644
-> --- a/include/linux/entry-common.h
-> +++ b/include/linux/entry-common.h
-> @@ -549,7 +549,6 @@ void raw_irqentry_exit_cond_resched(void);
->  DECLARE_STATIC_CALL(irqentry_exit_cond_resched, raw_irqentry_exit_cond_resched);
->  #define irqentry_exit_cond_resched()	static_call(irqentry_exit_cond_resched)()
->  #elif defined(CONFIG_HAVE_PREEMPT_DYNAMIC_KEY)
-> -DECLARE_STATIC_KEY_TRUE(sk_dynamic_irqentry_exit_cond_resched);
->  void dynamic_irqentry_exit_cond_resched(void);
->  #define irqentry_exit_cond_resched()	dynamic_irqentry_exit_cond_resched()
->  #endif
-> diff --git a/include/linux/sched.h b/include/linux/sched.h
-> index 45e5953b8f32..ebd230382027 100644
-> --- a/include/linux/sched.h
-> +++ b/include/linux/sched.h
-> @@ -2115,6 +2115,14 @@ static inline int _cond_resched(void)
->  
->  #endif /* !CONFIG_PREEMPTION || CONFIG_PREEMPT_DYNAMIC */
->  
-> +#if defined(CONFIG_PREEMPT_DYNAMIC) && defined(CONFIG_HAVE_PREEMPT_DYNAMIC_KEY)
-> +DECLARE_STATIC_KEY_TRUE(sk_dynamic_irqentry_exit_cond_resched);
-> +#define need_irq_preemption() \
-> +	(static_branch_unlikely(&sk_dynamic_irqentry_exit_cond_resched))
-> +#else
-> +#define need_irq_preemption()   (IS_ENABLED(CONFIG_PREEMPTION))
-> +#endif
-> +
->  #define cond_resched() ({			\
->  	__might_resched(__FILE__, __LINE__, 0);	\
->  	_cond_resched();			\
-> diff --git a/kernel/entry/common.c b/kernel/entry/common.c
-> index a8dd1f27417c..b8ffd7127338 100644
-> --- a/kernel/entry/common.c
-> +++ b/kernel/entry/common.c
-> @@ -268,7 +268,6 @@ void raw_irqentry_exit_cond_resched(void)
->  #if defined(CONFIG_HAVE_PREEMPT_DYNAMIC_CALL)
->  DEFINE_STATIC_CALL(irqentry_exit_cond_resched, raw_irqentry_exit_cond_resched);
->  #elif defined(CONFIG_HAVE_PREEMPT_DYNAMIC_KEY)
-> -DEFINE_STATIC_KEY_TRUE(sk_dynamic_irqentry_exit_cond_resched);
->  void dynamic_irqentry_exit_cond_resched(void)
->  {
->  	if (!static_branch_unlikely(&sk_dynamic_irqentry_exit_cond_resched))
-> diff --git a/kernel/sched/core.c b/kernel/sched/core.c
-> index 62b3416f5e43..6af2bab187cb 100644
-> --- a/kernel/sched/core.c
-> +++ b/kernel/sched/core.c
-> @@ -7083,6 +7083,10 @@ EXPORT_SYMBOL(dynamic_preempt_schedule_notrace);
->  
->  #endif /* CONFIG_PREEMPTION */
->  
-> +#if defined(CONFIG_PREEMPT_DYNAMIC) && defined(CONFIG_HAVE_PREEMPT_DYNAMIC_KEY)
-> +DEFINE_STATIC_KEY_TRUE(sk_dynamic_irqentry_exit_cond_resched);
-> +#endif
-> +
->  /*
->   * This is the entry point to schedule() from kernel preemption
->   * off of IRQ context.
-
+SSBhbSBlbmFibGluZyBnZW5lcmljIGthc2FuIGZlYXR1cmUgaW4ga2VybmVsIDYuMTIsIGFuZCBt
+ZXQga2VybmVsIGJvb3QgY3Jhc2guDQpVbmFibGUgdG8gaGFuZGxlIGtlcm5lbCBOVUxMIHBvaW50
+ZXIgZGVyZWZlcmVuY2UgYXQgdmlydHVhbCBhZGRyZXNzIDAwMDAwMDAwMDAwMDAwMDgNCnBjIDog
+ZG9fYmFzaWNfc2V0dXArMHg2Yy8weGFjDQpsciA6IGRvX2Jhc2ljX3NldHVwKzB4ODgvMHhhYw0K
+c3AgOiBmZmZmZmZjMDgwMDg3ZTQwDQpBZnRlciBkZWJ1ZywgSSBmaW5kIHNvbWUgZXJyb3IgaW4g
+ZG9fY3RvcnMoKS4NCk5vcm1hbGx5LCB0aGUgY29tcGxpZXIgc2hvdWxkIGluc2VydCB0aGUgcGFj
+aWFzcCBpbnN0cnVjdGlvbiBhdCB0aGUgZnVuY3Rpb24gZW50cnkgc28gdGhhdCBpdHMgY29ycmVz
+cG9uZGluZyBhdXRpYXNwIGluc3RydWN0aW9uIGlzIHVzZWQgdG8gdmFsaWRhdGUgdGhlIHJldHVy
+biBhZGRyZXNzIHdoZW4gdGhlIGZ1bmN0aW9uIHJldHVybnMuDQpOU1g6RkZGRkZGQzA4MDBBODQw
+Q3xGODAwODY1RSAgICAgYXNhbi5tb2R1bGVfY3RvcjogICBzdHIgIHgzMCxbeDE4XSwjMHg4o7t4
+MzAsW3gxOF0sIzgNCk5TWDpGRkZGRkZDMDgwMEE4NDEwfEE5QkY3QkZEICAgICAgICAgICAgICAg
+ICAgICAgICBzdHAgICAgIHgyOSx4MzAsW3NwLCMtMHgxMF0hICAgOyB4MjkseDMwLFtzcCwjLTE2
+XSENCk5TWDpGRkZGRkZDMDgwMEE4NDE0fDkxMDAwM0ZEICAgICAgICAgICAgICAgICAgICAgICBt
+b3YgICAgIHgyOSxzcA0KTlNYOkZGRkZGRkMwODAwQTg0MTh8QjAwMjM0MjAgICAgICAgICAgICAg
+ICAgICAgICAgIGFkcnAgICAgeDAsMHhGRkZGRkZDMDg0NzJEMDAwDQpOU1g6RkZGRkZGQzA4MDBB
+ODQxQ3w5MTM5MDAwMCAgICAgICAgICAgICAgICAgICAgICAgYWRkICAgICB4MCx4MCwjMHhFNDAg
+ICAgIDsgeDAseDAsIzM2NDgNCk5TWDpGRkZGRkZDMDgwMEE4NDIwfDUyODAwMEExICAgICAgICAg
+ICAgICAgICAgICAgICBtb3YgICAgIHcxLCMweDUgICAgICAgICAgOyB3MSwjNQ0KTlNYOkZGRkZG
+RkMwODAwQTg0MjR8OTQyMkFGNTAgICAgICAgICAgICAgICAgICAgICAgIGJsICAgICAgMHhGRkZG
+RkZDMDgwOTU0MTY0ICAgOyBfX2FzYW5fcmVnaXN0ZXJfZ2xvYmFscw0KTlNYOkZGRkZGRkMwODAw
+QTg0Mjh8QThDMTdCRkQgICAgICAgICAgICAgICAgICAgICAgIGxkcCAgICAgeDI5LHgzMCxbc3Bd
+LCMweDEwICAgOyB4MjkseDMwLFtzcF0sIzE2DQpOU1g6RkZGRkZGQzA4MDBBODQyQ3xGODVGOEU1
+RSAgICAgICAgICAgICAgICAgICAgICAgbGRyICAgICB4MzAsW3gxOCwjLTB4OF0hICAgOyB4MzAs
+W3gxOCwjLThdISAgICANCk5TWDpGRkZGRkZDMDgwMEE4NDMwfEQ2NUYwM0MwICAgICAgICAgICAg
+ICAgICAgICAgICByZXQNCg0KTlNYOkZGRkZGRkMwODAwQTg0Nzh8RDUwMzIzM0YgIGFzYW4ubW9k
+dWxlX2N0b3I6ICAgIHBhY2lhc3AgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgIA0KTlNYOkZGRkZGRkMwODAwQTg0N0N8QTlCRjdCRkQgICAgICAgICAgICAgICAgICAgICAg
+IHN0cCAgICAgeDI5LHgzMCxbc3AsIy0weDEwXSEgICA7IHgyOSx4MzAsW3NwLCMtMTZdIQ0KTlNY
+OkZGRkZGRkMwODAwQTg0ODB8OTEwMDAzRkQgICAgICAgICAgICAgICAgICAgICAgIG1vdiAgICAg
+eDI5LHNwDQpOU1g6RkZGRkZGQzA4MDBBODQ4NHxCMDAyMzQyMCAgICAgICAgICAgICAgICAgICAg
+ICAgYWRycCAgICB4MCwweEZGRkZGRkMwODQ3MkQwMDANCk5TWDpGRkZGRkZDMDgwMEE4NDg4fDkx
+M0UwMDAwICAgICAgICAgICAgICAgICAgICAgICBhZGQgICAgIHgwLHgwLCMweEY4MCAgICAgOyB4
+MCx4MCwjMzk2OA0KTlNYOkZGRkZGRkMwODAwQTg0OEN8NTI4MDAwMjEgICAgICAgICAgICAgICAg
+ICAgICAgIG1vdiAgICAgdzEsIzB4MSAgICAgICAgICA7IHcxLCMxDQpOU1g6RkZGRkZGQzA4MDBB
+ODQ5MHw5NDIyQUYzNSAgICAgICAgICAgICAgICAgICAgICAgYmwgICAgICAweEZGRkZGRkMwODA5
+NTQxNjQgICA7IF9fYXNhbl9yZWdpc3Rlcl9nbG9iYWxzDQpOU1g6RkZGRkZGQzA4MDBBODQ5NHxB
+OEMxN0JGRCAgICAgICAgICAgICAgICAgICAgICAgbGRwICAgICB4MjkseDMwLFtzcF0sIzB4MTAg
+ICA7IHgyOSx4MzAsW3NwXSwjMTYNCk5TWDpGRkZGRkZDMDgwMEE4NDk4fEQ1MDMyM0JGICAgICAg
+ICAgICAgICAgICAgICAgICBhdXRpYXNwICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICANCk5TWDpGRkZGRkZDMDgwMEE4NDlDfEQ2NUYwM0MwICAgICAgICAgICAgICAgICAg
+ICAgICByZXQNCg0KQnV0IGFjdHVhbGx5LCBpbiB0d28gYXNhbi5tb2R1bGVfY3RvciBmdW5jdGlv
+bnMsIHRoZXJlIGlzIG9ubHkgYXV0aWFzcCAgaW5zdHJ1Y3Rpb24gaW5zZXJ0ZWQgYmVmb3JlIHJl
+dHVybiwgZm9yIHZhbGlkYXRpb24gb2YgcmV0dXJuIGFkZHJlc3MsIHdoaWxlIHBhY2lhc3AgaW5z
+dHJ1Y3Rpb24gaXMgbWlzc2luZyBiZWZvcmUuDQpOU1g6RkZGRkZGQzA4MDBBNzJEOHxGODAwODY1
+RSAgYXNhbi5tb2R1bGVfY3RvcjogICAgc3RyICAgICB4MzAsW3gxOF0sIzB4OCAgIDsgeDMwLFt4
+MThdLCM4ICAgICAgICAgIA0KTlNYOkZGRkZGRkMwODAwQTcyREN8RjgxRjBGRkUgICAgICAgICAg
+ICAgICAgICAgICAgIHN0ciAgICAgeDMwLFtzcCwjLTB4MTBdISAgIDsgeDMwLFtzcCwjLTE2XSEN
+Ck5TWDpGRkZGRkZDMDgwMEE3MkUwfEIwMDIzM0MwICAgICAgICAgICAgICAgICAgICAgICBhZHJw
+ICAgIHgwLDB4RkZGRkZGQzA4NDcyMDAwMA0KTlNYOkZGRkZGRkMwODAwQTcyRTR8OTEzNTAwMDAg
+ICAgICAgICAgICAgICAgICAgICAgIGFkZCAgICAgeDAseDAsIzB4RDQwICAgICA7IHgwLHgwLCMz
+MzkyDQpOU1g6RkZGRkZGQzA4MDBBNzJFOHw1MjgwM0Q2MSAgICAgICAgICAgICAgICAgICAgICAg
+bW92ICAgICB3MSwjMHgxRUIgICAgICAgIDsgdzEsIzQ5MQ0KTlNYOkZGRkZGRkMwODAwQTcyRUN8
+OTQyMkIzOUUgICAgICAgICAgICAgICAgICAgICAgIGJsICAgICAgMHhGRkZGRkZDMDgwOTU0MTY0
+ICAgOyBfX2FzYW5fcmVnaXN0ZXJfZ2xvYmFscw0KTlNYOkZGRkZGRkMwODAwQTcyRjB8Rjg0MTA3
+RkUgICAgICAgICAgICAgICAgICAgICAgIGxkciAgICAgeDMwLFtzcF0sIzB4MTAgICA7IHgzMCxb
+c3BdLCMxNg0KTlNYOkZGRkZGRkMwODAwQTcyRjR8RDUwMzIzQkYgICAgICAgICAgICAgICAgICAg
+ICAgIGF1dGlhc3AgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIA0KTlNY
+OkZGRkZGRkMwODAwQTcyRjh8RDY1RjAzQzAgICAgICAgICAgICAgICAgICAgICAgIHJldA0KDQpO
+U1g6RkZGRkZGQzA4MDBBNzM5MHxGODAwODY1RSAgYXNhbi5tb2R1bGVfY3RvcjogICAgc3RyICAg
+ICB4MzAsW3gxOF0sIzB4OCAgIDsgeDMwLFt4MThdLCM4ICAgICAgICAgIA0KTlNYOkZGRkZGRkMw
+ODAwQTczOTR8RjgxRjBGRkUgICAgICAgICAgICAgICAgICAgICAgIHN0ciAgICAgeDMwLFtzcCwj
+LTB4MTBdISAgIDsgeDMwLFtzcCwjLTE2XSENCk5TWDpGRkZGRkZDMDgwMEE3Mzk4fEIwMDIzNDAw
+ICAgICAgICAgICAgICAgICAgICAgICBhZHJwICAgIHgwLDB4RkZGRkZGQzA4NDcyODAwMA0KTlNY
+OkZGRkZGRkMwODAwQTczOUN8OTEyMTAwMDAgICAgICAgICAgICAgICAgICAgICAgIGFkZCAgICAg
+eDAseDAsIzB4ODQwICAgICA7IHgwLHgwLCMyMTEyDQpOU1g6RkZGRkZGQzA4MDBBNzNBMHw1Mjgw
+MDZFMSAgICAgICAgICAgICAgICAgICAgICAgbW92ICAgICB3MSwjMHgzNyAgICAgICAgIDsgdzEs
+IzU1DQpOU1g6RkZGRkZGQzA4MDBBNzNBNHw5NDIyQjM3MCAgICAgICAgICAgICAgICAgICAgICAg
+YmwgICAgICAweEZGRkZGRkMwODA5NTQxNjQgICA7IF9fYXNhbl9yZWdpc3Rlcl9nbG9iYWxzDQpO
+U1g6RkZGRkZGQzA4MDBBNzNBOHxGODQxMDdGRSAgICAgICAgICAgICAgICAgICAgICAgbGRyICAg
+ICB4MzAsW3NwXSwjMHgxMCAgIDsgeDMwLFtzcF0sIzE2DQpOU1g6RkZGRkZGQzA4MDBBNzNBQ3xE
+NTAzMjNCRiAgICAgICAgICAgICAgICAgICAgICAgYXV0aWFzcCAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgIA0KTlNYOkZGRkZGRkMwODAwQTczQjB8RDY1RjAzQzAgICAg
+ICAgICAgICAgICAgICAgICAgIHJldA0KDQpJIGNvbXBhcmUga2VybmVsIDYuNiBhbmQga2VybmVs
+IDYuMTIgQVJNIE1ha2VmaWxlLCBhbmQgZmluZCB0aGUgZGlmZmVyZW5jZS4NCktlcm5lbDYuNiBN
+YWtlZmlsZQ0KNjYgaWZlcSAoJChDT05GSUdfQVJNNjRfQlRJX0tFUk5FTCkseSkNCjY3ICAgS0JV
+SUxEX0NGTEFHUyArPSAtbWJyYW5jaC1wcm90ZWN0aW9uPXBhYy1yZXQrYnRpDQo2OCBlbHNlIGlm
+ZXEgKCQoQ09ORklHX0FSTTY0X1BUUl9BVVRIX0tFUk5FTCkseSkNCjY5ICAgaWZlcSAoJChDT05G
+SUdfQ0NfSEFTX0JSQU5DSF9QUk9UX1BBQ19SRVQpLHkpDQo3MCAgICAgS0JVSUxEX0NGTEFHUyAr
+PSAtbWJyYW5jaC1wcm90ZWN0aW9uPXBhYy1yZXQNCjcxICAgZWxzZQ0KNzIgICAgIEtCVUlMRF9D
+RkxBR1MgKz0gLW1zaWduLXJldHVybi1hZGRyZXNzPW5vbi1sZWFmDQo3MyAgIGVuZGlmDQo3NCBl
+bHNlDQo3NSAgIEtCVUlMRF9DRkxBR1MgKz0gJChjYWxsIGNjLW9wdGlvbiwtbWJyYW5jaC1wcm90
+ZWN0aW9uPW5vbmUpDQo3NiBlbmRpZg0KDQpLZXJuZWw2LjEyICBNYWtlZmlsZQ0KODEgaWZlcSAo
+JChDT05GSUdfQVJNNjRfQlRJX0tFUk5FTCkseSkNCjgyICAgS0JVSUxEX0NGTEFHUyArPSAtbWJy
+YW5jaC1wcm90ZWN0aW9uPXBhYy1yZXQrYnRpDQo4MyAgIEtCVUlMRF9SVVNURkxBR1MgKz0gLVpi
+cmFuY2gtcHJvdGVjdGlvbj1idGkscGFjLXJldCAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgIA0KODQgZWxzZSBpZmVxICgkKENPTkZJR19BUk02NF9QVFJfQVVUSF9LRVJORUwpLHkpDQo4
+NSAgIEtCVUlMRF9SVVNURkxBR1MgKz0gLVpicmFuY2gtcHJvdGVjdGlvbj1wYWMtcmV0ICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICANCjg2ICAgaWZlcSAoJChDT05GSUdfQ0NfSEFT
+X0JSQU5DSF9QUk9UX1BBQ19SRVQpLHkpDQo4NyAgICAgS0JVSUxEX0NGTEFHUyArPSAtbWJyYW5j
+aC1wcm90ZWN0aW9uPXBhYy1yZXQNCjg4ICAgZWxzZQ0KODkgICAgIEtCVUlMRF9DRkxBR1MgKz0g
+LW1zaWduLXJldHVybi1hZGRyZXNzPW5vbi1sZWFmDQo5MCAgIGVuZGlmDQo5MSBlbHNlDQo5MiAg
+IEtCVUlMRF9DRkxBR1MgKz0gJChjYWxsIGNjLW9wdGlvbiwtbWJyYW5jaC1wcm90ZWN0aW9uPW5v
+bmUpDQo5MyBlbmRpZg0KDQpBZnRlciBJIGRlbGV0ZSB0aGUgcnVzdCBidWlsZCBmbGFncywgdGhl
+IGFzYW4ubW9kdWxlX2N0b3IgYmluYXJ5IGlzIHJpZ2h0IGFuZCBrYXNhbiBmZWF0dXJlIHdvcmtz
+IGZpbmUuQ291bGQgeW91IGhlbHAgY2hlY2sgd2h5IEtCVUlMRF9SVVNURkxBR1MgaW1wYWN0cyBr
+ZXJuZWwgY29tcGxpY2F0aW9uIHdpdGgga2FzYW4gZmVhdHVyZSBlbmFibGVkIGFuZCBob3cgY2Fu
+IHRoaXMgaXNzdWUgZml4ZWQ/DQoNCkkgdXNlIHRoZSBidWlsZC5jb25maWcuY29uc3RhbnRzOg0K
+QlJBTkNIPWFuZHJvaWQxNi02LjEyDQpLTUlfR0VORVJBVElPTj00DQpDTEFOR19WRVJTSU9OPXI1
+MzYyMjUNClJVU1RDX1ZFUlNJT049MS44Mi4wDQpBQVJDSDY0X05ES19UUklQTEU9YWFyY2g2NC1s
+aW51eC1hbmRyb2lkMzENClg4Nl82NF9OREtfVFJJUExFPXg4Nl82NC1saW51eC1hbmRyb2lkMzEN
+CkFSTV9OREtfVFJJUExFPWFybS1saW51eC1hbmRyb2lkZWFiaTMxDQoNCmNvbXBpbGUgY29uZmln
+dXJhdGlvbiBpcyA6DQpDT05GSUdfR0NDX1ZFUlNJT049MA0KQ09ORklHX0NDX0lTX0NMQU5HPXkN
+CkNPTkZJR19DTEFOR19WRVJTSU9OPTE5MDAwMQ0KQ09ORklHX0FTX0lTX0xMVk09eQ0KQ09ORklH
+X0FTX1ZFUlNJT049MTkwMDAxDQpDT05GSUdfTERfVkVSU0lPTj0wDQpDT05GSUdfTERfSVNfTExE
+PXkNCkNPTkZJR19MTERfVkVSU0lPTj0xOTAwMDENCkNPTkZJR19SVVNUQ19WRVJTSU9OPTEwODIw
+MA0KQ09ORklHX1JVU1RfSVNfQVZBSUxBQkxFPXkNCkNPTkZJR19SVVNUQ19MTFZNX1ZFUlNJT049
+MTkwMDAxDQpDT05GSUdfQ0NfQ0FOX0xJTks9eQ0KQ09ORklHX0NDX0NBTl9MSU5LX1NUQVRJQz15
+DQpDT05GSUdfQ0NfSEFTX0FTTV9HT1RPX09VVFBVVD15DQpDT05GSUdfQ0NfSEFTX0FTTV9HT1RP
+X1RJRURfT1VUUFVUPXkNCkNPTkZJR19UT09MU19TVVBQT1JUX1JFTFI9eQ0KQ09ORklHX0NDX0hB
+U19BU01fSU5MSU5FPXkNCkNPTkZJR19DQ19IQVNfTk9fUFJPRklMRV9GTl9BVFRSPXkNCkNPTkZJ
+R19QQUhPTEVfVkVSU0lPTj0xMjUNCkNPTkZJR19JUlFfV09SSz15DQpDT05GSUdfQlVJTERUSU1F
+X1RBQkxFX1NPUlQ9eQ0KQ09ORklHX1RIUkVBRF9JTkZPX0lOX1RBU0s9eQ0KDQpUaGFuayB5b3UN
+Cg==
 
