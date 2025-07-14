@@ -4,157 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDC8AC83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 08:37:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 784ADC83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 08:39:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ntwXyvWcB5pN2RSp8hHJjUsty1gNUb6WcjV1nT8AgjE=; b=4TY9skZMUB9i+xvXkkiczK/+uD
-	kkCdUeiWpJbbW/J3gFDeIENe/XRAVYkID4MO9PfDuEzJAppIeAK2t7B1jc8NLeKaf7S3Sp/P/yHNz
-	9gkWWHLcKyNCwpzSdaXmEjGuAyl1ze+p9jgxdgBYzFtrHbu/PwsznOL4GO3ZZwwH/LaVi2yHHfbxQ
-	7g3LIFAymMxKcFx/UgCHRCXV+PQzYvvYOrcnwTlpXH4ZMfzOy9kQZbjimNxn2Uh0eqZ9YSqn3B7lW
-	8NZeHeE+oCy4UFUnJ+G2ZqWiUoFIgVOys0/iRf+/RXfGjaBUOeF85phFUKo0lvdRQpBDBpvb1/+TE
-	/IQomDzA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tli1pRhKEzSIl0CdIVCduMJ0ZCMzdJoiRaigyAmYtYw=; b=JxtJyHYCNpeyg/HbJJhD3bgjv0
+	q1Vw+ifA7D8s8gGZwycBHaM4KX/ZC/6OMBEBV9UKoU+sueix7nsV8sOUV9vaDuVwSRGP3QivO+1oo
+	XouUeF1YCWw23sVouNMi1baEnnxbU7MT5lHHlPLGwLuZcEKLYPYgISrHZw3eVCjppIskszRvz4nnl
+	j+qM+z8YU4IBs4m1j0FkXW2b4Wi4C/UKfUcwWia+UhRtDfM73a07pX5JWScd3+6OjhYBuq+eCHL3Z
+	z8D6QRkLyZlcUTAvS4aEijaeh+0lPV4nLHUgSm5BhvbUq3HRz50/oTfVjRmbzCMcOXU11BphuTvXM
+	osZJnlsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubEgI-00000001fKf-2GdJ;
-	Mon, 14 Jul 2025 08:37:02 +0000
-Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1ubEig-00000001fgK-45P2;
+	Mon, 14 Jul 2025 08:39:30 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubEPw-00000001cFc-03oE
+	id 1ubETB-00000001dFe-1Nb3
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Jul 2025 08:20:09 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=mYkyQ5jCasAz4hQZhxeihNDgLGteRMx5bVniynAf1wYn9gMO+kWag47zmOos4CPsXNRKANOg3DEpNTxALShDQtRbFa0lArDkEmqZBgaDnZ2NQA0NFJ/kwa2XTscDRQvxMJAvcT52Fnei1VkXc5v9/Iir2EbgjmDw2iWqeN1ioBZFIOtjKKdojvlZNloJQQwgOsZKdYnpiO2Q6OslXO2UqKOQl2H+X8E0u/xMhGOxKBAYd3X3ZqdXCCygpp+JNQqpzdQlbsNAasmnK2XG0dJINdCp94NtkyS+x+2xYJNnMyymlqpwDDZg2RJj2Ndhf4xDTVXY+cjwVEK6ioNBA31bfw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ntwXyvWcB5pN2RSp8hHJjUsty1gNUb6WcjV1nT8AgjE=;
- b=POn4fpUdPwI6gQg43goqGAcKsCEiqlmycJWWJGReA/oNg0iff75WLDQfUzjjDpz4JJn4LdgVNWShdKpCcbdvwH5oTYas1JGu3SlaZB5zRymqjrdS8/loy9+3ylM3R+0sFWpmcnsV3cizb/whyZ7K/AnrZyJJ09HoRsMtPcs5xLak49wBQZLj6j0I5TWSbnOQGcGHEfXxH+USvdkMaoJo98YcFj0LnTLhxd733hk1/PwLxdAXI4NXI74ccbKZLbFKPFySmnv4cFLph9p+TjW2mXn5/OZGPqycxDm/mAqYNpgtzAlpSbuxJr2Mzac938tCiIggruRwAqZ94rmI2QKJHg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=mt.com; dmarc=pass action=none header.from=mt.com; dkim=pass
- header.d=mt.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mt.com; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ntwXyvWcB5pN2RSp8hHJjUsty1gNUb6WcjV1nT8AgjE=;
- b=oQuHmVO2PzGA0pByY784LQM6achKHgdinOtBa6J9yJIR/rF6ZwrTejTRv/HsBq9L1UU2JT0TmVD2syuNu6fFVdWL9sDc47TeSkkmkD1/IqCec3MACTMkQPHnMoUADnuC3k893VfRSqlhAdWZelbpBwyQXCAWIAnnj74cfYYvm4UURtMSI3ECgGXgHQXhDZ5zLSgu+WusUBsw1CRlEx5nY2bckE/U4uOQseh6EwralrEG7xDO4vu+QvrdqrLBvwBLafbvP+rovhmeXBnu0ikCq8W7ft59aV6AsqDwEzj+AH3dgf6dDdMHIRUibt4FujKY8AdnsO3th0rbxZpUIl5HGg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=mt.com;
-Received: from DB9PR03MB7755.eurprd03.prod.outlook.com (2603:10a6:10:2cc::22)
- by DB8PR03MB6250.eurprd03.prod.outlook.com (2603:10a6:10:136::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8922.32; Mon, 14 Jul
- 2025 08:20:05 +0000
-Received: from DB9PR03MB7755.eurprd03.prod.outlook.com
- ([fe80::2ef6:ec79:4089:ce54]) by DB9PR03MB7755.eurprd03.prod.outlook.com
- ([fe80::2ef6:ec79:4089:ce54%3]) with mapi id 15.20.8922.023; Mon, 14 Jul 2025
- 08:20:04 +0000
-From: Mathis Foerst <mathis.foerst@mt.com>
-To: linux-kernel@vger.kernel.org
-Cc: Mathis Foerst <mathis.foerst@mt.com>,
-	Steve Longerbeam <slongerbeam@gmail.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	linux-media@vger.kernel.org,
-	linux-staging@lists.linux.dev,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	manuel.traut@mt.com,
-	mathis.foerst@zuehlke.com
-Subject: [PATCH v5 RESEND 1/1] media: imx: csi: Parse link configuration from fw_node
-Date: Mon, 14 Jul 2025 10:19:13 +0200
-Message-Id: <20250714081913.516481-2-mathis.foerst@mt.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250714081913.516481-1-mathis.foerst@mt.com>
-References: <20250714081913.516481-1-mathis.foerst@mt.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: ZR0P278CA0200.CHEP278.PROD.OUTLOOK.COM
- (2603:10a6:910:6a::11) To DB9PR03MB7755.eurprd03.prod.outlook.com
- (2603:10a6:10:2cc::22)
+	Mon, 14 Jul 2025 08:23:30 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 30150A53B81;
+	Mon, 14 Jul 2025 08:23:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8A979C4CEF5;
+	Mon, 14 Jul 2025 08:23:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1752481407;
+	bh=JPu/HBzuxIQjR8TK1nxLaxAXr3+2nK/+1TEX0DprjD4=;
+	h=Date:Subject:To:References:From:In-Reply-To:From;
+	b=eu1LIng5KPcq2DVP5oQefEFAREkf8RS8peIcwgyQu9W7XSWjiO0v6nn4ithx6oX/W
+	 f9f7LIXE54MmDF1+qbFGFxel+j4qmYwHxE2K3p6VTqm5F1DTYPO29jtdS3bd04HLbU
+	 q06c0jjPCsZgnp/KbyqiTscXl8zkRSX+Kdi8vogz5FDoHY4Jz5E/rmRGKzB2v/V+Me
+	 fK0SMKanYRJDoVLIURtYWGAbho2tGewl+dWIzaIZD9Vag0qDsW7SJBZzpT9wWj+8lS
+	 EC46PBTN4oP2FuhUb/vacazXoLbEN5I1qmWSt2nq6i2B4rUJ8X6qvsQyXRSO8U0QCG
+	 caQc2bDfTViXA==
+Message-ID: <57c0d48d-1484-45df-a99d-11388b6efdb1@kernel.org>
+Date: Mon, 14 Jul 2025 10:23:21 +0200
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB9PR03MB7755:EE_|DB8PR03MB6250:EE_
-X-MS-Office365-Filtering-Correlation-Id: 282c310c-2992-483d-5e73-08ddc2af3c81
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|52116014|19092799006|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?CI19HGdbv8Gl4OjHBRPHx/kkzFBKh6of9Qsq0Obk+mDohf/Zop6rMk4XriGu?=
- =?us-ascii?Q?qCN1II0ftELwN1ESWCs9M2g48mfTggzjimjGBG4CNRV8xOz+AZl67RxKOXUX?=
- =?us-ascii?Q?3DhGGaDgA10+kdbE3QkyUv0cjU/VcGi27yvUE2Ugho1qw6gE7H/0qFYAwzTe?=
- =?us-ascii?Q?u6EqmA2pJGaFh+lJPDH8kl6UuEMo9CzP4pq9JNRy3vQh0sjNzOHGveuYFuAy?=
- =?us-ascii?Q?5iuoa2gHwcqIDNFnksgB/F6UNtiRdkH5qg4Pxn0z3nEeC8hytRsR7I4unM0B?=
- =?us-ascii?Q?ioRbY2MorvBEUQD8rR97L26CBswIze/oVUr6zYkI7gQ7B826mUWtdGZtMcfz?=
- =?us-ascii?Q?RFSFscqwJb2QlhElg/v8kZu8FbIwGSbc/RJlEINRrfDMO15tk2PKWMnA2c1O?=
- =?us-ascii?Q?BzQLH0WlgyCSoXxeNXofMVZtU1jGfPKm3lGKLJpMgMOClQP7sNSYWUiwbZah?=
- =?us-ascii?Q?DlzWfjNDwPmyX+uuNoMJVpANbNxTBFRsZKRliYXl6leOt9ygjEOzr274u8Y3?=
- =?us-ascii?Q?dUzJlIQW9Cjzwt7IzUUKmgYfYhYYGbBxjZgYU+86Pji1dVTDIgPCmk5aTA9a?=
- =?us-ascii?Q?NUmTBUmsse7ActuiUFaDNiAexVxLI2u7omktAzzjEU08GYSDmk0gO0Rk+jAK?=
- =?us-ascii?Q?jhzir7FfU0jmop0z5Trq8vlGQvA2x1q1E0IXrD9QDBXA8NfPuOdsHYaVaGzk?=
- =?us-ascii?Q?74Z3ETov++vx8K+Td+Gxq7xJ9nT893IYUX2laCvqVycEb4/7gzII7mXr6Ip7?=
- =?us-ascii?Q?XX3Zl5qsl1N8k9sRqFE/XX2Ccs/Vyt1vs81mGSLb8a4E6otVQvqxe/N2n5Bb?=
- =?us-ascii?Q?bm4ezbsu+o3KZoDbKxYVTp3DIfpAvxLp9BO8q96KoULMbfvoStaGaSF+k8kL?=
- =?us-ascii?Q?UiN0dIHRIYLuw0goZSzR0d5+XsTKv07sYgqdJ5ErTQQrIAOeGJpDX/0NkplY?=
- =?us-ascii?Q?HRDmqaNZm4fFaXeYwL44HXWumfEByj+osOLxkm4GRY85brYLVXwaCcocJcbP?=
- =?us-ascii?Q?dE3oNGEYwagIg1c5oDt8aqeuItx7jZFZ987IT01KulHyBUSkgE1QlJE3S6f/?=
- =?us-ascii?Q?cCDCBUFxUeN2BS+9omTA/FeCjF2MNaROkNeN4GiTf477VcBCgkUCJlX+cCrR?=
- =?us-ascii?Q?1Yz0PGDl0k56Va6LDMwVUr1GjIAzXWfamciy1ueFRg1EI5INYWDmSG3mxX1m?=
- =?us-ascii?Q?kfFrh6/Ujx7RMgj9hVFhvpbWEALBPWzNZ6NWruSbYGmkES2gPXSH645m3PSO?=
- =?us-ascii?Q?R377njTmO1XYNezzcenjNhijtLY1Q39hhu42jEFMC+vU/eCRD1JSm8yXgPRg?=
- =?us-ascii?Q?IqzCel5p1GuCno3x+TwrHfApcsX+R3JAEkw9KN1qJjbwrFC7RUQJsYdtcVbc?=
- =?us-ascii?Q?5OSDzBWtOWEsG139nHYW8iMSXTSsT5FDzSAOs6PzNMIksGmuQNKiKUBegczh?=
- =?us-ascii?Q?9fxEaduoJCJhDiIo655VyUiy/DtYt6gnvsFlaEqP+D2awctMFZBGHA=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR03MB7755.eurprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(52116014)(19092799006)(1800799024)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?VMlnyz2Guj+nk09lbYSEOD2CNJONqd5gU0Is/wWYDkKnM6FKG49u/Ck8RUNa?=
- =?us-ascii?Q?wZN7jBODJX9m4khDoo5FhRl5R9vERXo+htQj1R+PGxTMzX8mxjwByMqncKnz?=
- =?us-ascii?Q?8JVKUfx0y/gHulBEcuxDZUw6K0g8YrbYIQhXAhwn5SowhgUZ5baAvHx8UR7R?=
- =?us-ascii?Q?7vYPXusvSNYyZ1F9508ZCjvhi/gZI+UQYbo/BSysd0nVW0UggLhZnv7C/Zj1?=
- =?us-ascii?Q?e0KNCK8SRjg115I/l5TKpt5NdsM7Nc8jYp5aYtdZxGZ2DutEb9vwUy1JUVad?=
- =?us-ascii?Q?IX3FNT7iz9gAp5iLV8CNxJaF03DgO1p5G1ejf1kzCFV6i52WZ5LVz+QeQdeP?=
- =?us-ascii?Q?pUYyePtM1omOplqcYQ5KQgdD9ITsFkivoqVvjOIrQK3/Xw6W9hToeP34QXOT?=
- =?us-ascii?Q?J/pEZXM9/sax9TjVWkUDyp/ceO08NFZmGj+4AAGYW2o5SZMDmnuXgpg/w7RE?=
- =?us-ascii?Q?1kNh12kiV3+7ftr7nKSeS/w0Y7XW3/4D7sZRMUV3ZeLJGkkbnkdxwohmqR8h?=
- =?us-ascii?Q?p4NFITPnn7mmOG+UM+y/c7KRJ8nWAItnGDuA2m/v8W09GZRxHAqmBVOosW6S?=
- =?us-ascii?Q?KXANWSZJlhxKV4FATCp1ZPa56MUM7nkKyHOIQ0nrUhT1/55dYInpzAKZgA3u?=
- =?us-ascii?Q?oT6IGfNrVANqWlWPJt3dNNwrjqTOnjGzqWieFAI/nwkTvVr5ZQcnzCi35lqH?=
- =?us-ascii?Q?k/ceBKK/NsPPH99oV4Erw9i7//zY40Z4EjUc9EMJRoctUnmxRCfhlgxuhALe?=
- =?us-ascii?Q?yuEF7mfrI35hTytJRufyhrGkzd/pvJQwqm06fRt0X942sfNYa4VoDACttElc?=
- =?us-ascii?Q?7l2Lv5CX9XzKih4qHPVRaCCvtcj2I5Wk/SoH2eJYwYBSxezg32LILW14m781?=
- =?us-ascii?Q?ePqi0/RLLWErdqawk76yDZ7CZTeB0FIgceNUGWPxGGfAWp5Io++nq2CjKr1Q?=
- =?us-ascii?Q?F1+teYAZXNa8FRCeOmo1u3DL5S9VJpBL4tErfshDA4yfWZuiTEAYMR2x8VhK?=
- =?us-ascii?Q?APsRom0IQAj3324PdCjzM9pV/9iRZpWAkXGqdeOZVN8lHLhvdoBUhKE27Hn4?=
- =?us-ascii?Q?BU4f1Dk9pg3ObeWzEM9Z/JJOz0jksta31bTVga4YHG3tQpef7fZrj+0ZaJ8r?=
- =?us-ascii?Q?UlVb/okcP3ASWcz7CI1conw5O2kHwaGZG+3BWbTm1OXpkvJGh8cwO2hdHsJM?=
- =?us-ascii?Q?k8Nn3Oizk8Gk9C5GjLRnsf2KF1Xs1BoXO2/hSvNfHX9W0df6u8QlPudAerlA?=
- =?us-ascii?Q?W/95p1IBjHhcv/6KCwXCjaxkkjfXtI8DcYxmoLnQJZQmLqDQDJfZ2tQ+T1Cj?=
- =?us-ascii?Q?moA5mlYuBJvglkV0NRHRwSQ+xeBvZrHREYscra5mMdPHIsIeXGvyfd/so9rV?=
- =?us-ascii?Q?GBMXie3hkpTySw2WAtopgVtQYy8B0Sorqp0W9Vn72HoIpA1Jl3qipX3Hv9Yq?=
- =?us-ascii?Q?xZeJnimHnwoGO5r87erH1vrTyw0KG2kFoPxAzIIZ8YsnlEP49MsFxJ6wWvkX?=
- =?us-ascii?Q?71cJK/Zff6IcTtMsCpEZneWy0sjiyzU3lb4hIfyv2JQ8BSII2ysX7usgRgdN?=
- =?us-ascii?Q?K6ZGcUFtScsoA8GFMvIfLzoki7kpkI1IUgjWrUQj?=
-X-OriginatorOrg: mt.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 282c310c-2992-483d-5e73-08ddc2af3c81
-X-MS-Exchange-CrossTenant-AuthSource: DB9PR03MB7755.eurprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Jul 2025 08:20:04.7757
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: fb4c0aee-6cd2-482f-a1a5-717e7c02496b
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: P0QhnlkMcpN2yeLqh7lxHyJHHCJTLlvNweJO3Xk9T09dUGXZ34Ho2ShenZvslpe5dYOeHFxpFxGLc+M7sC1HDw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR03MB6250
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] dt-bindings: interrupt-controller: aspeed: Refine AST2700
+ binding description and example
+To: Ryan Chen <ryan_chen@aspeedtech.com>, Thomas Gleixner
+ <tglx@linutronix.de>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
+ Andrew Jeffery <andrew@codeconstruct.com.au>,
+ Kevin Chen <kevin_chen@aspeedtech.com>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>
+References: <20250714071753.2653620-1-ryan_chen@aspeedtech.com>
+ <b500647b-31b6-40c9-be0b-1640dc271375@kernel.org>
+ <OS8PR06MB7541C0330FDE855FDD360B68F254A@OS8PR06MB7541.apcprd06.prod.outlook.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <OS8PR06MB7541C0330FDE855FDD360B68F254A@OS8PR06MB7541.apcprd06.prod.outlook.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250714_012008_065024_C8F53B4C 
-X-CRM114-Status: GOOD (  24.37  )
+X-CRM114-CacheID: sfid-20250714_012329_497783_EFFBDF72 
+X-CRM114-Status: GOOD (  10.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -169,147 +127,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The imx-media-csi driver requires upstream camera drivers to implement
-the subdev-pad-op "get_mbus_config" [0]. Camera drivers that don't
-implement this function are not usable on the i.MX6.
+On 14/07/2025 09:36, Ryan Chen wrote:
+>> Subject: Re: [PATCH] dt-bindings: interrupt-controller: aspeed: Refine AST2700
+>> binding description and example
+>>
+>> On 14/07/2025 09:17, Ryan Chen wrote:
+>>> - Update block diagram for better readability and accuracy.
+>>> - Clarify the relationship and function of INTC0, INTC1, and the GIC.
+>>> - Documentation and example refine.
+>>>
+>>> This enhances the documentation quality and helps developers
+>>> understand the interrupt controller hierarchy and usage.
+>>
+>> Changing ABI (compatibles) is not enhancing quality and is not explained here.
+>>
+> Sorry, I would add following in description.
+> - add 'aspeed,ast2700-intc0' and 'aspeed,ast2700-intc1' compatible strings
+> for parent interrupt controller nodes, in addition to the existing
+> 'aspeed,ast2700-intc-ic' for child nodes.
+> 
 
-The docs for get_mbus_config [1] say:
-@get_mbus_config: get the media bus configuration of a remote sub-device.
-            The media bus configuration is usually retrieved from the
-            firmware interface at sub-device probe time, immediately
-            applied to the hardware and eventually adjusted by the
-            driver.
+It does not say why is this needed in the first place...
 
-Currently, the imx-media-csi driver is not incorporating the information
-from the firmware interface and therefore relies on the implementation of
-get_mbus_config by the camera driver.
-
-To be compatible with camera drivers not implementing get_mbus_config
-(which is the usual case), use the bus information from the fw interface:
-
-The camera does not necessarily has a direct media bus link to the CSI as
-the video-mux and/or the MIPI CSI-2 receiver of the i.MX6 might be in
-between them on the media pipeline.
-The CSI driver already implements the functionality to find the connected
-camera sub-device to call get_mbus_config on it.
-
-At this point the driver is modified as follows:
-In the case that get_mbus_config is not implemented by the upstream
-camera, try to get its endpoint configuration from the firmware interface
-usign v4l2_fwnode_endpoint_parse.
-For the supported mbus_types (V4L2_MBUS_PARALLEL, V4L2_MBUS_BT656 and
-V4L2_MBUS_CSI2_DPHY), extract the mbus_config from the endpoint
-configuration.
-For all other mbus_types, return an error.
-
-Note that parsing the mbus_config from the fw interface is not done during
-probing because the camera that's connected to the CSI can change based on
-the selected input of the video-mux at runtime.
-
-[0] drivers/staging/media/imx/imx-media-csi.c - line 211..216
-[1] include/media/v4l2-subdev.h - line 814
-
-Signed-off-by: Mathis Foerst <mathis.foerst@mt.com>
----
- drivers/staging/media/imx/imx-media-csi.c | 62 +++++++++++++++++++++--
- 1 file changed, 58 insertions(+), 4 deletions(-)
-
-diff --git a/drivers/staging/media/imx/imx-media-csi.c b/drivers/staging/media/imx/imx-media-csi.c
-index a7cd3ef95fc3..5c2f197ae961 100644
---- a/drivers/staging/media/imx/imx-media-csi.c
-+++ b/drivers/staging/media/imx/imx-media-csi.c
-@@ -158,6 +158,50 @@ static inline bool requires_passthrough(struct v4l2_mbus_config *mbus_cfg,
- 		 infmt->code != MEDIA_BUS_FMT_YUYV8_2X8);
- }
- 
-+static int csi_parse_upstream_fw_link_config(struct csi_priv *priv,
-+					     struct v4l2_subdev *remote_sd,
-+					     struct v4l2_mbus_config *mbus_cfg)
-+{
-+	struct fwnode_handle *ep_node;
-+	struct v4l2_fwnode_endpoint ep = { .bus_type = mbus_cfg->type };
-+	int ret;
-+
-+	ep_node = fwnode_graph_get_endpoint_by_id(dev_fwnode(remote_sd->dev),
-+						  0, 0,
-+						  FWNODE_GRAPH_ENDPOINT_NEXT);
-+	if (!ep_node)
-+		return -ENOTCONN;
-+
-+	ret = v4l2_fwnode_endpoint_parse(ep_node, &ep);
-+	/*
-+	 * Retry with V4L2_MBUS_BT656 if parsing fails with V4L2_MBUS_PARALLEL
-+	 * as the parallel interface supports both MBUS types.
-+	 */
-+	if (ret == -ENXIO && mbus_cfg->type == V4L2_MBUS_PARALLEL) {
-+		ep.bus_type = V4L2_MBUS_BT656;
-+		ret = v4l2_fwnode_endpoint_parse(ep_node, &ep);
-+	}
-+	fwnode_handle_put(ep_node);
-+	if (ret)
-+		return ret;
-+
-+	switch (ep.bus_type) {
-+	case V4L2_MBUS_PARALLEL:
-+	case V4L2_MBUS_BT656:
-+		mbus_cfg->bus.parallel = ep.bus.parallel;
-+		break;
-+	case V4L2_MBUS_CSI2_DPHY:
-+		mbus_cfg->bus.mipi_csi2 = ep.bus.mipi_csi2;
-+		break;
-+	default:
-+		v4l2_err(&priv->sd, "Unsupported mbus_type: %i\n",
-+			 ep.bus_type);
-+		return -EINVAL;
-+	}
-+	mbus_cfg->type = ep.bus_type;
-+	return 0;
-+}
-+
- /*
-  * Queries the media bus config of the upstream entity that provides data to
-  * the CSI. This will either be the entity directly upstream from the CSI-2
-@@ -175,6 +219,7 @@ static int csi_get_upstream_mbus_config(struct csi_priv *priv,
- 		return -EPIPE;
- 
- 	sd = priv->src_sd;
-+	mbus_cfg->type = V4L2_MBUS_CSI2_DPHY;
- 
- 	switch (sd->grp_id) {
- 	case IMX_MEDIA_GRP_ID_CSI_MUX:
-@@ -186,8 +231,14 @@ static int csi_get_upstream_mbus_config(struct csi_priv *priv,
- 		sd = imx_media_pipeline_subdev(&sd->entity,
- 					       IMX_MEDIA_GRP_ID_CSI2,
- 					       true);
--		if (IS_ERR(sd))
-+		if (IS_ERR(sd)) {
- 			sd = priv->src_sd;
-+			/*
-+			 * If the CSI-2 receiver is not on the path, the
-+			 * parallel port is in use.
-+			 */
-+			mbus_cfg->type = V4L2_MBUS_PARALLEL;
-+		}
- 		break;
- 	case IMX_MEDIA_GRP_ID_CSI2:
- 		break;
-@@ -211,9 +262,12 @@ static int csi_get_upstream_mbus_config(struct csi_priv *priv,
- 	ret = v4l2_subdev_call(remote_sd, pad, get_mbus_config,
- 			       remote_pad->index, mbus_cfg);
- 	if (ret == -ENOIOCTLCMD)
--		v4l2_err(&priv->sd,
--			 "entity %s does not implement get_mbus_config()\n",
--			 remote_pad->entity->name);
-+		/*
-+		 * If the upstream sd does not implement get_mbus_config,
-+		 * try to parse the link configuration from its fw_node
-+		 */
-+		ret = csi_parse_upstream_fw_link_config(priv, remote_sd,
-+							mbus_cfg);
- 
- 	return ret;
- }
--- 
-2.34.1
-
+Best regards,
+Krzysztof
 
