@@ -4,129 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD057C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 07:13:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41A37C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 07:16:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k+EDEHFqKkjGqN2StGIjjiSlDJT77CrFI7R+bA+Neo0=; b=4K+B5Gjo/tOcsTh/dDd1rY8rNO
-	XC2a3/LRIvXxnJTZRQYwqafJlFyMCFEXy7pmIjJk6FTn19p3M0YcboC2kB54m5cI//Cm1d4kDeoRb
-	hIMsliybXjB1xoyiY8y2g6BoKVi9MJ1KMw1fV3odERdU3VYA6o+GUdt5md8kmoZt4x9yAnT5mYWBC
-	M2VR6uD91mJTYpJp+/t9Zwi9e+Yx7Ot4cpGd/rvtbkH5W4dIeRk3UkVvRKGHjChwKaEptLthSz1FY
-	6vEPgu8mf0N23YrKKNpPeJe/1VDMfRqkVCvLSp3X7kH99K6Asweb7WcPU4GYUlllFD8K9ddzS811Q
-	tGJVeEZw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ynfzJ9dsAps2aTd6f/tPXnxcet4bhZr25ybz3JfD7/o=; b=J7eiCw6a1/P86ZJ5ivpoiZjolw
+	2KSxjRBxOYnz0Az8Hx4JrAOSVu6k8obp3CX2vKh9Etcj67WHyXweWmbFWmKw99sSUEEzA66SfH+kL
+	jk97cPPPnMB2MZ6+JvfIT0beEzILpf/kWwn5PYmpuhudVSmjTOWxLA3lRAwJuTdMm71tJASEIzq0z
+	zo49GPMwXYyCckBLN+rM+WsGnVhb/eoYzSfCxwqDdQkEBNt6DTFOuSsV4dD0fedvddMK0oXR/HGwh
+	3U8W3ukfl2XI8szU2IfTteEjSKfrlJxedD4idpnGwpxZj553Lc55X6Vm96ea15Tr1xqDfgJJuaaBn
+	wzNUtVig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubDNl-00000001RN5-26NU;
-	Mon, 14 Jul 2025 07:13:49 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1ubDQA-00000001ReD-0wnL;
+	Mon, 14 Jul 2025 07:16:18 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubCjR-00000001MPq-4Bso
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Jul 2025 06:32:11 +0000
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56DLSiKm018876
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Jul 2025 06:32:09 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=qcppdkim1; bh=k+EDEHFqKkj
-	GqN2StGIjjiSlDJT77CrFI7R+bA+Neo0=; b=BzaPNvSOtqARt6VACorz/zvfbzA
-	b0qI6FZV7SLT4wlmUKQ0twErYA6NiylGBckaVy2+2sDPTsiWFHll5YtoQ6wNp5uY
-	LxngP/iTZaMCH1U2jQC+eX7eD9WwPc7FT8NI6ZZvVtReQSbaPLhdlspmtR0NLf/K
-	ahtgfWcJS+K1FxW6JccDFKGwT2p5YKbyU3lYFCCKS1AjBz19IEiFuVYK6YrPlzAx
-	rG4r4WNsMzer2602CUK/uaSNLWRdd4/T9CZ/rp/8/z7PMwmFzMPSKSJnkx4aKg5N
-	ei9DcjajcjQczBjw1KUfNbDvgYRm5ssMi0sBiXv9OHiN4T/hRmAaq+6mGHw==
-Received: from mail-pg1-f200.google.com (mail-pg1-f200.google.com [209.85.215.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 47uftmbh1h-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Jul 2025 06:32:09 +0000 (GMT)
-Received: by mail-pg1-f200.google.com with SMTP id 41be03b00d2f7-b34fa832869so3959520a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 13 Jul 2025 23:32:09 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752474728; x=1753079528;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=k+EDEHFqKkjGqN2StGIjjiSlDJT77CrFI7R+bA+Neo0=;
-        b=dwhQPAWEjKsAXgnJWNEWqoV25IfJb2P+3bGGRqtElZrcDjZkFHm+k2Y4ZOpwM2exAe
-         w/zz7GvqbahtEwqeQpQJBCjxh/K/qECjVwh0E9I3paRE7MUmlREO6vkpi+dD3QVDxhRf
-         iznuU2KW/drmPldAq3XYY/NKJ+jgB5BOBFfuD8fDWxhboSltsAYhCKSTxKBAOTW6qE42
-         KgRxjl1NJTdnjrEIJXjzzP2QTAsaO8p2zkYioKqmtxauBDKd3f+2v2znAEvyBJCgkxyv
-         cbDSXNhcVP2haT+MgLz4t4EFvgKElM2WQfcXZVJGeHNDCcR+JvlGDH1oF9gFvWstbXs1
-         c/zg==
-X-Forwarded-Encrypted: i=1; AJvYcCUu8RU+3zZgNvXMeOsZA6qWL1Nmgb1B2YqPhy4AJogGW4d93eaCnmiNBJqW2eMwndMVISIwmEcLlGtr/o5Xz8wc@lists.infradead.org
-X-Gm-Message-State: AOJu0YxfxmBKUt0qJ744uUXBArrVnEqNJYo4fkopY9bP5fKt6SH7fyVj
-	Q+7oyL017UWBP2AsDkZHcbe+GlfbmfsYR5TylS8EkkYjse7feEQ57+ct96WDxxD98qlZB5FQsRE
-	uWas0wey0NPiVzCgr8T51cv8WIF0dw4sT3H86c0zlJBbeg5fg+7/sLaCOvhvXbKsszgPrf6trlC
-	xw8g==
-X-Gm-Gg: ASbGncuIMGcBKvNDhA9RjxZf2YIc0LNE2icEp2kRR+/KJfbSXJBRb6547aWpo5fCJsI
-	8cmcj3QTMeEHlc4Db/vutVrIghBou7qHanc3+1T572zDR8kV3czmHHrob9qB8nqxzz9Mc2oHSJu
-	2NbikMqvW0kBZzOgQVpxQc5jRwYsyUyw/1GuUib2V6rcYiAfywUlOJYKwolot9AfNaE4dG7fQ+w
-	w7C0i/gttKSpKwUZkB5klv21MRrM+ztm/VeuMgB4C7BOTXVZobpLGTUx2rc/RyNRK37ZHuMYJQE
-	tKZoCsnXgFEEDRy9SlLWGD2kNmIG+7cAyI6y0FnTU8JoVcO/EmUVfldfpEmW3JIxJOMs5UQHlwN
-	hmVEMYsSr+fwyYqPYXwia
-X-Received: by 2002:a17:902:d512:b0:236:10b1:50cb with SMTP id d9443c01a7336-23dede6f4e3mr166291965ad.26.1752474727913;
-        Sun, 13 Jul 2025 23:32:07 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHZiMGZ2Um8rFarD1TkyOaULeiLVr8nn7BvvzuTr6cAcM5dJp7mM9PTOufZBS7vQqZLdLPSoA==
-X-Received: by 2002:a17:902:d512:b0:236:10b1:50cb with SMTP id d9443c01a7336-23dede6f4e3mr166291695ad.26.1752474727509;
-        Sun, 13 Jul 2025 23:32:07 -0700 (PDT)
-Received: from jiegan.qualcomm.com (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23de4334005sm86138255ad.158.2025.07.13.23.32.02
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 13 Jul 2025 23:32:06 -0700 (PDT)
-From: Jie Gan <jie.gan@oss.qualcomm.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Mike Leach <mike.leach@linaro.org>,
-        James Clark <james.clark@linaro.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-        Tingwei Zhang <quic_tingweiz@quicinc.com>,
-        Yuanfang Zhang <quic_yuanfang@quicinc.com>,
-        Mao Jinlong <quic_jinlmao@quicinc.com>,
-        Jie Gan <quic_jiegan@quicinc.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-        linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-        devicetree@vger.kernel.org,
-        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-Subject: [PATCH v3 RESEND 10/10] arm64: dts: qcom: sa8775p: Add interrupts to CTCU device
-Date: Mon, 14 Jul 2025 14:31:09 +0800
-Message-Id: <20250714063109.591-11-jie.gan@oss.qualcomm.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250714063109.591-1-jie.gan@oss.qualcomm.com>
-References: <20250714063109.591-1-jie.gan@oss.qualcomm.com>
+	id 1ubCla-00000001Mxr-2PFv;
+	Mon, 14 Jul 2025 06:34:23 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 8B1BEA5116F;
+	Mon, 14 Jul 2025 06:34:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3777BC4CEF7;
+	Mon, 14 Jul 2025 06:34:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1752474861;
+	bh=ynfzJ9dsAps2aTd6f/tPXnxcet4bhZr25ybz3JfD7/o=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=kEJvLVQkjY7hRn/K87feYU0o9wfLcoFoQapbEzji/H3oVgosLIR+n/zpshU8j5xPx
+	 cnTymersGd/N+1mHqJ3BKGWRQrcT85aRPAwcP/faI8e5poEh4ZkWHMwaVBKocHO+rc
+	 dLlEMs5vxTbWhanxYLW+okfeFmBQsBMdx563LZdcvTyj2iv+aiVsVXtnqPaTwDI3J5
+	 Ad4wSY0s6HRoT9uqxSgF5lXh8e2IN8+z1k96CRC4nfbcNwzS/6YDJxQqc+sBU8hMEi
+	 vOLX3wP8hDRXfWv7ELSL3IU03zRlrE1pWJntsOZb60EXxyqcIuI5/EbVfSlwDO+8oX
+	 OGL6/yKjUUb0A==
+Received: by mail-lj1-f170.google.com with SMTP id 38308e7fff4ca-32f1df5b089so33911491fa.3;
+        Sun, 13 Jul 2025 23:34:21 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCWZMy0Df+AdyhSW8FAkfyDl5Ama67s/ZiXm1uWwrGLLMJP0pH0fzcGdP810LL/NzgLQM8dFs0Se2pdns+wUslVc@lists.infradead.org, AJvYcCXXz7Ix7O7ou/kI1w4AKs7CKwtrpi/pOudtzA//Gz7HUcLDTzyVYZr9r/PhIrHuM/hmN83IxNPky9ZXTz4=@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz0svefdwUt2J7wROsrTAsBibzdK4SPK8f4mB8q7t6N/DlGUdFs
+	vlmOrYmb0ugx+KynCdzEvus/EE+kL4Mq/o/1ZKShXmVHUKAVJwCQ+3eCmnT9bya01KdhCrCcv+j
+	jM3+pJYUYRPX426vPjM4bE0nEGF7GPh0=
+X-Google-Smtp-Source: AGHT+IEy4x7iRPRFME+dpdQyQI1jtmLIqNYRLMk1ojNaRg715rzBCM8Q86llYRAXa+twgNvvkR8qSO1icXiwfjuZzv0=
+X-Received: by 2002:a2e:a7ca:0:b0:32b:80e1:300d with SMTP id
+ 38308e7fff4ca-33053186d88mr35999851fa.0.1752474859585; Sun, 13 Jul 2025
+ 23:34:19 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Authority-Analysis: v=2.4 cv=AI4FyeZ1 c=1 sm=1 tr=0 ts=6874a469 cx=c_pps
- a=oF/VQ+ItUULfLr/lQ2/icg==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
- a=Wb1JkmetP80A:10 a=EUspDBNiAAAA:8 a=gBkj9RZkAcI1HbXH1KoA:9
- a=3WC7DwWrALyhR5TkjVHa:22
-X-Proofpoint-ORIG-GUID: M5D1LL61XVEiqv_sADAQO5l1IfMOw92r
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNzE0MDAzNyBTYWx0ZWRfX1GqPS7fCldqG
- lqdZdNEtBEpx+uP9fd2vNZANcdYBKQo8xVzGe4GSeViWBiBUxEV/u0aU1kEOUUaHAHzzh/XLx2u
- 9ai5x+s17NmOFD5XG/Hp607M/uwogmre/+oywabXthK3DcFK1mYTKNSLfkwYJZIUPPgbK/6lVTv
- AnZac3dQOV6MyFi3vIke1INocH8jAuXfQFKbixUDfmRWSGgbrZWmJ/4+hYxo5+i6jzw/8Mx9LTP
- kZgytO4e/igmQokUye/0dIWY3ZiQnjG+WKpGhi1B97izcPdk07P+BaSeBEcFeGnhvo/PR2zCEoP
- oR3nK/Wl+gWLAGNTBUaYv1+PAO5z5XhnXzyEKrP3pr8lRcDrL96PgzyOZFGeAMIJdngNmsRLlsz
- dVFfzmUxd+R5P9ZmEbpkwJsAwKwjbTivMNCDhZ7tJSYzawZECEShuG1yCOJ/rJbbVEmL3Chx
-X-Proofpoint-GUID: M5D1LL61XVEiqv_sADAQO5l1IfMOw92r
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.7,FMLib:17.12.80.40
- definitions=2025-07-14_01,2025-07-09_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- mlxlogscore=878 phishscore=0 suspectscore=0 mlxscore=0 malwarescore=0
- lowpriorityscore=0 impostorscore=0 clxscore=1015 adultscore=0
- priorityscore=1501 spamscore=0 bulkscore=0 classifier=spam authscore=0
- authtc=n/a authcc= route=outbound adjust=0 reason=mlx scancount=1
- engine=8.19.0-2505280000 definitions=main-2507140037
+References: <20250714060843.4029171-5-ardb+git@google.com> <20250714060843.4029171-6-ardb+git@google.com>
+ <dade7d17-d45d-455e-a43c-01e9ea95c3b4@gmail.com> <CAMj1kXETDd+19i+awMx1v1sE4RXhF-r2a-mTa3rWfus5s4HMmw@mail.gmail.com>
+ <f538a1b9-6a7c-474f-af2a-d87c35b82fc5@gmail.com>
+In-Reply-To: <f538a1b9-6a7c-474f-af2a-d87c35b82fc5@gmail.com>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Mon, 14 Jul 2025 16:34:08 +1000
+X-Gmail-Original-Message-ID: <CAMj1kXGG0Mi+AT7ZeoHLTDhVbbahP-PLRgY1=aSZMVQEgWz5sQ@mail.gmail.com>
+X-Gm-Features: Ac12FXzYFywZb16ZKDUVBGm4_KFbnsnrDO10Xk4vWwqGRcRLn5B3XWIM87WiCT4
+Message-ID: <CAMj1kXGG0Mi+AT7ZeoHLTDhVbbahP-PLRgY1=aSZMVQEgWz5sQ@mail.gmail.com>
+Subject: Re: [RFC PATCH 1/3] efi-rtc: Remove wakeup functionality
+To: Demi Marie Obenour <demiobenour@gmail.com>
+Cc: Ard Biesheuvel <ardb+git@google.com>, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, 
+	Heinrich Schuchardt <heinrich.schuchardt@canonical.com>, Feng Tang <feng.tang@linux.alibaba.com>, 
+	Alexandre Belloni <alexandre.belloni@bootlin.com>, Juergen Gross <jgross@suse.com>, 
+	Stefano Stabellini <sstabellini@kernel.org>, 
+	Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>, Sunil V L <sunilvl@ventanamicro.com>, 
+	Bibo Mao <maobibo@loongson.cn>, linux-rtc@vger.kernel.org, linux-efi@vger.kernel.org, 
+	xen-devel@lists.xenproject.org, x86@kernel.org, 
+	linux-riscv@lists.infradead.org, loongarch@lists.linux.dev
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250713_233210_150380_4B309671 
-X-CRM114-Status: GOOD (  13.02  )
+X-CRM114-CacheID: sfid-20250713_233422_740290_85C8C030 
+X-CRM114-Status: GOOD (  23.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,31 +90,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add interrupts to enable byte-cntr function for TMC ETR devices.
+On Mon, 14 Jul 2025 at 16:22, Demi Marie Obenour <demiobenour@gmail.com> wrote:
+>
+> On 7/14/25 02:19, Ard Biesheuvel wrote:
+> > On Mon, 14 Jul 2025 at 16:13, Demi Marie Obenour <demiobenour@gmail.com> wrote:
+> >>
+> >> On 7/14/25 02:08, Ard Biesheuvel wrote:
+> >>> From: Ard Biesheuvel <ardb@kernel.org>
+> >>>
+> >>> The EFI rtc driver is used by non-x86 architectures only, and exposes
+> >>> the get/set wakeup time functionality provided by the underlying
+> >>> platform. This is usually broken on most platforms, and not widely used
+> >>> to begin with [if at all], so let's just remove it.
+> >> systemd uses the underlying functionality: a timer can wake the system up.
+> >> I have no idea if that is implemented in terms of this function, though.
+> >
+> > To be clear, you are referring to wake from poweroff at some date/time
+> > in the future, right?
+>
+> Yes.
+>
+> > This change does not remove this functionality from the RTC subsystem,
+> > it just ceases to expose it on non-x86 EFI platforms that claim to
+> > support it.
+>
+> Do these platforms generally expose the functionality in a different way?
 
-Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
----
- arch/arm64/boot/dts/qcom/sa8775p.dtsi | 5 +++++
- 1 file changed, 5 insertions(+)
+On x86, the CMOS rtc is manipulated directly (and this is officially
+condoned by the EFI spec).
 
-diff --git a/arch/arm64/boot/dts/qcom/sa8775p.dtsi b/arch/arm64/boot/dts/qcom/sa8775p.dtsi
-index fed34717460f..44da72cebcf4 100644
---- a/arch/arm64/boot/dts/qcom/sa8775p.dtsi
-+++ b/arch/arm64/boot/dts/qcom/sa8775p.dtsi
-@@ -2762,6 +2762,11 @@ ctcu@4001000 {
- 			clocks = <&aoss_qmp>;
- 			clock-names = "apb";
- 
-+			interrupts = <GIC_SPI 270 IRQ_TYPE_EDGE_RISING>,
-+				     <GIC_SPI 262 IRQ_TYPE_EDGE_RISING>;
-+			interrupt-names = "etr0",
-+					  "etr1";
-+
- 			in-ports {
- 				#address-cells = <1>;
- 				#size-cells = <0>;
--- 
-2.34.1
+On non-x86, this functionality rarely works, which is really the point
+of this series.
 
+> If not, systemd should probably document that the functionality is
+> non-portable if it doesn't do that already.
+
+Not sure what you mean by non-portable. This functionality should be
+exposed in a generic manner (using the RTC subsystem interfaces), but
+only if it can be relied upon. On x86, the RTC subsystem will use the
+rtc-cmos driver, which implements the wakeup routines in terms of port
+I/O.
+
+If removing this functionality altogether from the EFI rtc driver is a
+problem, perhaps it would be better to implement an allowlist based
+solution that does not attempt to access the runtime services by
+default.
 
