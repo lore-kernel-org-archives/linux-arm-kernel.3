@@ -4,76 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F386C83F1B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 13:10:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45E00C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 13:13:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vXM71qb1m31nhbK/n/pQAgPefokwfSf5HDbhfJws+L8=; b=luvigTVy5pP6doZNuILbnnYHOG
-	L7ZKWYo36dA2qaU9BMNpcSkEEwlvOmMJgKV817S2KgrAR6P4OfcUne/4brPdUGX4duGxG6FvSuMcz
-	ZPd0clo44KluzOEa1r9o2WrEAuAYZ239DR6dcOAFjynH0PZChT/lB0WEkUdHmjkIxNb2TIpUF90rY
-	FceU+yEMvj8+QwAqjw/vaqF130UpDiQcZzKNvi1YGzAFpmO8/vUwMIBQYFE5KTIjBaf6N0DnBsf0u
-	V6Q4DFURdWV9mx8lhQdL6Yeke7zjntZQ49V5ZqS3egpKr59fNXNIbAowGRrrW64RVES6luRONiRp5
-	zLT02b8A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To
+	:From:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6GT+QfWaXLUz2plhdm6tzk3KnJrg30pcNVb5s5dMBoo=; b=YJSfGqnmQuROrOOZ1dq7gsAxa+
+	d8FekaOHNncheZQqVLzg4DcIi+lxEE4WLCFOu9K8eMxk0AAoEzfP/fB1vYT7BxxkbRJETBmAfcQrg
+	3T0klpcAX/hlAldhf/2ufbG9Eew71j/m1fapl8q994wrB1KHYrI9zetZORJUXuO0Ov/YKsurMf3UV
+	ynpsX/V9nl62fwmHtU/CCBDUzaq2zR1HsFJLR604dGZsCQF2lheQM540ghYD22qOoh2adAJWk1DKq
+	Ib9wvrRkuqshh7K7RLEf1pRZay9bURCQPZm52cclvy2eN1CWgPF4iWUL4HrtXhh7at+jOs/rx8vqh
+	JlLNJ7Gg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubIwr-00000002Erl-0ol5;
-	Mon, 14 Jul 2025 13:10:25 +0000
-Received: from mail-ej1-f46.google.com ([209.85.218.46])
+	id 1ubIzH-00000002FDE-06qk;
+	Mon, 14 Jul 2025 13:12:55 +0000
+Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubIGd-000000029ll-40nk
+	id 1ubIM4-00000002Ay3-0sK9
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Jul 2025 12:26:49 +0000
-Received: by mail-ej1-f46.google.com with SMTP id a640c23a62f3a-ae223591067so745850666b.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Jul 2025 05:26:47 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752496006; x=1753100806;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+	Mon, 14 Jul 2025 12:32:25 +0000
+Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-ae3b336e936so852641066b.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Jul 2025 05:32:23 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=fairphone.com; s=fair; t=1752496342; x=1753101142; darn=lists.infradead.org;
+        h=in-reply-to:references:cc:to:from:subject:message-id:date
+         :content-transfer-encoding:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=vXM71qb1m31nhbK/n/pQAgPefokwfSf5HDbhfJws+L8=;
-        b=cMw8kHar9WWBrVChvmSkfubkHy0qchqmM6D+p9TEIroVx+cNrV6Cm2+uqF6rm6aIdN
-         cXHWRdUCO7RsbbTvhIz//KQkrbqUGTR2Q78/9sAl8UvrsnKxeTu9VegOJ3CKeUX4GEvr
-         wnSA6HdOUzAluij01IijkvQ/OhEUq6QZHghA8M23x/Pi/ytMnW/eB3X1zxZuMkEaaAVF
-         uUThvjW/Eq5aj2MOuBH/2c5nf84ljfbIjIfevGQPsdkUyjdheePFeIwsQsFQf2EmI/X5
-         n6+1mUFiN0k+/DLMteskT66aeebdR6fvX1u8NiCxb/5RGIuvkGX1YhzimNaP7Wwcm6j9
-         twzQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVNCDfVeGyEv0YQ4aD0DrI6/pkNRMbZTgpeCA8noecx8t/xPetjM1AXO28K5SnHTIRJyw/DD1WEpmNhVdUcEibx@lists.infradead.org
-X-Gm-Message-State: AOJu0YyN4SUbijPVY2Tk5TH1m4DarLX1tcqiDsf9Ni1y3QaXaDFFHku6
-	UDLY7e33Tbm5HHOP+YBIF7Y7++I8x2lDkms9XIwexgCKKjyZ/Wb2zcJZ
-X-Gm-Gg: ASbGncuSEHsooDfK5ctnuSMeVJCv8Y1YKqccfsJzIy+T6mHmHEdoi/BYp1RqPWcYQUA
-	Rys/+dISFgRrkafWyZ4UafyNbsnavkNkBaHBMJhsYWSPC//B2L2c8Sd7HkgQUPpWQaMm4D9p0W3
-	K7GLsr41dbtsk0IRZGDLI0YHX7PlQ1vBn1AR8R7GEpBEXw89BXr7WcQGvo9h99frjI4XJOVsx1N
-	ccIiUHybpW2vaX0Xck/CGaBcaelTaxBN0X05iHGakKWebuatx0wAVi8AyXqsdgxecUuIB33cOMt
-	LYDaQzaPa0JxLZv7pMwR1ZS0dhRcl3Fgy4TNLkGWZ4mOJIL8F4qaKdV4iTTgtREOBkne5l0G7/s
-	9AC6VAIPbA6ya
-X-Google-Smtp-Source: AGHT+IEoLgaDTKdxcttV8XzUYG/9ga2nLNSfR1c0WihvMvxKRTbmzBUroVW9/c2rdS7BKkmgYDCKXQ==
-X-Received: by 2002:a17:906:fe0c:b0:ae3:5212:c906 with SMTP id a640c23a62f3a-ae6fbe13960mr1432723166b.10.1752496005605;
-        Mon, 14 Jul 2025 05:26:45 -0700 (PDT)
-Received: from gmail.com ([2a03:2880:30ff:2::])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ae6e7e91a1bsm811147066b.29.2025.07.14.05.26.44
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 14 Jul 2025 05:26:45 -0700 (PDT)
-Date: Mon, 14 Jul 2025 05:26:43 -0700
-From: Breno Leitao <leitao@debian.org>
-To: Will Deacon <will@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, kernel-team@meta.com, 
-	osandov@fb.com, leo.yan@arm.com, rmikey@meta.com
-Subject: Re: [PATCH] arm64: traps: Mark kernel as tainted on SError panic
-Message-ID: <t3v2xvjal67bl5dwyatwgf46tnr2ikxnq62iqmda544llcd7oh@ws3nnrfp7r5p>
-References: <20250710-arm_serror-v1-1-2a3def3740d7@debian.org>
- <aHQ3Lu27_mLfR8Ke@willie-the-truck>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aHQ3Lu27_mLfR8Ke@willie-the-truck>
+        bh=6GT+QfWaXLUz2plhdm6tzk3KnJrg30pcNVb5s5dMBoo=;
+        b=iVF656Zi1tlaOpU1mxZyzue539A62TIfvlZW24+iXhGirijMjW1rxXUFVcQPkhTIBv
+         bSXF1ZisVSR0p7BlnmJJCxUux0NxLYSyToLSmTik9Jh7OMPx0IOM3BNqZpJDqQT0YR3a
+         t3T8TTEHzCeSpN6TgS1WJY3aYqV1FQLD0MgCvJakO0woWg125FbSQXRWY0TSPxdPbbxl
+         xchuBhx3qK4jErBjoLpFY6IWn8RwR7dSteX1xFgpZP69qYnn6NPzR/m6m7R1bo4XkwT5
+         CCR1w84IiS16Uz1lCxLOElwuUR3gRrukvnesiCFBNOit5FLvWnrYUouBeoM+LIIp+fRq
+         9cXA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1752496342; x=1753101142;
+        h=in-reply-to:references:cc:to:from:subject:message-id:date
+         :content-transfer-encoding:mime-version:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=6GT+QfWaXLUz2plhdm6tzk3KnJrg30pcNVb5s5dMBoo=;
+        b=w2EJRCxqAh/jS1Vvsaj5OjQZdeztuowLB4s1yLyQrBiUhufBQLlCeBqceWJzOcd2Qq
+         4LN94exNHXVBMeRWLuVfqsywMOcUchWXCLGWYJRHXVP5ME/r3xtQrq6xF8/zdLQgRjA6
+         Pfn7GEaFBPx59ro9abUbGp5DulTPPLWWNjqoV4lCYjL1QvQ46Xn8bKaGlO/qWT8t8EZ2
+         bFpSuiSbl6/s57yy4oK1iZQwd14xXIeLMZL9jU+k2o54p2pJEW5kMKJYKEvSqnKfIFR7
+         VSH/OJDehgMYeztW7P61P12Uo9qc72QZj7emmFB2lRyv2PnWXwJifICjjSBQoxeLaJvC
+         y0DQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVI+xYffwbraREFWqKkzkzai1uLau5FZYfjPHj0BMIHPf3B4yLsLJ7S4A1hdohtCIGJuSPzAw0rxPzfVDK+gGzX@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyft+IvhCMrnE4xynsb3RZ/6LwewBwEjWc1zDzK77MpNgCInePT
+	4DwH1AEB5SvZwDx/sZIRf5avAeeo9cZvx0MqmmZbxHy88elBLjf4U26asCZ5g95I3fs=
+X-Gm-Gg: ASbGncuPQprX+ElI2UwqldJWrEbkQ/glOubVeqqcVFJXnLEvDvaJo9lTYyuEGC833kH
+	2P7sPKpXcx0UJ5g8k2//IfEClUdS0dx0xEh0G2HgcnmoPVszqvWdvNxYXKbNbOhpXmuUlEKP5ny
+	ugVP2isJ/EfAkzsGxDw26uS6teO72iCtFxKQGDFGtezcP0lbzm0CwdVUWB81tvNh8BCnrj2JAra
+	gm42n2Iwn/dbBMi0dDTarMt2ooUIOTLAexldq08BUDI/RiMpt0Fpe+uqAmlBdnoQ/dL7sO8VHAn
+	vxtlkDSIVx/xng7nUKqP+L44Ne1Hz/aE1LE4iR8abVeRCjY5BYY270aTLiWzdVcedWROsbb3lyf
+	kzl8SorDP7mkGrJ9vBuWlVfjhtG6YhLAI1Ho8hh9rxkGmLPQXq+6cfWn4wB5hDLNaCKjoGsuoeh
+	udD2msMPmqTUlq0r9XRw3x9EIFQ+EZ4xxWZA==
+X-Google-Smtp-Source: AGHT+IEdIUlKAIUoH3odRS/w1x3zJL/78SxmRMa+QOLnmU3zwNSH9f5FMxlA1f2U3nn/eb6t4vkm0Q==
+X-Received: by 2002:a17:906:7956:b0:ae3:cd73:e95a with SMTP id a640c23a62f3a-ae6fcbc356cmr1271518666b.36.1752496341821;
+        Mon, 14 Jul 2025 05:32:21 -0700 (PDT)
+Received: from localhost (2a02-8388-6584-6400-d322-7350-96d2-429d.cable.dynamic.v6.surfer.at. [2a02:8388:6584:6400:d322:7350:96d2:429d])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ae6e82962acsm818540766b.139.2025.07.14.05.32.20
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 14 Jul 2025 05:32:21 -0700 (PDT)
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Mon, 14 Jul 2025 14:32:19 +0200
+Message-Id: <DBBS3S38CWTN.32RLYB9VEZAB@fairphone.com>
+Subject: Re: [PATCH v2 15/15] arm64: dts: qcom: Add The Fairphone (Gen. 6)
+From: "Luca Weiss" <luca.weiss@fairphone.com>
+To: "Konrad Dybcio" <konrad.dybcio@oss.qualcomm.com>, "Will Deacon"
+ <will@kernel.org>, "Robin Murphy" <robin.murphy@arm.com>, "Joerg Roedel"
+ <joro@8bytes.org>, "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski"
+ <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>, "Rafael J.
+ Wysocki" <rafael@kernel.org>, "Viresh Kumar" <viresh.kumar@linaro.org>,
+ "Manivannan Sadhasivam" <mani@kernel.org>, "Herbert Xu"
+ <herbert@gondor.apana.org.au>, "David S. Miller" <davem@davemloft.net>,
+ "Vinod Koul" <vkoul@kernel.org>, "Bjorn Andersson" <andersson@kernel.org>,
+ "Konrad Dybcio" <konradybcio@kernel.org>, "Robert Marko"
+ <robimarko@gmail.com>, "Das Srinagesh" <quic_gurus@quicinc.com>, "Thomas
+ Gleixner" <tglx@linutronix.de>, "Jassi Brar" <jassisinghbrar@gmail.com>,
+ "Amit Kucheria" <amitk@kernel.org>, "Thara Gopinath"
+ <thara.gopinath@gmail.com>, "Daniel Lezcano" <daniel.lezcano@linaro.org>,
+ "Zhang Rui" <rui.zhang@intel.com>, "Lukasz Luba" <lukasz.luba@arm.com>,
+ "Ulf Hansson" <ulf.hansson@linaro.org>
+Cc: <~postmarketos/upstreaming@lists.sr.ht>, <phone-devel@vger.kernel.org>,
+ <linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
+ <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+ <linux-pm@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
+ <linux-crypto@vger.kernel.org>, <dmaengine@vger.kernel.org>,
+ <linux-mmc@vger.kernel.org>
+X-Mailer: aerc 0.20.1-0-g2ecb8770224a-dirty
+References: <20250713-sm7635-fp6-initial-v2-0-e8f9a789505b@fairphone.com>
+ <20250713-sm7635-fp6-initial-v2-15-e8f9a789505b@fairphone.com>
+ <6f8b86c7-96a5-4c7c-b54e-25b173084d95@oss.qualcomm.com>
+In-Reply-To: <6f8b86c7-96a5-4c7c-b54e-25b173084d95@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250714_052648_026740_293501F7 
-X-CRM114-Status: GOOD (  18.16  )
+X-CRM114-CacheID: sfid-20250714_053224_261617_278B6654 
+X-CRM114-Status: GOOD (  16.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,59 +120,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Will,
+On Mon Jul 14, 2025 at 2:19 PM CEST, Konrad Dybcio wrote:
+> On 7/13/25 10:05 AM, Luca Weiss wrote:
+>> Add a devicetree for The Fairphone (Gen. 6) smartphone, which is based
+>> on the Milos/SM7635 SoC.
+>>=20
+>> Supported functionality as of this initial submission:
+>> * Debug UART
+>> * Regulators (PM7550, PM8550VS, PMR735B, PM8008)
+>> * Remoteprocs (ADSP, CDSP, MPSS, WPSS)
+>> * Power Button, Volume Keys, Switch
+>> * Display (using simple-framebuffer)
+>> * PMIC-GLINK (Charger, Fuel gauge, USB-C mode switching)
+>> * Camera flash/torch LED
+>> * SD card
+>> * USB
+>>=20
+>> Signed-off-by: Luca Weiss <luca.weiss@fairphone.com>
+>> ---
+>
+> [...]
+>
+>> +	reserved-memory {
+>> +		/*
+>> +		 * ABL is powering down display and controller if this node is
+>> +		 * not named exactly "splash_region".
+>> +		 */
+>> +		splash_region@e3940000 {
+>
+> Was it not possible to arrange for a fw update after all?
 
-On Sun, Jul 13, 2025 at 11:46:06PM +0100, Will Deacon wrote:
-> On Thu, Jul 10, 2025 at 03:46:35AM -0700, Breno Leitao wrote:
+I've made a patch to support both 'splash' and 'splash-region' but not
+sure when it's going to be included, I've sent the patch to the correct
+people internally last week. Since Android build cycles are always super
+slow, it'll take a the very least a month I guess.
 
-> > --- a/arch/arm64/kernel/traps.c
-> > +++ b/arch/arm64/kernel/traps.c
-> > @@ -931,6 +931,7 @@ void __noreturn panic_bad_stack(struct pt_regs *regs, unsigned long esr, unsigne
-> >  
-> >  void __noreturn arm64_serror_panic(struct pt_regs *regs, unsigned long esr)
-> >  {
-> > +	add_taint(TAINT_MACHINE_CHECK, LOCKDEP_STILL_OK);
-> >  	console_verbose();
-> >  
-> >  	pr_crit("SError Interrupt on CPU%d, code 0x%016lx -- %s\n",
-> 
-> If we're going to taint for SError, shouldn't we also taint for an
-> unclaimed SEA?
+>
+> fwiw the rest looks good
 
-Yes. I was not very familiar with SEA errors, given I haven't seen on in
-production yet, but, reading about it, that is another seems to crash
-the system due to hardware errors, thus, we want to taint MACHINE_CHECK.
+Thanks!
 
-What about this?
+Regards
+Luca
 
-	Author: Breno Leitao <leitao@debian.org>
-	Date:   Mon Jul 14 05:16:55 2025 -0700
+>
+> Konrad
 
-	arm64: Taint kernel on fatal hardware error in do_sea()
-
-	This patch updates the do_sea() handler to taint the kernel with
-	TAINT_MACHINE_CHECK when a fatal hardware error is detected and
-	reported through Synchronous External Abort (SEA). By marking
-	the kernel as tainted at the point of error, we improve
-	post-mortem diagnostics and make it clear that a machine check
-	or unrecoverable hardware fault has occurred.
-
-	Suggested-by: Will Deacon <will@kernel.org>
-	Signed-off-by: Breno Leitao <leitao@debian.org>
-
-	diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
-	index 11eb8d1adc84..f590dc71ce99 100644
-	--- a/arch/arm64/mm/fault.c
-	+++ b/arch/arm64/mm/fault.c
-	@@ -838,6 +838,7 @@ static int do_sea(unsigned long far, unsigned long esr, struct pt_regs *regs)
-			*/
-			siaddr  = untagged_addr(far);
-		}
-	+	add_taint(TAINT_MACHINE_CHECK, LOCKDEP_STILL_OK);
-		arm64_notify_die(inf->name, regs, inf->sig, inf->code, siaddr, esr);
-
-		return 0;
-
-Thanks for the suggestion,
---breno
 
