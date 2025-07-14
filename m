@@ -4,109 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 242A9C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 19:11:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06B45C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 19:42:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=FY8oP8TntW4ytWNHBRG2ykUEsygpkJOVRPFVHGGy1iw=; b=UTG8ueBSTYkKA+
-	AxzoJsT3+mKU/xXM4ReFM0YINv7ANO/0n/+qDMMnfC75LE7JsKK5KKS+KIkFpV7WGC7KdkVK+C3EI
-	WjpdQDNCP5SCHXCDOprjub0SlMDFasY+Gx7n6bkqujEqK+5nbCKf08mIDNP+erZ0pju3Im32IJ+MN
-	mmF5H2iK3tiPXlXNNh2uINaBfRgplBNGI/IKBKY3VuNpwwtPwQkff1gFwj8uaL9iTyYUNvtg+oG0r
-	5thqmu6s8uxEChyiZIzF3+sAHzsD8H/zwQrFImUiJ4qKIMA7DMrV5jtMk/u3Wj7Z+CEdU1HYpkSUz
-	3laS0EqSmShHONNbXqjA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=urOya2QD0PAv3aRyUi92qVBccHFN0GyUQM4mpsavCC0=; b=nPULprkhlnhbrQFI5KTEFJvA+S
+	wK7mf0GFp0vOWoN2njMAmB11pYUj8cmcUCMC/KPWH98Wc5AysGc+ssKLZR7+xzQVzrlfs2msOLaJF
+	b8dytreL1BeSZVOM2tMglMyYrpvO9dcSrL262Y+w3oxq9Y9o8dmbvzd1bK6RdKkag3CI3QHUXQOpi
+	vPQrLqbfqEjOXvD+TIPn2omqb5MOAFFGur63BTwXY2AuEhtgKGTrCn8O2DOCHh0gegf5tubmD3OCw
+	tgeeA9ETTvpS4/ZHR5aUqoyT3MsAnOojfrgvS9Bh2ldo6u3ciFsexhXkv7ymvJhZjGrSel9/aQ7bd
+	vCUJ7Tqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubOZo-000000037tA-3AC7;
-	Mon, 14 Jul 2025 19:11:00 +0000
-Received: from mail-oa1-x34.google.com ([2001:4860:4864:20::34])
+	id 1ubP42-000000039kl-1ohG;
+	Mon, 14 Jul 2025 19:42:14 +0000
+Received: from mail-oo1-xc2c.google.com ([2607:f8b0:4864:20::c2c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubOXM-000000037gm-1Phk
+	id 1ubP1b-000000039YS-3Wan
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Jul 2025 19:08:29 +0000
-Received: by mail-oa1-x34.google.com with SMTP id 586e51a60fabf-2c6ed7efb1dso3108774fac.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Jul 2025 12:08:27 -0700 (PDT)
+	Mon, 14 Jul 2025 19:39:45 +0000
+Received: by mail-oo1-xc2c.google.com with SMTP id 006d021491bc7-6120049f09fso2262420eaf.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Jul 2025 12:39:43 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1752520106; x=1753124906; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:message-id:subject:cc
-         :to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=FY8oP8TntW4ytWNHBRG2ykUEsygpkJOVRPFVHGGy1iw=;
-        b=myDlZv4wvgo9kCGxAZbcMf5VCxvHQAZpPxBkxOl7Wmj6A4jsLT/XVmvD86H8oy/JEC
-         1lpMqMj5B7r6p8UQs0ALymL25ejjW4c+NWWrBLsO9+A0qHLnLbetdeWYYzwZeRlLE8JW
-         NOd6ZLtKEoSaXuw7BP7olSUVj03KbC5PDD+tHc60Jmv/ESFS1ZSTKySpfG2LFvzkG6Sa
-         ud3UK389NMFif5zqYkjELgZ8ly0mXLDnbA6dz0ltJ+XTDJyDOUCLNuZC9bmwJBkk5wU/
-         d+agfrL/iRxfWIcr9B0syFPZ3Eh8iXCj8sBFoutVoIGX9uXeADsYZrsn+UChJaW435yM
-         wzwQ==
+        d=linaro.org; s=google; t=1752521983; x=1753126783; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=urOya2QD0PAv3aRyUi92qVBccHFN0GyUQM4mpsavCC0=;
+        b=L4seW4h9KCb8Tbk50L0qOyu62U+ioQvrkio23dZmp6Hb7IUaBU8II3mD4tjEOXRKsv
+         l+ZjJ3/TWubISNiuirTtpkAhXPEEFo86yps4MoJeTR/jAh1tZ9Ylu8RJlt+igDsRHpsJ
+         Qy81IzMppcc6j+kKtgiO+xYere+uIIUP8JEXain45MSlG59fZ6KRvKq6tJ5eyAeRyzES
+         tEo1Y518A9rrW2i8qt6R8vpt6RDj1ghE6aBViQu8B84ulOhEETdF4hgecId8uIBow9tt
+         1UEuuxu2UWYWm5aWsGi6fvK/Sh0Pq2rWEGEOqU1tM8F1jJuUhMcJ5ad7oPkLzkuJTfDv
+         fI4A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752520106; x=1753124906;
-        h=in-reply-to:content-disposition:mime-version:message-id:subject:cc
-         :to:from:date:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=FY8oP8TntW4ytWNHBRG2ykUEsygpkJOVRPFVHGGy1iw=;
-        b=tpPF4rCIzvRxqxjwX7G/qZp1zIRMmRHpuzC4+21F88wMyUBtR5dBQdDmLmw/q5/MV7
-         zRmQrX9Sj+cPr0EwS/Om7rVM/YPVtuVJrUjl3EaVByB+YgVsbnyVbkyeR0FhOVWOGn32
-         zybrjI3T5MtzksOMSotPKpx+y93dINbXlcIPvKbFxex0i0SfR0AELAIT4Bgnu4hPsYwL
-         vlaozEo4y2N9c0R55A8iw+UphBEqetlCZxPIYfgztg/aG8EcyGSVhImfl9fkNhmR+oz+
-         MaUSdW91MVV+QcE4JCswORm7H2/A/ByhxOBeWdNN9fYPd9sweW/4lekuy3DKOkbUHK7p
-         mf0w==
-X-Forwarded-Encrypted: i=1; AJvYcCUgpbIzvF1TPh18nq/T3L6zRJwo4zz24TBEx1M+IYTcy8tG8OVcQMJmenFtvFit/dFKcGajg52nEMYSPeG/FPwF@lists.infradead.org
-X-Gm-Message-State: AOJu0YwojUb+k8c/e8uCTkIkpbvHMjGg8fWYIijp0C7o2fN3RMGQKtCp
-	uKLUSkCiajIMCGr3b9VKXe3bIungSTJ3dYKNwVxc2Fvb1dnFDRL2XPypAhR86w5tE/E=
-X-Gm-Gg: ASbGncskmV5Oe0twkyqiMlRDiuNcAurf2B/NbC0WHQBZRXK8YBov/sw0Hu7AVRvaC7a
-	xlqm1z9szwS/flZXOYujpYJmq2EMFl12IRaIyFbU69xoh/5xi1dn8sEw8SA8ydtS75AIaVTiJCw
-	f44KcHIvLDAmgJbE0jgosmoBl4nEBSLXITDLcXZhXfSOEEAAXRVDZT0+T+8ffOm8jfyiWs50DUo
-	/KdR5xaUHkr/Y5IyTYAZ4FiIRaKZXbDvu829TqTi9LtfU+gEs0BGaOh92lMkSSuY8r4eDS+RD5L
-	33GwE3L7pOfAebB0udYi2fkF2S2DXT2H28fqpyLJesw5D0Di3ZO7MBESx0ufJGsKduN52fIxmvy
-	QkT0kmt8H/fJaPIG1lnZUQT3f27RbQQ==
-X-Google-Smtp-Source: AGHT+IEzO8bUgBmoo1uzE8f4f/z4iMC9jmOc9/Xzy7X6HZpF2LbcgnghTbE4rOCIVgXQl6Q0I/xJmw==
-X-Received: by 2002:a05:6871:5d06:b0:2d5:b914:fe2d with SMTP id 586e51a60fabf-2ff270892c7mr10030939fac.33.1752520106283;
-        Mon, 14 Jul 2025 12:08:26 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1752521983; x=1753126783;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:message-id:subject:cc:to:from:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=urOya2QD0PAv3aRyUi92qVBccHFN0GyUQM4mpsavCC0=;
+        b=uCAj8y8iU3FHEtMm9uqvhRNNg8VlEKDLU4dqDTtLQ6L6hgykdLZB8YaKXNThOJDom/
+         ju0Pb5q/QizrEXcchQEdVW868IsxjkHiatGZ3T0S2/qGQRzTJiS9ujgkg1ahaL5vfwSv
+         stApdyu2KhDB6CXq1w7pntNdhJu0F+yN3+/B5Zj9LcdneqtnR1NzRyVy/wUjTPBchr8h
+         fWUDHpt307T2FM+VzlF4tX5AEcGoKqy0a7PWxwAp5IbqjE05pcc+ZP+dxKLALC2YBuHj
+         3n1Ndl/7g+nkkAhjfJ+T9Ju76Py9UJ33IclxuxUWZpEXEa06u1dfXxE1VfYxRCGr5Zt6
+         zOwQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXLycz0wXRoRtV/wwg2s8vSYgB5cuPQ/FivyvOIp64SCNwHS+aaO3N7dAGLJwyOvSCSkRqhw0UlKyZ2yLSIhBX2@lists.infradead.org
+X-Gm-Message-State: AOJu0YzdEgGA0pvV/66WTlE6D1Oz4iMDai+k6wrRk+zMFI0svvmEt3W4
+	jkXRiXEZ1DtO/eeR+4lcGsWZbtdsBVn2wVn9zkJl2XIjSE84Y01SMlUWRB/BNb8/33s=
+X-Gm-Gg: ASbGncuXVXX5FIlsa6nnLMAOFOoEoAu8mm4FAt4+jfL0JFAavsal15g0pN8wTi0EBo8
+	ZzE5VCCNbwpzxi0gkjyVnECc3qN5l6rFocPMBgmLDL8KAU7dwLYQHaoNt/bOFPTTc/hkFU9Q4As
+	mTsLqpAppGJS5abysM7r/kCerpXB2WtYPE3pX9B8IzAMBqPRAj9E3N5QOPFcx+q/K4rnVtH/3Nz
+	zJHcnSEbaT/IfxUwfZkXd/b23ZJuflAIiY2iNWmbsi8PyiOfWg0GviIrrxzI+VTy3LLkMWLYbRn
+	nPpCLB4TfxVEUKZJ3BK/hmEDC2on1/upsctbYfi55Z1EhrXYbgNdjJ3+WuhDat8PPpNfKVyq6pO
+	w09d0wezjGClV+HG/azufXjIrixw8gA==
+X-Google-Smtp-Source: AGHT+IG9YCfy/a8BjNGBo1GzQjJuR8GmP8UR9cv+uwP5yDJexmfxPdWGAOu8EtDFH9IyIV9EN6mZeg==
+X-Received: by 2002:a05:6870:c03:b0:296:bbc8:4a82 with SMTP id 586e51a60fabf-2ff2706c894mr10579426fac.27.1752521982792;
+        Mon, 14 Jul 2025 12:39:42 -0700 (PDT)
 Received: from localhost ([2603:8080:b800:f700:6bb2:d90f:e5da:befc])
-        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-2ff116dd664sm2036650fac.42.2025.07.14.12.08.24
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-73cf12b62e8sm1674368a34.60.2025.07.14.12.39.42
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 14 Jul 2025 12:08:25 -0700 (PDT)
-Date: Mon, 14 Jul 2025 22:08:23 +0300
+        Mon, 14 Jul 2025 12:39:42 -0700 (PDT)
+Date: Mon, 14 Jul 2025 22:39:41 +0300
 From: Dan Carpenter <dan.carpenter@linaro.org>
 To: oe-kbuild@lists.linux.dev,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	davem@davemloft.net
-Cc: lkp@intel.com, oe-kbuild-all@lists.linux.dev,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org, thomas.petazzoni@bootlin.com,
-	Andrew Lunn <andrew@lunn.ch>, Jakub Kicinski <kuba@kernel.org>,
-	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
-	Russell King <linux@armlinux.org.uk>,
-	linux-arm-kernel@lists.infradead.org,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Herve Codina <herve.codina@bootlin.com>,
-	Florian Fainelli <f.fainelli@gmail.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Vladimir Oltean <vladimir.oltean@nxp.com>,
-	=?iso-8859-1?Q?K=F6ry?= Maincent <kory.maincent@bootlin.com>,
-	Marek =?iso-8859-1?Q?Beh=FAn?= <kabel@kernel.org>,
-	Oleksij Rempel <o.rempel@pengutronix.de>,
-	=?iso-8859-1?Q?Nicol=F2?= Veronese <nicveronese@gmail.com>,
-	Simon Horman <horms@kernel.org>, mwojtas@chromium.org,
-	Antoine Tenart <atenart@kernel.org>, devicetree@vger.kernel.org,
-	Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
+	=?iso-8859-1?Q?Cl=E9ment?= Le Goffic <clement.legoffic@foss.st.com>,
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
 	Rob Herring <robh@kernel.org>,
-	Romain Gantois <romain.gantois@bootlin.com>,
-	Daniel Golle <daniel@makrotopia.org>
-Subject: Re: [PATCH net-next v7 04/15] net: phy: Introduce PHY ports
- representation
-Message-ID: <13e48447-37fb-49d8-8c6a-ce5d198506ae@suswa.mountain>
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Gatien Chevallier <gatien.chevallier@foss.st.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Gabriel Fernandez <gabriel.fernandez@foss.st.com>,
+	Le Goffic <legoffic.clement@gmail.com>
+Cc: lkp@intel.com, oe-kbuild-all@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
+	linux-clk@vger.kernel.org,
+	=?iso-8859-1?Q?Cl=E9ment?= Le Goffic <clement.legoffic@foss.st.com>
+Subject: Re: [PATCH v2 09/16] perf: stm32: introduce DDRPERFM driver
+Message-ID: <1fd92742-0958-4f64-8e50-4d0595fe74eb@suswa.mountain>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
-In-Reply-To: <20250630143315.250879-5-maxime.chevallier@bootlin.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250711-ddrperfm-upstream-v2-9-cdece720348f@foss.st.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250714_120828_386962_ED3795F2 
-X-CRM114-Status: UNSURE (   9.79  )
+X-CRM114-CacheID: sfid-20250714_123943_884366_06CE7E08 
+X-CRM114-Status: UNSURE (   9.81  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -122,40 +118,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Maxime,
+Hi Clément,
 
 kernel test robot noticed the following build warnings:
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Maxime-Chevallier/dt-bindings-net-Introduce-the-ethernet-connector-description/20250630-224035
-base:   net-next/main
-patch link:    https://lore.kernel.org/r/20250630143315.250879-5-maxime.chevallier%40bootlin.com
-patch subject: [PATCH net-next v7 04/15] net: phy: Introduce PHY ports representation
-config: x86_64-randconfig-r071-20250706 (https://download.01.org/0day-ci/archive/20250706/202507061812.0aBYBa9l-lkp@intel.com/config)
-compiler: gcc-12 (Debian 12.2.0-14+deb12u1) 12.2.0
+url:    https://github.com/intel-lab-lkp/linux/commits/Cl-ment-Le-Goffic/bus-firewall-move-stm32_firewall-header-file-in-include-folder/20250712-030518
+base:   d7b8f8e20813f0179d8ef519541a3527e7661d3a
+patch link:    https://lore.kernel.org/r/20250711-ddrperfm-upstream-v2-9-cdece720348f%40foss.st.com
+patch subject: [PATCH v2 09/16] perf: stm32: introduce DDRPERFM driver
+config: sh-randconfig-r071-20250712 (https://download.01.org/0day-ci/archive/20250712/202507122125.eve8lg60-lkp@intel.com/config)
+compiler: sh4-linux-gcc (GCC) 13.4.0
 
 If you fix the issue in a separate patch/commit (i.e. not just a new version of
 the same patch/commit), kindly add following tags
 | Reported-by: kernel test robot <lkp@intel.com>
 | Reported-by: Dan Carpenter <dan.carpenter@linaro.org>
-| Closes: https://lore.kernel.org/r/202507061812.0aBYBa9l-lkp@intel.com/
+| Closes: https://lore.kernel.org/r/202507122125.eve8lg60-lkp@intel.com/
 
 smatch warnings:
-drivers/net/phy/phy_port.c:130 phy_port_get_type() warn: bitwise AND condition is false here
+drivers/perf/stm32_ddr_pmu.c:380 stm32_ddr_pmu_get_counter() warn: variable dereferenced before check 'pmu' (see line 376)
+drivers/perf/stm32_ddr_pmu.c:380 stm32_ddr_pmu_get_counter() warn: variable dereferenced before check 'event' (see line 377)
 
-vim +130 drivers/net/phy/phy_port.c
+vim +/pmu +380 drivers/perf/stm32_ddr_pmu.c
 
-055cbf51317b1e Maxime Chevallier 2025-06-30  122  /**
-055cbf51317b1e Maxime Chevallier 2025-06-30  123   * phy_port_get_type() - get the PORT_* attribut for that port.
-055cbf51317b1e Maxime Chevallier 2025-06-30  124   * @port: The port we want the information from
-055cbf51317b1e Maxime Chevallier 2025-06-30  125   *
-055cbf51317b1e Maxime Chevallier 2025-06-30  126   * Returns: A PORT_XXX value.
-055cbf51317b1e Maxime Chevallier 2025-06-30  127   */
-055cbf51317b1e Maxime Chevallier 2025-06-30  128  int phy_port_get_type(struct phy_port *port)
-055cbf51317b1e Maxime Chevallier 2025-06-30  129  {
-055cbf51317b1e Maxime Chevallier 2025-06-30 @130  	if (port->mediums & ETHTOOL_LINK_MEDIUM_BASET)
-                                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^
-I think BIT(ETHTOOL_LINK_MEDIUM_BASET) was intended.
+73af3c4ba702d7 Clément Le Goffic 2025-07-11  374  static int stm32_ddr_pmu_get_counter(struct stm32_ddr_pmu *pmu, struct perf_event *event)
+73af3c4ba702d7 Clément Le Goffic 2025-07-11  375  {
+73af3c4ba702d7 Clément Le Goffic 2025-07-11 @376  	u32 time_cnt_idx = pmu->cfg->time_cnt_idx;
+                                                                           ^^^^^^^^
 
+73af3c4ba702d7 Clément Le Goffic 2025-07-11 @377  	u32 config = event->attr.config;
+                                                                     ^^^^^^^
+
+73af3c4ba702d7 Clément Le Goffic 2025-07-11  378  	struct stm32_ddr_cnt *cnt;
+73af3c4ba702d7 Clément Le Goffic 2025-07-11  379  
+73af3c4ba702d7 Clément Le Goffic 2025-07-11 @380  	if (!pmu || !event)
+                                                            ^^^^^^^^^^^^^^
+Checks are too late.  The variables have already been dereferenced.
+
+73af3c4ba702d7 Clément Le Goffic 2025-07-11  381  		return -EINVAL;
+73af3c4ba702d7 Clément Le Goffic 2025-07-11  382  
+73af3c4ba702d7 Clément Le Goffic 2025-07-11  383  	pmu->selected_set = GROUP_VALUE(config);
+73af3c4ba702d7 Clément Le Goffic 2025-07-11  384  
+73af3c4ba702d7 Clément Le Goffic 2025-07-11  385  	if (config == TIME_CNT) {
 
 -- 
 0-DAY CI Kernel Test Service
