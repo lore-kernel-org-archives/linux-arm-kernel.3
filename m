@@ -4,106 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06B45C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 19:42:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0509FC83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 19:47:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=urOya2QD0PAv3aRyUi92qVBccHFN0GyUQM4mpsavCC0=; b=nPULprkhlnhbrQFI5KTEFJvA+S
-	wK7mf0GFp0vOWoN2njMAmB11pYUj8cmcUCMC/KPWH98Wc5AysGc+ssKLZR7+xzQVzrlfs2msOLaJF
-	b8dytreL1BeSZVOM2tMglMyYrpvO9dcSrL262Y+w3oxq9Y9o8dmbvzd1bK6RdKkag3CI3QHUXQOpi
-	vPQrLqbfqEjOXvD+TIPn2omqb5MOAFFGur63BTwXY2AuEhtgKGTrCn8O2DOCHh0gegf5tubmD3OCw
-	tgeeA9ETTvpS4/ZHR5aUqoyT3MsAnOojfrgvS9Bh2ldo6u3ciFsexhXkv7ymvJhZjGrSel9/aQ7bd
-	vCUJ7Tqg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=titEX2y3+9/xscj56vYw1l9vJIIgnO8oj3qH72QFLTw=; b=Chp1Q30x3759QFyAUotqoA2n32
+	Jk4zryG6hpzONrAfAgzUFd8BEeNITaobTqjIkWWQE3lYRY67bmqpBx6OyyNf+Ej42q1rnpK2llvdM
+	qqZ0bwrFmfpJICFigJDedpzlL8nF1G6IWprgLLQYvbGC0a7KasQ95YPxRPdfKm0xcL3b7m2RRgIhl
+	bHp2X/TKlzRpYzFDd5DjIv2j/g3TLjvT7fvrsZw9i4z/eAU7vfeQe/Shc4snRAvoBD3J/XnUnsMRp
+	2W/vKOgBxT9vzI56Yx/Oe64l8E3K+3xoDmRtjhUPYlSxYaHZcvMDEyfCg3DW7+GAWfLlhyUXY5qCu
+	fVVItlZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubP42-000000039kl-1ohG;
-	Mon, 14 Jul 2025 19:42:14 +0000
-Received: from mail-oo1-xc2c.google.com ([2607:f8b0:4864:20::c2c])
+	id 1ubP8x-00000003A5p-3Fdx;
+	Mon, 14 Jul 2025 19:47:19 +0000
+Received: from mail-yw1-x112e.google.com ([2607:f8b0:4864:20::112e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubP1b-000000039YS-3Wan
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Jul 2025 19:39:45 +0000
-Received: by mail-oo1-xc2c.google.com with SMTP id 006d021491bc7-6120049f09fso2262420eaf.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Jul 2025 12:39:43 -0700 (PDT)
+	id 1ubP6V-000000039wo-3Ejg;
+	Mon, 14 Jul 2025 19:44:49 +0000
+Received: by mail-yw1-x112e.google.com with SMTP id 00721157ae682-710fd2d0372so41117247b3.0;
+        Mon, 14 Jul 2025 12:44:47 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1752521983; x=1753126783; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=urOya2QD0PAv3aRyUi92qVBccHFN0GyUQM4mpsavCC0=;
-        b=L4seW4h9KCb8Tbk50L0qOyu62U+ioQvrkio23dZmp6Hb7IUaBU8II3mD4tjEOXRKsv
-         l+ZjJ3/TWubISNiuirTtpkAhXPEEFo86yps4MoJeTR/jAh1tZ9Ylu8RJlt+igDsRHpsJ
-         Qy81IzMppcc6j+kKtgiO+xYere+uIIUP8JEXain45MSlG59fZ6KRvKq6tJ5eyAeRyzES
-         tEo1Y518A9rrW2i8qt6R8vpt6RDj1ghE6aBViQu8B84ulOhEETdF4hgecId8uIBow9tt
-         1UEuuxu2UWYWm5aWsGi6fvK/Sh0Pq2rWEGEOqU1tM8F1jJuUhMcJ5ad7oPkLzkuJTfDv
-         fI4A==
+        d=gmail.com; s=20230601; t=1752522286; x=1753127086; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=titEX2y3+9/xscj56vYw1l9vJIIgnO8oj3qH72QFLTw=;
+        b=Ev27tB3Qo7k6mp79uU1DvMp6JJM9FacTdnHAqjsu7K0+v4Ow/zMc9dfbdephYaLHHf
+         ezLSbeimXy4+X+DrimGOoxBlNcnzh+jrtGMYLNLyglxHEx+uH0/28dx2zj1oDai+dQ6F
+         DOXWF5wyLcfrE9D2bAHRZ+Rld1hcVvGE03qoiityTgjUiZdFGR7I83Q3tqC6/i3i5XyR
+         5+uIVHP6+NSGJiBNp5JD4vyCR10pJURvZ37gLukkHk2RETa1AzoTYz4/+5aBFrsG8TiD
+         BN18N2m2wwvuWWqn5z0JWnBf176cEGq1mc+gJGEajjG2eX4j3p0kh17DJqJuCwDO0VLe
+         zKWQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752521983; x=1753126783;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:message-id:subject:cc:to:from:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=urOya2QD0PAv3aRyUi92qVBccHFN0GyUQM4mpsavCC0=;
-        b=uCAj8y8iU3FHEtMm9uqvhRNNg8VlEKDLU4dqDTtLQ6L6hgykdLZB8YaKXNThOJDom/
-         ju0Pb5q/QizrEXcchQEdVW868IsxjkHiatGZ3T0S2/qGQRzTJiS9ujgkg1ahaL5vfwSv
-         stApdyu2KhDB6CXq1w7pntNdhJu0F+yN3+/B5Zj9LcdneqtnR1NzRyVy/wUjTPBchr8h
-         fWUDHpt307T2FM+VzlF4tX5AEcGoKqy0a7PWxwAp5IbqjE05pcc+ZP+dxKLALC2YBuHj
-         3n1Ndl/7g+nkkAhjfJ+T9Ju76Py9UJ33IclxuxUWZpEXEa06u1dfXxE1VfYxRCGr5Zt6
-         zOwQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXLycz0wXRoRtV/wwg2s8vSYgB5cuPQ/FivyvOIp64SCNwHS+aaO3N7dAGLJwyOvSCSkRqhw0UlKyZ2yLSIhBX2@lists.infradead.org
-X-Gm-Message-State: AOJu0YzdEgGA0pvV/66WTlE6D1Oz4iMDai+k6wrRk+zMFI0svvmEt3W4
-	jkXRiXEZ1DtO/eeR+4lcGsWZbtdsBVn2wVn9zkJl2XIjSE84Y01SMlUWRB/BNb8/33s=
-X-Gm-Gg: ASbGncuXVXX5FIlsa6nnLMAOFOoEoAu8mm4FAt4+jfL0JFAavsal15g0pN8wTi0EBo8
-	ZzE5VCCNbwpzxi0gkjyVnECc3qN5l6rFocPMBgmLDL8KAU7dwLYQHaoNt/bOFPTTc/hkFU9Q4As
-	mTsLqpAppGJS5abysM7r/kCerpXB2WtYPE3pX9B8IzAMBqPRAj9E3N5QOPFcx+q/K4rnVtH/3Nz
-	zJHcnSEbaT/IfxUwfZkXd/b23ZJuflAIiY2iNWmbsi8PyiOfWg0GviIrrxzI+VTy3LLkMWLYbRn
-	nPpCLB4TfxVEUKZJ3BK/hmEDC2on1/upsctbYfi55Z1EhrXYbgNdjJ3+WuhDat8PPpNfKVyq6pO
-	w09d0wezjGClV+HG/azufXjIrixw8gA==
-X-Google-Smtp-Source: AGHT+IG9YCfy/a8BjNGBo1GzQjJuR8GmP8UR9cv+uwP5yDJexmfxPdWGAOu8EtDFH9IyIV9EN6mZeg==
-X-Received: by 2002:a05:6870:c03:b0:296:bbc8:4a82 with SMTP id 586e51a60fabf-2ff2706c894mr10579426fac.27.1752521982792;
-        Mon, 14 Jul 2025 12:39:42 -0700 (PDT)
-Received: from localhost ([2603:8080:b800:f700:6bb2:d90f:e5da:befc])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-73cf12b62e8sm1674368a34.60.2025.07.14.12.39.42
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 14 Jul 2025 12:39:42 -0700 (PDT)
-Date: Mon, 14 Jul 2025 22:39:41 +0300
-From: Dan Carpenter <dan.carpenter@linaro.org>
-To: oe-kbuild@lists.linux.dev,
-	=?iso-8859-1?Q?Cl=E9ment?= Le Goffic <clement.legoffic@foss.st.com>,
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Gatien Chevallier <gatien.chevallier@foss.st.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Gabriel Fernandez <gabriel.fernandez@foss.st.com>,
-	Le Goffic <legoffic.clement@gmail.com>
-Cc: lkp@intel.com, oe-kbuild-all@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
-	linux-clk@vger.kernel.org,
-	=?iso-8859-1?Q?Cl=E9ment?= Le Goffic <clement.legoffic@foss.st.com>
-Subject: Re: [PATCH v2 09/16] perf: stm32: introduce DDRPERFM driver
-Message-ID: <1fd92742-0958-4f64-8e50-4d0595fe74eb@suswa.mountain>
+        d=1e100.net; s=20230601; t=1752522286; x=1753127086;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=titEX2y3+9/xscj56vYw1l9vJIIgnO8oj3qH72QFLTw=;
+        b=s9vCWVIKp4WQmb2Mr130y5kUmI2y21gUU2iSmBeru9DsPbaJKiMFtoZzHsRU0MEftY
+         8KTAYwS/JO8mc+YPX1N0gA0ge6Mh7RcXeDTNZuwqD/8KOE3XSGeObps/qI76rIJFrumU
+         Csir8m8rzVWPL2mYdhh1Yvq1vgmAlBELDIu+/o4smBYTw3cg1S4N13eezDWvpPGCDeF1
+         mOZxi4beHtfP6qUClHHHAvbVExfOON0h6NRHXCXUZHlFc9DQu+CaZ0DiNuIaxYsEKFPd
+         xxanps+wn6JlWvWhJ0nwiPHWI5Qx9+zJPGN3iooOOYEdX1Db62E/PbpV8h3pOyxnwOO3
+         q3LA==
+X-Forwarded-Encrypted: i=1; AJvYcCUKiieGQ/eHIAbpB0CwfVWRZGkrKuwhJxcTuJA5mDrD0HTYmZiillvnweYGkHJeij4mJM2XPBSznfQOEqM+RWg=@lists.infradead.org, AJvYcCWtwDwzMkTfXNFGraTee5HWFb2GG2/F1tHwvt+8ASSDnrJ9Agt/Z8MDsMc5jcOI9Eqe5EARhxSn60MR01ue3jae@lists.infradead.org
+X-Gm-Message-State: AOJu0YzHeC60wbFZS+Rz/sG6HpROvXo2UCrjbeBwDc7y75VbR0b4PgRL
+	GUK1TvJyJ4mRiaTKMGQk3k3734rWdbkGCTA9hPWzv7L7YSNMdKR3OqJ4Qus4g5uoHdvKqyw3n0Y
+	+EksDN0OoEljfHh1102RAQezJVlgovjk=
+X-Gm-Gg: ASbGncu1Nc0pAP5aX4HNsNyWHIuBgqDiOqSBafvWR62vdK6UP7NgPDcQNRaCuhHMtNP
+	eK53oHv6EAEmAkFpsMheH50AwlcDyQXKKpsehuuNTspO2uNdF/MWCOdHCL4BQa0modWWf+d8t+4
+	uXFjOBuiWD2YbBa+fRUtX4g6fgn/EpbXZA20G9untABOd6CU16NlRHJySRKxBhLCtKaTMRt26Ck
+	GI9veIK8tA2QUUpuKWt
+X-Google-Smtp-Source: AGHT+IHDaQy35GA+Qses/SKs7Ih1reu0z/6Xmv8VCPpNc9I9mI3lGzILxxovXV+PULcNjOZ/ySpa/++hRe2/LR3lxNI=
+X-Received: by 2002:a05:690c:60c4:b0:70e:404f:6714 with SMTP id
+ 00721157ae682-71822cea95bmr12446627b3.19.1752522286247; Mon, 14 Jul 2025
+ 12:44:46 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250711-ddrperfm-upstream-v2-9-cdece720348f@foss.st.com>
+References: <20250712210448.429318-1-rosenp@gmail.com> <20250712210448.429318-8-rosenp@gmail.com>
+ <20250714-subtle-origami-gopher-c9099f@krzk-bin>
+In-Reply-To: <20250714-subtle-origami-gopher-c9099f@krzk-bin>
+From: Rosen Penev <rosenp@gmail.com>
+Date: Mon, 14 Jul 2025 12:44:35 -0700
+X-Gm-Features: Ac12FXxoR7CKJ2q8b56sbgmGdKBzHJHT0GepGHfBUGsgSAe8RihtGnci6IAEay4
+Message-ID: <CAKxU2N8au-uncWoP+vGH4cHhHMOtq+VRFGNDs6rRLuHn-i1G-Q@mail.gmail.com>
+Subject: Re: [PATCHv4 wireless-next 7/7] dt-bindings: net: wireless: rt2800: add
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: linux-wireless@vger.kernel.org, Johannes Berg <johannes@sipsolutions.net>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Stanislaw Gruszka <stf_xl@wp.pl>, 
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, open list <linux-kernel@vger.kernel.org>, 
+	"open list:MIPS" <linux-mips@vger.kernel.org>, 
+	"moderated list:ARM/Mediatek SoC support" <linux-arm-kernel@lists.infradead.org>, 
+	"moderated list:ARM/Mediatek SoC support" <linux-mediatek@lists.infradead.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250714_123943_884366_06CE7E08 
-X-CRM114-Status: UNSURE (   9.81  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250714_124447_811957_BEF2BC84 
+X-CRM114-Status: GOOD (  18.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,51 +101,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Clément,
+On Mon, Jul 14, 2025 at 12:27=E2=80=AFAM Krzysztof Kozlowski <krzk@kernel.o=
+rg> wrote:
+>
+> On Sat, Jul 12, 2025 at 02:04:48PM -0700, Rosen Penev wrote:
+> > Add device-tree bindings for the RT2800 SOC wifi device found in older
+> > Ralink/Mediatek devices.
+>
+> Your subject was cut. Probably you wanted something like add "Realtek foo=
+ adapter" etc.
+Not sure I follow.
+>
+>
+> >
+> > Signed-off-by: Rosen Penev <rosenp@gmail.com>
+> > ---
+> >  .../bindings/net/wireless/ralink,rt2880.yaml  | 47 +++++++++++++++++++
+> >  1 file changed, 47 insertions(+)
+> >  create mode 100644 Documentation/devicetree/bindings/net/wireless/rali=
+nk,rt2880.yaml
+> >
+> > diff --git a/Documentation/devicetree/bindings/net/wireless/ralink,rt28=
+80.yaml b/Documentation/devicetree/bindings/net/wireless/ralink,rt2880.yaml
+> > new file mode 100644
+> > index 000000000000..a92aedf6ba01
+> > --- /dev/null
+> > +++ b/Documentation/devicetree/bindings/net/wireless/ralink,rt2880.yaml
+> > @@ -0,0 +1,47 @@
+> > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> > +%YAML 1.2
+> > +---
+> > +$id: http://devicetree.org/schemas/net/wireless/ralink,rt2880.yaml#
+> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > +
+> > +title: Ralink RT2880 wireless device
+> > +
+> > +maintainers:
+> > +  - Stanislaw Gruszka <stf_xl@wp.pl>
+> > +
+> > +description: |
+> > +  This node provides properties for configuring RT2880 SOC wifi device=
+s.
+> > +  The node is expected to be specified as a root node of the device.
+> > +
+> > +allOf:
+> > +  - $ref: ieee80211.yaml#
+> > +
+> > +properties:
+> > +  compatible:
+> > +    enum:
+> > +      - ralink,rt2880-wifi
+> > +
+> > +  reg:
+> > +    maxItems: 1
+> > +
+> > +  clocks:
+> > +    maxItems: 1
+> > +
+> > +  interrupts:
+> > +    maxItems: 1
+> > +
+> > +required:
+> > +  - compatible
+> > +  - reg
+>
+> Why clocks are optional? SoC devices rarely work without a clock.
+Before this patchset the code was doing
 
-kernel test robot noticed the following build warnings:
+ 25         rt2x00dev->clk =3D clk_get(&pdev->dev, NULL);
+ 24         if (IS_ERR(rt2x00dev->clk))
+ 23                 rt2x00dev->clk =3D NULL;
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Cl-ment-Le-Goffic/bus-firewall-move-stm32_firewall-header-file-in-include-folder/20250712-030518
-base:   d7b8f8e20813f0179d8ef519541a3527e7661d3a
-patch link:    https://lore.kernel.org/r/20250711-ddrperfm-upstream-v2-9-cdece720348f%40foss.st.com
-patch subject: [PATCH v2 09/16] perf: stm32: introduce DDRPERFM driver
-config: sh-randconfig-r071-20250712 (https://download.01.org/0day-ci/archive/20250712/202507122125.eve8lg60-lkp@intel.com/config)
-compiler: sh4-linux-gcc (GCC) 13.4.0
+I changed it to use devm_clk_get_optional since that's what it looks
+like here. It's not returning under failure so I assume that means
+it's optional.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Reported-by: Dan Carpenter <dan.carpenter@linaro.org>
-| Closes: https://lore.kernel.org/r/202507122125.eve8lg60-lkp@intel.com/
+OTOH all downstream OpenWrt users of this code (as well as
+mt7620a.dtsi here) do specify a clock. _optional might be a mistake.
 
-smatch warnings:
-drivers/perf/stm32_ddr_pmu.c:380 stm32_ddr_pmu_get_counter() warn: variable dereferenced before check 'pmu' (see line 376)
-drivers/perf/stm32_ddr_pmu.c:380 stm32_ddr_pmu_get_counter() warn: variable dereferenced before check 'event' (see line 377)
-
-vim +/pmu +380 drivers/perf/stm32_ddr_pmu.c
-
-73af3c4ba702d7 Clément Le Goffic 2025-07-11  374  static int stm32_ddr_pmu_get_counter(struct stm32_ddr_pmu *pmu, struct perf_event *event)
-73af3c4ba702d7 Clément Le Goffic 2025-07-11  375  {
-73af3c4ba702d7 Clément Le Goffic 2025-07-11 @376  	u32 time_cnt_idx = pmu->cfg->time_cnt_idx;
-                                                                           ^^^^^^^^
-
-73af3c4ba702d7 Clément Le Goffic 2025-07-11 @377  	u32 config = event->attr.config;
-                                                                     ^^^^^^^
-
-73af3c4ba702d7 Clément Le Goffic 2025-07-11  378  	struct stm32_ddr_cnt *cnt;
-73af3c4ba702d7 Clément Le Goffic 2025-07-11  379  
-73af3c4ba702d7 Clément Le Goffic 2025-07-11 @380  	if (!pmu || !event)
-                                                            ^^^^^^^^^^^^^^
-Checks are too late.  The variables have already been dereferenced.
-
-73af3c4ba702d7 Clément Le Goffic 2025-07-11  381  		return -EINVAL;
-73af3c4ba702d7 Clément Le Goffic 2025-07-11  382  
-73af3c4ba702d7 Clément Le Goffic 2025-07-11  383  	pmu->selected_set = GROUP_VALUE(config);
-73af3c4ba702d7 Clément Le Goffic 2025-07-11  384  
-73af3c4ba702d7 Clément Le Goffic 2025-07-11  385  	if (config == TIME_CNT) {
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
-
+Maybe Stanislaw knows more.
+>
+>
+> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+>
+> Best regards,
+> Krzysztof
+>
 
