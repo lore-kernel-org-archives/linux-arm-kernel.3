@@ -4,69 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D8B7C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 10:52:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0435C83F1B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 10:55:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wiBDj+5/RDC59MthAU5vcXKUvyHjVgi94vuiAQ4Zk7M=; b=nIRMpD2FiNq/MAwuv+AwoK19fI
-	RlGX7Uyb0F9+8J4MnuPwGjWXk44KvqY8RdUhYfUeOcnTkVS2nhGZ34R5geK4/D8HfqfkRAehCu0lh
-	syrvag767dQhnrIOaL13VrryF4rG+BQ2yOTLt8AgipkfeLeQwCqnQw9sFHTUKeJsSFAbNZXboo4VG
-	n3kxa3O1egzaAj+LovmC+WlqpgFzAwkegsqma2bjM0MLXSjvA9ZyZGky2cybKRMsP+rTFOScIwVG5
-	PErA+aCOB1F6wP+0RsnRTjjzUmD5BAh6/o5E2splNw6v5vg5ri3irZUUQcEht2do+P5spCaV7Coc0
-	0hu2I6Nw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ySOPFnfb3FFIxoLcClU1zP6T1Atw0Soo5qWM1gROqnI=; b=HFk1HmyCWp/P/r3tUkked0zI5r
+	MXMOjnmIiD7mzC4CzuXibqDrdZSpWOEjr3LnQcTFWiFxUHkZunEtZP4ylypomFeeOYr/H2dwLisf+
+	tJDm4JZLmaneiJG2GJUl5NFrgqpfvD5GypgxW7mAONRGnoKU5tRy1ax69CnXiu8h3FfeJjuaEcKcT
+	rSTKpSL0UZV6r6c75mxfUF8mPSpnlQ4qdAAN6FPHSXj7HNZOLHrCCMLHuIxGy2MPauIOB1JzYcbAl
+	YrHKStoePqI4YknJXrDh4n38Ss9/BVzBC5mnPubYakl42B8gULHkB0di7CknzTaW1dwJSRU/Rlt0H
+	cQzaqA+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubGn2-00000001xeg-06Uf;
-	Mon, 14 Jul 2025 10:52:08 +0000
-Received: from smtp.forwardemail.net ([121.127.44.73])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubGkZ-00000001xC1-3hRX
+	id 1ubGq8-00000001yCu-26m3;
+	Mon, 14 Jul 2025 10:55:20 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ubGne-00000001xo2-3PPK
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Jul 2025 10:49:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
- h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
- Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
- s=fe-e1b5cab7be; t=1752490174;
- bh=wiBDj+5/RDC59MthAU5vcXKUvyHjVgi94vuiAQ4Zk7M=;
- b=ZFcxjP9u3L9ynBiMTo7h1HJ0cKYCrgI4UaWJ7nma7uBDQ2Ej8nhwmypzQc7AbS8DLLuGMYEl0
- y+1lSd3VlL7S2fKTpoEzPzsO0lNLkDDwLWutmDg2VYSu41fqsVp4wuN7t8KDHNHBzhywkgTK36D
- O05SJKsaZtv0TQhxsj8X/5pvh39y7+7SftkEDW/YJJ/cwRrypjeeAMbn0/oBeG710w3m0rJE4qs
- LNKpWUC0Do4zCewinPrqUiCCMlDzcAlX+UirTk9eVeLS8mzOp4PDPZ1NOBZzDzkPw8Q+lh8hw3/
- qM43UV3QDMT4idDe1FCMEX6lfFfHEP7F0nPI2mPZsS8Q==
-X-Forward-Email-ID: 6874e0ba2a8ca48f8e9e3dc7
-X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
- 121.127.44.73
-X-Forward-Email-Version: 1.1.6
-X-Forward-Email-Website: https://forwardemail.net
-X-Complaints-To: abuse@forwardemail.net
-X-Report-Abuse: abuse@forwardemail.net
-X-Report-Abuse-To: abuse@forwardemail.net
-Message-ID: <54a76b31-5f69-4004-a030-0096a18a0de4@kwiboo.se>
-Date: Mon, 14 Jul 2025 12:49:24 +0200
+	Mon, 14 Jul 2025 10:52:48 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 687071BC0;
+	Mon, 14 Jul 2025 03:52:36 -0700 (PDT)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4F6DE3F694;
+	Mon, 14 Jul 2025 03:52:45 -0700 (PDT)
+Date: Mon, 14 Jul 2025 11:52:43 +0100
+From: Leo Yan <leo.yan@arm.com>
+To: Breno Leitao <leitao@debian.org>
+Cc: Mark Rutland <mark.rutland@arm.com>, ankita@nvidia.com,
+	bwicaksono@nvidia.com, rmk+kernel@armlinux.org.uk,
+	catalin.marinas@arm.com, linux-serial@vger.kernel.org,
+	rmikey@meta.com, linux-arm-kernel@lists.infradead.org,
+	usamaarif642@gmail.com, linux-kernel@vger.kernel.org,
+	paulmck@kernel.org
+Subject: Re: arm64: csdlock at early boot due to slow serial (?)
+Message-ID: <20250714105243.GD1093654@e132581.arm.com>
+References: <aGVn/SnOvwWewkOW@gmail.com>
+ <aGZbYmV26kUKJwu_@J2N7QTR9R3>
+ <aGaQBghdAl8VGWmV@gmail.com>
+ <aGawTd8N2i8MDCmL@J2N7QTR9R3>
+ <aG0kYjl/sphGqd4r@gmail.com>
+ <juiog3337iozva23zpf4apdydegj4z7jibqykfvcgnkabemw4w@z5g5hhwrqr2w>
+ <20250710133557.GA1093654@e132581.arm.com>
+ <jlhgtwkeezoca34wbqipvsgr4muxov5wmgrswleo2k7zqitzfr@4ngriyb2udra>
+ <20250711095023.GB1093654@e132581.arm.com>
+ <cno3lsprrz36gqu27omvwrw27d2ubqtshac3cahfgkhcm2rla7@bpnulcmsyx2u>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/6] arm64: dts: rockchip: Add Radxa ROCK 2A/2F
-To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Cc: Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, linux-rockchip@lists.infradead.org,
- Yao Zi <ziyao@disroot.org>, Chukun Pan <amadeus@jmu.edu.cn>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20250712173805.584586-1-jonas@kwiboo.se>
- <20250712173805.584586-3-jonas@kwiboo.se> <7826308.EvYhyI6sBW@workhorse>
-Content-Language: en-US
-From: Jonas Karlman <jonas@kwiboo.se>
-In-Reply-To: <7826308.EvYhyI6sBW@workhorse>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <cno3lsprrz36gqu27omvwrw27d2ubqtshac3cahfgkhcm2rla7@bpnulcmsyx2u>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250714_034936_263270_435B12B0 
-X-CRM114-Status: GOOD (  28.97  )
+X-CRM114-CacheID: sfid-20250714_035246_938572_AD2E9478 
+X-CRM114-Status: GOOD (  28.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,263 +75,149 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Nicolas,
+On Fri, Jul 11, 2025 at 03:45:03AM -0700, Breno Leitao wrote:
+> On Fri, Jul 11, 2025 at 10:50:23AM +0100, Leo Yan wrote:
+> > > I've reverted commit 2eb2608618ce ("serial: amba-pl011: Implement nbcon
+> > > console"), and I don't see the CSD locks anymoer. The serial speed is
+> > > the same and continue to be slow, but, the CSD lock is not there. Here
+> > > is the time spent on the serial flush when reverting the commit above
+> > > 
+> > > 	[    0.309561] printk: legacy console [ttyAMA0] enabled
+> > > 	[    8.657938] ACPI: PCI Root Bridge [PCI2] (domain 0002 [bus 00-ff])
+> > 
+> > From this result, we can know both the atomic path and the thread path
+> > take a long time polling.
+>
+> I am wondering if this slowdown is by design, or, if there is a bug
+> somewhere.
 
-On 7/14/2025 11:44 AM, Nicolas Frattaroli wrote:
-> Hi Jonas,
-> 
-> see comments in-line.
-> 
-> On Saturday, 12 July 2025 19:37:44 Central European Summer Time Jonas Karlman wrote:
->> The ROCK 2A and ROCK 2F is a high-performance single board computer
->> developed by Radxa, based on the Rockchip RK3528A SoC.
->>
->> Add initial device tree for the Radxa ROCK 2A and ROCK 2F boards.
->>
->> Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
->> ---
->> v3: Rename led nodes to led-0/led-1 (Chukun Pan)
->> v2: Limit sdmmc max-frequency to 100 MHz (Yao Zi)
->>
->> Schematics:
->> - https://dl.radxa.com/rock2/2a/v1.2/radxa_rock_2a_v1.2_schematic.pdf
->> - https://dl.radxa.com/rock2/2f/radxa_rock2f_v1.01_schematic.pdf
->> ---
->>  arch/arm64/boot/dts/rockchip/Makefile         |   2 +
->>  .../boot/dts/rockchip/rk3528-rock-2.dtsi      | 293 ++++++++++++++++++
->>  .../boot/dts/rockchip/rk3528-rock-2a.dts      |  82 +++++
->>  .../boot/dts/rockchip/rk3528-rock-2f.dts      |  10 +
->>  4 files changed, 387 insertions(+)
->>  create mode 100644 arch/arm64/boot/dts/rockchip/rk3528-rock-2.dtsi
->>  create mode 100644 arch/arm64/boot/dts/rockchip/rk3528-rock-2a.dts
->>  create mode 100644 arch/arm64/boot/dts/rockchip/rk3528-rock-2f.dts
->>
->> diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/dts/rockchip/Makefile
->> index 099520962ffb..4cb6106b16f2 100644
->> --- a/arch/arm64/boot/dts/rockchip/Makefile
->> +++ b/arch/arm64/boot/dts/rockchip/Makefile
->> @@ -90,6 +90,8 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3399-sapphire.dtb
->>  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3399-sapphire-excavator.dtb
->>  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3399pro-rock-pi-n10.dtb
->>  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3528-radxa-e20c.dtb
->> +dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3528-rock-2a.dtb
->> +dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3528-rock-2f.dtb
->>  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3562-evb2-v10.dtb
->>  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3566-anbernic-rg-arc-d.dtb
->>  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3566-anbernic-rg-arc-s.dtb
->> diff --git a/arch/arm64/boot/dts/rockchip/rk3528-rock-2.dtsi b/arch/arm64/boot/dts/rockchip/rk3528-rock-2.dtsi
->> new file mode 100644
->> index 000000000000..aedc7ee9ee46
->> --- /dev/null
->> +++ b/arch/arm64/boot/dts/rockchip/rk3528-rock-2.dtsi
->> [...]
->> +
->> +&pinctrl {
->> +	bluetooth {
->> +		bt_wake_host_h: bt-wake-host-h {
->> +			rockchip,pins = <1 RK_PC2 RK_FUNC_GPIO &pcfg_pull_down>;
->> +		};
->> +
->> +		host_wake_bt_h: host-wake-bt-h {
->> +			rockchip,pins = <1 RK_PA5 RK_FUNC_GPIO &pcfg_pull_none>;
->> +		};
->> +	};
->> +
->> +	leds {
->> +		state_led_b: state-led-b {
->> +			rockchip,pins = <1 RK_PA3 RK_FUNC_GPIO &pcfg_pull_none>;
->> +		};
->> +	};
->> +
->> +	sdmmc {
->> +		sdmmc_vol_ctrl_h: sdmmc-vol-ctrl-h {
->> +			rockchip,pins = <1 RK_PC1 RK_FUNC_GPIO &pcfg_pull_none>;
->> +		};
->> +	};
->> +
->> +	usb {
->> +		usb_host_en: usb-host-en {
->> +			rockchip,pins = <0 RK_PA1 RK_FUNC_GPIO &pcfg_pull_none>;
->> +		};
->> +	};
->> +
->> +	wifi {
->> +		usb_wifi_pwr: usb-wifi-pwr {
->> +			rockchip,pins = <4 RK_PA4 RK_FUNC_GPIO &pcfg_pull_none>;
->> +		};
->> +
->> +		wifi_reg_on_h: wifi-reg-on-h {
->> +			rockchip,pins = <1 RK_PA6 RK_FUNC_GPIO &pcfg_pull_none>;
-> 
-> I don't see an external pull-up or pull-down in the schematic. I'm not
-> sure what the recommended practice is; should we have a pull direction
-> set in the SoC's pin controller in these cases, or leave it floating?
+Polling for over 5 seconds (5,001,000,000 ns) seems too long; it
+should not be by design.
 
-This is at least what I have done for gpio output pins in the past, see
-other defines for a wifi_reg_on_h in tree.
+> > Since both paths configure the UART clock, I'm curious about the
+> > behaviour if the UART clock is untouched. The relevant code is shown
+> > below.
+> 
+> Is this the clock frequency that is connected to pl011 coming from AMBA?
 
-My (possible wrong) reasoning is that this pin is used as a gpio output
-pin and the output value should determin high/low. For this perticiular
-board the wifi_reg_on_h pin is referenced as shutdown-gpios in the
-rfkill-gpio node, so when this is initialized the output value should be
-set high/low and the internal pull value no longer has a real purpose.
+The programming clock is for programming registers, my understanding is
+the clock is not provided by bus.
 
-Please correct me if my reasoning is wrong :-)
+> > I may seem a bit stubborn in suspecting a clock issue :) But if you
+> > have confirmed that a standard pl011 UART IP is being used.
+> 
+> How do I double check this is a pl011 UART IP or if this is being
+> emulated by firmware/ACPI.
 
-> 
->> +		};
->> +
->> +		wifi_wake_host_h: wifi-wake-host-h {
->> +			rockchip,pins = <1 RK_PA7 RK_FUNC_GPIO &pcfg_pull_down>;
->> +		};
->> +	};
->> +};
->> +
->> +&pwm1 {
->> +	pinctrl-names = "default";
->> +	pinctrl-0 = <&pwm1m0_pins>;
->> +	status = "okay";
->> +};
->> +
->> +&pwm2 {
->> +	pinctrl-names = "default";
->> +	pinctrl-0 = <&pwm2m0_pins>;
->> +	status = "okay";
->> +};
->> +
->> +&saradc {
->> +	vref-supply = <&vcc_1v8>;
->> +	status = "okay";
->> +};
->> +
->> +&sdhci {
->> +	bus-width = <8>;
->> +	cap-mmc-highspeed;
->> +	mmc-hs200-1_8v;
->> +	no-sd;
->> +	no-sdio;
->> +	non-removable;
->> +	vmmc-supply = <&vcc_3v3>;
->> +	vqmmc-supply = <&vcc_1v8>;
->> +	status = "okay";
->> +};
->> +
->> +&sdmmc {
->> +	bus-width = <4>;
->> +	cap-mmc-highspeed;
->> +	cap-sd-highspeed;
->> +	disable-wp;
->> +	max-frequency = <100000000>;
-> 
-> Any reason why we reduce this from the 150000000 in the SoC .dtsi?
+The log shows:
 
-Please see v1 of this series, Yao Zi reported issues when 150 MHz was
-usued with a SD-card that works with 150 MHz on the Radxa E20C.
+  ARMH0011:00: ttyAMA0 at MMIO 0xc280000 (irq = 66, base_baud = 0) is a SBSA
 
-Vendor kernel seem to change drive strenght of clk pin, but that did not
-improve the situation, so I changed it to use a lower rate for now.
+This should be emulated by firmware by reading Peripheral Identification
+Registers (see [1]).
 
-> Using the frequency the SoC .dtsi uses seems to work for me on the
-> ROCK 2A:
-> 
->   [    0.347556] mmc_host mmc1: Bus speed (slot 0) = 400000Hz (slot req 400000Hz, actual 400000HZ div = 0)
->   [    0.547362] mmc_host mmc1: Bus speed (slot 0) = 148500000Hz (slot req 150000000Hz, actual 148500000HZ div = 0)
->   [    0.814405] dwmmc_rockchip ffc30000.mmc: Successfully tuned phase to 248
->   [    0.815407] mmc1: new UHS-I speed SDR104 SDXC card at address aaaa
->   [    0.817030] mmcblk1: mmc1:aaaa SH64G 59.5 GiB
->   [    0.820943]  mmcblk1: p1 p2
+The most reliable way is to confirm with SoC vendor if the IP is
+standard or includes any modification.
 
-Using 150 MHz also worked with my 2A/3F boards and the two SD-cards I
-could test.
+[1] https://developer.arm.com/documentation/ddi0183/g/programmers-model/register-descriptions/peripheral-identification-registers--uartperiphid0-3
 
-> 
->> +	sd-uhs-sdr104;
->> +	vmmc-supply = <&vcc_3v3>;
->> +	vqmmc-supply = <&vccio_sd>;
->> +	status = "okay";
->> +};
->> +
->> +&uart0 {
->> +	pinctrl-names = "default";
->> +	pinctrl-0 = <&uart0m0_xfer>;
->> +	status = "okay";
->> +};
->> diff --git a/arch/arm64/boot/dts/rockchip/rk3528-rock-2a.dts b/arch/arm64/boot/dts/rockchip/rk3528-rock-2a.dts
->> new file mode 100644
->> index 000000000000..c03ae1dd3456
->> --- /dev/null
->> +++ b/arch/arm64/boot/dts/rockchip/rk3528-rock-2a.dts
->> [...]
->> +
->> +&pinctrl {
->> +	ethernet {
->> +		gmac1_rstn_l: gmac1-rstn-l {
->> +			rockchip,pins = <4 RK_PC2 RK_FUNC_GPIO &pcfg_pull_none>;
-> 
-> Same concern as with wifi-reg-on-h, there's no external pull resistor
-> in the schematic.
+> > diff --git a/drivers/amba/bus.c b/drivers/amba/bus.c
+> > index 71482d639a6d..b04773ba2602 100644
+> > --- a/drivers/amba/bus.c
+> > +++ b/drivers/amba/bus.c
+> >
+> I've tested it, but, it seems it didnt' help much. here is the full log
 
-Same resoning as above, this pin is used as the Ethernet PHY reset-gpios
-pin. Here the bootloader (U-Boot) will also configure this pin with a
-gpio output value to trigger a PHY reset.
+[...]
 
-I can change these to pull-down as that seem to be the reset value for
-these two pins, if I understand the schematic and PinOut correctly, if
-you have a strong opinion on that these defines are wrong.
+> [    0.307809] ARMH0011:00: ttyAMA0 at MMIO 0xc280000 (irq = 66, base_baud = 0) is a SBSA
+> [    0.307816] printk: console [ttyAMA0] enabled
 
-Regards,
-Jonas
+Based on this log and followed OOPS, the issue happens just after
+enabling console. It is a bit tricky that it prints logs during
+console registration (and configuration).
 
-> 
->> +		};
->> +	};
->> +
->> +	leds {
->> +		sys_led_g: sys-led-g {
->> +			rockchip,pins = <3 RK_PC1 RK_FUNC_GPIO &pcfg_pull_none>;
->> +		};
->> +	};
->> +
->> +	usb {
->> +		usb_otg_en: usb-otg-en {
->> +			rockchip,pins = <1 RK_PC3 RK_FUNC_GPIO &pcfg_pull_none>;
->> +		};
->> +	};
->> +};
->> diff --git a/arch/arm64/boot/dts/rockchip/rk3528-rock-2f.dts b/arch/arm64/boot/dts/rockchip/rk3528-rock-2f.dts
->> new file mode 100644
->> index 000000000000..3e2b9b685cb2
->> --- /dev/null
->> +++ b/arch/arm64/boot/dts/rockchip/rk3528-rock-2f.dts
->> @@ -0,0 +1,10 @@
->> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
->> +
->> +/dts-v1/;
->> +
->> +#include "rk3528-rock-2.dtsi"
->> +
->> +/ {
->> +	model = "Radxa ROCK 2F";
->> +	compatible = "radxa,rock-2f", "rockchip,rk3528";
->> +};
->>
-> 
-> Other than the indicated comments,
-> 
-> Reviewed-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-> 
-> ensured the pinctrls were correct, checked that they correspond to the
-> GPIOs being used in the devices associated with them. Also checked the
-> rock 2a schematic to verify that the vccio_sd switching setup is
-> correct, i.e. that high is indeed 3.3V and low is 1.8V.
-> 
-> And:
-> 
-> Tested-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-> 
-> test-booted on a ROCK 2A, tested that SD card shows up, made sure
-> ethernet works as well, also ensured that the adc key works.
-> 
-> 
+Seems to me, it is good to check pl011_console_setup() or
+sbsa_uart_set_termios() has any impaction on the long waiting. For
+example, the flow below will configure pin control and which might
+impact the data transaction:
 
+  pl011_console_setup()
+   `> pinctrl_pm_select_default_state()
+
+Based on the information shared earlier, the UART FIFO appears to be
+stalled, which is causing the long wait times.
+
+Apologies if my suggestion was unreliable or misled anything, and
+welcome others to freely correct me.
+
+Thanks,
+Leo
+
+> [    5.414515] smp: csd: Detected non-responsive CSD lock (#1) on CPU#0, waiting 5001000000 ns for CPU#01 do_nothing+0x0/0x10(0x0).
+> [    5.414532] smp: 	csd: CSD lock (#1) unresponsive.
+> [    5.414535] Sending NMI from CPU 0 to CPUs 1:
+> [    5.414541] NMI backtrace for cpu 1
+> [    5.414545] CPU: 1 UID: 0 PID: 1 Comm: swapper/0 Not tainted 6.16.0-rc5-00056-gd7753fd13f9e #86 NONE 
+> [    5.414548] Hardware name: Quanta JAVA ISLAND PVT 29F0EMAZ049/Java Island, BIOS F0EJ3A13 06/04/2025
+> [    5.414550] pstate: 61400009 (nZCv daif +PAN -UAO -TCO +DIT -SSBS BTYPE=--)
+> [    5.414552] pc : pl011_console_write_atomic+0x94/0x170
+> [    5.414559] lr : pl011_console_write_atomic+0x84/0x170
+> [    5.414562] sp : ffff80008492f1a0
+> [    5.414564] pmr: 000000c0
+> [    5.414565] x29: ffff80008492f1a0 x28: 0000000000000000 x27: 00000000000000e0
+> [    5.414572] x26: 0000000000000190 x25: 0000000000000000 x24: 0000000000000000
+> [    5.414578] x23: 0000000000000001 x22: 0000000000000000 x21: ffff800080c38ea8
+> [    5.414584] x20: ffff80008492f288 x19: ffff0000b2060080 x18: 00000000ffffffff
+> [    5.414590] x17: 6362323230303030 x16: 3030303078303a30 x15: 206e6f6967657220
+> [    5.414595] x14: 3030303064322072 x13: 3030303063623232 x12: 3030303030303030
+> [    5.414601] x11: 78303a30206e6f69 x10: 6765722030303030 x9 : ffff800080c390e4
+> [    5.414607] x8 : 6964657220646e75 x7 : 205d313533383630 x6 : 302e30202020205b
+> [    5.414612] x5 : ffff0000ad10200f x4 : 0000000000000000 x3 : 0000000000000008
+> [    5.414618] x2 : ffff8000816336c0 x1 : 0000000000000018 x0 : 0000000000000018
+> [    5.414624] Call trace:
+> [    5.414626]  pl011_console_write_atomic+0x94/0x170 (P)
+> [    5.414630]  nbcon_emit_next_record+0x234/0x388
+> [    5.414634]  __nbcon_atomic_flush_pending_con+0x88/0x108
+> [    5.414637]  __nbcon_atomic_flush_pending+0x108/0x198
+> [    5.414640]  nbcon_atomic_flush_pending+0x24/0x38
+> [    5.414643]  vprintk_emit+0x200/0x348
+> [    5.414645]  vprintk_default+0x3c/0x50
+> [    5.414647]  vprintk+0x2c/0x40
+> [    5.414650]  _printk+0x50/0x60
+> [    5.414652]  register_console+0x424/0x560
+> [    5.414654]  serial_core_register_port+0x878/0x898
+> [    5.414659]  serial_ctrl_register_port+0x14/0x28
+> [    5.414661]  uart_add_one_port+0x14/0x28
+> [    5.414664]  pl011_register_port+0x74/0x130
+> [    5.414667]  sbsa_uart_probe+0x164/0x1b8
+> [    5.414670]  platform_probe+0x8c/0x100
+> [    5.414674]  really_probe+0xc4/0x398
+> [    5.414676]  __driver_probe_device+0x80/0x1a8
+> [    5.414679]  driver_probe_device+0x44/0x120
+> [    5.414681]  __device_attach_driver+0xb8/0x158
+> [    5.414683]  bus_for_each_drv+0x74/0xc0
+> [    5.414685]  __device_attach+0xac/0x1e0
+> [    5.414687]  device_initial_probe+0x18/0x28
+> [    5.414690]  bus_probe_device+0xa8/0xb8
+> [    5.414692]  device_add+0x648/0x830
+> [    5.414697]  platform_device_add+0x114/0x280
+> [    5.414700]  platform_device_register_full+0x148/0x1b8
+> [    5.414702]  acpi_create_platform_device+0x264/0x388
+> [    5.414706]  acpi_bus_attach+0x2c8/0x2e8
+> [    5.414709]  acpi_dev_for_one_check+0x38/0x48
+> [    5.414711]  device_for_each_child+0x54/0xa0
+> [    5.414714]  acpi_dev_for_each_child+0x30/0x40
+> [    5.414716]  acpi_bus_attach+0x6c/0x2e8
+> [    5.414718]  acpi_dev_for_one_check+0x38/0x48
+> [    5.414720]  device_for_each_child+0x54/0xa0
+> [    5.414723]  acpi_dev_for_each_child+0x30/0x40
+> [    5.414725]  acpi_bus_attach+0x6c/0x2e8
+> [    5.414727]  acpi_bus_scan+0x5c/0x1b0
+> [    5.414730]  acpi_scan_init+0xa0/0x288
+> [    5.414737]  acpi_init+0x1e8/0x4b8
+> [    5.414740]  do_one_initcall+0x3c/0x2a0
+> [    5.414743]  kernel_init_freeable+0x22c/0x460
+> [    5.414746]  kernel_init+0x28/0x1f0
+> [    5.414750]  ret_from_fork+0x10/0x20
 
