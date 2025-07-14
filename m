@@ -4,75 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9BB5C83F1A
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA249C83F1B
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 14:19:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cCXVmDCpka1BY1S4KZNsgRr5IQSraxRTqTe3Zpg088k=; b=MhRx2sezwz0lViHKsvaXTyUQeW
-	oilDJi53tlL4hBNQb+zs7tZFhE+35EVX7Gk2F74v6Wu0pU2m+wFMpKQiR+ltm+LNG9lDj0dqqzvCu
-	J/dk4xUNAVoVN4i1KO4KtryiZsWw5XLzNMrJRlje+Op7hXj22BY2cJgLJfGxE6aMCYqaF2YitVLVL
-	qaU+teS5SORVtdHvYSfNwa6OyupnMRPs7gBczawzH8d6iUjwCIe6Nndwr7yj/rew5htURMNOy4dyA
-	njnhq1EfgDtNJiGJEYFlGg3PkhwercvkyrHhDL1Ony3oKTEY1kuAGmGWytFL7Bcpq4bjq/oEVE47l
-	F9Aam1DA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Cc:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DfZSxMlKQHM8fVTPHG4G5K6/3qK7daDUPfpkAU+xVcM=; b=rT0NKJRBliL0tY3IKCvQCmMlc/
+	xIAm4RIOjkKVPaD458StHA5JQ1h2M1tcUOMRQsa9slm4rc2JccjjmLnR9ERDr8Ji8A8X2kmtuTGJ7
+	prCCwODsam632kjpZswATxthNM7JqS+uKKdYZHfG3bNc833tw+Iyaijg1H3+/Q8NyikYaiz1FcVe1
+	nq+jvo82/fF8NHHyJZxzkCNOhoXcInEwKOamkmlrPJDifsOBgJUYzousJflkUGqSqiOIXKtxntnZK
+	sKxUk5BVYHASiNQiZWWNyzNbueCFCWpOtH6/R0LR4oOZH2WoiFsi3xihDNO4WjLSKAGOWNV0kFmCm
+	pd7Z7Asg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubK1K-00000002RqP-1KV5;
+	id 1ubK1K-00000002RqW-3bj6;
 	Mon, 14 Jul 2025 14:19:06 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+Received: from 0001.3ffe.de ([2a01:4f8:c0c:9d57::1] helo=mail.3ffe.de)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubJfn-00000002O4f-1WBp
+	id 1ubJlQ-00000002PP1-37Pd
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Jul 2025 13:56:52 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id BE12345650;
-	Mon, 14 Jul 2025 13:56:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B97C5C4CEED;
-	Mon, 14 Jul 2025 13:56:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752501410;
-	bh=RvhIzF1178EACH5sRBxk0JJFnaECIpOn0lv+2agGFrE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=SHVMsFiV2nhGLVS79/uw7C6EfvU6dSKDBpwo22vUR3TF4ARaRaSmJPfS1WWtNMXFB
-	 HNq4WazkdXXB/PbdkiYBgHZ+OLynQQksyImyyDrWJN0DvUp1mK7jSO4+zI5LDc28ZQ
-	 DqwnGnkrwBPjmzMjskBHhB2mdMZ5oxXfqZCA4UPtX1auC9eDUCBfWZPeeeGqaDhkA0
-	 wW+KD9z8wVi9op8wlL5riVWjYhLoIslAEgvHbxQKPK+qAsZkyNOp9bLkEtq/8f78mV
-	 ildM5/001t+rqW+Wtl/DB6Jbd7NS75u/cahn8ZlGvwYMFNwAORQn/raUQn6ZtjQa0H
-	 7xCtq57AlezTA==
-Date: Mon, 14 Jul 2025 14:56:42 +0100
-From: Will Deacon <will@kernel.org>
-To: James Clark <james.clark@linaro.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>, leo.yan@arm.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-perf-users@vger.kernel.org, linux-doc@vger.kernel.org,
-	kvmarm@lists.linux.dev
-Subject: Re: [PATCH v3 06/10] perf: Add perf_event_attr::config4
-Message-ID: <aHUMmgt2fCSfxy6f@willie-the-truck>
-References: <20250605-james-perf-feat_spe_eft-v3-0-71b0c9f98093@linaro.org>
- <20250605-james-perf-feat_spe_eft-v3-6-71b0c9f98093@linaro.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250605-james-perf-feat_spe_eft-v3-6-71b0c9f98093@linaro.org>
+	Mon, 14 Jul 2025 14:02:42 +0000
+Received: from localhost (ip-109-42-113-167.web.vodafone.de [109.42.113.167])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mail.3ffe.de (Postfix) with ESMTPSA id 1D7C22F7;
+	Mon, 14 Jul 2025 16:02:24 +0200 (CEST)
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Mon, 14 Jul 2025 16:02:23 +0200
+Message-Id: <DBBU0QGILT7C.33TZQUPDJU81O@kernel.org>
+Subject: Re: [PATCH net-next v2 2/3] net: ethernet: ti: am65-cpsw: fixup PHY
+ mode for fixed RGMII TX delay
+Cc: "Matthias Schiffer" <matthias.schiffer@ew.tq-group.com>, "Andrew Lunn"
+ <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, "Eric
+ Dumazet" <edumazet@google.com>, "Jakub Kicinski" <kuba@kernel.org>, "Paolo
+ Abeni" <pabeni@redhat.com>, "Rob Herring" <robh@kernel.org>, "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>,
+ "Andy Whitcroft" <apw@canonical.com>, "Dwaipayan Ray"
+ <dwaipayanray1@gmail.com>, "Lukas Bulwahn" <lukas.bulwahn@gmail.com>, "Joe
+ Perches" <joe@perches.com>, "Jonathan Corbet" <corbet@lwn.net>, "Nishanth
+ Menon" <nm@ti.com>, "Vignesh Raghavendra" <vigneshr@ti.com>, "Siddharth
+ Vadapalli" <s-vadapalli@ti.com>, "Roger Quadros" <rogerq@kernel.org>, "Tero
+ Kristo" <kristo@kernel.org>, <linux-doc@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>,
+ <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <linux@ew.tq-group.com>, "Maxime Chevallier"
+ <maxime.chevallier@bootlin.com>
+From: "Michael Walle" <mwalle@kernel.org>
+To: "Andrew Lunn" <andrew@lunn.ch>
+X-Mailer: aerc 0.16.0
+References: <cover.1750756583.git.matthias.schiffer@ew.tq-group.com>
+ <9b3fb1fbf719bef30702192155c6413cd5de5dcf.1750756583.git.matthias.schiffer@ew.tq-group.com> <DBBOW776RS0Z.1UZDHR9MGX26P@kernel.org> <fa3688c0-3b01-49fb-9c16-eeea66748876@lunn.ch>
+In-Reply-To: <fa3688c0-3b01-49fb-9c16-eeea66748876@lunn.ch>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250714_065651_428675_AA05BC6B 
-X-CRM114-Status: GOOD (  18.01  )
+X-CRM114-CacheID: sfid-20250714_070240_934872_55984D25 
+X-CRM114-Status: GOOD (  23.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,40 +78,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 05, 2025 at 11:49:04AM +0100, James Clark wrote:
-> Arm FEAT_SPE_FDS adds the ability to filter on the data source of a
-> packet using another 64-bits of event filtering control. As the existing
-> perf_event_attr::configN fields are all used up for SPE PMU, an
-> additional field is needed. Add a new 'config4' field.
-> 
-> Reviewed-by: Leo Yan <leo.yan@arm.com>
-> Tested-by: Leo Yan <leo.yan@arm.com>
-> Signed-off-by: James Clark <james.clark@linaro.org>
-> ---
->  include/uapi/linux/perf_event.h | 2 ++
->  1 file changed, 2 insertions(+)
-> 
-> diff --git a/include/uapi/linux/perf_event.h b/include/uapi/linux/perf_event.h
-> index 78a362b80027..0d0ed85ad8cb 100644
-> --- a/include/uapi/linux/perf_event.h
-> +++ b/include/uapi/linux/perf_event.h
-> @@ -382,6 +382,7 @@ enum perf_event_read_format {
->  #define PERF_ATTR_SIZE_VER6			120	/* Add: aux_sample_size */
->  #define PERF_ATTR_SIZE_VER7			128	/* Add: sig_data */
->  #define PERF_ATTR_SIZE_VER8			136	/* Add: config3 */
-> +#define PERF_ATTR_SIZE_VER9			144	/* add: config4 */
->  
->  /*
->   * 'struct perf_event_attr' contains various attributes that define
-> @@ -543,6 +544,7 @@ struct perf_event_attr {
->  	__u64	sig_data;
->  
->  	__u64	config3; /* extension of config2 */
-> +	__u64	config4; /* extension of config3 */
->  };
+Hi,
 
-Looks straightforward to me, but this will need an Ack from one of the perf
-core maintainers.
+On Mon Jul 14, 2025 at 3:09 PM CEST, Andrew Lunn wrote:
+> On Mon, Jul 14, 2025 at 12:01:22PM +0200, Michael Walle wrote:
+> > On Tue Jun 24, 2025 at 12:53 PM CEST, Matthias Schiffer wrote:
+> > > All am65-cpsw controllers have a fixed TX delay, so the PHY interface
+> > > mode must be fixed up to account for this.
+> > >
+> > > Modes that claim to a delay on the PCB can't actually work. Warn peop=
+le
+> > > to update their Device Trees if one of the unsupported modes is speci=
+fied.
+> > >
+> > > Signed-off-by: Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
+> > > Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+> > > Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+> >=20
+> > For whatever reason, this patch is breaking network on our board
+> > (just transmission). We have rgmii-id in our devicetree which is now
+> > modified to be just rgmii-rxid. The board has a TI AM67A (J722S) with a
+> > Broadcom BCM54210E PHY. I'm not sure, if AM67A MAC doesn't add any
+> > delay or if it's too small. I'll need to ask around if there are any
+> > measurements but my colleague doing the measurements is on holiday
+> > at the moment.
+>
+> I agree, we need to see if this is a AM65 vs AM67 issue. rgmii-id
+> would be correct if the MAC is not adding delays.
+>
+> Do you have access to the datasheets for both? Can you do a side by
+> side comparison for the section which describes the fixed TX delay?
 
-Will
+The datasheets and TRMs of the SoC are public of the SoC. According
+to the AM67A TRM the delay should be 1.2ns if I'm reading it
+correctly. The BCM PHY requires a setup time of -0.9ns (min). So, is
+should work (?), but it doesn't. I'm also not aware of any routing
+skew between the signals. But as I said, I'll have to check with my
+colleague next week.
+
+-michael
 
