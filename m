@@ -4,67 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1751C83F1B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 18:50:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3E86C83F21
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 18:50:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hE0b7p0HWweAEZi+TeBWIa3x7BgUGPPOyhVgW+fkUsE=; b=syLu7H95F0OgGcWTMPofm8cE1n
-	Q2AbTV9bC/53Kk5um0qmp4jlGKVq7flqSOL0q+vGkkzhpIId3dg054aYzUjTTjggICL66CsCYygB7
-	4IXmsefZcm8LCusTtvUeenMyQasn5U4aR56fJUMos7ULjyYfy4TCHFtBa6ZVYTdFYOtJHloPwXxEE
-	vuSVg6M7w+oEp7BfDQxovWYgGEAmFSxLrXHWqD6ykkyb6v1oYcMMuTUz/WHkQd8eeGh9aNQju//IS
-	benrHdYpzDFGV7QQ6ZOJ4fbz1v5uMljdB0S/+co3rN0z1NYONLEZ6p5drLRFQ1UOE8ESVxAUyab4o
-	3e3OPaMA==;
+	bh=Noy8Ox8z9Kh7txJdK8SNWuMbDJe6Ee8cGfBhrY9kUe8=; b=saMNNsbmp/PSUItMIYr3QS/0Em
+	GlB7+4VnDhhWC67Rkm1WpEIrjc39QYeQV5Q4mYuvrGIUVX9Y3ChElq/QZ9e1irRJVpalG/g8WB5zm
+	Q9x0d6WbxcTaePQJtUmtyLcbBxcAB+LDnXEN5H34LAhXdkNwNTniYdCiME3blX+Bk8h/+quyW7EHn
+	LA+Be1S2GOq4Wit1vHd9Vx06bK7Z4Yfdty4k7zNnXSFNaB0qFq6wzjbM6tY7onNQ7M+dqvmtedHH3
+	nQwJKJh4HrMxWYAZCFz3g7+d3KTVJIKAFgdA+pC+JKpNBCAxVcLvgXF/2d3hkwaEx5KwoVBy2dI0i
+	wApAlzdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubOFS-0000000342A-3OsL;
-	Mon, 14 Jul 2025 18:49:58 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1ubOFj-000000034Gi-0BZ4;
+	Mon, 14 Jul 2025 18:50:15 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubL2f-00000002enp-2WEY
+	id 1ubMB0-00000002qjr-1m1i
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Jul 2025 15:24:34 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 18B5A5C57FC;
-	Mon, 14 Jul 2025 15:24:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A2A59C4CEED;
-	Mon, 14 Jul 2025 15:24:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752506672;
-	bh=97EuZvHvv4ugwMLOhUGF3QO1KrDIi3MQ4YL2KEQadRw=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=oihjKSIi/U08U/aF0oUWpCIvcwpkg4fY55ayG74wWQprui21gdwqtombf2URQo2Tc
-	 LN/GXPynytAMNsfWcmS4uHX6+SlBU9ibf+1V7tswTWHqOmpfuOhUqBSNdIaKNgofSV
-	 vSwTzka19riEp3AEyvwm6Tod0tll9S+tiKkWC7PAJb+lzu1Dy/gRe/Ie9Vg75cWDqd
-	 cc+LH9F0YDbuCqxy/iOJJp+r+7rUJY07sWBMdrTRElf8GR55C4EcnP2k/vZIcAj2u0
-	 v+a0bPeqT+4xYBYNq/RJ0FQNBLbTk7ot9e/lfK0s7SAdoP3EA/zLqeHw6opRbnHqMc
-	 m2bNRSUAGuYOw==
-Date: Mon, 14 Jul 2025 10:24:32 -0500
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	Mon, 14 Jul 2025 16:37:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1752511034; x=1784047034;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=fpIAXpXNXAv248bbnrtINLulVPuRlVHg3Zy4cW4/LIE=;
+  b=IfW9Ez2emmS85W/nf2uRN5EjOl2kxdQVj1CI5zEAEaVulJ3jT+01quo2
+   5XohGPVuMZu/RqPTEZ6mVgSXNbTOi8wa1m0hP8FfSR+mIOl7WNAV5djWY
+   +Voa/C+bDjZHlmRX7y2QTKq7oq4PHW+abXCh66oZs1U4g4OcZSe7YrDm/
+   riZRQNv9RiwH/xUMn7LWSv0MCRO0emdm6X40AdPYXpQiBleTlMeFeB+vM
+   2umTwWYfsrAk6jymMgzBrrM1l0q+9Uh5TjzFqKDrrScOCcAShRN9Icoj5
+   jHEVpHrjB8v9C48wAGGJa+BtB4oOlTz7h9YdYGalUkqb8roo2LbhNHrdI
+   A==;
+X-CSE-ConnectionGUID: hBq1ljEWSkqL674rDMJkcA==
+X-CSE-MsgGUID: dA8NuFKRS86B4XYXOA7fdw==
+X-IronPort-AV: E=Sophos;i="6.16,311,1744095600"; 
+   d="scan'208";a="211399329"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 14 Jul 2025 09:37:12 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.44; Mon, 14 Jul 2025 09:36:29 -0700
+Received: from ryan-Precision-3630-Tower.microchip.com (10.10.85.11) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server id
+ 15.1.2507.44 via Frontend Transport; Mon, 14 Jul 2025 09:36:29 -0700
+From: <Ryan.Wanner@microchip.com>
+To: <andrew+netdev@lunn.ch>, <davem@davemloft.net>, <edumazet@google.com>,
+	<kuba@kernel.org>, <pabeni@redhat.com>, <robh@kernel.org>,
+	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <nicolas.ferre@microchip.com>,
+	<alexandre.belloni@bootlin.com>, <claudiu.beznea@tuxon.dev>
+CC: <netdev@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>, "Ryan
+ Wanner" <Ryan.Wanner@microchip.com>
+Subject: [PATCH v2 5/5] ARM: dts: microchip: sama7g5: Add RMII ext refclk flag
+Date: Mon, 14 Jul 2025 09:37:03 -0700
+Message-ID: <8ea2d96c898ee7b57310b5155eee92efd4e25215.1752510727.git.Ryan.Wanner@microchip.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <cover.1752510727.git.Ryan.Wanner@microchip.com>
+References: <cover.1752510727.git.Ryan.Wanner@microchip.com>
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: devicetree@vger.kernel.org, 
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
- Rafal Milecki <zajec5@gmail.com>, Stefan Wahren <wahrenst@gmx.net>, 
- Florian Fainelli <florian.fainelli@broadcom.com>, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Linus Walleij <linus.walleij@linaro.org>, Hauke Mehrtens <hauke@hauke-m.de>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
-To: Taishi Shimizu <s.taishi14142@gmail.com>
-In-Reply-To: <20250713071826.726682-1-s.taishi14142@gmail.com>
-References: <20250713071826.726682-1-s.taishi14142@gmail.com>
-Message-Id: <175250104141.2052760.5355993543096717369.robh@kernel.org>
-Subject: Re: [PATCH v2 0/2] ARM: BCM5301X: Add support for Buffalo
- WXR-1750DHP
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250714_082433_732858_5D80CDE7 
-X-CRM114-Status: GOOD (  19.61  )
+X-CRM114-CacheID: sfid-20250714_093714_540998_A1CDB958 
+X-CRM114-Status: UNSURE (   9.20  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,103 +89,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Ryan Wanner <Ryan.Wanner@microchip.com>
 
-On Sun, 13 Jul 2025 16:18:23 +0900, Taishi Shimizu wrote:
-> This patch series adds support for the Buffalo WXR-1750DHP router,
-> based on the Broadcom BCM4708 SoC.
-> 
-> Patch 1 updates the device tree bindings documentation to list
-> Buffalo WXR-1750DHP as a supported board under BCM4708.
-> 
-> Patch 2 introduces a device tree source file for the router.
-> 
-> Changes since v1:
->  - remove `chosen` node and `bootargs` (inherited from bcm4708.dtsi)
->  - replace `label` in LEDs with `color` and `function` properties
->  - change USB LED to use `LED_FUNCTION_USB` and added `trigger-sources`
->  - reorder GPIOs and clean up button node formatting
-> 
-> Taishi Shimizu (2):
->   dt-bindings: arm: bcm: Add support for Buffalo WXR-1750DHP
->   ARM: dts: BCM5301X: Add support for Buffalo WXR-1750DHP
-> 
-> Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org> # for patch 1
-> 
->  .../bindings/arm/bcm/brcm,bcm4708.yaml        |   1 +
->  arch/arm/boot/dts/broadcom/Makefile           |   1 +
->  .../broadcom/bcm4708-buffalo-wxr-1750dhp.dts  | 138 ++++++++++++++++++
->  3 files changed, 140 insertions(+)
->  create mode 100644 arch/arm/boot/dts/broadcom/bcm4708-buffalo-wxr-1750dhp.dts
-> 
-> 
-> base-commit: 379f604cc3dc2c865dc2b13d81faa166b6df59ec
-> --
-> 2.43.0
-> 
-> 
-> 
+The REFCLK for the RMII interface is provided by an extrenal source.
 
+This flag matches the change in the macb driver to determine the REFCLK
+source.
 
-My bot found new DTB warnings on the .dts files added or changed in this
-series.
+Signed-off-by: Ryan Wanner <Ryan.Wanner@microchip.com>
+---
+ arch/arm/boot/dts/microchip/at91-sama7g5ek.dts | 1 +
+ 1 file changed, 1 insertion(+)
 
-Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
-are fixed by another series. Ultimately, it is up to the platform
-maintainer whether these warnings are acceptable or not. No need to reply
-unless the platform maintainer has comments.
-
-If you already ran DT checks and didn't see these error(s), then
-make sure dt-schema is up to date:
-
-  pip3 install dtschema --upgrade
-
-
-This patch series was applied (using b4) to base:
- Base: using specified base-commit 379f604cc3dc2c865dc2b13d81faa166b6df59ec
-
-If this is not the correct base, please add 'base-commit' tag
-(or use b4 which does this automatically)
-
-New warnings running 'make CHECK_DTBS=y for arch/arm/boot/dts/broadcom/' for 20250713071826.726682-1-s.taishi14142@gmail.com:
-
-arch/arm/boot/dts/broadcom/bcm958305k.dtb: pwm@180aa500 (brcm,kona-pwm): compatible:0: 'brcm,kona-pwm' is not one of ['brcm,bcm11351-pwm']
-	from schema $id: http://devicetree.org/schemas/pwm/brcm,kona-pwm.yaml#
-arch/arm/boot/dts/broadcom/bcm47081-buffalo-wzr-600dhp2.dtb: pcie@12000: 'ranges' is a required property
-	from schema $id: http://devicetree.org/schemas/pci/pci-bus-common.yaml#
-arch/arm/boot/dts/broadcom/bcm4708-buffalo-wxr-1750dhp.dtb: /axi@18000000: failed to match any schema with compatible: ['brcm,bus-axi']
-arch/arm/boot/dts/broadcom/bcm4708-buffalo-wxr-1750dhp.dtb: pcie@12000: 'device_type' is a required property
-	from schema $id: http://devicetree.org/schemas/pci/pci-bus-common.yaml#
-arch/arm/boot/dts/broadcom/bcm4708-buffalo-wxr-1750dhp.dtb: pcie@12000: 'ranges' is a required property
-	from schema $id: http://devicetree.org/schemas/pci/pci-bus-common.yaml#
-arch/arm/boot/dts/broadcom/bcm4708-buffalo-wxr-1750dhp.dtb: pcie@13000: 'device_type' is a required property
-	from schema $id: http://devicetree.org/schemas/pci/pci-bus-common.yaml#
-arch/arm/boot/dts/broadcom/bcm4708-buffalo-wxr-1750dhp.dtb: pcie@13000: 'ranges' is a required property
-	from schema $id: http://devicetree.org/schemas/pci/pci-bus-common.yaml#
-arch/arm/boot/dts/broadcom/bcm4708-buffalo-wxr-1750dhp.dtb: pcie@14000: 'device_type' is a required property
-	from schema $id: http://devicetree.org/schemas/pci/pci-bus-common.yaml#
-arch/arm/boot/dts/broadcom/bcm4708-buffalo-wxr-1750dhp.dtb: pcie@14000: 'ranges' is a required property
-	from schema $id: http://devicetree.org/schemas/pci/pci-bus-common.yaml#
-arch/arm/boot/dts/broadcom/bcm4708-buffalo-wxr-1750dhp.dtb: ethernet-switch@18007000 (brcm,bcm53011-srab): ports:port@5: 'phy-mode' is a required property
-	from schema $id: http://devicetree.org/schemas/net/dsa/brcm,b53.yaml#
-arch/arm/boot/dts/broadcom/bcm4708-buffalo-wxr-1750dhp.dtb: ethernet-switch@18007000 (brcm,bcm53011-srab): ports:port@5: 'oneOf' conditional failed, one must be fixed:
-	'fixed-link' is a required property
-	'phy-handle' is a required property
-	'managed' is a required property
-	from schema $id: http://devicetree.org/schemas/net/dsa/brcm,b53.yaml#
-arch/arm/boot/dts/broadcom/bcm4708-buffalo-wxr-1750dhp.dtb: ethernet-switch@18007000 (brcm,bcm53011-srab): ports:port@7: 'phy-mode' is a required property
-	from schema $id: http://devicetree.org/schemas/net/dsa/brcm,b53.yaml#
-arch/arm/boot/dts/broadcom/bcm4708-buffalo-wxr-1750dhp.dtb: ethernet-switch@18007000 (brcm,bcm53011-srab): ports:port@7: 'oneOf' conditional failed, one must be fixed:
-	'fixed-link' is a required property
-	'phy-handle' is a required property
-	'managed' is a required property
-	from schema $id: http://devicetree.org/schemas/net/dsa/brcm,b53.yaml#
-arch/arm/boot/dts/broadcom/bcm4708-buffalo-wxr-1750dhp.dtb: ethernet-switch@18007000 (brcm,bcm53011-srab): ports:port@8: 'phy-mode' is a required property
-	from schema $id: http://devicetree.org/schemas/net/dsa/brcm,b53.yaml#
-arch/arm/boot/dts/broadcom/bcm4708-buffalo-wxr-1750dhp.dtb: ethernet-switch@18007000 (brcm,bcm53011-srab): Unevaluated properties are not allowed ('ports' was unexpected)
-	from schema $id: http://devicetree.org/schemas/net/dsa/brcm,b53.yaml#
-
-
-
-
+diff --git a/arch/arm/boot/dts/microchip/at91-sama7g5ek.dts b/arch/arm/boot/dts/microchip/at91-sama7g5ek.dts
+index 2543599013b1..3c898afdc313 100644
+--- a/arch/arm/boot/dts/microchip/at91-sama7g5ek.dts
++++ b/arch/arm/boot/dts/microchip/at91-sama7g5ek.dts
+@@ -542,6 +542,7 @@ &pinctrl_gmac1_mdio_default
+ 	phy-mode = "rmii";
+ 	nvmem-cells = <&eeprom1_eui48>;
+ 	nvmem-cell-names = "mac-address";
++	cdns,refclk-ext;
+ 	status = "okay"; /* Conflict with pdmc0. */
+ 
+ 	ethernet-phy@0 {
+-- 
+2.43.0
 
 
