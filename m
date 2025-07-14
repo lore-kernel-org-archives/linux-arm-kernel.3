@@ -4,62 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F7F5C83F1B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 11:28:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDA0BC83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 11:31:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OOhXIN5KRXmAOlmJ/gr6bLaXlBZ7q1R2HcVzTvVEZyg=; b=dN1WllQ0yD9ev6RGH9rL91JI6r
-	UEBVkNPyCLKZVRnRC9WbO9ZvuUXDv8q32+aD+rkcbmO8UqOsCLiJEsXOe7OptS/4vbaI1lZ4ePmnX
-	YKzXbWdNVqgziRcUx13j8oOM70uOD3si98bSjHjqms55aWdq5GtdKl0iyozysslJpR+ayXnsJPnpb
-	tnsYqNO4QTs5dayTlaL7RBU4s6kWBgAKwtfs/NRVX0AnpC01M+qxXiUh6MQoo2Q0DhnlVFZ3ueDcw
-	gCUPUzvFenF0RjItFy3rwCW2Oqx9Hi8qqBK+MP+WyioRmqyPTR3C5ijPKD4hAu1ykV4Cp0WRzqJvb
-	N3PDFw8A==;
+	bh=Yt0pEgiOw5D20asS7w9+koIyg+3FrGpHgzGJycRNdqs=; b=dTVbo1ZDM0EK9TGiezc2SjcZZR
+	8TEi4xt3XOmNs/af8Sla1Ogo+Vp/JX1GtmO32gtHGzABWS2sqg9lYMFvzFb5cdlchip9tuADnMihI
+	O4VM2oCZunxadKR2XWMqOtHvGn65mY6y1TJoFKViXhjiOUC0JXwotRGpfBj9KwsmRvcpddFXFS++n
+	nhabdD35vEvp+HujtbHLYn2xqVrhr4tsJpLLm0x338ACOTeoi8w+i4FAyM/8J411rxN7gEzdhn3Vp
+	XtpWpy+LBl3D7RR7qLT8FvILZFlnViHv/SEHynIvkb5vTS6Z55Cqcgvk5+E7IAIW4QH3UwlQVvhjL
+	wiw8wYkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubHLe-000000021vV-2wtG;
-	Mon, 14 Jul 2025 11:27:54 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1ubHPI-000000022Kw-0bEa;
+	Mon, 14 Jul 2025 11:31:40 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubHHJ-000000021UD-2iyo
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Jul 2025 11:23:27 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 930185C4B25;
-	Mon, 14 Jul 2025 11:23:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 429A9C4CEF4;
-	Mon, 14 Jul 2025 11:23:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752492204;
-	bh=DY/dmG6LZNxcbok7TxYUWpoHqR8O26mknUUoN8ACEog=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=YYIReyAs3klRSmt6LYTsKyntQGMMST6uGgl1PMjXnRAetY7AQsoBiwJvrRzLUDJjQ
-	 9+/oIXIjiJhUZxDMMT0hOetBJm/rFzgXsyWvVGoFfG9IorBcVt6IDqTXbarJ0ymFy5
-	 cimWTCGF/JHusIBPqWcXsNf1Dtg0D91D84wCbPQrrmKBW81Tly1rxv0rbBcBMBR/xW
-	 Gdo8CS5XaNtkcQnVELn4XZe/Mvm7dITTDR3V/84LWU04Oo8y83I4h6EQpKiAnLWm5R
-	 FFZnXmqk6VgYiH19Y5vzqCYtAwD+NKa4L4ZFs7ffUDEQ8RgL2mQkrNuokVSZPW0sT+
-	 /Sf3orGKxjPFw==
-Date: Mon, 14 Jul 2025 12:23:19 +0100
-From: Will Deacon <will@kernel.org>
-To: Zhang Shurong <zhang_shurong@foxmail.com>
-Cc: sven@kernel.org, j@jannau.net, alyssa@rosenzweig.io, neal@gompa.dev,
-	joro@8bytes.org, robin.murphy@arm.com, asahi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] iommu/dart: add missing put_device() call in
- apple_dart_of_xlate
-Message-ID: <aHTop3m5gdS4vwvk@willie-the-truck>
-References: <tencent_22664B08ACDCE35DE10E5546C2FB26B59605@qq.com>
+	id 1ubHMp-0000000229Y-3GAb;
+	Mon, 14 Jul 2025 11:29:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=Yt0pEgiOw5D20asS7w9+koIyg+3FrGpHgzGJycRNdqs=; b=gFzHwEOunPxcWiAMs5c57JGmBA
+	1i9gdYcrvYX29m70SzdEFbb949zBkFdvThNwJKQhzyJ3vz63/HJ1jVg/SqRuGP6n4gWIfjUiccouh
+	P6KnCGtkMsx1a1QQNrL8jQIZ49P75WLOx+rlYn0bQB+2wVwhdnl721IvhTuDmNYdNVe5pAbt9ry3r
+	/RoZjj89dZL+hcZYQojrwClpv3YSiPvK4/2ywr4rKpCY38bVQj98vjQR3JbcWmt8iXRlTCD0vcUbS
+	UQwyw9zH6H36xlLQYifZECz0isuti6nChKskuuzSIiEqCqAEDnDQFMnIb/oDf1WYaJgVwW4dg+ZXE
+	kcLZNHaA==;
+Received: from i53875a13.versanet.de ([83.135.90.19] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1ubHMj-0007NV-40; Mon, 14 Jul 2025 13:29:01 +0200
+From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
+To: Linus Walleij <linus.walleij@linaro.org>,
+ Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konradybcio@kernel.org>,
+ Alexey Klimov <alexey.klimov@linaro.org>,
+ Lorenzo Bianconi <lorenzo@kernel.org>, Sean Wang <sean.wang@kernel.org>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Paul Cercueil <paul@crapouillou.net>, Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-msm@vger.kernel.org, linux-mediatek@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
+ Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Subject: Re: [PATCH v2 09/12] pinctrl: allow to mark pin functions as requestable
+ GPIOs
+Date: Mon, 14 Jul 2025 13:29:01 +0200
+Message-ID: <5911205.31r3eYUQgx@diego>
+In-Reply-To: <20250709-pinctrl-gpio-pinfuncs-v2-9-b6135149c0d9@linaro.org>
+References: <20250709-pinctrl-gpio-pinfuncs-v2-0-b6135149c0d9@linaro.org>
+ <20250709-pinctrl-gpio-pinfuncs-v2-9-b6135149c0d9@linaro.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <tencent_22664B08ACDCE35DE10E5546C2FB26B59605@qq.com>
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250714_042325_734705_2116C375 
-X-CRM114-Status: GOOD (  19.76  )
+X-CRM114-CacheID: sfid-20250714_042907_813696_97A18DE6 
+X-CRM114-Status: GOOD (  19.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,56 +80,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jul 13, 2025 at 12:16:24AM +0800, Zhang Shurong wrote:
-> The apple_dart_of_xlate() function obtains a platform device reference
-> via of_find_device_by_node() but doesn't release it with put_device().
-> This patch adds proper device reference handling to prevent memory
-> leaks.
-> 
-> Fixes: 46d1fb072e76 ("iommu/dart: Add DART iommu driver")
-> Signed-off-by: Zhang Shurong <zhang_shurong@foxmail.com>
+Am Mittwoch, 9. Juli 2025, 16:39:05 Mitteleurop=C3=A4ische Sommerzeit schri=
+eb Bartosz Golaszewski:
+> From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+>=20
+> The name of the pin function has no real meaning to pinctrl core and is
+> there only for human readability of device properties. Some pins are
+> muxed as GPIOs but for "strict" pinmuxers it's impossible to request
+> them as GPIOs if they're bound to a devide - even if their function name
+> explicitly says "gpio". Add a new field to struct pinfunction that
+> allows to pass additional flags to pinctrl core. While we could go with
+> a boolean "is_gpio" field, a flags field is more future-proof.
+>=20
+> If the PINFUNCTION_FLAG_GPIO is set for a given function, the pin muxed
+> to it can be requested as GPIO even on strict pin controllers. Add a new
+> callback to struct pinmux_ops - function_is_gpio() - that allows pinmux
+> core to inspect a function and see if it's a GPIO one. Provide a generic
+> implementation of this callback.
+>=20
+> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 > ---
->  drivers/iommu/apple-dart.c | 10 ++++++++--
->  1 file changed, 8 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/iommu/apple-dart.c b/drivers/iommu/apple-dart.c
-> index 190f28d76615..811bf5176568 100644
-> --- a/drivers/iommu/apple-dart.c
-> +++ b/drivers/iommu/apple-dart.c
-> @@ -796,8 +796,10 @@ static int apple_dart_of_xlate(struct device *dev,
->  
->  	if (!cfg) {
->  		cfg = kzalloc(sizeof(*cfg), GFP_KERNEL);
-> -		if (!cfg)
-> +		if (!cfg)  {
-> +			put_device(&iommu_pdev->dev);
->  			return -ENOMEM;
-> +		}
->  		/* Will be ANDed with DART capabilities */
->  		cfg->supports_bypass = true;
->  	}
-> @@ -805,8 +807,10 @@ static int apple_dart_of_xlate(struct device *dev,
->  
->  	cfg_dart = cfg->stream_maps[0].dart;
->  	if (cfg_dart) {
-> -		if (cfg_dart->pgsize != dart->pgsize)
-> +		if (cfg_dart->pgsize != dart->pgsize) {
-> +			put_device(&iommu_pdev->dev);
->  			return -EINVAL;
-> +		}
->  	}
->  
->  	cfg->supports_bypass &= dart->supports_bypass;
-> @@ -825,6 +829,8 @@ static int apple_dart_of_xlate(struct device *dev,
->  		}
->  	}
->  
-> +
-> +	put_device(&iommu_pdev->dev);
->  	return -EINVAL;
 
-Why is it correct to retain the reference on the device in the cases
-where this function returns 0?
+[...]
 
-Will
+> diff --git a/include/linux/pinctrl/pinmux.h b/include/linux/pinctrl/pinmu=
+x.h
+> index d6f7b58d6ad0cce421aad80463529c9ccc65d68e..6db6c3e1ccc2249d4b4204e6f=
+c19bf7b4397cc81 100644
+> --- a/include/linux/pinctrl/pinmux.h
+> +++ b/include/linux/pinctrl/pinmux.h
+> @@ -66,6 +66,8 @@ struct pinmux_ops {
+>  				    unsigned int selector,
+>  				    const char * const **groups,
+>  				    unsigned int *num_groups);
+> +	bool (*function_is_gpio) (struct pinctrl_dev *pctldev,
+> +				  unsigned int selector);
+
+hmm, I think using the set_mux function arguments here might make this
+usable by more drivers? Aka func_selector + group_selector ?
+
+While the generic pinmux might not need that, when pinmuxings are
+arranged in functions + pingroups in them, this would be helpful.
+
+
+Heiko
+
+
+
 
