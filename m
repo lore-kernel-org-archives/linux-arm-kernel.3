@@ -4,84 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8ACD2C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 00:00:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D73A8C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 00:02:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xdZdMkXachOTBLhsNs+TRwK+/iArlUH+VMAh4h7bRTc=; b=SdOcU+YbvH4xvs1+iIYqOY/cYp
-	s41h88RW63LhNrl/QhMxJzIhJ8+z+zENDehFT1V1YpjF+OYBJ0Lf1dszgsckcFfKkKw4MKDjOeST0
-	gZaXA5VFoJ33nD+vBE3wCh0RrwP89spge30dIxNPiUNF/UxIlx3GSb+GZgTQYPZS+yzFfJr8KmxJZ
-	MzS0ZPUSefcuvAqdNfYT/HSmRlt//YINnYdjexDJWxgpND2b2+1Cka+wVHqPmGa9XsRlxNBiEq6WM
-	EgyIP3xJKwb1rfD4ZpuylDw1xxwW5kNa+XZ9EhfkVDdQz3grVHqCRBReJP8I1dsXqG6ZMhT8Dq2Fg
-	qGE4U/Tg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8iOGpP4CYObW6TJoKReZkE58pvm1MMN7jUbcZjFio7c=; b=fjyxbfU66hxIoOrfnDaYFEHEkY
+	WrG8MEnOMh+D4Om9EuD6SjNGCUsTU4BDmEC3kcn8Ga7gt75li0gEwL/yHxa+e0QhGC+JckWsp1OqQ
+	Rmmgc33dni+UZKOEfR3SHJDNk1anoivzOCsNKVZc+XXGt9UUy0GZLlW/tyPbSQHyYkgADe6FBLbRB
+	H5/EeFXWn7WPJGPAHjxeylA/8LEC8tm15LuzNoCCt73EpOLcDxXiD/etIxAzDFIca3owRtdBpZHLR
+	BC1iXOtof3sBdjcDKtZPIg3IkdJecGs/HzlcNnsPumIs4t/2HOgEHSkO5S4O7yADu4QrojAwiS4R0
+	4XPex93A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubT5U-00000003abD-1lKc;
-	Tue, 15 Jul 2025 00:00:00 +0000
-Received: from mail-oa1-x4a.google.com ([2001:4860:4864:20::4a])
+	id 1ubT7t-00000003asH-0fV5;
+	Tue, 15 Jul 2025 00:02:29 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubS9L-00000003Sd9-3PXg
+	id 1ubSFh-00000003UWG-2c7Y
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Jul 2025 22:59:57 +0000
-Received: by mail-oa1-x4a.google.com with SMTP id 586e51a60fabf-2ff8a9716d2so490022fac.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Jul 2025 15:59:55 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1752533994; x=1753138794; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=xdZdMkXachOTBLhsNs+TRwK+/iArlUH+VMAh4h7bRTc=;
-        b=4DstzdqNgNMi+jbhs3fqX4BKxQbZ6P3oIE+pHCme38NUuRZzmr4cyFJxo4RtwGdbEY
-         ki6ibzeEK3311wLGIB6eanA7NwAjr0vHllP/B9VO9FkkJxfx9w+08VJpB7fk/H56CZYi
-         ImlDvWrPjjbl5gpnovHGrc3ldFo9k2TKMyJgRhnEaO84dYSyV1/CcjkuzQrmVFepr3cn
-         OH/a7Rq1QD0h/LY8rdmSb7FJOm/3P690xGqiqaAPmFEEk5YSa6M0yBvvLRyuM9vwx7Ik
-         8Ynp31BKrZ+8ipqTBRahKrdgt81sXhdManPWcwhtsCBkwHaR4+uFZPGuVs4jOenCuF73
-         KhLA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752533994; x=1753138794;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=xdZdMkXachOTBLhsNs+TRwK+/iArlUH+VMAh4h7bRTc=;
-        b=NkCl7RtzfIjTbDmFsLYXeuD8tXf2hxeUDI5RUBni+oZa/ivSL0obef+6lBUFIcZ6IJ
-         1xl/lzOoy/cQRInXQtPvfctSbYsSqPjCOQxfIv/+7vrzHJ0jhQmkpSJZqZK+tVbd1SzJ
-         yat5SbG+w+PQ00gJCKelgT5+jlrZeRP11zXMFrNDvORIdrG4F94Q0dZKjlZlmChEaRAc
-         LOenlR+kOcY3zJPmRwi8dsGBOodoORmLFOIQy7R3VotA2zHqLPt5l/geaBL1hpxXP4uD
-         PgBy2eESK8lW2WyLLVW5YHQ3UUqfCHNXvKMpU03ax/7pqrh0/1mvzTvlWnKd/JUvHokB
-         rAgw==
-X-Forwarded-Encrypted: i=1; AJvYcCUgx5r8FFtKDTyZrb8GBLbsOVBZsrU/UWivrq3148ZWo1ALavi6jdlI/pLpXBZzFgLRrCVzmPmrPCZ41rOeM4Op@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywd6AEBMboYh436fB7mBM6IvHotRcwI1aZnjn4xP7INl1Rvf4NL
-	dTP0IzZv+8qkoE9OIie0i91Du+N70YDuR3YpzAGRlhQg/28ohD64IgypJOIpwudmNInFjRCloDc
-	A2MVwlSok+N7wqx/RWf95N6rygg==
-X-Google-Smtp-Source: AGHT+IGtkxxQNHPtdv9dL4s2nR5Wc47eOMAPls/NeDgscE/f3Xbi3rgYw/AG5E5sUgk4Wnfo1XJ8ubTDhh1qfxOcFg==
-X-Received: from oabuj12.prod.google.com ([2002:a05:6871:4e4c:b0:2c2:2bad:1512])
- (user=coltonlewis job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6871:3584:b0:2e9:925b:206f with SMTP id 586e51a60fabf-2ff8fc725d6mr1109775fac.17.1752533994367;
- Mon, 14 Jul 2025 15:59:54 -0700 (PDT)
-Date: Mon, 14 Jul 2025 22:59:17 +0000
-In-Reply-To: <20250714225917.1396543-1-coltonlewis@google.com>
-Mime-Version: 1.0
-References: <20250714225917.1396543-1-coltonlewis@google.com>
-X-Mailer: git-send-email 2.50.0.727.gbf7dc18ff4-goog
-Message-ID: <20250714225917.1396543-24-coltonlewis@google.com>
-Subject: [PATCH v4 23/23] KVM: arm64: selftests: Add test case for partitioned PMU
-From: Colton Lewis <coltonlewis@google.com>
-To: kvm@vger.kernel.org
-Cc: Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>, 
-	Russell King <linux@armlinux.org.uk>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
-	Mingwei Zhang <mizhang@google.com>, Joey Gouly <joey.gouly@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
-	Mark Rutland <mark.rutland@arm.com>, Shuah Khan <shuah@kernel.org>, linux-doc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, linux-perf-users@vger.kernel.org, 
-	linux-kselftest@vger.kernel.org, Colton Lewis <coltonlewis@google.com>
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250714_155955_855758_920B6BE0 
-X-CRM114-Status: GOOD (  23.57  )
+	Mon, 14 Jul 2025 23:06:29 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 0DADE61481;
+	Mon, 14 Jul 2025 23:06:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C917AC4CEED;
+	Mon, 14 Jul 2025 23:06:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1752534388;
+	bh=C1k9lU7XeTOf/vBkVFi9Mnm79Lv+pfE5K8WGkyuGhDk=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=mi0r6v7+RhQkRh1NnLeU1tJCxM10UGat3xkaIPE4Pqy+JKu/qULzMzCNm6XgC/MSB
+	 SobC0DVVqcuwg+zr9ohFtm0nBopZGs7MFCDI36A9D0Qdp1z7C2Xu5iy5mpmPbmT4Vd
+	 17P36s+Xy8w9d7mTpIcz7IxdwxRqTiHOmhv/ilUEKrp9fJz1qgpaCdhfyRUKvqjM4T
+	 0SVjXT9SabKe9UGsrLApfAx+q5Xo1Z7pKoTH1FswpK/5Evhp/bezLCLatqwcqmzVOe
+	 sDOwpCSrRZZjoVCgWKUlvig1G+VHa2P1YG1RNXQa7qlUYBscBPWUAI23JkrKmFs3/7
+	 uItUJ/dC92jkQ==
+From: Sasha Levin <sashal@kernel.org>
+To: patches@lists.linux.dev,
+	stable@vger.kernel.org
+Cc: Alok Tiwari <alok.a.tiwari@oracle.com>,
+	Jacob Keller <jacob.e.keller@intel.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Sasha Levin <sashal@kernel.org>,
+	sgoutham@marvell.com,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH AUTOSEL 6.15 05/15] net: thunderx: avoid direct MTU assignment after WRITE_ONCE()
+Date: Mon, 14 Jul 2025 19:06:06 -0400
+Message-Id: <20250714230616.3709521-5-sashal@kernel.org>
+X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20250714230616.3709521-1-sashal@kernel.org>
+References: <20250714230616.3709521-1-sashal@kernel.org>
+MIME-Version: 1.0
+X-stable: review
+X-Patchwork-Hint: Ignore
+X-stable-base: Linux 6.15.6
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,209 +77,166 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Run separate a test case for a partitioned PMU in vpmu_counter_access.
+From: Alok Tiwari <alok.a.tiwari@oracle.com>
 
-An enum is created specifying whether we are testing the emulated or
-partitioned PMU and all the test functions are modified to take the
-implementation as an argument and make the difference in setup
-appropriately.
+[ Upstream commit 849704b8b2115647e12436e5076b8e7a4944f21a ]
 
-Because the test should still succeed even if we are on a machine
-where we have the capability but the ioctl fails because the driver
-was never configured properly, use __vcpu_ioctl to avoid checking the
-return code.
+The current logic in nicvf_change_mtu() writes the new MTU to
+netdev->mtu using WRITE_ONCE() before verifying if the hardware
+update succeeds. However on hardware update failure, it attempts
+to revert to the original MTU using a direct assignment
+(netdev->mtu = orig_mtu)
+which violates the intended of WRITE_ONCE protection introduced in
+commit 1eb2cded45b3 ("net: annotate writes on dev->mtu from
+ndo_change_mtu()")
 
-Signed-off-by: Colton Lewis <coltonlewis@google.com>
+Additionally, WRITE_ONCE(netdev->mtu, new_mtu) is unnecessarily
+performed even when the device is not running.
+
+Fix this by:
+  Only writing netdev->mtu after successfully updating the hardware.
+  Skipping hardware update when the device is down, and setting MTU
+  directly. Remove unused variable orig_mtu.
+
+This ensures that all writes to netdev->mtu are consistent with
+WRITE_ONCE expectations and avoids unintended state corruption
+on failure paths.
+
+Signed-off-by: Alok Tiwari <alok.a.tiwari@oracle.com>
+Reviewed-by: Jacob Keller <jacob.e.keller@intel.com>
+Link: https://patch.msgid.link/20250706194327.1369390-1-alok.a.tiwari@oracle.com
+Signed-off-by: Jakub Kicinski <kuba@kernel.org>
+Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- tools/include/uapi/linux/kvm.h                |  2 +
- .../selftests/kvm/arm64/vpmu_counter_access.c | 62 +++++++++++++------
- 2 files changed, 46 insertions(+), 18 deletions(-)
 
-diff --git a/tools/include/uapi/linux/kvm.h b/tools/include/uapi/linux/kvm.h
-index b6ae8ad8934b..21a2c37528c8 100644
---- a/tools/include/uapi/linux/kvm.h
-+++ b/tools/include/uapi/linux/kvm.h
-@@ -930,6 +930,7 @@ struct kvm_enable_cap {
- #define KVM_CAP_X86_APIC_BUS_CYCLES_NS 237
- #define KVM_CAP_X86_GUEST_MODE 238
- #define KVM_CAP_ARM_WRITABLE_IMP_ID_REGS 239
-+#define KVM_CAP_ARM_PARTITION_PMU 244
- 
- struct kvm_irq_routing_irqchip {
- 	__u32 irqchip;
-@@ -1356,6 +1357,7 @@ struct kvm_vfio_spapr_tce {
- #define KVM_S390_SET_CMMA_BITS      _IOW(KVMIO, 0xb9, struct kvm_s390_cmma_log)
- /* Memory Encryption Commands */
- #define KVM_MEMORY_ENCRYPT_OP      _IOWR(KVMIO, 0xba, unsigned long)
-+#define KVM_ARM_PARTITION_PMU	_IOWR(KVMIO, 0xce, bool)
- 
- struct kvm_enc_region {
- 	__u64 addr;
-diff --git a/tools/testing/selftests/kvm/arm64/vpmu_counter_access.c b/tools/testing/selftests/kvm/arm64/vpmu_counter_access.c
-index f16b3b27e32e..92e665516bc8 100644
---- a/tools/testing/selftests/kvm/arm64/vpmu_counter_access.c
-+++ b/tools/testing/selftests/kvm/arm64/vpmu_counter_access.c
-@@ -25,6 +25,16 @@
- /* The cycle counter bit position that's common among the PMU registers */
- #define ARMV8_PMU_CYCLE_IDX		31
- 
-+enum pmu_impl {
-+	EMULATED,
-+	PARTITIONED
-+};
-+
-+const char *pmu_impl_str[] = {
-+	"Emulated",
-+	"Partitioned"
-+};
-+
- struct vpmu_vm {
- 	struct kvm_vm *vm;
- 	struct kvm_vcpu *vcpu;
-@@ -405,7 +415,7 @@ static void guest_code(uint64_t expected_pmcr_n)
- }
- 
- /* Create a VM that has one vCPU with PMUv3 configured. */
--static void create_vpmu_vm(void *guest_code)
-+static void create_vpmu_vm(void *guest_code, enum pmu_impl impl)
+LLM Generated explanations, may be completely bogus:
+
+**YES**, this commit should be backported to stable kernel trees.
+
+## Extensive Explanation:
+
+### 1. **This fixes a real bug introduced by incomplete conversion to
+WRITE_ONCE()**
+
+The commit message clearly identifies that this fixes a violation of
+WRITE_ONCE() protection introduced in commit 1eb2cded45b3. Looking at
+the code changes:
+
+```c
+// BEFORE - Problematic code:
+int orig_mtu = netdev->mtu;
+WRITE_ONCE(netdev->mtu, new_mtu);  // Uses WRITE_ONCE
+
+if (!netif_running(netdev))
+    return 0;
+
+if (nicvf_update_hw_max_frs(nic, new_mtu)) {
+    netdev->mtu = orig_mtu;  // Direct assignment - VIOLATES WRITE_ONCE!
+    return -EINVAL;
+}
+```
+
+This mixing of WRITE_ONCE() and direct assignment breaks the memory
+ordering guarantees that WRITE_ONCE() is designed to provide,
+potentially causing data races.
+
+### 2. **The fix is minimal and correct**
+
+The fixed code properly ensures all MTU writes use WRITE_ONCE():
+
+```c
+// AFTER - Fixed code:
+if (netif_running(netdev) && nicvf_update_hw_max_frs(nic, new_mtu))
+    return -EINVAL;
+
+WRITE_ONCE(netdev->mtu, new_mtu);  // Only update after HW success
+```
+
+The fix:
+- Removes the problematic revert path entirely
+- Only updates MTU after confirming hardware update succeeds
+- Maintains WRITE_ONCE() consistency throughout
+
+### 3. **This affects stable kernels v6.10+**
+
+From my analysis:
+- Commit 1eb2cded45b3 that introduced WRITE_ONCE() annotations was
+  merged in v6.10-rc1
+- This means all stable kernels from v6.10 onwards have the incomplete
+  WRITE_ONCE() conversion
+- The thunderx driver's error path was missed in that mass conversion
+
+### 4. **The bug has real potential for causing issues**
+
+While the commit message doesn't explicitly state observed failures, the
+inconsistent use of WRITE_ONCE() can cause:
+- Data races when MTU is read concurrently without locks (using
+  READ_ONCE())
+- Potential for seeing stale or partially updated MTU values
+- Violation of the memory ordering guarantees the kernel depends on
+
+### 5. **Meets all stable kernel criteria**
+
+According to stable kernel rules, this commit:
+- ✓ Fixes a bug (data race/memory ordering issue)
+- ✓ Is minimal (12 lines changed)
+- ✓ Has been reviewed and accepted upstream
+- ✓ Doesn't add new features
+- ✓ The fix is obviously correct
+
+### 6. **Historical context from similar commits**
+
+Looking at the reference commits provided:
+- Similar commit #1 (1eb2cded45b3) with "Backport Status: NO" was the
+  mass conversion that introduced WRITE_ONCE() - this was a large change
+  touching 153 files
+- However, this current commit is different - it's a targeted bug fix
+  for an error path that was missed
+
+The fact that the mass conversion wasn't backported doesn't mean
+individual bug fixes for violations shouldn't be backported.
+
+### Recommendation:
+
+This commit should be submitted to stable maintainers for inclusion in
+v6.10+ stable branches with appropriate Fixes: tag referencing commit
+1eb2cded45b3.
+
+ drivers/net/ethernet/cavium/thunder/nicvf_main.c | 12 +++---------
+ 1 file changed, 3 insertions(+), 9 deletions(-)
+
+diff --git a/drivers/net/ethernet/cavium/thunder/nicvf_main.c b/drivers/net/ethernet/cavium/thunder/nicvf_main.c
+index aebb9fef3f6eb..1be2dc40a1a63 100644
+--- a/drivers/net/ethernet/cavium/thunder/nicvf_main.c
++++ b/drivers/net/ethernet/cavium/thunder/nicvf_main.c
+@@ -1578,7 +1578,6 @@ int nicvf_open(struct net_device *netdev)
+ static int nicvf_change_mtu(struct net_device *netdev, int new_mtu)
  {
- 	struct kvm_vcpu_init init;
- 	uint8_t pmuver, ec;
-@@ -419,6 +429,7 @@ static void create_vpmu_vm(void *guest_code)
- 		.group = KVM_ARM_VCPU_PMU_V3_CTRL,
- 		.attr = KVM_ARM_VCPU_PMU_V3_INIT,
- 	};
-+	bool partition = (impl == PARTITIONED);
+ 	struct nicvf *nic = netdev_priv(netdev);
+-	int orig_mtu = netdev->mtu;
  
- 	/* The test creates the vpmu_vm multiple times. Ensure a clean state */
- 	memset(&vpmu_vm, 0, sizeof(vpmu_vm));
-@@ -449,6 +460,9 @@ static void create_vpmu_vm(void *guest_code)
- 	/* Initialize vPMU */
- 	vcpu_ioctl(vpmu_vm.vcpu, KVM_SET_DEVICE_ATTR, &irq_attr);
- 	vcpu_ioctl(vpmu_vm.vcpu, KVM_SET_DEVICE_ATTR, &init_attr);
-+
-+	if (kvm_has_cap(KVM_CAP_ARM_PARTITION_PMU))
-+		__vcpu_ioctl(vpmu_vm.vcpu, KVM_ARM_PARTITION_PMU, &partition);
- }
- 
- static void destroy_vpmu_vm(void)
-@@ -475,12 +489,12 @@ static void run_vcpu(struct kvm_vcpu *vcpu, uint64_t pmcr_n)
- 	}
- }
- 
--static void test_create_vpmu_vm_with_pmcr_n(uint64_t pmcr_n, bool expect_fail)
-+static void test_create_vpmu_vm_with_pmcr_n(uint64_t pmcr_n, enum pmu_impl impl, bool expect_fail)
- {
- 	struct kvm_vcpu *vcpu;
- 	uint64_t pmcr, pmcr_orig;
- 
--	create_vpmu_vm(guest_code);
-+	create_vpmu_vm(guest_code, impl);
- 	vcpu = vpmu_vm.vcpu;
- 
- 	pmcr_orig = vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(SYS_PMCR_EL0));
-@@ -508,7 +522,7 @@ static void test_create_vpmu_vm_with_pmcr_n(uint64_t pmcr_n, bool expect_fail)
-  * Create a guest with one vCPU, set the PMCR_EL0.N for the vCPU to @pmcr_n,
-  * and run the test.
-  */
--static void run_access_test(uint64_t pmcr_n)
-+static void run_access_test(uint64_t pmcr_n, enum pmu_impl impl)
- {
- 	uint64_t sp;
- 	struct kvm_vcpu *vcpu;
-@@ -516,7 +530,7 @@ static void run_access_test(uint64_t pmcr_n)
- 
- 	pr_debug("Test with pmcr_n %lu\n", pmcr_n);
- 
--	test_create_vpmu_vm_with_pmcr_n(pmcr_n, false);
-+	test_create_vpmu_vm_with_pmcr_n(pmcr_n, impl, false);
- 	vcpu = vpmu_vm.vcpu;
- 
- 	/* Save the initial sp to restore them later to run the guest again */
-@@ -550,14 +564,14 @@ static struct pmreg_sets validity_check_reg_sets[] = {
-  * Create a VM, and check if KVM handles the userspace accesses of
-  * the PMU register sets in @validity_check_reg_sets[] correctly.
-  */
--static void run_pmregs_validity_test(uint64_t pmcr_n)
-+static void run_pmregs_validity_test(uint64_t pmcr_n, enum pmu_impl impl)
- {
- 	int i;
- 	struct kvm_vcpu *vcpu;
- 	uint64_t set_reg_id, clr_reg_id, reg_val;
- 	uint64_t valid_counters_mask, max_counters_mask;
- 
--	test_create_vpmu_vm_with_pmcr_n(pmcr_n, false);
-+	test_create_vpmu_vm_with_pmcr_n(pmcr_n, impl, false);
- 	vcpu = vpmu_vm.vcpu;
- 
- 	valid_counters_mask = get_counters_mask(pmcr_n);
-@@ -607,11 +621,11 @@ static void run_pmregs_validity_test(uint64_t pmcr_n)
-  * the vCPU to @pmcr_n, which is larger than the host value.
-  * The attempt should fail as @pmcr_n is too big to set for the vCPU.
-  */
--static void run_error_test(uint64_t pmcr_n)
-+static void run_error_test(uint64_t pmcr_n, enum pmu_impl impl)
- {
--	pr_debug("Error test with pmcr_n %lu (larger than the host)\n", pmcr_n);
-+	pr_debug("Error test with pmcr_n %lu (larger than the host allows)\n", pmcr_n);
- 
--	test_create_vpmu_vm_with_pmcr_n(pmcr_n, true);
-+	test_create_vpmu_vm_with_pmcr_n(pmcr_n, impl, true);
- 	destroy_vpmu_vm();
- }
- 
-@@ -619,30 +633,42 @@ static void run_error_test(uint64_t pmcr_n)
-  * Return the default number of implemented PMU event counters excluding
-  * the cycle counter (i.e. PMCR_EL0.N value) for the guest.
-  */
--static uint64_t get_pmcr_n_limit(void)
-+static uint64_t get_pmcr_n_limit(enum pmu_impl impl)
- {
- 	uint64_t pmcr;
- 
--	create_vpmu_vm(guest_code);
-+	create_vpmu_vm(guest_code, impl);
- 	pmcr = vcpu_get_reg(vpmu_vm.vcpu, KVM_ARM64_SYS_REG(SYS_PMCR_EL0));
- 	destroy_vpmu_vm();
- 	return get_pmcr_n(pmcr);
- }
- 
--int main(void)
-+void test_pmu(enum pmu_impl impl)
- {
- 	uint64_t i, pmcr_n;
- 
--	TEST_REQUIRE(kvm_has_cap(KVM_CAP_ARM_PMU_V3));
-+	pr_info("Testing PMU: Implementation = %s\n", pmu_impl_str[impl]);
-+
-+	pmcr_n = get_pmcr_n_limit(impl);
-+	pr_debug("PMCR_EL0.N: Limit = %lu\n", pmcr_n);
- 
--	pmcr_n = get_pmcr_n_limit();
- 	for (i = 0; i <= pmcr_n; i++) {
--		run_access_test(i);
--		run_pmregs_validity_test(i);
-+		run_access_test(i, impl);
-+		run_pmregs_validity_test(i, impl);
+ 	/* For now just support only the usual MTU sized frames,
+ 	 * plus some headroom for VLAN, QinQ.
+@@ -1589,15 +1588,10 @@ static int nicvf_change_mtu(struct net_device *netdev, int new_mtu)
+ 		return -EINVAL;
  	}
  
- 	for (i = pmcr_n + 1; i < ARMV8_PMU_MAX_COUNTERS; i++)
--		run_error_test(i);
-+		run_error_test(i, impl);
-+}
+-	WRITE_ONCE(netdev->mtu, new_mtu);
+-
+-	if (!netif_running(netdev))
+-		return 0;
+-
+-	if (nicvf_update_hw_max_frs(nic, new_mtu)) {
+-		netdev->mtu = orig_mtu;
++	if (netif_running(netdev) && nicvf_update_hw_max_frs(nic, new_mtu))
+ 		return -EINVAL;
+-	}
 +
-+int main(void)
-+{
-+	TEST_REQUIRE(kvm_has_cap(KVM_CAP_ARM_PMU_V3));
-+
-+	test_pmu(EMULATED);
-+
-+	if (kvm_has_cap(KVM_CAP_ARM_PARTITION_PMU))
-+		test_pmu(PARTITIONED);
++	WRITE_ONCE(netdev->mtu, new_mtu);
  
  	return 0;
  }
 -- 
-2.50.0.727.gbf7dc18ff4-goog
+2.39.5
 
 
