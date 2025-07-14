@@ -4,154 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FE32C83F1B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 07:41:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A2B7C83F1B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 07:43:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=30EL6wxzSs//PEaPQj8tpMERf1htR7z8kJqF8TynsjM=; b=EELxgl2moPuaDlECIS8pudtLdw
-	cOab3x79luQuwKz5v2+f8Ef1Vds0tXGfMJdxjahxvl1zLI3dQXdescksnfpHy9FChdZ79yuaJt9rX
-	MjQZ9pbgzbTzfS7pWgofcJMoiJS/d7rwLYAfow2qXEugXrLjNXlAuZYAbSAcgnlcXjYbafFX0IIHW
-	edTGNLVwCyJe+q/DMQ4rBEGg7Z3WMbLiKAN/IEcBc4LbAnUQw668ZLI/Fo1yWbiNcw+RoqJaskhph
-	Z+97zwRhdM8+bMyd8qsMr+wjGkMyqAQpKxh6SEXKhtqK6I51MgDWtfV52+YvhOFtLujYepbft/oM1
-	/AiSgxUg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dtRzO3rcA3Fhjzj8CFx1H0h22SF41a/IF6vIm1I3YYI=; b=VIO3p07+egKkmfkZhxK+LW/gK2
+	v0aR+fLDHCH7wNVnGoBMzob7jOptQedPci6n8xSwtwnzK9tZZhh+hEfokAqTgqocWdaFjihEfZj6g
+	OhG19tHXlrsM8TOK1ycTIEBuJ9WjzO/ByUuGC/wukflQN8nJxoeTMuZfU7pLJnbNBdy4aJKCac8WM
+	NE6Ud0qArxryNz3E5b2CDbec5EGihFi9/xTWtoW0Y2s13Fti7rMSR3rtRppgfkiOmvRVhTojjJMfH
+	SFVAskpvN5aJl+wmLfTxn8x+OR7lWoRgRuSLv5JhFECcsBfdRLOHpOLqL6pEl4t9RLC0DSVWTGM7/
+	uINHlYJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubDo7-00000001V23-3kCn;
-	Mon, 14 Jul 2025 07:41:03 +0000
-Received: from mail-japaneastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c405::7] helo=TYDPR03CU002.outbound.protection.outlook.com)
+	id 1ubDqW-00000001VU2-0iFc;
+	Mon, 14 Jul 2025 07:43:32 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubDSO-00000001S1q-1Gif
+	id 1ubDUx-00000001SDR-1TJD
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Jul 2025 07:18:37 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=IrlT+uCMXBeRir3gR2WYE3w330yrzI888f8LZmNz9yGrecoTyF6ujhi9i8mJXZGLgzHXT2qRPB2RL+EidnRgZGgChNN3ytmhFpqX6j6fk0iWxVqjRNVlr8QNcf9k2iC9NO+oSX9lA7CFv6e7rhEgd05u5aGxOv4AP3yHFe27+dcNfVYqf4q39/a3UEQfnKHQg3bB16RZTpvANFwXZuS0m5/OijRqNH7TSssEyKr0yVMAZ7VcP7gVXFiMEkX7nQ/yAenOMl/62ytIfvv8txsBczLZR8lLdHaT6D2btQ+Zy04hOs0GcBq1dkzaL1msaaQ3mAJtfeu155JT9RNqXK8BsA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=30EL6wxzSs//PEaPQj8tpMERf1htR7z8kJqF8TynsjM=;
- b=rpluB+Cu76EHdExgqXJslKaO01Xz7PQvoKCL2N/mFylLB+7BEOklkIQ8zWIy82TRkOu68njFFPyn2inikkgDJ60PyeQ0mtGEVfblFgLYeaN4ZR5rE3pbJht58sBWS3W/LGIrFZjth917npkBgVZ9MDf3M5BJdBa6AMC5GhCSzJ1a4fPEr8EN/4ih0827w1U/SqN5QPhZoLKoIV9SgEj6iN9vmxqFJDC+K5R6RmkQqzqHoKubK8z/Pn+RneM52wo48r7NUzl93x9yliNT45v6HeTEYG98erxcVSWIkjgHMwo62X/IXBHdecEgP0qnWdry2JqoEH+IRoaUcQwkagIP1g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=technexion.com; dmarc=pass action=none
- header.from=technexion.com; dkim=pass header.d=technexion.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=technexion.onmicrosoft.com; s=selector2-technexion-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=30EL6wxzSs//PEaPQj8tpMERf1htR7z8kJqF8TynsjM=;
- b=2fAW3blXWMLdCVjJ0A+ZtMNApeRQ+NViseyJKzT2vjZVk+ydSCHECzF7i8s/ouj49ev0j2XOANrhn4Sbnwb6QwX6D9S3V9zwkFwG7GF+mHvE5Sjk02bJ5m+Foe94A/8PHulves4H7NJTDsmJMJS71epL0S5VgrksRf21Jmf9S24=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=technexion.com;
-Received: from KL1PR03MB7454.apcprd03.prod.outlook.com (2603:1096:820:ed::7)
- by SEYPR03MB7142.apcprd03.prod.outlook.com (2603:1096:101:d7::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8901.28; Mon, 14 Jul
- 2025 07:18:03 +0000
-Received: from KL1PR03MB7454.apcprd03.prod.outlook.com
- ([fe80::5ac3:4497:4694:db94]) by KL1PR03MB7454.apcprd03.prod.outlook.com
- ([fe80::5ac3:4497:4694:db94%6]) with mapi id 15.20.8901.024; Mon, 14 Jul 2025
- 07:18:03 +0000
-Date: Mon, 14 Jul 2025 15:17:58 +0800
-From: Richard Hu <richard.hu@technexion.com>
-To: Shawn Guo <shawnguo2@yeah.net>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	Ray Chang <ray.chang@technexion.com>
-Subject: Re: [PATCH v3 2/2] arm64: dts: imx8mp: Add TechNexion
- EDM-G-IMX8M-PLUS SOM on WB-EDM-G carrier board
-Message-ID: <aHSvJv6zbndPx72h@vm>
-References: <20250709-add-technexion-edm-g-imx8m-plus-som-v3-0-721d198ce20b@technexion.com>
- <20250709-add-technexion-edm-g-imx8m-plus-som-v3-2-721d198ce20b@technexion.com>
- <aHDJJNVOsX7K-m4d@dragon>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aHDJJNVOsX7K-m4d@dragon>
-X-ClientProxiedBy: TPYP295CA0052.TWNP295.PROD.OUTLOOK.COM
- (2603:1096:7d0:8::18) To KL1PR03MB7454.apcprd03.prod.outlook.com
- (2603:1096:820:ed::7)
+	Mon, 14 Jul 2025 07:21:16 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 4819FA5359B;
+	Mon, 14 Jul 2025 07:21:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 423ADC4CEED;
+	Mon, 14 Jul 2025 07:21:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1752477673;
+	bh=R0WhEa5MMYboTRZ/5YRN0ejGi1kRg18sKjpEvnHjIz0=;
+	h=Date:Subject:To:References:From:In-Reply-To:From;
+	b=Cxam+AufTC8G0UDa+EhbW5pYSU0Ihb+V4MbmIUMwzAFiDDXOB+iWXfZIzO3s63WBp
+	 5DJ7WVmwt24Z2XdJVW7nFW/1hh3VkoSRx4SWS51X0SLJkGEmqWk2WFRtWfoOLt+uFK
+	 KajykTzCFVn95iD3Zl04h4GdPkZfG228B5y4/m18WPWSGXhUkiTKF3GbQOT1PYHwbB
+	 VQkQLcNXkUl73BO63DKa5MCnXRmdxlljyZR0xYZqnqvPOOfr045lp+En8s7G70W2xa
+	 +kuso/tSggKsRXbh3obrB8MisqDINZZ0Ru8pTXzUC2c4ntfGsDAG9mrmAPN+l9PjGK
+	 uoAHXBlf3vwGQ==
+Message-ID: <b500647b-31b6-40c9-be0b-1640dc271375@kernel.org>
+Date: Mon, 14 Jul 2025 09:21:09 +0200
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: KL1PR03MB7454:EE_|SEYPR03MB7142:EE_
-X-MS-Office365-Filtering-Correlation-Id: 19f803ea-ee19-4ce9-6656-08ddc2a691f8
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|376014|7416014|1800799024|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?sYH3Ix0kywfKI2KyaDMeGq78stQz3e0qOLgKwZ58oSyp5xSWsgZsy4wu21Uo?=
- =?us-ascii?Q?TtiX/YJWPzQhKKzJ08WGF91fpMLZFp7G5Lv/5jBSzNxw04irCJm1+1sy5o/m?=
- =?us-ascii?Q?EL+c9yjKgURIWUQXyDsTsersFq2eboDH/7I4ITBM4k/nacWCvimG2hJN7dgb?=
- =?us-ascii?Q?GeaTxi0BVfFTrfm3ttBLTPHjCjoZs2IXxUk6WX1HYcF36R6SKWX0x7zfFk7P?=
- =?us-ascii?Q?Jc2Elnw0Qku8H84AwQG+V70SbDlm4bcS/qvzh+aCTysd9T2AafSdt71Gf/9F?=
- =?us-ascii?Q?odNozYUMlDFc/z6SHfBJyegpTwNpiHZdEJObvwQ1Diqoo3E77uQlyj8xyiyt?=
- =?us-ascii?Q?rx+MGI76vOm6wGMr2Zab36/jlMbu+T2+PmeAgDdN7io3D/gwLnr6OfPTKd07?=
- =?us-ascii?Q?FNdnMke/HUA1boOJjuXBPzuYe8z/9CHqlT9qhHBHis4Yw8kTwzmvBslg4sGo?=
- =?us-ascii?Q?52qh+csQQMKkm0tCH7nS6pxmxltE3+FDp4aWgHzXdDzfs5oBKWokp26NOo2K?=
- =?us-ascii?Q?E0hl+efOC0F7ERMqh9M4drDl6KCmQwHUQL82tAELi+TJlJVmkdkZmFplciq+?=
- =?us-ascii?Q?zonb12gKPc2lVfMFnxQkWmZTpCd82mXi/XMcsCZz4yzXqCSwIgbZ6A0CnV+X?=
- =?us-ascii?Q?ewX00FHivZPAjgYDgwiE8R2d/C0HyVrKwGDKM82a5Qv3pBUww/1B/HrWUml/?=
- =?us-ascii?Q?YDnO76A6Bd6MS+T9yyGwftG1UEIwqQx4NXvfhWzKYxyd7f6dFqmM/XnPUjQm?=
- =?us-ascii?Q?ZRcGrcSA47CYWJQJZm0PSNOXhAuHTF36iB0vHNnTGxC2kIGdfBiwoMopEKNw?=
- =?us-ascii?Q?NjlrZYuedoJJDKvivJgeXrd3vZIGd2izdqPjRLQj5/jrvtW+iPSV06E/kQEl?=
- =?us-ascii?Q?wd22TFJMa6j2xRImDTjv3BZr1AwvDGp1QD9MjARPfOhrpwyQOTtH0GkaX7To?=
- =?us-ascii?Q?nrwe99kTvEFAkXaEZtI3c3BuMYstPCPQnF9jsUkS/rGoCB+ofjft8Tx1otM2?=
- =?us-ascii?Q?buploU0GOHHFnJZlFFACSj8CHu/3mp+lushv5Bh08kN+rKRCfNqpq75SAoeu?=
- =?us-ascii?Q?tnwiiU75aLm8F3Y3rP+moqqGSe7POpZ863M0825dRyMnf6x/jGICIkIaYUPP?=
- =?us-ascii?Q?RQ7KsX9ouFp/ucJCQ/LSn2WzirlJRzEpxrcOV/MkU8jiPih8UEiReZP+0kNK?=
- =?us-ascii?Q?1KPegYxuSVNRaHrbkk/aO3ZvLptoWQ7fdQhsie9KgyTwJwodsUJbgUvG3W6q?=
- =?us-ascii?Q?ctlPUZTIGWLTDVPcJfcgrs18UtmD+ApAGTHjNJHZWqneHo1K14hmqpbWRo+n?=
- =?us-ascii?Q?yD9nMmidGyxEK2DCPXhEV4N9aqri4ozVz3Jhw6OLu/XJp5vY0W0NnSl31qkL?=
- =?us-ascii?Q?tna0oiNzq/yDP/IFOt3ZrpHgi18ouckMdB8mmsi/31iSm6KTJNqO45t2qa5s?=
- =?us-ascii?Q?w2rbe4TEMdXJqEwzQ0ZmQt7ltK/rYURNZKuPf8nfcLmehQkDEY+yBg=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:KL1PR03MB7454.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(376014)(7416014)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?LOu9Bna+Pe43/9GLSY+45PbCRvF8exeAQ+BFd96jAH3oQ+mBO9YKwq/1c8ng?=
- =?us-ascii?Q?nAxIfNE2bfkQT/TTfCoO7+UmwlTY7r479TCRhpIwWNM+V45V4N1BA7g6KkS3?=
- =?us-ascii?Q?kZJgTMxGBrQeXXgU7alQ/h7m5+aVZUrQ5uAV4AcJP/c7C9vULmQ6GgDPHolF?=
- =?us-ascii?Q?A9glYuTRZaUbsfp83ZqRiyGMe3XkPCu+k43w18hvPP1SF0wBB13q9/2LfHbJ?=
- =?us-ascii?Q?uq3jlh24mfnEGr4Rf54Sqa2BwazknxbB2E5hIHx0/9neMT18sB/ITqHk3x+1?=
- =?us-ascii?Q?LIMpLhBP08KUt+6xX8LkuKRZwSwcvoh+sXrK+CFeXRRhpUd43+ug5LWRsZ3m?=
- =?us-ascii?Q?+tXCGCmuzvuGwqgcZBnBQT/0YQZNFi79S5VNRSKrvPNBau6HMWDJPKMkYb+s?=
- =?us-ascii?Q?1J4GqTfhNI55ipn6S6iLsLw2dWikzSmJQRwL9KATf+q5YwYjlUDmldD8Y6So?=
- =?us-ascii?Q?oooDP+1Sqv+HvGHnmQhyRzG+UmX+JkgjLr8iqZAY1B1aBPFApaU1vwo7eUs9?=
- =?us-ascii?Q?+2Shp2FE3dXkW7K1G7CjlVPYvs4o/b77Gy9up6hvKu/xKNZH3oTwMc5bUFHQ?=
- =?us-ascii?Q?5uGAmBSL3KYL/Jcje0hfD9YYuMoLhuNFEtY07KfKYl86Dm0uEIrl+b3SaNfp?=
- =?us-ascii?Q?czE/mlgwhzkLqMC6Wh/d8rampvxHxTnvbTZQ6aSCI9WBT+N/magL3g3ay1TM?=
- =?us-ascii?Q?wZrRfw5QdXvYr058MHL/tpCd2eQwhEIHr4ok5c/NjrfggWsy3BxNT23XcczG?=
- =?us-ascii?Q?A/gCYBqWyJMa7yZD8TKetILqNVPwHhSxRCylcnxnfAePHU70btqhOhJDfi2e?=
- =?us-ascii?Q?d8vRQBUDV4ueDuzhQVu2NAW0xW0f0cUAbNj5zNczRSWgyxegwz0NXTu8H06Y?=
- =?us-ascii?Q?n8hK851KchSFlJsN3mYkVJbNCYRGYSiXrz0YrC8BdHezwej+kj5xGL8qEoOR?=
- =?us-ascii?Q?MggAPOJ9YDnUFVa1eC/Puz/YaNxcgZ2wbrrDvgqWn51kWodY9jg1ChuyvceR?=
- =?us-ascii?Q?nOMmW+e1aUYaWKK6h9LI4QNiqBrIh2lftv6XB+APjNXT/kdbX2WvnKi/Tk0U?=
- =?us-ascii?Q?++s8JuX3YkJcA4Bx2NfrnJMPGzRSm+lbEfuxKE2AezbH3CiW/VhXEGWCFWBS?=
- =?us-ascii?Q?NDFJ9tXFgfx3dwmRUZosBgxCVGkgwvtzUpnlq0EeP1o8CKAXBHSOWigJRVwn?=
- =?us-ascii?Q?v4Eim9ilQVcLaZPyIWJdjHWW/40XOZb0ndyc1jGU+5DFDMh+HzzFo6RAtjmF?=
- =?us-ascii?Q?eYIZxGDFZ++R6Gfcy9pnI+i1Ay8jZw9eejoiHs9mBDZeVU3/D2xtuFoMM3ik?=
- =?us-ascii?Q?ldcJCZwIr7a+CQp1Kp+Mup+q2mewXZEm5z/xMZvYzXogfonuj1giiGilxxZm?=
- =?us-ascii?Q?vpFTjC6XYtlJViYO3lSuBp+E8WY7BefDpICWQy49etKMbaBzf1pQhHu0tAer?=
- =?us-ascii?Q?S8OQ2X5bNNhbMU4+Haavt8Vm1MLoWarLdYE6VZ9w76YxMVjqFmgwaE1YaByi?=
- =?us-ascii?Q?yFmSgJ3eyew6frSkML5DiS1qX+jGyGQvtNrNvlBDoqFFs9anjghbnmYg2IvE?=
- =?us-ascii?Q?kP2rpMrPivjiUMEWiEM0QgPs9zrdGEHhMSHyS7HtvaEiwUwve0IMXibOGEGG?=
- =?us-ascii?Q?5w=3D=3D?=
-X-OriginatorOrg: technexion.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 19f803ea-ee19-4ce9-6656-08ddc2a691f8
-X-MS-Exchange-CrossTenant-AuthSource: KL1PR03MB7454.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Jul 2025 07:18:03.2991
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 5ee19679-b9a6-4497-8ed2-1eda849e753b
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: +Ju7v8ucH0FzOxR+FoPhRQI3Cl0AxH+JGJIlGyWaANl92hKwRCR4h1ZRb7Ugx28AGiLEcT85HaWhutPNopb38FV39C5Ijjgke+NecMeYTKc=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEYPR03MB7142
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] dt-bindings: interrupt-controller: aspeed: Refine AST2700
+ binding description and example
+To: Ryan Chen <ryan_chen@aspeedtech.com>, Thomas Gleixner
+ <tglx@linutronix.de>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
+ Andrew Jeffery <andrew@codeconstruct.com.au>,
+ Kevin Chen <kevin_chen@aspeedtech.com>, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-aspeed@lists.ozlabs.org
+References: <20250714071753.2653620-1-ryan_chen@aspeedtech.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20250714071753.2653620-1-ryan_chen@aspeedtech.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250714_001836_452928_94F80974 
-X-CRM114-Status: GOOD (  22.03  )
+X-CRM114-CacheID: sfid-20250714_002115_527077_5B9AF7DB 
+X-CRM114-Status: GOOD (  17.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,323 +122,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 11, 2025 at 04:19:48PM +0800, Shawn Guo wrote:
-> On Wed, Jul 09, 2025 at 01:47:45PM +0800, Richard Hu wrote:
-> > Add support for TechNexion EDM-G-IMX8M-PLUS SOM and WB-EDM-G carrier board.
-> > Key interfaces include:
-> > - Gigabit Ethernet
-> > - USB 3.0
-> > - I2S, UART, SPI, I2C, PWM, GPIO
-> > 
-> > Signed-off-by: Richard Hu <richard.hu@technexion.com>
-> > Signed-off-by: Ray Chang <ray.chang@technexion.com>
-> > ---
-> >  arch/arm64/boot/dts/freescale/Makefile            |   1 +
-> >  arch/arm64/boot/dts/freescale/imx8mp-edm-g-wb.dts | 373 ++++++++++
-> >  arch/arm64/boot/dts/freescale/imx8mp-edm-g.dtsi   | 806 ++++++++++++++++++++++
-> >  3 files changed, 1180 insertions(+)
-> > 
-> > diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-> > index 0b473a23d120..b56c866d4a9d 100644
-> > --- a/arch/arm64/boot/dts/freescale/Makefile
-> > +++ b/arch/arm64/boot/dts/freescale/Makefile
-> > @@ -201,6 +201,7 @@ dtb-$(CONFIG_ARCH_MXC) += imx8mp-dhcom-drc02.dtb
-> >  dtb-$(CONFIG_ARCH_MXC) += imx8mp-dhcom-pdk2.dtb
-> >  dtb-$(CONFIG_ARCH_MXC) += imx8mp-dhcom-pdk3.dtb
-> >  dtb-$(CONFIG_ARCH_MXC) += imx8mp-dhcom-picoitx.dtb
-> > +dtb-$(CONFIG_ARCH_MXC) += imx8mp-edm-g-wb.dtb
-> >  dtb-$(CONFIG_ARCH_MXC) += imx8mp-evk.dtb
-> >  dtb-$(CONFIG_ARCH_MXC) += imx8mp-icore-mx8mp-edimm2.2.dtb
-> >  dtb-$(CONFIG_ARCH_MXC) += imx8mp-iota2-lumpy.dtb
-> > diff --git a/arch/arm64/boot/dts/freescale/imx8mp-edm-g-wb.dts b/arch/arm64/boot/dts/freescale/imx8mp-edm-g-wb.dts
-> > new file mode 100644
-> > index 000000000000..0e5c7bf219b0
-> > --- /dev/null
-> > +++ b/arch/arm64/boot/dts/freescale/imx8mp-edm-g-wb.dts
-> > @@ -0,0 +1,373 @@
-> > +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-> > +/*
-> > + * Copyright 2024 TechNexion Ltd.
-> > + *
-> > + * Author: Ray Chang <ray.chang@technexion.com>
-> > + */
-> > +
-> > +/dts-v1/;
-> > +
-> > +#include "imx8mp-edm-g.dtsi"
-> > +
-> > +/ {
-> > +	compatible = "technexion,edm-g-imx8mp-wb", "technexion,edm-g-imx8mp", "fsl,imx8mp";
-> > +	model = "TechNexion EDM-G-IMX8MP SOM on WB-EDM-G";
-> > +
-> > +	connector {
-> > +		compatible = "usb-c-connector";
-> > +		data-role = "dual";
-> > +		label = "USB-C";
-> > +
-> > +		ports {
-> > +			#address-cells = <1>;
-> > +			#size-cells = <0>;
-> > +
-> > +			port@0 {
-> > +				reg = <0>;
+On 14/07/2025 09:17, Ryan Chen wrote:
+> - Update block diagram for better readability and accuracy.
+> - Clarify the relationship and function of INTC0, INTC1, and the GIC.
+> - Documentation and example refine.
 > 
-> Have a newline between properties and child node.
+> This enhances the documentation quality and helps developers understand
+> the interrupt controller hierarchy and usage.
 
-Thanks for pointing this out. You're right, I'll add the newline to fix this.
+Changing ABI (compatibles) is not enhancing quality and is not explained
+here.
 
-> > +				hs_ep: endpoint {
-> > +					remote-endpoint = <&usb3_hs_ep>;
-> > +				};
-> > +			};
-> > +
-> > +			port@1 {
-> > +				reg = <1>;
-> > +				ss_ep: endpoint {
-> > +					remote-endpoint = <&hd3ss3220_in_ep>;
-> > +				};
-> > +			};
-> > +		};
-> > +	};
-> > +
-> > +	gpio-leds {
-> > +		compatible = "gpio-leds";
-> > +
-> > +		led {
-> > +			default-state = "on";
-> > +			gpios = <&expander2 1 GPIO_ACTIVE_HIGH>;
-> > +			label = "gpio-led";
-> > +		};
-> > +	};
-> > +
-> > +	lvds_backlight: lvds-backlight {
-> > +		compatible = "pwm-backlight";
-> > +		brightness-levels = <0 36 72 108 144 180 216 255>;
-> > +		default-brightness-level = <6>;
-> > +		pwms = <&pwm2 0 50000 0>;
-> > +		status = "disabled";
 > 
-> Just out of curiosity, why is it disabled?
-
-That's a good question. We disabled the backlight because the LVDS panel is an optional accessory.
-We were planning to enable this lvds_backlight node in the overlay,
-but would you recommend we move the node definition itself entirely into the overlay file?
-We're happy to follow the best practice here.
-
-> > +	};
-> > +
-> > +	native-hdmi-connector {
-> > +		compatible = "hdmi-connector";
-> > +		label = "HDMI OUT";
-> > +		type = "a";
-> > +
-> > +		port {
-> > +			hdmi_in: endpoint {
-> > +				remote-endpoint = <&hdmi_tx_out>;
-> > +			};
-> > +		};
-> > +	};
-> > +
-> > +	pcie0_refclk: pcie0-refclk {
-> > +		compatible = "fixed-clock";
-> > +		#clock-cells = <0>;
-> > +		clock-frequency = <100000000>;
-> > +	};
-> > +
-> > +	reg_pcie0: regulator-pcie {
-> > +		compatible = "regulator-fixed";
-> > +		regulator-max-microvolt = <3300000>;
-> > +		regulator-min-microvolt = <3300000>;
-> > +		regulator-name = "PCIE_CLKREQ_N";
-> > +		gpio = <&gpio1 13 GPIO_ACTIVE_LOW>;
-> > +	};
-> > +
-> > +	reg_pwr_3v3: regulator-pwr-3v3 {
-> > +		compatible = "regulator-fixed";
-> > +		regulator-always-on;
-> > +		regulator-boot-on;
-> > +		regulator-max-microvolt = <3300000>;
-> > +		regulator-min-microvolt = <3300000>;
-> > +		regulator-name = "pwr-3v3";
-> > +	};
-> > +
-> > +	reg_pwr_5v: regulator-pwr-5v {
-> > +		compatible = "regulator-fixed";
-> > +		regulator-always-on;
-> > +		regulator-boot-on;
-> > +		regulator-max-microvolt = <5000000>;
-> > +		regulator-min-microvolt = <5000000>;
-> > +		regulator-name = "pwr-5v";
-> > +	};
-> > +
-> > +	sound-hdmi {
-> > +		compatible = "fsl,imx-audio-hdmi";
-> > +		audio-cpu = <&aud2htx>;
-> > +		hdmi-out;
-> > +		model = "audio-hdmi";
-> > +	};
-> > +
-> > +	sound-wm8960 {
-> > +		compatible = "simple-audio-card";
-> > +		simple-audio-card,bitclock-master = <&cpudai>;
-> > +		simple-audio-card,format = "i2s";
-> > +		simple-audio-card,frame-master = <&cpudai>;
-> > +		simple-audio-card,name = "wm8960-audio";
-> > +		simple-audio-card,routing = "Headphone Jack", "HP_L",
-> > +			"Headphone Jack", "HP_R",
-> > +			"External Speaker", "SPK_LP",
-> > +			"External Speaker", "SPK_LN",
-> > +			"External Speaker", "SPK_RP",
-> > +			"External Speaker", "SPK_RN",
-> > +			"LINPUT1", "Mic Jack",
-> > +			"RINPUT1", "Mic Jack",
-> > +			"Mic Jack", "MICB";
-> > +		simple-audio-card,widgets = "Headphone", "Headphone Jack",
-> > +			"Speaker", "External Speaker",
-> > +			"Microphone", "Mic Jack";
-> > +
-> > +		simple-audio-card,codec {
-> > +			sound-dai = <&wm8960>;
-> > +		};
-> > +
-> > +		cpudai: simple-audio-card,cpu {
-> > +			sound-dai = <&sai3>;
-> > +		};
-> > +	};
-> > +};
-> > +
-> > +&aud2htx {
-> > +	status = "okay";
-> > +};
-> > +
-> > +&flexcan1 {
-> > +	status = "okay";
-> > +};
-> > +
-> > +&gpio1 {
-> > +	gpio-line-names = \
+> Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
+> ---
+>  .../aspeed,ast2700-intc.yaml                  | 155 +++++++++++++-----
+>  1 file changed, 112 insertions(+), 43 deletions(-)
 > 
-> Hmm, not sure "\" is necessary.
+> diff --git a/Documentation/devicetree/bindings/interrupt-controller/aspeed,ast2700-intc.yaml b/Documentation/devicetree/bindings/interrupt-controller/aspeed,ast2700-intc.yaml
+> index 55636d06a674..751a07d49c90 100644
+> --- a/Documentation/devicetree/bindings/interrupt-controller/aspeed,ast2700-intc.yaml
+> +++ b/Documentation/devicetree/bindings/interrupt-controller/aspeed,ast2700-intc.yaml
+> @@ -10,6 +10,33 @@ description:
+>    This interrupt controller hardware is second level interrupt controller that
+>    is hooked to a parent interrupt controller. It's useful to combine multiple
+>    interrupt sources into 1 interrupt to parent interrupt controller.
+> +  Depend to which INTC0 or INTC1 used.
+> +  INTC0 and INTC1 are two kinds of interrupt controller with enable and raw
+> +  status registers for use.
+> +  INTC0 is used to assert GIC if interrupt in INTC1 asserted.
+> +  INTC1 is used to assert INTC0 if interrupt of modules asserted.
+> +  +-----+   +---------+
+> +  | GIC |---|  INTC0  |
+> +  +-----+   +---------+
+> +            +---------+
+> +            |         |---module0
+> +            | INTC0_0 |---module1
+> +            |         |---...
+> +            +---------+---module31
+> +            |---....  |
+> +            +---------+
+> +            |         |     +---------+
+> +            | INTC0_11| +---| INTC1   |
+> +            |         |     +---------+
+> +            +---------+     +---------+---module0
+> +                            | INTC1_0 |---module1
+> +                            |         |---...
+> +                            +---------+---module31
+> +                            ...
+> +                            +---------+---module0
+> +                            | INTC1_5 |---module1
+> +                            |         |---...
+> +                            +---------+---module31
+>  
+>  maintainers:
+>    - Kevin Chen <kevin_chen@aspeedtech.com>
+> @@ -17,49 +44,67 @@ maintainers:
+>  properties:
+>    compatible:
+>      enum:
+> -      - aspeed,ast2700-intc-ic
+> +      - aspeed,ast2700-intc0
+> +      - aspeed,ast2700-intc1
 
-You're right, it's not needed. I'll remove the unnecessary backslashes from the gpio-line-names properties.
+No, you cannot change compatibles.
 
-> > +		"", "", "", "", "", "", "DSI_RST", "",	\
-> > +		"", "", "", "", "", "", "", "",	\
-> > +		"", "", "", "", "", "", "", "",	\
-> > +		"", "", "", "", "", "", "", "";
-> > +	pinctrl-0 = <&pinctrl_gpio1>;
-> > +};
-> > +
-> > +&gpio4 {
-> > +	gpio-line-names = \
-> > +		"", "", "", "", "", "", "GPIO_P249", "GPIO_P251",	\
-> > +		"", "GPIO_P255", "", "", "", "", "", "",	\
-> > +		"DSI_BL_EN", "DSI_VDDEN", "", "", "", "", "", "",	\
-> > +		"", "", "", "", "", "", "", "";
-> > +	pinctrl-0 = <&pinctrl_gpio4>;
-> > +};
-> > +
-> > +&hdmi_pvi {
-> > +	status = "okay";
-> > +};
-> > +
-> > +&hdmi_tx {
-> > +	pinctrl-0 = <&pinctrl_hdmi>;
-> > +	pinctrl-names = "default";
-> > +	status = "okay";
-> > +
-> > +	ports {
-> > +		port@1 {
-> > +			hdmi_tx_out: endpoint {
-> > +				remote-endpoint = <&hdmi_in>;
-> > +			};
-> > +		};
-> > +	};
-> > +};
-> > +
-> > +&hdmi_tx_phy {
-> > +	status = "okay";
-> > +};
-> > +
-> > +&i2c2 {
-> > +	status = "okay";
-> > +
-> > +	wm8960: codec@1a {
-> 
-> audio-codec for the node name.
+You just rewrite entire bindings just because of wish to "refine"?
+Hardware changed? What happened here?
 
-Got it. I will rename the node from codec@1a to audio-codec@1a to follow the standard convention.
+You need to clearly describe ABI impact and reasons, like possible bugs
+you address. You cannot just rewrite existing binding into something
+entirely else.
 
-> > +		compatible = "wlf,wm8960";
-> > +		reg = <0x1a>;
-> > +		clocks = <&audio_blk_ctrl IMX8MP_CLK_AUDIOMIX_SAI3_MCLK1>;
-> > +		clock-names = "mclk";
-> > +		#sound-dai-cells = <0>;
-> > +		AVDD-supply = <&reg_pwr_3v3>;
-> > +		DBVDD-supply = <&reg_pwr_3v3>;
-> > +		DCVDD-supply = <&reg_pwr_3v3>;
-> > +		SPKVDD1-supply = <&reg_pwr_5v>;
-> > +		SPKVDD2-supply = <&reg_pwr_5v>;
-> > +		wlf,hp-cfg = <2 2 3>;
-> > +		wlf,shared-lrclk;
-> > +	};
-> > +
-> > +	expander1: gpio@21 {
-> > +		compatible = "nxp,pca9555";
-> > +		reg = <0x21>;
-> > +		#gpio-cells = <2>;
-> > +		gpio-controller;
-> > +		gpio-line-names = "EXPOSURE_TRIG_IN1", "FLASH_OUT1",
-> > +				  "INFO_TRIG_IN1", "CAM_SHUTTER1", "XVS1",
-> > +				  "PWR1_TIME0", "PWR1_TIME1", "PWR1_TIME2",
-> > +				  "EXPOSURE_TRIG_IN2", "FLASH_OUT2",
-> > +				  "INFO_TRIG_IN2", "CAM_SHUTTER2", "XVS2",
-> > +				  "PWR2_TIME0", "PWR2_TIME1", "PWR2_TIME2";
-> > +	};
-> > +
-> > +	expander2: gpio@23 {
-> > +		compatible = "nxp,pca9555";
-> > +		reg = <0x23>;
-> > +		#interrupt-cells = <2>;
-> > +		interrupt-controller;
-> > +		interrupt-parent = <&gpio4>;
-> > +		interrupts = <11 IRQ_TYPE_LEVEL_LOW>;
-> > +		#gpio-cells = <2>;
-> > +		gpio-controller;
-> > +		gpio-line-names = "M2_DISABLE_N", "LED_EN", "", "",
-> > +				  "", "", "", "USB_OTG_OC",
-> > +				  "EXT_GPIO8", "EXT_GPIO9", "", "",
-> > +				  "", "CSI1_PDB", "CSI2_PDB", "PD_FAULT";
-> > +		pinctrl-0 = <&pinctrl_expander2_irq>;
-> > +		pinctrl-names = "default";
-> > +	};
-> > +
-> > +	usb_typec: usb-typec@67 {
-> > +		compatible = "ti,hd3ss3220";
-> > +		reg = <0x67>;
-> > +		interrupt-parent = <&gpio4>;
-> > +		interrupts = <8 IRQ_TYPE_LEVEL_LOW>;
-> > +		pinctrl-0 = <&pinctrl_hd3ss3220_irq>;
-> > +		pinctrl-names = "default";
-> > +
-> > +		ports {
-> > +			#address-cells = <1>;
-> > +			#size-cells = <0>;
-> > +
-> > +			port@0 {
-> > +				reg = <0>;
-> 
-> Have a newline between properties and child node.
-
-Okay, I'll add a newline for better readability as suggested.
-
-> Shawn
-
-
-Thank you!
-
-
-Best regards
-
-Richard
+Best regards,
+Krzysztof
 
