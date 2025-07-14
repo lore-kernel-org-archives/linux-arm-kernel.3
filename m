@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0670AC83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 08:19:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF699C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 08:22:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ywmcC3rfzZgUOZBGGxH4NUMjMExZo9J9ygOsX+HEVH4=; b=gMozqRP2HqXDB0b4/cBhS7F8qL
-	JQi/+bfb9FsylOQ0uk7+eRSyJ+D9L0DFeTA4JWZCphc66Ex8i9fPVDNSFV0D9NovoJYCeCD8+f7oK
-	TxpYEDAMm1b+xVBUQb5zLjIVDS4CII0xF7yV56Zte32AiSZ+Cb5uvFJgiYDbIAIP7VS2kVzOhxHOC
-	EqAHL8J8LUhIX6XNqAyFFxB3wbxSdKZU4i0SxwCP5n1/n//qkG6cGLAS2GcD3JT+qqxANOHLmoCAf
-	QtalHuHV7MyC52ooJY5cXoRCTV1w8cZaE7yMfZcKozegwqltKYRZZl+rujc9i+l2IzFrP7lFpZ5s2
-	19YLEi/g==;
+	bh=Lxc5zi9+QDcZlypcmgVheb0h9CsCjzaPr30eGJxjJxk=; b=wR1nQ7BfE7cixJSufajMJh50b7
+	vFe0T47KV70ESMrIYj+3Y4i0Qhss8eGEYykt0V0KGHmXW9uX73ZIYy8eglK6qCOyeLs6K280ylufl
+	dGjFHpwUPx1NU/nCChksA7dmwS0GMgYSR5r0jDGtGriLlyJAYFs/i+5ZD3dhd1IpQCSYG3zbqCS95
+	3JjezeuQa/ybNPDie8SAXEhF42z0dXIEDBJ2xexxnqfFuSavfGSdmqFLvtvsy9K3NwJ39o9FFkbFI
+	RXMDYHv+v5pUFcTR9+Z/ZWwKn3qE7J5i1aDbPkET+CopgV1/CA3r7zZtxfrKqdEJySTsgyoh1JQI9
+	/lvjDNOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubEPU-00000001c8q-2xT3;
-	Mon, 14 Jul 2025 08:19:40 +0000
+	id 1ubERu-00000001cnX-1xiW;
+	Mon, 14 Jul 2025 08:22:10 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubE6v-00000001YCR-02Kk
+	id 1ubE6v-00000001YCS-02R3
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 14 Jul 2025 08:00:30 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 607BC5C5AFA;
+	by dfw.source.kernel.org (Postfix) with ESMTP id 47C7F5C5AD2;
 	Mon, 14 Jul 2025 08:00:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 0CC9CC4CEF9;
-	Mon, 14 Jul 2025 08:00:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id E15EDC4CEF5;
+	Mon, 14 Jul 2025 08:00:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1752480028;
-	bh=JWsCpgxekJacidLue+WK47HorDGR/FJsZcEgxYlPuFA=;
+	bh=XpzvAHUxAzYVFgTQa2ypdhi4koHcoO778v2ak/zqA4E=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=SsWHKG2VfLrNDRnFq2SpYGq13L3B63E9GyIaK15LFX6KJLVMsDV1xnICzky9sPJuE
-	 6tsHQeXiiLND5vInv5rjbMsZARXfkjgP6J3x0PzWAPf+fvqHmD0/wXzkeZ9JNUvqS1
-	 uRpSyZgmfWauEAoqi1SEKAQKr0VeruXka+hiJWAlbsJnAr/frPfiSub7J3xgtaU73L
-	 ehhU8vaklbAyCkFUIm568cyTBI/l1sl1+3+B1UFGG48h3uEKgSsNDgJdrp69bFObst
-	 93BPpqvugss7j9QgdKBRKk2dVjoE/wgV7l6bxdilwVGwNSyHQ+TwnjBkjHQtpVrU/p
-	 DVFlCSsSPMT/Q==
+	b=HDrDuibBTCydpiKJ0NbveuCOlz7D3WxJr3Rf8dLFGuFGFjp0wpaLejaB8MuItUD+1
+	 BL2dih69sQ6thOdZodL3eqIvpYNdPD396Pdhi5xkWqsuTcRN6lzycgmgC5oi8+4jif
+	 BN77iEwF2KWHaOVGfgkndxiPW3c3yc7Z3UyaEv7MHbMQdaOdRwWUB9Bbe3MyUEBEPB
+	 CfoQaBRoa3BxpUVICYUgQzyOt6HW2nAzvm1rersBHsjZ8JS2t9eQZaExlXZcfaMgQ+
+	 4+yL/dJACiSGqixmATbMO6Ufr50HRhEZzHxnt2Ndt+mZSt1Xz3I5Z9V8HqlGvXwzyZ
+	 m+jMqI87e1UmA==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 004EFC83F25;
-	Mon, 14 Jul 2025 08:00:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D094CC83F1B;
+	Mon, 14 Jul 2025 08:00:27 +0000 (UTC)
 From: Rohan G Thomas via B4 Relay <devnull+rohan.g.thomas.altera.com@kernel.org>
-Date: Mon, 14 Jul 2025 15:59:19 +0800
-Subject: [PATCH net-next 3/3] net: stmmac: Set CIC bit only for TX queues
- with COE
+Date: Mon, 14 Jul 2025 15:59:17 +0800
+Subject: [PATCH net-next 1/3] net: stmmac: xgmac: Disable RX FIFO Overflow
+ interrupts
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250714-xgmac-minor-fixes-v1-3-c34092a88a72@altera.com>
+Message-Id: <20250714-xgmac-minor-fixes-v1-1-c34092a88a72@altera.com>
 References: <20250714-xgmac-minor-fixes-v1-0-c34092a88a72@altera.com>
 In-Reply-To: <20250714-xgmac-minor-fixes-v1-0-c34092a88a72@altera.com>
 To: Andrew Lunn <andrew+netdev@lunn.ch>, 
@@ -67,19 +67,19 @@ Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
  Rohan G Thomas <rohan.g.thomas@altera.com>, 
  Matthew Gerlach <matthew.gerlach@altera.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1752480026; l=2519;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1752480026; l=1448;
  i=rohan.g.thomas@altera.com; s=20250415; h=from:subject:message-id;
- bh=LvG0a5gBZ5g9VJhz1xFTiPD3FiH+GWS8NxcWQcWl6tc=;
- b=fVE9HlJaErdbIModd8D71uXp7Ny7wlJiiE+7BHU4coROJ/HaDD30Ly3V5zU8VBfqhYvYFE9wP
- g7WemhMLVucCOrtR+ZTEuvc3FgAK2dfr1Dr9e90L76eE7gmhl75xTAw
+ bh=oFA2+kb2AvW4R/3k8yiyiYdyPGfCRckJUe8sIarPelM=;
+ b=EpWkcMwrFCOnahq0Sl2yqqNCuHkZ5+aiumNQUuGm3nIiRP/zrTLO8zBmThd3neqcinM6oKkYO
+ eznyo+EFxqaBHNVY5L+WIa8S1nkwy9pKMLTjSZ2QiRppcCei+eDBdO+
 X-Developer-Key: i=rohan.g.thomas@altera.com; a=ed25519;
  pk=TLFM1xzY5sPOABaIaXHDNxCAiDwRegVWoy1tP842z5E=
 X-Endpoint-Received: by B4 Relay for rohan.g.thomas@altera.com/20250415
  with auth_id=460
 X-Original-From: Rohan G Thomas <rohan.g.thomas@altera.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250714_010029_144066_4D36A3BE 
-X-CRM114-Status: GOOD (  11.33  )
+X-CRM114-CacheID: sfid-20250714_010029_142325_2AD4351C 
+X-CRM114-Status: GOOD (  11.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,58 +97,38 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Rohan G Thomas <rohan.g.thomas@altera.com>
 
-Currently, in the AF_XDP transmit paths, the CIC bit of
-TX Desc3 is set for all packets. Setting this bit for
-packets transmitting through queues that don't support
-checksum offloading causes the TX DMA to get stuck after
-transmitting some packets. This patch ensures the CIC bit
-of TX Desc3 is set only if the TX queue supports checksum
-offloading.
+Enabling RX FIFO Overflow interrupts is counterproductive
+and causes an interrupt storm when RX FIFO overflows.
+Disabling this interrupt has no side effect and eliminates
+interrupt storms when the RX FIFO overflows.
+
+Commit 8a7cb245cf28 ("net: stmmac: Do not enable RX FIFO
+overflow interrupts") disables RX FIFO overflow interrupts
+for DWMAC4 IP and removes the corresponding handling of
+this interrupt. This patch is doing the same thing for
+XGMAC IP.
 
 Signed-off-by: Rohan G Thomas <rohan.g.thomas@altera.com>
 Reviewed-by: Matthew Gerlach <matthew.gerlach@altera.com>
 ---
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 6 ++++--
- 1 file changed, 4 insertions(+), 2 deletions(-)
+ drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c | 4 ----
+ 1 file changed, 4 deletions(-)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index f350a6662880a230a32ad6785c475cce4e950322..d9f7435a44fac695899e0b4ffd0dc7851c4e759f 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -2584,6 +2584,7 @@ static bool stmmac_xdp_xmit_zc(struct stmmac_priv *priv, u32 queue, u32 budget)
- 	struct netdev_queue *nq = netdev_get_tx_queue(priv->dev, queue);
- 	struct stmmac_tx_queue *tx_q = &priv->dma_conf.tx_queue[queue];
- 	struct stmmac_txq_stats *txq_stats = &priv->xstats.txq_stats[queue];
-+	bool csum = !priv->plat->tx_queues_cfg[queue].coe_unsupported;
- 	struct xsk_buff_pool *pool = tx_q->xsk_pool;
- 	unsigned int entry = tx_q->cur_tx;
- 	struct dma_desc *tx_desc = NULL;
-@@ -2671,7 +2672,7 @@ static bool stmmac_xdp_xmit_zc(struct stmmac_priv *priv, u32 queue, u32 budget)
- 		}
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c
+index 5dcc95bc0ad28b756accf9670c5fa00aa94fcfe3..7201a38842651a865493fce0cefe757d6ae9bafa 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c
+@@ -203,10 +203,6 @@ static void dwxgmac2_dma_rx_mode(struct stmmac_priv *priv, void __iomem *ioaddr,
+ 	}
  
- 		stmmac_prepare_tx_desc(priv, tx_desc, 1, xdp_desc.len,
--				       true, priv->mode, true, true,
-+				       csum, priv->mode, true, true,
- 				       xdp_desc.len);
+ 	writel(value, ioaddr + XGMAC_MTL_RXQ_OPMODE(channel));
+-
+-	/* Enable MTL RX overflow */
+-	value = readl(ioaddr + XGMAC_MTL_QINTEN(channel));
+-	writel(value | XGMAC_RXOIE, ioaddr + XGMAC_MTL_QINTEN(channel));
+ }
  
- 		stmmac_enable_dma_transmission(priv, priv->ioaddr, queue);
-@@ -4983,6 +4984,7 @@ static int stmmac_xdp_xmit_xdpf(struct stmmac_priv *priv, int queue,
- {
- 	struct stmmac_txq_stats *txq_stats = &priv->xstats.txq_stats[queue];
- 	struct stmmac_tx_queue *tx_q = &priv->dma_conf.tx_queue[queue];
-+	bool csum = !priv->plat->tx_queues_cfg[queue].coe_unsupported;
- 	unsigned int entry = tx_q->cur_tx;
- 	struct dma_desc *tx_desc;
- 	dma_addr_t dma_addr;
-@@ -5034,7 +5036,7 @@ static int stmmac_xdp_xmit_xdpf(struct stmmac_priv *priv, int queue,
- 	stmmac_set_desc_addr(priv, tx_desc, dma_addr);
- 
- 	stmmac_prepare_tx_desc(priv, tx_desc, 1, xdpf->len,
--			       true, priv->mode, true, true,
-+			       csum, priv->mode, true, true,
- 			       xdpf->len);
- 
- 	tx_q->tx_count_frames++;
+ static void dwxgmac2_dma_tx_mode(struct stmmac_priv *priv, void __iomem *ioaddr,
 
 -- 
 2.25.1
