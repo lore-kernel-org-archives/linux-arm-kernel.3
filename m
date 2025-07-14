@@ -4,72 +4,160 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 673BAC83F27
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 12:27:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2BF7C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 12:30:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l+1LS81FGm60dIyP9CaATX2ddHWIPZWWedbPOybtiZA=; b=VjozdQghh3VxjBYXrMZKfe2ySz
-	mvREkhwQBp6hPmZmhFX0aYsVQKNxSfY2yYo2BqUCIvfLoOvz5+j4PBPbjz5OEDZT7ZSPoXWR2p6DB
-	Leu6kpmVCWQJjd+E2KwJBFky8WrnlTtcn0uUZNR5uwL0IAHy+IjVo5JWuEdMnplmL+yXJZBk9al3X
-	bDnMHJjoAOeD1t/NrZg31MJ4CrMNt0qpdrjAlRaS35/7bqjxpBamA4N+WYwIBGJwOTUL4gTpWbiXc
-	AEja9/zNL1lB/amKe2Wfj/c2GTJIXgm499fMIBTUj2ZXAzDrwVs/HoC0wdilGuqgYGA5JPH16/5QW
-	MHE0RKYQ==;
+	bh=KUhpJOQ0L8l1RlQScd0VmS2sbzIHS3ZRRGMICuaS+uY=; b=jkt24wdaf5Vrufn+Fb++uMYXpg
+	RFApFlz1deU6kl5YOdaXevUa/7QG9KrYuKMpYwm206JfoIEcXgLZk+83DXXrI6tNs6iw4fuMW9jt3
+	V5fTsbMs4SwNZHkRTTikT4B784PVZ0FQJCXFFITNmiuIDMAmMWO2qWViUTtpUK7WyRryp7V6WKtvG
+	EBqSwgDPyDyk/LZDCURw3f3tjrto6O7qQQKpbxt5R+B0tJZ+KTLWhQhVLqUJgzqDmzDFKcfvQkkIJ
+	C+XTM+RLbAfwAEiTBRr0ue5KiUV1oBq4k0aP37avg0MFjKAU7PARm1em0hq0TL7/851P+YwzJ8kpL
+	ZrA0DD1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubIHc-00000002ABl-1v8I;
-	Mon, 14 Jul 2025 12:27:48 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1ubIK7-00000002Aob-1FzE;
+	Mon, 14 Jul 2025 12:30:23 +0000
+Received: from mail-mw2nam12on20616.outbound.protection.outlook.com ([2a01:111:f403:200a::616] helo=NAM12-MW2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubHpr-000000025RC-16mb;
-	Mon, 14 Jul 2025 11:59:08 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1752494332; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=iGxMupPycqjxa9mYweKkM1w0s56YuVBdz40VSohqHJ3DXNzUCYRc0iDuCpWhd1e1iQCtv+NNjNDg9xPLYXdOL006E1zaX0LDHjqO8w9yGeXqJe7lKw+DDb3YBdN41kehkm8w1fxfZc1a+NC+/qy+9J8PITBiq2rV+10PPyJxUTA=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1752494332; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=l+1LS81FGm60dIyP9CaATX2ddHWIPZWWedbPOybtiZA=; 
-	b=FOFJails5Ae40soxsPBXDAMaGs6GdcMZ9fthL+58TXmaBHN1pRpOTIby7gN85neyM8wi9quxpIlfq5ly00RUP3SL6TwLmEToc7CTcioKIhaK8V6fvNd7OgDuWphAyIFq+HMJbzE3GZNb+dEmdu8whdIK8oPFuHLyoQA9EWuAGwk=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1752494332;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
-	bh=l+1LS81FGm60dIyP9CaATX2ddHWIPZWWedbPOybtiZA=;
-	b=aj0QdiFV/CZDv8u7a2xKrN6idNVJH5GSz9novrbYVUgsWiDx/znyr52+XSR2b85x
-	hmj6oKZLj+9eTDZAY0wlEAp10Lx86SU71uQzRdkFW+al/wNl2BJ4qfNCPVrUsb0Vfgz
-	Cjsqj8X6ekiU7rdpt5mtI9G7NA5CT9t53O457SRI=
-Received: by mx.zohomail.com with SMTPS id 1752494328917431.64095668770517;
-	Mon, 14 Jul 2025 04:58:48 -0700 (PDT)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-To: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- "Rafael J. Wysocki" <rafael@kernel.org>,
- Viresh Kumar <viresh.kumar@linaro.org>,
- Hector Yuan <hector.yuan@mediatek.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: kernel@collabora.com, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, linux-pm@vger.kernel.org
-Subject: Re: [PATCH 1/5] dt-bindings: mfd: syscon: Add mt8196 fdvfs syscons
-Date: Mon, 14 Jul 2025 13:58:44 +0200
-Message-ID: <2866261.BEx9A2HvPv@workhorse>
-In-Reply-To: <4537173f-7f79-4629-a2ef-cbf1edd2ed81@collabora.com>
-References: <20250711-mt8196-cpufreq-v1-0-e1b0a3b4ac61@collabora.com>
- <20250711-mt8196-cpufreq-v1-1-e1b0a3b4ac61@collabora.com>
- <4537173f-7f79-4629-a2ef-cbf1edd2ed81@collabora.com>
+	id 1ubHtt-000000026aR-0Exf
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 14 Jul 2025 12:03:18 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=uejUeptLz2uxsPZh58QPxdEJF2S0wbuW0cgia+jbEHKbmmhEC18jIDsuJ6AVOhfVrF/ajpM2J3jA85aGhD6D1cnn1+jDaeqh+qygP+roS23fDrtX+a3snlxHkUYp+EaNuvniSdw5V3OFyuijsVfC9I83pN9dmi/LyfEcxB5EVJxdFP3QVmypb6wfppXV45GmWMgsY+HhFTI7U2lxjUs79z6Gz7dK3bpFDl6SE5ApZKCghvXvE/qAkwqs1HLENMzpyP93J4pd3SZhYYGzwzxx4dfaVyqjan+8814+KMe+6vr1wOfXQqumGaN7WJ+hFXg38tvvcQm9k6DRG0NLh3E29g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=KUhpJOQ0L8l1RlQScd0VmS2sbzIHS3ZRRGMICuaS+uY=;
+ b=aTzc3MVua6W+OxT67NIo/etDdxPWHYhhIPJZMnkaneHoUMtWJRhSIUCnT4GQ5vbRDtrRSfXxjG88V7BB3jIwfp1KsEpwjV8J2LJQqxnWQobSR9lKqVuXn0fX2NXo/w1CxoAlKaf3rQLJRqc0SkZjF81wx6nI5SIjFJTz78M6YwzX8PMJAuN+pBHcXCPfmTjLqx0YSkJLdlLzy3vI04OyDMc4Ymq10G8ijhc6AakCDQJfoeA4gRnwkbiFVvoHh79CC8YjKnQ2whOu8mjkJFTFpAAq9xJoK7khC2jVGKOiEopg+1N352c+EIsS5OPRC7/1GhgKE8+vIOeWz7XGEF99qg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=KUhpJOQ0L8l1RlQScd0VmS2sbzIHS3ZRRGMICuaS+uY=;
+ b=VvQ2V3LO2U9Q5VkHOpX3a8jEFnP8iXqK0mfxnLLeFa2jXqRgf4UBc4eYDgfpqx/aH9iTSG1e1O+xYDBpfjYz/ZMk3D+WyBPCI2czvA0KjQi7uw24HUua7LCNOje/JSoRTiE53BXan3lA0rVF4UET9rHZeis92kW8eIrzfgGijcG7KRxNEwZQIeAln/HDV1bJcav3Q/SW9+e3VOFmI87W3jxK2ki9T5GlyVu80l/i7FyQxtzY2VTYpJuTwl7Jzk0PSxEHc7Wvv3PBB8xK1M4AyJQBx5G+awgzvrKXVmFj2bjHLewXcNNgdiR7ZtRYMW7ATPD79ktM1TQ6Y7kYRGeBeg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
+ by CY8PR12MB7635.namprd12.prod.outlook.com (2603:10b6:930:9e::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8922.32; Mon, 14 Jul
+ 2025 12:03:09 +0000
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732%7]) with mapi id 15.20.8901.033; Mon, 14 Jul 2025
+ 12:03:09 +0000
+Date: Mon, 14 Jul 2025 09:03:08 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: Nicolin Chen <nicolinc@nvidia.com>, Kevin Tian <kevin.tian@intel.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Bagas Sanjaya <bagasdotme@gmail.com>, Will Deacon <will@kernel.org>,
+	Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>,
+	Thierry Reding <thierry.reding@gmail.com>, vdumpa@nvidia.com,
+	Jon Hunter <jonathanh@nvidia.com>, shuah <shuah@kernel.org>,
+	jsnitsel@redhat.com, Nathan Chancellor <nathan@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>, Yi Liu <yi.l.liu@intel.com>,
+	mshavit@google.com, praan@google.com, zhangzekun11@huawei.com,
+	iommu@lists.linux.dev, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-tegra@vger.kernel.org, linux-kselftest@vger.kernel.org,
+	patches@lists.linux.dev, mochs@nvidia.com,
+	ALOK TIWARI <alok.a.tiwari@oracle.com>, vasant.hegde@amd.com,
+	David Woodhouse <dwmw2@infradead.org>,
+	Baolu Lu <baolu.lu@linux.intel.com>
+Subject: Re: [PATCH v9 17/29] iommufd: Add mmap interface
+Message-ID: <20250714120308.GK1951027@nvidia.com>
+References: <cover.1752126748.git.nicolinc@nvidia.com>
+ <9a888a326b12aa5fe940083eae1156304e210fe0.1752126748.git.nicolinc@nvidia.com>
+ <db221336-2694-4fcf-a2b2-8fcb46ba3c9e@app.fastmail.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <db221336-2694-4fcf-a2b2-8fcb46ba3c9e@app.fastmail.com>
+X-ClientProxiedBy: MN0PR04CA0030.namprd04.prod.outlook.com
+ (2603:10b6:208:52d::29) To CH3PR12MB8659.namprd12.prod.outlook.com
+ (2603:10b6:610:17c::13)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="utf-8"
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|CY8PR12MB7635:EE_
+X-MS-Office365-Filtering-Correlation-Id: b08226b9-53b3-414f-2cd3-08ddc2ce6663
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?GADXLJKGnBaBIQIKi6dcYYBry8t7Qil2pHba8VoPU4ukZrNql6xlQ6QW98Zq?=
+ =?us-ascii?Q?xrf9Y1pLiL8T33lmRxg7ZI2uOgkWFSZpyKIwsJTs6xaVD9enQEzHQH9iDd4X?=
+ =?us-ascii?Q?9GZLS+FKTH6pmDHoKCc1iWF/lbwfV6Ro1kGDQ3qJ/kOCminvN7shUC+MC60q?=
+ =?us-ascii?Q?V3vr4eAFXQYAWNhnAUo9QpzzQ0Fpn8cTqX2q9IsJTUxO3c3GvDkH1YK9YqW3?=
+ =?us-ascii?Q?2FJg3JMNyRCqcv4pzUecPjKVVQXJnNmpUqaYk6REpWI+SWNREdZKuEKjc+Op?=
+ =?us-ascii?Q?+Z8qeJiiUgRxxB4ietynQX3aAt9z5+DDxBKExjPfZhT5xriU7SmnyzEYMTWZ?=
+ =?us-ascii?Q?UUGLYG7rs3mN38EneVDZYM/bYvOk9WOUXNRoz4g3gyrSGzUyi1Bd86SlgEs2?=
+ =?us-ascii?Q?eRJpbHwlek1o41Cj5LEmyY3wq2xHjjnu4AqSdgRhLn5RxXfijC5hwUpyem6c?=
+ =?us-ascii?Q?ZQqZd5ZJjsctCJ2je3pfN/E11+/VNXT5/s51SqRRXhGXmOUYobqBkp0fVLnH?=
+ =?us-ascii?Q?k4KianGAZWjrzzR0x2d0Ma9JTc5NXW0qieUmB6oApnJEy+t2Bfmwr4EvXAwb?=
+ =?us-ascii?Q?+W05W/7YxYmTm2IgsCSAGW/AeEwq0/0Ku591dy34rHL8+oXhAvMbjY0v/2T1?=
+ =?us-ascii?Q?YM6G0yJDmKyU4g/i9LNyW93FaDE5XFVH2E6gZ33S2yW9K4PBarjUDffHbQY7?=
+ =?us-ascii?Q?52HuNQ1akPjWmp4BLYEkkmRLsvzAf+aIBYZhNexXIwT+uWn0O6gvr3EiPCQw?=
+ =?us-ascii?Q?ltFt9UbXeOlTZ/QoT0LnNOXuBM84wbczT2Ljwahu9nbZkedJd4mKjRtvflq1?=
+ =?us-ascii?Q?ZPx7P3eiQ3nBEowFQcYsvVyKH3sbJsuCGQPaxoQzn84rVpfcT66Okp8fLG11?=
+ =?us-ascii?Q?km3U5ymBT7Xn9vWSPIF/NtSUrvgRzhGfFPkjxAOGcIXbctw+xQ188ixMLED4?=
+ =?us-ascii?Q?n8v+DVAXVYVTwi83m3Vx6MohlzfIE0gxt1CeuE/0S7BFRaUs3Lbf712mMZBa?=
+ =?us-ascii?Q?W5s38bGMWRmqBXYVazMB65OSFdSLZ7mFW/xGowVABjuueP1NKTZ/FJLC5JWF?=
+ =?us-ascii?Q?BI6g/uyZROVTWF10AHPdraKpYCLh2pcuW334LokMyRWNOVRat0t8Jav4eiaL?=
+ =?us-ascii?Q?RDEsc9GGGNpIRZ5IsTp9mPLy7DzoNMcr0iRwWLVuRQcuesWRak6NCNvLVpoo?=
+ =?us-ascii?Q?mM4O3Ce7ShjKMlWHaEvgZanQhRhw0C1Gm6HLNVTCYmKmKfhPWnxhSccKyZlB?=
+ =?us-ascii?Q?01+g2GVF6w8guLOGWglMnqiv/3V17Xc2TTyjSfRG9ZBOVU6Jjz39IPOWccIO?=
+ =?us-ascii?Q?WsHg7oFTg38Iq7A1UsmO1ThRSOakV28rvT59ukpNi0EPb09weecnMu/XJseL?=
+ =?us-ascii?Q?FLh96zxjwXaWruDqB0G8UBirz9L5RGzNgVPrMaVrySWJSxrXaw=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?W4g+6YVBBzZ7nddEh6LRZ7D19xDtu8aKz3PkdeISuI6bZaI4pG2UBCVT2hvY?=
+ =?us-ascii?Q?mXdSO6BbvlrYPJ7oES2tMvTsRHA2M68wIDft+vItwVsq50nUsfGn4nmCiR7Q?=
+ =?us-ascii?Q?5PHFmEn/EdQcS1y2rF/oFzZshroAiw0UeDryuQGza8Xsop06Bf7kuqi667LJ?=
+ =?us-ascii?Q?aa47+JW7FeMWzpMNGbpZawB166R642y7Jz0gQ57/U2uCJ0HO7uyD3NBnzo7Z?=
+ =?us-ascii?Q?HoG3fOs0fr+atJi4bq68BIwC04H7T3UWVPxOB3Lqnn4dCsm1NZB1Md0lW3ef?=
+ =?us-ascii?Q?ojiERCfgHVzzYDY+6+v5qD87eV7WSKp1l7mXwJkE26UL6zknVgP/YboMc+SU?=
+ =?us-ascii?Q?iCxZXPiGLSAzGCs4KsXf0lg2KnLGZBAlvLzQgx5M6BSfi2DmvuCdIz+WP0hf?=
+ =?us-ascii?Q?D1XXvVVNRWP06FHviovwzbfWexGtVg8XpYfwPmp0c8of6WYwWUfunw6ctiPC?=
+ =?us-ascii?Q?++3UWpxLC89Nu8/weVO5RACM84+vlB8EcNJ6wd7K56xox5BAsJaJvCsk6xOy?=
+ =?us-ascii?Q?Yyuarltl+DmqwSYmrjDNeZV9b9fFZIjM57fYwmMTXOjRLykQhrRiTpF3uSpp?=
+ =?us-ascii?Q?ysUb+ZMUUaeehy7LO23hXO+dV6d/gQGynNS/wPZ6mWkYBiLgBdF02aIg4FzK?=
+ =?us-ascii?Q?Y8sxwb+TwE8UmX9BAnKft3x8IkcFiAfpyFOCry9YQCSC6IPXWKg9QyH9bfbJ?=
+ =?us-ascii?Q?1goTIwKkg498AwbjQ5fwInGbgpqABboj+3b93/Upgisd3o4RR4q3zq8S1/RN?=
+ =?us-ascii?Q?aMRZZm0Q8BlMm0R5UYt9FP5KC4ITMvEeQ0/j1qR7ayEEXPFvtR5EzSD+k35R?=
+ =?us-ascii?Q?dJEOWGdUxGH4DMGev5R7z7bi7MNZdCcIxhhNMr0aGanBp3CygNKIwwT8RVaH?=
+ =?us-ascii?Q?FDCug+plTpV5cq5hJq/YzsocAqcgrX4q4BNRDbRE7ndwbOONyxaUB4EJVGr6?=
+ =?us-ascii?Q?Ywh8i9CXErEBS5S/USoqvvRNvlewMw/lkrPlka9oqPZcEAEFKqE4h5QT5CH+?=
+ =?us-ascii?Q?l8tNYN3sKQqlz1HcfOsRt1uBuOp9SEA61PNtkRxjI8wD8oSS2yiRy+YB3zzT?=
+ =?us-ascii?Q?azcm0DwZzWITN+HAZTEx/hNfEJAMkBsIF982IrLx0y/EYnj7yRGZEs5gm+Kc?=
+ =?us-ascii?Q?vFhpiHhxwxAv59v1aHY+K01H+5C1bCGFe1HXCNWBYfkprACiox61newSMp4I?=
+ =?us-ascii?Q?8OhLsazPE1SnArYGHky1MfZAe+VheYcMV8GOqpUnY/blfZaTZIAMS3DoV+hE?=
+ =?us-ascii?Q?yOsnyy0Rau4PmVMbCPcWUdlX/6N/7qAAvmlSCniar2PiJmb5tzHD7ASflQJh?=
+ =?us-ascii?Q?8pTPnzwHqMVgp1d8VxSseiJZ3jTM3mCoKxmLvTYmhdfhImajeJXaF9tVnTwu?=
+ =?us-ascii?Q?4EHsSTAgLDlHK5YgkIBIJPjfOQUSmbqAWyterVVy5Y6a/T4DKQwqLvyCvliq?=
+ =?us-ascii?Q?04scDSSVbkeaNJhVXWKrxXVmWdyrlSDxlQLEk0m0JJKXRDR9Jau/jm9RhLck?=
+ =?us-ascii?Q?OjX15Zs9/L6PceGm0tj8++acky4rJAP57khL+fNBHPymBKJNWuWUZzGtzZ/i?=
+ =?us-ascii?Q?Ebm1C6XwCR8oJWqe570=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b08226b9-53b3-414f-2cd3-08ddc2ce6663
+X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Jul 2025 12:03:09.6236
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: zJiu+8HlHZpVtr7QGpUMcQ8HWnilJoEEQfWrU3wubbGdDKfOUDv+93J+UDBL1DCw
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR12MB7635
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250714_045907_375247_2A47BAE0 
-X-CRM114-Status: GOOD (  36.43  )
+X-CRM114-CacheID: sfid-20250714_050317_278044_2573CB44 
+X-CRM114-Status: UNSURE (   8.86  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,121 +172,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Monday, 14 July 2025 10:47:32 Central European Summer Time AngeloGioacchino Del Regno wrote:
-> Il 11/07/25 16:57, Nicolas Frattaroli ha scritto:
-> > The MT8196 SoC uses two syscon ranges for CPU DVFS that are separate
-> > from each other. One, mt8196-fdvfs-config, is used to check for a magic
-> > number at that memory address to verify that fdvfs should be used. The
-> > other, mt8196-fdvfs, is used to configure the desired frequency for the
-> > DVFS controller for each CPU core.
-> > 
-> 
-> What is the reason why you're using syscons here?
-> 
-> Can't we simply assign the FDVFS MMIO to the cpufreq-hw node?
+On Mon, Jul 14, 2025 at 08:08:21AM +0200, Arnd Bergmann wrote:
+ 
+> The mtree_alloc_range() interface explicitly operates on 'unsigned long'
+> address values, so I don't see an immediate workaround for this that would
+> make it work on these machines. On the other hand, 
 
-That would require refactoring the driver way more since it currently
-gets the number of performance domains from the number of regs. If
-you want me to do that, I'll need to know how we should disambiguate
-performance domains from misc things like fdvfs. Stuff like string
-comparisons on reg-names seems very ugly for the driver to do, but
-adding a property to explicitly specify the number of performance
-domains would then put into question what the existing binding did
-by just assuming this information is something that implementations
-can get without any ambiguity.
+I fixed this already, PHYS_ADDR_MAX was just wrong, it should be
+ULONG_MAX. The thing wasn't a physaddr in the first place.
 
-Even if we forget that Linux is the only kernel that cares about this
-device tree, I'm not totally on board with having the smattering of
-dozens of different tiny register ranges in every DT node on mediatek
-like the vendor kernel does it. And not to forget, it'd change the
-binding even more, to the point where I'd probably have to create a
-new binding for mt8196.
-
-> Or is there any reason why we can't declare it as mmio-sram? ...because I'm not
-> entirely sure but the FDVFS space should effectively be a [c]SRAM memory range...
-
-mmio-sram is fairly useless for the purposes of having something as
-a fixed set of registers, hence why nobody else does it. From my
-research, it appears to mainly be used if you want to actually treat
-it like a pool of memory from which to then dynamically allocate
-things.
-
-To use it like a syscon, which is what we're doing, you'll have to
-specify your mmio-sram node, then add a child node as a reserved range
-for the "syscon-like" area, and then specify in ranges that you want
-that child node's address translated into the global address space as
-expected. Then in the driver, you can't just do a single function call
-to get some regmap to write into, you have to follow a phandle in your
-vendor property pointing to said sram range, then get its address,
-translate said address to the global SoC address space, and then iomap
-it. And the cleanup for error paths/driver remove isn't fun either.
-
-Besides, we don't actually know whether this is an sram range, or how
-large it is. The only confirmed sram range was the csram_sys thing at
-like 0x11bc00 which is not used because it turned out to be useless,
-and dealing with the kernel's sram interface to use it as a reserved
-range just to read 4 bytes from it was a wasted afternoon. And that's
-not even the real starting address of that sram area, that's just a
-part we know is used because downstream uses 5 KiB there for a codepath
-that's dead when fdvfs is present (except the one thing where it installs
-a panic handler to shove something into a register to make it stop dvfs
-logging if the kernel is in the process of crashing).
-
-I can be convinced to go through the pain of making this mmio-sram if
-I have documentation of the whole memory map of the SoC that shows me
-where and how large each area of sram is, so that I don't need to come
-up with my own starting addresses and offsets based on whatever random
-stuff I can infer from downstream DT.
-
-Really, every writable syscon is probably implemented as "sram" in
-hardware. But an sram cell that is not general use memory but is
-treated by the hardware as having some meaning is not mmio-sram. We
-can't ever use it in any way other than as a syscon, and telling
-implementations that they can except then slapping a huge reserved
-range into it just makes them have to implement syscons twice, once
-as syscons and once as syscons-except-it's-a-reserved-sram-mmio-range.
-
-> 
-> Cheers,
-> Angelo
-> 
-
-Kind regards,
-Nicolas Frattaroli
-
-> > Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-> > ---
-> >   Documentation/devicetree/bindings/mfd/syscon.yaml | 4 ++++
-> >   1 file changed, 4 insertions(+)
-> > 
-> > diff --git a/Documentation/devicetree/bindings/mfd/syscon.yaml b/Documentation/devicetree/bindings/mfd/syscon.yaml
-> > index 27672adeb1fedb7c81b8ae86c35f4f3b26d5516f..5ee49d2ba0cdb72dd697a0fd71c8416ad4fd2c1e 100644
-> > --- a/Documentation/devicetree/bindings/mfd/syscon.yaml
-> > +++ b/Documentation/devicetree/bindings/mfd/syscon.yaml
-> > @@ -88,6 +88,8 @@ select:
-> >             - mediatek,mt8135-pctl-a-syscfg
-> >             - mediatek,mt8135-pctl-b-syscfg
-> >             - mediatek,mt8173-pctl-a-syscfg
-> > +          - mediatek,mt8196-fdvfs
-> > +          - mediatek,mt8196-fdvfs-config
-> >             - mediatek,mt8365-syscfg
-> >             - microchip,lan966x-cpu-syscon
-> >             - microchip,mpfs-sysreg-scb
-> > @@ -194,6 +196,8 @@ properties:
-> >             - mediatek,mt8135-pctl-a-syscfg
-> >             - mediatek,mt8135-pctl-b-syscfg
-> >             - mediatek,mt8173-pctl-a-syscfg
-> > +          - mediatek,mt8196-fdvfs
-> > +          - mediatek,mt8196-fdvfs-config
-> >             - mediatek,mt8365-infracfg-nao
-> >             - mediatek,mt8365-syscfg
-> >             - microchip,lan966x-cpu-syscon
-> > 
-> 
-> 
-> 
-
-
-
-
+Jason
 
