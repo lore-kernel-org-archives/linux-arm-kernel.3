@@ -4,114 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACD25C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 06:36:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7254DC83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 06:38:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S3fDD8Aqb4liG4MFjFBsyco+mWM8ymoaLwDvnQznCYA=; b=zFBvxs58YytYcrcRCH/cksHFbj
-	UpbrqPoz81EskhxBC6Mlj+VS/VYorBmKSzZoTTOcJF0YeCPdkoiGS5l+vtte8sNMmnaDrh91PMjd6
-	7tyRHjpmOVesfel5xZwDhfW2GYJi2qzKIkOSG22HpYZPUMncuzDyUv6NVvdA1OETQ/h29c+tqEV2N
-	g5aInsg6Epoq21F149yhmVqGKMjK4aVV32na1ZBkMG77K4D/Z6YMtA0ETMAWfZYEU2kOn2huFEFlP
-	DTOndJvFJsn8y/V8/WSqZtPz5AmmsPdhA4NYUu1OMFJR8SNCyKoJM0YCLQsA+bPgzj84Q6A1NnvQF
-	UzrNh9eg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=U+Y2ODvkU1M3Yop4Vbyu4J7zT/gX9/QfE7MMpELx/ao=; b=dGcjNejaAW3vvQQ1Rg966SDEFh
+	q4PbBl6eZAsBJa7QgghxJruIOjVcxFF7mcGP5ezhdTpv51F3AkJZyKKMVUjCNWmDTqFuIfeMJQTnI
+	TOppTfu5ujvcaRIpgcuoZDSd6Zze7IVO1OyQTgyJfCLM254NhgJuIAgu8dznoKXte4BjOkIu7kbtG
+	8bOqDv9qq1lbrI3YUpMb45DwxcQKTVz1v4sRyT2u41uJ/p+Pe7vRm/WQ4sMDVoK13J7JM0QA/ajXL
+	VCOIIlbXm6tLe/q0B/DViHbBKFGm19eiHN/dR5jycLFq9SM6O5R1eKqCw0HXe70By9nJC6kdZSYrG
+	fM83dpYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubCnQ-00000001NAa-288g;
-	Mon, 14 Jul 2025 06:36:16 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1ubCpo-00000001NTK-3XXm;
+	Mon, 14 Jul 2025 06:38:44 +0000
+Received: from mail-wr1-x44a.google.com ([2a00:1450:4864:20::44a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubCP2-00000001INO-17aC;
-	Mon, 14 Jul 2025 06:11:05 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id EC8C946506;
-	Mon, 14 Jul 2025 06:11:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5589DC4CEF6;
-	Mon, 14 Jul 2025 06:10:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752473463;
-	bh=cgoFQzidKJiXken5LY/zYRTNKdUK37df3G6JRzGndZs=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=msSspsSbeo0L/K9rS2/HadP4jcVsXuS+yYzRrtqTnDsa6o/3PjXfFdoKBiPrh8ftQ
-	 uEWLJh7K1+Ib5SO9XX+UmifxLTVT18FxJhsfdL7uOyv2oiP9WfrjMbiZj85mhOwEXP
-	 /574fcXBWBEa1QFOR/tnEjrYORVsdVwq2yRzGP4kSoSbdgA2hSIqNtR4KPmSuxLPj8
-	 /dKlgAKebDFZbIzNQuhcl3zcGX0HGuER9hiP/xDaRRx2uM1J72s8TVqdOMpl2OWgQV
-	 n+h0YijhUjbGPu1HSmSdcNQbdNIigAOm7NxOSBPpm2R9uFPldRY6jgY9Ek/E5HgY3R
-	 FMSlhW0nR2+4w==
-Message-ID: <82f1a34f-bfdf-466f-9c44-2e58d172f3fd@kernel.org>
-Date: Mon, 14 Jul 2025 08:10:55 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 3/6] dt-bindings: Asoc: axg-audio: Add s4 audio tocodec
-To: jiebing.chen@amlogic.com, Jerome Brunet <jbrunet@baylibre.com>,
- Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
- Takashi Iwai <tiwai@suse.com>, Neil Armstrong <neil.armstrong@linaro.org>,
- Kevin Hilman <khilman@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>
-Cc: linux-sound@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-amlogic@lists.infradead.org, linux-clk@vger.kernel.org,
- jian.xu@amlogic.com, shuai.li@amlogic.com, zhe.wang@amlogic.com
-References: <20250710-audio_drvier-v5-0-d4155f1e7464@amlogic.com>
- <20250710-audio_drvier-v5-3-d4155f1e7464@amlogic.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250710-audio_drvier-v5-3-d4155f1e7464@amlogic.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+	id 1ubCP3-00000001IN1-1Hei
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 14 Jul 2025 06:11:06 +0000
+Received: by mail-wr1-x44a.google.com with SMTP id ffacd0b85a97d-3a4edf5bb4dso2715737f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 13 Jul 2025 23:11:04 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1752473463; x=1753078263; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=U+Y2ODvkU1M3Yop4Vbyu4J7zT/gX9/QfE7MMpELx/ao=;
+        b=umm1Bt+pNoJZAKIbyqv1ariB+rzOz8Cz3ropJpzweKYFjO1WLMlauwQI+Y3a+hWpId
+         MXzJxJevhMZDqgC83/KS7XZ0DvstYeXc4IiMcZwfqLuizelyHTgyTgTRcNX7Kn650w7X
+         c2RtIhjU1/yWa77JRwI83rms2Jmym84kUTvCP2OpVeSS8plNTLdNh8q6eE1X3eMjh5h9
+         Xyq+palBdZshMSdbyvhzwggRhqtV1DsKcfCVkJ0OnxZd+OrbffOnDY+X8rcVUm9Hop62
+         W21tq5UflKzXR226HIOPYKXE8fTb5lpfAoJco/2RQnlJ48pBriNcXqyvClsHBDL2E2sk
+         AJAQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1752473463; x=1753078263;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=U+Y2ODvkU1M3Yop4Vbyu4J7zT/gX9/QfE7MMpELx/ao=;
+        b=LW0ERQjGn/0xFcAhQ3Kt69G+Xydou2AaB/orapiJzpiV+TTE05fkPTsrsTdLcpEXVv
+         VXnPf/IGMKAZLw3znFySpqN0RRD3qJHguZCftCcngCpDvTFGq9wwwc9rTYiJseT40gD3
+         peg1Qric/Rt98qXkh6MI25K+tW4/BdyZpzizwO/nh8rmvboXN0xPpmqDXibvOWeuTHif
+         J7NROcLrah+fdLZG/uOIufE6RpQmJXSO2OfKQq1NRuv32BvJAhB0SKTTX0YyA0/n29SA
+         nP/V4uEvHGC3filxjwul6zf9204yxs97LU1l/bI+oWVsCY6HLE6RMLTWit2iQ4PIKOgv
+         p8ow==
+X-Gm-Message-State: AOJu0Yy+PPA1aT+d0vdJ2w5BMfGcQiS8AfMwdt4DKeY5IfDmDBFpvHjX
+	Ols/6KCd3hOfqtskHP9AYk4ubwtwfxyCTNF/2CCcZKazXewrRVE9Caub3Qw7p9jwPWwj4Y1nqw=
+	=
+X-Google-Smtp-Source: AGHT+IGX28n5QiyMHbS8lBZuZk7ytkYxLROV5L6i8XeWU2qCGkPvK5JXtsuwoSWms4DVodcgWH84OylK
+X-Received: from wrpd13.prod.google.com ([2002:adf:f2cd:0:b0:3a5:7de1:2a54])
+ (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6000:2d03:b0:3b1:9259:3ead
+ with SMTP id ffacd0b85a97d-3b5f188ea57mr7903902f8f.28.1752473463212; Sun, 13
+ Jul 2025 23:11:03 -0700 (PDT)
+Date: Mon, 14 Jul 2025 08:08:47 +0200
+In-Reply-To: <20250714060843.4029171-5-ardb+git@google.com>
+Mime-Version: 1.0
+References: <20250714060843.4029171-5-ardb+git@google.com>
+X-Developer-Key: i=ardb@kernel.org; a=openpgp; fpr=F43D03328115A198C90016883D200E9CA6329909
+X-Developer-Signature: v=1; a=openpgp-sha256; l=10631; i=ardb@kernel.org;
+ h=from:subject; bh=AM0I+cBVbRNRbkYjQz/D1G435xAIpZLDBEjL19MJg2w=;
+ b=owGbwMvMwCVmkMcZplerG8N4Wi2JIaNk3r/ty443O28umjfLomTz8/SAuPdT3B3Omps26nft3
+ bZh76H7HaUsDGJcDLJiiiwCs/++23l6olSt8yxZmDmsTCBDGLg4BWAiK6oZGboeRfLG+Ldu+j6J
+ WUg46/ZEw41PP6Yf5ZxVHXwxuP9BnyUjw6wCn6md1VrPOid8avq4xaWe957uwZsiURsf/WZuDzM QZwIA
+X-Mailer: git-send-email 2.50.0.727.gbf7dc18ff4-goog
+Message-ID: <20250714060843.4029171-8-ardb+git@google.com>
+Subject: [RFC PATCH 3/3] efi: Remove support for pointless, unused EFI services
+From: Ard Biesheuvel <ardb+git@google.com>
+To: linux-kernel@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org, Ard Biesheuvel <ardb@kernel.org>, 
+	Heinrich Schuchardt <heinrich.schuchardt@canonical.com>, Feng Tang <feng.tang@linux.alibaba.com>, 
+	Alexandre Belloni <alexandre.belloni@bootlin.com>, Juergen Gross <jgross@suse.com>, 
+	Stefano Stabellini <sstabellini@kernel.org>, 
+	Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>, Sunil V L <sunilvl@ventanamicro.com>, 
+	Bibo Mao <maobibo@loongson.cn>, linux-rtc@vger.kernel.org, linux-efi@vger.kernel.org, 
+	xen-devel@lists.xenproject.org, x86@kernel.org, 
+	linux-riscv@lists.infradead.org, loongarch@lists.linux.dev
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250713_231104_357874_5D0E16F2 
-X-CRM114-Status: UNSURE (   8.43  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250713_231105_475471_6DBA4D00 
+X-CRM114-Status: GOOD (  13.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,34 +100,325 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/07/2025 05:35, jiebing chen via B4 Relay wrote:
-> From: jiebing chen <jiebing.chen@amlogic.com>
-> 
-> Add S4 SoC tocodec compatibility support.
-> 
-> Acked-by: Rob Herring (Arm) <robh@kernel.org>
-> Signed-off-by: Jiebing Chen <jiebing.chen@amlogic.com>
-> ---
+From: Ard Biesheuvel <ardb@kernel.org>
 
-Please use subject prefixes matching the subsystem. You can get them for
-example with `git log --oneline -- DIRECTORY_OR_FILE` on the directory
-your patch is touching. For bindings, the preferred subjects are
-explained here:
-https://www.kernel.org/doc/html/latest/devicetree/bindings/submitting-patches.html#i-for-patch-submitters
+The get/set wakeup time EFI runtime services are often broken, and
+rarely if ever used in practice. But the GetNextHighMonoCount() EFI
+runtime services really takes the cake for most pointless API in the
+history of computing.
 
+So let's stop exposing them in Linux, hopefully removing the urge some
+folks seem to feel to test these APIs, and send emails around when they
+don't work.
 
-<form letter>
-This is a friendly reminder during the review process.
+Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
+---
+ arch/x86/platform/efi/efi_64.c          | 22 -------
+ drivers/firmware/efi/runtime-wrappers.c | 68 --------------------
+ drivers/xen/efi.c                       | 56 ----------------
+ include/linux/efi.h                     |  6 --
+ 4 files changed, 152 deletions(-)
 
-It seems my or other reviewer's previous comments were not fully
-addressed. Maybe the feedback got lost between the quotes, maybe you
-just forgot to apply it. Please go back to the previous discussion and
-either implement all requested changes or keep discussing them.
+diff --git a/arch/x86/platform/efi/efi_64.c b/arch/x86/platform/efi/efi_64.c
+index e7e8f77f77f8..0207937ab39d 100644
+--- a/arch/x86/platform/efi/efi_64.c
++++ b/arch/x86/platform/efi/efi_64.c
+@@ -540,19 +540,6 @@ static efi_status_t efi_thunk_set_time(efi_time_t *tm)
+ 	return EFI_UNSUPPORTED;
+ }
+ 
+-static efi_status_t
+-efi_thunk_get_wakeup_time(efi_bool_t *enabled, efi_bool_t *pending,
+-			  efi_time_t *tm)
+-{
+-	return EFI_UNSUPPORTED;
+-}
+-
+-static efi_status_t
+-efi_thunk_set_wakeup_time(efi_bool_t enabled, efi_time_t *tm)
+-{
+-	return EFI_UNSUPPORTED;
+-}
+-
+ static unsigned long efi_name_size(efi_char16_t *name)
+ {
+ 	return ucs2_strsize(name, EFI_VAR_NAME_LEN) + 1;
+@@ -681,12 +668,6 @@ efi_thunk_get_next_variable(unsigned long *name_size,
+ 	return status;
+ }
+ 
+-static efi_status_t
+-efi_thunk_get_next_high_mono_count(u32 *count)
+-{
+-	return EFI_UNSUPPORTED;
+-}
+-
+ static void
+ efi_thunk_reset_system(int reset_type, efi_status_t status,
+ 		       unsigned long data_size, efi_char16_t *data)
+@@ -788,13 +769,10 @@ void __init efi_thunk_runtime_setup(void)
+ 
+ 	efi.get_time = efi_thunk_get_time;
+ 	efi.set_time = efi_thunk_set_time;
+-	efi.get_wakeup_time = efi_thunk_get_wakeup_time;
+-	efi.set_wakeup_time = efi_thunk_set_wakeup_time;
+ 	efi.get_variable = efi_thunk_get_variable;
+ 	efi.get_next_variable = efi_thunk_get_next_variable;
+ 	efi.set_variable = efi_thunk_set_variable;
+ 	efi.set_variable_nonblocking = efi_thunk_set_variable_nonblocking;
+-	efi.get_next_high_mono_count = efi_thunk_get_next_high_mono_count;
+ 	efi.reset_system = efi_thunk_reset_system;
+ 	efi.query_variable_info = efi_thunk_query_variable_info;
+ 	efi.query_variable_info_nonblocking = efi_thunk_query_variable_info_nonblocking;
+diff --git a/drivers/firmware/efi/runtime-wrappers.c b/drivers/firmware/efi/runtime-wrappers.c
+index 708b777857d3..2b66efb5ffef 100644
+--- a/drivers/firmware/efi/runtime-wrappers.c
++++ b/drivers/firmware/efi/runtime-wrappers.c
+@@ -52,17 +52,6 @@ union efi_rts_args {
+ 		efi_time_t	*time;
+ 	} SET_TIME;
+ 
+-	struct {
+-		efi_bool_t	*enabled;
+-		efi_bool_t	*pending;
+-		efi_time_t	*time;
+-	} GET_WAKEUP_TIME;
+-
+-	struct {
+-		efi_bool_t	enable;
+-		efi_time_t	*time;
+-	} SET_WAKEUP_TIME;
+-
+ 	struct {
+ 		efi_char16_t	*name;
+ 		efi_guid_t	*vendor;
+@@ -92,10 +81,6 @@ union efi_rts_args {
+ 		u64		*max_variable_size;
+ 	} QUERY_VARIABLE_INFO;
+ 
+-	struct {
+-		u32		*high_count;
+-	} GET_NEXT_HIGH_MONO_COUNT;
+-
+ 	struct {
+ 		efi_capsule_header_t **capsules;
+ 		unsigned long	count;
+@@ -232,17 +217,6 @@ static void __nocfi efi_call_rts(struct work_struct *work)
+ 		status = efi_call_virt(set_time,
+ 				       args->SET_TIME.time);
+ 		break;
+-	case EFI_GET_WAKEUP_TIME:
+-		status = efi_call_virt(get_wakeup_time,
+-				       args->GET_WAKEUP_TIME.enabled,
+-				       args->GET_WAKEUP_TIME.pending,
+-				       args->GET_WAKEUP_TIME.time);
+-		break;
+-	case EFI_SET_WAKEUP_TIME:
+-		status = efi_call_virt(set_wakeup_time,
+-				       args->SET_WAKEUP_TIME.enable,
+-				       args->SET_WAKEUP_TIME.time);
+-		break;
+ 	case EFI_GET_VARIABLE:
+ 		status = efi_call_virt(get_variable,
+ 				       args->GET_VARIABLE.name,
+@@ -272,10 +246,6 @@ static void __nocfi efi_call_rts(struct work_struct *work)
+ 				       args->QUERY_VARIABLE_INFO.remaining_space,
+ 				       args->QUERY_VARIABLE_INFO.max_variable_size);
+ 		break;
+-	case EFI_GET_NEXT_HIGH_MONO_COUNT:
+-		status = efi_call_virt(get_next_high_mono_count,
+-				       args->GET_NEXT_HIGH_MONO_COUNT.high_count);
+-		break;
+ 	case EFI_UPDATE_CAPSULE:
+ 		status = efi_call_virt(update_capsule,
+ 				       args->UPDATE_CAPSULE.capsules,
+@@ -366,30 +336,6 @@ static efi_status_t virt_efi_set_time(efi_time_t *tm)
+ 	return status;
+ }
+ 
+-static efi_status_t virt_efi_get_wakeup_time(efi_bool_t *enabled,
+-					     efi_bool_t *pending,
+-					     efi_time_t *tm)
+-{
+-	efi_status_t status;
+-
+-	if (down_interruptible(&efi_runtime_lock))
+-		return EFI_ABORTED;
+-	status = efi_queue_work(GET_WAKEUP_TIME, enabled, pending, tm);
+-	up(&efi_runtime_lock);
+-	return status;
+-}
+-
+-static efi_status_t virt_efi_set_wakeup_time(efi_bool_t enabled, efi_time_t *tm)
+-{
+-	efi_status_t status;
+-
+-	if (down_interruptible(&efi_runtime_lock))
+-		return EFI_ABORTED;
+-	status = efi_queue_work(SET_WAKEUP_TIME, enabled, tm);
+-	up(&efi_runtime_lock);
+-	return status;
+-}
+-
+ static efi_status_t virt_efi_get_variable(efi_char16_t *name,
+ 					  efi_guid_t *vendor,
+ 					  u32 *attr,
+@@ -488,17 +434,6 @@ virt_efi_query_variable_info_nb(u32 attr, u64 *storage_space,
+ 	return status;
+ }
+ 
+-static efi_status_t virt_efi_get_next_high_mono_count(u32 *count)
+-{
+-	efi_status_t status;
+-
+-	if (down_interruptible(&efi_runtime_lock))
+-		return EFI_ABORTED;
+-	status = efi_queue_work(GET_NEXT_HIGH_MONO_COUNT, count);
+-	up(&efi_runtime_lock);
+-	return status;
+-}
+-
+ static void __nocfi
+ virt_efi_reset_system(int reset_type, efi_status_t status,
+ 		      unsigned long data_size, efi_char16_t *data)
+@@ -556,13 +491,10 @@ void __init efi_native_runtime_setup(void)
+ {
+ 	efi.get_time			    = virt_efi_get_time;
+ 	efi.set_time			    = virt_efi_set_time;
+-	efi.get_wakeup_time		    = virt_efi_get_wakeup_time;
+-	efi.set_wakeup_time		    = virt_efi_set_wakeup_time;
+ 	efi.get_variable		    = virt_efi_get_variable;
+ 	efi.get_next_variable		    = virt_efi_get_next_variable;
+ 	efi.set_variable		    = virt_efi_set_variable;
+ 	efi.set_variable_nonblocking	    = virt_efi_set_variable_nb;
+-	efi.get_next_high_mono_count	    = virt_efi_get_next_high_mono_count;
+ 	efi.reset_system 		    = virt_efi_reset_system;
+ 	efi.query_variable_info		    = virt_efi_query_variable_info;
+ 	efi.query_variable_info_nonblocking = virt_efi_query_variable_info_nb;
+diff --git a/drivers/xen/efi.c b/drivers/xen/efi.c
+index fb321cd6415a..baccf2d90af0 100644
+--- a/drivers/xen/efi.c
++++ b/drivers/xen/efi.c
+@@ -76,47 +76,6 @@ static efi_status_t xen_efi_set_time(efi_time_t *tm)
+ 	return efi_data(op).status;
+ }
+ 
+-static efi_status_t xen_efi_get_wakeup_time(efi_bool_t *enabled,
+-					    efi_bool_t *pending,
+-					    efi_time_t *tm)
+-{
+-	struct xen_platform_op op = INIT_EFI_OP(get_wakeup_time);
+-
+-	if (HYPERVISOR_platform_op(&op) < 0)
+-		return EFI_UNSUPPORTED;
+-
+-	if (tm) {
+-		BUILD_BUG_ON(sizeof(*tm) != sizeof(efi_data(op).u.get_wakeup_time));
+-		memcpy(tm, &efi_data(op).u.get_wakeup_time, sizeof(*tm));
+-	}
+-
+-	if (enabled)
+-		*enabled = !!(efi_data(op).misc & XEN_EFI_GET_WAKEUP_TIME_ENABLED);
+-
+-	if (pending)
+-		*pending = !!(efi_data(op).misc & XEN_EFI_GET_WAKEUP_TIME_PENDING);
+-
+-	return efi_data(op).status;
+-}
+-
+-static efi_status_t xen_efi_set_wakeup_time(efi_bool_t enabled, efi_time_t *tm)
+-{
+-	struct xen_platform_op op = INIT_EFI_OP(set_wakeup_time);
+-
+-	BUILD_BUG_ON(sizeof(*tm) != sizeof(efi_data(op).u.set_wakeup_time));
+-	if (enabled)
+-		efi_data(op).misc = XEN_EFI_SET_WAKEUP_TIME_ENABLE;
+-	if (tm)
+-		memcpy(&efi_data(op).u.set_wakeup_time, tm, sizeof(*tm));
+-	else
+-		efi_data(op).misc |= XEN_EFI_SET_WAKEUP_TIME_ENABLE_ONLY;
+-
+-	if (HYPERVISOR_platform_op(&op) < 0)
+-		return EFI_UNSUPPORTED;
+-
+-	return efi_data(op).status;
+-}
+-
+ static efi_status_t xen_efi_get_variable(efi_char16_t *name, efi_guid_t *vendor,
+ 					 u32 *attr, unsigned long *data_size,
+ 					 void *data)
+@@ -204,18 +163,6 @@ static efi_status_t xen_efi_query_variable_info(u32 attr, u64 *storage_space,
+ 	return efi_data(op).status;
+ }
+ 
+-static efi_status_t xen_efi_get_next_high_mono_count(u32 *count)
+-{
+-	struct xen_platform_op op = INIT_EFI_OP(get_next_high_monotonic_count);
+-
+-	if (HYPERVISOR_platform_op(&op) < 0)
+-		return EFI_UNSUPPORTED;
+-
+-	*count = efi_data(op).misc;
+-
+-	return efi_data(op).status;
+-}
+-
+ static efi_status_t xen_efi_update_capsule(efi_capsule_header_t **capsules,
+ 				unsigned long count, unsigned long sg_list)
+ {
+@@ -280,8 +227,6 @@ void __init xen_efi_runtime_setup(void)
+ {
+ 	efi.get_time			= xen_efi_get_time;
+ 	efi.set_time			= xen_efi_set_time;
+-	efi.get_wakeup_time		= xen_efi_get_wakeup_time;
+-	efi.set_wakeup_time		= xen_efi_set_wakeup_time;
+ 	efi.get_variable		= xen_efi_get_variable;
+ 	efi.get_next_variable		= xen_efi_get_next_variable;
+ 	efi.set_variable		= xen_efi_set_variable;
+@@ -290,7 +235,6 @@ void __init xen_efi_runtime_setup(void)
+ 	efi.query_variable_info_nonblocking = xen_efi_query_variable_info;
+ 	efi.update_capsule		= xen_efi_update_capsule;
+ 	efi.query_capsule_caps		= xen_efi_query_capsule_caps;
+-	efi.get_next_high_mono_count	= xen_efi_get_next_high_mono_count;
+ 	efi.reset_system		= xen_efi_reset_system;
+ }
+ 
+diff --git a/include/linux/efi.h b/include/linux/efi.h
+index 50db7df0efab..516afdc8a49d 100644
+--- a/include/linux/efi.h
++++ b/include/linux/efi.h
+@@ -650,8 +650,6 @@ extern struct efi {
+ 
+ 	efi_get_time_t			*get_time;
+ 	efi_set_time_t			*set_time;
+-	efi_get_wakeup_time_t		*get_wakeup_time;
+-	efi_set_wakeup_time_t		*set_wakeup_time;
+ 	efi_get_variable_t		*get_variable;
+ 	efi_get_next_variable_t		*get_next_variable;
+ 	efi_set_variable_t		*set_variable;
+@@ -660,7 +658,6 @@ extern struct efi {
+ 	efi_query_variable_info_t	*query_variable_info_nonblocking;
+ 	efi_update_capsule_t		*update_capsule;
+ 	efi_query_capsule_caps_t	*query_capsule_caps;
+-	efi_get_next_high_mono_count_t	*get_next_high_mono_count;
+ 	efi_reset_system_t		*reset_system;
+ 
+ 	struct efi_memory_map		memmap;
+@@ -1235,13 +1232,10 @@ enum efi_rts_ids {
+ 	EFI_NONE,
+ 	EFI_GET_TIME,
+ 	EFI_SET_TIME,
+-	EFI_GET_WAKEUP_TIME,
+-	EFI_SET_WAKEUP_TIME,
+ 	EFI_GET_VARIABLE,
+ 	EFI_GET_NEXT_VARIABLE,
+ 	EFI_SET_VARIABLE,
+ 	EFI_QUERY_VARIABLE_INFO,
+-	EFI_GET_NEXT_HIGH_MONO_COUNT,
+ 	EFI_RESET_SYSTEM,
+ 	EFI_UPDATE_CAPSULE,
+ 	EFI_QUERY_CAPSULE_CAPS,
+-- 
+2.50.0.727.gbf7dc18ff4-goog
 
-Thank you.
-</form letter>
-
-
-Best regards,
-Krzysztof
 
