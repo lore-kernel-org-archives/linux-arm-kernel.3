@@ -4,66 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3DB9C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 13:43:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A514DC83F1B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 13:46:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=x+lX+6SZk5sjFDg8URvAuU+tegvp5Ckh4/1sUrFa9s8=; b=XjC9c0RjgjcX/jxf7j35PC7Bz9
-	fZ113q1iwjz774f9kmum6Zrb4LVJoDEQhjQMGFev1oJpQoVmhYaI2sdb/cvGnMUvpai8UqGKFUb3g
-	RcxAl8+GZQ7/GS/DMlF5wVWvCAO03kfu2WJpcZZ9LD6fLa5HgPF1ibAqW6Y1ZU41BF5vuyHuViald
-	nddG1M3ic3xQXd00cLnZ9JpBfRyX+nGPWw4LpUjF76d5G0CfnPVzGRPtbHEAIqgz2fntQ3eUEvVnV
-	MyoWZ1aRyxNMZ81MiKUydX57OVomT2CNbJlzo17kjYCs5sD+RGrbDr1K3NCjCMbgqe+Sic1vygZ1r
-	f140YDUA==;
+	bh=UizOBT89f5MRX6YGiBh9LFBmNsdbZc9aL8t32eOk9Ls=; b=MrYAN5fYpHy4A50NsUdE7f6XkM
+	mfSmhhbD2yZukBDkc6lNKQGrEtlQsj2RrIle6rABNgOOeZBblAygqQiBwPE7N3EaQQuy8SRaNt4L8
+	3iGxyTPPpb0jF0GZ+N6cQnOx3GxTwN+4V2rN1f6BztjfP+zUmkl+46WTx7Eozk3LChRVd+SyXs6uD
+	cJbG0jUYTdOBUJ6GoeNjUTABfP3LBZ99FsioCyOYv4CJqu8Nch4+zCVkbKtI0OKGYRpWp/jyTMrOe
+	B7TPsoKByqkwwHNU0DEUk7Qv2e29TBa9VPg+nYWB5KDdVYe/IRqaKCenhUth+I1HYplMnNDBwFbSf
+	p9jszs5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubJT1-00000002LXY-3WXg;
-	Mon, 14 Jul 2025 13:43:39 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubJIN-00000002JG1-2syf
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Jul 2025 13:32:42 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0551A1BC0;
-	Mon, 14 Jul 2025 06:32:27 -0700 (PDT)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BE4A93F66E;
-	Mon, 14 Jul 2025 06:32:33 -0700 (PDT)
-Date: Mon, 14 Jul 2025 14:32:31 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: "Koichi Okuno (Fujitsu)" <fj2767dz@fujitsu.com>
-Cc: 'Peter Zijlstra' <peterz@infradead.org>, Will Deacon <will@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	Bjorn Andersson <quic_bjorande@quicinc.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	=?utf-8?B?TsOtY29sYXMgRi4gUi4gQS4=?= Prado <nfraprado@collabora.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Jonathan Cameron <Jonathan.Cameron@huawei.com>,
-	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v5 2/2] perf: Fujitsu: Add the Uncore PCI PMU driver
-Message-ID: <aHUG78Vv1QU5Aafj@J2N7QTR9R3>
-References: <20250617102819.3685543-1-fj2767dz@fujitsu.com>
- <20250617102819.3685543-3-fj2767dz@fujitsu.com>
- <20250617103618.GT1613376@noisy.programming.kicks-ass.net>
- <TYCPR01MB67177BF90FEBAB9E20463012C141A@TYCPR01MB6717.jpnprd01.prod.outlook.com>
+	id 1ubJVS-00000002M3C-2aZt;
+	Mon, 14 Jul 2025 13:46:10 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ubJLv-00000002K0N-1Fok;
+	Mon, 14 Jul 2025 13:36:21 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1752500130; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=LLwf90veDCfX/vug+RY51XJsew+TIOZx7ZDM1Z2CSQQciK1qiq4NgD6QzC3oXvHLraPMuS9r4r08v3rRKvkam1IsL54XA/7L3kWF73CpjhwlXnBM0t877peicmCqjD9fI0I51SfS5dqZHB2BA67UOaoku1ckdm6kmCRsxMSzgwE=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1752500130; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=UizOBT89f5MRX6YGiBh9LFBmNsdbZc9aL8t32eOk9Ls=; 
+	b=DG1MXaTm0GH7Zzhu75mIeDgkj0NacaYQEAJk7lYWjDOfg5HqLc/uxecDifFzLmrvYKxSD/mLlrDSNnWrDi/LWRXmcQJeSEw08v1WLlNyPlLVj7mlGFKqWDEFTvHhBzwxugL0xZZTZeJ/KcEbr9IZ9D4uP1o/jmIgRTO4Vw1Nv/w=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=detlev.casanova@collabora.com;
+	dmarc=pass header.from=<detlev.casanova@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1752500130;
+	s=zohomail; d=collabora.com; i=detlev.casanova@collabora.com;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
+	bh=UizOBT89f5MRX6YGiBh9LFBmNsdbZc9aL8t32eOk9Ls=;
+	b=cF7SlMQIVCLi+7LyiNNzpE0msj22oD9LyCxoRHQVUNRlv+qOxfVUPSMBNdvJbscZ
+	OLdlAaeWMmXFLxxuYh4gLPwm8eNgwqt4xWl52WtxDLR0xqiUT8hub7S39Q2edenUd1J
+	SnxY+eKDm6GfP/fT6GS7lJF8E+rhvBO2yMuZRqPE=
+Received: by mx.zohomail.com with SMTPS id 1752500120862937.2041501644019;
+	Mon, 14 Jul 2025 06:35:20 -0700 (PDT)
+From: Detlev Casanova <detlev.casanova@collabora.com>
+To: Jianfeng Liu <liujianfeng1994@gmail.com>
+Cc: heiko@sntech.de, kernel@collabora.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ mchehab@kernel.org, nicolas.dufresne@collabora.com,
+ nicolas.frattaroli@collabora.com
+Subject: Re: [PATCH 00/12] media: rkvdec: Add support for VDPU381 and VDPU383
+Date: Mon, 14 Jul 2025 09:35:19 -0400
+Message-ID: <2229133.irdbgypaU6@trenzalore>
+In-Reply-To: <20250713142514.56742-1-liujianfeng1994@gmail.com>
+References: <20250708151946.374349-1-detlev.casanova@collabora.com>
+ <20250713142514.56742-1-liujianfeng1994@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <TYCPR01MB67177BF90FEBAB9E20463012C141A@TYCPR01MB6717.jpnprd01.prod.outlook.com>
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="utf-8"
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250714_063239_773167_B550F167 
-X-CRM114-Status: GOOD (  15.91  )
+X-CRM114-CacheID: sfid-20250714_063619_416064_8995C429 
+X-CRM114-Status: GOOD (  17.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,47 +80,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 01, 2025 at 06:13:57AM +0000, Koichi Okuno (Fujitsu) wrote:
-> Hi, Peter
+Hi Jianfeng,
+
+On Sunday, 13 July 2025 10:25:14 EDT Jianfeng Liu wrote:
+> Hi,
 > 
-> Sorry for the late reply.
+> On Tue,  8 Jul 2025 11:19:33 -0400, Detlev Casanova wrote:
+> >As there is a considerable part of the code that can be shared with the
+> >already supported rkvdec decoder driver, the support for these variants
+> >is added here rather than writing a new driver.
 > 
-> > On Tue, Jun 17, 2025 at 07:27:50PM +0900, Koichi Okuno wrote:
-> > > +	pcipmu->pmu = (struct pmu) {
-> > > +		.parent		= dev,
-> > > +		.task_ctx_nr	= perf_invalid_context,
-> > > +
-> > > +		.pmu_enable	= fujitsu_pci__pmu_enable,
-> > > +		.pmu_disable	= fujitsu_pci__pmu_disable,
-> > > +		.event_init	= fujitsu_pci__event_init,
-> > > +		.add		= fujitsu_pci__event_add,
-> > > +		.del		= fujitsu_pci__event_del,
-> > > +		.start		= fujitsu_pci__event_start,
-> > > +		.stop		= fujitsu_pci__event_stop,
-> > > +		.read		= fujitsu_pci__event_read,
-> > > +
-> > > > +		.attr_groups	= fujitsu_pci_pmu_attr_grps,
-> > > +		.capabilities	= PERF_PMU_CAP_NO_EXCLUDE,
-> > 
-> > Should these drivers not also have PERF_PMU_CAP_NO_INTERRUPT ? Per them
-> > being uncore they cannot generate samples.
+> I have tested the new series on rk3588 and rk3399 with chromium. Since the
+> HEVC decoder need EXT_SPS_RPS related patches, I ony test the H264 decoder.
+> There are two issues:
 > 
-> Even now, the fujitsu_pci__event_init() function rejects sampling events
-> before checking PERF_PMU_CAP_NO_INTERRUPT in core.c.
-> However, I think it is correct to have PERF_PMU_CAP_NO_INTERRUPT which
-> means not being able to sample, so I will add NO_INTERRUPT in the next
-> version.
+> 1, The decoder max size is detected 1920x1088, which should be the fallback
+> size when queryig VIDIOC_ENUM_FRAMESIZES[1].
 
-Sorry to give contradictory feeback, but given that the majority of PMU
-drivers under drivers/perf/ don't set PERF_PMU_CAP_NO_INTERRUPT, and
-explicitly reject sampling events, I'd prefer to do the same for
-consistency.
+From the linked code, the max size is hard coded to 1920x1088.
+The driver sets the frame size type to V4L2_FRMSIZE_TYPE_CONTINUOUS, so the 
+snippet you pointed to doesn't update the values for max/min. See [2] for the 
+discussion about using V4L2_FRMSIZE_TYPE_CONTINUOUS.
 
-Peter, are you happy with that for now?
+> 2, Playing H264 videos ends up with green screen.
 
-Overall it would be better for PMUs to export a positive "I support
-sampling" flag, and maybe rename/replace PERF_PMU_CAP_NO_INTERRUPT
-accordingly, which I'd be happy to look at in future.
+Can you elaborate a bit ? What videos ?
+Is that on both SoCs ?
+Is there any logs in dmesg ?
 
-Mark.
+> These above issues don't happen with the old rkvdec2 series.
+> 
+> [1]
+> https://github.com/chromium/chromium/blob/138.0.7204.92/media/gpu/v4l2/v4l2
+> _utils.cc#L520-L533
+
+[2] https://lore.kernel.org/all/c7882f94-e2cb-4023-a53e-87ebc8fa3460@gmail.com/
+
+Regards,
+Detlev
+
+
+
+
 
