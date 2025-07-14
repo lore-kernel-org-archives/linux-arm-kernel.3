@@ -4,108 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45E00C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 13:13:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9685DC83F1B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 13:15:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To
-	:From:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6GT+QfWaXLUz2plhdm6tzk3KnJrg30pcNVb5s5dMBoo=; b=YJSfGqnmQuROrOOZ1dq7gsAxa+
-	d8FekaOHNncheZQqVLzg4DcIi+lxEE4WLCFOu9K8eMxk0AAoEzfP/fB1vYT7BxxkbRJETBmAfcQrg
-	3T0klpcAX/hlAldhf/2ufbG9Eew71j/m1fapl8q994wrB1KHYrI9zetZORJUXuO0Ov/YKsurMf3UV
-	ynpsX/V9nl62fwmHtU/CCBDUzaq2zR1HsFJLR604dGZsCQF2lheQM540ghYD22qOoh2adAJWk1DKq
-	Ib9wvrRkuqshh7K7RLEf1pRZay9bURCQPZm52cclvy2eN1CWgPF4iWUL4HrtXhh7at+jOs/rx8vqh
-	JlLNJ7Gg==;
+	bh=l9eAnCs+/E39mEpFrELdAjGkwDVD9NTMJNU7xW+Uohw=; b=e/gXBdp+VCelMo06d0j73fazNt
+	R5fj39J9I/aatsyXK5wA6Ox8ZoKombnhcvmGtYyyC+Q6M/58eV/7KWvQZcNXKLpvLVLyPF58wC8iH
+	yFYwDTqXShhJsZFdQI92roXYtdegWDl+Cb6lxz+x/UCCjSNNuocQnca4+vTZ7/pdswzH6ny46kINE
+	QUDU2O7sGWh1bklnNXjYp4+Xk/WzAmRmDaAXp+wAHBQnO9SDre8cXk8A7ukWaap0Dgdya74SMrrka
+	w5OXkKimaHE1K+NTvtVd6cCydaf1+jveF7L/YIAEcGurD4OM6BFGNoyy/CSZKsO1mdG09BL0WYT3t
+	aUsrlDHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubIzH-00000002FDE-06qk;
-	Mon, 14 Jul 2025 13:12:55 +0000
-Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
+	id 1ubJ1g-00000002FP2-3Pgx;
+	Mon, 14 Jul 2025 13:15:24 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubIM4-00000002Ay3-0sK9
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Jul 2025 12:32:25 +0000
-Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-ae3b336e936so852641066b.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Jul 2025 05:32:23 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=fairphone.com; s=fair; t=1752496342; x=1753101142; darn=lists.infradead.org;
-        h=in-reply-to:references:cc:to:from:subject:message-id:date
-         :content-transfer-encoding:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=6GT+QfWaXLUz2plhdm6tzk3KnJrg30pcNVb5s5dMBoo=;
-        b=iVF656Zi1tlaOpU1mxZyzue539A62TIfvlZW24+iXhGirijMjW1rxXUFVcQPkhTIBv
-         bSXF1ZisVSR0p7BlnmJJCxUux0NxLYSyToLSmTik9Jh7OMPx0IOM3BNqZpJDqQT0YR3a
-         t3T8TTEHzCeSpN6TgS1WJY3aYqV1FQLD0MgCvJakO0woWg125FbSQXRWY0TSPxdPbbxl
-         xchuBhx3qK4jErBjoLpFY6IWn8RwR7dSteX1xFgpZP69qYnn6NPzR/m6m7R1bo4XkwT5
-         CCR1w84IiS16Uz1lCxLOElwuUR3gRrukvnesiCFBNOit5FLvWnrYUouBeoM+LIIp+fRq
-         9cXA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752496342; x=1753101142;
-        h=in-reply-to:references:cc:to:from:subject:message-id:date
-         :content-transfer-encoding:mime-version:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=6GT+QfWaXLUz2plhdm6tzk3KnJrg30pcNVb5s5dMBoo=;
-        b=w2EJRCxqAh/jS1Vvsaj5OjQZdeztuowLB4s1yLyQrBiUhufBQLlCeBqceWJzOcd2Qq
-         4LN94exNHXVBMeRWLuVfqsywMOcUchWXCLGWYJRHXVP5ME/r3xtQrq6xF8/zdLQgRjA6
-         Pfn7GEaFBPx59ro9abUbGp5DulTPPLWWNjqoV4lCYjL1QvQ46Xn8bKaGlO/qWT8t8EZ2
-         bFpSuiSbl6/s57yy4oK1iZQwd14xXIeLMZL9jU+k2o54p2pJEW5kMKJYKEvSqnKfIFR7
-         VSH/OJDehgMYeztW7P61P12Uo9qc72QZj7emmFB2lRyv2PnWXwJifICjjSBQoxeLaJvC
-         y0DQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVI+xYffwbraREFWqKkzkzai1uLau5FZYfjPHj0BMIHPf3B4yLsLJ7S4A1hdohtCIGJuSPzAw0rxPzfVDK+gGzX@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyft+IvhCMrnE4xynsb3RZ/6LwewBwEjWc1zDzK77MpNgCInePT
-	4DwH1AEB5SvZwDx/sZIRf5avAeeo9cZvx0MqmmZbxHy88elBLjf4U26asCZ5g95I3fs=
-X-Gm-Gg: ASbGncuPQprX+ElI2UwqldJWrEbkQ/glOubVeqqcVFJXnLEvDvaJo9lTYyuEGC833kH
-	2P7sPKpXcx0UJ5g8k2//IfEClUdS0dx0xEh0G2HgcnmoPVszqvWdvNxYXKbNbOhpXmuUlEKP5ny
-	ugVP2isJ/EfAkzsGxDw26uS6teO72iCtFxKQGDFGtezcP0lbzm0CwdVUWB81tvNh8BCnrj2JAra
-	gm42n2Iwn/dbBMi0dDTarMt2ooUIOTLAexldq08BUDI/RiMpt0Fpe+uqAmlBdnoQ/dL7sO8VHAn
-	vxtlkDSIVx/xng7nUKqP+L44Ne1Hz/aE1LE4iR8abVeRCjY5BYY270aTLiWzdVcedWROsbb3lyf
-	kzl8SorDP7mkGrJ9vBuWlVfjhtG6YhLAI1Ho8hh9rxkGmLPQXq+6cfWn4wB5hDLNaCKjoGsuoeh
-	udD2msMPmqTUlq0r9XRw3x9EIFQ+EZ4xxWZA==
-X-Google-Smtp-Source: AGHT+IEdIUlKAIUoH3odRS/w1x3zJL/78SxmRMa+QOLnmU3zwNSH9f5FMxlA1f2U3nn/eb6t4vkm0Q==
-X-Received: by 2002:a17:906:7956:b0:ae3:cd73:e95a with SMTP id a640c23a62f3a-ae6fcbc356cmr1271518666b.36.1752496341821;
-        Mon, 14 Jul 2025 05:32:21 -0700 (PDT)
-Received: from localhost (2a02-8388-6584-6400-d322-7350-96d2-429d.cable.dynamic.v6.surfer.at. [2a02:8388:6584:6400:d322:7350:96d2:429d])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ae6e82962acsm818540766b.139.2025.07.14.05.32.20
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 14 Jul 2025 05:32:21 -0700 (PDT)
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Mon, 14 Jul 2025 14:32:19 +0200
-Message-Id: <DBBS3S38CWTN.32RLYB9VEZAB@fairphone.com>
-Subject: Re: [PATCH v2 15/15] arm64: dts: qcom: Add The Fairphone (Gen. 6)
-From: "Luca Weiss" <luca.weiss@fairphone.com>
-To: "Konrad Dybcio" <konrad.dybcio@oss.qualcomm.com>, "Will Deacon"
- <will@kernel.org>, "Robin Murphy" <robin.murphy@arm.com>, "Joerg Roedel"
- <joro@8bytes.org>, "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski"
- <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>, "Rafael J.
- Wysocki" <rafael@kernel.org>, "Viresh Kumar" <viresh.kumar@linaro.org>,
- "Manivannan Sadhasivam" <mani@kernel.org>, "Herbert Xu"
- <herbert@gondor.apana.org.au>, "David S. Miller" <davem@davemloft.net>,
- "Vinod Koul" <vkoul@kernel.org>, "Bjorn Andersson" <andersson@kernel.org>,
- "Konrad Dybcio" <konradybcio@kernel.org>, "Robert Marko"
- <robimarko@gmail.com>, "Das Srinagesh" <quic_gurus@quicinc.com>, "Thomas
- Gleixner" <tglx@linutronix.de>, "Jassi Brar" <jassisinghbrar@gmail.com>,
- "Amit Kucheria" <amitk@kernel.org>, "Thara Gopinath"
- <thara.gopinath@gmail.com>, "Daniel Lezcano" <daniel.lezcano@linaro.org>,
- "Zhang Rui" <rui.zhang@intel.com>, "Lukasz Luba" <lukasz.luba@arm.com>,
- "Ulf Hansson" <ulf.hansson@linaro.org>
-Cc: <~postmarketos/upstreaming@lists.sr.ht>, <phone-devel@vger.kernel.org>,
- <linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
- <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
- <linux-pm@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
- <linux-crypto@vger.kernel.org>, <dmaengine@vger.kernel.org>,
- <linux-mmc@vger.kernel.org>
-X-Mailer: aerc 0.20.1-0-g2ecb8770224a-dirty
-References: <20250713-sm7635-fp6-initial-v2-0-e8f9a789505b@fairphone.com>
- <20250713-sm7635-fp6-initial-v2-15-e8f9a789505b@fairphone.com>
- <6f8b86c7-96a5-4c7c-b54e-25b173084d95@oss.qualcomm.com>
-In-Reply-To: <6f8b86c7-96a5-4c7c-b54e-25b173084d95@oss.qualcomm.com>
+	id 1ubIMz-00000002BAW-3yhv;
+	Mon, 14 Jul 2025 12:33:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1752496400;
+	bh=4irWIhJ4mRp4qA3am0X7ku6qyTiSX9hhxAXsieMpu28=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Psz4i85hVOvV3ihew+dZZNJAlptx1OOddZmXypsKodmHlA/Enmv9mzxl522aySVWy
+	 asOcdKWO/byCjjuDkcEVL75xfHVALfoxyt0dZCpk7FPcMHNKFDjjWgEFZXpB9/aQ2W
+	 +KBL96Yq5FpMWFbNKVATPyqRI0cOUuGN4TmAjC72ahzLMpcHMNYdoOz6rSPjFCzGiJ
+	 7BO5+8deLtqNwTmV/wMwKKBqF3yq0RPb72NbjG3gBMtF6NCVWOoGJWe/yNMvQI+M2f
+	 dI7jPbBfKYLTo0qLlzEUQgDd9HxIhIyBXdotVepf9ZqBTtDx23yeE6ZnjmIIgIXFYn
+	 csVbFyUqx1riA==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 5E55717E05F0;
+	Mon, 14 Jul 2025 14:33:19 +0200 (CEST)
+Message-ID: <190c5ddd-b89b-427f-abfe-b8ccccb75c3f@collabora.com>
+Date: Mon, 14 Jul 2025 14:33:18 +0200
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/5] dt-bindings: mfd: syscon: Add mt8196 fdvfs syscons
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
+ Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+ "Rafael J. Wysocki" <rafael@kernel.org>,
+ Viresh Kumar <viresh.kumar@linaro.org>,
+ Hector Yuan <hector.yuan@mediatek.com>
+Cc: kernel@collabora.com, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, linux-pm@vger.kernel.org
+References: <20250711-mt8196-cpufreq-v1-0-e1b0a3b4ac61@collabora.com>
+ <20250711-mt8196-cpufreq-v1-1-e1b0a3b4ac61@collabora.com>
+ <4537173f-7f79-4629-a2ef-cbf1edd2ed81@collabora.com>
+ <2866261.BEx9A2HvPv@workhorse>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <2866261.BEx9A2HvPv@workhorse>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250714_053224_261617_278B6654 
-X-CRM114-Status: GOOD (  16.05  )
+X-CRM114-CacheID: sfid-20250714_053322_148407_B4A1519D 
+X-CRM114-Status: GOOD (  58.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,50 +84,227 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon Jul 14, 2025 at 2:19 PM CEST, Konrad Dybcio wrote:
-> On 7/13/25 10:05 AM, Luca Weiss wrote:
->> Add a devicetree for The Fairphone (Gen. 6) smartphone, which is based
->> on the Milos/SM7635 SoC.
->>=20
->> Supported functionality as of this initial submission:
->> * Debug UART
->> * Regulators (PM7550, PM8550VS, PMR735B, PM8008)
->> * Remoteprocs (ADSP, CDSP, MPSS, WPSS)
->> * Power Button, Volume Keys, Switch
->> * Display (using simple-framebuffer)
->> * PMIC-GLINK (Charger, Fuel gauge, USB-C mode switching)
->> * Camera flash/torch LED
->> * SD card
->> * USB
->>=20
->> Signed-off-by: Luca Weiss <luca.weiss@fairphone.com>
->> ---
->
-> [...]
->
->> +	reserved-memory {
->> +		/*
->> +		 * ABL is powering down display and controller if this node is
->> +		 * not named exactly "splash_region".
->> +		 */
->> +		splash_region@e3940000 {
->
-> Was it not possible to arrange for a fw update after all?
+Il 14/07/25 13:58, Nicolas Frattaroli ha scritto:
+> On Monday, 14 July 2025 10:47:32 Central European Summer Time AngeloGioacchino Del Regno wrote:
+>> Il 11/07/25 16:57, Nicolas Frattaroli ha scritto:
+>>> The MT8196 SoC uses two syscon ranges for CPU DVFS that are separate
+>>> from each other. One, mt8196-fdvfs-config, is used to check for a magic
+>>> number at that memory address to verify that fdvfs should be used. The
+>>> other, mt8196-fdvfs, is used to configure the desired frequency for the
+>>> DVFS controller for each CPU core.
+>>>
+>>
+>> What is the reason why you're using syscons here?
+>>
+>> Can't we simply assign the FDVFS MMIO to the cpufreq-hw node?
+> 
+> That would require refactoring the driver way more since it currently
+> gets the number of performance domains from the number of regs. If
+> you want me to do that, I'll need to know how we should disambiguate
+> performance domains from misc things like fdvfs. Stuff like string
+> comparisons on reg-names seems very ugly for the driver to do, but
+> adding a property to explicitly specify the number of performance
+> domains would then put into question what the existing binding did
+> by just assuming this information is something that implementations
+> can get without any ambiguity.
+> 
+> Even if we forget that Linux is the only kernel that cares about this
+> device tree, I'm not totally on board with having the smattering of
+> dozens of different tiny register ranges in every DT node on mediatek
+> like the vendor kernel does it. And not to forget, it'd change the
+> binding even more, to the point where I'd probably have to create a
+> new binding for mt8196.
+> 
 
-I've made a patch to support both 'splash' and 'splash-region' but not
-sure when it's going to be included, I've sent the patch to the correct
-people internally last week. Since Android build cycles are always super
-slow, it'll take a the very least a month I guess.
+The problem that I see with having a syscon for this is that I can foresee
+future SoCs using the same cpufreq-hybrid IP, which means that we'd surely
+be cluttering the dt-bindings/mfd/syscon.yaml with a huge list of MediaTek
+SoCs (x2, because it's two syscons, even) without having a really-really
+valid reason to do so.
 
->
-> fwiw the rest looks good
 
-Thanks!
+>> Or is there any reason why we can't declare it as mmio-sram? ...because I'm not
+>> entirely sure but the FDVFS space should effectively be a [c]SRAM memory range...
+> 
+> mmio-sram is fairly useless for the purposes of having something as
+> a fixed set of registers, hence why nobody else does it. From my
+> research, it appears to mainly be used if you want to actually treat
+> it like a pool of memory from which to then dynamically allocate
+> things.
+> 
+> To use it like a syscon, which is what we're doing, you'll have to
+> specify your mmio-sram node, then add a child node as a reserved range
+> for the "syscon-like" area, and then specify in ranges that you want
+> that child node's address translated into the global address space as
+> expected. Then in the driver, you can't just do a single function call
+> to get some regmap to write into, you have to follow a phandle in your
+> vendor property pointing to said sram range, then get its address,
+> translate said address to the global SoC address space, and then iomap
+> it. And the cleanup for error paths/driver remove isn't fun either.
+> 
+> Besides, we don't actually know whether this is an sram range, or how
+> large it is. The only confirmed sram range was the csram_sys thing at
+> like 0x11bc00 which is not used because it turned out to be useless,
+> and dealing with the kernel's sram interface to use it as a reserved
+> range just to read 4 bytes from it was a wasted afternoon. And that's
+> not even the real starting address of that sram area, that's just a
+> part we know is used because downstream uses 5 KiB there for a codepath
+> that's dead when fdvfs is present (except the one thing where it installs
+> a panic handler to shove something into a register to make it stop dvfs
+> logging if the kernel is in the process of crashing).
+> 
+> I can be convinced to go through the pain of making this mmio-sram if
+> I have documentation of the whole memory map of the SoC that shows me
+> where and how large each area of sram is, so that I don't need to come
+> up with my own starting addresses and offsets based on whatever random
+> stuff I can infer from downstream DT.
+> 
+> Really, every writable syscon is probably implemented as "sram" in
+> hardware. But an sram cell that is not general use memory but is
+> treated by the hardware as having some meaning is not mmio-sram. We
+> can't ever use it in any way other than as a syscon, and telling
+> implementations that they can except then slapping a huge reserved
+> range into it just makes them have to implement syscons twice, once
+> as syscons and once as syscons-except-it's-a-reserved-sram-mmio-range.
+> 
 
-Regards
-Luca
+I understand. That's a valid reason, it's ok.
 
->
-> Konrad
+I'm not sure though why you're talking about huge restructuring of the MediaTek
+cpufreq driver to add the FDVFS registers in the reg list?
 
+There are only two MMIOs that we care about here, right? FDVFS and FDVFS-CONFIG.
+
+Imagine the devicetree node being like this:
+
+performance-controller@1234 {
+   compatible = "mediatek,mt8196-cpufreq-hw";
+   reg = <0 0xdomain1 0 0xsz>, <0 0xdomain2 0 0xsz>, <0xdomainN 0 0xsz> ...
+         <0 0xfdvfs 0 0xsz>, <0 0xfdvfsconfig 0 0xsz>;
+   #performance-domain-cells = <1>;
+};
+
+If you want, you can even do without having reg-names (though that might be better
+for readability), because:
+
+   1. This is a MT8196-specific binding (and node); this means that you can safely
+      assume that:
+      - There are three clusters (ignorable)
+      - There is FDVFS support (not ignorable)
+   2. No other SoC will ever use the MT8196 binding without being compatible with it
+      and anyway newer socs will need something like
+      compatible = "mediatek,mt1234-cpufreq-hw", "mediatek,mt8196-cpufreq-hw";
+      - This means that N.1 still stands for new SoCs
+
+So I do see two solutions here, of which I kinda prefer the one without reg-names.
+
+With reg-names:
+  1. Check all MMIOs named "domain%u" (domain0, domain1, domain2): this kind-of
+     reflects the naming of the cpufreq policies (policy0...N), which even keeps
+     things consistent between both hardware names and cpufreq software names (but
+     of course - as long as HW is described in bindings, we don't care about any
+     software defined names);
+     - This gives you the number of performance domains, 3 in the specific case
+       of the MT8196 SoC (and some future others for sure!)
+  2. Get reg by name: "fdvfs-base", "fdvfs-config"
+
+Without reg-names:
+  1. Define the following in the dt-bindings for the cpufreq with fdvfs:
+     reg:
+       - description: FDVFS Performance State (or voltage?) setting region
+       - description: FDVFS Configuration region
+       - description: Cluster 0 OPP tables and Performance State setting region
+       - description: Cluster 1 OPP tables and ...
+       - description: Cluster 2 OPP tables and ...
+       (new socs) - description: Cluster 3 ... etc etc etc
+  2. Add the MT8196 conditionals and exclusions:
+     if: (blahblah) mediatek,mt8196-cpufreq-hw
+     then: reg:   minItems: 5    maxItems: 5
+  3. Modify the driver like so:
+     - Add platform data for MT8196, and set a "uses_fdvfs = true" (or something
+       like that, anyway, your call about the naming)
+     - Get the FDVFS regions:
+         fdvfs_base = devm_platform_ioremap_resource(pdev, 0);
+         error_checking_here();
+         fdvfs_config = devm_platform_ioremap_resource(pdev, 1);
+         error_checking_here();
+
+         static int mtk_cpu_resources_init(.....)
+         {
+           .....code......
+           index = args.args[0]; /* performance-domains number after parsing */
+
+           if (pdata->uses_fdvfs)
+             index += 2;
+
+           ...code... (no further modification required)
+         }
+   4. Profit!
+
+Now, if you're thinking about *guaranteeing* that FDVFS is always the first two
+MMIOs in the node... just do not care.
+
+You are already enforcing that with devicetree bindings, so that's how you are
+guaranteeing that.
+
+Anyway - If you want to make an entirely new binding named
+            mediatek,mt8196-cpufreq-hw.yaml
+noone prevents you from doing that.
+
+If the binding describes the same hardware, it is WRONG to create a new one, but
+in this case it would be describing *new hardware* that is incompatible with the
+previous version, so that's RIGHT to do.
+
+You don't need to have two drivers for two bindings, either.
+
+You can have one driver with two different bindings, as long as it makes sense to
+have that (as in, if the two are incompatible in the binding, but in the actual
+code it still makes sense to have both in the same driver, that's ok).
+
+Cheers!
+Angelo
+
+>>
+>> Cheers,
+>> Angelo
+>>
+> 
+> Kind regards,
+> Nicolas Frattaroli
+> 
+>>> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+>>> ---
+>>>    Documentation/devicetree/bindings/mfd/syscon.yaml | 4 ++++
+>>>    1 file changed, 4 insertions(+)
+>>>
+>>> diff --git a/Documentation/devicetree/bindings/mfd/syscon.yaml b/Documentation/devicetree/bindings/mfd/syscon.yaml
+>>> index 27672adeb1fedb7c81b8ae86c35f4f3b26d5516f..5ee49d2ba0cdb72dd697a0fd71c8416ad4fd2c1e 100644
+>>> --- a/Documentation/devicetree/bindings/mfd/syscon.yaml
+>>> +++ b/Documentation/devicetree/bindings/mfd/syscon.yaml
+>>> @@ -88,6 +88,8 @@ select:
+>>>              - mediatek,mt8135-pctl-a-syscfg
+>>>              - mediatek,mt8135-pctl-b-syscfg
+>>>              - mediatek,mt8173-pctl-a-syscfg
+>>> +          - mediatek,mt8196-fdvfs
+>>> +          - mediatek,mt8196-fdvfs-config
+>>>              - mediatek,mt8365-syscfg
+>>>              - microchip,lan966x-cpu-syscon
+>>>              - microchip,mpfs-sysreg-scb
+>>> @@ -194,6 +196,8 @@ properties:
+>>>              - mediatek,mt8135-pctl-a-syscfg
+>>>              - mediatek,mt8135-pctl-b-syscfg
+>>>              - mediatek,mt8173-pctl-a-syscfg
+>>> +          - mediatek,mt8196-fdvfs
+>>> +          - mediatek,mt8196-fdvfs-config
+>>>              - mediatek,mt8365-infracfg-nao
+>>>              - mediatek,mt8365-syscfg
+>>>              - microchip,lan966x-cpu-syscon
+>>>
+>>
+>>
+>>
+> 
+> 
+> 
+> 
 
