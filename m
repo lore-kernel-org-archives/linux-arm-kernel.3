@@ -4,85 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBC0DC83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 11:16:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3817EC83F1B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 11:18:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iYsZgpGyc92tylgoOl1ueE7I+vTEL4X4JFlPanY31ls=; b=4Ca2wV8qcXamMUlz64yX5vNuNe
-	Q26oaMCZ2sJvA4QmlHxzGtJn6jPwgLUQ59sA/xzPO49IzBLvQnifiqKzDc49aioGmBLVgskqnmXWl
-	AsAO3wQYKvK6s3csZZxyBtnNr+6RR80Qrdg1iVRp9mHF280+xvHJ4NQFGlFyZPzLt1nmt13P9rv0+
-	TcK0alDSxpuhBBc22VJCmKpjlco9nhWu+xtyXayvguw/rRIaYr/VDGjXq2gCq4NQ2yH9pBhTPSlxB
-	BNeN5c5/nvXrbFWpmUbv7t8MRAeE0hYcBBLQwoF38QAS5Yh2nkkeNzYjHUBBSEfjgQqaqJdM+sqcC
-	8IZiT2DQ==;
+	bh=PXtC+Ido9YgtHxLvcR+egm84Hyw0TuokS2ZdVegZyNI=; b=FwqJbwGWumjC1a7CIxJA52cMAK
+	L0bTWsuqjcw1i6YrbLJN7d64cLS5xy14ZAZDAp3SKmAyA4KZjNdmimC2fVO9AwBNw9SoyUwl0WUvM
+	K1JhO3joxrCP7uF2suKHfBRSzB69EMDopd6F1zMQdc48/Sm1oQUSARXn7EggwApBEgroqGZJ7KUZT
+	wuGdty0gejCl4XCwvx6CdpzQoqLGo8V6PHYZw4iM5S6LSdRbesMdM8CdtZ06TZyAR9zNhxviOogB6
+	qQmrAGhR4jGOEbvheOo67IL/vQ2BpQ9VjgsWzqGmysiOkHoZ85tvk/F/eUVvmvzkeRJqRR92XTT8h
+	qpsUhJQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubHA4-000000020hX-463B;
-	Mon, 14 Jul 2025 11:15:56 +0000
-Received: from mail-yb1-xb2d.google.com ([2607:f8b0:4864:20::b2d])
+	id 1ubHCV-0000000210J-0IUE;
+	Mon, 14 Jul 2025 11:18:27 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubH7c-000000020Q2-3bun
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Jul 2025 11:13:26 +0000
-Received: by mail-yb1-xb2d.google.com with SMTP id 3f1490d57ef6-e81a7d90835so3199636276.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Jul 2025 04:13:24 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1752491604; x=1753096404; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=iYsZgpGyc92tylgoOl1ueE7I+vTEL4X4JFlPanY31ls=;
-        b=cZW3WsWnSNWNnfU7iLl1TsREuokEKEoukBZTiWtdhNwuI3l2DrFe2VJDpG1w/rND14
-         RRshO1+027Ogs59J9TMyHLx9Ta4PpG2Ot794Wf0PHIFbb0nSN6uS8m4zou4fhUrQfLv9
-         tmf0UwO6+ZHMD9F4L+js0o1hJx+wXz3Hl1d80XpBbvLzs7u2ZRprh8t0E61lBsPPIk/k
-         +zIrYD6N2z4Z5TGRLQrcsdVXEe6lsCRzv48WhTKx9iS/kIKyUOHfS9m9ECFVpuWFOa/E
-         wl1yDKK5DUm90OJ3yi1S7u3Z+kw0X3VVwBhZ07Lj4mDVCXJemW098eWvLrYO0fy6lj5j
-         271g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752491604; x=1753096404;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=iYsZgpGyc92tylgoOl1ueE7I+vTEL4X4JFlPanY31ls=;
-        b=jNetJY6WCD0U3LnbSrglPGmIP2y94LaIBqjOJbLdBqFHP5spjKuNvnTK+6qwnybGjv
-         gSFIQu9ToeHccx1ohNtTrMGfHAxzfjlE4D7cDdILeFTCvmixYH5pz5s73x9ljaM18BjP
-         jKRWEJIGtz/bKjqha1xnJ3BUBAAQkjRjW9a0XT2cg0VoXAeyO9V2+70yKrZg8r1teDnM
-         bZPqzm0HvAd35JFTt52/mGYk/Rorq3crjqcpuXf0wnDzZr6S7q72DUmPWMMd9Bh3SqG9
-         qT6xQ8NqpOVbFcEQAcRvUFbBoc9UspPIqLfb73hocTv0X5VmbFo94gphLN1kFYEvzrNG
-         6sJw==
-X-Forwarded-Encrypted: i=1; AJvYcCXUgriCIYMogkYRS1YHqasEAJ+u7oxpsjSY/5J+IfnnSsORYX6A4fbKNC2ft7MIsaRxrWiRlK3eoHWIx8CVG6gr@lists.infradead.org
-X-Gm-Message-State: AOJu0Yymqh1sBU05XhI+fC9sk1Fo22aZPDQ5R3antfElGwd78HMTGFbk
-	FVv+ExJVDGzpalKISaTx8I9fiuTWB9wyMrxnijtni4ftczu+a4Aqma0pcBkpp8ZuBLWP1+c44vy
-	ONdBegnkiQU1rMY9Hd3g/+Ba/kco78+6rxAonEiYf+Q==
-X-Gm-Gg: ASbGncshIa6ldUndehp8pN9E2CZwMMjV+wO6D2CzpyTqANWUTnDWnQBmltQeF7TcoBm
-	VF2ZEkbaVGZbbq9vUknYvRvU7h4QMY/Wj0djWu0W7XBR9oCZJRN+4pt2/xG96Ig6yfXPDJ2uVPr
-	aoI+99X+3CaeGSuM2eJPlwllBtS/veQeWCizXVsLGl3PW/2eIrAZmv33PUl1hVHMtC4YH5AXZXN
-	knYbDwl
-X-Google-Smtp-Source: AGHT+IEo5nowTE/kmucDEHrishTa1XrYiiyuTFtayRgTTm+E8uO5OzwI/Scst1QOoi4vBiyg+Oy6sxmd+YJaGyA1WnM=
-X-Received: by 2002:a05:690c:d19:b0:70d:ffaf:48df with SMTP id
- 00721157ae682-717d786dda1mr175760437b3.3.1752491603539; Mon, 14 Jul 2025
- 04:13:23 -0700 (PDT)
+	id 1ubH9V-000000020do-01zy;
+	Mon, 14 Jul 2025 11:15:22 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1752491708; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=ibsPL+Yzf77mSlY7Lf1egFE2iTkwDtHU6GT2qNDcj7XWUlyxhIcv1NVNVAQCGvWKZTa7xWB4+DuykKUYvIspil6K3CghdmSgYR9ilY8BywL5bGc8DOzuD2zdBXBLM6IuSZf9K85NWIu9g2gr0JqC5s3AuQxr6bavXjPVzKkjNrg=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1752491708; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=PXtC+Ido9YgtHxLvcR+egm84Hyw0TuokS2ZdVegZyNI=; 
+	b=GBWyE6UeZ+RMC1M8QkdgITsjQLqOhr0iUUP0Sh4VDow6/JwVbfennNxp9wqpkBvQP+5YNNOycH1+2Zs0He9Kf+8864vT4dZkM5tNT7xwIBH6AxKkNFESLqFJN9ZMg2jmVtRitGJNVn7rAZeZYb/kKWZvWfrJpTfj9Gms4TY2GJQ=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1752491708;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
+	bh=PXtC+Ido9YgtHxLvcR+egm84Hyw0TuokS2ZdVegZyNI=;
+	b=ERDEhpx8linIT39t7UxCNawgqgt40n96Iw5HQkSwLUoOxFLi5Ab/HLgEDU+iYgXp
+	t966lIBjCiVkRAT+H9mwTTWUpOUBiEq64aFN0M2vuCHMoPhJJ4tkXMrPgzuB2u+qfrl
+	w+gVnx5JYUFFRqK0yG+H3HzErm0afCh140k83uf4=
+Received: by mx.zohomail.com with SMTPS id 175249170629941.44373789408917;
+	Mon, 14 Jul 2025 04:15:06 -0700 (PDT)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+To: Jonas Karlman <jonas@kwiboo.se>
+Cc: Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ linux-rockchip@lists.infradead.org, Yao Zi <ziyao@disroot.org>,
+ Chukun Pan <amadeus@jmu.edu.cn>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 2/6] arm64: dts: rockchip: Add Radxa ROCK 2A/2F
+Date: Mon, 14 Jul 2025 13:15:01 +0200
+Message-ID: <6066694.MhkbZ0Pkbq@workhorse>
+In-Reply-To: <54a76b31-5f69-4004-a030-0096a18a0de4@kwiboo.se>
+References: <20250712173805.584586-1-jonas@kwiboo.se> <7826308.EvYhyI6sBW@workhorse>
+ <54a76b31-5f69-4004-a030-0096a18a0de4@kwiboo.se>
 MIME-Version: 1.0
-References: <20250709154728.733920-1-daniel.lezcano@linaro.org>
-In-Reply-To: <20250709154728.733920-1-daniel.lezcano@linaro.org>
-From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Mon, 14 Jul 2025 13:12:47 +0200
-X-Gm-Features: Ac12FXxaeX7OXBuCkXJ-j03hUCK21Ze9ZEebSgiQ5mn7RsuZUrOhhvlhJZv3Zm8
-Message-ID: <CAPDyKFp9up-okoVZf5j+LFvpCOFgLjS8FY1eEqoaDU8remD8Hg@mail.gmail.com>
-Subject: Re: [PATCH] cpuidle: psci: Fix cpuhotplug routine with PREEMPT_RT=y
-To: Daniel Lezcano <daniel.lezcano@linaro.org>
-Cc: rafael@kernel.org, sudeep.holla@arm.com, linux-pm@vger.kernel.org, 
-	linux-rt-users@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Raghavendra Kakarla <quic_rkakarla@quicinc.com>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Sebastian Andrzej Siewior <bigeasy@linutronix.de>, 
-	Clark Williams <clrkwllms@kernel.org>, Steven Rostedt <rostedt@goodmis.org>, 
-	"open list:Real-time Linux (PREEMPT_RT)" <linux-rt-devel@lists.linux.dev>
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250714_041324_919850_806CD243 
-X-CRM114-Status: GOOD (  26.73  )
+X-CRM114-CacheID: sfid-20250714_041521_155362_36AA47A4 
+X-CRM114-Status: GOOD (  43.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,118 +79,292 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 9 Jul 2025 at 17:47, Daniel Lezcano <daniel.lezcano@linaro.org> wrote:
->
-> Currently cpu hotplug with the PREEMPT_RT option set in the kernel is
-> not supported because the underlying generic power domain functions
-> used in the cpu hotplug callbacks are incompatible from a lock point
-> of view. This situation prevents the suspend to idle to reach the
-> deepest idle state for the "cluster" as identified in the
-> undermentioned commit.
->
-> Use the compatible ones when PREEMPT_RT is enabled and remove the
-> boolean disabling the hotplug callbacks with this option.
->
-> With this change the platform can reach the deepest idle state
-> allowing at suspend time to consume less power.
->
-> Tested-on Lenovo T14s with the following script:
->
-> echo 0 > /sys/devices/system/cpu/cpu3/online
-> BEFORE=$(cat /sys/kernel/debug/pm_genpd/power-domain-cpu-cluster0/idle_states | grep S0 | awk '{ print $3 }') ;
-> rtcwake -s 1 -m mem;
-> AFTER=$(cat /sys/kernel/debug/pm_genpd/power-domain-cpu-cluster0/idle_states | grep S0 | awk '{ print $3 }');
-> if [ $BEFORE -lt $AFTER ]; then
->     echo "Test successful"
-> else
->     echo "Test failed"
-> fi
-> echo 1 > /sys/devices/system/cpu/cpu3/online
->
-> Fixes: 1c4b2932bd62 ("cpuidle: psci: Enable the hierarchical topology for s2idle on PREEMPT_RT")
-> Cc: Raghavendra Kakarla <quic_rkakarla@quicinc.com>
-> Signed-off-by: Daniel Lezcano <daniel.lezcano@linaro.org>
+Hi Jonas,
 
-Applied for fixes and by adding a stable-tag, thanks!
+On Monday, 14 July 2025 12:49:24 Central European Summer Time Jonas Karlman wrote:
+> Hi Nicolas,
+> 
+> On 7/14/2025 11:44 AM, Nicolas Frattaroli wrote:
+> > Hi Jonas,
+> > 
+> > see comments in-line.
+> > 
+> > On Saturday, 12 July 2025 19:37:44 Central European Summer Time Jonas Karlman wrote:
+> >> The ROCK 2A and ROCK 2F is a high-performance single board computer
+> >> developed by Radxa, based on the Rockchip RK3528A SoC.
+> >>
+> >> Add initial device tree for the Radxa ROCK 2A and ROCK 2F boards.
+> >>
+> >> Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
+> >> ---
+> >> v3: Rename led nodes to led-0/led-1 (Chukun Pan)
+> >> v2: Limit sdmmc max-frequency to 100 MHz (Yao Zi)
+> >>
+> >> Schematics:
+> >> - https://dl.radxa.com/rock2/2a/v1.2/radxa_rock_2a_v1.2_schematic.pdf
+> >> - https://dl.radxa.com/rock2/2f/radxa_rock2f_v1.01_schematic.pdf
+> >> ---
+> >>  arch/arm64/boot/dts/rockchip/Makefile         |   2 +
+> >>  .../boot/dts/rockchip/rk3528-rock-2.dtsi      | 293 ++++++++++++++++++
+> >>  .../boot/dts/rockchip/rk3528-rock-2a.dts      |  82 +++++
+> >>  .../boot/dts/rockchip/rk3528-rock-2f.dts      |  10 +
+> >>  4 files changed, 387 insertions(+)
+> >>  create mode 100644 arch/arm64/boot/dts/rockchip/rk3528-rock-2.dtsi
+> >>  create mode 100644 arch/arm64/boot/dts/rockchip/rk3528-rock-2a.dts
+> >>  create mode 100644 arch/arm64/boot/dts/rockchip/rk3528-rock-2f.dts
+> >>
+> >> diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/dts/rockchip/Makefile
+> >> index 099520962ffb..4cb6106b16f2 100644
+> >> --- a/arch/arm64/boot/dts/rockchip/Makefile
+> >> +++ b/arch/arm64/boot/dts/rockchip/Makefile
+> >> @@ -90,6 +90,8 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3399-sapphire.dtb
+> >>  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3399-sapphire-excavator.dtb
+> >>  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3399pro-rock-pi-n10.dtb
+> >>  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3528-radxa-e20c.dtb
+> >> +dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3528-rock-2a.dtb
+> >> +dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3528-rock-2f.dtb
+> >>  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3562-evb2-v10.dtb
+> >>  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3566-anbernic-rg-arc-d.dtb
+> >>  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3566-anbernic-rg-arc-s.dtb
+> >> diff --git a/arch/arm64/boot/dts/rockchip/rk3528-rock-2.dtsi b/arch/arm64/boot/dts/rockchip/rk3528-rock-2.dtsi
+> >> new file mode 100644
+> >> index 000000000000..aedc7ee9ee46
+> >> --- /dev/null
+> >> +++ b/arch/arm64/boot/dts/rockchip/rk3528-rock-2.dtsi
+> >> [...]
+> >> +
+> >> +&pinctrl {
+> >> +	bluetooth {
+> >> +		bt_wake_host_h: bt-wake-host-h {
+> >> +			rockchip,pins = <1 RK_PC2 RK_FUNC_GPIO &pcfg_pull_down>;
+> >> +		};
+> >> +
+> >> +		host_wake_bt_h: host-wake-bt-h {
+> >> +			rockchip,pins = <1 RK_PA5 RK_FUNC_GPIO &pcfg_pull_none>;
+> >> +		};
+> >> +	};
+> >> +
+> >> +	leds {
+> >> +		state_led_b: state-led-b {
+> >> +			rockchip,pins = <1 RK_PA3 RK_FUNC_GPIO &pcfg_pull_none>;
+> >> +		};
+> >> +	};
+> >> +
+> >> +	sdmmc {
+> >> +		sdmmc_vol_ctrl_h: sdmmc-vol-ctrl-h {
+> >> +			rockchip,pins = <1 RK_PC1 RK_FUNC_GPIO &pcfg_pull_none>;
+> >> +		};
+> >> +	};
+> >> +
+> >> +	usb {
+> >> +		usb_host_en: usb-host-en {
+> >> +			rockchip,pins = <0 RK_PA1 RK_FUNC_GPIO &pcfg_pull_none>;
+> >> +		};
+> >> +	};
+> >> +
+> >> +	wifi {
+> >> +		usb_wifi_pwr: usb-wifi-pwr {
+> >> +			rockchip,pins = <4 RK_PA4 RK_FUNC_GPIO &pcfg_pull_none>;
+> >> +		};
+> >> +
+> >> +		wifi_reg_on_h: wifi-reg-on-h {
+> >> +			rockchip,pins = <1 RK_PA6 RK_FUNC_GPIO &pcfg_pull_none>;
+> > 
+> > I don't see an external pull-up or pull-down in the schematic. I'm not
+> > sure what the recommended practice is; should we have a pull direction
+> > set in the SoC's pin controller in these cases, or leave it floating?
+> 
+> This is at least what I have done for gpio output pins in the past, see
+> other defines for a wifi_reg_on_h in tree.
+> 
+> My (possible wrong) reasoning is that this pin is used as a gpio output
+> pin and the output value should determin high/low. For this perticiular
+> board the wifi_reg_on_h pin is referenced as shutdown-gpios in the
+> rfkill-gpio node, so when this is initialized the output value should be
+> set high/low and the internal pull value no longer has a real purpose.
+> 
+> Please correct me if my reasoning is wrong :-)
 
-Kind regards
-Uffe
+Your explanation makes sense to me. I don't know which way is the right
+way, but I assume setting pulls does indeed not do much because any
+effect they'd have would already be way too late in the power cycle.
 
-> ---
->  drivers/cpuidle/cpuidle-psci.c | 23 ++++++++++++-----------
->  1 file changed, 12 insertions(+), 11 deletions(-)
->
-> diff --git a/drivers/cpuidle/cpuidle-psci.c b/drivers/cpuidle/cpuidle-psci.c
-> index 4e1ba35deda9..b19bc60cc627 100644
-> --- a/drivers/cpuidle/cpuidle-psci.c
-> +++ b/drivers/cpuidle/cpuidle-psci.c
-> @@ -45,7 +45,6 @@ struct psci_cpuidle_domain_state {
->  static DEFINE_PER_CPU_READ_MOSTLY(struct psci_cpuidle_data, psci_cpuidle_data);
->  static DEFINE_PER_CPU(struct psci_cpuidle_domain_state, psci_domain_state);
->  static bool psci_cpuidle_use_syscore;
-> -static bool psci_cpuidle_use_cpuhp;
->
->  void psci_set_domain_state(struct generic_pm_domain *pd, unsigned int state_idx,
->                            u32 state)
-> @@ -124,8 +123,12 @@ static int psci_idle_cpuhp_up(unsigned int cpu)
->  {
->         struct device *pd_dev = __this_cpu_read(psci_cpuidle_data.dev);
->
-> -       if (pd_dev)
-> -               pm_runtime_get_sync(pd_dev);
-> +       if (pd_dev) {
-> +               if (!IS_ENABLED(CONFIG_PREEMPT_RT))
-> +                       pm_runtime_get_sync(pd_dev);
-> +               else
-> +                       dev_pm_genpd_resume(pd_dev);
-> +       }
->
->         return 0;
->  }
-> @@ -135,7 +138,11 @@ static int psci_idle_cpuhp_down(unsigned int cpu)
->         struct device *pd_dev = __this_cpu_read(psci_cpuidle_data.dev);
->
->         if (pd_dev) {
-> -               pm_runtime_put_sync(pd_dev);
-> +               if (!IS_ENABLED(CONFIG_PREEMPT_RT))
-> +                       pm_runtime_put_sync(pd_dev);
-> +               else
-> +                       dev_pm_genpd_suspend(pd_dev);
-> +
->                 /* Clear domain state to start fresh at next online. */
->                 psci_clear_domain_state();
->         }
-> @@ -196,9 +203,6 @@ static void psci_idle_init_cpuhp(void)
->  {
->         int err;
->
-> -       if (!psci_cpuidle_use_cpuhp)
-> -               return;
-> -
->         err = cpuhp_setup_state_nocalls(CPUHP_AP_CPU_PM_STARTING,
->                                         "cpuidle/psci:online",
->                                         psci_idle_cpuhp_up,
-> @@ -259,10 +263,8 @@ static int psci_dt_cpu_init_topology(struct cpuidle_driver *drv,
->          * s2ram and s2idle.
->          */
->         drv->states[state_count - 1].enter_s2idle = psci_enter_s2idle_domain_idle_state;
-> -       if (!IS_ENABLED(CONFIG_PREEMPT_RT)) {
-> +       if (!IS_ENABLED(CONFIG_PREEMPT_RT))
->                 drv->states[state_count - 1].enter = psci_enter_domain_idle_state;
-> -               psci_cpuidle_use_cpuhp = true;
-> -       }
->
->         return 0;
->  }
-> @@ -339,7 +341,6 @@ static void psci_cpu_deinit_idle(int cpu)
->
->         dt_idle_detach_cpu(data->dev);
->         psci_cpuidle_use_syscore = false;
-> -       psci_cpuidle_use_cpuhp = false;
->  }
->
->  static int psci_idle_init_cpu(struct device *dev, int cpu)
-> --
-> 2.43.0
->
+> 
+> > 
+> >> +		};
+> >> +
+> >> +		wifi_wake_host_h: wifi-wake-host-h {
+> >> +			rockchip,pins = <1 RK_PA7 RK_FUNC_GPIO &pcfg_pull_down>;
+> >> +		};
+> >> +	};
+> >> +};
+> >> +
+> >> +&pwm1 {
+> >> +	pinctrl-names = "default";
+> >> +	pinctrl-0 = <&pwm1m0_pins>;
+> >> +	status = "okay";
+> >> +};
+> >> +
+> >> +&pwm2 {
+> >> +	pinctrl-names = "default";
+> >> +	pinctrl-0 = <&pwm2m0_pins>;
+> >> +	status = "okay";
+> >> +};
+> >> +
+> >> +&saradc {
+> >> +	vref-supply = <&vcc_1v8>;
+> >> +	status = "okay";
+> >> +};
+> >> +
+> >> +&sdhci {
+> >> +	bus-width = <8>;
+> >> +	cap-mmc-highspeed;
+> >> +	mmc-hs200-1_8v;
+> >> +	no-sd;
+> >> +	no-sdio;
+> >> +	non-removable;
+> >> +	vmmc-supply = <&vcc_3v3>;
+> >> +	vqmmc-supply = <&vcc_1v8>;
+> >> +	status = "okay";
+> >> +};
+> >> +
+> >> +&sdmmc {
+> >> +	bus-width = <4>;
+> >> +	cap-mmc-highspeed;
+> >> +	cap-sd-highspeed;
+> >> +	disable-wp;
+> >> +	max-frequency = <100000000>;
+> > 
+> > Any reason why we reduce this from the 150000000 in the SoC .dtsi?
+> 
+> Please see v1 of this series, Yao Zi reported issues when 150 MHz was
+> usued with a SD-card that works with 150 MHz on the Radxa E20C.
+> 
+> Vendor kernel seem to change drive strenght of clk pin, but that did not
+> improve the situation, so I changed it to use a lower rate for now.
+
+Oops, thanks for pointing this out. Yeah, that makes sense to me then.
+
+> 
+> > Using the frequency the SoC .dtsi uses seems to work for me on the
+> > ROCK 2A:
+> > 
+> >   [    0.347556] mmc_host mmc1: Bus speed (slot 0) = 400000Hz (slot req 400000Hz, actual 400000HZ div = 0)
+> >   [    0.547362] mmc_host mmc1: Bus speed (slot 0) = 148500000Hz (slot req 150000000Hz, actual 148500000HZ div = 0)
+> >   [    0.814405] dwmmc_rockchip ffc30000.mmc: Successfully tuned phase to 248
+> >   [    0.815407] mmc1: new UHS-I speed SDR104 SDXC card at address aaaa
+> >   [    0.817030] mmcblk1: mmc1:aaaa SH64G 59.5 GiB
+> >   [    0.820943]  mmcblk1: p1 p2
+> 
+> Using 150 MHz also worked with my 2A/3F boards and the two SD-cards I
+> could test.
+> 
+> > 
+> >> +	sd-uhs-sdr104;
+> >> +	vmmc-supply = <&vcc_3v3>;
+> >> +	vqmmc-supply = <&vccio_sd>;
+> >> +	status = "okay";
+> >> +};
+> >> +
+> >> +&uart0 {
+> >> +	pinctrl-names = "default";
+> >> +	pinctrl-0 = <&uart0m0_xfer>;
+> >> +	status = "okay";
+> >> +};
+> >> diff --git a/arch/arm64/boot/dts/rockchip/rk3528-rock-2a.dts b/arch/arm64/boot/dts/rockchip/rk3528-rock-2a.dts
+> >> new file mode 100644
+> >> index 000000000000..c03ae1dd3456
+> >> --- /dev/null
+> >> +++ b/arch/arm64/boot/dts/rockchip/rk3528-rock-2a.dts
+> >> [...]
+> >> +
+> >> +&pinctrl {
+> >> +	ethernet {
+> >> +		gmac1_rstn_l: gmac1-rstn-l {
+> >> +			rockchip,pins = <4 RK_PC2 RK_FUNC_GPIO &pcfg_pull_none>;
+> > 
+> > Same concern as with wifi-reg-on-h, there's no external pull resistor
+> > in the schematic.
+> 
+> Same resoning as above, this pin is used as the Ethernet PHY reset-gpios
+> pin. Here the bootloader (U-Boot) will also configure this pin with a
+> gpio output value to trigger a PHY reset.
+> 
+> I can change these to pull-down as that seem to be the reset value for
+> these two pins, if I understand the schematic and PinOut correctly, if
+> you have a strong opinion on that these defines are wrong.
+
+I don't feel strongly about the pinctrl at all, I think your explanation
+that U-Boot got there before us puts a nail in the coffin of whether
+they should be set at all; if anything, we'd probably make the device
+even less happy by needlessly toggling the reset again with a pull
+before it then gets toggled again by the Linux driver.
+
+Everything looks good to me with those questions of mine cleared up,
+thanks for working on this!
+
+Kind regards,
+Nicolas Frattaroli
+
+> 
+> Regards,
+> Jonas
+> 
+> > 
+> >> +		};
+> >> +	};
+> >> +
+> >> +	leds {
+> >> +		sys_led_g: sys-led-g {
+> >> +			rockchip,pins = <3 RK_PC1 RK_FUNC_GPIO &pcfg_pull_none>;
+> >> +		};
+> >> +	};
+> >> +
+> >> +	usb {
+> >> +		usb_otg_en: usb-otg-en {
+> >> +			rockchip,pins = <1 RK_PC3 RK_FUNC_GPIO &pcfg_pull_none>;
+> >> +		};
+> >> +	};
+> >> +};
+> >> diff --git a/arch/arm64/boot/dts/rockchip/rk3528-rock-2f.dts b/arch/arm64/boot/dts/rockchip/rk3528-rock-2f.dts
+> >> new file mode 100644
+> >> index 000000000000..3e2b9b685cb2
+> >> --- /dev/null
+> >> +++ b/arch/arm64/boot/dts/rockchip/rk3528-rock-2f.dts
+> >> @@ -0,0 +1,10 @@
+> >> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+> >> +
+> >> +/dts-v1/;
+> >> +
+> >> +#include "rk3528-rock-2.dtsi"
+> >> +
+> >> +/ {
+> >> +	model = "Radxa ROCK 2F";
+> >> +	compatible = "radxa,rock-2f", "rockchip,rk3528";
+> >> +};
+> >>
+> > 
+> > Other than the indicated comments,
+> > 
+> > Reviewed-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> > 
+> > ensured the pinctrls were correct, checked that they correspond to the
+> > GPIOs being used in the devices associated with them. Also checked the
+> > rock 2a schematic to verify that the vccio_sd switching setup is
+> > correct, i.e. that high is indeed 3.3V and low is 1.8V.
+> > 
+> > And:
+> > 
+> > Tested-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> > 
+> > test-booted on a ROCK 2A, tested that SD card shows up, made sure
+> > ethernet works as well, also ensured that the adc key works.
+> > 
+> > 
+> 
+> 
+
+
+
+
 
