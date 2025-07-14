@@ -4,76 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D530C83F1B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 13:56:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0041C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 13:59:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1xOuoQOHTjKwZe+2mV2V4jjmjJc9BzXKGHyKuC+khKQ=; b=Rw6x6paTFL60ITomtB+zI2gemD
-	2wI3zzK4QnE9OjnE/eQq2J5p0Tf9ga/bZXlUXLJ3vXy3n+EUJOYL0m9ZiIhj/tErrc2v7oEkhsGJf
-	8JJFFfbKbiWlAyxCM5fKnVe3FqaP+aP2evx0h43y6CZ8Z7ynuvlC9ylz551apPiOcrGwm7LpnPTUO
-	xUuWtzL+YmHnjmueSuMpYbRfJSd5GyeCvvrlReK5+GLC2IDPjZhe3tQzQmnprip4+XdjFNANbdD46
-	LCE/ygW044YVHm4Ja3jYxyyIyqv0g9qPxsI++6Bi9+o26LUo3DtkMLaHYPRcrqH/4JxK8IpkAobrF
-	/d+d/jlg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=sbexDFjpftzRKLUMFsoZCD327x/JPVEAr4KstWx05Qc=; b=oXcUHUJvPhbI29
+	3w7N50XLFWpI4Dw6KE4hJoO55cZ2zHh2jRl6DMjeVSttKZdU09xOP3R3XMU3XypoVxklLeRFuxBuN
+	jXEu0TlWTg6QddPZc7K2CHRVK8Fy9AUZ+1uytpVNfk48u9drRgxrF0xD08G9eWJVQIEu79l19IzQb
+	wnUL0fJcpXVRJMfGaGdXJ49PhFatd44njNH6Vqw/PBiHtSBgkALKQOfwT7gkmUEZgk9Fzi9dX5Uew
+	iQ2dehGV7W9YD2R26WaAx8dfBOyOi5LLaHUtL6rpz3irSVBMtJXFDCNu76JWBOEcyZQbK332phLOO
+	iMSWEExl0k7xeIYcpUEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubJfA-00000002Ni5-1PLv;
-	Mon, 14 Jul 2025 13:56:12 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1ubJht-00000002OlB-3Hzs;
+	Mon, 14 Jul 2025 13:59:01 +0000
+Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubJVh-00000002M8F-1vku
+	id 1ubJdj-00000002NNp-41Wr
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Jul 2025 13:46:26 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 9E4C7A5710D;
-	Mon, 14 Jul 2025 13:46:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 64FA9C4CEED;
-	Mon, 14 Jul 2025 13:46:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752500784;
-	bh=z6HOlc4d4/6v9yiOT75dMW3Y+Io2teVHe4b1UBdhmCU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=HIBZiCJTIKcoMWgz53SvYqU3ji9dzJEOTX+rFPy95fViBAusWB9EkY/w4W3up1gyR
-	 QHtxlLIZCjXLRof2AjpP3ONdEVpxnTBsQwfhFTzHy8qR+f9lhU9dJWPhG+svZCkJFc
-	 Z11jlBcwl4r/tXv+Q0sQz9nUT0PM1i6aApkMVyLvn+V/2FGDBOVgGW7IRhVayckknz
-	 WEwRr2aAhGQBblBdnkpp3MX24zHuQshjSxoHUeyM+LyiPOrqm6eKZy3lZkIYK4eyc5
-	 eHO7nemJ3YhytIe6vz1zpmz5NyE5cnRApAjw1rerqH2HFcYjcBFAnwziN3FGhbzA+5
-	 D/g+8lPwKKRmA==
-Date: Mon, 14 Jul 2025 14:46:16 +0100
-From: Will Deacon <will@kernel.org>
-To: James Clark <james.clark@linaro.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>, leo.yan@arm.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-perf-users@vger.kernel.org, linux-doc@vger.kernel.org,
-	kvmarm@lists.linux.dev
-Subject: Re: [PATCH v3 03/10] perf: arm_spe: Add support for FEAT_SPE_EFT
- extended filtering
-Message-ID: <aHUKKPySsJ4ne-EE@willie-the-truck>
-References: <20250605-james-perf-feat_spe_eft-v3-0-71b0c9f98093@linaro.org>
- <20250605-james-perf-feat_spe_eft-v3-3-71b0c9f98093@linaro.org>
+	Mon, 14 Jul 2025 13:54:45 +0000
+Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-3a4fd1ba177so2846329f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Jul 2025 06:54:43 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1752501282; x=1753106082; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=sbexDFjpftzRKLUMFsoZCD327x/JPVEAr4KstWx05Qc=;
+        b=a7DPr05ycI0/Mt82UxlHJw8RlcyKo5pQSkczWcoi7kGk7H60zRc7Ee5PDrVLYDgCW3
+         VQ/QeKpnKVqaWM2yDj+9NheOwrxCDf9NIE4yQewFoaSRTLrsauqnk+fJEaytQVghOVtR
+         CZy6r9QnmZVAvATDe21GIBhfxG9vGWTmesJ3aD0LBEEouHMdxn3cl6qxztpCrEBDIgAA
+         U+/ld4nezzbyuAW2wTZveA3ys4HdHqfa69gEdJmTHA6PkluZH6ee39FIQYQZaauDoPzk
+         0Wb/EeGgEnX9WUQn2V/iHiFgrc8SrCEPw4iN4mJd6W2Ul5SxCL4G1Ll9kEcsKCBr78jI
+         t+fw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1752501282; x=1753106082;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=sbexDFjpftzRKLUMFsoZCD327x/JPVEAr4KstWx05Qc=;
+        b=OXxboRYBcTe/cS1gD1QN5IvXSFa4WN3ucyqSz5ppAkXuZO8dkPJ1eCwiKPQXzp/yFv
+         Ico25vGh23DjS/LxHEcoqIG+AjGIh7w+Q9jbpdebEmbBjDVjWeEkOAPh+w6GqqHTzt/f
+         pHc9tev0WDBuJIc5sK7XQpwPRt66oCg1Roo+uRS5QQ7vw4mM1sHRtKL1CjlI8c9mmx3B
+         +j1Kr6rbWIm9kkuZqZJEec6wnSabRY1oENereJfteMvd/gR7osq/NX/h1pmrczyKrH+T
+         ssYxsvxCBYgOcXGiK2idp+1x9lPI+zzFdHDtFbKhnNSm0Uy+xM9qcLQRFYXisjzeruHJ
+         qfJw==
+X-Forwarded-Encrypted: i=1; AJvYcCUJA9n4J5PXg9mk/jNGERjyAsgok2JH0tA5orSP20A1YLqVpfuiyfJjq40q+/3wqMczVhIuSCHKH0NcxhVIMRqo@lists.infradead.org
+X-Gm-Message-State: AOJu0YxTvHH6A+eVGlCBgBZe8LPYaIWNSg5IbQ1ZEH+R3BriMD30E+Sd
+	Jw2SS6gt6wR7E3hfEhSaXf4HBTvVFzNx+1Ogd6FCdO95s4hS6vyZFVrS
+X-Gm-Gg: ASbGncutzJHJQWR3Nyfx9E9eeF/MHXtuP/SLwle3st2Vl8bldLJGgIZGt6StKP8kjmd
+	2eOatKHGG1WQ80U/rY3m7AwzbNRnoh+VQeg6gGFpTGQrELtXaYw3o7P5oENCjIOIFaitj5RkAgm
+	lEIRGEi+NADZ5irByadky5m4S603ciKq1GfMZwHTcgs3e6Q01xWn2n3yIQtcF5Ki+c9yLu91WAI
+	w6wu69/Ix3xFXfaQkE2j0A/wBo/AqEjb7q0Ftr6L6Wgjag51t9LZg4gZoJjEHL/XvpSUfZ2yr+2
+	01PjLwv/O49e2WJqdR7sJXLzNbEuVsX01tXaYXBVU5S45NO5ggbgkwBqebOmzN/R0uLdZ54v0pt
+	92vIGryPEpcFw6tilKwNv6pY=
+X-Google-Smtp-Source: AGHT+IF74DQCzwwIomyBqEdXXOD1jj69Vn57eaymRaq7JEtoCmwGDdu6w5HfwaY0Mnrz+k2RuQo+dA==
+X-Received: by 2002:a05:6000:4907:b0:3b3:9c56:b825 with SMTP id ffacd0b85a97d-3b5e7f34e3cmr15791519f8f.22.1752501281828;
+        Mon, 14 Jul 2025 06:54:41 -0700 (PDT)
+Received: from localhost ([2001:861:3385:e20:2acd:89a8:83d9:4be5])
+        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-454dd241210sm134773145e9.0.2025.07.14.06.54.41
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 14 Jul 2025 06:54:41 -0700 (PDT)
+From: Raphael Gallais-Pou <rgallaispou@gmail.com>
+Subject: [PATCH v2 0/3] STi device-tree cleanup
+Date: Mon, 14 Jul 2025 15:49:13 +0200
+Message-Id: <20250714-sti-rework-v2-0-f4274920858b@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250605-james-perf-feat_spe_eft-v3-3-71b0c9f98093@linaro.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIANkKdWgC/1XMQQ6CMBCF4auQrq2ZKbQIK+9hXBQoMFGoaUnVE
+ O5uITHi8r3k/2bmjSPjWZnMzJlAnuwYhzgkrO712BlOTdxMgJCQAXI/EXfmad2NVwCFlKhTJWo
+ Wg4czLb027HKNuyc/Wffe7CDW98uoPRMEB95gpbCtIC8yde4GTfdjbQe2MgF/aY7pX4oxVTkqD
+ YWR6anZp8uyfAAsKuob3wAAAA==
+X-Change-ID: 20250401-sti-rework-b009551a362c
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Patrice Chotard <patrice.chotard@foss.st.com>, 
+ Russell King <linux@armlinux.org.uk>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, Alain Volmat <avolmat@me.com>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1634; i=rgallaispou@gmail.com;
+ h=from:subject:message-id; bh=H/Oh3chBUpLzn0eNy+IaizkwixT6SipYXq6A3XVjTHQ=;
+ b=owEBbQKS/ZANAwAKAechimjUEsK1AcsmYgBodQwRRIPuR301IFBulcUz6dbFJvnew4dfSC9PU
+ wW5Rs/nstqJAjMEAAEKAB0WIQQgmXv2E+fvbV/9ui/nIYpo1BLCtQUCaHUMEQAKCRDnIYpo1BLC
+ tVoeD/96W9cfUoDitYxPMWeu9TTXWFUqavcyUyrp94uDntgeorRswvVTA7Ngg7WUM+OxuQJI5mw
+ n9nAtcJPvweseKDZEMha0vMQj82TdsrTKjueo3EFs9D1KIC5mLXlRZP49llMM+AFv+zyEtAOAz6
+ 2KrimlM4k99/goaLhuMbkvyytEtzIb4OyAjX1UIzp7wkUHD4gCjBfXnIuL5uPHajWXJkniKQw+K
+ YX42XDn6Z0Fgk7MKpDEfDYbSZW9453swASYm+DwWWRpJioyS6xKY1qum7JDPaqnMjfIHX5+k35g
+ onaE96Aep7OoGwO9HIlELNwYJ+r4L92Xihm00HDUveVw/0QJDYpHhzlnSrSetzI7BhGzNwkFkX8
+ 6wIxS0icQZU8S01Ed+mkDbxPXwH58bFTNDnVvlLQeQxSL1F8uBhPOuxv7i1V3PsAQoAxJyvTBcx
+ DSP8QrngMgqw4J003Om7SHXsP7AH0+NQCebF9iIujBfT3vqYzGlgUph1L2Lkf3IK4JRebCIygAe
+ SN/qcDCfkN+NAnhdBdjM0xxWL70A8zRGn4BWHmptZkz4FUOgKXzjZcOmwWIKMzySEdKcXkOTIuK
+ PL7XDiC88zGj5zJAIr4MPY4IlMTVIrzB2j+mIt9eAgkxd6WCUXNH3bQ8l6ws1hcDtbWwJ3WgU4B
+ QKuezY3W11wgpAw==
+X-Developer-Key: i=rgallaispou@gmail.com; a=openpgp;
+ fpr=20997BF613E7EF6D5FFDBA2FE7218A68D412C2B5
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250714_064625_621853_86A613D4 
-X-CRM114-Status: GOOD (  29.63  )
+X-CRM114-CacheID: sfid-20250714_065444_003384_38CE7825 
+X-CRM114-Status: GOOD (  10.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,166 +121,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 05, 2025 at 11:49:01AM +0100, James Clark wrote:
-> FEAT_SPE_EFT (optional from Armv9.4) adds mask bits for the existing
-> load, store and branch filters. It also adds two new filter bits for
-> SIMD and floating point with their own associated mask bits. The current
-> filters only allow OR filtering on samples that are load OR store etc,
-> and the new mask bits allow setting part of the filter to an AND, for
-> example filtering samples that are store AND SIMD. With mask bits set to
-> 0, the OR behavior is preserved, so the unless any masks are explicitly
-> set old filters will behave the same.
-> 
-> Add them all and make them behave the same way as existing format bits,
-> hidden and return EOPNOTSUPP if set when the feature doesn't exist.
-> 
-> Reviewed-by: Leo Yan <leo.yan@arm.com>
-> Tested-by: Leo Yan <leo.yan@arm.com>
-> Signed-off-by: James Clark <james.clark@linaro.org>
-> ---
->  drivers/perf/arm_spe_pmu.c | 64 ++++++++++++++++++++++++++++++++++++++++++++++
->  1 file changed, 64 insertions(+)
-> 
-> diff --git a/drivers/perf/arm_spe_pmu.c b/drivers/perf/arm_spe_pmu.c
-> index d9f6d229dce8..9309b846f642 100644
-> --- a/drivers/perf/arm_spe_pmu.c
-> +++ b/drivers/perf/arm_spe_pmu.c
-> @@ -86,6 +86,7 @@ struct arm_spe_pmu {
->  #define SPE_PMU_FEAT_ERND			(1UL << 5)
->  #define SPE_PMU_FEAT_INV_FILT_EVT		(1UL << 6)
->  #define SPE_PMU_FEAT_DISCARD			(1UL << 7)
-> +#define SPE_PMU_FEAT_EFT			(1UL << 8)
->  #define SPE_PMU_FEAT_DEV_PROBED			(1UL << 63)
->  	u64					features;
->  
-> @@ -197,6 +198,27 @@ static const struct attribute_group arm_spe_pmu_cap_group = {
->  #define ATTR_CFG_FLD_discard_CFG		config	/* PMBLIMITR_EL1.FM = DISCARD */
->  #define ATTR_CFG_FLD_discard_LO			35
->  #define ATTR_CFG_FLD_discard_HI			35
-> +#define ATTR_CFG_FLD_branch_filter_mask_CFG	config	/* PMSFCR_EL1.Bm */
-> +#define ATTR_CFG_FLD_branch_filter_mask_LO	36
-> +#define ATTR_CFG_FLD_branch_filter_mask_HI	36
-> +#define ATTR_CFG_FLD_load_filter_mask_CFG	config	/* PMSFCR_EL1.LDm */
-> +#define ATTR_CFG_FLD_load_filter_mask_LO	37
-> +#define ATTR_CFG_FLD_load_filter_mask_HI	37
-> +#define ATTR_CFG_FLD_store_filter_mask_CFG	config	/* PMSFCR_EL1.STm */
-> +#define ATTR_CFG_FLD_store_filter_mask_LO	38
-> +#define ATTR_CFG_FLD_store_filter_mask_HI	38
-> +#define ATTR_CFG_FLD_simd_filter_CFG		config	/* PMSFCR_EL1.SIMD */
-> +#define ATTR_CFG_FLD_simd_filter_LO		39
-> +#define ATTR_CFG_FLD_simd_filter_HI		39
-> +#define ATTR_CFG_FLD_simd_filter_mask_CFG	config	/* PMSFCR_EL1.SIMDm */
-> +#define ATTR_CFG_FLD_simd_filter_mask_LO	40
-> +#define ATTR_CFG_FLD_simd_filter_mask_HI	40
-> +#define ATTR_CFG_FLD_float_filter_CFG		config	/* PMSFCR_EL1.FP */
-> +#define ATTR_CFG_FLD_float_filter_LO		41
-> +#define ATTR_CFG_FLD_float_filter_HI		41
-> +#define ATTR_CFG_FLD_float_filter_mask_CFG	config	/* PMSFCR_EL1.FPm */
-> +#define ATTR_CFG_FLD_float_filter_mask_LO	42
-> +#define ATTR_CFG_FLD_float_filter_mask_HI	42
->  
->  #define ATTR_CFG_FLD_event_filter_CFG		config1	/* PMSEVFR_EL1 */
->  #define ATTR_CFG_FLD_event_filter_LO		0
-> @@ -215,8 +237,15 @@ GEN_PMU_FORMAT_ATTR(pa_enable);
->  GEN_PMU_FORMAT_ATTR(pct_enable);
->  GEN_PMU_FORMAT_ATTR(jitter);
->  GEN_PMU_FORMAT_ATTR(branch_filter);
-> +GEN_PMU_FORMAT_ATTR(branch_filter_mask);
->  GEN_PMU_FORMAT_ATTR(load_filter);
-> +GEN_PMU_FORMAT_ATTR(load_filter_mask);
->  GEN_PMU_FORMAT_ATTR(store_filter);
-> +GEN_PMU_FORMAT_ATTR(store_filter_mask);
-> +GEN_PMU_FORMAT_ATTR(simd_filter);
-> +GEN_PMU_FORMAT_ATTR(simd_filter_mask);
-> +GEN_PMU_FORMAT_ATTR(float_filter);
-> +GEN_PMU_FORMAT_ATTR(float_filter_mask);
->  GEN_PMU_FORMAT_ATTR(event_filter);
->  GEN_PMU_FORMAT_ATTR(inv_event_filter);
->  GEN_PMU_FORMAT_ATTR(min_latency);
-> @@ -228,8 +257,15 @@ static struct attribute *arm_spe_pmu_formats_attr[] = {
->  	&format_attr_pct_enable.attr,
->  	&format_attr_jitter.attr,
->  	&format_attr_branch_filter.attr,
-> +	&format_attr_branch_filter_mask.attr,
->  	&format_attr_load_filter.attr,
-> +	&format_attr_load_filter_mask.attr,
->  	&format_attr_store_filter.attr,
-> +	&format_attr_store_filter_mask.attr,
-> +	&format_attr_simd_filter.attr,
-> +	&format_attr_simd_filter_mask.attr,
-> +	&format_attr_float_filter.attr,
-> +	&format_attr_float_filter_mask.attr,
->  	&format_attr_event_filter.attr,
->  	&format_attr_inv_event_filter.attr,
->  	&format_attr_min_latency.attr,
-> @@ -250,6 +286,16 @@ static umode_t arm_spe_pmu_format_attr_is_visible(struct kobject *kobj,
->  	if (attr == &format_attr_inv_event_filter.attr && !(spe_pmu->features & SPE_PMU_FEAT_INV_FILT_EVT))
->  		return 0;
->  
-> +	if ((attr == &format_attr_branch_filter_mask.attr ||
-> +	     attr == &format_attr_load_filter_mask.attr ||
-> +	     attr == &format_attr_store_filter_mask.attr ||
-> +	     attr == &format_attr_simd_filter.attr ||
-> +	     attr == &format_attr_simd_filter_mask.attr ||
-> +	     attr == &format_attr_float_filter.attr ||
-> +	     attr == &format_attr_float_filter_mask.attr) &&
-> +	     !(spe_pmu->features & SPE_PMU_FEAT_EFT))
-> +		return 0;
-> +
->  	return attr->mode;
->  }
->  
-> @@ -341,8 +387,15 @@ static u64 arm_spe_event_to_pmsfcr(struct perf_event *event)
->  	u64 reg = 0;
->  
->  	reg |= FIELD_PREP(PMSFCR_EL1_LD, ATTR_CFG_GET_FLD(attr, load_filter));
-> +	reg |= FIELD_PREP(PMSFCR_EL1_LDm, ATTR_CFG_GET_FLD(attr, load_filter_mask));
->  	reg |= FIELD_PREP(PMSFCR_EL1_ST, ATTR_CFG_GET_FLD(attr, store_filter));
-> +	reg |= FIELD_PREP(PMSFCR_EL1_STm, ATTR_CFG_GET_FLD(attr, store_filter_mask));
->  	reg |= FIELD_PREP(PMSFCR_EL1_B, ATTR_CFG_GET_FLD(attr, branch_filter));
-> +	reg |= FIELD_PREP(PMSFCR_EL1_Bm, ATTR_CFG_GET_FLD(attr, branch_filter_mask));
-> +	reg |= FIELD_PREP(PMSFCR_EL1_SIMD, ATTR_CFG_GET_FLD(attr, simd_filter));
-> +	reg |= FIELD_PREP(PMSFCR_EL1_SIMDm, ATTR_CFG_GET_FLD(attr, simd_filter_mask));
-> +	reg |= FIELD_PREP(PMSFCR_EL1_FP, ATTR_CFG_GET_FLD(attr, float_filter));
-> +	reg |= FIELD_PREP(PMSFCR_EL1_FPm, ATTR_CFG_GET_FLD(attr, float_filter_mask));
->  
->  	if (reg)
->  		reg |= PMSFCR_EL1_FT;
-> @@ -716,6 +769,10 @@ static int arm_spe_pmu_event_init(struct perf_event *event)
->  	u64 reg;
->  	struct perf_event_attr *attr = &event->attr;
->  	struct arm_spe_pmu *spe_pmu = to_spe_pmu(event->pmu);
-> +	const u64 feat_spe_eft_bits = PMSFCR_EL1_LDm | PMSFCR_EL1_STm |
-> +				      PMSFCR_EL1_Bm | PMSFCR_EL1_SIMD |
-> +				      PMSFCR_EL1_SIMDm | PMSFCR_EL1_FP |
-> +				      PMSFCR_EL1_FPm;
+This serie aims to cleanup and rework the STi device-tree.
 
-I'm not sure this constant is adding much, especially as its defined
-quite a long way from its single user.
+STiH415/STIh416 SoCs are not supported anymore and B2120 boards are
+internal boards.  Update the documentation and drop the related DT
+files.
 
->  
->  	/* This is, of course, deeply driver-specific */
->  	if (attr->type != event->pmu->type)
-> @@ -761,6 +818,10 @@ static int arm_spe_pmu_event_init(struct perf_event *event)
->  	    !(spe_pmu->features & SPE_PMU_FEAT_FILT_LAT))
->  		return -EOPNOTSUPP;
->  
-> +	if ((reg & feat_spe_eft_bits) &&
-> +	    !(spe_pmu->features & SPE_PMU_FEAT_EFT))
-> +		return -EOPNOTSUPP;
+Patch [2/3] has already been sent by Alain several months ago, but got
+no response [1].
 
-You could probably just spell out the entire thing tbh. It's verbose,
-but it's also pretty clear and it means we have everything in one place:
+[1] https://lore.kernel.org/all/20230416185939.18497-1-avolmat@me.com
 
-	if ((FIELD_GET(PMSFCR_EL1_LDm, reg) ||
-	     FIELD_GET(PMSFCR_EL1_STm, reg) ||
-	     FIELD_GET(PMSFCR_EL1_Bm, reg) ||
-	     FIELD_GET(PMSFCR_EL1_SIMD, reg) ||
-	     FIELD_GET(PMSFCR_EL1_SIMDm, reg) ||
-	     FIELD_GET(PMSFCR_EL1_FP, reg) ||
-	     FIELD_GET(PMSFCR_EL1_FPm, reg)) &&
-           !(spe_pmu->features & SPE_PMU_FEAT_EFT))
-		return -EOPNOTSUPP;
+Signed-off-by: Raphael Gallais-Pou <rgallaispou@gmail.com>
+---
+Changes in v2:
+- Fix typo in cover letter s/[4/6]/[2/3]
+- Reorder patchset to be bisectable as Krzysztof mentioned
+- Add Krzysztof's Acked-by where relevant
+- Link to v1: https://lore.kernel.org/r/20250713-sti-rework-v1-0-6716a09e538d@gmail.com
 
-Will
+---
+Alain Volmat (1):
+      ARM: sti: removal of stih415/stih416 related entries
+
+Raphael Gallais-Pou (2):
+      ARM: sti: drop B2120 board support
+      dt-bindings: arm: sti: drop B2120 board support
+
+ Documentation/devicetree/bindings/arm/sti.yaml |   4 -
+ arch/arm/boot/dts/st/Makefile                  |   2 -
+ arch/arm/boot/dts/st/stih407-b2120.dts         |  27 ----
+ arch/arm/boot/dts/st/stih407.dtsi              | 145 -----------------
+ arch/arm/boot/dts/st/stih410-b2120.dts         |  66 --------
+ arch/arm/boot/dts/st/stihxxx-b2120.dtsi        | 206 -------------------------
+ arch/arm/mach-sti/Kconfig                      |  20 +--
+ arch/arm/mach-sti/board-dt.c                   |   2 -
+ 8 files changed, 1 insertion(+), 471 deletions(-)
+---
+base-commit: a6cfa4c8833944f8912c1fa7f95795753f6376ea
+change-id: 20250401-sti-rework-b009551a362c
+
+Best regards,
+-- 
+Raphael Gallais-Pou <rgallaispou@gmail.com>
+
 
