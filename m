@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4790C83F1B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 15:23:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 266A8C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 15:26:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WPwvhrgvdLTtJt+7HBgUaeZ45ADec5RzNRm5Hexhxo0=; b=dnmOyxzHyg6Hr2UKY58O58oKZo
-	HVjEid3WtgrndM/7iTlpdERA0jDCVDvjhlB0nQRLKLcVU3DYWuSpS6UK7hfplOvN7tYYxDQQrIlmn
-	72l9oq0Bw3/hLv/Y25MQBw/rc2cbn3hiXl0ldS4xlmQ0svlTY8wE9xlhsL2ecQuEoa2ja2LoYmUzT
-	Noq1+mVLq7RnBnhYxUkf2gEytqDYY0akBzcAOiHGuQWjbLWg11k4WQeB4jHiOWO11bD1kRPwnAneI
-	gqf2rd5++05ksXitOqYQQYnF6n1TvS7qtmDV144fZFdsGrqSuQkkw1us0PTWEIdWRx7n+5ZlGXtwR
-	72r0Z0uA==;
+	bh=G6t649V1EzrZ/HP6mEg0Xb/fiQdeIFETtkrsh9N4wsQ=; b=TFUtx/uNvbsKHSmvPfXLKi0U3t
+	VZ9/g/EPJa5NJ+A9UQiFBzn1HayJYa383ld6pODXcKpTHB3g6R0iRRyxfwrjWRpwxpx0eixih71/l
+	Sp7e+w5PIzGaqSwRXpF2EmpFau787qOrQVanVAHMiqn1pcyHp9wlBBL4DqNe04NkbklDoMSU6U9/x
+	8Kc7rlzP0gox+62jtwOJbyLVjmbv7QZUl1PP46rFEUwgqaZyP7dqtYqz3+x3EadgdaNLAipkESwuX
+	ItrvFYsqeZr1est5dnZlwyyseV14VGoJzF8+177MryIuNwrC8emXvkW2DhytaEI/5AP1KuDXFDXvk
+	uXGJVyUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubL1l-00000002eZu-1s0F;
-	Mon, 14 Jul 2025 15:23:37 +0000
-Received: from mail.fris.de ([116.203.77.234])
+	id 1ubL4C-00000002fCo-0odl;
+	Mon, 14 Jul 2025 15:26:08 +0000
+Received: from mail.fris.de ([2a01:4f8:c2c:390b::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubK2T-00000002SFq-23Sy
+	id 1ubK2U-00000002SGf-1RuD
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Jul 2025 14:20:19 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id A86CEC753D;
-	Mon, 14 Jul 2025 16:20:12 +0200 (CEST)
+	Mon, 14 Jul 2025 14:20:20 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 2E09CC753E;
+	Mon, 14 Jul 2025 16:20:14 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fris.de; s=dkim;
-	t=1752502813; h=from:subject:date:message-id:to:cc:mime-version:
+	t=1752502814; h=from:subject:date:message-id:to:cc:mime-version:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=WPwvhrgvdLTtJt+7HBgUaeZ45ADec5RzNRm5Hexhxo0=;
-	b=htwLPeqAbEx0U3Q76yNuvDu5hD+qBWWT5KQ264SGipc59tTVI7bFodbKI1UX2sZfJ9ErRz
-	OX/KpGus8IIDnaqDTMhxQohCsGEDYZP1NDROZQeRH+8Y1tq0FBUm5sf1pPfVh4o04r169M
-	2Cxljg+dxKZIfb9fwOUHBS2F68e5fw8UZbuDtbykYXgx6oVqCMmd9g0uXp8sQ0RaANngQs
-	rTRCFLSJrrdfCMXfbh0FXW7YsY5DOu6ZPk2C08xrRP8phGOcVTnuflBRKzC4TghAzgys66
-	/1dPl9dy3OMYQRiQJwoc0GD8EDLDOmQn91s3algpJHdyJp1Zk9HDdQLsEH05rg==
+	bh=G6t649V1EzrZ/HP6mEg0Xb/fiQdeIFETtkrsh9N4wsQ=;
+	b=Te8QgY08U4XvOxm4ZVpJDRoJLBbiZ+ECk4RunC9wh5OpT1tbLc/Z6bLR9/d1FrXelpgc8M
+	ITWfz/oG2/SEFmJPjcbKLzVlsdChI1XKPBeBaXckY0SPYJ7jF37Dxn1wa56TU/g6COjXrq
+	SelXyRDxAPMl4kswwWZtKZgPyNoKj/oblUOr3DOVygbUiBK7USBXfPDtoCafE8O1G5x0RE
+	4jZ8ulWc8wX9eyg7M++W0FxTxVyEzjg7KilXKOOzVfFymC4gqwLLm4dyls59ObjEYQOkuY
+	uoD/zimYybps2N8CZBhcxGaAvgSTbceyFQK+t53YZhFCxcNOj1jxtiGa5R6TTw==
 From: Frieder Schrempf <frieder@fris.de>
 To: linux-arm-kernel@lists.infradead.org,
 	Conor Dooley <conor+dt@kernel.org>,
@@ -48,19 +48,12 @@ To: linux-arm-kernel@lists.infradead.org,
 	Rob Herring <robh@kernel.org>,
 	Sascha Hauer <s.hauer@pengutronix.de>,
 	Shawn Guo <shawnguo@kernel.org>
-Cc: Annette Kobou <annette.kobou@kontron.de>,
-	Frieder Schrempf <frieder.schrempf@kontron.de>,
-	Alexander Stein <alexander.stein@ew.tq-group.com>,
-	Andrej Picej <andrej.picej@norik.com>,
+Cc: Frieder Schrempf <frieder.schrempf@kontron.de>,
 	Fabio Estevam <festevam@gmail.com>,
-	Frank Li <Frank.Li@nxp.com>,
-	Liu Ying <victor.liu@nxp.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Teresa Remmet <t.remmet@phytec.de>,
-	Tim Harvey <tharvey@gateworks.com>
-Subject: [PATCH 01/12] arm64: dts: imx8mm-kontron: Add overlay for LTE extension board
-Date: Mon, 14 Jul 2025 16:17:27 +0200
-Message-ID: <20250714141852.116455-2-frieder@fris.de>
+	Pengutronix Kernel Team <kernel@pengutronix.de>
+Subject: [PATCH 02/12] arm64: dts: imx8mm-kontron: Remove unused regulator
+Date: Mon, 14 Jul 2025 16:17:28 +0200
+Message-ID: <20250714141852.116455-3-frieder@fris.de>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20250714141852.116455-1-frieder@fris.de>
 References: <20250714141852.116455-1-frieder@fris.de>
@@ -68,8 +61,9 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250714_072017_984041_6A458A27 
-X-CRM114-Status: GOOD (  12.19  )
+X-CRM114-CacheID: sfid-20250714_072018_534117_4FE909CD 
+X-CRM114-Status: UNSURE (   8.37  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,226 +78,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Annette Kobou <annette.kobou@kontron.de>
+From: Frieder Schrempf <frieder.schrempf@kontron.de>
 
-This is an addon for the BL i.MX8MM that features an LTE
-modem, a TPM module, some LEDs and a pushbutton.
+This regulator is not used anywhere and is not available in hardware.
+Remove it.
 
-Signed-off-by: Annette Kobou <annette.kobou@kontron.de>
 Signed-off-by: Frieder Schrempf <frieder.schrempf@kontron.de>
 ---
- arch/arm64/boot/dts/freescale/Makefile        |   2 +
- .../dts/freescale/imx8mm-kontron-bl-lte.dtso  | 186 ++++++++++++++++++
- 2 files changed, 188 insertions(+)
- create mode 100644 arch/arm64/boot/dts/freescale/imx8mm-kontron-bl-lte.dtso
+ arch/arm64/boot/dts/freescale/imx8mm-kontron-bl-osm-s.dts | 8 --------
+ 1 file changed, 8 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-index 0b473a23d1200..05d58ce3f6550 100644
---- a/arch/arm64/boot/dts/freescale/Makefile
-+++ b/arch/arm64/boot/dts/freescale/Makefile
-@@ -341,8 +341,10 @@ imx95-19x19-evk-pcie1-ep-dtbs += imx95-19x19-evk.dtb imx-pcie1-ep.dtbo
- dtb-$(CONFIG_ARCH_MXC) += imx95-19x19-evk-pcie0-ep.dtb imx95-19x19-evk-pcie1-ep.dtb
+diff --git a/arch/arm64/boot/dts/freescale/imx8mm-kontron-bl-osm-s.dts b/arch/arm64/boot/dts/freescale/imx8mm-kontron-bl-osm-s.dts
+index 33f8d7d1970e0..3a166cf0afcb7 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mm-kontron-bl-osm-s.dts
++++ b/arch/arm64/boot/dts/freescale/imx8mm-kontron-bl-osm-s.dts
+@@ -48,14 +48,6 @@ pwm-beeper {
+ 		pwms = <&pwm2 0 5000 0>;
+ 	};
  
- imx8mm-kontron-dl-dtbs			:= imx8mm-kontron-bl.dtb imx8mm-kontron-dl.dtbo
-+imx8mm-kontron-bl-lte-dtbs		:= imx8mm-kontron-bl.dtb imx8mm-kontron-bl-lte.dtbo
- 
- dtb-$(CONFIG_ARCH_MXC) += imx8mm-kontron-dl.dtb
-+dtb-$(CONFIG_ARCH_MXC) += imx8mm-kontron-bl-lte.dtb
- 
- imx8mm-venice-gw72xx-0x-imx219-dtbs	:= imx8mm-venice-gw72xx-0x.dtb imx8mm-venice-gw72xx-0x-imx219.dtbo
- imx8mm-venice-gw72xx-0x-rpidsi-dtbs	:= imx8mm-venice-gw72xx-0x.dtb imx8mm-venice-gw72xx-0x-rpidsi.dtbo
-diff --git a/arch/arm64/boot/dts/freescale/imx8mm-kontron-bl-lte.dtso b/arch/arm64/boot/dts/freescale/imx8mm-kontron-bl-lte.dtso
-new file mode 100644
-index 0000000000000..324004b0eca3e
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8mm-kontron-bl-lte.dtso
-@@ -0,0 +1,186 @@
-+// SPDX-License-Identifier: GPL-2.0+ OR MIT
-+/*
-+ * Copyright (C) 2025 Kontron Electronics GmbH
-+ */
-+
-+/dts-v1/;
-+/plugin/;
-+
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/input/input.h>
-+#include <dt-bindings/interrupt-controller/irq.h>
-+#include <dt-bindings/leds/common.h>
-+#include "imx8mm-pinfunc.h"
-+
-+&{/} {
-+	compatible = "kontron,imx8mm-bl", "kontron,imx8mm-sl", "fsl,imx8mm";
-+
-+	gpio-keys {
-+		compatible = "gpio-keys";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_gpio_keys>;
-+
-+		key-user {
-+			label = "user";
-+			linux,code = <BTN_0>;
-+			gpios = <&gpio4 12 GPIO_ACTIVE_LOW>;
-+		};
-+	};
-+
-+	leds {
-+		compatible = "gpio-leds";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_gpio_led_lte>;
-+
-+		lte-led1-b {
-+			label = "lte-led1-blue";
-+			color = <LED_COLOR_ID_BLUE>;
-+			gpios = <&gpio3 17 GPIO_ACTIVE_HIGH>;
-+		};
-+
-+		lte-led1-g {
-+			label = "lte-led1-green";
-+			color = <LED_COLOR_ID_GREEN>;
-+			gpios = <&gpio3 18 GPIO_ACTIVE_HIGH>;
-+		};
-+
-+		lte-led1-r {
-+			label = "lte-led1-red";
-+			color = <LED_COLOR_ID_RED>;
-+			gpios = <&gpio5 23 GPIO_ACTIVE_HIGH>;
-+		};
-+
-+		lte-led2-b {
-+			label = "lte-led2-blue";
-+			color = <LED_COLOR_ID_BLUE>;
-+			gpios = <&gpio5 25 GPIO_ACTIVE_HIGH>;
-+		};
-+
-+		lte-led2-g {
-+			label = "lte-led2-green";
-+			color = <LED_COLOR_ID_GREEN>;
-+			gpios = <&gpio5 22 GPIO_ACTIVE_HIGH>;
-+		};
-+
-+		lte-led2-r {
-+			label = "lte-led2-red";
-+			color = <LED_COLOR_ID_RED>;
-+			gpios = <&gpio5 24 GPIO_ACTIVE_HIGH>;
-+		};
-+	};
-+};
-+
-+&ecspi3 {
-+	status = "disabled";
-+};
-+
-+&i2c2 {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+	clock-frequency = <400000>;
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_i2c2>;
-+	status = "okay";
-+
-+	tpm@2e {
-+		compatible = "infineon,slb9673", "tcg,tpm-tis-i2c";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_tpm>;
-+		reg = <0x2e>;
-+		interrupt-parent = <&gpio3>;
-+		interrupts = <11 IRQ_TYPE_LEVEL_LOW>;
-+	};
-+};
-+
-+&gpio3 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_gpio3>;
-+	gpio-line-names = "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "VDD_IO_REF", "TPM_PIRQ#",
-+			  "TPM_RESET# ", "", "", "",
-+			  "", "LTE_LED1_B", "LTE_LED1_G", "",
-+			  "";
-+
-+	vdd-io-ref-hog {
-+		gpio-hog;
-+		gpios = <10 GPIO_ACTIVE_HIGH>;
-+		line-name = "VDD_IO_REF";
-+		output-high;
-+	};
-+
-+	tpm-reset-hog {
-+		gpio-hog;
-+		gpios = <12 GPIO_ACTIVE_LOW>;
-+		line-name = "TPM_RESET#";
-+		output-low;
-+	};
-+};
-+
-+&gpio4 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_gpio4>;
-+	gpio-line-names = "", "", "LTE_RESET", "",
-+			  "", "", "", "",
-+			  "", "", "", "LTE_PWRKEY",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "LTE_PWR_EN";
-+};
-+
-+&gpio5 {
-+	gpio-line-names = "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "LTE_LED2_G", "LTE_LED1_R",
-+			  "LTE_LED2_R", "LTE_LED2_B";
-+};
-+
-+&iomuxc {
-+	pinctrl_gpio3: gpio3grp {
-+		fsl,pins = <
-+			MX8MM_IOMUXC_NAND_DATA04_GPIO3_IO10		0x19 /* VDD_IO_REF */
-+		>;
-+	};
-+
-+	pinctrl_gpio4: gpio4grp {
-+		fsl,pins = <
-+			MX8MM_IOMUXC_SAI1_RXD0_GPIO4_IO2		0x19 /* LTE_RESET */
-+			MX8MM_IOMUXC_SAI1_TXC_GPIO4_IO11 		0x19 /* LTE_PWRKEY */
-+			MX8MM_IOMUXC_SAI1_MCLK_GPIO4_IO20		0x19 /* LTE_PWR_EN */
-+		>;
-+	};
-+
-+	pinctrl_gpio_keys: gpiokeysgrp {
-+		fsl,pins = <
-+			MX8MM_IOMUXC_SAI1_TXD0_GPIO4_IO12		0x19 /* Pushbutton */
-+		>;
-+	};
-+
-+	pinctrl_gpio_led_lte: gpioledltegrp {
-+		fsl,pins = <
-+			MX8MM_IOMUXC_NAND_WE_B_GPIO3_IO17		0x19 /* LTE_LED1_B */
-+			MX8MM_IOMUXC_NAND_WP_B_GPIO3_IO18		0x19 /* LTE_LED1_G */
-+			MX8MM_IOMUXC_UART1_TXD_GPIO5_IO23		0x19 /* LTE_LED1_R */
-+			MX8MM_IOMUXC_UART2_TXD_GPIO5_IO25		0x19 /* LTE_LED2_B */
-+			MX8MM_IOMUXC_UART1_RXD_GPIO5_IO22		0x19 /* LTE_LED2_G */
-+			MX8MM_IOMUXC_UART2_RXD_GPIO5_IO24		0x19 /* LTE_LED2_R */
-+		>;
-+	};
-+
-+	pinctrl_i2c2: i2c2grp {
-+		fsl,pins = <
-+			MX8MM_IOMUXC_I2C2_SCL_I2C2_SCL			0x40000083 /* I2C_A_SCL */
-+			MX8MM_IOMUXC_I2C2_SDA_I2C2_SDA			0x40000083 /* I2C_A_SDA */
-+		>;
-+	};
-+
-+	pinctrl_tpm: tpmgrp {
-+		fsl,pins = <
-+			MX8MM_IOMUXC_NAND_DATA05_GPIO3_IO11		0x19 /* TPM_PIRQ# */
-+			MX8MM_IOMUXC_NAND_DATA06_GPIO3_IO12		0x39 /* TPM_RESET# */
-+		>;
-+	};
-+};
+-	reg_rst_eth2: regulator-rst-eth2 {
+-		compatible = "regulator-fixed";
+-		gpio = <&gpio1 1 GPIO_ACTIVE_HIGH>;
+-		enable-active-high;
+-		regulator-always-on;
+-		regulator-name = "rst-usb-eth2";
+-	};
+-
+ 	reg_vdd_5v: regulator-5v {
+ 		compatible = "regulator-fixed";
+ 		regulator-always-on;
 -- 
 2.50.1
 
