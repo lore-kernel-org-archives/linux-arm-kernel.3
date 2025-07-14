@@ -4,146 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57B88C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 12:38:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6956C83F1B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 12:40:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=to+jAqKUwFsv0AkY0GQhPmlDuQ5+LAk2TMq6Z7FQa2s=; b=3VvkhejU5rkhotzLY4O+MIx0QX
-	3v/x+3UH6VQPe0J9I7/FpbMzXkzquoTp2tU5Ih33PKQS2mkAZgDWZJoeRUWQeIfgnujfKx/Ihh+Ta
-	LRASwdqLSzqRc2xT3GwDyeOuwK4t9I0ItapDOARwwB7S/5wq0snJg5LdtdHB6htcoHpfsR+oF5Kyc
-	BMplLJK5k3QI1vCpzhKVaY2tBRl21N6Y6U2+ctNx+JaH5u252rA0whDtGxGTmwWD2Km15TgE6y1UG
-	Rz0gM82ZbxW/2VVJXKUd7qS86sPP6NALea0RLkokPry+uylrrH5fIhRsJqIC1XoqsRcsjqwL8cy0h
-	wyowCW0w==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=YwaM1Lk7sNbwtCFn585TaybxMy2AAE9834HKWZzScn0=; b=q4Kcx4Fp65WrIFkOcQ6aff7dg9
+	Rxq5qUJs0tKVmZGM3GJTsZxYLHzssYrL01ltydxdws9bOxBYJDJ4D7OARck8Y/tUEBC+OssP6muBU
+	iL/Rmmt/oGe5P1oQy578UaMejPy57pSHffr3FK+X5lPNSTQbyCUxlimcsWJtPT4ngHsDq2Cjre8lt
+	/X/trq25DMQ3rDv7at9NvOfM0nLadfO/DbRL3VDtvd3YTPmAN23KKC+Nm11Q/xeg+HaWxzlNGfViJ
+	u12r99XPOS7kCc8uxey5Lyf6PzJNWkRfyz5gjxd2g1iRDJIrCq+kCkev092OKBUVtGYg3u6lv6V4q
+	CtGqSRsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubIRO-00000002Bej-0V4x;
-	Mon, 14 Jul 2025 12:37:54 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1ubITo-00000002Bvx-3gGP;
+	Mon, 14 Jul 2025 12:40:24 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubI9o-00000002902-24sI
+	id 1ubIGa-000000029ij-2GeQ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Jul 2025 12:19:45 +0000
-Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56E9aJOl007777
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Jul 2025 12:19:44 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	to+jAqKUwFsv0AkY0GQhPmlDuQ5+LAk2TMq6Z7FQa2s=; b=E1uRVocuyHFzbOsE
-	SDOXrepOxttpPH3XsT7PdQ7+jLPEu7tD+Jpmzx1aIJ6UQOKjYW00inJro8y5rIzS
-	Hx2PrhXS2FOqeo+g6j0Z9S13BH3dLGvjK8C8Vssh/E2Jyy1biYQvnFdafuUTxYzG
-	PJR9dtqhXuuFM+6bip/DFAgMsGiprQBNz9XSHaU99RAw7D++zeXCZo8C3meXl/E3
-	sMTN4UDkxV6Y7d6jX+cSasFcGY3u2FFrvS3DzRWpWsllC1jfMb39ccmMQhljPi1h
-	vnUjNpph+H/NkD7/pyLbquKzOVqf4RGuBm/OmBcy2flVbY9AC6Gr5e2byhAmwJRe
-	XFJLTw==
-Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com [209.85.222.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 47v56a36ta-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Jul 2025 12:19:43 +0000 (GMT)
-Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-7e2ced79f97so14944185a.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Jul 2025 05:19:43 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752495582; x=1753100382;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=to+jAqKUwFsv0AkY0GQhPmlDuQ5+LAk2TMq6Z7FQa2s=;
-        b=NT3GsWI+CJLgpoR+4CgTvhg6hO/z2wpu4B1KnSYRXV9cZoxslA6QaJQQfVxJNclg4P
-         2KCmkSBDnC6i8RJQ8vAFKi+9kNCTpeweCZnqREkSELKY8en93o/jL+d9hh2rRKmnOY4Z
-         PgOE9UpApQUPtTG52jt8oONlIAj9RHbmWJDrocp24xrmrferVdvdxMRYcYGFHIS7uhND
-         Jgf3W6mN/gLrr15QzCy/kKOg6+V8xmGHn9wLLgba9uOa8sGM6qiSFlS11yJVl+/O2K1g
-         foGcMDrXh2xb7wvp/DW3dJ8adByIYnCE9Idw7qgjnJppfDTX/DkGWOn3D/uhPi6M0GXl
-         s1nw==
-X-Forwarded-Encrypted: i=1; AJvYcCX1QF6ndQjzG6Nrce27ZCS6afZKMrZYFGwpuKzxs5r/X4mOt90e56VeZMlG6rCNMlfAeXmyLx2jCk0A7hfvTVYo@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzdiud5FChwB+YXQaX0NCef6vyL5acBOZtsVIo8Srb9YIsesdui
-	wjZgVJVC6eqC73hCi9hK1m9A72Ls6MEBP6vw+E1/7pNwnH+AJiIY99+EmLrehkhTGRfVVWmqjWb
-	lRzpAeDhEe7w8xEhzKujBt4WLTwLgQjJpXX7RWmerrvCSf4lUjLyAQjEjuasnLeK7nPNH645pPr
-	j18Q==
-X-Gm-Gg: ASbGncsQD2BncmE609oHKkSpdq4k2POVF4naqUbeu0lGkGs13DH+34oySQaXUiSCXL0
-	iTPfiJG2cFV+vg9J/6S2eGSVakQCC3JSgEQpA22bDjWxmlKsp06QvCFJlRO/8L8chYY9gOtMfSQ
-	/H6wmtQPGftipLAbDIy2X3PO+EcWr1zDdCi5LA4MRKN8iC6YPWqGHHEqjvMUUdGjhlmVHsgOaMn
-	+60rMgN5bb2eLZWFt4CVCgcNWfRM73Wr4W4Fn82gkh+PEii1USnKQ0DiJZWW4JW/W2hZjUblzEK
-	61wTsGK0ilVCLimJOwlaXyzFZ8BAm8pWMpw55KVjQ6VpRikong0oif/Llt/4udwmnaavCx601mh
-	kECYShTKBePuyMWJwZnJs
-X-Received: by 2002:a05:620a:4514:b0:7c3:c814:591d with SMTP id af79cd13be357-7dde99543ccmr786275585a.1.1752495582227;
-        Mon, 14 Jul 2025 05:19:42 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IE/vV+coe8tEVfro7qq/0wCJ9/o2FTg1Dgu/ZwIOZQR1tYnvSopD2hrjhYTvFm/GsULL9+YrQ==
-X-Received: by 2002:a05:620a:4514:b0:7c3:c814:591d with SMTP id af79cd13be357-7dde99543ccmr786273785a.1.1752495581726;
-        Mon, 14 Jul 2025 05:19:41 -0700 (PDT)
-Received: from [192.168.143.225] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-611c9733e9fsm5990826a12.52.2025.07.14.05.19.37
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 14 Jul 2025 05:19:41 -0700 (PDT)
-Message-ID: <6f8b86c7-96a5-4c7c-b54e-25b173084d95@oss.qualcomm.com>
-Date: Mon, 14 Jul 2025 14:19:36 +0200
+	Mon, 14 Jul 2025 12:26:45 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id E8DC05C5597;
+	Mon, 14 Jul 2025 12:26:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9A652C4CEED;
+	Mon, 14 Jul 2025 12:26:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1752496003;
+	bh=ewJOgRj9eRRY+naXw54wKcAU6+y3/kMWLXLEIv8d//M=;
+	h=From:To:Cc:Subject:Date:From;
+	b=YV8VUAEEvUHnI4f8WE/EcPpt+WMASmIMFPkeRf44ltsof5XqXSEOUT8RxEE2bBp+p
+	 CYyEhYdA5NMZRyqY44H3DKKbW2Jv/nrgTvRF2YvAgsOU/vBcSEcRJjpnvrN6nSjIIq
+	 GbNE6codrQ1XNxtzO6t77JwXsEXcAo3d2Zs+mqLVw2I1nBhErusJXfXFSCXUZXUWHV
+	 G1KfGCl/7s8G1APlejBO7N9osBKUC9TbvVeET5mTs26Aj00PjQ0DkltoC0eYNUke0g
+	 27anZPIvVgnxaONb4gGZvIiuXlwb8pC21eZvrx/9sZLQu6nMCvGlQRz3Ad/G+4CU8o
+	 Ai3BFuEahadyw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1ubIGX-00FW7V-Jv;
+	Mon, 14 Jul 2025 13:26:41 +0100
+From: Marc Zyngier <maz@kernel.org>
+To: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org
+Cc: Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Eric Auger <eric.auger@redhat.com>,
+	Peter Maydell <peter.maydell@linaro.org>
+Subject: [PATCH 00/11] KVM: arm64: nv: Userspace register visibility fixes
+Date: Mon, 14 Jul 2025 13:26:23 +0100
+Message-Id: <20250714122634.3334816-1-maz@kernel.org>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 15/15] arm64: dts: qcom: Add The Fairphone (Gen. 6)
-To: Luca Weiss <luca.weiss@fairphone.com>, Will Deacon <will@kernel.org>,
-        Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        "Rafael J. Wysocki" <rafael@kernel.org>,
-        Viresh Kumar <viresh.kumar@linaro.org>,
-        Manivannan Sadhasivam <mani@kernel.org>,
-        Herbert Xu <herbert@gondor.apana.org.au>,
-        "David S. Miller" <davem@davemloft.net>, Vinod Koul <vkoul@kernel.org>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Robert Marko <robimarko@gmail.com>,
-        Das Srinagesh <quic_gurus@quicinc.com>,
-        Thomas Gleixner
- <tglx@linutronix.de>,
-        Jassi Brar <jassisinghbrar@gmail.com>,
-        Amit Kucheria <amitk@kernel.org>,
-        Thara Gopinath <thara.gopinath@gmail.com>,
-        Daniel Lezcano <daniel.lezcano@linaro.org>,
-        Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>,
-        Ulf Hansson <ulf.hansson@linaro.org>
-Cc: ~postmarketos/upstreaming@lists.sr.ht, phone-devel@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-pm@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-        linux-crypto@vger.kernel.org, dmaengine@vger.kernel.org,
-        linux-mmc@vger.kernel.org
-References: <20250713-sm7635-fp6-initial-v2-0-e8f9a789505b@fairphone.com>
- <20250713-sm7635-fp6-initial-v2-15-e8f9a789505b@fairphone.com>
-Content-Language: en-US
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <20250713-sm7635-fp6-initial-v2-15-e8f9a789505b@fairphone.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-ORIG-GUID: HKp56YFP6loj_9agCbEKbrYiH78t9pY9
-X-Authority-Analysis: v=2.4 cv=X7BSKHTe c=1 sm=1 tr=0 ts=6874f5df cx=c_pps
- a=50t2pK5VMbmlHzFWWp8p/g==:117 a=FpWmc02/iXfjRdCD7H54yg==:17
- a=IkcTkHD0fZMA:10 a=Wb1JkmetP80A:10 a=6H0WHjuAAAAA:8 a=ZwcaOx7IXxPg4YioGooA:9
- a=QEXdDO2ut3YA:10 a=zgiPjhLxNE0A:10 a=IoWCM6iH3mJn3m4BftBB:22
- a=Soq9LBFxuPC4vsCAQt-j:22
-X-Proofpoint-GUID: HKp56YFP6loj_9agCbEKbrYiH78t9pY9
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNzE0MDA3MiBTYWx0ZWRfXxxYx7GQNilVL
- qLu83j15h12JRm7Z+PolL8EGQBSJi7HJLWO1rK/ehLucRLaSRpyN565UWDnQ3iWHVbSyznNktjb
- bCAQN+bO+Qau60y+WGDKBSLiVfg4PXi1FC9OwTUl1AKQTBTuk3PFsnbET2leF6Vw9br9gkClqcz
- eV3UC1TeyhlfRHvFXI/9zY+eKw+d9UwF+z8dOixnpuwdZuzxhKYD3kyw5tQw4+uZlqwHVCkLT0F
- Y+D6Wstr49COqqHOR2y99eVcOEzhN4G/m1aQ7bvo0p2KLEa13G1vyn+ymLBMW8ZAkKVR9g+41rP
- gNGTtHmuuOSYK7PmxW1b+CT3z7oYtijSU3hmSCFi1XZgaWY/gPX0wVa/diYRY4DmmBv7bxc0ScC
- Nh3erXtMHHMwct+TVkanaAXfgs7tn23e+vPy7eicVl9FuCVKvy97ihl4jwxXlGcgRib4sxlV
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.7,FMLib:17.12.80.40
- definitions=2025-07-14_01,2025-07-14_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 adultscore=0 mlxlogscore=999 suspectscore=0 phishscore=0
- impostorscore=0 clxscore=1015 malwarescore=0 mlxscore=0 lowpriorityscore=0
- spamscore=0 priorityscore=1501 classifier=spam authscore=0 authtc=n/a authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2505280000
- definitions=main-2507140072
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, eric.auger@redhat.com, peter.maydell@linaro.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250714_051944_546930_2AB31DEF 
-X-CRM114-Status: GOOD (  16.47  )
+X-CRM114-CacheID: sfid-20250714_052644_662497_5A36CE7E 
+X-CRM114-Status: GOOD (  10.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,36 +85,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/13/25 10:05 AM, Luca Weiss wrote:
-> Add a devicetree for The Fairphone (Gen. 6) smartphone, which is based
-> on the Milos/SM7635 SoC.
-> 
-> Supported functionality as of this initial submission:
-> * Debug UART
-> * Regulators (PM7550, PM8550VS, PMR735B, PM8008)
-> * Remoteprocs (ADSP, CDSP, MPSS, WPSS)
-> * Power Button, Volume Keys, Switch
-> * Display (using simple-framebuffer)
-> * PMIC-GLINK (Charger, Fuel gauge, USB-C mode switching)
-> * Camera flash/torch LED
-> * SD card
-> * USB
-> 
-> Signed-off-by: Luca Weiss <luca.weiss@fairphone.com>
-> ---
+Peter recently pointed out that we don't expose the EL2 GICv3
+registers in a consistent manner, as they are presented through the
+ONE_REG interface instead of KVM_DEV_ARM_VGIC_GRP_CPU_SYSREGS, despite
+the latter already exposing the EL1 GICv3 regs.
 
-[...]
+While I was looking at this, I ended up finding a small number of
+equally small problems:
 
-> +	reserved-memory {
-> +		/*
-> +		 * ABL is powering down display and controller if this node is
-> +		 * not named exactly "splash_region".
-> +		 */
-> +		splash_region@e3940000 {
+- RVBAR_EL2 shouldn't be a thing at all
 
-Was it not possible to arrange for a fw update after all?
+- FEAT_FGT registers should only be exposed to userspace if the
+  feature is presented to the guest (and actually exists)
 
-fwiw the rest looks good
+- FEAT_FGT2 registers are not exposed at all, and that's bad (though
+  the machine that has FGT2 hasn't been built yet)
 
-Konrad
+- Nothing documents which registers are exposed by
+  KVM_DEV_ARM_VGIC_GRP_CPU_SYSREGS
+
+So I cooked up a handful of fixes for those. And because I was feeling
+generous, I hacked the get-reg-list test to check for the EL2
+registers reported via ONE_REG /mindblown/.
+
+Eric, I'd really appreciate if you could give this a go with QEMU to
+check that you can now correctly get to the GIC El2 registers via the
+expected interface.
+
+Marc Zyngier (11):
+  KVM: arm64: Make RVBAR_EL2 accesses UNDEF
+  KVM: arm64: Don't advertise ICH_*_EL2 registers through GET_ONE_REG
+  KVM: arm64: Define constant value for ICC_SRE_EL2
+  KVM: arm64: Define helper for ICH_VTR_EL2
+  KVM: arm64: Let GICv3 save/restore honor visibility attribute
+  KVM: arm64: Expose GICv3 EL2 registers via
+    KVM_DEV_ARM_VGIC_GRP_CPU_SYSREGS
+  KVM: arm64: Condition FGT registers on feature availability
+  KVM: arm64: Advertise FGT2 registers to userspace
+  KVM: arm64: selftests: get-reg-list: Simplify feature dependency
+  KVM: arm64: selftests: get-reg-list: Add base EL2 registers
+  KVM: arm64: Document registers exposed via
+    KVM_DEV_ARM_VGIC_GRP_CPU_SYSREGS
+
+ .../virt/kvm/devices/arm-vgic-v3.rst          |  63 +++++-
+ arch/arm64/kvm/sys_regs.c                     | 111 ++++++----
+ arch/arm64/kvm/vgic-sys-reg-v3.c              | 121 ++++++++++-
+ arch/arm64/kvm/vgic/vgic.h                    |  18 ++
+ .../selftests/kvm/arm64/get-reg-list.c        | 197 +++++++++++++++---
+ 5 files changed, 432 insertions(+), 78 deletions(-)
+
+-- 
+2.39.2
+
 
