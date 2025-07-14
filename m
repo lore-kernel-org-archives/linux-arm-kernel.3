@@ -4,65 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AE7CC83F21
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 18:50:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBA34C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 18:50:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kgouilohiRGDUzAiKFLFboe1RsXh/ydae+mxl/dMUx8=; b=lyHGadV6KiuQ22KZmK/M2NQtVF
-	jmCuaLs2cmFcxzG9ScQCAR9wldpO1zZRivOVP6oMx9I5QLiRhzjWnSndSqfYm+7ffnpJo/H6g5MGj
-	mdlzOp/qQOk4Om6oTF/JdjbpL0pghGkxv/nsvZvRk3G8G+AR8vxNCY+kRVsBwXKYi28B8iK/QsN+M
-	c9AWr8Estxj24UYKvytGtBzAVYi8Ry8Yx7NeBt2LE2GhIYPhT/Ese3xkswqYa6xTcaoYjazH884IH
-	8MWW63coCk5FS2nLlvsp+JTfpj8c7TwXyVSVohfoGpcf1zOY2gwlH3XFp97n1+dU5Qn3JpR4hFnlX
-	ZqD1dzSA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lzWaCHnho2bMyMzPaPLKOwqgDp5H9X/Keu6ZixtPxUE=; b=ukiktQm/wVkX8TCeQOaPzWr9jZ
+	hOA8Fsx31YwtOyTxHesmAL9KMxP0fn1dU43zHScQF2kCkAZ2Kepl9PseQ+mOL+zSt8Dme4IZOZV14
+	KB2fufqSD6e7+xlj3usrPDLYpUwbzacjZ6a0gwYdtezBD3XR2aCfDPVXRdUmbGIGg2pWPYdYGVlN+
+	yNFtUCg5gMoo7czs1d3VFjeclRbHahLYTM/iUHbl6lTEdpahnTiQpXFi/BmSKSacv+rtPYMD9DGzd
+	6GpaOVfi0ZT6bQh8+NDi+YML+FgWZFFNF/Oxz7EciBAek5hBh2mYKvEZuO1roRnoDa0/WEvsBwxCa
+	AkNsoxXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubOFY-0000000345U-4ANx;
-	Mon, 14 Jul 2025 18:50:04 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1ubOFa-0000000346h-3QE4;
+	Mon, 14 Jul 2025 18:50:07 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubL3s-00000002f5s-2shs;
-	Mon, 14 Jul 2025 15:25:50 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 39E2F5C53B8;
-	Mon, 14 Jul 2025 15:25:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8F40DC4CEF6;
-	Mon, 14 Jul 2025 15:25:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752506747;
-	bh=dobj3y1w8fjsYR9k5BjFXpDstQzOpvz6Xw7A5zyEszY=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=bXagEWL14gFG5FdIXRjSAaEnlvPtjsshvJTU4E1/j0gv/wCdbuyjY81Komwh6d839
-	 iHVeKjUn72HDAwPHhgfuDeMH/MyNvOzcn5FG52trdtPV7KX1CXP4XlNr1O4jBmd9ZE
-	 7fNVgaWTiSWjDDwwKeGMT4kAI7r0X28q31fvYWGkpWStwUGTqAb47Or1pYkv7q98fa
-	 kZAvBwHQ//XuILpEfLHps2epobV4SEI1tg2RPsqC4962ykB65U87aiLWvU4ie8ggRo
-	 FSaAcpwfnru+ZuRCPSOWbviLM7kVIOyluooV0U69trRjGtqlYW+zs4m8bXTAK8IFnx
-	 lL6WH+l1VJ7cA==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Mon, 14 Jul 2025 17:25:17 +0200
-Subject: [PATCH net-next v3 4/7] net: airoha: npu: Add wlan irq management
- callbacks
+	id 1ubMAx-00000002qj0-2ayC
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 14 Jul 2025 16:37:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1752511031; x=1784047031;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=tTBbCPNjh3kndWKdQLLOC9WO7P6uncnMXrl9fKN6diI=;
+  b=M0dD65X53D7YKq5Z5hKnxOaSv0TwsmDAsoNQGOJBMSaxmYuP2O3HOVUW
+   wGguN8SR0/oxcU49PddK2bsAbThHFlFRvqUCTtkOjrZKy1ygRAgtEuI0r
+   XyXtQ8u1EXyp+TGtE616ZznSeZVscsOjvz7zVaVeAGWysKq6Dns+OR/CB
+   olKD6KZ596ubltWrh1hHnpLVQNYagF7OfWqhA4RB+okD0uQkFvXOamNy4
+   f/7MBaki6CJJsfP0whFcZbq5sqiCHB2oKgRJXapWOrr1R5rvrCmOx4GDz
+   JvGxwIThFjU5ge8g9oMDlyjCsv84PZuMPsAaAww/aNULGFzeXoMWw1/LR
+   A==;
+X-CSE-ConnectionGUID: hBq1ljEWSkqL674rDMJkcA==
+X-CSE-MsgGUID: ImMng/ZlRaCQ7+lJv5BLcQ==
+X-IronPort-AV: E=Sophos;i="6.16,311,1744095600"; 
+   d="scan'208";a="211399321"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 14 Jul 2025 09:37:09 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.44; Mon, 14 Jul 2025 09:36:28 -0700
+Received: from ryan-Precision-3630-Tower.microchip.com (10.10.85.11) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server id
+ 15.1.2507.44 via Frontend Transport; Mon, 14 Jul 2025 09:36:28 -0700
+From: <Ryan.Wanner@microchip.com>
+To: <andrew+netdev@lunn.ch>, <davem@davemloft.net>, <edumazet@google.com>,
+	<kuba@kernel.org>, <pabeni@redhat.com>, <robh@kernel.org>,
+	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <nicolas.ferre@microchip.com>,
+	<alexandre.belloni@bootlin.com>, <claudiu.beznea@tuxon.dev>
+CC: <netdev@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>, "Ryan
+ Wanner" <Ryan.Wanner@microchip.com>, Conor Dooley
+	<conor.dooley@microchip.com>
+Subject: [PATCH v2 1/5] dt-bindings: net: cdns,macb: Add external REFCLK property
+Date: Mon, 14 Jul 2025 09:36:59 -0700
+Message-ID: <d558467c4d5b27fb3135ffdead800b14cd9c6c0a.1752510727.git.Ryan.Wanner@microchip.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <cover.1752510727.git.Ryan.Wanner@microchip.com>
+References: <cover.1752510727.git.Ryan.Wanner@microchip.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250714-airoha-en7581-wlan-offlaod-v3-4-80abf6aae9e4@kernel.org>
-References: <20250714-airoha-en7581-wlan-offlaod-v3-0-80abf6aae9e4@kernel.org>
-In-Reply-To: <20250714-airoha-en7581-wlan-offlaod-v3-0-80abf6aae9e4@kernel.org>
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: Simon Horman <horms@kernel.org>, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, netdev@vger.kernel.org, 
- devicetree@vger.kernel.org
-X-Mailer: b4 0.14.2
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250714_082548_811392_96A9E478 
-X-CRM114-Status: GOOD (  10.78  )
+X-CRM114-CacheID: sfid-20250714_093711_900173_29E9290B 
+X-CRM114-Status: GOOD (  10.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,79 +89,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce callbacks used by the MT76 driver to configure NPU SoC
-interrupts. This is a preliminary patch to enable wlan flowtable
-offload for EN7581 SoC with MT76 driver.
+From: Ryan Wanner <Ryan.Wanner@microchip.com>
 
-Reviewed-by: Simon Horman <horms@kernel.org>
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+REFCLK can be provided by an external source so this should be exposed
+by a DT property. The REFCLK is used for RMII and in some SoCs that use
+this driver the RGMII 125MHz clk can also be provided by an external
+source.
+
+Signed-off-by: Ryan Wanner <Ryan.Wanner@microchip.com>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- drivers/net/ethernet/airoha/airoha_npu.c | 27 +++++++++++++++++++++++++++
- drivers/net/ethernet/airoha/airoha_npu.h |  4 ++++
- 2 files changed, 31 insertions(+)
+ Documentation/devicetree/bindings/net/cdns,macb.yaml | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-diff --git a/drivers/net/ethernet/airoha/airoha_npu.c b/drivers/net/ethernet/airoha/airoha_npu.c
-index cf087daa5d0b7b5e60edda632423a8d07240ed4f..d25c9e799c8b0725e82f44f067112caa101ec12e 100644
---- a/drivers/net/ethernet/airoha/airoha_npu.c
-+++ b/drivers/net/ethernet/airoha/airoha_npu.c
-@@ -525,6 +525,29 @@ static u32 airoha_npu_wlan_queue_addr_get(struct airoha_npu *npu, int qid,
- 	return REG_RX_BASE(qid);
- }
+diff --git a/Documentation/devicetree/bindings/net/cdns,macb.yaml b/Documentation/devicetree/bindings/net/cdns,macb.yaml
+index 8d69846b2e09..e69f60c37793 100644
+--- a/Documentation/devicetree/bindings/net/cdns,macb.yaml
++++ b/Documentation/devicetree/bindings/net/cdns,macb.yaml
+@@ -114,6 +114,13 @@ properties:
+   power-domains:
+     maxItems: 1
  
-+static void airoha_npu_wlan_irq_status_set(struct airoha_npu *npu, u32 val)
-+{
-+	regmap_write(npu->regmap, REG_IRQ_STATUS, val);
-+}
++  cdns,refclk-ext:
++    type: boolean
++    description:
++      This selects if the REFCLK for RMII is provided by an external source.
++      For RGMII mode this selects if the 125MHz REF clock is provided by an external
++      source.
 +
-+static u32 airoha_npu_wlan_irq_status_get(struct airoha_npu *npu, int q)
-+{
-+	u32 val;
-+
-+	regmap_read(npu->regmap, REG_IRQ_STATUS, &val);
-+	return val;
-+}
-+
-+static void airoha_npu_wlan_irq_enable(struct airoha_npu *npu, int q)
-+{
-+	regmap_set_bits(npu->regmap, REG_IRQ_RXDONE(q), NPU_IRQ_RX_MASK(q));
-+}
-+
-+static void airoha_npu_wlan_irq_disable(struct airoha_npu *npu, int q)
-+{
-+	regmap_clear_bits(npu->regmap, REG_IRQ_RXDONE(q), NPU_IRQ_RX_MASK(q));
-+}
-+
- struct airoha_npu *airoha_npu_get(struct device *dev, dma_addr_t *stats_addr)
- {
- 	struct platform_device *pdev;
-@@ -631,6 +654,10 @@ static int airoha_npu_probe(struct platform_device *pdev)
- 	npu->ops.wlan_send_msg = airoha_npu_wlan_msg_send;
- 	npu->ops.wlan_get_msg = airoha_npu_wlan_msg_get;
- 	npu->ops.wlan_get_queue_addr = airoha_npu_wlan_queue_addr_get;
-+	npu->ops.wlan_set_irq_status = airoha_npu_wlan_irq_status_set;
-+	npu->ops.wlan_get_irq_status = airoha_npu_wlan_irq_status_get;
-+	npu->ops.wlan_enable_irq = airoha_npu_wlan_irq_enable;
-+	npu->ops.wlan_disable_irq = airoha_npu_wlan_irq_disable;
- 
- 	npu->regmap = devm_regmap_init_mmio(dev, base, &regmap_config);
- 	if (IS_ERR(npu->regmap))
-diff --git a/drivers/net/ethernet/airoha/airoha_npu.h b/drivers/net/ethernet/airoha/airoha_npu.h
-index b81bb9398fed9366a18f9bf79e323372969ee138..8e830d12bd8a518038f2df7605a5d9f455725e40 100644
---- a/drivers/net/ethernet/airoha/airoha_npu.h
-+++ b/drivers/net/ethernet/airoha/airoha_npu.h
-@@ -88,6 +88,10 @@ struct airoha_npu {
- 				    u32 *data, gfp_t gfp);
- 		u32 (*wlan_get_queue_addr)(struct airoha_npu *npu, int qid,
- 					   bool xmit);
-+		void (*wlan_set_irq_status)(struct airoha_npu *npu, u32 val);
-+		u32 (*wlan_get_irq_status)(struct airoha_npu *npu, int q);
-+		void (*wlan_enable_irq)(struct airoha_npu *npu, int q);
-+		void (*wlan_disable_irq)(struct airoha_npu *npu, int q);
- 	} ops;
- };
- 
-
+   cdns,rx-watermark:
+     $ref: /schemas/types.yaml#/definitions/uint32
+     description:
 -- 
-2.50.1
+2.43.0
 
 
