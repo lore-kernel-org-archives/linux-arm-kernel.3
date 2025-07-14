@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7A4EC83F1B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 09:47:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A0C0C83F1B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 09:49:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DMcf/Il1d85oz1mq3/5ls77nUtsL+hrMHvkDp4f70Bg=; b=4t7z3CkcV32/akt3GD40fC87t7
-	ZjMUvWr6NklHBfOIjdJXJFdb3TYtM6j0s7n5+uDYHOnc3BbSCHzcpPfi4KLmbuzKbLO13M3c7OmoM
-	5ddbEs5cip5cJfrJgcnFCDwx0cJgv/cZ/9yHTZyqSrIGE7dfTT13tj+R9Si6Z1uPBRKqFL0SwA1S/
-	rwp8LMItdHqvidw8PXovjPnwjDKQ57vDeXjlCyd/hRqCH62LpflFLK1QySKRCZxK6TUEUWvwtzmLW
-	FFavA/eBqDLCpyfPDGhNqYQeSo4ken/N5C5qBeHfGnyvVp4nYxTUSdjXHHL4C4sygeqihkS47Klfn
-	hrrx7Tbg==;
+	bh=nNLFgaA4dixxgbMIkbjU6rqc6g19Sr9bWZbPhKxkNRU=; b=ZZ9/6Ew4e0DUmTmOGaQKTJ0aq8
+	CuEchamtj2j3mQtBrznwV9EMJRt5g4HyiClnho0e1pAuILZwx0O97G9HhQBi1FLKzCoJ9/6LmoWRs
+	utM9LzCx7M9IJ2P+pUN0l616SEOzgLDPdRAem8qiphdlbfhHRtsOsKyHU3Prp0qbNahSdHd+Fg+0W
+	SciCzPdlm4AB/YPyf7s6Mr8zwBEitJsJBDjfdE42OW0DmSZmcmCioMOdlVtGVg+z3PZLR59+Xg9A5
+	qDjbx5qBqoscqo6+CIi2Ob0HHRQLmPowLC+7MX4Rh0XHPPqJRRE4T4TDVUxdU3GVTrNp3Ev8muq+8
+	/mGgKhjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubFmE-00000001pWc-02QH;
-	Mon, 14 Jul 2025 09:47:14 +0000
-Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
+	id 1ubFod-00000001poU-3iwE;
+	Mon, 14 Jul 2025 09:49:43 +0000
+Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubFTh-00000001mdj-3fwx
+	id 1ubFTn-00000001mef-10kz
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Jul 2025 09:28:07 +0000
+	Mon, 14 Jul 2025 09:28:12 +0000
 Received: from fllvem-sh03.itg.ti.com ([10.64.41.86])
-	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTP id 56E9S3QP2581062;
-	Mon, 14 Jul 2025 04:28:03 -0500
+	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTP id 56E9S8Dc2623168;
+	Mon, 14 Jul 2025 04:28:08 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1752485284;
-	bh=DMcf/Il1d85oz1mq3/5ls77nUtsL+hrMHvkDp4f70Bg=;
+	s=ti-com-17Q1; t=1752485288;
+	bh=nNLFgaA4dixxgbMIkbjU6rqc6g19Sr9bWZbPhKxkNRU=;
 	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=u+hWzLl6Tv3EsGkncRN8gu9DE5fvbWJ1CaZ4bMExhn1lMnw9moMA/Pv1+Cgw9s7M/
-	 0dzQsIFz5zS3fUzLYqr0L2FOmPFwC0zg2Dz7bV2NJnJy3PK5d7Y3Z5l2sJ4V10xsa/
-	 Km73nXx9d2KzxNaCXLsJzy0RfYsbozmguGqxR8dU=
+	b=MBiOHSRH4ULBHuN7TLQJysG/DLd5zBojzxAXDP6RT4XNxerXbUypOa4aMMCabQk4c
+	 VjYDyQgwDEj7T3YJEITrjt6gUpeksO5VOETBppR7s+NdHeVc/QzxQjQ2uEv9QNi0Sf
+	 fOqwzNvZMPcDZDO26w7dZHwxqNSqrSrWO4qWzFiA=
 Received: from DFLE114.ent.ti.com (dfle114.ent.ti.com [10.64.6.35])
-	by fllvem-sh03.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 56E9S3Rq3170507
+	by fllvem-sh03.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 56E9S8UF3170577
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Mon, 14 Jul 2025 04:28:03 -0500
-Received: from DFLE107.ent.ti.com (10.64.6.28) by DFLE114.ent.ti.com
+	Mon, 14 Jul 2025 04:28:08 -0500
+Received: from DFLE112.ent.ti.com (10.64.6.33) by DFLE114.ent.ti.com
  (10.64.6.35) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Mon, 14
- Jul 2025 04:28:03 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE107.ent.ti.com
- (10.64.6.28) with Microsoft SMTP Server (version=TLS1_2,
+ Jul 2025 04:28:08 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE112.ent.ti.com
+ (10.64.6.33) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Mon, 14 Jul 2025 04:28:03 -0500
+ Frontend Transport; Mon, 14 Jul 2025 04:28:08 -0500
 Received: from abhilash-HP.dhcp.ti.com (abhilash-hp.dhcp.ti.com [172.24.227.115])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 56E9RPVm279945;
-	Mon, 14 Jul 2025 04:28:00 -0500
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 56E9RPVn279945;
+	Mon, 14 Jul 2025 04:28:05 -0500
 From: Yemike Abhilash Chandra <y-abhilashchandra@ti.com>
 To: <nm@ti.com>, <vigneshr@ti.com>
 CC: <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
@@ -59,9 +59,9 @@ CC: <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
         <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
         <imx@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
         <u-kumar1@ti.com>, <y-abhilashchandra@ti.com>
-Subject: [PATCH 6/7] arm64: dts: ti: k3-am62-main: Add interrupts property
-Date: Mon, 14 Jul 2025 14:57:07 +0530
-Message-ID: <20250714092708.3944641-7-y-abhilashchandra@ti.com>
+Subject: [PATCH 7/7] arm64: dts: ti: k3-am62a-main: Add interrupts property
+Date: Mon, 14 Jul 2025 14:57:08 +0530
+Message-ID: <20250714092708.3944641-8-y-abhilashchandra@ti.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250714092708.3944641-1-y-abhilashchandra@ti.com>
 References: <20250714092708.3944641-1-y-abhilashchandra@ti.com>
@@ -70,7 +70,7 @@ Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250714_022805_960004_9321B7AC 
+X-CRM114-CacheID: sfid-20250714_022811_329146_7DE0D55D 
 X-CRM114-Status: UNSURE (   8.84  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -88,25 +88,25 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 Add interrupts property for CDNS CSI2RX. Interrupt IDs are taken from the
-AM62 TRM [0].
+AM62A TRM [0].
 
-Input Index    | Interrupt Source
----------------|--------------------------
-gicss0.spi.175 | csi_rx_if.0.csi_err_irq.0
-gicss0.spi.173 | csi_rx_if.0.csi_irq.0
+Interrupt Line             | Source Interrupt
+---------------------------|-------------------------
+GICSS0_COMMON_0_SPI_IN_175 | CSI_RX_IF0_COMMON_0_CSI_ERR_IRQ_0
+GICSS0_COMMON_0_SPI_IN_173 | CSI_RX_IF0_COMMON_0_CSI_IRQ_0
 
-[0]: https://www.ti.com/lit/pdf/spruiv7
+[0]: https://www.ti.com/lit/pdf/spruj16
 
 Signed-off-by: Yemike Abhilash Chandra <y-abhilashchandra@ti.com>
 ---
- arch/arm64/boot/dts/ti/k3-am62-main.dtsi | 3 +++
+ arch/arm64/boot/dts/ti/k3-am62a-main.dtsi | 3 +++
  1 file changed, 3 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/ti/k3-am62-main.dtsi b/arch/arm64/boot/dts/ti/k3-am62-main.dtsi
-index 120ba8f9dd0e..029380dc1a35 100644
---- a/arch/arm64/boot/dts/ti/k3-am62-main.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am62-main.dtsi
-@@ -1031,6 +1031,9 @@ ti_csi2rx0: ticsi2rx@30102000 {
+diff --git a/arch/arm64/boot/dts/ti/k3-am62a-main.dtsi b/arch/arm64/boot/dts/ti/k3-am62a-main.dtsi
+index 63e097ddf988..39c27eb29e17 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62a-main.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-am62a-main.dtsi
+@@ -1041,6 +1041,9 @@ ti_csi2rx0: ticsi2rx@30102000 {
  		cdns_csi2rx0: csi-bridge@30101000 {
  			compatible = "ti,j721e-csi2rx", "cdns,csi2rx";
  			reg = <0x00 0x30101000 0x00 0x1000>;
