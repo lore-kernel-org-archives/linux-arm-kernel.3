@@ -4,150 +4,136 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8C98C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 00:20:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 061A4C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 00:22:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wn0uaTpQJ5msTA4q2mSIBqQxq96F8xnwcsNT4npFJ10=; b=uv006Q0ALhTPzJgZVJOdlxZsjP
-	HUUDS2zKRURxuj2RPQeScZZ56NxqqsIQB5XbcPiBfcDolAaVS8AaC0pWo0rXn+Xa5+9HBGu+vYOmu
-	m7iH+haAKz5WI8tHEfWsoYfCmyiXQUt0/vdyQmhm3YBWeMXNg55MI0GvOZ+BwHJnkOtcdsARkJ7uS
-	0Hkyg2dP5QnVT/2rO+cEFtU0vPa7d2MYX4pQBu2tMAQy5aFVkq4fL175pbXRamk5QCigAGyJ/BwM+
-	wmiQ9jDCWo2tr959aauvJDX/x1/SwfVXXbkzgRFhyi2LAYR/VOSXSyPH7c4ioHbaSLvMn3Tnwcv2k
-	lzrbHiTg==;
+	bh=VeRYeb70rL7zEXLABWVIX1u+Q+tiztEJvNfdb8INwvs=; b=TIOGhmMHDz1sxwVoqIZQyGISUz
+	EtiMidoqVnKSG570VtdkpLXfjaWhzafmQmt/kZfVWzOmJ4iAKYY1kIN4OJdIp6MnvnTK6raXkT2Cq
+	b0SBEvRInkTsqo6wifyHT5Tx0TTJi5uWQv/irchjG+hFBL67e8M8T4EsnagPcAzY0WKl7yyNWXBT0
+	gOmn2AnnctfD2kGKWiAGKFxIL/HwWUvQ5I8sEle1KISXlLMdiKf5NkWXwi1+ViOBzsvxf8NZU9/eW
+	LdE5zBLU3MHqQA6j7KG412zG16Bpm4ehQF2N2UgtyCATIdOexIvJI6K0oqnxRbWagrAKMyB+2Q0tk
+	BxgCSiSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubTOo-00000003cbh-0YCX;
-	Tue, 15 Jul 2025 00:19:58 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1ubTRD-00000003cxl-3aWL;
+	Tue, 15 Jul 2025 00:22:27 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubSl0-00000003Yqp-1XiQ
+	id 1ubSnw-00000003ZHC-2Qte
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Jul 2025 23:38:51 +0000
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56EGRKjw026500
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Jul 2025 23:38:50 GMT
+	Mon, 14 Jul 2025 23:41:53 +0000
+Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56EKavIW002934
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Jul 2025 23:41:51 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	wn0uaTpQJ5msTA4q2mSIBqQxq96F8xnwcsNT4npFJ10=; b=e4zaRps/oaXdJY+l
-	UdQ8DEc0Nne1nK1lwtaLfJAWHqyiLQziUU3CzDFUCkUNeWV8JnAqLF4ZqflmU+qO
-	IaCyiN56c5pDiAQOpJ9+b1AfDTRlfBvVfWpbwY4pCP7ODxRyQwipwVImtiZyO5Zq
-	u1YEOXKa37KH6sh1j/GqAfCY8nztz+Om9WIHf6FDuC7FPCXsgZo6i3zcB6Z7X9e6
-	T4s9AwHPkBTS9WDnUgqpGgWpprpKj9V+ypnQ0HV7+q4MgprRJMUwYBkd+zMuSwgG
-	+3J1azNHufa9RQ/26fQCJmsfd6flX7m+fE3a6H1KmT5/jvGkrb+aWNHeMwONjcg8
-	7N0xIQ==
+	VeRYeb70rL7zEXLABWVIX1u+Q+tiztEJvNfdb8INwvs=; b=cOogs6hZKzC35kE+
+	Ei4d7dTfIKS+kLdyr+YXzjV1e202w3IiHFk7GE3C9VkxfXBMI0lxvB/6Qpx7IVzt
+	lYV/5Zajz8+aDwtACN2aqgFjv79iTXy5Nxu/bquJKGEClJhaZOWYVqb2EB0npdin
+	KdHoXwtCPj1aKqKs7J7ga6LYjBVCCHop2A5pYCglBzg+HqB8mZlKex0lenxeruFd
+	/BWqWEJc87yXcuDNlXNKmUxFTMywZXgss+ULgcLGVvIufxHpbBeJ5kEHex9k8ltB
+	++86XwX1XNNcDyBgc0ytgON0ZWCLsyQBeUMkpYCxjpDVFh2hjgqPnby6i9SGi8BO
+	QWjg2A==
 Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 47w5drgwf7-1
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 47ufut63x8-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Jul 2025 23:38:49 +0000 (GMT)
-Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-4ab7077ad49so2861121cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Jul 2025 16:38:49 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Jul 2025 23:41:51 +0000 (GMT)
+Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-4ab7a01c38cso2248341cf.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Jul 2025 16:41:51 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752536328; x=1753141128;
+        d=1e100.net; s=20230601; t=1752536511; x=1753141311;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=wn0uaTpQJ5msTA4q2mSIBqQxq96F8xnwcsNT4npFJ10=;
-        b=tB7nPyEVG3IrXwpfx7SpBiz/Hozw/glesVVlakS/BoJ16y0v6hZdPmX6GEo/LuLKCF
-         zylpXVR9DW5Dlen2YNxnaaHhDZQdRiBeiRgfuK+XMWDdCkcX7zsM+za6NwPcYZjbehEb
-         uDCApvxtKwwb0TfxNRSQMUCcL977v2Zrl9fHi9xqswYykV6s2z+2OLUg3zQjpaLdy3ea
-         mNiDIzzl/WDCo1I5KZ1zYXx0po2rpc+t776U2whw8oUNACupBUj4Sq+bbP39jWM5YbdY
-         mO3XHb2tq1qKlI/Z1307ec6h5qkKBfsRjcpxoJvG6O48G1d6OG/GMEuNTFc2xHpJggKn
-         BmHg==
-X-Forwarded-Encrypted: i=1; AJvYcCVNluzLXUDwiGH31Bgig+ca7JY1a1AHaYSEb8w7TT3yprVhHg6FHAuiuAvtZa/i2HIXEk9cjo2G4ARJM1N7LI/X@lists.infradead.org
-X-Gm-Message-State: AOJu0YynwZ6fTHaW/hNgH5xT/AZ33L9dil+JArLNv3x6lq8Q+eYia308
-	eqbZsjm2iQpVWcJ2Sll3aQ38GX4zAYcMWT0qKFOdyp2scptNAdmW0tEzPO4pzYm/SHkGDNZ7dKf
-	pdPouP1oTzmRhCQIqSvfCGwhFqFK6+02GWfoENhJJohV0LxIEW4bLDhb96z/uD+p3eUtKbWAUI+
-	DT7w==
-X-Gm-Gg: ASbGncupZCb9Krwal6lURqntRfe8Xh+Oq6Cb8wZe3ePK/Ko+GjwQEtiWxxagStiQz2K
-	U6gDxMGETRvE/lPz3/BiadscdUmfseFA+0a1dLbzDtkyAAwUyX8H+G82E9LRyIaIYNI+3szk1Um
-	6WAQ4tGsIzeiSRVhAJrlZSe+m5AQ+QHGWNFyodL/0QPqgStnetProMTOqEN2jMUQ3UtgDZlMa3n
-	c+LD0aqIpVGMJ63Jjs72CrG5vhs/SoHdyPXVO5Rm0mLctMS6nimaSjacOK12FNgvwDif2tndEmd
-	PTw4x8K2Ad0Pn6y2ac5o28QmjlAjAVjMnEB1LSvqb/GBP82DgZnQWQX4P+1daKB9+D9nae9g4hB
-	wdgJaalhlH4purQjz5Uzf
-X-Received: by 2002:a05:620a:261e:b0:7d0:9ded:31e0 with SMTP id af79cd13be357-7dde704afd4mr776221585a.0.1752536327957;
-        Mon, 14 Jul 2025 16:38:47 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IE6vgTUK9cbHU9/fu7xu5UC9MgWnhvrvZKB6D6M0lFax9GG6pjPJlqFz9LcPg7nXnR+3oUNPg==
-X-Received: by 2002:a05:620a:261e:b0:7d0:9ded:31e0 with SMTP id af79cd13be357-7dde704afd4mr776220285a.0.1752536327341;
-        Mon, 14 Jul 2025 16:38:47 -0700 (PDT)
+        bh=VeRYeb70rL7zEXLABWVIX1u+Q+tiztEJvNfdb8INwvs=;
+        b=dtEntsCRxRIolGLc3SOcASZKQ3GC2y8mtqxTAxLTFFLrY9HgZOh0HTMdslR8JGcpk4
+         mVw37qEzFZid/kBxZgVxtJzbtOQQmdXq0ephefcpl2otwR5PoLuRZ3dQ24vBBL/Ur/AR
+         mWsjPyoAeTdHzc1vV9Yr4RAY0OSpDSG3a/gGhB14pIzv+Y83iIpQoYCTU9UR4i3Uwv+E
+         u2T9MoutQ17QS6WEb0dEoiijMujIgz7PonsC8iVwYOSHeV/Qfw14ctT4e6IO5NqNFs3h
+         8fUEVqquxlrcPQcJcYgacESDQ9fKLtAvFgnliuG4xgGIrT4JlD9VgmjOvl4sndTQjqeW
+         jSkg==
+X-Forwarded-Encrypted: i=1; AJvYcCWDJccahige1v5qBDO52fyMM5SUMbAA+yTC7dj+9JBuh6BDnP+49nDrEl+v3Xckdm/Zs8mWDBDPz5vcdfYbjYje@lists.infradead.org
+X-Gm-Message-State: AOJu0YyMFaLHSrdUc9OSpOJa5zJcfm+xtIT23XFfREvqeJ1MAsb9VM8B
+	AHmrYTdFAlzN0gQOxlJ9mGLRPNlhrCts7CyiqZJDvsN0DCksVuRgxX9rqR1qEpj+5fuoYmPsi6M
+	89nJ/U8Mf+TrnhXCTI+SKyZjUQkrzk2WLqb4p81nnEzuyCF6hWg0EbWYvxPjLZ+pGXfPq4kZgIR
+	DVFw==
+X-Gm-Gg: ASbGncudAeqeILtHtORb50kUgLC0NMWcFiaKUWdlcS2GN3FfKvwOlbQf+RVYFSQNFPF
+	dgtKI4Rb2xFxk+aLqjY0okjjSESaSVYIDs7/aqNwZKD/nqIIycHnOBs/JDQENIMULX9MwD9UlTW
+	riBzJd4JqRxlyHNqr2k2bnZPSiOJZlN2zPIUaiMRHWn9l81WDcMGZpX783qFJuMpgbDmn0WTn+5
+	3qbqu36ezrpd5mvUsDzsMT70yoZE7Vho8DLWp0EBkUFwVHMaGHtyqUyJ2LSzr4MLWjMTZEsH5Ag
+	pe4Jaf5xHvrKAfLkcCPANJnlhPq9rGgEo9q7rZOsbRas3mOF2UXWa3HS4Oxl1YK+Rkc3NJd/ctr
+	i1NbW7Hl2MZBZtbYw+szB
+X-Received: by 2002:a05:620a:d86:b0:7d3:f0a1:2f3e with SMTP id af79cd13be357-7dde99530b9mr793405985a.2.1752536510677;
+        Mon, 14 Jul 2025 16:41:50 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IEG7XfqmPDJb/D49KYu7FtbuASdqoalUiWXMFW7Y9kAKQLdst5o2Dt8cMYPxnLj3lAeTolOpQ==
+X-Received: by 2002:a05:620a:d86:b0:7d3:f0a1:2f3e with SMTP id af79cd13be357-7dde99530b9mr793403785a.2.1752536510136;
+        Mon, 14 Jul 2025 16:41:50 -0700 (PDT)
 Received: from [192.168.143.225] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ae6e8316b60sm887600966b.184.2025.07.14.16.38.43
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ae6e7e91d10sm893953766b.5.2025.07.14.16.41.47
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 14 Jul 2025 16:38:46 -0700 (PDT)
-Message-ID: <c379aad4-96f6-4134-8b90-0f1eec8001a3@oss.qualcomm.com>
-Date: Tue, 15 Jul 2025 01:38:41 +0200
+        Mon, 14 Jul 2025 16:41:49 -0700 (PDT)
+Message-ID: <3ae51350-61a8-422c-8e39-32ea6d8b2e9a@oss.qualcomm.com>
+Date: Tue, 15 Jul 2025 01:41:46 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 00/14] Various dt-bindings for SM7635 and The Fairphone
- (Gen. 6) addition
-To: Artur Weber <aweber.kernel@gmail.com>,
-        Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>,
-        Luca Weiss <luca.weiss@fairphone.com>
-Cc: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
-        Joerg Roedel <joro@8bytes.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
- <conor+dt@kernel.org>,
-        "Rafael J. Wysocki" <rafael@kernel.org>,
-        Viresh Kumar <viresh.kumar@linaro.org>,
-        Manivannan Sadhasivam <mani@kernel.org>,
-        Herbert Xu <herbert@gondor.apana.org.au>,
-        "David S. Miller" <davem@davemloft.net>, Vinod Koul <vkoul@kernel.org>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Robert Marko <robimarko@gmail.com>,
-        Das Srinagesh <quic_gurus@quicinc.com>,
-        Thomas Gleixner
- <tglx@linutronix.de>,
-        Jassi Brar <jassisinghbrar@gmail.com>,
-        Amit Kucheria <amitk@kernel.org>,
-        Thara Gopinath <thara.gopinath@gmail.com>,
-        Daniel Lezcano <daniel.lezcano@linaro.org>,
-        Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>,
-        Ulf Hansson <ulf.hansson@linaro.org>,
-        ~postmarketos/upstreaming@lists.sr.ht, phone-devel@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-pm@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-        linux-crypto@vger.kernel.org, dmaengine@vger.kernel.org,
-        linux-mmc@vger.kernel.org
-References: <20250625-sm7635-fp6-initial-v1-0-d9cd322eac1b@fairphone.com>
- <aGMI1Zv6D+K+vWZL@hu-bjorande-lv.qualcomm.com>
- <ee0d148e-71cd-4136-b3cb-145566abdfbe@gmail.com>
+Subject: Re: [PATCH 4/6] sound: soc: qcom: qdsp6: q6dsp-lpass-clocks: convert
+ from round_rate() to determine_rate()
+To: Brian Masney <bmasney@redhat.com>
+Cc: Support Opensource <support.opensource@diasemi.com>,
+        Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
+        Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
+        Oder Chiou <oder_chiou@realtek.com>,
+        Srinivas Kandagatla <srini@kernel.org>,
+        Olivier Moysan <olivier.moysan@foss.st.com>,
+        Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Maxime Ripard <mripard@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
+        linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-arm-msm@vger.kernel.org,
+        linux-stm32@st-md-mailman.stormreply.com,
+        linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org
+References: <20250710-sound-clk-round-rate-v1-0-4a9c3bb6ff3a@redhat.com>
+ <20250710-sound-clk-round-rate-v1-4-4a9c3bb6ff3a@redhat.com>
+ <c321ed9f-7906-4a92-9202-efb46343ee91@oss.qualcomm.com>
+ <CABx5tqJzEMUXz0Cbo5siCnwKp2MVON_oGgMnGkb_cg1zv8k5nw@mail.gmail.com>
 Content-Language: en-US
 From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <ee0d148e-71cd-4136-b3cb-145566abdfbe@gmail.com>
+In-Reply-To: <CABx5tqJzEMUXz0Cbo5siCnwKp2MVON_oGgMnGkb_cg1zv8k5nw@mail.gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-Proofpoint-ORIG-GUID: HmkdbTWOqZ8d6dukpJrKzKH91tUSpZ4Y
-X-Authority-Analysis: v=2.4 cv=D4xHKuRj c=1 sm=1 tr=0 ts=68759509 cx=c_pps
+X-Authority-Analysis: v=2.4 cv=e7gGSbp/ c=1 sm=1 tr=0 ts=687595bf cx=c_pps
  a=JbAStetqSzwMeJznSMzCyw==:117 a=FpWmc02/iXfjRdCD7H54yg==:17
- a=IkcTkHD0fZMA:10 a=Wb1JkmetP80A:10 a=ySytLBbe-S1-HUGBodAA:9
- a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10 a=uxP6HrT_eTzRwkO_Te1X:22
-X-Proofpoint-GUID: HmkdbTWOqZ8d6dukpJrKzKH91tUSpZ4Y
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNzE0MDE2NyBTYWx0ZWRfXz9i1s943jaCV
- qHX+iWcghAsWzmvnp5V43v8MfHrky02PR+g8K/DYKITkBxKmf9l8Eh8Qb1cLYUZaFpDRWJV5y26
- sBgc6LwuThThJSeMCP2lKs4LGV9rnK081h5FVKfcx7S1klky1Pw3FjXWejN/ttcdJKAhsllMRSa
- cxrqnOfCobvoiJmxcFyTlrt2tFeCJLg1kb6tKk8ZSGhGUirI/oWYO1acVq1aF0Mv0JSBZ5NtJzZ
- HEI41xROds/wG4OUXe6iw2lJQItOSRXbDzW1QWpUO1wcAeQTTqD5QARQ84HWw+MEWkbJWNhKV4Z
- v77VmUTEGvw+7xqhfXz05UPxzTu4JSR24D3zHxpVcTd+xmNEbsMkp+hFVxe9oTAx1jBhBpphPxu
- U2IlM5GX27yFCPMKfOq2e3Zmk2Dv9lR+iJhjz/4WCxudXP3n4xgIvvrsSTYJuue2CAeEE3nE
+ a=IkcTkHD0fZMA:10 a=Wb1JkmetP80A:10 a=EUspDBNiAAAA:8 a=20KFwNOVAAAA:8
+ a=ICpbbQuAY509VL3I2goA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
+ a=uxP6HrT_eTzRwkO_Te1X:22
+X-Proofpoint-GUID: CfuGQxRL_93XY-oWhKHc_9MmSiSHSOBr
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNzE0MDE2OSBTYWx0ZWRfXz5k2hSmq2Zsj
+ 900d8h9e5fKAuT/ecJycK9UZOrANiUpLJ+3o0tdjTnZO+3Arhk8Z5R1gtc4beFMmyLQ3HNJuQth
+ DHlA71OS18PGOZiNUa5fwE9+e4JBqpKcWOzruFGTMQ7iDnBu009pFAV1N/G4o5MHKzQkRm5e1pf
+ bfAEZhDnlTyuFfDFK3Ufskm/ZQYJanhr2y5jwlj9d5EeuccOjx3HGr5WAMMQM1dbDe8Z2fVEACn
+ g/LQzkOcuObdCz0R3ykP+mc4pYN8BPj8VsvvPLA4NjNmqTf+nKg+UvtIw/5ZjuEL69PrKUE+ifA
+ T9g/TWPNiNS7zVNB1Amu9A2Pxv07dC0fy4juYcJCg+7wZpnxw2Zl0TvXmduulhjZTLlfQuDDRuB
+ ypd79l5iSj61k19wgoGJq+akWsBKqXTX5fU/yOxC+VdhZAcVA4QeZEaJ1bt78wUC+2gWKlKv
+X-Proofpoint-ORIG-GUID: CfuGQxRL_93XY-oWhKHc_9MmSiSHSOBr
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.7,FMLib:17.12.80.40
  definitions=2025-07-14_03,2025-07-14_01,2025-03-28_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 mlxlogscore=999 impostorscore=0 spamscore=0 clxscore=1015
- lowpriorityscore=0 malwarescore=0 suspectscore=0 bulkscore=0 mlxscore=0
- priorityscore=1501 phishscore=0 classifier=spam authscore=0 authtc=n/a
- authcc= route=outbound adjust=0 reason=mlx scancount=1
- engine=8.19.0-2505280000 definitions=main-2507140167
+ lowpriorityscore=0 priorityscore=1501 mlxscore=0 spamscore=0 suspectscore=0
+ phishscore=0 bulkscore=0 impostorscore=0 clxscore=1015 adultscore=0
+ malwarescore=0 mlxlogscore=868 classifier=spam authscore=0 authtc=n/a authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2505280000
+ definitions=main-2507140169
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250714_163850_420592_197942E7 
-X-CRM114-Status: GOOD (  22.37  )
+X-CRM114-CacheID: sfid-20250714_164152_733741_47104BFF 
+X-CRM114-Status: GOOD (  19.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,35 +148,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/14/25 8:13 AM, Artur Weber wrote:
-> On 6/30/25 23:59, Bjorn Andersson wrote:
->> On Wed, Jun 25, 2025 at 11:22:55AM +0200, Luca Weiss wrote:
->>> Document various bits of the SM7635 SoC in the dt-bindings, which don't
->>> really need any other changes.
->>>
->>> Then we can add the dtsi for the SM7635 SoC and finally add a dts for
->>> the newly announced The Fairphone (Gen. 6) smartphone.
->>>
->>> Dependencies:
->>> * The dt-bindings should not have any dependencies on any other patches.
->>> * The qcom dts bits depend on most other SM7635 patchsets I have sent in
->>>    conjuction with this one. The exact ones are specified in the b4 deps.
->>>
->>
->> Very nice to see the various patches for this platform on LKML!
->>
->>
->> Can you please use the name "milos" in compatibles and filenames instead
->> of sm7635.
-> Hi, small half-related question - does this mean that future Qualcomm
-> SoC additions should use the codename for compatibles instead of the
-> model number as well?
+On 7/14/25 10:39 PM, Brian Masney wrote:
+> Hi Konrad,
 > 
-> I was working on SM7435 (parrot) patches a while back; when I get around
-> to submitting those, will I have to use "parrot" or "sm7435" in the
-> compatibles?
+> On Thu, Jul 10, 2025 at 12:09 PM Konrad Dybcio
+> <konrad.dybcio@oss.qualcomm.com> wrote:
+>> On 7/10/25 5:51 PM, Brian Masney wrote:
+>>> The round_rate() clk ops is deprecated, so migrate this driver from
+>>> round_rate() to determine_rate() using the Coccinelle semantic patch
+>>> on the cover letter of this series.
+>>>
+>>> Signed-off-by: Brian Masney <bmasney@redhat.com>
+>>> ---
+>>
+>> Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+>>
+>> come to think of it, there are a lot of drivers that can not
+>> do any rate rounding - perhaps we could introduce a NOP implementation
+>> in the clk core that we could reference, instead of copypasting
+>> int foo(...) { "return 0" }?
+> 
+> I'll look at that for a second round of cleanup once all of the
+> round_rates have been removed from the tree. From what I recall about
+> the ~200 or so round_rate implementations in the kernel tree, there
+> were maybe only 5 or so that cover this noop case. QC seemed to have
+> the most from what I recall.
+> 
+> It wouldn't be hard to make a Coccinelle script to look for the noop
+> determine_rate() implementations.
 
-If possible, please rename it to "netrani".
+Thanks!
 
 Konrad
 
