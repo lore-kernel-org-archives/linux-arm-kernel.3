@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA082C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 09:32:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40146C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 09:34:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=qdPkp927EPjHpR8CdKSeHXDZaCUOcmMQXfmTrJemwIg=; b=HVePe2HPY7YOv3HPBhIXm91vRt
-	DECCZ9IlQIHJcRVD0pIr7JmpWBTeiSzqeCD5cpzOL4VlD7t6aDnmFYkIjseILonaTIaASRLaKGQI6
-	UDNf/Fw8tM8dQG/OIyWJVwltt0a7gxan67I/j3wJFZYIUqWXMlw16UTBRk9hVc7mStA2W/7T4SWy8
-	+DrVo28GhBknXkUjLShi3oneJNjDnk/C0iJbdv9rYDIV8oQlkbzMi/KN7B44BUVWkM3Vol9oEbRHI
-	cAB9PfU3hQg3XSPAxC+Hpd6xzR0QCEGUdhaUiUumLRMa0tUZsl/P8HDB4e8nyMn96og2qPTAV3Zng
-	DWliK14Q==;
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ktMQqynFW+/QzXvHfJwgbMkxyxoj9fRUidRb2qHVSSo=; b=NUGvQwlaskH3Lz1mAoS4FCTMd9
+	YkeGlTURv4bbvVqg+rADTIR4om8hVBW9aLmLIvGZQOg/d10XJ5+ujUfi9vXyzKC7CS+ZxcPy2c9xC
+	x5FBMVefxpr0JJW59hvrmE/BLMpXx9B/SpL25Py7DB3SdxfN7HNoiUEwBDkTGhnbpSA5ULzk9pqvO
+	hpcLfnSFlA7ll/FTXrPl7McEDm1+Gwk9ETJHJSt+4fX8fX2MNnh47r7T5kog1orl7QXkHsTxMIMjU
+	sXz7bhV47dcomUB4hoOElBBLmvwxuU4g/TjPqOZ0RpRrP7EcLUoWBpsm7FbGDVcptI826MpP12cTP
+	E8Yae9og==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubFXi-00000001nDJ-1Y9m;
-	Mon, 14 Jul 2025 09:32:14 +0000
-Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	id 1ubFa7-00000001nPg-0dvm;
+	Mon, 14 Jul 2025 09:34:43 +0000
+Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubFTK-00000001mYv-3F8S
+	id 1ubFTK-00000001mYy-3HCo
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 14 Jul 2025 09:27:44 +0000
-Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 56E9RUuJ2347226;
-	Mon, 14 Jul 2025 04:27:30 -0500
+Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
+	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTP id 56E9RdfL2580996;
+	Mon, 14 Jul 2025 04:27:39 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1752485251;
-	bh=qdPkp927EPjHpR8CdKSeHXDZaCUOcmMQXfmTrJemwIg=;
-	h=From:To:CC:Subject:Date;
-	b=eWu1a5MWRtt3TkJXNSUFqfYB+klz8bWTbeY5rO2y2J+XEdjG9xpPX+anug5ujash7
-	 hIgNbve/TZpU4MpJFWSesXzs+cW1wblnSpEEh+Vtl/7eOYDAYk+SqnNvgp/3o7mrCz
-	 qzrMTH0JuUw94L3yI+TcEMyaigQEK27hn0DZoVzc=
-Received: from DLEE100.ent.ti.com (dlee100.ent.ti.com [157.170.170.30])
-	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 56E9RU55197401
+	s=ti-com-17Q1; t=1752485259;
+	bh=ktMQqynFW+/QzXvHfJwgbMkxyxoj9fRUidRb2qHVSSo=;
+	h=From:To:CC:Subject:Date:In-Reply-To:References;
+	b=NThgDigU/IZApE4m/Zhzs8lWe8DMQ4fVS40O8wIpW3eKMGgTgdnCZkLRUCDt7hgX6
+	 OcE4X3ehySrPA7PqhfSIa45qPP7zZnF+o9tJx7Yb8ZIhGUSkDDoW/qDDAwo1DSCfmc
+	 Rc7uo6QRG7ldZ1YWt2yVSENGwVyZJ/OE3kqzzchE=
+Received: from DLEE114.ent.ti.com (dlee114.ent.ti.com [157.170.170.25])
+	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 56E9Rdw01571157
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Mon, 14 Jul 2025 04:27:30 -0500
-Received: from DLEE100.ent.ti.com (157.170.170.30) by DLEE100.ent.ti.com
- (157.170.170.30) with Microsoft SMTP Server (version=TLS1_2,
+	Mon, 14 Jul 2025 04:27:39 -0500
+Received: from DLEE104.ent.ti.com (157.170.170.34) by DLEE114.ent.ti.com
+ (157.170.170.25) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Mon, 14
- Jul 2025 04:27:30 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE100.ent.ti.com
- (157.170.170.30) with Microsoft SMTP Server (version=TLS1_2,
+ Jul 2025 04:27:39 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE104.ent.ti.com
+ (157.170.170.34) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Mon, 14 Jul 2025 04:27:30 -0500
+ Frontend Transport; Mon, 14 Jul 2025 04:27:39 -0500
 Received: from abhilash-HP.dhcp.ti.com (abhilash-hp.dhcp.ti.com [172.24.227.115])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 56E9RPVg279945;
-	Mon, 14 Jul 2025 04:27:26 -0500
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 56E9RPVh279945;
+	Mon, 14 Jul 2025 04:27:35 -0500
 From: Yemike Abhilash Chandra <y-abhilashchandra@ti.com>
 To: <nm@ti.com>, <vigneshr@ti.com>
 CC: <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
@@ -59,17 +59,19 @@ CC: <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
         <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
         <imx@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
         <u-kumar1@ti.com>, <y-abhilashchandra@ti.com>
-Subject: [PATCH 0/7] Add Interrupts property for CDNS CSI2RX
-Date: Mon, 14 Jul 2025 14:57:01 +0530
-Message-ID: <20250714092708.3944641-1-y-abhilashchandra@ti.com>
+Subject: [PATCH 1/7] arm64: dts: ti: k3-j721s2-main: Add interrupts property
+Date: Mon, 14 Jul 2025 14:57:02 +0530
+Message-ID: <20250714092708.3944641-2-y-abhilashchandra@ti.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250714092708.3944641-1-y-abhilashchandra@ti.com>
+References: <20250714092708.3944641-1-y-abhilashchandra@ti.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250714_022742_903775_81CE8B69 
-X-CRM114-Status: UNSURE (   8.23  )
+X-CRM114-CacheID: sfid-20250714_022742_906644_E55BB314 
+X-CRM114-Status: UNSURE (   8.36  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -85,46 +87,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The driver patch that adds support for error detection on the
-Cadence CSI2RX by enabling its interrupt lines was recently
-picked up [0].
+Add interrupts property for CDNS CSI2RX. Interrupt IDs are taken from the
+J721S2 TRM [0].
 
-Accordingly, this patch adds the required interrupts property
-to the Cadence CSI2RX device tree nodes.
+Interrupt Line      | Source Interrupt
+--------------------|----------------------------
+GIC500SS_SPI_IN_153 | CSI_RX_IF1_CSI_ERR_IRQ_0
+GIC500SS_SPI_IN_152 | CSI_RX_IF1_CSI_IRQ_0
+GIC500SS_SPI_IN_157 | CSI_RX_IF2_CSI_ERR_IRQ_0
+GIC500SS_SPI_IN_156 | CSI_RX_IF2_CSI_IRQ_0
 
-Test logs:
-(To validate the complete functionality, CRC errors were
-intentionally generated by modifying the sensor overlay)
+[0]: https://www.ti.com/lit/zip/spruj28
 
-AM68: https://gist.github.com/Yemike-Abhilash-Chandra/123fed82e798a76944ec23f8e46d1114
-AM69: https://gist.github.com/Yemike-Abhilash-Chandra/1820e39888cb50e250a83e2d059365f6
-J721E: https://gist.github.com/Yemike-Abhilash-Chandra/63f993a995fd6a12cb113454952c063f
-J722S: https://gist.github.com/Yemike-Abhilash-Chandra/2144fc8ab2f7bcdb3ef868e85424467d 
-J721S2: https://gist.github.com/Yemike-Abhilash-Chandra/f46587ec1ef72671ee31803dd93434b4
-J784S4: https://gist.github.com/Yemike-Abhilash-Chandra/0c594683772f11c70bccb508757e9799
+Signed-off-by: Yemike Abhilash Chandra <y-abhilashchandra@ti.com>
+---
+ arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-Driver and Binding patch series: https://lore.kernel.org/all/20250416121938.346435-1-y-abhilashchandra@ti.com/
-
-[0]: https://lore.kernel.org/all/aG9tuMFOnvwXkcE-@valkosipuli.retiisi.eu/
-
-Yemike Abhilash Chandra (7):
-  arm64: dts: ti: k3-j721s2-main: Add interrupts property
-  arm64: dts: ti: k3-j721e-main: Add interrupts property
-  arm64: dts: ti: k3-j784s4-j742s2-main-common: Add interrupts property
-  arm64: dts: ti: k3-am62p-j722s-common-main: Add interrupts property
-  arm64: dts: ti: k3-j722s-main: Add interrupts property
-  arm64: dts: ti: k3-am62-main: Add interrupts property
-  arm64: dts: ti: k3-am62a-main: Add interrupts property
-
- arch/arm64/boot/dts/ti/k3-am62-main.dtsi                 | 3 +++
- arch/arm64/boot/dts/ti/k3-am62a-main.dtsi                | 3 +++
- arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi   | 3 +++
- arch/arm64/boot/dts/ti/k3-j721e-main.dtsi                | 6 ++++++
- arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi               | 6 ++++++
- arch/arm64/boot/dts/ti/k3-j722s-main.dtsi                | 9 +++++++++
- arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi | 9 +++++++++
- 7 files changed, 39 insertions(+)
-
+diff --git a/arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi b/arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi
+index 62f45377a2c9..6f32a2b0c40c 100644
+--- a/arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi
+@@ -1248,6 +1248,9 @@ ti_csi2rx0: ticsi2rx@4500000 {
+ 		cdns_csi2rx0: csi-bridge@4504000 {
+ 			compatible = "ti,j721e-csi2rx", "cdns,csi2rx";
+ 			reg = <0x00 0x04504000 0x00 0x1000>;
++			interrupts = <GIC_SPI 153 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 152 IRQ_TYPE_LEVEL_HIGH>;
++			interrupt-names = "error_irq", "irq";
+ 			clocks = <&k3_clks 38 3>, <&k3_clks 38 1>, <&k3_clks 38 3>,
+ 				<&k3_clks 38 3>, <&k3_clks 38 4>, <&k3_clks 38 4>;
+ 			clock-names = "sys_clk", "p_clk", "pixel_if0_clk",
+@@ -1301,6 +1304,9 @@ ti_csi2rx1: ticsi2rx@4510000 {
+ 		cdns_csi2rx1: csi-bridge@4514000 {
+ 			compatible = "ti,j721e-csi2rx", "cdns,csi2rx";
+ 			reg = <0x00 0x04514000 0x00 0x1000>;
++			interrupts = <GIC_SPI 157 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 156 IRQ_TYPE_LEVEL_HIGH>;
++			interrupt-names = "error_irq", "irq";
+ 			clocks = <&k3_clks 39 3>, <&k3_clks 39 1>, <&k3_clks 39 3>,
+ 				<&k3_clks 39 3>, <&k3_clks 39 4>, <&k3_clks 39 4>;
+ 			clock-names = "sys_clk", "p_clk", "pixel_if0_clk",
 -- 
 2.34.1
 
