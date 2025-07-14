@@ -4,145 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18723C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 11:09:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBC0DC83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 11:16:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4YKrSFv1YGAiQMcAg6nzwovM4HAC9RQMF+xyu/4Z080=; b=2PR7QrL0Ok2D9E9nQCHMaYHfy6
-	ciiQHofMlgHeuff4YAkqlKG93jXgbVhEinjap0N9Qv9vBMZIhoJP+vEB5nWh/Ahn628wL/Sq8tOHt
-	R/eLWZJ2nTV0w/qAqNLIWgdNV5xfUdp73NXn6+rNgyEYaZTmeXqloP9hV+sSG3Rcz3Z9g0DO72k42
-	awRTMOOzHtzZHy1Eu4YUl/WDr5cdxlUMZ7ZmF2KaF2acKuzUfB62Pj7LpEunJsu8VS5PiYmOXxdE9
-	VIPTjuIJI1OEX4fbNxL/tlrXwqxVSbtm/uVGSVJTo5KjhQq99pQL6qq/nbMUs4t3F0PTfBpQwz3F3
-	+we63gaw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iYsZgpGyc92tylgoOl1ueE7I+vTEL4X4JFlPanY31ls=; b=4Ca2wV8qcXamMUlz64yX5vNuNe
+	Q26oaMCZ2sJvA4QmlHxzGtJn6jPwgLUQ59sA/xzPO49IzBLvQnifiqKzDc49aioGmBLVgskqnmXWl
+	AsAO3wQYKvK6s3csZZxyBtnNr+6RR80Qrdg1iVRp9mHF280+xvHJ4NQFGlFyZPzLt1nmt13P9rv0+
+	TcK0alDSxpuhBBc22VJCmKpjlco9nhWu+xtyXayvguw/rRIaYr/VDGjXq2gCq4NQ2yH9pBhTPSlxB
+	BNeN5c5/nvXrbFWpmUbv7t8MRAeE0hYcBBLQwoF38QAS5Yh2nkkeNzYjHUBBSEfjgQqaqJdM+sqcC
+	8IZiT2DQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubH3J-00000001zzV-1F3L;
-	Mon, 14 Jul 2025 11:08:57 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1ubHA4-000000020hX-463B;
+	Mon, 14 Jul 2025 11:15:56 +0000
+Received: from mail-yb1-xb2d.google.com ([2607:f8b0:4864:20::b2d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubH0q-00000001zi9-2zGQ
+	id 1ubH7c-000000020Q2-3bun
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Jul 2025 11:06:25 +0000
-Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56E66IWs000324
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Jul 2025 11:06:24 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	4YKrSFv1YGAiQMcAg6nzwovM4HAC9RQMF+xyu/4Z080=; b=mPs0cIJe8pzhvbW4
-	bObewQAZcRH06g6c74+oGoGrkHgfEh4KU/ZGgajSBxDEpWByVjm2kt8KwLQjItrR
-	/pcJwNXZdQt2SGahNizWFFQyoJC8rDYnbY4XKonXGS/1KD1UH4yV2QMdkzjPz2xX
-	rl+PhceJGJFodOSxTzHnip6XGH0CXO1WegyDK1b8rbSsDuAAtOaXC/Kxhpbzmyv+
-	6FXFbHeOwX7YCsrd3JBTfsHVy7aGkDpzkd5j6NgofOTA+qc+qh8RGZY/JfstRiCK
-	DkNv93rjqrHj4iaz79EJ0JHxVIvumqEqI96XmKU1NVYVyGm7SUF9O6+8xGXhQbE4
-	LWQJIw==
-Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 47vvay11pc-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Jul 2025 11:06:23 +0000 (GMT)
-Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-4a9bcdc73c0so7054881cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Jul 2025 04:06:23 -0700 (PDT)
+	Mon, 14 Jul 2025 11:13:26 +0000
+Received: by mail-yb1-xb2d.google.com with SMTP id 3f1490d57ef6-e81a7d90835so3199636276.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Jul 2025 04:13:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1752491604; x=1753096404; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=iYsZgpGyc92tylgoOl1ueE7I+vTEL4X4JFlPanY31ls=;
+        b=cZW3WsWnSNWNnfU7iLl1TsREuokEKEoukBZTiWtdhNwuI3l2DrFe2VJDpG1w/rND14
+         RRshO1+027Ogs59J9TMyHLx9Ta4PpG2Ot794Wf0PHIFbb0nSN6uS8m4zou4fhUrQfLv9
+         tmf0UwO6+ZHMD9F4L+js0o1hJx+wXz3Hl1d80XpBbvLzs7u2ZRprh8t0E61lBsPPIk/k
+         +zIrYD6N2z4Z5TGRLQrcsdVXEe6lsCRzv48WhTKx9iS/kIKyUOHfS9m9ECFVpuWFOa/E
+         wl1yDKK5DUm90OJ3yi1S7u3Z+kw0X3VVwBhZ07Lj4mDVCXJemW098eWvLrYO0fy6lj5j
+         271g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752491182; x=1753095982;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=4YKrSFv1YGAiQMcAg6nzwovM4HAC9RQMF+xyu/4Z080=;
-        b=v129Lew/wBnMnyfgdmLCxqRnzSkbSkO2CnVQfFMuRJGiCbmQlwJWMmQND5XtizDCNR
-         7JikpzY1Ha9IYWY/ycJhokiAoYVjkEde9hwjEz3YDUIZz1clnpgt9zNCm3V9riOoASg8
-         Ve+FWt2hp1ovUtjdb0Mp3htve7fREzaC09gUjBx/dbKEjrAluol5hGsl4R11jpA8x1QP
-         zfx9DPmNbdQPDkFgr58XH0YKWroejpyrzT91EZOs1hM3hqeU6V0K2owZu0pK+KbMhPZb
-         tBhCGfpHUWx5/pOZYbR2enGTTiTFJX3yZ5lUAlye+8mDWHM9mc6Y1ZhM6OzX4V4Cok/+
-         Np/Q==
-X-Forwarded-Encrypted: i=1; AJvYcCUFk3OcgDkOOYirsRxrFtKkFV0GoGAXaXzAdx0g7smre4Y19kt6+fgIcy+hvYwzVVDMJ8KK6MqcOqhQltVL2dgk@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx4hB/5O2aHjBzYeha2QqCF6PX6Y+v5510hhdWYMw1qdCjc53gH
-	+8LXAHLpKdSYoAJN08Xw+krXtAUFNcHgykVIqNxkrcnSn1PZ2fulKVcX3/EVYfvu1W8ImWYLAHK
-	bkQJ2BTKs7EzqEhdJjNFT+JS7I/Sv/t88z8A7ozWIG1uN7LbqcnwPnDVFCiq2kg5rqoAfECa1M8
-	ykzg==
-X-Gm-Gg: ASbGncv8qOIb4R2XxmTF3SnYLmS4NvcDJ9MNQVqF+jHtlMumGa8UT4jsX+NgM0zlwMS
-	rXTuiYkl+pifWpkn2y2zxKv5om+054RlNjGTFR/EZEDv78TgvvguyIcdr/+yfj8n+rMWuAQuAu2
-	AsB7WoAfd3ZjDI3+9iRPJy/+fb3A2WX9Oo/FoHMrgt5Ktzk7xAAs/WrE8+Z66Q2kZTnMuq7TUa8
-	j4isVlJUyRxxqMOS66rOVD5p+K+VEfnzoLiAX/BUp1PIPBwsxhAe6gXyyWEC6zsk82TyJtuqDYS
-	DsYZ+3pIsvaiJSHa/g4OzSbs4BcfqcOkslZWzOvP8vcHLDpTgQncVXgndrGlj4hQMncyzJWooOt
-	tl3wqLtoAJjy/0pLx24rF
-X-Received: by 2002:a05:620a:4310:b0:7e3:2c0d:dbf8 with SMTP id af79cd13be357-7e32c0ddfc4mr149313785a.2.1752491182424;
-        Mon, 14 Jul 2025 04:06:22 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGhTZ0DLTBSSXPn3zW9zJaHv3/h9yak2ZP6Mp/ZJM1SbXkpqrQko6k3sUc726RTE5VQHh5bkw==
-X-Received: by 2002:a05:620a:4310:b0:7e3:2c0d:dbf8 with SMTP id af79cd13be357-7e32c0ddfc4mr149310085a.2.1752491181555;
-        Mon, 14 Jul 2025 04:06:21 -0700 (PDT)
-Received: from [192.168.143.225] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ae6e7ee46cdsm819147066b.60.2025.07.14.04.06.18
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 14 Jul 2025 04:06:20 -0700 (PDT)
-Message-ID: <3e0299ad-766a-4876-912e-438fe2cc856d@oss.qualcomm.com>
-Date: Mon, 14 Jul 2025 13:06:17 +0200
+        d=1e100.net; s=20230601; t=1752491604; x=1753096404;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=iYsZgpGyc92tylgoOl1ueE7I+vTEL4X4JFlPanY31ls=;
+        b=jNetJY6WCD0U3LnbSrglPGmIP2y94LaIBqjOJbLdBqFHP5spjKuNvnTK+6qwnybGjv
+         gSFIQu9ToeHccx1ohNtTrMGfHAxzfjlE4D7cDdILeFTCvmixYH5pz5s73x9ljaM18BjP
+         jKRWEJIGtz/bKjqha1xnJ3BUBAAQkjRjW9a0XT2cg0VoXAeyO9V2+70yKrZg8r1teDnM
+         bZPqzm0HvAd35JFTt52/mGYk/Rorq3crjqcpuXf0wnDzZr6S7q72DUmPWMMd9Bh3SqG9
+         qT6xQ8NqpOVbFcEQAcRvUFbBoc9UspPIqLfb73hocTv0X5VmbFo94gphLN1kFYEvzrNG
+         6sJw==
+X-Forwarded-Encrypted: i=1; AJvYcCXUgriCIYMogkYRS1YHqasEAJ+u7oxpsjSY/5J+IfnnSsORYX6A4fbKNC2ft7MIsaRxrWiRlK3eoHWIx8CVG6gr@lists.infradead.org
+X-Gm-Message-State: AOJu0Yymqh1sBU05XhI+fC9sk1Fo22aZPDQ5R3antfElGwd78HMTGFbk
+	FVv+ExJVDGzpalKISaTx8I9fiuTWB9wyMrxnijtni4ftczu+a4Aqma0pcBkpp8ZuBLWP1+c44vy
+	ONdBegnkiQU1rMY9Hd3g/+Ba/kco78+6rxAonEiYf+Q==
+X-Gm-Gg: ASbGncshIa6ldUndehp8pN9E2CZwMMjV+wO6D2CzpyTqANWUTnDWnQBmltQeF7TcoBm
+	VF2ZEkbaVGZbbq9vUknYvRvU7h4QMY/Wj0djWu0W7XBR9oCZJRN+4pt2/xG96Ig6yfXPDJ2uVPr
+	aoI+99X+3CaeGSuM2eJPlwllBtS/veQeWCizXVsLGl3PW/2eIrAZmv33PUl1hVHMtC4YH5AXZXN
+	knYbDwl
+X-Google-Smtp-Source: AGHT+IEo5nowTE/kmucDEHrishTa1XrYiiyuTFtayRgTTm+E8uO5OzwI/Scst1QOoi4vBiyg+Oy6sxmd+YJaGyA1WnM=
+X-Received: by 2002:a05:690c:d19:b0:70d:ffaf:48df with SMTP id
+ 00721157ae682-717d786dda1mr175760437b3.3.1752491603539; Mon, 14 Jul 2025
+ 04:13:23 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 14/15] arm64: dts: qcom: Add initial Milos dtsi
-To: Luca Weiss <luca.weiss@fairphone.com>, Will Deacon <will@kernel.org>,
-        Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        "Rafael J. Wysocki" <rafael@kernel.org>,
-        Viresh Kumar <viresh.kumar@linaro.org>,
-        Manivannan Sadhasivam <mani@kernel.org>,
-        Herbert Xu <herbert@gondor.apana.org.au>,
-        "David S. Miller" <davem@davemloft.net>, Vinod Koul <vkoul@kernel.org>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Robert Marko <robimarko@gmail.com>,
-        Das Srinagesh <quic_gurus@quicinc.com>,
-        Thomas Gleixner
- <tglx@linutronix.de>,
-        Jassi Brar <jassisinghbrar@gmail.com>,
-        Amit Kucheria <amitk@kernel.org>,
-        Thara Gopinath <thara.gopinath@gmail.com>,
-        Daniel Lezcano <daniel.lezcano@linaro.org>,
-        Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>,
-        Ulf Hansson <ulf.hansson@linaro.org>
-Cc: ~postmarketos/upstreaming@lists.sr.ht, phone-devel@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-pm@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-        linux-crypto@vger.kernel.org, dmaengine@vger.kernel.org,
-        linux-mmc@vger.kernel.org
-References: <20250713-sm7635-fp6-initial-v2-0-e8f9a789505b@fairphone.com>
- <20250713-sm7635-fp6-initial-v2-14-e8f9a789505b@fairphone.com>
-Content-Language: en-US
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <20250713-sm7635-fp6-initial-v2-14-e8f9a789505b@fairphone.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-GUID: ahdIAJfsfYYoUxDlp9sHwKXWkG1203W3
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNzE0MDA2NSBTYWx0ZWRfX0kS0uM2kz80j
- NR/1W2FvMLe7ew/cK9sIRj7BNHI+PpgQ55S3CUaxHJBUiQbIDqR65O68YXr18IPDOR0+nckckac
- 1RMe1JAox3vWY+YpTWO4/f8wr4QMQ06u1JjAjcODJ3n79PAqevz/gun30PPgZhwmaHpF5W1urJ1
- hEfdqhVUoYMiJSrKrfhTdGedRO0kgdGd0z1ZaY3tDo9vCQxzaffo8D857J9mbnmi4d2C365DoJp
- UivKVpoOgtG9na/2dMOkGAanU5ka6WoY63R6YPNti93iEW+9Ifm7XcOhboslxb1F3LXPgVXXQmU
- ZbcMhJamBSHk2nQX83wO0sCeJMfPjVhm+oFp42fGrC1ESztdW8EWYj3jJRveQiZbBy4LtSNa+OQ
- EJ4XWMVoglm09EsUviP56ZRPC4Bi0q7d3aCCHsmH3I6oxS1y6TJ+/a5ZE43CxLFGShsVxwrp
-X-Authority-Analysis: v=2.4 cv=GNIIEvNK c=1 sm=1 tr=0 ts=6874e4af cx=c_pps
- a=EVbN6Ke/fEF3bsl7X48z0g==:117 a=FpWmc02/iXfjRdCD7H54yg==:17
- a=IkcTkHD0fZMA:10 a=Wb1JkmetP80A:10 a=6H0WHjuAAAAA:8 a=N13MPgUakCYYuvbLhsgA:9
- a=QEXdDO2ut3YA:10 a=a_PwQJl-kcHnX1M80qC6:22 a=Soq9LBFxuPC4vsCAQt-j:22
-X-Proofpoint-ORIG-GUID: ahdIAJfsfYYoUxDlp9sHwKXWkG1203W3
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.7,FMLib:17.12.80.40
- definitions=2025-07-14_01,2025-07-14_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- mlxlogscore=999 phishscore=0 adultscore=0 impostorscore=0 malwarescore=0
- mlxscore=0 clxscore=1015 lowpriorityscore=0 bulkscore=0 suspectscore=0
- priorityscore=1501 spamscore=0 classifier=spam authscore=0 authtc=n/a authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2505280000
- definitions=main-2507140065
+References: <20250709154728.733920-1-daniel.lezcano@linaro.org>
+In-Reply-To: <20250709154728.733920-1-daniel.lezcano@linaro.org>
+From: Ulf Hansson <ulf.hansson@linaro.org>
+Date: Mon, 14 Jul 2025 13:12:47 +0200
+X-Gm-Features: Ac12FXxaeX7OXBuCkXJ-j03hUCK21Ze9ZEebSgiQ5mn7RsuZUrOhhvlhJZv3Zm8
+Message-ID: <CAPDyKFp9up-okoVZf5j+LFvpCOFgLjS8FY1eEqoaDU8remD8Hg@mail.gmail.com>
+Subject: Re: [PATCH] cpuidle: psci: Fix cpuhotplug routine with PREEMPT_RT=y
+To: Daniel Lezcano <daniel.lezcano@linaro.org>
+Cc: rafael@kernel.org, sudeep.holla@arm.com, linux-pm@vger.kernel.org, 
+	linux-rt-users@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Raghavendra Kakarla <quic_rkakarla@quicinc.com>, 
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, Sebastian Andrzej Siewior <bigeasy@linutronix.de>, 
+	Clark Williams <clrkwllms@kernel.org>, Steven Rostedt <rostedt@goodmis.org>, 
+	"open list:Real-time Linux (PREEMPT_RT)" <linux-rt-devel@lists.linux.dev>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250714_040624_762978_B27495D5 
-X-CRM114-Status: GOOD (  19.39  )
+X-CRM114-CacheID: sfid-20250714_041324_919850_806CD243 
+X-CRM114-Status: GOOD (  26.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,255 +97,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/13/25 10:05 AM, Luca Weiss wrote:
-> Add a devicetree description for the Milos SoC, which is for example
-> Snapdragon 7s Gen 3 (SM7635).
-> 
-> Signed-off-by: Luca Weiss <luca.weiss@fairphone.com>
+On Wed, 9 Jul 2025 at 17:47, Daniel Lezcano <daniel.lezcano@linaro.org> wrote:
+>
+> Currently cpu hotplug with the PREEMPT_RT option set in the kernel is
+> not supported because the underlying generic power domain functions
+> used in the cpu hotplug callbacks are incompatible from a lock point
+> of view. This situation prevents the suspend to idle to reach the
+> deepest idle state for the "cluster" as identified in the
+> undermentioned commit.
+>
+> Use the compatible ones when PREEMPT_RT is enabled and remove the
+> boolean disabling the hotplug callbacks with this option.
+>
+> With this change the platform can reach the deepest idle state
+> allowing at suspend time to consume less power.
+>
+> Tested-on Lenovo T14s with the following script:
+>
+> echo 0 > /sys/devices/system/cpu/cpu3/online
+> BEFORE=$(cat /sys/kernel/debug/pm_genpd/power-domain-cpu-cluster0/idle_states | grep S0 | awk '{ print $3 }') ;
+> rtcwake -s 1 -m mem;
+> AFTER=$(cat /sys/kernel/debug/pm_genpd/power-domain-cpu-cluster0/idle_states | grep S0 | awk '{ print $3 }');
+> if [ $BEFORE -lt $AFTER ]; then
+>     echo "Test successful"
+> else
+>     echo "Test failed"
+> fi
+> echo 1 > /sys/devices/system/cpu/cpu3/online
+>
+> Fixes: 1c4b2932bd62 ("cpuidle: psci: Enable the hierarchical topology for s2idle on PREEMPT_RT")
+> Cc: Raghavendra Kakarla <quic_rkakarla@quicinc.com>
+> Signed-off-by: Daniel Lezcano <daniel.lezcano@linaro.org>
+
+Applied for fixes and by adding a stable-tag, thanks!
+
+Kind regards
+Uffe
+
 > ---
-
-[...]
-
-> +		cpu-map {
-> +			cluster0 {
-> +				core0 {
-> +					cpu = <&cpu0>;
-> +				};
+>  drivers/cpuidle/cpuidle-psci.c | 23 ++++++++++++-----------
+>  1 file changed, 12 insertions(+), 11 deletions(-)
+>
+> diff --git a/drivers/cpuidle/cpuidle-psci.c b/drivers/cpuidle/cpuidle-psci.c
+> index 4e1ba35deda9..b19bc60cc627 100644
+> --- a/drivers/cpuidle/cpuidle-psci.c
+> +++ b/drivers/cpuidle/cpuidle-psci.c
+> @@ -45,7 +45,6 @@ struct psci_cpuidle_domain_state {
+>  static DEFINE_PER_CPU_READ_MOSTLY(struct psci_cpuidle_data, psci_cpuidle_data);
+>  static DEFINE_PER_CPU(struct psci_cpuidle_domain_state, psci_domain_state);
+>  static bool psci_cpuidle_use_syscore;
+> -static bool psci_cpuidle_use_cpuhp;
+>
+>  void psci_set_domain_state(struct generic_pm_domain *pd, unsigned int state_idx,
+>                            u32 state)
+> @@ -124,8 +123,12 @@ static int psci_idle_cpuhp_up(unsigned int cpu)
+>  {
+>         struct device *pd_dev = __this_cpu_read(psci_cpuidle_data.dev);
+>
+> -       if (pd_dev)
+> -               pm_runtime_get_sync(pd_dev);
+> +       if (pd_dev) {
+> +               if (!IS_ENABLED(CONFIG_PREEMPT_RT))
+> +                       pm_runtime_get_sync(pd_dev);
+> +               else
+> +                       dev_pm_genpd_resume(pd_dev);
+> +       }
+>
+>         return 0;
+>  }
+> @@ -135,7 +138,11 @@ static int psci_idle_cpuhp_down(unsigned int cpu)
+>         struct device *pd_dev = __this_cpu_read(psci_cpuidle_data.dev);
+>
+>         if (pd_dev) {
+> -               pm_runtime_put_sync(pd_dev);
+> +               if (!IS_ENABLED(CONFIG_PREEMPT_RT))
+> +                       pm_runtime_put_sync(pd_dev);
+> +               else
+> +                       dev_pm_genpd_suspend(pd_dev);
 > +
-> +				core1 {
-> +					cpu = <&cpu1>;
-> +				};
-> +
-> +				core2 {
-> +					cpu = <&cpu2>;
-> +				};
-> +
-> +				core3 {
-> +					cpu = <&cpu3>;
-> +				};
-> +			};
-> +
-> +			cluster1 {
-> +				core0 {
-> +					cpu = <&cpu4>;
-> +				};
-> +
-> +				core1 {
-> +					cpu = <&cpu5>;
-> +				};
-> +
-> +				core2 {
-> +					cpu = <&cpu6>;
-> +				};
-> +			};
-> +
-> +			cluster2 {
-> +				core0 {
-> +					cpu = <&cpu7>;
-> +				};
-> +			};
-> +		};
-
-I'm getting mixed information about the core topology.. 
-
-What does dmesg say wrt this line?
-
-CPU%u: Booted secondary processor 0x%010lx [0x%08x]\n
-
-> +	pmu-a520 {
-> +		compatible = "arm,cortex-a520-pmu";
-> +		interrupts = <GIC_PPI 7 IRQ_TYPE_LEVEL_LOW>;
-> +	};
-> +
-> +	pmu-a720 {
-> +		compatible = "arm,cortex-a720-pmu";
-> +		interrupts = <GIC_PPI 7 IRQ_TYPE_LEVEL_LOW>;
-> +	};
-
-See:
-
-9ce52e908bd5 ("arm64: dts: qcom: sm8650: switch to interrupt-cells 4 to add PPI partitions")
-2c06e0797c32 ("arm64: dts: qcom: sm8650: add PPI interrupt partitions for the ARM PMUs")
-
-[...]
-
-> +		gcc: clock-controller@100000 {
-> +			compatible = "qcom,milos-gcc";
-> +			reg = <0x0 0x00100000 0x0 0x1f4200>;
-> +
-> +			clocks = <&rpmhcc RPMH_CXO_CLK>,
-> +				 <&sleep_clk>,
-> +				 <0>, /* pcie_0_pipe_clk */
-> +				 <0>, /* pcie_1_pipe_clk */
-> +				 <0>, /* ufs_phy_rx_symbol_0_clk */
-> +				 <0>, /* ufs_phy_rx_symbol_1_clk */
-> +				 <0>, /* ufs_phy_tx_symbol_0_clk */
-> +				 <0>; /* usb3_phy_wrapper_gcc_usb30_pipe_clk */
-> +			protected-clocks = <GCC_PCIE_1_AUX_CLK>, <GCC_PCIE_1_AUX_CLK_SRC>,
-> +					<GCC_PCIE_1_CFG_AHB_CLK>, <GCC_PCIE_1_MSTR_AXI_CLK>,
-> +					<GCC_PCIE_1_PHY_RCHNG_CLK>, <GCC_PCIE_1_PHY_RCHNG_CLK_SRC>,
-> +					<GCC_PCIE_1_PIPE_CLK>, <GCC_PCIE_1_PIPE_CLK_SRC>,
-> +					<GCC_PCIE_1_PIPE_DIV2_CLK>, <GCC_PCIE_1_PIPE_DIV2_CLK_SRC>,
-> +					<GCC_PCIE_1_SLV_AXI_CLK>, <GCC_PCIE_1_SLV_Q2A_AXI_CLK>;
-
-Does access control disallow accessing these on your prod-fused
-device?
-
-[...]
-
-> +		usb_1: usb@a600000 {
-> +			compatible = "qcom,milos-dwc3", "qcom,snps-dwc3";
-> +			reg = <0x0 0x0a600000 0x0 0x10000>;
-
-size = 0xfc_000
-
-[...]
-
-> +
-> +			clocks = <&gcc GCC_CFG_NOC_USB3_PRIM_AXI_CLK>,
-> +				 <&gcc GCC_USB30_PRIM_MASTER_CLK>,
-> +				 <&gcc GCC_AGGRE_USB3_PRIM_AXI_CLK>,
-> +				 <&gcc GCC_USB30_PRIM_SLEEP_CLK>,
-> +				 <&gcc GCC_USB30_PRIM_MOCK_UTMI_CLK>,
-> +				 <&rpmhcc RPMH_CXO_CLK>;
-> +			clock-names = "cfg_noc",
-> +				      "core",
-> +				      "iface",
-> +				      "sleep",
-> +				      "mock_utmi",
-> +				      "xo";
-> +
-> +			assigned-clocks = <&gcc GCC_USB30_PRIM_MOCK_UTMI_CLK>,
-> +					  <&gcc GCC_USB30_PRIM_MASTER_CLK>;
-> +			assigned-clock-rates = <19200000>, <133333333>;
-
-Set the latter to 200000000 - your device doesn't have USB3, but the
-next person may lose their hair about tracking down why it doesn't
-work on theirs
-
-[...]
-
-> +		pdc: interrupt-controller@b220000 {
-> +			compatible = "qcom,milos-pdc", "qcom,pdc";
-> +			reg = <0x0 0x0b220000 0x0 0x30000>, <0x0 0x174000f0 0x0 0x64>;
-
-1 per line, please
-
-> +			interrupt-parent = <&intc>;
-> +
-> +			qcom,pdc-ranges = <0 480 40>, <40 140 11>, <51 527 47>,
-> +					  <98 609 31>, <129 63 1>, <130 716 12>,
-> +					  <142 251 5>;
-> +
-> +			#interrupt-cells = <2>;
-> +			interrupt-controller;
-> +		};
-> +
-> +		tsens0: thermal-sensor@c228000 {
-> +			compatible = "qcom,milos-tsens", "qcom,tsens-v2";
-> +			reg = <0x0 0x0c228000 0x0 0x1ff>, /* TM */
-> +			      <0x0 0x0c222000 0x0 0x1ff>; /* SROT */
-
-drop the comments
-
-the sizes are 0x1000 for both regions for both controllers
-
-> +
-> +			interrupts = <GIC_SPI 506 IRQ_TYPE_LEVEL_HIGH>,
-
-pdc 26
-
-> +				     <GIC_SPI 640 IRQ_TYPE_LEVEL_HIGH>;
-> +			interrupt-names = "uplow",
-> +					  "critical";
-> +
-> +			#qcom,sensors = <15>;
-> +
-> +			#thermal-sensor-cells = <1>;
-> +		};
-> +
-> +		tsens1: thermal-sensor@c229000 {
-> +			compatible = "qcom,milos-tsens", "qcom,tsens-v2";
-> +			reg = <0x0 0x0c229000 0x0 0x1ff>, /* TM */
-> +			      <0x0 0x0c223000 0x0 0x1ff>; /* SROT */
-> +
-> +			interrupts = <GIC_SPI 507 IRQ_TYPE_LEVEL_HIGH>,
-
-pdc 27
-
-> +				     <GIC_SPI 641 IRQ_TYPE_LEVEL_HIGH>;
-> +			interrupt-names = "uplow",
-> +					  "critical";
-> +
-> +			#qcom,sensors = <14>;
-> +
-> +			#thermal-sensor-cells = <1>;
-> +		};
-> +
-> +		aoss_qmp: power-management@c300000 {
-> +			compatible = "qcom,milos-aoss-qmp", "qcom,aoss-qmp";
-> +			reg = <0x0 0x0c300000 0x0 0x400>;
-> +
-> +			interrupt-parent = <&ipcc>;
-> +			interrupts-extended = <&ipcc IPCC_CLIENT_AOP IPCC_MPROC_SIGNAL_GLINK_QMP
-> +						     IRQ_TYPE_EDGE_RISING>;
-> +
-> +			mboxes = <&ipcc IPCC_CLIENT_AOP IPCC_MPROC_SIGNAL_GLINK_QMP>;
-> +
-> +			#clock-cells = <0>;
-> +		};
-> +
-> +		sram@c3f0000 {
-> +			compatible = "qcom,rpmh-stats";
-> +			reg = <0x0 0x0c3f0000 0x0 0x400>;
-> +		};
-> +
-> +		spmi_bus: spmi@c400000 {
-> +			compatible = "qcom,spmi-pmic-arb";
-
-There's two bus instances on this platform, check out the x1e binding
-
-[...]
-
-> +		intc: interrupt-controller@17100000 {
-> +			compatible = "arm,gic-v3";
-> +			reg = <0x0 0x17100000 0x0 0x10000>,	/* GICD */
-> +			      <0x0 0x17180000 0x0 0x200000>;	/* GICR * 8 */
-
-drop the comments please
-
-[...]
-
-> +			clocks = <&rpmhcc RPMH_CXO_CLK>, <&gcc GCC_GPLL0>;
-> +			clock-names = "xo", "alternate";
-
-1 a line, please
-
-[...]
-
-> +		cpuss0-thermal {
-> +			thermal-sensors = <&tsens0 1>;
-> +
-> +			trips {
-> +				cpuss0-hot {
-> +					temperature = <110000>;
-> +					hysteresis = <1000>;
-> +					type = "hot";
-> +				};
-> +
-> +				cpuss0-critical {
-> +					temperature = <115000>;
-> +					hysteresis = <0>;
-> +					type = "critical";
-> +				};
-> +			};
-> +		};
-
-See:
-
-06eadce93697 ("arm64: dts: qcom: x1e80100: Drop unused passive thermal trip points for CPU")
-
-(tldr drop non-critical trips for CPU)
-
-Konrad
+>                 /* Clear domain state to start fresh at next online. */
+>                 psci_clear_domain_state();
+>         }
+> @@ -196,9 +203,6 @@ static void psci_idle_init_cpuhp(void)
+>  {
+>         int err;
+>
+> -       if (!psci_cpuidle_use_cpuhp)
+> -               return;
+> -
+>         err = cpuhp_setup_state_nocalls(CPUHP_AP_CPU_PM_STARTING,
+>                                         "cpuidle/psci:online",
+>                                         psci_idle_cpuhp_up,
+> @@ -259,10 +263,8 @@ static int psci_dt_cpu_init_topology(struct cpuidle_driver *drv,
+>          * s2ram and s2idle.
+>          */
+>         drv->states[state_count - 1].enter_s2idle = psci_enter_s2idle_domain_idle_state;
+> -       if (!IS_ENABLED(CONFIG_PREEMPT_RT)) {
+> +       if (!IS_ENABLED(CONFIG_PREEMPT_RT))
+>                 drv->states[state_count - 1].enter = psci_enter_domain_idle_state;
+> -               psci_cpuidle_use_cpuhp = true;
+> -       }
+>
+>         return 0;
+>  }
+> @@ -339,7 +341,6 @@ static void psci_cpu_deinit_idle(int cpu)
+>
+>         dt_idle_detach_cpu(data->dev);
+>         psci_cpuidle_use_syscore = false;
+> -       psci_cpuidle_use_cpuhp = false;
+>  }
+>
+>  static int psci_idle_init_cpu(struct device *dev, int cpu)
+> --
+> 2.43.0
+>
 
