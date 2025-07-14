@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1BA3C83F1B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 12:05:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 600BCC83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 12:07:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UhTZuMSdkZB9Vlng69mN5slQaIFVXEp01Sg+nSZUzzg=; b=mnq6NqE5ZW4EhLIe2GOCl+2vMY
-	7cleS3/oic6KXwFL3Vt8FyE93DLwSblcYiEesaxnY5wtKK6A4p7iKWoRnxZpr8R+K+UgoOpgdIbEI
-	HVsaJlhGDtoaifL3z8Hcn7p4xUBGQ800CmTAej69FShEmLQaXdc6tT6NeW1HdAeWmYKBjUOiyoJz9
-	7yWY4XQFiuIjO1gBfU0i82p3V6v8zazNoXSWnU449XGxVu9yUcjGIqUTacGt49rqYghHh3oqMVP3j
-	EDSRu32R65vTXhqsvwK8Keq/Ej7eQfUW+ZttRnkOWE1HejHgWUvZkZfmreHYE5mecfaokcVYrt5II
-	zesv+aVg==;
+	bh=1ouWQ1x5BptL+bLefbMgQWs0qcrX8av3cV4qFuWVpFM=; b=bjoYoYNah6KRU08AWISLMjSD98
+	dGSwcIztA/rKNvlAbBGkZgkdd32UIH+pl73/lUeum+JcpdLxWqq2hzWKggaUILYlkarYf1aP15jW8
+	IVG3JexMhQ8AinpxVdtVg46ekumelyhisvn5HOzZL2lXxN3nph8v/7Psblzgl1eAjx554s0ERzVdQ
+	/hrwrMNgM1H12ObpWsc/s91tMnylN+qA3uMuPLC+PalEVGYp64EjUHYBZq69xjY5FW5NuP5FXQeqj
+	vKNG2OA2SEpbyKkkGlgF9Xg4uPJjHcunQeTb96VMkDzz8tIrFQiXbPeWO5VYUtC7ubEbpJIRoK8Tm
+	Ac8U/1rg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubHvq-000000026zo-1ezS;
-	Mon, 14 Jul 2025 12:05:18 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1ubHyG-000000027Qt-0xhe;
+	Mon, 14 Jul 2025 12:07:48 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubHlh-000000024ku-1XN5
+	id 1ubHlj-000000024lV-3krs
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Jul 2025 11:54:49 +0000
+	Mon, 14 Jul 2025 11:54:53 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B97EB6143F;
+	by sea.source.kernel.org (Postfix) with ESMTP id 98A844630F;
+	Mon, 14 Jul 2025 11:54:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1B100C4CEF4;
 	Mon, 14 Jul 2025 11:54:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ADE1EC4CEF7;
-	Mon, 14 Jul 2025 11:54:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752494088;
-	bh=rziu0D+4kGuOhATIk+bxX7lWlGb57GTit+Rc33yBGEw=;
+	s=k20201202; t=1752494091;
+	bh=d0joSu+CYHb5OJCnlRZ4ebbkZ3bY9fgZjzT8Cp/Aqi8=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=MMXYocwG9YB2Qbh87IeUgP6bdteXTdaMI0KAmYZ/rhULoDTzhozimbFrHmyq9Xt7O
-	 iXKDXnIT5hrIsavkrFJp8ghdJ0fnX0LlpTwP0QErFyRQKNg9meh859pIA9+POS9Giz
-	 0cknD/iCa3oJQd1RZZsVtMvaUg/ooE/0NGRdzeMEgzDgdJmre8TAbkfJoPo/w5nRdi
-	 JE9VEnBgh1Qf5JIzxjmsUkBrbCaifkF03h/HHQeC2HFjVD+GbU4JlupwYpLrKq5ceS
-	 eGOQRccSfr3sO9mZYN9PHZHAon8+zD5qkpLBwTBhQTegnemr+5Ku2EsrEMOP0/HZiJ
-	 TQpMejMjkHm4Q==
+	b=XpQXCszR2pubUtIf+QwsIjfF08bbyU/kiEshe5/ToEoj4I7WHAtOf3/89BFTUK+8w
+	 BXsvNNrLhOtKrNb7CaGBrBlb5wC5CYcLKz6EYDC4NFwyN1WCrBh75LOK9jS/JFeSft
+	 f1SvUOAs/EOcb7eIjVBMssLHTUv/Uq5DrzobyTKdn1h2HdXGdP7KihK5moScSCwTxn
+	 uUcrNQQfIlr9kSJcah84/q79DgGR5rOoM5KfXzaJEJOc9nvNhahZokQDP3ML14QopM
+	 bQX9erDnWxVFiV8B4U9Wi2q1S1dHUYGVDbNd11KDGJHD9lCPJxDe2fgVLPXa62PTYp
+	 ieMOEgyJjAVzg==
 From: Will Deacon <will@kernel.org>
-To: iommu@lists.linux.dev,
+To: Marek Szyprowski <m.szyprowski@samsung.com>,
 	Joerg Roedel <joro@8bytes.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-arm-msm@vger.kernel.org,
-	Rob Clark <robin.clark@oss.qualcomm.com>,
 	Robin Murphy <robin.murphy@arm.com>,
-	Jason Gunthorpe <jgg@ziepe.ca>
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Kaustabh Chakraborty <kauschluss@disroot.org>
 Cc: catalin.marinas@arm.com,
 	kernel-team@android.com,
 	Will Deacon <will@kernel.org>,
-	Joerg Roedel <joerg.roedel@amd.com>,
-	Kevin Tian <kevin.tian@intel.com>,
-	Linux Kernel Functional Testing <lkft@linaro.org>,
-	Naresh Kamboju <naresh.kamboju@linaro.org>,
-	Nicolin Chen <nicolinc@nvidia.com>,
-	patches@lists.linux.dev
-Subject: Re: [PATCH] iommu/qcom: Fix pgsize_bitmap
-Date: Mon, 14 Jul 2025 12:54:30 +0100
-Message-Id: <175249096589.1450216.5497054354220056628.b4-ty@kernel.org>
+	iommu@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] iommu/exynos: add support for reserved regions
+Date: Mon, 14 Jul 2025 12:54:31 +0100
+Message-Id: <175249276902.1459797.13570182845894865373.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.39.5
-In-Reply-To: <0-v1-65a7964d2545+195-qcom_pgsize_jgg@nvidia.com>
-References: <0-v1-65a7964d2545+195-qcom_pgsize_jgg@nvidia.com>
+In-Reply-To: <20250712-exynos-sysmmu-resv-regions-v1-1-e79681fcab1a@disroot.org>
+References: <20250712-exynos-sysmmu-resv-regions-v1-1-e79681fcab1a@disroot.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250714_045451_952454_8678C122 
+X-CRM114-Status: GOOD (  11.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,23 +82,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 11 Jul 2025 10:16:38 -0300, Jason Gunthorpe wrote:
-> qcom uses the ARM_32_LPAE_S1 format which uses the ARM long descriptor
-> page table. Eventually arm_32_lpae_alloc_pgtable_s1() will adjust
-> the pgsize_bitmap with:
-> 
-> 	cfg->pgsize_bitmap &= (SZ_4K | SZ_2M | SZ_1G);
-> 
-> So the current declaration is nonsensical. Fix it to be just SZ_4K which
-> is what it has actually been using so far. Most likely the qcom driver
-> copy and pasted the pgsize_bitmap from something using the ARM_V7S format.
+On Sat, 12 Jul 2025 17:19:30 +0530, Kaustabh Chakraborty wrote:
+> The bootloader configures a reserved memory region for framebuffer,
+> which is protected by the IOMMU. The kernel-side driver is oblivious as
+> of which memory region is set up by the bootloader. In such case, the
+> IOMMU tries to reference the reserved region - which is not reserved in
+> the kernel anymore - and it results in an unrecoverable page fault. More
+> information about it is provided in [1].
 > 
 > [...]
 
-Applied to iommu (core), thanks!
+Applied to iommu (samsung/exynos), thanks!
 
-[1/1] iommu/qcom: Fix pgsize_bitmap
-      https://git.kernel.org/iommu/c/ced24bf4352c
+[1/1] iommu/exynos: add support for reserved regions
+      https://git.kernel.org/iommu/c/2d70fdd9b5c9
 
 Cheers,
 -- 
