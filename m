@@ -4,77 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CD49C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 10:22:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1797C83F1B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 10:35:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GkK3DkT/hUKSXHtNHhvB+gzC2lGV+LnAwQSWbGSKE6M=; b=mQoOMON18WQGiFokUIfGIVBgaq
-	w7lGLvH+WGMApQVmLZf6wu0JOK9OvaKmCLKodu+Tw331JifwQFVppssC/Kgc7cCouwZhK1Dsw7bn7
-	BWmQ35D+VDEdVBNgKZsQCoNQ3v15ozcHbqpr+JtpnPQbgfxMGeOLmO7md3YymnpZe/Y9O8bcGpdh+
-	dcKOQtJOQf8UR9pI06Oo6ByN5TStt31/KhVeHuY9SuLL/ShZgoOm2bzhWmCJzj73kz56KLYsv4CRI
-	ahnZS9tnocrXc45tnVepEG5uN+Tg99cQKAMOvauEljw8A7ycPFsmUPDFZBEwxyzNw3SSbzMaX15jV
-	YeLl7WTw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VwUUlthEB0GL/tkuBikSXADM+QDOu8qT0EBANwcGFUY=; b=svq/7M1BiRGGSIk/IGlGpepBMZ
+	Z8qIKrO4nD0f/aKnHSh3CdGXf+77ZpkHnCcsnGWxDZpTomPL8lROQfD+9Mmg0U2HkYv4Ehgzht5q4
+	+8YESJlBP4CDZK77IFY6Ixfn1quLPJXMoUkg1UNbTUcD9sf87OvKIw/hZlUSAdrjd3bja3lp9GXNv
+	8Zdu6D4FSCgAfPB6PmonzqbxFW81N9ASpRb2StWkaGI8KaOEwmpnI5vPfOsKjk/S4naeZseBfW3gd
+	s+jJefDNZqeC6emQ8lNaXjJMWFiiVkXBlRq9/P/ZhmW5Zm8GJQkX23P0AxHmD+gBZ5BPzvSHbRntZ
+	JrjEvbhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubGK5-00000001u10-1TA9;
-	Mon, 14 Jul 2025 10:22:13 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1ubGWn-00000001vFh-28Ac;
+	Mon, 14 Jul 2025 10:35:21 +0000
+Received: from relay15.mail.gandi.net ([2001:4b98:dc4:8::235])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubG7m-00000001spk-2tHi;
-	Mon, 14 Jul 2025 10:09:31 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7CADA45F34;
-	Mon, 14 Jul 2025 10:09:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 09072C4CEED;
-	Mon, 14 Jul 2025 10:09:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752487768;
-	bh=GkK3DkT/hUKSXHtNHhvB+gzC2lGV+LnAwQSWbGSKE6M=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=faV4IGhrwwPm7Xk3HAdpOK/5RPiCiaXiNxiuanEBjOZEaylhB1pK8uGlt+ACEdbJy
-	 WStnLqumD05CeQsonqRO9aH+3G8tlby5aQJYsdw6IIrmsml8mH9dqlzjiJeQoIyuQZ
-	 3iMeGUqixcmo6LlALxvp6uI6i4ErSip066C+9K7xXMpk+ZeuI5Gf3NvrjRLhscApq4
-	 ONPUiNiFXooFhhDG4R9YsGQmwn06HCN+AKymqoxIiFt9Y/lUX2GF51BqCe2rbnUhY9
-	 6k3z9F8CxNfgF/4PPzT0UHIKPUTNkwGr1Tk6EJTaxbh/XerCWxAYLTvJvi2dT7f8nq
-	 RRc6R9x7VBbwg==
-Date: Mon, 14 Jul 2025 12:09:25 +0200
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, Simon Horman <horms@kernel.org>,
-	Felix Fietkau <nbd@nbd.name>
-Subject: Re: [PATCH net-next v2 2/7] net: airoha: npu: Add NPU wlan memory
- initialization commands
-Message-ID: <aHTXVQzo5pf9WvaF@lore-desk>
-References: <20250705-airoha-en7581-wlan-offlaod-v2-0-3cf32785e381@kernel.org>
- <20250705-airoha-en7581-wlan-offlaod-v2-2-3cf32785e381@kernel.org>
- <20250707-agile-aardwolf-of-politeness-29fead@krzk-bin>
- <aGt2L1e3xbWVoqOO@lore-desk>
- <679e6fd2-967f-4057-9ccd-92a37ecc4819@kernel.org>
- <aGvmoJ83EtYOIa0K@lore-desk>
- <904d1165-185e-43ac-9b52-a2f17f774e80@kernel.org>
- <aGzJ1vFufzBts_yG@lore-desk>
- <623a647b-806a-4324-9c59-fcad3127f906@kernel.org>
+	id 1ubGUK-00000001uzu-2pUx
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 14 Jul 2025 10:32:50 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id DF62543190;
+	Mon, 14 Jul 2025 10:32:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1752489165;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=VwUUlthEB0GL/tkuBikSXADM+QDOu8qT0EBANwcGFUY=;
+	b=ptl6aTRU6q2sZbmunyCwSMALBSosgd8KoJVbC3EzqraKunIc8Bw4Tpl7qUSwGsyZvAJpaX
+	nxMpym+ISlifa6M9yfjJNuBfLLdo8NnAo486ZnY4IyX534YPVR9/7GeHoutnlRUe8eCYoB
+	xuOKJ8T3tP2c1OnpGLpDazsGB18BEKP0R0S1NdNt+nk8q7ZsE3QZ5jucNavPk/ZPUX1Yzi
+	cyhzvnlezCJPyP3rz6Itw/IFMPyCvo9ivUjCAWMKzL+KgIdlSHKnXBbeUaOD7/p7zNvCWh
+	KsDCZ4A9j6u5VXp4d0KbE/LFj1zKX/F4YKG3yWpau0gvUZeMVJ8cajQgbuMF/A==
+Date: Mon, 14 Jul 2025 12:32:40 +0200
+From: Luca Ceresoli <luca.ceresoli@bootlin.com>
+To: Maxime Ripard <mripard@kernel.org>
+Cc: Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong
+ <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, Laurent
+ Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman
+ <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, Maarten
+ Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann
+ <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter
+ <simona@ffwll.ch>, Liu Ying <victor.liu@nxp.com>, Shawn Guo
+ <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix
+ Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
+ Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, Philipp Zabel
+ <p.zabel@pengutronix.de>, Hui Pu <Hui.Pu@gehealthcare.com>, Thomas
+ Petazzoni <thomas.petazzoni@bootlin.com>, linux-kernel@vger.kernel.org,
+ dri-devel@lists.freedesktop.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 4/9] drm/omapdrm: use drm_bridge_chain_get_last_bridge()
+Message-ID: <20250714123240.16d8dcb1@booty>
+In-Reply-To: <20250710-daffy-mini-booby-574fca@houat>
+References: <20250709-drm-bridge-alloc-getput-drm_bridge_get_next_bridge-v1-0-48920b9cf369@bootlin.com>
+	<20250709-drm-bridge-alloc-getput-drm_bridge_get_next_bridge-v1-4-48920b9cf369@bootlin.com>
+	<20250710-daffy-mini-booby-574fca@houat>
+Organization: Bootlin
+X-Mailer: Claws Mail 4.3.1 (GTK 3.24.49; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="N4sH5cZnV86fq74t"
-Content-Disposition: inline
-In-Reply-To: <623a647b-806a-4324-9c59-fcad3127f906@kernel.org>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdehudejvdcutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepfffhvfevuffkjghfohfogggtgfesthejredtredtvdenucfhrhhomhepnfhutggrucevvghrvghsohhlihcuoehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeeglefffefghefhtddvfeeufeeiveekgffgleekieduteekkeetvdehudekgfdvvdenucffohhmrghinhepsghoohhtlhhinhdrtghomhenucfkphepvdgrtddvmeeijedtmedvtddvtdemvggrtddumegsvgegudemleehvgejmeefgeefmeeludefvgenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtvdemieejtdemvddtvddtmegvrgdtudemsggvgedumeelhegvjeemfeegfeemledufegvpdhhvghlohepsghoohhthidpmhgrihhlfhhrohhmpehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopedvgedprhgtphhtthhopehmrhhiphgrrhgusehkvghrnhgvlhdrohhrghdprhgtphhtthhopegrnhgurhiivghjrdhhrghjuggrsehinhhtvghlrdgtohhmpdhrtghpthhtohepnhgvihhlrdgrrhhmshhtrhhonhhgsehlihhnrghro
+ hdrohhrghdprhgtphhtthhopehrfhhoshhssehkvghrnhgvlhdrohhrghdprhgtphhtthhopefnrghurhgvnhhtrdhpihhntghhrghrthesihguvggrshhonhgsohgrrhgurdgtohhmpdhrtghpthhtohepjhhonhgrsheskhifihgsohhordhsvgdprhgtphhtthhopehjvghrnhgvjhdrshhkrhgrsggvtgesghhmrghilhdrtghomhdprhgtphhtthhopehmrggrrhhtvghnrdhlrghnkhhhohhrshhtsehlihhnuhigrdhinhhtvghlrdgtohhm
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250714_030930_770240_D9D89C78 
-X-CRM114-Status: GOOD (  23.15  )
+X-CRM114-CacheID: sfid-20250714_033249_180013_05A69460 
+X-CRM114-Status: GOOD (  21.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,68 +90,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Maxime,
 
---N4sH5cZnV86fq74t
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+On Thu, 10 Jul 2025 09:13:46 +0200
+Maxime Ripard <mripard@kernel.org> wrote:
 
-> On 08/07/2025 09:33, Lorenzo Bianconi wrote:
-> >=20
-> >>
-> >>> posted net-next patches as preliminary ones for MT76 changes).
-> >>> Moreover, this is the same approach we used when we added WED support=
- to
-> >>> mtk_eth_soc driver and the related MT76 support.
-> >>> However, I am fine to post the MT76 changes as RFC and just refer to =
-it in
-> >>> this series cover-letter. Agree?=20
-> >>>
-> >>>>
-> >>>> So far I see ABI break, but without user cannot judge. And that's the
-> >>>> hard reason this cannot be accepted.
-> >>>
-> >>> if you mean the dts changes, I will fix them in v3.
-> >>>
-> >> No, I mean driver.
-> >=20
-> > Sorry, can you please explain what is the ABI break in the driver codeb=
-ase?
-> > airoha_npu_wlan_init_memory() is executed by MT76 driver and not during=
- NPU
-> > probe phase.
-> >=20
->=20
-> Read the first problem I pointed out - no user. Your new ABI returns
-> error and you changed binding in incompatible way.
->=20
-> Binding change is ABI break and its impact is impossible to judge due to
-> missing code. I am speaking about this since beginning, but if you keep
-> insisting that the driver does not matter then this is a NAK because you
-> change ABI in the binding.
+> On Wed, Jul 09, 2025 at 06:48:03PM +0200, Luca Ceresoli wrote:
+> > Use drm_bridge_chain_get_last_bridge() instead of open coding a loop with
+> > two invocations of drm_bridge_get_next_bridge() per iteration.
+> > 
+> > Besides being cleaner and more efficient, this change is necessary in
+> > preparation for drm_bridge_get_next_bridge() to get a reference to the
+> > returned bridge.
+> > 
+> > Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+> > ---
+> >  drivers/gpu/drm/omapdrm/omap_drv.c | 8 ++++----
+> >  1 file changed, 4 insertions(+), 4 deletions(-)
+> > 
+> > diff --git a/drivers/gpu/drm/omapdrm/omap_drv.c b/drivers/gpu/drm/omapdrm/omap_drv.c
+> > index 054b71dba6a75b8c42198c4b102a093f43a675a2..3bbcec01428a6f290afdfa40ef6f79629539a584 100644
+> > --- a/drivers/gpu/drm/omapdrm/omap_drv.c
+> > +++ b/drivers/gpu/drm/omapdrm/omap_drv.c
+> > @@ -378,12 +378,12 @@ static int omap_display_id(struct omap_dss_device *output)
+> >  	struct device_node *node = NULL;
+> >  
+> >  	if (output->bridge) {
+> > -		struct drm_bridge *bridge = output->bridge;
+> > -
+> > -		while (drm_bridge_get_next_bridge(bridge))
+> > -			bridge = drm_bridge_get_next_bridge(bridge);
+> > +		struct drm_bridge *bridge =
+> > +			drm_bridge_chain_get_last_bridge(output->bridge->encoder);
+> >  
+> >  		node = bridge->of_node;
+> > +
+> > +		drm_bridge_put(bridge);  
+> 
+> Any reason you're not using __free(drm_bridge_put) here?
 
-Please do not get me wrong, I was just trying to understand where the ABI
-breakage is. I will post my MT76 changes as RFC and I will link that series
-in the v3 cover letter so you can look at the new API user code.
+Just because the code is simple enough that an explicit
+drm_bridge_put() is clearly sufficient.
 
-Regards,
-Lorenzo
+Do you think __free() should be used even in such trivial cases?
 
->=20
->=20
-> Best regards,
-> Krzysztof
+Luca
 
---N4sH5cZnV86fq74t
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCaHTXVQAKCRA6cBh0uS2t
-rACZAP9AyexJu6kQuZxCmXszphY7ttX/lmGO9BeyGtpAO+ZQXQD/ebhUOlm76q1y
-hnCfV8C2VTjzBYpD1r7+JuQmdd0i0gc=
-=9MXq
------END PGP SIGNATURE-----
-
---N4sH5cZnV86fq74t--
+-- 
+Luca Ceresoli, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
