@@ -4,97 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4DA3C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 17:32:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04553C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 17:34:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QjQ0UWlscOYrLTxqfo8jeI2W2cZqq+DP0CdXTDyGEcE=; b=TawWfXLfr9Ci5jtSAZ20vny9Jr
-	iOOyTl6A2ETcAxXIrTv+UWdtAQSupAWUZqyuXfHknEfWrXf/gmYx/yuJZ13pIilznDuMLkBhgiPis
-	Cg72Lu5uQ2ecauZrxiN1HObMaJDmMJda7+co/XYSsO/XCiXD7eKHt6NT7nBLpTgqfgRW94HiLIVd0
-	dPqEwlbAt01Z0boOu4k1zb66ZrJ/ULuMgDbS3/gU8sXu8XYsEJ8uDDLTEiD5US7XlWoZqf8mjsnB1
-	v+Drpgkpgc3wf0oXmzqMF0CwxdOwmnK0P+FEF9HDn3xtlPoflFvFEfZY2OOyjq+icRJssZMlAFIMi
-	RInOMUIw==;
+	bh=0njB26qrHgHgqgJhixVMK11C5AVnOvF5avutan6EoGo=; b=DOVDvbl68IKtZQ9Rlw+vKIM7Sy
+	4R/lf7YduQR9X6QLI11hopxHm+yVufHIUQjI3FxzRvZ6bQBxfTZ0dE9qf3mXWLVu0FwC2lH0ypQfq
+	A+EMDoAFSYXsnR2jas8lyTVsl5uH2c8V1v4BJAOupbzO83elndcKSFQaUZdnnihnBVW0tcZR6HLEL
+	NxM/Nb+0//5NFgqN4l4EUMeGhwztLQXr5hLysraHWsTb2gAsUy9VvgprAL6rt8esdBJf31YMKj44q
+	O8oYVVVj85o+aXTKoVRmgi8ygf4Df0U7WNV6Ju/cSuMCX9K+PDpISVtWu9PCm5Baq47kq1o6sEhK8
+	4s1E6rQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubN2K-00000002y4S-0Dsq;
-	Mon, 14 Jul 2025 17:32:20 +0000
-Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
+	id 1ubN4j-00000002yIr-3IqW;
+	Mon, 14 Jul 2025 17:34:50 +0000
+Received: from fout-b7-smtp.messagingengine.com ([202.12.124.150])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubLFa-00000002hte-2L1s
+	id 1ubLHt-00000002ib1-1mUz
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Jul 2025 15:37:55 +0000
-Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-23dea2e01e4so47722225ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Jul 2025 08:37:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1752507473; x=1753112273; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=QjQ0UWlscOYrLTxqfo8jeI2W2cZqq+DP0CdXTDyGEcE=;
-        b=mlBIj7Kh+aVoowBtQ2X9YWfwuKmsQoQSkXvO1f17/8NT5g2WmzIU6HXlh4ePZrgRuB
-         uatS7CnuxhqDBT2fvE2Wlx44JJFL929GekH6R96U3namtV4aWN2dIsAgF3+BKF4G7Z09
-         FMv+SaTOY5AU4pesyjntevTiFV3jUgVm3zkAfPyxIBztGo57DeqCqzf8WAD1l0tqUKnk
-         nRFjpWcBRxN0aXnVnJw391eEr5zg3xmpiiwPBSweZM+AOfBVgglbciV6LjZLdAbeJGWp
-         qVtVOcpuKaZezRpmdKqgRITYYS71KJBCDpPRcg5EFtXFezMIcqP6pITOlUUj+QFTI63a
-         KkXQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752507473; x=1753112273;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=QjQ0UWlscOYrLTxqfo8jeI2W2cZqq+DP0CdXTDyGEcE=;
-        b=i2DuwCQGR7B8WuU0Bc4X/mup1fkrjNkhioOqNfcjrQ3evvcRoPJ9xRnoObcGB8dqyI
-         78+ocAWOrKKf7iD67Df/LjUyX7O000jjErLjfgs4iYtBZviKzBdERsu0QBjK8GaR9+bp
-         QSTs4URdbbp8hhKahCGXIdJriDkOMw726GRXu3AyDzLcWl4I6U9rYskkcJXx+jNOauvR
-         Q6S0R6g35pJKDwTW40Dta/mf3xYm1n29zGZJ8V1l5tPMMD++cCx1EMqjVIQ4lA/EOFBa
-         tQlATYvIY5xLgUbrCpUYLlXUbr7S6CtBDARZdBgxC4IHvm2kAY5fdFVnb6f7o84oXTlm
-         4IdQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUNaf6L7e/sJOvZPaEIYfAAJU9trbJyba8CKgQi2gLungNdFUlIRox1rJSOlQ50dgTH1e8sHNFtHt5hnCud9IFl@lists.infradead.org
-X-Gm-Message-State: AOJu0YyvqMMpIQVSXYW5WUwkzdaE+7b1VOgwtuDVecm0S6ID78x28aEO
-	to6kYzDcbNf2HakZHsxrInOCjXuhvMVwn1wCRWLpIo0Hpx9zZvkZXVMT
-X-Gm-Gg: ASbGnctzxq9fzVLPNPtReddk6IoQqg/92LYo3PbjQobfjFAI+uC9zUOmu5EwRoRWr3Q
-	6EzfEiSCUXYHmigCepAT5XabghkhLiphHOJ8aqUgvcTR8H4qWZ1NchkXm8K71bFkvC5RyA0jXnT
-	1Xslu3xcH2mVYkTmdheS7U97yQqrLCreRw+dNWY45NdjaB3H0EUitzzZ1/P58mRSwonmYlnzFNR
-	TdFsWHW1crU5FZv/YdUU3VvfaiurOMrCaS2lvcSzXAX+RQyxIjeojcpzontsuE49i9hOKy20F5G
-	hbQ7A8hC8JzE1rO47yDvDyH8nVH1FJUlY/PLOUe1UlUEPUubZlX3RfScDw8rEFSDMOiZX3SIWYr
-	P5I4ZQFqk/M5Z8L5Cxk7i3pSIeR4KobPA4fV6OZodd6Xeq8pN7TuC6F7wTmwcsME=
-X-Google-Smtp-Source: AGHT+IEMvnX379Cfqxjm8d/1Z5fQyV4o83jOtFXuWtyBzvMeYslcOx4WAebdY0n5WCMLCRYgzq0u0g==
-X-Received: by 2002:a17:903:a4f:b0:235:f70:fd39 with SMTP id d9443c01a7336-23dede2e17cmr167967685ad.10.1752507472927;
-        Mon, 14 Jul 2025 08:37:52 -0700 (PDT)
-Received: from [192.168.0.124] (061092221177.ctinets.com. [61.92.221.177])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23de42ae9f5sm95068015ad.66.2025.07.14.08.37.48
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 14 Jul 2025 08:37:52 -0700 (PDT)
-Message-ID: <81addd64-6ba6-465e-901e-05f9cb29185b@gmail.com>
-Date: Mon, 14 Jul 2025 23:37:46 +0800
+	Mon, 14 Jul 2025 15:40:18 +0000
+Received: from phl-compute-05.internal (phl-compute-05.phl.internal [10.202.2.45])
+	by mailfout.stl.internal (Postfix) with ESMTP id AC0C21D002FD;
+	Mon, 14 Jul 2025 11:40:15 -0400 (EDT)
+Received: from phl-imap-02 ([10.202.2.81])
+  by phl-compute-05.internal (MEProxy); Mon, 14 Jul 2025 11:40:16 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm1; t=1752507615;
+	 x=1752594015; bh=0njB26qrHgHgqgJhixVMK11C5AVnOvF5avutan6EoGo=; b=
+	OF5XC57glEJXYXFhmhLebcZ3wXlVdszeqaxgdQOjNlpcPyeeNZVSaAiWws1IyU63
+	BSgL6SZMVBmNZk6Tr8619klxaRXS/Dyl0cMCqfTHokmmaQ2P21Lb7GUM7lnBGq1t
+	1D5WgbFpfV1QMg/ZlK1a/q5LDXozabWKAilDOLwnwYZx9ZnZWORc2hqiKW23Lgd/
+	I8h1qkpiTSmtjGepf5ulVeVLoGsLLpsUJvT7gj7FXxwlydswepAjNKkfiqJgtl3t
+	NB+p/5jcwIXrEKq+0hV9EvHu/WiK5ZXSKLezZlYsZ1U+VXFZ5zOM5XPao5mYxprh
+	w9p1ByZOqkD0tQMWdSMJwg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1752507615; x=
+	1752594015; bh=0njB26qrHgHgqgJhixVMK11C5AVnOvF5avutan6EoGo=; b=m
+	rZeo//KtPwVCOwy3s8kprUGhEkNgPVD4OBA3/UpzJx+Gw6obGDPZPeYmgbq92m+G
+	C3iXV4T1D5g8cTwQkw6YuX22l6GNF9KVwFH8FA/w7xeHESy3JIt0L9znkgaZBtw+
+	uRwowS6wJ3ckaOmwXVlt1JTGinvwqhboyzUDmYSX55HTyARgwxOlyRCxM22+Grz0
+	8SN/VLrZ7VvJJHvXQTZ+w3ZlQwfFU/2LQRo5wkTwzoOAumMQUR4vrJXsa38ycnF/
+	5c23/DftYRKbZ6tkArDMOe7oqgk+/g4PsyRUl9uhC7p++QhXLFfkPxvNcrDNf8nU
+	1oNB3QARdYhmF+AZR8L7g==
+X-ME-Sender: <xms:3iR1aJ7l36q__p0rLR44gcyBWQWywAlXplWWcLI677KMQfKwE4iw5w>
+    <xme:3iR1aG7UPuNcgM10Iu05vD-OuMqCxLBJleYTJ4bfEUHkdV5Es3AdpzD3rgFuvhz6E
+    PKTtQO4nHu-mtV9CTk>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdehvdefgecutefuodetggdotefrod
+    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
+    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
+    hrpefoggffhffvvefkjghfufgtgfesthhqredtredtjeenucfhrhhomhepfdetrhhnugcu
+    uegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrghtthgvrh
+    hnpedvhfdvkeeuudevfffftefgvdevfedvleehvddvgeejvdefhedtgeegveehfeeljeen
+    ucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegrrhhnug
+    esrghrnhgusgdruggvpdhnsggprhgtphhtthhopedukedpmhhouggvpehsmhhtphhouhht
+    pdhrtghpthhtoheptggrthgrlhhinhdrmhgrrhhinhgrshesrghrmhdrtghomhdprhgtph
+    htthhopehkrghjvghtrghnrdhpuhgthhgrlhhskhhisegrrhhmrdgtohhmpdhrtghpthht
+    ohepshhuuggvvghprdhhohhllhgrsegrrhhmrdgtohhmpdhrtghpthhtoheplhhihhhurg
+    drlhhiuhestghigihtvggthhdrtghomhdprhgtphhtthhopegtihigqdhkvghrnhgvlhdq
+    uhhpshhtrhgvrghmsegtihigthgvtghhrdgtohhmpdhrtghpthhtohepghgrrhihrdihrg
+    hnghestghigihtvggthhdrtghomhdprhgtphhtthhopehguhhomhhinhdrtghhvghnsegt
+    ihigthgvtghhrdgtohhmpdhrtghpthhtohepphgvthgvrhdrtghhvghnsegtihigthgvtg
+    hhrdgtohhmpdhrtghpthhtohepjhgrshhsihhsihhnghhhsghrrghrsehgmhgrihhlrdgt
+    ohhm
+X-ME-Proxy: <xmx:3iR1aMIYv3JQe4Szc-JpjSetEI22ercdeg7Rg3WKmQi8TSg82drXKg>
+    <xmx:3iR1aBr2EuXj6BHAWrP9-ZMTPoOPz7FEMmxuxlnAtu_IvQzJASdyPQ>
+    <xmx:3iR1aFC8QGCi3Q93WpKOe0BkAyHpwoodEcEK6VsoJUh_oSdpMIbLoQ>
+    <xmx:3iR1aHfNNrrwQ8XGsJX9FqbViaqkJI87ZuEYy2zexTesDSDCMhshJg>
+    <xmx:3yR1aFZPDnM9fRspzybccfJdxEECJbb7EC_ExvL3vIH0x88d7sGGVA2w>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id BDFED700068; Mon, 14 Jul 2025 11:40:14 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RESEND v7 02/21] drivers/perf: apple_m1: Only init PMUv3
- remap when EL2 is available
-To: Will Deacon <will@kernel.org>
-Cc: Mark Rutland <mark.rutland@arm.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
- Janne Grunau <j@jannau.net>, Alyssa Rosenzweig <alyssa@rosenzweig.io>,
- Neal Gompa <neal@gompa.dev>, Sven Peter <sven@kernel.org>,
- Marc Zyngier <maz@kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-perf-users@vger.kernel.org, devicetree@vger.kernel.org,
- asahi@lists.linux.dev, linux-kernel@vger.kernel.org
-References: <20250616-apple-cpmu-v7-0-df2778a44d5c@gmail.com>
- <20250616-apple-cpmu-v7-2-df2778a44d5c@gmail.com>
- <aHUeNpx6bsC5Gk3b@willie-the-truck>
-Content-Language: en-US
-From: Nick Chan <towinchenmi@gmail.com>
-In-Reply-To: <aHUeNpx6bsC5Gk3b@willie-the-truck>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+X-ThreadId: T7a47ae1d7bea40f2
+Date: Mon, 14 Jul 2025 17:39:53 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Jassi Brar" <jassisinghbrar@gmail.com>,
+ "Guomin Chen" <guomin.chen@cixtech.com>
+Cc: "Rob Herring" <robh@kernel.org>, krzk+dt@kernel.org,
+ "Conor Dooley" <conor+dt@kernel.org>,
+ "Catalin Marinas" <catalin.marinas@arm.com>, "Will Deacon" <will@kernel.org>,
+ "Peter Chen" <peter.chen@cixtech.com>, linux-arm-kernel@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ cix-kernel-upstream@cixtech.com, "Marc Zyngier" <maz@kernel.org>,
+ "Sudeep Holla" <sudeep.holla@arm.com>,
+ "Kajetan Puchalski" <kajetan.puchalski@arm.com>,
+ "Enric Balletbo" <eballetb@redhat.com>, "Gary Yang" <gary.yang@cixtech.com>,
+ "Lihua Liu" <Lihua.Liu@cixtech.com>
+Message-Id: <6b5f38f7-0557-483b-9252-cfade7a24cf5@app.fastmail.com>
+In-Reply-To: <CABb+yY2BmqiQ18hU+7C234UnY8n-8PH5VEoS7nH5Xq5O1krGhQ@mail.gmail.com>
+References: <20250609031627.1605851-1-peter.chen@cixtech.com>
+ <20250609031627.1605851-6-peter.chen@cixtech.com>
+ <CABb+yY17OOBx73655OhBp8At1b81w9M61zzGu4uhXcMTw4Q=Dw@mail.gmail.com>
+ <aG0i75h32dWg/L2G@gchen>
+ <CABb+yY2BmqiQ18hU+7C234UnY8n-8PH5VEoS7nH5Xq5O1krGhQ@mail.gmail.com>
+Subject: Re: [PATCH v9 5/9] mailbox: add CIX mailbox driver
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250714_083754_593442_D351A709 
-X-CRM114-Status: GOOD (  11.27  )
+X-CRM114-CacheID: sfid-20250714_084017_529150_E9B8D3DD 
+X-CRM114-Status: GOOD (  16.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,21 +128,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Sun, Jul 13, 2025, at 19:00, Jassi Brar wrote:
+> On Tue, Jul 8, 2025 at 8:54=E2=80=AFAM Guomin chen <guomin.chen@cixtec=
+h.com> wrote:
+> ....
+>> > > +/* [0~7] Fast channel
+>> > > + * [8] doorbell base channel
+>> > > + * [9]fifo base channel
+>> > > + * [10] register base channel
+>> > > + */
+>> > > +#define MBOX_FAST_IDX          7
+>> > > +#define MBOX_DB_IDX            8
+>> > > +#define MBOX_FIFO_IDX          9
+>> > > +#define MBOX_REG_IDX           10
+>> > > +#define CIX_MBOX_CHANS         11
+>> > > +
+>> > if it is not really a single controller owning different channels,
+>> > maybe implement only what you currently use.
+>> >
+>> As mentioned in the previous email, a single controller can support
+>> multiple different channels.
+>>
+> OK. I am not too worried about having all variants in one driver esp
+> when it is manageable and share the code.
+> Unless I am overlooking something. Arnd?
 
-Will Deacon 於 2025/7/14 夜晚11:11 寫道:
-> On Mon, Jun 16, 2025 at 09:31:51AM +0800, Nick Chan wrote:
->> Skip initialization of PMUv3 remap when EL2 is not available.
->> Initialization is harmless in EL1 but it is still a weird thing to do.
-> Why is that weird?
+My main worry here is that the types are all quite different: while
+the doorbell and fast mailboxes are what a lot of other drivers have,
+the FIFO mode does not seem to be a good fit for the mailbox subsystem
+but instead looks like a more generic firmware interface with variable
+length messages.
 
-Maybe I could use better wording but if the check is not here, then for Apple A7 which has very
-different event mappings, it either has to use the mappings for M1 which is wrong on the hardware,
-or declare an a7_pmu_pmceid_map, which would just be dead code since A7's CPU does not
-support EL2. Not initializing the mapping in EL1 avoid these problems.
+For those, I think a higher-level driver with fixed data structures
+passed through the hardware interface seems more appropriate.
 
->
-> Will
->
-Nick Chan
+Are there any other mailbox drivers that just use the mailbox to
+tunnel variable-length messages?
 
+     Arnd=20
 
