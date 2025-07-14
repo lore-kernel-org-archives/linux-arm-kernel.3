@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 888E5C83F1B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 07:28:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D45AEC83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 07:31:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Arr9fq/9qWdnW8VVEWTYJts59x5v3GrH8ffIDWrEkb8=; b=MNUD0Pmvw1oXmb3p8brKZKWezh
-	jLPh91xrrL5FavDYe6tKbH2Y6ZfKBT/bjztYv0LvZNn/Y57Eu+W+W+SI+H9S/z78uoJY6kX9ncrPF
-	OtA41zfpw8GEvpgNjEkf658MajO1XVzFTb5Fc6xw3jSAW20CEbCGX7TlzrTPgfbypM9xZzExsFl0D
-	SLm/EuD7MWwYJ4m35lOnmCJD76BNjMQQVWvFmw3qx/1uBPdOzLpHsdYlQMYOHCa4RROD0O9aMJgBq
-	VBUTsBKUnxUd7mWFSVqPRiX8WNUQwHu8geJ5iwP8+OADuCVdHcHCWEHqi9egaVwiKhawl0my9VpoQ
-	mr0bEa9g==;
+	bh=pCEVx10bN8PLCvRcPxiOtgajJZ0RiJzTpcnLUOUWcxo=; b=aOxe9pfqqJ0Mu3aJaw+Jv1fVT6
+	IN9OhRTFKo5lV6zSzsN4oPKQS8MR252++GyoNnNLJrCjsLkfAEFvkUXaeKxxoCeMYuXfZfJWPv4ZK
+	x04xOyfdrQ/KpCRJG3T/FMm4NupxdzUvIz7lqN26RpEbAC/rYLi++Zb+gEA+qV4ecqkKuGTpkVhnU
+	d5xcMJm470yzD6lO5m6tdIexYRq4VV+2tG92fe1xCpCN2eA2U3PwIr2dou0nAHvDmU7rvo36dM4jh
+	5FtJzsXnG/CBCiBvevTjlRWA8FB3kpvj2WxzUZutimZ5Imkpj3o5ZXPNIYmm2TmFOyzYdpUA7nm4A
+	41qjrFlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubDc8-00000001TNc-2gU5;
-	Mon, 14 Jul 2025 07:28:40 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1ubDeX-00000001ThO-1bKS;
+	Mon, 14 Jul 2025 07:31:09 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubCwd-00000001OEQ-0TYM
+	id 1ubCyW-00000001OV2-2V2g
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Jul 2025 06:45:48 +0000
+	Mon, 14 Jul 2025 06:47:45 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4234444131;
-	Mon, 14 Jul 2025 06:45:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8E441C4CEED;
-	Mon, 14 Jul 2025 06:45:45 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id F06A45C5A80;
+	Mon, 14 Jul 2025 06:47:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 18B2CC4CEF6;
+	Mon, 14 Jul 2025 06:47:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752475546;
-	bh=Qy1hfqEo2dMgMv0YIqJ7mPsIFK2YG8agMEQFgBf9GCg=;
+	s=k20201202; t=1752475663;
+	bh=Hmw/tp+sBdq2ziMP6TR3hCzb9wJ+2WfBgsvg4Va7Ya8=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=sRvj2oObA6+JGOF4oIOjLEOKy+uoSWaXh5DELylrWEk4SoiumxqOXvVtQX4eRZAO7
-	 XTJSjWGErNxiF2JDcd1ZsrtprHphsXbd74GpHtv2jkmjiSBNXylRjG2LY2r6mv22Vc
-	 oqamtRF8KJWqfmmut8fm37FF2hb+HQrGO83xiEz8EAxa726EzOXXBfYtDiSLk92UTR
-	 OIvRIJDdJ52NaJIk0beldr+KdhC23hdp8ckuG0PIxQHcxAOOcfd4or6QBNya7Kkfov
-	 5FWurEZP8iK1OJRFay50oll0n4j3GZ3NGA3VYfaLEMT35mAD7uPOuo+IvoQDTiWN6D
-	 XAfw6xU1LZhNw==
-Date: Mon, 14 Jul 2025 08:45:43 +0200
+	b=le8BHDbiG2aNfWCfPAs1SYVdSi/No69Ukea+4UI/CVmXsBPV1fsrOfDgFf31EBQAg
+	 Cz4RygdxBaiiY08F20J/SHhs0KO2/O+8xOgZg6FiJAaqq38UMlpJy/cwRiggXyAZ86
+	 /c/eBIvXDYoJh2461Ei/gL7tqMjeUg43L9aKbCkSqoxNKcD2XV0Hhly4QRTCEZPbC6
+	 Da7H5nIW1rzLZ/VXZneJ5pRr1S7m2PNwTSL3ADjJUsOKxu8I+QdO/IH6WIccO9bgM2
+	 Q3K1d7wpSK/bn/ydmEEqb38XV9hOP+68qVyaF8tlZW/7nNPZatOMEi0Z+FFi2jSzJn
+	 JVnVKf06MyJ2A==
+Date: Mon, 14 Jul 2025 08:47:41 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Mao Jinlong <quic_jinlmao@quicinc.com>
 Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, 
@@ -52,18 +52,17 @@ Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
 	Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
 	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
 	linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v6 1/5] dt-bindings: arm: Add CoreSight QMI component
- description
-Message-ID: <20250714-impressive-spiked-chicken-9fe06e@krzk-bin>
+Subject: Re: [PATCH v6 3/5] dt-bindings: arm: Add qcom,qmi-id for remote etm
+Message-ID: <20250714-true-pistachio-peacock-53da1b@krzk-bin>
 References: <20250711094031.4171091-1-quic_jinlmao@quicinc.com>
- <20250711094031.4171091-2-quic_jinlmao@quicinc.com>
+ <20250711094031.4171091-4-quic_jinlmao@quicinc.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250711094031.4171091-2-quic_jinlmao@quicinc.com>
+In-Reply-To: <20250711094031.4171091-4-quic_jinlmao@quicinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250713_234547_207989_7E4B1F06 
-X-CRM114-Status: GOOD (  18.06  )
+X-CRM114-CacheID: sfid-20250713_234744_677488_66DC114A 
+X-CRM114-Status: GOOD (  14.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,59 +77,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 11, 2025 at 02:40:27AM -0700, Mao Jinlong wrote:
-> Add new coresight-qmi.yaml file describing the bindings required
-> to define qmi node in the device trees.
+On Fri, Jul 11, 2025 at 02:40:29AM -0700, Mao Jinlong wrote:
+> Remote etm binding change was merged to fix the dt warning. Driver
+> changes were not merged at that time. qcom,qmi-instance-id is
+> required for remote etm driver to find the remote subsystem connection.
+
+Again, driver... 
+
+
+> It is the instance id used by qmi to communicate with remote processor.
 > 
 > Signed-off-by: Mao Jinlong <quic_jinlmao@quicinc.com>
 > ---
->  .../bindings/arm/qcom,coresight-qmi.yaml      | 65 +++++++++++++++++++
->  1 file changed, 65 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/arm/qcom,coresight-qmi.yaml
+>  .../bindings/arm/qcom,coresight-remote-etm.yaml          | 9 +++++++++
+>  1 file changed, 9 insertions(+)
 > 
-> diff --git a/Documentation/devicetree/bindings/arm/qcom,coresight-qmi.yaml b/Documentation/devicetree/bindings/arm/qcom,coresight-qmi.yaml
-> new file mode 100644
-> index 000000000000..601c865fe4d7
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/arm/qcom,coresight-qmi.yaml
-> @@ -0,0 +1,65 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/arm/qcom,coresight-qmi.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Qualcomm coresight QMI(Qualcomm Messaging Interface) component
-> +
-> +description: |
-> +  Qualcomm Messaging Interface (QMI) is an interface that clients can
-> +  use to send, and receive, messages from a remote entity. The coresight
-> +  QMI component is to configure QMI instance ids and service ids for different
-> +  remote subsystem connections. Coresight QMI driver uses the ids to init
+> diff --git a/Documentation/devicetree/bindings/arm/qcom,coresight-remote-etm.yaml b/Documentation/devicetree/bindings/arm/qcom,coresight-remote-etm.yaml
+> index 4fd5752978cd..bd78f6bc2fdf 100644
+> --- a/Documentation/devicetree/bindings/arm/qcom,coresight-remote-etm.yaml
+> +++ b/Documentation/devicetree/bindings/arm/qcom,coresight-remote-etm.yaml
+> @@ -20,6 +20,12 @@ properties:
+>    compatible:
+>      const: qcom,coresight-remote-etm
+>  
+> +  qcom,qmi-instance-id:
 
-So driver... Driver stuff is not accepted in the bindings.
+Don't come with another, 20th property for your remote proc
+architecture. Use existing properties.
 
-> +  the qmi connections. Other coresight drivers call the send qmi request
-> +  function when connection is established.
-> +
-> +maintainers:
-> +  - Mao Jinlong <quic_jinlmao@quicinc.com>
-> +
-> +properties:
-> +  compatible:
-> +    enum:
-> +      - qcom,coresight-qmi
+This pattern in qcom is extremely confusing - similar thing for remote
+proc called 20 different ways, just because in downstream you have 20
+different drivers.
 
-Don't send new versions while discussion is still going.
+NAK
 
-There is no need for this binding at all, it is not a coresight device.
-
-> +
-> +patternProperties:
-> +  '^conns(-[0-9]+)?$':
-
-Drop, why do you keep enforcing the node names? Look at other bindings.
-
+Come with unified schema for existing and future properties like that.
+Assuming this is NOT FOR DRIVER in the first place.
 
 Best regards,
 Krzysztof
