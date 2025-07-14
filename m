@@ -4,88 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AC42C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 06:33:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACD25C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 06:36:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DAtRoMW47q6eWngfmkGzhbl2Om3dflePIieHts+FOBI=; b=x2zotgydNJrceM8vV/YBoqg8FE
-	MiwQDVBeXaYkHteqryQE3JBhNMwtCbZD9DHPtuDFNroUt2s+58oUUmUzlP8IDGqH3pt5qfPlNw8TN
-	yMJC7LT1JGUvrOXf+vnifdzDcy6lI2FDPFlKhntk6gOtmhyJU3IiiMU1fwtcYR2BjEpxJ/mBtIvKv
-	CUHR+8I+df+ZKrXYSUIBxT5A46d2MpK0vz0aElfpkZna4U5i9zX3Y3rrthezRmffY1G0GVJvbg7Gp
-	3XOBtSWCfYLAG8k4npMcfIWjheeFuMftbW7ymVSWDwdJBBMa1Hd950ttfRrOKTlHVW7DWncLtLXNO
-	Mx7/gGrQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=S3fDD8Aqb4liG4MFjFBsyco+mWM8ymoaLwDvnQznCYA=; b=zFBvxs58YytYcrcRCH/cksHFbj
+	UpbrqPoz81EskhxBC6Mlj+VS/VYorBmKSzZoTTOcJF0YeCPdkoiGS5l+vtte8sNMmnaDrh91PMjd6
+	7tyRHjpmOVesfel5xZwDhfW2GYJi2qzKIkOSG22HpYZPUMncuzDyUv6NVvdA1OETQ/h29c+tqEV2N
+	g5aInsg6Epoq21F149yhmVqGKMjK4aVV32na1ZBkMG77K4D/Z6YMtA0ETMAWfZYEU2kOn2huFEFlP
+	DTOndJvFJsn8y/V8/WSqZtPz5AmmsPdhA4NYUu1OMFJR8SNCyKoJM0YCLQsA+bPgzj84Q6A1NnvQF
+	UzrNh9eg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubCl2-00000001Mnv-1ih1;
-	Mon, 14 Jul 2025 06:33:48 +0000
-Received: from mail-wr1-x449.google.com ([2a00:1450:4864:20::449])
+	id 1ubCnQ-00000001NAa-288g;
+	Mon, 14 Jul 2025 06:36:16 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubCP0-00000001ILa-3CiE
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Jul 2025 06:11:03 +0000
-Received: by mail-wr1-x449.google.com with SMTP id ffacd0b85a97d-3a4e713e05bso1698968f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 13 Jul 2025 23:11:01 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1752473460; x=1753078260; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=DAtRoMW47q6eWngfmkGzhbl2Om3dflePIieHts+FOBI=;
-        b=qke6VoXyGwndbgcARfWPpfbO/f5PXZlN4S7cBAHPXMR1n7KV/K3AIJLs9rstnTAaR7
-         9uqhvyblVFbi+V+wr8D/luh7TacuweY2MA5fFyFGtIQbLFCGkBcA9jaz3LCMnGLZAA4d
-         LIRgJyigqGOxW51wzmZt4/qZMzjc/vtw5t1mrRoJ7+w/6J13Ir3XoHf5v0NcnaYo6Q+O
-         ujAePWybFJMpz+lfDjaaOU22Y2fRFx6aXHzjbwOoBpf1zmebm3zH5YQIp/mIfwf6mTfo
-         oormvT5FnnLTYTF4RVkqdudhXcuNrCxuRYthDAP7xKqrtnGPcOMY5h0i7zYZ9vOuxExv
-         Zh9Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752473460; x=1753078260;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=DAtRoMW47q6eWngfmkGzhbl2Om3dflePIieHts+FOBI=;
-        b=LFv297tA7nBncK7Gwm8wZ94rn6XkFfTRiV/Lcm7bOigPHknZnVWep2xFOQQ3Q2kien
-         sSsMrRQpfVLVBAsBUuv6U/g/08rb0oaXtT+E57EFP5wzHjJKzHMJHNCSPYuT/HeXlhPY
-         ZtHBE5iWjoQ32e6bCKm0cEivvTk715pASoa/cmYCuDZSjhFdEGl0qxQ3cL6pqp0IQ/uk
-         CV1/8BmIDJyhNHO+yu4OQKEGSzwHe7shpHPxAtbSeNNMFRm8EpTOAERX+KGNsB1lzaF5
-         bICTUNmj4zCZnmrVSljp1VPcSZQ9EgRqJRi7H2w1LiJN1DT/52tVR7l6E4UJSROKOKhL
-         sNhg==
-X-Gm-Message-State: AOJu0YyNWgamM78thRt+TUfF69i42npW7cikkkDt8tHvrNf8zYmfMlWR
-	slmI8egeqdoXPf/vPWXvaNh2ljSS92U5rz43pmi/zfYMjzeF+Tql4F4GlhY+qIe1wgJNWME91A=
-	=
-X-Google-Smtp-Source: AGHT+IFsCLtHJL4bZduQByJdBWFSePt0ZVoqPC5acNqYECl/7QLB3y/VpTPIitmJ3C2pFikEet6/1z+u
-X-Received: from wmbay17.prod.google.com ([2002:a05:600c:1e11:b0:450:cd94:c302])
- (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6000:240a:b0:3a5:8a68:b839
- with SMTP id ffacd0b85a97d-3b5f2e26c14mr9849725f8f.45.1752473460616; Sun, 13
- Jul 2025 23:11:00 -0700 (PDT)
-Date: Mon, 14 Jul 2025 08:08:46 +0200
-In-Reply-To: <20250714060843.4029171-5-ardb+git@google.com>
-Mime-Version: 1.0
-References: <20250714060843.4029171-5-ardb+git@google.com>
-X-Developer-Key: i=ardb@kernel.org; a=openpgp; fpr=F43D03328115A198C90016883D200E9CA6329909
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5138; i=ardb@kernel.org;
- h=from:subject; bh=ntdr4EjVjZJfnyc3XZ20vyNdLzsBSSjtiozuNHpTjes=;
- b=owGbwMvMwCVmkMcZplerG8N4Wi2JIaNk3s+Lmbqczj0rvAVfRxbEdM6a85TrRHj8D0lpvTzZ/
- Fdaq652lLIwiHExyIopsgjM/vtu5+mJUrXOs2Rh5rAygQxh4OIUgIk4VjL8T33FvUb59jozdqnm
- q/uqv/H1Tplbn7TcdSZ/lf6yLc3mAgz/jPUOZcXfVexgUWyuFC302nb67J1Gr/K2qWeKJ0eZ/2j hBwA=
-X-Mailer: git-send-email 2.50.0.727.gbf7dc18ff4-goog
-Message-ID: <20250714060843.4029171-7-ardb+git@google.com>
-Subject: [RFC PATCH 2/3] efi/test: Don't bother pseudo-testing unused EFI services
-From: Ard Biesheuvel <ardb+git@google.com>
-To: linux-kernel@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org, Ard Biesheuvel <ardb@kernel.org>, 
-	Heinrich Schuchardt <heinrich.schuchardt@canonical.com>, Feng Tang <feng.tang@linux.alibaba.com>, 
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, Juergen Gross <jgross@suse.com>, 
-	Stefano Stabellini <sstabellini@kernel.org>, 
-	Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>, Sunil V L <sunilvl@ventanamicro.com>, 
-	Bibo Mao <maobibo@loongson.cn>, linux-rtc@vger.kernel.org, linux-efi@vger.kernel.org, 
-	xen-devel@lists.xenproject.org, x86@kernel.org, 
-	linux-riscv@lists.infradead.org, loongarch@lists.linux.dev
-Content-Type: text/plain; charset="UTF-8"
+	id 1ubCP2-00000001INO-17aC;
+	Mon, 14 Jul 2025 06:11:05 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id EC8C946506;
+	Mon, 14 Jul 2025 06:11:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5589DC4CEF6;
+	Mon, 14 Jul 2025 06:10:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1752473463;
+	bh=cgoFQzidKJiXken5LY/zYRTNKdUK37df3G6JRzGndZs=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=msSspsSbeo0L/K9rS2/HadP4jcVsXuS+yYzRrtqTnDsa6o/3PjXfFdoKBiPrh8ftQ
+	 uEWLJh7K1+Ib5SO9XX+UmifxLTVT18FxJhsfdL7uOyv2oiP9WfrjMbiZj85mhOwEXP
+	 /574fcXBWBEa1QFOR/tnEjrYORVsdVwq2yRzGP4kSoSbdgA2hSIqNtR4KPmSuxLPj8
+	 /dKlgAKebDFZbIzNQuhcl3zcGX0HGuER9hiP/xDaRRx2uM1J72s8TVqdOMpl2OWgQV
+	 n+h0YijhUjbGPu1HSmSdcNQbdNIigAOm7NxOSBPpm2R9uFPldRY6jgY9Ek/E5HgY3R
+	 FMSlhW0nR2+4w==
+Message-ID: <82f1a34f-bfdf-466f-9c44-2e58d172f3fd@kernel.org>
+Date: Mon, 14 Jul 2025 08:10:55 +0200
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 3/6] dt-bindings: Asoc: axg-audio: Add s4 audio tocodec
+To: jiebing.chen@amlogic.com, Jerome Brunet <jbrunet@baylibre.com>,
+ Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
+ Takashi Iwai <tiwai@suse.com>, Neil Armstrong <neil.armstrong@linaro.org>,
+ Kevin Hilman <khilman@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>
+Cc: linux-sound@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-amlogic@lists.infradead.org, linux-clk@vger.kernel.org,
+ jian.xu@amlogic.com, shuai.li@amlogic.com, zhe.wang@amlogic.com
+References: <20250710-audio_drvier-v5-0-d4155f1e7464@amlogic.com>
+ <20250710-audio_drvier-v5-3-d4155f1e7464@amlogic.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20250710-audio_drvier-v5-3-d4155f1e7464@amlogic.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250713_231102_805682_B67C04B7 
-X-CRM114-Status: GOOD (  13.93  )
+X-CRM114-CacheID: sfid-20250713_231104_357874_5D0E16F2 
+X-CRM114-Status: UNSURE (   8.43  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,170 +126,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ard Biesheuvel <ardb@kernel.org>
+On 10/07/2025 05:35, jiebing chen via B4 Relay wrote:
+> From: jiebing chen <jiebing.chen@amlogic.com>
+> 
+> Add S4 SoC tocodec compatibility support.
+> 
+> Acked-by: Rob Herring (Arm) <robh@kernel.org>
+> Signed-off-by: Jiebing Chen <jiebing.chen@amlogic.com>
+> ---
 
-The EFI test module covers the get/set wakeup time EFI runtime
-services, as well as GetNextHighMonoCount(). In both cases, though, it
-just mindlessly exercises the API, without any functional testing.
+Please use subject prefixes matching the subsystem. You can get them for
+example with `git log --oneline -- DIRECTORY_OR_FILE` on the directory
+your patch is touching. For bindings, the preferred subjects are
+explained here:
+https://www.kernel.org/doc/html/latest/devicetree/bindings/submitting-patches.html#i-for-patch-submitters
 
-In case of the get/set wakeup time services, this would involve setting
-the wakeup time, and subsequently checking whether the system actually
-wakes up at the configured time, which is difficult for obvious reasons.
 
-In case of GetNextHighMonoCount(), this would involve performing some
-kind of verification that the returned number increases monotonically
-across reboots.
+<form letter>
+This is a friendly reminder during the review process.
 
-Given that these APIs are not used in Linux to begin with, let's not
-pretend that testing them in this manner has any value, and just drop
-these tests entirely, so that we can drop the APIs themselves from the
-Linux EFI runtime layer.
+It seems my or other reviewer's previous comments were not fully
+addressed. Maybe the feedback got lost between the quotes, maybe you
+just forgot to apply it. Please go back to the previous discussion and
+either implement all requested changes or keep discussing them.
 
-Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
----
- drivers/firmware/efi/test/efi_test.c | 108 +-------------------
- 1 file changed, 2 insertions(+), 106 deletions(-)
+Thank you.
+</form letter>
 
-diff --git a/drivers/firmware/efi/test/efi_test.c b/drivers/firmware/efi/test/efi_test.c
-index 77b5f7ac3e20..bb2ace902346 100644
---- a/drivers/firmware/efi/test/efi_test.c
-+++ b/drivers/firmware/efi/test/efi_test.c
-@@ -333,77 +333,6 @@ static long efi_runtime_set_time(unsigned long arg)
- 	return status == EFI_SUCCESS ? 0 : -EINVAL;
- }
- 
--static long efi_runtime_get_waketime(unsigned long arg)
--{
--	struct efi_getwakeuptime __user *getwakeuptime_user;
--	struct efi_getwakeuptime getwakeuptime;
--	efi_bool_t enabled, pending;
--	efi_status_t status;
--	efi_time_t efi_time;
--
--	getwakeuptime_user = (struct efi_getwakeuptime __user *)arg;
--	if (copy_from_user(&getwakeuptime, getwakeuptime_user,
--				sizeof(getwakeuptime)))
--		return -EFAULT;
--
--	status = efi.get_wakeup_time(
--		getwakeuptime.enabled ? (efi_bool_t *)&enabled : NULL,
--		getwakeuptime.pending ? (efi_bool_t *)&pending : NULL,
--		getwakeuptime.time ? &efi_time : NULL);
--
--	if (put_user(status, getwakeuptime.status))
--		return -EFAULT;
--
--	if (status != EFI_SUCCESS)
--		return -EINVAL;
--
--	if (getwakeuptime.enabled && put_user(enabled,
--						getwakeuptime.enabled))
--		return -EFAULT;
--
--	if (getwakeuptime.pending && put_user(pending,
--						getwakeuptime.pending))
--		return -EFAULT;
--
--	if (getwakeuptime.time) {
--		if (copy_to_user(getwakeuptime.time, &efi_time,
--				sizeof(efi_time_t)))
--			return -EFAULT;
--	}
--
--	return 0;
--}
--
--static long efi_runtime_set_waketime(unsigned long arg)
--{
--	struct efi_setwakeuptime __user *setwakeuptime_user;
--	struct efi_setwakeuptime setwakeuptime;
--	efi_bool_t enabled;
--	efi_status_t status;
--	efi_time_t efi_time;
--
--	setwakeuptime_user = (struct efi_setwakeuptime __user *)arg;
--
--	if (copy_from_user(&setwakeuptime, setwakeuptime_user,
--				sizeof(setwakeuptime)))
--		return -EFAULT;
--
--	enabled = setwakeuptime.enabled;
--	if (setwakeuptime.time) {
--		if (copy_from_user(&efi_time, setwakeuptime.time,
--					sizeof(efi_time_t)))
--			return -EFAULT;
--
--		status = efi.set_wakeup_time(enabled, &efi_time);
--	} else
--		status = efi.set_wakeup_time(enabled, NULL);
--
--	if (put_user(status, setwakeuptime.status))
--		return -EFAULT;
--
--	return status == EFI_SUCCESS ? 0 : -EINVAL;
--}
--
- static long efi_runtime_get_nextvariablename(unsigned long arg)
- {
- 	struct efi_getnextvariablename __user *getnextvariablename_user;
-@@ -505,37 +434,6 @@ static long efi_runtime_get_nextvariablename(unsigned long arg)
- 	return rv;
- }
- 
--static long efi_runtime_get_nexthighmonocount(unsigned long arg)
--{
--	struct efi_getnexthighmonotoniccount __user *getnexthighmonocount_user;
--	struct efi_getnexthighmonotoniccount getnexthighmonocount;
--	efi_status_t status;
--	u32 count;
--
--	getnexthighmonocount_user = (struct
--			efi_getnexthighmonotoniccount __user *)arg;
--
--	if (copy_from_user(&getnexthighmonocount,
--			   getnexthighmonocount_user,
--			   sizeof(getnexthighmonocount)))
--		return -EFAULT;
--
--	status = efi.get_next_high_mono_count(
--		getnexthighmonocount.high_count ? &count : NULL);
--
--	if (put_user(status, getnexthighmonocount.status))
--		return -EFAULT;
--
--	if (status != EFI_SUCCESS)
--		return -EINVAL;
--
--	if (getnexthighmonocount.high_count &&
--	    put_user(count, getnexthighmonocount.high_count))
--		return -EFAULT;
--
--	return 0;
--}
--
- static long efi_runtime_reset_system(unsigned long arg)
- {
- 	struct efi_resetsystem __user *resetsystem_user;
-@@ -697,16 +595,14 @@ static long efi_test_ioctl(struct file *file, unsigned int cmd,
- 		return efi_runtime_set_time(arg);
- 
- 	case EFI_RUNTIME_GET_WAKETIME:
--		return efi_runtime_get_waketime(arg);
--
- 	case EFI_RUNTIME_SET_WAKETIME:
--		return efi_runtime_set_waketime(arg);
-+		return -EINVAL;
- 
- 	case EFI_RUNTIME_GET_NEXTVARIABLENAME:
- 		return efi_runtime_get_nextvariablename(arg);
- 
- 	case EFI_RUNTIME_GET_NEXTHIGHMONOTONICCOUNT:
--		return efi_runtime_get_nexthighmonocount(arg);
-+		return -EINVAL;
- 
- 	case EFI_RUNTIME_QUERY_VARIABLEINFO:
- 		return efi_runtime_query_variableinfo(arg);
--- 
-2.50.0.727.gbf7dc18ff4-goog
 
+Best regards,
+Krzysztof
 
