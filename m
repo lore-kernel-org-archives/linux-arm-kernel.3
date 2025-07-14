@@ -4,50 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 784ADC83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 08:39:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BB25C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 08:42:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:References:To:From:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
 	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tli1pRhKEzSIl0CdIVCduMJ0ZCMzdJoiRaigyAmYtYw=; b=JxtJyHYCNpeyg/HbJJhD3bgjv0
-	q1Vw+ifA7D8s8gGZwycBHaM4KX/ZC/6OMBEBV9UKoU+sueix7nsV8sOUV9vaDuVwSRGP3QivO+1oo
-	XouUeF1YCWw23sVouNMi1baEnnxbU7MT5lHHlPLGwLuZcEKLYPYgISrHZw3eVCjppIskszRvz4nnl
-	j+qM+z8YU4IBs4m1j0FkXW2b4Wi4C/UKfUcwWia+UhRtDfM73a07pX5JWScd3+6OjhYBuq+eCHL3Z
-	z8D6QRkLyZlcUTAvS4aEijaeh+0lPV4nLHUgSm5BhvbUq3HRz50/oTfVjRmbzCMcOXU11BphuTvXM
-	osZJnlsA==;
+	bh=74i5bkbq7LbigGolj66yU+OedHB05+DYRTf3A+lEXmY=; b=Cjt7d7SKgP0YMQlBPpys83tRiI
+	MKZEBc/A7WVppJOesHUlC9JHJT6CxgLzb0z6/3hK6bnvwXRpW9tEkD3KLBS1407RSdIB2f0gTMfXc
+	pnRa7F4sgzFrekOSLqCwSlB6LtEQcrQVamak/vRxDVmapRt4j3V1XZLr868FFHAAHEdAVaCEuGBuR
+	10RFSiDL3Fw9YBGH4iBKvJUU0zOxbdaQxdzXciz9+ROSI8u+2K9jAeeKJznjPixl7wMVNnqGlJVhW
+	KNZqMve+oCh/ga+BufbYbBN3AdUenY5uFLL5hunWKFSmhY639cASwZih2Bapd1inRB5rzutQFA8Gc
+	GGh5dwdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubEig-00000001fgK-45P2;
-	Mon, 14 Jul 2025 08:39:30 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1ubEl4-00000001fvN-30eD;
+	Mon, 14 Jul 2025 08:41:58 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubETB-00000001dFe-1Nb3
+	id 1ubEU4-00000001dQ6-3Kvd
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Jul 2025 08:23:30 +0000
+	Mon, 14 Jul 2025 08:24:25 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 30150A53B81;
-	Mon, 14 Jul 2025 08:23:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8A979C4CEF5;
-	Mon, 14 Jul 2025 08:23:23 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 4F4F75C5B2C;
+	Mon, 14 Jul 2025 08:24:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4E354C4CEF5;
+	Mon, 14 Jul 2025 08:24:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752481407;
-	bh=JPu/HBzuxIQjR8TK1nxLaxAXr3+2nK/+1TEX0DprjD4=;
-	h=Date:Subject:To:References:From:In-Reply-To:From;
-	b=eu1LIng5KPcq2DVP5oQefEFAREkf8RS8peIcwgyQu9W7XSWjiO0v6nn4ithx6oX/W
-	 f9f7LIXE54MmDF1+qbFGFxel+j4qmYwHxE2K3p6VTqm5F1DTYPO29jtdS3bd04HLbU
-	 q06c0jjPCsZgnp/KbyqiTscXl8zkRSX+Kdi8vogz5FDoHY4Jz5E/rmRGKzB2v/V+Me
-	 fK0SMKanYRJDoVLIURtYWGAbho2tGewl+dWIzaIZD9Vag0qDsW7SJBZzpT9wWj+8lS
-	 EC46PBTN4oP2FuhUb/vacazXoLbEN5I1qmWSt2nq6i2B4rUJ8X6qvsQyXRSO8U0QCG
-	 caQc2bDfTViXA==
-Message-ID: <57c0d48d-1484-45df-a99d-11388b6efdb1@kernel.org>
-Date: Mon, 14 Jul 2025 10:23:21 +0200
+	s=k20201202; t=1752481464;
+	bh=ZhpHrOwI+VqAhJekBmzzDzyP2/Rj/Ucwna5s222LyrA=;
+	h=Date:Subject:From:To:References:In-Reply-To:From;
+	b=jmF7fBS8T0zzgz35v4ihqEjs6uFIcVY49Sd/PvzAVxcC+PV+L1Pes/55QIFh1p7IR
+	 YdfNkBarNHLiBhXNihPnNCQqP0HddHeXKvZZVu5NeUopv5NdMiTlJJVLfEVL3gbLjA
+	 1ev7rzvAZaeca30V81Xm/cKMLwxYhJHnC+foYr4VRJDDiXloDoWuJHrDXiY+PRpR/K
+	 h0cE82g/Y6W53ObZMYQN2yPgaQaRsYljO55XWx6hYHyd3oOOso/3JtDOecI349EfB5
+	 ++hQ0RbeVVwWhEAiKqVTlcesbaMtX0ZCzY3AxA4GespUe6IItXX0Vg90kAudfxWoN0
+	 U5z806W2n24xQ==
+Message-ID: <6685da47-748a-4d90-ba1f-d7bcf82e8677@kernel.org>
+Date: Mon, 14 Jul 2025 10:24:16 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH] dt-bindings: interrupt-controller: aspeed: Refine AST2700
  binding description and example
+From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Ryan Chen <ryan_chen@aspeedtech.com>, Thomas Gleixner
  <tglx@linutronix.de>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
@@ -62,7 +63,7 @@ To: Ryan Chen <ryan_chen@aspeedtech.com>, Thomas Gleixner
 References: <20250714071753.2653620-1-ryan_chen@aspeedtech.com>
  <b500647b-31b6-40c9-be0b-1640dc271375@kernel.org>
  <OS8PR06MB7541C0330FDE855FDD360B68F254A@OS8PR06MB7541.apcprd06.prod.outlook.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+ <57c0d48d-1484-45df-a99d-11388b6efdb1@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
@@ -107,12 +108,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <OS8PR06MB7541C0330FDE855FDD360B68F254A@OS8PR06MB7541.apcprd06.prod.outlook.com>
+In-Reply-To: <57c0d48d-1484-45df-a99d-11388b6efdb1@kernel.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250714_012329_497783_EFFBDF72 
-X-CRM114-Status: GOOD (  10.43  )
+X-CRM114-CacheID: sfid-20250714_012424_927873_78FD8A4B 
+X-CRM114-Status: GOOD (  10.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,27 +128,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 14/07/2025 09:36, Ryan Chen wrote:
->> Subject: Re: [PATCH] dt-bindings: interrupt-controller: aspeed: Refine AST2700
->> binding description and example
->>
->> On 14/07/2025 09:17, Ryan Chen wrote:
->>> - Update block diagram for better readability and accuracy.
->>> - Clarify the relationship and function of INTC0, INTC1, and the GIC.
->>> - Documentation and example refine.
+On 14/07/2025 10:23, Krzysztof Kozlowski wrote:
+> On 14/07/2025 09:36, Ryan Chen wrote:
+>>> Subject: Re: [PATCH] dt-bindings: interrupt-controller: aspeed: Refine AST2700
+>>> binding description and example
 >>>
->>> This enhances the documentation quality and helps developers
->>> understand the interrupt controller hierarchy and usage.
+>>> On 14/07/2025 09:17, Ryan Chen wrote:
+>>>> - Update block diagram for better readability and accuracy.
+>>>> - Clarify the relationship and function of INTC0, INTC1, and the GIC.
+>>>> - Documentation and example refine.
+>>>>
+>>>> This enhances the documentation quality and helps developers
+>>>> understand the interrupt controller hierarchy and usage.
+>>>
+>>> Changing ABI (compatibles) is not enhancing quality and is not explained here.
+>>>
+>> Sorry, I would add following in description.
+>> - add 'aspeed,ast2700-intc0' and 'aspeed,ast2700-intc1' compatible strings
+>> for parent interrupt controller nodes, in addition to the existing
+>> 'aspeed,ast2700-intc-ic' for child nodes.
 >>
->> Changing ABI (compatibles) is not enhancing quality and is not explained here.
->>
-> Sorry, I would add following in description.
-> - add 'aspeed,ast2700-intc0' and 'aspeed,ast2700-intc1' compatible strings
-> for parent interrupt controller nodes, in addition to the existing
-> 'aspeed,ast2700-intc-ic' for child nodes.
 > 
+> It does not say why is this needed in the first place...
+> 
+And also never tested :/. I won't be reviewing it.
 
-It does not say why is this needed in the first place...
 
 Best regards,
 Krzysztof
