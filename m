@@ -4,93 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9468C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 15:41:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7183C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 15:45:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vTrYnqjKlV8yeDLpYJrmzKSqJHoAjMWHbL04xCtle7c=; b=361Cd96MhVsggrKCn94Sedt0Sl
-	BLSy1z+FoGCwrKfz0Jt+OCc2tdy7EjVeA9kBiF5woBMvgH/kRVOG3fBSxwFoB4optt5gXtJpzPSWZ
-	u2G7kV54meRF2YiMQgMZUsa9aHjnuFXmcTOz660l7ZCz5j1hj+vF6r1J7MN8DUucRfKo0pjhZIEk7
-	20Cio/DIdu3a5oM3npWpgHdK9YAPXGTCKS5ri5HG5eXTy0RWFddniONzCKRkpzlgH/qs5KZdmAMk5
-	FplMjboVFyHoXphob+FXCYRzEZjvKvQZIPKBGDhTwVYz0UzDGXzEhmnz2DeVZQ9YkogKs+Wq85yWF
-	dEQumg0w==;
+	bh=qEHd0FaDvQfncnTCEZC6bnJ4TwSJbEvrMYxbABhji3Q=; b=Ssq9P4Kdd2PDkSZNEZ4oug0lEF
+	F4gY8Pu93Pe50KzjjBynhjtmkE894Mtj1s0utl78zHvjkofW1F/wgbxzn6rOVJGGlAqynBbp2kEW8
+	M4z3V22VKOSoaLSo0rQNZKMRi8tdwHs/A8Pum9EEDEeuvnCKnDCv5jIRPKrCJPYj98rn608LMll0t
+	1J7wHvUmNd2GMgaVxUCCMqeEI/p87Ok2em8DGEouC6sMRaTCbx9cL2FIqc1ocNEI97N6FNc7QGvRR
+	mBnMwvlwI9tDtxUVX9AGjdUSmTIKhRFxKfmXrLPQvCj35NgYMYlkXbi3qdoMQFp72H2lTGutekDKX
+	9UK4EwQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubLIn-00000002ilv-2r5c;
-	Mon, 14 Jul 2025 15:41:13 +0000
-Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	id 1ubLMU-00000002jzL-0Rz5;
+	Mon, 14 Jul 2025 15:45:02 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubKRq-00000002W4q-0eai;
-	Mon, 14 Jul 2025 14:46:31 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-234b122f2feso3759925ad.0;
-        Mon, 14 Jul 2025 07:46:29 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1752504389; x=1753109189; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=vTrYnqjKlV8yeDLpYJrmzKSqJHoAjMWHbL04xCtle7c=;
-        b=jaLQ2cCg5CtmtYc45qiYsS83FcCB+58D/wD96dE43CsIzGH4Qwmcejaf5j+7BQ4aKK
-         dAyDDHW6dc4w+k/aFDvBhHPnqVQwscHX9gK7Ki43ZojbFmdDnViTxkA158Xnw46Yxzxt
-         I+QNhue8z9vavaCmr0nIjkaXcjkB1SZkNP4x5hZhiNtJfTzQNaxRAnQqQBc4ldK+hWnJ
-         WTVFG2Ly1jGWe49a1NPAq9g+FKo7Tv++9ziZpgrNCC87lbH4zbYaE5Mjr+DeSzeozPZB
-         xOyc3ysJtpoQkZ1TWppwdpLRibBmDRR1TNE28ux1azeNW5km04kd9EhKda6+dWzpV1fS
-         t3dQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752504389; x=1753109189;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=vTrYnqjKlV8yeDLpYJrmzKSqJHoAjMWHbL04xCtle7c=;
-        b=oVekS2oOn9tZuVpIHvC5f2dk6IIYjQnZgmGTakryeTrj/xXFXeMWxR2CYHq8yUs17z
-         HkoEf3VY40Fn2Rtu7wODsZqp28io77pMNBkF3V0TWJEnnHkABi6xhr7Eo1hr+U3kIZ47
-         Thxmb52asAWX6B8EgcdKq7cnQXf6dtT5VGHS5ihJEnsG61gwhSG2bqa3lUq86u9gsAgC
-         xlldAE2o+ZY2RuMs/2cvfV7MUdXoZ4p2zJCiMHdtIx82Yct0aMh1xdTGso1kyWmtNbCT
-         UOqYTaiOy8otf7rPtSerbpuRES8LaD0PxAbmd1wTYMEJSidYStdA0xv/x/vDr9AcioUN
-         o9Bg==
-X-Forwarded-Encrypted: i=1; AJvYcCUtqD9mpBR+0QKKg/ZdJ370cnd/MaSwdJbKVz+aJvGTrKZXwBFISY9bpvr95h5pD9BIKE5IDVvBOdRkTZMsRNw2@lists.infradead.org, AJvYcCXtpjOG9kw04iWwND3qtsmTiLdNHBgwNLOXfGmD3BD3QZ2sDyhlbIIhH3uQn7Qxc5vJfcReOsr11d+BT2CyR8U=@lists.infradead.org
-X-Gm-Message-State: AOJu0YwlPCLFpt1fGGT4j5RaT5riiWH1z7KnL7mDcY06foX9j7kYgJPd
-	hHItVImzI20azPkAqz+lyWX+VOYt1pInuHj7FM1s9kkzRqG9nwJ7jt40k++JlA==
-X-Gm-Gg: ASbGnct+qDdnLhQ117YwP2Y4DgA+jpvkPos1kBKebmMQ3ndKNWclygKW7fUi5/JxlKO
-	+NjEYFf8T6HPxPGYnilRQjuoeQetZdTPOG/TgjvZT4QUXNGf4Z91YejGa8tT/vO9OMbCtGbAB6+
-	I6mXL5b7kT0UA25Y2/wA0NJ+nKhJ2ORrAjYHOlgM7Y0lfel3L6Lw6cTRRPobS61RM5YeLBjeUrD
-	c+a9FO685QW6FcQhybITeUt0bhjkSGESgpFCu+N1bK0682yFQxOWvW3cXWW4N8TgKITpvwciU4a
-	N0ZEUt69IzjVmjIFld55S2fX6XAp1LkVjrh/UKlNm/MjKDku053ZVA0ruVI9BdrKZc+VUAZ3rUb
-	W0LRoAqWuheoKVvt5i1iabxw=
-X-Google-Smtp-Source: AGHT+IFAGosVVXQkVk2nnqj6/hurytlHP1Idv7N5hzLwKlkWrcvqLlzgh+DOk6qF95MalA4WEStwVQ==
-X-Received: by 2002:a17:903:18d:b0:234:a66d:ccd7 with SMTP id d9443c01a7336-23dede388c2mr76047905ad.7.1752504388871;
-        Mon, 14 Jul 2025 07:46:28 -0700 (PDT)
-Received: from rock-5b.. ([45.32.55.39])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23de4345e6bsm92622375ad.192.2025.07.14.07.46.19
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 14 Jul 2025 07:46:28 -0700 (PDT)
-From: Jianfeng Liu <liujianfeng1994@gmail.com>
-To: detlev.casanova@collabora.com
-Cc: heiko@sntech.de,
-	kernel@collabora.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-media@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	liujianfeng1994@gmail.com,
-	mchehab@kernel.org,
-	nicolas.dufresne@collabora.com,
-	nicolas.frattaroli@collabora.com
-Subject: Re: [PATCH 00/12] media: rkvdec: Add support for VDPU381 and VDPU383
-Date: Mon, 14 Jul 2025 22:46:10 +0800
-Message-ID: <20250714144610.258372-1-liujianfeng1994@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <2229133.irdbgypaU6@trenzalore>
-References: <2229133.irdbgypaU6@trenzalore>
+	id 1ubKlV-00000002Ysp-39cv
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 14 Jul 2025 15:06:51 +0000
+Received: from [127.0.1.1] (cpc141996-chfd3-2-0-cust928.12-3.cable.virginm.net [86.13.91.161])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 577F154BF;
+	Mon, 14 Jul 2025 17:06:15 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1752505575;
+	bh=hdH/34wFFVYyC7A4YfKC8agorO3hH02Yjwpr0Oau/Tg=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=jzYvveWPdk4kgXihzeZwI6fY6ArrLZ8XDODOP/h3/lHZlsiqF/hf+38TuS+wCSNU/
+	 Ilkgc96s1iodaZW3VW31xU/ZOLXbdP+OPG0oXmIb+45DrXD0baxd67mRKXRFz4tBpM
+	 pGEZE45J8pSQRRu8a8QDBnk/nUfHsM2Sx9srdUCM=
+From: Daniel Scally <dan.scally@ideasonboard.com>
+Date: Mon, 14 Jul 2025 16:06:30 +0100
+Subject: [PATCH v11 04/19] media: uapi: Add 20-bit bayer formats
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250714-c55-v11-4-bc20e460e42a@ideasonboard.com>
+References: <20250714-c55-v11-0-bc20e460e42a@ideasonboard.com>
+In-Reply-To: <20250714-c55-v11-0-bc20e460e42a@ideasonboard.com>
+To: linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org
+Cc: Anthony.McGivern@arm.com, jacopo.mondi@ideasonboard.com, 
+ nayden.kanchev@arm.com, robh+dt@kernel.org, mchehab@kernel.org, 
+ krzysztof.kozlowski+dt@linaro.org, conor+dt@kernel.org, 
+ jerome.forissier@linaro.org, kieran.bingham@ideasonboard.com, 
+ laurent.pinchart@ideasonboard.com, dan.scally@ideasonboard.com, 
+ Sakari Ailus <sakari.ailus@linux.intel.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=13467;
+ i=dan.scally@ideasonboard.com; h=from:subject:message-id;
+ bh=hdH/34wFFVYyC7A4YfKC8agorO3hH02Yjwpr0Oau/Tg=;
+ b=owEBbQKS/ZANAwAKAchJV3psRXUyAcsmYgBodRz/5vWmSSCbhvrKOrPdF/kDZjPzVn9V32FEQ
+ XlXboShD3aJAjMEAAEKAB0WIQQqyuwyDnZdb+mxmm/ISVd6bEV1MgUCaHUc/wAKCRDISVd6bEV1
+ MlmsD/9n0rZDPewakcwF710ejujPgUQdDrnB4yzDSw9DU3rUWKZ5bwEl7gh5f1zyZUHJCOoAzwe
+ 9zFY+9WuMsI4r7FFTwy8pF9lvxB9vGa77bMA5/pNzKht5oRrZSF4R7y+/Xo8riGJElHtqbNGsw8
+ p+dZf9j8mBS9reFrlYSmR+si3qzYsrxPRiI9G2GHoCxsD5cy0GaGZoGlz+RzYQCRjsko2/MdON7
+ wqANDDWg0Pb6svtDjSCV9Un0ZNjSAwmsBzsJ7cz5JuHogRVpGBckaYl086LJjBQu+VnCTgZgKP7
+ iddXE4GUG5uoyqE/SaYa4/4+toXHp56GbDE0i4xqu2UsbIJxSCT/109eD995EyRvXZsw32SXkr/
+ LmSQHkVvTMm3YjFN12d+gdCOV+9g2BHiNXCyYbqsQIoo13Pr+MpWw9xTDN/NPqO7cAtZQWSkTSj
+ 4yNjxP7olBj62RZdC+Y29f2XaAyX/fUKadyYLkFDxvkTpkSQXvBUySSP5DGrSPhKLCyNOnzoy6/
+ eS8cfiBseoAqzdbHU6n4lydSka9aFpwD+NBdoiAmjjobEgzuQNKsYCg7BvIFlbY13tO5lhhRSF1
+ kxU86+VY5n93w/8NobsBt6nSnU6+B7350faOIO5g/FZKnauzK1zUt8nWHloBc2cdH7WdphL2FBW
+ ouvHQvU0wnA9Wbg==
+X-Developer-Key: i=dan.scally@ideasonboard.com; a=openpgp;
+ fpr=EEC699ACA1B7CB5D31330C0BBD501C2A3546CCF6
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250714_074630_194293_5E8913A1 
-X-CRM114-Status: GOOD (  10.76  )
+X-CRM114-CacheID: sfid-20250714_080650_082992_36FD7335 
+X-CRM114-Status: UNSURE (   8.77  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,35 +90,593 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Detlev,
+The Mali-C55 requires input data be in 20-bit format, MSB aligned.
+Add some new media bus format macros to represent that input format.
 
-On Mon, 14 Jul 2025 09:35:19, Detlev Casanova wrote:
->From the linked code, the max size is hard coded to 1920x1088.
->The driver sets the frame size type to V4L2_FRMSIZE_TYPE_CONTINUOUS, so the 
->snippet you pointed to doesn't update the values for max/min. See [2] for the 
->discussion about using V4L2_FRMSIZE_TYPE_CONTINUOUS.
+Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Co-developed-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+Signed-off-by: Daniel Scally <dan.scally@ideasonboard.com>
+---
+Changes in v10:
 
-You are right, the code of chromium should be fixed for frame size type
-V4L2_FRMSIZE_TYPE_CONTINUOUS.
+	- None
 
->> 2, Playing H264 videos ends up with green screen.
->
->Can you elaborate a bit ? What videos ?
->Is that on both SoCs ?
->Is there any logs in dmesg ?
+Changes in v9:
 
-I am playing a 1080p h264 BBB video[1]. There is no error logs from both
-chromium and dmesg, but there is only frames refreshing at the top left
-corner while the other part of place is green. This happens on both rk3399
-and rk3588.
+	- None
 
-I have checked that this issue is not introduced by your series. After
-reverting this commit[2] which adds Support High 10 and 4:2:2 profiles,
-chromium can play video well on rk3399. I will investigate further.
+Changes in v8:
 
-[1] https://mirrors.tuna.tsinghua.edu.cn/blender/demo/movies/BBB/bbb_sunflower_1080p_60fps_normal.mp4.zip
-[2] https://github.com/torvalds/linux/commit/5e1ff2314797bf53636468a97719a8222deca9ae
+	- None
 
-Best regards
-Jianfeng
+Changes in v7:
+
+	- None
+
+Changes in v6:
+
+	- Fixed the table formatting
+
+Changes in v5:
+
+	- New patch
+---
+ .../userspace-api/media/v4l/subdev-formats.rst     | 252 ++++++++++++++++++++-
+ include/uapi/linux/media-bus-format.h              |   6 +-
+ 2 files changed, 255 insertions(+), 3 deletions(-)
+
+diff --git a/Documentation/userspace-api/media/v4l/subdev-formats.rst b/Documentation/userspace-api/media/v4l/subdev-formats.rst
+index 57194180fe42f31f88aa0aeb4a4650bf4fb32bcc..ecbe83dcc4b716c77ce37f55fbb8a59b2eed17ab 100644
+--- a/Documentation/userspace-api/media/v4l/subdev-formats.rst
++++ b/Documentation/userspace-api/media/v4l/subdev-formats.rst
+@@ -2816,7 +2816,7 @@ organization is given as an example for the first pixel only.
+     \tiny
+     \setlength{\tabcolsep}{2pt}
+ 
+-.. tabularcolumns:: |p{6.0cm}|p{0.7cm}|p{0.3cm}|p{0.22cm}|p{0.22cm}|p{0.22cm}|p{0.22cm}|p{0.22cm}|p{0.22cm}|p{0.22cm}|p{0.22cm}|p{0.22cm}|p{0.22cm}|p{0.22cm}|p{0.22cm}|p{0.22cm}|p{0.22cm}|p{0.22cm}|p{0.22cm}|
++.. tabularcolumns:: |p{6.0cm}|p{0.7cm}|p{0.3cm}|p{0.22cm}|p{0.22cm}|p{0.22cm}|p{0.22cm}|p{0.22cm}|p{0.22cm}|p{0.22cm}|p{0.22cm}|p{0.22cm}|p{0.22cm}|p{0.22cm}|p{0.22cm}|p{0.22cm}|p{0.22cm}|p{0.22cm}|p{0.22cm}|p{0.22cm}|p{0.22cm}|p{0.22cm}|p{0.22cm}|
+ 
+ .. _v4l2-mbus-pixelcode-bayer:
+ 
+@@ -2829,10 +2829,14 @@ organization is given as an example for the first pixel only.
+     * - Identifier
+       - Code
+       -
+-      - :cspan:`15` Data organization
++      - :cspan:`19` Data organization
+     * -
+       -
+       - Bit
++      - 19
++      - 18
++      - 17
++      - 16
+       - 15
+       - 14
+       - 13
+@@ -2862,6 +2866,10 @@ organization is given as an example for the first pixel only.
+       -
+       -
+       -
++      -
++      -
++      -
++      -
+       - b\ :sub:`7`
+       - b\ :sub:`6`
+       - b\ :sub:`5`
+@@ -2883,6 +2891,10 @@ organization is given as an example for the first pixel only.
+       -
+       -
+       -
++      -
++      -
++      -
++      -
+       - g\ :sub:`7`
+       - g\ :sub:`6`
+       - g\ :sub:`5`
+@@ -2904,6 +2916,10 @@ organization is given as an example for the first pixel only.
+       -
+       -
+       -
++      -
++      -
++      -
++      -
+       - g\ :sub:`7`
+       - g\ :sub:`6`
+       - g\ :sub:`5`
+@@ -2925,6 +2941,10 @@ organization is given as an example for the first pixel only.
+       -
+       -
+       -
++      -
++      -
++      -
++      -
+       - r\ :sub:`7`
+       - r\ :sub:`6`
+       - r\ :sub:`5`
+@@ -2946,6 +2966,10 @@ organization is given as an example for the first pixel only.
+       -
+       -
+       -
++      -
++      -
++      -
++      -
+       - b\ :sub:`7`
+       - b\ :sub:`6`
+       - b\ :sub:`5`
+@@ -2967,6 +2991,10 @@ organization is given as an example for the first pixel only.
+       -
+       -
+       -
++      -
++      -
++      -
++      -
+       - g\ :sub:`7`
+       - g\ :sub:`6`
+       - g\ :sub:`5`
+@@ -2988,6 +3016,10 @@ organization is given as an example for the first pixel only.
+       -
+       -
+       -
++      -
++      -
++      -
++      -
+       - g\ :sub:`7`
+       - g\ :sub:`6`
+       - g\ :sub:`5`
+@@ -3009,6 +3041,10 @@ organization is given as an example for the first pixel only.
+       -
+       -
+       -
++      -
++      -
++      -
++      -
+       - r\ :sub:`7`
+       - r\ :sub:`6`
+       - r\ :sub:`5`
+@@ -3030,6 +3066,10 @@ organization is given as an example for the first pixel only.
+       -
+       -
+       -
++      -
++      -
++      -
++      -
+       - b\ :sub:`7`
+       - b\ :sub:`6`
+       - b\ :sub:`5`
+@@ -3051,6 +3091,10 @@ organization is given as an example for the first pixel only.
+       -
+       -
+       -
++      -
++      -
++      -
++      -
+       - g\ :sub:`7`
+       - g\ :sub:`6`
+       - g\ :sub:`5`
+@@ -3072,6 +3116,10 @@ organization is given as an example for the first pixel only.
+       -
+       -
+       -
++      -
++      -
++      -
++      -
+       - g\ :sub:`7`
+       - g\ :sub:`6`
+       - g\ :sub:`5`
+@@ -3093,6 +3141,10 @@ organization is given as an example for the first pixel only.
+       -
+       -
+       -
++      -
++      -
++      -
++      -
+       - r\ :sub:`7`
+       - r\ :sub:`6`
+       - r\ :sub:`5`
+@@ -3114,6 +3166,10 @@ organization is given as an example for the first pixel only.
+       -
+       -
+       -
++      -
++      -
++      -
++      -
+       - 0
+       - 0
+       - 0
+@@ -3133,6 +3189,10 @@ organization is given as an example for the first pixel only.
+       -
+       -
+       -
++      -
++      -
++      -
++      -
+       - b\ :sub:`7`
+       - b\ :sub:`6`
+       - b\ :sub:`5`
+@@ -3154,6 +3214,10 @@ organization is given as an example for the first pixel only.
+       -
+       -
+       -
++      -
++      -
++      -
++      -
+       - b\ :sub:`7`
+       - b\ :sub:`6`
+       - b\ :sub:`5`
+@@ -3173,6 +3237,10 @@ organization is given as an example for the first pixel only.
+       -
+       -
+       -
++      -
++      -
++      -
++      -
+       - 0
+       - 0
+       - 0
+@@ -3194,6 +3262,10 @@ organization is given as an example for the first pixel only.
+       -
+       -
+       -
++      -
++      -
++      -
++      -
+       - b\ :sub:`9`
+       - b\ :sub:`8`
+       - b\ :sub:`7`
+@@ -3213,6 +3285,10 @@ organization is given as an example for the first pixel only.
+       -
+       -
+       -
++      -
++      -
++      -
++      -
+       - b\ :sub:`1`
+       - b\ :sub:`0`
+       - 0
+@@ -3234,6 +3310,10 @@ organization is given as an example for the first pixel only.
+       -
+       -
+       -
++      -
++      -
++      -
++      -
+       - b\ :sub:`1`
+       - b\ :sub:`0`
+       - 0
+@@ -3253,6 +3333,10 @@ organization is given as an example for the first pixel only.
+       -
+       -
+       -
++      -
++      -
++      -
++      -
+       - b\ :sub:`9`
+       - b\ :sub:`8`
+       - b\ :sub:`7`
+@@ -3272,6 +3356,10 @@ organization is given as an example for the first pixel only.
+       -
+       -
+       -
++      -
++      -
++      -
++      -
+       - b\ :sub:`9`
+       - b\ :sub:`8`
+       - b\ :sub:`7`
+@@ -3293,6 +3381,10 @@ organization is given as an example for the first pixel only.
+       -
+       -
+       -
++      -
++      -
++      -
++      -
+       - g\ :sub:`9`
+       - g\ :sub:`8`
+       - g\ :sub:`7`
+@@ -3314,6 +3406,10 @@ organization is given as an example for the first pixel only.
+       -
+       -
+       -
++      -
++      -
++      -
++      -
+       - g\ :sub:`9`
+       - g\ :sub:`8`
+       - g\ :sub:`7`
+@@ -3335,6 +3431,10 @@ organization is given as an example for the first pixel only.
+       -
+       -
+       -
++      -
++      -
++      -
++      -
+       - r\ :sub:`9`
+       - r\ :sub:`8`
+       - r\ :sub:`7`
+@@ -3354,6 +3454,10 @@ organization is given as an example for the first pixel only.
+       -
+       -
+       -
++      -
++      -
++      -
++      -
+       - b\ :sub:`11`
+       - b\ :sub:`10`
+       - b\ :sub:`9`
+@@ -3375,6 +3479,10 @@ organization is given as an example for the first pixel only.
+       -
+       -
+       -
++      -
++      -
++      -
++      -
+       - g\ :sub:`11`
+       - g\ :sub:`10`
+       - g\ :sub:`9`
+@@ -3396,6 +3504,10 @@ organization is given as an example for the first pixel only.
+       -
+       -
+       -
++      -
++      -
++      -
++      -
+       - g\ :sub:`11`
+       - g\ :sub:`10`
+       - g\ :sub:`9`
+@@ -3417,6 +3529,10 @@ organization is given as an example for the first pixel only.
+       -
+       -
+       -
++      -
++      -
++      -
++      -
+       - r\ :sub:`11`
+       - r\ :sub:`10`
+       - r\ :sub:`9`
+@@ -3436,6 +3552,10 @@ organization is given as an example for the first pixel only.
+       -
+       -
+       -
++      -
++      -
++      -
++      -
+       - b\ :sub:`13`
+       - b\ :sub:`12`
+       - b\ :sub:`11`
+@@ -3457,6 +3577,10 @@ organization is given as an example for the first pixel only.
+       -
+       -
+       -
++      -
++      -
++      -
++      -
+       - g\ :sub:`13`
+       - g\ :sub:`12`
+       - g\ :sub:`11`
+@@ -3478,6 +3602,10 @@ organization is given as an example for the first pixel only.
+       -
+       -
+       -
++      -
++      -
++      -
++      -
+       - g\ :sub:`13`
+       - g\ :sub:`12`
+       - g\ :sub:`11`
+@@ -3499,6 +3627,10 @@ organization is given as an example for the first pixel only.
+       -
+       -
+       -
++      -
++      -
++      -
++      -
+       - r\ :sub:`13`
+       - r\ :sub:`12`
+       - r\ :sub:`11`
+@@ -3518,6 +3650,10 @@ organization is given as an example for the first pixel only.
+       - MEDIA_BUS_FMT_SBGGR16_1X16
+       - 0x301d
+       -
++      -
++      -
++      -
++      -
+       - b\ :sub:`15`
+       - b\ :sub:`14`
+       - b\ :sub:`13`
+@@ -3539,6 +3675,10 @@ organization is given as an example for the first pixel only.
+       - MEDIA_BUS_FMT_SGBRG16_1X16
+       - 0x301e
+       -
++      -
++      -
++      -
++      -
+       - g\ :sub:`15`
+       - g\ :sub:`14`
+       - g\ :sub:`13`
+@@ -3560,6 +3700,10 @@ organization is given as an example for the first pixel only.
+       - MEDIA_BUS_FMT_SGRBG16_1X16
+       - 0x301f
+       -
++      -
++      -
++      -
++      -
+       - g\ :sub:`15`
+       - g\ :sub:`14`
+       - g\ :sub:`13`
+@@ -3581,6 +3725,110 @@ organization is given as an example for the first pixel only.
+       - MEDIA_BUS_FMT_SRGGB16_1X16
+       - 0x3020
+       -
++      -
++      -
++      -
++      -
++      - r\ :sub:`15`
++      - r\ :sub:`14`
++      - r\ :sub:`13`
++      - r\ :sub:`12`
++      - r\ :sub:`11`
++      - r\ :sub:`10`
++      - r\ :sub:`9`
++      - r\ :sub:`8`
++      - r\ :sub:`7`
++      - r\ :sub:`6`
++      - r\ :sub:`5`
++      - r\ :sub:`4`
++      - r\ :sub:`3`
++      - r\ :sub:`2`
++      - r\ :sub:`1`
++      - r\ :sub:`0`
++    * .. _MEDIA-BUS-FMT-SBGGR20-1X20:
++
++      - MEDIA_BUS_FMT_SBGGR20_1X20
++      - 0x3021
++      -
++      - b\ :sub:`19`
++      - b\ :sub:`18`
++      - b\ :sub:`17`
++      - b\ :sub:`16`
++      - b\ :sub:`15`
++      - b\ :sub:`14`
++      - b\ :sub:`13`
++      - b\ :sub:`12`
++      - b\ :sub:`11`
++      - b\ :sub:`10`
++      - b\ :sub:`9`
++      - b\ :sub:`8`
++      - b\ :sub:`7`
++      - b\ :sub:`6`
++      - b\ :sub:`5`
++      - b\ :sub:`4`
++      - b\ :sub:`3`
++      - b\ :sub:`2`
++      - b\ :sub:`1`
++      - b\ :sub:`0`
++    * .. _MEDIA-BUS-FMT-SGBRG20-1X20:
++
++      - MEDIA_BUS_FMT_SGBRG20_1X20
++      - 0x3022
++      -
++      - g\ :sub:`19`
++      - g\ :sub:`18`
++      - g\ :sub:`17`
++      - g\ :sub:`16`
++      - g\ :sub:`15`
++      - g\ :sub:`14`
++      - g\ :sub:`13`
++      - g\ :sub:`12`
++      - g\ :sub:`11`
++      - g\ :sub:`10`
++      - g\ :sub:`9`
++      - g\ :sub:`8`
++      - g\ :sub:`7`
++      - g\ :sub:`6`
++      - g\ :sub:`5`
++      - g\ :sub:`4`
++      - g\ :sub:`3`
++      - g\ :sub:`2`
++      - g\ :sub:`1`
++      - g\ :sub:`0`
++    * .. _MEDIA-BUS-FMT-SGRBG20-1X20:
++
++      - MEDIA_BUS_FMT_SGRBG20_1X20
++      - 0x3023
++      -
++      - g\ :sub:`19`
++      - g\ :sub:`18`
++      - g\ :sub:`17`
++      - g\ :sub:`16`
++      - g\ :sub:`15`
++      - g\ :sub:`14`
++      - g\ :sub:`13`
++      - g\ :sub:`12`
++      - g\ :sub:`11`
++      - g\ :sub:`10`
++      - g\ :sub:`9`
++      - g\ :sub:`8`
++      - g\ :sub:`7`
++      - g\ :sub:`6`
++      - g\ :sub:`5`
++      - g\ :sub:`4`
++      - g\ :sub:`3`
++      - g\ :sub:`2`
++      - g\ :sub:`1`
++      - g\ :sub:`0`
++    * .. _MEDIA-BUS-FMT-SRGGB20-1X20:
++
++      - MEDIA_BUS_FMT_SRGGB20_1X20
++      - 0x3024
++      -
++      - r\ :sub:`19`
++      - r\ :sub:`18`
++      - r\ :sub:`17`
++      - r\ :sub:`16`
+       - r\ :sub:`15`
+       - r\ :sub:`14`
+       - r\ :sub:`13`
+diff --git a/include/uapi/linux/media-bus-format.h b/include/uapi/linux/media-bus-format.h
+index 62ad82fd285a8ce24bd16c207c51c0e75ea95070..6005f033e62c04bdd3dff7ac905f5b921341cd47 100644
+--- a/include/uapi/linux/media-bus-format.h
++++ b/include/uapi/linux/media-bus-format.h
+@@ -124,7 +124,7 @@
+ #define MEDIA_BUS_FMT_YUV16_1X48		0x202a
+ #define MEDIA_BUS_FMT_UYYVYY16_0_5X48		0x202b
+ 
+-/* Bayer - next is	0x3021 */
++/* Bayer - next is	0x3025 */
+ #define MEDIA_BUS_FMT_SBGGR8_1X8		0x3001
+ #define MEDIA_BUS_FMT_SGBRG8_1X8		0x3013
+ #define MEDIA_BUS_FMT_SGRBG8_1X8		0x3002
+@@ -157,6 +157,10 @@
+ #define MEDIA_BUS_FMT_SGBRG16_1X16		0x301e
+ #define MEDIA_BUS_FMT_SGRBG16_1X16		0x301f
+ #define MEDIA_BUS_FMT_SRGGB16_1X16		0x3020
++#define MEDIA_BUS_FMT_SBGGR20_1X20		0x3021
++#define MEDIA_BUS_FMT_SGBRG20_1X20		0x3022
++#define MEDIA_BUS_FMT_SGRBG20_1X20		0x3023
++#define MEDIA_BUS_FMT_SRGGB20_1X20		0x3024
+ 
+ /* JPEG compressed formats - next is	0x4002 */
+ #define MEDIA_BUS_FMT_JPEG_1X8			0x4001
+
+-- 
+2.34.1
+
 
