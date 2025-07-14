@@ -4,149 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77353C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 00:17:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8C98C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 00:20:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lnAbRsgM5Xpw854WTnr2PpxCp0fWTNuQo/r6LvQOASo=; b=eiBlwdQZI37KMGzYl3BgAOFQ1T
-	0R3aQtNcmVjtLvfkU/9W7/h3tgTxeWoytcED2OKLWkdCFW1AZSq/sCs3dv3E7KyggWu0G3JfOWru6
-	PkvFJdlOWUx1EP0sFrbYwhTbac00WchLKcSqSs/ir2pkd0/tIsUs4CqzwTzGbjPhp6TM7MlNcYWEh
-	GYAbU9WPrmtIPQncvRMp3Urvfmb7hgOqvUejuvwAFrIqA4NH/UclwFI0wayHhjWSuhD/7G7WR7fnk
-	bklvRMzILw0T+O8nl7ZqkawwWhYNUEkoPewYouPX1nMSi341Q1Gx+1HOEDnkhkFw/MgGlDn0uKpME
-	SSWK1FxA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wn0uaTpQJ5msTA4q2mSIBqQxq96F8xnwcsNT4npFJ10=; b=uv006Q0ALhTPzJgZVJOdlxZsjP
+	HUUDS2zKRURxuj2RPQeScZZ56NxqqsIQB5XbcPiBfcDolAaVS8AaC0pWo0rXn+Xa5+9HBGu+vYOmu
+	m7iH+haAKz5WI8tHEfWsoYfCmyiXQUt0/vdyQmhm3YBWeMXNg55MI0GvOZ+BwHJnkOtcdsARkJ7uS
+	0Hkyg2dP5QnVT/2rO+cEFtU0vPa7d2MYX4pQBu2tMAQy5aFVkq4fL175pbXRamk5QCigAGyJ/BwM+
+	wmiQ9jDCWo2tr959aauvJDX/x1/SwfVXXbkzgRFhyi2LAYR/VOSXSyPH7c4ioHbaSLvMn3Tnwcv2k
+	lzrbHiTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubTMO-00000003cOU-3w0I;
-	Tue, 15 Jul 2025 00:17:28 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1ubTOo-00000003cbh-0YCX;
+	Tue, 15 Jul 2025 00:19:58 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubSKD-00000003VXt-0FxS
+	id 1ubSl0-00000003Yqp-1XiQ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Jul 2025 23:11:10 +0000
-Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56EGJnWn017991
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Jul 2025 23:11:08 GMT
+	Mon, 14 Jul 2025 23:38:51 +0000
+Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56EGRKjw026500
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Jul 2025 23:38:50 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=lnAbRsgM5Xpw854WTnr2PpxC
-	p0fWTNuQo/r6LvQOASo=; b=Byi6Oq1mlQ2Du1UBtBznaIYzQY4p8hL5pynHWdSv
-	aTDe7W6x/B7tNhEqPkO5Y+VCzcSxQOtr0SuJfn7PglX+uFZMeALZiw5WrQcMh9rf
-	sJ/Mc7HQOsEFmM9uIhSp5TBa7YwgWQ1Y4TrG1gWWLFFEW0WjJs/h8KGUsIHfDcD2
-	49jcgELppT87gxfGxfXrNE98HiZW3Wn2N2WeWsSdypESIKNDnuxrp27nFMZzD+bx
-	yU9qvwOPSfNE3+VFAsukhHo6roMkV6ATzLPh7u6HFnfVKFPkYJtaWBlZlEnxipRV
-	XPQa3LJW0KKZLLpv05ITsY9TLU5AbgQXd0WQ0ZKra56mOQ==
-Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com [209.85.222.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 47ufut622g-1
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	wn0uaTpQJ5msTA4q2mSIBqQxq96F8xnwcsNT4npFJ10=; b=e4zaRps/oaXdJY+l
+	UdQ8DEc0Nne1nK1lwtaLfJAWHqyiLQziUU3CzDFUCkUNeWV8JnAqLF4ZqflmU+qO
+	IaCyiN56c5pDiAQOpJ9+b1AfDTRlfBvVfWpbwY4pCP7ODxRyQwipwVImtiZyO5Zq
+	u1YEOXKa37KH6sh1j/GqAfCY8nztz+Om9WIHf6FDuC7FPCXsgZo6i3zcB6Z7X9e6
+	T4s9AwHPkBTS9WDnUgqpGgWpprpKj9V+ypnQ0HV7+q4MgprRJMUwYBkd+zMuSwgG
+	+3J1azNHufa9RQ/26fQCJmsfd6flX7m+fE3a6H1KmT5/jvGkrb+aWNHeMwONjcg8
+	7N0xIQ==
+Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 47w5drgwf7-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Jul 2025 23:11:07 +0000 (GMT)
-Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-7e338e627f1so57173185a.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Jul 2025 16:11:07 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Jul 2025 23:38:49 +0000 (GMT)
+Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-4ab7077ad49so2861121cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Jul 2025 16:38:49 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752534667; x=1753139467;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=lnAbRsgM5Xpw854WTnr2PpxCp0fWTNuQo/r6LvQOASo=;
-        b=M5GAXjkVIhw4P5P+b3jQveX5C5EG4FOFBxDjAykCLfMRRK9LzZ0oYIY7BGc4o8yz5U
-         z11BoFdZNApvR5X/xOo9LQZslGPd4qk96c2Jbv1KfMdYaspvAUpzyL1/O1FezQlbnHVh
-         BVTkOjTD9APLGI1Skm/6BgwJNOa1dhiRE+hstM6moV8BSyQSiLHyEpkRgXdCuDZ8Umlp
-         v2BhuxEOIyiTlHA0Yo7/OX3ZhktdYjeblxfAbwPjS2cS9uwLb9TeMIlOqrmwaWaF4UfS
-         ig7B1IueX1F2Jun68PfA+xZ+HQ5/aXWo4tKXt7DNgHKAkOxvZaSt3eSwATv3LuBEipak
-         oKog==
-X-Forwarded-Encrypted: i=1; AJvYcCXy3oxc0pJJV0miS8hN6HuppRIw+3WqbtrkdKpxHO3UsfxuwXQ7VMvsv56o2li1Juwd42ITKPuxuiU4udHoseFv@lists.infradead.org
-X-Gm-Message-State: AOJu0YxdG+E4ak0NAORc4V4cjXYB26BkokdCk5bEB9XiDreOAr+PixAC
-	+/w+kewRA/hWQVs9iFEbkLooXZvd6HBQ9h/dn4qficnagbbH6mPy8eJRFiZC1s0GFzcy1RRbkps
-	UfsDMY2kDG6NLYP9fc5NUQTBjro7UK74RuZc0gRmpYzvINTVtGvDN65WmDSeOgBvVmjmMAhIFas
-	Ghwg==
-X-Gm-Gg: ASbGncsDlLnjk3HCEv4Q8wjWxlTF5TUQZobDHoj+334yTEG1XrQK+w6iNwiY34Acnuy
-	X21wCDxkylUKhNWpKvvfjndpvC6lO9YQwHUFfCY8wJwxeM6/jGBCS4kCyQuXgVxHuJpngvzShC3
-	JHm1lt+qt0yh69VO6vVIaKKJTrO3KYfC8XxWaiRT2PXd7Fms0828v9RjL6/nAvgLj/O91vcgytg
-	ZhEvrvNiGMasAkb04ovfMv6J1jHkz7gb2BiR/9105dBy0uqyrAhTJnMVivNo5YIEXoFb/fDOWr3
-	m0G449cvYlWIfFG9vsp+T2er92v8WYvP2cQQMFHMBAxvsbEiTj77kihRxrbx1mxbs71LRJbq5Lh
-	djACl2Lz37fzdG/ssKHl3jIO0vvE6k+tbNwEpqnYZNWFaLqDAUs5U
-X-Received: by 2002:a05:620a:394d:b0:7e1:f16c:16d6 with SMTP id af79cd13be357-7e1f16c171bmr1319845285a.8.1752534666786;
-        Mon, 14 Jul 2025 16:11:06 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHgcpRDGfh0tTeMaTiRAOLif3PtbYVlsrcAaMwHK8S/xvzLSUZaIFYJ4fcz95Qmvjsb6mBB+Q==
-X-Received: by 2002:a05:620a:394d:b0:7e1:f16c:16d6 with SMTP id af79cd13be357-7e1f16c171bmr1319837885a.8.1752534666331;
-        Mon, 14 Jul 2025 16:11:06 -0700 (PDT)
-Received: from umbar.lan (2001-14ba-a0c3-3a00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a0c3:3a00:264b:feff:fe8b:be8a])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-55943b73366sm2094948e87.211.2025.07.14.16.11.03
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 14 Jul 2025 16:11:04 -0700 (PDT)
-Date: Tue, 15 Jul 2025 02:11:02 +0300
-From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-To: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
-Cc: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>,
-        Sudeep Holla <sudeep.holla@arm.com>,
-        Souvik Chakravarty <Souvik.Chakravarty@arm.com>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>, Andy Yan <andy.yan@rock-chips.com>,
-        Mark Rutland <mark.rutland@arm.com>,
-        Lorenzo Pieralisi <lpieralisi@kernel.org>,
-        Arnd Bergmann <arnd@arndb.de>, Olof Johansson <olof@lixom.net>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        cros-qcom-dts-watchers@chromium.org, Vinod Koul <vkoul@kernel.org>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>,
-        Florian Fainelli <florian.fainelli@broadcom.com>,
-        Elliot Berman <elliotb317@gmail.com>,
-        Stephen Boyd <swboyd@chromium.org>, linux-pm@vger.kernel.org,
-        linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-        Andre Draszik <andre.draszik@linaro.org>,
-        Alim Akhtar <alim.akhtar@samsung.com>,
-        linux-samsung-soc@vger.kernel.org, Wei Xu <xuwei5@hisilicon.com>,
-        linux-rockchip@lists.infradead.org,
-        Baolin Wang <baolin.wang@linux.alibaba.com>,
-        Sen Chu <sen.chu@mediatek.com>, Sean Wang <sean.wang@mediatek.com>,
-        Macpaul Lin <macpaul.lin@mediatek.com>,
-        AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-        Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
-        bcm-kernel-feedback-list@broadcom.com,
-        Nicolas Ferre <nicolas.ferre@microchip.com>,
-        Alexandre Belloni <alexandre.belloni@bootlin.com>,
-        Elliot Berman <quic_eberman@quicinc.com>,
-        Srinivas Kandagatla <srini@kernel.org>
-Subject: Re: [PATCH v10 01/10] power: reset: reboot-mode: Add device tree
- node-based registration
-Message-ID: <5zlix4hfxkz447g6e6imjlatmnf26pvunnsmfkol7mhvropq6o@k7wr6h4hyqtg>
-References: <20250710-arm-psci-system_reset2-vendor-reboots-v10-0-b2d3b882be85@oss.qualcomm.com>
- <20250710-arm-psci-system_reset2-vendor-reboots-v10-1-b2d3b882be85@oss.qualcomm.com>
+        d=1e100.net; s=20230601; t=1752536328; x=1753141128;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=wn0uaTpQJ5msTA4q2mSIBqQxq96F8xnwcsNT4npFJ10=;
+        b=tB7nPyEVG3IrXwpfx7SpBiz/Hozw/glesVVlakS/BoJ16y0v6hZdPmX6GEo/LuLKCF
+         zylpXVR9DW5Dlen2YNxnaaHhDZQdRiBeiRgfuK+XMWDdCkcX7zsM+za6NwPcYZjbehEb
+         uDCApvxtKwwb0TfxNRSQMUCcL977v2Zrl9fHi9xqswYykV6s2z+2OLUg3zQjpaLdy3ea
+         mNiDIzzl/WDCo1I5KZ1zYXx0po2rpc+t776U2whw8oUNACupBUj4Sq+bbP39jWM5YbdY
+         mO3XHb2tq1qKlI/Z1307ec6h5qkKBfsRjcpxoJvG6O48G1d6OG/GMEuNTFc2xHpJggKn
+         BmHg==
+X-Forwarded-Encrypted: i=1; AJvYcCVNluzLXUDwiGH31Bgig+ca7JY1a1AHaYSEb8w7TT3yprVhHg6FHAuiuAvtZa/i2HIXEk9cjo2G4ARJM1N7LI/X@lists.infradead.org
+X-Gm-Message-State: AOJu0YynwZ6fTHaW/hNgH5xT/AZ33L9dil+JArLNv3x6lq8Q+eYia308
+	eqbZsjm2iQpVWcJ2Sll3aQ38GX4zAYcMWT0qKFOdyp2scptNAdmW0tEzPO4pzYm/SHkGDNZ7dKf
+	pdPouP1oTzmRhCQIqSvfCGwhFqFK6+02GWfoENhJJohV0LxIEW4bLDhb96z/uD+p3eUtKbWAUI+
+	DT7w==
+X-Gm-Gg: ASbGncupZCb9Krwal6lURqntRfe8Xh+Oq6Cb8wZe3ePK/Ko+GjwQEtiWxxagStiQz2K
+	U6gDxMGETRvE/lPz3/BiadscdUmfseFA+0a1dLbzDtkyAAwUyX8H+G82E9LRyIaIYNI+3szk1Um
+	6WAQ4tGsIzeiSRVhAJrlZSe+m5AQ+QHGWNFyodL/0QPqgStnetProMTOqEN2jMUQ3UtgDZlMa3n
+	c+LD0aqIpVGMJ63Jjs72CrG5vhs/SoHdyPXVO5Rm0mLctMS6nimaSjacOK12FNgvwDif2tndEmd
+	PTw4x8K2Ad0Pn6y2ac5o28QmjlAjAVjMnEB1LSvqb/GBP82DgZnQWQX4P+1daKB9+D9nae9g4hB
+	wdgJaalhlH4purQjz5Uzf
+X-Received: by 2002:a05:620a:261e:b0:7d0:9ded:31e0 with SMTP id af79cd13be357-7dde704afd4mr776221585a.0.1752536327957;
+        Mon, 14 Jul 2025 16:38:47 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IE6vgTUK9cbHU9/fu7xu5UC9MgWnhvrvZKB6D6M0lFax9GG6pjPJlqFz9LcPg7nXnR+3oUNPg==
+X-Received: by 2002:a05:620a:261e:b0:7d0:9ded:31e0 with SMTP id af79cd13be357-7dde704afd4mr776220285a.0.1752536327341;
+        Mon, 14 Jul 2025 16:38:47 -0700 (PDT)
+Received: from [192.168.143.225] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ae6e8316b60sm887600966b.184.2025.07.14.16.38.43
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 14 Jul 2025 16:38:46 -0700 (PDT)
+Message-ID: <c379aad4-96f6-4134-8b90-0f1eec8001a3@oss.qualcomm.com>
+Date: Tue, 15 Jul 2025 01:38:41 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250710-arm-psci-system_reset2-vendor-reboots-v10-1-b2d3b882be85@oss.qualcomm.com>
-X-Authority-Analysis: v=2.4 cv=e7gGSbp/ c=1 sm=1 tr=0 ts=68758e8b cx=c_pps
- a=qKBjSQ1v91RyAK45QCPf5w==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
- a=Wb1JkmetP80A:10 a=EUspDBNiAAAA:8 a=SZ81-B_MNtUeYvdDzSwA:9 a=CjuIK1q_8ugA:10
- a=NFOGd7dJGGMPyQGDc5-O:22
-X-Proofpoint-GUID: 7-o8cPAo7W2m-ZnpzIkae7yNz4x2Hk9S
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNzE0MDE2MyBTYWx0ZWRfX6jd2tCmYGcL3
- Yfr97hRjI9iq/gbaCKVXBDPuuza3lDx1AsORqb9MOHSqv9u+cnbus3HkhViTMLCc7aueneA9jc3
- 27H7j2ForFb2nqY/B0+tUhKBqNaY782UNFh7EcaoQ6pbYWhRG0ur1f6cET533WglNOV/ZHQMSMI
- k1MDMp/Td6PUVXu8PEg5F7a1jALpJHOihhtC21U9pVsnHh4AOVGUShEKfCbe9HIonACdKWgZ4ui
- +Iuh6ttuplHF8pLCqZ9sblhn9adv2gXjednbuG27vXcudFRkUUegu/wfjIga9TZ94WLh9G+Lnz7
- GZrlhB935unGW5U8o3eX0CJn+C6ZIAQWzGjFvA9qFFgVxuF8AhIUeSMxHxWJazA0sIHuqfKc5xC
- nRrjGQ+8EQzh/hO3QEnqUcCUBw814U/TtXkI4pDjVxY1jvsMMuL0SrjfTd0dO8jicTRugWiL
-X-Proofpoint-ORIG-GUID: 7-o8cPAo7W2m-ZnpzIkae7yNz4x2Hk9S
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 00/14] Various dt-bindings for SM7635 and The Fairphone
+ (Gen. 6) addition
+To: Artur Weber <aweber.kernel@gmail.com>,
+        Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>,
+        Luca Weiss <luca.weiss@fairphone.com>
+Cc: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
+        Joerg Roedel <joro@8bytes.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+ <conor+dt@kernel.org>,
+        "Rafael J. Wysocki" <rafael@kernel.org>,
+        Viresh Kumar <viresh.kumar@linaro.org>,
+        Manivannan Sadhasivam <mani@kernel.org>,
+        Herbert Xu <herbert@gondor.apana.org.au>,
+        "David S. Miller" <davem@davemloft.net>, Vinod Koul <vkoul@kernel.org>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Robert Marko <robimarko@gmail.com>,
+        Das Srinagesh <quic_gurus@quicinc.com>,
+        Thomas Gleixner
+ <tglx@linutronix.de>,
+        Jassi Brar <jassisinghbrar@gmail.com>,
+        Amit Kucheria <amitk@kernel.org>,
+        Thara Gopinath <thara.gopinath@gmail.com>,
+        Daniel Lezcano <daniel.lezcano@linaro.org>,
+        Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>,
+        Ulf Hansson <ulf.hansson@linaro.org>,
+        ~postmarketos/upstreaming@lists.sr.ht, phone-devel@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-pm@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+        linux-crypto@vger.kernel.org, dmaengine@vger.kernel.org,
+        linux-mmc@vger.kernel.org
+References: <20250625-sm7635-fp6-initial-v1-0-d9cd322eac1b@fairphone.com>
+ <aGMI1Zv6D+K+vWZL@hu-bjorande-lv.qualcomm.com>
+ <ee0d148e-71cd-4136-b3cb-145566abdfbe@gmail.com>
+Content-Language: en-US
+From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+In-Reply-To: <ee0d148e-71cd-4136-b3cb-145566abdfbe@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-ORIG-GUID: HmkdbTWOqZ8d6dukpJrKzKH91tUSpZ4Y
+X-Authority-Analysis: v=2.4 cv=D4xHKuRj c=1 sm=1 tr=0 ts=68759509 cx=c_pps
+ a=JbAStetqSzwMeJznSMzCyw==:117 a=FpWmc02/iXfjRdCD7H54yg==:17
+ a=IkcTkHD0fZMA:10 a=Wb1JkmetP80A:10 a=ySytLBbe-S1-HUGBodAA:9
+ a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10 a=uxP6HrT_eTzRwkO_Te1X:22
+X-Proofpoint-GUID: HmkdbTWOqZ8d6dukpJrKzKH91tUSpZ4Y
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNzE0MDE2NyBTYWx0ZWRfXz9i1s943jaCV
+ qHX+iWcghAsWzmvnp5V43v8MfHrky02PR+g8K/DYKITkBxKmf9l8Eh8Qb1cLYUZaFpDRWJV5y26
+ sBgc6LwuThThJSeMCP2lKs4LGV9rnK081h5FVKfcx7S1klky1Pw3FjXWejN/ttcdJKAhsllMRSa
+ cxrqnOfCobvoiJmxcFyTlrt2tFeCJLg1kb6tKk8ZSGhGUirI/oWYO1acVq1aF0Mv0JSBZ5NtJzZ
+ HEI41xROds/wG4OUXe6iw2lJQItOSRXbDzW1QWpUO1wcAeQTTqD5QARQ84HWw+MEWkbJWNhKV4Z
+ v77VmUTEGvw+7xqhfXz05UPxzTu4JSR24D3zHxpVcTd+xmNEbsMkp+hFVxe9oTAx1jBhBpphPxu
+ U2IlM5GX27yFCPMKfOq2e3Zmk2Dv9lR+iJhjz/4WCxudXP3n4xgIvvrsSTYJuue2CAeEE3nE
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.7,FMLib:17.12.80.40
  definitions=2025-07-14_03,2025-07-14_01,2025-03-28_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- lowpriorityscore=0 priorityscore=1501 mlxscore=0 spamscore=0 suspectscore=0
- phishscore=0 bulkscore=0 impostorscore=0 clxscore=1015 adultscore=0
- malwarescore=0 mlxlogscore=999 classifier=spam authscore=0 authtc=n/a authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2505280000
- definitions=main-2507140163
+ adultscore=0 mlxlogscore=999 impostorscore=0 spamscore=0 clxscore=1015
+ lowpriorityscore=0 malwarescore=0 suspectscore=0 bulkscore=0 mlxscore=0
+ priorityscore=1501 phishscore=0 classifier=spam authscore=0 authtc=n/a
+ authcc= route=outbound adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2505280000 definitions=main-2507140167
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250714_161109_212787_2206C057 
-X-CRM114-Status: GOOD (  23.20  )
+X-CRM114-CacheID: sfid-20250714_163850_420592_197942E7 
+X-CRM114-Status: GOOD (  22.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,40 +162,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 10, 2025 at 02:45:43PM +0530, Shivendra Pratap wrote:
-> The reboot-mode driver does not have a strict requirement for
-> device-based registration. It primarily uses the device's of_node
-> to read mode-<cmd> properties and the device pointer for logging.
+On 7/14/25 8:13 AM, Artur Weber wrote:
+> On 6/30/25 23:59, Bjorn Andersson wrote:
+>> On Wed, Jun 25, 2025 at 11:22:55AM +0200, Luca Weiss wrote:
+>>> Document various bits of the SM7635 SoC in the dt-bindings, which don't
+>>> really need any other changes.
+>>>
+>>> Then we can add the dtsi for the SM7635 SoC and finally add a dts for
+>>> the newly announced The Fairphone (Gen. 6) smartphone.
+>>>
+>>> Dependencies:
+>>> * The dt-bindings should not have any dependencies on any other patches.
+>>> * The qcom dts bits depend on most other SM7635 patchsets I have sent in
+>>>    conjuction with this one. The exact ones are specified in the b4 deps.
+>>>
+>>
+>> Very nice to see the various patches for this platform on LKML!
+>>
+>>
+>> Can you please use the name "milos" in compatibles and filenames instead
+>> of sm7635.
+> Hi, small half-related question - does this mean that future Qualcomm
+> SoC additions should use the codename for compatibles instead of the
+> model number as well?
 > 
-> Remove the dependency on struct device and introduce support for
-> Device Tree (DT) node-based registration. This enables drivers
-> that are not associated with a struct device to leverage the
-> reboot-mode framework.
-> 
-> Signed-off-by: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
-> ---
->  drivers/power/reset/reboot-mode.c | 23 +++++++++++++----------
->  include/linux/reboot-mode.h       |  2 +-
->  2 files changed, 14 insertions(+), 11 deletions(-)
-> 
-> diff --git a/drivers/power/reset/reboot-mode.c b/drivers/power/reset/reboot-mode.c
-> index fba53f638da04655e756b5f8b7d2d666d1379535..61f647b23959789a313f3af0bd967abcad45fa43 100644
-> --- a/drivers/power/reset/reboot-mode.c
-> +++ b/drivers/power/reset/reboot-mode.c
-> @@ -12,6 +12,7 @@
->  #include <linux/reboot-mode.h>
->  
->  #define PREFIX "mode-"
-> +#define pr_fmt(fmt)	"reboot-mode: " fmt
+> I was working on SM7435 (parrot) patches a while back; when I get around
+> to submitting those, will I have to use "parrot" or "sm7435" in the
+> compatibles?
 
-This wasn't really tested. If I remember correctly, it should be defined
-before the first include.
+If possible, please rename it to "netrani".
 
->  
->  struct mode_info {
->  	const char *mode;
-
--- 
-With best wishes
-Dmitry
+Konrad
 
