@@ -4,99 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 769C5C83F1D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 02:16:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2DBDC83F1D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 02:23:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f28NzlPclTUQrm9z8qWDo9K5sejEm68bwyiiU26NRcs=; b=RW2E90Gjk+KR5n3YTgPh0sIgtB
-	DfolhzVErLpfHMyQCnUJ+PBW61PNEUbY2AEef5p9Au0R4JQ21/SOsc6jjMLO1v6fu+/Kc3VBDm5Dx
-	KM/lX3STq2yRmEovWi/n4gRMffM+Z3yiKGNYWDeAqKgtK/HKx8KgvEfZAmoDUEBAgm4qAMj95m5vl
-	Q0eICx0sxQofqrObCRXuxSJ8MmRepy92IsVdr/co1jyEBRi30cFdFeBH2hn+QIs+G63byM+oasBBn
-	nbpK5cn9/JP53W72clM7JV5VMWzOvrmEgvd0BPT/OPp39tB/z4j5W1pYoiXly9aGMHDTSU8ID86b6
-	/gR84YoA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=i6JzBgQljb1p+1NlyyYibH1USStHrkmH4JsqwLuSza8=; b=E2F31WAU8XU3Es6dEps41Vjxjh
+	b1TleatRPBPJxPC9FmmJeCQiTypztAIpzftAs3EeLBIw6wuGbYPKcXpm1+C4m5X7v3bTQ8qQiMZbx
+	Q2IR5uJUixErXDewVAyA/Y/3XoKWevCDmgyb9lgwaIzAopGdAHoANByenaw1orhCtu5N7ezdEmNzQ
+	t2dbWx5tsQivynSLbuLdKGwPK0MrbhEsr/pzCquALcd3ZjzA5NFr1sOZy7cqisEmsWxW4uop3V4hT
+	jgvn0FMs/i+uAY0syujPaU8LIzaCAJm/zPx2+Xbo4Yb0OFUeDltSDj69+qZyFGu5E+Kaki06+ZGHC
+	d34GX2hQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ub8kB-00000000xrk-2ktL;
-	Mon, 14 Jul 2025 02:16:39 +0000
-Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
+	id 1ub8qY-00000000yVO-307s;
+	Mon, 14 Jul 2025 02:23:14 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ub8hm-00000000xdw-0PVe
+	id 1ub8oA-00000000yDq-1vfO
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Jul 2025 02:14:11 +0000
-Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-2363616a1a6so31223275ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 13 Jul 2025 19:14:09 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1752459249; x=1753064049; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=f28NzlPclTUQrm9z8qWDo9K5sejEm68bwyiiU26NRcs=;
-        b=a9xmyTk8fsdHLs8rBq5IxIH/B6UW3Qn+mMUtSVNCnsiL5IKSikJNERAT05bF0gB9ed
-         jCT9N82XZvziGrNB8pv9vWIjXbOCKmCZ8VEVpCLyVuQA5oAgKYGP0TD4ohKqqKkCe9Lx
-         b5VzXteifjhkn366zxG68EpPk4HpmxwZ1G1Xmcse6oKlSfK5kVr+BCKp8nPfSB7Lp7UJ
-         BFRf4vK7B/4mvdbZWmVCrwFYgRBNAa5FEuT/7BTFX4MobIvAFl1zWH83t3spUipnGiyr
-         6oLPzHQwWxGlrh1g6vG8wezX4S7mJQTYsCkMJm0/ON48kgMff8NYQK6CB7JtRgFGAaM1
-         TUbA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752459249; x=1753064049;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=f28NzlPclTUQrm9z8qWDo9K5sejEm68bwyiiU26NRcs=;
-        b=rz+9bBYj1ckJpwAciK3G1M1nPb+0z326jGT5HqtTk1noJ+ytLBDEE1me91rMitrmzU
-         jDVkl/6xJn3ea8UwYAxFYL2yLROhRFOMeDADZ45wEzCYOS9gKqQAnrNMwlVX+Hmg5vyM
-         9rPc46sfTGcYL2FX/dRwIUAEKmdPlhmCGniRrwE+qCYxzDo0hyfIM1iw+bppM33MoYCV
-         t97uAxc2LG0oE6wzZcw+rt8Bx+/rrCl/cyj/GIOqdZFN03q22AbmWTmTtW3TpCL+Ubma
-         JFi5uzQkFVnltn897X9yda+d2bwr7A3aUPm7a1FF3IHu96b1f32/4pqBpTHCVcUVb8yh
-         wuDw==
-X-Forwarded-Encrypted: i=1; AJvYcCV5KXkBxV6dBZtvdgvPKPNuVxcCqw/N1X7XBskTp9eUsJF4vq9WWwZDuLM8HQm3zQDNhmY1dnhPpvMhzget2RPM@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw6vckA6CJt9bPK+4+wQb01B9MhwQsjxHLJWlbeNHrO5peDQUF4
-	FT4Slwyd1mEPO5n9/x/+5G0LhjaF7CklDvFDSX/+XsB/o2/AdToscT47
-X-Gm-Gg: ASbGnctk5Ba0kkVSphe7I/hymnAk9W1+yPbVTZe9KJfwJwVKd/uTnqfEn78M6e+M3d9
-	VeMPje00lTgxoEM0Q9zdrHDKQ0B6dQ1ufLNBpeXzqF3rRF/S6OWnnPw8K5Rbc/mvCMS28amZFT9
-	rZR50QeJPIo1UF1AbqYDnhTfka7Bavb3i+q1LnCKVx+q8KYx68AKm9JCF1gqF3bQUc63upPsp5W
-	uM0mzhE5hVWptj5a0kbbRyO4pBA+NJAPne0sZQL8EUBOnnuER3PQKQ38Ax0dSzvTBWLIPVovn7T
-	YlxtFuZ89t5gakHYtYRmFaCaZaxH0wRL2D7/1e+8rznaNJPqezYI7Co4qkfOCjFDMnwtXTTzlAl
-	R5jCAZSvGBelAjSlJcAl+Pc9m73+6MM9USQBNZ0AbyN0T4rA=
-X-Google-Smtp-Source: AGHT+IECqiDZzuBM1Py+ovvAtJ/BufPA/xN2pM0u0YOxFUEFZUGGbSxMQOZDROS/ufqDSQZ0lprfhg==
-X-Received: by 2002:a17:902:d58c:b0:235:f298:cbb3 with SMTP id d9443c01a7336-23dee1e84c4mr160698155ad.18.1752459249241;
-        Sun, 13 Jul 2025 19:14:09 -0700 (PDT)
-Received: from daerolee-Swift-SF316-51.. ([49.142.96.162])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23de4345e6bsm81331175ad.192.2025.07.13.19.14.03
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 13 Jul 2025 19:14:08 -0700 (PDT)
-From: DaeRo Lee <skseofh@gmail.com>
-X-Google-Original-From: DaeRo Lee <skseofh@naver.com>
-To: will@kernel.org
-Cc: alexandru.elisei@arm.com,
-	james.morse@arm.com,
-	kernel-team@android.com,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	maz@kernel.org,
-	oliver.upton@linux.dev,
-	qperret@google.com,
-	sebastianene@google.com,
-	skseofh@gmail.com,
-	sudeep.holla@arm.com,
-	suzuki.poulose@arm.com,
-	tabba@google.com
-Subject: Re: [PATCH v3 08/10] KVM: arm64: Handle FFA_MEM_LEND calls from the host
-Date: Mon, 14 Jul 2025 11:14:00 +0900
-Message-Id: <20250714021400.631762-1-skseofh@naver.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <aHQQiJr2xLe9KotP@willie-the-truck>
-References: <aHQQiJr2xLe9KotP@willie-the-truck>
+	Mon, 14 Jul 2025 02:20:46 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id A0AEF61136
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Jul 2025 02:20:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 23BE9C4CEF6
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Jul 2025 02:20:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1752459645;
+	bh=i6JzBgQljb1p+1NlyyYibH1USStHrkmH4JsqwLuSza8=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=AoUoENTAeXxa8t8weBai9VLbYTNcWO23BxK3RiXf6kviLHFD+Ov7eRk8a5VxfwxDO
+	 boukk1akLGf+PCdwWHhOOdINWnKYsRpqF5DwyL3W5Ak8aacLB8o3ai8aAZIlrf63kF
+	 9Q8wA1ZHBPetVd4WABO+sCo91hm5VYVvFZgNmr1H+LdJSEhv+2mclsSzh+UpyrNweL
+	 DCB+vCA2W2e7meth2SdiOkRQVlZfO2ZBfwLkqLWqXFHtDpF92BUQ7ky7pNo+Q90BkQ
+	 DkypO3gMUoqKmnEZkMos3WApzEx2+qu3tnelKrnZ/t73e5GZZHYhQ1bwjfn4rfqiBJ
+	 BiEbmVn12cMIw==
+Received: by mail-lj1-f171.google.com with SMTP id 38308e7fff4ca-32b50f357ecso33344651fa.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 13 Jul 2025 19:20:45 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCWP6recunlhTI6oq5+6CRa1sBKafEI44WG1iLO8j12Wfp2pdRhlhE0q2lmDJV3yzPwpJeu7euzKl3evIOVkp/1t@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywv3+YahF07an8YhonQ7Wzl7dkFqLlbEBHqLAmCIa6SvbDSj0wc
+	8mGpLLxerAKknZvWgg0Lz/Iwef+zJBNFo2PC1iWZawjxlnfh7VAgSIwwR+wQ6BEbhAgtf649bhc
+	hpuRIQwjWH8X/igOIN095vqtzlFFWdfQ=
+X-Google-Smtp-Source: AGHT+IFPUFMYWwjnzBcXwC0d6fwvdcN+mKrXo3pSpk73ThHe79z/VmIJ2Q3NAcpEs+1oONoYKC6JrFPxuK85+vm9p14=
+X-Received: by 2002:a05:651c:221d:b0:32b:488a:f519 with SMTP id
+ 38308e7fff4ca-33053292135mr39355511fa.6.1752459643430; Sun, 13 Jul 2025
+ 19:20:43 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250713_191410_127506_FCCDB866 
-X-CRM114-Status: UNSURE (   6.89  )
-X-CRM114-Notice: Please train this message.
+References: <20250514174339.1834871-9-ardb+git@google.com> <20250514174339.1834871-16-ardb+git@google.com>
+ <20250711134833.GI905792@noisy.programming.kicks-ass.net>
+In-Reply-To: <20250711134833.GI905792@noisy.programming.kicks-ass.net>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Mon, 14 Jul 2025 12:20:30 +1000
+X-Gmail-Original-Message-ID: <CAMj1kXGEHWMhMgY8ZMiRxKPTeD+oZBReozKwA4udJsrp-j_P_A@mail.gmail.com>
+X-Gm-Features: Ac12FXwLcQxZDL-vTtg_BIL4PN-M5Xpb-28I605kB-Ll_-F_i8KKCCRihwo90qw
+Message-ID: <CAMj1kXGEHWMhMgY8ZMiRxKPTeD+oZBReozKwA4udJsrp-j_P_A@mail.gmail.com>
+Subject: Re: [RFC PATCH 7/7] arm64/efi: Call EFI runtime services without
+ disabling preemption
+To: Peter Zijlstra <peterz@infradead.org>
+Cc: Ard Biesheuvel <ardb+git@google.com>, linux-efi@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+Content-Type: text/plain; charset="UTF-8"
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,10 +83,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Is it pKVM's policy to not manage Non-secure memory using FF-A, while the FF-A
-specification supports memory management between Host/Guest within Non-secure
-hypervisors?
+On Fri, 11 Jul 2025 at 23:48, Peter Zijlstra <peterz@infradead.org> wrote:
+>
+> On Wed, May 14, 2025 at 07:43:47PM +0200, Ard Biesheuvel wrote:
+> > From: Ard Biesheuvel <ardb@kernel.org>
+> >
+> > The only remaining reason why EFI runtime services are invoked with
+> > preemption disabled is the fact that the mm is swapped out behind the
+> > back of the context switching code.
+> >
+> > The kernel no longer disables preemption in kernel_neon_begin().
+> > Furthermore, the EFI spec is being clarified to explicitly state that
+> > only baseline FP/SIMD is permitted in EFI runtime service
+> > implementations, and so the existing kernel mode NEON context switching
+> > code is sufficient to preserve and restore the execution context of an
+> > in-progress EFI runtime service call.
+> >
+> > Most EFI calls are made from the efi_rts_wq, which is serviced by a
+> > kthread. As kthreads never return to user space, they usually don't have
+> > an mm, and so we can use the existing infrastructure to swap in the
+> > efi_mm while the EFI call is in progress. This is visible to the
+> > scheduler, which will therefore reactivate the selected mm when
+> > switching out the kthread and back in again.
+> >
+> > Given that the EFI spec explicitly permits runtime services to be called
+> > with interrupts enabled, firmware code is already required to tolerate
+> > interruptions. So rather than disable preemption, disable only migration
+> > so that EFI runtime services are less likely to cause scheduling delays.
+> >
+> > Note, though, that the firmware executes at the same privilege level as
+> > the kernel, and is therefore able to disable interrupts altogether.
+>
+> Is the migrate_disable() strictly required, or just paranoia?
+>
 
-Then, how does someone lend memory to a Guest from the Host/Guest via FF-A? Can
-pKVM prevent this? Or should Host/Guest developers use it with caution?
+Runtime services might be polling the secure firmware for an async
+completion when they are interrupted, and so I don't think it is
+generally safe to assume that an interrupted EFI runtime service can
+be resumed on another CPU.
 
