@@ -4,62 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B23F3C83F1B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 07:36:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F40D6C83F1B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 07:38:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uDmSekQrgZGL8r2lWAymZdEWRY9s0eH9Oe3pP00uIuU=; b=YCKvS5V1wcyDRs1nuB9dPMCFNe
-	gVu6oJdEOzxe7ydILEVp+shCIJthLx0zLI7Vny6u32vQQcsCp+ATBWrkJUdeWvBpc4lAdm/ZSicYb
-	iL3WJs5ckLMYU+umLYFCBOOZZ7Y24DHcvpU+ZvzDljI1RQECfolaNB4VQ/eIWgQcd5swRr31L3rHu
-	sVFLNgcpXkfHg1+WCbgJuozPwqBq0fSQFaIQxUx5chgWBCrkCpSVeLKIoExKm92qHE5CVVMtdqr7s
-	Yy7DO7GIjcTuRXB8yd+iahNeyiss8tEjANVJHGgVKoY29+1E4jCK3uotgIuN4pC3l4GXZ1bM0dxRh
-	wZfc7a2g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:To:From:
+	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=glYySSu5bOt/NAhJDzz3/8dWdR+IuTirRor33nYnHck=; b=clcxxufuMczbIH
+	EbMhVyO09UsEl6oVYscgqEsCpjp57NTybtWcRYm7rZ8NMQJIoH2ptHoaRnV4D6/A2798nF4rtmprw
+	4638AoMpd5MGHw1/vZvkbniRZArZ5cg8MPw+XFWB/mUut38fENBbE6Bf1sULlZFVCL9DQWZR1PoCt
+	hWV6KjtZn70bHVeWDu3Q/iePEQJAsc/urweRgC35RAiF0T6ZpKUK63dXhSCmUYorJKVXnMvjLzwqO
+	GH052cH5ZzTThivkv8WLbh2sk9sM2skfCy6wFe9MUG8hHK5v7kPbeHW0K1w9schhA8NHFezqrN3JO
+	DXw6y88IGn3M4GDW6HeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubDjL-00000001UX5-1w3r;
-	Mon, 14 Jul 2025 07:36:07 +0000
-Received: from out30-99.freemail.mail.aliyun.com ([115.124.30.99])
+	id 1ubDlk-00000001UqZ-0gYR;
+	Mon, 14 Jul 2025 07:38:36 +0000
+Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubDQc-00000001Rjb-3cTC;
-	Mon, 14 Jul 2025 07:16:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1752477401; h=Date:From:To:Subject:Message-ID:MIME-Version:Content-Type;
-	bh=uDmSekQrgZGL8r2lWAymZdEWRY9s0eH9Oe3pP00uIuU=;
-	b=xNRojos26Gx9aVsOz3LWrULDEDh4JT+oMHqy7it7fSrvTmRpgic+c2sMth+EOEWsODf/xpvF9DMXwiRCyGy85tpe9MZa0dwP43XjqgQOY43eS65LpDaqjOraEcPPjJ4lDawUkT3yOp1tPI1tMuvckjg6W+d+fQOGmtzMoJPYwzw=
-Received: from localhost(mailfrom:feng.tang@linux.alibaba.com fp:SMTPD_---0WiqeCDu_1752477397 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Mon, 14 Jul 2025 15:16:37 +0800
-Date: Mon, 14 Jul 2025 15:16:37 +0800
-From: Feng Tang <feng.tang@linux.alibaba.com>
-To: Ard Biesheuvel <ardb+git@google.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Heinrich Schuchardt <heinrich.schuchardt@canonical.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Juergen Gross <jgross@suse.com>,
-	Stefano Stabellini <sstabellini@kernel.org>,
-	Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>,
-	Sunil V L <sunilvl@ventanamicro.com>,
-	Bibo Mao <maobibo@loongson.cn>, linux-rtc@vger.kernel.org,
-	linux-efi@vger.kernel.org, xen-devel@lists.xenproject.org,
-	x86@kernel.org, linux-riscv@lists.infradead.org,
-	loongarch@lists.linux.dev
-Subject: Re: [RFC PATCH 1/3] efi-rtc: Remove wakeup functionality
-Message-ID: <aHSu1WVYXZ2N5X8X@U-2FWC9VHC-2323.local>
-References: <20250714060843.4029171-5-ardb+git@google.com>
- <20250714060843.4029171-6-ardb+git@google.com>
+	id 1ubDRs-00000001Rx3-2N5r
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 14 Jul 2025 07:18:06 +0000
+Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Mon, 14 Jul
+ 2025 15:17:53 +0800
+Received: from twmbx02.aspeed.com (192.168.10.13) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
+ Transport; Mon, 14 Jul 2025 15:17:53 +0800
+From: Ryan Chen <ryan_chen@aspeedtech.com>
+To: ryan_chen <ryan_chen@aspeedtech.com>, Thomas Gleixner
+	<tglx@linutronix.de>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Joel Stanley
+	<joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>, Kevin Chen
+	<kevin_chen@aspeedtech.com>, <linux-kernel@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-aspeed@lists.ozlabs.org>
+Subject: [PATCH] dt-bindings: interrupt-controller: aspeed: Refine AST2700 binding description and example
+Date: Mon, 14 Jul 2025 15:17:53 +0800
+Message-ID: <20250714071753.2653620-1-ryan_chen@aspeedtech.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20250714060843.4029171-6-ardb+git@google.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250714_001647_655503_C72640FF 
-X-CRM114-Status: GOOD (  20.83  )
+X-CRM114-CacheID: sfid-20250714_001804_795392_B2082357 
+X-CRM114-Status: GOOD (  13.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,150 +66,212 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 14, 2025 at 08:08:45AM +0200, Ard Biesheuvel wrote:
-> From: Ard Biesheuvel <ardb@kernel.org>
-> 
-> The EFI rtc driver is used by non-x86 architectures only, and exposes
-> the get/set wakeup time functionality provided by the underlying
-> platform. This is usually broken on most platforms, and not widely used
-> to begin with [if at all], so let's just remove it.
+- Update block diagram for better readability and accuracy.
+- Clarify the relationship and function of INTC0, INTC1, and the GIC.
+- Documentation and example refine.
 
-This solves the problem reported in 
-https://lore.kernel.org/all/20250710084151.55003-1-feng.tang@linux.alibaba.com/T/#u
+This enhances the documentation quality and helps developers understand
+the interrupt controller hierarchy and usage.
 
-Tested-by: Feng Tang <feng.tang@linux.alibaba.com>
+Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
+---
+ .../aspeed,ast2700-intc.yaml                  | 155 +++++++++++++-----
+ 1 file changed, 112 insertions(+), 43 deletions(-)
 
-Thanks!
+diff --git a/Documentation/devicetree/bindings/interrupt-controller/aspeed,ast2700-intc.yaml b/Documentation/devicetree/bindings/interrupt-controller/aspeed,ast2700-intc.yaml
+index 55636d06a674..751a07d49c90 100644
+--- a/Documentation/devicetree/bindings/interrupt-controller/aspeed,ast2700-intc.yaml
++++ b/Documentation/devicetree/bindings/interrupt-controller/aspeed,ast2700-intc.yaml
+@@ -10,6 +10,33 @@ description:
+   This interrupt controller hardware is second level interrupt controller that
+   is hooked to a parent interrupt controller. It's useful to combine multiple
+   interrupt sources into 1 interrupt to parent interrupt controller.
++  Depend to which INTC0 or INTC1 used.
++  INTC0 and INTC1 are two kinds of interrupt controller with enable and raw
++  status registers for use.
++  INTC0 is used to assert GIC if interrupt in INTC1 asserted.
++  INTC1 is used to assert INTC0 if interrupt of modules asserted.
++  +-----+   +---------+
++  | GIC |---|  INTC0  |
++  +-----+   +---------+
++            +---------+
++            |         |---module0
++            | INTC0_0 |---module1
++            |         |---...
++            +---------+---module31
++            |---....  |
++            +---------+
++            |         |     +---------+
++            | INTC0_11| +---| INTC1   |
++            |         |     +---------+
++            +---------+     +---------+---module0
++                            | INTC1_0 |---module1
++                            |         |---...
++                            +---------+---module31
++                            ...
++                            +---------+---module0
++                            | INTC1_5 |---module1
++                            |         |---...
++                            +---------+---module31
+ 
+ maintainers:
+   - Kevin Chen <kevin_chen@aspeedtech.com>
+@@ -17,49 +44,67 @@ maintainers:
+ properties:
+   compatible:
+     enum:
+-      - aspeed,ast2700-intc-ic
++      - aspeed,ast2700-intc0
++      - aspeed,ast2700-intc1
+ 
+   reg:
+     maxItems: 1
+ 
+-  interrupt-controller: true
++  'address-cells':
++    const: 2
+ 
+-  '#interrupt-cells':
++  'size-cells':
+     const: 2
+-    description:
+-      The first cell is the IRQ number, the second cell is the trigger
+-      type as defined in interrupt.txt in this directory.
+-
+-  interrupts:
+-    maxItems: 6
+-    description: |
+-      Depend to which INTC0 or INTC1 used.
+-      INTC0 and INTC1 are two kinds of interrupt controller with enable and raw
+-      status registers for use.
+-      INTC0 is used to assert GIC if interrupt in INTC1 asserted.
+-      INTC1 is used to assert INTC0 if interrupt of modules asserted.
+-      +-----+   +-------+     +---------+---module0
+-      | GIC |---| INTC0 |--+--| INTC1_0 |---module2
+-      |     |   |       |  |  |         |---...
+-      +-----+   +-------+  |  +---------+---module31
+-                           |
+-                           |   +---------+---module0
+-                           +---| INTC1_1 |---module2
+-                           |   |         |---...
+-                           |   +---------+---module31
+-                          ...
+-                           |   +---------+---module0
+-                           +---| INTC1_5 |---module2
+-                               |         |---...
+-                               +---------+---module31
+ 
++  ranges: true
++
++patternProperties:
++  "^interrupt-controller@":
++    type: object
++    description: Interrupt group child nodes
++    additionalProperties: false
++
++    properties:
++      compatible:
++        enum:
++          - aspeed,ast2700-intc-ic
++
++      reg:
++        maxItems: 1
++
++      interrupt-controller: true
++
++      '#interrupt-cells':
++        const: 2
++        description: |
++          The first cell is the IRQ number, the second cell is the trigger
++          type as defined in interrupt.txt in this directory.
++
++      interrupts:
++        minItems: 1
++        maxItems: 6
++        description: |
++          The interrupts provided by this interrupt controller.
++
++      interrupts-extended:
++        minItems: 1
++        maxItems: 6
++        description: |
++          This property is required when defining a cascaded interrupt controller
++          that is connected under another interrupt controller. It specifies the
++          parent interrupt(s) in the upstream controller to which this controller
++          is connected.
++
++    required:
++      - compatible
++      - reg
++      - interrupt-controller
++      - '#interrupt-cells'
++      - interrupts
+ 
+ required:
+   - compatible
+   - reg
+-  - interrupt-controller
+-  - '#interrupt-cells'
+-  - interrupts
+ 
+ additionalProperties: false
+ 
+@@ -68,19 +113,43 @@ examples:
+     #include <dt-bindings/interrupt-controller/arm-gic.h>
+ 
+     bus {
++      #address-cells = <2>;
++      #size-cells = <2>;
++
++      intc0: interrupt-controller@12100000 {
++        compatible = "aspeed,ast2700-intc0";
++        reg = <0 0x12100000 0 0x4000>;
++        ranges = <0x0 0x0 0x0 0x12100000 0x0 0x4000>;
++        #address-cells = <2>;
++        #size-cells = <2>;
++
++        intc0_11: interrupt-controller@1b00 {
++          compatible = "aspeed,ast2700-intc-ic";
++          reg = <0 0x12101b00 0x10>;
++          #interrupt-cells = <2>;
++          interrupt-controller;
++          interrupts = <GIC_SPI 192 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_HIGH)>,
++                       <GIC_SPI 193 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_HIGH)>,
++                       <GIC_SPI 194 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_HIGH)>,
++                       <GIC_SPI 195 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_HIGH)>,
++                       <GIC_SPI 196 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_HIGH)>,
++                       <GIC_SPI 197 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_HIGH)>;
++        };
++      };
++
++      intc1: interrupt-controller@14c18000 {
++        compatible = "aspeed,ast2700-intc1";
++        reg = <0 0x14c18000 0 0x400>;
++        ranges = <0x0 0x0 0x0 0x14c18000 0x0 0x400>;
+         #address-cells = <2>;
+         #size-cells = <2>;
+ 
+-        interrupt-controller@12101b00 {
+-            compatible = "aspeed,ast2700-intc-ic";
+-            reg = <0 0x12101b00 0 0x10>;
+-            #interrupt-cells = <2>;
+-            interrupt-controller;
+-            interrupts = <GIC_SPI 192 IRQ_TYPE_LEVEL_HIGH>,
+-                         <GIC_SPI 193 IRQ_TYPE_LEVEL_HIGH>,
+-                         <GIC_SPI 194 IRQ_TYPE_LEVEL_HIGH>,
+-                         <GIC_SPI 195 IRQ_TYPE_LEVEL_HIGH>,
+-                         <GIC_SPI 196 IRQ_TYPE_LEVEL_HIGH>,
+-                         <GIC_SPI 197 IRQ_TYPE_LEVEL_HIGH>;
++        intc1_0: interrupt-controller@100 {
++          compatible = "aspeed,ast2700-intc-ic";
++          reg = <0x0 0x100 0x0 0x10>;
++          #interrupt-cells = <2>;
++          interrupt-controller;
++          interrupts-extended = <&intc0_11 0 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_HIGH)>;
+         };
++      };
+     };
+-- 
+2.34.1
 
-- Feng
-
-> 
-> Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
-> ---
->  drivers/rtc/rtc-efi.c | 76 +-------------------
->  1 file changed, 2 insertions(+), 74 deletions(-)
-> 
-> diff --git a/drivers/rtc/rtc-efi.c b/drivers/rtc/rtc-efi.c
-> index fa8bf82df948..b4f44999ef0f 100644
-> --- a/drivers/rtc/rtc-efi.c
-> +++ b/drivers/rtc/rtc-efi.c
-> @@ -112,48 +112,6 @@ convert_from_efi_time(efi_time_t *eft, struct rtc_time *wtime)
->  	return true;
->  }
->  
-> -static int efi_read_alarm(struct device *dev, struct rtc_wkalrm *wkalrm)
-> -{
-> -	efi_time_t eft;
-> -	efi_status_t status;
-> -
-> -	/*
-> -	 * As of EFI v1.10, this call always returns an unsupported status
-> -	 */
-> -	status = efi.get_wakeup_time((efi_bool_t *)&wkalrm->enabled,
-> -				     (efi_bool_t *)&wkalrm->pending, &eft);
-> -
-> -	if (status != EFI_SUCCESS)
-> -		return -EINVAL;
-> -
-> -	if (!convert_from_efi_time(&eft, &wkalrm->time))
-> -		return -EIO;
-> -
-> -	return rtc_valid_tm(&wkalrm->time);
-> -}
-> -
-> -static int efi_set_alarm(struct device *dev, struct rtc_wkalrm *wkalrm)
-> -{
-> -	efi_time_t eft;
-> -	efi_status_t status;
-> -
-> -	convert_to_efi_time(&wkalrm->time, &eft);
-> -
-> -	/*
-> -	 * XXX Fixme:
-> -	 * As of EFI 0.92 with the firmware I have on my
-> -	 * machine this call does not seem to work quite
-> -	 * right
-> -	 *
-> -	 * As of v1.10, this call always returns an unsupported status
-> -	 */
-> -	status = efi.set_wakeup_time((efi_bool_t)wkalrm->enabled, &eft);
-> -
-> -	dev_warn(dev, "write status is %d\n", (int)status);
-> -
-> -	return status == EFI_SUCCESS ? 0 : -EINVAL;
-> -}
-> -
->  static int efi_read_time(struct device *dev, struct rtc_time *tm)
->  {
->  	efi_status_t status;
-> @@ -188,17 +146,13 @@ static int efi_set_time(struct device *dev, struct rtc_time *tm)
->  
->  static int efi_procfs(struct device *dev, struct seq_file *seq)
->  {
-> -	efi_time_t        eft, alm;
-> +	efi_time_t        eft;
->  	efi_time_cap_t    cap;
-> -	efi_bool_t        enabled, pending;
-> -	struct rtc_device *rtc = dev_get_drvdata(dev);
->  
->  	memset(&eft, 0, sizeof(eft));
-> -	memset(&alm, 0, sizeof(alm));
->  	memset(&cap, 0, sizeof(cap));
->  
->  	efi.get_time(&eft, &cap);
-> -	efi.get_wakeup_time(&enabled, &pending, &alm);
->  
->  	seq_printf(seq,
->  		   "Time\t\t: %u:%u:%u.%09u\n"
-> @@ -214,26 +168,6 @@ static int efi_procfs(struct device *dev, struct seq_file *seq)
->  		/* XXX fixme: convert to string? */
->  		seq_printf(seq, "Timezone\t: %u\n", eft.timezone);
->  
-> -	if (test_bit(RTC_FEATURE_ALARM, rtc->features)) {
-> -		seq_printf(seq,
-> -			   "Alarm Time\t: %u:%u:%u.%09u\n"
-> -			   "Alarm Date\t: %u-%u-%u\n"
-> -			   "Alarm Daylight\t: %u\n"
-> -			   "Enabled\t\t: %s\n"
-> -			   "Pending\t\t: %s\n",
-> -			   alm.hour, alm.minute, alm.second, alm.nanosecond,
-> -			   alm.year, alm.month, alm.day,
-> -			   alm.daylight,
-> -			   enabled == 1 ? "yes" : "no",
-> -			   pending == 1 ? "yes" : "no");
-> -
-> -		if (alm.timezone == EFI_UNSPECIFIED_TIMEZONE)
-> -			seq_puts(seq, "Timezone\t: unspecified\n");
-> -		else
-> -			/* XXX fixme: convert to string? */
-> -			seq_printf(seq, "Timezone\t: %u\n", alm.timezone);
-> -	}
-> -
->  	/*
->  	 * now prints the capabilities
->  	 */
-> @@ -249,8 +183,6 @@ static int efi_procfs(struct device *dev, struct seq_file *seq)
->  static const struct rtc_class_ops efi_rtc_ops = {
->  	.read_time	= efi_read_time,
->  	.set_time	= efi_set_time,
-> -	.read_alarm	= efi_read_alarm,
-> -	.set_alarm	= efi_set_alarm,
->  	.proc		= efi_procfs,
->  };
->  
-> @@ -271,11 +203,7 @@ static int __init efi_rtc_probe(struct platform_device *dev)
->  	platform_set_drvdata(dev, rtc);
->  
->  	rtc->ops = &efi_rtc_ops;
-> -	clear_bit(RTC_FEATURE_UPDATE_INTERRUPT, rtc->features);
-> -	if (efi_rt_services_supported(EFI_RT_SUPPORTED_WAKEUP_SERVICES))
-> -		set_bit(RTC_FEATURE_ALARM_WAKEUP_ONLY, rtc->features);
-> -	else
-> -		clear_bit(RTC_FEATURE_ALARM, rtc->features);
-> +	clear_bit(RTC_FEATURE_ALARM, rtc->features);
->  
->  	device_init_wakeup(&dev->dev, true);
->  
-> -- 
-> 2.50.0.727.gbf7dc18ff4-goog
 
