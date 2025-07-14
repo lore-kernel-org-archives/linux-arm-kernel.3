@@ -4,132 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4573C83F1B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 12:35:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED0B5C83F1B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 12:36:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aoI5BFClgTcyFuK38F1KY+FhVdU3uKRCX2U3iUvC0Jg=; b=R7j9OGWhAyYcuR1oJMB6NNUzy5
-	Wh4ZWUtM4Pbht1Y8INBEwLc5Mu9WmwGBg5eOzyeoi88DYyKqMn8eh9cE/LvGWlbaOLmKhxei099xk
-	Wkeu8cJNqKTwB5Q11IcLJn5W/k0qiX7pd+nkhZ+cjZG4g7I9SRbH8eg+M5bY3u2nU995p56dyVMYy
-	ZR2P01+trY9V9J5ewcwCUmnK+WaO729MtpAu6feruti1DbtGsu1bsToNVLJxlZ1hHTQqKUNZXee9S
-	XURQ5PAYohvOg8QJL6AORQlMLiZTNFm+mKkRA1yD9bW1YTToWonaj+VNGrHXjkC9tBurerHSRqGiR
-	Q262JT+Q==;
+	bh=vMN6VpGBDdJPMTJ8xLsf0Amb+/vpg0U025WbPd5eCUk=; b=SWYrzM/QL4Dzf0sRG6bk1dLR7e
+	lKHRWJ8Kzw7nWvx/5IvQEG/2ux7QId6e6+GLIC4aZ4MF+f/kTFtfzX+KHV1ycCfk/+m+rLVsYnm8y
+	XC9GpPFoauTXhqLfBQXYbADJvv0ns4RTSSc6DtPmvWA6o+awuQjh+S1fJLYmgvUH9W+Iyje5Iu3tp
+	1o/bYnnNfG0Z0xk6S6zm6Y3aTGJML/rrpt/sZqLkr1YirwwrH7LvFSauuEk12Hpnz/eAW7bkwQ080
+	tn7++9lkHsQZYndAuRThoso54pLnY3kV3kuOMsfMTIAPXYM2bPKeR6hvNQq0BghjGzk6f7Br/wR0/
+	M7DMF6MQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubIOw-00000002BKg-2ujw;
-	Mon, 14 Jul 2025 12:35:22 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubI55-000000028X7-06OY
+	id 1ubIQA-00000002BUE-20nP;
+	Mon, 14 Jul 2025 12:36:38 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ubFlm-00000001pTZ-1PfM
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Jul 2025 12:14:53 +0000
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56EC6apR003161
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Jul 2025 12:14:50 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	aoI5BFClgTcyFuK38F1KY+FhVdU3uKRCX2U3iUvC0Jg=; b=ThsZB4SNBrInD9Wa
-	YmyWGrc2zGW9ciktJh7xytNgsEEs9g1akgkAuE6v+vHjbQTGM0sHGQy7V290e7dp
-	15BBbMalNS92yhJdQzs84fRq0Vl0SXMXuNnL3RXxDfzWTxWjVBRKMiA10EpbkkFJ
-	9XIKUKVVC8n8W7W+TsIILeQx7tt2ULLhBv9vgwxicXaoH8LCBpIJVOJ8u0NkdZ2A
-	7sfng5mMUW0G4TS6rGT6gAwnB3+TuCrlNFkSlDdQrQcVmm85sVVmCJ+Bio4YJQC+
-	on2aWSNC5m5HCOdSKchJoEPbUxIb8FHfNetrdbYkRLgOko61vPn3LAJ/e/wUJoOB
-	ls6Btg==
-Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com [209.85.222.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 47vvb0s6p6-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Jul 2025 12:14:50 +0000 (GMT)
-Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-7df5870c8b1so45589185a.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Jul 2025 05:14:50 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752495289; x=1753100089;
-        h=content-transfer-encoding:in-reply-to:content-language:references
-         :cc:to:from:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=aoI5BFClgTcyFuK38F1KY+FhVdU3uKRCX2U3iUvC0Jg=;
-        b=em+23zNWXBt0rJJIhOejsysT9RyBk1tWg4uuQ9exOG0D51MrMsJs7uZJv7Hxmcjnhn
-         zv5hWgygxVpasG299l/WQrmhNJFA1Eb84BNBLvWQmlBUb6KQONiH511OHarNGCHYVsky
-         y6xrWStb87qOjcDdS69aoJagP3kX9NDpzekM0/3LN1pYbXvu/WVj6NxwmD02+gvhicRy
-         vf+YVrhTfM/4QwhcR/NdDUu2WNxYlQGWsfoBzKYvM+IO3AUTer72lQi+xbYLhtUkW8Xq
-         vRZOXOzyje3e3IjHGAV+XWy2nNOp7u05tFD08DosiEhmvMUalYwi4EWbBdkTaHN6zID+
-         YbLA==
-X-Forwarded-Encrypted: i=1; AJvYcCWAm8biOt54w8vX8DUkoJuU4GTj4+Ge67HLzObqEKHZInIwpEljTS4HPb2BwQuXWo6U464IMhe8BZ4o+z0xjpyT@lists.infradead.org
-X-Gm-Message-State: AOJu0YzgA3zmyeNZ9nHSR+Du95ewGWTkHnDBSg91POWIM+JwtKF/A0EU
-	A5BEvB2jLdXJFFJpXe7oOClhQMv7foaylIWiE9x/IG6KIyqetMEcsoxBLyR6ApOixKklg7uj7ly
-	LEbygQ4EafZjifweHcBnaCHsdXGRfRbF2Sn77Xv4ejxDkxdyva9CItYl+IcR6cNHCra/XXhmgAd
-	00sQ==
-X-Gm-Gg: ASbGncu3UkpNOFdiHSMdZtnpKeqHaxDOxLaZMBE6G+eLB0kpPEUi3b6TeZ2CKECJerq
-	jxEKlT637Pnx+vV3f0zAiaFqhEvqBtGVcNVs2/Auxs1vcHMrPUpLyj79zlLn0qkI1jDfzQY3s4d
-	gao/Rl6ioMeNxFbBolM8ycleg4WUnoE/EdVY6MVbYIfGhxT2KoYKJ32qc44IuHyoOtKtyNjdF/U
-	tZKTt4mo9ARlC8ypdrkmBU4IT+qf2lFNvSEDARo5Ybkagq7HgFFOtgMmtmS6870VDLUbRU22Mn6
-	ubzPGM2MNVnK8GSWWD1W61k6cwd54382E1V4+VwhwBJl2+m9GQiA5lLBNwXYmvr04G1caN6nIB3
-	E8OhROtEqESbCilJrXRXt
-X-Received: by 2002:a05:620a:618f:b0:7e3:2d1d:bda5 with SMTP id af79cd13be357-7e32d1dc30fmr94699585a.9.1752495288908;
-        Mon, 14 Jul 2025 05:14:48 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFG5vZyWrc5c1Pue3RENiHkc+kjzDktP9Y1RxdkTc6cDgp35ovMXQ//H2HFsJEBRaNnVMnwSg==
-X-Received: by 2002:a05:620a:618f:b0:7e3:2d1d:bda5 with SMTP id af79cd13be357-7e32d1dc30fmr94696585a.9.1752495288322;
-        Mon, 14 Jul 2025 05:14:48 -0700 (PDT)
-Received: from [192.168.143.225] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ae6e8298f85sm824827066b.144.2025.07.14.05.14.45
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 14 Jul 2025 05:14:47 -0700 (PDT)
-Message-ID: <45e6873e-adb7-453f-abd6-c7b6620c9b34@oss.qualcomm.com>
-Date: Mon, 14 Jul 2025 14:14:44 +0200
+	Mon, 14 Jul 2025 09:46:47 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6CC831BC0;
+	Mon, 14 Jul 2025 02:46:36 -0700 (PDT)
+Received: from [10.57.83.2] (unknown [10.57.83.2])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BF4C23F694;
+	Mon, 14 Jul 2025 02:46:43 -0700 (PDT)
+Message-ID: <c3174c99-dcec-45fa-9e8c-14f378b2b97d@arm.com>
+Date: Mon, 14 Jul 2025 10:46:42 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] iommu/qcom: Fix pgsize_bitmap
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-To: Jason Gunthorpe <jgg@nvidia.com>, iommu@lists.linux.dev,
-        Joerg Roedel <joro@8bytes.org>, linux-arm-kernel@lists.infradead.org,
-        linux-arm-msm@vger.kernel.org,
-        Rob Clark <robin.clark@oss.qualcomm.com>,
-        Robin Murphy <robin.murphy@arm.com>, Will Deacon <will@kernel.org>
-Cc: Joerg Roedel <joerg.roedel@amd.com>, Kevin Tian <kevin.tian@intel.com>,
-        Linux Kernel Functional Testing <lkft@linaro.org>,
-        Naresh Kamboju <naresh.kamboju@linaro.org>,
-        Nicolin Chen <nicolinc@nvidia.com>, patches@lists.linux.dev,
-        Alexey Minnekhanov <alexeymin@postmarketos.org>,
-        Luca Weiss <luca@lucaweiss.eu>,
-        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-        =?UTF-8?Q?Matti_Lehtim=C3=A4ki?= <matti.lehtimaki@gmail.com>
-References: <0-v1-65a7964d2545+195-qcom_pgsize_jgg@nvidia.com>
- <6cc5bb7a-344c-45fa-a8cc-cea34493c759@oss.qualcomm.com>
-Content-Language: en-US
-In-Reply-To: <6cc5bb7a-344c-45fa-a8cc-cea34493c759@oss.qualcomm.com>
+Subject: Re: [PATCH 03/10] arm64: mm: Implicitly invalidate user ASID based on
+ TLBI operation
+Content-Language: en-GB
+From: Ryan Roberts <ryan.roberts@arm.com>
+To: Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org, Ard Biesheuvel <ardb@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Mark Rutland <mark.rutland@arm.com>,
+ Linus Torvalds <torvalds@linux-foundation.org>,
+ Oliver Upton <oliver.upton@linux.dev>, Marc Zyngier <maz@kernel.org>
+References: <20250711161732.384-1-will@kernel.org>
+ <20250711161732.384-4-will@kernel.org>
+ <9dccf004-1ac4-45ae-9098-69fcad7107a8@arm.com>
+In-Reply-To: <9dccf004-1ac4-45ae-9098-69fcad7107a8@arm.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Proofpoint-ORIG-GUID: 2KJ2uegJoyH3VDkTQ2X14GvYeloKjrHn
-X-Authority-Analysis: v=2.4 cv=B8e50PtM c=1 sm=1 tr=0 ts=6874f4ba cx=c_pps
- a=50t2pK5VMbmlHzFWWp8p/g==:117 a=FpWmc02/iXfjRdCD7H54yg==:17
- a=IkcTkHD0fZMA:10 a=Wb1JkmetP80A:10 a=VwQbUJbxAAAA:8 a=pGLkceISAAAA:8
- a=KKAkSRfTAAAA:8 a=Ikd4Dj_1AAAA:8 a=EUspDBNiAAAA:8 a=LZJuRBUwro2lsZWipJkA:9
- a=NqO74GWdXPXpGKcKHaDJD/ajO6k=:19 a=QEXdDO2ut3YA:10 a=IoWCM6iH3mJn3m4BftBB:22
- a=cvBusfyB2V15izCimMoJ:22
-X-Proofpoint-GUID: 2KJ2uegJoyH3VDkTQ2X14GvYeloKjrHn
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNzE0MDA3MSBTYWx0ZWRfXxg/eOI3USNC7
- 1hsm1siSCTracYv+PfAyrS/puY/m/7Ck2iYp0X6u67XudmeizAiB5n5cjHjQDRe3UJ17iQ6xjM6
- ZNwrVoLuMqMAV6eIjX1lMnQLAY8DihbTQ6U7v2gQUMFJgtA81r2OaPd2aMRfNYDC6uVSIlmkYyl
- qv5B5TKTueryUNwEZ4w31zyQgfYNscJCPGjNACxu4mxZuGm8/Vo1XGPvhU754a4JXKewmbYWfR8
- xYCCU4MhGPR3l61fmVvc6kvW8yUqp5ffZseIoctAps96rJiO09QAYFa070E9By2laVmdMVLt7uy
- nJCd8N/oVZSB8bsIctN6Sj76VXByaY4KgIkY31qXNwBqn1U0URC25DRvBaJrSZjacQ0yqHksZb0
- yJNpediZCzpuKfkjPm/1110gI4QNhz7F4WJvjaK6p+uZnGSK15631kvYuLvGJ9pKDpKdIb5g
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.7,FMLib:17.12.80.40
- definitions=2025-07-14_01,2025-07-14_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- mlxlogscore=999 bulkscore=0 clxscore=1015 lowpriorityscore=0 malwarescore=0
- phishscore=0 priorityscore=1501 impostorscore=0 mlxscore=0 suspectscore=0
- adultscore=0 spamscore=0 classifier=spam authscore=0 authtc=n/a authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2505280000
- definitions=main-2507140071
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250714_051451_076094_030D98D8 
-X-CRM114-Status: GOOD (  17.43  )
+X-CRM114-CacheID: sfid-20250714_024646_468384_137B276E 
+X-CRM114-Status: GOOD (  16.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,37 +70,152 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/11/25 3:26 PM, Konrad Dybcio wrote:
-> On 7/11/25 3:16 PM, Jason Gunthorpe wrote:
->> qcom uses the ARM_32_LPAE_S1 format which uses the ARM long descriptor
->> page table. Eventually arm_32_lpae_alloc_pgtable_s1() will adjust
->> the pgsize_bitmap with:
+On 14/07/2025 09:44, Ryan Roberts wrote:
+> On 11/07/2025 17:17, Will Deacon wrote:
+>> When kpti is enabled, separate ASIDs are used for userspace and
+>> kernelspace, requiring ASID-qualified TLB invalidation by virtual
+>> address to invalidate both of them.
 >>
->> 	cfg->pgsize_bitmap &= (SZ_4K | SZ_2M | SZ_1G);
+>> Push the logic for invalidating the two ASIDs down into the low-level
+>> __tlbi_level_op() function based on the TLBI operation and remove the
+>> burden from the caller to handle the kpti-specific behaviour.
 >>
->> So the current declaration is nonsensical. Fix it to be just SZ_4K which
->> is what it has actually been using so far. Most likely the qcom driver
->> copy and pasted the pgsize_bitmap from something using the ARM_V7S format.
->>
->> Fixes: db64591de4b2 ("iommu/qcom: Remove iommu_ops pgsize_bitmap")
->> Reported-by: Naresh Kamboju <naresh.kamboju@linaro.org>
->> Closes: https://lore.kernel.org/all/CA+G9fYvif6kDDFar5ZK4Dff3XThSrhaZaJundjQYujaJW978yg@mail.gmail.com/
->> Tested-by: Linux Kernel Functional Testing <lkft@linaro.org>
->> Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
+>> Signed-off-by: Will Deacon <will@kernel.org>
 >> ---
+>>  arch/arm64/include/asm/tlbflush.h | 45 ++++++++++++++++++-------------
+>>  1 file changed, 26 insertions(+), 19 deletions(-)
+>>
+>> diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
+>> index 4408aeebf4d5..08e509f37b28 100644
+>> --- a/arch/arm64/include/asm/tlbflush.h
+>> +++ b/arch/arm64/include/asm/tlbflush.h
+>> @@ -115,17 +115,25 @@ enum tlbi_op {
+>>  
+>>  #define TLBI_TTL_UNKNOWN	INT_MAX
+>>  
+>> -#define __GEN_TLBI_OP_CASE(op)						\
+>> +#define ___GEN_TLBI_OP_CASE(op)						\
+>>  	case op:							\
+>> -		__tlbi(op, arg);					\
+>> +		__tlbi(op, arg)
+>> +
+>> +#define __GEN_TLBI_OP_ASID_CASE(op)					\
+>> +	___GEN_TLBI_OP_CASE(op);					\
+>> +		__tlbi_user(op, arg);					\
+>> +		break
+>> +
+>> +#define __GEN_TLBI_OP_CASE(op)						\
+>> +	___GEN_TLBI_OP_CASE(op);					\
+>>  		break
+>>  
+>>  static __always_inline void __tlbi_level_op(const enum tlbi_op op, u64 arg)
+>>  {
+>>  	switch (op) {
+>> -	__GEN_TLBI_OP_CASE(vae1is);
+>> +	__GEN_TLBI_OP_ASID_CASE(vae1is);
+>>  	__GEN_TLBI_OP_CASE(vae2is);
+>> -	__GEN_TLBI_OP_CASE(vale1is);
+>> +	__GEN_TLBI_OP_ASID_CASE(vale1is);
+>>  	__GEN_TLBI_OP_CASE(vale2is);
+>>  	__GEN_TLBI_OP_CASE(vaale1is);
+>>  	__GEN_TLBI_OP_CASE(ipas2e1);
+>> @@ -134,7 +142,8 @@ static __always_inline void __tlbi_level_op(const enum tlbi_op op, u64 arg)
+>>  		BUILD_BUG();
+>>  	}
+>>  }
+>> -#undef __GEN_TLBI_OP_CASE
+>> +#undef __GEN_TLBI_OP_ASID_CASE
+>> +#undef ___GEN_TLBI_OP_CASE
+>>  
+>>  #define __tlbi_level(op, addr, level) do {				\
+>>  	u64 arg = addr;							\
+>> @@ -150,11 +159,6 @@ static __always_inline void __tlbi_level_op(const enum tlbi_op op, u64 arg)
+>>  	__tlbi_level_op(op, arg);					\
+>>  } while(0)
+>>  
+>> -#define __tlbi_user_level(op, arg, level) do {				\
+>> -	if (arm64_kernel_unmapped_at_el0())				\
+>> -		__tlbi_level(op, (arg | USER_ASID_FLAG), level);	\
+>> -} while (0)
+>> -
+>>  /*
+>>   * This macro creates a properly formatted VA operand for the TLB RANGE. The
+>>   * value bit assignments are:
+>> @@ -418,22 +422,28 @@ static inline void arch_tlbbatch_flush(struct arch_tlbflush_unmap_batch *batch)
+>>   *    operations can only span an even number of pages. We save this for last to
+>>   *    ensure 64KB start alignment is maintained for the LPA2 case.
+>>   */
+>> -#define __GEN_TLBI_OP_CASE(op)						\
+>> +#define ___GEN_TLBI_OP_CASE(op)						\
+>>  	case op:							\
+>> -		__tlbi(r ## op, arg);					\
+>> +		__tlbi(r ## op, arg)
+>> +
+>> +#define __GEN_TLBI_OP_ASID_CASE(op)					\
+>> +	___GEN_TLBI_OP_CASE(op);					\
+>> +		__tlbi_user(r ## op, arg);				\
+>>  		break
+>>  
+>>  static __always_inline void __tlbi_range(const enum tlbi_op op, u64 arg)
+>>  {
+>>  	switch (op) {
+>> -	__GEN_TLBI_OP_CASE(vae1is);
+>> -	__GEN_TLBI_OP_CASE(vale1is);
+>> +	__GEN_TLBI_OP_ASID_CASE(vae1is);
+>> +	__GEN_TLBI_OP_ASID_CASE(vale1is);
+>>  	__GEN_TLBI_OP_CASE(vaale1is);
+>>  	__GEN_TLBI_OP_CASE(ipas2e1is);
 > 
-> The downstream driver from >10y ago for this era of hardware
-> suggests (at least some?) users of this driver can issue a magic
-> TZ call to switch to (IIUC) ARM_64_LPAE_S1, but there's no
-> implementation upstream, so:
-> 
-> (adding a couple folks interested in the hardware museum to CC to
-> bring this to their attention, nothing to act on though)
-> 
-> Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+> Bug? This 2 underscore version is still defined from the level case above. So
+> this is no longer issuing a range-based tlbi? (i.e. you're no longer prepending
+> the "r" here.
 
-I never actually added the people I thought about to CC - fixing
-that..
+Do thse __GEN_TLBI_*() macros really help that much? I think I'd prefer to see
+the case statement just written out long hand. It will make things much clearer
+for not that many more lines, and if I'm right about that bug, would have
+prevented it.
 
-Konrad
+Thanks,
+Ryan
+
+
+> 
+>>  	default:
+>>  		BUILD_BUG();
+>>  	}
+>>  }
+>> +#undef __GEN_TLBI_OP_ASID_CASE
+>> +#undef ___GEN_TLBI_OP_CASE
+>>  #undef __GEN_TLBI_OP_CASE
+>>  
+>>  #define __flush_tlb_range_op(op, start, pages, stride,			\
+>> @@ -452,8 +462,6 @@ do {									\
+>>  		    (lpa2 && __flush_start != ALIGN(__flush_start, SZ_64K))) {	\
+>>  			addr = __TLBI_VADDR(__flush_start, asid);	\
+>>  			__tlbi_level(op, addr, tlb_level);		\
+>> -			if (tlbi_user)					\
+>> -				__tlbi_user_level(op, addr, tlb_level);	\
+>>  			__flush_start += stride;			\
+>>  			__flush_pages -= stride >> PAGE_SHIFT;		\
+>>  			continue;					\
+>> @@ -464,8 +472,6 @@ do {									\
+>>  			addr = __TLBI_VADDR_RANGE(__flush_start >> shift, asid, \
+>>  						scale, num, tlb_level);	\
+>>  			__tlbi_range(op, addr);				\
+>> -			if (tlbi_user)					\
+>> -				__tlbi_user(r##op, addr);		\
+>>  			__flush_start += __TLBI_RANGE_PAGES(num, scale) << PAGE_SHIFT; \
+>>  			__flush_pages -= __TLBI_RANGE_PAGES(num, scale);\
+>>  		}							\
+>> @@ -584,6 +590,7 @@ static inline void arch_tlbbatch_add_pending(struct arch_tlbflush_unmap_batch *b
+>>  {
+>>  	__flush_tlb_range_nosync(mm, start, end, PAGE_SIZE, true, 3);
+>>  }
+>> -#endif
+>>  
+>> +#undef __tlbi_user
+>> +#endif
+>>  #endif
+> 
+
 
