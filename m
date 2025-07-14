@@ -4,80 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 385FEC83F1B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 06:01:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21583C83F1B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 06:04:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:List-Owner;
-	bh=BJm1Eod+dAJKfRZuImiRIeCSBkJ0UHEbIO+BfLsJsvg=; b=H4xsWKRpyhgAblQb23ROa+CavE
-	TMxLdq+AqjeJMLXFGlr7OzeDBxq5Hy860LQykDVvTOfnNK+MMLzluRskyoiY7uwyUs5DVJItw6mh+
-	8DxABG8CyGmc6T29ZdW5vNadWkUS/hO7fnYD6RhVmRJiTv9QSdU1tP46UFncK7vr9Kz+0+ucZMKAw
-	PlWwgzk6+ZbUSkemsJFIGDqVBGyGsb4iJRYschEpddhy5bUibb0HyptBmJT5dWgxz+j8lFiFTVKc0
-	kBqZNMWsw6YDEQZFaRMdGGHmBlwtknR9EXw9Ic4ruxolqr1Jnf/UD701xcEEb9wE37RZhNHMqHmsS
-	L4Prl83Q==;
+	Content-Transfer-Encoding:MIME-Version:In-Reply-To:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DEE4uWjAAvqGbGNHuZIiAusKYEx36zda62ZjOAcwkGI=; b=VU0EjUl3uLOkvcVGo97fC1O+eN
+	NvavTctdxnawrPq86Ud1zmqLSys85ppdnNqI5QcoJoAWzELO6mNDgyZDifudVrAlu/mOk7X1MA5RE
+	roGKQM/7ZQVZQISP3IxzfQQRh9EpJkSfK1E+yQ5eU5auOb74GCERYmndXtAdfwvzj7K8xUceIxC/z
+	4FpCdem9qrqcbUjK3KRzqsbHmjKAW+H9xB8gpbbtBb28ApQhxp5229GpPK0m48Mkp2ubmSYDnbN8c
+	zKQ9JQXoW3cuSHw1F43WWx+4qr8rHZSgbtonDhjWRIXGHtHgypgiqh9mdxPs99i2SVCMKJNllMFb0
+	75V9/gvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubCFq-00000001Gw4-2wY0;
-	Mon, 14 Jul 2025 06:01:34 +0000
-Received: from mailout3.samsung.com ([203.254.224.33])
+	id 1ubCIG-00000001HFr-33uR;
+	Mon, 14 Jul 2025 06:04:06 +0000
+Received: from mailout4.samsung.com ([203.254.224.34])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubCDN-00000001GJ1-2qbt
+	id 1ubCDO-00000001GJL-0w1U
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 14 Jul 2025 05:59:05 +0000
-Received: from epcas2p4.samsung.com (unknown [182.195.41.56])
-	by mailout3.samsung.com (KnoxPortal) with ESMTP id 20250714055853epoutp0358a324e78bb10a0d27d3ee6aa9ef7226~SCKp7PhZ61565615656epoutp03Q
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Jul 2025 05:58:53 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout3.samsung.com 20250714055853epoutp0358a324e78bb10a0d27d3ee6aa9ef7226~SCKp7PhZ61565615656epoutp03Q
+Received: from epcas2p1.samsung.com (unknown [182.195.41.53])
+	by mailout4.samsung.com (KnoxPortal) with ESMTP id 20250714055855epoutp04bfc43b93856c6bc426cbe5fe40972f53~SCKri-Az11602116021epoutp04Z
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Jul 2025 05:58:55 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout4.samsung.com 20250714055855epoutp04bfc43b93856c6bc426cbe5fe40972f53~SCKri-Az11602116021epoutp04Z
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1752472733;
-	bh=BJm1Eod+dAJKfRZuImiRIeCSBkJ0UHEbIO+BfLsJsvg=;
-	h=From:To:Cc:Subject:Date:References:From;
-	b=jrz6P2A5v12XpIflrsME7xZc7SmpALibCr3+kU/ncpUasHRXmpbpFnhzowYAmtzF1
-	 z1fOyUZUN+weX2Gi3vXm+i9F7SMkJqtI1BKLhEQ/w2vGq90t0Zv+2WUY4Fh9DRK2Fu
-	 /8/9piDduIdKSoR49UsFNLon9k+ffpHxi/aJnC/U=
-Received: from epsnrtp01.localdomain (unknown [182.195.42.153]) by
+	s=mail20170921; t=1752472735;
+	bh=DEE4uWjAAvqGbGNHuZIiAusKYEx36zda62ZjOAcwkGI=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=qvSnWaCw4mtPSN1I6zh82H/gfllGlf5eEwLhF0c+cOoi6vfsVoOK56aSD5oCz3k8W
+	 4TsXspk5i4zMey6rYOd4oZ3FJo4Hl+QbLUoSB0N+Apq5BbJOHXU3vUv0K+KkPurNSC
+	 /P3sx2C7Y/UxgC4JLYCAfmU1L9C1mlWHDC7Ah4Ds=
+Received: from epsnrtp04.localdomain (unknown [182.195.42.156]) by
 	epcas2p2.samsung.com (KnoxPortal) with ESMTPS id
-	20250714055852epcas2p25ab44199be04da7bbeffdb5d6cb1bf4c~SCKo3tNoc1866318663epcas2p2H;
-	Mon, 14 Jul 2025 05:58:52 +0000 (GMT)
-Received: from epcas2p1.samsung.com (unknown [182.195.36.100]) by
-	epsnrtp01.localdomain (Postfix) with ESMTP id 4bgWpg4J9Sz6B9mD; Mon, 14 Jul
-	2025 05:58:51 +0000 (GMT)
+	20250714055854epcas2p2e7f656b05ffb32038de95175d9c4017f~SCKrQ0r0m1945019450epcas2p27;
+	Mon, 14 Jul 2025 05:58:54 +0000 (GMT)
+Received: from epcas2p3.samsung.com (unknown [182.195.36.90]) by
+	epsnrtp04.localdomain (Postfix) with ESMTP id 4bgWpk1994z6B9mH; Mon, 14 Jul
+	2025 05:58:54 +0000 (GMT)
 Received: from epsmtip1.samsung.com (unknown [182.195.34.30]) by
-	epcas2p4.samsung.com (KnoxPortal) with ESMTPA id
-	20250714055850epcas2p454265f0cc65a80e80e536a4e88819e2a~SCKntcPgt1467314673epcas2p4H;
-	Mon, 14 Jul 2025 05:58:50 +0000 (GMT)
+	epcas2p1.samsung.com (KnoxPortal) with ESMTPA id
+	20250714055853epcas2p1c8a30bbc61045c6a359d32989cfaf2f9~SCKqPDzbx1936819368epcas2p1H;
+	Mon, 14 Jul 2025 05:58:53 +0000 (GMT)
 Received: from localhost.localdomain (unknown [10.229.9.126]) by
 	epsmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20250714055850epsmtip1d5df253e02e7ef9da2740184fce1db22~SCKnqS9c10363003630epsmtip1l;
-	Mon, 14 Jul 2025 05:58:50 +0000 (GMT)
+	20250714055853epsmtip19fb52d10a7006a5d55c0744d4b862c49~SCKqJ1vbW0366003660epsmtip1M;
+	Mon, 14 Jul 2025 05:58:53 +0000 (GMT)
 From: Sangwook Shin <sw617.shin@samsung.com>
 To: krzk@kernel.org, alim.akhtar@samsung.com, wim@linux-watchdog.org,
 	linux@roeck-us.net
 Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
 	linux-watchdog@vger.kernel.org, linux-kernel@vger.kernel.org, Sangwook Shin
 	<sw617.shin@samsung.com>
-Subject: [PATCH v3 RESEND 0/5] Increase max timeout value of s3c2410
- watchdog
-Date: Mon, 14 Jul 2025 14:54:35 +0900
-Message-Id: <20250714055440.3138135-1-sw617.shin@samsung.com>
+Subject: [PATCH v3 RESEND 1/5] watchdog: s3c2410_wdt: Replace hardcoded
+ values with macro definitions
+Date: Mon, 14 Jul 2025 14:54:36 +0900
+Message-Id: <20250714055440.3138135-2-sw617.shin@samsung.com>
 X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20250714055440.3138135-1-sw617.shin@samsung.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20250714055850epcas2p454265f0cc65a80e80e536a4e88819e2a
+X-CMS-MailID: 20250714055853epcas2p1c8a30bbc61045c6a359d32989cfaf2f9
 X-Msg-Generator: CA
 Content-Type: text/plain; charset="utf-8"
 X-Sendblock-Type: AUTO_CONFIDENTIAL
 CMS-TYPE: 102P
 cpgsPolicy: CPGSC10-234,N
 X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250714055850epcas2p454265f0cc65a80e80e536a4e88819e2a
-References: <CGME20250714055850epcas2p454265f0cc65a80e80e536a4e88819e2a@epcas2p4.samsung.com>
+X-CMS-RootMailID: 20250714055853epcas2p1c8a30bbc61045c6a359d32989cfaf2f9
+References: <20250714055440.3138135-1-sw617.shin@samsung.com>
+	<CGME20250714055853epcas2p1c8a30bbc61045c6a359d32989cfaf2f9@epcas2p1.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250713_225902_832697_42999B30 
-X-CRM114-Status: GOOD (  10.72  )
+X-CRM114-CacheID: sfid-20250713_225902_834112_02EB19FB 
+X-CRM114-Status: GOOD (  15.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,37 +94,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The ExynosAutoV9 and ExynosAutoV920 SoCs have a 32-bit counter register,
-but due to code constraints, only 16-bit values could be used.
-This series enables these SoCs to use the 32-bit counter.
-Additionally, it addresses the issue where the ExynosAutoV9 SoC supports
-the DBGACK bit but it was not set.
+Modify the code to utilize macro-defined values instead of hardcoded
+values. The value 0x100 in the s3c2410wdt_set_heartbeat function represents
+S3C2410_WTCON_PRESCALE_MAX + 1, but it is hardcoded, making its meaning
+difficult to understand and reducing code readability.
 
-V2->V3:
-  - Correct the incorrect tag information.
-  - Link to v2:
-    https://lore.kernel.org/linux-watchdog/20250514094220.1561378-1-sw617.shin@samsung.com/
+Signed-off-by: Sangwook Shin <sw617.shin@samsung.com>
+---
+ drivers/watchdog/s3c2410_wdt.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-V1->V2:
-  - Modify the max_timeout calculation considering overflow
-  - Separate tha max_timeout calculation into a separate patch
-  - Add max_cnt in struct s3c2410_wdt
-  - Set max_cnt once in probe function
-  - Add patch that uses S3C2410_WTCON_PRESCALE_MAX instead of hardcoded one
-  - Remove unnecessary inner parentheses
-  - Link to v1:
-    https://lore.kernel.org/linux-watchdog/20250513094711.2691059-1-sw617.shin@samsung.com/
-
-Sangwook Shin (5):
-  watchdog: s3c2410_wdt: Replace hardcoded values with macro definitions
-  watchdog: s3c2410_wdt: Fix max_timeout being calculated larger
-  watchdog: s3c2410_wdt: Increase max timeout value of watchdog
-  watchdog: s3c2410_wdt: exynosautov920: Enable QUIRK_HAS_32BIT_MAXCNT
-  watchdog: s3c2410_wdt: exynosautov9: Enable supported features
-
- drivers/watchdog/s3c2410_wdt.c | 37 +++++++++++++++++++++++-----------
- 1 file changed, 25 insertions(+), 12 deletions(-)
-
+diff --git a/drivers/watchdog/s3c2410_wdt.c b/drivers/watchdog/s3c2410_wdt.c
+index 40901bdac426..95f7207e390a 100644
+--- a/drivers/watchdog/s3c2410_wdt.c
++++ b/drivers/watchdog/s3c2410_wdt.c
+@@ -587,7 +587,7 @@ static int s3c2410wdt_set_heartbeat(struct watchdog_device *wdd,
+ 	if (count >= 0x10000) {
+ 		divisor = DIV_ROUND_UP(count, 0xffff);
+ 
+-		if (divisor > 0x100) {
++		if (divisor > S3C2410_WTCON_PRESCALE_MAX + 1) {
+ 			dev_err(wdt->dev, "timeout %d too big\n", timeout);
+ 			return -EINVAL;
+ 		}
 -- 
 2.25.1
 
