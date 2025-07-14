@@ -4,65 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DDB7C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 18:55:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 242A9C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 19:11:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4mcaPOCXuzcuqrql8CPC5ZiVQE91mo1ELmABGML81qY=; b=ZpiUvHS9LW9awyr+I5kqXs1QI7
-	kGra86EOT/HN9zQ75V4fnQsgRryzGbY/L37F2yXkiDdPM0qbkrfzGq8fB9Hs2vrb8jJx2M2R84+Vm
-	dg60Hh7bi8CmXCopJwc/SLzQUnMRabyq6SuBqgUEZTaSOLJUY7m4UwlsINii+sw7IpVXUisvKflk/
-	WrAfC15nKgx8G34yBnr2/8e2ptelTL5OVzzbv5ES89gMqg1OmBN77HjbU6xpRY7reoNgE+XXxuRTk
-	em7Yytz2aG/U13IPgi1WcTKOVEwZAV3cu461JBsSYRh0Fi/FLs31zYZD2gZ8KIsZhYErIcgzICgNI
-	UJ8NCkdA==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=FY8oP8TntW4ytWNHBRG2ykUEsygpkJOVRPFVHGGy1iw=; b=UTG8ueBSTYkKA+
+	AxzoJsT3+mKU/xXM4ReFM0YINv7ANO/0n/+qDMMnfC75LE7JsKK5KKS+KIkFpV7WGC7KdkVK+C3EI
+	WjpdQDNCP5SCHXCDOprjub0SlMDFasY+Gx7n6bkqujEqK+5nbCKf08mIDNP+erZ0pju3Im32IJ+MN
+	mmF5H2iK3tiPXlXNNh2uINaBfRgplBNGI/IKBKY3VuNpwwtPwQkff1gFwj8uaL9iTyYUNvtg+oG0r
+	5thqmu6s8uxEChyiZIzF3+sAHzsD8H/zwQrFImUiJ4qKIMA7DMrV5jtMk/u3Wj7Z+CEdU1HYpkSUz
+	3laS0EqSmShHONNbXqjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubOKL-000000036Xd-2T8j;
-	Mon, 14 Jul 2025 18:55:01 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1ubOZo-000000037tA-3AC7;
+	Mon, 14 Jul 2025 19:11:00 +0000
+Received: from mail-oa1-x34.google.com ([2001:4860:4864:20::34])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubOHs-0000000364l-35jf
+	id 1ubOXM-000000037gm-1Phk
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Jul 2025 18:52:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=4mcaPOCXuzcuqrql8CPC5ZiVQE91mo1ELmABGML81qY=; b=hrFQBCcJKrv941KwidwkQk5On0
-	sxEaQxGet6J1wRs/YJC9eALAMFdzcFjE6rM3vHOOOq3smX+wk7XtWc3iet3vCh/bbMQeF6sumdaa9
-	VYBJ3aDVS9J7gemohTr+FBreGj6t76boDpUEJrzYRJQau85/5pr1nPUqFB+Tumsb8JRQ=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1ubOHh-001V2I-Uc; Mon, 14 Jul 2025 20:52:17 +0200
-Date: Mon, 14 Jul 2025 20:52:17 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Matthew Gerlach <matthew.gerlach@altera.com>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
-	kuba@kernel.org, pabeni@redhat.com, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com, dinguyen@kernel.org,
-	maxime.chevallier@bootlin.com, richardcochran@gmail.com,
-	netdev@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 3/4] arm64: dts: socfpga: agilex5: enable gmac2 on the
- Agilex5 dev kit
-Message-ID: <86e1e04a-3242-482c-adb0-dde7375561c1@lunn.ch>
-References: <20250714152528.311398-1-matthew.gerlach@altera.com>
- <20250714152528.311398-4-matthew.gerlach@altera.com>
- <de1e4302-0262-4bcc-b324-49bfc2f5fd11@lunn.ch>
- <256054d7-351a-4b1c-8e1a-48628ace091d@altera.com>
+	Mon, 14 Jul 2025 19:08:29 +0000
+Received: by mail-oa1-x34.google.com with SMTP id 586e51a60fabf-2c6ed7efb1dso3108774fac.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Jul 2025 12:08:27 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1752520106; x=1753124906; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:message-id:subject:cc
+         :to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=FY8oP8TntW4ytWNHBRG2ykUEsygpkJOVRPFVHGGy1iw=;
+        b=myDlZv4wvgo9kCGxAZbcMf5VCxvHQAZpPxBkxOl7Wmj6A4jsLT/XVmvD86H8oy/JEC
+         1lpMqMj5B7r6p8UQs0ALymL25ejjW4c+NWWrBLsO9+A0qHLnLbetdeWYYzwZeRlLE8JW
+         NOd6ZLtKEoSaXuw7BP7olSUVj03KbC5PDD+tHc60Jmv/ESFS1ZSTKySpfG2LFvzkG6Sa
+         ud3UK389NMFif5zqYkjELgZ8ly0mXLDnbA6dz0ltJ+XTDJyDOUCLNuZC9bmwJBkk5wU/
+         d+agfrL/iRxfWIcr9B0syFPZ3Eh8iXCj8sBFoutVoIGX9uXeADsYZrsn+UChJaW435yM
+         wzwQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1752520106; x=1753124906;
+        h=in-reply-to:content-disposition:mime-version:message-id:subject:cc
+         :to:from:date:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=FY8oP8TntW4ytWNHBRG2ykUEsygpkJOVRPFVHGGy1iw=;
+        b=tpPF4rCIzvRxqxjwX7G/qZp1zIRMmRHpuzC4+21F88wMyUBtR5dBQdDmLmw/q5/MV7
+         zRmQrX9Sj+cPr0EwS/Om7rVM/YPVtuVJrUjl3EaVByB+YgVsbnyVbkyeR0FhOVWOGn32
+         zybrjI3T5MtzksOMSotPKpx+y93dINbXlcIPvKbFxex0i0SfR0AELAIT4Bgnu4hPsYwL
+         vlaozEo4y2N9c0R55A8iw+UphBEqetlCZxPIYfgztg/aG8EcyGSVhImfl9fkNhmR+oz+
+         MaUSdW91MVV+QcE4JCswORm7H2/A/ByhxOBeWdNN9fYPd9sweW/4lekuy3DKOkbUHK7p
+         mf0w==
+X-Forwarded-Encrypted: i=1; AJvYcCUgpbIzvF1TPh18nq/T3L6zRJwo4zz24TBEx1M+IYTcy8tG8OVcQMJmenFtvFit/dFKcGajg52nEMYSPeG/FPwF@lists.infradead.org
+X-Gm-Message-State: AOJu0YwojUb+k8c/e8uCTkIkpbvHMjGg8fWYIijp0C7o2fN3RMGQKtCp
+	uKLUSkCiajIMCGr3b9VKXe3bIungSTJ3dYKNwVxc2Fvb1dnFDRL2XPypAhR86w5tE/E=
+X-Gm-Gg: ASbGncskmV5Oe0twkyqiMlRDiuNcAurf2B/NbC0WHQBZRXK8YBov/sw0Hu7AVRvaC7a
+	xlqm1z9szwS/flZXOYujpYJmq2EMFl12IRaIyFbU69xoh/5xi1dn8sEw8SA8ydtS75AIaVTiJCw
+	f44KcHIvLDAmgJbE0jgosmoBl4nEBSLXITDLcXZhXfSOEEAAXRVDZT0+T+8ffOm8jfyiWs50DUo
+	/KdR5xaUHkr/Y5IyTYAZ4FiIRaKZXbDvu829TqTi9LtfU+gEs0BGaOh92lMkSSuY8r4eDS+RD5L
+	33GwE3L7pOfAebB0udYi2fkF2S2DXT2H28fqpyLJesw5D0Di3ZO7MBESx0ufJGsKduN52fIxmvy
+	QkT0kmt8H/fJaPIG1lnZUQT3f27RbQQ==
+X-Google-Smtp-Source: AGHT+IEzO8bUgBmoo1uzE8f4f/z4iMC9jmOc9/Xzy7X6HZpF2LbcgnghTbE4rOCIVgXQl6Q0I/xJmw==
+X-Received: by 2002:a05:6871:5d06:b0:2d5:b914:fe2d with SMTP id 586e51a60fabf-2ff270892c7mr10030939fac.33.1752520106283;
+        Mon, 14 Jul 2025 12:08:26 -0700 (PDT)
+Received: from localhost ([2603:8080:b800:f700:6bb2:d90f:e5da:befc])
+        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-2ff116dd664sm2036650fac.42.2025.07.14.12.08.24
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 14 Jul 2025 12:08:25 -0700 (PDT)
+Date: Mon, 14 Jul 2025 22:08:23 +0300
+From: Dan Carpenter <dan.carpenter@linaro.org>
+To: oe-kbuild@lists.linux.dev,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	davem@davemloft.net
+Cc: lkp@intel.com, oe-kbuild-all@lists.linux.dev,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org, thomas.petazzoni@bootlin.com,
+	Andrew Lunn <andrew@lunn.ch>, Jakub Kicinski <kuba@kernel.org>,
+	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
+	Russell King <linux@armlinux.org.uk>,
+	linux-arm-kernel@lists.infradead.org,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Herve Codina <herve.codina@bootlin.com>,
+	Florian Fainelli <f.fainelli@gmail.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Vladimir Oltean <vladimir.oltean@nxp.com>,
+	=?iso-8859-1?Q?K=F6ry?= Maincent <kory.maincent@bootlin.com>,
+	Marek =?iso-8859-1?Q?Beh=FAn?= <kabel@kernel.org>,
+	Oleksij Rempel <o.rempel@pengutronix.de>,
+	=?iso-8859-1?Q?Nicol=F2?= Veronese <nicveronese@gmail.com>,
+	Simon Horman <horms@kernel.org>, mwojtas@chromium.org,
+	Antoine Tenart <atenart@kernel.org>, devicetree@vger.kernel.org,
+	Conor Dooley <conor+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Romain Gantois <romain.gantois@bootlin.com>,
+	Daniel Golle <daniel@makrotopia.org>
+Subject: Re: [PATCH net-next v7 04/15] net: phy: Introduce PHY ports
+ representation
+Message-ID: <13e48447-37fb-49d8-8c6a-ce5d198506ae@suswa.mountain>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <256054d7-351a-4b1c-8e1a-48628ace091d@altera.com>
+In-Reply-To: <20250630143315.250879-5-maxime.chevallier@bootlin.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250714_115228_773409_B716EFE4 
-X-CRM114-Status: GOOD (  22.06  )
+X-CRM114-CacheID: sfid-20250714_120828_386962_ED3795F2 
+X-CRM114-Status: UNSURE (   9.79  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,40 +122,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 14, 2025 at 11:09:33AM -0700, Matthew Gerlach wrote:
-> 
-> 
-> On 7/14/25 10:25 AM, Andrew Lunn wrote:
-> > > +&gmac2 {
-> > > +	status = "okay";
-> > > +	phy-mode = "rgmii";	/* Delays implemented by the IO ring of the Agilex5 SOCFPGA. */
-> > 
-> > Please could you explain in more details what this means.
-> > 
-> > The normal meaning for 'rgmii' is that the PCB implements the delay. I
-> > just want to fully understand what this IO ring is, and if it is part
-> > of the PCB.
-> 
-> The IO ring is the logic in the Agilex5 that controls the pins on the chip.
-> It is this logic that sits between the MAC IP in the Agilex5 and the pins
-> connected to the PCB that is inserting the necessary delays. Technically the
-> PCB is not implementing the delays, but the "wires" between the MAC and the
-> external pins of the Agilex5 are implementing the delay. It seems to me that
-> "rgmii" is a more accurate description of the hardware than "rgmii-id" in
-> this case.
+Hi Maxime,
 
-Is this delay hard coded, physically impossible to be disabled? A
-syntheses option? Can it be changed at run time? Is the IO ring under
-the control of a pinctrl driver? Can i use the standard 'skew-delay'
-DT property to control this delay?
+kernel test robot noticed the following build warnings:
 
-For silicon, if the delay cannot be removed, we have MAC drivers masks
-the phy-mode to indicate it has implemented the delay. The MAC driver
-should also return -EINVAL for any other RGMII mode than rgmii-id,
-because that is the only RGMII mode which is possible.
+url:    https://github.com/intel-lab-lkp/linux/commits/Maxime-Chevallier/dt-bindings-net-Introduce-the-ethernet-connector-description/20250630-224035
+base:   net-next/main
+patch link:    https://lore.kernel.org/r/20250630143315.250879-5-maxime.chevallier%40bootlin.com
+patch subject: [PATCH net-next v7 04/15] net: phy: Introduce PHY ports representation
+config: x86_64-randconfig-r071-20250706 (https://download.01.org/0day-ci/archive/20250706/202507061812.0aBYBa9l-lkp@intel.com/config)
+compiler: gcc-12 (Debian 12.2.0-14+deb12u1) 12.2.0
 
-Since this is an FPGA, it is a bit more complex, so i want to fully
-understand what is going on, what the different options are.
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Reported-by: Dan Carpenter <dan.carpenter@linaro.org>
+| Closes: https://lore.kernel.org/r/202507061812.0aBYBa9l-lkp@intel.com/
 
-	Andrew
+smatch warnings:
+drivers/net/phy/phy_port.c:130 phy_port_get_type() warn: bitwise AND condition is false here
+
+vim +130 drivers/net/phy/phy_port.c
+
+055cbf51317b1e Maxime Chevallier 2025-06-30  122  /**
+055cbf51317b1e Maxime Chevallier 2025-06-30  123   * phy_port_get_type() - get the PORT_* attribut for that port.
+055cbf51317b1e Maxime Chevallier 2025-06-30  124   * @port: The port we want the information from
+055cbf51317b1e Maxime Chevallier 2025-06-30  125   *
+055cbf51317b1e Maxime Chevallier 2025-06-30  126   * Returns: A PORT_XXX value.
+055cbf51317b1e Maxime Chevallier 2025-06-30  127   */
+055cbf51317b1e Maxime Chevallier 2025-06-30  128  int phy_port_get_type(struct phy_port *port)
+055cbf51317b1e Maxime Chevallier 2025-06-30  129  {
+055cbf51317b1e Maxime Chevallier 2025-06-30 @130  	if (port->mediums & ETHTOOL_LINK_MEDIUM_BASET)
+                                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^
+I think BIT(ETHTOOL_LINK_MEDIUM_BASET) was intended.
+
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
+
 
