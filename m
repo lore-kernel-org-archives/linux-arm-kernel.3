@@ -4,60 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83C53C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 15:08:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10383C83F1B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 15:08:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=4enJ+FUcyrsek9i62JQgGkkGMLGdyoOHqn7yVutegJQ=; b=Vm8+YR70U49D+S
-	FTQyQJVXQt9KjVrXS+FM6eul10D7RAokOii0Lbn+jHCI/wGw2XtF+PLAfSRPFMKLGbTKTR4vEiRN1
-	NFUHN5FgXxHmAMgeSAttRbjNl1pK89KDEgtIVdG2C46vA6VbD0XKKaY04U8kF5b4ecTWXFNm/fKjK
-	b+FrTY0QElUgZOfrsKHvt+0+zUfjicUPf3KQwJt4KYP6LTQ5XzHo5FeDURC7enk15ADbHUCOUV2nM
-	Cq8DMEXEq8mEy5+LWzJFBdVi6m5ujlWqzTEGIhLqQl9RG9DfF5ixPa+lOkrEE10c0/p+Mbq65M/1V
-	eo5zS5mAbJScBVLjJePQ==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jEhtdpIHUaCWWVMpS6h9pG+ezJ1H5i0vcgbppdJiInc=; b=EmXNYL2RPs84YcXNOXTdMUJmOc
+	/cGtobXfP/J94306kTfZXw7EXMFM6wWVf3Z7o+yqOdbvRqjQuWQe1/Ox/KSLh+vM42tAcHXIvZmaQ
+	xeso03uzfIPFBIu7UGlx8pudcI5p2Oa8WgbECNceIOI1ULircdbOmQYaROSc2UY+MaF7o0mDPhEui
+	OTSKbBazuJvk8mb1/7PYUi3FNQqRfI7nSOeNjPMsirANvif9EkxxF9kSXQrDDM1r9bpizZ38Iqq54
+	qRUd9aKsvrw9Pk1bAUIiQm8mD3olderTfrrnkaLGTrwejMO81icBy8WGMqKj7WuW/jTl8Bz1gfqvG
+	jmqFBTZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubKn4-00000002ZIz-3yvU;
-	Mon, 14 Jul 2025 15:08:26 +0000
+	id 1ubKn5-00000002ZKe-3ofF;
+	Mon, 14 Jul 2025 15:08:27 +0000
 Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubJrI-00000002QHR-04SG;
-	Mon, 14 Jul 2025 14:08:45 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1752502113; cv=none; 
+	id 1ubJrP-00000002QIq-0v4h;
+	Mon, 14 Jul 2025 14:08:52 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1752502115; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=isFHrMBvNV2bj1Umer9yVPRNpy9byQsWJMwa1C+2rh98ZgJ+TOGyXF7chB4W7PyrBKSg52TOY3mOKm0ujaLe9Ctc7jL6VUifuuQa6K/oaZHB55ZY4YOTEBTY7+1VUCv+VGH8A8tuPX1SbZbJLNC6589xu64h6+CwcbeE2w0Z2Ik=
+	b=g5b0fQ33w0mBOU0W69Sj9WQvn1mS0dem8B7L44jg3B0cqmc75fBWy/Apgznc5AULhxa0IMUw2VJJ/rQ5YvNKyYUPFhdgqlfki9jyJ2jcN5r4x0w6Ba+3Nr+Xse8H554yk31QgJzm1XX0ssHwSAWRwVCU4PxjgK3aGit9F7+noMU=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1752502113; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=4enJ+FUcyrsek9i62JQgGkkGMLGdyoOHqn7yVutegJQ=; 
-	b=gWSdNNNe5QyHlQJy7ENFYoAeH8fVaBG9Ru3taDUGh3Tt+VaTG/OwA7HRCiGJWZKQvYwsrZnoqVwqd5Dsxk2jMdMka/pDmmRix3LhT766Zvph7x5GMFq5YxVJWGNwlw+ao2PMsaluFVgt2HaYzaKzC/RFp7wFh7ty0Hoq81pDvuA=
+	t=1752502115; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=jEhtdpIHUaCWWVMpS6h9pG+ezJ1H5i0vcgbppdJiInc=; 
+	b=MyQmGqZyz39lksZtS/Rv5fGxxSrcdBKMr4uyl0zpH5moirTKdhI9RyWgVKGztkul+880QOMXalVE7+baVp8aKiAb7tRjCjLak1hPFhNdILTTSnviBHQF2/wMHB16kUpJcyXgAOZRFEjHKxGyGtZAzmOXciWm/zdUlgpAcqgLpu4=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=collabora.com;
 	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
 	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1752502113;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1752502115;
 	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:Subject:Subject:Date:Date:Message-Id:Message-Id:MIME-Version:Content-Type:Content-Transfer-Encoding:To:To:Cc:Cc:Reply-To;
-	bh=4enJ+FUcyrsek9i62JQgGkkGMLGdyoOHqn7yVutegJQ=;
-	b=HIOJx1ie34UXkUT/sJJDncuOWRfy8Jd+rEnzybLTRsOGiZfPIHJ25yBCdVMGu495
-	kFnWcPxnkW8hgnqY6ES+1sEWMBS2agb9ECGQEbL07TME62CDPYBelSuEPqNYkN/846b
-	6TSHllXEP3SrGjzDc4UHXegA/sMhTElfEeJZdsrM=
-Received: by mx.zohomail.com with SMTPS id 1752502108974683.0687269745556;
-	Mon, 14 Jul 2025 07:08:28 -0700 (PDT)
+	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
+	bh=jEhtdpIHUaCWWVMpS6h9pG+ezJ1H5i0vcgbppdJiInc=;
+	b=PbtmtBntlL3qEeoZnc13L9h2LJwkX8NOAljQurTH0yI+4sO2+BExYtRoVJ7tmiDW
+	SHjI5emM34tv21NGWl+weUUqS31/AMBRlwPhFj7Ebjodau1AvN/kMZC1kqn9LUbrna3
+	Vmog7vCirb5T0H2G8qTzmrp/6nZJnRRQrRBHum/o=
+Received: by mx.zohomail.com with SMTPS id 1752502113853539.0996011954999;
+	Mon, 14 Jul 2025 07:08:33 -0700 (PDT)
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Subject: [PATCH v2 0/4] MT8196 CPUFreq Support
-Date: Mon, 14 Jul 2025 16:08:13 +0200
-Message-Id: <20250714-mt8196-cpufreq-v2-0-cc85e78855c7@collabora.com>
+Date: Mon, 14 Jul 2025 16:08:14 +0200
+Subject: [PATCH v2 1/4] dt-bindings: cpufreq: Add
+ mediatek,mt8196-cpufreq-hw binding
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAE0PdWgC/3WOQQ6CMBBFr0JmbU2nKAIr72FYtGWQJkCxLQRDu
- LsV4tLl/5n3/qzgyRnyUCYrOJqNN3aIQZwS0K0cnsRMHTMILq78hsj6kGORMT1OjaMXy7O6yJB
- EyrmCCI2OGrPswkd15Hg2RW84SlDSE9O2700ok4GWwH5u+AKt8cG69/7QjDvxb3tGxhmh4jJVF
- 6kzvGvbdVJZJ89xAKpt2z6xL5So4QAAAA==
-X-Change-ID: 20250711-mt8196-cpufreq-86d961e2300b
+Message-Id: <20250714-mt8196-cpufreq-v2-1-cc85e78855c7@collabora.com>
+References: <20250714-mt8196-cpufreq-v2-0-cc85e78855c7@collabora.com>
+In-Reply-To: <20250714-mt8196-cpufreq-v2-0-cc85e78855c7@collabora.com>
 To: "Rafael J. Wysocki" <rafael@kernel.org>, 
  Viresh Kumar <viresh.kumar@linaro.org>, Rob Herring <robh@kernel.org>, 
  Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -70,8 +68,8 @@ Cc: kernel@collabora.com, linux-pm@vger.kernel.org,
  Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250714_070844_135724_B98D0371 
-X-CRM114-Status: GOOD (  11.87  )
+X-CRM114-CacheID: sfid-20250714_070851_350544_FC4DBE2B 
+X-CRM114-Status: GOOD (  15.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,43 +84,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series adds the necessary bindings and driver changes to integrate
-MT8196 CPUFreq into the existing mediatek-cpufreq-hw driver. This
-necessitated two preparatory cleanup patches to the driver.
+The MediaTek MT8196 SoC has new cpufreq hardware, with added memory
+register ranges to control Dynamic-Voltage-Frequency-Scaling.
 
-The CPU frequency was verified to actually be changing by comparing
-sysbench cpu numbers between fdvfs being enabled and it not being
-enabled.
+The DVFS hardware is controlled through a set of registers referred to
+as "FDVFS"; one is a location from which a magic number is read to
+ensure DVFS should be used, the other is a region to set the desired
+target frequency that DVFS should aim towards for each performance
+domain.
 
-Enablement in the DT will be done once the MT8196 DT lands, so don't be
-surprised that no node uses these new compatibles so far.
+Instead of working around the old binding and its already established
+meanings for the reg items, add a new binding. The FDVFS register memory
+regions are at the beginning, which allows us to easily expand this
+binding for future SoCs which may have more than 3 performance domains.
 
 Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 ---
-Changes in v2:
-- Split off mt8196-cpufreq-hw into a new binding.
-- Made the fdvfs register regions part of the cpufreq "performance"
-  node, instead of using syscons for this.
-- Adjusted the driver to iomap those, and use the per-variant struct to
-  add an offset for the domains index.
-- Link to v1: https://lore.kernel.org/r/20250711-mt8196-cpufreq-v1-0-e1b0a3b4ac61@collabora.com
+ .../cpufreq/mediatek,mt8196-cpufreq-hw.yaml        | 86 ++++++++++++++++++++++
+ 1 file changed, 86 insertions(+)
 
----
-Nicolas Frattaroli (4):
-      dt-bindings: cpufreq: Add mediatek,mt8196-cpufreq-hw binding
-      cpufreq: mediatek-hw: Refactor match data into struct
-      cpufreq: mediatek-hw: Separate per-domain and per-instance data
-      cpufreq: mediatek-hw: Add support for MT8196
+diff --git a/Documentation/devicetree/bindings/cpufreq/mediatek,mt8196-cpufreq-hw.yaml b/Documentation/devicetree/bindings/cpufreq/mediatek,mt8196-cpufreq-hw.yaml
+new file mode 100644
+index 0000000000000000000000000000000000000000..26bf21e05888646b4d1bdac95bfba0f36e037ffd
+--- /dev/null
++++ b/Documentation/devicetree/bindings/cpufreq/mediatek,mt8196-cpufreq-hw.yaml
+@@ -0,0 +1,86 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/cpufreq/mediatek,mt8196-cpufreq-hw.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: MediaTek CPUFreq for MT8196 and related SoCs
++
++maintainers:
++  - Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
++
++description:
++  MT8196 uses CPUFreq management hardware that supports dynamic voltage
++  frequency scaling (dvfs), and can support several performance domains.
++
++properties:
++  compatible:
++    const: mediatek,mt8196-cpufreq-hw
++
++  reg:
++    items:
++      - description: FDVFS magic number register region
++      - description: FDVFS control register region
++      - description: OPP tables and control for performance domain 0
++      - description: OPP tables and control for performance domain 1
++      - description: OPP tables and control for performance domain 2
++
++  "#performance-domain-cells":
++    description:
++      Number of cells in a performance domain specifier. Must be 1.
++    const: 1
++
++required:
++  - compatible
++  - reg
++  - "#performance-domain-cells"
++
++additionalProperties: false
++
++examples:
++  - |
++    cpus {
++            #address-cells = <1>;
++            #size-cells = <0>;
++
++            cpu0: cpu@0 {
++                device_type = "cpu";
++                compatible = "arm,cortex-a720";
++                enable-method = "psci";
++                performance-domains = <&performance 0>;
++                reg = <0x000>;
++            };
++
++            /* ... */
++
++            cpu6: cpu@600 {
++                device_type = "cpu";
++                compatible = "arm,cortex-x4";
++                enable-method = "psci";
++                performance-domains = <&performance 1>;
++                reg = <0x600>;
++            };
++
++            cpu7: cpu@700 {
++                device_type = "cpu";
++                compatible = "arm,cortex-x925";
++                enable-method = "psci";
++                performance-domains = <&performance 2>;
++                reg = <0x700>;
++            };
++    };
++
++    /* ... */
++
++    soc {
++        #address-cells = <2>;
++        #size-cells = <2>;
++
++        performance: performance-controller@c2c2034 {
++            compatible = "mediatek,mt8196-cpufreq-hw";
++            reg = <0 0xc2c2034 0 0x4>, <0 0xc220400 0 0x20>,
++                  <0 0xc2c0f20 0 0x120>, <0 0xc2c1040 0 0x120>,
++                  <0 0xc2c1160 0 0x120>;
++            #performance-domain-cells = <1>;
++        };
++    };
 
- .../cpufreq/mediatek,mt8196-cpufreq-hw.yaml        |  86 +++++++++++++
- drivers/cpufreq/mediatek-cpufreq-hw.c              | 139 +++++++++++++++++----
- 2 files changed, 200 insertions(+), 25 deletions(-)
----
-base-commit: 42f78243e0c6fe42f2710f98513a55c102347ff0
-change-id: 20250711-mt8196-cpufreq-86d961e2300b
-
-Best regards,
 -- 
-Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+2.50.1
 
 
