@@ -4,69 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 842B6C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 08:55:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E312C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 09:01:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aAmMtPikedDzzrWNEE4etFqjFIi0lZYc3D9DwNk0y+U=; b=hP/iCyvhF1hCIAuBU4ESHWd0ew
-	/cjtvgXOOcgU6kOzSSJZOJlBjmz5Mjg0ZX/mrWjgOFEaDLdRGiLjBfXYxgbbDce6Nov6asioEqJSb
-	B1FTb5ogqJmsTjlTdPHywjNPAO7C+vvbF8NdBhKszrvKxtW1HPbvFyc1Jq5ccGarrW2WD1gm00GRM
-	uRA5zz7IlbAWZGBbqrHKpPzMq5kckb6QjRhakwI26ttZtH8Dhe1oPS1kL9nO0rHVRknQfJKC/Z5GD
-	Rx/YZOjv/ffVTYwJPpWlZaj4XL3xO1o5X7V05Duumsf6UtQM5laZ2pkOz99/PyLdaaBHNlswiqxfg
-	jVge889Q==;
+	bh=icYDUZZ3YW64RLX5dJIbK7N+IzWrT7OHvyOM8fKUNEM=; b=C/coDTe4Y26KkXRiyaVwX+l7jh
+	nA4XA/b2KgN1BR2rWPJNNx9zKbwxpNpdbXW1RwdDWWJ2/U+7ZLtEwVTn/6uHUSVA+Th01MOqe1ypR
+	17P+zD/Fb4jqrl9hJvS8dB+p/9mDygeyHD6tMiHWkFl1XfnpbxEVzUqwKEnXRVxv87v7bHEDPnt59
+	7IfB8RTdvtnNLin/WUvZt9HUJN+vjYxXP7Kp0zrkRR53pOhKVh60q5Nm8HBegNmYDqFYAn+PPPtcU
+	PDNgdnbhNJEJJYOX5xNPuwy6PfsztR5pXEQWdoKm8IOSrSiNM/Vmc8oUNmDur7UrIpCRXOPHAD3R+
+	CuJtuUiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubEyG-00000001hc3-1lUk;
-	Mon, 14 Jul 2025 08:55:36 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubEvQ-00000001hFF-2cl6;
-	Mon, 14 Jul 2025 08:52:42 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1752483145; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=cPIvEWqgyPzfPU2Pzl4YkZxowH0/lPVy7yb660klPkA6fT6qLmtzHqPgv570Jz8zrXsozQ44gA1ww2BrymQ2I2bgPDcuKY8Fxu/T96rin4jmK7JKOjQ6WugRP+Iyawq3odYVMAUL7I3FlmvCJVTmB7q97Qx72nmGx6jogycH5mY=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1752483145; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=aAmMtPikedDzzrWNEE4etFqjFIi0lZYc3D9DwNk0y+U=; 
-	b=jt9y2WhoNnM4SmJsJv9wT7lX2EZq1F/M7CkIQWYOa5TDg2rv+ZD5wAloQvBHMX7Kot22OV/SDCPLYf7mEocKcdL08rt204KOlu6lkMW7Jaa5l6GtNB+zmHpEgvTYuO4pi4zYKFWqB3bPdxNPx7csXPBwUJB59rb/hDddDDWISgI=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1752483145;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
-	bh=aAmMtPikedDzzrWNEE4etFqjFIi0lZYc3D9DwNk0y+U=;
-	b=aRlmpvpfXLglPznghkrAXTJQRU1ayaqRIDd2Xtwqn98e3zaPKq+fCS7Ph5Q9/HeG
-	oFq+8p97xAcDIN9/jWDB5y6IWwZUpLHXfhJHhd5/m+gJ4/fFFrwZWb47N5emgnCZ0qs
-	yt86GP4VB9YIYypqen0iUWqG+EUHrtPDpoKEMxlg=
-Received: by mx.zohomail.com with SMTPS id 1752483141694960.830248739222;
-	Mon, 14 Jul 2025 01:52:21 -0700 (PDT)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-To: Alex Bee <knaerzche@gmail.com>, Jonas Karlman <jonas@kwiboo.se>,
- linux-rockchip@lists.infradead.org, Kever Yang <kever.yang@rock-chips.com>
-Cc: Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Chukun Pan <amadeus@jmu.edu.cn>, linux-rockchip@lists.infradead.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Yao Zi <ziyao@disroot.org>
-Subject: Re: [PATCH v3 0/6] arm64: dts: rockchip: Add ROCK 2A/2F,
- Sige1 and NanoPi Zero2
-Date: Mon, 14 Jul 2025 10:52:17 +0200
-Message-ID: <13801788.uLZWGnKmhe@workhorse>
-In-Reply-To: <aHRWmMFTh7leEhrq@pie.lan>
-References: <20250712173805.584586-1-jonas@kwiboo.se>
- <88c7b90d-4c29-453b-9a5c-9679b371a3a9@gmail.com> <aHRWmMFTh7leEhrq@pie.lan>
+	id 1ubF3v-00000001iGH-42k4;
+	Mon, 14 Jul 2025 09:01:27 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ubF1S-00000001hwQ-2Ezx
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 14 Jul 2025 08:58:56 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 35E5C1764;
+	Mon, 14 Jul 2025 01:58:42 -0700 (PDT)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1528E3F694;
+	Mon, 14 Jul 2025 01:58:50 -0700 (PDT)
+Date: Mon, 14 Jul 2025 09:58:49 +0100
+From: Leo Yan <leo.yan@arm.com>
+To: Alexandru Elisei <alexandru.elisei@arm.com>
+Cc: James Clark <james.clark@linaro.org>, Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Anshuman Khandual <Anshuman.Khandual@arm.com>,
+	Rob Herring <Rob.Herring@arm.com>,
+	Suzuki Poulose <Suzuki.Poulose@arm.com>,
+	Robin Murphy <Robin.Murphy@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/3] perf: arm_spe: Disable buffer before writing to
+ PMBPTR_EL1 or PMBSR_EL1
+Message-ID: <20250714085849.GC1093654@e132581.arm.com>
+References: <20250701-james-spe-vm-interface-v1-0-52a2cd223d00@linaro.org>
+ <20250701-james-spe-vm-interface-v1-2-52a2cd223d00@linaro.org>
+ <20250704155016.GI1039028@e132581.arm.com>
+ <b77f12e7-ea3f-4c57-9706-ff8e32721cc8@linaro.org>
+ <20250707153710.GB2182465@e132581.arm.com>
+ <aG4_uYJgpMXo3QHQ@raptor>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aG4_uYJgpMXo3QHQ@raptor>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250714_015240_738032_3BD974A0 
-X-CRM114-Status: GOOD (  59.39  )
+X-CRM114-CacheID: sfid-20250714_015854_664055_BC6BFDCA 
+X-CRM114-Status: GOOD (  33.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,186 +75,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
+Hi Alexandru,
 
-+To: kever, as he may have some insight on the differences between
-RK3528 and RK3528A.
+On Wed, Jul 09, 2025 at 11:08:57AM +0100, Alexandru Elisei wrote:
 
-On Monday, 14 July 2025 03:00:08 Central European Summer Time Yao Zi wrote:
-> On Sun, Jul 13, 2025 at 10:56:59PM +0200, Alex Bee wrote:
-> > Hi Jonas,
-> > 
-> > > Hi Alex,
-> > > 
-> > > On 7/13/2025 9:13 PM, Alex Bee wrote:
-> > > > Hi list, Hi Jonas,
+[...]
+
+> > > > >   	case SPE_PMU_BUF_FAULT_ACT_OK:
+> > > > >   		/*
+> > > > > @@ -679,18 +692,14 @@ static irqreturn_t arm_spe_pmu_irq_handler(int irq, void *dev)
+> > > > >   		 * PMBPTR might be misaligned, but we'll burn that bridge
+> > > > >   		 * when we get to it.
+> > > > >   		 */
+> > > > > -		if (!(handle->aux_flags & PERF_AUX_FLAG_TRUNCATED)) {
+> > > > > +		if (!(handle->aux_flags & PERF_AUX_FLAG_TRUNCATED))
+> > > > >   			arm_spe_perf_aux_output_begin(handle, event);
+> > > > > -			isb();
 > > > > 
-> > > > > This series adds dt-bindings and initial device tree for the following
-> > > > > Rockchip RK3528A boards:
-> > > > > - Radxa ROCK 2A/2F
-> > > > > - ArmSoM Sige1
-> > > > > - FriendlyElec NanoPi Zero2
+> > > > I am a bit suspecious we can remove this isb().
 > > > > 
-> > > > this only sub-related to this series: Is there any particular reason, why
-> > > > we call the compatible "rockchip,rk3528" and not "rockchip,rk3528a"? From
-> > > > what I can see all boards currently supported (and those in this series)
-> > > > are having the RK3528A version of the SoC. I didn't follow the development
-> > > > here, but there are differences - I did a quick compare of the datasheets
-> > > > of those two SoC versions - it looks like RK3528 version has USB3-DRD
-> > > > controller, while RK3528A has USB3 host-only controller. Also it seems to
-> > > > have different video codec IPs and the DRAM controller additionally
-> > > > supports LPDDR4X.
-> > > What datasheet versions did you check? I can only find:
-> > > - RK3528 Rev 1.0 (2023-05-22)
-> > > - RK3528A Rev 1.2 (2024-04-10)
-> > I used
+> > > > As a reference to the software usage PKLXF in Arm ARM (DDI 0487 L.a),
+> > > > after enable TRBE trace unit, an ISB is mandatory. Maybe check a bit
+> > > > for this?
+> > >
+> > > Wasn't this isb() to separate the programming of the registers with the
+> > > status register clear at the end of this function to enable profiling?
 > > 
-> > 2023-07-12 Revision V1.0
+> > Enabling profiling buffer followed an isb() is not only for separating
+> > other register programming.
 > > 
-> > which didn't include these features - which is interesting: Why would a
-> > SoC vendor not try to sell all features in the first place :)
+> > As described in section D17.9, Synchronization and Statistical Profiling
+> > in Arm ARM:
 > > 
-> > But I now double checked in
+> >   "A Context Synchronization event guarantees that a direct write to a
+> >   System register made by the PE in program order before the Context
+> >   synchronization event are observable by indirect reads and indirect
+> >   writes of the same System register made by a profiling operation
+> >   relating to a sampled operation in program order after the Context
+> >   synchronization event."
 > > 
-> > 2025-05-12 Revision 1.4
-> > 
-> > and you are right: It appears there also for RK3528A.
-> > 
-> > The only difference I could now make out by comparing v1.4 of both versions
-> > is the cipher engine: RK3528 additionally supports "SM2/SM3/SM4 cipher" -
-> > but still it exists and additionally the different video codec (if mpp
-> > userspace library is correct about that).
-> > 
-> > Anyway: My question was more about: Why didn't we choose the correct
-> > compatible from the beginning? And of course the dts files would have to be
-> > renamed if the compatible is changed, as they are named according to their
-> > SoC-compatible.
+> > My understanding is: after the ARM SPE profiling is enabled, the
+> > followed ISB is a Synchronization to make sure the system register
+> > values are observed by SPE. And we cannot rely on ERET, especially if
+> > we are tracing the kernel mode.
 > 
-> Just like what Jonas said, I was not aware of any technical
-> documentation at the time of writing the basic devicetree, and even for
-> now the only datasheet I manage to find is the 2023 revision about
-> RK3528 without A suffix, so I didn't realize the difference between
-> RK3528 and RK3528A, but just followed the vendor code and devicetree[1],
-> where only RK3528 is mentioned :-(
-
-I wouldn't be too worried about getting this wrong, the only set-in-
-stone part of this is the name of the device tree for devices and the
-compatible; we can still rename rk3528.dtsi to rk3528a.dtsi and shuffle
-things around internally. Furthermore, if the only difference is
-something that can be enumerated at runtime (e.g. if a different set
-of supported features in the crypto accel is identifiable with some
-config register bits initial value), then I don't think we need to
-distinguish them at all.
-
-As another data point, rkbin mentions "Add support for rk3528A" in the
-changelog file `doc/release/RK3528_EN.md` for `rk3528_bl31_v1.15.elf`.
-
-Someone could contrast and compare that BL31 binary with the v1.14 one
-to see if they have any immediately obvious differences.
-
-My personal guess for what happened here is that they switched
-the packaging process after release to optimize supply, like what
-happened with RK3568 -> RK3568B2, and the only change is some OTP
-values to identify the chip variant. This would also explain why
-everything we've seen on the market so far, at least to my knowledge,
-has been RK3528A.
-
-Kind regards,
-Nicolas Frattaroli
-
+> Thought about this some more.
 > 
-> Regards,
-> Yao Zi
+> Before:
 > 
-> [1]: https://github.com/rockchip-linux/kernel, branch develop-5.10
+> arm_spe_pmu_buf_get_fault_act:
+>   <drain buffer>
+>   ISB
+> arm_spe_perf_aux_output_begin:
+>   PMBLIMITR_EL1.E = 1
+> ISB
+> PMBSR_EL1.S = 0
+> ERET
 > 
-> > Regards,
-> > Alex
-> > > 
-> > > And both list LPDDR4X support and the A-variant seem to list USB3-DRD
-> > > support, did you mix them up above?
-> > > 
-> > > I think these SoCs are similar to rk3228/rk3229, rk3228h/rk3328 and now
-> > > rk3528/rk3528a, in that only the second variant support VP9 decoding.
-> > > 
-> > > Use of rockchip,rk3528a compatible could be something to change,
-> > > could also be something that bootloader set at runtime, similar to
-> > > what it does for rk3288w.
-> > > 
-> > > > I guess it would be good to discuss this before this series is merged,
-> > > > because re-naming *.dts files after they have been in a release is somewhat
-> > > > impossible.
-> > > I think renaming the device tree files is unnecessary, as there seem to
-> > > be very little difference. All boards I have come across are currently
-> > > RK3528A variants. How would we treat the Radxa E20C?, it is not named
-> > > rk3528-radxa-e20c.dtb, yet uses the A-variant.
-> > > 
-> > > For mainline U-Boot I have included printing out the SoC-variant,
-> > > however the compatible is not adjusted:
-> > > 
-> > >    Model: Radxa E20C
-> > >    SoC:   RK3528A
-> > >    DRAM:  2 GiB
-> > > 
-> > > Regards,
-> > > Jonas
-> > > 
-> > > > Regards,
-> > > > Alex
-> > > > > The bt/wifi_reg_on pins are described in the device tree using
-> > > > > rfkill-gpio nodes.
-> > > > > 
-> > > > > Changes in v3:
-> > > > > - Rename led nodes to led-0/led-1
-> > > > > - Remove pinctrl* props from sdio0
-> > > > > - Collect a-b tags
-> > > > > 
-> > > > > Changes in v2:
-> > > > > - Limit sdmmc max-frequency to 100 MHz on ROCK 2A/2F
-> > > > > - Drop clock-output-names prop from rtc node on Sige1 and NanoPi Zero2
-> > > > > - Drop regulator-boot-on from usb 2.0 host regulators on Sige1
-> > > > > - Add bluetooth and wifi nodes on Sige1
-> > > > > - Collect t-b tag for NanoPi Zero2
-> > > > > 
-> > > > > These boards can be booted from emmc or sd-card using the U-Boot 2025.07
-> > > > > generic-rk3528 target or work-in-progress patches for these boards [1].
-> > > > > 
-> > > > > For working bluetooth on ArmSoM Sige1 the patch "arm64: dts: rockchip:
-> > > > > Fix UART DMA support for RK3528" [2] is required.
-> > > > > 
-> > > > > [1] https://source.denx.de/u-boot/contributors/kwiboo/u-boot/-/commits/rk3528
-> > > > > [2] https://lore.kernel.org/r/20250709210831.3170458-1-jonas@kwiboo.se
-> > > > > 
-> > > > > Jonas Karlman (6):
-> > > > >     dt-bindings: arm: rockchip: Add Radxa ROCK 2A/2F
-> > > > >     arm64: dts: rockchip: Add Radxa ROCK 2A/2F
-> > > > >     dt-bindings: arm: rockchip: Add ArmSoM Sige1
-> > > > >     arm64: dts: rockchip: Add ArmSoM Sige1
-> > > > >     dt-bindings: arm: rockchip: Add FriendlyElec NanoPi Zero2
-> > > > >     arm64: dts: rockchip: Add FriendlyElec NanoPi Zero2
-> > > > > 
-> > > > >    .../devicetree/bindings/arm/rockchip.yaml     |  17 +
-> > > > >    arch/arm64/boot/dts/rockchip/Makefile         |   4 +
-> > > > >    .../boot/dts/rockchip/rk3528-armsom-sige1.dts | 465 ++++++++++++++++++
-> > > > >    .../boot/dts/rockchip/rk3528-nanopi-zero2.dts | 340 +++++++++++++
-> > > > >    .../boot/dts/rockchip/rk3528-rock-2.dtsi      | 293 +++++++++++
-> > > > >    .../boot/dts/rockchip/rk3528-rock-2a.dts      |  82 +++
-> > > > >    .../boot/dts/rockchip/rk3528-rock-2f.dts      |  10 +
-> > > > >    7 files changed, 1211 insertions(+)
-> > > > >    create mode 100644 arch/arm64/boot/dts/rockchip/rk3528-armsom-sige1.dts
-> > > > >    create mode 100644 arch/arm64/boot/dts/rockchip/rk3528-nanopi-zero2.dts
-> > > > >    create mode 100644 arch/arm64/boot/dts/rockchip/rk3528-rock-2.dtsi
-> > > > >    create mode 100644 arch/arm64/boot/dts/rockchip/rk3528-rock-2a.dts
-> > > > >    create mode 100644 arch/arm64/boot/dts/rockchip/rk3528-rock-2f.dts
-> > > > > 
+> Now:
 > 
-> _______________________________________________
-> Linux-rockchip mailing list
-> Linux-rockchip@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-rockchip
+> PMBLIMITR_EL1 = 0
+> ISB
 > 
+> PMBSR_EL1.S = 0
+> arm_spe_perf_aux_output_begin:
+>   ISB
+>   PMBLIMITR_EL1.E = 1
+> ERET
+> 
+> I don't see much of a difference between the two sequences - the point after
+> which we can be sure that profiling is enabled remains the ERET from the
+> exception return.  The only difference is that, before this change, the ERET
+> synchronized clearing the PMBSR_EL1.S bit, now it synchronizes setting the
+> PMBLIMITR_EL1.E bit.
+> 
+> Thoughts?
 
+To make the discussion easier, I'll focus on the trace enabling flow
+in this reply.
 
+My understanding of a sane flow would be:
 
+  arm_spe_pmu_irq_handler() {
+    arm_spe_perf_aux_output_begin() {
+          SYS_PMBPTR_EL1 = base;
 
+          ISB // Synchronization between SPE register setting and
+              // enabling profiling buffer.
+          PMBLIMITR_EL1.E = 1;
+    }
+    ISB // Context synchronization event to ensure visibility to SPE
+  }
+
+  ... start trace ... (Bottom half, e.g., softirq, etc)
+
+  ERET
+
+In the current code, arm_spe_perf_aux_output_begin() is followed by an
+ISB, which serves as a context synchronization event to ensure
+visibility to the SPE. After that, it ensures that the trace unit will
+function correctly.
+
+I understand that the Software Usage PKLXF recommends using an ERET as
+the synchronization point. However, between enabling the profiling
+buffer and the ERET, the kernel might execute other operations (e.g.,
+softirqs, tasklets, etc.).
+
+Therefore, it seems to me that using ERET as the synchronization point
+may be too late. This is why I think we should keep an ISB after
+arm_spe_perf_aux_output_begin().
+
+Thanks,
+Leo
 
