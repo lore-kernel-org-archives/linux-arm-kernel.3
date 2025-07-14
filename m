@@ -4,208 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E2C4C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 17:29:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4DA3C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 17:32:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:From:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GQCafW2KVBym4JCLwni4yCvp9FJqDYanmHblDamfi7M=; b=IV9rK20a1PkDqx1tBlV4NNVJHY
-	WRyEX9EO0f6+/LaI8vNXsZCPXsbfG+p1pwiV6CunJZblkZ4jsAc/O/veYgRF9KkIdugd/gDH5sIz1
-	pMSN4erhKuyE6wGxgk0ZuDjPcrXCauDEnlFubrfnFc2VzZcTs2AlR3hvTEQWKho/rJd/fQE98AUUT
-	lEh5ezoisLjI2Zin0mKHpUji8avgoqdosgWlJ8qeR/rH7/paGPPuNM0AOJ6yWcwdgTiJ7/ZOQB4zX
-	tlGgRH65dHbkM/Eb3H64gSqbFHI8dS7k8xAF7Zot20U+e3BbMKoy6PlxL841dvlJNpAyrcBXUfIMM
-	KpCq86ow==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QjQ0UWlscOYrLTxqfo8jeI2W2cZqq+DP0CdXTDyGEcE=; b=TawWfXLfr9Ci5jtSAZ20vny9Jr
+	iOOyTl6A2ETcAxXIrTv+UWdtAQSupAWUZqyuXfHknEfWrXf/gmYx/yuJZ13pIilznDuMLkBhgiPis
+	Cg72Lu5uQ2ecauZrxiN1HObMaJDmMJda7+co/XYSsO/XCiXD7eKHt6NT7nBLpTgqfgRW94HiLIVd0
+	dPqEwlbAt01Z0boOu4k1zb66ZrJ/ULuMgDbS3/gU8sXu8XYsEJ8uDDLTEiD5US7XlWoZqf8mjsnB1
+	v+Drpgkpgc3wf0oXmzqMF0CwxdOwmnK0P+FEF9HDn3xtlPoflFvFEfZY2OOyjq+icRJssZMlAFIMi
+	RInOMUIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubMzv-00000002xny-2IgV;
-	Mon, 14 Jul 2025 17:29:51 +0000
-Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1ubN2K-00000002y4S-0Dsq;
+	Mon, 14 Jul 2025 17:32:20 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubL6G-00000002fmP-3SfN
+	id 1ubLFa-00000002hte-2L1s
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Jul 2025 15:28:18 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=FEjxVxL7o06Xz6z6k8FEy+Y7Z2slX8JxHhERZUIF2jq3xM3Vc7xfuXB3L+Zxppduv4GpRRMMiDRH7mMEUNma6c+12YDHfQR1BSgUXngbTwc0DY3n9x/h0gMNAL76E0whTPIRTDlAhauLejoLGThmINZcwPIXnouPHQxJa+GwFzk7a2ZGk3HGrEFntbZGZ5UwB/BSMzTmhdmcIAUHpUYjX7whp9bC/vA8bohjaDJRJtZ6+eA/Dyq4Mkb7R/XBvv+mjvqmiRNAmgTtGkc9N1GRIZtsVo/46A9+C60ImCdkPKJaqnjbpGQUxaUKfeLuZNOI8vDyZAEreyK/kytA7gXGmg==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=GQCafW2KVBym4JCLwni4yCvp9FJqDYanmHblDamfi7M=;
- b=RxS24MctFw7vV/FSgLRil5PEzKoHtixLD5wo6hCmQQ0x5+MM06dZmzPkb2LwlQvS0FDFKfvBPLTCkUwQXqf25gsDm0KD/xpNOGjx3vienY4Ze291NubOiDfW004Zd0hkC8J9Sb3PX01+KQOEsvYekNENvib6FW8SJzDpR2YeUHX6eUs57hAHyNZqjOz/ymxvL7d4oWzh1/JwWmygUegqCmln9vodYtPdaIwbJSqZvKq/pb9FjmAecbrBnZVilVnIgSbKSu5QyqgypchcmHKLAylV8BN7vgdxzM1tR9EHB0aYOovWcRB44FTRyceMe9eqesDjD+BVGWp2CWEv6bYnKQ==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=kernel.org smtp.mailfrom=arm.com; dmarc=pass
- (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
- (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=GQCafW2KVBym4JCLwni4yCvp9FJqDYanmHblDamfi7M=;
- b=ra1iKedAUKefNtyf3h0tHWWC3oeCldK8cmtKI34RwHtAeNalvSB5E3j5Mu4lQcejpENN1EOHxswsHvQp/qebdN1dGktvTEgRu/pS7o/KmaVMHBilz8C+BKnqMmmjlqTZ6WiP9yU/nqhyxyIY3CfHkE2qnul1S6NIgvQcfptUHv4=
-Received: from PA7P264CA0163.FRAP264.PROD.OUTLOOK.COM (2603:10a6:102:36c::15)
- by PAXPR08MB6493.eurprd08.prod.outlook.com (2603:10a6:102:15a::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8901.19; Mon, 14 Jul
- 2025 15:28:09 +0000
-Received: from AM2PEPF0001C715.eurprd05.prod.outlook.com
- (2603:10a6:102:36c:cafe::39) by PA7P264CA0163.outlook.office365.com
- (2603:10a6:102:36c::15) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8922.32 via Frontend Transport; Mon,
- 14 Jul 2025 15:28:09 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- AM2PEPF0001C715.mail.protection.outlook.com (10.167.16.185) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.8922.22
- via Frontend Transport; Mon, 14 Jul 2025 15:28:08 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=c8y/IBND7F3RqCfOBIEoThfWyUKJB3l0NDrmtlCEdN0amRJ3rig6MdRyjrV7JL3HLPnbdgTWSWKKjhfbpAmCW7+QzjsR2gpg4DL9fRoDpr5orxlcsrC3VzFdU5QtyYTp5LfVsbJdVBk7GiclGiGegaOLHP2BzZHFBIurHXhkChROtHIdAb4vXwGWkKR9rDJVopgLnG3buALMCXhwtfYtFQ00P8fqfyuoPbhMhi643/GxtBhFfgcagFRTWCFaI7+WIdW5SZ9rgLWSkImdNDqdmR7SynaUW5VjcvkxolQGV8YRRnsYYfQ7po9ieSm47vTl2WgfaPiquQ/I15ow+b6UGA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=GQCafW2KVBym4JCLwni4yCvp9FJqDYanmHblDamfi7M=;
- b=iz2XsXvhur8+VCXJ+TkJjogSgaCNS0/ximlcDuDtzLfzKJaIEmh2O+FNdDkmp6uMDyb13YNNEqyjM9Uz/k3qmoR1O8cM03yT1uaFAASgzC4kjMerXbaUYmpVFIrqq6mIYk9yYJMQuBfAjWd//dwCQ/2jcMh7LvqzlvCov22rtIQd+bMIM8nRDKGrNwmhVbAmV1MTT6BzP0TLgDL7IZEOTTH08iKUUKrxgMUuCBsaDpemk1rgmV811aLg49vcRg9M9hCne5KKEu60MVPyBiIMzZ6Qec3Li6dQnPxZxCSjGz2dEUvmAvHcYghwZzKdwjXqng1wN7tPTgoqF1GyuSydRw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=GQCafW2KVBym4JCLwni4yCvp9FJqDYanmHblDamfi7M=;
- b=ra1iKedAUKefNtyf3h0tHWWC3oeCldK8cmtKI34RwHtAeNalvSB5E3j5Mu4lQcejpENN1EOHxswsHvQp/qebdN1dGktvTEgRu/pS7o/KmaVMHBilz8C+BKnqMmmjlqTZ6WiP9yU/nqhyxyIY3CfHkE2qnul1S6NIgvQcfptUHv4=
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-Received: from AM9PR08MB7120.eurprd08.prod.outlook.com (2603:10a6:20b:3dc::22)
- by PAWPR08MB8911.eurprd08.prod.outlook.com (2603:10a6:102:33c::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8901.25; Mon, 14 Jul
- 2025 15:27:37 +0000
-Received: from AM9PR08MB7120.eurprd08.prod.outlook.com
- ([fe80::2933:29aa:2693:d12e]) by AM9PR08MB7120.eurprd08.prod.outlook.com
- ([fe80::2933:29aa:2693:d12e%5]) with mapi id 15.20.8922.028; Mon, 14 Jul 2025
- 15:27:37 +0000
-Message-ID: <7eb0fe4d-a36d-42b2-bef7-88a9d9236428@arm.com>
-Date: Mon, 14 Jul 2025 20:57:31 +0530
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4] arm64: Enable vmalloc-huge with ptdump
-From: Dev Jain <dev.jain@arm.com>
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: will@kernel.org, anshuman.khandual@arm.com, quic_zhenhuah@quicinc.com,
- ryan.roberts@arm.com, kevin.brodsky@arm.com, yangyicong@hisilicon.com,
- joey.gouly@arm.com, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, david@redhat.com
-References: <20250626052524.332-1-dev.jain@arm.com> <aGe5XjWKhgjzcw7L@arm.com>
- <bc201f93-7743-4d9d-a62e-3c8ea22e2cfd@arm.com> <aGsYZ7W0yunbeqQV@arm.com>
- <e1e87f16-1c48-481b-8f7c-9333ac5d13e7@arm.com>
-Content-Language: en-US
-In-Reply-To: <e1e87f16-1c48-481b-8f7c-9333ac5d13e7@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: MA0PR01CA0001.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:80::14) To AM9PR08MB7120.eurprd08.prod.outlook.com
- (2603:10a6:20b:3dc::22)
+	Mon, 14 Jul 2025 15:37:55 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-23dea2e01e4so47722225ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Jul 2025 08:37:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1752507473; x=1753112273; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=QjQ0UWlscOYrLTxqfo8jeI2W2cZqq+DP0CdXTDyGEcE=;
+        b=mlBIj7Kh+aVoowBtQ2X9YWfwuKmsQoQSkXvO1f17/8NT5g2WmzIU6HXlh4ePZrgRuB
+         uatS7CnuxhqDBT2fvE2Wlx44JJFL929GekH6R96U3namtV4aWN2dIsAgF3+BKF4G7Z09
+         FMv+SaTOY5AU4pesyjntevTiFV3jUgVm3zkAfPyxIBztGo57DeqCqzf8WAD1l0tqUKnk
+         nRFjpWcBRxN0aXnVnJw391eEr5zg3xmpiiwPBSweZM+AOfBVgglbciV6LjZLdAbeJGWp
+         qVtVOcpuKaZezRpmdKqgRITYYS71KJBCDpPRcg5EFtXFezMIcqP6pITOlUUj+QFTI63a
+         KkXQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1752507473; x=1753112273;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=QjQ0UWlscOYrLTxqfo8jeI2W2cZqq+DP0CdXTDyGEcE=;
+        b=i2DuwCQGR7B8WuU0Bc4X/mup1fkrjNkhioOqNfcjrQ3evvcRoPJ9xRnoObcGB8dqyI
+         78+ocAWOrKKf7iD67Df/LjUyX7O000jjErLjfgs4iYtBZviKzBdERsu0QBjK8GaR9+bp
+         QSTs4URdbbp8hhKahCGXIdJriDkOMw726GRXu3AyDzLcWl4I6U9rYskkcJXx+jNOauvR
+         Q6S0R6g35pJKDwTW40Dta/mf3xYm1n29zGZJ8V1l5tPMMD++cCx1EMqjVIQ4lA/EOFBa
+         tQlATYvIY5xLgUbrCpUYLlXUbr7S6CtBDARZdBgxC4IHvm2kAY5fdFVnb6f7o84oXTlm
+         4IdQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUNaf6L7e/sJOvZPaEIYfAAJU9trbJyba8CKgQi2gLungNdFUlIRox1rJSOlQ50dgTH1e8sHNFtHt5hnCud9IFl@lists.infradead.org
+X-Gm-Message-State: AOJu0YyvqMMpIQVSXYW5WUwkzdaE+7b1VOgwtuDVecm0S6ID78x28aEO
+	to6kYzDcbNf2HakZHsxrInOCjXuhvMVwn1wCRWLpIo0Hpx9zZvkZXVMT
+X-Gm-Gg: ASbGnctzxq9fzVLPNPtReddk6IoQqg/92LYo3PbjQobfjFAI+uC9zUOmu5EwRoRWr3Q
+	6EzfEiSCUXYHmigCepAT5XabghkhLiphHOJ8aqUgvcTR8H4qWZ1NchkXm8K71bFkvC5RyA0jXnT
+	1Xslu3xcH2mVYkTmdheS7U97yQqrLCreRw+dNWY45NdjaB3H0EUitzzZ1/P58mRSwonmYlnzFNR
+	TdFsWHW1crU5FZv/YdUU3VvfaiurOMrCaS2lvcSzXAX+RQyxIjeojcpzontsuE49i9hOKy20F5G
+	hbQ7A8hC8JzE1rO47yDvDyH8nVH1FJUlY/PLOUe1UlUEPUubZlX3RfScDw8rEFSDMOiZX3SIWYr
+	P5I4ZQFqk/M5Z8L5Cxk7i3pSIeR4KobPA4fV6OZodd6Xeq8pN7TuC6F7wTmwcsME=
+X-Google-Smtp-Source: AGHT+IEMvnX379Cfqxjm8d/1Z5fQyV4o83jOtFXuWtyBzvMeYslcOx4WAebdY0n5WCMLCRYgzq0u0g==
+X-Received: by 2002:a17:903:a4f:b0:235:f70:fd39 with SMTP id d9443c01a7336-23dede2e17cmr167967685ad.10.1752507472927;
+        Mon, 14 Jul 2025 08:37:52 -0700 (PDT)
+Received: from [192.168.0.124] (061092221177.ctinets.com. [61.92.221.177])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23de42ae9f5sm95068015ad.66.2025.07.14.08.37.48
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 14 Jul 2025 08:37:52 -0700 (PDT)
+Message-ID: <81addd64-6ba6-465e-901e-05f9cb29185b@gmail.com>
+Date: Mon, 14 Jul 2025 23:37:46 +0800
 MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: AM9PR08MB7120:EE_|PAWPR08MB8911:EE_|AM2PEPF0001C715:EE_|PAXPR08MB6493:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4e5111ab-6ae4-4543-8824-08ddc2eb0986
-x-checkrecipientrouted: true
-NoDisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|1800799024|376014|366016;
-X-Microsoft-Antispam-Message-Info-Original: =?utf-8?B?ZmZleVVlemJSRERLa2E5T0s0NUV0OXNLNC8yQVZaTWNmcFpmNVppTVNsSzRJ?=
- =?utf-8?B?Um5pVjlIYlI0TUFsNE94MVdtSU9neTBkWUt0TmhWek16NWFZU3p4U29yOUQw?=
- =?utf-8?B?NkNmZDFqVG4wZkd6aEwxV2xyUlFtcExvN0toUTRJT3JFang2QmtOclA0Yzl2?=
- =?utf-8?B?QURjY3g3bTJETmZTNzArbTBuQ09HcFpkWTJxYTBqRXY3Y2RObWNIcWVWTFpy?=
- =?utf-8?B?aXZQTTVCSk1kWlRPSzVOSDNlU3lmUGNVY3RUaGFFSjg0dzlsS3BoZVE5dnR6?=
- =?utf-8?B?NHh5Unc5MDFtZmFoOXZGK3k5Y3ZEZTE1RmZUdlZqMjRlV2ordjM4YXBqZThi?=
- =?utf-8?B?eG1BOXh2U1VsWG5kMTUyNDFNQ0lLZGlBcW4zU25XR2lGenhYOFQ1NzJkU2Vy?=
- =?utf-8?B?QW5oZFdmR0pUbk9nRVRqNzQxQVd0NW5ZZzBPR2VmZjYvdldPZHVaRHEwa2Jq?=
- =?utf-8?B?emZDZm9veXhtVmJsQnZtUlB3eWJoWitrK3MycXF3QVRUUTQ1V0p3L3Z3cy9l?=
- =?utf-8?B?dFA1SzhLeTN2bURaUnpaMGlEZk15MzFSRGtxYU1QYU9UeHM1OW1NTVY0TldX?=
- =?utf-8?B?ZXYyOXdLWWxKMllmZzZvZDV0M1ZRbWNCR3pPWGtaNm5uNjFSNXNoZnRMelRh?=
- =?utf-8?B?SFdKZWVJUWtlY21MQzBNMlhhRTVmWjFQT1puOTRmcjFMNTl6SFIrRy9QSFJz?=
- =?utf-8?B?M0ZjcHZGcDZtdFJKUHFONXZYQmhydDNlNGJTbGdFdnpkVFgzMW1nZUlONU5t?=
- =?utf-8?B?aVNhZmdWa25PYTZUNDA3SjVkZzNGYkw0YW9xS1NCUE1rU3FrdEJ2TmpiOXYw?=
- =?utf-8?B?enJYd2JsUGNBcjZCb0lES0gxdXpwQXZBOWFTbmwyOGNYZmc2OUtqVnVmSThG?=
- =?utf-8?B?L2VnYjdaM3dsRWw3bkRNVkdmeS9HakJ5UXlKRHVYUXlIaWs5UzAxY2dxTk1H?=
- =?utf-8?B?WWdTekYwbjFFbkdLR1luZStNeUltWjBIUTY5VmF0Vjd2VC93Uks0bmhDYzJS?=
- =?utf-8?B?VTFiRzVxVElmMTMrNWNjUXAvL1lGeHhicGZ1Wm9CYWpaZlJxOGd5bU5MZm9M?=
- =?utf-8?B?RVY5cERJMXhlM3hMNmttcDNlQlQ2M1p2ejRtTytGOXl5SFhQYU1VUnhyWkZ3?=
- =?utf-8?B?am1tN1pkNW9RcXdNY0tLNUFPQy9CODFiNXE1VlEzNW9EdWIyZCtGT3ZyRVJt?=
- =?utf-8?B?MWRWTFVwWGpHb3doaEYvN01zdHhvclhmL3lpd3dDYlZnSFI4NEJ3eVpNQytR?=
- =?utf-8?B?OFJINEk4dm84KzVtRjdkUXNtemU3SUV5NndCR20xbytPbzF5S0FBM0hpV2pq?=
- =?utf-8?B?Mjg2V0ZVeFNaKzdUbEZaRVNMQUVLYlg4ZWoxNDVWZUJQemtrTWFCTVFoSjll?=
- =?utf-8?B?dGFRZXdNWHd0SXBDanlUbUcydFFwcXJOSnJORmYybjhpeXg5dnlTeVphb2xF?=
- =?utf-8?B?clErM0xVVURtdW10SjF6bWRIV3lCY1hZK1FsSUhkT3U0OFh4d2oxclJyWU5y?=
- =?utf-8?B?QXhQUkZvWnc2cVFTdEl4TXhJQlRoNTFiWE1XZkZmR0tuTTYxdUpPRzBFc0ZE?=
- =?utf-8?B?ZWJKNUpHMXlnNFZ0eFJ5UlNzMHJmVTBTU1Z3S1Z0eEQwQVdwMWgzd0RWVGVR?=
- =?utf-8?B?aXdMWkdpSEdyZWdVSGFMa2tsTFpTeDZNWlRGUzBGVHJvQ256aW8wU3QxbU1N?=
- =?utf-8?B?ajhHQ3VVTTVXdUZDQ29oK2hZRGdqUzBranp3WTNjT1FxUWczMWFSWXhhb21D?=
- =?utf-8?B?d3VqTkxYUnhqVFZ4VnlIa3JlWWhZYWRSNjFKNGVnTU42d1B2MmVvZUgvVTZY?=
- =?utf-8?B?Tis5clNvRng5d2xOWmdVd3lWT29BSG5ubDRESmVydENjZERmeGxBb1dQYmI5?=
- =?utf-8?B?aTh3d1NDRVJVZWd3b3hVQlNhaEdCSEgvSDhOUDlJN3hJMU02bzZwVlJrVUtJ?=
- =?utf-8?Q?gPtd+HF1rvs=3D?=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR08MB7120.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAWPR08MB8911
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: AM2PEPF0001C715.eurprd05.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: 5cdd035f-45f1-4181-8fd2-08ddc2eaf646
-X-Microsoft-Antispam: BCL:0;ARA:13230040|14060799003|35042699022|82310400026|36860700013|376014|1800799024;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?N0tnYW5FQjVaWHFYdFM2OHNVcWt4eTZ6eFIzekUwcEtvMTZsSGtoS0cyRmRG?=
- =?utf-8?B?K1BEcjIySjhNTnJoUCtySUQ2b1J4ODdocDJ4R1l5WXZEbVhrRk1FTXNBTXE2?=
- =?utf-8?B?Ylk0L0pLci9kNE9CeGNVSkl1YkUxc3VIRkFtNlJITHdrQlJZZUxlUWRSS2E5?=
- =?utf-8?B?TjZxVS9DUEpkWW1iRUtYODRvN0p6WG4rVFBiWHJUa0YvOEFNNFpTaHJoWkdk?=
- =?utf-8?B?U094ZUhOVGtWRkRGTk5kYzVTVUUvbTFvVkJqeGhzV0VoWGU5WXR3eXRKd210?=
- =?utf-8?B?VzhEa1BwV0NiYm9KeTM3VnBKNmFZdGRqa3lDeTlyN0NwRVlxQjdhenNmR3Bp?=
- =?utf-8?B?REQ2YmNRM3ZZMGZINTU4UC93VjVTWjh0bHE4NU02alRMOWRHLzlwdldjSk1F?=
- =?utf-8?B?UU1jNCtwdjg2TDNkdWw2VXVOWHJuRE5PS0cxVGtnOFNocCtPcHU4c3ZwMkJ0?=
- =?utf-8?B?UVFMeXFjS2VmZDViNkdFbHQ4UjJqWXRxeXRaQjZ2cllNbE9RellZV002eHVY?=
- =?utf-8?B?ckt2aVlyQ2tlMVR2bWlIYlZCVFQvckxTOENSSDVhT3dPeE94cFAzVXJhSUtX?=
- =?utf-8?B?OTJmK3VsV1ZEY2xqaFVoNjBjZElEc2NlY0hQanNFajBYVjJTajlia1ZuVEFk?=
- =?utf-8?B?MHNrYnZBQ21Panl5aXVHK092aGFHaXNBaE1jK2N5OGFWV2xINkdRcnR5bnh4?=
- =?utf-8?B?SUhkQlU2VTduTzRQcXdmKzVYOVg1UVE2RDlTSGl4TFVzd0RBcXNNb2tscnF3?=
- =?utf-8?B?bEFuQWZrKzV5UDNHL3ZmNnp2MVhuNmRlUWkreStVdTRUKzJ1T0NQN3lWMm1Q?=
- =?utf-8?B?MklOWURrWmg1aVNNSk8yd1AvSHlOTDN5WlV3aXZTTEN5MElRM2IybktYWHF0?=
- =?utf-8?B?TW1XalZtNGl5L1FwOWJSKzJYcmJYYWw3M1NzbW1qU2JzS3liTm9sWC9KQjVH?=
- =?utf-8?B?elVERXZCUUgzUWh5dzgzc0NnUnUraVhCM0Nhcm0xWmQ3YVh1VXBsQy9qb3BS?=
- =?utf-8?B?MDJpVXV5OVZsYlI2TFcxN2NqU21Nd1p3K1RyVkJpOHpJMXJOQ293KzhqSUNR?=
- =?utf-8?B?QmtzSlB3V1FwWXNmc1I5L3l1ZEdvREMyZnBQbnNFQTVBUmpFWXduMDlNTVUv?=
- =?utf-8?B?TTNpa05KNEVad0hWVVBqcmM1UkVXdVZLZ1FYM0Mza2lScTR6SkxGTnlPa2FE?=
- =?utf-8?B?NWxJbzh4MXBld2VYUVBFanZnNGh4VmcyRUl2NVAwek1JbHMzMUJMOTRRNXpR?=
- =?utf-8?B?U1hNeG5QUjFXM29ieGpWNHB6cGQ0MGw1SWNJbnAzR1JIWm9XZ3c2RHlxaVdM?=
- =?utf-8?B?OVo3dGRWZWl6ekZRMGFkV1J2ckxUU2k2dHBlUVczdkpWZWpKNUJvTGJtVlFK?=
- =?utf-8?B?Ukg0NTN6S1B6UTAyd09Pa2tCSVVaL09JenFUaVRCaG9NUlN2WGhDYXE1LzBN?=
- =?utf-8?B?RG5tQnhjZStjcEcyYVdSOGZaeTJDbTlidEx2ZjI1ZE53NDAxcFhoTE5wcThk?=
- =?utf-8?B?MnFLZ0Q0WCs2d3I5NXBrYUNtdnFJaDdxdjhMOUVtdWZ4Lys2Zjd1OWd5TDZ1?=
- =?utf-8?B?VU9tdVAxOGJkeldOTU9vQ0VjRVNRRHRpMkVZMFRtUDh6Tzkwa05UYUlCWm0v?=
- =?utf-8?B?TFNFNWxsYm5DMDVLZ2xPekNiQTRPVm1Ra0JhSTdtRG0zdzNpV1ljSVhIR3VE?=
- =?utf-8?B?QUxuVkpiUS9xWU8wYmthSFJxQ3NCTXlTMFNuZ0kvS01TdEpiVFV4Tmg0aE1D?=
- =?utf-8?B?eXFucmY1akVycjF2NGFLS0F0dEV1dFUrM3E0Q1ZuaVJQMTE5RGZVMWE5YXd5?=
- =?utf-8?B?N3hRUWlCOW9PNTJMTC9oWkpZN0lsTFBtZktHYlZmeEZMdXNqSURYdHRzR0or?=
- =?utf-8?B?SVpHUDhJMmxQbmFsM2tPSGZGamcrSlprSnl0dVJWZTcxZC9IcXNSN2MzQnRG?=
- =?utf-8?B?M1lqT1JkT0dGWU9GYnp5dzhDaFNmVS9yY0ViaWdIbXFkU25ZeDYxUmtpOHhi?=
- =?utf-8?B?U3h0NmFsSzJUU1NhSjJ0Ujg2MUlQelVWeDJobzNYWTZOKzV5UWVUUWFEdVJa?=
- =?utf-8?Q?vr0zsx?=
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(14060799003)(35042699022)(82310400026)(36860700013)(376014)(1800799024);DIR:OUT;SFP:1101;
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Jul 2025 15:28:08.8410
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4e5111ab-6ae4-4543-8824-08ddc2eb0986
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: AM2PEPF0001C715.eurprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR08MB6493
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RESEND v7 02/21] drivers/perf: apple_m1: Only init PMUv3
+ remap when EL2 is available
+To: Will Deacon <will@kernel.org>
+Cc: Mark Rutland <mark.rutland@arm.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
+ Janne Grunau <j@jannau.net>, Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+ Neal Gompa <neal@gompa.dev>, Sven Peter <sven@kernel.org>,
+ Marc Zyngier <maz@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linux-perf-users@vger.kernel.org, devicetree@vger.kernel.org,
+ asahi@lists.linux.dev, linux-kernel@vger.kernel.org
+References: <20250616-apple-cpmu-v7-0-df2778a44d5c@gmail.com>
+ <20250616-apple-cpmu-v7-2-df2778a44d5c@gmail.com>
+ <aHUeNpx6bsC5Gk3b@willie-the-truck>
+Content-Language: en-US
+From: Nick Chan <towinchenmi@gmail.com>
+In-Reply-To: <aHUeNpx6bsC5Gk3b@willie-the-truck>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250714_082817_158085_4E6E8E3D 
-X-CRM114-Status: GOOD (  11.09  )
+X-CRM114-CacheID: sfid-20250714_083754_593442_D351A709 
+X-CRM114-Status: GOOD (  11.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -221,220 +110,20 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On 14/07/25 2:56 pm, Dev Jain wrote:
->
-> On 07/07/25 6:14 am, Catalin Marinas wrote:
->> On Fri, Jul 04, 2025 at 05:12:13PM +0530, Dev Jain wrote:
->>> On 04/07/25 4:52 pm, Catalin Marinas wrote:
->>>> On Thu, Jun 26, 2025 at 10:55:24AM +0530, Dev Jain wrote:
->>>>> @@ -1301,16 +1314,39 @@ int pud_free_pmd_page(pud_t *pudp, 
->>>>> unsigned long addr)
->>>>>        }
->>>>>        table = pmd_offset(pudp, addr);
->>>>> +    /*
->>>>> +     * Isolate the PMD table; in case of race with ptdump, this 
->>>>> helps
->>>>> +     * us to avoid taking the lock in __pmd_free_pte_page().
->>>>> +     *
->>>>> +     * Static key logic:
->>>>> +     *
->>>>> +     * Case 1: If ptdump does static_branch_enable(), and after 
->>>>> that we
->>>>> +     * execute the if block, then this patches in the read lock, 
->>>>> ptdump has
->>>>> +     * the write lock patched in, therefore ptdump will never 
->>>>> read from
->>>>> +     * a potentially freed PMD table.
->>>>> +     *
->>>>> +     * Case 2: If the if block starts executing before ptdump's
->>>>> +     * static_branch_enable(), then no locking synchronization
->>>>> +     * will be done. However, pud_clear() + the dsb() in
->>>>> +     * __flush_tlb_kernel_pgtable will ensure that ptdump 
->>>>> observes an
->> [...]
->>>> I don't get case 2. You want to ensure pud_clear() is observed by the
->>>> ptdump code before the pmd_free(). The DSB in the TLB flushing code
->>>> ensures some ordering between the pud_clear() and presumably something
->>>> that the ptdump code can observe as well. Would that be the mmap
->>>> semaphore? However, the read_lock would only be attempted if this code
->>>> is seeing the static branch update, which is not guaranteed. I don't
->>>> think it even matters since the lock may be released anyway before the
->>>> write_lock in ptdump.
->>>>
->>>> For example, you do a pud_clear() above, skip the whole static branch.
->>>> The ptdump comes along on another CPU but does not observe the
->>>> pud_clear() since there's no synchronisation. It goes ahead and
->>>> dereferences it while this CPU does a pmd_free().
->>> The objective is: ptdump must not dereference a freed pagetable.
->>> So for your example, if the static branch is not observed by
->>> pud_free_pmd_page, this means that ptdump will take the write lock
->>> after the execution of flush_tlb_kernel_pagetable completes (for if 
->>> ptdump takes
->>> the write lock before execution of flush_tlb_kernel_pagetable 
->>> completes, we have
->>> executed static_branch_enable(), contradiction).
->> I don't see why the write lock matters since pud_free_pmd_page() doesn't
->
-> True.
->
->> take the read lock in the second scenario. What we need is acquire
->> semantics after the static branch update on the ptdump path but we get
->> it before we even attempt the write lock.
->>
->> For simplicity, ignoring the observability of instruction writes and
->> considering the static branch a variable, if pud_free_pmd_page() did not
->> observe the static branch update, is the ptdump guaranteed to see the
->> cleared pud subsequently?
->>
->> With initial state pud=1 (non-zero), stb=0 (static branch):
->>
->> P0 (pud_free_pmd_page)        P1 (ptdump)
->>
->>      W_pud=0               W_stb=1
->>      DSB                   barrier/acq
->>      R_stb=0               R_pud=?
->>
->> The write to the static branch on P1 will be ordered after the read of
->> the branch on P0, so the pud will be seen as 0. It's not even worth
->> mentioning the semaphore here as the static branch update has enough
->> barriers for cache flushing and kick_all_cpus_sync().
->>
->>
->> The other scenario is P0 (pud_free_pmd_page) observing the write to the
->> static branch (that's case 1 in your comment). This doesn't say anything
->> about whether P1 (ptdump) sees a clear or valid pud. What we do know is
->> that P0 will try to acquire (and release) the lock. If P1 already
->> acquired the write lock, P0 will wait and the state of the pud is
->> irrelevant (no freeing). Similarly if P1 already completed by the time
->> P0 takes the lock.
->>
->> If P0 takes the lock first, the lock release guarantees that the
->> pud_clear() is seen by the ptdump code _after_ it acquired the lock.
->>
->>
->> W.r.t. the visibility of the branch update vs pud access, the
->> combinations of DSB+ISB (part of the TLB flushing) on P0 and cache
->> maintenance to PoU together with kick_all_cpus_sync() on P1 should
->> suffice.
->>
->> I think the logic works (though I'm heavily jetlagged and writing from a
->> plane) but the comments need to be improved. As described above, case 1
->> has two sub-cases depending on when P0 runs in relation to the write
->> lock (before or during/after). And the write lock doesn't matter for
->> case 2.
->>
->>>> And I can't get my head around memory ordering, it doesn't look sound.
->>>> static_branch_enable() I don't think has acquire semantics, at 
->>>> least not
->>>> in relation to the actual branch update. The static_branch_unlikely()
->>>> test, again, not sure what guarantees it has (I don't think it has any
->>>> in relation to memory loads). Maybe you have worked it all out and is
->>>> fine but it needs a better explanation and ideally some simple formal
->>>> model. Show it's correct with a global variable first and then we can
->>>> optimise with static branches.
->>> What do you suggest? As in what do you mean by showing its correct with
->>> a global variable first...and, for the formal model thingy, do you
->>> want mathematical rigor similar to what you explain in [1] :P, 
->>> because unfortunately
->>> (and quite embarrassingly) I didn't have formal methods in college : )
->> Neither did I ;) (mostly analogue electronics). I was thinking something
->> like our cat/herd tools where you can write some simple assembly. It's a
->> good investment if you want to give it a try.
->
->
-> Will the following proof work -
->
-> Proof of correctness: The below diagram represents pud_free_pmd_page
-> executing on P0 and ptdump executing on P1. Note that, we can ignore
-> the situation when processes migrate to another CPU, since we will
-> have extra barriers because of switch_to(), and all of the embedded
-> barriers that are used in the reasoning of the proof below apply
-> to the inner shareable domain, and therefore will be observed by
-> all CPUs, therefore it suffices to prove for the case where
-> pud_free_pmd_page executes completely on P0 and ptdump
-> executes completely on P1.
->
-> Let t_i, 0 <= i <= 8 denote the *global* timestamp taken for the 
-> corresponding
-> instruction to complete. Therefore from here on we do not need to use 
-> the term
-> "observe" in a relative context. Let t_i' (t_i dash) denote the global 
-> timestamp
-> for the corresponding instruction to start. That is, an instruction 
-> labelled
-> with t_i implies that it started at t_i' and finished at t_i.
->
->
-> P0                P1:
->
-> W_PUD = 0: t0            x = 1: t2
->
-> if (x == 1) {: t7            write lock: t3
->     read lock: t6        R_PUD = 1: t4
->     read unlock: t8        write unlock: t5
-> }
->
-> Free PUD: t1
->
-> We need to prove that ptdump completely finishes before
-> we free the PUD. Since write unlock has release semantics,
-> if the write unlock finishes, it is guaranteed that ptdump
-> has finished => it suffices to prove that t5 < t1'.
->
->
-> R_PUD = 1 => t4 < t0 .... (i)
->
-> Because of acquire semantics of down_write(rw_semaphore lock),
-> t3 < t4' .... (ii)
->
-> (i) and (ii) (and t4' < t4) => t3 < t0 ... (iii)
->
-> ptdump is executed on a single kernel thread, which implies
-> that the transition x = 1 -> x = 1 will never happen; that is,
-> when static_branch_enable() is executed, then x was 0, which
-> means that the call chain static_key_enable -> 
-> static_key_enable_cpuslocked
-> -> jump_label_update -> jump_label_can_update/ 
-> arch_jump_label_transform_apply
-> -> kick_all_cpus_sync -> smp_mb -> __smp_mb -> dmb(ish) will always be 
-> followed.
-> The emission of dmb(ish) => t2 < t3 ... (iv)
->
-> (iii) and (iv) => t2 < t0, also, flush_tlb_kernel_pgtable -> dsb(ish) 
-> ensures that t0 < t7'
-> => t2 < t7' => the static branch is observed by P0 always => t6 and t8 
-> exist.
->
-> Now, t0 < t6' because of flush_tlb_kernel_pgtable; combining with 
-> (iii), this gives
-> us t3 < t6' => the write lock is observed first => t5 < t6 (the read 
-> lock cannot
-> be taken before the write unlock finishes) ...(v)
->
-> Release semantics of read unlock => t8 < t1' ...(vi)
-> Also, trivially t6 < t8...(vii)
->
-> Combining v, vi and vii, t5 < t1'. Q.E.D
->
->
-For the sake of rigor, t_i should be defined w.r.t loads and stores 
-rather than
+Will Deacon 於 2025/7/14 夜晚11:11 寫道:
+> On Mon, Jun 16, 2025 at 09:31:51AM +0800, Nick Chan wrote:
+>> Skip initialization of PMUv3 remap when EL2 is not available.
+>> Initialization is harmless in EL1 but it is still a weird thing to do.
+> Why is that weird?
 
-start and end of instruction, since theoretically, for example, t5 > t6 
-is possible,
+Maybe I could use better wording but if the check is not here, then for Apple A7 which has very
+different event mappings, it either has to use the mappings for M1 which is wrong on the hardware,
+or declare an a7_pmu_pmceid_map, which would just be dead code since A7's CPU does not
+support EL2. Not initializing the mapping in EL1 avoid these problems.
 
-if t5 has a lot of, let's say, statistics updation operations. So, the 
-relevant store
-
-of write_unlock will finish, and the read lock will completely execute 
-before
-
-we actually exit the write_unlock due to the instructions embedded in 
-write_unlock
-
-which are not relevant to us.
-
-
->>
 >
+> Will
+>
+Nick Chan
+
 
