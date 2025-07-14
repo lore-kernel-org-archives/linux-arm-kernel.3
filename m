@@ -4,173 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6A69C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 18:50:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29431C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 18:50:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u22rXCMnJqLbZv6Jb4tiK+uZpfZ/89AM9jSJkhWINLI=; b=wydP6HzYmt6s6YMLQ51fsxS9Ni
-	dzQk4u0zKhnZL2BxeuLiMQW7Py0iZZiL0+UErbq4szOFA2HO22jPSLmcgSfa54HxQ5v12ppDnjZPo
-	4sJ0hQK9JTLQp7ejKUsl6fOYJXEDJtjiuGfLoR4VPKojAz2YPGPsD8qmAR+jrfpHNllZhjUy5kGw4
-	Cp21c4+Xczz2gAdg6V0/w8iZB7tuejWY3RAWfIdCpEYnndf2XKF/dws1T1SlQGDCn3wmkhCetnHL6
-	z9aJ+uFGRJqxsZe89EPzMw/ax2eJc/B+nGRv+j4iSzIWRefh21mvQQxL7txt8Zbxjklci4Smgb9pa
-	pd/NnYxQ==;
+	bh=VHshUn4Jqsjc36RFvXDqeUrN9tkhjfQpm1zjkj8ZSrk=; b=Q36TG0prdKlSuLS7yM9BELvwxq
+	Co0GNWhAIEulcextbNyhTi+0+w2zQGKxf91B7MTtv4Q6EZfAItEVv657wIiVYKqHkuRgtlenUxMeS
+	VOk7nefl7DB2uE5cH+e02/DLPdBdTAR8VHJ1Hyco/90Hhi3QpmZVw1zxJWgF23zwpg9UwORuLljVa
+	t7MzjQCkbrXXAgkoc3DYImaI63pbeEp3YBi20aEZwLBGTI3yKvaM9BAOGJvNa1SLPTPk3xQKfecv+
+	MAU4AGiaYS/J1WXIlNAAHLPJ8eFKgotfyW6J/Wva+gSIzA/EGUZG6c/yY/B9EqQ2AqbSFuNrzCplB
+	S0hd4QqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubOG2-000000034oy-0oAM;
-	Mon, 14 Jul 2025 18:50:34 +0000
-Received: from mail-bn8nam12on2062a.outbound.protection.outlook.com ([2a01:111:f403:2418::62a] helo=NAM12-BN8-obe.outbound.protection.outlook.com)
+	id 1ubOG8-000000034zp-0YnP;
+	Mon, 14 Jul 2025 18:50:40 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubNcj-000000031sj-2TCH
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Jul 2025 18:09:58 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=xNTaSiwyquy0pSzvBva412O90ZezqkcApvn3TuasNZPQRQQbf8TL6krGROdI2rDB8GsDqAPpDsdwaa0VozdMe4CwWNn4IfrItsoEhFrC699/bMQuQyzTyz6VoXXfEzVrC3zW9zNpq7RKl0wS4LxWw2dY8DGqZGObKGkgtCj9L/x+RCHz/ggy0YDfgnlnkgOrAXxJ8wNWKhriO5TUJhFD693cBL2JwV/5Pc2A5lFJtTQTK6NQqj12Vgrpg+/TOaWgm1LrZPhphPVpEvV3SbLISXil23zRgptzGUvIvKt3WfZ5H/2BnRkVJj5cQ9Rgrwin+cw9NGV3mHmztbz3zggceg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=u22rXCMnJqLbZv6Jb4tiK+uZpfZ/89AM9jSJkhWINLI=;
- b=Xzk9MArZ2ZKI3ojPnMxdd6wQHbyKw1qyC4NUR1xZEbpb3ETbSboNPoZMIYFhSRbcc1nL/LyTShZFlx7uBiEfuxHLzLQ8J3ZcxNB8x6LXxn8kYg4Uu/5pm1Jmrq+gmpyx1dEdOtFZaxTl1deiLhzjn0Zafh3LpOpcWj7XHjEXQ6uQ/9T11GIFTcZ8N8+fHCre6AwEHSvzcr1FCqCzbMwSKIwL6NWHlyg5T0eFV6jbWYYZflypKgjhMVw5AFHSIdYKdLw+sThs1Hgu+hQ2OU3ejKoL0P4iK7fOn+/6dcNtzfqfrcdwV0KJk+Uhsfn+NSbfe9TUSZ2o+uPzR+KRLTAuLg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=altera.com; dmarc=pass action=none header.from=altera.com;
- dkim=pass header.d=altera.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=altera.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=u22rXCMnJqLbZv6Jb4tiK+uZpfZ/89AM9jSJkhWINLI=;
- b=RCi/aOy/crxvhF2MQmUC06HQY6/PCGbrqv/hZE1GU/zTFuKfJ3nKzPf4qR2E6QZn9+/79T0oavBGXVApmaVVKePOa2CRpJV5QOLQ2xMOCoaqX8igJc6fCjnfoWpCJ7K4Qxu6rHMfPlF6Jydmx78nfprrINq2mytI5EiXh+UaaJK2pBhxMzxgtikeD/Pfi4XWD4R5PPmdB0RQA+Og8vJch+LTyunPcAVs0LaDrqfPM0po5B7CdmzC+dWYJws6izY4mCY3FAO6jacm4fkkx0S9mJAOY9gIjLbMmAXs986S9P15al3xBsPC/XtPoTiwI4nQ2Jvlc3/C6AMCiWjyNJ1W4A==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=altera.com;
-Received: from BYAPR03MB3461.namprd03.prod.outlook.com (2603:10b6:a02:b4::23)
- by DS7PR03MB5654.namprd03.prod.outlook.com (2603:10b6:5:2c1::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8922.32; Mon, 14 Jul
- 2025 18:09:35 +0000
-Received: from BYAPR03MB3461.namprd03.prod.outlook.com
- ([fe80::706b:dd15:bc81:313c]) by BYAPR03MB3461.namprd03.prod.outlook.com
- ([fe80::706b:dd15:bc81:313c%6]) with mapi id 15.20.8901.024; Mon, 14 Jul 2025
- 18:09:35 +0000
-Message-ID: <256054d7-351a-4b1c-8e1a-48628ace091d@altera.com>
-Date: Mon, 14 Jul 2025 11:09:33 -0700
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/4] arm64: dts: socfpga: agilex5: enable gmac2 on the
- Agilex5 dev kit
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, mcoquelin.stm32@gmail.com,
- alexandre.torgue@foss.st.com, dinguyen@kernel.org,
- maxime.chevallier@bootlin.com, richardcochran@gmail.com,
- netdev@vger.kernel.org, devicetree@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250714152528.311398-1-matthew.gerlach@altera.com>
- <20250714152528.311398-4-matthew.gerlach@altera.com>
- <de1e4302-0262-4bcc-b324-49bfc2f5fd11@lunn.ch>
-Content-Language: en-US
-From: Matthew Gerlach <matthew.gerlach@altera.com>
-In-Reply-To: <de1e4302-0262-4bcc-b324-49bfc2f5fd11@lunn.ch>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: SJ0PR05CA0023.namprd05.prod.outlook.com
- (2603:10b6:a03:33b::28) To BYAPR03MB3461.namprd03.prod.outlook.com
- (2603:10b6:a02:b4::23)
+	id 1ubO5C-000000033Zh-2SKc;
+	Mon, 14 Jul 2025 18:39:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=VHshUn4Jqsjc36RFvXDqeUrN9tkhjfQpm1zjkj8ZSrk=; b=6ZlDIXZhD2UmKvILONrgZEctz+
+	3bPo9jpQ/hYy+lc/C4aatJppzjAhFZcUq+LZWigfTFhanQxkWf5olK8WVbw40Wl7arvTAaGGwnT+8
+	h7Bb3FxhKW7JAl9//aZyzOqAeK3I/qPIXk2c9w825LWBsQKlBsA5rvFPduqVHRM5S00I=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1ubO4u-001Uus-IQ; Mon, 14 Jul 2025 20:39:04 +0200
+Date: Mon, 14 Jul 2025 20:39:04 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Alok Tiwari <alok.a.tiwari@oracle.com>
+Cc: sayantan.nandy@airoha.com, lorenzo@kernel.org, andrew+netdev@lunn.ch,
+	davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
+	pabeni@redhat.com, horms@kernel.org, netdev@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH net] net: airoha: fix potential use-after-free in
+ airoha_npu_get()
+Message-ID: <555d7fb6-091e-4c10-bfea-85898e644481@lunn.ch>
+References: <20250714175720.3394568-1-alok.a.tiwari@oracle.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BYAPR03MB3461:EE_|DS7PR03MB5654:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6ebd96ed-088c-41d2-385c-08ddc30196dd
-X-MS-Exchange-AtpMessageProperties: SA
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?bUlmcTE1RHBjN0JuOWRiNmhoZmZ2MkJWTTNxVElIM2J4SXJjQVpTOGlFdnpm?=
- =?utf-8?B?OXd2OWVnWnJQQ0pLVEZYbkJiRWl1dG1FRng3UlFKTjVyRExzYnpnY3YxTUhY?=
- =?utf-8?B?RFFjVTJDNys5U3VQTzlQRklaaXJNclliem5ZbmVVR1RubC9LMDhRTEs3dmQ0?=
- =?utf-8?B?YkZQWk14VHJPQm1IdDBtdmZic3ZJN1dBRkV2SUFzZ2hJeGpWR1NweWh4TXBI?=
- =?utf-8?B?SENDR3R2NXI0VEF1dWVnbGV0NkJuWko3VjFVMS9BSTRVZXo3WWZmc3JaeEdY?=
- =?utf-8?B?NGppVWhKQjZIRk0rakhOYTJ1UVNVUk9jL0VKRjZhVFpKZXlvWXQ4WDliYmFj?=
- =?utf-8?B?Z2FGWWlQbWFsMVlwRm9jNTViTnZpQzBhQWw5U1k5akJTR1hEb0dvUnIzNHl6?=
- =?utf-8?B?WVpQaXZXdkx5cmY2RDVvL0s0TmpMWnNWTnV0dnZIZjBXQmtDUUFHbyszZ2kw?=
- =?utf-8?B?UnZEZXNUd01lYUIxUitJV28xSGFKOUszUm1zMUUwT2ZXSDFtYXczRFJvTllT?=
- =?utf-8?B?Z2xBdUg2Vm1lbUxBYU04VUtudGF0NFFSeENCcEZlUDI3cVVLcUEvWGhpTVNS?=
- =?utf-8?B?ZG56MzV0M2FTQitZUmc4eERCOU9ROXkxNlFCVFJBTUhnQjJBbjU4a2IxcTls?=
- =?utf-8?B?KzduOXZhRlVkeWRUMGpSWGlrSHhpTU5BL2tubDkxeDV4UVVONGFxeTl6eGMr?=
- =?utf-8?B?YjVkcTl3SnRVNHlMZ1FQMnVIeHJYSHRwRmVESFBrbklML3YrNjF1U3IwUFZ0?=
- =?utf-8?B?OUJzZVdtT2dHdG42RDJNYTJDUDVER0RFUVhWUGFibUhFQ1NoTjF5UW5udU5Y?=
- =?utf-8?B?YjBUclhhd2FpTG16Nzg3SFNaV0ZmNHdtRm1xNi9NdkgyL0xOSmlTSllkVjRZ?=
- =?utf-8?B?S204aWZsRnVVQTErSTNBOGV0NndaVUZTdFNIVFd6MENscGdWOEhHd1BnNWJV?=
- =?utf-8?B?MHV4ZkZGZ1NZV1NiVW9XSnR5VEwxMFFza01yZWFrbEZHeVJobVdUdzk5MFpH?=
- =?utf-8?B?cVcwckdVMDVERzV2cU1vcmJ2eEpyV0FoN2RGQkxrM2J5M1ozb1IyUlNxbUt0?=
- =?utf-8?B?L3JFV0xnUG1ybU9ydFEvUzZBb0xnUTJFM3M4bHV6MEdrNUNRTVh5LytXRjZo?=
- =?utf-8?B?UkxHK2VjTFJES3ZzcFhBaFF0REgvRytnd1ZxeUl0OUdBY1lQQWswODR3UHNX?=
- =?utf-8?B?cktONU5wNnNwM0lLM01ZbVZIOHV4cVFScHh0ZFNPUlM1ZFVyYjZHVFF4SlB4?=
- =?utf-8?B?QXpqSzROOTd2TklIeGVvZ1Z2UTY0czlrOTloTHB1alBLUU9UYXNNTmpnWmh3?=
- =?utf-8?B?ZXlYdkFscUhCVEFvZHpEeFo3ZHRuT3lmL3hPYndQWVR0WVhseCtvd3ZYTzN1?=
- =?utf-8?B?ck1rSXFkbEpSMzRBd2daNmVMQ1pjaEhaSGNuOTVZcWxOMzlXN1lRa0tUU055?=
- =?utf-8?B?QnlxMEJLSFFDcC9KL3VxNEV6c0RlWWFwZGdlM0RtdXR1TWZyaklYeHZaUEJQ?=
- =?utf-8?B?M256Tlh1bFlmSHZVVkh5ZXZnLy9STjVFSGxjTzU0OXpzSjR3bTd2YTFBaFBC?=
- =?utf-8?B?cFNxdzFLb0NQMXZoQVcrakwyYUIzdHVxMlBCZGF1V2gwSm5UMWN6ZG45ODNH?=
- =?utf-8?B?Y054RFdZL2t1clZvbTNpSjdNNlBBRjYvUUk1Z1dsUXp2UGptUXF1UVdteG1R?=
- =?utf-8?B?dnkzVjgxTlZZZi9HNWtMc2VxWFo1bkdnWGJEZlp5eFBtRWFLdGVZQ1ZQeUNt?=
- =?utf-8?B?QmQyOE5CbjBjcmZiMHVQSXNKRXowVDc2ZFphdk5iWnZWcG9LQldBRE5FRjNI?=
- =?utf-8?B?a2VZVkpRR1VabWgvRFJ2NHk4S3RmdGN1MDhLNzBHUEEwbFRZay9ORlRIQlhO?=
- =?utf-8?B?MlhBclhZeTdiQWtUL25yT01uZzBwM3NnYW9CeEp1eVdqSGc9PQ==?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BYAPR03MB3461.namprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ZnZ6cW5aS2tFOFoyRytHQ0tZT2ZYQmFnM2wyTEhJWDV4UUlXQzJqSVloalBv?=
- =?utf-8?B?bUl1TUk3WDlCZ242ZTY0UG5kLzYvUDlwd0oyTFFUQjBLMEJNVDM2dHRTV28z?=
- =?utf-8?B?N1hTZEtaR2Q5WCtXSWZnRUFYc0IzL0M2S2MvS3hjT2M5dm5uUlJQQzNsZmdO?=
- =?utf-8?B?QVhrWHpwNlI4WjZVNU13RXRFVVN4djRoaXJNREd5Q0RQVDEvY3ZIcGF4MnlJ?=
- =?utf-8?B?N1BNS3dodkRQWjdGSUxsSXZwYVI4aW8va01yaXl1SjJGaXZ1MkhJSEZTMUVw?=
- =?utf-8?B?ZWNBeTBoczBwRSszMGtLNS9TTXJ5QmJQMktQdytQRjA2MnI4U1FzaGt3RURZ?=
- =?utf-8?B?WFAycUJXQmZlM1Q2NVg3d29PRit0Qko4NmU1aTI1ekErUms1NlB1TVJzYjRu?=
- =?utf-8?B?UFdjMzdHOHJVdHpmc0U3VElEK0VSN0ZyQW5CaS8xR1ExdUYyZlBQd3NMMFB2?=
- =?utf-8?B?ZFJXMFBiVXNPODIxb2R4SnMwY1hqdDJqUnlNSVN0bFh0Y3dNUGpqQU0vamZj?=
- =?utf-8?B?MzEzY3g1bXdybSttYzVWT01WTCs3NVd3QXViQ0FoTytOQkU3aWhxaU9TZHVr?=
- =?utf-8?B?d3BXbmtycDR2bkZoWkpRaGlpY0RwNXh3ais3S2l5Zk84TkE1cDlpQzBiTm4r?=
- =?utf-8?B?ZGVBYTQ1QXd2RlZoRlJMalpjeS9XL0NObVRpZUNYZkE2U0ptMlpqSmhFMHJK?=
- =?utf-8?B?ZlA5Q2htYW9FWUt4WEptNld1YWxhUmJBSjhCMTc5MHZ4SkUvYTdzdUhEb2ta?=
- =?utf-8?B?MWkwR2orbGU1WFRCRW5NbDhUQnhlUFZPcGRzbm1PKzNOcVE0NlVUTkJSL0kv?=
- =?utf-8?B?YmZ4dlg2SEo0dFdRN21Qd2RpcnVyWE5DQkt3VWpORzQ2aDdRUzYraGlzNm5H?=
- =?utf-8?B?cUc3Z3NOU2tkdEZocmtoSGlmUEJmM0x6UzU3QjFoQTgwN0lGdlczVU9WQUk3?=
- =?utf-8?B?dlJqcG03dlVzcktVc2NsMFFwUVFrR25OSEpSN25vdlRYQWQ0SHhsMlRlR2cz?=
- =?utf-8?B?SSs2Q2JhdEp2MERZTmd5bmJMNS9Wanp1TTRWMTdwbmpXWUlYL25FblRRMUpJ?=
- =?utf-8?B?NWVZVFBnVnpuMENmdEtidFFKZVdWeHRDMkdCNVpLWThzdi9IZG90YlJCMDlq?=
- =?utf-8?B?K28yVDVTSnJHNldKSGFpMGJRRUsxYVF2SE80Nzg3QlBQQm1GNXlaVFpkV3B1?=
- =?utf-8?B?R3kvaGduTk42NEJEcFdnbW9ldWZPcUZPeHU0QVN2YjFoOXRaUDFLOGVCMElB?=
- =?utf-8?B?cjRzYVh2OHhrMEMxRVUvbXFpSmVqYWM4WkRPYXhtZFV6ODBZWkhHbjlJZzZh?=
- =?utf-8?B?S3ExRDBDeDJGT2RjS3FRaVZHWWlpczdMc2wzSWEzUjJ3cy9saGR6REl2b1hD?=
- =?utf-8?B?ZjlMRHdzRWNUYk5xd1ZpVzh3RFR2MG4vMkhpLzR0K1BtOWE2djQ1L0pDdStJ?=
- =?utf-8?B?WDRyUXE5M1kxUk5JWU4rVnhvYmJyWExkY24zSVQ1RWhyV0tldTNTZTNwWE5W?=
- =?utf-8?B?THZOaDNKaDEzVlk1N3o4NUVzWnRaaWk4UzVCREZmeWg4YlpFamVEZ3FYWE9N?=
- =?utf-8?B?VkRad0NoRFE0UEd1MmRtYlZIeEdybDFNdTZBM2czK2s2S1pXa05Uazl3RkhD?=
- =?utf-8?B?eVN1UnFEa0R6NFp4RVk5SEs5WjV0WDhhSldDRDRXVXhLcjFVVjhoY2ZNZ3Fx?=
- =?utf-8?B?eklOMUovVEtpRHdtbG1HSElHdzl2ZElLTWN6amlqWGhvRHpRSkF2bmd5VkVk?=
- =?utf-8?B?K1FOSmxaTGpUeHB3ak16TDk0N2ZTNS9wUEp3cHByUURocWpzbytKTXdZQ01l?=
- =?utf-8?B?aEJJTW5QaG1QUVFiWGVXdDZEVCt1Slgxa21vVlBFeU9EZWJhYllYVUpSOVBz?=
- =?utf-8?B?TlVxcnozT2pWZThLRXc5Z0VyUXo1RzNXUW5UeXJjVkFIcVN0SnJGTVA5TWlj?=
- =?utf-8?B?cHBUb1JXMDkrbFgyMUlyQXB1Y1dESWZWUWQvUFRyY0hjVE5DaFJYeEE5ZCts?=
- =?utf-8?B?MkFyNWNkTEpCUlMrWnc3YWV6T20vNjBoS3dMbGw5OU5ia0lYZTltcng3MEFR?=
- =?utf-8?B?WGRjNmFEdTlCNVFEZHY0a2FhSlcyOWUremNqQWxRUStvaExZVkRLNDFGbzlD?=
- =?utf-8?B?anBWRGpJbDY3WE9vbDNoQ1FxdTNmUGNOR0RHVzZxRHllNC9KK3FzNzJvOU9k?=
- =?utf-8?B?OHc9PQ==?=
-X-OriginatorOrg: altera.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6ebd96ed-088c-41d2-385c-08ddc30196dd
-X-MS-Exchange-CrossTenant-AuthSource: BYAPR03MB3461.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Jul 2025 18:09:35.3074
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: fbd72e03-d4a5-4110-adce-614d51f2077a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: pr0/v3+Nh+wQODKj5HvqrqFW9deiv0vCSojE1xHycqx5+/tKf0VsNVTRKl+slWDxVFUwkTTVkKg6vbJ2VgKOsI70Hn/d5lvi07TXr43d7ak=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR03MB5654
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250714175720.3394568-1-alok.a.tiwari@oracle.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250714_110957_636389_B69A6D38 
-X-CRM114-Status: GOOD (  15.77  )
+X-CRM114-CacheID: sfid-20250714_113922_627969_8D93086C 
+X-CRM114-Status: GOOD (  15.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -185,49 +70,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, Jul 14, 2025 at 10:57:17AM -0700, Alok Tiwari wrote:
+> np->name was being used after calling of_node_put(np), which
+> releases the node and can lead to a use-after-free bug.
+> Store the name in a local variable before releasing the
+> node to avoid potential issues.
 
+The description does not match the patch. You are not storing the
+name, you are storing a pointer to the name.
 
-On 7/14/25 10:25 AM, Andrew Lunn wrote:
-> > +&gmac2 {
-> > +	status = "okay";
-> > +	phy-mode = "rgmii";	/* Delays implemented by the IO ring of the Agilex5 SOCFPGA. */
->
-> Please could you explain in more details what this means.
->
-> The normal meaning for 'rgmii' is that the PCB implements the delay. I
-> just want to fully understand what this IO ring is, and if it is part
-> of the PCB.
+> diff --git a/drivers/net/ethernet/airoha/airoha_npu.c b/drivers/net/ethernet/airoha/airoha_npu.c
+> index 0e5b8c21b9aa8..30cd617232244 100644
+> --- a/drivers/net/ethernet/airoha/airoha_npu.c
+> +++ b/drivers/net/ethernet/airoha/airoha_npu.c
+> @@ -400,11 +400,12 @@ struct airoha_npu *airoha_npu_get(struct device *dev, dma_addr_t *stats_addr)
+>  	if (!np)
+>  		return ERR_PTR(-ENODEV);
+>  
+> +	const char *np_name = np->name;
+>  	pdev = of_find_device_by_node(np);
+>  	of_node_put(np);
+>  
+>  	if (!pdev) {
+> -		dev_err(dev, "cannot find device node %s\n", np->name);
+> +		dev_err(dev, "cannot find device node %s\n", np_name);
 
-The IO ring is the logic in the Agilex5 that controls the pins on the 
-chip. It is this logic that sits between the MAC IP in the Agilex5 and 
-the pins connected to the PCB that is inserting the necessary delays. 
-Technically the PCB is not implementing the delays, but the "wires" 
-between the MAC and the external pins of the Agilex5 are implementing 
-the delay. It seems to me that "rgmii" is a more accurate description of 
-the hardware than "rgmii-id" in this case.
+What you don't describe in the commit message is why the pointer to
+the name is valid. After the of_node_put(), the node could be freed,
+and i would assume if the node has gone, the name has gone as well.
 
->
-> > +	phy-handle = <&emac2_phy0>;
-> > +	max-frame-size = <9000>;
-> > +	mdio0 {
-> > +		#address-cells = <1>;
-> > +		#size-cells = <0>;
-> > +		compatible = "snps,dwmac-mdio";
-> > +		emac2_phy0: ethernet-phy@0 {
-> > +			reg = <0>;
-> > +		};
->
-> Please add a newline in here to separate the inner node from the
-> rest.
->
->      Andrew
+I think a better fix for this is to move the of_node_put(np) to later.
 
-I will add a newline before the emac2_phy0 node as suggested in v2.
+    Andrew
 
-Thanks for the feedback,
-Matthew Gerlach
->
-> ---
-> pw-bot: cr
-
+---
+pw-bot: cr
 
