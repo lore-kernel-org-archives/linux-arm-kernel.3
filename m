@@ -4,61 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F247BC83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 20:02:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68AF2C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 20:07:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7pJiSLLI54pE+AH2rNKBeQYn4gxRhjAlCuHklWimmK0=; b=NKTNLF2InO7e3O+xCdgFQdoJlJ
-	4oyiIe88L2ZolHVWM3kLLaDBTsdtBcFV4QvvYqg2qRoOg99m3JFuHYIUV49Lv9wv0J8anY/8GpV7a
-	DY1NBvP/Wdg6bkPsLpGgB2I3wBugt/RMVL7QQxaEln2VFKYNFzVykQCtXMXcImUznOdaOTaQCBp0p
-	G/dhwvzg06DfjdobdBrIXNihdIOXnuEqfHweJOnaBEcHiZe4hMXnGB/HpLjXVaxnODCjHejz2/g2f
-	qask0ArnaGCPCi+nS01sCCW6I4p+DegT1Csvdfg1V1Egm47JGGkT+MBWkJdkvSmstHIGV2kSYO6Ai
-	POheGjMg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eo5MLvSZkHW64U5g6JRb+TrPrqv+7F35qBXJoN4jrZ8=; b=TBKoXCOdVnbfKsgKLMN6IBAVFW
+	cijEBvYO03rIcAfDHNba1QpQ75FVmKzfpCI2hADe82AqvPK/rPD06rKulZsSeQs9Vqg+7mjAbQfws
+	CpVxRCtuswLRJBqUl9Qvqoi1fQtOWAHfEY7Mu/Oy2xLpigT9CXQ9ut3UfMosGi+60J6vCtULCpC+1
+	mUlaOaFz+RZfvq2IUv5uoRSkqCh7rkpG4Vu3u4I3JaLrj0naVk/Z7MdkaumgZ9Kd3v/ngKBSGl5x5
+	/c/KJ/6GrAcd9AaL+z+y63pu9s+dZbJeCazMlxkQCeA2qt6BmzWIpH7qAzQn8AoDjZS9alKzwWPnB
+	dsZHjCkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubPO0-00000003BLL-2ufT;
-	Mon, 14 Jul 2025 20:02:52 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1ubPSL-00000003BkV-0CUR;
+	Mon, 14 Jul 2025 20:07:21 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubPLZ-00000003B6n-0SpW
+	id 1ubPPu-00000003BbR-08Ls
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Jul 2025 20:00:22 +0000
+	Mon, 14 Jul 2025 20:04:51 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 917515C6457;
-	Mon, 14 Jul 2025 20:00:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B2CA4C4CEED;
-	Mon, 14 Jul 2025 20:00:18 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id CC89844069;
+	Mon, 14 Jul 2025 20:04:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BEE85C4CEED;
+	Mon, 14 Jul 2025 20:04:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752523220;
-	bh=1EuLxQcoalPrJoC0+kKDMPul2uferMAfFFNpnRudPHs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=eB/iQEuncCntN2Vi1sK+eMQKX9USnt+MYbYVTV6W4ubG7df0HECYUmwXf3h8uBl5h
-	 3+D0Y74sD7ZQ2OxqvBKcaxe7Z0HfGN8MqPCWuaW13bAKgcxmk3dpu7Td/rlWHcK56A
-	 Slu9qaMm7yTG2a4cSmwilcoj/4p9rsPpHHWzKbD+5KGISkdcTnThyqLWGFjnj3NagH
-	 58FRM29G/yPrnVIZyQTPprUDXv4arfvUol06PIN9H6/SWe40aYQtYXUuu5S23+jEVx
-	 B1hI17jKL8pdDt1EXTD34pmP2iSCizqW0fQU4eZ8z98W7wFpHqxXcNDrtP6lmWV/i4
-	 dFwgMvJTANRoA==
-Date: Mon, 14 Jul 2025 13:00:16 -0700
-From: Nathan Chancellor <nathan@kernel.org>
-To: Russell King <linux@armlinux.org.uk>,
-	Linus Walleij <linus.walleij@linaro.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org, Rob Landley <rob@landley.net>,
-	Martin Wetterwald <martin@wetterwald.eu>
-Subject: Re: [PATCH] ARM: Fix allowing linker DCE with binutils < 2.36
-Message-ID: <20250714200016.GA3444087@ax162>
-References: <20250707-arm-fix-dce-older-binutils-v1-1-3b5e59dc3b26@kernel.org>
+	s=k20201202; t=1752523488;
+	bh=xd/xfYOEUPPLbpxh3voDncT+zjKQzDRxMcauig6LqSA=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=a4U4Xl96FI2EXcfOd225VoOy4zz2pnnK+h9491TSV+5rOSj1Lubf+m/Jgg/nScmEA
+	 tdMt/pVJbU8LpLBm4q8b2qc3Ae3khgKFZTDt+TsRCayPDXmpNw+PftSK/4v9hyBSDD
+	 9IiVW1Zi53GhqH0n56csK8bgs5dGOt1bkAr5U+V+qAEUf/v2x/m02COYu9vWnOfoGK
+	 tbg54ZQkafgLxLIFaCQXZH6SaLvI+SiPyyzi5Ud2MSZ1JvyNTrvc6nU/jOAoyfMCQU
+	 PjoPcjqVWkz+goSPVG2TnvRWR/jTekwUAA7wmaKHOvDCPCq3KBEaMxFRINXs+w63eo
+	 h68qY/lwqcf5Q==
+From: Miguel Ojeda <ojeda@kernel.org>
+To: haiyan.liu@unisoc.com
+Cc: Ping.Zhou1@unisoc.com,
+	Ziwei.Dai@unisoc.com,
+	lina.yang@unisoc.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	rust-for-linux@vger.kernel.org,
+	shuang.wang@unisoc.com,
+	Andrey Ryabinin <ryabinin.a.a@gmail.com>,
+	Alexander Potapenko <glider@google.com>,
+	Andrey Konovalov <andreyknvl@gmail.com>,
+	Dmitry Vyukov <dvyukov@google.com>,
+	Vincenzo Frascino <vincenzo.frascino@arm.com>,
+	kasan-dev@googlegroups.com,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	=?UTF-8?q?Arve=20Hj=C3=B8nnev=C3=A5g?= <arve@android.com>,
+	Todd Kjos <tkjos@android.com>,
+	Martijn Coenen <maco@android.com>,
+	Joel Fernandes <joelagnelf@nvidia.com>,
+	Christian Brauner <christian@brauner.io>,
+	Carlos Llamas <cmllamas@google.com>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Jamie Cunliffe <Jamie.Cunliffe@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>
+Subject: Re: Meet compiled kernel binaray abnormal issue while enabling generic kasan in kernel 6.12 with some default KBUILD_RUSTFLAGS on
+Date: Mon, 14 Jul 2025 22:04:30 +0200
+Message-ID: <20250714200431.1917584-1-ojeda@kernel.org>
+In-Reply-To: <4c459085b9ae42bdbf99b6014952b965@BJMBX01.spreadtrum.com>
+References: <4c459085b9ae42bdbf99b6014952b965@BJMBX01.spreadtrum.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250707-arm-fix-dce-older-binutils-v1-1-3b5e59dc3b26@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250714_130021_192022_B8D7D9F3 
-X-CRM114-Status: GOOD (  19.93  )
+X-CRM114-CacheID: sfid-20250714_130450_093173_5CBA154C 
+X-CRM114-Status: UNSURE (   9.96  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,48 +93,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 07, 2025 at 12:39:26PM -0700, Nathan Chancellor wrote:
-> Commit e7607f7d6d81 ("ARM: 9443/1: Require linker to support KEEP within
-> OVERLAY for DCE") accidentally broke the binutils version restriction
-> that was added in commit 0d437918fb64 ("ARM: 9414/1: Fix build issue
-> with LD_DEAD_CODE_DATA_ELIMINATION"), reintroducing the segmentation
-> fault addressed by that workaround.
-> 
-> Restore the binutils version dependency by using
-> CONFIG_LD_CAN_USE_KEEP_IN_OVERLAY as an additional condition to ensure
-> that CONFIG_HAVE_LD_DEAD_CODE_DATA_ELIMINATION is only enabled with
-> binutils >= 2.36 and ld.lld >= 21.0.0.
-> 
-> Cc: stable@vger.kernel.org
-> Fixes: e7607f7d6d81 ("ARM: 9443/1: Require linker to support KEEP within OVERLAY for DCE")
-> Reported-by: Rob Landley <rob@landley.net>
-> Closes: https://lore.kernel.org/6739da7d-e555-407a-b5cb-e5681da71056@landley.net/
-> Tested-by: Rob Landley <rob@landley.net>
-> Signed-off-by: Nathan Chancellor <nathan@kernel.org>
-> ---
->  arch/arm/Kconfig | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
-> index 3072731fe09c..962451e54fdd 100644
-> --- a/arch/arm/Kconfig
-> +++ b/arch/arm/Kconfig
-> @@ -121,7 +121,7 @@ config ARM
->  	select HAVE_KERNEL_XZ
->  	select HAVE_KPROBES if !XIP_KERNEL && !CPU_ENDIAN_BE32 && !CPU_V7M
->  	select HAVE_KRETPROBES if HAVE_KPROBES
-> -	select HAVE_LD_DEAD_CODE_DATA_ELIMINATION if (LD_VERSION >= 23600 || LD_CAN_USE_KEEP_IN_OVERLAY)
-> +	select HAVE_LD_DEAD_CODE_DATA_ELIMINATION if (LD_VERSION >= 23600 || LD_IS_LLD) && LD_CAN_USE_KEEP_IN_OVERLAY
->  	select HAVE_MOD_ARCH_SPECIFIC
->  	select HAVE_NMI
->  	select HAVE_OPTPROBES if !THUMB2_KERNEL
-> 
+On Mon, 14 Jul 2025 03:12:33 +0000 "刘海燕 (Haiyan Liu)" <haiyan.liu@unisoc.com> wrote:
+>
+> After I delete the rust build flags, the asan.module_ctor binary is right and kasan feature works fine.Could you help check why KBUILD_RUSTFLAGS impacts kernel complication with kasan feature enabled and how can this issue fixed?
 
-I have dropped this in the patch tracker with an updated set of tags
-since Martin reported the same issue after I sent this to the list.
+I assume Rust is enabled in that kernel, right? Or do you mean that somehow removing those lines from the `Makefile` makes the issue go away even if Rust is not enabled?
 
-https://www.armlinux.org.uk/developer/patches/viewpatch.php?id=9450/1
+Could you please share your kernel commit and the full configuration? From a quick build arm64 KASAN in v6.12.38, I see the `paciasp`/`autiasp` pair in one of the Rust object files:
+
+    0000000000000000 <asan.module_ctor>:
+           0: d503233f     	paciasp
+           4: f81f0ffe     	str	x30, [sp, #-0x10]!
+           8: 90000000     	adrp	x0, 0x0 <asan.module_ctor>
+           c: 91000000     	add	x0, x0, #0x0
+          10: 52800601     	mov	w1, #0x30               // =48
+          14: 94000000     	bl	0x14 <asan.module_ctor+0x14>
+          18: f84107fe     	ldr	x30, [sp], #0x10
+          1c: d50323bf     	autiasp
+          20: d65f03c0     	ret
+
+But I am definitely not an expert at all in this, so Cc'ing KASAN and Android maintainers: https://lore.kernel.org/rust-for-linux/4c459085b9ae42bdbf99b6014952b965@BJMBX01.spreadtrum.com/
 
 Cheers,
-Nathan
+Miguel
 
