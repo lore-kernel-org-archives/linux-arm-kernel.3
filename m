@@ -4,68 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDA0BC83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 11:31:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75773C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 11:42:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Yt0pEgiOw5D20asS7w9+koIyg+3FrGpHgzGJycRNdqs=; b=dTVbo1ZDM0EK9TGiezc2SjcZZR
-	8TEi4xt3XOmNs/af8Sla1Ogo+Vp/JX1GtmO32gtHGzABWS2sqg9lYMFvzFb5cdlchip9tuADnMihI
-	O4VM2oCZunxadKR2XWMqOtHvGn65mY6y1TJoFKViXhjiOUC0JXwotRGpfBj9KwsmRvcpddFXFS++n
-	nhabdD35vEvp+HujtbHLYn2xqVrhr4tsJpLLm0x338ACOTeoi8w+i4FAyM/8J411rxN7gEzdhn3Vp
-	XtpWpy+LBl3D7RR7qLT8FvILZFlnViHv/SEHynIvkb5vTS6Z55Cqcgvk5+E7IAIW4QH3UwlQVvhjL
-	wiw8wYkA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Oum73zYOwAW8pcL2qDKDT0klsqriM3sjOw/zj0f1VmU=; b=3U8qe8RliR2dohbZ9Ib1SfnTb9
+	HQpwSAFkZ0OXJg+m+XQu8zDki7asrUZ9mf1QqaeAun80bC3tsN6EaoxSphpxjIr2wYF11q5J6pOrc
+	dcp30RcBU7oUira+OhIZs6sqDgKk+OL1P7ABFcwEbXPhGJ4c5ZgkVNTcAFTwKNLYucS+ieRbIPyhL
+	e18KYJiev5IrMapBYo3wlqGu5kLzbVnr15WH/rCIcO/vU4wpo9SotEUfuPlRzPz90CufTMdYMtKWP
+	q0+z5vfSYsC+2sGlHXhjANzAH3AnKTWEf/W3Q6C0qUXW+BY0CE1dwcXjiVJW4scgNRGeQ4Vu/KCea
+	KYcrfZkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubHPI-000000022Kw-0bEa;
-	Mon, 14 Jul 2025 11:31:40 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubHMp-0000000229Y-3GAb;
-	Mon, 14 Jul 2025 11:29:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=Yt0pEgiOw5D20asS7w9+koIyg+3FrGpHgzGJycRNdqs=; b=gFzHwEOunPxcWiAMs5c57JGmBA
-	1i9gdYcrvYX29m70SzdEFbb949zBkFdvThNwJKQhzyJ3vz63/HJ1jVg/SqRuGP6n4gWIfjUiccouh
-	P6KnCGtkMsx1a1QQNrL8jQIZ49P75WLOx+rlYn0bQB+2wVwhdnl721IvhTuDmNYdNVe5pAbt9ry3r
-	/RoZjj89dZL+hcZYQojrwClpv3YSiPvK4/2ywr4rKpCY38bVQj98vjQR3JbcWmt8iXRlTCD0vcUbS
-	UQwyw9zH6H36xlLQYifZECz0isuti6nChKskuuzSIiEqCqAEDnDQFMnIb/oDf1WYaJgVwW4dg+ZXE
-	kcLZNHaA==;
-Received: from i53875a13.versanet.de ([83.135.90.19] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1ubHMj-0007NV-40; Mon, 14 Jul 2025 13:29:01 +0200
-From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
-To: Linus Walleij <linus.walleij@linaro.org>,
- Bjorn Andersson <andersson@kernel.org>,
- Konrad Dybcio <konradybcio@kernel.org>,
- Alexey Klimov <alexey.klimov@linaro.org>,
- Lorenzo Bianconi <lorenzo@kernel.org>, Sean Wang <sean.wang@kernel.org>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Paul Cercueil <paul@crapouillou.net>, Bartosz Golaszewski <brgl@bgdev.pl>
-Cc: linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-msm@vger.kernel.org, linux-mediatek@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
- Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-Subject: Re: [PATCH v2 09/12] pinctrl: allow to mark pin functions as requestable
- GPIOs
-Date: Mon, 14 Jul 2025 13:29:01 +0200
-Message-ID: <5911205.31r3eYUQgx@diego>
-In-Reply-To: <20250709-pinctrl-gpio-pinfuncs-v2-9-b6135149c0d9@linaro.org>
-References: <20250709-pinctrl-gpio-pinfuncs-v2-0-b6135149c0d9@linaro.org>
- <20250709-pinctrl-gpio-pinfuncs-v2-9-b6135149c0d9@linaro.org>
+	id 1ubHa4-0000000238b-27Ly;
+	Mon, 14 Jul 2025 11:42:48 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ubHXc-000000022tq-1BKP
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 14 Jul 2025 11:40:17 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 190571BC0;
+	Mon, 14 Jul 2025 04:40:04 -0700 (PDT)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 20B393F694;
+	Mon, 14 Jul 2025 04:40:10 -0700 (PDT)
+Message-ID: <bfc4d1b5-c8c4-45de-b52a-833486368336@arm.com>
+Date: Mon, 14 Jul 2025 12:40:08 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 04/36] cacheinfo: Expose the code to generate a
+ cache-id from a device_node
+To: James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+Cc: Rob Herring <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
+ Shanker Donthineni <sdonthineni@nvidia.com>, Zeng Heng
+ <zengheng4@huawei.com>, Lecopzer Chen <lecopzerc@nvidia.com>,
+ Carl Worth <carl@os.amperecomputing.com>,
+ shameerali.kolothum.thodi@huawei.com,
+ D Scott Phillips OS <scott@os.amperecomputing.com>, lcherian@marvell.com,
+ bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
+ baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
+ Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
+ dfustini@baylibre.com, amitsinght@marvell.com,
+ David Hildenbrand <david@redhat.com>, Rex Nie <rex.nie@jaguarmicro.com>,
+ Dave Martin <dave.martin@arm.com>, Koba Ko <kobak@nvidia.com>
+References: <20250711183648.30766-1-james.morse@arm.com>
+ <20250711183648.30766-5-james.morse@arm.com>
+Content-Language: en-US
+From: Ben Horgan <ben.horgan@arm.com>
+In-Reply-To: <20250711183648.30766-5-james.morse@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250714_042907_813696_97A18DE6 
-X-CRM114-Status: GOOD (  19.09  )
+X-CRM114-CacheID: sfid-20250714_044016_414465_82AD3725 
+X-CRM114-Status: GOOD (  19.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,51 +77,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Mittwoch, 9. Juli 2025, 16:39:05 Mitteleurop=C3=A4ische Sommerzeit schri=
-eb Bartosz Golaszewski:
-> From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
->=20
-> The name of the pin function has no real meaning to pinctrl core and is
-> there only for human readability of device properties. Some pins are
-> muxed as GPIOs but for "strict" pinmuxers it's impossible to request
-> them as GPIOs if they're bound to a devide - even if their function name
-> explicitly says "gpio". Add a new field to struct pinfunction that
-> allows to pass additional flags to pinctrl core. While we could go with
-> a boolean "is_gpio" field, a flags field is more future-proof.
->=20
-> If the PINFUNCTION_FLAG_GPIO is set for a given function, the pin muxed
-> to it can be requested as GPIO even on strict pin controllers. Add a new
-> callback to struct pinmux_ops - function_is_gpio() - that allows pinmux
-> core to inspect a function and see if it's a GPIO one. Provide a generic
-> implementation of this callback.
->=20
-> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Hi James,
+
+On 7/11/25 19:36, James Morse wrote:
+> The MPAM driver identifies caches by id for use with resctrl. It
+> needs to know the cache-id when probe-ing, but the value isn't set
+> in cacheinfo until device_initcall().
+> 
+> Expose the code that generates the cache-id. The parts of the MPAM
+> driver that run early can use this to set up the resctrl structures
+> before cacheinfo is ready in device_initcall().
+> 
+> Signed-off-by: James Morse <james.morse@arm.com>
 > ---
+> Changes since v1:
+>   * Renamed cache_of_get_id() cache_of_calculate_id().
+> ---
+>   drivers/base/cacheinfo.c  | 17 ++++++++++++-----
+>   include/linux/cacheinfo.h |  1 +
+>   2 files changed, 13 insertions(+), 5 deletions(-)
+> 
+> diff --git a/drivers/base/cacheinfo.c b/drivers/base/cacheinfo.c
+> index 613410705a47..0fdd6358ee73 100644
+> --- a/drivers/base/cacheinfo.c
+> +++ b/drivers/base/cacheinfo.c
+> @@ -207,8 +207,7 @@ static bool match_cache_node(struct device_node *cpu,
+>   #define arch_compact_of_hwid(_x)	(_x)
+>   #endif
+>   
+> -static void cache_of_set_id(struct cacheinfo *this_leaf,
+> -			    struct device_node *cache_node)
+> +unsigned long cache_of_calculate_id(struct device_node *cache_node)
+>   {
+>   	struct device_node *cpu;
+>   	u32 min_id = ~0;
+> @@ -219,15 +218,23 @@ static void cache_of_set_id(struct cacheinfo *this_leaf,
+>   		id = arch_compact_of_hwid(id);
+>   		if (FIELD_GET(GENMASK_ULL(63, 32), id)) {
+>   			of_node_put(cpu);
+> -			return;
+> +			return ~0UL;
+>   		}
+>   
+>   		if (match_cache_node(cpu, cache_node))
+>   			min_id = min(min_id, id);
+>   	}
+>   
+> -	if (min_id != ~0) {
+> -		this_leaf->id = min_id;
+> +	return min_id;
+Looks like some 32bit/64bit confusion. Don't we want to return ~0UL if 
+min_id == ~0?
+> +}
+> +
+> +static void cache_of_set_id(struct cacheinfo *this_leaf,
+> +			    struct device_node *cache_node)
+> +{
+> +	unsigned long id = cache_of_calculate_id(cache_node);
+> +
+> +	if (id != ~0UL) {
+> +		this_leaf->id = id;
+>   		this_leaf->attributes |= CACHE_ID;
+>   	}
+>   }
+> diff --git a/include/linux/cacheinfo.h b/include/linux/cacheinfo.h
+> index c8f4f0a0b874..2dcbb69139e9 100644
+> --- a/include/linux/cacheinfo.h
+> +++ b/include/linux/cacheinfo.h
+> @@ -112,6 +112,7 @@ int acpi_get_cache_info(unsigned int cpu,
+>   #endif
+>   
+>   const struct attribute_group *cache_get_priv_group(struct cacheinfo *this_leaf);
+> +unsigned long cache_of_calculate_id(struct device_node *np);
+>   
+>   /*
+>    * Get the cacheinfo structure for the cache associated with @cpu at
 
-[...]
+Thanks,
 
-> diff --git a/include/linux/pinctrl/pinmux.h b/include/linux/pinctrl/pinmu=
-x.h
-> index d6f7b58d6ad0cce421aad80463529c9ccc65d68e..6db6c3e1ccc2249d4b4204e6f=
-c19bf7b4397cc81 100644
-> --- a/include/linux/pinctrl/pinmux.h
-> +++ b/include/linux/pinctrl/pinmux.h
-> @@ -66,6 +66,8 @@ struct pinmux_ops {
->  				    unsigned int selector,
->  				    const char * const **groups,
->  				    unsigned int *num_groups);
-> +	bool (*function_is_gpio) (struct pinctrl_dev *pctldev,
-> +				  unsigned int selector);
-
-hmm, I think using the set_mux function arguments here might make this
-usable by more drivers? Aka func_selector + group_selector ?
-
-While the generic pinmux might not need that, when pinmuxings are
-arranged in functions + pingroups in them, this would be helpful.
-
-
-Heiko
-
-
+Ben
 
 
