@@ -4,91 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06440C83F1B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 18:50:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E93BC83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 18:50:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jkjzH5llnzdGVaYVn8ExLrRD8cDXLKU7uWJKF7ppC/Q=; b=kT5h+cTrj8ISwF1HB36FSJK3YK
-	vajP8J6XFjUgjc6LVv1fp59Q5cZTduaiJq1hvBgvcXZkL0a6kidF43C8+Tsod2uB/w+5apKBlX00q
-	s6iP0YTIcV4bi7XwWZ+pM4HcEBZ3Tph4H7jVXEnYCeNDLMoVL6Dlj2d4Wx+Q4mhNef85QYK4Xliwr
-	k3hDgHItERB5tSBvecQZRadR9h+rcpsXrw/E9j6kUEE3QkGLOrh4p986ltwwNp3up+qeRBZvQrHEY
-	Y1upo7t5f2LLxGiEfjaPx0J9euUAG0dzOCnd9Fq1gqhl9xwDx9VbU+RI7sY2ZYDSyDy+Wd1pJcwxL
-	VOE4QsWQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Al6fqtSQPJCgl/DrzrTyyt6KZz2u9O5jMUOZ6XFYIdc=; b=lJ6nXzj8ia2XswevGBxL2LDG+B
+	YvcSPonGi3D8I2BMMYA9H9PBU0RfvA4816kgdGjdeOLI1tHnzC2io8/fSPLk5FXL4gO5wERKuWlqu
+	Ie36aVLYMCg8Fo9Ke57L0cNtrOE6Q0u8HuLtI7hUKsnBeDz4UbqMfm8mjmjoPz3UpfoMH5V84eLI8
+	XVwg3SALtt/2sLD+gO40mxEaL9uic2U8eoy7pz4yydEAbWGwByW3lScAZ0qHn+qq0RhRfD06HGup6
+	BNAAE59f92d5NAVDsILsxxv2ruHnOqY7LEjqrsmcitbYIXaQ4fZv+RGV6g05vddBRiRz9JLi0EzUf
+	mhYiJa7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubOFs-000000034Xc-3NE9;
-	Mon, 14 Jul 2025 18:50:24 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1ubOFR-00000003421-330T;
+	Mon, 14 Jul 2025 18:49:57 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubN0b-00000002xvp-1vcU
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Jul 2025 17:30:34 +0000
+	id 1ubL2f-00000002enj-0WmO;
+	Mon, 14 Jul 2025 15:24:33 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 67DF2466A6
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Jul 2025 17:30:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3F7CDC113D0
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Jul 2025 17:30:32 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 8029361464;
+	Mon, 14 Jul 2025 15:24:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A18C9C4CEED;
+	Mon, 14 Jul 2025 15:24:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752514232;
-	bh=XewLOYfqb/7YOskJSpnvvo/9VcSLIkCqEbvjb0MSFEE=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=vC3BlaM7f2IBlwpaGHoUkbNZRHgzwAXzEFSEpHaDofE+LDrxosQDKvHY4bEU2jJ5V
-	 hpD+ePz3X3cBR0VbtM7jCI+5JBSgzFiJVgmwK5FA+/zw4egBN0prmsXN7dpSpRA9bV
-	 Sl5841KwT9a0KuLIbDadQvy351QnkIx5ZpQULQ7UM66s9VGBB7JflEsi0cerg2ScCp
-	 tMvB0yJygsKorHVdiqXCfK2kSyVefetSPA2OD0d1Kpb6pw7P90B2AsHwYo/kyffPzz
-	 HuJzdX2/4RrBW50TgwfjCGyDnXE7h0J8qDwA/xWxphSt3s/nazOYSPscpjFJfda0q8
-	 mGvAB0vJ81zfg==
-Received: by mail-oo1-f43.google.com with SMTP id 006d021491bc7-613a21f23cbso2107671eaf.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Jul 2025 10:30:32 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCUAzqe9QsEAvnXgu/3txiXpun1ewvSmJ8O4HrfpAhNQNbrrgsD6GZG0Oh92ieNEG265crQmpouUdqnZDbGfqM5D@lists.infradead.org
-X-Gm-Message-State: AOJu0YxJPTqtubCHNeSw2Ya2OsqKQP00x63WGpo+QNwRZDqO+PCbpD8h
-	2UkDhoHHdRdmnkwHwlwV5F+uOChyY9DZ8XbjrNV6fJzGAc28KAswBeKr9Zg6vg0OvhahzcG26vx
-	s2TISiuo494WWBj1NiHyljocjNLu1hpg=
-X-Google-Smtp-Source: AGHT+IG4gzTqDxo2kiaKUs9NT7jG7S74R8m7Mf4wFxMthg+jlzsnlgq3c8r8+igPvIkveiZL9WDapKKnPzYucmsi8/0=
-X-Received: by 2002:a05:6820:4b0b:b0:611:75a8:f6ca with SMTP id
- 006d021491bc7-613e60042aemr9525757eaf.6.1752514231388; Mon, 14 Jul 2025
- 10:30:31 -0700 (PDT)
+	s=k20201202; t=1752506671;
+	bh=jmQpWZpxE51V1zI7ZcpOFojkr0HJooLaU1IlITgogwg=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=MnMay5B4uXIGs9rEPEG9MmjC8izp0qe6VSr0AYMqAyVGTPCSbzaeyAIqyFDtjLjv7
+	 6CwdDSiz4MVPmRU/Ts8Zhhy5J4a0Us+MYQ7fSCwl1o2UZzHR1WgjBARS+4bxQ1VDQ5
+	 V9mTpDUbegvQsbExfgMRDM+cmTwQxR7b6jSf/ClNtHPvndvmAxQsMaKNgosMNOe9+C
+	 LKKZobXq7YScJ7vS9qmSHFiLa6m0b/xHEc0lHamc1oH6bA9ZOUBKXqadhjKgw3zvNY
+	 kYqcQun9vGNEvaOEikOSX8Ph/ZioOGEK0xtNmUOsN765cMbN1MedZnTxSg6tH0iZll
+	 4vSKhHMVm5jVg==
+Date: Mon, 14 Jul 2025 10:24:31 -0500
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-References: <20250404112050.42040-1-xueshuai@linux.alibaba.com>
- <20250404112050.42040-2-xueshuai@linux.alibaba.com> <0c0bc332-0323-4e43-a96b-dd5f5957ecc9@huawei.com>
- <709ee8d2-8969-424c-b32b-101c6a8220fb@linux.alibaba.com> <353809e7-5373-0d54-6ddb-767bc5af9e5f@huawei.com>
- <653abdd4-46d2-4956-b49c-8f9c309af34d@linux.alibaba.com> <de5d2417-dc92-b276-1125-4feb5151de7f@huawei.com>
- <f60f1128-0d42-48e5-9a06-6ed7ca10767f@linux.alibaba.com> <20250428152350.GA23615@willie-the-truck>
- <6671c3cc-5119-4544-bcb5-17e8cc2d7057@linux.alibaba.com> <CAJZ5v0j3NC2ki1XPXfznxZRBLaReDBJ+nzHFgvqMx5+MgERL-A@mail.gmail.com>
- <3a465782-a8ff-4be8-9c15-e46f39196757@linux.alibaba.com>
-In-Reply-To: <3a465782-a8ff-4be8-9c15-e46f39196757@linux.alibaba.com>
-From: "Rafael J. Wysocki" <rafael@kernel.org>
-Date: Mon, 14 Jul 2025 19:30:19 +0200
-X-Gmail-Original-Message-ID: <CAJZ5v0gfFHCvE2Uu8=GRb9=ueK51s1-0BDBkJbbDG0tQvD5pLA@mail.gmail.com>
-X-Gm-Features: Ac12FXyg6J3C22EsHHhK7h8dr6Kl_ZD1YWcAXSIJ5XogUO6kfZzV-U7v3B2lVCQ
-Message-ID: <CAJZ5v0gfFHCvE2Uu8=GRb9=ueK51s1-0BDBkJbbDG0tQvD5pLA@mail.gmail.com>
-Subject: Re: [RESEND PATCH v18 1/2] ACPI: APEI: send SIGBUS to current task if
- synchronous memory error not recovered
-To: Shuai Xue <xueshuai@linux.alibaba.com>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Hanjun Guo <guohanjun@huawei.com>, 
-	"Luck, Tony" <tony.luck@intel.com>, linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
-	akpm@linux-foundation.org, linux-edac@vger.kernel.org, x86@kernel.org, 
-	justin.he@arm.com, ardb@kernel.org, ying.huang@linux.alibaba.com, 
-	ashish.kalra@amd.com, baolin.wang@linux.alibaba.com, tglx@linutronix.de, 
-	dave.hansen@linux.intel.com, lenb@kernel.org, hpa@zytor.com, 
-	robert.moore@intel.com, lvying6@huawei.com, xiexiuqi@huawei.com, 
-	zhuo.song@linux.alibaba.com, sudeep.holla@arm.com, lpieralisi@kernel.org, 
-	linux-acpi@vger.kernel.org, yazen.ghannam@amd.com, mark.rutland@arm.com, 
-	mingo@redhat.com, robin.murphy@arm.com, Jonathan.Cameron@huawei.com, 
-	bp@alien8.de, linux-arm-kernel@lists.infradead.org, 
-	wangkefeng.wang@huawei.com, tanxiaofei@huawei.com, mawupeng1@huawei.com, 
-	linmiaohe@huawei.com, naoya.horiguchi@nec.com, james.morse@arm.com, 
-	tongtiangen@huawei.com, gregkh@linuxfoundation.org, jarkko@kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250714_103033_540379_EE29189C 
-X-CRM114-Status: GOOD (  24.54  )
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: s.hauer@pengutronix.de, conor+dt@kernel.org, krzk+dt@kernel.org, 
+ linux-kernel@vger.kernel.org, daniel.lezcano@linaro.org, 
+ angelogioacchino.delregno@collabora.com, rafal@milecki.pl, 
+ rafael@kernel.org, linux-mediatek@lists.infradead.org, 
+ devicetree@vger.kernel.org, matthias.bgg@gmail.com, rui.zhang@intel.com, 
+ linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org, 
+ lukasz.luba@arm.com
+To: Aleksander Jan Bajkowski <olek2@wp.pl>
+In-Reply-To: <20250712195904.6988-1-olek2@wp.pl>
+References: <20250712195904.6988-1-olek2@wp.pl>
+Message-Id: <175250104102.2052726.927170028799402599.robh@kernel.org>
+Subject: Re: [PATCH v4 0/2] Add thermal sensors support for MT7981
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,85 +72,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
 
-On Mon, Jul 14, 2025 at 1:54=E2=80=AFPM Shuai Xue <xueshuai@linux.alibaba.c=
-om> wrote:
->
-> =E5=9C=A8 2025/7/1 21:56, Rafael J. Wysocki =E5=86=99=E9=81=93:
-> > On Tue, Jul 1, 2025 at 1:00=E2=80=AFPM Shuai Xue <xueshuai@linux.alibab=
-a.com> wrote:
-> >>
-> >>   >=E5=9C=A8 2025/4/28 23:23, Will Deacon =E5=86=99=E9=81=93:
-> >>   >> On Fri, Apr 25, 2025 at 09:10:09AM +0800, Shuai Xue wrote:
-> >>   >>> =E5=9C=A8 2025/4/25 09:00, Hanjun Guo =E5=86=99=E9=81=93:
-> >>   >>>> Call force_sig(SIGBUS) directly in ghes_do_proc() is not my fav=
-ourite,
-> >>   >>>> but I can bear that, please add
-> >>   >>>>
-> >>   >>>> Reviewed-by: Hanjun Guo <guohanjun@huawei.com>
-> >>   >>>>
-> >>   >>>> Thanks
-> >>   >>>> Hanjun
-> >>   >>>
-> >>   >>> Thanks. Hanjun.
-> >>   >>>
-> >>   >>> @Rafael, @Catalin,
-> >>   >>>
-> >>   >>> Both patch 1 and 2 have reviewed-by tag from the arm64 ACPI
-> >> maintainers, Hanjun,
-> >>   >>> now. Are you happpy to pick and queue this patch set to acpi tre=
-e
-> >> or arm tree?
-> >>   >>
-> >>   >> Since this primarily touches drivers/acpi/apei/ghes.c, I think it=
- should
-> >>   >> go via the ACPI tree and not the arm64 one.
-> >>   >>
-> >>   >> Will
-> >>   >
-> >>   >Hi, Will,
-> >>   >
-> >>   >Thank you for your confirmation :)
-> >>   >
-> >>   >@Rafael, do you have more comments on this patch set?
-> >>   >
-> >>   >Thanks you.
-> >>   >
-> >>   >Best Regards,
-> >>   >Shuai
-> >>
-> >> Hi, all,
-> >>
-> >> Gentle ping.
-> >>
-> >> Does ACPI or APEI tree still active? Looking forward to any response.
-> >
-> > For APEI changes, you need an ACK from one of the reviewers listed in
-> > the MAINTAINERS entry for APEI.
-> >
-> > Thanks!
->
-> Hi, Rafael
->
-> Sorry, I missed your email which goes in span (:
->
-> ARM maintain @Catalin points that:
->
->  > James Morse is listed as reviewer of the ACPI APEI code but he's busy
->  > with resctrl/MPAM. Adding Lorenzo, Sudeep and Hanjun as arm64 ACPI
->  > maintainers, hopefully they can help.
->
-> And Hanjun explictly gived his Reviewed-by tag in this thread, is that
-> happy for you for merge?
+On Sat, 12 Jul 2025 21:59:02 +0200, Aleksander Jan Bajkowski wrote:
+> This patch adds support for the temperature sensor in the MT7981 SoC.
+> This sensor is exactly the same as the one in the MT7986.
+> 
+> Changes in v4:
+>  - sorted bindings by fallback names
+>  - dropped accepted patch
+> 
+> Changes in v3:
+>  - added fallback in bindings
+> 
+> Changes in v2:
+>  - added fallback to an existing compatible string
+>  - removed second patch as obsolete
+> 
+> Aleksander Jan Bajkowski (2):
+>   dt-bindings: thermal: mediatek: add falback compatible string for
+>     MT7981 and MT8516
+>   arm64: dts: mediatek: add thermal sensor support on mt7981
+> 
+>  .../bindings/thermal/mediatek,thermal.yaml    | 27 ++++++++++------
+>  arch/arm64/boot/dts/mediatek/mt7981b.dtsi     | 31 ++++++++++++++++++-
+>  2 files changed, 47 insertions(+), 11 deletions(-)
+> 
+> --
+> 2.39.5
+> 
+> 
+> 
 
-Not really.
 
-I need an ACK or R-by from a reviewer listed in the APEI entry in MAINTAINE=
-RS.
+My bot found new DTB warnings on the .dts files added or changed in this
+series.
 
-If James Morse is not able to fill that role (and AFAICS he's not been
-for quite some time now), I'd expect someone else to step up.
+Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
+are fixed by another series. Ultimately, it is up to the platform
+maintainer whether these warnings are acceptable or not. No need to reply
+unless the platform maintainer has comments.
 
-Thanks!
+If you already ran DT checks and didn't see these error(s), then
+make sure dt-schema is up to date:
+
+  pip3 install dtschema --upgrade
+
+
+This patch series was applied (using b4) to base:
+ Base: attempting to guess base-commit...
+ Base: tags/v6.16-rc1-8-g95a042a0c8ec (exact match)
+
+If this is not the correct base, please add 'base-commit' tag
+(or use b4 which does this automatically)
+
+New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/mediatek/' for 20250712195904.6988-1-olek2@wp.pl:
+
+arch/arm64/boot/dts/mediatek/mt7981b-openwrt-one.dtb: adc@1100d000 (mediatek,mt7981-auxadc): compatible: 'oneOf' conditional failed, one must be fixed:
+	['mediatek,mt7981-auxadc', 'mediatek,mt7986-auxadc'] is too long
+	'mediatek,mt7981-auxadc' is not one of ['mediatek,mt2701-auxadc', 'mediatek,mt2712-auxadc', 'mediatek,mt6765-auxadc', 'mediatek,mt7622-auxadc', 'mediatek,mt7986-auxadc', 'mediatek,mt8173-auxadc']
+	'mediatek,mt7981-auxadc' is not one of ['mediatek,mt7623-auxadc']
+	'mediatek,mt7981-auxadc' is not one of ['mediatek,mt6893-auxadc', 'mediatek,mt8183-auxadc', 'mediatek,mt8186-auxadc', 'mediatek,mt8188-auxadc', 'mediatek,mt8195-auxadc', 'mediatek,mt8516-auxadc']
+	'mediatek,mt2701-auxadc' was expected
+	'mediatek,mt8173-auxadc' was expected
+	from schema $id: http://devicetree.org/schemas/iio/adc/mediatek,mt2701-auxadc.yaml#
+arch/arm64/boot/dts/mediatek/mt7981b-openwrt-one.dtb: /soc/adc@1100d000: failed to match any schema with compatible: ['mediatek,mt7981-auxadc', 'mediatek,mt7986-auxadc']
+arch/arm64/boot/dts/mediatek/mt7981b-cudy-wr3000-v1.dtb: adc@1100d000 (mediatek,mt7981-auxadc): compatible: 'oneOf' conditional failed, one must be fixed:
+	['mediatek,mt7981-auxadc', 'mediatek,mt7986-auxadc'] is too long
+	'mediatek,mt7981-auxadc' is not one of ['mediatek,mt2701-auxadc', 'mediatek,mt2712-auxadc', 'mediatek,mt6765-auxadc', 'mediatek,mt7622-auxadc', 'mediatek,mt7986-auxadc', 'mediatek,mt8173-auxadc']
+	'mediatek,mt7981-auxadc' is not one of ['mediatek,mt7623-auxadc']
+	'mediatek,mt7981-auxadc' is not one of ['mediatek,mt6893-auxadc', 'mediatek,mt8183-auxadc', 'mediatek,mt8186-auxadc', 'mediatek,mt8188-auxadc', 'mediatek,mt8195-auxadc', 'mediatek,mt8516-auxadc']
+	'mediatek,mt2701-auxadc' was expected
+	'mediatek,mt8173-auxadc' was expected
+	from schema $id: http://devicetree.org/schemas/iio/adc/mediatek,mt2701-auxadc.yaml#
+arch/arm64/boot/dts/mediatek/mt7981b-cudy-wr3000-v1.dtb: /soc/adc@1100d000: failed to match any schema with compatible: ['mediatek,mt7981-auxadc', 'mediatek,mt7986-auxadc']
+arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku6.dtb: clock-controller@15520000 (mediatek,mt8188-imgsys-wpe2): '#reset-cells' does not match any of the regexes: '^pinctrl-[0-9]+$'
+	from schema $id: http://devicetree.org/schemas/clock/mediatek,mt8188-clock.yaml#
+arch/arm64/boot/dts/mediatek/mt7981b-xiaomi-ax3000t.dtb: adc@1100d000 (mediatek,mt7981-auxadc): compatible: 'oneOf' conditional failed, one must be fixed:
+	['mediatek,mt7981-auxadc', 'mediatek,mt7986-auxadc'] is too long
+	'mediatek,mt7981-auxadc' is not one of ['mediatek,mt2701-auxadc', 'mediatek,mt2712-auxadc', 'mediatek,mt6765-auxadc', 'mediatek,mt7622-auxadc', 'mediatek,mt7986-auxadc', 'mediatek,mt8173-auxadc']
+	'mediatek,mt7981-auxadc' is not one of ['mediatek,mt7623-auxadc']
+	'mediatek,mt7981-auxadc' is not one of ['mediatek,mt6893-auxadc', 'mediatek,mt8183-auxadc', 'mediatek,mt8186-auxadc', 'mediatek,mt8188-auxadc', 'mediatek,mt8195-auxadc', 'mediatek,mt8516-auxadc']
+	'mediatek,mt2701-auxadc' was expected
+	'mediatek,mt8173-auxadc' was expected
+	from schema $id: http://devicetree.org/schemas/iio/adc/mediatek,mt2701-auxadc.yaml#
+arch/arm64/boot/dts/mediatek/mt7981b-xiaomi-ax3000t.dtb: /soc/adc@1100d000: failed to match any schema with compatible: ['mediatek,mt7981-auxadc', 'mediatek,mt7986-auxadc']
+
+
+
+
+
 
