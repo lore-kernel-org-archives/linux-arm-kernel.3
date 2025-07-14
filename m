@@ -4,71 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4075EC83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 16:47:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CC06C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 16:50:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZEz0MjyPjjmaHK4rHi3lzcnI88V95Ez+JAIUJe7tNHU=; b=RamOUCfp0763I1HqV5IL6pip3Y
-	7q97F6JhqIXo6m4JWpKl1leJ0tyslceUnWD9BikFq6N/zM+h+YlWoGBBEqfTctTn9qKIzIHhGLZxn
-	ZZSCfPJNamxTFB086k0PlsBPCTMztaWR7tuuWpubeH7TGRZEzJ3YtVF9sWl56mVrOMGIR0jxXbRnK
-	ZheM9BNYUOLKDG8f8m70y68UOuTS9tJ55L/pmZNTm0tojiOeHehLD5qdJmOeLR7oiNqHYVKp5ycdF
-	eOBiMrt/oRSLVzZGsSAqfJaVBmZDEqYHhL0nY2D0pEWx9m0uv7jWfTHR5FAdeL16CTpJk/ZTfJsvW
-	ndGs7hsg==;
+	bh=C88dgF4iuMYxS3JDmOM2QG/KP2lcpHLGU4Lqlel+zqA=; b=2J26c701hitQ5Zf++qwtLEMSGG
+	078lGLpdkRTTUQJGJKAijBSpigWyx013x+lSIKe/u3BsK3fAl1O3x3KsPWf1Tou1lvVNicyv4LE/T
+	W/ts+UBXzh9avLFyIyswK2vj5TYwnBXqLqfps7MWoQROcP8npyqnl+h/WvlunE7kCdfY6WaPAqlze
+	r8t839O+xNZq3vQvNSuWYL6U3SYNpa9QhnfOP+ai2gOxSKngUVfI64lI7rRnmNwYN9DwuyOLxUvUN
+	8juqq6LQwfEqSXSvlQI8BHgMIKztbXNDSYdj5KhFAC4VAXhou18nP7uMOgkst23uNNjJP22zW1y06
+	ttZH+OpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubML5-00000002sSP-0mqS;
-	Mon, 14 Jul 2025 16:47:39 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1ubMNU-00000002sst-44iU;
+	Mon, 14 Jul 2025 16:50:08 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubKcN-00000002XGU-2Dcn;
-	Mon, 14 Jul 2025 14:57:24 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1752505021; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=jTzafjthuIJN+sbR9JzbeSjM2+8zqD+8kpumWfzcbI7b7qvfXEB+oGFUAudVd8EA6YDyt5u8O6eIX/R9G/L18GjaXdxxGIQscUjko/mb09N3YmjG78W2Fc+mFuSC+p92EB7E/Ii98Lxo3R8L32bmOOeoG2I/imQ4yZlC8QBAD4Y=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1752505021; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=ZEz0MjyPjjmaHK4rHi3lzcnI88V95Ez+JAIUJe7tNHU=; 
-	b=Akm6xFiVTE9SCFtCFddQhMkPdTzJqbg0pVQ4e03instTx2KpfgUSdCiAMnQrxiV33zJ/sOTQVthWJeGVK9VyZ/jw30lpirOUL1aCEFuWOFCOF6VivWmxyVtquP9IBBJh92lHXcRTFTzzm8RhV1uUnfR4i+6kKBz8cNkGFnbxJkI=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=benjamin.gaignard@collabora.com;
-	dmarc=pass header.from=<benjamin.gaignard@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1752505021;
-	s=zohomail; d=collabora.com; i=benjamin.gaignard@collabora.com;
-	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=ZEz0MjyPjjmaHK4rHi3lzcnI88V95Ez+JAIUJe7tNHU=;
-	b=YD9rSLEc2B3JX/3+g/USbXM3omX8JSQy3SohZ8n2vQ2U3qbK5EOe3JBk7apxP9d4
-	gYUN9WgeXDXm3WGUsQqG/zpXKFam7TqgOcnD2g9iJOmc/Ef7nJ8ynlSLyVlCNoqWLnV
-	I3tkx0yC2ST9x3vqQNUeP2BwQ1tXnn5FuqU/LIhI=
-Received: by mx.zohomail.com with SMTPS id 1752505018618941.5183600008951;
-	Mon, 14 Jul 2025 07:56:58 -0700 (PDT)
-Message-ID: <baa1fcde-f167-4a1b-afca-0a2957a688cc@collabora.com>
-Date: Mon, 14 Jul 2025 16:56:53 +0200
+	id 1ubKlT-00000002Yqv-0y6e
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 14 Jul 2025 15:06:48 +0000
+Received: from [127.0.1.1] (cpc141996-chfd3-2-0-cust928.12-3.cable.virginm.net [86.13.91.161])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 6F3D45304;
+	Mon, 14 Jul 2025 17:06:13 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1752505573;
+	bh=wQF+bIPsZldlAp2gEc1uS1XJHaDZCWa5P/OTC8o+RG0=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=fbzBaB5PipkCMIodWN8ALJbb/dLuj9vxYlF22E3hEYjhWV1D1luVNHvdiSflFXGl4
+	 1K+KklcqYvBW0c/dH2Bre4ZOQV7zQpN6822aoYwz6ekSJsqpmjR+lGKFeUTF/V7I0j
+	 d2+D/nRLt21Hcidr7/s9Pd8rB3ugI92BCbpA5q4A=
+From: Daniel Scally <dan.scally@ideasonboard.com>
+Date: Mon, 14 Jul 2025 16:06:27 +0100
+Subject: [PATCH v11 01/19] media: mc: entity: Add pipeline_started/stopped
+ ops
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 3/5] iommu: Add verisilicon IOMMU driver
-To: Will Deacon <will@kernel.org>
-Cc: joro@8bytes.org, robin.murphy@arm.com, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, heiko@sntech.de,
- nicolas.dufresne@collabora.com, jgg@ziepe.ca, iommu@lists.linux.dev,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- kernel@collabora.com
-References: <20250710082450.125585-1-benjamin.gaignard@collabora.com>
- <20250710082450.125585-4-benjamin.gaignard@collabora.com>
- <aHTzPwTob8_5rtBS@willie-the-truck>
-Content-Language: en-US
-From: Benjamin Gaignard <benjamin.gaignard@collabora.com>
-In-Reply-To: <aHTzPwTob8_5rtBS@willie-the-truck>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250714-c55-v11-1-bc20e460e42a@ideasonboard.com>
+References: <20250714-c55-v11-0-bc20e460e42a@ideasonboard.com>
+In-Reply-To: <20250714-c55-v11-0-bc20e460e42a@ideasonboard.com>
+To: linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org
+Cc: Anthony.McGivern@arm.com, jacopo.mondi@ideasonboard.com, 
+ nayden.kanchev@arm.com, robh+dt@kernel.org, mchehab@kernel.org, 
+ krzysztof.kozlowski+dt@linaro.org, conor+dt@kernel.org, 
+ jerome.forissier@linaro.org, kieran.bingham@ideasonboard.com, 
+ laurent.pinchart@ideasonboard.com, dan.scally@ideasonboard.com, 
+ Sakari Ailus <sakari.ailus@linux.intel.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5233;
+ i=dan.scally@ideasonboard.com; h=from:subject:message-id;
+ bh=wQF+bIPsZldlAp2gEc1uS1XJHaDZCWa5P/OTC8o+RG0=;
+ b=owEBbQKS/ZANAwAKAchJV3psRXUyAcsmYgBodRz+gGtxck41EbwH+q25Ha98xQJqLw8G3gGqr
+ MnMLhIbb1GJAjMEAAEKAB0WIQQqyuwyDnZdb+mxmm/ISVd6bEV1MgUCaHUc/gAKCRDISVd6bEV1
+ Mi+8D/0fcoeXNEBK3B/YCvCIU/FjX51xbA9OhnZyjitZfnk+3qrP6qz9Ho7xNayGk64Mk4SIYSK
+ HdbceQk8rbRt8+tawtasUQZXb7efIhS7unBsBDIoSnMkciRgLcwr5LooONRylYDj5jTAasjpH6y
+ GTWRqF62E/1ebKbEDv2o1TUeDohMJfoJ52mlvM2ChDoCJdxHdIUMnlvdxfqx9wiKSJGKXuUp6Pr
+ 8a5x5yes11+fcyZNoaWrrYAlUOQAweusX6UxzWyDnls4ZOJyfS1yAnQJg3FsswaCuz8WiOqEyHc
+ t1b+PFR37Sfn5CDBHhF/PTx3kjmXgRM3Ezo3Xt7zKmgNC6jBpKuhvIwHlM37hSmVCeQB051rnRc
+ ngxJVyhGqu/TobLBcbCnKs6K9gjocc3SizrBF8EtzgYn7weR/YHYnXPwFb9k/bB8dxx5SSjfin/
+ 8nGd/7O6jxyy82Oqw82CLbMGpci/ZfCbGxiALLdapOrJ4/HQ4jx0fusCq3snoh0w4fm0JFyRfn5
+ exc5wNAQz+qjDaJ/QZqr/Jy0hlsG4tOZpRXj/LsioEvFdHcFLIK88Y3HiLljdbaPGCoyXeVNkp3
+ ItS3pMxjaQye8fuJhR1ErdC+xHQ5GLropZPNe7Ftb69x9nxLP9mwcdUqCMFdSqnBv4WK14WJxE2
+ h7qj5wkRliFxvqA==
+X-Developer-Key: i=dan.scally@ideasonboard.com; a=openpgp;
+ fpr=EEC699ACA1B7CB5D31330C0BBD501C2A3546CCF6
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250714_075723_630655_EB9ECE07 
-X-CRM114-Status: GOOD (  23.84  )
+X-CRM114-CacheID: sfid-20250714_080647_420229_007A2E7E 
+X-CRM114-Status: GOOD (  14.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,161 +90,161 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Add two new members to struct media_entity_operations, along with new
+functions in media-entity.c to traverse a media pipeline and call the
+new operations. The new functions are intended to be used to signal
+to a media pipeline that it has fully started, with the entity ops
+allowing drivers to define some action to be taken when those
+conditions are met.
 
-Le 14/07/2025 à 14:08, Will Deacon a écrit :
-> Hi,
->
-> On Thu, Jul 10, 2025 at 10:24:44AM +0200, Benjamin Gaignard wrote:
->> diff --git a/drivers/iommu/vsi-iommu.c b/drivers/iommu/vsi-iommu.c
->> new file mode 100644
->> index 000000000000..15322b9929af
->> --- /dev/null
->> +++ b/drivers/iommu/vsi-iommu.c
->> @@ -0,0 +1,781 @@
->> +// SPDX-License-Identifier: GPL-2.0-only
->> +/* Copyright (C) 2025 Collabora Ltd.
->> + *
->> + * IOMMU API for Verisilicon
->> + *
->> + * Module Authors:	Yandong Lin <yandong.lin@rock-chips.com>
->> + *			Simon Xue <xxm@rock-chips.com>
->> + *			Benjamin Gaignard <benjamin.gaignard@collabora.com>
->> + */
->> +
->> +#include <linux/clk.h>
->> +#include <linux/compiler.h>
->> +#include <linux/delay.h>
->> +#include <linux/device.h>
->> +#include <linux/dma-mapping.h>
->> +#include <linux/errno.h>
->> +#include <linux/init.h>
->> +#include <linux/interrupt.h>
->> +#include <linux/io.h>
->> +#include <linux/iommu.h>
->> +#include <linux/list.h>
->> +#include <linux/mm.h>
->> +#include <linux/module.h>
->> +#include <linux/of.h>
->> +#include <linux/of_iommu.h>
->> +#include <linux/of_platform.h>
->> +#include <linux/platform_device.h>
->> +#include <linux/pm_runtime.h>
->> +#include <linux/slab.h>
->> +#include <linux/spinlock.h>
->> +
->> +#include "iommu-pages.h"
->> +
->> +struct vsi_iommu {
->> +	struct device *dev;
->> +	void __iomem *regs;
->> +	struct clk_bulk_data *clocks;
->> +	int num_clocks;
->> +	struct iommu_device iommu;
->> +	struct list_head node; /* entry in vsi_iommu_domain.iommus */
->> +	struct iommu_domain *domain; /* domain to which iommu is attached */
->> +	spinlock_t lock;
->> +	int irq;
->> +};
->> +
->> +struct vsi_iommu_domain {
->> +	struct list_head iommus;
->> +	struct device *dev;
->> +	u32 *dt;
->> +	dma_addr_t dt_dma;
->> +	struct iommu_domain domain;
->> +	u64 *pta;
->> +	dma_addr_t pta_dma;
->> +	spinlock_t lock;
->> +};
->> +
->> +static struct iommu_domain vsi_identity_domain;
->> +
->> +#define NUM_DT_ENTRIES	1024
->> +#define NUM_PT_ENTRIES	1024
->> +#define PT_SIZE		(NUM_PT_ENTRIES * sizeof(u32))
->> +
->> +#define SPAGE_SIZE	BIT(12)
->> +
->> +/* vsi iommu regs address */
->> +#define VSI_MMU_CONFIG1_BASE			0x1ac
->> +#define VSI_MMU_AHB_EXCEPTION_BASE		0x380
->> +#define VSI_MMU_AHB_CONTROL_BASE		0x388
->> +#define VSI_MMU_AHB_TLB_ARRAY_BASE_L_BASE	0x38C
->> +
->> +/* MMU register offsets */
->> +#define VSI_MMU_FLUSH_BASE		0x184
->> +#define VSI_MMU_BIT_FLUSH		BIT(4)
->> +
->> +#define VSI_MMU_PAGE_FAULT_ADDR		0x380
->> +#define VSI_MMU_STATUS_BASE		0x384	/* IRQ status */
->> +
->> +#define VSI_MMU_BIT_ENABLE		BIT(0)
->> +
->> +#define VSI_MMU_OUT_OF_BOUND		BIT(28)
->> +/* Irq mask */
->> +#define VSI_MMU_IRQ_MASK		0x7
->> +
->> +#define VSI_DTE_PT_ADDRESS_MASK		0xffffffc0
->> +#define VSI_DTE_PT_VALID		BIT(0)
->> +
->> +#define VSI_PAGE_DESC_LO_MASK		0xfffff000
->> +#define VSI_PAGE_DESC_HI_MASK		GENMASK_ULL(39, 32)
->> +#define VSI_PAGE_DESC_HI_SHIFT		(32 - 4)
-> How does this page-table format relate to the one supported already by
-> rockchip-iommu.c? From a quick glance, I suspect this is a derivative
-> and so ideally we'd be able to have a common implementation of the
-> page-table code which can be used by both of the drivers.
->
-> Similarly:
+The combination of the new functions and operations allows drivers
+which are part of a multi-driver pipeline to delay actually starting
+streaming until all of the conditions for streaming succcessfully are
+met across all drivers.
 
-No they comes from different IP providers, this one is from Verisilicon.
-I agree they looks very similar and my first attempt was to add it into
-rockchip-iommu code but when doing it I realize that registers addresses
-where all different so I had to code all the functions twice.
+Signed-off-by: Daniel Scally <dan.scally@ideasonboard.com>
+---
+Changes in v5:
 
-Regards,
-Benjamin
+	- Update kerneldoc comments with Optional statement in the
+	  right place
 
->
->> +static void vsi_iommu_domain_free(struct iommu_domain *domain)
->> +{
->> +	struct vsi_iommu_domain *vsi_domain = to_vsi_domain(domain);
->> +	unsigned long flags;
->> +	int i;
->> +
->> +	spin_lock_irqsave(&vsi_domain->lock, flags);
->> +
->> +	WARN_ON(!list_empty(&vsi_domain->iommus));
->> +
->> +	for (i = 0; i < NUM_DT_ENTRIES; i++) {
->> +		u32 dte = vsi_domain->dt[i];
->> +
->> +		if (vsi_dte_is_pt_valid(dte)) {
->> +			phys_addr_t pt_phys = vsi_dte_pt_address(dte);
->> +			u32 *page_table = phys_to_virt(pt_phys);
->> +
->> +			dma_unmap_single(vsi_domain->dev, pt_phys,
->> +					 SPAGE_SIZE, DMA_TO_DEVICE);
->> +			iommu_free_pages(page_table);
->> +		}
->> +	}
->> +
->> +	dma_unmap_single(vsi_domain->dev, vsi_domain->dt_dma,
->> +			 SPAGE_SIZE, DMA_TO_DEVICE);
->> +	iommu_free_pages(vsi_domain->dt);
->> +
->> +	dma_unmap_single(vsi_domain->dev, vsi_domain->pta_dma,
->> +			 SPAGE_SIZE, DMA_TO_DEVICE);
->> +	iommu_free_pages(vsi_domain->pta);
->> +
->> +	spin_unlock_irqrestore(&vsi_domain->lock, flags);
->> +
->> +	kfree(vsi_domain);
->> +}
-> is almost a carbon copy of rk_iommu_domain_free(), so it seems that
-> there's room for code re-use even beyond the page-table support.
->
-> I think that also means we'll want Heiko's Ack before we merge anything.
->
-> Will
+Changes in v4:
+
+	- Reverted to having the iter variable
+
+Changes in v3:
+
+	- Dropped the iter variable now that the pipeline entity
+	  iterator functions don't need it.
+	- Updated documentation to specify Optional and return
+	  values
+
+Changes in v2:
+
+	- Refactored media_pipeline_started() such that the cleanup
+	  function for media_pipeline_entity_iter is unconditionally
+	  called
+	- Avoided using media_entity_call() helper for operation that
+	  has return type void to avoid compiler warnings
+---
+ drivers/media/mc/mc-entity.c | 46 ++++++++++++++++++++++++++++++++++++++++++++
+ include/media/media-entity.h | 29 ++++++++++++++++++++++++++++
+ 2 files changed, 75 insertions(+)
+
+diff --git a/drivers/media/mc/mc-entity.c b/drivers/media/mc/mc-entity.c
+index 045590905582054c46656e20463271b1f93fa6b4..d3443537d4304e12cb015630101efba22375c011 100644
+--- a/drivers/media/mc/mc-entity.c
++++ b/drivers/media/mc/mc-entity.c
+@@ -1053,6 +1053,52 @@ __media_pipeline_entity_iter_next(struct media_pipeline *pipe,
+ }
+ EXPORT_SYMBOL_GPL(__media_pipeline_entity_iter_next);
+ 
++int media_pipeline_started(struct media_pipeline *pipe)
++{
++	struct media_pipeline_entity_iter iter;
++	struct media_entity *entity;
++	int ret;
++
++	ret = media_pipeline_entity_iter_init(pipe, &iter);
++	if (ret)
++		return ret;
++
++	media_pipeline_for_each_entity(pipe, &iter, entity) {
++		ret = media_entity_call(entity, pipeline_started);
++		if (ret && ret != -ENOIOCTLCMD)
++			break;
++	}
++
++	media_pipeline_entity_iter_cleanup(&iter);
++
++	ret = ret == -ENOIOCTLCMD ? 0 : ret;
++	if (ret)
++		media_pipeline_stopped(pipe);
++
++	return ret;
++}
++EXPORT_SYMBOL_GPL(media_pipeline_started);
++
++int media_pipeline_stopped(struct media_pipeline *pipe)
++{
++	struct media_pipeline_entity_iter iter;
++	struct media_entity *entity;
++	int ret;
++
++	ret = media_pipeline_entity_iter_init(pipe, &iter);
++	if (ret)
++		return ret;
++
++	media_pipeline_for_each_entity(pipe, &iter, entity)
++		if (entity->ops && entity->ops->pipeline_stopped)
++			entity->ops->pipeline_stopped(entity);
++
++	media_pipeline_entity_iter_cleanup(&iter);
++
++	return 0;
++}
++EXPORT_SYMBOL_GPL(media_pipeline_stopped);
++
+ /* -----------------------------------------------------------------------------
+  * Links management
+  */
+diff --git a/include/media/media-entity.h b/include/media/media-entity.h
+index 64cf590b11343f68a456c5870ca2f32917c122f9..1e1026f65f2050bb9aa39bde68794da8d2d0a669 100644
+--- a/include/media/media-entity.h
++++ b/include/media/media-entity.h
+@@ -269,6 +269,10 @@ struct media_pad {
+  *			media_entity_has_pad_interdep().
+  *			Optional: If the operation isn't implemented all pads
+  *			will be considered as interdependent.
++ * @pipeline_started:	Optional: Notify this entity that the pipeline it is a
++ *			part of has been started.
++ * @pipeline_stopped:	Optional: Notify this entity that the pipeline it is a
++ *			part of has been stopped.
+  *
+  * .. note::
+  *
+@@ -284,6 +288,8 @@ struct media_entity_operations {
+ 	int (*link_validate)(struct media_link *link);
+ 	bool (*has_pad_interdep)(struct media_entity *entity, unsigned int pad0,
+ 				 unsigned int pad1);
++	int (*pipeline_started)(struct media_entity *entity);
++	void (*pipeline_stopped)(struct media_entity *entity);
+ };
+ 
+ /**
+@@ -1261,6 +1267,29 @@ __media_pipeline_entity_iter_next(struct media_pipeline *pipe,
+ 	     entity != NULL;							\
+ 	     entity = __media_pipeline_entity_iter_next((pipe), iter, entity))
+ 
++/**
++ * media_pipeline_started - Inform entities in a pipeline that it has started
++ * @pipe:	The pipeline
++ *
++ * Iterate on all entities in a media pipeline and call their pipeline_started
++ * member of media_entity_operations.
++ *
++ * Return: zero on success, or a negative error code passed through from an
++ * entity's .pipeline_started() operation.
++ */
++int media_pipeline_started(struct media_pipeline *pipe);
++
++/**
++ * media_pipeline_stopped - Inform entities in a pipeline that it has stopped
++ * @pipe:	The pipeline
++ *
++ * Iterate on all entities in a media pipeline and call their pipeline_stopped
++ * member of media_entity_operations.
++ *
++ * Return: zero on success, or -ENOMEM if the iterator initialisation failed.
++ */
++int media_pipeline_stopped(struct media_pipeline *pipe);
++
+ /**
+  * media_pipeline_alloc_start - Mark a pipeline as streaming
+  * @pad: Starting pad
+
+-- 
+2.34.1
+
 
