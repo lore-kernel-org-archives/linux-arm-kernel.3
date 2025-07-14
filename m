@@ -4,149 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63825C83F1B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 13:30:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5F27C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 13:33:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dil5TX9HIIpjoUEnlnBWkseYdYh4ig2uIHYsr0IAQD4=; b=ejjxNsjTobeiuM1Xb6AOI6tuKI
-	L18TX+ZKOQd6nP95rBoRD1J4Oh6h7qVkRYhnFh7SJokxdmNQvt9xlM57EumEkAQk8hPlvCGEILFwr
-	9miYvV7Kh/d8UoGJCHsGYUQzI0asJnlwBTCKbITV99n/tFsLb/2VZ1GuPOcmEXjuMEor8eeOF/LMD
-	qML6nhjRBS5IVkYUlIKudLpkqv/Vj/CUGWVUklzCY5Je3vyjkOd0FLl6DXYDmwJzccJOb1p3wR4eC
-	jUeI+MAJ4i7e5u4dycpjaD3NAJujtplYMq8kP6OWQQHXRR+z0M0dYhAku6oCN13EEx2IYdHRngrBC
-	XdnWJofA==;
+	bh=EAkoISUbiC467XwET00w80/uJPEa5DP4wPMhGYodO/4=; b=LzyvMnfApS2qQY+eLIOazt6xK3
+	fu8FAf1WMzU2swSqFuDqc2nBat3LrShz74ypoVfQLkJFlT695K5XznCIGY24TUcmfn0HM2cWZjekj
+	SnBIFSTncil65SI4haN7Qs8SAkYYzRRnUWgd2F/QI4iX1HpzFkwXrtEgLehfTtBEbN7Zm5DNJ0YGQ
+	Jz1hqeztMYFW1rAkCIh3H4wBhXDjN1I3vb4ZPIYgXVBXDugkwCeHANHjc+tCPROtUuhISiWEpO248
+	gwyrZNYKlu0wDgzVN33uhCHEc9QfYqH2JUHfwBq2HrCPHiBS5rNBHvII7UEoGQud6KIdwV8ItuEFr
+	RCLNv4Tw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubJGJ-00000002InQ-27wc;
-	Mon, 14 Jul 2025 13:30:31 +0000
-Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1ubJIk-00000002JKw-43jV;
+	Mon, 14 Jul 2025 13:33:02 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubJ4X-00000002G2k-0KG5
+	id 1ubJCh-00000002Hx4-4Aj5
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Jul 2025 13:18:22 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=hH36dRCACI+frL812V/XOWet1fgJIKxKIKXEA/KamIQWqAt9ZuDUm4P2OXRPutSW8t+Qe5ecAfmcX4t4+vOPmjqRGHmN4h4fARaxQ2ERFjWHDOdhPk6LcchwGTV7ouzLmswt/zO6ChXXgin5E6PhN1QMXWf4D6N/WBKs4TSLf5YPzjzL+FIiqZFWI/pVL9kaLRdjkQztACZ7MGT70SoeOEwsqRmot40pBzurl77z/46K6sfJRWE1hj0zlEHPNpsv2ik1lye94+M+RciJmApX3M3HdQG9tV1cRHeoudtYATL/iCy1URKA/ejgClhV7Jdp7OlE6Ib4NzSpLkpVgIjLig==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=dil5TX9HIIpjoUEnlnBWkseYdYh4ig2uIHYsr0IAQD4=;
- b=xqcKlCC/xhWtbfAQX8FVw5vZIMC4JwHf2y5LB55xoKDbKAur5Vs2qyj5bE6eOzwew4mAgTnGl01oqbVIgcvhzFe1g+Jeg2EZkkw+tDWMyaD40p79yZiYdrVK8sv8ImRmxbyP/zcNgkszHQMAmGoiotpMn4ljptPehjct4Cw1aARtWiKf62TbtS8mZ/G/1CfS78iuwHk/kL31i+gJeqGgM/gmFVutA2CbGYO83ypyRcC9gQXDMX/aosp4fRpXCO9od7ChLSXPpCf1HtgLiUkb3zREDrFL8nh7SivO0MfA8TD0yX90RSSWXyN0BHshYnqINBbK+6xG0QZNNWWtKGlHvg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=dil5TX9HIIpjoUEnlnBWkseYdYh4ig2uIHYsr0IAQD4=;
- b=b0Tj76vtKBEXb8j2I2O+mg6JfEq9xTjUpG2m7NOTyRwgTIAtyGir2Jsasz3bt0TpqpKgQpRJZPwqt4zDRGL1F8IPC/CVsKzkh2Gsib5+hk9J/ydJJ5yyBCp4hKIy/bplOFiXpppEf2be1ILulOvwAgFpTyFqEL0VYJXxBEDP3eVyuiPGHvffpEq63bB+PjfmPnU8zEgkGAKmyY9B2W9ClmewEI2+rSoyme59TktX1FWmrlCQBxOrjjddph8pSjIkJIeCeyq/BmgEQKf37Hm74B1FamuaIu8YupWa4eQQvm2xWfj111zEbTDm5qNX9PrUDE2FWpFVUJdjX0bpC/knKw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AS8PR04MB8868.eurprd04.prod.outlook.com (2603:10a6:20b:42f::6)
- by GVXPR04MB10084.eurprd04.prod.outlook.com (2603:10a6:150:1b3::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8922.32; Mon, 14 Jul
- 2025 13:18:02 +0000
-Received: from AS8PR04MB8868.eurprd04.prod.outlook.com
- ([fe80::b317:9c26:147f:c06e]) by AS8PR04MB8868.eurprd04.prod.outlook.com
- ([fe80::b317:9c26:147f:c06e%5]) with mapi id 15.20.8880.030; Mon, 14 Jul 2025
- 13:18:01 +0000
-Date: Mon, 14 Jul 2025 16:17:58 +0300
-From: Ioana Ciornei <ioana.ciornei@nxp.com>
-To: Michael Walle <mwalle@kernel.org>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Linus Walleij <linus.walleij@linaro.org>, 
-	Bartosz Golaszewski <brgl@bgdev.pl>, Shawn Guo <shawnguo@kernel.org>, Lee Jones <lee@kernel.org>, 
-	Frank Li <Frank.Li@nxp.com>
-Subject: Re: [PATCH 4/9] gpio: regmap: add the .get_direction() callback
-Message-ID: <sbvgkepshytjklww6ifttbeg5zg6szlp43qsi75zwkstcgffqv@gritt6czkkej>
-References: <20250709112658.1987608-1-ioana.ciornei@nxp.com>
- <20250709112658.1987608-5-ioana.ciornei@nxp.com>
- <DB7M5DTXEACR.3N7DO1DM0PZB1@kernel.org>
+	Mon, 14 Jul 2025 13:26:49 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 4FAE25C43B5;
+	Mon, 14 Jul 2025 13:26:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0F583C4CEED;
+	Mon, 14 Jul 2025 13:26:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1752499607;
+	bh=F0h9qPfS1IFEzVFRGzECq3FkHstZL9RWV6sL0z924sM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=qw1miNrNBh0wkTZ/anfy7aGB7/NfB3gC2jbI1iY9RGdvO/jyibOW8mHgITKi/WHqR
+	 9oruhqtRVHi/HQFfXtVrXuYJ8tZSUnO4DVdS2NHst28qKNxNDDzU6WK5nYKhHQJYVb
+	 uowtKbBVr9JRIUntIH7+S1lUBzaDpxa9otPil7K44hjlPzCqul67n3QFd3ZGZczViR
+	 U+QDSKRGKRyVd5PIhDK8FPKGWsmsA9XaPAHHpeTvU5IVhI4905xdRra3VdM/HwM3UG
+	 KBpN/xFSGxOEZpAnqx2ouiyPiaYCl3uVQthDvJqmqbutytAYTgehiKk7kY17tExVdO
+	 uzSg3fUKz4cAA==
+Date: Mon, 14 Jul 2025 14:26:39 +0100
+From: Will Deacon <will@kernel.org>
+To: James Clark <james.clark@linaro.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>, leo.yan@arm.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-perf-users@vger.kernel.org, linux-doc@vger.kernel.org,
+	kvmarm@lists.linux.dev
+Subject: Re: [PATCH v3 02/10] perf: arm_spe: Support FEAT_SPEv1p4 filters
+Message-ID: <aHUFj9lH5bZwa4Z2@willie-the-truck>
+References: <20250605-james-perf-feat_spe_eft-v3-0-71b0c9f98093@linaro.org>
+ <20250605-james-perf-feat_spe_eft-v3-2-71b0c9f98093@linaro.org>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <DB7M5DTXEACR.3N7DO1DM0PZB1@kernel.org>
-X-ClientProxiedBy: FR4P281CA0115.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:bb::20) To AS8PR04MB8868.eurprd04.prod.outlook.com
- (2603:10a6:20b:42f::6)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS8PR04MB8868:EE_|GVXPR04MB10084:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6d326c9a-86e6-4601-06cf-08ddc2d8dbfb
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|19092799006|7416014|376014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?BuM6N7aXpoGVltmuCpm655L98NoeBVqTCjgrOVe5Tp7Mki2ItMFPPYzgf7fZ?=
- =?us-ascii?Q?g4oEzKWHxp0VJ0MYmk2YSJGo5Yj4YmzKf0qrvRDlSe3pHkpprZem9SdGVtMX?=
- =?us-ascii?Q?GtBogeq0OoWdiCECAUb4qShNm7dYhR6Z9SMSCKBIQG7g1jddo4A/+UEJR9qV?=
- =?us-ascii?Q?y5XtVVW6O92iTFI753FSOGN+jLtd+q6IquwX/8UuGm1K//4jP1Xk+ad3ViHn?=
- =?us-ascii?Q?YV552rjLZTslwSkNrduEe5X2wZSKnplTB3HaOofr4yX9dZ/BgsqS6cm+qaey?=
- =?us-ascii?Q?iR4nTFd1wF666YYORJidq4vx/30sJLV9LaSKqpGto0mpJWQfdOEzz+Y3KeCI?=
- =?us-ascii?Q?JwsKXCxgxWuk4irKl8w5bdq1+iTjOZ4ks8gmmCq/mzYLfKyz6LUR0WhVSgK9?=
- =?us-ascii?Q?2ILrvoo1x5+7eXt0QRL8aWFtOdHObDZI2lfR7cIxu0dQxx8MWEvljJlUSTy7?=
- =?us-ascii?Q?igz0UNZuwt4X89nE2RNOnsnzvEq9odz2jfemcJcWt8cd3Jr5B8fsEJBTE/P4?=
- =?us-ascii?Q?sTPkORQUhDeraz6zC6ZVERUtqatSsGoftcrf6SQaOvMFPKmLuAyZK8zD8dz9?=
- =?us-ascii?Q?sEtecMU7SbZPEJiHkKvedf6S09SnlnPCkw05p2G96+JSCuAjAWSA5jfE/GS2?=
- =?us-ascii?Q?I1hoFA3h9SXzhY1CrhyUIarzclISOuxiJxKcllVZKxKACPOUxO9P6EfWC51X?=
- =?us-ascii?Q?I13xkKGOD/WeVDBtxOtBZWkybK6552+F52t56xi++4M1R/mU471LOhLl7R1X?=
- =?us-ascii?Q?9PjDz1urDD3K6QTZIQRUG6NO7u6ertlq+XtcP1cPkLk9s+oGqgZT0cCfCaLt?=
- =?us-ascii?Q?n5AQV2AdLcYm4YSfzODPZ9Sfwe25imr2L1c1AD8gQHCOMi0scfHHiUj+JCEW?=
- =?us-ascii?Q?kuy6zaP6FpRk+IiRLMgMt1j6s5Wh4clOfVb7CHvHXSco6fK/uU83RzLyAzL1?=
- =?us-ascii?Q?lVLuIsRzs85dlTxWG9EWU6ZpwNNlEhPpLZSLma4q2SgYLi5YEWvDt60Lzm1p?=
- =?us-ascii?Q?gtFZW/rgIeXBe5eGjIUH0JSvat+xWEHCwyxTbU+p7yPNnCUZi2ZlscJLMzk7?=
- =?us-ascii?Q?n/dBU2FJHWRsHlnPbj3s6pvvqTJvnfdakJYERrjbjV47LSRkfDDcwNMSNhn7?=
- =?us-ascii?Q?5aEOVf779yMHqYZK50a19ik5GOwN/Ma0aKY+06tfbNyCzYhCqnIC1ijvCdSK?=
- =?us-ascii?Q?olO2SlylUC+hXRTXUFG/h0l3Vys4cfoQLs8dEcCi6rH6iDgIB7VXtNT1upj2?=
- =?us-ascii?Q?eMwPuOjXswK5IQooKc+TldIGwhFty2/H9eCiAdMZtt2g02GekPNVYdhQjwvg?=
- =?us-ascii?Q?t7A7aKlwuqX1E1THOnrq5WxASWIU2HgXF8466rS6cAdzh6QWG928/KS55cfz?=
- =?us-ascii?Q?aRUi5U7kmBsKitb/0aGJhkOfzaPtG537q+j9Va7vYbkHC0exYElFISvPVEB2?=
- =?us-ascii?Q?FYevuv+XeIQ=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8868.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(19092799006)(7416014)(376014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?L2UdJR60YlLTDaf60UhKv1imYvezq7Jb8dlcwp17xkgi9hEKsQzIBmXNEmZP?=
- =?us-ascii?Q?54Xo/x0XZspx/TIeNt166YeaglhyGCAI0/okAU90v2hX/NR1VkgmstmXsKs7?=
- =?us-ascii?Q?1ncFZkhwXXWmFe5tDWv3SVLwukTudQlK5VO/rG3+AR8ZsdeHW5RwiLs4/xqJ?=
- =?us-ascii?Q?wlJWQ47Q48VwU8qedntSEouP9YsX6TWhlkolkSK+1ZOfpgj7kIW1DfKd/R8L?=
- =?us-ascii?Q?s/QIpabQjmYqlied1pSbYN81sR2ALUss2vgpV6OENox+bfYdLcd5l+tNHwAV?=
- =?us-ascii?Q?ZqRDUf04Bp3vj9J/Iu/1IHoZl5ZTnfGyi2CIQy9SC2hY2l2OVlD1Da8Yme5v?=
- =?us-ascii?Q?FlmKq4jOY61hQAjSoGPVEQvIuxtmzJXz8ybahQMn4GoCP9IDL90Bhjoah/Et?=
- =?us-ascii?Q?wmUlzPiwIqYCI5XDQ0y9ZSkPN84DzB0iOIqH01GSNLGjJejHyU/i0IGrRbqJ?=
- =?us-ascii?Q?iQo0AN1JWNhWFAi/03sZFUW6o0ybNrR88ozBCfKiws8AzY/f296C63KB34Lf?=
- =?us-ascii?Q?Lx6ySsXE4edi0C1LNr4yTSnV0KmYWeluprX4CuOpFA6Ib/075LHfIbNraXDh?=
- =?us-ascii?Q?WhXtBCvx4bfFGhh4/3o/zbr+uMiAdFfIm3/fQ0793GuIyxjMrohuXAQjVWu4?=
- =?us-ascii?Q?EoMtAY4N24EdgO7jHySIZwWzdbVyDG177vGJKmK4OIYxUhNCuQGSIhBOnf8W?=
- =?us-ascii?Q?o+AFheQDrDH9aDYs3p0ZZ4su4ycQL6yeTWUGjDg9FDWcoxuG2YHgP99QEVPI?=
- =?us-ascii?Q?7js7PNh/TcXikKEsQkLWTtCXa9BpRrTV2DEIfVPyY9sxKGFt+LuHV7qSugEO?=
- =?us-ascii?Q?/yiPSllUjJFoae6akMyGxK6u1GAMx4llsTtjM4H8QqmxwwYavEfmLxHgJMkw?=
- =?us-ascii?Q?hD9UtH0j4VK4GjwXiP1KdBfF3DOy1eiyho9YznwQr2Cw6Co6xA/fpzEVmGji?=
- =?us-ascii?Q?0KhCKe/Sokeu63oOgCPoSmzX3KJHeLdytCx3AMpQQAyufyNugFwJDE2MFunh?=
- =?us-ascii?Q?3W8VKQlBhR3q2i9+2/p2wDIBrSGHvqwMZhECyiRJsFzZUuGyw0P22pfLanjL?=
- =?us-ascii?Q?jV+EUGgUg/AmhRLh/4XaOLNgYb/ev6aIAcqT0Yk3/mneDcFm7m5Q6Y1xYFIx?=
- =?us-ascii?Q?kmcA1PFne4Bgb3a/cBMqerGx0FIgdX3zqh4uRv7E4TSQrQXz83mpVPJB3cse?=
- =?us-ascii?Q?u2T7pfoncopfEz+ENwdabaBlvdJG4vv3hNj7JP+aouU3FggBwMbumWqYm2L6?=
- =?us-ascii?Q?0BSPrGbqdUHpMpuQyUrWG/YZiZ71gcfhRzKLoiYjUcSymlVHUeHT8hMvh6qb?=
- =?us-ascii?Q?eV2QYRGyccpW6/q8zp6CodPro8+NaRZ0epEukRYXj+js85fTRrbTvsWGfzKO?=
- =?us-ascii?Q?b8jcCEmfDl8yaCmBEeHUxUv1XBW1Brfo1qwrrlRRlmVIkUSfmT2LcwYX7Ntc?=
- =?us-ascii?Q?y5/pX7FJBOhjnKX0n72FWuKnNckSAX0bPfj3L0O45aXilgU9ohVM838N6sOl?=
- =?us-ascii?Q?Mh8EPRgVW/7dtV90qR7yjj2Ofo3S4o6mqEDyXGpSe66WwtlRWMYKsPu1eCJY?=
- =?us-ascii?Q?ASsWL821cMMZojAXWbDG4lRhNYJwf38Wi3vAgz+N?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6d326c9a-86e6-4601-06cf-08ddc2d8dbfb
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8868.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Jul 2025 13:18:01.8263
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: YPVxk1WuewvNpNQVzW7wZ1tYYIjJYnpXJ5R37X5Z4kyzbJ/IIVCHeifKDUkBILZsPOalHkkXR1rs1qefJlwwaw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB10084
+In-Reply-To: <20250605-james-perf-feat_spe_eft-v3-2-71b0c9f98093@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250714_061821_140429_85AF1D46 
-X-CRM114-Status: GOOD (  32.13  )
+X-CRM114-CacheID: sfid-20250714_062648_115938_9B8E822F 
+X-CRM114-Status: GOOD (  21.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,93 +87,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 09, 2025 at 05:01:38PM +0200, Michael Walle wrote:
-> Hi Ioana,
+On Thu, Jun 05, 2025 at 11:49:00AM +0100, James Clark wrote:
+> FEAT_SPEv1p4 (optional from Armv8.8) adds some new filter bits, so
+> remove them from the previous version's RES0 bits using
+> PMSEVFR_EL1_RES0_V1P4_EXCL. It also makes some previously available bits
+> unavailable again, so add those back using PMSEVFR_EL1_RES0_V1P4_INCL.
+> E.g:
 > 
-> great to see another user of gpio-regmap.
+>   E[30], bit [30]
+>   When FEAT_SPEv1p4 is _not_ implemented ...
 > 
-> On Wed Jul 9, 2025 at 1:26 PM CEST, Ioana Ciornei wrote:
-> > There are GPIO controllers such as the one present in the LX2160ARDB
-> > QIXIS CPLD which are single register fixed-direction. This cannot be
-> > modeled using the gpio-regmap as-is since there is no way to
-> > present the true direction of a GPIO line.
+> FEAT_SPE_V1P3 has the same filters as V1P2 so explicitly add it to the
+> switch.
 > 
-> You mean input and output mixed together in one register? At least
-> to me, that wasn't so obvious by the commit message, I had to look
-> at the actual driver.
+> Reviewed-by: Leo Yan <leo.yan@arm.com>
+> Tested-by: Leo Yan <leo.yan@arm.com>
+> Signed-off-by: James Clark <james.clark@linaro.org>
+> ---
+>  arch/arm64/include/asm/sysreg.h | 7 +++++++
+>  drivers/perf/arm_spe_pmu.c      | 5 ++++-
+>  2 files changed, 11 insertions(+), 1 deletion(-)
 > 
+> diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
+> index f1bb0d10c39a..880090df3efc 100644
+> --- a/arch/arm64/include/asm/sysreg.h
+> +++ b/arch/arm64/include/asm/sysreg.h
+> @@ -358,6 +358,13 @@
+>  	(PMSEVFR_EL1_RES0_IMP & ~(BIT_ULL(18) | BIT_ULL(17) | BIT_ULL(11)))
+>  #define PMSEVFR_EL1_RES0_V1P2	\
+>  	(PMSEVFR_EL1_RES0_V1P1 & ~BIT_ULL(6))
+> +#define PMSEVFR_EL1_RES0_V1P4_EXCL \
+> +	(BIT_ULL(2) | BIT_ULL(4) | GENMASK_ULL(10, 8) | GENMASK_ULL(23, 19))
+> +#define PMSEVFR_EL1_RES0_V1P4_INCL \
+> +	(GENMASK_ULL(31, 26))
+> +#define PMSEVFR_EL1_RES0_V1P4	\
+> +	(PMSEVFR_EL1_RES0_V1P4_INCL | \
+> +	(PMSEVFR_EL1_RES0_V1P2 & ~PMSEVFR_EL1_RES0_V1P4_EXCL))
+>  
+>  /* Buffer error reporting */
+>  #define PMBSR_EL1_FAULT_FSC_SHIFT	PMBSR_EL1_MSS_SHIFT
+> diff --git a/drivers/perf/arm_spe_pmu.c b/drivers/perf/arm_spe_pmu.c
+> index 3efed8839a4e..d9f6d229dce8 100644
+> --- a/drivers/perf/arm_spe_pmu.c
+> +++ b/drivers/perf/arm_spe_pmu.c
+> @@ -701,9 +701,12 @@ static u64 arm_spe_pmsevfr_res0(u16 pmsver)
+>  	case ID_AA64DFR0_EL1_PMSVer_V1P1:
+>  		return PMSEVFR_EL1_RES0_V1P1;
+>  	case ID_AA64DFR0_EL1_PMSVer_V1P2:
+> +	case ID_AA64DFR0_EL1_PMSVer_V1P3:
+> +		return PMSEVFR_EL1_RES0_V1P2;
+> +	case ID_AA64DFR0_EL1_PMSVer_V1P4:
+>  	/* Return the highest version we support in default */
+>  	default:
+> -		return PMSEVFR_EL1_RES0_V1P2;
+> +		return PMSEVFR_EL1_RES0_V1P4;
 
-Yes, that is right. I will update the commit message to make it more
-clear for everybody.
+See my reply [1] to Leo about this function, but I think we should just
+remove it.
 
-> > In order to make this use case possible, add a new callback to the
-> > gpio_config structure - .get_direction() - which can be used by user
-> > drivers to provide the fixed direction per GPIO line.
-> >
-> > Signed-off-by: Ioana Ciornei <ioana.ciornei@nxp.com>
-> > ---
-> >  drivers/gpio/gpio-regmap.c  | 17 ++++++++++++++++-
-> >  include/linux/gpio/regmap.h |  3 +++
-> >  2 files changed, 19 insertions(+), 1 deletion(-)
-> >
-> > diff --git a/drivers/gpio/gpio-regmap.c b/drivers/gpio/gpio-regmap.c
-> > index 87c4225784cf..dac2acb26655 100644
-> > --- a/drivers/gpio/gpio-regmap.c
-> > +++ b/drivers/gpio/gpio-regmap.c
-> > @@ -32,6 +32,8 @@ struct gpio_regmap {
-> >  	unsigned int reg_dir_in_base;
-> >  	unsigned int reg_dir_out_base;
-> >  
-> > +	int (*get_direction)(struct gpio_regmap *gpio, unsigned int offset);
-> > +
-> >  	int (*reg_mask_xlate)(struct gpio_regmap *gpio, unsigned int base,
-> >  			      unsigned int offset, unsigned int *reg,
-> >  			      unsigned int *mask);
-> > @@ -129,6 +131,9 @@ static int gpio_regmap_get_direction(struct gpio_chip *chip,
-> >  	unsigned int base, val, reg, mask;
-> >  	int invert, ret;
-> >  
-> > +	if (gpio->get_direction)
-> > +		return gpio->get_direction(gpio, offset);
-> > +
-> >  	if (gpio->reg_dat_base && !gpio->reg_set_base)
-> >  		return GPIO_LINE_DIRECTION_IN;
-> >  	if (gpio->reg_set_base && !gpio->reg_dat_base)
-> > @@ -163,7 +168,16 @@ static int gpio_regmap_set_direction(struct gpio_chip *chip,
-> >  {
-> >  	struct gpio_regmap *gpio = gpiochip_get_data(chip);
-> >  	unsigned int base, val, reg, mask;
-> > -	int invert, ret;
-> > +	int invert, ret, dir;
-> > +
-> > +	if (gpio->get_direction) {
-> > +		dir = gpio->get_direction(gpio, offset);
-> > +		if (dir == GPIO_LINE_DIRECTION_IN && output)
-> > +			return -EOPNOTSUPP;
-> > +		if (dir == GPIO_LINE_DIRECTION_OUT && !output)
-> > +			return -EOPNOTSUPP;
-> > +		return 0;
-> > +	}
-> 
-> What is the intention here? Shouldn't there be just a .set_direction
-> op and if there isn't one, return EOPNOTSUPP?
-> 
-> In any case, that is unused code for your driver as far as I see,
-> because you neither set .reg_dir_in_base nor .reg_dir_out_base and
-> thus, .direction_input nor .direction_output are set within the
-> gpio_chip struct (see gpio_regmap_register()).
-> 
+Will
 
-Yes, you are right. I did want to return ealier an EOPNOTSUPP to make
-sure that in my specific case no directions would be changed. But that
-is not needed indeed since, as you said, I do not use .reg_dir_in_base
-nor .reg_dir_out_base.
-
-I will remove this in v2.
-
-And since we are on the subject, I will try out Andrew's suggestion with
-giving gpio-regmap a bitmap to use directly.
-
-Thanks!
-Ioana
+[1] https://lore.kernel.org/all/20250707-arm_spe_support_hitm_overhead_v1_public-v3-0-33ea82da3280@arm.com/
 
