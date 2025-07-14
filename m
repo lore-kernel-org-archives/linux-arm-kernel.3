@@ -4,89 +4,142 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9752C83F1B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 13:18:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36ACBC83F1B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 13:20:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=EY/NG2nHnV92BHijz9klsk+toPjE4xsvjwjRWHy7y+0=; b=K0EqRKJzkZG+ica+nVSRxLbw03
-	4+4pc5wq+bMhNwP7gpLoXfDq9ddXZVPEylt4DBJIQ9M6T+1OGANKhyImHwFUG1JKnto+OIEavltxl
-	5ukboLoVZVA9LK8VG/5NjtNEaW5CTwT+gT9Z13HcKLVTOt1Vm7y6Tcs0cf8BKzQ9DzY3Ijuq7B48q
-	FucHaE+pQUVPEalNQxNhP3b1CzffBzuSTjR5Ix/eDGzgUDLrnpRN4ervJFpFsIxKnQFyUD4JULG0W
-	XcxFOtbBUCF4Kt2qlQ+G4/DxUMgmIDChFYfq7wxV0Xq05cH0Dg97YzlKnaWtGS2xzDgXYgO8fGuek
-	gOwlH+zg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BrzRIUHmvCSlZ+LIj286Iuv4w6Sy7CldafzzCelSpIs=; b=D+sxzxc68s2UiEFDspuhzd+tzN
+	29dR7MioNmmWQuAsN+/pnglmd+D1FkE1eMTg8ANtXbeJxHzl9QhpV26IU9jSRlY9SggKdG87vuYhU
+	VU/cJAi8JAU5nArGhbzgHmdBwhUhZz0wE3M4XXS+YRJglXhznRj+BmuIY6J4DXaT/sYR29I7hxEQG
+	NAqReY3l4XiDyhi1YEkjZhEnJ7MYNUM8SYnUMSuMUzeJVVYBoJmhr49zVeQk2pSLPH9bNVxDwv5ru
+	St00Vcbyoo3nRH+1x74aqIV0NsrsbbYqekB9ifFPizlINXEuKDU88jVmgLYeqb4gLSXVEX4vpWDrP
+	jv75OLGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubJ48-00000002Fxd-1HoF;
-	Mon, 14 Jul 2025 13:17:56 +0000
-Received: from mail-ed1-x536.google.com ([2a00:1450:4864:20::536])
+	id 1ubJ6Z-00000002Gam-0C6H;
+	Mon, 14 Jul 2025 13:20:27 +0000
+Received: from mail-japaneastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c405::7] helo=TYDPR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubIRh-00000002Bhm-227A
+	id 1ubIXj-00000002CIp-2Bnj
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Jul 2025 12:38:14 +0000
-Received: by mail-ed1-x536.google.com with SMTP id 4fb4d7f45d1cf-606b58241c9so7105122a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Jul 2025 05:38:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1752496691; x=1753101491; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=EY/NG2nHnV92BHijz9klsk+toPjE4xsvjwjRWHy7y+0=;
-        b=jsp5lCe1h3LpVR61078WRX6iNZwLrb7hbiDN5IG+wQnh8yuy0JA119DUFk+N3jjxIm
-         6D4ll1gIfBHV/Mf2EjIVuKG7XsMDyHnCUdZMEtUpFIQXpL8YPui1xhOAoIUxVCibSZxW
-         1BH6BFk35QOmLj7C9j0ed2Cf6UmgIaYN+eBbfLZ8HkruKCuh30yIuVfmmfdrNbdggtqp
-         HQLEOpLsrfmvx209DdMVRSD/0gvN/WmiF8Np1F/etNou4jYTNdlgdHfxp7gryKoTh4qW
-         EG2sk4Dg+dZ3m3KQKt+Xy/Wk0nthjgBgaavj8qjopZyjR27Zh/pWXzY/J03mTLf1UNZw
-         RJ7A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752496691; x=1753101491;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=EY/NG2nHnV92BHijz9klsk+toPjE4xsvjwjRWHy7y+0=;
-        b=hk7CUwnMpRjDTORkz52T8Q2KuAcOETdY4At+/g7cdylse3hoJbkJez7FERXcq4XOUx
-         hTmtdaR6ttpF1nbXACu9W6ipPwdddrK/83CrPqfF87oUiO6/02SQsjyVc++37BveiOV9
-         jPEfqVwhYea40FgoDkwx6pOULQREUti9cWNKshNhzP7KMidlXeOXfa9bNQZMD3G6mxmq
-         iVy6aeXKD/53Qip+Z2gIkCYrfS+9716bxG9tDfER8lwvgEsWfAV4000Mtkr+ovKUnjwc
-         5VUUp2MVjjVgNlQzwI7p78ubjDBboTJsfScXOjWcH44DkOrDpHMvzUzxuGjfYokxK+ZM
-         PGTw==
-X-Forwarded-Encrypted: i=1; AJvYcCWPT5GvVnlzeePnDr+zeq7Y+BPPtpq0tBUa9f9N755e4fbWzR7OPVnFvT2+ERFHCtf//Czmbi71G0oOpd8JrtHz@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy8POg0snmK+Oto/vENe4WiuzzK+AA79yWtCl5CRrz2dcD49xy8
-	NYDQwQdEZFaRQEYlQ9A3tcO2zOUdi0IfW04tmDEedf3S75046mz844F+hqWswg==
-X-Gm-Gg: ASbGncvDqE5rDPjNshg3/3KqZRr8fCZ89KiAb2PfHvH3R1AGqo9Kn6mINv/H7Ew3lV6
-	sqIDJUELEN2NiMgqSFQFAtXwhMO8vni9WqyeoxWlch7uDFUThbao6cBqPRgH2CuQsgXUM52D4N9
-	HnOGTtqtXNHSstZ74TWnVlH69az8L7sWWZVYCQEiPLqizpXdg8XmgFz+9owDvq6q9jdrAHQFaE5
-	Ig5AyFl5RSXCAnM2rnh67Cdd8Uw9gzmsUMWAKb5hFfHzOxsC7Zitol5tdaagogIZObXu18e2Z69
-	iPGATO3b/ln5Je2DgZyQYoMlRLokzZ5SmQwRDYD+lQuUlIFG2bpwwqS/St63rNzVZhos64TWycu
-	KBvr1ePXE4OhRqo0cRaFur+l3/lIPiFzWujhHEKExRJF2BSgVeVTiDI6Q
-X-Google-Smtp-Source: AGHT+IFJP4cB80pxWE0x40njp9Ls1ssVpAFwjW00zYJz8lfNZnZohc3hO+AUezRssWB3NbpYRZaVBQ==
-X-Received: by 2002:a17:907:930c:b0:ae6:a8c1:c633 with SMTP id a640c23a62f3a-ae6fc1fae79mr1276473766b.34.1752496691220;
-        Mon, 14 Jul 2025 05:38:11 -0700 (PDT)
-Received: from playground.localdomain ([92.120.5.7])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ae6e829402asm805005266b.121.2025.07.14.05.38.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 14 Jul 2025 05:38:10 -0700 (PDT)
-From: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
-To: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
-Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
-	linux-pwm@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2] pwm: imx-tpm: reset counter if CMOD is 0
-Date: Mon, 14 Jul 2025 08:36:34 -0400
-Message-Id: <20250714123634.6442-1-laurentiumihalcea111@gmail.com>
-X-Mailer: git-send-email 2.34.1
+	Mon, 14 Jul 2025 12:44:29 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Zy16s2AFuM16tK+TgIMugAlQqzi88S+f+zPyB3qKE4dQqENIyjUoaHgmtEdzF+P1lk/0T1uscG2wAdEYMan2psEyMWXZCajsmV3wM5oRnpaV3Q2sjtCJ+k3+dRWVwmEDAg2Ql/wzZrG4IX4zPjUOhLETjzupo+u/xo1wFYYtgY8Gzy+JaQrg3nJBtyiiLY7/r686VS1gdsCS3PBcBnekeZ3fT2y60TytTAFm2QW7Xn6BrQNO2XvaWa1MCLehB6rO7xt/QMhi8Px0/x7oSgD0yOacoA5nh1vrQ/qByxVYw+g4aQxI6K5CVspe2Sy3KrVtS/rhLqxmcQiLRl6+Z//koA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=BrzRIUHmvCSlZ+LIj286Iuv4w6Sy7CldafzzCelSpIs=;
+ b=KCgNQKJMIYg0HP/ESC5sZIFKxUMMxSepozSRtqfgONyiN4EUgv/9FYivyGct1tItvd4s442k2/QERxnIdjvSs3nh+T+BH+/rlXVkRdR0btHCUfc3fN3f1+1v5wDMfF60yvyGeNzsaNfgFnkRu7C/BrZgRxRpe5/QqZaQWSBeMd549CWxJI0A0jJVI9hiOS2FsqdVHBNEkxjZcWfHnetwm0YuAB0A5GBtda5nYTCklyk0MFIzo94g/GZK6QRyF882z9WwwuhetkiS+0MOWFxPyudWYtrL4Cm6elzYb9Mok+ffYSTGRADhn/jzcnf14sG9JVaBkw5mRIZ2IMjRzGywlw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 222.71.101.198) smtp.rcpttodomain=arm.com smtp.mailfrom=cixtech.com;
+ dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
+ not signed); arc=none (0)
+Received: from TYAPR01CA0018.jpnprd01.prod.outlook.com (2603:1096:404::30) by
+ KUXPR06MB8032.apcprd06.prod.outlook.com (2603:1096:d10:4e::11) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8901.35; Mon, 14 Jul 2025 12:43:56 +0000
+Received: from OSA0EPF000000CD.apcprd02.prod.outlook.com
+ (2603:1096:404:0:cafe::a) by TYAPR01CA0018.outlook.office365.com
+ (2603:1096:404::30) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8922.32 via Frontend Transport; Mon,
+ 14 Jul 2025 12:43:56 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
+ smtp.mailfrom=cixtech.com; dkim=none (message not signed)
+ header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
+Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
+ 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
+ client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
+Received: from smtprelay.cixcomputing.com (222.71.101.198) by
+ OSA0EPF000000CD.mail.protection.outlook.com (10.167.240.59) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8922.22 via Frontend Transport; Mon, 14 Jul 2025 12:43:55 +0000
+Received: from gchen (unknown [172.20.64.84])
+	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 04F8140A5BD6;
+	Mon, 14 Jul 2025 20:43:52 +0800 (CST)
+Date: Mon, 14 Jul 2025 12:43:51 +0000
+From: Guomin chen <guomin.chen@cixtech.com>
+To: Jassi Brar <jassisinghbrar@gmail.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	catalin.marinas@arm.com, will@kernel.org, arnd@arndb.de,
+	Peter Chen <peter.chen@cixtech.com>,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	cix-kernel-upstream <cix-kernel-upstream@cixtech.com>,
+	maz@kernel.org, sudeep.holla@arm.com, kajetan.puchalski@arm.com,
+	eballetb@redhat.com, Gary Yang <gary.yang@cixtech.com>,
+	Lihua Liu <Lihua.Liu@cixtech.com>
+Subject: Re: [PATCH v9 5/9] mailbox: add CIX mailbox driver
+Message-ID: <aHT7h7/5Ip2dDJ4O@gchen>
+References: <20250609031627.1605851-1-peter.chen@cixtech.com>
+ <20250609031627.1605851-6-peter.chen@cixtech.com>
+ <CABb+yY17OOBx73655OhBp8At1b81w9M61zzGu4uhXcMTw4Q=Dw@mail.gmail.com>
+ <aG0i75h32dWg/L2G@gchen>
+ <CABb+yY2BmqiQ18hU+7C234UnY8n-8PH5VEoS7nH5Xq5O1krGhQ@mail.gmail.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <CABb+yY2BmqiQ18hU+7C234UnY8n-8PH5VEoS7nH5Xq5O1krGhQ@mail.gmail.com>
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: OSA0EPF000000CD:EE_|KUXPR06MB8032:EE_
+X-MS-Office365-Filtering-Correlation-Id: 29b2adaa-76ca-415b-3412-08ddc2d41870
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700013|376014|1800799024|7416014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?UXZNeWRNU204ck03Ukk2YmV3eFhtUTdUc3lGNTk4cS9PbmMxZVdmd1k2RW1a?=
+ =?utf-8?B?SUZuT2djWTUxbkJUUmd4ajZxbGd5MGdNbmwvWitKQ3N0bDdneUZ5c1c4N2R4?=
+ =?utf-8?B?RmVSQXYyTTJOcUVZQzZYeWR4T0ZXNDVGaEs4amR6STkyZW5TeW9aUEtDTDNK?=
+ =?utf-8?B?WXhKVjNjRUlpSWZ4eCtKaGlaNTBuTHVTRHc4cG8wek5qNTlzSEI1NzhnQk80?=
+ =?utf-8?B?NHVyNExQNllVR2RjRFlrNitCVkNlYVhHSGZxZ284NUM0cEJFNEtxOHpZUEJp?=
+ =?utf-8?B?Q3hCdlRSek1oL3V0M2NLYkorVS9KMUNtQmtoOXNMekRxdzl1bG1YdHF5SWF4?=
+ =?utf-8?B?a0tQNVlVR2NtNnJZQ25ZRlNnZWRTSTFTY2g5UWFHVHluV1I4TXJnUFVUWTcx?=
+ =?utf-8?B?RUF1UDl3elIwdGxOendQRGw1c29zcVlmK0dkc3hJaVlaSEI2V0YrendBQVVr?=
+ =?utf-8?B?RlVXU0VzWUN0S2FXQVdvOUhKU2hma0xKbjdYbVd5dkpaMDd2UEJUS3hEQmND?=
+ =?utf-8?B?UXZjVkdDcE1ISTY2VGtoUXVQcUV5WmtCczdRRVpReThTRTc3Q1cwY3ZDd0xI?=
+ =?utf-8?B?TlFUTm1ETHlVQjBvR294eXZUaENEYmMwVFVpSHFqdUd0d3FCcXROTVMvUGxX?=
+ =?utf-8?B?d2J1NUthYnNrZDY4RGthTG5GczROektINnhLNmd4b2ZYTVhLNU1wUFFWOU8z?=
+ =?utf-8?B?elhlL1Y3WmdOcjF6MXg0eXFlWVVEdm15bGJRV1VPdkZLYk02cGcvY29MQ3hD?=
+ =?utf-8?B?akpLUCttNnBNSXNLVUs5RlVBeWEvL3JxVDc1aTV6NEUzaDYxbFVPb3lHSTNP?=
+ =?utf-8?B?SHpmWW9pcElIQnlZek5SUCtJcWFUcHlTQmRoVWc0SFArNEJ6bENveUxCQ0Jx?=
+ =?utf-8?B?QXhPSDF6bDFTL3J4ZWlaYXJFVjZTZzNsUHJiNGZYMy9SamQwNmg0d0QxMXhz?=
+ =?utf-8?B?Z1RjcGtLWFRGNXV2V216blFUQ05qNGNCaDArN1ord0UwQlQwR3Mrc1c3cFFx?=
+ =?utf-8?B?cU9ud3prUWdQOGI0Zk4vaGVwdnJqTTlHUzVsZ3J5UUtRQWduODNZMG93K1JN?=
+ =?utf-8?B?YVRQcDFsbnV1dnNHbytyaERtR2V4L0JnVkZTVkFkZENlK2krRkVEdlJaOGVa?=
+ =?utf-8?B?RCtKQVBpeUZjSEpKN0EzelBpejVmb1ZkMmJDVStLWnFSTERFMURleTdta0dJ?=
+ =?utf-8?B?eEROZDd6RlQ1bEg5aEJpS0EzSGJCUXlPalJUTlBkS2RKQVJQM3lVNFUzaDJX?=
+ =?utf-8?B?b01rbENQUUFuWVdsenk2ZzR2Ui90SWVZNHg0VWIzTytEbEhxTitaMFhNQmRr?=
+ =?utf-8?B?b1lhQ0VZMjUwUWhTYTFLLzd5UE1DQVp6N2djNDh4VG9HSWRrODNybFpya1dy?=
+ =?utf-8?B?bmZmNURsTzFWTllQTll5VWhHSEJUYW9QeXhTa3lwbUlpenIvNWZCMm1MNlpl?=
+ =?utf-8?B?Zkkyd2M5VmJWWWJ2NGJLazJZRWdkcFN1b212T25qWDFDR1ArUGVBb0JHRms2?=
+ =?utf-8?B?WUJpbFRabE0ycXNzNUdHOStiYWZxY2c2UkRXeGVKRkdSdXMrcFI1K1MxNm81?=
+ =?utf-8?B?K3JuSUVBbVIyV2hQOWZ2UDgybkJSV2g4aFBVMC9ZRHIycW45NXhvZ0dlZ1hu?=
+ =?utf-8?B?bU9BeVAzMVl5NDd5QTloeUVzMzBta0oycGpkMzZQTHVsV0Nla0pTQ0JmWXp0?=
+ =?utf-8?B?TmhKYXJCMnB0RmRQQ3FKWW0zV1ZpMENibUlGTEZRNC91WmdGV2pNdkU0ZEpJ?=
+ =?utf-8?B?dlBhVjNBL1pDbjl3dVZtNDJ3OExEZEJwQkZtempsakJyaC9BSnoxelRRR1ht?=
+ =?utf-8?B?eUNvNTdYRUhvVWlSKzlvUlBTanlCeGN4NHRGUTRzL1RIYzg1RzZiaGlHeE9w?=
+ =?utf-8?B?QTdvMEQ1STBwYW9OSGVNSWVBQmE1MGUwOStmTkdSN3B3WGk1cEdEdHYwY3gx?=
+ =?utf-8?B?VXRlYWZvNU9tRTBLVHVNRjRkSDBrOG1HWWNhdFQzK1VDZ1BtTE14VkhCYWJN?=
+ =?utf-8?B?VGY1alZXakMxaml2R1czYzhyUGhmSFZrSzI3VTBRaXdFWG5LWU9Ycm9ENHo2?=
+ =?utf-8?Q?b1cg7l?=
+X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(36860700013)(376014)(1800799024)(7416014);DIR:OUT;SFP:1102;
+X-OriginatorOrg: cixtech.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Jul 2025 12:43:55.3064
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 29b2adaa-76ca-415b-3412-08ddc2d41870
+X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
+X-MS-Exchange-CrossTenant-AuthSource: OSA0EPF000000CD.apcprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: KUXPR06MB8032
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250714_053813_528474_A8FE832B 
-X-CRM114-Status: GOOD (  14.47  )
+X-CRM114-CacheID: sfid-20250714_054427_562551_FCED463F 
+X-CRM114-Status: GOOD (  36.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,60 +154,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+On Sun, Jul 13, 2025 at 12:00:06PM -0500, Jassi Brar wrote:
+> [Some people who received this message don't often get email from jassisinghbrar@gmail.com. Learn why this is important at https://aka.ms/LearnAboutSenderIdentification ]
+> 
+> EXTERNAL EMAIL
+> 
+> On Tue, Jul 8, 2025 at 8:54 AM Guomin chen <guomin.chen@cixtech.com> wrote:
+> ....
+> > > > +/* [0~7] Fast channel
+> > > > + * [8] doorbell base channel
+> > > > + * [9]fifo base channel
+> > > > + * [10] register base channel
+> > > > + */
+> > > > +#define MBOX_FAST_IDX          7
+> > > > +#define MBOX_DB_IDX            8
+> > > > +#define MBOX_FIFO_IDX          9
+> > > > +#define MBOX_REG_IDX           10
+> > > > +#define CIX_MBOX_CHANS         11
+> > > > +
+> > > if it is not really a single controller owning different channels,
+> > > maybe implement only what you currently use.
+> > >
+> > As mentioned in the previous email, a single controller can support
+> > multiple different channels.
+> >
+> OK. I am not too worried about having all variants in one driver esp
+> when it is manageable and share the code.
+> Unless I am overlooking something. Arnd?
+> 
+> 
+> > > > +static u32 cix_mbox_read(struct cix_mbox_priv *priv, u32 offset)
+> > > > +{
+> > > > +       if (priv->use_shmem)
+> > > > +               return ioread32(priv->base + offset - SHMEM_OFFSET);
+> > > > +       else
+> > > > +               return ioread32(priv->base + offset);
+> > > > +}
+> > > > +
+> > > use_shmem is set for only CIX_MBOX_TYPE_DB, but it affects every read/write.
+> > > Maybe instead adjust the base for TYPE_DB?
+> > >
+> > The reason we introduced use_shmem here is that we had to adjust the base
+> > address of TYPE_DB to resolve the reg conflict in the DTS.
+> > This change has virtually no impact on performance.
+> >
+> Yes, I can see it should have no impact on performance and I think
+> adjusting the base once
+> during init is cleaner than checking the flag every read/write.
+> But wait... use_shmem is a controller wide flag, and isn't
+> priv->use_shmem always set to true  in cix_mbox_init() ?
+> Is the driver even tested?
+> ....
+Yes, we did perform testing before sending out the patch. 
+The test here shows no issues because there aren’t more clients. 
+There indeed exists a problem with priv->use_shmem always being set to 
+true in cix_mbox_init(). 
+So I will add a restriction in the probe function in the next version.
 
-As per the i.MX93 TRM, section 67.3.2.1 "MOD register update", the value
-of the TPM counter does NOT get updated when writing MOD.MOD unless
-SC.CMOD != 0. Therefore, with the current code, assuming the following
-sequence:
+> > > > +static int cix_mbox_startup(struct mbox_chan *chan)
+> > > > +{
+> > > > +       struct cix_mbox_priv *priv = to_cix_mbox_priv(chan->mbox);
+> > > > +       struct cix_mbox_con_priv *cp = chan->con_priv;
+> > > > +       int index = cp->index, ret;
+> > > > +       u32 val_32;
+> > > > +
+> > > > +       ret = request_irq(priv->irq, cix_mbox_isr, 0,
+> > > > +                         dev_name(priv->dev), chan);
+> > > The same irq is requested for each channel. How do you expect it to
+> > > work? Maybe request it just once in probe and pass the 'priv' instead
+> > > of 'chan' , and in the cix_mbox_isr handle according to INT_STATUS
+> > >
+> > For the same mailbox controller, there won't be multiple channels
+> > simultaneously requesting the same IRQ, so there won't be an issue
+> > here. As you mentioned, if we need to handle multiple channels working
+> > concurrently in the future, we would need to modify cix_mbox_isr.
+> > However, that is not required at the moment.
+> >
+> Is it too hard to do it right already?
+>
+We haven't set the IRQF_SHARED flag here because there is no scenario 
+where a single mailbox controller supports multiple channel clients simultaneously.
+And, the ISR still requires the channel as an argument. 
+While this approach does not support multiple clients in parallel, it does allow 
+for better sequential support of multiple clients.
 
-	1) pwm_disable()
-	2) pwm_apply_might_sleep() /* period is changed here */
-	3) pwm_enable()
+So we have placed it in the client's startup/shutdown lifecycle rather than in the
+probe function.
 
-and assuming only one channel is active, if CNT.COUNT is higher than the
-MOD.MOD value written during the pwm_apply_might_sleep() call then, when
-re-enabling the PWM during pwm_enable(), the counter will end up resetting
-after UINT32_MAX - CNT.COUNT + MOD.MOD cycles instead of MOD.MOD cycles as
-normally expected.
-
-Fix this problem by forcing a reset of the TPM counter before MOD.MOD is
-written.
-
-Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
----
-Changes in v2:
-  - dropped the "VERY IMPORTANT" bit as per Uwe's suggestion.
-  - Link to v1: https://lore.kernel.org/lkml/20250701220147.1007786-1-laurentiumihalcea111@gmail.com/
-
- drivers/pwm/pwm-imx-tpm.c | 13 +++++++++++++
- 1 file changed, 13 insertions(+)
-
-diff --git a/drivers/pwm/pwm-imx-tpm.c b/drivers/pwm/pwm-imx-tpm.c
-index 7ee7b65b9b90..b15c22796ba9 100644
---- a/drivers/pwm/pwm-imx-tpm.c
-+++ b/drivers/pwm/pwm-imx-tpm.c
-@@ -204,6 +204,19 @@ static int pwm_imx_tpm_apply_hw(struct pwm_chip *chip,
- 		val |= FIELD_PREP(PWM_IMX_TPM_SC_PS, p->prescale);
- 		writel(val, tpm->base + PWM_IMX_TPM_SC);
- 
-+		/*
-+		 * if CMOD is set to 0 then writing MOD will NOT reset the
-+		 * value of the TPM counter.
-+		 *
-+		 * Therefore, if CNT.COUNT > MOD.MOD, the counter will reset
-+		 * after UINT32_MAX - CNT.COUNT + MOD.MOD cycles, which is
-+		 * incorrect.
-+		 *
-+		 * To avoid this, we need to force a reset of the
-+		 * counter before writing the new MOD value.
-+		 */
-+		if (!cmod)
-+			writel(0x0, tpm->base + PWM_IMX_TPM_CNT);
- 		/*
- 		 * set period count:
- 		 * if the PWM is disabled (CMOD[1:0] = 2b00), then MOD register
--- 
-2.34.1
-
+Thanks
+Guomin Chen
 
