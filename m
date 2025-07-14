@@ -4,100 +4,173 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E5D3C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 21:37:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3522AC83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 21:58:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Xjsur9DLBO9lraNK3jQ4gyxveT6GDJ/WoDBpZ+ezdw4=; b=hoIKIeH8ieMAxw+0BVOqrUNUZa
-	7IttSakykU4RBIdU9mW2ZGaNqYwGYBJTltb/dYTwUw45P5aOxNWn9fNLFXFwbzUDY+svpRbPX806k
-	1dPvBeOycE1cPqIi9Rtkg0CLlBgZTYkYQgCUbtay5D7PfyJDKQux/lsXtlCN9zPgw3BQ38lcnLJCh
-	TGfOlbLe/7/UKRglO1sj1Z7IMujgHhPQvl5IrRCk/MrJDYSx2CgMKBlOuBAraRM2kIBr6XMI7xg1+
-	TdyDWfYowsUa0no9onm3H+cf9sqvD3DigdJLNNZZKqvOZZ9f8qvB9BAeM131BHqCZRI55TJAQtBgd
-	TpFf4WQw==;
+	bh=MHmXGO4AkzZpC9hJ9+n0pSuChs/w2fSqZxudNrG26pA=; b=vIN2S/cfAxHqFMkmvv3MCFoXKa
+	e/BLJU9EVe3+L9bspbtMigVK6fNIoxdBARg8xxQcYHnxvIAr3hJx8TtixiO7FnZ6x/8FVfhHzFaHm
+	eJoeapGoxXuSbocXAAR3PVHik8ZfZJ9kPE2JJ+M0Z6tdUHuVgwMfYfpYr+7b7nfqfR7Mla6MI+nVl
+	IYxtulZBBLbowmktwa36xzKQdYXs/om01ZCgE+nh49Yxd+vJ5yUFjWbSdgHBPtj6Za9X/QHByWW5i
+	aVvMuaIfPGHjbSvpOt3f3saOoAX6TrUBlBqVuL0YRnSTUt1DRCxLpCFeCVk0OqZaEZMZuo4Wn60Ve
+	D3lmfKpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubQr5-00000003Jya-1cFh;
-	Mon, 14 Jul 2025 21:36:59 +0000
-Received: from mail-qk1-x72e.google.com ([2607:f8b0:4864:20::72e])
+	id 1ubRBI-00000003LO7-3S5x;
+	Mon, 14 Jul 2025 21:57:52 +0000
+Received: from mail-bn8nam12on2060c.outbound.protection.outlook.com ([2a01:111:f403:2418::60c] helo=NAM12-BN8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubQoe-00000003JpJ-4At2
+	id 1ubR8s-00000003LHm-1kD8
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 14 Jul 2025 21:34:30 +0000
-Received: by mail-qk1-x72e.google.com with SMTP id af79cd13be357-7e2c920058fso116022185a.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Jul 2025 14:34:28 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1752528868; x=1753133668; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Xjsur9DLBO9lraNK3jQ4gyxveT6GDJ/WoDBpZ+ezdw4=;
-        b=gb3KOb13Q4smK0dozYfokQhDBQ3sygCdNXfcRLzXmBHgjWKwePaM+lYdsxLO5KiXdG
-         L9fvwqRFmd7XV+kOawv0XRUjz3FeleYW+FavdMu4o1HhZoXOD6x/FyCspkuJxmsEETNU
-         c/PfS8zrXW892LqnNEh78kS1idoTmzz1D3CXbZbBrKDm1k7xBGPLJTeu9rKGhVMkFxTg
-         fTMrG0P+c1aKMY49k9Lt2pG4GtJJtU5Sji0QSEjVynLmMOKuMuqTGfKVmrP7NXeJe/aW
-         rkfA7Ypc0H9jLwSPYslW1LDLPZcExlHOgIK+p+K+EpP3s00i6PIdY78HkIAiUyc4NlbB
-         fk8g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752528868; x=1753133668;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Xjsur9DLBO9lraNK3jQ4gyxveT6GDJ/WoDBpZ+ezdw4=;
-        b=sCwtRU2jTn7PQlVu7Ey5x0RJUzoYDkVcYdVE1yGzaZkf/BkXUdrPtcgnHwDWYDi/zQ
-         VyVzufMpz0xa7eLvfrZSgck5m0JToSMLrjLP769DmvCrVyiAa0iegSrDZBbtUdfuRiMx
-         fN/8NXveTSBzNcp7FWFQgH3D3Ae5BHnmcb0+udW7VeEAsN+S4S8Rtez3NApbFwLXT1Wa
-         n0qtK7KEm4XaP7EkSmOb2k9kocYdN1iuXB6Fvon4VZsLmMEnmpEKtREug5X5LUaxpdVL
-         sAjwiZ7Nt3YKZc8i5xtVlXrRcnucbkE2/ivpruMPT9nls4X2yUfZvUlZaMtp4dtzov7Z
-         FwHA==
-X-Forwarded-Encrypted: i=1; AJvYcCUCVSvr9Dfduzu8u/UJO1IE7ySlMRo7WmG8iFZWbzwHZEoR1ijEXRh7oTiS5xfkJoWEw9WT2hlR+FslYlW70ljK@lists.infradead.org
-X-Gm-Message-State: AOJu0YzGsegpMaoYiP4No5ddX4okS3ZRDPhAV60OYlPAU0u1SmFNB5Zk
-	hqeyDze2eRImCYwdMCI5MKx9hn9zPfjq2QrS45ZoZwLtJR4v/HSlzsSIhuznnwxl9M0=
-X-Gm-Gg: ASbGncvEwwkber19JDRe6Px5XUyByH0uoXtqmdIiivp/3Opjr+wdAKmy5S/xhMTOrTh
-	89n7S0c9a8ucM+sXuHi9H1FNvJxCquzgTsJs5F+kzeG/Jx4ENQwiVRPmN3YsAAEes+YvbSC0+Tv
-	K6i6AEvdK1hh8YcUee9htWi8ZA2RYVVBIj/cABcKkZOQyYM2LUt3EEsRp59g4/gGjAyoy/AZQAe
-	siTGvpi49amVNFBJv7Saumt/Cj2qe1ot8wK+oUt1+uOUWcNGeUbRiKJvIKwIM689uNWvyp5QO4c
-	DOUHnckNou2JMr4xwJXlrezC632B7cwGyCBqBS2RU15e09Cbua6WINJAfRRVxuWYx3ifK5tcT3P
-	Dgw2u0Q4PZPbVgVR5yEE45pLx2nkivh1lCeQ7knAqxqlsUqUen1j3faN2EDtifzT0mn6wVW41VA
-	==
-X-Google-Smtp-Source: AGHT+IFEx3lCJSamFS7GtCIM3DJJbVlIj8bmcaZbUD5CgXC67a7uWIwLe/hJ3o7zuNw/2yCru6JygQ==
-X-Received: by 2002:a05:620a:20cf:b0:7e3:3682:6dee with SMTP id af79cd13be357-7e3378dd518mr183144785a.4.1752528867626;
-        Mon, 14 Jul 2025 14:34:27 -0700 (PDT)
-Received: from ziepe.ca (hlfxns017vw-142-167-56-70.dhcp-dynamic.fibreop.ns.bellaliant.net. [142.167.56.70])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-7e3357a2f85sm57242685a.14.2025.07.14.14.34.26
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 14 Jul 2025 14:34:26 -0700 (PDT)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1ubQoc-00000008jqs-0p6Q;
-	Mon, 14 Jul 2025 18:34:26 -0300
-Date: Mon, 14 Jul 2025 18:34:26 -0300
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Arnd Bergmann <arnd@kernel.org>
-Cc: Thierry Reding <thierry.reding@gmail.com>,
-	Will Deacon <will@kernel.org>, Joerg Roedel <joro@8bytes.org>,
-	Jonathan Hunter <jonathanh@nvidia.com>,
-	Pranjal Shrivastava <praan@google.com>,
-	Nicolin Chen <nicolinc@nvidia.com>, Arnd Bergmann <arnd@arndb.de>,
-	Krishna Reddy <vdumpa@nvidia.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Kevin Tian <kevin.tian@intel.com>,
-	"Luis Claudio R. Goncalves" <lgoncalv@redhat.com>,
-	Nate Watterson <nwatterson@nvidia.com>, linux-tegra@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] iommu/tegra241-cmdqv: import IOMMUFD module namespace
-Message-ID: <20250714213426.GJ1870174@ziepe.ca>
-References: <20250714205747.3475772-1-arnd@kernel.org>
-MIME-Version: 1.0
+	Mon, 14 Jul 2025 21:55:23 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=BPxWe2QuIhqrZ9uYnBmDoa6hfwK4o/Y5YMoPUzYRBlc+9OTNDgt8K3uOpmLyzMNNg4Z6/bbjxYdMQ/vBD+3OnbIxBwhb/715KfV7ezTlDFMbV2vfkxdF3vLRAZ0IbmKQzSJqManwD9Y5OjWuIUFEjGCAGH5rWwk7osS05RrnGt3EmtuCNDtjpmNEf/KISHSUfcSgFqJh0a1bceGIA3XUqWFytenjlLAW6K1tOi3ktodE1ziuqK+X9gAfISubw/ZpgtWARZtglBgdUOy8aa8DhGtgpi7y4wB1UUf9OAdvnkSSv7PysuNHT0hLvgNY5zbCeZIwG4OOyW1Qq/FkV8NBoA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=MHmXGO4AkzZpC9hJ9+n0pSuChs/w2fSqZxudNrG26pA=;
+ b=h3cQhKTsvETzN2gQcOqL8kdQfryeHDTMsFDnV1N95Sxdb/zEp53s8fZdWta28KiRB6TNuc/EGlKvXIm62LINz6R+v7X9GjyQC9wnlEMKbKvzVKW4Vud8hQj2E+BX63RbEdA1EiQ0tzx+kiLuU3XsC0DDlUMVyQi5iYgoyp6WT5blTZv/G8ICWTR5zsEbZ6UplJtnCGK5BptUCV784jxMSfMlnAIOwyRKr8GCKkbiwkNW6XGZLNOyUfMfyg7El7iMoMJ9EC/APpEJwk2jAbxyOGYPGOyTcPBbd0ALq95BRMbBCRz8/0kpZEbmAFYefbSInl8ns6Wve3dAKPJyuX2gHQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=MHmXGO4AkzZpC9hJ9+n0pSuChs/w2fSqZxudNrG26pA=;
+ b=Twx2WOUCdSmu+seubQSv50Z/qLepAHrY1xnkhs9tcLbhyTsrAeFjY9L6ddIrV+NpYwGR62HcE6ME9fQkusCcxiNdPbBFXQUOGKn0ddWF50UUFCgkQtQwM9FXC8XLfFl+E1GNoEmkEfqVqZ6bTh/tSpIQLpGsDn7u+UnrqDQXw5pUq0P81Zbw79ZiNHgaIgOfdMZPRM2yDGQyvczoCNiLrJgBNinN9559h1msWeg4bqpEy3RYIOibkyHcw0gDmgCyEmqN+TTOF45fF/c3bEQdJBVN8A4PIRC9a0aL1TIHSRzk0bWPCbpek/TH8bFbXerSfhkaQQsi9yOQTAGMCLxOvA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
+ by SJ2PR12MB8181.namprd12.prod.outlook.com (2603:10b6:a03:4f6::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8901.27; Mon, 14 Jul
+ 2025 21:55:06 +0000
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732%7]) with mapi id 15.20.8901.033; Mon, 14 Jul 2025
+ 21:55:05 +0000
+Date: Mon, 14 Jul 2025 18:55:04 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Justin Stitt <justinstitt@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Leon Romanovsky <leon@kernel.org>,
+	linux-rdma@vger.kernel.org, linux-s390@vger.kernel.org,
+	llvm@lists.linux.dev, Ingo Molnar <mingo@redhat.com>,
+	Bill Wendling <morbo@google.com>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>,
+	Salil Mehta <salil.mehta@huawei.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Thomas Gleixner <tglx@linutronix.de>, x86@kernel.org,
+	Yisen Zhuang <yisen.zhuang@huawei.com>
+Cc: Arnd Bergmann <arnd@arndb.de>, Leon Romanovsky <leonro@mellanox.com>,
+	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	Mark Rutland <mark.rutland@arm.com>,
+	Michael Guralnik <michaelgur@mellanox.com>, patches@lists.linux.dev,
+	Niklas Schnelle <schnelle@linux.ibm.com>,
+	Jijie Shao <shaojijie@huawei.com>, Will Deacon <will@kernel.org>
+Subject: Re: [PATCH v3 6/6] IB/mlx5: Use __iowrite64_copy() for write
+ combining stores
+Message-ID: <20250714215504.GA2083014@nvidia.com>
+References: <0-v3-1893cd8b9369+1925-mlx5_arm_wc_jgg@nvidia.com>
+ <6-v3-1893cd8b9369+1925-mlx5_arm_wc_jgg@nvidia.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250714205747.3475772-1-arnd@kernel.org>
+In-Reply-To: <6-v3-1893cd8b9369+1925-mlx5_arm_wc_jgg@nvidia.com>
+X-ClientProxiedBy: MN2PR17CA0017.namprd17.prod.outlook.com
+ (2603:10b6:208:15e::30) To CH3PR12MB8659.namprd12.prod.outlook.com
+ (2603:10b6:610:17c::13)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|SJ2PR12MB8181:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3c33d465-7a45-47bb-6e8d-08ddc32117bd
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|921020;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?7LsO+zD5MNy6KwoqCBEpMZ1rptmlISB3Tj5R4L4TaYs5W6tal9nCzLYo7LR1?=
+ =?us-ascii?Q?uadIBS6yz0/UDv3DLoV//JURe8uzYq1qPqycfjNaO4eJOJ+W0JL/lo9s3NMl?=
+ =?us-ascii?Q?awkrIbUPpumcjKrrN4Dwr1xYWIJEpWzwM/mK6KyxJwWivZg78xIWS9k2LTjw?=
+ =?us-ascii?Q?Vq1IpKIr4H4iQxonz+R8tXu2wRL1BBtEo8fx3paUAr1X8G2JDJlX/d98EFo7?=
+ =?us-ascii?Q?W1mbCxbplZOV+FXpp3oid9qotDhGPFuaEPqP9yLQ8un4nWNEMrJVIikHdNOL?=
+ =?us-ascii?Q?6z2A2mz7mBydDIKmslKwdnoKxWQAG/LW3eX0oOlLaPJreZNCREvUXtmWRxgv?=
+ =?us-ascii?Q?5QyD8TYsDhuzcT7jPcSml5Oxs9b3HQhI/sDcdo7jAU4BxAJo/hyMdzGcOnqG?=
+ =?us-ascii?Q?4LEMsvxppmSqo3zNXolXD9nP1PS9lOKiw3m9xlFKjnXHakEoKiOrMOIw0t+t?=
+ =?us-ascii?Q?UW/B2Mct6VJYv5nBmTf0I9rqgW2Fe5ucK2hQJYCCvYVUWxgcmKLYdD7Ld4H0?=
+ =?us-ascii?Q?m0V9cf4Kd3M6oIP2ap9NKB8JUAhlWqenOB83lF9kX5Ux+Fxg3K0N5RQGGEZa?=
+ =?us-ascii?Q?DcM52gd2nm7h+TVivAevOAZou11NKDqSf9vJIvmTmsmft83DWNnJytd/NaD3?=
+ =?us-ascii?Q?fHxLN8mCDnKojUCPB5oXaC/nqDconyBQFpF8T+NmIT6eeFM7f4Vm7kM7IEUa?=
+ =?us-ascii?Q?PzKZagN2m1N1tm/8xNnux++loonNUod84EtRdeYhfiihRetV5FPX7pQhdOAi?=
+ =?us-ascii?Q?LgbPmAoYM6MoKbhyX1VOWSPs7L3ELKgR+pco13bCrN0jUFcwOtcyAE33M1Cw?=
+ =?us-ascii?Q?0of2MkqCScqzoKDatEByxXZZY7yZCY8b1WxOnInLJqjnYJy3PQXY3crJ0FJb?=
+ =?us-ascii?Q?z6AH8d27duwa93u3r2AcmEOy0RV0OJhr4luZ3f418Q3njVxlWP1SbVUS2XBJ?=
+ =?us-ascii?Q?p75D9tRaEgPpw7es2OiKR4TxDci191rzj13VLsEXopwjqUc7fwvZNkYA377D?=
+ =?us-ascii?Q?IkyRxJr2aocmEQ6ltU7W8gCWHztjDZED21xTsF+AfXGanVnKEqtGdBZTWs19?=
+ =?us-ascii?Q?LAl176K8w4aOCpKkE7puzdjA3ALs/nNgIyXpc+Whi24T1VVvK19xymKSjqXI?=
+ =?us-ascii?Q?X1byE2w35an1rFAPEdWNAxYuPiFY3RV6X/owuyEhgi/eWmUjHO1EdGX/qMpS?=
+ =?us-ascii?Q?MK7NDPnGLdHw6acIcB6JQXc7NnRw99a8tPYJuQd25ZuTedvVRNjGvVSJVEU/?=
+ =?us-ascii?Q?0uSTNY+Cw36+K6QV2oFmMnLtmbaFGVxde+6N9Czju1A7CYjsd57M2ayKXjWS?=
+ =?us-ascii?Q?IljgepHVOCElf0K2AaK8QyRXNEKN9Pu0vb2nUDAvW77hYaDPFVsHEt7Zl0Gd?=
+ =?us-ascii?Q?dqqFS7KJPBEa0qYRrpqtMcRWnH/cHqQx1igYQduMr68kGrSUWhQg5Y/i0BFc?=
+ =?us-ascii?Q?ijkOivx7Q/8E7GCSpLzfvS9jZ1ujX7ORVxA2fRJ2m6unEz83l6BmfQ=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?3XQYzwcpioWKwStu8AD6pl58tXEvLICCPzFqVfv2D4H8V3R80aiEbLuv2e6m?=
+ =?us-ascii?Q?IJpc8yfmM/Bhi9oXC6/BDnSLIAhCYiM/WDqlAIouCtBLhwteUQKh5dcyznhK?=
+ =?us-ascii?Q?JGDI2T17vTCByMDcdSWACHaIgidv31Y7vtfjKUFyy5vqGvFRW56aeqZigzNP?=
+ =?us-ascii?Q?4noOvDMVlz2tX3uypHsjIub++hDQxtvtf5TGd9qtaGH75ZAIctR4oF33bxPq?=
+ =?us-ascii?Q?tWfVy7o3k//MZ7NLqFVoMCb1RIwVdR352QdenMJ0rQZ52JDINJOKF2meiufB?=
+ =?us-ascii?Q?a/kPQvGmQa/wQob+jUbey0JbfgvUSZDpioGDi5BB+8sx7jSrueOs4xaiTsZ3?=
+ =?us-ascii?Q?9yDZGPx25Oriwm/yp+y1M6jUmYjaqpqUtg6vqs24QuVz8GdueBokvYlCto6a?=
+ =?us-ascii?Q?66DYua4vDew8z4pzsH9LbxEuoud1H/AjiNwl645KPaVS/GZaoaZbamYl1GXW?=
+ =?us-ascii?Q?t67VqZugz2cAZ/eX+PPXTsUW+FKDQpZhtVV2D5ivFoNks6ivfDQQh0qJKzuG?=
+ =?us-ascii?Q?qfutnkI2RsrkBMWTPBUrVR/2Sdq1RWjjFyfy6RTd8rCmTZwDxmVqGnKakH1y?=
+ =?us-ascii?Q?697Zu9oRRK1blZKgJSax2K00C2v3Mp+KWdMI0S5PS1O6FxUKSyIzwjtJpFuf?=
+ =?us-ascii?Q?zVa7FecWHVApqY8g4aY63RZOsr2klzPqw3wg9gOkdAyWyhHzXoSH6gnxdhGw?=
+ =?us-ascii?Q?ejk3CroiTVmIl+/1N++1QsDT6j84sXQ09e0PYeNf40R1WYym1K7dqZ+Vepdb?=
+ =?us-ascii?Q?FQ48dYnQxJ2sEA53ADXNBwJoI0zjWYi64v54P8ttf2W/rTCKrPEj8s2B1AFq?=
+ =?us-ascii?Q?XfKuLGmxQ3SVRLjqj328yAE62P3UTRSSZXGHtCF7n561e9UL3FMWwejKXPVh?=
+ =?us-ascii?Q?PdAmu8DzXHTTfp+9DjBGyJiMCrRW7VWXfHUAj9a7M4ZQWqg5oL3oDx3aa4G8?=
+ =?us-ascii?Q?66Ap8Pbi8nGhkghjL6CuwF8aAmHzMXThsqPXpe5HtInM58WwJWog4Vkxgbli?=
+ =?us-ascii?Q?wpVrZNzRekwzPvxYc5bU5GSsvKwd/PuJZEJ6CBlzHePVY4d5izs3XHpqVCgS?=
+ =?us-ascii?Q?HvqXUrGnn0UQxkWTSZcTTzHJxc5BHI2wRVkYJs4TbtwgqUUK3Bk3h6+m+4Lt?=
+ =?us-ascii?Q?nSatZPuXL6sOv1LMHeIX5x7qTPYhlrxLVDmHxnbXgFgQTdyYKKyrHKPPx//p?=
+ =?us-ascii?Q?DCoto6NDklUQiwe1nGN8BJbuFZBWeVgvYu9EsMdvVbXFJ+bKgx2svCoyI1Wy?=
+ =?us-ascii?Q?7NobSI7fjbWoQDDeDiaNWoSD+sGS4hqFeadyqIcagdT6QLG1/NKx+ok0Ki6v?=
+ =?us-ascii?Q?DDKIQgpvCbIhr1bIOBo5Y+mVCOJ7qcmNUvKeJrb/CwRY2mZq9iLB2mFCKz+f?=
+ =?us-ascii?Q?uIkXye29UYOq2CKqXoUK2x62bqNLVgKOenUKTZqZdRQFyAQeP104GZxBm4YW?=
+ =?us-ascii?Q?Ib4H975Fb0CzjN2BJ2RxceEOPANg66y+aFq/4telu4R4ERFt/6XUQNyIvLIi?=
+ =?us-ascii?Q?uB8Bpn9/fTaXQILwaN3MRZJP+h95+H45ZUI4cB2/ob5JjYSxVkOaDd3j+JND?=
+ =?us-ascii?Q?K2qEE9aCo3TLBxVNK9x56HOlLsjmckn7yDD7KNlZ?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3c33d465-7a45-47bb-6e8d-08ddc32117bd
+X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Jul 2025 21:55:05.8489
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: m7ZFZEtFzogdBiyDJEajePGcPt6csMMJadpbiMuvzZF0o4tetIkvr1xBR1kUmof9
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR12MB8181
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250714_143429_139996_6D7EFB6D 
-X-CRM114-Status: GOOD (  12.90  )
+X-CRM114-CacheID: sfid-20250714_145522_456471_87E5132F 
+X-CRM114-Status: GOOD (  22.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,25 +185,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 14, 2025 at 10:57:38PM +0200, Arnd Bergmann wrote:
-> From: Arnd Bergmann <arnd@arndb.de>
+On Thu, Apr 11, 2024 at 01:46:19PM -0300, Jason Gunthorpe wrote:
+> mlx5 has a built in self-test at driver startup to evaluate if the
+> platform supports write combining to generate a 64 byte PCIe TLP or
+> not. This has proven necessary because a lot of common scenarios end up
+> with broken write combining (especially inside virtual machines) and there
+> is other way to learn this information.
 > 
-> The tegra variant of smmu-v3 now uses the iommufd mmap interface but
-> is missing the corresponding import:
+> This self test has been consistently failing on new ARM64 CPU
+> designs (specifically with NVIDIA Grace's implementation of Neoverse
+> V2). The C loop around writeq() generates some pretty terrible ARM64
+> assembly, but historically this has worked on a lot of existing ARM64 CPUs
+> till now.
 > 
-> ERROR: modpost: module arm_smmu_v3 uses symbol _iommufd_object_depend from namespace IOMMUFD, but does not import it.
-> ERROR: modpost: module arm_smmu_v3 uses symbol iommufd_viommu_report_event from namespace IOMMUFD, but does not import it.
-> ERROR: modpost: module arm_smmu_v3 uses symbol _iommufd_destroy_mmap from namespace IOMMUFD, but does not import it.
-> ERROR: modpost: module arm_smmu_v3 uses symbol _iommufd_object_undepend from namespace IOMMUFD, but does not import it.
-> ERROR: modpost: module arm_smmu_v3 uses symbol _iommufd_alloc_mmap from namespace IOMMUFD, but does not import it.
-> 
-> Fixes: b135de24cfc0 ("iommu/tegra241-cmdqv: Add user-space use support")
-> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
-> ---
->  drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c | 2 ++
->  1 file changed, 2 insertions(+)
+> We see it succeed about 1 time in 10,000 on the worst effected
+> systems. The CPU architects speculate that the load instructions
+> interspersed with the stores makes the WC buffers statistically flush too
+> often and thus the generation of large TLPs becomes infrequent. This makes
+> the boot up test unreliable in that it indicates no write-combining,
+> however userspace would be fine since it uses a ST4 instruction.
 
-Applied thanks
+Hi Catalin,
 
+After a year of testing this in real systems it turns out that still
+some systems are not good enough with the unrolled 8 byte store loop.
+In my view the CPUs are quite bad here and this WC performance
+optimization is not working very well.
+
+There are only two more options to work around this issue, use the
+unrolled 16 byte STP or the single Neon instruction 64 byte store.
+
+Since STP was rejected alread we've only tested the Neon version. It
+does make a huge improvement, but it still somehow fails to combine
+rarely sometimes. The CPU is really bad at this :(
+
+So we want to make mlx5 use the single 64 byte neon store instruction
+like userspace has been using for a long time for this testing
+algorithm.
+
+It is simple enough, but the question has come up where to put the
+code.  Do you want to somehow see the neon option to be in the
+arch/arm64 code or should we stick it in the driver under a #ifdef?
+
+The entry/exit from neon is slow enough I don't think any driver doing
+performance work would want to use neon instead of __iowrite64_copy(),
+so I do not think it should be hidden inside __iowrite64_copy(). Nor
+have I thought of a name for an arch generic function..
+
+Thanks,
 Jason
 
