@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C3B4C83F1A
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBCBAC83F17
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 14 Jul 2025 18:50:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,43 +12,43 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lEHKmMWQPAhtDLbIkRUfFqSOEVc85PsQdhHjS8SXdiQ=; b=lbxUvsNF0omTPCzBNNB8y5LCYJ
-	5AvvTvf8Ds36agdhsskCXi2BowlmOtVXRsixPdSKqUxk5k8abE6gXcv61M/YqZhs5119AeraVD+lx
-	v47NMKuU4lLRWsPta6GJMTpGebPG7S08/iyMrn7AtCvqf8ncj6plcUm3ztZOnKPpRjWYLeipD4S1h
-	a8yQjXTMcyqJTI4NiePDgx64dcvAdjgl+CAXceMByWXvs3dfCOrQc8UOhzix+GYSU0LXZzXhyv8hG
-	ucxzBqlPACFunlANgKBcNoR4b5nJuyG1N7sV1qLw22tw0TCq6RMbKjBdOsi9oZdaC1nDhbXnjqIEZ
-	0L1CTpWw==;
+	bh=06gRnKo/c6ydduHA9pTS58eYyfRMNeFrFJV1/p3rJMQ=; b=NmpbPuwTUY2psPolt3Ez4i3xG6
+	6jWvX2JwT5K9hURV7sJUVzl3MZmF/WaCdQed61QgLHYNmsueFANa5XiTppSiOa2RGRbkXnjx/2UzC
+	32bqdXNjK0uoH9/bqRjmRC9n5FEvZC4MUbqS+fW5KVudk/nqktfxovazOPynfhnXB0wiZuGdtw1To
+	KjRNxYWtFUHxstg4HGkQWY8jMZkmDp+RBuabJ2ThDwDblXWkGWfY0oPZfHA73bSt+K62X5uJfOF95
+	bQfkRZCc24rckmaHDETYP3IwRaq+6VdOViv2SjQ2IV2yZcKy3olhCCbIbSYWpLZ8cq71i/00CnoIG
+	qE0WmE/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubOFX-0000000344x-3thP;
-	Mon, 14 Jul 2025 18:50:04 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1ubOFW-0000000344J-2qwj;
+	Mon, 14 Jul 2025 18:50:02 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubL3q-00000002f4R-1jZ9;
-	Mon, 14 Jul 2025 15:25:47 +0000
+	id 1ubL3j-00000002f2e-2qCm;
+	Mon, 14 Jul 2025 15:25:41 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id AED2DA57206;
-	Mon, 14 Jul 2025 15:25:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DBECDC4CEED;
-	Mon, 14 Jul 2025 15:25:44 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 2736C5C5DD8;
+	Mon, 14 Jul 2025 15:25:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 53B46C4CEED;
+	Mon, 14 Jul 2025 15:25:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752506745;
-	bh=LUFwxEC/t5YOCqwC78dHmJOzg0q2P6W5wT7+dT1IZbQ=;
+	s=k20201202; t=1752506738;
+	bh=FJfSTWxYNnEPRDqRcZkpEI3unDagKBTuJqc3Wso/8ks=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=uUCkJ5vzgvQspt+cdaNa5gn3EEwUkjd9uywX8fhSLFPsRu443PiGhl3jP7aWF3alj
-	 3njtSHJRW9Dz2zl1MpJftZMYAw+lUdTNCeituUqKnpoqaUZ/c4iqu/StG6nQlroMgH
-	 D971tEpnvri3dMpVUouhxyTSv1Z0EIARnmRlfdYHFJn7/Sstd62m+FIjLZ6APQlFVF
-	 fAWFrEh5rkGF7z+re9KwlyWNt6ZJ4Cqmmlyy21Ppk2thMjt2xq+B5JZ/gcJwBgJqaW
-	 4W5cUf/vrTzjNsnaZEKTr1m4fZU4DziaUkfRvQoMeNpzHSZlJxNPvKLYcGbT8GY0+Z
-	 NAcbgY1lD6bKw==
+	b=iXIftH27ExJeY4QL7wuTHjhPABU5BwbEVuuw8HFO4iiaaG1uxgnZv1jDdo53yhP3r
+	 DozY/qapjvqv7M0m4arTnwesqi0dnm6YfGuvl0zsPdXhremfHIWTZ+rSpsR1bkIWxz
+	 DVaFCqqh5K6OD5TYJ+hkQozgjthFn0BiXXIT33bI+FcHqLEzN8AhI2Bfnu5SjIT2Ar
+	 bcJnoUga93JsuPKymBpwmiAv+UIL9rRv5zlg+cxbSr8/8oozIjqhgetQD+MCERptEW
+	 ij2JvJHzZNhJep9nSi3Of61ngGXNA7HK29fAJ5y6s5YgZ/H0xI26AtocFae1tKTlY8
+	 oxbmxd/c5YNHA==
 From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Mon, 14 Jul 2025 17:25:16 +0200
-Subject: [PATCH net-next v3 3/7] net: airoha: npu: Add wlan_{send,get}_msg
- NPU callbacks
+Date: Mon, 14 Jul 2025 17:25:14 +0200
+Subject: [PATCH net-next v3 1/7] dt-bindings: net: airoha: npu: Add memory
+ regions used for wlan offload
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250714-airoha-en7581-wlan-offlaod-v3-3-80abf6aae9e4@kernel.org>
+Message-Id: <20250714-airoha-en7581-wlan-offlaod-v3-1-80abf6aae9e4@kernel.org>
 References: <20250714-airoha-en7581-wlan-offlaod-v3-0-80abf6aae9e4@kernel.org>
 In-Reply-To: <20250714-airoha-en7581-wlan-offlaod-v3-0-80abf6aae9e4@kernel.org>
 To: Andrew Lunn <andrew+netdev@lunn.ch>, 
@@ -61,8 +61,9 @@ Cc: Simon Horman <horms@kernel.org>, linux-arm-kernel@lists.infradead.org,
  devicetree@vger.kernel.org
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250714_082546_598646_4944597A 
-X-CRM114-Status: GOOD (  12.62  )
+X-CRM114-CacheID: sfid-20250714_082539_790732_23CBE52A 
+X-CRM114-Status: UNSURE (   8.07  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,154 +78,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce wlan_send_msg() and wlan_get_msg() NPU wlan callbacks used
-by the wlan driver (MT76) to initialize NPU module registers in order to
-offload wireless-wired traffic.
-This is a preliminary patch to enable wlan flowtable offload for EN7581
-SoC with MT76 driver.
+Document memory regions used by Airoha EN7581 NPU for wlan traffic
+offloading.
 
 Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 ---
- drivers/net/ethernet/airoha/airoha_npu.c | 58 ++++++++++++++++++++++++++++++++
- drivers/net/ethernet/airoha/airoha_npu.h | 21 ++++++++++++
- 2 files changed, 79 insertions(+)
+ .../devicetree/bindings/net/airoha,en7581-npu.yaml    | 19 +++++++++++++++----
+ 1 file changed, 15 insertions(+), 4 deletions(-)
 
-diff --git a/drivers/net/ethernet/airoha/airoha_npu.c b/drivers/net/ethernet/airoha/airoha_npu.c
-index bcf7f5e645f7ec5e3e8c7474f6715f4810d192dc..cf087daa5d0b7b5e60edda632423a8d07240ed4f 100644
---- a/drivers/net/ethernet/airoha/airoha_npu.c
-+++ b/drivers/net/ethernet/airoha/airoha_npu.c
-@@ -42,6 +42,22 @@
- #define REG_CR_MBQ8_CTRL(_n)		(NPU_MBOX_BASE_ADDR + 0x0b0 + ((_n) << 2))
- #define REG_CR_NPU_MIB(_n)		(NPU_MBOX_BASE_ADDR + 0x140 + ((_n) << 2))
+diff --git a/Documentation/devicetree/bindings/net/airoha,en7581-npu.yaml b/Documentation/devicetree/bindings/net/airoha,en7581-npu.yaml
+index 76dd97c3fb4004674dc30a54c039c1cc19afedb3..f99d60f75bb03931a1c4f35066c72c709e337fd2 100644
+--- a/Documentation/devicetree/bindings/net/airoha,en7581-npu.yaml
++++ b/Documentation/devicetree/bindings/net/airoha,en7581-npu.yaml
+@@ -41,9 +41,18 @@ properties:
+       - description: wlan irq line5
  
-+#define NPU_WLAN_BASE_ADDR		0x30d000
+   memory-region:
+-    maxItems: 1
+-    description:
+-      Memory used to store NPU firmware binary.
++    items:
++      - description: NPU firmware binary region
++      - description: NPU wlan offload RX buffers region
++      - description: NPU wlan offload TX buffers region
++      - description: NPU wlan offload TX packet identifiers region
 +
-+#define REG_IRQ_STATUS			(NPU_WLAN_BASE_ADDR + 0x030)
-+#define REG_IRQ_RXDONE(_n)		(NPU_WLAN_BASE_ADDR + ((_n) << 2) + 0x034)
-+#define NPU_IRQ_RX_MASK(_n)		((_n) == 1 ? BIT(17) : BIT(16))
-+
-+#define REG_TX_BASE(_n)			(NPU_WLAN_BASE_ADDR + ((_n) << 4) + 0x080)
-+#define REG_TX_DSCP_NUM(_n)		(NPU_WLAN_BASE_ADDR + ((_n) << 4) + 0x084)
-+#define REG_TX_CPU_IDX(_n)		(NPU_WLAN_BASE_ADDR + ((_n) << 4) + 0x088)
-+#define REG_TX_DMA_IDX(_n)		(NPU_WLAN_BASE_ADDR + ((_n) << 4) + 0x08c)
-+
-+#define REG_RX_BASE(_n)			(NPU_WLAN_BASE_ADDR + ((_n) << 4) + 0x180)
-+#define REG_RX_DSCP_NUM(_n)		(NPU_WLAN_BASE_ADDR + ((_n) << 4) + 0x184)
-+#define REG_RX_CPU_IDX(_n)		(NPU_WLAN_BASE_ADDR + ((_n) << 4) + 0x188)
-+#define REG_RX_DMA_IDX(_n)		(NPU_WLAN_BASE_ADDR + ((_n) << 4) + 0x18c)
-+
- #define NPU_TIMER_BASE_ADDR		0x310100
- #define REG_WDT_TIMER_CTRL(_n)		(NPU_TIMER_BASE_ADDR + ((_n) * 0x100))
- #define WDT_EN_MASK			BIT(25)
-@@ -131,6 +147,12 @@ struct wlan_mbox_data {
- 	u32 func_id;
- 	union {
- 		u32 data;
-+		struct {
-+			u32 dir;
-+			u32 in_counter_addr;
-+			u32 out_status_addr;
-+			u32 out_counter_addr;
-+		} txrx_addr;
- 		u8 stats[WLAN_MAX_STATS_SIZE];
- 	};
- };
-@@ -424,6 +446,30 @@ static int airoha_npu_wlan_msg_send(struct airoha_npu *npu, int ifindex,
- 	return err;
- }
++  memory-region-names:
++    items:
++      - const: firmware
++      - const: pkt
++      - const: tx-pkt
++      - const: tx-bufid
  
-+static int airoha_npu_wlan_msg_get(struct airoha_npu *npu, int ifindex,
-+				   enum airoha_npu_wlan_get_cmd func_id,
-+				   u32 *data, gfp_t gfp)
-+{
-+	struct wlan_mbox_data *wlan_data;
-+	int err;
-+
-+	wlan_data = kzalloc(sizeof(*wlan_data), gfp);
-+	if (!wlan_data)
-+		return -ENOMEM;
-+
-+	wlan_data->ifindex = ifindex;
-+	wlan_data->func_type = NPU_OP_GET;
-+	wlan_data->func_id = func_id;
-+
-+	err = airoha_npu_send_msg(npu, NPU_FUNC_WIFI, wlan_data,
-+				  sizeof(*wlan_data));
-+	if (!err)
-+		*data = wlan_data->data;
-+	kfree(wlan_data);
-+
-+	return err;
-+}
-+
- static int
- airoha_npu_wlan_set_reserved_memory(struct airoha_npu *npu,
- 				    int ifindex, const char *name,
-@@ -470,6 +516,15 @@ static int airoha_npu_wlan_init_memory(struct airoha_npu *npu)
- 	return airoha_npu_wlan_msg_send(npu, 0, cmd, 0, GFP_KERNEL);
- }
- 
-+static u32 airoha_npu_wlan_queue_addr_get(struct airoha_npu *npu, int qid,
-+					  bool xmit)
-+{
-+	if (xmit)
-+		return REG_TX_BASE(qid + 2);
-+
-+	return REG_RX_BASE(qid);
-+}
-+
- struct airoha_npu *airoha_npu_get(struct device *dev, dma_addr_t *stats_addr)
- {
- 	struct platform_device *pdev;
-@@ -573,6 +628,9 @@ static int airoha_npu_probe(struct platform_device *pdev)
- 	npu->ops.ppe_flush_sram_entries = airoha_npu_ppe_flush_sram_entries;
- 	npu->ops.ppe_foe_commit_entry = airoha_npu_foe_commit_entry;
- 	npu->ops.wlan_init_reserved_memory = airoha_npu_wlan_init_memory;
-+	npu->ops.wlan_send_msg = airoha_npu_wlan_msg_send;
-+	npu->ops.wlan_get_msg = airoha_npu_wlan_msg_get;
-+	npu->ops.wlan_get_queue_addr = airoha_npu_wlan_queue_addr_get;
- 
- 	npu->regmap = devm_regmap_init_mmio(dev, base, &regmap_config);
- 	if (IS_ERR(npu->regmap))
-diff --git a/drivers/net/ethernet/airoha/airoha_npu.h b/drivers/net/ethernet/airoha/airoha_npu.h
-index 58f4ee04e17161acbe513779638c23fe79a83a78..b81bb9398fed9366a18f9bf79e323372969ee138 100644
---- a/drivers/net/ethernet/airoha/airoha_npu.h
-+++ b/drivers/net/ethernet/airoha/airoha_npu.h
-@@ -43,6 +43,19 @@ enum airoha_npu_wlan_set_cmd {
- 	WLAN_FUNC_SET_WAIT_DEBUG_ARRAY_ADDR,
- };
- 
-+enum airoha_npu_wlan_get_cmd {
-+	WLAN_FUNC_GET_WAIT_NPU_INFO,
-+	WLAN_FUNC_GET_WAIT_LAST_RATE,
-+	WLAN_FUNC_GET_WAIT_COUNTER,
-+	WLAN_FUNC_GET_WAIT_DBG_COUNTER,
-+	WLAN_FUNC_GET_WAIT_RXDESC_BASE,
-+	WLAN_FUNC_GET_WAIT_WCID_DBG_COUNTER,
-+	WLAN_FUNC_GET_WAIT_DMA_ADDR,
-+	WLAN_FUNC_GET_WAIT_RING_SIZE,
-+	WLAN_FUNC_GET_WAIT_NPU_SUPPORT_MAP,
-+	WLAN_FUNC_GET_WAIT_MDC_LOCK_ADDRESS,
-+};
-+
- struct airoha_npu {
- 	struct device *dev;
- 	struct regmap *regmap;
-@@ -67,6 +80,14 @@ struct airoha_npu {
- 					    u32 entry_size, u32 hash,
- 					    bool ppe2);
- 		int (*wlan_init_reserved_memory)(struct airoha_npu *npu);
-+		int (*wlan_send_msg)(struct airoha_npu *npu, int ifindex,
-+				     enum airoha_npu_wlan_set_cmd func_id,
-+				     u32 data, gfp_t gfp);
-+		int (*wlan_get_msg)(struct airoha_npu *npu, int ifindex,
-+				    enum airoha_npu_wlan_get_cmd func_id,
-+				    u32 *data, gfp_t gfp);
-+		u32 (*wlan_get_queue_addr)(struct airoha_npu *npu, int qid,
-+					   bool xmit);
- 	} ops;
- };
- 
+ required:
+   - compatible
+@@ -79,6 +88,8 @@ examples:
+                      <GIC_SPI 121 IRQ_TYPE_LEVEL_HIGH>,
+                      <GIC_SPI 122 IRQ_TYPE_LEVEL_HIGH>,
+                      <GIC_SPI 123 IRQ_TYPE_LEVEL_HIGH>;
+-        memory-region = <&npu_binary>;
++        memory-region = <&npu_firmware>, <&npu_pkt>, <&npu_txpkt>,
++                        <&npu_txbufid>;
++        memory-region-names = "firmware", "pkt", "tx-pkt", "tx-bufid";
+       };
+     };
 
 -- 
 2.50.1
