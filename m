@@ -4,158 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9871DC83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 11:10:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40792C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 11:13:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m9A7rNPRGDbtOu9cPg+iFatugdgfrOR0BKYq3YHejIA=; b=g3iTJx0v7POFB0ezWiROm3UHl2
-	lqUVEZ16bYbpSf51a9wgOuKXvvYKcwA/cnmAxCQz8t3759rcCvgl8DQ4C6vw4C8kZtltx2YN0YDfj
-	BoGpZ+vsGYR4zIJbMoQtulBnrMqGyk2m8aqnkmMpDmzwsbzYohX0q1/BOFwU/LNtLEjQsQGnO5E/T
-	ZnCgha+1PMIE19QMaMJCVcwAGg45LSchtsPcxgIAqPggrQN8Ic3a4puF0ZqC6+ZHxn//ktQYknvHh
-	FLri3snwEXUMa2DCWnl98KWE2+hjUhyIq8SDzMDwgoNvttkboWsMNSU7Lx2iPdZJRrAK0568J+OUr
-	jxseVPsQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QCkYUzgDxAkXibDkggPAvcI6Vv/4f0QuIfu4aUOzukQ=; b=K8hJohGG2gyR1zNH1Z1TECKtdL
+	81CZtH+PrxgRxwN+/aBw22HQMVhE8sp93HfTJg51Q4R84Kaq3TgnXAYYasxMF3aealgxfEeIFLKOw
+	Svjh4DlQ7Neu7ROLv37N1QAdHDXDySBUPbbCXVkcv/1SzFMB7VeuCiRu4cdujppUlfBP4aFQ9Yh6d
+	fRnFfXiEAHZ4DHRaqIDiAF+fQC01L2XB+I/veV/jE6OSFL7H8WhjnpR/p0q2A7qDE2aMC/3cIKLGg
+	Y2h+jqJm1QQdD+KpNGhkAgDlXWMRdZ6ALd5h03WmREA6MJWG793OhlMBvWENkpYMZok8lRHCCCYU2
+	z1M+tUnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubdYY-00000004uUx-2PV9;
-	Tue, 15 Jul 2025 11:10:42 +0000
-Received: from mail-bn7nam10on2061f.outbound.protection.outlook.com ([2a01:111:f403:2009::61f] helo=NAM10-BN7-obe.outbound.protection.outlook.com)
+	id 1ubdax-00000004ugk-1gDU;
+	Tue, 15 Jul 2025 11:13:11 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubdTM-00000004tTN-3GFJ
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Jul 2025 11:05:22 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ASeTrjhj3yek0Iv+KOuyHJHFaTxpLg8uA5f2vse7oi2w8WQLbx0KYCM1Vo9hHhF582UBqXhlyEUn/36DCFwvfVELFrHBlRHqtvJHrVhqbzKYNXnT2Bg6XVidCOQP8p+mNAvQfepx/FN+b0bQAEQynZM5oAlG7SGjVeng1Oq6lFSiZ/rrXYZmk/KNhry2CfOrwYsirqO4tCpqz8FdFCtibgbvZxFLpAkz7vWuH2jME01yTW0cA/T7QjHmkj5CK6sEPcXoRPjf3RUC6DOZ0ZA7gOQtQAL7SPmNQMtxPK5Sc2HWE45qu8Us3hCu9p73CRMOQkj/Z9YMAd9UXx+HJ6//gQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=m9A7rNPRGDbtOu9cPg+iFatugdgfrOR0BKYq3YHejIA=;
- b=iX8o8DLrZJm0ovBUvr28iSMq8LPXEraL9mHDBVC7EeGcVOt7UYk8sbReI7usEXHD09wknNjsy4DuF5JYlWujI/DCwo47Jyu5cTG5yVlA2Va3dEIycugVSAHD9T6eqI9xxTmV7m+FRsxh6McP1J+aMrYJvZ3eFHxOO2VPKVETqxYrWNAnQY6ZVWKsTvNwubdBncR/bU4p0SNDRWFUxHxi1YTnHKmcv0f4DyNxcGDI9dEJmbMrmTQRSsW1rpnRwfb1jj4yJdfJQO33c2164CGFQfG2PZQotmGCj/SXzeUC+0bpVcbMEZ3Xh6v65lGaGznKB3m644WK/A8WMaTQ9LkfWw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=m9A7rNPRGDbtOu9cPg+iFatugdgfrOR0BKYq3YHejIA=;
- b=sN75/hiSyRXBV+tFcxZ7R91hHrtG6EHTiHQKs75MShOGz6lk4CobNc+rSj02RN/uHDW0AHnOSb1mBcSR7093SaiU91l3+rKJIddF0NxWu3d3AImbco9zHSYnKxYsj5O6RcseP1Q2OCOB9p5X+oJQPTf3I2FUWVjUZsMbRHHG87c=
-Received: from MN0PR12MB5953.namprd12.prod.outlook.com (2603:10b6:208:37c::15)
- by SA0PR12MB4448.namprd12.prod.outlook.com (2603:10b6:806:94::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8922.32; Tue, 15 Jul
- 2025 11:05:12 +0000
-Received: from MN0PR12MB5953.namprd12.prod.outlook.com
- ([fe80::6798:13c6:d7ba:e01c]) by MN0PR12MB5953.namprd12.prod.outlook.com
- ([fe80::6798:13c6:d7ba:e01c%6]) with mapi id 15.20.8922.028; Tue, 15 Jul 2025
- 11:05:12 +0000
-From: "Pandey, Radhey Shyam" <radhey.shyam.pandey@amd.com>
-To: "Gupta, Suraj" <Suraj.Gupta2@amd.com>, "andrew+netdev@lunn.ch"
-	<andrew+netdev@lunn.ch>, "davem@davemloft.net" <davem@davemloft.net>,
-	"kuba@kernel.org" <kuba@kernel.org>, "pabeni@redhat.com" <pabeni@redhat.com>,
-	"Simek, Michal" <michal.simek@amd.com>, "vkoul@kernel.org" <vkoul@kernel.org>
-CC: "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "dmaengine@vger.kernel.org"
-	<dmaengine@vger.kernel.org>, "Katakam, Harini" <harini.katakam@amd.com>
-Subject: RE: [PATCH V2 2/4] dmaengine: xilinx_dma: Fix irq handler and start
- transfer path for AXI DMA
-Thread-Topic: [PATCH V2 2/4] dmaengine: xilinx_dma: Fix irq handler and start
- transfer path for AXI DMA
-Thread-Index: AQHb8YMykbpgUPq1XEK0FsQwY210P7QzAOuw
-Date: Tue, 15 Jul 2025 11:05:12 +0000
-Message-ID: <MN0PR12MB595348322834F80697B4B806B757A@MN0PR12MB5953.namprd12.prod.outlook.com>
-References: <20250710101229.804183-1-suraj.gupta2@amd.com>
- <20250710101229.804183-3-suraj.gupta2@amd.com>
-In-Reply-To: <20250710101229.804183-3-suraj.gupta2@amd.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-msip_labels: MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_Enabled=True;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_SiteId=3dd8961f-e488-4e60-8e11-a82d994e183d;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_SetDate=2025-07-15T10:19:39.0000000Z;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_Name=AMD
- Internal Distribution
- Only;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_ContentBits=3;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_Method=Standard
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: MN0PR12MB5953:EE_|SA0PR12MB4448:EE_
-x-ms-office365-filtering-correlation-id: bf9df34d-3f73-479b-0c7c-08ddc38f786b
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|376014|366016|7053199007|38070700018;
-x-microsoft-antispam-message-info: =?us-ascii?Q?cbtgOY6jzlWY7eNrCWFV69p3otGPn/oI0lxOU+fx59zLhLafEyNLnGID6emt?=
- =?us-ascii?Q?e/4wyTlUHV0IDGI1PP5LwpiWW47kv1rGqicMHuWdKHbG9mvEIAyuMX3Qlk+q?=
- =?us-ascii?Q?8ibJyFW7IDii77o+LM42sSy3rkahtIsas50HFw9zQFzx1Xa5iQNRpTAZboG4?=
- =?us-ascii?Q?XWSVvP82bXaFZWVUzlJwChLv6/UageIVRVV04RSopEa3+UtLp7QSa+bGKGAQ?=
- =?us-ascii?Q?KJfqPxSQ5DpZAgLwHZyZab0krt/OmFoeuf2jvq4ctGxtyS+0virpwR1Q82md?=
- =?us-ascii?Q?ce6SUB89gbPKOma6g9BJjHdteZreK2vJHNGiTGpflTqL6R2uyWWlV0zrOdmI?=
- =?us-ascii?Q?aNFnT3162XJ9zyBvZ/FYgjeBSjmNg2yFmucvJoIQcOWsbOX/r7uF9X1DznXY?=
- =?us-ascii?Q?iu6TSECR3/0TKae1GJwFeJHLEQ+sN1Ky4LCK1/jmkh2jqBaBzkPnL2zck4Nx?=
- =?us-ascii?Q?PsC/cr8eDe6dVzyV08HMznZqITZKKwSUVPA2GIcmGqzcLAtib9FzKS3iyAe8?=
- =?us-ascii?Q?cDki9MJQDnGfo4wMlcdLx/EvIMHt0sAG85HRI3wRYWwEcvm3xSDriMT9v1Kg?=
- =?us-ascii?Q?gktDzIN7kmSs4LGbv19/kzTQyckuTtkaTdw9/eaHq0dMaQH8uCyQLMH/aiun?=
- =?us-ascii?Q?1iureODbRR4pR6vCaZKA1uM2RZ87vW5xPet5FNw/6B2pThwb3PgOBFKbrXAS?=
- =?us-ascii?Q?YUb4OKWFZi4p09JmBmtbWS29fGOCgCJEwOGE4W+cF1edGmvxlpQb2Ygf+7DD?=
- =?us-ascii?Q?WY7G4O9xcqNJeNJb7hbdcnyHISgc8/NRPypqGNXnFz9HeVeeXoOIfPl8aS1Q?=
- =?us-ascii?Q?AAsKA3pLUH8/7FyVpUTG9IVAvn7kp7HnACJaxIz5PyHFPffKcldl9NObCksX?=
- =?us-ascii?Q?ps1JsUPlmtmTn2NkjyYipLDUxKoCdlR47pzGdFBP2FFQTRRPfuyCFzT3rya/?=
- =?us-ascii?Q?XIQYVZcMZ+5T3+3O6Bw7m0JF6LilJFUxooUZp9GxpHKjxvL1Q8aHSnpbWJS+?=
- =?us-ascii?Q?8j5wkC9dqlEpByHkvI1+LDoP4fk1WIjCZEozezYpJP7MC0RUfIeIF7APxfr4?=
- =?us-ascii?Q?SpuqJKAWKFkzjZ1oD2IIH2HW8AtaKbxOQooqXjc/K5CQB495Qm86hlS/F2yu?=
- =?us-ascii?Q?7YB2f0BltFS4XJfm3P8kqKW3oPw7ytnfL0Yck6TzuEuwkWSWlhSFZZcd1hd/?=
- =?us-ascii?Q?2Fw3tl7Lr3H/sx+DgmUyEqGg8ovULca/KDe9Mpit+DGFbLbJ9tT3ppAOyXIE?=
- =?us-ascii?Q?JukKflPsM7DnjDVV1lSqtyhC4GXR9WeET73K1VYF/EgTswfzszdXpzD7fq+c?=
- =?us-ascii?Q?TwcLzkuQ5lJMBTCps6/lk1m9Vxp3JyThcPXYjPqC4Glnq7XcGJUPSDTKrI0g?=
- =?us-ascii?Q?wDk+09hZ5pc01njiT/J4UHUQZIiHSQZJZWVfvRaXWTcQ6DWFLM6+yFyhUZJp?=
- =?us-ascii?Q?H1Tt+wrGk89alMKwjO4eVFOwyDRT348p7Sx/MBBYBr+5zfhJziI0Ew=3D=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MN0PR12MB5953.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016)(7053199007)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?QEz6cOtcSMP5DtJRYlozoOE8etenR0RNI3IxeeTwYQ5wQuq4NuqJnF44/ZJ8?=
- =?us-ascii?Q?ieE0Z2mvDNdxILG62W8zbg8+I8vwkj/CDMjzq66CPJurJE4+wTzonQQDNtyF?=
- =?us-ascii?Q?aRvnBDXO5z88YrLlMjkIumhbiHcB6TFng0ZiZzAEVBFS3sldxQGjcz+d9Nt8?=
- =?us-ascii?Q?o/T2oxrwRXulQpbTF5DmrlkMnEcLMyFtKmcHQmpCbqQwUdPmdmLspbPLgNBR?=
- =?us-ascii?Q?oLx/qK++vFbNwBEkosjB8KI1xXcLZm3x2gEHk1OWbvE9uMKdJhAL2jAf58Mh?=
- =?us-ascii?Q?s+uzW0YS9tU4pWjP3rc27R7A+S/c5Zm8H91rAsYQ5AGsFbSRJ3yMydJ36AF/?=
- =?us-ascii?Q?ndnZGlH09aPrGNMnpKGVE+Rofh7IVIm02awKk0Q04vO3Goe2/CEM0a12VXRG?=
- =?us-ascii?Q?QrJZ3BDKQsZppS5lhIpoEoLbUqLeilJYViVifdqL8LowH4SauIektH09Ct2g?=
- =?us-ascii?Q?j3xcP71oMmuEfgJhnA69AKo+e0LBO78n8Drh2dLNr9IwfQ5vvZPRXwaSlpj8?=
- =?us-ascii?Q?W6H3r/1P4JLVcg62XRftAsEhpcvxks84PoxUNvivfnlBTh90Xk4MZgYN6roj?=
- =?us-ascii?Q?MXbLmJVv7QdCNfAfa01PUZgiHsgr/I5YclN2YTb/gDHgZq0aOul5Y4ZY3Il6?=
- =?us-ascii?Q?qHTt48RJi/4ZaYZPVGXRgI63yr7WX4mHdj/wcS/49nVmlw5Nd+WSuB22aLN6?=
- =?us-ascii?Q?1i+mxJtrU58/lWju2us8KNHaa+IrSICMbvCErCPzzbT5DwArnSZs53dwwBi9?=
- =?us-ascii?Q?lVd6eQXudX9/FZAhDA8/NCHZIM9revfQbQF43wojWMUXTrs4/aGZO8puOv8C?=
- =?us-ascii?Q?ItJcPv0xHTSoEnyMuspTliPZAh3YjIYa46QeLlQuMidZ61oZeg6EZ579rwa+?=
- =?us-ascii?Q?ypQp+JJegP0miJroKJHfU1kJXeEWlmm5lIMovaKQLzDkc+wC7b26xcb51Wkx?=
- =?us-ascii?Q?na9u4zIUjPK6ndFTEEImlsU44yCUjVWtqAIDL6vzl8DAbDaHXNZEeq62BuRk?=
- =?us-ascii?Q?iruOHGTpOKlFBLr1Ei4vJq3W3C2jFPwpayIL46+4YQEg0mb0kaWBhco+IdRY?=
- =?us-ascii?Q?LH3ySGze22s0RIh1abI64/X56Loww/nqGuUytDyh00fOneiVTXSZ392ezx9F?=
- =?us-ascii?Q?obYABRLCdu+Sxi53MH8W6ma+FM0fvvpdVqnN/govbagS+YoPxpH4+yv9w0kO?=
- =?us-ascii?Q?6hUvAGZlb1G0jrOaojCMIbRz1C2/zoz7Olnfevrg7hYnlrdVH2N7q7qg7Iw8?=
- =?us-ascii?Q?lELbHZB2ittsc4OczGgSAlLrLR7KhT/dB9m1vLLlb/QPDGmrQfLMztfNIhAF?=
- =?us-ascii?Q?ODsZTeuikJThbOVUpe1dqMX7OOEwBkFKBpOjvpbPGafXKFlUWmAp8gPLeZz+?=
- =?us-ascii?Q?DmmPenCBk4JqYl55/Ndl6O6dQ0jn11+Y8+7qPXRm1KCzg/LkLF/uNd+k9jVu?=
- =?us-ascii?Q?eD4VfE7JN969eZwtFN0alHaMFPU5HjCNjbCJmZEurTJwbk6zeJrvF6L4hqXl?=
- =?us-ascii?Q?wcmoMW8UpaNIvolJ+kB0a50rNzMTFn3Co2RTPTScRySqYQxF/Gpf9Rd7J6v7?=
- =?us-ascii?Q?X5bOU6UgTmc87WxNnTA=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	id 1ubdWu-00000004uAp-3zQx;
+	Tue, 15 Jul 2025 11:09:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=QCkYUzgDxAkXibDkggPAvcI6Vv/4f0QuIfu4aUOzukQ=; b=jsqW+LHduzFR06/yIXBowzjeHR
+	4BiEPIsnvJns23YlNLRNk5uKsJdRchI+f3cxp3XxU3K1VYqZAPSqffxKW3LZAjxWjj/KvNQ/LVDCz
+	itWo1HKkSq+6pQ7ccPqFlkq6G4G0S4onLDQ/xtGy0pfvsHDqfdtEqQbbmNJmqtRp09sWH7n2OHC+w
+	MzDfFHFY7y1O2yK8F/Kdlvkkj686HCAc1a+qXJuieq0dhGPbQU88BiqYIm7d6lPgq4sMcqXTec4u0
+	13WYfULL9kz29TdCQbl0i6ttaHQTf0B/wiBAgybVbkWXfnUV0kSbAUrCA/HKWGemYRn5R6PVRCG2x
+	/Pn+3JDg==;
+Received: from [194.95.143.137] (helo=localhost.localdomain)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1ubdWq-0000O7-Sf; Tue, 15 Jul 2025 13:08:56 +0200
+From: Heiko Stuebner <heiko@sntech.de>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Diederik de Haas <didi.debian@cknow.org>
+Cc: Heiko Stuebner <heiko@sntech.de>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] arm64: dts: rockchip: Add reset button to NanoPi R5S
+Date: Tue, 15 Jul 2025 13:08:45 +0200
+Message-ID: <175257771276.2527819.12482160462723164616.b4-ty@sntech.de>
+X-Mailer: git-send-email 2.47.2
+In-Reply-To: <20250711142138.197445-1-didi.debian@cknow.org>
+References: <20250711142138.197445-1-didi.debian@cknow.org>
 MIME-Version: 1.0
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: MN0PR12MB5953.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: bf9df34d-3f73-479b-0c7c-08ddc38f786b
-X-MS-Exchange-CrossTenant-originalarrivaltime: 15 Jul 2025 11:05:12.4326
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: j0hku0B9Gw/U94cs4iDBAvrdeSNtKVnGx7z1a7SyY9Lgn8YS2le5qNFUG7lH8e9S
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA0PR12MB4448
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250715_040520_818276_E2313F50 
-X-CRM114-Status: GOOD (  22.68  )
+X-CRM114-CacheID: sfid-20250715_040900_988784_1C5FA182 
+X-CRM114-Status: GOOD (  13.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -170,130 +76,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-[AMD Official Use Only - AMD Internal Distribution Only]
 
-> -----Original Message-----
-> From: Suraj Gupta <suraj.gupta2@amd.com>
-> Sent: Thursday, July 10, 2025 3:42 PM
-> To: andrew+netdev@lunn.ch; davem@davemloft.net; kuba@kernel.org;
-> pabeni@redhat.com; Simek, Michal <michal.simek@amd.com>; vkoul@kernel.org=
-;
-> Pandey, Radhey Shyam <radhey.shyam.pandey@amd.com>
-> Cc: netdev@vger.kernel.org; linux-arm-kernel@lists.infradead.org; linux-
-> kernel@vger.kernel.org; dmaengine@vger.kernel.org; Katakam, Harini
-> <harini.katakam@amd.com>
-> Subject: [PATCH V2 2/4] dmaengine: xilinx_dma: Fix irq handler and start =
-transfer
-> path for AXI DMA
+On Fri, 11 Jul 2025 16:20:37 +0200, Diederik de Haas wrote:
+> The NanoPi R5S LTS version has a reset button, which is connected via
+> GPIO. Note that the non-LTS version does not have the reset button and
+> therefore on page 19 of the schematic version 2204 it is marked 'NC',
+> but it is connected on the LTS version.
+> 
+> 
 
-Mention - a short summary of what you are fixing. i.e allow queuing up mult=
-iple
-DMA transaction in running state or something like that.
+Applied, thanks!
 
->
-> AXI DMA driver incorrectly assumes complete transfer completion upon IRQ
-> reception, particularly problematic when IRQ coalescing is active.
-> Updating the tail pointer dynamically fixes it.
-> Remove existing idle state validation in the beginning of
-> xilinx_dma_start_transfer() as it blocks valid transfer initiation on bus=
-y channels with
-> queued descriptors.
-> Additionally, refactor xilinx_dma_start_transfer() to consolidate coalesc=
-e and delay
-> configurations while conditionally starting channels only when idle.
+[1/1] arm64: dts: rockchip: Add reset button to NanoPi R5S
+      commit: 954f07012794a3aa7ae89e56f070eaa1643af50b
 
-These two refactor should be in separate patch and as it in optimizing exis=
-ting flow.
->
-> Signed-off-by: Suraj Gupta <suraj.gupta2@amd.com>
-> Fixes: Fixes: c0bba3a99f07 ("dmaengine: vdma: Add Support for Xilinx AXI =
-Direct
-> Memory Access Engine")
-
-Not a real bug but an implementation from the start and subsequent queue
-we're not allowed on running DMA. Same is the case for other DMA variants.
-
-> ---
->  drivers/dma/xilinx/xilinx_dma.c | 20 ++++++++++----------
->  1 file changed, 10 insertions(+), 10 deletions(-)
->
-> diff --git a/drivers/dma/xilinx/xilinx_dma.c b/drivers/dma/xilinx/xilinx_=
-dma.c index
-> a34d8f0ceed8..187749b7b8a6 100644
-> --- a/drivers/dma/xilinx/xilinx_dma.c
-> +++ b/drivers/dma/xilinx/xilinx_dma.c
-> @@ -1548,9 +1548,6 @@ static void xilinx_dma_start_transfer(struct
-> xilinx_dma_chan *chan)
->       if (list_empty(&chan->pending_list))
->               return;
->
-> -     if (!chan->idle)
-> -             return;
-> -
->       head_desc =3D list_first_entry(&chan->pending_list,
->                                    struct xilinx_dma_tx_descriptor, node)=
-;
->       tail_desc =3D list_last_entry(&chan->pending_list,
-> @@ -1558,23 +1555,24 @@ static void xilinx_dma_start_transfer(struct
-> xilinx_dma_chan *chan)
->       tail_segment =3D list_last_entry(&tail_desc->segments,
->                                      struct xilinx_axidma_tx_segment, nod=
-e);
->
-> +     if (chan->has_sg && list_empty(&chan->active_list))
-
-Can also use chan-> idle equivalent of empty active list?
-But is fine as is also.
-
-
-> +             xilinx_write(chan, XILINX_DMA_REG_CURDESC,
-> +                          head_desc->async_tx.phys);
-> +
->       reg =3D dma_ctrl_read(chan, XILINX_DMA_REG_DMACR);
->
->       if (chan->desc_pendingcount <=3D XILINX_DMA_COALESCE_MAX) {
->               reg &=3D ~XILINX_DMA_CR_COALESCE_MAX;
->               reg |=3D chan->desc_pendingcount <<
->                                 XILINX_DMA_CR_COALESCE_SHIFT;
-> -             dma_ctrl_write(chan, XILINX_DMA_REG_DMACR, reg);
-
-This seems to unrelated change. Please consider optimization to separate
-patch.
-
->       }
->
-> -     if (chan->has_sg)
-> -             xilinx_write(chan, XILINX_DMA_REG_CURDESC,
-> -                          head_desc->async_tx.phys);
->       reg  &=3D ~XILINX_DMA_CR_DELAY_MAX;
->       reg  |=3D chan->irq_delay << XILINX_DMA_CR_DELAY_SHIFT;
->       dma_ctrl_write(chan, XILINX_DMA_REG_DMACR, reg);
->
-> -     xilinx_dma_start(chan);
-> +     if (chan->idle)
-> +             xilinx_dma_start(chan);
-
-Same as above.
-
->
->       if (chan->err)
->               return;
-> @@ -1914,8 +1912,10 @@ static irqreturn_t xilinx_dma_irq_handler(int irq,=
- void
-> *data)
->                     XILINX_DMA_DMASR_DLY_CNT_IRQ)) {
->               spin_lock(&chan->lock);
->               xilinx_dma_complete_descriptor(chan);
-> -             chan->idle =3D true;
-> -             chan->start_transfer(chan);
-> +             if (list_empty(&chan->active_list)) {
-> +                     chan->idle =3D true;
-> +                     chan->start_transfer(chan);
-> +             }
->               spin_unlock(&chan->lock);
->       }
->
-> --
-> 2.25.1
-
+Best regards,
+-- 
+Heiko Stuebner <heiko@sntech.de>
 
