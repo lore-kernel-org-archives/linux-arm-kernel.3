@@ -4,54 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A54A5C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 02:45:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA3E5C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 02:48:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:To:From:
-	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=PhXHdhDcXOJLnI2JuGKILPdOtW88b3jLAjqiNscaQ4s=; b=b/FnddQwD1n598
-	vadXn7xFr8hHUwAJjYvl3PXjinUvz2e1ThM0UqAPFCd7dc4Fr441EgEqz+gMUjZXC34yX7mBGQEZG
-	Y0x2D0NcDd2tVrrEWtMptdsHfR7ozN3aQ0J6Cm+Qr9L4E6L37f+pgVXVe5HjD2soWaQ6ntHJCqg77
-	CdV04Td3Vxun6PgDeobA1n8L9XToptUCI8UJoJKhNMC7yG4IT9Wb8UJ+N4U36yHXf6XIz831+5saW
-	gJLrQQc4KuvDJmq+oh15St13njfbZ+Dc7AiPo6Afw3PjVGSybcuw+5vfh8ZxuMbtF/cU/6GC//D9O
-	PAv1T6OH/wK5aZyZQrFg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:CC:To:
+	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BXbpC2OUq6EykTPfMwxZgL6CFOSmfWb76gLbauM1BGs=; b=Q5ITiaAidSfkrbYov95rfBNq2b
+	74qZD8o8LM/+oZPB+4ZQJKHHhPoO/TtW13kOdHn8qI1aD9uv8Nr6lTvuOg/0URi7oQTUNuZ+TaWfo
+	PlIgx3B46iQGK86BX0/8NW0AIB21WHQ57z4niLuCXClNIB61iYBjT7OiD7qbwiAp8mixMJnYsm01M
+	rv859sZYbfB8EkKLEEVt3ZmE6Z1Fte4D7mx48r3EepfZTDKxRISqojvJvjm/jvRy4ekG8OVMZCwE3
+	gBAXU/DasjIGXylG5fOk3p/OY/lVpi+nV/YOMhJccm0HovSFuTsK0YTZC36+Vcx/H131vKAzKInGp
+	2Pd7dSXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubVfo-00000003oQi-3UMm;
-	Tue, 15 Jul 2025 02:45:40 +0000
-Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
+	id 1ubVit-00000003og7-2bzV;
+	Tue, 15 Jul 2025 02:48:51 +0000
+Received: from szxga05-in.huawei.com ([45.249.212.191])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubVdL-00000003oAW-3r6t
+	id 1ubVgR-00000003oVo-46fZ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Jul 2025 02:43:09 +0000
-Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Tue, 15 Jul
- 2025 10:42:58 +0800
-Received: from twmbx02.aspeed.com (192.168.10.13) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
- Transport; Tue, 15 Jul 2025 10:42:58 +0800
-From: Ryan Chen <ryan_chen@aspeedtech.com>
-To: ryan_chen <ryan_chen@aspeedtech.com>, Thomas Gleixner
-	<tglx@linutronix.de>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
-	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Joel Stanley
-	<joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>, Kevin Chen
-	<kevin_chen@aspeedtech.com>, <linux-kernel@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-aspeed@lists.ozlabs.org>
-Subject: [PATCH v2] dt-bindings: interrupt-controller: aspeed: Add parent node compatibles and refine documentation
-Date: Tue, 15 Jul 2025 10:42:58 +0800
-Message-ID: <20250715024258.2304665-1-ryan_chen@aspeedtech.com>
-X-Mailer: git-send-email 2.34.1
+	Tue, 15 Jul 2025 02:46:21 +0000
+Received: from mail.maildlp.com (unknown [172.19.162.112])
+	by szxga05-in.huawei.com (SkyGuard) with ESMTP id 4bh3Qr2ddqz29drF;
+	Tue, 15 Jul 2025 10:43:32 +0800 (CST)
+Received: from dggpemf500002.china.huawei.com (unknown [7.185.36.57])
+	by mail.maildlp.com (Postfix) with ESMTPS id 24EF31400CB;
+	Tue, 15 Jul 2025 10:46:09 +0800 (CST)
+Received: from [10.174.178.247] (10.174.178.247) by
+ dggpemf500002.china.huawei.com (7.185.36.57) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Tue, 15 Jul 2025 10:46:06 +0800
+Subject: Re: [RESEND PATCH v18 1/2] ACPI: APEI: send SIGBUS to current task if
+ synchronous memory error not recovered
+To: "Rafael J. Wysocki" <rafael@kernel.org>, Shuai Xue
+	<xueshuai@linux.alibaba.com>
+CC: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+	"Luck, Tony" <tony.luck@intel.com>, <linux-mm@kvack.org>,
+	<linux-kernel@vger.kernel.org>, <akpm@linux-foundation.org>,
+	<linux-edac@vger.kernel.org>, <x86@kernel.org>, <justin.he@arm.com>,
+	<ardb@kernel.org>, <ying.huang@linux.alibaba.com>, <ashish.kalra@amd.com>,
+	<baolin.wang@linux.alibaba.com>, <tglx@linutronix.de>,
+	<dave.hansen@linux.intel.com>, <lenb@kernel.org>, <hpa@zytor.com>,
+	<robert.moore@intel.com>, <lvying6@huawei.com>, <xiexiuqi@huawei.com>,
+	<zhuo.song@linux.alibaba.com>, <sudeep.holla@arm.com>,
+	<lpieralisi@kernel.org>, <linux-acpi@vger.kernel.org>,
+	<yazen.ghannam@amd.com>, <mark.rutland@arm.com>, <mingo@redhat.com>,
+	<robin.murphy@arm.com>, <Jonathan.Cameron@huawei.com>, <bp@alien8.de>,
+	<linux-arm-kernel@lists.infradead.org>, <wangkefeng.wang@huawei.com>,
+	<tanxiaofei@huawei.com>, <mawupeng1@huawei.com>, <linmiaohe@huawei.com>,
+	<naoya.horiguchi@nec.com>, <james.morse@arm.com>, <tongtiangen@huawei.com>,
+	<gregkh@linuxfoundation.org>, <jarkko@kernel.org>
+References: <20250404112050.42040-1-xueshuai@linux.alibaba.com>
+ <20250404112050.42040-2-xueshuai@linux.alibaba.com>
+ <0c0bc332-0323-4e43-a96b-dd5f5957ecc9@huawei.com>
+ <709ee8d2-8969-424c-b32b-101c6a8220fb@linux.alibaba.com>
+ <353809e7-5373-0d54-6ddb-767bc5af9e5f@huawei.com>
+ <653abdd4-46d2-4956-b49c-8f9c309af34d@linux.alibaba.com>
+ <de5d2417-dc92-b276-1125-4feb5151de7f@huawei.com>
+ <f60f1128-0d42-48e5-9a06-6ed7ca10767f@linux.alibaba.com>
+ <20250428152350.GA23615@willie-the-truck>
+ <6671c3cc-5119-4544-bcb5-17e8cc2d7057@linux.alibaba.com>
+ <CAJZ5v0j3NC2ki1XPXfznxZRBLaReDBJ+nzHFgvqMx5+MgERL-A@mail.gmail.com>
+ <3a465782-a8ff-4be8-9c15-e46f39196757@linux.alibaba.com>
+ <CAJZ5v0gfFHCvE2Uu8=GRb9=ueK51s1-0BDBkJbbDG0tQvD5pLA@mail.gmail.com>
+From: Hanjun Guo <guohanjun@huawei.com>
+Message-ID: <9457d09d-20da-e645-3f3a-2be0c0101c71@huawei.com>
+Date: Tue, 15 Jul 2025 10:46:05 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:68.0) Gecko/20100101
+ Thunderbird/68.6.0
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+In-Reply-To: <CAJZ5v0gfFHCvE2Uu8=GRb9=ueK51s1-0BDBkJbbDG0tQvD5pLA@mail.gmail.com>
+Content-Type: text/plain; charset="utf-8"; format=flowed
+Content-Language: en-GB
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.174.178.247]
+X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
+ dggpemf500002.china.huawei.com (7.185.36.57)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250714_194307_961502_BFE12520 
-X-CRM114-Status: GOOD (  15.38  )
+X-CRM114-CacheID: sfid-20250714_194620_380142_5D09D37D 
+X-CRM114-Status: GOOD (  11.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,228 +100,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-- Add 'aspeed,ast2700-intc0' and 'aspeed,ast2700-intc1' compatible
-strings for parent interrupt controller nodes, in addition to the
-existing 'aspeed,ast2700-intc-ic' for child nodes.
-- Clarify the relationship and function of INTC0, INTC1, and the GIC.
-- Update and clarify documentation, block diagram, and examples
-to reflect the hierarchy and compatible usage.
-- Documentation and example refine.
+On 2025/7/15 1:30, Rafael J. Wysocki wrote:
+>>> For APEI changes, you need an ACK from one of the reviewers listed in
+>>> the MAINTAINERS entry for APEI.
+>>>
+>>> Thanks!
+>> Hi, Rafael
+>>
+>> Sorry, I missed your email which goes in span (:
+>>
+>> ARM maintain @Catalin points that:
+>>
+>>   > James Morse is listed as reviewer of the ACPI APEI code but he's busy
+>>   > with resctrl/MPAM. Adding Lorenzo, Sudeep and Hanjun as arm64 ACPI
+>>   > maintainers, hopefully they can help.
+>>
+>> And Hanjun explictly gived his Reviewed-by tag in this thread, is that
+>> happy for you for merge?
+> Not really.
+> 
+> I need an ACK or R-by from a reviewer listed in the APEI entry in MAINTAINERS.
+> 
+> If James Morse is not able to fill that role (and AFAICS he's not been
+> for quite some time now), I'd expect someone else to step up.
 
-This change allows the device tree and driver to distinguish between
-parent (top-level) and child (group) interrupt controller nodes,
-enabling more precise driver matching SOC register space allocation.
+Please count me in. I have been working in ACPI for years, and RAS 
+feature development for both x86 and arm64 architectures.
 
-Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
----
+I'm pretty familiar with ACPI spec including APEI, it will help me
+to do the review work.
 
-v2:
-make dt_binding_check check
- address-cells,size-cells -> #address-cells,#size-cells.
- add oneOf required, parent us interrupts, child use interrupts-extended.
- fix intc0_11 size-cells.
-
----
- .../aspeed,ast2700-intc.yaml                  | 158 +++++++++++++-----
- 1 file changed, 115 insertions(+), 43 deletions(-)
-
-diff --git a/Documentation/devicetree/bindings/interrupt-controller/aspeed,ast2700-intc.yaml b/Documentation/devicetree/bindings/interrupt-controller/aspeed,ast2700-intc.yaml
-index 55636d06a674..bdc4d8835843 100644
---- a/Documentation/devicetree/bindings/interrupt-controller/aspeed,ast2700-intc.yaml
-+++ b/Documentation/devicetree/bindings/interrupt-controller/aspeed,ast2700-intc.yaml
-@@ -10,6 +10,33 @@ description:
-   This interrupt controller hardware is second level interrupt controller that
-   is hooked to a parent interrupt controller. It's useful to combine multiple
-   interrupt sources into 1 interrupt to parent interrupt controller.
-+  Depend to which INTC0 or INTC1 used.
-+  INTC0 and INTC1 are two kinds of interrupt controller with enable and raw
-+  status registers for use.
-+  INTC0 is used to assert GIC if interrupt in INTC1 asserted.
-+  INTC1 is used to assert INTC0 if interrupt of modules asserted.
-+  +-----+   +---------+
-+  | GIC |---|  INTC0  |
-+  +-----+   +---------+
-+            +---------+
-+            |         |---module0
-+            | INTC0_0 |---module1
-+            |         |---...
-+            +---------+---module31
-+            |---....  |
-+            +---------+
-+            |         |     +---------+
-+            | INTC0_11| +---| INTC1   |
-+            |         |     +---------+
-+            +---------+     +---------+---module0
-+                            | INTC1_0 |---module1
-+                            |         |---...
-+                            +---------+---module31
-+                            ...
-+                            +---------+---module0
-+                            | INTC1_5 |---module1
-+                            |         |---...
-+                            +---------+---module31
- 
- maintainers:
-   - Kevin Chen <kevin_chen@aspeedtech.com>
-@@ -17,49 +44,70 @@ maintainers:
- properties:
-   compatible:
-     enum:
--      - aspeed,ast2700-intc-ic
-+      - aspeed,ast2700-intc0
-+      - aspeed,ast2700-intc1
- 
-   reg:
-     maxItems: 1
- 
--  interrupt-controller: true
-+  '#address-cells':
-+    const: 2
- 
--  '#interrupt-cells':
-+  '#size-cells':
-     const: 2
--    description:
--      The first cell is the IRQ number, the second cell is the trigger
--      type as defined in interrupt.txt in this directory.
--
--  interrupts:
--    maxItems: 6
--    description: |
--      Depend to which INTC0 or INTC1 used.
--      INTC0 and INTC1 are two kinds of interrupt controller with enable and raw
--      status registers for use.
--      INTC0 is used to assert GIC if interrupt in INTC1 asserted.
--      INTC1 is used to assert INTC0 if interrupt of modules asserted.
--      +-----+   +-------+     +---------+---module0
--      | GIC |---| INTC0 |--+--| INTC1_0 |---module2
--      |     |   |       |  |  |         |---...
--      +-----+   +-------+  |  +---------+---module31
--                           |
--                           |   +---------+---module0
--                           +---| INTC1_1 |---module2
--                           |   |         |---...
--                           |   +---------+---module31
--                          ...
--                           |   +---------+---module0
--                           +---| INTC1_5 |---module2
--                               |         |---...
--                               +---------+---module31
- 
-+  ranges: true
-+
-+patternProperties:
-+  "^interrupt-controller@":
-+    type: object
-+    description: Interrupt group child nodes
-+    additionalProperties: false
-+
-+    properties:
-+      compatible:
-+        enum:
-+          - aspeed,ast2700-intc-ic
-+
-+      reg:
-+        maxItems: 1
-+
-+      interrupt-controller: true
-+
-+      '#interrupt-cells':
-+        const: 2
-+        description: |
-+          The first cell is the IRQ number, the second cell is the trigger
-+          type as defined in interrupt.txt in this directory.
-+
-+      interrupts:
-+        minItems: 1
-+        maxItems: 6
-+        description: |
-+          The interrupts provided by this interrupt controller.
-+
-+      interrupts-extended:
-+        minItems: 1
-+        maxItems: 6
-+        description: |
-+          This property is required when defining a cascaded interrupt controller
-+          that is connected under another interrupt controller. It specifies the
-+          parent interrupt(s) in the upstream controller to which this controller
-+          is connected.
-+
-+    oneOf:
-+      - required: [interrupts]
-+      - required: [interrupts-extended]
-+
-+    required:
-+      - compatible
-+      - reg
-+      - interrupt-controller
-+      - '#interrupt-cells'
- 
- required:
-   - compatible
-   - reg
--  - interrupt-controller
--  - '#interrupt-cells'
--  - interrupts
- 
- additionalProperties: false
- 
-@@ -68,19 +116,43 @@ examples:
-     #include <dt-bindings/interrupt-controller/arm-gic.h>
- 
-     bus {
-+      #address-cells = <2>;
-+      #size-cells = <2>;
-+
-+      intc0: interrupt-controller@12100000 {
-+        compatible = "aspeed,ast2700-intc0";
-+        reg = <0 0x12100000 0 0x4000>;
-+        ranges = <0x0 0x0 0x0 0x12100000 0x0 0x4000>;
-+        #address-cells = <2>;
-+        #size-cells = <2>;
-+
-+        intc0_11: interrupt-controller@1b00 {
-+          compatible = "aspeed,ast2700-intc-ic";
-+          reg = <0 0x12101b00 0 0x10>;
-+          #interrupt-cells = <2>;
-+          interrupt-controller;
-+          interrupts = <GIC_SPI 192 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_HIGH)>,
-+                       <GIC_SPI 193 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_HIGH)>,
-+                       <GIC_SPI 194 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_HIGH)>,
-+                       <GIC_SPI 195 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_HIGH)>,
-+                       <GIC_SPI 196 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_HIGH)>,
-+                       <GIC_SPI 197 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_HIGH)>;
-+        };
-+      };
-+
-+      intc1: interrupt-controller@14c18000 {
-+        compatible = "aspeed,ast2700-intc1";
-+        reg = <0 0x14c18000 0 0x400>;
-+        ranges = <0x0 0x0 0x0 0x14c18000 0x0 0x400>;
-         #address-cells = <2>;
-         #size-cells = <2>;
- 
--        interrupt-controller@12101b00 {
--            compatible = "aspeed,ast2700-intc-ic";
--            reg = <0 0x12101b00 0 0x10>;
--            #interrupt-cells = <2>;
--            interrupt-controller;
--            interrupts = <GIC_SPI 192 IRQ_TYPE_LEVEL_HIGH>,
--                         <GIC_SPI 193 IRQ_TYPE_LEVEL_HIGH>,
--                         <GIC_SPI 194 IRQ_TYPE_LEVEL_HIGH>,
--                         <GIC_SPI 195 IRQ_TYPE_LEVEL_HIGH>,
--                         <GIC_SPI 196 IRQ_TYPE_LEVEL_HIGH>,
--                         <GIC_SPI 197 IRQ_TYPE_LEVEL_HIGH>;
-+        intc1_0: interrupt-controller@100 {
-+          compatible = "aspeed,ast2700-intc-ic";
-+          reg = <0x0 0x100 0x0 0x10>;
-+          #interrupt-cells = <2>;
-+          interrupt-controller;
-+          interrupts-extended = <&intc0_11 0 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_HIGH)>;
-         };
-+      };
-     };
--- 
-2.34.1
-
+Thanks
+Hanjun
 
