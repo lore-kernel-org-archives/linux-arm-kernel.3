@@ -4,61 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 337F3C83F22
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 19:19:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9282C83F2D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 19:19:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DopAyANq/WYEvQWfTKkMX++nCpW1mxDbfBw9ivkP0ps=; b=v2EMvSPVlj07AXB/qrS1aWQ42E
-	gpglU9TQx2WAEZ1yjX1HN7l8/F2GPv8n4eSnHQihr77tiRMT0t9Z7BzP8Dnw9UIlPHQ98POZwFgyI
-	OlSLKDIL+a73cx1Ygrya4PhlBA5WLGl7K7Lgsn9mejA28ceMjqL9TJhMUJ/H+BMqUa9i0r9WYtnCA
-	KDD2Ni4S+V+/zzZqZECw1PDEm0wKzrq2fir/SKgeFuMqhim0p32dGZVe9h1HLnIPWpw036IBd0unL
-	aBo/AsgK0i2aVSPAWe5bl2KHebF0rWw6EVmDsTJspLmIa9xel5I6AX3XyTIZP4/vxDgut1hVMl885
-	n5J35/1A==;
+	bh=KPEPbvFxufdT7/SYzEfT1Bx3fsHouovt0EggROV4YbE=; b=zToSwuVGX1/zei6x/MRWP2mRW6
+	11qjnhKqZ0I0G1IMvHqkBl8CtaFDyPFuj5YyWzW0Jof6mEEK8aZhbfSOzmhEheOorqdPEJlOtUhfu
+	b1yZY2i4ConYzve+U0MkptSpIgbzpRgAX0bLGMrMHfh/ZaZaXCe8AhoTynOg7VGPgdaC2kQPf4dj0
+	OYtwO1Xy3Xbe0ncDXyB38w15BrC5XsxraB45aDzZ870XTTii6STenYstUmEHFgK/xtUFFpC4KFmP1
+	fpQ1hLfZNF4+eZsB43FttYE2z14DF6hvebKbvYacyL+AVwcrKv6LnSWXqO/5mUZigB7lmeMombIUl
+	AVGwiFNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ublBY-000000061Yz-3NYf;
-	Tue, 15 Jul 2025 19:19:28 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1ublBZ-000000061aS-314u;
+	Tue, 15 Jul 2025 19:19:29 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubigC-00000005lRp-2ity
+	id 1ubigC-00000005lRo-2Awn
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 15 Jul 2025 16:38:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 9EC2D5C5BDB;
+	by dfw.source.kernel.org (Postfix) with ESMTP id 9EC005C4A02;
 	Tue, 15 Jul 2025 16:38:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2DF71C4CEE3;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 31492C4CEF4;
 	Tue, 15 Jul 2025 16:38:55 +0000 (UTC)
 Received: from wens.tw (localhost [127.0.0.1])
-	by wens.tw (Postfix) with ESMTP id E6B9C5FD47;
+	by wens.tw (Postfix) with ESMTP id C986F5F7BF;
 	Wed, 16 Jul 2025 00:38:51 +0800 (CST)
 From: Chen-Yu Tsai <wens@csie.org>
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+To: Jernej Skrabec <jernej@kernel.org>, 
+ Samuel Holland <samuel@sholland.org>, Ulf Hansson <ulf.hansson@linaro.org>, 
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Samuel Holland <samuel@sholland.or>, iuncuim <iuncuim@gmail.com>
-Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-sunxi@lists.linux.dev
-In-Reply-To: <20250711035730.17507-1-iuncuim@gmail.com>
-References: <20250711035730.17507-1-iuncuim@gmail.com>
-Subject: Re: (subset) [PATCH v2 0/3] arm64: sunxi: a523: Enable Mali GPU
-Message-Id: <175259753193.2390274.13790626107731920728.b4-ty@csie.org>
+ Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>
+Cc: Andre Przywara <andre.przywara@arm.com>, linux-sunxi@lists.linux.dev, 
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org
+In-Reply-To: <20250712074021.805953-1-wens@kernel.org>
+References: <20250712074021.805953-1-wens@kernel.org>
+Subject: Re: (subset) [PATCH v3 0/5] allwinner: a523: Add power controllers
+Message-Id: <175259753164.2390274.11809107564152769710.b4-ty@csie.org>
 Date: Wed, 16 Jul 2025 00:38:51 +0800
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250715_093856_734853_7D8B6645 
-X-CRM114-Status: UNSURE (   8.50  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250715_093856_598370_D9C228A6 
+X-CRM114-Status: GOOD (  12.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,31 +69,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 11 Jul 2025 11:57:26 +0800, iuncuim wrote:
-> From: Mikhail Kalashnikov <iuncuim@gmail.com>
+On Sat, 12 Jul 2025 15:40:16 +0800, Chen-Yu Tsai wrote:
+> From: Chen-Yu Tsai <wens@csie.org>
 > 
-> This patch adds gpu support on devices with a523 processor.
+> Hi folks,
 > 
-> $ dmesg | grep panfrost
-> [    3.826968] panfrost 1800000.gpu: clock rate = 432000000
-> [    3.832305] panfrost 1800000.gpu: bus_clock rate = 200000000
-> [    3.838353] panfrost 1800000.gpu: mali-g57 id 0x9091 major 0x0 minor 0x1
->                status 0x0
-> [    3.846050] panfrost 1800000.gpu: features: 00000000,000019f7, issues:
->                00000001,80000400
-> [    3.854134] panfrost 1800000.gpu: Features: L2:0x07110206 Shader:0x00000000
->                Tiler:0x00000809 Mem:0x1 MMU:0x00002830 AS:0xff JS:0x7
-> [    3.866011] panfrost 1800000.gpu: shader_present=0x1 l2_present=0x1
-> [    3.874108] [drm] Initialized panfrost 1.3.0 for 1800000.gpu on minor 0
+> This is v3 of my A523 power controllers series.
+> 
+> Changes since v2:
+> - pck600 driver:
+>   - Fixed whitespace issue
+>   - Added explanation about possible PCK-600 lineage and document
+>     references to driver
+>   - Changed Kconfig option to tristate
+>   - Rewrote Kconfig option help text to make it clear that the driver
+>     is required for certain peripherals to work
+>   - Made it depend on ARCH_SUNXI or COMPILE_TEST
+>   - Made it enabled by default for ARCH_SUNXI
+>   - Renamed PPU_PWSR_PWR_STATUS to PPU_PWR_STATUS, and added a comment
+>     to note the macro is shared between two registers
+> - New patch changing sun20i-ppu driver to tristate, and enable by
+>   default for ARCH_SUNXI
+> - Fixed pck-600 header path in dtsi file
+> - Link to v2:
+>   https://lore.kernel.org/all/20250709155343.3765227-1-wens@kernel.org/
 > 
 > [...]
 
 Applied to sunxi/dt-for-6.17 in local tree, thanks!
 
-[2/3] arm64: dts: allwinner: a523: add Mali GPU node
-      commit: 3d99e0dc888727a21b45ca64ff7b0cddbd17dd16
-[3/3] arm64: dts: allwinner: a523: enable Mali GPU for all boards
-      commit: d96d9ac8d2f197f31ea3de931dde1a217950f4ad
+[5/5] arm64: dts: allwinner: a523: Add power controller device nodes
+      commit: 3b430dce33a8b48ddcae4e26991b2516e0431e84
 
 Best regards,
 -- 
