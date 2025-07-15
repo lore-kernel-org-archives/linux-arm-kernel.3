@@ -4,210 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DEA8C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 07:45:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86DB5C83F1D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 07:52:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JuAFQpgfpqPot8FUtQO+hEsCRRnieK/4MmvH2ciC5ms=; b=u8zApqIcVYBSKopnRj8NFCUumF
-	gilDWlhM9yyD0liDbwSobozup7KDtmaQduU5mNRNC1N3gx/EFR4dXHE0WGJ6NGS4z28PjF7O2hMjC
-	KddDzdp20AV/YShBo6pkrwzWw4S4FuBq8NXXmQc28Zio8Dvj16LWHD9PicA4zrkB27Vo6bAUrtisS
-	gyOcRn5w9x5BFZSBT8V+qqW9NT8k9u7hEJvkQjV//l6Mb55a1yp7iBS+sl9UOuMTWqZ0wVcAlshRH
-	QYbKbz4ZUyYJU344k1WWOnHlJYzMRz/cdPxGH2vzAJTWypH1Uzy8fEZu55D126ryXB0VP/WibqExr
-	A0G0haPg==;
+	bh=2r1/pjCbMq5HqeLfwNFLm/Rk07CuwWDFZjEVftpzoSw=; b=0ynNopu+pgJKAES/IH6/wFv1gB
+	kpuibPMRKTdNtp3reQiTvteFUU040VNzBdV8MqB6ThI5Lx4It/5WA9T5SFkrG03jNcYX9j0inyPX1
+	Tm5hOXJLPtZq+FKsd9F0e7tut5Jtc5PbAy4Q2c4GzOxTwILhOLdtf/0Dyhh6yB9gqgwDzyF8hN+f3
+	I/+caYahZasKpea7y5b6mgaOew8uXU/eRe+gmGNBDIDum77jkeZ8FsFensCnNS60O6FcjtZ4nyLS2
+	pRNc8k4eEAVTKeQhDxVu/rnwLZ6k8yfQwlRYdUnLiIAnn7B/ImRoa2wIYS6lBqBsI8i/3hLCBzYbF
+	masx+MnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubaLz-00000004OD3-1br9;
-	Tue, 15 Jul 2025 07:45:31 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1ubaSI-00000004P6U-1zfb;
+	Tue, 15 Jul 2025 07:52:02 +0000
+Received: from sender4-op-o12.zoho.com ([136.143.188.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubaIg-00000004Ncs-0HDs;
-	Tue, 15 Jul 2025 07:42:07 +0000
-X-UUID: 3143b72c614f11f09eb0dd999d3936bf-20250715
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=MIME-Version:Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From; bh=JuAFQpgfpqPot8FUtQO+hEsCRRnieK/4MmvH2ciC5ms=;
-	b=JepuVNveoL1p0OzoOPIFqyBFlxFe2BZNLUgA2kG0dFVB35/bVMnQEdrLHTlnaXlUfG3PUtALsUilPbkxEoFfeC1UJfXiZo2R8ADb/Vtn7Z1lhNtK4DdHZFX4QaHToTvHOhFHbQIVXzi+iRNq4EIPcP54JpW7HzV+g+EtB553csE=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.2,REQID:a39fafb1-35b1-4f0d-a8c1-15bdd1d646ca,IP:0,UR
-	L:12,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:12
-X-CID-META: VersionHash:9eb4ff7,CLOUDID:0ec037d8-b768-4ffb-8a44-cd8427608ba6,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|110|111,TC:nil,Conte
-	nt:0|50,EDM:-3,IP:nil,URL:99|11|97|83|106|80|1,File:nil,RT:nil,Bulk:nil,QS
-	:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,A
-	RC:0
-X-CID-BVR: 0,NGT
-X-CID-BAS: 0,NGT,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULN
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 3143b72c614f11f09eb0dd999d3936bf-20250715
-Received: from mtkmbs09n2.mediatek.inc [(172.21.101.94)] by mailgw02.mediatek.com
-	(envelope-from <ck.hu@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 2031394276; Tue, 15 Jul 2025 00:42:00 -0700
-Received: from mtkmbs10n2.mediatek.inc (172.21.101.183) by
- mtkmbs11n1.mediatek.inc (172.21.101.185) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Tue, 15 Jul 2025 15:41:56 +0800
-Received: from TYPPR03CU001.outbound.protection.outlook.com (172.21.101.237)
- by mtkmbs10n2.mediatek.inc (172.21.101.183) with Microsoft SMTP Server id
- 15.2.1258.39 via Frontend Transport; Tue, 15 Jul 2025 15:41:58 +0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=AxT/uGAi1m6RRKjcUoWutAGabr/KrE3tnqRUCeKzdLKzTD/Rxmo4Gpr/0nHgCMFEQ8sC15/C2ZrHBurc2XUpd6Tu6kRGvjvukxYs7s/RJg/wcGTPIgvkru5eJHqPllXX1/AfsAqB6DI+/5blnukrMg/4aG6zkFukeNANXjKapk0Glgq2jpzq1hOHG31KUDkoWnyEnD4Aqqw2nJGqs5X+zYrIio7v9n7d1nx8dF0MbwytLXakOkix6Z+/l+aIdiJVF88gMTwY814ittNeXLoQzV54IZm721BWPa+NEKYyYBWa3LBCHzN4rcdFOcF63KZ3/cBkTJeTYBr3nH6iKKh/wA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=JuAFQpgfpqPot8FUtQO+hEsCRRnieK/4MmvH2ciC5ms=;
- b=AEqeDNPCHI5KMT8v/MwUJrBlloyUkNdD/Cbb7yzMQJq4Vp9urww1JsYk12mcDO63iXBetYIMH/Gpmv90ttS4SywHG2K2lAaQVHj+zIQepUzeYwU17z5HaQAENzTBV3h9NmrkCWVuKjzcYNkBxsfjb8hZM/my+Q7foglOcE5UNGlweh1hRTQ901R+pGfuRp8tWFDOZXC1ICrYeWAjTRVUUApKia9zGVLmdQzX72IE84/IBX4r/mhCbgTNyKKCh3GW8K/CKlGzMmIdqUSr+WpfCwAk/dRpFIVfeluBLMNHGY04L/0sD00wAdvRVxpmjcR1KGqLqU2YcOPqPijjlzOqmw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=mediatek.com; dmarc=pass action=none header.from=mediatek.com;
- dkim=pass header.d=mediatek.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=mediateko365.onmicrosoft.com; s=selector2-mediateko365-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=JuAFQpgfpqPot8FUtQO+hEsCRRnieK/4MmvH2ciC5ms=;
- b=WlprLrI7TxvcNGyOPhkQBpcaJDeEBeHYVaKJOlCO4hcIz7S7LSb/IRbSA1qcvp66jdEvsxwjODMOpXMpc6/2VWpBpTIUGF6rRbraxJNxKI06AmDxFVUCDbZYJgdeziJUqbp4d0QxnACKrdLkCIPewUwgdCo9Irs7Aa2fcWiZK6A=
-Received: from TYZPR03MB6624.apcprd03.prod.outlook.com (2603:1096:400:1f4::13)
- by PUZPR03MB7256.apcprd03.prod.outlook.com (2603:1096:301:100::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8922.32; Tue, 15 Jul
- 2025 07:41:54 +0000
-Received: from TYZPR03MB6624.apcprd03.prod.outlook.com
- ([fe80::9ce6:1e85:c4a7:2a54]) by TYZPR03MB6624.apcprd03.prod.outlook.com
- ([fe80::9ce6:1e85:c4a7:2a54%3]) with mapi id 15.20.8922.028; Tue, 15 Jul 2025
- 07:41:54 +0000
-From: =?utf-8?B?Q0sgSHUgKOiDoeS/iuWFiSk=?= <ck.hu@mediatek.com>
-To: "robh@kernel.org" <robh@kernel.org>, "mchehab@kernel.org"
-	<mchehab@kernel.org>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
-	"conor+dt@kernel.org" <conor+dt@kernel.org>, "matthias.bgg@gmail.com"
-	<matthias.bgg@gmail.com>, =?utf-8?B?U2hhbmd5YW8gTGluICjmnpfkuIrloK8p?=
-	<Shangyao.Lin@mediatek.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>
-CC: "linux-media@vger.kernel.org" <linux-media@vger.kernel.org>,
-	"linaro-mm-sig@lists.linaro.org" <linaro-mm-sig@lists.linaro.org>,
-	Project_Global_Chrome_Upstream_Group
-	<Project_Global_Chrome_Upstream_Group@mediatek.com>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-mediatek@lists.infradead.org"
-	<linux-mediatek@lists.infradead.org>
-Subject: Re: [PATCH v2 04/13] dt-bindings: media: mediatek: add cam-yuv
- binding
-Thread-Topic: [PATCH v2 04/13] dt-bindings: media: mediatek: add cam-yuv
- binding
-Thread-Index: AQHb7uBQC+PVoYMb7UuSMJ5Toioh5bQy2h0A
-Date: Tue, 15 Jul 2025 07:41:54 +0000
-Message-ID: <048117e4918189bc51fcca4deb90045879e724b4.camel@mediatek.com>
-References: <20250707013154.4055874-1-shangyao.lin@mediatek.com>
-	 <20250707013154.4055874-5-shangyao.lin@mediatek.com>
-In-Reply-To: <20250707013154.4055874-5-shangyao.lin@mediatek.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-user-agent: Evolution 3.52.3-0ubuntu1 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=mediatek.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: TYZPR03MB6624:EE_|PUZPR03MB7256:EE_
-x-ms-office365-filtering-correlation-id: 44ad4815-1047-4945-1bb0-08ddc373120a
-x-ld-processed: a7687ede-7a6b-4ef6-bace-642f677fbe31,ExtAddr
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|7416014|376014|42112799006|1800799024|366016|38070700018;
-x-microsoft-antispam-message-info: =?utf-8?B?UDI5YndwTFI3N2FjQ2xaUUJPZmZKcjRQQXYvam0xU1J3ZktrVWZMWEt4SVph?=
- =?utf-8?B?djVnaWl2TEFnbitvVUtzYjZYSUZmVGZIWEM2aHAxSE8vdWZBUnV1ZEt3Vmxz?=
- =?utf-8?B?YVBxK0NjQ21YVDd0Vnd6WWhBSjdYeHZINkRxdjhvMVdORWlMY1hJRy9qQkNP?=
- =?utf-8?B?dnh0MU5aRVZtRlFLaXNyalNYRXBTYVZ3emRFekNiUERKNG5WOW13eXoxRzVs?=
- =?utf-8?B?L2p2TkJURHcyeWdBZUJVZkJlOS82U05PUmVYMzRqMW9tMkN4WGFTY093eGdt?=
- =?utf-8?B?TVArTHNxTFA1Yk9pdEJBc3dHVVl4cEM5YnVyN0djMnVZRFdUWXRwQWl1ME94?=
- =?utf-8?B?SDVqSzgxR3R1L3BNVFFscnpkSjY0R0NOMzFtZ3A0cHFibFZucWl0bWpXd0s3?=
- =?utf-8?B?aEl2VEpyaHRBOTFUKzhSVndLQWk5Z0p3a0tiZXZxb04xaklCZ1FnSjJnK2ZL?=
- =?utf-8?B?OXgxbU1EelVJL0dUU29oN3VXNnIyOUplM0w3VkZORlRFbHBzZUlTNGplNzBk?=
- =?utf-8?B?MlJ2SDVkNGU1U2hWOFpyZ0s5SUt5WlBhRUZPSmVqQWJWTUVYdVB4dThnVWRs?=
- =?utf-8?B?b3RxWVZtTGlMa3BIU0tIb2FNMHZIV3k0aXI2dUhIWmpvcHBwY0srclhnaEd3?=
- =?utf-8?B?N0ZMUzRzRC9mMk1adThwY3Jycm1zRHNUcWw1U0FuRW9yamloNmRHUEp5QTNh?=
- =?utf-8?B?Q1hqZVA1Q0Jac21YeFlmZ0lDM216VmVTUSttZG5vTy9BQjErLzVldmpqa0xq?=
- =?utf-8?B?Y1F2ZW1aQU94WUc0a0RkOElmbnFtdUkraklNbno5RDNOR1duc0didFJiOXlK?=
- =?utf-8?B?YXo2ZEZkc2g2RDBLY0RmaFRJL1ltaTlRRThmYTdOUmdlZlhyeFpJaThzWXE3?=
- =?utf-8?B?dTBFQnRNc2tvY2daTEJlMlp4YTMvS0d1bjUreWV2MndtTjliekVWREFZNk9h?=
- =?utf-8?B?Vm5Hdm9IL3JqVFExZkY2c0wvQUUrK2ZML2hNZnZIdFdlNUpha2t5K2ZkcDFS?=
- =?utf-8?B?WDBqNnVVTDRXa21DMGd2TFhyN1ZwcEhMZG1QTU1hZythM2wxdlA4QzQwN3BX?=
- =?utf-8?B?WHZKZTlieHJxWkRoenI0QkZwcTFZZ1BhZlExdEVlZVJrQkdGNnc4aTh6bVdH?=
- =?utf-8?B?U3ZNUmtwOFBYbWNIVTJKSUFMcTlOZDZ3ei9QbW1HTm8zNW5NUjhXR0IzaGRx?=
- =?utf-8?B?U0dwMDVDOVAvNFVJUkdLelg1bzU3dmlYcWYwcW1nSFlmM29JWmZ5eTlHL2tC?=
- =?utf-8?B?QzBycXN4VTkxMVU5QVZqWlRKOFpLTk1UL1RmRWt1RlQxTURxMGV4Q1IvMG0r?=
- =?utf-8?B?RDFYM1g5amEwTVVDTFY2blc0aUhRSTE5a2h5RTRraFRJQ0RGTWdITytOcCtV?=
- =?utf-8?B?QmFOL2FqMDh5WmpLMTBLT0NVTGtNY3pHZ3RCcHRDSC92U0t0QXd2Vzkxekxn?=
- =?utf-8?B?eGFUMGRPOEd0MllxRlQ4ZUNBVGRnR3AyQVFBU1dnM2hNeTlDY0pBTFd5MDgw?=
- =?utf-8?B?UmhHTHVrZXBKS0Q4Q0pSOG9Gc05IdVBscEpqVXZMdmZqRWdsZ0J6a1ZtY2VI?=
- =?utf-8?B?ZDRUaERXMFRJM3NFRGZENnZlSTlQWTc4MlRwY3VnYmdqYkRtMno2cjg3UDYr?=
- =?utf-8?B?UVJYWlUxazlBbGNRMldTNWxlbVQyUXBUY0hRRE15OU5DeGZRTVNtdWtOS3Y5?=
- =?utf-8?B?eENPTDBHd25WTGUwL29uTTQ0RWRoa1N2KzI5aEFBbDJlTUtTOEJyTzJIUjZL?=
- =?utf-8?B?UEdiT3ZHSHpXeGtFN2RVYmxmcWNQSWhuZnNUUHlXRUJmNVNOeVA4bTRWM1ly?=
- =?utf-8?B?dGRLTkhLVE1OREUvclRXM1RBUUJJS08remFFeHJnaFdPT3dBSU5FQ0cvbXBZ?=
- =?utf-8?B?bzB2ZXdvWUtBNUZCVGtQT2FLV1RBZnhCeWpGYWt1V2p4eGt6UUFlUzVMaTlN?=
- =?utf-8?Q?dTuIBCVnKmJnXSJWmpHnjhTsm2xoDgVO?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYZPR03MB6624.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(42112799006)(1800799024)(366016)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?VkFMNWE0WFZBNi9WakFqUjM0WVRmUmJQbmY1NG5QZm9lci9PYk5xUUNXUnBJ?=
- =?utf-8?B?MlZaVHRTaTI5Y2NWQ2VIWDJxbVc2K0F1YWk2N3EvUHRDZFJZOWZ6QkhITzcx?=
- =?utf-8?B?M2c3dEVRN1dFZWFxTk9wdzM0SHZlTXJDU05OYmhzZlVKUGVLbTQ5NUVHTUVH?=
- =?utf-8?B?amVoZTR4N2poa08vUjhMb3NHbTlvOEsvL3lrSlA1eHYxNDZmd1kwbzI5aWpX?=
- =?utf-8?B?MkRIOXZ0Uno5SUJYSlFIU1pKRDlMcDdPOHg5aDhjbUVCWE5XeEFBbzdQSW5B?=
- =?utf-8?B?Ti9zdFRENXlaeGVncEZJOExZd24xeHBoK3F6ZUhlRGNtUXJaRXJ1R3lrNFNO?=
- =?utf-8?B?SHdUeEZrNzk1UEFlNHRCaTZsTzBNUGpVKzBRRjJYTTRVdDg2VitGVGljcW9F?=
- =?utf-8?B?WWgzM0UrNXNWN3MweDk0ZmRYcXAvVzNMNXJXcXltZW5mMEFadW1QV2hTb08r?=
- =?utf-8?B?bXBUUnFuSm9ubSszUlI0Q0NOYWlpbVI5ejBXaitoK1lYSFpST2VneGp3dUt2?=
- =?utf-8?B?b01RV09EN1R2WXNlWk1HdE9XQlhjYTlzN2UzQXIzQ0F1ZU44VXBteHpuL0hu?=
- =?utf-8?B?TG9mOUE5eUZBQjlZS1NackpZRktoekdUMjJTT3h4bDU5YlhDaitmRk9udWh1?=
- =?utf-8?B?WjVTYU5vTTB1RDJZU2paYW5oMFZLQ0c1Qm8za21jV09WVWpaa3QrZVM1eUN0?=
- =?utf-8?B?WU1qZ0c3Vmd6aHAvMm1SdnlZaE9GdlNEbW12WnRyQUl4ZTFybU9nTUhHNW9D?=
- =?utf-8?B?Ync0Zy9OS3d2aEdXcmthWWVrMittRzhBWG9icmhOOVJJWG5YT3p6NXNaTUl0?=
- =?utf-8?B?emFqOG1kU1BqTEdaWGs4amRXdUNMOUhVUHc2Qk1wZzdXUlRZRlpuZE01bGZu?=
- =?utf-8?B?TWQzaHp4TXdwNWdlR3ZBZ2E4MXVhVHpzdWZRV0RjNnVPdnFvQ05MdDFpVWF1?=
- =?utf-8?B?bkZaRWovempveTgyaVRtQkdmemlKWXVVMExjN1JPZkljU0NxTFUzOXlHTFIz?=
- =?utf-8?B?SEI3enJSd1NOMU1jeUcycVg0WjJyNWZiZkxUZ1V3K3pFSjdDT3IwVG5rLzNE?=
- =?utf-8?B?RjBBRXA0NTk4VFpCMWVqNlRTTDZ4Smx1KytMODc1UVV3RWV4V2VlaXJRaE9X?=
- =?utf-8?B?M3ZxTGhyeDErR1U3WjBXSFpvYVFYanM5NDM3NzlxR0JmZ1o1QWhaK050NDNY?=
- =?utf-8?B?bWV1YzRqdUwyM2RCcHJDN1F3d05aejdUdkFmRitqV01FNmZ5amxiNFQ5T0wy?=
- =?utf-8?B?UzBxNm8wUzRrM3lpUVFuYlBtbkV5VmZZbGtjWXRkVFRJS0xQOG1yL3dWaFlR?=
- =?utf-8?B?OFc3Qkw5N3RqckFtZjRWblNpaXhPbW1OeGZsT1RUSFVKRFFkZTFpSTFySS9t?=
- =?utf-8?B?UUY4bENOYXlMQXltaExxRHNxNWQrVXI0T2lqdDJkRU1jMlNNZ1JVbmZlWUpi?=
- =?utf-8?B?TzBtTjVoMzZNN3UxbFVqcnFobHhyNWRnTGUyUjJIK3NvU1JBMzh2M2pWV3VB?=
- =?utf-8?B?TVFEcTVrZE55WGpZMHFxdVZVaXlzdkxsKzlzNUhWaXRvQmdSRnZzQzlGQjVO?=
- =?utf-8?B?NDVaWndmV1prVzlEeDdYWFVCQnpGbzZZK29meVBHcU1oem9ITm9pY2RRN1Zw?=
- =?utf-8?B?emlKZFpicjJDczBrSDk2QjR1R1J4U3pwQWlxUkcwWHAzZVRaZzJsUE5YVStF?=
- =?utf-8?B?MklvTUpnY3gySGNmNWRxcllxbmg5UnN1d0o0Vyt2cmpEcUtoMTU4d3AzVDU5?=
- =?utf-8?B?MVl2V3lGQlUrZ1N3d0pIRFlURXFuS1J2N3dSa0J3bXJTZGRGNmhjRm1ra1lm?=
- =?utf-8?B?MEt4dkJvRHNjSU9ra2pPWmU5ZGF1cjIxd1ptZUROK20yUGo3eU4rK1ZGRUh2?=
- =?utf-8?B?NVBnR3NCbVVHOGFuL2ljbGtqcUJaUys0bGhXanVYSERYd09mRDk0Nk1QeXNv?=
- =?utf-8?B?S3BzYXduVzJtT0d3Z0JLUE9hV1FWK3p2aFpJeGFHMUZSYTZ3SFFkdXRGcHNm?=
- =?utf-8?B?UU5xL3hiQmh6MitBSnJSNENLZFphdTBpTVZoQk84MlBsWGpGZFlQczFmdmQ5?=
- =?utf-8?B?K3pOdS92bEMvSWNTMWFBRGt0b05SeHd6U3plR0pFSjAxQUc3TTFpZWNYY3ZF?=
- =?utf-8?Q?qJKcmzRelwb02tPJPIiTFVCY6?=
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <29BB8FE61CD6AD45B97419189D5D9EA2@apcprd03.prod.outlook.com>
-Content-Transfer-Encoding: base64
+	id 1ubaPp-00000004Ohj-0PT9;
+	Tue, 15 Jul 2025 07:49:30 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1752565767; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=NoJYzzJe6uSZcEDfrXvjfpzNtylciNSxwU1s8hfSquSE1iInmQsP0Wkr4Qn+GVfVpQYk1hCeCDZBZjDNBbJyCkDukZ3XMJSdt4gxquuM1+OQIsm2QFHbiGrpxUH1SLraz2w0/PMNg4Pt9XaOzCLp5QFk479esVTzBYmutNUnR0s=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1752565767; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=2r1/pjCbMq5HqeLfwNFLm/Rk07CuwWDFZjEVftpzoSw=; 
+	b=U7gD6Qtvk0OEp1kOcGqqkqbfiuf6gHCnJ7oB70s9290ucaNkVwqE2WPS07RwIccZ5VbmKe2664d/gI4RosCca7t0eMrIGUzkCM4nYymYOlc7x1XY4zQLz5y4RlG71KKt0JrMdwlozaWXa0RWBGdShnozHEc8oalCXFeuf4LQKZw=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1752565766;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
+	bh=2r1/pjCbMq5HqeLfwNFLm/Rk07CuwWDFZjEVftpzoSw=;
+	b=jt2s9hHTKmOXOyVv2F4xNRTf8t6Nux5aETLG7G5L5983lF3HRrGMfxXji0zAqlwc
+	zlhLU2OybUrbgBm9BD8OOO04cuUTXoyO5Ubak/QFf1YpAQVNiD/aSQwEXqCjfHVAsoO
+	+Jt7+MzRWZUHQsw773veKyFlDRbIGTTD8XlnAA9Y=
+Received: by mx.zohomail.com with SMTPS id 1752565763947198.70326485853093;
+	Tue, 15 Jul 2025 00:49:23 -0700 (PDT)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+To: Qu Wenruo <wqu@suse.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org
+Subject: Re: PWM fan control not working with Rock5B and upstream kernel
+Date: Tue, 15 Jul 2025 09:49:21 +0200
+Message-ID: <5271313.GXAFRqVoOG@workhorse>
+In-Reply-To: <e9ddcc05-e6db-49b0-aad6-c7873c38c427@suse.com>
+References: <e9ddcc05-e6db-49b0-aad6-c7873c38c427@suse.com>
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: TYZPR03MB6624.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 44ad4815-1047-4945-1bb0-08ddc373120a
-X-MS-Exchange-CrossTenant-originalarrivaltime: 15 Jul 2025 07:41:54.7605
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: a7687ede-7a6b-4ef6-bace-642f677fbe31
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: 0WoUzUbtOLqAVBarkmtyz1tLS2/2gVfF94Ny5ZVHKZziqfEPjz1o4vI++ffSb4uNQ2kPyQWEsE96OqF/Nak9mQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PUZPR03MB7256
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250715_004206_153423_F9CD8522 
-X-CRM114-Status: GOOD (  16.00  )
+X-CRM114-CacheID: sfid-20250715_004929_231171_63AD0942 
+X-CRM114-Status: GOOD (  23.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -222,44 +74,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCAyMDI1LTA3LTA3IGF0IDA5OjMxICswODAwLCBzaGFuZ3lhbyBsaW4gd3JvdGU6DQo+
-IEZyb206ICJzaGFuZ3lhby5saW4iIDxzaGFuZ3lhby5saW5AbWVkaWF0ZWsuY29tPg0KPiANCj4g
-QWRkIGNhbWVyYSBpc3A3eCBtb2R1bGUgZGV2aWNlIGRvY3VtZW50Lg0KPiANCj4gLS0tDQo+IA0K
-PiBDaGFuZ2VzIGluIHYyOg0KPiAgIC0gUmVuYW1lIGJpbmRpbmcgZmlsZSB0byBtZWRpYXRlayxt
-dDgxODgtY2FtLXl1di55YW1sDQo+ICAgLSBWYXJpb3VzIGZpeGVzIHBlciByZXZpZXcgY29tbWVu
-dHMNCj4gICAtIFVwZGF0ZSBtYWludGFpbmVycyBsaXN0DQo+IA0KPiBTaWduZWQtb2ZmLWJ5OiBz
-aGFuZ3lhby5saW4gPHNoYW5neWFvLmxpbkBtZWRpYXRlay5jb20+DQo+IC0tLQ0KPiAgLi4uL21l
-ZGlhdGVrL21lZGlhdGVrLG10ODE4OC1jYW0teXV2LnlhbWwgICAgIHwgMTM0ICsrKysrKysrKysr
-KysrKysrKw0KPiAgMSBmaWxlIGNoYW5nZWQsIDEzNCBpbnNlcnRpb25zKCspDQo+ICBjcmVhdGUg
-bW9kZSAxMDA3NTUgRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL21lZGlhL21lZGlh
-dGVrL21lZGlhdGVrLG10ODE4OC1jYW0teXV2LnlhbWwNCj4gDQo+IGRpZmYgLS1naXQgYS9Eb2N1
-bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3MvbWVkaWEvbWVkaWF0ZWsvbWVkaWF0ZWssbXQ4
-MTg4LWNhbS15dXYueWFtbCBiL0RvY3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9tZWRp
-YS9tZWRpYXRlay9tZWRpYXRlayxtdDgxODgtY2FtLXl1di55YW1sDQo+IG5ldyBmaWxlIG1vZGUg
-MTAwNzU1DQo+IGluZGV4IDAwMDAwMDAwMDAwMC4uMGRlMTIwZDNjNmU4DQo+IC0tLSAvZGV2L251
-bGwNCj4gKysrIGIvRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL21lZGlhL21lZGlh
-dGVrL21lZGlhdGVrLG10ODE4OC1jYW0teXV2LnlhbWwNCj4gQEAgLTAsMCArMSwxMzQgQEANCj4g
-KyMgU1BEWC1MaWNlbnNlLUlkZW50aWZpZXI6IChHUEwtMi4wLW9ubHkgT1IgQlNELTItQ2xhdXNl
-KQ0KPiArIyBDb3B5cmlnaHQgKGMpIDIwMjQgTWVkaWFUZWsgSW5jLg0KPiArJVlBTUwgMS4yDQo+
-ICstLS0NCj4gKyRpZDogaHR0cHM6Ly91cmxkZWZlbnNlLmNvbS92My9fX2h0dHA6Ly9kZXZpY2V0
-cmVlLm9yZy9zY2hlbWFzL21lZGlhL21lZGlhdGVrL21lZGlhdGVrLGNhbS15dXYueWFtbCpfXztJ
-dyEhQ1RSTktBOXdNZzBBUmJ3IW01bGxJaHhiNTJhdGZiSnU3SlpjUE9qV0hSMnlwVHNsOGhBaFpi
-WDVrTTkxVm4xZFB2OVJQRENYSHhOd01KRExmMDVjc1h1S3FjaHVSX2YwWWpPNkZTOCQgDQo+ICsk
-c2NoZW1hOiBodHRwczovL3VybGRlZmVuc2UuY29tL3YzL19faHR0cDovL2RldmljZXRyZWUub3Jn
-L21ldGEtc2NoZW1hcy9jb3JlLnlhbWwqX187SXchIUNUUk5LQTl3TWcwQVJidyFtNWxsSWh4YjUy
-YXRmYkp1N0paY1BPaldIUjJ5cFRzbDhoQWhaYlg1a005MVZuMWRQdjlSUERDWEh4TndNSkRMZjA1
-Y3NYdUtxY2h1Ul9mMGNXNnI3dlUkIA0KPiArDQo+ICt0aXRsZTogVGhlIGNhbS15dXYgdW5pdCBv
-ZiBNZWRpYVRlayBJU1Agc3lzdGVtDQo+ICsNCj4gK21haW50YWluZXJzOg0KPiArICAtIFNoYW5n
-eWFvIExpbiA8c2hhbmd5YW8ubGluQG1lZGlhdGVrLmNvbT4NCj4gKyAgLSBTaHUtaHNpYW5nIFlh
-bmcgPHNodS1oc2lhbmcueWFuZ0BtZWRpYXRlay5jb20+DQo+ICsgIC0gU2h1bi15aSBXYW5nIDxz
-aHVuLXlpLndhbmdAbWVkaWF0ZWsuY29tPg0KPiArICAtIFRlZGR5IENoZW4gPHRlZGR5LmNoZW5A
-bWVkaWF0ZWsuY29tPg0KPiArDQo+ICtkZXNjcmlwdGlvbjoNCj4gKyAgTWVkaWFUZWsgY2FtLXl1
-diBpcyB0aGUgY2FtZXJhIFlVViBwcm9jZXNzaW5nIHVuaXQgaW4gTWVkaWFUZWsgU29DLg0KPiAr
-DQo+ICtwcm9wZXJ0aWVzOg0KPiArICBjb21wYXRpYmxlOg0KPiArICAgIGNvbnN0OiBtZWRpYXRl
-ayxtdDgxODgtY2FtLXl1dg0KDQpJbiBwYXRjaCBbNy8xM10sIHlvdSBzYXkgeXV2IGFuZCByYXcg
-dXNlIHRoZSBzYW1lIGhhcmR3YXJlIHdpdGggZGlmZmVyZW5jZSBzb2Z0d2FyZSBjb25maWd1cmF0
-aW9uLg0KU28geW91IHNob3VsZCBub3QgaGF2ZSBkaWZmZXJlbnQgYmluZGluZyBmb3IgeXV2IGFu
-ZCByYXcuDQpVc2Ugb25lIChtYXliZSBtZWRpYXRlayxtdDgxODgtY2FtLXJhdykgZm9yIGJvdGgg
-eXV2IGFuZCByYXcuDQpJbiB5b3VyIGRyaXZlciwgdHJ5IGFub3RoZXIgd2F5IHRvIGRlY2lkZSBp
-dCB3b3JrcyBhcyB5dXYgb3IgcmF3Lg0KDQpSZWdhcmRzLA0KQ0sNCg0KPiArDQo+ICsNCg0K
+On Tuesday, 15 July 2025 06:10:45 Central European Summer Time Qu Wenruo wr=
+ote:
+> Hi,
+>=20
+> My Rock5B board is running edk-rk3588 firmware and (almost) upstream=20
+> kernel (6.14.6 kernel from ArchlinuxARM), using upstream dtbs (the=20
+> firmware is also switched to device-tree boot mode)
+
+Consider using mainline u-boot instead. I think the only ones who
+insist on edk2 forks are the BSD people, as they don't want to
+write device drivers. Linux has drivers, so inventing UEFI abstractions
+for things probably only makes your experience worse.
+
+Kernel 6.14 is also quite a bit behind and not supported by upstream,
+you'll likely have a better experience compiling a kernel yourself
+using defconfig as the base. ALARM likes to roll dice when it comes to
+their kernel config and then not update their kernels for half a year.
+
+>=20
+> Before that I'm using ACPI mode thus no PMW support, but the firmware's=20
+> fan control is working properly although running at a fixed rpm setting.
+>=20
+> But after switching to the upstream kernel and device-tree mode, the pwm=
+=20
+> fan control never works.
+
+Check /sys/class/pwm, export the pwm associated with the fan in the DT,
+then manually set a period and duty cycle that corresponds to a period
+the fan supports. If it doesn't spin, then the problem is likely that
+there is a disconnect between what Linux thinks the PWM signal is and
+what it actually is.
+
+I'm guessing the problem here is that your firmware of choice leaves
+the clock tree in a bit of a state, and the PWM is clocked from
+something that's incorrect. If it's not the right clock period for
+the fan, it won't spin.
+
+A logic analyzer would be able to tell you definitively whether that's
+the case.
+
+>=20
+> `sensors` command detects the fan, and the pwm seems to properly=20
+> following the temperature, but the physical fan just do not spin at all:
+>=20
+> center_thermal-virtual-0
+> Adapter: Virtual device
+> temp1:        +80.4=C2=B0C
+>=20
+> bigcore2_thermal-virtual-0
+> Adapter: Virtual device
+> temp1:        +84.1=C2=B0C
+>=20
+> package_thermal-virtual-0
+> Adapter: Virtual device
+> temp1:        +81.3=C2=B0C
+>=20
+> pwmfan-isa-0000
+> Adapter: ISA adapter
+> pwm1:            128%  MANUAL CONTROL <<<
+>=20
+> gpu_thermal-virtual-0
+> Adapter: Virtual device
+> temp1:        +79.5=C2=B0C
+>=20
+> littlecore_thermal-virtual-0
+> Adapter: Virtual device
+> temp1:        +82.2=C2=B0C
+>=20
+> bigcore0_thermal-virtual-0
+> Adapter: Virtual device
+> temp1:        +83.2=C2=B0C
+>=20
+>=20
+> I'm wondering is this a bug in the upstream PWM code or something else=20
+> is missing preventing the fan from working properly.
+
+The upstream PWM code definitely works, and has worked for every
+Rockchip device so far. The PWM fan on my ROCK 5B (mainline u-boot,
+mainline kernel, mainline TF-A) works just fine.
+
+>=20
+> Thanks,
+> Qu
+>=20
+> _______________________________________________
+> Linux-rockchip mailing list
+> Linux-rockchip@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-rockchip
+>=20
+
+
+
+
 
