@@ -4,88 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9982EC83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 09:05:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26404C83F21
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 09:07:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2hNgW4kby0iU/XtbfyNGjM7Ij3cEWeDVAVgxTdH2+aQ=; b=bc4ocCuypACb47h1fiIpgDDdRU
-	Qne67exs9uC7on/LHLH9H2EVNmtpB5WMmsxSy0UtsfO91vNaReqBDGkzTqAC9xCiqVc69oKmErXLW
-	hsRXIti/KReo/Hce0JBi/TWdpELSr6ocfkKiBxS/cjoc7x6IUQgFHu11n9/E4q9yqnr2UieBTZgHj
-	dWb1cJ8jd8VmG1bMmcAsNmkHfFMHf5tXcr2oyVBziRdbmsi9Lu7+5mWwUmoX3R25qe2LH/UX8ev2/
-	/8vX1yXAavKhWWDcZRjbB/O0jatP+Js+9spYtmaki+W1KmmFwRZBJOJFJarmppFDH+wcdrlBeJI1X
-	0zpqbXAA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MpRzCY4G7+9O7MgHRTn0pRun65FHWxhnkHrBlCWPbMs=; b=NnxlyAmBN7nJ+7uj4VMmur1w6J
+	FKdNcGpXGnccAZtjsh8fVGvzXxu2yQSiDVXKV8Lhbdz4kUz2Iriz0qsrSQexI6ZSOKt76Z1Z04nvK
+	0wlU+xkmE1pTogUOVTaTRdYEbqH8tCjn7p5ZB0tEjxHESlS+OsVZdvTfMA8gQmpSUq+xJU0UhHPMc
+	nOSs28hLy6knqO6izuqBf+RJacaIgQLNGuBIJUV8LfojZvob5t1dX0OJlDf0H2x2Ppqzg+HIVSs1z
+	u5+3pWOZMPvVnpF1x39sHJXBN9c4+Ix6G68aQdvHg4uJQ1mjY5sSCXrShv1uctxSmZwnJo+QWEByb
+	NGhCF/NQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubbb1-00000004cQr-2JE8;
-	Tue, 15 Jul 2025 09:05:07 +0000
-Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
+	id 1ubbdR-00000004ctn-35YV;
+	Tue, 15 Jul 2025 09:07:37 +0000
+Received: from mgamail.intel.com ([198.175.65.21])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubavF-00000004VQO-2hM8;
-	Tue, 15 Jul 2025 08:21:58 +0000
-Received: by mail-pf1-x42d.google.com with SMTP id d2e1a72fcca58-74924255af4so4271437b3a.1;
-        Tue, 15 Jul 2025 01:21:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1752567717; x=1753172517; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=2hNgW4kby0iU/XtbfyNGjM7Ij3cEWeDVAVgxTdH2+aQ=;
-        b=i6yjlymmHSdsPrMcjwRvKvhuXa+QkehtR0eYb+GvlAp3hh/LIsPxtMqaqMXB4nJuL7
-         bzF9qOfirYJiqRJpO8cIpoeYNx4pug2KLuliBHDiywlT/hjoZ4izLyjGGIDZ7ORDeCYf
-         NwtZfhvWbtjYcjDhsQqsHFSDgddB+wyUfDWvhfJtmd5ppIlE1lNJeqAbUBt2OzshgBPl
-         5EwPHULKEIcHPXzRCjerE59C/hal7cVGb7jMVKuG+NcexVvds2fB2d3NjH50ot5hetYL
-         qF1cTbSkNVvkLrfu13c8n9aMmFd1rjvrTTxKabaWQlTnpivndkcd23tu9l9BqCWTOL5C
-         GU6Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752567717; x=1753172517;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=2hNgW4kby0iU/XtbfyNGjM7Ij3cEWeDVAVgxTdH2+aQ=;
-        b=OcuOXFws94txU2SVCmVHg1x0TKmDk8Ocnu325FAbmFhMaYThdLP8mF/HujAcS8Vc03
-         AdOh+Yu8dvPIRZtGO+HN8ySMUp+pIttU3Tt6rJWdvP86wHxKr+3kMfo6YE6l6rC9HzNB
-         VrofoLJerZt6KdTJiI4DqxHL3DVOLHmN2/TJD0mTABdvrcDFr3e8KpK7HTygCv6qi+NW
-         t3L2OZEaUjFqWGXrrNEzPj6VHYG1gYdXk8uydcRgGSmz+uD2k6ENRyZnaHm5Z8By7Bou
-         v5dVhDojisriuFqLi5gwh/fIoQKEoI4eFgZuYcGMH7B+5p4TIe8AXu85OgwwXhSUDgCl
-         kABQ==
-X-Forwarded-Encrypted: i=1; AJvYcCV/xDKK8OZU4eWq/no8OHMgrvlTR/9JMeyRjHLVbVzOJz3M8NBPnckEj5IEjAlCBKoH4VlwdIdtGsNyTJwz+dw=@lists.infradead.org, AJvYcCXrUhU2hj7GF/BfQSfQfFjA3hdZ7MbsYvBpmaHfwB/vggpyzmi/eXDv+KPvAx1sBtJIBN9cjFru3T8lN8LJdPLl@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxr0qBOPdiJz9caGTAMfYo0dED6dmtdhoTUbUeUZTK2HAuVSWpe
-	oZriwoBJa9yWYAVBlwnKKcS8E6d4dtdCoIsR+2w/itVfNCP1JfWxYpqRqZbCGzD8pPsezrWPdae
-	yOI8jRQk7iaPz4gNSl5y8TD3mzRcjSsY=
-X-Gm-Gg: ASbGnctBy2afm4eNFPJH7qx5QKKCwlAJJqopBhOZtXOcwA6xRDXo7vK00cZFDwCbilN
-	jvUDsK27LCkEO4Smb5hjiFOxf3TGxju0jX2aQkpAtCrezrf7e7ZYTMXLF6PiPIM+yPJpdPfW2Mt
-	K+a7fMgSU7DaepWO4zgXUNjorw52bcz2JIMMTJ27XUjmBwFq2AGOMNRevkGgyj1Y3fO2X8NEYfV
-	xnD
-X-Google-Smtp-Source: AGHT+IEggynKq4vD6SNTsY3SuiaP/yVTDeVqAA+gk8qh26/Eyl7WSxbYYZGy5UpZ/5sv+D7En1DMCxw9GKvAVwKvF8g=
-X-Received: by 2002:a17:90b:4a0a:b0:311:ea13:2e70 with SMTP id
- 98e67ed59e1d1-31c4f4ccca2mr26575080a91.14.1752567716750; Tue, 15 Jul 2025
- 01:21:56 -0700 (PDT)
+	id 1ubavK-00000004VSE-1jKc
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 15 Jul 2025 08:22:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1752567722; x=1784103722;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=qh3iKXB6e+tUcjfkW8kmUKXqJF2goUOYE8q4iC5PdoU=;
+  b=UTIdAtvzVskDtlK1d2juGPDO2V3f8JD+pOAMw1Lt31nJgzZ6FrcyL048
+   N4uzN7HKo5K2hx496nkF8V5KqKeb2tGNQFRSTV4b2Pa9XoZcZOGouroxL
+   XcYUaZbVJMX9AAl4wVsLaGuNE+FnFOmB35/GEadbN0xWDTnyYbzi1XVkN
+   XOM4XQ/gKQ7NONVUGj2LLADuFlYDSNP6gsLIKVDbfJUzO9z5OYaGwPpoL
+   PDatw9efVm7A9qgkClgj2ad7VkucvvXS6BSAZzCDwvYF9Us1XBfjJrakZ
+   RTM9UK5DZP+Bx0XmFcY6HOHSo57x1MHcCh1AUc2sbBICcuneNiva46AAs
+   w==;
+X-CSE-ConnectionGUID: GzZOIV08QF2suLr35miVVQ==
+X-CSE-MsgGUID: I4BryRGDRJOl1g7WkTYlzQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11491"; a="54649076"
+X-IronPort-AV: E=Sophos;i="6.16,313,1744095600"; 
+   d="scan'208";a="54649076"
+Received: from fmviesa002.fm.intel.com ([10.60.135.142])
+  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Jul 2025 01:21:59 -0700
+X-CSE-ConnectionGUID: nmlhfCi9TxiaA30+CCz/Fw==
+X-CSE-MsgGUID: mXEYMokGT4m8tJAJYkTIlg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.16,313,1744095600"; 
+   d="scan'208";a="180864367"
+Received: from smile.fi.intel.com ([10.237.72.52])
+  by fmviesa002.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Jul 2025 01:21:56 -0700
+Received: from andy by smile.fi.intel.com with local (Exim 4.98.2)
+	(envelope-from <andriy.shevchenko@linux.intel.com>)
+	id 1ubavB-0000000Favp-1Klz;
+	Tue, 15 Jul 2025 11:21:53 +0300
+Date: Tue, 15 Jul 2025 11:21:53 +0300
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: Linus Walleij <linus.walleij@linaro.org>,
+	Kuppuswamy Sathyanarayanan <sathyanarayanan.kuppuswamy@linux.intel.com>,
+	Andy Shevchenko <andy@kernel.org>,
+	Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>,
+	Srinivas Neeli <srinivas.neeli@amd.com>,
+	Michal Simek <michal.simek@amd.com>, linux-gpio@vger.kernel.org,
+	linux-kernel@vger.kernel.org, patches@opensource.cirrus.com,
+	linux-arm-kernel@lists.infradead.org,
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Subject: Re: [PATCH v2 1/2] gpio: wcove: use regmap_assign_bits() in .set()
+Message-ID: <aHYPoR5JVP4OO0QZ@smile.fi.intel.com>
+References: <20250715-gpiochip-set-rv-gpio-remaining-v2-0-072b4cf06330@linaro.org>
+ <20250715-gpiochip-set-rv-gpio-remaining-v2-1-072b4cf06330@linaro.org>
 MIME-Version: 1.0
-References: <20250712210448.429318-1-rosenp@gmail.com> <20250712210448.429318-5-rosenp@gmail.com>
-In-Reply-To: <20250712210448.429318-5-rosenp@gmail.com>
-From: Sergio Paracuellos <sergio.paracuellos@gmail.com>
-Date: Tue, 15 Jul 2025 10:21:45 +0200
-X-Gm-Features: Ac12FXzvb6Vo4hFlEEN171p2VK_2rD2O8rW8KBf-Sr8ny31IT3KEqoC_trh2J6Q
-Message-ID: <CAMhs-H_T+Nh==pxeW+uwk1gSr8YZMAva1DO9hF947tH7ot4=kg@mail.gmail.com>
-Subject: Re: [PATCHv4 wireless-next 4/7] wifi: rt2800: move 2x00soc to 2800soc
-To: Rosen Penev <rosenp@gmail.com>
-Cc: linux-wireless@vger.kernel.org, Johannes Berg <johannes@sipsolutions.net>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Stanislaw Gruszka <stf_xl@wp.pl>, 
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, open list <linux-kernel@vger.kernel.org>, 
-	"open list:MIPS" <linux-mips@vger.kernel.org>, 
-	"moderated list:ARM/Mediatek SoC support" <linux-arm-kernel@lists.infradead.org>, 
-	"moderated list:ARM/Mediatek SoC support" <linux-mediatek@lists.infradead.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250715-gpiochip-set-rv-gpio-remaining-v2-1-072b4cf06330@linaro.org>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250715_012157_680555_DEB5E954 
-X-CRM114-Status: UNSURE (   9.79  )
+X-CRM114-CacheID: sfid-20250715_012202_496610_90F2EC83 
+X-CRM114-Status: UNSURE (   8.31  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -101,28 +98,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Jul 12, 2025 at 11:05=E2=80=AFPM Rosen Penev <rosenp@gmail.com> wro=
-te:
->
-> This driver was written with multiple SOC platforms in mind. However
-> since Ralink was aquired by Mediatek, it only effectively got used by
-> older platforms. As such, we can slim down the driver slightly by moving
-> all of rt2x00soc to rt2800soc in order to benefit from inlining.
->
-> Signed-off-by: Rosen Penev <rosenp@gmail.com>
-> Acked-by: Stanislaw Gruszka <stf_xl@wp.pl>
-> ---
->  drivers/net/wireless/ralink/rt2x00/Kconfig    |   5 -
->  drivers/net/wireless/ralink/rt2x00/Makefile   |   1 -
->  .../net/wireless/ralink/rt2x00/rt2800soc.c    | 119 +++++++++++++-
->  .../net/wireless/ralink/rt2x00/rt2x00soc.c    | 151 ------------------
->  .../net/wireless/ralink/rt2x00/rt2x00soc.h    |  29 ----
->  5 files changed, 118 insertions(+), 187 deletions(-)
->  delete mode 100644 drivers/net/wireless/ralink/rt2x00/rt2x00soc.c
->  delete mode 100644 drivers/net/wireless/ralink/rt2x00/rt2x00soc.h
+On Tue, Jul 15, 2025 at 10:19:44AM +0200, Bartosz Golaszewski wrote:
+> 
+> Replace the if-else with a direct call to the regmap_assign_bits()
+> helper and save a couple lines of code.
 
-Reviewed-by: Sergio Paracuellos <sergio.paracuellos@gmail.com>
+Reviewed-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 
-Thanks,
-    Sergio Paracuellos
+-- 
+With Best Regards,
+Andy Shevchenko
+
+
 
