@@ -4,29 +4,29 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA1C5C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 04:21:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB860C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 04:23:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=swSRdx9zR+J1418w7glofiamCTii68f6kYuZdnX7Vk8=; b=w+fs102J5Ri4fM/esj93mFCH3A
-	qNi3uOl9OblQ2lzN9D3jKrTnaBdhc+4nKE1vuCb0Ufsduf05/7eGaNXameno5z/5uS5wx3XqHTOjy
-	9sdETMMtRypvrh4oOlq6Y33e6XN37nRY0cv/H5OXKunFL7+49fjXXA4akT4qImk/B1UvAX5FShVTa
-	TYXAXtSKMMhWPZwzNfoJvKMhQjqjo05UdV8fJBK3ctGi0+fXMKtWxPQo/ez5Ou7F6Bt2AkauA9pAA
-	W4wR63Rut4kckYWscwsLu0cyWRpUzCYCniTPSPRYoG0Y8ozJWycliDu92e9INJpBWgGjebZ5s2SSy
-	wdMUO9pg==;
+	bh=aK01aGUmIPVi7g/grbHmbwBzcBD/ZrD56IJJamDBcTo=; b=SAwJFZuN271A7fQ/1dxPPywkNh
+	qvpSJlJLA7Ren0sClbMzzAuJfhFUoDSZEIFI7hxB9GAbqZZhrU0xtkAiT0bC/xdBqXa50q1Rli4Iy
+	soUTIVDodTsF/uipMk2NTKfO0l6HASmF8wd8Ph3Y2IKVBwA6Bfdp9jAijnhSDEcUl8zE3kmyYdA+z
+	omTIjlj8t0hpBt8xI8F3qNeEx3Rt6p6UxhNai94rQoNct38JbvrHoy9UOTLtMQcx1wCH75Bak6hD7
+	jiAExcxlQYE2wPxfp3/EpiQnoOKJp5JihH2HYmbSGL0O9hLjMe9n45RghySohNjxhSLBYm0Sp6aLf
+	LLL4N2Ng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubXA8-00000003zvY-3c6w;
-	Tue, 15 Jul 2025 04:21:04 +0000
+	id 1ubXCY-00000004051-3aol;
+	Tue, 15 Jul 2025 04:23:34 +0000
 Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubWa2-00000003vKr-0jx5
+	id 1ubWa3-00000003vKr-3Hil
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Jul 2025 03:43:47 +0000
+	Tue, 15 Jul 2025 03:43:48 +0000
 Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
  (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Tue, 15 Jul
@@ -43,9 +43,9 @@ To: <bhelgaas@google.com>, <lpieralisi@kernel.org>, <kwilczynski@kernel.org>,
 	<linux-kernel@vger.kernel.org>
 CC: <openbmc@lists.ozlabs.org>, <linux-gpio@vger.kernel.org>,
 	<linus.walleij@linaro.org>, <p.zabel@pengutronix.de>, <BMC-SW@aspeedtech.com>
-Subject: [PATCH v2 07/10] pinctrl: aspeed-g6: Add PCIe RC PERST pin group
-Date: Tue, 15 Jul 2025 11:43:17 +0800
-Message-ID: <20250715034320.2553837-8-jacky_chou@aspeedtech.com>
+Subject: [PATCH v2 08/10] PCI: Add FMT and TYPE definition for TLP header
+Date: Tue, 15 Jul 2025 11:43:18 +0800
+Message-ID: <20250715034320.2553837-9-jacky_chou@aspeedtech.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250715034320.2553837-1-jacky_chou@aspeedtech.com>
 References: <20250715034320.2553837-1-jacky_chou@aspeedtech.com>
@@ -53,8 +53,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250714_204346_217062_7A0CD44E 
-X-CRM114-Status: UNSURE (   9.86  )
+X-CRM114-CacheID: sfid-20250714_204347_820159_72EE824F 
+X-CRM114-Status: UNSURE (   8.24  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -70,72 +70,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The PCIe RC PERST uses SSPRST# as PERST#  and enable this pin
-to output.
+According to PCIe specification, add FMT and TYPE definition
+for TLP header. And also add macro to combine FMT and TYPE to
+1 byte.
 
 Signed-off-by: Jacky Chou <jacky_chou@aspeedtech.com>
 ---
- drivers/pinctrl/aspeed/pinctrl-aspeed-g6.c | 12 +++++++++++-
- 1 file changed, 11 insertions(+), 1 deletion(-)
+ include/uapi/linux/pci_regs.h | 32 ++++++++++++++++++++++++++++++++
+ 1 file changed, 32 insertions(+)
 
-diff --git a/drivers/pinctrl/aspeed/pinctrl-aspeed-g6.c b/drivers/pinctrl/aspeed/pinctrl-aspeed-g6.c
-index 5a7cd0a88687..c751703acdb9 100644
---- a/drivers/pinctrl/aspeed/pinctrl-aspeed-g6.c
-+++ b/drivers/pinctrl/aspeed/pinctrl-aspeed-g6.c
-@@ -17,6 +17,7 @@
- #include "../pinctrl-utils.h"
- #include "pinctrl-aspeed.h"
+diff --git a/include/uapi/linux/pci_regs.h b/include/uapi/linux/pci_regs.h
+index a3a3e942dedf..700b915e00f5 100644
+--- a/include/uapi/linux/pci_regs.h
++++ b/include/uapi/linux/pci_regs.h
+@@ -1230,4 +1230,36 @@
+ #define PCI_DVSEC_CXL_PORT_CTL				0x0c
+ #define PCI_DVSEC_CXL_PORT_CTL_UNMASK_SBR		0x00000001
  
-+#define SCU040		0x040 /* Reset Control Set 1  */
- #define SCU400		0x400 /* Multi-function Pin Control #1  */
- #define SCU404		0x404 /* Multi-function Pin Control #2  */
- #define SCU40C		0x40C /* Multi-function Pin Control #3  */
-@@ -52,7 +53,7 @@
- #define SCU6D0		0x6D0 /* Multi-function Pin Control #29 */
- #define SCUC20		0xC20 /* PCIE configuration Setting Control */
- 
--#define ASPEED_G6_NR_PINS 256
-+#define ASPEED_G6_NR_PINS 258
- 
- #define M24 0
- SIG_EXPR_LIST_DECL_SESG(M24, MDC3, MDIO3, SIG_DESC_SET(SCU410, 0));
-@@ -1636,6 +1637,12 @@ FUNC_DECL_1(USB11BHID, USBB);
- FUNC_DECL_1(USB2BD, USBB);
- FUNC_DECL_1(USB2BH, USBB);
- 
-+#define D7 257
-+SIG_EXPR_LIST_DECL_SESG(D7, RCRST, PCIERC1, SIG_DESC_SET(SCU040, 19),
-+			SIG_DESC_SET(SCU500, 24));
-+PIN_DECL_(D7, SIG_EXPR_LIST_PTR(D7, RCRST));
-+FUNC_GROUP_DECL(PCIERC1, D7);
++/* Fmt[2:0] encoding for TLP Header */
++#define PCI_TLP_FMT_3DW_NO_DATA		0x0  // 3DW header, no data
++#define PCI_TLP_FMT_4DW_NO_DATA		0x1  // 4DW header, no data
++#define PCI_TLP_FMT_3DW_DATA		0x2  // 3DW header, with data
++#define PCI_TLP_FMT_4DW_DATA		0x3  // 4DW header, with data
++#define PCI_TLP_FMT_PREFIX		0x4  // Prefix header
 +
- /* Pins, groups and functions are sort(1):ed alphabetically for sanity */
- 
- static struct pinctrl_pin_desc aspeed_g6_pins[ASPEED_G6_NR_PINS] = {
-@@ -1806,6 +1813,7 @@ static struct pinctrl_pin_desc aspeed_g6_pins[ASPEED_G6_NR_PINS] = {
- 	ASPEED_PINCTRL_PIN(D4),
- 	ASPEED_PINCTRL_PIN(D5),
- 	ASPEED_PINCTRL_PIN(D6),
-+	ASPEED_PINCTRL_PIN(D7),
- 	ASPEED_PINCTRL_PIN(E1),
- 	ASPEED_PINCTRL_PIN(E11),
- 	ASPEED_PINCTRL_PIN(E12),
-@@ -2073,6 +2081,7 @@ static const struct aspeed_pin_group aspeed_g6_groups[] = {
- 	ASPEED_PINCTRL_GROUP(SALT9G1),
- 	ASPEED_PINCTRL_GROUP(SD1),
- 	ASPEED_PINCTRL_GROUP(SD2),
-+	ASPEED_PINCTRL_GROUP(PCIERC1),
- 	ASPEED_PINCTRL_GROUP(EMMCG1),
- 	ASPEED_PINCTRL_GROUP(EMMCG4),
- 	ASPEED_PINCTRL_GROUP(EMMCG8),
-@@ -2314,6 +2323,7 @@ static const struct aspeed_pin_function aspeed_g6_functions[] = {
- 	ASPEED_PINCTRL_FUNC(SPI2),
- 	ASPEED_PINCTRL_FUNC(SPI2CS1),
- 	ASPEED_PINCTRL_FUNC(SPI2CS2),
-+	ASPEED_PINCTRL_FUNC(PCIERC1),
- 	ASPEED_PINCTRL_FUNC(TACH0),
- 	ASPEED_PINCTRL_FUNC(TACH1),
- 	ASPEED_PINCTRL_FUNC(TACH10),
++/* Type[4:0] encoding for TLP Header */
++#define PCI_TLP_TYPE_MEM_RD		0x00 // Memory Read Request
++#define PCI_TLP_TYPE_MEM_RDLK		0x01 // Memory Read Lock Request
++#define PCI_TLP_TYPE_MEM_WR		0x00 // Memory Write Request (Fmt must be with data)
++#define PCI_TLP_TYPE_IO_RD		0x02 // IO Read Request
++#define PCI_TLP_TYPE_IO_WR		0x02 // IO Write Request (Fmt must be with data)
++#define PCI_TLP_TYPE_CFG0_RD		0x04 // Config Type 0 Read Request
++#define PCI_TLP_TYPE_CFG0_WR		0x04 // Config Type 0 Write Request (Fmt must be with data)
++#define PCI_TLP_TYPE_CFG1_RD		0x05 // Config Type 1 Read Request
++#define PCI_TLP_TYPE_CFG1_WR		0x05 // Config Type 1 Write Request (Fmt must be with data)
++#define PCI_TLP_TYPE_MSG		0x10 // Message Request (see routing field)
++#define PCI_TLP_TYPE_MSGD		0x11 // Message Request with Data (see routing field)
++#define PCI_TLP_TYPE_CPL		0x0A // Completion without Data
++#define PCI_TLP_TYPE_CPLD		0x0A // Completion with Data (Fmt must be with data)
++#define PCI_TLP_TYPE_CPLLCK		0x0B // Completion Locked
++#define PCI_TLP_TYPE_CPLDLCK		0x0B // Completion with Data Locked (Fmt must be with data)
++#define PCI_TLP_TYPE_FETCH_ADD		0x0C // Fetch and Add AtomicOp Request
++#define PCI_TLP_TYPE_SWAP		0x0D // Unconditional Swap AtomicOp Request
++#define PCI_TLP_TYPE_CMP_SWAP		0x0E // Compare and Swap AtomicOp Request
++#define PCI_TLP_TYPE_LOCAL_PREFIX	0x00 // Local TLP Prefix (Fmt = 0x4)
++#define PCI_TLP_TYPE_E2E_PREFIX		0x10 // End-to-End TLP Prefix (Fmt = 0x4)
++
++/* Macro to combine Fmt and Type into the 8-bit field */
++#define PCIE_TLP_FMT_TYPE(fmt, type)   (((fmt) << 5) | ((type) & 0x1F))
++
+ #endif /* LINUX_PCI_REGS_H */
 -- 
 2.43.0
 
