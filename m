@@ -4,211 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 616E0C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 05:44:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E038C83F1D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 05:49:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NqYcUjvjsRETe+TiOrWftFwq6upJEGvCuLSyYALXwWo=; b=PBoPcmB0nAti3+/JAWlDsPh8OI
-	YwnQZ8v6bPg6mKKWvJeDCldrS7fQWqdcSZ3cEL6Hb2zSezb5bxLwMutZhcgKkc02m2gys6VH2YcGH
-	moIpUTqeiH76FQ726mdzyb22LzaehlWMjo7YxOhEEwr2QzUCR2fLjt0ZccCgd/WIqgIZpqOodQSwq
-	KjnbSttIuVAguEdMXOCMbD8elc2RzcsWdbzC/3ao5aJrW2a5sYflGOyp5g1Gg3jUezZzRh95dlvT0
-	b3BYfaizqVJ3JVGbaivBc3qtOL/c0weK1PoNKkhMU3opax3jNfEwdyVmq23jqIoyG8tpO5tWu0ZM1
-	ewgVIJLQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kB2cLJNy4hPYhqXCKFroTjovGqdHkjo6jWxolFG5Rks=; b=Wt1u7kXXmHKfDWdXqh2QuSpQkS
+	xNCqJB2xi/B4SB2XRZMBAWx+9XsifYwPTquxG4rDAYG2F9aRZl6Bh1dLiOYaIaoD5V69o70xlP0WR
+	ccFYlX6q36BsupNFTff3kVTNSGOBxuWtYJHH/BgODw3DgEboj5pMlwKEZUKOm/6YBj//evPDbPGPr
+	vLuoMnaSD9sxg6nzVjf58L8Rc8+J4AbLMBhXR6XJcIvFRakJUBjcU2XbgXqtVIdRvwJKhWs0Qosr1
+	Ma6F1lz7u/FAg13UfA5CojBa6fS9BsAquEV8aJT3Ti2cDbksSZ3E0ofujXIb6jeQM9j75MyuMZ6Bq
+	Vz8lDYUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubYSd-000000048HH-0GR6;
-	Tue, 15 Jul 2025 05:44:15 +0000
-Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1ubYXa-000000048gx-0nq9;
+	Tue, 15 Jul 2025 05:49:22 +0000
+Received: from cpanel.siel.si ([46.19.9.99])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubYO9-000000047mR-46Xd
+	id 1ubYV6-000000048Tv-3cBf
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Jul 2025 05:39:39 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=xTnLCx7m1fy8Th1O4wPoQkiKPAmNoAwKRSIwUfDommAdOOP0gO2ftv55j2101RxB12xbNa9SAwafcD4kllz+KFp/t/W072PLNbUgeJiVbpG6ux0XbATZFXC61Y7aHAvEePpqxGWYCgIsTeFKnkaAShIy9I4CRCS+sxWvFZQn9bLBrE5wzmocn3brh8nf2XGylha4ZZyDYxOdrPVCX6G1D8Z7kOCI2j84z7dlqRRzRcdqq1nvR69IervMZP6WZurRSqkUxRneq4RmK78PfNq1jKcIpaQlRaPr7fr+kojK2IZU95bbxUOanI27FQa0SUDnUrV+zOVRDy6tig9/oWmPng==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=NqYcUjvjsRETe+TiOrWftFwq6upJEGvCuLSyYALXwWo=;
- b=GXdbh6HtLkSynnyr6ya6wCpGiR3G0rpSqJ43tt2rWgqjmdtFGLrTLxQrd9Q5k40iFQgBLuZhrwbMEkl5G/NkvD/dMPD93ccxHHsYuLIMmcJ9qTs9z8vXMcyJyev9ZByremb+PWclleuA2DdXngX1ATVMHZepxVp70QupRf52JAStajZSm2WIPIt2Wd0r8d8ZthUr7ePoNDbRALB/Q+LItiWH1FOsRzN+NfCGIcq7rXksL+s5x6uMlHHs3sAO7DJitKTcOsi5FZiTUT03dMof4I6XO4gM+BsiwcgI34Od2FWKbTkRh/j4MTnemvxuH0QRLNRH/V7wamXNGdDtgi+GOw==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=kernel.org smtp.mailfrom=arm.com; dmarc=pass
- (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
- (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=NqYcUjvjsRETe+TiOrWftFwq6upJEGvCuLSyYALXwWo=;
- b=cH7p1kiHc3Pl8B7Wajle+xYNRIqKpo8T36Vu9VT01qohfiq7qFTyKJdp0IF/EQGLvXoQzjN1FJF6rgrVkA3BHDyFuvL0QBiO5V2BQm3hUg2Pz5KHPYl5VIVuDzNreOk2rRdzbM8h2ozGyxEM9TBrjF2B5lDoSVfnoNhUq6bKMtE=
-Received: from AM5PR1001CA0045.EURPRD10.PROD.OUTLOOK.COM
- (2603:10a6:206:15::22) by DB9PR08MB7625.eurprd08.prod.outlook.com
- (2603:10a6:10:309::8) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8901.24; Tue, 15 Jul
- 2025 05:39:29 +0000
-Received: from AM2PEPF0001C70F.eurprd05.prod.outlook.com
- (2603:10a6:206:15:cafe::b5) by AM5PR1001CA0045.outlook.office365.com
- (2603:10a6:206:15::22) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8922.33 via Frontend Transport; Tue,
- 15 Jul 2025 05:39:29 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- AM2PEPF0001C70F.mail.protection.outlook.com (10.167.16.203) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.8922.22
- via Frontend Transport; Tue, 15 Jul 2025 05:39:28 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=AIdOOJXi81EqJDCA8OaI8X49wx8CM6/jOgV5IwMN9dtgL6CSp+5z3t9TNeDrNDaGlspZEr96eopftx8GYkzywSO5cNPl+Nfkwl6g4NPBb36ay8mMGisVVug3kFM4aCbDHkwYugRucwXcePMRYieTqh63CqsIO/UlIdARD66zmIkw+LTkfvCavN5XrR7C3Ez6JW9T/Qm2pzWILmDKrU5ggOdIiOacI1BXoEGAu8iNjFbGK7MxL++ZVeaLiueIjkwoAgkPTM+mhTvaMMndkwv2a7yDQlPQ9Y+CsXjD7YeOdFpgcfLvB5iPggctOKQE6FStSPcNrI2LLSpuA6bNdh41Zg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=NqYcUjvjsRETe+TiOrWftFwq6upJEGvCuLSyYALXwWo=;
- b=Quckhz4ORahhgjSZYg8xIXlm6MkCPDhoQfAToLqmr87E7Baf8ztpge7nquNddizO2F4CehZ01+m2SZ4Cu/n8dBcZ1Q6oz1w40hx7XqlE/Am6ZqOEnKZ3Hkb37p5vU5Ej5qPRs1ntqi+CrBE+pmCnIBmE77Rm+SclbKoEcRrJmDTOHe16nMrAGW5gb1vgwOvZ+STiTs/I7eKWRmg1cgzw/0f1VwD0sfROjWfgW1T/wHM1dSVXpdspQiWbeSCukGovOaTvhHmXJ+dnYskN+mbJ5Xcv6N1URtxHSMPS7FE8LUCGku6GGWJcjickPov0B72+QtaHaDjPP+E0pyzpzdGibg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=NqYcUjvjsRETe+TiOrWftFwq6upJEGvCuLSyYALXwWo=;
- b=cH7p1kiHc3Pl8B7Wajle+xYNRIqKpo8T36Vu9VT01qohfiq7qFTyKJdp0IF/EQGLvXoQzjN1FJF6rgrVkA3BHDyFuvL0QBiO5V2BQm3hUg2Pz5KHPYl5VIVuDzNreOk2rRdzbM8h2ozGyxEM9TBrjF2B5lDoSVfnoNhUq6bKMtE=
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-Received: from AM9PR08MB7120.eurprd08.prod.outlook.com (2603:10a6:20b:3dc::22)
- by GV1PR08MB8620.eurprd08.prod.outlook.com (2603:10a6:150:84::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8922.25; Tue, 15 Jul
- 2025 05:38:53 +0000
-Received: from AM9PR08MB7120.eurprd08.prod.outlook.com
- ([fe80::2933:29aa:2693:d12e]) by AM9PR08MB7120.eurprd08.prod.outlook.com
- ([fe80::2933:29aa:2693:d12e%5]) with mapi id 15.20.8922.028; Tue, 15 Jul 2025
- 05:38:52 +0000
-Message-ID: <1b15b4f0-5490-4dac-8344-e716dd189751@arm.com>
-Date: Tue, 15 Jul 2025 11:08:48 +0530
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 09/10] arm64: mm: Simplify
- __flush_tlb_range_limit_excess()
-To: Ryan Roberts <ryan.roberts@arm.com>, Will Deacon <will@kernel.org>,
- linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org, Ard Biesheuvel <ardb@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Mark Rutland <mark.rutland@arm.com>,
- Linus Torvalds <torvalds@linux-foundation.org>,
- Oliver Upton <oliver.upton@linux.dev>, Marc Zyngier <maz@kernel.org>
-References: <20250711161732.384-1-will@kernel.org>
- <20250711161732.384-10-will@kernel.org>
- <b10fd873-6de9-445a-a43a-cd588b433f42@arm.com>
-Content-Language: en-US
-From: Dev Jain <dev.jain@arm.com>
-In-Reply-To: <b10fd873-6de9-445a-a43a-cd588b433f42@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: MAXP287CA0014.INDP287.PROD.OUTLOOK.COM
- (2603:1096:a00:49::25) To AM9PR08MB7120.eurprd08.prod.outlook.com
- (2603:10a6:20b:3dc::22)
+	Tue, 15 Jul 2025 05:46:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=norik.com;
+	s=default; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
+	References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=kB2cLJNy4hPYhqXCKFroTjovGqdHkjo6jWxolFG5Rks=; b=aIH7JRcBnFaTDYDYU0B/+YjYO1
+	Z1AivAp6BGemuHi/coTdiNbfy5cJLpV80/vxnQiEqnMSTvkkJqIAMxBpM1ubIIIBCNWRyWJm/j3Kr
+	FYsMoE4rw7HBQah/RnPQkcXpw+W1lhUwBfLQkCBDkd8ysFhki0gnEhPhvHKxcOz0Wb8eidC9oACAn
+	47bAUJsrC5VhNd5s+jyYorwO5ORVD/q+r4muR10gIJDNLaf0xWK44U3yMN4QMJNr6qq7c0rDnNpU+
+	JiC+D+ly8vSZTQSs4iUnTb8EOu16nB9YCO5fwHkkTPiotPsWIyFkpQlsmUTSb4S4LjKorw/+YafA2
+	LChQLk2A==;
+Received: from 89-212-21-243.static.t-2.net ([89.212.21.243]:33050 helo=[192.168.69.116])
+	by cpanel.siel.si with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+	(Exim 4.96.2)
+	(envelope-from <primoz.fiser@norik.com>)
+	id 1ubYV3-003pbU-2v;
+	Tue, 15 Jul 2025 07:46:45 +0200
+Message-ID: <c9d17343-e4a5-49ab-9a3e-b6da9d591195@norik.com>
+Date: Tue, 15 Jul 2025 07:46:44 +0200
 MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: AM9PR08MB7120:EE_|GV1PR08MB8620:EE_|AM2PEPF0001C70F:EE_|DB9PR08MB7625:EE_
-X-MS-Office365-Filtering-Correlation-Id: 85fb3f52-d1d7-4fbf-3997-08ddc361f792
-x-checkrecipientrouted: true
-NoDisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|366016|1800799024|376014|7053199007;
-X-Microsoft-Antispam-Message-Info-Original: =?utf-8?B?b3krRStMNktzTDZGanJCVEJoQ0EyczVJWFYwMlVIbkJQZVZnMS9BMUtwSFR4?=
- =?utf-8?B?c2xnMXkxQnhlMXNoNkV0WXBKMHRudVNpK0Y2bVZaa1MwTWdiVXVTS3E5ZXVP?=
- =?utf-8?B?Y2k2R0JDVHV4dUlXZXAyWldBL0JMTlAwRDd0ZFZLL290dnl1Wms0Q0JPKzZh?=
- =?utf-8?B?OGxhR2twRHdvUE1Lek1kaDdqT0RsRHZKVGplT2M3TldId3U5U1hmUE1DWUZX?=
- =?utf-8?B?aytiSEJocENnOEtwcHRiSDNIYmcweXJVQXZVUTJXTnhnMFZwSjJJK1pOaEl0?=
- =?utf-8?B?dG9MYTNwNng1VjJYR2JMUXlBNDNQUE54Mko3ZmtKWXRJMWkrOHpFVFpDanRG?=
- =?utf-8?B?Y3hCcUJ5TkVkZjJXVm9jQ2dVSUxPanp6a3l6NXBnUnQ5K2xUUGxvaVNXcHNJ?=
- =?utf-8?B?VU03RmxMcUhudjhCSElzSm4rTVNqelFkWldVcFJ6cVZhSGVRL3pZNG4wb21Y?=
- =?utf-8?B?RnJ4NitDMkxxc3l0OUo3UEREYmJUTFhyM2J4dmRod2txNmpZdXhGUGFkVnVo?=
- =?utf-8?B?b21IMWo4TG5vbnFoQ2J6a09qY2NmQzMxbU1MVzhaOVVobnlSUEJpZmZ5VS9a?=
- =?utf-8?B?S0tMMTErcnFEMk5jRFdJSWpNdGI3TWU0dkZ3TTYzZmJiS1UwOHBwamhXUWZs?=
- =?utf-8?B?eFEyMG9EV095bjUxaEJjVjVldzNZYVlhUHdhRC9xNEtnaDRodkYvMHRhUk9m?=
- =?utf-8?B?KzdOWkNWSVN2UEQ4SGV6RnFHZEdtM1YwZkRRaTdLaXd2TW9BMU9OL1VDTHdn?=
- =?utf-8?B?bXdWdU5HY2dXRnFiZ3VMaVpxU2I0QW1yRnlENDZ5WllKOHo3QlNJMkFkLzVC?=
- =?utf-8?B?cUpNTHFPY1NXbUtMeXdRTDh6ckk3ZmkyK0drUVB3VmFFMytHVGZiNG5MbkpZ?=
- =?utf-8?B?a3VoY2JQTWduZndSV2k5NVord2NtaHpmSURNRk02b0g0SEd5Rko4WDQyalRv?=
- =?utf-8?B?MnZTQ2ViODVuVk1LNnRERlBuVGtkdHpvV2EzdXJuL2d3VGxBVFBWT1RXOFNw?=
- =?utf-8?B?cEEvRVRld2EwcG1RSDZwM3hPdERsTVRzU0JtUjNKN281NS9VV1RmQmFnSTNm?=
- =?utf-8?B?NWk1d0FpK0wvdVNnSzh2SUx4UUo0L3ZvdlBEYVdYM0hka3psQ1pnNGhvcElt?=
- =?utf-8?B?RTEwWXdTalUwY2FCWHJ5U2szRHBUaXAwclFyMS80RnBKc1B5N0gvTFRQRGZx?=
- =?utf-8?B?Y2JCaVR6WEgyTVRlWDN3QXprWVpaQ1ZzbmRQMC9tUmQxZmttbTFHRUxhcGFv?=
- =?utf-8?B?SzE2aTdTQTJsUUwzZFN4Z05XQjBONUJVM2VVTHZJNkxCM1FubHhudFp1ODZK?=
- =?utf-8?B?REcrNFVhRzFoQUdMelMySyt0YjFnNjYyYmpSUDlXREE4MWt0TFNjU3hPam9q?=
- =?utf-8?B?YlBjSExMdnJTL2VURkJKYTdVdGpxUmxBeVdKWitBS2QzbWJuTzl3b3pMRldx?=
- =?utf-8?B?YVkwaERBSlBNbFluL3hpL21TS0hLeTJhUkxjWTl1ZCthakl2VTc2UE5zMkt6?=
- =?utf-8?B?MHIvRk05UUxoajk2b0hFUFoydnZuYU5QbW5DZGVyNGMvdVBla1hKdUNkbVdF?=
- =?utf-8?B?S2xzQmszM1VYSkh1TDdYNXhjTm8rMVBqRlQ3NWtCRGRndkRINGhDMFVYbjZx?=
- =?utf-8?B?KzhzZkovY1pVMlJEMjhKUWt2cE5SaDZYa0lJaXA0WW9hVS9wZ3NuODJlZmtC?=
- =?utf-8?B?UXVsOHh5bDlzbG5zWW9odnB1Zm9wVkt2QlNHeitSVEhKT0c5VzE5azQxTHFY?=
- =?utf-8?B?WGRmQzNYMUpPSVhMdWJwckNKVUJuRDIzNVZqcXVNS1F2Q203blhnUzFNRWl2?=
- =?utf-8?B?aGt3a05FZ203bDJreVlsbXFzMTFBWDEvazIzT3B1WmVnaGxBSDBJSUZvNko1?=
- =?utf-8?B?dzhvRnQxN0Nkamx1NURNSi9paVA2eEpsMTBHK2tEbFdQKzlqNU5CVlMrSUl4?=
- =?utf-8?Q?CfhbePQMWmc=3D?=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR08MB7120.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR08MB8620
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: AM2PEPF0001C70F.eurprd05.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: b26835b9-fe43-4db9-a591-08ddc361e1f4
-X-Microsoft-Antispam: BCL:0;ARA:13230040|35042699022|1800799024|14060799003|376014|36860700013|82310400026|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?VzUyM1JmR3hUTHBIemlFbk1xN3VOME53M1Q5RXFQQXQwMCt6ekV6UWpVcVBV?=
- =?utf-8?B?OHdLS2daWFFRQUxlOUtnQ2JscGIydGt0YWU5KzVJN3JCMFd3enFUT2lJd3RZ?=
- =?utf-8?B?emlTY3VGRURabGk4UHJid0NnMTVFVnMzUURhRUtjeG9VQThDekNRR0hFNHNq?=
- =?utf-8?B?ZWJrakhVMWV0eTBBZzgzdEFDVStmaGdhNVk5T3NOZ0pFNThsWkx1d0JGVVFO?=
- =?utf-8?B?a3QxbVpYYkxtdDNMenhwclhnYmpjUmdGdGluakE2MUxvc3RpZWJZR0dSd2ZB?=
- =?utf-8?B?S3RjbFg4UnUvcFlONkVBV1hJaDBZaGRyQ2dDSFQwd0p5RENIbkVOZThTRUU5?=
- =?utf-8?B?RkpWc1d1U1BWYW83eTE0VnppN1JWbkNDWGJNOUZwNSthMVpPaDFaaUd6a0lk?=
- =?utf-8?B?YWYyQytaVXFtZnJOTFlNT1RhME5PQUtBWC9yNnZFVnJLVTFzKzZnT0hoVkZv?=
- =?utf-8?B?bzZ2MnlpL3pYSlVrcE9BR1lrMEY2SkVOS2czV292T3RJeGpVV210VmhKTVlZ?=
- =?utf-8?B?bkNCa1BxdG5URmxrZDVqWEFuVjBZMEQ4YkhocXo0SWtMKzJWQmdJSU12QW01?=
- =?utf-8?B?a2JkMmJ4b1NUZEFKcWxXNURLajBKNmtRcVpjNU4zdzBIeXFhdjNmRk1vclVC?=
- =?utf-8?B?YjFOS2NWRFB2ZVZtQXQ3emFnWVUrenVHS3VDQnhnTFJwM2VOaGgvOWEyZVJy?=
- =?utf-8?B?UDZvWUluUFdpdXdBUE9GWW9UQWZCazVyVUE1akhwdUxNcHN5WDBCcGhDVTV1?=
- =?utf-8?B?d3FoOUpnaWVEUFh2UE5QeXZNOTQzeXF3eEJCSThPSVlzUFJPeFpHN3lLN2hS?=
- =?utf-8?B?S256eXZ3ak15ZUc3d09MUUdWWDllLzhSSFFhUWpGSVNUTW9mSlpFeGRuWWJG?=
- =?utf-8?B?MW5RK3N1ajdtb3FPc0xtaGJYblk3QURHaVgvamhlbkNuSHVKK20rb1BJVlNz?=
- =?utf-8?B?ditZL29DMWFwVGJEMXpRajZsdTdPNm5PRFd3NmRnbGhjT3R5NDdBTUZTZWs1?=
- =?utf-8?B?aUVDQjBRd1ZtcUFFaEk5ZUZsaCtVcm42cC9lK2wwQ1M0dmNFTmJhUS9VbHQ1?=
- =?utf-8?B?WU1Vc3RMNEw1a3dkL1lPc1NjQml1OGVoMWo5c0ZwNENsc01xMHowS0hIZWsr?=
- =?utf-8?B?KzduMlZzS1hRYmxnR0wrc0xOei9VQWxVQUFwOHlCRDd1ZmpNMVZWcUprdm55?=
- =?utf-8?B?ZCtzd1lxdWVhZTNVTzhtWkk0NXU1NzJCRE9nQi9JT0ZGOEdYWFNDd3lDRXdr?=
- =?utf-8?B?NHR5U0c3bVl6WlE0bG1HVzdXSXVPWGpydS9UTkc3blZqQnFQa05HNmc5MDl0?=
- =?utf-8?B?c2pjUUYwS3RWT1lqdHhsY1VQdEk5d2xpOGd6bm1VS3lLWFBDaHdhMnYraVRm?=
- =?utf-8?B?RGw1dTNBbGFpWkdpWnJDay91NGJVZlYxUXBJY0tYRXN2SzZLUGdTRVVPb1lL?=
- =?utf-8?B?c0FudS9IWTB5SGNCZlZ5bUIzbHUwQjZhSDYwTFVHUjJyT1lkc1Z1cTJmUFM5?=
- =?utf-8?B?QkZkekZDcndjV3hMMjNLWmsyUzZGalJQMEJybmVvNlJyaFhDR1RoamREVmZo?=
- =?utf-8?B?dWs1akZ2a0VyZmlMTFVFT3YyeVFjeGppUlJQKzFIYSttK2dCQ3FCbUN3S0RN?=
- =?utf-8?B?WDIwNVdkR2V5cHhIWEJrN3M1TmVZaGlLZXJVanVRRWZzc2x1anZ5OGQvbGE1?=
- =?utf-8?B?THVSOHpsSE9nNC9tMWNWN1ZqbzdyUy9FbGphUXJCSWhYVGdEWFVscEhpeDhs?=
- =?utf-8?B?Y0JNRTdhcEtKZjdBN2RQbmQvRThPSU5EVzBKMkpWcHZ5dVY2em41NmhOcmxn?=
- =?utf-8?B?cVlTNjhUUzFzTTVBU1JsbVJPcU9Lb0VXbmdKM1hmSHY3ZUtkM2JlYkFpdkNP?=
- =?utf-8?B?dWRlK2RlUTgyaE5DdmdPS1ViYnpPcDJ4Tm5mL21aVkFxd1JZUWhaZWtITVR4?=
- =?utf-8?B?YTJYRjFNcGFpYnZvQ3FZYzZ6aXRoOTExRlVOSENDLzNubVdId3dpODkvUC9D?=
- =?utf-8?B?QkI3b3NITHBFb2RBNzFuZFN1dUszOW5YSFp1bm9LS1BpRjBVYnlGT3Btc0Vr?=
- =?utf-8?Q?/CWhfd?=
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(35042699022)(1800799024)(14060799003)(376014)(36860700013)(82310400026)(7053199007);DIR:OUT;SFP:1101;
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Jul 2025 05:39:28.8317
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 85fb3f52-d1d7-4fbf-3997-08ddc361f792
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: AM2PEPF0001C70F.eurprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR08MB7625
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] dt-bindings: iio: adc: imx93: Add calibration
+ properties
+To: Jonathan Cameron <jic23@kernel.org>, David Lechner
+ <dlechner@baylibre.com>, Haibo Chen <haibo.chen@nxp.com>,
+ =?UTF-8?Q?Nuno_S=C3=A1?= <noname.nuno@gmail.com>
+Cc: Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, linux-iio@vger.kernel.org,
+ imx@lists.linux.dev, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ upstream@lists.phytec.de, andrej.picej@norik.com
+References: <20250710073905.1105417-1-primoz.fiser@norik.com>
+ <20250710073905.1105417-2-primoz.fiser@norik.com>
+ <2bcd758b-c2d0-488a-8ead-ec7fb39f93e2@baylibre.com>
+ <20250713160247.0f22bbfe@jic23-huawei>
+ <de2c8e15-14e9-4c61-9a13-97ef1ec567a4@norik.com>
+ <6b32118a13e9e28b7cf12152af33642c76367c34.camel@gmail.com>
+Content-Language: en-US
+From: Primoz Fiser <primoz.fiser@norik.com>
+Autocrypt: addr=primoz.fiser@norik.com; keydata=
+ xjMEZrROOxYJKwYBBAHaRw8BAQdAADVOb5tiLVTUAC9nu/FUl4gj/+4fDLqbc3mk0Vz8riTN
+ JVByaW1veiBGaXNlciA8cHJpbW96LmZpc2VyQG5vcmlrLmNvbT7CiQQTFggAMRYhBK2YFSAH
+ ExsBZLCwJGoLbQEHbnBPBQJmtE47AhsDBAsJCAcFFQgJCgsFFgIDAQAACgkQagttAQducE+T
+ gAD+K4fKlIuvH75fAFwGYG/HT3F9mN64majvqJqvp3gTB9YBAL12gu+cm11m9JMyOyN0l6Os
+ jStsQFghPkzBSDWSDN0NzjgEZrROPBIKKwYBBAGXVQEFAQEHQP2xtEOhbgA+rfzvvcFkV1zK
+ 6ym3/c/OUQObCp50BocdAwEIB8J4BBgWCAAgFiEErZgVIAcTGwFksLAkagttAQducE8FAma0
+ TjwCGwwACgkQagttAQducE8ucAD9F1sXtQD4iA7Qu+SwNUAp/9x7Cqr37CSb2p6hbRmPJP8B
+ AMYR91JYlFmOJ+ScPhQ8/MgFO+V6pa7K2ebk5xYqsCgA
+Organization: Norik systems d.o.o.
+In-Reply-To: <6b32118a13e9e28b7cf12152af33642c76367c34.camel@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - cpanel.siel.si
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - norik.com
+X-Get-Message-Sender-Via: cpanel.siel.si: authenticated_id: primoz.fiser@norik.com
+X-Authenticated-Sender: cpanel.siel.si: primoz.fiser@norik.com
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250714_223938_180406_6BF4E492 
-X-CRM114-Status: GOOD (  15.13  )
+X-CRM114-CacheID: sfid-20250714_224649_485377_D284C2E0 
+X-CRM114-Status: GOOD (  23.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -223,136 +111,134 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Nuno,
 
-On 14/07/25 3:00 pm, Ryan Roberts wrote:
-> On 11/07/2025 17:17, Will Deacon wrote:
->> __flush_tlb_range_limit_excess() is unnecessarily complicated:
+On 14. 07. 25 18:11, Nuno Sá wrote:
+> On Mon, 2025-07-14 at 07:56 +0200, Primoz Fiser wrote:
+>> Hi all,
 >>
->>    - It takes a 'start', 'end' and 'pages' argument, whereas it only
->>      needs 'pages' (which the caller has computed from the other two
->>      arguments!).
+>> On 13. 07. 25 17:02, Jonathan Cameron wrote:
+>>> On Thu, 10 Jul 2025 10:46:44 -0500
+>>> David Lechner <dlechner@baylibre.com> wrote:
+>>>
+>>>> On 7/10/25 2:39 AM, Primoz Fiser wrote:
+>>>>> From: Andrej Picej <andrej.picej@norik.com>
+>>>>>
+>>>>> Document i.MX93 ADC calibration properties and how to set them.
+>>>>>
+>>>>> Signed-off-by: Andrej Picej <andrej.picej@norik.com>
+>>>>> Signed-off-by: Primoz Fiser <primoz.fiser@norik.com>
+>>>>> ---
+>>>>>  .../bindings/iio/adc/nxp,imx93-adc.yaml       | 21 +++++++++++++++++++
+>>>>>  1 file changed, 21 insertions(+)
+>>>>>
+>>>>> diff --git a/Documentation/devicetree/bindings/iio/adc/nxp,imx93-
+>>>>> adc.yaml b/Documentation/devicetree/bindings/iio/adc/nxp,imx93-adc.yaml
+>>>>> index c2e5ff418920..d1c04cf85fe6 100644
+>>>>> --- a/Documentation/devicetree/bindings/iio/adc/nxp,imx93-adc.yaml
+>>>>> +++ b/Documentation/devicetree/bindings/iio/adc/nxp,imx93-adc.yaml
+>>>>> @@ -52,6 +52,27 @@ properties:
+>>>>>    "#io-channel-cells":
+>>>>>      const: 1
+>>>>>  
+>>>>> +  nxp,calib-avg-en:
+>>>>> +    default: 1
+>>>>> +    description:
+>>>>> +      Enable or disable calibration averaging function (AVGEN).
+>>>>> +    $ref: /schemas/types.yaml#/definitions/uint32
+>>>>> +    enum: [ 0, 1 ]
+>>>>> +
+>>>>> +  nxp,calib-nr-samples:
+>>>>> +    default: 512
+>>>>> +    description:
+>>>>> +      Selects number of samples (NRSMPL) to be used during calibration.
+>>>>> +    $ref: /schemas/types.yaml#/definitions/uint32
+>>>>> +    enum: [ 16, 32, 128, 512 ]
+>>>
+>>> Allow 1 as a value and drop the enabled above.   Averaging over 1 sample
+>>> is same as no averaging and gives simpler binding.
+>>>
+>>>>> +
+>>>>> +  nxp,calib-t-sample:
+>>>>> +    default: 22
+>>>>> +    description:
+>>>>> +      Selects sample time (TSAMP) of calibration conversions in ADC
+>>>>> clock cycles
+>>>>> +    $ref: /schemas/types.yaml#/definitions/uint32
+>>>>> +    enum: [ 8, 16, 22, 32 ]
+>>>>> +
+>>>>>  required:
+>>>>>    - compatible
+>>>>>    - reg  
+>>>>
+>>>> This seem like things that should be set at runtime rather than
+>>>> in the devicetree. Unless there is some justification on why
+>>>> these values depend on how the chip is wired up?
 >>
->>    - It erroneously compares 'pages' with MAX_TLBI_RANGE_PAGES when
->>      the system doesn't support range-based invalidation but the range to
->>      be invalidated would result in fewer than MAX_DVM_OPS invalidations.
+>> It depends how ADC 1.8V Vref is wired up, especially how noisy it is.
 >>
->> Simplify the function so that it no longer takes the 'start' and 'end'
->> arguments and only considers the MAX_TLBI_RANGE_PAGES threshold on
->> systems that implement range-based invalidation.
+>>>
+>>> Further to that, I'd like to see some explanation of why we care
+>>> to change it at all. Is it ever a bad idea to enable averaging and
+>>> pick a large number of samples for calibration?
 >>
->> Signed-off-by: Will Deacon <will@kernel.org>
-> Does this warrant a Fixes: tag?
->
->> ---
->>   arch/arm64/include/asm/tlbflush.h | 20 ++++++--------------
->>   1 file changed, 6 insertions(+), 14 deletions(-)
+>> This is a snippet from the i.MX93 TRM, chapter Analog-to-Digital
+>> Converter (SAR_ADC) describing calibration steps:
 >>
->> diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
->> index 8618a85d5cd3..2541863721af 100644
->> --- a/arch/arm64/include/asm/tlbflush.h
->> +++ b/arch/arm64/include/asm/tlbflush.h
->> @@ -470,21 +470,13 @@ do {									\
->>   #define __flush_s2_tlb_range_op(op, start, pages, stride, tlb_level) \
->>   	__flush_tlb_range_op(op, start, pages, stride, 0, tlb_level, kvm_lpa2_is_enabled());
->>   
->> -static inline bool __flush_tlb_range_limit_excess(unsigned long start,
->> -		unsigned long end, unsigned long pages, unsigned long stride)
->> +static inline bool __flush_tlb_range_limit_excess(unsigned long pages,
->> +						  unsigned long stride)
->>   {
->> -	/*
->> -	 * When the system does not support TLB range based flush
->> -	 * operation, (MAX_DVM_OPS - 1) pages can be handled. But
->> -	 * with TLB range based operation, MAX_TLBI_RANGE_PAGES
->> -	 * pages can be handled.
->> -	 */
->> -	if ((!system_supports_tlb_range() &&
->> -	     (end - start) >= (MAX_DVM_OPS * stride)) ||
->> -	    pages > MAX_TLBI_RANGE_PAGES)
->> +	if (system_supports_tlb_range() && pages > MAX_TLBI_RANGE_PAGES)
->>   		return true;
->>   
->> -	return false;
->> +	return pages >= (MAX_DVM_OPS * stride) >> PAGE_SHIFT;
->>   }
-> I'm still not sure I totally get this... Aren't these really 2 separate
-> concepts? MAX_TLBI_RANGE_PAGES is the max amount of VA that can be handled by a
-> single tlbi-by-range (and due to implementation, the largest range that can be
-> handled by the loop in __flush_tlb_range_op()). Whereas MAX_DVM_OPS is the max
-> number of tlbi instrcutions you want to issue with the PTL held? Perhaps it is
-> better to split these out; For the range case, calculate the number of ops you
-> actually need and compare with MAX_DVM_OPS?
+>> 1. Wait for deassertion of functional reset.
+>> 2. Configure SAR controller operating clock (MCR[ADCLKSE] = 0).
+>> 3. Bring ADC out of Power-down state (MCR[PWDN] = 0).
+>> 4. Configure desired calibration settings (default values kept for
+>> highest accuracy maximum time).
+>> • MCR[TSAMP]: Sample time for calibration conversion
+>> • MCR[NRSMPL]: Number of samples in averaging
+>> • MCR[AVGEN]: Averaging function enable in calibration
+>> 5. Run calibration by writing a one to MCR[CALSTART].
+>> 6. Check calibration run status in MSR[CALBUSY]—wait until MSR[CALBUSY]
+>> = 0; alternatively, MSR[ADCSTAT] can be
+>> used to check status.
+>> 7. Check calibration pass/fail status in MSR[CALFAIL] field. If
+>> MSR[CALFAIL] = 1 then calibration failed. Detailed status
+>> can be checked in CALSTAT.
+>>
+>>
+>> See point 4).
+>>
+>> Not sure why would there be an option to configure i.MX93 ADC
+>> calibration parameters if one use-case (max accuracy max time) to rule
+>> them all?
+>>
+> 
+> Sometimes HW guys just want to give you some options. Does not mean we have to
+> use them all :).
+> 
+> I guess what Jonathan is interested in, is to understand in what conditions the
+> defaults are no good for the calibration? If we can have a set of values that
+> should pretty much always work, no need to further complicate the bindings or
+> the driver.
 
-If system_supports_tlb_range() returns true and pages <= MAX_TLBI_RANGE_PAGES,
-then it is guaranteed that the number of tlbi range operations issued is bounded
-by 4 -> we start from scale = 3, and by patch 6 of this series (and the loop
-itself btw) it is guaranteed that the scale will be decremented, so the worst
-case is that all scales are used, so at most 4 operations will be issued, so
-we are safe.
+In case you have a noisy Vref you can adjust the parameters to pass the
+calibration and have a working ADC.
 
-So if my reasoning is correct, I think what we need is something like:
+The trade-off is a less precise ADC but at least a working one.
 
-diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
-index aa9efee17277..53591caf3793 100644
---- a/arch/arm64/include/asm/tlbflush.h
-+++ b/arch/arm64/include/asm/tlbflush.h
-@@ -427,21 +427,19 @@ do {									\
-  #define __flush_s2_tlb_range_op(op, start, pages, stride, tlb_level) \
-  	__flush_tlb_range_op(op, start, pages, stride, 0, tlb_level, false, kvm_lpa2_is_enabled());
-  
--static inline bool __flush_tlb_range_limit_excess(unsigned long start,
--		unsigned long end, unsigned long pages, unsigned long stride)
-+static inline bool __flush_tlb_range_limit_excess(unsigned long pages,
-+						  unsigned long stride)
-  {
-  	/*
--	 * When the system does not support TLB range based flush
--	 * operation, (MAX_DVM_OPS - 1) pages can be handled. But
--	 * with TLB range based operation, MAX_TLBI_RANGE_PAGES
--	 * pages can be handled.
-+	 * If a TLBI range op has pages under MAX_TLBI_RANGE_PAGES, it
-+	 * is guaranteed that the loop in __flush_tlb_range_op shall
-+	 * terminate in at most 4 iterations, so we do not need to
-+	 * check with MAX_DVM_OPS in this case.
-  	 */
--	if ((!system_supports_tlb_range() &&
--	     (end - start) >= (MAX_DVM_OPS * stride)) ||
--	    pages > MAX_TLBI_RANGE_PAGES)
--		return true;
-+	if (system_supports_tlb_range())
-+		return pages > MAX_TLBI_RANGE_PAGES;
-  
--	return false;
-+	return pages >= (MAX_DVM_OPS * stride) >> PAGE_SHIFT;
-  }
-  
-  static inline void __flush_tlb_range_nosync(struct mm_struct *mm,
+In ideal case you would have Vref supplied by the dedicated LDO and tons
+of decoupling caps, but in real-world you have it connected to a noisy
+SMPS and you need to adjust the parameters accordingly.
 
+That's it :)
 
-where the comment can be worded better.
+BR,
+Primoz
 
-
->
->
->>   
->>   static inline void __flush_tlb_range_nosync(struct mm_struct *mm,
->> @@ -498,7 +490,7 @@ static inline void __flush_tlb_range_nosync(struct mm_struct *mm,
->>   	end = round_up(end, stride);
->>   	pages = (end - start) >> PAGE_SHIFT;
->>   
->> -	if (__flush_tlb_range_limit_excess(start, end, pages, stride)) {
->> +	if (__flush_tlb_range_limit_excess(pages, stride)) {
->>   		flush_tlb_mm(mm);
->>   		return;
->>   	}
->> @@ -547,7 +539,7 @@ static inline void flush_tlb_kernel_range(unsigned long start, unsigned long end
->>   	end = round_up(end, stride);
->>   	pages = (end - start) >> PAGE_SHIFT;
->>   
->> -	if (__flush_tlb_range_limit_excess(start, end, pages, stride)) {
->> +	if (__flush_tlb_range_limit_excess(pages, stride)) {
->>   		flush_tlb_all();
->>   		return;
->>   	}
->
+-- 
+Primoz Fiser
+phone: +386-41-390-545
+email: primoz.fiser@norik.com
+--
+Norik systems d.o.o.
+Your embedded software partner
+Slovenia, EU
+phone: +386-41-540-545
+email: info@norik.com
 
