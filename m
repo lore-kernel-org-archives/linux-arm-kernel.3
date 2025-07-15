@@ -4,176 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA114C83F22
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 14:37:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDAEDC83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 14:39:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
-	From:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0rNGVNFUElU+tLxF1Q1wk/syDe1um4IUbkbhDMi3us4=; b=exkkHgnu8ppI+MPFaijcRCgU0E
-	Bmy94NY9TjFcFwiMHABovOE9nz9gJv18wdeW1SZZWyzYngfP+w75IjIH5eotJcKVal+hIRoJ2g8UN
-	jwi0njSNpaGCpdDq89lB5L0gQflSeMFVcS3xJDNLaeZjyTa9uyJQT462KzxSU5xNoBpg3z6BvrIt6
-	aHIYkgMTUiztkMVv7e7pjPCgxV5jyEIgpYTCpLFvgsdItrOKt8E/LKYFZBNuNZIhvfdXuZO3gpLMr
-	Ch5jmtgAC4JYhECbSos7wxcbgoOv4Ou04WNCYEySDAkWo+TOnzGvwMDNdyOP9C1XWsEMStXqjapom
-	cBF6wCpA==;
+	bh=RZNdJdvnKf8QKxgnS87V8b+rsQrk+0DHovoGkwxahd4=; b=eS/SBuib2rFDAZms8NE2O46rXH
+	/kxvfOZyFSB7aj3fOuLPmPkXn+nSmOegz7JtcGzCe8jTJG3T1DF6lej1jW8kXe/6AwxpQXXwJ+tLV
+	hA4IRodj1UM7mltyNzb16Wnmb43g2U3M3VyfxTbbuofCsCZ7tRtxC88UuhJbOIzA/Pk8xoy6KgFAE
+	enCii6+TdzPZPNQdmQ5FhqDxKkUQYU1Ny6U51zLiDdfegV2XOqosVPLcq+Lh4gODAJ+kWfqs1FBoz
+	TPw2P3HVsRIYzX69JjBFcgEjo8ws8w8u77CASxksGdgaOFQ6uNk7KZuX6tgDnBVAyyZb7UJPidksR
+	HV08Ktiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubgm7-00000005OzK-26gV;
-	Tue, 15 Jul 2025 14:36:55 +0000
-Received: from mail-bn8nam11on20615.outbound.protection.outlook.com ([2a01:111:f403:2414::615] helo=NAM11-BN8-obe.outbound.protection.outlook.com)
+	id 1ubgoW-00000005PTI-1HAg;
+	Tue, 15 Jul 2025 14:39:24 +0000
+Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubfXn-00000005BF1-0OVu
+	id 1ubfZh-00000005BT9-2Xzt
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Jul 2025 13:18:04 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=N+xN44higJDYVR8xjYO7I6t5HR5djbaNb/iaiIkZgAYliiNHgmV0azQMXacP/6SGRDTy/eIlKS83wOaOa9WhocU5BNIiiG3ZlWG0V2CYlw+QRQmB1ysBenssQMHa0/XseXeNrND0v2gOrxLZMb9pspPhL8Bp96wp1k5K+YJ+Ov2wXYeb+J2VXD4JPNQ5jtMWlp4uUsmN4EII8SWLFWtnJ9c/HbI9zEjNk3X8zSTF5o9H54yR9ZU3zWjZWucpWyomR0JWQ8et1LWJZf8uJLA1mJFoIcKl22payyD6k1PdKcTjTia3URihbe1jOKEmdgJmQ2BTrK9Oz8FrCvcObGNVJw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=0rNGVNFUElU+tLxF1Q1wk/syDe1um4IUbkbhDMi3us4=;
- b=IjBPD8Xj3DCyjcB6UZLvJ12QSgqY3H8lCIjlePnvXN2zIlcUSrNhuC0t7HS3qLWXIHc+KlKtx1CocZHMqvhj40w03YPhgMh604U7uGTkC/CrScZ4YGgYJ1qxQ42oEwMnZSJzuKbk12SUAZJlJh6ZgFakyBZMNrdJrz8ugYXYV7mYqaRY/gvB72mApa2rug5X47aGXNyKnpCyp2pkRDe4CIRZsuJMIZBvlGM+6XxtQEN52WLJhvbH/BNFozFbTWqZwzGs++2mq1TubEtQ9VLgTNPoYnXU/+Bp/y3LKkkanEjg/42uHTjuglxg/vqF6VQsaShrH2Np6rpO1qKEsxUTJw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=altera.com; dmarc=pass action=none header.from=altera.com;
- dkim=pass header.d=altera.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=altera.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=0rNGVNFUElU+tLxF1Q1wk/syDe1um4IUbkbhDMi3us4=;
- b=GmdOTHFmn9B/X6WRneAx46gQ+qx40wGq206oeLVCIFvauUPB6ETf+b8mUbn9WXmTkLTL8PhnCalirtNL11Pt3cQ/2U0LJftBIlVFNSzzAQ3gEQdJqfdj7IeAUNhxJgZQHPhq1yfPuF+0dKNtdxszcFydiRgJoPhmdv8VJ/TtCbzKOvkYPtbH7cMjHA7mRqbv0PtF5zvXS4gih/b3oM3Ec4S89VP5pYNEeCHJ1a+5iHxWDC6HPXx6diPmKgeP/Gb8ErSS6E/00CYMOeH577DsACX3X89a7jrlwMOoFgFZwc+8z9WzLv38yecf72NIxg13TE438U1UZnQWmS6UWKn2Mw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=altera.com;
-Received: from DM6PR03MB5371.namprd03.prod.outlook.com (2603:10b6:5:24c::21)
- by PH0PR03MB6656.namprd03.prod.outlook.com (2603:10b6:510:b6::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8922.32; Tue, 15 Jul
- 2025 13:17:51 +0000
-Received: from DM6PR03MB5371.namprd03.prod.outlook.com
- ([fe80::8d3c:c90d:40c:7076]) by DM6PR03MB5371.namprd03.prod.outlook.com
- ([fe80::8d3c:c90d:40c:7076%3]) with mapi id 15.20.8922.025; Tue, 15 Jul 2025
- 13:17:51 +0000
-Message-ID: <21a0e265-6b2c-4bcb-b0ac-5fd47503f909@altera.com>
-Date: Tue, 15 Jul 2025 18:46:16 +0530
-User-Agent: Mozilla Thunderbird
-From: "G Thomas, Rohan" <rohan.g.thomas@altera.com>
-Subject: Re: [PATCH net-next 1/3] net: stmmac: xgmac: Disable RX FIFO Overflow
- interrupts
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Serge Semin <fancer.lancer@gmail.com>,
- Romain Gantois <romain.gantois@bootlin.com>, netdev@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Matthew Gerlach <matthew.gerlach@altera.com>
-References: <20250714-xgmac-minor-fixes-v1-0-c34092a88a72@altera.com>
- <20250714-xgmac-minor-fixes-v1-1-c34092a88a72@altera.com>
- <bef4d761-8909-4f90-8822-8c344291cb93@lunn.ch>
-Content-Language: en-US
-In-Reply-To: <bef4d761-8909-4f90-8822-8c344291cb93@lunn.ch>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: MA1P287CA0013.INDP287.PROD.OUTLOOK.COM
- (2603:1096:a00:35::26) To DM6PR03MB5371.namprd03.prod.outlook.com
- (2603:10b6:5:24c::21)
+	Tue, 15 Jul 2025 13:20:02 +0000
+Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-3a4f379662cso4108615f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Jul 2025 06:20:01 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ffwll.ch; s=google; t=1752585600; x=1753190400; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=RZNdJdvnKf8QKxgnS87V8b+rsQrk+0DHovoGkwxahd4=;
+        b=cozlFOdO2Nv3bB41CechfNFhmBvC6qoqNvBytpFz3FCQEU/UtnkhIUfbFhW9TRUyHq
+         IUjJoftfWYB4Y+EjczwYn7qS5VM9j6y2lTMJyMC88sY7OjxaiPWwwVEonYr8er3D2OTK
+         OlsQ8qkJhVANaLGbCAVaXfcTtQtmI+kcJNNI8=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1752585600; x=1753190400;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=RZNdJdvnKf8QKxgnS87V8b+rsQrk+0DHovoGkwxahd4=;
+        b=qT/R1kqB04ZIuO7lQ3g1V+ab1REKvAm2u3qQMNIm262xk4Ja7FxEqilTBZlZbkC2TY
+         sPurYv/7KZaBf5Iv/VF7LgU24uLOLyU+HGEwgVV+72L86LViXGAYqFb7iXEmu4XQxSrH
+         3TiN8/JGfYLSJRlu+cl764zKOYcSMOsk1LC407V5msEqXQMFe1Hbco9BkDr7801BpInm
+         qkHe7EcpvLTdU4J6bxreJMQObMvJtROaHP94rWxAkfEyuCVfF92OkO7RdDOQgySwsCK+
+         Dk9q5IVN+rtYo+LltDFOZQYIvT9t+njj4N2rz3mAvhKfVNEa29DXnf7uuAEUiKdsI83J
+         7tzA==
+X-Forwarded-Encrypted: i=1; AJvYcCUupmLRymVnpPKDKT3RKn8fhm2Z2ydLai29hh8R8lFjti3GwsvpA0jAmrJk8FyKVU42I/+b2+QZX2leN0MbzKIo@lists.infradead.org
+X-Gm-Message-State: AOJu0YyTP8Xx741jtBOEyA1QMBxh1kaKZfn4WY5c02aRcTNoQoTZLIx7
+	lTpQh4T9JjjUxvY2Evdx1w57eNK3ygAb5QBC7yzJzYnrysugC4JtZ/nO0o6/5LszBys=
+X-Gm-Gg: ASbGnctu9UXgGZj9u2IEm1f3pHis7OvzRqY2i23gaF0AUeaP+siIpRjJUTwy4UBwzuy
+	VvDBxlCLFYwXyuuKOOBs3cA3KG4y6EA0cnCO+Ok/c3hBnSnehoIcjtA9i9tqB1ZmGJOLUQZL9I6
+	UuI0hNe6nw8INRJA1Zsvx/vKfr7Fates+Kx0pz8BjW83EhmqDYhDb4ovRxV2KviGIgsC/vMcrOJ
+	87TmT7WNSt9KB459z+4M+dtI+Hzk9d8DkrTkf5U++xbULJPxCjk7SCtIZXJLRu5IcR9hXfKrj9W
+	KDtLxvhtC+9pj3oLZyMML7568kN4bnr9FzQFw2lbInp0Ej3/MpHbvo5Y43Yw/zBPQ/kdNFMQuBj
+	FjNOS9Tx1gTBIZN8fpMuHPJwHpi0VGOk/7w==
+X-Google-Smtp-Source: AGHT+IGgOrGKdM3z4rYXREjB5K13TQWQc9hzSbnGlRYyUFMTZTPMvyOf/txGJ4PS42ny0/qCStlXJg==
+X-Received: by 2002:a05:6000:290a:b0:3a4:f038:af74 with SMTP id ffacd0b85a97d-3b5f2e3ad53mr14816635f8f.51.1752585599669;
+        Tue, 15 Jul 2025 06:19:59 -0700 (PDT)
+Received: from phenom.ffwll.local ([2a02:168:57f4:0:5485:d4b2:c087:b497])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3b5e8e0d70csm15389832f8f.62.2025.07.15.06.19.58
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 15 Jul 2025 06:19:58 -0700 (PDT)
+Date: Tue, 15 Jul 2025 15:19:56 +0200
+From: Simona Vetter <simona.vetter@ffwll.ch>
+To: Thomas Zimmermann <tzimmermann@suse.de>
+Cc: lee@kernel.org, danielt@kernel.org, jingoohan1@gmail.com,
+	neil.armstrong@linaro.org, jessica.zhang@oss.qualcomm.com,
+	deller@gmx.de, maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org, airlied@gmail.com, simona@ffwll.ch,
+	fnkl.kernel@gmail.com, j@jannau.net, hdegoede@redhat.com,
+	ilpo.jarvinen@linux.intel.com, sven@kernel.org,
+	alyssa@rosenzweig.io, neal@gompa.dev,
+	support.opensource@diasemi.com, duje.mihanovic@skole.hr,
+	dri-devel@lists.freedesktop.org, asahi@lists.linux.dev,
+	platform-driver-x86@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-fbdev@vger.kernel.org
+Subject: Re: [PATCH v2 02/15] drm/panel: panel-samsung-s6e63m0: Include
+ <linux/of.h>
+Message-ID: <aHZVfD9Koa-fi5CQ@phenom.ffwll.local>
+References: <20250715122643.137027-1-tzimmermann@suse.de>
+ <20250715122643.137027-3-tzimmermann@suse.de>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DM6PR03MB5371:EE_|PH0PR03MB6656:EE_
-X-MS-Office365-Filtering-Correlation-Id: 3bf7c630-736b-4dff-9c7e-08ddc3a1ffcc
-X-MS-Exchange-AtpMessageProperties: SA
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?ZkdvZGNuNTJRT3g0WW82NEFFMlIrdys3c0EyejhtcEliZk1wN21FWHRpRU9t?=
- =?utf-8?B?MVAyR1QrQzBQazNaWFp6VHkzcWU3TTFIZjJzbDMvdmY4L0xrSmNmU0tuOWJv?=
- =?utf-8?B?cU1SdFIrRTZBTFhKZkVWeVFwN0xpdGhCZ1ZyWmJsWWZWZE5UTUVvNzVoQmdD?=
- =?utf-8?B?ODUxN0NKbkpSaFJoRGd0enlBUy9ra05SdzdJSWlqT0NpaEVRTkFIZnh1Z3hN?=
- =?utf-8?B?OXF4MmY4TVBtYTlLMmUvN09PdDFtdCsyNzYvdHdkZUZGa1BaaFdnMmdnMVla?=
- =?utf-8?B?SFdwdTc2V2VjN1MzSkt2M1p2Z0o3RXNEMjRTK0NBZHRFL1hWZWNONXRGWjZ3?=
- =?utf-8?B?UU5mT29mUzViQTFodm1aMXRpTHJ2dmlJOGc1UDdETlhkRUNsQTdrSXFibThq?=
- =?utf-8?B?cUIvOGJLMGZiS0lEZmM0NHVUQWJDMEVnY05HZEhYSS9pUVN4RS9aa0J4VDVj?=
- =?utf-8?B?MEd0RWUzcGoyYkZZZVBQb3ZhdE5XdXdZNklieTVBWmVCUjhkRDRERmNVdEh6?=
- =?utf-8?B?bXZSUlBTRm5oZFhyUGZHMEhubW5EaTBIeFBZOEV2SWNOTkswUmcxMGplczNn?=
- =?utf-8?B?b0REeURXSXNjTkNDNlRveGJqN01wQTVxRDF0U2RPSHlSWGh6elRDWGZMRURS?=
- =?utf-8?B?WU1NUHo4L2M1N1p5Mk1zYkFHTlJmZCtscmZUSWN4M2JQbW9YbFNsQmRYN1Ix?=
- =?utf-8?B?QTF6aVhhQnRSLzRSNWNGTFdhNkZxVjBoL0U2c2RPbFNWVmN3NE90RnpWK0hT?=
- =?utf-8?B?WkxrcWowbXdxakdlU3pOQWVTOEtnYmxQQWxrK2lIZTZnSmtsVnBERkx3S29R?=
- =?utf-8?B?a2lpSFRRSGtvODBCOWVDS2UzUnhmSjNzalZSMDR3M3BrWUxPMU5rMWNLMVB4?=
- =?utf-8?B?WU0xWnNFaUpLaUpscUtrVlpOVHlCbktxcG9jUU0xVWV4UDhVUGFQNC90ZXFZ?=
- =?utf-8?B?L0xpbUZVMjdEaUpFdWQ5OEs0dnBmZlNrTnJGWTJ3OFBHSkVpREp0STJONnQ2?=
- =?utf-8?B?VWVrNC9zNDh2Y2RnK3VMMGxYS3NBS2x2U2xnNEpzNC9lUXgycVphcnJ2Unpi?=
- =?utf-8?B?Rkg5V1JJYXMvTVgxU0JHeFpGR0VIMnhuY1g3cHRQRmRTNzhMcW1jSmtYNXRp?=
- =?utf-8?B?elB2cWgxVUhqdVBMaTFJSTJXcTJ6dG12M0F5UnRZNlVNMHJ6a0RxL01SclJO?=
- =?utf-8?B?NzFCQjRNZG1xcDdLeWQwM0dnSXk4MHF2M1BwLzJBQ0p5MlVUYlQzaHdjNWll?=
- =?utf-8?B?WExncG1RcTRUNjlla0gxVW9DcWtETlQxS2xneFBKTTBsSE1sMlFWenRzNUJa?=
- =?utf-8?B?bVhua2ZCdEQxd3p5VDRrWk1QaGtkMDdsaC9jRFJKQ2x1clZqcjg1UXVuaXdF?=
- =?utf-8?B?ajRlUXNVY1pFZzRFRURDMk9lY05sTktHTDYwRXZ5MFR1LzlZMjBsaHBlTXhL?=
- =?utf-8?B?UW8xTVZIZFhqQkpGZkV6eEtLQ1FISG56YkErcm4raWQ5M0t4NTl2eWJRU0pU?=
- =?utf-8?B?MmgxSi95OWZjMnIybXJYTVRHc1NKNFFUaCthK2h1Z1VGRG9rRy84KzRkcHlW?=
- =?utf-8?B?ZjR0cUdndWtrTE9IQWNKZjVTNkloR0Z5U1BvSEluL2lZT1Zodm42RFJHMlRs?=
- =?utf-8?B?dTc3T3FXN2ZqeWc4UWsrVVhmR1FzVElUUWNWMXVSYzU2ZkVGWEp3SWpDOXc1?=
- =?utf-8?B?ckQrbnlSVFpaZVEvVjgrb0hqQ2VnR3pnYndpSHNiTmRpemlIUExMQUJLbWYr?=
- =?utf-8?B?eElncFI1OHdVZkduTlBoSmJGZjRtYmNxeit6RmVzeXFWR1krQlAxRDFPN255?=
- =?utf-8?B?S0YzWG16bmNEbXBSYUg5R2NaYXREbjUxbGJ6WWhNOHFHWGlONHErS1RTdHBW?=
- =?utf-8?B?YjRlWEtnQmJZdDlZS0NQOU92bXJZdW4rRVowYURkaCtvWWI1dlNHS3ZUMXM1?=
- =?utf-8?Q?/pyaJCjz/io=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR03MB5371.namprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?YnRaVUx4SzFPTlRXdENaM2tmbU9IS3UzUFJRTVhsRU5rbGxzbHM5VUdyTEJD?=
- =?utf-8?B?MWdrVUF0c3FsdjZobEljSFoxMXFwRnJXaVd4Nk9aWVE4c01yeGVzRG1uSHFJ?=
- =?utf-8?B?dFJOTVFoNU9JQmgrQWdKRHRKVXZtZWF5RTBwVW0wMlJjZkNWZEQxY3RPNFc2?=
- =?utf-8?B?T3FBcEwvSFZ4VTVLY3YzODAydDltRkZrYTVTWDZmSk9tVHJoZURFSWZncG8x?=
- =?utf-8?B?TXhHU2FXSUpHLzRRclpPT1NkdlhQUG91cXpodnIzKy9wWmZsSUgrendsM01u?=
- =?utf-8?B?NnpRZGFRVXZWNTBFcWpZeTJ5R29vRkRRazlFWDRyT2t4UTNwNzhKOFBYVWVr?=
- =?utf-8?B?OWEva0Uzc2ZNbFhOM2NHbnJuUkJ0djFRUGoxMFpMbzdMdjcvcWlPUDhKazFG?=
- =?utf-8?B?U01pSUtnS2NxSFpjZVE5YTcwamFlN1pNYUw5Q1ZGbzZjMTg3eWJZVlZaU0dT?=
- =?utf-8?B?U0FPbEZNdlh6OUhBODQ2L1RrT01wVDNTTjFSQ1FLOTN5bjFsNTdLWnFLM2Fo?=
- =?utf-8?B?Q2tZV3lCNmRuVS9Zdno5VjBzRlNmYktrNVNiaUtwSUtWckdhZzVtZGxQbGhI?=
- =?utf-8?B?K2VUVmJHb21wbGFGVC9Va1ZnclBDejAyNUZVQ3ZvMTNjN0FYZnpwc210OGlv?=
- =?utf-8?B?c2Fza1lwNTVBMFJVWFNpcjlXNXQ5QVFDSEYxcERzVVBEVm5kUExxZkI2a1BL?=
- =?utf-8?B?cFI1UlFOVjlNUThJRm1GZkZrYkUwYkpDQy9QUGNaeCtlWXAvZGJZak9wbnNo?=
- =?utf-8?B?S3grZ0ljdUZna2JjNmdkN1BGeFYveDdEQ0dvNFRaMGx0aWRSenRQb0RYaHh4?=
- =?utf-8?B?dnV4OXZGZGxGcytDeXdnUUYwcnN3bGlRbjNsWS9ZYkU0NWJOSlVMTytZRkI2?=
- =?utf-8?B?QW1idmhJWDQyUFBVYzhaaWRGMzE5MDVvcUJpU25KdThTNEtXRzFIZGwrb3VO?=
- =?utf-8?B?WGZqVENseTlGd3h6RmhFa3hOVWdZSlhzSnJpQkhkYkRDaFcwRDZFNkdCRGVr?=
- =?utf-8?B?aGN0eS9tZWVFbU9SakZuRzRBUUprSUp0aWZiYUtJM0MzeWdLTGlSZTRiYW5X?=
- =?utf-8?B?NnFWS0REcS9mSlNtOVgzMkpvR214SlhaVWlabHF6Qm1nNkJZZytrcGFkOHBh?=
- =?utf-8?B?M29oVlBIMFRaRHpMeUVUZ24rRGt6MFV1TnJVRVpFc3lSZU9ZT2RaRFFwM3JK?=
- =?utf-8?B?bkN5UVJCVEZXbmhyMml0SW9YbmhwcVpTVkZuSXMvVVQ2NGVoSU5pZ25BYWRn?=
- =?utf-8?B?UXI0L1R4SWY1TzRxNGFzYTY2RDBETGI3R3NSUDdkU1Z5cWtvenMrUEN2engr?=
- =?utf-8?B?dG8zZndRV2FqNlRHTDMycThhb2g5OGpzNTNCTDVxT1NUTUZFNm5CUTB5NkxC?=
- =?utf-8?B?YS9nSGE1OGFSckdIbTNtbTNFRDUyMTkvTjhLRlMvcnZTa2hhZDRoczBjOVpu?=
- =?utf-8?B?c2Y1bWNFNkx0ZEcrdVppTXZpT3JQQkJJV0ZXOUVOUmxRdnArWFBiRTJLSklv?=
- =?utf-8?B?RGtJTHVMR1JvOEFqbHZpMnkreVNua1lzZlRHN29MaTV2d2VLNHhSdGlBUVVQ?=
- =?utf-8?B?ek5Xa3BkSDZ6QUpON0MxSUxyM3NidkNVcGM1L0crRFBRUUc1anF1SHNBaXpF?=
- =?utf-8?B?SEp1a1F6d3l3bEdUa1FFbk5xSUdRckJYUUVGaU9TdWtJdFRXSWhKcndNUnFm?=
- =?utf-8?B?ZXpSQmpra0JnMnVXaVFuZ1gzTUloeDMrRDJ4MFFUa05ZNmVqU0N5V0d0NzBT?=
- =?utf-8?B?STdDYVJzenY1TGRyMDQzOWlZMFZ2N0duWmtYSHlTOFJvTjluY3dsaWhZTUs4?=
- =?utf-8?B?d3JvQkN1clZITXBxeC9sUTVXdkJQVllvSWt3SFNQTmF1YkZhM0hUcnJCamls?=
- =?utf-8?B?QWRBbkFwLzg4UFg2aVZabkNHK3VHUjBNY0ZqTnRqZGMxM0w1L2JGWWpETGV5?=
- =?utf-8?B?VmptZVkzM2U0Y3dvblRDcjEwenJDdFdTNUw3cG5sNTNjajRja3ZZa3hRelh3?=
- =?utf-8?B?NHN4V1hjWXB6cGltd2dJbDVtcDdIVEg5c2phbVdMdDU3Sy9jdG5nT2R4dFFS?=
- =?utf-8?B?Q1RQKzloc3lMUEZYYm40S3ZwSFBNSkU5TE1BY24wZXFCS0k0S2ZpZXJzSWhv?=
- =?utf-8?B?U215TFZpcFBtRHhmdmxEV1YyRU81OVJQT3RmVkFOMG04Z1NyUWVVazd4M0VM?=
- =?utf-8?B?TXc9PQ==?=
-X-OriginatorOrg: altera.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3bf7c630-736b-4dff-9c7e-08ddc3a1ffcc
-X-MS-Exchange-CrossTenant-AuthSource: DM6PR03MB5371.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Jul 2025 13:17:50.9330
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: fbd72e03-d4a5-4110-adce-614d51f2077a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: iSiYKBL7exorEqt6ChefGab+AogIWTvYtcY1o9qSANf6GKFxRW6KZ2vcEbm++A+iNcltqh1NqCT3TT6uexXJ+CZKCC1h0nINy0cKLXZ/qko=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR03MB6656
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250715122643.137027-3-tzimmermann@suse.de>
+X-Operating-System: Linux phenom 6.12.30-amd64 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250715_061803_153298_7A04CAE7 
-X-CRM114-Status: GOOD (  20.04  )
+X-CRM114-CacheID: sfid-20250715_062001_652738_1898B33C 
+X-CRM114-Status: GOOD (  16.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -188,70 +106,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andrew,
+On Tue, Jul 15, 2025 at 02:24:39PM +0200, Thomas Zimmermann wrote:
+> Include <linux/of.h> to declare device_property_read_u32(). Avoids
+> dependency on backlight header to include it.
+> 
+> Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
 
-Thanks for reviewing the patch.
+Reviewed-by: Simona Vetter <simona.vetter@ffwll.ch>
 
-On 7/14/2025 7:04 PM, Andrew Lunn wrote:
-> On Mon, Jul 14, 2025 at 03:59:17PM +0800, Rohan G Thomas via B4 Relay wrote:
->> From: Rohan G Thomas <rohan.g.thomas@altera.com>
->>
->> Enabling RX FIFO Overflow interrupts is counterproductive
->> and causes an interrupt storm when RX FIFO overflows.
->> Disabling this interrupt has no side effect and eliminates
->> interrupt storms when the RX FIFO overflows.
->>
->> Commit 8a7cb245cf28 ("net: stmmac: Do not enable RX FIFO
->> overflow interrupts") disables RX FIFO overflow interrupts
->> for DWMAC4 IP and removes the corresponding handling of
->> this interrupt. This patch is doing the same thing for
->> XGMAC IP.
->>
->> Signed-off-by: Rohan G Thomas <rohan.g.thomas@altera.com>
->> Reviewed-by: Matthew Gerlach <matthew.gerlach@altera.com>
-> 
-> Please take a read of:
-> 
-> https://www.kernel.org/doc/html/latest/process/maintainer-netdev.html
-> 
-> This appears to be a fixed, so the Subject: line should indicate this.
-> Please also include a Fixes: tag, and Cc: stable.
-
-Agreed. Will do in the next version.
-
-> 
->> ---
->>   drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c | 4 ----
->>   1 file changed, 4 deletions(-)
->>
->> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c
->> index 5dcc95bc0ad28b756accf9670c5fa00aa94fcfe3..7201a38842651a865493fce0cefe757d6ae9bafa 100644
->> --- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c
->> +++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c
->> @@ -203,10 +203,6 @@ static void dwxgmac2_dma_rx_mode(struct stmmac_priv *priv, void __iomem *ioaddr,
->>   	}
->>   
->>   	writel(value, ioaddr + XGMAC_MTL_RXQ_OPMODE(channel));
->> -
->> -	/* Enable MTL RX overflow */
->> -	value = readl(ioaddr + XGMAC_MTL_QINTEN(channel));
->> -	writel(value | XGMAC_RXOIE, ioaddr + XGMAC_MTL_QINTEN(channel));
-> 
-> What is the reset default? Would it make sense to explicitly disable
-> it, rather than never enable it? What does 8a7cb245cf28 do?
-
-The RX FIFO Overflow interrupt is disabled by default on reset. Commit
-8a7cb245cf28 also avoids enabling the interrupt rather than disabling
-it. This commit mirrors the same thing for the XGMAC IP.
-
-> 
->      Andrew
-> 
 > ---
-> pw-bot: cr
+>  drivers/gpu/drm/panel/panel-samsung-s6e63m0.c | 1 +
+>  1 file changed, 1 insertion(+)
 > 
+> diff --git a/drivers/gpu/drm/panel/panel-samsung-s6e63m0.c b/drivers/gpu/drm/panel/panel-samsung-s6e63m0.c
+> index ea241c89593b..930948cb615f 100644
+> --- a/drivers/gpu/drm/panel/panel-samsung-s6e63m0.c
+> +++ b/drivers/gpu/drm/panel/panel-samsung-s6e63m0.c
+> @@ -16,6 +16,7 @@
+>  #include <linux/export.h>
+>  #include <linux/gpio/consumer.h>
+>  #include <linux/module.h>
+> +#include <linux/of.h>
+>  #include <linux/property.h>
+>  #include <linux/regulator/consumer.h>
+>  #include <linux/media-bus-format.h>
+> -- 
+> 2.50.0
 > 
 
-Best Regards,
-Rohan
+-- 
+Simona Vetter
+Software Engineer, Intel Corporation
+http://blog.ffwll.ch
 
