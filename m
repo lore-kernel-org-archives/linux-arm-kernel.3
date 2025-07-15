@@ -4,93 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CCD2C83F27
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 23:17:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE099C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 23:20:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=k0CRRO8Zw5SYMNCeis2H0ecNCwZ1xJBBe/YWgqbP+9k=; b=pfa0gJOnsJ1huXS//h+dJL4R66
-	9ncbPonxYTJ962iaLWXZDYpoWzO+rrrv9A1kIFoaYnVDZYHcmrV7frVejgaXb9vZ0voUMFQpf7uso
-	0qOBJOs8dd/Vmede+u1fY40ReXSvqH4NwT3EWw8/AE3WNgZgK/hz1aHAexKIdHfM6nduTiAflahoG
-	qRskYm7bYRhSD/Qv0FJqEUx37kWdvojCRcFngabRA4n+y7M1FcrDNE/GfMr5mWxvpCvoELuI32pfV
-	NlaGZ13+Eis24ELfNB4tCfSp+75NWL9J1YXfZkJXeLwMbABrbF5vT2chqtVnz8OtMMMGGCBnlPwuq
-	5uNF1pEw==;
+	bh=46gEt3Bx0FBkn/nnSaRTnSsikfa6dw7cUtJIKu/AHuc=; b=2w3pBV1eZb/USXcJxoggbHVkY0
+	9T0xjOjS0aOdqVcpB189ItbcLUcWrha2oOXpN5KSPcNYtffRfYmzGBJoF9mLPGJtQku7tplY/GMIv
+	l0pWQyS9gHQKpdWCojv2w27mNXLXG6ZfoC3YHFbBr3D/ggl9Roqs1JlG4/LnYw7uWQ4vZD03NyGZ5
+	9sBQNH4X/slMNpVOqXuQwHAIhkLnDjAdmfkmP1zaWLED97pYwCWcBbyvPa/9CNhU2xbY8KRGW3MI8
+	ANRjB4xFe8erVlJZtI1CXovfQUbnSz4mDY5/adpWh77WAGqj7DvThqINzV+Dz6jmxKCHJ306EookZ
+	EgY6l+aQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubotz-00000006O3o-34De;
-	Tue, 15 Jul 2025 23:17:35 +0000
-Received: from mail-oi1-x22c.google.com ([2607:f8b0:4864:20::22c])
+	id 1ubowO-00000006OEi-1zCG;
+	Tue, 15 Jul 2025 23:20:04 +0000
+Received: from mail-oi1-x230.google.com ([2607:f8b0:4864:20::230])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uboeJ-00000006MoD-3jPl
+	id 1uboec-00000006MsS-2rYT
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Jul 2025 23:01:25 +0000
-Received: by mail-oi1-x22c.google.com with SMTP id 5614622812f47-41b6561d3e6so980459b6e.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Jul 2025 16:01:23 -0700 (PDT)
+	Tue, 15 Jul 2025 23:01:43 +0000
+Received: by mail-oi1-x230.google.com with SMTP id 5614622812f47-41cd87eff4dso202836b6e.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Jul 2025 16:01:42 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1752620483; x=1753225283; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1752620501; x=1753225301; darn=lists.infradead.org;
         h=content-disposition:mime-version:message-id:subject:cc:to:from:date
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=k0CRRO8Zw5SYMNCeis2H0ecNCwZ1xJBBe/YWgqbP+9k=;
-        b=fR5Pw5OPm7LMCLVPrPrVPThQtmvo1DogcKqKqmM2DbhpG5Yt7mZdFOvaenfQBVfHzy
-         vrsrOSckqzDb/W4lfrEi8LJE56z+D55nm3C31I8+mKE6VeGeW1htxtKeDUwTTqSV7A0U
-         sIxMOdWCoZ9VlWYHxhwFcv0rbwVwwu1JNevCS+vNrKKZswQsG+G/6rxwWhHq7/3hVdNC
-         4HVSx9KUqljeJn3WFNQpDGekrMCIIzqNUyh/0fKzRhQ/x8LO+aAsuBxI5c3hy/GcUYy5
-         YD6/pUfoheRdpFXMC9TrNjO830sUV2uBOOeSqXEE3Y9XULfKfFyn9nLQoSqK142pq77L
-         HbcA==
+        bh=46gEt3Bx0FBkn/nnSaRTnSsikfa6dw7cUtJIKu/AHuc=;
+        b=h69pGpsjDXkGGwpDhy6b2LDg4M0XZiYtvO5v4FKq1oWFKC8i3pii81tT3fMVx8XGDi
+         XqwHjvqqgG9qxeBt1lA91+Ny+zk7wcKNsOLC2Zo5rwdaw+Cm+1vhpW2Ua+RukfCcUiEx
+         2zgmrz6zLYUcNs7o2SQB5zI3vAE81LFSX57BJJ2jCPZXG7SHRuULwcWOeTkbKnEy4LnV
+         jZJVsXPhQO3Prs5aROOGxe6Ve1UJRNRY+lylxVMEsEQTgVlFsyb+zb8w7I8U53e8PGpE
+         TAGOV8gIBUoDbnM/aNC+1PEzdbSSftmh9la0HUHNTyz0nwhWsHdntjO2bvaABfuI2nNk
+         v4xw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752620483; x=1753225283;
+        d=1e100.net; s=20230601; t=1752620501; x=1753225301;
         h=content-disposition:mime-version:message-id:subject:cc:to:from:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=k0CRRO8Zw5SYMNCeis2H0ecNCwZ1xJBBe/YWgqbP+9k=;
-        b=dUYEDq539BAsEeKU9aoeqUZtOGeEyX7s/bFHfWkIQ0IdS04u4bkkOYlZb4rEjZW8cR
-         xy2o9OHyoYxI4gXwO+egspw6FkQcwcFBHVF0UJ33xl70wAtZgx9Kk5xKgC7Ljkd0jDK/
-         hk+7uc8uytWbzMcc2brinKSCSxmdW73CBMk2t6u0EGlol516fUT2FbHNg1xSGoYRleyL
-         4x4CFFh/CmNbdlobMYxjGIxSqStBhhtcKK2E7HLR1gJ0fKheQy/PW8NnOiZ2IkDS9ki4
-         v3wtKvrNKSgtLgqlpzqkvF32Fo57vMQvIn+DvUErFO9agN/5nUzipiVyayp4l9dEz5XR
-         07yQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXgDxB1qFQT3HHz6pBqs+jueuzvnOoi0oq48mMHs+J4gfL515rvRIYOM2MMsaMdrMYiQvk00IlWpRos7BtHCIqB@lists.infradead.org
-X-Gm-Message-State: AOJu0YyuJcGkQ2zAtkONgK2SrwIbcC36CydguMTwealnmfkRiy1ro8M4
-	L4WJdoZhRoi63i2SMhbcZqCLCgjl6L8djr1SPiQDeazbdMs+Q/VxLnzNzoykeBkRq8k=
-X-Gm-Gg: ASbGnctw9MggAIaUYr46397gNrMLrbMuU1pooLvnK09vvZppgnpl38n3Xua8KRhsM4T
-	sBPdXklpQIjfpIK6ajGAeBB9xz+TBvrG2rum7bwCGRNyrWTb1HBfq7scl5JTeY9bFllpSkNqZAZ
-	ZaQ1/x/qwXgsumAY5KnMscxxZO6UK1AauvDa3Fi1pdLr0+iqE/daDYWBiD5CjhE53S2WTjNgHpg
-	Yd/V2kYNM6p1vbjYrIMdottV4RbRZCMoSAZT4vODFSHgNQafxIWBd5778OpE2l6a+ROwfPMX/9Z
-	JLY7L9jJXmQb1ffknpog0gpK18N2ia33j4Sw7Wt5l8rrBmqag/AflAVZ9368WgRXQfEw1pOztFk
-	oQuJeu1F6GblTyxtDuuYslj/JEhN0
-X-Google-Smtp-Source: AGHT+IGQtllmBc9kuXNMSNrT8BdEoXm/J1sAHyCL8mClXy5PmdAT8mA8+MNoRfXMLo08tASsstG21g==
-X-Received: by 2002:a05:6808:199f:b0:41b:75ca:b104 with SMTP id 5614622812f47-41d05d37a1emr470408b6e.39.1752620482690;
-        Tue, 15 Jul 2025 16:01:22 -0700 (PDT)
+        bh=46gEt3Bx0FBkn/nnSaRTnSsikfa6dw7cUtJIKu/AHuc=;
+        b=Loc/pfzMmreemXLP8zz/oHej9Y0hPimOpN9NzAtveRiwOe8k/cA51xlhpmdjscrtZB
+         4El1dPsschLNehkX+K3fBpNU23KcwplNNzHEY32PiJ0kNmtklhokOHi7hBBRsonsqVoP
+         e+Y8A2z7ds1HbOKkbcEWMYrseAlQ/AX5WPddxQ2uVXrWZUJLnwUGW6Iwqi6S5DE9+LP9
+         FAIxBU3PMLMZJB0NRm4/y0os9lRqIwBhVl5XQkAAU8LO2oz5Sdy9BiOt4h0fKFdklOve
+         E3ZURrRJetrknu9IjMIiJCOG+7uU0fxnlErVBoSLnnJCO2sxFTzpaFwcMMMIx+/WWBUD
+         ySJQ==
+X-Forwarded-Encrypted: i=1; AJvYcCV2qejzv+zG8ZkS7T67ir5uTlyvhW/NCGScBaNvMZ40TsYVWoOuhGosu845Lt/oZDwIY4ZNb5S/v30ddQPnMW19@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy6RizSSyRNUeZh+juS0MyAzBhtE7nZpvntIP7IQRkChWKi++S7
+	0lMZ6BXbNzBQ35N06xty2mRaZWd49kYPJ/8JfhCW88KstadRIbZRBxddbJSEShgUfNw=
+X-Gm-Gg: ASbGnct37cFtd9A8DjCTDcEPXZ6ao8nQ+MXcb52Mj/ykPsNqWyQaua1Sq+ia81hasqf
+	DXsZcEX0D5jz5pmPcaGMLKjc2qj/h15dvNV0+Fxz5Ak91hz0iGx9Eoq1FAvKjHdDyNkM334KuVL
+	rluJt97ulMnRiHNx1E8TPgSNoTTzCZg9vXiDO4NFSHwpmu1a5Gev0i29SSb4a6iXCi68Frzx0QW
+	+xwjWb61sTwKavZYe1CCRJl9qN0AsK2U73Askomnkk6tW0mQTPwBjiYW1/9FeBYM3uGqW9IU+et
+	C8c53VHE6tiNWXAlLQM/JPeLJSN82jm0RL2G0uOHgtELYVjMPeVBH9HJPj4uNafkSW/MgG5c+CJ
+	vKP0b5VkUvjF8Io7tePXEZpQUdiIkq8Wz/kRPdSI=
+X-Google-Smtp-Source: AGHT+IFrIo3qo3Xq7DrVRugRg16jg4aCYHopevdB0f55AiC+g1RwMciM6Lgy4L9vDkABRNtjnbIHXQ==
+X-Received: by 2002:a05:6808:30a2:b0:409:f8e:7272 with SMTP id 5614622812f47-41cf0cb0f3cmr543563b6e.38.1752620501381;
+        Tue, 15 Jul 2025 16:01:41 -0700 (PDT)
 Received: from localhost ([2603:8080:b800:f700:9b4e:9dd8:875d:d59])
-        by smtp.gmail.com with UTF8SMTPSA id 5614622812f47-41418c0ae9bsm2349086b6e.6.2025.07.15.16.01.20
+        by smtp.gmail.com with UTF8SMTPSA id 5614622812f47-41c73a25f04sm457282b6e.0.2025.07.15.16.01.40
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 15 Jul 2025 16:01:22 -0700 (PDT)
-Date: Tue, 15 Jul 2025 18:01:19 -0500
+        Tue, 15 Jul 2025 16:01:40 -0700 (PDT)
+Date: Tue, 15 Jul 2025 18:01:39 -0500
 From: Dan Carpenter <dan.carpenter@linaro.org>
 To: Rob Herring <robh@kernel.org>
-Cc: Felix Fietkau <nbd@nbd.name>, Sean Wang <sean.wang@mediatek.com>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, kernel-janitors@vger.kernel.org
-Subject: [PATCH net-next] net: ethernet: mtk_wed: Fix NULL vs IS_ERR() bug in
- mtk_wed_get_memory_region()
-Message-ID: <87c10dbd-df86-4971-b4f5-40ba02c076fb@sabinyo.mountain>
+Cc: Mark Brown <broonie@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	linux-spi@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kernel-janitors@vger.kernel.org
+Subject: [PATCH next] spi: stm32-ospi: Fix NULL vs IS_ERR() bug in
+ stm32_ospi_get_resources()
+Message-ID: <fb2a26a2-119b-4b5a-8d44-b29e2c736081@sabinyo.mountain>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 X-Mailer: git-send-email haha only kidding
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250715_160123_927973_DB5CE6E9 
-X-CRM114-Status: GOOD (  13.63  )
+X-CRM114-CacheID: sfid-20250715_160142_718458_68586B17 
+X-CRM114-Status: GOOD (  14.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,33 +100,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-We recently changed this from using devm_ioremap() to using
-devm_ioremap_resource() and unfortunately the former returns NULL while
-the latter returns error pointers.  The check for errors needs to be
-updated as well.
+This code was changed from using devm_ioremap() which returns NULL to
+using devm_ioremap_resource() which returns error pointers.  Update
+the error checking to match.
 
-Fixes: e27dba1951ce ("net: Use of_reserved_mem_region_to_resource{_byname}() for "memory-region"")
+Fixes: defe01abfb7f ("spi: stm32-ospi: Use of_reserved_mem_region_to_resource() for "memory-region"")
 Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
 ---
- drivers/net/ethernet/mediatek/mtk_wed_mcu.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+ drivers/spi/spi-stm32-ospi.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/net/ethernet/mediatek/mtk_wed_mcu.c b/drivers/net/ethernet/mediatek/mtk_wed_mcu.c
-index 8498b35ec7a6..fa6b21603416 100644
---- a/drivers/net/ethernet/mediatek/mtk_wed_mcu.c
-+++ b/drivers/net/ethernet/mediatek/mtk_wed_mcu.c
-@@ -247,8 +247,10 @@ mtk_wed_get_memory_region(struct mtk_wed_hw *hw, const char *name,
- 	region->phy_addr = res.start;
- 	region->size = resource_size(&res);
- 	region->addr = devm_ioremap_resource(hw->dev, &res);
-+	if (IS_ERR(region->addr))
-+		return PTR_ERR(region->addr);
+diff --git a/drivers/spi/spi-stm32-ospi.c b/drivers/spi/spi-stm32-ospi.c
+index 72baa402a2c3..f36fd36da269 100644
+--- a/drivers/spi/spi-stm32-ospi.c
++++ b/drivers/spi/spi-stm32-ospi.c
+@@ -823,9 +823,9 @@ static int stm32_ospi_get_resources(struct platform_device *pdev)
+ 	if (!ret) {
+ 		ospi->mm_size = resource_size(res);
+ 		ospi->mm_base = devm_ioremap_resource(dev, res);
+-		if (!ospi->mm_base) {
++		if (IS_ERR(ospi->mm_base)) {
+ 			dev_err(dev, "unable to map memory region: %pR\n", res);
+-			ret = -ENOMEM;
++			ret = PTR_ERR(ospi->mm_base);
+ 			goto err_dma;
+ 		}
  
--	return !region->addr ? -EINVAL : 0;
-+	return 0;
- }
- 
- static int
 -- 
 2.47.2
 
