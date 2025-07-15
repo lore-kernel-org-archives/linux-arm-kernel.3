@@ -4,103 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BF52C83F34
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 14:54:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F068C83F35
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 14:56:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VvPKW23vcGHWbJZ7ulKit+LygcP46v08cpOClJit2gQ=; b=ionUmuK+BdPlZ3T9wljaJzRrHc
-	XY6eIjYHQRxueqRGFZe6e4QhbZd7sgrAUas17818i9PqF362q0OVrs4Hcox/SRP3+hJoqsJKZyxbe
-	TVD4tgwgYwGFv1Z9dCdTvMF8UweC6Dsq5Y0yAa7R7c37G6Q1QSy9r05AfPXf2wn33i1OwFMzl2wnl
-	gExdMZQIhrgVomn/lmwArcTQ9yK/j149uY6DDiOYDZdBjv2gsBpo9cBoBte2TWvhQKXoqc8fHs4hz
-	OH1itxXyqLzIeqS5/PRZxqpifnvnCyx9gvtT4zKsITDTThbX8b6ZlHAeoGGMR8bZ+boWwwitbpTiP
-	p/bt5rkQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zw74VlTE+k1LGKzfAzB+538GU13x3ojR1l0lw7GXER0=; b=T1KZfYnIIoWgbNM5MAwzcsXeN6
+	mg9mDyqa2JL02sEj81uJR+mFJNsrEhXX8AQuDLoQ2rsIwLIM3S6NIA86u2SSOB8j2cB4H4/yDbFEH
+	zaXePSbC2s7qMTMgrqhPuTQC86K0uQzDQKuVYWLxNK86fETr/bdd+ojEKhIobY0I6h14+8dI9Nvzf
+	z84aAIcgo8RcIu3Q4xeqGd0h5je+8NfcNGO6SAiDYVfaA4cdr4NaZrIny/boPMBNjb0L9QOV7dOUY
+	ToiRr9EuSQ+fMihwa1UayBy/ErZcV8Br45iibY1u70wPpPofOOlhTwqPiM2baTEm8hm6w2HmU40LW
+	nPwwTnJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubh2x-00000005Sca-3cUF;
-	Tue, 15 Jul 2025 14:54:19 +0000
-Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
+	id 1ubh5N-00000005TOK-1mab;
+	Tue, 15 Jul 2025 14:56:49 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubffz-00000005CaL-2PVg
+	id 1ubfhm-00000005D00-21Yp
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Jul 2025 13:26:33 +0000
-Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-3a536ecbf6fso3428085f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Jul 2025 06:26:31 -0700 (PDT)
+	Tue, 15 Jul 2025 13:28:23 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-45622a1829eso6295505e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Jul 2025 06:28:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1752585990; x=1753190790; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+        d=linaro.org; s=google; t=1752586101; x=1753190901; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:references
+         :cc:to:from:subject:user-agent:mime-version:date:message-id:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=VvPKW23vcGHWbJZ7ulKit+LygcP46v08cpOClJit2gQ=;
-        b=x1HeYETGAtwXCgwEC8Xm0bUiNtHP77PWUyKqOuRVBruWNm84VsBk1wuodRUc+p91nX
-         02mArV9hqnWwU+eVEFnMQwHs5gmIqBSCwmxANMx1D7ZK6wyi5A0mldh+X2arECOOjcK4
-         y1qXb4t337wdha6wGc0KUZ05y7JL2RRF81gy8lyDdmoRv11yktNdg655MhKDh7MJX9DZ
-         4nDwPnzjRmJ7zYwRGPCBLzGh8+/uyO/1OK0cQ+u+qnzQe9m7TSNILZoTGQGejNher+NX
-         jHEqwGV8byKqZHLbI+t7/JbsWV4SS7zbw23YIPI2HuDMs/UJtvJnUgixP/HLlSdPgFVs
-         t/uQ==
+        bh=zw74VlTE+k1LGKzfAzB+538GU13x3ojR1l0lw7GXER0=;
+        b=drl/bhRKa992rn1YTEjUwBju4BXLN+gCwipJcZ05DFVtuXwhDO0cV0fae1KRH4W/O1
+         sLCUC98hv3wlEn8uE7qp6Mlowf9tdYTVpXic5N3SNA5FziJ+c5PSaYVRV6dQlvhcoXb/
+         Ogjb0g2yGcgZt0gzRZTtXdx7UIT3YEB3Tp2AtIS68WfprVR6t2THSM0XMDyKPIdZ8K7Q
+         U6y3Xs5EuB+75XImLA3SRZueO1nxmQv+8fZ9Rmex2GuvWSz51FAWeosBioQKMLG7L+51
+         MqTdwk++6DfBf+qXXK7RIbyLWzXVkN016UXTnlQ2ssSaJclMvJWIjaubFodHH7uPioSN
+         KmQQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752585990; x=1753190790;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
+        d=1e100.net; s=20230601; t=1752586101; x=1753190901;
+        h=content-transfer-encoding:in-reply-to:content-language:references
+         :cc:to:from:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=VvPKW23vcGHWbJZ7ulKit+LygcP46v08cpOClJit2gQ=;
-        b=HHSFe43jgiRlxiaxneSH0X3xzL65X0ADYlj16f6INrxXIEa3gvmI5z/VhK0VoSlsem
-         yKmDk4BUvmqMC4Q1q9tju8gfJxcQugvLA74yi09Wmrfu0GzRL2VzXKp5jpEbG5GhdP4j
-         MXurXiXjN5fDCbp2efeyAY+u1iDly4/vZRTagqD5aZgN90aeTlj31qbto5v8+z7y06TS
-         9cKmtVktqlR5C43iwK6wDhnbvd7b7z9b/517Mq0ZRVbfty07a2aTLVxez8uaGm3Cqf09
-         EjhKxhQvx/91iSJS7G0/jq5D1jO4a8ogxOpM+WxMfsL36mdOrtai9sLDx+0QvlrcqVCC
-         TLQg==
-X-Forwarded-Encrypted: i=1; AJvYcCWjNv9rptiAWCerzLavF71KvPQ7Hw1Hwz9pdAN5anHIXQv2MBiCXtztUn6wRkKPtSS4nBt6rj1jOmqnEQxgtSf6@lists.infradead.org
-X-Gm-Message-State: AOJu0YyyYysN6K0rtMsOG974snfK2/qO5ewxIVsYqu73kZb6/nQA4x2x
-	rfKRVItXUvPn1b+2lo7uE39zw/IQzno2eWptXI48aQC7Uh/dwUIf+IHVKgyHVT9yX4w=
-X-Gm-Gg: ASbGnctekXfhnXyx1AL7TXci4WW95fRVfJVx1E/fI3xokbvTX0ai6kB0WhqIP3jeJDI
-	X94vSi+xLqdogf5TYdY8iJPSH3zO/18GAnkIBu3RLh9IXEIcLgHBfV3q5RinBCpItEbf/wg59UC
-	g/KcBjy4r41Hxn7Hq9aHMCU7XVuDXnfMYKd3FmMp01OOvuByJWBkbzcahF9/tKcgmMp8uvOtbAO
-	bTAhxLX30xHUDNm8JhpC5tEVpv6TKeNp2A4be2P5rtB38UYX/1Lp7nUrd9jwCnI7qSj3TNrCDdY
-	vxLL2t5uW/s98rpEWhpIaHyvyQ8CmXUaqQ+sj3K0hb2ukUdd3Sme3EPG5djCbq7O5nPSVFlVCiE
-	FJX09FkZZX1/+XEwXexvIevF/k4h7TvsxUBQr22Sgnb12j5AX2FQBe3Wy8ZB4
-X-Google-Smtp-Source: AGHT+IE407KS8uKPTJWroRm8IILV/e+TMXBeoa0EGQKc6WbP+vL8QbjAW05nEN1glpgEAbE4/IV9fQ==
-X-Received: by 2002:a5d:6f01:0:b0:3b6:463:d85d with SMTP id ffacd0b85a97d-3b60463d8eemr6451671f8f.11.1752585989943;
-        Tue, 15 Jul 2025 06:26:29 -0700 (PDT)
-Received: from mai.linaro.org (146725694.box.freepro.com. [130.180.211.218])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3b5e8e0d872sm15337925f8f.60.2025.07.15.06.26.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 15 Jul 2025 06:26:29 -0700 (PDT)
-Date: Tue, 15 Jul 2025 15:26:27 +0200
-From: Daniel Lezcano <daniel.lezcano@linaro.org>
-To: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
-Cc: Miquel Raynal <miquel.raynal@bootlin.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>,
-	Support Opensource <support.opensource@diasemi.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Niklas =?iso-8859-1?Q?S=F6derlund?= <niklas.soderlund@ragnatech.se>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Magnus Damm <magnus.damm@gmail.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-kernel@vger.kernel.org, kernel-janitors@vger.kernel.org,
-	linux-pm@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-renesas-soc@vger.kernel.org,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH] thermal: Constify struct thermal_zone_device_ops
-Message-ID: <aHZXAw08359qCBz2@mai.linaro.org>
-References: <5bba3bf0139e2418b306a0f9a2f1f81ef49e88a6.1748165978.git.christophe.jaillet@wanadoo.fr>
+        bh=zw74VlTE+k1LGKzfAzB+538GU13x3ojR1l0lw7GXER0=;
+        b=Z4I2MLdLXq6L4UAZ45qWSs/dqZ0YQYbX6ldGdd6JyDcrbMqx99K+wuGV3WM3I8x94m
+         BFbIan4DR+DI8gxtpKlDJabDIzGyIzgVVJ1TFtkG0EPe3gWIMQ1CN1RTr6Hma8H8CFkh
+         iQZKFKCcUJNStqRddxJzJZRE01V/18ku1mHYylkB3SDUfWbnIFwSVcLLf9tUoq7JdByK
+         m4ZSD6Aca3arFo2VJUOk/IrS/l0+b86ORBy0XRK6pRE9nQYR+hleQ2jeR6ONSAbgIp6U
+         uZbf0xFYofXYyYUlRpjCe7VwERG72d6Zv8WGhTh7KRRSufLz0SbtuwbIi5OkZr2T54/3
+         TAjA==
+X-Forwarded-Encrypted: i=1; AJvYcCVGjFPUHj9N+bb8cINMNLlBPnpW1m6/6sdI7CGLonoK3pbK0t0xF/Z0dR0UtQybWZ7Fj1AJKHFmZu9dRg8wj80J@lists.infradead.org
+X-Gm-Message-State: AOJu0YyxpzX4JZuC31rk4DbQZK5VRpKs+y8EVKIhhl+19Ve2f8M7oiDw
+	cCQ96dPAPUnOmZe1el8PCaHNfymB6V3y6mscNDBW5RCl1wZs+Mru8mFnU6c6TIwsyEA=
+X-Gm-Gg: ASbGncvAJpseFGw+aLhKa/MsKZJ0/n4JOgYMz3HXg49DE1UPH0VmkVZ6qMrA0+5MLfj
+	eamxjmaRbnjpAZgf3xIfTrv3ACBesyxQqfSlJbQZltgazQA5UZxrQAJGbTwfuJ7FTr7A5i4nI7M
+	E6Rs436lV3qGBLc9gL2t9xnxhAmSpYQamVbd1WSlKegGCzE/RggvDlaVnJ/pjQNwuqJeEmltgxK
+	GD3CXNHceBz7s4+DRxa+bPJP02V9ERkWPQKwaRkADt04Ha1rNMGr31DRHcm+TxePaWsuanHATGx
+	LqFmYehHs/sRtKwERt9g46duZ66AI3szenTXPo9xdXHxE7C+vqA+SndXWfZ9Mh30W66HcbdBtvv
+	r9DzUjHV3M8IeLOvrBAH6wWEWT0A=
+X-Google-Smtp-Source: AGHT+IEwYlVhkOTzgfZvBe2oJ6/DRqksM/2DDeWWAHWtXNUNAJyWtZXeDWpFZAMAarhRitTCjZMLeA==
+X-Received: by 2002:a05:600c:4695:b0:450:d4a6:799e with SMTP id 5b1f17b1804b1-454f4259c7cmr140093315e9.20.1752586100864;
+        Tue, 15 Jul 2025 06:28:20 -0700 (PDT)
+Received: from [192.168.1.3] ([185.48.76.109])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-454dd540b52sm161683955e9.28.2025.07.15.06.28.19
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 15 Jul 2025 06:28:20 -0700 (PDT)
+Message-ID: <80b7c29e-83b9-46a4-826e-d252ad425d4d@linaro.org>
+Date: Tue, 15 Jul 2025 14:28:19 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 04/10] arm64/boot: Enable EL2 requirements for
+ SPE_FEAT_FDS
+From: James Clark <james.clark@linaro.org>
+To: Will Deacon <will@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+ Mark Rutland <mark.rutland@arm.com>, Jonathan Corbet <corbet@lwn.net>,
+ Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
+ Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Zenghui Yu <yuzenghui@huawei.com>, Peter Zijlstra <peterz@infradead.org>,
+ Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Namhyung Kim <namhyung@kernel.org>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+ Adrian Hunter <adrian.hunter@intel.com>, leo.yan@arm.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-perf-users@vger.kernel.org, linux-doc@vger.kernel.org,
+ kvmarm@lists.linux.dev
+References: <20250605-james-perf-feat_spe_eft-v3-0-71b0c9f98093@linaro.org>
+ <20250605-james-perf-feat_spe_eft-v3-4-71b0c9f98093@linaro.org>
+ <aHUMMk9JUdK6luLN@willie-the-truck>
+ <04d52182-6043-4eaf-a898-9f8ccc893e5f@linaro.org>
+ <aHZQH7QGhi5pbXU8@willie-the-truck>
+ <e1210c84-69d1-4fb2-88c2-a6a1bcb179c5@linaro.org>
+Content-Language: en-US
+In-Reply-To: <e1210c84-69d1-4fb2-88c2-a6a1bcb179c5@linaro.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <5bba3bf0139e2418b306a0f9a2f1f81ef49e88a6.1748165978.git.christophe.jaillet@wanadoo.fr>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250715_062631_617792_978D6EB6 
-X-CRM114-Status: GOOD (  12.15  )
+X-CRM114-CacheID: sfid-20250715_062822_538827_9E804D97 
+X-CRM114-Status: GOOD (  28.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,36 +117,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, May 25, 2025 at 11:40:04AM +0200, Christophe JAILLET wrote:
-> 'struct thermal_zone_device_ops' are not modified in these drivers.
-> 
-> Constifying these structures moves some data to a read-only section, so
-> increases overall security, especially when the structure holds some
-> function pointers.
-> 
-> On a x86_64, with allmodconfig, as an example:
-> Before:
-> ======
->    text	   data	    bss	    dec	    hex	filename
->   28116	   5168	    128	  33412	   8284	drivers/thermal/armada_thermal.o
-> 
-> After:
-> =====
->    text	   data	    bss	    dec	    hex	filename
->   28244	   5040	    128	  33412	   8284	drivers/thermal/armada_thermal.o
-> 
-> Signed-off-by: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
-> ---
-> Compile tested only
-> ---
 
-Applied, thanks
 
--- 
+On 15/07/2025 2:10 pm, James Clark wrote:
+> 
+> 
+> On 15/07/2025 1:57 pm, Will Deacon wrote:
+>> On Tue, Jul 15, 2025 at 01:48:03PM +0100, James Clark wrote:
+>>>
+>>>
+>>> On 14/07/2025 2:54 pm, Will Deacon wrote:
+>>>> On Thu, Jun 05, 2025 at 11:49:02AM +0100, James Clark wrote:
+>>>>> SPE data source filtering (optional from Armv8.8) requires that 
+>>>>> traps to
+>>>>> the filter register PMSDSFR be disabled. Document the requirements and
+>>>>> disable the traps if the feature is present.
+>>>>>
+>>>>> Tested-by: Leo Yan <leo.yan@arm.com>
+>>>>> Signed-off-by: James Clark <james.clark@linaro.org>
+>>>>> ---
+>>>>>    Documentation/arch/arm64/booting.rst | 11 +++++++++++
+>>>>>    arch/arm64/include/asm/el2_setup.h   | 14 ++++++++++++++
+>>>>>    2 files changed, 25 insertions(+)
+>>>>>
+>>>>> diff --git a/Documentation/arch/arm64/booting.rst b/Documentation/ 
+>>>>> arch/arm64/booting.rst
+>>>>> index dee7b6de864f..abd75085a239 100644
+>>>>> --- a/Documentation/arch/arm64/booting.rst
+>>>>> +++ b/Documentation/arch/arm64/booting.rst
+>>>>> @@ -404,6 +404,17 @@ Before jumping into the kernel, the following 
+>>>>> conditions must be met:
+>>>>>        - HDFGWTR2_EL2.nPMICFILTR_EL0 (bit 3) must be initialised to 
+>>>>> 0b1.
+>>>>>        - HDFGWTR2_EL2.nPMUACR_EL1 (bit 4) must be initialised to 0b1.
+>>>>> +  For CPUs with SPE data source filtering (FEAT_SPE_FDS):
+>>>>> +
+>>>>> +  - If EL3 is present:
+>>>>> +
+>>>>> +    - MDCR_EL3.EnPMS3 (bit 42) must be initialised to 0b1.
+>>>>> +
+>>>>> +  - If the kernel is entered at EL1 and EL2 is present:
+>>>>> +
+>>>>> +    - HDFGRTR2_EL2.nPMSDSFR_EL1 (bit 19) must be initialised to 0b1.
+>>>>> +    - HDFGWTR2_EL2.nPMSDSFR_EL1 (bit 19) must be initialised to 0b1.
+>>>>> +
+>>>>>      For CPUs with Memory Copy and Memory Set instructions 
+>>>>> (FEAT_MOPS):
+>>>>>      - If the kernel is entered at EL1 and EL2 is present:
+>>>>> diff --git a/arch/arm64/include/asm/el2_setup.h b/arch/arm64/ 
+>>>>> include/asm/el2_setup.h
+>>>>> index 1e7c7475e43f..02b4a7fc016e 100644
+>>>>> --- a/arch/arm64/include/asm/el2_setup.h
+>>>>> +++ b/arch/arm64/include/asm/el2_setup.h
+>>>>> @@ -279,6 +279,20 @@
+>>>>>        orr    x0, x0, #HDFGRTR2_EL2_nPMICFILTR_EL0
+>>>>>        orr    x0, x0, #HDFGRTR2_EL2_nPMUACR_EL1
+>>>>>    .Lskip_pmuv3p9_\@:
+>>>>> +    mrs    x1, id_aa64dfr0_el1
+>>>>> +    ubfx    x1, x1, #ID_AA64DFR0_EL1_PMSVer_SHIFT, #4
+>>>>> +    /* If SPE is implemented, */
+>>>>> +    cmp    x1, #ID_AA64DFR0_EL1_PMSVer_IMP
+>>>>> +    b.lt    .Lskip_spefds_\@
+>>>>> +    /* we can read PMSIDR and */
+>>>>> +    mrs_s    x1, SYS_PMSIDR_EL1
+>>>>> +    and    x1, x1,  #PMSIDR_EL1_FDS
+>>>>> +    /* if FEAT_SPE_FDS is implemented, */
+>>>>> +    cbz    x1, .Lskip_spefds_\@
+>>>>> +    /* disable traps to PMSDSFR. */
+>>>>> +    orr    x0, x0, #HDFGRTR2_EL2_nPMSDSFR_EL1
+>>>>
+>>>> Why is this being done here rather than alongside the existing SPE
+>>>> configuration of HDFGRTR_EL2 and HDFGWTR_EL2 near the start of
+>>>> __init_el2_fgt?
+>>>>
+>>> I thought everything was separated by which trap configs it writes to,
+>>> rather than the feature. This SPE feature is in HDFGRTR2 so I put it in
+>>> __init_el2_fgt2 rather than __init_el2_fgt.
+>>
+>> That's fair; __init_el2_fgt isn't the right place. But the redundancy of
+>> re-reading PMSVer from DFR0 is a little jarring.
+>>
+>>> I suppose we could have a single __init_el2_spe that writes to both 
+>>> HDFGRTR
+>>> and HDFGRTR2 but we'd have to be careful to not overwrite what was 
+>>> already
+>>> done in the other sections.
+>>
+>> Right, perhaps it would be clearer to have trap-preserving macros for
+>> features in a specific ID register rather than per-trap configuration
+>> register macros.
+>>
+>> In other words, we have something like __init_fgt_aa64dfr0 which would
+>> configure the FGT and FGT2 registers based on features in aa64dfr0. I
+>> think you'd need to have a play to see how it ends up looking but the
+>> main thing to avoid is having duplicate ID register parsing code for
+>> setting up FGT and FGT2 traps.
+>>
+>> Will
+> 
+> I'll give it a go but that could end up being fragile to something that 
+> is dependent on two different ID registers in the future. Then we'd end 
+> up in the same situation for a different reason.
+> 
 
- <http://www.linaro.org/> Linaro.org │ Open source software for ARM SoCs
+I think I've run into it already. Wouldn't checking for FGT and FGT2 
+have to be repeated when doing each ID register? Now we only do that 
+once at the start of __init_el2_fgt and __init_el2_fgt2, even if we 
+might sometimes check a different ID register twice. But if we flipped 
+it we'd always have to repeat those.
 
-Follow Linaro:  <http://www.facebook.com/pages/Linaro> Facebook |
-<http://twitter.com/#!/linaroorg> Twitter |
-<http://www.linaro.org/linaro-blog/> Blog
 
