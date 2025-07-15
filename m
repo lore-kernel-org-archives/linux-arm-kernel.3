@@ -4,91 +4,146 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5CE0C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 13:05:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C301EC83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 13:07:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xmd/8SBDrA1Gb0C+zRAmJUhYPy6kVSRJonEW9B5eq80=; b=QJbBfq4MctteDNmQZW2q9rMhfj
-	KxLWnDCsNz7aXsAk8gwUxqfzhSEUDq84+Ab+PGQd7qtjrGDykRSsuESoPhBbLuwAKldjI5xN+fhYu
-	HQTcmS82IHVyLKwb9RnbRtCrneOKqWLdrElwEa49fXRfA7WPuNpHmfF4xFtIxMb9FplzBKh1jTO1r
-	awfcIoFv04naDUP7M4m+OvRyslhhfEID5zLzQnoyfFyxItBK0LpSNo8/a28OAXYsWbrmsIIGKuqbb
-	TRsmsVk7S6bQk4HqQyG6SyXsUo7Y7i5uzErZnuBZ01S17zfVZLQG2jlNkzfp259jtMAayW76odTUO
-	W5yrNpLQ==;
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=mjCwmxRw2oiS5uDhgBamrzilzsoTGXeob+BS+5zzIRE=; b=CkjaIQkKM1t9Hi+ApVw+AbrurV
+	CEB+BxWY3di9pavi5cdMkasdcPzzmwfrSzfgYrvOPi+utU00Y91PH9e5Qj5Sw7oHA5+eoEfs/it82
+	hpDIueiVm1wPpL9DRynL9h1JDwHr2Rm5m48KQUeJX4JyVbSVjNetw/5uJ/Ggx8iAmXXeYIEBbrvHW
+	e1hlW7TeRIZskpX/IEuvkFk5+67r8XRZtXlBjyXiFtyhnBiKY2S6GlxmEuaCfgoEXz3z4+f1AxJuQ
+	BVDIAuUP5lLGHPQj+IkPdRlj7UrM7nyjUOShNUFbHYLoqTN/tEQwDVv2FiLncJXcfZEUnkfGWukIv
+	BiTUZptQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubfLA-000000059Zf-3s3f;
-	Tue, 15 Jul 2025 13:05:00 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1ubfNa-000000059rD-2wd5;
+	Tue, 15 Jul 2025 13:07:30 +0000
+Received: from smtp-out2.suse.de ([195.135.223.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubegO-000000053fU-0OxP
+	id 1ubenF-000000054J8-0xVV
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Jul 2025 12:22:53 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-45555e3317aso23749905e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Jul 2025 05:22:51 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1752582170; x=1753186970; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=xmd/8SBDrA1Gb0C+zRAmJUhYPy6kVSRJonEW9B5eq80=;
-        b=qSBMriIihvd3X3AwHqnNhtv5xB7iQ9/sguTC321TWwBYl3O2YZ4Bzf/LrLk8jay8sR
-         OFNnpxt2k+wnmVMIF55gMHdw8YMP2/XZRmk0HfrHXbp5jWjDj46tEAWQPAC/nl/g1oNe
-         r/kC6V0T0vrrDeFGKubakiVvCsjUc8NrJ8VWg+wHiHEvj4CQDwggla6V3y9oBXS/EfEl
-         XYHT5S2W0LzVwb2GVH/qOKjf52z5hgfhJppydW4cNi/Dwv3tmRWen8VjFrbtpcZWxIgQ
-         OtcNDLabnnVl2v+kLkckOoEUXsXYMhjNid8mTI3UVpAe9AnB0G/eaclOKr8j1Pzv9SZd
-         m49g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752582170; x=1753186970;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=xmd/8SBDrA1Gb0C+zRAmJUhYPy6kVSRJonEW9B5eq80=;
-        b=KvFSr5yNyz2Hhy7E2qRb21lmXRHqYv+MSTQIzZa000l0hnysvYjbU8DRQO+J0KbBzF
-         mUUgldkgTeNiH6EUTsxYIKbeQjn3Cz+IxYGyZbsaMGa27B65/pB0cZDzAfUBVSi7uy1j
-         9UeCI6M0ztMTIMoOBjhHYEqregmkQvzvrnx3aJKsZ319wLYhWN5EvieTgihvnRovo4bf
-         bGRx9OJXd7P5jEXF98BW/N8CbPZUKrux19gCbEMWwqXE/pwgAUOEGRxEqdAjI2mhOv26
-         nvexedHdy4vdYgvYXOQumRnF7Mb4ybiNGuepPmffoK24DrTlgKsQdW8fYZHhYdVj0eUp
-         lU2Q==
-X-Forwarded-Encrypted: i=1; AJvYcCVQPKgjb+flFBAbSUVztLDf9lJpjx+Ot3l2aLvnrsDLj+raktiTgbHBkmwdecjG6HbAUFbpOt1HOO2NhcGVA37R@lists.infradead.org
-X-Gm-Message-State: AOJu0YwY5cxnTKFzDqNDPpE7C6n1SrWpDjadt9fR9AzXdjBq9GUr4tii
-	JdENQwHGAwpcOCmDuul38qBps1CAdLn93Pdmu0qPueziT4SGPvfDY+W00RAaY7U/Qcc=
-X-Gm-Gg: ASbGncs6NUy4B40gtFBAMv9YtP+/6laHiesN+Y4OV8bLSMEFei/mLr/UYHsDWKHvNxa
-	4/ZLvzP0WTwMWRNhsk8LXEpTH3vxnLpesiCuQTov1/ZH10FPu5K8GNkZIAGvoudzIU5j5WJpXR3
-	F2Ahfmzi5qGpUwlsnfiAFkUGalCJeV6v28xj0TzAkKtJtZONFsU1saOhW7f3jlFZoqwuVw+7IWw
-	zofHtOlVxdFDjKRbc0LjI+EYNi+d/HJZxTAyZd/DKypNUVO2QZIFNOg9vg57cBN3zvjuikUYPGV
-	1WAlNAZCVLqNHw2GSX8rRPMmq3i8WHtO76B9m9wkVHbicaosDm1NZLQeTRn7k26JuGZ8/d0Qwnn
-	Ewx5t6p16G8JnvDvQtWSsR3PVD8bNjyxXJ6vLTJ/cdC9Fl8vh+Es63VyaIF8=
-X-Google-Smtp-Source: AGHT+IGMRtiWeYVCYMElfz61z1ti+Ou58MocKqgLTppI7XTuQyjsyQV8LFvTq6sg4P0VQ4QxNtmmjw==
-X-Received: by 2002:a05:600c:4f52:b0:43c:f8fc:f697 with SMTP id 5b1f17b1804b1-454ec14677bmr165238895e9.9.1752582170249;
-        Tue, 15 Jul 2025 05:22:50 -0700 (PDT)
-Received: from mai.. (146725694.box.freepro.com. [130.180.211.218])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-454dd537785sm162850685e9.23.2025.07.15.05.22.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 15 Jul 2025 05:22:49 -0700 (PDT)
-From: Daniel Lezcano <daniel.lezcano@linaro.org>
-To: daniel.lezcano@linaro.org,
-	tglx@linutronix.de,
-	willmcvicker@google.com
-Cc: linux-kernel@vger.kernel.org,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/SAMSUNG S3C, S5P AND EXYNOS ARM ARCHITECTURES),
-	linux-samsung-soc@vger.kernel.org (open list:ARM/SAMSUNG S3C, S5P AND EXYNOS ARM ARCHITECTURES)
-Subject: [PATCH] clocksource/drivers/exynos_mct: Fix section mismatch from the module conversion
-Date: Tue, 15 Jul 2025 14:18:33 +0200
-Message-ID: <20250715121834.2059191-1-daniel.lezcano@linaro.org>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250620181719.1399856-6-willmcvicker@google.com>
-References: <20250620181719.1399856-6-willmcvicker@google.com>
+	Tue, 15 Jul 2025 12:29:58 +0000
+Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out2.suse.de (Postfix) with ESMTPS id 37FCA1F38F;
+	Tue, 15 Jul 2025 12:29:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1752582594; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=mjCwmxRw2oiS5uDhgBamrzilzsoTGXeob+BS+5zzIRE=;
+	b=QoKW7Yh6porPglfWJz2OZChxEiamLvLxKaIvycNJxh3bg7LYQSgk60CjlzhWEIENjMyj1Y
+	q42aI+n4ZNGdVGyAL8V1PftB8WPf2Xi1kTG2OG9CYS8agqfLmfAGndWG93mrdnPIbFKu69
+	JzeBhVTqGI2vhk9xwmhVfZQzUouV/PM=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1752582594;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=mjCwmxRw2oiS5uDhgBamrzilzsoTGXeob+BS+5zzIRE=;
+	b=AkfZqHcjcB3keVB6qvSM3e0/bATe1ldj69gbeuALdJU7JgXK3Jo+3SZONymHV1JreOp94h
+	CwLntdyDfgzpm6BQ==
+Authentication-Results: smtp-out2.suse.de;
+	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=QoKW7Yh6;
+	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=AkfZqHcj
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1752582594; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=mjCwmxRw2oiS5uDhgBamrzilzsoTGXeob+BS+5zzIRE=;
+	b=QoKW7Yh6porPglfWJz2OZChxEiamLvLxKaIvycNJxh3bg7LYQSgk60CjlzhWEIENjMyj1Y
+	q42aI+n4ZNGdVGyAL8V1PftB8WPf2Xi1kTG2OG9CYS8agqfLmfAGndWG93mrdnPIbFKu69
+	JzeBhVTqGI2vhk9xwmhVfZQzUouV/PM=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1752582594;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=mjCwmxRw2oiS5uDhgBamrzilzsoTGXeob+BS+5zzIRE=;
+	b=AkfZqHcjcB3keVB6qvSM3e0/bATe1ldj69gbeuALdJU7JgXK3Jo+3SZONymHV1JreOp94h
+	CwLntdyDfgzpm6BQ==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 8CEB913306;
+	Tue, 15 Jul 2025 12:29:53 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id HyAMIcFJdmgaIwAAD6G6ig
+	(envelope-from <tzimmermann@suse.de>); Tue, 15 Jul 2025 12:29:53 +0000
+From: Thomas Zimmermann <tzimmermann@suse.de>
+To: lee@kernel.org,
+	danielt@kernel.org,
+	jingoohan1@gmail.com,
+	neil.armstrong@linaro.org,
+	jessica.zhang@oss.qualcomm.com,
+	deller@gmx.de,
+	maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org,
+	airlied@gmail.com,
+	simona@ffwll.ch,
+	fnkl.kernel@gmail.com,
+	j@jannau.net,
+	hdegoede@redhat.com,
+	ilpo.jarvinen@linux.intel.com,
+	sven@kernel.org,
+	alyssa@rosenzweig.io,
+	neal@gompa.dev,
+	support.opensource@diasemi.com,
+	duje.mihanovic@skole.hr
+Cc: dri-devel@lists.freedesktop.org,
+	asahi@lists.linux.dev,
+	platform-driver-x86@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-fbdev@vger.kernel.org,
+	Thomas Zimmermann <tzimmermann@suse.de>
+Subject: [PATCH v2 00/15] backlight: Do not include <linux/fb.h> in header file
+Date: Tue, 15 Jul 2025 14:24:37 +0200
+Message-ID: <20250715122643.137027-1-tzimmermann@suse.de>
+X-Mailer: git-send-email 2.50.0
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-Spamd-Result: default: False [-2.01 / 50.00];
+	BAYES_HAM(-3.00)[100.00%];
+	SUSPICIOUS_RECIPS(1.50)[];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	MID_CONTAINS_FROM(1.00)[];
+	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	MX_GOOD(-0.01)[];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	MIME_TRACE(0.00)[0:+];
+	ARC_NA(0.00)[];
+	RCPT_COUNT_TWELVE(0.00)[25];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	FUZZY_RATELIMITED(0.00)[rspamd.com];
+	FREEMAIL_TO(0.00)[kernel.org,gmail.com,linaro.org,oss.qualcomm.com,gmx.de,linux.intel.com,ffwll.ch,jannau.net,redhat.com,rosenzweig.io,gompa.dev,diasemi.com,skole.hr];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com,gmx.de];
+	RCVD_TLS_ALL(0.00)[];
+	RCVD_COUNT_TWO(0.00)[2];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	TO_DN_SOME(0.00)[];
+	DNSWL_BLOCKED(0.00)[2a07:de40:b281:106:10:150:64:167:received,2a07:de40:b281:104:10:150:64:97:from];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	TAGGED_RCPT(0.00)[];
+	DKIM_TRACE(0.00)[suse.de:+];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo,imap1.dmz-prg2.suse.org:rdns,suse.de:mid,suse.de:dkim]
+X-Rspamd-Queue-Id: 37FCA1F38F
+X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
+X-Rspamd-Action: no action
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250715_052252_152691_60FCB49C 
-X-CRM114-Status: GOOD (  12.84  )
+X-CRM114-CacheID: sfid-20250715_052957_413937_2FB21CC9 
+X-CRM114-Status: GOOD (  11.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,54 +158,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The function register_current_timer_delay() when compiling on ARM32
-fails with a section mismatch. That is resulting from the module
-conversion where the function exynos4_clocksource_init() is called
-from mct_init_dt(). This one had its __init annotation removed to for
-the module loading.
+Remove the final dependencies on fbdev from the backlight subsystem.
+This is really just the include of <linux/fb.h> in backlight, but it
+has some fallout in other code.
 
-Fix this by adding the __init_or_module annotation for the functions:
- - mct_init_dt()
- - mct_init_spi()
- - mct_init_dt()
+Patches 1 to 14 fix all the implicit includes that come from fb.h
+throughout the kernel. It's all trivial, but touches various drivers.
+Maintainers are in CC. Patch 15 fixes the backlight header.
 
-Compiled on ARM32 + MODULES=no, ARM64 + MODULES=yes, ARM64 +
-MODULES=no
+With the series applied the backlight subsystem should be free from
+fbdev dependencies.
 
-Signed-off-by: Daniel Lezcano <daniel.lezcano@linaro.org>
----
- drivers/clocksource/exynos_mct.c | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+v2:
+- add missing clean ups in jornada720, rave-sp, rt4831
 
-diff --git a/drivers/clocksource/exynos_mct.c b/drivers/clocksource/exynos_mct.c
-index 5075ebe052a7..80d263ee046d 100644
---- a/drivers/clocksource/exynos_mct.c
-+++ b/drivers/clocksource/exynos_mct.c
-@@ -657,7 +657,7 @@ static int exynos4_timer_interrupts(struct device_node *np,
- 	return err;
- }
- 
--static int mct_init_dt(struct device_node *np, unsigned int int_type)
-+static __init_or_module int mct_init_dt(struct device_node *np, unsigned int int_type)
- {
- 	bool frc_shared = of_property_read_bool(np, "samsung,frc-shared");
- 	u32 local_idx[MCT_NR_LOCAL] = {0};
-@@ -705,12 +705,12 @@ static int mct_init_dt(struct device_node *np, unsigned int int_type)
- 	return exynos4_clockevent_init();
- }
- 
--static int mct_init_spi(struct device_node *np)
-+static __init_or_module int mct_init_spi(struct device_node *np)
- {
- 	return mct_init_dt(np, MCT_INT_SPI);
- }
- 
--static int mct_init_ppi(struct device_node *np)
-+static __init_or_module int mct_init_ppi(struct device_node *np)
- {
- 	return mct_init_dt(np, MCT_INT_PPI);
- }
+Thomas Zimmermann (15):
+  platform/x86: dell-uart-backlight: Use blacklight power constant
+  drm/panel: panel-samsung-s6e63m0: Include <linux/of.h>
+  drm/panel: panel-samsung-s6e88a0-ams427ap24: Include <linux/of.h>
+  drm/panel: panel-summit: Include <linux/of.h>
+  fbcon: Add necessary include statements and forward declarations
+  backlight: Include <linux/of.h>
+  backlight: apple_dwi_bl: Include <linux/mod_devicetable.h>
+  backlight: as3711_bl: Include <linux/of.h>
+  backlight: da9052_bl: Include <linux/mod_devicetable.h>
+  backlight: jornada720: Include <linux/io.h>
+  backlight: ktd2801: Include <linux/mod_devicetable.h>
+  backlight: led_bl: Include <linux/of.h>
+  backlight: rave-sp: Include <linux/of.h> and <linux/mod_devicetable.h>
+  backlight: rt4831: Include <linux/mod_devicetable.h>
+  backlight: Do not include <linux/fb.h> in header file
+
+ drivers/gpu/drm/panel/panel-samsung-s6e63m0.c            | 1 +
+ drivers/gpu/drm/panel/panel-samsung-s6e88a0-ams427ap24.c | 1 +
+ drivers/gpu/drm/panel/panel-summit.c                     | 1 +
+ drivers/platform/x86/dell/dell-uart-backlight.c          | 2 +-
+ drivers/video/backlight/apple_dwi_bl.c                   | 1 +
+ drivers/video/backlight/as3711_bl.c                      | 1 +
+ drivers/video/backlight/backlight.c                      | 1 +
+ drivers/video/backlight/da9052_bl.c                      | 1 +
+ drivers/video/backlight/jornada720_bl.c                  | 1 +
+ drivers/video/backlight/ktd2801-backlight.c              | 1 +
+ drivers/video/backlight/led_bl.c                         | 1 +
+ drivers/video/backlight/rave-sp-backlight.c              | 2 ++
+ drivers/video/backlight/rt4831-backlight.c               | 1 +
+ include/linux/backlight.h                                | 1 -
+ include/linux/fbcon.h                                    | 7 +++++++
+ 15 files changed, 21 insertions(+), 2 deletions(-)
+
 -- 
-2.43.0
+2.50.0
 
 
