@@ -4,79 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA292C83F22
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 15:30:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEC33C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 15:32:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=An8FlwzirITNbBr0qyU5frw+U6I6QNI3+OjkL8lhnTw=; b=drQSJmMSBywgH+YWl+FUC2og1a
-	qPfzcuiocZsRaOv4UoyxPeTIoSm5iCfFGM7D8KlRT7ZjXsMDCTeSJyA8mIoJrchOLgvAb3S/FjxEH
-	qoyoOJWGGLgKrZKXAxjRW62nmm9uouilUX8EE+vsLJoSGVR6nO0eZZUNzSB4WIxbuz1zcRRM+/frG
-	qsSsPci+ZmZIrQXM7hAxgWPjLstybJrdJAXW5JKKWCOKwvcQgAuRLHtBP05b1DkljgOv7F1kj9UBQ
-	5bsVEUPXCyOPL8NAFFPyqPOjc9CyQrgiVOYDgGigV+TFQP0wv2yutZzcAHWzshORjl4jqy8niIZOY
-	sZtvXpRQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bMq+z0lTQ5uqzjIe7ORBXN+DvvALIfquyp6XwhodWKg=; b=tAI5LkTwgEOhmJtgyf41PwDFwm
+	dr1TLMFco/PJzGtuL6CwiCTh0+1Ej29fXPiSmaF/HQAgY/bPCA8Pn3bRrqiDZKDz0L7tdo+TRGVc1
+	Cr7UNBpVNTrV4xJAbkq2KWP1eAc13q3ks5fHReq5z4T3FQrh4WVG1942WhuAcqs7xXOCkCazkOYEv
+	9MAYVoeWEJxlHzyX0LmtU8zxyZEVgmonrEaWuqdpmdyiGwbm1PO+I7qpZbWRerDxcLmU6CeHFwNqA
+	c3LPkFZtYIlaoADHCwK7Nl7g2+TyzYue0fvbYhoS4suZlVpa4+x6ybd6bR+uGLx7opXAGn+gU2khu
+	K/2M6Fag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubhbj-00000005bDx-0Pr3;
-	Tue, 15 Jul 2025 15:30:15 +0000
-Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
+	id 1ubhe7-00000005bSV-3bEX;
+	Tue, 15 Jul 2025 15:32:43 +0000
+Received: from mail-lf1-x136.google.com ([2a00:1450:4864:20::136])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubgDS-00000005IcM-0nx8
+	id 1ubgDu-00000005If8-3Htq
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Jul 2025 14:01:07 +0000
-Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-313fb0ec33bso5305830a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Jul 2025 07:01:04 -0700 (PDT)
+	Tue, 15 Jul 2025 14:01:36 +0000
+Received: by mail-lf1-x136.google.com with SMTP id 2adb3069b0e04-55511c3e203so5164008e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Jul 2025 07:01:34 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1752588063; x=1753192863; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=An8FlwzirITNbBr0qyU5frw+U6I6QNI3+OjkL8lhnTw=;
-        b=XvSKAJfhMD7qwplJ0m+UBj5ARooYW6YUjm/DPPznbHNNOfXXaP7FE1N2epEw79Q40w
-         fKml3BwLP04zQeb+uJt7X5iqHzkU39e7fhe3cjxZ5T2mOSWyAeedyqKOPYYmqQ6wmcNW
-         ec6lV4mz8i5J6TBOhM+A4/rf37fDLxK+170CSdCh8lMBrst3MvEpREy72CS8SSUnZ1Q0
-         xB1S1f0RGec4FcX6JPTTMbWAYzfDLfwuiiXAWruvTsO/wm4KUavHftDdyi9goGYEFAgo
-         RNKsaQb79JmlUZn9cqqMRNYZG8Hi/V2LqqBAYgueOQoF65d0ld13+EzC78jDNDeD9MLb
-         QdxQ==
+        d=linaro.org; s=google; t=1752588092; x=1753192892; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=bMq+z0lTQ5uqzjIe7ORBXN+DvvALIfquyp6XwhodWKg=;
+        b=JizyjbK1ETc7DJJnxDWYQHDIyl9IEe2ESUOfyjDWzS02UppUVn60TlcgJOf4OfPpgE
+         +6rNoldLJzGQLL2nrmaHbTjfpHODr1V9A0yrQPDwFvT2ObLcH33UzZB5G5zs19VGRwzb
+         F97IOvemdfN9ABgqGQnnrP7bHuzATCciv1IJRRTGkcBgB1YIytUm381LAVhtJyn8Rlta
+         8lyYxhITU7acGFa7ZO7avnfuXNHUW4RDzXEXFjXrkHUq0wh53gC00+ApkHB3VIZa9BA3
+         D0mFhD5RY0a7f/Mg26ZXg6xsrrLJgoRxDRKRFZm1Xmf/kSGJA00iOHbb+Kk2nCf5gOuC
+         D2GQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752588063; x=1753192863;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=An8FlwzirITNbBr0qyU5frw+U6I6QNI3+OjkL8lhnTw=;
-        b=HDbvaPfUiZml/XsTz6sYLyq+ZjboQhU9ieZ1rUtBbu4tuqAyrFokeSckEAkFzgFY8B
-         m9hVjD8J2tpPxvDUjfYft1fMlN4hHpOreuqZq+KiiSQGNrgV6v5OqzWQYuUaG45zzzLi
-         QRDf91uDtGKYfLVNixP/Ksb2fx/B1jmpA8UcknjEQEkJ0UMpoA0tYlJjzWZMx7JTz7BT
-         fuFWzYI+nybb60di4IBL+/yiWitvOgnZv3D+cHzd8ap5HCmMBrs+FM3I0BHTXtQLhmT0
-         GEgGDVImUZZRIu4jd/GyaF0sYAM9bD0R9FuVjtEtmuvcRTYIzDltMFxCUc2wVdUKibt6
-         Kcig==
-X-Gm-Message-State: AOJu0YwlO3q6/y2GeGdx5TGIlB3cp8nfciggXe6yX5H3EffiMX7aM17f
-	Pfp0il9deRyY+hu44G33Vm67m9LUjYgCDOrio0UWgkAaETv4PEWpWIyQPS3tpm4zT5HH+eiajD8
-	EuItUGg==
-X-Google-Smtp-Source: AGHT+IGw0SjVGVK2JASNvhRI2hQZzMIFRjE0AK9+sp6bRe6KtNKNJpueU9J9XmAZCXadJk7v7N9P2NDvbf4=
-X-Received: from pjbtc11.prod.google.com ([2002:a17:90b:540b:b0:312:15b:e5d1])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:524c:b0:315:6f2b:ce53
- with SMTP id 98e67ed59e1d1-31c4cd8b6b4mr24938091a91.25.1752588063607; Tue, 15
- Jul 2025 07:01:03 -0700 (PDT)
-Date: Tue, 15 Jul 2025 07:01:01 -0700
-In-Reply-To: <aHZM1ZhTsET5AE91@google.com>
-Mime-Version: 1.0
-References: <20250624092256.1105524-1-keirf@google.com> <20250624092256.1105524-4-keirf@google.com>
- <aFrANSe6fJOfMpOC@google.com> <aGJf7v9EQoEZiQUk@google.com>
- <aGwWvp_JeWe9tIJx@google.com> <aHZM1ZhTsET5AE91@google.com>
-Message-ID: <aHZbyAIoyJZ7c__9@google.com>
-Subject: Re: [PATCH 3/3] KVM: Avoid synchronize_srcu() in kvm_io_bus_register_dev()
-From: Sean Christopherson <seanjc@google.com>
-To: Keir Fraser <keirf@google.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	kvm@vger.kernel.org, Eric Auger <eric.auger@redhat.com>, 
-	Oliver Upton <oliver.upton@linux.dev>, Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>, 
-	Paolo Bonzini <pbonzini@redhat.com>, Li RongQing <lirongqing@baidu.com>
-Content-Type: text/plain; charset="us-ascii"
+        d=1e100.net; s=20230601; t=1752588092; x=1753192892;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=bMq+z0lTQ5uqzjIe7ORBXN+DvvALIfquyp6XwhodWKg=;
+        b=KXYXame1gurfuNlTS90rdzMgaidWTm4niZyE7oU5npGpZ827rG1UzPEXjqaJNQLdsr
+         Enn0v99mHk1qhvu4+GkGdztSCi0BIZijNEaQPo1ELlgS81aZL90uwPRWYjnawf0V4mv7
+         uQd3ciu61CWDNjfjsWWUmDV+CsftyILMc/mmKyO7iCBS8I0L4ADmrLS56GTy5TU9MR3B
+         NgUxag+0ZoIkcE5It1juJIMfo8SXTBDuJncFhQIXw+JD8/cg0RGEYjVnnelXZhpXjN27
+         25cG1SWirPsBjuvB6u2bvJggPrd+K0eKm2VkntciuOEgGuIx8RkEK2oSX0Qj73xXt6sI
+         gpMQ==
+X-Forwarded-Encrypted: i=1; AJvYcCW8TgrgBHAoLV99a8X/RgzNoQqO8M94fzMLi7U/QWd4C3sKR//kCN9kKt1Eiprwq/pgRNd8Ciu+cAwl8GDTqT8e@lists.infradead.org
+X-Gm-Message-State: AOJu0YwW+GagCyolllCpTzZjRBd3KqB5c3GnWA71tgggzLVXjDG5rGRh
+	2j4hcIP/L7fRGcPZFW907kuYkXwDaEmTJcCfyeQg1Um1JOdiJ/KrwDnHp7KCorSysk/vgjxWDr5
+	lk/xGaq7kX55tcWdgFU6wNXsBH6CjdyvKheWVQ+xPaw==
+X-Gm-Gg: ASbGncv/LMvP9vOq7nc1Y3RQ2jRo5s6gdeDtoVBp8PEotkSht7aj9DvEkJupV0Ehv2P
+	lsQdVsFFbeNqsgDwQvPBkKCACxFay3N6BDlkO63h7TrztE4MQcCl+EcwnrRABtsMMHkrGOOhcny
+	RmE9F85oNc0e+72sh3W9UCm1ayYuuqyE26fGEFbnlyatw6UaXT6h8OUILQU6yPIz1MqGY8Inkx1
+	1IbJWGsGX7yjppiIQ==
+X-Google-Smtp-Source: AGHT+IF13ylGotB5yILT4bHb/RqmaS522PnGXIijvb1MELLLon8vaTv/g4ADQmp0eDqrLOLp5d2POnBSPsqQfLVeuyg=
+X-Received: by 2002:a05:6512:3d0f:b0:553:2f47:ed21 with SMTP id
+ 2adb3069b0e04-55a0460950fmr5418782e87.41.1752588090141; Tue, 15 Jul 2025
+ 07:01:30 -0700 (PDT)
+MIME-Version: 1.0
+References: <20250715100415.60487-2-krzysztof.kozlowski@linaro.org>
+In-Reply-To: <20250715100415.60487-2-krzysztof.kozlowski@linaro.org>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Tue, 15 Jul 2025 16:01:18 +0200
+X-Gm-Features: Ac12FXxwgG17tM0pR7Wbn7eqRk8ggfOlZMUUBSReGExBS5bLfNdm4fWxeml3fXM
+Message-ID: <CACRpkdZn9ePtwBnxNoy+nijc-oqu5zWoKc2O9QDe=MsgZpRdKg@mail.gmail.com>
+Subject: Re: [GIT PULL] pinctrl: samsung: drivers for v6.17
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: Sylwester Nawrocki <snawrocki@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
+	Peter Griffin <peter.griffin@linaro.org>, linux-arm-kernel@lists.infradead.org, 
+	linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-gpio@vger.kernel.org, Krzysztof Kozlowski <krzk@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250715_070106_230955_C20834F2 
-X-CRM114-Status: GOOD (  17.39  )
+X-CRM114-CacheID: sfid-20250715_070134_821951_B1E54DFD 
+X-CRM114-Status: UNSURE (   9.02  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,32 +98,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 15, 2025, Keir Fraser wrote:
-> On Mon, Jul 07, 2025 at 11:49:34AM -0700, Sean Christopherson wrote:
-> > For all intents and purposes, holding kvm->srcu across VM-Enter/VM-Exit is
-> > disallowed (though I don't think this is formally documented), i.e. every
-> > architecture is guaranteed to do srcu_read_lock() after a VM-Exit, prior to
-> > reading kvm->buses.  And srcu_read_lock() contains a full smp_mb(), which ensures
-> > KVM will get a fresh kvm->buses relative to the instruction that triggered the
-> > exit.
-> 
-> I've got a new patch series ready to go, but thinking more about the
-> one-off accesses after a VM-Exit: I think VM-Exit is a barrier on all
-> architectures? That would mean the changes to include
-> smp_mb__after_srcu_read_lock() are unnecessary and confusing. Maybe I
-> can drop those hunks. What do you think?
+On Tue, Jul 15, 2025 at 12:04=E2=80=AFPM Krzysztof Kozlowski
+<krzysztof.kozlowski@linaro.org> wrote:
 
-It's not.
+> The following changes since commit 19272b37aa4f83ca52bdf9c16d5d81bdd13544=
+94:
+>
+>   Linux 6.16-rc1 (2025-06-08 13:44:43 -0700)
+>
+> are available in the Git repository at:
+>
+>   https://git.kernel.org/pub/scm/linux/kernel/git/pinctrl/samsung.git tag=
+s/samsung-pinctrl-6.17
+>
+> for you to fetch changes up to 683d532dfc9657ab8aae25204f378352ed144646:
+>
+>   pinctrl: samsung: Fix gs101 irq chip (2025-07-05 09:35:22 +0200)
 
-commit 65a4de0ffd975af7e2ffc9acb875b6a8ae7ee1aa
-Author:     Yan Zhao <yan.y.zhao@intel.com>
-AuthorDate: Fri Mar 8 17:09:28 2024 -0800
-Commit:     Sean Christopherson <seanjc@google.com>
-CommitDate: Fri Jun 7 07:18:02 2024 -0700
+Pulled in!
 
-    KVM: x86: Ensure a full memory barrier is emitted in the VM-Exit path
-    
-    Ensure a full memory barrier is emitted in the VM-Exit path, as a full
-    barrier is required on Intel CPUs to evict WC buffers.  This will allow
-    unconditionally honoring guest PAT on Intel CPUs that support self-snoop.
+Thanks Krzysztof, excellent work as always.
+
+Yours,
+Linus Walleij
 
