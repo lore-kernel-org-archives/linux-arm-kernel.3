@@ -4,68 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52AC7C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 06:07:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6AE1C83F27
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 06:27:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xwt+/5yN9eHNa8k62uiqoUjCvkUIIM6ihaRXsqxOjj4=; b=LgHwtsg+i0Z8HEKbSDgF3ZkcL6
-	h/UjkUhPxcilMyIKCLDNEIEcXyeAp2zhdP0XDZkevSzZrOlGJQLUF7UONGEfQGsidIGyOzj4lSwV7
-	/Mgm9lmdoGsTJmQEgeU7B/CavzTOUoUJrmL9GeByB3X14QwoRlo8Rgb2uI445+CBcqqfnxkYM/3ns
-	fMOVNfuZgtIFXGkSfBT7NXsUJC6bE0qRYKNtzzT7xBBT3XgnwwONVREv8R0jU3wFo7m1EczAPZk/L
-	uuUW4xwXUdi9IhpS7uCslIxikf6VBZBRghJIpm561n+qhkLu4H3OZ9g0a0cGLY5FOiD80sMmEwHAY
-	NAmbLouQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ch+pO3ZHJ7ZMD+bK3haiwVhBtsRIVKh2HD6GA9YCj9k=; b=3926iEUzjEbYd6fwye8oxB48P5
+	02W4h2ThxwxeJ/l1zgdTS0tGZDok4eOzfK8+bgGVXHqaiSyWybmn1F3wwiYZ74W0z2hHL17bGnF/D
+	G8iIaOkVaoN+ToQ48L+Z5QoftZtlld1z/CorocV8Y5yB8r5VL/+5GG8z0gJDz9cslLDimQhWeDHlP
+	FN4Jm+cFbhm0YDdMr/ZkYRyi4oNY0O0+YkMBUZVlKfpH+Xh13u+SgpV2VXwK4SfqtN3o/ENReyWr5
+	ho899F6nZcRudmSCUzvNcjgZo9mA7iNKkZGFsZAuExCHHU2HkWQ/9zyhaJRrA7hjrWug0IDK4w70k
+	8jeJX0Wg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubYor-00000004Aby-2txN;
-	Tue, 15 Jul 2025 06:07:13 +0000
-Received: from mout02.posteo.de ([185.67.36.66])
+	id 1ubZ8W-00000004CbA-1yxu;
+	Tue, 15 Jul 2025 06:27:32 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubYhN-000000049ci-0yFa
+	id 1ubZ64-00000004CMw-3pqn
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Jul 2025 05:59:30 +0000
-Received: from submission (posteo.de [185.67.36.169]) 
-	by mout02.posteo.de (Postfix) with ESMTPS id 6EAF4240101
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Jul 2025 07:59:24 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=posteo.de; s=2017;
-	t=1752559164; bh=xwt+/5yN9eHNa8k62uiqoUjCvkUIIM6ihaRXsqxOjj4=;
-	h=From:To:Cc:Subject:Date:Message-Id:MIME-Version:
-	 Content-Transfer-Encoding:From;
-	b=pR2oBFDoHyI44taRP3tCTyn8HSfyohptVLFF6NYGJg/0XEjWh+VPSP2bLttYa/xdf
-	 PFfQ0JDP7fxWA5ZrzDr7oei++mqkbJr2cZwbi2748QkvURH+0seD9ZYY85qk9ZMvs9
-	 D8jMrFpXm0Z3UEP0XoPjJfruOWe8Bey1njZNw68PEvNou+jKH7QnqJWbxx7eW0gvD2
-	 blobCjz+k3D0bh5U73yN9bDakSQjR7fDWa9l4/Bw/tOL7tdmI0tZyTAs38dEF1Qyz5
-	 AK9zu3QrGURH7NmEeIiOQ/8ieYUuRGMqxDQ1gTMzpf3ufTGjZx47uu3hFv8bZOv46G
-	 36RuMP713pt/A==
-Received: from customer (localhost [127.0.0.1])
-	by submission (posteo.de) with ESMTPSA id 4bh7mp5MKzz9rxG;
-	Tue, 15 Jul 2025 07:59:22 +0200 (CEST)
-From: Martin Kepplinger <martink@posteo.de>
-To: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	festevam@gmail.com
-Cc: kernel@pengutronix.de,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Martin Kepplinger <martink@posteo.de>
-Subject: [PATCH 2/2] arm64: dts: imx8mp: add cpuidle cooling device to the alert trip point
-Date: Tue, 15 Jul 2025 05:59:23 +0000
-Message-Id: <20250715055903.1806961-2-martink@posteo.de>
-In-Reply-To: <20250715055903.1806961-1-martink@posteo.de>
-References: <20250715055903.1806961-1-martink@posteo.de>
+	Tue, 15 Jul 2025 06:25:02 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 101D5A50053;
+	Tue, 15 Jul 2025 06:25:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5C1BEC4CEE3;
+	Tue, 15 Jul 2025 06:24:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1752560699;
+	bh=abspjSvivLNZ7JqRTXenpI1qgQVpPqZ6Q7QkayAhcco=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=JdOWnfdEMSp1mulN712vPGlM+ixIAfeBjfH7nEE75tvzQLUd49ObJzA6li1btIGyB
+	 xKwqrwjkZF6lez18opXcKp3anIO/r4cJXkEJMWwL81DWwmuPJM/uIfBStNk/jLYVIb
+	 qNwtJPR8KpIX8kHMpJ1huWEmkhLR0YzCdkzojx+eXZ6zvfIfiAEmsWSMoWLP9M+Wn+
+	 3QZAvmqSv6KAaA8wXcmyDp+ugaW4A1QxFg/9RoeSwR9jtRnrpBiGf32BtT8LuI2UBn
+	 A+qnmzZj4/N2ueN0bpQbGafSON56WT0PvGZwY43/aDTzUxOn6hQal0az40GHJ1mWgQ
+	 t5nZj132Rl6XQ==
+Date: Tue, 15 Jul 2025 06:24:58 +0000
+From: Wei Liu <wei.liu@kernel.org>
+To: Nuno Das Neves <nunodasneves@linux.microsoft.com>
+Cc: linux-hyperv@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
+	wei.liu@kernel.org, mhklinux@outlook.com, tglx@linutronix.de,
+	bhelgaas@google.com, romank@linux.microsoft.com, kys@microsoft.com,
+	haiyangz@microsoft.com, decui@microsoft.com,
+	catalin.marinas@arm.com, will@kernel.org, mingo@redhat.com,
+	bp@alien8.de, dave.hansen@linux.intel.com, hpa@zytor.com,
+	lpieralisi@kernel.org, kw@linux.com, robh@kernel.org,
+	jinankjain@linux.microsoft.com, skinsburskii@linux.microsoft.com,
+	mrathor@linux.microsoft.com, x86@kernel.org
+Subject: Re: [PATCH v3 0/3] Nested virtualization fixes for root partition
+Message-ID: <aHX0OrqPItroxWaL@liuwe-devbox-ubuntu-v2.lamzopl0uupeniq2etz1fddiyg.xx.internal.cloudapp.net>
+References: <1752261532-7225-1-git-send-email-nunodasneves@linux.microsoft.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <1752261532-7225-1-git-send-email-nunodasneves@linux.microsoft.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250714_225929_434334_30CF20CE 
-X-CRM114-Status: GOOD (  10.78  )
+X-CRM114-CacheID: sfid-20250714_232501_104633_10F99593 
+X-CRM114-Status: GOOD (  15.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,60 +79,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Idle-inject up to 50% of all cpu's time in order to help cpufreq
-to keep the temperature below the trip points.
+On Fri, Jul 11, 2025 at 12:18:49PM -0700, Nuno Das Neves wrote:
+> Fixes for running as nested root partition on the Microsoft Hypervisor.
+> 
+> The first patch changes vmbus to make hypercalls to the L0 hypervisor
+> instead of the L1. This is needed because L0 hypervisor, not the L1, is
+> the one hosting the Windows root partition with the VMM that provides
+> vmbus.
+> 
+> The 2nd and 3rd patches fix interrupt unmasking on nested. In this
+> scenario, the L1 (nested) hypervisor does the interrupt mapping to root
+> partition cores. The vectors just need to be mapped with
+> MAP_DEVICE_INTERRUPT instead of affinitized with RETARGET_INTERRUPT.
+> 
+> Changes in v3:
+> - Remove 3 patches (#1,#3,#4 from v2) which were merged already (Wei Liu)
+> - Fix bug in #1 introduced in v2 (Michael Kelley)
+> - Improve commit message in #2 (Michael Kelley)
+> - Document return value of hv_map_msi_interrupt() in #2 (Michael Kelley)
+> 
+> Changes in v2:
+> - Reword commit messages for clarity (Michael Kelley, Bjorn Helgaas)
+> - Open-code nested hypercalls to reduce unnecessary code (Michael Kelley)
+> - Add patch (#3) to fix cpu_online_mask issue (Thomas Gleixner)
+> - Add patch (#4) to fix error return values (Michael Kelley)
+> - Remove several redundant error messages and checks (Michael Kelley)
+> 
+> Nuno Das Neves (1):
+>   Drivers: hv: Use nested hypercall for post message and signal event
+> 
+> Stanislav Kinsburskii (2):
+>   x86/hyperv: Expose hv_map_msi_interrupt()
+>   PCI: hv: Use the correct hypercall for unmasking interrupts on nested
+> 
 
-Signed-off-by: Martin Kepplinger <martink@posteo.de>
----
-
-hi Shawn and all,
-
-50% is of course random, but this is an emergency situation already
-so it might not be the most critical value to find a consensus for.
-
-SoCs rarely describe and enable the idle-inject mechanism. IMO it is
-desired if only in order to have an example of it merged.
-
-thanks,
-
-                               martin
-
-
-
- arch/arm64/boot/dts/freescale/imx8mp.dtsi | 12 ++++++++++--
- 1 file changed, 10 insertions(+), 2 deletions(-)
-
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp.dtsi b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
-index 66e1a27d6eed9..6c1d7ca2de21d 100644
---- a/arch/arm64/boot/dts/freescale/imx8mp.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
-@@ -343,7 +343,11 @@ map0 {
- 						<&A53_3 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
- 						<&gpu3d THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
- 						<&gpu2d THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
--						<&npu THERMAL_NO_LIMIT THERMAL_NO_LIMIT>;
-+						<&npu THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
-+						<&cpu0_therm 0 50>,
-+						<&cpu1_therm 0 50>,
-+						<&cpu2_therm 0 50>,
-+						<&cpu3_therm 0 50>;
- 				};
- 			};
- 		};
-@@ -376,7 +380,11 @@ map0 {
- 						<&A53_3 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
- 						<&gpu3d THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
- 						<&gpu2d THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
--						<&npu THERMAL_NO_LIMIT THERMAL_NO_LIMIT>;
-+						<&npu THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
-+						<&cpu0_therm 0 50>,
-+						<&cpu1_therm 0 50>,
-+						<&cpu2_therm 0 50>,
-+						<&cpu3_therm 0 50>;
- 				};
- 			};
- 		};
--- 
-2.39.5
-
+Applied. Thanks.
 
