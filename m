@@ -4,65 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 626D9C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 02:17:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64135C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 02:20:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=T1uWu96jH2h6exzepkemgvOkhPKpEhNlOujPBqTbvK0=; b=IvwkQo0jMMpFlzdWMponTxH/bg
-	6aKD/kxxyTBu2aykovpEVkt0CU8V+sQyXSzgqROYpOsaUEjO1nEpcsyhSxkOnrgsObwaDbUaM3ozw
-	CCax7O5j685kdMGO818Yk5YXL9Iw0rR62MDK4ZX/EtJF/KM6ph6gV+yKf3JgCm1gfus7FPO3uOjH8
-	NUYrUCoCst9SW8wpiHDPnxRsDTg8ny3Yiw+Q0Ap9Ssk/igArx1M3/yB8gIkRmmF8WS7MHYXvvyVVH
-	19XqApaGi56owGDzSQ3nJdLTJY3Lm/Gr3f7jZpXIDAjVYXTNL5fEdDgAVAiEMWTZswXGLZr8WdPxE
-	KKlELu/Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tDeo0yq4IgKjH0KpWx8B87yEcLpD4MkC2r0r05DtPkw=; b=H23TLdam4cRfw/FL4kFAQZ8Djf
+	0qRpOTu34u6wU7TJsFr+Q+PF38a2rDiuFVCLQ1YzKoxxOIiimEIc4BXb77475VGm4Ty/p4kVhBLEL
+	+RHFHZJraf9oNVaeh9lcw7gtSJhgWHEbbrOIcWJffTjBXBCOF0H3viGn0o929pyNLhpppvv1kQ7GP
+	8buReCGkdm6g3gp1tQzAUSc/L0ltS/p5/b5hPQiY/TBI4lIBWv0F3LVmib5SOn1R2TOEQ3oYaJ1BS
+	TJIOTMAE35ponqOt/8pNRhEwALXYvFxSrjjsryj8np5feVX4Ct0CAV1bbdfR6P/WkMqfQvTQX65LW
+	UJy+DByA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubVEY-00000003mZz-2TFG;
-	Tue, 15 Jul 2025 02:17:30 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1ubVGw-00000003mre-3rKS;
+	Tue, 15 Jul 2025 02:19:58 +0000
+Received: from mgamail.intel.com ([198.175.65.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubVC8-00000003mQt-0EwL
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Jul 2025 02:15:00 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id DD1876147A;
-	Tue, 15 Jul 2025 02:14:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AB4FCC4CEF0;
-	Tue, 15 Jul 2025 02:14:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752545696;
-	bh=iqGlb4swUIpn7QE7sxqTWrlmDq6f3DwCkbVbQG6xmis=;
-	h=From:To:Cc:Subject:Date:From;
-	b=oso/sqhmkEoTMBGJdMePDLaU4yc4Bmtz82ySRaVip0xr0eSrwFDAhotmvprLgDWFO
-	 nQ9xyxEAi2CHjAGrrcJY/VT9JmGNeethYRdTbAVo5toraCr3lM8fNsT9nu11OVtW8y
-	 mcEBuK6njP/O+uqvUwqexr78g5VZpmW/dGIeRJL52IeiAF+n9aIuR/zMjU20bo5WEw
-	 Mw/TUPa3xcYGp7nE8MiOokALh85ZeLwH60MNaTakViSk/U8B5jJhIslBlRCF3mzrGY
-	 LmJ0RcLoysiBNeLin198/HVFfce16R4S0DHR3hqBUF98GYBb61Tr/8Rd9sXhsDxwr4
-	 aDQ3aVAsNxnqA==
-From: Bjorn Andersson <andersson@kernel.org>
-To: arm@kernel.org,
-	soc@kernel.org
-Cc: linux-arm-msm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Arnd Bergmann <arnd@arndb.de>,
-	Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>,
-	Danila Tikhonov <danila@jiaxyga.com>,
-	Alexander Wilhelm <alexander.wilhelm@westermo.com>,
-	Maulik Shah <maulik.shah@oss.qualcomm.com>,
-	Dan Carpenter <dan.carpenter@linaro.org>,
-	David Wronek <david@mainlining.org>,
-	Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>,
-	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-	Lijuan Gao <quic_lijuang@quicinc.com>
-Subject: [GIT PULL] Qualcomm driver updates for v6.17
-Date: Mon, 14 Jul 2025 21:14:53 -0500
-Message-ID: <20250715021454.14516-1-andersson@kernel.org>
-X-Mailer: git-send-email 2.49.0
+	id 1ubVE1-00000003mW3-42OK;
+	Tue, 15 Jul 2025 02:16:59 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1752545819; x=1784081819;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=jmxCqU7vT9wDGVqn13z5bf8xdfrCR0BgKtLcYkpE5QY=;
+  b=Kv8CNlw7GI46QnSGiuRs8YNMmYwUjfyifId4Ox2hmW9GzIPujfHLk4M3
+   zgPBgAdTEz5n9jydjLD2t56AOMQMrxk2AotZz9Phx5D1frIMq8gwYY0Ox
+   MDgkVNO/YadohwRk7ufXuRlS2gKRFS9VfOM1PYbgQunE7H21dje+7yI0Y
+   s+dfcbEwMduEC1fCBjxDgHW2pEilZkN7PBvz0luApL0GmID6120OhO6Li
+   r5VHtyYUYAYAbH1KtQHNFPATa7HzoiiHug87u+tDNmTAbFeJWksf1nE7h
+   PiKrsP0GqnTjO/6b9A6vp9/hwY7rMQiMJHtcOqW66gY5mEjsmnV9USSQq
+   g==;
+X-CSE-ConnectionGUID: JgT7zTRlRMW6Du3xz3XIzg==
+X-CSE-MsgGUID: 1dK9WN6ZTR62jZXypDGRVQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11491"; a="66202045"
+X-IronPort-AV: E=Sophos;i="6.16,312,1744095600"; 
+   d="scan'208";a="66202045"
+Received: from fmviesa010.fm.intel.com ([10.60.135.150])
+  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Jul 2025 19:16:56 -0700
+X-CSE-ConnectionGUID: YPJe4lDXQxS/h0wBLeMU/w==
+X-CSE-MsgGUID: M9YyJfrZSWqedUuQIlDCJw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.16,312,1744095600"; 
+   d="scan'208";a="157813800"
+Received: from lkp-server01.sh.intel.com (HELO 9ee84586c615) ([10.239.97.150])
+  by fmviesa010.fm.intel.com with ESMTP; 14 Jul 2025 19:16:52 -0700
+Received: from kbuild by 9ee84586c615 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1ubVDt-0009Y3-3C;
+	Tue, 15 Jul 2025 02:16:49 +0000
+Date: Tue, 15 Jul 2025 10:16:17 +0800
+From: kernel test robot <lkp@intel.com>
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-mediatek@lists.infradead.org
+Cc: oe-kbuild-all@lists.linux.dev, lee@kernel.org, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com, lgirdwood@gmail.com,
+	broonie@kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	kernel@collabora.com
+Subject: Re: [PATCH v2 4/8] regulator: Add support for MediaTek MT6363 SPMI
+ PMIC Regulators
+Message-ID: <202507150934.VLFQsCyK-lkp@intel.com>
+References: <20250707134451.154346-5-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250707134451.154346-5-angelogioacchino.delregno@collabora.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250714_191658_044867_8C36C5FF 
+X-CRM114-Status: GOOD (  14.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,77 +92,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi AngeloGioacchino,
 
-The following changes since commit 19272b37aa4f83ca52bdf9c16d5d81bdd1354494:
+kernel test robot noticed the following build errors:
 
-  Linux 6.16-rc1 (2025-06-08 13:44:43 -0700)
+[auto build test ERROR on broonie-regulator/for-next]
+[also build test ERROR on lee-mfd/for-mfd-next lee-mfd/for-mfd-fixes lee-leds/for-leds-next linus/master v6.16-rc6 next-20250714]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-are available in the Git repository at:
+url:    https://github.com/intel-lab-lkp/linux/commits/AngeloGioacchino-Del-Regno/dt-bindings-regulator-Document-MediaTek-MT6316-PMIC-Regulators/20250707-214911
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/regulator.git for-next
+patch link:    https://lore.kernel.org/r/20250707134451.154346-5-angelogioacchino.delregno%40collabora.com
+patch subject: [PATCH v2 4/8] regulator: Add support for MediaTek MT6363 SPMI PMIC Regulators
+config: openrisc-allyesconfig (https://download.01.org/0day-ci/archive/20250715/202507150934.VLFQsCyK-lkp@intel.com/config)
+compiler: or1k-linux-gcc (GCC) 15.1.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250715/202507150934.VLFQsCyK-lkp@intel.com/reproduce)
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux.git tags/qcom-drivers-for-6.17
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202507150934.VLFQsCyK-lkp@intel.com/
 
-for you to fetch changes up to 9f35ab0e53ccbea57bb9cbad8065e0406d516195:
+All errors (new ones prefixed by >>):
 
-  soc: qcom: mdt_loader: Fix error return values in mdt_header_valid() (2025-06-25 14:31:31 -0500)
+   drivers/regulator/mt6363-regulator.c: In function 'mt6363_vemc_set_voltage_sel':
+>> drivers/regulator/mt6363-regulator.c:457:23: error: implicit declaration of function 'FIELD_PREP' [-Wimplicit-function-declaration]
+     457 |                 sel = FIELD_PREP(MT6363_RG_VEMC_VOSEL_1_MASK, sel);
+         |                       ^~~~~~~~~~
+   drivers/regulator/mt6363-regulator.c: In function 'mt6363_vemc_get_voltage_sel':
+>> drivers/regulator/mt6363-regulator.c:489:23: error: implicit declaration of function 'FIELD_GET' [-Wimplicit-function-declaration]
+     489 |                 ret = FIELD_GET(MT6363_RG_VEMC_VOSEL_1_MASK, sel);
+         |                       ^~~~~~~~~
 
-----------------------------------------------------------------
-Qualcomm driver updates for v6.17
 
-Perform input validation in the MDT loader, as this was not properly
-done in the non-remoteproc cases.
+vim +/FIELD_PREP +457 drivers/regulator/mt6363-regulator.c
 
-Fix endian issues in the QMI encoder/decoder.
+   432	
+   433	static int mt6363_vemc_set_voltage_sel(struct regulator_dev *rdev, unsigned int sel)
+   434	{
+   435		const u16 tma_unlock_key = MT6363_TMA_UNLOCK_VALUE;
+   436		struct regmap *regmap = rdev->regmap;
+   437		unsigned int val;
+   438		u16 mask;
+   439		int ret;
+   440	
+   441		ret = regmap_read(rdev->regmap, MT6363_TOP_TRAP, &val);
+   442		if (ret)
+   443			return ret;
+   444	
+   445		if (val > 1)
+   446			return -EINVAL;
+   447	
+   448		/* Unlock TMA for writing */
+   449		ret = regmap_bulk_write(rdev->regmap, MT6363_TOP_TMA_KEY_L,
+   450					&tma_unlock_key, sizeof(tma_unlock_key));
+   451		if (ret)
+   452			return ret;
+   453	
+   454		/* If HW trapping value is 1, use VEMC_VOSEL_1 instead of VEMC_VOSEL_0 */
+   455		if (val == 1) {
+   456			mask = MT6363_RG_VEMC_VOSEL_1_MASK;
+ > 457			sel = FIELD_PREP(MT6363_RG_VEMC_VOSEL_1_MASK, sel);
+   458		} else {
+   459			mask = rdev->desc->vsel_mask;
+   460		}
+   461	
+   462		/* Function must return the result of this write operation */
+   463		ret = regmap_update_bits(regmap, rdev->desc->vsel_reg, mask, sel);
+   464	
+   465		/* Unconditionally re-lock TMA */
+   466		val = 0;
+   467		regmap_bulk_write(rdev->regmap, MT6363_TOP_TMA_KEY_L, &val, 2);
+   468	
+   469		return ret;
+   470	}
+   471	
+   472	static int mt6363_vemc_get_voltage_sel(struct regulator_dev *rdev)
+   473	{
+   474		unsigned int sel, trap;
+   475		int ret;
+   476	
+   477		ret = regmap_read(rdev->regmap, rdev->desc->vsel_reg, &sel);
+   478		if (ret)
+   479			return ret;
+   480	
+   481		ret = regmap_read(rdev->regmap, MT6363_TOP_TRAP, &trap);
+   482		if (ret)
+   483			return ret;
+   484	
+   485		/* If HW trapping value is 1, use VEMC_VOSEL_1 instead of VEMC_VOSEL_0 */
+   486		if (trap > 1)
+   487			return -EINVAL;
+   488		else if (trap == 1)
+ > 489			ret = FIELD_GET(MT6363_RG_VEMC_VOSEL_1_MASK, sel);
+   490		else
+   491			ret = sel & rdev->desc->vsel_mask;
+   492	
+   493		return ret;
+   494	}
+   495	
 
-Support reading DDR statistic using the Qualcomm stats driver.
-
-Add support for reading TME firmware details to the socinfo driver.
-
-Document the Kryo 470 CPU, and add SM7150 to the DCC to DeviceTree
-bindings.
-
-----------------------------------------------------------------
-Alexander Wilhelm (2):
-      soc: qcom: QMI encoding/decoding for big endian
-      soc: qcom: fix endianness for QMI header
-
-Bjorn Andersson (3):
-      soc: qcom: mdt_loader: Ensure we don't read past the ELF header
-      soc: qcom: mdt_loader: Rename mdt_phdr_valid()
-      soc: qcom: mdt_loader: Actually use the e_phoff
-
-Dan Carpenter (1):
-      soc: qcom: mdt_loader: Fix error return values in mdt_header_valid()
-
-Danila Tikhonov (3):
-      dt-bindings: soc: qcom,dcc: Add the SM7150 compatible
-      dt-bindings: sram: qcom,imem: Add the SM7150 compatible
-      dt-bindings: arm: cpus: Add Kryo 470 CPUs
-
-David Wronek (1):
-      dt-bindings: soc: qcom: aoss-qmp: Add the SM7150 compatible
-
-Kathiravan Thirumoorthy (1):
-      soc: qcom: socinfo: Add support to retrieve TME build details
-
-Konrad Dybcio (1):
-      dt-bindings: sram: qcom,imem: Add a number of missing compatibles
-
-Lijuan Gao (1):
-      dt-bindings: soc: qcom: add qcom,qcs615-imem compatible
-
-Maulik Shah (2):
-      soc: qcom: qcom_stats: Add support to read DDR statistic
-      soc: qcom: qcom_stats: Add QMP support for syncing ddr stats
-
- Documentation/devicetree/bindings/arm/cpus.yaml    |   1 +
- .../bindings/soc/qcom/qcom,aoss-qmp.yaml           |   1 +
- .../devicetree/bindings/soc/qcom/qcom,dcc.yaml     |   1 +
- .../devicetree/bindings/sram/qcom,imem.yaml        |  15 +++
- drivers/soc/qcom/mdt_loader.c                      |  63 ++++++++--
- drivers/soc/qcom/qcom_stats.c                      | 133 +++++++++++++++++++++
- drivers/soc/qcom/qmi_encdec.c                      |  52 ++++++--
- drivers/soc/qcom/qmi_interface.c                   |   6 +-
- drivers/soc/qcom/socinfo.c                         |   2 +
- include/linux/soc/qcom/qmi.h                       |   6 +-
- 10 files changed, 253 insertions(+), 27 deletions(-)
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
