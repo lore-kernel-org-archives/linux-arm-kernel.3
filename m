@@ -4,105 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B72DC83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 10:10:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B993C83F1D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 10:27:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=h3GwjKh4XQxSRfwQPxwqnuf4H24N1Uv5D1O1oOMjSyM=; b=VSggletFqlmtC5f5JmM0qzpe83
-	GbZntOpP4hhgkaMueel9UgCqQO5cTxvS9iMLfuKCaLmTYrjpZopQVph743caz7qJeHFsnkjB4oTj3
-	yK4piSvGv6H6yg+ZEVQ+Tvf/WsngkSSPDAUsyQ9NhGE6f9pipTOwUIST+nI0ui4c7BhpGH1ZD0AV5
-	6z9c2ByKzquMukNcbtfSYsm0HvR0syAL+AJsxeHWQbMnxO9hy2VOGN0CZ44gVfeRR4dkoxtS4+l3X
-	qyyezu9Koued8y+u2Fq+J8Sz0PnRYNLoOcFY25VpTzFKKMfRfxJX9qArHjcpkXSMMHZBx8pZE+PAt
-	H+HlHLCQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HPB78W+8McYaaB33e9qRAKjQ4OIesc7d4iKUKh7nDhY=; b=WcKdaycMmaBSoEyqPjKy3Y/mvP
+	5MWDFjtXEbq11z2tglwkhPkOuKHCSLCfd1kRRCeVk4ko5bgeG+pAN2rEJe1rplTyu8mUVXKOA47NE
+	wW9TX/5rDwbTpLluBHn35qo4omuywWE1Qmv1mzbj+nOJoJDijw/zHCv1Mk7lIJ70NP3g7OrgNPCiG
+	qi2zJ2aoDlGKmcLh0DQbBY9u867EVhY70f5YNRkipB79m4AP4ZIY9IJzwshimWWZc0fHUkIzShUrb
+	sOI8xlFD35PJ+9DzgL32OrldsaWOSjWF6pgWa/SHarOpnaEf0E1UFzBlT4oi0NFMYid4qwFwdjCUI
+	W6O2lerA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubcbn-00000004nr3-10YC;
-	Tue, 15 Jul 2025 10:09:59 +0000
-Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
+	id 1ubcsJ-00000004pSN-3hQo;
+	Tue, 15 Jul 2025 10:27:03 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubcWM-00000004n7l-0SXd
+	id 1ubchE-00000004oGn-1L11
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Jul 2025 10:04:23 +0000
-Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-3a4eb4acf29so292909f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Jul 2025 03:04:21 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1752573860; x=1753178660; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=h3GwjKh4XQxSRfwQPxwqnuf4H24N1Uv5D1O1oOMjSyM=;
-        b=V1iLhz/FMXAjcAvTv+d2OA8IedmBksYwVjknK5Slahd6Y5GuCogkUSjMN+4eivFqTe
-         SkwvsBj2LoYjkNv1VTzTrpsHHUaFF277YBSxTQ+rswfIPfWpPYh50I1L05HWgmi1nmyg
-         +cun1XoKVmcfy9fY00R2Moqn0wXCDJHMw4b3EInV7YK6I2X7bBp0Jqqsws5+JNXI2tW5
-         ZW1KnW1tWdOZ/99icilchBLVVY2IDAaqsoZiYCkZ3TL39BYn12e02YRSzNgq100gIOJ+
-         YHuq6a6FJGPlfqsKzizxKe+/4tfpqzb58DiJc4p3cT6BEAyb4EQHDUP4fWy696nEACp+
-         GCng==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752573860; x=1753178660;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=h3GwjKh4XQxSRfwQPxwqnuf4H24N1Uv5D1O1oOMjSyM=;
-        b=rjGj2b09YP2spxyvaaBY8w3xMP7/tw3f0QFLDwWKnw4RZ6f5vdWQ9S88VioFDuwj8q
-         izPWWVWTU3DpV1gh3XSjQ8aLzJK24ZsmynFGVhv49Rq0OsS/If3GD1V9rJXr9Fztr8y6
-         lSHhuLjVtYKN3cKd3aZQQzKSfSifDn4ytSsjpcAGGIB/OETE7LY4BXRoygdKoKoI0ue3
-         ILb5ptC3LtPx6S0ldaUvr3GKLBzffD+p4JzSC5BS7cJKvfM9AfWNQ5zjCXkLuc26gC5X
-         OJjzb0yQHaICu5Yn0EOPHyRs68axsnJ++/5iDu6uAJv5sZl5NyC77zJI7qv0TEyxJXS3
-         68NA==
-X-Forwarded-Encrypted: i=1; AJvYcCXy8MJccDHndRieYM6fDQiP06E5TKi3RJ8muHCmGBxojOcJT8vKpOFU+WwZ0ewj23tsFvhg3QFkH/C4CK79MOPM@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzp8eaABOWKM5tlpRmfu7hjnG5PC6Tr3nrGbvrOmwg5bHy2KEHd
-	8Pj5pEj9E31+zDZQYAaT1nCW7B5Je2zcUxTPX/ZARa2txTFDUgVXxcL+1KCx1/p7F8o=
-X-Gm-Gg: ASbGncurrJohvF4W20dKzNRVFkzRqL1cnbdnHAxQeS74l5oruBSS+cg1em8UU+z02XM
-	eA9paz+jN4OCjSXY/wzJ2gAEN8gTpyINpNkFkkwTfvXJcmCIlCdhy3obNiitaHfB/3jKPHW/4pq
-	OizEH0Itfl5Tj5TyVqV/fSHlHn5W01EBsQ2dTR/JL8V8LweSmHylkTHDa2KKXI6dRqin8RANJyA
-	6lWJfTsZeWcwr1jvKWzad8o0CyhqeOkn6QDF637xGhjkBjQEl16n3gOAnO7wFl8f5L3MVo8db98
-	ZbrAYKvI7DpacwwMQwKrYtp1V94ZHp/fRt0H+Cy3IhitVg6xFrOmUq2uj1JVSXUhKcjHaQ3Flix
-	pQsQTuUvNDSahYAn/1ZXEzPNZq+BZw9Nl7XE1f1D9lPHHJg==
-X-Google-Smtp-Source: AGHT+IHMrjY0VOQQ9jAAOgpScWai9DyRMoY9ri1wzCPDLxklTJKGMPp+lNZbCBa7EyLMTB8MbldPmg==
-X-Received: by 2002:a05:6000:22c4:b0:3a5:7991:fee with SMTP id ffacd0b85a97d-3b60b3affadmr360862f8f.14.1752573860331;
-        Tue, 15 Jul 2025 03:04:20 -0700 (PDT)
-Received: from krzk-bin.. ([178.197.222.89])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3b5e8e0d571sm14964623f8f.57.2025.07.15.03.04.18
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 15 Jul 2025 03:04:19 -0700 (PDT)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Linus Walleij <linus.walleij@linaro.org>
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	Sylwester Nawrocki <snawrocki@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Peter Griffin <peter.griffin@linaro.org>,
+	Tue, 15 Jul 2025 10:15:37 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 54D27A54ACB;
+	Tue, 15 Jul 2025 10:15:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A1BDCC4CEE3;
+	Tue, 15 Jul 2025 10:15:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1752574535;
+	bh=IBYVlI+orIMPRgYFaIqphL4RshTJzkbjmDni9IWE3vI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=FztlJ1OFq4eDjn612gnPl+YVBf7o63I7kavAKkN6NFFz2JarOIQLE/JFJXeCg6HIL
+	 z4ZOGtGZqr2hPQKCDh6IFKndGWXk3RHqqyPPB3czhiyvHdDfjkLQATIl9Lfl8M5gID
+	 0HJtGGxF+rGCtt710YXgmyHq4m4s6ORR7QRXexgQRC8ZUNIjSNQXBlfwaF88VnHy5Q
+	 DAeqFE4EsBQdtOCEvZ/PIaHSEYH78SR85B5+0dobS6Zx5s4O7OpqEuvklCOv/kkzQZ
+	 i3ZfJH1M7EPMLX9i6abuLL0sl0GpzfeP8svATD4gLx1MMmUlMd7S/CH7JSvW9yWmk3
+	 gd5aHtoOobY1A==
+Date: Tue, 15 Jul 2025 11:15:25 +0100
+From: Will Deacon <will@kernel.org>
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Justin Stitt <justinstitt@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Leon Romanovsky <leon@kernel.org>,
+	linux-rdma@vger.kernel.org, linux-s390@vger.kernel.org,
+	llvm@lists.linux.dev, Ingo Molnar <mingo@redhat.com>,
+	Bill Wendling <morbo@google.com>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>,
+	Salil Mehta <salil.mehta@huawei.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Thomas Gleixner <tglx@linutronix.de>, x86@kernel.org,
+	Yisen Zhuang <yisen.zhuang@huawei.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Leon Romanovsky <leonro@mellanox.com>, linux-arch@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-gpio@vger.kernel.org,
-	Krzysztof Kozlowski <krzk@kernel.org>
-Subject: [GIT PULL] pinctrl: samsung: drivers for v6.17
-Date: Tue, 15 Jul 2025 12:04:15 +0200
-Message-ID: <20250715100415.60487-2-krzysztof.kozlowski@linaro.org>
-X-Mailer: git-send-email 2.43.0
+	Mark Rutland <mark.rutland@arm.com>,
+	Michael Guralnik <michaelgur@mellanox.com>, patches@lists.linux.dev,
+	Niklas Schnelle <schnelle@linux.ibm.com>,
+	Jijie Shao <shaojijie@huawei.com>
+Subject: Re: [PATCH v3 6/6] IB/mlx5: Use __iowrite64_copy() for write
+ combining stores
+Message-ID: <aHYqPRqgcl5DQOpq@willie-the-truck>
+References: <0-v3-1893cd8b9369+1925-mlx5_arm_wc_jgg@nvidia.com>
+ <6-v3-1893cd8b9369+1925-mlx5_arm_wc_jgg@nvidia.com>
+ <20250714215504.GA2083014@nvidia.com>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1269; i=krzysztof.kozlowski@linaro.org;
- h=from:subject; bh=SB5SCWzU4SrF0bpQDxGLNYlzODumqwqpchHlKL/3Y8I=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBodiefBvfgeeH/sRvJWFZDCiNYk4oeYz1pS3qxy
- jayWCXCSCKJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaHYnnwAKCRDBN2bmhouD
- 10t9D/wLdtc2naCJk+QxDqceFLLmw9n17tnaDNQLktCQYeD1Oj7BiPOYSnvKeu9IG72Ru6pTQom
- t0ivRHMXRkjNg71dTTq6hYzeNMwJw7aa9FLd5BmYivYmQ8v3LyLau7tVDwQp+mne+uKAwpI+DdA
- JaiOqgxoenmPLxUpOlHwwmTqqfeMoO+5ra9LsspbkIeXQrSZ/ZBnCz/OlCPFEVFmPUJ57vdJecC
- Ik7N5ll7va/s7Wze8FVj5nBAYVd3O4TrJyf1betn5N82xkdpYGpRTvzbjoBQNlco/7q/fJW73cb
- 8GCl5Y9NWoG4yUJjYwytEc7waT6sil08JcnWdOVSVdq7Ekcfmy2Ior8ooXXMjuLxvyKglJh1CWZ
- YU+VVpYaQmqpgn1Z6Njq6M2t6Yc+u4no6sRCd1s2gCDTVBPmtacsN/uIwMBpbYYbrH7Pi/0OBQw
- NJ5ryZM8Jw3oC3iIZDqfCD0c/D3NHkIZgXstzEC6CohnbvnARNNLWKKqMnFwwjuhwrNjlQjcbW8
- g51fowHAe4Bw+t3NtQn5u3+3iYHJc4oTHet5S4T6K617H8KMtk5gyEDc7v8aJ4ShnEPwBbp77EY
- n5IN7ezkxsmMrWi/AwRiA+TxofirQlpx01/rk9cS/qdOc+dFIjZW86wT/GZkAr7RImesc3ptZ/p i2w0gdEkgVu03hA==
-X-Developer-Key: i=krzysztof.kozlowski@linaro.org; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250714215504.GA2083014@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250715_030422_188450_25EBD6EE 
-X-CRM114-Status: UNSURE (   9.32  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250715_031536_498547_B5F4429C 
+X-CRM114-Status: GOOD (  26.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,35 +103,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Linus,
+On Mon, Jul 14, 2025 at 06:55:04PM -0300, Jason Gunthorpe wrote:
+> On Thu, Apr 11, 2024 at 01:46:19PM -0300, Jason Gunthorpe wrote:
+> > mlx5 has a built in self-test at driver startup to evaluate if the
+> > platform supports write combining to generate a 64 byte PCIe TLP or
+> > not. This has proven necessary because a lot of common scenarios end up
+> > with broken write combining (especially inside virtual machines) and there
+> > is other way to learn this information.
+> > 
+> > This self test has been consistently failing on new ARM64 CPU
+> > designs (specifically with NVIDIA Grace's implementation of Neoverse
+> > V2). The C loop around writeq() generates some pretty terrible ARM64
+> > assembly, but historically this has worked on a lot of existing ARM64 CPUs
+> > till now.
+> > 
+> > We see it succeed about 1 time in 10,000 on the worst effected
+> > systems. The CPU architects speculate that the load instructions
+> > interspersed with the stores makes the WC buffers statistically flush too
+> > often and thus the generation of large TLPs becomes infrequent. This makes
+> > the boot up test unreliable in that it indicates no write-combining,
+> > however userspace would be fine since it uses a ST4 instruction.
+> 
+> After a year of testing this in real systems it turns out that still
+> some systems are not good enough with the unrolled 8 byte store loop.
+> In my view the CPUs are quite bad here and this WC performance
+> optimization is not working very well.
+> 
+> There are only two more options to work around this issue, use the
+> unrolled 16 byte STP or the single Neon instruction 64 byte store.
+> 
+> Since STP was rejected alread we've only tested the Neon version. It
+> does make a huge improvement, but it still somehow fails to combine
+> rarely sometimes. The CPU is really bad at this :(
 
-The following changes since commit 19272b37aa4f83ca52bdf9c16d5d81bdd1354494:
+I think the thread was from last year so I've forgotten most of the
+details, but wasn't STP rejected because it wasn't virtualisable? In
+which case, doesn't NEON suffer from exactly the same (or possibly
+worse) problem?
 
-  Linux 6.16-rc1 (2025-06-08 13:44:43 -0700)
+Also, have you managed to investigate why the CPU tends not to get this
+right? Do we e.g. end up taking interrupts/exceptions while the self
+test is running or something like that?
 
-are available in the Git repository at:
+Sorry for the wall of questions!
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/pinctrl/samsung.git tags/samsung-pinctrl-6.17
-
-for you to fetch changes up to 683d532dfc9657ab8aae25204f378352ed144646:
-
-  pinctrl: samsung: Fix gs101 irq chip (2025-07-05 09:35:22 +0200)
-
-----------------------------------------------------------------
-Samsung pinctrl drivers changes for v6.17
-
-Add support for programming wake up for Google GS101 SoC pin
-controllers, so the SoC can be properly woken up from low power states.
-
-----------------------------------------------------------------
-Peter Griffin (3):
-      pinctrl: samsung: rename exynosautov920_retention_data to no_retention_data
-      pinctrl: samsung: add support for gs101 wakeup mask programming
-      pinctrl: samsung: Fix gs101 irq chip
-
- drivers/pinctrl/samsung/pinctrl-exynos-arm64.c |   6 +-
- drivers/pinctrl/samsung/pinctrl-exynos.c       | 103 +++++++++++++++++++++----
- drivers/pinctrl/samsung/pinctrl-samsung.h      |   4 +
- include/linux/soc/samsung/exynos-regs-pmu.h    |   1 +
- 4 files changed, 98 insertions(+), 16 deletions(-)
+Will
 
