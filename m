@@ -4,60 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AAD0C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 15:37:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB0DBC83F22
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 15:40:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uou+fIcwU1PzEJVsXA6Ci3JWaoJkst6WSweOQ4OvZ2I=; b=xs5v0SyfW0RGSelk2oLoZHOu1x
-	OUaAyJ6eLg1QYnWQERtldFxNW08UCh+K7+Y2KpOEzCoKHLKAGZS7jdos5k3ZiYaEk7m3R3lNO1DmH
-	1D18FMi3SK3yLSQVSFxY/f1zNVMh2M/puJYWfETabyJyONmvk6PM+lJIoWJCym2VQQUhtShhcVEGE
-	paEBaDzgWKouXDOUSxY9j0U4pylhn739WmDxJe9aYhRfeICkCUYUDsOKMKBNALi2BB6mP448cCuN0
-	j7o0DIMkzT2ZPkIKMVPC5vKpq8S+H3IKiRS3T8Tx/cPI8/uS1VJtYJ8mJyJL2NHNhLfRSdpjOYzYi
-	gyLsBWdA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
+	Cc:Subject:To:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Lk6YS19eH8sl7JMJlZ3DJG1FxHGmkLhzKUSEcTA4E0g=; b=2/bVFJ/zYYbkcO0MHby0aTZw3i
+	gcpJ0aDRmFQigbNKPw2rU0b+POdW8Q9b0bJVaF1dlQvKegGfgFfR3/PcYeMHntaNefICJRmrM0+Gw
+	tjuhVXPQTJQt4+92JlW7t3BjSCMGiEaJJsiMc47+O9Mr/tWx7lfAF/iLhrzF0thY88HA60s9Rh9EM
+	QZUiAWJdxN6AQj15vX0TxkV3nlnL86HQQu60EOcTjJvYOXq2dWoNYHcNnELDvgoJMXX3r+9G9majr
+	n9DaJhh/uP09hLXNB3k4WnHbz2WNOcCmGAN0oUvCzPSOdSvZusIKWJQLagdk2fSNHITp+LG9vGoF+
+	N2N1iMXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubhiw-00000005cUi-3Mtb;
-	Tue, 15 Jul 2025 15:37:42 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1ubhlL-00000005crA-2F7i;
+	Tue, 15 Jul 2025 15:40:11 +0000
+Received: from relay8-d.mail.gandi.net ([217.70.183.201])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubgEd-00000005In1-0xMk
+	id 1ubgEq-00000005Ioh-267I
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Jul 2025 14:02:19 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 88DF961456;
-	Tue, 15 Jul 2025 14:02:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AEC23C4CEE3;
-	Tue, 15 Jul 2025 14:02:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752588138;
-	bh=d5BQBqrR42o5J743Ypk7CrVCgGVYQ58Kfjd6IBpO1Yk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=FVEgVSM5N26819X4lipZMDyMe34jGjFfmoBrXpftgAESk6apUITUs7awcXwXdVesY
-	 MxvVDf0+0JH/bLMNI7vd1EBVTbImSlolEmzozleH423ApiR8OKHuLMz2TMF+hoPyc/
-	 MDDAH6zKqXMImFGCdmA7p7e3C4rg/du2I5Dp6vb06npSYQ+YJq1PbrMe8CVJvxATsV
-	 ODBo8ScygHfIFquS69M/XxBuF04M7RMkeGI2A2xzRvmXoOR2RLyFOg/sy5XGvxFeoW
-	 9uQq6JqRz1h1E54NAbQUYzX8+iBoYQk1LU1cx2NKAbgH/h9rBjAOx/8TeN8ekAq20p
-	 sn8FjH3qFsuFA==
-Date: Tue, 15 Jul 2025 15:02:13 +0100
-From: Will Deacon <will@kernel.org>
-To: Breno Leitao <leitao@debian.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kernel-team@meta.com, osandov@fb.com, leo.yan@arm.com,
-	rmikey@meta.com
-Subject: Re: [PATCH] arm64: traps: Mark kernel as tainted on SError panic
-Message-ID: <aHZfZbxLGyFjJpNo@willie-the-truck>
-References: <20250710-arm_serror-v1-1-2a3def3740d7@debian.org>
- <aHQ3Lu27_mLfR8Ke@willie-the-truck>
- <t3v2xvjal67bl5dwyatwgf46tnr2ikxnq62iqmda544llcd7oh@ws3nnrfp7r5p>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <t3v2xvjal67bl5dwyatwgf46tnr2ikxnq62iqmda544llcd7oh@ws3nnrfp7r5p>
+	Tue, 15 Jul 2025 14:02:34 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id EF5C544410;
+	Tue, 15 Jul 2025 14:02:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1752588148;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Lk6YS19eH8sl7JMJlZ3DJG1FxHGmkLhzKUSEcTA4E0g=;
+	b=Ohr1ZKGWHYKUPNEXEl46hgF6TQ3LZlc0hvDeytv/gT65N3h3Ab2tGCfHDWFG0rZz9yZqcM
+	GeL8Updmc8eobyHblIB4FjLPJkh//fBMg7qA1m4K32fYwSReVsY2y81/wiZTdu4IEJXkYz
+	zSmzVGy95jlzloW57DqpLucelajOCmeo7S73g3Qd52RWyebVQm8ePQ40ydBOj543bJ1jsz
+	WV+jFc5hfOTso61Gv43Tj+0wS9vuMz00NzuZV7vR9oA0I9Ad2rqTX8IH8unDKS5QE1PrVY
+	PJ/cc3RFGuMXGLVv0ZZWlpKA8DWtDzXVpG+fzBROwdoApgROYpb37MK7a5IbWg==
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Tue, 15 Jul 2025 16:02:25 +0200
+Message-Id: <DBCONB7XHN7E.2UQMMG6RICMFY@bootlin.com>
+To: "Will Deacon" <will@kernel.org>
+Subject: Re: [PATCH 1/2] bpf, arm64: remove structs on stack constraint
+Cc: "Alexei Starovoitov" <ast@kernel.org>, "Daniel Borkmann"
+ <daniel@iogearbox.net>, "Andrii Nakryiko" <andrii@kernel.org>, "Martin
+ KaFai Lau" <martin.lau@linux.dev>, "Eduard Zingerman" <eddyz87@gmail.com>,
+ "Song Liu" <song@kernel.org>, "Yonghong Song" <yonghong.song@linux.dev>,
+ "John Fastabend" <john.fastabend@gmail.com>, "KP Singh"
+ <kpsingh@kernel.org>, "Stanislav Fomichev" <sdf@fomichev.me>, "Hao Luo"
+ <haoluo@google.com>, "Jiri Olsa" <jolsa@kernel.org>, "Puranjay Mohan"
+ <puranjay@kernel.org>, "Xu Kuohai" <xukuohai@huaweicloud.com>, "Catalin
+ Marinas" <catalin.marinas@arm.com>, "Mykola Lysenko" <mykolal@fb.com>,
+ "Shuah Khan" <shuah@kernel.org>, <ebpf@linuxfoundation.org>, "Thomas
+ Petazzoni" <thomas.petazzoni@bootlin.com>, "Bastien Curutchet"
+ <bastien.curutchet@bootlin.com>, "Ihor Solodrai" <ihor.solodrai@linux.dev>,
+ <bpf@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-kernel@vger.kernel.org>, <linux-kselftest@vger.kernel.org>
+From: =?utf-8?q?Alexis_Lothor=C3=A9?= <alexis.lothore@bootlin.com>
+X-Mailer: aerc 0.20.1-0-g2ecb8770224a-dirty
+References: <20250709-arm64_relax_jit_comp-v1-0-3850fe189092@bootlin.com>
+ <20250709-arm64_relax_jit_comp-v1-1-3850fe189092@bootlin.com>
+ <aHZYcY_9JtK8so3C@willie-the-truck>
+In-Reply-To: <aHZYcY_9JtK8so3C@willie-the-truck>
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdehhedtudcutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepggfgtgffkffvufevhffofhgjsehtqhertdertdejnecuhfhrohhmpeetlhgvgihishcunfhothhhohhrrocuoegrlhgvgihishdrlhhothhhohhrvgessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepuefhhfejhffftedthfeukeeiueekffffjeefkeeujeetleekfedtvdegieehvdegnecuffhomhgrihhnpehkvghrnhgvlhdrohhrghdpsghoohhtlhhinhdrtghomhenucfkphepledtrdekledrudeifedruddvjeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpeeltddrkeelrdduieefrdduvdejpdhhvghloheplhhotggrlhhhohhsthdpmhgrihhlfhhrohhmpegrlhgvgihishdrlhhothhhohhrvgessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepvdeipdhrtghpthhtohepfihilhhlsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegrshhtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegurghnihgvlhesihhoghgvrghrsghogidrnhgvthdprhgtphhtthhopegrnhgurhhiiheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepmhgrrhhtihhnrdhlrghus
+ ehlihhnuhigrdguvghvpdhrtghpthhtohepvgguugihiiekjeesghhmrghilhdrtghomhdprhgtphhtthhopehsohhngheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohephihonhhghhhonhhgrdhsohhngheslhhinhhugidruggvvh
+X-GND-Sasl: alexis.lothore@bootlin.com
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250715_070233_023339_322AB2E8 
+X-CRM114-Status: GOOD (  19.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,61 +90,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 14, 2025 at 05:26:43AM -0700, Breno Leitao wrote:
-> On Sun, Jul 13, 2025 at 11:46:06PM +0100, Will Deacon wrote:
-> > On Thu, Jul 10, 2025 at 03:46:35AM -0700, Breno Leitao wrote:
-> 
-> > > --- a/arch/arm64/kernel/traps.c
-> > > +++ b/arch/arm64/kernel/traps.c
-> > > @@ -931,6 +931,7 @@ void __noreturn panic_bad_stack(struct pt_regs *regs, unsigned long esr, unsigne
-> > >  
-> > >  void __noreturn arm64_serror_panic(struct pt_regs *regs, unsigned long esr)
-> > >  {
-> > > +	add_taint(TAINT_MACHINE_CHECK, LOCKDEP_STILL_OK);
-> > >  	console_verbose();
-> > >  
-> > >  	pr_crit("SError Interrupt on CPU%d, code 0x%016lx -- %s\n",
-> > 
-> > If we're going to taint for SError, shouldn't we also taint for an
-> > unclaimed SEA?
-> 
-> Yes. I was not very familiar with SEA errors, given I haven't seen on in
-> production yet, but, reading about it, that is another seems to crash
-> the system due to hardware errors, thus, we want to taint MACHINE_CHECK.
-> 
-> What about this?
-> 
-> 	Author: Breno Leitao <leitao@debian.org>
-> 	Date:   Mon Jul 14 05:16:55 2025 -0700
-> 
-> 	arm64: Taint kernel on fatal hardware error in do_sea()
-> 
-> 	This patch updates the do_sea() handler to taint the kernel with
-> 	TAINT_MACHINE_CHECK when a fatal hardware error is detected and
-> 	reported through Synchronous External Abort (SEA). By marking
-> 	the kernel as tainted at the point of error, we improve
-> 	post-mortem diagnostics and make it clear that a machine check
-> 	or unrecoverable hardware fault has occurred.
-> 
-> 	Suggested-by: Will Deacon <will@kernel.org>
-> 	Signed-off-by: Breno Leitao <leitao@debian.org>
-> 
-> 	diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
-> 	index 11eb8d1adc84..f590dc71ce99 100644
-> 	--- a/arch/arm64/mm/fault.c
-> 	+++ b/arch/arm64/mm/fault.c
-> 	@@ -838,6 +838,7 @@ static int do_sea(unsigned long far, unsigned long esr, struct pt_regs *regs)
-> 			*/
-> 			siaddr  = untagged_addr(far);
-> 		}
-> 	+	add_taint(TAINT_MACHINE_CHECK, LOCKDEP_STILL_OK);
-> 		arm64_notify_die(inf->name, regs, inf->sig, inf->code, siaddr, esr);
-> 
-> 		return 0;
+On Tue Jul 15, 2025 at 3:32 PM CEST, Will Deacon wrote:
+> On Wed, Jul 09, 2025 at 10:36:55AM +0200, Alexis Lothor=C3=A9 (eBPF Found=
+ation) wrote:
+>> While introducing support for 9+ arguments for tracing programs on
+>> ARM64, commit 9014cf56f13d ("bpf, arm64: Support up to 12 function
+>> arguments") has also introduced a constraint preventing BPF trampolines
+>> from being generated if the target function consumes a struct argument
+>> passed on stack, because of uncertainties around the exact struct
+>> location: if the struct has been marked as packed or with a custom
+>> alignment, this info is not reflected in BTF data, and so generated
+>> tracing trampolines could read the target function arguments at wrong
+>> offsets.
+>>=20
+>> This issue is not specific to ARM64: there has been an attempt (see [1])
+>> to bring the same constraint to other architectures JIT compilers. But
+>> discussions following this attempt led to the move of this constraint
+>> out of the kernel (see [2]): instead of preventing the kernel from
+>> generating trampolines for those functions consuming structs on stack,
+>> it is simpler to just make sure that those functions with uncertain
+>> struct arguments location are not encoded in BTF information, and so
+>> that one can not even attempt to attach a tracing program to such
+>> function. The task is then deferred to pahole (see [3]).
+>>=20
+>> Now that the constraint is handled by pahole, remove it from the arm64
+>> JIT compiler to keep it simple.
+>>=20
+>> [1] https://lore.kernel.org/bpf/20250613-deny_trampoline_structs_on_stac=
+k-v1-0-5be9211768c3@bootlin.com/
+>> [2] https://lore.kernel.org/bpf/CAADnVQ+sj9XhscN9PdmTzjVa7Eif21noAUH3y1K=
+6x5bWcL-5pg@mail.gmail.com/
+>> [3] https://lore.kernel.org/bpf/20250707-btf_skip_structs_on_stack-v3-0-=
+29569e086c12@bootlin.com/
+>>=20
+>> Signed-off-by: Alexis Lothor=C3=A9 (eBPF Foundation) <alexis.lothore@boo=
+tlin.com>
+>> ---
+>>  arch/arm64/net/bpf_jit_comp.c | 5 -----
+>>  1 file changed, 5 deletions(-)
+>
+> This is a question born more out of ignorance that insight, but how do
+> we ensure that the version of pahole being used is sufficiently
+> up-to-date that the in-kernel check is not required?
 
-Yeah, I reckon so. Probably just fold these into a single patch, though.
+Based on earlier discussions, I am not convinced it is worth maintaining
+the check depending on the pahole version used in BTF. Other architectures
+exposing a JIT compiler don't have the in-kernel check and so are already
+exposed to this very specific case, but discussions around my attempt to
+enforce the check on other JIT comp showed that the rarity of this case do
+not justify protecting it on kernel side (see [1]).
 
-Cheers,
+Alexis
 
-Will
+[1] https://lore.kernel.org/bpf/CAADnVQ+sj9XhscN9PdmTzjVa7Eif21noAUH3y1K6x5=
+bWcL-5pg@mail.gmail.com/
+
+
+--=20
+Alexis Lothor=C3=A9, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
+
 
