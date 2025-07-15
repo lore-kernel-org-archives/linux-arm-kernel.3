@@ -4,84 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DF20C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 11:30:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C3BFC83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 11:33:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:MIME-Version:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=4NcnVHT6qn7BJ6Ec3gjN6DJVTr3Q8w/Kv+WVRHHdtL8=; b=FgFbAn8PoUWJ0Mu5sV3qf5EMHi
-	qOuF/oMFwJPJnZJfcH/yHQIfi12GqXTVVJzTPfnyJp6Xxq2SCA6qF14Os7tKaK9DRFVBDVcb32bRF
-	agiLTj/kklx2lW7JHTMLykf5n+zSwnfbpIMznF0+tm+dUJrw0q8gJF+lFbyUQa+ZRllJodDENcvSS
-	kMUWhg9eFmqAJACHhI01HIFtDzSAoagA+ysQghVJJjeIQmc53HVLdpHuElKZg0jrtYiJovjhAxwI4
-	HfTPlI1wp5KTukvGv+zJjpxlmy5jHHtqTO39z/Uzpzb5QY35y/rc/U6snbixYocB38QY/kgcCvrou
-	KF6nQ4IQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=48leRxD0TU7V/c6N2/mupnLAwgByK82JSI8+Zfl28GM=; b=YbHevVeW70xjoQ76w16CUS54vh
+	v7iCNEaL1OjdWrjIyNAJdxCZ0cI4x9Y02bCZTYr6gSDN4doA+V2RtAFtcrYA4jx5lILqN2rH82XK/
+	yTZgDtl0yBGvmiw5dIauzpouEH2kljHgi2AnPALlUos9nmnyE5lzc5FFV9whtpQen+ob2QWPWHM5j
+	9fcA67OZ6/UcEI6bgMPq92QSukPRijMfc8COYtXgfUliwffSUquD3mLE1sGcegm3nHGaW207MEZD/
+	gMelCYBCoODQ8Z9n4EC8lrowSd5ONgHs+UHD9BQgsZKDLNY6j/DTAuAsb8mrYoO3Ivdqk81FCwSvr
+	UXh1enMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubdrk-00000004wl1-0TKw;
-	Tue, 15 Jul 2025 11:30:32 +0000
-Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
+	id 1ubdu8-00000004x9X-3W2S;
+	Tue, 15 Jul 2025 11:33:00 +0000
+Received: from smtpbgau1.qq.com ([54.206.16.166])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubdkj-00000004vgZ-3PQU
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Jul 2025 11:23:19 +0000
-Received: by mail-pj1-x1036.google.com with SMTP id 98e67ed59e1d1-3138b2f0249so4337820a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Jul 2025 04:23:17 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1752578597; x=1753183397; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:mime-version:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=4NcnVHT6qn7BJ6Ec3gjN6DJVTr3Q8w/Kv+WVRHHdtL8=;
-        b=uC/7hy0fzF2wfEkxf0uQ8CejYuZWgCJ/is149R7hrpEJLDc+MP35ORYpU/lphhfF7E
-         8fiItOCCyBi5bCUBjfdbC3xAQLlCzWNcISKO3eJk1uulKscq3f0Wx8ITN05US/1dLqGz
-         dBwENae37PqMFTzZ9d6Sifso3WFfnZ1n75YBnk1kjEybE2LCS5HExsNHLgNjCFW82fuI
-         f1Wud6Y2vxSIAaWv+eSfm6Q0NcOg+RuSc1wOL5F+qEdyzEkZqGnuiju4HntVQaBCmTlN
-         GXC3VZCGgX8fXxfMTOuh4UNVl89MgUanfLwtsUjGARzcQGx4fck3Pzz/mQqRAUyZHoAb
-         WQJA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752578597; x=1753183397;
-        h=cc:to:subject:message-id:date:from:mime-version:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=4NcnVHT6qn7BJ6Ec3gjN6DJVTr3Q8w/Kv+WVRHHdtL8=;
-        b=tKqciWLBq+kfkXBwa7XFOd/bP67XFATW/HGvoc0iJqYLOneAOAYDXCoFLA2sMLj8Eg
-         qGUOS/gGqyybSX5ND13WtEyw3Yi5yRxU7wm23mkgcyLj2mEKdiXCfh58i9C60zYLHQ49
-         5qVCAGzmKG8M2u+kOY1Z3tO7dAV4wOVs2qnQ9+qg9KW6kZOqo3us2feYqUDB+Kk4R83O
-         dPtyi4jVtm/91Xw7N/qWHpWxI6MkHBcL+dPY/v/uYTW+yq97TcbpucAdJSLoVWt+GwSV
-         8xZyi9tWUFrAh58ecO9qM4AVnK4lyj+lHKbVbjuDtraJbB/uBmCj7+qcyLXVz7JPXn4Y
-         Uq7w==
-X-Forwarded-Encrypted: i=1; AJvYcCUaLblqPDo2v9S9Evem/y7AZv53vjw+hC5J1zljhqvtak78o7j0XVhYu4atrPYMn+04/Y70A7vPOyy4XzOL2nLO@lists.infradead.org
-X-Gm-Message-State: AOJu0YzrNKIWldGKzjeON9xCdB5wDCisNsw2E5uXL6GthVTHDPEEYnVV
-	0NPRtLILAFYpvIUUoGHa8EvaohyYZjaffSfT9Cacaun2EtPb3ZHcABQ2nRNBTW60XMPKF4uyaDO
-	7YLYgGq4T0HV9JwVRsxX6bHZMLzeHR/z4MIfwqHshKw==
-X-Gm-Gg: ASbGnctU7NvKDGSJZ0vxBjfz36GVzmPVwazw7b8t30TPLzksFYhsDZV21ROwzF/AwEV
-	TqMXsWhixFZUOMPFxHlaZpxRBoOHfzuLCw81RPdXSrQ+pHF6J9sXRfeAZ5NvXwHrbp3Bok4dxVL
-	7zkXyB769HSArmx0X9RQ625x55wwXOaLHOxwV6OZgr0IUa7W2pPJvnV1Da4rZJtDXLRsIM/f+E3
-	04VDYeyO2Q5Btrxct5b9MlKYKNgKwD3mUIk1qJbzHiVBy1iRs8=
-X-Google-Smtp-Source: AGHT+IELZ4SimOBJO6yrghuVWIOvvAedlzL4IeD6zPpIQjSz8JGeh7uFbZ7kG0dhBVgjaSWgYEdK7o4EE+MZnbE6CoQ=
-X-Received: by 2002:a17:90b:4c0d:b0:315:af43:12ee with SMTP id
- 98e67ed59e1d1-31c50e1763cmr20865064a91.16.1752578596648; Tue, 15 Jul 2025
- 04:23:16 -0700 (PDT)
-MIME-Version: 1.0
-From: Naresh Kamboju <naresh.kamboju@linaro.org>
-Date: Tue, 15 Jul 2025 16:53:04 +0530
-X-Gm-Features: Ac12FXw5_VIt4EBOG5y1_FGQ9hbqKjaE3fl3SBQ4AiBXr0z1r7gqAHncSjssGvY
-Message-ID: <CA+G9fYusqGejrepNPCR-7ZZDPeQQfZgf2z=_aUz_03QHm7Ccaw@mail.gmail.com>
-Subject: selftests: arm64: mte: check_prctl.c:72:17: error: use of undeclared
- identifier 'AT_HWCAP3'
-To: open list <linux-kernel@vger.kernel.org>, 
-	Linux ARM <linux-arm-kernel@lists.infradead.org>, lkft-triage@lists.linaro.org, 
-	Linux Regressions <regressions@lists.linux.dev>
-Cc: Yeoreum Yun <yeoreum.yun@arm.com>, Mark Brown <broonie@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Arnd Bergmann <arnd@arndb.de>, 
-	Dan Carpenter <dan.carpenter@linaro.org>, Anders Roxell <anders.roxell@linaro.org>, 
-	Shuah Khan <shuah@kernel.org>, Benjamin Copeland <ben.copeland@linaro.org>
-Content-Type: text/plain; charset="UTF-8"
+	id 1ubdnc-00000004w71-0EEz;
+	Tue, 15 Jul 2025 11:26:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=airkyi.com;
+	s=altu2504; t=1752578717;
+	bh=48leRxD0TU7V/c6N2/mupnLAwgByK82JSI8+Zfl28GM=;
+	h=From:To:Subject:Date:Message-Id;
+	b=LYU85rxxb+AlTjzvPxSOFTg9Ym02dESfIh/d4XYTTW7jbejZK2dbidBvvHNheDjoK
+	 lNY5uSp0txf+dtCtnUruJO05scerZm1iMgp9TI3KS40y9RN87pCxRAdGjaYGsypM6C
+	 WWCkMUjWWggX6Gj7UqSorcu83sOne+6J0guVRMH8=
+X-QQ-mid: zesmtpsz3t1752578715tf1fca394
+X-QQ-Originating-IP: nQFR1FU7A+T0nhqIXZpgEEqxJ7PICM/rP4YGE14hgwI=
+Received: from DESKTOP-8BT1A2O.localdomain ( [58.22.7.114])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Tue, 15 Jul 2025 19:25:13 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 13236651797799962325
+From: Chaoyi Chen <kernel@airkyi.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Sandy Huang <hjc@rock-chips.com>,
+	Andy Yan <andy.yan@rock-chips.com>,
+	Yubing Zhang <yubing.zhang@rock-chips.com>,
+	Frank Wang <frank.wang@rock-chips.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Amit Sunil Dhamne <amitsd@google.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Chaoyi Chen <chaoyi.chen@rock-chips.com>,
+	Dragan Simic <dsimic@manjaro.org>,
+	Johan Jonker <jbx6244@gmail.com>,
+	Diederik de Haas <didi.debian@cknow.org>
+Cc: devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-phy@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	dri-devel@lists.freedesktop.org
+Subject: [PATCH 3/5] phy: rockchip: phy-rockchip-typec: Add support for Type-C TCPM
+Date: Tue, 15 Jul 2025 19:24:54 +0800
+Message-Id: <20250715112456.101-4-kernel@airkyi.com>
+X-Mailer: git-send-email 2.17.1
+In-Reply-To: <20250715112456.101-1-kernel@airkyi.com>
+References: <20250715112456.101-1-kernel@airkyi.com>
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpsz:airkyi.com:qybglogicsvrsz:qybglogicsvrsz4a-0
+X-QQ-XMAILINFO: NvH2zBBgt3uT9PzPxFcjF3DykmDdRik/bc/OYANTtkbWNFItacd+o5zW
+	eGzDnAqQV8vKissHUapO7LznL1BKj7Bq8tksUneP7i/+9+R15j62E2t2TBwjyifKJvPoCoX
+	YDG024aBsC0mAmnQDlll7+0/Tt0/dYeI/zK4Vg85OMDnve6/YO7U/AE11zdyFa1QOoOdJ1i
+	dst4DEzZXMZXcRF9II6CU5JVvriPfMLCq7A6A29mtSt54em7jGHorPkZdzSyyBgB9oXTCto
+	yNrhLeH0gkxg+Ow+83G2EJkktSeyiKiYhYTmvt90LH7l2shmB+odm//bDkvSDseoyh0LOXA
+	XAyei8OzB1jumVlH7AshWVQwrTPIsrEioy7lMHqnx07ijGt2LRwxmAgP5n2HD2KEipHe0HY
+	YRb152iKDu1xFbHySkCnWy/S6CVWs2pnVEYj5LEunaN9rlat9iIKdBffy74uCZF96cdJvAi
+	YjZZelhmn4NdgKv66ETNHvOOohySrcGleQrBIb4U+SNiUKEReHfvac+fZADCS5s/jUxTk6Z
+	WM33ixZQLtTfQJMEfCQD/c5I/gndAH6og2Evb4dMRnc3BF1gPFVEOs+KqZb57IeGgCWQVSv
+	OPGNGbOvsOb52ceYD+egWnk7AAJvIIJl3m+XlTjdEN/lZsb6KZC+SadcqpEI6KZY1PnVbQc
+	MgXBWXSjbfoaddfI0fsTjFSOtdGlJI9udMcT5c5BuhSd45XHx9V7u5T907JLAgm/9wTbTzR
+	XT/+3Ybl3U+etGgHj/KfLCyjGhcTIW9824ENoywGCsladZWbdstd5IELGjQfPhqYdvLMPqB
+	TMurSvGMncIPuGa3STdAhOMmYNxhucy5r7K9XPdE3GLYuhuQ7YTkuqS16G+404IQrDDchh7
+	rOiRTaMKPWCkHnAJoxPBT/knBNg6gFwPT6Uuna34LyMEUioBXSvoiFIwuH9kF23AceP06qy
+	u4O2ztUfk/WFCFxQe31+K0pIxwQAwXgYQv7hyU+hXYiP5GZW2SJlcUH1AitocwiUzCh7sz5
+	N0Drct5w==
+X-QQ-XMRINFO: MPJ6Tf5t3I/ycC2BItcBVIA=
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250715_042317_850752_39E13EDD 
-X-CRM114-Status: UNSURE (   6.99  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250715_042616_560486_F7EBC2B3 
+X-CRM114-Status: GOOD (  24.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,69 +112,513 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The selftests arm64 mte build failed on the Linux next-20250703 onwards
-with clang-20 toolchain. still seen on today's tag next-20250714.
+From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
 
-First seen on the tag next-20250703
-Good: next-20250702
-Bad:  next-20250703 (next-20250714)
+This patch add support for Type-C Port Controller Manager.
+The extcon device should still be supported.
 
-Regression Analysis:
-- New regression? Yes
-- Reproducibility? Yes
+Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+---
+ drivers/phy/rockchip/phy-rockchip-typec.c | 335 ++++++++++++++++++++--
+ 1 file changed, 319 insertions(+), 16 deletions(-)
 
-Boot regression: next-20250703 check_prctl.c error use of undeclared
-identifier 'AT_HWCAP3'
+diff --git a/drivers/phy/rockchip/phy-rockchip-typec.c b/drivers/phy/rockchip/phy-rockchip-typec.c
+index d9701b6106d5..ce2e710c1738 100644
+--- a/drivers/phy/rockchip/phy-rockchip-typec.c
++++ b/drivers/phy/rockchip/phy-rockchip-typec.c
+@@ -54,6 +54,8 @@
+ 
+ #include <linux/mfd/syscon.h>
+ #include <linux/phy/phy.h>
++#include <linux/usb/typec_dp.h>
++#include <linux/usb/typec_mux.h>
+ 
+ #define CMN_SSM_BANDGAP			(0x21 << 2)
+ #define CMN_SSM_BIAS			(0x22 << 2)
+@@ -286,12 +288,23 @@
+ #define RX_DIAG_SC2C_DELAY		(0x81e1 << 2)
+ 
+ #define PMA_LANE_CFG			(0xc000 << 2)
++#define PMA_LANE3_DP_LANE_SEL(x)	(((x) & 0x3) << 14)
++#define PMA_LANE3_INTERFACE_SEL(x)	(((x) & 0x1) << 12)
++#define PMA_LANE2_DP_LANE_SEL(x)	(((x) & 0x3) << 10)
++#define PMA_LANE2_INTERFACE_SEL(x)	(((x) & 0x1) << 8)
++#define PMA_LANE1_DP_LANE_SEL(x)	(((x) & 0x3) << 6)
++#define PMA_LANE1_INTERFACE_SEL(x)	(((x) & 0x1) << 4)
++#define PMA_LANE0_DP_LANE_SEL(x)	(((x) & 0x3) << 2)
++#define PMA_LANE0_INTERFACE_SEL(x)	(((x) & 0x1) << 0)
+ #define PIPE_CMN_CTRL1			(0xc001 << 2)
+ #define PIPE_CMN_CTRL2			(0xc002 << 2)
+ #define PIPE_COM_LOCK_CFG1		(0xc003 << 2)
+ #define PIPE_COM_LOCK_CFG2		(0xc004 << 2)
+ #define PIPE_RCV_DET_INH		(0xc005 << 2)
+ #define DP_MODE_CTL			(0xc008 << 2)
++#define PHY_DP_POWER_STATE_ACK_MASK	GENMASK(7, 4)
++#define PHY_DP_POWER_STATE_ACK_SHIFT	4
++#define PHY_DP_POWER_STATE_MASK		GENMASK(3, 0)
+ #define DP_CLK_CTL			(0xc009 << 2)
+ #define STS				(0xc00F << 2)
+ #define PHY_ISO_CMN_CTRL		(0xc010 << 2)
+@@ -327,8 +340,15 @@
+ 
+ #define DP_MODE_A0			BIT(4)
+ #define DP_MODE_A2			BIT(6)
+-#define DP_MODE_ENTER_A0		0xc101
+-#define DP_MODE_ENTER_A2		0xc104
++
++#define DP_MODE_MASK			0xf
++#define DP_MODE_ENTER_A0		BIT(0)
++#define DP_MODE_ENTER_A2		BIT(2)
++#define DP_MODE_ENTER_A3		BIT(3)
++#define DP_MODE_A0_ACK			BIT(4)
++#define DP_MODE_A2_ACK			BIT(6)
++#define DP_MODE_A3_ACK			BIT(7)
++#define DP_LINK_RESET_DEASSERTED	BIT(8)
+ 
+ #define PHY_MODE_SET_TIMEOUT		100000
+ 
+@@ -340,6 +360,31 @@
+ #define MODE_DFP_USB			BIT(1)
+ #define MODE_DFP_DP			BIT(2)
+ 
++enum phy_dp_lane_num {
++	PHY_DP_LANE_0 = 0,
++	PHY_DP_LANE_1,
++	PHY_DP_LANE_2,
++	PHY_DP_LANE_3,
++};
++
++enum phy_pma_if {
++	PMA_IF_PIPE_PCS = 0,
++	PMA_IF_PHY_DP,
++};
++
++enum phy_typec_role {
++	TYPEC_PHY_USB = 0,
++	TYPEC_PHY_DP,
++	TYPEC_PHY_MAX,
++};
++
++enum phy_dp_power_state {
++	PHY_DP_POWER_STATE_A0 = 0,
++	PHY_DP_POWER_STATE_A1,
++	PHY_DP_POWER_STATE_A2,
++	PHY_DP_POWER_STATE_A3,
++};
++
+ struct usb3phy_reg {
+ 	u32 offset;
+ 	u32 enable_bit;
+@@ -372,18 +417,22 @@ struct rockchip_typec_phy {
+ 	struct device *dev;
+ 	void __iomem *base;
+ 	struct extcon_dev *extcon;
++	struct typec_mux_dev *mux;
++	struct typec_switch_dev *sw;
+ 	struct regmap *grf_regs;
+ 	struct clk *clk_core;
+ 	struct clk *clk_ref;
+ 	struct reset_control *uphy_rst;
+ 	struct reset_control *pipe_rst;
+ 	struct reset_control *tcphy_rst;
++	struct phy *phys[TYPEC_PHY_MAX];
+ 	const struct rockchip_usb3phy_port_cfg *port_cfgs;
+ 	/* mutex to protect access to individual PHYs */
+ 	struct mutex lock;
+ 
+ 	bool flip;
+ 	u8 mode;
++	u8 new_mode;
+ };
+ 
+ struct phy_reg {
+@@ -454,6 +503,99 @@ static const struct rockchip_usb3phy_port_cfg rk3399_usb3phy_port_cfgs[] = {
+ 	{ /* sentinel */ }
+ };
+ 
++static int tcphy_cfg_usb3_to_usb2_only(struct rockchip_typec_phy *tcphy,
++				       bool value);
++
++static int tcphy_dp_set_power_state(struct rockchip_typec_phy *tcphy,
++				    enum phy_dp_power_state state)
++{
++	u32 ack, reg, sts = BIT(state);
++	int ret;
++
++	/*
++	 * Power state changes must not be requested until after the cmn_ready
++	 * signal has gone active.
++	 */
++	reg = readl(tcphy->base + PMA_CMN_CTRL1);
++	if (!(reg & CMN_READY)) {
++		dev_err(tcphy->dev, "cmn_ready in the inactive state\n");
++		return -EINVAL;
++	}
++
++	reg = readl(tcphy->base + DP_MODE_CTL);
++	reg &= ~PHY_DP_POWER_STATE_MASK;
++	reg |= sts;
++	writel(reg, tcphy->base + DP_MODE_CTL);
++
++	ret = readl_poll_timeout(tcphy->base + DP_MODE_CTL,
++				 ack, (((ack & PHY_DP_POWER_STATE_ACK_MASK) >>
++				 PHY_DP_POWER_STATE_ACK_SHIFT) == sts), 10,
++				 PHY_MODE_SET_TIMEOUT);
++	if (ret < 0) {
++		dev_err(tcphy->dev, "failed to enter power state %d\n", state);
++		return ret;
++	}
++
++	return 0;
++}
++
++/*
++ * For the TypeC PHY, the 4 lanes are mapping to the USB TypeC receptacle pins
++ * as follows:
++ *   -------------------------------------------------------------------
++ *	PHY Lanes/Module Pins			TypeC Receptacle Pins
++ *   -------------------------------------------------------------------
++ *	Lane0 (tx_p/m_ln_0)			TX1+/TX1- (pins A2/A3)
++ *	Lane1 (tx_rx_p/m_ln_1)			RX1+/RX1- (pins B11/B10)
++ *	Lane2 (tx_rx_p/m_ln_2)			RX2+/RX2- (pins A11/A10)
++ *	Lane3 (tx_p/m_ln_3)			TX2+/TX2- (pins B2/B3)
++ *   -------------------------------------------------------------------
++ *
++ * USB and DP lanes mapping to TypeC PHY lanes for each of pin assignment
++ * options (normal connector orientation) described in the VESA DisplayPort
++ * Alt Mode on USB TypeC Standard as follows:
++ *
++ * ----------------------------------------------------------------------
++ *	PHY Lanes	A	B	C	D	E	F
++ * ----------------------------------------------------------------------
++ *	  0	       ML1     SSTX    ML2     SSTX    ML2     SSTX
++ *	  1	       ML3     SSRX    ML3     SSRX    ML3     SSRX
++ *	  2	       ML2     ML1     ML0     ML0     ML0     ML0
++ *	  3	       ML0     ML0     ML1     ML1     ML1     ML1
++ * ----------------------------------------------------------------------
++ */
++static void tcphy_set_lane_mapping(struct rockchip_typec_phy *tcphy, u8 mode)
++{
++	/*
++	 * The PMA_LANE_CFG register is used to select whether a PMA lane
++	 * is mapped for USB or PHY DP. The PMA_LANE_CFG register is
++	 * configured based on a normal connector orientation. Logic in the
++	 * PHY automatically handles the flipped connector case based on the
++	 * setting of orientation of TypeC PHY.
++	 */
++	if (mode == MODE_DFP_DP) {
++		/* This maps to VESA DP Alt Mode pin assignments C and E. */
++		writel(PMA_LANE3_DP_LANE_SEL(PHY_DP_LANE_1) |
++		       PMA_LANE3_INTERFACE_SEL(PMA_IF_PHY_DP) |
++		       PMA_LANE2_DP_LANE_SEL(PHY_DP_LANE_0) |
++		       PMA_LANE2_INTERFACE_SEL(PMA_IF_PHY_DP) |
++		       PMA_LANE1_DP_LANE_SEL(PHY_DP_LANE_3) |
++		       PMA_LANE1_INTERFACE_SEL(PMA_IF_PHY_DP) |
++		       PMA_LANE0_DP_LANE_SEL(PHY_DP_LANE_2) |
++		       PMA_LANE0_INTERFACE_SEL(PMA_IF_PHY_DP),
++		       tcphy->base + PMA_LANE_CFG);
++	} else {
++		/* This maps to VESA DP Alt Mode pin assignments D and F. */
++		writel(PMA_LANE3_DP_LANE_SEL(PHY_DP_LANE_1) |
++		       PMA_LANE3_INTERFACE_SEL(PMA_IF_PHY_DP) |
++		       PMA_LANE2_DP_LANE_SEL(PHY_DP_LANE_0) |
++		       PMA_LANE2_INTERFACE_SEL(PMA_IF_PHY_DP) |
++		       PMA_LANE1_INTERFACE_SEL(PMA_IF_PIPE_PCS) |
++		       PMA_LANE0_INTERFACE_SEL(PMA_IF_PIPE_PCS),
++		       tcphy->base + PMA_LANE_CFG);
++	}
++}
++
+ static void tcphy_cfg_24m(struct rockchip_typec_phy *tcphy)
+ {
+ 	u32 i, rdata;
+@@ -743,8 +885,10 @@ static int tcphy_phy_init(struct rockchip_typec_phy *tcphy, u8 mode)
+ 	tcphy_dp_aux_set_flip(tcphy);
+ 
+ 	tcphy_cfg_24m(tcphy);
++	tcphy_set_lane_mapping(tcphy, mode);
+ 
+ 	if (mode == MODE_DFP_DP) {
++		tcphy_cfg_usb3_to_usb2_only(tcphy, true);
+ 		tcphy_cfg_dp_pll(tcphy);
+ 		for (i = 0; i < 4; i++)
+ 			tcphy_dp_cfg_lane(tcphy, i);
+@@ -768,7 +912,10 @@ static int tcphy_phy_init(struct rockchip_typec_phy *tcphy, u8 mode)
+ 		writel(PIN_ASSIGN_D_F, tcphy->base + PMA_LANE_CFG);
+ 	}
+ 
+-	writel(DP_MODE_ENTER_A2, tcphy->base + DP_MODE_CTL);
++	val = readl(tcphy->base + DP_MODE_CTL);
++	val &= ~DP_MODE_MASK;
++	val |= DP_MODE_ENTER_A2 | DP_LINK_RESET_DEASSERTED;
++	writel(val, tcphy->base + DP_MODE_CTL);
+ 
+ 	reset_control_deassert(tcphy->uphy_rst);
+ 
+@@ -811,8 +958,9 @@ static int tcphy_get_mode(struct rockchip_typec_phy *tcphy)
+ 	u8 mode;
+ 	int ret, ufp, dp;
+ 
++	/* If extcon not exist, try to use tcpm mode */
+ 	if (!edev)
+-		return MODE_DFP_USB;
++		return tcphy->new_mode;
+ 
+ 	ufp = extcon_get_state(edev, EXTCON_USB);
+ 	dp = extcon_get_state(edev, EXTCON_DISP_DP);
+@@ -850,6 +998,51 @@ static int tcphy_get_mode(struct rockchip_typec_phy *tcphy)
+ 	return mode;
+ }
+ 
++static int tcphy_orien_sw_set(struct typec_switch_dev *sw,
++			      enum typec_orientation orien)
++{
++	struct rockchip_typec_phy *tcphy = typec_switch_get_drvdata(sw);
++
++	mutex_lock(&tcphy->lock);
++
++	if (orien == TYPEC_ORIENTATION_NONE) {
++		tcphy->new_mode = MODE_DISCONNECT;
++		goto unlock_ret;
++	}
++
++	tcphy->flip = (orien == TYPEC_ORIENTATION_REVERSE) ? true : false;
++	tcphy->new_mode = MODE_DFP_USB;
++
++unlock_ret:
++	mutex_unlock(&tcphy->lock);
++	return 0;
++}
++
++static int tcphy_setup_orien_switch(struct rockchip_typec_phy *tcphy)
++{
++	struct typec_switch_desc sw_desc = { };
++
++	sw_desc.drvdata = tcphy;
++	sw_desc.fwnode = dev_fwnode(tcphy->dev);
++	sw_desc.set = tcphy_orien_sw_set;
++
++	tcphy->sw = typec_switch_register(tcphy->dev, &sw_desc);
++	if (IS_ERR(tcphy->sw)) {
++		dev_err(tcphy->dev, "Error register typec orientation switch: %ld\n",
++			PTR_ERR(tcphy->sw));
++		return PTR_ERR(tcphy->sw);
++	}
++
++	return 0;
++}
++
++static void udphy_orien_switch_unregister(void *data)
++{
++	struct rockchip_typec_phy *tcphy = data;
++
++	typec_switch_unregister(tcphy->sw);
++}
++
+ static int tcphy_cfg_usb3_to_usb2_only(struct rockchip_typec_phy *tcphy,
+ 				       bool value)
+ {
+@@ -989,14 +1182,9 @@ static int rockchip_dp_phy_power_on(struct phy *phy)
+ 
+ 	tcphy_dp_aux_calibration(tcphy);
+ 
+-	writel(DP_MODE_ENTER_A0, tcphy->base + DP_MODE_CTL);
+-
+-	ret = readx_poll_timeout(readl, tcphy->base + DP_MODE_CTL,
+-				 val, val & DP_MODE_A0, 1000,
+-				 PHY_MODE_SET_TIMEOUT);
+-	if (ret < 0) {
+-		writel(DP_MODE_ENTER_A2, tcphy->base + DP_MODE_CTL);
+-		dev_err(tcphy->dev, "failed to wait TCPHY enter A0\n");
++	ret = tcphy_dp_set_power_state(tcphy, PHY_DP_POWER_STATE_A0);
++	if (ret) {
++		dev_err(tcphy->dev, "failed to enter A0 power state\n");
+ 		goto power_on_finish;
+ 	}
+ 
+@@ -1013,6 +1201,7 @@ static int rockchip_dp_phy_power_on(struct phy *phy)
+ static int rockchip_dp_phy_power_off(struct phy *phy)
+ {
+ 	struct rockchip_typec_phy *tcphy = phy_get_drvdata(phy);
++	int ret;
+ 
+ 	mutex_lock(&tcphy->lock);
+ 
+@@ -1021,7 +1210,11 @@ static int rockchip_dp_phy_power_off(struct phy *phy)
+ 
+ 	tcphy->mode &= ~MODE_DFP_DP;
+ 
+-	writel(DP_MODE_ENTER_A2, tcphy->base + DP_MODE_CTL);
++	ret = tcphy_dp_set_power_state(tcphy, PHY_DP_POWER_STATE_A2);
++	if (ret) {
++		dev_err(tcphy->dev, "failed to enter A2 power state\n");
++		goto unlock;
++	}
+ 
+ 	if (tcphy->mode == MODE_DISCONNECT)
+ 		tcphy_phy_deinit(tcphy);
+@@ -1037,6 +1230,68 @@ static const struct phy_ops rockchip_dp_phy_ops = {
+ 	.owner		= THIS_MODULE,
+ };
+ 
++static int tcphy_typec_mux_set(struct typec_mux_dev *mux, struct typec_mux_state *state)
++{
++	struct rockchip_typec_phy *tcphy = typec_mux_get_drvdata(mux);
++	struct typec_displayport_data *data;
++	int hpd = 0;
++
++	mutex_lock(&tcphy->lock);
++
++	switch (state->mode) {
++	case TYPEC_STATE_SAFE:
++		fallthrough;
++	case TYPEC_STATE_USB:
++		tcphy->new_mode = MODE_DFP_USB;
++		phy_set_bus_width(tcphy->phys[TYPEC_PHY_DP], 0);
++		break;
++	case TYPEC_DP_STATE_C:
++	case TYPEC_DP_STATE_E:
++		tcphy->new_mode = MODE_DFP_DP;
++		data = state->data;
++		hpd = !!(data->status & DP_STATUS_HPD_STATE);
++		phy_set_bus_width(tcphy->phys[TYPEC_PHY_DP], hpd ? 4 : 0);
++		break;
++	case TYPEC_DP_STATE_D:
++		tcphy->new_mode = MODE_DFP_DP | MODE_DFP_USB;
++		data = state->data;
++		hpd = !!(data->status & DP_STATUS_HPD_STATE);
++		phy_set_bus_width(tcphy->phys[TYPEC_PHY_DP], hpd ? 2 : 0);
++		break;
++	default:
++		break;
++	}
++
++	mutex_unlock(&tcphy->lock);
++
++	return 0;
++}
++
++static int tcphy_setup_typec_mux(struct rockchip_typec_phy *tcphy)
++{
++	struct typec_mux_desc mux_desc = {};
++
++	mux_desc.drvdata = tcphy;
++	mux_desc.fwnode = dev_fwnode(tcphy->dev);
++	mux_desc.set = tcphy_typec_mux_set;
++
++	tcphy->mux = typec_mux_register(tcphy->dev, &mux_desc);
++	if (IS_ERR(tcphy->mux)) {
++		dev_err(tcphy->dev, "Error register typec mux: %ld\n",
++			PTR_ERR(tcphy->mux));
++		return PTR_ERR(tcphy->mux);
++	}
++
++	return 0;
++}
++
++static void tcphy_typec_mux_unregister(void *data)
++{
++	struct rockchip_typec_phy *tcphy = data;
++
++	typec_mux_unregister(tcphy->mux);
++}
++
+ static int tcphy_parse_dt(struct rockchip_typec_phy *tcphy,
+ 			  struct device *dev)
+ {
+@@ -1095,6 +1350,25 @@ static void typec_phy_pre_init(struct rockchip_typec_phy *tcphy)
+ 	tcphy->mode = MODE_DISCONNECT;
+ }
+ 
++static int typec_dp_lane_get(struct rockchip_typec_phy *tcphy)
++{
++	int dp_lanes;
++
++	switch (tcphy->new_mode) {
++	case MODE_DFP_DP:
++		dp_lanes = 4;
++		break;
++	case MODE_DFP_DP | MODE_DFP_USB:
++		dp_lanes = 2;
++		break;
++	default:
++		dp_lanes = 0;
++		break;
++	}
++
++	return dp_lanes;
++}
++
+ static int rockchip_typec_phy_probe(struct platform_device *pdev)
+ {
+ 	struct device *dev = &pdev->dev;
+@@ -1142,6 +1416,7 @@ static int rockchip_typec_phy_probe(struct platform_device *pdev)
+ 		return ret;
+ 
+ 	tcphy->dev = dev;
++	tcphy->new_mode = MODE_DFP_USB;
+ 	platform_set_drvdata(pdev, tcphy);
+ 	mutex_init(&tcphy->lock);
+ 
+@@ -1151,6 +1426,7 @@ static int rockchip_typec_phy_probe(struct platform_device *pdev)
+ 	if (IS_ERR(tcphy->extcon)) {
+ 		if (PTR_ERR(tcphy->extcon) == -ENODEV) {
+ 			tcphy->extcon = NULL;
++			dev_info(dev, "extcon not exist, try to use typec mux\n");
+ 		} else {
+ 			if (PTR_ERR(tcphy->extcon) != -EPROBE_DEFER)
+ 				dev_err(dev, "Invalid or missing extcon\n");
+@@ -1158,19 +1434,46 @@ static int rockchip_typec_phy_probe(struct platform_device *pdev)
+ 		}
+ 	}
+ 
++	if (device_property_present(dev, "orientation-switch")) {
++		ret = tcphy_setup_orien_switch(tcphy);
++		if (ret)
++			return ret;
++		ret = devm_add_action_or_reset(dev, udphy_orien_switch_unregister,
++					       tcphy);
++		if (ret)
++			return ret;
++	}
++
++	if (device_property_present(dev, "mode-switch")) {
++		ret = tcphy_setup_typec_mux(tcphy);
++		if (ret)
++			return ret;
++
++		ret = devm_add_action_or_reset(dev, tcphy_typec_mux_unregister, tcphy);
++		if (ret)
++			return ret;
++	}
++
+ 	pm_runtime_enable(dev);
+ 
+ 	for_each_available_child_of_node(np, child_np) {
+ 		struct phy *phy;
+ 
+-		if (of_node_name_eq(child_np, "dp-port"))
++		if (of_node_name_eq(child_np, "dp-port")) {
+ 			phy = devm_phy_create(dev, child_np,
+ 					      &rockchip_dp_phy_ops);
+-		else if (of_node_name_eq(child_np, "usb3-port"))
++			if (!IS_ERR(phy)) {
++				tcphy->phys[TYPEC_PHY_DP] = phy;
++				phy_set_bus_width(phy, typec_dp_lane_get(tcphy));
++			}
++		} else if (of_node_name_eq(child_np, "usb3-port")) {
+ 			phy = devm_phy_create(dev, child_np,
+ 					      &rockchip_usb3_phy_ops);
+-		else
++			if (!IS_ERR(phy))
++				tcphy->phys[TYPEC_PHY_USB] = phy;
++		} else {
+ 			continue;
++		}
+ 
+ 		if (IS_ERR(phy)) {
+ 			dev_err(dev, "failed to create phy: %pOFn\n",
+-- 
+2.49.0
 
-Reported-by: Linux Kernel Functional Testing <lkft@linaro.org>
-
-## Build log
-make[5]: Entering directory '/builds/linux/tools/testing/selftests/arm64/mte'
-  CC       check_buffer_fill
-  CC       check_child_memory
-  CC       check_gcr_el1_cswitch
-  CC       check_hugetlb_options
-  CC       check_ksm_options
-  CC       check_mmap_options
-  CC       check_prctl
-check_prctl.c:72:17: error: use of undeclared identifier 'AT_HWCAP3'
-   72 |         if ((getauxval(AT_HWCAP3) & hwcap3) != hwcap3) {
-      |                        ^
-1 error generated.
-make[5]: *** [../../lib.mk:222: selftest/arm64/mte/check_prctl] Error 1
-make[5]: Leaving directory 'tools/testing/selftests/arm64/mte'
-
-## Git Changes
-git log --oneline   next-20250702..next-20250703
-tools/testing/selftests/arm64/mte/
-1f488fb91378e kselftest/arm64/mte: Add MTE_STORE_ONLY testcases
-391ca7c81b85c kselftest/arm64/mte: Preparation for mte store only test
-d09674f98cdbf kselftest/arm64/mte: Add mtefar tests on check_mmap_options
-64a64e5d12f07 kselftest/arm64/mte: Refactor check_mmap_option test
-49cee364c8665 kselftest/arm64/mte: Add verification for address tag in
-signal handler
-ed434c6e08132 kselftest/arm64/mte: Add address tag related macro and function
-2e3e356560ef5 kselftest/arm64/mte: Check MTE_FAR feature is supported
-cfafa517c9e65 kselftest/arm64/mte: Register mte signal handler with
-SA_EXPOSE_TAGBITS
-
-## Source
-* Git tree: https://kernel.googlesource.com/pub/scm/linux/kernel/git/next/linux-next.git
-* Project: https://regressions.linaro.org/lkft/linux-next-master/next-20250714/
-* Architectures: arm64
-* Toolchains: clang-20
-* Kconfigs: defconfig
-
-## Build
-* Test details:
-https://regressions.linaro.org/lkft/linux-next-master/next-20250714/kselftest-arm64/arm64_check_ksm_options/
-* Test run: https://regressions.linaro.org/lkft/linux-next-master/next-20250714/testruns/1615508/
-* Test plan: https://tuxapi.tuxsuite.com/v1/groups/linaro/projects/lkft/tests/2zrW3Ut4mYWOxPVnJTOY5qrft0P
-* Build link: https://storage.tuxsuite.com/public/ampere/ci/builds/2zrZgjFum1wBbTRrsvDGnHC9JMt/
-* Kernel config:
-https://storage.tuxsuite.com/public/ampere/ci/builds/2zrZgjFum1wBbTRrsvDGnHC9JMt/config
-
---
-Linaro LKFT
-https://lkft.linaro.org
 
