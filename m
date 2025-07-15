@@ -4,81 +4,175 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38A22C83F22
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 15:04:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A19C9C83F22
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 15:08:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ahX+c8vAAgZZo6vfcQjtOUNKD1iNEcYm/d3IzA1fxo8=; b=WHj4fih6wDCzJNVDa80sDCyJHk
-	+vXhSphWmC1iSPlJE5wMPoh59qIJUDZbwWzZ156SD1FOPk9HfueaGi3rKznYSXlHRgBaN8F73jB7H
-	qIQMtt2wqx5lowrZsYr2jWBIqbFoECDdIRXvNHdVkA6YyNQUrkdgg5qgwSbhP0EqIO0YUr9UDCm42
-	V5G5JUuda/DXpjop8B1OQFlIFNNkHi6hOT8jHSny9LLpxpPLDg4Pr/h/YM8szjqCFhZKA6DRON5Ey
-	DEaO6G3xPMtLc8dOE1/IyRXKGWGtTBZcSGyRcwqj184FCHbCXO2GlDidn3qXUtDiu5aNC9HW1XVaJ
-	KfPePEQA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
+	From:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VAUlL8zVqmMXuGZNA/Icc7HbRigfwrN0m1s7+P2JppE=; b=LOlgSwnQfOh+Vxk5NtmuI2VRfo
+	q9Eej44Jp0F6SsSv+9Mw2QdOrMwpaGcqg2j42PJw6zaoWVx7wjGi352TrZmASjEIgHij0qVa72yCd
+	ECenZoBi+vtsjBlsR6XgSYB/nL10D13OMfPJyajFoAFzlG04TGomGr1r/Jm5Uvxg3xFrYXCSL1h45
+	vQF7cMWbyDhByI68qM6URNvt39j7bvb6s6ebfqveBrLowedCkxXROVBbznUip3UpCxh/5lX3ptGPq
+	DpTKTsMwjYH9cGHjEWKwrfjv1VHQfi1TUK32Y32f027BtmzmduhjvfIg1cwGh/aNScfMKPQ2aHadC
+	PRM5zwlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubhCq-00000005WM6-0B7Z;
-	Tue, 15 Jul 2025 15:04:32 +0000
-Received: from mgamail.intel.com ([192.198.163.18])
+	id 1ubhG9-00000005Xhf-2dvR;
+	Tue, 15 Jul 2025 15:07:57 +0000
+Received: from mail-bn8nam11on20629.outbound.protection.outlook.com ([2a01:111:f403:2414::629] helo=NAM11-BN8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubfio-00000005DFH-133C
+	id 1ubfxV-00000005FlZ-0v9g
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Jul 2025 13:29:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1752586166; x=1784122166;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=IS0zMYjCeG1sUzA/o870BnonfbFqvWBqq05l3BrL5EM=;
-  b=mWzXnCYW45f3rIaQoOQSmm6cp/J8Bc6bPVfafFexIy5muJcVRZFmNKZ0
-   XZrX+IUYsRrr1XNGA9lRTb7YiKMkSsPQwyzOvZvVK2/920/8cW8rMMW8p
-   DEg2/MlW7yJk75ALmB+a6Ne8utUuHoN/AC0iwaTBbFQ9ZaWXMq7MVJj2u
-   7Ia7mdKjAI4t+7jB676VkxUim4nXnC55k70ZusqRoMxPq/XeVIqXxgY+c
-   0y+mkZfR2yyRcWcKP8OEHK0FlNDYVoG4Hj+Fa6W6Yn1sdHw/8teSCo3BD
-   hUEg6vPCcmrduel3VZxnxUUSPhlGYoLsKP8d/B3I+6kDUiYN7AsBnDgVU
-   w==;
-X-CSE-ConnectionGUID: mNsjdBI7R9uUaT0d2j7+cA==
-X-CSE-MsgGUID: YKHMXQ3dSp2TJHMGBPzYbA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11493"; a="54023337"
-X-IronPort-AV: E=Sophos;i="6.16,313,1744095600"; 
-   d="scan'208";a="54023337"
-Received: from fmviesa005.fm.intel.com ([10.60.135.145])
-  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Jul 2025 06:29:22 -0700
-X-CSE-ConnectionGUID: tExs557lSFySzJsjo1bguQ==
-X-CSE-MsgGUID: /N6sNHUsRACGHIy570/EYg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.16,313,1744095600"; 
-   d="scan'208";a="161534986"
-Received: from linux.intel.com ([10.54.29.200])
-  by fmviesa005.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Jul 2025 06:29:21 -0700
-Received: from [10.124.223.222] (unknown [10.124.223.222])
-	by linux.intel.com (Postfix) with ESMTP id 5FCBC20B571C;
-	Tue, 15 Jul 2025 06:29:20 -0700 (PDT)
-Message-ID: <3357db65-279f-4f43-880a-966b10e10287@linux.intel.com>
-Date: Tue, 15 Jul 2025 06:29:20 -0700
-MIME-Version: 1.0
+	Tue, 15 Jul 2025 13:44:38 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=pWeIfuOXJNaFk2U7hQBKj/96zEml7lXjFbPsgL7g4185c9Pe99XZAb7iQX7LL/3e8gdFWwleLY+8A/dSf1V6qwkRiPgrFtwipVmbjxiiqSY+z+UqraJiK1Se+l51u1fp58RCr2ZflRIYFlSvfWtxP39GCCCrgnXpaS8J2GuiuPUg+42yHz2wfP4Nx5JuxZHQW29oMI2pkybVnArZSWbVP3fTMXvyNiTmbKZlbGMeUTBeGFpdOoEcllRm/iHUDRwHwDFBCycox2S8+SC2xOStlON0zfE+P/+vzp6eWVtn4CwrZoBRA40AxVwSgfw4+Wgtd8W8W0Y5cw2BNX9SGs13Qw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=VAUlL8zVqmMXuGZNA/Icc7HbRigfwrN0m1s7+P2JppE=;
+ b=FSPFs+zf/TyeSkzCy19U1k/XqNZ3azkYR5C39Zt/jGiw/0yDbwHVXStzqG/v+Lbf/aplNWqJmH/5QUs8X5K2dA5BCgjvVxdKDiTBVexWpCEg4J6l4UQZb6ySj339JvMu3/K1vrTVh4GMDlBhGOlMAvfkUR1vPWpwcuSFd/LHeJ42aCQTQKeJJ0feJDYw51/xCqVvKaTsHtPvhOs98PVjuDrttkatcMq37vtH4arqNoydeMIAlF7EQ4//YywJBysrujglyHO78228n2NRAudl3dL8a1K/6Jl6H5oPYjcsP64nq/yj1th8XWsf9RP1eFnpMjS/38sJh2wjtJ9NiFDiVg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=altera.com; dmarc=pass action=none header.from=altera.com;
+ dkim=pass header.d=altera.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=altera.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=VAUlL8zVqmMXuGZNA/Icc7HbRigfwrN0m1s7+P2JppE=;
+ b=qihK7e/GBX5hiGeEJ75sBPi0CS/D4//MW9r1eSxZVge/8RGgnodcOu+tTf9j4V+RPA888/fq/7m2dVa5tmPBbJ3nxPI2LPzFiMxz02LuVV6HN3geWdyn6dF74AFMq8aswD5iTe2/16AeiH35jyDOsMFrzoH6CbHWOzMnsLIumi0+Ve8mvuB2XUWgVLbmaj43/oSSazt1c17h3WL3fhfNGer3fxyZXygSvcEWwKH7mpfvenH/Lujd9cAY8FTBiTcLwUNz/o3JvFc76sT4vuyo6wiNrqWgtAGg5yWGMW+BufvqUGiFzlIaq7zKzBtjAIIRX4bZS2QWcwssxG7D/ipdsQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=altera.com;
+Received: from DM6PR03MB5371.namprd03.prod.outlook.com (2603:10b6:5:24c::21)
+ by BN9PR03MB6090.namprd03.prod.outlook.com (2603:10b6:408:11b::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8922.32; Tue, 15 Jul
+ 2025 13:44:33 +0000
+Received: from DM6PR03MB5371.namprd03.prod.outlook.com
+ ([fe80::8d3c:c90d:40c:7076]) by DM6PR03MB5371.namprd03.prod.outlook.com
+ ([fe80::8d3c:c90d:40c:7076%3]) with mapi id 15.20.8922.025; Tue, 15 Jul 2025
+ 13:44:33 +0000
+Message-ID: <9f4acd69-12ff-4b2f-bb3a-e8d401b23238@altera.com>
+Date: Tue, 15 Jul 2025 19:14:21 +0530
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/2] gpio: wcove: use regmap_assign_bits() in .set()
-To: Bartosz Golaszewski <brgl@bgdev.pl>,
- Linus Walleij <linus.walleij@linaro.org>, Andy Shevchenko <andy@kernel.org>,
- Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>,
- Srinivas Neeli <srinivas.neeli@amd.com>, Michal Simek <michal.simek@amd.com>
-Cc: linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
- patches@opensource.cirrus.com, linux-arm-kernel@lists.infradead.org,
- Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-References: <20250715-gpiochip-set-rv-gpio-remaining-v2-0-072b4cf06330@linaro.org>
- <20250715-gpiochip-set-rv-gpio-remaining-v2-1-072b4cf06330@linaro.org>
+From: "G Thomas, Rohan" <rohan.g.thomas@altera.com>
+Subject: Re: [PATCH net-next 3/3] net: stmmac: Set CIC bit only for TX queues
+ with COE
+To: Simon Horman <horms@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Serge Semin <fancer.lancer@gmail.com>,
+ Romain Gantois <romain.gantois@bootlin.com>, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Matthew Gerlach <matthew.gerlach@altera.com>
+References: <20250714-xgmac-minor-fixes-v1-0-c34092a88a72@altera.com>
+ <20250714-xgmac-minor-fixes-v1-3-c34092a88a72@altera.com>
+ <20250714134012.GN721198@horms.kernel.org>
 Content-Language: en-US
-From: Sathyanarayanan Kuppuswamy <sathyanarayanan.kuppuswamy@linux.intel.com>
-In-Reply-To: <20250715-gpiochip-set-rv-gpio-remaining-v2-1-072b4cf06330@linaro.org>
+In-Reply-To: <20250714134012.GN721198@horms.kernel.org>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: MA0PR01CA0027.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a01:b8::20) To DM6PR03MB5371.namprd03.prod.outlook.com
+ (2603:10b6:5:24c::21)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DM6PR03MB5371:EE_|BN9PR03MB6090:EE_
+X-MS-Office365-Filtering-Correlation-Id: f9a81e44-bfe6-4375-b556-08ddc3a5baeb
+X-MS-Exchange-AtpMessageProperties: SA
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?bm9rcktyV3FHVWZ3eWNPMW5wRk5IQXdWSmVqV21raHlzeFg1Qnl5REliL1Jk?=
+ =?utf-8?B?ZzNLdU50ejYzTHpEVnJGSkovbEIwZGNvMHZlaUJsMkNOdUpLZWo3K2k1MHJ3?=
+ =?utf-8?B?cmpMQ0VQWUxRdlFwRWpDbkY1OTJIZGo0bWRKdWY1K0xuczlwamVvS1RPcmNw?=
+ =?utf-8?B?TDhsNGVid2tuaER6VkpQQkdFK28wSWdSd0VnZ2pxK2VpbHdmczdya3htblY0?=
+ =?utf-8?B?K1VRZjJETXd2cHpISXlwd0hIK0p3Nm1RNW9RblVRQW9sblhWUEFya0JoV3c1?=
+ =?utf-8?B?bG9qeTVaV1AxNXBqa0JSTDVEMFZpcDJxWXRuTytPaUFrNnZFN3hXQ2ZvZEZh?=
+ =?utf-8?B?QXBGa1FUaTRBMjN3NUx0a3BXaTRrRzVrSExkdS92ODRadU9EaEVoV3RDVjNS?=
+ =?utf-8?B?SWt6VEg0U3hEd1kybHlUbEM3NVlEVmZHN044OUh5S0NXMkhObTJzRTBlNGx4?=
+ =?utf-8?B?K1B1S2FNWm94K3ZUQTEyczZIUlBEVkJZbDMyN0dveE1nRFpkV0RlREt6cFJv?=
+ =?utf-8?B?QXpoeTBxWmZrYUx1cStLcEhGOUZNNVB0RERCRGNyVXJuYlFSREF2bWk4RWhB?=
+ =?utf-8?B?U2FSbTBLR1krMFFwWUl6MXRPclMwMGFXbVRTL2NSdjMyUE5WU1h3OFozeE1o?=
+ =?utf-8?B?a1hXTkpsZXlnN3JFVVBsNVI4TGpXRHl2bUNuUVROcXZrem1ZWXJhbFhqZExm?=
+ =?utf-8?B?RjFYanV2WmZrQmpQZUJYUlM4Z0J5NVo4RDU4RGZNUkFYRjdHczJ1OTBLMVkr?=
+ =?utf-8?B?QjcvRSthZ3FpT1o5Ymx2YnlsVEJ3TlNJU01DOHR1c082L2hsR1VPOUtNOENR?=
+ =?utf-8?B?Q3A1NTZHazd5WVhNUXBROTVxK01zd09SbVFvZVk5RkNTZFR4cXFsMjFzbTI2?=
+ =?utf-8?B?clNHV0puVXFzR0t3MDlGSG43VTBxY25pQ2xnRXhPSGxIL3pKc0xhZTJhNksv?=
+ =?utf-8?B?U2QyVTRnTGpUSVY1Sml4U3hJMlUyREJvRSs2SkJxd2Rva2NRL3lKcmZldmxK?=
+ =?utf-8?B?S1U0clQ2VUZpZzdnc29VT3ZkMEVrL1FXb2lRU0hNMHdvdnBzWW1xYVdGcEFp?=
+ =?utf-8?B?ZjVadGhuSFYrNFE4T1pEVktKbUd0NEQ5SEIxSkdValRyZ1k5STEyMWhsUGQz?=
+ =?utf-8?B?NDhGZlE4c3pUTUIvWGUxVXV5cXhGbUdDVEVZdjFqaEFWaWdTZ0ZjM01Yc3Vl?=
+ =?utf-8?B?dCtINVNDRFh4TWt6Z2hCV09wVWFpZ2c0MjhneVV4UTZwZmphV1U5YmhIcW43?=
+ =?utf-8?B?YWZ1Q0ZIR0VCZzRybDFSRXFUb3lQQVkxWlFVZDFwUEdjYWNMRjZjUGI2bVJK?=
+ =?utf-8?B?T3E5OXF5R0lBTFNIUFhMNmpyakFFUyt2NmFQbmhYWmF2SXZWelNYQ1dvYjha?=
+ =?utf-8?B?djhLRkQ1UjBpTDE1STF4cGQwTUFxSS9NalJzZ2VvcUVobWkxVXF2WFRVNnE5?=
+ =?utf-8?B?N1dBUi8zWXFMM2JFVUZjMkZ6V2JVQ2lYS0pXUlp6VUQ0bzRpa2hvTVRrQTJu?=
+ =?utf-8?B?aUVhK08rZFRhdHpUNGpGNHQzVmEvWHlLTDFkZjdEeUs0OFNxV01ta3h4UnFj?=
+ =?utf-8?B?Lys0bHlEWFA4WFpjZlFhWTVHZjloQnhZZ3k4MGFWd3EvVmRNOU5HcWJMYi9P?=
+ =?utf-8?B?Y1lYbHNWd01pY2xpM0lLaEEzSm81eFBoZmNqcnZCNHk2WHRLaHA5NGRlWTk3?=
+ =?utf-8?B?VXU4THBicnVpZDZFVVA5ODUvT0FoSFBhUTVxc1hoVEZHSC9JNkE0OWkxM1gy?=
+ =?utf-8?B?d1YvOVpGZHkvMkp1ZmdHMFo2YnRJbk9IK01XcEJseXFMYWNtTkU1aUEvKzhx?=
+ =?utf-8?B?ODBGYkczRVJUZm85czViaXU2VHlHYmdoSG9iN2FkRU5TWDk4cEY5RmJnT1hn?=
+ =?utf-8?B?bEgvd0xNNEtqZWFoQ2VEZlZENFZBQ1p3MjgvYldwTEoxaHc9PQ==?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR03MB5371.namprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?N293ZENnc3lBVFdSOFdpeUhHc1k4cnhaT0FFUTRHcmhvRGdTM3ZWck1EMCtn?=
+ =?utf-8?B?QlkzZm83Njhnbm15QU53ZnpuOU9EZWEwcnR3VGVlaThqMzZvMjV1RTZKVXZn?=
+ =?utf-8?B?TzNzdnFHTWpIbGFzQ2YzMFp6Y2xPMXdvTS9wazJoL1JZRG05L1F2Rm9YdnBK?=
+ =?utf-8?B?c2NBTWJLbEVtNlhKSFl2b3ZJd2Q3c1hNaVk0RTJaTU9aUVdRRGtUbElTbEk2?=
+ =?utf-8?B?TGkzemJMYkFXRmI0MTFqdEE4Si83RWxHc1E2NEJKNi83WWlFdHVWOTlNUDVy?=
+ =?utf-8?B?RzNzbUF0Ym1KWDdwUHBzUEQ0U3NJcCtORnBXZmhnSnMySUZFS1J6T3JNZ0hZ?=
+ =?utf-8?B?Wi9xR2hFaU1qRDdEMWRKSzdQb2Z1SHcyRU9RclRvZm5lempKS29sNDNEOXdD?=
+ =?utf-8?B?aEpwQzkyeEVIM25tVysvUmpJMXo2VW9WN0pEVDVRcDVHdUhNVklmcjVsZjFQ?=
+ =?utf-8?B?QzFzN0piZHJqTHZiUGVoNW5QeXlkVHFoUTRuMTdLZjhIa3pPb1hKdFk1dVh6?=
+ =?utf-8?B?SWhPaVVMdmhLUHBCZzlodjg0UDJvaVI4VSs1aTJDZ0hvSENiY0JHaE85cTRX?=
+ =?utf-8?B?aUt1dFF5UXJCNDQ2ZFJiS1FxYTVOMElvcDI4K1hZUXkzVFBmSnNsTno4amJs?=
+ =?utf-8?B?UnpYQVZ2Mm00ODdsYWFCOHcvVGRRVHlURXNZMkF3UkRPVUZYNUkxdVloWEEv?=
+ =?utf-8?B?T1laWDhhZmJ5bzJ3L2xNaWVUMnAyYUczWmpIb0Jod2RTWDVtYnQ2RTc4Z284?=
+ =?utf-8?B?R0s0S0czRS9NVjRZcmtESHhnZVM1K2tJZ1AxOW5OQUFXd0tTc1ZHcVNqSFZP?=
+ =?utf-8?B?ckVDRHZHNlZhRkFFeGxKNEpkSXc0cHh6KzVvWU5rRnFKMHJaSCtSb0V6Um1Y?=
+ =?utf-8?B?OVZVaHVnYTgybUZrRkxZU3Y0MTJTa0RnRTVuYkRmb3BpNVlyTGFhNEVSTzNJ?=
+ =?utf-8?B?MitkUG84dThvOVM5ZVUyOTBESFF3dkZ4Rlhlek5ya2w5amtZOEZNV3RqZFE0?=
+ =?utf-8?B?dzNHc0xwMW9OdWpJc05ZUERNNFEvbk8zQ3NDWTRzWUthTExmRDM2ekJmZHhn?=
+ =?utf-8?B?cmEwRUwyYnhvYy9EYVEyTkg3NVJ5c0FXL292d2R3S2xmYThjSm1HbU9TSzhn?=
+ =?utf-8?B?QVFhbGJNZk9yYmlhaTNlTFV6LzhtdUVqSkhXVHNmUHRaMWFzT2JPZTBoU3lN?=
+ =?utf-8?B?S0hwTjVCUmNSaWNtWlBMWXhMVDZjY1h1a2E0dkJMR09nNnVhemExc0xvdmNM?=
+ =?utf-8?B?ZzFPOXVUenl5YlZMVDRxUTYvNEpIRTJRdkdjUUI1aFRqZUlnUkViN0lVUXBs?=
+ =?utf-8?B?YkFGL3RYTEZPYmkzalN2bUgra0MrSjdFMWVUWHFTbjA4YmJKZDNmT0pTTFdL?=
+ =?utf-8?B?eU1TQWlaVVdNQ1VBQTJMRGN3UlI0aEhaRnVhQzltTFJWa2ZvSEp0UThNQzNj?=
+ =?utf-8?B?WGhZRFNxby9NM3BXRjUrU0s4enpMRGtiUExqaDVFSTAwREtVQ3lIZ1RVUzRX?=
+ =?utf-8?B?c3c2VE0wczhmWE5UZlk2T1VtUlNCblZQb2tid2FtaFZ6SnlaMXZ2djZtMWJC?=
+ =?utf-8?B?ejFMNFd2dXJ4NE9JUTI0RnMyYVNRTlRWeGs0VTdmSStBMmo2U016TzNaenRm?=
+ =?utf-8?B?bGo4R2tHVXNZeDZLUmRtbldEVi9HWENjNzR1T3R2cUJCajZUL2gvcHdkQnZE?=
+ =?utf-8?B?KzFXNGtLRkZLWDZUdGFwbHlaV2pBVjJoS2Nib2hoVlZWbVJDWlVWTTZvaEhj?=
+ =?utf-8?B?c2hWS1hEcjlUTFEzdjg2endrVzlaRDJXcjgvOGkxR2g3RTBhOEFJZURqUWZY?=
+ =?utf-8?B?Uk13bXBUSGdOanVsbzdENW9iSEZpRzk1TmV4NWZEZi91VVFQamgyL2lRektO?=
+ =?utf-8?B?OXNXcE10YnNUSWhqdmtLNEkzYVN0VG9iV3ZzVHA2YmVmc0RzNWlBWXgvSVlE?=
+ =?utf-8?B?ZnRic3h4d1hUOGFFOTFFeVEvVmxhK2t2RXRySDZKY2cwMURyV1JvZEFscENk?=
+ =?utf-8?B?VlpiL0k0YzZCRGNodzBDem8wTjg5NjE4UGJQa0lrb3lBUi9lSWFrNTR4N3RJ?=
+ =?utf-8?B?WkU4WUd3S2dST2V1Tlp5OXRJVVFrakVXaHpNTWJxN1daTzBJRG1NcjhiVHFO?=
+ =?utf-8?B?UmtlbjhBQlRhVjhsR0lrZUN0QXp1MWQvZ25Yd2pkNk1sV3UxTk00RGRMOUI1?=
+ =?utf-8?B?enc9PQ==?=
+X-OriginatorOrg: altera.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f9a81e44-bfe6-4375-b556-08ddc3a5baeb
+X-MS-Exchange-CrossTenant-AuthSource: DM6PR03MB5371.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Jul 2025 13:44:33.3019
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: fbd72e03-d4a5-4110-adce-614d51f2077a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: n5x7zE2FptIHYdtn/BeFNZMwMnb3AagyBtmTvCnlsgNNcNOQNhIh/lx2Q+4r5sPIyiUhGiNaFnFfykcKH635CGB13Mpch7AQaPGhX1JuU1M=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BN9PR03MB6090
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250715_062926_350213_3765A13C 
-X-CRM114-Status: GOOD (  14.84  )
+X-CRM114-CacheID: sfid-20250715_064437_266185_C3E39892 
+X-CRM114-Status: GOOD (  20.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,40 +187,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Simon,
 
-On 7/15/25 1:19 AM, Bartosz Golaszewski wrote:
-> From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
->
-> Replace the if-else with a direct call to the regmap_assign_bits()
-> helper and save a couple lines of code.
->
-> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-> ---
+Thanks for reviewing the patch.
 
-Reviewed-by: Kuppuswamy Sathyanarayanan <sathyanarayanan.kuppuswamy@linux.intel.com>
+On 7/14/2025 7:10 PM, Simon Horman wrote:
+> On Mon, Jul 14, 2025 at 03:59:19PM +0800, Rohan G Thomas via B4 Relay wrote:
+>> From: Rohan G Thomas <rohan.g.thomas@altera.com>
+>>
+>> Currently, in the AF_XDP transmit paths, the CIC bit of
+>> TX Desc3 is set for all packets. Setting this bit for
+>> packets transmitting through queues that don't support
+>> checksum offloading causes the TX DMA to get stuck after
+>> transmitting some packets. This patch ensures the CIC bit
+>> of TX Desc3 is set only if the TX queue supports checksum
+>> offloading.
+>>
+>> Signed-off-by: Rohan G Thomas <rohan.g.thomas@altera.com>
+>> Reviewed-by: Matthew Gerlach <matthew.gerlach@altera.com>
+> 
+> Hi Rohan,
+> 
+> I notice that stmmac_xmit() handles a few other cases where
+> checksum offload should not be requested via stmmac_prepare_tx_desc:
+> 
+>          csum_insertion = (skb->ip_summed == CHECKSUM_PARTIAL);
+>          /* DWMAC IPs can be synthesized to support tx coe only for a few tx
+>           * queues. In that case, checksum offloading for those queues that don't
+>           * support tx coe needs to fallback to software checksum calculation.
+>           *
+>           * Packets that won't trigger the COE e.g. most DSA-tagged packets will
+>           * also have to be checksummed in software.
+>           */
+>          if (csum_insertion &&
+>              (priv->plat->tx_queues_cfg[queue].coe_unsupported ||
+>               !stmmac_has_ip_ethertype(skb))) {
+>                  if (unlikely(skb_checksum_help(skb)))
+>                          goto dma_map_err;
+>                  csum_insertion = !csum_insertion;
+>          }
+> 
+> Do we need to care about them in stmmac_xdp_xmit_zc()
+> and stmmac_xdp_xmit_xdpf() too?
 
->   drivers/gpio/gpio-wcove.c | 5 +----
->   1 file changed, 1 insertion(+), 4 deletions(-)
->
-> diff --git a/drivers/gpio/gpio-wcove.c b/drivers/gpio/gpio-wcove.c
-> index 1ec24f6f9300f33f5b3f0f8deb539e08392b8188..816fb8d113e66b27070f286755f3192b2a8f8512 100644
-> --- a/drivers/gpio/gpio-wcove.c
-> +++ b/drivers/gpio/gpio-wcove.c
-> @@ -208,10 +208,7 @@ static void wcove_gpio_set(struct gpio_chip *chip, unsigned int gpio, int value)
->   	if (reg < 0)
->   		return;
->   
-> -	if (value)
-> -		regmap_set_bits(wg->regmap, reg, 1);
-> -	else
-> -		regmap_clear_bits(wg->regmap, reg, 1);
-> +	regmap_assign_bits(wg->regmap, reg, 1, value);
->   }
->   
->   static int wcove_gpio_set_config(struct gpio_chip *chip, unsigned int gpio,
->
--- 
-Sathyanarayanan Kuppuswamy
-Linux Kernel Developer
+This patch only addresses avoiding the TX DMA hang by ensuring the CIC
+bit is only set when the queue supports checksum offload. For DSA tagged
+packets checksum offloading is not supported by the DWMAC IPs but no TX
+DMA hang. AFAIK, currently AF_XDP paths don't have equivalent handling
+like skb_checksum_help(), since they operate on xdp buffers. So this
+patch doesn't attempt to implement a sw fallback but just avoids DMA
+stall.
 
+> 
+> ...
+
+Best Regards,
+Rohan
 
