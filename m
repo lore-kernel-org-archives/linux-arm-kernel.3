@@ -4,77 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFFABC83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 10:02:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9CB5C83F1D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 10:05:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jSjJtqdXOK2619OVhSk/cvk2yD64s3HepL+hT3bVVSo=; b=SL9Rg5Oz7rQ3zCXBltBiqjv0cB
-	JYm+3W7tnuQ8G68BshiiGUj/nkKDGyb54vwcnIb2J+hNq1cw+ZyEu0DfI71NHGbymrGmRE05cHyit
-	JcG6HH7E3iBaJBzyj4kOIyBbkRMDyDK5aHOkMV61BqXDMwu5SPPqnk5VP4g/02M0G/1rWtOZe/hsT
-	LRMoeHeUqjM+G6YLvGgoNkNTCGU0blSmuodrcVXUyeQ7xD/kmugyTMED/hL5+I2s8TcqNO6cANkxf
-	K0XLzixEcWlZzIcor470pgVYDo/eJarfz1K+xyw9OwBDgw5og2p0nRTYaOT4Uyf5BvlJ7xdSvDmLK
-	w8nGUD7A==;
+	bh=Iye7H9J0i3pG7Uaq2wwx9o/eYl/3IUwYdrp1Dd+t7Bc=; b=xf+mGGmTooq7hkAhtn9iPIHK2y
+	G6dd72WENd/NfuZvRkXgB5FmXEUN1IaFIUmEUPRlzhzbCjIazKMQWp/4wgEuryNu2xX3REd/9oQ59
+	JZZEQIrLrC/YrqQPNpItbm00OlVyjwLmP+1kylKaFzKWwUPQcQx4hI7I8XKui0GmCC2PjVnQTmJSB
+	594AtoUxyMj/i+d1+xEVAATT8itzWzOejRXNYt+Gqt7cXgtmZUFjRUD6A6wRnATXvyrqgKfil1zUi
+	MFYnf0yjzx8ZR1YH4FfFdg4SNDHaYB3C4Cg6pLPmS4Bm8ok06MJWFAaXGEzWkLRX6JfONQrNPEXRu
+	D1YPknRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubcUU-00000004mqO-3OQt;
-	Tue, 15 Jul 2025 10:02:26 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1ubcWv-00000004nBy-09WR;
+	Tue, 15 Jul 2025 10:04:57 +0000
+Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubcFb-00000004k82-3edX
+	id 1ubcHS-00000004kNh-3IxR
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Jul 2025 09:47:05 +0000
+	Tue, 15 Jul 2025 09:49:00 +0000
 Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 56F9ks402235260;
-	Tue, 15 Jul 2025 04:46:54 -0500
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 56F9mmxZ2586251;
+	Tue, 15 Jul 2025 04:48:48 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1752572814;
-	bh=jSjJtqdXOK2619OVhSk/cvk2yD64s3HepL+hT3bVVSo=;
+	s=ti-com-17Q1; t=1752572928;
+	bh=Iye7H9J0i3pG7Uaq2wwx9o/eYl/3IUwYdrp1Dd+t7Bc=;
 	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=TU+S+Vjxvo1w/t9UsKNrQ7K9dEjlS8PBqFfDcOZohoVDL/YBUsR2zQLSoonzh2XRQ
-	 B66XhiP0jHH3c5+Zy71bpyzUZc0p16vdIUNf9zkTKlKO/tMjfd6WyfcaLJ26kxklsw
-	 Y7tqfJ8rHVa4RCgsuR4xGjx3Y0ctRPUnsUdFH01I=
-Received: from DLEE113.ent.ti.com (dlee113.ent.ti.com [157.170.170.24])
-	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 56F9kstD1177302
+	b=rpFrNW6XDvSiLGHJoEi2dVeKyKZoYAkQ8xLkzym2uJV704Ut35HHjJa3dqklnMCPi
+	 sKKRrLd6TAPOl3+VCtY/fdN7zPmjf64LwkbGeOLs4dBPJrFYIEoM3j4Ty6QjaK+WYC
+	 38n19I0VGIp9jeW1AlByCpxOAix6y7/GVyYSQU3w=
+Received: from DLEE104.ent.ti.com (dlee104.ent.ti.com [157.170.170.34])
+	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 56F9mmLk1178036
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Tue, 15 Jul 2025 04:46:54 -0500
-Received: from DLEE102.ent.ti.com (157.170.170.32) by DLEE113.ent.ti.com
- (157.170.170.24) with Microsoft SMTP Server (version=TLS1_2,
+	Tue, 15 Jul 2025 04:48:48 -0500
+Received: from DLEE114.ent.ti.com (157.170.170.25) by DLEE104.ent.ti.com
+ (157.170.170.34) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Tue, 15
- Jul 2025 04:46:54 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE102.ent.ti.com
- (157.170.170.32) with Microsoft SMTP Server (version=TLS1_2,
+ Jul 2025 04:48:48 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE114.ent.ti.com
+ (157.170.170.25) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Tue, 15 Jul 2025 04:46:54 -0500
+ Frontend Transport; Tue, 15 Jul 2025 04:48:48 -0500
 Received: from [172.24.227.166] (jayesh-hp-z2-tower-g5-workstation.dhcp.ti.com [172.24.227.166])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 56F9kotu2356744;
-	Tue, 15 Jul 2025 04:46:51 -0500
-Message-ID: <e8400355-d59e-44ad-8f69-af068a6ee85c@ti.com>
-Date: Tue, 15 Jul 2025 15:16:50 +0530
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 56F9miVG2359263;
+	Tue, 15 Jul 2025 04:48:45 -0500
+Message-ID: <3ab4f645-8062-4ed6-8fd3-96dd3eb6de0b@ti.com>
+Date: Tue, 15 Jul 2025 15:18:44 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/7] arm64: dts: ti: k3-j784s4-j742s2-main-common: add
- DSI & DSI PHY
+Subject: Re: [PATCH v2 7/7] arm64: dts: ti: k3-am68-sk: Enable DSI on
+ DisplayPort-0
 To: Vignesh Raghavendra <vigneshr@ti.com>, <nm@ti.com>,
         <devicetree@vger.kernel.org>
 CC: <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
         <conor+dt@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
         <linux-kernel@vger.kernel.org>, <devarsht@ti.com>, <u-kumar1@ti.com>
 References: <20250624082619.324851-1-j-choudhary@ti.com>
- <20250624082619.324851-2-j-choudhary@ti.com>
- <ed2ccf14-b470-4f3e-a793-61866cf7e26c@ti.com>
+ <20250624082619.324851-8-j-choudhary@ti.com>
+ <4765b426-e625-4563-a748-7edb40e3b260@ti.com>
 Content-Language: en-US
 From: Jayesh Choudhary <j-choudhary@ti.com>
-In-Reply-To: <ed2ccf14-b470-4f3e-a793-61866cf7e26c@ti.com>
+In-Reply-To: <4765b426-e625-4563-a748-7edb40e3b260@ti.com>
 Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 7bit
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250715_024704_008304_138354B2 
-X-CRM114-Status: GOOD (  12.93  )
+X-CRM114-CacheID: sfid-20250715_024858_926066_7E4180DD 
+X-CRM114-Status: GOOD (  13.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,96 +89,157 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Vignesh,
+Hi,
 
-On 26/06/25 11:56, Vignesh Raghavendra wrote:
-> Hi
+On 26/06/25 12:04, Vignesh Raghavendra wrote:
+> 
 > 
 > On 24/06/25 13:56, Jayesh Choudhary wrote:
->> Add DT nodes for DPI to DSI Bridge and DSI Phy.
->> The DSI bridge is Cadence DSI and the PHY is a
->> Cadence DPHY with TI wrapper.
+>> Enable DSI support for AM68-SK platform.
+>>
+>> Add DT node for DSI2eDP bridge. The DSI to eDP bridge is sn65dsi86
+>> on the board.
+>>
+>> Add the endpoint nodes to describe connection from:
+>> DSS => DSI => SN65DSI86 bridge => DisplayPort-0
+>>
+>> Set status for all required nodes for DisplayPort-0 as 'okay'.
 >>
 >> Signed-off-by: Jayesh Choudhary <j-choudhary@ti.com>
 >> ---
->>   .../dts/ti/k3-j784s4-j742s2-main-common.dtsi  | 37 +++++++++++++++++++
->>   1 file changed, 37 insertions(+)
+>>   .../boot/dts/ti/k3-am68-sk-base-board.dts     | 96 +++++++++++++++++++
+>>   1 file changed, 96 insertions(+)
 >>
->> diff --git a/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi b/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi
->> index 363d68fec387..2413c4913a8b 100644
->> --- a/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi
->> +++ b/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi
->> @@ -2517,6 +2517,43 @@ watchdog18: watchdog@2550000 {
->>   		status = "reserved";
+>> diff --git a/arch/arm64/boot/dts/ti/k3-am68-sk-base-board.dts b/arch/arm64/boot/dts/ti/k3-am68-sk-base-board.dts
+>> index 5fa70a874d7b..aef63ae2994c 100644
+>> --- a/arch/arm64/boot/dts/ti/k3-am68-sk-base-board.dts
+>> +++ b/arch/arm64/boot/dts/ti/k3-am68-sk-base-board.dts
+>> @@ -135,6 +135,35 @@ transceiver4: can-phy3 {
+>>   		max-bitrate = <5000000>;
 >>   	};
 >>   
->> +	dphy_tx0: phy@4480000 {
->> +		compatible = "ti,j721e-dphy";
->> +		reg = <0x0 0x04480000 0x0 0x1000>;
-> 
-> Follow the convention of the file. Use:
-> 
-> 		reg = <0x00 0x04480000 0x00 0x1000>;
-
-Okay I will add padding.
-Will add it to 4th field as well as I am seeing it in some
-nodes:
-
-reg = <0x00 0x04480000 0x00 0x00001000>;
-
-> 
-> Please fix throughout the series.
-
-
-Okay.
-
-> 
->> +		clocks = <&k3_clks 402 20>, <&k3_clks 402 3>;
->> +		clock-names = "psm", "pll_ref";
->> +		#phy-cells = <0>;
->> +		power-domains = <&k3_pds 402 TI_SCI_PD_EXCLUSIVE>;
->> +		assigned-clocks = <&k3_clks 402 3>;
->> +		assigned-clock-parents = <&k3_clks 402 4>;
->> +		assigned-clock-rates = <19200000>;
->> +		status = "disabled";
+>> +	edp0_refclk: clock-edp0-refclk {
+>> +		#clock-cells = <0>;
+>> +		compatible = "fixed-clock";
+>> +		clock-frequency = <19200000>;
 >> +	};
 >> +
->> +	dsi0: dsi@4800000 {
->> +		compatible = "ti,j721e-dsi";
->> +		reg = <0x0 0x04800000 0x0 0x100000>, <0x0 0x04710000 0x0 0x100>;
->> +		clocks = <&k3_clks 215 2>, <&k3_clks 215 5>;
->> +		clock-names = "dsi_p_clk", "dsi_sys_clk";
->> +		power-domains = <&k3_pds 215 TI_SCI_PD_EXCLUSIVE>;
+>> +	dp0_pwr_3v3: fixedregulator-dp0-pwr {
 > 
->> +		interrupt-parent = <&gic500>;
-> 
-> This is implied and can be dropped.
+> use std node name: regulator-...
 
-Will drop.
-
-Warm Regards,
-Jayesh
+Okay! In v3, I will change this.
 
 > 
->> +		interrupts = <GIC_SPI 600 IRQ_TYPE_LEVEL_HIGH>;
->> +		phys = <&dphy_tx0>;
->> +		phy-names = "dphy";
->> +		status = "disabled";
+>> +		compatible = "regulator-fixed";
+>> +		regulator-name = "dp0-pwr";
+>> +		regulator-min-microvolt = <3300000>;
+>> +		regulator-max-microvolt = <3300000>;
+>> +		gpio = <&exp2 2 GPIO_ACTIVE_HIGH>;     /*P0 - DP0_3V3 _EN */
+>> +		enable-active-high;
+>> +		regulator-always-on;
+>> +	};
 >> +
->> +		dsi0_ports: ports {
->> +			#address-cells = <1>;
->> +			#size-cells = <0>;
->> +			port@0 {
->> +				reg = <0>;
->> +			};
->> +			port@1 {
->> +				reg = <1>;
+>> +	dp0: dp0-connector {
+>> +		compatible = "dp-connector";
+>> +		label = "DP0";
+>> +		type = "full-size";
+>> +		dp-pwr-supply = <&dp0_pwr_3v3>;
+>> +
+>> +		port {
+>> +			dp0_connector_in: endpoint {
+>> +				remote-endpoint = <&dp0_out>;
 >> +			};
 >> +		};
 >> +	};
 >> +
->>   	mhdp: bridge@a000000 {
->>   		compatible = "ti,j721e-mhdp8546";
->>   		reg = <0x0 0xa000000 0x0 0x30a00>,
+>>   	connector-hdmi {
+>>   		compatible = "hdmi-connector";
+>>   		label = "hdmi";
+>> @@ -605,6 +634,39 @@ exp2: gpio@20 {
+>>   		gpio-line-names = "HDMI_PDn","HDMI_LS_OE",
+>>   				  "DP0_3V3_EN","eDP_ENABLE";
+>>   	};
+>> +
+>> +	dsi_edp_bridge: dsi-edp-bridge@2c {
+>> +		compatible = "ti,sn65dsi86";
+>> +		reg = <0x2c>;
+>> +		clock-names = "refclk";
+>> +		clocks = <&edp0_refclk>;
+>> +		enable-gpios = <&exp2 3 GPIO_ACTIVE_HIGH>;
+>> +		vpll-supply = <&vsys_io_1v8>;
+>> +		vccio-supply = <&vsys_io_1v8>;
+>> +		vcca-supply = <&vsys_io_1v2>;
+>> +		vcc-supply = <&vsys_io_1v2>;
+>> +
+>> +		dsi_edp_bridge_ports: ports {
+>> +			#address-cells = <1>;
+>> +			#size-cells = <0>;
+>> +
+>> +			port@0 {
+>> +				reg = <0>;
+>> +
+>> +				dp0_in: endpoint {
+>> +					remote-endpoint = <&dsi0_out>;
+>> +				};
+>> +			};
+>> +
+>> +			port@1 {
+>> +				reg = <1>;
+>> +
+>> +				dp0_out: endpoint {
+>> +					remote-endpoint = <&dp0_connector_in>;
+>> +				};
+>> +			};
+>> +		};
+>> +	};
+>>   };
+>>   
+>>   &main_sdhci1 {
+>> @@ -699,6 +761,15 @@ dpi_out0: endpoint {
+>>   			remote-endpoint = <&tfp410_in>;
+>>   		};
+>>   	};
+>> +
+>> +	/* DSI */
+>> +	port@2 {
+>> +		reg = <2>;
+>> +
+>> +		dpi0_out: endpoint {
+>> +			remote-endpoint = <&dsi0_in>;
+>> +		};
+>> +	};
+>>   };
+>>   
+>>   &serdes_ln_ctrl {
+>> @@ -756,3 +827,28 @@ &usb0 {
+>>   	phys = <&serdes0_usb_link>;
+>>   	phy-names = "cdns3,usb3-phy";
+>>   };
+>> +
+>> +&dphy_tx0 {
+>> +	status = "okay";
+>> +};
+>> +
+>> +&dsi0 {
+>> +	status = "okay";
+>> +};
+>> +
+>> +&dsi0_ports {
+>> +
+>> +	port@0 {
+>> +		reg = <0>;
+>> +		dsi0_out: endpoint {
+>> +			remote-endpoint = <&dp0_in>;
+>> +		};
+>> +	};
+>> +
+>> +	port@1 {
+>> +		reg = <1>;
+>> +		dsi0_in: endpoint {
+>> +			remote-endpoint = <&dpi0_out>;
+>> +		};
+>> +	};
+>> +};
 > 
 
