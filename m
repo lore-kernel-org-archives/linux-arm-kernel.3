@@ -4,76 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BD77C83F1D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 08:45:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E4F7C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 08:47:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Ex6rZ9aRnEjIjKkUay6G77jbmFwgan0iuINyfGJdTk4=; b=h6yK9jsXjWAydx+CGsEnm1uApS
-	oeipma9RSlcFn1UlBNuH7rwf/R0rDmJk8rtepnJAVj4T+/z5faSuIrno2MI9r8CEusJ07zUDKEdv6
-	jJg3oZKeBmivkLb8cclMuICu7PTX5f8lXO3aRbJlOuNst+T3rJBb42tdTBZ+13AYfmVoFSfqM15Nh
-	hLXlbDXxPCebtgXSvqQYnDfXrTs5l1wHfWYE6dIT1cNMx8cKMJfe1aRQj9uZehE9NXBnLbpn3nDQh
-	FD5+A4JGlqJ3Xc3IT7OnagcFrIZoIzlEg6UNHlv3oarnyFA2F0mRmHU5x7tcFxQcOq0yUlR03wn46
-	/XTxzMYg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dHBf9KIGX9skQDUPGn9m/eAuRafYFNCwT7CcfK1pNpg=; b=iQG1VvhlZC9qX+vKYiL3ZrP64G
+	Ag8rKfiExzfX7l6/HG2+PSbgVnikBt7WPTPpqef8zmnLOIFRLdK1uk8YdrRIDWKKN6HVi/h2g/CFD
+	GPOVVj//BNUs7F+Gb7ElFpiAcZ7J4dZC/dJbebiVEEY7AjwEEtqqxaH2STSNain7/zepDbNPbwN0Q
+	G3ix8tvi0PIMZ5Scf42uccKTwI2FXli8eKAHzlG5aJfYY3xsEQQl0Lk7ZsmMPoa+KwuqiVM+Xxojo
+	0zuYYZYHzJxug28ON6GVajA9HPCIcXC34NxP9DwH1PuJbD6SnOvUba6qdSIwojWwx26b2Sy3um93u
+	fu2wGcng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubbHm-00000004ZBW-34Ex;
-	Tue, 15 Jul 2025 08:45:14 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1ubbKA-00000004ZPI-23YY;
+	Tue, 15 Jul 2025 08:47:42 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubapT-00000004UCV-0gSH;
-	Tue, 15 Jul 2025 08:16:00 +0000
-X-UUID: ecc2e988615311f09f706fa2197c6ceb-20250715
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=Ex6rZ9aRnEjIjKkUay6G77jbmFwgan0iuINyfGJdTk4=;
-	b=qIYYY14gvVuTzdQHXcS4XgNFURJALqK5Tfs7LBvsp5eVZzP7MFLisryZ6L8X1o/08nKw86irrBT6GL0kNDQ6KNRI/8IdILSQSMbrg4RIkqwYpQKt2xu/IO1XK+ktWZqvit/5+tDAHv7LgMAvgYmHD1e2h2TudIqsO60SNzbyzRA=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.2,REQID:6e50fec6-86f5-4dbf-9277-fa772b081f34,IP:0,UR
-	L:0,TC:0,Content:-25,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
-	:release,TS:-25
-X-CID-META: VersionHash:9eb4ff7,CLOUDID:c082e149-3902-4ad6-a511-6378a8132fbf,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0|50,EDM:-3,IP:ni
-	l,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES
-	:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0
-X-CID-BAS: 0,_,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: ecc2e988615311f09f706fa2197c6ceb-20250715
-Received: from mtkmbs09n1.mediatek.inc [(172.21.101.35)] by mailgw01.mediatek.com
-	(envelope-from <irui.wang@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1312211515; Tue, 15 Jul 2025 01:15:53 -0700
-Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
- MTKMBS09N2.mediatek.inc (172.21.101.94) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Tue, 15 Jul 2025 16:15:48 +0800
-Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
- mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.39 via Frontend Transport; Tue, 15 Jul 2025 16:15:48 +0800
-From: Irui Wang <irui.wang@mediatek.com>
-To: Hans Verkuil <hverkuil-cisco@xs4all.nl>, Mauro Carvalho Chehab
-	<mchehab@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
-	<angelogioacchino.delregno@collabora.com>, <nicolas.dufresne@collabora.com>
-CC: <Project_Global_Chrome_Upstream_Group@mediatek.com>,
-	<linux-media@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>,
-	Yunfei Dong <yunfei.dong@mediatek.com>, Longfei Wang
-	<longfei.wang@mediatek.com>, Irui Wang <irui.wang@mediatek.com>
-Subject: [PATCH] media: mediatek: encoder: memset encoder structure data
-Date: Tue, 15 Jul 2025 16:15:47 +0800
-Message-ID: <20250715081547.18076-1-irui.wang@mediatek.com>
-X-Mailer: git-send-email 2.46.0
+	id 1ubaqE-00000004UMN-3W8z
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 15 Jul 2025 08:16:48 +0000
+Received: from pps.filterd (m0369457.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56F6eaSF008220;
+	Tue, 15 Jul 2025 10:16:33 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	dHBf9KIGX9skQDUPGn9m/eAuRafYFNCwT7CcfK1pNpg=; b=GzTnNJo9R2dr9qiG
+	dXXiL4QKZ5+6RSkjo1J8110/xGhbC42nGIM+nV0B/3cGYN7BAkzsojekd+W9uNTk
+	+CH4862GDkMuP+CJbxswzyFD0F10lPWJ6C9Eyg5hO5TF/4Z3q/VaD0n76ysw5a5v
+	2egIirYzKTaXMHZYd3nThIRuw6t/K09U6ghuPPDrW/u5VtfP5+deRJwnrRSR/3sc
+	+arH37hRWeez5SfHYQmKmVStYraZaZZcgp8UexB3BJtHpeV6okWlDTywcebeukKi
+	rPBmN46kal7qXgHKxnEuHYcT9em4aWlXZSJtU5WoXHBGq9zCzXe0Bo8D6DPdZhV+
+	9nl/qQ==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 47v2nnrvj1-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 15 Jul 2025 10:16:33 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 9CC8040054;
+	Tue, 15 Jul 2025 10:15:17 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id F185EB60F4A;
+	Tue, 15 Jul 2025 10:13:54 +0200 (CEST)
+Received: from [10.48.86.185] (10.48.86.185) by SHFDAG1NODE2.st.com
+ (10.75.129.70) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Tue, 15 Jul
+ 2025 10:13:54 +0200
+Message-ID: <7f363c87-01d5-43f7-a15b-844fb5530c5d@foss.st.com>
+Date: Tue, 15 Jul 2025 10:13:53 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 1/8] dt-bindings: pinctrl: stm32: Introduce HDP
+To: Linus Walleij <linus.walleij@linaro.org>
+CC: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Bartosz Golaszewski <brgl@bgdev.pl>,
+        Antonio Borneo
+	<antonio.borneo@foss.st.com>,
+        =?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?=
+	<legoffic.clement@gmail.com>,
+        <linux-kernel@vger.kernel.org>, <linux-gpio@vger.kernel.org>,
+        <devicetree@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>,
+        Krzysztof Kozlowski
+	<krzysztof.kozlowski@linaro.org>
+References: <20250711-hdp-upstream-v7-0-faeecf7aaee1@foss.st.com>
+ <20250711-hdp-upstream-v7-1-faeecf7aaee1@foss.st.com>
+ <11a49801-d187-479b-865b-810ca5adbf00@foss.st.com>
+ <CACRpkdYXQRGO7BrF9+08StWyOkDoqLhNQdgk=bhoccg1BogpqQ@mail.gmail.com>
+Content-Language: en-US
+From: Clement LE GOFFIC <clement.legoffic@foss.st.com>
+In-Reply-To: <CACRpkdYXQRGO7BrF9+08StWyOkDoqLhNQdgk=bhoccg1BogpqQ@mail.gmail.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-MTK: N
+X-Originating-IP: [10.48.86.185]
+X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE2.st.com
+ (10.75.129.70)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.7,FMLib:17.12.80.40
+ definitions=2025-07-14_03,2025-07-14_01,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250715_011559_205262_4DCE94F1 
-X-CRM114-Status: GOOD (  10.94  )
+X-CRM114-CacheID: sfid-20250715_011647_141118_5C23DEB0 
+X-CRM114-Status: UNSURE (   6.12  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,58 +109,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Utilized memset to set all bytes of encoder structure to zero,
-this prevents any undefined behavior due to uninitialized use.
+Hi Linus,
 
-Signed-off-by: Irui Wang <irui.wang@mediatek.com>
----
- .../media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc.c  | 5 +++++
- 1 file changed, 5 insertions(+)
+On 7/11/25 20:51, Linus Walleij wrote:
+> On Fri, Jul 11, 2025 at 10:04 AM Clement LE GOFFIC
+> <clement.legoffic@foss.st.com> wrote:
+> 
+>>> +maintainers:
+>>> +  - Clément LE GOFFIC <clement.legoffic@foss.st.com>
+>>
+>> Oops, need to change the mail address here too.
+> 
+> Don't worry I fixed it while applying the patch.
 
-diff --git a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc.c b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc.c
-index a01dc25a7699..ecac1aec7215 100644
---- a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc.c
-+++ b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc.c
-@@ -886,6 +886,7 @@ static int vb2ops_venc_start_streaming(struct vb2_queue *q, unsigned int count)
- 			return 0;
- 	}
- 
-+	memset(&param, 0, sizeof(param));
- 	mtk_venc_set_param(ctx, &param);
- 	ret = venc_if_set_param(ctx, VENC_SET_PARAM_ENC, &param);
- 	if (ret) {
-@@ -1021,12 +1022,14 @@ static int mtk_venc_encode_header(void *priv)
- 	struct mtk_vcodec_mem bs_buf;
- 	struct venc_done_result enc_result;
- 
-+	memset(&enc_result, 0, sizeof(enc_result));
- 	dst_buf = v4l2_m2m_dst_buf_remove(ctx->m2m_ctx);
- 	if (!dst_buf) {
- 		mtk_v4l2_venc_dbg(1, ctx, "No dst buffer");
- 		return -EINVAL;
- 	}
- 
-+	memset(&bs_buf, 0, sizeof(bs_buf));
- 	bs_buf.va = vb2_plane_vaddr(&dst_buf->vb2_buf, 0);
- 	bs_buf.dma_addr = vb2_dma_contig_plane_dma_addr(&dst_buf->vb2_buf, 0);
- 	bs_buf.size = (size_t)dst_buf->vb2_buf.planes[0].length;
-@@ -1143,6 +1146,7 @@ static void mtk_venc_worker(struct work_struct *work)
- 	struct venc_done_result enc_result;
- 	int ret, i;
- 
-+	memset(&enc_result, 0, sizeof(enc_result));
- 	/* check dst_buf, dst_buf may be removed in device_run
- 	 * to stored encdoe header so we need check dst_buf and
- 	 * call job_finish here to prevent recursion
-@@ -1175,6 +1179,7 @@ static void mtk_venc_worker(struct work_struct *work)
- 		frm_buf.fb_addr[i].size =
- 				(size_t)src_buf->vb2_buf.planes[i].length;
- 	}
-+	memset(&bs_buf, 0, sizeof(bs_buf));
- 	bs_buf.va = vb2_plane_vaddr(&dst_buf->vb2_buf, 0);
- 	bs_buf.dma_addr = vb2_dma_contig_plane_dma_addr(&dst_buf->vb2_buf, 0);
- 	bs_buf.size = (size_t)dst_buf->vb2_buf.planes[0].length;
--- 
-2.46.0
+Cool thank you :-) !
 
+Best regards,
+Clément
 
