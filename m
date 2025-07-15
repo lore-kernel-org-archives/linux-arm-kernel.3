@@ -4,42 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3817C83F1D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 11:15:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4DC4C83F22
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 11:18:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PECLFrwCRzXjctoZGg6pPonND+ApxV55wwv45R2Kk/E=; b=sExovDlb+TFRByxh7iqx7N8Toc
-	STG1NoMM/NGVgrwXZNSBnhYXosx+ouePDow4SR4kW1pUk1joQhrWCB4oT4cpGPNqN2IzxxqRAvL+/
-	ANRV0dJfxFKZdaQP/YGSCV3LHCDZu4Tyx+BMcbVrrZLi7YiuR3sUwtsuNkAtSW6dWzPV2VyM0uDRC
-	HXgbz1ILO71sJz2QMScvXN/5+rMIWdaxDc6aqLr27bqkdgpT3dD01VH3UjHP4Qife8R6JCuINc4pX
-	MUPUDFW+8BFQUzIc8gWP1a5ZNwvBLX2+x/RzsKXSWBg0jSpUjRuYE77PykUo+jk2e2JbFmb3RaNfS
-	JSsDAIhw==;
+	bh=B21r3yBV8EHsHdXf3f8cxXR6HEpvLw0yL1lX+xHT+kg=; b=lW5+izz2vAobtaVwoF6RccC2yn
+	WSftrMm+qjR8byvosZL1Ug48Dfqy4TuJ9nHG9PCY5JYYuOnbJUs3Up5VTzlmUwd/fmtkzcCHtEbmd
+	dAgx933bIEf5YDbzJNsolcKu4Fxyxrwu6UgsKHbFXSykmJtTssM93P5d0LJOqf5gMkw7mxS+t+oVz
+	yzurdvcPQMwSDRDDk/UAwZ4ib+MTV7bdP9zSr8LF3yLUXAY/QVfLDXwF5/AdncU+w75D1jXBNiWP+
+	gvEmK/gKuchL3D59btgrOHkfTV+4mZzkC8wQuCU8us9X/BwLLrD2JI8yUDQu++ehEciyMkc8wCRph
+	BVUOw+pA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubddM-00000004uyj-29ex;
-	Tue, 15 Jul 2025 11:15:40 +0000
+	id 1ubdfk-00000004vBa-2HtG;
+	Tue, 15 Jul 2025 11:18:08 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubdWu-00000004uAq-3zDZ;
-	Tue, 15 Jul 2025 11:09:02 +0000
+	id 1ubdWx-00000004uBa-21Zc;
+	Tue, 15 Jul 2025 11:09:04 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
 	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
 	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=PECLFrwCRzXjctoZGg6pPonND+ApxV55wwv45R2Kk/E=; b=mrZIiswgEdrJK23nhmmNdl07gy
-	LsxjH9aVBouzhKSC8PyL1SOxB2E6TKrs4YO+0CN810+5EsMSt7hcFyu7Tje26slFox1ez8ln9IaEb
-	53jyV2r3wS/kVlzopZF5bBBq7+Btxwi1Risvy3V1EpQxCnq/BBDQs+OKhF+QjjE9fs8r3L38OtJUJ
-	BlZL1o8W1qBCS2VaWKgFZNpvbK0Q/9fXw0td+ZyPOsfKFN3gvWZwn20Q3mzXBslwPNSXJZc430hWC
-	+lMHe0d7IKKH5NRqZNp1UNBFfU6vSBb7Ryr66dA/E+E7f/xryAGHomJO7cSsZ5+fFdA3ESo+0wjD6
-	BvXzMc+w==;
+	bh=B21r3yBV8EHsHdXf3f8cxXR6HEpvLw0yL1lX+xHT+kg=; b=m7VPJ1O3O6DUfh6rqmXFORQS7/
+	eRWs7mntRWU2v/yjdiS7WDiJmRSzfOus7j8fHrF3KEC/Oxl1QI9oVz7rnEKPOQhdWiqXy/d5OfNmy
+	uPoGOQHMvgasS6ZjjzPGOLU1CkdD602FF8k6q8j0kPLOHkklpXY5EFA8ouQz2JxYcDlFkG6LgiWJc
+	nl71PjZ751ZXqvAk+wlnJoy6QgtyXgM+feTsjJDoIsRf1sHAnkiYwrUR1Y6HlH8gZz8WieJ7v6Pq4
+	DjikX0AMfj2994OoPkCV7RNPIf4EVqJnPxwQFRcrqcBzGiE7oG72Z0OIUasU76lj24D8oxsnK/LwR
+	yqtc85jw==;
 Received: from [194.95.143.137] (helo=localhost.localdomain)
 	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.94.2)
 	(envelope-from <heiko@sntech.de>)
-	id 1ubdWq-0000O7-KR; Tue, 15 Jul 2025 13:08:56 +0200
+	id 1ubdWr-0000O7-6T; Tue, 15 Jul 2025 13:08:57 +0200
 From: Heiko Stuebner <heiko@sntech.de>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -47,24 +47,24 @@ To: Rob Herring <robh@kernel.org>,
 	Diederik de Haas <didi.debian@cknow.org>
 Cc: Heiko Stuebner <heiko@sntech.de>,
 	Dragan Simic <dsimic@manjaro.org>,
-	Peter Robinson <pbrobinson@gmail.com>,
+	Quentin Schulz <quentin.schulz@cherry.de>,
 	Johan Jonker <jbx6244@gmail.com>,
 	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-rockchip@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64: dts: rockchip: Add rtc0 alias for NanoPi R5S + R5C
-Date: Tue, 15 Jul 2025 13:08:44 +0200
-Message-ID: <175257771275.2527819.17809492107036436712.b4-ty@sntech.de>
+Subject: Re: (subset) [PATCH v4 00/10] rockchip: Fix several DTB validation issues
+Date: Tue, 15 Jul 2025 13:08:46 +0200
+Message-ID: <175257771277.2527819.16255685231485653626.b4-ty@sntech.de>
 X-Mailer: git-send-email 2.47.2
-In-Reply-To: <20250713161723.270963-1-didi.debian@cknow.org>
-References: <20250713161723.270963-1-didi.debian@cknow.org>
+In-Reply-To: <20250709132323.128757-1-didi.debian@cknow.org>
+References: <20250709132323.128757-1-didi.debian@cknow.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250715_040900_989226_5C4FBD4B 
-X-CRM114-Status: GOOD (  15.50  )
+X-CRM114-CacheID: sfid-20250715_040903_519789_C036A345 
+X-CRM114-Status: GOOD (  10.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,21 +80,24 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Sun, 13 Jul 2025 18:16:36 +0200, Diederik de Haas wrote:
-> The RTC_HCTOSYS_DEVICE module defaults to rtc0 and should (highly)
-> preferable be assigned to a battery backed RTC module as it is used to
-> (re)initialize the system clock.
+On Wed, 09 Jul 2025 15:15:13 +0200, Diederik de Haas wrote:
+> This patch set fixes several DTB validation issues and consists of 2
+> parts:
+> 1) dsi refactoring
+> 2) various low-hanging fruit
 > 
-> The R5S and R5C have a connector for a RTC battery which is used by
-> HYM8563 RTC. Both devices also have another RTC from the rk809 PMIC.
-> To make sure the HYM8563 is always assigned rtc0, add an alias for it.
+> ad 1) The display/rockchip/rockchip,dw-mipi-dsi.yaml binding had:
+> - #address-cells
+> - #size-cells
 > 
 > [...]
 
 Applied, thanks!
 
-[1/1] arm64: dts: rockchip: Add rtc0 alias for NanoPi R5S + R5C
-      commit: a2df3aead3e023857330a803c664ee97a7bd9b97
+[01/10] arm64: dts: rockchip: Move dsi address+size-cells from SoC to px30 boards
+        commit: 98921ad2494a85aa7edde33a3a478b9ae3d621ef
+[02/10] arm64: dts: rockchip: Move dsi address+size-cells from SoC to rk3399 boards
+        commit: d9c9115c6127636efbdc0fad8184bed1cd42fe3c
 
 Best regards,
 -- 
