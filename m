@@ -4,119 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BF81C83F1D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 09:42:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F50CC83F1D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 09:45:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SZvhiaAM1zk89IrSjXe8NpOVN3mQnnTqKGxocKpuCeU=; b=iePfmJ10obRTyR9MjkIxlYEN0w
-	Cf+ht2hVR3U2bD5hCj//WjwE6Nl/RcRdJH+zYYFWbXbWRHLrUupsgyAn2VHUK28vZb3w3erfCSrPT
-	wNyqjCoA0WD2Hs4nP+sD9VDqfb1oR5rRcYfVhZDt8754GzpELd18bj/wLAtTZ1/5xrNFOrCEBwK4L
-	9PKm0R5cnwNuUB9pCv6psnb2s3qdCYM69JsdgI+B+qdRHCOR2YOWC9nRKznUgh10MoQJuaCOgBRIK
-	EWg8Uf+VLg/8tkT0+DPN1hY+ev22fFFQE5FFuMaRlJBrYBejiAq6e7hRTixX0Je5d3cViBAwRh4L9
-	XnSSAbvA==;
+	bh=lKAztWAMbkIxg0BaFKadJXM0+B/yzJVqX90pmclYaLM=; b=MJgwzBgyIM1eBXAp4AkeGzLB6W
+	P14aVrNtBw38pbMkOs0d2aMuiKgQDUArES8dzVP4JN1ZoSXFbEIurdSgsVgjtJe7AieSXvBWrw5FN
+	9eyWacnYy0pNU6sJAnDVaPpw2WDnXgtXlmfhId6U3zhECIO/5I+1wQRe7xchz3pDk8Ivly4tTc9L2
+	BoyA1fMpn1H8aQdUtGHp9WsZ0k8IggLHaDffOJosOoMDw18Cy/I8HyyFCypWesommcTDaDwdp844O
+	KNUEqUWwRJaVNiDd1nDacso+YxlY0GF/PQ+Wzk3I71dQ3kCBjNT67+4Vl3a0f8S4Gj3arwaN8k81E
+	3p6Bs9tw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubcBC-00000004jF8-0ftx;
-	Tue, 15 Jul 2025 09:42:30 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1ubcDb-00000004jcN-0g3H;
+	Tue, 15 Jul 2025 09:44:59 +0000
+Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubbWX-00000004bio-1VMm
+	id 1ubbXn-00000004buX-2MNR
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Jul 2025 09:00:30 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0FFCF44D99;
-	Tue, 15 Jul 2025 09:00:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 02BADC4CEE3;
-	Tue, 15 Jul 2025 09:00:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752570028;
-	bh=/fSaFmzNZewgomFZk/gLqQ6dUoME78cATqFdKv1CmqE=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=pvFGLVYzhNqOC/kSI/4Xn23X6QKO6JAWGUIK9qSDGVILdYWjEkrt7z0orc36YIju5
-	 R4gegq/7RuLBDpkd9CtMwGtznMIh40kIDUNeHEuRVBx35s9Zn6Iksc8lXgu8vlcjOU
-	 ZffzQOgArxhE48yxQw3JR48c6gjtk+fMa1rMLf/CDyh2xA/OcyqOBnVoXjVmqMYahP
-	 5UOyvYJW4g93R5mbSmSei+e7M6LkdWZ2hiBYWwKulQkMEacrtDLuLkoaqaBaELHciN
-	 AQq4gdE6rJ+Nh+F+rkVkL1WFKoPbICTP02WLkIuL4tSJNzXKE5mvLMyRNpQzZ8Bv0+
-	 Ej/n5x8jATqAA==
-Message-ID: <a1076669-f044-4a84-aa1c-478573bf3c64@kernel.org>
-Date: Tue, 15 Jul 2025 11:00:20 +0200
+	Tue, 15 Jul 2025 09:01:49 +0000
+Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-3a6d1369d4eso2922570f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Jul 2025 02:01:47 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1752570106; x=1753174906; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :references:cc:to:from:subject:user-agent:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=lKAztWAMbkIxg0BaFKadJXM0+B/yzJVqX90pmclYaLM=;
+        b=JLP6zZO+d88dHG3qkf6M4PjuLmsxxC3XjfWSrmPUqaEJmaZFv6lYDKqaFIBRjuJEpf
+         G2jtyAnUebjGooqlhvfZ3fvMcsu742j0/1Wpebx8I61L4VA+hXiCZzREQ2jZxWYqT7b3
+         fogeKG6T1cEGT5LdLaAqQCQ0/jRO2bCOAv/ADnTRcLtwjbXYZpfuHZsjJLSs7b+jNNx+
+         eMiwbemBNa3alMfn+s6vIuwEaMN0yeY32pfNgJKGJIU1QAeLA0jrRCRrkK777JGtAZBj
+         zrehHQJiO2MowsxnZCjZkAjpw6dEVOJ8H4bfLVK/yEtfNrnEDtUcnuJQ5T+wfKcmGnq/
+         7E+Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1752570106; x=1753174906;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :references:cc:to:from:subject:user-agent:mime-version:date
+         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=lKAztWAMbkIxg0BaFKadJXM0+B/yzJVqX90pmclYaLM=;
+        b=wnURu5Dg+qcEqVzSxfMf6GwsF93I1eScwuP8KkI9iiItyzWPk+PnH7wk0ZCDIN7kxE
+         1vl/QGUVSeOJXlTVmmzNW5JK+1ZpkRtJ4IIFxS2V3N3jrGfZuqPsRR/CJbXnW0jNXUkJ
+         p1vhuxVGe9Nl6/pYw4CinzJzb57dNa51KYuWu5Es3BtzMiSMQZP+jplTZ2FjX6+/yhfk
+         uiiAd7Rx8fKI0toJbVqUM7DHI6uoGbGglDpdIov/FQAKz0ottMDYgeaDOpZmUHvnDZnY
+         5oQg5rOQG64hIQTQ+WVXtq0QPTtecS7A7jQAIZR2f+i+0xIvPABVwBLwlqvIuMngyOUW
+         qpRQ==
+X-Gm-Message-State: AOJu0YwW+BRo7zbhOsRTkczZ2gfIjmWBCQx8iOjYqg46HkXf9rWuuJdZ
+	Usq+mUgwyffULdVpX6noqPwN5IyOGJIbJhqw9GnOtLBJ69tC8bJgyoRAoWAcjS9kUTYoz7hV3v5
+	E37Oi
+X-Gm-Gg: ASbGncs486G68M8++xD3DcfKipjNbtnSq92VB7FIB/LRVzuCuVBiXVyGDnT9QmN4SAC
+	4qglkz7/mixSSwb1e3kfYVYG6M1JlIjPv/IigImerFJQTGT8WKppco5a+eESiVXm91SOwiQzheo
+	nxlx1z8bQ1XgFKM2LPLeg5RqrKg6e1qk2xk6PWsmUf3aEEmuXuoWJ3i0cVNW+NscMohUW/t0CHL
+	stsMsuPU5SIbEKIQ60ql2yKldsdMNBNp1OPdR9T2QjAXCaUC+En/THBGLgoDQbPqAdbTl0KV2DS
+	+w6X8oovsR/jlUxX27fD8YLu9hh6/Ftq8afZdJBToATR1qkcQzikIWY/ee/epbhaBIXI9FrumSL
+	ZNOqgsrx4kdPv5UKdf2JHLCZOGUdE/fTd1hkUgBeXJPLY8FlfdA==
+X-Google-Smtp-Source: AGHT+IHjdABMGwP4YDfDRViIsowhzhMCSRqyKy2Co98dkY73R43zduNO7uR1yP8yqGGz5RWX6pbVAQ==
+X-Received: by 2002:adf:e191:0:b0:3a8:30b8:cb93 with SMTP id ffacd0b85a97d-3b5f357895bmr11563876f8f.32.1752570105679;
+        Tue, 15 Jul 2025 02:01:45 -0700 (PDT)
+Received: from ?IPV6:2403:580d:fda1::299? (2403-580d-fda1--299.ip6.aussiebb.net. [2403:580d:fda1::299])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-74eb9dd71ffsm12029434b3a.23.2025.07.15.02.01.43
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 15 Jul 2025 02:01:45 -0700 (PDT)
+Message-ID: <3d24641b-7273-4658-ad73-691e621c4609@suse.com>
+Date: Tue, 15 Jul 2025 18:31:41 +0930
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/2] dt-bindings: ethernet: eswin: Document for EIC7700
- SoC
-To: =?UTF-8?B?6Z+m5bCa5aif?= <weishangjuan@eswincomputing.com>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- netdev@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, mcoquelin.stm32@gmail.com,
- alexandre.torgue@foss.st.com, rmk+kernel@armlinux.org.uk,
- yong.liang.choong@linux.intel.com, vladimir.oltean@nxp.com,
- jszhang@kernel.org, jan.petrous@oss.nxp.com,
- prabhakar.mahadev-lad.rj@bp.renesas.com, inochiama@gmail.com,
- boon.khai.ng@altera.com, dfustini@tenstorrent.com, 0x1207@gmail.com,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, ningyu@eswincomputing.com,
- linmin@eswincomputing.com, lizhi2@eswincomputing.com,
- pinkesh.vaghela@einfochips.com
-References: <20250703091808.1092-1-weishangjuan@eswincomputing.com>
- <20250703091947.1148-1-weishangjuan@eswincomputing.com>
- <9316adcb-4626-4ff8-a308-725c6ab34eba@kernel.org>
- <724b4f84.323b.1980d4b15c4.Coremail.weishangjuan@eswincomputing.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: PWM fan control not working with Rock5B and upstream kernel
+From: Qu Wenruo <wqu@suse.com>
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org
+References: <e9ddcc05-e6db-49b0-aad6-c7873c38c427@suse.com>
+ <5271313.GXAFRqVoOG@workhorse>
+ <f33da910-7e83-40a0-bfcd-a6131a356358@suse.com>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <724b4f84.323b.1980d4b15c4.Coremail.weishangjuan@eswincomputing.com>
-Content-Type: text/plain; charset=UTF-8
+Autocrypt: addr=wqu@suse.com; keydata=
+ xsBNBFnVga8BCACyhFP3ExcTIuB73jDIBA/vSoYcTyysFQzPvez64TUSCv1SgXEByR7fju3o
+ 8RfaWuHCnkkea5luuTZMqfgTXrun2dqNVYDNOV6RIVrc4YuG20yhC1epnV55fJCThqij0MRL
+ 1NxPKXIlEdHvN0Kov3CtWA+R1iNN0RCeVun7rmOrrjBK573aWC5sgP7YsBOLK79H3tmUtz6b
+ 9Imuj0ZyEsa76Xg9PX9Hn2myKj1hfWGS+5og9Va4hrwQC8ipjXik6NKR5GDV+hOZkktU81G5
+ gkQtGB9jOAYRs86QG/b7PtIlbd3+pppT0gaS+wvwMs8cuNG+Pu6KO1oC4jgdseFLu7NpABEB
+ AAHNGFF1IFdlbnJ1byA8d3F1QHN1c2UuY29tPsLAlAQTAQgAPgIbAwULCQgHAgYVCAkKCwIE
+ FgIDAQIeAQIXgBYhBC3fcuWlpVuonapC4cI9kfOhJf6oBQJnEXVgBQkQ/lqxAAoJEMI9kfOh
+ Jf6o+jIH/2KhFmyOw4XWAYbnnijuYqb/obGae8HhcJO2KIGcxbsinK+KQFTSZnkFxnbsQ+VY
+ fvtWBHGt8WfHcNmfjdejmy9si2jyy8smQV2jiB60a8iqQXGmsrkuR+AM2V360oEbMF3gVvim
+ 2VSX2IiW9KERuhifjseNV1HLk0SHw5NnXiWh1THTqtvFFY+CwnLN2GqiMaSLF6gATW05/sEd
+ V17MdI1z4+WSk7D57FlLjp50F3ow2WJtXwG8yG8d6S40dytZpH9iFuk12Sbg7lrtQxPPOIEU
+ rpmZLfCNJJoZj603613w/M8EiZw6MohzikTWcFc55RLYJPBWQ+9puZtx1DopW2jOwE0EWdWB
+ rwEIAKpT62HgSzL9zwGe+WIUCMB+nOEjXAfvoUPUwk+YCEDcOdfkkM5FyBoJs8TCEuPXGXBO
+ Cl5P5B8OYYnkHkGWutAVlUTV8KESOIm/KJIA7jJA+Ss9VhMjtePfgWexw+P8itFRSRrrwyUf
+ E+0WcAevblUi45LjWWZgpg3A80tHP0iToOZ5MbdYk7YFBE29cDSleskfV80ZKxFv6koQocq0
+ vXzTfHvXNDELAuH7Ms/WJcdUzmPyBf3Oq6mKBBH8J6XZc9LjjNZwNbyvsHSrV5bgmu/THX2n
+ g/3be+iqf6OggCiy3I1NSMJ5KtR0q2H2Nx2Vqb1fYPOID8McMV9Ll6rh8S8AEQEAAcLAfAQY
+ AQgAJgIbDBYhBC3fcuWlpVuonapC4cI9kfOhJf6oBQJnEXWBBQkQ/lrSAAoJEMI9kfOhJf6o
+ cakH+QHwDszsoYvmrNq36MFGgvAHRjdlrHRBa4A1V1kzd4kOUokongcrOOgHY9yfglcvZqlJ
+ qfa4l+1oxs1BvCi29psteQTtw+memmcGruKi+YHD7793zNCMtAtYidDmQ2pWaLfqSaryjlzR
+ /3tBWMyvIeWZKURnZbBzWRREB7iWxEbZ014B3gICqZPDRwwitHpH8Om3eZr7ygZck6bBa4MU
+ o1XgbZcspyCGqu1xF/bMAY2iCDcq6ULKQceuKkbeQ8qxvt9hVxJC2W3lHq8dlK1pkHPDg9wO
+ JoAXek8MF37R8gpLoGWl41FIUb3hFiu3zhDDvslYM4BmzI18QgQTQnotJH8=
+In-Reply-To: <f33da910-7e83-40a0-bfcd-a6131a356358@suse.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250715_020029_442716_8E43BF3D 
-X-CRM114-Status: GOOD (  12.91  )
+X-CRM114-CacheID: sfid-20250715_020147_604533_AC486F75 
+X-CRM114-Status: GOOD (  36.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,73 +126,147 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 15/07/2025 10:54, 韦尚娟 wrote:
->>> +
->>> +allOf:
->>> +  - $ref: snps,dwmac.yaml#
->>> +
->>> +properties:
->>> +  compatible:
->>> +    items:
->>> +      - const: eswin,eic7700-qos-eth
->>> +      - const: snps,dwmac-5.20
->>> +
->>> +  reg:
->>> +    minItems: 1
+
+
+在 2025/7/15 18:14, Qu Wenruo 写道:
+> 
+> 
+> 在 2025/7/15 17:19, Nicolas Frattaroli 写道:
+>> On Tuesday, 15 July 2025 06:10:45 Central European Summer Time Qu 
+>> Wenruo wrote:
+>>> Hi,
+>>>
+>>> My Rock5B board is running edk-rk3588 firmware and (almost) upstream
+>>> kernel (6.14.6 kernel from ArchlinuxARM), using upstream dtbs (the
+>>> firmware is also switched to device-tree boot mode)
 >>
->> Nope. Changelog does not explain that, it is not correct and no one ever
->> requested something like that. See also writing bindings about constraints.
+>> Consider using mainline u-boot instead. I think the only ones who
+>> insist on edk2 forks are the BSD people, as they don't want to
+>> write device drivers. Linux has drivers, so inventing UEFI abstractions
+>> for things probably only makes your experience worse.
 > 
-> I have reviewed the writing method from other YAML files in the source code, 
-> and they all use “reg: maxItems: 1 ” instead of “reg: minItems: 1”. So we also
-> need to use “reg: maxItems: 1 ” in our YAML file. Is this understanding correct?
-
-Yes, assuming you have here one entry.
-
+> Well, having something more user-friendly and more similar to a 
+> traditional PC setup is definitely more attractive to end users.
 > 
->>> +
->>> +  interrupt-names:
->>> +    const: macirq
->>> +
->>> +  interrupts:
->>> +    maxItems: 1
->>> +
->>> +  phy-mode:
->>> +    $ref: /schemas/types.yaml#/definitions/string
->>> +    enum:
->>> +      - rgmii
->>> +      - rgmii-rxid
->>> +      - rgmii-txid
->>> +      - rgmii-id
->>> +
->>> +  phy-handle:
->>> +    $ref: /schemas/types.yaml#/definitions/phandle
->>> +    description: Reference to the PHY device
->>> +
->>> +  clocks:
->>> +    minItems: 2
->>> +    maxItems: 2
->>> +
->>> +  clock-names:
->>> +    minItems: 2
->>> +    maxItems: 2
->>> +    contains:
->>> +      enum:
->>> +        - stmmaceth
->>> +        - tx
 >>
->> Not much changed, nothing explained in the changelog in cover letter.
+>> Kernel 6.14 is also quite a bit behind and not supported by upstream,
+>> you'll likely have a better experience compiling a kernel yourself
+>> using defconfig as the base. ALARM likes to roll dice when it comes to
+>> their kernel config and then not update their kernels for half a year.
+> 
+> Thankfully the latest one is 6.15.6, and unfortunately it doesn't make a 
+> difference.
+> 
+> I'm fine compiling kernels for my VMs to run tests, but for the host I'd 
+> leave this as the last resort method.
+> 
+> I'll try the Uboot if required, but no pre-compiled upstream one is not 
+> really inviting end users.
+> 
+>>
+>>>
+>>> Before that I'm using ACPI mode thus no PMW support, but the firmware's
+>>> fan control is working properly although running at a fixed rpm setting.
+>>>
+>>> But after switching to the upstream kernel and device-tree mode, the pwm
+>>> fan control never works.
+>>
+>> Check /sys/class/pwm, export the pwm associated with the fan in the DT,
+>> then manually set a period and duty cycle that corresponds to a period
+>> the fan supports. If it doesn't spin, then the problem is likely that
+>> there is a disconnect between what Linux thinks the PWM signal is and
+>> what it actually is.
+> 
+> Mind to explain it a little more?
+> 
+> Not an expert on device-tree, I normally use the board just as a 
+> headless VM host.
+> 
+>>
+>> I'm guessing the problem here is that your firmware of choice leaves
+>> the clock tree in a bit of a state, and the PWM is clocked from
+>> something that's incorrect. If it's not the right clock period for
+>> the fan, it won't spin.
+> 
+> But my bootloader (systemd-boot) is explicitly loading the dtb, not 
+> really relying on the one provided by the firmware.
+> 
+> Or that is not really enough for this case?
+
+I'm a total idiot, the timing when the PWM doesn't work is not the 
+change from ACPI to device-tree boot mode, but the timing I switched 
+from fanless case to the PWM fan again.
+
+And I plugged the 2pin fan connector to the WRONG PORT!
+
+It's connected to the RTC battery port, I didn't notice until I recheck 
+the name of the connector minutes ago.
+
+Really sorry for wasting your time on such a stupid error...
+
+Now it's working again without anything problem.
+
+> 
+> Thanks,
+> Qu
+> 
+>>
+>> A logic analyzer would be able to tell you definitively whether that's
+>> the case.
+>>
+>>>
+>>> `sensors` command detects the fan, and the pwm seems to properly
+>>> following the temperature, but the physical fan just do not spin at all:
+>>>
+>>> center_thermal-virtual-0
+>>> Adapter: Virtual device
+>>> temp1:        +80.4°C
+>>>
+>>> bigcore2_thermal-virtual-0
+>>> Adapter: Virtual device
+>>> temp1:        +84.1°C
+>>>
+>>> package_thermal-virtual-0
+>>> Adapter: Virtual device
+>>> temp1:        +81.3°C
+>>>
+>>> pwmfan-isa-0000
+>>> Adapter: ISA adapter
+>>> pwm1:            128%  MANUAL CONTROL <<<
+>>>
+>>> gpu_thermal-virtual-0
+>>> Adapter: Virtual device
+>>> temp1:        +79.5°C
+>>>
+>>> littlecore_thermal-virtual-0
+>>> Adapter: Virtual device
+>>> temp1:        +82.2°C
+>>>
+>>> bigcore0_thermal-virtual-0
+>>> Adapter: Virtual device
+>>> temp1:        +83.2°C
+>>>
+>>>
+>>> I'm wondering is this a bug in the upstream PWM code or something else
+>>> is missing preventing the fan from working properly.
+>>
+>> The upstream PWM code definitely works, and has worked for every
+>> Rockchip device so far. The PWM fan on my ROCK 5B (mainline u-boot,
+>> mainline kernel, mainline TF-A) works just fine.
+>>
+>>>
+>>> Thanks,
+>>> Qu
+>>>
+>>> _______________________________________________
+>>> Linux-rockchip mailing list
+>>> Linux-rockchip@lists.infradead.org
+>>> http://lists.infradead.org/mailman/listinfo/linux-rockchip
+>>>
+>>
+>>
+>>
 >>
 > 
-> For clocks and clock-names, other YAML files have no minItems
-> and maxItems. Remove minItems and maxItems from
-> clocks and clock-names and as we have fix 2 clocks. Add description in clocks:items. 
-> Ref yaml: sophgo,sg2044-dwmac.yaml, starfive,jh7110-dwmac.yaml
-> 
-> All the changes will be added in cover letter in the next version. Is this understanding correct?
 
-Yes.
-
-Best regards,
-Krzysztof
 
