@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 214F2C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 05:36:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16727C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 05:39:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1Sg6YHeYGi4yQZWG2m4AEtdd8BiAgP7BgQnUSkYjEUg=; b=L9AVmpA6N1JFcgv2DtpsvXZaHd
-	ZcyMjoMK4xc+d6uPPXLE03mGxYosqJnUcr3e4apmkNmouaUciHhTo/LosI3bxRoEfNwIWKKavyM0E
-	cR6dVCtHDSKSrjW5Bx/Ncfs0kdBdD+lYJ4K2uDfr1lt0SlIK909pe1H84Bak+BqJIz1LvqanlpAmH
-	7NiraTOIyLyifUFwNRzgL1LS/D9eVfaIPSgFPVToF0AOpnpJu60MKAXKaCKuFczfn6fU1rdhjV30q
-	AB/ICxWeCEghr0qJPwQ/yrnklzd94H++Y8J2YQqIlOAPipf2XJSXMILTxMW2HaUWRJ36jH59zlyML
-	sVFTsnOQ==;
+	bh=wqv6Z1egGGiJqpn1LoPFiVDxqgCPwJ2jW4Su+cvtpSM=; b=LVtLv4O/5TGyBLDcKIAyFmogGG
+	k94UdVT8sSf9IjH/ZuNA4vqSEsJyL6YDYQafnfrAyC06UCFyja98EUDfIhYeVIRVx5ykMcwj+dRTG
+	jOzyNckA6jDbV/x88pQ6u4EfASXm/qgTmf99TotGylePdCb81Jze7tRi30UpnDkBTMBwh7oZam7Ty
+	aJlFEtqra6o9xUmCJRVXg6MTQNhOJhlRPYQM6DsQBsxRXkTF1dBBejEgp8XcPZWXFpSk9kjwYS16E
+	dhiBoWCd16pE++wBlEaPLTndZKi6Mg+dK36kxlEyi+quCTPjcoIm+kZGI/hSCBa0FkvmQZxU5GRjM
+	E+A7Ofbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubYLJ-000000047TY-1erY;
-	Tue, 15 Jul 2025 05:36:41 +0000
-Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
+	id 1ubYNk-000000047j2-1HUq;
+	Tue, 15 Jul 2025 05:39:12 +0000
+Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubYEG-000000046hv-3V1v
+	id 1ubYEL-000000046jR-1jtd
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Jul 2025 05:29:26 +0000
+	Tue, 15 Jul 2025 05:29:30 +0000
 Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
-	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTP id 56F5TMXV2816970;
-	Tue, 15 Jul 2025 00:29:22 -0500
+	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTP id 56F5TR0c2771537;
+	Tue, 15 Jul 2025 00:29:27 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1752557362;
-	bh=1Sg6YHeYGi4yQZWG2m4AEtdd8BiAgP7BgQnUSkYjEUg=;
+	s=ti-com-17Q1; t=1752557367;
+	bh=wqv6Z1egGGiJqpn1LoPFiVDxqgCPwJ2jW4Su+cvtpSM=;
 	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=VlhI2Y5+D6+8I5heNwJRGORpiY7UCavO9603xgX7PlwAaQiIdxDGccUrmfQMg4bVb
-	 mYq2l6KxgpZomquqlYWgi92XoeXSYzvYpMCLIwBpsQ3Va601cIqJkvxkLKYtZQMNwh
-	 Taz5iV6XAI2XlvIFcr2eulvwA691U/Ir14nt0qk8=
-Received: from DFLE109.ent.ti.com (dfle109.ent.ti.com [10.64.6.30])
-	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 56F5TM8T1037124
+	b=hXTxYMqo2sCGeZOaUvDckTBkTMF4a5EoFivXpW8NMpsPaeAFCVtKLwQ2Gas9VyEUj
+	 65SrJ/a2SFasE1M1jBf5024yKlNkvSyhKCJC7/LGyptfRf9nea7DwAYxFHyRUM8yfx
+	 Uv0uRDRVTm8qyp/67ljKPCgrYulcagW1wrJanwJ8=
+Received: from DLEE100.ent.ti.com (dlee100.ent.ti.com [157.170.170.30])
+	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 56F5TRvJ1037133
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Tue, 15 Jul 2025 00:29:22 -0500
-Received: from DFLE112.ent.ti.com (10.64.6.33) by DFLE109.ent.ti.com
- (10.64.6.30) with Microsoft SMTP Server (version=TLS1_2,
+	Tue, 15 Jul 2025 00:29:27 -0500
+Received: from DLEE114.ent.ti.com (157.170.170.25) by DLEE100.ent.ti.com
+ (157.170.170.30) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Tue, 15
- Jul 2025 00:29:22 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE112.ent.ti.com
- (10.64.6.33) with Microsoft SMTP Server (version=TLS1_2,
+ Jul 2025 00:29:26 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE114.ent.ti.com
+ (157.170.170.25) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Tue, 15 Jul 2025 00:29:21 -0500
+ Frontend Transport; Tue, 15 Jul 2025 00:29:26 -0500
 Received: from uda0132425.dhcp.ti.com (uda0132425.dhcp.ti.com [172.24.227.245])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 56F5TIFc2337840;
-	Tue, 15 Jul 2025 00:29:18 -0500
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 56F5TIFd2337840;
+	Tue, 15 Jul 2025 00:29:23 -0500
 From: Vignesh Raghavendra <vigneshr@ti.com>
 To: Nishanth Menon <nm@ti.com>, Tero Kristo <kristo@kernel.org>,
         Rob Herring
@@ -62,19 +62,19 @@ To: Nishanth Menon <nm@ti.com>, Tero Kristo <kristo@kernel.org>,
 CC: Vignesh Raghavendra <vigneshr@ti.com>,
         <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
         <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v2 0/2] arm64: dts: ti: k3-am65: add boot phases to critical nodes
-Date: Tue, 15 Jul 2025 10:58:59 +0530
-Message-ID: <175240652599.4073742.12757905646611609157.b4-ty@ti.com>
+Subject: Re: [PATCH v2] arm64: dts: ti: k3-am62a7-sk: add boot phase tags
+Date: Tue, 15 Jul 2025 10:59:00 +0530
+Message-ID: <175240652599.4073742.7893826610210923370.b4-ty@ti.com>
 X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250710-65-boot-phases-v2-0-d431deb88783@ti.com>
-References: <20250710-65-boot-phases-v2-0-d431deb88783@ti.com>
+In-Reply-To: <20250710-62a-uboot-cleanup-v2-1-9e04a7db1f54@ti.com>
+References: <20250710-62a-uboot-cleanup-v2-1-9e04a7db1f54@ti.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250714_222924_960787_C25427F6 
-X-CRM114-Status: GOOD (  16.20  )
+X-CRM114-CacheID: sfid-20250714_222929_554576_F9C226AB 
+X-CRM114-Status: GOOD (  15.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,25 +91,23 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hi Bryan Brattlof,
 
-On Thu, 10 Jul 2025 09:38:58 -0500, Bryan Brattlof wrote:
-> To save precious on chip RAM space during bootup 'bootph-*' flags was
-> added to the dt-schema to describe which nodes need to be present during
-> each phase of the bootup process and which can be pruned to recover RAM
-> space that would otherwise be wasted.
+On Thu, 10 Jul 2025 07:03:10 -0500, Bryan Brattlof wrote:
+> The 'bootph-all' tag was added to the dt-schema to describe the various
+> nodes used during the different phases of bootup with DT. Add the
+> bootph-all tag to all nodes that are used during the early stages of
+> bootup by the bootloaders.
 > 
-> This small series adds the bootph-all flags to all the boot critical
-> nodes for all boards that utilize the AM65x as well as to the AM65's
-> reference board.
+> This includes the console UART along with the SD and eMMC nodes and its
+> required regulators for the 3v3 to 1v8 transition and the various nodes
+> for Ethernet booting.
 > 
 > [...]
 
 I have applied the following to branch ti-k3-dts-next on [1].
 Thank you!
 
-[1/2] arm64: dts: ti: k3-am65: add boot phase tags
-      commit: 3302e07346fea5709621a71c2cdb93ffbef2108a
-[2/2] arm64: dts: ti: k3-am654-base-board: add boot phase tags
-      commit: df62b42b0f37c4fe71613383c6a083dfff7f2c86
+[1/1] arm64: dts: ti: k3-am62a7-sk: add boot phase tags
+      commit: 289c5862b6c8984bbe840a6cd590225c6dd271f3
 
 All being well this means that it will be integrated into the linux-next
 tree (usually sometime in the next 24 hours) and sent up the chain during
