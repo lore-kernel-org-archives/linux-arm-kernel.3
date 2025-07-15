@@ -4,84 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BEB8C83F21
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 13:52:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDFC3C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 13:54:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0TXbl01E8QteEVcy+kSf5Hse7svb6iS2023jBa52cPY=; b=WEVby+ZkZjXCI7D7z/LfZKnh0E
-	gtE70/rnzFq5wBwjX7udKtW5H/yekbpzUWNCxnRvzKrq1NVJWSnoeP8tIq8KMmUfw9U5Gz/j3KNJG
-	Q+k9myJ049AVb0iHd9xbSMUdgisvtxbPb42qqIKD8nnlx2wLX+/9Nc/og9f7JKrm2zJlALeUOsmvJ
-	vW3N9kduPn+WfR/iJUA/GgXYND0w/71jHdusby5X16itTkO7wDbwwwqAs3mw4hbnr+/iKFHhABLwe
-	mOz0QQbRLoQ5vlT8QGvJ6Mx7xrCSivUjO2hQ3dgdw9rUD2qt+Jz6mu2/mOniW7RPXlZwlap/oNisf
-	BFiGAjlg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Gv5p0u2c8/ArxZQsXiv9A5l2+ytofV5moJBrQb59XV0=; b=DKWkwNgQojZ6cLr9sqHsEl0BRB
+	PiKTMdTsdFBNK1eF9XEl1hVSWfg6W69uF9HC0LJPyTcQfX/GGhp0c1xZDX+O2CsBjfAbEEeeRfjzc
+	frMeSpjT0Oam/7fEN40mBl7+2Izwfk2SPUgkkiAsYgkqL8jTuc0tDH5DtscPgQz8HK9+Xiyue5cT8
+	xSxV11W1uFe5PInXLm/4cypF2uPdfYVT+XAbsDKuSED43+7RZQBBH3c19d+Ro5NlKKL4r1Zmx74rz
+	cOI23qeV61y+HqIY0lw+Rv8hU/ALTniHrYXvGIz9XK8u8Oe9uFIXblfncowz98X/hb7Y3xf/01u21
+	tOE0UyAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubg4o-00000005Gxj-2UbT;
-	Tue, 15 Jul 2025 13:52:10 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1ubg7D-00000005HMi-1nIZ;
+	Tue, 15 Jul 2025 13:54:39 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubewy-000000055sz-1cX1
+	id 1ubexq-0000000567F-1hXe
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Jul 2025 12:40:01 +0000
+	Tue, 15 Jul 2025 12:40:54 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1520944C32;
-	Tue, 15 Jul 2025 12:39:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3954EC4CEE3;
-	Tue, 15 Jul 2025 12:39:58 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 8895E6115E
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Jul 2025 12:40:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 350FEC4CEF7
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Jul 2025 12:40:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752583198;
-	bh=+pu90pMOXbQaEW9Hm/kqWZt7Rsk1N7XL4gsFDUuXDgo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=t/WMW3ajNFuEcGUS5cLW97Lm53LVFFJGyl6fCTT6uNS0KVjzfi73bLTLwGMrtIqbd
-	 2PD7zzl5wx41pkiTd4E1MbCoFbyq6mYN3ZMrbph1XW/ogXdlYh6BhAPgbe7Q8370IR
-	 QKKBvE9KcMVo7ez+Q61Lzj4C2+Wwdpj6EPFzjelBoTzO9VLP0NncA/0T4XLsnaNRC8
-	 QYa33a6PxhIwcQAh6jnQMFtto5x9qx43OsmRQTlDbjSrz1E0l7StRXb1ihPod8JFl7
-	 V+ZEtH41mxOGUgbsh+sZfjco3/H7VWG5NALXVHS/aWhARrQUp7PWLIA9WePeMzJel7
-	 N9m+GRxBcgPDg==
-Date: Tue, 15 Jul 2025 18:09:55 +0530
-From: Vinod Koul <vkoul@kernel.org>
-To: Takashi Iwai <tiwai@suse.de>
-Cc: Charles Keepax <ckeepax@opensource.cirrus.com>,
-	Joris Verhaegen <verhaegen@google.com>,
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>,
-	Richard Fitzgerald <rf@opensource.cirrus.com>,
-	David Rhodes <david.rhodes@cirrus.com>,
-	Cezary Rojewski <cezary.rojewski@intel.com>,
-	Peter Ujfalusi <peter.ujfalusi@linux.intel.com>,
-	Bard Liao <yung-chuan.liao@linux.intel.com>,
-	Ranjani Sridharan <ranjani.sridharan@linux.intel.com>,
-	Kai Vehmanen <kai.vehmanen@linux.intel.com>,
-	Pierre-Louis Bossart <pierre-louis.bossart@linux.dev>,
-	Srinivas Kandagatla <srini@kernel.org>,
-	Daniel Baluta <daniel.baluta@nxp.com>,
-	Orson Zhai <orsonzhai@gmail.com>,
-	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	Chunyan Zhang <zhang.lyra@gmail.com>,
-	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
-	Masami Hiramatsu <mhiramat@kernel.org>, kernel-team@android.com,
-	linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org,
-	patches@opensource.cirrus.com, linux-arm-msm@vger.kernel.org,
-	sound-open-firmware@alsa-project.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 0/4] ALSA: compress_offload: Add 64-bit safe timestamp
- API
-Message-ID: <aHZMG2XnCLoBuf9T@vaman>
-References: <20250711093636.28204-1-verhaegen@google.com>
- <aHD7/9MZbcOmn+08@opensource.cirrus.com>
- <8734b2hpcu.wl-tiwai@suse.de>
+	s=k20201202; t=1752583253;
+	bh=TfeoKILN6uGz1OGlxgj30IyoFkYk5lj4H8dBRWQrclQ=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=Ldj1uTFeF8vRtelS18jNkjoSIN+J0Dpm3JC9C8F5fhh9n0WLBVYVqmqUQUVjO1vdo
+	 UvZgyFgUk//9F9vQZDrK0hk0kvwwOmMnUqTO7w52dz1SDRE8lArgb4v1+vJedgzWls
+	 RfDVQvGJJFbXSWn/KX8d/TweuYV71vee0M0cxak+3W4DV7i4yoGPOGfvWX5KwiUlEW
+	 qzbFVHik4j6wWDDFkL468tJtQU/xmJqGGYG1LBroafoN387acc9Lb5EJSjx+QuP9eh
+	 o5DujpfqbCSYOzkOjOwScai+9ypqlZT/Tir24UTLEReuDDigOZbeOq2RHlb7jrIMtF
+	 PPcfgLXKf0Vuw==
+Received: by mail-oo1-f50.google.com with SMTP id 006d021491bc7-611f48c6e30so2584833eaf.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Jul 2025 05:40:53 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCX6tcppw1eFQTIXkO2gPOYMUMjJBbQYIAVpqxKl0BqKA9A5lQrB+L2LnETtYtY1Nr63ggxazmEP/baunjCZCjup@lists.infradead.org
+X-Gm-Message-State: AOJu0YyZE0ldYpHs3B0F9A0822TBqc/efpyH7T+fTDPKaoEYO9V+bKdj
+	UGW6efNNrirtA2rm892PAi7NvYC7QBRdjbNj0OJDSL/rRWBWbrINh081JaJQMbiWW76rrdQhdtW
+	ExGmI3ibgjF5asvJlsl4WspyRqZOfqV0=
+X-Google-Smtp-Source: AGHT+IE3VFsF0gCgkTbX+pN39J81tOvuuA0nHR7XTTqD3toqPIZXLr17a7eF4UGTVFewKNiMTJbsM+Wk4nshukXwDTo=
+X-Received: by 2002:a05:6820:2009:b0:611:f244:dfa5 with SMTP id
+ 006d021491bc7-613e5eea6d1mr12571655eaf.2.1752583252489; Tue, 15 Jul 2025
+ 05:40:52 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <8734b2hpcu.wl-tiwai@suse.de>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250715_054000_443557_7F143D57 
-X-CRM114-Status: GOOD (  17.02  )
+References: <20250404112050.42040-1-xueshuai@linux.alibaba.com>
+ <20250404112050.42040-2-xueshuai@linux.alibaba.com> <0c0bc332-0323-4e43-a96b-dd5f5957ecc9@huawei.com>
+ <709ee8d2-8969-424c-b32b-101c6a8220fb@linux.alibaba.com> <353809e7-5373-0d54-6ddb-767bc5af9e5f@huawei.com>
+ <653abdd4-46d2-4956-b49c-8f9c309af34d@linux.alibaba.com> <de5d2417-dc92-b276-1125-4feb5151de7f@huawei.com>
+ <f60f1128-0d42-48e5-9a06-6ed7ca10767f@linux.alibaba.com> <20250428152350.GA23615@willie-the-truck>
+ <6671c3cc-5119-4544-bcb5-17e8cc2d7057@linux.alibaba.com> <CAJZ5v0j3NC2ki1XPXfznxZRBLaReDBJ+nzHFgvqMx5+MgERL-A@mail.gmail.com>
+ <3a465782-a8ff-4be8-9c15-e46f39196757@linux.alibaba.com> <CAJZ5v0gfFHCvE2Uu8=GRb9=ueK51s1-0BDBkJbbDG0tQvD5pLA@mail.gmail.com>
+ <20250715140530.42c6bdc4@sal.lan>
+In-Reply-To: <20250715140530.42c6bdc4@sal.lan>
+From: "Rafael J. Wysocki" <rafael@kernel.org>
+Date: Tue, 15 Jul 2025 14:40:41 +0200
+X-Gmail-Original-Message-ID: <CAJZ5v0ikkHeopHQb2Gxr4GnW3rqtowpWu_DEa5ahLK6f2nHH9Q@mail.gmail.com>
+X-Gm-Features: Ac12FXwKRYlUaFcGojWqkbjqTj5QJ0Jc1mh4fnplvgyugSBLLnhZkoPPPY9gJ9A
+Message-ID: <CAJZ5v0ikkHeopHQb2Gxr4GnW3rqtowpWu_DEa5ahLK6f2nHH9Q@mail.gmail.com>
+Subject: Re: [RESEND PATCH v18 1/2] ACPI: APEI: send SIGBUS to current task if
+ synchronous memory error not recovered
+To: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>, Shuai Xue <xueshuai@linux.alibaba.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Hanjun Guo <guohanjun@huawei.com>, "Luck, Tony" <tony.luck@intel.com>, linux-mm@kvack.org, 
+	linux-kernel@vger.kernel.org, akpm@linux-foundation.org, 
+	linux-edac@vger.kernel.org, x86@kernel.org, justin.he@arm.com, 
+	ardb@kernel.org, ying.huang@linux.alibaba.com, ashish.kalra@amd.com, 
+	baolin.wang@linux.alibaba.com, tglx@linutronix.de, 
+	dave.hansen@linux.intel.com, lenb@kernel.org, hpa@zytor.com, 
+	robert.moore@intel.com, lvying6@huawei.com, xiexiuqi@huawei.com, 
+	zhuo.song@linux.alibaba.com, sudeep.holla@arm.com, lpieralisi@kernel.org, 
+	linux-acpi@vger.kernel.org, yazen.ghannam@amd.com, mark.rutland@arm.com, 
+	mingo@redhat.com, robin.murphy@arm.com, Jonathan.Cameron@huawei.com, 
+	bp@alien8.de, linux-arm-kernel@lists.infradead.org, 
+	wangkefeng.wang@huawei.com, tanxiaofei@huawei.com, mawupeng1@huawei.com, 
+	linmiaohe@huawei.com, naoya.horiguchi@nec.com, james.morse@arm.com, 
+	tongtiangen@huawei.com, gregkh@linuxfoundation.org, jarkko@kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,27 +102,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11-07-25, 14:41, Takashi Iwai wrote:
-> On Fri, 11 Jul 2025 13:56:47 +0200,
+On Tue, Jul 15, 2025 at 2:06=E2=80=AFPM Mauro Carvalho Chehab
+<mchehab+huawei@kernel.org> wrote:
+>
+> Em Mon, 14 Jul 2025 19:30:19 +0200
+> "Rafael J. Wysocki" <rafael@kernel.org> escreveu:
+>
+> > Hi,
+> >
+> > On Mon, Jul 14, 2025 at 1:54=E2=80=AFPM Shuai Xue <xueshuai@linux.aliba=
+ba.com> wrote:
+> > >
+> > > =E5=9C=A8 2025/7/1 21:56, Rafael J. Wysocki =E5=86=99=E9=81=93:
+> > > > On Tue, Jul 1, 2025 at 1:00=E2=80=AFPM Shuai Xue <xueshuai@linux.al=
+ibaba.com> wrote:
+> > > >>
+> > > >>   >=E5=9C=A8 2025/4/28 23:23, Will Deacon =E5=86=99=E9=81=93:
+> > > >>   >> On Fri, Apr 25, 2025 at 09:10:09AM +0800, Shuai Xue wrote:
+> > > >>   >>> =E5=9C=A8 2025/4/25 09:00, Hanjun Guo =E5=86=99=E9=81=93:
+> > > >>   >>>> Call force_sig(SIGBUS) directly in ghes_do_proc() is not my=
+ favourite,
+> > > >>   >>>> but I can bear that, please add
+> > > >>   >>>>
+> > > >>   >>>> Reviewed-by: Hanjun Guo <guohanjun@huawei.com>
+> > > >>   >>>>
+> > > >>   >>>> Thanks
+> > > >>   >>>> Hanjun
+> > > >>   >>>
+> > > >>   >>> Thanks. Hanjun.
+> > > >>   >>>
+> > > >>   >>> @Rafael, @Catalin,
+> > > >>   >>>
+> > > >>   >>> Both patch 1 and 2 have reviewed-by tag from the arm64 ACPI
+> > > >> maintainers, Hanjun,
+> > > >>   >>> now. Are you happpy to pick and queue this patch set to acpi=
+ tree
+> > > >> or arm tree?
+> > > >>   >>
+> > > >>   >> Since this primarily touches drivers/acpi/apei/ghes.c, I thin=
+k it should
+> > > >>   >> go via the ACPI tree and not the arm64 one.
+> > > >>   >>
+> > > >>   >> Will
+> > > >>   >
+> > > >>   >Hi, Will,
+> > > >>   >
+> > > >>   >Thank you for your confirmation :)
+> > > >>   >
+> > > >>   >@Rafael, do you have more comments on this patch set?
+> > > >>   >
+> > > >>   >Thanks you.
+> > > >>   >
+> > > >>   >Best Regards,
+> > > >>   >Shuai
+> > > >>
+> > > >> Hi, all,
+> > > >>
+> > > >> Gentle ping.
+> > > >>
+> > > >> Does ACPI or APEI tree still active? Looking forward to any respon=
+se.
+> > > >
+> > > > For APEI changes, you need an ACK from one of the reviewers listed =
+in
+> > > > the MAINTAINERS entry for APEI.
+> > > >
+> > > > Thanks!
+> > >
+> > > Hi, Rafael
+> > >
+> > > Sorry, I missed your email which goes in span (:
+> > >
+> > > ARM maintain @Catalin points that:
+> > >
+> > >  > James Morse is listed as reviewer of the ACPI APEI code but he's b=
+usy
+> > >  > with resctrl/MPAM. Adding Lorenzo, Sudeep and Hanjun as arm64 ACPI
+> > >  > maintainers, hopefully they can help.
+> > >
+> > > And Hanjun explictly gived his Reviewed-by tag in this thread, is tha=
+t
+> > > happy for you for merge?
+> >
+> > Not really.
+> >
+> > I need an ACK or R-by from a reviewer listed in the APEI entry in MAINT=
+AINERS.
+> >
+> > If James Morse is not able to fill that role (and AFAICS he's not been
+> > for quite some time now), I'd expect someone else to step up.
 
-> > Would it not be slightly simpler to just update all the in kernel
-> > bits to use 64-bit and then only convert to 32-bit for the
-> > existing 32-bit IOCTLs? Why do we need 32-bit callbacks into the
-> > drivers for example?
-> 
-> Right, it's a usual pattern to have only the 64bit ops in the kernel
-> driver side while providing the 32bit stuff converted in the core
-> layer.  Having two different ops are rather confusing and
-> superfluous after conversions.
-> 
-> If there are tons of users for this API, it'd be needed to convert
-> gradually, and eventually drop the 32bit ops at the end.  But in this
-> case, there doesn't seem so many relevant drivers, hence the
-> conversion can be done in a shot as done in your patch 4.
+Hi Mauro,
 
-I agree we should do that. Kernel can be 64bit only while we keep
-maintaining the 32bit ioctls, cant drop that one
+> Rafael,
+>
+> If you want, I can step-up to help with APEI review. Besides my work
+> with RAS/EDAC in the past, I'm doing some work those days adding
+> APEI injection in QEMU those days (currently focused on ARM error
+> injection via SEA and GPIO).
 
--- 
-~Vinod
+Thank you!
+
+OK, let me send a MAINTAINERS update with a list of new APEI reviewers.
 
