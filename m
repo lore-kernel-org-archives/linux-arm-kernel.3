@@ -4,63 +4,202 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C706C83F27
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 22:45:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5A82C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 22:56:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ormzUL541tlpfU+IoIsqUU3n4uhn3HHSB3sl/6WQd4A=; b=bVkkDvVR1dQb2tb5YrpsbLmGou
-	ykN/FukdDwNSKP+4y7U82tB3kjL5GRJHk2zONqPPj5Z/7BaWEPlWnLtwSDQKDL5E71qKOmBe4iUd3
-	7tTSl+CtTKE7SaPVk0CV9UWChM7IzO8vVkqUvEgOMSFweLtmKgaBIDcVTfJ5QJn+6AcR5wGPak4jt
-	2YkgYXMD2g3+7xixnibdldkAOjR3+pJEhTIPh6qrR8zHkEVGV5zMD4vDbSeqMQnnSZELKA6FISr13
-	cKcmlKwOxiTkc0TPcu+yUx8hGerExgH6ihnUusFAaq4Nbsz0oAD899X4YrdrpQCxJQN5ohULtBu+M
-	f1sTgUEw==;
+	bh=jeCCENn9N/J3u9VtGg0hTZvyGVWhp+fxNLhkg73cuAo=; b=0gdGVDMMI7bsHaWvADduMgNTVo
+	ntUZJIUgAWx0brVqm5eD9ONfaPDjPRnd8HaEFvLE1hi14wnDI0wFQqr9SIVEucD9nwEehdN0htZZc
+	b3DtiseguW2II3Xx4l1WYcxEXazi9S5crBz76LxrqdGJa4S9R3WEq6KWhHJlhAnbPf4kxEMVsJ7yK
+	2UK11c9isdsfmgpVnmgvfQ2MDEi0mwb9A+bOfKNEk4M/sQ38eMfEydELaMC/OxTBGSyZnigUJsQ4R
+	yGlfH0UYjCIAyJwL+ltsmSPlomxooZxcSt1xyphYBtNZD2vhlss34KNVNR6EN7M5GmzuR56xqEJ7w
+	YMBzI0Vg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uboOP-00000006LFD-1fru;
-	Tue, 15 Jul 2025 22:44:57 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uboZd-00000006Lr7-3HUl;
+	Tue, 15 Jul 2025 22:56:33 +0000
+Received: from esa2.hgst.iphmx.com ([68.232.143.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uboLz-00000006L5I-1mfs
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Jul 2025 22:42:28 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 8A120A572B1;
-	Tue, 15 Jul 2025 22:42:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1284CC4CEE3;
-	Tue, 15 Jul 2025 22:42:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752619346;
-	bh=uPLCZFptHGBrGaD5olKdkLpAzrHsgExeeA73sr1kvkY=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=RlxxHbfOQVhLg3s0e0bsjqjd4UyebRvvv0nuaWtkQAf1OGK+NIchMywhD2wgXQomd
-	 Q5lwBKC+iqEIesZZuBnI6s0Ol1+4s9UZfyEKdv2mEx0CDZUCNWOTFUEoheowsV0i3K
-	 0V/QpYkvMwyj72vs70IdRGqRdHuhka+VcvIhKkhu5gfb2++GC7jjYmHus3Qh7jeAxE
-	 pL4FRB/i0TfUNWu50yDYhwU9c2WEE9nhBKdb9iujjFS5dMExl0sAyOYUkx2n0dPwjS
-	 gXh6P0I7B4olAMA2W0s9UU+fCNc3/s/r+r2jQu4L8ugRAgTJ/4gFyqLMXOCMaUnITd
-	 gthjscbSRyb7g==
-Date: Tue, 15 Jul 2025 17:42:25 -0500
+	id 1uboXD-00000006Lbi-05S0;
+	Tue, 15 Jul 2025 22:54:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
+  t=1752620042; x=1784156042;
+  h=from:to:cc:subject:date:message-id:references:
+   in-reply-to:content-id:content-transfer-encoding:
+   mime-version;
+  bh=jeCCENn9N/J3u9VtGg0hTZvyGVWhp+fxNLhkg73cuAo=;
+  b=hZ1lSlG/Js96bRwGUbh41qaJVvDGWNYLgOmmDsprJj0ZMe/rY/AXMszG
+   uQsw1+oXBzThZeluVOsvKl98MSOyqC7I+TgJuODe5ZOYS2tZ/z9BtpnWg
+   OHiOoyJDScEOudlAjTZD4ijfk//x+r7BVwbSZs4EzAIIRMwvu2Wb1rFOX
+   Pirf1FOcOpV1WU1Cq7ERIoBSzaehnSBgNrTEJgUEFHtDRYECuPUdMpwXc
+   5oaSXOKCFkCG6pXdaB1BfYpyVGt/8CHYlBQd3yGT0bObo+Z1+HvZqy/bF
+   YNaiz+osFCoQaWAQtcT8B2DrnkylH+KNrn1GhnvmzjMX9ZRk3x74Oe/Wq
+   A==;
+X-CSE-ConnectionGUID: 4bWYKhXYROSLFPru1Wc1FQ==
+X-CSE-MsgGUID: qmOKz5QZSrKYApHzcJ37jg==
+X-IronPort-AV: E=Sophos;i="6.16,314,1744041600"; 
+   d="scan'208";a="94069968"
+Received: from mail-westusazon11010016.outbound.protection.outlook.com (HELO BYAPR05CU005.outbound.protection.outlook.com) ([52.101.85.16])
+  by ob1.hgst.iphmx.com with ESMTP; 16 Jul 2025 06:54:00 +0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Snla8UjX+nt3h7+wl50sxmTyz7AAftDnaMQw8dxcdDPu2XkW91XwWBsT2Nrst9ZjCl4jfmb0e1cKNNjkyH6tCsNqhV3FEXWEXklt103Q5Rgj0X9Geh7RbppCtAeqEU7sLoKjGpbDjK7nfeC7T3gX+HkGI50hbfVMe36v6ZiUEsdFRumIBI/UttEAn17n9hHyRDnhMwv3tE31IrGUfrqjH/sgEDK1m8cm+TDP/aaDCME92MQU9C5rtgdvRVx01SuUEYBecnsSkrdvuKWwUBFJu/t9WymZFykMm3qzlvTZl+QmPwV7jerkM2oHeDdKD77xfEK2RQantuJuPLrFDvrcrA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=jeCCENn9N/J3u9VtGg0hTZvyGVWhp+fxNLhkg73cuAo=;
+ b=xetBQBfxaHTzt51t5JcT3romAHuNMW5Yg8JehFJcx5g2lVB8uGymVJL/TwQVbWy1sIn0/W1uAwcPCIFhV5kcSaL/U7BVpJH35oL0Kx+qKITUayJF8B5TazeTg0c5kIu6RTn/8iKWMJWeVNAi65J5iMKJSG4YY1D1bYRjTvR/mIlZhjEHv1yEhdl6GRJ3K10tRaVs7mqZpQoLOZJscQEXVuJncZm61J1Y2sTubqKbEnZ03VsdE5Tdmf1Lh0e/gqPI5XLaIzciXS9Exz7ltFJDz8X9JfglXkEaHnrNOsbKyDK4bmaOgLKOOFnrSFRvgGELpzQx1E6kAguj1YbVmdBzoQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=wdc.com; dmarc=pass action=none header.from=wdc.com; dkim=pass
+ header.d=wdc.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=sharedspace.onmicrosoft.com; s=selector2-sharedspace-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=jeCCENn9N/J3u9VtGg0hTZvyGVWhp+fxNLhkg73cuAo=;
+ b=EVjV+SVWZX6BjbXPFNdOVlMDDyzOxR/J4dryUFDfwsO0nKEMoT5tTFk9+scFQ0a1DmymMzKVddAMIehbuYpTEGJaK7SPbrNkvkF7HiHiDYhNTzK6aJjmD49keYznyqU1u8jQf3aOYvh57UIIxd5f56jkGLGB/o3hmJiJqxeZKt4=
+Received: from PH0PR04MB8549.namprd04.prod.outlook.com (2603:10b6:510:294::20)
+ by SJ0PR04MB8422.namprd04.prod.outlook.com (2603:10b6:a03:3e2::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8922.24; Tue, 15 Jul
+ 2025 22:53:58 +0000
+Received: from PH0PR04MB8549.namprd04.prod.outlook.com
+ ([fe80::5b38:4ce0:937:6d5e]) by PH0PR04MB8549.namprd04.prod.outlook.com
+ ([fe80::5b38:4ce0:937:6d5e%3]) with mapi id 15.20.8922.028; Tue, 15 Jul 2025
+ 22:53:57 +0000
+From: Wilfred Mallawa <wilfred.mallawa@wdc.com>
+To: "david@tethera.net" <david@tethera.net>
+CC: "dlemoal@kernel.org" <dlemoal@kernel.org>, "kw@linux.com" <kw@linux.com>,
+	"alistair@alistair23.me" <alistair@alistair23.me>, "cassel@kernel.org"
+	<cassel@kernel.org>, "manivannan.sadhasivam@linaro.org"
+	<manivannan.sadhasivam@linaro.org>, "lpieralisi@kernel.org"
+	<lpieralisi@kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "robh@kernel.org" <robh@kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-pci@vger.kernel.org"
+	<linux-pci@vger.kernel.org>, "heiko@sntech.de" <heiko@sntech.de>,
+	"bhelgaas@google.com" <bhelgaas@google.com>, "p.zabel@pengutronix.de"
+	<p.zabel@pengutronix.de>, "linux-rockchip@lists.infradead.org"
+	<linux-rockchip@lists.infradead.org>
+Subject: Re: [PATCH v3] PCI: dw-rockchip: Add support for slot reset on link
+ down event
+Thread-Topic: [PATCH v3] PCI: dw-rockchip: Add support for slot reset on link
+ down event
+Thread-Index: AQHbwIpZ70Uk8zYD6UqKMlfLq36i/rQt6sSAgAT/9ICAAUrkgA==
+Date: Tue, 15 Jul 2025 22:53:57 +0000
+Message-ID: <bc71f7fb38c1cf2e3faa6d191d61d40121c4ea22.camel@wdc.com>
+References: <87cya6wdhc.fsf@tethera.net>
+	 <f083038e43899cbe17624bf10c8d118fe92bec29.camel@wdc.com>
+In-Reply-To: <f083038e43899cbe17624bf10c8d118fe92bec29.camel@wdc.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=wdc.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: PH0PR04MB8549:EE_|SJ0PR04MB8422:EE_
+x-ms-office365-filtering-correlation-id: e2354531-11ee-4aa0-04c3-08ddc3f27b94
+wdcipoutbound: EOP-TRUE
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|7416014|1800799024|376014|19092799006|38070700018;
+x-microsoft-antispam-message-info: =?utf-8?B?eGdIQ0o1bEFQdVB5SjBxQWFLbGVwYVRXa04zNVhwRy9OSmZZK2x5ajQ2WkFz?=
+ =?utf-8?B?ZjlFZXdBQ1p4NUdkWU5lL2JtbGpEckxkaldUb080NnVuUmI5VGkvRVhEcVY3?=
+ =?utf-8?B?d1NjcWFRYTR1VFNPcmFudENhaUtxMDBjWmxrMVlNdGM5Y1V3KzV4UzFKY1M4?=
+ =?utf-8?B?ck5GSmlQZnBPNFdqbW9UalA5ZTBlRTQwN1J0RGM3RlA0VW9jZlU4eHF3VFly?=
+ =?utf-8?B?ZlpoVUtWbi96d1NmUCtJRTNzZkhYdWdHZklYUis2OHlScVZ1d0xtbWVPNzdJ?=
+ =?utf-8?B?TWNXMXpTYVRwSFA2YjRGSGVheHpveCtWUzVTcjZlbkVncGJpakdLZmEvNngw?=
+ =?utf-8?B?VU9rTS96aExqZENxdG9adDdJSStGMUNjVUdOWG0yOFFrQ0ZCVkR6Tm9iSFdX?=
+ =?utf-8?B?WHZmQ2M1RkhwSmtsR1JiWTNqS1hPZ0t2NXErRVJoYmpPVmFZOXdwNEFGVTNm?=
+ =?utf-8?B?UmIwY0MyNU90QzJlUkZMZ2o2cVBKV3VYSldFcUNoVlRIc3ZraG5SRm1kZDJS?=
+ =?utf-8?B?L3VqUXZXcmhONEVBSExJRjlBVmNKVUt5TERYU20yOFVzdVY1cmRaWGRXdFow?=
+ =?utf-8?B?eGpYVFViVjJzUjJ4TXZweERTbDFhMVRNbitlMDNRT0JqUkhqc25DeHhFeUNp?=
+ =?utf-8?B?WDVyUExYVWFIcXNqZEpKaXRxOVJJemdIa3NIQ3A3clFDdkQ4Sy9tV3U1azQ2?=
+ =?utf-8?B?MldRSHF1dmZ0R09kMDNxOXFUYkdwTXFvUjVpcG5WUWVFdjR2REJWSUVnWWwy?=
+ =?utf-8?B?ekdXM3lPMzhuekdQQzRqUFZ4cW45ODIydUhLODRLNVducWpkQ2F3bWdlWFdM?=
+ =?utf-8?B?RG1VTTF2WFBabTNOU3NxODJYUWFkUG04b0hWaGFDTXhVRFVWd3dUT2UzR0tD?=
+ =?utf-8?B?OWVReDlvcUk5SW0xT2RxZzhObkNFdlorOStQZ1REci9OSWNZaEIxcmJKQnFW?=
+ =?utf-8?B?clluQ0Rxdk5mTG44UnhkSUg4Mld2dHpxNFp3TC80QklkNFZWaDJtQ0o3M0JM?=
+ =?utf-8?B?c1FScWlmV3BwRkMxK0oyZUlHYkpNVHNTMUhvU1pYNkQ2dG9sZCtQemNheGlG?=
+ =?utf-8?B?aHBNd0J3T2VPSjhjdHdtTXFkMDdEY3JNdzJvREFDNC95RVBTY285bGtJaXRv?=
+ =?utf-8?B?ZFhMaXFuRFZTMXlmanJicFJEUkpPVWpqUHpPaTRBQlNkNEIwNHNyTzJRc21h?=
+ =?utf-8?B?aWtkMk56YWJVUFM4bUU3WlhCN3JYeWlYV2NoMk5mOGVaOVg2bGM5bmxnL2Q3?=
+ =?utf-8?B?aXFaSWY3NytOcjcrNys3TXB4NkIvdTRiMjhWamJFY0xXSHZhbWJyWVk0RVRq?=
+ =?utf-8?B?YUsvMVFTeEpleXRxQVRWamFFRUN0UEhEekQ2ZVdHRDZpY2FSMWt2YjFiL1Vv?=
+ =?utf-8?B?cTNNS1pPcFZYaitBK2p4ejVYaEFRWmpvbHJFSnB0bW1ienNNb2JFTnlpMjZn?=
+ =?utf-8?B?c2NzWXJwR0RscjR0aXRVa3V4RFo3aWVkSmRMOUQrQkd2MlVkRzYyUWh5NGUr?=
+ =?utf-8?B?aEdUVFI3MGUybVdRdXF4WWNNbElPYm9yVHhLa3dnRWI1ZmZHS0dMRWtHaTBV?=
+ =?utf-8?B?Zm9yRTd2NWszZVZvYk5JeDdOWkFQVzhmWEZmaElOdmFSYzFITlVuYUl1N1hz?=
+ =?utf-8?B?NndESTBjc3M4VFlNazR1c2JCLzVwZ2R1ODZ1OThQTDk0QWo3dTN4WUZ5WUxh?=
+ =?utf-8?B?b2s4QjNEUDlIamFxaWhZRWFOczU2QkJKbEhoa0Jrb0k5ZC9yZUFDWExZNGNH?=
+ =?utf-8?B?YUpoOXU4Rm5IL0FwM0k0NFVpNlRUMTZvUHJaNzliYXNVNFpyVk5oWXQrY29r?=
+ =?utf-8?B?enhVUkF2SklBNkRnWmRHWjlZT3Z4WXdWdUJGTVFNQ20wN2c5VEludGpxVEZr?=
+ =?utf-8?B?bjdoTmh4RFF2QlZPa0IwTnV4ZVVUT29OU0hIUmw3YkF0QlZUaWZCaHpyV1NX?=
+ =?utf-8?B?U3ozb2RXVHBGUUdXRzNvZk54Vi9zNWY1YkIwcnJNcG1zSGR1TTd0LzNGaW1z?=
+ =?utf-8?Q?FDd20DFR+Hf0mhpmQrE8/1huuac45c=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH0PR04MB8549.namprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(1800799024)(376014)(19092799006)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?VlI2WE85RlJhRld4azIzT0Z2OXZkRWwvV0dwSVVuMEdRMW41M01mTmRPTVdL?=
+ =?utf-8?B?c3Nvb1B1UWN0L21BMk9Ka0FmRkQrQk5HNHZSVVU5NnVDZ200OHRIenp0MmRH?=
+ =?utf-8?B?a1E1cFMybHk2eWlqSFZ2TEM3NjBvVmgwZTdseXhxN1A0dkdNdnJPS0FOQ2tx?=
+ =?utf-8?B?WW1NdWEzT0NjMEp4QXMwWDJiTEtJRWJ1R3diMXpaVG9RVktCazBxZ0trcDBn?=
+ =?utf-8?B?cXd4MmE3UWs3blpGUGRvSjJPRWZnTWpMeGNFNHkyZDJjblhzMW05SmN5K1NR?=
+ =?utf-8?B?ZHo1Sm1hVDAwRk5TVFhnYWY0WDhZZjZRUnViTS9TVDRWOTg4Mmg2VFBzYXE4?=
+ =?utf-8?B?cnRqTEw3N2dBWUp4NVd3dEUwODNkV09PQXBHZCtRSEM2WTZhR2V4Rkc5bEFC?=
+ =?utf-8?B?UnJYa3VTalkvNTQyVk0xM0ZQVFlYM3dMKy8yS2VyZlZlMjIxR3F2NDBGbU9P?=
+ =?utf-8?B?SXZldmtpUzFtWFg3TGFmcWZiQjZUb2d6Qm84Zi92VjdrU0VVWWFiVzJaYWF5?=
+ =?utf-8?B?OUNzb1BDZlNTMWF6KzdGQmdxelhiVVpaTXZJWlZ0R2p2akI2NkdIWWhjMkdj?=
+ =?utf-8?B?a3Y4eWw3dkI1cHJGOGt3RWNnRWxmb2RXRU96eDFXRXMrck5pbHdzSUhHSFU3?=
+ =?utf-8?B?OUp3aXhKcWhSU0ZURVFITGxxQTBPN1JTeThnV1NleFJmdksyVnJieFFGKzI3?=
+ =?utf-8?B?WWJZYi9PeC8yTVE5TlZEbHlpZGRRc3pWT3NGRFoxRW4yTG9PcFNwcXJKU3Bh?=
+ =?utf-8?B?WkczdmVjV09qaGI0Zy94bEdPMS9xOHdjTDZvRXFJQzBxaTFFZ3JtQWsyblFJ?=
+ =?utf-8?B?K2RjMVk2a2JGb0FxcEMrNENKd3R0M0VSQnFXSEtLWEVNdFZxc0RsOElnbUxW?=
+ =?utf-8?B?OVgzbVFsR2trdWRXZmdySlhuREV2K2xtMW9YUGF2N01XN3JCc1hYei8yb0d3?=
+ =?utf-8?B?VGNBMm8rVGJUU2JzWU1ySFU4UjFCNHBSRGppQXhRSENUQTRiUW04b3o0NWZK?=
+ =?utf-8?B?ZEhQaiswYUU5dUtNNDN6bEE1alZJTmxnbkFDOVJhWmhkbWtoaVJyTWNXUC94?=
+ =?utf-8?B?VnA3NUxZWnJKNWNnOE91N0pCczlTaFlLWUlrazY2RTFYbnZ4UWMxVmp5ZDVO?=
+ =?utf-8?B?K3ZqWEl5SkFsS2ZPZHcrd1o2U0xvR0pqYkJMN3F5Z1RuSDQ4VXpjQk5NbXdm?=
+ =?utf-8?B?Mnpob25SUE1YcVJmY0lYdjhTYmt2SzFQL2hHaWRYc0FlNldGNkVnOWZxUDhw?=
+ =?utf-8?B?NGFkWU82WmNZOHVPWUFjMnh1UUlMMGNYTEVvRjFxY2NreUU0ODJyT0NWc3V4?=
+ =?utf-8?B?NjlwQm1LNzhKRDJuZEdzZEx4OHg5b1BGbFBVTmJ5R2lOSXdQeDVTU1BKVTJt?=
+ =?utf-8?B?YXlXN1dSVDVuNUJhUWV5UG14K056S3dvdmUxZzQxWU1TNytpUjJoR2JHS0xK?=
+ =?utf-8?B?eHlSa3R6c3dFN0VGMDRJZG9DNks4b1lBMytzV0hCR2NTL2djTzVxMFZVRmVi?=
+ =?utf-8?B?eC96TCsyYTREcGJGYXQvZEtEZVdOZW1vUkRUT2tBYytXTVZYc3A3T2s3SHJO?=
+ =?utf-8?B?Um1QSThOOGtzc3VlQ1BnWHdhK05Neld6OFFJUGwwdk15R3QzeWVadjZVbG9E?=
+ =?utf-8?B?RE5xcFdKbTRiYnA0anJMaHhLNTEvUnBKK0VvTTRZRWp2UTh1azlWNEJCb1Jv?=
+ =?utf-8?B?VGhtbk94c2pTeWIzNVhxcUhsMitpWDZtbTdSaGxYSFpFWVRuL2xQalpMWUNW?=
+ =?utf-8?B?ZlNZVmJOOUJkcXdHaVNTV3V4Vkxpa29McUZtd2QwSjZzSnlrM3RBOXpqclVj?=
+ =?utf-8?B?WDFuekQ3bEJqVEVRaURyMS9PKzhsNkNxYm5OWUZOcXFjaTBEQ3FTdXdMTysr?=
+ =?utf-8?B?RCtobTNWR3RzTTBORkJ2cGhGUmlGTTdKNk1yRnl6TTZXekZ3ZzhaOE11K3Ew?=
+ =?utf-8?B?SDF2RDBFVElxdXFKUnpaODlqcnV2Y2hjMFBBQ1pDQmpkMmFGRTZJNlRCWUxH?=
+ =?utf-8?B?a3JLUGxQTlNINGtoOWhmbTVRTEVhOElLSlI4M1RYZW1STi9XRURkSkVPUHFI?=
+ =?utf-8?B?bm1VbTA3VkJRTXJYeHY5NzBGZkJOQ3JucWROMW9HVThyaVArS051ZVhDTCt1?=
+ =?utf-8?B?VldaK3ZMUEgybHViU1Q3Nm01WGlSUEN0M0M2Wk9CRnBRUkFUanpHMHJ2UUFP?=
+ =?utf-8?B?NHc9PQ==?=
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Content-ID: <5BFC3976849192469E0DC201414DF2ED@namprd04.prod.outlook.com>
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: linus.walleij@linaro.org, mbrugger@suse.com, linux-gpio@vger.kernel.org, 
- florian.fainelli@broadcom.com, devicetree@vger.kernel.org, 
- Will Deacon <will@kernel.org>, iivanov@suse.de, svarbanov@suse.de, 
- linux-arm-kernel@lists.infradead.org, krzk+dt@kernel.org, 
- Catalin Marinas <catalin.marinas@arm.com>, conor+dt@kernel.org, 
- wahrenst@gmx.net
-To: Andrea della Porta <andrea.porta@suse.com>
-In-Reply-To: <cover.1752584387.git.andrea.porta@suse.com>
-References: <cover.1752584387.git.andrea.porta@suse.com>
-Message-Id: <175261922842.2276518.8350061053461411045.robh@kernel.org>
-Subject: Re: [PATCH 0/7] Add pin control driver for BCM2712 SoC
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: RO+7Mr9vFRJXPKv8Bjf3tz5qHzseYJF0fHr8sQ3KYNlC76ckiCtIw45eAY5c25f1KYIzNCIaKcqbY4qvbh4q3NvVr5680SWql1kB+LTUSC3CDtc+AQRQLpBogA9JHFYhyWxXy0+w1/SYE6C4CExgwWeFyy7tmHuA+/wtsMmqrShNejiLAPuyub0PQtr40FjnJCcShFIx6nEC0Y54QVolOWq9sPz76lSpAmFoj6DKO5BV3DAEGOMqBKuaTrZJ2v6uFDt2MskNVEez5RYhji86LW7GPF3eLQVFJuEZFA5n2gQCHZ90Tkeulp6S0wiQBwxSa9iltBHf04yGl/kXIglW9CKqqNI8dc9GMVhE4+eh7imZDOJMQWoT/TTneNarBfN5F8Rh1eAgwXatBgVs5PjY4isoKwhfSpWc918hqK9vjX+3JLxznbPs7oxRvwV3e0t0Mw1w+OA/H3i8uyQc6pVQ3rACQNVpTH8GOPRnZGnQ95rCudSnVcv2Ox7FCARq7G7/6ryA2Bms7lb3M16fndalR4eRVW+L9G73Bzb15O9NrNwmbJgySF6OZphQgUGaFcVbbqg+1yNPQIIuPP4pjS9MN9Kkhs0rTKjQigEou0804NP4yE9IwkTclJUYc73efDBA
+X-OriginatorOrg: wdc.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: PH0PR04MB8549.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: e2354531-11ee-4aa0-04c3-08ddc3f27b94
+X-MS-Exchange-CrossTenant-originalarrivaltime: 15 Jul 2025 22:53:57.8921
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: b61c8803-16f3-4c35-9b17-6f65f441df86
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: +tm0Dn2VPF13wCnleGQcrE1LIsLaXKwPAVnXvCh23evwX2tUhOshmukjqckhme1iYG8giJH8QLxgtSmwUt9mXg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR04MB8422
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250715_154227_597776_DE1B0FC7 
-X-CRM114-Status: GOOD (  37.06  )
+X-CRM114-CacheID: sfid-20250715_155403_168419_DA598FEA 
+X-CRM114-Status: GOOD (  23.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,239 +214,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Tue, 15 Jul 2025 20:31:37 +0200, Andrea della Porta wrote:
-> Hi,
-> 
-> The following patches add a pin control driver for the BCM2712 SoC and few
-> pin/gpio Devicetree nodes for Raspberry Pi 5.
-> 
-> Device driver is follow up version on what Andrea posted in April [1].
-> 
-> It is based on sources from here [2]. I just made few cosmetic changes
-> and addressed review comments from earlier submission. I don't have
-> documentation for this controller.
-> 
-> Patch 4 wire up power button on RPi5.
-> 
-> Patch 5 adds WiFi Devicetree node for RPi5.
-> 
-> Patch 6 adds Bluetooth Devicetree node for RPi5.
-> 
-> All this have been tested as kernel was directly booted RPi5 via
-> kernel= config.txt option and cmdline.txt file with following content
-> (Note I am using Tumbleweed RPi raw images)
-> 
-> # cat /boot/efi/cmdline.txt
-> root=/dev/mmcblk0p3 rootwait rw systemd.show_status=1 console=tty ignore_loglevel earlycon console=ttyAMA10,115200
-> 
-> With all these patches Bluetooth and Wifi are working fine (tm) with
-> firmware files provided by openSUSE Tumbleweed.
-> 
-> All comments and suggestions are welcome!
-> 
-> Happy hacking!
-> Ivan and Andrea
-> 
-> [1] https://lore.kernel.org/lkml/f6601f73-cb22-4ba3-88c5-241be8421fc3@broadcom.com/
-> [2] https://github.com/raspberrypi/linux/blob/rpi-6.6.y/drivers/pinctrl/bcm/pinctrl-bcm2712.c
-> [3] https://lore.kernel.org/lkml/20240605120712.3523290-1-florian.fainelli@broadcom.com/#t
-> [4] https://lore.kernel.org/all/bfc60a7e-54d2-48a6-a288-4fe76d66507a@gmx.net/
-> 
-> 
-> CHANGES in V2: (all patchset is based upon linux-next/master)
-> 
-> --- PINCTRL DRIVER ---
-> 
-> - dropped bcm2712_c0_aon_sgpio_pin_funcs[] and bcm2712_d0_aon_sgpio_pin_funcs[]
->   struct array definitions since they are not used anywhere.
-> 
-> - dropped 'arg' variable in brcmstb_pinconf_set() as it's not used.
-> 
-> - updated copyright info at the top.
-> 
-> - several changes in the declared macros. Renaming the macro name and the
->   macro parameters to better reflect the semantic.
-> 
-> - reworked MUX_BIT() macro to be more streamlined and easy to
->   understand.
-> 
-> - added PAD_BIT() macro to avoid code duplication.
-> 
-> - renamed 'lock' variable to 'fsel_lock'.
-> 
-> - added some comments about non-existent pins on D0 silicon revision pin
->   declarations.
-> 
-> - brcmstb_pinctrl_fsel_set(), brcmstb_pull_config_set()  and
->   brcmstb_pinconf_set() (and functions that call them) can now return -EINVAL
->   as error.
-> 
-> - added myself as MODULE_AUTHOR.
-> 
-> - dropped the 'brcm,bcm2712-[aon-]pinctrl' fallback compatible. Only c0 or d0
->   compatibles are permitted now.
-> 
-> 
-> --- DTS ---
-> 
-> - moved 'clock-frequency' property from (uarta) board dts node to SoC dtsi node.
-> 
-> - added 'brcm,sdhci-brcmstb' compatible and 'clock-names' property to mmc node
->   to avoid dt_binding_check errors.
-> 
-> - added 'brcm,bcm7445-gpio' compatible to gpio node to avoid dt_binding_check
->   errors.
-> 
-> - renamed all pinctrl pin nodes as per yaml schema (*-state and *-pins).
-> 
-> - changed 'brcm,bcm2712-*pinctrl' to 'brcm,bcm2712c0-*pinctrl' since the
->   former was more of a fallback and does not reflect a real silicon revision.
-> 
-> - moved status="okay" to the last entry in 'uarta' node.
-> 
-> - removed 'local-*-address' property from everywhere.
-> 
-> - dropped 'skip-init' property in 'uarta' node since it does not apply to
->   linux kernel.
-> 
-> - renamed 'pwr-button' node to 'gpio-keys' and 'pwr_key' node to
->   'power_button'.
-> 
-> - dropped an userspace related 'brcm,gpio-direct' property from gpio node.
-> 
-> 
-> 
-> --- DT BINDINGS ---
-> 
-> - binding schema file renamed to 'brcm,bcm2712c0-pinctrl.yaml' to reflect the
->   compatible name.
-> 
-> - dropped the 'brcm,bcm2712-[aon-]pinctrl' fallback compatible. Only c0 or d0
->   compatibles are permitted now.
-> 
-> - added example section.
-> 
-> - moved allOf: block at the beginning of the schema.
-> 
-> - dropped some unnecessary new lines.
-> 
-> - replaced current layout to describe the pin subnodes with patternProperties
->   (nodes now end with -state and -pins).
-> 
-> - expanded the schema description to give some context about STB family of pin
->   controller and added some details about C0 and D0 silicon variants. This is
->   also reflected in the commit message.
-> 
-> 
-> --- MISC ---
-> 
-> - enabled CONFIG_PINCTRL_BRCMSTB in arm64 defconfig.
-> 
-> 
-> Andrea della Porta (1):
->   arm64: defconfig: Enable BCM2712 on-chip pin controller driver
-> 
-> Ivan T. Ivanov (6):
->   dt-bindings: pinctrl: Add support for Broadcom STB pin controller
->   pinctrl: bcm: Add STB family pin controller driver
->   arm64: dts: broadcom: bcm2712: Add pin controller nodes
->   arm64: dts: broadcom: bcm2712: Add one more GPIO node
->   arm64: dts: broadcom: bcm2712: Add second SDHCI controller node
->   arm64: dts: broadcom: bcm2712: Add UARTA controller node
-> 
->  .../pinctrl/brcm,bcm2712c0-pinctrl.yaml       |  123 ++
->  .../dts/broadcom/bcm2712-rpi-5-b-ovl-rp1.dts  |  134 ++
->  arch/arm64/boot/dts/broadcom/bcm2712.dtsi     |   48 +
->  arch/arm64/configs/defconfig                  |    1 +
->  drivers/pinctrl/bcm/Kconfig                   |   13 +
->  drivers/pinctrl/bcm/Makefile                  |    1 +
->  drivers/pinctrl/bcm/pinctrl-brcmstb.c         | 1195 +++++++++++++++++
->  7 files changed, 1515 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/pinctrl/brcm,bcm2712c0-pinctrl.yaml
->  create mode 100644 drivers/pinctrl/bcm/pinctrl-brcmstb.c
-> 
-> --
-> 2.35.3
-> 
-> 
-> 
-
-
-My bot found new DTB warnings on the .dts files added or changed in this
-series.
-
-Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
-are fixed by another series. Ultimately, it is up to the platform
-maintainer whether these warnings are acceptable or not. No need to reply
-unless the platform maintainer has comments.
-
-If you already ran DT checks and didn't see these error(s), then
-make sure dt-schema is up to date:
-
-  pip3 install dtschema --upgrade
-
-
-This patch series was applied (using b4) to base:
- Base: attempting to guess base-commit...
- Base: tags/next-20250715 (exact match)
-
-If this is not the correct base, please add 'base-commit' tag
-(or use b4 which does this automatically)
-
-New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/broadcom/' for cover.1752584387.git.andrea.porta@suse.com:
-
-arch/arm64/boot/dts/broadcom/bcm2712-d-rpi-5-b.dtb: pinctrl@7d504100 (brcm,bcm2712c0-pinctrl): emmc-sd-default-state: 'oneOf' conditional failed, one must be fixed:
-	'function' is a required property
-	'bias-pull-up', 'pins' do not match any of the regexes: '-pins$', '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/pinctrl/brcm,brcmstb-pinctrl.yaml#
-arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-ovl-rp1.dtb: pinctrl@7d504100 (brcm,bcm2712c0-pinctrl): emmc-sd-default-state: 'oneOf' conditional failed, one must be fixed:
-	'function' is a required property
-	'bias-pull-up', 'pins' do not match any of the regexes: '-pins$', '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/pinctrl/brcm,brcmstb-pinctrl.yaml#
-arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-ovl-rp1.dtb: serial@7d50c000 (brcm,bcm7271-uart): 'clocks' is a required property
-	from schema $id: http://devicetree.org/schemas/serial/brcm,bcm7271-uart.yaml#
-arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-ovl-rp1.dtb: serial@7d50c000 (brcm,bcm7271-uart): 'clock-names' is a required property
-	from schema $id: http://devicetree.org/schemas/serial/brcm,bcm7271-uart.yaml#
-arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-ovl-rp1.dtb: serial@7d50c000 (brcm,bcm7271-uart): 'interrupt-names' is a required property
-	from schema $id: http://devicetree.org/schemas/serial/brcm,bcm7271-uart.yaml#
-arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-ovl-rp1.dtb: serial@7d50c000 (brcm,bcm7271-uart): Unevaluated properties are not allowed ('auto-flow-control', 'clock-frequency', 'reg-io-width', 'reg-shift' were unexpected)
-	from schema $id: http://devicetree.org/schemas/serial/brcm,bcm7271-uart.yaml#
-arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-ovl-rp1.dtb: mmc@1100000 (brcm,bcm2712-sdhci): Unevaluated properties are not allowed ('sdhci-caps', 'sdhci-caps-mask' were unexpected)
-	from schema $id: http://devicetree.org/schemas/mmc/brcm,sdhci-brcmstb.yaml#
-arch/arm64/boot/dts/broadcom/bcm2712-d-rpi-5-b.dtb: serial@7d50c000 (brcm,bcm7271-uart): 'clocks' is a required property
-	from schema $id: http://devicetree.org/schemas/serial/brcm,bcm7271-uart.yaml#
-arch/arm64/boot/dts/broadcom/bcm2712-d-rpi-5-b.dtb: serial@7d50c000 (brcm,bcm7271-uart): 'clock-names' is a required property
-	from schema $id: http://devicetree.org/schemas/serial/brcm,bcm7271-uart.yaml#
-arch/arm64/boot/dts/broadcom/bcm2712-d-rpi-5-b.dtb: serial@7d50c000 (brcm,bcm7271-uart): 'interrupt-names' is a required property
-	from schema $id: http://devicetree.org/schemas/serial/brcm,bcm7271-uart.yaml#
-arch/arm64/boot/dts/broadcom/bcm2712-d-rpi-5-b.dtb: serial@7d50c000 (brcm,bcm7271-uart): Unevaluated properties are not allowed ('auto-flow-control', 'clock-frequency', 'reg-io-width', 'reg-shift' were unexpected)
-	from schema $id: http://devicetree.org/schemas/serial/brcm,bcm7271-uart.yaml#
-arch/arm64/boot/dts/broadcom/bcm2712-d-rpi-5-b.dtb: mmc@1100000 (brcm,bcm2712-sdhci): Unevaluated properties are not allowed ('sdhci-caps', 'sdhci-caps-mask' were unexpected)
-	from schema $id: http://devicetree.org/schemas/mmc/brcm,sdhci-brcmstb.yaml#
-arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dtb: pinctrl@7d504100 (brcm,bcm2712c0-pinctrl): emmc-sd-default-state: 'oneOf' conditional failed, one must be fixed:
-	'function' is a required property
-	'bias-pull-up', 'pins' do not match any of the regexes: '-pins$', '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/pinctrl/brcm,brcmstb-pinctrl.yaml#
-arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dtb: serial@7d50c000 (brcm,bcm7271-uart): 'clocks' is a required property
-	from schema $id: http://devicetree.org/schemas/serial/brcm,bcm7271-uart.yaml#
-arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dtb: serial@7d50c000 (brcm,bcm7271-uart): 'clock-names' is a required property
-	from schema $id: http://devicetree.org/schemas/serial/brcm,bcm7271-uart.yaml#
-arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dtb: serial@7d50c000 (brcm,bcm7271-uart): 'interrupt-names' is a required property
-	from schema $id: http://devicetree.org/schemas/serial/brcm,bcm7271-uart.yaml#
-arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dtb: serial@7d50c000 (brcm,bcm7271-uart): Unevaluated properties are not allowed ('auto-flow-control', 'clock-frequency', 'reg-io-width', 'reg-shift' were unexpected)
-	from schema $id: http://devicetree.org/schemas/serial/brcm,bcm7271-uart.yaml#
-arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-ovl-rp1.dtb: hvs@107c580000 (brcm,bcm2712-hvs): clocks: [[27, 4], [27, 16]] is too long
-	from schema $id: http://devicetree.org/schemas/display/brcm,bcm2835-hvs.yaml#
-arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dtb: mmc@1100000 (brcm,bcm2712-sdhci): Unevaluated properties are not allowed ('sdhci-caps', 'sdhci-caps-mask' were unexpected)
-	from schema $id: http://devicetree.org/schemas/mmc/brcm,sdhci-brcmstb.yaml#
-arch/arm64/boot/dts/broadcom/bcm2712-d-rpi-5-b.dtb: hvs@107c580000 (brcm,bcm2712-hvs): clocks: [[27, 4], [27, 16]] is too long
-	from schema $id: http://devicetree.org/schemas/display/brcm,bcm2835-hvs.yaml#
-arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dtb: hvs@107c580000 (brcm,bcm2712-hvs): clocks: [[27, 4], [27, 16]] is too long
-	from schema $id: http://devicetree.org/schemas/display/brcm,bcm2835-hvs.yaml#
-
-
-
-
-
+SGV5IERhdmlkLA0KDQpRdWljayBmb2xsb3cgdXAsIHRoZXJlJ3MgYSBuZXcgc2VyaWVzIGZyb20g
+TWFuaSBub3cgWzFdLiBXaGljaCBzaG91bGQNCmhhdmUgYWxsIHRoZSBwYXRjaGVzIHlvdSBuZWVk
+IHRvIHRlc3QgdGhlIHJlc2V0IHNsb3QgZnVuY3Rpb25hbGl0eS4NCg0KQ2hlZXJzLA0KV2lsZnJl
+ZA0KDQpbMV0NCmh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2xpbnV4LXBjaS8yMDI1MDcxNS1wY2kt
+cG9ydC1yZXNldC12Ni0wLTZmOWNjZTk0ZTdiYkBvc3MucXVhbGNvbW0uY29tLw0KDQpPbiBUdWUs
+IDIwMjUtMDctMTUgYXQgMTM6MDkgKzEwMDAsIFdpbGZyZWQgTWFsbGF3YSB3cm90ZToNCj4gSGV5
+IERhdmlkLA0KPiANCj4gVGhlIHNlcmllcyB3YXMgZHJvcHBlZCBkdWUgdG8gc29tZSBjaGFuZ2Vz
+IHRoYXQgbmVlZCB0byBiZSBhZGRlZC4gSQ0KPiBiZWxpZXZlIE1hbmkgaXMgd29ya2luZyBvbiBp
+dC4gSG93ZXZlciwgeW91IHNob3VsZCBzdGlsbCBiZSBhYmxlIHRvDQo+IHRlc3QgdGhpbmdzIHdp
+dGggdGhlIGFkZGl0aW9uIG9mIHRoZSByZXNldCBzbG90IHNlcmllcyBbMV0sIGFuZCB0aGUNCj4g
+c3VwcG9ydCBmb3IgdGhlIGR3Yy1yb2NrY2hpcCBkcml2ZXIgWzJdLiBUaGUgcmVzZXQgc2xvdCBj
+b2RlIHNob3VsZA0KPiBydW4NCj4gb24gYSBsaW5rIGRvd24sIHNvIGl0IG1heSBoZWxwIHlvdXIg
+Y2FzZS4gV29ydGggYSB0cnkgOikNCj4gDQo+IFsxXQ0KPiBodHRwczovL2xvcmUua2VybmVsLm9y
+Zy9saW51eC1wY2kvMjAyNTA1MDgtcGNpZS1yZXNldC1zbG90LXY0LTAtNzA1MDA5M2UyYjUwQGxp
+bmFyby5vcmcvDQo+IA0KPiBbMl0NCj4gaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGludXgtcGNp
+LzIwMjUwNTA5LWI0LXBjaV9kd2NfcmVzZXRfc3VwcG9ydC12My0xLTM3ZTk2YjQ2OTJlN0B3ZGMu
+Y29tLw0KPiANCj4gUmVnYXJkcywNCj4gV2lsZnJlZA0KPiBPbiBGcmksIDIwMjUtMDctMTEgYXQg
+MTk6NDggLTAzMDAsIERhdmlkIEJyZW1uZXIgd3JvdGU6DQo+ID4gDQo+ID4gV2hhdCBpcyB0aGUg
+Y3VycmVudCBzdGF0dXMgb2YgdGhpcyBwYXRjaCAoYW5kIHRoZSBwcmUtcmVxdWlzaXRlcykNCj4g
+PiB3aXRoDQo+ID4gcmVzcGVjdCB0byBtYWlubGluZSBsaW51eD8NCj4gPiANCj4gPiBJJ20gd29u
+ZGVyaW5nIGlmIGl0IG1pZ2h0IGJlIHJlbGV2ZW50IHRvIHRoZSBwcm9ibGVtcyBbMV0gSSd2ZSBi
+ZWVuDQo+ID4gaGF2aW5nIHdpdGggcmszNTg4IHJlc3VtZSwgYnV0IGl0IGlzbid0IGNsZWFyIHRv
+IG1lIHdoYXQgSSBuZWVkIHRvDQo+ID4gYXBwbHkNCj4gPiB0byBlLmcuIHY2LjE2fnJjMSB0byB0
+ZXN0IGl0Lg0KPiA+IA0KPiA+IFsxXTogaHR0cHM6Ly93d3cuY3MudW5iLmNhL35icmVtbmVyL2Js
+b2cvcG9zdHMvaGliZXJuYXRlLXBvY2tldC00Lw0K
 
