@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D976DC83F22
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 20:02:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCEDBC83F22
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 20:05:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HR0EpZECN4ryp0h05eQXFbtfZW6WoZHapCp9X04ymH4=; b=x6EgJKyDSsOqS6XciGk3xrUGtG
-	gK7QyY+zB/hd+YNtf3IP36/8bzQ+qutyh5xt3LkQzz6TRXC54+HvCJ8QT7jVdNwpDaCu7phz+cK26
-	TKvpITFuf64iuA80WBuyQjPo2GJPd6xzdh+4O81sNHfXFIW5YhIJrVex4pQgVfvaKRTxAFi9HxUOd
-	0MPCEOfFW4/CRW6RE2VuPJK3mon7JSOq2hoLWWNA9Bhl3lOO1okvtKutB2vuoAy/MSMjZwCbk/apM
-	NZQkAqHNYiiNDh5yJLI/zl7Zu1zCVt1dM5hEOSZthiiHT4OCchBE3HBN3YIUHyePV3FV56EFEv09r
-	MS8RuB/A==;
+	bh=61UFxOUi1pwMBOxBFTpDvD+DtYLmLBP8UmNGHaLoWaU=; b=0BnJj1SFdMb4mczVwKoMMNS4O8
+	Oksnlsh0hRBzLSHh2OrwKD/rd3Okja2wItKb9nBp9z3IBofJqdanwvXsGHrx01RzEEflFuZhfTp4C
+	tVMzAj10M/SqvcRLK3CkN6HKyPUvWPOumjlxTpX9wqVV8ruoE1ckGH5DYQjwE890x35iVlVnmJzhr
+	KW3LLXafvMWZ7yFx0O9nX+XsWCdkq42HJhHVLCL3wxJSHFeFuZLtsRqUAj3PXLRHoHVMlqhOWknKm
+	aSrmDlApVIELZtRksR511ZpmolBZlXgz3M6T9YlaEikzj0i74JJDbZWMkDyhldm/DacErCFAZ6+nv
+	RJkqNLSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ublr8-000000067sZ-10Dd;
-	Tue, 15 Jul 2025 20:02:26 +0000
-Received: from mout.gmx.net ([212.227.17.22])
+	id 1ubltX-000000068VN-3vRV;
+	Tue, 15 Jul 2025 20:04:55 +0000
+Received: from mout.gmx.net ([212.227.17.20])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubloh-000000067ge-3FuE
+	id 1ublqt-000000067qv-0kBi
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Jul 2025 19:59:57 +0000
+	Tue, 15 Jul 2025 20:02:12 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
-	s=s31663417; t=1752609586; x=1753214386; i=wahrenst@gmx.net;
-	bh=HR0EpZECN4ryp0h05eQXFbtfZW6WoZHapCp9X04ymH4=;
+	s=s31663417; t=1752609728; x=1753214528; i=wahrenst@gmx.net;
+	bh=61UFxOUi1pwMBOxBFTpDvD+DtYLmLBP8UmNGHaLoWaU=;
 	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
 	 References:From:In-Reply-To:Content-Type:
 	 Content-Transfer-Encoding:cc:content-transfer-encoding:
 	 content-type:date:from:message-id:mime-version:reply-to:subject:
 	 to;
-	b=JtG7AjfvD6k/tlU6+/0UVZt/HvDFLTn9G2OSQFrlEWhhDB1uAzRBEyxlJ9mu3q7X
-	 NAJqueMfeC1zQ9k53OkmPZxuJsgtXweaWsIax48QYTwFgXwDe2S3dbslmLShhm1n+
-	 MzEEJfmv+la2+keeQRDvJIJ8LQjUWSnABIhKiwLn/9aCE9gzIvakcg2pz9gNddObm
-	 yb3yhg5jDa5MpVFt1OdlyAHb/GpuJiqoc54er7tQJ2ZdmAS3BOpw54xebc6N2NH8n
-	 k1UQcOgB6bXVR/uLDyfb0Z4ehqTqxG3AOjIx/OKFzutrTkIxf0nomSFQesntTHO5f
-	 bS/F0lmjbLtwZjmMJQ==
+	b=SsEnfuXTV3q+bz5MAXTorkj8WO47rQAJPH8ECRyz4lj0acQXo453WvU9uFjHKPUC
+	 menMr8xJ3yCvLjW8G7b5Z1YGwCX336Uzvo61jGUiocmTPruAtqjQfxYGWGNf0WHCh
+	 jEBsTn+LIAXbTmAuZBYlHo17T1aeF48LZfdkZNs3tPvtS8F91shqBD2RRXoJRFz9b
+	 5GXkv0eYW/LQVq2BJS1f4kiSUzBDzpYiOpm8fd0hI7YU8CY9EDew0JAEeAQ4toxG2
+	 clxQPpVFXZjb+m9KnUDc1uUwGpximOifaa+gIcZkFjKCnKIdrlc2zwgDlapdqTA/P
+	 g9p200W3URzeUOKXUw==
 X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
 Received: from [192.168.1.105] ([91.41.216.208]) by mail.gmx.net (mrgmx104
- [212.227.17.168]) with ESMTPSA (Nemesis) id 1MdefJ-1vB6Z63T8r-00dey3; Tue, 15
- Jul 2025 21:59:45 +0200
-Message-ID: <5e9e606e-d227-4d87-a5b7-cb5a105dcd98@gmx.net>
-Date: Tue, 15 Jul 2025 21:59:45 +0200
+ [212.227.17.168]) with ESMTPSA (Nemesis) id 1Mo6ux-1uzVhT2bc3-00kl84; Tue, 15
+ Jul 2025 22:02:08 +0200
+Message-ID: <079344d8-392f-4c2a-916e-5430151015db@gmx.net>
+Date: Tue, 15 Jul 2025 22:02:07 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH V2 0/3] staging: vchiq_arm: Fix regression & resource
- leaks
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
- Dan Carpenter <dan.carpenter@linaro.org>,
- linux-arm-kernel@lists.infradead.org, bcm-kernel-feedback-list@broadcom.com,
- kernel-list@raspberrypi.com, linux-staging@lists.linux.dev
-References: <20250715161108.3411-1-wahrenst@gmx.net>
- <2025071555-stubbed-hardiness-8306@gregkh>
+Subject: Re: [PATCH 0/7] Add pin control driver for BCM2712 SoC
+To: Andrea della Porta <andrea.porta@suse.com>, linus.walleij@linaro.org,
+ robh@kernel.org, krzk+dt@kernel.org
+Cc: conor+dt@kernel.org, florian.fainelli@broadcom.com,
+ linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ iivanov@suse.de, svarbanov@suse.de, mbrugger@suse.com
+References: <cover.1752584387.git.andrea.porta@suse.com>
 Content-Language: en-US
 From: Stefan Wahren <wahrenst@gmx.net>
 Autocrypt: addr=wahrenst@gmx.net; keydata=
@@ -69,67 +69,67 @@ Autocrypt: addr=wahrenst@gmx.net; keydata=
  f5QR/BrEK0hs3bLT6Hb9WgMBCAfCfgQYFggAJhYhBPcVeD4Cmw6E8M000W7C8svCIDCKBQJn
  V04kBQkHhM4AAhsMAAoJEG7C8svCIDCKJxoA/i+kqD5bphZEucrJHw77ujnOQbiKY2rLb0pE
  aHMQoiECAQDVbj827W1Yai/0XEABIr8Ci6a+/qZ8Vz6MZzL5GJosAA==
-In-Reply-To: <2025071555-stubbed-hardiness-8306@gregkh>
+In-Reply-To: <cover.1752584387.git.andrea.porta@suse.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:zYVKzfcFd4uGENI+HCFCOme+S6BbXKaojQ4vnTYwyqZe48UWwM6
- L0y7Or+n/6u5nD1nXxDemfrffoB38IqvP/wVZuDGykY8BuUQTb70FYOw/w6GvN5/p7a2JMj
- Uj7/Djn4EgtVQolgs21XSVPwf4kee92V2rjyfUwOGejxxYVOvQFKSBCt6c1Th/al6IawbAJ
- MOAk6/VlC9oJG8OydfgtA==
-UI-OutboundReport: notjunk:1;M01:P0:qNOfnrjXf1k=;w6rCnlbxfUVZixrZ8u8YNeZWgQa
- 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
+Content-Transfer-Encoding: 7bit
+X-Provags-ID: V03:K1:YBt3iETvHk15FICLdZV4z407Act/04bgV1qCSNtRBW/D1SQjocj
+ P1NiekE+uVO1Ixakbdybr9CCguGUqjZj253ksox5BQu2JiwGht2h1DlwSABCk1Xhbn8hjK3
+ L6jzHJWO3Cia9yaosdv6tbG20Rlv7oRrFCNxi6uoHMvUaQ19E32gz/+PP9/4WAKwCsYoZwC
+ QgeGVrb1VzgL9qW9dn4fw==
+UI-OutboundReport: notjunk:1;M01:P0:FQGRF7x41nE=;ibHQF1Y322nAXqx8vSEYuoLuAyg
+ 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
+ 4CKHvK+dHhRqrGhknP1ZL68=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250715_125956_113677_BEBD4A2E 
-X-CRM114-Status: GOOD (  12.66  )
+X-CRM114-CacheID: sfid-20250715_130211_526856_FCDA6A72 
+X-CRM114-Status: GOOD (  32.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,34 +144,161 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am 15.07.25 um 19:44 schrieb Greg Kroah-Hartman:
-> On Tue, Jul 15, 2025 at 06:11:05PM +0200, Stefan Wahren wrote:
->> This small series fixes a regression introduced by recent changes and
->> possible resource leaks in the VCHIQ driver.
->>
->> Changes in V2:
->> - Add Ma=C3=ADra's Reviewed-bys
->> - Fix Reported address in patch #2
->>
->> Stefan Wahren (3):
->>    Revert "staging: vchiq_arm: Improve initial VCHIQ connect"
->>    Revert "staging: vchiq_arm: Create keep-alive thread during probe"
->>    staging: vchiq_arm: Make vchiq_shutdown never fail
->>
->>   .../interface/vchiq_arm/vchiq_arm.c           | 98 +++++++++++-------=
--
->>   .../interface/vchiq_arm/vchiq_core.c          |  1 -
->>   .../interface/vchiq_arm/vchiq_core.h          |  2 -
->>   3 files changed, 56 insertions(+), 45 deletions(-)
-> I already applied v1, is there any code changes that are different here?
-Strange, I didn't received a mail that the patches has been applied. No,=
-=20
-there wasn't any code changes.
+Hi Andrea,
+
+Am 15.07.25 um 20:31 schrieb Andrea della Porta:
+> Hi,
+>
+> The following patches add a pin control driver for the BCM2712 SoC and few
+> pin/gpio Devicetree nodes for Raspberry Pi 5.
+>
+> Device driver is follow up version on what Andrea posted in April [1].
+>
+> It is based on sources from here [2]. I just made few cosmetic changes
+> and addressed review comments from earlier submission. I don't have
+> documentation for this controller.
+>
+> Patch 4 wire up power button on RPi5.
+>
+> Patch 5 adds WiFi Devicetree node for RPi5.
+>
+> Patch 6 adds Bluetooth Devicetree node for RPi5.
+>
+> All this have been tested as kernel was directly booted RPi5 via
+> kernel= config.txt option and cmdline.txt file with following content
+> (Note I am using Tumbleweed RPi raw images)
+>
+> # cat /boot/efi/cmdline.txt
+> root=/dev/mmcblk0p3 rootwait rw systemd.show_status=1 console=tty ignore_loglevel earlycon console=ttyAMA10,115200
+>
+> With all these patches Bluetooth and Wifi are working fine (tm) with
+> firmware files provided by openSUSE Tumbleweed.
+>
+> All comments and suggestions are welcome!
+>
+> Happy hacking!
+> Ivan and Andrea
+>
+> [1] https://lore.kernel.org/lkml/f6601f73-cb22-4ba3-88c5-241be8421fc3@broadcom.com/
+> [2] https://github.com/raspberrypi/linux/blob/rpi-6.6.y/drivers/pinctrl/bcm/pinctrl-bcm2712.c
+> [3] https://lore.kernel.org/lkml/20240605120712.3523290-1-florian.fainelli@broadcom.com/#t
+> [4] https://lore.kernel.org/all/bfc60a7e-54d2-48a6-a288-4fe76d66507a@gmx.net/
+>
+>
+> CHANGES in V2: (all patchset is based upon linux-next/master)
+this mention a V2, but the series doesn't have a version in the subject?
 
 Best regards
 >
-> thanks,
+> --- PINCTRL DRIVER ---
 >
-> greg k-h
+> - dropped bcm2712_c0_aon_sgpio_pin_funcs[] and bcm2712_d0_aon_sgpio_pin_funcs[]
+>    struct array definitions since they are not used anywhere.
+>
+> - dropped 'arg' variable in brcmstb_pinconf_set() as it's not used.
+>
+> - updated copyright info at the top.
+>
+> - several changes in the declared macros. Renaming the macro name and the
+>    macro parameters to better reflect the semantic.
+>
+> - reworked MUX_BIT() macro to be more streamlined and easy to
+>    understand.
+>
+> - added PAD_BIT() macro to avoid code duplication.
+>
+> - renamed 'lock' variable to 'fsel_lock'.
+>
+> - added some comments about non-existent pins on D0 silicon revision pin
+>    declarations.
+>
+> - brcmstb_pinctrl_fsel_set(), brcmstb_pull_config_set()  and
+>    brcmstb_pinconf_set() (and functions that call them) can now return -EINVAL
+>    as error.
+>
+> - added myself as MODULE_AUTHOR.
+>
+> - dropped the 'brcm,bcm2712-[aon-]pinctrl' fallback compatible. Only c0 or d0
+>    compatibles are permitted now.
+>
+>
+> --- DTS ---
+>
+> - moved 'clock-frequency' property from (uarta) board dts node to SoC dtsi node.
+>
+> - added 'brcm,sdhci-brcmstb' compatible and 'clock-names' property to mmc node
+>    to avoid dt_binding_check errors.
+>
+> - added 'brcm,bcm7445-gpio' compatible to gpio node to avoid dt_binding_check
+>    errors.
+>
+> - renamed all pinctrl pin nodes as per yaml schema (*-state and *-pins).
+>
+> - changed 'brcm,bcm2712-*pinctrl' to 'brcm,bcm2712c0-*pinctrl' since the
+>    former was more of a fallback and does not reflect a real silicon revision.
+>
+> - moved status="okay" to the last entry in 'uarta' node.
+>
+> - removed 'local-*-address' property from everywhere.
+>
+> - dropped 'skip-init' property in 'uarta' node since it does not apply to
+>    linux kernel.
+>
+> - renamed 'pwr-button' node to 'gpio-keys' and 'pwr_key' node to
+>    'power_button'.
+>
+> - dropped an userspace related 'brcm,gpio-direct' property from gpio node.
+>
+>
+>
+> --- DT BINDINGS ---
+>
+> - binding schema file renamed to 'brcm,bcm2712c0-pinctrl.yaml' to reflect the
+>    compatible name.
+>
+> - dropped the 'brcm,bcm2712-[aon-]pinctrl' fallback compatible. Only c0 or d0
+>    compatibles are permitted now.
+>
+> - added example section.
+>
+> - moved allOf: block at the beginning of the schema.
+>
+> - dropped some unnecessary new lines.
+>
+> - replaced current layout to describe the pin subnodes with patternProperties
+>    (nodes now end with -state and -pins).
+>
+> - expanded the schema description to give some context about STB family of pin
+>    controller and added some details about C0 and D0 silicon variants. This is
+>    also reflected in the commit message.
+>
+>
+> --- MISC ---
+>
+> - enabled CONFIG_PINCTRL_BRCMSTB in arm64 defconfig.
+>
+>
+> Andrea della Porta (1):
+>    arm64: defconfig: Enable BCM2712 on-chip pin controller driver
+>
+> Ivan T. Ivanov (6):
+>    dt-bindings: pinctrl: Add support for Broadcom STB pin controller
+>    pinctrl: bcm: Add STB family pin controller driver
+>    arm64: dts: broadcom: bcm2712: Add pin controller nodes
+>    arm64: dts: broadcom: bcm2712: Add one more GPIO node
+>    arm64: dts: broadcom: bcm2712: Add second SDHCI controller node
+>    arm64: dts: broadcom: bcm2712: Add UARTA controller node
+>
+>   .../pinctrl/brcm,bcm2712c0-pinctrl.yaml       |  123 ++
+>   .../dts/broadcom/bcm2712-rpi-5-b-ovl-rp1.dts  |  134 ++
+>   arch/arm64/boot/dts/broadcom/bcm2712.dtsi     |   48 +
+>   arch/arm64/configs/defconfig                  |    1 +
+>   drivers/pinctrl/bcm/Kconfig                   |   13 +
+>   drivers/pinctrl/bcm/Makefile                  |    1 +
+>   drivers/pinctrl/bcm/pinctrl-brcmstb.c         | 1195 +++++++++++++++++
+>   7 files changed, 1515 insertions(+)
+>   create mode 100644 Documentation/devicetree/bindings/pinctrl/brcm,bcm2712c0-pinctrl.yaml
+>   create mode 100644 drivers/pinctrl/bcm/pinctrl-brcmstb.c
+>
 
 
