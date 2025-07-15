@@ -4,69 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F475C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 23:42:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E4EFC83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 23:45:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6sduzMZAWqcdU7RvDNKD9b3+CiTnarb8EZs2paegcjU=; b=Dtntf99gXhQEPELoW0jrwW1TJg
-	ZSvRftvKFjQ8kqNZk83I8YNNnjdnvyPITXqgCWJqckoyhnpMxsPBXb0MGNgSqFdua6JK8+2w5ufaZ
-	uCY859mA77UykwU1d8VuOfSAEI5UWxIz0p4ImUfHsVBooHZeDZNY9oZO037pJwA/EsLPGnqXm0ogD
-	FweE30vV7D6k/JILoXB6sGKogR8VU/gYWVBoj2PT1q2PvTuI/dCl3XB7Q5B6GOn2VrNIUj2qy5GOY
-	nMt9CUF/bxlAIq4Y4dolMe6eMaOsqaVxrbRn5Wc9NhPkD3wPC9wB/tJwL2kmNRRb5mhf6UEkyMaSk
-	dcJI6dKA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dnslrGiezYsUYrWhAmO/NbmQH3o76F8Ub38ABKSerhA=; b=gdV1h3BkUGcZ5JK0VT6n+g6y78
+	G03bT+lqQCJHMd9gVn1U8YodcfEkuRN8v2baeEvJCAUfX6xuTdt73NiRIv7Anu2nZ7d3zTlvIltlq
+	gTEMxp7TP4kANM367JU9JTfRGsPyZku6UXeFEXFb6fQ3/aMPDnqYYhN3swJRWo8yY44esR1OxNH9B
+	I/DEpOfmssiHub781iSZVufAltmxY0oDiKwIGhWqgmIDXlE30gMmGwnBGprjK3UaidtAIMoftYSu+
+	OuWBL1KQWinS1JCC03ojj9IwPd4+lSQHugyuO8WZN5/WgZSC1XUbJ205YcnAfK93x5o7QWLn3k3KF
+	ixouBYmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubpHt-00000006QFp-2UmJ;
-	Tue, 15 Jul 2025 23:42:17 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1ubpL5-00000006QQp-1ZBn;
+	Tue, 15 Jul 2025 23:45:35 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubpFS-00000006Q0b-1wAW
+	id 1ubpIf-00000006QJO-43L3
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Jul 2025 23:39:47 +0000
+	Tue, 15 Jul 2025 23:43:06 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id DED5646909;
-	Tue, 15 Jul 2025 23:39:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B9497C4CEE3;
-	Tue, 15 Jul 2025 23:39:45 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id F35F861489;
+	Tue, 15 Jul 2025 23:43:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 79D22C4CEE3;
+	Tue, 15 Jul 2025 23:43:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752622785;
-	bh=q3QIBc/TsdXBWirwIMIHxwp+8kRlnWdwqh1CRlQ82NU=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=EotaRwYUI7AAtHpn69V6T63FUu/TQgcsEuWQOrGJo5F/IWGf/z8IHUenYw8Wive+q
-	 SW+2AYdXXZnmnd1P07d86pJso5KevSYAytDeXBV8yKUD8jzz8mYgCQGDyf91U4sHFq
-	 P6IMnFoISHnRqz3EQjKoshItmjaTR2ckZ6hVNdApnhi06fRk7/SC1Ug8Fzsqatr2IY
-	 Dx9rJYvDkp/2iyFt4NSFObtVDPvbC0Wy40Fs2/gScMSVKTw2qrM83nX406DfumOpWO
-	 fDyy21UbuPE1UQBOdAlXT8ewL0TuaC6fcxGrIBpcfh3CdnUH2vzUnPkpaADF5HJmS1
-	 w9ZyS9PBNsmhg==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 7167E383BA30;
-	Tue, 15 Jul 2025 23:40:07 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	s=k20201202; t=1752622984;
+	bh=oIkUYfDgAMBmComyQL46QfRRvvbeCNaERG0b0OclZGA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=kzkvdF8/yTgHzxS4GWWzOX3MNf4yT/HYcZnvr8glkE4W0Pxmu1lz7A2uYcEN+XzuW
+	 nOVolShmJUUj28oA7KzqfIQmVGgOHB1uSA956PstXl9/dP6eBxTYNrd5zbcDNUCaky
+	 mcMRxKlylObJc+6tQ8djX6o71Mw8eSltMXt00dopXLGeGeRZwZwA+15HQq6/KQ31iE
+	 HelbunvlA9M9ptdjzLuuVQ+MxVeZbnaucqNQa/LJLrG87dvcuKUp6VCBAhGgcgLnCx
+	 pzn3lOi3QgJC46OAhOkiOWujzQ0zWjhRR9bZaJNiECosEvyiX5jUrsjf9lSgiPRbIx
+	 jhLz6kvar9zZQ==
+Received: by venus (Postfix, from userid 1000)
+	id 6D31F180F0F; Wed, 16 Jul 2025 01:43:02 +0200 (CEST)
+Date: Wed, 16 Jul 2025 01:43:02 +0200
+From: Sebastian Reichel <sre@kernel.org>
+To: Thomas Zimmermann <tzimmermann@suse.de>
+Cc: lee@kernel.org, danielt@kernel.org, jingoohan1@gmail.com, 
+	neil.armstrong@linaro.org, jessica.zhang@oss.qualcomm.com, deller@gmx.de, 
+	maarten.lankhorst@linux.intel.com, mripard@kernel.org, airlied@gmail.com, simona@ffwll.ch, 
+	fnkl.kernel@gmail.com, j@jannau.net, hdegoede@redhat.com, ilpo.jarvinen@linux.intel.com, 
+	sven@kernel.org, alyssa@rosenzweig.io, neal@gompa.dev, 
+	support.opensource@diasemi.com, duje.mihanovic@skole.hr, dri-devel@lists.freedesktop.org, 
+	asahi@lists.linux.dev, platform-driver-x86@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-fbdev@vger.kernel.org
+Subject: Re: [PATCH v2 02/15] drm/panel: panel-samsung-s6e63m0: Include
+ <linux/of.h>
+Message-ID: <67hurwpxz4c2ropgbq3q6umybr2fgucgtbdu4qc6y3qk3uypc4@3xkijgin5ydl>
+References: <20250715122643.137027-1-tzimmermann@suse.de>
+ <20250715122643.137027-3-tzimmermann@suse.de>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net] net: stmmac: intel: populate entire
- system_counterval_t in get_time_fn() callback
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <175262280626.617203.5242260114409933910.git-patchwork-notify@kernel.org>
-Date: Tue, 15 Jul 2025 23:40:06 +0000
-References: <20250713-stmmac_crossts-v1-1-31bfe051b5cb@blochl.de>
-In-Reply-To: <20250713-stmmac_crossts-v1-1-31bfe051b5cb@blochl.de>
-To: =?utf-8?b?TWFya3VzIEJsw7ZjaGwgPG1hcmt1c0BibG9jaGwuZGU+?=@aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, mcoquelin.stm32@gmail.com,
- alexandre.torgue@foss.st.com, tglx@linutronix.de,
- lakshmi.sowjanya.d@intel.com, richardcochran@gmail.com, jstultz@google.com,
- netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- markus.bloechl@ipetronik.com
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250715_163946_521958_FEB6713D 
-X-CRM114-Status: UNSURE (   8.59  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250715122643.137027-3-tzimmermann@suse.de>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,30 +78,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
+Hi,
 
-This patch was applied to netdev/net.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
+On Tue, Jul 15, 2025 at 02:24:39PM +0200, Thomas Zimmermann wrote:
+> Include <linux/of.h> to declare device_property_read_u32(). Avoids
+> dependency on backlight header to include it.
 
-On Sun, 13 Jul 2025 22:21:41 +0200 you wrote:
-> get_time_fn() callback implementations are expected to fill out the
-> entire system_counterval_t struct as it may be initially uninitialized.
+device_property_*() is from <linux/property.h>, which is already
+included in the following line...
+
+Greetings,
+
+-- Sebastian
+
 > 
-> This broke with the removal of convert_art_to_tsc() helper functions
-> which left use_nsecs uninitialized.
+> Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
+> ---
+>  drivers/gpu/drm/panel/panel-samsung-s6e63m0.c | 1 +
+>  1 file changed, 1 insertion(+)
 > 
-> Initially assign the entire struct with default values.
+> diff --git a/drivers/gpu/drm/panel/panel-samsung-s6e63m0.c b/drivers/gpu/drm/panel/panel-samsung-s6e63m0.c
+> index ea241c89593b..930948cb615f 100644
+> --- a/drivers/gpu/drm/panel/panel-samsung-s6e63m0.c
+> +++ b/drivers/gpu/drm/panel/panel-samsung-s6e63m0.c
+> @@ -16,6 +16,7 @@
+>  #include <linux/export.h>
+>  #include <linux/gpio/consumer.h>
+>  #include <linux/module.h>
+> +#include <linux/of.h>
+>  #include <linux/property.h>
+>  #include <linux/regulator/consumer.h>
+>  #include <linux/media-bus-format.h>
+> -- 
+> 2.50.0
 > 
-> [...]
-
-Here is the summary with links:
-  - [net] net: stmmac: intel: populate entire system_counterval_t in get_time_fn() callback
-    https://git.kernel.org/netdev/net/c/e6176ab107ec
-
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
 
