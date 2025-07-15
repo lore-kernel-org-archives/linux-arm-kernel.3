@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DE95C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 08:40:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57C89C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 08:42:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1+Ef7WxKUaaow9pEq7bpm1NEbDxF2Qpf3cOKYQNhe3U=; b=JTNbFUEyRQng6tD2YXNaDZNMqA
-	G7cH/Y7AM5UuTD2htTmbdXQ6VgEWD8/odH08ZrBvbfWiLvoIqmy2/USDtcsupM5tni0t2RFnZNjMU
-	4M/YcKzldOp573wfpc4WUbYnblfOsSAR/Saqd39p/b9dVJjfYEXbTRd63Z5HX20ya6iEeN+WKRGNX
-	ZfnLHDnlCiiIAX/qb3JNqh9J0z5D+oC6qh0hqP8dZGzUyAjDaFu1lu3nqAHiOeGA4dj9cDiRY+ros
-	HZnm5NJZTMa0QwPsu5X6YGWAFZDfPdyqwgY3yl+HAPI5DBgMkEk0YlhCtXwvH420F11TFoEDmNHzM
-	ySMar2yg==;
+	bh=tc9Q022peDvT9sLCFqtvC1JYMYxACxE/o7e7rXMwxuA=; b=oy58k7Lo7USa4lF5a0JhTR+Zlp
+	KBH9UgddP7OBkoI3666XmxHiOJCrMEHbHxI19XpYiPLjcpktRgEagpVl1av/FKWGwwWPzN3EhSXHg
+	CxLUwEQ9L6xRBUiwTnO/Oy0LRo70OPfjhLSTGyA7vu6DjW/h/nXYQTe2NyL7WHdnlWMFWQEQQeqZM
+	n6jGG144j2AYBjyOxCHX1QZNSogdOAZEMdnAANUUYHmCFP52eHIiGLvoLeLx9SZpkwmwDuB4Tz8HK
+	84qmcCY6o1CL0wz/lb4coGK7eQa0nzXW0M3uzSRsCE+tav6cp3VKXKrc+D7dZr72XF2ZOhWjL2IJe
+	V8aQpyQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubbCy-00000004YMP-2DuB;
-	Tue, 15 Jul 2025 08:40:16 +0000
+	id 1ubbFN-00000004Yi1-17jL;
+	Tue, 15 Jul 2025 08:42:45 +0000
 Received: from szxga06-in.huawei.com ([45.249.212.32])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubao5-00000004Tgj-0urT
+	id 1ubao5-00000004Tgi-0vYw
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Jul 2025 08:14:36 +0000
-Received: from mail.maildlp.com (unknown [172.19.162.112])
-	by szxga06-in.huawei.com (SkyGuard) with ESMTP id 4bhBnk4DH1z27j0b;
-	Tue, 15 Jul 2025 16:15:22 +0800 (CST)
+	Tue, 15 Jul 2025 08:14:37 +0000
+Received: from mail.maildlp.com (unknown [172.19.88.214])
+	by szxga06-in.huawei.com (SkyGuard) with ESMTP id 4bhBnm5VgXz27j0j;
+	Tue, 15 Jul 2025 16:15:24 +0800 (CST)
 Received: from dggemv706-chm.china.huawei.com (unknown [10.3.19.33])
-	by mail.maildlp.com (Postfix) with ESMTPS id C9FF014022E;
-	Tue, 15 Jul 2025 16:14:23 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id F36541A016C;
+	Tue, 15 Jul 2025 16:14:25 +0800 (CST)
 Received: from kwepemq200018.china.huawei.com (7.202.195.108) by
  dggemv706-chm.china.huawei.com (10.3.19.33) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Tue, 15 Jul 2025 16:14:23 +0800
+ 15.2.1544.11; Tue, 15 Jul 2025 16:14:25 +0800
 Received: from localhost.localdomain (10.50.165.33) by
  kwepemq200018.china.huawei.com (7.202.195.108) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Tue, 15 Jul 2025 16:14:22 +0800
+ 15.2.1544.11; Tue, 15 Jul 2025 16:14:24 +0800
 From: Yicong Yang <yangyicong@huawei.com>
 To: <catalin.marinas@arm.com>, <will@kernel.org>, <maz@kernel.org>,
 	<oliver.upton@linux.dev>, <corbet@lwn.net>,
@@ -51,9 +51,9 @@ CC: <joey.gouly@arm.com>, <suzuki.poulose@arm.com>, <yuzenghui@huawei.com>,
 	<shameerali.kolothum.thodi@huawei.com>, <linuxarm@huawei.com>,
 	<prime.zeng@hisilicon.com>, <xuwei5@huawei.com>, <yangyicong@hisilicon.com>,
 	<tangchengchang@huawei.com>, <wangzhou1@hisilicon.com>
-Subject: [PATCH v4 4/7] arm64: Provide basic EL2 setup for FEAT_{LS64, LS64_V} usage at EL0/1
-Date: Tue, 15 Jul 2025 16:13:53 +0800
-Message-ID: <20250715081356.12442-5-yangyicong@huawei.com>
+Subject: [PATCH v4 7/7] kselftest/arm64: Add HWCAP test for FEAT_{LS64, LS64_V}
+Date: Tue, 15 Jul 2025 16:13:56 +0800
+Message-ID: <20250715081356.12442-8-yangyicong@huawei.com>
 X-Mailer: git-send-email 2.31.0
 In-Reply-To: <20250715081356.12442-1-yangyicong@huawei.com>
 References: <20250715081356.12442-1-yangyicong@huawei.com>
@@ -64,9 +64,8 @@ X-Originating-IP: [10.50.165.33]
 X-ClientProxiedBy: dggems701-chm.china.huawei.com (10.3.19.178) To
  kwepemq200018.china.huawei.com (7.202.195.108)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250715_011433_459585_EFB62311 
-X-CRM114-Status: UNSURE (   9.33  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250715_011433_714126_7E8675B5 
+X-CRM114-Status: GOOD (  13.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,44 +82,134 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Yicong Yang <yangyicong@hisilicon.com>
 
-Instructions introduced by FEAT_{LS64, LS64_V} is controlled by
-HCRX_EL2.{EnALS, EnASR}. Configure all of these to allow usage
-at EL0/1.
-
-This doesn't mean these instructions are always available in
-EL0/1 if provided. The hypervisor still have the control at
-runtime.
+Add tests for FEAT_{LS64, LS64_V}. Issue related instructions
+if feature presents, no SIGILL should be received. When such
+instructions operate on Device memory or non-cacheable memory,
+we may received a SIGBUS during the test (w/o FEAT_LS64WB).
+Just ignore it since we only tested whether the instruction
+itself can be issued as expected on platforms declaring the
+support of such features.
 
 Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
 ---
- arch/arm64/include/asm/el2_setup.h | 12 +++++++++++-
- 1 file changed, 11 insertions(+), 1 deletion(-)
+ tools/testing/selftests/arm64/abi/hwcap.c | 90 +++++++++++++++++++++++
+ 1 file changed, 90 insertions(+)
 
-diff --git a/arch/arm64/include/asm/el2_setup.h b/arch/arm64/include/asm/el2_setup.h
-index 9f38340d24c2..46e085af7c98 100644
---- a/arch/arm64/include/asm/el2_setup.h
-+++ b/arch/arm64/include/asm/el2_setup.h
-@@ -57,9 +57,19 @@
-         /* Enable GCS if supported */
- 	mrs_s	x1, SYS_ID_AA64PFR1_EL1
- 	ubfx	x1, x1, #ID_AA64PFR1_EL1_GCS_SHIFT, #4
--	cbz	x1, .Lset_hcrx_\@
-+	cbz	x1, .Lskip_gcs_hcrx_\@
- 	orr	x0, x0, #HCRX_EL2_GCSEn
+diff --git a/tools/testing/selftests/arm64/abi/hwcap.c b/tools/testing/selftests/arm64/abi/hwcap.c
+index 35f521e5f41c..e1724f038cc1 100644
+--- a/tools/testing/selftests/arm64/abi/hwcap.c
++++ b/tools/testing/selftests/arm64/abi/hwcap.c
+@@ -11,6 +11,8 @@
+ #include <stdlib.h>
+ #include <string.h>
+ #include <unistd.h>
++#include <linux/auxvec.h>
++#include <linux/compiler.h>
+ #include <sys/auxv.h>
+ #include <sys/prctl.h>
+ #include <asm/hwcap.h>
+@@ -578,6 +580,78 @@ static void lrcpc3_sigill(void)
+ 	              : "=r" (data0), "=r" (data1) : "r" (src) :);
+ }
  
-+.Lskip_gcs_hcrx_\@:
-+	/* Enable LS64, LS64_V if supported */
-+	mrs_s	x1, SYS_ID_AA64ISAR1_EL1
-+	ubfx	x1, x1, #ID_AA64ISAR1_EL1_LS64_SHIFT, #4
-+	cbz	x1, .Lset_hcrx_\@
-+	orr	x0, x0, #HCRX_EL2_EnALS
-+	cmp	x1, #ID_AA64ISAR1_EL1_LS64_LS64_V
-+	b.lt	.Lset_hcrx_\@
-+	orr	x0, x0, #HCRX_EL2_EnASR
++static void ignore_signal(int sig, siginfo_t *info, void *context)
++{
++	ucontext_t *uc = context;
 +
- .Lset_hcrx_\@:
- 	msr_s	SYS_HCRX_EL2, x0
- .Lskip_hcrx_\@:
++	uc->uc_mcontext.pc += 4;
++}
++
++static void ls64_sigill(void)
++{
++	struct sigaction ign, old;
++	char src[64] __aligned(64) = { 1 };
++
++	/*
++	 * LS64, LS64_V require target memory to be Device/Non-cacheable (if
++	 * FEAT_LS64WB not supported) and the completer supports these
++	 * instructions, otherwise we'll receive a SIGBUS. Since we are only
++	 * testing the ABI here, so just ignore the SIGBUS and see if we can
++	 * execute the instructions without receiving a SIGILL. Restore the
++	 * handler of SIGBUS after this test.
++	 */
++	ign.sa_sigaction = ignore_signal;
++	ign.sa_flags = SA_SIGINFO | SA_RESTART;
++	sigemptyset(&ign.sa_mask);
++	sigaction(SIGBUS, &ign, &old);
++
++	register void *xn asm ("x8") = src;
++	register u64 xt_1 asm ("x0");
++	register u64 __maybe_unused xt_2 asm ("x1");
++	register u64 __maybe_unused xt_3 asm ("x2");
++	register u64 __maybe_unused xt_4 asm ("x3");
++	register u64 __maybe_unused xt_5 asm ("x4");
++	register u64 __maybe_unused xt_6 asm ("x5");
++	register u64 __maybe_unused xt_7 asm ("x6");
++	register u64 __maybe_unused xt_8 asm ("x7");
++
++	/* LD64B x0, [x8] */
++	asm volatile(".inst 0xf83fd100" : "=r" (xt_1) : "r" (xn));
++
++	/* ST64B x0, [x8] */
++	asm volatile(".inst 0xf83f9100" : : "r" (xt_1), "r" (xn));
++
++	sigaction(SIGBUS, &old, NULL);
++}
++
++static void ls64_v_sigill(void)
++{
++	struct sigaction ign, old;
++	char dst[64] __aligned(64);
++
++	/* See comment in ls64_sigill() */
++	ign.sa_sigaction = ignore_signal;
++	ign.sa_flags = SA_SIGINFO | SA_RESTART;
++	sigemptyset(&ign.sa_mask);
++	sigaction(SIGBUS, &ign, &old);
++
++	register void *xn asm ("x8") = dst;
++	register u64 xt_1 asm ("x0") = 1;
++	register u64 __maybe_unused xt_2 asm ("x1") = 2;
++	register u64 __maybe_unused xt_3 asm ("x2") = 3;
++	register u64 __maybe_unused xt_4 asm ("x3") = 4;
++	register u64 __maybe_unused xt_5 asm ("x4") = 5;
++	register u64 __maybe_unused xt_6 asm ("x5") = 6;
++	register u64 __maybe_unused xt_7 asm ("x6") = 7;
++	register u64 __maybe_unused xt_8 asm ("x7") = 8;
++	register u64 st   asm ("x9");
++
++	/* ST64BV x9, x0, [x8] */
++	asm volatile(".inst 0xf829b100" : "=r" (st) : "r" (xt_1), "r" (xn));
++
++	sigaction(SIGBUS, &old, NULL);
++}
++
+ static const struct hwcap_data {
+ 	const char *name;
+ 	unsigned long at_hwcap;
+@@ -1098,6 +1172,22 @@ static const struct hwcap_data {
+ 		.sigill_fn = hbc_sigill,
+ 		.sigill_reliable = true,
+ 	},
++	{
++		.name = "LS64",
++		.at_hwcap = AT_HWCAP3,
++		.hwcap_bit = HWCAP3_LS64,
++		.cpuinfo = "ls64",
++		.sigill_fn = ls64_sigill,
++		.sigill_reliable = true,
++	},
++	{
++		.name = "LS64_V",
++		.at_hwcap = AT_HWCAP3,
++		.hwcap_bit = HWCAP3_LS64_V,
++		.cpuinfo = "ls64_v",
++		.sigill_fn = ls64_v_sigill,
++		.sigill_reliable = true,
++	},
+ };
+ 
+ typedef void (*sighandler_fn)(int, siginfo_t *, void *);
 -- 
 2.24.0
 
