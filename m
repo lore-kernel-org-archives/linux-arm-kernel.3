@@ -4,135 +4,149 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA1D3C83F21
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 13:00:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4E7AC83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 13:02:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NIGACv/TQ7bqRyy/PxlnetvIUcYh9t4jJhtdvHTuDJE=; b=fn5+WyMJRDQwLX2DAyo91yv4bu
-	FH7J9xLiksU2hGjvwOc9yU71P/uipQ9E0Pgcm83PULPCutoHNB5UtN/PNPQsuIrWd7uK7BolkOhVc
-	B2wpk2Ta9kCl5S6NnCdRxT/gK6ONx+EG06Q+R86QHUSXKVBiLSWr2o02eRXRrnuxauSAqRIJGYqN9
-	1XewqmP7PUC+lGxVlHUQhpplfTKRfyvMaG3S1Jq2krEThWFIEwAz4T3t49ZlhaaZsEM0E8tKUWXcC
-	VM7eTwNd61HrSJ1R7/az/6XZA+c23UBFPS2y/d14Wu/nMoaYTEozwaQ+3P8VOHtTisz2fX3sYOinH
-	LSSnTRTw==;
+	bh=eZZ51n7cf09L4ID6YFk0rWW8hwvrGiybfbo5R6DyPyw=; b=Duu1NJGmXVm5bpgsUK2J1uN1Ys
+	g3qk7BwQk6nK8j/Q9kkk1aAK2B3Rp2wntpFJSX02n6HOD8oIP136J0IpbUZBmsKHiyHYLrXk8989M
+	DbZDgjd7pxelRHt/jYRXOcqNus8Z/v2jncN3/EyREH9/eUq0BUCcBpuWIo0k/1lk4pY1ruJW1MPYJ
+	F3Lm9Xw/s3nn90jGnPnbmOwlyIFgeuRPleuHZjnIaRcbN/4ZOmz9NiJU0a8ZhF1o6y6XmdtD4+o4q
+	sRmOvCHP6VvRlRrvC5FmTjrvfmIUklEOg8kCqE74nOyO8BG5iw1zMaLiYgPjkOrAS8UNU4nZRu+Z/
+	z8Wa+8Rw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubfGJ-000000058aR-2Aqu;
-	Tue, 15 Jul 2025 12:59:59 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1ubfIl-0000000595s-2Quv;
+	Tue, 15 Jul 2025 13:02:31 +0000
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubeVo-000000052GR-268A
+	id 1ubedb-000000053Js-2l4W
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Jul 2025 12:11:57 +0000
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56FAkAIO009134
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Jul 2025 12:11:56 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=NIGACv/TQ7bqRyy/PxlnetvI
-	UcYh9t4jJhtdvHTuDJE=; b=B5E23Pc1HCFS3LLj6OvBQSBZUOR4c6EY32SQlq3j
-	MfFZd2iPNzvNtr5UWDWfDwIkHh2R+GjaWOa7Ht05lGxT26d8ATyYVP5kauOEajiC
-	IuNOlHzt0uysHQYxLSKRFpfoaDYuSjL4BAV23GqruAUsQEATDdgOjFRPlyYGAj8e
-	en2yTB2i0T0e/nuTG0ZnnX/+kyO4OnrNYLb+TctSXdG6MzWDHYECxI/XCQCnJCup
-	81Iw0sVu0DX7pvCSVIp+p5HskR0kLIbS3lNjee7PguS7jZUGG0Rm7DgM5dB8Y/mf
-	M5c54JeRLifbZimgU2nsKaM3XsM2j/GOHx4bUXtvqLQEkA==
-Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com [209.85.222.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 47wnh5r8f8-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Jul 2025 12:11:55 +0000 (GMT)
-Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-7c790dc38b4so871700285a.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Jul 2025 05:11:55 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752581514; x=1753186314;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=NIGACv/TQ7bqRyy/PxlnetvIUcYh9t4jJhtdvHTuDJE=;
-        b=HzE9C9r/rAsyKavTNVsfNZP68fTYwvlqm/nS7TYqs7DJHjYaBhUAzxPd4pcrbD/5xP
-         ZtCPRSDzMva4GwBfsMAQ3CBC56LGEIYimvSEaqMnWm5tlweb8pktPBe1hp0ME80kOQIf
-         RQdyx8va583x7FAVleUwVMQv2QI40rukMW9y36qqckS9sqiKAFe8A+g6ADauczsMiznc
-         e8sIkUQ+5ANXCAy7anWK+MteDg3Zwj2SVZ5OZgg/rYbAzWZ2LqjhKS803bow3lS/z8gY
-         0g5xvZLtlszEdMPbl6A/e+9s5uyG8Wb4u8Ik7kkmAG3GkkWY59Ie+vK0/Dom589L1fv+
-         OBJg==
-X-Forwarded-Encrypted: i=1; AJvYcCWX9klh9ZeYFy2Pszej4CwDAL/7pFDd0OCZ/00FeeHF0nNR/wT4+jJfPnFx4G5q9srhMUgbstU9+dAEVD8EHLs4@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxkf+1pn7+69VRhp9hyqkeKBDlu/Mz5a9qL3jexd6FSZYNmrPpQ
-	6S9xiDjz/bFnEBhuGT4/LnE3gWgcofP5XbhtGFriWLQmyfTeqkyDDLsjs9OlI+18CkDgw7Ih1g+
-	wKdgrWSyikPkibYFwvMAZP+e4kSEGSpqQiJp+ZMhvP5ryge5DrJdv8Dv74wIrBSn+wyuSZyhauv
-	eRIQ==
-X-Gm-Gg: ASbGncscUXgPvC0l8d14Kpb5+ZkRoTY4hokKbPGk47OxRJJCA7ICZx7Nc7b2uPS5xUC
-	EAP50UM0hNUwbRzJPJSmaKPVeHRDV9v8UFiniwrK4LpoCSeo187IRT+a1EKdhKGZ0cC2jzfluUQ
-	9UA5Mgz0h3ysu5pxevoznpYEJN/V6w2YdFlcmsB4h8ZDoZ6cJ+nOXIhy9hd5McVp9ao+3unu538
-	5v6FirtuzcQrGn6V7rxskVzKZRKpUX6iPWDukwyIerjxssHI+rR9kCzYnQYEkzHNkTp1D3hYH97
-	am6RJO1+OJwZgrUdsROyQZbJ/yGgf2uRzqjtJJDVFjhg1PI3/GHs0KzbIejwaky/S75gRNwD2W6
-	I8uQKTwRyW/HI7875hcPTLOFcPQo9Db3Hqez2hrZiYsj/A42uCuwd
-X-Received: by 2002:a05:620a:4e9a:b0:7d3:a4fa:ee06 with SMTP id af79cd13be357-7e337b853a9mr367285985a.29.1752581514282;
-        Tue, 15 Jul 2025 05:11:54 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IEmF+y4l+jOb95aKZxJ7DfbPfnTn84DO87g2W9GzSKv0rFVZnPjZcECn3fW8CZwMFIojixCWQ==
-X-Received: by 2002:a05:620a:4e9a:b0:7d3:a4fa:ee06 with SMTP id af79cd13be357-7e337b853a9mr367279885a.29.1752581513627;
-        Tue, 15 Jul 2025 05:11:53 -0700 (PDT)
-Received: from umbar.lan (2001-14ba-a0c3-3a00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a0c3:3a00:264b:feff:fe8b:be8a])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-55943b736d5sm2263762e87.213.2025.07.15.05.11.52
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 15 Jul 2025 05:11:52 -0700 (PDT)
-Date: Tue, 15 Jul 2025 15:11:51 +0300
-From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-To: Chaoyi Chen <kernel@airkyi.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
-        Kishon Vijay Abraham I <kishon@kernel.org>,
-        Heiko Stuebner <heiko@sntech.de>, Sandy Huang <hjc@rock-chips.com>,
-        Andy Yan <andy.yan@rock-chips.com>,
-        Yubing Zhang <yubing.zhang@rock-chips.com>,
-        Frank Wang <frank.wang@rock-chips.com>,
-        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Amit Sunil Dhamne <amitsd@google.com>,
-        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-        Chaoyi Chen <chaoyi.chen@rock-chips.com>,
-        Dragan Simic <dsimic@manjaro.org>, Johan Jonker <jbx6244@gmail.com>,
-        Diederik de Haas <didi.debian@cknow.org>, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org,
-        linux-arm-kernel@lists.infradead.org,
-        linux-rockchip@lists.infradead.org, dri-devel@lists.freedesktop.org
-Subject: Re: [PATCH 5/5] arm64: dts: rockchip: rk3399-evb-ind: Add support
- for DisplayPort
-Message-ID: <2bfaqx6unfejlqg53jaw47s6qzymdcvyiy6wuqgua43mnitzbt@5wfqp6ucxcsx>
-References: <20250715112456.101-1-kernel@airkyi.com>
- <20250715112456.101-6-kernel@airkyi.com>
-MIME-Version: 1.0
+	Tue, 15 Jul 2025 12:20:00 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=a0h8mzc9c8qrX7ehbusMYSBp5NJLwlWtXo3BL1Mo8UJdm9MsUNq6tMU9rLkMBdHnr5XZi44yeqq+lQ7mFuII3zfWffHfRbprextxfVyJDyNuoNRXkb1GUxOUimPCti31ypIdZRFB8oRy/1Y0ODsep9FVmS8pYLTJ1phWbSJlZYG8Ljhp3u5P+Afzp/K2mdMUFU4OIqqV21V1vvjUS0tXCV9UhJFVoOZxQ+XvbOryMu0mmELqa4QklUHKD4qnxgPMcOSvLyjuWNImtqt3RRyGgM1WLGW1V/Eg05iKzPQmYMFuDuLtSLPPaz3i24wGS8oLhejM3CzQGNiAd59VImv2Kw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=eZZ51n7cf09L4ID6YFk0rWW8hwvrGiybfbo5R6DyPyw=;
+ b=pwaT076GG7A+Z+8P8We0E6Ym/DO02KoqrPxBi+WgAOwJ5OMiPgW0pMWasklRwK5f6F2QWE97fXF1vGw6LvR04HXnhWkpBQmyk07PhuY5uzFEjGXqqZTbQlDGlOH7+sLBKHaTUbZSb4kjarWqOUjEasQFpjCrqDeTU1WhbMJ2xRY1YDtpPRdFNz9tSP3exSOJbY8mXzXbA7WfHAe/PaWVT9sLAlgV9AZ5PeXUS+sdtOFMTh/V1sgD+Fa9XGtrolGyC3xNAvFZs9PRgAda7/+va5o3f1zhpQqpI/7zNoRs1+XeWXwweJBQG4brpRJ/YDqvUlIs80e+JIPLYTxbRsJPiA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=eZZ51n7cf09L4ID6YFk0rWW8hwvrGiybfbo5R6DyPyw=;
+ b=LDfYTX16meCWp9kq85E/w9YIwx8v3YXQ2tF9Cbfu2kXmqmn5maLnJTuUMXiJHitJ2hFxhgYCqfbuHZup4UM3ZCZRPteKvEDFpek4iKQlHdYfBuwKURs1mRNW8R4HSoKza11qMEUyiryxbAVbEi+RjMy9Rr+tcFlJv+COAw4ubbvaIVyv9aBXfOu6/mAGz8jw4+DW7zP7VSS5tCieAPvubSByp7HBKYp6Cyes3QDfmseIBEkFwdzdew//gUCxBEJoNY4GZ+OMCJbUKgENEjmoNY3pk5oYyG33oV5WX+yf5XkYDtxn+GJGO52CaACw3CwzX1KbPKQa4tHras1LvuBBFQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AS8PR04MB8868.eurprd04.prod.outlook.com (2603:10a6:20b:42f::6)
+ by DU2PR04MB9179.eurprd04.prod.outlook.com (2603:10a6:10:2f6::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8922.32; Tue, 15 Jul
+ 2025 12:19:53 +0000
+Received: from AS8PR04MB8868.eurprd04.prod.outlook.com
+ ([fe80::b317:9c26:147f:c06e]) by AS8PR04MB8868.eurprd04.prod.outlook.com
+ ([fe80::b317:9c26:147f:c06e%5]) with mapi id 15.20.8880.030; Tue, 15 Jul 2025
+ 12:19:53 +0000
+Date: Tue, 15 Jul 2025 15:19:49 +0300
+From: Ioana Ciornei <ioana.ciornei@nxp.com>
+To: Rob Herring <robh@kernel.org>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Linus Walleij <linus.walleij@linaro.org>, Bartosz Golaszewski <brgl@bgdev.pl>, 
+	Shawn Guo <shawnguo@kernel.org>, Michael Walle <mwalle@kernel.org>, Lee Jones <lee@kernel.org>, 
+	Frank Li <Frank.Li@nxp.com>
+Subject: Re: [PATCH 1/9] dt-bindings: gpio: add bindings for the QIXIS FPGA
+ based GPIO controller
+Message-ID: <n3wlp7pncug3gta2raignhvubqpzqk76dmvewg5bosu4spx4h2@hr5r73tsxip5>
+References: <20250709112658.1987608-1-ioana.ciornei@nxp.com>
+ <20250709112658.1987608-2-ioana.ciornei@nxp.com>
+ <20250710220132.GA4038128-robh@kernel.org>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250715112456.101-6-kernel@airkyi.com>
-X-Authority-Analysis: v=2.4 cv=dKimmPZb c=1 sm=1 tr=0 ts=6876458b cx=c_pps
- a=qKBjSQ1v91RyAK45QCPf5w==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
- a=Wb1JkmetP80A:10 a=s8YR1HE3AAAA:8 a=ikJCsuYIIW8Wf-eC7T4A:9 a=CjuIK1q_8ugA:10
- a=NFOGd7dJGGMPyQGDc5-O:22 a=jGH_LyMDp9YhSvY-UuyI:22
-X-Proofpoint-GUID: 1wFz-UED8iu0u5tAyj2Kcaqt_yJsHyjJ
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNzE1MDExMSBTYWx0ZWRfXxAwVEUIWBGC5
- qMuHtgpoEmYTt/yKfGVWxx7y8GyF8uSM0BHx5xAV4jrmM4u7Cix8S1CdnPEIqALB6MmwTTmOCaU
- npP3tSVyubLK/NG/m1FFmdFSmnF0ftGrqtVh03pjfYHfhMv1zSB2XBE8+xSirnHI6HAEGlqyDdP
- 9poaWE2Lk+WbEpe8HKvTULUcSh719t4+3xEjUI0zlCTu7dTUQGv4p3kYm9k0VMK0LU5G5LDoeiV
- XsqISmw2KobDukMOfRG8P2UvhRUwdBGZubCYN3xuDKSomb/irqdvB0HgY5+gGynx+mTMynIyT47
- Em7dJ7Qo7On/Hk+OP9G7o2/0fcLRKfsD1w2t7DQcm3fV1kICu5wnMt4ilm3XCikcSJorJjmAcM4
- PwacQbL53hVK/XpT71yQ885VZTi0DSlNGMhqBhBesX4UbHpb1rURVmNlqt+Amiit7v9ee0wR
-X-Proofpoint-ORIG-GUID: 1wFz-UED8iu0u5tAyj2Kcaqt_yJsHyjJ
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.7,FMLib:17.12.80.40
- definitions=2025-07-15_03,2025-07-14_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 clxscore=1015 mlxlogscore=999 mlxscore=0 spamscore=0
- adultscore=0 impostorscore=0 priorityscore=1501 suspectscore=0 bulkscore=0
- phishscore=0 lowpriorityscore=0 classifier=spam authscore=0 authtc=n/a
- authcc= route=outbound adjust=0 reason=mlx scancount=1
- engine=8.19.0-2505280000 definitions=main-2507150111
+In-Reply-To: <20250710220132.GA4038128-robh@kernel.org>
+X-ClientProxiedBy: FR4P281CA0293.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:e7::6) To AS8PR04MB8868.eurprd04.prod.outlook.com
+ (2603:10a6:20b:42f::6)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS8PR04MB8868:EE_|DU2PR04MB9179:EE_
+X-MS-Office365-Filtering-Correlation-Id: b545593e-0a2c-47dc-482e-08ddc399e718
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|19092799006|366016|376014|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?0MVd77/kR7xkISiP5ZrInnGoObsUN+kf6EnD+vuZavJvXmPRYV3roMwrdWGf?=
+ =?us-ascii?Q?NDBZ5TozKjduSPy3ZlXtwDynd8nl65Uu3tPwKkby7SkzQfCpRRS8DNY10Z+r?=
+ =?us-ascii?Q?qjNiUTfvlRs2HIw2TkvAIN+dmDELPcMCllqMLyLEwRSjOU0oX4hrTBW7OqYP?=
+ =?us-ascii?Q?v0h5S3ES9x8xK8ZDA6JxDmbwv/O5xGvcRvC9dpq+LtM1g7iMRQqiJ4ngTsY+?=
+ =?us-ascii?Q?/zk+dfDBuImNXg85japAqlqEhkZQ+0VV8pmnuwa/u8SUEgXXUiZj2XbhwTdl?=
+ =?us-ascii?Q?oPuQQRfPNmexX77OsSq6pJcleSmvfBcJiIBuEj64dsgAL9CpGNVnpmFXFUlE?=
+ =?us-ascii?Q?MsdXb9+zSuHGamdRbdHaLEMeAzqOLej0vNqabXOupovhNg3rH+0VMMNc4Nyq?=
+ =?us-ascii?Q?1AiwJ7bTgs0JWu4mPtUPLL1NBx4DPUO+OXycjCEDnQrVqYQv4EJ8tAHqJECF?=
+ =?us-ascii?Q?iYfxGXcdrzIkrw9EO9hWO8V+NXcDMyGyTVQgmMjTu4muW01pT3wWj78W5wSR?=
+ =?us-ascii?Q?3ftKjfFLJ8urfpJtcU9i3swOx2qFTp1c75T2WjU7//H2b/xNstnbaIZatjGv?=
+ =?us-ascii?Q?KlXepuKyslgKar5xKpZ+4kjj760YRKoxZdMAxa0lXGFX9/u6HI3lp7z2v+W/?=
+ =?us-ascii?Q?9Fi3ZdWX5iM1sChf7UYtpNfyfJHBoDpO3aDzA/PH14GuLpb2ea5COxWONNUg?=
+ =?us-ascii?Q?jyQpy0b21l25jYWQ21JnKRp75GKRneWiEM8jmI627jDBS5C+Y6SMuBEHBLQT?=
+ =?us-ascii?Q?FeZ1BWHDX5RtGfycLf+8HKiYuFkPgtabIUaNnkkhjrw17jnbsVRZqFWib1u2?=
+ =?us-ascii?Q?0eNbd8HP2ALFA17WVeJRNVWn+oC+qZ3M5ei6DQdiN506ysXv1TXO3/a2TjV6?=
+ =?us-ascii?Q?w9SHLe6D5AGnQYe466HUUQ4iuYTttPAL7G5vx4Sv6bk3mrgCjD7/wek1vytZ?=
+ =?us-ascii?Q?CJjy2Chwts6GMEN2SAQ8ChZ/DMdP+44Jo2Rl1x5yApHcXdcYGxTNETOSAhO0?=
+ =?us-ascii?Q?FzyZgPUgzD5Dci0rVQheyfj/VoHMwNsg4RaHDhQjRFk7nEyuy9pLEMYZJQrV?=
+ =?us-ascii?Q?5IXDYx+gxVdLSo3UpF6KvzLfWJEa64nekQBt4qOJzAY3TDu/sdYkWqMELtfT?=
+ =?us-ascii?Q?G/DHVnY1N+WlMfNQ4Bh6iwJw8JAsHC+7bSyWcMCFQC74J0+vvxcwmBdYdhS2?=
+ =?us-ascii?Q?Wgr7y59N72E9PWr+6DdGVyKSfYrJ1UmxCFoyOgdYK6aImWDbGTT/udZS7VO6?=
+ =?us-ascii?Q?u20o7zg2tNSWi2dlFB3wgixVrVcmRkOyK/ilp0EC2xpNE8cO4beeTuYYlrUX?=
+ =?us-ascii?Q?l2r9eCSasAyvrTSj1f1NJ8UXRCJyUZyYqNiomWh8UjfSm07oFmPikIVa0H/l?=
+ =?us-ascii?Q?DDdijfllhOzbwqLeEk8xhvZDu1e2N0XzSfp9NSmdmaB0680Shw=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8868.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(19092799006)(366016)(376014)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?jdQOFFyxi+LnGrdIG7mxROYIUokaTQ2iGhkon6jOmS2In8rZbOHmiNH3dVvX?=
+ =?us-ascii?Q?i3Y8mZzaQtvlTgNt/4RIT6+ZY+l5GPb5ob7ez9jbfnPXE08DKQ+S6nFNFzwY?=
+ =?us-ascii?Q?lrnCX7toYMx8i3fCA0w4N7GFmKGVz+ynpgwKDWAzvKcGYyB7OTpHnRXh9iJJ?=
+ =?us-ascii?Q?b+LrzpL5ILsOHkg/LVqJJAJaZ0VaTHRN+/zrPEZQXvgB70vFOlURgwzj0GLh?=
+ =?us-ascii?Q?SqLbJjRmO4DRptRbmTpznlpn1RjKFfQft0K5udE9mQUaa+/WhIuCd9xOBb3v?=
+ =?us-ascii?Q?3lge6k760lY/VRboeqIy7BBUdmACtD4XThMiv565d+0all4Haf6jSdo1IJ0y?=
+ =?us-ascii?Q?M+Oj/7M2xMWZwBvV4DmJVCqRL1G8ESKRvpn6kWc+FgNHZQ9n3wjU500O/CqZ?=
+ =?us-ascii?Q?+ncbwTHBnmfXI/36zOLF8RMYkNRrGOXqFchpdRyYxOKHNS5N46lEqZ+wEqnc?=
+ =?us-ascii?Q?oTIbffYuow7tBGmZHdmxMgr5HwF/yYymxe7h3cQasb3CNibOYzojxr5D4UE+?=
+ =?us-ascii?Q?QZPRVLRU27Lf/0KuP3uBHJF3sg5WS7taEz8/prFu9TicbOYoz75sSoDNG2L4?=
+ =?us-ascii?Q?z/3pNEmVnfK5pUz1dYPJ7dTSuwrMu9hXwCAI7hUIGV20oBKV0W2Fn9emHIqO?=
+ =?us-ascii?Q?eq7n6JZbXJCYCgfQhIZhkIjsOzJd8nnIOjKWQW99nN0yUlGl43vOZ+nkVaV4?=
+ =?us-ascii?Q?bc0XYi2QryfedkLV1Wi8qOGr6kgfSfGQqc6OLk9BLZyKl51ufk/oxEfAr/Xr?=
+ =?us-ascii?Q?Wv2FwwdjcMFfAWNfoDvSMovrbcF6Bletpo1LJer7YNx6i5zBG7BeNZYky7SZ?=
+ =?us-ascii?Q?A9xNsHmto/G6RR8iNcgUyAWeVPjK4huvtr6/aDz0ohJ0zO72no+fVJMof0P6?=
+ =?us-ascii?Q?sJpgVymJhhjey3VaNoFoHCrd8NS07kFJnlYdAmAuTpAPb9mNXH06v4Vp3Of5?=
+ =?us-ascii?Q?WnJD0MubxI9LAh/jLTlzcefoCLHa6NjN5FzhCFl003LjPXNckUer1QTYpm/q?=
+ =?us-ascii?Q?T6n2Z5NWCJBXsL5cvDFbpILIp2onCr/IgZnQUZhQ41NzzZ9UF9r/cc5jZk2C?=
+ =?us-ascii?Q?MidkGTWCIzAp7LvL4O4LjQXwGJ7XGYCk1gJx5PQKTZXqjUVobY5o9TVdp2jA?=
+ =?us-ascii?Q?Jujgk5OpdNc4ps11527VfWhN5XaKRjTCQHi3ivzyZGgvcZMM+S2xWktTq1w5?=
+ =?us-ascii?Q?lvd4ldYD6UOu7lobc5K2z/KR7J+1Tb/Ql1GP+sfF6xAiC1rlmXkwF98nVeWc?=
+ =?us-ascii?Q?Ie/LN7+6K7AmD9cYydK+f12qAXHYqXOoWoa+v4iO3vYdea7lKnquNAH2wSm7?=
+ =?us-ascii?Q?8NGP+RkmC0g0iKh9WtRWmFXDXVzH9HAF5/HOSYF/U1mohJWx6ImdQrin6IA6?=
+ =?us-ascii?Q?/8pk+INzbMtKaN/dALsLJhsc/My4mdGiHjkPl3ZFxOFlMMMcHRfTcFcgSFNj?=
+ =?us-ascii?Q?HxOTVf/ti9h29+G0LgIs6HZSLdDWkZ76h7crvL07C5pA3+lmV4gSfQbPNWes?=
+ =?us-ascii?Q?mtbO5iVNY7iCZ49Nwbj4P430+lj0cPCzD6a/APxLt8ZXR6ioAjQ7QG+cKcqT?=
+ =?us-ascii?Q?oHm9JADobP6fZu0O+j2tejZnA6N/NKDLaS2J3IR2?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b545593e-0a2c-47dc-482e-08ddc399e718
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8868.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Jul 2025 12:19:53.6133
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: e64+i/vTEUZsnWL/hNWDEBc2mE5gGLJz3TW+IqWUJhRhVkS93T5UyHrrCYuDIkepfACmGVC2r+PMNCJscZPc6Q==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB9179
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250715_051156_550689_E45DF91D 
-X-CRM114-Status: GOOD (  23.54  )
+X-CRM114-CacheID: sfid-20250715_051959_696065_A20A4002 
+X-CRM114-Status: GOOD (  12.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,200 +161,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 15, 2025 at 07:24:56PM +0800, Chaoyi Chen wrote:
-> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+On Thu, Jul 10, 2025 at 05:01:32PM -0500, Rob Herring wrote:
+> On Wed, Jul 09, 2025 at 02:26:50PM +0300, Ioana Ciornei wrote:
+> > Add a device tree binding for the QIXIS FPGA based GPIO controller.
+> > Depending on the board, the QIXIS FPGA exposes registers which act as a
+> > GPIO controller, each with 8 GPIO lines of fixed direction.
+> > 
+> > Since each QIXIS FPGA layout has its particularities, add a separate
+> > compatible string for each board/GPIO register combination supported.
 > 
-> The RK3399 EVB IND board has a Type-C interface DisplayPort.
-> It use fusb302 chip as Type-C controller.
-> 
-> Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-> ---
->  .../boot/dts/rockchip/rk3399-evb-ind.dts      | 119 ++++++++++++++++++
->  1 file changed, 119 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3399-evb-ind.dts b/arch/arm64/boot/dts/rockchip/rk3399-evb-ind.dts
-> index 70aee1ab904c..9ceda32456a0 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3399-evb-ind.dts
-> +++ b/arch/arm64/boot/dts/rockchip/rk3399-evb-ind.dts
-> @@ -4,6 +4,7 @@
->   */
->  
->  /dts-v1/;
-> +#include <dt-bindings/usb/pd.h>
->  #include "rk3399.dtsi"
->  
->  / {
-> @@ -19,6 +20,16 @@ chosen {
->  		stdout-path = "serial2:1500000n8";
->  	};
->  
-> +	vbus_typec: vbus-typec-regulator {
-> +		compatible = "regulator-fixed";
-> +		enable-active-high;
-> +		gpio = <&gpio1 RK_PC2 GPIO_ACTIVE_HIGH>;
-> +		pinctrl-names = "default";
-> +		pinctrl-0 = <&vcc5v0_typec0_en>;
-> +		regulator-name = "vbus_typec";
-> +		vin-supply = <&vcc5v0_sys>;
-> +	};
-> +
->  	vcc5v0_sys: regulator-vcc5v0-sys {
->  		compatible = "regulator-fixed";
->  		enable-active-high;
-> @@ -29,6 +40,16 @@ vcc5v0_sys: regulator-vcc5v0-sys {
->  		regulator-max-microvolt = <5000000>;
->  		regulator-min-microvolt = <5000000>;
->  	};
-> +
-> +	sound: sound {
-> +		compatible = "rockchip,rk3399-gru-sound";
-> +		rockchip,cpu = <&i2s0 &spdif>;
-> +	};
-> +};
-> +
-> +&cdn_dp {
-> +	status = "okay";
-> +	phys = <&tcphy0_dp>;
->  };
->  
->  &cpu_b0 {
-> @@ -341,6 +362,66 @@ regulator-state-mem {
->  	};
->  };
->  
-> +&i2c4 {
-> +	i2c-scl-rising-time-ns = <475>;
-> +	i2c-scl-falling-time-ns = <26>;
-> +	status = "okay";
-> +
-> +	usbc0: fusb302@22 {
-> +		compatible = "fcs,fusb302";
-> +		reg = <0x22>;
-> +		interrupt-parent = <&gpio1>;
-> +		interrupts = <RK_PA2 IRQ_TYPE_LEVEL_LOW>;
-> +		pinctrl-names = "default";
-> +		pinctrl-0 = <&usbc0_int>;
-> +		vbus-supply = <&vbus_typec>;
-> +		status = "okay";
-> +
-> +		usb_con: connector {
-> +			compatible = "usb-c-connector";
-> +			label = "USB-C";
-> +			data-role = "dual";
-> +			power-role = "dual";
-> +			try-power-role = "sink";
-> +			op-sink-microwatt = <1000000>;
-> +			sink-pdos =
-> +				<PDO_FIXED(5000, 2500, PDO_FIXED_USB_COMM)>;
-> +			source-pdos =
-> +				<PDO_FIXED(5000, 1500, PDO_FIXED_USB_COMM)>;
-> +
-> +			displayport = <&cdn_dp>;
-> +
-> +			altmodes {
-> +				displayport {
-> +					svid = /bits/ 16 <0xff01>;
-> +					vdo = <0xffffffff>;
-> +				};
-> +			};
-> +
-> +			ports {
-> +				#address-cells = <1>;
-> +				#size-cells = <0>;
-> +
-> +				port@0 {
+> This could be covered in my proposed trivial gpio schema[1].
 
-Which signals are described by these ports? port@0 should be used for
-USB HS lines.
+Indeed. I will update the trivial-gpio.yaml schema (once that gets
+merged) with these new compatible strings.
 
-> +					reg = <0>;
-> +
-> +					usbc0_orien_sw: endpoint {
-> +						remote-endpoint = <&tcphy0_orientation_switch>;
-> +					};
-> +				};
-> +
-> +				port@1 {
-> +					reg = <1>;
-> +
-> +					dp_mode_sw: endpoint {
-> +						remote-endpoint = <&tcphy_dp_altmode_switch>;
-> +					};
-> +				};
-> +			};
-> +		};
-> +	};
-> +};
-> +
->  &i2s2 {
->  	status = "okay";
->  };
-> @@ -354,6 +435,16 @@ &io_domains {
->  };
->  
->  &pinctrl {
-> +	usb-typec {
-> +		usbc0_int: usbc0-int {
-> +			rockchip,pins = <1 RK_PA2 RK_FUNC_GPIO &pcfg_pull_up>;
-> +		};
-> +
-> +		vcc5v0_typec0_en: vcc5v0-typec0-en {
-> +			rockchip,pins = <1 RK_PC2 RK_FUNC_GPIO &pcfg_pull_none>;
-> +		};
-> +	};
-> +
->  	pmic {
->  		pmic_int_l: pmic-int-l {
->  			rockchip,pins = <1 RK_PC5 RK_FUNC_GPIO &pcfg_pull_up>;
-> @@ -400,8 +491,35 @@ &sdmmc {
->  	status = "okay";
->  };
->  
-> +&sound {
-> +	rockchip,codec = <&cdn_dp>;
-> +	status = "okay";
-> +};
-> +
-> +&spdif {
-> +	status = "okay";
-> +};
-> +
->  &tcphy0 {
-> +	mode-switch;
-> +	orientation-switch;
->  	status = "okay";
-> +
-> +	port {
-> +		#address-cells = <1>;
-> +		#size-cells = <0>;
-> +
-> +		tcphy0_orientation_switch: endpoint@0 {
-> +			reg = <0>;
-> +			remote-endpoint = <&usbc0_orien_sw>;
-> +		};
-> +
-> +		tcphy_dp_altmode_switch: endpoint@1 {
-> +			reg = <1>;
-> +			remote-endpoint = <&dp_mode_sw>;
-> +		};
-> +	};
-> +
->  };
->  
->  &tcphy1 {
-> @@ -461,6 +579,7 @@ &usb_host1_ohci {
->  };
->  
->  &usbdrd_dwc3_0 {
-> +	usb-role-switch;
->  	status = "okay";
->  };
->  
-> -- 
-> 2.49.0
-> 
-
--- 
-With best wishes
-Dmitry
+Thanks,
+Ioana
 
