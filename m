@@ -4,29 +4,29 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87F55C83F1D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 04:18:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA1C5C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 04:21:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D3XOFIp5UOjkpe22UJmyHedDH3ZXM5VGuLw/ClvPRxM=; b=HkOYK2d/hHdkZ20s/AxeTgAJAN
-	iwFtG+VDSoG0r2vCFd6YLudzl9gvY40/Bc1QykPg+GOEbv6P1ixm2uPGqlYCQaH/fo+eJILJOcIla
-	S0ZkijNCj1UeisLN3rtAr1M5/W5fEHy/EdFNz1yrmaCpDNPz8l05PGUXIJ9t10leSWZolvHV+PhPd
-	jkaxP7NrxrgEDKQQn7BM4ZEG/wvD+EVGWBPkV9JmkwSzpZsf0c5JH+kPQGsb6ZarQK/GcbSI/koFG
-	mCRobEPxoncfbLeaPEyHaxc+7jJEmVAdk98ns5JC6wvMwrxho/jAl6YneVZPFf7RcjmyIFq3T0D9D
-	Y8RKei5w==;
+	bh=swSRdx9zR+J1418w7glofiamCTii68f6kYuZdnX7Vk8=; b=w+fs102J5Ri4fM/esj93mFCH3A
+	qNi3uOl9OblQ2lzN9D3jKrTnaBdhc+4nKE1vuCb0Ufsduf05/7eGaNXameno5z/5uS5wx3XqHTOjy
+	9sdETMMtRypvrh4oOlq6Y33e6XN37nRY0cv/H5OXKunFL7+49fjXXA4akT4qImk/B1UvAX5FShVTa
+	TYXAXtSKMMhWPZwzNfoJvKMhQjqjo05UdV8fJBK3ctGi0+fXMKtWxPQo/ez5Ou7F6Bt2AkauA9pAA
+	W4wR63Rut4kckYWscwsLu0cyWRpUzCYCniTPSPRYoG0Y8ozJWycliDu92e9INJpBWgGjebZ5s2SSy
+	wdMUO9pg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubX7h-00000003ziD-3zvq;
-	Tue, 15 Jul 2025 04:18:34 +0000
+	id 1ubXA8-00000003zvY-3c6w;
+	Tue, 15 Jul 2025 04:21:04 +0000
 Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubWa0-00000003vKr-2dDP
+	id 1ubWa2-00000003vKr-0jx5
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Jul 2025 03:43:45 +0000
+	Tue, 15 Jul 2025 03:43:47 +0000
 Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
  (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Tue, 15 Jul
@@ -43,9 +43,9 @@ To: <bhelgaas@google.com>, <lpieralisi@kernel.org>, <kwilczynski@kernel.org>,
 	<linux-kernel@vger.kernel.org>
 CC: <openbmc@lists.ozlabs.org>, <linux-gpio@vger.kernel.org>,
 	<linus.walleij@linaro.org>, <p.zabel@pengutronix.de>, <BMC-SW@aspeedtech.com>
-Subject: [PATCH v2 06/10] ARM: dts: aspeed-g6: Add PCIe RC node
-Date: Tue, 15 Jul 2025 11:43:16 +0800
-Message-ID: <20250715034320.2553837-7-jacky_chou@aspeedtech.com>
+Subject: [PATCH v2 07/10] pinctrl: aspeed-g6: Add PCIe RC PERST pin group
+Date: Tue, 15 Jul 2025 11:43:17 +0800
+Message-ID: <20250715034320.2553837-8-jacky_chou@aspeedtech.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250715034320.2553837-1-jacky_chou@aspeedtech.com>
 References: <20250715034320.2553837-1-jacky_chou@aspeedtech.com>
@@ -53,8 +53,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250714_204344_668875_CC67C56A 
-X-CRM114-Status: UNSURE (   8.08  )
+X-CRM114-CacheID: sfid-20250714_204346_217062_7A0CD44E 
+X-CRM114-Status: UNSURE (   9.86  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -70,85 +70,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The AST2600 has one PCIe RC, and add the relative configure regmap.
+The PCIe RC PERST uses SSPRST# as PERST#  and enable this pin
+to output.
 
 Signed-off-by: Jacky Chou <jacky_chou@aspeedtech.com>
 ---
- arch/arm/boot/dts/aspeed/aspeed-g6.dtsi | 61 +++++++++++++++++++++++++
- 1 file changed, 61 insertions(+)
+ drivers/pinctrl/aspeed/pinctrl-aspeed-g6.c | 12 +++++++++++-
+ 1 file changed, 11 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi b/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi
-index 8ed715bd53aa..ed99780b6860 100644
---- a/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi
-+++ b/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi
-@@ -379,6 +379,67 @@ rng: hwrng@1e6e2524 {
- 				quality = <100>;
- 			};
+diff --git a/drivers/pinctrl/aspeed/pinctrl-aspeed-g6.c b/drivers/pinctrl/aspeed/pinctrl-aspeed-g6.c
+index 5a7cd0a88687..c751703acdb9 100644
+--- a/drivers/pinctrl/aspeed/pinctrl-aspeed-g6.c
++++ b/drivers/pinctrl/aspeed/pinctrl-aspeed-g6.c
+@@ -17,6 +17,7 @@
+ #include "../pinctrl-utils.h"
+ #include "pinctrl-aspeed.h"
  
-+			pcie_phy1: syscon@1e6ed200 {
-+				compatible = "aspeed,pcie-phy", "syscon";
-+				reg = <0x1e6ed200 0x100>;
-+			};
++#define SCU040		0x040 /* Reset Control Set 1  */
+ #define SCU400		0x400 /* Multi-function Pin Control #1  */
+ #define SCU404		0x404 /* Multi-function Pin Control #2  */
+ #define SCU40C		0x40C /* Multi-function Pin Control #3  */
+@@ -52,7 +53,7 @@
+ #define SCU6D0		0x6D0 /* Multi-function Pin Control #29 */
+ #define SCUC20		0xC20 /* PCIE configuration Setting Control */
+ 
+-#define ASPEED_G6_NR_PINS 256
++#define ASPEED_G6_NR_PINS 258
+ 
+ #define M24 0
+ SIG_EXPR_LIST_DECL_SESG(M24, MDC3, MDIO3, SIG_DESC_SET(SCU410, 0));
+@@ -1636,6 +1637,12 @@ FUNC_DECL_1(USB11BHID, USBB);
+ FUNC_DECL_1(USB2BD, USBB);
+ FUNC_DECL_1(USB2BH, USBB);
+ 
++#define D7 257
++SIG_EXPR_LIST_DECL_SESG(D7, RCRST, PCIERC1, SIG_DESC_SET(SCU040, 19),
++			SIG_DESC_SET(SCU500, 24));
++PIN_DECL_(D7, SIG_EXPR_LIST_PTR(D7, RCRST));
++FUNC_GROUP_DECL(PCIERC1, D7);
 +
-+			pcie_cfg: syscon@1e770000 {
-+				compatible = "aspeed,pcie-cfg", "syscon";
-+				reg = <0x1e770000 0x80>;
-+			};
-+
-+			pcie0: pcie@1e7700c0 {
-+				compatible = "aspeed,ast2600-pcie";
-+				device_type = "pci";
-+				reg = <0x1e7700c0 0x40>;
-+				linux,pci-domain = <0>;
-+				#address-cells = <3>;
-+				#size-cells = <2>;
-+				interrupts = <GIC_SPI 168 IRQ_TYPE_LEVEL_HIGH>;
-+				bus-range = <0x80 0xff>;
-+
-+				ranges = <0x01000000 0x0 0x00018000 0x00018000 0x0 0x00008000
-+					  0x02000000 0x0 0x70000000 0x70000000 0x0 0x10000000>;
-+
-+				status = "disabled";
-+
-+				resets = <&syscon ASPEED_RESET_H2X>;
-+				reset-names = "h2x";
-+
-+				#interrupt-cells = <1>;
-+				msi-parent = <&pcie0>;
-+				msi-controller;
-+
-+				aspeed,ahbc = <&ahbc>;
-+				aspeed,pciecfg = <&pcie_cfg>;
-+
-+				interrupt-map-mask = <0 0 0 7>;
-+				interrupt-map = <0 0 0 1 &pcie_intc0 0>,
-+						<0 0 0 2 &pcie_intc0 1>,
-+						<0 0 0 3 &pcie_intc0 2>,
-+						<0 0 0 4 &pcie_intc0 3>;
-+				pcie_intc0: interrupt-controller {
-+					interrupt-controller;
-+					#address-cells = <0>;
-+					#interrupt-cells = <1>;
-+				};
-+
-+				pcie@8,0 {
-+					reg = <0x804000 0 0 0 0>;
-+					#address-cells = <3>;
-+					#size-cells = <2>;
-+					device_type = "pci";
-+					resets = <&syscon ASPEED_RESET_PCIE_RC_O>;
-+					reset-names = "perst";
-+					clocks = <&syscon ASPEED_CLK_GATE_BCLK>;
-+					pinctrl-names = "default";
-+					pinctrl-0 = <&pinctrl_pcierc1_default>;
-+					aspeed,pciephy = <&pcie_phy1>;
-+					ranges;
-+				};
-+			};
-+
- 			gfx: display@1e6e6000 {
- 				compatible = "aspeed,ast2600-gfx", "syscon";
- 				reg = <0x1e6e6000 0x1000>;
+ /* Pins, groups and functions are sort(1):ed alphabetically for sanity */
+ 
+ static struct pinctrl_pin_desc aspeed_g6_pins[ASPEED_G6_NR_PINS] = {
+@@ -1806,6 +1813,7 @@ static struct pinctrl_pin_desc aspeed_g6_pins[ASPEED_G6_NR_PINS] = {
+ 	ASPEED_PINCTRL_PIN(D4),
+ 	ASPEED_PINCTRL_PIN(D5),
+ 	ASPEED_PINCTRL_PIN(D6),
++	ASPEED_PINCTRL_PIN(D7),
+ 	ASPEED_PINCTRL_PIN(E1),
+ 	ASPEED_PINCTRL_PIN(E11),
+ 	ASPEED_PINCTRL_PIN(E12),
+@@ -2073,6 +2081,7 @@ static const struct aspeed_pin_group aspeed_g6_groups[] = {
+ 	ASPEED_PINCTRL_GROUP(SALT9G1),
+ 	ASPEED_PINCTRL_GROUP(SD1),
+ 	ASPEED_PINCTRL_GROUP(SD2),
++	ASPEED_PINCTRL_GROUP(PCIERC1),
+ 	ASPEED_PINCTRL_GROUP(EMMCG1),
+ 	ASPEED_PINCTRL_GROUP(EMMCG4),
+ 	ASPEED_PINCTRL_GROUP(EMMCG8),
+@@ -2314,6 +2323,7 @@ static const struct aspeed_pin_function aspeed_g6_functions[] = {
+ 	ASPEED_PINCTRL_FUNC(SPI2),
+ 	ASPEED_PINCTRL_FUNC(SPI2CS1),
+ 	ASPEED_PINCTRL_FUNC(SPI2CS2),
++	ASPEED_PINCTRL_FUNC(PCIERC1),
+ 	ASPEED_PINCTRL_FUNC(TACH0),
+ 	ASPEED_PINCTRL_FUNC(TACH1),
+ 	ASPEED_PINCTRL_FUNC(TACH10),
 -- 
 2.43.0
 
