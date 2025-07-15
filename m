@@ -4,68 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 050ABC83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 19:19:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3887C83F2D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 19:19:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iWBG6J2O/4jpTtaikZn0E2AacJFXwFE4jYJbysntSm0=; b=Qsd47pDTiG+IwyyHHFkKoYU4Vu
-	d2Z2x4slycWCT7HVLy5/SRVnd3oQpIU77p2bK+1wjnTqAuxm1DJOgneDjktqobxsvO5wjo4S3A1LI
-	4d7b14yi7djZ175QJRX2qdQA+BlmuAtstR4VuOKiMKChbhNqTtfc3WiWkD9QRzOmkIzmnmSB5BmkW
-	sj/ra570puYJbUJVcjJHne84ouZNT/xp03m4axsjcAzpyoghuBOgtv+ROn8y+18DnX/djf2Nkaori
-	4FAzCmo+7dS+LIWU+jI6hFY/z5Gg3ItFbz9JH2jqOQ1zKCpVlAIh0nyVXILo0AcrQxxXT4Pf23Fk5
-	U7S5tdUw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4D0AOvb4LA8Jm1ZbkzcjRBOcJFgZBpCBm1ih3dazD6Q=; b=Pk90YQc3jS2DMyHzdFL99Xo4v2
+	HF4622l6bJmXfeusQu3iy9eXyo8YBbaFNzA0zTOKZfOk3iP1xrlGgfwQ+/R4bpVCdIRmvUic/x5qF
+	jGt77dcbp9gZQqF0vFkBSfdriD2tznmU4QVvaXLfnGSIa8i0FiW8U5E+fRICmf7KkjFBdhv6aQFB3
+	aFVVKSwR27h4LYMbsoMydO/P8iBP4BnSIS8Sky/hzatm7he95cIRVPRuDDyd+cyYFS/01EfB/4Xlq
+	YiUsWfId0R8Lt9uvFCRldf0Xv3UeqUUAHsdwcgTWw3T7IfDxQnH7itgRgk2Q5bQaau7EBxZqIWxgA
+	jGU/nzew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ublBq-00000006243-2PpO;
-	Tue, 15 Jul 2025 19:19:46 +0000
-Received: from relay.smtp-ext.broadcom.com ([192.19.144.207])
+	id 1ublBw-000000062DE-04C4;
+	Tue, 15 Jul 2025 19:19:52 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubjfc-00000005qSw-193X
+	id 1ubjhR-00000005qc9-2yJX
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Jul 2025 17:42:26 +0000
-Received: from mail-lvn-it-01.broadcom.com (mail-lvn-it-01.lvn.broadcom.net [10.36.132.253])
-	by relay.smtp-ext.broadcom.com (Postfix) with ESMTP id C1414C0005E0;
-	Tue, 15 Jul 2025 10:42:20 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 relay.smtp-ext.broadcom.com C1414C0005E0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=broadcom.com;
-	s=dkimrelay; t=1752601340;
-	bh=szoPdU8t5HxV3+qu49EKJRl2lJmf68LJg4pDte/fGFI=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=kT4Ewi0gvW8Ipq8NdA8VUvem2aII/sgJ6l8dGH1wH92aJnwlEqh+22j3tNHNJfUNz
-	 LdM4clMG0Vd1AlGgKOEnFdeNdgH2hPN8XyzcB6pmIxHGZU6/GgzBGRK60uVnKy5vVh
-	 NvivarNrIm9TTzeF1vSMwnkZ8YlD6NISJv2AAUbs=
-Received: from fainelli-desktop.igp.broadcom.net (fainelli-desktop.dhcp.broadcom.net [10.67.48.245])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mail-lvn-it-01.broadcom.com (Postfix) with ESMTPSA id 56FB218000847;
-	Tue, 15 Jul 2025 10:42:20 -0700 (PDT)
-From: Florian Fainelli <florian.fainelli@broadcom.com>
-To: bcm-kernel-feedback-list@broadcom.com,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	linux-arm-kernel@lists.infradead.org
-Cc: Florian Fainelli <f.fainelli@gmail.com>,
-	kernel test robot <lkp@intel.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
-	open list <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH] ARM: dts: broadcom: Fix bcm7445 memory controller compatible
-Date: Tue, 15 Jul 2025 10:42:19 -0700
-Message-ID: <20250715174219.2421220-1-florian.fainelli@broadcom.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250701175538.1633435-1-florian.fainelli@broadcom.com>
-References: <20250701175538.1633435-1-florian.fainelli@broadcom.com>
+	Tue, 15 Jul 2025 17:44:18 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 6630E4336B;
+	Tue, 15 Jul 2025 17:44:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EDEF3C4CEE3;
+	Tue, 15 Jul 2025 17:44:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1752601457;
+	bh=0GJDFMtsSqrzL3Epz+awKDltn2gCgf+SZWRb+hz1UgM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=tzwx4wfx/Buc5zcel76rU8dNYHj/zBJYLoXH3ZrTznW5i/Hn/SfwAf3w7oAZky8xm
+	 DG0eNzTGfXdnE4F+cwV1beHn5m4zVdVpK6ViDlQIc+GY+k0nN5T0rjOwkqTudF4T/P
+	 5GDW2h4v15ocDIolG3L4WOgSiJ2iRv9PnaZDFG04=
+Date: Tue, 15 Jul 2025 19:44:14 +0200
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: Stefan Wahren <wahrenst@gmx.net>
+Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
+	Dan Carpenter <dan.carpenter@linaro.org>,
+	linux-arm-kernel@lists.infradead.org,
+	bcm-kernel-feedback-list@broadcom.com, kernel-list@raspberrypi.com,
+	linux-staging@lists.linux.dev
+Subject: Re: [PATCH V2 0/3] staging: vchiq_arm: Fix regression & resource
+ leaks
+Message-ID: <2025071555-stubbed-hardiness-8306@gregkh>
+References: <20250715161108.3411-1-wahrenst@gmx.net>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250715161108.3411-1-wahrenst@gmx.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250715_104224_408880_F9986F81 
-X-CRM114-Status: GOOD (  10.19  )
+X-CRM114-CacheID: sfid-20250715_104417_779062_411A0C38 
+X-CRM114-Status: GOOD (  11.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,21 +73,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Florian Fainelli <f.fainelli@gmail.com>
-
-On Tue,  1 Jul 2025 10:55:38 -0700, Florian Fainelli <florian.fainelli@broadcom.com> wrote:
-> The memory controller node compatible string was incompletely specified
-> and used the fallback compatible. After commit 501be7cecec9
-> ("dt-bindings: memory-controller: Define fallback compatible") however,
-> we need to fully specify the compatible string.
+On Tue, Jul 15, 2025 at 06:11:05PM +0200, Stefan Wahren wrote:
+> This small series fixes a regression introduced by recent changes and
+> possible resource leaks in the VCHIQ driver.
 > 
-> Fixes: 501be7cecec9 ("dt-bindings: memory-controller: Define fallback compatible")
-> Reported-by: kernel test robot <lkp@intel.com>
-> Closes: https://lore.kernel.org/oe-kbuild-all/202507011302.ZqNlBKWX-lkp@intel.com/
-> Signed-off-by: Florian Fainelli <florian.fainelli@broadcom.com>
-> ---
+> Changes in V2:
+> - Add Maíra's Reviewed-bys
+> - Fix Reported address in patch #2
+> 
+> Stefan Wahren (3):
+>   Revert "staging: vchiq_arm: Improve initial VCHIQ connect"
+>   Revert "staging: vchiq_arm: Create keep-alive thread during probe"
+>   staging: vchiq_arm: Make vchiq_shutdown never fail
+> 
+>  .../interface/vchiq_arm/vchiq_arm.c           | 98 +++++++++++--------
+>  .../interface/vchiq_arm/vchiq_core.c          |  1 -
+>  .../interface/vchiq_arm/vchiq_core.h          |  2 -
+>  3 files changed, 56 insertions(+), 45 deletions(-)
 
-Applied to https://github.com/Broadcom/stblinux/commits/devicetree/fixes, thanks!
---
-Florian
+I already applied v1, is there any code changes that are different here?
+
+thanks,
+
+greg k-h
 
