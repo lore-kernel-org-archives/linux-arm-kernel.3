@@ -4,64 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D33CC83F1D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 09:50:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E93B4C83F1D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 09:52:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cay9RsCh/M7Z1VNy5D8LdZzxsTlAPAMGWS8Ka5XVAL0=; b=08k98XJxMnnoSlVvGCRhhIqZK4
-	fcarRHgBUr991pv4WJcAYxFLUN3d5k1iXONjzFoJLOGLqQ4Ckk6vpdjYqXs6n50rW28dCpqO4EU4I
-	Nv/5fzW31TTwS2071OHRTsZAYppCtTplOy/Erfbm+1teNgqIXNmgR5RjCUQQzSIddfUz2IqJkvTbi
-	mqznTKdS8h3r7zNrYyRUmTVhcF3LLPJ55/2q2H/0gEBj6y+6AHpQ7Ir/pq54EyKCOf4c23Z5rlpU+
-	ZT0yfIIFrSFVLGFFesdNszbqG3nJpdAopjf+rauV6Zk4+UoTqaN0ValybrVyOtletSKERtXz6GOsq
-	XWHTNwVA==;
+	bh=RgLXppGnaKhRmU6P1gSrKgnSIFK0acz5r/UyuFZ9QpA=; b=DeiXeUFcIfx1nHpY/u0MHPIaM9
+	ALrCLLt7qGXZlI4vYiGVPThlI5b9Yrfpo6ZLUkLxXWxu2oVBuCDyqZ2dWF09snJq6JGa1pbqG8KPL
+	H9jGs3xN4BCsocru2qLbqZhN2v5ZdgiGTDFNG3M/j+2pJYLVsQLfMk0vgUHrtP3JvYaL09kK53nWH
+	Wpu26uEBApkmA8HesJKxpzpjPQSeynGKW6KEE74+KzvAsduN7VjDOPdYa1RHy+ylA028+LZvLhoC8
+	jAEGn01uZ++tqgl1b2Psj5wiSAu3LjpT7zzXBD1l2I+XiGkuS3sUFC4hb8AwPx8p6PuDlPSmKlFCN
+	kZMeeDgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubcIO-00000004kRa-3jlp;
-	Tue, 15 Jul 2025 09:49:56 +0000
-Received: from sender4-op-o12.zoho.com ([136.143.188.12])
+	id 1ubcKo-00000004ku0-0H5p;
+	Tue, 15 Jul 2025 09:52:26 +0000
+Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubbj7-00000004dfG-36sd;
-	Tue, 15 Jul 2025 09:13:31 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1752570807; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=ZaVXiQjZBm13Etgxt4OiBMQbGwC/DcNY/QMigBvU2yASGR1rEwj2h3Lckh7HDVKHVdY6WreMjyllS4PjgiKd9MJsvj63PuAm+nNfA711v9gL47rfv+ho8Go8mlF+7c7X2/7nmj/581e2W9WXSaf2xMdqPe0HoMR7Z1Bjc8WDx5E=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1752570807; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=cay9RsCh/M7Z1VNy5D8LdZzxsTlAPAMGWS8Ka5XVAL0=; 
-	b=VWZKEvPkQyNT9q+RN1SpQpIreytRb5U1Ud1W3ssn7BDwVc6TiyvdWBO6ROaTioc9FuBt0VxyN6tsuB1QTpkleNwqt93aVYLSgKoLZG8KRdZ0zV4TbE/8QgeDy3jhuFfC9lifrJG+oTQlf+iD4xJs4r7vFoTVU4/4wbk7t1u0wCM=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1752570807;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
-	bh=cay9RsCh/M7Z1VNy5D8LdZzxsTlAPAMGWS8Ka5XVAL0=;
-	b=Q+yu7HcE8kRkHvDFA/I+tnaBCb5kOgIyqfrNK1+v4UFKPdJ3g3vctaCli4O4uz3f
-	K+HZuX8Fr7yrG5jsyhBsjG8TNwRWXWRGIno5VWlq523Sxn/UjXRkukNAC0V4IqVQ1Dm
-	63Lnmufxg2b4MdP74ghITgXZ4s1hWkjArvD4lp8U=
-Received: by mx.zohomail.com with SMTPS id 17525708052071014.9248185889661;
-	Tue, 15 Jul 2025 02:13:25 -0700 (PDT)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-To: Qu Wenruo <wqu@suse.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org
-Subject: Re: PWM fan control not working with Rock5B and upstream kernel
-Date: Tue, 15 Jul 2025 11:13:21 +0200
-Message-ID: <9751604.CDJkKcVGEf@workhorse>
-In-Reply-To: <f33da910-7e83-40a0-bfcd-a6131a356358@suse.com>
-References: <e9ddcc05-e6db-49b0-aad6-c7873c38c427@suse.com>
- <5271313.GXAFRqVoOG@workhorse>
- <f33da910-7e83-40a0-bfcd-a6131a356358@suse.com>
+	id 1ubblY-00000004e0X-2thL
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 15 Jul 2025 09:16:02 +0000
+Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
+	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTP id 56F9FpvU2812962;
+	Tue, 15 Jul 2025 04:15:51 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1752570951;
+	bh=RgLXppGnaKhRmU6P1gSrKgnSIFK0acz5r/UyuFZ9QpA=;
+	h=Date:From:To:CC:Subject:References:In-Reply-To;
+	b=dMuShdJZwTRdU3dH+CMk0jZkaIOWM0MQ2iR7UhN8l7ZOfwSO6xaJxJX4OLU6UYdFd
+	 L5NiG7Ff04/C43hEAN3V/BV6xpXRQJdNnV7d/nqMw9oo548nE7D4CEmYkyPJZkxQ74
+	 cQ8hnchQ61mdibwO9H/77om7O9ykXBsV9JtCk4yc=
+Received: from DFLE113.ent.ti.com (dfle113.ent.ti.com [10.64.6.34])
+	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 56F9Fptw1162032
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Tue, 15 Jul 2025 04:15:51 -0500
+Received: from DFLE111.ent.ti.com (10.64.6.32) by DFLE113.ent.ti.com
+ (10.64.6.34) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Tue, 15
+ Jul 2025 04:15:50 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE111.ent.ti.com
+ (10.64.6.32) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Tue, 15 Jul 2025 04:15:50 -0500
+Received: from localhost (uda0492258.dhcp.ti.com [172.24.227.169])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 56F9Fnbd2621763;
+	Tue, 15 Jul 2025 04:15:50 -0500
+Date: Tue, 15 Jul 2025 14:45:48 +0530
+From: Siddharth Vadapalli <s-vadapalli@ti.com>
+To: Jan Kiszka <jan.kiszka@siemens.com>
+CC: Siddharth Vadapalli <s-vadapalli@ti.com>, <huaqian.li@siemens.com>,
+        <helgaas@kernel.org>, <baocheng.su@siemens.com>, <bhelgaas@google.com>,
+        <conor+dt@kernel.org>, <devicetree@vger.kernel.org>,
+        <diogo.ivo@siemens.com>, <kristo@kernel.org>, <krzk+dt@kernel.org>,
+        <kw@linux.com>, <linux-arm-kernel@lists.infradead.org>,
+        <linux-kernel@vger.kernel.org>, <linux-pci@vger.kernel.org>,
+        <lpieralisi@kernel.org>, <nm@ti.com>, <robh@kernel.org>,
+        <ssantosh@kernel.org>, <vigneshr@ti.com>
+Subject: Re: [PATCH v8 4/7] PCI: keystone: Add support for PVU-based DMA
+ isolation on AM654
+Message-ID: <e21c6ead-2bcb-422b-a1b9-eb9dd63b7dc7@ti.com>
+References: <aa3c8d033480801250b3fb0be29adda4a2c31f9e.camel@siemens.com>
+ <20250422061406.112539-1-huaqian.li@siemens.com>
+ <20250422061406.112539-5-huaqian.li@siemens.com>
+ <7c8c29ee-2600-4eea-866f-8fe2d533418e@ti.com>
+ <e9716614-1849-4524-af4d-20587df365cf@siemens.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <e9716614-1849-4524-af4d-20587df365cf@siemens.com>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250715_021329_814174_6E194ECB 
-X-CRM114-Status: GOOD (  24.22  )
+X-CRM114-CacheID: sfid-20250715_021600_871546_7EEBFF67 
+X-CRM114-Status: GOOD (  35.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,86 +93,124 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Tue, Jul 15, 2025 at 10:55:19AM +0200, Jan Kiszka wrote:
 
-I've seen you've already solved your problem, but I feel I should
-reply to some points anyway.
+Hello Jan,
 
-On Tuesday, 15 July 2025 10:44:21 Central European Summer Time Qu Wenruo wr=
-ote:
->=20
-> =E5=9C=A8 2025/7/15 17:19, Nicolas Frattaroli =E5=86=99=E9=81=93:
-> > On Tuesday, 15 July 2025 06:10:45 Central European Summer Time Qu Wenru=
-o wrote:
-> >> Hi,
+> On 25.04.25 18:48, Siddharth Vadapalli wrote:
+> > On Tue, Apr 22, 2025 at 02:14:03PM +0800, huaqian.li@siemens.com wrote:
+> >> From: Jan Kiszka <jan.kiszka@siemens.com>
 > >>
-> >> My Rock5B board is running edk-rk3588 firmware and (almost) upstream
-> >> kernel (6.14.6 kernel from ArchlinuxARM), using upstream dtbs (the
-> >> firmware is also switched to device-tree boot mode)
-> >=20
-> > Consider using mainline u-boot instead. I think the only ones who
-> > insist on edk2 forks are the BSD people, as they don't want to
-> > write device drivers. Linux has drivers, so inventing UEFI abstractions
-> > for things probably only makes your experience worse.
->=20
-> Well, having something more user-friendly and more similar to a=20
-> traditional PC setup is definitely more attractive to end users.
+> >> The AM654 lacks an IOMMU, thus does not support isolating DMA requests
+> >> from untrusted PCI devices to selected memory regions this way. Use
+> >> static PVU-based protection instead. The PVU, when enabled, will only
+> >> accept DMA requests that address previously configured regions.
+> >>
+> >> Use the availability of a restricted-dma-pool memory region as trigger
+> >> and register it as valid DMA target with the PVU. In addition, enable
+> >> the mapping of requester IDs to VirtIDs in the PCI RC. Use only a single
+> >> VirtID so far, catching all devices. This may be extended later on.
+> >>
+> >> Signed-off-by: Jan Kiszka <jan.kiszka@siemens.com>
+> >> Acked-by: Bjorn Helgaas <bhelgaas@google.com>
+> >> Signed-off-by: Li Hua Qian <huaqian.li@siemens.com>
+> >> ---
+> >>  drivers/pci/controller/dwc/pci-keystone.c | 106 ++++++++++++++++++++++
+> >>  1 file changed, 106 insertions(+)
+> >>
+> >> diff --git a/drivers/pci/controller/dwc/pci-keystone.c b/drivers/pci/controller/dwc/pci-keystone.c
+> >> index 76a37368ae4f..ea2d8768e333 100644
+> >> --- a/drivers/pci/controller/dwc/pci-keystone.c
+> >> +++ b/drivers/pci/controller/dwc/pci-keystone.c
+> >> @@ -19,6 +19,7 @@
+> >>  #include <linux/mfd/syscon.h>
+> >>  #include <linux/msi.h>
+> >>  #include <linux/of.h>
+> >> +#include <linux/of_address.h>
+> >>  #include <linux/of_irq.h>
+> >>  #include <linux/of_pci.h>
+> >>  #include <linux/phy/phy.h>
+> >> @@ -26,6 +27,7 @@
+> >>  #include <linux/regmap.h>
+> >>  #include <linux/resource.h>
+> >>  #include <linux/signal.h>
+> >> +#include <linux/ti-pvu.h>
+> >>  
+> >>  #include "../../pci.h"
+> >>  #include "pcie-designware.h"
+> >> @@ -111,6 +113,16 @@
+> >>  
+> >>  #define PCI_DEVICE_ID_TI_AM654X		0xb00c
+> >>  
+> >> +#define KS_PCI_VIRTID			0
+> >> +
+> >> +#define PCIE_VMAP_xP_CTRL		0x0
+> >> +#define PCIE_VMAP_xP_REQID		0x4
+> >> +#define PCIE_VMAP_xP_VIRTID		0x8
+> >> +
+> >> +#define PCIE_VMAP_xP_CTRL_EN		BIT(0)
+> >> +
+> >> +#define PCIE_VMAP_xP_VIRTID_VID_MASK	0xfff
+> >> +
+> >>  struct ks_pcie_of_data {
+> >>  	enum dw_pcie_device_mode mode;
+> >>  	const struct dw_pcie_host_ops *host_ops;
+> >> @@ -1137,6 +1149,94 @@ static const struct of_device_id ks_pcie_of_match[] = {
+> >>  	{ },
+> >>  };
+> >>  
+> >> +static int ks_init_vmap(struct platform_device *pdev, const char *vmap_name)
+> >> +{
+> >> +	struct resource *res;
+> >> +	void __iomem *base;
+> >> +	u32 val;
+> >> +
+> >> +	if (!IS_ENABLED(CONFIG_TI_PVU))
+> >> +		return 0;
+> >> +
+> >> +	res = platform_get_resource_byname(pdev, IORESOURCE_MEM, vmap_name);
+> >> +	base = devm_pci_remap_cfg_resource(&pdev->dev, res);
+> >> +	if (IS_ERR(base))
+> >> +		return PTR_ERR(base);
+> >> +
+> >> +	writel(0, base + PCIE_VMAP_xP_REQID);
+> >> +
+> >> +	val = readl(base + PCIE_VMAP_xP_VIRTID);
+> >> +	val &= ~PCIE_VMAP_xP_VIRTID_VID_MASK;
+> >> +	val |= KS_PCI_VIRTID;
+> > 
+> > While it has been stated that we are going to start off with a single
+> > VirtID for now and extend it later on, is there an example for how it may
+> > be extended? The only option I see is that of associating one VirtID for
+> > Low-Priority (LP) traffic and another for High-Priority (HP) traffic, in
+> > which case, it might be better to define them upfront and use them like:
+> > #define KS_PCI_LP_VIRTID	0
+> > #define KS_PCI_HP_VIRTID	1
+> 
+> Sorry for the late reply, was just reminded of this question:
+> 
+> When trying to design anything beyond the current use case, I would be
+> struggling right now with the how, simply because we would have no user
+> of extended APIs around to make sure that the result would be useful.
+> Can you envision such use cases? If not, I would rather suggest to
+> postpone any attempts to broaden the API until we have such users.
 
-U-Boot standard boot flow works just fine for this. Broken UEFI
-services and ACPI interfaces nothing implements do not achieve this.
+I understand that it might not be possible to extend it (or at-least it
+doesn't seem to be straightforward), in which case, we could state the
+same in commit message. I had asked for an example of extending it
+because the commit message states:
 
-You can flash a mainline u-boot to your ROCK 5B's SPI flash and it
-will boot aarch64 UEFI distro installers off USB thumb drives, or
-do PXE boot, or load your GRUB on NVMe and such just fine.
+    ....Use only a single VirtID so far, catching all devices.
+    This may be extended later on.
 
->=20
-> >=20
-> > Kernel 6.14 is also quite a bit behind and not supported by upstream,
-> > you'll likely have a better experience compiling a kernel yourself
-> > using defconfig as the base. ALARM likes to roll dice when it comes to
-> > their kernel config and then not update their kernels for half a year.
->=20
-> Thankfully the latest one is 6.15.6, and unfortunately it doesn't make a=
-=20
-> difference.
->=20
-> I'm fine compiling kernels for my VMs to run tests, but for the host I'd=
-=20
-> leave this as the last resort method.
->=20
-> I'll try the Uboot if required, but no pre-compiled upstream one is not=20
-> really inviting end users.
+without explaining how it could be extended later on. To be precise, my
+question was aimed at whether or not the current implementation allows
+it to be extended in the future (maintaining backward compatibility). If
+that's not yet known, it might be better to state that in the commit
+message, or omit the portion which states that it may be extended later on.
 
-Collabora has been providing full mainline based ROCK 5B images for a
-long time: https://gitlab.collabora.com/hardware-enablement/rockchip-3588/d=
-ebian-image-recipes
+-----8<---rest of the email has been trimmed-----8<---------------------
 
-This includes gitlab pipelines for the mainline-based u-boot we ship
-in our images: https://gitlab.collabora.com/hardware-enablement/rockchip-35=
-88/u-boot/-/jobs
-
-I'm not sure why you're on the Linux kernel mailing list complaining of
-a lack of pre-compiled binaries though, it's not like kernel.org
-distributes any binaries either. Compiling u-boot is fairly easy, see
-https://docs.u-boot.org/en/latest/build/gcc.html for a general overview
-including build dependencies.
-
-1. fetch tf-a https://review.trustedfirmware.org/TF-A/trusted-firmware-a.git
-2. compile it with make ARCH=3Daarch64 CROSS_COMPILE=3Daarch64-linux-gnu- E=
-=3D0 PLAT=3Drk3588
-3. fetch rkbin https://github.com/rockchip-linux/rkbin/
-4. fetch u-boot https://source.denx.de/u-boot/u-boot/-/tree/master
-5. export BL31=3Dpath/to/tf-a/build/release/rk3588/bl31.elf
-6. export ROCKCHIP_TPL=3Dpath/to/rkbin/bin/rk35/rk3588_ddr_lp4_2112MHz_lp5_=
-2400MHz_v1.18.bin
-7. in the u-boot dir, run make ARCH=3Darm64 CROSS_COMPILE=3Daarch64-linux-g=
-nu- rock5b-rk3588_defconfig
-8. then again in the u-boot dir, run make -j$(nproc) ARCH=3Darm64 CROSS_COM=
-PILE=3Daarch64-linux-gnu-
-9. flash the resulting `u-boot-rockchip-spi.bin` to offset 0 of your device=
-'s SPI flash,
-   or alternatively, flash `u-boot-rockchip.bin` to byte offset 32768 of an=
- eMMC flash or SD card.
-
-
+Regards,
+Siddharth.
 
