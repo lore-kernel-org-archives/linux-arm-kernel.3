@@ -4,97 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F6E1C83F27
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 22:31:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C706C83F27
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 22:45:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P4z0UilpwOeP3VuXbpZflhcYtGlNIMIy++fBOMiI2QU=; b=P9rrpwVmE98Dk+L8JP1gNJzI/f
-	vweUNKbW8W5BPVr3Mj0IiBgVbcAxT93sEwYh7+9oGhU1XqeVk+y2L3ZAq0VjFtj3th+UBq1Dhe98N
-	+oC7ZhM5AnQlLatdWQlTxP2sIlxmgWoTeZ6cVpSsI2jS1cXcMaufs9N4yYigiDRkrymzMGqbUn7B6
-	BvYIIPbWPKseE4rKGGmm7fOP3uTBKRmDurwAe7g4Ky8oeO/haBWaWfiQvYkYTkeMEWiVxgFblYqBJ
-	dyPdbmuj76VavF70YmSFtDHY6xEhWQta8zlrHkZocywbm4dO8AqZp4OjyK4u8XdKXsQ0JD1Av3+d4
-	qoL9pMdg==;
+	bh=ormzUL541tlpfU+IoIsqUU3n4uhn3HHSB3sl/6WQd4A=; b=bVkkDvVR1dQb2tb5YrpsbLmGou
+	ykN/FukdDwNSKP+4y7U82tB3kjL5GRJHk2zONqPPj5Z/7BaWEPlWnLtwSDQKDL5E71qKOmBe4iUd3
+	7tTSl+CtTKE7SaPVk0CV9UWChM7IzO8vVkqUvEgOMSFweLtmKgaBIDcVTfJ5QJn+6AcR5wGPak4jt
+	2YkgYXMD2g3+7xixnibdldkAOjR3+pJEhTIPh6qrR8zHkEVGV5zMD4vDbSeqMQnnSZELKA6FISr13
+	cKcmlKwOxiTkc0TPcu+yUx8hGerExgH6ihnUusFAaq4Nbsz0oAD899X4YrdrpQCxJQN5ohULtBu+M
+	f1sTgUEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uboBS-00000006KVu-0pZ4;
-	Tue, 15 Jul 2025 22:31:34 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uboOP-00000006LFD-1fru;
+	Tue, 15 Jul 2025 22:44:57 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubo92-00000006KS4-1zj8
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 15 Jul 2025 22:29:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=P4z0UilpwOeP3VuXbpZflhcYtGlNIMIy++fBOMiI2QU=; b=CqhXKbDyZLp69pducX7NkbAmJc
-	xJH/sO0zJr6bchyDMS6xUlmt8waJy3VNmSNE84pdvWxPeWjh7Yiyhs0qrzeFhxQ38l9Kog2OnObZi
-	UDOqad8irTy6deJ1pW7XvHHGiixUJ7KVWS42B2HP3vf2pTS1M5gjlLGy9O+GrwEwRbbV5J3GN3Nar
-	hIV7YDjVXV01wqbmdUmKfDYVoFL0HRjE9okjltCVLk8DYEy7Acdv2cQ/IE2AHe+3gi5kHEBqNPcP5
-	2aSymDuGw8/9WUJOeKL4ZeAcTUNZWMZPVE59cqyFc7s/FzFGG8/Vm1TWTSEW+/uesjpjxgFm+3qYb
-	iqN/A5BQ==;
-Received: from mgamail.intel.com ([198.175.65.20])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubo8x-0000000A2C1-2BMT
+	id 1uboLz-00000006L5I-1mfs
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Jul 2025 22:29:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1752618540; x=1784154540;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=G7+Ffs9WIWMcBynLHK1Sql++GiExP0QoYD+fUsrCxEU=;
-  b=UWm78EAxBJc18gyknzHEZXtcE6WovhYJnAyvKEI32Yo692DOLSd4cwB/
-   Bb5blCYIZm3Bv1ns5p2QTIzuGzCQj64I77LsyOf7Gtt89fXxmlZQw4wsc
-   pJc0q62It6CJ6yRNPG/MhCsEh1+Dp6lpKTmPIWWweYCPnWfmItd0Zt/0t
-   F7R/UwBRrXTiy3TMuzFvoItcV1LstYD3YWFWTzoMxR1aXWDj+XeT/RJXb
-   SXiQUBVTxt+xIk7ueUh3HQ9hyh2cEgNaytM4Io6HFl2Ax9rKKRbzI9euQ
-   jOgrfA8tX7u544kjRSNeOi1Fe34Do+c98CCLpAjkBrHqXjOKd0YDiox2y
-   A==;
-X-CSE-ConnectionGUID: 1HPISSpdT8CrAZCH23MS8Q==
-X-CSE-MsgGUID: 3ZkB5NOVQouZCr8qe2cUtQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11493"; a="54562894"
-X-IronPort-AV: E=Sophos;i="6.16,314,1744095600"; 
-   d="scan'208";a="54562894"
-Received: from fmviesa002.fm.intel.com ([10.60.135.142])
-  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Jul 2025 15:28:54 -0700
-X-CSE-ConnectionGUID: 43scBKa2Q+GlwkjRdyCeQg==
-X-CSE-MsgGUID: nj7Vi7qCQFKk7YaTE34tRw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.16,314,1744095600"; 
-   d="scan'208";a="181023525"
-Received: from lkp-server01.sh.intel.com (HELO 9ee84586c615) ([10.239.97.150])
-  by fmviesa002.fm.intel.com with ESMTP; 15 Jul 2025 15:28:49 -0700
-Received: from kbuild by 9ee84586c615 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1ubo8k-000Bbf-0v;
-	Tue, 15 Jul 2025 22:28:46 +0000
-Date: Wed, 16 Jul 2025 06:28:22 +0800
-From: kernel test robot <lkp@intel.com>
-To: Jacky Chou <jacky_chou@aspeedtech.com>, bhelgaas@google.com,
-	lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	joel@jms.id.au, andrew@codeconstruct.com.au,
-	linux-aspeed@lists.ozlabs.org, linux-pci@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: oe-kbuild-all@lists.linux.dev, openbmc@lists.ozlabs.org,
-	linux-gpio@vger.kernel.org, linus.walleij@linaro.org,
-	p.zabel@pengutronix.de, BMC-SW@aspeedtech.com
-Subject: Re: [PATCH v2 09/10] PCI: aspeed: Add ASPEED PCIe RC driver
-Message-ID: <202507160642.yzIrPY1i-lkp@intel.com>
-References: <20250715034320.2553837-10-jacky_chou@aspeedtech.com>
+	Tue, 15 Jul 2025 22:42:28 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 8A120A572B1;
+	Tue, 15 Jul 2025 22:42:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1284CC4CEE3;
+	Tue, 15 Jul 2025 22:42:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1752619346;
+	bh=uPLCZFptHGBrGaD5olKdkLpAzrHsgExeeA73sr1kvkY=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=RlxxHbfOQVhLg3s0e0bsjqjd4UyebRvvv0nuaWtkQAf1OGK+NIchMywhD2wgXQomd
+	 Q5lwBKC+iqEIesZZuBnI6s0Ol1+4s9UZfyEKdv2mEx0CDZUCNWOTFUEoheowsV0i3K
+	 0V/QpYkvMwyj72vs70IdRGqRdHuhka+VcvIhKkhu5gfb2++GC7jjYmHus3Qh7jeAxE
+	 pL4FRB/i0TfUNWu50yDYhwU9c2WEE9nhBKdb9iujjFS5dMExl0sAyOYUkx2n0dPwjS
+	 gXh6P0I7B4olAMA2W0s9UU+fCNc3/s/r+r2jQu4L8ugRAgTJ/4gFyqLMXOCMaUnITd
+	 gthjscbSRyb7g==
+Date: Tue, 15 Jul 2025 17:42:25 -0500
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250715034320.2553837-10-jacky_chou@aspeedtech.com>
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: linus.walleij@linaro.org, mbrugger@suse.com, linux-gpio@vger.kernel.org, 
+ florian.fainelli@broadcom.com, devicetree@vger.kernel.org, 
+ Will Deacon <will@kernel.org>, iivanov@suse.de, svarbanov@suse.de, 
+ linux-arm-kernel@lists.infradead.org, krzk+dt@kernel.org, 
+ Catalin Marinas <catalin.marinas@arm.com>, conor+dt@kernel.org, 
+ wahrenst@gmx.net
+To: Andrea della Porta <andrea.porta@suse.com>
+In-Reply-To: <cover.1752584387.git.andrea.porta@suse.com>
+References: <cover.1752584387.git.andrea.porta@suse.com>
+Message-Id: <175261922842.2276518.8350061053461411045.robh@kernel.org>
+Subject: Re: [PATCH 0/7] Add pin control driver for BCM2712 SoC
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250715_232900_689937_917719B0 
-X-CRM114-Status: GOOD (  12.27  )
+X-CRM114-CacheID: sfid-20250715_154227_597776_DE1B0FC7 
+X-CRM114-Status: GOOD (  37.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,35 +75,239 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jacky,
 
-kernel test robot noticed the following build warnings:
+On Tue, 15 Jul 2025 20:31:37 +0200, Andrea della Porta wrote:
+> Hi,
+> 
+> The following patches add a pin control driver for the BCM2712 SoC and few
+> pin/gpio Devicetree nodes for Raspberry Pi 5.
+> 
+> Device driver is follow up version on what Andrea posted in April [1].
+> 
+> It is based on sources from here [2]. I just made few cosmetic changes
+> and addressed review comments from earlier submission. I don't have
+> documentation for this controller.
+> 
+> Patch 4 wire up power button on RPi5.
+> 
+> Patch 5 adds WiFi Devicetree node for RPi5.
+> 
+> Patch 6 adds Bluetooth Devicetree node for RPi5.
+> 
+> All this have been tested as kernel was directly booted RPi5 via
+> kernel= config.txt option and cmdline.txt file with following content
+> (Note I am using Tumbleweed RPi raw images)
+> 
+> # cat /boot/efi/cmdline.txt
+> root=/dev/mmcblk0p3 rootwait rw systemd.show_status=1 console=tty ignore_loglevel earlycon console=ttyAMA10,115200
+> 
+> With all these patches Bluetooth and Wifi are working fine (tm) with
+> firmware files provided by openSUSE Tumbleweed.
+> 
+> All comments and suggestions are welcome!
+> 
+> Happy hacking!
+> Ivan and Andrea
+> 
+> [1] https://lore.kernel.org/lkml/f6601f73-cb22-4ba3-88c5-241be8421fc3@broadcom.com/
+> [2] https://github.com/raspberrypi/linux/blob/rpi-6.6.y/drivers/pinctrl/bcm/pinctrl-bcm2712.c
+> [3] https://lore.kernel.org/lkml/20240605120712.3523290-1-florian.fainelli@broadcom.com/#t
+> [4] https://lore.kernel.org/all/bfc60a7e-54d2-48a6-a288-4fe76d66507a@gmx.net/
+> 
+> 
+> CHANGES in V2: (all patchset is based upon linux-next/master)
+> 
+> --- PINCTRL DRIVER ---
+> 
+> - dropped bcm2712_c0_aon_sgpio_pin_funcs[] and bcm2712_d0_aon_sgpio_pin_funcs[]
+>   struct array definitions since they are not used anywhere.
+> 
+> - dropped 'arg' variable in brcmstb_pinconf_set() as it's not used.
+> 
+> - updated copyright info at the top.
+> 
+> - several changes in the declared macros. Renaming the macro name and the
+>   macro parameters to better reflect the semantic.
+> 
+> - reworked MUX_BIT() macro to be more streamlined and easy to
+>   understand.
+> 
+> - added PAD_BIT() macro to avoid code duplication.
+> 
+> - renamed 'lock' variable to 'fsel_lock'.
+> 
+> - added some comments about non-existent pins on D0 silicon revision pin
+>   declarations.
+> 
+> - brcmstb_pinctrl_fsel_set(), brcmstb_pull_config_set()  and
+>   brcmstb_pinconf_set() (and functions that call them) can now return -EINVAL
+>   as error.
+> 
+> - added myself as MODULE_AUTHOR.
+> 
+> - dropped the 'brcm,bcm2712-[aon-]pinctrl' fallback compatible. Only c0 or d0
+>   compatibles are permitted now.
+> 
+> 
+> --- DTS ---
+> 
+> - moved 'clock-frequency' property from (uarta) board dts node to SoC dtsi node.
+> 
+> - added 'brcm,sdhci-brcmstb' compatible and 'clock-names' property to mmc node
+>   to avoid dt_binding_check errors.
+> 
+> - added 'brcm,bcm7445-gpio' compatible to gpio node to avoid dt_binding_check
+>   errors.
+> 
+> - renamed all pinctrl pin nodes as per yaml schema (*-state and *-pins).
+> 
+> - changed 'brcm,bcm2712-*pinctrl' to 'brcm,bcm2712c0-*pinctrl' since the
+>   former was more of a fallback and does not reflect a real silicon revision.
+> 
+> - moved status="okay" to the last entry in 'uarta' node.
+> 
+> - removed 'local-*-address' property from everywhere.
+> 
+> - dropped 'skip-init' property in 'uarta' node since it does not apply to
+>   linux kernel.
+> 
+> - renamed 'pwr-button' node to 'gpio-keys' and 'pwr_key' node to
+>   'power_button'.
+> 
+> - dropped an userspace related 'brcm,gpio-direct' property from gpio node.
+> 
+> 
+> 
+> --- DT BINDINGS ---
+> 
+> - binding schema file renamed to 'brcm,bcm2712c0-pinctrl.yaml' to reflect the
+>   compatible name.
+> 
+> - dropped the 'brcm,bcm2712-[aon-]pinctrl' fallback compatible. Only c0 or d0
+>   compatibles are permitted now.
+> 
+> - added example section.
+> 
+> - moved allOf: block at the beginning of the schema.
+> 
+> - dropped some unnecessary new lines.
+> 
+> - replaced current layout to describe the pin subnodes with patternProperties
+>   (nodes now end with -state and -pins).
+> 
+> - expanded the schema description to give some context about STB family of pin
+>   controller and added some details about C0 and D0 silicon variants. This is
+>   also reflected in the commit message.
+> 
+> 
+> --- MISC ---
+> 
+> - enabled CONFIG_PINCTRL_BRCMSTB in arm64 defconfig.
+> 
+> 
+> Andrea della Porta (1):
+>   arm64: defconfig: Enable BCM2712 on-chip pin controller driver
+> 
+> Ivan T. Ivanov (6):
+>   dt-bindings: pinctrl: Add support for Broadcom STB pin controller
+>   pinctrl: bcm: Add STB family pin controller driver
+>   arm64: dts: broadcom: bcm2712: Add pin controller nodes
+>   arm64: dts: broadcom: bcm2712: Add one more GPIO node
+>   arm64: dts: broadcom: bcm2712: Add second SDHCI controller node
+>   arm64: dts: broadcom: bcm2712: Add UARTA controller node
+> 
+>  .../pinctrl/brcm,bcm2712c0-pinctrl.yaml       |  123 ++
+>  .../dts/broadcom/bcm2712-rpi-5-b-ovl-rp1.dts  |  134 ++
+>  arch/arm64/boot/dts/broadcom/bcm2712.dtsi     |   48 +
+>  arch/arm64/configs/defconfig                  |    1 +
+>  drivers/pinctrl/bcm/Kconfig                   |   13 +
+>  drivers/pinctrl/bcm/Makefile                  |    1 +
+>  drivers/pinctrl/bcm/pinctrl-brcmstb.c         | 1195 +++++++++++++++++
+>  7 files changed, 1515 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/pinctrl/brcm,bcm2712c0-pinctrl.yaml
+>  create mode 100644 drivers/pinctrl/bcm/pinctrl-brcmstb.c
+> 
+> --
+> 2.35.3
+> 
+> 
+> 
 
-[auto build test WARNING on pci/next]
-[also build test WARNING on pci/for-linus robh/for-next linusw-pinctrl/devel linusw-pinctrl/for-next linus/master v6.16-rc6 next-20250715]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Jacky-Chou/dt-bindings-soc-aspeed-Add-ASPEED-PCIe-Config-support/20250715-114814
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/pci/pci.git next
-patch link:    https://lore.kernel.org/r/20250715034320.2553837-10-jacky_chou%40aspeedtech.com
-patch subject: [PATCH v2 09/10] PCI: aspeed: Add ASPEED PCIe RC driver
-config: loongarch-allyesconfig (https://download.01.org/0day-ci/archive/20250716/202507160642.yzIrPY1i-lkp@intel.com/config)
-compiler: clang version 21.0.0git (https://github.com/llvm/llvm-project 16534d19bf50bde879a83f0ae62875e2c5120e64)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250716/202507160642.yzIrPY1i-lkp@intel.com/reproduce)
+My bot found new DTB warnings on the .dts files added or changed in this
+series.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202507160642.yzIrPY1i-lkp@intel.com/
+Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
+are fixed by another series. Ultimately, it is up to the platform
+maintainer whether these warnings are acceptable or not. No need to reply
+unless the platform maintainer has comments.
 
-All warnings (new ones prefixed by >>):
+If you already ran DT checks and didn't see these error(s), then
+make sure dt-schema is up to date:
 
->> Warning: drivers/pci/controller/pcie-aspeed.c:179 struct member 'pciephy' not described in 'aspeed_pcie_port'
-   Warning: drivers/pci/controller/pcie-aspeed.c:179 Excess struct member 'phy' description in 'aspeed_pcie_port'
+  pip3 install dtschema --upgrade
 
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+
+This patch series was applied (using b4) to base:
+ Base: attempting to guess base-commit...
+ Base: tags/next-20250715 (exact match)
+
+If this is not the correct base, please add 'base-commit' tag
+(or use b4 which does this automatically)
+
+New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/broadcom/' for cover.1752584387.git.andrea.porta@suse.com:
+
+arch/arm64/boot/dts/broadcom/bcm2712-d-rpi-5-b.dtb: pinctrl@7d504100 (brcm,bcm2712c0-pinctrl): emmc-sd-default-state: 'oneOf' conditional failed, one must be fixed:
+	'function' is a required property
+	'bias-pull-up', 'pins' do not match any of the regexes: '-pins$', '^pinctrl-[0-9]+$'
+	from schema $id: http://devicetree.org/schemas/pinctrl/brcm,brcmstb-pinctrl.yaml#
+arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-ovl-rp1.dtb: pinctrl@7d504100 (brcm,bcm2712c0-pinctrl): emmc-sd-default-state: 'oneOf' conditional failed, one must be fixed:
+	'function' is a required property
+	'bias-pull-up', 'pins' do not match any of the regexes: '-pins$', '^pinctrl-[0-9]+$'
+	from schema $id: http://devicetree.org/schemas/pinctrl/brcm,brcmstb-pinctrl.yaml#
+arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-ovl-rp1.dtb: serial@7d50c000 (brcm,bcm7271-uart): 'clocks' is a required property
+	from schema $id: http://devicetree.org/schemas/serial/brcm,bcm7271-uart.yaml#
+arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-ovl-rp1.dtb: serial@7d50c000 (brcm,bcm7271-uart): 'clock-names' is a required property
+	from schema $id: http://devicetree.org/schemas/serial/brcm,bcm7271-uart.yaml#
+arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-ovl-rp1.dtb: serial@7d50c000 (brcm,bcm7271-uart): 'interrupt-names' is a required property
+	from schema $id: http://devicetree.org/schemas/serial/brcm,bcm7271-uart.yaml#
+arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-ovl-rp1.dtb: serial@7d50c000 (brcm,bcm7271-uart): Unevaluated properties are not allowed ('auto-flow-control', 'clock-frequency', 'reg-io-width', 'reg-shift' were unexpected)
+	from schema $id: http://devicetree.org/schemas/serial/brcm,bcm7271-uart.yaml#
+arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-ovl-rp1.dtb: mmc@1100000 (brcm,bcm2712-sdhci): Unevaluated properties are not allowed ('sdhci-caps', 'sdhci-caps-mask' were unexpected)
+	from schema $id: http://devicetree.org/schemas/mmc/brcm,sdhci-brcmstb.yaml#
+arch/arm64/boot/dts/broadcom/bcm2712-d-rpi-5-b.dtb: serial@7d50c000 (brcm,bcm7271-uart): 'clocks' is a required property
+	from schema $id: http://devicetree.org/schemas/serial/brcm,bcm7271-uart.yaml#
+arch/arm64/boot/dts/broadcom/bcm2712-d-rpi-5-b.dtb: serial@7d50c000 (brcm,bcm7271-uart): 'clock-names' is a required property
+	from schema $id: http://devicetree.org/schemas/serial/brcm,bcm7271-uart.yaml#
+arch/arm64/boot/dts/broadcom/bcm2712-d-rpi-5-b.dtb: serial@7d50c000 (brcm,bcm7271-uart): 'interrupt-names' is a required property
+	from schema $id: http://devicetree.org/schemas/serial/brcm,bcm7271-uart.yaml#
+arch/arm64/boot/dts/broadcom/bcm2712-d-rpi-5-b.dtb: serial@7d50c000 (brcm,bcm7271-uart): Unevaluated properties are not allowed ('auto-flow-control', 'clock-frequency', 'reg-io-width', 'reg-shift' were unexpected)
+	from schema $id: http://devicetree.org/schemas/serial/brcm,bcm7271-uart.yaml#
+arch/arm64/boot/dts/broadcom/bcm2712-d-rpi-5-b.dtb: mmc@1100000 (brcm,bcm2712-sdhci): Unevaluated properties are not allowed ('sdhci-caps', 'sdhci-caps-mask' were unexpected)
+	from schema $id: http://devicetree.org/schemas/mmc/brcm,sdhci-brcmstb.yaml#
+arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dtb: pinctrl@7d504100 (brcm,bcm2712c0-pinctrl): emmc-sd-default-state: 'oneOf' conditional failed, one must be fixed:
+	'function' is a required property
+	'bias-pull-up', 'pins' do not match any of the regexes: '-pins$', '^pinctrl-[0-9]+$'
+	from schema $id: http://devicetree.org/schemas/pinctrl/brcm,brcmstb-pinctrl.yaml#
+arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dtb: serial@7d50c000 (brcm,bcm7271-uart): 'clocks' is a required property
+	from schema $id: http://devicetree.org/schemas/serial/brcm,bcm7271-uart.yaml#
+arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dtb: serial@7d50c000 (brcm,bcm7271-uart): 'clock-names' is a required property
+	from schema $id: http://devicetree.org/schemas/serial/brcm,bcm7271-uart.yaml#
+arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dtb: serial@7d50c000 (brcm,bcm7271-uart): 'interrupt-names' is a required property
+	from schema $id: http://devicetree.org/schemas/serial/brcm,bcm7271-uart.yaml#
+arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dtb: serial@7d50c000 (brcm,bcm7271-uart): Unevaluated properties are not allowed ('auto-flow-control', 'clock-frequency', 'reg-io-width', 'reg-shift' were unexpected)
+	from schema $id: http://devicetree.org/schemas/serial/brcm,bcm7271-uart.yaml#
+arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-ovl-rp1.dtb: hvs@107c580000 (brcm,bcm2712-hvs): clocks: [[27, 4], [27, 16]] is too long
+	from schema $id: http://devicetree.org/schemas/display/brcm,bcm2835-hvs.yaml#
+arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dtb: mmc@1100000 (brcm,bcm2712-sdhci): Unevaluated properties are not allowed ('sdhci-caps', 'sdhci-caps-mask' were unexpected)
+	from schema $id: http://devicetree.org/schemas/mmc/brcm,sdhci-brcmstb.yaml#
+arch/arm64/boot/dts/broadcom/bcm2712-d-rpi-5-b.dtb: hvs@107c580000 (brcm,bcm2712-hvs): clocks: [[27, 4], [27, 16]] is too long
+	from schema $id: http://devicetree.org/schemas/display/brcm,bcm2835-hvs.yaml#
+arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dtb: hvs@107c580000 (brcm,bcm2712-hvs): clocks: [[27, 4], [27, 16]] is too long
+	from schema $id: http://devicetree.org/schemas/display/brcm,bcm2835-hvs.yaml#
+
+
+
+
+
 
