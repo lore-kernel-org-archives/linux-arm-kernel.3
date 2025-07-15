@@ -4,93 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA1DFC83F1D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 09:47:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D33CC83F1D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 09:50:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:To:
-	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jdjGXEPbwx9d8dagmoP3TN3Sha6+88f/yNQTLVRWULs=; b=yok99bRyNNhOAQAEbwIlsyxv11
-	65vQzvMJxTXtPON56po/IIXtOlszwFZP3ciw/TGeWcQkLUES3byxSvY6zrwCwPzkaKymWU0r73xYu
-	iyK2z0+aRucxUevn4+l/zqgRwSrnVT46ipaKXBuX3j/BQ67Gkzql9ZXz+kOObyb9v3xwkJs5KTnU0
-	cBWcVzcylyy3ZSTfGSml2snDB+QlykHYytoMw9Wo4dPNOQc0DYI6LEcZQJkDLnJcFcq6WD9zOiUen
-	9CaQGCAzBsivJOWIAdNxrdCYXkujmpFiQHfhiehcAmkh9UH43/VE+Pe0F20HNY2XrPgpy/Xyqio2O
-	HUEvU+nA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cay9RsCh/M7Z1VNy5D8LdZzxsTlAPAMGWS8Ka5XVAL0=; b=08k98XJxMnnoSlVvGCRhhIqZK4
+	fcarRHgBUr991pv4WJcAYxFLUN3d5k1iXONjzFoJLOGLqQ4Ckk6vpdjYqXs6n50rW28dCpqO4EU4I
+	Nv/5fzW31TTwS2071OHRTsZAYppCtTplOy/Erfbm+1teNgqIXNmgR5RjCUQQzSIddfUz2IqJkvTbi
+	mqznTKdS8h3r7zNrYyRUmTVhcF3LLPJ55/2q2H/0gEBj6y+6AHpQ7Ir/pq54EyKCOf4c23Z5rlpU+
+	ZT0yfIIFrSFVLGFFesdNszbqG3nJpdAopjf+rauV6Zk4+UoTqaN0ValybrVyOtletSKERtXz6GOsq
+	XWHTNwVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubcG0-00000004kAD-0jXT;
-	Tue, 15 Jul 2025 09:47:28 +0000
-Received: from mail-ed1-x536.google.com ([2a00:1450:4864:20::536])
+	id 1ubcIO-00000004kRa-3jlp;
+	Tue, 15 Jul 2025 09:49:56 +0000
+Received: from sender4-op-o12.zoho.com ([136.143.188.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubbd8-00000004cnm-0bti
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Jul 2025 09:07:19 +0000
-Received: by mail-ed1-x536.google.com with SMTP id 4fb4d7f45d1cf-60fdd24613fso974902a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Jul 2025 02:07:17 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1752570436; x=1753175236; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:to:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=jdjGXEPbwx9d8dagmoP3TN3Sha6+88f/yNQTLVRWULs=;
-        b=sElKKLmpsibB0x1t/Ump4AcnjPOqciQ7S4vBs9mJOEclJCVIxtlpU1h2fNfsPDVcJq
-         FXPpmKTII4x5vXnFvdn/0mfgc7YEWZLMKb/D6Cthgimb1s9u9EpcCz2+VRLXaHelBC8n
-         r/ntVsSyU8JOxLblQ99hGBCuS++EXxfCf0qeaNEsCwIhd7LmxhbVFRxR7PTRD0EvUjuF
-         hp5fIJNnYnPrScJri7oAYA+3yUJ5thg9OJbJr57McfPPhqpbjG9Y+GrDK2YuDgx6T2eP
-         8UzFpj5Dkp3vvozEO4CSOr2P5KMeHh6kkhRe3S+EHsBRnaIrC1YPru7Zdqw5OMYV4YZf
-         K/Ew==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752570436; x=1753175236;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=jdjGXEPbwx9d8dagmoP3TN3Sha6+88f/yNQTLVRWULs=;
-        b=KqvFMkF5s/e0uH7H2OSFWKLQDXwRRPnlf72joSrc5DPGpTw66PAV5JoqUSjyXKkLyM
-         48AckqEmIcP41/5Qh6G6pgDJLd2roq8xGBwg/KJJxcPeNEFoPcyv1l74aqUqHaPdJvAd
-         INpSCPtOWw3vwAY3JwaRwWvMLEv/17X6M7vSAn/pDZHxIFiOGNz1B5BQCmdGW6lciuYm
-         zpIAdWb5oKytSh3pBAG4X+nAGX0Hl4t814G1N8nUP6+DBYR+ZGm97u51PpPjdF4K3YJJ
-         p09mbIT5Am6FaDflTrA+fCY3xxwh8HYQm5mka06joiMbvuE5uTY5BgmIOJWkuZmuIre0
-         Btqg==
-X-Forwarded-Encrypted: i=1; AJvYcCU6okcDtGp3MSiTZ6UVOq2cMwQkQu0pF5pT+u+jvuLOTZqGeDUouhg5s5bMsGfQjRo3VNRLxbP8Nx1SVm/Qcc60@lists.infradead.org
-X-Gm-Message-State: AOJu0YwloEwak8P9fyoMY+BcDp/fX9upnOd8Z+Nfm3JZ5l4vpThERLjj
-	N6deaZJPhWkEd4fzd9OPYEKUNysOVHuNmg6jxeMoSqH4SMYcKpRhwobU76q+LdTAl6o=
-X-Gm-Gg: ASbGncskb4N52sCPNHvThvNOJJ/Akar14n551coEi2yxy9meDZsX5aO7F6VYW2jsDGJ
-	kXO/wACcX3z66uDFrEbfwOUqA6deXKS4/OkQ7d6goG7UzQgUIU/7Uoicyc0lVrLJbHUc0VzbPWX
-	z+x6ampUI8Z14nSRcfGkobE0cINI0aeB5u+HQxCj3FmmCqcbXO5haM1qo+fFaMvYeeqQLbQPlZE
-	3HjtmWNoviHtOy9HsKHmlF4e0mCj8Z/65UClVUBF+Y/vISQdA1f4so1jHBnklSGVhRRtVKvdWvu
-	iOY6J2Y7B8aJw/dleyw9saWK5SA0Bk0Z7wMrnTWyvDyqFNHTmGoBb+wLJk7QEzI20oWegtgQCVb
-	t7ALOIHD7+ZCTn9g1hVlz0JS7y8LAuLJYmtlG
-X-Google-Smtp-Source: AGHT+IG7sF7KS0pmEBtE7CyUxnRi/W3VS/BOjQxGcy53ccUO5o7hMkUXG853x5EsNRJefAyaqN5s2A==
-X-Received: by 2002:a17:907:84a:b0:adb:2d38:4479 with SMTP id a640c23a62f3a-ae9be9f6375mr34796166b.10.1752570436431;
-        Tue, 15 Jul 2025 02:07:16 -0700 (PDT)
-Received: from [127.0.1.1] ([178.197.222.89])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ae6e7ee459asm988001966b.52.2025.07.15.02.07.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 15 Jul 2025 02:07:15 -0700 (PDT)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Peter Griffin <peter.griffin@linaro.org>, 
- =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
- Tudor Ambarus <tudor.ambarus@linaro.org>, 
- Alim Akhtar <alim.akhtar@samsung.com>, linux-arm-kernel@lists.infradead.org, 
- linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, 
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <20250710073443.13788-3-krzysztof.kozlowski@linaro.org>
-References: <20250710073443.13788-3-krzysztof.kozlowski@linaro.org>
-Subject: Re: [PATCH 1/2] arm64: tesla/google: MAINTAINERS: Reference "SoC
- clean" maintainer profile
-Message-Id: <175257043504.32608.13454383152371102716.b4-ty@linaro.org>
-Date: Tue, 15 Jul 2025 11:07:15 +0200
+	id 1ubbj7-00000004dfG-36sd;
+	Tue, 15 Jul 2025 09:13:31 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1752570807; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=ZaVXiQjZBm13Etgxt4OiBMQbGwC/DcNY/QMigBvU2yASGR1rEwj2h3Lckh7HDVKHVdY6WreMjyllS4PjgiKd9MJsvj63PuAm+nNfA711v9gL47rfv+ho8Go8mlF+7c7X2/7nmj/581e2W9WXSaf2xMdqPe0HoMR7Z1Bjc8WDx5E=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1752570807; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=cay9RsCh/M7Z1VNy5D8LdZzxsTlAPAMGWS8Ka5XVAL0=; 
+	b=VWZKEvPkQyNT9q+RN1SpQpIreytRb5U1Ud1W3ssn7BDwVc6TiyvdWBO6ROaTioc9FuBt0VxyN6tsuB1QTpkleNwqt93aVYLSgKoLZG8KRdZ0zV4TbE/8QgeDy3jhuFfC9lifrJG+oTQlf+iD4xJs4r7vFoTVU4/4wbk7t1u0wCM=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1752570807;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
+	bh=cay9RsCh/M7Z1VNy5D8LdZzxsTlAPAMGWS8Ka5XVAL0=;
+	b=Q+yu7HcE8kRkHvDFA/I+tnaBCb5kOgIyqfrNK1+v4UFKPdJ3g3vctaCli4O4uz3f
+	K+HZuX8Fr7yrG5jsyhBsjG8TNwRWXWRGIno5VWlq523Sxn/UjXRkukNAC0V4IqVQ1Dm
+	63Lnmufxg2b4MdP74ghITgXZ4s1hWkjArvD4lp8U=
+Received: by mx.zohomail.com with SMTPS id 17525708052071014.9248185889661;
+	Tue, 15 Jul 2025 02:13:25 -0700 (PDT)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+To: Qu Wenruo <wqu@suse.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org
+Subject: Re: PWM fan control not working with Rock5B and upstream kernel
+Date: Tue, 15 Jul 2025 11:13:21 +0200
+Message-ID: <9751604.CDJkKcVGEf@workhorse>
+In-Reply-To: <f33da910-7e83-40a0-bfcd-a6131a356358@suse.com>
+References: <e9ddcc05-e6db-49b0-aad6-c7873c38c427@suse.com>
+ <5271313.GXAFRqVoOG@workhorse>
+ <f33da910-7e83-40a0-bfcd-a6131a356358@suse.com>
 MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250715_020718_208460_8D2AFFA0 
-X-CRM114-Status: UNSURE (   7.42  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250715_021329_814174_6E194ECB 
+X-CRM114-Status: GOOD (  24.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,26 +76,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi,
 
-On Thu, 10 Jul 2025 09:34:44 +0200, Krzysztof Kozlowski wrote:
-> Effectively all Tesla FSD and Google GS101 DTS patches go via Samsung
-> SoC maintainer, who applies the same rules as for Samsung SoC: DTS must
-> be fully DT bindings compliant (`dtbs_check W=1`).  Existing sources
-> already are compliant, so just document that implicit rule by mentioning
-> respective maintainer profile in their entries.
-> 
-> 
-> [...]
+I've seen you've already solved your problem, but I feel I should
+reply to some points anyway.
 
-Applied, thanks!
+On Tuesday, 15 July 2025 10:44:21 Central European Summer Time Qu Wenruo wr=
+ote:
+>=20
+> =E5=9C=A8 2025/7/15 17:19, Nicolas Frattaroli =E5=86=99=E9=81=93:
+> > On Tuesday, 15 July 2025 06:10:45 Central European Summer Time Qu Wenru=
+o wrote:
+> >> Hi,
+> >>
+> >> My Rock5B board is running edk-rk3588 firmware and (almost) upstream
+> >> kernel (6.14.6 kernel from ArchlinuxARM), using upstream dtbs (the
+> >> firmware is also switched to device-tree boot mode)
+> >=20
+> > Consider using mainline u-boot instead. I think the only ones who
+> > insist on edk2 forks are the BSD people, as they don't want to
+> > write device drivers. Linux has drivers, so inventing UEFI abstractions
+> > for things probably only makes your experience worse.
+>=20
+> Well, having something more user-friendly and more similar to a=20
+> traditional PC setup is definitely more attractive to end users.
 
-[1/2] arm64: tesla/google: MAINTAINERS: Reference "SoC clean" maintainer profile
-      https://git.kernel.org/krzk/linux/c/7f311e5ac36b6cf9cc0734d89546e643f33b684a
-[2/2] arm64: samsung: MAINTAINERS: Add Tesla FSD DTS to Exynos entry
-      https://git.kernel.org/krzk/linux/c/8e5bf103b3ada972ea890ae6aa2118ff9b8c321c
+U-Boot standard boot flow works just fine for this. Broken UEFI
+services and ACPI interfaces nothing implements do not achieve this.
 
-Best regards,
--- 
-Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+You can flash a mainline u-boot to your ROCK 5B's SPI flash and it
+will boot aarch64 UEFI distro installers off USB thumb drives, or
+do PXE boot, or load your GRUB on NVMe and such just fine.
+
+>=20
+> >=20
+> > Kernel 6.14 is also quite a bit behind and not supported by upstream,
+> > you'll likely have a better experience compiling a kernel yourself
+> > using defconfig as the base. ALARM likes to roll dice when it comes to
+> > their kernel config and then not update their kernels for half a year.
+>=20
+> Thankfully the latest one is 6.15.6, and unfortunately it doesn't make a=
+=20
+> difference.
+>=20
+> I'm fine compiling kernels for my VMs to run tests, but for the host I'd=
+=20
+> leave this as the last resort method.
+>=20
+> I'll try the Uboot if required, but no pre-compiled upstream one is not=20
+> really inviting end users.
+
+Collabora has been providing full mainline based ROCK 5B images for a
+long time: https://gitlab.collabora.com/hardware-enablement/rockchip-3588/d=
+ebian-image-recipes
+
+This includes gitlab pipelines for the mainline-based u-boot we ship
+in our images: https://gitlab.collabora.com/hardware-enablement/rockchip-35=
+88/u-boot/-/jobs
+
+I'm not sure why you're on the Linux kernel mailing list complaining of
+a lack of pre-compiled binaries though, it's not like kernel.org
+distributes any binaries either. Compiling u-boot is fairly easy, see
+https://docs.u-boot.org/en/latest/build/gcc.html for a general overview
+including build dependencies.
+
+1. fetch tf-a https://review.trustedfirmware.org/TF-A/trusted-firmware-a.git
+2. compile it with make ARCH=3Daarch64 CROSS_COMPILE=3Daarch64-linux-gnu- E=
+=3D0 PLAT=3Drk3588
+3. fetch rkbin https://github.com/rockchip-linux/rkbin/
+4. fetch u-boot https://source.denx.de/u-boot/u-boot/-/tree/master
+5. export BL31=3Dpath/to/tf-a/build/release/rk3588/bl31.elf
+6. export ROCKCHIP_TPL=3Dpath/to/rkbin/bin/rk35/rk3588_ddr_lp4_2112MHz_lp5_=
+2400MHz_v1.18.bin
+7. in the u-boot dir, run make ARCH=3Darm64 CROSS_COMPILE=3Daarch64-linux-g=
+nu- rock5b-rk3588_defconfig
+8. then again in the u-boot dir, run make -j$(nproc) ARCH=3Darm64 CROSS_COM=
+PILE=3Daarch64-linux-gnu-
+9. flash the resulting `u-boot-rockchip-spi.bin` to offset 0 of your device=
+'s SPI flash,
+   or alternatively, flash `u-boot-rockchip.bin` to byte offset 32768 of an=
+ eMMC flash or SD card.
+
 
 
