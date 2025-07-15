@@ -4,66 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FB93C83F1D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 10:38:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17F7BC83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 11:01:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cIPn1JdmQUBAudYGWKwQBBR2ZjhtmhuYOGeF5hB/XP8=; b=sHxEHnARfnJMD1rKyjSy6Ocp7T
-	mXLWE484cqvaOsjp9bIM/4CC08WhBlwbECLlD6QkXD5e7jXtkEh2DtR8BcnF6ph4XOuYSMG6WJVZG
-	yH/60MKz4Ha3xcgmOX3On4PbzJPUWN64iEuDDDKK/q6Ch5V14k6IYLMFEN2Iv2dWsrI15q/fjLJIF
-	V8AXkQZU9xaJKRWll3VspwUHv8wW5FA0KJZELV+nSDDST9ubLGfGEvH+R1HlHkxGkIusCgrom6zjN
-	MdP5jm19Grd7ah2PTQQ+lE9RT9YfFBjf7O4+x8Vo4iK8Tsay+0RSId4ljhAV1Is2zNCZbAKLafe55
-	+AQ0Yvgg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=F/mHAbC8hGHbBSwhAq1pRep/z7r7zHvPcOOX2+I5dO8=; b=bZFjUfDYp6hMMCxZNyEhk9NThu
+	DfM5bjFSJsgd9XDR6LwC0HuInsGzYSdLOgaUFi10NHihoXaxUK1Gj2ojqo3L7k25a02JICnq4UR+w
+	hGd7Y5BxuIPjVBiRv6aOb9TDAZdBKWLbhBUMWpa+8NB33LkARoL7QYKeOAb2TQADivQpjKSTM9Pu1
+	zhr9DfG9LZmomUOhDUV8mkV45LGd6mr2sAOJ3UZsXpO4w0V9+sSR5dQyz2yZsClVtqmViZcY90gkY
+	guvj75VOnnWzfOGVMfgRVr2w15qDM4GgzeV0abYBzRtwLD1h8CImHq/Z2Torxojmhk8eM3x0LqFbN
+	xWWm/LVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubd3V-00000004rFt-2X07;
-	Tue, 15 Jul 2025 10:38:37 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1ubdP9-00000004srI-2Gfy;
+	Tue, 15 Jul 2025 11:00:59 +0000
+Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubd0y-00000004qsj-0YUs;
-	Tue, 15 Jul 2025 10:36:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=cIPn1JdmQUBAudYGWKwQBBR2ZjhtmhuYOGeF5hB/XP8=; b=14TGwTJ8i2Mh5u5WG7VtC3VE23
-	YFqP6TUaqtH3GFuLFFL7UrSspk3fVBByN4gsW70nMbjqCUovWeMbDyltzB83dS1IFVG0m5945ngjZ
-	BuVB1Rp76b99J3JpEGR0olUIaAY5UQ30wjwa/ZzUKuYS1mVSnc+Iq3NRN8l5YhXceZxAC8UjvwM0v
-	TTy+p+lGttVM88UHbqHNGYjTSjirYsOWteKkcFBBVVMcy3Vq1hqz8zd+5bwb87Dw8Id9bHxyOwHkI
-	7xdQg6RmqEDmq93oMFMXrbUZBMUNl1n/Iv9Dcpbc9o39WGUCsEXeE12Tw588LxpqE5vN0oqN7tQLs
-	2L81kG0A==;
-Received: from [194.95.143.137] (helo=phil.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1ubd0o-00009u-Be; Tue, 15 Jul 2025 12:35:50 +0200
-From: Heiko Stuebner <heiko@sntech.de>
-To: linux-rockchip@lists.infradead.org,
- John Keeping <jkeeping@inmusicbrands.com>
-Cc: John Keeping <jkeeping@inmusicbrands.com>, Vinod Koul <vkoul@kernel.org>,
- Kishon Vijay Abraham I <kishon@kernel.org>,
- Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Sebastian Reichel <sebastian.reichel@collabora.com>,
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, linux-usb@vger.kernel.org,
- linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [RFC/PATCH 2/2] phy: rockchip: usbdp: implement .set_mode
-Date: Tue, 15 Jul 2025 12:35:47 +0200
-Message-ID: <3981131.iZASKD2KPV@phil>
-In-Reply-To: <20250710152252.2532020-3-jkeeping@inmusicbrands.com>
-References: <20250710152252.2532020-1-jkeeping@inmusicbrands.com>
- <20250710152252.2532020-3-jkeeping@inmusicbrands.com>
+	id 1ubdMi-00000004sYa-1XWP;
+	Tue, 15 Jul 2025 10:58:29 +0000
+Received: by mail-ej1-x62d.google.com with SMTP id a640c23a62f3a-adfb562266cso919295766b.0;
+        Tue, 15 Jul 2025 03:58:28 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1752577107; x=1753181907; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=F/mHAbC8hGHbBSwhAq1pRep/z7r7zHvPcOOX2+I5dO8=;
+        b=Xct+Yut/zS/lY5KhI8oFRJ1XZjDIigLBHwxmcoSKXVcoRwSTfVi7L41ZK89z9O9/pC
+         FD+y0TowVjuQLarE++j7UkP7WPUQATVvUYew2Lun98GjhD5NaJCMDdGIuhMPiQdxajJ+
+         ozQYlD6Bx3CaVqxTwN5VNz/PZpjzdnc/bWkJfLBaSVbVhijB+QbiANgxxfhmCWoIbjFF
+         AssMSdiPpRtu/z/25xzIl3qbSlHUWP1q/xV2gxpIqjFLactdv6LL43Y1OsNa6rJV2tKb
+         4BjaZ4jB9dhOSZzTqsYEgVgWljrlqGiUFumJp0wSaoHPif5jZBmSMIRT02GrOY9wCzQ2
+         zm2w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1752577107; x=1753181907;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=F/mHAbC8hGHbBSwhAq1pRep/z7r7zHvPcOOX2+I5dO8=;
+        b=OTx6CVl49V+hCTJnuPyubyPHYeCW9yOq51oz8+YbyHnqtxgL5GopWbsRiPLonGj+BK
+         bTOER519ALPh5hOQWNi7HWMgEE83seFggb/PF7L0YEGj81l6AT4GAaWHwwu/Lk/0/1Gy
+         IyBUoktbIDEB3TIq8S+RBKEmRvBv9WlF756hZjqAAk9QwpsV9cpUruvUMGy4hmg4GOaL
+         Uo5KyVlKAMgKIGPP0Qrqa17s+DkUJsFVEryhzNt7HZjX6IdFhZmpA1fmGzWCpyZdJb0o
+         QTRGHy+TqLPavA+VfAHomy3XlsCIPwmgfuA9VDDbyAVSwacRMrJpNR3CdEUVOJ0d+G6s
+         z6Dg==
+X-Forwarded-Encrypted: i=1; AJvYcCVMs5+cgMF/Mpv22moauSkzFuxx9yxxPDguk0HztrFuCn2mdlsd1FhUTaNAQ38a7/MooyUAe3TzrUWw@lists.infradead.org, AJvYcCVQjUiEkGaTps4pgsUwGqbFKj1hBSLs6Ve0toX8zIBT6o+F0iBHQO8rJqD7VUBtsEHQYpCtMggM2Gl2xN6zOMtX@lists.infradead.org, AJvYcCWjApwKJWGnNYcAufwIohFEyD8uZDf0M0cIsYlDIsH4PHjwpDA1PUovsKM0vWvTOhYCjEVuLdjjpbaW9q2b24k=@lists.infradead.org
+X-Gm-Message-State: AOJu0YyUfUJYQzWZHQ68nWGW0jcuP/lXjHtT1i/4OHaL8ixiwF9RYT6i
+	EVFAY5nD1JwpMRS9WgGhHKj9agNpvnVDxR2HvkkErNV7kPi4zjF4Vxx+
+X-Gm-Gg: ASbGncuJaRqmzFuRbKFCssR+MMHm/HNd89nPntLwrGgxOcsUcP/mMEXZyTSxNom4syf
+	CxjLbX5ZuGtHahIc9hgD4oBAic8DMjBAz2nJK++Q3l3+vJHSzfsfX1kmeme0VpSIY9Vqrjptruk
+	ZVD8LxzUCIu/y1tiCM2+WDVOT/to9apAWax4qM4Mp232xeKYR5IZmlXgYuKUerpzr8Oi8RoMwbf
+	UabiVne34wdf4cn7Wm0rvMoJa4823y+jrWepVxbTyvHxiY2WEeo0vjvhzTr8N+SSvP0E+pkT5qJ
+	6zwikpCJHzUj/8XEvJnz38UsqoOAtxu2htB01eEgb16sv4Wj5f0WirDQn0TbcIPMNn4ro9nyjgr
+	6ZDYGZER2sFxUnq0Iov5kil5LlELcZuwGwMlaJzR4sTvNXQMr
+X-Google-Smtp-Source: AGHT+IFcV1NRroRK8E4ACX4/AYoU3UTXo1RHhhcZbGaL38WjPIbgiRuFhrQraM9n3g9N8ETFy0dwvQ==
+X-Received: by 2002:a17:907:d88:b0:ade:6e3:7c4 with SMTP id a640c23a62f3a-ae9b9519e89mr215840066b.23.1752577106085;
+        Tue, 15 Jul 2025 03:58:26 -0700 (PDT)
+Received: from A13PC04R.einet.ad.eivd.ch ([185.144.39.75])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ae6e82df2fbsm980771966b.158.2025.07.15.03.58.25
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 15 Jul 2025 03:58:25 -0700 (PDT)
+From: Rick Wertenbroek <rick.wertenbroek@gmail.com>
+To: 
+Cc: rick.wertenbroek@heig-vd.ch,
+	dlemoal@kernel.org,
+	alberto.dassatti@heig-vd.ch,
+	Rick Wertenbroek <rick.wertenbroek@gmail.com>,
+	Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	linux-phy@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] phy: rockchip-snps-pcie3: add support for rockchip,phy-ref-use-pad
+Date: Tue, 15 Jul 2025 12:58:20 +0200
+Message-Id: <20250715105820.4037272-1-rick.wertenbroek@gmail.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250715_033600_377078_BD99B157 
-X-CRM114-Status: GOOD (  21.30  )
+X-CRM114-CacheID: sfid-20250715_035828_400813_1B1F720B 
+X-CRM114-Status: GOOD (  20.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,65 +103,133 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi John,
+>From the RK3588 Technical Reference Manual, Part1,
+section 6.19 PCIe3PHY_GRF Register Description: "ref_use_pad"
 
-Am Donnerstag, 10. Juli 2025, 17:22:50 Mitteleurop=C3=A4ische Sommerzeit sc=
-hrieb John Keeping:
-> When the orientation of a type C cable changes, usbdp set the new
-> configuration in its internal state but does not write this to the
-> hardware.
->=20
-> Make use of phy_ops::set_mode to write this new state.  This should be
-> called by the USB controller when it is notified of a role change
-> (assuming it is acting as the role switch) and will be called at a point
-> when the controller does not expect the phy to be operating normally.
->=20
-> Signed-off-by: John Keeping <jkeeping@inmusicbrands.com>
+"Select reference clock connected to ref_pad_clk_p/ref_pad_clk_m.
+Selects the external ref_pad_clk_p and ref_pad_clk_m inputs as the
+reference clock source when asserted. When de-asserted, ref_alt_clk_p
+and ref_alt_clk_m are the sources of the reference clock."
 
-with the comments from Ondrej in [0] the whole thing seems to be
-slightly more complex
+The hardware reset value for this field is 0x1 (enabled).
+Note that this register field is only available on RK3588, not on RK3568.
 
+Add support for the device tree property rockchip,phy-ref-use-pad,
+such that the PCIe PHY can be used on boards where there is no PCIe
+reference clock generated or connected to the external pad, by setting
+this property to 0 so that the internal clock is used.
 
-[0] https://patchwork.kernel.org/project/linux-arm-kernel/patch/20250225184=
-519.3586926-3-heiko@sntech.de/
+DT bindings for internal clocks are CLK_PHY0_REF_ALT_P/M and
+CLK_PHY1_REF_ALT_P/M and clock rate should be set to 100MHz in
+the RK3588 cru clock controller (PLL_PPLL).
 
-> ---
->  drivers/phy/rockchip/phy-rockchip-usbdp.c | 14 ++++++++++++++
->  1 file changed, 14 insertions(+)
->=20
-> diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rock=
-chip/phy-rockchip-usbdp.c
-> index c066cc0a7b4f1..00368fb09307a 100644
-> --- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
-> +++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-> @@ -1335,9 +1335,23 @@ static int rk_udphy_usb3_phy_exit(struct phy *phy)
->  	return 0;
->  }
-> =20
-> +static int rk_udphy_usb3_phy_set_mode(struct phy *phy, enum phy_mode mod=
-e, int submode)
-> +{
-> +	struct rk_udphy *udphy =3D phy_get_drvdata(phy);
-> +	int ret =3D 0;
-> +
-> +	mutex_lock(&udphy->mutex);
-> +	if (udphy->mode !=3D UDPHY_MODE_NONE)
-> +		ret =3D rk_udphy_init(udphy);
-> +	mutex_unlock(&udphy->mutex);
-> +
-> +	return ret;
-> +}
-> +
->  static const struct phy_ops rk_udphy_usb3_phy_ops =3D {
->  	.init		=3D rk_udphy_usb3_phy_init,
->  	.exit		=3D rk_udphy_usb3_phy_exit,
-> +	.set_mode	=3D rk_udphy_usb3_phy_set_mode,
->  	.owner		=3D THIS_MODULE,
->  };
-> =20
->=20
+Example DT overlay where PHY0 uses internal clock (the first clock of
+the cru (PLL_PPLL) must be set to 100MHz, other values are copied from
+rk3588-base.dtsi) and PHY1 uses the external pad (the default):
 
+---
+&cru {
+        assigned-clock-rates =
+                <100000000>, <786432000>,
+                <850000000>, <1188000000>,
+                <702000000>,
+                <400000000>, <500000000>,
+                <800000000>, <100000000>,
+                <400000000>, <100000000>,
+                <200000000>, <500000000>,
+                <375000000>, <150000000>,
+                <200000000>;
+};
 
+&pcie30phy {
+        rockchip,rx-common-refclk-mode = <0 0 1 1>;
+        rockchip,phy-ref-use-pad = <0 1>;
+        clocks = <&cru PCLK_PCIE_COMBO_PIPE_PHY>, <&cru CLK_PHY0_REF_ALT_P>,
+                         <&cru CLK_PHY0_REF_ALT_M>, <&cru CLK_PHY1_REF_ALT_P>,
+                         <&cru CLK_PHY1_REF_ALT_M>;
+        clock-names = "pclk", "phy0_ref_alt_p",
+                              "phy0_ref_alt_m", "phy1_ref_alt_p",
+                              "phy1_ref_alt_m";
+};
+---
 
+Signed-off-by: Rick Wertenbroek <rick.wertenbroek@gmail.com>
+---
+ .../phy/rockchip/phy-rockchip-snps-pcie3.c    | 32 +++++++++++++++++++
+ 1 file changed, 32 insertions(+)
+
+diff --git a/drivers/phy/rockchip/phy-rockchip-snps-pcie3.c b/drivers/phy/rockchip/phy-rockchip-snps-pcie3.c
+index 4e8ffd173096..0859c7960167 100644
+--- a/drivers/phy/rockchip/phy-rockchip-snps-pcie3.c
++++ b/drivers/phy/rockchip/phy-rockchip-snps-pcie3.c
+@@ -33,6 +33,8 @@
+ /* Register for RK3588 */
+ #define PHP_GRF_PCIESEL_CON			0x100
+ #define RK3588_PCIE3PHY_GRF_CMN_CON0		0x0
++#define RK3588_PCIE3PHY_GRF_PHY0_CONTROL6	0x118
++#define RK3588_PCIE3PHY_GRF_PHY1_CONTROL6	0x218
+ #define RK3588_PCIE3PHY_GRF_PHY0_STATUS1	0x904
+ #define RK3588_PCIE3PHY_GRF_PHY1_STATUS1	0xa04
+ #define RK3588_PCIE3PHY_GRF_PHY0_LN0_CON1	0x1004
+@@ -44,6 +46,8 @@
+ #define RK3588_BIFURCATION_LANE_0_1		BIT(0)
+ #define RK3588_BIFURCATION_LANE_2_3		BIT(1)
+ #define RK3588_LANE_AGGREGATION		BIT(2)
++#define RK3588_PHY_REF_USE_PAD_EN		((BIT(2) << 16 | BIT(2)))
++#define RK3588_PHY_REF_USE_PAD_DIS		((BIT(2) << 16))
+ #define RK3588_RX_CMN_REFCLK_MODE_EN		((BIT(7) << 16) |  BIT(7))
+ #define RK3588_RX_CMN_REFCLK_MODE_DIS		(BIT(7) << 16)
+ #define RK3588_PCIE1LN_SEL_EN			(GENMASK(1, 0) << 16)
+@@ -67,6 +71,7 @@ struct rockchip_p3phy_priv {
+ 	int num_lanes;
+ 	u32 lanes[4];
+ 	u32 rx_cmn_refclk_mode[4];
++	u32 phy_ref_use_pad[2];
+ };
+ 
+ struct rockchip_p3phy_ops {
+@@ -157,6 +162,14 @@ static int rockchip_p3phy_rk3588_init(struct rockchip_p3phy_priv *priv)
+ 		     priv->rx_cmn_refclk_mode[3] ? RK3588_RX_CMN_REFCLK_MODE_EN :
+ 		     RK3588_RX_CMN_REFCLK_MODE_DIS);
+ 
++	/* Select PHY reference clock, external pad or internal clock */
++	regmap_write(priv->phy_grf, RK3588_PCIE3PHY_GRF_PHY0_CONTROL6,
++		     priv->phy_ref_use_pad[0] ? RK3588_PHY_REF_USE_PAD_EN :
++		     RK3588_PHY_REF_USE_PAD_DIS);
++	regmap_write(priv->phy_grf, RK3588_PCIE3PHY_GRF_PHY1_CONTROL6,
++		     priv->phy_ref_use_pad[1] ? RK3588_PHY_REF_USE_PAD_EN :
++		     RK3588_PHY_REF_USE_PAD_DIS);
++
+ 	/* Deassert PCIe PMA output clamp mode */
+ 	regmap_write(priv->phy_grf, RK3588_PCIE3PHY_GRF_CMN_CON0, BIT(8) | BIT(24));
+ 
+@@ -312,6 +325,25 @@ static int rockchip_p3phy_probe(struct platform_device *pdev)
+ 		return ret;
+ 	}
+ 
++	ret = of_property_read_variable_u32_array(dev->of_node,
++						  "rockchip,phy-ref-use-pad",
++						  priv->phy_ref_use_pad, 1,
++						  ARRAY_SIZE(priv->phy_ref_use_pad));
++
++	/*
++	 * if no rockhip,phy-use-internal-clk, assume PHY uses pad for the
++	 * reference clock in order to be DT backwards compatible. (Since HW
++	 * reset val is enabled.)
++	 */
++	if (ret == -EINVAL) {
++		for (int i = 0; i < ARRAY_SIZE(priv->phy_ref_use_pad); i++)
++			priv->phy_ref_use_pad[i] = 1;
++	} else if (ret < 0) {
++		dev_err(dev, "failed to read rockchip,phy-ref-use-pad property %d\n",
++			ret);
++		return ret;
++	}
++
+ 	priv->phy = devm_phy_create(dev, NULL, &rockchip_p3phy_ops);
+ 	if (IS_ERR(priv->phy)) {
+ 		dev_err(dev, "failed to create combphy\n");
+-- 
+2.25.1
 
 
