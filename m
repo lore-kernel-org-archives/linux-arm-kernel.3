@@ -4,75 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E7ABC83F21
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 14:12:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DDF6C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 14:14:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=9bIbQWrQdJ5B+qdtEy4dF0CgynkxTn9wDRuw9uEetGQ=; b=OVlkxci7vZq5S5QXA0FZHzU0ak
-	OlZTc3gHhGMzpgbDykFQkPcHJTw9a4IfRc70+zCChSrNDz1e3lArmMD14EaC2nptvTNO1mstiBmXY
-	aiEFqJr6aqPwl1Xn95RXyyTPtHVdtxaNB/8UjhMdKUvPriC/vknvwSGUAGbzYdtlfu2e92iUSbka/
-	9Z9rPamR0B2hErNjQI8t3p8nAeacto2x7S150cTsB4q4cygF9fNEq0IVUPCXb+1ABOQJkhNyk3k3c
-	AOxA4XlrZQvJv9F3wHwsjXRqyEFxMj3/rcamiGZTLXCmJUqkbdmS6a1LgW4nADp9ZThwIspbRSBoq
-	0RKwnvjQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cKOwVriGdl0zvdTEqmSNUZdZ6oXKMjOLE26QzLoBdqc=; b=FdnVzfMoUBoWCqSrKyZnZ1LLlU
+	qYyIFB9hAY9+oa7wBhUpZvRKoFN1w029jAR+sf5vgYL+b5JzscyUvTlE11oyPF4ebsz9qlbco6+SZ
+	vK1R81St4cVbpqszFM+71ZfSzPLhgGiBlPNjAlgRQiygL0n+Yj+6vQoGXYIu3a+27lT63XEveR49T
+	lkMdwsTHSNCXSJg5Rkezd/s2mVKSh/chDjbVjAsjrm6b5DsCKnE7IvPjXhY/MRE3MYm2+kbr0kTwk
+	jWMAtbLh4JCPuOCB/3hk02mS3hFlRa9gJhaxHmtLnZ1zj7+fKMPLOwxws6D+dmP1uksVETAwUmxIX
+	G31dY3dQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubgO3-00000005K8s-1s4U;
-	Tue, 15 Jul 2025 14:12:03 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1ubgQS-00000005KQt-0xSS;
+	Tue, 15 Jul 2025 14:14:32 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubfBM-00000005889-1aCt
+	id 1ubfDc-000000058LO-1p3U
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Jul 2025 12:54:53 +0000
+	Tue, 15 Jul 2025 12:57:12 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 96ACE5C62F2;
-	Tue, 15 Jul 2025 12:54:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EA3D2C4CEE3;
-	Tue, 15 Jul 2025 12:54:49 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 5CB8A61139;
+	Tue, 15 Jul 2025 12:57:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 33325C4CEE3;
+	Tue, 15 Jul 2025 12:57:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752584091;
-	bh=5O2Y0BxfJj/Qqa+KlWHCOfUSGCTb2wf1Q/PPcxWsLNQ=;
-	h=From:Date:Subject:To:Cc:From;
-	b=fdeMibKpUPuMEbjx+PEeY1R4c9jWFe4K7jkPjT8DBRXAuDpuJ8ytPLwG8z9HAsGJY
-	 N9X8S8Oevdse7sq4rOiSOHyHlOzv+tuTudJ6iqVrhsl4Go/ngGGWsWPrxEasPUzA10
-	 AeNGE7cRocUJGamAPTr8ID60gm52hiObYOEdS0+SuGIOmbPSrWF8iaatp66j6nJxdX
-	 pXRqIBBNZCzlvI0n/CEEy4pn6o9G69vEbD7E3pIxOj1jmvmVLlEAqq1wKOKU/IvY5o
-	 RbBpapAzRFc/AqOpIX7AbdzFCUCoIQ+zptMzJFzNxWhQFRI8Y1luHqGQyW2tChzPm0
-	 O/53OfPAu7mpA==
-From: Mark Brown <broonie@kernel.org>
-Date: Tue, 15 Jul 2025 13:49:23 +0100
-Subject: [PATCH 6.12.y] arm64: Filter out SME hwcaps when FEAT_SME isn't
- implemented
+	s=k20201202; t=1752584231;
+	bh=z5wyTPXmVEd1ZYkkyrXr7DhOnKLOMu2j6kn1bYNNu2g=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=arXTtqQU+QSnwZtSgZFQUCRyEQe28EGJJWhN7GEFpPYP4LLlxjVqDlko/aH5ciQih
+	 BJUm0djMUY9NLb2aHxpjqmV5efA2Zwtf7wPQJwJcVI+k5CinIK41kze1nNNu19fWd7
+	 RLzpIUBjYsoNK3/UnFmcQahWeijRO5uuPY6L8gtAxUEFjwyVWpQBxFIJ/CZAAU45tl
+	 ImaCL9/wM+2rG8Yk0As9LpjxmLXXQrhrUdlJQrLnw/0i2wHky4ym3U1jHHnXsRphLR
+	 X6dVR1HCdjYkTidS0Aqj+2qK/8nuDV9hjBVkty62m0m6tvZ/PZ7OUV5rWNwqKlEnuj
+	 ECohc5Eqn9d4g==
+Date: Tue, 15 Jul 2025 13:57:03 +0100
+From: Will Deacon <will@kernel.org>
+To: James Clark <james.clark@linaro.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>, leo.yan@arm.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-perf-users@vger.kernel.org, linux-doc@vger.kernel.org,
+	kvmarm@lists.linux.dev
+Subject: Re: [PATCH v3 04/10] arm64/boot: Enable EL2 requirements for
+ SPE_FEAT_FDS
+Message-ID: <aHZQH7QGhi5pbXU8@willie-the-truck>
+References: <20250605-james-perf-feat_spe_eft-v3-0-71b0c9f98093@linaro.org>
+ <20250605-james-perf-feat_spe_eft-v3-4-71b0c9f98093@linaro.org>
+ <aHUMMk9JUdK6luLN@willie-the-truck>
+ <04d52182-6043-4eaf-a898-9f8ccc893e5f@linaro.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250715-stable-6-12-sme-feat-filt-v1-1-4c1d9c0336f6@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAFJOdmgC/x3MywqDMBBG4VeRWXckCV5CX6W4SPVPHbC2ZIJYx
- Hc3dPktzjlIkQRK9+qghE1UPmuBvVU0zmF9gWUqJmdca3rbsObwXMAdW8f6BkeEzFGWzB6tjyb
- 40fiJSv9NiLL/3w/qauvqHw3neQHrmRN/cwAAAA==
-X-Change-ID: 20250714-stable-6-12-sme-feat-filt-8e58f0a8c08d
-To: Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>, stable@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Yury Khrustalev <yury.khrustalev@arm.com>, Mark Brown <broonie@kernel.org>
-X-Mailer: b4 0.15-dev-cff91
-X-Developer-Signature: v=1; a=openpgp-sha256; l=6158; i=broonie@kernel.org;
- h=from:subject:message-id; bh=5O2Y0BxfJj/Qqa+KlWHCOfUSGCTb2wf1Q/PPcxWsLNQ=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBodk+YkBXzyFKccbuiUAxu1S/zl9ZiQCEz6djVo
- nGb2kewGs2JATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCaHZPmAAKCRAk1otyXVSH
- 0PWZB/4g+LvxhS1jnDuGNU/QzflvEeUEy4YKtQenEQ2k/wJh5b7rAorEKXu9JSku7z0bPWsD7ay
- omzfSzB3tqFTZgICGHB/uOAJ8fimjUrZ/Fkj8dJiPUOmxZOyhclviGfnklOhZC8OSxhf5/Vs6AK
- q7tsAW+fxRXcfkoP0hUrxW1mh/yBgvQDiHe6OGWiA8hf2Rki2Mf6vKlQ1lmdHhfVeEb+OdFNz78
- uMRw4/lBRXG69kmaP7kdziOCWg38tGwjGm+rel4rUIREkBaMNxcSdwyRfRlCqaqe4gGoX7BSQPy
- 4GAbu5HepHKXWGfWpOBnNsfxhIwpNYwH4VCdnTgxBj4BwkyE
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250715_055452_508963_D8020C28 
-X-CRM114-Status: GOOD (  11.53  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <04d52182-6043-4eaf-a898-9f8ccc893e5f@linaro.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,101 +87,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-[ Upstream commit a75ad2fc76a2ab70817c7eed3163b66ea84ca6ac ]
+On Tue, Jul 15, 2025 at 01:48:03PM +0100, James Clark wrote:
+> 
+> 
+> On 14/07/2025 2:54 pm, Will Deacon wrote:
+> > On Thu, Jun 05, 2025 at 11:49:02AM +0100, James Clark wrote:
+> > > SPE data source filtering (optional from Armv8.8) requires that traps to
+> > > the filter register PMSDSFR be disabled. Document the requirements and
+> > > disable the traps if the feature is present.
+> > > 
+> > > Tested-by: Leo Yan <leo.yan@arm.com>
+> > > Signed-off-by: James Clark <james.clark@linaro.org>
+> > > ---
+> > >   Documentation/arch/arm64/booting.rst | 11 +++++++++++
+> > >   arch/arm64/include/asm/el2_setup.h   | 14 ++++++++++++++
+> > >   2 files changed, 25 insertions(+)
+> > > 
+> > > diff --git a/Documentation/arch/arm64/booting.rst b/Documentation/arch/arm64/booting.rst
+> > > index dee7b6de864f..abd75085a239 100644
+> > > --- a/Documentation/arch/arm64/booting.rst
+> > > +++ b/Documentation/arch/arm64/booting.rst
+> > > @@ -404,6 +404,17 @@ Before jumping into the kernel, the following conditions must be met:
+> > >       - HDFGWTR2_EL2.nPMICFILTR_EL0 (bit 3) must be initialised to 0b1.
+> > >       - HDFGWTR2_EL2.nPMUACR_EL1 (bit 4) must be initialised to 0b1.
+> > > +  For CPUs with SPE data source filtering (FEAT_SPE_FDS):
+> > > +
+> > > +  - If EL3 is present:
+> > > +
+> > > +    - MDCR_EL3.EnPMS3 (bit 42) must be initialised to 0b1.
+> > > +
+> > > +  - If the kernel is entered at EL1 and EL2 is present:
+> > > +
+> > > +    - HDFGRTR2_EL2.nPMSDSFR_EL1 (bit 19) must be initialised to 0b1.
+> > > +    - HDFGWTR2_EL2.nPMSDSFR_EL1 (bit 19) must be initialised to 0b1.
+> > > +
+> > >     For CPUs with Memory Copy and Memory Set instructions (FEAT_MOPS):
+> > >     - If the kernel is entered at EL1 and EL2 is present:
+> > > diff --git a/arch/arm64/include/asm/el2_setup.h b/arch/arm64/include/asm/el2_setup.h
+> > > index 1e7c7475e43f..02b4a7fc016e 100644
+> > > --- a/arch/arm64/include/asm/el2_setup.h
+> > > +++ b/arch/arm64/include/asm/el2_setup.h
+> > > @@ -279,6 +279,20 @@
+> > >   	orr	x0, x0, #HDFGRTR2_EL2_nPMICFILTR_EL0
+> > >   	orr	x0, x0, #HDFGRTR2_EL2_nPMUACR_EL1
+> > >   .Lskip_pmuv3p9_\@:
+> > > +	mrs	x1, id_aa64dfr0_el1
+> > > +	ubfx	x1, x1, #ID_AA64DFR0_EL1_PMSVer_SHIFT, #4
+> > > +	/* If SPE is implemented, */
+> > > +	cmp	x1, #ID_AA64DFR0_EL1_PMSVer_IMP
+> > > +	b.lt	.Lskip_spefds_\@
+> > > +	/* we can read PMSIDR and */
+> > > +	mrs_s	x1, SYS_PMSIDR_EL1
+> > > +	and	x1, x1,  #PMSIDR_EL1_FDS
+> > > +	/* if FEAT_SPE_FDS is implemented, */
+> > > +	cbz	x1, .Lskip_spefds_\@
+> > > +	/* disable traps to PMSDSFR. */
+> > > +	orr	x0, x0, #HDFGRTR2_EL2_nPMSDSFR_EL1
+> > 
+> > Why is this being done here rather than alongside the existing SPE
+> > configuration of HDFGRTR_EL2 and HDFGWTR_EL2 near the start of
+> > __init_el2_fgt?
+> > 
+> I thought everything was separated by which trap configs it writes to,
+> rather than the feature. This SPE feature is in HDFGRTR2 so I put it in
+> __init_el2_fgt2 rather than __init_el2_fgt.
 
-We have a number of hwcaps for various SME subfeatures enumerated via
-ID_AA64SMFR0_EL1. Currently we advertise these without cross checking
-against the main SME feature, advertised in ID_AA64PFR1_EL1.SME which
-means that if the two are out of sync userspace can see a confusing
-situation where SME subfeatures are advertised without the base SME
-hwcap. This can be readily triggered by using the arm64.nosme override
-which only masks out ID_AA64PFR1_EL1.SME, and there have also been
-reports of VMMs which do the same thing.
+That's fair; __init_el2_fgt isn't the right place. But the redundancy of
+re-reading PMSVer from DFR0 is a little jarring.
 
-Fix this as we did previously for SVE in 064737920bdb ("arm64: Filter
-out SVE hwcaps when FEAT_SVE isn't implemented") by filtering out the
-SME subfeature hwcaps when FEAT_SME is not present.
+> I suppose we could have a single __init_el2_spe that writes to both HDFGRTR
+> and HDFGRTR2 but we'd have to be careful to not overwrite what was already
+> done in the other sections.
 
-Fixes: 5e64b862c482 ("arm64/sme: Basic enumeration support")
-Reported-by: Yury Khrustalev <yury.khrustalev@arm.com>
-Signed-off-by: Mark Brown <broonie@kernel.org>
-Cc: stable@vger.kernel.org
-Link: https://lore.kernel.org/r/20250620-arm64-sme-filter-hwcaps-v1-1-02b9d3c2d8ef@kernel.org
-Signed-off-by: Will Deacon <will@kernel.org>
----
- arch/arm64/kernel/cpufeature.c | 45 ++++++++++++++++++++++++------------------
- 1 file changed, 26 insertions(+), 19 deletions(-)
+Right, perhaps it would be clearer to have trap-preserving macros for
+features in a specific ID register rather than per-trap configuration
+register macros.
 
-diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-index 05ccf4ec278f..9ca5ffd8d817 100644
---- a/arch/arm64/kernel/cpufeature.c
-+++ b/arch/arm64/kernel/cpufeature.c
-@@ -2959,6 +2959,13 @@ static bool has_sve_feature(const struct arm64_cpu_capabilities *cap, int scope)
- }
- #endif
- 
-+#ifdef CONFIG_ARM64_SME
-+static bool has_sme_feature(const struct arm64_cpu_capabilities *cap, int scope)
-+{
-+	return system_supports_sme() && has_user_cpuid_feature(cap, scope);
-+}
-+#endif
-+
- static const struct arm64_cpu_capabilities arm64_elf_hwcaps[] = {
- 	HWCAP_CAP(ID_AA64ISAR0_EL1, AES, PMULL, CAP_HWCAP, KERNEL_HWCAP_PMULL),
- 	HWCAP_CAP(ID_AA64ISAR0_EL1, AES, AES, CAP_HWCAP, KERNEL_HWCAP_AES),
-@@ -3037,25 +3044,25 @@ static const struct arm64_cpu_capabilities arm64_elf_hwcaps[] = {
- 	HWCAP_CAP(ID_AA64ISAR2_EL1, BC, IMP, CAP_HWCAP, KERNEL_HWCAP_HBC),
- #ifdef CONFIG_ARM64_SME
- 	HWCAP_CAP(ID_AA64PFR1_EL1, SME, IMP, CAP_HWCAP, KERNEL_HWCAP_SME),
--	HWCAP_CAP(ID_AA64SMFR0_EL1, FA64, IMP, CAP_HWCAP, KERNEL_HWCAP_SME_FA64),
--	HWCAP_CAP(ID_AA64SMFR0_EL1, LUTv2, IMP, CAP_HWCAP, KERNEL_HWCAP_SME_LUTV2),
--	HWCAP_CAP(ID_AA64SMFR0_EL1, SMEver, SME2p1, CAP_HWCAP, KERNEL_HWCAP_SME2P1),
--	HWCAP_CAP(ID_AA64SMFR0_EL1, SMEver, SME2, CAP_HWCAP, KERNEL_HWCAP_SME2),
--	HWCAP_CAP(ID_AA64SMFR0_EL1, I16I64, IMP, CAP_HWCAP, KERNEL_HWCAP_SME_I16I64),
--	HWCAP_CAP(ID_AA64SMFR0_EL1, F64F64, IMP, CAP_HWCAP, KERNEL_HWCAP_SME_F64F64),
--	HWCAP_CAP(ID_AA64SMFR0_EL1, I16I32, IMP, CAP_HWCAP, KERNEL_HWCAP_SME_I16I32),
--	HWCAP_CAP(ID_AA64SMFR0_EL1, B16B16, IMP, CAP_HWCAP, KERNEL_HWCAP_SME_B16B16),
--	HWCAP_CAP(ID_AA64SMFR0_EL1, F16F16, IMP, CAP_HWCAP, KERNEL_HWCAP_SME_F16F16),
--	HWCAP_CAP(ID_AA64SMFR0_EL1, F8F16, IMP, CAP_HWCAP, KERNEL_HWCAP_SME_F8F16),
--	HWCAP_CAP(ID_AA64SMFR0_EL1, F8F32, IMP, CAP_HWCAP, KERNEL_HWCAP_SME_F8F32),
--	HWCAP_CAP(ID_AA64SMFR0_EL1, I8I32, IMP, CAP_HWCAP, KERNEL_HWCAP_SME_I8I32),
--	HWCAP_CAP(ID_AA64SMFR0_EL1, F16F32, IMP, CAP_HWCAP, KERNEL_HWCAP_SME_F16F32),
--	HWCAP_CAP(ID_AA64SMFR0_EL1, B16F32, IMP, CAP_HWCAP, KERNEL_HWCAP_SME_B16F32),
--	HWCAP_CAP(ID_AA64SMFR0_EL1, BI32I32, IMP, CAP_HWCAP, KERNEL_HWCAP_SME_BI32I32),
--	HWCAP_CAP(ID_AA64SMFR0_EL1, F32F32, IMP, CAP_HWCAP, KERNEL_HWCAP_SME_F32F32),
--	HWCAP_CAP(ID_AA64SMFR0_EL1, SF8FMA, IMP, CAP_HWCAP, KERNEL_HWCAP_SME_SF8FMA),
--	HWCAP_CAP(ID_AA64SMFR0_EL1, SF8DP4, IMP, CAP_HWCAP, KERNEL_HWCAP_SME_SF8DP4),
--	HWCAP_CAP(ID_AA64SMFR0_EL1, SF8DP2, IMP, CAP_HWCAP, KERNEL_HWCAP_SME_SF8DP2),
-+	HWCAP_CAP_MATCH_ID(has_sme_feature, ID_AA64SMFR0_EL1, FA64, IMP, CAP_HWCAP, KERNEL_HWCAP_SME_FA64),
-+	HWCAP_CAP_MATCH_ID(has_sme_feature, ID_AA64SMFR0_EL1, LUTv2, IMP, CAP_HWCAP, KERNEL_HWCAP_SME_LUTV2),
-+	HWCAP_CAP_MATCH_ID(has_sme_feature, ID_AA64SMFR0_EL1, SMEver, SME2p1, CAP_HWCAP, KERNEL_HWCAP_SME2P1),
-+	HWCAP_CAP_MATCH_ID(has_sme_feature, ID_AA64SMFR0_EL1, SMEver, SME2, CAP_HWCAP, KERNEL_HWCAP_SME2),
-+	HWCAP_CAP_MATCH_ID(has_sme_feature, ID_AA64SMFR0_EL1, I16I64, IMP, CAP_HWCAP, KERNEL_HWCAP_SME_I16I64),
-+	HWCAP_CAP_MATCH_ID(has_sme_feature, ID_AA64SMFR0_EL1, F64F64, IMP, CAP_HWCAP, KERNEL_HWCAP_SME_F64F64),
-+	HWCAP_CAP_MATCH_ID(has_sme_feature, ID_AA64SMFR0_EL1, I16I32, IMP, CAP_HWCAP, KERNEL_HWCAP_SME_I16I32),
-+	HWCAP_CAP_MATCH_ID(has_sme_feature, ID_AA64SMFR0_EL1, B16B16, IMP, CAP_HWCAP, KERNEL_HWCAP_SME_B16B16),
-+	HWCAP_CAP_MATCH_ID(has_sme_feature, ID_AA64SMFR0_EL1, F16F16, IMP, CAP_HWCAP, KERNEL_HWCAP_SME_F16F16),
-+	HWCAP_CAP_MATCH_ID(has_sme_feature, ID_AA64SMFR0_EL1, F8F16, IMP, CAP_HWCAP, KERNEL_HWCAP_SME_F8F16),
-+	HWCAP_CAP_MATCH_ID(has_sme_feature, ID_AA64SMFR0_EL1, F8F32, IMP, CAP_HWCAP, KERNEL_HWCAP_SME_F8F32),
-+	HWCAP_CAP_MATCH_ID(has_sme_feature, ID_AA64SMFR0_EL1, I8I32, IMP, CAP_HWCAP, KERNEL_HWCAP_SME_I8I32),
-+	HWCAP_CAP_MATCH_ID(has_sme_feature, ID_AA64SMFR0_EL1, F16F32, IMP, CAP_HWCAP, KERNEL_HWCAP_SME_F16F32),
-+	HWCAP_CAP_MATCH_ID(has_sme_feature, ID_AA64SMFR0_EL1, B16F32, IMP, CAP_HWCAP, KERNEL_HWCAP_SME_B16F32),
-+	HWCAP_CAP_MATCH_ID(has_sme_feature, ID_AA64SMFR0_EL1, BI32I32, IMP, CAP_HWCAP, KERNEL_HWCAP_SME_BI32I32),
-+	HWCAP_CAP_MATCH_ID(has_sme_feature, ID_AA64SMFR0_EL1, F32F32, IMP, CAP_HWCAP, KERNEL_HWCAP_SME_F32F32),
-+	HWCAP_CAP_MATCH_ID(has_sme_feature, ID_AA64SMFR0_EL1, SF8FMA, IMP, CAP_HWCAP, KERNEL_HWCAP_SME_SF8FMA),
-+	HWCAP_CAP_MATCH_ID(has_sme_feature, ID_AA64SMFR0_EL1, SF8DP4, IMP, CAP_HWCAP, KERNEL_HWCAP_SME_SF8DP4),
-+	HWCAP_CAP_MATCH_ID(has_sme_feature, ID_AA64SMFR0_EL1, SF8DP2, IMP, CAP_HWCAP, KERNEL_HWCAP_SME_SF8DP2),
- #endif /* CONFIG_ARM64_SME */
- 	HWCAP_CAP(ID_AA64FPFR0_EL1, F8CVT, IMP, CAP_HWCAP, KERNEL_HWCAP_F8CVT),
- 	HWCAP_CAP(ID_AA64FPFR0_EL1, F8FMA, IMP, CAP_HWCAP, KERNEL_HWCAP_F8FMA),
+In other words, we have something like __init_fgt_aa64dfr0 which would
+configure the FGT and FGT2 registers based on features in aa64dfr0. I
+think you'd need to have a play to see how it ends up looking but the
+main thing to avoid is having duplicate ID register parsing code for
+setting up FGT and FGT2 traps.
 
----
-base-commit: fbad404f04d758c52bae79ca20d0e7fe5fef91d3
-change-id: 20250714-stable-6-12-sme-feat-filt-8e58f0a8c08d
-
-Best regards,
---  
-Mark Brown <broonie@kernel.org>
-
+Will
 
