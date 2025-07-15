@@ -4,91 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4A4EC83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 19:19:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEC72C83F22
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 19:19:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JeSwPftceeI4bS5ZJ/5dVmNBTZSjRvLVPg9Q3yUXq/U=; b=SveSrG/Tnpethjr+sapzo7tPr8
-	bU8y4rX5M4tt3pXWKGcuawH1Ax1HOCCnsqyeaVv6fCeZMXKHYuJGXNqF/kbBGiu1lTFvBw651fKjD
-	k7Gecjq+t3R7bqQsq9/XI+yBpQh6LejrPVlFBdYF12GRtpdHvgPoZT9W88mWJwJsCIof2wZfsLx2O
-	8tzdrqu/EHmw9pHh1NtM3+HMDA9wtUbi3jGoaEQUVoarL3ax/JmaqBAXvyyX48iMSryhAvdnLq26S
-	j41hiAK3/Ja5QTazRqAKOiwjXx8OsX+eCFSOb8IPNdLl3pybqHl9DSnN/xri/lMPoZ+qPye8StOLi
-	UDrFzmQg==;
+	bh=vOzzCpCg47IZeLV5BzjmPiZ2oEsFdgUOmfuTOZ4lHxI=; b=nGiMPAjSGhB79CUQbIRc8AfLvr
+	PMEDDncvxmv/9IiZFm36b2McyHe+XJSTDLKoLGj6BfZ9SwrIdgqBKXVFsE3yeIEZAU/rxcJpcRHHO
+	Jq9PO1j+8xzBM5vDOkjBcgR+nzT7db03LKT4qaT+My9pczvMM3l3N3zcU8tjkik9T55Xan3hi0o17
+	OckE3BHLjuqpDYxUv6a9lidTbMvAcGqVXK3ytVFXcycWivL5lqsDtnXUqfmTtUE2aINkYK0pB6vjg
+	tlhPSsU9W+dJn0srt3ZJf/uc6MHayzbeIyzQZuf8NZmTO0EdO6kRQaHBWVAIvy95vCuyY6CpOsc0C
+	pvm9XT+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ublBj-000000061rs-1lEO;
-	Tue, 15 Jul 2025 19:19:39 +0000
-Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	id 1ublBk-000000061uj-3bDf;
+	Tue, 15 Jul 2025 19:19:40 +0000
+Received: from mgamail.intel.com ([192.198.163.18])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubjN5-00000005p60-3AlR
+	id 1ubjR5-00000005pMZ-3UBP
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Jul 2025 17:23:16 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-23c703c471dso1288495ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Jul 2025 10:23:14 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1752600194; x=1753204994; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=JeSwPftceeI4bS5ZJ/5dVmNBTZSjRvLVPg9Q3yUXq/U=;
-        b=guxPp2JDd/7qJypcvjk+oIg7Xm79Z8nW3eZuDjv6rxY4m+1Q0Q05zOxyIqOwOX9tMN
-         OSXZV783ggCZCTiT6TgrvRi2Uc//UJuIpX9jm120dDUZ25lBCUxlZsmkvpRVQveQ/IBf
-         UszPkGksQcez3nh+SuFg0VNqlKdn30/5ndTI8E7TM+b2TLvKjTJIY1NtEZ5zTPb1aGWf
-         PipUH9Mjl6nRnfGUw2xWkk6H8RqNMopBIGvlWipwjtSfGQiXJkZLlxg0SyIAWqy5GnlV
-         4WtNl5ybBeaTYfvAb6KXA8Ve4xo//QNL9lDHVD3vHvoYKrcrzadkm7MAh/iiCPL7o0SI
-         DjXQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752600194; x=1753204994;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=JeSwPftceeI4bS5ZJ/5dVmNBTZSjRvLVPg9Q3yUXq/U=;
-        b=WkDolOCGg2UDeIBQ+fKoUZoUsQg/dibG5hn8TJ3RLqNFcEjWPXjkYHyDIUsJKNRoS+
-         v0Jrwt7m9jdsATPn/X+lLhs5BMLly18yTBYOA0/Ge23dcWjhMX5MsM/c45U+chmQZKO5
-         cqbRPK2Bt1N570WZLVMBYHg6+CaeR2QaAOasYzqz8/NauxU+LCtUZBcjaC8xbc2lpVv2
-         gyZ6sMitZRKp2cFXnKYlj0CQYIb5WXQEILCU5stCMFMS3foBuWjUpW7pZrKEPhcn1Hds
-         wnFzxvU+PhDn4pAbisqjUrK4TwfkNTuHE5vwJRAZ6J6OrlGdkBdhsL0oqkyPWlwuD3J+
-         8ZkQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVaslpes6IofzHrTisIrqY3Mgt/6ADkaY4tkpnvB4G5t0qt5EllfQkZt4YxwF7XB+ov3g32nYfbJD7NyehlPmLb@lists.infradead.org
-X-Gm-Message-State: AOJu0YyJFGe7iE/2RDgYwpaAuIQlbj5s36Yx876Cu3PLagHxvccOaLQ4
-	wDzPrtGVvgHv0q1C6GL49Eff0U0zKCgAadYh6vzY/CKQL+tZrHiK+y2RJd5s0WQFLY3EkAKxy3e
-	BQLLIow==
-X-Gm-Gg: ASbGncu2PX7+VyiALGmkS3JNSrlE//AP8U6S7EMgSVTxNFmPBCF07VY13WJSOOGW+AC
-	alAazRWyLj+PJ/8Tx2yHoWlmZAB+7hL5TSRpYX5iUarjXyyRcR/Yf28jEmM+Mtj6DhxzA8NYDMz
-	YCTMpCScgrMXCTHkWQBHOWtgijGuIlL0rDIGURNmMzsu25GvzkQ9T3LwaEujnQZLf381mwnAWmm
-	K6JxOKhhzCMTCW8t5jPqbw/xziSqu3E60Q393rUKT5m+Xf8PEhQ2APSy6iuUksdrOvNCXQ5T2SP
-	2IUgcfZ/B7XyC9KpnbYHGNZ3t8/rpQ5pK8k0y5jidJbxvxjiyvyPcdIH3jUkUtTbc0NJ8wdx1/2
-	UlM5NfpOV0M4XS9vZ4xu787wVkbclv7LZeOFa2yjyrB/8ka57q9DSUFtTJHRGryg=
-X-Google-Smtp-Source: AGHT+IE8tlVGhJEdemSXyXUpK0hF30ss3dhi3KqymqtfDaNyMz+jAYsoKXuNfguzst4OMQTFv0uS9A==
-X-Received: by 2002:a17:903:1248:b0:231:c89f:4e94 with SMTP id d9443c01a7336-23e1a4c71e3mr67028215ad.21.1752600193877;
-        Tue, 15 Jul 2025 10:23:13 -0700 (PDT)
-Received: from google.com (152.33.83.34.bc.googleusercontent.com. [34.83.33.152])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23de4332eadsm116684575ad.153.2025.07.15.10.23.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 15 Jul 2025 10:23:13 -0700 (PDT)
-Date: Tue, 15 Jul 2025 10:23:09 -0700
-From: William McVicker <willmcvicker@google.com>
-To: Daniel Lezcano <daniel.lezcano@linaro.org>
-Cc: tglx@linutronix.de, linux-kernel@vger.kernel.org,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	"moderated list:ARM/SAMSUNG S3C, S5P AND EXYNOS ARM ARCHITECTURES" <linux-arm-kernel@lists.infradead.org>,
-	"open list:ARM/SAMSUNG S3C, S5P AND EXYNOS ARM ARCHITECTURES" <linux-samsung-soc@vger.kernel.org>
-Subject: Re: [PATCH] clocksource/drivers/exynos_mct: Fix section mismatch
- from the module conversion
-Message-ID: <aHaOfZk77xDf81cP@google.com>
-References: <20250620181719.1399856-6-willmcvicker@google.com>
- <20250715121834.2059191-1-daniel.lezcano@linaro.org>
+	Tue, 15 Jul 2025 17:27:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1752600444; x=1784136444;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=ovPKG96PX8GRLMCJnscYphDbflIJz5ol2cbrtMEYKMU=;
+  b=jKXrMoayu6f0xFJ74k6TvXmsmf4eX9+n2aTEw1HlPv7KEjV1gZgg92V6
+   bfdRilvUv0RKvG4P0bqGaOUeHUxiwEnbbcYc5u1V3amuvNCxQ7ENSYEQp
+   kFwiirTa3aNRw6ZeTq7ChbQ/3mAB055DDK/g63/ounmfLw8W7uIk4NcPN
+   oU1DNZ/Ox/N/hAXXnQJbdCF8RWfZQ2qFDZ8FI8I3IB+xSyEJvsI6SZBN+
+   WRdUrZiy64qC31VhyWbn11FwI53VN/5DCeDMjmeE+4yOzLHs7vFPyOrWe
+   5PKM3VuJgDeoB+N7Vb9c64RgXSkot9VRYo0b625dWces2kR/GOzv5AFeR
+   Q==;
+X-CSE-ConnectionGUID: diD+/0xNTMmsh57J+Xp3kw==
+X-CSE-MsgGUID: hT1iwSDlQ16t53rHwynRdg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11493"; a="54048316"
+X-IronPort-AV: E=Sophos;i="6.16,313,1744095600"; 
+   d="scan'208";a="54048316"
+Received: from orviesa003.jf.intel.com ([10.64.159.143])
+  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Jul 2025 10:27:21 -0700
+X-CSE-ConnectionGUID: dJg+dbpVQYq+HakiiLMIUQ==
+X-CSE-MsgGUID: kn5/sUpZQIa1Yvs1bCgxAA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.16,313,1744095600"; 
+   d="scan'208";a="161605026"
+Received: from lkp-server01.sh.intel.com (HELO 9ee84586c615) ([10.239.97.150])
+  by orviesa003.jf.intel.com with ESMTP; 15 Jul 2025 10:27:15 -0700
+Received: from kbuild by 9ee84586c615 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1ubjQu-000BNn-1v;
+	Tue, 15 Jul 2025 17:27:12 +0000
+Date: Wed, 16 Jul 2025 01:26:23 +0800
+From: kernel test robot <lkp@intel.com>
+To: Colton Lewis <coltonlewis@google.com>, kvm@vger.kernel.org
+Cc: oe-kbuild-all@lists.linux.dev, Paolo Bonzini <pbonzini@redhat.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Russell King <linux@armlinux.org.uk>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Mingwei Zhang <mizhang@google.com>, Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Shuah Khan <skhan@linuxfoundation.org>, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev, linux-perf-users@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	Colton Lewis <coltonlewis@google.com>
+Subject: Re: [PATCH v4 22/23] KVM: arm64: Add ioctl to partition the PMU when
+ supported
+Message-ID: <202507160129.vrvWpdVu-lkp@intel.com>
+References: <20250714225917.1396543-23-coltonlewis@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250715121834.2059191-1-daniel.lezcano@linaro.org>
+In-Reply-To: <20250714225917.1396543-23-coltonlewis@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250715_102315_796690_220067D7 
-X-CRM114-Status: GOOD (  21.42  )
+X-CRM114-CacheID: sfid-20250715_102723_885823_9E5BDA29 
+X-CRM114-Status: GOOD (  11.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,64 +101,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 07/15/2025, Daniel Lezcano wrote:
-> The function register_current_timer_delay() when compiling on ARM32
-> fails with a section mismatch. That is resulting from the module
-> conversion where the function exynos4_clocksource_init() is called
-> from mct_init_dt(). This one had its __init annotation removed to for
-> the module loading.
-> 
-> Fix this by adding the __init_or_module annotation for the functions:
->  - mct_init_dt()
->  - mct_init_spi()
->  - mct_init_dt()
-> 
-> Compiled on ARM32 + MODULES=no, ARM64 + MODULES=yes, ARM64 +
-> MODULES=no
-> 
-> Signed-off-by: Daniel Lezcano <daniel.lezcano@linaro.org>
+Hi Colton,
 
-Reviewed-by: Will McVicker <willmcvicker@google.com>
+kernel test robot noticed the following build errors:
 
-> ---
->  drivers/clocksource/exynos_mct.c | 6 +++---
->  1 file changed, 3 insertions(+), 3 deletions(-)
-> 
-> diff --git a/drivers/clocksource/exynos_mct.c b/drivers/clocksource/exynos_mct.c
-> index 5075ebe052a7..80d263ee046d 100644
-> --- a/drivers/clocksource/exynos_mct.c
-> +++ b/drivers/clocksource/exynos_mct.c
-> @@ -657,7 +657,7 @@ static int exynos4_timer_interrupts(struct device_node *np,
->  	return err;
->  }
->  
-> -static int mct_init_dt(struct device_node *np, unsigned int int_type)
-> +static __init_or_module int mct_init_dt(struct device_node *np, unsigned int int_type)
->  {
->  	bool frc_shared = of_property_read_bool(np, "samsung,frc-shared");
->  	u32 local_idx[MCT_NR_LOCAL] = {0};
-> @@ -705,12 +705,12 @@ static int mct_init_dt(struct device_node *np, unsigned int int_type)
->  	return exynos4_clockevent_init();
->  }
->  
-> -static int mct_init_spi(struct device_node *np)
-> +static __init_or_module int mct_init_spi(struct device_node *np)
->  {
->  	return mct_init_dt(np, MCT_INT_SPI);
->  }
->  
-> -static int mct_init_ppi(struct device_node *np)
-> +static __init_or_module int mct_init_ppi(struct device_node *np)
->  {
->  	return mct_init_dt(np, MCT_INT_PPI);
->  }
-> -- 
-> 2.43.0
-> 
+[auto build test ERROR on 79150772457f4d45e38b842d786240c36bb1f97f]
 
-Thanks Daniel for catching this! Sorry I missed it.
+url:    https://github.com/intel-lab-lkp/linux/commits/Colton-Lewis/arm64-cpufeature-Add-cpucap-for-HPMN0/20250715-070741
+base:   79150772457f4d45e38b842d786240c36bb1f97f
+patch link:    https://lore.kernel.org/r/20250714225917.1396543-23-coltonlewis%40google.com
+patch subject: [PATCH v4 22/23] KVM: arm64: Add ioctl to partition the PMU when supported
+config: arm64-randconfig-003-20250715 (https://download.01.org/0day-ci/archive/20250716/202507160129.vrvWpdVu-lkp@intel.com/config)
+compiler: aarch64-linux-gcc (GCC) 8.5.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250716/202507160129.vrvWpdVu-lkp@intel.com/reproduce)
 
-Regards,
-Will
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202507160129.vrvWpdVu-lkp@intel.com/
 
+All errors (new ones prefixed by >>):
+
+   In file included from arch/arm64/include/asm/kvm_host.h:31,
+                    from include/linux/kvm_host.h:45,
+                    from arch/arm64/kernel/asm-offsets.c:15:
+   arch/arm64/include/asm/kvm_pmu.h: In function 'kvm_pmu_is_partitioned':
+>> arch/arm64/include/asm/kvm_pmu.h:301:43: error: parameter name omitted
+    static inline bool kvm_pmu_is_partitioned(void *)
+                                              ^~~~~~
+   arch/arm64/include/asm/kvm_pmu.h: In function 'kvm_pmu_host_counter_mask':
+   arch/arm64/include/asm/kvm_pmu.h:306:45: error: parameter name omitted
+    static inline u64 kvm_pmu_host_counter_mask(void *)
+                                                ^~~~~~
+   arch/arm64/include/asm/kvm_pmu.h: In function 'kvm_pmu_guest_counter_mask':
+   arch/arm64/include/asm/kvm_pmu.h:311:46: error: parameter name omitted
+    static inline u64 kvm_pmu_guest_counter_mask(void *)
+                                                 ^~~~~~
+   make[3]: *** [scripts/Makefile.build:182: arch/arm64/kernel/asm-offsets.s] Error 1 shuffle=21662191
+   make[3]: Target 'prepare' not remade because of errors.
+   make[2]: *** [Makefile:1274: prepare0] Error 2 shuffle=21662191
+   make[2]: Target 'prepare' not remade because of errors.
+   make[1]: *** [Makefile:248: __sub-make] Error 2 shuffle=21662191
+   make[1]: Target 'prepare' not remade because of errors.
+   make: *** [Makefile:248: __sub-make] Error 2 shuffle=21662191
+   make: Target 'prepare' not remade because of errors.
+
+
+vim +301 arch/arm64/include/asm/kvm_pmu.h
+
+   300	
+ > 301	static inline bool kvm_pmu_is_partitioned(void *)
+   302	{
+   303		return false;
+   304	}
+   305	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
