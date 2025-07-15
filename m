@@ -4,59 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29A72C83F1D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 06:58:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55B85C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 07:10:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wM9RZd2l8FHe/C2NQuJ72BJijZHInf4XljI+8SE3uUE=; b=v1YfRXFbi3hAoVqAiS7yh3J1k9
-	Gg+8h39o/yQtBl5fstvmxBB8QdZ5x3QZgx93wvZP2l+6ptznuF2sinlACTrEuL1sSw5tLMqstZz+2
-	GoYb/Kwzm7sAnNmEKObPrLaIQLQpyGj5m9R+QbTSLrFY5kcdFWPWSYmNHnCn0NODz8TivS7fbcwjM
-	yLbzk1mpvhVc2hi1HZcSAuEUa3JCG3hLhs3rZPQvretcPSn3bP9R6Vw6HIf+SwPkuo31qOc5BmJ+8
-	ZNVc1he1twVkFZcDLdVIetbyuTV3hpvjP2IIezc80Lq7BxmlayhpJ0izZFEWI/ITfPtdL69dbqrDO
-	EV5kp6uQ==;
+	bh=KQzkqrfUSvnBljERKPGdhvxyCebpfiP092MYdAIusq8=; b=v8fS+KG88/fADkdjaouHlwfTZ5
+	PXyk154P5ABBfG8ktuTtP84kOzmIXu/fdaHm+OectKauSWL2J0cgNLCdAvbvOcIgo+MDNCyAYNXHJ
+	mL85j62spbqeoMX2oP33BTqX7IILyYjKZCl8LG8aHZdh73FXo0PxG4tZJkYc2G21FvKUHSgK0sOWX
+	UQqE8x4Jd+3LN9Cw0a0G48tofbPR5VbT5tN+wank+fejJ76dxWivB9vMP9gvofPPFQwRX2+dDmIA2
+	CehbwRKiHI3X7Tsn4ugJkmTbOrAr5TELwFg6GaXoIL1yPeARHyd9j/kgLOD4+b0H0jA2Eht4Dymk6
+	tpAVhUgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubZcT-00000004GgJ-3yE9;
-	Tue, 15 Jul 2025 06:58:29 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubZXe-00000004GE5-2uCA
+	id 1ubZo8-00000004HrW-2c0h;
+	Tue, 15 Jul 2025 07:10:32 +0000
+Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ubZle-00000004HaN-3SKK
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Jul 2025 06:53:31 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4171E12FC;
-	Mon, 14 Jul 2025 23:53:20 -0700 (PDT)
-Received: from [10.163.92.132] (unknown [10.163.92.132])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2DAC13F66E;
-	Mon, 14 Jul 2025 23:53:24 -0700 (PDT)
-Message-ID: <cd8cba00-b495-4aab-b63c-699bb2c12d48@arm.com>
-Date: Tue, 15 Jul 2025 12:23:22 +0530
+	Tue, 15 Jul 2025 07:08:00 +0000
+Received: from fllvem-sh03.itg.ti.com ([10.64.41.86])
+	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTP id 56F77pLI2835369;
+	Tue, 15 Jul 2025 02:07:51 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1752563271;
+	bh=KQzkqrfUSvnBljERKPGdhvxyCebpfiP092MYdAIusq8=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=MKIN6RW9TRdeFPmiHw71lnX1kTy876Op/9t/NQFwPYM6UFFA9lnauRtaE9WngwFgr
+	 7Hyi3/38a/CvPQiy9vcnhKl0HJh//xM37CuYPpH3CMVPcq6y58Wr476q+263x9AQgD
+	 S2Aw7bC5lRugyLHJdS26wpyhp/4l7ZvrZKzJD7gU=
+Received: from DLEE115.ent.ti.com (dlee115.ent.ti.com [157.170.170.26])
+	by fllvem-sh03.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 56F77pE04088945
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Tue, 15 Jul 2025 02:07:51 -0500
+Received: from DLEE114.ent.ti.com (157.170.170.25) by DLEE115.ent.ti.com
+ (157.170.170.26) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Tue, 15
+ Jul 2025 02:07:50 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE114.ent.ti.com
+ (157.170.170.25) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Tue, 15 Jul 2025 02:07:51 -0500
+Received: from [172.24.29.51] (ltpw0g6zld.dhcp.ti.com [172.24.29.51])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 56F77kSv2459968;
+	Tue, 15 Jul 2025 02:07:46 -0500
+Message-ID: <b626dc40-e05b-40e0-b300-45ced82d2f97@ti.com>
+Date: Tue, 15 Jul 2025 12:37:45 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 01/28] coresight: Change device mode to atomic type
-To: Leo Yan <leo.yan@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
- Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>,
- Levi Yun <yeoreum.yun@arm.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Yabin Cui <yabinc@google.com>, Keita Morisaki <keyz@google.com>,
- Yuanfang Zhang <quic_yuanfang@quicinc.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20250701-arm_cs_pm_fix_v3-v2-0-23ebb864fcc1@arm.com>
- <20250701-arm_cs_pm_fix_v3-v2-1-23ebb864fcc1@arm.com>
+Subject: Re: [PATCH net v2] net: ti: icssg-prueth: Fix buffer allocation for
+ ICSSG
+To: Simon Horman <horms@kernel.org>
+CC: <pabeni@redhat.com>, <kuba@kernel.org>, <edumazet@google.com>,
+        <davem@davemloft.net>, <andrew+netdev@lunn.ch>,
+        <linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>,
+        Vignesh Raghavendra
+	<vigneshr@ti.com>,
+        Roger Quadros <rogerq@kernel.org>, <danishanwar@ti.com>,
+        <m-malladi@ti.com>, <pratheesh@ti.com>, <prajith@ti.com>
+References: <20250710131250.1294278-1-h-mittal1@ti.com>
+ <20250711144323.GV721198@horms.kernel.org>
 Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <20250701-arm_cs_pm_fix_v3-v2-1-23ebb864fcc1@arm.com>
-Content-Type: text/plain; charset=UTF-8
+From: "MITTAL, HIMANSHU" <h-mittal1@ti.com>
+In-Reply-To: <20250711144323.GV721198@horms.kernel.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250714_235330_923731_E03C4CD8 
-X-CRM114-Status: GOOD (  24.55  )
+X-CRM114-CacheID: sfid-20250715_000759_438373_B683ABD3 
+X-CRM114-Status: GOOD (  19.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,86 +93,111 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
+On 7/11/2025 8:13 PM, Simon Horman wrote:
+> On Thu, Jul 10, 2025 at 06:42:50PM +0530, Himanshu Mittal wrote:
+>> Fixes overlapping buffer allocation for ICSSG peripheral
+>> used for storing packets to be received/transmitted.
+>> There are 3 buffers:
+>> 1. Buffer for Locally Injected Packets
+>> 2. Buffer for Forwarding Packets
+>> 3. Buffer for Host Egress Packets
+>>
+>> In existing allocation buffers for 2. and 3. are overlapping causing packet
+>> corruption.
+>>
+>> Packet corruption observations:
+>> During tcp iperf testing, due to overlapping buffers the received ack
+>> packet overwrites the packet to be transmitted. So, we see packets on wire
+>> with the ack packet content inside the content of next TCP packet from
+>> sender device.
+>>
+>> Details for AM64x switch mode:
+>> -> Allocation by existing driver:
+>> +---------+-------------------------------------------------------------+
+>> |         |          SLICE 0             |          SLICE 1             |
+>> |         +------+--------------+--------+------+--------------+--------+
+>> |         | Slot | Base Address | Size   | Slot | Base Address | Size   |
+>> |---------+------+--------------+--------+------+--------------+--------+
+>> |         | 0    | 70000000     | 0x2000 | 0    | 70010000     | 0x2000 |
+>> |         | 1    | 70002000     | 0x2000 | 1    | 70012000     | 0x2000 |
+>> |         | 2    | 70004000     | 0x2000 | 2    | 70014000     | 0x2000 |
+>> | FWD     | 3    | 70006000     | 0x2000 | 3    | 70016000     | 0x2000 |
+>> | Buffers | 4    | 70008000     | 0x2000 | 4    | 70018000     | 0x2000 |
+>> |         | 5    | 7000A000     | 0x2000 | 5    | 7001A000     | 0x2000 |
+>> |         | 6    | 7000C000     | 0x2000 | 6    | 7001C000     | 0x2000 |
+>> |         | 7    | 7000E000     | 0x2000 | 7    | 7001E000     | 0x2000 |
+>> +---------+------+--------------+--------+------+--------------+--------+
+>> |         | 8    | 70020000     | 0x1000 | 8    | 70028000     | 0x1000 |
+>> |         | 9    | 70021000     | 0x1000 | 9    | 70029000     | 0x1000 |
+>> |         | 10   | 70022000     | 0x1000 | 10   | 7002A000     | 0x1000 |
+>> | Our     | 11   | 70023000     | 0x1000 | 11   | 7002B000     | 0x1000 |
+>> | LI      | 12   | 00000000     | 0x0    | 12   | 00000000     | 0x0    |
+>> | Buffers | 13   | 00000000     | 0x0    | 13   | 00000000     | 0x0    |
+>> |         | 14   | 00000000     | 0x0    | 14   | 00000000     | 0x0    |
+>> |         | 15   | 00000000     | 0x0    | 15   | 00000000     | 0x0    |
+>> +---------+------+--------------+--------+------+--------------+--------+
+>> |         | 16   | 70024000     | 0x1000 | 16   | 7002C000     | 0x1000 |
+>> |         | 17   | 70025000     | 0x1000 | 17   | 7002D000     | 0x1000 |
+>> |         | 18   | 70026000     | 0x1000 | 18   | 7002E000     | 0x1000 |
+>> | Their   | 19   | 70027000     | 0x1000 | 19   | 7002F000     | 0x1000 |
+>> | LI      | 20   | 00000000     | 0x0    | 20   | 00000000     | 0x0    |
+>> | Buffers | 21   | 00000000     | 0x0    | 21   | 00000000     | 0x0    |
+>> |         | 22   | 00000000     | 0x0    | 22   | 00000000     | 0x0    |
+>> |         | 23   | 00000000     | 0x0    | 23   | 00000000     | 0x0    |
+>> +---------+------+--------------+--------+------+--------------+--------+
+>> --> here 16, 17, 18, 19 overlapping with below express buffer
+>>
+>> +-----+-----------------------------------------------+
+>> |     |       SLICE 0       |        SLICE 1          |
+>> |     +------------+----------+------------+----------+
+>> |     | Start addr | End addr | Start addr | End addr |
+>> +-----+------------+----------+------------+----------+
+>> | EXP | 70024000   | 70028000 | 7002C000   | 70030000 | <-- Overlapping
+> Thanks for the detailed explanation with these tables.
+> It is very helpful. I follow both the existing and new mappings
+> with their help. Except for one thing.
+>
+> It's not clear how EXP was set to the values on the line above.
+> Probably I'm missing something very obvious.
+> Could you help me out here?
 
-On 01/07/25 8:23 PM, Leo Yan wrote:
-> The device mode is defined as local type. This type cannot promise
-> SMP-safe access.
-> 
-> Change to atomic type and impose relax ordering, which ensures the
-> SMP-safe synchronisation and the ordering between the mode setting and
-> relevant operations.
+The root cause for this issue is that, buffer configuration for Express 
+Frames
+in function: prueth_fw_offload_buffer_setup() is missing.
 
 
-But have we really faced such problems on real systems due to local_t
-or this is just an improvement ?
+Details:
+The driver implements two distinct buffer configuration functions that 
+are invoked
+based on the driver state and ICSSG firmware:- 
+prueth_fw_offload_buffer_setup()
+- prueth_emac_buffer_setup()
 
-> 
-> Fixes: 22fd532eaa0c ("coresight: etm3x: adding operation mode for etm_enable()")
-> Signed-off-by: Leo Yan <leo.yan@arm.com>
-> ---
->  include/linux/coresight.h | 25 +++++++++++--------------
->  1 file changed, 11 insertions(+), 14 deletions(-)
-> 
-> diff --git a/include/linux/coresight.h b/include/linux/coresight.h
-> index 4ac65c68bbf44b98db22c3dad2d83a224ce5278e..5fd3d08824e5a91a197aa01daf0fc392392f3e55 100644
-> --- a/include/linux/coresight.h
-> +++ b/include/linux/coresight.h
-> @@ -251,15 +251,11 @@ struct coresight_trace_id_map {
->   *		by @coresight_ops.
->   * @access:	Device i/o access abstraction for this device.
->   * @dev:	The device entity associated to this component.
-> - * @mode:	This tracer's mode, i.e sysFS, Perf or disabled. This is
-> - *		actually an 'enum cs_mode', but is stored in an atomic type.
-> - *		This is always accessed through local_read() and local_set(),
-> - *		but wherever it's done from within the Coresight device's lock,
-> - *		a non-atomic read would also work. This is the main point of
-> - *		synchronisation between code happening inside the sysfs mode's
-> - *		coresight_mutex and outside when running in Perf mode. A compare
-> - *		and exchange swap is done to atomically claim one mode or the
-> - *		other.
-> + * @mode:	The device mode, i.e sysFS, Perf or disabled. This is actually
-> + *		an 'enum cs_mode' but stored in an atomic type. Access is always
-> + *		through atomic APIs, ensuring SMP-safe synchronisation between
-> + *		racing from sysFS and Perf mode. A compare-and-exchange
-> + *		operation is done to atomically claim one mode or the other.
->   * @refcnt:	keep track of what is in use. Only access this outside of the
->   *		device's spinlock when the coresight_mutex held and mode ==
->   *		CS_MODE_SYSFS. Otherwise it must be accessed from inside the
-> @@ -288,7 +284,7 @@ struct coresight_device {
->  	const struct coresight_ops *ops;
->  	struct csdev_access access;
->  	struct device dev;
-> -	local_t	mode;
-> +	atomic_t mode;
->  	int refcnt;
->  	bool orphan;
->  	/* sink specific fields */
-> @@ -650,13 +646,14 @@ static inline bool coresight_is_percpu_sink(struct coresight_device *csdev)
->  static inline bool coresight_take_mode(struct coresight_device *csdev,
->  				       enum cs_mode new_mode)
->  {
-> -	return local_cmpxchg(&csdev->mode, CS_MODE_DISABLED, new_mode) ==
-> -	       CS_MODE_DISABLED;
-> +	int curr = CS_MODE_DISABLED;
-> +
-> +	return atomic_try_cmpxchg_acquire(&csdev->mode, &curr, new_mode);
->  }
->  
->  static inline enum cs_mode coresight_get_mode(struct coresight_device *csdev)
->  {
-> -	return local_read(&csdev->mode);
-> +	return atomic_read_acquire(&csdev->mode);
->  }
->  
->  static inline void coresight_set_mode(struct coresight_device *csdev,
-> @@ -672,7 +669,7 @@ static inline void coresight_set_mode(struct coresight_device *csdev,
->  	WARN(new_mode != CS_MODE_DISABLED && current_mode != CS_MODE_DISABLED &&
->  	     current_mode != new_mode, "Device already in use\n");
->  
-> -	local_set(&csdev->mode, new_mode);
-> +	atomic_set_release(&csdev->mode, new_mode);
->  }
->  
->  struct coresight_device *coresight_register(struct coresight_desc *desc);
-> 
+During initialization, the driver creates standard network interfaces 
+(netdevs) and
+configures buffers via prueth_emac_buffer_setup(). This function 
+properly allocates
+and configures all required memory regions including:
+- LI buffers
+- Express packet buffers
+- Preemptible packet buffers
+
+However, when the driver transitions to an offload mode (switch/HSR/PRP),
+buffer reconfiguration is handled by prueth_fw_offload_buffer_setup().
+This function does not reconfigure the buffer regions required for 
+Express packets,
+leading to incorrect buffer allocation.
+>> | PRE | 70030000   | 70033800 | 70034000   | 70037800 |
+>> +-----+------------+----------+------------+----------+
+>>
+>> +---------------------+----------+----------+
+>> |                     | SLICE 0  |  SLICE 1 |
+>> +---------------------+----------+----------+
+>> | Default Drop Offset | 00000000 | 00000000 |     <-- Field not configured
+>> +---------------------+----------+----------+
+> ...
+
+Thanks,
+Himanshu
+
 
