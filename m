@@ -4,88 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE099C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 23:20:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0517C83F27
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 23:22:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=46gEt3Bx0FBkn/nnSaRTnSsikfa6dw7cUtJIKu/AHuc=; b=2w3pBV1eZb/USXcJxoggbHVkY0
-	9T0xjOjS0aOdqVcpB189ItbcLUcWrha2oOXpN5KSPcNYtffRfYmzGBJoF9mLPGJtQku7tplY/GMIv
-	l0pWQyS9gHQKpdWCojv2w27mNXLXG6ZfoC3YHFbBr3D/ggl9Roqs1JlG4/LnYw7uWQ4vZD03NyGZ5
-	9sBQNH4X/slMNpVOqXuQwHAIhkLnDjAdmfkmP1zaWLED97pYwCWcBbyvPa/9CNhU2xbY8KRGW3MI8
-	ANRjB4xFe8erVlJZtI1CXovfQUbnSz4mDY5/adpWh77WAGqj7DvThqINzV+Dz6jmxKCHJ306EookZ
-	EgY6l+aQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=225LG7KVRfVg2Tx9cNUybQTD1Q0WQJOEjTxN1dPrQHI=; b=OAQHGajAG1kzvPS8B2mApYz9Dg
+	D070iwj/RU7zTAukDSXn2ghsFPeD7qhZ/BY8f6lebx4Efj7ls74jxn56wdb2tagilwnqflYbHhT61
+	Uz4p3+Hg4fV1UjxfXL+z/vPSKniG21ACiPOWBD1YitvllxDciY02lbVrLQ5SlmeStC/We914oC1RU
+	mb7EEs1aHDU44uKFfEZE4mUm5Ez7uDqt1T/gyymGSdav/fCLnIL27otYwCp0NTuEyppMJurp8vi6A
+	F85nWy8LoVapPF0S/+vjAzeKitid79aPgyLLPqCdVpExsua7J5udyB+O+eYIVHEanJN4ovJ/C0oTj
+	5a7iro/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubowO-00000006OEi-1zCG;
-	Tue, 15 Jul 2025 23:20:04 +0000
-Received: from mail-oi1-x230.google.com ([2607:f8b0:4864:20::230])
+	id 1uboyn-00000006Ohw-2fpU;
+	Tue, 15 Jul 2025 23:22:33 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uboec-00000006MsS-2rYT
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Jul 2025 23:01:43 +0000
-Received: by mail-oi1-x230.google.com with SMTP id 5614622812f47-41cd87eff4dso202836b6e.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Jul 2025 16:01:42 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1752620501; x=1753225301; darn=lists.infradead.org;
-        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=46gEt3Bx0FBkn/nnSaRTnSsikfa6dw7cUtJIKu/AHuc=;
-        b=h69pGpsjDXkGGwpDhy6b2LDg4M0XZiYtvO5v4FKq1oWFKC8i3pii81tT3fMVx8XGDi
-         XqwHjvqqgG9qxeBt1lA91+Ny+zk7wcKNsOLC2Zo5rwdaw+Cm+1vhpW2Ua+RukfCcUiEx
-         2zgmrz6zLYUcNs7o2SQB5zI3vAE81LFSX57BJJ2jCPZXG7SHRuULwcWOeTkbKnEy4LnV
-         jZJVsXPhQO3Prs5aROOGxe6Ve1UJRNRY+lylxVMEsEQTgVlFsyb+zb8w7I8U53e8PGpE
-         TAGOV8gIBUoDbnM/aNC+1PEzdbSSftmh9la0HUHNTyz0nwhWsHdntjO2bvaABfuI2nNk
-         v4xw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752620501; x=1753225301;
-        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=46gEt3Bx0FBkn/nnSaRTnSsikfa6dw7cUtJIKu/AHuc=;
-        b=Loc/pfzMmreemXLP8zz/oHej9Y0hPimOpN9NzAtveRiwOe8k/cA51xlhpmdjscrtZB
-         4El1dPsschLNehkX+K3fBpNU23KcwplNNzHEY32PiJ0kNmtklhokOHi7hBBRsonsqVoP
-         e+Y8A2z7ds1HbOKkbcEWMYrseAlQ/AX5WPddxQ2uVXrWZUJLnwUGW6Iwqi6S5DE9+LP9
-         FAIxBU3PMLMZJB0NRm4/y0os9lRqIwBhVl5XQkAAU8LO2oz5Sdy9BiOt4h0fKFdklOve
-         E3ZURrRJetrknu9IjMIiJCOG+7uU0fxnlErVBoSLnnJCO2sxFTzpaFwcMMMIx+/WWBUD
-         ySJQ==
-X-Forwarded-Encrypted: i=1; AJvYcCV2qejzv+zG8ZkS7T67ir5uTlyvhW/NCGScBaNvMZ40TsYVWoOuhGosu845Lt/oZDwIY4ZNb5S/v30ddQPnMW19@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy6RizSSyRNUeZh+juS0MyAzBhtE7nZpvntIP7IQRkChWKi++S7
-	0lMZ6BXbNzBQ35N06xty2mRaZWd49kYPJ/8JfhCW88KstadRIbZRBxddbJSEShgUfNw=
-X-Gm-Gg: ASbGnct37cFtd9A8DjCTDcEPXZ6ao8nQ+MXcb52Mj/ykPsNqWyQaua1Sq+ia81hasqf
-	DXsZcEX0D5jz5pmPcaGMLKjc2qj/h15dvNV0+Fxz5Ak91hz0iGx9Eoq1FAvKjHdDyNkM334KuVL
-	rluJt97ulMnRiHNx1E8TPgSNoTTzCZg9vXiDO4NFSHwpmu1a5Gev0i29SSb4a6iXCi68Frzx0QW
-	+xwjWb61sTwKavZYe1CCRJl9qN0AsK2U73Askomnkk6tW0mQTPwBjiYW1/9FeBYM3uGqW9IU+et
-	C8c53VHE6tiNWXAlLQM/JPeLJSN82jm0RL2G0uOHgtELYVjMPeVBH9HJPj4uNafkSW/MgG5c+CJ
-	vKP0b5VkUvjF8Io7tePXEZpQUdiIkq8Wz/kRPdSI=
-X-Google-Smtp-Source: AGHT+IFrIo3qo3Xq7DrVRugRg16jg4aCYHopevdB0f55AiC+g1RwMciM6Lgy4L9vDkABRNtjnbIHXQ==
-X-Received: by 2002:a05:6808:30a2:b0:409:f8e:7272 with SMTP id 5614622812f47-41cf0cb0f3cmr543563b6e.38.1752620501381;
-        Tue, 15 Jul 2025 16:01:41 -0700 (PDT)
-Received: from localhost ([2603:8080:b800:f700:9b4e:9dd8:875d:d59])
-        by smtp.gmail.com with UTF8SMTPSA id 5614622812f47-41c73a25f04sm457282b6e.0.2025.07.15.16.01.40
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 15 Jul 2025 16:01:40 -0700 (PDT)
-Date: Tue, 15 Jul 2025 18:01:39 -0500
-From: Dan Carpenter <dan.carpenter@linaro.org>
-To: Rob Herring <robh@kernel.org>
-Cc: Mark Brown <broonie@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	linux-spi@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kernel-janitors@vger.kernel.org
-Subject: [PATCH next] spi: stm32-ospi: Fix NULL vs IS_ERR() bug in
- stm32_ospi_get_resources()
-Message-ID: <fb2a26a2-119b-4b5a-8d44-b29e2c736081@sabinyo.mountain>
+	id 1ubouc-00000006O6v-0dNA;
+	Tue, 15 Jul 2025 23:18:15 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 5607D5C606C;
+	Tue, 15 Jul 2025 23:18:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3FDDDC4CEE3;
+	Tue, 15 Jul 2025 23:18:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1752621493;
+	bh=AUahzZtoXc5ty3fkQO9PKsTZSnvoat888MImzDyfSaU=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=RxebOClDE6XG13qHrmUoM/32uqXeyE68HU7kXpwgYwSgjCaQdOUtfzfzf2a6Xl4ia
+	 7beFC/fw/a9gkJ1bLE+iJaKDUxb98U1I98V8pvfYJh1npd7qY5wvhBSN7XBG40ZB9G
+	 sAf1oEUDazh+zUz1qEpgQijFmtaV5ne4YyPAB9qN+ZlQkaUsaoJCoN+b3hFxouKQ2R
+	 PDKqUGDaWouD6jY1UfF3kPyqW0+V/vm5O2XGEELUgGlZmGQasqZMuO/7gIYr79oiw0
+	 FSLW9E7D7OnaNQbbo80UdDeXEKg6eQqcild99OPbCztgrszE/KYR7TNNlNzT8bW3XB
+	 HJziJTSqD9dag==
+Message-ID: <5a7f47a7-c81e-4f70-9391-0dd1e3aa9f65@kernel.org>
+Date: Wed, 16 Jul 2025 08:18:10 +0900
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-X-Mailer: git-send-email haha only kidding
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] phy: rockchip-snps-pcie3: add support for
+ rockchip,phy-ref-use-pad
+To: Rick Wertenbroek <rick.wertenbroek@gmail.com>
+Cc: rick.wertenbroek@heig-vd.ch, alberto.dassatti@heig-vd.ch,
+ Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
+ Heiko Stuebner <heiko@sntech.de>, linux-phy@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20250715105820.4037272-1-rick.wertenbroek@gmail.com>
+Content-Language: en-US
+From: Damien Le Moal <dlemoal@kernel.org>
+Organization: Western Digital Research
+In-Reply-To: <20250715105820.4037272-1-rick.wertenbroek@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250715_160142_718458_68586B17 
-X-CRM114-Status: GOOD (  14.71  )
+X-CRM114-CacheID: sfid-20250715_161814_277774_C9874716 
+X-CRM114-Status: GOOD (  28.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,33 +77,141 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This code was changed from using devm_ioremap() which returns NULL to
-using devm_ioremap_resource() which returns error pointers.  Update
-the error checking to match.
+On 7/15/25 19:58, Rick Wertenbroek wrote:
+>>From the RK3588 Technical Reference Manual, Part1,
+> section 6.19 PCIe3PHY_GRF Register Description: "ref_use_pad"
+> 
+> "Select reference clock connected to ref_pad_clk_p/ref_pad_clk_m.
+> Selects the external ref_pad_clk_p and ref_pad_clk_m inputs as the
+> reference clock source when asserted. When de-asserted, ref_alt_clk_p
+> and ref_alt_clk_m are the sources of the reference clock."
+> 
+> The hardware reset value for this field is 0x1 (enabled).
+> Note that this register field is only available on RK3588, not on RK3568.
+> 
+> Add support for the device tree property rockchip,phy-ref-use-pad,
+> such that the PCIe PHY can be used on boards where there is no PCIe
+> reference clock generated or connected to the external pad, by setting
+> this property to 0 so that the internal clock is used.
+> 
+> DT bindings for internal clocks are CLK_PHY0_REF_ALT_P/M and
+> CLK_PHY1_REF_ALT_P/M and clock rate should be set to 100MHz in
+> the RK3588 cru clock controller (PLL_PPLL).
+> 
+> Example DT overlay where PHY0 uses internal clock (the first clock of
+> the cru (PLL_PPLL) must be set to 100MHz, other values are copied from
+> rk3588-base.dtsi) and PHY1 uses the external pad (the default):
+> 
+> ---
+> &cru {
+>         assigned-clock-rates =
+>                 <100000000>, <786432000>,
+>                 <850000000>, <1188000000>,
+>                 <702000000>,
+>                 <400000000>, <500000000>,
+>                 <800000000>, <100000000>,
+>                 <400000000>, <100000000>,
+>                 <200000000>, <500000000>,
+>                 <375000000>, <150000000>,
+>                 <200000000>;
+> };
+> 
+> &pcie30phy {
+>         rockchip,rx-common-refclk-mode = <0 0 1 1>;
+>         rockchip,phy-ref-use-pad = <0 1>;
+>         clocks = <&cru PCLK_PCIE_COMBO_PIPE_PHY>, <&cru CLK_PHY0_REF_ALT_P>,
+>                          <&cru CLK_PHY0_REF_ALT_M>, <&cru CLK_PHY1_REF_ALT_P>,
+>                          <&cru CLK_PHY1_REF_ALT_M>;
+>         clock-names = "pclk", "phy0_ref_alt_p",
+>                               "phy0_ref_alt_m", "phy1_ref_alt_p",
+>                               "phy1_ref_alt_m";
+> };
+> ---
+> 
 
-Fixes: defe01abfb7f ("spi: stm32-ospi: Use of_reserved_mem_region_to_resource() for "memory-region"")
-Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
----
- drivers/spi/spi-stm32-ospi.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+This looks OK to me, but don't you need to also update the dt-bindings yaml to
+document this new "phy-ref-use-pad" property ?
 
-diff --git a/drivers/spi/spi-stm32-ospi.c b/drivers/spi/spi-stm32-ospi.c
-index 72baa402a2c3..f36fd36da269 100644
---- a/drivers/spi/spi-stm32-ospi.c
-+++ b/drivers/spi/spi-stm32-ospi.c
-@@ -823,9 +823,9 @@ static int stm32_ospi_get_resources(struct platform_device *pdev)
- 	if (!ret) {
- 		ospi->mm_size = resource_size(res);
- 		ospi->mm_base = devm_ioremap_resource(dev, res);
--		if (!ospi->mm_base) {
-+		if (IS_ERR(ospi->mm_base)) {
- 			dev_err(dev, "unable to map memory region: %pR\n", res);
--			ret = -ENOMEM;
-+			ret = PTR_ERR(ospi->mm_base);
- 			goto err_dma;
- 		}
- 
+
+> Signed-off-by: Rick Wertenbroek <rick.wertenbroek@gmail.com>
+> ---
+>  .../phy/rockchip/phy-rockchip-snps-pcie3.c    | 32 +++++++++++++++++++
+>  1 file changed, 32 insertions(+)
+> 
+> diff --git a/drivers/phy/rockchip/phy-rockchip-snps-pcie3.c b/drivers/phy/rockchip/phy-rockchip-snps-pcie3.c
+> index 4e8ffd173096..0859c7960167 100644
+> --- a/drivers/phy/rockchip/phy-rockchip-snps-pcie3.c
+> +++ b/drivers/phy/rockchip/phy-rockchip-snps-pcie3.c
+> @@ -33,6 +33,8 @@
+>  /* Register for RK3588 */
+>  #define PHP_GRF_PCIESEL_CON			0x100
+>  #define RK3588_PCIE3PHY_GRF_CMN_CON0		0x0
+> +#define RK3588_PCIE3PHY_GRF_PHY0_CONTROL6	0x118
+> +#define RK3588_PCIE3PHY_GRF_PHY1_CONTROL6	0x218
+>  #define RK3588_PCIE3PHY_GRF_PHY0_STATUS1	0x904
+>  #define RK3588_PCIE3PHY_GRF_PHY1_STATUS1	0xa04
+>  #define RK3588_PCIE3PHY_GRF_PHY0_LN0_CON1	0x1004
+> @@ -44,6 +46,8 @@
+>  #define RK3588_BIFURCATION_LANE_0_1		BIT(0)
+>  #define RK3588_BIFURCATION_LANE_2_3		BIT(1)
+>  #define RK3588_LANE_AGGREGATION		BIT(2)
+> +#define RK3588_PHY_REF_USE_PAD_EN		((BIT(2) << 16 | BIT(2)))
+> +#define RK3588_PHY_REF_USE_PAD_DIS		((BIT(2) << 16))
+>  #define RK3588_RX_CMN_REFCLK_MODE_EN		((BIT(7) << 16) |  BIT(7))
+>  #define RK3588_RX_CMN_REFCLK_MODE_DIS		(BIT(7) << 16)
+>  #define RK3588_PCIE1LN_SEL_EN			(GENMASK(1, 0) << 16)
+> @@ -67,6 +71,7 @@ struct rockchip_p3phy_priv {
+>  	int num_lanes;
+>  	u32 lanes[4];
+>  	u32 rx_cmn_refclk_mode[4];
+> +	u32 phy_ref_use_pad[2];
+>  };
+>  
+>  struct rockchip_p3phy_ops {
+> @@ -157,6 +162,14 @@ static int rockchip_p3phy_rk3588_init(struct rockchip_p3phy_priv *priv)
+>  		     priv->rx_cmn_refclk_mode[3] ? RK3588_RX_CMN_REFCLK_MODE_EN :
+>  		     RK3588_RX_CMN_REFCLK_MODE_DIS);
+>  
+> +	/* Select PHY reference clock, external pad or internal clock */
+> +	regmap_write(priv->phy_grf, RK3588_PCIE3PHY_GRF_PHY0_CONTROL6,
+> +		     priv->phy_ref_use_pad[0] ? RK3588_PHY_REF_USE_PAD_EN :
+> +		     RK3588_PHY_REF_USE_PAD_DIS);
+> +	regmap_write(priv->phy_grf, RK3588_PCIE3PHY_GRF_PHY1_CONTROL6,
+> +		     priv->phy_ref_use_pad[1] ? RK3588_PHY_REF_USE_PAD_EN :
+> +		     RK3588_PHY_REF_USE_PAD_DIS);
+> +
+>  	/* Deassert PCIe PMA output clamp mode */
+>  	regmap_write(priv->phy_grf, RK3588_PCIE3PHY_GRF_CMN_CON0, BIT(8) | BIT(24));
+>  
+> @@ -312,6 +325,25 @@ static int rockchip_p3phy_probe(struct platform_device *pdev)
+>  		return ret;
+>  	}
+>  
+> +	ret = of_property_read_variable_u32_array(dev->of_node,
+> +						  "rockchip,phy-ref-use-pad",
+> +						  priv->phy_ref_use_pad, 1,
+> +						  ARRAY_SIZE(priv->phy_ref_use_pad));
+> +
+> +	/*
+> +	 * if no rockhip,phy-use-internal-clk, assume PHY uses pad for the
+> +	 * reference clock in order to be DT backwards compatible. (Since HW
+> +	 * reset val is enabled.)
+> +	 */
+> +	if (ret == -EINVAL) {
+> +		for (int i = 0; i < ARRAY_SIZE(priv->phy_ref_use_pad); i++)
+> +			priv->phy_ref_use_pad[i] = 1;
+> +	} else if (ret < 0) {
+> +		dev_err(dev, "failed to read rockchip,phy-ref-use-pad property %d\n",
+> +			ret);
+> +		return ret;
+> +	}
+> +
+>  	priv->phy = devm_phy_create(dev, NULL, &rockchip_p3phy_ops);
+>  	if (IS_ERR(priv->phy)) {
+>  		dev_err(dev, "failed to create combphy\n");
+
+
 -- 
-2.47.2
-
+Damien Le Moal
+Western Digital Research
 
