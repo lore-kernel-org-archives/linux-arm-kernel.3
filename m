@@ -4,171 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF23CC83F21
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 12:03:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7FEFC83F21
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 12:05:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cbCkwUgpO+yaSIeqKqxvl8+7eZuFdTBetiptnkqmqEc=; b=MpmP5+FotmM4B5rwiozHt5eTiP
-	2pA30Xbn9KXrypQjlCEux6Mb5njgBEgCdXGL2V22wow1ky5BWuDxfAZbjQ/LvYPK6Of3KQd8CSFrp
-	vJNIJv1qx/EPVHcPz11ho0Aoo/6WAZ3UJDjJ+FNeh6U9UwKW8RglpYjMhc05BJLV3veBM4bGRUeew
-	DTBXtRQDuDSjYNwMqCOMCJghMtSKuutI4sMa+6jA6bghckeOYWbomIKXEZSxbxYv8DGaNA01Xc6PS
-	EC0U5uNPr3031peqYMC+/6QgJ0DCOGkrdtlZSbl3oUOxUxW99jXlv+Hs28CiRlozq9FSahlELdSOH
-	JLszUGVA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=gFnfW/IMLkVNKoAcjZLNbDItT8tOK3CM6ZLLCmvj9UU=; b=ZYe99PRoZZCJlh37lod/K3SpVV
+	1n563i7HpbpTpVSD/bbl/oLJXZ8hAvKy1REXjZse4cwts+sEHllKQeHeweqTMndar0/VyTGl6kdBJ
+	pjn3Xt2ym+bNPfnUhHBPcZTSSWAijCp1RJlrXo1nhOn5lW3CPtvwNV247w2kkelwi0h/JbH3uiklt
+	mgFjiskUX9UpeOUGkGO3gTlDSHbUDgBDGsU+KMfOSkwhIY4nmhedxpeUGl+9tbTkwIjMIRUi3TWLP
+	OwP9zZjAfGplUKD8AIrdweqoILIN6RUFYK60CweUJ2RFalpeNbdk6nguM+H1lileqEDqJguLv/+NI
+	Dg8mB6/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubeN2-000000051JH-226Z;
-	Tue, 15 Jul 2025 12:02:52 +0000
-Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1ubePT-000000051f3-0zvF;
+	Tue, 15 Jul 2025 12:05:23 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubdzO-00000004xy9-3dPq
+	id 1ube6C-00000004yWO-2anN
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Jul 2025 11:38:27 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=V+wPQYktCDPLmYPOZ1Xd9oa/PYs7bVhvU/1lUmNH4TTuk157wjYagQ4llNwxHMQ9cpWKYVHp9FGgkY39YYx+9dzvEBQuCvM3ABVAmwtI0SE+iloxntT/r5YNOe4KBHXA1i5/ozp+N2QJCKdp4DaFAUantgC1k0VpMAKMg4ITsTwKD88Wh45vT7cm8qLGVFgSVz9qlLA2e7o4jpvnWYEe88VtGa+bKnlRUNVC7bEk4NBSef2syYhC6fLHcXN/SQOwXRpGKjFzwYdxD7IwxpHJi2xPfEMp1+irym0EEDO+vHsiLDsCczhE4QlShh/+iejSYrTmvvNKewRSToSWpl91OA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=cbCkwUgpO+yaSIeqKqxvl8+7eZuFdTBetiptnkqmqEc=;
- b=CQ2z8NvESQgwpGFUqheslg7IpPAJCS7xelVlzoz17jcr+Lr6mzl0Ar5M00khpJiTom2KFiJAMFd8B274fQosAdA4q8TrigUqn328TPD95FSo5Sq0Y1RvtJk8wcV3ylE1loYXmHX3uq8CXV6EOwClz7GTztI866ivBuF24EbuQCMnhVzbWmMuqYFtTYG0BTgTXa4ypkleUDWfdf9YTKqQD7YjAkFHehOdWRuP5g8WNDDrgonkEEX1E0vnbG8leuTp5DOLQBIvqbma0J46UBFaN0k2FPB0ZwsPGnYoxytGWX5RKfn0LYiCc4+UGoqgFz+HOTo3JB5pCriPLTfqiERRiA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=cbCkwUgpO+yaSIeqKqxvl8+7eZuFdTBetiptnkqmqEc=;
- b=gAkgf2bTpWTvFuGYOJA0eHasJyNkDgIfI3iK4sDJGpDIxjP4aaHE8T9MkVXfQjeTQjKgx9PxBKGZX5PMpBC4W/5dwX+pvczY2n9d2FJ2IQw9YIIi6wpCzYVAwqV0HAz5OuvD3bMnHZR90J4CRU55/1jrlM8U0xR8zcyf3CSnt5ABwNtpLlDeyBXhqe6Yp/T1vxG6nMjZ9ZeaiAuh++QqdSwJynjFkwskb1BkCMyOPYZ7FQxDnr5pR0lfwpNkemVAE9RYctq8gn0ZnIl2bPIh0qh3b1zrj2WjeJWhP2Nvz604lYn4KLE1dm/RRCqCoZRhgtra2QR2LGgXCGFMeD5MCw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AS8PR04MB8868.eurprd04.prod.outlook.com (2603:10a6:20b:42f::6)
- by PA4PR04MB9461.eurprd04.prod.outlook.com (2603:10a6:102:2a9::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8901.26; Tue, 15 Jul
- 2025 11:38:17 +0000
-Received: from AS8PR04MB8868.eurprd04.prod.outlook.com
- ([fe80::b317:9c26:147f:c06e]) by AS8PR04MB8868.eurprd04.prod.outlook.com
- ([fe80::b317:9c26:147f:c06e%5]) with mapi id 15.20.8880.030; Tue, 15 Jul 2025
- 11:38:17 +0000
-Date: Tue, 15 Jul 2025 14:38:13 +0300
-From: Ioana Ciornei <ioana.ciornei@nxp.com>
-To: Michael Walle <mwalle@kernel.org>
-Cc: Linus Walleij <linus.walleij@linaro.org>, Andrew Lunn <andrew@lunn.ch>, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Bartosz Golaszewski <brgl@bgdev.pl>, Shawn Guo <shawnguo@kernel.org>, Lee Jones <lee@kernel.org>, 
-	Frank Li <Frank.Li@nxp.com>
-Subject: Re: [PATCH 4/9] gpio: regmap: add the .get_direction() callback
-Message-ID: <c4ff34jwaiyby52ambcxtu2mrjlkcv44scjsveb6s6pvaps33u@bvl3wz6mvsuo>
-References: <20250709112658.1987608-1-ioana.ciornei@nxp.com>
- <20250709112658.1987608-5-ioana.ciornei@nxp.com>
- <0d0e9cee-2aaa-402d-a811-8c4704aadd74@lunn.ch>
- <CACRpkdYDTXA7+YN2zRCsQxu2AKEAwbDVq8-m27ah5XTw9iRNPw@mail.gmail.com>
- <55e7aeb5-565f-4452-bc11-55968dcc0a9e@lunn.ch>
- <CACRpkda+=A5R4vZZQZKmF3LnGd6xMYbNomahgTW+j9aX9swBFA@mail.gmail.com>
- <DBBKJ05VNSDG.30MNWDWT9JAEC@kernel.org>
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <DBBKJ05VNSDG.30MNWDWT9JAEC@kernel.org>
-X-ClientProxiedBy: FR4P281CA0056.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:cc::16) To AS8PR04MB8868.eurprd04.prod.outlook.com
- (2603:10a6:20b:42f::6)
+	Tue, 15 Jul 2025 11:45:29 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id D14DC5C57BA;
+	Tue, 15 Jul 2025 11:45:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 807C0C4CEE3;
+	Tue, 15 Jul 2025 11:45:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1752579927;
+	bh=RSNF4QNrAE+1Kk9FftCVUREPYx43lWjS4Rbg2fpa9eg=;
+	h=From:Date:Subject:To:Cc:Reply-To:From;
+	b=nBoM/oxHF3ACntns3OkIrWJpbnSeboMsAUsRQhkZNEM4fAqklyWU/SFrB7L1+eGjL
+	 9KLCi2YWLWXNl2+GYcIhSd6dScfPGu3dmi7a6x3jc5M+LXVGTivX3cUkgWUwcWng34
+	 tyRoNHcX7WG6l65RnJB0R1NTBQL8/Lmt58l/S7QzH3GfcOMQLvb7ChB+n5pWyhvJ8b
+	 1BPmx4I8dSNvPrv7u9TenIacsx4BRcTItQimaSnI6aFzeyLglAgRNETqgIH74DfLgp
+	 pmmFSH+JXcw03FGLl86v0dFeyHI7A+lrIU0iE7ZzAogX1cjWeqxxLIqAFTSSSMbBmZ
+	 mKOojuQ9yODbg==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 76301C83F21;
+	Tue, 15 Jul 2025 11:45:27 +0000 (UTC)
+From: David Heidelberg via B4 Relay <devnull+david.ixit.cz@kernel.org>
+Date: Tue, 15 Jul 2025 13:45:24 +0200
+Subject: [PATCH v3] ARM: multi_v7_defconfig add /proc/config.gz
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS8PR04MB8868:EE_|PA4PR04MB9461:EE_
-X-MS-Office365-Filtering-Correlation-Id: b6714a5b-b217-45c5-4456-08ddc3941760
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|19092799006|7416014|366016;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?V2tydGtNTCswK1Z6aWxtN0JJVmxYVnZ3dUxIR1FZeC9STUpMdkxQaWI3TWMr?=
- =?utf-8?B?M0tTaEFFNFRuQWxNR2ovbkloN3RHSGZhVE5NdUtwak9hQUhWdjhZOWdrYTBZ?=
- =?utf-8?B?N3RGeDY4c3BXSXZpRUw1TEZyQU5Tamw2SkVRb0t4RWtocjNhcVk3eWl1dUVx?=
- =?utf-8?B?RUxIT2JYQUpQK3MyemVWdlZnWC83YVU5cG90SFNNWHBxM0hqQjZNWk43Q20r?=
- =?utf-8?B?ZXM5NFIrd2ZUTWY0QTQrcjNUTDc1WGJsM0JOczB6TjQxR2xiQTV0S3FvN3Y1?=
- =?utf-8?B?NVlSdHVRck9mcXhONWRWL3RyaitwcG8vMjZ4SEhqSkNuejJlemhSeFNZcGJH?=
- =?utf-8?B?L0N4YmZaNEovRWZOL1ZXS3BKM21JUWgxejlOaWFvUzhQWVNYT2QzaXZwSlYy?=
- =?utf-8?B?V2s0eUVZMFNGSmdXV3kzN1hwN2FqOVlJelhNTGxsaUZOc3dmSXJydVYySzJ3?=
- =?utf-8?B?dmtzKzBDNmJaZVNTSmR6eCtXMjhjd2dpa0h6RHk5bmNQeTAvNWhlUEdGWk1H?=
- =?utf-8?B?Smp1NVNrMXNvbXRQZGYvd1g0c1N1MW9FL0QwNElKaVNFMmlnK2UvUnhyTEJP?=
- =?utf-8?B?OWkwR3JWRUIvSlc0dFo2ek1MRiszU21nYkVMNnd2cnpQQmFTcGtzdFhuQlZ4?=
- =?utf-8?B?TVVwY0dsaU5IdjNLUHViK1pwb0o5K2NsbGY5TUUyMmtkU3QzckMxOTViMFpp?=
- =?utf-8?B?UGtFTzJrZTZWQTdNRlRBSUkza0JQK0JDL01mVjBvcnVjd3ZubWc2RUF2V0di?=
- =?utf-8?B?eGpHT0lWWnFEV0JlMWJ3V21DSFh6bFoycGxCT2h1SG81ZkFCY1RGMk0xSWVl?=
- =?utf-8?B?S3JrSVRiSEJ6dDhVZXhJdUVQVVBGM2NuRGxTaVd5K1YrQW1uV3orYXhnVXkx?=
- =?utf-8?B?clQ4cjZDUis4MXM3TG1xQ3FnMm9oa2xEdm1RTDVVVXZHc3o1b0d5dmJYUlIv?=
- =?utf-8?B?VFdaeW5YQy9BOExhOXdLQ25Ya2dWanZ1cTJWUE5jRWw0cUpPNDNsSGtXVS8z?=
- =?utf-8?B?WUc4WVdiM2xvTGN5bU5DM2c2NFdCSkg2bXluZlJBN1ZjMkhVRmRhS1l0WkJF?=
- =?utf-8?B?YTNnYURmODhZbFBZZVRQb1VhUVRnZ1YzZjVXbWVhMGZmTUU4a3J2NFB1Y21p?=
- =?utf-8?B?eUREc2k2R1VWLzdDSVpaK2hzY2o5V244ZitxRU1yRDhNd2hYVHRWak1mMDQx?=
- =?utf-8?B?bjcxZmpsQVVRdHZ4cmh2UkNNazlVc3RDc0hURUxVcCt4NzlXOVE5aFVjSkV1?=
- =?utf-8?B?RE9iZ1BJVVlBSGM4SUNxZjR4K0k1NTBBMkhXOEZBQjdqakdpNDlUSXlnZEc0?=
- =?utf-8?B?WVNWc205R2NVOXVtaWJSWVNEdjFqWnRTOVA2Wk1WUmVZc01SRDROVmdERkRq?=
- =?utf-8?B?YzNyV01rV1dEUm0wYjBJSEFCR2pSMjlXcDVWSDF4TVBwSFlIVUZtd3VITEla?=
- =?utf-8?B?aHFRazJaWkJ0dTk5ZERROXlRZjhEUi9wSzR0cE9UUjRleCtJbmhmSVFES20v?=
- =?utf-8?B?aFpMRC9LVXluWXZWVHNWRjRzSGh6TXJRQXdsN2hMK3RXUytpSnBTbFNucmcv?=
- =?utf-8?B?d1pnRURodkIzaXRoVTFDSmcwQVFZcFZlV0NnUkpZcm15ajB2QmZDcmc0ZnIv?=
- =?utf-8?B?Y2JFOHBPQjZmcGd2cFdORnFmWTdXdjd0YU5Xd1I3aXhRL1ZTRVd1SUZJWi9h?=
- =?utf-8?B?dTJrcWd4UkxiMmdmc1VvbzA2MlRRTGJTby9wNWZGS3dvcHdNSzNRTXpud0t3?=
- =?utf-8?B?UzJuQTRXZXMrRGc2dUhEQWNYR1lnL2Y3MWkrSHJDYVdwMkRSSDhwZ0ZHRUMy?=
- =?utf-8?B?dS8wdVlsTlpxT05wRFppQ2s4cEZkR3RuaU9yeElaUFJOMWc3WlFLZFlsdEdk?=
- =?utf-8?B?V0lmSWpoU1dvYUxzazZxYmFla3dwT1ZneG00cURVbC9rSDV6d1pRZFhmeXFT?=
- =?utf-8?Q?c4h2/J6quZI=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8868.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(19092799006)(7416014)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?bmpDdXdsaVE0Mks2bUFXMXdNd0tjZUV4aTZNVTNnUkQ5WDZDTnptSGpKNTRk?=
- =?utf-8?B?UDRPSDcwMk5KR1Z4MzJzczJXSHpyQkpXR2lOUUpyVHcwa3ZQdStZcTdTSzZv?=
- =?utf-8?B?U1RvaHd2RjBJdkdTZGx3N3JHSHU0aDZYa0VrcEl2U3FGaGxiRHBDNGZPQjRj?=
- =?utf-8?B?NjRqQzNhZDhGR1Z6L2V4QTk2SENtWUZybmVMWXRLVmwvVVFsTFBHclVUbFY4?=
- =?utf-8?B?THY5ditlOFJOOUZmZ21KekgzYVJNZlh5TVBzTmlNZmtHWDJ4QmF3alZXdkNZ?=
- =?utf-8?B?OURDcEJXc2w1RFpNbTJBVUlKaHNyRzJQZkM5cFpIUXVUWVFTZVB4TWZkN2xu?=
- =?utf-8?B?WjhCRkpJWitHSVVSUjFzcG5neDh2V3A3dkU3aXZwNXN4Vnc4THJ1a3hnSGlq?=
- =?utf-8?B?U0xmNFVxRWhEaE1Tc2h1L012ejk5UHpTRmZaaWlZTWkxYVpCWGMyTnhHRjNQ?=
- =?utf-8?B?UklHZ0I2WGdveUIwejljbFNwMVcwc2pleU8vQjdqNS9ySExBRDZwcnlMOTlY?=
- =?utf-8?B?UUtEcjZ3TlMzNCtNbU1nemZRL29VeXhYZS94ekRCZkhzUjdrSEthM2xYREN4?=
- =?utf-8?B?TFVuTEx2ZkZQZjhKS2ppNStNNkVUUDNFdXZBaERYc0xnTytibWxFU21mS3BR?=
- =?utf-8?B?M2tVcGdmazBWZUUweSsxMlB1QmsxeG4xb3AwYmJjNC9oSWRIeitTeFhLcUE3?=
- =?utf-8?B?WThkNkovS1dOUmtoTElERklVSFh3SGovbmRuQWI0WUJBaERYQ2pxY1Rmdkxz?=
- =?utf-8?B?QVB4aC9wREM1QnorWjIvUElRWlVXM2ZRUnMvSnRrS3B4b1RzY2tub3dUMVdZ?=
- =?utf-8?B?dlRqOGM0MldVc09wRW03SnZCQUVrNVhwelhnVGFqNGk0cVpQRzBrc3N0N0pX?=
- =?utf-8?B?V1JzRGU1Qm5LcEdkT0RqSCsxYTQrLzJVUkR6ZDhGYVlIODNJWk0rVFlkeVNl?=
- =?utf-8?B?OEQzWVorb0FCSHdsNDhxK3JOckx3aE5nZHViN1VnalplWmVvTWJ5TWhpaVhs?=
- =?utf-8?B?Slh2cVBLWHVtcC9pTnZpOW1mbFBDTVJ2RVI4RDZMeC9xM0FrODNBMHNjTE41?=
- =?utf-8?B?bTVTcEtoY1Z5UlM2NEwyQkZqcWZwbTh4RGZRcG56TjZkSU9jM01wNytFeW9n?=
- =?utf-8?B?NUdORjRqSHFlaGt5b2tvWWs0dlpZMTBKdXZ3VG9RZHNOYyswcFdJeU1qWmQr?=
- =?utf-8?B?Rm9qeUt0TzQyWk9RS0FCMHpwYXJtTjVmRlUzSnl0bGo0UUw0M011SHZZUGdi?=
- =?utf-8?B?em1RV2QzWkpCbktlMmpCdi80YlBmdXNQd2lOWGpUVXhiL1M4MktMRERIdkRL?=
- =?utf-8?B?UUxxa3BBRWxCekEvYTRld0dCdHlTOXM5cmFVVUc2ZnV3YWRTd1NNN0V5emNh?=
- =?utf-8?B?WE14alNuSWIxZDlobGplNGRrL0dnaFk0dTQ4R0pBMStjT3ZNeWFnNzdhWG5p?=
- =?utf-8?B?Uk1ZcEI2RDlEY0ZlV1NQcDB3QU03d21yRkFYM21zY2preXhHYWVFV0lBZ3g0?=
- =?utf-8?B?d3RLY2t5ZWJjOWJCM1NJRFc4RWlwU0tOazgrVjNzaXpFeUxUdWxtdzdEelJP?=
- =?utf-8?B?bnJYS3FPc1dNWXFIdTNDN0g2L1YwdEplOGUzMGdQTU5IUzlSTVdoU0ZnU09T?=
- =?utf-8?B?UExZYm1BWWVYdnB0QzRPMTd3aTFWdXVmQytMb1dNaDE5MjR1UWNUczJRdFg1?=
- =?utf-8?B?QUVHMUF6eW1qYmtFcVNTMm5ReGRETUcrZm1oM29UZVZwb2ZNRHc0cnRPOXF0?=
- =?utf-8?B?eFViWnhGMjlReUxtRnpXdnVJcHBTYU5DUVJLMUhQY3Zjc2NHY1NqdVZyNUdi?=
- =?utf-8?B?MmE2OE8za3VWcWdrWkFYd05mMDJ5N3RWZUJ4MnljVTRyM2JEZkhDZ2RBY21u?=
- =?utf-8?B?L2NtcmJ0VVZXdDl6QUV4ZEVkRUNEcXhVTW5yTE9BOWpYNlpGdVptMk1SUVN5?=
- =?utf-8?B?NzVUVVNKR3ZMTWZkL2FTUzR5ZG9xVk53REd1Sm9HbUdrZzFJK0xYd0dDeUFa?=
- =?utf-8?B?bVBVZzNCV29xV08rUC9ibGVRQTU2RmhvOGdsd2N1MWRZSFFtYU0wVHhSdnhS?=
- =?utf-8?B?REoyRFRXN01RRy9CNzdmMTJyYkNEbGRVdm1RQjEzR2w2WVBTemRyQ3JSMlVB?=
- =?utf-8?Q?07l4WE3oKrpCkMg0Hvfr56xRW?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b6714a5b-b217-45c5-4456-08ddc3941760
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8868.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Jul 2025 11:38:17.5009
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: fFm/wQj4B3b/S22p9yKaAkfan7LplhY0DydxDy3RevVJD6vasT+7wY+dAbh5qsIafqwkkGeE2CAU/NsaDBjuew==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB9461
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250715-arm-config_gz-v3-1-70c45c58e073@ixit.cz>
+X-B4-Tracking: v=1; b=H4sIAFM/dmgC/42OsQ6DIBRFf6VhLgYeAaVT/6NpGiqgb1AbMMRq/
+ PeiiUmHDh3PcM69C4kuoIvkclpIcAkjDn0GcT6RujV94yjazAQYSCZAUxM6Wg+9x+bRzLS0Sqp
+ KamOlJtl5Bedx2nu3e2Yfho6ObXDmqAimOABnwKqCMw2qpJxak9BeccKxqOet02Ich/DebyW+1
+ f50t9EEh/DrcoIs+RKkFYL7p/xy13X9AOKiRacRAQAA
+X-Change-ID: 20250329-arm-config_gz-7d656859ad59
+To: Russell King <linux@armlinux.org.uk>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ David Heidelberg <david@ixit.cz>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1361; i=david@ixit.cz;
+ h=from:subject:message-id;
+ bh=I/3GWpsPLyZxKfX4eh27wP6dQGm331pGxZH6FdZ4teA=;
+ b=owEBbQKS/ZANAwAIAWACP8TTSSByAcsmYgBodj9W1Yz3cTm9JWk9P85lh50y/5Kv/xLk26ysX
+ 2Rxj5JveFqJAjMEAAEIAB0WIQTXegnP7twrvVOnBHRgAj/E00kgcgUCaHY/VgAKCRBgAj/E00kg
+ cuobD/wL7Xc/x/i1TjsG3wLOosZX6Ym3M3YIs/KGdJ1dpZ4C+8S1K92MxZq67fbFz9jX5yw6nQM
+ uNsI4SxHGe8g+Yd9/gJmeXjq7ZgP9iiEUj/YJhIEOtGlt89pVzZM/M403WYJQPBaIlBpO02v9VU
+ pLv2u+fuFvX87llrbCTVE6KfMf1d/3b4Z3Vo3u9o9p+CSurcdwr2xXTZIwjK370Q5l0gdKl1BVG
+ TTYf4npyOqG7mKEL0Gh+OFQXMaMO2hj9VkHcTQ0Z43V0BngoMgGpRVNt03J9LuLI/c/sSniTzZ9
+ lBHwtMNpyHsndM4l6u/oNn/ThrMR8QwFfWDx+bCOvG6egWNMX9fFNdaQyWdUie76b3JTdev4jsk
+ AUaymjvsAF6vaz9FqWDfGISe+ThDyRMOjvUBi4d89P6ywz9D8WrYSkWr2wSdns2k/6BaMU3hMLS
+ /eYzXjyH8PXCWe04B7HYPkLFniUONWWsWJRVGiV6l3dnlaPv74uARAu3nvZGmmbrjEwZn4dOkaA
+ /wgaR3MtBuLXG7DaYzYu745iXHml5QZTrl56JiTausvUvgAwiltz8PglLhTcdkUd2zmUOFYnJ2E
+ gf1sCBeN/1MCPlU9hrCRqSX30xf9fquMckYUYpmdLSOUezvF5JaqFnsNbahwvK6eLTBvvTofU9F
+ h7gJ+KIyowEj2rg==
+X-Developer-Key: i=david@ixit.cz; a=openpgp;
+ fpr=D77A09CFEEDC2BBD53A7047460023FC4D3492072
+X-Endpoint-Received: by B4 Relay for david@ixit.cz/default with auth_id=355
+X-Original-From: David Heidelberg <david@ixit.cz>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250715_043826_934813_14BD38A8 
-X-CRM114-Status: GOOD (  35.34  )
+X-CRM114-CacheID: sfid-20250715_044528_751532_488EBA37 
+X-CRM114-Status: UNSURE (   9.56  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -180,81 +95,52 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: david@ixit.cz
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 14, 2025 at 08:36:03AM +0200, Michael Walle wrote:
-> On Fri Jul 11, 2025 at 8:06 PM CEST, Linus Walleij wrote:
-> > On Fri, Jul 11, 2025 at 7:45 PM Andrew Lunn <andrew@lunn.ch> wrote:
-> > > On Fri, Jul 11, 2025 at 07:43:13PM +0200, Linus Walleij wrote:
-> > > > On Wed, Jul 9, 2025 at 5:09 PM Andrew Lunn <andrew@lunn.ch> wrote:
-> > > >
-> > > > > This is not my area, so i will deffer to the GPIO
-> > > > > Maintainers. However, it is not clear to me what get_direction()
-> > > > > should return.
-> > > >
-> > > > This callback should return the current direction as set up
-> > > > in the hardware.
-> > > >
-> > > > A major usecase is that this is called when the gpiochip is
-> > > > registered to read out all the current directions of the GPIO
-> > > > lines, so the kernel has a clear idea of the state of the
-> > > > hardware.
-> > > >
-> > > > Calling this should ideally result in a read of the status from
-> > > > a hardware register.
-> > >
-> > > O.K, so completely different to what is proposed in this patch.
-> > >
-> > > Maybe you can suggest a better name.
-> >
-> > If the hardware only supports one direction, then .get_direction()
-> > should return that direction.
-> >
-> > What the patch does is to
-> > read the direction from the hardware and use that in the
-> > set_direction() callback, as if all regmapped hardware in the
-> > world had fixed direction, that's wrong.
-> >
-> > I'd just add something custom in gpio-regmap if this is
-> > something reoccuring in regmapped GPIO drivers.
-> >
-> > bool is_fixed_direction(struct gpio_regmap *gpio, unsigned int offset)
-> >
-> > or so?
-> >
-> > Then the core can use is_fixed_direction() together
-> > with gpio_get_direction() to check if it can do
-> > a certain set_direction().
-> >
-> > Pseudocode:
-> >
-> > mydir = get_direction(line)
-> > if (is_fixed_direction(line) && (mydir != requested_dir)
-> >   return -ERROR;
-> 
-> You don't need a .is_fixed_direction(). You can deduce that if only
-> .get_direction() is set in the gpio-regmap config.
-> 
-> mydir = get_direction(line)
-> if (!config->set_direction && mydir != requested_dir)
->   return -ERROR;
+From: David Heidelberg <david@ixit.cz>
 
-This implies that gpio_regmap_config gets two new callbacks
-.get_direction() and .set_direction() and that in case .set_direction()
-is set in gpio-regmap config, then its used directly from
-gpio_regmap_set_direction(), right?
+While 32-bit ARM isn't that widespread, multi_v7_defconfig is used for
+building more generic images, where having access to config can be handy.
 
->
-> That or either Andrew's idea of setting a bitmap within the
-> gpio-regmap config which already tells the gpio-regmap core and then
-> amend gpio_regmap_get_direction() to return that fixed direction if
-> that bitmap is not NULL.
+arm64 and x86_64 already bundle config.gz, so this is an effort to provide
+the same level of comfort with ARMv7 devices.
 
-Even though at first glance I was under the impression that the bitmap
-solution is cleaner, how big should the bitmap be knows only the final
-gpio driver. Without this information, we cannot know the bitmap size so
-that we can use the DECLARE_BITMAP macro in gpio-regmap config.
+Signed-off-by: David Heidelberg <david@ixit.cz>
+---
+Changes in v3:
+- Rebased against next-20250715; otherwise, just a resend.
+- Link to v2: https://lore.kernel.org/r/20250329-arm-config_gz-v2-1-f725d331fb5d@ixit.cz
 
-Ioana
+Changes in v2:
+- IKCONFIG is now module instead of built-in (Greg).
+- Link to v1: https://lore.kernel.org/r/20230612210208.109267-1-david@ixit.cz
+---
+ arch/arm/configs/multi_v7_defconfig | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/arch/arm/configs/multi_v7_defconfig b/arch/arm/configs/multi_v7_defconfig
+index 65df4014c4a603bfc6d5810cacf50f904321e9b2..5180c90cb5da1cfc91db39346c4b20d888e0a621 100644
+--- a/arch/arm/configs/multi_v7_defconfig
++++ b/arch/arm/configs/multi_v7_defconfig
+@@ -1,6 +1,8 @@
+ CONFIG_SYSVIPC=y
+ CONFIG_NO_HZ_IDLE=y
+ CONFIG_HIGH_RES_TIMERS=y
++CONFIG_IKCONFIG=m
++CONFIG_IKCONFIG_PROC=y
+ CONFIG_CGROUPS=y
+ CONFIG_BLK_DEV_INITRD=y
+ CONFIG_EXPERT=y
+
+---
+base-commit: f2b1f6a9f382564b1d4cf16c45e73ccccb917f1f
+change-id: 20250329-arm-config_gz-7d656859ad59
+
+Best regards,
+-- 
+David Heidelberg <david@ixit.cz>
+
+
 
