@@ -4,67 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2EF8C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 04:33:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C432C83F22
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 04:36:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q05Dk4GnAcD9flLY0jzjb7O8g5aZbymfPWWvQfTNr6k=; b=PP8fzlvAJ/ie+ZZcz1pqsKCIok
-	vKyWQETkQxcwZk08Yu6fiGNSb26lDTWXI1LAoulLw/08eMEv8+8aIODSQYmec/6qDKL1U06is3D/j
-	xVh/IBBIYUK4G9aurq43HNGoNcjJoBjaf1X/TuwJLFVwGzBQ0ibv/G0NvFKaSK29ZMKlKuqOqHblQ
-	yM/pankmaxgfhuYWM8ipV9va7yJZVEF7EOGrB1Tfe40QXIEubMZ7t5C9mflgLoVcxI20FndM9mI//
-	bbv9s3HYFW8bW55wDKzIJInQ/3bFUXanvD3YR+JQgHP2rD+kmtZ1Lf+BJkbAXR8TXa2taJ0bnxaK/
-	8X1hIi/Q==;
+	bh=UcKo8QxCb8Q9jT97ujQTQmKqx0LSzc9mKA1VvRcUn+s=; b=Nz6TRyONGURiTFZEIbolamV5GU
+	OS+nRuNl6PpES7zSmUIaJyOZhdVBYPIOa77iuZDS5u/rxDSs7jTtqtXnEum4d1i+c85WURsowZB9A
+	absa63quY3ov1BsxlA/4NLO35R39Vc0FT9JrM4kE2tQmQC8yD/xxWrgYSd4bAcYguPqm3DGgtCo/q
+	hogRNIFy4uyiorAHaQbQYFm+jeCViNpoqO4nGn0IeUK8I9yIw03YP51uowsNtd4iz21vZ4t8ss8+S
+	8MklVk5unGcMu1g0/RIeDuZpUHFDalPonE+S7iuGY+DWn0X5jE8SucJOw9JkNmYsytBX9I8DNtUF3
+	z0VWRY7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubXMH-000000040rN-0g3J;
-	Tue, 15 Jul 2025 04:33:37 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1ubXOg-000000041Db-32J7;
+	Tue, 15 Jul 2025 04:36:06 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubWkH-00000003wkN-2qIh;
-	Tue, 15 Jul 2025 03:54:22 +0000
+	id 1ubWnN-00000003x26-256X
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 15 Jul 2025 03:57:34 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 71010A4B625;
-	Tue, 15 Jul 2025 03:54:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ECE79C4CEE3;
-	Tue, 15 Jul 2025 03:54:19 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id D20DC45D44;
+	Tue, 15 Jul 2025 03:57:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 83F93C4CEE3;
+	Tue, 15 Jul 2025 03:57:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752551660;
-	bh=R2NhqYJcsbfnwkDNnCnNVLiCMS9BTr1YY+cvgm42Mvc=;
+	s=k20201202; t=1752551852;
+	bh=yNYf/5GrOEloApVhcJRWeVo8jGDjSwjPC5llKFeyqjo=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=gtQOE/I0sXT8utigzhHgXqTEOL3H7XlIUhkOTwDww2ZoRXAn0dS1ueUXDmLz3NYq1
-	 ek37yiFG8NEZIi5+/29nMezHyKEYJZxwMxM/LBI4YtasXZFEwbLTRvpprg7rl7Nf5Z
-	 xjop+gXI5FuaG/5xo2ZNtafgYDtOPHXDQeJhFHjhBNCCctj0t+JAHUBzdQtPIzjoHf
-	 HGlU3w4UjPuCuezFH6hNHZf+TUINu/z1Docgsumb8XejYJepCi8+SG5kLw/w53OsXT
-	 405VnH2SQOc6CdPbn9bU2l5v+d4JgVAs4uFaSDm5ps2JS4MeFzFm8zx3QgrwIJ/UqF
-	 BSJ+OaMQW6HxA==
-Date: Mon, 14 Jul 2025 22:54:19 -0500
+	b=IAQxvwGm7T8NCV72OekW63lZSdHOrDZ7rOLs43Md28ykY5+1th5ETo1YyxM13FG/t
+	 d4RCfn1PhESPtTyi8lZUrcWwF54bJKHCxfWO7UZ25//F6s2fdhCH91UuVfyZKyO1ay
+	 zPhpY3Vc/PrVNY3jL2v9QT+1bg8e1A/nX4Mb8t6ZPbcF31VUbL8nZjAQ7FACfv3fXp
+	 UnMK0tYTh+rWIpaKLNX1NdRrDmOc1/XLcruFHTrbSvJwJ4lUFsoETCBdvFFsCETNah
+	 Upvg9HObSABmdYJq1yL6702X18GN+kfwW+tJVfoahJjXV8Rk6ztizGxrT8IWYtTFPv
+	 yg+svbHcO/73w==
+Date: Mon, 14 Jul 2025 22:57:31 -0500
 From: Rob Herring <robh@kernel.org>
-To: Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Simon Horman <horms@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH net-next v3 1/7] dt-bindings: net: airoha: npu: Add
- memory regions used for wlan offload
-Message-ID: <20250715035419.GA11704-robh@kernel.org>
-References: <20250714-airoha-en7581-wlan-offlaod-v3-0-80abf6aae9e4@kernel.org>
- <20250714-airoha-en7581-wlan-offlaod-v3-1-80abf6aae9e4@kernel.org>
+To: Matthew Gerlach <matthew.gerlach@altera.com>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+	kuba@kernel.org, pabeni@redhat.com, krzk+dt@kernel.org,
+	conor+dt@kernel.org, mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com, dinguyen@kernel.org,
+	maxime.chevallier@bootlin.com, richardcochran@gmail.com,
+	netdev@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/4] dt-bindings: net: altr,socfpga-stmmac: Add
+ compatible string for Agilex5
+Message-ID: <20250715035731.GA14648-robh@kernel.org>
+References: <20250714152528.311398-1-matthew.gerlach@altera.com>
+ <20250714152528.311398-2-matthew.gerlach@altera.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250714-airoha-en7581-wlan-offlaod-v3-1-80abf6aae9e4@kernel.org>
+In-Reply-To: <20250714152528.311398-2-matthew.gerlach@altera.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250714_205421_803823_07715885 
-X-CRM114-Status: GOOD (  14.57  )
+X-CRM114-CacheID: sfid-20250714_205733_557406_33CEFB9C 
+X-CRM114-Status: GOOD (  17.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,57 +79,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 14, 2025 at 05:25:14PM +0200, Lorenzo Bianconi wrote:
-> Document memory regions used by Airoha EN7581 NPU for wlan traffic
-> offloading.
+On Mon, Jul 14, 2025 at 08:25:25AM -0700, Matthew Gerlach wrote:
+> Add compatible string for the Altera Agilex5 variant of the Synopsys DWC
+> XGMAC IP version 2.10.
 > 
-> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+> Signed-off-by: Matthew Gerlach <matthew.gerlach@altera.com>
 > ---
->  .../devicetree/bindings/net/airoha,en7581-npu.yaml    | 19 +++++++++++++++----
->  1 file changed, 15 insertions(+), 4 deletions(-)
+>  .../devicetree/bindings/net/altr,socfpga-stmmac.yaml     | 9 +++++++--
+>  1 file changed, 7 insertions(+), 2 deletions(-)
 > 
-> diff --git a/Documentation/devicetree/bindings/net/airoha,en7581-npu.yaml b/Documentation/devicetree/bindings/net/airoha,en7581-npu.yaml
-> index 76dd97c3fb4004674dc30a54c039c1cc19afedb3..f99d60f75bb03931a1c4f35066c72c709e337fd2 100644
-> --- a/Documentation/devicetree/bindings/net/airoha,en7581-npu.yaml
-> +++ b/Documentation/devicetree/bindings/net/airoha,en7581-npu.yaml
-> @@ -41,9 +41,18 @@ properties:
->        - description: wlan irq line5
+> diff --git a/Documentation/devicetree/bindings/net/altr,socfpga-stmmac.yaml b/Documentation/devicetree/bindings/net/altr,socfpga-stmmac.yaml
+> index ec34daff2aa0..6d5c31c891de 100644
+> --- a/Documentation/devicetree/bindings/net/altr,socfpga-stmmac.yaml
+> +++ b/Documentation/devicetree/bindings/net/altr,socfpga-stmmac.yaml
+> @@ -11,8 +11,8 @@ maintainers:
 >  
->    memory-region:
-> -    maxItems: 1
-> -    description:
-> -      Memory used to store NPU firmware binary.
-> +    items:
-> +      - description: NPU firmware binary region
-> +      - description: NPU wlan offload RX buffers region
-> +      - description: NPU wlan offload TX buffers region
-> +      - description: NPU wlan offload TX packet identifiers region
-
-1 entry was valid before, but not anymore? If so, justify it in the 
-commit message.
-
-> +
-> +  memory-region-names:
-> +    items:
-> +      - const: firmware
-> +      - const: pkt
-> +      - const: tx-pkt
-> +      - const: tx-bufid
+>  description:
+>    This binding describes the Altera SOCFPGA SoC implementation of the
+> -  Synopsys DWMAC for the Cyclone5, Arria5, Stratix10, and Agilex7 families
+> -  of chips.
+> +  Synopsys DWMAC for the Cyclone5, Arria5, Stratix10, Agilex5 and Agilex7
+> +  families of chips.
+>    # TODO: Determine how to handle the Arria10 reset-name, stmmaceth-ocp, that
+>    # does not validate against net/snps,dwmac.yaml.
 >  
->  required:
->    - compatible
-> @@ -79,6 +88,8 @@ examples:
->                       <GIC_SPI 121 IRQ_TYPE_LEVEL_HIGH>,
->                       <GIC_SPI 122 IRQ_TYPE_LEVEL_HIGH>,
->                       <GIC_SPI 123 IRQ_TYPE_LEVEL_HIGH>;
-> -        memory-region = <&npu_binary>;
-> +        memory-region = <&npu_firmware>, <&npu_pkt>, <&npu_txpkt>,
-> +                        <&npu_txbufid>;
-> +        memory-region-names = "firmware", "pkt", "tx-pkt", "tx-bufid";
->        };
->      };
-> 
-> -- 
-> 2.50.1
-> 
+> @@ -23,6 +23,7 @@ select:
+>          enum:
+>            - altr,socfpga-stmmac
+>            - altr,socfpga-stmmac-a10-s10
+> +          - altr,socfpga-stmmac-agilex5
+>  
+>    required:
+>      - compatible
+> @@ -42,6 +43,10 @@ properties:
+>            - const: altr,socfpga-stmmac-a10-s10
+>            - const: snps,dwmac-3.74a
+>            - const: snps,dwmac
+> +      - items:
+> +          - const: altr,socfpga-stmmac-agilex5
+
+> +          - const: snps,dwxgmac-2.10
+> +          - const: snps,dwxgmac
+
+Is the distinction here useful? I doubt it, so I'd just drop the last 
+one. Generally, we've moved away from any generic compatible for 
+licensed IP like this because there's *always* some SoC specific 
+difference. 
+
+Rob
 
