@@ -4,144 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81A59C83F22
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 19:14:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAB69C83F3A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 19:14:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UFE3yd+yxu1P9RbRQyZIroNtei5T0YAfVddPN3zIsz4=; b=ofqj4QOR6b7c8dMfVoyuRy2A6u
-	aodqkjQm9oACK7Uuk+X03xXPO9xxZ63sjostTPkglGynqeQoINmT2DzQSk1Nhc2MxsqoThHTkyVYF
-	2qecxo1t8UrhJuLZ0GVAGL31VrCYu8YTIQKTj+oo6Gnb/ZD79pwuAMcedoF8igR8BddXlsUWn0Lhm
-	FsuFcr9w5GwrjN9rm3tauztaL2wFHRkiagA+TfPBdKc5T+L1X3D/zwGG1V08oYIwfXF1QlyVs3zJB
-	hDtWZ10WdP+vvC42pUy4lqk4T8TbCtqj/GXICk8yAk7PwQXEwgfoaMdEfc2qqMlYUog2kO+6APoM5
-	lsXk45zw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=buqYssscW6HBuulBd2FJkTHajSJvXhiR16xC2+1WMvg=; b=rdvdmyTMzlui2yIOVeXYl+xfqm
+	BJZs8XyqOvhDdrqeUGmCE/QYwMANnjWq0qWXyTlHFT9BrBetKF9rsCS162dFiKRJTnv/B0eZnw9oQ
+	yu+IyGwiBjuQ44AVMQa3JXZJ+CoPAVncUMh/K++kcSbnXCvZubZOix6NZNn7/7oIN1pBVwikZw2Hw
+	whDmeIUQO2CgBnZahmuzkpyTLx/KCQWgGQOIXUIUEIWbRWW0RxTa+rxTGw4O5qM7hj3cBxnBpXcRX
+	b5wz+RpXt42ROUzFbyWjG2sa1yZ2wIcKDZ951e/AHcade7n3Hx58EAE5LhGFfY1xyC/liyd9UfCUv
+	ybkGrlFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubl6v-00000005xvV-4AmE;
-	Tue, 15 Jul 2025 19:14:42 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1ubl6q-00000005xqq-3pwc;
+	Tue, 15 Jul 2025 19:14:36 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubhFx-00000005Xcn-1Oal
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Jul 2025 15:07:46 +0000
-Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56F8RKG0007444
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Jul 2025 15:07:44 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=UFE3yd+yxu1P9RbRQyZIroNt
-	ei5T0YAfVddPN3zIsz4=; b=kms4CHhKguztPZrh6aMbRBtnl6d9uGu4uOFm50lw
-	iMEm3Hk1vAypjt53Ce3yleNqozyM/XTTCxr+e4G/uDCfYHbXQAg9h5hQNPK9y3I2
-	udYhwnexMqZsF9/inyxAfUZ76hBWYT3td4TY3OazGAs+vHQuinCcwiorjzrk+l0g
-	1Za2lALAmOj85o6c8rScrhk/vR+IhdCd7eBxxr3eg9cgxubjapge0iJaHFWolH36
-	PYJa/KbYNYKjmbLO0zdUTqedsIENjxR/LKLsuUc3U4b4zj/FX1nbUJwrZnhLZ3fE
-	bV+7Tw6R8Bs9zY0xs7ikJuxKj8mBvjo/d/+R4DU3M38Xdg==
-Received: from mail-oa1-f72.google.com (mail-oa1-f72.google.com [209.85.160.72])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 47ufut8k92-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Jul 2025 15:07:43 +0000 (GMT)
-Received: by mail-oa1-f72.google.com with SMTP id 586e51a60fabf-2e933923303so5121355fac.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Jul 2025 08:07:43 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752592063; x=1753196863;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=UFE3yd+yxu1P9RbRQyZIroNtei5T0YAfVddPN3zIsz4=;
-        b=i9a0gf4oo/ZzhrkwflwByrNUNYM3CLIxXhKoOY5KMz1yewowGBgld4JZ/hVtNXM/2y
-         Tmko72JZ9ByDpUqatTQJT1au7SNpEtkBh3/8kTXglD5OyBXHWuRNZR0GWuPeNcBQFoTK
-         9B+hJeySe3Iq+k7zlKDKPgTWSqOtGJ2qRDfycxMw984StOJgurC8dpx3FitEW020r2pD
-         qow60aceto8Hw6nfzBRC9Q4CD0TcUzcnvLgOnDK9hIjt/8rDhsO5B8Ehbe0lQKeu2HIS
-         2ZAb5CfPPinSeYlo7CM5GiIkhj6KydEfSJH0IJbbWhaYkU9fv3z1MTrYk9//6POf6E2g
-         41aA==
-X-Forwarded-Encrypted: i=1; AJvYcCU4yzQtStqoX3uoL+M2S4eO8k8r4fFpMrVKbCH9IT8rezg6dPWhshiRt6tjil8420eZHi6nXLCxrC5XkFXMpsEH@lists.infradead.org
-X-Gm-Message-State: AOJu0YxkR3NNRsNO0YSDTFu+yX1HjzZV2OXGXnF9Aa3A9BqkgbWk0450
-	Yqh05f7ZixvShDXI0HuJHNddomLj1Zi8v0xGi7V4H6KwLmIDJPc6i08ntI5tOu8b9B/j5AioEdz
-	kLHJB4IjG9Iewgqq4uZVIozYHnvzGRev5DcFN/++q6La1x6MQt2aCPuLtvIqZ4eLQPSWGVI2FB7
-	GdDQ==
-X-Gm-Gg: ASbGncvkKYOEmc53IOAF7VF8Oor5FsM9Z+KNv+H3AyOCGQ0At+pGNcFJewf4LN5gQfr
-	g9Fa6TOAiIbYc59L4R71MSY6n+dx4/xkm1aGSFuZqYUqnpo0qdlZOsW5v9Pa5AQpJFDweo9oxxe
-	4VblMUMFFByQKIc2camHXbLOxhHAi/4uaxipSiB/tZ3sucQnl/bMctWfcq872N8lJx/8pmfwoCq
-	FNTkw/ycpOrgp1hIpsuTvVgrNk+2yq4G2UfHiRxqHfZKYgskpS/nPIvstRBhmZr78AlGFu1KJZh
-	pXUpbQIODclxL1RiJL1jHf06/vHwEcLA2ZLMyt1p5ECKswYz1VchJ6tLdIimFY2UTSq3ZbocTKt
-	jWoAwdGj2Oh6s1nkgrsKQeswxzcz8zMMFnRau2Nc7P5aChy/7Z3tH
-X-Received: by 2002:a05:6870:5b96:b0:2ff:8f89:950d with SMTP id 586e51a60fabf-2ff8f899b18mr3018612fac.11.1752592063017;
-        Tue, 15 Jul 2025 08:07:43 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGzt/a91mT3BodYIFDMVy8jVt1HoRKIa+1bUOyQbH9aZS0Ib97nHGb4Ty6uV5H10BORptHD0g==
-X-Received: by 2002:a05:6870:5b96:b0:2ff:8f89:950d with SMTP id 586e51a60fabf-2ff8f899b18mr3018555fac.11.1752592062451;
-        Tue, 15 Jul 2025 08:07:42 -0700 (PDT)
-Received: from umbar.lan (2001-14ba-a0c3-3a00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a0c3:3a00:264b:feff:fe8b:be8a])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5593c9d092csm2317122e87.114.2025.07.15.08.07.40
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 15 Jul 2025 08:07:41 -0700 (PDT)
-Date: Tue, 15 Jul 2025 18:07:39 +0300
-From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-To: Brian Masney <bmasney@redhat.com>
-Cc: Philipp Zabel <p.zabel@pengutronix.de>,
-        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
-        Pengutronix Kernel Team <kernel@pengutronix.de>,
-        Fabio Estevam <festevam@gmail.com>,
-        Linus Walleij <linus.walleij@linaro.org>,
-        Rob Clark <robin.clark@oss.qualcomm.com>,
-        Dmitry Baryshkov <lumag@kernel.org>,
-        Abhinav Kumar <abhinav.kumar@linux.dev>,
-        Jessica Zhang <jessica.zhang@oss.qualcomm.com>,
-        Sean Paul <sean@poorly.run>,
-        Marijn Suijten <marijn.suijten@somainline.org>,
-        Yannick Fertre <yannick.fertre@foss.st.com>,
-        Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>,
-        Philippe Cornu <philippe.cornu@foss.st.com>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Chen-Yu Tsai <wens@csie.org>,
-        Jernej Skrabec <jernej.skrabec@gmail.com>,
-        Samuel Holland <samuel@sholland.org>, Stephen Boyd <sboyd@kernel.org>,
-        dri-devel@lists.freedesktop.org, imx@lists.linux.dev,
-        linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-        freedreno@lists.freedesktop.org,
-        linux-stm32@st-md-mailman.stormreply.com, linux-sunxi@lists.linux.dev
-Subject: Re: [PATCH 4/9] drm/msm/hdmi_pll_8960: convert from round_rate() to
- determine_rate()
-Message-ID: <qk4v2znryznnvg2vcye2m7taurfhoozjjdtye3fmk4fgawm5jq@2qlqgg4htfnl>
-References: <20250710-drm-clk-round-rate-v1-0-601b9ea384c3@redhat.com>
- <20250710-drm-clk-round-rate-v1-4-601b9ea384c3@redhat.com>
+	id 1ubgWu-00000005LaV-1dNn;
+	Tue, 15 Jul 2025 14:21:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 3D9E15C54A1;
+	Tue, 15 Jul 2025 14:21:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id DBCD9C4CEE3;
+	Tue, 15 Jul 2025 14:21:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1752589270;
+	bh=zVWl88t69qvQmJNOvzdu2b/qBUVRE3wqytBfM1uLa58=;
+	h=From:Subject:Date:To:Cc:Reply-To:From;
+	b=mbb/bWM3x7efQzejnFD5YQ5YLOKKZ+Q95pR2aliWDujkBQJGREaovmDRQr6l0e2US
+	 jzTYAdgl0Wi577UiVHBtqE9yZxB1bEtdFDBpjPpwBXeD0Rf2+/E6SZB8RAnKRDg2DP
+	 P7H5bvY6mp0s9uezBWP7+EYhOfCAc6uS1UUghKlw/kDyjjWqoaAFXx9O6yb5yS4Bpe
+	 SigNuWxO0hA+0dDlfXphv4+BWvZg3Vxh+MJQapPjx9TeoH5viQPOIKUSmbHDSsKOe5
+	 Zb2V5dU61NENPF2fvmtiTfMMBJ/Bw+2/LfpZBdMzHpAnR8AVvjbJFiNoqz1AsI6g60
+	 2OHBeYl0J1Eug==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D16F0C83F22;
+	Tue, 15 Jul 2025 14:21:10 +0000 (UTC)
+From: Manivannan Sadhasivam via B4 Relay <devnull+manivannan.sadhasivam.oss.qualcomm.com@kernel.org>
+Subject: [PATCH v6 0/4] PCI: Add support for resetting the Root Ports in a
+ platform specific way
+Date: Tue, 15 Jul 2025 19:51:03 +0530
+Message-Id: <20250715-pci-port-reset-v6-0-6f9cce94e7bb@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250710-drm-clk-round-rate-v1-4-601b9ea384c3@redhat.com>
-X-Authority-Analysis: v=2.4 cv=e7gGSbp/ c=1 sm=1 tr=0 ts=68766ebf cx=c_pps
- a=Z3eh007fzM5o9awBa1HkYQ==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
- a=Wb1JkmetP80A:10 a=20KFwNOVAAAA:8 a=EUspDBNiAAAA:8 a=oBXrOfH6mq4iYN50PBoA:9
- a=CjuIK1q_8ugA:10 a=eBU8X_Hb5SQ8N-bgNfv4:22
-X-Proofpoint-GUID: FeEUv8F-x-Qp39nwN0WjztVmoCse5S_O
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNzE1MDEzOSBTYWx0ZWRfX3urQgloH3NJd
- Vkvs6btmWxFypNTWrHdcfQxnPQSlyhbFdKtaXAgd2URH0JlUZoZw4UtirBeP5Qov33AqDqS/ySO
- Hm3wB6USyKM448Ube+jLPD12DcAyEguyGiiu1JmLKOQDxfLPLgm3vHSvH9F91yghwvbW5+W2ZBN
- L7KhXYtBIdwp6ZmDBEp5wkjuq0bzGxVD8UjJ4WyOkayXpmEyTW4LYhyHD3aHELjeWgybyk+Bhzu
- cpa45WuqcgAvBwWDu+GNmO6WasaxOQRkLnjtnQgr9+YxyZuP6CdoE66vOF5vaRiwMDu+e7Z5Ero
- KxshquN5EGzAHVXTx46wm5XEg8WgnJk/UH90glhCN2iHTxRoI1MZQoxxtI45QEQ9lQyvwxivrPs
- Rcnw37xfGV0HaWef9Bl92OZQBVmMUVXues1FzP/ocZ4+XjRj/Y9sY3mMdPQyIvpPl3I31IXJ
-X-Proofpoint-ORIG-GUID: FeEUv8F-x-Qp39nwN0WjztVmoCse5S_O
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-07-15_04,2025-07-15_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- lowpriorityscore=0 priorityscore=1501 mlxscore=0 spamscore=0 suspectscore=0
- phishscore=0 bulkscore=0 impostorscore=0 clxscore=1015 adultscore=0
- malwarescore=0 mlxlogscore=881 classifier=spam authscore=0 authtc=n/a authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2505280000
- definitions=main-2507150139
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIANBjdmgC/3WMQQ6CQAxFr0K6tmQYKQgr72FYIFOliTA4RaIh3
+ N2RvZufvJ+8t4JyEFaokxUCL6LixwjFIYGub8c7o7jIYI0lU2aEUyc4+TBjYOUZc1dRVlFpMnu
+ EKE2Bb/Leg5cmci86+/DZ+wv93r+phdCgLVpytjy5a27OXjV9vtpH54chjQPNtm1fRDtzprMAA
+ AA=
+X-Change-ID: 20250715-pci-port-reset-4d9519570123
+To: Bjorn Helgaas <bhelgaas@google.com>, 
+ Mahesh J Salgaonkar <mahesh@linux.ibm.com>, 
+ Oliver O'Halloran <oohall@gmail.com>, Will Deacon <will@kernel.org>, 
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+ =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+ Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Heiko Stuebner <heiko@sntech.de>, Philipp Zabel <p.zabel@pengutronix.de>
+Cc: linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org, 
+ linux-arm-msm@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+ Niklas Cassel <cassel@kernel.org>, 
+ Wilfred Mallawa <wilfred.mallawa@wdc.com>, 
+ Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>, 
+ mani@kernel.org, Lukas Wunner <lukas@wunner.de>, 
+ Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>, 
+ Manivannan Sadhasivam <mani@kernel.org>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4632;
+ i=manivannan.sadhasivam@oss.qualcomm.com; h=from:subject:message-id;
+ bh=zVWl88t69qvQmJNOvzdu2b/qBUVRE3wqytBfM1uLa58=;
+ b=owEBbQGS/pANAwAKAVWfEeb+kc71AcsmYgBodmPTpP68PeP7S5mOvihNYGZRu6k0UgqJY+bSa
+ wL0Q1raTaCJATMEAAEKAB0WIQRnpUMqgUjL2KRYJ5dVnxHm/pHO9QUCaHZj0wAKCRBVnxHm/pHO
+ 9VrVB/sEOpRz2jWfexpNikVYAvlqnyV+VsE/hzfg9+9mkMJYFMgNFPJsfEVbeY0aUttZ2LAVAww
+ 9MddGux+8kU7nT0VGLY7iSFSK3Fv4knmzzPko07sVZlkFLb8Dwd5TnO9Czmcfrw8/giROuJizsX
+ HjOUGxsR0uVIAbYHKTJH7LBXf/cY9stFc5Mran7/fIDOJ3igthjnnYZsKA8tYd4ojiz+Ow/LtZ2
+ P8IpC3GgQ6zeoYz0OCVBuyxtcBMlE+WW4y9g23+AgI6+f+3uvlw+wgS3sS7f4FywokyToEMABdq
+ mFgDl2cPx3QBIOFhCdKVwia609sG4ESLZpX27ALw8Obj7gSv
+X-Developer-Key: i=manivannan.sadhasivam@oss.qualcomm.com; a=openpgp;
+ fpr=C668AEC3C3188E4C611465E7488550E901166008
+X-Endpoint-Received: by B4 Relay for
+ manivannan.sadhasivam@oss.qualcomm.com/default with auth_id=461
+X-Original-From: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250715_080745_489834_D3F55899 
-X-CRM114-Status: GOOD (  17.35  )
+X-CRM114-CacheID: sfid-20250715_072112_511233_104CD073 
+X-CRM114-Status: GOOD (  19.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,26 +103,101 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: manivannan.sadhasivam@oss.qualcomm.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 10, 2025 at 01:43:05PM -0400, Brian Masney wrote:
-> The round_rate() clk ops is deprecated, so migrate this driver from
-> round_rate() to determine_rate() using the Coccinelle semantic patch
-> on the cover letter of this series.
-> 
-> Signed-off-by: Brian Masney <bmasney@redhat.com>
-> ---
->  drivers/gpu/drm/msm/hdmi/hdmi_pll_8960.c | 12 +++++++-----
->  1 file changed, 7 insertions(+), 5 deletions(-)
-> 
+Hi,
 
-Acked-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Currently, in the event of AER/DPC, PCI core will try to reset the slot (Root
+Port) and its subordinate devices by invoking bridge control reset and FLR. But
+in some cases like AER Fatal error, it might be necessary to reset the Root
+Ports using the PCI host bridge drivers in a platform specific way (as indicated
+by the TODO in the pcie_do_recovery() function in drivers/pci/pcie/err.c).
+Otherwise, the PCI link won't be recovered successfully.
 
-Please take this via the drm-misc tree (I assume the rest is going to be
-merged that way).
+So this series adds a new callback 'pci_host_bridge::reset_root_port' for the
+host bridge drivers to reset the Root Port when a fatal error happens.
 
+Also, this series allows the host bridge drivers to handle PCI link down event
+by resetting the Root Ports and recovering the bus. This is accomplished by the
+help of the new 'pci_host_handle_link_down()' API. Host bridge drivers are
+expected to call this API (preferrably from a threaded IRQ handler) with
+relevant Root Port 'pci_dev' when a link down event is detected for the port.
+The API will reuse the pcie_do_recovery() function to recover the link if AER
+support is enabled, otherwise it will directly call the reset_root_port()
+callback of the host bridge driver (if exists).
+
+For reference, I've modified the pcie-qcom driver to call
+pci_host_handle_link_down() API with Root Port 'pci_dev' after receiving the
+LINK_DOWN global_irq event and populated 'pci_host_bridge::reset_root_port()'
+callback to reset the Root Port. Since the Qcom PCIe controllers support only
+a single Root Port (slot) per controller instance, the API is going to be
+invoked only once. For multi Root Port controllers, the controller driver is
+expected to detect the Root Port that received the link down event and call
+the pci_host_handle_link_down() API with 'pci_dev' of that Root Port.
+
+Testing
+-------
+
+I've lost access to my test setup now. So Krishna (Cced) will help with testing
+on the Qcom platform and Wilfred or Niklas should be able to test it on Rockchip
+platform. For the moment, this series is compile tested only.
+
+Changes in v6:
+- Incorporated the patch: https://lore.kernel.org/all/20250524185304.26698-2-manivannan.sadhasivam@linaro.org/
+- Link to v5: https://lore.kernel.org/r/20250715-pci-port-reset-v5-0-26a5d278db40@oss.qualcomm.com
+
+Changes in v5:
+* Reworked the pci_host_handle_link_down() to accept Root Port instead of
+  resetting all Root Ports in the event of link down.
+* Renamed 'reset_slot' to 'reset_root_port' to avoid confusion as both terms
+  were used interchangibly and the series is intended to reset Root Port only.
+* Added the Rockchip driver change to this series.
+* Dropped the applied patches and review/tested tags due to rework.
+* Rebased on top of v6.16-rc1.
+
+Changes in v4:
+- Handled link down first in the irq handler
+- Updated ICC & OPP bandwidth after link up in reset_slot() callback
+- Link to v3: https://lore.kernel.org/r/20250417-pcie-reset-slot-v3-0-59a10811c962@linaro.org
+
+Changes in v3:
+- Made the pci-host-common driver as a common library for host controller
+  drivers
+- Moved the reset slot code to pci-host-common library
+- Link to v2: https://lore.kernel.org/r/20250416-pcie-reset-slot-v2-0-efe76b278c10@linaro.org
+
+Changes in v2:
+- Moved calling reset_slot() callback from pcie_do_recovery() to pcibios_reset_secondary_bus()
+- Link to v1: https://lore.kernel.org/r/20250404-pcie-reset-slot-v1-0-98952918bf90@linaro.org
+
+Signed-off-by: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
+---
+Manivannan Sadhasivam (3):
+      PCI/ERR: Add support for resetting the Root Ports in a platform specific way
+      PCI: host-common: Add link down handling for Root Ports
+      PCI: qcom: Add support for resetting the Root Port due to link down event
+
+Wilfred Mallawa (1):
+      PCI: dw-rockchip: Add support to reset Root Port upon link down event
+
+ drivers/pci/controller/dwc/Kconfig            |   2 +
+ drivers/pci/controller/dwc/pcie-dw-rockchip.c |  91 ++++++++++++++++++-
+ drivers/pci/controller/dwc/pcie-qcom.c        | 120 ++++++++++++++++++++++++--
+ drivers/pci/controller/pci-host-common.c      |  33 +++++++
+ drivers/pci/controller/pci-host-common.h      |   1 +
+ drivers/pci/pci.c                             |  21 +++++
+ drivers/pci/pcie/err.c                        |   6 +-
+ include/linux/pci.h                           |   1 +
+ 8 files changed, 260 insertions(+), 15 deletions(-)
+---
+base-commit: 19272b37aa4f83ca52bdf9c16d5d81bdd1354494
+change-id: 20250715-pci-port-reset-4d9519570123
+
+Best regards,
 -- 
-With best wishes
-Dmitry
+Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
+
+
 
