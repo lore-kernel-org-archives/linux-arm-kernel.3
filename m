@@ -4,105 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8170AC83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 06:36:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAE19C83F1D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 06:38:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:content-type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=njsXx1MQHjG0pYvx/jMfwxyJj9N+8fHFUPSJkTCfXcA=; b=lBqMugY3pp41dREpCHXSmhyTlM
-	o5yOzRVrzADelfu6RW6PDdERRrreahqeNJe94hLH/QAALXT31pql/eyMvB1BIV4WOqWqSZFXGw2S4
-	Az+nIN0QfFulTSmiTWdHC0PDsk063ioWEVyzgdwxFZPCpXeGiRg2OOHJMQcj2TdKrmE3baDEPrYql
-	/g5PUm3f6pKA9bcdreZkRIh5JdxBY6679CRqxWRGXCgsuRtT0o4W/+55tNFuNf8G8bSDcz53m7gFj
-	DdzUsfHpy7sveZ1kEBlZHInXwRd6uZULzkq27Cuy6i2//qoveE1ZWSCohkWWHs+xks9alzqjg28/8
-	29wBtt5w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+NTKNO2OG1fvH5/k0YVClAeRzdUuhlHWYVvqwuhgwk0=; b=2HfQHQANjR/TXqwsJyDkSXkBHL
+	vfA2G6aab8vtZqTJbWThiyH5Gs2S1Ml33lvwZHCrYfiW/0cPx12wJ5xPfaKLSA+AUZ7WStnUOepnQ
+	z6ndEMcxl3CxbrjnzJckairx9Zy80dwfmjClQMZqwOodDyBXruUbxgiD/tEgLgR/mmfVetqA9mf71
+	JKGJsHkl5xOupN6aZ6mSU0n/oCWcfVWWI2OvmHGbVAPPNlWy1kzzdEaW6viMX9VSalBnTUJkNxV+e
+	bFWfJHvDM5ID7FZUVUiY4y1/YKsZIlOambegnePUIw0TqxecDZ7TapjpMLWAnS4l/nSYRYspcLcyo
+	3/oMSe2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubZGd-00000004Dvd-1XrF;
-	Tue, 15 Jul 2025 06:35:55 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1ubZJ3-00000004ENc-3rtK;
+	Tue, 15 Jul 2025 06:38:25 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubZCd-00000004DM7-1FHr
+	id 1ubZD7-00000004DQq-0Zrw
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Jul 2025 06:31:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1752561104;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=njsXx1MQHjG0pYvx/jMfwxyJj9N+8fHFUPSJkTCfXcA=;
-	b=jQyqORKH8hzAnMsW1p1EfT9nITZ63oeRP3vC1+j7JgV8ahkXPVFA62Zcus2qdPEtPmniTp
-	Q6VE5kBfr17moJqbFFURq8l+RBp2T8cLVuhCS9Yb7Fo9Qu70gcPk7zuRZKHaBy0GZqDxRe
-	MD2J3rzQjWpFR46M55W3LkfCj0o/NMs=
-Received: from mail-ej1-f72.google.com (mail-ej1-f72.google.com
- [209.85.218.72]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-563-R4TXG7cJOx-QIwE6ma7_tw-1; Tue, 15 Jul 2025 02:31:43 -0400
-X-MC-Unique: R4TXG7cJOx-QIwE6ma7_tw-1
-X-Mimecast-MFC-AGG-ID: R4TXG7cJOx-QIwE6ma7_tw_1752561102
-Received: by mail-ej1-f72.google.com with SMTP id a640c23a62f3a-acb66d17be4so383441866b.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 14 Jul 2025 23:31:43 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752561102; x=1753165902;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=njsXx1MQHjG0pYvx/jMfwxyJj9N+8fHFUPSJkTCfXcA=;
-        b=t9BztfGERYDGzEViaT8F3ttbv7yVqkJUha0myi5YhzJotSGyKA3auYdhAi+G7o/DWR
-         xkmwr9xIVd8XlrW5TfnTC4kjXPEhTWG7W+ftapzTze7oLse4HkWBOf52u5gyPJnDAiBe
-         qopDY5nuRknDRmIPBVzSPMPsZFuY1zavi8d2kqPtuNvZtbt1wKhTkLv75pPDbczLstEn
-         Rq0r2PcoqJn0LJTdmUuhAOk68AJasZeIuOogFoA4HQIn87B5jXnEW8BOZ+59HfiuWFfY
-         KqFQ2+bBSho0O7RtdAuWt9OiFqWqrVX/GB0V2DLY5tH+MgROm3SrLK8fjb29y5q4Qf/l
-         YF+w==
-X-Forwarded-Encrypted: i=1; AJvYcCUDsRAyWbqjFK+nqijRBqyOEw8K90o95cdJPYytS79kvmiq0QaZcaWR3i44faCZUJ+cQbHU+okZ+1/OAVt4MvY+@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx/qACnOjvsElJpsqkxMlgtGV99THtn0hbqDsoC8riuBlpCTJ7d
-	CGM1Djz/AC8uInDYhC37TzuvYyIBZDsRXkhm00IZpOk3j0Ni+irEcBr4TjVrtMXvgdeHngfRXih
-	u6uhMSEUKPjOt9hqw+SYFXgqAum9t0E0fjk7mdVY1FQYN+rh6R/uYFJFocEzrlITGkQZOWNtaAV
-	Ft
-X-Gm-Gg: ASbGncsqs1rg5N/XbjAinI5I5ZRD/HaqWHKzOqdINtKixwpzWyptbj8kATk1WgRJZWL
-	FnXl2hHXbgnz6NWUi0GpBsOVGH/fUFzUGbw2I1L12E9THVLBNGnLGyb8fhOLUAt7ghSeZIIi+VA
-	r+HA8uoYjZtsrVhahx/hAxAin3hT95xGPuTdCSuPrD11Xd0tVfdAkLdHrybCgA7eRrYYYWyeq3/
-	EHKoSfT0UL25Uz0gtiTS9NAuJ5AvUMeYSFGXNstf/4atrHtidDdDUaJMsYQSOC4YOR9eVbvT+J/
-	wUGGPjBx6AswExhVFJp2CAl9D5EIs0W4dW6klvuSxTl10hQRAZQxaOJy58ZA1/z0K1Q22M0D4JQ
-	AmRR6lb9cZg==
-X-Received: by 2002:a17:907:3e14:b0:ae9:876a:4f14 with SMTP id a640c23a62f3a-ae9b96bb26cmr146895166b.59.1752561101848;
-        Mon, 14 Jul 2025 23:31:41 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFbahyJQ8uPvvKj2Eu2Bjb83oyH09cB9oPzy2+yyYmKgrlH0TrWtXbUYxonD5LHJNMzFi0wSw==
-X-Received: by 2002:a17:907:3e14:b0:ae9:876a:4f14 with SMTP id a640c23a62f3a-ae9b96bb26cmr146892566b.59.1752561101291;
-        Mon, 14 Jul 2025 23:31:41 -0700 (PDT)
-Received: from lbulwahn-thinkpadx1carbongen9.rmtde.csb ([2a02:810d:7e01:ef00:b52:2ad9:f357:f709])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ae6e82df56esm945349166b.156.2025.07.14.23.31.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 14 Jul 2025 23:31:40 -0700 (PDT)
-From: Lukas Bulwahn <lbulwahn@redhat.com>
-X-Google-Original-From: Lukas Bulwahn <lukas.bulwahn@redhat.com>
-To: Detlev Casanova <detlev.casanova@collabora.com>,
-	Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Nicolas Dufresne <nicolas.dufresne@collabora.com>,
-	Hans Verkuil <hverkuil@xs4all.nl>,
-	linux-media@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org
-Cc: kernel-janitors@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Lukas Bulwahn <lukas.bulwahn@redhat.com>
-Subject: [PATCH] MAINTAINERS: merge sections for ROCKCHIP VIDEO DECODER DRIVER
-Date: Tue, 15 Jul 2025 08:31:34 +0200
-Message-ID: <20250715063134.100733-1-lukas.bulwahn@redhat.com>
-X-Mailer: git-send-email 2.50.0
+	Tue, 15 Jul 2025 06:32:18 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 2ED6EA504C7;
+	Tue, 15 Jul 2025 06:32:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D8225C4CEE3;
+	Tue, 15 Jul 2025 06:32:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1752561135;
+	bh=WklIpAtJHYfMiMe/6RUqbZbJU6W8TijSjtq/DkC9NJI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=bIqtaYw+YTTScXws62NyPzaxn1XexwR0P2/YUPO4QSpYNd/LYInNh13B/lbxBXcng
+	 bGxZvLZoTpr2Sz4uQNB8dIOTpu2NkhYwsbI2LpBvm6DHuN5Mj0IKPhqmvGib3u+y70
+	 uzlWm35fxUu7sljGm1oEZ+U1NEHqPARYDT1UkpH9lBilc851jbuHBOz3S8ukFKRcR5
+	 /4yXuswtXyrJPCLG/R0hu/atqT4bjiNRjTjzEXiPHUdOo/gPAKlIj92Q20dy1rGm4L
+	 AVgszw2kKvWLRLDk6HQ996u9qaI7QTAPcI4GZUSgpwwCj6cbQ/2MTew7DEa+BhIxNm
+	 A7h6+oQ9ctMBA==
+Message-ID: <95ef2f67-146d-4f31-a07a-4d1f82bc60c3@kernel.org>
+Date: Tue, 15 Jul 2025 08:32:08 +0200
 MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: rM9-tsJ04qIjmq9phol54kSdSCPqAcAj2mNKUmmAZYA_1752561102
-X-Mimecast-Originator: redhat.com
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v16 1/5] dt-bindings: mmc: sdhci-pxa: restrict pinctrl to
+ pxav1
+To: =?UTF-8?Q?Duje_Mihanovi=C4=87?= <duje@dujemihanovic.xyz>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Lubomir Rintel <lkundrak@v3.sk>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Andrew Lunn <andrew@lunn.ch>, Gregory Clement <gregory.clement@bootlin.com>,
+ Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+ Kees Cook <kees@kernel.org>, Tony Luck <tony.luck@intel.com>,
+ "Guilherme G. Piccoli" <gpiccoli@igalia.com>,
+ Ulf Hansson <ulf.hansson@linaro.org>, David Wronek <david@mainlining.org>,
+ Karel Balej <balejk@matfyz.cz>, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-hardening@vger.kernel.org, phone-devel@vger.kernel.org,
+ ~postmarketos/upstreaming@lists.sr.ht, soc@lists.linux.dev,
+ linux-mmc@vger.kernel.org
+References: <20250708-pxa1908-lkml-v16-0-b4392c484180@dujemihanovic.xyz>
+ <3379810.44csPzL39Z@radijator>
+ <20250711-hypnotic-aloof-nuthatch-f3761c@krzk-bin>
+ <3028096.e9J7NaK4W3@radijator>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <3028096.e9J7NaK4W3@radijator>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-content-type: text/plain; charset="US-ASCII"; x-default=true
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250714_233147_426465_9F2AF7DE 
-X-CRM114-Status: GOOD (  14.70  )
+X-CRM114-CacheID: sfid-20250714_233217_395542_3C6F785D 
+X-CRM114-Status: GOOD (  11.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,53 +131,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Lukas Bulwahn <lukas.bulwahn@redhat.com>
+On 15/07/2025 00:23, Duje Mihanović wrote:
+> On Friday, 11 July 2025 09:31:55 Central European Summer Time Krzysztof 
+> Kozlowski wrote:
+>> On Wed, Jul 09, 2025 at 07:33:01PM +0200, Duje Mihanović wrote:
+>>> Would it then be acceptable to declare the pinctrl properties in the top
+>>> level and define each controller's respective description: and items: in
+>>> the allOf: block?
+>>
+>> just min/maxItems should be enough in each allOf:if:then: sections.
+> 
+> I guess for now. Later however I might need to add a state_uhs setting to the 
+> pxav3 driver; is the method I described right for this or is there something 
+> better?
+Then please define it now which would make entire discussion obsolete, I
+think.
 
-Commit d968e50b5c26 ("media: rkvdec: Unstage the driver") moves the driver
-from staging/media/ to media/platform/rockchip/ and adds a new section
-ROCKCHIP RKVDEC VIDEO DECODER DRIVER in MAINTAINERS. It seems that it was
-overlooked that the section ROCKCHIP VIDEO DECODER DRIVER in MAINTAINERS
-already existed, referring to the same files before the driver was moved
-as the new section refers to after the driver was moved.
-
-So, merge the information from the two sections for ROCKCHIP (RKVDEC) VIDEO
-DECODER DRIVER into one. This essentially results in adding the maintainer
-of the previously existing section in the new section and then removing
-that previously existing section.
-
-Signed-off-by: Lukas Bulwahn <lukas.bulwahn@redhat.com>
----
- MAINTAINERS | 9 +--------
- 1 file changed, 1 insertion(+), 8 deletions(-)
-
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 5efcdb5537f5..d044e4f71ae5 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -21673,6 +21673,7 @@ F:	drivers/media/platform/rockchip/rga/
- 
- ROCKCHIP RKVDEC VIDEO DECODER DRIVER
- M:	Detlev Casanova <detlev.casanova@collabora.com>
-+M:	Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>
- L:	linux-media@vger.kernel.org
- L:	linux-rockchip@lists.infradead.org
- S:	Maintained
-@@ -21693,14 +21694,6 @@ S:	Maintained
- F:	Documentation/devicetree/bindings/sound/rockchip,rk3576-sai.yaml
- F:	sound/soc/rockchip/rockchip_sai.*
- 
--ROCKCHIP VIDEO DECODER DRIVER
--M:	Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>
--L:	linux-media@vger.kernel.org
--L:	linux-rockchip@lists.infradead.org
--S:	Maintained
--F:	Documentation/devicetree/bindings/media/rockchip,vdec.yaml
--F:	drivers/staging/media/rkvdec/
--
- ROCKER DRIVER
- M:	Jiri Pirko <jiri@resnulli.us>
- L:	netdev@vger.kernel.org
--- 
-2.50.0
-
+Best regards,
+Krzysztof
 
