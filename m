@@ -4,80 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D9F1C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 03:46:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D433CC83F10
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 03:48:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iopi2+gz9G1S31mgZcDMq34RTDpk6U4CFINCoCSzEaY=; b=d4eov4JdlGKgg00sOuWOyNpAjA
-	qMoKjufQtN7Dzqx6s/Bk3m12OUc6L4GdFAgXd4ZGbq9ghjkPdfgd1QO1yj3zMRFU+JZxzGvDATiDg
-	aCqz3isbmrMrsjWtIAOHvjt4SFL0BhD8PSXSowW5XyVN9iZLaAMx6X0Kw0053Nl9shKcA2iMKCVAr
-	7cyJIImXH7wZmjwjDSEtfKolWdpnAX6JzmjKuh8DsCDMuc0/MGTTkQZvokcv1OhbvtqYPJ5nCHCze
-	ZcxuFvvU9jLxtCW57ematQR+/6bULfZyBUAAOwJvCIwj5oh6OYkF4/gUK9Zp0MRmKxKTS33spArlp
-	imnlZBhg==;
+	bh=R9bkMSgjXRJBC3jIskNbxPSJ3ef6dVok+b5QS0ceorc=; b=XkmmDEsOlI46HXlZhN/Gb9o4z8
+	QzL/uEFt+8u3UY8eIuu3pS21aoYIJH9vMp9wrnoMLn5I0broFG2siZ5CZ62gsO+fGCLgI1G82hPrF
+	DW3YHHWV0c9CzG53bYuv/S2NDklfrXyeoC0s72h55wh2xaLhSB+Ve7IwHoJQFCpTBHpQUfbZdtWvE
+	YCVF0TzJeGJ4rkc2yJjnGYzQqF0iPG2gARyY6XMcIuoKKOHtF+OWD9IcSB4DcPRDcO/7AiOHtf6Ai
+	nIfm6fs/dF0efgK8PJlvoxHjnnZgFtkxZFu3uqzzY/jOZNFgx8JL6pqpFqwOmxomAYYFSxcxwGAH/
+	axXJQRkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubWcF-00000003vtb-3w0X;
-	Tue, 15 Jul 2025 03:46:03 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1ubWef-00000003wGF-36rW;
+	Tue, 15 Jul 2025 03:48:33 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubWLc-00000003svv-1C9T
+	id 1ubWLm-00000003syc-1sDo
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Jul 2025 03:28:52 +0000
+	Tue, 15 Jul 2025 03:29:03 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6C0E861483;
-	Tue, 15 Jul 2025 03:28:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EEEDAC4CEED;
-	Tue, 15 Jul 2025 03:28:50 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id BB554A4C138;
+	Tue, 15 Jul 2025 03:29:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3FE21C4CEED;
+	Tue, 15 Jul 2025 03:29:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752550131;
-	bh=hJ5Tz4XRlWlp+Qr+K0nHaD5SudM2cYhAell+KZWfOyM=;
+	s=k20201202; t=1752550141;
+	bh=OqSL6o8XLKZ7o6mDDJ9Dkj0z/7Mo30BcptyzbVfNxbw=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Th4R/Vd9Sc30eBwVlR0nlZTQaoK9uTYS/GaIe1Focfrd9Bqe6K+YweCRFqbDBjwni
-	 AcLNZpvhF/v3nqU2Kvmh+/0+Yx2kiKWku8lA1caAXcjgVX1Ezi3jHg+juszRd3Op9I
-	 J3ycYgzL1pfCFZDvKoTEPmNdUTRecjVHjZiIfZYTTXELwE0Kj42Ydp7vB/SWXcg8Rx
-	 NFHD/e2zgi+s20WBIU0JBy/cFtsTNRpf3IFQuLZWedD3eKZmj5bGdG79xtpUn+QNCV
-	 7rxrauWgWYlpkRreeTivMbRL1DLz/z7xfOVxsCwUk/Lc7tLM0RjBtsA4g23yfIUof5
-	 F4/vfNL4cbkTw==
-Date: Mon, 14 Jul 2025 22:28:50 -0500
+	b=UVK29GIJfQFd400woxXrFFfAlvZiAPSd7Mh03QuBC/iBY7NUYlO73a6B3tQvKo+zL
+	 JjQl9usaYQ60m4AMsPiLeagDDzIoEFjwW4ilK7i6fZXhSdnKvvfEyfAPWfBWO/vIon
+	 OAaN4QB9qE7MRc4jStTAicRvlIjFkB2YsaNk4NSSyzqgyXifpZmtoM1v5Y5roQpG9X
+	 h38ulFXdOTboNhgUT+ReZXemu/SUQTfv0kr9d0nLouWQeCVlZXgFWUgwqTehyp6gZo
+	 Wbm2n/ikAMJ5vPieDQuje9ZsbffviXAuXSteXQVVcnB2h/V0sKeyCaU9Pzr/u+ZSsD
+	 T+G489dNRGDYg==
+Date: Mon, 14 Jul 2025 22:29:00 -0500
 From: "Rob Herring (Arm)" <robh@kernel.org>
 To: Luca Weiss <luca.weiss@fairphone.com>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	"David S. Miller" <davem@davemloft.net>,
-	Bjorn Andersson <andersson@kernel.org>, dmaengine@vger.kernel.org,
-	Robert Marko <robimarko@gmail.com>, linux-mmc@vger.kernel.org,
-	Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
-	Thomas Gleixner <tglx@linutronix.de>, linux-pm@vger.kernel.org,
-	Vinod Koul <vkoul@kernel.org>,
-	Konrad Dybcio <konradybcio@kernel.org>, devicetree@vger.kernel.org,
-	Das Srinagesh <quic_gurus@quicinc.com>,
-	Manivannan Sadhasivam <mani@kernel.org>,
+Cc: dmaengine@vger.kernel.org, Das Srinagesh <quic_gurus@quicinc.com>,
 	~postmarketos/upstreaming@lists.sr.ht,
-	Conor Dooley <conor+dt@kernel.org>,
-	Jassi Brar <jassisinghbrar@gmail.com>,
 	Amit Kucheria <amitk@kernel.org>, Zhang Rui <rui.zhang@intel.com>,
-	Lukasz Luba <lukasz.luba@arm.com>, linux-kernel@vger.kernel.org,
-	Viresh Kumar <viresh.kumar@linaro.org>, iommu@lists.linux.dev,
+	Jassi Brar <jassisinghbrar@gmail.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>, iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org, Ulf Hansson <ulf.hansson@linaro.org>,
+	Joerg Roedel <joro@8bytes.org>,
+	linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org,
 	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-crypto@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org,
+	linux-mmc@vger.kernel.org, Lukasz Luba <lukasz.luba@arm.com>,
+	Viresh Kumar <viresh.kumar@linaro.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	"David S. Miller" <davem@davemloft.net>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	Vinod Koul <vkoul@kernel.org>,
 	Thara Gopinath <thara.gopinath@gmail.com>,
-	phone-devel@vger.kernel.org, Joerg Roedel <joro@8bytes.org>,
-	Ulf Hansson <ulf.hansson@linaro.org>,
-	Herbert Xu <herbert@gondor.apana.org.au>
-Subject: Re: [PATCH v2 08/15] dt-bindings: thermal: qcom-tsens: document the
- Milos Temperature Sensor
-Message-ID: <175255012978.4170832.11710750151104191728.robh@kernel.org>
+	linux-arm-msm@vger.kernel.org, phone-devel@vger.kernel.org,
+	Bjorn Andersson <andersson@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Robert Marko <robimarko@gmail.com>,
+	Robin Murphy <robin.murphy@arm.com>, devicetree@vger.kernel.org,
+	linux-crypto@vger.kernel.org, Thomas Gleixner <tglx@linutronix.de>,
+	Will Deacon <will@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>
+Subject: Re: [PATCH v2 09/15] dt-bindings: dma: qcom,gpi: document the Milos
+ GPI DMA Engine
+Message-ID: <175255013986.4171175.13096534892650762212.robh@kernel.org>
 References: <20250713-sm7635-fp6-initial-v2-0-e8f9a789505b@fairphone.com>
- <20250713-sm7635-fp6-initial-v2-8-e8f9a789505b@fairphone.com>
+ <20250713-sm7635-fp6-initial-v2-9-e8f9a789505b@fairphone.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250713-sm7635-fp6-initial-v2-8-e8f9a789505b@fairphone.com>
+In-Reply-To: <20250713-sm7635-fp6-initial-v2-9-e8f9a789505b@fairphone.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250714_202902_551501_35E0824E 
+X-CRM114-Status: GOOD (  10.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,12 +97,12 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Sun, 13 Jul 2025 10:05:30 +0200, Luca Weiss wrote:
-> Document the Temperature Sensor (TSENS) on the Milos SoC.
+On Sun, 13 Jul 2025 10:05:31 +0200, Luca Weiss wrote:
+> Document the GPI DMA Engine on the Milos SoC.
 > 
 > Signed-off-by: Luca Weiss <luca.weiss@fairphone.com>
 > ---
->  Documentation/devicetree/bindings/thermal/qcom-tsens.yaml | 1 +
+>  Documentation/devicetree/bindings/dma/qcom,gpi.yaml | 1 +
 >  1 file changed, 1 insertion(+)
 > 
 
