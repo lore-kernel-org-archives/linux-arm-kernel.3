@@ -4,119 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAE19C83F1D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 06:38:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC275C83F22
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 06:41:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+NTKNO2OG1fvH5/k0YVClAeRzdUuhlHWYVvqwuhgwk0=; b=2HfQHQANjR/TXqwsJyDkSXkBHL
-	vfA2G6aab8vtZqTJbWThiyH5Gs2S1Ml33lvwZHCrYfiW/0cPx12wJ5xPfaKLSA+AUZ7WStnUOepnQ
-	z6ndEMcxl3CxbrjnzJckairx9Zy80dwfmjClQMZqwOodDyBXruUbxgiD/tEgLgR/mmfVetqA9mf71
-	JKGJsHkl5xOupN6aZ6mSU0n/oCWcfVWWI2OvmHGbVAPPNlWy1kzzdEaW6viMX9VSalBnTUJkNxV+e
-	bFWfJHvDM5ID7FZUVUiY4y1/YKsZIlOambegnePUIw0TqxecDZ7TapjpMLWAnS4l/nSYRYspcLcyo
-	3/oMSe2g==;
+	bh=9wgx/x0WS4CP1bfDxxEk/7j7bUG/94pwY6x3H7YqQVk=; b=OCLoy1eRLm7OXnJCWe06H2P9ma
+	Vl68n4UA/qVJocgjGArSCtR82StVaBO3aEKMk67xrcLOlGsPgJQk+0DNimbjSW0SrZYQ4oGxf6fpd
+	kRFQRVaTWSUoWWnjIOF2vQ6Nh3hIOO+hk71k4JVfyonIL9F3eI65Y4gql9siF0hE5hONc5vCga1QC
+	1u8k5Xh3GGXSAaqAQDNpuydzJPp5wjF4vCxTTDz1+IW7xGYDIk2GSu4I3tLSi8PqiDRDlmpmkrmNI
+	Lfldyc1AeDBJcynL+wLdQR7XcQwDwXoXRUB1hPe2zi2pOlJIldaeI8+WfNGj1prAqRaoDiWqLF/kK
+	XUEJavGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubZJ3-00000004ENc-3rtK;
-	Tue, 15 Jul 2025 06:38:25 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubZD7-00000004DQq-0Zrw
+	id 1ubZLU-00000004EfX-09jD;
+	Tue, 15 Jul 2025 06:40:56 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ubZHO-00000004E5p-0fEq
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Jul 2025 06:32:18 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 2ED6EA504C7;
-	Tue, 15 Jul 2025 06:32:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D8225C4CEE3;
-	Tue, 15 Jul 2025 06:32:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752561135;
-	bh=WklIpAtJHYfMiMe/6RUqbZbJU6W8TijSjtq/DkC9NJI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=bIqtaYw+YTTScXws62NyPzaxn1XexwR0P2/YUPO4QSpYNd/LYInNh13B/lbxBXcng
-	 bGxZvLZoTpr2Sz4uQNB8dIOTpu2NkhYwsbI2LpBvm6DHuN5Mj0IKPhqmvGib3u+y70
-	 uzlWm35fxUu7sljGm1oEZ+U1NEHqPARYDT1UkpH9lBilc851jbuHBOz3S8ukFKRcR5
-	 /4yXuswtXyrJPCLG/R0hu/atqT4bjiNRjTjzEXiPHUdOo/gPAKlIj92Q20dy1rGm4L
-	 AVgszw2kKvWLRLDk6HQ996u9qaI7QTAPcI4GZUSgpwwCj6cbQ/2MTew7DEa+BhIxNm
-	 A7h6+oQ9ctMBA==
-Message-ID: <95ef2f67-146d-4f31-a07a-4d1f82bc60c3@kernel.org>
-Date: Tue, 15 Jul 2025 08:32:08 +0200
+	Tue, 15 Jul 2025 06:36:43 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 828AC12FC;
+	Mon, 14 Jul 2025 23:36:31 -0700 (PDT)
+Received: from [10.163.92.132] (unknown [10.163.92.132])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3A4FC3F6A8;
+	Mon, 14 Jul 2025 23:36:37 -0700 (PDT)
+Message-ID: <408a830d-11c5-4c29-95c1-21789cd07e32@arm.com>
+Date: Tue, 15 Jul 2025 12:06:34 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v16 1/5] dt-bindings: mmc: sdhci-pxa: restrict pinctrl to
- pxav1
-To: =?UTF-8?Q?Duje_Mihanovi=C4=87?= <duje@dujemihanovic.xyz>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Lubomir Rintel <lkundrak@v3.sk>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Andrew Lunn <andrew@lunn.ch>, Gregory Clement <gregory.clement@bootlin.com>,
- Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
- Kees Cook <kees@kernel.org>, Tony Luck <tony.luck@intel.com>,
- "Guilherme G. Piccoli" <gpiccoli@igalia.com>,
- Ulf Hansson <ulf.hansson@linaro.org>, David Wronek <david@mainlining.org>,
- Karel Balej <balejk@matfyz.cz>, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-hardening@vger.kernel.org, phone-devel@vger.kernel.org,
- ~postmarketos/upstreaming@lists.sr.ht, soc@lists.linux.dev,
- linux-mmc@vger.kernel.org
-References: <20250708-pxa1908-lkml-v16-0-b4392c484180@dujemihanovic.xyz>
- <3379810.44csPzL39Z@radijator>
- <20250711-hypnotic-aloof-nuthatch-f3761c@krzk-bin>
- <3028096.e9J7NaK4W3@radijator>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH] arm64/mm: Drop redundant addr increment in
+ set_huge_pte_at()
+To: Dev Jain <dev.jain@arm.com>, linux-arm-kernel@lists.infradead.org
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Ryan Roberts <ryan.roberts@arm.com>, linux-kernel@vger.kernel.org
+References: <20250715043922.57195-1-anshuman.khandual@arm.com>
+ <e10e0fac-a81c-445e-8036-9db2b63b77f7@arm.com>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <3028096.e9J7NaK4W3@radijator>
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <e10e0fac-a81c-445e-8036-9db2b63b77f7@arm.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250714_233217_395542_3C6F785D 
-X-CRM114-Status: GOOD (  11.98  )
+X-CRM114-CacheID: sfid-20250714_233642_239975_954630A8 
+X-CRM114-Status: GOOD (  21.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,22 +66,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 15/07/2025 00:23, Duje Mihanović wrote:
-> On Friday, 11 July 2025 09:31:55 Central European Summer Time Krzysztof 
-> Kozlowski wrote:
->> On Wed, Jul 09, 2025 at 07:33:01PM +0200, Duje Mihanović wrote:
->>> Would it then be acceptable to declare the pinctrl properties in the top
->>> level and define each controller's respective description: and items: in
->>> the allOf: block?
->>
->> just min/maxItems should be enough in each allOf:if:then: sections.
-> 
-> I guess for now. Later however I might need to add a state_uhs setting to the 
-> pxav3 driver; is the method I described right for this or is there something 
-> better?
-Then please define it now which would make entire discussion obsolete, I
-think.
 
-Best regards,
-Krzysztof
+
+On 15/07/25 11:28 AM, Dev Jain wrote:
+> 
+> On 15/07/25 10:09 am, Anshuman Khandual wrote:
+>> The 'addr' need not be incremented while operating on single entry basis as
+>> BBM is not required for such updates.
+> 
+> "while operating on a single entry basis" should be replaced with
+> "when transitioning from invalid to valid pte"; BBM is required
+> for single entry updates when the cont bit is set, as described
+> in the comment immediately below. In fact, let us not even mention
+> BBM at all - the reasoning is that the code is written in a way
+> that, the loop incrementing addr, immediately has a return after
+> it, and it does not actually use the addr, so let's drop the
+> increment. It is not immediately obvious from the commit description
+> that the addr is passed ultimately to flush_tlb_range friends which
+> is involved in BBM.
+
+Agreed, the mention about BBM can be dropped as it is not really
+relevant. Rather 'addr' variable being unused in the conditional
+block, which exits right after is the real reason. I will update
+the commit description as required.  
+
+> 
+> Reviewed-by: Dev Jain <dev.jain@arm.com>
+> 
+>>
+>> Cc: Catalin Marinas <catalin.marinas@arm.com>
+>> Cc: Will Deacon <will@kernel.org>
+>> Cc: Ryan Roberts <ryan.roberts@arm.com>
+>> Cc: linux-arm-kernel@lists.infradead.org
+>> Cc: linux-kernel@vger.kernel.org
+>> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+>> ---
+>>   arch/arm64/mm/hugetlbpage.c | 2 +-
+>>   1 file changed, 1 insertion(+), 1 deletion(-)
+>>
+>> diff --git a/arch/arm64/mm/hugetlbpage.c b/arch/arm64/mm/hugetlbpage.c
+>> index 0c8737f4f2ce..1d90a7e75333 100644
+>> --- a/arch/arm64/mm/hugetlbpage.c
+>> +++ b/arch/arm64/mm/hugetlbpage.c
+>> @@ -225,7 +225,7 @@ void set_huge_pte_at(struct mm_struct *mm, unsigned long addr,
+>>       ncontig = num_contig_ptes(sz, &pgsize);
+>>         if (!pte_present(pte)) {
+>> -        for (i = 0; i < ncontig; i++, ptep++, addr += pgsize)
+>> +        for (i = 0; i < ncontig; i++, ptep++)
+>>               __set_ptes_anysz(mm, ptep, pte, 1, pgsize);
+>>           return;
+>>       }
 
