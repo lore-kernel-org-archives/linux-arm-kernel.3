@@ -4,55 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EB28C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 16:19:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7BC7C83F22
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 16:22:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4uy0z700i8F874zkdqhtFVTpZ8rBnjKH1fLzPQuP5ZU=; b=bPZ/sc9WiAqqtyoj2uKJ4ZE/7s
-	Q7UUV3wU3H1zgeJ3l7aB4IsQG0ggVsQ93Fs91LsOluInPYjc3aIg63w1+QITrytjdsu1ioQPeK3ry
-	4IvXbBEzAFagg12TFYWWn0wfgXcMdNn+TmQExBG4gc4LSGDLyrMhOtmW+059BtrQpONXE6AHSiegW
-	1uiGG5wwf5fT+0OnM0HXSLB2OmFRtqsL35HCnYRA0eKgH6isbvEAqayPVCPkM41UktZAs3P8GKuey
-	zmOUs9t2bVlJF3mzf3UON+P1oMeBiZ/6wDJL8T8uV/uK1j5BF3h7GGw2oadVo7uLgEt9EfjVu+//l
-	XwSoMDaw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=DnKILW9uySvij0igSZMLj3M/sPtN3rANDvGp1XLZfmc=; b=LQrZVEk131UOi6
+	7dJMGhA7Bk/5K+2ShcbSMUariEL/mYRhe3yNRhVs6P/FPqjNFUATodRagKdO2tg76seFVgSFDiqST
+	ErpgxPHCXOUYWA8KLlVUme7y87vWIOXIrPbfIQoXeDu3yXnjP2E2qokNeMXtLZPfUN4O9sVEQK4+5
+	nKnEYVJvthB9nnKsNETva2godcsVg6zrqih765famsUqwzy4xL1WF6+h295XOGuBJBmWsZF8JK52f
+	95GT00c0NqerVMFdy1BSo8zfu9qN3hgyg654/ISf78dGR9arMGPz9bWpJ2NAD8bgPXyOiAWPL9hTz
+	FXNvQPh1cAZWy3KExvlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubiNg-00000005j1r-0aOc;
-	Tue, 15 Jul 2025 16:19:48 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubgnt-00000005PJd-45A0
+	id 1ubiQ5-00000005jVJ-2H8Y;
+	Tue, 15 Jul 2025 16:22:17 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ubgvE-00000005Qsg-2guU
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Jul 2025 14:38:47 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6B38112FC;
-	Tue, 15 Jul 2025 07:38:34 -0700 (PDT)
-Received: from [10.57.0.241] (unknown [10.57.0.241])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id D52943F694;
-	Tue, 15 Jul 2025 07:38:41 -0700 (PDT)
-Message-ID: <bf56dab4-8a11-4e91-b330-2a8126c94acc@arm.com>
-Date: Tue, 15 Jul 2025 15:38:41 +0100
+	Tue, 15 Jul 2025 14:46:21 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id A80365C5A20;
+	Tue, 15 Jul 2025 14:46:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3826DC4CEE3;
+	Tue, 15 Jul 2025 14:46:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1752590778;
+	bh=KZ1W7mzel2tzyENmIY/KyfG+sQOyLDK8atG59n7g34U=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=nhOI4oOcjdEd81/BA+chqSa9l8uanzEnEhr+bgfqoi60EpD0cwakUJpbZX2fvZD9c
+	 h0r1Tl3SHdyGUqyNniLCPaRBLWnhR4Mw4wlI0b9cxK2s7FO/4PCh/z68CLf37uqsbN
+	 Ss57RFtoC1bv1VmoENClwao3WYlFrjJ6yC7SIvm9bi5akXlS/Oy+9OsgqHLoZsWQN+
+	 aOS+cqX7rXhgqW0olOrGTZRfSSAUFdUoXJJXA1aV5LA9A12qLH5D2M+l2ZRGSowLbs
+	 FUNKbLBEz/i0hS2tpLxxlwcQJOY2rIHFi2EcPvKl2lBHzOWGB1F27V57vVQ2nL9Xb7
+	 ZNVpaMdVZGo+Q==
+Date: Tue, 15 Jul 2025 09:46:16 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Claudiu <claudiu.beznea@tuxon.dev>,
+	Manivannan Sadhasivam <mani@kernel.org>
+Cc: bhelgaas@google.com, lpieralisi@kernel.org, kw@linux.com,
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	geert+renesas@glider.be, magnus.damm@gmail.com,
+	mturquette@baylibre.com, sboyd@kernel.org, p.zabel@pengutronix.de,
+	linux-pci@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
+	john.madieu.xa@bp.renesas.com,
+	Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+Subject: Re: [PATCH v2 0/8] PCI: rzg3s-host: Add PCIe driver for Renesas
+ RZ/G3S SoC
+Message-ID: <20250715144616.GA2458869@bhelgaas>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/3] arm64: acpi: Enable ACPI CCEL support
-Content-Language: en-GB
-To: Will Deacon <will@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, catalin.marinas@arm.com,
- sami.mujawar@arm.com, aneesh.kumar@kernel.org, steven.price@arm.com,
- linux-kernel@vger.kernel.org, sudeep.holla@arm.com
-References: <20250613111153.1548928-1-suzuki.poulose@arm.com>
- <20250613111153.1548928-4-suzuki.poulose@arm.com>
- <aHZeCKNyDeZEsuCt@willie-the-truck>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <aHZeCKNyDeZEsuCt@willie-the-truck>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250530111917.1495023-1-claudiu.beznea.uj@bp.renesas.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250715_073846_051547_84B3890D 
-X-CRM114-Status: GOOD (  14.23  )
+X-CRM114-CacheID: sfid-20250715_074620_761153_E9F481C3 
+X-CRM114-Status: GOOD (  25.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,52 +79,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 15/07/2025 14:56, Will Deacon wrote:
-> On Fri, Jun 13, 2025 at 12:11:53PM +0100, Suzuki K Poulose wrote:
->> ACPI CCEL memory area is reported as Non-Volatile storage area. Map it as
->> PAGE_KERNEL.
+On Fri, May 30, 2025 at 02:19:09PM +0300, Claudiu wrote:
+> From: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
 > 
-> It would be helpful to have a citation for that. I've tried digging it
-> out of the ACPI spec, but that pointed me to the Intel TDX site and I
-> got lost in whitepapers :/
+> Hi,
 > 
-
-https://uefi.org/specs/ACPI/6.5/05_ACPI_Software_Programming_Model.html#cc-event-log-acpi-table
-
->> Cc: Sami Mujawar <sami.mujawar@arm.com>
->> Cc: Will Deacon <will@kernel.org>
->> Cc: Catalin Marinas <catalin.marinas@arm.com>
->> Cc: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>
->> Cc: Steven Price <steven.price@arm.com>
->> Cc: Sudeep Holla <sudeep.holla@arm.com>
->> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
->> ---
->>   arch/arm64/kernel/acpi.c | 5 +++++
->>   1 file changed, 5 insertions(+)
->>
->> diff --git a/arch/arm64/kernel/acpi.c b/arch/arm64/kernel/acpi.c
->> index b9a66fc146c9..f52439d411a0 100644
->> --- a/arch/arm64/kernel/acpi.c
->> +++ b/arch/arm64/kernel/acpi.c
->> @@ -356,6 +356,11 @@ void __iomem *acpi_os_ioremap(acpi_physical_address phys, acpi_size size)
->>   			prot = PAGE_KERNEL_RO;
->>   			break;
->>   
->> +		case EFI_ACPI_MEMORY_NVS:
->> +			/* Non-volatile storage, required for CCEL */
->> +			prot = PAGE_KERNEL;
+> Series adds a PCIe driver for the Renesas RZ/G3S SoC.
+> It is split as follows:
+> - patch 1/8:		updates the max register offset for RZ/G3S SYSC;
+> 			this is necessary as the PCIe need to setup the
+> 			SYSC for proper functioning
+> - patch 2/8:		adds clock, reset and power domain support for
+> 			the PCIe IP
+> - patches 3-4/8:	add PCIe support for the RZ/G3S SoC
+> - patches 5-8/8:	add device tree support and defconfig flag
 > 
-> By "storage" you just mean memory, right?
-
-Yep, it is just memory. I will drop the "NV storage" and simply mention, 
-CCEL.
-
-Thanks!
-
-Suzuki
-
-
+> Please provide your feedback.
 > 
-> Will
+> Merge strategy, if any:
+> - patches 1-2,5-8/8 can go through the Renesas tree
+> - patches 3-4/8 can go through the PCI tree
+> 
+> Thank you,
+> Claudiu Beznea
+> 
+> Changes in v2:
+> - dropped "of/irq: Export of_irq_count()" as it is not needed anymore
+>   in this version
+> - added "arm64: dts: renesas: rzg3s-smarc-som: Update dma-ranges for PCIe"
+>   to reflect the board specific memory constraints
+> - addressed review comments
+> - updated patch "soc: renesas: rz-sysc: Add syscon/regmap support"
+> - per-patch changes are described in each individual patch
+> 
+> Claudiu Beznea (7):
+>   clk: renesas: r9a08g045: Add clocks, resets and power domain support
+>     for the PCIe
+>   dt-bindings: PCI: renesas,r9a08g045s33-pcie: Add documentation for the
+>     PCIe IP on Renesas RZ/G3S
+>   PCI: rzg3s-host: Add Initial PCIe Host Driver for Renesas RZ/G3S SoC
+>   arm64: dts: renesas: r9a08g045s33: Add PCIe node
+>   arm64: dts: renesas: rzg3s-smarc-som: Update dma-ranges for PCIe
+>   arm64: dts: renesas: rzg3s-smarc: Enable PCIe
+>   arm64: defconfig: Enable PCIe for the Renesas RZ/G3S SoC
+> 
+> John Madieu (1):
+>   soc: renesas: rz-sysc: Add syscon/regmap support
+> 
+>  .../pci/renesas,r9a08g045s33-pcie.yaml        |  202 ++
+>  MAINTAINERS                                   |    8 +
+>  arch/arm64/boot/dts/renesas/r9a08g045s33.dtsi |   60 +
+>  .../boot/dts/renesas/rzg3s-smarc-som.dtsi     |    5 +
+>  arch/arm64/boot/dts/renesas/rzg3s-smarc.dtsi  |   11 +
+>  arch/arm64/configs/defconfig                  |    1 +
+>  drivers/clk/renesas/r9a08g045-cpg.c           |   19 +
+>  drivers/pci/controller/Kconfig                |    7 +
+>  drivers/pci/controller/Makefile               |    1 +
+>  drivers/pci/controller/pcie-rzg3s-host.c      | 1686 +++++++++++++++++
+>  drivers/soc/renesas/Kconfig                   |    1 +
+>  drivers/soc/renesas/r9a08g045-sysc.c          |   10 +
+>  drivers/soc/renesas/r9a09g047-sys.c           |   10 +
+>  drivers/soc/renesas/r9a09g057-sys.c           |   10 +
+>  drivers/soc/renesas/rz-sysc.c                 |   17 +-
+>  drivers/soc/renesas/rz-sysc.h                 |    3 +
+>  16 files changed, 2050 insertions(+), 1 deletion(-)
+>  create mode 100644 Documentation/devicetree/bindings/pci/renesas,r9a08g045s33-pcie.yaml
+>  create mode 100644 drivers/pci/controller/pcie-rzg3s-host.c
 
+Where are we at with this series?
+
+I see
+https://git.kernel.org/pub/scm/linux/kernel/git/pci/pci.git/commit/?h=controller/dwc-stm32&id=5a972a01e24b278f7302a834c6eaee5bdac12843,
+but also this kernel robot report at that commit:
+https://lore.kernel.org/all/202506270620.sf6EApJY-lkp@intel.com/
+
+I normally don't include branches in pci/next until we get a
+"BUILD SUCCESS" report from the robot, so this branch is in limbo at
+the moment.
+
+Bjorn
 
