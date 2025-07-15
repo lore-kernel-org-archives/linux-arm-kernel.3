@@ -4,61 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BC6DC83F27
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 23:27:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D3F7C83F27
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 23:31:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=h1NteXgjoCufVkt/8amSm79q6diV1uidup5Yx/VMRMo=; b=xH4/6QSlKsqgIYDcU/YbGr8c0I
-	bfGuzYFzhKnOHmHo77uvyLYvFq3FeceGj18SscOqdjsWj7YCMRz7ipRzARSmhf1qW1tQuXehLtWKu
-	N1ETkR8mlLvr+pzOEAp9Rpn/lkWXMgn1jjJabVqs9oYhbbSh8/DE8c/tbmQlPUkfa0rX0Yd8xfZfj
-	cSvPlTw97ye0NFOBhJ638WKSzMPSarsGPfgeK97c5U6blPQ8sgDeRgujUoK3h3wg0mPr8i6mieoc4
-	ZWLF/5TlWmLJa93zohfccTzgYf4/RVKaIWxfYeWI+HZdrMGCQfoEVcHnuHHR3ZyLgeaUSToB9LkbD
-	y5guccnQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fkd2ldu8Q+I83pCYGrDPmhHubIpf74AgImw0zrqtu7Y=; b=UGrplp+oiC0tbCs2cKG0AJiUDr
+	ED0l/rYsD4KcWB8e4yqq34xnl+Rih9hPemLz9fKjTUaYoOP+Lk8xsNYilWnn1EtW7yHi2FoTl/vsT
+	WIn11LUH2b2aqNIBUZrc9GXAcOahB4/vsOHWbFTg7csgdnGlKesyqD1qEKeEcx9grUd4IOs1l+BaT
+	dBay8UizWtNBq6oLOl5eAJHwyOw8xZ18UdAqMIur7fnbxW4VNRHTXc1b39SKERPFZn9RdVFnVa5yO
+	QRyQolmTpuAbhzwgWmk6mclGZ4XCMGQBZHAG04irftZR01YyjmBa/VF/HbBfFVsGiYlkWHL5+JaOo
+	IhcgTFkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubp3b-00000006PAU-251a;
-	Tue, 15 Jul 2025 23:27:31 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uboyb-00000006Of7-2srL
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Jul 2025 23:22:23 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0045C12FC;
-	Tue, 15 Jul 2025 16:22:12 -0700 (PDT)
-Received: from [10.57.0.241] (unknown [10.57.0.241])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 9D9533F66E;
-	Tue, 15 Jul 2025 16:22:17 -0700 (PDT)
-Message-ID: <153b5191-c585-433e-9cf5-1ed19b9a7f5c@arm.com>
-Date: Wed, 16 Jul 2025 00:22:16 +0100
+	id 1ubp7A-00000006PTQ-47rR;
+	Tue, 15 Jul 2025 23:31:13 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ubp4j-00000006PJR-1vTx;
+	Tue, 15 Jul 2025 23:28:42 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 92748A57294;
+	Tue, 15 Jul 2025 23:28:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0BFDCC4CEE3;
+	Tue, 15 Jul 2025 23:28:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1752622120;
+	bh=KyPnLxCQanvEcVHmi+5itxw/D0+fsHEbld35/w59fLQ=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=XAIkGsPyjcQ6Pvc5PUhmeJ21NBrlX7JTvq1l+YEI5nV0/V+8Y6bBzobpBZlmp/LN0
+	 WH/xQsRKt8+JcEO3pSK3kCrtRfqf0HAe9cKKm3HFw29I2QeqpyFbSUeY4fVkRgALA+
+	 v8GxKL9hZku9yzon7676VRTQ8Evq5BWSxmn7dxBS1o4pa5CcW+gpAu43XCLa9AbHw4
+	 P6X9SCvL7xIIQixJL6wbxJVjBSmeCPBkTb0i2GRYcYctOV187F2hi5foR4xSjB9Vy3
+	 AMw95fsEfpwKrT+DgtAlz1BnzsPUIDUPwbCIz8iwZoLOPvJQYaHGKHY5rak9ce3dv1
+	 oAxsG8WCPKBtQ==
+Date: Tue, 15 Jul 2025 18:28:39 -0500
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 01/23] arm64: cpufeature: Add cpucap for HPMN0
-Content-Language: en-GB
-To: Colton Lewis <coltonlewis@google.com>, kvm@vger.kernel.org
-Cc: Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>,
- Russell King <linux@armlinux.org.uk>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
- Mingwei Zhang <mizhang@google.com>, Joey Gouly <joey.gouly@arm.com>,
- Zenghui Yu <yuzenghui@huawei.com>, Mark Rutland <mark.rutland@arm.com>,
- Shuah Khan <shuah@kernel.org>, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- kvmarm@lists.linux.dev, linux-perf-users@vger.kernel.org,
- linux-kselftest@vger.kernel.org
-References: <20250714225917.1396543-1-coltonlewis@google.com>
- <20250714225917.1396543-2-coltonlewis@google.com>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <20250714225917.1396543-2-coltonlewis@google.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: linux-clk@vger.kernel.org, ~postmarketos/upstreaming@lists.sr.ht, 
+ linux-mediatek@lists.infradead.org, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Stephen Boyd <sboyd@kernel.org>, linux-kernel@vger.kernel.org, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Michael Turquette <mturquette@baylibre.com>, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, 
+ Philipp Zabel <p.zabel@pengutronix.de>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ Conor Dooley <conor+dt@kernel.org>
+To: Arseniy Velikanov <me@adomerle.pw>
+In-Reply-To: <20250715222221.29406-1-me@adomerle.pw>
+References: <20250715222221.29406-1-me@adomerle.pw>
+Message-Id: <175262211911.2439655.2970589940654906363.robh@kernel.org>
+Subject: Re: [PATCH v1 1/2] dt-bindings: clock: mediatek: Describe MT6789
+ clock controllers
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250715_162221_804988_1DA5300A 
-X-CRM114-Status: GOOD (  18.67  )
+X-CRM114-CacheID: sfid-20250715_162841_564176_83126A6F 
+X-CRM114-Status: GOOD (  11.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,86 +79,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 14/07/2025 23:58, Colton Lewis wrote:
-> Add a capability for FEAT_HPMN0, whether MDCR_EL2.HPMN can specify 0
-> counters reserved for the guest.
+
+On Wed, 16 Jul 2025 02:22:20 +0400, Arseniy Velikanov wrote:
+> Add new bindings for system clocks and functional clocks on
+> MediaTek MT6789.
 > 
-> This required changing HPMN0 to an UnsignedEnum in tools/sysreg
-> because otherwise not all the appropriate macros are generated to add
-> it to arm64_cpu_capabilities_arm64_features.
-> 
-> Acked-by: Mark Rutland <mark.rutland@arm.com>
-> Signed-off-by: Colton Lewis <coltonlewis@google.com>
+> Signed-off-by: Arseniy Velikanov <me@adomerle.pw>
 > ---
->   arch/arm64/kernel/cpufeature.c | 8 ++++++++
->   arch/arm64/tools/cpucaps       | 1 +
->   arch/arm64/tools/sysreg        | 6 +++---
->   3 files changed, 12 insertions(+), 3 deletions(-)
+>  .../bindings/clock/mediatek,mt6789-clock.yaml | 142 +++++++
+>  .../clock/mediatek,mt6789-sys-clock.yaml      |  68 +++
+>  .../dt-bindings/clock/mediatek,mt6789-clk.h   | 390 ++++++++++++++++++
+>  .../reset/mediatek,mt6789-resets.h            |  15 +
+>  4 files changed, 615 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/clock/mediatek,mt6789-clock.yaml
+>  create mode 100644 Documentation/devicetree/bindings/clock/mediatek,mt6789-sys-clock.yaml
+>  create mode 100644 include/dt-bindings/clock/mediatek,mt6789-clk.h
+>  create mode 100644 include/dt-bindings/reset/mediatek,mt6789-resets.h
 > 
-> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-> index b34044e20128..f38d7b5294ec 100644
-> --- a/arch/arm64/kernel/cpufeature.c
-> +++ b/arch/arm64/kernel/cpufeature.c
-> @@ -548,6 +548,7 @@ static const struct arm64_ftr_bits ftr_id_mmfr0[] = {
->   };
->   
->   static const struct arm64_ftr_bits ftr_id_aa64dfr0[] = {
-> +	ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64DFR0_EL1_HPMN0_SHIFT, 4, 0),
 
-This doesn't have to be FTR_STRICT. The kernel can deal with 
-differences, by skipping to use HPMN0. We anyway rely on the
-system wide cap for using the feature.
+My bot found errors running 'make dt_binding_check' on your patch:
 
-Otherwise,
+yamllint warnings/errors:
 
-Acked-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+dtschema/dtc warnings/errors:
+Documentation/devicetree/bindings/clock/mediatek,mt6789-sys-clock.example.dtb: /example-2/syscon@10001000: failed to match any schema with compatible: ['mt6789-infracfg-ao', 'syscon']
+Documentation/devicetree/bindings/clock/mediatek,mt6789-clock.example.dtb: /example-4/clock-controller@11f01000: failed to match any schema with compatible: ['mediatek,mt6789-imp-iic-wrap-n']
 
+doc reference errors (make refcheckdocs):
 
->   	S_ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64DFR0_EL1_DoubleLock_SHIFT, 4, 0),
->   	ARM64_FTR_BITS(FTR_HIDDEN, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64DFR0_EL1_PMSVer_SHIFT, 4, 0),
->   	ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64DFR0_EL1_CTX_CMPs_SHIFT, 4, 0),
-> @@ -2896,6 +2897,13 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
->   		.matches = has_cpuid_feature,
->   		ARM64_CPUID_FIELDS(ID_AA64MMFR0_EL1, FGT, FGT2)
->   	},
-> +	{
-> +		.desc = "HPMN0",
-> +		.type = ARM64_CPUCAP_SYSTEM_FEATURE,
-> +		.capability = ARM64_HAS_HPMN0,
-> +		.matches = has_cpuid_feature,
-> +		ARM64_CPUID_FIELDS(ID_AA64DFR0_EL1, HPMN0, IMP)
-> +	},
->   #ifdef CONFIG_ARM64_SME
->   	{
->   		.desc = "Scalable Matrix Extension",
-> diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
-> index 10effd4cff6b..5b196ba21629 100644
-> --- a/arch/arm64/tools/cpucaps
-> +++ b/arch/arm64/tools/cpucaps
-> @@ -39,6 +39,7 @@ HAS_GIC_CPUIF_SYSREGS
->   HAS_GIC_PRIO_MASKING
->   HAS_GIC_PRIO_RELAXED_SYNC
->   HAS_HCR_NV1
-> +HAS_HPMN0
->   HAS_HCX
->   HAS_LDAPR
->   HAS_LPA2
-> diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
-> index 8a8cf6874298..d29742481754 100644
-> --- a/arch/arm64/tools/sysreg
-> +++ b/arch/arm64/tools/sysreg
-> @@ -1531,9 +1531,9 @@ EndEnum
->   EndSysreg
->   
->   Sysreg	ID_AA64DFR0_EL1	3	0	0	5	0
-> -Enum	63:60	HPMN0
-> -	0b0000	UNPREDICTABLE
-> -	0b0001	DEF
-> +UnsignedEnum	63:60	HPMN0
-> +	0b0000	NI
-> +	0b0001	IMP
->   EndEnum
->   UnsignedEnum	59:56	ExtTrcBuff
->   	0b0000	NI
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250715222221.29406-1-me@adomerle.pw
+
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
 
 
