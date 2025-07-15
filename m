@@ -4,76 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96E50C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 03:53:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA100C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 03:56:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ieqd6xCHgI1ZHPQbWmrk7Nb+/qzuOEd8qzdDp3KdSmg=; b=ISP2r/Rti82gdbKKVR5rPmqasR
-	2kiQ9nMknNZ58QXw/Ur9fai9cZpeYoI7oauvHIaCWKGHPl0fY2BmUuOdlSPBEKmr/MN59LJPjFu2Y
-	gHrz8R7sYttB6rcqMKWnp9HRybswX+eAP4TjM1qQgNkFjPFkkHjOvXNF1JJgW4t3P1mLXLQ2HiRUV
-	StagCUIepjV4J40DVp3Dj/esucVijxoMInzDHk/lj8etsbYG0Q6ooGyF1c2WbW0uMz9RZS974hsmN
-	BLUAihedBMTFIKTj+ET1cdWxCE7peLpNPopkiCd9kztbLi5HqsnvJb9jAlXLHG1yG+QgifCf8YHwg
-	qLGrvr3w==;
+	bh=1pyG/2LY5dgICfSkK972S+OHkvydSeA/i40rYGrcOi0=; b=NdSW+oV69TmSBbPILPv4pDoOV/
+	XhcCbfGZOgWWVEfvcVwIO4lFt1VWN7oAolVxq8utTCFNiFK8gqxdrk4u/n8SfxAlBMjzhHcOc6Wt1
+	mF/La09UwkskHj5ZJk9T9aztZzDEhmTabu+EHAPWEpPY6QH/0PA9tGVSrX+1mOPUXFqTTanIwsFrs
+	FaSJsxXBXVDr5FQlx0Ez1CVHu+Kyqtf4t/TnnIfJpythIrStUCXCY3PIk3mAy/XmKV2lh6NUEUGZW
+	m7azjOZhx4fJPKb3KUIxPK1ajfD1QD2ADJ9TlUW1jCSrO2IQVTX29uJM9+QXQHe4v1rOMiMyF4wed
+	QmouhTwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubWjW-00000003weB-1jZk;
-	Tue, 15 Jul 2025 03:53:34 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1ubWlv-00000003wuh-3ish;
+	Tue, 15 Jul 2025 03:56:03 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubWMD-00000003t5o-13BC;
-	Tue, 15 Jul 2025 03:29:30 +0000
+	id 1ubWML-00000003t9F-3579
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 15 Jul 2025 03:29:38 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id AFC144673C;
-	Tue, 15 Jul 2025 03:29:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 946E7C4CEFA;
-	Tue, 15 Jul 2025 03:29:28 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 108F9A4C138;
+	Tue, 15 Jul 2025 03:29:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8AED2C4CEED;
+	Tue, 15 Jul 2025 03:29:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752550168;
-	bh=ieqd6xCHgI1ZHPQbWmrk7Nb+/qzuOEd8qzdDp3KdSmg=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=b1H6MnsWja4+R/HGgp9tU9geJmQM3bS+T64RZtg6NFD+ynaIvQfKgLfZf9wFIQMFw
-	 IEpBUdkrm3FNoiP0THEolt5J0qPGPi+XaiYUIKpViM0PEydXydu69aXClbW1kC0xKD
-	 7JUh792Zp8v8r6oGDOmlPdLygPejN/QbXadKp3Cbs1EmM7s5hknoWmpnwwmetGDygw
-	 T6eNIrkIRciU2Utnv1UBAZfPOojItTM8l0pnhPXGWHQIvXh4uX/WDMl8i8a/k/dKSg
-	 yyRO3jqQ4zi0F9Ugl6CU4fuIXbAGo/rYgZLFmgVhaPTku1dFREHd6pT5oKhurk/jP+
-	 JytHwh6zZkQAg==
-Received: by mail-lf1-f51.google.com with SMTP id 2adb3069b0e04-558facbc19cso3942136e87.3;
-        Mon, 14 Jul 2025 20:29:28 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCUT+OWZNiMayCZKoZxVTRY9j8SWydfnG5ZpJSLBD8HHfeRE3Dz1vowoEleTHqh9nf+2Qh4aZuPtDDeHRQKdG0yF@lists.infradead.org, AJvYcCW4OZaLms1FFPFKiJbRUsJsFCF5GvV8NnXuypMLG8Hm0Mf9i4LoJOFmAryP+JhSAIYAOSFMIQFHATHgEkw=@lists.infradead.org
-X-Gm-Message-State: AOJu0YzWZsWoqu89PUqIDBOykmgkDLnJWxxCqnDngQOG95ZO0f4B4SG6
-	bumFvws4O61pm4/6abEPC0ye3vVy82vqarvngQX8qBGCEEwB83pBtP/1Y1Rx3AhjIYD68nE1TB/
-	TsXyGmEwuBN2ipsSOjtMd5WPpXECFEzA=
-X-Google-Smtp-Source: AGHT+IFIz1rDkWifGEuRDAIW8VnNdmTc2Z0VIxz+qevBW3febeLf9zJqzx1t6qVV2NjD4iuG6fjmMDCJiXdzlUbsY78=
-X-Received: by 2002:a05:6512:39c3:b0:553:2fec:b139 with SMTP id
- 2adb3069b0e04-55a044ec444mr5090549e87.24.1752550166947; Mon, 14 Jul 2025
- 20:29:26 -0700 (PDT)
+	s=k20201202; t=1752550176;
+	bh=6vGbG9eZpdLkhCvtBV3XkyU02qs81/UKhfvdR9Gsg6M=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=qqA4dbXjHjNlbbMUdZVf7RhIaIL7O/YLmyh8HiGnsu6xUl7C7QOZIF7UUaST3Z1HY
+	 gO0OxkCV6ZwndVwbW5bcevSG/FnVsm0+QP8/TyDwMDuJW+zCczT7a1pHNPdtmwmjmQ
+	 FHYzzqLAwWy/8H3SiN2dGrZuK/Z79PjyJqhCCEl6iUuT4Vox70A89Al/IbxTLD2QPj
+	 Viqp2Gs3JNTNZl90eAPCnVzyChwhm/DZc4bPBkEvpELW+PPm9QhtM/2CM2hmLUwp5E
+	 m0ktCzBqKJGQ3XZf+lYLhAcJF9BURi0sjxANsYjXLy0GzBA096AcggjREBs0uu0Rrf
+	 2ZAb3i9/F1WoA==
+Date: Mon, 14 Jul 2025 22:29:35 -0500
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Luca Weiss <luca.weiss@fairphone.com>
+Cc: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
+	Joerg Roedel <joro@8bytes.org>, Conor Dooley <conor+dt@kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	phone-devel@vger.kernel.org, dmaengine@vger.kernel.org,
+	linux-mmc@vger.kernel.org, linux-pm@vger.kernel.org,
+	Viresh Kumar <viresh.kumar@linaro.org>,
+	Robert Marko <robimarko@gmail.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>, devicetree@vger.kernel.org,
+	Thara Gopinath <thara.gopinath@gmail.com>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	~postmarketos/upstreaming@lists.sr.ht, iommu@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Das Srinagesh <quic_gurus@quicinc.com>,
+	Jassi Brar <jassisinghbrar@gmail.com>,
+	Vinod Koul <vkoul@kernel.org>, linux-crypto@vger.kernel.org,
+	Amit Kucheria <amitk@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Lukasz Luba <lukasz.luba@arm.com>, Zhang Rui <rui.zhang@intel.com>,
+	linux-kernel@vger.kernel.org,
+	"David S. Miller" <davem@davemloft.net>,
+	Ulf Hansson <ulf.hansson@linaro.org>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	linux-arm-msm@vger.kernel.org,
+	Bjorn Andersson <andersson@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>
+Subject: Re: [PATCH v2 11/15] dt-bindings: soc: qcom: qcom,pmic-glink:
+ document Milos compatible
+Message-ID: <175255017499.4172256.4796309138108783817.robh@kernel.org>
+References: <20250713-sm7635-fp6-initial-v2-0-e8f9a789505b@fairphone.com>
+ <20250713-sm7635-fp6-initial-v2-11-e8f9a789505b@fairphone.com>
 MIME-Version: 1.0
-References: <20250714060843.4029171-5-ardb+git@google.com> <422e2a72-972f-41f4-a0b3-d69a6cb0c2e2@canonical.com>
-In-Reply-To: <422e2a72-972f-41f4-a0b3-d69a6cb0c2e2@canonical.com>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Tue, 15 Jul 2025 13:29:15 +1000
-X-Gmail-Original-Message-ID: <CAMj1kXEXpBF8hPaVMU0sDgNysYT66MDRmr3JHO4Lg1sJB_Yteg@mail.gmail.com>
-X-Gm-Features: Ac12FXyPeU_gWXO9-8if9ZFnLW7qkSAVnhXpIQ13tyFhKHPmacdG9H_jV_FpMvQ
-Message-ID: <CAMj1kXEXpBF8hPaVMU0sDgNysYT66MDRmr3JHO4Lg1sJB_Yteg@mail.gmail.com>
-Subject: Re: [RFC PATCH 0/3] Remove unused EFI runtime APIs
-To: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
-Cc: Ard Biesheuvel <ardb+git@google.com>, linux-arm-kernel@lists.infradead.org, 
-	Feng Tang <feng.tang@linux.alibaba.com>, 
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, Juergen Gross <jgross@suse.com>, 
-	Stefano Stabellini <sstabellini@kernel.org>, 
-	Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>, Sunil V L <sunilvl@ventanamicro.com>, 
-	Bibo Mao <maobibo@loongson.cn>, linux-rtc@vger.kernel.org, linux-efi@vger.kernel.org, 
-	xen-devel@lists.xenproject.org, x86@kernel.org, 
-	linux-riscv@lists.infradead.org, loongarch@lists.linux.dev, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250713-sm7635-fp6-initial-v2-11-e8f9a789505b@fairphone.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250714_202929_327685_1E9A82F0 
-X-CRM114-Status: GOOD (  24.90  )
+X-CRM114-CacheID: sfid-20250714_202937_837142_37754B6E 
+X-CRM114-Status: GOOD (  11.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,47 +97,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 14 Jul 2025 at 18:11, Heinrich Schuchardt
-<heinrich.schuchardt@canonical.com> wrote:
->
-> On 7/14/25 08:08, Ard Biesheuvel wrote:
-> > From: Ard Biesheuvel <ardb@kernel.org>
-> >
-> > Using EFI runtime services to program the RTC to wake up the system is
-> > supported in theory, but rarely works in practice. Fortunately, this
-> > functionality is rarely [if ever] used to begin with so we can just drop
-> > it. (Note that the EFI rtc driver is not used by x86, which programs the
-> > CMOS rtc directly)
->
-> The main problem I see with firmware offering access to the RTC via UEFI
-> services is that two different drivers, the firmware one and the Linux
-> one might be trying to access the same busses or registers which might
-> lead to unexpected results.
->
-> Recently there was a discussion in the RISC-V technical group for the
-> server platform specification where the same issue was discussed
-> concerning SetTime().
->
-> As a UEFI firmware should not care which operating system is booted, it
-> should be up to the OS to disable EFI access to the RTC if it has native
-> access.
->
-> Could we disable all the EFI services for the RTC in Linux dynamically
-> when an RTC driver is successfully probed?
->
 
-I don't think this would be the right way to do it.
+On Sun, 13 Jul 2025 10:05:33 +0200, Luca Weiss wrote:
+> Document the Milos compatible used to describe the pmic glink on this
+> SoC.
+> 
+> Signed-off-by: Luca Weiss <luca.weiss@fairphone.com>
+> ---
+>  Documentation/devicetree/bindings/soc/qcom/qcom,pmic-glink.yaml | 1 +
+>  1 file changed, 1 insertion(+)
+> 
 
-It also depends on whether ACPI or DT is being used to describe the
-platform to the OS.
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 
-ACPI does not support describing the RTC device, so it should provide
-the EFI services.
-
-DT can describe the RTC device directly, so I think it is acceptable
-for such firmware to mark all RTC routines unsupported in the RT_PROP
-table, and just expose the RTC device directly.
-
-The OS shouldn't have to reason about these things: it is up to the
-platform to describe itself unambiguously.
 
