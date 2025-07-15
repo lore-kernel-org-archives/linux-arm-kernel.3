@@ -4,91 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4430C83F34
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 19:14:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47FB2C83F35
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 19:14:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kEhIYqJbOaIa1Xc2HyDfChdym/dNhQN5pFztVZHEzbA=; b=VnvidSfkmfDxgrhAtAvrRAcL7R
-	fE4aCg87fWcb9lCkSENRH4LTFCGZ7GXN6SUTXyQ2+EeM8C4+r3/ck9ozrTL2sH5nEupkTd7fcX7k3
-	vTpHwRz8Ojg+6iPH1mIlAXTiEYFNUrcaJXaAe7U0GshWmhqGXjylgIqhazJ3uHbPKxqAw95LfO7nk
-	oAUROhxrjf4uPjdHgK8nPy55W/sMV5B7nP92jJPp+aNlOy2tMKHO6hNMPgPViBomIROuqvJacI5hb
-	H1q4uOcyKa4jjJATsxGbSfkq3nqQjaoCWmhUp7aXRjXZByyzJEbluus0SxxBdcC12LmE7kzum0E+v
-	k2KUav4g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tELAcnZVNd8b1stwXqZxFS8cE4bNgApGcuDGoeyxKzk=; b=2sflqJsy/Tbo1hx2pkvGtJQMF0
+	xdHKY8Z8ZS+7gf4ZO0DbXdm0VP3DwyfyGbMTgxsEXabMq1XBrmdq/a5sAtuIXdX9MllqxZDWFURZt
+	UmXbawO/7/dsfVj9eLanjUko2FI2W6k5d8FEYj9a21rCnp1xOyeuWhD2Q2cXa/cz+68uuml9oMQZj
+	gEHs4ptEVC/N26N0VKKvMabHV7+ajZtkuwvwMvxxdcXk1kA77bHyTlzUgVSd7u/PVCY5BU4sPSNwZ
+	GSxs1gJ4/fJsYLIlUJuqjQcZfAki2l5VHNazBxAi100orrrP4zNrybWScx7lAbm1b9KSXmKzJ/CLc
+	WvkQK8xg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubl6s-00000005xre-2nS2;
-	Tue, 15 Jul 2025 19:14:38 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1ubl6p-00000005xpl-0gpW;
+	Tue, 15 Jul 2025 19:14:35 +0000
+Received: from mail-ej1-f51.google.com ([209.85.218.51])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubgWu-00000005LaZ-3WQA;
-	Tue, 15 Jul 2025 14:21:15 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 1123AA57133;
-	Tue, 15 Jul 2025 14:21:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 14956C4CEF9;
-	Tue, 15 Jul 2025 14:21:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752589271;
-	bh=4JhhB1mQygUC88Tou4uhVLdc03cPbzCj4an+sUn3wpI=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=ivfVQ2ircVep7BPS9t+rG8HnvvCgxj5NjO8ajrts+mexcBueojXU/zdq2mwnyUbdX
-	 kzxUmMLRJkTPpaUfhoUT08vN68qbgelnLF5VQZ8s0iH1h4zTNtZO1Eeja/zb7/JoEp
-	 EONq0qYyjbb/oGmPKK799Mez0Iafaj9ctQSTpFZgDLQS7xFlJi3p2FEu+fYpFMql5k
-	 hrmXaa7gsiQe2Ko6cCv3ZK5EYABSkSv3kAYAJzlQAesRr2yw4UIXTVU4O3Jzoc7GPl
-	 mayivOXECqQ5/6St3r39oucBkCG9i/HjV1wFP6wHxfS5+OIHotjHD+VYxWhTDvCtN4
-	 Qc26zOEU/40Zw==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 0C0DCC83F34;
-	Tue, 15 Jul 2025 14:21:11 +0000 (UTC)
-From: Manivannan Sadhasivam via B4 Relay <devnull+manivannan.sadhasivam.oss.qualcomm.com@kernel.org>
-Date: Tue, 15 Jul 2025 19:51:06 +0530
-Subject: [PATCH v6 3/4] PCI: qcom: Add support for resetting the Root Port
- due to link down event
+	id 1ubgMd-00000005Jwu-2N9K
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 15 Jul 2025 14:10:36 +0000
+Received: by mail-ej1-f51.google.com with SMTP id a640c23a62f3a-ae04d3d63e6so1070852866b.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Jul 2025 07:10:34 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1752588633; x=1753193433;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=tELAcnZVNd8b1stwXqZxFS8cE4bNgApGcuDGoeyxKzk=;
+        b=GNHBCduuD65XBDfr3a1fhbEDI85Uq1mM8cLn94qG3lRS/TwNTMtUC340bAKnoGgGUg
+         xNF7zAOzOyd6jC9EbxfV+HRtsrxFqbNURVqncOxVCwkioxU++I4CrV+Z6J1PsUMcX76t
+         98G4dPlnS7S95qfN1J4i68dDwE1kYIJbztXhKqxdCWJtpzzCEWkvvgnPBAOzclu4YRC5
+         H2Wl96/rgqva2kTejR7HbbQ5FQbUqHdCo2Y74RB5cg56mX961Xn3/9EMsVVzAZjuqTed
+         wnX7cLlz5NRAUfhPAxykUn0PYIlCw84VWNa/AauOYA/4rNbTWax/hELlIchQB/JKRQ+d
+         5l0Q==
+X-Forwarded-Encrypted: i=1; AJvYcCV5zsyD6drI/D7gRROQnpoXsq2mcnQ7oL6pFqu+S/IUHkfPWRe1bE0mM8l58hRdrZOu3niWox1VBeShmDdmTAaq@lists.infradead.org
+X-Gm-Message-State: AOJu0YxQmeapKIkTWKs+4Ga4GFe831uXVlUxtOgvvD4WNTzqsLsXItiH
+	zqeFP+afYfDsYucCWfrI0LHP3guaRCNUfbdJ8AEgMbhAMIootMdt/6DH
+X-Gm-Gg: ASbGnctWp86mypRrnjR5+OjW4FxmSZrVfBI00Z3DkY1sHXwMxYxxYroPyDKreCQsWok
+	C6PEXHDxtoGF1RouZU29kFxQ8rZRcbVcPyPYmgFYvUkhv9v80i7BFGZyEjapdvBaKDwIVwbouu5
+	FA3B9pVU2awRA3q5HXUS3QKJz2OdvV4gZQMIyzZsVWUq1d7wF5Ukkuke3KRoE2s/gilkpe1nEuc
+	TKZ2Gsl5Oc46xCiZaDCsHyFvnY0caKMfawHM6MZVo/cDNQGJVsSMAOsYKC2DIGLqFnW7Cu+j37+
+	aJGykI7TQo9Ipyllt4uwK77FbvgP3+5YyBvA2/UPFU0GFBI6qzTNFGq5lQ7r4IboroSETOglRLh
+	aly7OrpHZTGjhVqelbABeAh+g
+X-Google-Smtp-Source: AGHT+IEbyl1a/QSsIQLOHzGok9IQBsWgH6iuwWhFnpACxKR9fLabguJ1GjnLGBVzOQT1BEOKFXRITA==
+X-Received: by 2002:a17:907:1b0b:b0:ae3:5e70:330d with SMTP id a640c23a62f3a-ae6fbc109bamr1654095266b.12.1752588632995;
+        Tue, 15 Jul 2025 07:10:32 -0700 (PDT)
+Received: from gmail.com ([2a03:2880:30ff:70::])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ae6e7eeae5fsm1014433766b.64.2025.07.15.07.10.31
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 15 Jul 2025 07:10:32 -0700 (PDT)
+Date: Tue, 15 Jul 2025 07:10:29 -0700
+From: Breno Leitao <leitao@debian.org>
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>
+Cc: Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
+	Sascha Bischoff <sascha.bischoff@arm.com>, Jonathan Cameron <Jonathan.Cameron@huawei.com>, 
+	Timothy Hayes <timothy.hayes@arm.com>, Bjorn Helgaas <bhelgaas@google.com>, 
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>, Peter Maydell <peter.maydell@linaro.org>, 
+	Mark Rutland <mark.rutland@arm.com>, Jiri Slaby <jirislaby@kernel.org>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-pci@vger.kernel.org
+Subject: Re: [PATCH v7 18/31] arm64: smp: Support non-SGIs for IPIs
+Message-ID: <7mhnql75p3l4vaeaipge6m76bw4wivskkpvzy5vx3she3wogk4@k62f5hzgx5wr>
+References: <20250703-gicv5-host-v7-0-12e71f1b3528@kernel.org>
+ <20250703-gicv5-host-v7-18-12e71f1b3528@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250715-pci-port-reset-v6-3-6f9cce94e7bb@oss.qualcomm.com>
-References: <20250715-pci-port-reset-v6-0-6f9cce94e7bb@oss.qualcomm.com>
-In-Reply-To: <20250715-pci-port-reset-v6-0-6f9cce94e7bb@oss.qualcomm.com>
-To: Bjorn Helgaas <bhelgaas@google.com>, 
- Mahesh J Salgaonkar <mahesh@linux.ibm.com>, 
- Oliver O'Halloran <oohall@gmail.com>, Will Deacon <will@kernel.org>, 
- Lorenzo Pieralisi <lpieralisi@kernel.org>, 
- =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
- Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
- Heiko Stuebner <heiko@sntech.de>, Philipp Zabel <p.zabel@pengutronix.de>
-Cc: linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org, 
- linux-arm-msm@vger.kernel.org, linux-rockchip@lists.infradead.org, 
- Niklas Cassel <cassel@kernel.org>, 
- Wilfred Mallawa <wilfred.mallawa@wdc.com>, 
- Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>, 
- mani@kernel.org, Lukas Wunner <lukas@wunner.de>, 
- Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>, 
- Manivannan Sadhasivam <mani@kernel.org>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=8942;
- i=manivannan.sadhasivam@oss.qualcomm.com; h=from:subject:message-id;
- bh=hcHUE0Es+rhE1k65uaN43jzCwIv2KxCfrP4I/tTARuY=;
- b=owEBbQGS/pANAwAKAVWfEeb+kc71AcsmYgBodmPU7h4g+XiDGSCp70X2Mbn0SjERWhtNglsfA
- wwuX+QzMCqJATMEAAEKAB0WIQRnpUMqgUjL2KRYJ5dVnxHm/pHO9QUCaHZj1AAKCRBVnxHm/pHO
- 9c1aB/9ZXgau1A2R7jRCcx+v1G7ANPo8guKtUwp2ehiqWQZH7I+bAbr2CbE1DDDZ5RgitzGddvx
- HYya5RGzlC4C8gWmM2liAGPGzVK7KybirCIp5xRctnMMKJPe3iVSQFT/UHNA0tG5E5rWjOtKqK3
- 6Uo52UtsP2MNZbfO0/ouFqwC0glZysSfSJdQkaAu6Rj0KOLGA7rMgcBpVtonP/od+SjskcHasqI
- Yf2fVhIuc3QK216G+MzLYQ6QXbkGbcrxI9B/35VdHaHejwrGhIfSE72OGqlNqSaP/18Papfvh9q
- NPrTgY7xRKJx0jaJt6MpEtsItzJb4zj2D7QzVb/TboVhufYU
-X-Developer-Key: i=manivannan.sadhasivam@oss.qualcomm.com; a=openpgp;
- fpr=C668AEC3C3188E4C611465E7488550E901166008
-X-Endpoint-Received: by B4 Relay for
- manivannan.sadhasivam@oss.qualcomm.com/default with auth_id=461
-X-Original-From: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250703-gicv5-host-v7-18-12e71f1b3528@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250715_072113_009030_6471B771 
-X-CRM114-Status: GOOD (  31.82  )
+X-CRM114-CacheID: sfid-20250715_071035_602099_E3518488 
+X-CRM114-Status: GOOD (  16.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,272 +92,48 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: manivannan.sadhasivam@oss.qualcomm.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Manivannan Sadhasivam <mani@kernel.org>
+Hello Lorenzo, Marc,
 
-The PCIe link can go down under circumstances such as the device firmware
-crash, link instability, etc... When that happens, the PCIe Root Port needs
-to be reset to make it operational again. Currently, the driver is not
-handling the link down event, due to which the users have to restart the
-machine to make PCIe link operational again. So fix it by detecting the
-link down event and resetting the Root Port.
+On Thu, Jul 03, 2025 at 12:25:08PM +0200, Lorenzo Pieralisi wrote:
+> diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
+> index 3b3f6b56e733..2c501e917d38 100644
 
-Since the Qcom PCIe controllers report the link down event through the
-'global' IRQ, enable the link down event by setting PARF_INT_ALL_LINK_DOWN
-bit in PARF_INT_ALL_MASK register.
+> @@ -1046,11 +1068,15 @@ static void ipi_setup(int cpu)
+>  		return;
+>  
+>  	for (i = 0; i < nr_ipi; i++) {
+> -		if (ipi_should_be_nmi(i)) {
+> -			prepare_percpu_nmi(ipi_irq_base + i);
+> -			enable_percpu_nmi(ipi_irq_base + i, 0);
+> +		if (!percpu_ipi_descs) {
+> +			if (ipi_should_be_nmi(i)) {
+> +				prepare_percpu_nmi(ipi_irq_base + i);
 
-In the case of the event, iterate through the available Root Ports and call
-pci_host_handle_link_down() API with Root Port 'pci_dev' to let the PCI
-core handle the link down condition. Note that both link up and link down
-events could be set at a time when the handler runs. So always handle link
-down first. Since Qcom PCIe controllers only support one Root Port per
-controller instance, the API will be called only once. But the looping is
-necessary as there is no PCI API available to fetch the Root Port instance
-without the child 'pci_dev'.
+I am testing linux-next on commit 0be23810e32e6d0 ("Add linux-next
+specific files for 20250714") on a Grace (GiCv3), and I am getting
+a bunch of those:
 
-The API will internally call, 'pci_host_bridge::reset_root_port()' callback
-to reset the Root Port in a platform specific way. So implement the
-callback to reset the Root Port by first resetting the PCIe core, followed
-by reinitializing the resources and then finally starting the link again.
+	[    0.007992] WARNING: kernel/irq/manage.c:2599 at prepare_percpu_nmi+0x178/0x1b0, CPU#2: swapper/2/0
 
-Signed-off-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-Signed-off-by: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
----
- drivers/pci/controller/dwc/Kconfig     |   1 +
- drivers/pci/controller/dwc/pcie-qcom.c | 120 ++++++++++++++++++++++++++++++---
- 2 files changed, 113 insertions(+), 8 deletions(-)
+	[    0.007996] pstate: 600003c9 (nZCv DAIF -PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+	[    0.007997] pc : prepare_percpu_nmi (kernel/irq/manage.c:2599 (discriminator 1))
+	[    0.007998] lr : prepare_percpu_nmi (kernel/irq/manage.c:2599 (discriminator 1))
 
-diff --git a/drivers/pci/controller/dwc/Kconfig b/drivers/pci/controller/dwc/Kconfig
-index d9f0386396edf66ad0e514a0f545ed24d89fcb6c..ce04ee6fbd99cbcce5d2f3a75ebd72a17070b7b7 100644
---- a/drivers/pci/controller/dwc/Kconfig
-+++ b/drivers/pci/controller/dwc/Kconfig
-@@ -296,6 +296,7 @@ config PCIE_QCOM
- 	select PCIE_DW_HOST
- 	select CRC8
- 	select PCIE_QCOM_COMMON
-+	select PCI_HOST_COMMON
- 	help
- 	  Say Y here to enable PCIe controller support on Qualcomm SoCs. The
- 	  PCIe controller uses the DesignWare core plus Qualcomm-specific
-diff --git a/drivers/pci/controller/dwc/pcie-qcom.c b/drivers/pci/controller/dwc/pcie-qcom.c
-index c789e3f856550bcfa1ce09962ba9c086d117de05..5f7b2b80aace742780e5bc5b479f4f64ab778453 100644
---- a/drivers/pci/controller/dwc/pcie-qcom.c
-+++ b/drivers/pci/controller/dwc/pcie-qcom.c
-@@ -34,6 +34,7 @@
- #include <linux/units.h>
- 
- #include "../../pci.h"
-+#include "../pci-host-common.h"
- #include "pcie-designware.h"
- #include "pcie-qcom-common.h"
- 
-@@ -55,6 +56,7 @@
- #define PARF_INT_ALL_STATUS			0x224
- #define PARF_INT_ALL_CLEAR			0x228
- #define PARF_INT_ALL_MASK			0x22c
-+#define PARF_STATUS				0x230
- #define PARF_SID_OFFSET				0x234
- #define PARF_BDF_TRANSLATE_CFG			0x24c
- #define PARF_DBI_BASE_ADDR_V2			0x350
-@@ -130,9 +132,14 @@
- 
- /* PARF_LTSSM register fields */
- #define LTSSM_EN				BIT(8)
-+#define SW_CLEAR_FLUSH_MODE			BIT(10)
-+#define FLUSH_MODE				BIT(11)
- 
- /* PARF_INT_ALL_{STATUS/CLEAR/MASK} register fields */
--#define PARF_INT_ALL_LINK_UP			BIT(13)
-+#define INT_ALL_LINK_DOWN			1
-+#define INT_ALL_LINK_UP				13
-+#define PARF_INT_ALL_LINK_DOWN			BIT(INT_ALL_LINK_DOWN)
-+#define PARF_INT_ALL_LINK_UP			BIT(INT_ALL_LINK_UP)
- #define PARF_INT_MSI_DEV_0_7			GENMASK(30, 23)
- 
- /* PARF_NO_SNOOP_OVERRIDE register fields */
-@@ -145,6 +152,9 @@
- /* PARF_BDF_TO_SID_CFG fields */
- #define BDF_TO_SID_BYPASS			BIT(0)
- 
-+/* PARF_STATUS fields */
-+#define FLUSH_COMPLETED				BIT(8)
-+
- /* ELBI_SYS_CTRL register fields */
- #define ELBI_SYS_CTRL_LT_ENABLE			BIT(0)
- 
-@@ -169,6 +179,7 @@
- 						PCIE_CAP_SLOT_POWER_LIMIT_SCALE)
- 
- #define PERST_DELAY_US				1000
-+#define FLUSH_TIMEOUT_US			100
- 
- #define QCOM_PCIE_CRC8_POLYNOMIAL		(BIT(2) | BIT(1) | BIT(0))
- 
-@@ -274,11 +285,14 @@ struct qcom_pcie {
- 	struct icc_path *icc_cpu;
- 	const struct qcom_pcie_cfg *cfg;
- 	struct dentry *debugfs;
-+	int global_irq;
- 	bool suspended;
- 	bool use_pm_opp;
- };
- 
- #define to_qcom_pcie(x)		dev_get_drvdata((x)->dev)
-+static int qcom_pcie_reset_root_port(struct pci_host_bridge *bridge,
-+				  struct pci_dev *pdev);
- 
- static void qcom_ep_reset_assert(struct qcom_pcie *pcie)
- {
-@@ -1263,6 +1277,8 @@ static int qcom_pcie_host_init(struct dw_pcie_rp *pp)
- 			goto err_assert_reset;
- 	}
- 
-+	pp->bridge->reset_root_port = qcom_pcie_reset_root_port;
-+
- 	return 0;
- 
- err_assert_reset:
-@@ -1517,6 +1533,78 @@ static void qcom_pcie_icc_opp_update(struct qcom_pcie *pcie)
- 	}
- }
- 
-+/*
-+ * Qcom PCIe controllers only support one Root Port per controller instance. So
-+ * this function ignores the 'pci_dev' associated with the Root Port and just
-+ * resets the host bridge, which in turn resets the Root Port also.
-+ */
-+static int qcom_pcie_reset_root_port(struct pci_host_bridge *bridge,
-+				  struct pci_dev *pdev)
-+{
-+	struct pci_bus *bus = bridge->bus;
-+	struct dw_pcie_rp *pp = bus->sysdata;
-+	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
-+	struct qcom_pcie *pcie = to_qcom_pcie(pci);
-+	struct device *dev = pcie->pci->dev;
-+	u32 val;
-+	int ret;
-+
-+	/* Wait for the pending transactions to be completed */
-+	ret = readl_relaxed_poll_timeout(pcie->parf + PARF_STATUS, val,
-+					 val & FLUSH_COMPLETED, 10,
-+					 FLUSH_TIMEOUT_US);
-+	if (ret) {
-+		dev_err(dev, "Flush completion failed: %d\n", ret);
-+		goto err_host_deinit;
-+	}
-+
-+	/* Clear the FLUSH_MODE to allow the core to be reset */
-+	val = readl(pcie->parf + PARF_LTSSM);
-+	val |= SW_CLEAR_FLUSH_MODE;
-+	writel(val, pcie->parf + PARF_LTSSM);
-+
-+	/* Wait for the FLUSH_MODE to clear */
-+	ret = readl_relaxed_poll_timeout(pcie->parf + PARF_LTSSM, val,
-+					 !(val & FLUSH_MODE), 10,
-+					 FLUSH_TIMEOUT_US);
-+	if (ret) {
-+		dev_err(dev, "Flush mode clear failed: %d\n", ret);
-+		goto err_host_deinit;
-+	}
-+
-+	qcom_pcie_host_deinit(pp);
-+
-+	ret = qcom_pcie_host_init(pp);
-+	if (ret) {
-+		dev_err(dev, "Host init failed\n");
-+		return ret;
-+	}
-+
-+	ret = dw_pcie_setup_rc(pp);
-+	if (ret)
-+		goto err_host_deinit;
-+
-+	/*
-+	 * Re-enable global IRQ events as the PARF_INT_ALL_MASK register is
-+	 * non-sticky.
-+	 */
-+	if (pcie->global_irq)
-+		writel_relaxed(PARF_INT_ALL_LINK_UP | PARF_INT_ALL_LINK_DOWN |
-+			       PARF_INT_MSI_DEV_0_7, pcie->parf + PARF_INT_ALL_MASK);
-+
-+	qcom_pcie_start_link(pci);
-+	dw_pcie_wait_for_link(pci);
-+
-+	dev_dbg(dev, "Root Port reset completed\n");
-+
-+	return 0;
-+
-+err_host_deinit:
-+	qcom_pcie_host_deinit(pp);
-+
-+	return ret;
-+}
-+
- static int qcom_pcie_link_transition_count(struct seq_file *s, void *data)
- {
- 	struct qcom_pcie *pcie = (struct qcom_pcie *)dev_get_drvdata(s->private);
-@@ -1559,11 +1647,24 @@ static irqreturn_t qcom_pcie_global_irq_thread(int irq, void *data)
- 	struct qcom_pcie *pcie = data;
- 	struct dw_pcie_rp *pp = &pcie->pci->pp;
- 	struct device *dev = pcie->pci->dev;
--	u32 status = readl_relaxed(pcie->parf + PARF_INT_ALL_STATUS);
-+	struct pci_dev *port;
-+	unsigned long status = readl_relaxed(pcie->parf + PARF_INT_ALL_STATUS);
- 
- 	writel_relaxed(status, pcie->parf + PARF_INT_ALL_CLEAR);
- 
--	if (FIELD_GET(PARF_INT_ALL_LINK_UP, status)) {
-+	/*
-+	 * It is possible that both Link Up and Link Down events might have
-+	 * happended. So always handle Link Down first.
-+	 */
-+	if (test_and_clear_bit(INT_ALL_LINK_DOWN, &status)) {
-+		dev_dbg(dev, "Received Link down event\n");
-+		for_each_pci_bridge(port, pp->bridge->bus) {
-+			if (pci_pcie_type(port) == PCI_EXP_TYPE_ROOT_PORT)
-+				pci_host_handle_link_down(port);
-+		}
-+	}
-+
-+	if (test_and_clear_bit(INT_ALL_LINK_UP, &status)) {
- 		dev_dbg(dev, "Received Link up event. Starting enumeration!\n");
- 		/* Rescan the bus to enumerate endpoint devices */
- 		pci_lock_rescan_remove();
-@@ -1571,11 +1672,12 @@ static irqreturn_t qcom_pcie_global_irq_thread(int irq, void *data)
- 		pci_unlock_rescan_remove();
- 
- 		qcom_pcie_icc_opp_update(pcie);
--	} else {
--		dev_WARN_ONCE(dev, 1, "Received unknown event. INT_STATUS: 0x%08x\n",
--			      status);
- 	}
- 
-+	if (status)
-+		dev_WARN_ONCE(dev, 1, "Received unknown event. INT_STATUS: 0x%08x\n",
-+			      (u32) status);
-+
- 	return IRQ_HANDLED;
- }
- 
-@@ -1732,8 +1834,10 @@ static int qcom_pcie_probe(struct platform_device *pdev)
- 			goto err_host_deinit;
- 		}
- 
--		writel_relaxed(PARF_INT_ALL_LINK_UP | PARF_INT_MSI_DEV_0_7,
--			       pcie->parf + PARF_INT_ALL_MASK);
-+		writel_relaxed(PARF_INT_ALL_LINK_UP | PARF_INT_ALL_LINK_DOWN |
-+			       PARF_INT_MSI_DEV_0_7, pcie->parf + PARF_INT_ALL_MASK);
-+
-+		pcie->global_irq = irq;
- 	}
- 
- 	qcom_pcie_icc_opp_update(pcie);
+	[    0.008011] Call trace:
+	[    0.008011] prepare_percpu_nmi (kernel/irq/manage.c:2599 (discriminator 1)) (P)
+	[    0.008012] ipi_setup (arch/arm64/kernel/smp.c:1057)
+	[    0.008014] secondary_start_kernel (arch/arm64/kernel/smp.c:245)
+	[    0.008016] __secondary_switched (arch/arm64/kernel/head.S:405)
 
--- 
-2.45.2
+I haven't bissected the problem to this patch specifically, but
+I decided to share in case this is a known issue, given you are touching
+this code.
 
+I would be happy to bissect it, in case it doesn't ring a bell.
 
+Thanks
+--breno
 
