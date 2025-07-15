@@ -4,86 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D3ABC83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 09:10:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81CDBC83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 09:12:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9jGIahVsVtFGllRm0ivj9fpT9wj2Qq6Ot/6P7HlFwlk=; b=X0aTYaYuS96K1GmOcMbJ3rMFuS
-	frg/immhCFFx5fwdK+P43Sczz7wkwMHgOrL/o1S7jhR7t2BMsTLoJ5RLm6e3eGT+fprNgPT429yM6
-	wL6ZzKqviWx7ivkiuoHD8s5QrZhkZV6ufO8cCRC4bOkUlLPATemqhEbJro6PMG3yhqbkn7LLNDVRf
-	6VUV8vrToqzugsbqBcXApzXDcn85dpZVvRO+FWLfF1RjNSy86JG3iCsmdMREpgjvIn8zL6jCqDI4S
-	on35iQ1lr1KsL5MtIdmxoAOH00IMuLyhV815IuTlOAj6kVVsCZmUSrf9T1nR7nNtB7WqSk9nzDyXh
-	Pm5loRQQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RWritYCN5g5pbGNVdS7uOitde6lUvDNW8r61mTT/h1I=; b=EzZP6+OEgbl7iqT4brI+72jjZE
+	z5xYBGYrmQ9xdl5Hahs6ti1CxWb43BdI7RUC1yCIHWJO8DSVWZmNMqPuoIi0GqF8x2ShIwoE0MrQx
+	2asS591nV7Oh8l5WUYJb/GYPtvSeIrQb+LBJDhXPxinReC91h0zCsSIgw0wd7+L/MsVQsoLSnKeKE
+	H9r7CSoyAlTf0iRpQsNT0fPTZS2jd972zdGoB+QTW/MYXkS52NP9lsOHiyYZAHeb3tg/VoixSPgPp
+	8hjkIwKRGlUF/6Q4b393d8sdXpMPn9xBmiywwaf4dB3panQij/rIuh1QNWs2Bpu61BLJ71hsdA576
+	02A28UYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubbfp-00000004d9I-25XZ;
-	Tue, 15 Jul 2025 09:10:05 +0000
-Received: from mgamail.intel.com ([198.175.65.21])
+	id 1ubbiF-00000004dV6-1BN2;
+	Tue, 15 Jul 2025 09:12:35 +0000
+Received: from mail-pj1-x1033.google.com ([2607:f8b0:4864:20::1033])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubavo-00000004VYy-1Rne
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Jul 2025 08:22:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1752567752; x=1784103752;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=a/QsrXQn2Q+8kG4obINj/xiE+3HXSCctW3/j44bjJvA=;
-  b=VQNljfMvYOZAOva8O80Kf5a43jTxXAPyOSN3oABPYp2OhVfsOZ/VH7fd
-   DW/j5BefyDHnvqUGc3J+d+JTFim1Bthw2T9OjLdgHf+r7UT5gLE2rcGGq
-   dPHxGXPka0CGplofuFlFAposQe/No0Zl6NQUyaTsOwV7bUaoLL7xJey/0
-   JveHWBerx7+FZNaX4+YqHXlhD27kO7DXsdbTEbCr65y3VaDLiUQE78PF+
-   4/Fq693iVRFOLSXLLcg1yv+/zUvCTBFUgEDKc4q44cwSMzFZTk23+ia9l
-   8+DidAd/DdeRXmUemRzvegebw4AVr1uGiOxki6Jh6x88eL/vKdgoB6nB9
-   w==;
-X-CSE-ConnectionGUID: 8gbKVjBeR3Cn0xrHP1bpeA==
-X-CSE-MsgGUID: T5qxhxCkR4aUOOutSSymaw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11491"; a="54649111"
-X-IronPort-AV: E=Sophos;i="6.16,313,1744095600"; 
-   d="scan'208";a="54649111"
-Received: from fmviesa002.fm.intel.com ([10.60.135.142])
-  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Jul 2025 01:22:32 -0700
-X-CSE-ConnectionGUID: RV8tVbiwSt+C/N3N9A6KLQ==
-X-CSE-MsgGUID: l841zr9kQlyZeWDn3U8ydQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.16,313,1744095600"; 
-   d="scan'208";a="180864523"
-Received: from smile.fi.intel.com ([10.237.72.52])
-  by fmviesa002.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Jul 2025 01:22:29 -0700
-Received: from andy by smile.fi.intel.com with local (Exim 4.98.2)
-	(envelope-from <andriy.shevchenko@linux.intel.com>)
-	id 1ubavh-0000000Fawi-3Sud;
-	Tue, 15 Jul 2025 11:22:25 +0300
-Date: Tue, 15 Jul 2025 11:22:25 +0300
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Bartosz Golaszewski <brgl@bgdev.pl>
-Cc: Linus Walleij <linus.walleij@linaro.org>,
-	Kuppuswamy Sathyanarayanan <sathyanarayanan.kuppuswamy@linux.intel.com>,
-	Andy Shevchenko <andy@kernel.org>,
-	Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>,
-	Srinivas Neeli <srinivas.neeli@amd.com>,
-	Michal Simek <michal.simek@amd.com>, linux-gpio@vger.kernel.org,
-	linux-kernel@vger.kernel.org, patches@opensource.cirrus.com,
-	linux-arm-kernel@lists.infradead.org,
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-Subject: Re: [PATCH v2 1/2] gpio: wcove: use regmap_assign_bits() in .set()
-Message-ID: <aHYPweTatnLC3TUI@smile.fi.intel.com>
-References: <20250715-gpiochip-set-rv-gpio-remaining-v2-0-072b4cf06330@linaro.org>
- <20250715-gpiochip-set-rv-gpio-remaining-v2-1-072b4cf06330@linaro.org>
- <aHYPoR5JVP4OO0QZ@smile.fi.intel.com>
+	id 1ubavz-00000004Vac-2RwU;
+	Tue, 15 Jul 2025 08:22:44 +0000
+Received: by mail-pj1-x1033.google.com with SMTP id 98e67ed59e1d1-31329098ae8so3875695a91.1;
+        Tue, 15 Jul 2025 01:22:43 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1752567763; x=1753172563; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=RWritYCN5g5pbGNVdS7uOitde6lUvDNW8r61mTT/h1I=;
+        b=KUDJwOqDE0prEwzgsSQP+cCdhvI6aciiQ0bCrexyPJAjoHgfYxIl4koWDP4aWRJd4j
+         N/nLRhKeSxC0aTI6Whu4+s5771rAdMFmLojOsKwtS13DIXat83wXln/xLQMf3fUIJrts
+         JjFk1mjd9HCxYHf95DJjmrs1XFIb3vL9CTb6ZBNH/fAYxOxj+Jz/Rha/gc+nrv3T02zd
+         VqrKQHXHmdcVqrsj+ANc3DcVo+YrBO6S6Clcxc46Tcq3ucE/GlfCTeFysjVKLWUtt6Zd
+         kh0KsaTDLTv7OO2l9yQywZrZazWUbYI615bqqPX+tK97eSfMO9Rd6Kglaj9mV4Nn4HLO
+         xsXQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1752567763; x=1753172563;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=RWritYCN5g5pbGNVdS7uOitde6lUvDNW8r61mTT/h1I=;
+        b=DFLdW1HOUagkZMZ4k71QrnbkfiSxAYjlZqXF/53XSsBwDNWUyDTqH8urbFAdJ8r4Pb
+         uE6njuHoO5apyzJ6CSeZ6lOBa6KmRCITlCbRPmpFR6a/ZUTEGE2YecIBncGArblnbpkV
+         Ov2oilRJ9jx7oYBBU0GH+ZrICubxuBc9EJTDqM9v8rWWJf2G0JbEgeA4Ri/8E4tEXQ2E
+         pFNxFgVIfhmh9EALuTAzjbTWh7vdZpN28yV2Gdn4y5Ry/dpDATgM6KTWiKi8nlFkN6D8
+         MgOVu06oac61ET7wS2RiioM44Z/BhkZ48usZ+gBp5Foiq2cA5cyH12Tu1MoBgLZnV0UK
+         bkuQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUZQ02iKA3SIdc+NoH6zblOuArq/nM/ft91/ENNpmIV+tShxqQcf4XtQU3rGEpILHItXBSbi3ZDRQ6Iru1O58R4@lists.infradead.org, AJvYcCWcEQ6r84SqKmplQ9IzsS7Gfr0MWJjrpgYtXb3M4K2EJiwqTQMj1P6hA7/gGgTSOS96ymJhas1GxGaKTQxx4E0=@lists.infradead.org
+X-Gm-Message-State: AOJu0YzmnGI9UC44oah7JDIA7jCaZ8iX6RUeFMcpNdE8qdhxVFygqlW3
+	JI+h9w692icg34qk3glX3mHN57z4YFtDJmVPNcwqMenrz2NBE/PE9oZxD7fUJpkaGaqzxbDaDBR
+	jlAt5RNX0hmoP2fTpvvBT9BZ3JkJ3/JX49fGPeXf2Z/Q/
+X-Gm-Gg: ASbGncthT+7dlPhBlgcJpx/8fg678ke3peovh92evz/gePAiUx5lyjtQswAvvzVtlVu
+	sl3SUDGjxbbYeU1aQ4YzJ7NnBIMm26eZ0ZWXQ2mjttBES2/J8JZw/BVy4EHAPPiqP07q2CCXl3O
+	SMu6YI0zrtz47VKd9H56I2a1l8vITX8DuXxvN5Te3o0lJhYMsAJnIgHetnWFR4Mw8bZKR6ht3yu
+	aR2
+X-Google-Smtp-Source: AGHT+IFMxGCTEEHrdB/kCBZaEP2hviqLVU3pJ2QVRJLd/x1wtIgr5OBebZnjJManRyxnm1Ft0Bmiw8ilHs47bZtO0xI=
+X-Received: by 2002:a17:90b:17ca:b0:30a:3e8e:ea30 with SMTP id
+ 98e67ed59e1d1-31c8f9ba0f7mr4109857a91.11.1752567762558; Tue, 15 Jul 2025
+ 01:22:42 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aHYPoR5JVP4OO0QZ@smile.fi.intel.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+References: <20250712210448.429318-1-rosenp@gmail.com> <20250712210448.429318-7-rosenp@gmail.com>
+In-Reply-To: <20250712210448.429318-7-rosenp@gmail.com>
+From: Sergio Paracuellos <sergio.paracuellos@gmail.com>
+Date: Tue, 15 Jul 2025 10:22:31 +0200
+X-Gm-Features: Ac12FXwMmQCfsqg5mbExKPqdb145bDccah5wrkdnBfsA3tKTWDoudoBn9JT36WU
+Message-ID: <CAMhs-H_w9f334A-T5OfbngCZ4bgM+uJ27WAff2Q+k9dJhHr96w@mail.gmail.com>
+Subject: Re: [PATCHv4 wireless-next 6/7] MIPS: dts: ralink: mt7620a: add wifi
+To: Rosen Penev <rosenp@gmail.com>
+Cc: linux-wireless@vger.kernel.org, Johannes Berg <johannes@sipsolutions.net>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Stanislaw Gruszka <stf_xl@wp.pl>, 
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, open list <linux-kernel@vger.kernel.org>, 
+	"open list:MIPS" <linux-mips@vger.kernel.org>, 
+	"moderated list:ARM/Mediatek SoC support" <linux-arm-kernel@lists.infradead.org>, 
+	"moderated list:ARM/Mediatek SoC support" <linux-mediatek@lists.infradead.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250715_012232_419728_5029ACED 
-X-CRM114-Status: UNSURE (   9.72  )
+X-CRM114-CacheID: sfid-20250715_012243_621305_0BB1207D 
+X-CRM114-Status: UNSURE (   8.26  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -99,19 +101,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 15, 2025 at 11:21:53AM +0300, Andy Shevchenko wrote:
-> On Tue, Jul 15, 2025 at 10:19:44AM +0200, Bartosz Golaszewski wrote:
+On Sat, Jul 12, 2025 at 11:06=E2=80=AFPM Rosen Penev <rosenp@gmail.com> wro=
+te:
+>
+> MT7620A devices all contain a wifi device as part of the SOC. Add it
+> here to get it working.
+>
+> Signed-off-by: Rosen Penev <rosenp@gmail.com>
+> ---
+>  arch/mips/boot/dts/ralink/mt7620a.dtsi | 10 ++++++++++
+>  1 file changed, 10 insertions(+)
 
-> > Replace the if-else with a direct call to the regmap_assign_bits()
-> > helper and save a couple lines of code.
+Reviewed-by: Sergio Paracuellos <sergio.paracuellos@gmail.com>
 
-'...a couple of lines of code.'
-
-> Reviewed-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-
--- 
-With Best Regards,
-Andy Shevchenko
-
-
+Thanks,
+    Sergio Paracuellos
 
