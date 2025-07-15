@@ -4,58 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55A6FC83F36
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 19:19:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 385A7C83F2D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 19:19:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=0wdzDfNo6t4GtAMMOS9zdlNPM5eTe4a8LKhRf+azlUo=; b=26aRtIVYpomYRMBNOemmt1PqCi
-	Mp4uier/ZbiXM1kD3PcwyYYblrALLgvBCoxBhJYyvqGH4PBtpqY8+og4kc5Na5Amfloer0iniZ9gA
-	iBKb1pubrK9UD9cik6EbJCXi7/klwQZSnY4wMe5MX2cSskqS6SAeJGuNf2cZf/+XHj0Vf61WSe/wE
-	zlZfNh5TMsXQwVncHCZ4d92BCcWLLIIfUkLuHdJGsxOOTY7wSyv2DuStblwm/FEdIEQJelyPx6gtK
-	DwbW42wTxyO+aq2N7TuWrF5IiI52/ScFMJKb8QX0wU5hXSKOK1TrIf61j/L5VEMFB4QNW30C1oLCn
-	LPkjUa7A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=+Nl0kKjcqjuGAZnj8Tx1IXItznL5XPhT0qzRTVxNau8=; b=rwxaAhubp1M0VH
+	yF6w5M7Nf2PR6BEvWUVxwWjBTmjcfIH6BdrboqZzW0jkBVZnHTfcH1RdVxV9N5geBVTub46qHpNEP
+	/de/NHJoswjHvG7eZNjU4LD6fj7K2zMN5xFYti7fvPuF/Db/Zv/SHri/yNGiSJAkLODutsfMqJf0E
+	3nEzh5jqNNuI0ip76R4Or24qzxyKbj1SSUVp9CSJYCSG/lvJxBcy2b/x33l7ClbNXzLBZOFpY6NIZ
+	ujrnlPovepbRxIspX3pggTmdF/0Q0xK6DbJZwFaQ9lA6dJN1Lk6/2XBMci8cTjgyFxC6mps9uDxDU
+	QjfH5zRtUADhqR0vEaaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ublBc-000000061eU-0s5R;
-	Tue, 15 Jul 2025 19:19:32 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1ublBd-000000061hP-3QMN;
+	Tue, 15 Jul 2025 19:19:33 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubj34-00000005nHs-11kA
+	id 1ubj7Z-00000005nsY-1izs
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Jul 2025 17:02:34 +0000
+	Tue, 15 Jul 2025 17:07:14 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A727961465;
-	Tue, 15 Jul 2025 17:02:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 39E73C4CEE3;
-	Tue, 15 Jul 2025 17:02:33 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id C99BB459B0;
+	Tue, 15 Jul 2025 17:07:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7322CC4CEE3;
+	Tue, 15 Jul 2025 17:07:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752598953;
-	bh=aUCJyXQ5/raMpoER4Fy00O2WoEBZyeIcEdSA9QVD9g8=;
-	h=Date:From:To:Cc:Subject:From;
-	b=BIryMHG7k90MxQfXIHYMyS/lpgobYPy5dq1BV1SZYWXDJYLKmPQXV2CDjvJGHBcK2
-	 8GtLcL6m3C1lBd8K5lq+mwygA9wYoMBgF9rAaVMeZCV6XAHj+xk5if3X6p8Yt++pWI
-	 frzxamAnIkBOgTaYO+XP1KQ9PltVIfpIYHgs+9ecXB2Q8nKh4Ljaxf2+d8gAKN5Rna
-	 FGKwfgB1F8vMG8az2IQf00lu7TSh21C0RsbxYXerX4j9m0PmDSGw5hAKwdzP3g1iA4
-	 yi/8yb1q7JoOC13cFhcPCoBhEm+/KbjZS9oQJOCTNuUbrfSHJWYqWE+N0W87hRCFHM
-	 aLtxluZYYUKuQ==
-Received: by wens.tw (Postfix, from userid 1000)
-	id 07AEC5FB53; Wed, 16 Jul 2025 01:02:31 +0800 (CST)
-Date: Wed, 16 Jul 2025 01:02:31 +0800
-From: Chen-Yu Tsai <wens@kernel.org>
-To: soc@kernel.org
-Cc: Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej@kernel.org>,
-	Samuel Holland <samuel@sholland.org>, linux-sunxi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: [GIT PULL] Allwinner fixes for 6.16
-Message-ID: <aHaJp8ut6z9Ds_qn@wens.tw>
+	s=k20201202; t=1752599232;
+	bh=9G4DPMLc3V6Kqc+YEESQ26iQmayIypZSFV1NfnFRgYo=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=bBweZLifiRV+tHUaSKX0xSnHlsH+cD65JbpVqEISEb9/xrkIq262JFfcbWxDZbzEX
+	 WX1ozZlOj/fBILfQpCBNZ1iMEL0DbexeSyPI6y+U5q7qhzMMMa0X0QGqtkRGS3oGvk
+	 8WwuVIDBKDFa2W8gDqMClE2/8KVgXv/aDcF0FUuOo5Fem/OOehhEBWwS60SKZ8oeEF
+	 tTSv1f6BdjOv+80X5hO0dkwzLOzBjGU/yGvJkUtjY8eepfvyIBcSx1xQXAITQbk510
+	 bo1Y6mC3Di83vV0gDwGCZ8AmTDnzdje9Hy4O+J84m+EqFO/rtpaJfLH1GNNKlnE5aq
+	 d5wTyRdNez/RQ==
+Date: Tue, 15 Jul 2025 12:07:11 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Richard Zhu <hongxing.zhu@nxp.com>
+Cc: frank.li@nxp.com, l.stach@pengutronix.de, lpieralisi@kernel.org,
+	kwilczynski@kernel.org, mani@kernel.org, robh@kernel.org,
+	bhelgaas@google.com, shawnguo@kernel.org, s.hauer@pengutronix.de,
+	kernel@pengutronix.de, festevam@gmail.com,
+	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	imx@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 0/2] PCI: imx6: Correct the epc_features of i.MX8M EPs
+Message-ID: <20250715170711.GA2467369@bhelgaas>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="RLQuYqrQwKO1rDBZ"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
+In-Reply-To: <20250708091003.2582846-1-hongxing.zhu@nxp.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250715_100713_468179_B9FE2742 
+X-CRM114-Status: GOOD (  11.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,59 +74,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, Jul 08, 2025 at 05:10:01PM +0800, Richard Zhu wrote:
+> IMX8MQ_EP has three 64-bit BAR0/2/4 capable and programmable BARs. For
+> IMX8MQ_EP, use imx8q_pcie_epc_features (64-bit BARs 0, 2, 4) instead
+> of imx8m_pcie_epc_features (64-bit BARs 0, 2).
+> 
+> For IMX8MM_EP and IMX8MP_EP, add fixed 256-byte BAR 4 and reserved BAR 5
+> in imx8m_pcie_epc_features.
+> 
+> Main changes in v3:
+> Seperate the patch into two commits and update the commit logs refer to
+> Bjorn's suggestions.
+> v2: https://lkml.org/lkml/2025/6/17/267
+> 
+> [PATCH v3 1/2] PCI: imx6: Correct the epc_features of IMX8MQ_EP
+> [PATCH v3 2/2] PCI: imx6: Correct the epc_features of IMX8MM_EP and
+> 
+> drivers/pci/controller/dwc/pci-imx6.c | 4 +++-
+> 1 file changed, 3 insertions(+), 1 deletion(-)
 
---RLQuYqrQwKO1rDBZ
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-
-The following changes since commit 19272b37aa4f83ca52bdf9c16d5d81bdd1354494:
-
-  Linux 6.16-rc1 (2025-06-08 13:44:43 -0700)
-
-are available in the Git repository at:
-
-  https://git.kernel.org/pub/scm/linux/kernel/git/sunxi/linux.git tags/sunxi-fixes-for-6.16
-
-for you to fetch changes up to a46b4822bed08d15a856966357a4b12273751cd3:
-
-  arm64: dts: allwinner: a523: Rename emac0 to gmac0 (2025-07-09 00:19:44 +0800)
-
-----------------------------------------------------------------
-Allwinner fixes for 6.16
-
-Only one fix:
-
-Correct the name of the A523's EMAC0 to GMAC0, as seen in the SoC's
-datasheets. The matching DT binding change is in the net tree.
-
-----------------------------------------------------------------
-Chen-Yu Tsai (1):
-      arm64: dts: allwinner: a523: Rename emac0 to gmac0
-
- arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi          | 6 +++---
- arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dts | 4 ++--
- arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts | 4 ++--
- 3 files changed, 7 insertions(+), 7 deletions(-)
-
---RLQuYqrQwKO1rDBZ
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEE2nN1m/hhnkhOWjtHOJpUIZwPJDAFAmh2iaYACgkQOJpUIZwP
-JDC0cxAApv7b6yHKWL+NGNQHegSmBgNQuVo/m8wRxS0pOAh3aiwgf7tZmdZRUHVq
-OhD3DzU7NOUBhr5A4t+ZLwASp6doe49D3jhqQdlJw3c0w6R5rVb+1rix9ulQg6sA
-wXu7wCyt9soLWPohQ9m7TVWP4xi/WZDB9i6tTInNNXDBHafp7yf2uyB4YnlU/kzS
-6oz1QcM11XDx3N/ULGMqrGdYYf+lvHlAsZyqQRE9QYnnDgqJH+x9cAhM+brGKNSA
-UEl6/yNBSc5GqTmk3SA5t/ISYNuVWS3kc7wvY5Jdbn1YRf+Gr/Dg8ODG0iRR+hr2
-QI11WN9e9/CxcQ/X3zonC2hqsrlSTEjs9Hzu0yspGCSaYpIJ/L3zrwcDT4cRvUzp
-tTvmUQu/CPH0IjTqddvzl4J5genhagj9htBvnxcMtNkXve6CnHFl/+GckZZQZwTC
-t+iBuqqb3393hkErefqDbqrwbKS+iMJSENYjPLnKIK4nLy4VpAY168A2TzCbPTkK
-20HH87TTy13LnFG9Pd56LKbys7rSCGYBYtk8p61rqjR67GaQdC4F9Jt5a76IcRlo
-XlS226w8sz79CQ98axn8uTIbx+HJnvdS3zV219cwtOAEQUNKp0koxdSYGmYWMkyk
-9JpgiYkt8/KHwVDqF9UrRJaLmBjmHcL7xkqP+0Zpel6VTsD2SiM=
-=8no+
------END PGP SIGNATURE-----
-
---RLQuYqrQwKO1rDBZ--
+Thanks, Richard, I updated pci/controller/imx6 with these patches.
 
