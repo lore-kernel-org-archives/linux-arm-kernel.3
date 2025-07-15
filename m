@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A49BC83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 03:19:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDD56C83F10
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 03:23:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2lnplM5puS+ZAAxherCRsp4laSAIrR4RO0NPfS50ceA=; b=uBLtS/7fck9HMGDX7HJjtWEQGN
-	+WjnF0JzULAcu2ZwjnQratv7sTfDueQbjGFpL1FKIPb58jjIUC7jjbgCZgviJG00mv1GF4eXCSjtw
-	5/uOA94z/ORQW9bgYD1T9xfym7X7lSgKqLpnfz9kPMfOj78E/XlaNpa7PEmzi4IsQhm9rAM9VDude
-	i47eiZ+w3WTzd/NkgXWsSBx9n04WbHloH5kQSlwkgDWNP78gkrbYWl0PTYDUfyTuau5c7AJLSAMrL
-	6OijONxtNNlA9Fxzex6WzLy+SYfC1p/2KlrX/pmAVc9GQp2Tt0MXrMhN+jAz3w/wJ5tXpBBHX3obU
-	Cu+deJhw==;
+	bh=d02gF3oCZFGp0ZEhv/K8CGphsXYZbbGYTBXQm+GFtuE=; b=YBRGC2O3PlZgQmTQOZYOp2nOW/
+	4FO5Juahg1/MSLLaxRxjqezUKDdddmlmBMqpMafHhxjR3YJGwF9s27wFtkSTQz6uq/ygQbmzQS/Xg
+	NlHaT6AZwUywjotol/pMW/pB3cJqelHxgvo6a3uaxcrwX56rfL0igal6s101KsckL/XGIaHRi8DQB
+	NO038odYcwOlOTB3ZlRP4fUwq3tsnEfv3DofpXvMY/OcsO/3GmMY5lynEcGy1EiGs7l4/hzzfGC2I
+	rK3DYls/zRKa+Ph4sW+t7eVKfWGM7JrN7jKjfDi9lK8vUiGclQyXG5YQdV7/BL3mh9RcshBoIE3id
+	KCs3XJ1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubWCt-00000003rbY-1dk3;
-	Tue, 15 Jul 2025 03:19:51 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1ubWFp-00000003ryb-0i73;
+	Tue, 15 Jul 2025 03:22:53 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubWAR-00000003rM1-3OxP
+	id 1ubWDO-00000003rfq-05GF
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Jul 2025 03:17:20 +0000
+	Tue, 15 Jul 2025 03:20:23 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id E992BA48577;
-	Tue, 15 Jul 2025 03:17:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 72792C4CEED;
-	Tue, 15 Jul 2025 03:17:18 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 657BD45E81;
+	Tue, 15 Jul 2025 03:20:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1D5B9C4CEED;
+	Tue, 15 Jul 2025 03:20:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752549438;
-	bh=HTtawzgAqQ5YOwB+NQpNjeTVyd8WRqp+ZD4g6gH58Fg=;
+	s=k20201202; t=1752549621;
+	bh=TDYuRWmFZrwnvk8qMS3AlGvkZ3xUWYu930vi3adDEoY=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=SiSEOjDNHhYoDZQ4MKAicWSMZ0G8HtCCla9dnikgDs90hfnGgyOloW6Q+SywPrIe9
-	 HfYw/7VWPZi3LUUycotG/9lXaKXVUFjlM0Qu3eklGU0NqGGrEXhyuG3xeqmZLdLUoo
-	 TT/QAA5YfMmtFMAzzUJRAlNP84SwaGbH/nmNdtmown9T/X/BaJ4rNBmOKjvDxEmc69
-	 xcJjTMPHvQP1Z8s9XFiL5lwbxd6yLzO7vfCqtkSW13124agCEXl86ALj2l0pNxqJ5E
-	 ux0Nmi+b0kc/b/e3wChw3gjl2iW3LcMiR0FAiaVxyjzrbAu0vkKGPjZotQaX7Kf7HS
-	 WXBm/i/hn2a4Q==
-Date: Mon, 14 Jul 2025 22:17:17 -0500
+	b=mhnvEVxTxd7nbP4JvA3c5oAI7v4Uh1XECXIYdE/N/qy0huEeZvo77oD3clb4yTeWg
+	 ymcvNK/OWxZiNy8QB28n853qDQu5Onfy2QbNM99FmG7C495d6/1pBwDdOtioibMSSr
+	 /rlMD2bWz/hqVqcD18knvPH4J8lLajX/kcQ2Ilm7eWdWbm7ZGc4Q/ZTnOWmINuwNNe
+	 BxX9zMQoXhN+gpCMRRtNwTSi0RuN0t+Gkpq8fEib5xKs3IOxjBmVBIpaSmzbYDP8qg
+	 xOWvSr5FiKi9K5beUealNgIeVFiD9nCqjoctx0r+oRvwk+1p8VUoHmrFlNxs9LXyT7
+	 106sWikoj8ffw==
+Date: Mon, 14 Jul 2025 22:20:20 -0500
 From: Rob Herring <robh@kernel.org>
 To: =?iso-8859-1?Q?Cl=E9ment?= Le Goffic <clement.legoffic@foss.st.com>
 Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
@@ -63,19 +63,19 @@ Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
 	linux-stm32@st-md-mailman.stormreply.com,
 	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
 	linux-clk@vger.kernel.org
-Subject: Re: [PATCH v2 02/16] dt-bindings: stm32: stm32mp25: add
- `access-controller-cell` property
-Message-ID: <20250715031717.GA4144523-robh@kernel.org>
+Subject: Re: [PATCH v2 06/16] arm64: dts: st: add LPDDR channel to
+ stm32mp257f-dk board
+Message-ID: <20250715032020.GB4144523-robh@kernel.org>
 References: <20250711-ddrperfm-upstream-v2-0-cdece720348f@foss.st.com>
- <20250711-ddrperfm-upstream-v2-2-cdece720348f@foss.st.com>
+ <20250711-ddrperfm-upstream-v2-6-cdece720348f@foss.st.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250711-ddrperfm-upstream-v2-2-cdece720348f@foss.st.com>
+In-Reply-To: <20250711-ddrperfm-upstream-v2-6-cdece720348f@foss.st.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250714_201719_913547_5DB2A764 
-X-CRM114-Status: GOOD (  17.80  )
+X-CRM114-CacheID: sfid-20250714_202022_081197_2225E35E 
+X-CRM114-Status: GOOD (  16.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,51 +90,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 11, 2025 at 04:48:54PM +0200, Clément Le Goffic wrote:
-> RCC is able to check the availability of a clock.
-> Allow to query the RCC with a firewall ID.
-
-If it is tied to a clock, do we need another provider? We have the 
-"protected clocks" thing, but that might be a bit different.
-
+On Fri, Jul 11, 2025 at 04:48:58PM +0200, Clément Le Goffic wrote:
+> Add 32bits LPDDR4 channel to the stm32mp257f-dk board.
 > 
 > Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
 > ---
->  Documentation/devicetree/bindings/clock/st,stm32mp25-rcc.yaml | 7 +++++++
+>  arch/arm64/boot/dts/st/stm32mp257f-dk.dts | 7 +++++++
 >  1 file changed, 7 insertions(+)
 > 
-> diff --git a/Documentation/devicetree/bindings/clock/st,stm32mp25-rcc.yaml b/Documentation/devicetree/bindings/clock/st,stm32mp25-rcc.yaml
-> index 88e52f10d1ec..4d471e3d89bc 100644
-> --- a/Documentation/devicetree/bindings/clock/st,stm32mp25-rcc.yaml
-> +++ b/Documentation/devicetree/bindings/clock/st,stm32mp25-rcc.yaml
-> @@ -31,6 +31,11 @@ properties:
->    '#reset-cells':
->      const: 1
+> diff --git a/arch/arm64/boot/dts/st/stm32mp257f-dk.dts b/arch/arm64/boot/dts/st/stm32mp257f-dk.dts
+> index a278a1e3ce03..a97b41f14ecc 100644
+> --- a/arch/arm64/boot/dts/st/stm32mp257f-dk.dts
+> +++ b/arch/arm64/boot/dts/st/stm32mp257f-dk.dts
+> @@ -54,6 +54,13 @@ led-blue {
+>  		};
+>  	};
 >  
-> +  '#access-controller-cells':
-> +    const: 1
-> +    description:
-> +      Contains the firewall ID associated to the peripheral.
+> +	lpddr_channel: lpddr4-channel {
+> +		#address-cells = <1>;
+> +		#size-cells = <0>;
+> +		compatible = "jedec,lpddr4-channel";
+
+Not tested because this doesn't match the binding.
+
+> +		io-width = <32>;
+> +	};
+
+What would multiple channels look like? I think this needs some work. 
+Like it should perhaps be within the memory node. It's a lot to just say 
+32-bit LPDDR4 x1.
+
 > +
->    clocks:
->      items:
->        - description: CK_SCMI_HSE High Speed External oscillator (8 to 48 MHz)
-> @@ -123,6 +128,7 @@ required:
->    - reg
->    - '#clock-cells'
->    - '#reset-cells'
-> +  - '#access-controller-cells'
->    - clocks
->  
->  additionalProperties: false
-> @@ -136,6 +142,7 @@ examples:
->          reg = <0x44200000 0x10000>;
->          #clock-cells = <1>;
->          #reset-cells = <1>;
-> +        #access-controller-cells = <1>;
->          clocks =  <&scmi_clk CK_SCMI_HSE>,
->                    <&scmi_clk CK_SCMI_HSI>,
->                    <&scmi_clk CK_SCMI_MSI>,
+>  	memory@80000000 {
+>  		device_type = "memory";
+>  		reg = <0x0 0x80000000 0x1 0x0>;
 > 
 > -- 
 > 2.43.0
