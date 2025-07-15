@@ -4,91 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AD9BC83F34
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B089C83F22
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 19:14:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8ql62+I002uOMke/pFz+Z+sLepv9NqKCM0/JfSW6o6c=; b=okkcNyngLXRww9FIRKLO1SDucM
-	+ew6aM2nDqjBazvt7rDzHWZNICUOc66Kh6ANA/ez9vgumwxzBONWk3fjgF2Mz6Q76zBUMnLdHskRN
-	YB0i3jy4Pxr/hRsNEKuZDtypxVvDY7B5BbHu8R6n/xTlvdEEyWAfnvsa3sL/T9UuCgbqr32wGB3ce
-	QSzLGijNoSf7NneN/159Rik36jQbjsYUJ4gxG8hc0bgHWQUzDK2CFGO8EVoUpZpgzbN00/CvazSKm
-	rEDjMrSGhmR6S8V237JoOipv7vYbdL4Y83wdgKRpJUnFANUctiCXluRGq/48Kd4MqmoMWEE446J7p
-	TOTgPqYw==;
+	bh=GA5gdyFg1uZV5+jdJaA/+N++eUsrCQesqrVksX5qS1Q=; b=XuKUAQT/D/PQF+7IxfwiNamyGm
+	TbeKTAHoNCgv00dSpNaJQfTOJ21kCNiT2BFjx7Lqn3KEDAS44cP2RShX960dwY89GI1x55leJfKkV
+	NV3dYX6z1HON/NGy3vM1wEPkqC/LhxD/xsDRojisioSb8upsA/Z5mfRjmx8WZZGLiHtXO+ER69Ebw
+	02lV8xxe7Kn3YC/rjqxp+D4ENSYR2nINvg7mQYPG0ZsTVkBkfFd/rDoUoG1ByDSYJqD0GsI2RRutJ
+	LD18rACnkxkW1vq0MshOQ47YEBipbUAwrrlMf6m5KiYTSXLltHCDip8OZ811NvhVF4kMShXeta8Kq
+	cnFS66pg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubl6q-00000005xqZ-1SCP;
-	Tue, 15 Jul 2025 19:14:36 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1ubl70-00000005y15-15pJ;
+	Tue, 15 Jul 2025 19:14:46 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubgWu-00000005LaX-1nvh;
-	Tue, 15 Jul 2025 14:21:13 +0000
+	id 1ubhWt-00000005aOs-3PIL
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 15 Jul 2025 15:25:16 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 9C3CFA542B1;
-	Tue, 15 Jul 2025 14:21:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id F1A85C4CEF4;
-	Tue, 15 Jul 2025 14:21:10 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id CF30A465E1
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Jul 2025 15:25:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A87A0C4CEFA
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Jul 2025 15:25:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752589271;
-	bh=G4Llr4ESGjruK8vWpxnM41n2mNWvPlgKfuaT3QZitm4=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=EmlC91FlUemG4T8iSwn0YR+Cis7TCmKufMG5GpwD2mozGkYCJ3CcuYBq3J22Fg5gt
-	 ECOfrGiyShuCnm7r+zJHgMx7JAFgW3aetfPlHSebZmjCk5MzBsSYtfjWipTvQFGRkH
-	 8pr4WW33JxC1wHjN0vFAFBUVbm5JfZ6ba+TrAeJcDF9cp2iANoXGMz0vlnTar3MyKZ
-	 ovaGmCRBYDjMz0lE8GmfUbNrrv8dr8Igp7yNNQ0Bc631w5M8aMqsbQly27Tnqh4wE/
-	 +B2SEtBQriSRvYhq3Pp6IRlSlyA6NmGkUYjZFX+dXw9mp5PcPVl942cwbmBL91jqkT
-	 77bcbTJ6WC26g==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E1B6BC83F17;
-	Tue, 15 Jul 2025 14:21:10 +0000 (UTC)
-From: Manivannan Sadhasivam via B4 Relay <devnull+manivannan.sadhasivam.oss.qualcomm.com@kernel.org>
-Date: Tue, 15 Jul 2025 19:51:04 +0530
-Subject: [PATCH v6 1/4] PCI/ERR: Add support for resetting the Root Ports
- in a platform specific way
+	s=k20201202; t=1752593113;
+	bh=+iZhsBUWZSulP41RkMskAokjoebc7RkoZj+v+sID3+g=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=YoOGDjgFRp7HK1g5v9jpXVwss1E7P+fld3vFuN3PW900mdZ2CIwKK2cp5ZcvL7d0y
+	 9rRd/bpND3G2dqZehY4LWofXABaXOQgm/nb+1xttzDLiQjJdi5jL7ugbavQg82q+3b
+	 AGBvubAtgWiE5n5to9Jx9ziV0YD1VxPMz4+BkxJn+IGMoVDb1XsES5DIOQuW/g9a5t
+	 duyU3WBsecV2D7qMPMaSHGSfgsD4D9rm3fTl6t2UqTys7O3DyAr/2W7dAETILAdjRa
+	 qEMQr+XDIkQVK93cS4IC2Fftunhcd514xknZWlivvD4vvMxF9CcGIbO9BGGbOCqsBs
+	 9dEzTc4bNiYtA==
+Received: by mail-ej1-f50.google.com with SMTP id a640c23a62f3a-ae3cd8fdd77so1131576566b.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Jul 2025 08:25:13 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCW+ySdNdXHdMtgQhI+7Mff/OmcPdy1ufVXOOBsBju6diZ2C5JCLOlwq6Z4j7hyQCFqYa+NK9xCGc53Irw+y5X1z@lists.infradead.org
+X-Gm-Message-State: AOJu0YykfJboi08C3oiX6pfWkCs/4zmolwqqLKWGrz/cMXWAVaOsiotd
+	sy9d1XBCeUlvaBIv2+zmmXw9xsiqu4IV0EOTl16LKcl9tNVwNmhOkRx2hR7k1NvYjA41qng62lR
+	eart5q+4QenXtRmlxaADqDMpIMb3LVA==
+X-Google-Smtp-Source: AGHT+IFhI1Gf1QWnLIvPSTSWf4gnALh46fJcdiVacHnkECq+ju3RTb7CbKGPKrz2qlxBZ7zAD9wzoI4qtasBTfMiC+U=
+X-Received: by 2002:a17:907:8689:b0:ae4:85d:76fc with SMTP id
+ a640c23a62f3a-ae6fcbc35bfmr1706242066b.30.1752593112041; Tue, 15 Jul 2025
+ 08:25:12 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250715-pci-port-reset-v6-1-6f9cce94e7bb@oss.qualcomm.com>
-References: <20250715-pci-port-reset-v6-0-6f9cce94e7bb@oss.qualcomm.com>
-In-Reply-To: <20250715-pci-port-reset-v6-0-6f9cce94e7bb@oss.qualcomm.com>
-To: Bjorn Helgaas <bhelgaas@google.com>, 
- Mahesh J Salgaonkar <mahesh@linux.ibm.com>, 
- Oliver O'Halloran <oohall@gmail.com>, Will Deacon <will@kernel.org>, 
- Lorenzo Pieralisi <lpieralisi@kernel.org>, 
- =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
- Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
- Heiko Stuebner <heiko@sntech.de>, Philipp Zabel <p.zabel@pengutronix.de>
-Cc: linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org, 
- linux-arm-msm@vger.kernel.org, linux-rockchip@lists.infradead.org, 
- Niklas Cassel <cassel@kernel.org>, 
- Wilfred Mallawa <wilfred.mallawa@wdc.com>, 
- Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>, 
- mani@kernel.org, Lukas Wunner <lukas@wunner.de>, 
- Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>, 
- Manivannan Sadhasivam <mani@kernel.org>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3274;
- i=manivannan.sadhasivam@oss.qualcomm.com; h=from:subject:message-id;
- bh=vO0v800CGm0YlQFOi4cUiTQ2vqZZXbTs8BWQyyTq7Kc=;
- b=owEBbQGS/pANAwAKAVWfEeb+kc71AcsmYgBodmPU7n0J5kTP8lJg9aNe1FZSaO/nXrn/HTEZk
- ZHlRKCt+l6JATMEAAEKAB0WIQRnpUMqgUjL2KRYJ5dVnxHm/pHO9QUCaHZj1AAKCRBVnxHm/pHO
- 9RLAB/95sKFXGToL/hcbo9zAzXQnyfkmN2pcsNyW7EhIf4hxdOIRHD8TR0NfjAjRJibAzR9v4cR
- WkIvzUbXTs8/X5JOPjQ3Z1I/uGUk1FIT6of2o+rcWr6qs01QYGxO3IrNudNUZ6CX9mnyYpGM9TV
- Jhd0an56Xhndu3J5KRU8UKD7WyCjLYe4iPyC/Nyb1tiS/GooDWvjMIwvtKjwzoi8HJJeHx6H/wL
- onVysaMSa+1Q/iygv7QB/ywkCFcsX97LWwSjG3bkJtMtj918d3pVARwT2uEXSA542Zhf0QdQ6se
- WWIORNZC3bttW0nKoBxa4VQXUJ1e0WB2jGBVHGwzNLRFxOQh
-X-Developer-Key: i=manivannan.sadhasivam@oss.qualcomm.com; a=openpgp;
- fpr=C668AEC3C3188E4C611465E7488550E901166008
-X-Endpoint-Received: by B4 Relay for
- manivannan.sadhasivam@oss.qualcomm.com/default with auth_id=461
-X-Original-From: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
+References: <20250715034320.2553837-1-jacky_chou@aspeedtech.com> <20250715034320.2553837-7-jacky_chou@aspeedtech.com>
+In-Reply-To: <20250715034320.2553837-7-jacky_chou@aspeedtech.com>
+From: Rob Herring <robh@kernel.org>
+Date: Tue, 15 Jul 2025 10:25:00 -0500
+X-Gmail-Original-Message-ID: <CAL_JsqJ4yeYGAyCwHi=4CBurxGOc5oAqTQqun+5+Ps4hxwDU9Q@mail.gmail.com>
+X-Gm-Features: Ac12FXx6Zdty1kF4V51gulFmHIQBgnZZ8rlts-SPK0sS7WQh8WbpLuYAl_mXY8I
+Message-ID: <CAL_JsqJ4yeYGAyCwHi=4CBurxGOc5oAqTQqun+5+Ps4hxwDU9Q@mail.gmail.com>
+Subject: Re: [PATCH v2 06/10] ARM: dts: aspeed-g6: Add PCIe RC node
+To: Jacky Chou <jacky_chou@aspeedtech.com>
+Cc: bhelgaas@google.com, lpieralisi@kernel.org, kwilczynski@kernel.org, 
+	mani@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, joel@jms.id.au, 
+	andrew@codeconstruct.com.au, linux-aspeed@lists.ozlabs.org, 
+	linux-pci@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	openbmc@lists.ozlabs.org, linux-gpio@vger.kernel.org, 
+	linus.walleij@linaro.org, p.zabel@pengutronix.de, BMC-SW@aspeedtech.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250715_072112_621784_8A15EA1C 
-X-CRM114-Status: GOOD (  16.46  )
+X-CRM114-CacheID: sfid-20250715_082515_890621_4619DA3E 
+X-CRM114-Status: GOOD (  18.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,93 +85,120 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: manivannan.sadhasivam@oss.qualcomm.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Manivannan Sadhasivam <mani@kernel.org>
+On Mon, Jul 14, 2025 at 10:43=E2=80=AFPM Jacky Chou <jacky_chou@aspeedtech.=
+com> wrote:
+>
+> The AST2600 has one PCIe RC, and add the relative configure regmap.
+>
+> Signed-off-by: Jacky Chou <jacky_chou@aspeedtech.com>
+> ---
+>  arch/arm/boot/dts/aspeed/aspeed-g6.dtsi | 61 +++++++++++++++++++++++++
+>  1 file changed, 61 insertions(+)
+>
+> diff --git a/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi b/arch/arm/boot/dts/=
+aspeed/aspeed-g6.dtsi
+> index 8ed715bd53aa..ed99780b6860 100644
+> --- a/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi
+> +++ b/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi
+> @@ -379,6 +379,67 @@ rng: hwrng@1e6e2524 {
+>                                 quality =3D <100>;
+>                         };
+>
+> +                       pcie_phy1: syscon@1e6ed200 {
+> +                               compatible =3D "aspeed,pcie-phy", "syscon=
+";
+> +                               reg =3D <0x1e6ed200 0x100>;
 
-Some host bridge devices require resetting the Root Ports in a platform
-specific way to recover them from error conditions such as Fatal AER
-errors, Link Down etc... So introduce pci_host_bridge::reset_root_port()
-callback and call it from pcibios_reset_secondary_bus() if available. Also,
-save the Root Port config space before reset and restore it afterwards.
+This looks like part of something else? It should be a child of that.
 
-The 'reset_root_port' callback is responsible for resetting the given Root
-Port referenced by the 'pci_dev' pointer in a platform specific way and
-bring it back to the working state if possible. If any error occurs during
-the reset operation, relevant errno should be returned.
+If this is the controls for the PCIe PHY, then use the PHY binding
+instead of your own custom phandle property.
 
-Signed-off-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-Signed-off-by: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
----
- drivers/pci/pci.c      | 20 ++++++++++++++++++++
- drivers/pci/pcie/err.c |  5 -----
- include/linux/pci.h    |  1 +
- 3 files changed, 21 insertions(+), 5 deletions(-)
+> +                       };
+> +
+> +                       pcie_cfg: syscon@1e770000 {
+> +                               compatible =3D "aspeed,pcie-cfg", "syscon=
+";
+> +                               reg =3D <0x1e770000 0x80>;
 
-diff --git a/drivers/pci/pci.c b/drivers/pci/pci.c
-index e9448d55113bdfd2263d8e2f6b3ec802f56b712e..b29264aa2be33b18a58b3b3db1d1fb0f6483e5e8 100644
---- a/drivers/pci/pci.c
-+++ b/drivers/pci/pci.c
-@@ -4964,6 +4964,26 @@ void pci_reset_secondary_bus(struct pci_dev *dev)
- 
- void __weak pcibios_reset_secondary_bus(struct pci_dev *dev)
- {
-+	struct pci_host_bridge *host = pci_find_host_bridge(dev->bus);
-+	int ret;
-+
-+	if (pci_is_root_bus(dev->bus) && host->reset_root_port) {
-+		/*
-+		 * Save the config space of the Root Port before doing the
-+		 * reset, since the state could be lost. The Endpoint state
-+		 * should've been saved by the caller.
-+		 */
-+		pci_save_state(dev);
-+		ret = host->reset_root_port(host, dev);
-+		if (ret)
-+			pci_err(dev, "Failed to reset Root Port: %d\n", ret);
-+		else
-+			/* Now restore it on success */
-+			pci_restore_state(dev);
-+
-+		return;
-+	}
-+
- 	pci_reset_secondary_bus(dev);
- }
- 
-diff --git a/drivers/pci/pcie/err.c b/drivers/pci/pcie/err.c
-index de6381c690f5c21f00021cdc7bde8d93a5c7db52..b834fc0d705938540d3d7d3d8739770c09fe7cf1 100644
---- a/drivers/pci/pcie/err.c
-+++ b/drivers/pci/pcie/err.c
-@@ -234,11 +234,6 @@ pci_ers_result_t pcie_do_recovery(struct pci_dev *dev,
- 	}
- 
- 	if (status == PCI_ERS_RESULT_NEED_RESET) {
--		/*
--		 * TODO: Should call platform-specific
--		 * functions to reset slot before calling
--		 * drivers' slot_reset callbacks?
--		 */
- 		status = PCI_ERS_RESULT_RECOVERED;
- 		pci_dbg(bridge, "broadcast slot_reset message\n");
- 		pci_walk_bridge(bridge, report_slot_reset, &status);
-diff --git a/include/linux/pci.h b/include/linux/pci.h
-index 05e68f35f39238f8b9ce08df97b384d1c1e89bbe..e7c118a961910a307ec365f17b8fe4f2585267e8 100644
---- a/include/linux/pci.h
-+++ b/include/linux/pci.h
-@@ -599,6 +599,7 @@ struct pci_host_bridge {
- 	void (*release_fn)(struct pci_host_bridge *);
- 	int (*enable_device)(struct pci_host_bridge *bridge, struct pci_dev *dev);
- 	void (*disable_device)(struct pci_host_bridge *bridge, struct pci_dev *dev);
-+	int (*reset_root_port)(struct pci_host_bridge *bridge, struct pci_dev *dev);
- 	void		*release_data;
- 	unsigned int	ignore_reset_delay:1;	/* For entire hierarchy */
- 	unsigned int	no_ext_tags:1;		/* No Extended Tags */
-
--- 
-2.45.2
+Looks like this is really part of the PCIe block as a h/w block isn't
+going to start at offset 0xc0.
 
 
+> +                       };
+> +
+> +                       pcie0: pcie@1e7700c0 {
+> +                               compatible =3D "aspeed,ast2600-pcie";
+> +                               device_type =3D "pci";
+> +                               reg =3D <0x1e7700c0 0x40>;
+> +                               linux,pci-domain =3D <0>;
+
+No need for this. You only have 1 PCI host.
+
+> +                               #address-cells =3D <3>;
+> +                               #size-cells =3D <2>;
+> +                               interrupts =3D <GIC_SPI 168 IRQ_TYPE_LEVE=
+L_HIGH>;
+> +                               bus-range =3D <0x80 0xff>;
+
+Does this h/w not support bus 0-0x7f for some reason?
+
+> +
+> +                               ranges =3D <0x01000000 0x0 0x00018000 0x0=
+0018000 0x0 0x00008000
+> +                                         0x02000000 0x0 0x70000000 0x700=
+00000 0x0 0x10000000>;
+> +
+> +                               status =3D "disabled";
+> +
+> +                               resets =3D <&syscon ASPEED_RESET_H2X>;
+> +                               reset-names =3D "h2x";
+> +
+> +                               #interrupt-cells =3D <1>;
+> +                               msi-parent =3D <&pcie0>;
+> +                               msi-controller;
+> +
+> +                               aspeed,ahbc =3D <&ahbc>;
+> +                               aspeed,pciecfg =3D <&pcie_cfg>;
+> +
+> +                               interrupt-map-mask =3D <0 0 0 7>;
+> +                               interrupt-map =3D <0 0 0 1 &pcie_intc0 0>=
+,
+> +                                               <0 0 0 2 &pcie_intc0 1>,
+> +                                               <0 0 0 3 &pcie_intc0 2>,
+> +                                               <0 0 0 4 &pcie_intc0 3>;
+> +                               pcie_intc0: interrupt-controller {
+> +                                       interrupt-controller;
+> +                                       #address-cells =3D <0>;
+> +                                       #interrupt-cells =3D <1>;
+> +                               };
+> +
+> +                               pcie@8,0 {
+> +                                       reg =3D <0x804000 0 0 0 0>;
+> +                                       #address-cells =3D <3>;
+> +                                       #size-cells =3D <2>;
+> +                                       device_type =3D "pci";
+> +                                       resets =3D <&syscon ASPEED_RESET_=
+PCIE_RC_O>;
+> +                                       reset-names =3D "perst";
+> +                                       clocks =3D <&syscon ASPEED_CLK_GA=
+TE_BCLK>;
+> +                                       pinctrl-names =3D "default";
+> +                                       pinctrl-0 =3D <&pinctrl_pcierc1_d=
+efault>;
+> +                                       aspeed,pciephy =3D <&pcie_phy1>;
+> +                                       ranges;
+> +                               };
+> +                       };
+> +
+>                         gfx: display@1e6e6000 {
+>                                 compatible =3D "aspeed,ast2600-gfx", "sys=
+con";
+>                                 reg =3D <0x1e6e6000 0x1000>;
+> --
+> 2.43.0
+>
 
