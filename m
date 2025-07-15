@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDB65C83F22
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 19:15:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 281B9C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 19:15:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oqOfxrmuP7GYj+ITGwkimiGPyMW49733tVgJyRtzAo8=; b=OSmNQ58GIyliYd5CPJn5zXqIMz
-	uL5r0v4iz81/7/RHYouQGvpAS/JlYioxKqCkLrbpV5YQFys5dIVSyt4Qd059Xc2JePUEUL8wFXeqD
-	ZCVXp+0EGVV6pGmbzgtMN3AQCvd8kCyxLhU/46nSrXztmlrgMZEiuIHWV300a3gOBbBkSfrDM9D8G
-	ZR+VbGYICDwhaPyBymfr27cdpvZnvtL0JBKm1DvYbC84ro0n4wiiBojlNcXNkj9QuvImH+MhEWnmf
-	yCMiv4OhrDowkzZMfI8UmcUBsl3o0+IawJWV8h9ZcEOcGtA/KbRQ5vwWPZ8NZkH7QVqqqh1NOC9kw
-	GqBKnqug==;
+	bh=pfQIKkVCQ2tl3OFf5X/XN1agXptqvxm2Y+O9eWMVJdY=; b=d6oyoLtFyLZgUApUf5fni5vnx4
+	wTYXfrw+Af0IuuJKXtQJxKnHi0ijms0O5J6ogOjRzqfsZKwMN0//Wa0lpQOVTGPCavE9NpXaf6V5O
+	7kiCGtG5B8jI3TXKGHg5j//9L2NkwuCEjwOrKqPFhcsXIPJCQFyFliKg5/bo0wS3l3mRYbGDOBZWw
+	mmPYYm5KE1rCv4vi8xb8ZCOzoHXmWdiYkdEE645XaKy5SjKYG8uJqXhucJW9SzH4L7e43usYKtefc
+	0j1lJbWqi+WTQNmOvMH66p/KH6d+ORYH95FXOjvBHGH7+B7fe3orEPJC/Km0yEfB1oF5lX9BVqCDR
+	X8dixVPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubl7c-00000005z2o-0L0G;
-	Tue, 15 Jul 2025 19:15:24 +0000
-Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
+	id 1ubl7i-00000005zFp-20Ph;
+	Tue, 15 Jul 2025 19:15:30 +0000
+Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubi88-00000005goU-2bMI
+	id 1ubi8G-00000005gs9-307G
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Jul 2025 16:03:46 +0000
-Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-74b56b1d301so3366075b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Jul 2025 09:03:44 -0700 (PDT)
+	Tue, 15 Jul 2025 16:03:54 +0000
+Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-73c17c770a7so6861621b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Jul 2025 09:03:52 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1752595424; x=1753200224; darn=lists.infradead.org;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1752595432; x=1753200232; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=oqOfxrmuP7GYj+ITGwkimiGPyMW49733tVgJyRtzAo8=;
-        b=LnQ0zw3H0239xeYDseGUHT43zJkq90rVwPlhJABGuF/US3AZDt4C0On44PNrp8YSLI
-         twBfToK0QfDvknDCP1YH8yq4kCJ5qASaCnwPmf+cF7HgXoLJ1LRSP9cVJSIrpKmev9S+
-         DImA+g7K6D5dRgfubOrg9iXRA1bxa9/sm6zUkdS3+WonfD/WJPybSvSA9zf8ZpYf3K6J
-         yn76JQfhWvP84o+m1cpN7Vb1JNCvA3TAHB+0DmTunWZrk3I0kAtPGIsnEm1p8vI/xEeL
-         EDwCCpd0o1E4vkyjeSolshRLcVYC1uAwaGj/Bs9yH6RLRYeMbT0eJc1eg9kDlaMLkhct
-         faXg==
+        bh=pfQIKkVCQ2tl3OFf5X/XN1agXptqvxm2Y+O9eWMVJdY=;
+        b=LvspjoV0Ty8UnQmgKjwQajUkoC+tvb8UhwDMvNZzdvTIaOCZheC1vIKHMlpJ81GlIw
+         ERZRc66kprpt2wTqTFHcGbno9MGq/n5vpLRySsTP502fGSOS8mWtWbRsa7ZOtkW3gH/M
+         B/TNyaDulYLsOYNnc7zBWDy8S8o2G0GyTrZ1c22WL5Wv9rzr7KFrgrE3sDPuYBFJNZ30
+         w/JEDcGCLfVHalzit0ExWVp0LpWaqy3LhRSNMfGUR2VY0Leb39zMrLc8i5fIECVJXpHy
+         lLmpIAJIJyO8GSv9yw6Nx7Ear9PP8q9A9bqnNTcUsjkDD3GlbTe5XGnkH7pfXDkpV2KT
+         PIEw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752595424; x=1753200224;
+        d=1e100.net; s=20230601; t=1752595432; x=1753200232;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=oqOfxrmuP7GYj+ITGwkimiGPyMW49733tVgJyRtzAo8=;
-        b=NkRzQJExSgurrVYuNUyvyNNmqRMBGpvFK41T3xuhyzIj/VW78LiNeCyO4ALLN8V963
-         43oAw18AYT12UFXebj2d5K8o/7zyiCsSaxSIai9RLtZcuy2fW5h3BD6N0vGGc2fRHk4M
-         pnaBGe2H2i9HUHfTigKlQEzAgoq3o33ZGmJ4Zv6cDXthNz4pGDWKs7p0zxZdu3LhXoqE
-         HSatvY1R9I9oEl3RMzX/m4kRjtptPSbnHchGQHDXvC6DbggH/C7j7/HuOoozlyBMCidi
-         Sn1A7jDBDRIA9xYfG/jOkgOqumJVKSoHOF5O75GBz5Luwh5JqmNQkSGbkFdUwQVHAL/Z
-         ZLQw==
-X-Forwarded-Encrypted: i=1; AJvYcCWpVZjR4Vq2QWVPD+Skr6RTvJwC4FSV33V7Yat0GJS+2lT2uP4AyawCXnSbWUicJLIV1HQZ+5bW37cASR+UB1U4@lists.infradead.org
-X-Gm-Message-State: AOJu0YwcTVGdVJQxYXrT7C3/YrCcnGpsi02FQcLgca57mxQ4k61SvAo6
-	jPGAQmTd3WN60KP8eDDCCLJK1ewNTXJaGQkBWAlT8ESd9tne7ni8hWlUQEKNGcgUXNw=
-X-Gm-Gg: ASbGncs3DCmjCGoCWWdZMf5fpNVQ44iRET1mpKTBXY9f0kOYblje9I8jFa8dauJCZf8
-	7pgJzoqVhzZGrXCWPl7z20Msi8liveSjpuSNlkdJHGalTp0vlHpxGrN86coJe1YkW5XVBNSmZsp
-	f+pDlqyoz1QzWK411c+InZr7kcmkksAFYFqP/+oBhcpTZbj205kvhz0u4Jo4AWbUrN5bAWve0/1
-	8TQ/qJM3p++/KIWxh1dS4D0yAF5SAqc9VzVNhjKpjx1ZO5hTJFs8Xg5OSgm4WkKpMGRQI8PMIx6
-	01QzGnk0pkJs9XBeTJJ7XmjeVWECw9lkniVmCynOmcwsnK3c7cYjI7mkGK/3tvSi3BPWZDdQj7p
-	hLjo=
-X-Google-Smtp-Source: AGHT+IHDVMlZLgmYUoZyYp4THO/CfTh98DfuE74EXplt94mzpfi21MjcE4zZib331IU+ay+/EwkXlg==
-X-Received: by 2002:a05:6a00:c94:b0:74c:efae:fd8f with SMTP id d2e1a72fcca58-74ee2557a2bmr24319785b3a.15.1752595423619;
-        Tue, 15 Jul 2025 09:03:43 -0700 (PDT)
+        bh=pfQIKkVCQ2tl3OFf5X/XN1agXptqvxm2Y+O9eWMVJdY=;
+        b=NzFj04vcBM3r64HSS5kcmXzNhl1HXXTLT4IaN7oWnx/duKF/0mrWRZ2Ar8UBBQIc/0
+         dT/o/juxG+JPs290lz+HNny4gLp5GI6yGl+HZmQPvc/T+vvKYPI2uuecOikuqxkkZTaJ
+         1lDGh+mNffOQhVzAut7yeW31AzjJuhpcyShPcUSRFzEJtFzDne7UmT+z1UIkTJ1ImCa/
+         2wERY3UzcxRddmHgBZhRT+/X6JSdYTgzrT8RKj5AJ2pnRLGQu3wI3DAZBDreVv94BC/R
+         e0ayM9OxScYAMjGJ9+icNYir/wRSZDW+U/acuhY4OrL37iOkHAGAgoDollPdsSgaxrZt
+         ffXA==
+X-Forwarded-Encrypted: i=1; AJvYcCWjQskb3XG6Brhw6Olk9MZi/pK4cKuxXwt27cebrX28hXxgq68fb2mVGrZ+VG9RE6JPq9kcHYusQz7bmOw/ool/@lists.infradead.org
+X-Gm-Message-State: AOJu0YyDamjdwgMhR+VLPejSCwfa3Yuq1if6ZJr/DT6zmDTtz0XpdwpT
+	ZOW1MC1GPxDsQVZ7U4lPysD1UwEWt37tcL2E3Grr559lIOZRUBNsqHGAvdOwe5HIcB4=
+X-Gm-Gg: ASbGncu1KbwCy6ntggqQk9f4FUQmyVUtOKZU01vKfSzmxSM9eqKdW7Ys6SoRks0EskG
+	uZQwVMHoz9Q2U2oPBDwlgaXTMBfrsklrG4lZFlOe2yTkB4e2PWk4ZSxX80dDf5MPPV0yxl/XrVW
+	zIAMrQWDutkwGRvg9M8k8Ypgl7RTjlKDQU7yGRMJaD3WfP2Gn4aUgjXDMxd84M0MAQtjNDzZ1Ea
+	G88RMc26gPYVhv4luYeAzeBVsyPtPY78TMNbTtTeBQnYPXV0T+D+0RSAFnNTc3ZTVfRngYtMRyu
+	kKcYPFNmsHLgLO/hXkeVq+1BXCi1abJ0/K8ygZ5k5C8hZ5f4pc7NoOF0aVZ6H20fKiuP7hZxMRI
+	sjoI=
+X-Google-Smtp-Source: AGHT+IG7DfaUnf3PwngSZp71aqsd6kdqlvPW/SwC8fU2W4zv+Z1M4Cuc/wGBMSZrgsBDN2yyTBn1kA==
+X-Received: by 2002:a05:6a00:1d07:b0:754:7376:548f with SMTP id d2e1a72fcca58-7547376564fmr10485164b3a.23.1752595431745;
+        Tue, 15 Jul 2025 09:03:51 -0700 (PDT)
 Received: from cleger.eu.int ([2001:41d0:420:f300::])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-74eb9f856fdsm12546532b3a.144.2025.07.15.09.03.36
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-74eb9f856fdsm12546532b3a.144.2025.07.15.09.03.44
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 15 Jul 2025 09:03:43 -0700 (PDT)
+        Tue, 15 Jul 2025 09:03:51 -0700 (PDT)
 From: =?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>
 To: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
@@ -81,9 +81,9 @@ Cc: =?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>,
 	Xu Lu <luxu.kernel@bytedance.com>,
 	Atish Patra <atishp@atishpatra.org>,
 	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@rivosinc.com>
-Subject: [PATCH v5 4/5] perf: RISC-V: add support for SSE event
-Date: Tue, 15 Jul 2025 16:02:32 +0000
-Message-ID: <20250715160234.454848-5-cleger@rivosinc.com>
+Subject: [PATCH v5 5/5] selftests/riscv: add SSE test module
+Date: Tue, 15 Jul 2025 16:02:33 +0000
+Message-ID: <20250715160234.454848-6-cleger@rivosinc.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250715160234.454848-1-cleger@rivosinc.com>
 References: <20250715160234.454848-1-cleger@rivosinc.com>
@@ -91,8 +91,8 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250715_090344_658143_0BF35C96 
-X-CRM114-Status: GOOD (  23.08  )
+X-CRM114-CacheID: sfid-20250715_090352_767024_108E5B5D 
+X-CRM114-Status: GOOD (  26.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,249 +107,638 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In order to use SSE within PMU drivers, register a SSE handler for the
-local PMU event. Reuse the existing overflow IRQ handler and pass
-appropriate pt_regs. Add a config option RISCV_PMU_SSE to select event
-delivery via SSE events.
+This module, once loaded, will execute a series of tests using the SSE
+framework. The provided script will check for any error reported by the
+test module.
 
 Signed-off-by: Clément Léger <cleger@rivosinc.com>
 ---
- drivers/perf/Kconfig           | 10 +++++
- drivers/perf/riscv_pmu.c       | 19 +++++++++
- drivers/perf/riscv_pmu_sbi.c   | 71 +++++++++++++++++++++++++++++-----
- include/linux/perf/riscv_pmu.h |  3 ++
- 4 files changed, 93 insertions(+), 10 deletions(-)
+ tools/testing/selftests/riscv/Makefile        |   2 +-
+ tools/testing/selftests/riscv/sse/Makefile    |   5 +
+ .../selftests/riscv/sse/module/Makefile       |  16 +
+ .../riscv/sse/module/riscv_sse_test.c         | 513 ++++++++++++++++++
+ .../selftests/riscv/sse/run_sse_test.sh       |  44 ++
+ 5 files changed, 579 insertions(+), 1 deletion(-)
+ create mode 100644 tools/testing/selftests/riscv/sse/Makefile
+ create mode 100644 tools/testing/selftests/riscv/sse/module/Makefile
+ create mode 100644 tools/testing/selftests/riscv/sse/module/riscv_sse_test.c
+ create mode 100644 tools/testing/selftests/riscv/sse/run_sse_test.sh
 
-diff --git a/drivers/perf/Kconfig b/drivers/perf/Kconfig
-index 278c929dc87a..3310076ca7b0 100644
---- a/drivers/perf/Kconfig
-+++ b/drivers/perf/Kconfig
-@@ -105,6 +105,16 @@ config RISCV_PMU_SBI
- 	  full perf feature support i.e. counter overflow, privilege mode
- 	  filtering, counter configuration.
+diff --git a/tools/testing/selftests/riscv/Makefile b/tools/testing/selftests/riscv/Makefile
+index 099b8c1f46f8..c62f58414b29 100644
+--- a/tools/testing/selftests/riscv/Makefile
++++ b/tools/testing/selftests/riscv/Makefile
+@@ -5,7 +5,7 @@
+ ARCH ?= $(shell uname -m 2>/dev/null || echo not)
  
-+config RISCV_PMU_SSE
-+	depends on RISCV_PMU && RISCV_SSE
-+	bool "RISC-V PMU SSE events"
-+	default n
-+	help
-+	  Say y if you want to use SSE events to deliver PMU interrupts. This
-+	  provides a way to profile the kernel at any level by using NMI-like
-+	  SSE events. SSE events being really intrusive, this option allows
-+	  to select it only if needed.
+ ifneq (,$(filter $(ARCH),riscv))
+-RISCV_SUBTARGETS ?= abi hwprobe mm sigreturn vector
++RISCV_SUBTARGETS ?= abi hwprobe mm sigreturn vector sse
+ else
+ RISCV_SUBTARGETS :=
+ endif
+diff --git a/tools/testing/selftests/riscv/sse/Makefile b/tools/testing/selftests/riscv/sse/Makefile
+new file mode 100644
+index 000000000000..67eaee06f213
+--- /dev/null
++++ b/tools/testing/selftests/riscv/sse/Makefile
+@@ -0,0 +1,5 @@
++TEST_GEN_MODS_DIR := module
 +
- config STARFIVE_STARLINK_PMU
- 	depends on ARCH_STARFIVE || COMPILE_TEST
- 	depends on 64BIT
-diff --git a/drivers/perf/riscv_pmu.c b/drivers/perf/riscv_pmu.c
-index 7644147d50b4..1eb28381b80f 100644
---- a/drivers/perf/riscv_pmu.c
-+++ b/drivers/perf/riscv_pmu.c
-@@ -13,6 +13,7 @@
- #include <linux/irqdesc.h>
- #include <linux/perf/riscv_pmu.h>
- #include <linux/printk.h>
++TEST_FILES := run_sse_test.sh
++
++include ../../lib.mk
+diff --git a/tools/testing/selftests/riscv/sse/module/Makefile b/tools/testing/selftests/riscv/sse/module/Makefile
+new file mode 100644
+index 000000000000..02018f083456
+--- /dev/null
++++ b/tools/testing/selftests/riscv/sse/module/Makefile
+@@ -0,0 +1,16 @@
++TESTMODS_DIR := $(realpath $(dir $(abspath $(lastword $(MAKEFILE_LIST)))))
++KDIR ?= /lib/modules/$(shell uname -r)/build
++
++obj-m += riscv_sse_test.o
++
++# Ensure that KDIR exists, otherwise skip the compilation
++modules:
++ifneq ("$(wildcard $(KDIR))", "")
++	$(Q)$(MAKE) -C $(KDIR) modules KBUILD_EXTMOD=$(TESTMODS_DIR)
++endif
++
++# Ensure that KDIR exists, otherwise skip the clean target
++clean:
++ifneq ("$(wildcard $(KDIR))", "")
++	$(Q)$(MAKE) -C $(KDIR) clean KBUILD_EXTMOD=$(TESTMODS_DIR)
++endif
+diff --git a/tools/testing/selftests/riscv/sse/module/riscv_sse_test.c b/tools/testing/selftests/riscv/sse/module/riscv_sse_test.c
+new file mode 100644
+index 000000000000..65df41a2d40a
+--- /dev/null
++++ b/tools/testing/selftests/riscv/sse/module/riscv_sse_test.c
+@@ -0,0 +1,513 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Copyright (C) 2024 Rivos Inc.
++ */
++
++#define pr_fmt(fmt) "riscv_sse_test: " fmt
++
++#include <linux/array_size.h>
++#include <linux/completion.h>
++#include <linux/err.h>
++#include <linux/io.h>
++#include <linux/jiffies.h>
++#include <linux/module.h>
 +#include <linux/riscv_sse.h>
- #include <linux/smp.h>
- #include <linux/sched_clock.h>
- 
-@@ -254,6 +255,22 @@ void riscv_pmu_start(struct perf_event *event, int flags)
- 	perf_event_update_userpage(event);
- }
- 
-+static void riscv_pmu_disable(struct pmu *pmu)
-+{
-+	struct riscv_pmu *rvpmu = to_riscv_pmu(pmu);
++#include <linux/slab.h>
++#include <linux/smp.h>
 +
-+	if (rvpmu->sse_evt)
-+		sse_event_disable_local(rvpmu->sse_evt);
++#include <asm/sbi.h>
++#include <asm/sse.h>
++
++#define RUN_LOOP_COUNT		1000
++#define SSE_FAILED_PREFIX	"FAILED: "
++#define sse_err(...)		pr_err(SSE_FAILED_PREFIX __VA_ARGS__)
++
++struct sse_event_desc {
++	u32 evt_id;
++	const char *name;
++	bool can_inject;
++};
++
++static struct sse_event_desc sse_event_descs[] = {
++	{
++		.evt_id = SBI_SSE_EVENT_LOCAL_HIGH_PRIO_RAS,
++		.name = "local_high_prio_ras",
++	},
++	{
++		.evt_id = SBI_SSE_EVENT_LOCAL_DOUBLE_TRAP,
++		.name = "local_double_trap",
++	},
++	{
++		.evt_id = SBI_SSE_EVENT_GLOBAL_HIGH_PRIO_RAS,
++		.name = "global_high_prio_ras",
++	},
++	{
++		.evt_id = SBI_SSE_EVENT_LOCAL_PMU_OVERFLOW,
++		.name = "local_pmu_overflow",
++	},
++	{
++		.evt_id = SBI_SSE_EVENT_LOCAL_LOW_PRIO_RAS,
++		.name = "local_low_prio_ras",
++	},
++	{
++		.evt_id = SBI_SSE_EVENT_GLOBAL_LOW_PRIO_RAS,
++		.name = "global_low_prio_ras",
++	},
++	{
++		.evt_id = SBI_SSE_EVENT_LOCAL_SOFTWARE_INJECTED,
++		.name = "local_software_injected",
++	},
++	{
++		.evt_id = SBI_SSE_EVENT_GLOBAL_SOFTWARE_INJECTED,
++		.name = "global_software_injected",
++	}
++};
++
++static struct sse_event_desc *sse_get_evt_desc(u32 evt)
++{
++	int i;
++
++	for (i = 0; i < ARRAY_SIZE(sse_event_descs); i++) {
++		if (sse_event_descs[i].evt_id == evt)
++			return &sse_event_descs[i];
++	}
++
++	return NULL;
 +}
 +
-+static void riscv_pmu_enable(struct pmu *pmu)
++static const char *sse_evt_name(u32 evt)
 +{
-+	struct riscv_pmu *rvpmu = to_riscv_pmu(pmu);
++	struct sse_event_desc *desc = sse_get_evt_desc(evt);
 +
-+	if (rvpmu->sse_evt)
-+		sse_event_enable_local(rvpmu->sse_evt);
++	return desc != NULL ? desc->name : NULL;
 +}
 +
- static int riscv_pmu_add(struct perf_event *event, int flags)
- {
- 	struct riscv_pmu *rvpmu = to_riscv_pmu(event->pmu);
-@@ -411,6 +428,8 @@ struct riscv_pmu *riscv_pmu_alloc(void)
- 		.event_mapped	= riscv_pmu_event_mapped,
- 		.event_unmapped	= riscv_pmu_event_unmapped,
- 		.event_idx	= riscv_pmu_event_idx,
-+		.pmu_enable	= riscv_pmu_enable,
-+		.pmu_disable	= riscv_pmu_disable,
- 		.add		= riscv_pmu_add,
- 		.del		= riscv_pmu_del,
- 		.start		= riscv_pmu_start,
-diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
-index 698de8ddf895..8c1ac7985df6 100644
---- a/drivers/perf/riscv_pmu_sbi.c
-+++ b/drivers/perf/riscv_pmu_sbi.c
-@@ -17,6 +17,7 @@
- #include <linux/irqdomain.h>
- #include <linux/of_irq.h>
- #include <linux/of.h>
-+#include <linux/riscv_sse.h>
- #include <linux/cpu_pm.h>
- #include <linux/sched/clock.h>
- #include <linux/soc/andes/irq.h>
-@@ -948,10 +949,10 @@ static void pmu_sbi_start_overflow_mask(struct riscv_pmu *pmu,
- 		pmu_sbi_start_ovf_ctrs_sbi(cpu_hw_evt, ctr_ovf_mask);
- }
- 
--static irqreturn_t pmu_sbi_ovf_handler(int irq, void *dev)
-+static irqreturn_t pmu_sbi_ovf_handler(struct cpu_hw_events *cpu_hw_evt,
-+				       struct pt_regs *regs, bool from_sse)
- {
- 	struct perf_sample_data data;
--	struct pt_regs *regs;
- 	struct hw_perf_event *hw_evt;
- 	union sbi_pmu_ctr_info *info;
- 	int lidx, hidx, fidx;
-@@ -959,7 +960,6 @@ static irqreturn_t pmu_sbi_ovf_handler(int irq, void *dev)
- 	struct perf_event *event;
- 	u64 overflow;
- 	u64 overflowed_ctrs = 0;
--	struct cpu_hw_events *cpu_hw_evt = dev;
- 	u64 start_clock = sched_clock();
- 	struct riscv_pmu_snapshot_data *sdata = cpu_hw_evt->snapshot_addr;
- 
-@@ -969,13 +969,15 @@ static irqreturn_t pmu_sbi_ovf_handler(int irq, void *dev)
- 	/* Firmware counter don't support overflow yet */
- 	fidx = find_first_bit(cpu_hw_evt->used_hw_ctrs, RISCV_MAX_COUNTERS);
- 	if (fidx == RISCV_MAX_COUNTERS) {
--		csr_clear(CSR_SIP, BIT(riscv_pmu_irq_num));
-+		if (!from_sse)
-+			csr_clear(CSR_SIP, BIT(riscv_pmu_irq_num));
- 		return IRQ_NONE;
- 	}
- 
- 	event = cpu_hw_evt->events[fidx];
- 	if (!event) {
--		ALT_SBI_PMU_OVF_CLEAR_PENDING(riscv_pmu_irq_mask);
-+		if (!from_sse)
-+			ALT_SBI_PMU_OVF_CLEAR_PENDING(riscv_pmu_irq_mask);
- 		return IRQ_NONE;
- 	}
- 
-@@ -990,16 +992,16 @@ static irqreturn_t pmu_sbi_ovf_handler(int irq, void *dev)
- 
- 	/*
- 	 * Overflow interrupt pending bit should only be cleared after stopping
--	 * all the counters to avoid any race condition.
-+	 * all the counters to avoid any race condition. When using SSE,
-+	 * interrupt is cleared when stopping counters.
- 	 */
--	ALT_SBI_PMU_OVF_CLEAR_PENDING(riscv_pmu_irq_mask);
-+	if (!from_sse)
-+		ALT_SBI_PMU_OVF_CLEAR_PENDING(riscv_pmu_irq_mask);
- 
- 	/* No overflow bit is set */
- 	if (!overflow)
- 		return IRQ_NONE;
- 
--	regs = get_irq_regs();
--
- 	for_each_set_bit(lidx, cpu_hw_evt->used_hw_ctrs, RISCV_MAX_COUNTERS) {
- 		struct perf_event *event = cpu_hw_evt->events[lidx];
- 
-@@ -1055,6 +1057,51 @@ static irqreturn_t pmu_sbi_ovf_handler(int irq, void *dev)
- 	return IRQ_HANDLED;
- }
- 
-+static irqreturn_t pmu_sbi_ovf_irq_handler(int irq, void *dev)
++static bool sse_test_can_inject_event(u32 evt)
 +{
-+	return pmu_sbi_ovf_handler(dev, get_irq_regs(), false);
++	struct sse_event_desc *desc = sse_get_evt_desc(evt);
++
++	return desc != NULL ? desc->can_inject : false;
 +}
 +
-+#ifdef CONFIG_RISCV_PMU_SSE
-+static int pmu_sbi_ovf_sse_handler(u32 evt, void *arg, struct pt_regs *regs)
++static struct sbiret sbi_sse_ecall(int fid, unsigned long arg0, unsigned long arg1)
 +{
-+	struct cpu_hw_events __percpu *hw_events = arg;
-+	struct cpu_hw_events *hw_event = raw_cpu_ptr(hw_events);
++	return sbi_ecall(SBI_EXT_SSE, fid, arg0, arg1, 0, 0, 0, 0);
++}
 +
-+	pmu_sbi_ovf_handler(hw_event, regs, true);
++static int sse_event_attr_get(u32 evt, unsigned long attr_id,
++			      unsigned long *val)
++{
++	struct sbiret sret;
++	unsigned long *attr_buf, phys;
++
++	attr_buf = kmalloc(sizeof(unsigned long), GFP_KERNEL);
++	if (!attr_buf)
++		return -ENOMEM;
++
++	phys = virt_to_phys(attr_buf);
++
++	sret = sbi_ecall(SBI_EXT_SSE, SBI_SSE_EVENT_ATTR_READ, evt, attr_id, 1,
++			 phys, 0, 0);
++	if (sret.error)
++		return sbi_err_map_linux_errno(sret.error);
++
++	*val = *attr_buf;
 +
 +	return 0;
 +}
 +
-+static int pmu_sbi_setup_sse(struct riscv_pmu *pmu)
++static int sse_test_signal(u32 evt, unsigned int cpu)
 +{
-+	int ret;
-+	struct sse_event *evt;
-+	struct cpu_hw_events __percpu *hw_events = pmu->hw_events;
++	unsigned int hart_id = cpuid_to_hartid_map(cpu);
++	struct sbiret ret;
 +
-+	evt = sse_event_register(SBI_SSE_EVENT_LOCAL_PMU_OVERFLOW, 0,
-+				 pmu_sbi_ovf_sse_handler, hw_events);
-+	if (IS_ERR(evt))
-+		return PTR_ERR(evt);
-+
-+	ret = sse_event_enable(evt);
-+	if (ret) {
-+		sse_event_unregister(evt);
-+		return ret;
++	ret = sbi_sse_ecall(SBI_SSE_EVENT_SIGNAL, evt, hart_id);
++	if (ret.error) {
++		sse_err("Failed to signal event %x, error %ld\n", evt, ret.error);
++		return sbi_err_map_linux_errno(ret.error);
 +	}
 +
-+	pr_info("using SSE for PMU event delivery\n");
-+	pmu->sse_evt = evt;
++	return 0;
++}
++
++static int sse_test_inject_event(struct sse_event *event, u32 evt, unsigned int cpu)
++{
++	int res;
++	unsigned long status;
++
++	if (sse_event_is_global(evt)) {
++		/*
++		 * Due to the fact the completion might happen faster than
++		 * the call to SBI_SSE_COMPLETE in the handler, if the event was
++		 * running on another CPU, we need to wait for the event status
++		 * to be !RUNNING.
++		 */
++		do {
++			res = sse_event_attr_get(evt, SBI_SSE_ATTR_STATUS, &status);
++			if (res) {
++				sse_err("Failed to get status for evt %x, error %d\n", evt, res);
++				return res;
++			}
++			status = status & SBI_SSE_ATTR_STATUS_STATE_MASK;
++		} while (status == SBI_SSE_STATE_RUNNING);
++
++		res = sse_event_set_target_cpu(event, cpu);
++		if (res) {
++			sse_err("Failed to set cpu for evt %x, error %d\n", evt, res);
++			return res;
++		}
++	}
++
++	return sse_test_signal(evt, cpu);
++}
++
++struct fast_test_arg {
++	u32 evt;
++	int cpu;
++	bool completion;
++};
++
++static int sse_test_handler(u32 evt, void *arg, struct pt_regs *regs)
++{
++	int ret = 0;
++	struct fast_test_arg *targ = arg;
++	u32 test_evt = READ_ONCE(targ->evt);
++	int cpu = READ_ONCE(targ->cpu);
++
++	if (evt != test_evt) {
++		sse_err("Received SSE event id %x instead of %x\n", test_evt, evt);
++		ret = -EINVAL;
++	}
++
++	if (cpu != smp_processor_id()) {
++		sse_err("Received SSE event %d on CPU %d instead of %d\n", evt, smp_processor_id(),
++			cpu);
++		ret = -EINVAL;
++	}
++
++	WRITE_ONCE(targ->completion, true);
 +
 +	return ret;
 +}
-+#else
-+static int pmu_sbi_setup_sse(struct riscv_pmu *pmu)
++
++static void sse_run_fast_test(struct fast_test_arg *test_arg, struct sse_event *event, u32 evt)
 +{
-+	return -EOPNOTSUPP;
++	unsigned long timeout;
++	int ret, cpu;
++
++	for_each_online_cpu(cpu) {
++		WRITE_ONCE(test_arg->completion, false);
++		WRITE_ONCE(test_arg->cpu, cpu);
++		/* Test arg is used on another CPU */
++		smp_wmb();
++
++		ret = sse_test_inject_event(event, evt, cpu);
++		if (ret) {
++			sse_err("event %s injection failed, err %d\n", sse_evt_name(evt), ret);
++			return;
++		}
++
++		timeout = jiffies + HZ / 100;
++		/* We can not use <linux/completion.h> since they are not NMI safe */
++		while (!READ_ONCE(test_arg->completion) &&
++			time_before(jiffies, timeout)) {
++			cpu_relax();
++		}
++		if (!time_before(jiffies, timeout)) {
++			sse_err("Failed to wait for event %s completion on CPU %d\n",
++				sse_evt_name(evt), cpu);
++			return;
++		}
++	}
 +}
-+#endif
 +
- static int pmu_sbi_starting_cpu(unsigned int cpu, struct hlist_node *node)
- {
- 	struct riscv_pmu *pmu = hlist_entry_safe(node, struct riscv_pmu, node);
-@@ -1105,6 +1152,10 @@ static int pmu_sbi_setup_irqs(struct riscv_pmu *pmu, struct platform_device *pde
- 	struct cpu_hw_events __percpu *hw_events = pmu->hw_events;
- 	struct irq_domain *domain = NULL;
- 
-+	ret = pmu_sbi_setup_sse(pmu);
-+	if (!ret)
-+		return 0;
++static void sse_test_injection_fast(void)
++{
++	int i, ret = 0, j;
++	u32 evt;
++	struct fast_test_arg test_arg;
++	struct sse_event *event;
 +
- 	if (riscv_isa_extension_available(NULL, SSCOFPMF)) {
- 		riscv_pmu_irq_num = RV_IRQ_PMU;
- 		riscv_pmu_use_irq = true;
-@@ -1139,7 +1190,7 @@ static int pmu_sbi_setup_irqs(struct riscv_pmu *pmu, struct platform_device *pde
- 		return -ENODEV;
- 	}
- 
--	ret = request_percpu_irq(riscv_pmu_irq, pmu_sbi_ovf_handler, "riscv-pmu", hw_events);
-+	ret = request_percpu_irq(riscv_pmu_irq, pmu_sbi_ovf_irq_handler, "riscv-pmu", hw_events);
- 	if (ret) {
- 		pr_err("registering percpu irq failed [%d]\n", ret);
- 		return ret;
-diff --git a/include/linux/perf/riscv_pmu.h b/include/linux/perf/riscv_pmu.h
-index 701974639ff2..d4a5c55fe077 100644
---- a/include/linux/perf/riscv_pmu.h
-+++ b/include/linux/perf/riscv_pmu.h
-@@ -28,6 +28,8 @@
- 
- #define RISCV_PMU_CONFIG1_GUEST_EVENTS 0x1
- 
-+struct sse_event;
++	pr_info("Starting SSE test (fast)\n");
 +
- struct cpu_hw_events {
- 	/* currently enabled events */
- 	int			n_events;
-@@ -54,6 +56,7 @@ struct riscv_pmu {
- 	char		*name;
- 
- 	irqreturn_t	(*handle_irq)(int irq_num, void *dev);
-+	struct sse_event *sse_evt;
- 
- 	unsigned long	cmask;
- 	u64		(*ctr_read)(struct perf_event *event);
++	for (i = 0; i < ARRAY_SIZE(sse_event_descs); i++) {
++		evt = sse_event_descs[i].evt_id;
++		WRITE_ONCE(test_arg.evt, evt);
++
++		if (!sse_event_descs[i].can_inject)
++			continue;
++
++		event = sse_event_register(evt, 0, sse_test_handler,
++					   (void *)&test_arg);
++		if (IS_ERR(event)) {
++			sse_err("Failed to register event %s, err %ld\n", sse_evt_name(evt),
++				PTR_ERR(event));
++			goto out;
++		}
++
++		ret = sse_event_enable(event);
++		if (ret) {
++			sse_err("Failed to enable event %s, err %d\n", sse_evt_name(evt), ret);
++			goto err_unregister;
++		}
++
++		pr_info("Starting testing event %s\n", sse_evt_name(evt));
++
++		for (j = 0; j < RUN_LOOP_COUNT; j++)
++			sse_run_fast_test(&test_arg, event, evt);
++
++		pr_info("Finished testing event %s\n", sse_evt_name(evt));
++
++		sse_event_disable(event);
++err_unregister:
++		sse_event_unregister(event);
++	}
++out:
++	pr_info("Finished SSE test (fast)\n");
++}
++
++struct priority_test_arg {
++	unsigned long evt;
++	struct sse_event *event;
++	bool called;
++	u32 prio;
++	struct priority_test_arg *next_evt_arg;
++	void (*check_func)(struct priority_test_arg *arg);
++};
++
++static int sse_hi_priority_test_handler(u32 evt, void *arg,
++					struct pt_regs *regs)
++{
++	struct priority_test_arg *targ = arg;
++	struct priority_test_arg *next = READ_ONCE(targ->next_evt_arg);
++
++	WRITE_ONCE(targ->called, 1);
++
++	if (next) {
++		sse_test_signal(next->evt, smp_processor_id());
++		if (!READ_ONCE(next->called)) {
++			sse_err("Higher priority event %s was not handled %s\n",
++			      sse_evt_name(next->evt), sse_evt_name(evt));
++		}
++	}
++
++	return 0;
++}
++
++static int sse_low_priority_test_handler(u32 evt, void *arg, struct pt_regs *regs)
++{
++	struct priority_test_arg *targ = arg;
++	struct priority_test_arg *next = READ_ONCE(targ->next_evt_arg);
++
++	WRITE_ONCE(targ->called, 1);
++
++	if (next) {
++		sse_test_signal(next->evt, smp_processor_id());
++		if (READ_ONCE(next->called)) {
++			sse_err("Lower priority event %s was handle before %s\n",
++				sse_evt_name(next->evt), sse_evt_name(evt));
++		}
++	}
++
++	return 0;
++}
++
++static void sse_test_injection_priority_arg(struct priority_test_arg *args, unsigned int args_size,
++					    sse_event_handler handler, const char *test_name)
++{
++	unsigned int i;
++	int ret;
++	struct sse_event *event;
++	struct priority_test_arg *arg, *first_arg = NULL, *prev_arg = NULL;
++
++	pr_info("Starting SSE priority test (%s)\n", test_name);
++	for (i = 0; i < args_size; i++) {
++		arg = &args[i];
++
++		if (!sse_test_can_inject_event(arg->evt))
++			continue;
++
++		WRITE_ONCE(arg->called, false);
++		WRITE_ONCE(arg->next_evt_arg, NULL);
++		if (prev_arg)
++			WRITE_ONCE(prev_arg->next_evt_arg, arg);
++
++		prev_arg = arg;
++
++		if (!first_arg)
++			first_arg = arg;
++
++		event = sse_event_register(arg->evt, arg->prio, handler, (void *)arg);
++		if (IS_ERR(event)) {
++			sse_err("Failed to register event %s, err %ld\n", sse_evt_name(arg->evt),
++				PTR_ERR(event));
++			goto release_events;
++		}
++		arg->event = event;
++
++		if (sse_event_is_global(arg->evt)) {
++			/* Target event at current CPU */
++			ret = sse_event_set_target_cpu(event, smp_processor_id());
++			if (ret) {
++				sse_err("Failed to set event %s target CPU, err %d\n",
++					sse_evt_name(arg->evt), ret);
++				goto release_events;
++			}
++		}
++
++		ret = sse_event_enable(event);
++		if (ret) {
++			sse_err("Failed to enable event %s, err %d\n", sse_evt_name(arg->evt), ret);
++			goto release_events;
++		}
++	}
++
++	if (!first_arg) {
++		sse_err("No injectable event available\n");
++		return;
++	}
++
++	/* Inject first event, handler should trigger the others in chain. */
++	ret = sse_test_inject_event(first_arg->event, first_arg->evt, smp_processor_id());
++	if (ret) {
++		sse_err("SSE event %s injection failed\n", sse_evt_name(first_arg->evt));
++		goto release_events;
++	}
++
++	/*
++	 * Event are injected directly on the current CPU after calling sse_test_inject_event()
++	 * so that execution is premmpted right away, no need to wait for timeout.
++	 */
++	arg = first_arg;
++	while (arg) {
++		if (!READ_ONCE(arg->called)) {
++			sse_err("Event %s handler was not called\n",
++			      sse_evt_name(arg->evt));
++			ret = -EINVAL;
++		}
++
++
++		event = arg->event;
++		arg = READ_ONCE(arg->next_evt_arg);
++	}
++
++release_events:
++
++	arg = first_arg;
++	while (arg) {
++		event = arg->event;
++		if (!event)
++			break;
++
++		sse_event_disable(event);
++		sse_event_unregister(event);
++		arg = READ_ONCE(arg->next_evt_arg);
++	}
++
++	pr_info("Finished SSE priority test (%s)\n", test_name);
++}
++
++static void sse_test_injection_priority(void)
++{
++	struct priority_test_arg default_hi_prio_args[] = {
++		{ .evt = SBI_SSE_EVENT_GLOBAL_SOFTWARE_INJECTED },
++		{ .evt = SBI_SSE_EVENT_LOCAL_SOFTWARE_INJECTED },
++		{ .evt = SBI_SSE_EVENT_GLOBAL_LOW_PRIO_RAS },
++		{ .evt = SBI_SSE_EVENT_LOCAL_LOW_PRIO_RAS },
++		{ .evt = SBI_SSE_EVENT_LOCAL_PMU_OVERFLOW },
++		{ .evt = SBI_SSE_EVENT_GLOBAL_HIGH_PRIO_RAS },
++		{ .evt = SBI_SSE_EVENT_LOCAL_DOUBLE_TRAP },
++		{ .evt = SBI_SSE_EVENT_LOCAL_HIGH_PRIO_RAS },
++	};
++
++	struct priority_test_arg default_low_prio_args[] = {
++		{ .evt = SBI_SSE_EVENT_LOCAL_HIGH_PRIO_RAS },
++		{ .evt = SBI_SSE_EVENT_LOCAL_DOUBLE_TRAP },
++		{ .evt = SBI_SSE_EVENT_GLOBAL_HIGH_PRIO_RAS },
++		{ .evt = SBI_SSE_EVENT_LOCAL_PMU_OVERFLOW },
++		{ .evt = SBI_SSE_EVENT_LOCAL_LOW_PRIO_RAS },
++		{ .evt = SBI_SSE_EVENT_GLOBAL_LOW_PRIO_RAS },
++		{ .evt = SBI_SSE_EVENT_LOCAL_SOFTWARE_INJECTED },
++		{ .evt = SBI_SSE_EVENT_GLOBAL_SOFTWARE_INJECTED },
++
++	};
++	struct priority_test_arg set_prio_args[] = {
++		{ .evt = SBI_SSE_EVENT_GLOBAL_SOFTWARE_INJECTED, .prio = 5 },
++		{ .evt = SBI_SSE_EVENT_LOCAL_SOFTWARE_INJECTED, .prio = 10 },
++		{ .evt = SBI_SSE_EVENT_GLOBAL_LOW_PRIO_RAS, .prio = 15 },
++		{ .evt = SBI_SSE_EVENT_LOCAL_LOW_PRIO_RAS, .prio = 20 },
++		{ .evt = SBI_SSE_EVENT_LOCAL_PMU_OVERFLOW, .prio = 25 },
++		{ .evt = SBI_SSE_EVENT_GLOBAL_HIGH_PRIO_RAS, .prio = 30 },
++		{ .evt = SBI_SSE_EVENT_LOCAL_DOUBLE_TRAP, .prio = 35 },
++		{ .evt = SBI_SSE_EVENT_LOCAL_HIGH_PRIO_RAS, .prio = 40 },
++	};
++
++	struct priority_test_arg same_prio_args[] = {
++		{ .evt = SBI_SSE_EVENT_LOCAL_PMU_OVERFLOW, .prio = 0 },
++		{ .evt = SBI_SSE_EVENT_LOCAL_HIGH_PRIO_RAS, .prio = 10 },
++		{ .evt = SBI_SSE_EVENT_LOCAL_SOFTWARE_INJECTED, .prio = 10 },
++		{ .evt = SBI_SSE_EVENT_GLOBAL_SOFTWARE_INJECTED, .prio = 10 },
++		{ .evt = SBI_SSE_EVENT_GLOBAL_HIGH_PRIO_RAS, .prio = 20 },
++	};
++
++	sse_test_injection_priority_arg(default_hi_prio_args, ARRAY_SIZE(default_hi_prio_args),
++					sse_hi_priority_test_handler, "high");
++
++	sse_test_injection_priority_arg(default_low_prio_args, ARRAY_SIZE(default_low_prio_args),
++					sse_low_priority_test_handler, "low");
++
++	sse_test_injection_priority_arg(set_prio_args, ARRAY_SIZE(set_prio_args),
++					sse_low_priority_test_handler, "set");
++
++	sse_test_injection_priority_arg(same_prio_args, ARRAY_SIZE(same_prio_args),
++					sse_low_priority_test_handler, "same_prio_args");
++}
++
++
++static bool sse_get_inject_status(u32 evt)
++{
++	int ret;
++	unsigned long val;
++
++	/* Check if injection is supported */
++	ret = sse_event_attr_get(evt, SBI_SSE_ATTR_STATUS, &val);
++	if (ret)
++		return false;
++
++	return !!(val & BIT(SBI_SSE_ATTR_STATUS_INJECT_OFFSET));
++}
++
++static void sse_init_events(void)
++{
++	int i;
++
++	for (i = 0; i < ARRAY_SIZE(sse_event_descs); i++) {
++		struct sse_event_desc *desc = &sse_event_descs[i];
++
++		desc->can_inject = sse_get_inject_status(desc->evt_id);
++		if (!desc->can_inject)
++			pr_info("Can not inject event %s, tests using this event will be skipped\n",
++				desc->name);
++	}
++}
++
++static int __init sse_test_init(void)
++{
++	sse_init_events();
++
++	sse_test_injection_fast();
++	sse_test_injection_priority();
++
++	return 0;
++}
++
++static void __exit sse_test_exit(void)
++{
++}
++
++module_init(sse_test_init);
++module_exit(sse_test_exit);
++
++MODULE_LICENSE("GPL");
++MODULE_AUTHOR("Clément Léger <cleger@rivosinc.com>");
++MODULE_DESCRIPTION("Test module for SSE");
+diff --git a/tools/testing/selftests/riscv/sse/run_sse_test.sh b/tools/testing/selftests/riscv/sse/run_sse_test.sh
+new file mode 100644
+index 000000000000..888bc4a99cb3
+--- /dev/null
++++ b/tools/testing/selftests/riscv/sse/run_sse_test.sh
+@@ -0,0 +1,44 @@
++#!/bin/bash
++# SPDX-License-Identifier: GPL-2.0
++#
++# Copyright (C) 2025 Rivos Inc.
++
++MODULE_NAME=riscv_sse_test
++DRIVER="./module/${MODULE_NAME}.ko"
++
++check_test_failed_prefix() {
++	if dmesg | grep -q "${MODULE_NAME}: FAILED:";then
++		echo "${MODULE_NAME} failed, please check dmesg"
++		exit 1
++	fi
++}
++
++# Kselftest framework requirement - SKIP code is 4.
++ksft_skip=4
++
++check_test_requirements()
++{
++	uid=$(id -u)
++	if [ $uid -ne 0 ]; then
++		echo "$0: Must be run as root"
++		exit $ksft_skip
++	fi
++
++	if ! which insmod > /dev/null 2>&1; then
++		echo "$0: You need insmod installed"
++		exit $ksft_skip
++	fi
++
++	if [ ! -f $DRIVER ]; then
++		echo "$0: You need to compile ${MODULE_NAME} module"
++		exit $ksft_skip
++	fi
++}
++
++check_test_requirements
++
++insmod $DRIVER > /dev/null 2>&1
++rmmod $MODULE_NAME
++check_test_failed_prefix
++
++exit 0
 -- 
 2.43.0
 
