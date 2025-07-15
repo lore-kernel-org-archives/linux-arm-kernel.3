@@ -4,62 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 385A7C83F2D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 19:19:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4A4EC83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 19:19:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=+Nl0kKjcqjuGAZnj8Tx1IXItznL5XPhT0qzRTVxNau8=; b=rwxaAhubp1M0VH
-	yF6w5M7Nf2PR6BEvWUVxwWjBTmjcfIH6BdrboqZzW0jkBVZnHTfcH1RdVxV9N5geBVTub46qHpNEP
-	/de/NHJoswjHvG7eZNjU4LD6fj7K2zMN5xFYti7fvPuF/Db/Zv/SHri/yNGiSJAkLODutsfMqJf0E
-	3nEzh5jqNNuI0ip76R4Or24qzxyKbj1SSUVp9CSJYCSG/lvJxBcy2b/x33l7ClbNXzLBZOFpY6NIZ
-	ujrnlPovepbRxIspX3pggTmdF/0Q0xK6DbJZwFaQ9lA6dJN1Lk6/2XBMci8cTjgyFxC6mps9uDxDU
-	QjfH5zRtUADhqR0vEaaw==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JeSwPftceeI4bS5ZJ/5dVmNBTZSjRvLVPg9Q3yUXq/U=; b=SveSrG/Tnpethjr+sapzo7tPr8
+	bU8y4rX5M4tt3pXWKGcuawH1Ax1HOCCnsqyeaVv6fCeZMXKHYuJGXNqF/kbBGiu1lTFvBw651fKjD
+	k7Gecjq+t3R7bqQsq9/XI+yBpQh6LejrPVlFBdYF12GRtpdHvgPoZT9W88mWJwJsCIof2wZfsLx2O
+	8tzdrqu/EHmw9pHh1NtM3+HMDA9wtUbi3jGoaEQUVoarL3ax/JmaqBAXvyyX48iMSryhAvdnLq26S
+	j41hiAK3/Ja5QTazRqAKOiwjXx8OsX+eCFSOb8IPNdLl3pybqHl9DSnN/xri/lMPoZ+qPye8StOLi
+	UDrFzmQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ublBd-000000061hP-3QMN;
-	Tue, 15 Jul 2025 19:19:33 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1ublBj-000000061rs-1lEO;
+	Tue, 15 Jul 2025 19:19:39 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubj7Z-00000005nsY-1izs
+	id 1ubjN5-00000005p60-3AlR
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Jul 2025 17:07:14 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C99BB459B0;
-	Tue, 15 Jul 2025 17:07:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7322CC4CEE3;
-	Tue, 15 Jul 2025 17:07:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752599232;
-	bh=9G4DPMLc3V6Kqc+YEESQ26iQmayIypZSFV1NfnFRgYo=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=bBweZLifiRV+tHUaSKX0xSnHlsH+cD65JbpVqEISEb9/xrkIq262JFfcbWxDZbzEX
-	 WX1ozZlOj/fBILfQpCBNZ1iMEL0DbexeSyPI6y+U5q7qhzMMMa0X0QGqtkRGS3oGvk
-	 8WwuVIDBKDFa2W8gDqMClE2/8KVgXv/aDcF0FUuOo5Fem/OOehhEBWwS60SKZ8oeEF
-	 tTSv1f6BdjOv+80X5hO0dkwzLOzBjGU/yGvJkUtjY8eepfvyIBcSx1xQXAITQbk510
-	 bo1Y6mC3Di83vV0gDwGCZ8AmTDnzdje9Hy4O+J84m+EqFO/rtpaJfLH1GNNKlnE5aq
-	 d5wTyRdNez/RQ==
-Date: Tue, 15 Jul 2025 12:07:11 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Richard Zhu <hongxing.zhu@nxp.com>
-Cc: frank.li@nxp.com, l.stach@pengutronix.de, lpieralisi@kernel.org,
-	kwilczynski@kernel.org, mani@kernel.org, robh@kernel.org,
-	bhelgaas@google.com, shawnguo@kernel.org, s.hauer@pengutronix.de,
-	kernel@pengutronix.de, festevam@gmail.com,
-	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 0/2] PCI: imx6: Correct the epc_features of i.MX8M EPs
-Message-ID: <20250715170711.GA2467369@bhelgaas>
+	Tue, 15 Jul 2025 17:23:16 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-23c703c471dso1288495ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Jul 2025 10:23:14 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1752600194; x=1753204994; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=JeSwPftceeI4bS5ZJ/5dVmNBTZSjRvLVPg9Q3yUXq/U=;
+        b=guxPp2JDd/7qJypcvjk+oIg7Xm79Z8nW3eZuDjv6rxY4m+1Q0Q05zOxyIqOwOX9tMN
+         OSXZV783ggCZCTiT6TgrvRi2Uc//UJuIpX9jm120dDUZ25lBCUxlZsmkvpRVQveQ/IBf
+         UszPkGksQcez3nh+SuFg0VNqlKdn30/5ndTI8E7TM+b2TLvKjTJIY1NtEZ5zTPb1aGWf
+         PipUH9Mjl6nRnfGUw2xWkk6H8RqNMopBIGvlWipwjtSfGQiXJkZLlxg0SyIAWqy5GnlV
+         4WtNl5ybBeaTYfvAb6KXA8Ve4xo//QNL9lDHVD3vHvoYKrcrzadkm7MAh/iiCPL7o0SI
+         DjXQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1752600194; x=1753204994;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=JeSwPftceeI4bS5ZJ/5dVmNBTZSjRvLVPg9Q3yUXq/U=;
+        b=WkDolOCGg2UDeIBQ+fKoUZoUsQg/dibG5hn8TJ3RLqNFcEjWPXjkYHyDIUsJKNRoS+
+         v0Jrwt7m9jdsATPn/X+lLhs5BMLly18yTBYOA0/Ge23dcWjhMX5MsM/c45U+chmQZKO5
+         cqbRPK2Bt1N570WZLVMBYHg6+CaeR2QaAOasYzqz8/NauxU+LCtUZBcjaC8xbc2lpVv2
+         gyZ6sMitZRKp2cFXnKYlj0CQYIb5WXQEILCU5stCMFMS3foBuWjUpW7pZrKEPhcn1Hds
+         wnFzxvU+PhDn4pAbisqjUrK4TwfkNTuHE5vwJRAZ6J6OrlGdkBdhsL0oqkyPWlwuD3J+
+         8ZkQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVaslpes6IofzHrTisIrqY3Mgt/6ADkaY4tkpnvB4G5t0qt5EllfQkZt4YxwF7XB+ov3g32nYfbJD7NyehlPmLb@lists.infradead.org
+X-Gm-Message-State: AOJu0YyJFGe7iE/2RDgYwpaAuIQlbj5s36Yx876Cu3PLagHxvccOaLQ4
+	wDzPrtGVvgHv0q1C6GL49Eff0U0zKCgAadYh6vzY/CKQL+tZrHiK+y2RJd5s0WQFLY3EkAKxy3e
+	BQLLIow==
+X-Gm-Gg: ASbGncu2PX7+VyiALGmkS3JNSrlE//AP8U6S7EMgSVTxNFmPBCF07VY13WJSOOGW+AC
+	alAazRWyLj+PJ/8Tx2yHoWlmZAB+7hL5TSRpYX5iUarjXyyRcR/Yf28jEmM+Mtj6DhxzA8NYDMz
+	YCTMpCScgrMXCTHkWQBHOWtgijGuIlL0rDIGURNmMzsu25GvzkQ9T3LwaEujnQZLf381mwnAWmm
+	K6JxOKhhzCMTCW8t5jPqbw/xziSqu3E60Q393rUKT5m+Xf8PEhQ2APSy6iuUksdrOvNCXQ5T2SP
+	2IUgcfZ/B7XyC9KpnbYHGNZ3t8/rpQ5pK8k0y5jidJbxvxjiyvyPcdIH3jUkUtTbc0NJ8wdx1/2
+	UlM5NfpOV0M4XS9vZ4xu787wVkbclv7LZeOFa2yjyrB/8ka57q9DSUFtTJHRGryg=
+X-Google-Smtp-Source: AGHT+IE8tlVGhJEdemSXyXUpK0hF30ss3dhi3KqymqtfDaNyMz+jAYsoKXuNfguzst4OMQTFv0uS9A==
+X-Received: by 2002:a17:903:1248:b0:231:c89f:4e94 with SMTP id d9443c01a7336-23e1a4c71e3mr67028215ad.21.1752600193877;
+        Tue, 15 Jul 2025 10:23:13 -0700 (PDT)
+Received: from google.com (152.33.83.34.bc.googleusercontent.com. [34.83.33.152])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23de4332eadsm116684575ad.153.2025.07.15.10.23.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 15 Jul 2025 10:23:13 -0700 (PDT)
+Date: Tue, 15 Jul 2025 10:23:09 -0700
+From: William McVicker <willmcvicker@google.com>
+To: Daniel Lezcano <daniel.lezcano@linaro.org>
+Cc: tglx@linutronix.de, linux-kernel@vger.kernel.org,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	"moderated list:ARM/SAMSUNG S3C, S5P AND EXYNOS ARM ARCHITECTURES" <linux-arm-kernel@lists.infradead.org>,
+	"open list:ARM/SAMSUNG S3C, S5P AND EXYNOS ARM ARCHITECTURES" <linux-samsung-soc@vger.kernel.org>
+Subject: Re: [PATCH] clocksource/drivers/exynos_mct: Fix section mismatch
+ from the module conversion
+Message-ID: <aHaOfZk77xDf81cP@google.com>
+References: <20250620181719.1399856-6-willmcvicker@google.com>
+ <20250715121834.2059191-1-daniel.lezcano@linaro.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250708091003.2582846-1-hongxing.zhu@nxp.com>
+In-Reply-To: <20250715121834.2059191-1-daniel.lezcano@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250715_100713_468179_B9FE2742 
-X-CRM114-Status: GOOD (  11.97  )
+X-CRM114-CacheID: sfid-20250715_102315_796690_220067D7 
+X-CRM114-Status: GOOD (  21.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,24 +103,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 08, 2025 at 05:10:01PM +0800, Richard Zhu wrote:
-> IMX8MQ_EP has three 64-bit BAR0/2/4 capable and programmable BARs. For
-> IMX8MQ_EP, use imx8q_pcie_epc_features (64-bit BARs 0, 2, 4) instead
-> of imx8m_pcie_epc_features (64-bit BARs 0, 2).
+On 07/15/2025, Daniel Lezcano wrote:
+> The function register_current_timer_delay() when compiling on ARM32
+> fails with a section mismatch. That is resulting from the module
+> conversion where the function exynos4_clocksource_init() is called
+> from mct_init_dt(). This one had its __init annotation removed to for
+> the module loading.
 > 
-> For IMX8MM_EP and IMX8MP_EP, add fixed 256-byte BAR 4 and reserved BAR 5
-> in imx8m_pcie_epc_features.
+> Fix this by adding the __init_or_module annotation for the functions:
+>  - mct_init_dt()
+>  - mct_init_spi()
+>  - mct_init_dt()
 > 
-> Main changes in v3:
-> Seperate the patch into two commits and update the commit logs refer to
-> Bjorn's suggestions.
-> v2: https://lkml.org/lkml/2025/6/17/267
+> Compiled on ARM32 + MODULES=no, ARM64 + MODULES=yes, ARM64 +
+> MODULES=no
 > 
-> [PATCH v3 1/2] PCI: imx6: Correct the epc_features of IMX8MQ_EP
-> [PATCH v3 2/2] PCI: imx6: Correct the epc_features of IMX8MM_EP and
-> 
-> drivers/pci/controller/dwc/pci-imx6.c | 4 +++-
-> 1 file changed, 3 insertions(+), 1 deletion(-)
+> Signed-off-by: Daniel Lezcano <daniel.lezcano@linaro.org>
 
-Thanks, Richard, I updated pci/controller/imx6 with these patches.
+Reviewed-by: Will McVicker <willmcvicker@google.com>
+
+> ---
+>  drivers/clocksource/exynos_mct.c | 6 +++---
+>  1 file changed, 3 insertions(+), 3 deletions(-)
+> 
+> diff --git a/drivers/clocksource/exynos_mct.c b/drivers/clocksource/exynos_mct.c
+> index 5075ebe052a7..80d263ee046d 100644
+> --- a/drivers/clocksource/exynos_mct.c
+> +++ b/drivers/clocksource/exynos_mct.c
+> @@ -657,7 +657,7 @@ static int exynos4_timer_interrupts(struct device_node *np,
+>  	return err;
+>  }
+>  
+> -static int mct_init_dt(struct device_node *np, unsigned int int_type)
+> +static __init_or_module int mct_init_dt(struct device_node *np, unsigned int int_type)
+>  {
+>  	bool frc_shared = of_property_read_bool(np, "samsung,frc-shared");
+>  	u32 local_idx[MCT_NR_LOCAL] = {0};
+> @@ -705,12 +705,12 @@ static int mct_init_dt(struct device_node *np, unsigned int int_type)
+>  	return exynos4_clockevent_init();
+>  }
+>  
+> -static int mct_init_spi(struct device_node *np)
+> +static __init_or_module int mct_init_spi(struct device_node *np)
+>  {
+>  	return mct_init_dt(np, MCT_INT_SPI);
+>  }
+>  
+> -static int mct_init_ppi(struct device_node *np)
+> +static __init_or_module int mct_init_ppi(struct device_node *np)
+>  {
+>  	return mct_init_dt(np, MCT_INT_PPI);
+>  }
+> -- 
+> 2.43.0
+> 
+
+Thanks Daniel for catching this! Sorry I missed it.
+
+Regards,
+Will
+
 
