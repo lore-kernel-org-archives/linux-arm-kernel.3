@@ -4,80 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABBB2C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 16:29:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30C57C83F22
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 19:14:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DuiOFDsb+Yy7b83u6Laos/vj+Kfk3b+KNqzjnxRQGt0=; b=gBz43GqoZPV45sP/gd0ZpMNZFa
-	y/5K057MNC8m7M0i/PTtSD5MsGbLffnYunNh2JZQFlCjQRYV4gpabn/EHmrhzkXh57ZS2+2iPt03q
-	p7qECiVVG/ZHtH4iEb3WGrQ5nz7JpIIees+mULOJ4FHwIL1g61r6sjL4ij19CO7/vQf4zR8SXm53K
-	EHUWMUKH8HMhEnD3Y/WA/4MEJ4RN8j3PajL1yLIg+0Ujui7VGbvrkdtxwN5zz5wcEDCBcB+guZmof
-	SaqVdEgRvaAjB+XFOLWaP5AvI03K4dh4t0E8k8ZCCZMBmVK7Vmo3yy+LDawJTQXjn+uJauws54+jv
-	ieBilXxA==;
+	bh=kMuokItuec85Dw3sxLZVKcBc4aTfktjb4Aw8a8yL/vU=; b=e7BbEiVufs96ZWLJN982hVYVVr
+	8gCT70NbtfJkQ+hA+kcPtWVIxpdHznatgW8vtQ6YhrTSuUcSRauuQ4euk6zy0ADE9SdF5fLN6o/hQ
+	/uK7IIMLV8fUZnEfq8AKS3zSohzUM2kKqTKn5p/7zsD0fXM3XLdlJY9UKo49r1hP9xhxNJIFRCNhs
+	0rJNSehe5aN1b/rSGhtRZcYXMMuRyz169dI50EKrSG8jVr+qjhoy6RoB1PlAWxDZ0awHgIl9hCzB2
+	3slpOCYwizHSHWkQyUCL2Y9cHtMhXkvyGpGfeP2Tg5lOZUO08Z5/2Wn8146fcMviMDXThQLP5pL5w
+	bFLeXdEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubiXI-00000005keH-45vE;
-	Tue, 15 Jul 2025 16:29:44 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1ubl6t-00000005xs1-3eZO;
+	Tue, 15 Jul 2025 19:14:39 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubhAo-00000005VbZ-19UY
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Jul 2025 15:02:27 +0000
+	id 1ubgbZ-00000005MYK-0L8b;
+	Tue, 15 Jul 2025 14:26:01 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 951D94541B;
-	Tue, 15 Jul 2025 15:02:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4A969C4CEE3;
-	Tue, 15 Jul 2025 15:02:25 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 2CE6261462;
+	Tue, 15 Jul 2025 14:26:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5BE2DC4CEE3;
+	Tue, 15 Jul 2025 14:25:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752591745;
-	bh=exdnCy6Q0C3xztw8Y5wA0w4YeM3tO9kw+ROGW6J34Ko=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=u3nVs5JArxYZr5IH2Ok+/K4hHyHoWBVdGIoU6WY8tNh0eZVhrimCIIocOoTFKgPJd
-	 ZY8KvLnsN9tFCaasqmMFKfi17RPbEEOvbvE1XJIf72g/np8VLh7I+KENFzR+c6mJ1/
-	 lREjBaJpi3lTbwvoKrglymKwsd2cFD6hR2i+eNWA11UDOgOzp+dBD2/d1FHvGiZMOO
-	 7smub8SEg4+w2NOnrTOBV8tyvOb5iUl/7hAf/J63avI/ml4S8tKpDgM6GIPX8N/Qqe
-	 0PRTfmcpzkLp+wV/p2hKVJhMhgdC9QZH8kjTRduAUoGsgh6ImOHdA7WFvZKdPrx1Pm
-	 mBI+wFd67+pHw==
-Date: Tue, 15 Jul 2025 10:02:24 -0500
-From: Rob Herring <robh@kernel.org>
-To: Clement LE GOFFIC <clement.legoffic@foss.st.com>
-Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Gatien Chevallier <gatien.chevallier@foss.st.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Gabriel Fernandez <gabriel.fernandez@foss.st.com>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Le Goffic <legoffic.clement@gmail.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
-	linux-clk@vger.kernel.org
-Subject: Re: [PATCH v2 06/16] arm64: dts: st: add LPDDR channel to
- stm32mp257f-dk board
-Message-ID: <20250715150224.GA1319886-robh@kernel.org>
-References: <20250711-ddrperfm-upstream-v2-0-cdece720348f@foss.st.com>
- <20250711-ddrperfm-upstream-v2-6-cdece720348f@foss.st.com>
- <20250715032020.GB4144523-robh@kernel.org>
- <ae960a16-65ad-4b22-b9fb-89efbffacd3e@foss.st.com>
+	s=k20201202; t=1752589559;
+	bh=4Iuh1W4p/GuvtYKXIWTDTZsm2HB078xwuI7VRYFOyrw=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=kTO9LMpppBNDHQsBuRHRm7reVUOsGe4WX1YKctqv6iQWzbpNpKKQr3XuqAkSK85bq
+	 qD5CJ4tAUv4cq0Nw/3C25mnl5K4VFYtuHHI8TV2w/b9GmIuoLhDXBUIySdpcLApvic
+	 mZhp6F9t9M6TNAtr4xx4Stm8+7csKiPYehRn4VI17JPmZvDP9eycI3HkjLgv7VZP95
+	 86VFSx/X1SJV5jLNwnTO40XUc1OapKhEI6IwCSntnvT6tvzmwpI9BxtnDbZGa23GR/
+	 4HivpPBJIf/oE9L8cJ0GsWg2OI4gPGr8u/Jj9/LbezFz49+hdJ/20/ZgdzEBaeongY
+	 YDjIAY54qI2GQ==
+Date: Tue, 15 Jul 2025 09:25:58 -0500
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <ae960a16-65ad-4b22-b9fb-89efbffacd3e@foss.st.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250715_080226_331316_196447C6 
-X-CRM114-Status: GOOD (  18.17  )
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Frank Wang <frank.wang@rock-chips.com>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>, 
+ Chaoyi Chen <chaoyi.chen@rock-chips.com>, dri-devel@lists.freedesktop.org, 
+ Thomas Zimmermann <tzimmermann@suse.de>, Conor Dooley <conor+dt@kernel.org>, 
+ Amit Sunil Dhamne <amitsd@google.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Heiko Stuebner <heiko@sntech.de>, Johan Jonker <jbx6244@gmail.com>, 
+ linux-kernel@vger.kernel.org, David Airlie <airlied@gmail.com>, 
+ Andy Yan <andy.yan@rock-chips.com>, linux-phy@lists.infradead.org, 
+ Kishon Vijay Abraham I <kishon@kernel.org>, 
+ Diederik de Haas <didi.debian@cknow.org>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Dragan Simic <dsimic@manjaro.org>, linux-arm-kernel@lists.infradead.org, 
+ Yubing Zhang <yubing.zhang@rock-chips.com>, Simona Vetter <simona@ffwll.ch>, 
+ linux-rockchip@lists.infradead.org, devicetree@vger.kernel.org, 
+ Sandy Huang <hjc@rock-chips.com>, Maxime Ripard <mripard@kernel.org>
+To: Chaoyi Chen <kernel@airkyi.com>
+In-Reply-To: <20250715112456.101-1-kernel@airkyi.com>
+References: <20250715112456.101-1-kernel@airkyi.com>
+Message-Id: <175258937557.1273563.1571687320229620719.robh@kernel.org>
+Subject: Re: [PATCH 0/5] Add Type-C DP support for RK3399 EVB IND board
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,40 +81,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 15, 2025 at 10:32:09AM +0200, Clement LE GOFFIC wrote:
-> Hi Rob,
-> 
-> Thanks for the review !
-> 
-> On 7/15/25 05:20, Rob Herring wrote:
-> > On Fri, Jul 11, 2025 at 04:48:58PM +0200, Clément Le Goffic wrote:
-> > > Add 32bits LPDDR4 channel to the stm32mp257f-dk board.
-> > > 
-> > > Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
-> > > ---
-> > >   arch/arm64/boot/dts/st/stm32mp257f-dk.dts | 7 +++++++
-> > >   1 file changed, 7 insertions(+)
-> > > 
-> > > diff --git a/arch/arm64/boot/dts/st/stm32mp257f-dk.dts b/arch/arm64/boot/dts/st/stm32mp257f-dk.dts
-> > > index a278a1e3ce03..a97b41f14ecc 100644
-> > > --- a/arch/arm64/boot/dts/st/stm32mp257f-dk.dts
-> > > +++ b/arch/arm64/boot/dts/st/stm32mp257f-dk.dts
-> > > @@ -54,6 +54,13 @@ led-blue {
-> > >   		};
-> > >   	};
-> > > +	lpddr_channel: lpddr4-channel {
-> > > +		#address-cells = <1>;
-> > > +		#size-cells = <0>;
-> > > +		compatible = "jedec,lpddr4-channel";
-> > 
-> > Not tested because this doesn't match the binding.
-> 
-> Hmm, I've tested with make dtbs_check and dt_binding_check and it didn't
-> complain on my side.
-> What I have miss ?
 
-Oh wait, we already have a binding for that. I was confused with your 
-adding "jedec,ddr4-channel". Sorry for the noise.
+On Tue, 15 Jul 2025 19:24:51 +0800, Chaoyi Chen wrote:
+> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+> 
+> The RK3399 EVB IND board has a Type-C interface DisplayPort. It use
+> fusb302 chip as Type-C controller.
+> 
+> This series focuses on adding TCPM support for USBDP PHY and DP driver.
+> Before this, the USBDP PHY and DP controller of RK3399 sensed state
+> changes through extcon, and devices such as the RK3399 Gru-Chromebook
+> rely on them. This series should not break them.
+> 
+> Patch1 add missing "displayport" prop for USB connector binding.
+> Patch2 add new Type-C mode/orientation switch for RK3399 USBDP phy
+> binding.
+> Patch3 add TCPM support for RK3399 USBDP PHY.
+> Patch4 add TCPM support for CDN-DP.
+> Patch5 add Type-C DP support for RK3399 EVB IND board.
+> 
+> Chaoyi Chen (5):
+>   dt-bindings: connector: Add displayport connector for hotplug notify
+>   dt-bindings: phy: rockchip: rk3399-typec-phy: Support mode/orientation
+>     switch
+>   phy: rockchip: phy-rockchip-typec: Add support for Type-C TCPM
+>   drm/rockchip: cdn-dp: Add support for Type-C TCPM
+>   arm64: dts: rockchip: rk3399-evb-ind: Add support for DisplayPort
+> 
+>  .../bindings/connector/usb-connector.yaml     |   4 +
+>  .../phy/rockchip,rk3399-typec-phy.yaml        |  14 +
+>  .../boot/dts/rockchip/rk3399-evb-ind.dts      | 119 +++++++
+>  drivers/gpu/drm/rockchip/cdn-dp-core.c        |  37 +-
+>  drivers/phy/rockchip/phy-rockchip-typec.c     | 335 +++++++++++++++++-
+>  5 files changed, 482 insertions(+), 27 deletions(-)
+> 
+> --
+> 2.49.0
+> 
+> 
+> 
+> 
 
-Rob
+
+My bot found new DTB warnings on the .dts files added or changed in this
+series.
+
+Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
+are fixed by another series. Ultimately, it is up to the platform
+maintainer whether these warnings are acceptable or not. No need to reply
+unless the platform maintainer has comments.
+
+If you already ran DT checks and didn't see these error(s), then
+make sure dt-schema is up to date:
+
+  pip3 install dtschema --upgrade
+
+
+This patch series was applied (using b4) to base:
+ Base: attempting to guess base-commit...
+ Base: tags/next-20250715 (exact match)
+
+If this is not the correct base, please add 'base-commit' tag
+(or use b4 which does this automatically)
+
+New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/rockchip/' for 20250715112456.101-1-kernel@airkyi.com:
+
+arch/arm64/boot/dts/rockchip/rk3399-evb-ind.dtb: dp@fec00000 (rockchip,rk3399-cdn-dp): ports: 'port@0' is a required property
+	from schema $id: http://devicetree.org/schemas/display/rockchip/rockchip,rk3399-cdn-dp.yaml#
+arch/arm64/boot/dts/rockchip/rk3399-evb-ind.dtb: dp@fec00000 (rockchip,rk3399-cdn-dp): ports: 'port@1' is a required property
+	from schema $id: http://devicetree.org/schemas/display/rockchip/rockchip,rk3399-cdn-dp.yaml#
+arch/arm64/boot/dts/rockchip/rk3399-evb-ind.dtb: dp@fec00000 (rockchip,rk3399-cdn-dp): Unevaluated properties are not allowed ('ports' was unexpected)
+	from schema $id: http://devicetree.org/schemas/display/rockchip/rockchip,rk3399-cdn-dp.yaml#
+arch/arm64/boot/dts/rockchip/rk3399-evb-ind.dtb: /sound: failed to match any schema with compatible: ['rockchip,rk3399-gru-sound']
+
+
+
+
+
 
