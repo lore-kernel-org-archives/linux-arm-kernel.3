@@ -4,135 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5760C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 12:52:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F03B3C83F27
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 12:55:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=whgpErroktFXqC6PFq2WcPTxY5NFQM6yRWXrcNe/B5E=; b=3peqLpQlBKQILkfBqlj8mk63Yt
-	OQ2ywf+Ei7DesxSBbAqGrjqsbYMoUoBxc+AHYF/PYrtZLLKKvbXkbE+FFwc+iuoRB0ZEFV7hgnXlV
-	+/NfhfNG5OwPEfYrjgHV0VW6A0YqZipT6Lug57/XqHtsilA8CAb7Qa8flBfzQ2JymR3BWd1speGmh
-	7EDKIJjC7WvpxuZZr0B1IneJaQ1ue7fxXZ3BqinaaN5xOGH0yT165+oF0Hgj7/SlplEm2zBg5moxS
-	M9velNgy66MHrJUv7SH++QTILUU/4PA61LInwkh8s7QppJUg0F8K/dfK32/iLzLj40PMqT6pMiJGg
-	yInkd37w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aJwGBTyaWNx+YKRbPSu2Hb2PQGZPinCJqDZl3W+uWVc=; b=413d+uFiJS8GGOLeRTrQ76nwbJ
+	ke3ch/4+sD7meUsaonHIfUo/aWwbbERs1S5ZXYlPwghO3EqGFduq+blpyiywuE18VXN7XcR4JiWxo
+	nFRQUF+YN1axLXfBVJdokgqnnfo3YILITLjO3qqhjxLoMMv2n8PxfCBKEhtlXJvdnxrwvimxRp6rO
+	o12+Hy3eJBt/kEko8eVuGmcxWDOsXFzLaORCWeARgH+qlx3fvwjozeiCyFN5nofe2FLcoOQh30zpX
+	VtyLAdnq4qZxnkqAS3CUqZmyUeF6KnZn4+TFYIxO+9/2NFsakVJV73npT+0Xdm+COjRy26T+iLXjE
+	ZCF9ZoMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubf97-000000057rO-2WiI;
-	Tue, 15 Jul 2025 12:52:33 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1ubfBV-0000000589D-36Py;
+	Tue, 15 Jul 2025 12:55:01 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubeQ4-000000051lI-33Hg
+	id 1ubeQZ-000000051pd-12Ej
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Jul 2025 12:06:01 +0000
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56F5xHCv028752
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Jul 2025 12:06:00 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=whgpErroktFXqC6PFq2WcPTx
-	Y5NFQM6yRWXrcNe/B5E=; b=oQoi5OSEalOMhOlaVsCQwivDCxIQJkwdw2Gjk36d
-	KOoK/PSWH19kWIRgR6wfPCM2d0JymbeYro1VX9x92LvyDpRE3DF1SmtAmAceD+Oi
-	zu2OG52GP8B7uh7a7ZCc/ZSEfQPSO18KyCErrQsMv1y/LlXTzYrBp3oFbKt9bclj
-	3sdLK0ezqdYtrn1iKYc5rjpr4JzHTvfWeO/5QLqKEJdOKScjpyheIyNgkzOf6sON
-	Uuoc4w8OYOGRkDBTcmmTFjb9LXp2TPxZY0wPwtkN4U5VuS2dKdgBjYbhTOuBUaHc
-	mn+ycF5PDfrV9hDh5sdBx6QVpeOzJdMVKLJvsMIMSlJVyw==
-Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 47w5drjy3x-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Jul 2025 12:06:00 +0000 (GMT)
-Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-7e2c8137662so359582185a.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Jul 2025 05:06:00 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752581159; x=1753185959;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=whgpErroktFXqC6PFq2WcPTxY5NFQM6yRWXrcNe/B5E=;
-        b=bT9SpQkiAi89+ELRA+JPOxLhfCvhmYHnaRY8nbBh/cRD5tq0afK+WYFMjamJjqP44n
-         GAXXNBs5UAMBh0tlqV9VBVZIFX3b8DxBLNouOBVKW6g6w5Xro6U81NMTguDHNMthTC46
-         XxKt8EpkSldQHp1322QiJIhqFlbzulqwJ0+LuYP3qe57IfL73aGrI+QeXlIeh2/YFPl+
-         Xp5AiqxLZRPObso1FM4pObN8QiGQ1fTkSDgT3kbu5+ibYd3HK6M1jlvlIQZoOB9+EU9G
-         aoLqqx+zOfkaaWF0temPTfTnlklRqI05VpX7Igc/8Y1JxVSeKr3Wz/tQLV+He74HleC4
-         k09A==
-X-Forwarded-Encrypted: i=1; AJvYcCUshdl+anNLiexKXZJNtF00fJG9CnfAs6nTcZzrfDLuy+uH6nhVMcUfdfG2a9XXifiy4PEEu91/wCd9UYQlkCd7@lists.infradead.org
-X-Gm-Message-State: AOJu0YxvcwBEX8Cbl1dGXZNcxDP/8GjazvKpDH8RGVWIPKNbkEwG6Zoi
-	uMkTcdUvCRgtrqwpqFw8+GrE3eYE6Y3dZanHBtOJaXZq0X3GPeOlNmsMFTKa2WH+QcY4uew2erq
-	tLs04JFuL6CW3PUZlQIsCzbg9Qmk7K3HGoG0ueNKnSQMRevJJMCuXek16eeyXORU3lCrqsciUEJ
-	xwqQ==
-X-Gm-Gg: ASbGnctj00KPQ6qgJp4jfHgIvFek90TBdAI8qkYqF0gjuV5/gY998oezhyHPkGMPZe3
-	b7w5cAbkBa1B0FdYMiYllmzAEXmOMSvhhzDawV+8XIxdjfhqt5MS7Md4b5E7yRNAa36Jg7WcJYM
-	8t4rYJ06y4jw3WPWNukGuJjVnqHC9Hd77o3SZ/VsGWnfLHmMKANlDwDpsb9LrrBlkoJwdMTj4mE
-	GaI3alesTrVALNqGABzvv/EF6OchnyiMQr+R3M7wY0/k4UYXf9TgyUu4akRTK0SgVI+yxRTeXMG
-	0tWuhBNVK42ELxaUUmMA16LEOWd8leRR3MFk4sKFBiIP3LTimM1DUZYzn3D7QNkam+Gl1BFHJIG
-	74E+HXyVguDIkzgNKjOTp1fGpeWaK6iOpOqDGCNS3/6SEnw793yUX
-X-Received: by 2002:a05:620a:2617:b0:7db:52b9:2060 with SMTP id af79cd13be357-7de06bbb9acmr3084722885a.36.1752581158909;
-        Tue, 15 Jul 2025 05:05:58 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHIm9VPHvsWFqJ0lg2fwfKKO9Xor4P4bNsy7V94yiewt2Z36zolTE2cwObNp3IrftJTJDg+rw==
-X-Received: by 2002:a05:620a:2617:b0:7db:52b9:2060 with SMTP id af79cd13be357-7de06bbb9acmr3084715885a.36.1752581158361;
-        Tue, 15 Jul 2025 05:05:58 -0700 (PDT)
-Received: from umbar.lan (2001-14ba-a0c3-3a00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a0c3:3a00:264b:feff:fe8b:be8a])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-32fab8e4b7asm18929411fa.75.2025.07.15.05.05.57
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 15 Jul 2025 05:05:57 -0700 (PDT)
-Date: Tue, 15 Jul 2025 15:05:55 +0300
-From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-To: Chaoyi Chen <kernel@airkyi.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
-        Kishon Vijay Abraham I <kishon@kernel.org>,
-        Heiko Stuebner <heiko@sntech.de>, Sandy Huang <hjc@rock-chips.com>,
-        Andy Yan <andy.yan@rock-chips.com>,
-        Yubing Zhang <yubing.zhang@rock-chips.com>,
-        Frank Wang <frank.wang@rock-chips.com>,
-        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Amit Sunil Dhamne <amitsd@google.com>,
-        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-        Chaoyi Chen <chaoyi.chen@rock-chips.com>,
-        Dragan Simic <dsimic@manjaro.org>, Johan Jonker <jbx6244@gmail.com>,
-        Diederik de Haas <didi.debian@cknow.org>, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org,
-        linux-arm-kernel@lists.infradead.org,
-        linux-rockchip@lists.infradead.org, dri-devel@lists.freedesktop.org
-Subject: Re: [PATCH 3/5] phy: rockchip: phy-rockchip-typec: Add support for
- Type-C TCPM
-Message-ID: <eqb5m22om6bx2ypjtnlwdjmgfyycpmgrlvro34xwlwjj4j2jeq@mrarg36wetp6>
-References: <20250715112456.101-1-kernel@airkyi.com>
- <20250715112456.101-4-kernel@airkyi.com>
+	Tue, 15 Jul 2025 12:06:31 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 9896361140;
+	Tue, 15 Jul 2025 12:06:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E7195C4CEE3;
+	Tue, 15 Jul 2025 12:06:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1752581190;
+	bh=SKX8mwbvuYrvzxvuQc2xX0ubBY9BG5T8COQUMdXHRpk=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=aLOwrxt31MYxFG3Kdav0yrmN1YeAvoNS2FBt+FHeDTE2S1jd9VwzmsrBk0/U5+VpG
+	 BHBvUpJoiqWnFP0iGdvqb8Dq0aUeCbuNradkN8yfthUsnDTXgOMQyNuIrZUoaFNfQz
+	 eUvKpJjtpXgpBKivZ0ecySnNT85pT2nQUsYzhZrHAPvXsn/LzThkw9c5Ow86byQVV9
+	 vPQdTQdjsMthMeHHrOAn+EhsuWvw8weiQrf0jPG3frRD6Tnvxfc1v6RlXzxM087pVP
+	 PQgu5bkOnsLPBzIU6+ereZVuQbVeSpUljQu1QQOEbYdk03tI0KFXLdDUlV+QWC/6hH
+	 8zgcLbJPy3i2A==
+Date: Tue, 15 Jul 2025 14:06:16 +0200
+From: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
+To: "Rafael J. Wysocki" <rafael@kernel.org>
+Cc: Shuai Xue <xueshuai@linux.alibaba.com>, Catalin Marinas
+ <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Hanjun Guo
+ <guohanjun@huawei.com>, "Luck, Tony" <tony.luck@intel.com>,
+ linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+ akpm@linux-foundation.org, linux-edac@vger.kernel.org, x86@kernel.org,
+ justin.he@arm.com, ardb@kernel.org, ying.huang@linux.alibaba.com,
+ ashish.kalra@amd.com, baolin.wang@linux.alibaba.com, tglx@linutronix.de,
+ dave.hansen@linux.intel.com, lenb@kernel.org, hpa@zytor.com,
+ robert.moore@intel.com, lvying6@huawei.com, xiexiuqi@huawei.com,
+ zhuo.song@linux.alibaba.com, sudeep.holla@arm.com, lpieralisi@kernel.org,
+ linux-acpi@vger.kernel.org, yazen.ghannam@amd.com, mark.rutland@arm.com,
+ mingo@redhat.com, robin.murphy@arm.com, Jonathan.Cameron@huawei.com,
+ bp@alien8.de, linux-arm-kernel@lists.infradead.org,
+ wangkefeng.wang@huawei.com, tanxiaofei@huawei.com, mawupeng1@huawei.com,
+ linmiaohe@huawei.com, naoya.horiguchi@nec.com, james.morse@arm.com,
+ tongtiangen@huawei.com, gregkh@linuxfoundation.org, jarkko@kernel.org
+Subject: Re: [RESEND PATCH v18 1/2] ACPI: APEI: send SIGBUS to current task
+ if synchronous memory error not recovered
+Message-ID: <20250715140530.42c6bdc4@sal.lan>
+In-Reply-To: <CAJZ5v0gfFHCvE2Uu8=GRb9=ueK51s1-0BDBkJbbDG0tQvD5pLA@mail.gmail.com>
+References: <20250404112050.42040-1-xueshuai@linux.alibaba.com>
+	<20250404112050.42040-2-xueshuai@linux.alibaba.com>
+	<0c0bc332-0323-4e43-a96b-dd5f5957ecc9@huawei.com>
+	<709ee8d2-8969-424c-b32b-101c6a8220fb@linux.alibaba.com>
+	<353809e7-5373-0d54-6ddb-767bc5af9e5f@huawei.com>
+	<653abdd4-46d2-4956-b49c-8f9c309af34d@linux.alibaba.com>
+	<de5d2417-dc92-b276-1125-4feb5151de7f@huawei.com>
+	<f60f1128-0d42-48e5-9a06-6ed7ca10767f@linux.alibaba.com>
+	<20250428152350.GA23615@willie-the-truck>
+	<6671c3cc-5119-4544-bcb5-17e8cc2d7057@linux.alibaba.com>
+	<CAJZ5v0j3NC2ki1XPXfznxZRBLaReDBJ+nzHFgvqMx5+MgERL-A@mail.gmail.com>
+	<3a465782-a8ff-4be8-9c15-e46f39196757@linux.alibaba.com>
+	<CAJZ5v0gfFHCvE2Uu8=GRb9=ueK51s1-0BDBkJbbDG0tQvD5pLA@mail.gmail.com>
+X-Mailer: Claws Mail 4.3.1 (GTK 3.24.49; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250715112456.101-4-kernel@airkyi.com>
-X-Proofpoint-ORIG-GUID: nNKj2DP3RhJMwfegkcINZ0lDpj_UTLzb
-X-Authority-Analysis: v=2.4 cv=D4xHKuRj c=1 sm=1 tr=0 ts=68764428 cx=c_pps
- a=HLyN3IcIa5EE8TELMZ618Q==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
- a=Wb1JkmetP80A:10 a=s8YR1HE3AAAA:8 a=8-VJQ8zMMZwrctniyC0A:9 a=CjuIK1q_8ugA:10
- a=bTQJ7kPSJx9SKPbeHEYW:22 a=jGH_LyMDp9YhSvY-UuyI:22
-X-Proofpoint-GUID: nNKj2DP3RhJMwfegkcINZ0lDpj_UTLzb
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNzE1MDExMCBTYWx0ZWRfX8kpmGvU59cKt
- kj8jDPC8TWNRF6lwCGnCRmA/ytsgnsvQpq7szmNhpBRKPih/pDwoa5gSoeNef31l8N4q2WNYxtc
- TTVAdmikNL5q1mDRoYG1jydcHH3njrPNW+a1rPweliZ6bZfOulKNw1K6oMJYgDV0FKA2CRNg4Jq
- wX1hqkefjxGaIQCYD9yu2zR9M0yOfl2Jfns7aBclfEb5kfDzeft9rAC/ZZGBULsZDzOX2zZsHIR
- S7dn0xLPq5UYAb9Zr6zk9rUtHlQW97INAWqQe7Mh1MbllEkyFl9kOBgXjikMR3uLpSuPMGkzfw5
- GBhWx5wyaXuYQrBPNLKJK0QEc6Kj25eOXywYP3RBUE45DkcMydegBsuH3BGfv4D2FdVQRw8+CtV
- fJaiGVl7Dp+naIJUWRgmJfOXBhUOcsF5tK/JHUn3bvP+i+eK6X+7DE8GSt4hpwfz7Ga2S/7O
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.7,FMLib:17.12.80.40
- definitions=2025-07-15_03,2025-07-14_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 mlxlogscore=801 impostorscore=0 spamscore=0 clxscore=1015
- lowpriorityscore=0 malwarescore=0 suspectscore=0 bulkscore=0 mlxscore=0
- priorityscore=1501 phishscore=0 classifier=spam authscore=0 authtc=n/a
- authcc= route=outbound adjust=0 reason=mlx scancount=1
- engine=8.19.0-2505280000 definitions=main-2507150110
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250715_050600_770421_18F880C2 
-X-CRM114-Status: GOOD (  17.88  )
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,21 +96,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 15, 2025 at 07:24:54PM +0800, Chaoyi Chen wrote:
-> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-> 
-> This patch add support for Type-C Port Controller Manager.
-> The extcon device should still be supported.
-> 
-> Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-> ---
->  drivers/phy/rockchip/phy-rockchip-typec.c | 335 ++++++++++++++++++++--
->  1 file changed, 319 insertions(+), 16 deletions(-)
+Em Mon, 14 Jul 2025 19:30:19 +0200
+"Rafael J. Wysocki" <rafael@kernel.org> escreveu:
 
-Please keep TCPM implementation under drivers/usb/typec/tcpm/ . Create
-an aux device and write an aux driver for the TCPM part.
+> Hi,
+>=20
+> On Mon, Jul 14, 2025 at 1:54=E2=80=AFPM Shuai Xue <xueshuai@linux.alibaba=
+.com> wrote:
+> >
+> > =E5=9C=A8 2025/7/1 21:56, Rafael J. Wysocki =E5=86=99=E9=81=93: =20
+> > > On Tue, Jul 1, 2025 at 1:00=E2=80=AFPM Shuai Xue <xueshuai@linux.alib=
+aba.com> wrote: =20
+> > >> =20
+> > >>   >=E5=9C=A8 2025/4/28 23:23, Will Deacon =E5=86=99=E9=81=93: =20
+> > >>   >> On Fri, Apr 25, 2025 at 09:10:09AM +0800, Shuai Xue wrote: =20
+> > >>   >>> =E5=9C=A8 2025/4/25 09:00, Hanjun Guo =E5=86=99=E9=81=93: =20
+> > >>   >>>> Call force_sig(SIGBUS) directly in ghes_do_proc() is not my f=
+avourite,
+> > >>   >>>> but I can bear that, please add
+> > >>   >>>>
+> > >>   >>>> Reviewed-by: Hanjun Guo <guohanjun@huawei.com>
+> > >>   >>>>
+> > >>   >>>> Thanks
+> > >>   >>>> Hanjun =20
+> > >>   >>>
+> > >>   >>> Thanks. Hanjun.
+> > >>   >>>
+> > >>   >>> @Rafael, @Catalin,
+> > >>   >>>
+> > >>   >>> Both patch 1 and 2 have reviewed-by tag from the arm64 ACPI =20
+> > >> maintainers, Hanjun, =20
+> > >>   >>> now. Are you happpy to pick and queue this patch set to acpi t=
+ree =20
+> > >> or arm tree? =20
+> > >>   >>
+> > >>   >> Since this primarily touches drivers/acpi/apei/ghes.c, I think =
+it should
+> > >>   >> go via the ACPI tree and not the arm64 one.
+> > >>   >>
+> > >>   >> Will =20
+> > >>   >
+> > >>   >Hi, Will,
+> > >>   >
+> > >>   >Thank you for your confirmation :)
+> > >>   >
+> > >>   >@Rafael, do you have more comments on this patch set?
+> > >>   >
+> > >>   >Thanks you.
+> > >>   >
+> > >>   >Best Regards,
+> > >>   >Shuai =20
+> > >>
+> > >> Hi, all,
+> > >>
+> > >> Gentle ping.
+> > >>
+> > >> Does ACPI or APEI tree still active? Looking forward to any response=
+. =20
+> > >
+> > > For APEI changes, you need an ACK from one of the reviewers listed in
+> > > the MAINTAINERS entry for APEI.
+> > >
+> > > Thanks! =20
+> >
+> > Hi, Rafael
+> >
+> > Sorry, I missed your email which goes in span (:
+> >
+> > ARM maintain @Catalin points that:
+> > =20
+> >  > James Morse is listed as reviewer of the ACPI APEI code but he's busy
+> >  > with resctrl/MPAM. Adding Lorenzo, Sudeep and Hanjun as arm64 ACPI
+> >  > maintainers, hopefully they can help. =20
+> >
+> > And Hanjun explictly gived his Reviewed-by tag in this thread, is that
+> > happy for you for merge? =20
+>=20
+> Not really.
+>=20
+> I need an ACK or R-by from a reviewer listed in the APEI entry in MAINTAI=
+NERS.
+>=20
+> If James Morse is not able to fill that role (and AFAICS he's not been
+> for quite some time now), I'd expect someone else to step up.
 
--- 
-With best wishes
-Dmitry
+Rafael,
+
+If you want, I can step-up to help with APEI review. Besides my work
+with RAS/EDAC in the past, I'm doing some work those days adding
+APEI injection in QEMU those days (currently focused on ARM error
+injection via SEA and GPIO).
+
+Regards,
+Mauro
 
