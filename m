@@ -4,86 +4,126 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C177C83F22
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 085E5C83F34
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 19:19:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T/BWaekXetU83aXLszdrOHzTcPZ86/9kj05RU+QM+Og=; b=AEh6uee/Wjd1Ah6ndtrmtAH8qq
-	AdbT0sw4AOI96MjCSx21mQbkimiOqbGKZI7suBum4kz8p1rwKZKyz5GGKTEmwcujydOIMLISOtGLn
-	zGlBGlzV7XJyMAGYlpYYBf/5FPDmdN+1FiNikp8fq+1dJNV0kkXUD9RCR2ZvydiLRXi+e6XQzErz0
-	fOJCTMgon+PKcOSgc24CeWKbW9ENBo28oGzVEHbRVMfN1gTyt6BUScrL7mJuuJRk9uIuhvelktDZF
-	maIly6lYglifJ0kXckPR5Yk+1gIaAPn7JiAIol+qB5K3MLFmkGlfBwYeVm6uyu4FS/sSsYcBHoovO
-	PVHI02Uw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EIlQNIzecn5bdP1imBfDsZPiIdoL5qWTq7CmIfk0cbA=; b=KVKZMGmXAP0n6SubshpGGRiooT
+	VFey+rdjDXXew6VgZQCNI6PkFR+33P69ZRGd0X2ZABVqtMiMh3C0GAa9RuIBqHQQhJKePwSUsK5nB
+	K0bmsqal66oF8bWjGQ4OWMnG4E2krB2phk82khOvxm6a3QeBoQ4SG+IHPhFbIyIp5GmKt44erVESY
+	Xfc0Uue3//oqW7y0Ig9U5/nWZETlf8HMV256WSTMSfZos2jjnkIuQa03tJ8J8uKH9n199PNIYjom9
+	LhbMtD0unxNxND4ouIZ0ckYCym6LXHImS+vuczrjMr/XZpGE+Wm+s8/bJ4w+E2oi+ZSMacuePkCiT
+	X1DEPGgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ublBR-000000061No-1xMX;
-	Tue, 15 Jul 2025 19:19:21 +0000
-Received: from mail-ej1-f46.google.com ([209.85.218.46])
+	id 1ublBQ-000000061Mz-38cU;
+	Tue, 15 Jul 2025 19:19:20 +0000
+Received: from mout.gmx.net ([212.227.17.22])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubiIw-00000005iR4-2Jvf
+	id 1ubiFd-00000005hsE-2Lp6
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Jul 2025 16:14:55 +0000
-Received: by mail-ej1-f46.google.com with SMTP id a640c23a62f3a-ae0d7b32322so928972266b.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Jul 2025 09:14:54 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752596093; x=1753200893;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=T/BWaekXetU83aXLszdrOHzTcPZ86/9kj05RU+QM+Og=;
-        b=ic3t2t0baWXE2RNSXX4VukBKTcTBtNDic1NVhZfPS+/Ug9xo+4Zf40oyk/E5OylhKt
-         +j271HRdqv0dSqbR/zwXJnQgpYHaRcj4epAylAVfscJJxIAmTNWp1IlKXuyi5MdorcC5
-         TCi4Fxe0Cn3FAQnHsfxi5XttkzHg6mL6DJmQbOmgcnVMW+57ajE9YBn+ZD4Gllu0MsYq
-         D/s5ffSgDPiEuQaaZ3dZDxCL/j37izSapC9WWMrmAgQA0Y+wPGQys3NegA3hykc4m/Rf
-         RlRWpDq5etAhkrP99eebcatRkFmTb4ueV2BKO+MF26/LxKkp1Lc1Yz4L91CpoF3/2M0x
-         nz8A==
-X-Forwarded-Encrypted: i=1; AJvYcCVukUPT1zuMxzLRnd52iV54l5PhtUDz64H/jH96Cv0d36CgU+xcGBNeHGRKpOsp79tF5pkFdPSt3N5Y9u5K/yv2@lists.infradead.org
-X-Gm-Message-State: AOJu0YzJtBcZYxRj6+14vWBSYzSD4m0Clis+Ye5Iz219WssxJVuelE0K
-	8nSliOiqDoeV40tToToAOLGs70xsH0LCsjek0Pkwtp24EHfNfYGvx3gF
-X-Gm-Gg: ASbGncu5zUhyOWqG9D25rkZVDvLDr2DNKmH27skBrJIQuDXcQ7DkOaZTfCeaha7EwIZ
-	Ip0hOk7IYyoEy4jNNQMAYCL/PJ3jqNj0B+nhkOqQ65BJwF2QDKpQCHaneWQdABN2bwn+WXM184+
-	f54SB6FQuZSVElg0C+W85fzg1jSZiJrDKHUMAcFVih6FCjIRlgOEhtWb49qKducYJQkFeRM7+3z
-	lm7cw6mtZl+g0/7QPk/2jxnGYSjtIZLwhFfj8zLWWpzlKfY29BzDVBdwuS0liDQwLkdjCYvqbMA
-	xVYJB0LpXHDVAlk0E6rRZPEYi0XRrtqsYl1wallxeZI3wfmhyKIAakGj4bE3oiwml+wJhu/4CQE
-	64z1BMJydTQtl
-X-Google-Smtp-Source: AGHT+IEvOc8+OszJCyE/oEuX+OBcQTQBoSLU9a3OzY1TExv2Ip6GqBTNIFxBnwqU31lZn7voNTRXjQ==
-X-Received: by 2002:a17:907:7f26:b0:ade:3dc4:e67f with SMTP id a640c23a62f3a-ae9c995530amr10284866b.9.1752596092658;
-        Tue, 15 Jul 2025 09:14:52 -0700 (PDT)
-Received: from gmail.com ([2a03:2880:30ff:2::])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ae6e826651csm1026354766b.101.2025.07.15.09.14.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 15 Jul 2025 09:14:52 -0700 (PDT)
-Date: Tue, 15 Jul 2025 09:14:49 -0700
-From: Breno Leitao <leitao@debian.org>
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
-	Sascha Bischoff <sascha.bischoff@arm.com>, Jonathan Cameron <Jonathan.Cameron@huawei.com>, 
-	Timothy Hayes <timothy.hayes@arm.com>, Bjorn Helgaas <bhelgaas@google.com>, 
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>, Peter Maydell <peter.maydell@linaro.org>, 
-	Mark Rutland <mark.rutland@arm.com>, Jiri Slaby <jirislaby@kernel.org>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-pci@vger.kernel.org
-Subject: Re: [PATCH v7 18/31] arm64: smp: Support non-SGIs for IPIs
-Message-ID: <sy2u3iyyfqk7ynccsb4lpbkto6pmkhamnlkkhf3mmh5dr47iyf@wmygyxypb26v>
-References: <20250703-gicv5-host-v7-0-12e71f1b3528@kernel.org>
- <20250703-gicv5-host-v7-18-12e71f1b3528@kernel.org>
- <7mhnql75p3l4vaeaipge6m76bw4wivskkpvzy5vx3she3wogk4@k62f5hzgx5wr>
- <aHZm8BsqV1ighJ+2@lpieralisi>
- <aHZ81Kah1Uaa184N@lpieralisi>
+	Tue, 15 Jul 2025 16:11:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
+	s=s31663417; t=1752595873; x=1753200673; i=wahrenst@gmx.net;
+	bh=EIlQNIzecn5bdP1imBfDsZPiIdoL5qWTq7CmIfk0cbA=;
+	h=X-UI-Sender-Class:From:To:Cc:Subject:Date:Message-Id:In-Reply-To:
+	 References:MIME-Version:Content-Type:Content-Transfer-Encoding:cc:
+	 content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=su8e0XB61XuOshr3vQaLoG0yLMO+JD5uDkfpfOdfvWzTbnGOjuITJSLonMV9Y6Y5
+	 jYjsp6ynXNCu3iw+/nnM1DMiT1mTt4q3YhrM7awOF872o8Jr/hOb5KkK7yNl3IIZc
+	 nlYzYLaVsSSren1znRC48FxKDTmg+jQnar14ZmNXSo8J1CzYkvdE4yOr/GuL7Xi/2
+	 Y5w14kPR/jMI+vsCgv3+FKqyEilfntndrRl2pqeHs05/af8hHvcj/SLDHsGDhpemI
+	 3tBkHPNpXYOg5uu0gJavDsvmHkkO1xHBStfUKcQMc5mADHKpBYfTqRXy7X566IriD
+	 Xp1IAPXrHpR/7DIbJQ==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from stefanw-SCHENKER ([91.41.216.208]) by mail.gmx.net (mrgmx104
+ [212.227.17.168]) with ESMTPSA (Nemesis) id 1Mzyuc-1unJLz0MlS-00spQk; Tue, 15
+ Jul 2025 18:11:13 +0200
+From: Stefan Wahren <wahrenst@gmx.net>
+To: Florian Fainelli <florian.fainelli@broadcom.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Dan Carpenter <dan.carpenter@linaro.org>,
+	linux-arm-kernel@lists.infradead.org,
+	bcm-kernel-feedback-list@broadcom.com,
+	kernel-list@raspberrypi.com,
+	linux-staging@lists.linux.dev,
+	Stefan Wahren <wahrenst@gmx.net>,
+	=?UTF-8?q?Ma=C3=ADra=20Canal?= <mcanal@igalia.com>,
+	stable@kernel.org
+Subject: [PATCH V2 1/3] Revert "staging: vchiq_arm: Improve initial VCHIQ connect"
+Date: Tue, 15 Jul 2025 18:11:06 +0200
+Message-Id: <20250715161108.3411-2-wahrenst@gmx.net>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250715161108.3411-1-wahrenst@gmx.net>
+References: <20250715161108.3411-1-wahrenst@gmx.net>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aHZ81Kah1Uaa184N@lpieralisi>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:vs62+5Ifksp5MGlxdtHSJRuYC8WGtpe2DqG5erqywUyqaUtllQs
+ dP2VXiAHJY29dF8/eR6dfc4FNJ4I/rXfwa8hLp/mhX/0RCF4lwE2Xhz4GKlRz07szENpxvL
+ zZlngvKaAPXt1meKz1pVvE0UjZFJwJmC2ICTLXaFC+XW1aYoN9jeXC1bDeptlvg0PNZmZ3o
+ QfIhsroV0RXrD/y2T5rsA==
+UI-OutboundReport: notjunk:1;M01:P0:waeZPf0tk4o=;MXhM6LgEN1dpkTsIUpIm0h191hm
+ zgxtWTxaMmGONr5wkFyASqjNAfgjRWI1eoUOwpwyqvxIrJ9TKXbUozNhZ6/WF8vtCx0kfkagd
+ 13bfvEgfy9cYNCvMyuA2REo6x8lCLNPzj7t0j68CRCI/qIIDUMF2vjd9EKq/ALL+6HFGbm53F
+ yzeoNIXHOIXlROuG3i4x7bAZsmwD1DxX7Mis8GkJGFWhb3EVOuUT2TzSAiASSHi5cGby1+xt9
+ kQGMtSWMT82qDYEc/p08Hy9NZ6MoNVNrWIubDMS0t9o+YK2a+nDgImlZRbz4+60dhZh03po/X
+ g8WnIj9lklqF1Q/18VKZH3erpNpt9TFJeBmOJviMV9LZ+5Sn00peux7Nfsau4hiTdlhjIvVLZ
+ v260TTtk2rJMJZK21sM40i/igC5V+qqxRQ2CRNLSRXc1sk7bjJu5+I+WF0j4tLq82p0fYxBXt
+ VV6HXqJWt1muAZ/cFk5ShkIA7yX8hXVpC6NZnL44CzlCXxcRU3fGuY+HlXtD9WwdBVyYwRPGe
+ uNRPAyve00m1+DpsUz+kGrmrPbBjhoDser/z1u9eyaY+y7bGkFJLf2Kw+O6EoLB021VfHuFwv
+ hKbO2PA6fG8r56YoSj/t/EUSOzvRdSOfDJjcAzK/ZqAqevMewmkz1m83D5+sbDCVOel/cRW4X
+ aha0C4HIMy0HfwG52YtDOz6r78WT3qrN/k6CjuAf9/GD+WCEGqlDJKW7E3TYeDHcV8uD353xl
+ q7UHz1ia+oJ3ch/FG12pVITwFN900Xe19Gv2A97uL2pEdqw0uj6fw1GUt3Nwl0kafLL2j3mOt
+ qCyuVA16W9x80YBIGkIZ/dEzl0BP3MIWtTEVgY2ucLG/CsELhR3SA3qRqgOQvFWJYWaYp+/JH
+ tZux8LWnx6R8/iTUdMcOPnGkccRHFgdCGNQYp+QsA9jwA45VrD8i3Eqox5RkZb9I1BEH3ftEg
+ 8ucnpIi2chVhxUhBPcl/cMQK7HfM62yrel9B6nQ9tA6xsV06tJnNcgwYu0ngJ3oDFi7kSjrt2
+ 6l+BWYHkaM5CaBedFFXwA0gqNRH17XEC0nfhtq88a3DOnRPDfTNenm6avl8rDmjJFYU6+qPXD
+ mxc1Nhhfnw+fH8KjpDpaNuV8L18SYF3IOfCc4hsCfK1POFV0WKMYUyGXuzSaourTuF59YUWzr
+ 9uheL74ptVCN+D0f3IUXJUdQlzBZ4YnnuzqPMEhvP9bUyVKmkaVmB/eUXx++tN2sqGgWEQ+0a
+ 8zdiehAO7L+cYG0T3XSBABEdGx44hz3xhp2v9EH3da1OrK6O4/oUXdr2SwilwyoSoShm3Q1+S
+ O3EDQfbLn00RQlgypOegMRWqO+qVTDeWWQ06Fsy3wMp1sckXCgmLlI6TOH0AHAPzlHESTaHAK
+ XMzZUx91Ly00TlPFl7WG1gD92AK6EcJE2yj6Pe8pxAdk5ALVSER24kbdSidSuHVysV4fOlCSQ
+ zOwft1d5QAcNqCMIgsyUJuKp6pV5QVgOQYkPcjr4Zk4TJ6rMaXQIePMiD7MTR5EzSi3fABqew
+ zCYPvw4BJ/WFF91rvNk8ne0orScDqrA+By3P9hY6BlEYXtiIYjSrEMdG5LvdEAy5etpuZj/ZM
+ JT7WcP6WMzv/GXCpHKYPTQs0Quusikc9GCcX4v0kQAIqQmNr/PZdTxWKqONVeXO0VddzLCZTm
+ 2zENCfgWCqICn1OLnqWKFCh+tD0Ci78sm6DFBD26e2zmBRwuU96891ZsI5icT7YDnuxBylB6p
+ MaphhxCE3VHQ8+1oKJwZpBhEsu7Fkb1Kb9agRK95wl0ax8/WQXR21gSJLdlvSLP+4QNoyCtcN
+ mq94nJpy3+SqMQbMj4UsgwZCtgz3U9uudo4KX8VtiV+3PcZZt5FC1QxBu1xthgolRMVMKlVJT
+ lx22PE8NqcW6MTGcXYyubUfq2vC4j83C5MJr6W7el8KOmSobpxc8jKOouaLbt0lbdnu8Rujo0
+ 3w2k65Ua/y52XP180lrBWFjwGIpP/IqyJyPnrYd5QwkhdOvrqycGo8W/IQPbQqDDuSifd9Tn+
+ agnuL+LxGcjLu/q/wQpGtNeV/MhfaHM6qXMQAiTYQ0U/XtTEeXBRIM7llhXAZVMiIbrWlEhhB
+ xMNoVdcK+n1uG1yZZWgu8s+etNYx9tmfdR8CK8ewHzQ3V+b0PJBcRv6oqJtFGL9LkmFXhLa9u
+ aJKLFKtsJf5iv0Xnv+RSHFQYqv0+l4jEH3i/10cTbVRcbQDigmSC1P41MMH6oAVFU3KsSu3wC
+ vPTKW+b/D7IMKzXUN3VhNXf6Tx61CXq3Gmraq6IWTyRyY7JuWUelhAnZcWoBNv4mAgMDoknss
+ stZq6Wm6WmGdjELOMbrJAXvcQ7RVD7rMu+9mirlR0mPoyEvhDBp0oC16jY93d7Rn/wAS8pKum
+ mEdvIzRT1uHYAX0IHzOopWlkED2HRR60/Dr4KL+rw1IXSa7yg3mfeUWGrczp+LPWlTkml4LVU
+ HPt7c4d5WcRaafMjw5B13eHmkcr16Dba/Vpdy6+lUS6VJFjoOh3c/dz6GrzfsRgbLozL0V9cI
+ A5bDa6Sfo7ZNEsksM36jyqxVdH/Z+FQKMXWfguu9F/qslUXxZcTtjplYztL3FY6/WNOUpMrrV
+ ghCRjyW/7gQOMPxYx8IKbY1C2LQ4W9kzh4Exq2XI1CAMHDffTqJqLfLbGYdHVuS62AykOdG2P
+ JqNXmu35Pr0KmH0QeEMtmX4+arhcDoIcfX7CMDkG1euVCZz8gUouQNAsOtV4tfx5BfwGWK/xO
+ O4gCEv49yrbSpZwnEWO4ObxJt/EQpG71n0zVxnhLNypyY1Ub/bsT+HvawBE3TkyK3N+VSJHmJ
+ gTwP+3qwbHxSVmXkNxduiDuzC8DmmfQGKFIk+GzQvvXSkoYYRmZTOK2QihOCkZmHf7dSrF+qb
+ 4+VxrWa3i6ZDxqPEHbkXnHBVi2eoeyzECL6bKxht0+UFjVcbW3jsHewJ37vC43g888xZHkRK7
+ Hey2kNzI84XMvBkW7jC9Ibgrw7m54Z1fNp23xhrCgUNqVr5hkcy2MBgt7XhcppXUXHfz8JDnO
+ jX3+8KUR4LtZfDjL99Zf+3kJvVANv8EV3Lyz9Ik7BY6vi5aYPRS4Ngh9BvBB2R/kY2+bXBR5l
+ VP4OgpCvPXF7twMvLOI5O9fAyMW8QyrcYUs/1GNEX7m16hND3Ieu8iZUwBtncGl/YtGfmd6Xk
+ AM/EYMrBG1ut6TrFxFAFqQaPxcp5AUAxfXZvpKSBJN+Wjyw2PYyr4GbLq9ET/iUdwBciX4Iq7
+ VrNg8LX8tvpTxgCaedyyuarM+Y6fw9WlKJw/gRaSwyPJXelNa/CiZ1XJEWxEG2iB/QgjJQ+mb
+ GOEcjkofmDI9w3wExZtxU4Y/wZRoXB2KcREOgueGKeOdZ19LJ8v+ZWUMRQ25rmuiqPVC95bv7
+ pQwCrqL28BatA4xjPAvz6tb44YDo8U7ira2/WdhOgqgqG1gbGX97tksHaSz+I4FwCyE/75d44
+ 8TNgfwtv8rg1bgQhZGquNNApmDZnR2oGh8flOLZG90xi1LiBiaJf3NpSC6zudNDUJHtyqulCT
+ FGNWnLOPSY43PKY9Lu3DNzhrTACcPf9E3o6hzZJfjxelzx51dkhe/qYiipBNTh10hG2GESfNI
+ AmiaQ7KMJHJZ0aCccIzJQNh/mEm8gr4f8fGtbi50xNA2eYLgfq1iPUfiR+GA/svroikwtSHtV
+ xbcAQ=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250715_091454_590480_57687C4B 
-X-CRM114-Status: GOOD (  18.52  )
+X-CRM114-CacheID: sfid-20250715_091129_896717_506DC8D5 
+X-CRM114-Status: GOOD (  15.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,31 +138,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Lorenzo,
+The commit 3e5def4249b9 ("staging: vchiq_arm: Improve initial VCHIQ connec=
+t")
+based on the assumption that in good case the VCHIQ connect always happen =
+and
+therefore the keep-alive thread is guaranteed to be woken up. This is wron=
+g,
+because in certain configurations there are no VCHIQ users and so the VCHI=
+Q
+connect never happen. So revert it.
 
-On Tue, Jul 15, 2025 at 06:07:48PM +0200, Lorenzo Pieralisi wrote:
-> On Tue, Jul 15, 2025 at 04:34:24PM +0200, Lorenzo Pieralisi wrote:
-> > Thank you for reporting it.
-> > 
-> > Does this patch below fix it ?
-> 
-> FWIW it does for me. I think you are booting with pseudo-nmi enabled and
+Fixes: 3e5def4249b9 ("staging: vchiq_arm: Improve initial VCHIQ connect")
+Reported-by: Ma=C3=ADra Canal <mcanal@igalia.com>
+Closes: https://lore.kernel.org/linux-staging/ba35b960-a981-4671-9f7f-060d=
+a10feaa1@usp.br/
+Cc: <stable@kernel.org>
+Signed-off-by: Stefan Wahren <wahrenst@gmx.net>
+Reviewed-by: Ma=C3=ADra Canal <mcanal@igalia.com>
+=2D--
+ .../interface/vchiq_arm/vchiq_arm.c           | 28 ++++++++++++++-----
+ .../interface/vchiq_arm/vchiq_core.c          |  1 -
+ .../interface/vchiq_arm/vchiq_core.h          |  2 --
+ 3 files changed, 21 insertions(+), 10 deletions(-)
 
-> the below is a silly thinko (mea culpa) that is causing the IPI IRQ descs not
-> to be set-up correctly for NMI and the prepare_percpu_nmi() call rightly
-> screams on them.
+diff --git a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.c=
+ b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.c
+index 5dbf8d53db09..cdf5687ad4f0 100644
+=2D-- a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.c
++++ b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.c
+@@ -97,6 +97,13 @@ struct vchiq_arm_state {
+ 	 * tracked separately with the state.
+ 	 */
+ 	int peer_use_count;
++
++	/*
++	 * Flag to indicate that the first vchiq connect has made it through.
++	 * This means that both sides should be fully ready, and we should
++	 * be able to suspend after this point.
++	 */
++	int first_connect;
+ };
+=20
+ static int
+@@ -1329,19 +1336,26 @@ vchiq_check_service(struct vchiq_service *service)
+ 	return ret;
+ }
+=20
+-void vchiq_platform_connected(struct vchiq_state *state)
+-{
+-	struct vchiq_arm_state *arm_state =3D vchiq_platform_get_arm_state(state=
+);
+-
+-	wake_up_process(arm_state->ka_thread);
+-}
+-
+ void vchiq_platform_conn_state_changed(struct vchiq_state *state,
+ 				       enum vchiq_connstate oldstate,
+ 				       enum vchiq_connstate newstate)
+ {
++	struct vchiq_arm_state *arm_state =3D vchiq_platform_get_arm_state(state=
+);
++
+ 	dev_dbg(state->dev, "suspend: %d: %s->%s\n",
+ 		state->id, get_conn_state_name(oldstate), get_conn_state_name(newstate)=
+);
++	if (state->conn_state !=3D VCHIQ_CONNSTATE_CONNECTED)
++		return;
++
++	write_lock_bh(&arm_state->susp_res_lock);
++	if (arm_state->first_connect) {
++		write_unlock_bh(&arm_state->susp_res_lock);
++		return;
++	}
++
++	arm_state->first_connect =3D 1;
++	write_unlock_bh(&arm_state->susp_res_lock);
++	wake_up_process(arm_state->ka_thread);
+ }
+=20
+ static const struct of_device_id vchiq_of_match[] =3D {
+diff --git a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.=
+c b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.c
+index e7b0c800a205..e2cac0898b8f 100644
+=2D-- a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.c
++++ b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.c
+@@ -3343,7 +3343,6 @@ vchiq_connect_internal(struct vchiq_state *state, st=
+ruct vchiq_instance *instanc
+ 			return -EAGAIN;
+=20
+ 		vchiq_set_conn_state(state, VCHIQ_CONNSTATE_CONNECTED);
+-		vchiq_platform_connected(state);
+ 		complete(&state->connect);
+ 	}
+=20
+diff --git a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.=
+h b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.h
+index 3b5c0618e567..9b4e766990a4 100644
+=2D-- a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.h
++++ b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.h
+@@ -575,8 +575,6 @@ int vchiq_send_remote_use(struct vchiq_state *state);
+=20
+ int vchiq_send_remote_use_active(struct vchiq_state *state);
+=20
+-void vchiq_platform_connected(struct vchiq_state *state);
+-
+ void vchiq_platform_conn_state_changed(struct vchiq_state *state,
+ 				       enum vchiq_connstate oldstate,
+ 				  enum vchiq_connstate newstate);
+=2D-=20
+2.34.1
 
-Thanks for the quick reply. I don't see that warning anymore once this
-patch is applied, so, the patch fixes the warning.
-
-Regarding NMI, you are correct, I am using `CONFIG_ARM64_PSEUDO_NMI=y`
-and `irqchip.gicv3_pseudo_nmi=1`
-
-> If you confirm I hope it can be folded into the relevant patch.
-
-Feel free to add "Tested-by: Breno Leitao <leitao@debian.org>", if
-pertinent.
-
-Thanks for the quick fix,
---breno
 
