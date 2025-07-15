@@ -4,105 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFB82C83F22
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 14:32:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F002C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 14:34:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WLie5zOVyoKUjA33oPyC/WGRzvoFygYuppsebPS2FNA=; b=JZRfsyJwbgi6DVoC5pAFeramn0
-	UCR6/3OrXpxQbdjB5KKoTYZC2inJkJCMWLSMxlExLycXm0e4epxdnsgZ5JGX1PKMMR0LoHRgkTo6v
-	5RcBPVY7eSu6jAkhIEfqAQjE/vfhulRMJEHEAUet4tUZXgeAXytZuhIf2N0OhBev3uSfu8quryged
-	j/GHyBPdiKJQ08w7Yc/ofQDnjrd2AXpCMjEqS9VjEXloz2KRomyeWSOUhk4cfoF+XNcG2wfEfEXiy
-	B4/X65lYYZtWEEg00PGiLm0d+lGzlKkejpEyoY+0iJ+YKC14sXUBW8mOkGB0hSexAatMkFF2u7VAb
-	QRx4j39Q==;
+	Content-Type:Subject:Message-Id:Cc:To:From:Date:MIME-Version:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Jl2/Bme3dggXyQm6j2e6aTPj1gIVCZq+ikrQ9R6HsWo=; b=lLltyOd64+tlE6a7KNwSX08QRb
+	D0kDaRG8fwMZb63Ves8xGAuuFqe4nH66yODh/VN33Q/qXUufoMGRzSDhFDLFS3SWnODVoqEwLSCQZ
+	5vTOuYM1f4Hhl47sAwLv36CHMdVq+C8n8atueL18joGVQnST9oCH5jnOoJh7cRYzN37piQ78PND7z
+	a8vfX18cV4ceBBgal0l0KSB4wJsWqnFnSo0DZHJQTwGJy0V72VQnNzJkr8NFezgY4jdLGcZlCCtwV
+	Wzoq7G6PwEU/zYZHJwg9WHkBaKA+uCYmXUhK4Ul5+DzAUYwwxSetbx+ZMcYiXUJEh3BcQDpwDdoGO
+	SYtWVHBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubghI-00000005NnN-3dZU;
-	Tue, 15 Jul 2025 14:31:56 +0000
-Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
+	id 1ubgji-00000005OO2-0rQ2;
+	Tue, 15 Jul 2025 14:34:26 +0000
+Received: from fout-a1-smtp.messagingengine.com ([103.168.172.144])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubfQL-00000005AJt-3l3y
+	id 1ubfTn-00000005AiV-17Np
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Jul 2025 13:10:23 +0000
-Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-3a53359dea5so2866812f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Jul 2025 06:10:21 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1752585020; x=1753189820; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=WLie5zOVyoKUjA33oPyC/WGRzvoFygYuppsebPS2FNA=;
-        b=uNeRx7Xx5+rdxyqKUXRBglBB6qHC68ma/opGxas5zG/epB/fJNFxVTkx+jtEDPDQBf
-         7B4zmTPPfVdlu97MYz/KK4pv8DvbJ1m72BNXJdsvkS+rq0YfKjg2pzP3/nD9sRCUTyVN
-         eNvJkcteM1kFz1vkz9mFFCJIln8CtifRnK5+rjpYTu8b+ZTHYbCljq02mQ5knSdiBelT
-         WkYSh2pSw6+DBVLNQNYte6hiV9kFKZgoOKwNBttyDqdy6grsDl4sY1pT8nonBK9UCRyR
-         IVeTOq3zzALpSok9Dse35nbs7zn6huYGGGDpGM7HyU/tbCHd6Uogc2QLkD1KT6UlBbfe
-         VqBA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752585020; x=1753189820;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=WLie5zOVyoKUjA33oPyC/WGRzvoFygYuppsebPS2FNA=;
-        b=IrcuXZqzAaTc5CeUzhGXPg4BdHHPtj9hAeSEYWhtxXCvShjTFRunvpzzRt3iaHtWVv
-         ZjdLeb3I9xAdyVFFnAugfraVjuLfzyNgI7SUSrmq3Qb4vUc3qw/d9/6MGyUxX9idRenv
-         lUdRvWM6dKdgfkpS7foT43mjmjli+vffYbxqFc6hqHpfvaNAhihCdaXHo8+tjAh4j9su
-         sqVt4YTuG8iK/dRz0m04mZbdnA/iIG6WdirQNJ56XXQR64UKbFJ/Fi6+yT2afmpGqwQb
-         DcEuSOhpJcb0/HraHhnHBva1bgELQTCAWeHiAaa62vAdXvTIiowbOm5v5Iu1heEugpKX
-         whtA==
-X-Forwarded-Encrypted: i=1; AJvYcCVpommjajbGULaE2VB40vbH1VRm+K+hm+YGlkg12ELh9u2A1BNlTtjS7AF1T8LHid1dbG206XHagbYctCaaPgGB@lists.infradead.org
-X-Gm-Message-State: AOJu0YxWc0hRo1F401/dX4FDZOyw7PWxqB5p5OOdzszPX4HOfZpqlrgN
-	ggYvlXvn+lsqyM7PLhurm6h8BFPRIO6EAo9oK0XAe4xLbnLKw3TKdy1QqJmXd1zvcjwbDl3KNyS
-	8U4Vzi5E=
-X-Gm-Gg: ASbGnctKHjYp9ZriBLMm5YNQwmPWnBYQXDgrtTs0CmzFK2XaV5lAs19LVF7hPZph5CH
-	lDH29Bc0PX6Acs+96MnH8azQyDWZ1aaeB3Taj94w29eK8k4L9vbRYjZanDh32KHiYH+iKtOK9Mo
-	amygWca6TRC5CHVI2vbrco56kvLysisQO5Tm30ge1ZqhR8oW0//6xxagbwLbpAFwgVt5cxV4MNp
-	eivRIUxlYkovWtx+83VWeQ2eStWsBZeVxAGVoVOMQKBHwMI56l2S/DwWcyJPxsw6dR/IqOP3VJg
-	v+LPAgbo01HHWLPRscOXdhbwdKknByb+ESJE8p6EieaW0suC3mHg54mShgs82Na013wcSLxK5e+
-	K7xhn/LV+MU7qH65Yc5MImWNuTtA=
-X-Google-Smtp-Source: AGHT+IFe4r8KriuNAFHXNYf/4cwh/PGYuzAM7nUnVEwSGtbr0UTcF5cgzYyzCdphFsVFvt+3gZMD1g==
-X-Received: by 2002:adf:9d82:0:b0:3a4:f5f6:b4ab with SMTP id ffacd0b85a97d-3b5f2dfd6f7mr10433427f8f.30.1752585020307;
-        Tue, 15 Jul 2025 06:10:20 -0700 (PDT)
-Received: from [192.168.1.3] ([185.48.76.109])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4560733e736sm104730995e9.29.2025.07.15.06.10.18
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 15 Jul 2025 06:10:19 -0700 (PDT)
-Message-ID: <e1210c84-69d1-4fb2-88c2-a6a1bcb179c5@linaro.org>
-Date: Tue, 15 Jul 2025 14:10:18 +0100
+	Tue, 15 Jul 2025 13:13:57 +0000
+Received: from phl-compute-05.internal (phl-compute-05.phl.internal [10.202.2.45])
+	by mailfout.phl.internal (Postfix) with ESMTP id A05E7EC0E90;
+	Tue, 15 Jul 2025 09:13:52 -0400 (EDT)
+Received: from phl-imap-02 ([10.202.2.81])
+  by phl-compute-05.internal (MEProxy); Tue, 15 Jul 2025 09:13:52 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:message-id:mime-version:reply-to
+	:subject:subject:to:to; s=fm1; t=1752585232; x=1752671632; bh=Jl
+	2/Bme3dggXyQm6j2e6aTPj1gIVCZq+ikrQ9R6HsWo=; b=YWJCkD9+jFiUq8njuW
+	Xil6uP+eA+UhZgKWH1Ae0cSVGSUOB4/VIeU0zxKRAmcZ7HxR9FPU4Zz9Bdnub+gc
+	qfNcJaIj1Zy55qS0WiwY/o7RDwrVG1GS+sI2bifziqQbLotNPwdN+Iu3/gFoYg9C
+	Cnvi5QsGKFfoUhUKHGjC6L/dkDstw27V8Ptc3a6i6vmd881wAzFfFJ0+EeNISEWx
+	qSMRCOHeEd5EqTaey5ggevPOX+Yl/AiNzJpU0eW7iBhsfWBQTodGf9akTqmSMuIY
+	MPAUbTdthVT96Cb/oclY4rLourF7pqgHxiNZnJMmazkMvIsuQCxZTxSKUOM6I9rs
+	FB2w==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:message-id:mime-version:reply-to:subject
+	:subject:to:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
+	fm2; t=1752585232; x=1752671632; bh=Jl2/Bme3dggXyQm6j2e6aTPj1gIV
+	CZq+ikrQ9R6HsWo=; b=TKDo87+OdmGx4e81bbWK1skBP2sM9vFfNX/eV0JNEfYJ
+	9ixUmxx4P+04R/eYeGztZXCZyheIzJUoedwcRtfOSeRSVlTVNaEs0DB+2Gn13azu
+	TgB8/AESROjLwIeX2F78bNRiWbVkGuKMFcR83LPeSrHuys7RVTdNO9zqMxTEA1Ot
+	gmHUt8Q7nx0mJqs9ZLVboojAU3TpD+ercHA6pp0bjlwsBGTfq7ujFUolaOjRy/SA
+	nOkYDYkQdaZpgCRhpDb7qFj7/MD22Jul1odQBlK7SGDl2hVzonq4d5Gspcbof7ll
+	RL4vEN9TEKfzDXr6Z7uiqG37Pv/iqWCQkkUm2TLe6Q==
+X-ME-Sender: <xms:EFR2aMQ5F-LQjDcnHHfBbtu4-qBZwkwdvzDp8lmnYFofWWiDLv8_jw>
+    <xme:EFR2aJzMb6IwIdlYPYe9-YozNEcLmbHgNUkJ-rZEKRFGBiMJN_LtoNQfhmwltXy6J
+    3pI7bz6zREY6oRgv5c>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdehgeelvdcutefuodetggdotefrod
+    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
+    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
+    hrpefoggffhffvvefkufgtgfesthejredtredttdenucfhrhhomhepfdetrhhnugcuuegv
+    rhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrghtthgvrhhnpe
+    duleeigeekveeugeettdejtddtleeghefhvdfhueehtefhudelffduvdeuleevteenucff
+    ohhmrghinhepkhgvrhhnvghlrdhorhhgnecuvehluhhsthgvrhfuihiivgeptdenucfrrg
+    hrrghmpehmrghilhhfrhhomheprghrnhgusegrrhhnuggsrdguvgdpnhgspghrtghpthht
+    ohepgedpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtohepthhorhhvrghlughssehlih
+    hnuhigqdhfohhunhgurghtihhonhdrohhrghdprhgtphhtthhopehlihhnuhigqdgrrhhm
+    qdhkvghrnhgvlheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhope
+    hsohgtsehlihhsthhsrdhlihhnuhigrdguvghvpdhrtghpthhtoheplhhinhhugidqkhgv
+    rhhnvghlsehvghgvrhdrkhgvrhhnvghlrdhorhhg
+X-ME-Proxy: <xmx:EFR2aASGoGyY7XXes0xjcPeoQBPokPJRfpswH4YpHKrL4E5wTxiVuQ>
+    <xmx:EFR2aJQ6gx9OGwUiDeJqufoA-Urt6HIqnn3ILLArJMedxzdzKWu_Fg>
+    <xmx:EFR2aEQTki8U0Xfe-BDIiMN1hJ7fzUPbU3h5YHMAHc4Jj6ACR0BO4A>
+    <xmx:EFR2aO4IR266-QluDydF5lz0iNolTbTiFocyv-RaNcQC4vMqJtmMYA>
+    <xmx:EFR2aKh_chE7ibYhv7IQQckOU9OUYCuTm68ZtKFnSDvcP7wmdeEoXbWG>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 26369700065; Tue, 15 Jul 2025 09:13:52 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 04/10] arm64/boot: Enable EL2 requirements for
- SPE_FEAT_FDS
-To: Will Deacon <will@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
- Mark Rutland <mark.rutland@arm.com>, Jonathan Corbet <corbet@lwn.net>,
- Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
- Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
- Zenghui Yu <yuzenghui@huawei.com>, Peter Zijlstra <peterz@infradead.org>,
- Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>,
- Namhyung Kim <namhyung@kernel.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
- Adrian Hunter <adrian.hunter@intel.com>, leo.yan@arm.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-perf-users@vger.kernel.org, linux-doc@vger.kernel.org,
- kvmarm@lists.linux.dev
-References: <20250605-james-perf-feat_spe_eft-v3-0-71b0c9f98093@linaro.org>
- <20250605-james-perf-feat_spe_eft-v3-4-71b0c9f98093@linaro.org>
- <aHUMMk9JUdK6luLN@willie-the-truck>
- <04d52182-6043-4eaf-a898-9f8ccc893e5f@linaro.org>
- <aHZQH7QGhi5pbXU8@willie-the-truck>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <aHZQH7QGhi5pbXU8@willie-the-truck>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Date: Tue, 15 Jul 2025 15:13:31 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Linus Torvalds" <torvalds@linux-foundation.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ soc@lists.linux.dev
+Message-Id: <5f8e6b26-01ee-4941-9609-ed761a23f4d1@app.fastmail.com>
+Subject: soc: fixes for 6.16, part 2
+Content-Type: text/plain
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250715_061021_959658_581E567A 
-X-CRM114-Status: GOOD (  28.94  )
+X-CRM114-CacheID: sfid-20250715_061355_858901_7AED89FC 
+X-CRM114-Status: GOOD (  12.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,95 +107,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The following changes since commit 3f3fb97374308993dbe8884f44c2579a81b90bfa:
 
+  Merge tag 'apple-soc-fixes-6.16' of https://git.kernel.org/pub/scm/linux/kernel/git/sven/linux into arm/fixes (2025-07-03 16:27:31 +0200)
 
-On 15/07/2025 1:57 pm, Will Deacon wrote:
-> On Tue, Jul 15, 2025 at 01:48:03PM +0100, James Clark wrote:
->>
->>
->> On 14/07/2025 2:54 pm, Will Deacon wrote:
->>> On Thu, Jun 05, 2025 at 11:49:02AM +0100, James Clark wrote:
->>>> SPE data source filtering (optional from Armv8.8) requires that traps to
->>>> the filter register PMSDSFR be disabled. Document the requirements and
->>>> disable the traps if the feature is present.
->>>>
->>>> Tested-by: Leo Yan <leo.yan@arm.com>
->>>> Signed-off-by: James Clark <james.clark@linaro.org>
->>>> ---
->>>>    Documentation/arch/arm64/booting.rst | 11 +++++++++++
->>>>    arch/arm64/include/asm/el2_setup.h   | 14 ++++++++++++++
->>>>    2 files changed, 25 insertions(+)
->>>>
->>>> diff --git a/Documentation/arch/arm64/booting.rst b/Documentation/arch/arm64/booting.rst
->>>> index dee7b6de864f..abd75085a239 100644
->>>> --- a/Documentation/arch/arm64/booting.rst
->>>> +++ b/Documentation/arch/arm64/booting.rst
->>>> @@ -404,6 +404,17 @@ Before jumping into the kernel, the following conditions must be met:
->>>>        - HDFGWTR2_EL2.nPMICFILTR_EL0 (bit 3) must be initialised to 0b1.
->>>>        - HDFGWTR2_EL2.nPMUACR_EL1 (bit 4) must be initialised to 0b1.
->>>> +  For CPUs with SPE data source filtering (FEAT_SPE_FDS):
->>>> +
->>>> +  - If EL3 is present:
->>>> +
->>>> +    - MDCR_EL3.EnPMS3 (bit 42) must be initialised to 0b1.
->>>> +
->>>> +  - If the kernel is entered at EL1 and EL2 is present:
->>>> +
->>>> +    - HDFGRTR2_EL2.nPMSDSFR_EL1 (bit 19) must be initialised to 0b1.
->>>> +    - HDFGWTR2_EL2.nPMSDSFR_EL1 (bit 19) must be initialised to 0b1.
->>>> +
->>>>      For CPUs with Memory Copy and Memory Set instructions (FEAT_MOPS):
->>>>      - If the kernel is entered at EL1 and EL2 is present:
->>>> diff --git a/arch/arm64/include/asm/el2_setup.h b/arch/arm64/include/asm/el2_setup.h
->>>> index 1e7c7475e43f..02b4a7fc016e 100644
->>>> --- a/arch/arm64/include/asm/el2_setup.h
->>>> +++ b/arch/arm64/include/asm/el2_setup.h
->>>> @@ -279,6 +279,20 @@
->>>>    	orr	x0, x0, #HDFGRTR2_EL2_nPMICFILTR_EL0
->>>>    	orr	x0, x0, #HDFGRTR2_EL2_nPMUACR_EL1
->>>>    .Lskip_pmuv3p9_\@:
->>>> +	mrs	x1, id_aa64dfr0_el1
->>>> +	ubfx	x1, x1, #ID_AA64DFR0_EL1_PMSVer_SHIFT, #4
->>>> +	/* If SPE is implemented, */
->>>> +	cmp	x1, #ID_AA64DFR0_EL1_PMSVer_IMP
->>>> +	b.lt	.Lskip_spefds_\@
->>>> +	/* we can read PMSIDR and */
->>>> +	mrs_s	x1, SYS_PMSIDR_EL1
->>>> +	and	x1, x1,  #PMSIDR_EL1_FDS
->>>> +	/* if FEAT_SPE_FDS is implemented, */
->>>> +	cbz	x1, .Lskip_spefds_\@
->>>> +	/* disable traps to PMSDSFR. */
->>>> +	orr	x0, x0, #HDFGRTR2_EL2_nPMSDSFR_EL1
->>>
->>> Why is this being done here rather than alongside the existing SPE
->>> configuration of HDFGRTR_EL2 and HDFGWTR_EL2 near the start of
->>> __init_el2_fgt?
->>>
->> I thought everything was separated by which trap configs it writes to,
->> rather than the feature. This SPE feature is in HDFGRTR2 so I put it in
->> __init_el2_fgt2 rather than __init_el2_fgt.
-> 
-> That's fair; __init_el2_fgt isn't the right place. But the redundancy of
-> re-reading PMSVer from DFR0 is a little jarring.
-> 
->> I suppose we could have a single __init_el2_spe that writes to both HDFGRTR
->> and HDFGRTR2 but we'd have to be careful to not overwrite what was already
->> done in the other sections.
-> 
-> Right, perhaps it would be clearer to have trap-preserving macros for
-> features in a specific ID register rather than per-trap configuration
-> register macros.
-> 
-> In other words, we have something like __init_fgt_aa64dfr0 which would
-> configure the FGT and FGT2 registers based on features in aa64dfr0. I
-> think you'd need to have a play to see how it ends up looking but the
-> main thing to avoid is having duplicate ID register parsing code for
-> setting up FGT and FGT2 traps.
-> 
-> Will
+are available in the Git repository at:
 
-I'll give it a go but that could end up being fragile to something that 
-is dependent on two different ID registers in the future. Then we'd end 
-up in the same situation for a different reason.
+  https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git tags/soc-fixes-6.16-2
 
+for you to fetch changes up to 8f0837fdc5d832f0cd953f66db0cbfb2fa8909d2:
+
+  Merge tag 'qcom-arm64-defconfig-fixes-for-6.16' of https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux into arm/fixes (2025-07-11 13:41:10 +0200)
+
+----------------------------------------------------------------
+soc: fixes for 6.16, part 2
+
+There are 18 devicetree fixes for three arm64 plaforms: Qualcomm Snapdragon,
+Rockchips and NXP i.MX. These get updated to more correctly describe the
+hardware, fixing issues with:
+
+ - real-time clock on Snapdragon based laptops
+ - SD card detection, PCI probing and HDMI/DDC communication on
+   Rockchips
+ - Ethernet and SPI probing on certain i.MX based boards
+ - A regression with the i.MX watchdog
+
+Aside from the devicetree fixes, there are two additional fixes for the
+merged ASPEED LPC snoop driver that saw some changes in 6.16, and one
+additional driver enabled in arm64 defconfig to fix CPU frequency scaling.
+
+Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+
+----------------------------------------------------------------
+Alexey Charkov (1):
+      arm64: dts: rockchip: list all CPU supplies on ArmSoM Sige5
+
+Andrew Jeffery (2):
+      soc: aspeed: lpc-snoop: Cleanup resources in stack-order
+      soc: aspeed: lpc-snoop: Don't disable channels that aren't enabled
+
+Andy Yan (3):
+      arm64: dts: rockchip: Adjust the HDMI DDC IO driver strength for rk3588
+      arm64: dts: rockchip: Add cd-gpios for sdcard detect on Cool Pi CM5
+      arm64: dts: rockchip: Add cd-gpios for sdcard detect on Cool Pi 4B
+
+Arnd Bergmann (5):
+      Merge tag 'imx-fixes-6.16' of https://git.kernel.org/pub/scm/linux/kernel/git/shawnguo/linux into arm/fixes
+      Merge tag 'v6.16-rockchip-dtsfixes1' of https://git.kernel.org/pub/scm/linux/kernel/git/mmind/linux-rockchip into arm/fixes
+      Merge tag 'aspeed-6.16-fixes-0' of https://git.kernel.org/pub/scm/linux/kernel/git/bmc/linux into arm/fixes
+      Merge tag 'qcom-arm64-fixes-for-6.16' of https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux into arm/fixes
+      Merge tag 'qcom-arm64-defconfig-fixes-for-6.16' of https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux into arm/fixes
+
+Bjorn Andersson (1):
+      arm64: defconfig: Enable Qualcomm CPUCP mailbox driver
+
+Diederik de Haas (1):
+      arm64: dts: rockchip: Add missing fan-supply to rk3566-quartz64-a
+
+Francesco Dolcini (1):
+      arm64: dts: freescale: imx8mm-verdin: Keep LDO5 always on
+
+Jakob Unterwurzacher (1):
+      arm64: dts: rockchip: use cs-gpios for spi1 on ringneck
+
+Johan Hovold (2):
+      arm64: dts: qcom: sc8280xp-x13s: describe uefi rtc offset
+      arm64: dts: qcom: x1e80100: describe uefi rtc offset
+
+Meng Li (1):
+      arm64: dts: add big-endian property back into watchdog node
+
+Richard Zhu (1):
+      arm64: dts: imx95: Correct the DMA interrupter number of pcie0_ep
+
+Shawn Lin (1):
+      arm64: dts: rockchip: fix rk3576 pcie1 linux,pci-domain
+
+Tim Harvey (4):
+      arm64: dts: imx8mp-venice-gw71xx: fix TPM SPI frequency
+      arm64: dts: imx8mp-venice-gw72xx: fix TPM SPI frequency
+      arm64: dts: imx8mp-venice-gw73xx: fix TPM SPI frequency
+      arm64: dts: imx8mp-venice-gw74xx: fix TPM SPI frequency
+
+Wei Fang (2):
+      arm64: dts: imx95-19x19-evk: fix the overshoot issue of NETC
+      arm64: dts: imx95-15x15-evk: fix the overshoot issue of NETC
+
+ arch/arm64/boot/dts/freescale/fsl-ls1046a.dtsi     |  3 +-
+ arch/arm64/boot/dts/freescale/imx8mm-verdin.dtsi   |  1 +
+ .../boot/dts/freescale/imx8mp-venice-gw71xx.dtsi   |  2 +-
+ .../boot/dts/freescale/imx8mp-venice-gw72xx.dtsi   |  2 +-
+ .../boot/dts/freescale/imx8mp-venice-gw73xx.dtsi   |  2 +-
+ .../boot/dts/freescale/imx8mp-venice-gw74xx.dts    |  2 +-
+ arch/arm64/boot/dts/freescale/imx95-15x15-evk.dts  | 20 ++++++-------
+ arch/arm64/boot/dts/freescale/imx95-19x19-evk.dts  | 12 ++++----
+ arch/arm64/boot/dts/freescale/imx95.dtsi           |  2 +-
+ .../dts/qcom/sc8280xp-lenovo-thinkpad-x13s.dts     |  2 ++
+ arch/arm64/boot/dts/qcom/x1e80100-pmics.dtsi       |  1 +
+ arch/arm64/boot/dts/rockchip/px30-ringneck.dtsi    | 23 ++++++++++++++
+ arch/arm64/boot/dts/rockchip/rk3566-quartz64-a.dts |  1 +
+ .../boot/dts/rockchip/rk3576-armsom-sige5.dts      | 28 +++++++++++++++++
+ arch/arm64/boot/dts/rockchip/rk3576.dtsi           |  2 +-
+ .../boot/dts/rockchip/rk3588-base-pinctrl.dtsi     | 20 ++++++-------
+ .../arm64/boot/dts/rockchip/rk3588-coolpi-cm5.dtsi |  1 +
+ .../boot/dts/rockchip/rk3588-extra-pinctrl.dtsi    |  5 ++--
+ arch/arm64/boot/dts/rockchip/rk3588s-coolpi-4b.dts |  1 +
+ arch/arm64/boot/dts/rockchip/rockchip-pinconf.dtsi | 35 ++++++++++++++++++++++
+ arch/arm64/configs/defconfig                       |  1 +
+ drivers/soc/aspeed/aspeed-lpc-snoop.c              | 13 +++++++-
+ 22 files changed, 143 insertions(+), 36 deletions(-)
 
