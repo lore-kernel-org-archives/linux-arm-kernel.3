@@ -4,102 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 475F3C83F22
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 12:10:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDD25C83F22
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 12:12:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hHReatZjTtUpe1C3asy2R8IM8Kcv0kDyXvZK9XlQ+lk=; b=usBI7mA29qSgl6+K9D+MNmH3Im
-	Jy7Lx6Q/tymF0sUoFcqCIqnbqzINTlrmNK2YQ/q90dGuZnAcuvB0ThTeIlyFWPccsiWvmUHCXdOi8
-	jDAJmcgqqUbjRBI08Lt7j68YMDN1gxLSOQ3po2BSz18CSAHMlU8OnYUFcfPiJmgzHaAMDJIpLtJc/
-	H6F1DuRPTQIXZy/2eykCBC5jlterB8FEMYIPwfvdvJdixca7TvL+Dk8OnUkQ8VhJvLpkq/yaL0pxy
-	mkTxWelz7JZJx9I/yDoeEARAeYb9Ar0aIJDrbxV4A61lnQe3AxB+Q8j8ag0Phj/sxVsw/vciDE5Wj
-	tIPsnrAg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4wNySUjatYeI6OvV2zA4z/a1VqMlHoZrAYnvby/JKWM=; b=W+hxIis1z3F/yJfWGrHWlczvwQ
+	V2YoKMB/5kW5LeDHIauShbN3NTqsIZKY59U/F5sef6wh0xv83fWOazs1bOX8u6uFeU+JKY5utQK5i
+	aRL/oCn9Tybhqd4j4xanRtniLXN7RpdWaoCVmuEt2TUNQr/mw0OnNQFnQGfa20Q6GNyZMauOK6Sux
+	aXErg29+o4xKVmZ7jIx1JnY81vwBzu23X7dhoDmrFnow59caCWusY5SsRdgsdkwGTJMr2wiOOk2hj
+	DsbG5tcs/PA0/LVsQ4JrSdJE30MMJs8exy/RkWgEH7HRswHnBChtac/yNR01JO03doLAGZsN1iQ85
+	+pGFLGPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubeUJ-0000000528Z-0EQI;
-	Tue, 15 Jul 2025 12:10:23 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	id 1ubeWh-000000052Lq-3DZX;
+	Tue, 15 Jul 2025 12:12:51 +0000
+Received: from mail-yb1-xb2e.google.com ([2607:f8b0:4864:20::b2e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubeAl-00000004zER-3buB
+	id 1ubeAu-00000004zGt-1EJ9
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Jul 2025 11:50:13 +0000
-Received: from pps.filterd (m0241204.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56FAMQbh029486;
-	Tue, 15 Jul 2025 13:50:00 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	hHReatZjTtUpe1C3asy2R8IM8Kcv0kDyXvZK9XlQ+lk=; b=fh1rHRZFK1nk6lOl
-	QbM6QkNeuozHJiMlDadg5eg4wTOYpYUEAqkTUs/wyIKHs5Zgzpg+pLlxiN8MgaKm
-	bYyrWD2O1fcy3KvdQuvn5Fg9A1fZapLlwseM31NycwEJBo0KtooSCux9wrY5uz80
-	BV/lSVKPFfmiz2MtxFR0I7C5E/ywPZsJm+KsXnT0xFjJUl4dx8mGSpBEBlN/ME4n
-	FrIgVucwo7SYOMDj9zZBZ7Af9SlkxNRHYeEeKLjFZacUSW4Zl2w5Rh/jWbdEyof4
-	5q5IF/tl04yy90VT9LKnTtqbHEjaicGs8F5dMrjP1vooB4JeAOeTs1reIt+9hneq
-	2MmeQA==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 47uf22n5c4-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 15 Jul 2025 13:50:00 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id BF21B4002D;
-	Tue, 15 Jul 2025 13:48:36 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 0025EB23763;
-	Tue, 15 Jul 2025 13:47:39 +0200 (CEST)
-Received: from [10.48.86.185] (10.48.86.185) by SHFDAG1NODE2.st.com
- (10.75.129.70) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Tue, 15 Jul
- 2025 13:47:38 +0200
-Message-ID: <cfeaa4b0-6894-4363-ba43-25eee31ed497@foss.st.com>
-Date: Tue, 15 Jul 2025 13:47:38 +0200
+	Tue, 15 Jul 2025 11:50:21 +0000
+Received: by mail-yb1-xb2e.google.com with SMTP id 3f1490d57ef6-e8bb7beb33dso459149276.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Jul 2025 04:50:19 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1752580219; x=1753185019; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=4wNySUjatYeI6OvV2zA4z/a1VqMlHoZrAYnvby/JKWM=;
+        b=kyRAzLd/gmAmKC7vtfWemRCr6CLunPG65M/jBvyhN3IyNSHenwgfX+zkCYMz/Hppl2
+         n2B97L6RtqKltbkK0fhIYLDSOq1LU6zfEqo6zJ51gkurJ/dJN4ojm5u/Nv7O01eitz85
+         21nwMI+KYPA1Av7ZiDSK6IsXl1TV4cobsSogUFfvztYK8ildQZo6zgKtiqHpmbuo+QqC
+         2oblNomDYqsK1gIi5vw0UfpIltRS/zV6TWTARag4lUAnIPl8cxlnSeNCrkXJj2SKhwRq
+         QiQcUu0pRb+c2zrZ4BsZP88MRymszReh+KRtCxZGzmc/z/0blifia5WanLtLJ6vSDKGA
+         j+WQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1752580219; x=1753185019;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=4wNySUjatYeI6OvV2zA4z/a1VqMlHoZrAYnvby/JKWM=;
+        b=sBSt7xgO4XKDBNWdWB3v8Y4v2qmqhtlL8IAGKBZF5g7bYTKU8Cu65hnvWWLXF90zXB
+         8EnWBzUyB6629AsR27Nn6Q2Bg2zT/xAOX2J13dnQn06IU1rXfdN2EH4l/rY2PzN9mDiL
+         50yFyeuGskvhT4Y28LWi5n2ley30G8LpnDiP4SUNDLsoP/AePEUyo/Y8qVTY7ei4MRFS
+         e9zziVy7rIEZyUGWFWkzMl9OMWzKjAXLthXR3ss9D8WCoqjUkg8JeO1QjyiajMLR9neY
+         K/LFEglo47/gsBWhSXFM2AHVFaAgaXUJqbqYyq4zqNesBNJXjWdsCkShxJyzC6AA4UGJ
+         B/1Q==
+X-Forwarded-Encrypted: i=1; AJvYcCUSZUY2pEnWSwSGXeaTGp249E2tnX+yuu7z6eII84BinyOxTHoectkDcxQk9nPoKFgfKv78PBi0p+x3GQySL8uz@lists.infradead.org
+X-Gm-Message-State: AOJu0YwRam7ZOTJcL8tEyfTfpBwKXFhv1GIg9+A/2gpjlLRkqZFUqi3/
+	RPaNR3axbBiFso2iHACk5j6Xil3joLwi0mzHsTpsRuKML2hO1hnJDs6bBBlKZHKp2z1IwP7EsAC
+	od/I3HRyqwPf5h2s+8gDP3zV67puu+PMBLbd0W//VoeLyKTY56rl/
+X-Gm-Gg: ASbGncu4wOzoxehAN5b0gcNKIM6xpP7EUlg9PHkHuBkxm9gP8t6lUkaZhYz6Sh1Qvv8
+	k9agBogL6u9FGt/F/hU/H3DEP2FneBnPce61pAYnFw/SGBRQymsTES41CYNXNg2UYW0595s2oHY
+	yfqWZt120rA3reX1JtSugV5nOLjvskB00X4pY3mru8qbigBlIpYGRQO44T70PR+wBR+0VpRD7h+
+	g4BI5F/
+X-Google-Smtp-Source: AGHT+IF/K38yeveYq70L/mHAPtfjeL+GIee4NoKApQPc4/AmworpqftrKbu0K7Q7h4oLInJZL2btkmXzEuBJtreqbG4=
+X-Received: by 2002:a05:690c:7483:b0:716:3dc5:a35f with SMTP id
+ 00721157ae682-717d5e94ad5mr256657057b3.19.1752580218628; Tue, 15 Jul 2025
+ 04:50:18 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 02/16] dt-bindings: stm32: stm32mp25: add
- `access-controller-cell` property
-To: Rob Herring <robh@kernel.org>
-CC: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue
-	<alexandre.torgue@foss.st.com>,
-        Philipp Zabel <p.zabel@pengutronix.de>,
-        Jonathan Corbet <corbet@lwn.net>,
-        Gatien Chevallier
-	<gatien.chevallier@foss.st.com>,
-        Michael Turquette <mturquette@baylibre.com>,
-        Stephen Boyd <sboyd@kernel.org>,
-        Gabriel Fernandez
-	<gabriel.fernandez@foss.st.com>,
-        Krzysztof Kozlowski <krzk@kernel.org>,
-        Le
- Goffic <legoffic.clement@gmail.com>,
-        <linux-arm-kernel@lists.infradead.org>,
-        <linux-perf-users@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-kernel@vger.kernel.org>, <linux-doc@vger.kernel.org>,
-        <linux-clk@vger.kernel.org>
-References: <20250711-ddrperfm-upstream-v2-0-cdece720348f@foss.st.com>
- <20250711-ddrperfm-upstream-v2-2-cdece720348f@foss.st.com>
- <20250715031717.GA4144523-robh@kernel.org>
-Content-Language: en-US
-From: Clement LE GOFFIC <clement.legoffic@foss.st.com>
-In-Reply-To: <20250715031717.GA4144523-robh@kernel.org>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.48.86.185]
-X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE2.st.com
- (10.75.129.70)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.7,FMLib:17.12.80.40
- definitions=2025-07-15_01,2025-07-14_01,2025-03-28_01
+References: <20250629172512.14857-1-hiagofranco@gmail.com> <aGazjaJQXl03HUJE@p14s>
+In-Reply-To: <aGazjaJQXl03HUJE@p14s>
+From: Ulf Hansson <ulf.hansson@linaro.org>
+Date: Tue, 15 Jul 2025 13:49:42 +0200
+X-Gm-Features: Ac12FXwJ5N_wrB84X7RLvjAxpSUj8wCAKwcHpPhNOwV7kx7yjVIlAOOax7yXEA4
+Message-ID: <CAPDyKFpUF+S8EqVsHct7TFZGupq71Bu7eL3t2Sr=ibhZ518nsQ@mail.gmail.com>
+Subject: Re: [PATCH v7 0/3] remoteproc: imx_rproc: allow attaching to running
+ core kicked by the bootloader
+To: Mathieu Poirier <mathieu.poirier@linaro.org>
+Cc: Hiago De Franco <hiagofranco@gmail.com>, linux-pm@vger.kernel.org, 
+	linux-remoteproc@vger.kernel.org, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Bjorn Andersson <andersson@kernel.org>, 
+	Hiago De Franco <hiago.franco@toradex.com>, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Peng Fan <peng.fan@oss.nxp.com>, daniel.baluta@nxp.com, iuliana.prodan@oss.nxp.com, 
+	"Rafael J . Wysocki" <rafael@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250715_045012_404134_C615CF7D 
-X-CRM114-Status: GOOD (  17.48  )
+X-CRM114-CacheID: sfid-20250715_045020_341167_80353F21 
+X-CRM114-Status: GOOD (  26.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,41 +99,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Rob,
+Hi Mathieu,
 
-On 7/15/25 05:17, Rob Herring wrote:
-> On Fri, Jul 11, 2025 at 04:48:54PM +0200, Clément Le Goffic wrote:
->> RCC is able to check the availability of a clock.
->> Allow to query the RCC with a firewall ID.
-> 
-> If it is tied to a clock, do we need another provider? We have the
-> "protected clocks" thing, but that might be a bit different.
+On Thu, 3 Jul 2025 at 18:45, Mathieu Poirier <mathieu.poirier@linaro.org> wrote:
+>
+> Hi Hiago,
+>
+> Many thanks for re-working the changelog and comments in this patchset, things
+> are much clearer now.
+>
+> Thanks,
+> Mathieu
+>
+> On Sun, Jun 29, 2025 at 02:25:09PM -0300, Hiago De Franco wrote:
+> > From: Hiago De Franco <hiago.franco@toradex.com>
+> >
+> > This patch series depends on Ulf's patches that are currently under
+> > review, "pmdomain: Add generic ->sync_state() support to genpd" [1].
+> > Without them, this series is not going to work.
 
-What I understand is that the "protected-clocks" list is here to flag 
-clocks as protected and the access to it and its register by the kernel 
-may cause the reboot of the platform.
-The current qcom implementation just drop clocks so no one can access to 
-it after they are registered.
-For my understanding if you know why the kernel needs the information 
-"this clock can't be accessed", I would be interested/
+The series above have been queued for v6.17 in my pmdomain tree.
 
-Without the STM32 RCC driver modification, if we access to the DDRPERFM 
-peripheral register when the clock is secured we face the same issue, we 
-end up rebooting the platform.
+Do I have your ack to pick $subject series via my pmdomain tree for
+v6.17 too or do you think it's better to postpone to v6.18?
 
-Our RCC peripheral is able to know if our DDR subsystem clock (that is 
-shared between our DDR controller and DDRPERFM peripheral) is secured or 
-not, so we can access or not to DDRPERFM register.
-It is the aim of the "access-controller" related code.
+Kind regards
+Uffe
 
-Correct me if I'm wrong but to me the difference might be that the 
-"protected-clocks" property is here to list in the DT clocks that can't 
-be accessed and that this information is not in the hardware.
-
-In the STM32MP25 we are able to get this information through RCC 
-dedicated register. You can look at the `stm32_rcc_get_access()` 
-function in drivers/clk/stm32/clk-stm32mp25.c if needed.
-
-Best regards,
-Clément
+> >
+> > For the i.MX8X and i.MX8 family SoCs, currently when the remotecore is
+> > started by the bootloader and the M core and A core are in the same
+> > partition, the driver is not capable to detect the remote core and
+> > report the correct state of it.
+> >
+> > This patch series implement a new function, dev_pm_genpd_is_on(), which
+> > returns the power status of a given power domain (M core power domains
+> > IMX_SC_R_M4_0_PID0 and IMX_SC_R_M4_0_MU_1A in this case). If it is
+> > already powered on, the driver will attach to it.
+> >
+> > Finally, the imx_rproc_clk_enable() function was also changed to make it
+> > return before dev_clk_get() is called, as it currently generates an SCU
+> > fault reset if the remote core is already running and the kernel tries
+> > to enable the clock again. These changes are a follow up from a v1 sent
+> > to imx_rproc [2] and from a reported regression [3].
+> >
+> > [1] https://lore.kernel.org/all/20250523134025.75130-1-ulf.hansson@linaro.org/
+> > [2] https://lore.kernel.org/lkml/20250423155131.101473-1-hiagofranco@gmail.com/
+> > [3] https://lore.kernel.org/lkml/20250404141713.ac2ntcsjsf7epdfa@hiago-nb/
+> >
+> > v7:
+> > - Added Peng reviewed-by.
+> > v6:
+> > - https://lore.kernel.org/all/20250626215911.5992-1-hiagofranco@gmail.com/
+> > v5:
+> > - https://lore.kernel.org/all/20250617193450.183889-1-hiagofranco@gmail.com/
+> > v4:
+> > - https://lore.kernel.org/lkml/20250602131906.25751-1-hiagofranco@gmail.com/
+> > v3:
+> > - https://lore.kernel.org/all/20250519171514.61974-1-hiagofranco@gmail.com/
+> > v2:
+> > - https://lore.kernel.org/lkml/20250507160056.11876-1-hiagofranco@gmail.com/
+> > v1:
+> > - https://lore.kernel.org/lkml/20250505154849.64889-1-hiagofranco@gmail.com/
+> >
+> > Hiago De Franco (3):
+> >   pmdomain: core: introduce dev_pm_genpd_is_on()
+> >   remoteproc: imx_rproc: skip clock enable when M-core is managed by the
+> >     SCU
+> >   remoteproc: imx_rproc: detect and attach to pre-booted remote cores
+> >
+> >  drivers/pmdomain/core.c        | 33 +++++++++++++++++++++++++++
+> >  drivers/remoteproc/imx_rproc.c | 41 ++++++++++++++++++++++++++++------
+> >  include/linux/pm_domain.h      |  6 +++++
+> >  3 files changed, 73 insertions(+), 7 deletions(-)
+> >
+> > --
+> > 2.39.5
+> >
 
