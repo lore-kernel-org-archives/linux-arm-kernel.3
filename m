@@ -4,121 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA4A0C83F34
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7636C83F22
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 19:19:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=BNkbdlnyVeyiuJl/LuQynlCGcW0q6IqyyAK39bqKDW0=; b=egVT7gSPD0CHiV3EdySWjqs7LC
-	DDZV96mDGEGwdAM5R1LJ9J4e98MJqHG7NXrbmsonsmINYaDmZ0nmsF1vorfqD8q1uMwf777JeksQc
-	FK0NcsqNDIYr8Y+pSK5LXixdmwaws3RUtjDPgrrq4tJgGQ5bBGPhS3S+8LDNlyBvbwe8ha76x/SrD
-	LXYYgjRAGCXrZMhbzvBZf4ovqSOXVtDcKzAlvKpXTnJ/Oj3sSuGutBaGFOll2TQfQON2L1Bz7mZ/G
-	15J9HP9TXNt1w1fdIKwQSvDmQxlkRZJqCU0JAgcZhefq3KGNmdQmdWjoiWpoJnQLhWj6B8he4HzzP
-	EqdD8UJg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yL4wSRtPtkNOyj5ARmviH3RFGE0B4hQu0q3BGeMkrXY=; b=ekUaAXfKGa6qXV3vNDc+RA5Gc9
+	ErwqpAgGId4LMMLhLHqDNL+/apuxPfvlAMZZ5OLvmbyP7LlFV3FqLbHfSzq6J+XhYsz8syxjQkdFl
+	yMg2tT7jnDbI9MPPtVoKXEm3Jfgb6Rw+pJaNNjScoI0xt5YT8ys8xzMWHOXTT2oepCc5KOubYWKhy
+	uh4fMaV6ocgLAIGqMj/phfqnSmjdM44nbd+ClkXa7KMBW//781TGMaOZZCbiEyGjUjYa8KpIBA0FB
+	IKmTZ61z+0G1yclA9a16JasxBjMSJaVupGhILBW2HfQugK19bh1nQaoNf8XU0S+j9nUiNR3Gwzhez
+	CpTcgunw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ublBO-000000061Ka-1ZYe;
-	Tue, 15 Jul 2025 19:19:18 +0000
-Received: from mout.gmx.net ([212.227.17.20])
+	id 1ublBN-000000061K6-3Emj;
+	Tue, 15 Jul 2025 19:19:17 +0000
+Received: from mail-ed1-f51.google.com ([209.85.208.51])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubiFQ-00000005hpR-440L
+	id 1ubiDo-00000005hc6-2wr3
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Jul 2025 16:11:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
-	s=s31663417; t=1752595872; x=1753200672; i=wahrenst@gmx.net;
-	bh=BNkbdlnyVeyiuJl/LuQynlCGcW0q6IqyyAK39bqKDW0=;
-	h=X-UI-Sender-Class:From:To:Cc:Subject:Date:Message-Id:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:cc:
-	 content-transfer-encoding:content-type:date:from:message-id:
-	 mime-version:reply-to:subject:to;
-	b=aTHCq0loR7lTf6A/gRtkZLhcSQNavRTmkFXg3v6pWeGx3/ioIwz/0WBUnfKNcJJa
-	 5BwSzLmDmf5NfWWLuoNHQTXfnGYRaUFMlA9U7oIX0dnpVas5gsP3UUxJ6kedU3d3g
-	 v4NjKTsIoTpMG+TFtsLKwo0Igmmw46p89mYkorb6KMz/5o8TeHJnxptascg6np7yx
-	 hWvrzFO8WvemgUP40tz8rfzyvusJBnfF0wICC33/l9Ga+eogsSwBqIQfcPHi38MgI
-	 8gFEyx9mjE4773wVUHxx9KW07lZUkgL8jbFdiVB+HhIB+BCxRhq8xDTtUEkIy0UyZ
-	 lkfco4Yyt6frWc922A==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from stefanw-SCHENKER ([91.41.216.208]) by mail.gmx.net (mrgmx104
- [212.227.17.168]) with ESMTPSA (Nemesis) id 1MGhuU-1uNuja1SJm-009lGU; Tue, 15
- Jul 2025 18:11:12 +0200
-From: Stefan Wahren <wahrenst@gmx.net>
-To: Florian Fainelli <florian.fainelli@broadcom.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Dan Carpenter <dan.carpenter@linaro.org>,
-	linux-arm-kernel@lists.infradead.org,
-	bcm-kernel-feedback-list@broadcom.com,
-	kernel-list@raspberrypi.com,
-	linux-staging@lists.linux.dev,
-	Stefan Wahren <wahrenst@gmx.net>
-Subject: [PATCH V2 0/3] staging: vchiq_arm: Fix regression & resource leaks
-Date: Tue, 15 Jul 2025 18:11:05 +0200
-Message-Id: <20250715161108.3411-1-wahrenst@gmx.net>
-X-Mailer: git-send-email 2.34.1
+	Tue, 15 Jul 2025 16:09:38 +0000
+Received: by mail-ed1-f51.google.com with SMTP id 4fb4d7f45d1cf-60c60f7eeaaso8840132a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Jul 2025 09:09:36 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1752595775; x=1753200575;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=yL4wSRtPtkNOyj5ARmviH3RFGE0B4hQu0q3BGeMkrXY=;
+        b=eqjHfux2vttZytxHM2y039nn58R78NfSG/D1DwCHTeUnxP6x8xwZmAL86IZqvqJAOW
+         rFzYIDXXooSZIUOqbQlOO281aYgG9NaKl7TJ43nfi3h+WZzBM56zZDquHcJv4oj8j5j3
+         +DhXYz9xev2m3QtJDyJinVNXdo71VNathIXmNEZbwW65ZnP0s6SxPTngBIa2uZwuUsRM
+         RYi/QNdvcgF8XbYiGFijJvILV0asrd6fTYzt4LvYGx9Ddwas1F4L0ivNB9LXZTxvUVji
+         mTAk92h7ncouInV5WXbjEIwhbo7inN6QsmXpQOD5k+clUG8ZOWptgb5bvV72ZWhj61x/
+         +Dbw==
+X-Forwarded-Encrypted: i=1; AJvYcCXdREpEoBoe93snimnwgNuXwgqhLYNEoNXnKVZhV5OpfXUD4hKAoX+2eYzfowhIW+1zM8xT+SQcXc+tUgGsxEWu@lists.infradead.org
+X-Gm-Message-State: AOJu0YzM4iqmlACVR2y94zLryfROph3a8uGHCvpnEXa2+o5y3dtxueq6
+	HhQKFYyj5AgJEUHRQzqkoy8rFQG7lpn5Kh0POUJsugvz+5b0+I3WbxjA01ah9w==
+X-Gm-Gg: ASbGncvagcnK0p8ZVyztKJ4qFVjoqg0MJkVAhxLijbW40FTKCZvH646IXyZ+WbWpKZf
+	UUSC16wIFzVdD6WnQbKd95+WMAffR7/Ps5rRtulf4sxyiJdTxHF/5QvTwxQCYfVB2LQP1ep30RF
+	xbEfgQPhjBtXsiblNM3HGXsp3aEBWfes0DNAhnHxqAOP5IBXWHtnkNHEaQl9IF08BkRTti75Lkj
+	5oWKBZVq3H11WeYQxPT3HCTBiZ1W4ecyl42fwfBWgJBmuNVt2rFKRxqHBULFZnYfJWt8dT08LML
+	+3aPgSsVXc990xr547ebMavVQofhRTXGIzZ7+gXUwKzNNesv/rAoNrYeRz4NW9tRY37iP2CPpbU
+	Nv/NoT6/8q8Io4bv5iz+5uvY=
+X-Google-Smtp-Source: AGHT+IE1uu7wwwSQuObs3SyvQf1CQnWwPhqS50eFzItnbnbLMZnj4W2EefIlYTGUtl2pAQDm0q9ODA==
+X-Received: by 2002:a17:907:944c:b0:ae0:b3be:f214 with SMTP id a640c23a62f3a-ae9c994a31emr8267466b.9.1752595774660;
+        Tue, 15 Jul 2025 09:09:34 -0700 (PDT)
+Received: from gmail.com ([2a03:2880:30ff:6::])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ae6e82962acsm1025469666b.139.2025.07.15.09.09.33
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 15 Jul 2025 09:09:34 -0700 (PDT)
+Date: Tue, 15 Jul 2025 09:09:32 -0700
+From: Breno Leitao <leitao@debian.org>
+To: Will Deacon <will@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, kernel-team@meta.com, 
+	osandov@fb.com, leo.yan@arm.com, rmikey@meta.com
+Subject: Re: [PATCH] arm64: traps: Mark kernel as tainted on SError panic
+Message-ID: <dswbcfrlrrhikpjjrr2aluipb7qn4stfmrept27nr2b4egeg3x@pgt73zwmfm7x>
+References: <20250710-arm_serror-v1-1-2a3def3740d7@debian.org>
+ <aHQ3Lu27_mLfR8Ke@willie-the-truck>
+ <t3v2xvjal67bl5dwyatwgf46tnr2ikxnq62iqmda544llcd7oh@ws3nnrfp7r5p>
+ <aHZfZbxLGyFjJpNo@willie-the-truck>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:PKy6QQQiPNc9emouQ6eND8VzfWe4RvXJHFkgvgTMEmXwQGzhbbO
- Use9zvrBGt9Xavgoj7zAhVL38ZgVqSheiG96hUUY+gKnaOqDh2J1sQr7LlGAikcl7zpVfuY
- niK3P3GUESFe70QX3UH9KUaDv81pePODFUvsb4diEzBPdfEPcDpCS/whmzdR6kjWiEF6Bfc
- Vl5e8stITFkYJcCALQhDw==
-UI-OutboundReport: notjunk:1;M01:P0:qxiuRUWcxXE=;tecQpyE9JNfqLLJhruOmqvrrMcU
- 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
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aHZfZbxLGyFjJpNo@willie-the-truck>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250715_091117_376934_6841D753 
-X-CRM114-Status: UNSURE (   8.45  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250715_090936_743057_E0519B95 
+X-CRM114-Status: GOOD (  27.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,24 +90,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This small series fixes a regression introduced by recent changes and
-possible resource leaks in the VCHIQ driver.
+On Tue, Jul 15, 2025 at 03:02:13PM +0100, Will Deacon wrote:
+> On Mon, Jul 14, 2025 at 05:26:43AM -0700, Breno Leitao wrote:
+> > On Sun, Jul 13, 2025 at 11:46:06PM +0100, Will Deacon wrote:
+> > > On Thu, Jul 10, 2025 at 03:46:35AM -0700, Breno Leitao wrote:
+> > 
+> > > > --- a/arch/arm64/kernel/traps.c
+> > > > +++ b/arch/arm64/kernel/traps.c
+> > > > @@ -931,6 +931,7 @@ void __noreturn panic_bad_stack(struct pt_regs *regs, unsigned long esr, unsigne
+> > > >  
+> > > >  void __noreturn arm64_serror_panic(struct pt_regs *regs, unsigned long esr)
+> > > >  {
+> > > > +	add_taint(TAINT_MACHINE_CHECK, LOCKDEP_STILL_OK);
+> > > >  	console_verbose();
+> > > >  
+> > > >  	pr_crit("SError Interrupt on CPU%d, code 0x%016lx -- %s\n",
+> > > 
+> > > If we're going to taint for SError, shouldn't we also taint for an
+> > > unclaimed SEA?
+> > 
+> > Yes. I was not very familiar with SEA errors, given I haven't seen on in
+> > production yet, but, reading about it, that is another seems to crash
+> > the system due to hardware errors, thus, we want to taint MACHINE_CHECK.
+> > 
+> > What about this?
+> > 
+> > 	Author: Breno Leitao <leitao@debian.org>
+> > 	Date:   Mon Jul 14 05:16:55 2025 -0700
+> > 
+> > 	arm64: Taint kernel on fatal hardware error in do_sea()
+> > 
+> > 	This patch updates the do_sea() handler to taint the kernel with
+> > 	TAINT_MACHINE_CHECK when a fatal hardware error is detected and
+> > 	reported through Synchronous External Abort (SEA). By marking
+> > 	the kernel as tainted at the point of error, we improve
+> > 	post-mortem diagnostics and make it clear that a machine check
+> > 	or unrecoverable hardware fault has occurred.
+> > 
+> > 	Suggested-by: Will Deacon <will@kernel.org>
+> > 	Signed-off-by: Breno Leitao <leitao@debian.org>
+> > 
+> > 	diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
+> > 	index 11eb8d1adc84..f590dc71ce99 100644
+> > 	--- a/arch/arm64/mm/fault.c
+> > 	+++ b/arch/arm64/mm/fault.c
+> > 	@@ -838,6 +838,7 @@ static int do_sea(unsigned long far, unsigned long esr, struct pt_regs *regs)
+> > 			*/
+> > 			siaddr  = untagged_addr(far);
+> > 		}
+> > 	+	add_taint(TAINT_MACHINE_CHECK, LOCKDEP_STILL_OK);
+> > 		arm64_notify_die(inf->name, regs, inf->sig, inf->code, siaddr, esr);
+> > 
+> > 		return 0;
+> 
+> Yeah, I reckon so. Probably just fold these into a single patch, though.
 
-Changes in V2:
-- Add Ma=C3=ADra's Reviewed-bys
-- Fix Reported address in patch #2
+Thanks. I test it better tomorrow, then send it.
 
-Stefan Wahren (3):
-  Revert "staging: vchiq_arm: Improve initial VCHIQ connect"
-  Revert "staging: vchiq_arm: Create keep-alive thread during probe"
-  staging: vchiq_arm: Make vchiq_shutdown never fail
-
- .../interface/vchiq_arm/vchiq_arm.c           | 98 +++++++++++--------
- .../interface/vchiq_arm/vchiq_core.c          |  1 -
- .../interface/vchiq_arm/vchiq_core.h          |  2 -
- 3 files changed, 56 insertions(+), 45 deletions(-)
-
-=2D-=20
-2.34.1
-
+Thanks for the suggestions,
+--breno
 
