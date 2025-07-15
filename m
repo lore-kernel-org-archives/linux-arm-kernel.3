@@ -4,76 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83BE3C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 19:19:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA4A0C83F34
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 19:19:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dDwKwGy83v/4eR4SIJL8NSBntdgsfqG+PCImXCZ31AQ=; b=JKr8FRW9GO+qqdHq48zEguhfAD
-	HQBn/S6r+Ep/Dz6RS8UTQAboNQm98zJ2pPJLvmIoFa9qKKqSDr3DvMgSp5AddqlMtD7q5K75DFVnf
-	LzyNHmzteaws6ie209O7pQyEWW7NLsu7+yOiOJn4vErvDx9IwuyqgBDexE/uXujWMDzKHBuo3gIVl
-	aotPtFEnDR9bIlmdRTAf3wotIekkFsnytucDBnVY8t/MAXJTSf++5IOHn9kMgWQpICmbEV9Mx+ADB
-	NNdJLCb/Pz6yUJRd27UQnzRKQtZ61xRSg2wqVohosuwtLZ2KFX+H0mBnxEm9cs7N7tHrJt6wmkpna
-	Fi2odHNg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=BNkbdlnyVeyiuJl/LuQynlCGcW0q6IqyyAK39bqKDW0=; b=egVT7gSPD0CHiV3EdySWjqs7LC
+	DDZV96mDGEGwdAM5R1LJ9J4e98MJqHG7NXrbmsonsmINYaDmZ0nmsF1vorfqD8q1uMwf777JeksQc
+	FK0NcsqNDIYr8Y+pSK5LXixdmwaws3RUtjDPgrrq4tJgGQ5bBGPhS3S+8LDNlyBvbwe8ha76x/SrD
+	LXYYgjRAGCXrZMhbzvBZf4ovqSOXVtDcKzAlvKpXTnJ/Oj3sSuGutBaGFOll2TQfQON2L1Bz7mZ/G
+	15J9HP9TXNt1w1fdIKwQSvDmQxlkRZJqCU0JAgcZhefq3KGNmdQmdWjoiWpoJnQLhWj6B8he4HzzP
+	EqdD8UJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ublBN-000000061JY-0hg6;
-	Tue, 15 Jul 2025 19:19:17 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1ublBO-000000061Ka-1ZYe;
+	Tue, 15 Jul 2025 19:19:18 +0000
+Received: from mout.gmx.net ([212.227.17.20])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubiCD-00000005hTX-2mbx
+	id 1ubiFQ-00000005hpR-440L
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Jul 2025 16:07:58 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id CD3D45C4248;
-	Tue, 15 Jul 2025 16:07:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 42207C4CEE3;
-	Tue, 15 Jul 2025 16:07:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752595676;
-	bh=92vM89H319kLp8p2XpLxnfznxqmrIenWM4aQHIRBrXk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=RsD31o2gsWD6TDtzTl/d0SS/6Wdo0kSKjMBctHAM1NDaebqlaca+1uuOoIck8uMOF
-	 E70n5fZ/HPplENYVwPGdXbce3jpHOW+TunUtS7a4aoBhVa9vCqG/VlP7TQ5ptyshKa
-	 yNRSGCG0r8TbjcewNDjuIfyQNw14hGBh4acuozbXUzqYzvM1YsJ8Xy3jq24YDZOxZ7
-	 dSlTAKpzE9i8BknUdnvaJNVGvvzdGfYquGD+e5j3+BXyzyctJv5T4gUS+6RIxn5Ucm
-	 tlBzg7qisEOUECilZV2mOu1ZwWsFApvH78c1T1bRya0d0FOs5dwR1CyAYH60l81S46
-	 BHFoBKWweUwGQ==
-Date: Tue, 15 Jul 2025 18:07:48 +0200
-From: Lorenzo Pieralisi <lpieralisi@kernel.org>
-To: Breno Leitao <leitao@debian.org>
-Cc: Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-	Sascha Bischoff <sascha.bischoff@arm.com>,
-	Jonathan Cameron <Jonathan.Cameron@huawei.com>,
-	Timothy Hayes <timothy.hayes@arm.com>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Peter Maydell <peter.maydell@linaro.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-pci@vger.kernel.org
-Subject: Re: [PATCH v7 18/31] arm64: smp: Support non-SGIs for IPIs
-Message-ID: <aHZ81Kah1Uaa184N@lpieralisi>
-References: <20250703-gicv5-host-v7-0-12e71f1b3528@kernel.org>
- <20250703-gicv5-host-v7-18-12e71f1b3528@kernel.org>
- <7mhnql75p3l4vaeaipge6m76bw4wivskkpvzy5vx3she3wogk4@k62f5hzgx5wr>
- <aHZm8BsqV1ighJ+2@lpieralisi>
+	Tue, 15 Jul 2025 16:11:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
+	s=s31663417; t=1752595872; x=1753200672; i=wahrenst@gmx.net;
+	bh=BNkbdlnyVeyiuJl/LuQynlCGcW0q6IqyyAK39bqKDW0=;
+	h=X-UI-Sender-Class:From:To:Cc:Subject:Date:Message-Id:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:cc:
+	 content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=aTHCq0loR7lTf6A/gRtkZLhcSQNavRTmkFXg3v6pWeGx3/ioIwz/0WBUnfKNcJJa
+	 5BwSzLmDmf5NfWWLuoNHQTXfnGYRaUFMlA9U7oIX0dnpVas5gsP3UUxJ6kedU3d3g
+	 v4NjKTsIoTpMG+TFtsLKwo0Igmmw46p89mYkorb6KMz/5o8TeHJnxptascg6np7yx
+	 hWvrzFO8WvemgUP40tz8rfzyvusJBnfF0wICC33/l9Ga+eogsSwBqIQfcPHi38MgI
+	 8gFEyx9mjE4773wVUHxx9KW07lZUkgL8jbFdiVB+HhIB+BCxRhq8xDTtUEkIy0UyZ
+	 lkfco4Yyt6frWc922A==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from stefanw-SCHENKER ([91.41.216.208]) by mail.gmx.net (mrgmx104
+ [212.227.17.168]) with ESMTPSA (Nemesis) id 1MGhuU-1uNuja1SJm-009lGU; Tue, 15
+ Jul 2025 18:11:12 +0200
+From: Stefan Wahren <wahrenst@gmx.net>
+To: Florian Fainelli <florian.fainelli@broadcom.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Dan Carpenter <dan.carpenter@linaro.org>,
+	linux-arm-kernel@lists.infradead.org,
+	bcm-kernel-feedback-list@broadcom.com,
+	kernel-list@raspberrypi.com,
+	linux-staging@lists.linux.dev,
+	Stefan Wahren <wahrenst@gmx.net>
+Subject: [PATCH V2 0/3] staging: vchiq_arm: Fix regression & resource leaks
+Date: Tue, 15 Jul 2025 18:11:05 +0200
+Message-Id: <20250715161108.3411-1-wahrenst@gmx.net>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aHZm8BsqV1ighJ+2@lpieralisi>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:PKy6QQQiPNc9emouQ6eND8VzfWe4RvXJHFkgvgTMEmXwQGzhbbO
+ Use9zvrBGt9Xavgoj7zAhVL38ZgVqSheiG96hUUY+gKnaOqDh2J1sQr7LlGAikcl7zpVfuY
+ niK3P3GUESFe70QX3UH9KUaDv81pePODFUvsb4diEzBPdfEPcDpCS/whmzdR6kjWiEF6Bfc
+ Vl5e8stITFkYJcCALQhDw==
+UI-OutboundReport: notjunk:1;M01:P0:qxiuRUWcxXE=;tecQpyE9JNfqLLJhruOmqvrrMcU
+ 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
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250715_090757_797084_8DB24D5A 
-X-CRM114-Status: GOOD (  27.52  )
+X-CRM114-CacheID: sfid-20250715_091117_376934_6841D753 
+X-CRM114-Status: UNSURE (   8.45  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,73 +133,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 15, 2025 at 04:34:24PM +0200, Lorenzo Pieralisi wrote:
-> On Tue, Jul 15, 2025 at 07:10:29AM -0700, Breno Leitao wrote:
-> > Hello Lorenzo, Marc,
-> > 
-> > On Thu, Jul 03, 2025 at 12:25:08PM +0200, Lorenzo Pieralisi wrote:
-> > > diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
-> > > index 3b3f6b56e733..2c501e917d38 100644
-> > 
-> > > @@ -1046,11 +1068,15 @@ static void ipi_setup(int cpu)
-> > >  		return;
-> > >  
-> > >  	for (i = 0; i < nr_ipi; i++) {
-> > > -		if (ipi_should_be_nmi(i)) {
-> > > -			prepare_percpu_nmi(ipi_irq_base + i);
-> > > -			enable_percpu_nmi(ipi_irq_base + i, 0);
-> > > +		if (!percpu_ipi_descs) {
-> > > +			if (ipi_should_be_nmi(i)) {
-> > > +				prepare_percpu_nmi(ipi_irq_base + i);
-> > 
-> > I am testing linux-next on commit 0be23810e32e6d0 ("Add linux-next
-> > specific files for 20250714") on a Grace (GiCv3), and I am getting
-> > a bunch of those:
-> > 
-> > 	[    0.007992] WARNING: kernel/irq/manage.c:2599 at prepare_percpu_nmi+0x178/0x1b0, CPU#2: swapper/2/0
-> > 
-> > 	[    0.007996] pstate: 600003c9 (nZCv DAIF -PAN -UAO -TCO -DIT -SSBS BTYPE=--)
-> > 	[    0.007997] pc : prepare_percpu_nmi (kernel/irq/manage.c:2599 (discriminator 1))
-> > 	[    0.007998] lr : prepare_percpu_nmi (kernel/irq/manage.c:2599 (discriminator 1))
-> > 
-> > 	[    0.008011] Call trace:
-> > 	[    0.008011] prepare_percpu_nmi (kernel/irq/manage.c:2599 (discriminator 1)) (P)
-> > 	[    0.008012] ipi_setup (arch/arm64/kernel/smp.c:1057)
-> > 	[    0.008014] secondary_start_kernel (arch/arm64/kernel/smp.c:245)
-> > 	[    0.008016] __secondary_switched (arch/arm64/kernel/head.S:405)
-> > 
-> > I haven't bissected the problem to this patch specifically, but
-> > I decided to share in case this is a known issue, given you are touching
-> > this code.
-> > 
-> > I would be happy to bissect it, in case it doesn't ring a bell.
-> 
-> Thank you for reporting it.
-> 
-> Does this patch below fix it ?
+This small series fixes a regression introduced by recent changes and
+possible resource leaks in the VCHIQ driver.
 
-FWIW it does for me. I think you are booting with pseudo-nmi enabled and
-the below is a silly thinko (mea culpa) that is causing the IPI IRQ descs not
-to be set-up correctly for NMI and the prepare_percpu_nmi() call rightly
-screams on them.
+Changes in V2:
+- Add Ma=C3=ADra's Reviewed-bys
+- Fix Reported address in patch #2
 
-If you confirm I hope it can be folded into the relevant patch.
+Stefan Wahren (3):
+  Revert "staging: vchiq_arm: Improve initial VCHIQ connect"
+  Revert "staging: vchiq_arm: Create keep-alive thread during probe"
+  staging: vchiq_arm: Make vchiq_shutdown never fail
 
-Thanks,
-Lorenzo
+ .../interface/vchiq_arm/vchiq_arm.c           | 98 +++++++++++--------
+ .../interface/vchiq_arm/vchiq_core.c          |  1 -
+ .../interface/vchiq_arm/vchiq_core.h          |  2 -
+ 3 files changed, 56 insertions(+), 45 deletions(-)
 
-> -- >8 --
-> diff --git i/arch/arm64/kernel/smp.c w/arch/arm64/kernel/smp.c
-> index 4797e2c70014..a900835a3adf 100644
-> --- i/arch/arm64/kernel/smp.c
-> +++ w/arch/arm64/kernel/smp.c
-> @@ -1093,7 +1093,7 @@ static void ipi_setup_sgi(int ipi)
->  
->  	irq = ipi_irq_base + ipi;
->  
-> -	if (ipi_should_be_nmi(irq)) {
-> +	if (ipi_should_be_nmi(ipi)) {
->  		err = request_percpu_nmi(irq, ipi_handler, "IPI", &irq_stat);
->  		WARN(err, "Could not request IRQ %d as NMI, err=%d\n", irq, err);
->  	} else {
+=2D-=20
+2.34.1
+
 
