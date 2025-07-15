@@ -4,71 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19C8EC83F1D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 07:22:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59C3FC83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 07:29:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gHfDGRcP1cq35AV4xxGb5/5ByyZ9iww3RrN/h4hA+tU=; b=t4YKB8ffGiDLuH7EPKvUHQriXA
-	t4PyuvMuXe0JPRsPRrxBa2f8iyH3L1Wm8a9WMIgEG4l+mhUn2WYs18+kPHzOwNxQPWnxtDqs8Unlx
-	WhMXSI/V1eI+xyi1JZMqKMfSqJSxG9sKB10gohSeKQVhxvBZTV4fz8zfNOCsjsOUz/16XR7T52dzU
-	KkdECo7DFzoCapzIk0Lo9+D74Cxw4xroBWzUbXx1JlAgaeR1KMImQpqh1JTanSL9NseXNhO3CDcfJ
-	eJxvgDzTC1sOJuUrGCqdOOdaEKbz/QqgYqkCUtFaciaGUu5wSnrbL0qOopd1M0WzyauY90Oy6P+ec
-	/ssgbeFg==;
+	bh=5V3THU5DX8bQ1BbaJuo4A0rP9ST/iMe/8nrSS0J8O1Q=; b=13xcHbk3cpuniXClaG1ceeuOz2
+	kW8SD8auTmnSx6QhmddZUkcjtwi6aWRBuhL42ha2gJq5iqjAshKiA6wJ9pGRTOgItbPPoB/1DFghA
+	FXKfxz3uljFVE2ZAs1MoydwoCF2SUS9ltO6i31A7aO5p3xkJ2soYmVxddj+3Ox81/zeLbKSShKdss
+	Do2JULqwVVZjciyXbdWEQFg+Fck23cIiYpdqc9n/IPLPsJ8Va2c14ErWyuyuUL/9fcq1HbwKZw3Q0
+	vRn+l5pEkHNdgHtLB50dP9uQU/qQqQ9AdseFoESQoPsluMl5DEiINlN2hp+w32BQkGmdU/Tn15RJ7
+	Tg4SgDbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubZzZ-00000004JzR-3AKO;
-	Tue, 15 Jul 2025 07:22:21 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubZx6-00000004JQu-2EN7;
-	Tue, 15 Jul 2025 07:19:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1752563986;
-	bh=m61E355kAgNwnf61mkfbfDOJYnKhUsup2CvOlC/E3P4=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=iJpeS8YxtXjMm7UrtrdbB9W/P8pPaAyqV7+kPnj0Cnh5pB3XsIh9W6Vg4qQ8ZgPHF
-	 hUgc7TKCeD66evevdVQ46UFKE9CWxD99Yt12mvL5ogjmTomte+VlwH4Jc3rMsw/eEq
-	 NX71b4Pn6JyFePTtCCEijKg2mzRT5LC6EWTbRdLzDkT14vACxKlvm/74ljzr17FHB6
-	 RwWi2ptikPr+qAvdfMY82y0DlKmbJ8FX9Os1cG9iRfnAiFjcnbcP/e/CPsVNyDM4Ng
-	 M7LcDbGc11gsS2pSWp1X0sTLC2lZQ8FgsRigkqkGC1GVOYQ3jye12S1FaCflUklNnd
-	 JUEsJglGKw6QQ==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 37D1B17E0676;
-	Tue, 15 Jul 2025 09:19:45 +0200 (CEST)
-Message-ID: <242bf682-cf8f-4469-8a0b-9ec982095f04@collabora.com>
-Date: Tue, 15 Jul 2025 09:19:44 +0200
+	id 1uba6Z-00000004LcO-2A0U;
+	Tue, 15 Jul 2025 07:29:35 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uba46-00000004L4x-3EqC
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 15 Jul 2025 07:27:04 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C0AC912FC;
+	Tue, 15 Jul 2025 00:26:52 -0700 (PDT)
+Received: from [10.163.92.132] (unknown [10.163.92.132])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5CA1A3F66E;
+	Tue, 15 Jul 2025 00:26:57 -0700 (PDT)
+Message-ID: <09f9d195-7f3c-4cf1-95da-7e29c398ebcc@arm.com>
+Date: Tue, 15 Jul 2025 12:56:54 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 2/3] dt-bindings: firmware: Document the MediaTek
- Hardware Voter (HWV)
-To: Chen-Yu Tsai <wenst@chromium.org>, Laura Nao <laura.nao@collabora.com>
-Cc: arnd@arndb.de, conor+dt@kernel.org, devicetree@vger.kernel.org,
- drew@pdp7.com, gregkh@linuxfoundation.org, kabel@kernel.org,
- kernel@collabora.com, khilman@baylibre.com, krzk@kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-mediatek@lists.infradead.org, m.wilczynski@samsung.com,
- matthias.bgg@gmail.com, nm@ti.com, pjp@fedoraproject.org,
- quic_hyiwei@quicinc.com, robh@kernel.org, tudor.ambarus@linaro.org,
- u.kleine-koenig@baylibre.com, ulf.hansson@linaro.org
-References: <9560d4d2-5346-4d0a-a96f-c96ebe335f3c@collabora.com>
- <20250710141941.75843-1-laura.nao@collabora.com>
- <CAGXv+5Gzk2hDYFWTsN6V6LOfNyfrYg1ZqhsUHfTJMpOWh6f9ew@mail.gmail.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Subject: Re: [PATCH v2 02/28] coresight: etm4x: Always set tracer's device
+ mode on target CPU
+To: Leo Yan <leo.yan@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>,
+ Levi Yun <yeoreum.yun@arm.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Yabin Cui <yabinc@google.com>, Keita Morisaki <keyz@google.com>,
+ Yuanfang Zhang <quic_yuanfang@quicinc.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20250701-arm_cs_pm_fix_v3-v2-0-23ebb864fcc1@arm.com>
+ <20250701-arm_cs_pm_fix_v3-v2-2-23ebb864fcc1@arm.com>
 Content-Language: en-US
-In-Reply-To: <CAGXv+5Gzk2hDYFWTsN6V6LOfNyfrYg1ZqhsUHfTJMpOWh6f9ew@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <20250701-arm_cs_pm_fix_v3-v2-2-23ebb864fcc1@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250715_001948_951285_3A70FA36 
-X-CRM114-Status: GOOD (  37.77  )
+X-CRM114-CacheID: sfid-20250715_002702_908257_C98F8ED2 
+X-CRM114-Status: GOOD (  34.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,280 +72,215 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 15/07/25 06:33, Chen-Yu Tsai ha scritto:
-> On Fri, Jul 11, 2025 at 12:28 AM Laura Nao <laura.nao@collabora.com> wrote:
->>
->> On 7/7/25 12:40, AngeloGioacchino Del Regno wrote:
->>> Il 03/07/25 10:56, AngeloGioacchino Del Regno ha scritto:
->>>> Il 02/07/25 08:50, Krzysztof Kozlowski ha scritto:
->>>>> On Tue, Jul 01, 2025 at 05:11:48PM +0200, AngeloGioacchino Del Regno wrote:
->>>>>> Add documentation for the new MediaTek Hardware Voter, found in
->>>>>> MediaTek SoCs like the MT8196 Kompanio Ultra for Chromebooks and
->>>>>> the MT6991 Dimensity 9400 for Smartphones.
->>>>>>
->>>>>> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
->>>>>> ---
->>>>>>    .../mediatek,mt6991-hardware-voter.yaml       | 70 +++++++++++++++++++
->>>>>>    1 file changed, 70 insertions(+)
->>>>>>    create mode 100644 Documentation/devicetree/bindings/firmware/mediatek,mt6991- hardware-voter.yaml
->>>>>>
->>>>>> diff --git a/Documentation/devicetree/bindings/firmware/mediatek,mt6991- hardware-voter.yaml b/Documentation/devicetree/bindings/firmware/ mediatek,mt6991-hardware-voter.yaml
->>>>>> new file mode 100644
->>>>>> index 000000000000..173b74c23a91
->>>>>> --- /dev/null
->>>>>> +++ b/Documentation/devicetree/bindings/firmware/mediatek,mt6991-hardware- voter.yaml
->>>>>> @@ -0,0 +1,70 @@
->>>>>> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
->>>>>> +# Copyright 2025 Collabora Ltd
->>>>>> +%YAML 1.2
->>>>>> +---
->>>>>> +$id: http://devicetree.org/schemas/firmware/mediatek,mt6991-hardware-voter.yaml#
->>>>>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->>>>>> +
->>>>>> +title: MediaTek Hardware Voter (HWV)
->>>>>> +
->>>>>> +maintainers:
->>>>>> +  - AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
->>>>>> +
->>>>>> +description:
->>>>>> +  The MediaTek Hardware Voter (HWV) is a SoC-internal fixed-function MCU
->>>>>> +  used to collect votes from both the Application Processor and from the
->>>>>> +  various other remote processors present in the SoC, and transparently
->>>>>> +  turn on or off various hardware resources (for example, power domains
->>>>>> +  or system clocks) based on aggregation of votes done in the HWV MCU's
->>>>>> +  internal state machine, therefore guaranteeing synchronization of the
->>>>>> +  hardware resource requests between all components of the SoC and hence
->>>>>> +  avoiding, for example, unclocked or unpowered access to the hardware.
->>>>>> +
->>>>>> +properties:
->>>>>> +  $nodename:
->>>>>> +    pattern: "^system-controller@[0-9a-f]+$"
->>>>>> +
->>>>>> +  compatible:
->>>>>> +    const: mediatek,mt6991-hardware-voter
->>>>>> +
->>>>>> +  reg:
->>>>>> +    items:
->>>>>> +      - description: Address and size of the Hardware Voter MMIO
->>>>>> +
->>>>>
->>>>> No resources here, so this should go to power controller
->>>>>
->>>>>> +  power-controller:
->>>>>> +    $ref: /schemas/power/mediatek,power-controller.yaml
->>>>>> +
->>>>>> +required:
->>>>>> +  - compatible
->>>>>> +  - reg
->>>>>> +
->>>>>> +additionalProperties: true
->>>>>> +
->>>>>> +examples:
->>>>>> + - |
->>>>>> +   scp_hwv: system-controller@14500000 {
->>>>>> +     compatible = "mediatek,mt6991-hardware-voter";
->>>>>> +     reg = <0 0x14500000 0 0x3000>;
->>>>>> +
->>>>>> +     power-controller {
->>>>>> +       compatible = "mediatek,mt8196-hwv-scp-power-controller";
->>>>>
->>>>> mt8196 in mt6991 is very confusing.
->>>>>
->>>>
->>>> Yeah that wasn't intentional; fyi, it's almost the same soc, that's why I mixed
->>>> them up... :-)
->>>>
->>>>> Anyway, this does not address my comment at all. You again create some
->>>>> sort of syscon for voting, so no. You are supposed to use generic API
->>>>> for voting: clocks, power domains, interconnects - whatever is there
->>>>> applicable or necessary.
->>>>>
->>>>
->>>> Making that loud and clear: Interconnect is not applicable.
->>>>
->>>> The only way to do what you're proposing would be to add a bunch of `reg`
->>>> to each devicetree node for each clock controller and each power controller;
->>>> I can do that, but looks a bit dirty - and still yet another syscon-like
->>>> alternative, but without having a real syscon declared in there.
->>>>
->>>> Mind you - both clock and power controllers are writing both to their own
->>>> register space (and enabling external regulators, etc, for power domains)
->>>> and to the hardware voter MMIO (which means that the HWV, in hardware, is
->>>> fundamentally broken).
->>>>
->>>> After this reply, the only option that is left to me is the following:
->>>>
->>>>           topckgen: clock-controller@10000000 {
->>>>               compatible = "mediatek,mt8196-topckgen", "syscon";
->>>>               reg = <0 0x10000000 0 0x800>, <0 0x14500010 0 0x48>,
->>>>                     <0 0x14502c08 0 0x24>;
->>>>               reg-names = "base", "hwvoter-base", "hwvoter-status";
->>>>               #clock-cells = <1>;
->>>>           };
->>>>
->>>>           imp_iic_wrap_north: clock-controller@13c30000 {
->>>>               compatible = "mediatek,mt8196-imp-iic-wrap-n", "syscon";
->>>>               reg = <0 0x13c30000 0 0x1000>, <0 0x14500000 0 0xc>,
->>>>                     <0 0x14502c00 0 0xc>;
->>>>               reg-names = "base", "hwvoter-base", "hwvoter-status";
->>>>               #clock-cells = <1>;
->>>>           };
->>>>
->>>>           /* Power Manager with Hardware Voter */
->>>>           spm_hwv: power-controller@14500218 {
->>>>               compatible = "mediatek,mt8196-hwv-scp-power-controller";
->>>>               reg = <0 0x14500218 0 0x20>, <0 0x14501410 0 0x20>,
->>>>                     <0 0x14505514 0 0xc>;
->>>>               reg-names = "hwvoter-base", "hwvoter-status", "hwvoter-ack";
->>>>               #address-cells = <1>;
->>>>               #size-cells = <0>;
->>>>               #power-domain-cells = <1>;
->>>>
->>>>               /* SCPSYS hardware voter power domains */
->>>>               mm_proc_dormant: power-domain@MT8196_POWER_DOMAIN_MM_PROC_DORMANT {
->>>>                   ..... etc, all power domains
->>>>
->>>> At this point, I'm really not sure that this would be better than just passing
->>>> the mediatek,hardware-voter syscon to the clock controllers - as what I've done
->>>> previously was effectively representing the hardware in the devicetree as it is,
->>>> matching the real HW layout 1:1 (because again, each of the whole HWV MCU(s) are
->>>> embedded into each of the two power controllers, one for System power, and one
->>>> for Multimedia power).
->>>>
->>>> (btw, hardware speaking, the power controller is child of a system controller:
->>>> there are two system controllers - "scpsystem" is for "compute part", and the
->>>> "hfrpsystem" is for the "multimedia part" of the soc).
->>>>
->>>>    _______________________________________
->>>> |                                       |
->>>> | SYSTEM CONTROLLER (SCPSYS or HFRPSYS) |
->>>> |   _____________________               |
->>>> |  |                     |              | <===> Clock Controllers (more than one)
->>>> |  | Power Controller    |     SOME     |       (provide subsystem clocks for iso
->>>> |  |                     |    OTHER     |        during power domain enablement
->>>> |  |     ______________  |   BLOCKS     |        even if a PD is voted)
->>>> |  |    |              | |              |       non-subsystem clocks are voted,
->>>> |  |    | HW Voter MCU | |              |       but subsystem ones are not voted
->>>> |  |    |______________| |              |
->>>> |  |_____________________|              | ===> Rest of the SoC
->>>> |_______________________________________|
->>>>
->>>>
->>>> Hence I'm asking you - does your idea still stand?
->>>>
->>>> Because after this, sorry for that - this doesn't want to be an attack - but
->>>> I'm starting to have doubts about an approach that doesn't involve syscons.
->>>>
->>>> Cheers,
->>>> Angelo
->>>
->>> Sorry for the double reply, wanted to add some more words :-)
->>>
->>> As a note, I also thought about doing the following:
->>>
->>>      /* Secondary SCPSYS block with HWV capabilities */
->>>      scp1_hwv: system-controller@14500000 {
->>>          compatible = "mediatek,mt8196-scpsys", "syscon", "simple-mfd";
->>>          reg = <0 0x14500000 0 0x3000>;
->>>
->>>          /* SCP Power Manager with Hardware Voter */
->>>          spm_hwv: power-controller {
->>>              compatible = "mediatek,mt8196-hwv-scp-power-controller";
->>>              #address-cells = <1>;
->>>              #size-cells = <0>;
->>>              #power-domain-cells = <1>;
->>>
->>>              /* SCPSYS hardware voter power domains */
->>>              mm_proc_dormant: power-domain@MT8196_POWER_DOMAIN_MM_PROC_DORMANT {
->>>              ..... etc etc
->>>              };
->>>          };
->>>
->>>          imp_iic_wrap_north: clock-controller@13c30000 {
->>>              compatible = "mediatek,mt8196-imp-iic-wrap-n", "syscon";
->>>              reg = <0 0x13c30000 0 0x1000>;
->>>              #clock-cells = <1>;
->>>          };
->>>      };
->>>
->>> ...but that's also not applicable, because the clock controllers are physically
->>> *not* inside of the scpsys1 block, so that would *also* misrepresent the hardware
->>> in the devicetree (besides still using a syscon in a way or another).
->>>
->>> So... I really don't see any way out of that, which really leaves me with the two
->>> options that I described in the previous reply.
->>>
->>> Summarizing, either:
->>>   - Adding hwv MMIOs (a bunch of, and each very small) to each clock controller (but
->>>     still all of them are poking at the same HWV controller, and I foresee that this
->>>     will backfire in some future iteration of the HWV hardware)
->>>   - Reverting back to using the "mediatek,hardware-voter" syscon, like done in
->>>     https://lore.kernel.org/20250624143220.244549-10-laura.nao@collabora.com
->>>
->>> I tried really hard and thought about this for weeks (actually, started even before
->>> your feedback on Laura's series), but now I'm out of practical options that are
->>> both correctly representing the hardware and not making the implementation fragile
->>> (or actually more fragile than the actually broken HW implementation's fragility,
->>> anyway).
->>>
->>> And besides - re-reading what I wrote after a bunch of days, the first option of
->>> adding a bunch of hwv mmios to all of the clock controllers is, in my opinion, a
->>> (dirty) hack - because those mmios don't belong to the clock controllers, and would
->>> again misrepresent the hardware in DT - especially keeping in mind the fact that
->>> the clock controllers can be controlled with *and* (not or) without the HWV (and in
->>> some instances, even if using HWV, we must still write to the clock controllers'
->>> mmio for extra programming, as explained before).
->>>
->>> Every second I think about this I get more and more convinced that my way of
->>> passing the SCPSYS-HWV system controller handle as a syscon is right.
->>>
->>> Angelo
->>>
->>
->> I’ve given this some more thought over the past few days.
->>
->> I can't see of any other viable alternative either, other than splitting
->> up the HWV MMIOs into multiple tiny reg entries across each consumer
->> node as mentioned..which feels fragile and wouldn't really be an accurate
->> representation of the HW, given they all ultimately target the same HWV MCU.
->>
->> All considered, modeling the HWV as a shared syscon passed to both clock
->> and power controllers still seems to me like the more accurate
->> representation of this specific hw layout, given both types of
->> controllers interact with the same voter logic and MMIO region.
->>
->> Krzysztof, does the approach with scattered small reg entries per clock
->> controller seem as awkward to you as it does to us? are there any other
->> directions you think we should explore here?
+
+
+On 01/07/25 8:23 PM, Leo Yan wrote:
+> When enabling a tracer via SysFS interface, the device mode may be set
+> by any CPU - not necessarily the target CPU. This can lead to race
+> condition in SMP, and may result in incorrect mode values being read.
 > 
-> Just to add to the argument, the hardware voter is really just an
-> alternative interface to the same clock or power controller; it is
-> not a separate controller. Trying to model it as such means you end
-> up with two devices fighting over control over the same hardware.
+> Consider the following example, where CPU0 attempts to enable the tracer
+> on CPU1 (the target CPU):
 > 
-> It really should be *one* clock controller with an alternative address
-> space. How we choose to model the hardware voter address space is up
-> for debate as Laura mentioned, but modeling it as another clock
-> controller is misrepresenting the hardware at best, and causing more
-> confusion for the implementation at worst.
+>  CPU0                                    CPU1
+>  etm4_enable()
+>   ` coresight_take_mode(SYSFS)
+>   ` etm4_enable_sysfs()
+>      ` smp_call_function_single() ---->  etm4_enable_hw_smp_call()
+>      			                /
+>                                        /  CPU idle:
+>                                       /   etm4_cpu_save()
+>                                      /     ` coresight_get_mode()
+> 	       Failed to enable h/w /         ^^^
+>   ` coresight_set_mode(DISABLED) <-'          Read the intermediate SYSFS mode
+
+The problem is - CPU1's HW state and CPU1's sysfs mode state might not
+remain in sync if CPU1 goes into idle state just after an unsuccessful
+etm4_enable_sysfs() attempt from CPU0. In which case a subsequent read
+coresight_get_mode() on CPU1 might erroneously give us DISABLED state,
+which actually does not seem to be too bad as the earlier enablement
+attempt had failed anyway. Just trying to understand what is the real
+problem here.
+
 > 
-> ChenYu
+> In this case, CPU0 initiates the operation by taking the SYSFS mode to
+> avoid conflicts with the Perf mode. It then sends an IPI to CPU1 to
+> configure the tracer registers. If any error occurs during this process,
 
-Alright.
-Let's go back to the previously proposed "mediatek,hardware-voter" way then.
+What kind of error can happen during this process ?
 
-Regarding that to be a single clock controller, I'm afraid that won't really be
-possible because not all clocks in a single domain are voted - especially the
-mux-gate clocks can't really be put in one single clock controller because to
-manage those we have to write to the HWV *and* to the clock controller MMIO in the
-same operation in order to actually manage the clock.
+> CPU0 rolls back by setting the mode to DISABLED.
 
-If that wasn't the case, I would've been happier to have all of the HWV clocks in
-one clock controller (even though those belong to different SoC subsystems)...
-...but let's see if we can (and if it makes sense to) aggregate at least some!
+Which seems OK.
 
-Thanks everyone!
+> 
+> However, if CPU1 enters an idle state during this time, it might read
+> the intermediate SYSFS mode. As a result, the CPU PM flow could wrongly
+> save and restore tracer context that is actually disabled.
 
-Cheers,
-Angelo
+Right but CPU0 had marked the CPU1' state as DISABLED after the enable
+attempt had failed. So what is the problem ?
+
+> 
+> To resolve the issue, this commit moves the device mode setting logic on
+> the target CPU. This ensures that the device mode is only modified by
+> the target CPU, eliminating race condition between mode writes and reads
+> across CPUs.
+> 
+> An additional change introduces the etm4_disable_hw_smp_call() function
+> for SMP calls, which disables the tracer and explicitly set the mode to
+> DISABLED during SysFS operations.
+> 
+> The flow is updated with this change:
+> 
+>  CPU0                                    CPU1
+>  etm4_enable()
+>   ` etm4_enable_sysfs()
+>      ` smp_call_function_single() ---->  etm4_enable_hw_smp_call()
+>                                           ` coresight_take_mode(SYSFS)
+> 	                                    Failed, set back to DISABLED
+>                                           ` coresight_set_mode(DISABLED)
+> 
+>                                           CPU idle:
+>                                           etm4_cpu_save()
+>                                            ` coresight_get_mode()
+>                                               ^^^
+>                                               Read out the DISABLED mode
+> 
+> Fixes: c38a9ec2b2c1 ("coresight: etm4x: moving etm_drvdata::enable to atomic field")
+> Signed-off-by: Leo Yan <leo.yan@arm.com>
+> ---
+>  drivers/hwtracing/coresight/coresight-etm4x-core.c | 48 +++++++++++++++-------
+>  1 file changed, 33 insertions(+), 15 deletions(-)
+> 
+> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> index 42e5d37403addc6ec81f2e3184522d67d1677c04..ee405c88ea5faa130819f96b00b8307f8764d58a 100644
+> --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> @@ -590,10 +590,23 @@ static int etm4_enable_hw(struct etmv4_drvdata *drvdata)
+>  static void etm4_enable_hw_smp_call(void *info)
+>  {
+>  	struct etm4_enable_arg *arg = info;
+> +	struct coresight_device *csdev;
+>  
+>  	if (WARN_ON(!arg))
+>  		return;
+> +
+> +	csdev = arg->drvdata->csdev;
+> +	if (!coresight_take_mode(csdev, CS_MODE_SYSFS)) {
+> +		/* Someone is already using the tracer */
+> +		arg->rc = -EBUSY;
+> +		return;
+> +	}
+> +
+>  	arg->rc = etm4_enable_hw(arg->drvdata);
+> +
+> +	/* The tracer didn't start */
+> +	if (arg->rc)
+> +		coresight_set_mode(csdev, CS_MODE_DISABLED);
+>  }
+>  
+>  /*
+> @@ -809,6 +822,9 @@ static int etm4_enable_perf(struct coresight_device *csdev,
+>  	int ret = 0;
+>  	struct etmv4_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+>  
+> +	if (!coresight_take_mode(csdev, CS_MODE_PERF))
+> +		return -EBUSY;
+> +
+>  	if (WARN_ON_ONCE(drvdata->cpu != smp_processor_id())) {
+>  		ret = -EINVAL;
+>  		goto out;
+> @@ -828,6 +844,9 @@ static int etm4_enable_perf(struct coresight_device *csdev,
+>  	ret = etm4_enable_hw(drvdata);
+>  
+>  out:
+> +	/* The tracer didn't start */
+> +	if (ret)
+> +		coresight_set_mode(csdev, CS_MODE_DISABLED);
+>  	return ret;
+>  }
+>  
+> @@ -880,11 +899,6 @@ static int etm4_enable(struct coresight_device *csdev, struct perf_event *event,
+>  {
+>  	int ret;
+>  
+> -	if (!coresight_take_mode(csdev, mode)) {
+> -		/* Someone is already using the tracer */
+> -		return -EBUSY;
+> -	}
+> -
+>  	switch (mode) {
+>  	case CS_MODE_SYSFS:
+>  		ret = etm4_enable_sysfs(csdev, path);
+> @@ -896,10 +910,6 @@ static int etm4_enable(struct coresight_device *csdev, struct perf_event *event,
+>  		ret = -EINVAL;
+>  	}
+>  
+> -	/* The tracer didn't start */
+> -	if (ret)
+> -		coresight_set_mode(csdev, CS_MODE_DISABLED);
+> -
+>  	return ret;
+>  }
+>  
+> @@ -951,10 +961,9 @@ static void etm4_disable_trace_unit(struct etmv4_drvdata *drvdata)
+>  	isb();
+>  }
+>  
+> -static void etm4_disable_hw(void *info)
+> +static void etm4_disable_hw(struct etmv4_drvdata *drvdata)
+>  {
+>  	u32 control;
+> -	struct etmv4_drvdata *drvdata = info;
+>  	struct etmv4_config *config = &drvdata->config;
+>  	struct coresight_device *csdev = drvdata->csdev;
+>  	struct csdev_access *csa = &csdev->access;
+> @@ -991,6 +1000,15 @@ static void etm4_disable_hw(void *info)
+>  		"cpu: %d disable smp call done\n", drvdata->cpu);
+>  }
+>  
+> +static void etm4_disable_hw_smp_call(void *info)
+> +{
+> +	struct etmv4_drvdata *drvdata = info;
+> +
+> +	etm4_disable_hw(drvdata);
+> +
+> +	coresight_set_mode(drvdata->csdev, CS_MODE_DISABLED);
+> +}
+> +
+>  static int etm4_disable_perf(struct coresight_device *csdev,
+>  			     struct perf_event *event)
+>  {
+> @@ -1020,6 +1038,8 @@ static int etm4_disable_perf(struct coresight_device *csdev,
+>  	/* TRCVICTLR::SSSTATUS, bit[9] */
+>  	filters->ssstatus = (control & BIT(9));
+>  
+> +	coresight_set_mode(drvdata->csdev, CS_MODE_DISABLED);
+> +
+>  	/*
+>  	 * perf will release trace ids when _free_aux() is
+>  	 * called at the end of the session.
+> @@ -1045,7 +1065,8 @@ static void etm4_disable_sysfs(struct coresight_device *csdev)
+>  	 * Executing etm4_disable_hw on the cpu whose ETM is being disabled
+>  	 * ensures that register writes occur when cpu is powered.
+>  	 */
+> -	smp_call_function_single(drvdata->cpu, etm4_disable_hw, drvdata, 1);
+> +	smp_call_function_single(drvdata->cpu, etm4_disable_hw_smp_call,
+> +				 drvdata, 1);
+>  
+>  	raw_spin_unlock(&drvdata->spinlock);
+>  
+> @@ -1085,9 +1106,6 @@ static void etm4_disable(struct coresight_device *csdev,
+>  		etm4_disable_perf(csdev, event);
+>  		break;
+>  	}
+> -
+> -	if (mode)
+> -		coresight_set_mode(csdev, CS_MODE_DISABLED);
+>  }
+>  
+>  static int etm4_resume_perf(struct coresight_device *csdev)
+> 
+
 
