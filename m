@@ -4,94 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E9F5C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 14:46:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 428F2C83F22
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 14:49:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=61QFwRWr9Ndvk2ttgipTe3LJv9XUBOlZkiPA5AUFmfs=; b=inesbCLmZGztmMmR2c5AkZCMzg
-	57Saq8X7zBYAMPjCHTzDcMtD33kgNMiF0H2RMDxhCz5LtYtjkRKYR1me1tsAIM6gsoNwDHyWRadpa
-	I5RTYVBsZShhkSOK65+oJYHodFnP0Ooh5CXCj3LZn8UIvsXjbfZl64KkV3L/mcKet1ow/i1VinaR8
-	KwNIEhvr3TZAGbMdwzHWuWD6gfL9YTtoIZrnWGpitlXXfP0gGW0088YzCa71Di03JP/G93J8FCS8S
-	jT6oh14EiOqjbWCtoT0AsnJChxJNRraHGlIjTzVtEggjacZ1mFQ9+z+7k+vQBMj3u4LbiiSLmS8gy
-	pURAH0zw==;
+	bh=wNlaWSamDFSq/Jqem+yHh7sXr1BP0uqXoeYgV7dAIAg=; b=K4vXncVW2Kg5O5CPR2pwnsA/WU
+	YrmmzQ1/1B7lfM5SbXImEQEYletdxoC8fygDe6Ac7wYIYh0vhCppppCfhkweUeX5dmLem2Rcmx8fb
+	sTu8tJnf20AYr+RlcrNkmWLJw1zO6lMeWA1ZcJZZz/W+RzIp0dJl+fRopii7ckIuHLx4+0SzHdbL1
+	yudOtPEqX+hb3sfHDWwgxDXhTESgQX2xS+VRXO5+sLsSu9ofgNJpUifE82OhHoEo6Qx0GSGJpGVbm
+	4/uxaRgDxGnSRX9RCCPrI69z3utn/eWnXZktK2s3PbEovp/EcXgwFOYgrUMj0CqjdNtJ5ZIrmnvMx
+	ngKd/jBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubgvj-00000005Qzf-4712;
-	Tue, 15 Jul 2025 14:46:51 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1ubgy9-00000005RV2-0xw9;
+	Tue, 15 Jul 2025 14:49:21 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubfcE-00000005Bp4-3qJF
+	id 1ubfeV-00000005CH7-3nsV
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Jul 2025 13:22:40 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-4538bc52a8dso40019485e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Jul 2025 06:22:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ffwll.ch; s=google; t=1752585757; x=1753190557; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=61QFwRWr9Ndvk2ttgipTe3LJv9XUBOlZkiPA5AUFmfs=;
-        b=Jou3MRNteBV4z6NZgACLlcYM2yzhJZeOtP6l3tSws0fxqrEal52EGg7mF4oZNji13Y
-         gdl0I7JQcqIBju1NNAhz/EuwhU/xDFWWDmq8WCp3HZBcPywKuL0z8jFtYNIaX9PH9qGy
-         6Lusts5ly9G3n+6fLAnTxshULrSh50lL7fgQc=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752585757; x=1753190557;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=61QFwRWr9Ndvk2ttgipTe3LJv9XUBOlZkiPA5AUFmfs=;
-        b=n+zPrBJ11XTmu3vCpgHdE+2I4f2IEYuTM9OyzXmRzROz092ztwl+HmY3JqB0jrKJ24
-         2Bigm6Iq+FFJUizQjjabDrUMddNV7pc1BGd/oDU+zSbb0TatXb8eHvv+R8py4TYB/EcS
-         NMzAk5uWWGf0086qhEezv7AShpmilaoLVhfDnzNmQdDtNpply7wcVuGOkXZL0BiJ1hDc
-         3KxCLNnSdB/oTynLuLxLss4SAFd2J9wVCIIuDYWlv5RBLYbAJO6y3a0sklzRW4wyMsPI
-         wMfj0S/EiRxW+XkDSkxzPZ62A+s6ZQFnmMbtp8YgmXGfFGHu9bG9OKXz+Q27AtuU3c8j
-         hn/Q==
-X-Forwarded-Encrypted: i=1; AJvYcCX1zfpMwHki2/jvhuWaYxchTyOLZkro9evjFHuQqfsjBnkCaUmzLhyVh9R20MxT1AfNlj5J2ddtrlKCb2wAsXsz@lists.infradead.org
-X-Gm-Message-State: AOJu0YwX8/llqsgOmJr9ugMI3fchqRmG+rDBw//5av6l1i7zdgI7CzHi
-	JrUCcYFLeu/lHVDsHDmYfKrwO4leElO6FtcSSY2rvn1BxPo00YT9kIHGJnbEkAjkhVY=
-X-Gm-Gg: ASbGncveR6e490/4YDFsvXc10j9O1MWbFs11obdEqNqZI2EModrwr/ukW8lfNIhyREa
-	8PJrlHNPs22D1Z2ynqkZ53kTALxOzxZYrGMIPjG4jVxEcEsj/MB6YfrkIyNIOeZwfwMIhkf/nSb
-	1X4iAaE6zg3rODbGqgKWqehACKujpMTWONFfFOFIYqV70jbjAuvXP7yC4D1HC9LVJRZXvD7MVoZ
-	Gk4XVr9dM6BiTH7LNRVzpOz8aB57qJnMdxa56mb6RPPdatHs1QB7BlJ38jsP5Ayc/7DVKtA3xZV
-	kMS2c9EPo0jCLNCOuPxIX2tFUZ5BKpj7DhYcmkPwAykBtq1F1FlfkmKdaqoJZu5D7F9E6zGOfw/
-	5UdY+iqUe+58qUVu5dKVF9ERVVakB1zhrvw==
-X-Google-Smtp-Source: AGHT+IGd8c2xyf0Uxkux0OC1AuHlKA+muy38gHZuCpdnRoCjje75nBhjsGOEghV+rD/6jvj+dlKRcA==
-X-Received: by 2002:a05:600c:1911:b0:456:1121:3ad8 with SMTP id 5b1f17b1804b1-45611213e56mr119039315e9.10.1752585757203;
-        Tue, 15 Jul 2025 06:22:37 -0700 (PDT)
-Received: from phenom.ffwll.local ([2a02:168:57f4:0:5485:d4b2:c087:b497])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45624651a09sm31053395e9.12.2025.07.15.06.22.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 15 Jul 2025 06:22:36 -0700 (PDT)
-Date: Tue, 15 Jul 2025 15:22:34 +0200
-From: Simona Vetter <simona.vetter@ffwll.ch>
-To: Thomas Zimmermann <tzimmermann@suse.de>
-Cc: lee@kernel.org, danielt@kernel.org, jingoohan1@gmail.com,
-	neil.armstrong@linaro.org, jessica.zhang@oss.qualcomm.com,
-	deller@gmx.de, maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org, airlied@gmail.com, simona@ffwll.ch,
-	fnkl.kernel@gmail.com, j@jannau.net, hdegoede@redhat.com,
-	ilpo.jarvinen@linux.intel.com, sven@kernel.org,
-	alyssa@rosenzweig.io, neal@gompa.dev,
-	support.opensource@diasemi.com, duje.mihanovic@skole.hr,
-	dri-devel@lists.freedesktop.org, asahi@lists.linux.dev,
-	platform-driver-x86@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-fbdev@vger.kernel.org
-Subject: Re: [PATCH v2 15/15] backlight: Do not include <linux/fb.h> in
- header file
-Message-ID: <aHZWGnJ9D72YFgNh@phenom.ffwll.local>
-References: <20250715122643.137027-1-tzimmermann@suse.de>
- <20250715122643.137027-16-tzimmermann@suse.de>
+	Tue, 15 Jul 2025 13:25:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=wNlaWSamDFSq/Jqem+yHh7sXr1BP0uqXoeYgV7dAIAg=; b=OmnU90SQmj6FYkOolhCcdTrR+o
+	zyKw9OqcgK/AZU1z3tng3XVyXdC1fDwNb+2EEM8PxBntc/ZLiklywaoyGmU9kQaxlXj1jwqgpBwhV
+	lbJjDSe9EZHrgwWZOeYbUOev4o86kKFn606iI4J8s5+mvllfv+fqaX+qMUL3ZVVv9osE=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1ubfeM-001a9h-W6; Tue, 15 Jul 2025 15:24:50 +0200
+Date: Tue, 15 Jul 2025 15:24:50 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: "G Thomas, Rohan" <rohan.g.thomas@altera.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Serge Semin <fancer.lancer@gmail.com>,
+	Romain Gantois <romain.gantois@bootlin.com>, netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Matthew Gerlach <matthew.gerlach@altera.com>
+Subject: Re: [PATCH net-next 1/3] net: stmmac: xgmac: Disable RX FIFO
+ Overflow interrupts
+Message-ID: <b38cad0b-c2b1-44fc-847c-140066a12652@lunn.ch>
+References: <20250714-xgmac-minor-fixes-v1-0-c34092a88a72@altera.com>
+ <20250714-xgmac-minor-fixes-v1-1-c34092a88a72@altera.com>
+ <bef4d761-8909-4f90-8822-8c344291cb93@lunn.ch>
+ <21a0e265-6b2c-4bcb-b0ac-5fd47503f909@altera.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250715122643.137027-16-tzimmermann@suse.de>
-X-Operating-System: Linux phenom 6.12.30-amd64 
+In-Reply-To: <21a0e265-6b2c-4bcb-b0ac-5fd47503f909@altera.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250715_062238_951325_FB594856 
-X-CRM114-Status: GOOD (  18.64  )
+X-CRM114-CacheID: sfid-20250715_062459_952607_BB681378 
+X-CRM114-Status: UNSURE (   8.79  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,43 +81,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 15, 2025 at 02:24:52PM +0200, Thomas Zimmermann wrote:
-> The backlight interfaces don't require anything from <linux/fb.h>, so
-> don't include it.
+> > What is the reset default? Would it make sense to explicitly disable
+> > it, rather than never enable it? What does 8a7cb245cf28 do?
 > 
-> Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
+> The RX FIFO Overflow interrupt is disabled by default on reset. Commit
+> 8a7cb245cf28 also avoids enabling the interrupt rather than disabling
+> it. This commit mirrors the same thing for the XGMAC IP.
 
-I like this very much.
+So same as 8a7cb245cf28 is good.
 
-Reviewed-by: Simona Vetter <simona.vetter@ffwll.ch>
+When you resubmit with the correct Subject: please add Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 
-I guess also my Acked-by for merging the entire pile through the backlight
-subsystem, that's probably the easiest path to land this all.
-
-Cheers, Sima
-
-> ---
->  include/linux/backlight.h | 1 -
->  1 file changed, 1 deletion(-)
-> 
-> diff --git a/include/linux/backlight.h b/include/linux/backlight.h
-> index 10e626db7eee..f29a9ef1052e 100644
-> --- a/include/linux/backlight.h
-> +++ b/include/linux/backlight.h
-> @@ -10,7 +10,6 @@
->  #define _LINUX_BACKLIGHT_H
->  
->  #include <linux/device.h>
-> -#include <linux/fb.h>
->  #include <linux/mutex.h>
->  #include <linux/types.h>
->  
-> -- 
-> 2.50.0
-> 
-
--- 
-Simona Vetter
-Software Engineer, Intel Corporation
-http://blog.ffwll.ch
+    Andrew
 
