@@ -4,105 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F068C83F35
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 14:56:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99819C83F22
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 14:59:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zw74VlTE+k1LGKzfAzB+538GU13x3ojR1l0lw7GXER0=; b=T1KZfYnIIoWgbNM5MAwzcsXeN6
-	mg9mDyqa2JL02sEj81uJR+mFJNsrEhXX8AQuDLoQ2rsIwLIM3S6NIA86u2SSOB8j2cB4H4/yDbFEH
-	zaXePSbC2s7qMTMgrqhPuTQC86K0uQzDQKuVYWLxNK86fETr/bdd+ojEKhIobY0I6h14+8dI9Nvzf
-	z84aAIcgo8RcIu3Q4xeqGd0h5je+8NfcNGO6SAiDYVfaA4cdr4NaZrIny/boPMBNjb0L9QOV7dOUY
-	ToiRr9EuSQ+fMihwa1UayBy/ErZcV8Br45iibY1u70wPpPofOOlhTwqPiM2baTEm8hm6w2HmU40LW
-	nPwwTnJw==;
+	bh=DmXJKB2UBBWYcXoeD1QuMKUzGQy2kQwyWXbXDN9xArw=; b=mZLnq9oc6KYnm7GJ3G5lv7Fsgg
+	7mRupzu9uELF1PkzZROPJqBJXr0xPBVvuVxtLGwMhDu8sUoi3yYUrZwwVmA66+t6sb2pZZHmeEfBT
+	dNlohKSUwsny41+Lwe7lcasufqrszpZxoPL8ilqp2AABKfbdHMwPJgbxnNlhG9yZPanW+D1W2TT6V
+	E6PV30Yd6Godj+M8zL8iW+KuDWonJ6UlN/JIz4nRfcHdEuCsqGCXdjARzcCvAGY/d5xq2DwAkf7nY
+	/Nl4XS3MyaTBwLPGyG702i1DV4Svr8dIDgng/Dx3y0VnXbDlWHNEXMCeym4qyRpu4sJEE2Z/359Zf
+	J/cXViBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubh5N-00000005TOK-1mab;
-	Tue, 15 Jul 2025 14:56:49 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1ubh7w-00000005UeW-04c3;
+	Tue, 15 Jul 2025 14:59:28 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubfhm-00000005D00-21Yp
+	id 1ubfiI-00000005D8L-2Jix
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Jul 2025 13:28:23 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-45622a1829eso6295505e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Jul 2025 06:28:22 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1752586101; x=1753190901; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:references
-         :cc:to:from:subject:user-agent:mime-version:date:message-id:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=zw74VlTE+k1LGKzfAzB+538GU13x3ojR1l0lw7GXER0=;
-        b=drl/bhRKa992rn1YTEjUwBju4BXLN+gCwipJcZ05DFVtuXwhDO0cV0fae1KRH4W/O1
-         sLCUC98hv3wlEn8uE7qp6Mlowf9tdYTVpXic5N3SNA5FziJ+c5PSaYVRV6dQlvhcoXb/
-         Ogjb0g2yGcgZt0gzRZTtXdx7UIT3YEB3Tp2AtIS68WfprVR6t2THSM0XMDyKPIdZ8K7Q
-         U6y3Xs5EuB+75XImLA3SRZueO1nxmQv+8fZ9Rmex2GuvWSz51FAWeosBioQKMLG7L+51
-         MqTdwk++6DfBf+qXXK7RIbyLWzXVkN016UXTnlQ2ssSaJclMvJWIjaubFodHH7uPioSN
-         KmQQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752586101; x=1753190901;
-        h=content-transfer-encoding:in-reply-to:content-language:references
-         :cc:to:from:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=zw74VlTE+k1LGKzfAzB+538GU13x3ojR1l0lw7GXER0=;
-        b=Z4I2MLdLXq6L4UAZ45qWSs/dqZ0YQYbX6ldGdd6JyDcrbMqx99K+wuGV3WM3I8x94m
-         BFbIan4DR+DI8gxtpKlDJabDIzGyIzgVVJ1TFtkG0EPe3gWIMQ1CN1RTr6Hma8H8CFkh
-         iQZKFKCcUJNStqRddxJzJZRE01V/18ku1mHYylkB3SDUfWbnIFwSVcLLf9tUoq7JdByK
-         m4ZSD6Aca3arFo2VJUOk/IrS/l0+b86ORBy0XRK6pRE9nQYR+hleQ2jeR6ONSAbgIp6U
-         uZbf0xFYofXYyYUlRpjCe7VwERG72d6Zv8WGhTh7KRRSufLz0SbtuwbIi5OkZr2T54/3
-         TAjA==
-X-Forwarded-Encrypted: i=1; AJvYcCVGjFPUHj9N+bb8cINMNLlBPnpW1m6/6sdI7CGLonoK3pbK0t0xF/Z0dR0UtQybWZ7Fj1AJKHFmZu9dRg8wj80J@lists.infradead.org
-X-Gm-Message-State: AOJu0YyxpzX4JZuC31rk4DbQZK5VRpKs+y8EVKIhhl+19Ve2f8M7oiDw
-	cCQ96dPAPUnOmZe1el8PCaHNfymB6V3y6mscNDBW5RCl1wZs+Mru8mFnU6c6TIwsyEA=
-X-Gm-Gg: ASbGncvAJpseFGw+aLhKa/MsKZJ0/n4JOgYMz3HXg49DE1UPH0VmkVZ6qMrA0+5MLfj
-	eamxjmaRbnjpAZgf3xIfTrv3ACBesyxQqfSlJbQZltgazQA5UZxrQAJGbTwfuJ7FTr7A5i4nI7M
-	E6Rs436lV3qGBLc9gL2t9xnxhAmSpYQamVbd1WSlKegGCzE/RggvDlaVnJ/pjQNwuqJeEmltgxK
-	GD3CXNHceBz7s4+DRxa+bPJP02V9ERkWPQKwaRkADt04Ha1rNMGr31DRHcm+TxePaWsuanHATGx
-	LqFmYehHs/sRtKwERt9g46duZ66AI3szenTXPo9xdXHxE7C+vqA+SndXWfZ9Mh30W66HcbdBtvv
-	r9DzUjHV3M8IeLOvrBAH6wWEWT0A=
-X-Google-Smtp-Source: AGHT+IEwYlVhkOTzgfZvBe2oJ6/DRqksM/2DDeWWAHWtXNUNAJyWtZXeDWpFZAMAarhRitTCjZMLeA==
-X-Received: by 2002:a05:600c:4695:b0:450:d4a6:799e with SMTP id 5b1f17b1804b1-454f4259c7cmr140093315e9.20.1752586100864;
-        Tue, 15 Jul 2025 06:28:20 -0700 (PDT)
-Received: from [192.168.1.3] ([185.48.76.109])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-454dd540b52sm161683955e9.28.2025.07.15.06.28.19
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 15 Jul 2025 06:28:20 -0700 (PDT)
-Message-ID: <80b7c29e-83b9-46a4-826e-d252ad425d4d@linaro.org>
-Date: Tue, 15 Jul 2025 14:28:19 +0100
+	Tue, 15 Jul 2025 13:28:55 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 3ACDD45CDD
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Jul 2025 13:28:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1C574C4CEFB
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Jul 2025 13:28:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1752586134;
+	bh=cjc0RDMZbltboQ1RR5x3p4nAwpio8fE7hnW+L8x5WwQ=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=SY3/KylBUzz31er79bfw/JgAJdDa2ngkftst0JZzy928l/GgYBS73xdw7M/MN4DW5
+	 Z6dbSTP4JvIOP96BayczV5VUU+43jcoyu/15zQKSWIbj0cjQ1eHhKuPwJHQmFX66Ao
+	 c1JAE0zXp/BrQ2teMrDElkQoln1mQBLwl6ShQRGRFPSSIKFTeagmpdyi7/xYT3Hkg7
+	 bi+LNkWJoOrhdN7+s1WZ6cFgXYFnoXTuzlvnUYC28IJkt31IxnxPD0LlORY2dJE4y2
+	 CFzk1DuBG+y3ktemrkz/2iMka1VwssdRacpiFf2Vad9euP/bH1P/shMIDlNwrtHfsj
+	 q3mx5Fy+aie7w==
+Received: by mail-ed1-f52.google.com with SMTP id 4fb4d7f45d1cf-60c6fea6742so10648310a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Jul 2025 06:28:54 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCXz0euLwGcnu9xnCRh7fqSpXm2OwULOtkAcwtnys4uoCue9b6SbPIQNP5+Q4XP9CZwVBsaQjahBW14oScFv6W7F@lists.infradead.org
+X-Gm-Message-State: AOJu0YxOOCi6O/yDkz8w1ytJXiobES+ZYZ7ITh4rwGP00ubuk5JsSfbZ
+	0pp1kEaCwGEYHbaEo3iF1E/HMeidbvm0RRNrLVexBAkrQotX6ULc2qBELSg5dqaSxEUV1BB1gjn
+	rfsuz+gg4m9kmdwZBGchJ5xNLt6hcpw==
+X-Google-Smtp-Source: AGHT+IFs4W+Mc6KDmPR+BhSyiX4vw23rKBtHp3go5SamoCNjOmpMqCPQF8aMkbamXqomTl4rbMZSJDZEUQ5/54iNNzQ=
+X-Received: by 2002:a17:906:730b:b0:ad5:4a43:5ae8 with SMTP id
+ a640c23a62f3a-ae6fbc63f70mr1723987166b.12.1752586132534; Tue, 15 Jul 2025
+ 06:28:52 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 04/10] arm64/boot: Enable EL2 requirements for
- SPE_FEAT_FDS
-From: James Clark <james.clark@linaro.org>
-To: Will Deacon <will@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
- Mark Rutland <mark.rutland@arm.com>, Jonathan Corbet <corbet@lwn.net>,
- Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
- Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
- Zenghui Yu <yuzenghui@huawei.com>, Peter Zijlstra <peterz@infradead.org>,
- Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>,
- Namhyung Kim <namhyung@kernel.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
- Adrian Hunter <adrian.hunter@intel.com>, leo.yan@arm.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-perf-users@vger.kernel.org, linux-doc@vger.kernel.org,
- kvmarm@lists.linux.dev
-References: <20250605-james-perf-feat_spe_eft-v3-0-71b0c9f98093@linaro.org>
- <20250605-james-perf-feat_spe_eft-v3-4-71b0c9f98093@linaro.org>
- <aHUMMk9JUdK6luLN@willie-the-truck>
- <04d52182-6043-4eaf-a898-9f8ccc893e5f@linaro.org>
- <aHZQH7QGhi5pbXU8@willie-the-truck>
- <e1210c84-69d1-4fb2-88c2-a6a1bcb179c5@linaro.org>
-Content-Language: en-US
-In-Reply-To: <e1210c84-69d1-4fb2-88c2-a6a1bcb179c5@linaro.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+References: <20250715122643.137027-1-tzimmermann@suse.de> <20250715122643.137027-5-tzimmermann@suse.de>
+In-Reply-To: <20250715122643.137027-5-tzimmermann@suse.de>
+From: Rob Herring <robh@kernel.org>
+Date: Tue, 15 Jul 2025 08:28:41 -0500
+X-Gmail-Original-Message-ID: <CAL_JsqJ-o05oO1TGexj7s68=9peSQURxF3siw5hDK2fU7AgMxQ@mail.gmail.com>
+X-Gm-Features: Ac12FXxI8wW_XXiQYlbiT9UidRz349kSHXmlUTD2OUpFDmpZ1t1a8EguF44xgCA
+Message-ID: <CAL_JsqJ-o05oO1TGexj7s68=9peSQURxF3siw5hDK2fU7AgMxQ@mail.gmail.com>
+Subject: Re: [PATCH v2 04/15] drm/panel: panel-summit: Include <linux/of.h>
+To: Thomas Zimmermann <tzimmermann@suse.de>
+Cc: lee@kernel.org, danielt@kernel.org, jingoohan1@gmail.com, 
+	neil.armstrong@linaro.org, jessica.zhang@oss.qualcomm.com, deller@gmx.de, 
+	maarten.lankhorst@linux.intel.com, mripard@kernel.org, airlied@gmail.com, 
+	simona@ffwll.ch, fnkl.kernel@gmail.com, j@jannau.net, hdegoede@redhat.com, 
+	ilpo.jarvinen@linux.intel.com, sven@kernel.org, alyssa@rosenzweig.io, 
+	neal@gompa.dev, support.opensource@diasemi.com, duje.mihanovic@skole.hr, 
+	dri-devel@lists.freedesktop.org, asahi@lists.linux.dev, 
+	platform-driver-x86@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-fbdev@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250715_062822_538827_9E804D97 
-X-CRM114-Status: GOOD (  28.83  )
+X-CRM114-CacheID: sfid-20250715_062854_611826_C1071E68 
+X-CRM114-Status: GOOD (  13.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,113 +90,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, Jul 15, 2025 at 7:30=E2=80=AFAM Thomas Zimmermann <tzimmermann@suse=
+.de> wrote:
+>
+> Include <linux/of.h> to declare device_property_read_u32() and
+> struct of_device_id. Avoids dependency on backlight header to include
+> it.
+
+Neither of those come from of.h.
 
 
-On 15/07/2025 2:10 pm, James Clark wrote:
-> 
-> 
-> On 15/07/2025 1:57 pm, Will Deacon wrote:
->> On Tue, Jul 15, 2025 at 01:48:03PM +0100, James Clark wrote:
->>>
->>>
->>> On 14/07/2025 2:54 pm, Will Deacon wrote:
->>>> On Thu, Jun 05, 2025 at 11:49:02AM +0100, James Clark wrote:
->>>>> SPE data source filtering (optional from Armv8.8) requires that 
->>>>> traps to
->>>>> the filter register PMSDSFR be disabled. Document the requirements and
->>>>> disable the traps if the feature is present.
->>>>>
->>>>> Tested-by: Leo Yan <leo.yan@arm.com>
->>>>> Signed-off-by: James Clark <james.clark@linaro.org>
->>>>> ---
->>>>>    Documentation/arch/arm64/booting.rst | 11 +++++++++++
->>>>>    arch/arm64/include/asm/el2_setup.h   | 14 ++++++++++++++
->>>>>    2 files changed, 25 insertions(+)
->>>>>
->>>>> diff --git a/Documentation/arch/arm64/booting.rst b/Documentation/ 
->>>>> arch/arm64/booting.rst
->>>>> index dee7b6de864f..abd75085a239 100644
->>>>> --- a/Documentation/arch/arm64/booting.rst
->>>>> +++ b/Documentation/arch/arm64/booting.rst
->>>>> @@ -404,6 +404,17 @@ Before jumping into the kernel, the following 
->>>>> conditions must be met:
->>>>>        - HDFGWTR2_EL2.nPMICFILTR_EL0 (bit 3) must be initialised to 
->>>>> 0b1.
->>>>>        - HDFGWTR2_EL2.nPMUACR_EL1 (bit 4) must be initialised to 0b1.
->>>>> +  For CPUs with SPE data source filtering (FEAT_SPE_FDS):
->>>>> +
->>>>> +  - If EL3 is present:
->>>>> +
->>>>> +    - MDCR_EL3.EnPMS3 (bit 42) must be initialised to 0b1.
->>>>> +
->>>>> +  - If the kernel is entered at EL1 and EL2 is present:
->>>>> +
->>>>> +    - HDFGRTR2_EL2.nPMSDSFR_EL1 (bit 19) must be initialised to 0b1.
->>>>> +    - HDFGWTR2_EL2.nPMSDSFR_EL1 (bit 19) must be initialised to 0b1.
->>>>> +
->>>>>      For CPUs with Memory Copy and Memory Set instructions 
->>>>> (FEAT_MOPS):
->>>>>      - If the kernel is entered at EL1 and EL2 is present:
->>>>> diff --git a/arch/arm64/include/asm/el2_setup.h b/arch/arm64/ 
->>>>> include/asm/el2_setup.h
->>>>> index 1e7c7475e43f..02b4a7fc016e 100644
->>>>> --- a/arch/arm64/include/asm/el2_setup.h
->>>>> +++ b/arch/arm64/include/asm/el2_setup.h
->>>>> @@ -279,6 +279,20 @@
->>>>>        orr    x0, x0, #HDFGRTR2_EL2_nPMICFILTR_EL0
->>>>>        orr    x0, x0, #HDFGRTR2_EL2_nPMUACR_EL1
->>>>>    .Lskip_pmuv3p9_\@:
->>>>> +    mrs    x1, id_aa64dfr0_el1
->>>>> +    ubfx    x1, x1, #ID_AA64DFR0_EL1_PMSVer_SHIFT, #4
->>>>> +    /* If SPE is implemented, */
->>>>> +    cmp    x1, #ID_AA64DFR0_EL1_PMSVer_IMP
->>>>> +    b.lt    .Lskip_spefds_\@
->>>>> +    /* we can read PMSIDR and */
->>>>> +    mrs_s    x1, SYS_PMSIDR_EL1
->>>>> +    and    x1, x1,  #PMSIDR_EL1_FDS
->>>>> +    /* if FEAT_SPE_FDS is implemented, */
->>>>> +    cbz    x1, .Lskip_spefds_\@
->>>>> +    /* disable traps to PMSDSFR. */
->>>>> +    orr    x0, x0, #HDFGRTR2_EL2_nPMSDSFR_EL1
->>>>
->>>> Why is this being done here rather than alongside the existing SPE
->>>> configuration of HDFGRTR_EL2 and HDFGWTR_EL2 near the start of
->>>> __init_el2_fgt?
->>>>
->>> I thought everything was separated by which trap configs it writes to,
->>> rather than the feature. This SPE feature is in HDFGRTR2 so I put it in
->>> __init_el2_fgt2 rather than __init_el2_fgt.
->>
->> That's fair; __init_el2_fgt isn't the right place. But the redundancy of
->> re-reading PMSVer from DFR0 is a little jarring.
->>
->>> I suppose we could have a single __init_el2_spe that writes to both 
->>> HDFGRTR
->>> and HDFGRTR2 but we'd have to be careful to not overwrite what was 
->>> already
->>> done in the other sections.
->>
->> Right, perhaps it would be clearer to have trap-preserving macros for
->> features in a specific ID register rather than per-trap configuration
->> register macros.
->>
->> In other words, we have something like __init_fgt_aa64dfr0 which would
->> configure the FGT and FGT2 registers based on features in aa64dfr0. I
->> think you'd need to have a play to see how it ends up looking but the
->> main thing to avoid is having duplicate ID register parsing code for
->> setting up FGT and FGT2 traps.
->>
->> Will
-> 
-> I'll give it a go but that could end up being fragile to something that 
-> is dependent on two different ID registers in the future. Then we'd end 
-> up in the same situation for a different reason.
-> 
-
-I think I've run into it already. Wouldn't checking for FGT and FGT2 
-have to be repeated when doing each ID register? Now we only do that 
-once at the start of __init_el2_fgt and __init_el2_fgt2, even if we 
-might sometimes check a different ID register twice. But if we flipped 
-it we'd always have to repeat those.
-
+> Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
+> Reviewed-by: Janne Grunau <j@jannau.net>
+> ---
+>  drivers/gpu/drm/panel/panel-summit.c | 1 +
+>  1 file changed, 1 insertion(+)
+>
+> diff --git a/drivers/gpu/drm/panel/panel-summit.c b/drivers/gpu/drm/panel=
+/panel-summit.c
+> index 4854437e2899..02aa1ec287d6 100644
+> --- a/drivers/gpu/drm/panel/panel-summit.c
+> +++ b/drivers/gpu/drm/panel/panel-summit.c
+> @@ -1,6 +1,7 @@
+>  // SPDX-License-Identifier: GPL-2.0-only
+>
+>  #include <linux/backlight.h>
+> +#include <linux/of.h>
+>  #include <drm/drm_device.h>
+>  #include <drm/drm_mipi_dsi.h>
+>  #include <drm/drm_mode.h>
+> --
+> 2.50.0
+>
 
