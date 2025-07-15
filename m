@@ -4,64 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12D59C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 23:25:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BC6DC83F27
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 23:27:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=lAgqzrLQFgULC/NyYg790w7pnHGpDDP+rKXydLeBdro=; b=w27DnOG1mflEJ0emQKYbXAy87x
-	uHxnYlDeWzv/QnmQCapo+ghS8OUua47NKmC00aEKRIe9YgRxa4p4fO2EHkrZd1S3aQcxiApbLYeAS
-	HlxFmJi+XaKAV3kyAd9V1acRoZ/tRXp8fVf3QoTRcAMMY9tXHUL8h+IrhPyyPc+71ljf1ajrhRVCb
-	H3CNqdC0u5TxMWNiKL8AZdhUvyiUzS/okwEFnm/Tn3X2a+8PuNh7BR0K6X8wQc82zU6J3pRnuHzEO
-	aIFQ0jDdAslXCq9EmysAyDQCV+GklivsQcpQSNKIgz37SIBYzovA5KmIoMdvgpdnmrWgv8If0P33C
-	BNmFrGIg==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=h1NteXgjoCufVkt/8amSm79q6diV1uidup5Yx/VMRMo=; b=xH4/6QSlKsqgIYDcU/YbGr8c0I
+	bfGuzYFzhKnOHmHo77uvyLYvFq3FeceGj18SscOqdjsWj7YCMRz7ipRzARSmhf1qW1tQuXehLtWKu
+	N1ETkR8mlLvr+pzOEAp9Rpn/lkWXMgn1jjJabVqs9oYhbbSh8/DE8c/tbmQlPUkfa0rX0Yd8xfZfj
+	cSvPlTw97ye0NFOBhJ638WKSzMPSarsGPfgeK97c5U6blPQ8sgDeRgujUoK3h3wg0mPr8i6mieoc4
+	ZWLF/5TlWmLJa93zohfccTzgYf4/RVKaIWxfYeWI+HZdrMGCQfoEVcHnuHHR3ZyLgeaUSToB9LkbD
+	y5guccnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubp1D-00000006Oyw-0ShC;
-	Tue, 15 Jul 2025 23:25:03 +0000
-Received: from mail.adomerle.pw ([185.125.100.172])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubowg-00000006OM8-3V8k;
-	Tue, 15 Jul 2025 23:20:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; s=202506r; d=adomerle.pw; c=relaxed/relaxed;
-	h=Message-ID:Date:Subject:To:From; t=1752621609; bh=lAgqzrLQFgULC/NyYg790w7
-	pnHGpDDP+rKXydLeBdro=; b=PKQLyvfoHzhI/2nBfmwhUQkKSq5uRNhnHw0uA3sAdxMHJCOqBE
-	MKeaDpccaY0X1fCL5mKTVmgBNicSX5aNXHTv2vLUhdQwoU9UAGgrX+0nWAMe3hT/Nl7Z/G54Zju
-	NvqwGAYSbGdwTV1rb7AYLGY2SOmva3Jub2aUv5F6Q6Eb7+kFfq36et+R15Bk6jkZt1Ws1YG4Ea3
-	SPaJcXKAj8IJL57YUhPtEEGUHH9yjEeXWnjKDa9ee791fXcm+LHGWiXS82nq9P7nVa7fLu1ntXS
-	sLK7DFEnIT1IU0cqFzEi6PGeu4DLThSxdt9SUPVkOGnG8w02K2OpvYFzvY3Wd9NBS2Q==;
-DKIM-Signature: v=1; a=ed25519-sha256; s=202506e; d=adomerle.pw; c=relaxed/relaxed;
-	h=Message-ID:Date:Subject:To:From; t=1752621609; bh=lAgqzrLQFgULC/NyYg790w7
-	pnHGpDDP+rKXydLeBdro=; b=+w1ImdG0wGwWNIhr3PfI/9CU7GW5NQT75nkl4OSm2eJcLap64D
-	9eG/29pnL0Y2pi1kZ8hloCXIh5K5JSJGofAg==;
-From: Arseniy Velikanov <me@adomerle.pw>
-To: Mark Brown <broonie@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Leilk Liu <leilk.liu@mediatek.com>
-Cc: linux-spi@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	~postmarketos/upstreaming@lists.sr.ht,
-	Arseniy Velikanov <me@adomerle.pw>
-Subject: [PATCH v1] dt-bindings: spi: mt65xx: Add compatible for MT6789
-Date: Wed, 16 Jul 2025 03:19:21 +0400
-Message-ID: <20250715231921.4527-1-me@adomerle.pw>
-X-Mailer: git-send-email 2.50.0
+	id 1ubp3b-00000006PAU-251a;
+	Tue, 15 Jul 2025 23:27:31 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uboyb-00000006Of7-2srL
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 15 Jul 2025 23:22:23 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0045C12FC;
+	Tue, 15 Jul 2025 16:22:12 -0700 (PDT)
+Received: from [10.57.0.241] (unknown [10.57.0.241])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 9D9533F66E;
+	Tue, 15 Jul 2025 16:22:17 -0700 (PDT)
+Message-ID: <153b5191-c585-433e-9cf5-1ed19b9a7f5c@arm.com>
+Date: Wed, 16 Jul 2025 00:22:16 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 01/23] arm64: cpufeature: Add cpucap for HPMN0
+Content-Language: en-GB
+To: Colton Lewis <coltonlewis@google.com>, kvm@vger.kernel.org
+Cc: Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>,
+ Russell King <linux@armlinux.org.uk>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
+ Mingwei Zhang <mizhang@google.com>, Joey Gouly <joey.gouly@arm.com>,
+ Zenghui Yu <yuzenghui@huawei.com>, Mark Rutland <mark.rutland@arm.com>,
+ Shuah Khan <shuah@kernel.org>, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ kvmarm@lists.linux.dev, linux-perf-users@vger.kernel.org,
+ linux-kselftest@vger.kernel.org
+References: <20250714225917.1396543-1-coltonlewis@google.com>
+ <20250714225917.1396543-2-coltonlewis@google.com>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <20250714225917.1396543-2-coltonlewis@google.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250715_162023_212523_7F8DDAF0 
-X-CRM114-Status: UNSURE (   7.68  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250715_162221_804988_1DA5300A 
+X-CRM114-Status: GOOD (  18.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,26 +73,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a SPI controller binding for the MT6789 SoC. As a note,
-MT6893 SPI is fully compatible with this SoC.
+On 14/07/2025 23:58, Colton Lewis wrote:
+> Add a capability for FEAT_HPMN0, whether MDCR_EL2.HPMN can specify 0
+> counters reserved for the guest.
+> 
+> This required changing HPMN0 to an UnsignedEnum in tools/sysreg
+> because otherwise not all the appropriate macros are generated to add
+> it to arm64_cpu_capabilities_arm64_features.
+> 
+> Acked-by: Mark Rutland <mark.rutland@arm.com>
+> Signed-off-by: Colton Lewis <coltonlewis@google.com>
+> ---
+>   arch/arm64/kernel/cpufeature.c | 8 ++++++++
+>   arch/arm64/tools/cpucaps       | 1 +
+>   arch/arm64/tools/sysreg        | 6 +++---
+>   3 files changed, 12 insertions(+), 3 deletions(-)
+> 
+> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+> index b34044e20128..f38d7b5294ec 100644
+> --- a/arch/arm64/kernel/cpufeature.c
+> +++ b/arch/arm64/kernel/cpufeature.c
+> @@ -548,6 +548,7 @@ static const struct arm64_ftr_bits ftr_id_mmfr0[] = {
+>   };
+>   
+>   static const struct arm64_ftr_bits ftr_id_aa64dfr0[] = {
+> +	ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64DFR0_EL1_HPMN0_SHIFT, 4, 0),
 
-Signed-off-by: Arseniy Velikanov <me@adomerle.pw>
----
- Documentation/devicetree/bindings/spi/mediatek,spi-mt65xx.yaml | 1 +
- 1 file changed, 1 insertion(+)
+This doesn't have to be FTR_STRICT. The kernel can deal with 
+differences, by skipping to use HPMN0. We anyway rely on the
+system wide cap for using the feature.
 
-diff --git a/Documentation/devicetree/bindings/spi/mediatek,spi-mt65xx.yaml b/Documentation/devicetree/bindings/spi/mediatek,spi-mt65xx.yaml
-index 3bf3eb1f8728..0635aec29aae 100644
---- a/Documentation/devicetree/bindings/spi/mediatek,spi-mt65xx.yaml
-+++ b/Documentation/devicetree/bindings/spi/mediatek,spi-mt65xx.yaml
-@@ -49,6 +49,7 @@ properties:
-               - mediatek,mt2712-spi
-               - mediatek,mt6589-spi
-               - mediatek,mt6765-spi
-+              - mediatek,mt6789-spi
-               - mediatek,mt6893-spi
-               - mediatek,mt6991-spi
-               - mediatek,mt7622-spi
--- 
-2.50.0
+Otherwise,
+
+Acked-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+
+
+>   	S_ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64DFR0_EL1_DoubleLock_SHIFT, 4, 0),
+>   	ARM64_FTR_BITS(FTR_HIDDEN, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64DFR0_EL1_PMSVer_SHIFT, 4, 0),
+>   	ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64DFR0_EL1_CTX_CMPs_SHIFT, 4, 0),
+> @@ -2896,6 +2897,13 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
+>   		.matches = has_cpuid_feature,
+>   		ARM64_CPUID_FIELDS(ID_AA64MMFR0_EL1, FGT, FGT2)
+>   	},
+> +	{
+> +		.desc = "HPMN0",
+> +		.type = ARM64_CPUCAP_SYSTEM_FEATURE,
+> +		.capability = ARM64_HAS_HPMN0,
+> +		.matches = has_cpuid_feature,
+> +		ARM64_CPUID_FIELDS(ID_AA64DFR0_EL1, HPMN0, IMP)
+> +	},
+>   #ifdef CONFIG_ARM64_SME
+>   	{
+>   		.desc = "Scalable Matrix Extension",
+> diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
+> index 10effd4cff6b..5b196ba21629 100644
+> --- a/arch/arm64/tools/cpucaps
+> +++ b/arch/arm64/tools/cpucaps
+> @@ -39,6 +39,7 @@ HAS_GIC_CPUIF_SYSREGS
+>   HAS_GIC_PRIO_MASKING
+>   HAS_GIC_PRIO_RELAXED_SYNC
+>   HAS_HCR_NV1
+> +HAS_HPMN0
+>   HAS_HCX
+>   HAS_LDAPR
+>   HAS_LPA2
+> diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
+> index 8a8cf6874298..d29742481754 100644
+> --- a/arch/arm64/tools/sysreg
+> +++ b/arch/arm64/tools/sysreg
+> @@ -1531,9 +1531,9 @@ EndEnum
+>   EndSysreg
+>   
+>   Sysreg	ID_AA64DFR0_EL1	3	0	0	5	0
+> -Enum	63:60	HPMN0
+> -	0b0000	UNPREDICTABLE
+> -	0b0001	DEF
+> +UnsignedEnum	63:60	HPMN0
+> +	0b0000	NI
+> +	0b0001	IMP
+>   EndEnum
+>   UnsignedEnum	59:56	ExtTrcBuff
+>   	0b0000	NI
+
 
