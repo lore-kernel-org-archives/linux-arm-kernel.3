@@ -4,91 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17F7BC83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 11:01:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F00D9C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 11:05:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=F/mHAbC8hGHbBSwhAq1pRep/z7r7zHvPcOOX2+I5dO8=; b=bZFjUfDYp6hMMCxZNyEhk9NThu
-	DfM5bjFSJsgd9XDR6LwC0HuInsGzYSdLOgaUFi10NHihoXaxUK1Gj2ojqo3L7k25a02JICnq4UR+w
-	hGd7Y5BxuIPjVBiRv6aOb9TDAZdBKWLbhBUMWpa+8NB33LkARoL7QYKeOAb2TQADivQpjKSTM9Pu1
-	zhr9DfG9LZmomUOhDUV8mkV45LGd6mr2sAOJ3UZsXpO4w0V9+sSR5dQyz2yZsClVtqmViZcY90gkY
-	guvj75VOnnWzfOGVMfgRVr2w15qDM4GgzeV0abYBzRtwLD1h8CImHq/Z2Torxojmhk8eM3x0LqFbN
-	xWWm/LVw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CQ3KsY7RuJMCeoFmZ+VPC2LvIrEx59LTT+bBZVmw8v0=; b=TgcCDBXs+tHUqx3NQOeRXWO6rZ
+	dRb4eLrmd5wiSiQBRKfosL/lJQaozab4msIvSMfIZD69Y6RPnOGg06YczBSCB3vymiLjwGMEkI78w
+	tpk4IU2QyXLTo6oYJ9DA6RvhX8I0iQiVGEumpMvP2CCo6CEwzeSGQMwn5U7Ky0Gdw5wvYeqsHdA95
+	Q9x2uwnGPCwJ+BePp0J5/7E7DzgqRwwPuhQ3pfL1kpIQx8L1YEr69BF54OWSWPYQDC9C9QuGk2/aM
+	+QUSEanflodEJ724giTv1NVRSng+1+3xivlwX9QLF3w6HfsqnzjUyt+Pkj5gckvfg+GYxpop1Syru
+	d2u5StGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubdP9-00000004srI-2Gfy;
-	Tue, 15 Jul 2025 11:00:59 +0000
-Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
+	id 1ubdTk-00000004tYr-2tLc;
+	Tue, 15 Jul 2025 11:05:44 +0000
+Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubdMi-00000004sYa-1XWP;
-	Tue, 15 Jul 2025 10:58:29 +0000
-Received: by mail-ej1-x62d.google.com with SMTP id a640c23a62f3a-adfb562266cso919295766b.0;
-        Tue, 15 Jul 2025 03:58:28 -0700 (PDT)
+	id 1ubdRJ-00000004t4q-0EwQ
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 15 Jul 2025 11:03:14 +0000
+Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-3a6cd1a6fecso5107590f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 15 Jul 2025 04:03:12 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1752577107; x=1753181907; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=F/mHAbC8hGHbBSwhAq1pRep/z7r7zHvPcOOX2+I5dO8=;
-        b=Xct+Yut/zS/lY5KhI8oFRJ1XZjDIigLBHwxmcoSKXVcoRwSTfVi7L41ZK89z9O9/pC
-         FD+y0TowVjuQLarE++j7UkP7WPUQATVvUYew2Lun98GjhD5NaJCMDdGIuhMPiQdxajJ+
-         ozQYlD6Bx3CaVqxTwN5VNz/PZpjzdnc/bWkJfLBaSVbVhijB+QbiANgxxfhmCWoIbjFF
-         AssMSdiPpRtu/z/25xzIl3qbSlHUWP1q/xV2gxpIqjFLactdv6LL43Y1OsNa6rJV2tKb
-         4BjaZ4jB9dhOSZzTqsYEgVgWljrlqGiUFumJp0wSaoHPif5jZBmSMIRT02GrOY9wCzQ2
-         zm2w==
+        d=linaro.org; s=google; t=1752577391; x=1753182191; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=CQ3KsY7RuJMCeoFmZ+VPC2LvIrEx59LTT+bBZVmw8v0=;
+        b=wPahR1MxqKhy2l/3OL7wGyZH4D5Ubv/n+D/xBq08namygg0pTjItLkM2G8YJENFZUB
+         L9fom3x3Gcyv0bhYsF9TqD2QR7/MdEgdsj7cNij0NclkCNLoXLnIrHMf0I9cpiKivUfO
+         qEf8y2L+G5QvgxQhJ8L7HhaBm4Ctsbt9rY5sTozsKrHZK9OIBsyR15XS8vdl1FSk02TR
+         6GBT4iKYG3aTi42XWarIs1Mq4g5p1MPCAXbvrIpmmNH7Au6MmeiVGWmAIhxkbbSxjVyW
+         Uv4M+aDW1OqgZKDVnOKd6xb1LGxuxvuTKcOnTypft6bfDjNcY1xSsT2tchoDK+D6dA2i
+         IFvQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752577107; x=1753181907;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=F/mHAbC8hGHbBSwhAq1pRep/z7r7zHvPcOOX2+I5dO8=;
-        b=OTx6CVl49V+hCTJnuPyubyPHYeCW9yOq51oz8+YbyHnqtxgL5GopWbsRiPLonGj+BK
-         bTOER519ALPh5hOQWNi7HWMgEE83seFggb/PF7L0YEGj81l6AT4GAaWHwwu/Lk/0/1Gy
-         IyBUoktbIDEB3TIq8S+RBKEmRvBv9WlF756hZjqAAk9QwpsV9cpUruvUMGy4hmg4GOaL
-         Uo5KyVlKAMgKIGPP0Qrqa17s+DkUJsFVEryhzNt7HZjX6IdFhZmpA1fmGzWCpyZdJb0o
-         QTRGHy+TqLPavA+VfAHomy3XlsCIPwmgfuA9VDDbyAVSwacRMrJpNR3CdEUVOJ0d+G6s
-         z6Dg==
-X-Forwarded-Encrypted: i=1; AJvYcCVMs5+cgMF/Mpv22moauSkzFuxx9yxxPDguk0HztrFuCn2mdlsd1FhUTaNAQ38a7/MooyUAe3TzrUWw@lists.infradead.org, AJvYcCVQjUiEkGaTps4pgsUwGqbFKj1hBSLs6Ve0toX8zIBT6o+F0iBHQO8rJqD7VUBtsEHQYpCtMggM2Gl2xN6zOMtX@lists.infradead.org, AJvYcCWjApwKJWGnNYcAufwIohFEyD8uZDf0M0cIsYlDIsH4PHjwpDA1PUovsKM0vWvTOhYCjEVuLdjjpbaW9q2b24k=@lists.infradead.org
-X-Gm-Message-State: AOJu0YyUfUJYQzWZHQ68nWGW0jcuP/lXjHtT1i/4OHaL8ixiwF9RYT6i
-	EVFAY5nD1JwpMRS9WgGhHKj9agNpvnVDxR2HvkkErNV7kPi4zjF4Vxx+
-X-Gm-Gg: ASbGncuJaRqmzFuRbKFCssR+MMHm/HNd89nPntLwrGgxOcsUcP/mMEXZyTSxNom4syf
-	CxjLbX5ZuGtHahIc9hgD4oBAic8DMjBAz2nJK++Q3l3+vJHSzfsfX1kmeme0VpSIY9Vqrjptruk
-	ZVD8LxzUCIu/y1tiCM2+WDVOT/to9apAWax4qM4Mp232xeKYR5IZmlXgYuKUerpzr8Oi8RoMwbf
-	UabiVne34wdf4cn7Wm0rvMoJa4823y+jrWepVxbTyvHxiY2WEeo0vjvhzTr8N+SSvP0E+pkT5qJ
-	6zwikpCJHzUj/8XEvJnz38UsqoOAtxu2htB01eEgb16sv4Wj5f0WirDQn0TbcIPMNn4ro9nyjgr
-	6ZDYGZER2sFxUnq0Iov5kil5LlELcZuwGwMlaJzR4sTvNXQMr
-X-Google-Smtp-Source: AGHT+IFcV1NRroRK8E4ACX4/AYoU3UTXo1RHhhcZbGaL38WjPIbgiRuFhrQraM9n3g9N8ETFy0dwvQ==
-X-Received: by 2002:a17:907:d88:b0:ade:6e3:7c4 with SMTP id a640c23a62f3a-ae9b9519e89mr215840066b.23.1752577106085;
-        Tue, 15 Jul 2025 03:58:26 -0700 (PDT)
-Received: from A13PC04R.einet.ad.eivd.ch ([185.144.39.75])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ae6e82df2fbsm980771966b.158.2025.07.15.03.58.25
+        d=1e100.net; s=20230601; t=1752577391; x=1753182191;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=CQ3KsY7RuJMCeoFmZ+VPC2LvIrEx59LTT+bBZVmw8v0=;
+        b=ggyG4mM5WR+1/2X3xzyY7e40m/cbuNf2b/vGA2UYtliUMha33tjcIyIHKG0BEeqX+T
+         bQSfGdSICpQrAg3wogZoH+IAQJBnu4rLgQ6MN3LtTZDbmUf5iOQJ2bKg49ueyQB2sRMX
+         Pa5DI0DmL3lwWNV4ZVgmzjgTcrh6aPcbxSX42LSvxd9TeeZDXzNiuOHpRpHwzXfgYjNw
+         sO1m4YyYLbXF63Mgq2GxNlq7Sqoe2qu3uCp8kuyrmcMhyQLhhNX7P5qSvPycVvwo331V
+         KZUP2CbRUvhKP3HYdYeVBj00TCMOCcHPtcZ8NpFhnhrrpyTRLFYOgXxDHlxkBDg04mU1
+         Z24g==
+X-Forwarded-Encrypted: i=1; AJvYcCXcdbadShb4flVRGnGtMWlyhnIgxtp91+Hrf6tzYMt1d0Tke3NilBu7aCRJcefPjHbfHGGkWWtZhSqQpT+AxKcl@lists.infradead.org
+X-Gm-Message-State: AOJu0YxW+Uc60QF8xx9XZ/USegvcmfNM5/qfxrx0Mw7EXSS6pXvywc6h
+	ge5qf2o2yEg08DWhZ0svFZs9WAVn1ZIh/MR3Kg1UXdE3UfJp6i7R1pMiJ5ma40XBdnw=
+X-Gm-Gg: ASbGncvQyOMeqSFh5Xum4rx900qhC5ekuc5T51CFq2W0vP+PRFwRMk+GzW6JJ74AbFn
+	CfrKZKaTw5xLgBIqB6LSGYGv3e2SLr4I1mfIcs+KiDHDez7fIY9AqpgGfeo5KDvbiHeCK335sqm
+	BwMwVSWcrZV5veVJwksB4OBOCFgjVmWPauIhWvmz+fMRmwf3xlOKOq9gMFM8ngEu02Fp/8Y45oZ
+	xH3wSnBqhkgo1qXf4iWYxkmFwognbmWL4athaDmGeKxRPWDz7DafG+kvFRIdnk/ZlBq+svmERh5
+	LbwNxL6FgXO15l6EIx/0Wq+oZCOM/jLMyhVZmMBz8QlP8aG3G62ox0SKgPgxxML/0TKvbFoLLDq
+	4Qos8rkAtWlVIkX+P+nYNNV5tQ1yrsgCFF+RkIkM/rKVWFGxaaFZdyu2IP6/Z
+X-Google-Smtp-Source: AGHT+IFT6+e+1LHPoHL9zRhZjHAJcWyBIubOz9pyvb5+t2eyC4mO5maHD0gKqNkv9qAY4Y+9Ky5qRQ==
+X-Received: by 2002:a5d:4291:0:b0:3a5:8d0b:600c with SMTP id ffacd0b85a97d-3b60a145bc0mr1397391f8f.3.1752577391366;
+        Tue, 15 Jul 2025 04:03:11 -0700 (PDT)
+Received: from mai.linaro.org (146725694.box.freepro.com. [130.180.211.218])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3b5e8dc9349sm14634243f8f.45.2025.07.15.04.03.10
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 15 Jul 2025 03:58:25 -0700 (PDT)
-From: Rick Wertenbroek <rick.wertenbroek@gmail.com>
-To: 
-Cc: rick.wertenbroek@heig-vd.ch,
-	dlemoal@kernel.org,
-	alberto.dassatti@heig-vd.ch,
-	Rick Wertenbroek <rick.wertenbroek@gmail.com>,
-	Vinod Koul <vkoul@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	linux-phy@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] phy: rockchip-snps-pcie3: add support for rockchip,phy-ref-use-pad
-Date: Tue, 15 Jul 2025 12:58:20 +0200
-Message-Id: <20250715105820.4037272-1-rick.wertenbroek@gmail.com>
-X-Mailer: git-send-email 2.25.1
+        Tue, 15 Jul 2025 04:03:10 -0700 (PDT)
+Date: Tue, 15 Jul 2025 13:03:08 +0200
+From: Daniel Lezcano <daniel.lezcano@linaro.org>
+To: Will McVicker <willmcvicker@google.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Rob Herring <robh@kernel.org>,
+	Saravana Kannan <saravanak@google.com>,
+	Donghoon Yu <hoony.yu@samsung.com>,
+	Hosung Kim <hosung0.kim@samsung.com>, kernel-team@android.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	John Stultz <jstultz@google.com>,
+	Youngmin Nam <youngmin.nam@samsung.com>,
+	Peter Griffin <peter.griffin@linaro.org>,
+	Tudor Ambarus <tudor.ambarus@linaro.org>,
+	=?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org
+Subject: Re: [PATCH v4 0/6] Add module support for Arm64 Exynos MCT driver
+Message-ID: <aHY1bPeEMXycbKjR@mai.linaro.org>
+References: <20250620181719.1399856-1-willmcvicker@google.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250620181719.1399856-1-willmcvicker@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250715_035828_400813_1B1F720B 
-X-CRM114-Status: GOOD (  20.43  )
+X-CRM114-CacheID: sfid-20250715_040313_098046_09B391A3 
+X-CRM114-Status: GOOD (  34.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,133 +113,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
->From the RK3588 Technical Reference Manual, Part1,
-section 6.19 PCIe3PHY_GRF Register Description: "ref_use_pad"
+On Fri, Jun 20, 2025 at 11:17:03AM -0700, Will McVicker wrote:
+> This series adds support to build the Arm64 Exynos MCT driver as a module.
+> This is only possible on Arm64 SoCs since they can use the Arm architected
+> timer as the clocksource. Once the Exynos MCT module is loaded and the
+> device probes, the MCT is used as the wakeup source for the arch_timer to
+> ensure the device can wakeup from the "c2" idle state.
+> 
+> These patches are originally from the downstream Pixel 6 (gs101) kernel
+> found at [1] and have been adapted for upstream. Not only has the Exynos MCT
+> driver been shipping as a module in the field with Android, but I've also
+> tested this series with the upstream kernel on my Pixel 6 Pro.
+> 
+> In addition, I verified that the Exynos MCT module cannot be unloaded on my
+> Pixel 6. This is due to /sys/module/exynos_mct/refcnt > 0. So if you try,
+> you'll get this:
+> 
+>   root@google-gs:~# rmmod exynos_mct
+>   rmmod: ERROR: Module exynos_mct is in use
+>   root@google-gs:~# cat /sys/module/exynos_mct/refcnt
+>   9
+> 
+> Thanks,
+> Will
+> 
+> Note1, instructions to build and flash a Pixel 6 device with the upstream
+> kernel can be found at [2].
+> 
+> Note2, this series is based off of krzk/for-next commit a15edf91668b ("Merge
+> branch 'next/dt64' into for-next") with [3] on top.
+> 
+> [1] https://android.googlesource.com/kernel/gs/+log/refs/heads/android-gs-raviole-5.10-android12-d1
+> [2] https://git.codelinaro.org/linaro/googlelt/pixelscripts/-/blob/clo/main/README.md?ref_type=heads
+> [3] https://lore.kernel.org/linux-arm-kernel/20250602151853.1942521-1-daniel.lezcano@linaro.org/
+> 
+> Cc: Alim Akhtar <alim.akhtar@samsung.com>
+> Cc: Daniel Lezcano <daniel.lezcano@linaro.org>
+> Cc: Donghoon Yu <hoony.yu@samsung.com>
+> Cc: Hosung Kim <hosung0.kim@samsung.com>
+> Cc: kernel-team@android.com
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linux-kernel@vger.kernel.org
+> Cc: Rob Herring <robh@kernel.org>
+> Cc: Saravana Kannan <saravanak@google.com>
+> Cc: John Stultz <jstultz@google.com>
+> Cc: Thomas Gleixner <tglx@linutronix.de>
+> Cc: Youngmin Nam <youngmin.nam@samsung.com>
+> Cc: Peter Griffin <peter.griffin@linaro.org>
+> Cc: Tudor Ambarus <tudor.ambarus@linaro.org>
+> Cc: André Draszik <andre.draszik@linaro.org>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Conor Dooley <conor+dt@kernel.org>
+> Cc: Krzysztof Kozlowski <krzk@kernel.org>
+> Cc: linux-samsung-soc@vger.kernel.org
+> 
+> ---
+> Changes in v4:
+> - Missed the "v3" string in the previous series for the actual patches
+> - Re-generated patches with --base a15edf91668beefdb5171c53fa698c9b43dd1e0d
+>   for kernel test robot.
+> 
+> Changes in v3:
+> - Rebased on top of Daniel's timer modularization prep series [3] and
+>   krzk/for-next commit a15edf91668b ("Merge branch 'next/dt64' into
+>   for-next")
+> - Added owner references to Exynos MCT clocksource and clockevent objects.
+> - Dropped #ifdef MODULE conditional section in favor of just using
+>   module_platform_driver() which will properly handle setting up the
+>   of_device_id table based on if the driver is built-in or a module.
+> - Update commit message for patch 2 based on John's feedback.
+> - Dropped DT change from v2 as it was picked up by Krzysztof for CPU Idle.
+> 
+> Changes in v2:
+> - Re-worked patch v1 5 based on Rob Herring's review to use the compatible
+>   data for retrieving the mct_init function pointer.
+> - Updated the Kconfig logic to disallow building the Exynos MCT driver as
+>   a module for ARM32 configurations based on Krzysztof Kozlowski's findings.
+> - Added comments and clarified commit messages in patches 1 and 2 based on
+>   reviews from John Stultz and Youngmin Nam.
+> - Fixed an issue found during testing that resulted in the device getting
+>   stuck on boot. This is included in v2 as patch 5.
+> - Collected *-by tags
+> - Rebased to the latest linux-next/master.
+> ---
 
-"Select reference clock connected to ref_pad_clk_p/ref_pad_clk_m.
-Selects the external ref_pad_clk_p and ref_pad_clk_m inputs as the
-reference clock source when asserted. When de-asserted, ref_alt_clk_p
-and ref_alt_clk_m are the sources of the reference clock."
+Applied, thanks
 
-The hardware reset value for this field is 0x1 (enabled).
-Note that this register field is only available on RK3588, not on RK3568.
+  -- Daniel
 
-Add support for the device tree property rockchip,phy-ref-use-pad,
-such that the PCIe PHY can be used on boards where there is no PCIe
-reference clock generated or connected to the external pad, by setting
-this property to 0 so that the internal clock is used.
-
-DT bindings for internal clocks are CLK_PHY0_REF_ALT_P/M and
-CLK_PHY1_REF_ALT_P/M and clock rate should be set to 100MHz in
-the RK3588 cru clock controller (PLL_PPLL).
-
-Example DT overlay where PHY0 uses internal clock (the first clock of
-the cru (PLL_PPLL) must be set to 100MHz, other values are copied from
-rk3588-base.dtsi) and PHY1 uses the external pad (the default):
-
----
-&cru {
-        assigned-clock-rates =
-                <100000000>, <786432000>,
-                <850000000>, <1188000000>,
-                <702000000>,
-                <400000000>, <500000000>,
-                <800000000>, <100000000>,
-                <400000000>, <100000000>,
-                <200000000>, <500000000>,
-                <375000000>, <150000000>,
-                <200000000>;
-};
-
-&pcie30phy {
-        rockchip,rx-common-refclk-mode = <0 0 1 1>;
-        rockchip,phy-ref-use-pad = <0 1>;
-        clocks = <&cru PCLK_PCIE_COMBO_PIPE_PHY>, <&cru CLK_PHY0_REF_ALT_P>,
-                         <&cru CLK_PHY0_REF_ALT_M>, <&cru CLK_PHY1_REF_ALT_P>,
-                         <&cru CLK_PHY1_REF_ALT_M>;
-        clock-names = "pclk", "phy0_ref_alt_p",
-                              "phy0_ref_alt_m", "phy1_ref_alt_p",
-                              "phy1_ref_alt_m";
-};
----
-
-Signed-off-by: Rick Wertenbroek <rick.wertenbroek@gmail.com>
----
- .../phy/rockchip/phy-rockchip-snps-pcie3.c    | 32 +++++++++++++++++++
- 1 file changed, 32 insertions(+)
-
-diff --git a/drivers/phy/rockchip/phy-rockchip-snps-pcie3.c b/drivers/phy/rockchip/phy-rockchip-snps-pcie3.c
-index 4e8ffd173096..0859c7960167 100644
---- a/drivers/phy/rockchip/phy-rockchip-snps-pcie3.c
-+++ b/drivers/phy/rockchip/phy-rockchip-snps-pcie3.c
-@@ -33,6 +33,8 @@
- /* Register for RK3588 */
- #define PHP_GRF_PCIESEL_CON			0x100
- #define RK3588_PCIE3PHY_GRF_CMN_CON0		0x0
-+#define RK3588_PCIE3PHY_GRF_PHY0_CONTROL6	0x118
-+#define RK3588_PCIE3PHY_GRF_PHY1_CONTROL6	0x218
- #define RK3588_PCIE3PHY_GRF_PHY0_STATUS1	0x904
- #define RK3588_PCIE3PHY_GRF_PHY1_STATUS1	0xa04
- #define RK3588_PCIE3PHY_GRF_PHY0_LN0_CON1	0x1004
-@@ -44,6 +46,8 @@
- #define RK3588_BIFURCATION_LANE_0_1		BIT(0)
- #define RK3588_BIFURCATION_LANE_2_3		BIT(1)
- #define RK3588_LANE_AGGREGATION		BIT(2)
-+#define RK3588_PHY_REF_USE_PAD_EN		((BIT(2) << 16 | BIT(2)))
-+#define RK3588_PHY_REF_USE_PAD_DIS		((BIT(2) << 16))
- #define RK3588_RX_CMN_REFCLK_MODE_EN		((BIT(7) << 16) |  BIT(7))
- #define RK3588_RX_CMN_REFCLK_MODE_DIS		(BIT(7) << 16)
- #define RK3588_PCIE1LN_SEL_EN			(GENMASK(1, 0) << 16)
-@@ -67,6 +71,7 @@ struct rockchip_p3phy_priv {
- 	int num_lanes;
- 	u32 lanes[4];
- 	u32 rx_cmn_refclk_mode[4];
-+	u32 phy_ref_use_pad[2];
- };
- 
- struct rockchip_p3phy_ops {
-@@ -157,6 +162,14 @@ static int rockchip_p3phy_rk3588_init(struct rockchip_p3phy_priv *priv)
- 		     priv->rx_cmn_refclk_mode[3] ? RK3588_RX_CMN_REFCLK_MODE_EN :
- 		     RK3588_RX_CMN_REFCLK_MODE_DIS);
- 
-+	/* Select PHY reference clock, external pad or internal clock */
-+	regmap_write(priv->phy_grf, RK3588_PCIE3PHY_GRF_PHY0_CONTROL6,
-+		     priv->phy_ref_use_pad[0] ? RK3588_PHY_REF_USE_PAD_EN :
-+		     RK3588_PHY_REF_USE_PAD_DIS);
-+	regmap_write(priv->phy_grf, RK3588_PCIE3PHY_GRF_PHY1_CONTROL6,
-+		     priv->phy_ref_use_pad[1] ? RK3588_PHY_REF_USE_PAD_EN :
-+		     RK3588_PHY_REF_USE_PAD_DIS);
-+
- 	/* Deassert PCIe PMA output clamp mode */
- 	regmap_write(priv->phy_grf, RK3588_PCIE3PHY_GRF_CMN_CON0, BIT(8) | BIT(24));
- 
-@@ -312,6 +325,25 @@ static int rockchip_p3phy_probe(struct platform_device *pdev)
- 		return ret;
- 	}
- 
-+	ret = of_property_read_variable_u32_array(dev->of_node,
-+						  "rockchip,phy-ref-use-pad",
-+						  priv->phy_ref_use_pad, 1,
-+						  ARRAY_SIZE(priv->phy_ref_use_pad));
-+
-+	/*
-+	 * if no rockhip,phy-use-internal-clk, assume PHY uses pad for the
-+	 * reference clock in order to be DT backwards compatible. (Since HW
-+	 * reset val is enabled.)
-+	 */
-+	if (ret == -EINVAL) {
-+		for (int i = 0; i < ARRAY_SIZE(priv->phy_ref_use_pad); i++)
-+			priv->phy_ref_use_pad[i] = 1;
-+	} else if (ret < 0) {
-+		dev_err(dev, "failed to read rockchip,phy-ref-use-pad property %d\n",
-+			ret);
-+		return ret;
-+	}
-+
- 	priv->phy = devm_phy_create(dev, NULL, &rockchip_p3phy_ops);
- 	if (IS_ERR(priv->phy)) {
- 		dev_err(dev, "failed to create combphy\n");
 -- 
-2.25.1
 
+ <http://www.linaro.org/> Linaro.org │ Open source software for ARM SoCs
+
+Follow Linaro:  <http://www.facebook.com/pages/Linaro> Facebook |
+<http://twitter.com/#!/linaroorg> Twitter |
+<http://www.linaro.org/linaro-blog/> Blog
 
