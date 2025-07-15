@@ -4,117 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99F81C83F22
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 16:17:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EB28C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 16:19:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dgu36HNp6Ey5tbWJzea7xTs+Q7Z2LXx/xuvpNQ1pA7w=; b=MYqssSqRyt2fiiBWYyV68DsO2J
-	h6hq1LRnd7TE8yo3BPC8OnrlU1qW7a/HRgAN5bXIK3C1aA0pDRDpFZKy7iE0llIct7vZSd3AgPZ1A
-	O8JPFar69fPTx1HcmR3nL+xBqVu4UCMLtFOymYcEL5jiX51PtleOZ5ohlfB9XWZrCENPPaxCRgsX5
-	6gaTtp6EoZ6g7ZWxep+AVm3w6ObZ2nq9pLPr2sC8KHX8V7EclRNj+8/KiCvlDWKeioY015rpYfdXy
-	4fMX3gjN96dc5vnbt952k343Edc5e3gXwy+yh/hMx/8zesDKsi59EsKGPLoQ/x2MG4T4lw4R3Rx71
-	0acBkgYg==;
+	bh=4uy0z700i8F874zkdqhtFVTpZ8rBnjKH1fLzPQuP5ZU=; b=bPZ/sc9WiAqqtyoj2uKJ4ZE/7s
+	Q7UUV3wU3H1zgeJ3l7aB4IsQG0ggVsQ93Fs91LsOluInPYjc3aIg63w1+QITrytjdsu1ioQPeK3ry
+	4IvXbBEzAFagg12TFYWWn0wfgXcMdNn+TmQExBG4gc4LSGDLyrMhOtmW+059BtrQpONXE6AHSiegW
+	1uiGG5wwf5fT+0OnM0HXSLB2OmFRtqsL35HCnYRA0eKgH6isbvEAqayPVCPkM41UktZAs3P8GKuey
+	zmOUs9t2bVlJF3mzf3UON+P1oMeBiZ/6wDJL8T8uV/uK1j5BF3h7GGw2oadVo7uLgEt9EfjVu+//l
+	XwSoMDaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubiLH-00000005ilZ-1nAU;
-	Tue, 15 Jul 2025 16:17:19 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubgkM-00000005ObV-1x1w
+	id 1ubiNg-00000005j1r-0aOc;
+	Tue, 15 Jul 2025 16:19:48 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ubgnt-00000005PJd-45A0
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Jul 2025 14:35:08 +0000
-Received: from pps.filterd (m0288072.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56FEA0Ha001517;
-	Tue, 15 Jul 2025 16:34:36 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	dgu36HNp6Ey5tbWJzea7xTs+Q7Z2LXx/xuvpNQ1pA7w=; b=XkYJMeOjQWXDQIsy
-	AQrwvvvypCtw1ngsPhYp8oQ9Aqe7wOzkzXdMOAxAbPScx4bXrHX2e1thg5iUzkSa
-	/VBWSoLqEy9PR0f9nYSZSecU6G6cYi34gu5u3YM+vUUNw6BYdc1LJlFmmcv07LPD
-	G7LDAXvoo9Abm9p36i82R9TUKfFN/nktn0OvWmddLZ2E54SKQpUbFTiCZGN+2YLw
-	dY00weDuq9R4K57oMr74ZxASoS4SGojas1C3HP9vOXcN+v0EnesitM+3hYi+e39k
-	TUAqqBaeMsJ07VJMNLE2mJ56fDcacr+LZazECufXbNKpS1GCbg9f0vHEq0SEVnNg
-	FFMAJA==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 47ud4mp9ps-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 15 Jul 2025 16:34:36 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 35BBA4002D;
-	Tue, 15 Jul 2025 16:32:02 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 4399DB4B425;
-	Tue, 15 Jul 2025 16:30:04 +0200 (CEST)
-Received: from [10.130.74.78] (10.130.74.78) by SHFDAG1NODE2.st.com
- (10.75.129.70) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Tue, 15 Jul
- 2025 16:30:03 +0200
-Message-ID: <45c2f3ec-2452-4f09-9b62-95a392a798b5@foss.st.com>
-Date: Tue, 15 Jul 2025 16:30:02 +0200
+	Tue, 15 Jul 2025 14:38:47 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6B38112FC;
+	Tue, 15 Jul 2025 07:38:34 -0700 (PDT)
+Received: from [10.57.0.241] (unknown [10.57.0.241])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id D52943F694;
+	Tue, 15 Jul 2025 07:38:41 -0700 (PDT)
+Message-ID: <bf56dab4-8a11-4e91-b330-2a8126c94acc@arm.com>
+Date: Tue, 15 Jul 2025 15:38:41 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 7/9] drm/stm/lvds: convert from round_rate() to
- determine_rate()
-To: Brian Masney <bmasney@redhat.com>, Philipp Zabel <p.zabel@pengutronix.de>,
-        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard
-	<mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>,
-        David Airlie
-	<airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Shawn Guo
-	<shawnguo@kernel.org>,
-        Sascha Hauer <s.hauer@pengutronix.de>,
-        Pengutronix
- Kernel Team <kernel@pengutronix.de>,
-        Fabio Estevam <festevam@gmail.com>,
-        Linus Walleij <linus.walleij@linaro.org>,
-        Rob Clark
-	<robin.clark@oss.qualcomm.com>,
-        Dmitry Baryshkov <lumag@kernel.org>,
-        Abhinav
- Kumar <abhinav.kumar@linux.dev>,
-        Jessica Zhang
-	<jessica.zhang@oss.qualcomm.com>,
-        Sean Paul <sean@poorly.run>,
-        Marijn Suijten
-	<marijn.suijten@somainline.org>,
-        Yannick Fertre <yannick.fertre@foss.st.com>,
-        Philippe Cornu <philippe.cornu@foss.st.com>,
-        Maxime Coquelin
-	<mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Chen-Yu Tsai <wens@csie.org>,
-        Jernej Skrabec <jernej.skrabec@gmail.com>,
-        Samuel Holland <samuel@sholland.org>, Stephen Boyd <sboyd@kernel.org>
-CC: <dri-devel@lists.freedesktop.org>, <imx@lists.linux.dev>,
-        <linux-clk@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <linux-kernel@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
-        <freedreno@lists.freedesktop.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-sunxi@lists.linux.dev>
-References: <20250710-drm-clk-round-rate-v1-0-601b9ea384c3@redhat.com>
- <20250710-drm-clk-round-rate-v1-7-601b9ea384c3@redhat.com>
-Content-Language: en-US
-From: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>
-In-Reply-To: <20250710-drm-clk-round-rate-v1-7-601b9ea384c3@redhat.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.130.74.78]
-X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SHFDAG1NODE2.st.com
- (10.75.129.70)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-07-15_03,2025-07-15_01,2025-03-28_01
+Subject: Re: [PATCH 3/3] arm64: acpi: Enable ACPI CCEL support
+Content-Language: en-GB
+To: Will Deacon <will@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, catalin.marinas@arm.com,
+ sami.mujawar@arm.com, aneesh.kumar@kernel.org, steven.price@arm.com,
+ linux-kernel@vger.kernel.org, sudeep.holla@arm.com
+References: <20250613111153.1548928-1-suzuki.poulose@arm.com>
+ <20250613111153.1548928-4-suzuki.poulose@arm.com>
+ <aHZeCKNyDeZEsuCt@willie-the-truck>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <aHZeCKNyDeZEsuCt@willie-the-truck>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250715_073506_793890_DE706419 
-X-CRM114-Status: UNSURE (   7.22  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250715_073846_051547_84B3890D 
+X-CRM114-Status: GOOD (  14.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,22 +67,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 15/07/2025 14:56, Will Deacon wrote:
+> On Fri, Jun 13, 2025 at 12:11:53PM +0100, Suzuki K Poulose wrote:
+>> ACPI CCEL memory area is reported as Non-Volatile storage area. Map it as
+>> PAGE_KERNEL.
+> 
+> It would be helpful to have a citation for that. I've tried digging it
+> out of the ACPI spec, but that pointed me to the Intel TDX site and I
+> got lost in whitepapers :/
+> 
+
+https://uefi.org/specs/ACPI/6.5/05_ACPI_Software_Programming_Model.html#cc-event-log-acpi-table
+
+>> Cc: Sami Mujawar <sami.mujawar@arm.com>
+>> Cc: Will Deacon <will@kernel.org>
+>> Cc: Catalin Marinas <catalin.marinas@arm.com>
+>> Cc: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>
+>> Cc: Steven Price <steven.price@arm.com>
+>> Cc: Sudeep Holla <sudeep.holla@arm.com>
+>> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+>> ---
+>>   arch/arm64/kernel/acpi.c | 5 +++++
+>>   1 file changed, 5 insertions(+)
+>>
+>> diff --git a/arch/arm64/kernel/acpi.c b/arch/arm64/kernel/acpi.c
+>> index b9a66fc146c9..f52439d411a0 100644
+>> --- a/arch/arm64/kernel/acpi.c
+>> +++ b/arch/arm64/kernel/acpi.c
+>> @@ -356,6 +356,11 @@ void __iomem *acpi_os_ioremap(acpi_physical_address phys, acpi_size size)
+>>   			prot = PAGE_KERNEL_RO;
+>>   			break;
+>>   
+>> +		case EFI_ACPI_MEMORY_NVS:
+>> +			/* Non-volatile storage, required for CCEL */
+>> +			prot = PAGE_KERNEL;
+> 
+> By "storage" you just mean memory, right?
+
+Yep, it is just memory. I will drop the "NV storage" and simply mention, 
+CCEL.
+
+Thanks!
+
+Suzuki
 
 
-On 7/10/25 19:43, Brian Masney wrote:
-> The round_rate() clk ops is deprecated, so migrate this driver from
-> round_rate() to determine_rate() using the Coccinelle semantic patch
-> on the cover letter of this series.
->
-> Signed-off-by: Brian Masney <bmasney@redhat.com>
-> ---
+> 
+> Will
 
-Hi Brian,
-
-Acked-by: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>
-
-Thanks !
-
-Best regards,
-Raphaël
 
