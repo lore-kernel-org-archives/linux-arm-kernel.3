@@ -4,83 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABC9AC83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 07:59:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCCC1C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 08:02:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bEUMF4eWRlQ8TLOqCX4QecdfnIvcNGC40IXakOIlkYc=; b=1RJDzxR5IivbosjMax0aV+POI9
-	hG8fYDg07S2khIymtfc9oUmgnRnSU7X2PO9kjMeH6/QTJvFviadYJkerN88zrn61xM0dDDc7b6WTz
-	PizgzdrtsUGoVFjNEVJE6xiqO45UGlPQqEV0oJZEYINMRYy3qaWUDwhJrWAiDP+ci6ZwTlhmwnrM+
-	glyENtuZPTYHKVxo/axnkMvaY+SVVeKwoxfKP+Z0wP8JXiy28n9NvkM7wyu9AvHlSDAUiJaMVT8xD
-	ux3rjhXBbycX1ebb8oApQ6cs8qCZ6pL3q3S1nn9+sk4e3h7fSAQ8A2qhaI3tHJzm2KK7BvkoueGbj
-	KtWtlFGg==;
+	bh=Pf2cVC+OGBS7EBscBGuJH0P+TqU9FmA4WqwxuJ06ceY=; b=UMcMk5SrT4ELibJtujZigFNM7m
+	I9f2nxaq+8dYPQPW5T2rO59x3e5wYqgHaYlRV2g7TbD/x8n+mwd/CV7PJH/T20YZPgy1OwpSzN58D
+	ZnJtR7N7pZ5YoCEsGEZnsROa7igbxq919e3hoqVMS5Iz4PS4HogNPJk+aHeTYIUy191k7P2RXvrtT
+	5VK+upueRP6T2bypbt0IdOd7230OfrP5TpgQeml4sHXXt33LgOM/ll9vTUHIIKyMq4YXhlhadTrQf
+	VaM23Za7O9Qe32qSAXbucfVJbH4QFSolVoyJ1ilMiVSRRZK5KOdj3+PgoCTfltW9ZXNEItfqIyBJg
+	XmtDPMVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubaZj-00000004QeA-2PNZ;
-	Tue, 15 Jul 2025 07:59:43 +0000
+	id 1ubacA-00000004RFM-1oBY;
+	Tue, 15 Jul 2025 08:02:14 +0000
 Received: from smtp-out2.suse.de ([195.135.223.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubaSz-00000004PQH-3ZLR
+	id 1ubaT6-00000004PVg-3JQN
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Jul 2025 07:52:48 +0000
+	Tue, 15 Jul 2025 07:52:55 +0000
 Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id 8E1331F397;
+	by smtp-out2.suse.de (Postfix) with ESMTPS id CC5F21F445;
 	Tue, 15 Jul 2025 07:52:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
 	t=1752565962; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
 	 mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=bEUMF4eWRlQ8TLOqCX4QecdfnIvcNGC40IXakOIlkYc=;
-	b=taIOEnfv5XpFwUHIq9YmCSWwsuSdzoq+S50lepaNcMy4sS9uoW0/Je1bG9VOQ3oO1rnKUC
-	zoPlwNZHzAPjjisx0JR3eCB4t849ojbRooHaDim+S8EpSZjcwQd/FmzCNefXKxanB3m1xp
-	9zK0sjpFgiERvP40hq21SyhluMkdBfI=
+	bh=Pf2cVC+OGBS7EBscBGuJH0P+TqU9FmA4WqwxuJ06ceY=;
+	b=R0rBqHPaJB+hptSlk7xt62zH5UemcUYhUqu4kyfnZw7o2kVunamRijEQHZe8oka8WRCfDz
+	Eu7kxuluo2OdiSupZCUO+uPsnbTjwupmAKuxTEnvm9/q1ppRnJHrkkde8z6B0tFwkxXb2r
+	/xVJ/v81fLLXhoO9usL9U1gzf3FtgVM=
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
 	s=susede2_ed25519; t=1752565962;
 	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
 	 mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=bEUMF4eWRlQ8TLOqCX4QecdfnIvcNGC40IXakOIlkYc=;
-	b=rtvKuufMAJJodP1eCX4Bnxt+30S918TVo+ahfOuIFInfUC53SjqTwwXuidnkx4HNT5wMRD
-	FJvqCbgEYUB5mPDg==
+	bh=Pf2cVC+OGBS7EBscBGuJH0P+TqU9FmA4WqwxuJ06ceY=;
+	b=J8QlqNrxu073sJ/1JVF1IuxanHzHw/R9j7+K1a5zcdsuHLMrcxIyUNS81A06fah/jfzFI1
+	fFbgUUvz5NvC/pAQ==
 Authentication-Results: smtp-out2.suse.de;
-	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=taIOEnfv;
-	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=rtvKuufM
+	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=R0rBqHPa;
+	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=J8QlqNrx
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
 	t=1752565962; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
 	 mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=bEUMF4eWRlQ8TLOqCX4QecdfnIvcNGC40IXakOIlkYc=;
-	b=taIOEnfv5XpFwUHIq9YmCSWwsuSdzoq+S50lepaNcMy4sS9uoW0/Je1bG9VOQ3oO1rnKUC
-	zoPlwNZHzAPjjisx0JR3eCB4t849ojbRooHaDim+S8EpSZjcwQd/FmzCNefXKxanB3m1xp
-	9zK0sjpFgiERvP40hq21SyhluMkdBfI=
+	bh=Pf2cVC+OGBS7EBscBGuJH0P+TqU9FmA4WqwxuJ06ceY=;
+	b=R0rBqHPaJB+hptSlk7xt62zH5UemcUYhUqu4kyfnZw7o2kVunamRijEQHZe8oka8WRCfDz
+	Eu7kxuluo2OdiSupZCUO+uPsnbTjwupmAKuxTEnvm9/q1ppRnJHrkkde8z6B0tFwkxXb2r
+	/xVJ/v81fLLXhoO9usL9U1gzf3FtgVM=
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
 	s=susede2_ed25519; t=1752565962;
 	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
 	 mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=bEUMF4eWRlQ8TLOqCX4QecdfnIvcNGC40IXakOIlkYc=;
-	b=rtvKuufMAJJodP1eCX4Bnxt+30S918TVo+ahfOuIFInfUC53SjqTwwXuidnkx4HNT5wMRD
-	FJvqCbgEYUB5mPDg==
+	bh=Pf2cVC+OGBS7EBscBGuJH0P+TqU9FmA4WqwxuJ06ceY=;
+	b=J8QlqNrxu073sJ/1JVF1IuxanHzHw/R9j7+K1a5zcdsuHLMrcxIyUNS81A06fah/jfzFI1
+	fFbgUUvz5NvC/pAQ==
 Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 5CF7113A6C;
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 9593613A68;
 	Tue, 15 Jul 2025 07:52:42 +0000 (UTC)
 Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
 	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id OOqLFcoIdmjnSAAAD6G6ig
+	id IJ5uI8oIdmjnSAAAD6G6ig
 	(envelope-from <tiwai@suse.de>); Tue, 15 Jul 2025 07:52:42 +0000
 From: Takashi Iwai <tiwai@suse.de>
 To: linux-sound@vger.kernel.org
@@ -89,14 +89,17 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	linux-mips@vger.kernel.org,
 	Stephen Rothwell <sfr@canb.auug.org.au>,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 1/2] arm: multi_v7_defconfig: Update HD-audio configs
-Date: Tue, 15 Jul 2025 09:51:21 +0200
-Message-ID: <20250715075237.28476-2-tiwai@suse.de>
+Subject: [PATCH 2/2] mips: loongson3_defconfig: Update HD-audio configs
+Date: Tue, 15 Jul 2025 09:51:22 +0200
+Message-ID: <20250715075237.28476-3-tiwai@suse.de>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20250715075237.28476-1-tiwai@suse.de>
 References: <20250715075237.28476-1-tiwai@suse.de>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-Rspamd-Queue-Id: CC5F21F445
+X-Rspamd-Action: no action
+X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
 X-Spamd-Result: default: False [-3.01 / 50.00];
 	BAYES_HAM(-3.00)[100.00%];
 	NEURAL_HAM_LONG(-1.00)[-1.000];
@@ -116,19 +119,16 @@ X-Spamd-Result: default: False [-3.01 / 50.00];
 	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
 	FROM_HAS_DN(0.00)[];
 	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:mid,suse.de:dkim,suse.de:email];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:dkim,suse.de:mid,suse.de:email];
 	RCVD_TLS_ALL(0.00)[];
 	FROM_EQ_ENVFROM(0.00)[];
 	DNSWL_BLOCKED(0.00)[2a07:de40:b281:106:10:150:64:167:received,2a07:de40:b281:104:10:150:64:97:from];
 	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
 	RCPT_COUNT_FIVE(0.00)[6];
 	DKIM_TRACE(0.00)[suse.de:+]
-X-Rspamd-Queue-Id: 8E1331F397
-X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
-X-Rspamd-Action: no action
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250715_005246_035071_6E23DA1A 
-X-CRM114-Status: GOOD (  12.00  )
+X-CRM114-CacheID: sfid-20250715_005252_984532_234FB19E 
+X-CRM114-Status: GOOD (  11.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,38 +143,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since the reorganization of HD-audio drivers, Realtek and HDMI codec
-drivers have been split.  Update to the new Kconfigs to catch up.
+Since the reorganization of HD-audio drivers, Realtek driver has been
+split.  Update to the new Kconfigs to catch up.
 
 Fixes: aeeb85f26c3b ("ALSA: hda: Split Realtek HD-audio codec driver")
-Fixes: 73cd0490819d ("ALSA: hda/hdmi: Split vendor codec drivers")
-Reported-by: Stephen Rothwell <sfr@canb.auug.org.au>
-Closes: https://lore.kernel.org/20250715170422.5162c666@canb.auug.org.au
 Signed-off-by: Takashi Iwai <tiwai@suse.de>
 ---
 
 I'm going to put to sound git tree if no one objects
 
- arch/arm/configs/multi_v7_defconfig | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
+ arch/mips/configs/loongson3_defconfig | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm/configs/multi_v7_defconfig b/arch/arm/configs/multi_v7_defconfig
-index 50c170b4619f..02ddd7ce9e3e 100644
---- a/arch/arm/configs/multi_v7_defconfig
-+++ b/arch/arm/configs/multi_v7_defconfig
-@@ -791,8 +791,11 @@ CONFIG_SND=m
- CONFIG_SND_HDA_TEGRA=m
- CONFIG_SND_HDA_INPUT_BEEP=y
+diff --git a/arch/mips/configs/loongson3_defconfig b/arch/mips/configs/loongson3_defconfig
+index 98844b457b7f..5ff0c1554168 100644
+--- a/arch/mips/configs/loongson3_defconfig
++++ b/arch/mips/configs/loongson3_defconfig
+@@ -292,7 +292,9 @@ CONFIG_SND_SEQ_DUMMY=m
+ # CONFIG_SND_ISA is not set
+ CONFIG_SND_HDA_INTEL=m
  CONFIG_SND_HDA_PATCH_LOADER=y
 -CONFIG_SND_HDA_CODEC_REALTEK=m
 +CONFIG_SND_HDA_CODEC_REALTEK=y
 +CONFIG_SND_HDA_CODEC_REALTEK_LIB=m
 +CONFIG_SND_HDA_CODEC_ALC269=m
+ CONFIG_SND_HDA_CODEC_SIGMATEL=m
  CONFIG_SND_HDA_CODEC_HDMI=m
-+CONFIG_SND_HDA_CODEC_HDMI_TEGRA=m
- CONFIG_SND_USB_AUDIO=m
- CONFIG_SND_SOC=m
- CONFIG_SND_ATMEL_SOC=m
+ CONFIG_SND_HDA_CODEC_CONEXANT=m
 -- 
 2.50.1
 
