@@ -4,58 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4098C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 04:28:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 235EFC83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 04:31:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aMhHpk3FLl0dttTIgPrVeG6ZNiZ1kfm/TXpgwtc9uJE=; b=MSDPZn7XKeDahHst6p/VlI/CmB
-	gkakK3wjzLIbRU04U40UDORHQWyzCpKKZxz8lYZ+ATs1i1mvM/BrwDPBYcCRde5Q5ShY+3yiE5Asl
-	zqDxnZNa0+T0GE4bxcajvvcL2ggsVdny5DsqHK17A0nmY7xuR6YGvFV/Kij2coKxWbbb9U96yN+L4
-	LcZK0qoOCQWN/G9H7aWR1it0FoJGVtovEy1HTP+iYA7GzLJd1QR2R+/NzfRjD1L8gPT+0SX2mJ0ki
-	nQq7HAXQ/23yjlHEP4kv5Ex2BzgJGV7CLPGFBwP60b6w4hvVHnS/0nlG0+CuFjwlLGs99/SGjsRGR
-	1pDDfDpA==;
+	bh=/hwZ9pGB4/hx2ABFnIm8s8H6CXYLZ1v5EE31wGJd/Es=; b=oVk7FHQMvRK+GGqpLWLFH6Uvyg
+	FrxUHbwhZ0WQK5lWujw7TW0RbcqPAstYhP3wyGuMUOfhOJ1Uc/+cKrtSde7dPRQEtsV2990yn8MuK
+	Q6uWbRw3yY71wxvR1R07kdMXXpyjSwNkRz6wgxILAbAMMG5D3gG5APfA2W63LRKuG0oIGE5u+JJ3Z
+	4ZrRYMeFDPdjccSp3pb2oro/ZBY+5vvT9tpBoIaA83idYml5lHucl8F9XqZmmY3Ibv47+Hfdc0v32
+	f+DAaJ8ipjUCOsSm/BrlYhICXHwaggdF0Xw2W+D9kIRXuFOHpUo7MbtEPzHTVWxYIZBFWnx1RAaey
+	zAkWg7Cg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubXHP-000000040Pt-3L7G;
-	Tue, 15 Jul 2025 04:28:35 +0000
-Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
+	id 1ubXJq-000000040e1-2hD9;
+	Tue, 15 Jul 2025 04:31:06 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubWa9-00000003vKr-28HJ
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Jul 2025 03:43:55 +0000
-Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Tue, 15 Jul
- 2025 11:43:21 +0800
-Received: from mail.aspeedtech.com (192.168.10.13) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
- Transport; Tue, 15 Jul 2025 11:43:21 +0800
-From: Jacky Chou <jacky_chou@aspeedtech.com>
-To: <bhelgaas@google.com>, <lpieralisi@kernel.org>, <kwilczynski@kernel.org>,
-	<mani@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-	<conor+dt@kernel.org>, <joel@jms.id.au>, <andrew@codeconstruct.com.au>,
-	<linux-aspeed@lists.ozlabs.org>, <linux-pci@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
-CC: <openbmc@lists.ozlabs.org>, <linux-gpio@vger.kernel.org>,
-	<linus.walleij@linaro.org>, <p.zabel@pengutronix.de>, <BMC-SW@aspeedtech.com>
-Subject: [PATCH v2 10/10] MAINTAINERS: Add ASPEED PCIe RC driver
-Date: Tue, 15 Jul 2025 11:43:20 +0800
-Message-ID: <20250715034320.2553837-11-jacky_chou@aspeedtech.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250715034320.2553837-1-jacky_chou@aspeedtech.com>
-References: <20250715034320.2553837-1-jacky_chou@aspeedtech.com>
+	id 1ubWfC-00000003wJn-3I7J;
+	Tue, 15 Jul 2025 03:49:08 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 30C9C5C561D;
+	Tue, 15 Jul 2025 03:49:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BAD55C4CEE3;
+	Tue, 15 Jul 2025 03:49:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1752551345;
+	bh=gcY+rcVUM18+WL+0Uv5xjyIiT5YsGsvyMAcfAQ3GkXg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=O/yaklxrP0q+LJX8BWpX6hyeBc2f/KflPpHmmNR3Fd62d9XmHx1WSIpVtjpX7BwwV
+	 HRDq7qIM1rE6yyfcgaHHeT5qm1qUGvAp/RnJz9fBjBMfe1PQ4pc+kvC2zYwjBI0G52
+	 8thHGh4Iygy5PkoPsp5ZuQ6vB0eMp7V4Ycsy9tolXO6yIQkAaPvhq/Rdmo/LRHwVgN
+	 EDmSV0Zbv7zVOf1f6N2bvOzCrs9+4aGMEYbCQwO/gY52OT+2mdIUzn9Y6g4splBD/g
+	 TNlXtNb/z4kwuU7vw1+Du74z1+tgVmd5LCFDG1wXEJRtFjs3wwxbdJzREVRJiRHNcu
+	 Qhby4nuvpwwvA==
+Date: Mon, 14 Jul 2025 22:49:04 -0500
+From: Rob Herring <robh@kernel.org>
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>, kernel@collabora.com,
+	linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Viresh Kumar <viresh.kumar@linaro.org>
+Subject: Re: [PATCH v2 1/4] dt-bindings: cpufreq: Add
+ mediatek,mt8196-cpufreq-hw binding
+Message-ID: <20250715034904.GA4699-robh@kernel.org>
+References: <20250714-mt8196-cpufreq-v2-0-cc85e78855c7@collabora.com>
+ <20250714-mt8196-cpufreq-v2-1-cc85e78855c7@collabora.com>
+ <fd561a8c-f1a7-41c2-a686-abc89f5fa555@collabora.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <fd561a8c-f1a7-41c2-a686-abc89f5fa555@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250714_204353_549531_E459DF58 
-X-CRM114-Status: UNSURE (   7.37  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250714_204907_002236_F0F09030 
+X-CRM114-Status: GOOD (  25.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,35 +80,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add maintainer for ASPEED PCIe RC driver.
+On Mon, Jul 14, 2025 at 04:41:30PM +0200, AngeloGioacchino Del Regno wrote:
+> Il 14/07/25 16:08, Nicolas Frattaroli ha scritto:
+> > The MediaTek MT8196 SoC has new cpufreq hardware, with added memory
+> > register ranges to control Dynamic-Voltage-Frequency-Scaling.
+> > 
+> > The DVFS hardware is controlled through a set of registers referred to
+> > as "FDVFS"; one is a location from which a magic number is read to
+> > ensure DVFS should be used, the other is a region to set the desired
+> > target frequency that DVFS should aim towards for each performance
+> > domain.
+> > 
+> > Instead of working around the old binding and its already established
+> > meanings for the reg items, add a new binding. The FDVFS register memory
+> > regions are at the beginning, which allows us to easily expand this
+> > binding for future SoCs which may have more than 3 performance domains.
+> > 
+> > Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> > ---
+> >   .../cpufreq/mediatek,mt8196-cpufreq-hw.yaml        | 86 ++++++++++++++++++++++
+> >   1 file changed, 86 insertions(+)
+> > 
+> > diff --git a/Documentation/devicetree/bindings/cpufreq/mediatek,mt8196-cpufreq-hw.yaml b/Documentation/devicetree/bindings/cpufreq/mediatek,mt8196-cpufreq-hw.yaml
+> > new file mode 100644
+> > index 0000000000000000000000000000000000000000..26bf21e05888646b4d1bdac95bfba0f36e037ffd
+> > --- /dev/null
+> > +++ b/Documentation/devicetree/bindings/cpufreq/mediatek,mt8196-cpufreq-hw.yaml
+> > @@ -0,0 +1,86 @@
+> > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> > +%YAML 1.2
+> > +---
+> > +$id: http://devicetree.org/schemas/cpufreq/mediatek,mt8196-cpufreq-hw.yaml#
+> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > +
+> > +title: MediaTek CPUFreq for MT8196 and related SoCs
+> 
+> title: MediaTek Hybrid CPUFreq for MT8196/MT6991 series SoCs
+> 
+> > +
+> > +maintainers:
+> > +  - Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> > +
+> > +description:
+> > +  MT8196 uses CPUFreq management hardware that supports dynamic voltage
+> > +  frequency scaling (dvfs), and can support several performance domains.
+> > +
+> > +properties:
+> > +  compatible:
+> > +    const: mediatek,mt8196-cpufreq-hw
+> > +
+> > +  reg:
+> > +    items:
+> > +      - description: FDVFS magic number register region
+> 
+> As already said in the other commit, we might just be able to avoid adding the
+> magic number register region :-)
+> 
+> > +      - description: FDVFS control register region
+> > +      - description: OPP tables and control for performance domain 0
+> > +      - description: OPP tables and control for performance domain 1
+> > +      - description: OPP tables and control for performance domain 2
+> > +
+> > +  "#performance-domain-cells":
+> > +    description:
+> > +      Number of cells in a performance domain specifier. Must be 1.
+> 
+> The description is redundant and doesn't add any real information, I think you
+> should drop it.
+> 
+> Bindings maintainers, please, opinions?
 
-Signed-off-by: Jacky Chou <jacky_chou@aspeedtech.com>
----
- MAINTAINERS | 10 ++++++++++
- 1 file changed, 10 insertions(+)
+Drop.
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 3ecb44458a7e..e1839dc240bc 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -3696,6 +3696,16 @@ S:	Maintained
- F:	Documentation/devicetree/bindings/media/aspeed,video-engine.yaml
- F:	drivers/media/platform/aspeed/
- 
-+ASPEED PCIE CONTROLLER DRIVER
-+M:	Jacky Chou <jacky_chou@aspeedtech.com>
-+L:	linux-aspeed@lists.ozlabs.org (moderated for non-subscribers)
-+L:	linux-pci@vger.kernel.org
-+S:	Maintained
-+F:	Documentation/devicetree/bindings/pci/aspeed,ast2600-pcie.yaml
-+F:	Documentation/devicetree/bindings/soc/aspeed/aspeed,pcie-cfg.yaml
-+F:	Documentation/devicetree/bindings/soc/aspeed/aspeed,pcie-phy.yaml
-+F:	drivers/pci/controller/pcie-aspeed.c
-+
- ASUS EC HARDWARE MONITOR DRIVER
- M:	Eugene Shalygin <eugene.shalygin@gmail.com>
- L:	linux-hwmon@vger.kernel.org
--- 
-2.43.0
-
+Rob
 
