@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67039C83F22
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 15:50:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A885CC83F22
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 15:52:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6MXB6crWKN+m+MNM88eUtLdL3Cvn3ky0m1KJj7xBArQ=; b=BJUYv8lYsC47wyWraaqx3u5v7e
-	o+mQx0N1+RBi8SplUL87ewVdjOnaVmn5T2brAZgptK4w/p1IQJY4oGAhaGDcY+XkpanvVEJQ2cFqL
-	r3Kcd7ZKgxoxVc2IA9pubbxXmpXMyCHvmGoDKiwCiXV0q2i3kOM3l9Ku5+gJ/k+7yxQ2pn2DskIUJ
-	R/TbdKCXJGGWKzTj4eJs3X1+CTWSaOumqH7omU0fpbZB5PLtPK4lKCC7zvppj79tIunyVQRIpY0b5
-	1sH/KnWkQQRUsU9naioE0vQNkRTRFyhtXbktjyQekjLleTo/ku5mV0DWA68cm637ty55SGeBtzIUO
-	YwCwac+w==;
+	bh=84YaXKoVfdCPozMqSRseBxzju7nO3IRCPyCRdbq+log=; b=IkMNLUBjsCDO6ft3qTjTw3xRA+
+	1kP6y9mpdWR5n6x9j1qMC6NN09FnK7eW7vKLLSeSF7fWwNIwJeChwO+kuJ0kmfBjPHwOeWqjAoyj+
+	/cXwp5aJPbinfpQYrUETZ8vvMaMLElH6Zdff5uOHaxL1hcZLRbq7IEFVCJg5hw/Py8aKPYuAshmg8
+	BzeAwXAL50wae3YnJGAZ5sa5SUDk+x6QWHSx4m1L/ZN5bJst0xunM5CRmZIub1ZCf1QKC6YDf6Iym
+	UBjRSI3f8VbqGoYPhnh+3XsntIdmiYxArge9MZ/4jpXfF8gOJ3pO5T0DMFAsGJF/ABXbnyBA34riO
+	Pqqy2NCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubhux-00000005eNq-17KY;
-	Tue, 15 Jul 2025 15:50:07 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1ubhxN-00000005ed1-1aY7;
+	Tue, 15 Jul 2025 15:52:37 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubgFd-00000005IyE-1shr;
-	Tue, 15 Jul 2025 14:03:23 +0000
+	id 1ubgFf-00000005IzK-0Nev;
+	Tue, 15 Jul 2025 14:03:24 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1752588200;
-	bh=0T78hHqBP46sG3iZ6YmlVmz4JbgNfG24m+8uNL7+1UE=;
+	s=mail; t=1752588201;
+	bh=Ri++bYMrEX68zjvAiAcAZUzVJwMcB/boqbaj8bEwZ2s=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=qRCcEAxl9Af92A5tc94dbW8Y5jSat+ZpinET9OR0wSFlwcZ5zsAgVBWwZDwbQROKy
-	 NnCE8DlLVixyFYAGnjJ4vP9mXekQzn9S60ttS8aDWoa+2FcBA3+1l87ZTIwS+TPP4y
-	 4+3qbxzFtq6gJwjFtM9OikNWg0p1c2EAwPY/saQOZTs+1tII/t2oOISGSaJj8cY3a9
-	 /EupXyPfhrr9kI34EkqWFQGGOHjZAeQsFxEmqk7tI6jWvmXOKFvFXwBt71fDrTru0m
-	 GIo+S8T9aZhpQ5k52LqpKz2YAXoo8nDPDKaL/VTDo/dv8VKqHwc+HVjluhqVlVPnrN
-	 Y7xfEoirp4Pvg==
+	b=cmDwio7Oa815n9aR02l8azSKArHfen4vPjatA3GhhY/9FwwvMglBASRh2eIBgB5lJ
+	 7snCVO2g+kzSf0cRGqATmokse4SHCEHVtjCBQqhSHyWLwqcZNYQE03q4ZRJjhOoWIm
+	 aZsuPta5z/2Yduzu3ggXP8CJbjafJd1v0W+h1brkpxbR7J6jW8+AqfedoFnrIXC6Oq
+	 JyjvbMukuNf1Tbiz7vuF9WRoH1wF9EK0JFWx9TBh/N3jrD41+tA7XgtcWl/WuCBD2p
+	 sZXEqbNmvrlXWkdR02yZDAQ/a5JHeGDNTXrIEjA+clvoGfQVu1ztMXzewKbDN1R+ue
+	 bdRq/AAktRNiw==
 Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3B92B17E1293;
-	Tue, 15 Jul 2025 16:03:19 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 0F9BB17E1319;
+	Tue, 15 Jul 2025 16:03:21 +0200 (CEST)
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 To: linux-mediatek@lists.infradead.org
 Cc: lee@kernel.org,
@@ -58,17 +58,17 @@ Cc: lee@kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	kernel@collabora.com,
 	wenst@chromium.org
-Subject: [PATCH v5 3/8] dt-bindings: regulator: Document MediaTek MT6363 PMIC Regulators
-Date: Tue, 15 Jul 2025 16:02:19 +0200
-Message-ID: <20250715140224.206329-4-angelogioacchino.delregno@collabora.com>
+Subject: [PATCH v5 5/8] dt-bindings: regulator: Document MediaTek MT6373 PMIC Regulators
+Date: Tue, 15 Jul 2025 16:02:21 +0200
+Message-ID: <20250715140224.206329-6-angelogioacchino.delregno@collabora.com>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20250715140224.206329-1-angelogioacchino.delregno@collabora.com>
 References: <20250715140224.206329-1-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250715_070321_777622_505E10C6 
-X-CRM114-Status: GOOD (  13.97  )
+X-CRM114-CacheID: sfid-20250715_070323_299193_1817D896 
+X-CRM114-Status: GOOD (  14.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,43 +86,45 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 Add bindings for the regulators found in the MediaTek MT6363 PMIC,
 usually found in board designs using the MT6991 Dimensity 9400 and
 on MT8196 Kompanio SoC for Chromebooks, along with the MT6316 and
-MT6373 PMICs.
+MT6363 PMICs.
 
 Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 ---
- .../regulator/mediatek,mt6363-regulator.yaml  | 193 ++++++++++++++++++
- 1 file changed, 193 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/regulator/mediatek,mt6363-regulator.yaml
+ .../regulator/mediatek,mt6373-regulator.yaml  | 174 ++++++++++++++++++
+ 1 file changed, 174 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/regulator/mediatek,mt6373-regulator.yaml
 
-diff --git a/Documentation/devicetree/bindings/regulator/mediatek,mt6363-regulator.yaml b/Documentation/devicetree/bindings/regulator/mediatek,mt6363-regulator.yaml
+diff --git a/Documentation/devicetree/bindings/regulator/mediatek,mt6373-regulator.yaml b/Documentation/devicetree/bindings/regulator/mediatek,mt6373-regulator.yaml
 new file mode 100644
-index 000000000000..ea1f6c92cffc
+index 000000000000..3dd853678b51
 --- /dev/null
-+++ b/Documentation/devicetree/bindings/regulator/mediatek,mt6363-regulator.yaml
-@@ -0,0 +1,193 @@
++++ b/Documentation/devicetree/bindings/regulator/mediatek,mt6373-regulator.yaml
+@@ -0,0 +1,174 @@
 +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
 +%YAML 1.2
 +---
-+$id: http://devicetree.org/schemas/regulator/mediatek,mt6363-regulator.yaml#
++$id: http://devicetree.org/schemas/regulator/mediatek,mt6373-regulator.yaml#
 +$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-+title: MediaTek MT6363 PMIC Regulators
++title: MediaTek MT6373 PMIC Regulators
 +
 +maintainers:
 +  - AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 +
 +description:
-+  The MT6363 SPMI PMIC provides 10 BUCK and 25 LDO (Low DropOut) regulators
++  The MT6373 SPMI PMIC provides 10 BUCK and 23 LDO (Low DropOut) regulators
 +  and can optionally provide overcurrent warnings with one ocp interrupt
 +  for each voltage regulator.
 +
 +properties:
 +  compatible:
-+    const: mediatek,mt6363-regulator
++    const: mediatek,mt6373-regulator
 +
 +  reg:
 +    maxItems: 1
 +
++  vsys-vbuck0-supply:
++    description: Input supply for vbuck0
 +  vsys-vbuck1-supply:
 +    description: Input supply for vbuck1
 +  vsys-vbuck2-supply:
@@ -137,30 +139,31 @@ index 000000000000..ea1f6c92cffc
 +    description: Input supply for vbuck6
 +  vsys-vbuck7-supply:
 +    description: Input supply for vbuck7
-+  vsys-vs1-supply:
-+    description: Input supply for vs1
-+  vsys-vs2-supply:
-+    description: Input supply for vs2
-+  vsys-vs3-supply:
-+    description: Input supply for vs3
++  vsys-vbuck8-supply:
++    description: Input supply for vbuck8
++  vsys-vbuck9-supply:
++    description: Input supply for vbuck9
 +  vs1-ldo1-supply:
-+    description: Input supply for va15, vio0p75, vm18, vrf18, vrf-io18
-+  vs1-ldo2-supply:
-+    description: Input supply for vcn15, vio18, vufs18
++    description: Input supply for vant18, vaud18, vcn18io
 +  vs2-ldo1-supply:
-+    description: Input supply for vsram-cpub, vsram-cpum, vrf12, vrf13, vufs12
-+  vs2-ldo2-supply:
-+    description: Input supply for va12-1, va12-2, vcn13, vsram-cpul
++    description: Input supply for vrf12-aif, vrf13-aif
 +  vs3-ldo1-supply:
-+    description: Input supply for vsram-apu, vsram-digrf, vsram-mdfe
-+  vs3-ldo2-supply:
-+    description: Input supply for vsram-modem, vrf0p9
++    description: Input supply for vrf09-aif, vsram-digrf-aif
 +  vsys-ldo1-supply:
-+    description: Input supply for vaux18, vemc, vtref18
++    description: Input supply for vcn33-1, vcn33-2, vmc
++  vsys-ldo2-supply:
++    description:
++      Input supply for vaux18, vcn33-3, vefuse, vfp, vibr, vio28, vtp, vusb
++  vsys-ldo3-supply:
++    description: Input supply for vmch, vmch-eint-high/low
 +
 +patternProperties:
-+  "^v(buck[1-7]|s[1-3])$":
-+    description: Buck regulators
++  "^v(ant|aud|aux)18$":
++    type: object
++    $ref: regulator.yaml#
++    unevaluatedProperties: false
++
++  "^vbuck([0-9])$":
 +    type: object
 +    $ref: regulator.yaml#
 +    properties:
@@ -185,25 +188,7 @@ index 000000000000..ea1f6c92cffc
 +          enum: [ 0, 1, 2, 3 ]
 +    unevaluatedProperties: false
 +
-+  "^va(12-1|12-2|15)$":
-+    type: object
-+    $ref: regulator.yaml#
-+    properties:
-+      regulator-allowed-modes:
-+        description: |
-+          Allowed LDO regulator operating modes allowed. Valid values below.
-+            0 - Normal mode with automatic power saving, reducing the switching
-+                frequency when light load conditions are detected
-+            2 - Forced Low Power mode for improved regulator efficiency, used
-+                when no heavy load is expected, does not limit the maximum out
-+                current but unless only a light load is applied, there will be
-+                regulation accuracy and efficiency losses.
-+        maxItems: 2
-+        items:
-+          enum: [ 0, 2 ]
-+    unevaluatedProperties: false
-+
-+  "^v(aux|m|rf-io|tref)18$":
++  "^v(f|t)p":
 +    type: object
 +    $ref: regulator.yaml#
 +    properties:
@@ -213,7 +198,7 @@ index 000000000000..ea1f6c92cffc
 +          enum: [ 0, 2 ]
 +    unevaluatedProperties: false
 +
-+  "^v(cn13|cn15|emc)$":
++  "^v(cn18io|cn33-[123]|efuse|ibr|io28|sram-digrf-aif|usb)":
 +    type: object
 +    $ref: regulator.yaml#
 +    properties:
@@ -223,7 +208,7 @@ index 000000000000..ea1f6c92cffc
 +          enum: [ 0, 2 ]
 +    unevaluatedProperties: false
 +
-+  "^vio(0p75|18)$":
++  "^vmc(h)?$":
 +    type: object
 +    $ref: regulator.yaml#
 +    properties:
@@ -233,7 +218,7 @@ index 000000000000..ea1f6c92cffc
 +          enum: [ 0, 2 ]
 +    unevaluatedProperties: false
 +
-+  "^vrf(0p9|12|13|18)$":
++  "^vmch-eint-(low|high)?$":
 +    type: object
 +    $ref: regulator.yaml#
 +    properties:
@@ -243,17 +228,7 @@ index 000000000000..ea1f6c92cffc
 +          enum: [ 0, 2 ]
 +    unevaluatedProperties: false
 +
-+  "^vsram-(apu|cpub|cpum|cpul|digrf|mdfe|modem)$":
-+    type: object
-+    $ref: regulator.yaml#
-+    properties:
-+      regulator-allowed-modes:
-+        maxItems: 2
-+        items:
-+          enum: [ 0, 2 ]
-+    unevaluatedProperties: false
-+
-+  "^vufs(12|18)$":
++  "^vrf(09|12|13|18|io18)-aif$":
 +    type: object
 +    $ref: regulator.yaml#
 +    properties:
@@ -279,16 +254,22 @@ index 000000000000..ea1f6c92cffc
 +      #interrupt-cells = <3>;
 +
 +      regulators@30 {
-+        compatible = "mediatek,mt6363-regulator";
-+        reg = <0x
++        compatible = "mediatek,mt6373-regulator";
++        reg = <0x30>;
 +
-+        vio18 {
-+          regulator-name = "pp1800-vio18-s3";
++        vaux18 {
++          regulator-name = "avss18-auxadc-mt6373";
 +          regulator-min-microvolt = <1800000>;
 +          regulator-max-microvolt = <1800000>;
-+          regulator-allowed-modes = <0 2>;
-+          regulator-allow-set-load;
++          regulator-allowed-modes = <0 1 2>;
 +          regulator-over-current-protection;
++        };
++
++        vcn33-2 {
++          regulator-name = "pp1800-2900-vmc";
++          regulator-min-microvolt = <1800000>;
++          regulator-max-microvolt = <2900000>;
++          regulator-allowed-modes = <0 2>;
 +        };
 +      };
 +    };
