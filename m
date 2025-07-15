@@ -4,67 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13E51C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 15:02:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38A22C83F22
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 15:04:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mknczMVn4WXftHGSUEmj3LcVZpLgNwJJ6ecQLoslB7o=; b=3PqINIJNPQi8C9tVgIEpe39zry
-	ytazt+YNg+piwb6XFdI7qLz2qtSj6iSBVPBmLcCK2r9pYy1ztbo5+560+0c9dn3GgOiq3Vt/4LfOm
-	AQQBKZSp9H0e8brTFMCcxPaXC7cthZPKBC8vSHw7y4wkVOPTjQdmp+u6cAwvh/DnBUsra5CQ8UURB
-	mYV0x9TRmIvpxPmaEUcxgbR2eu6DenlMfFdqQdusE23XaDXtmdrZeIsCpiN6PlhROzgvfA8VfuCDn
-	BdzPc3w/FydP0QCZOwNuu/ONaSwNN+kFENlYAv6+UUNROvjdvGnLWPxqsc0hpuf9KgHfwBBAfnf47
-	cNSYr36g==;
+	bh=ahX+c8vAAgZZo6vfcQjtOUNKD1iNEcYm/d3IzA1fxo8=; b=WHj4fih6wDCzJNVDa80sDCyJHk
+	+vXhSphWmC1iSPlJE5wMPoh59qIJUDZbwWzZ156SD1FOPk9HfueaGi3rKznYSXlHRgBaN8F73jB7H
+	qIQMtt2wqx5lowrZsYr2jWBIqbFoECDdIRXvNHdVkA6YyNQUrkdgg5qgwSbhP0EqIO0YUr9UDCm42
+	V5G5JUuda/DXpjop8B1OQFlIFNNkHi6hOT8jHSny9LLpxpPLDg4Pr/h/YM8szjqCFhZKA6DRON5Ey
+	DEaO6G3xPMtLc8dOE1/IyRXKGWGtTBZcSGyRcwqj184FCHbCXO2GlDidn3qXUtDiu5aNC9HW1XVaJ
+	KfPePEQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubhAK-00000005VNd-43Mr;
-	Tue, 15 Jul 2025 15:01:56 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1ubhCq-00000005WM6-0B7Z;
+	Tue, 15 Jul 2025 15:04:32 +0000
+Received: from mgamail.intel.com ([192.198.163.18])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubfiK-00000005D8r-2k7a;
-	Tue, 15 Jul 2025 13:28:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1752586134;
-	bh=NZtHYSOuQbNspfyKqTqQMOVejME6k8PRvnKr3a2/2D4=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=kRcBlPPvRe+bzW3i/349S6j/Q0Rd1pBOiZHegxlcV54u6jnCdI+WmwWxjRsBnqbKK
-	 Au2xhiZsjApGtuJuHrWtOYpaqh21zUnqY8YdL8P4zsa+8PXLxYA6j9HwHHJB/inQfL
-	 43PVMiO+tuTGwHkJD61oUmSWKNQUtjJEx3YjViwqRGQCLZCfN1hazHIy7IHjdNVqYn
-	 SORvTVefSQNSiWbYSmLfFOVhyiSbdoCDMlFMPG0t9GsYZYJVLiROZQsyKwrpNHUMxS
-	 dR3BGWoXJlJJqf3CS0cM7yfcAx/6LndJV1j9GbRe6RCRyKQavMar0okFkpeAv4kiLM
-	 cViUNU5zai9SA==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id F30D517E05F0;
-	Tue, 15 Jul 2025 15:28:53 +0200 (CEST)
-Message-ID: <bf5638c9-e49a-4482-9796-ddd3a010d162@collabora.com>
-Date: Tue, 15 Jul 2025 15:28:53 +0200
+	id 1ubfio-00000005DFH-133C
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 15 Jul 2025 13:29:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1752586166; x=1784122166;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=IS0zMYjCeG1sUzA/o870BnonfbFqvWBqq05l3BrL5EM=;
+  b=mWzXnCYW45f3rIaQoOQSmm6cp/J8Bc6bPVfafFexIy5muJcVRZFmNKZ0
+   XZrX+IUYsRrr1XNGA9lRTb7YiKMkSsPQwyzOvZvVK2/920/8cW8rMMW8p
+   DEg2/MlW7yJk75ALmB+a6Ne8utUuHoN/AC0iwaTBbFQ9ZaWXMq7MVJj2u
+   7Ia7mdKjAI4t+7jB676VkxUim4nXnC55k70ZusqRoMxPq/XeVIqXxgY+c
+   0y+mkZfR2yyRcWcKP8OEHK0FlNDYVoG4Hj+Fa6W6Yn1sdHw/8teSCo3BD
+   hUEg6vPCcmrduel3VZxnxUUSPhlGYoLsKP8d/B3I+6kDUiYN7AsBnDgVU
+   w==;
+X-CSE-ConnectionGUID: mNsjdBI7R9uUaT0d2j7+cA==
+X-CSE-MsgGUID: YKHMXQ3dSp2TJHMGBPzYbA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11493"; a="54023337"
+X-IronPort-AV: E=Sophos;i="6.16,313,1744095600"; 
+   d="scan'208";a="54023337"
+Received: from fmviesa005.fm.intel.com ([10.60.135.145])
+  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Jul 2025 06:29:22 -0700
+X-CSE-ConnectionGUID: tExs557lSFySzJsjo1bguQ==
+X-CSE-MsgGUID: /N6sNHUsRACGHIy570/EYg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.16,313,1744095600"; 
+   d="scan'208";a="161534986"
+Received: from linux.intel.com ([10.54.29.200])
+  by fmviesa005.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Jul 2025 06:29:21 -0700
+Received: from [10.124.223.222] (unknown [10.124.223.222])
+	by linux.intel.com (Postfix) with ESMTP id 5FCBC20B571C;
+	Tue, 15 Jul 2025 06:29:20 -0700 (PDT)
+Message-ID: <3357db65-279f-4f43-880a-966b10e10287@linux.intel.com>
+Date: Tue, 15 Jul 2025 06:29:20 -0700
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 1/8] dt-bindings: regulator: Document MediaTek MT6316
- PMIC Regulators
-To: linux-mediatek@lists.infradead.org
-Cc: lee@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- matthias.bgg@gmail.com, lgirdwood@gmail.com, broonie@kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, kernel@collabora.com,
- wenst@chromium.org
-References: <20250715115718.176495-1-angelogioacchino.delregno@collabora.com>
- <20250715115718.176495-2-angelogioacchino.delregno@collabora.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Subject: Re: [PATCH v2 1/2] gpio: wcove: use regmap_assign_bits() in .set()
+To: Bartosz Golaszewski <brgl@bgdev.pl>,
+ Linus Walleij <linus.walleij@linaro.org>, Andy Shevchenko <andy@kernel.org>,
+ Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>,
+ Srinivas Neeli <srinivas.neeli@amd.com>, Michal Simek <michal.simek@amd.com>
+Cc: linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
+ patches@opensource.cirrus.com, linux-arm-kernel@lists.infradead.org,
+ Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+References: <20250715-gpiochip-set-rv-gpio-remaining-v2-0-072b4cf06330@linaro.org>
+ <20250715-gpiochip-set-rv-gpio-remaining-v2-1-072b4cf06330@linaro.org>
 Content-Language: en-US
-In-Reply-To: <20250715115718.176495-2-angelogioacchino.delregno@collabora.com>
+From: Sathyanarayanan Kuppuswamy <sathyanarayanan.kuppuswamy@linux.intel.com>
+In-Reply-To: <20250715-gpiochip-set-rv-gpio-remaining-v2-1-072b4cf06330@linaro.org>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250715_062856_882015_C93E510E 
-X-CRM114-Status: GOOD (  16.42  )
+X-CRM114-CacheID: sfid-20250715_062926_350213_3765A13C 
+X-CRM114-Status: GOOD (  14.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,186 +93,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 15/07/25 13:57, AngeloGioacchino Del Regno ha scritto:
-> Add bindings for the regulators found in the MediaTek MT6316 PMIC,
-> usually found in board designs using the MT6991 Dimensity 9400 and
-> on MT8196 Kompanio SoC for Chromebooks.
-> 
-> This chip is fully controlled by SPMI and has multiple variants
-> providing different phase configurations.
-> 
-> Link: https://lore.kernel.org/r/20250624073548.29732-2-angelogioacchino.delregno@collabora.com
-> Link: https://lore.kernel.org/r/20250707134451.154346-2-angelogioacchino.delregno@collabora.com
 
-Btw, sorry about those Link: tags, those were completely unwanted... they
-slipped through while using b4 and I forgot to remove them.
-
-I'll wait for any feedback or tags and will resend the series with those
-tags removed.
-
-Thanks,
-Angelo
-
-> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+On 7/15/25 1:19 AM, Bartosz Golaszewski wrote:
+> From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+>
+> Replace the if-else with a direct call to the regmap_assign_bits()
+> helper and save a couple lines of code.
+>
+> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 > ---
->   .../regulator/mediatek,mt6316b-regulator.yaml | 46 +++++++++++++++++++
->   .../regulator/mediatek,mt6316c-regulator.yaml | 46 +++++++++++++++++++
->   .../regulator/mediatek,mt6316d-regulator.yaml | 41 +++++++++++++++++
->   3 files changed, 133 insertions(+)
->   create mode 100644 Documentation/devicetree/bindings/regulator/mediatek,mt6316b-regulator.yaml
->   create mode 100644 Documentation/devicetree/bindings/regulator/mediatek,mt6316c-regulator.yaml
->   create mode 100644 Documentation/devicetree/bindings/regulator/mediatek,mt6316d-regulator.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/regulator/mediatek,mt6316b-regulator.yaml b/Documentation/devicetree/bindings/regulator/mediatek,mt6316b-regulator.yaml
-> new file mode 100644
-> index 000000000000..e7a6b70cdab2
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/regulator/mediatek,mt6316b-regulator.yaml
-> @@ -0,0 +1,46 @@
-> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/regulator/mediatek,mt6316b-regulator.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: MediaTek MT6316 BP/VP SPMI PMIC Regulators
-> +
-> +maintainers:
-> +  - AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-> +
-> +description:
-> +  The MediaTek MT6316BP/VP PMICs are fully controlled by SPMI interface, both
-> +  feature four step-down DC/DC (buck) converters, and provides 2+2 Phases,
-> +  joining Buck 1+2 for the first phase, and Buck 3+4 for the second phase.
-> +
-> +properties:
-> +  compatible:
-> +    const: mediatek,mt6316b-regulator
-> +
-> +  vbuck12:
-> +    type: object
-> +    $ref: regulator.yaml#
-> +    unevaluatedProperties: false
-> +
-> +  vbuck34:
-> +    type: object
-> +    $ref: regulator.yaml#
-> +    unevaluatedProperties: false
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    pmic {
-> +      regulators {
-> +        compatible = "mediatek,mt6316b-regulator";
-> +
-> +        vbuck12 {
-> +          regulator-min-microvolt = <450000>;
-> +          regulator-max-microvolt = <965000>;
-> +          regulator-always-on;
-> +        };
-> +      };
-> +    };
-> +...
-> diff --git a/Documentation/devicetree/bindings/regulator/mediatek,mt6316c-regulator.yaml b/Documentation/devicetree/bindings/regulator/mediatek,mt6316c-regulator.yaml
-> new file mode 100644
-> index 000000000000..0b9239a595ed
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/regulator/mediatek,mt6316c-regulator.yaml
-> @@ -0,0 +1,46 @@
-> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/regulator/mediatek,mt6316c-regulator.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: MediaTek MT6316 CP/HP/KP SPMI PMIC Regulators
-> +
-> +maintainers:
-> +  - AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-> +
-> +description:
-> +  The MediaTek MT6316CP/HP/KP PMICs are fully controlled by SPMI interface,
-> +  features four step-down DC/DC (buck) converters, and provides 3+1 Phases,
-> +  joining Buck 1+2+4 for the first phase, and uses Buck 3 for the second.
-> +
-> +properties:
-> +  compatible:
-> +    const: mediatek,mt6316c-regulator
-> +
-> +  vbuck124:
-> +    type: object
-> +    $ref: regulator.yaml#
-> +    unevaluatedProperties: false
-> +
-> +  vbuck3:
-> +    type: object
-> +    $ref: regulator.yaml#
-> +    unevaluatedProperties: false
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    pmic {
-> +      regulators {
-> +        compatible = "mediatek,mt6316c-regulator";
-> +
-> +        vbuck124 {
-> +          regulator-min-microvolt = <450000>;
-> +          regulator-max-microvolt = <1277500>;
-> +          regulator-always-on;
-> +        };
-> +      };
-> +    };
-> +...
-> diff --git a/Documentation/devicetree/bindings/regulator/mediatek,mt6316d-regulator.yaml b/Documentation/devicetree/bindings/regulator/mediatek,mt6316d-regulator.yaml
-> new file mode 100644
-> index 000000000000..460c02bf69de
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/regulator/mediatek,mt6316d-regulator.yaml
-> @@ -0,0 +1,41 @@
-> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/regulator/mediatek,mt6316d-regulator.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: MediaTek MT6316 DP/TP SPMI PMIC Regulators
-> +
-> +maintainers:
-> +  - AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-> +
-> +description:
-> +  The MediaTek MT6316DP/TP PMICs are fully controlled by SPMI interface, both
-> +  feature four step-down DC/DC (buck) converters, and provides a single Phase,
-> +  joining Buck 1+2+3+4.
-> +
-> +properties:
-> +  compatible:
-> +    const: mediatek,mt6316d-regulator
-> +
-> +  vbuck1234:
-> +    type: object
-> +    $ref: regulator.yaml#
-> +    unevaluatedProperties: false
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    pmic {
-> +      regulators {
-> +        compatible = "mediatek,mt6316d-regulator";
-> +
-> +        vbuck1234 {
-> +          regulator-min-microvolt = <400000>;
-> +          regulator-max-microvolt = <1277500>;
-> +          regulator-always-on;
-> +        };
-> +      };
-> +    };
-> +...
+
+Reviewed-by: Kuppuswamy Sathyanarayanan <sathyanarayanan.kuppuswamy@linux.intel.com>
+
+>   drivers/gpio/gpio-wcove.c | 5 +----
+>   1 file changed, 1 insertion(+), 4 deletions(-)
+>
+> diff --git a/drivers/gpio/gpio-wcove.c b/drivers/gpio/gpio-wcove.c
+> index 1ec24f6f9300f33f5b3f0f8deb539e08392b8188..816fb8d113e66b27070f286755f3192b2a8f8512 100644
+> --- a/drivers/gpio/gpio-wcove.c
+> +++ b/drivers/gpio/gpio-wcove.c
+> @@ -208,10 +208,7 @@ static void wcove_gpio_set(struct gpio_chip *chip, unsigned int gpio, int value)
+>   	if (reg < 0)
+>   		return;
+>   
+> -	if (value)
+> -		regmap_set_bits(wg->regmap, reg, 1);
+> -	else
+> -		regmap_clear_bits(wg->regmap, reg, 1);
+> +	regmap_assign_bits(wg->regmap, reg, 1, value);
+>   }
+>   
+>   static int wcove_gpio_set_config(struct gpio_chip *chip, unsigned int gpio,
+>
+-- 
+Sathyanarayanan Kuppuswamy
+Linux Kernel Developer
 
 
