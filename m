@@ -4,97 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96733C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 07:54:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41135C83F1D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 07:57:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=M1C4N9WQ5rgNkJxYdso36BOZpEKSkeehMURg6RF2AZs=; b=tlUX1wBY/cNeBjUhpNC6gLdbAc
-	g/ClUbVue3Pmy3lzSfEeNHQZK6+KbEMyNBJBy9YGuo0YVr2p5E9it3hTAjxRy0yXBTkL9wWkItVsJ
-	eEM4A2t3kjI5IrbKxBsYFro53Mk0bBdJYvHfS/I17t+DAiQTjnNgYkcne0TGW4mojbgLf+hadLCkK
-	+3P0I0Qw5Xn+59vhqNVaVgVJyBeDpHVT8Tt42jaq+z4r1gx+0DfsNnU3JmOoNLTu9xfiFNRurb2fX
-	edvbirG6wWX4WXcBE+L8Y05QfsuAfNdJyqUhFHm/dq0NRmw7FrVa1axvQ+BeVbnaTZsfsTlOG9n+b
-	asqlzUXw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=102czK2bX3cmqlSriVXsJ2M0mtJ3UQcTGi9fuVH3TZI=; b=pq277L2feawt2Hl+WeHjGvFoYC
+	CXn8DriebzJnU3s231wqOtMWp3M0Jp7J3DOCsMeA3ORxV+lwPBJgOegwk8H+DEsn1ieoEr9MvUC23
+	5cJ9JrGrf37hsgq5JnxZb8bEPE8c+yOEf5CvGz9gSOSs/npIzVXtKn4iKxFPm174hfJ/YKatX+6bg
+	PTKgW25+lbcen29NzUrZqKIyUWvT34bRDMmVKhxlkx/9i+xE6/PW1HeQSCoj0MOzwniiOIUJVw/5Z
+	kmf9GyJjPJcCRJ3HUeROPydv824SB3t/H+vH/pZyzaPMn8ai99PPR4DR5AnJtw0+8rYamCBz1xnfW
+	ZyGhvdPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubaUv-00000004Psg-08BN;
-	Tue, 15 Jul 2025 07:54:45 +0000
-Received: from relay6-d.mail.gandi.net ([217.70.183.198])
+	id 1ubaXK-00000004QN5-3euB;
+	Tue, 15 Jul 2025 07:57:14 +0000
+Received: from smtp-out1.suse.de ([195.135.223.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubaSR-00000004PBX-2Jj0
+	id 1ubaSz-00000004PQ8-14OP
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Jul 2025 07:52:13 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 15E884430B;
-	Tue, 15 Jul 2025 07:52:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1752565927;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=M1C4N9WQ5rgNkJxYdso36BOZpEKSkeehMURg6RF2AZs=;
-	b=K2ZBOvpCK+DfbORKkUB96qZGojQMOpxKddXHomukQBEYBIN0+lWkj1YulbBi+zfeCRljce
-	ttBunNrQzmnhlqdvoJbaUegatps4qvodXqUHBZkfHJL+5voqtr1E8uuAGwzADYFEH7FiUv
-	pWMHI2VPjx0aq+v9NotfmbpIiBWLLYL7iCLnS9n3yx6Mv/TuPYng8bkmj4mw489w22m1Jh
-	jMqSVGWUuQLOuwffNXsCwGnXjUHX1LAbH3NLppNQIhnxhMVvm0DC1sKPw4Lw5QG7yER/0y
-	iG/DOx+uuN7YWl+GRAg7T3C+vCELR/4CaTsXl+WJvZzjKfmB+yM0p0i0Ygz9tg==
-Date: Tue, 15 Jul 2025 09:52:01 +0200
-From: Herve Codina <herve.codina@bootlin.com>
-To: Rob Herring <robh@kernel.org>
-Cc: Andrew Lunn <andrew@lunn.ch>, Greg Kroah-Hartman
- <gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael@kernel.org>,
- Danilo Krummrich <dakr@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha
- Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team
- <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Michael
- Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Andi
- Shyti <andi.shyti@kernel.org>, Wolfram Sang
- <wsa+renesas@sang-engineering.com>, Peter Rosin <peda@axentia.se>, Derek
- Kiernan <derek.kiernan@amd.com>, Dragan Cvetic <dragan.cvetic@amd.com>,
- Arnd Bergmann <arnd@arndb.de>, Saravana Kannan <saravanak@google.com>,
- Bjorn Helgaas <bhelgaas@google.com>, Mark Brown <broonie@kernel.org>, Len
- Brown <lenb@kernel.org>, Andy Shevchenko
- <andriy.shevchenko@linux.intel.com>, Daniel Scally <djrscally@gmail.com>,
- Heikki Krogerus <heikki.krogerus@linux.intel.com>, Sakari Ailus
- <sakari.ailus@linux.intel.com>, Wolfram Sang <wsa@kernel.org>, Geert
- Uytterhoeven <geert+renesas@glider.be>, Davidlohr Bueso
- <dave@stgolabs.net>, Dave Jiang <dave.jiang@intel.com>, Alison Schofield
- <alison.schofield@intel.com>, Vishal Verma <vishal.l.verma@intel.com>, Ira
- Weiny <ira.weiny@intel.com>, Dan Williams <dan.j.williams@intel.com>,
- linux-kernel@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
- linux-i2c@vger.kernel.org, devicetree@vger.kernel.org,
- linux-pci@vger.kernel.org, linux-spi@vger.kernel.org,
- linux-acpi@vger.kernel.org, linux-cxl@vger.kernel.org, Allan Nielsen
- <allan.nielsen@microchip.com>, Horatiu Vultur
- <horatiu.vultur@microchip.com>, Steen Hegelund
- <steen.hegelund@microchip.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>,
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>
-Subject: Re: [PATCH v3 05/28] bus: simple-pm-bus: Populate child nodes at
- probe
-Message-ID: <20250715095201.1bcb4ab7@bootlin.com>
-In-Reply-To: <CAL_JsqLnPxUKXo3+Qdv-C1kXa6zbL1zMKDQsg1--08EY4TwsKw@mail.gmail.com>
-References: <20250613134817.681832-1-herve.codina@bootlin.com>
-	<20250613134817.681832-6-herve.codina@bootlin.com>
-	<20250627155200.GB3234475-robh@kernel.org>
-	<20250703093302.4f7743ea@bootlin.com>
-	<20250704105725.50cb72b9@bootlin.com>
-	<CAL_JsqLnPxUKXo3+Qdv-C1kXa6zbL1zMKDQsg1--08EY4TwsKw@mail.gmail.com>
-Organization: Bootlin
-X-Mailer: Claws Mail 4.3.1 (GTK 3.24.43; x86_64-redhat-linux-gnu)
+	Tue, 15 Jul 2025 07:52:46 +0000
+Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id 5AB6321245;
+	Tue, 15 Jul 2025 07:52:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1752565962; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:  content-transfer-encoding:content-transfer-encoding;
+	bh=102czK2bX3cmqlSriVXsJ2M0mtJ3UQcTGi9fuVH3TZI=;
+	b=kZ/UclzfjvwSMWC1ieUIfNIBUv1PXi9uLsAsz1QqFi7H3drNqIwxZpSu0DqVWL3EEbsk/5
+	KoQ8RAidcHC801777sqHTIaxXRYev/9YGk6WzPauwmEkbtGkQZjWojzJii20tb+dDvt1Q1
+	dN1Xa+S7uEB+PwFVRewKt2b/NVBALQE=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1752565962;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:  content-transfer-encoding:content-transfer-encoding;
+	bh=102czK2bX3cmqlSriVXsJ2M0mtJ3UQcTGi9fuVH3TZI=;
+	b=E6QZLQBM38B5BJa1LG6Argk5RQluHRvajhaIAaujVkj2UsTH89Zi3Bt0tmPWuqtVXKEChg
+	7n6XF4k/PbdZfQCA==
+Authentication-Results: smtp-out1.suse.de;
+	none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1752565962; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:  content-transfer-encoding:content-transfer-encoding;
+	bh=102czK2bX3cmqlSriVXsJ2M0mtJ3UQcTGi9fuVH3TZI=;
+	b=kZ/UclzfjvwSMWC1ieUIfNIBUv1PXi9uLsAsz1QqFi7H3drNqIwxZpSu0DqVWL3EEbsk/5
+	KoQ8RAidcHC801777sqHTIaxXRYev/9YGk6WzPauwmEkbtGkQZjWojzJii20tb+dDvt1Q1
+	dN1Xa+S7uEB+PwFVRewKt2b/NVBALQE=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1752565962;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:  content-transfer-encoding:content-transfer-encoding;
+	bh=102czK2bX3cmqlSriVXsJ2M0mtJ3UQcTGi9fuVH3TZI=;
+	b=E6QZLQBM38B5BJa1LG6Argk5RQluHRvajhaIAaujVkj2UsTH89Zi3Bt0tmPWuqtVXKEChg
+	7n6XF4k/PbdZfQCA==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 1287713A68;
+	Tue, 15 Jul 2025 07:52:42 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id nfH5AsoIdmjnSAAAD6G6ig
+	(envelope-from <tiwai@suse.de>); Tue, 15 Jul 2025 07:52:42 +0000
+From: Takashi Iwai <tiwai@suse.de>
+To: linux-sound@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	linux-mips@vger.kernel.org,
+	Stephen Rothwell <sfr@canb.auug.org.au>,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 0/2] Fix HD-audio default kconfigs in arm and mips
+Date: Tue, 15 Jul 2025 09:51:20 +0200
+Message-ID: <20250715075237.28476-1-tiwai@suse.de>
+X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdehgedvjecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepfffhvfevuffkjghfohfogggtgfesthekredtredtjeenucfhrhhomhepjfgvrhhvvgcuvehoughinhgruceohhgvrhhvvgdrtghoughinhgrsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeeviefffeegiedtleelieeghfejleeuueevkeevteegffehledtkeegudeigffgvdenucfkphepvdgrtddumegvtdgrmedvkeehmegsleektdemvgegtdgtmeeitgegfeemsgehsggsmegrgedvkeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtudemvgdtrgemvdekheemsgelkedtmegvgedttgemiegtgeefmegshegssgemrgegvdekpdhhvghloheplhhotggrlhhhohhsthdpmhgrihhlfhhrohhmpehhvghrvhgvrdgtohguihhnrgessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepgeekpdhrtghpthhtoheprhhosghhsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegrnhgurhgvfieslhhunhhnrdgthhdprhgtphhtthhopehgrhgvghhkhheslhhinhhugihfohhunhgurghtihhonhdrohhrghdprhgtphhtthhopehrrghfrggvlheskhgvrhhnvghlrdhorhhgp
- dhrtghpthhtohepuggrkhhrsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehshhgrfihnghhuoheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepshdrhhgruhgvrhesphgvnhhguhhtrhhonhhigidruggvpdhrtghpthhtohepkhgvrhhnvghlsehpvghnghhuthhrohhnihigrdguvg
-X-GND-Sasl: herve.codina@bootlin.com
+X-Spamd-Result: default: False [-2.80 / 50.00];
+	BAYES_HAM(-3.00)[99.99%];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	MID_CONTAINS_FROM(1.00)[];
+	R_MISSING_CHARSET(0.50)[];
+	NEURAL_HAM_SHORT(-0.20)[-0.999];
+	MIME_GOOD(-0.10)[text/plain];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	ARC_NA(0.00)[];
+	MIME_TRACE(0.00)[0:+];
+	TO_DN_SOME(0.00)[];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:mid];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	FROM_EQ_ENVFROM(0.00)[];
+	RCVD_COUNT_TWO(0.00)[2];
+	FUZZY_RATELIMITED(0.00)[rspamd.com];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	RCPT_COUNT_FIVE(0.00)[6];
+	RCVD_TLS_ALL(0.00)[]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250715_005211_937185_580B4942 
-X-CRM114-Status: GOOD (  58.94  )
+X-CRM114-CacheID: sfid-20250715_005245_439894_48606306 
+X-CRM114-Status: GOOD (  10.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,142 +123,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Rob,
+The upcoming reorganization of HD-audio drivers for 6.17 kernel broght
+some changes in Kconfig, and we need to update the default kconfigs in
+arm and mips to follow that.
 
-On Mon, 14 Jul 2025 12:44:22 -0500
-Rob Herring <robh@kernel.org> wrote:
+It's for-next branch of sound git tree, to be included in 6.17
+kernel.
 
-> On Fri, Jul 4, 2025 at 3:57 AM Herve Codina <herve.codina@bootlin.com> wrote:
-> >
-> > Hi Rob,
-> >
-> > On Thu, 3 Jul 2025 09:33:02 +0200
-> > Herve Codina <herve.codina@bootlin.com> wrote:
-> >  
-> > > Hi Rob,
-> > >
-> > > On Fri, 27 Jun 2025 10:52:00 -0500
-> > > Rob Herring <robh@kernel.org> wrote:
-> > >  
-> > > > On Fri, Jun 13, 2025 at 03:47:45PM +0200, Herve Codina wrote:  
-> > > > > The simple-pm-bus driver handles several simple busses. When it is used
-> > > > > with busses other than a compatible "simple-pm-bus", it doesn't populate
-> > > > > its child devices during its probe.
-> > > > >
-> > > > > This confuses fw_devlink and results in wrong or missing devlinks.
-> > > > >
-> > > > > Once a driver is bound to a device and the probe() has been called,
-> > > > > device_links_driver_bound() is called.
-> > > > >
-> > > > > This function performs operation based on the following assumption:
-> > > > >     If a child firmware node of the bound device is not added as a
-> > > > >     device, it will never be added.
-> > > > >
-> > > > > Among operations done on fw_devlinks of those "never be added" devices,
-> > > > > device_links_driver_bound() changes their supplier.
-> > > > >
-> > > > > With devices attached to a simple-bus compatible device, this change
-> > > > > leads to wrong devlinks where supplier of devices points to the device
-> > > > > parent (i.e. simple-bus compatible device) instead of the device itself
-> > > > > (i.e. simple-bus child).
-> > > > >
-> > > > > When the device attached to the simple-bus is removed, because devlinks
-> > > > > are not correct, its consumers are not removed first.
-> > > > >
-> > > > > In order to have correct devlinks created, make the simple-pm-bus driver
-> > > > > compliant with the devlink assumption and create its child devices
-> > > > > during its probe.  
-> > > >
-> > > > IIRC, skipping child nodes was because there were problems with
-> > > > letting the driver handle 'simple-bus'. How does this avoid that now?  
-> > >
-> > > I don't know about the specific issues related to those problems. Do you
-> > > have some pointers about them?
-> > >  
-> > > >
-> > > > The root of_platform_populate() that created the simple-bus device that
-> > > > gets us to the probe here will continue descending into child nodes.
-> > > > Meanwhile, the probe here is also descending into those same child
-> > > > nodes. Best case, that's just redundant. Worst case, won't you still
-> > > > have the same problem if the first of_platform_populate() creates the
-> > > > devices first?
-> > > >  
-> > >
-> > > Maybe we could simply avoid of_platform_populate() to be recursive when a
-> > > device populate by of_platform_populate() is one of devices handled by
-> > > the simple-bus driver and let the simple-bus driver do the job.
-> > >
-> > > of_platform_populate will handle the first level. It will populate children
-> > > of the node given to of_platform_populate() and the children of those
-> > > children will be populate by the simple-bus driver.
-> > >
-> > > I could try a modification in that way. Do you think it could be a correct
-> > > solution?
-> > >  
-> >
-> > I have started to look at this solution and it's going to be more complex
-> > than than I thought.
-> >
-> > Many MFD drivers uses a compatible of this kind (the same exist for bus
-> > driver with "simple-bus"):
-> >   compatible = "foo,bar", "simple-mfd";
-> >
-> > Usually the last compatible string ("simple-mfd" here) is a last fallback
-> > and the first string is the more specific one.
-> >
-> > In the problematic case, "foo,bar" has a specific driver and the driver
-> > performs some operations at probe() but doesn't call of_platform_populate()
-> > and relies on the core to do the device creations (recursively) based on
-> > the "simple,mfd" string present in the compatible property.
-> >
-> > Some other calls of_platform_populate() in they probe (which I think is
-> > correct) and in that case, the child device creation can be done at two
-> > location: specific driver probe() and core.
-> >
-> > You pointed out that the core could create devices before the specific
-> > driver is probed. In that case, some of existing drivers calling
-> > of_platform_populate() are going to have issues.
-> >
-> > I can try to modify existing MFD and bus drivers (compatible fallback to
-> > simple-mfd, simple-bus, ...) in order to have them call of_platform_populate()
-> > in they probe() and after all problematic drivers are converted, the
-> > recursive creation of devices done in the core could be removed.  
-> 
-> The problem is how does a bus driver know if there is a specific MFD
-> driver or not? It doesn't. The MFD driver could be a module and loaded
-> any time later. We'd really need some sort of unbind the generic
-> driver and re-bind to a more specific driver when and if that driver
-> appears. We could perhaps have a list of devices with a driver because
-> in theory that should be a short list as the (broken) promise of
-> simple-mfd is the child nodes have no dependency on the parent node
-> which implies the parent doesn't have a driver. The specific
-> compatible is there in case that assumption turns out wrong.
-> 
 
-Hum, I see.
+Takashi
 
-In my use case, I don't use MFD drivers but only simple-bus compatible.
-I think your point is also relevant with simple-bus. Indeed how does a
-parent bus driver know if there is a specific bus driver that handles
-the child simple-bus compatible one in case of 'simple-bus' used as
-fallback.
+===
 
-Related to your proposal related to the "list of devices with a driver",
-what do you mean? I don't see how to set this kind of list. Can you give
-me some pointers?
+Takashi Iwai (2):
+  arm: multi_v7_defconfig: Update HD-audio configs
+  mips: loongson3_defconfig: Update HD-audio configs
 
-If I understood the discussion, the issue seems that 'simple-bus' can't
-populate unconditionally children at his probe. The possible recursion
-in creating devices done by of_platform_populate() should be kept and
-'simple-bus' should rely on that.
+ arch/arm/configs/multi_v7_defconfig   | 5 ++++-
+ arch/mips/configs/loongson3_defconfig | 4 +++-
+ 2 files changed, 7 insertions(+), 2 deletions(-)
 
-The other solution that fixes my use case is to use an other compatible
-string. Would you accept a new compatible string: "simple-platform-bus"?
+-- 
+2.50.1
 
-In simple-pm-bus.c, this compatible would populate children at probe.
-In fact, it will act the same way as 'simple-pm-bus' without looking at
-clocks nor handling pm_runtime.
-
-Best regards,
-Hervé
 
