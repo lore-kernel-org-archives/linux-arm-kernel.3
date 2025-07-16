@@ -4,69 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 831DDC83F22
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 11:12:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DF24C83F27
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 11:15:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=beDH1djxjwbdzaBE6mYd3Nli2+ei9cRKQUUea5uZ9pA=; b=fPD9auO4yA4jcVCELiZJrZRK0x
-	yMDliMzUOgQJeXY2Q7jhg7XFqCkJv3Ub1ejtuk2eOdkeKJN5+HXggbwVYCnToQ2fC+0M0y29DZ1Hb
-	7UX7wZco9qUvxqq5YgoSs7tR1nt260ZsneGHcTCikhI4RBSyUL6fyU89ZCUimbm4J3/o3ky8MXEU+
-	Gn3Su1XuEoJdJyn2MlFugeEklyoHaY3qK+x2Lida4yZIFYO+dpLsjXjZWndHir1Kfofy9Wm8aV1aN
-	nB7rrRAjbuqotfbUQJklqiD+PAoi5V8FVb9mRk9I2a/U//74NZoFrd5KKeKp8VUv8MMXtCFnDoyiv
-	Y6omGMOw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=TyfcqbggFsVMkhQ3/vS33VSK/7m2OBGtht93BA9q1Nc=; b=feuc5lca1BXNMTSG2x4CBMX9Uj
+	pEE1QZdoQ4BvT9pdP2vB3fAmKv6MX2EtgmlOJ8YZ5JCEUjUfmPYjWOPbjTCqgn/HGodKKyUy7Y7Ka
+	yAOyHjsGE6riAsEhfis7R1kNh4uJo+fQKmaKYyXcZvpbWwfiKxXHV9DRNkzwYVjCNaXAr4L1kxThR
+	LK2tWad4oAksrzzTP8kL3Gv+88p+Jnfa5VvL0d3R9slkuUeX0F+WdQp7Nr5vAnQFI4+3iDx5T64jG
+	uZYkJs0rALxQJ5YIsZrPbz26CwHOhCF3vaErcpFkQ4BAA/jF+FfcdwpEIuZAUdtYrNcS1qjNZ/SKz
+	sqIwDxUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uc044-00000007WcZ-0iHX;
-	Wed, 16 Jul 2025 11:12:44 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uc06T-00000007X1B-3NW1;
+	Wed, 16 Jul 2025 11:15:13 +0000
+Received: from mail-ej1-x649.google.com ([2a00:1450:4864:20::649])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubzn2-00000007TrL-2gER;
-	Wed, 16 Jul 2025 10:55:09 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2ADF643428;
-	Wed, 16 Jul 2025 10:55:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 89F36C4CEF7;
-	Wed, 16 Jul 2025 10:55:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752663308;
-	bh=s/qODGloHS8A6X+Kd2P5c0fXlx0swt4d3mPhst1www8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=AaXmIeDzxUjpLD8/kVuv5Q1vETO0s8srl0M9EM7uqSBrWlApGEhJfzRcbLg6dOJwc
-	 98V+b2Z1PuIGvxxsXXVD0zRWhiBMQFP6kvJeMEaoBGBnWihHDU6j1hSAyHPRBTAK7N
-	 a3GZ70moRvWKjvOhLPD1QTxrKyEOGAGiUYetPArroJrH1f6m9scc9YjT/yebas3Gyn
-	 sTfA/IU/xK7Ei0ABIImay2LjcKYvFfzkX1Th8Br8XFoAvjXBGWq7Ei1XUsPKWtMqsv
-	 3JpFXSMGYJqjCNjY0ay5541eMU2BkoKYcda3dV9BZYU+KrJxh/bx8aJXFXqBjkyoKl
-	 lYtZR/m0gU6Og==
-Date: Wed, 16 Jul 2025 12:55:05 +0200
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Rob Herring <robh@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Simon Horman <horms@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH net-next v3 1/7] dt-bindings: net: airoha: npu: Add
- memory regions used for wlan offload
-Message-ID: <aHeFCZ3Z9E15pSeL@lore-desk>
-References: <20250714-airoha-en7581-wlan-offlaod-v3-0-80abf6aae9e4@kernel.org>
- <20250714-airoha-en7581-wlan-offlaod-v3-1-80abf6aae9e4@kernel.org>
- <20250715035419.GA11704-robh@kernel.org>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="ejVKjvWudJw3Rkcf"
-Content-Disposition: inline
-In-Reply-To: <20250715035419.GA11704-robh@kernel.org>
+	id 1ubzzF-00000007VEB-0gi1
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 16 Jul 2025 11:07:46 +0000
+Received: by mail-ej1-x649.google.com with SMTP id a640c23a62f3a-ade6db50b9cso712870666b.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Jul 2025 04:07:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1752664063; x=1753268863; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=TyfcqbggFsVMkhQ3/vS33VSK/7m2OBGtht93BA9q1Nc=;
+        b=xsEogw9Kf880xcV+jjbva17xgXMHmCKtgZY0FJn4NSf3g6PqVbb7Y3Cy98gVhnWCTa
+         RD65CCW9j3tTOrDCe//GRsSQL+xU82hWo63ZwHialxm7i/zF5qQm5DLlCoF4yTleM3nW
+         fTMdeof4JDqfIsAaM0aazea3Xe1/cbX2WTPnjS6Wd1XTPstEFd4x08wOiE5XBPa46JIM
+         WZLD1Bfac6PBBPC7V/0kzjMw7g0WyKEobkdsn+SCCrovKGHJnYGvPGchlDjsRg4S4/cV
+         +iXtCNOqagJzysFKVTb4yB5y2b3HQGCkJJ1sGldNJyf9T3V8/8pdLZX2LdOqaXFRulLK
+         /4Ew==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1752664063; x=1753268863;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=TyfcqbggFsVMkhQ3/vS33VSK/7m2OBGtht93BA9q1Nc=;
+        b=t6+YI40cdV2p9UpwSBz9sysTD9omn8hLOIm0wDVG7wNPUYo7GUDkC3BrmRQveaPgFX
+         malVx27auHZ+0UmPBsPDK7ji0Gs0jzUWp6NqlndKCM/MRlwttfS0HbmdrceO0OJvdwru
+         tCGm0+36B5sNn6POGF4/i/Z2fdoO7rMY8hp4U2jE7ucCVjtj4OG4mS9DnXjtZxA9ld4Z
+         s0xo74kXJ7i8fUOzJIvCqldLO5WuRFH8xSOVUHvEeYxmB6cm24ce/AFd2/44QQz1Itlc
+         q6VLaCiGnkcv0YRwPZrdVxLRQmPz+/GjC+5q6Jh17rc/cldMu2Vs2d5/eCM8xoT3JfC3
+         2Q9g==
+X-Gm-Message-State: AOJu0YwWer9QOyH4chKBg/cUMCzchMcxxvTJjc9qUXCwDTtVufmiCUGK
+	Et4jL1YIR71M2kuYkggjj4/zBnCbLAsJuYcFPUMkndlutMg4g9fSDu7AZLx7Xs/h0Hib+Iy8kJP
+	wOu2aEpoSIqDgDCalkp0CHgoV8olInQCtq+awu4ojAujcXsIT8lRfazfJC8a+JOeZE4tRdbhOTi
+	4vCbJSEO9CDat9+5o8SqwBRLY60hmOiJ4Wo12GsW3ABmAfvCtLnw==
+X-Google-Smtp-Source: AGHT+IGeYAejknlz7cV/1SlSOzPhNdhatcheR1F0bGDRmruI6xm7M0czw9xzhGPfq4CQ3wRKJ1YDvke/1g==
+X-Received: from ejae12.prod.google.com ([2002:a17:906:44c:b0:ad8:9944:a34])
+ (user=keirf job=prod-delivery.src-stubby-dispatcher) by 2002:a17:907:3f95:b0:ae3:5da3:1a23
+ with SMTP id a640c23a62f3a-ae9c99c0d2bmr228038766b.21.1752664062975; Wed, 16
+ Jul 2025 04:07:42 -0700 (PDT)
+Date: Wed, 16 Jul 2025 11:07:33 +0000
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.50.0.727.gbf7dc18ff4-goog
+Message-ID: <20250716110737.2513665-1-keirf@google.com>
+Subject: [PATCH v2 0/4] KVM: Speed up MMIO registrations
+From: Keir Fraser <keirf@google.com>
+To: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	kvm@vger.kernel.org
+Cc: Sean Christopherson <seanjc@google.com>, Eric Auger <eric.auger@redhat.com>, 
+	Oliver Upton <oliver.upton@linux.dev>, Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>, 
+	Paolo Bonzini <pbonzini@redhat.com>, Keir Fraser <keirf@google.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250716_035508_722336_2A562C16 
-X-CRM114-Status: GOOD (  16.26  )
+X-CRM114-CacheID: sfid-20250716_040745_234815_E7FF59DF 
+X-CRM114-Status: UNSURE (   8.69  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,87 +90,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+This is version 2 of the patches I previously posted here:
 
---ejVKjvWudJw3Rkcf
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+ https://lore.kernel.org/all/20250624092256.1105524-1-keirf@google.com/
 
-On Jul 14, Rob Herring wrote:
-> On Mon, Jul 14, 2025 at 05:25:14PM +0200, Lorenzo Bianconi wrote:
-> > Document memory regions used by Airoha EN7581 NPU for wlan traffic
-> > offloading.
-> >=20
-> > Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
-> > ---
-> >  .../devicetree/bindings/net/airoha,en7581-npu.yaml    | 19 +++++++++++=
-++++----
-> >  1 file changed, 15 insertions(+), 4 deletions(-)
-> >=20
-> > diff --git a/Documentation/devicetree/bindings/net/airoha,en7581-npu.ya=
-ml b/Documentation/devicetree/bindings/net/airoha,en7581-npu.yaml
-> > index 76dd97c3fb4004674dc30a54c039c1cc19afedb3..f99d60f75bb03931a1c4f35=
-066c72c709e337fd2 100644
-> > --- a/Documentation/devicetree/bindings/net/airoha,en7581-npu.yaml
-> > +++ b/Documentation/devicetree/bindings/net/airoha,en7581-npu.yaml
-> > @@ -41,9 +41,18 @@ properties:
-> >        - description: wlan irq line5
-> > =20
-> >    memory-region:
-> > -    maxItems: 1
-> > -    description:
-> > -      Memory used to store NPU firmware binary.
-> > +    items:
-> > +      - description: NPU firmware binary region
-> > +      - description: NPU wlan offload RX buffers region
-> > +      - description: NPU wlan offload TX buffers region
-> > +      - description: NPU wlan offload TX packet identifiers region
->=20
-> 1 entry was valid before, but not anymore? If so, justify it in the=20
-> commit message.
+Changes since v1:
 
-ack, I will do it in v4.
+ * Memory barriers introduced (or implied and documented) on the
+   kvm->buses[] SRCU read paths
 
-Regrads,
-Lorenzo
+ * Disallow kvm_get_bus() from SRCU readers
 
->=20
-> > +
-> > +  memory-region-names:
-> > +    items:
-> > +      - const: firmware
-> > +      - const: pkt
-> > +      - const: tx-pkt
-> > +      - const: tx-bufid
-> > =20
-> >  required:
-> >    - compatible
-> > @@ -79,6 +88,8 @@ examples:
-> >                       <GIC_SPI 121 IRQ_TYPE_LEVEL_HIGH>,
-> >                       <GIC_SPI 122 IRQ_TYPE_LEVEL_HIGH>,
-> >                       <GIC_SPI 123 IRQ_TYPE_LEVEL_HIGH>;
-> > -        memory-region =3D <&npu_binary>;
-> > +        memory-region =3D <&npu_firmware>, <&npu_pkt>, <&npu_txpkt>,
-> > +                        <&npu_txbufid>;
-> > +        memory-region-names =3D "firmware", "pkt", "tx-pkt", "tx-bufid=
-";
-> >        };
-> >      };
-> >=20
-> > --=20
-> > 2.50.1
-> >=20
+ * Rebased to v6.16-rc6
 
---ejVKjvWudJw3Rkcf
-Content-Type: application/pgp-signature; name=signature.asc
+Thanks to Sean for the review feedback and patch suggestions!
 
------BEGIN PGP SIGNATURE-----
+Keir Fraser (4):
+  KVM: arm64: vgic-init: Remove vgic_ready() macro
+  KVM: arm64: vgic: Explicitly implement vgic_dist::ready ordering
+  KVM: Implement barriers before accessing kvm->buses[] on SRCU read
+    paths
+  KVM: Avoid synchronize_srcu() in kvm_io_bus_register_dev()
 
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCaHeFCQAKCRA6cBh0uS2t
-rAnDAQDc4K8cm9ezsu4s25+kmtqhZht/BBBftBY73/9r+XfLhgEAz5X7/1w62Db+
-3oZ18L1Bo0L+qo8227Ivg56sgkDPXQ0=
-=YHee
------END PGP SIGNATURE-----
+ arch/arm64/kvm/vgic/vgic-init.c | 14 +++--------
+ arch/x86/kvm/vmx/vmx.c          |  7 ++++++
+ include/kvm/arm_vgic.h          |  1 -
+ include/linux/kvm_host.h        | 11 ++++++---
+ virt/kvm/kvm_main.c             | 43 +++++++++++++++++++++++++++------
+ 5 files changed, 53 insertions(+), 23 deletions(-)
 
---ejVKjvWudJw3Rkcf--
+-- 
+2.50.0.727.gbf7dc18ff4-goog
+
 
