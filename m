@@ -4,154 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59CA9C83F27
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 06:35:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4898FC83F1B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 06:37:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:To:
-	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s+OG/kcphiGbuPzLGUBBDW9v9iqnL94T9PnklWnPvZ4=; b=fREreflkxiBFCgENCQQL2lnpR9
-	0zT7ku9uigyjRRsnCqwdNdJ7OPhFMAFhGPMcbzVrtM8qMhSwpZP8EfCat3l8jxE0yJS36gt/uQ3JX
-	hVlk7PxVm6+yI7FnluRiExtlqU87MsbBmQ5QHpb9iU2EJvrKxZzglFhHXfUQhvBaQUtKy22GKzlkJ
-	BI8A/SGnosl6VGj64I6RdOwyEW4oxrsKAcfBglhdEClBXH2eFF/e6yoBVys6YAB00N08Ys52et5D9
-	VZCnVhgbxkmGcOZT/dbVvquw2Mdm9nwH5RE0wCRF4096Y+21eHlMYFZuYuBkeL1aMQrQiN9YlfHrX
-	EhCWf6yA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+pKway99g0rgVricxWhxADlMeQYcPvfax8Ult5O56Bo=; b=33DEZMUNrR2Ko0GS7gcvViJO2A
+	FphvQCCFmw9kQJohSF/UzzNf90p1fwAkAWDR1Flg8HnzphJzke8EDNiWb8SIiS4h/dFwSxM6LeW7+
+	UD4Qv0YnSEgQai/eCdDlrQtTuai3po7oQq4WD+71x35l3WM/ndRaYkYMg6xQDPuaA/xZvlbUt1/58
+	Sw1YzTwoJ+LGOUswUW8cjHtXep1GPsIgjFZOTQOypnHcijYES0V10Lbv3irS5TmecUBVn81nMMGtf
+	CQBCdoMHuA66H6yqvDhl6FeSpCi9yxxYanFrwFJplrQyLF/qawGn89dFp8j219EsNEDO+00jChaw6
+	2ESnSw/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubvjZ-00000006tzd-45LX;
-	Wed, 16 Jul 2025 06:35:17 +0000
-Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1ubvly-00000006uGT-129J;
+	Wed, 16 Jul 2025 06:37:46 +0000
+Received: from mgamail.intel.com ([192.198.163.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubvMt-00000006rCo-0rgD
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Jul 2025 06:11:52 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=jWEUuoLSFpPPqnLw5NMyo42nDM9Q4G/6+IJyuyM9lgbENbblIELi4QOrIIhffBClnkSVoY9BM6yPMMiOzsnBvLiW4WIm1AEVIpYwWW/dtuYfUp0ihwQ61G+WjA2F22aKgGRbSXuXNeAdpMHwGq/JngSQY14MRAEiiE84PyvDg/TbbktoaAZHWP2c7Z4Z6nDjGQpX8sCg/9MhDuyCOo8qdk7ybRW4nc71eGf1Ph36I8GNeLN1G+SBILvcCETWqF2pGYCETY+Sjxn64h1X1ixjZO8i9bvo8+ktgdnECo4Yghn0fEhNMeEh03CgKW9/1JsT/ucfoOjvHyB0U/8hEz4RyQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=s+OG/kcphiGbuPzLGUBBDW9v9iqnL94T9PnklWnPvZ4=;
- b=hfNBrHH23/BD1WFzuyhtUxg6fV9TcB1grsAJ5Uuha+vfCQs2doij/erWbyje0XEZnCn6UEu/QFg6SHPrA9/T4rruojwWdxsWf0BnZZ/WEWp+7LxlA88XYGyVyXdtCw9dWuIJIrdOTDBiTjChRyOvohWbKTV9z8+LyK5lkhztGxtA4F8FD/iNoadSEe2FL1/ZsPFgxDtSUJ9wjmnNh4fQXnWFX36wYMN+fX1NpUlOTwt1WH8WRGpKuF60SRIvKEUa+IKfS6DvEhVHkgEm7ZxFjZNIwmgbb+ZTxRcmODgHIjamkzcQQrtBV7FBeB9gLWVmPxmsyOXxYZhApevdZUVWpg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=s+OG/kcphiGbuPzLGUBBDW9v9iqnL94T9PnklWnPvZ4=;
- b=ZszC/vnlpYwiGonE6BxaAIT0etQzSuG4giPYdlcqaxtvzRLPKMOXadQ3f+eqxWw6Art5wRIwxCmLZLXFRu90yv0Lw2HTqZ4mW+d7g/dRDyVbUbK21jXxSii0A0PbvcAyYZupXVuwoA6eA4meH581QvCRpQiFVYB2zZ8M8RS2otndDsWRn68iixsjdpNkIrylQ/hRDC4jSBbxl5zwJwLps4uklvgZ7zxhL+AYCxG9A42U8OZu0q3GWbjxu+Wd5mo/BgdJ0+lfj1sPmB9COBLCKv9FIMst3wVX3PwwVAXrtCRzLQdp0/1TTbnrhLEnJ/DeiiP0yJ2pL1lQQVeT5UA+kA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM0PR04MB7044.eurprd04.prod.outlook.com (2603:10a6:208:191::20)
- by VI0PR04MB10102.eurprd04.prod.outlook.com (2603:10a6:800:249::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8901.35; Wed, 16 Jul
- 2025 06:11:43 +0000
-Received: from AM0PR04MB7044.eurprd04.prod.outlook.com
- ([fe80::7be0:296:768c:e891]) by AM0PR04MB7044.eurprd04.prod.outlook.com
- ([fe80::7be0:296:768c:e891%5]) with mapi id 15.20.8922.028; Wed, 16 Jul 2025
- 06:11:43 +0000
-From: Shengjiu Wang <shengjiu.wang@nxp.com>
-To: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
+	id 1ubvRZ-00000006rh0-14bO;
+	Wed, 16 Jul 2025 06:16:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1752646601; x=1784182601;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=s5h2aOonMUy25QFmLEMp//o9oNn9ckWWreXS2dSrzoU=;
+  b=BGgFZ80nUVXuJ1zyGa++zNn/sh17vWTEXGRiCkEG22vJHS+O/0BHLk8O
+   aQunR22DgODwFlJ9AHn+91ZWcSfU2UF7RYGNZpw2shNJmTAic6W0MSH1B
+   V0Bf9tGw1b3Jb9iO43St+meDPCciauH6z7RnrUeXB4CfHeDK0tzI6MK7j
+   Kb2p6j4SBMXV79GKzyX1MA2VYn63xtaCqw/UJv55ZDE/mTQlSa0+T/8jQ
+   bxW/P411hgi9eYOf1mr8roZfh1eMuBFJ4C4tC4dVxySxElpEojf2Gn2R/
+   BbSKWub7Huj78riPLDGeHEQ1GwKTJKq/R7eu8RnBWifjMpEbVRHCqMoAt
+   A==;
+X-CSE-ConnectionGUID: /pzdvqQhSLywVkQ6870C1g==
+X-CSE-MsgGUID: UVoqtmWZR06nJqOA6tKQUg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11493"; a="55030107"
+X-IronPort-AV: E=Sophos;i="6.16,315,1744095600"; 
+   d="scan'208";a="55030107"
+Received: from fmviesa009.fm.intel.com ([10.60.135.149])
+  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Jul 2025 23:16:40 -0700
+X-CSE-ConnectionGUID: +nsgvEutRfqUlUtiZui4ng==
+X-CSE-MsgGUID: Njm01TfuQPya5kUqf5hyOg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.16,315,1744095600"; 
+   d="scan'208";a="157767216"
+Received: from lkp-server01.sh.intel.com (HELO 9ee84586c615) ([10.239.97.150])
+  by fmviesa009.fm.intel.com with ESMTP; 15 Jul 2025 23:16:33 -0700
+Received: from kbuild by 9ee84586c615 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1ubvRP-000Bzf-2t;
+	Wed, 16 Jul 2025 06:16:31 +0000
+Date: Wed, 16 Jul 2025 14:15:59 +0800
+From: kernel test robot <lkp@intel.com>
+To: Chaoyi Chen <kernel@airkyi.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>, Sandy Huang <hjc@rock-chips.com>,
+	Andy Yan <andy.yan@rock-chips.com>,
+	Yubing Zhang <yubing.zhang@rock-chips.com>,
+	Frank Wang <frank.wang@rock-chips.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Amit Sunil Dhamne <amitsd@google.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Chaoyi Chen <chaoyi.chen@rock-chips.com>,
+	Dragan Simic <dsimic@manjaro.org>, Johan Jonker <jbx6244@gmail.com>,
+	Diederik de Haas <didi.debian@cknow.org>
+Cc: oe-kbuild-all@lists.linux.dev, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	shengjiu.wang@gmail.com
-Subject: [PATCH 2/3] arm64: dts: imx8mq-evk: support more sample rates for wm8524 card
-Date: Wed, 16 Jul 2025 14:11:13 +0800
-Message-Id: <20250716061114.2405272-3-shengjiu.wang@nxp.com>
-X-Mailer: git-send-email 2.37.1
-In-Reply-To: <20250716061114.2405272-1-shengjiu.wang@nxp.com>
-References: <20250716061114.2405272-1-shengjiu.wang@nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: MA0PR01CA0031.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:b8::18) To AM0PR04MB7044.eurprd04.prod.outlook.com
- (2603:10a6:208:191::20)
+	linux-rockchip@lists.infradead.org, dri-devel@lists.freedesktop.org
+Subject: Re: [PATCH 3/5] phy: rockchip: phy-rockchip-typec: Add support for
+ Type-C TCPM
+Message-ID: <202507161301.ZhlTOik9-lkp@intel.com>
+References: <20250715112456.101-4-kernel@airkyi.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM0PR04MB7044:EE_|VI0PR04MB10102:EE_
-X-MS-Office365-Filtering-Correlation-Id: eb4a78f5-4272-41d8-377a-08ddc42fa2ee
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|19092799006|7416014|52116014|376014|921020|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?UhPoM2/Tj96uwgIVMeK4fjs2rmCZGqwuIW4bTYxLAhgMa+ASy264LdwJc+ih?=
- =?us-ascii?Q?TuYMy6SyiP3sv+QAH++0P9e0ELk5YaC04QuCSzKZnEXlpaQ7c2ugbbofTzqo?=
- =?us-ascii?Q?y/27c0BPgvzBdiIq+jjF/0Es5RToyKbf0RqNva0b3SgoAfCZgedSbSln8ZKV?=
- =?us-ascii?Q?3nh5zB+K1/gqcF2sQ+HsaMIbbWHZ/kE+3Va32tjLzkMEi+MZ4ItF16Ggol1z?=
- =?us-ascii?Q?cn6KCJpBHNh0l11TnjIKlgYn2MaB43AWCAPRWsy4zgH1S3pOp1wOfWt/wlxG?=
- =?us-ascii?Q?I0UzEI3B/VhNfzKn5eeIeDNLYXYYcLy0dI1ciSJ5gj6Dzf1tUZ+iRd2DYKEV?=
- =?us-ascii?Q?fXpFrjg/vuuq6fH7sEvo3+RBYgPxHJ+4dIoOLyix8nhJo3kiizzxbx5y+n0n?=
- =?us-ascii?Q?DO5zwCgGHB+fd3xHowVkK+bNJfhA7lXwTuCzBG+lEQPKq4FzhyrETtbhlYNB?=
- =?us-ascii?Q?qVjJYx0kT9FbpNG8oRFfvQbhKvV5KyVdjw43/VZQXe7hyN93CXFPp4y39LVS?=
- =?us-ascii?Q?HCLt31zRxVfpofbjQ5WYmSc7CfgC/hB21LBclfRlnY7a+Be92nR34DSg2Dgs?=
- =?us-ascii?Q?29p+06ppQN2Y5YiVt3Zn1ooTk+gRaeUycHz4tk3E2DP0tc0gRmLlIsaQ7KWY?=
- =?us-ascii?Q?dpOQ3XmRvmQGzQ5S9o75xl+kVEbMlkdCcABVo5ExiEHJQyZvlJF7Go4dSnY4?=
- =?us-ascii?Q?d5To6B6Mw4t+rMNtBUGRL79kTayA5e8EwR7FKRvNWBQ+wxuIiil5y6gchJ43?=
- =?us-ascii?Q?ABsVMJJbOJZR/DppcNg+FS7oe8baF1wC39Ngavluq5h6oiCM0mN6e3xD0c3p?=
- =?us-ascii?Q?sH59n8uC+c4hMXX8FGYe9OE2A1niGBoG8K+wS8bzx0i07BDlqb/Uyp9dbhEp?=
- =?us-ascii?Q?0sOau/zsDzPsRJdqEb9EUNAYvx0OvFkocgN3/+8PHOdUD97BnRC89RLTA0Am?=
- =?us-ascii?Q?8Jd9OCjw1Q/o2TynTqv3msh64JmOJAstx5jeM6XjVu+rNToWWwDKvU/2FYIc?=
- =?us-ascii?Q?dchME5nQsNYPfR36/v23xq60E2gLhm6Cx/ZRJECvGUc+N5+pDp8nUpNEURdE?=
- =?us-ascii?Q?n4IwVDhOoD1khrVrWdkA7JyfuUdtkGlK5J6wwMou0VWCqLYIvYfxqUhJAmm0?=
- =?us-ascii?Q?UrAXxbQBsww8STaNxBoXECK6C2jQVrJAPtPijyWHEwOYktaOpGltBhf0QCGy?=
- =?us-ascii?Q?iFF7lLfImkQE6VZoLsfhkRkKQ2mVY54nM8fvOFmLwgumrlnzMG2XpBSjRb67?=
- =?us-ascii?Q?rSd8cSHXUlEOQStJj99HjS86G2Op+ZRqq42jg/tyEt4oSrgFYpfVJLmKPgB/?=
- =?us-ascii?Q?ZtU5T0zmNMoZlGmX/SbEdpzsQ8bu1nyTwVP+RkRSuvg7pfU3+Y1NXG5m2pPj?=
- =?us-ascii?Q?dUX0zDtPLefJjcwftv/iafGTQsdAjAI/WVneOVRDWFV7u5Ebch9sZZOCvm3m?=
- =?us-ascii?Q?2uzgX59A2WnZDW/8BQzz7qPHtTZm6iyMiZqU7saRsPhs7MI57sIh7sRHYVH8?=
- =?us-ascii?Q?viXUa+P7LOToF7A=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM0PR04MB7044.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(19092799006)(7416014)(52116014)(376014)(921020)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?PLE2io4OVbz+UzJq/kBo0Usw5E3WGvSQuUzYfhYdbbc5cOrbBzoljU7oJoSk?=
- =?us-ascii?Q?+N1FxW565BR5nSduiTnHlh1V0EN/Haj35MzAWxJDeNC+Q8i5d0ne0B1LpA0r?=
- =?us-ascii?Q?RpCEIBT6cHgarTvhppC75w+eP+DpUCQVmbTe7yQ4z1cgRyeS1gJP3NDyPWt1?=
- =?us-ascii?Q?/x3nWlYeF3yzvkSo7vJgXyapeaLJWkrgkl+YORmz0YAE/u3MjP0Egk2xnoDO?=
- =?us-ascii?Q?ZwxLT08m/GrJHEyLWkScAgzjKU/YlPz3SYtMuNAFC9Pvfi2SPR3yOetD5vdC?=
- =?us-ascii?Q?fYsRdWOqbfiHvv4ED/dk6/loKN5pP8ZzZmGr7cOzmZPDCrHntuCygcgPIbOq?=
- =?us-ascii?Q?yi+ZV4NImTYjYs3MkKc2gOb6C2YELgbfa+0xP4xJp2Sv0YEKL/EJvEX+TSSO?=
- =?us-ascii?Q?k5HcDmLvYdKlkXt6cboBbWP43bTOmQFcYzkL4vq9plyVX10rZdizDXFtpyqT?=
- =?us-ascii?Q?qZh2dCiqyMdT0YK4PYwRvfMQX/yCeEAG3T70QduzF6ZjwsHWe3ufwEXH425j?=
- =?us-ascii?Q?sAEBXS4eqCMbj13lgtJYQ7O0mi2GcypXPh+l2uH+o22OgEyF0gMZY3H2g5MT?=
- =?us-ascii?Q?o6myGp7O2LytLhurKKg+Nn2iewQDZaKopGXlQfVRENsQa5sJiqXpmyJDeOeT?=
- =?us-ascii?Q?0cqgYhQ8UdH4xjSk83wpM5fsWL5IANfS7mcm2cS6PDhexwDfenGQmn0ECxT7?=
- =?us-ascii?Q?s4s4et8QGj94EF+vAzVnFwIkiP6QQlgdhrcAi2q+kaleQBnk9M71dnh3fdlY?=
- =?us-ascii?Q?A8uxZlIqIMpTxQxh1Y9TXtQPP1LnI5GJwfi+zXZeZ/GCKi61PiepSMakVNPr?=
- =?us-ascii?Q?dDWEjYWSn5L/NGGTt1ieB/0M/S8O6LXxA1FZSnNze9ltqR1EYQBv4yZ0e6D7?=
- =?us-ascii?Q?lFKqdoKjy9yePkML8UDmScklTDT/m5tscV3wn0ZYbwCxiB0x1lASMrz8CaiB?=
- =?us-ascii?Q?CStmKcrXGXtx1YaTbJH8xx+8j3WO0pfwBPeVpPhcLDyt+M22gglGtKsIs/cj?=
- =?us-ascii?Q?+6MGaCXFISHiI2tqSj2G5pfnbjUAff1rrHpRad5YHaTKmC6sy+JorpERCd91?=
- =?us-ascii?Q?V44MoRHkCrZG3E9fCWF0JnSVLJieDaNL7Oj1JO0R3VhFNDbxjVCVDKNHNk9c?=
- =?us-ascii?Q?P8rssPhIUX73By2kq7uAgUJ20b28DBC+VlSQWkfR65lfbl/NJ7YXd9K6AvPI?=
- =?us-ascii?Q?TzKPgXEkzOf/p0l2uyezEuaYs0fyLBaMceV0+VusGb8I+zUwEwHUFWwTa+tV?=
- =?us-ascii?Q?x83Nh5Wfs8GN8mk+l2yPIiO0Lzkfb5M6+Kc275n1wSnnBU4mcWQzrDK6GJDe?=
- =?us-ascii?Q?vN6GvbUS4pyOhoyHDr8xKSbelXJJ3uOOKPoxxsPrqKFaf5+4oMQGEGQA5Xqy?=
- =?us-ascii?Q?ikNqcfWzR0pOUBU0GOYLCtxda783coVrsEOg88hkG66ysk03ruCCmG5Enb1L?=
- =?us-ascii?Q?I4ui97Bt1PkEoL+VWQ4pbG+zWSsTO4ug7xi2bPNl1V6N8q25rndFV2HHGRgQ?=
- =?us-ascii?Q?6NrMc68n138Xc8/mhzi7EjMyJ2rRoqiu8jhijuImtyXhvuD7KnUspBx6PeK5?=
- =?us-ascii?Q?EzwrL5H8YdMpANlemiP/7GXddOW/Cf4k+3fKls9b?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: eb4a78f5-4272-41d8-377a-08ddc42fa2ee
-X-MS-Exchange-CrossTenant-AuthSource: AM0PR04MB7044.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Jul 2025 06:11:43.4903
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: RCbmy3fSdPaA5SD2o2w3blxJd/z+IaWA+IRg11G3fXt4CFY3ZHDfc31glEHQ/HrtNl9Qeeo1vDBbmp+o61lFcQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB10102
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250715112456.101-4-kernel@airkyi.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250715_231151_244349_345172DC 
-X-CRM114-Status: GOOD (  13.02  )
+X-CRM114-CacheID: sfid-20250715_231641_314832_DAFD6FBC 
+X-CRM114-Status: GOOD (  12.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,57 +105,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The wm8524 codec is connected to the SAI interface. There are two audio
-plls on i.MX8MQ, one pll can be the clock source of 44kHz series rates,
-another pll can be clock source of 48kHz series rates.
+Hi Chaoyi,
 
-Add mclk-fs property for the clock ratio, remove 'clocks' property for
-codec that doesn't need to handle clock enablement, add
-'system-clock-direction-out' for clock is from cpu dai.
+kernel test robot noticed the following build errors:
 
-Signed-off-by: Shengjiu Wang <shengjiu.wang@nxp.com>
----
- arch/arm64/boot/dts/freescale/imx8mq-evk.dts | 8 +++++++-
- 1 file changed, 7 insertions(+), 1 deletion(-)
+[auto build test ERROR on next-20250714]
+[also build test ERROR on linus/master v6.16-rc6]
+[cannot apply to robh/for-next rockchip/for-next krzk/for-next krzk-dt/for-next v6.16-rc6 v6.16-rc5 v6.16-rc4]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mq-evk.dts b/arch/arm64/boot/dts/freescale/imx8mq-evk.dts
-index 43e45b0bd0d1..a88bc9034663 100644
---- a/arch/arm64/boot/dts/freescale/imx8mq-evk.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8mq-evk.dts
-@@ -108,6 +108,7 @@ sound-wm8524 {
- 		simple-audio-card,format = "i2s";
- 		simple-audio-card,frame-master = <&cpudai>;
- 		simple-audio-card,bitclock-master = <&cpudai>;
-+		simple-audio-card,mclk-fs = <256>;
- 		simple-audio-card,widgets =
- 			"Line", "Left Line Out Jack",
- 			"Line", "Right Line Out Jack";
-@@ -117,11 +118,11 @@ sound-wm8524 {
- 
- 		cpudai: simple-audio-card,cpu {
- 			sound-dai = <&sai2>;
-+			system-clock-direction-out;
- 		};
- 
- 		link_codec: simple-audio-card,codec {
- 			sound-dai = <&wm8524>;
--			clocks = <&clk IMX8MQ_CLK_SAI2_ROOT>;
- 		};
- 	};
- 
-@@ -440,6 +441,11 @@ &sai2 {
- 	assigned-clocks = <&clk IMX8MQ_AUDIO_PLL1_BYPASS>, <&clk IMX8MQ_CLK_SAI2>;
- 	assigned-clock-parents = <&clk IMX8MQ_AUDIO_PLL1>, <&clk IMX8MQ_AUDIO_PLL1_OUT>;
- 	assigned-clock-rates = <0>, <24576000>;
-+	clocks = <&clk IMX8MQ_CLK_SAI2_IPG>, <&clk IMX8MQ_CLK_DUMMY>,
-+		<&clk IMX8MQ_CLK_SAI2_ROOT>, <&clk IMX8MQ_CLK_DUMMY>,
-+		<&clk IMX8MQ_CLK_DUMMY>, <&clk IMX8MQ_AUDIO_PLL1_OUT>,
-+		<&clk IMX8MQ_AUDIO_PLL2_OUT>;
-+	clock-names = "bus", "mclk0", "mclk1", "mclk2", "mclk3", "pll8k", "pll11k";
- 	status = "okay";
- };
- 
+url:    https://github.com/intel-lab-lkp/linux/commits/Chaoyi-Chen/dt-bindings-connector-Add-displayport-connector-for-hotplug-notify/20250715-192802
+base:   next-20250714
+patch link:    https://lore.kernel.org/r/20250715112456.101-4-kernel%40airkyi.com
+patch subject: [PATCH 3/5] phy: rockchip: phy-rockchip-typec: Add support for Type-C TCPM
+config: arm-randconfig-004-20250716 (https://download.01.org/0day-ci/archive/20250716/202507161301.ZhlTOik9-lkp@intel.com/config)
+compiler: arm-linux-gnueabi-gcc (GCC) 8.5.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250716/202507161301.ZhlTOik9-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202507161301.ZhlTOik9-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+   arm-linux-gnueabi-ld: drivers/phy/rockchip/phy-rockchip-typec.o: in function `udphy_orien_switch_unregister':
+>> phy-rockchip-typec.c:(.text.udphy_orien_switch_unregister+0x2): undefined reference to `typec_switch_unregister'
+   arm-linux-gnueabi-ld: drivers/phy/rockchip/phy-rockchip-typec.o: in function `tcphy_orien_sw_set':
+>> phy-rockchip-typec.c:(.text.tcphy_orien_sw_set+0x4): undefined reference to `typec_switch_get_drvdata'
+   arm-linux-gnueabi-ld: drivers/phy/rockchip/phy-rockchip-typec.o: in function `rockchip_typec_phy_probe':
+>> phy-rockchip-typec.c:(.text.rockchip_typec_phy_probe+0x15c): undefined reference to `typec_switch_register'
+
 -- 
-2.34.1
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
