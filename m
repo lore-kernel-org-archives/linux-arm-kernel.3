@@ -4,58 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07A00C83F38
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 12:58:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D84DC83F22
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 13:11:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ia9GyGbk8B9rjMX/RPITkTLboZkRzYcVoZFfzz+/9ho=; b=0jT8ARyKRLujHV8rP1emDhzWG8
-	Hv5fxex/zRlCfbAVgTn4YI6rZDh3EZVczLYlARqcQtl91sgwZIz/nSHZjie4vrK52G/wNHVFoLBUs
-	WY2tQb5Wmt1DkcV5qLzmqRHTWQJo3x7B7TnIXLL6O6GDIuQv42DKcfMW+GwIa4qJa56QaqRdQpD1h
-	PiumRZj7jZUVCX08Qd6t8ph3hqL5hjTCZrq98HOZTSu0jx3fr0xAlxw7hk7aH8AATofhxsrGOeB7b
-	yjzwQD2OlIHUZwQ8o69R9aWppqXfrRBtZ66orhIzIoEJok7MgMEBC3qpHNOsNkK5JDTIyP4JPVBln
-	pxh/8wBg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
+	To:Cc:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3sNMrCCvmOrN1UDF9Di67oG7Y+yXP/L+hr2KnWDbfcA=; b=0a5EoVfC44Ixn4gYqY0BtqlhQ1
+	2KWdksBRpxBpy8rsKIHdPhcQU2q9DSPWJN7LwOXxLlvc3mayJVcC3QJMQQlu64TEOQP2xElwIT1ow
+	ogcvRSf2MZe6XJ9DWgPRdYYJRg9N0ytCxKFiWbzDIyFuwI1/zIB2YJab9qttQ7mkWUmrsL9SaMd1R
+	xJE6K3xmALnPEZ+J735+G34yKQwMzaNgO0qMsNuFCj0leOieRwYFqdx3TQhqPaqKpqfCQBkf1GXtP
+	vl6irvRCEK61eTlEM4VknZZbioxTb7EQGbFCBHbprKjZ3TCFMj+QF425gLFXbRk0WUkZvPf2rHKIy
+	wl1IWi9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uc1iK-00000007j2i-0FGj;
-	Wed, 16 Jul 2025 12:58:24 +0000
-Received: from phubs.tethera.net ([2607:5300:60:3a9d::1])
+	id 1uc1v7-00000007lSK-2Kmo;
+	Wed, 16 Jul 2025 13:11:37 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uc1fp-00000007idH-1Pqj;
-	Wed, 16 Jul 2025 12:55:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=tethera.net;
- i=@tethera.net; q=dns/txt; s=2024; t=1752670540; h=from : to : cc :
- subject : in-reply-to : references : date : message-id : mime-version
- : content-type : from;
- bh=Ia9GyGbk8B9rjMX/RPITkTLboZkRzYcVoZFfzz+/9ho=;
- b=MR9kmxwYKgoB6qvgTWe3XASPi1F6c62HiYwIBJY1Dvg0Tk2YovQguaaJ7sFv+f/USkCV+
- cnyR39/CZ5fvL6Z5D52jKrP0gEQug6JbX9TK/AuKThrXmmA3EEe2V3+MUqdqukW4EkQ+C5H
- BKV4bFVRuSJQ/V8TH2/H/B0bv4LHwUMjYQchBjYu6TOQJaPnjm+I2DhXwlZGFyZotwqTyto
- otGcMWlzXuUmLOGrhs0ntxhQwsNmfo4NQ0s9a+YqSs/DN4jccWFFGyfHWtdoef6hVd5tOCJ
- fZz2v1+IitN+g9Q32K/amKtTL+C8yiEOLWmB/rqs9tFqoFTVM2fBsL6+eE+Q==
-Received: from tethera.net (fctnnbsc51w-159-2-211-58.dhcp-dynamic.fibreop.nb.bellaliant.net [159.2.211.58])
-	by phubs.tethera.net (Postfix) with ESMTPS id 9AD4118006D;
-	Wed, 16 Jul 2025 09:55:39 -0300 (ADT)
-Received: (nullmailer pid 2675178 invoked by uid 1000);
-	Wed, 16 Jul 2025 12:55:39 -0000
-From: David Bremner <david@tethera.net>
-To: Niklas Cassel <nks@flawful.org>
-Cc: wilfred.opensource@gmail.com, alistair@alistair23.me, bhelgaas@google.com, cassel@kernel.org, dlemoal@kernel.org, heiko@sntech.de, kw@linux.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org, linux-rockchip@lists.infradead.org, lpieralisi@kernel.org, mani@kernel.org, p.zabel@pengutronix.de, robh@kernel.org, wilfred.mallawa@wdc.com, Shawn Lin <shawn.lin@rock-chips.com>
-Subject: Re: [PATCH v3] PCI: dw-rockchip: Add support for slot reset on link
- down event
-In-Reply-To: <aHSs6ZF8rQIqEOyR@flawful.org>
-References: <20250509-b4-pci_dwc_reset_support-v3-1-37e96b4692e7@wdc.com>
- <87cya6wdhc.fsf@tethera.net> <aHSs6ZF8rQIqEOyR@flawful.org>
-Date: Wed, 16 Jul 2025 09:55:39 -0300
-Message-ID: <87zfd41eic.fsf@tethera.net>
-MIME-Version: 1.0
-Content-Type: text/plain
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250716_055549_569169_CC1536AA 
-X-CRM114-Status: GOOD (  11.49  )
+	id 1uc1se-00000007lEI-2Fvf
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 16 Jul 2025 13:09:04 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 915686146C;
+	Wed, 16 Jul 2025 13:09:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3E068C4CEF0;
+	Wed, 16 Jul 2025 13:08:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1752671343;
+	bh=3sNMrCCvmOrN1UDF9Di67oG7Y+yXP/L+hr2KnWDbfcA=;
+	h=Date:Subject:Cc:To:From:References:In-Reply-To:From;
+	b=qoT5j6+1E+4dAhDM8fkvRfa1Cauhp+Xezx0aCuNnSDbx44WDevi6G73dQek5rXok/
+	 kFlLhnneEjgTYHyGgbcsaLBbsBtxh2AjMopEU1GZm0u7r8Os+AFc7FB5jSkJkyX7Yq
+	 UCGdlHQ13qNUFlCtay6Nb/M8yumZ7RqP+ILSPeg77g93aQXPqLBpxl+9zbA9sXEZ4/
+	 AJ2EjjlF3bWMDt5qNorXKBDqbipsOJ6vy8F6+S4pwjU9RpSiRQ698EPinhuiSMSoBH
+	 y25bfeXl28Z1KFe3fkdPJl9vt6Dfq7oPZkcsN0ZG8P4AUL9gyJXYQ/THXpT1IV61+H
+	 eQ6y6pL2YMeYg==
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Wed, 16 Jul 2025 15:08:57 +0200
+Message-Id: <DBDI4X0LDTPZ.16PODOZINXKEP@kernel.org>
+Subject: Re: [PATCH v3 00/24] pmdomain: Add generic ->sync_state() support
+ to genpd
+Cc: "Saravana Kannan" <saravanak@google.com>, "Stephen Boyd"
+ <sboyd@kernel.org>, <linux-pm@vger.kernel.org>, "Rafael J . Wysocki"
+ <rafael@kernel.org>, "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>,
+ "Michael Grzeschik" <m.grzeschik@pengutronix.de>, "Bjorn Andersson"
+ <andersson@kernel.org>, "Abel Vesa" <abel.vesa@linaro.org>, "Peng Fan"
+ <peng.fan@oss.nxp.com>, "Tomi Valkeinen" <tomi.valkeinen@ideasonboard.com>,
+ "Johan Hovold" <johan@kernel.org>, "Maulik Shah"
+ <maulik.shah@oss.qualcomm.com>, "Michal Simek" <michal.simek@amd.com>,
+ "Konrad Dybcio" <konradybcio@kernel.org>, "Thierry Reding"
+ <thierry.reding@gmail.com>, "Jonathan Hunter" <jonathanh@nvidia.com>,
+ "Hiago De Franco" <hiago.franco@toradex.com>, "Geert Uytterhoeven"
+ <geert@linux-m68k.org>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-kernel@vger.kernel.org>
+To: "Ulf Hansson" <ulf.hansson@linaro.org>
+From: "Danilo Krummrich" <dakr@kernel.org>
+References: <20250701114733.636510-1-ulf.hansson@linaro.org>
+ <CAPDyKFr=u0u2ijczExkntHK1miWZ6hRrEWBMiyUwShS3m6c29g@mail.gmail.com>
+ <DBCI05B4Y2ZX.VM9KNB61PGU2@kernel.org>
+ <CAPDyKFqUHmMi6tBOJyA2YAOYLX-c_kDMskyRTC1Q+c9B4q_g8w@mail.gmail.com>
+In-Reply-To: <CAPDyKFqUHmMi6tBOJyA2YAOYLX-c_kDMskyRTC1Q+c9B4q_g8w@mail.gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,19 +83,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Niklas Cassel <nks@flawful.org> writes:
-
-
-> That said, if you have problems with suspend/resume, perhaps you want to
-> try this patch instead:
-> https://lore.kernel.org/linux-pci/1744940759-23823-1-git-send-email-shawn.lin@rock-chips.com/
+On Wed Jul 16, 2025 at 2:46 PM CEST, Ulf Hansson wrote:
+> On Tue, 15 Jul 2025 at 10:50, Danilo Krummrich <dakr@kernel.org> wrote:
+>>
+>> Hi Ulf,
+>>
+>> On Wed Jul 9, 2025 at 1:30 PM CEST, Ulf Hansson wrote:
+>> > I decided it was time to give this a try, so I have queued this up for
+>> > v6.17 via the next branch at my pmdomain tree.
+>> >
+>> > If you encounter any issues, please let me know so I can help to fix t=
+hem.
+>>
+>> Can you please address my concern in patch 17 ("driver core: Export
+>> get_dev_from_fwnode()")?
+>>
+>> Since this has been applied already, a subsequent patch would be perfect=
+ly fine.
 >
-> I don't know if Shawn intends to send a new version or not.
+> Hi Danilo,
+>
+> As Greg and Saravana were happy, I didn't want to hold back the whole
+> series only because of a minor comment on some missing documentation.
 
-Thanks for the suggestion. In fact the hardware vendor (mnt research)
-ships a version of this patch with a 6.15.x kernel. An updated version
-would be helpful, as the previous version(s) no longer apply (with git
-am). Failing that I can have a go at manually rebasing the patch.
+Fair enough -- yet, a brief reply asking if it can be done as a follow-up w=
+ould
+have been appreciated.
 
-d
+I don't think it's that minor. The race may be unlikely to happen, but if i=
+t
+happens because someone isn't careful with this (now exported) API - and I'=
+m
+absolutely sure it's only gonna be a matter of time until that happens -, i=
+t'll
+be painful. :(
+
+> But, yes, let me look into it. It may take a while though, as vacation
+> is getting closer. If you want to send a patch yourself, please, feel
+> free to do it.
+
+Ok, let me see if I can get to it.
+
+> Note that, while at it, we should probably also add some documentation
+> of device_set_node() (next to get_dev_from_fwnode()) as it also lacks
+> it.
+
+Agreed!
+
+Have a nice vacation!
+
+- Danilo
 
