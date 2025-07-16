@@ -4,39 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75AD8C83F27
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 00:04:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03668C83F27
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 00:06:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=zc6W1LqWhosxLy6inD+3Mw6xi1MjCToPHphw8hvqQkQ=; b=tYzbsA/aSzRsZEBmEZUgW6goxc
-	sQUJRQicu9cth/nRCKlCJb2b/wwwukewRlwMe8TYdes64WNxxSj9huKwe4dus5ncRRwu9TNZYgdKq
-	T9l3dFsavKW67uymd83KjaTrCmoAQfoZWON7lfqIxrPgC3WmYThGqNGZiZBrvbQB5GOFOT2rHcttR
-	TLRrKbKrBo6bzE9e3sf5Y6paFUZ0ZkpvpHr7terJgTmzpWgkkvmujrpOXaVvH3kW2juSaojbZ4Lnz
-	7gSfzUbuzn7lRDkFASwJutEvnZQtg4tlclaojI2jsMwsvUgKIMfkbNEH/7uZvBTZuW5CKM0awcrWC
-	TUH5IitQ==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iRuFXoOx7ugRu+xZOn9KsE5pqVIii62tEGweLLSB5Os=; b=VijMZ40r5QYsYvmRMki7cgWev1
+	7N7CWi+9Xlm/Mp5lm7EyLZZW2f2VynONgCJDRwBTLOXdQTURq0KNFgvlzfxjmIjJZd8T0rmRoLv7y
+	tlNMFH/Dqw7n1Aj6Kq2sFKwoieoCeV5Y4PmzbprbqeQzZuWydua5Ygqdw0zpDJsHgSS3L/zEOScFm
+	fHZ4sRXilsmn7d7o8/TmTlNv4bRWK7+jdasZN0TFEbS2X9BRXPxF4RuPNGo7r1aeGhwyiEFrGkgYN
+	zi+zJ9hG7ATxe0lJx1IZUl1By2zXHt/Urd5IxorDHrIn6+VmWUKiXi8PMn34a5DNOJmXVxQvQ83lm
+	Y8oaNsbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubpd0-00000006RXt-102v;
-	Wed, 16 Jul 2025 00:04:06 +0000
-Received: from out-177.mta1.migadu.com ([2001:41d0:203:375::b1])
+	id 1ubpfO-00000006Rwn-3zxQ;
+	Wed, 16 Jul 2025 00:06:34 +0000
+Received: from out-171.mta1.migadu.com ([2001:41d0:203:375::ab])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubpaY-00000006RCv-0dZl
+	id 1ubpaZ-00000006RCw-2jGl
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 16 Jul 2025 00:01:36 +0000
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1752624090;
+	t=1752624093;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=zc6W1LqWhosxLy6inD+3Mw6xi1MjCToPHphw8hvqQkQ=;
-	b=TxwBT1eaS2c9mz51J1mXjV4Nx+b/d5R9SKThusI7I+QKlZwzbwvHUzbdDXdN0iu5BY+jqW
-	KkK49bWAWz+bvPDIjmEDw7HVvaS0Hnq2U2t1fvQwlJy2avkzw3FwBJ1sfxHhqhKyhmJgib
-	MOgX6hzT+p5l2Mx5CAUA5wqCi5ID2po=
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=iRuFXoOx7ugRu+xZOn9KsE5pqVIii62tEGweLLSB5Os=;
+	b=naZ8PxKCh+sRYCLRMgsA1O5bc1h3AEmUMvXomw4BnYQE0xmjLIGBYLSwyRDLZgXMjx0YgP
+	7p7FimTn7tm3+6oqPO8LoXgGIsHl847LvEoUrnIeH8/mbL+mXh8MhS+6XXJCJ/XuTizSIY
+	vZtQMxotcOGussgvOl+f6bSErOdx2xc=
 From: Sean Anderson <sean.anderson@linux.dev>
 To: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
 	Andrew Lunn <andrew+netdev@lunn.ch>,
@@ -54,16 +55,17 @@ Cc: Dave Ertman <david.m.ertman@intel.com>,
 	linux-arm-kernel@lists.infradead.org,
 	Ira Weiny <ira.weiny@intel.com>,
 	Sean Anderson <sean.anderson@linux.dev>
-Subject: [PATCH net v2 0/4] net: axienet: Fix deferred probe loop
-Date: Tue, 15 Jul 2025 20:01:06 -0400
-Message-Id: <20250716000110.2267189-1-sean.anderson@linux.dev>
+Subject: [PATCH net v2 1/4] auxiliary: Support hexadecimal ids
+Date: Tue, 15 Jul 2025 20:01:07 -0400
+Message-Id: <20250716000110.2267189-2-sean.anderson@linux.dev>
+In-Reply-To: <20250716000110.2267189-1-sean.anderson@linux.dev>
+References: <20250716000110.2267189-1-sean.anderson@linux.dev>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250715_170134_725752_AC73C102 
-X-CRM114-Status: UNSURE (   6.23  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250715_170135_827269_B87DA8CE 
+X-CRM114-Status: GOOD (  12.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,28 +80,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Please refer to patch 4/4 for an extended look at the problem this
-series is attempting to solve.
+Support creating auxiliary devices with the id included as part of the
+name. This allows for hexadecimal ids, which may be more appropriate for
+auxiliary devices created as children of memory-mapped devices. If an
+auxiliary device's id is set to AUXILIARY_DEVID_NONE, the name must
+be of the form "name.id".
+
+With this patch, dmesg logs from an auxiliary device might look something
+like
+
+[    4.781268] xilinx_axienet 80200000.ethernet: autodetected 64-bit DMA range
+[   21.889563] xilinx_emac.mac xilinx_emac.mac.80200000 net4: renamed from eth0
+[   32.296965] xilinx_emac.mac xilinx_emac.mac.80200000 net4: PHY [axienet-80200000:05] driver [RTL8211F Gigabit Ethernet] (irq=70)
+[   32.313456] xilinx_emac.mac xilinx_emac.mac.80200000 net4: configuring for inband/sgmii link mode
+[   65.095419] xilinx_emac.mac xilinx_emac.mac.80200000 net4: Link is Up - 1Gbps/Full - flow control rx/tx
+
+this is especially useful when compared to what might happen if there is
+an error before userspace has the chance to assign a name to the netdev:
+
+[    4.947215] xilinx_emac.mac xilinx_emac.mac.1 (unnamed net_device) (uninitialized): incorrect link mode  for in-band status
+
+Signed-off-by: Sean Anderson <sean.anderson@linux.dev>
+---
 
 Changes in v2:
 - Add example log output to commit message
-- Fix building as a module
-- Expand commit message with much more info on the problem and possible
-  solutions
 
-Sean Anderson (4):
-  auxiliary: Support hexadecimal ids
-  net: axienet: Fix resource release ordering
-  net: axienet: Rearrange lifetime functions
-  net: axienet: Split into MAC and MDIO drivers
+ drivers/base/auxiliary.c      | 6 +++++-
+ include/linux/auxiliary_bus.h | 4 +++-
+ 2 files changed, 8 insertions(+), 2 deletions(-)
 
- drivers/base/auxiliary.c                      |   6 +-
- drivers/net/ethernet/xilinx/Kconfig           |   1 +
- .../net/ethernet/xilinx/xilinx_axienet_main.c | 422 ++++++++++--------
- .../net/ethernet/xilinx/xilinx_axienet_mdio.c |  31 +-
- include/linux/auxiliary_bus.h                 |   4 +-
- 5 files changed, 263 insertions(+), 201 deletions(-)
-
+diff --git a/drivers/base/auxiliary.c b/drivers/base/auxiliary.c
+index dba7c8e13a53..64a0d5e2eb83 100644
+--- a/drivers/base/auxiliary.c
++++ b/drivers/base/auxiliary.c
+@@ -331,7 +331,11 @@ int __auxiliary_device_add(struct auxiliary_device *auxdev, const char *modname)
+ 		return -EINVAL;
+ 	}
+ 
+-	ret = dev_set_name(dev, "%s.%s.%d", modname, auxdev->name, auxdev->id);
++	if (auxdev->id == AUXILIARY_DEVID_NONE)
++		ret = dev_set_name(dev, "%s.%s", modname, auxdev->name);
++	else
++		ret = dev_set_name(dev, "%s.%s.%d", modname, auxdev->name,
++				   auxdev->id);
+ 	if (ret) {
+ 		dev_err(dev, "auxiliary device dev_set_name failed: %d\n", ret);
+ 		return ret;
+diff --git a/include/linux/auxiliary_bus.h b/include/linux/auxiliary_bus.h
+index 4086afd0cc6b..76904cf2c3dd 100644
+--- a/include/linux/auxiliary_bus.h
++++ b/include/linux/auxiliary_bus.h
+@@ -51,6 +51,8 @@
+  * unregisters the auxiliary device.
+  */
+ 
++#define AUXILIARY_DEVID_NONE	(-1)
++
+ /**
+  * struct auxiliary_device - auxiliary device object.
+  * @dev: Device,
+@@ -269,7 +271,7 @@ struct auxiliary_device *__devm_auxiliary_device_create(struct device *dev,
+ 
+ #define devm_auxiliary_device_create(dev, devname, platform_data)     \
+ 	__devm_auxiliary_device_create(dev, KBUILD_MODNAME, devname,  \
+-				       platform_data, 0)
++				       platform_data, AUXILIARY_DEVID_NONE)
+ 
+ /**
+  * module_auxiliary_driver() - Helper macro for registering an auxiliary driver
 -- 
 2.35.1.1320.gc452695387.dirty
 
