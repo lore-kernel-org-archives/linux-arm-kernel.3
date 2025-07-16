@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2367AC83F27
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 05:32:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40B61C83F27
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 05:43:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+LaZDA/FCK3jvCwMvQup/hbQjkRk3GDFDbtf0l3xKc4=; b=nB+2d8MafB1hzXLjz09pLQW9fm
-	/aWJ8Vk+DE/XMs/adqhjCKz4Alh2hxDXoFvqZizHLYyO01gEPLzgCIH/bwhMDQlMDkOq40WwUkAMU
-	nY6CstlagJ9rbmLuoFn7RoHnXvSmDGnXbFKVnX04XOzUO4xbS7osO7Fe+IFNUhdfaGGIxywL3kzTi
-	gQtnwIkjhCuyaEzbSYBxjq+UIt3VY7nxy6vGrg23/Dy6FhNDbb6Vc798zbG8MLHCcWSLt1Gn0Kgkn
-	u8kuubb9B2TyFDg77zqmDJjhYHK7TH8Vlx+Tl9MkVcQ4Am7dYAa/Q9V1DKrVoLkVhlHYCBS+z4k//
-	uixeHEKw==;
+	bh=thXEi42zzT+vMpTeFbti/z/XwFIVsRaaywxBqv7gdEs=; b=cU1P+pTMQZp7P9cUrVMeu99gzs
+	rvCeG3v/30g/FkJSE5gkvCm0xJOdXcnEvBgGo0wn2PDTJxW0X1a74I9FhVlwmvFp0XphdDH/9VmtY
+	X6i+1zVBCh3e4BuXAYwpv9ysR1Eyd+tY+utqnSPUifj4PtJO7ITLQyjPi1NkEsWi8LJ2UPkBOf2JJ
+	L/uRBXtiw45dWsOj0BINwvS0U9PrvISRn0+m/iQPdeq3Jn13Wfo6I9ss+s7o+SzWjh9uF15k8jple
+	JY3BGVLgfk/vHzO5AG1EIfgNKqaF+1wv5ovXqlHqiuJN7N67QNdAqPV9Had1NYOoCI45UAT0YBwa9
+	kVRFVVag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubukk-00000006nX8-00a4;
-	Wed, 16 Jul 2025 05:32:26 +0000
-Received: from mta-64-225.siemens.flowmailer.net ([185.136.64.225])
+	id 1ubuuv-00000006obD-3V2j;
+	Wed, 16 Jul 2025 05:42:57 +0000
+Received: from mta-64-228.siemens.flowmailer.net ([185.136.64.228])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubuQi-00000006lnc-1OOr
+	id 1ubusR-00000006o1k-0EUy
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Jul 2025 05:11:45 +0000
-Received: by mta-64-225.siemens.flowmailer.net with ESMTPSA id 2025071605114208e94623ba2b3c2548
+	Wed, 16 Jul 2025 05:40:24 +0000
+Received: by mta-64-228.siemens.flowmailer.net with ESMTPSA id 2025071605401897d9018816d6742925
         for <linux-arm-kernel@lists.infradead.org>;
-        Wed, 16 Jul 2025 07:11:43 +0200
+        Wed, 16 Jul 2025 07:40:18 +0200
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; s=fm1;
  d=siemens.com; i=huaqian.li@siemens.com;
  h=Date:From:Subject:To:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding:Cc:References:In-Reply-To;
- bh=+LaZDA/FCK3jvCwMvQup/hbQjkRk3GDFDbtf0l3xKc4=;
- b=coGNOoegQxn/RntZ02PABsVCpufJWk5T4T9/Zu78/cXjBxXi0zilU/uBUHTM5K2SvGpjOj
- jwFH5gGB5EiA3skW5Iv2DyH+iDhKytM7tBXBwGqYHLdHkgnoUn0eKQqPvjZRMd2dAiuztA8v
- LlHkN5U4Kt3imC/xHwd/S2DWtsBkYOd5Ils5330DmtVdHn0Y6byxVelFDrXDoXly1ensFqXV
- 5Z/KllSYynuxZ5bvJgLmzmF5XPC/HeUCi4QzzGpU27Mb8IQ5mw6eNFI7B9nX8agmhVPP4dmc
- gRCuTlagrBWgAiltYPkoJSOfuj37P0UzThnyM6HUcrkVM15MDoxyUsfA==;
+ bh=thXEi42zzT+vMpTeFbti/z/XwFIVsRaaywxBqv7gdEs=;
+ b=gg0dJzJNg2YH/f3t2xpZg6J1D4TmNWJNBEveOqWVVgsYy7mHibAbKiOh6piLUwZsQ1guSV
+ +EOKfX2a0fvH/jKEaWosn6w5kGEJ4Qerbs2D8meqoTeuAunF75Rh3UwOJbgNqMPY6abKbxrp
+ A4BwUdxYKHhIBOxM8yumVFyhW9Yo7HufqCTakM4himCsVM1tGrvUZtM9BtTabj+exWb2EYsq
+ 0yVOn+RN6on4++hfDblgpoamDkU269/FP8jGH20aj6ozwO+kf3aUhjnl3t7YcnyDAImwnS/7
+ 2WaE+QHPUIYjccf7+hhpaNR548PD4raFyUVB2KgiTMFj58mnhbrdNf9g==;
 From: huaqian.li@siemens.com
 To: s-vadapalli@ti.com
 Cc: baocheng.su@siemens.com,
@@ -60,19 +60,18 @@ Cc: baocheng.su@siemens.com,
 	robh@kernel.org,
 	ssantosh@kernel.org,
 	vigneshr@ti.com
-Subject: [PATCH v9 7/7] arm64: dts: ti: iot2050: Add overlay for DMA isolation for devices behind PCI RC
-Date: Wed, 16 Jul 2025 13:10:35 +0800
-Message-Id: <20250716051035.170988-8-huaqian.li@siemens.com>
-In-Reply-To: <20250716051035.170988-1-huaqian.li@siemens.com>
+Subject: [PATCH v9 (RESEND) 0/7] soc: ti: Add and use PVU on K3-AM65 for DMA isolation
+Date: Wed, 16 Jul 2025 13:39:43 +0800
+Message-Id: <20250716053950.199079-1-huaqian.li@siemens.com>
+In-Reply-To: <e21c6ead-2bcb-422b-a1b9-eb9dd63b7dc7@ti.com>
 References: <e21c6ead-2bcb-422b-a1b9-eb9dd63b7dc7@ti.com>
- <20250716051035.170988-1-huaqian.li@siemens.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Flowmailer-Platform: Siemens
 Feedback-ID: 519:519-959203:519-21489:flowmailer
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250715_221144_511676_19DBC83D 
-X-CRM114-Status: GOOD (  12.52  )
+X-CRM114-CacheID: sfid-20250715_224023_518876_6080374A 
+X-CRM114-Status: GOOD (  18.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,92 +86,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Jan Kiszka <jan.kiszka@siemens.com>
+From: Li Hua Qian <huaqian.li@siemens.com>
 
-Reserve a 64M memory region and ensure that all PCI devices do their DMA
-only inside that region. This is configured via a restricted-dma-pool
-and enforced with the help of the first PVU.
+[Resending v9 due to formatting issue in previous cover letter]
 
-Applying this isolation is not totally free in terms of overhead and
-memory consumption. It  makes only sense for variants that support
-secure booting, and generally only when this is actually enable.
-Therefore model it as overlay that can be activated on demand. The
-firmware will take care of this via DT fixup during boot and will also
-provide a way to adjust the pool size.
+Changes in v9:
+ - Update commit message (patch 4) to remove ambiguous extension claims
+   based on upstream feedback
 
-Signed-off-by: Jan Kiszka <jan.kiszka@siemens.com>
-Signed-off-by: Li Hua Qian <huaqian.li@siemens.com>
----
- arch/arm64/boot/dts/ti/Makefile               |  5 +++
- ...am6548-iot2050-advanced-dma-isolation.dtso | 33 +++++++++++++++++++
- 2 files changed, 38 insertions(+)
+Changes in v8:
+ - remove patch 8 from this series to simplify the patchset
+ - fix dt_bindings_check warnings (patch 2), 'memory-region' must
+   not be a required property
+
+Changes in v7:
+ - add schema expressing dependency as suggested on pci-host bindings
+ - resolve review comments on pci-keystone driver
+ - add a new patch to make IO_TLB_SEGSIZE configurable
+ - improve patches based on checkpath.pl
+
+Changes in v6:
+ - make restricted DMA memory-region available to all pci-keystone
+   devices, moving property to unconditional section (patch 2)
+
+Changes in v5:
+ - resolve review comments on pci-host bindings
+ - reduce DMA memory regions to 1 - swiotlb does not support more
+ - move activation into overlay (controlled via firmware)
+ - use ks_init_vmap helper instead of loop in
+   rework ks_init_restricted_dma
+ - add more comments to pci-keystone
+ - use 2 chained TLBs of PVU to support maximum of swiotlb (320 MB)
+
+Changes in v4:
+ - reorder patch queue, moving all DTS changes to the back
+ - limit activation to IOT2050 Advanced variants
+ - move DMA pool to allow firmware-based expansion it up to 512M
+
+Changes in v3:
+ - fix ti,am654-pvu.yaml according to review comments
+ - address review comments on ti,am65-pci-host.yaml
+ - differentiate between different compatibles in ti,am65-pci-host.yaml
+ - move pvu nodes to k3-am65-main.dtsi
+ - reorder patch series, pulling bindings and generic DT bits to the front
+
+Changes in v2:
+ - fix dt_bindings_check issues (patch 1)
+ - address first review comments (patch 2)
+ - extend ti,am65-pci-host bindings for PVU (new patch 3)
+
+Only few of the K3 SoCs have an IOMMU and, thus, can isolate the system
+against DMA-based attacks of external PCI devices. The AM65 is without
+an IOMMU, but it comes with something close to it: the Peripheral
+Virtualization Unit (PVU).
+
+The PVU was originally designed to establish static compartments via a
+hypervisor, isolate those DMA-wise against each other and the host and
+even allow remapping of guest-physical addresses. But it only provides
+a static translation region, not page-granular mappings. Thus, it cannot
+be handled transparently like an IOMMU.
+
+Now, to use the PVU for the purpose of isolated PCI devices from the
+Linux host, this series takes a different approach. It defines a
+restricted-dma-pool for the PCI host, using swiotlb to map all DMA
+buffers from a static memory carve-out. And to enforce that the devices
+actually follow this, a special PVU soc driver is introduced. The driver
+permits access to the GIC ITS and otherwise waits for other drivers that
+detect devices with constrained DMA to register pools with the PVU.
+
+For the AM65, the first (and possibly only) driver where this is
+introduced is the pci-keystone host controller. Finally, this series
+provides a DT overlay for the IOT2050 Advanced devices (all have
+MiniPCIe or M.2 extension slots) to make use of this protection scheme.
+Application of this overlay will be handled by firmware.
+
+Due to the cross-cutting nature of these changes, multiple subsystems
+are affected. However, I wanted to present the whole thing in one series
+to allow everyone to review with the complete picture in hands. If
+preferred, I can also split the series up, of course.
+
+Jan
+
+Jan Kiszka (7):
+  dt-bindings: soc: ti: Add AM65 peripheral virtualization unit
+  dt-bindings: PCI: ti,am65: Extend for use with PVU
+  soc: ti: Add IOMMU-like PVU driver
+  PCI: keystone: Add support for PVU-based DMA isolation on AM654
+  arm64: dts: ti: k3-am65-main: Add PVU nodes
+  arm64: dts: ti: k3-am65-main: Add VMAP registers to PCI root complexes
+  arm64: dts: ti: iot2050: Add overlay for DMA isolation for devices
+    behind PCI RC
+
+ .../bindings/pci/ti,am65-pci-host.yaml        |  28 +-
+ .../bindings/soc/ti/ti,am654-pvu.yaml         |  51 ++
+ arch/arm64/boot/dts/ti/Makefile               |   5 +
+ arch/arm64/boot/dts/ti/k3-am65-main.dtsi      |  38 +-
+ ...am6548-iot2050-advanced-dma-isolation.dtso |  33 ++
+ drivers/pci/controller/dwc/pci-keystone.c     | 106 ++++
+ drivers/soc/ti/Kconfig                        |   4 +
+ drivers/soc/ti/Makefile                       |   1 +
+ drivers/soc/ti/ti-pvu.c                       | 500 ++++++++++++++++++
+ include/linux/ti-pvu.h                        |  32 ++
+ 10 files changed, 791 insertions(+), 7 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/soc/ti/ti,am654-pvu.yaml
  create mode 100644 arch/arm64/boot/dts/ti/k3-am6548-iot2050-advanced-dma-isolation.dtso
+ create mode 100644 drivers/soc/ti/ti-pvu.c
+ create mode 100644 include/linux/ti-pvu.h
 
-diff --git a/arch/arm64/boot/dts/ti/Makefile b/arch/arm64/boot/dts/ti/Makefile
-index c6171de9fe88..66b1d8093fa2 100644
---- a/arch/arm64/boot/dts/ti/Makefile
-+++ b/arch/arm64/boot/dts/ti/Makefile
-@@ -84,8 +84,10 @@ k3-am654-gp-evm-dtbs := k3-am654-base-board.dtb \
- k3-am654-evm-dtbs := k3-am654-base-board.dtb k3-am654-icssg2.dtbo
- k3-am654-idk-dtbs := k3-am654-evm.dtb k3-am654-idk.dtbo k3-am654-pcie-usb2.dtbo
- k3-am6548-iot2050-advanced-m2-bkey-ekey-pcie-dtbs := k3-am6548-iot2050-advanced-m2.dtb \
-+	k3-am6548-iot2050-advanced-dma-isolation.dtbo \
- 	k3-am6548-iot2050-advanced-m2-bkey-ekey-pcie.dtbo
- k3-am6548-iot2050-advanced-m2-bkey-usb3-dtbs := k3-am6548-iot2050-advanced-m2.dtb \
-+	k3-am6548-iot2050-advanced-dma-isolation.dtbo \
- 	k3-am6548-iot2050-advanced-m2-bkey-usb3.dtbo
- dtb-$(CONFIG_ARCH_K3) += k3-am6528-iot2050-basic.dtb
- dtb-$(CONFIG_ARCH_K3) += k3-am6528-iot2050-basic-pg2.dtb
-@@ -288,7 +290,10 @@ DTC_FLAGS_k3-am62p5-sk += -@
- DTC_FLAGS_k3-am642-evm += -@
- DTC_FLAGS_k3-am642-phyboard-electra-rdk += -@
- DTC_FLAGS_k3-am642-tqma64xxl-mbax4xxl += -@
-+DTC_FLAGS_k3-am6548-iot2050-advanced += -@
- DTC_FLAGS_k3-am6548-iot2050-advanced-m2 += -@
-+DTC_FLAGS_k3-am6548-iot2050-advanced-pg2 += -@
-+DTC_FLAGS_k3-am6548-iot2050-advanced-sm += -@
- DTC_FLAGS_k3-am68-sk-base-board += -@
- DTC_FLAGS_k3-am69-sk += -@
- DTC_FLAGS_k3-j7200-common-proc-board += -@
-diff --git a/arch/arm64/boot/dts/ti/k3-am6548-iot2050-advanced-dma-isolation.dtso b/arch/arm64/boot/dts/ti/k3-am6548-iot2050-advanced-dma-isolation.dtso
-new file mode 100644
-index 000000000000..dfd75d2dc245
---- /dev/null
-+++ b/arch/arm64/boot/dts/ti/k3-am6548-iot2050-advanced-dma-isolation.dtso
-@@ -0,0 +1,33 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * IOT2050, overlay for isolating DMA requests via PVU
-+ * Copyright (c) Siemens AG, 2024
-+ *
-+ * Authors:
-+ *   Jan Kiszka <jan.kiszka@siemens.com>
-+ */
-+
-+/dts-v1/;
-+/plugin/;
-+
-+&{/reserved-memory} {
-+	#address-cells = <2>;
-+	#size-cells = <2>;
-+
-+	pci_restricted_dma_region: restricted-dma@c0000000 {
-+		compatible = "restricted-dma-pool";
-+		reg = <0 0xc0000000 0 0x4000000>;
-+	};
-+};
-+
-+&pcie0_rc {
-+	memory-region = <&pci_restricted_dma_region>;
-+};
-+
-+&pcie1_rc {
-+	memory-region = <&pci_restricted_dma_region>;
-+};
-+
-+&ti_pvu0 {
-+	status = "okay";
-+};
 -- 
 2.34.1
 
