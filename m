@@ -4,84 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3160C83F22
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 20:54:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF3B7C83F22
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 20:56:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=4xBu3m27NNNiyYtPNYLiQI7tnJpGA2VIKgO7tKMJhM0=; b=bunPYD4FQEE+7p
-	lb6YMmssa9Ac+kIDmRetz/P2CVk0Ue6mAnG6C6tPB5V9yCFpEMmIcCO32Aw4NJpbQbm27/MWeR1Fi
-	+iDptWJgFjKUcFQJ5M36AqdRSqfJ11IlJKhfylBrzXmrAbggvXEESj6ElcoGUSeik3BQkv+Ek5ivq
-	Jo3Qh5mIG1BSJDo1w7TI0aLCeQu4p7Qac2ajP0+2In5C9ybkX/4KPcsMOo/THGlEy2pWfLnJO7uiI
-	2dEQwizphPfSU747uOlLhe2khkVaUBfy3FoNmY34+6t4yslefF4s4JRdoROBdgzZ8Uj90NuQt1MnZ
-	eK0RdPr0IPmITAwnsU0Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=CGRHMbakmgtVzUhbhesoGMHoeYFQSQCOILI1FjneuZk=; b=ZzTMXHR9n+uzd6v6+WUhESfmTF
+	XKU3ji/h1/UNqvMP03q28RUQ/QWpIlkYAzQ8IPxuz+rqDBg/a3TX4jw+QRnBSEYc0pg8YzRE51mrc
+	wghf1bU4l+FUTf3lD5xFYRFmqIiRI8uKFMWuo/D3L/2GAxTrU7exSX1UV8hH/x9FRH+6V4Hhk6MKs
+	+TJy4NAdkRneeiLX8O2Dv9ax0QdRRDZVN6WB7k72XmnxwvQ4ry3Cw2kHJYsl9rAnyPdTbqRepr7q2
+	NPnxEDffh40fd/NTHwFKoo/bvHbDTWVDvAGbcp9opkLW3/+rad1XuX6AzMenTfzr5plgLOg5jVOSs
+	yPxl1E/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uc98d-00000008e2a-1eJv;
-	Wed, 16 Jul 2025 20:54:03 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uc9B3-00000008eGF-0v2j;
+	Wed, 16 Jul 2025 20:56:33 +0000
+Received: from mail-ot1-x329.google.com ([2607:f8b0:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uc806-00000008WoB-3W4X;
-	Wed, 16 Jul 2025 19:41:10 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3A89A601BB;
-	Wed, 16 Jul 2025 19:41:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B2291C4CEF1;
-	Wed, 16 Jul 2025 19:41:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752694869;
-	bh=GeJXBYx5qreogy5Ib1b/M+uzTrVK0WNP7q/uKYx+wC0=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=mvKHdPMOuiYnkaLaqsb3FXWodVA3TMXDKgD3HpGfpcNITyHhK+1ZV2+s/s1yjR5bZ
-	 wApnXjCZX4+zQ3PIT4L35IPisNDX68Q2WmdUrEN2cMFVmSmp+OJnrLQdZwh6gUT0Uk
-	 JKF7nKO2y/dXZX2lpbAs3ppOqgB8AA9fOt60N8srWS475NkyMwFqG8BbMnYHOLP8ox
-	 lWhgOVV5pDi/IpvkEehROFwQdf3Gv0ewt/vba5cxM2rJJ6WL/H2kGFGViMFx2Vhcgq
-	 v+Y+7BkWHMSYa5GymoXLrMwbNtnvynIaM07xSSYdQhPaHUBygv5m7ayKNTwJsaaVpr
-	 WgSOK6tOERjtA==
-Date: Wed, 16 Jul 2025 14:41:08 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Nirmal Patel <nirmal.patel@linux.intel.com>
-Cc: Nam Cao <namcao@linutronix.de>, Marc Zyngier <maz@kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Karthikeyan Mitran <m.karthikeyan@mobiveil.co.in>,
-	Hou Zhiqiang <Zhiqiang.Hou@nxp.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	Pali =?utf-8?B?Um9ow6Fy?= <pali@kernel.org>,
-	"K . Y . Srinivasan" <kys@microsoft.com>,
-	Haiyang Zhang <haiyangz@microsoft.com>,
-	Wei Liu <wei.liu@kernel.org>, Dexuan Cui <decui@microsoft.com>,
-	Joyce Ooi <joyce.ooi@intel.com>, Jim Quinlan <jim2101024@gmail.com>,
-	Nicolas Saenz Julienne <nsaenz@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
-	Ryder Lee <ryder.lee@mediatek.com>,
-	Jianjun Wang <jianjun.wang@mediatek.com>,
-	Marek Vasut <marek.vasut+renesas@gmail.com>,
-	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
-	Michal Simek <michal.simek@amd.com>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	Jonathan Derrick <jonathan.derrick@linux.dev>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-arm-kernel@lists.infradead.org, linux-hyperv@vger.kernel.org,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	linux-renesas-soc@vger.kernel.org
-Subject: Re: [PATCH 16/16] PCI: vmd: Switch to msi_create_parent_irq_domain()
-Message-ID: <20250716194108.GA2552070@bhelgaas>
+	id 1uc86O-00000008Xoj-09Kg
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 16 Jul 2025 19:47:41 +0000
+Received: by mail-ot1-x329.google.com with SMTP id 46e09a7af769-73e586fcc28so750637a34.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Jul 2025 12:47:39 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1752695259; x=1753300059; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=CGRHMbakmgtVzUhbhesoGMHoeYFQSQCOILI1FjneuZk=;
+        b=AYT5SMKH3MPQVnLwQRbcG6lM+/rw9dLzyikW43xjHXzL3F80SZod7a4mZI4xOf80BC
+         8UKBlAe9nDNdQK/6vKH5RczyMl97Pa763vl0H3zvw6ObuD8hg+PA7DFitYPlITHzC0+L
+         kBWNWpjuLByQWEE3nva+PldtLV7uQ04dYF8DTv9pkackHltPrSc2dNqSKtXC5RgF7pBk
+         Ax6Q/07G9NB8bgZsIVawKahNk4dVN+WE/ySQBQ04r1FDwHgodouqEkU54tpSB1DhFgy9
+         BRZGq5QBph5EVsKxCD4MR1t+SctRzCzkyr8x1Z3TSPRZk5Pg9zoIaB6Rznx/OM7pfDnE
+         pKug==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1752695259; x=1753300059;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=CGRHMbakmgtVzUhbhesoGMHoeYFQSQCOILI1FjneuZk=;
+        b=azb/YE2JvILXF+IG0p07NzQhFW1Txdsexg+eGMr4z2fcQKaNqMfKEpPoTM3z1mLmMT
+         4SUgdmGqGcpWZDlWXMUhAwZK/cVPIhMVg1zawguAiv/0G+NYfnFLoV9dEWzO8g/XUw/z
+         PTVYpMO7bqLPuMej2ZVXg0bzNgDLUObfdKkJSYVUp1cN3HnZG+g2n16AmoSHgKqJ2e/E
+         k9na5sZLC9LNsUk3vVvfJcZl+PX+T6VxXL7z3txumjaByY9cDScQiJRfpFbTQJ8wQPao
+         BdQ8LgpLCF5DiGIk1eujg4pvd7NZLGLzAasc+VK79nxAWVJ6AOUCwzFsBjwwc4iOvs9i
+         Ghcw==
+X-Forwarded-Encrypted: i=1; AJvYcCUNJGL4FKgHZ56ILTRvjYOQ118L7rgXVjmQLXivfB+itaieeMyYOcCX9tgsfOnZ0BS3d9mqtTZ46F4rXCmVVPpt@lists.infradead.org
+X-Gm-Message-State: AOJu0YwsUEzw0LxP8po/08ghXT89NBEM0opQZR/ZL1kWEDqGaRL0+Lrg
+	/AxTPCAWSY6DE0FNsTz8VmuZIXTnPF15qwt3aPaJBmdECpII1d3os4lJ
+X-Gm-Gg: ASbGnctics0XPWJnRX5kkVUIaze1DfznNNRkaELzJxWnjYUV9iJWicpORg0Wo7/VobT
+	7Dk3qrZvrIncMmHEQyQ8c15Sd76Xz52NwG3EEJ+IH0/gTPb6YvPjn6D/MZXuGZAEajjwJTvoiY3
+	VAGLTCR+4THQng8QS+YGSF8HzLqbNUcKmOHJPjn9eJLHiX3HDWW57hjLjuzVR5LgenQQd9cM4mv
+	vwT/AfHCfVhFw1LvCQ/czCrqNsUynCu554Ev5pIY/6FRDpw32M0YdBhj2MgmDUycag/Ek9dX+ss
+	khCyRzKp+HChTDl2H+gO33k7CbBNc4K3013KMlb+Qjec74bM1UhJC+vsNs5LPfbBD5aLDF98PWb
+	ITqzxlTTz1Mn2pxoV4Kr/Ih4cDJ8K1FURLWXxEw==
+X-Google-Smtp-Source: AGHT+IFtuXI2LHUt381msMlgUjQyWjsjC4freVrIjMdBLr8CPfK8bhqR6K4a0vFEIy+s/Zb2bC8y8Q==
+X-Received: by 2002:a05:6808:4fd1:b0:408:fb4c:85ad with SMTP id 5614622812f47-41e2dcc2e05mr602994b6e.4.1752695259074;
+        Wed, 16 Jul 2025 12:47:39 -0700 (PDT)
+Received: from localhost.localdomain ([2804:1b3:a7c1:459e:e3dd:d2e:b1ee:b9ec])
+        by smtp.gmail.com with ESMTPSA id 5614622812f47-4141bcd27b6sm2954810b6e.29.2025.07.16.12.47.33
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 16 Jul 2025 12:47:37 -0700 (PDT)
+From: Hiago De Franco <hiagofranco@gmail.com>
+To: Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Ulf Hansson <ulf.hansson@linaro.org>,
+	linux-remoteproc@vger.kernel.org
+Cc: Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Bjorn Andersson <andersson@kernel.org>,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	daniel.baluta@nxp.com,
+	iuliana.prodan@oss.nxp.com,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Hiago De Franco <hiago.franco@toradex.com>,
+	Peng Fan <peng.fan@nxp.com>
+Subject: [PATCH v8] remoteproc: imx_rproc: detect and attach to pre-booted remote cores
+Date: Wed, 16 Jul 2025 16:46:38 -0300
+Message-Id: <20250716194638.113115-1-hiagofranco@gmail.com>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250716111009.000022ff@linux.intel.com>
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250716_124740_077877_F9BA5D8A 
+X-CRM114-Status: GOOD (  33.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,26 +106,165 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 16, 2025 at 11:10:09AM -0700, Nirmal Patel wrote:
-> On Thu, 26 Jun 2025 16:48:06 +0200
-> Nam Cao <namcao@linutronix.de> wrote:
-> 
-> > Move away from the legacy MSI domain setup, switch to use
-> > msi_create_parent_irq_domain().
+From: Hiago De Franco <hiago.franco@toradex.com>
 
-> > -			unsigned int virq, irq_hw_number_t hwirq,
-> > -			msi_alloc_info_t *arg)
-> > +static void vmd_msi_free(struct irq_domain *domain, unsigned int
-> > virq, unsigned int nr_irqs); +
-> > +static int vmd_msi_alloc(struct irq_domain *domain, unsigned int
-> > virq, unsigned int nr_irqs,
-> > +			 void *arg)
-> 
-> Is this wrapped in 80 columns? I can see few lines are more than 80.
-> Disregard this if it is wrapped and it can be my claws mail client
-> issue.
+When the Cortex-M remote core is started and already running before
+Linux boots (typically by the Cortex-A bootloader using a command like
+bootaux), the current driver is unable to attach to it. This is because
+the driver only checks for remote cores running in different SCU
+partitions. However in this case, the M-core is in the same partition as
+Linux and is already powered up and running by the bootloader.
 
-Wrapped locally, thanks Nirmal.
+This patch adds a check using dev_pm_genpd_is_on() to verify whether the
+M-core's power domains are already on. If all power domain devices are
+on, the driver assumes the M-core is running and proceed to attach to
+it.
 
-Bjorn
+To accomplish this, we need to avoid passing any attach_data or flags to
+dev_pm_domain_attach_list(), allowing the platform device become a
+consumer of the power domain provider without changing its current
+state.
+
+During probe, also enable and sync the device runtime PM to make sure
+the power domains are correctly managed when the core is controlled by
+the kernel.
+
+Suggested-by: Ulf Hansson <ulf.hansson@linaro.org>
+Reviewed-by: Ulf Hansson <ulf.hansson@linaro.org>
+Reviewed-by: Peng Fan <peng.fan@nxp.com>
+Signed-off-by: Hiago De Franco <hiago.franco@toradex.com>
+---
+Hi Mathieu, Ulf,
+
+This is the v8 of patch3 from the patch series:
+https://lore.kernel.org/all/20250629172512.14857-1-hiagofranco@gmail.com/
+
+As patches 1 and 2 are already applied on Ulf's next branch, as
+requested I am sending now only the v8 of patch 3.
+
+I made a small correction into the commit description, s/SCFW
+partitions/SCU partitions/g and updated with the check for the return
+value.
+
+I hope this is ok.
+
+Thanks!
+
+Hiago.
+
+v7 -> v8:
+    - Added return error check for dev_pm_domain_attach_list().
+    - Commit description: changed to use "SCU partitions" instead of
+      "SCFW partitions". This is more accurate since these are hardware
+      enforced partitions.
+v6 -> v7:
+ - Added Peng reviewed-by.
+v5 -> v6:
+ - Commit description improved, as suggested. Added Ulf Hansson reviewed
+   by. Comment on imx-rproc.c improved.
+v4 -> v5:
+ - pm_runtime_get_sync() removed in favor of
+   pm_runtime_resume_and_get(). Now it also checks the return value of
+   this function.
+ - Added pm_runtime_disable() and pm_runtime_put() to imx_rproc_remove()
+   function.
+v3 -> v4:
+ - Changed to use the new dev_pm_genpd_is_on() function instead, as
+   suggested by Ulf. This will now get the power status of the two
+   remote cores power domains to decided if imx_rpoc needs to attach or
+   not. In order to do that, pm_runtime_enable() and
+   pm_runtime_get_sync() were introduced and pd_data was removed.
+v2 -> v3:
+ - Unchanged.
+v1 -> v2:
+ - Dropped unecessary include. Removed the imx_rproc_is_on function, as
+   suggested.
+---
+---
+ drivers/remoteproc/imx_rproc.c | 41 +++++++++++++++++++++++++++++-----
+ 1 file changed, 35 insertions(+), 6 deletions(-)
+
+diff --git a/drivers/remoteproc/imx_rproc.c b/drivers/remoteproc/imx_rproc.c
+index 627e57a88db2..a6eef0080ca9 100644
+--- a/drivers/remoteproc/imx_rproc.c
++++ b/drivers/remoteproc/imx_rproc.c
+@@ -18,6 +18,7 @@
+ #include <linux/of_reserved_mem.h>
+ #include <linux/platform_device.h>
+ #include <linux/pm_domain.h>
++#include <linux/pm_runtime.h>
+ #include <linux/reboot.h>
+ #include <linux/regmap.h>
+ #include <linux/remoteproc.h>
+@@ -890,10 +891,8 @@ static int imx_rproc_partition_notify(struct notifier_block *nb,
+ static int imx_rproc_attach_pd(struct imx_rproc *priv)
+ {
+ 	struct device *dev = priv->dev;
+-	int ret;
+-	struct dev_pm_domain_attach_data pd_data = {
+-		.pd_flags = PD_FLAG_DEV_LINK_ON,
+-	};
++	int ret, i;
++	bool detached = true;
+ 
+ 	/*
+ 	 * If there is only one power-domain entry, the platform driver framework
+@@ -902,8 +901,25 @@ static int imx_rproc_attach_pd(struct imx_rproc *priv)
+ 	if (dev->pm_domain)
+ 		return 0;
+ 
+-	ret = dev_pm_domain_attach_list(dev, &pd_data, &priv->pd_list);
+-	return ret < 0 ? ret : 0;
++	ret = dev_pm_domain_attach_list(dev, NULL, &priv->pd_list);
++	if (ret < 0)
++		return ret;
++	/*
++	 * If all the power domain devices are already turned on, the remote
++	 * core is already powered up and running when the kernel booted (e.g.,
++	 * started by U-Boot's bootaux command). In this case attach to it.
++	 */
++	for (i = 0; i < ret; i++) {
++		if (!dev_pm_genpd_is_on(priv->pd_list->pd_devs[i])) {
++			detached = false;
++			break;
++		}
++	}
++
++	if (detached)
++		priv->rproc->state = RPROC_DETACHED;
++
++	return 0;
+ }
+ 
+ static int imx_rproc_detect_mode(struct imx_rproc *priv)
+@@ -1146,6 +1162,15 @@ static int imx_rproc_probe(struct platform_device *pdev)
+ 		}
+ 	}
+ 
++	if (dcfg->method == IMX_RPROC_SCU_API) {
++		pm_runtime_enable(dev);
++		ret = pm_runtime_resume_and_get(dev);
++		if (ret) {
++			dev_err(dev, "pm_runtime get failed: %d\n", ret);
++			goto err_put_clk;
++		}
++	}
++
+ 	ret = rproc_add(rproc);
+ 	if (ret) {
+ 		dev_err(dev, "rproc_add failed\n");
+@@ -1171,6 +1196,10 @@ static void imx_rproc_remove(struct platform_device *pdev)
+ 	struct rproc *rproc = platform_get_drvdata(pdev);
+ 	struct imx_rproc *priv = rproc->priv;
+ 
++	if (priv->dcfg->method == IMX_RPROC_SCU_API) {
++		pm_runtime_disable(priv->dev);
++		pm_runtime_put(priv->dev);
++	}
+ 	clk_disable_unprepare(priv->clk);
+ 	rproc_del(rproc);
+ 	imx_rproc_put_scu(rproc);
+-- 
+2.39.5
+
 
