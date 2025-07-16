@@ -4,71 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D84DC83F22
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 13:11:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DB20C83F22
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 13:14:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
-	To:Cc:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3sNMrCCvmOrN1UDF9Di67oG7Y+yXP/L+hr2KnWDbfcA=; b=0a5EoVfC44Ixn4gYqY0BtqlhQ1
-	2KWdksBRpxBpy8rsKIHdPhcQU2q9DSPWJN7LwOXxLlvc3mayJVcC3QJMQQlu64TEOQP2xElwIT1ow
-	ogcvRSf2MZe6XJ9DWgPRdYYJRg9N0ytCxKFiWbzDIyFuwI1/zIB2YJab9qttQ7mkWUmrsL9SaMd1R
-	xJE6K3xmALnPEZ+J735+G34yKQwMzaNgO0qMsNuFCj0leOieRwYFqdx3TQhqPaqKpqfCQBkf1GXtP
-	vl6irvRCEK61eTlEM4VknZZbioxTb7EQGbFCBHbprKjZ3TCFMj+QF425gLFXbRk0WUkZvPf2rHKIy
-	wl1IWi9A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:References:
+	In-Reply-To:Message-ID:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=qCz3qkpSM0PaErwoNukZei1+0CUNeJ1oEHCchsaW8T0=; b=nd823AO7lov0n8
+	e0bapYkUQrDNYCP2tQhg84XSmttHEcAQHhaoqx6W3Y5mw9iuyLCuGb/L5bFuCifwS7pTQwmsxmitg
+	ebcso0pfxT1NAI/dH37wjgEw1ePZYouunnNOXhH1LYj2nCI/QRWJGXeVnW1PZglz8QyaL4RfsRdez
+	vwp7UOkEuwoyQF0NabXf4DyFIHD6YEmiMX6TOErs7Pt85M32nQuYR0mzj3rpm5x6InBuCstSYIzNt
+	J0rFTAFpPtW3t59nn3sOhVD8KJjBanUPtiurTQoV0wYsBWnhkx3lF6SFrDsuvQghomuT2aJRBYCzL
+	PHfcP0cMq1k0Q8lsU1GA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uc1v7-00000007lSK-2Kmo;
-	Wed, 16 Jul 2025 13:11:37 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uc1y3-00000007lq3-3q8v;
+	Wed, 16 Jul 2025 13:14:39 +0000
+Received: from server.couthit.com ([162.240.164.96])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uc1se-00000007lEI-2Fvf
+	id 1uc1vZ-00000007lRs-3upN
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Jul 2025 13:09:04 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 915686146C;
-	Wed, 16 Jul 2025 13:09:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3E068C4CEF0;
-	Wed, 16 Jul 2025 13:08:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752671343;
-	bh=3sNMrCCvmOrN1UDF9Di67oG7Y+yXP/L+hr2KnWDbfcA=;
-	h=Date:Subject:Cc:To:From:References:In-Reply-To:From;
-	b=qoT5j6+1E+4dAhDM8fkvRfa1Cauhp+Xezx0aCuNnSDbx44WDevi6G73dQek5rXok/
-	 kFlLhnneEjgTYHyGgbcsaLBbsBtxh2AjMopEU1GZm0u7r8Os+AFc7FB5jSkJkyX7Yq
-	 UCGdlHQ13qNUFlCtay6Nb/M8yumZ7RqP+ILSPeg77g93aQXPqLBpxl+9zbA9sXEZ4/
-	 AJ2EjjlF3bWMDt5qNorXKBDqbipsOJ6vy8F6+S4pwjU9RpSiRQ698EPinhuiSMSoBH
-	 y25bfeXl28Z1KFe3fkdPJl9vt6Dfq7oPZkcsN0ZG8P4AUL9gyJXYQ/THXpT1IV61+H
-	 eQ6y6pL2YMeYg==
-Mime-Version: 1.0
+	Wed, 16 Jul 2025 13:12:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=couthit.com
+	; s=default; h=Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:
+	References:In-Reply-To:Message-ID:Cc:To:From:Date:Sender:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=qCz3qkpSM0PaErwoNukZei1+0CUNeJ1oEHCchsaW8T0=; b=mSsRorqpu8GvUFSOiJ0BQI+6mh
+	JPeC9IG0TZWWoUPrYxSxp/HSk4sfNrro88xvoXztLeT2sWWhWHoK/loc6rAKWyNY89ipAUNhTqnvV
+	n0Qx7fc13cSny0+cZlDbSKoYb3QLub0NkXYJjToQuBVCB5iGE9euU8iEWwqbu8xz0rSFxdiN9utnh
+	2xFhX0vZSoaiavvfmR+RoiFlLtv01kpcoxXHB9XtSWKWvH16wGKXPvATqawaiX79n/ZfVbymvdIy1
+	4jXKo4t2Cqck/hLrZVHpm5bswdpAVoLgdFpuyA1b1px9onoRU4A9w93r0On4zBJ2gu2lMB92G5Zsk
+	gtS1oukg==;
+Received: from [122.175.9.182] (port=31570 helo=zimbra.couthit.local)
+	by server.couthit.com with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.1)
+	(envelope-from <parvathi@couthit.com>)
+	id 1uc1uq-0000000HP1m-0wjn;
+	Wed, 16 Jul 2025 09:11:20 -0400
+Received: from zimbra.couthit.local (localhost [127.0.0.1])
+	by zimbra.couthit.local (Postfix) with ESMTPS id 5A5831784069;
+	Wed, 16 Jul 2025 18:41:12 +0530 (IST)
+Received: from localhost (localhost [127.0.0.1])
+	by zimbra.couthit.local (Postfix) with ESMTP id 3F13E1784068;
+	Wed, 16 Jul 2025 18:41:12 +0530 (IST)
+Received: from zimbra.couthit.local ([127.0.0.1])
+	by localhost (zimbra.couthit.local [127.0.0.1]) (amavisd-new, port 10026)
+	with ESMTP id CYRcvNkisBKt; Wed, 16 Jul 2025 18:41:12 +0530 (IST)
+Received: from zimbra.couthit.local (zimbra.couthit.local [10.10.10.103])
+	by zimbra.couthit.local (Postfix) with ESMTP id D20231781DBB;
+	Wed, 16 Jul 2025 18:41:11 +0530 (IST)
+Date: Wed, 16 Jul 2025 18:41:11 +0530 (IST)
+From: Parvathi Pudi <parvathi@couthit.com>
+To: parvathi <parvathi@couthit.com>, kuba <kuba@kernel.org>
+Message-ID: <1616453705.30524.1752671471644.JavaMail.zimbra@couthit.local>
+In-Reply-To: <723330733.1712525.1752237188810.JavaMail.zimbra@couthit.local>
+References: <20250702140633.1612269-1-parvathi@couthit.com> <20250702151756.1656470-5-parvathi@couthit.com> <20250708180107.7886ea41@kernel.org> <723330733.1712525.1752237188810.JavaMail.zimbra@couthit.local>
+Subject: Re: [PATCH net-next v10 04/11] net: ti: prueth: Adds link
+ detection, RX and TX support.
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Wed, 16 Jul 2025 15:08:57 +0200
-Message-Id: <DBDI4X0LDTPZ.16PODOZINXKEP@kernel.org>
-Subject: Re: [PATCH v3 00/24] pmdomain: Add generic ->sync_state() support
- to genpd
-Cc: "Saravana Kannan" <saravanak@google.com>, "Stephen Boyd"
- <sboyd@kernel.org>, <linux-pm@vger.kernel.org>, "Rafael J . Wysocki"
- <rafael@kernel.org>, "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>,
- "Michael Grzeschik" <m.grzeschik@pengutronix.de>, "Bjorn Andersson"
- <andersson@kernel.org>, "Abel Vesa" <abel.vesa@linaro.org>, "Peng Fan"
- <peng.fan@oss.nxp.com>, "Tomi Valkeinen" <tomi.valkeinen@ideasonboard.com>,
- "Johan Hovold" <johan@kernel.org>, "Maulik Shah"
- <maulik.shah@oss.qualcomm.com>, "Michal Simek" <michal.simek@amd.com>,
- "Konrad Dybcio" <konradybcio@kernel.org>, "Thierry Reding"
- <thierry.reding@gmail.com>, "Jonathan Hunter" <jonathanh@nvidia.com>,
- "Hiago De Franco" <hiago.franco@toradex.com>, "Geert Uytterhoeven"
- <geert@linux-m68k.org>, <linux-arm-kernel@lists.infradead.org>,
- <linux-kernel@vger.kernel.org>
-To: "Ulf Hansson" <ulf.hansson@linaro.org>
-From: "Danilo Krummrich" <dakr@kernel.org>
-References: <20250701114733.636510-1-ulf.hansson@linaro.org>
- <CAPDyKFr=u0u2ijczExkntHK1miWZ6hRrEWBMiyUwShS3m6c29g@mail.gmail.com>
- <DBCI05B4Y2ZX.VM9KNB61PGU2@kernel.org>
- <CAPDyKFqUHmMi6tBOJyA2YAOYLX-c_kDMskyRTC1Q+c9B4q_g8w@mail.gmail.com>
-In-Reply-To: <CAPDyKFqUHmMi6tBOJyA2YAOYLX-c_kDMskyRTC1Q+c9B4q_g8w@mail.gmail.com>
+X-Originating-IP: [10.10.10.103]
+X-Mailer: Zimbra 8.8.15_GA_3968 (ZimbraWebClient - GC138 (Linux)/8.8.15_GA_3968)
+Thread-Topic: prueth: Adds link detection, RX and TX support.
+Thread-Index: frcZHpE/y/6hXxyDNRDspT8aDcWlcTdy9M2r
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - server.couthit.com
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - couthit.com
+X-Get-Message-Sender-Via: server.couthit.com: authenticated_id: smtp@couthit.com
+X-Authenticated-Sender: server.couthit.com: smtp@couthit.com
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250716_061205_996523_42011A48 
+X-CRM114-Status: UNSURE (   2.07  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,57 +97,47 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Vignesh Raghavendra <vigneshr@ti.com>, praneeth <praneeth@ti.com>, edumazet <edumazet@google.com>, glaroque <glaroque@baylibre.com>, pmohan <pmohan@couthit.com>, diogo ivo <diogo.ivo@siemens.com>, robh <robh@kernel.org>, javier carrasco cruz <javier.carrasco.cruz@gmail.com>, saikrishnag <saikrishnag@marvell.com>, m-karicheri2 <m-karicheri2@ti.com>, jacob e keller <jacob.e.keller@intel.com>, pabeni <pabeni@redhat.com>, richardcochran <richardcochran@gmail.com>, devicetree <devicetree@vger.kernel.org>, conor+dt <conor+dt@kernel.org>, mohan <mohan@couthit.com>, s hauer <s.hauer@pengutronix.de>, Prajith Jayarajan <prajith@ti.com>, rogerq <rogerq@kernel.org>, basharath <basharath@couthit.com>, ssantosh <ssantosh@kernel.org>, Vadim Fedorenko <vadim.fedorenko@linux.dev>, linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, rogerq <rogerq@ti.com>, srk <srk@ti.com>, pratheesh <pratheesh@ti.com>, m-malladi <m-malladi@ti.com>, netdev <netdev@vger.kernel.org>, linux-kernel <linux-kernel@vger.kernel.org>, danishanwar <danishanwar@ti.com>, afd <afd@ti.com>, andrew+netdev <andrew+netdev@lunn.ch>, horms <horms@kernel.org>, krishna <krishna@couthit.com>, krzk+dt <krzk+dt@kernel.org>, davem <davem@davemloft.net>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed Jul 16, 2025 at 2:46 PM CEST, Ulf Hansson wrote:
-> On Tue, 15 Jul 2025 at 10:50, Danilo Krummrich <dakr@kernel.org> wrote:
->>
->> Hi Ulf,
->>
->> On Wed Jul 9, 2025 at 1:30 PM CEST, Ulf Hansson wrote:
->> > I decided it was time to give this a try, so I have queued this up for
->> > v6.17 via the next branch at my pmdomain tree.
->> >
->> > If you encounter any issues, please let me know so I can help to fix t=
-hem.
->>
->> Can you please address my concern in patch 17 ("driver core: Export
->> get_dev_from_fwnode()")?
->>
->> Since this has been applied already, a subsequent patch would be perfect=
-ly fine.
->
-> Hi Danilo,
->
-> As Greg and Saravana were happy, I didn't want to hold back the whole
-> series only because of a minor comment on some missing documentation.
+Hi,
 
-Fair enough -- yet, a brief reply asking if it can be done as a follow-up w=
-ould
-have been appreciated.
+>>> +=09qid =3D icssm_prueth_get_tx_queue_id(emac->prueth, skb);
+>>> +=09ret =3D icssm_prueth_tx_enqueue(emac, skb, qid);
+>>> +=09if (ret) {
+>>> +=09=09if (ret !=3D -ENOBUFS && netif_msg_tx_err(emac) &&
+>>> +=09=09    net_ratelimit())
+>>> +=09=09=09netdev_err(ndev, "packet queue failed: %d\n", ret);
+>>> +=09=09goto fail_tx;
+>>> +=09}
+>>=20
+>>> +=09if (ret =3D=3D -ENOBUFS) {
+>>> +=09=09ret =3D NETDEV_TX_BUSY;
+>>=20
+>>=20
+>> Something needs to stop the queue, right? Otherwise the stack will
+>> send the frame right back to the driver.
+>>=20
+>=20
+> Yes, we will notify upper layer with =E2=80=9Cnetif_tx_stop_queue()=E2=80=
+=9D when returning
+> =E2=80=9CNETDEV_TX_BUSY=E2=80=9D to not push again immediately.
+>=20
 
-I don't think it's that minor. The race may be unlikely to happen, but if i=
-t
-happens because someone isn't careful with this (now exported) API - and I'=
-m
-absolutely sure it's only gonna be a matter of time until that happens -, i=
-t'll
-be painful. :(
+We reviewed the flow and found that the reason for NETDEV_TX_BUSY being
+notified to the upper layers is due lack of support for reliably detecting
+the TX completion event.
 
-> But, yes, let me look into it. It may take a while though, as vacation
-> is getting closer. If you want to send a patch yourself, please, feel
-> free to do it.
+In case of ICSSM PRU Ethernet, we do not have support for TX complete
+notification back to the driver from firmware and its like store and
+forget approach. So it will be tricky to enable back/resume the queue
+if we stop it when we see busy status.
 
-Ok, let me see if I can get to it.
+Returning NETDEV_TX_BUSY seems to be the best option so that the stack can
+retry as soon as possible.
 
-> Note that, while at it, we should probably also add some documentation
-> of device_set_node() (next to get_dev_from_fwnode()) as it also lacks
-> it.
 
-Agreed!
-
-Have a nice vacation!
-
-- Danilo
+Thanks and Regards,
+Parvathi.
 
