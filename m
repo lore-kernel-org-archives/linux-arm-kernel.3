@@ -4,80 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F530C83F1B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 12:30:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF3A0C83F27
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 12:37:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=o9ejdnou82Zbhd+KhaDfJJzDGWQ+vrVWheflQoeY0WY=; b=pQ8M2SBvgU5y2Zppvde854nhRU
-	4WUPbOO1ZCj4vNVZ1jUzyFh4FC4j11YmSunGX6yONjNMMkOKQ/zAzriqckvXd9dah5DShQfGglu9c
-	e+kGN0OKudHdRuPJINfowcaczog9M5/7tKFPR5AcdQEVW0S4o04pSmLQVf9+SA/K75h+xFASUZ12u
-	0ZddACyOqTgMoFStHd8YhNkB+pPVMg97OFNHgXuqT6ljvqUQNpzNDC5P+vLIlBj+Pc/aVLYDjJUFV
-	b0JnbO7sF4XqEN2tIa9ZScTFw+8jgJOJCR2C+BYaxB50qE/1MQjMt0b/qrkJaqS6SJjNgLHA8GUIn
-	2TvW69nQ==;
+	bh=9fEnjbbKyTxyrZsE1OYbDMRhkU2rjxm5lmX9q9XVcTQ=; b=vGzxNoYCmFOw9OzwczvKvUOhcV
+	Ba9Vn2pN1zifEJUzmiZd+02llhvtS+bnG+ieqs9BvxyKFrsHWNHS+7jx8D/gEDBRlHCq3qzaq/1zE
+	BazgpYxqNR+tVuqWQhO1H9bMO7l+8EOreKLbVGE/7DnqsjEBPceDjV3foVNPdJIIqbrFqCQq4WUQJ
+	u9ZObDpY7IjTRrQIxNkkTVJzEcUhZChff7TjeH+EyLHe/QKo11k633ecgrmKE849/nmNimFt/z9Oq
+	Rr1Ae9AVPBYKfn1u/7fPgAhOVX5y3urNXQ3+3i86dmtJTJW21QnXfNfEAUBCPX8bKr7m6rW5wTkQv
+	for9v4Ag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uc1HD-00000007f4u-3TOu;
-	Wed, 16 Jul 2025 12:30:23 +0000
-Received: from mgamail.intel.com ([192.198.163.19])
+	id 1uc1O9-00000007fu2-41yp;
+	Wed, 16 Jul 2025 12:37:33 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uc1CL-00000007eVo-0bNe;
-	Wed, 16 Jul 2025 12:25:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1752668721; x=1784204721;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=BWrLRFAp92FC1Lne9D6uyC23s8dUsoFZLRBGb5z/924=;
-  b=k2ItrIrppbexyGZk4GY3wlY6RsrMBObCM4Pe6oxCRKnUPa8Fk7hi6HqT
-   HQrTiJ+M7FBEQDMbe0DwF/iE06QCher8MiVa5pQY3QWQSgkPfNULgWm/5
-   1Jv9PfFu6tfbvoY1LTk9zaaAQDJmsQCtIIhYrWFzki+CUBBOHRvZN6CY4
-   +ZrA/tk25M43OKhWZnlM12BARbSDFpKYrlKrQ2VGKKNMvjEPUe6GRa5f9
-   f7HSsujHsaEqSb2/wx1IYkgqz61QUDXZ7e7A8CtMu00qrH26jQtEUMnDU
-   AWBz1mrFipuXeN5a+m/JIPCD9nxTMTNZsRcRmC8iXoysbcHwRmjtIvR4w
-   w==;
-X-CSE-ConnectionGUID: bkTDnTjPT+i7n72A/IrvFg==
-X-CSE-MsgGUID: sJSmW0x3SbaQTAuoPlTCYA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11493"; a="54020736"
-X-IronPort-AV: E=Sophos;i="6.16,316,1744095600"; 
-   d="scan'208";a="54020736"
-Received: from orviesa004.jf.intel.com ([10.64.159.144])
-  by fmvoesa113.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Jul 2025 05:25:19 -0700
-X-CSE-ConnectionGUID: JHf6O6CWSnWFwjKCUsM/Pg==
-X-CSE-MsgGUID: TbiiyrIeSrCVY4Ejj0xc+A==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.16,316,1744095600"; 
-   d="scan'208";a="162043447"
-Received: from lkp-server01.sh.intel.com (HELO 9ee84586c615) ([10.239.97.150])
-  by orviesa004.jf.intel.com with ESMTP; 16 Jul 2025 05:25:15 -0700
-Received: from kbuild by 9ee84586c615 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1uc1CD-000CMB-0b;
-	Wed, 16 Jul 2025 12:25:13 +0000
-Date: Wed, 16 Jul 2025 20:24:38 +0800
-From: kernel test robot <lkp@intel.com>
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-mediatek@lists.infradead.org
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev, lee@kernel.org,
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
-	lgirdwood@gmail.com, broonie@kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	kernel@collabora.com, wenst@chromium.org
-Subject: Re: [PATCH v5 4/8] regulator: Add support for MediaTek MT6363 SPMI
- PMIC Regulators
-Message-ID: <202507162012.qDNKtUiI-lkp@intel.com>
-References: <20250715140224.206329-5-angelogioacchino.delregno@collabora.com>
+	id 1uc1Le-00000007fW3-0DXa
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 16 Jul 2025 12:34:59 +0000
+Date: Wed, 16 Jul 2025 14:34:52 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1752669294;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=9fEnjbbKyTxyrZsE1OYbDMRhkU2rjxm5lmX9q9XVcTQ=;
+	b=jr7yW1StQGvdmfSH/ntkCN484pPYyrdQ8ebehJqFX5XvF8hFghBWTm+XawIPGkVqU6odhF
+	2EMKo5rmskotYgZlv8Tlbpr2uCok6p4PAwVqFAFCC5IPDeFCXZmqGau3JaH08Jrzk2QC+o
+	kBPXyzNA0pM02cpthWmofqQAzdr1X/1naxZoxtUinlKT2FMuI+lgSAkacj7IzWtadVxTXu
+	gXJSWBEkVzyVoDrkxiJWHEOPOXpqjtqqrcc1L7m/A7vDbS4qS5rfTbbqoUYB0e9r6oCyIQ
+	1gSR5QbSEGGLOaaStaahTqf3h4YcdoW7M4UBilgSKHDF3hi0EDCbGGB442KUDw==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1752669295;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=9fEnjbbKyTxyrZsE1OYbDMRhkU2rjxm5lmX9q9XVcTQ=;
+	b=lhtKs3oCgqYEqqeqZs0f/3dzh4LmhYhJC7i0EzznnY3yCMvYZRqS7ygS8danxe5AXG2dWA
+	s/2x9DTvzFI6hUBg==
+From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+To: Mark Brown <broonie@kernel.org>
+Cc: Marek Szyprowski <m.szyprowski@samsung.com>, 
+	Thomas Gleixner <tglx@linutronix.de>, Andy Lutomirski <luto@kernel.org>, 
+	Vincenzo Frascino <vincenzo.frascino@arm.com>, Shuah Khan <shuah@kernel.org>, 
+	Anna-Maria Behnsen <anna-maria@linutronix.de>, Frederic Weisbecker <frederic@kernel.org>, 
+	John Stultz <jstultz@google.com>, Stephen Boyd <sboyd@kernel.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
+	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-arch@vger.kernel.org, 
+	Richard Cochran <richardcochran@gmail.com>, Christopher Hall <christopher.s.hall@intel.com>, 
+	Miroslav Lichvar <mlichvar@redhat.com>, Werner Abt <werner.abt@meinberg-usa.com>, 
+	David Woodhouse <dwmw2@infradead.org>, Kurt Kanzenbach <kurt@linutronix.de>, 
+	Nam Cao <namcao@linutronix.de>, Antoine Tenart <atenart@kernel.org>
+Subject: Re: [PATCH 06/14] vdso/gettimeofday: Return bool from
+ clock_gettime() helpers
+Message-ID: <20250716142933-41089f40-0628-4821-83a3-fddbd4c4f9bf@linutronix.de>
+References: <20250701-vdso-auxclock-v1-0-df7d9f87b9b8@linutronix.de>
+ <20250701-vdso-auxclock-v1-6-df7d9f87b9b8@linutronix.de>
+ <02bcd954-5323-4663-a766-f53c67c5a18f@samsung.com>
+ <CGME20250708154921eucas1p1fd8fa4374610a991ca5c67bd612ca0c2@eucas1p1.samsung.com>
+ <e8c6b9a7-eaa6-4947-98e1-9d6fecc958d4@samsung.com>
+ <20250709092958-37148883-ed89-40fe-8cd5-ded5dd60957e@linutronix.de>
+ <eb5feef3-0a7d-438c-9dbb-00d1d72fad66@samsung.com>
+ <6bee5ae0-2a9e-4793-a5bd-9e6c72b03f27@sirena.org.uk>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
-In-Reply-To: <20250715140224.206329-5-angelogioacchino.delregno@collabora.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <6bee5ae0-2a9e-4793-a5bd-9e6c72b03f27@sirena.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250716_052521_224774_8D725638 
-X-CRM114-Status: GOOD (  16.28  )
+X-CRM114-CacheID: sfid-20250716_053458_231294_14FDB9B4 
+X-CRM114-Status: GOOD (  19.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,149 +96,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi AngeloGioacchino,
+On Wed, Jul 16, 2025 at 01:25:06PM +0100, Mark Brown wrote:
+> On Wed, Jul 09, 2025 at 10:04:21AM +0200, Marek Szyprowski wrote:
+> > On 09.07.2025 09:34, Thomas Weißschuh wrote:
+> > > On Tue, Jul 08, 2025 at 05:49:18PM +0200, Marek Szyprowski wrote:
+> 
+> > > This fix looks correct to me.
+> 
+> > > tglx:
+> 
+> > > Are you going to fold the fix into the commit or do you want a proper patch?
+> 
+> > > Marek:
+> 
+> > > If a new patch is required, do you want to send it? You found and fixed the
+> > > issue after all. If not, I'll take care of it.
+> 
+> > If it is possible to fold it into original patch then go ahead, it would 
+> > make less noise imho. If you need a formal patch, I can send it in a few 
+> > minutes.
+> 
+> This issue has been present in -next for a week and is causing a bunch
+> of disruption to tests that end up relying on the vDSO - do we have any
+> news on getting a fix merged?  Perhaps it makes sense for Marek to just
+> send his patch so that it's there if needed?
 
-kernel test robot noticed the following build errors:
-
-[auto build test ERROR on broonie-regulator/for-next]
-[also build test ERROR on lee-mfd/for-mfd-next lee-mfd/for-mfd-fixes lee-leds/for-leds-next linus/master v6.16-rc6 next-20250715]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/AngeloGioacchino-Del-Regno/dt-bindings-regulator-Document-MediaTek-MT6316-PMIC-Regulators/20250715-222516
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/regulator.git for-next
-patch link:    https://lore.kernel.org/r/20250715140224.206329-5-angelogioacchino.delregno%40collabora.com
-patch subject: [PATCH v5 4/8] regulator: Add support for MediaTek MT6363 SPMI PMIC Regulators
-config: hexagon-allmodconfig (https://download.01.org/0day-ci/archive/20250716/202507162012.qDNKtUiI-lkp@intel.com/config)
-compiler: clang version 17.0.6 (https://github.com/llvm/llvm-project 6009708b4367171ccdbf4b5905cb6a803753fe18)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250716/202507162012.qDNKtUiI-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202507162012.qDNKtUiI-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
->> drivers/regulator/mt6363-regulator.c:519:9: error: call to undeclared function 'FIELD_PREP'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-     519 |                 sel = FIELD_PREP(MT6363_RG_VEMC_VOSEL_1_MASK, sel);
-         |                       ^
->> drivers/regulator/mt6363-regulator.c:577:10: error: call to undeclared function 'FIELD_GET'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-     577 |                 vsel = FIELD_GET(MT6363_RG_VEMC_VOSEL_1_MASK, vosel);
-         |                        ^
-   2 errors generated.
+That fix has been in -next since next-20250710.
+If you still have issues, I'll take a look.
 
 
-vim +/FIELD_PREP +519 drivers/regulator/mt6363-regulator.c
-
-   481	
-   482	static int mt6363_vemc_set_voltage_sel(struct regulator_dev *rdev, unsigned int sel)
-   483	{
-   484		const u16 tma_unlock_key = MT6363_TMA_UNLOCK_VALUE;
-   485		const struct regulator_desc *rdesc = rdev->desc;
-   486		struct regmap *regmap = rdev->regmap;
-   487		unsigned int range, val;
-   488		int i, ret;
-   489		u16 mask;
-   490	
-   491		for (i = 0; i < rdesc->n_linear_ranges; i++) {
-   492			const struct linear_range *r = &rdesc->linear_ranges[i];
-   493			unsigned int voltages_in_range = linear_range_values_in_range(r);
-   494	
-   495			if (sel < voltages_in_range)
-   496				break;
-   497			sel -= voltages_in_range;
-   498		}
-   499	
-   500		if (i == rdesc->n_linear_ranges)
-   501			return -EINVAL;
-   502	
-   503		ret = regmap_read(rdev->regmap, MT6363_TOP_TRAP, &val);
-   504		if (ret)
-   505			return ret;
-   506	
-   507		if (val > 1)
-   508			return -EINVAL;
-   509	
-   510		/* Unlock TMA for writing */
-   511		ret = regmap_bulk_write(rdev->regmap, MT6363_TOP_TMA_KEY_L,
-   512					&tma_unlock_key, sizeof(tma_unlock_key));
-   513		if (ret)
-   514			return ret;
-   515	
-   516		/* If HW trapping value is 1, use VEMC_VOSEL_1 instead of VEMC_VOSEL_0 */
-   517		if (val == 1) {
-   518			mask = MT6363_RG_VEMC_VOSEL_1_MASK;
- > 519			sel = FIELD_PREP(MT6363_RG_VEMC_VOSEL_1_MASK, sel);
-   520		} else {
-   521			mask = rdesc->vsel_mask;
-   522		}
-   523	
-   524		sel <<= ffs(rdesc->vsel_mask) - 1;
-   525		sel += rdesc->linear_ranges[i].min_sel;
-   526	
-   527		range = rdesc->linear_range_selectors_bitfield[i];
-   528		range <<= ffs(rdesc->vsel_range_mask) - 1;
-   529	
-   530		/* Write to the vreg calibration register for voltage finetuning */
-   531		ret = regmap_update_bits(regmap, rdesc->vsel_range_reg,
-   532					 rdesc->vsel_range_mask, range);
-   533		if (ret)
-   534			goto lock_tma;
-   535	
-   536		/* Function must return the result of this write operation */
-   537		ret = regmap_update_bits(regmap, rdesc->vsel_reg, mask, sel);
-   538	
-   539	lock_tma:
-   540		/* Unconditionally re-lock TMA */
-   541		val = 0;
-   542		regmap_bulk_write(rdev->regmap, MT6363_TOP_TMA_KEY_L, &val, 2);
-   543	
-   544		return ret;
-   545	}
-   546	
-   547	static int mt6363_vemc_get_voltage_sel(struct regulator_dev *rdev)
-   548	{
-   549		const struct regulator_desc *rdesc = rdev->desc;
-   550		unsigned int vosel, trap, calsel;
-   551		int vcal, vsel, range, ret;
-   552	
-   553		ret = regmap_read(rdev->regmap, rdesc->vsel_reg, &vosel);
-   554		if (ret)
-   555			return ret;
-   556	
-   557		ret = regmap_read(rdev->regmap, rdesc->vsel_range_reg, &calsel);
-   558		if (ret)
-   559			return ret;
-   560	
-   561		calsel &= rdesc->vsel_range_mask;
-   562		for (range = 0; range < rdesc->n_linear_ranges; range++)
-   563			if (rdesc->linear_range_selectors_bitfield[range] != calsel)
-   564				break;
-   565	
-   566		if (range == rdesc->n_linear_ranges)
-   567			return -EINVAL;
-   568	
-   569		ret = regmap_read(rdev->regmap, MT6363_TOP_TRAP, &trap);
-   570		if (ret)
-   571			return ret;
-   572	
-   573		/* If HW trapping value is 1, use VEMC_VOSEL_1 instead of VEMC_VOSEL_0 */
-   574		if (trap > 1)
-   575			return -EINVAL;
-   576		else if (trap == 1)
- > 577			vsel = FIELD_GET(MT6363_RG_VEMC_VOSEL_1_MASK, vosel);
-   578		else
-   579			vsel = vosel & rdesc->vsel_mask;
-   580	
-   581		vcal = linear_range_values_in_range_array(rdesc->linear_ranges, range);
-   582	
-   583		return vsel + vcal;
-   584	}
-   585	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Thomas
 
