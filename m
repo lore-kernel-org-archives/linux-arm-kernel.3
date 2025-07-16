@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C170C83F22
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 09:18:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F413C83F22
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 09:20:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=XKdPjGREMhHnPm2jzF6U9g4NxAEYWuR7203feVL7b+I=; b=4a4Atti6lts+3Q+4ngqdOlVgCh
-	VtwR9g+wqdCr/zeqVf9giNkYNldJ6PEe/gkfTQyZ37XVojX3CrNclZnI86rK+ivWZd7MHnqWWNrkT
-	MpkbN040E7s/n6TNmPR4BXeVz5w2mIwtyHsQucSUOchGj4wE7k+Y4zmzSfjdcT65zCWncwX7hVwcx
-	L628CVXoCbgXbP63kVGY1gGjhwYf5DDV7VG/NV7cGeqBry+5J+iAc4DIfX4nX12cyhl/1ZJ4nCNjM
-	im1rWdcf0j6qx2YOm8Nc0BcW1s80WxDo1kJLsstdNC/Kz69/jxz3shAs0bo5WDg51N5tRlAM76d4f
-	3Zkb/OsA==;
+	bh=A2KxxqWr8JNX9hy2Bf9nMD05wlS7tKZsKHYvufU/tb0=; b=bX/RGxVHOXCK+PdnD3n2aAxIOx
+	7aJtBsW483ok0TrWiPi3QsDDPBad8NgaA0iq79eYnUq7HdcitYDYpH0Ue+8B84mLP26BhxRCTvbjk
+	8mo0LIXLHT2YkURa1ZHQ7CSYUn3Avc2vowdAubh9FcBuETXdZzRIAHRxyodpyxYvMLSVwSFM+2NPJ
+	9FVTGprijzljMjYqhXDCqPnxf6nZvOUR8wmlN0czaqPQiJT4y0HKpS339Hfh62h+PZxErlw2aNpzw
+	Nqp5FUzunjPk/57v0CavZ9Nn2a8MSmX8DO+xN0Xb6NV+7sxaYEyVbLL5Fg/lf3cTUYiu97XuL9vUH
+	dcfndyNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubyHH-00000007GQo-2nkv;
-	Wed, 16 Jul 2025 09:18:15 +0000
-Received: from relay7-d.mail.gandi.net ([217.70.183.200])
+	id 1ubyJg-00000007Gne-1mcR;
+	Wed, 16 Jul 2025 09:20:44 +0000
+Received: from relay1-d.mail.gandi.net ([2001:4b98:dc4:8::221])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubyEq-00000007G5P-2PRV
+	id 1ubyFY-00000007GDM-0kNv
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Jul 2025 09:15:46 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id E8FAE43910;
-	Wed, 16 Jul 2025 09:15:39 +0000 (UTC)
+	Wed, 16 Jul 2025 09:16:29 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id B8904439F6;
+	Wed, 16 Jul 2025 09:16:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1752657340;
+	t=1752657385;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding;
-	bh=XKdPjGREMhHnPm2jzF6U9g4NxAEYWuR7203feVL7b+I=;
-	b=fwo+84hiEy//cwSOvSatw5mHuBYtrqDF7qWkUdjGdCBlngiPm3iivjTK7KxIfzBBso0/g4
-	L9W5vbs3BueM5L5G8CM6TJTm7sxEGS62JlURuMBdHraajnFLdJM/VcwB4mSd4vZoerNdKk
-	gaRuy72r56zS8NyXQC7n5bm62zamnGwrMOSRI9WbS7y2ZVm1F9S7MWoZfscnJl+DYp9yXs
-	cfuruP5hz/nKTVuXCYRMx7SgRVZudSLodeD9Jmt19sGrWmazb6JgQbHIaP9nPMx+iPBB5b
-	wiuXH9AxAhoSYdZOnhQCl7Kah04LDe433eaW5E+g2j7bhQx3+iei3FXa3EGeWg==
+	bh=A2KxxqWr8JNX9hy2Bf9nMD05wlS7tKZsKHYvufU/tb0=;
+	b=lqRfvKRn46rfX7ZYdAlc+ReKvOCdB7/io2VGMAmSz6p2BZxfdZqYg0hY4TwB22Ng7SsDZU
+	/No+bSDoUObLmZ4lyn34bKSVFZQHN8gLHb53ylH+sBKADmw0FG4qId2VohADi00eY9CvQw
+	9dEO9TD6Lp6vUD0QAccJ/upeKdG6YOblP4E9SJ66DY+In/PF4BgS48/Vq9pS2APa1quyDm
+	W/0EGVGVeo518ugfcJ2uMcfTQCyCuj7TzKwA09w2BxGwsdhQgFx+a3MFj6T7mZYkiB4NdC
+	pWx7a8gsp+v9ohzU1Wxg6dhqIM93bRwPAvwZId9J6ePP/idVPmbnB3SiMR7r5g==
 From: Gregory CLEMENT <gregory.clement@bootlin.com>
 To: Arnd Bergmann <arnd@arndb.de>, Olof Johansson <olof@lixom.net>,
  <arm@kernel.org>, soc@kernel.org
 Cc: Andrew Lunn <andrew@lunn.ch>, Sebastian Hesselbarth
  <sebastian.hesselbarth@gmail.com>, <linux-arm-kernel@lists.infradead.org>
-Subject: [GIT PULL] ARM: mvebu: dt for v6.17 (#1)
-Date: Wed, 16 Jul 2025 11:15:39 +0200
-Message-ID: <87ms94xzr8.fsf@BLaptop.bootlin.com>
+Subject: [GIT PULL] ARM: mvebu: arm for v6.17 (#1)
+Date: Wed, 16 Jul 2025 11:16:24 +0200
+Message-ID: <87jz48xzpz.fsf@BLaptop.bootlin.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: quoted-printable
@@ -57,8 +57,8 @@ X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdehjeeffecutefuodetggdotef
  ghpthhtohepshhotgeskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheprghnughrvgifsehluhhnnhdrtghhpdhrtghpthhtohepshgvsggrshhtihgrnhdrhhgvshhsvghlsggrrhhthhesghhmrghilhdrtghomhdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhkvghrnhgvlheslhhishhtshdrihhnfhhrrgguvggrugdrohhrgh
 X-GND-Sasl: gregory.clement@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250716_021544_746661_A7BD9911 
-X-CRM114-Status: UNSURE (   7.16  )
+X-CRM114-CacheID: sfid-20250716_021628_360973_3454DF98 
+X-CRM114-Status: UNSURE (   6.97  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -76,7 +76,7 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hi,
 
-Here is the first pull request for dt for mvebu for v6.17.
+Here is the first pull request for arm for mvebu for v6.17.
 
 Gregory
 
@@ -87,25 +87,24 @@ The following changes since commit 19272b37aa4f83ca52bdf9c16d5d81bdd1354494:
 are available in the Git repository at:
 
   git://git.kernel.org/pub/scm/linux/kernel/git/gclement/mvebu.git tags/mve=
-bu-dt-6.17-1
+bu-arm-6.17-1
 
-for you to fetch changes up to 28254bcf96bf93b9089540490c2f8081bf4e4d45:
+for you to fetch changes up to 90ec89d68ffaf36d7abfcc14908edd6e4803c4ea:
 
-  ARM: dts: marvell: kirkwood: use recent scl/sda gpio bindings (2025-07-07=
- 16:58:42 +0200)
-
-----------------------------------------------------------------
-mvebu dt for 6.17 (part 1)
-
-Use recent scl/sda gpio bindings on kirkwood boards (Keymile ones)
+  arm: orion: use string choices helper (2025-07-07 16:56:04 +0200)
 
 ----------------------------------------------------------------
-Wolfram Sang (1):
-      ARM: dts: marvell: kirkwood: use recent scl/sda gpio bindings
+mvebu arm for 6.17 (part 1)
 
- arch/arm/boot/dts/marvell/kirkwood-km_common.dtsi | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+Use string choices helper in GPIO support code for legacy Orion based
+platforms.
 
+----------------------------------------------------------------
+Kuninori Morimoto (1):
+      arm: orion: use string choices helper
+
+ arch/arm/plat-orion/gpio.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
 --=20
 Gr=C3=A9gory CLEMENT, Bootlin
