@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3589C83F22
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 10:08:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92F5EC83F1B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 10:10:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KQlDAciNH/akhUfWSpPc2Tt6dyMOL6MZi6d97cEjPrA=; b=Q3RZZJ5dFvx3kB6waqn5UvzOKq
-	WqSe4FYqK8+Q1jlqT78ov1KsQUkoLUuzdDumM7iX4BJav49wgWkv2cZ2m3v4c3i76NGDfqZyE2N6g
-	pSB5oNY4RAspimYs8ZoTPqu7AF825dtscN0ARE6AIO2H/aCgx2xO7zoSS6NmXPyv5+PxGMLRtW24u
-	9rwGjXt8LYv7znZ+P8tjBF1nc5zdjjPF1TjhpKgLL7+JWgOmEQtUnmqEr8XmLnV6OuJe52TG7DVub
-	UJOOAyYcghefUZDDyy6nCvRoqXJunfsRk0G6l4oXu32y9vhoWIvHtQzp6iOj1ohD82C6s/pMR2lwW
-	eW5qSrxw==;
+	bh=AZMUo7WLXMOMQHzwFbOsQWPJOJMT7XainwvPXkjTvQ0=; b=TuDNv93Esr4PJqefLhW/Glz2+g
+	Yu1YtUPQhdW+HDudiH1z/o9zfHtiToIl6ws7z+J75c/kVHrNGcFQ20ixD//zJ2+JWTbOfMHVU1B4R
+	BTa+p7d/nxOYlnVuR3s3BA5DyTlJIedg59UwH517bOho40rd8wmHJiG8dmIn91rsJ/HXVnyOiRxcf
+	1HfOSvu6h2N5Im9DTDY13GInpweqESr1jXxNAbqEWK9MwzWZ7Z+qaCLggn4LPZ3AnSz6xf3wmBaTJ
+	+BGQIqtL4KCeAVmanGja2n9ZczWkyolX0B30ljFnIYUSGBaHfmDhV/t4HeNFhpFzUVjXqWB2bowoT
+	lXdDKKqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubz3O-00000007Mg2-3yhK;
-	Wed, 16 Jul 2025 10:07:58 +0000
-Received: from m16.mail.163.com ([220.197.31.2])
+	id 1ubz5o-00000007NAz-18yb;
+	Wed, 16 Jul 2025 10:10:28 +0000
+Received: from m16.mail.163.com ([117.135.210.4])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubz0w-00000007M7C-3dMj;
+	id 1ubz0w-00000007M7D-3gf0;
 	Wed, 16 Jul 2025 10:05:28 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=KQ
-	lDAciNH/akhUfWSpPc2Tt6dyMOL6MZi6d97cEjPrA=; b=gLxfdPGtjj30TmRgD2
-	TGAFOYl8IcadIk8vos81oIZ0np5PI/itvwnJA/2H4FKNL05rw9OI0S0r61fS9OLQ
-	g+FD5vtOHoh23vv0muh0ikRjVmDPmZKC9zuOA3lPYRjvYSOGzhJc+ADReGVNSCm1
-	ZN9jwA11ggF68GD97ND3gcNfQ=
+	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=AZ
+	MUo7WLXMOMQHzwFbOsQWPJOJMT7XainwvPXkjTvQ0=; b=QJaEsdGNcopbDwOQ+J
+	hUZ5NGxa+FGAW1bjZ8/SxbpPLGrBb3CIoDx32eJJfzm0tMhyO6lyMyk+Ip7YysQ6
+	ouNTQZP8ZcN9VE7rDO7CeolFFfXXua/pwsKEdswAFJORF4j19IQ1wmUuRYLfqo84
+	Zo0shBU32iTL/Q5OZwrko3YiA=
 Received: from ProDesk.. (unknown [])
-	by gzga-smtp-mtada-g1-2 (Coremail) with SMTP id _____wAH0s46eXdoG0BuFQ--.1985S6;
-	Wed, 16 Jul 2025 18:05:00 +0800 (CST)
+	by gzga-smtp-mtada-g1-2 (Coremail) with SMTP id _____wAH0s46eXdoG0BuFQ--.1985S3;
+	Wed, 16 Jul 2025 18:04:53 +0800 (CST)
 From: Andy Yan <andyshrk@163.com>
 To: dmitry.baryshkov@oss.qualcomm.com,
 	heiko@sntech.de
@@ -55,25 +55,24 @@ Cc: hjc@rock-chips.com,
 	robh@kernel.org,
 	sebastian.reichel@collabora.com,
 	Andy Yan <andy.yan@rock-chips.com>
-Subject: [PATCH v5 04/10] MAINTAINERS: Add entry for DW DPTX Controller bridge
-Date: Wed, 16 Jul 2025 18:04:31 +0800
-Message-ID: <20250716100440.816351-5-andyshrk@163.com>
+Subject: [PATCH v5 01/10] dt-bindings: display: rockchip: Add schema for RK3588 DPTX Controller
+Date: Wed, 16 Jul 2025 18:04:28 +0800
+Message-ID: <20250716100440.816351-2-andyshrk@163.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250716100440.816351-1-andyshrk@163.com>
 References: <20250716100440.816351-1-andyshrk@163.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wAH0s46eXdoG0BuFQ--.1985S6
-X-Coremail-Antispam: 1Uf129KBjvdXoWrZrW8uFy5CFy7JrW5Xw4kCrg_yoWDurc_C3
-	WxZ34xXr48GFn0krZ7Aan3Ga4ava1xuFsxu3Wkt397C3s5AryDta92yr17Gw15Cr4UGrZr
-	ua4fXa4Ykr13ujkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7IU82ZX7UUUUU==
+X-CM-TRANSID: _____wAH0s46eXdoG0BuFQ--.1985S3
+X-Coremail-Antispam: 1Uf129KBjvJXoWxWryfKrWfCryDXFW7uF13twb_yoWrCF4xpa
+	n3CFZ8JrW09Fy7Xa95tF1kCrsYqw4kA3y7tw1xXw17tr4agFyYgw1a9rn8Z3srGFnrZay2
+	9FW7u34xtw47Zw7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07j0eHDUUUUU=
 X-Originating-IP: [103.29.142.67]
-X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/xtbBkA6MXmh3dCSN7AAAsi
+X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/xtbB0h6MXmh3dDKLQAABsN
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250716_030527_223548_3869EB19 
-X-CRM114-Status: UNSURE (   8.46  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250716_030527_266187_2CBB4227 
+X-CRM114-Status: GOOD (  12.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,37 +89,181 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Andy Yan <andy.yan@rock-chips.com>
 
-Add an entry for the DW DPTX Controller bridge driver.
+The Rockchip RK3588 SoC integrates the Synopsys DesignWare DPTX
+controller. And this DPTX controller need share a USBDP PHY with
+the USB 3.0 OTG controller during operation.
 
 Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 
 ---
 
-Changes in v5:
-- First included in this version.
+(no changes since v2)
 
- MAINTAINERS | 8 ++++++++
- 1 file changed, 8 insertions(+)
+Changes in v2:
+- Link to V1: https://lore.kernel.org/linux-rockchip/20250223113036.74252-1-andyshrk@163.com/
+- Fix a character encoding issue
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index ee2ef9d9db2ab..f0552f7075c62 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -7880,6 +7880,14 @@ S:	Maintained
- F:	Documentation/devicetree/bindings/display/panel/synaptics,r63353.yaml
- F:	drivers/gpu/drm/panel/panel-synaptics-r63353.c
- 
-+DRM DRIVER FOR SYNOPSYS DESIGNWARE DISPLAYPORT BRIDGE
-+M:	Andy Yan <andy.yan@rock-chips.com>
-+S:	Maintained
-+T:	git https://gitlab.freedesktop.org/drm/misc/kernel.git
-+F:	Documentation/devicetree/bindings/display/rockchip/rockchip,dw-dp.yaml
-+F:	drivers/gpu/drm/bridge/synopsys/dw-dp.c
-+F:	include/drm/bridge/dw_dp.h
+ .../display/rockchip/rockchip,dw-dp.yaml      | 150 ++++++++++++++++++
+ 1 file changed, 150 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/display/rockchip/rockchip,dw-dp.yaml
+
+diff --git a/Documentation/devicetree/bindings/display/rockchip/rockchip,dw-dp.yaml b/Documentation/devicetree/bindings/display/rockchip/rockchip,dw-dp.yaml
+new file mode 100644
+index 0000000000000..a8a0087179972
+--- /dev/null
++++ b/Documentation/devicetree/bindings/display/rockchip/rockchip,dw-dp.yaml
+@@ -0,0 +1,150 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/display/rockchip/rockchip,dw-dp.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
- DRM DRIVER FOR TI DLPC3433 MIPI DSI TO DMD BRIDGE
- M:	Jagan Teki <jagan@amarulasolutions.com>
- S:	Maintained
++title: Rockchip DW DisplayPort Transmitter
++
++maintainers:
++  - Andy Yan <andy.yan@rock-chips.com>
++
++description: |
++  The Rockchip RK3588 SoC integrates the Synopsys DesignWare DPTX controller
++  which is compliant with the DisplayPort Specification Version 1.4 with the
++  following features:
++
++  * DisplayPort 1.4a
++  * Main Link: 1/2/4 lanes
++  * Main Link Support 1.62Gbps, 2.7Gbps, 5.4Gbps and 8.1Gbps
++  * AUX channel 1Mbps
++  * Single Stream Transport(SST)
++  * Multistream Transport (MST)
++  * Type-C support (alternate mode)
++  * HDCP 2.2, HDCP 1.3
++  * Supports up to 8/10 bits per color component
++  * Supports RBG, YCbCr4:4:4, YCbCr4:2:2, YCbCr4:2:0
++  * Pixel clock up to 594MHz
++  * I2S, SPDIF audio interface
++
++allOf:
++  - $ref: /schemas/sound/dai-common.yaml#
++
++properties:
++  compatible:
++    enum:
++      - rockchip,rk3588-dp
++
++  reg:
++    maxItems: 1
++
++  interrupts:
++    maxItems: 1
++
++  clocks:
++    items:
++      - description: Peripheral/APB bus clock
++      - description: DisplayPort AUX clock
++      - description: HDCP clock
++      - description: I2S interface clock
++      - description: SPDIF interfce clock
++
++  clock-names:
++    items:
++      - const: apb
++      - const: aux
++      - const: hdcp
++      - const: i2s
++      - const: spdif
++
++  phys:
++    maxItems: 1
++
++  ports:
++    $ref: /schemas/graph.yaml#/properties/ports
++
++    properties:
++      port@0:
++        $ref: /schemas/graph.yaml#/properties/port
++        description: Video port for RGB/YUV input.
++
++      port@1:
++        $ref: /schemas/graph.yaml#/properties/port
++        description: Video port for DP output.
++
++    required:
++      - port@0
++      - port@1
++
++  power-domains:
++    maxItems: 1
++
++  resets:
++    maxItems: 1
++
++  "#sound-dai-cells":
++    const: 0
++
++required:
++  - compatible
++  - reg
++  - clocks
++  - clock-names
++  - interrupts
++  - phys
++  - ports
++  - resets
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/clock/rockchip,rk3588-cru.h>
++    #include <dt-bindings/phy/phy.h>
++    #include <dt-bindings/interrupt-controller/arm-gic.h>
++    #include <dt-bindings/interrupt-controller/irq.h>
++    #include <dt-bindings/power/rk3588-power.h>
++    #include <dt-bindings/reset/rockchip,rk3588-cru.h>
++
++    soc {
++      #address-cells = <2>;
++      #size-cells = <2>;
++
++      dp@fde50000 {
++        compatible = "rockchip,rk3588-dp";
++        reg = <0x0 0xfde50000 0x0 0x4000>;
++        interrupts = <GIC_SPI 161 IRQ_TYPE_LEVEL_HIGH 0>;
++        clocks = <&cru PCLK_DP0>, <&cru CLK_AUX16M_0>,
++        <&cru CLK_DP0>, <&cru MCLK_I2S4_8CH_TX>,
++        <&cru MCLK_SPDIF2_DP0>;
++        clock-names = "apb", "aux", "hdcp", "i2s", "spdif";
++        assigned-clocks = <&cru CLK_AUX16M_0>;
++        assigned-clock-rates = <16000000>;
++        resets = <&cru SRST_DP0>;
++        phys = <&usbdp_phy0 PHY_TYPE_DP>;
++        power-domains = <&power RK3588_PD_VO0>;
++        #sound-dai-cells = <0>;
++
++
++        ports {
++          #address-cells = <1>;
++          #size-cells = <0>;
++
++          port@0 {
++            reg = <0>;
++
++            dp0_in_vp2: endpoint {
++              remote-endpoint = <&vp2_out_dp0>;
++            };
++          };
++
++          port@1 {
++            reg = <1>;
++
++            dp0_out_con0: endpoint {
++              remote-endpoint = <&dp_con0_in>;
++            };
++          };
++        };
++      };
++    };
 -- 
 2.43.0
 
