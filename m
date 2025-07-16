@@ -4,64 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6664DC83F1B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 15:29:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5769CC83F22
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 15:40:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YBSlTa8P/KxAr5c6zxOP7GPaN5+B4wKRSq/82p7QSrY=; b=0ONploylH3peuWj7p3VQdeJl2e
-	cIbXsaeqf5Gp5/y3kHFumQtHKVc6h1hBLcKFoupiaFCI6OdlUZ4gPX+c8DFOdgY8RA8MeT4/kaj+P
-	8nQojFhFafTNxDGZL20KFlRJ/WgFhGKTI3hRMEugeXY3ftePOVkiZBze+hTA7wZ1xLiFA/DXhlQSv
-	zT0gudOSS3oXAAsM9SomxD1vRYjPGZK4T6DlxAmHLxOsf8U228inZBrd6QTybYpohygD0KA2PREwk
-	Wy1zlRXxpszPoZAYYySVIbP0tdwW5k6lqVj8x3UGhDZNFR1WegOjMCmY3jIhgVLMuXi22L2V8SqUE
-	9qO6JpCA==;
+	bh=FQygm47vH/WofEnzOqR26vDr26pm660we3NQTOLEBBA=; b=UgGh6yGMog7Z9NHzqn2aFobcP+
+	E8YtTRQgd1iy38tLC9lnMfJ2AIhvCRnwSVtE2a1RuHxzVisgdwdyGiS3nlGouAhbwt23EU20gHfqG
+	uhYDQmhppzArz3FkoBpMHWgAzfHUlwtb1wjqNGFalNOcQI5YIiNiBWp4KCZE0/DD/9OwI7jKIHuG0
+	ZzsJW3rSKXKVls/xTO0XFhzchmvrHcrMaEotAretRnUMwcuOT2qaqTjMELReqplUmBzX8UzGr0ea2
+	WSbxsaJ04hid8nxd7q4oLBFI6KkgpjgWb/ccPgRKutIJMHtdhRYrmkWQXlE7UQHW2+HLPzPtP4/cE
+	Nge8+Gjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uc444-000000083y0-1MqG;
-	Wed, 16 Jul 2025 15:29:00 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uc4F4-000000085jC-018B;
+	Wed, 16 Jul 2025 15:40:22 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uc3wm-000000082PJ-1Li2;
-	Wed, 16 Jul 2025 15:21:29 +0000
+	id 1uc4Ca-000000085Qx-0rIE;
+	Wed, 16 Jul 2025 15:37:49 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id D90D55C6624;
-	Wed, 16 Jul 2025 15:21:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 74D37C4CEFC;
-	Wed, 16 Jul 2025 15:21:27 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 12678A52163;
+	Wed, 16 Jul 2025 15:37:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 63A91C4CEF7;
+	Wed, 16 Jul 2025 15:37:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752679287;
-	bh=+5nBuTaHK2eqj8Sbjf7jOgP+gLLgEVm3azLVcfpx7Wk=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=OS9vTLlExI0ev1o7vTPmfJqaiGDqDFdXLIYU/2oNar9+GE0p2sFREnmEPM9tchhJs
-	 L1Y2aUgJ4GkDvZyEazbL1L4zjmorIK5QnLjOF5jQ53IdaQ865dzJqVFtTLE1IAo27A
-	 RvDAwYt17LRGns6LsX/cnluz58W0pJAFqXqJ7Vr/bV7i/gQg+DN7Sp0ck+1Yd2EW66
-	 KAiEFjBbdQKlsYfAto11NOc+gChFKfdj9FN85e4nGDbF2oMyRkkXd2lKBnS4GyIP7N
-	 yAaR39a7tCBwUcM5duceF2G1CYskt7SaW0TbDtgxAdJVQX0D5dotcL1wbeoKPl8FH9
-	 KBOFS1Hs7+Khg==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id C64EB383BA33;
-	Wed, 16 Jul 2025 15:21:48 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	s=k20201202; t=1752680266;
+	bh=kREwtPjCgKfqsTgv5NM0Mvvtgu8NBDUf/T41rzVZ/eM=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=BLwgbfXuexHaW+TPNa+a6iWrfr4C93SXyFNP1m6zjdbchQIQjSDQN2bPIFxq8BOpe
+	 3Y4LzFtdIUdhJXmJbTn203g5qdg44tOZHIiKBjGVH/5wnPgme7Tctz2W+/IpaDnKLe
+	 8BH6cepPRo11/392JBcaABYWXwIdAxzxeBnssoB5sZ9TDXipnQosvkIEHom5c/u7FR
+	 D5nq5bg/vTcOff2xiwUMeSzoEHZJ+oD85tH7KUakcBcdGy7jLA6BdqiTOB742SS7aD
+	 cPI1ykzdDf1e9s8V5rHlN8rkVCKkwk/zgI6tMkbncjd8p53Y7Ww2OULF2uyhky8RTf
+	 UqoBVX+/4gwsg==
+From: Maxime Ripard <mripard@kernel.org>
+To: Neil Armstrong <neil.armstrong@linaro.org>,
+	Jessica Zhang <jessica.zhang@oss.qualcomm.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Sumit Semwal <sumit.semwal@linaro.org>,
+	Casey Connolly <casey.connolly@linaro.org>,
+	Jerry Han <hanxu5@huaqin.corp-partner.google.com>,
+	Anusha Srivatsa <asrivats@redhat.com>
+Cc: Maxime Ripard <mripard@kernel.org>,
+	dri-devel@lists.freedesktop.org,
+	linux-kernel@vger.kernel.org,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 00/14] drm/panel: Use refcounted allocation in place of devm_kzalloc() - Part5
+Date: Wed, 16 Jul 2025 17:37:42 +0200
+Message-ID: <175268024705.1893267.8357084891720845996.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.50.1
+In-Reply-To: <20250710-b4-driver-convert-last-part-july-v1-0-de73ba81b2f5@redhat.com>
+References: <20250710-b4-driver-convert-last-part-july-v1-0-de73ba81b2f5@redhat.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH 0/3] PCI: host-generic: Fix driver_data overwriting bugs
-From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <175267930756.1224517.4628176951767870692.git-patchwork-notify@kernel.org>
-Date: Wed, 16 Jul 2025 15:21:47 +0000
-References: <20250625111806.4153773-1-maz@kernel.org>
-In-Reply-To: <20250625111806.4153773-1-maz@kernel.org>
-To: Marc Zyngier <maz@kernel.org>
-Cc: linux-riscv@lists.infradead.org, bhelgaas@google.com,
- alyssa@rosenzweig.io, robh@kernel.org, mani@kernel.org,
- lpieralisi@kernel.org, kwilczynski@kernel.org, j@jannau.net,
- geert+renesas@glider.be, linux-pci@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250716_082128_398287_3953A87A 
-X-CRM114-Status: GOOD (  14.36  )
+X-CRM114-CacheID: sfid-20250716_083748_306744_EBDB95BD 
+X-CRM114-Status: GOOD (  10.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,38 +85,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
-
-This series was applied to riscv/linux.git (fixes)
-by Bjorn Helgaas <bhelgaas@google.com>:
-
-On Wed, 25 Jun 2025 12:18:03 +0100 you wrote:
-> Geert reports that some drivers do rely on the device driver_data
-> field containing a pointer to the bridge structure at the point of
-> initialising the root port, while this has been recently changed to
-> contain some other data for the benefit of the Apple PCIe driver.
+On Thu, 10 Jul 2025 23:31:11 -0500, Anusha Srivatsa wrote:
+> Use the new API devm_drm_panel_alloc() for panel allocations.
+> A major chunk of driver conversion was sent in a 3 part series
+> which is already merged. The coccinelle patch that was used to
+> identify unsafe panel allocations didnt flag about 20 drivers.
 > 
-> This small series builds on top of Geert previously posted (and
-> included as a prefix for reference) fix for the Microchip driver,
-> which breaks the Apple driver. This is basically swapping a regression
-> for another, which isn't a massive deal at this stage, as the
-> follow-up patch fixes things for the Apple driver by adding extra
-> tracking.
+> Not using any semantic patch for the remaining drivers.
+> This series does the conversion by not passing explicit type
+> to the helper and maintaining type safety suggested by Geert.
 > 
 > [...]
 
-Here is the summary with links:
-  - [1/3] PCI: host-generic: Set driver_data before calling gen_pci_init()
-    https://git.kernel.org/riscv/c/bdb32a0f6780
-  - [2/3] PCI: apple: Add tracking of probed root ports
-    https://git.kernel.org/riscv/c/643c0c9d0496
-  - [3/3] Revert "PCI: ecam: Allow cfg->priv to be pre-populated from the root port device"
-    https://git.kernel.org/riscv/c/ba74278c638d
+Applied to misc/kernel.git (drm-misc-next).
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
+Thanks!
+Maxime
 
