@@ -4,56 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B2FCC83F1B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 15:24:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90635C83F1B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 15:26:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
 	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xBfFhuRinnV9wYPzzoL4MlCiHUDKnmyjaEy4mvMQIbs=; b=kek9zbNoXF0BiR4er2Q655Yz5h
-	nU43m3RQ6DQ/S/BNkprqYD/V1zaIu2jJU+DDdgFw++IYFlLl61GhVA0SV8pq0nIDp3CkoO0Y30EcC
-	7OxAbhs06yVGKyddmJrU0mPnjsXTE3FCG4LuJ01Gc0vCudsCENpdkW24NgMeUC9EOaI18RRctdGnq
-	xP4fmbdEmLwemdkPqx7NV80O9tynCFqrIBlxlxeCTuP/VDjCfrhLOGqHraB/Xr1/00m48CViStT71
-	iEIfyL9yodxZU91yDHObJ7YrnS7Yg8VOGvcHxOadWO+q7qe+QNsO/5SedXRrFHLfpHjDyj8FtmIWS
-	+KK1xnyQ==;
+	bh=nJE8Z/H7J911tEqHgg8UXTtDxDjLj0/T7U8n3BJQXOM=; b=bsaIsPQ6GcjSx0Ceo3iCVi7WGZ
+	qitOLFYFlbUvbfUE/YHJJDvAVgcNBSbgLnCYdT/tTYRTuT0oGnKvcbyTIcbmC0HHbJQ7WkRo1St3R
+	IwXVcIoIjZ+yKHwm9nwe1q7DF3/MS9eV2Zj0OKdosWzomh6CuC56kaGTypjluGTC/fvkIvnk9gWCK
+	XOLxUfMdX/djIpzWcL8NEvKiYq3qt+bc4i8ItI2eREPqUcZZMHNuETTGKBxMNIlrUxO908B++2MJR
+	8J1AipoouQ+G1QCIcagrvsRhMej9R6I5TDxlWkUG+vrExoT+WQQT3CWNbB2HpFdiR/JFEpXj7P9ty
+	/WfLLPrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uc3z9-000000082mL-3zAE;
-	Wed, 16 Jul 2025 15:23:55 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uc41c-000000083OS-1X66;
+	Wed, 16 Jul 2025 15:26:28 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uc3wi-000000082NB-0zvz;
-	Wed, 16 Jul 2025 15:21:24 +0000
+	id 1uc3wk-000000082NS-0DOk;
+	Wed, 16 Jul 2025 15:21:27 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9B871614AB;
-	Wed, 16 Jul 2025 15:21:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 29E49C4CEF4;
-	Wed, 16 Jul 2025 15:21:23 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id D79975C65F0;
+	Wed, 16 Jul 2025 15:21:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9D866C4CEF0;
+	Wed, 16 Jul 2025 15:21:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752679283;
-	bh=N9DR2XoFU8LJ40xmBBEoBU+ULNUrw05MSwSTwA269Vw=;
+	s=k20201202; t=1752679284;
+	bh=p2u05dLVtqQJ3foGrWJXooMdrDiQBdBaUfjuYdOfRI8=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=AmkuWvqLDRyRSNj9dulYvxOc08DmdmzpwoJID//N3AjazJZ5+3yihVYJWly9foRm1
-	 pY+kagnCLWU5FkldusKOaJmutDjZLVDbmKDaOK0EU+L1NWR3iVZKWsyEKLR00qbaBQ
-	 DGCOL48W401QoXZEsTwlaYRpwzSqXBcgpQ+/5u347J6a8wZ1VXoaRiJuek3fVONzCu
-	 fYtcADOp90PCiI43k5jsD6Detk2zD12p+XpVjB4veJrO1Il8bXiOAEw3yeaZ/VtFHh
-	 10KIPvNIeKqqaTfmdv7/LVyQmu3qjMGKYbtmETulyzOHcS8N/+LQ0NqROfAmMk5u1g
-	 dMl6YmZV1e8Bg==
+	b=GXNZqmiM3oopAWeII/q3vlE8pvrAug8t7A6wOb+mZy/DJcXF/RELXBzf30puyUdIf
+	 PEw3d7vZ5vmLIX2Xq09I4ZyXuSbI+5Pb8N8RV42b//+EXK/W3DbyLLQ0pOHTYanHAY
+	 JX92xf8rrx7lZTC1MHYEAbzX2ArWb5myVqPJ8Y5D5R4cukMaQcrRysKjKUP32iu5Et
+	 0ia8x2NEVTIQyrzRq0MEJ91tTnQFlcvFQ0p79hJ/naQEIGYFF6FVO33VJmuPXKLqVn
+	 Dk+2KGtpQmzs4PjxM/G+VrGjhCvYY+0TvMLLvdNb0bqZPI1fta3xN4Eas7KfSsVOMd
+	 atDjSa1cvJyqA==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id AE772383BA33;
-	Wed, 16 Jul 2025 15:21:44 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 2B757383BA33;
+	Wed, 16 Jul 2025 15:21:46 +0000 (UTC)
 Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH 1/1] mm/rmap: make folio unmap batching safe and support
- partial batches
+Subject: Re: [PATCH v4 1/1] mm/rmap: fix potential out-of-bounds page table
+ access
+ during batched unmap
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <175267930360.1224517.58776217215607423.git-patchwork-notify@kernel.org>
-Date: Wed, 16 Jul 2025 15:21:43 +0000
-References: <20250627025214.30887-1-lance.yang@linux.dev>
-In-Reply-To: <20250627025214.30887-1-lance.yang@linux.dev>
+Message-Id: <175267930477.1224517.13373842337541537594.git-patchwork-notify@kernel.org>
+Date: Wed, 16 Jul 2025 15:21:44 +0000
+References: <20250701143100.6970-1-lance.yang@linux.dev>
+In-Reply-To: <20250701143100.6970-1-lance.yang@linux.dev>
 To: Lance Yang <ioworker0@gmail.com>
 Cc: linux-riscv@lists.infradead.org, akpm@linux-foundation.org,
  david@redhat.com, 21cnbao@gmail.com, baolin.wang@linux.alibaba.com,
@@ -62,7 +63,11 @@ Cc: linux-riscv@lists.infradead.org, akpm@linux-foundation.org,
  ryan.roberts@arm.com, v-songbaohua@oppo.com, x86@kernel.org,
  huang.ying.caritas@gmail.com, zhengtangquan@oppo.com, riel@surriel.com,
  Liam.Howlett@oracle.com, vbabka@suse.cz, harry.yoo@oracle.com,
- mingzhe.yang@ly.com, baohua@kernel.org, lance.yang@linux.dev
+ mingzhe.yang@ly.com, stable@vger.kernel.org, baohua@kernel.org,
+ lance.yang@linux.dev
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250716_082126_128770_D0662F76 
+X-CRM114-Status: GOOD (  10.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,20 +87,21 @@ Hello:
 This patch was applied to riscv/linux.git (fixes)
 by Andrew Morton <akpm@linux-foundation.org>:
 
-On Fri, 27 Jun 2025 10:52:14 +0800 you wrote:
+On Tue,  1 Jul 2025 22:31:00 +0800 you wrote:
 > From: Lance Yang <lance.yang@linux.dev>
 > 
 > As pointed out by David[1], the batched unmap logic in try_to_unmap_one()
-> can read past the end of a PTE table if a large folio is mapped starting at
-> the last entry of that table.
+> may read past the end of a PTE table when a large folio's PTE mappings
+> are not fully contained within a single page table.
 > 
-> So let's fix the out-of-bounds read by refactoring the logic into a new
-> helper, folio_unmap_pte_batch().
+> While this scenario might be rare, an issue triggerable from userspace must
+> be fixed regardless of its likelihood. This patch fixes the out-of-bounds
+> access by refactoring the logic into a new helper, folio_unmap_pte_batch().
 > 
 > [...]
 
 Here is the summary with links:
-  - [1/1] mm/rmap: make folio unmap batching safe and support partial batches
+  - [v4,1/1] mm/rmap: fix potential out-of-bounds page table access during batched unmap
     https://git.kernel.org/riscv/c/ddd05742b45b
 
 You are awesome, thank you!
