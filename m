@@ -4,66 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E4EFC83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 15 Jul 2025 23:45:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75AD8C83F27
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 00:04:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dnslrGiezYsUYrWhAmO/NbmQH3o76F8Ub38ABKSerhA=; b=gdV1h3BkUGcZ5JK0VT6n+g6y78
-	G03bT+lqQCJHMd9gVn1U8YodcfEkuRN8v2baeEvJCAUfX6xuTdt73NiRIv7Anu2nZ7d3zTlvIltlq
-	gTEMxp7TP4kANM367JU9JTfRGsPyZku6UXeFEXFb6fQ3/aMPDnqYYhN3swJRWo8yY44esR1OxNH9B
-	I/DEpOfmssiHub781iSZVufAltmxY0oDiKwIGhWqgmIDXlE30gMmGwnBGprjK3UaidtAIMoftYSu+
-	OuWBL1KQWinS1JCC03ojj9IwPd4+lSQHugyuO8WZN5/WgZSC1XUbJ205YcnAfK93x5o7QWLn3k3KF
-	ixouBYmw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=zc6W1LqWhosxLy6inD+3Mw6xi1MjCToPHphw8hvqQkQ=; b=tYzbsA/aSzRsZEBmEZUgW6goxc
+	sQUJRQicu9cth/nRCKlCJb2b/wwwukewRlwMe8TYdes64WNxxSj9huKwe4dus5ncRRwu9TNZYgdKq
+	T9l3dFsavKW67uymd83KjaTrCmoAQfoZWON7lfqIxrPgC3WmYThGqNGZiZBrvbQB5GOFOT2rHcttR
+	TLRrKbKrBo6bzE9e3sf5Y6paFUZ0ZkpvpHr7terJgTmzpWgkkvmujrpOXaVvH3kW2juSaojbZ4Lnz
+	7gSfzUbuzn7lRDkFASwJutEvnZQtg4tlclaojI2jsMwsvUgKIMfkbNEH/7uZvBTZuW5CKM0awcrWC
+	TUH5IitQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubpL5-00000006QQp-1ZBn;
-	Tue, 15 Jul 2025 23:45:35 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1ubpd0-00000006RXt-102v;
+	Wed, 16 Jul 2025 00:04:06 +0000
+Received: from out-177.mta1.migadu.com ([2001:41d0:203:375::b1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubpIf-00000006QJO-43L3
+	id 1ubpaY-00000006RCv-0dZl
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 15 Jul 2025 23:43:06 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id F35F861489;
-	Tue, 15 Jul 2025 23:43:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 79D22C4CEE3;
-	Tue, 15 Jul 2025 23:43:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752622984;
-	bh=oIkUYfDgAMBmComyQL46QfRRvvbeCNaERG0b0OclZGA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=kzkvdF8/yTgHzxS4GWWzOX3MNf4yT/HYcZnvr8glkE4W0Pxmu1lz7A2uYcEN+XzuW
-	 nOVolShmJUUj28oA7KzqfIQmVGgOHB1uSA956PstXl9/dP6eBxTYNrd5zbcDNUCaky
-	 mcMRxKlylObJc+6tQ8djX6o71Mw8eSltMXt00dopXLGeGeRZwZwA+15HQq6/KQ31iE
-	 HelbunvlA9M9ptdjzLuuVQ+MxVeZbnaucqNQa/LJLrG87dvcuKUp6VCBAhGgcgLnCx
-	 pzn3lOi3QgJC46OAhOkiOWujzQ0zWjhRR9bZaJNiECosEvyiX5jUrsjf9lSgiPRbIx
-	 jhLz6kvar9zZQ==
-Received: by venus (Postfix, from userid 1000)
-	id 6D31F180F0F; Wed, 16 Jul 2025 01:43:02 +0200 (CEST)
-Date: Wed, 16 Jul 2025 01:43:02 +0200
-From: Sebastian Reichel <sre@kernel.org>
-To: Thomas Zimmermann <tzimmermann@suse.de>
-Cc: lee@kernel.org, danielt@kernel.org, jingoohan1@gmail.com, 
-	neil.armstrong@linaro.org, jessica.zhang@oss.qualcomm.com, deller@gmx.de, 
-	maarten.lankhorst@linux.intel.com, mripard@kernel.org, airlied@gmail.com, simona@ffwll.ch, 
-	fnkl.kernel@gmail.com, j@jannau.net, hdegoede@redhat.com, ilpo.jarvinen@linux.intel.com, 
-	sven@kernel.org, alyssa@rosenzweig.io, neal@gompa.dev, 
-	support.opensource@diasemi.com, duje.mihanovic@skole.hr, dri-devel@lists.freedesktop.org, 
-	asahi@lists.linux.dev, platform-driver-x86@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-fbdev@vger.kernel.org
-Subject: Re: [PATCH v2 02/15] drm/panel: panel-samsung-s6e63m0: Include
- <linux/of.h>
-Message-ID: <67hurwpxz4c2ropgbq3q6umybr2fgucgtbdu4qc6y3qk3uypc4@3xkijgin5ydl>
-References: <20250715122643.137027-1-tzimmermann@suse.de>
- <20250715122643.137027-3-tzimmermann@suse.de>
+	Wed, 16 Jul 2025 00:01:36 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1752624090;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=zc6W1LqWhosxLy6inD+3Mw6xi1MjCToPHphw8hvqQkQ=;
+	b=TxwBT1eaS2c9mz51J1mXjV4Nx+b/d5R9SKThusI7I+QKlZwzbwvHUzbdDXdN0iu5BY+jqW
+	KkK49bWAWz+bvPDIjmEDw7HVvaS0Hnq2U2t1fvQwlJy2avkzw3FwBJ1sfxHhqhKyhmJgib
+	MOgX6hzT+p5l2Mx5CAUA5wqCi5ID2po=
+From: Sean Anderson <sean.anderson@linux.dev>
+To: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	netdev@vger.kernel.org,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Dave Ertman <david.m.ertman@intel.com>,
+	Saravana Kannan <saravanak@google.com>,
+	Leon Romanovsky <leon@kernel.org>,
+	linux-kernel@vger.kernel.org,
+	Michal Simek <michal.simek@amd.com>,
+	linux-arm-kernel@lists.infradead.org,
+	Ira Weiny <ira.weiny@intel.com>,
+	Sean Anderson <sean.anderson@linux.dev>
+Subject: [PATCH net v2 0/4] net: axienet: Fix deferred probe loop
+Date: Tue, 15 Jul 2025 20:01:06 -0400
+Message-Id: <20250716000110.2267189-1-sean.anderson@linux.dev>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250715122643.137027-3-tzimmermann@suse.de>
+Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250715_170134_725752_AC73C102 
+X-CRM114-Status: UNSURE (   6.23  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,38 +78,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Please refer to patch 4/4 for an extended look at the problem this
+series is attempting to solve.
 
-On Tue, Jul 15, 2025 at 02:24:39PM +0200, Thomas Zimmermann wrote:
-> Include <linux/of.h> to declare device_property_read_u32(). Avoids
-> dependency on backlight header to include it.
+Changes in v2:
+- Add example log output to commit message
+- Fix building as a module
+- Expand commit message with much more info on the problem and possible
+  solutions
 
-device_property_*() is from <linux/property.h>, which is already
-included in the following line...
+Sean Anderson (4):
+  auxiliary: Support hexadecimal ids
+  net: axienet: Fix resource release ordering
+  net: axienet: Rearrange lifetime functions
+  net: axienet: Split into MAC and MDIO drivers
 
-Greetings,
+ drivers/base/auxiliary.c                      |   6 +-
+ drivers/net/ethernet/xilinx/Kconfig           |   1 +
+ .../net/ethernet/xilinx/xilinx_axienet_main.c | 422 ++++++++++--------
+ .../net/ethernet/xilinx/xilinx_axienet_mdio.c |  31 +-
+ include/linux/auxiliary_bus.h                 |   4 +-
+ 5 files changed, 263 insertions(+), 201 deletions(-)
 
--- Sebastian
+-- 
+2.35.1.1320.gc452695387.dirty
 
-> 
-> Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
-> ---
->  drivers/gpu/drm/panel/panel-samsung-s6e63m0.c | 1 +
->  1 file changed, 1 insertion(+)
-> 
-> diff --git a/drivers/gpu/drm/panel/panel-samsung-s6e63m0.c b/drivers/gpu/drm/panel/panel-samsung-s6e63m0.c
-> index ea241c89593b..930948cb615f 100644
-> --- a/drivers/gpu/drm/panel/panel-samsung-s6e63m0.c
-> +++ b/drivers/gpu/drm/panel/panel-samsung-s6e63m0.c
-> @@ -16,6 +16,7 @@
->  #include <linux/export.h>
->  #include <linux/gpio/consumer.h>
->  #include <linux/module.h>
-> +#include <linux/of.h>
->  #include <linux/property.h>
->  #include <linux/regulator/consumer.h>
->  #include <linux/media-bus-format.h>
-> -- 
-> 2.50.0
-> 
 
