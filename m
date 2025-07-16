@@ -4,62 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64798C83F27
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 08:53:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C170C83F22
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 09:18:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=S8/W6hICoFcDRQTv0VXVXPyibPJUZoDyo7YncpLNyV8=; b=UU7pmyKctpH6ofP2jcA1eRRYs6
-	oA8q60T8RkB5SIgxZsPt78Vekn1+nvGtZmXB2PGrB8+YaS4tEk+xBneXrS8/ok0c/KNENmr7otYFk
-	J8IBMry/EWLICee2/dngAfMA+MVTxExK7PKnIoO/wahnLUCsuV+tROUyS55r/IylyIpYpyOp8nHPV
-	sjJl3Ckzq5J8LoO4ChisMkBL83kBq2wJPZh6SCgME9V1Gw/e5Vhl56J8coYGPMGJN8Ma01iw4hQu1
-	21HT/X63rzlEo8XRpbvOiKGBCkTdIMBOM64i+bDneBrAjhYCyc5xb0tjKxGtUZomn9+imvYrhthrZ
-	Itql1pLQ==;
+	bh=XKdPjGREMhHnPm2jzF6U9g4NxAEYWuR7203feVL7b+I=; b=4a4Atti6lts+3Q+4ngqdOlVgCh
+	VtwR9g+wqdCr/zeqVf9giNkYNldJ6PEe/gkfTQyZ37XVojX3CrNclZnI86rK+ivWZd7MHnqWWNrkT
+	MpkbN040E7s/n6TNmPR4BXeVz5w2mIwtyHsQucSUOchGj4wE7k+Y4zmzSfjdcT65zCWncwX7hVwcx
+	L628CVXoCbgXbP63kVGY1gGjhwYf5DDV7VG/NV7cGeqBry+5J+iAc4DIfX4nX12cyhl/1ZJ4nCNjM
+	im1rWdcf0j6qx2YOm8Nc0BcW1s80WxDo1kJLsstdNC/Kz69/jxz3shAs0bo5WDg51N5tRlAM76d4f
+	3Zkb/OsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubxst-00000007DUh-2QNw;
-	Wed, 16 Jul 2025 08:53:03 +0000
-Received: from out-176.mta1.migadu.com ([95.215.58.176])
+	id 1ubyHH-00000007GQo-2nkv;
+	Wed, 16 Jul 2025 09:18:15 +0000
+Received: from relay7-d.mail.gandi.net ([217.70.183.200])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubxag-00000007BTw-3rve
+	id 1ubyEq-00000007G5P-2PRV
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Jul 2025 08:34:16 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow.org; s=key1;
-	t=1752654842;
+	Wed, 16 Jul 2025 09:15:46 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id E8FAE43910;
+	Wed, 16 Jul 2025 09:15:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1752657340;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding;
-	bh=S8/W6hICoFcDRQTv0VXVXPyibPJUZoDyo7YncpLNyV8=;
-	b=kw8DYr/sutCa5fwfr6RBJuRaN41yB1dumvTFOuKWQbwfa+vZLP1kHi/Yw98H0V/KPPKjWI
-	VGk4tZGFrnwvKC+9z/or9CX1k7C9KLok60tEV1p2jaXj442qKUwgwShGgTBmyWsOe0Q6Ur
-	OmdB889BCa9O7qG07r9Jhg0RB3hSdhOOnS5HvmYKYI2d/baPI6iqoev4tCgMj/d24HsKXD
-	piGKGzmy3L7avBwIf6jeLjMuiMAnt4jRI5N9D46DrBL4Motlt28K4xMuJ1Ws38MDyvx9Sf
-	a+Wcm/rIPrAQSfVWxz4klgccZUdFjGhOE+3UKe8idfrkr5q7y21MO+YiW5lEFg==
-From: Diederik de Haas <didi.debian@cknow.org>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>
-Cc: Dragan Simic <dsimic@manjaro.org>,
-	Johan Jonker <jbx6244@gmail.com>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Diederik de Haas <didi.debian@cknow.org>
-Subject: [PATCH] arm64: dts: rockchip: Add maskrom button to R5S + R5C
-Date: Wed, 16 Jul 2025 10:33:35 +0200
-Message-ID: <20250716083355.327451-1-didi.debian@cknow.org>
+	bh=XKdPjGREMhHnPm2jzF6U9g4NxAEYWuR7203feVL7b+I=;
+	b=fwo+84hiEy//cwSOvSatw5mHuBYtrqDF7qWkUdjGdCBlngiPm3iivjTK7KxIfzBBso0/g4
+	L9W5vbs3BueM5L5G8CM6TJTm7sxEGS62JlURuMBdHraajnFLdJM/VcwB4mSd4vZoerNdKk
+	gaRuy72r56zS8NyXQC7n5bm62zamnGwrMOSRI9WbS7y2ZVm1F9S7MWoZfscnJl+DYp9yXs
+	cfuruP5hz/nKTVuXCYRMx7SgRVZudSLodeD9Jmt19sGrWmazb6JgQbHIaP9nPMx+iPBB5b
+	wiuXH9AxAhoSYdZOnhQCl7Kah04LDe433eaW5E+g2j7bhQx3+iei3FXa3EGeWg==
+From: Gregory CLEMENT <gregory.clement@bootlin.com>
+To: Arnd Bergmann <arnd@arndb.de>, Olof Johansson <olof@lixom.net>,
+ <arm@kernel.org>, soc@kernel.org
+Cc: Andrew Lunn <andrew@lunn.ch>, Sebastian Hesselbarth
+ <sebastian.hesselbarth@gmail.com>, <linux-arm-kernel@lists.infradead.org>
+Subject: [GIT PULL] ARM: mvebu: dt for v6.17 (#1)
+Date: Wed, 16 Jul 2025 11:15:39 +0200
+Message-ID: <87ms94xzr8.fsf@BLaptop.bootlin.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdehjeeffecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhephffvvefufffkgggtgfesthhqredttddtjeenucfhrhhomhepifhrvghgohhrhicuvefngffogffpvfcuoehgrhgvghhorhihrdgtlhgvmhgvnhhtsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeetveffjeetleekhfevteeuieeltefhkeeigfdvteevvedvlefgudeftdfgieegveenucffohhmrghinhepkhgvrhhnvghlrdhorhhgpdgsohhothhlihhnrdgtohhmnecukfhppedvrgdtudemtggsudegmeehheeimeejrgdttdemlegvrgdvmeegudgsfeemudgvudejmegrieefjeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtudemtggsudegmeehheeimeejrgdttdemlegvrgdvmeegudgsfeemudgvudejmegrieefjedphhgvlhhopehlohgtrghlhhhoshhtpdhmrghilhhfrhhomhepghhrvghgohhrhidrtghlvghmvghnthessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepjedprhgtphhtthhopegrrhhnugesrghrnhgusgdruggvpdhrtghpthhtohepohhlohhfsehlihigohhmrdhnvghtpdhrtghpthhtoheprghrmheskhgvrhhnvghlrdhorhhgpdhrt
+ ghpthhtohepshhotgeskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheprghnughrvgifsehluhhnnhdrtghhpdhrtghpthhtohepshgvsggrshhtihgrnhdrhhgvshhsvghlsggrrhhthhesghhmrghilhdrtghomhdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhkvghrnhgvlheslhhishhtshdrihhnfhhrrgguvggrugdrohhrgh
+X-GND-Sasl: gregory.clement@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250716_013415_101574_2576545F 
-X-CRM114-Status: UNSURE (   7.61  )
+X-CRM114-CacheID: sfid-20250716_021544_746661_A7BD9911 
+X-CRM114-Status: UNSURE (   7.16  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -75,41 +74,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Both the R5S and R5C have a MASKROM button connected via saradc.
-For both the R5S as the R5C it's described on page 9 of their
-respective schematic, identified as 'Recovery'.
+Hi,
 
-Signed-off-by: Diederik de Haas <didi.debian@cknow.org>
----
- .../arm64/boot/dts/rockchip/rk3568-nanopi-r5s.dtsi | 14 ++++++++++++++
- 1 file changed, 14 insertions(+)
+Here is the first pull request for dt for mvebu for v6.17.
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3568-nanopi-r5s.dtsi b/arch/arm64/boot/dts/rockchip/rk3568-nanopi-r5s.dtsi
-index f4d042bdd328..e3f44ea4eabe 100644
---- a/arch/arm64/boot/dts/rockchip/rk3568-nanopi-r5s.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3568-nanopi-r5s.dtsi
-@@ -25,6 +25,20 @@ chosen: chosen {
- 		stdout-path = "serial2:1500000n8";
- 	};
- 
-+	adc-keys {
-+		compatible = "adc-keys";
-+		io-channels = <&saradc 0>;
-+		io-channel-names = "buttons";
-+		keyup-threshold-microvolt = <1800000>;
-+		poll-interval = <100>;
-+
-+		button-maskrom {
-+			label = "MASKROM";
-+			linux,code = <KEY_SETUP>;
-+			press-threshold-microvolt = <0>;
-+		};
-+	};
-+
- 	hdmi-con {
- 		compatible = "hdmi-connector";
- 		type = "a";
--- 
-2.50.0
+Gregory
 
+The following changes since commit 19272b37aa4f83ca52bdf9c16d5d81bdd1354494:
+
+  Linux 6.16-rc1 (2025-06-08 13:44:43 -0700)
+
+are available in the Git repository at:
+
+  git://git.kernel.org/pub/scm/linux/kernel/git/gclement/mvebu.git tags/mve=
+bu-dt-6.17-1
+
+for you to fetch changes up to 28254bcf96bf93b9089540490c2f8081bf4e4d45:
+
+  ARM: dts: marvell: kirkwood: use recent scl/sda gpio bindings (2025-07-07=
+ 16:58:42 +0200)
+
+----------------------------------------------------------------
+mvebu dt for 6.17 (part 1)
+
+Use recent scl/sda gpio bindings on kirkwood boards (Keymile ones)
+
+----------------------------------------------------------------
+Wolfram Sang (1):
+      ARM: dts: marvell: kirkwood: use recent scl/sda gpio bindings
+
+ arch/arm/boot/dts/marvell/kirkwood-km_common.dtsi | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+
+--=20
+Gr=C3=A9gory CLEMENT, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
