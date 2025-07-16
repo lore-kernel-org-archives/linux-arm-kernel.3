@@ -4,68 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50BD7C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 00:14:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86975C83F2D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 01:19:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YxIH/H1ma2RCOsgWNb9NaryVCnHHPQRdHlbsQ+G8vNw=; b=0nin28Ou27YdCZLAqOUfus9Fxu
-	xS6Zg1ubJP71YyAEEdPvZVmCbK2vccKthad1bb/Ay9FyjAx9vSkWCuo+uHctnMAYYueSD84AYOnqO
-	e3dHlsUXMTvg9suKj2MvaPy3876zSbXYYkSA68pMVGzuN3Brl7NNtiDegBUH1izRSBGCLoPqMs16h
-	+BBVbg6lSfzn3pvbf2Ft/MeQ8QmpIFjwjxYSBfTu6xhLd/hmjWyWf85PL9YKjGAAaOUR+rz0lHmak
-	42VHnPtjLcfRPxVtiVcSZJ5mtBMkxKAh8KEqPjwAoQCLsyabrFxbO1AGAgxGguIq/I2nijQKxdggW
-	9lmL6vQQ==;
+	bh=8tvZ89+8JoZnHFukEKSRMTvjOkm6vgN7ue8AXAXJ2pE=; b=EoftgKYDSe2J41VjOdbgRUHLiJ
+	bCGC2QL6Sf08gbM60tfVEi6rdFk7HTpATQ+SJJYelaaCe5kwEj6r3KcIjG+RJ5OZ3hgjbMqxRYw0t
+	AWzDyIkNbpbbL5Y/UruXVqfy3uzi9Wtqm1pC1l5yhofEOOFRujmfukxoq+xEpEDajcgPH76LSAuGy
+	MVWSOpjuQ1WJemAR83VS9Jvz4noh9QCwzhTCDlfsiXsWR6Dbhbms3/ntaK5Wx1Wh9ICAt/rzONRiU
+	02FzmS0gsShmmS0sVBxoC7wx52ViZ0j/k1XylaSNF93G8x91DXVcU/iW5N0Sm2CdDAJ1NsEYYB43m
+	M7BUBcXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubpma-00000006SRW-1sIX;
-	Wed, 16 Jul 2025 00:14:00 +0000
-Received: from out-170.mta1.migadu.com ([2001:41d0:203:375::aa])
+	id 1ubqnY-00000006X5y-26H0;
+	Wed, 16 Jul 2025 01:19:04 +0000
+Received: from mail-m15580.qiye.163.com ([101.71.155.80])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubpag-00000006REH-3ZpZ
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Jul 2025 00:01:44 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1752624100;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=YxIH/H1ma2RCOsgWNb9NaryVCnHHPQRdHlbsQ+G8vNw=;
-	b=WligP8lIj/7sY1ev6BnAWpDt8QbSoW5AGiTdGCXAcbMfM+9+YIUJ0pJ4ndz8avwPlY1CpH
-	AI1lauvHN3PXElbEA4qm51wEksWAxZvXKaa3JbP/dapgO0ItTXxNBD+gPP18qLGRAa+ohA
-	OEUaQGMe5+7gaJ4L8ifdlDh2uUTP5C8=
-From: Sean Anderson <sean.anderson@linux.dev>
-To: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	netdev@vger.kernel.org,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Dave Ertman <david.m.ertman@intel.com>,
-	Saravana Kannan <saravanak@google.com>,
-	Leon Romanovsky <leon@kernel.org>,
-	linux-kernel@vger.kernel.org,
-	Michal Simek <michal.simek@amd.com>,
-	linux-arm-kernel@lists.infradead.org,
-	Ira Weiny <ira.weiny@intel.com>,
-	Sean Anderson <sean.anderson@linux.dev>
-Subject: [PATCH net v2 4/4] net: axienet: Split into MAC and MDIO drivers
-Date: Tue, 15 Jul 2025 20:01:10 -0400
-Message-Id: <20250716000110.2267189-5-sean.anderson@linux.dev>
-In-Reply-To: <20250716000110.2267189-1-sean.anderson@linux.dev>
-References: <20250716000110.2267189-1-sean.anderson@linux.dev>
+	id 1ubqkh-00000006WtL-47JV;
+	Wed, 16 Jul 2025 01:16:12 +0000
+Received: from [127.0.0.1] (gy-adaptive-ssl-proxy-2-entmail-virt205.gy.ntes [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 1c20d7125;
+	Wed, 16 Jul 2025 09:15:47 +0800 (GMT+08:00)
+Message-ID: <3a27b7f6-a614-49b4-85dd-5ecba1fbbf70@rock-chips.com>
+Date: Wed, 16 Jul 2025 09:13:19 +0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/5] dt-bindings: connector: Add displayport connector for
+ hotplug notify
+To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+ Chaoyi Chen <kernel@airkyi.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+ Kishon Vijay Abraham I <kishon@kernel.org>, Heiko Stuebner
+ <heiko@sntech.de>, Sandy Huang <hjc@rock-chips.com>,
+ Andy Yan <andy.yan@rock-chips.com>,
+ Yubing Zhang <yubing.zhang@rock-chips.com>,
+ Frank Wang <frank.wang@rock-chips.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Amit Sunil Dhamne <amitsd@google.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Dragan Simic <dsimic@manjaro.org>, Johan Jonker <jbx6244@gmail.com>,
+ Diederik de Haas <didi.debian@cknow.org>, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ dri-devel@lists.freedesktop.org
+References: <20250715112456.101-1-kernel@airkyi.com>
+ <20250715112456.101-2-kernel@airkyi.com>
+ <r7b4y74lr5qwejkejquosaar75mthjvjfy4pp6bbl4pgte6cq4@n3gwjolsaw2j>
+From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+In-Reply-To: <r7b4y74lr5qwejkejquosaar75mthjvjfy4pp6bbl4pgte6cq4@n3gwjolsaw2j>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQkxOSVZISklNSh0dHkIYGk9WFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSEpOTE
+	9VSktLVUpCS0tZBg++
+X-HM-Tid: 0a9810cd504203abkunm840d694a1422a31
+X-HM-MType: 1
+X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6PDo6KCo4ITE1QgkzSBFDOBBD
+	KD4wCg1VSlVKTE5JTUlDTk5MT0tLVTMWGhIXVRgTGhQCElUYEx4VOwkUGBBWGBMSCwhVGBQWRVlX
+	WRILWUFZTkNVSUlVTFVKSk9ZV1kIAVlBSU5ITTcG
+DKIM-Signature: a=rsa-sha256;
+	b=QErOC5UoqyDYWY6i+q1Kg2Q45UWi3O2IVyJcMA1U/7LcGrlGgWVB09uVvIPfrOYKEcsJjjpCUbjXms9J4bcz4KxHOo2ErvusAHAuHfIyYmuk3PwbGw6m0m6hCQLlKA6SYkIKMj/7nPuL8sgKuV/dILnY4vDV16XIqVGUvBs+5u4=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=8tvZ89+8JoZnHFukEKSRMTvjOkm6vgN7ue8AXAXJ2pE=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250715_170143_037073_88063688 
-X-CRM114-Status: GOOD (  32.32  )
+X-CRM114-CacheID: sfid-20250715_181608_526221_BE30D924 
+X-CRM114-Status: UNSURE (   9.97  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,365 +92,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Returning EPROBE_DEFER after probing a bus may result in an infinite
-probe loop if the EPROBE_DEFER error is never resolved. There are two
-mutually-exclusive scenarios (that can both occur in the same system).
-First, the PCS can be attached to our own MDIO bus:
+On 2025/7/15 20:04, Dmitry Baryshkov wrote:
 
-MAC
- |
- +->MDIO
-     |
-     +->PCS
-     +->PHY (etc)
-
-In this scenario, we have to probe the MDIO bus before we can look up
-the PCS, since otherwise the PCS will always be missing when we look for
-it. But if we do things in the right order then we can't get
-EPROBE_DEFER, and so there's no risk of a probe loop.
-
-Second, the PCS can be attached to some other MDIO bus:
-
-MAC              MDIO
- |                 |
- +->MDIO           +->PCS
-      |
-      +->PHY (etc)
-
-In this scenario, the MDIO bus might not be present for whatever reason
-(module not loaded, error in probe, etc.) and we have the possibility of
-an EPROBE_DEFER error. If that happens, we will end up in a probe loop
-because the PHY on our own MDIO bus incremented deferred_trigger_count
-when it probed successfully:
-
-deferred_probe_work_func()
-  driver_probe_device(MAC)
-    axienet_probe(MAC)
-      mdiobus_register(MDIO)
-        device_add(PHY)
-          (probe successful)
-          driver_bound(PHY)
-            driver_deferred_probe_trigger()
-      return -EPROBE_DEFER
-    driver_deferred_probe_add(MAC)
-    // deferred_trigger_count changed, so...
-    driver_deferred_probe_trigger()
-
-As I see it, this problem could be solved in the following four ways:
-
-- Modify the driver core to detect and mitigate this sort of scenario
-  (NACKed by Greg).
-- Split the driver into MAC and MDIO parts (this commit).
-- Modify phylink to allow connecting a PCS after phylink_create but
-  before phylink_start. This is tricky because the PCS can affect the
-  supported phy interfaces, and phy interfaces are validated in
-  phylink_create.
-- Defer phylink_create to ndo_open. This means that all the
-  netdev/ethtool ops that use phylink now need to check ip the netdev is
-  open and fall back to some other implementation. I don't think we can
-  just return -EINVAL or whatever because using ethtool on a down device
-  has historically worked. I am wary of breaking userspace because some
-  tool assumes it can get_ksettings while the netdev is down.
-
-Aside from the first option, the second one (this commit) has the best
-UX. With the latter two, you could have a netdev that never comes up and
-the user may not have very good insight as to why. For example, it may
-not be obvious that the user should try to bring the netdev up again
-after the PCS is probed. By waiting to create the netdev until after we
-successfully probe the PCS we show up in devices_deferred and the netdev
-can be brought up as usual.
-
-Per the second bullet point above, split the MAC and MDIO functionality
-into separate auxiliary devices. If the MAC fails with EPROBE_DEFER,
-then the MDIO bus will remain bound, preventing a probe loop.
-
-Fixes: 1a02556086fc ("net: axienet: Properly handle PCS/PMA PHY for 1000BaseX mode")
-Signed-off-by: Sean Anderson <sean.anderson@linux.dev>
----
-
-Changes in v2:
-- Fix building as a module
-- Expand commit message with much more info on the problem and possible
-  solutions
-
- drivers/net/ethernet/xilinx/Kconfig           |   1 +
- .../net/ethernet/xilinx/xilinx_axienet_main.c | 107 ++++++++++++------
- .../net/ethernet/xilinx/xilinx_axienet_mdio.c |  31 +++--
- 3 files changed, 98 insertions(+), 41 deletions(-)
-
-diff --git a/drivers/net/ethernet/xilinx/Kconfig b/drivers/net/ethernet/xilinx/Kconfig
-index 7502214cc7d5..3b940d2d3115 100644
---- a/drivers/net/ethernet/xilinx/Kconfig
-+++ b/drivers/net/ethernet/xilinx/Kconfig
-@@ -27,6 +27,7 @@ config XILINX_AXI_EMAC
- 	tristate "Xilinx 10/100/1000 AXI Ethernet support"
- 	depends on HAS_IOMEM
- 	depends on XILINX_DMA
-+	select AUXILIARY_BUS
- 	select PHYLINK
- 	select DIMLIB
- 	help
-diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-index c2512c04a88f..0638c4cafd4f 100644
---- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-+++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-@@ -22,6 +22,7 @@
-  *  - Add support for extended VLAN support.
-  */
- 
-+#include <linux/auxiliary_bus.h>
- #include <linux/clk.h>
- #include <linux/delay.h>
- #include <linux/etherdevice.h>
-@@ -2749,13 +2750,16 @@ static void axienet_disable_misc(void *clocks)
- 	clk_bulk_disable_unprepare(XAE_NUM_MISC_CLOCKS, clocks);
- }
- 
--static int axienet_mac_probe(struct axienet_local *lp)
-+static int axienet_mac_probe(struct auxiliary_device *auxdev,
-+			     const struct auxiliary_device_id *id)
- {
-+	struct axienet_local *lp = auxdev->dev.platform_data;
- 	struct net_device *ndev = lp->ndev;
- 	struct device_node *np;
- 	int ret;
- 
--	SET_NETDEV_DEV(ndev, lp->dev);
-+	auxiliary_set_drvdata(auxdev, ndev);
-+	SET_NETDEV_DEV(ndev, &auxdev->dev);
- 	if (lp->phy_mode == PHY_INTERFACE_MODE_SGMII ||
- 	    lp->phy_mode == PHY_INTERFACE_MODE_1000BASEX) {
- 		np = of_parse_phandle(lp->dev->of_node, "pcs-handle", 0);
-@@ -2818,9 +2822,9 @@ static int axienet_mac_probe(struct axienet_local *lp)
- 	return ret;
- }
- 
--static void axienet_mac_remove(struct platform_device *pdev)
-+static void axienet_mac_remove(struct auxiliary_device *auxdev)
- {
--	struct net_device *ndev = platform_get_drvdata(pdev);
-+	struct net_device *ndev = auxiliary_get_drvdata(auxdev);
- 	struct axienet_local *lp = netdev_priv(ndev);
- 
- 	unregister_netdev(ndev);
-@@ -2829,9 +2833,9 @@ static void axienet_mac_remove(struct platform_device *pdev)
- 		put_device(&lp->pcs_phy->dev);
- }
- 
--static void axienet_mac_shutdown(struct platform_device *pdev)
-+static void axienet_mac_shutdown(struct auxiliary_device *auxdev)
- {
--	struct net_device *ndev = platform_get_drvdata(pdev);
-+	struct net_device *ndev = auxiliary_get_drvdata(auxdev);
- 
- 	rtnl_lock();
- 	netif_device_detach(ndev);
-@@ -2877,6 +2881,23 @@ static int axienet_resume(struct device *dev)
- static DEFINE_SIMPLE_DEV_PM_OPS(axienet_pm_ops,
- 				axienet_suspend, axienet_resume);
- 
-+static const struct auxiliary_device_id xilinx_axienet_mac_id_table[] = {
-+	{ .name = KBUILD_MODNAME ".mac", },
-+	{ },
-+};
-+MODULE_DEVICE_TABLE(auxiliary, xilinx_axienet_mac_id_table);
-+
-+static struct auxiliary_driver xilinx_axienet_mac = {
-+	.name = "mac",
-+	.id_table = xilinx_axienet_mac_id_table,
-+	.probe = axienet_mac_probe,
-+	.remove = axienet_mac_remove,
-+	.shutdown = axienet_mac_shutdown,
-+	.driver = {
-+		 .pm = &axienet_pm_ops,
-+	},
-+};
-+
- /**
-  * axienet_probe - Axi Ethernet probe function.
-  * @pdev:	Pointer to platform device structure.
-@@ -2892,12 +2913,14 @@ static DEFINE_SIMPLE_DEV_PM_OPS(axienet_pm_ops,
- static int axienet_probe(struct platform_device *pdev)
- {
- 	int ret;
-+	struct auxiliary_device *auxdev;
- 	struct device_node *np;
- 	struct axienet_local *lp;
- 	struct net_device *ndev;
- 	struct resource *ethres;
- 	u8 mac_addr[ETH_ALEN];
- 	int addr_width = 32;
-+	char name[20];
- 	u32 value;
- 
- 	ndev = devm_alloc_etherdev(&pdev->dev, sizeof(*lp));
-@@ -2906,7 +2929,6 @@ static int axienet_probe(struct platform_device *pdev)
- 
- 	platform_set_drvdata(pdev, ndev);
- 
--	SET_NETDEV_DEV(ndev, &pdev->dev);
- 	ndev->features = NETIF_F_SG;
- 	ndev->ethtool_ops = &axienet_ethtool_ops;
- 
-@@ -3174,41 +3196,62 @@ static int axienet_probe(struct platform_device *pdev)
- 	lp->tx_dma_cr = axienet_calc_cr(lp, XAXIDMA_DFT_TX_THRESHOLD,
- 					XAXIDMA_DFT_TX_USEC);
- 
--	ret = axienet_mdio_setup(lp);
--	if (ret)
--		dev_warn(&pdev->dev,
--			 "error registering MDIO bus: %d\n", ret);
--
--	ret = axienet_mac_probe(lp);
--	if (!ret)
--		return 0;
--
--	if (lp->mii_bus)
--		axienet_mdio_teardown(lp);
--	return ret;
--}
--
--static void axienet_remove(struct platform_device *pdev)
--{
--	struct net_device *ndev = platform_get_drvdata(pdev);
--	struct axienet_local *lp = netdev_priv(ndev);
--
--	axienet_mac_remove(pdev);
--	axienet_mdio_teardown(lp);
-+	snprintf(name, sizeof(name), "mdio.%llx",
-+		 (unsigned long long)lp->regs_start);
-+	auxdev = devm_auxiliary_device_create(&pdev->dev, name, lp);
-+	if (IS_ERR(auxdev))
-+		return dev_err_probe(&pdev->dev, PTR_ERR(auxdev),
-+				     "could not create MDIO bus\n");
-+
-+	snprintf(name, sizeof(name), "mac.%llx",
-+		 (unsigned long long)lp->regs_start);
-+	auxdev = devm_auxiliary_device_create(&pdev->dev, name, lp);
-+	if (IS_ERR(auxdev))
-+		return dev_err_probe(&pdev->dev, PTR_ERR(auxdev),
-+				     "could not create MAC\n");
-+
-+	return 0;
- }
- 
- static struct platform_driver axienet_driver = {
- 	.probe = axienet_probe,
--	.remove = axienet_remove,
--	.shutdown = axienet_mac_shutdown,
- 	.driver = {
- 		 .name = "xilinx_axienet",
--		 .pm = &axienet_pm_ops,
- 		 .of_match_table = axienet_of_match,
- 	},
- };
- 
--module_platform_driver(axienet_driver);
-+extern struct auxiliary_driver xilinx_axienet_mdio;
-+
-+static int __init axienet_init(void)
-+{
-+	int ret;
-+
-+	ret = auxiliary_driver_register(&xilinx_axienet_mdio);
-+	if (ret)
-+		return ret;
-+
-+	ret = auxiliary_driver_register(&xilinx_axienet_mac);
-+	if (ret)
-+		goto unregister_mdio;
-+
-+	ret = platform_driver_register(&axienet_driver);
-+	if (ret) {
-+		auxiliary_driver_unregister(&xilinx_axienet_mac);
-+unregister_mdio:
-+		auxiliary_driver_unregister(&xilinx_axienet_mdio);
-+	}
-+	return ret;
-+}
-+module_init(axienet_init);
-+
-+static void __exit axienet_exit(void)
-+{
-+	platform_driver_register(&axienet_driver);
-+	auxiliary_driver_unregister(&xilinx_axienet_mac);
-+	auxiliary_driver_unregister(&xilinx_axienet_mdio);
-+}
-+module_exit(axienet_exit);
- 
- MODULE_DESCRIPTION("Xilinx Axi Ethernet driver");
- MODULE_AUTHOR("Xilinx");
-diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_mdio.c b/drivers/net/ethernet/xilinx/xilinx_axienet_mdio.c
-index 9ca2643c921e..85792da17d0c 100644
---- a/drivers/net/ethernet/xilinx/xilinx_axienet_mdio.c
-+++ b/drivers/net/ethernet/xilinx/xilinx_axienet_mdio.c
-@@ -9,6 +9,7 @@
-  * Copyright (c) 2010 - 2012 Xilinx, Inc. All rights reserved.
-  */
- 
-+#include <linux/auxiliary_bus.h>
- #include <linux/clk.h>
- #include <linux/of_address.h>
- #include <linux/of_mdio.h>
-@@ -277,12 +278,15 @@ static int axienet_mdio_enable(struct axienet_local *lp, struct device_node *np)
-  * Sets up the MDIO interface by initializing the MDIO clock.
-  * Register the MDIO interface.
-  **/
--int axienet_mdio_setup(struct axienet_local *lp)
-+static int axienet_mdio_probe(struct auxiliary_device *auxdev,
-+			      const struct auxiliary_device_id *id)
- {
-+	struct axienet_local *lp = auxdev->dev.platform_data;
- 	struct device_node *mdio_node;
- 	struct mii_bus *bus;
- 	int ret;
- 
-+	auxiliary_set_drvdata(auxdev, lp);
- 	bus = mdiobus_alloc();
- 	if (!bus)
- 		return -ENOMEM;
-@@ -294,7 +298,7 @@ int axienet_mdio_setup(struct axienet_local *lp)
- 	bus->name = "Xilinx Axi Ethernet MDIO";
- 	bus->read = axienet_mdio_read;
- 	bus->write = axienet_mdio_write;
--	bus->parent = lp->dev;
-+	bus->parent = &auxdev->dev;
- 	lp->mii_bus = bus;
- 
- 	mdio_node = of_get_child_by_name(lp->dev->of_node, "mdio");
-@@ -317,15 +321,24 @@ int axienet_mdio_setup(struct axienet_local *lp)
- 	return ret;
- }
- 
--/**
-- * axienet_mdio_teardown - MDIO remove function
-- * @lp:		Pointer to axienet local data structure.
-- *
-- * Unregisters the MDIO and frees any associate memory for mii bus.
-- */
--void axienet_mdio_teardown(struct axienet_local *lp)
-+static void axienet_mdio_remove(struct auxiliary_device *auxdev)
- {
-+	struct axienet_local *lp = auxiliary_get_drvdata(auxdev);
-+
- 	mdiobus_unregister(lp->mii_bus);
- 	mdiobus_free(lp->mii_bus);
- 	lp->mii_bus = NULL;
- }
-+
-+static const struct auxiliary_device_id xilinx_axienet_mdio_id_table[] = {
-+	{ .name = KBUILD_MODNAME ".mdio", },
-+	{ },
-+};
-+MODULE_DEVICE_TABLE(auxiliary, xilinx_axienet_mdio_id_table);
-+
-+struct auxiliary_driver xilinx_axienet_mdio = {
-+	.name = "mdio",
-+	.id_table = xilinx_axienet_mdio_id_table,
-+	.probe = axienet_mdio_probe,
-+	.remove = axienet_mdio_remove,
-+};
--- 
-2.35.1.1320.gc452695387.dirty
+> On Tue, Jul 15, 2025 at 07:24:52PM +0800, Chaoyi Chen wrote:
+>> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+>>
+>> The USB Type-C DisplayPort alternate mode driver will find
+>> "displayport" property for DRM hotplug event notify[0].
+>>
+>> [0]: https://lore.kernel.org/all/20210817215201.795062-9-hdegoede@redhat.com/
+>>
+>> Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+>> ---
+>>   .../devicetree/bindings/connector/usb-connector.yaml          | 4 ++++
+>>   1 file changed, 4 insertions(+)
+>>
+> Please see how it was done on other platforms. For example, qualcomm
+> (both tcpm and pmic-glink) use port / endpoint to link to the DP PHY /
+> DP controller.
+Thank you! I'll check these out.
 
 
