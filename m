@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C3E3C83F1B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 11:40:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0ED25C83F1B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 11:42:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=0u+F4uSXWp4fu1jXml3y1tvKJ+rRK+QNJHYGF1V9ge4=; b=c9tRlwLdCXd/XAG13LBKjv2qy/
-	/aaTncmfrt3LDqEfgZjXYS/gZoLzLO7GGYCio4ZYek/llhj5K02oZBtZAhLIN6Oji1rS5bkFKrakq
-	ZLXFwRmU+B0/h26U9SF3IDRMZYYiMZEi3CXcGMpUlJ6DeK2WGJtWwe9alPbCu0JyWTpxLtXt34V17
-	TAfB9ZNaOaHw2g1Y8xU/e2SdEA/f9IETMRS77gCfHEp0F2ntlXTgekMWCNipQ7ax/7+qBDvvWnclQ
-	z4j1Vbcd044n18att995XcBgaojdyDNmUt5UOAoOVxl3jbJxzNAUrM0NlroCUpXMf1eNX7ZRyvzqB
-	UdzEPnIQ==;
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kxBgsRHLe2JLhXvC8qfuzqvvFxyHAUTzqjhu1n3cZA8=; b=Ew+Y7J3pAYejPBvt6sH0owzP7Q
+	yJBWwoGFUAH+tt77nSi/2umSloJ/wXu7YSgn9ZfQXf5y9UjzJXwWyJ5Vp9Cn1T2ei9Lmygb4gYDFc
+	KJyA0t1FEvvLhRbHof8Ap4P+0wsKxrZZ3EkixWs+HuDx170D719oyOv48Oi5GFqCwiyLS0n9j3R4E
+	czlY0551kR00+cAomKYfJfWoEsB3mqqHkWiiXesjauNC87eGFXmU4DFUqtjPfs7HgLerNPmY/QjwV
+	Iq1VRQI2WKskvL0MqrOB9uLHZLc0kfct6ycjJUuVvbEAsKZbtx0qVH488gMaVCIdAOFB63Zzji1QP
+	z3UpqpTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uc0UW-00000007aFQ-301y;
-	Wed, 16 Jul 2025 11:40:04 +0000
-Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
+	id 1uc0Ww-00000007aP8-2PZV;
+	Wed, 16 Jul 2025 11:42:34 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uc0BP-00000007XbG-3WV7
+	id 1uc0BU-00000007XcD-3bFo
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Jul 2025 11:20:21 +0000
+	Wed, 16 Jul 2025 11:20:26 +0000
 Received: from fllvem-sh04.itg.ti.com ([10.64.41.54])
-	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTP id 56GBJn9E235380;
-	Wed, 16 Jul 2025 06:19:49 -0500
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 56GBJwDo2491029;
+	Wed, 16 Jul 2025 06:19:58 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1752664789;
-	bh=0u+F4uSXWp4fu1jXml3y1tvKJ+rRK+QNJHYGF1V9ge4=;
-	h=From:To:CC:Subject:Date;
-	b=exTFlg0xv8WWt9fJGv9s9HwmPZX8tmq86TxceyH/7hcnbaTqfzFl7UI9Ek3URsTgU
-	 LFUqiQqqsAUpPKbAcD3atZVSg3ETos43IhH3/unU9ok2nk5HLzacugjJ4vjWE2++mJ
-	 Ag3SJBwL/NSWvGUdsRMCDvWj1VLdPdsomnuIk2ic=
-Received: from DFLE109.ent.ti.com (dfle109.ent.ti.com [10.64.6.30])
-	by fllvem-sh04.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 56GBJnle1343225
+	s=ti-com-17Q1; t=1752664798;
+	bh=kxBgsRHLe2JLhXvC8qfuzqvvFxyHAUTzqjhu1n3cZA8=;
+	h=From:To:CC:Subject:Date:In-Reply-To:References;
+	b=oWVUYlvOwyoTTQGGYrTBib5lM0Wcye5iQfq3n0NI6wB6X54Ton9ggrR7A+l8F5xRX
+	 +rzFBOen79ZcGYl8vsS8eefZZzyDepIdNFRfvGjVu2X+B9dhBG8qMdnkCWXm7S5x/r
+	 HYIvWLwZju7zeEX51uAXZ5aHS9xoFyJdSFQstPf8=
+Received: from DFLE113.ent.ti.com (dfle113.ent.ti.com [10.64.6.34])
+	by fllvem-sh04.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 56GBJwjP1343275
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Wed, 16 Jul 2025 06:19:49 -0500
-Received: from DFLE112.ent.ti.com (10.64.6.33) by DFLE109.ent.ti.com
- (10.64.6.30) with Microsoft SMTP Server (version=TLS1_2,
+	Wed, 16 Jul 2025 06:19:58 -0500
+Received: from DFLE107.ent.ti.com (10.64.6.28) by DFLE113.ent.ti.com
+ (10.64.6.34) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Wed, 16
- Jul 2025 06:19:48 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE112.ent.ti.com
- (10.64.6.33) with Microsoft SMTP Server (version=TLS1_2,
+ Jul 2025 06:19:57 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE107.ent.ti.com
+ (10.64.6.28) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Wed, 16 Jul 2025 06:19:48 -0500
+ Frontend Transport; Wed, 16 Jul 2025 06:19:57 -0500
 Received: from abhilash-HP.dhcp.ti.com (abhilash-hp.dhcp.ti.com [172.24.227.115])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 56GBJep0344714;
-	Wed, 16 Jul 2025 06:19:41 -0500
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 56GBJep1344714;
+	Wed, 16 Jul 2025 06:19:50 -0500
 From: Yemike Abhilash Chandra <y-abhilashchandra@ti.com>
 To: <mchehab@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
         <conor+dt@kernel.org>
@@ -67,17 +67,19 @@ CC: <linux@armlinux.org.uk>, <ardb@kernel.org>, <ebiggers@kernel.org>,
         <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
         <dagriego@biglakesoftware.com>, <u-kumar1@ti.com>,
         <y-abhilashchandra@ti.com>
-Subject: [PATCH V2 0/4] Add support for VIP
-Date: Wed, 16 Jul 2025 16:49:08 +0530
-Message-ID: <20250716111912.235157-1-y-abhilashchandra@ti.com>
+Subject: [PATCH V2 1/4] MAINTAINERS: Update maintainers of TI VPE and CAL
+Date: Wed, 16 Jul 2025 16:49:09 +0530
+Message-ID: <20250716111912.235157-2-y-abhilashchandra@ti.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250716111912.235157-1-y-abhilashchandra@ti.com>
+References: <20250716111912.235157-1-y-abhilashchandra@ti.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250716_042019_963977_4822F69A 
-X-CRM114-Status: GOOD (  17.41  )
+X-CRM114-CacheID: sfid-20250716_042024_944841_39585AAD 
+X-CRM114-Status: GOOD (  11.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,68 +94,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch series add support for the TI VIP video capture engine.
-VIP stands for Video Input Port, it can be found on devices such as
-DRA7xx and provides a parallel interface to a video source such as
-a sensor or TV decoder. 
+Benoit has moved to work in other technical areas, and Yemike Abhilash will
+maintain these modules instead of him.
 
-Each VIP can support two inputs (slices) and a SoC can be configured
-with a variable number of VIP's. Each slice can support two ports
-each connected to its own sub-device.
+Signed-off-by: Yemike Abhilash Chandra <y-abhilashchandra@ti.com>
+---
+ MAINTAINERS | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-The first patch in this series updates the outdated MAINTAINERS entry
-for the TI VPE and CAL drivers. The subsequent three patches introduce
-support for the TI VIP (Video Input Port) driver.
-
-Link for v1: https://lore.kernel.org/all/20200522225412.29440-1-bparrot@ti.com/
-The v1 patch series was posted in the year 2020. This v2 series resumes the
-effort to upstream VIP support by addressing all previous review comments
-
-Changelog:
-Changes in v2:
-- Remove array and just use hsync: true in bindings (Patch 3/5)
-- Remove array and use enum for bus width in bindings (Patch 3/5)
-- Use pattern properties since properties across ports are same (Patch 3/5)
-- Remove vip_dbg, vip_info, vip_err aliases and just use v4l2_dbg, v4l2_info
-  and v4l2_err instead (Patch 4/5)
-- Remove color space information from vip_formats struct (Patch 4/5)
-- Use g_std instead of g_std_output (Patch 4/5)
-- Do not touch pix.priv (Patch 4/5)
-- Remove all comments with just register values (Patch 4/5)
-- Remove support for vidioc_default ioctl (Patch 4/5)
-- In case of any error while streaming, push all pending buffers to vb2 (Patch 4/5)
-- Address some minor comments made by Hans throughout the driver (Patch 4/5)
-- Update copyright year at various places
-
-v4l2-compliance output: https://gist.github.com/Yemike-Abhilash-Chandra/b0791cb465fadc11d4c995197cb22f29
-
-v4l2-compliance cropping and composing tests are failing likely
-due to OV10635 sensor supporting several discrete frame sizes,
-fail: v4l2-test-formats.cpp(1560): node->frmsizes_count[pixfmt] > 1
-
-Test logs: https://gist.github.com/Yemike-Abhilash-Chandra/98504ab56416aef38b851036aef5eeb1
-
-Dale Farnsworth (2):
-  dt-bindings: media: ti: vpe: Add bindings for Video Input Port
-  media: ti-vpe: Add the VIP driver
-
-Yemike Abhilash Chandra (2):
-  MAINTAINERS: Update maintainers of TI VPE and CAL
-  Revert "media: platform: ti: Remove unused vpdma_update_dma_addr"
-
- .../devicetree/bindings/media/ti,vip.yaml     |  211 +
- MAINTAINERS                                   |    3 +-
- drivers/media/platform/ti/Kconfig             |   13 +
- drivers/media/platform/ti/vpe/Makefile        |    2 +
- drivers/media/platform/ti/vpe/vip.c           | 3824 +++++++++++++++++
- drivers/media/platform/ti/vpe/vip.h           |  719 ++++
- drivers/media/platform/ti/vpe/vpdma.c         |   32 +
- drivers/media/platform/ti/vpe/vpdma.h         |    3 +
- 8 files changed, 4806 insertions(+), 1 deletion(-)
- create mode 100644 Documentation/devicetree/bindings/media/ti,vip.yaml
- create mode 100644 drivers/media/platform/ti/vpe/vip.c
- create mode 100644 drivers/media/platform/ti/vpe/vip.h
-
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 7b6b13c01ba7..ea4b29c8b6b5 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -25205,7 +25205,7 @@ S:	Maintained
+ F:	sound/soc/codecs/twl4030*
+ 
+ TI VPE/CAL DRIVERS
+-M:	Benoit Parrot <bparrot@ti.com>
++M:	Yemike Abhilash Chandra <y-abhilashchandra@ti.com>
+ L:	linux-media@vger.kernel.org
+ S:	Maintained
+ W:	http://linuxtv.org/
 -- 
 2.34.1
 
