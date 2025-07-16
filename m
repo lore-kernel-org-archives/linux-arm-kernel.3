@@ -4,88 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2B7AC83F22
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 16:20:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4832EC83F22
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 16:24:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ft3Wq6C1Q+KCfARaoberFidaRltktScsYGYlfSEwaro=; b=UBeCd9DAxD4B6enY3IJ19QwN0y
-	EwdBDj3Ab5m35yAxXpravpIlO3wwUEomfpUsnQdQzZu1oK9SAHzjrb23/ZJWZPM4SUyr1yBqX6SEC
-	NuPs9l0SNCXCiIy6MipWp3WqxjPfPsNy3Q/5H9a9xR3keTOpP4MQCE1E1uBnrKQl0v0UIV60FCV39
-	9S4t9Y4oUu0edjLNjg3b+Lbs5ePyFtRYKeCCB4sInoPIwlp2aEK/zj8HUogK7/gbG17SrcYKGe4OK
-	isX9ART+AK9LQV672VEEs4SgipfFhm6+YC9dsYrIed1hvZ8MRUDZY7g0AzBjjzOVx0nfqV/WBCySW
-	cwNRY/Kw==;
+	bh=GccqudB1/E9qC51WaJMVSVqpCGL0HQr+vfxWd3PN5pk=; b=4Xdw57smCOpQSRLrbugHnNgIgE
+	m1gQRs6o2OlygRPwhfZYa2eH2d89E7IQuRId/IW150inucjXyzAScHb4LLo4zOT6qHZ02eDCC/zvg
+	UoCihJvz9EKeQHQM4oaCKCx+DcsHbOtXg8bR+U07dPfVwK+e88pTFAgc7eEU8voD8hpH70DRU8uZk
+	Z+Qv/sFBk+pW8LFz4Q8JtKNF9HL5xWAEtBWUba43AzsTaASk1wgu/Fn4E2La7pRpDu/6amv700QXU
+	+NCoByqUnf7SL2LgcPRuKRWjb2A7vk/uhWzBvT4kzm+9wnBMMf6CzxlLS3RGkD5jHNnoj6Xxj89Pt
+	JU/hKcxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uc4rh-00000008Agn-1SSx;
-	Wed, 16 Jul 2025 16:20:17 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1uc4vj-00000008B9X-0oYL;
+	Wed, 16 Jul 2025 16:24:27 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uc4pD-00000008AJF-3Pul
+	id 1uc4tF-00000008AwG-2h05
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Jul 2025 16:17:45 +0000
-Received: from fllvem-sh03.itg.ti.com ([10.64.41.86])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 56GGHSMF2540402;
-	Wed, 16 Jul 2025 11:17:28 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1752682648;
-	bh=ft3Wq6C1Q+KCfARaoberFidaRltktScsYGYlfSEwaro=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=W5RMj8eTZcR2ac5EvYEJwO2NAMxtLHsyT/FOoaCkkSjCdv0vN0A6aUigg4Xgr70H7
-	 THuS9Athxb8CcYb3ckaXDe/helWL0/AN1opyIhptp15Gi9AEB4ihSb3AIQLNztDsli
-	 /K8i+zaBYJ3NYnUF4QoeHAg7pT9bglitwhEzDA48=
-Received: from DFLE105.ent.ti.com (dfle105.ent.ti.com [10.64.6.26])
-	by fllvem-sh03.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 56GGHR63998251
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Wed, 16 Jul 2025 11:17:27 -0500
-Received: from DFLE113.ent.ti.com (10.64.6.34) by DFLE105.ent.ti.com
- (10.64.6.26) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Wed, 16
- Jul 2025 11:17:27 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE113.ent.ti.com
- (10.64.6.34) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Wed, 16 Jul 2025 11:17:27 -0500
-Received: from [10.249.42.149] ([10.249.42.149])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 56GGHQQ9753586;
-	Wed, 16 Jul 2025 11:17:26 -0500
-Message-ID: <d76c0299-a19d-4524-b026-79874fee10ee@ti.com>
-Date: Wed, 16 Jul 2025 11:17:26 -0500
+	Wed, 16 Jul 2025 16:21:55 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.231])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4bj1W32DCTz6M4P9;
+	Thu, 17 Jul 2025 00:20:31 +0800 (CST)
+Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
+	by mail.maildlp.com (Postfix) with ESMTPS id EE67814038F;
+	Thu, 17 Jul 2025 00:21:46 +0800 (CST)
+Received: from localhost (10.203.177.66) by frapeml500008.china.huawei.com
+ (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Wed, 16 Jul
+ 2025 18:21:45 +0200
+Date: Wed, 16 Jul 2025 17:21:44 +0100
+From: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+To: James Morse <james.morse@arm.com>
+CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	"Rob Herring" <robh@kernel.org>, Ben Horgan <ben.horgan@arm.com>, Rohit
+ Mathew <rohit.mathew@arm.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+	"Zeng Heng" <zengheng4@huawei.com>, Lecopzer Chen <lecopzerc@nvidia.com>,
+	"Carl Worth" <carl@os.amperecomputing.com>,
+	<shameerali.kolothum.thodi@huawei.com>, D Scott Phillips OS
+	<scott@os.amperecomputing.com>, <lcherian@marvell.com>,
+	<bobo.shaobowang@huawei.com>, <tan.shaopeng@fujitsu.com>,
+	<baolin.wang@linux.alibaba.com>, Jamie Iles <quic_jiles@quicinc.com>, Xin Hao
+	<xhao@linux.alibaba.com>, <peternewman@google.com>, <dfustini@baylibre.com>,
+	<amitsinght@marvell.com>, David Hildenbrand <david@redhat.com>, Rex Nie
+	<rex.nie@jaguarmicro.com>, Dave Martin <dave.martin@arm.com>, Koba Ko
+	<kobak@nvidia.com>, Sudeep Holla <sudeep.holla@arm.com>
+Subject: Re: [RFC PATCH 07/36] ACPI / PPTT: Find cache level by cache-idUIRE
+Message-ID: <20250716172144.00000715@huawei.com>
+In-Reply-To: <20250711183648.30766-8-james.morse@arm.com>
+References: <20250711183648.30766-1-james.morse@arm.com>
+	<20250711183648.30766-8-james.morse@arm.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 1/3] dt-bindings: gpu: img: Add AM62P SoC specific
- compatible
-To: Michael Walle <mwalle@kernel.org>, Frank Binns <frank.binns@imgtec.com>,
-        Matt Coster <matt.coster@imgtec.com>,
-        Maarten Lankhorst
-	<maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof
- Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>, Nishanth
- Menon <nm@ti.com>,
-        Vignesh Raghavendra <vigneshr@ti.com>,
-        Tero Kristo
-	<kristo@kernel.org>
-CC: <dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
-References: <20250716134717.4085567-1-mwalle@kernel.org>
- <20250716134717.4085567-2-mwalle@kernel.org>
-Content-Language: en-US
-From: Andrew Davis <afd@ti.com>
-In-Reply-To: <20250716134717.4085567-2-mwalle@kernel.org>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Type: text/plain; charset="US-ASCII"
 Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-Originating-IP: [10.203.177.66]
+X-ClientProxiedBy: lhrpeml500004.china.huawei.com (7.191.163.9) To
+ frapeml500008.china.huawei.com (7.182.85.71)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250716_091743_937895_CDD18A96 
-X-CRM114-Status: GOOD (  15.09  )
+X-CRM114-CacheID: sfid-20250716_092153_973227_AC073610 
+X-CRM114-Status: GOOD (  34.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,48 +82,280 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/16/25 8:47 AM, Michael Walle wrote:
-> The AM62P and the J722S features the same BXS-4 GPU as the J721S2. Add a
-> new SoC specific compatible.
+On Fri, 11 Jul 2025 18:36:19 +0000
+James Morse <james.morse@arm.com> wrote:
+
+> The MPAM table identifies caches by id. The MPAM driver also wants to know
+> the cache level to determine if the platform is of the shape that can be
+> managed via resctrl. Cacheinfo has this information, but only for CPUs that
+> are online.
 > 
+> Waiting for all CPUs to come online is a problem for platforms where
+> CPUs are brought online late by user-space.
+> 
+> Add a helper that walks every possible cache, until it finds the one
+> identified by cache-id, then return the level.
+> 
+> acpi_count_levels() expects its levels parameter to be initialised to
+> zero as it passes it to acpi_find_cache_level() as starting_level.
+> The existing callers do this. Document it.
+> 
+> Signed-off-by: James Morse <james.morse@arm.com>
+> Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
 
-If the GPU is the same, and the integration is the same, do you really need
-a new compatible?
+A few suggestions inline.  Mostly driven by the number of missing table
+puts I've seen in ACPI code. You don't have any missing here but with a
+bit of restructuring you can make that easy to see.
 
-> Signed-off-by: Michael Walle <mwalle@kernel.org>
 > ---
->   Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml | 1 +
->   1 file changed, 1 insertion(+)
+>  drivers/acpi/pptt.c  | 73 ++++++++++++++++++++++++++++++++++++++++++++
+>  include/linux/acpi.h |  5 +++
+>  2 files changed, 78 insertions(+)
 > 
-> diff --git a/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml b/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
-> index 4450e2e73b3c..bad3e412a168 100644
-> --- a/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
-> +++ b/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
-> @@ -23,6 +23,7 @@ properties:
->             - const: img,img-rogue
->         - items:
->             - enum:
-> +              - ti,am62p-gpu
+> diff --git a/drivers/acpi/pptt.c b/drivers/acpi/pptt.c
+> index 13ca2eee3b98..f53748a5df19 100644
+> --- a/drivers/acpi/pptt.c
+> +++ b/drivers/acpi/pptt.c
+> @@ -912,3 +912,76 @@ int find_acpi_cpu_topology_hetero_id(unsigned int cpu)
+>  	return find_acpi_cpu_topology_tag(cpu, PPTT_ABORT_PACKAGE,
+>  					  ACPI_PPTT_ACPI_IDENTICAL);
+>  }
+> +
+> +/**
+> + * find_acpi_cache_level_from_id() - Get the level of the specified cache
+> + * @cache_id: The id field of the unified cache
+> + *
+> + * Determine the level relative to any CPU for the unified cache identified by
+> + * cache_id. This allows the property to be found even if the CPUs are offline.
+> + *
+> + * The returned level can be used to group unified caches that are peers.
+> + *
+> + * The PPTT table must be rev 3 or later,
+> + *
+> + * If one CPUs L2 is shared with another as L3, this function will return
+> + * an unpredictable value.
+> + *
+> + * Return: -ENOENT if the PPTT doesn't exist, or the cache cannot be found.
+> + * Otherwise returns a value which represents the level of the specified cache.
+> + */
+> +int find_acpi_cache_level_from_id(u32 cache_id)
+> +{
+> +	u32 acpi_cpu_id;
+> +	acpi_status status;
+> +	int level, cpu, num_levels;
+> +	struct acpi_pptt_cache *cache;
+> +	struct acpi_table_header *table;
+> +	struct acpi_pptt_cache_v1 *cache_v1;
+> +	struct acpi_pptt_processor *cpu_node;
+> +
+> +	status = acpi_get_table(ACPI_SIG_PPTT, 0, &table);
+> +	if (ACPI_FAILURE(status)) {
+> +		acpi_pptt_warn_missing();
+> +		return -ENOENT;
+> +	}
+> +
+> +	if (table->revision < 3) {
 
-There is a check below based on SoC compat:
+Maybe a unified exit path given all paths need to do
+acpi_put_table() and return either error or level.
 
->  - if:
->      properties:
->        compatible:
->          contains:
->            enum:
->              - ti,am62-gpu
->              - ti,j721s2-gpu
->    then:
->      properties:
->        clocks:
->          maxItems: 1
+Or maybe it's time for some cleanup.h magic for acpi tables. I've
+been thinking about it for a while and mostly stuck on the name ;)
+(simpler suggestion follows)
 
-If you do add a new SoC specific compatible does this check need updating?
+static struct acpi_table_header *acpi_get_table_ret(char *signature, u32 instance)
+{
+	struct acpi_table_header *table;
+	int status = acpi_get_table(signature, instance, &table);
+	
+	if (ACPI_FAILURE(status))
+		return ERR_PTR(-ENOENT);
+	return table;
+}
 
-Andrew
+DEFINE_FREE(acpi_table, struct acpi_table_header *, if (!IS_ERR(_T)) acpi_put_table(_T))
 
->                 - ti,j721s2-gpu
->             - const: img,img-bxs-4-64
->             - const: img,img-rogue
+Finally in here and loads of other places we avoid chance of missing an acpi_put_table
+and generally simplify the code a little.
+
+int find_acpi_cache_level_from_id(u32 cache_id)
+{
+	u32 acpi_cpu_id;
+	acpi_status status;
+	int level, cpu, num_levels;
+	struct acpi_pptt_cache *cache;
+	struct acpi_pptt_cache_v1 *cache_v1;
+	struct acpi_pptt_processor *cpu_node;
+
+
+	struct acpi_table_header *table __free(acpi_table) =
+		acpi_get_table_ret(ACPI_SIG_PPTT, 0);
+
+	if (IS_ERR(table)
+		return PTR_ERR(table);
+
+	if (table->revision < 3)
+		return -ENOENT;
+
+	/*
+	 * If we found the cache first, we'd still need to walk from each CPU
+	 * to find the level...
+	 */
+	for_each_possible_cpu(cpu) {
+		acpi_cpu_id = get_acpi_id_for_cpu(cpu);
+		cpu_node = acpi_find_processor_node(table, acpi_cpu_id);
+		if (!cpu_node)
+			return -ENOENT;
+		acpi_count_levels(table, cpu_node, &num_levels, NULL);
+
+		/* Start at 1 for L1 */
+		for (level = 1; level <= num_levels; level++) {
+			cache = acpi_find_cache_node(table, acpi_cpu_id,
+						     ACPI_PPTT_CACHE_TYPE_UNIFIED,
+						     level, &cpu_node);
+			if (!cache)
+				continue;
+
+			cache_v1 = ACPI_ADD_PTR(struct acpi_pptt_cache_v1,
+						cache,
+						sizeof(struct acpi_pptt_cache));
+
+			if (cache->flags & ACPI_PPTT_CACHE_ID_VALID &&
+			    cache_v1->cache_id == cache_id) {
+				acpi_put_table(table);
+				return level;
+			}
+		}
+	}
+	return -ENOENT;
+}
+
+
+A less 'fun' alternative is pull some code out as a helper to make put the get and put
+near each other with no conditionals to confuse things.
+
+
+static int __find_acpi_cache_level_from_id(u32 cache_id, struct acpi_table_header *head);
+{
+	u32 acpi_cpu_id;
+	int level, cpu, num_levels;
+	struct acpi_pptt_cache *cache;
+	struct acpi_pptt_cache_v1 *cache_v1;
+	struct acpi_pptt_processor *cpu_node;
+
+	if (table->revision < 3)
+		return -ENOENT;
+
+	/*
+	 * If we found the cache first, we'd still need to walk from each CPU
+	 * to find the level...
+	 */
+	for_each_possible_cpu(cpu) {
+		acpi_cpu_id = get_acpi_id_for_cpu(cpu);
+		cpu_node = acpi_find_processor_node(table, acpi_cpu_id);
+		if (!cpu_node)
+			return -ENOENT;
+		acpi_count_levels(table, cpu_node, &num_levels, NULL);
+
+		/* Start at 1 for L1 */
+		for (level = 1; level <= num_levels; level++) {
+			cache = acpi_find_cache_node(table, acpi_cpu_id,
+						     ACPI_PPTT_CACHE_TYPE_UNIFIED,
+						     level, &cpu_node);
+			if (!cache)
+				continue;
+
+			cache_v1 = ACPI_ADD_PTR(struct acpi_pptt_cache_v1,
+						cache,
+						sizeof(struct acpi_pptt_cache));
+
+			if (cache->flags & ACPI_PPTT_CACHE_ID_VALID &&
+			    cache_v1->cache_id == cache_id)
+				return level;
+		}
+	}
+
+	return -ENOENT;
+}
+
+int find_acpi_cache_level_from_id(u32 cache_id)
+{
+	int ret;
+	acpi_status status;
+	struct acpi_table_header *table;
+
+	status = acpi_get_table(ACPI_SIG_PPTT, 0, &table);
+	if (ACPI_FAILURE(status)) {
+		acpi_pptt_warn_missing();
+		return -ENOENT;
+	}
+
+	ret = __find_acpi_cache_level_from_id(cache_id, table)
+	acpi_put_table(table);
+	return ret;
+}
+
+
+> +		acpi_put_table(table);
+> +		return -ENOENT;
+> +	}
+> +
+> +	/*
+> +	 * If we found the cache first, we'd still need to walk from each CPU
+> +	 * to find the level...
+> +	 */
+> +	for_each_possible_cpu(cpu) {
+> +		acpi_cpu_id = get_acpi_id_for_cpu(cpu);
+> +		cpu_node = acpi_find_processor_node(table, acpi_cpu_id);
+> +		if (!cpu_node)
+> +			break;
+> +		acpi_count_levels(table, cpu_node, &num_levels, NULL);
+> +
+> +		/* Start at 1 for L1 */
+> +		for (level = 1; level <= num_levels; level++) {
+> +			cache = acpi_find_cache_node(table, acpi_cpu_id,
+> +						     ACPI_PPTT_CACHE_TYPE_UNIFIED,
+> +						     level, &cpu_node);
+> +			if (!cache)
+> +				continue;
+> +
+> +			cache_v1 = ACPI_ADD_PTR(struct acpi_pptt_cache_v1,
+> +						cache,
+> +						sizeof(struct acpi_pptt_cache));
+> +
+> +			if (cache->flags & ACPI_PPTT_CACHE_ID_VALID &&
+> +			    cache_v1->cache_id == cache_id) {
+> +				acpi_put_table(table);
+> +				return level;
+> +			}
+> +		}
+> +	}
+> +
+> +	acpi_put_table(table);
+> +	return -ENOENT;
+> +}
+> diff --git a/include/linux/acpi.h b/include/linux/acpi.h
+> index 8c3165c2b083..82947f6d2a43 100644
+> --- a/include/linux/acpi.h
+> +++ b/include/linux/acpi.h
+> @@ -1542,6 +1542,7 @@ int find_acpi_cpu_topology_cluster(unsigned int cpu);
+>  int find_acpi_cpu_topology_package(unsigned int cpu);
+>  int find_acpi_cpu_topology_hetero_id(unsigned int cpu);
+>  int acpi_pptt_get_cpus_from_container(u32 acpi_cpu_id, cpumask_t *cpus);
+> +int find_acpi_cache_level_from_id(u32 cache_id);
+>  #else
+>  static inline int acpi_pptt_cpu_is_thread(unsigned int cpu)
+>  {
+> @@ -1568,6 +1569,10 @@ static inline int acpi_pptt_get_cpus_from_container(u32 acpi_cpu_id,
+>  {
+>  	return -EINVAL;
+>  }
+> +static inline int find_acpi_cache_level_from_id(u32 cache_id)
+> +{
+> +	return -EINVAL;
+> +}
+>  #endif
+>  
+>  void acpi_arch_init(void);
+
 
