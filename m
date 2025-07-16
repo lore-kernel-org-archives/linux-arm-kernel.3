@@ -4,82 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 435C3C83F27
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 11:47:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 134B2C83F1B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 12:06:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UaSkr3Mtkvd2G/yImBVwlc1QjOnwWe0If2XenQOoUZw=; b=R9wA2aq4jUqWXdHz0NSqOxlo4d
-	BhHbIGHxCvRnZda1exZ5NDMLaCo5woki25tz2zRnkOl22alYDlWa+7vWRl6IiQVjW7drvwhFYO2eb
-	yEQC5OUnZ8G4d26cVt0MsuIf0/yS20fAHjcrTp4NgTUpS0LVVpnCGE+FJKp/UV+U07FUaGgraW2eB
-	z7vPKs5bdssr8jIpN+l0O8BmXdOTEqijzcNmvEw00G+KKBG+IXKfbowrvI5/yhnriALpdBzkM6npK
-	IDam9VAx4qNsU6N1YgHVeFkT6ip6wd+OKabNZoUqBc8alofixgBNCm//8lhOTUT9lZQmNeq60mFGA
-	tPppk3xQ==;
+	bh=lsXEE1hISIb4cJAFw3dYr+DwstAQXXeJCNfdlxzLq1c=; b=zx9XPsBHqYvzctc4b/hbKMkJYg
+	saXheHXZJkDcLcJ+FIIK4ZCTy8znP2VTGiK0WuwX08V02GuEIxIN0VQxFlTvKJywwGAda9cZnZ/Xw
+	ngf5XzwioXCy2tb6uWjXWMW2ZRHQqfulJ+m/N6EGGMcHGFkUZTnc4INBzEtmVhzR/lbY89zOy9yrW
+	bEyJ4ekCeLPgKKfJy8Ukm9sr1q+7+X5nrc4oEQ6ZNA1TZxKdoT8KQXrfk6uyXjITCjVJgTDUYVgO1
+	olwI1Zf0PuM30KZmDaw67/nVdIOjNF5Rcx1rtAhr57BUGI8/+DDKnKNZhYvgjqXhXv1SdnoboVxs8
+	v16rR2ww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uc0bk-00000007any-0SZm;
-	Wed, 16 Jul 2025 11:47:32 +0000
-Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
+	id 1uc0uL-00000007d4J-2Qmc;
+	Wed, 16 Jul 2025 12:06:45 +0000
+Received: from mail-ed1-x532.google.com ([2a00:1450:4864:20::532])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uc0Bc-00000007Xe1-1cpS
+	id 1uc0ru-00000007crX-1j7r
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Jul 2025 11:20:33 +0000
-Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
-	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTP id 56GBKFkp239948;
-	Wed, 16 Jul 2025 06:20:15 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1752664815;
-	bh=UaSkr3Mtkvd2G/yImBVwlc1QjOnwWe0If2XenQOoUZw=;
-	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=d1pIgS0RxaFtBBO2EjCCvEdxT1OcyYv+pg/fLVdmD/yM7TAswuLQoiN6/JLaboAkn
-	 GVctZzByCsQGxHKSZkl6vlksFChYn04n7VjotD8G2ah+1tKFtT/4WCkxFF7+J1POyA
-	 e0PQOIPMyKixbURgX1mYZk4Wz/7eDwYcWLysxG3o=
-Received: from DLEE113.ent.ti.com (dlee113.ent.ti.com [157.170.170.24])
-	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 56GBKEKj1981344
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Wed, 16 Jul 2025 06:20:14 -0500
-Received: from DLEE112.ent.ti.com (157.170.170.23) by DLEE113.ent.ti.com
- (157.170.170.24) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Wed, 16
- Jul 2025 06:20:14 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE112.ent.ti.com
- (157.170.170.23) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Wed, 16 Jul 2025 06:20:14 -0500
-Received: from abhilash-HP.dhcp.ti.com (abhilash-hp.dhcp.ti.com [172.24.227.115])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 56GBJep3344714;
-	Wed, 16 Jul 2025 06:20:07 -0500
-From: Yemike Abhilash Chandra <y-abhilashchandra@ti.com>
-To: <mchehab@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-        <conor+dt@kernel.org>
-CC: <linux@armlinux.org.uk>, <ardb@kernel.org>, <ebiggers@kernel.org>,
-        <geert+renesas@glider.be>, <claudiu.beznea@tuxon.dev>,
-        <bparrot@ti.com>, <andre.draszik@linaro.org>,
-        <kuninori.morimoto.gx@renesas.com>,
-        <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-        <heikki.krogerus@linux.intel.com>, <kory.maincent@bootlin.com>,
-        <florian.fainelli@broadcom.com>, <lumag@kernel.org>,
-        <dale@farnsworth.org>, <sbellary@baylibre.com>,
-        <linux-media@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <dagriego@biglakesoftware.com>, <u-kumar1@ti.com>,
-        <y-abhilashchandra@ti.com>
-Subject: [PATCH V2 3/4] dt-bindings: media: ti: vpe: Add bindings for Video Input Port
-Date: Wed, 16 Jul 2025 16:49:11 +0530
-Message-ID: <20250716111912.235157-4-y-abhilashchandra@ti.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250716111912.235157-1-y-abhilashchandra@ti.com>
-References: <20250716111912.235157-1-y-abhilashchandra@ti.com>
+	Wed, 16 Jul 2025 12:04:15 +0000
+Received: by mail-ed1-x532.google.com with SMTP id 4fb4d7f45d1cf-60bfcada295so10186307a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Jul 2025 05:04:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1752667452; x=1753272252; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=lsXEE1hISIb4cJAFw3dYr+DwstAQXXeJCNfdlxzLq1c=;
+        b=kjsPQIy9e/iMIgiutT6Wg8tjojAOnF8QPCtT2QImKF2KAvoqArR7hMNlMMXURS+1sl
+         4X2C5ENd5x5uddBn4K3RI8gwKogEXcUVtljwMfVgG8o9WhpMUKacHcTtke/LJ2lg0QEr
+         qr/RtXd2Mof24cMb9RiQN/h0CS/j8muBGmvcbbSIki93VkWssJRNNh9mWLCa50VGvXmQ
+         66LAwpb8LGm1P/RMp+Tomkbk0mvGPln9QHslYu3hBuUvcNysNMNaGtqh68UFiUnqHGE2
+         934Mh2qOpAz3z2kazNn3a9oNiyg2Uhcl4mrFLR6it16U5AnhRvnRA69xQNo4mMUfvKbN
+         azXg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1752667452; x=1753272252;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=lsXEE1hISIb4cJAFw3dYr+DwstAQXXeJCNfdlxzLq1c=;
+        b=MFKiR81I4ac4ii/50OQoMqdwS7dHlefn2hZEwMY4X4KgfiqhB46aS2m/izXzVXJfBZ
+         FQL4shUYnBKustDaGMkSbzw+zuMvL8+RkCTobM1GBcHqY5ER27JMvBHqBlXAFd7q7X74
+         8qrxstNUoT38rn+QMPT+sLgfnhBxh3rpXmSDpXObHOKSRS0JGG0HsnZrQOZVOWWr/A2N
+         tPGBoQGxTAMA+l/RoYqYBXEWR0Iif82NmXUk7VXIuZ5V+NbPNVkwyybrOyNJeuL+Ljbn
+         rjxOlCEjft5XCkFmEReyq8aFeTyErU1k/xJ2SNbCUIZlaLZUUViKstv8fQSkRjscih0E
+         kBXw==
+X-Forwarded-Encrypted: i=1; AJvYcCXdT3ePXOU0xEZxAFiIYUHnZwah9JMgRF2UoyxVcd84H+U3hhgRW4m411sF5E1rS6stXClwRWSMLJDYdUiC2whe@lists.infradead.org
+X-Gm-Message-State: AOJu0YzI9vaqNvQZKR6zxqa/JIoNfNrRRHPSZW2FSPOjz0A+Zpk2B9/g
+	JXi6xdbmLwB0JSWE83xu0DqFT9mV03he5EDpuUk4f0NfAoRiKzi44FDj+VjTFtVW1n8=
+X-Gm-Gg: ASbGncsdqiOEd+Cc7jAhjpWKFZsomXOuK1XBEo+nzTe2krQtYuULrCVjVan90h4a0eF
+	wTcXH+HGYIE1LYzes3eki0AVQuRjHWEfd0IAfcoqc0Jm9g1J8W33T5BNKu15tKcBZwIjKq1se++
+	3RpCKjPmHluRZsRyJt8/4at2UqqnObvn9o1fDQ2fkMW8uEuytgeX+QXDktFxWQIkMd2FmPHIhGC
+	cClESUUwUtBF4w/d78vo11EIA7AXORNiPR8a+CHNUCZsfYOFI/1E8cEQLChCfgsu2w0RPMtqQu0
+	o7OBWocU2eG7qPabB5Jj3tDvULWUVFs2JVBvooS8rRr/9/+epK44CdmS4pJ4oh/0AdwNy2psuvv
+	8TQ/CgIH3wWbg4RYDLe/fppDCKng2ew==
+X-Google-Smtp-Source: AGHT+IEhSGvwKZCfWmTvLUG6dGYIJWTd4OdkmaI9VTlT7Ykv1sEpL5pIQSQFmLdV3hms4bc49wFnVQ==
+X-Received: by 2002:a05:6402:348a:b0:606:df70:7aa2 with SMTP id 4fb4d7f45d1cf-61285bf41c5mr2186091a12.31.1752667451997;
+        Wed, 16 Jul 2025 05:04:11 -0700 (PDT)
+Received: from linaro.org ([82.79.186.23])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-611c976d9f7sm8622193a12.54.2025.07.16.05.04.10
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 16 Jul 2025 05:04:11 -0700 (PDT)
+Date: Wed, 16 Jul 2025 15:04:09 +0300
+From: Abel Vesa <abel.vesa@linaro.org>
+To: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
+Cc: imx@lists.linux.dev, Abel Vesa <abelvesa@kernel.org>,
+	Peng Fan <peng.fan@nxp.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, dri-devel@lists.freedesktop.org,
+	Frank Li <frank.li@nxp.com>, linux-clk@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 01/10] clk: imx95-blk-ctl: Save platform data in
+ imx95_blk_ctl structure
+Message-ID: <aHeVOYUhLu8uIhFe@linaro.org>
+References: <20250716081519.3400158-1-laurentiu.palcu@oss.nxp.com>
+ <20250716081519.3400158-2-laurentiu.palcu@oss.nxp.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250716081519.3400158-2-laurentiu.palcu@oss.nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250716_042032_509005_9540802B 
-X-CRM114-Status: GOOD (  20.08  )
+X-CRM114-CacheID: sfid-20250716_050414_471262_DC15C7ED 
+X-CRM114-Status: UNSURE (   9.17  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,259 +107,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Dale Farnsworth <dale@farnsworth.org>
+On 25-07-16 11:15:05, Laurentiu Palcu wrote:
+> Currently, besides probe(), the platform data is read in both suspend()
+> and resume(). Let's avoid this by making pdata a member of imx95_blk_ctl
+> structure.
+> 
+> Signed-off-by: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
 
-Add device tree bindings for the Video Input Port. Video Input Port (VIP)
-can be found on devices such as DRA7xx and provides a parallel interface
-to a video source such as a sensor or TV decoder.
-
-Signed-off-by: Dale Farnsworth <dale@farnsworth.org>
-Signed-off-by: Benoit Parrot <bparrot@ti.com>
-Signed-off-by: Sukrut Bellary <sbellary@baylibre.com>
-Signed-off-by: Yemike Abhilash Chandra <y-abhilashchandra@ti.com>
----
-Changelog:
-Changes in v2:
-- Remove array and just use hsync: true in bindings
-- Remove array and use enum for bus width in bindings
-- Use pattern properties since properties across ports are same
-- Update copyright year
-
- .../devicetree/bindings/media/ti,vip.yaml     | 211 ++++++++++++++++++
- MAINTAINERS                                   |   1 +
- 2 files changed, 212 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/media/ti,vip.yaml
-
-diff --git a/Documentation/devicetree/bindings/media/ti,vip.yaml b/Documentation/devicetree/bindings/media/ti,vip.yaml
-new file mode 100644
-index 000000000000..44091c15a537
---- /dev/null
-+++ b/Documentation/devicetree/bindings/media/ti,vip.yaml
-@@ -0,0 +1,211 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+# Copyright (C) 2025 Texas Instruments Incorporated -  http://www.ti.com/
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/media/ti,vip.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Texas Instruments DRA7x VIDEO INPUT PORT (VIP).
-+
-+maintainers:
-+  - Yemike Abhilash Chandra <y-abhilashchandra@ti.com>
-+
-+description: |-
-+  The Video Input Port (VIP) is a key component for image capture
-+  applications. The capture module provides the system interface and the
-+  processing capability to connect parallel image-sensor as well as
-+  BT.656/1120 capable encoder chip to DRA7x device.
-+
-+  Each VIP instance supports 2 independently configurable external video
-+  input capture slices (Slice 0 and Slice 1) each providing up to two video
-+  input ports (Port A and Port B) where Port A can be configured as
-+  24/16/8-bit port and Port B is fixed as 8-bit port.
-+  Here these ports a represented as follows
-+    port@0 -> Slice 0 Port A
-+    port@1 -> Slice 0 Port B
-+    port@2 -> Slice 1 Port A
-+    port@3 -> Slice 1 Port B
-+
-+  Each camera port nodes should contain a 'port' child node with child
-+  'endpoint' node. Please refer to the bindings defined in
-+  Documentation/devicetree/bindings/media/video-interfaces.yaml.
-+
-+properties:
-+  compatible:
-+    enum:
-+      - ti,dra7-vip
-+
-+  label:
-+    description: Instance name
-+
-+  reg:
-+    items:
-+      - description: The VIP main register region
-+      - description: Video Data Parser (PARSER) register region for Slice0
-+      - description: Color Space Conversion (CSC) register region for Slice0
-+      - description: Scaler (SC) register region for Slice0
-+      - description: Video Data Parser (PARSER) register region for Slice1
-+      - description: Color Space Conversion (CSC) register region for Slice1
-+      - description: Scaler (SC) register region for Slice1
-+      - description: Video Port Direct Memory Access (VPDMA) register region
-+
-+  reg-names:
-+    items:
-+      - const: vip
-+      - const: parser0
-+      - const: csc0
-+      - const: sc0
-+      - const: parser1
-+      - const: csc1
-+      - const: sc1
-+      - const: vpdma
-+
-+  interrupts:
-+    minItems: 2
-+    description:
-+      IRQ index 0 is used for Slice0 interrupts
-+      IRQ index 1 is used for Slice1 interrupts
-+
-+  ti,vip-clk-polarity:
-+    $ref: /schemas/types.yaml#/definitions/phandle-array
-+    description:
-+      phandle to the device control module. The 1st argument should
-+      contain the register offset to the CTRL_CORE_SMA_SW_1 register.
-+      2nd argument contains the bit field to slice 0 port A,
-+      3rd argument contains the bit field to slice 0 port B,
-+      4th argument contains the bit field to slice 1 port A,
-+      5th argument contains the bit field to slice 1 port B.
-+
-+patternProperties:
-+  '^port@[0-3]$':
-+    type: object
-+    additionalProperties: false
-+
-+    properties:
-+      "#address-cells":
-+        const: 1
-+
-+      "#size-cells":
-+        const: 0
-+      reg:
-+        description: The port number
-+        maxItems: 1
-+
-+      label:
-+        description: Port name. Usually the pin group name
-+
-+      endpoint:
-+        $ref: /schemas/graph.yaml#/properties/endpoint
-+        type: object
-+        additionalProperties: false
-+
-+        properties:
-+          hsync-active: true
-+          vsync-active: true
-+          pclk-sample: true
-+          bus-width:
-+            enum: [8, 24]
-+            default: 8
-+
-+          remote-endpoint: true
-+
-+    required:
-+      - "#address-cells"
-+      - "#size-cells"
-+      - port@0
-+      - reg
-+      - label
-+
-+required:
-+  - compatible
-+  - label
-+  - reg
-+  - reg-names
-+  - interrupts
-+  - ti,vip-clk-polarity
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/interrupt-controller/arm-gic.h>
-+
-+    vip1: vip@48970000 {
-+        compatible = "ti,dra7-vip1";
-+        label = "vip1";
-+        reg = <0x48970000 0x114>,
-+              <0x48975500 0xD8>,
-+              <0x48975700 0x18>,
-+              <0x48975800 0x80>,
-+              <0x48975a00 0xD8>,
-+              <0x48975c00 0x18>,
-+              <0x48975d00 0x80>,
-+              <0x4897d000 0x400>;
-+        reg-names = "vip",
-+                    "parser0",
-+                    "csc0",
-+                    "sc0",
-+                    "parser1",
-+                    "csc1",
-+                    "sc1",
-+                    "vpdma";
-+        interrupts = <GIC_SPI 351 IRQ_TYPE_LEVEL_HIGH>,
-+                     <GIC_SPI 392 IRQ_TYPE_LEVEL_HIGH>;
-+        ti,vip-clk-polarity = <&scm_conf 0x534 0x1 0x4 0x2 0x8>;
-+
-+        ports {
-+              #address-cells = <1>;
-+              #size-cells = <0>;
-+
-+              vin1a: port@0 {
-+                    reg = <0>;
-+                    label = "vin1a";
-+
-+                    vin1a_ep: endpoint {
-+                           remote-endpoint = <&camera1>;
-+                           hsync-active = <1>;
-+                           vsync-active = <1>;
-+                           pclk-sample = <0>;
-+                           bus-width = <8>;
-+                    };
-+              };
-+              vin1b: port@1 {
-+                    reg = <1>;
-+                    label = "vin1b";
-+              };
-+              vin2a: port@2 {
-+                    reg = <2>;
-+                    label = "vin2a";
-+              };
-+              vin2b: port@3 {
-+                    reg = <3>;
-+                    label = "vin2b";
-+              };
-+         };
-+    };
-+
-+    i2c {
-+        clock-frequency = <400000>;
-+        #address-cells = <1>;
-+        #size-cells = <0>;
-+
-+         camera@37 {
-+              compatible = "ovti,ov10633";
-+              reg = <0x37>;
-+
-+              clocks = <&fixed_clock>;
-+              clocks-names = "xvclk";
-+
-+              port {
-+                   camera1: endpoint {
-+                           remote-endpoint = <&vin1a_ep>;
-+                           hsync-active = <1>;
-+                           vsync-active = <1>;
-+                           pclk-sample = <0>;
-+                           bus-width = <8>;
-+                   };
-+              };
-+         };
-+    };
-+
-+...
-diff --git a/MAINTAINERS b/MAINTAINERS
-index ea4b29c8b6b5..c5c5f0d1967f 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -25211,6 +25211,7 @@ S:	Maintained
- W:	http://linuxtv.org/
- Q:	http://patchwork.linuxtv.org/project/linux-media/list/
- F:	Documentation/devicetree/bindings/media/ti,cal.yaml
-+F:	Documentation/devicetree/bindings/media/ti,vip.yaml
- F:	Documentation/devicetree/bindings/media/ti,vpe.yaml
- F:	drivers/media/platform/ti/cal/
- F:	drivers/media/platform/ti/vpe/
--- 
-2.34.1
-
+Reviewed-by: Abel Vesa <abel.vesa@linaro.org>
 
