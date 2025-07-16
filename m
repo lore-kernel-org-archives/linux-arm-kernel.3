@@ -4,91 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0C63C83F27
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 07:00:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF406C83F1B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 07:02:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xerQtkORVix8kutktI1+YrkXs7KcgqaF2AOpTxA79kI=; b=XRY3Udi+BosYLZP7Yz9zSu8RNN
-	A/nD8/tjQ4Xy/vK7t58gPnk1BB2FP73PW5q6Jy1I0n6SS9NlLtOzH379qEgst9r3GnEWzoiNZxeJq
-	pzSoT4JXSVDfvA5nq8HPCuW087H8Fp37cFL66KxxhmKEWXcTFPn21tb2wZj/OvpeQsm4r63MknfG+
-	BWdmFaL1077hrcmbTo4mftB2nNabpZzdocGYPDyoPG5y9IhlP1oXZTXmZbr17XtFY0cxIipnvD0oP
-	svrhYExwc088H0L3JeJyiT0fE+IcG3+OEIQui4U5a3W90BhMItQeGr+d1kMDNW2c/2X/bjZw6OqKw
-	UwNGsQGw==;
+	bh=VEUoLTT5I8yzxJpfDzrdKZYJvEEQsf+bCiIncTF9xFA=; b=P+RDgHWV7HlDmgCRIEutv4TxW8
+	qeTi6r3IW90rHxE7md5CkatKu2bO0DRuquKdSoRCAlqx6cSJGmH5gxOzVtH7c4JQJavkBqg7Sc4DW
+	qpFpdOMWToBqya5KK4vMzORQSO4eXWcSxPz6a6o5bH9AWtILfRLNDMNPmmQ9j9lFt1csOCyqgc/Hy
+	EwFQrJgVKRqaMPI/0yZDcqpZVU/yAVm3pYENm8X1P4Jy15G97xXVmsAKxJ6BqDJoEhVWZjHQjEKex
+	/17eWJ//vV4ET20/TAk70djoFSLbYJMlZGm5oCRalRyt8JVrGiKo0ntK9uNMv/8J2xoU8C+XQzfQI
+	C50i9eWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubw7e-00000006wi3-0U2k;
-	Wed, 16 Jul 2025 07:00:10 +0000
-Received: from smtp-out1.suse.de ([2a07:de40:b251:101:10:150:64:1])
+	id 1ubw9y-00000006xBO-2TFb;
+	Wed, 16 Jul 2025 07:02:34 +0000
+Received: from smtp-out1.suse.de ([195.135.223.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubvnF-00000006uUQ-3tdJ
+	id 1ubvs4-00000006uor-3Fnj
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Jul 2025 06:39:07 +0000
+	Wed, 16 Jul 2025 06:44:06 +0000
 Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id 280442122B;
-	Wed, 16 Jul 2025 06:39:04 +0000 (UTC)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id 1DC392122B;
+	Wed, 16 Jul 2025 06:44:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1752647944; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	t=1752648243; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
 	 mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=xerQtkORVix8kutktI1+YrkXs7KcgqaF2AOpTxA79kI=;
-	b=Ku8kPJ8dWb1zwm8WpjPGz61tGMci2DgzIWxm6qsT9k3b5LpXKiQxtigOgaXQ7RklKO6Hwi
-	BqtmG/qO7weVMKBp2fB8rvZktN2/RhSGYOELr0mF0ytg5ecliOgX9noJzfq2hk7VFT+cud
-	7JmTiEsPbU8nntwlG1yn1NyR2YzU2A0=
+	bh=VEUoLTT5I8yzxJpfDzrdKZYJvEEQsf+bCiIncTF9xFA=;
+	b=lF9DIVbOAhMVTxiD08F1NaRufP6txNZuZn4Szmzu50e5fpgBSKnc6lx/LkO/n6Gti1iEvR
+	uvzOKwkIqYOcPo25PK1jWSkVZF0dw/zr9EmUR9aRRcI7VxfwPWajTVD2ZQlWJdyCkiuEuO
+	t4bfILADOnpKPSgOuhfC22tFZ1/ozVU=
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1752647944;
+	s=susede2_ed25519; t=1752648243;
 	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
 	 mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=xerQtkORVix8kutktI1+YrkXs7KcgqaF2AOpTxA79kI=;
-	b=D0iWy426GpPz0UEKPVXT73Yrfj6S2j8c+23uj2BWUiCAq4IId0NWG9uL77a53eUI9I9aQx
-	fBUDWsgArFh2aSCA==
+	bh=VEUoLTT5I8yzxJpfDzrdKZYJvEEQsf+bCiIncTF9xFA=;
+	b=QOpY3Ktx5QNQsjpv1l4ST1Enz02WmMWpXX3x+vKXuHRRXUT0wg19Y1ef3roxYrUT4d8HY6
+	H3DRYY6pepx65mBw==
 Authentication-Results: smtp-out1.suse.de;
-	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=Ku8kPJ8d;
-	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=D0iWy426
+	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=lF9DIVbO;
+	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=QOpY3Ktx
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1752647944; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	t=1752648243; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
 	 mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=xerQtkORVix8kutktI1+YrkXs7KcgqaF2AOpTxA79kI=;
-	b=Ku8kPJ8dWb1zwm8WpjPGz61tGMci2DgzIWxm6qsT9k3b5LpXKiQxtigOgaXQ7RklKO6Hwi
-	BqtmG/qO7weVMKBp2fB8rvZktN2/RhSGYOELr0mF0ytg5ecliOgX9noJzfq2hk7VFT+cud
-	7JmTiEsPbU8nntwlG1yn1NyR2YzU2A0=
+	bh=VEUoLTT5I8yzxJpfDzrdKZYJvEEQsf+bCiIncTF9xFA=;
+	b=lF9DIVbOAhMVTxiD08F1NaRufP6txNZuZn4Szmzu50e5fpgBSKnc6lx/LkO/n6Gti1iEvR
+	uvzOKwkIqYOcPo25PK1jWSkVZF0dw/zr9EmUR9aRRcI7VxfwPWajTVD2ZQlWJdyCkiuEuO
+	t4bfILADOnpKPSgOuhfC22tFZ1/ozVU=
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1752647944;
+	s=susede2_ed25519; t=1752648243;
 	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
 	 mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=xerQtkORVix8kutktI1+YrkXs7KcgqaF2AOpTxA79kI=;
-	b=D0iWy426GpPz0UEKPVXT73Yrfj6S2j8c+23uj2BWUiCAq4IId0NWG9uL77a53eUI9I9aQx
-	fBUDWsgArFh2aSCA==
+	bh=VEUoLTT5I8yzxJpfDzrdKZYJvEEQsf+bCiIncTF9xFA=;
+	b=QOpY3Ktx5QNQsjpv1l4ST1Enz02WmMWpXX3x+vKXuHRRXUT0wg19Y1ef3roxYrUT4d8HY6
+	H3DRYY6pepx65mBw==
 Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 7D4E813306;
-	Wed, 16 Jul 2025 06:39:03 +0000 (UTC)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 7CFB513A52;
+	Wed, 16 Jul 2025 06:44:02 +0000 (UTC)
 Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
 	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id USwVHQdJd2j4bgAAD6G6ig
-	(envelope-from <tzimmermann@suse.de>); Wed, 16 Jul 2025 06:39:03 +0000
-Message-ID: <26a9a762-23bc-4367-9cb3-c2b081d641c6@suse.de>
-Date: Wed, 16 Jul 2025 08:39:03 +0200
+	id AOgYHTJKd2iPcAAAD6G6ig
+	(envelope-from <tzimmermann@suse.de>); Wed, 16 Jul 2025 06:44:02 +0000
+Message-ID: <f5a5f4a2-3ea5-4a38-9e2a-19421c532bf3@suse.de>
+Date: Wed, 16 Jul 2025 08:44:02 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 13/15] backlight: rave-sp: Include <linux/of.h> and
- <linux/mod_devicetable.h>
-To: Rob Herring <robh@kernel.org>
+Subject: Re: [PATCH v2 15/15] backlight: Do not include <linux/fb.h> in header
+ file
+To: Simona Vetter <simona.vetter@ffwll.ch>
 Cc: lee@kernel.org, danielt@kernel.org, jingoohan1@gmail.com,
  neil.armstrong@linaro.org, jessica.zhang@oss.qualcomm.com, deller@gmx.de,
  maarten.lankhorst@linux.intel.com, mripard@kernel.org, airlied@gmail.com,
@@ -99,8 +99,8 @@ Cc: lee@kernel.org, danielt@kernel.org, jingoohan1@gmail.com,
  platform-driver-x86@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-fbdev@vger.kernel.org
 References: <20250715122643.137027-1-tzimmermann@suse.de>
- <20250715122643.137027-14-tzimmermann@suse.de>
- <CAL_JsqKSjQy8CVohbVL50kn=o_kPVUsAUFjYvNC3mpcA7pm_Og@mail.gmail.com>
+ <20250715122643.137027-16-tzimmermann@suse.de>
+ <aHZWGnJ9D72YFgNh@phenom.ffwll.local>
 Content-Language: en-US
 From: Thomas Zimmermann <tzimmermann@suse.de>
 Autocrypt: addr=tzimmermann@suse.de; keydata=
@@ -127,9 +127,9 @@ Autocrypt: addr=tzimmermann@suse.de; keydata=
  SAQO9xD1Zk9/61JWk8OysuIh7MXkl0fxbRKWE93XeQBhIJHQfnc+YBLprdnxR446Sh8Wn/2D
  Ya8cavuWf2zrB6cZurs048xe0UbSW5AOSo4V9M0jzYI4nZqTmPxYyXbm30Kvmz0rYVRaitYJ
  4kyYYMhuULvrJDMjZRvaNe52tkKAvMevcGdt38H4KSVXAylqyQOW5zvPc4/sq9c=
-In-Reply-To: <CAL_JsqKSjQy8CVohbVL50kn=o_kPVUsAUFjYvNC3mpcA7pm_Og@mail.gmail.com>
+In-Reply-To: <aHZWGnJ9D72YFgNh@phenom.ffwll.local>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-Spamd-Result: default: False [-3.01 / 50.00];
 	BAYES_HAM(-3.00)[100.00%];
 	SUSPICIOUS_RECIPS(1.50)[];
@@ -140,9 +140,9 @@ X-Spamd-Result: default: False [-3.01 / 50.00];
 	MX_GOOD(-0.01)[];
 	TO_MATCH_ENVRCPT_ALL(0.00)[];
 	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	ARC_NA(0.00)[];
 	FUZZY_RATELIMITED(0.00)[rspamd.com];
+	ARC_NA(0.00)[];
+	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
 	RCPT_COUNT_TWELVE(0.00)[25];
 	MIME_TRACE(0.00)[0:+];
 	FREEMAIL_ENVRCPT(0.00)[gmail.com,gmx.de];
@@ -158,13 +158,13 @@ X-Spamd-Result: default: False [-3.01 / 50.00];
 	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
 	DKIM_TRACE(0.00)[suse.de:+];
 	RCVD_VIA_SMTP_AUTH(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:mid,suse.de:dkim,suse.de:email,imap1.dmz-prg2.suse.org:helo,imap1.dmz-prg2.suse.org:rdns]
-X-Rspamd-Queue-Id: 280442122B
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:mid,suse.de:dkim,suse.de:email]
+X-Rspamd-Queue-Id: 1DC392122B
 X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
 X-Rspamd-Action: no action
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250715_233906_119412_DD6B8FC0 
-X-CRM114-Status: GOOD (  13.33  )
+X-CRM114-CacheID: sfid-20250715_234404_969841_906B3AD9 
+X-CRM114-Status: GOOD (  14.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -181,31 +181,51 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hi
 
-Am 15.07.25 um 15:34 schrieb Rob Herring:
-> On Tue, Jul 15, 2025 at 7:30 AM Thomas Zimmermann <tzimmermann@suse.de> wrote:
->> Include <linux/of.h> to declare struct device_node and include
->> <linux/mod_devicetable.h> to declare struct of_device_id. Avoids
->> dependency on backlight header to include it.
-> struct device_node should be opaque...
+Am 15.07.25 um 15:22 schrieb Simona Vetter:
+> On Tue, Jul 15, 2025 at 02:24:52PM +0200, Thomas Zimmermann wrote:
+>> The backlight interfaces don't require anything from <linux/fb.h>, so
+>> don't include it.
+>>
+>> Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
+> I like this very much.
 >
->          /*
->           * If there is a phandle pointing to the device node we can
->           * assume that another device will manage the status changes.
->           * If not we make sure the backlight is in a consistent state.
->           */
->          if (!dev->of_node->phandle)
->                  backlight_update_status(bd);
->
-> Well, that is ugly. IMO, we should just drop the check. A DT built
-> with "-@" option will have phandle set, so that's not a reliable test.
+> Reviewed-by: Simona Vetter <simona.vetter@ffwll.ch>
 
-Not that I disagree, but fixing it is out of scope for this series.
+Thanks for reviewing. backlight.h is also the last major header file the 
+includes <linux/fb.h>. Not including it here will free many other files 
+from the dependency.
+
+>
+> I guess also my Acked-by for merging the entire pile through the backlight
+> subsystem, that's probably the easiest path to land this all.
+
+Yeah, that was the plan.
 
 Best regards
 Thomas
 
 >
-> Rob
+> Cheers, Sima
+>
+>> ---
+>>   include/linux/backlight.h | 1 -
+>>   1 file changed, 1 deletion(-)
+>>
+>> diff --git a/include/linux/backlight.h b/include/linux/backlight.h
+>> index 10e626db7eee..f29a9ef1052e 100644
+>> --- a/include/linux/backlight.h
+>> +++ b/include/linux/backlight.h
+>> @@ -10,7 +10,6 @@
+>>   #define _LINUX_BACKLIGHT_H
+>>   
+>>   #include <linux/device.h>
+>> -#include <linux/fb.h>
+>>   #include <linux/mutex.h>
+>>   #include <linux/types.h>
+>>   
+>> -- 
+>> 2.50.0
+>>
 
 -- 
 --
