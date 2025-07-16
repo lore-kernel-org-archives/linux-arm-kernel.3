@@ -4,88 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3ABEC83F22
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 20:46:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D54EC83F1B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 20:49:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7ZAoUJYms1QaVhptgTz8je2ALyqZ+PUtTYIx/F8896E=; b=OvmT2gTeuLQBprh7opF0/yyaJN
-	Ck7ZGluPfhdaitYP5RcP1+BSZhVGS66xjfVlH6lDrn95HC/5IMvyhqovPQUsYzOHZkwEGhUKsmEff
-	xTJWcUo5G88tBe5xwmtQj0J2Hr5TiNRFjRQaKBRufY234vpkCdENPjg5ZsT/CLdBV4pUQpAXuuVEp
-	Xdf9vCXjUmH4CKollvbIQGuY/aXIukmFZA8PZ7yfYh6lu6ZHjomakmLKadx6+z3utlbVwpmuDVW4l
-	5d6rbMZIDe8iGkTir41P29EKVi9UEYZME/aH0cO73DMC6dZtU4Djy2JgVHd+RW02XOmxH/1zNcZOu
-	0JPpTU/g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=+FDBRSUyUWWqwGhcMioNN7CsL8+ZBOGwwYv007xVH3I=; b=GIGQ2o4r+HDa0vl2oktOgk/xFm
+	Ugf9mj/+IGmrJNzf2mbILE1kvBPcV2bplnt6ysP6A9tJ8QUqzBk57zegqRBIu3WwjaeVAOFPcdNrx
+	t2X+IkyRqOmMN+a+jsUkEoD7MaZ+1eIB8l19q9C4dhe6KvtTG4aUG5taGcCkbcG2GVYxuwo9QWlZK
+	IlSv5KcMXK42G0GHz7yGo9YYTZsSVstbj3nRfO3xLlmHBguNF/7Whe2gTZ6J/zvVOKpcXxkfu/o3k
+	o1WHsZY0/tgBFXIAVT9PJZFf45GUEa0/U1d/wrgc7ulEaWN2UhY4kblHzJ9wzrQ91GuzA0kaPbC9O
+	x0DNkOBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uc91O-00000008dNJ-0Eku;
-	Wed, 16 Jul 2025 20:46:34 +0000
-Received: from mail-ot1-x329.google.com ([2607:f8b0:4864:20::329])
+	id 1uc93n-00000008ddw-3RJx;
+	Wed, 16 Jul 2025 20:49:03 +0000
+Received: from mail-ot1-x335.google.com ([2607:f8b0:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uc7xR-00000008WFs-3Y4Q
+	id 1uc7xZ-00000008WHP-0dHU
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Jul 2025 19:38:27 +0000
-Received: by mail-ot1-x329.google.com with SMTP id 46e09a7af769-72c09f8369cso88756a34.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Jul 2025 12:38:25 -0700 (PDT)
+	Wed, 16 Jul 2025 19:38:34 +0000
+Received: by mail-ot1-x335.google.com with SMTP id 46e09a7af769-73e5d932ab5so123663a34.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Jul 2025 12:38:32 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1752694705; x=1753299505; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=7ZAoUJYms1QaVhptgTz8je2ALyqZ+PUtTYIx/F8896E=;
-        b=YxHn5fOJX1EfxNZCS5+gen+vWHagCr8jbTyprXHFRABaIbAHAV8/ZXrAc8CbapDP1/
-         Kcmi95lZwFqwJ9+1JS+5wudzpwosI9q9tdDcWsN4gnxP3Uq+CvbWfiC+3NMBudjBa2ej
-         QGbkCbc7/ormMetTugM2szFj/6W2NK7l/9tvawrq8wgyIUA8X2KwFDUJsiXo2eJyvG2X
-         dxKz4KwaoPBhY86HD5zP0b5M43RYtJl2dw2n8soVLkIc4nYn+wDZ+vuesWWtPS/svfNU
-         MC6QTJe5J560/jIYKGeC9IPtbZrzvytZgboYty9xvDr+oDMr/iYkhcTEe2anie2pGkCj
-         qXbg==
+        d=linaro.org; s=google; t=1752694712; x=1753299512; darn=lists.infradead.org;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=+FDBRSUyUWWqwGhcMioNN7CsL8+ZBOGwwYv007xVH3I=;
+        b=xtkZmmBoMQR91SupoLzmhKQjSuY3zVtqYWo7nrB9hAsdoZD71SkrBtHpIzFX1v/0AG
+         f625EWlF5aUkRMG1uN6ie9BeZxsRVa3sXOGmjo3XLvpLGJk5Pi3Ic5QWjoJtqNZ35RL8
+         iTtsjugezqYJqmLawW4Xfgq9iYobVxv+HZXqm7LAD9hU44FHbJrf91xi3z0Oj81BuoJ2
+         vUZKKNrios4PbO2sMQDPdSPzkPwdX/06P5i8Vj6RI8Aklrourrb0ZM8nKUjsVdo1VRyd
+         t5eovnmZaMCE3rMFPpu3ZlX49N+ZL7/eY5k1G1xh5jTD+MRTxN2DCeHK2M1xK8MNLf0j
+         78cg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752694705; x=1753299505;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=7ZAoUJYms1QaVhptgTz8je2ALyqZ+PUtTYIx/F8896E=;
-        b=KC+PKF7ZUoTatxkFLQ/Lto9p7mT1Jy39gxuFCgewHykz/ZgadT5Aixzp08OZ0Oimab
-         z2Exila2wt262fJUUffPewQmW+qV7KIi1HRs34K1tYFd+KYLZZlQWWGa+p+cgDiG3pwh
-         2M2UuYmcgW64RKHbnajZVbwu5lYMkHKqRi+cluZGRy9sAETD9E8VoiOMLkb2CAEN5LmX
-         U28C5EOBb4qA3ID9/FnevzZ9Ihffhne8Y7ssUkeyjpSN97afkv8HIXQndUpPU3YU0yCX
-         nQkimoz5w7SPJo73tH7wSKNK6Wkgj2JvzzXdgo0nvte2obAL3JzSn/lLZ15/UiuS4uR0
-         Dzpw==
-X-Forwarded-Encrypted: i=1; AJvYcCWXteRuHv4Rd4MKfEBhiJZhEdB8mXYQ/IntkpQhFFCIOzbwWuEA8ayb0Fg2fnd9wk3827K3mToeROovM+5glTEN@lists.infradead.org
-X-Gm-Message-State: AOJu0YzWeCC7dee96Qm4epZyCVNEq2HuPyb53mUJV3ESZbfb72kmhrXK
-	jXhW+iz5eytDKoAyJoFXfiZLVXggyT0IakrV6CH7wXJlTcZtvuJMm+PI3cXrbBf1NPI=
-X-Gm-Gg: ASbGncvxOAz8opjIz0FCt5g+jTE60qxE1xgpmCXAlM70Fy6qdJZXl8jDFTweS+IPWpU
-	s5e7CJG/+AEdOiVaLwumADjlgEdW8oO2u5xMNSZ14OcGPx+0/+pAcewqISY2vtWO5rkon6aOYAs
-	T81vrWQz0fXk+HW1Py41LiShXgDre5xJfQaRczENiops8joLYuQIx/2oImCjc8xLvnyaR+HVZbq
-	BhreJgU1Ea9CwIYzmnRA9ssz2KhFs09eD+ZqaVmjmVfMhsEdV8IGc5iIcQtMWr9mEJYflAnm5I5
-	qTMqK9Dq8oDweUDXjQEisrNs/S9d4d6CTHBhb01Hq+inzo2+vH3QvuqEQkvQ0BQb56XXPHam5O+
-	xEUqLNnj4qFGjGFhr0SQLOWh+AhpzXA==
-X-Google-Smtp-Source: AGHT+IGQe+9SacOULBoqYnLHIC+00g0T35D0fGvm1xJAYdkM18zC0nLDztSUBFlr9z1zvwzIUmVl4Q==
-X-Received: by 2002:a05:6871:6017:b0:2c2:542b:bce4 with SMTP id 586e51a60fabf-2ffaf22e373mr3628465fac.8.1752694704743;
-        Wed, 16 Jul 2025 12:38:24 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1752694712; x=1753299512;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=+FDBRSUyUWWqwGhcMioNN7CsL8+ZBOGwwYv007xVH3I=;
+        b=fnHXbPpf6Qz/snC/WULZwdXt21ZK4c3niYIqHLbGJvz9Ds7kzPbdGzI5XVEvl8j/Pu
+         UHPP0kIeGGmtHccTFJVBAD7QTYyV8XoUz4ow96gUgLjp1ldZhdCOatyUT2Z8/vfzohUW
+         Gep2NPo3w7A/Pl84nW3hLWK5cMfuBa/Cse7bRUNj3rgC+v8CPIMh5F98LmTFQRL+X86I
+         wL395+QeP0Uxofq2PDz8y+QLNSq6wI6Cq5pX7cYce6LbN4EKDVAA9yh770hGUUtYvr/N
+         W0cr6PU0QDfNEOfy1iz5RgLPwp8us0ruvsuxrSZYqN16vH9pKC2T2eqS9JhZx9MvmTS2
+         8MnQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWWuYvLPpT9ltaEMhUlzbbZHgvokdT9nXmDqxHH4+aJc2aanq1iWLuNpykA6gG4CkObs9fsPnE1ZN1jhR3zEmE/@lists.infradead.org
+X-Gm-Message-State: AOJu0YxP+gVUBQdsAXoUNfgzEJ7YKwlpZdiPjfI7mqMwTXe+ULp0UfLm
+	76jm7ArFo9R7uCuQQl7y/29qzfqdcYWzD/aRa+tgiFhWQOEG0ioMlIIcUV2jd6aw97013QGqwPO
+	vphxo
+X-Gm-Gg: ASbGncu4O98+KI89BXacWPWTqfZTKT4fyqfIGCBKDcF7wMswUTiJjozwIfmFJa/mAFK
+	jdEhOW/rKjjsdob2416eEu6KR/7A3vZcYhdP3+tE4GD54UJQmSOvkLVJikJVFu6HTwzJAZWcHPp
+	qTIalmKwrhKDK4CQHl0qjnNjwop3v2g0/UhfM2vTa3feCmteIREazAal7KRpqg8HDfYmamEK+vb
+	k6YNg7SzCimXMYt+g/LpDveyS8LOM9DnSNHuIRI4FB2pswNeMjMLhKcMuYlsgLkhutrEZi5eL0L
+	U5CQbVZHGXjte4aofJ+7l6j5EZKLVk43/K72fVHpbL0HjmKXuLjKhOoE52pp6m7B2GJNuWnRvnd
+	2ZH+jWIt9yYveidtnGeTThzHiTIYITe98QFZO9Nuz
+X-Google-Smtp-Source: AGHT+IFDI6CVXcKUhCo8LLXFkhb8W7llthuk++X+kRQ27Rn5k1+Mxpsptg2j4SfLdKCLpbJB6uge2w==
+X-Received: by 2002:a05:6830:3495:b0:727:3439:5bdf with SMTP id 46e09a7af769-73e665e298amr3267794a34.13.1752694712246;
+        Wed, 16 Jul 2025 12:38:32 -0700 (PDT)
 Received: from localhost ([2603:8080:b800:f700:3f28:4161:2162:7ea2])
-        by smtp.gmail.com with UTF8SMTPSA id 586e51a60fabf-2ff116d66ebsm3755808fac.41.2025.07.16.12.38.23
+        by smtp.gmail.com with UTF8SMTPSA id 46e09a7af769-73cf12a4bb8sm3235273a34.45.2025.07.16.12.38.31
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 16 Jul 2025 12:38:24 -0700 (PDT)
-Date: Wed, 16 Jul 2025 14:38:22 -0500
+        Wed, 16 Jul 2025 12:38:31 -0700 (PDT)
+Date: Wed, 16 Jul 2025 14:38:30 -0500
 From: Dan Carpenter <dan.carpenter@linaro.org>
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
-	Timothy Hayes <timothy.hayes@arm.com>,
-	Sascha Bischoff <sascha.bischoff@arm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: [PATCH 3/3] irqchip/gic-v5: Fix error handling in
- gicv5_its_irq_domain_alloc()
-Message-ID: <4787a3c4-9713-4b99-9b8a-7ba227e91d02@sabinyo.mountain>
-References: <cover.1752693640.git.dan.carpenter@linaro.org>
+To: Yuanfang Zhang <quic_yuanfang@quicinc.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Mike Leach <mike.leach@linaro.org>,
+	James Clark <james.clark@linaro.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Leo Yan <leo.yan@arm.com>, coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kernel-janitors@vger.kernel.org
+Subject: [PATCH next] coresight: Fix a NULL vs IS_ERR() bug in probe
+Message-ID: <7bd9fae8-a15f-412a-8800-ce47acf0b5ce@sabinyo.mountain>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <cover.1752693640.git.dan.carpenter@linaro.org>
+X-Mailer: git-send-email haha only kidding
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250716_123825_896084_374010CB 
-X-CRM114-Status: GOOD (  17.78  )
+X-CRM114-CacheID: sfid-20250716_123833_187602_371436E6 
+X-CRM114-Status: GOOD (  11.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,57 +101,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-There are two issues to fix in this code:
-1) If gicv5_alloc_lpi() fails the original code was checking the wrong
-variable.  Fix the mixup between "ret" and "lpi".
-2) If irq_domain_alloc_irqs_parent() fails, then clean up all the loop
-iterations instead of just the current iteration.
+The devm_ioremap_resource() function returns error pointers on error.
+It never returns NULL.  Update the error checking to match.
 
-Fixes: 57d72196dfc8 ("irqchip/gic-v5: Add GICv5 ITS support")
+Fixes: 26e20622a8ae ("coresight: add coresight Trace Network On Chip driver")
 Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
 ---
- drivers/irqchip/irq-gic-v5-its.c | 14 +++++++++++---
- 1 file changed, 11 insertions(+), 3 deletions(-)
+ drivers/hwtracing/coresight/coresight-tnoc.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/irqchip/irq-gic-v5-its.c b/drivers/irqchip/irq-gic-v5-its.c
-index 55360ae9f1f6..8cc8563e27d5 100644
---- a/drivers/irqchip/irq-gic-v5-its.c
-+++ b/drivers/irqchip/irq-gic-v5-its.c
-@@ -949,15 +949,18 @@ static int gicv5_its_irq_domain_alloc(struct irq_domain *domain, unsigned int vi
- 	device_id = its_dev->device_id;
+diff --git a/drivers/hwtracing/coresight/coresight-tnoc.c b/drivers/hwtracing/coresight/coresight-tnoc.c
+index 0e4164707eea..d542df46ea39 100644
+--- a/drivers/hwtracing/coresight/coresight-tnoc.c
++++ b/drivers/hwtracing/coresight/coresight-tnoc.c
+@@ -183,8 +183,8 @@ static int trace_noc_probe(struct amba_device *adev, const struct amba_id *id)
+ 	dev_set_drvdata(dev, drvdata);
  
- 	for (i = 0; i < nr_irqs; i++) {
--		lpi = gicv5_alloc_lpi();
-+		ret = gicv5_alloc_lpi();
- 		if (ret < 0) {
- 			pr_debug("Failed to find free LPI!\n");
- 			goto out_eventid;
- 		}
-+		lpi = ret;
+ 	drvdata->base = devm_ioremap_resource(dev, &adev->res);
+-	if (!drvdata->base)
+-		return -ENOMEM;
++	if (IS_ERR(drvdata->base))
++		return PTR_ERR(drvdata->base);
  
- 		ret = irq_domain_alloc_irqs_parent(domain, virq + i, 1, &lpi);
--		if (ret)
-+		if (ret) {
-+			gicv5_free_lpi(lpi);
- 			goto out_free_lpi;
-+		}
+ 	spin_lock_init(&drvdata->spinlock);
  
- 		/*
- 		 * Store eventid and deviceid into the hwirq for later use.
-@@ -979,7 +982,12 @@ static int gicv5_its_irq_domain_alloc(struct irq_domain *domain, unsigned int vi
- 	return 0;
- 
- out_free_lpi:
--	gicv5_free_lpi(lpi);
-+	while (--i >= 0) {
-+		irqd = irq_domain_get_irq_data(domain, virq + i);
-+		gicv5_free_lpi(irqd->parent_data->hwirq);
-+		irq_domain_reset_irq_data(irqd);
-+		irq_domain_free_irqs_parent(domain, virq + i, 1);
-+	}
- out_eventid:
- 	gicv5_its_free_eventid(its_dev, event_id_base, nr_irqs);
- 	return ret;
 -- 
 2.47.2
 
