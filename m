@@ -4,150 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6237C83F22
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 19:08:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BF49C83F1B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 19:13:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YzlqL+mWmBkkhjeQY63ZmSzsg8rLazCn5Nnc/5U0A+w=; b=MovEo6cL8kczpYraKOFavtuaKA
-	lM8a67YnO7hDL1Bq4QcSVP0JUMW/9z3xGCGLIZQQXQx/2r+RKwyCbNnbqKqslQ6pmgvxav3Y9LSOF
-	rA9iINZXdPxf7F2soynqFBkZVvBd5BX8fd6g2uLjSp/ktgn4s4PjeCOgbSzWbwKbl+5VTnrCwHA+N
-	IHnl4HHCL6DRq4IP9XOXUt54jso3jhOL5oEzR43UaIKp4pWQ36oVDTWdhiq1ExXG/yQsmhcO+9R5i
-	jbhadcbYYgeOjXi9ZDGLJN0K1/5kLOx1nKMwONLaSSkd9Wpq/G0nBxeC9OoTL73haBDDVlGr8HcMF
-	I1A9Mf7A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OOXV6KBmY8hmHm3fVz/Lr38YoXuL+7PPP+/f6A0XEsA=; b=JCU1A6o8cpE1RYD/jAjZfR3MJ/
+	RhwkK9IMtJc6wRZjC7Cnp3kJ6JgKSpMMLsKJVC0DZYHZLT97MeXZQodMzu0gs/PAU/KYFjhDbhWSL
+	ZaKj8mJ5Mn5DMAMVUi/p74hWbqD7UvETTsu6Vx80mcHgPqD79OpayuVyba+/9PWZd1gqwu6L8x+bB
+	A+1eoyMoV0LXn9JNr/ZBRWL6KT3hl1TFkn4T2KC+yBGmiDKjGSMf6rlaSBUjIJChhUMM6l7wykpod
+	2997UZb4v1kASVcNOE/wQ8Tl+anU2x9mHENto2nN4OVlfyqLyFTqVSX/7/TSmkVDp7knpA798jERD
+	n0QJ4D1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uc7UH-00000008Sdm-3mdR;
-	Wed, 16 Jul 2025 19:08:17 +0000
-Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1uc7Zf-00000008TD1-2uIb;
+	Wed, 16 Jul 2025 19:13:51 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uc7OU-00000008SDI-2vdu
+	id 1uc7W2-00000008SmC-1oPT
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Jul 2025 19:02:19 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=AWksBRRvlOn6rvinfnb3cz1djXfQPEFQ6JhAX+NOozSRJDehXhOUdgLSeC2k/GIlEA1Gpb28MeGlB/fsjblNzbWX5GItP03Gh/Lx1fEpm7hVFLmmgKC8vwa6SzZU79e2DHXcrMqCgMKEkd5sldK2ovUWwsHYz4dL43b5I9GQV07QdfT/HgG9+pxMdumbrdA3ZsrO7Ctyzje9RgXdDZtice6M6gA5E1t0Fym4NMPGIk34GVfOVBfyzLtyripWD9jkoRrc9qd51LK2CN6Btc0jwfGr5laM2g0sePQqGRIHF9JTG7vLnk6yquk3POEEvpvAax6MDeKXOUtmikjtMZvacw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=YzlqL+mWmBkkhjeQY63ZmSzsg8rLazCn5Nnc/5U0A+w=;
- b=fAW0xUnMKAsc9Vkw8HMsAvaA5nYFgoVr6+1z3/h6CekE0s3GBjYalqL1ovj9/c2JhnBxncNyq/BbET653yhgVEM4ZmIecczswSswE6tjiEQw+vRstwK4uq3ORLWYg4KTECvws9B0fseA6XNWMs8RllJi1QPresLM4OaI+f4RAw0tDOV583sPYns+9BPCBLAl90mooPUJFBvzBqnt5h/odpDLleSp3EGFhzDaFCa9fGhNOknOQDVXzBFyswGhiIVeJz88fq/EJ0T+Od0CAiz43G3eybsSHP8YzTBoBrgTLTbrGxQG00tB6TIAl5QEzjZtiSs+5itiYhpZbvbUJijeHQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=YzlqL+mWmBkkhjeQY63ZmSzsg8rLazCn5Nnc/5U0A+w=;
- b=MZwr3q58lhdbA0PyyZlcpsodilRHiku/B1q5Vk40J8khXoycMBKNkUMs6Djr3AvkAKseHzDFqmGhEvUTyh5QtQx66tiKRk9ip48Q+dPzjt17cPDtg+Ddu+FtV4kUphnARfMTYrBetUQtDyiITyZmqYntFyKHryWxEYctIrHhmIN80fbU8ViEYCI+BKlDoGqmtmJ3ShTnOwu1CfufKBYo3YpPEg4bNcAYZBiBYsMLOCetgK1I5gYhkxYf02cFCIe+tAjfbMedaN/F7Pz0Xx+/zPFCG92J9hYJx6OqVk46XnoanXLMDO2IHjexagjke19QVl/lwv+sezRB/lCRfHnbBw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by DBAPR04MB7287.eurprd04.prod.outlook.com (2603:10a6:10:1a4::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8922.32; Wed, 16 Jul
- 2025 19:02:07 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%5]) with mapi id 15.20.8922.028; Wed, 16 Jul 2025
- 19:02:07 +0000
-Date: Wed, 16 Jul 2025 15:02:02 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
-Cc: imx@lists.linux.dev, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, dri-devel@lists.freedesktop.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 08/10] arm64: dts: imx943: Add display pipeline nodes
-Message-ID: <aHf3KsEyvwYgxJ/a@lizhi-Precision-Tower-5810>
-References: <20250716081519.3400158-1-laurentiu.palcu@oss.nxp.com>
- <20250716081519.3400158-9-laurentiu.palcu@oss.nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250716081519.3400158-9-laurentiu.palcu@oss.nxp.com>
-X-ClientProxiedBy: AS4P189CA0066.EURP189.PROD.OUTLOOK.COM
- (2603:10a6:20b:659::14) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	Wed, 16 Jul 2025 19:10:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 15D7F46579
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Jul 2025 19:10:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E7EEFC4CEFE
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Jul 2025 19:10:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1752693005;
+	bh=5ONk/dhgxzx4BEgIyWuPo/yrDaN7XiSUNZxPs1Nfnis=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=pNDV1bihDjCd/R4DTX17sdlI8xs4hNrne1rmuOO3P1ISN/Tr8d4lkvhljqml2ce/p
+	 ebayJ7XL4JzqRet2zO/UD4heFIJCYduOgf2GnCFigntkNjuqh56uA5ADnksjaUsC0R
+	 bCfzCOmMZ7XzdfgGlcu4i2zxerQH5UQPBFO5UkjZ7cA7+OPJfrEkJFVtVR0TY39uqN
+	 mOw85vwd3mDC1RfYtBbALcc2HtCha7psNR4GwC7aQD7JH981Hxe38lvmQ+RqKVPzQz
+	 NNujmMt4ejV60SLjZ/EOA+R67XdT0VSfnMMUSzUNePPmW/RVmJVg3lHEbJh/3iX4nd
+	 jRIeIM+fezu6A==
+Received: by mail-oo1-f51.google.com with SMTP id 006d021491bc7-615a02ebcc7so52687eaf.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Jul 2025 12:10:05 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCVddDlDLGGJPV0vb7TJhTiQa0vGn5XX0T+WNF6ijnUexaZdHxcJA0gjGrnFHEqp+HY2+sGa2NR+cxOTrmqq2R6T@lists.infradead.org
+X-Gm-Message-State: AOJu0YzmpqyhvNI7Pcexm3qHXOtPb4Mk9E3vqvmheUG4qmN9pTi9ajC+
+	a/vlZ5gVtxQ2UHs/4tsk6ByCd+nkzlHxmcV2JEtyeFFNfP2AxG+r29n3rnGsypMwpE1ZnsAGOU8
+	2emXSgqmBiagG928N3KDcCsC8NhmDR5c=
+X-Google-Smtp-Source: AGHT+IF3+GPKGX9g9hYSOvtBePiC6ouh/Pa+vawVOjx2y0KZXvQTfL0WJR+bmcWjTV/eg7Dfl887GmDhIhlgJ7nbE9U=
+X-Received: by 2002:a4a:a5cb:0:b0:615:9c11:a072 with SMTP id
+ 006d021491bc7-6159ff4340amr2510895eaf.8.1752693004962; Wed, 16 Jul 2025
+ 12:10:04 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|DBAPR04MB7287:EE_
-X-MS-Office365-Filtering-Correlation-Id: e8597934-d46a-4f30-6661-08ddc49b42ae
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|52116014|7416014|366016|19092799006|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?C37TFoYOQmINAqkH+cO+uBKDrLXvMFHgf2asrVAHV8eC1sTjmtsGaSvrbuoR?=
- =?us-ascii?Q?EojkwlZa8v9gCslCew3nojAEr6f87OS/xg8hqKTmDBGB3td6O2AvMLAu7N6k?=
- =?us-ascii?Q?1aZD8CPFiFzxE3q7PN0SNNoa5oQTeqpBNv9oKUw/EJ442lYNn+ukJGt+cvN3?=
- =?us-ascii?Q?5K+ntXJdNp2tvjqpGFf8jBcxCmneehGqwRHyevfcqjvKCwMwyVvbRgsNRlYz?=
- =?us-ascii?Q?bas2gr4NDarLGvJPF78uWhDCWrczeWRSDT/yUZHFrTqDszEtqYJ+rD7XOcOV?=
- =?us-ascii?Q?s51ZyTQgauyBTDY8vcbczHxQV196f9huU7txYVPFAcLFWpUmuQH5Am6tIcfg?=
- =?us-ascii?Q?Kl7UkdshUu9XiNStrMSY+VyuJ3BjpH1jH82QtO4O08ObRFvNhmvPjUjKwP4i?=
- =?us-ascii?Q?W4yFT8uJmr0/+maWyzGqGIu5vyMEYw9qITetC8KgciOyhwxH95cnvY8f9N4r?=
- =?us-ascii?Q?2UPkB6LzqxxeQKdDYr0pIyYJig1kVc6MKy3x2qRYWY1rts/IJ0YSjV5rn5Na?=
- =?us-ascii?Q?V2hZbMMG6iJdPbdERwKha1bo3R2ruUib1KGgzY4uTI0BLXO/pnDMTWxsNuzz?=
- =?us-ascii?Q?YHVz4lEC87maGKLgUxBZw9rQQLmT+Mrpmgusqd7HXrB3R6ZdKDICcjUjf211?=
- =?us-ascii?Q?tLuKpUNr8CHlVoNZn116MBFU3fru5UspgLAopNfeTBLnz5bdL3g4cpghKmwS?=
- =?us-ascii?Q?jXx2efVJPj8CwwOk3cxmqPuSx1wbUX+9+946hZfDAH5BbGRD3wKphvOXgtpo?=
- =?us-ascii?Q?sMaiVwj6l4z/8jM2tSxBPdZRjmXW01T7mCjX5qF0EvKBX35zGcmxGKTDFFvR?=
- =?us-ascii?Q?xJh+OhVGshpmRUhNB1xok36ZvzufpcNY3MEwl8Ugyj/sXZzR5rZ/3aIx3Kz+?=
- =?us-ascii?Q?DWBKsb1ZmFdRbeMUMFz0KAoZRKFhecXT9qpES0HseEz/2jG82UdVdmIhJGtS?=
- =?us-ascii?Q?3WgueoJ8m2bOFfhzf2YARf2i0bDaXPdgBNbMk6LujKWTYEXk1qKPmuEMlv6S?=
- =?us-ascii?Q?bwGNHAe3sJJk0q1meh9K/TCV+vO+E+C1CweCgBuRGdN1Ll2v2FvVd5CcRVNl?=
- =?us-ascii?Q?2DzB0f7JlnIH2qqJ1VjGbIMwrq2vvzJuXqPuRS6NjKW5KFEkZb1WuOD0yMAr?=
- =?us-ascii?Q?VA7Hp0MJBgNIydLsYSQPpkt6F6bFlEkJiN/od9CjluH9W88thjHS3ZE82U6w?=
- =?us-ascii?Q?EkVsCH2NXJAlJBs7W3sg+Y9LvB6bWwY+CCx/yq+mDJoXqVKXeS4M7McqTyte?=
- =?us-ascii?Q?kHnfzNsvI6xlg3G1IRY7Y6tOsImLl3qURINMKRHNBq3mC1fGUX3DpCv9fIeT?=
- =?us-ascii?Q?2gVCYO96kOhUHwSbF4lnr3X3P/L6WqzAH+op0G01ywR9jpOzsLterlAyfM44?=
- =?us-ascii?Q?Yd27R0IirzDGacL6HRbetXRDD6EpLpjV2vSfhfxz0VcFv72VS6sj0IqHUGVi?=
- =?us-ascii?Q?MmzHhQi2XByfWXrB/m7pT2dUcVLA9R+EJ1KZEOxamCqERs5eE1967w=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(52116014)(7416014)(366016)(19092799006)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Kl5GYD3r2qxMl1GRwL9FS1uwpqXYKaRd0kEhFXdsVkRBqw0FlN/Pvx0jTl4v?=
- =?us-ascii?Q?Hd60+ODOT/mp0t4TrbcJXSKB7cGE38ZRu5P2xx4SDgpaswuSG/L7ugVgiy/v?=
- =?us-ascii?Q?WdYOsB5sonSIT7QD9szi6TCA5vbh1BBMLg3sntDkIZYkGSYxv+zYT2DFAU+m?=
- =?us-ascii?Q?3YgMOzQR3s6rW51t8A4NeaWl7zPbwiO+fyYXyHrl0wsLmWNYYf39R2xVHuii?=
- =?us-ascii?Q?AAPa2fnDfaLQHgdYhSIZCf1DnIYsFniFeQn5BjD+7mWjt/OFC3IhhwMqI9j7?=
- =?us-ascii?Q?z50Lc88RO0fo4YXCImRCFBZkxlyh9OYuWMCJaOb4U2VTjwKIvOp5Fme1P5aW?=
- =?us-ascii?Q?M9c2mFwKVfdgPTiTu8DEWq0I9U/kGPubF7ZnEbqQHf1aQ+8qEAX3/EMLwypO?=
- =?us-ascii?Q?ESaTGBMCgYfxD6zWeNGo9cjBHoJs2PeFuhxZjugk6JCDv0ekinwDkEHCGKzD?=
- =?us-ascii?Q?JrXkzzvfup0opCfhH4KoudkXXgBFYsv7kp+j1qhJsKRVPGKhSey6fX+Yad/L?=
- =?us-ascii?Q?TA8AMCzDWNkLuGDreEJdpo7nDntiK4qmnG9qMTN7AzSGpu5N8YUxC8oLwbdU?=
- =?us-ascii?Q?QY+0uepnX8ofuo8zuqmF+1reoRp7aodlda3YIT695aLClHnM2rRxJXwTjW7m?=
- =?us-ascii?Q?96swke0SNx9n5vZmLRYVMtIXL0PenV7hi0ckeWlYx6wVJcdCVu2xE3CJgIrO?=
- =?us-ascii?Q?d++TYIptAir2jcdQFuHLynpvIK/j8Otw2joAa02zVm7Ekjd2RYXH5+BiYPl1?=
- =?us-ascii?Q?/shRLh+NbKOet+oK2cuMe5DQncuCVjTK0ZBP16GWV/y+sV49I89u998d+6Uh?=
- =?us-ascii?Q?9n6U/qPdDacDrdgP/IQpDS4bMYZtQbDz8FmX9n98M9RKJodgOdo539wGS980?=
- =?us-ascii?Q?7Cf3vKfentxpOqdQIhNKEcXwUBhdupznziz94xK/4YIIR6L2QoA5UyPrsMj9?=
- =?us-ascii?Q?Kjqlr7+ux8Ot6QvNWT8CVjdz4V9A8Xi6/yofBi4i0gt25GithbZpWJ4sr8H1?=
- =?us-ascii?Q?uvIjT1DKcPtR6lEnts+TwbTDUk3L1hVzp/VJ0R1B9l982K/kimlNHn5UiVFY?=
- =?us-ascii?Q?AYnysq89ud696fxW8115M//GpICgS9/JZkNnDw8wWtfdJlebHpIbONEKSIRx?=
- =?us-ascii?Q?77VE4MB3hh6dWw/dnO8UG1gvUoq/z6cUtNg5ZEvlRdUOsMjevPzqutg7CBC6?=
- =?us-ascii?Q?dv9136x3fmW+EZsBI/asloDU9FulxKhUHk6qbrs8LLkZhJ5jJZz4pFl7Zl/K?=
- =?us-ascii?Q?I3f8Ip12oTBcK+9Xhbppg+/lA4rstf+FAiI/ZEmEAJizz0Z7wx3kOka46AUR?=
- =?us-ascii?Q?9zzeiAI6GLCtuu6rEmGREjhpeBtMAnec3u4BBx2ccAQ8K3ShX3UKOXFCZgtz?=
- =?us-ascii?Q?tj/+ruBbY/cOcrZmAtUd+2bssAYmOjwY7B4hbg7yG7awL3zPM48OgHR3q3Eh?=
- =?us-ascii?Q?ycZL3W3dMaNz70okeW6mIbzI9wdhGA1anVDsnCZeCScxA4ZhpNDCpMwGNTxS?=
- =?us-ascii?Q?3Kmvyr/48mIa+LOEppYs8bOR0whkjuIDt00z2NQ0HNXX95pJlJxA7ghW6lKS?=
- =?us-ascii?Q?C0k9s9dglolpZwEH6BZhoiTKGxRHcWe3Ds+FOr7a?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e8597934-d46a-4f30-6661-08ddc49b42ae
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Jul 2025 19:02:07.5931
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: t72XtcpeStOJJu5QLeYwfi5c/AxmSSgc4EN3rkmiCKsZA5wshm6fz7WxLTnJJ2vCd+ShIXRmDkqg43YNGI5UxA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBAPR04MB7287
+References: <20250714114212.31660-1-xueshuai@linux.alibaba.com>
+In-Reply-To: <20250714114212.31660-1-xueshuai@linux.alibaba.com>
+From: "Rafael J. Wysocki" <rafael@kernel.org>
+Date: Wed, 16 Jul 2025 21:09:53 +0200
+X-Gmail-Original-Message-ID: <CAJZ5v0gmuBwCXovP7WvmUss7midrJdPXNDCbhTV0tCWMb_V2ZQ@mail.gmail.com>
+X-Gm-Features: Ac12FXzuJJVotxHfi5JXQgRoZINZEL1SjopFGDk1sL5TkrIFpGNDE-craBpu6EI
+Message-ID: <CAJZ5v0gmuBwCXovP7WvmUss7midrJdPXNDCbhTV0tCWMb_V2ZQ@mail.gmail.com>
+Subject: Re: [PATCH v19 0/2] ACPI: APEI: fix potential hardlockup due to
+ infinite SEA excepction loop
+To: Shuai Xue <xueshuai@linux.alibaba.com>
+Cc: catalin.marinas@arm.com, sudeep.holla@arm.com, guohanjun@huawei.com, 
+	lpieralisi@kernel.org, linux-acpi@vger.kernel.org, yazen.ghannam@amd.com, 
+	mark.rutland@arm.com, mingo@redhat.com, robin.murphy@arm.com, 
+	Jonathan.Cameron@huawei.com, bp@alien8.de, rafael@kernel.org, 
+	linux-arm-kernel@lists.infradead.org, wangkefeng.wang@huawei.com, 
+	tanxiaofei@huawei.com, mawupeng1@huawei.com, tony.luck@intel.com, 
+	linmiaohe@huawei.com, naoya.horiguchi@nec.com, james.morse@arm.com, 
+	tongtiangen@huawei.com, gregkh@linuxfoundation.org, will@kernel.org, 
+	jarkko@kernel.org, linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
+	akpm@linux-foundation.org, linux-edac@vger.kernel.org, x86@kernel.org, 
+	justin.he@arm.com, ardb@kernel.org, ying.huang@linux.alibaba.com, 
+	ashish.kalra@amd.com, baolin.wang@linux.alibaba.com, tglx@linutronix.de, 
+	dave.hansen@linux.intel.com, lenb@kernel.org, hpa@zytor.com, 
+	robert.moore@intel.com, lvying6@huawei.com, xiexiuqi@huawei.com, 
+	zhuo.song@linux.alibaba.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250716_120218_733592_962182F8 
-X-CRM114-Status: GOOD (  16.93  )
+X-CRM114-CacheID: sfid-20250716_121006_522133_7F71E6C7 
+X-CRM114-Status: GOOD (  54.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,104 +97,299 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 16, 2025 at 11:15:12AM +0300, Laurentiu Palcu wrote:
-> Add display controller and LDB support in imx943.
+On Mon, Jul 14, 2025 at 1:42=E2=80=AFPM Shuai Xue <xueshuai@linux.alibaba.c=
+om> wrote:
 >
-> Signed-off-by: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
-> ---
->  arch/arm64/boot/dts/freescale/imx943.dtsi | 56 ++++++++++++++++++++++-
->  1 file changed, 55 insertions(+), 1 deletion(-)
+> Dear maintainer:
 >
-> diff --git a/arch/arm64/boot/dts/freescale/imx943.dtsi b/arch/arm64/boot/dts/freescale/imx943.dtsi
-> index 657c81b6016f2..db00a94812e18 100644
-> --- a/arch/arm64/boot/dts/freescale/imx943.dtsi
-> +++ b/arch/arm64/boot/dts/freescale/imx943.dtsi
-> @@ -148,7 +148,7 @@ l3_cache: l3-cache {
->  		};
->  	};
+> I am writing to respectfully request your review and consideration for me=
+rging
+> this patch series, which addresses potential hardlockup due to infinite
+> SEA excepction loop ( see bellow for details).
 >
-> -	clock-ldb-pll-div7 {
-> +	clock_ldb_pll_div7: clock-ldb-pll-div7 {
->  		compatible = "fixed-factor-clock";
->  		#clock-cells = <0>;
->  		clocks = <&scmi_clk IMX94_CLK_LDBPLL>;
-> @@ -173,10 +173,64 @@ dispmix_csr: syscon@4b010000 {
+> As noted by @Catalin,
 >
->  		lvds_csr: syscon@4b0c0000 {
->  			compatible = "nxp,imx94-lvds-csr", "syscon";
-
-Did you update nxp,imx94-lvds-csr's binding doc to allow add child node
-ldb@4 ?
-
-> +			#address-cells = <1>;
-> +			#size-cells = <1>;
->  			reg = <0x0 0x4b0c0000 0x0 0x10000>;
-
-reg should be second property. add address-cells after reg
-
->  			clocks = <&scmi_clk IMX94_CLK_DISPAPB>;
->  			#clock-cells = <1>;
->  			power-domains = <&scmi_devpd IMX94_PD_DISPLAY>;
-> +
-> +			ldb: ldb@4 {
-> +				compatible = "fsl,imx94-ldb";
-> +				#address-cells = <1>;
-> +				#size-cells = <0>;
-
-the same here.
-
-Frank
-> +				reg = <0x4 0x4>, <0x8 0x4>;
-> +				reg-names = "ldb", "lvds";
-> +				clocks = <&lvds_csr IMX94_CLK_DISPMIX_LVDS_CLK_GATE>;
-> +				clock-names = "ldb";
-> +				status = "disabled";
-> +
-> +				ports {
-> +					#address-cells = <1>;
-> +					#size-cells = <0>;
-> +
-> +					port@0 {
-> +						reg = <0>;
-> +
-> +						lvds_in: endpoint {
-> +							remote-endpoint = <&dcif_out>;
-> +						};
-> +					};
-> +
-> +					port@1 {
-> +						reg = <1>;
-> +					};
-> +				};
-> +			};
-> +		};
-> +
-> +		dcif: display-controller@4b120000 {
-> +			compatible = "nxp,imx94-dcif";
-> +			reg = <0x0 0x4b120000 0x0 0x300000>;
-> +			interrupts = <GIC_SPI 377 IRQ_TYPE_LEVEL_HIGH>,
-> +				     <GIC_SPI 378 IRQ_TYPE_LEVEL_HIGH>,
-> +				     <GIC_SPI 379 IRQ_TYPE_LEVEL_HIGH>;
-> +			interrupt-names = "common", "bg_layer", "fg_layer";
-> +			clocks = <&scmi_clk IMX94_CLK_DISPAPB>,
-> +				 <&scmi_clk IMX94_CLK_DISPAXI>,
-> +				 <&dispmix_csr IMX94_CLK_DISPMIX_CLK_SEL>;
-> +			clock-names = "apb", "axi", "pix";
-> +			assigned-clocks = <&dispmix_csr IMX94_CLK_DISPMIX_CLK_SEL>;
-> +			assigned-clock-parents = <&clock_ldb_pll_div7>;
-> +			power-domains = <&scmi_devpd IMX94_PD_DISPLAY>;
-> +			nxp,blk-ctrl = <&dispmix_csr>;
-> +			status = "disabled";
-> +
-> +			port {
-> +				dcif_out: endpoint {
-> +					remote-endpoint = <&lvds_in>;
-> +				};
-> +			};
->  		};
->  	};
->  };
+> > James Morse is listed as reviewer of the ACPI APEI code but he's busy
+> > with resctrl/MPAM. Adding Lorenzo, Sudeep and Hanjun as arm64 ACPI
+> > maintainers, hopefully they can help.
+>
+> This patch series has undergone extensive review through 19 iterations Re=
+ceived
+> 13 'Reviewed-by' tags from various reviewers. Notably includes review app=
+roval
+> from arm64 ACPI maintainer Hanjun Guo.
+>
+> The patches have been thoroughly tested and refined based on community fe=
+edback.
+> I believe they are ready for integration into the mainline kernel.
+>
+> I would greatly appreciate your time in reviewing these changes and
+> providing your ack if you find them acceptable for merging.
+>
+> Thank you for your continued support and maintenance of the kernel.
+>
+> changes since last v18:
+> - add reviewed-by tag for patch 1-2 from Hanjun
+>
+> no code changes since last v18:
+> - drop a mm/hwpoison patch which is merged into mainline
+>
+> changes singce v17:
+> - rebase to Linux 6.13-rc7 with no functional changes
+> - add reviewed-by tag for patch 1-3 from Jane Chu
+> - add reviewed-by tag for patch 3 from Yazen
+>
+> changes singce v16:
+> - add reviewed-by tag for patch 1 and patch 2 from Yazen
+> - rewrite warning message for force kill (per Yazen)
+> - warn with dev_err in ghes (per Jarkko)
+> - add return value -ENXIO in memory_failure comments  (per Yazen)
+> - Link: https://lore.kernel.org/lkml/20241104015430.98599-1-xueshuai@linu=
+x.alibaba.com/
+>
+> changes singce v15:
+> - add HW_ERR and GHES_PFX prefix per Yazen
+>
+> changes since v14:
+> - add reviewed-by tags from Jarkko and Jonathan
+> - remove local variable and use twcb->pfn
+>
+> changes since v13:
+> - add reviewed-by tag from Jarkko
+> - rename task_work to ghes_task_work (per Jarkko)
+>
+> changes since v12:
+> - tweak error message for force kill (per Jarkko)
+> - fix comments style (per Jarkko)
+> - fix commit log typo (per Jarko)
+>
+> changes since v11:
+> - rebase to Linux 6.11-rc6
+> - fix grammer and typo in commit log (per Borislav)
+> - remove `sync_` perfix of `sync_task_work`  (per Borislav)
+> - comments flags and description of `task_work`  (per Borislav)
+>
+> changes since v10:
+> - rebase to v6.8-rc2
+>
+> changes since v9:
+> - split patch 2 to address exactly one issue in one patch (per Borislav)
+> - rewrite commit log according to template (per Borislav)
+> - pickup reviewed-by tag of patch 1 from James Morse
+> - alloc and free twcb through gen_pool_{alloc, free) (Per James)
+> - rewrite cover letter
+>
+> changes since v8:
+> - remove the bug fix tag of patch 2 (per Jarkko Sakkinen)
+> - remove the declaration of memory_failure_queue_kick (per Naoya Horiguch=
+i)
+> - rewrite the return value comments of memory_failure (per Naoya Horiguch=
+i)
+>
+> changes since v7:
+> - rebase to Linux v6.6-rc2 (no code changed)
+> - rewritten the cover letter to explain the motivation of this patchset
+>
+> changes since v6:
+> - add more explicty error message suggested by Xiaofei
+> - pick up reviewed-by tag from Xiaofei
+> - pick up internal reviewed-by tag from Baolin
+>
+> changes since v5 by addressing comments from Kefeng:
+> - document return value of memory_failure()
+> - drop redundant comments in call site of memory_failure()
+> - make ghes_do_proc void and handle abnormal case within it
+> - pick up reviewed-by tag from Kefeng Wang
+>
+> changes since v4 by addressing comments from Xiaofei:
+> - do a force kill only for abnormal sync errors
+>
+> changes since v3 by addressing comments from Xiaofei:
+> - do a force kill for abnormal memory failure error such as invalid PA,
+> unexpected severity, OOM, etc
+> - pcik up tested-by tag from Ma Wupeng
+>
+> changes since v2 by addressing comments from Naoya:
+> - rename mce_task_work to sync_task_work
+> - drop ACPI_HEST_NOTIFY_MCE case in is_hest_sync_notify()
+> - add steps to reproduce this problem in cover letter
+>
+> changes since v1:
+> - synchronous events by notify type
+> - Link: https://lore.kernel.org/lkml/20221206153354.92394-3-xueshuai@linu=
+x.alibaba.com/
+>
+> ## Cover Letter
+>
+> There are two major types of uncorrected recoverable (UCR) errors :
+>
+> - Synchronous error: The error is detected and raised at the point of the
+>   consumption in the execution flow, e.g. when a CPU tries to access
+>   a poisoned cache line. The CPU will take a synchronous error exception
+>   such as Synchronous External Abort (SEA) on Arm64 and Machine Check
+>   Exception (MCE) on X86. OS requires to take action (for example, offlin=
+e
+>   failure page/kill failure thread) to recover this uncorrectable error.
+>
+> - Asynchronous error: The error is detected out of processor execution
+>   context, e.g. when an error is detected by a background scrubber. Some =
+data
+>   in the memory are corrupted. But the data have not been consumed. OS is
+>   optional to take action to recover this uncorrectable error.
+>
+> Currently, both synchronous and asynchronous error use
+> memory_failure_queue() to schedule memory_failure() exectute in kworker
+> context. As a result, when a user-space process is accessing a poisoned
+> data, a data abort is taken and the memory_failure() is executed in the
+> kworker context:
+>
+>   - will send wrong si_code by SIGBUS signal in early_kill mode, and
+>   - can not kill the user-space in some cases resulting a synchronous
+>     error infinite loop
+>
+> Issue 1: send wrong si_code in early_kill mode
+>
+> Since commit a70297d22132 ("ACPI: APEI: set memory failure flags as
+> MF_ACTION_REQUIRED on synchronous events")', the flag MF_ACTION_REQUIRED
+> could be used to determine whether a synchronous exception occurs on
+> ARM64 platform.  When a synchronous exception is detected, the kernel is
+> expected to terminate the current process which has accessed poisoned
+> page. This is done by sending a SIGBUS signal with an error code
+> BUS_MCEERR_AR, indicating an action-required machine check error on
+> read.
+>
+> However, when kill_proc() is called to terminate the processes who have
+> the poisoned page mapped, it sends the incorrect SIGBUS error code
+> BUS_MCEERR_AO because the context in which it operates is not the one
+> where the error was triggered.
+>
+> To reproduce this problem:
+>
+>   # STEP1: enable early kill mode
+>   #sysctl -w vm.memory_failure_early_kill=3D1
+>   vm.memory_failure_early_kill =3D 1
+>
+>   # STEP2: inject an UCE error and consume it to trigger a synchronous er=
+ror
+>   #einj_mem_uc single
+>   0: single   vaddr =3D 0xffffb0d75400 paddr =3D 4092d55b400
+>   injecting ...
+>   triggering ...
+>   signal 7 code 5 addr 0xffffb0d75000
+>   page not present
+>   Test passed
+>
+> The si_code (code 5) from einj_mem_uc indicates that it is BUS_MCEERR_AO
+> error and it is not fact.
+>
+> To fix it, queue memory_failure() as a task_work so that it runs in
+> the context of the process that is actually consuming the poisoned data.
+>
+> After this patch set:
+>
+>   # STEP1: enable early kill mode
+>   #sysctl -w vm.memory_failure_early_kill=3D1
+>   vm.memory_failure_early_kill =3D 1
+>
+>   # STEP2: inject an UCE error and consume it to trigger a synchronous er=
+ror
+>   #einj_mem_uc single
+>   0: single   vaddr =3D 0xffffb0d75400 paddr =3D 4092d55b400
+>   injecting ...
+>   triggering ...
+>   signal 7 code 4 addr 0xffffb0d75000
+>   page not present
+>   Test passed
+>
+> The si_code (code 4) from einj_mem_uc indicates that it is BUS_MCEERR_AR
+> error as we expected.
+>
+> Issue 2: a synchronous error infinite loop due to memory_failure() failed
+>
+> If a user-space process, e.g. devmem, a poisoned page which has been set
+> HWPosion flag, kill_accessing_process() is called to send SIGBUS to the
+> current processs with error info. Because the memory_failure() is
+> executed in the kworker contex, it will just do nothing but return
+> EFAULT. So, devmem will access the posioned page and trigger an
+> excepction again, resulting in a synchronous error infinite loop. Such
+> loop may cause platform firmware to exceed some threshold and reboot
+> when Linux could have recovered from this error.
+>
+> To reproduce this problem:
+>
+>   # STEP 1: inject an UCE error, and kernel will set HWPosion flag for re=
+lated page
+>   #einj_mem_uc single
+>   0: single   vaddr =3D 0xffffb0d75400 paddr =3D 4092d55b400
+>   injecting ...
+>   triggering ...
+>   signal 7 code 4 addr 0xffffb0d75000
+>   page not present
+>   Test passed
+>
+>   # STEP 2: access the same page and it will trigger a synchronous error =
+infinite loop
+>   devmem 0x4092d55b400
+>
+> To fix it, if memory_failure() failed, perform a force kill to current pr=
+ocess.
+>
+> Issue 3: a synchronous error infinite loop due to no memory_failure() que=
+ued
+>
+> No memory_failure() work is queued unless all bellow preconditions check =
+passed:
+>
+> - `if (!(mem_err->validation_bits & CPER_MEM_VALID_PA))` in ghes_handle_m=
+emory_failure()
+> - `if (flags =3D=3D -1)` in ghes_handle_memory_failure()
+> - `if (!IS_ENABLED(CONFIG_ACPI_APEI_MEMORY_FAILURE))` in ghes_do_memory_f=
+ailure()
+> - `if (!pfn_valid(pfn) && !arch_is_platform_page(physical_addr)) ` in ghe=
+s_do_memory_failure()
+>
+> If the preconditions are not passed, the user-space process will trigger =
+SEA again.
+> This loop can potentially exceed the platform firmware threshold or even
+> trigger a kernel hard lockup, leading to a system reboot.
+>
+> To fix it, if no memory_failure() queued, perform a force kill to current=
+ process.
+>
+> And the the memory errors triggered in kernel-mode[5], also relies on thi=
+s
+> patchset to kill the failure thread.
+>
+> Lv Ying and XiuQi from Huawei also proposed to address similar problem[2]=
+[4].
+> Acknowledge to discussion with them.
+>
+> [1] Add ARMv8 RAS virtualization support in QEMU https://patchew.org/QEMU=
+/20200512030609.19593-1-gengdongjiu@huawei.com/
+> [2] https://lore.kernel.org/lkml/20221205115111.131568-3-lvying6@huawei.c=
+om/
+> [3] https://lkml.kernel.org/r/20220914064935.7851-1-xueshuai@linux.alibab=
+a.com
+> [4] https://lore.kernel.org/lkml/20221209095407.383211-1-lvying6@huawei.c=
+om/
+> [5] https://patchwork.kernel.org/project/linux-arm-kernel/cover/202405280=
+85915.1955987-1-tongtiangen@huawei.com/
+>
+> Shuai Xue (2):
+>   ACPI: APEI: send SIGBUS to current task if synchronous memory error
+>     not recovered
+>   ACPI: APEI: handle synchronous exceptions in task work
+>
+>  drivers/acpi/apei/ghes.c | 88 +++++++++++++++++++++++++---------------
+>  include/acpi/ghes.h      |  3 --
+>  include/linux/mm.h       |  1 -
+>  mm/memory-failure.c      | 13 ------
+>  4 files changed, 55 insertions(+), 50 deletions(-)
+>
 > --
-> 2.34.1
->
+
+Both patches applied as 6.17 material with some minor edits in the changelo=
+gs.
+
+Thanks!
 
