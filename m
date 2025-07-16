@@ -4,88 +4,180 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E68AAC83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 03:13:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F13FEC83F1B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 03:54:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=C44hg9GdfXD89pkk4/23gbTOflCosCz0aWLPir0861o=; b=TfdlIw5uqG2bblLQ3cK9KuLQES
-	qnZFCu+9ZiMMlwtoeevAzqAo1I0GdagZsslrqT1uU9peybiscJA1aNzP2xS+Q195rFAPizzbkRxG4
-	K+WQJdGQJcfVZZa3fXB6h5g4Kee4fWhOrzNF8zoZ4nNwjdr3Rd9XWAcK0ZdxEoTAhx/CQodIUGI3O
-	R15M2XBiMK2lzyh4h1QNg+t9QSa8AVn2CPn+6gBhXHt7DTCfOrENtuMUw9LGF8LXtxK/f3Ni0z/2x
-	+V6CmU5x+zl0X6SxBiEh2w8Lzx66jhsl+kKbEriffmCKRYCHfD6w45D2x7GUfU2Ft0ToTlVvH0Dqk
-	celgEYlw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KCfc+Ec3kwLMT3pydvZcSgoZImur0kb7Mtejl7DwIPQ=; b=0oF7ShVHaNCgS410TCzksKFHmd
+	C/9JrjgbN3BEgJbPYopdvj+K3QvOgNqF1NZK6g1DR4KxE+gsOh6cuHwsCswfiNfoa9UBZdXQBwC3F
+	4MFcZIaJjBIcbktn9qi+VqT4ICBy8ddOSUs/PEj2XEeIY5NvlsuUpUE/Ru8PDVr49Ll3vTy51YVqP
+	hrekMw8MmGM90/A+vb3LWgdDw1kFrJ/r4BFph+h69b0wBn/3XI/UUrlw9tfQ2pDt7p856PrOuspMf
+	sTlqTT7XMR8Ye9sp97y3b5+PaLB0jGdyTqD2bUsIIVvv5UdoHG+fmkS04vlJETKm2iZGAyFBCQaSA
+	nnm2y61A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubsaN-00000006eQ5-0CbD;
-	Wed, 16 Jul 2025 03:13:35 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1ubtDl-00000006hLT-0ilV;
+	Wed, 16 Jul 2025 03:54:17 +0000
+Received: from mail-japanwestazlp170120003.outbound.protection.outlook.com ([2a01:111:f403:c406::3] helo=OS8PR02CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubsXw-00000006eNP-1fGl
+	id 1ubtBG-00000006h9Q-3oad
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Jul 2025 03:11:05 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id EBE30A5732A;
-	Wed, 16 Jul 2025 03:11:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 804C5C4CEE3;
-	Wed, 16 Jul 2025 03:11:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752635462;
-	bh=nBjyQ5BHE+tuIIT/DAP5dnbdYgNuHRwX1DkTrChMN78=;
-	h=From:To:Cc:Subject:Date:From;
-	b=WpB1X5pa1J3JbdHTgn1GJBt5blAM5v2CUyNGVKi060YI+nsdXp/mciQWgfLVPkc7+
-	 6kqMIwnCVmiO09jRtCoLWsNAr1iWj89E1E/QoL74HW6AdxonjTuXxbsOy7tuctEtxT
-	 Wuv46/bBMKH2ogbSFhz6fjoZkeMm0yk7h6PEPNtgPOoAPQCEl0HGC2KZsfvGopTszV
-	 OnVgoHQpJAK1n+giwOEsr8TP+izDk1K4gccHX6Ej5hN6VFiWDXOHMrzLfc0cv8w0cV
-	 cDb+LgAWejKUSfs+mnjJ9kr1r8euH0JxPsEARqT2q4I01ErT+7nhG/sTW7nYN3mBpq
-	 eRFi1RxvY8ZwQ==
-From: Bjorn Andersson <andersson@kernel.org>
-To: arm@kernel.org,
-	soc@kernel.org
-Cc: linux-arm-msm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Arnd Bergmann <arnd@arndb.de>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-	Aleksandrs Vinarskis <alex.vinarskis@gmail.com>,
-	=?UTF-8?q?Andr=C3=A9=20Apitzsch?= <git@apitzsch.eu>,
-	Vikash Garodia <quic_vgarodia@quicinc.com>,
-	Jens Glathe <jens.glathe@oldschoolsolutions.biz>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	Lijuan Gao <quic_lijuang@quicinc.com>,
-	Nitin Rawat <quic_nitirawa@quicinc.com>,
-	Satya Priya Kakitapalli <quic_skakitap@quicinc.com>,
-	Ayushi Makhija <quic_amakhija@quicinc.com>,
-	Jie Gan <jie.gan@oss.qualcomm.com>,
-	Luca Weiss <luca.weiss@fairphone.com>,
-	Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
-	Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>,
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-	Eugen Hristev <eugen.hristev@linaro.org>,
-	Jagadeesh Kona <quic_jkona@quicinc.com>,
-	Kyle Deng <quic_chunkaid@quicinc.com>,
-	Lijuan Gao <lijuan.gao@oss.qualcomm.com>,
-	Loic Poulain <loic.poulain@oss.qualcomm.com>,
-	Maulik Shah <maulik.shah@oss.qualcomm.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Pengyu Luo <mitltlatltl@gmail.com>,
-	Raviteja Laggyshetty <quic_rlaggysh@quicinc.com>,
-	Stephan Gerhold <stephan@gerhold.net>,
-	Wenmeng Liu <quic_wenmliu@quicinc.com>
-Subject: [GIT PULL] Qualcomm Arm64 DeviceTree updates for v6.17
-Date: Tue, 15 Jul 2025 22:10:57 -0500
-Message-ID: <20250716031059.76348-1-andersson@kernel.org>
-X-Mailer: git-send-email 2.49.0
+	Wed, 16 Jul 2025 03:51:47 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=UDpcneSVFvuB7QnZ59oz8nXBkAR8JBDyksQ/VvOsN5dTwvHu4L2BXIYJdgaXW46UnOBSUbWB8VOYUuPqiX3zxrNHoy4dg9RLELSGU2BAOCAkPH+fzzS8B6jBkTPCtqfY0M1n7FHtwXDlMirLz/lYk2jDdgEAhwQ6GQMimJ1Edy+LgSoc6lN6TbmA6iiJPg7+n4Y15ZAIRzh4YsrqHgO2+1Obgu9tg+NlD8UVnySO6GMqFeZ/Y7AiVKeXmNM7W0vX53U0oQNxuozz0W082KmYepfuEMjbrj+859Ugad3RfWwtQAvlSoVocA35mtbeEE/1GLOTzpWw8m0UhxL7Gup4uw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=KCfc+Ec3kwLMT3pydvZcSgoZImur0kb7Mtejl7DwIPQ=;
+ b=F+6ZpULfni+2rY9y6av9wwFVLmDR5b8qRBYOK3rnFjn8XZW12hkIzJim1H/++XRTJQsXm1ftBcO1xKcxAazexfbDOkTobBN5BN01YCSGtZHTlpK9/WyYghU8b2GVJclddBNktyN2npZpVgHk6QG9sCYh5CcEqgGdQyRHsO6R2LvvCLz1l++o9K8000m6yTzyVylbh7xSzPNwE+25+JijWwgqwTjG28bpClJaHF/uicq1RqKUc4HKXV9BOHp8PXES9fFZtZBFger52Tc5vA/0+S42WGwEkMOd8QF/WDko4IC2frwr5IEB6xNNNhGJl4SeiOzRoMTHH35I1CLt0Vnx0w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=aspeedtech.com; dmarc=pass action=none
+ header.from=aspeedtech.com; dkim=pass header.d=aspeedtech.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aspeedtech.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=KCfc+Ec3kwLMT3pydvZcSgoZImur0kb7Mtejl7DwIPQ=;
+ b=qZTumzMlXHHVrDM4PVHDZb30vnFsw+WV8hm4IZJrkP/kq/eBaTDVRUrGkWVlaRIRbsr1IDOcammsYjFD/Yez1cvvgnXuBsrIQvf1CYpTyBfxIAg8d0JOkI8ubDELf9vrG0OnJV3DbU+kPkKxj4pM1LH88NUMA8QRy+0v3tPi4rJJl6/SG3JdmDbt8L6cDXwcLeXqGBOCtbdKHf85g3ba7QBxGlD6baSwNJgspjdyA+ZVYc3I7UtQJ2VtarC0xbYPA1+ApirCtOtqf2AOC4dEbvR3rsY2Gesb47Qw8na5SdZVmgc5/2mY5TLidvucMbOc4mVUqZXcpqCQaKsaVms9Vg==
+Received: from SEYPR06MB5134.apcprd06.prod.outlook.com (2603:1096:101:5a::12)
+ by SEZPR06MB7291.apcprd06.prod.outlook.com (2603:1096:101:256::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8922.32; Wed, 16 Jul
+ 2025 03:51:12 +0000
+Received: from SEYPR06MB5134.apcprd06.prod.outlook.com
+ ([fe80::6b58:6014:be6e:2f28]) by SEYPR06MB5134.apcprd06.prod.outlook.com
+ ([fe80::6b58:6014:be6e:2f28%5]) with mapi id 15.20.8880.030; Wed, 16 Jul 2025
+ 03:51:11 +0000
+From: Jacky Chou <jacky_chou@aspeedtech.com>
+To: Rob Herring <robh@kernel.org>
+CC: "bhelgaas@google.com" <bhelgaas@google.com>, "lpieralisi@kernel.org"
+	<lpieralisi@kernel.org>, "kwilczynski@kernel.org" <kwilczynski@kernel.org>,
+	"mani@kernel.org" <mani@kernel.org>, "krzk+dt@kernel.org"
+	<krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
+	"joel@jms.id.au" <joel@jms.id.au>, "andrew@codeconstruct.com.au"
+	<andrew@codeconstruct.com.au>, "linux-aspeed@lists.ozlabs.org"
+	<linux-aspeed@lists.ozlabs.org>, "linux-pci@vger.kernel.org"
+	<linux-pci@vger.kernel.org>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "openbmc@lists.ozlabs.org"
+	<openbmc@lists.ozlabs.org>, "linux-gpio@vger.kernel.org"
+	<linux-gpio@vger.kernel.org>, "linus.walleij@linaro.org"
+	<linus.walleij@linaro.org>, "p.zabel@pengutronix.de"
+	<p.zabel@pengutronix.de>, BMC-SW <BMC-SW@aspeedtech.com>
+Subject: [PATCH v2 06/10] ARM: dts: aspeed-g6: Add PCIe RC node
+Thread-Topic: [PATCH v2 06/10] ARM: dts: aspeed-g6: Add PCIe RC node
+Thread-Index: AQHb9TqkQDR8o2SUn0W5qxLHkZJlFLQzTswAgADEMrA=
+Date: Wed, 16 Jul 2025 03:51:11 +0000
+Message-ID: <SEYPR06MB5134EB5D018F8518E88495FF9D56A@SEYPR06MB5134.apcprd06.prod.outlook.com>
+References: <20250715034320.2553837-1-jacky_chou@aspeedtech.com>
+ <20250715034320.2553837-7-jacky_chou@aspeedtech.com>
+ <CAL_JsqJ4yeYGAyCwHi=4CBurxGOc5oAqTQqun+5+Ps4hxwDU9Q@mail.gmail.com>
+In-Reply-To: <CAL_JsqJ4yeYGAyCwHi=4CBurxGOc5oAqTQqun+5+Ps4hxwDU9Q@mail.gmail.com>
+Accept-Language: zh-TW, en-US
+Content-Language: zh-TW
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=aspeedtech.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: SEYPR06MB5134:EE_|SEZPR06MB7291:EE_
+x-ms-office365-filtering-correlation-id: d6966588-e361-437e-aedb-08ddc41c0164
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|38070700018;
+x-microsoft-antispam-message-info: =?utf-8?B?cHRvcXFYbU14V3VpbzZJeDc3L0lZdDg1SWpGRkhYYWJXQnIyQ0VVT2RoaU1G?=
+ =?utf-8?B?YUY5aUQyTDliVzdLYjE5ZW9NNkRYTDF5ZkJjem5UYWVHZ3IrLzBoT2FaQVl3?=
+ =?utf-8?B?YThucCtTSEp2QWR4ZU9jS2J0aDZRdW9jVGhiaGZ2NHk0a0FkOHZDV0FabFVT?=
+ =?utf-8?B?bjBWK0ZuRXhnRk5JRFZLNVY4b1JWMmtqYWNvNGcvVEFZVkZpbzMxdi9aMEdN?=
+ =?utf-8?B?QmEyUHFiOHJNUzgvR3B4T0dmamJRRDRwWjhHTVQyWEtzelZiaG1MNk5jWkJP?=
+ =?utf-8?B?RlQ2K2o1VnpIdnl5akUwVW5odEJFQkhYN2dwdGNhZG96TkRXMEluN2JicmZU?=
+ =?utf-8?B?ZlpzZGJFNG5RQVpudmhKRXVKdHBhVjlENGJzdUxsdUg0UkpaSjlQdEk3VytY?=
+ =?utf-8?B?eDB5Q1JhRGRITnowSDNRUWJRamg5UzI1a2Zqbkt1Z2cybmt6YWhuWGlJTjFO?=
+ =?utf-8?B?c05JTzdvL1g0NEpSYzdQMlI1YXhrSDdyRjc1YURFUENETGwvR3BEemh2MDRC?=
+ =?utf-8?B?TTJMOEpWbmNhVnVrZmtaTkdqYTNnSVMyTXNNVGJSdEkvTVRySHNVNkdYNlJy?=
+ =?utf-8?B?SUFMa1ZvV0YxL3VmSUVlaTFSMkNHeStPU2hVWkRZenUrZW84V1Y0eVEzL3k1?=
+ =?utf-8?B?dTZJWkZFNXJmQ3cvZDFiUko2MWkzNmpiNkE2U2k2Sk8zU2FGSDlUNndlbmdq?=
+ =?utf-8?B?MjlKZVJOb1ZvdjZlT0lRNGUwZFB5TEMzL3hmcVd3Ky9DcGhoYXBWQ0FSajFs?=
+ =?utf-8?B?Y1FJYWRiVTZJcnJJeE5lWlV3Q2NXU081UENYWFJ2RmROVEpweHp6amt0aUMv?=
+ =?utf-8?B?QTZ0dlhSMWxxSjcxUW8zclJZNktpSHFFVmQwRmR1cWU3MnU5Tk54bkt2bGlJ?=
+ =?utf-8?B?Uk9RaExTYU8wSkFCWU1JS0cwQWJvdnlTejd4RHNoU2Fsd1BTem5kVFoydE9Y?=
+ =?utf-8?B?eDRyUXJWV1JrOTFxK1VpNHhTeWxJU3poQnAyNVZSTFVDejhDaHYyR3N1K08w?=
+ =?utf-8?B?MmJyTE0xbHdUMStnQ1VWNENNeEZndUhhNzhxcWlOeUJldHNJYUJYRE5ZeFgr?=
+ =?utf-8?B?WWN5TS91akw5UG11MHdyUXJ4RjhPYmxqdlE5T2ZBazNqTlVaTnE1dnRzbCsw?=
+ =?utf-8?B?MjJYYXREZDN5a0pNemFTcjRjRWFZTDRQWmtCeUF0aFBZSGMzWDViTnBrQVFl?=
+ =?utf-8?B?NXBHNGJVc2R0OGd1NEZZU1A2aWNmS1JSUFBrN1ovbXRLZTRoNCtTSXBvc0J4?=
+ =?utf-8?B?cGc2Nnord2FxaklUVlI3dU4xRjNvRjZuRWVmQkxQYXJpUS85M1ZZNDJ1d2Vr?=
+ =?utf-8?B?Wm8rY0k5VkZnU3VaV0JWRkZ0MWFDNU1EaTNzbHJQWGt6WUJyakd6UG1qZWo2?=
+ =?utf-8?B?OU4xSmR3RWhPckpRQkZ4YzE3cE1JT01TYTZRSUw1RmxrZEljZisxV0YxSmJT?=
+ =?utf-8?B?dUVtMkQ4M3hjOXJGT3J1bmJPTDFxOWlvc3ozWmxMYjdGSlpCQXdwNnZBVlVi?=
+ =?utf-8?B?Q3FuZW5DK0QwS2NKWU1hd3NHRnFpWnAwZDBROXB2UXE0c01IaW5GSXZHd1Rw?=
+ =?utf-8?B?Tm4ycUl3ekxyN3dkU2FYcG82Tk1TZEhRWjE2Q0lUQ0NqNTFidDNzOHgzcDZ0?=
+ =?utf-8?B?bXY4ZTBWMVFZalNqRzR5eDJJWmtIQmJkenlxWlZWeDRkVXRmekZIWVJSelFX?=
+ =?utf-8?B?TXVkMlZJZ1BJUkZzQTBjQmZZRDNhTHFlRDVrZmdTczBuT2NzTElURmdLZi90?=
+ =?utf-8?B?UFJXR0VZU1hSNHpoTVRYQ0VJM0hHNXFIZEVuR21pN2VSWXRtaHFjTGREcFVi?=
+ =?utf-8?B?dHJuTThldjN3TmFFZEY4MzlhSExmSG94RkIzUURpcXlkNE90c0x1RGRXK2tw?=
+ =?utf-8?B?OGpsZHM1RSs5dWduZHpkS0VJVlRhZlhucHcyRnF3Q1A2WDU3RnZUcURTOWV5?=
+ =?utf-8?B?OW5kdWJvL0M0QkVucTN3MzBmVTd0MjNLOVFycGFIWmpmaDhHQStHMjJUUjY0?=
+ =?utf-8?B?Q2pBL01USk9RPT0=?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:zh-tw;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SEYPR06MB5134.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(38070700018);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?d2oxazhZSnVQZ2d4aFlBNURCd0hBN0pSK1BqWndvZmtEbVFPc2JTakZqL3Vt?=
+ =?utf-8?B?MGFPUUkrcVpnSW5HYWNUZ004aEJLcDFpMFVDOVdDUTRtSnpzN2VSNnZZUk4w?=
+ =?utf-8?B?ODBPODRIMmFRNDdqTTl4RU9qTjhkVU1KdC9GaFRKK2orbWNpckRzOW1aZTZp?=
+ =?utf-8?B?QWJxdEo4S2xpOEtBVXZDUzBpOUdkeWxBOHRJNXBJVU03d2pNVUFtZmN3N1du?=
+ =?utf-8?B?a3VQSEhxUUQ1UTUvVnl1U3o2aExUMFpCQWV6YVF5aU9vbTZvMUYzMW0rakVl?=
+ =?utf-8?B?WDV0NmkyelhsYWdPVWRqUVo4aFI1Z2Vja0E3Rnl6NzRkeWZMeXhRazMvWWJq?=
+ =?utf-8?B?TWk4Yy9IbG5tZ1hza1M3ZDljcU9GVXBpS091dmQzRVgyMWxweUZrcTd5enRm?=
+ =?utf-8?B?cXp4L0ZMLzBpQTJkdDkwdmt2bWdQcEJkKzNWNXlxT1ZSKzlXOFNKRjNUemhy?=
+ =?utf-8?B?dGVLeWVHVzFSOFFueDYzYlhkQXppUFdnUTdZbWl1dzV1OXhhUGpodnJOV3pO?=
+ =?utf-8?B?ZHh0bUlLZjZXZWdXSkZuWnpCbDVkZ0ZLcUMza0ZKZG1wRktHaUxST3JRNXNF?=
+ =?utf-8?B?THB6TUtVOWFWSEZTNHVPZ1FsVzdCa3U3bnE1UWFmTWxNNXkxR3dJUFh6emRJ?=
+ =?utf-8?B?VE5kME1GUStraGpWV3c4NVVGMkllRjBHczArNG1jLzhZYTFaMkdDaEo4R2VQ?=
+ =?utf-8?B?UDFyTWI0TXhtR1ozMnhzZTRjYzNjMlp3UnBZcHlOaW5XZDB4bVE2WUZiTzhG?=
+ =?utf-8?B?eWdKRVhmaDYydjBROXc4SEF4NktRaE90TkJlc2paTmFib3hOLzFNYm1KQVkr?=
+ =?utf-8?B?bXQ4VDRTNlZmck1veWZ3UmpXVG5RYmVaS0xhVkZaWG9BWDFjb0lJREpQdXdX?=
+ =?utf-8?B?MzRSbmN2NDVJdzZrSDRwVWRQSlJzckU1V3F3S1NvRWhHRWkyTVJoWHJuK29T?=
+ =?utf-8?B?UkJva2RpaXpCS0kwTnZuYlF0TEF5U3g0OHNEWC92cStVTkY0VUlFL1ZwK1Rp?=
+ =?utf-8?B?N2d0YmRxNXJUK0d5bS9TUmhRZXQyU3RmcXVBMDc0Y09zWGY3ODdteXplWS80?=
+ =?utf-8?B?RENSM3ZSUkJ4T0NEcFhmRDJ1WGFwbGdLZTM2ZXk2V2ZoTGlFU0Zkd0V3Y0hH?=
+ =?utf-8?B?R0Jybi9RZXhqbHZiY1cyY1gwenlXaG9nNVdQQmsvdWpqRGpxMFN2NCt1SEZi?=
+ =?utf-8?B?TkNOZTZZa2RGYzhJa1A0TE5pY1FCTHM0aHA3SjFZTTRDY0h0Yng3Nnk0b3B5?=
+ =?utf-8?B?Z1dybjlBUGRKVzhVTFAydkdJS2o1TnFnblZHby83YkRNVWdoemFlMmViWTll?=
+ =?utf-8?B?L3krNVpUZkNZVFdqMlhUMVVsUXhmeXR2WmtONFVxamtFVXE2VnBldmlrZnh4?=
+ =?utf-8?B?aWxJZ2JRMzhlMVJMUEkzY3dPYm1IaUZGNG9BVkkwWTlYTXB3YXJtQ2FRU0xq?=
+ =?utf-8?B?dmhZOFBtb3ZCakFPMlFHaTVncnhlb0xUc2hKSXk3WXlVdElYd3ZCVUk0RmNG?=
+ =?utf-8?B?RFVpMDE3VzRvL3ZjVlRuTUpMYW9IbnFrTlJ5dERlVnZxMHZvdGlNV1dzSzNa?=
+ =?utf-8?B?TVhuNGZ4RDRXYWVVY3VWblVzRjVPSG03SG56MlgyWFdLa2NmOEpUQTFUL2ZH?=
+ =?utf-8?B?Y1ZaVFRhSXdJajRscEZONVh4ZmpUdmJJY045U3REUXl2SDJhWFQxd1M3NHNk?=
+ =?utf-8?B?bFU3VjBHbkNKWkR2WnE0L1VLTGpvMVNySis2RkUrSHdLTWZkMm9XNFFHKzNy?=
+ =?utf-8?B?ZmdySGNYZytnMkw3b0c3ampYeFRvLzNzNTAzTHFmc2ZlSVAxNDNsSDlodEp6?=
+ =?utf-8?B?eGpWMk8xUnFkUkdmMjZXMC9oVmtHVVpqaU13NlRIN2l3K1laVTNlaFRSZ01n?=
+ =?utf-8?B?Q282VWNrWDg3eTk4Z0ROYy95cmV5bU0vdHhFcnF3ZGZUR1ZKRWhwblJLblJa?=
+ =?utf-8?B?aXZSb3pJWU4rbVhUTFZSUHIzbXIwYkthbzdTU1BSR0J5T0hJVkhkekJEd05M?=
+ =?utf-8?B?MGxXdXZKNkE5QThqNEJBb3lnTVl6Y3piaktJMG5xeERxNm1IZEUwY2M5WWxy?=
+ =?utf-8?B?RDhSbWl1MTJ2a1djek43Z1RvUWJKa0VjeHdJVjgxSkpYN3o3Ylc3dG1hcWZt?=
+ =?utf-8?Q?tG6IpCaOuhBmsifWvYEFFW43A?=
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+X-OriginatorOrg: aspeedtech.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: SEYPR06MB5134.apcprd06.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d6966588-e361-437e-aedb-08ddc41c0164
+X-MS-Exchange-CrossTenant-originalarrivaltime: 16 Jul 2025 03:51:11.7600
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 43d4aa98-e35b-4575-8939-080e90d5a249
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: 4mGR5mGoKB/sEDUU8vbXiiNyXPqlp+VXGPCEMVaCDg2mOm5a+QH4FpgY9+LtAxqbONUR/wGJ8GaQGhe0MnO0u5h/+NzUuvZWS6zNCNyGgAU=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEZPR06MB7291
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250715_201104_573495_248EE1D9 
-X-CRM114-Status: GOOD (  16.54  )
+X-CRM114-CacheID: sfid-20250715_205143_054943_0790FBDD 
+X-CRM114-Status: GOOD (  20.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,238 +192,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-The following changes since commit 19272b37aa4f83ca52bdf9c16d5d81bdd1354494:
-
-  Linux 6.16-rc1 (2025-06-08 13:44:43 -0700)
-
-are available in the Git repository at:
-
-  https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux.git tags/qcom-arm64-for-6.17
-
-for you to fetch changes up to 7de0d60f6345e701ca8b9a05fe2faa03ad868ccf:
-
-  arm64: dts: qcom: sm8150: Drop unrelated clocks from PCIe hosts (2025-07-03 15:58:23 -0500)
-
-----------------------------------------------------------------
-Qualcomm Arm64 DeviceTree updates for v6.17
-
-79b896e7da7e arm64: dts: qcom: msm8976-longcheer-l9360: Add initial device tree
-6516961352a1 arm64: dts: qcom: Add support for X1-based Asus Zenbook A14
-
-The DB410c D3 camera mezzanine is converted to an overlay.
-
-On MSM8976 SDC2 pinctrl definitions are introduced and BLSP DMA
-controller is marked to be managed by another entity.
-
-Add camera subsystem on the QCM2290 platform.
-
-Add and enable remoteproc and related devices on QCS615.
-
-Add and enable Video encoder/decoder on QCS8300 and SA8775P.
-Also on SA8775P add CPU OPP tables for scaling DDR/L3 bandwidth based on
-CPU frequency, add L3 interconnect definitions, DSI and video
-encoder/decoder support.
-
-Enable the SLPI remoteproc on SDM850-based Lenovo Yoga C630.
-
-On SM6350, add the video clock controller, APR and some audio related
-services.
-
-Describe the camera subsystem on SM8550 and add Iris video
-encoder/decoder node for SM8650.
-
-On SM8750 introduce UFS and Soundwire support, enable these and describe
-the sound hardware on MTP and QRD.
-
-Add camera clock controller on SC8180X.
-
-On X Elite, for the Dell XPS13, add WiFi and Bluetooth pwrseq and enable
-the fingerprint sensor. For HP Omnibook X14  USB1 SS1 SBU mux and do
-some misc cleanup.
-
-Replace the thermal zones inherited from X Elite with X Plus-specific
-ones.
-
-Add missing interrupts and clean up unrelated clocks for PCIe
-controllers across a variety of platforms.
-
-----------------------------------------------------------------
-Aleksandrs Vinarskis (4):
-      arm64: dts: qcom: x1e80100-dell-xps-9345: Add WiFi/BT pwrseq
-      arm64: dts: qcom: Add support for X1-based Asus Zenbook A14
-      arm64: dts: qcom: x1-asus-zenbook: fixup GPU nodes
-      arm64: dts: qcom: x1-asus-zenbook: support sound
-
-André Apitzsch (4):
-      arm64: dts: qcom: msm8976: Make blsp_dma controlled-remotely
-      dt-bindings: arm: qcom: Add MSM8976 BQ Aquaris X5 Plus
-      arm64: dts: qcom: msm8976: Add sdc2 GPIOs
-      arm64: dts: qcom: msm8976-longcheer-l9360: Add initial device tree
-
-Ayushi Makhija (2):
-      arm64: dts: qcom: sa8775p: add Display Serial Interface device nodes
-      arm64: dts: qcom: sa8775p-ride: add anx7625 DSI to DP bridge nodes
-
-Bartosz Golaszewski (1):
-      arm64: dts: qcom: sm6115: add debug UART pins
-
-Bjorn Andersson (2):
-      arm64: dts: qcom: x1e80100-dell-xps13-9345: Enable fingerprint sensor
-      Merge branch '20250512-sc8180x-camcc-support-v4-2-8fb1d3265f52@quicinc.com' into arm64-for-6.17
-
-Dmitry Baryshkov (1):
-      arm64: dts: qcom: sdm850-lenovo-yoga-c630: enable sensors DSP
-
-Eugen Hristev (1):
-      arm64: dts: qcom: sm8750: Trivial stray lines removal
-
-Jagadeesh Kona (1):
-      arm64: dts: qcom: sa8775p: Add CPU OPP tables to scale DDR/L3
-
-Jens Glathe (3):
-      arm64: dts: qcom: x1e80100-hp-x14: add usb-1-ss1-sbu-mux
-      arm64: dts: qcom: x1e80100-hp-x14: remove unused i2c buses
-      arm64: dts: qcom: x1e80100-hp-x14: amend order of nodes
-
-Jie Gan (2):
-      arm64: dts: qcom: qcs615: fix a crash issue caused by infinite loop for Coresight
-      arm64: dts: qcom: qcs615: disable the CTI device of the camera block
-
-Konrad Dybcio (5):
-      arm64: dts: qcom: x1p42100: Fix thermal sensor configuration
-      arm64: dts: qcom: sdm845: Expand IMEM region
-      arm64: dts: qcom: sc7180: Expand IMEM region
-      arm64: dts: qcom: sc8180x: Drop unrelated clocks from PCIe hosts
-      arm64: dts: qcom: sm8150: Drop unrelated clocks from PCIe hosts
-
-Krzysztof Kozlowski (3):
-      arm64: dts: qcom: sm8750: Add Soundwire nodes
-      arm64: dts: qcom: sm8750-mtp: Add sound (speakers, headset codec, dmics)
-      arm64: dts: qcom: sm8750-qrd: Add sound (speakers, headset codec, dmics)
-
-Kyle Deng (1):
-      arm64: dts: qcom: qcs615: Add mproc node for SEMP2P
-
-Lijuan Gao (4):
-      arm64: dts: qcom: qcs615: Add IMEM and PIL info region
-      arm64: dts: qcom: qcs615: add ADSP and CDSP nodes
-      arm64: dts: qcom: qcs615-ride: enable remoteprocs
-      arm64: dts: qcom: sa8775p: Correct the interrupt for remoteproc
-
-Loic Poulain (1):
-      arm64: dts: qcom: qcm2290: Add CAMSS node
-
-Luca Weiss (2):
-      arm64: dts: qcom: sm6350: Add video clock controller
-      arm64: dts: qcom: sm6350: add APR and some audio-related services
-
-Manivannan Sadhasivam (13):
-      arm64: dts: qcom: sm8150: Add 'global' PCIe interrupt
-      arm64: dts: qcom: sm8250: Add 'global' PCIe interrupt
-      arm64: dts: qcom: sm8350: Add 'global' PCIe interrupt
-      arm64: dts: qcom: sa8775p: Add 'global' PCIe interrupt
-      arm64: dts: qcom: sc7280: Add 'global' PCIe interrupt
-      arm64: dts: qcom: sdm845: Add missing MSI and 'global' IRQs
-      arm64: dts: qcom: msm8996: Add missing MSI SPI interrupts
-      arm64: dts: qcom: msm8998: Add missing MSI and 'global' IRQs
-      arm64: dts: qcom: ipq8074: Add missing MSI and 'global' IRQs
-      arm64: dts: qcom: ipq6018: Add missing MSI and 'global' IRQs
-      arm64: dts: qcom: sc8180x: Add 'global' PCIe interrupt
-      arm64: dts: qcom: sar2130p: Add 'global' PCIe interrupt
-      arm64: dts: qcom: x1e80100: Add missing 'global' PCIe interrupt
-
-Maulik Shah (1):
-      arm64: dts: qcom: Add QMP handle for qcom_stats
-
-Neil Armstrong (1):
-      arm64: dts: qcom: sm8650: add iris DT node
-
-Nitin Rawat (3):
-      arm64: dts: qcom: sm8750: Add UFS nodes for SM8750 SoC
-      arm64: dts: qcom: sm8750: Add UFS nodes for SM8750 MTP
-      arm64: dts: qcom: sm8750: Add UFS nodes for SM8750 QRD board
-
-Pengyu Luo (1):
-      arm64: dts: qcom: sm8650: remove unused reg
-
-Raviteja Laggyshetty (1):
-      arm64: dts: qcom: sa8775p: add EPSS l3 interconnect provider
-
-Satya Priya Kakitapalli (3):
-      dt-bindings: clock: qcom: Add missing bindings on gcc-sc8180x
-      dt-bindings: clock: Add Qualcomm SC8180X Camera clock controller
-      arm64: dts: qcom: Add camera clock controller for sc8180x
-
-Stephan Gerhold (1):
-      arm64: dts: qcom: apq8016-sbc-d3-camera: Convert to DT overlay
-
-Vikash Garodia (4):
-      arm64: dts: qcom: qcs8300: add video node
-      arm64: dts: qcom: qcs8300-ride: enable video
-      arm64: dts: qcom: sa8775p: add support for video node
-      arm64: dts: qcom: sa8775p-ride: enable video
-
-Vladimir Zapolskiy (2):
-      arm64: dts: qcom: sm8250: enable camcc clock controller by default
-      arm64: dts: qcom: qrb5165-rb5-vision-mezzanine: remove camcc status property
-
-Wenmeng Liu (1):
-      arm64: dts: qcom: sm8550: Add support for camss
-
- Documentation/devicetree/bindings/arm/qcom.yaml    |    5 +
- .../bindings/clock/qcom,sc8180x-camcc.yaml         |   67 +
- arch/arm64/boot/dts/qcom/Makefile                  |   10 +-
- ...ne.dts => apq8016-sbc-d3-camera-mezzanine.dtso} |   12 +-
- arch/arm64/boot/dts/qcom/ipq6018.dtsi              |   20 +-
- arch/arm64/boot/dts/qcom/ipq8074.dtsi              |   40 +-
- .../boot/dts/qcom/msm8976-longcheer-l9360.dts      |  490 +++++++
- arch/arm64/boot/dts/qcom/msm8976.dtsi              |   38 +
- arch/arm64/boot/dts/qcom/msm8996.dtsi              |   54 +-
- arch/arm64/boot/dts/qcom/msm8998.dtsi              |   20 +-
- arch/arm64/boot/dts/qcom/qcm2290.dtsi              |  103 ++
- arch/arm64/boot/dts/qcom/qcs615-ride.dts           |   12 +
- arch/arm64/boot/dts/qcom/qcs615.dtsi               |  148 ++
- arch/arm64/boot/dts/qcom/qcs8300-ride.dts          |    4 +
- arch/arm64/boot/dts/qcom/qcs8300.dtsi              |   71 +
- .../dts/qcom/qrb5165-rb5-vision-mezzanine.dtso     |    4 -
- arch/arm64/boot/dts/qcom/sa8775p-ride.dtsi         |  238 ++++
- arch/arm64/boot/dts/qcom/sa8775p.dtsi              |  515 ++++++-
- arch/arm64/boot/dts/qcom/sar2130p.dtsi             |   12 +-
- arch/arm64/boot/dts/qcom/sc7180.dtsi               |   10 +-
- arch/arm64/boot/dts/qcom/sc7280.dtsi               |   14 +-
- arch/arm64/boot/dts/qcom/sc8180x.dtsi              |   70 +-
- arch/arm64/boot/dts/qcom/sdm845.dtsi               |   50 +-
- .../boot/dts/qcom/sdm850-lenovo-yoga-c630.dts      |    6 +
- arch/arm64/boot/dts/qcom/sm6115.dtsi               |    9 +
- arch/arm64/boot/dts/qcom/sm6350.dtsi               |   73 +
- arch/arm64/boot/dts/qcom/sm8150.dtsi               |   28 +-
- arch/arm64/boot/dts/qcom/sm8250.dtsi               |   19 +-
- arch/arm64/boot/dts/qcom/sm8350.dtsi               |   12 +-
- arch/arm64/boot/dts/qcom/sm8450.dtsi               |    1 +
- arch/arm64/boot/dts/qcom/sm8550.dtsi               |  211 +++
- arch/arm64/boot/dts/qcom/sm8650-hdk.dts            |    4 +
- arch/arm64/boot/dts/qcom/sm8650-mtp.dts            |    4 +
- arch/arm64/boot/dts/qcom/sm8650-qrd.dts            |    4 +
- arch/arm64/boot/dts/qcom/sm8650.dtsi               |   97 +-
- arch/arm64/boot/dts/qcom/sm8750-mtp.dts            |  233 +++
- arch/arm64/boot/dts/qcom/sm8750-qrd.dts            |  243 ++++
- arch/arm64/boot/dts/qcom/sm8750.dtsi               |  230 ++-
- arch/arm64/boot/dts/qcom/x1-asus-zenbook-a14.dtsi  | 1496 ++++++++++++++++++++
- .../boot/dts/qcom/x1e80100-asus-zenbook-a14.dts    |   37 +
- .../boot/dts/qcom/x1e80100-dell-xps13-9345.dts     |  203 ++-
- .../boot/dts/qcom/x1e80100-hp-omnibook-x14.dts     |   98 +-
- arch/arm64/boot/dts/qcom/x1e80100.dtsi             |   20 +-
- .../boot/dts/qcom/x1p42100-asus-zenbook-a14.dts    |  141 ++
- arch/arm64/boot/dts/qcom/x1p42100.dtsi             |  556 ++++++++
- include/dt-bindings/clock/qcom,gcc-sc8180x.h       |   10 +
- include/dt-bindings/clock/qcom,sc8180x-camcc.h     |  181 +++
- 47 files changed, 5758 insertions(+), 165 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/clock/qcom,sc8180x-camcc.yaml
- rename arch/arm64/boot/dts/qcom/{apq8016-sbc-d3-camera-mezzanine.dts => apq8016-sbc-d3-camera-mezzanine.dtso} (89%)
- create mode 100644 arch/arm64/boot/dts/qcom/msm8976-longcheer-l9360.dts
- create mode 100644 arch/arm64/boot/dts/qcom/x1-asus-zenbook-a14.dtsi
- create mode 100644 arch/arm64/boot/dts/qcom/x1e80100-asus-zenbook-a14.dts
- create mode 100644 arch/arm64/boot/dts/qcom/x1p42100-asus-zenbook-a14.dts
- create mode 100644 include/dt-bindings/clock/qcom,sc8180x-camcc.h
+SGkgUm9iLA0KDQpUaGFuayB5b3UgZm9yIHlvdXIgcmVwbHkuDQoNCj4gPiAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgIHF1YWxpdHkgPSA8MTAwPjsNCj4gPiAgICAgICAgICAgICAgICAg
+ICAgICAgICB9Ow0KPiA+DQo+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgcGNpZV9waHkxOiBz
+eXNjb25AMWU2ZWQyMDAgew0KPiA+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgY29t
+cGF0aWJsZSA9ICJhc3BlZWQscGNpZS1waHkiLA0KPiAic3lzY29uIjsNCj4gPiArICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgIHJlZyA9IDwweDFlNmVkMjAwIDB4MTAwPjsNCj4gDQo+IFRo
+aXMgbG9va3MgbGlrZSBwYXJ0IG9mIHNvbWV0aGluZyBlbHNlPyBJdCBzaG91bGQgYmUgYSBjaGls
+ZCBvZiB0aGF0Lg0KPiANCj4gSWYgdGhpcyBpcyB0aGUgY29udHJvbHMgZm9yIHRoZSBQQ0llIFBI
+WSwgdGhlbiB1c2UgdGhlIFBIWSBiaW5kaW5nIGluc3RlYWQgb2YgeW91cg0KPiBvd24gY3VzdG9t
+IHBoYW5kbGUgcHJvcGVydHkuDQo+IA0KDQpPdXIgUENJZSBkZXNpZ24gaGFzIG11bHRpcGxlIGZ1
+bmN0aW9ucy4gQW5kIHRoZSBzZXJpZXMgb2YgcGF0Y2hlcyBhcmUgc3VibWl0dGVkIGZvcg0KUENJ
+ZSBSQy4gVGhlIG90aGVyIFBDSWUgZnVuY3Rpb25zIGFsc28gdXNlIHRoaXMgcGh5IG5vZGUuDQpJ
+IHRyYWNlZCB0aGUgUEhZIGRyaXZlciBpbnRlcmZhY2UsIGl0IGNhbm5vdCBtZWV0IG91ciB1c2Fn
+ZS4NClRoZXJlZm9yZSwgdGhlIFJDIGRyaXZlciB1c2VzIHRoZSBwaGFuZGxlIHByb3BlcnR5IHRv
+IGNvbmZpZ3VyZS4NCkFuZCB0aGlzIHN5c2NvbiBhbHNvIGlzIHVzZWQgYnkgdGhlIG90aGVyIFBD
+SWUgZnVuY3Rpb25zLg0KDQo+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgfTsNCj4gPiArDQo+
+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgcGNpZV9jZmc6IHN5c2NvbkAxZTc3MDAwMCB7DQo+
+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBjb21wYXRpYmxlID0gImFzcGVlZCxw
+Y2llLWNmZyIsDQo+ICJzeXNjb24iOw0KPiA+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgcmVnID0gPDB4MWU3NzAwMDAgMHg4MD47DQo+IA0KPiBMb29rcyBsaWtlIHRoaXMgaXMgcmVh
+bGx5IHBhcnQgb2YgdGhlIFBDSWUgYmxvY2sgYXMgYSBoL3cgYmxvY2sgaXNuJ3QgZ29pbmcgdG8g
+c3RhcnQNCj4gYXQgb2Zmc2V0IDB4YzAuDQo+IA0KPiANCg0KQWN0dWFsbHkuDQpUaGVyZSBhcmUg
+dHdvIFBDSWUgYnVzIGluIEFTVDI2MDANCldlIHVzZSB0aGUgb3RoZXIgb25lIFBDSWUgdG8gRVAg
+bW9kZSwgaGVyZSBJIGNhbGwgUENJZSBBLg0KSSBjYWxsIHRoZSBwY2llMCBub2RlIGFzIFBDSWUg
+Qi4NCldlIGRvIG5vdCBwcm92aWRlIFBDSWUgQSB0byBSQyBtb2RlIGZvciB1c2FnZSwganVzdCBF
+UCBtb2RlLg0KQnV0LCB3aGVuIFBDSWUgQSBpcyB1c2VkIGFzIFJDLCBpdCByZWcgbWFwcGluZyBp
+cyBzdGFydGluZyBmcm9tIDB4MWU3NzAwODAuDQpJIGxpc3QgdGhlcmUgbWFwcGluZy4NCg0KMHgx
+ZTc3XzAwMDAgfiAweDFlNzdfMDA3ZiA6IGNvbW1vbiB1c2FnZQ0KMHgxZTc3XzAwODAgfiAweDFl
+NzdfMDBiZiA6IFBDSUUgQQ0KMHgxZTc3XzAwQzAgfiAweDFlNzdfMDBmZiA6IFBDSUUgQg0KDQpT
+bywgaXQgaXMgd2h5IHdlIGNyZWF0ZSBvbmUgbm9kZSB0byBkZXNjcmliZSBjb21tb24gdXNhZ2Ug
+Zm9yIFBDSWUgQSBhbmQgQi4NCkFuZCwgd2h5IHRoZSBwY2llMCByZWcgbWFwcGluZyBpcyBzdGFy
+dGluZyBmcm9tIDB4MWU3N18wMGMwLg0KDQo+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgfTsN
+Cj4gPiArDQo+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgcGNpZTA6IHBjaWVAMWU3NzAwYzAg
+ew0KPiA+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgY29tcGF0aWJsZSA9ICJhc3Bl
+ZWQsYXN0MjYwMC1wY2llIjsNCj4gPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGRl
+dmljZV90eXBlID0gInBjaSI7DQo+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBy
+ZWcgPSA8MHgxZTc3MDBjMCAweDQwPjsNCj4gPiArICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgIGxpbnV4LHBjaS1kb21haW4gPSA8MD47DQo+IA0KPiBObyBuZWVkIGZvciB0aGlzLiBZb3Ug
+b25seSBoYXZlIDEgUENJIGhvc3QuDQo+IA0KDQpBZ3JlZWQuDQpXZSBvbmx5IHByb3ZpZGUgb25l
+IFJDLg0KDQo+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAjYWRkcmVzcy1jZWxs
+cyA9IDwzPjsNCj4gPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICNzaXplLWNlbGxz
+ID0gPDI+Ow0KPiA+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgaW50ZXJydXB0cyA9
+IDxHSUNfU1BJIDE2OA0KPiBJUlFfVFlQRV9MRVZFTF9ISUdIPjsNCj4gPiArICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgIGJ1cy1yYW5nZSA9IDwweDgwIDB4ZmY+Ow0KPiANCj4gRG9lcyB0
+aGlzIGgvdyBub3Qgc3VwcG9ydCBidXMgMC0weDdmIGZvciBzb21lIHJlYXNvbj8NCj4gDQoNCkxp
+c3Q6DQpQQ0lFIEE6IDAtMHg3Zg0KUENJRSBCOiAweDgwLTB4ZmYNCg0KSXQgaXMgb3VyIGRlc2ln
+biBvbiBQQ0llIEIgdG8gdXNlIGJ1cy1yYW5nZSAweDgwLTB4ZmYuDQoNCj4gPiArDQo+ID4gKyAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICByYW5nZXMgPSA8MHgwMTAwMDAwMCAweDANCj4g
+MHgwMDAxODAwMCAweDAwMDE4MDAwIDB4MCAweDAwMDA4MDAwDQo+ID4gKyAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgMHgwMjAwMDAwMCAweDANCj4gMHg3MDAwMDAwMA0K
+PiA+ICsgMHg3MDAwMDAwMCAweDAgMHgxMDAwMDAwMD47DQo+ID4gKw0KPiA+ICsgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgc3RhdHVzID0gImRpc2FibGVkIjsNCj4gPiArDQo+ID4gKyAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICByZXNldHMgPSA8JnN5c2Nvbg0KPiBBU1BFRURf
+UkVTRVRfSDJYPjsNCj4gPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHJlc2V0LW5h
+bWVzID0gImgyeCI7DQo+ID4gKw0KPiA+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+I2ludGVycnVwdC1jZWxscyA9IDwxPjsNCj4gPiArICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgIG1zaS1wYXJlbnQgPSA8JnBjaWUwPjsNCj4gPiArICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgIG1zaS1jb250cm9sbGVyOw0KPiA+ICsNCj4gPiArICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgIGFzcGVlZCxhaGJjID0gPCZhaGJjPjsNCj4gPiArICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgIGFzcGVlZCxwY2llY2ZnID0gPCZwY2llX2NmZz47DQo+ID4gKw0KPiA+ICsg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgaW50ZXJydXB0LW1hcC1tYXNrID0gPDAgMCAw
+IDc+Ow0KPiA+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgaW50ZXJydXB0LW1hcCA9
+IDwwIDAgMCAxICZwY2llX2ludGMwDQo+IDA+LA0KPiA+ICsgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgIDwwIDAgMCAyDQo+ICZwY2llX2ludGMwIDE+LA0KPiA+
+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwwIDAgMCAz
+DQo+ICZwY2llX2ludGMwIDI+LA0KPiA+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgIDwwIDAgMCA0DQo+ICZwY2llX2ludGMwIDM+Ow0KPiA+ICsgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgcGNpZV9pbnRjMDogaW50ZXJydXB0LWNvbnRyb2xsZXIg
+ew0KPiA+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBpbnRlcnJ1cHQt
+Y29udHJvbGxlcjsNCj4gPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+I2FkZHJlc3MtY2VsbHMgPSA8MD47DQo+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICNpbnRlcnJ1cHQtY2VsbHMgPSA8MT47DQo+ID4gKyAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICB9Ow0KPiA+ICsNCj4gPiArICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgIHBjaWVAOCwwIHsNCj4gPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgcmVnID0gPDB4ODA0MDAwIDAgMCAwIDA+Ow0KPiA+ICsgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAjYWRkcmVzcy1jZWxscyA9IDwzPjsNCj4gPiArICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgI3NpemUtY2VsbHMgPSA8Mj47DQo+ID4gKyAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGRldmljZV90eXBlID0gInBjaSI7DQo+
+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHJlc2V0cyA9IDwmc3lz
+Y29uDQo+IEFTUEVFRF9SRVNFVF9QQ0lFX1JDX08+Ow0KPiA+ICsgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICByZXNldC1uYW1lcyA9ICJwZXJzdCI7DQo+ID4gKyAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGNsb2NrcyA9IDwmc3lzY29uDQo+IEFTUEVF
+RF9DTEtfR0FURV9CQ0xLPjsNCj4gPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgcGluY3RybC1uYW1lcyA9ICJkZWZhdWx0IjsNCj4gPiArICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgcGluY3RybC0wID0NCj4gPCZwaW5jdHJsX3BjaWVyYzFfZGVm
+YXVsdD47DQo+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGFzcGVl
+ZCxwY2llcGh5ID0NCj4gPCZwY2llX3BoeTE+Ow0KPiA+ICsgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICByYW5nZXM7DQo+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICB9Ow0KPiA+ICsgICAgICAgICAgICAgICAgICAgICAgIH07DQo+ID4gKw0KPiA+ICAgICAg
+ICAgICAgICAgICAgICAgICAgIGdmeDogZGlzcGxheUAxZTZlNjAwMCB7DQo+ID4gICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICBjb21wYXRpYmxlID0gImFzcGVlZCxhc3QyNjAwLWdmeCIs
+DQo+ICJzeXNjb24iOw0KPiA+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgcmVnID0g
+PDB4MWU2ZTYwMDAgMHgxMDAwPjsNCj4gPiAtLQ0KPiA+IDIuNDMuMA0KPiA+DQo=
 
