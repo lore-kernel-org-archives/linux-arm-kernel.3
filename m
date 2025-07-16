@@ -4,99 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97A94C83F22
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 20:59:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9E15C83F22
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 21:02:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kZZgzA7unxaQYTpUKeT3tiFqc0eDBxi7N6aA9SCTkxo=; b=0iNffgN3fQycHJEmPiJ81C/A2F
-	5GtLIWQaPAp6eOZHhkz4dnmf9Xy98vl2isslzqvfOElFQNbE142fnuARQBsVcPwPmPO0uAmuqa+Vs
-	7dKnWLGYfo8By0QD5DY8LRNGv+5QKoxVXzbm98CYQcK/3aCsPNHKqQxVoa+hoSaTr6xSm9L4Ns6uK
-	eQsgIrYxwIYktkL36vgGuaHlJnwS8t6KGE/0xmzNfzJuXnjtEmxYosbOrW7dWM73omUBHXdqR8NMD
-	FFDbaSs0d7ZuLcExC7j3VvBfVQM/XV8WI4dGHYt3Nv4ChonPmkFDNkO8UZ+dGCElIFow7XxN2gHvi
-	UnHOswqA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3YboiOBuuzvpNMxiBuKPw6BD6c8PklI5nO1wrPxXt8c=; b=syRJUlIguRDOdKDE1O1fDElDkr
+	VtGfXvtwaK/8FFS362fcB10LIA0qW5kTHSU5gqf29PFwKp/hdK/EtZ60anJVFnICcvdkJkWczwJBZ
+	eNV0PNirlacGIjS7g8cgRRHvIAsDETEIa17N6ziBiN0C3M/rb2POe64elaW8JKBi0KMo+NNlIrhN3
+	SSlhTNcCJdeMqpF7zg83R8chm+D7RADhHk3XXnwWPVjCuW0g4NMuWOAfsyepYOffPk/73ndhiIHCJ
+	qJXAql+uZte5cCT09dNGa24pGDRsTCiywOe1B7sfRxqzfpI0LZnD/17uhcC8iBGLtduYs9t5sqgha
+	ed14+3ow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uc9DT-00000008eUc-06Ss;
-	Wed, 16 Jul 2025 20:59:03 +0000
-Received: from mail-pg1-x532.google.com ([2607:f8b0:4864:20::532])
+	id 1uc9GP-00000008fAf-33OK;
+	Wed, 16 Jul 2025 21:02:05 +0000
+Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uc88p-00000008Y4H-0rCv
+	id 1uc8Pw-00000008Zjf-1Zdz
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Jul 2025 19:50:12 +0000
-Received: by mail-pg1-x532.google.com with SMTP id 41be03b00d2f7-b31e076f714so997667a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Jul 2025 12:50:11 -0700 (PDT)
+	Wed, 16 Jul 2025 20:07:53 +0000
+Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-3a4fd1ba177so186487f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Jul 2025 13:07:51 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1752695410; x=1753300210; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=kZZgzA7unxaQYTpUKeT3tiFqc0eDBxi7N6aA9SCTkxo=;
-        b=EKfqs9/Tw1k4KzughzzNyKbZZvwL51vKsEe4LdZ3/koEVPgcM6hkl7/aeRcbrmwdnE
-         42Zaf44CpctwNumf8pLLY3W3T6ZpzDZ+iaGfCG4HOlDoUlVZN9/IvtQ84DJ15xw7MxD8
-         zLU1nItzs/1kDm+5Em/h6ljGx2EPRerNa+n3tbnncd9YdTcTnsUQZyIY7Suc7qiuNOQg
-         mUlY0cLnVdoT4t+dMHIb/n4OPX3qngDMXeq7+qpwDgQmeq2Hvw/gRUUX5Tx52rKYGkvx
-         E+nWNaa5to3Fmtung/N7++HIEZztW0N7lYilYhRsAyta/oqViK9833bSsT+9BIguRiWh
-         4BRw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752695410; x=1753300210;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+        d=google.com; s=20230601; t=1752696470; x=1753301270; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=kZZgzA7unxaQYTpUKeT3tiFqc0eDBxi7N6aA9SCTkxo=;
-        b=kVcB9P3iWVKT8L+LnjqJMDLMENrkCZkREKr/RI+K/K44a+KhrZpkfslaOnGxVrc786
-         hR4R7yaLkV0yuf9Twxehhsk7DYDLmAv5aiJi1e8VBzFnIUE1/93uns6EZZmJtXpZ/jDE
-         O2dqr8X1B36MSE4cc5omzg4qQ16o8N9es16QaisyJw8ojVZuabGWxTmNlkDHXvJ/ZhhM
-         O4HlEtDxDD3PudtYBbOON60YKYqLDghxrnFDO5vZOWecL+wHM2FULOYg/m6EhqLenmFx
-         fgqfqe6CUD0/fIiyiXXWs6kWzeWy7xjUGlNFxk02JEldAZbOi8sD2OczKGea/xuKPpHF
-         02Tg==
-X-Forwarded-Encrypted: i=1; AJvYcCW1JtWb+1UFRaY3zZwaPD2/5sXDQvO1zFO8M8icVWWQMqtwiTB4jWUbovXRV2TDpHunAX2p+5AlXv78RdgYNFec@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy6N/gzGeEm75CIZ2kCWX04x8J3Jgz1Zh4yNwvMdLOg2ggQtP5q
-	fvshrkr1Je9gaFlCHBFTGWJibWfYPRTKisGGdSLGn9LLtVGcAw/tIu1h
-X-Gm-Gg: ASbGncsQOCq8djAd0PzZsFtZFV+m6yU/SEMSOXRzvwG9r8KRy8ep5QNf+uKejPL+aK3
-	0gH4iTtpxCtFJGNyA9zHLM30zG5HtRmW8HZGzOb0TtU6LnDlY4PrprjzKQ2mI848O9183zEqaL1
-	SALpFYkg+IhzFNbQWtGm3mYenDN/4iGOetucNETbiRitPQoJEZjUVGMdsZc5Ienr3uztTQJP8N+
-	3Kh0myhVjjaK76Bq0EnrJCAFMMvk1oR2lY/gNb8dU+BF5PRvyiQy31VAdiqWDB+X4fhyEEcqCOA
-	q+WMf8wAtIglxVLBvryU7q8aBqE8LtYgxUqfVS+ReJzAxkmCO8hQq8X27FPD/8iYeAwxaaji9mP
-	uQ1+wVxmXzySVLZiRVhI=
-X-Google-Smtp-Source: AGHT+IGkORjHEJ3lwLi+FibgkhUKI9Xi/FApJrENFdLLcxtfYU8HO8fS+q0sfAOpe3IeYIpcVRS1Jw==
-X-Received: by 2002:a17:90b:3d81:b0:312:e73e:cded with SMTP id 98e67ed59e1d1-31caea21526mr783583a91.16.1752695410205;
-        Wed, 16 Jul 2025 12:50:10 -0700 (PDT)
-Received: from hiagonb ([2804:1b3:a7c1:459e:e3dd:d2e:b1ee:b9ec])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-31c9f1e684csm1947200a91.12.2025.07.16.12.50.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 16 Jul 2025 12:50:09 -0700 (PDT)
-Date: Wed, 16 Jul 2025 16:50:03 -0300
-From: Hiago De Franco <hiagofranco@gmail.com>
-To: Ulf Hansson <ulf.hansson@linaro.org>
-Cc: Mathieu Poirier <mathieu.poirier@linaro.org>, linux-pm@vger.kernel.org,
-	linux-remoteproc@vger.kernel.org, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Hiago De Franco <hiago.franco@toradex.com>, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Peng Fan <peng.fan@oss.nxp.com>, daniel.baluta@nxp.com,
-	iuliana.prodan@oss.nxp.com,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH v7 3/3] remoteproc: imx_rproc: detect and attach to
- pre-booted remote cores
-Message-ID: <20250716195003.5kunymu3nrdsfnz2@hiagonb>
-References: <aHZ0nK4ZZShAr6Xz@p14s>
- <CAPDyKFrWng0CY-ayKoEbnS_yanghSqogxfuizxEVbVogJ4DT=g@mail.gmail.com>
- <20250716132552.bra37ucw4fcjwril@hiagonb>
- <aHfYQFvkJcdfq9K_@p14s>
- <20250716172308.lzh3aak24d6mt4cs@hiagonb>
- <CAPDyKFr8eYiyj5s7wGsru8GJ+CS6h-o+a+BOV-nvCdSzWM0bSw@mail.gmail.com>
+        bh=3YboiOBuuzvpNMxiBuKPw6BD6c8PklI5nO1wrPxXt8c=;
+        b=RgAXRuAoKzOup8S9/jy/dWaxeTUvPmSPBIW4psFLd2+LpDNkjDjGEbNJl18+aFi4iL
+         SK33pWTQl6e8bnReC/a9a2s2faSB+zraseHc+nPI/WxfxI9owN3Ak9mSDaTMPCcx0NSl
+         J+ruiqREOVG7SapiQ++GuBSzWagiqwBLlSgptqduIymO+ADYRxVWbLVxa8zXZ2KEW6/D
+         Gv/ADKiVh8dUNkCXiM1tD3ML0dtRTscEvPDceIgiF/HR4LmnzHn1PdCG+6wALIYJOz6q
+         yTIyDKyX2wkIbwfM36CKNMWbqMYUPXwWk9oA86WaFe2CylFEoEp96X3GUip5YGLhWHYq
+         C8yw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1752696470; x=1753301270;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=3YboiOBuuzvpNMxiBuKPw6BD6c8PklI5nO1wrPxXt8c=;
+        b=fk6fqbmvHDK7Ms1qMN4hgXNSXH8xKEE4w3lQq45pFPI2lsh94/8dLLySjhULE5nMBl
+         wJ2s5uqShaR8kAPhiV4tvPq5oDvgZljEBZg4zBjXQJtMGOypgJD5+ITnDkstLvN0F9wl
+         y6K/IhVCkVAMOXRi5kTZTUthYNpL6/21ZW7PSXsOOcCSNHwBNb+4ACq4VxKioQUL8x+a
+         n3uAuWhndDQSIHJ7cEHlWoeYL567FSRqNiPAwDfMpFD3WsYCDua577jWhOEPhjKhB04M
+         W+2wJa1CrPUEhZxrYMdRPnxbhUItr0Rg6WnYCULafBeDmXPK80qwS7dzHR6NgesKz8xp
+         RHMA==
+X-Forwarded-Encrypted: i=1; AJvYcCVJZjS0Jr3YSqUwiBTTCvvX/Vw13aO16OdlPejFDb87v6HbWvVH79DYo/U+2hKUpkpCy8TBwgoMee+3mJ4TSJVW@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy+kGHYows2WT7hFSXTEAyUiwmoeJYAvhMUchnVyo15CuDQ23LW
+	5XYrXuo5iX7Lnyf9OUUw9aUFJZz61mHXbrsTO+3MdtCyOC7Zvq8itimwHwrukKIygZajOMfjXC0
+	XJwpNKvx2789n9WLaiSya0/iYXDeC34QuTNH8c5Gt
+X-Gm-Gg: ASbGncu82sQyOk6xJUCgMcJhMuqof/UoVWaqDkCo8PDx/DwdQPxRJJo4Uq4KayGRi0d
+	j8V9TBZ14x1qTL5395oWLOS4wuj6kanhr3GzO3vUuLjjB5Bz4Lk9mE+N1jeOJuxzk8RSqH3pRkB
+	6JaR/a8VglLPM1YzbRfr5GFBf7rPoCnSynkXcPiba/Ewv7vqFHUcSHoBj3J8KdATapxO1l2eRbe
+	vGWGRTp
+X-Google-Smtp-Source: AGHT+IG/mD6EU8SuNTW3LZDjCfoDb9ZARI1mRRrRCv8Xo96/5sxY7xEOyY0wRwm6k6PnyyanvPlOxzUa99SAFnecsZI=
+X-Received: by 2002:adf:e195:0:b0:3a5:3993:3427 with SMTP id
+ ffacd0b85a97d-3b613adaaa6mr439027f8f.26.1752696469798; Wed, 16 Jul 2025
+ 13:07:49 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CAPDyKFr8eYiyj5s7wGsru8GJ+CS6h-o+a+BOV-nvCdSzWM0bSw@mail.gmail.com>
+References: <4c459085b9ae42bdbf99b6014952b965@BJMBX01.spreadtrum.com>
+ <202507150830.56F8U908028199@SHSPAM01.spreadtrum.com> <c34f4f606eb04c38b64e8f3a658cd051@BJMBX01.spreadtrum.com>
+ <CANiq72=v6jkOasLiem7RXe-WUSg9PkNqrZneeMOTi1pzwXuHYg@mail.gmail.com>
+ <24e87f60203c443abe7549ce5c0e9e75@BJMBX01.spreadtrum.com> <aHftocnJcLg64c29@google.com>
+In-Reply-To: <aHftocnJcLg64c29@google.com>
+From: Alice Ryhl <aliceryhl@google.com>
+Date: Wed, 16 Jul 2025 22:07:37 +0200
+X-Gm-Features: Ac12FXwaBbCKoAemQb9xmWXTf5_wpyVeFFPscMtfQR5YlmbyXhCuUwBZR_A4iZs
+Message-ID: <CAH5fLgiiZE_mFhB4J+G7-Jdz46+d-5NP15npjn2_H7DgSAynxw@mail.gmail.com>
+Subject: Re: Meet compiled kernel binaray abnormal issue while enabling
+ generic kasan in kernel 6.12 with some default KBUILD_RUSTFLAGS on
+To: Carlos Llamas <cmllamas@google.com>
+Cc: =?UTF-8?B?5YiY5rW354eVIChIYWl5YW4gTGl1KQ==?= <haiyan.liu@unisoc.com>, 
+	Matthew Maurer <mmaurer@google.com>, Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>, 
+	Miguel Ojeda <ojeda@kernel.org>, =?UTF-8?B?5ZGo5bmzIChQaW5nIFpob3UvOTAzMik=?= <Ping.Zhou1@unisoc.com>, 
+	=?UTF-8?B?5Luj5a2Q5Li6IChaaXdlaSBEYWkp?= <Ziwei.Dai@unisoc.com>, 
+	=?UTF-8?B?5p2o5Li95aicIChMaW5hIFlhbmcp?= <lina.yang@unisoc.com>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
+	"rust-for-linux@vger.kernel.org" <rust-for-linux@vger.kernel.org>, 
+	=?UTF-8?B?546L5Y+MIChTaHVhbmcgV2FuZyk=?= <shuang.wang@unisoc.com>, 
+	Andrey Ryabinin <ryabinin.a.a@gmail.com>, Alexander Potapenko <glider@google.com>, 
+	Andrey Konovalov <andreyknvl@gmail.com>, Dmitry Vyukov <dvyukov@google.com>, 
+	Vincenzo Frascino <vincenzo.frascino@arm.com>, 
+	"kasan-dev@googlegroups.com" <kasan-dev@googlegroups.com>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, =?UTF-8?B?QXJ2ZSBIasO4bm5ldsOlZw==?= <arve@android.com>, 
+	Todd Kjos <tkjos@android.com>, Martijn Coenen <maco@android.com>, 
+	Joel Fernandes <joelagnelf@nvidia.com>, Christian Brauner <christian@brauner.io>, 
+	Suren Baghdasaryan <surenb@google.com>, Jamie Cunliffe <Jamie.Cunliffe@arm.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250716_125011_251672_7E0D0A0E 
-X-CRM114-Status: GOOD (  60.84  )
+X-CRM114-CacheID: sfid-20250716_130752_419795_FA59E2E5 
+X-CRM114-Status: GOOD (  22.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,161 +115,150 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 16, 2025 at 08:56:37PM +0200, Ulf Hansson wrote:
-> On Wed, 16 Jul 2025 at 19:23, Hiago De Franco <hiagofranco@gmail.com> wrote:
+On Wed, Jul 16, 2025 at 8:21=E2=80=AFPM Carlos Llamas <cmllamas@google.com>=
+ wrote:
+>
+> On Wed, Jul 16, 2025 at 07:01:29AM +0000, =E5=88=98=E6=B5=B7=E7=87=95 (Ha=
+iyan Liu) wrote:
 > >
-> > On Wed, Jul 16, 2025 at 10:50:08AM -0600, Mathieu Poirier wrote:
-> > > On Wed, Jul 16, 2025 at 10:25:52AM -0300, Hiago De Franco wrote:
-> > > > Hi Mathieu, Ulf,
-> > > >
-> > > > On Tue, Jul 15, 2025 at 09:32:44AM -0600, Mathieu Poirier wrote:
-> > > > > On Sun, Jun 29, 2025 at 02:25:12PM -0300, Hiago De Franco wrote:
-> > > > > > From: Hiago De Franco <hiago.franco@toradex.com>
-> > > > > >
-> > > > > > When the Cortex-M remote core is started and already running before
-> > > > > > Linux boots (typically by the Cortex-A bootloader using a command like
-> > > > > > bootaux), the current driver is unable to attach to it. This is because
-> > > > > > the driver only checks for remote cores running in different SCFW
-> > > > > > partitions. However in this case, the M-core is in the same partition as
-> > > > > > Linux and is already powered up and running by the bootloader.
-> > > > > >
-> > > > > > This patch adds a check using dev_pm_genpd_is_on() to verify whether the
-> > > > > > M-core's power domains are already on. If all power domain devices are
-> > > > > > on, the driver assumes the M-core is running and proceed to attach to
-> > > > > > it.
-> > > > > >
-> > > > > > To accomplish this, we need to avoid passing any attach_data or flags to
-> > > > > > dev_pm_domain_attach_list(), allowing the platform device become a
-> > > > > > consumer of the power domain provider without changing its current
-> > > > > > state.
-> > > > > >
-> > > > > > During probe, also enable and sync the device runtime PM to make sure
-> > > > > > the power domains are correctly managed when the core is controlled by
-> > > > > > the kernel.
-> > > > > >
-> > > > > > Suggested-by: Ulf Hansson <ulf.hansson@linaro.org>
-> > > > > > Reviewed-by: Ulf Hansson <ulf.hansson@linaro.org>
-> > > > > > Reviewed-by: Peng Fan <peng.fan@nxp.com>
-> > > > > > Signed-off-by: Hiago De Franco <hiago.franco@toradex.com>
-> > > > > > ---
-> > > > > > v6 -> v7:
-> > > > > >  - Added Peng reviewed-by.
-> > > > > > v5 -> v6:
-> > > > > >  - Commit description improved, as suggested. Added Ulf Hansson reviewed
-> > > > > >    by. Comment on imx-rproc.c improved.
-> > > > > > v4 -> v5:
-> > > > > >  - pm_runtime_get_sync() removed in favor of
-> > > > > >    pm_runtime_resume_and_get(). Now it also checks the return value of
-> > > > > >    this function.
-> > > > > >  - Added pm_runtime_disable() and pm_runtime_put() to imx_rproc_remove()
-> > > > > >    function.
-> > > > > > v3 -> v4:
-> > > > > >  - Changed to use the new dev_pm_genpd_is_on() function instead, as
-> > > > > >    suggested by Ulf. This will now get the power status of the two
-> > > > > >    remote cores power domains to decided if imx_rpoc needs to attach or
-> > > > > >    not. In order to do that, pm_runtime_enable() and
-> > > > > >    pm_runtime_get_sync() were introduced and pd_data was removed.
-> > > > > > v2 -> v3:
-> > > > > >  - Unchanged.
-> > > > > > v1 -> v2:
-> > > > > >  - Dropped unecessary include. Removed the imx_rproc_is_on function, as
-> > > > > >    suggested.
-> > > > > > ---
-> > > > > >  drivers/remoteproc/imx_rproc.c | 37 +++++++++++++++++++++++++++++-----
-> > > > > >  1 file changed, 32 insertions(+), 5 deletions(-)
-> > > > > >
-> > > > > > diff --git a/drivers/remoteproc/imx_rproc.c b/drivers/remoteproc/imx_rproc.c
-> > > > > > index 627e57a88db2..24597b60c5b0 100644
-> > > > > > --- a/drivers/remoteproc/imx_rproc.c
-> > > > > > +++ b/drivers/remoteproc/imx_rproc.c
-> > > > > > @@ -18,6 +18,7 @@
-> > > > > >  #include <linux/of_reserved_mem.h>
-> > > > > >  #include <linux/platform_device.h>
-> > > > > >  #include <linux/pm_domain.h>
-> > > > > > +#include <linux/pm_runtime.h>
-> > > > > >  #include <linux/reboot.h>
-> > > > > >  #include <linux/regmap.h>
-> > > > > >  #include <linux/remoteproc.h>
-> > > > > > @@ -890,10 +891,8 @@ static int imx_rproc_partition_notify(struct notifier_block *nb,
-> > > > > >  static int imx_rproc_attach_pd(struct imx_rproc *priv)
-> > > > > >  {
-> > > > > >         struct device *dev = priv->dev;
-> > > > > > -       int ret;
-> > > > > > -       struct dev_pm_domain_attach_data pd_data = {
-> > > > > > -               .pd_flags = PD_FLAG_DEV_LINK_ON,
-> > > > > > -       };
-> > > > > > +       int ret, i;
-> > > > > > +       bool detached = true;
-> > > > > >
-> > > > > >         /*
-> > > > > >          * If there is only one power-domain entry, the platform driver framework
-> > > > > > @@ -902,7 +901,22 @@ static int imx_rproc_attach_pd(struct imx_rproc *priv)
-> > > > > >         if (dev->pm_domain)
-> > > > > >                 return 0;
-> > > > > >
-> > > > > > -       ret = dev_pm_domain_attach_list(dev, &pd_data, &priv->pd_list);
-> > > > > > +       ret = dev_pm_domain_attach_list(dev, NULL, &priv->pd_list);
-> > > > > > +       /*
-> > > > > > +        * If all the power domain devices are already turned on, the remote
-> > > > > > +        * core is already powered up and running when the kernel booted (e.g.,
-> > > > > > +        * started by U-Boot's bootaux command). In this case attach to it.
-> > > > > > +        */
-> > > > > > +       for (i = 0; i < ret; i++) {
-> > > > > > +               if (!dev_pm_genpd_is_on(priv->pd_list->pd_devs[i])) {
-> > > > > > +                       detached = false;
-> > > > > > +                       break;
-> > > > > > +               }
-> > > > > > +       }
-> > > > >
-> > > > > I was doing one final review of this work when I noticed the return code for
-> > > > > dev_pm_domain_attach_list() is never checked for error.
-> > > >
-> > > > As Ulf pointed out, the 'return' a few lines below will return the
-> > > > negative value to the caller of 'imx_rproc_attach_pd', which ultimately
-> > > > will fail 'imx_rproc_detect_mode' and fail the probe of imx_rproc.
-> > > >
-> > > > Please notice that even tough 'dev_pm_domain_attach_list' fails, the
-> > > > rproc->state will still be set as RPROC_DETACHED because we are starting
-> > > > 'detached' as true, but I am not seeing this as an issue because as
-> > > > mentioned above the probe will fail anyway. Please let me know if you
-> > > > see this as an issue.
-> > >
-> > > Two things to consider here:
-> > >
-> > > (1) It is only a matter of time before someone with a cleaver coccinelle script
-> > > sends me a patch that adds the missing error check.
-> > >
-> > > (2) I think that @rproc->state being changed on error conditions is a bug
-> > > waiting to happen.  This kind of implicit error handling is difficult to
-> > > maintain and even more difficult for people to make enhancements to the driver.
-> > >
-> > > Adding a simple error check will make sure neither of the above will happen.  It
-> > > is a simple change and we are at rc6 - this work can still go in the merge
-> > > window.
 > >
-> > Sure, I can submit a new revision with this error check. Sorry I did not
-> > see this before, I only had a close look at this '->state' now that you
-> > asked on the previous email.
-> 
-> Alright. To avoid having you to resend patch1 and patch2 I have
-> applied them on my next branch and added Mathieu's ack for patch2.
-> 
-> Note that my vacation is around the corner, so if you want patch3 for
-> v6.17 you better be quick. :-)
+> > > -----=E9=82=AE=E4=BB=B6=E5=8E=9F=E4=BB=B6-----
+> > > =E5=8F=91=E4=BB=B6=E4=BA=BA: Miguel Ojeda <miguel.ojeda.sandonis@gmai=
+l.com>
+> > > =E5=8F=91=E9=80=81=E6=97=B6=E9=97=B4: 2025=E5=B9=B47=E6=9C=8816=E6=97=
+=A5 1:51
+> > > =E6=94=B6=E4=BB=B6=E4=BA=BA: =E5=88=98=E6=B5=B7=E7=87=95 (Haiyan Liu)=
+ <haiyan.liu@unisoc.com>
+> > > =E6=8A=84=E9=80=81: Miguel Ojeda <ojeda@kernel.org>; =E5=91=A8=E5=B9=
+=B3 (Ping Zhou/9032) <Ping.Zhou1@unisoc.com>; =E4=BB=A3=E5=AD=90=E4=B8=BA (=
+Ziwei Dai)
+> > > <Ziwei.Dai@unisoc.com>; =E6=9D=A8=E4=B8=BD=E5=A8=9C (Lina Yang) <lina=
+.yang@unisoc.com>; linux-arm-kernel@lists.infradead.org;
+> > > linux-kernel@vger.kernel.org; rust-for-linux@vger.kernel.org; =E7=8E=
+=8B=E5=8F=8C (Shuang Wang) <shuang.wang@unisoc.com>; Andrey Ryabinin
+> > > <ryabinin.a.a@gmail.com>; Alexander Potapenko <glider@google.com>; An=
+drey Konovalov <andreyknvl@gmail.com>; Dmitry Vyukov
+> > > <dvyukov@google.com>; Vincenzo Frascino <vincenzo.frascino@arm.com>; =
+kasan-dev@googlegroups.com; Greg Kroah-Hartman
+> > > <gregkh@linuxfoundation.org>; Arve Hj=C3=B8nnev=C3=A5g <arve@android.=
+com>; Todd Kjos <tkjos@android.com>; Martijn Coenen
+> > > <maco@android.com>; Joel Fernandes <joelagnelf@nvidia.com>; Christian=
+ Brauner <christian@brauner.io>; Carlos Llamas
+> > > <cmllamas@google.com>; Suren Baghdasaryan <surenb@google.com>; Jamie =
+Cunliffe <Jamie.Cunliffe@arm.com>; Catalin Marinas
+> > > <catalin.marinas@arm.com>
+> > > =E4=B8=BB=E9=A2=98: Re: Meet compiled kernel binaray abnormal issue w=
+hile enabling generic kasan in kernel 6.12 with some default KBUILD_RUSTFLA=
+GS
+> > > on
+> > >
+> > >
+> > > =E6=B3=A8=E6=84=8F: =E8=BF=99=E5=B0=81=E9=82=AE=E4=BB=B6=E6=9D=A5=E8=
+=87=AA=E4=BA=8E=E5=A4=96=E9=83=A8=E3=80=82=E9=99=A4=E9=9D=9E=E4=BD=A0=E7=A1=
+=AE=E5=AE=9A=E9=82=AE=E4=BB=B6=E5=86=85=E5=AE=B9=E5=AE=89=E5=85=A8=EF=BC=8C=
+=E5=90=A6=E5=88=99=E4=B8=8D=E8=A6=81=E7=82=B9=E5=87=BB=E4=BB=BB=E4=BD=95=E9=
+=93=BE=E6=8E=A5=E5=92=8C=E9=99=84=E4=BB=B6=E3=80=82
+> > > CAUTION: This email originated from outside of the organization. Do n=
+ot click links or open attachments unless you recognize the sender
+> > > and know the content is safe.
+> > >
+> > >
+> > >
+> > > On Tue, Jul 15, 2025 at 11:41=E2=80=AFAM =E5=88=98=E6=B5=B7=E7=87=95 =
+(Haiyan Liu) <haiyan.liu@unisoc.com> wrote:
+> > > >
+> > > > The commit changes the fragment and diff is:
+> > >
+> > > An Android engineer should know how to handle that, but if you are re=
+porting upstream, it is best to try to reproduce the issue with the
+> > > upstream kernels (e.g. arm64 is not in 6.6.y) and provide the full ke=
+rnel config used.
+> > >
+> > > > Only two rust-related global variables in fmr.rs and layout.rs have=
+ this issue. Their asan.module_ctor complied binaries are wrong.
+> > >
+> > > I am not sure what you mean by `fmr.rs`. As for `layout.rs`, that is =
+in the `kernel` crate in 6.12.y -- isn't there a single `asan.module_ctor`
+> > > per TU? Which object file are you referring to? I get the pair for my=
+ `rust/kernel.o`.
+> >
+> >   NSX:FFFFFFC0800A7C94|F800865E  asan.module_ctor:   str     x30,[x18],=
+#0x8   ; x30,[x18],#8
+> >    NSX:FFFFFFC0800A7C98|F81F0FFE                      str     x30,[sp,#=
+-0x10]!   ; x30,[sp,#-16]!
+> >    NSX:FFFFFFC0800A7C9C|F00240A0                      adrp    x0,0xFFFF=
+FFC0848BE000
+> >    NSX:FFFFFFC0800A7CA0|911D8000                      add     x0,x0,#0x=
+760     ; x0,x0,#1888
+> >    NSX:FFFFFFC0800A7CA4|52803D61                      mov     w1,#0x1EB=
+        ; w1,#491
+> >    NSX:FFFFFFC0800A7CA8|94233816                      bl      0xFFFFFFC=
+080975D00   ; __asan_register_globals
+> >    NSX:FFFFFFC0800A7CAC|F84107FE                      ldr     x30,[sp],=
+#0x10   ; x30,[sp],#16
+> >    NSX:FFFFFFC0800A7CB0|D50323BF                      autiasp
+> >    NSX:FFFFFFC0800A7CB4|D65F03C0                      ret
+> > The first __asan_global struct value is
+> >  ENAXI:FFFFFFC0848BE760|>FFFFFFC082EDB180 000000000000005F ........_...=
+....
+> >  ENAXI:FFFFFFC0848BE770| 0000000000000080 FFFFFFC0836DC431 ........1.m.=
+....
+> >  ENAXI:FFFFFFC0848BE780| FFFFFFC082EEC780 0000000000000000 ............=
+....
+> >  ENAXI:FFFFFFC0848BE790| 0000000000000000 FFFFFFFFFFFFFFFF ............=
+....
+> > The address of the global is 0xFFFFFFC082EDB180 which value is '/proc/s=
+elf/cwd/prebuilts/rust/linux-x86/1.82.0/lib/rustlib/src/rust/library/core/s=
+rc/num/fmt.rs' and its viewinfo is 'vmlinux\Global\__unnamed_357'
+> > The original size of the global is 0x5F
+> > The name of the global is kmalloc-2k
+> > The module name of the global is 'core.27758904ccee4c80-cgu.o'
+> >
+> >    NSX:FFFFFFC0800A7D4C|F800865E  asan.mod.:str     x30,[x18],#0x8   ; =
+x30,[x18],#8
+> >    NSX:FFFFFFC0800A7D50|F81F0FFE            str     x30,[sp,#-0x10]!   =
+; x30,[sp,#-16]!
+> >    NSX:FFFFFFC0800A7D54|F00240E0            adrp    x0,0xFFFFFFC0848C60=
+00
+> >    NSX:FFFFFFC0800A7D58|912E8000            add     x0,x0,#0xBA0     ; =
+x0,x0,#2976
+> >    NSX:FFFFFFC0800A7D5C|52800961            mov     w1,#0x4B         ; =
+w1,#75
+> >    NSX:FFFFFFC0800A7D60|942337E8            bl      0xFFFFFFC080975D00 =
+  ; __asan_register_globals
+> >    NSX:FFFFFFC0800A7D64|F84107FE            ldr     x30,[sp],#0x10   ; =
+x30,[sp],#16
+> >    NSX:FFFFFFC0800A7D68|D50323BF            autiasp
+> >    NSX:FFFFFFC0800A7D6C|D65F03C0            ret
+> > The second __asan_global struct value is
+> >    NSD:FFFFFFC0848C6BA0|>FFFFFFC082EECA80 0000000000000020 ........ ...=
+....
+> >    NSD:FFFFFFC0848C6BB0| 0000000000000040 FFFFFFC0836DC431 @.......1.m.=
+....
+> >    NSD:FFFFFFC0848C6BC0| FFFFFFC082EEDA80 0000000000000000 ............=
+....
+> >    NSD:FFFFFFC0848C6BD0| 0000000000000000 FFFFFFFFFFFFFFFF ............=
+....
+> > The address of the global is 0xFFFFFFC082EECA80 which value is 0 and it=
+s viewinfo is '<&usize_as_core::f..vmlinux\kernel_9a6cb9fd7c8dfd66_cgu\<&us=
+ize_as_core::fmt::Debug>::{vtable}'
+> > The original size of the global is 0x20
+> > The name of the global is kmalloc-2k
+> > The module name of the global is 'kernel.9a6cb9fd7c8dfd66-cgu.o'
+> >
+> > > Cheers,
+> > > Miguel
+>
+> We have KASAN builds with android16-6.12 and haven't seen this issue.
+> Can you share your entire config file, so we can try to reproduce?
+>
+> Cc: Alice Ryhl <aliceryhl@google.com>
+> Cc: Matthew Maurer <mmaurer@google.com>
+>
+> Alice, Matthew, have you seen this before?
 
-Thanks Ulf, as requested I resend only patch 3.
+No, this doesn't ring any bells for me. I guess we need to see a full
+config so we can try and reproduce ourselves.
 
-https://lore.kernel.org/all/20250716194638.113115-1-hiagofranco@gmail.com/
-
-Have a nice vacation =)
-
-Best Regards,
-
-Hiago.
-
-> 
-> [...]
-> 
-> Thanks and kind regards
-> Uffe
+Alice
 
