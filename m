@@ -4,79 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7028C83F22
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 11:25:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77B54C83F1B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 11:27:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bFiBh24vfyxUkvL/qAF91ZLaWMijXEEuq00t+Y6HBLE=; b=2MioddaNMksA2P/oBht5xIAS93
-	k6hh7/hZ9ljHvjSIh+NB4j5t7IC7U78rfLg18aOOK168uuu4BIYE8QoPjJwQ/n0XhH9y65kfk2qVS
-	OLZ+KxPnox1xUMeoysREr0jBEftrs53i0juKluygjtNd/H76TrBaenu7zoe7cQkAAFqG0p0pCjchI
-	ylSMvcKKvHghF1DPSveciK6JsPsJm5J2weHmio0YMIMzlM3dHLvfxbHpL6pOnBGkbeFXwpZ4mNdaA
-	Zz2gfCMOerfvOLh2LBrODFQEgoq7jy4VRjHSMWnOkw35BxPGxHSoRjuBvSrIMwgVy87FZTy5cHb0j
-	ouEe0U9w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NFZNUG/UCxwWjY86iI/yw/M8mTsEB4DoBnx/uYlUiXw=; b=i0orgonNNYOe4rQ4G9TjRFbnLs
+	pCh/xrnmAxZtWT8OZuS8DPNJSE62PQick/wVWP0tGV3j9X/zC9JK8e6hb3J8eOMZcCobxlNqe4ws/
+	iLBaIJppR0QCWVxS79EQZxWNTG+bOcaUI8IFGJ4Jj33RGVX2dNFy2eeDYDh1dv43fkK5hkTM6fjE0
+	QDGFXW2vOUThY5XnVCSWoUDBnkQhk5yc4dqGyAi/3Qgk576aaZPvYY8Y6Wc7hvvMqHZxdX1oHR/gX
+	9SyhNBICyV6JgRIrqh8edNmkBJD0g+I+cTQjmE8PVLb7nUlHGagjEsdRpswJpBK2kSBYQ9cevSu+S
+	rtyJWO5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uc0G6-00000007YMq-1VBd;
-	Wed, 16 Jul 2025 11:25:10 +0000
-Received: from mail-wr1-x44a.google.com ([2a00:1450:4864:20::44a])
+	id 1uc0IW-00000007YoQ-0MmW;
+	Wed, 16 Jul 2025 11:27:40 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubzzK-00000007VHm-2CZb
+	id 1uc00C-00000007ViL-3sAJ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Jul 2025 11:07:51 +0000
-Received: by mail-wr1-x44a.google.com with SMTP id ffacd0b85a97d-3a4eee2398bso3162951f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Jul 2025 04:07:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1752664069; x=1753268869; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=bFiBh24vfyxUkvL/qAF91ZLaWMijXEEuq00t+Y6HBLE=;
-        b=Q0i5HeMERXeT3fQ1z1u2SXThyJr/FupTMlkfcBksTX2gIsM1nretACyWWYaWxL+c+N
-         djLKaiciQvV7KDlB1Ju8f2oY+uBaj251d317vOXtaVr5sIsJbz1buLNkkkNB7WCWD2ef
-         mB4vDhUZ9MVjl1eXNsusxufNvPb3CGK787jDhhBm6tT4N+Ye83jouMdsMU+oGdYA6AZ2
-         N5Jprlneq0Lg1vGsQdQUU/25geGyp981smGR4didQCmJw4p+wx3KF2JS6XzA9PTf6fIO
-         3aZQhntaOv7fefWz4ea5eqzfil/RmxcWZjxdGEI5XzT1f3SaavSwGNioslqu0sYEUqab
-         nNvg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752664069; x=1753268869;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=bFiBh24vfyxUkvL/qAF91ZLaWMijXEEuq00t+Y6HBLE=;
-        b=IriKfP++YCnPhMyPZhAsFsA6bwjqCGWEvX3u96utfRXQgQ3OAghsqxTuktZogRZX9E
-         UPTytuPL0PZUDHU9p13Ud+jIcSCKxw/QaSYW04VKZnT3QVB0EA54rx0ALF2OfQwr99Xo
-         sMmV9N+8UdmcYYEzgBTVktu2s5cEEoaUwTeN7CmGx6iggucDxf72tGq/mi4d52gXEq3b
-         3HMBuG4Gpg/wzQskvcJqzOWPnef1OuDCRCLi/qefHlt1KOJoh2D4x2lQJUvD8YU6CU5c
-         FT0WPGAM2U4+2kZSHzdznye65gvvme8SEZLW7KauWoqejPJ2ODT+QzKhqWH2WNVVlJyY
-         1uJw==
-X-Gm-Message-State: AOJu0YyRhgb2l+khtjpDBIutqUxa2ma9EJhbc057yKKgwWN0UIGQloNR
-	JKb0RzAX94zFTfYaniqsoECawVZL6DIYtd/U31gfBoRQcYL1RkxCh4Pef0kKCu6HRdA0n5sC8aJ
-	A36mb7BhfAoEC7fdCa3+61ayeyoLDUg5i5za98OYYHQaiA9m86oS3Q9PgFees/MXRA4E1guqbvu
-	Yb9udP6axR/MempkcILDuT0Xq0idPa7NBvfufgWCXPB+1O5HCZdA==
-X-Google-Smtp-Source: AGHT+IHS3mDNKI5f7HxVRvsGrhgPtKyzq6M9m0VkLvornMAR5mJ3Yg4oC8wem/+qjRBiPoyYxBKnOYGMMA==
-X-Received: from wmqd13.prod.google.com ([2002:a05:600c:34cd:b0:456:23aa:8bf])
- (user=keirf job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6000:2486:b0:3a5:232c:6976
- with SMTP id ffacd0b85a97d-3b60dd99677mr1925159f8f.44.1752664068593; Wed, 16
- Jul 2025 04:07:48 -0700 (PDT)
-Date: Wed, 16 Jul 2025 11:07:37 +0000
-In-Reply-To: <20250716110737.2513665-1-keirf@google.com>
-Mime-Version: 1.0
-References: <20250716110737.2513665-1-keirf@google.com>
-X-Mailer: git-send-email 2.50.0.727.gbf7dc18ff4-goog
-Message-ID: <20250716110737.2513665-5-keirf@google.com>
-Subject: [PATCH v2 4/4] KVM: Avoid synchronize_srcu() in kvm_io_bus_register_dev()
-From: Keir Fraser <keirf@google.com>
-To: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	kvm@vger.kernel.org
-Cc: Sean Christopherson <seanjc@google.com>, Eric Auger <eric.auger@redhat.com>, 
-	Oliver Upton <oliver.upton@linux.dev>, Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>, 
-	Paolo Bonzini <pbonzini@redhat.com>, Keir Fraser <keirf@google.com>
-Content-Type: text/plain; charset="UTF-8"
+	Wed, 16 Jul 2025 11:08:46 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 545965C5806;
+	Wed, 16 Jul 2025 11:08:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C451C4CEF0;
+	Wed, 16 Jul 2025 11:08:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1752664124;
+	bh=AyAmWhiQdDWqGJGGeRk5g3QD0etWwWAjv7mp1B+BvMo=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=iauYOuFr4AmtjhZPqZqG7YLdGrRT/yvD+wToU8zXoAFc4qJU86qYMtEXScBELOjiw
+	 FXeWi0Q2UViZ9Nj4e+kJdmkUhvuX8V0ghzKjDC/p3uQiNngxhSn6flVBGT51tYFLup
+	 Fq8zzjwUOG5NrgGhEmwS7ajXC1bB4GPz8LwdNXF1mymltCbH0ghQls63VaC/SYRb1x
+	 Mtu1AvtmzB3IbNFONvwWrmk50gc3osyEt4YBYkX/3rbl3n7f9MDowPPxLIrs8ChWr7
+	 EBg8VsovENvLP7UOrdxLcNxGI2/i/dCYa7M/HYX3a/Pn+xLFVMknilgc7vgJk7a3EJ
+	 fIJ7wjrs3qlnw==
+Message-ID: <878eff53-85a4-4aa5-84ff-74c774d5149b@kernel.org>
+Date: Wed, 16 Jul 2025 13:08:38 +0200
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/4] arm64: dts: qcom: Remove sdm845-cheza boards
+To: Konrad Dybcio <konradybcio@kernel.org>,
+ Bjorn Andersson <andersson@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, cros-qcom-dts-watchers@chromium.org,
+ Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
+ Joerg Roedel <joro@8bytes.org>
+Cc: Marijn Suijten <marijn.suijten@somainline.org>,
+ linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Rob Clark <robin.clark@oss.qualcomm.com>,
+ linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+ Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+References: <20250716-topic-goodnight_cheza-v2-0-6fa8d3261813@oss.qualcomm.com>
+ <20250716-topic-goodnight_cheza-v2-1-6fa8d3261813@oss.qualcomm.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20250716-topic-goodnight_cheza-v2-1-6fa8d3261813@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250716_040750_576656_C0A09A0F 
-X-CRM114-Status: GOOD (  12.42  )
+X-CRM114-CacheID: sfid-20250716_040845_056042_F83EDB3D 
+X-CRM114-Status: UNSURE (   9.32  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,61 +126,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Device MMIO registration may happen quite frequently during VM boot,
-and the SRCU synchronization each time has a measurable effect
-on VM startup time. In our experiments it can account for around 25%
-of a VM's startup time.
+On 16/07/2025 12:16, Konrad Dybcio wrote:
+> From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+> 
+> Cheza was a prototype board, used mainly by the ChromeOS folks, whose
+> former efforts on making linux-arm-msm better we greatly appreciate.
+> 
+> There are close to zero known-working devices at this point in time
+> (see the link below) and it was never productized.
+> 
+> Remove it to ease maintenance burden.
+> 
 
-Replace the synchronization with a deferred free of the old kvm_io_bus
-structure.
 
-Signed-off-by: Keir Fraser <keirf@google.com>
----
- include/linux/kvm_host.h |  1 +
- virt/kvm/kvm_main.c      | 10 ++++++++--
- 2 files changed, 9 insertions(+), 2 deletions(-)
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
-index 9132148fb467..802ca46f7537 100644
---- a/include/linux/kvm_host.h
-+++ b/include/linux/kvm_host.h
-@@ -205,6 +205,7 @@ struct kvm_io_range {
- struct kvm_io_bus {
- 	int dev_count;
- 	int ioeventfd_count;
-+	struct rcu_head rcu;
- 	struct kvm_io_range range[];
- };
- 
-diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
-index 9ec3b96b9666..f690a4997a0f 100644
---- a/virt/kvm/kvm_main.c
-+++ b/virt/kvm/kvm_main.c
-@@ -5948,6 +5948,13 @@ int kvm_io_bus_read(struct kvm_vcpu *vcpu, enum kvm_bus bus_idx, gpa_t addr,
- }
- EXPORT_SYMBOL_GPL(kvm_io_bus_read);
- 
-+static void __free_bus(struct rcu_head *rcu)
-+{
-+	struct kvm_io_bus *bus = container_of(rcu, struct kvm_io_bus, rcu);
-+
-+	kfree(bus);
-+}
-+
- int kvm_io_bus_register_dev(struct kvm *kvm, enum kvm_bus bus_idx, gpa_t addr,
- 			    int len, struct kvm_io_device *dev)
- {
-@@ -5986,8 +5993,7 @@ int kvm_io_bus_register_dev(struct kvm *kvm, enum kvm_bus bus_idx, gpa_t addr,
- 	memcpy(new_bus->range + i + 1, bus->range + i,
- 		(bus->dev_count - i) * sizeof(struct kvm_io_range));
- 	rcu_assign_pointer(kvm->buses[bus_idx], new_bus);
--	synchronize_srcu_expedited(&kvm->srcu);
--	kfree(bus);
-+	call_srcu(&kvm->srcu, &bus->rcu, __free_bus);
- 
- 	return 0;
- }
--- 
-2.50.0.727.gbf7dc18ff4-goog
-
+Best regards,
+Krzysztof
 
