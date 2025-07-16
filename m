@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A397C83F27
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 20:04:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D58CC83F22
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 20:06:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nPCXaM2fReTmTR1+dO9f5EB14T9FRoV7tVgoNxuKveQ=; b=2GCwlXgZTxvQADcqLMK7eg6daw
-	aeAXRQcSIg5usZLIyEl3gz8FybR302i8Nhvyn9ERKSoprwQe5AbsVl0lkuTd3vW9Fv6cf+FhF+8Ia
-	bSYnlPMjYq9kwDe42hj/YMsDo6ErE33aYYPxOaglCzqAbcAcgbkoTxr4FckGY1ksFaAnpSRXsXRRc
-	6zI6gxznOuzcQRwAwuYs2ll2xekf/iPmq7FNmwYblnYdfe/wMP5O4NhwhQw4EBQwecgXL+1/PFlRH
-	FgbtpEdwQ1a007ou4T1XUTQYVPwZ39F8+ZUlHMvdLiJ3LLwgpvdGeQgbLbLt39wz1TAUnj2AkN/bw
-	+qhnwT5g==;
+	bh=lKwNNCz2eG9U29ALEDHAFId45pOA3pYtpGo8B4QYY6k=; b=gIoBukuRjKq5A/D9JNc2/Ks+qw
+	m8vFm4Yt+sh3nVKKkhrgVuYTKbuvIckL+6ZXKxoFQ4vNOzJK0yikQFw7PxzmRNcpOneeDLS2IHr/2
+	x34dELiavqfAPsdE9D1ycf+GiakOokUX8eaGvvMwYP/DNoef2vYvpDYr0mKjN/8zu1AIIVJyaSS1N
+	o8z6SvJUFeBFYLTfvHrTAPn6QazqTMO+ZIvz0a+fgR3UjJ/8dOKH1vlHtxPuwQR+NsdUQO1wiQcT/
+	kfdLJ9wekXZHrZm5BZZAPumB6ntjKsmlgQJjycXikpVdG3U0l3HTTfn//Rr8nGFyRVoFIi3o2Rn1D
+	2YeTPW7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uc8MK-00000008ZLa-2Yuh;
-	Wed, 16 Jul 2025 20:04:08 +0000
-Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
+	id 1uc8Ol-00000008Zb0-1Qvz;
+	Wed, 16 Jul 2025 20:06:39 +0000
+Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uc7r4-00000008Ut2-1r00
+	id 1uc7r6-00000008Uu2-21ku
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Jul 2025 19:31:51 +0000
-Received: by mail-ed1-x52e.google.com with SMTP id 4fb4d7f45d1cf-60c51860bf5so297559a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Jul 2025 12:31:50 -0700 (PDT)
+	Wed, 16 Jul 2025 19:31:53 +0000
+Received: by mail-ej1-x629.google.com with SMTP id a640c23a62f3a-ae04d3d63e6so35766566b.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Jul 2025 12:31:52 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1752694309; x=1753299109; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1752694311; x=1753299111; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=nPCXaM2fReTmTR1+dO9f5EB14T9FRoV7tVgoNxuKveQ=;
-        b=ei79m80bKaImmtR1G9ZaFpObeASV0sGme+ljG8MFRtTBvS1fpKwBBQc4vJ5BNyswGz
-         Y6vc7K12WHW7mXJN3ciHr8Pl7tdABQ/IlTu9nD+IMXOXbl/wgcEA2YRvU/XMCfzvkq/o
-         pYWTzuUyfHJCF3tEMK2MKcR5sXOCif2oPgSnuFkfXReTB4xyGD66nBLF8FbuGpurv0Ps
-         Qk/8scIYpcPWHZiZNy1XJnSGEM7c/P9ZmLOg/DZ4ONRrOCvyBAbrjVmJOMR62k7SoYOr
-         +IHW05cd9PnRYNiei2w27y+3H84LL8joiAzmegW/MU51SDB+Igbgmt3FD+jQhDD50pmF
-         ghPQ==
+        bh=lKwNNCz2eG9U29ALEDHAFId45pOA3pYtpGo8B4QYY6k=;
+        b=igH5q/7iUiZxC2IURc5p0avONsYh9PaOnwTEC6mAhIhB2xyjQjBb0F4FqrsleK/PnN
+         zCKb7NluH7znzsVu6OuTxWT3fL3xoZ75dawoiko3aTMie2SrqsxevmRaJ2wbCaeFL8SO
+         iCuE42lbirJhFTmlAhPctL/WKT9gQaakS6OnL5gw9ylE8Q5qcoYHUj0aCj45hqism7mY
+         mxA1AzcNPF8STD9C9ILjJY7wfJEHDINIdmP6ZMuoYeo9S7CVUa17yxUQzT9bB85DEFCp
+         fHVTUg2WrcfW/hE2fdsM0O1fbX/YC+4zIWr1IMkrlH31zCPqR1W00G/7sp2xoScZigsc
+         PIlw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752694309; x=1753299109;
+        d=1e100.net; s=20230601; t=1752694311; x=1753299111;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=nPCXaM2fReTmTR1+dO9f5EB14T9FRoV7tVgoNxuKveQ=;
-        b=d3e2rE3QCeaTPxPcz1I5sMJaV42HdNPn1F52gkIJswQdCDzgj4aZfAvxKgM3/z1duO
-         CDHMGpoVwOnWmpx5DH9FOyHl/Sd4BZO7pyMfzrYNo6Z0BGVPRVNkSrC5gkZaM5PDaFKQ
-         1+rRicYU6Z4g+BwTBgMSotoin0O/LSYG/IoG8wlyqgyGJcrvVgSGrFUXaVAk7NKIrM+r
-         uOpMOwoNyzy9f8db+SCMQp3rm8Zp0GEyV7PG7MhHQ4/aYUqWp9RuNMS1DxMIx5q3tKnA
-         sZKkhVB5ZOLfqVwchs55EVJuWwMOSxyGngALbKDIU9mvVwi2vfXVZBo/lvn7Y/ZcG4vw
-         TLzw==
-X-Forwarded-Encrypted: i=1; AJvYcCU4nVFkbe1A/9Dn0vsuUb0sF9kl5pcPbvB0cdd+XF3LE5OgYyqnepmHz6p3qx4qP1Bvx+I9Low21kkjcx6u8tO+@lists.infradead.org
-X-Gm-Message-State: AOJu0YxJ9HGrRlPND8qZ7Jl8GhIj83nD8Moezbx39v0ROyxRIO8QJSbP
-	y2WpPHiVv1GdwTA3+6z2uV1B4I73eDuFtYxQLfDL51jvW0lCyApnzxlC
-X-Gm-Gg: ASbGncuEuJ+ZU2gZWNm/ZZn0bCxCYxTx33qc3q5ZkqI+QkD9bPY+RVuWqNhBwd18CnG
-	fjOonLahs5Dp8kQNgreDMGkvZtL45pDHJpW197r8rScLrgqUcCK8QBBoL5gzkC84eW+CbJM0Gau
-	GJ5dfivAhHUW9uy/LdM9ahS2ICYcM9v1wRY7ibPC6oJUfHD7/H9KUgGPPFJOEk8Trms898Cu+8n
-	qIkvb6DXKnooURBudlihIDlS9OslCjXxqZZZJAEYSvp2WhW7gdq+PIQczg+kKQLCJYlKuWHrbIK
-	3jwjY48v9v5ANHLZHEEI9GBiD2dQPSIqsJUXtHMcbByPa4vgVEz9zRyKU/jHrNBboyvN8uO5BYg
-	StnGFGe4Wv7CfP2rRJXpPo+Hvmn5TQ2VT4GA=
-X-Google-Smtp-Source: AGHT+IHHlWroyZIAzbjIooKRhrsUTXEx8/lblNbRFcxi6xG53BBEHU5lpzkZPyY/mfo8NS6RlQGa6w==
-X-Received: by 2002:a17:907:9450:b0:ad5:74cd:1824 with SMTP id a640c23a62f3a-ae9c9b15e4cmr504054166b.38.1752694308932;
-        Wed, 16 Jul 2025 12:31:48 -0700 (PDT)
+        bh=lKwNNCz2eG9U29ALEDHAFId45pOA3pYtpGo8B4QYY6k=;
+        b=cTbu+AMACM/vQ3bvOXQONTLhfOxdFWLMBTGYRMpc6vQfb+H0g95tQZNVpFaTHrZt1x
+         GNP75kYcbYq+T7NAwPswM/D7mPOB4fPBElIALQgqntWT5BL0d5nVaY/ncqmtke5ZZS5/
+         LB317/8uk3CeZutdyk66kuUdH5zkB7s5x97afNr1KMX295I/rA97hgySFHUxm39d5Hoq
+         n/kJ/gxEzGUxeEAWkXm6qsq+WUovNzth64b/f+qp1VtapdxggaLgSNxYnMyaUPULByLg
+         eEzLsS91CzkctkHXY3FuePk6EXQDGKf+grj7LjnmUPJXGNGVJyCSS4KqNhHMXJcqX+Nm
+         XeOQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVJ13/OTpaN8tCw7+BWCScq9CWcZqobrG7Z2oLQKEQyo40+pH1E1wNFVBj3UKQtPEZdmRUSTDAkmEYmSYYEiH4L@lists.infradead.org
+X-Gm-Message-State: AOJu0YzvlFada/SSGZg2s7gns9r3ec6WSj1K5CLzGJA/jLUECl7Vk1jO
+	HIcX4ta8E2OlgAQ2FxNLQlk59+1NDc0qrYq7D7gW58athE73B+MI57Pz
+X-Gm-Gg: ASbGncvMDHU1pLw1nN3tFTZ1mP7BYhsV/H9pVZKxcAz7ulsoAPiBoEHOibHsMtZm/mM
+	LUFpew+E5uiOWBMnDQ9Ay1XYvySXct4nqnGC5evCwz4LMWbeQkx28jqmqzaDR35rCYBjk+0hVfI
+	qXP9oZ13hfHvuW6+5heOXGtW3itaY2Umm30H90mwq345NIH/AeZSGjuN7wvkMdHg5tUjCdyp5pn
+	3hZjizbQmcF9oniZg9jvjcKnWV7x/1bdT+8AOf6Yg+dNhLbpSmpIgU8vhptRTCvW7cihRHDa7GA
+	EsJvFyfxDS/me7gKEwdsDGHjXzh6Jqxy1dLhGgjFB+Yfup9Q7xHL2L/d2s/9i83tj7CEU7ZIqQP
+	EAL33y5SwSG3LVF7rhXqt6MAZ1EsiN7KHuXU=
+X-Google-Smtp-Source: AGHT+IHD/AwWxhtp/H4zB8WMrDAL/c1Jp0cZ6659LBasVTEyBTwEa2yNp3U+zRNJMI5sOrDoJGRF4A==
+X-Received: by 2002:a17:907:d40e:b0:ade:c108:c5bf with SMTP id a640c23a62f3a-ae9ce10ca5amr316243266b.43.1752694310837;
+        Wed, 16 Jul 2025 12:31:50 -0700 (PDT)
 Received: from demon-pc.localdomain ([188.27.131.45])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ae6e82df54csm1226534666b.155.2025.07.16.12.31.46
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ae6e82df54csm1226534666b.155.2025.07.16.12.31.49
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 16 Jul 2025 12:31:48 -0700 (PDT)
+        Wed, 16 Jul 2025 12:31:50 -0700 (PDT)
 From: Cosmin Tanislav <demonsingur@gmail.com>
 To: Cosmin Tanislav <cosmin.tanislav@analog.com>,
 	Tomi Valkeinen <tomi.valkeinen+renesas@ideasonboard.com>,
@@ -87,17 +87,17 @@ Cc: linux-media@vger.kernel.org,
 	linux-staging@lists.linux.dev,
 	linux-gpio@vger.kernel.org,
 	Cosmin Tanislav <demonsingur@gmail.com>
-Subject: [PATCH v6 12/24] dt-bindings: media: i2c: max96714: add myself as maintainer
-Date: Wed, 16 Jul 2025 22:30:57 +0300
-Message-ID: <20250716193111.942217-13-demonsingur@gmail.com>
+Subject: [PATCH v6 13/24] dt-bindings: media: i2c: max96714: add support for MAX96714R
+Date: Wed, 16 Jul 2025 22:30:58 +0300
+Message-ID: <20250716193111.942217-14-demonsingur@gmail.com>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20250716193111.942217-1-demonsingur@gmail.com>
 References: <20250716193111.942217-1-demonsingur@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250716_123150_477474_C581AFFB 
-X-CRM114-Status: GOOD (  12.12  )
+X-CRM114-CacheID: sfid-20250716_123152_520455_836948A6 
+X-CRM114-Status: GOOD (  12.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,41 +112,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Analog Devices is taking responsability for the maintenance of the Maxim
-GMSL2/3 devices.
-Add myself to the maintainers list and to the device tree bindings.
+MAX96714R is a lower capability variant of the MAX96714 which only
+supports a fixed rate of 3Gbps in the forward direction.
 
 Signed-off-by: Cosmin Tanislav <demonsingur@gmail.com>
 Acked-by: Rob Herring (Arm) <robh@kernel.org>
 ---
- Documentation/devicetree/bindings/media/i2c/maxim,max96714.yaml | 1 +
- MAINTAINERS                                                     | 1 +
- 2 files changed, 2 insertions(+)
+ .../devicetree/bindings/media/i2c/maxim,max96714.yaml        | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
 diff --git a/Documentation/devicetree/bindings/media/i2c/maxim,max96714.yaml b/Documentation/devicetree/bindings/media/i2c/maxim,max96714.yaml
-index 3ace50e11921b..f53c72e5c5727 100644
+index f53c72e5c5727..1c97624833ebd 100644
 --- a/Documentation/devicetree/bindings/media/i2c/maxim,max96714.yaml
 +++ b/Documentation/devicetree/bindings/media/i2c/maxim,max96714.yaml
-@@ -8,6 +8,7 @@ $schema: http://devicetree.org/meta-schemas/core.yaml#
- title: Maxim MAX96714 GMSL2 to CSI-2 Deserializer
+@@ -23,7 +23,9 @@ description:
  
- maintainers:
-+  - Cosmin Tanislav <cosmin.tanislav@analog.com>
-   - Julien Massot <julien.massot@collabora.com>
+   The GMSL2 serial link operates at a fixed rate of 3Gbps or 6Gbps in the
+   forward direction and 187.5Mbps in the reverse direction.
+-  MAX96714F only supports a fixed rate of 3Gbps in the forward direction.
++
++  MAX96714F and MAX96714R only support a fixed rate of 3Gbps in the forward
++  direction.
  
- description:
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 3117345d0619c..93e22dfd61c17 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -14755,6 +14755,7 @@ F:	drivers/staging/media/max96712/max96712.c
+ properties:
+   compatible:
+@@ -32,6 +34,7 @@ properties:
+       - items:
+           - enum:
+               - maxim,max96714
++              - maxim,max96714r
+           - const: maxim,max96714f
  
- MAX96714 GMSL2 DESERIALIZER DRIVER
- M:	Julien Massot <julien.massot@collabora.com>
-+M:	Cosmin Tanislav <cosmin.tanislav@analog.com>
- L:	linux-media@vger.kernel.org
- S:	Maintained
- F:	Documentation/devicetree/bindings/media/i2c/maxim,max96714.yaml
+   reg:
 -- 
 2.50.1
 
