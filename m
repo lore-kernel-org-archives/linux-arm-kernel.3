@@ -4,71 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB575C83F22
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 16:03:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2B7AC83F22
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 16:20:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WonbOpckQKSOSPhjY/shMMz4Jm338hXu3ryYqYFBrxU=; b=FHXY/IdHD6WdXUdaVNMLXHBBBP
-	Yo1QnhklqqCVT+bFA37774cttNYFhJUwP3qsm+raORNrccFj66k4RzuDqXsDVNmzR2t1ebXJEFVcO
-	Xo7y6ondVfwcD+hInZy0GoUoOtgueqbKvtJei7asR2SY/OImpvPLxb7zyxWGw8jyy4mFHm4we8Lpo
-	gIb94x7dSGSDA4XTuCyMuuFKI6VOuRCRxeVemk1fSsNk1DlAuTUda4W8Mk4hnasAHX2LMH3XndQSV
-	kFHEpk6VfHHO1nK/zXhazgPkwVOMWwwYgcMv6iLy3I5ax3PYsKopGoW7/CPFpHJ1CnobL8ZZ3MkhZ
-	s3aJefOQ==;
+	bh=ft3Wq6C1Q+KCfARaoberFidaRltktScsYGYlfSEwaro=; b=UBeCd9DAxD4B6enY3IJ19QwN0y
+	EwdBDj3Ab5m35yAxXpravpIlO3wwUEomfpUsnQdQzZu1oK9SAHzjrb23/ZJWZPM4SUyr1yBqX6SEC
+	NuPs9l0SNCXCiIy6MipWp3WqxjPfPsNy3Q/5H9a9xR3keTOpP4MQCE1E1uBnrKQl0v0UIV60FCV39
+	9S4t9Y4oUu0edjLNjg3b+Lbs5ePyFtRYKeCCB4sInoPIwlp2aEK/zj8HUogK7/gbG17SrcYKGe4OK
+	isX9ART+AK9LQV672VEEs4SgipfFhm6+YC9dsYrIed1hvZ8MRUDZY7g0AzBjjzOVx0nfqV/WBCySW
+	cwNRY/Kw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uc4bN-000000088Pn-2ysf;
-	Wed, 16 Jul 2025 16:03:25 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1uc4rh-00000008Agn-1SSx;
+	Wed, 16 Jul 2025 16:20:17 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uc4QD-000000086u4-32fF
+	id 1uc4pD-00000008AJF-3Pul
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Jul 2025 15:51:55 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.231])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4bj0rP208dz6GDPD;
-	Wed, 16 Jul 2025 23:50:29 +0800 (CST)
-Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
-	by mail.maildlp.com (Postfix) with ESMTPS id DE746140276;
-	Wed, 16 Jul 2025 23:51:44 +0800 (CST)
-Received: from localhost (10.203.177.66) by frapeml500008.china.huawei.com
- (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Wed, 16 Jul
- 2025 17:51:43 +0200
-Date: Wed, 16 Jul 2025 16:51:42 +0100
-From: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-To: James Morse <james.morse@arm.com>
-CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	"Rob Herring" <robh@kernel.org>, Ben Horgan <ben.horgan@arm.com>, Rohit
- Mathew <rohit.mathew@arm.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
-	"Zeng Heng" <zengheng4@huawei.com>, Lecopzer Chen <lecopzerc@nvidia.com>,
-	"Carl Worth" <carl@os.amperecomputing.com>,
-	<shameerali.kolothum.thodi@huawei.com>, D Scott Phillips OS
-	<scott@os.amperecomputing.com>, <lcherian@marvell.com>,
-	<bobo.shaobowang@huawei.com>, <tan.shaopeng@fujitsu.com>,
-	<baolin.wang@linux.alibaba.com>, Jamie Iles <quic_jiles@quicinc.com>, Xin Hao
-	<xhao@linux.alibaba.com>, <peternewman@google.com>, <dfustini@baylibre.com>,
-	<amitsinght@marvell.com>, David Hildenbrand <david@redhat.com>, Rex Nie
-	<rex.nie@jaguarmicro.com>, Dave Martin <dave.martin@arm.com>, Koba Ko
-	<kobak@nvidia.com>, Sudeep Holla <sudeep.holla@arm.com>
-Subject: Re: [RFC PATCH 06/36] ACPI / PPTT: Stop acpi_count_levels()
- expecting callers to clear levels
-Message-ID: <20250716165142.00002c46@huawei.com>
-In-Reply-To: <20250711183648.30766-7-james.morse@arm.com>
-References: <20250711183648.30766-1-james.morse@arm.com>
-	<20250711183648.30766-7-james.morse@arm.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	Wed, 16 Jul 2025 16:17:45 +0000
+Received: from fllvem-sh03.itg.ti.com ([10.64.41.86])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 56GGHSMF2540402;
+	Wed, 16 Jul 2025 11:17:28 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1752682648;
+	bh=ft3Wq6C1Q+KCfARaoberFidaRltktScsYGYlfSEwaro=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=W5RMj8eTZcR2ac5EvYEJwO2NAMxtLHsyT/FOoaCkkSjCdv0vN0A6aUigg4Xgr70H7
+	 THuS9Athxb8CcYb3ckaXDe/helWL0/AN1opyIhptp15Gi9AEB4ihSb3AIQLNztDsli
+	 /K8i+zaBYJ3NYnUF4QoeHAg7pT9bglitwhEzDA48=
+Received: from DFLE105.ent.ti.com (dfle105.ent.ti.com [10.64.6.26])
+	by fllvem-sh03.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 56GGHR63998251
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Wed, 16 Jul 2025 11:17:27 -0500
+Received: from DFLE113.ent.ti.com (10.64.6.34) by DFLE105.ent.ti.com
+ (10.64.6.26) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Wed, 16
+ Jul 2025 11:17:27 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE113.ent.ti.com
+ (10.64.6.34) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Wed, 16 Jul 2025 11:17:27 -0500
+Received: from [10.249.42.149] ([10.249.42.149])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 56GGHQQ9753586;
+	Wed, 16 Jul 2025 11:17:26 -0500
+Message-ID: <d76c0299-a19d-4524-b026-79874fee10ee@ti.com>
+Date: Wed, 16 Jul 2025 11:17:26 -0500
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 1/3] dt-bindings: gpu: img: Add AM62P SoC specific
+ compatible
+To: Michael Walle <mwalle@kernel.org>, Frank Binns <frank.binns@imgtec.com>,
+        Matt Coster <matt.coster@imgtec.com>,
+        Maarten Lankhorst
+	<maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof
+ Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>, Nishanth
+ Menon <nm@ti.com>,
+        Vignesh Raghavendra <vigneshr@ti.com>,
+        Tero Kristo
+	<kristo@kernel.org>
+CC: <dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
+References: <20250716134717.4085567-1-mwalle@kernel.org>
+ <20250716134717.4085567-2-mwalle@kernel.org>
+Content-Language: en-US
+From: Andrew Davis <afd@ti.com>
+In-Reply-To: <20250716134717.4085567-2-mwalle@kernel.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.203.177.66]
-X-ClientProxiedBy: lhrpeml100012.china.huawei.com (7.191.174.184) To
- frapeml500008.china.huawei.com (7.182.85.71)
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250716_085154_052223_678E391C 
-X-CRM114-Status: GOOD (  22.61  )
+X-CRM114-CacheID: sfid-20250716_091743_937895_CDD18A96 
+X-CRM114-Status: GOOD (  15.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,71 +100,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 11 Jul 2025 18:36:18 +0000
-James Morse <james.morse@arm.com> wrote:
-
-> acpi_count_levels() passes the number of levels back via a pointer argument.
-> It also passes this to acpi_find_cache_level() as the starting_level, and
-> preserves this value as it walks up the cpu_node tree counting the levels.
+On 7/16/25 8:47 AM, Michael Walle wrote:
+> The AM62P and the J722S features the same BXS-4 GPU as the J721S2. Add a
+> new SoC specific compatible.
 > 
-> The only caller acpi_get_cache_info() happens to have already initialised
-> levels to zero, which acpi_count_levels() depends on to get the correct
-> result.
-> 
-> Explicitly zero the levels variable, so the count always starts at zero.
-> This saves any additional callers having to work out they need to do this.
 
-Hi James,
+If the GPU is the same, and the integration is the same, do you really need
+a new compatible?
 
-This is all a bit fiddly as we now end up with that initialized in various
-different places. Perhaps simpler to have acpi_count_levels() return the
-number of levels rather than void. Then return number of levels rather
-than 0 on success from acpi_get_cache_info(). Negative error codes used
-for failure just like now.
-
-That would leave only a local variable in acpi_count_levels being
-initialized to 0 and passed to acpi_find_cache_level() before being
-returned when the loop terminates.
-
-I think that sequence then makes it such that we can't fail to
-initialize it at without the compiler noticing and screaming.
-
-Requires a few changes from if (ret) to if (ret < 0) at callers
-of acpi_get_cache_info() but looks simple (says the person who
-hasn't actually coded it!)
-
-> 
-> Signed-off-by: James Morse <james.morse@arm.com>
-> Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
+> Signed-off-by: Michael Walle <mwalle@kernel.org>
 > ---
->  drivers/acpi/pptt.c | 4 +++-
->  1 file changed, 3 insertions(+), 1 deletion(-)
+>   Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml | 1 +
+>   1 file changed, 1 insertion(+)
 > 
-> diff --git a/drivers/acpi/pptt.c b/drivers/acpi/pptt.c
-> index 13619b1b821b..13ca2eee3b98 100644
-> --- a/drivers/acpi/pptt.c
-> +++ b/drivers/acpi/pptt.c
-> @@ -183,7 +183,7 @@ acpi_find_cache_level(struct acpi_table_header *table_hdr,
->   * @cpu_node: processor node we wish to count caches for
->   * @levels: Number of levels if success.
->   * @split_levels:	Number of split cache levels (data/instruction) if
-> - *			success. Can by NULL.
-> + *			success. Can be NULL.
+> diff --git a/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml b/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
+> index 4450e2e73b3c..bad3e412a168 100644
+> --- a/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
+> +++ b/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
+> @@ -23,6 +23,7 @@ properties:
+>             - const: img,img-rogue
+>         - items:
+>             - enum:
+> +              - ti,am62p-gpu
 
-Grumpy reviewer hat.  Unrelated cleanup up - good to have but not in this patch where
-it's a distraction.
+There is a check below based on SoC compat:
 
->   *
->   * Given a processor node containing a processing unit, walk into it and count
->   * how many levels exist solely for it, and then walk up each level until we hit
-> @@ -196,6 +196,8 @@ static void acpi_count_levels(struct acpi_table_header *table_hdr,
->  			      struct acpi_pptt_processor *cpu_node,
->  			      unsigned int *levels, unsigned int *split_levels)
->  {
-> +	*levels = 0;
-> +
->  	do {
->  		acpi_find_cache_level(table_hdr, cpu_node, levels, split_levels, 0, 0);
->  		cpu_node = fetch_pptt_node(table_hdr, cpu_node->parent);
+>  - if:
+>      properties:
+>        compatible:
+>          contains:
+>            enum:
+>              - ti,am62-gpu
+>              - ti,j721s2-gpu
+>    then:
+>      properties:
+>        clocks:
+>          maxItems: 1
 
+If you do add a new SoC specific compatible does this check need updating?
+
+Andrew
+
+>                 - ti,j721s2-gpu
+>             - const: img,img-bxs-4-64
+>             - const: img,img-rogue
 
