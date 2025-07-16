@@ -4,70 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44909C83F1B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 11:22:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7028C83F22
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 11:25:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DkXH9+Ju9qLefqDmLXr88CY0f/QuBhkcRpVqVhxrcMo=; b=h7aSN/jh9m3Nzt+U/lYq/Pw7A+
-	GiUrvVhSAY/g0wfXModLgCwByFXXtwyVlQZhYeIDP/PgAJhtj6XTb0urzPbqwMk58zd+GUpEd8Ig6
-	r2cmKLoz1vpbBjg6ZtCsXKYKWtsI7GASqlBXyB5/LOCHSPNFKwIB65IDTuf3broZ0d2atTzZZHz+Q
-	VHLi5dac6rVMua7u/e4D227sFeaa0yQLzvZQ46rj1Zsl2bDteGkBlsw1lyepul1oK5AKSRvUjXxj6
-	GbaQiCIR4iRdN/0nXvIpZN5lfCscA7tnmfKR41/Af7bwjO48tCP7BPpdnP2IGAwCfRMpXUPdH9xcY
-	ARfd9Jig==;
+	bh=bFiBh24vfyxUkvL/qAF91ZLaWMijXEEuq00t+Y6HBLE=; b=2MioddaNMksA2P/oBht5xIAS93
+	k6hh7/hZ9ljHvjSIh+NB4j5t7IC7U78rfLg18aOOK168uuu4BIYE8QoPjJwQ/n0XhH9y65kfk2qVS
+	OLZ+KxPnox1xUMeoysREr0jBEftrs53i0juKluygjtNd/H76TrBaenu7zoe7cQkAAFqG0p0pCjchI
+	ylSMvcKKvHghF1DPSveciK6JsPsJm5J2weHmio0YMIMzlM3dHLvfxbHpL6pOnBGkbeFXwpZ4mNdaA
+	Zz2gfCMOerfvOLh2LBrODFQEgoq7jy4VRjHSMWnOkw35BxPGxHSoRjuBvSrIMwgVy87FZTy5cHb0j
+	ouEe0U9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uc0Dh-00000007Y13-0MzX;
-	Wed, 16 Jul 2025 11:22:41 +0000
-Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
+	id 1uc0G6-00000007YMq-1VBd;
+	Wed, 16 Jul 2025 11:25:10 +0000
+Received: from mail-wr1-x44a.google.com ([2a00:1450:4864:20::44a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubzzJ-00000007VGM-0TZW
+	id 1ubzzK-00000007VHm-2CZb
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Jul 2025 11:07:50 +0000
-Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-45597cc95d5so26994395e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Jul 2025 04:07:48 -0700 (PDT)
+	Wed, 16 Jul 2025 11:07:51 +0000
+Received: by mail-wr1-x44a.google.com with SMTP id ffacd0b85a97d-3a4eee2398bso3162951f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Jul 2025 04:07:50 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1752664067; x=1753268867; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1752664069; x=1753268869; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=DkXH9+Ju9qLefqDmLXr88CY0f/QuBhkcRpVqVhxrcMo=;
-        b=btEa2nMHXb3Qu41JCxWvxJIKfkkNl81zhqJGAxXPhM/Xdkt1u7nU8OXDgn+0feU+TU
-         wdpNYzokJPkuVcyoawzd8EMgDJqHLoR8gNdoVCtK5PJN+qxDxzvzciNadk7lZllu3UZS
-         KuHd30rFWaxRvV5e6fXiEdkWvR44XHhW9OE+3kUxcAO+H3JwG/1q+I0hJTMGld7/uh/K
-         5Ylgn6dsm/SBsYS8iMUR/TiyLJu6ucdZP3DaKnyrWEPTpdpNYtGcl8MtjW35ya8/C+ci
-         IICPa/Lp+VTmGrJBlaoen5TlxHY1HgXfbGiSHnU3EbtUd6+ULcZgd65bNwYz2QuK0eZN
-         ssiQ==
+        bh=bFiBh24vfyxUkvL/qAF91ZLaWMijXEEuq00t+Y6HBLE=;
+        b=Q0i5HeMERXeT3fQ1z1u2SXThyJr/FupTMlkfcBksTX2gIsM1nretACyWWYaWxL+c+N
+         djLKaiciQvV7KDlB1Ju8f2oY+uBaj251d317vOXtaVr5sIsJbz1buLNkkkNB7WCWD2ef
+         mB4vDhUZ9MVjl1eXNsusxufNvPb3CGK787jDhhBm6tT4N+Ye83jouMdsMU+oGdYA6AZ2
+         N5Jprlneq0Lg1vGsQdQUU/25geGyp981smGR4didQCmJw4p+wx3KF2JS6XzA9PTf6fIO
+         3aZQhntaOv7fefWz4ea5eqzfil/RmxcWZjxdGEI5XzT1f3SaavSwGNioslqu0sYEUqab
+         nNvg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752664067; x=1753268867;
+        d=1e100.net; s=20230601; t=1752664069; x=1753268869;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=DkXH9+Ju9qLefqDmLXr88CY0f/QuBhkcRpVqVhxrcMo=;
-        b=rDp0x7Y8+8wkt9D85SCnxOiLb/Rr5KFxXgYQBn7Lix1pppSUOR0M4hltXzjEKWtsvz
-         mcJMF8FGUFgf2OxolUHEPSW7NUkkqHPVAetq7+SdR/yQn2fyiZHfUrAFjAlVjy1x8vKp
-         3lQDihYtkqDpx/kAH/sglsEpcRMB0ihEdiYnh3QUxgfhmJKe8YBYV7jlIamJjUFMxnme
-         beHxyZUVF4CJ19IoHHs5Q0sP0ZApf+GPAxNgXsRcXeU9zdMowV7iWbukJ0y4fHWYaBH0
-         IIoxEuOzQyDV7TCFsvgVkC0fCxNa7bycjIVUuxvxKR28RcdftaYO0W3Ub2IU2wxF74jr
-         dU6Q==
-X-Gm-Message-State: AOJu0YyAqtTDZS/LsyzBwNLHQisiwh30gq5QwnRVHROpwcuWPbqV5UBD
-	j5fQPN4dIuibQ1Y1lAqOHMskpTnYJPWzmzPCHnc4ILH62P01sEc+8bQhFARqWI5B5lC1y0tVyAD
-	uJcDN3tUX3l7QmskmBMRuskhqq8uWmGZnPLntoN4rAU8w3rl2ni+/1iWOU1jXfkgl3Jo5254h18
-	LJgyXOjdLTRyWqAGUkniMK/mP0qmvZg12HLTXmqPM6DAK09ZgiBQ==
-X-Google-Smtp-Source: AGHT+IFpoWhoafJFWbwsE4WRdqTI2xCnHqs5MSPVmR8sRs6DH+HGmbw1n5hUPgrnRCYka3njSht1T7VPaw==
-X-Received: from wmby19.prod.google.com ([2002:a05:600c:c053:b0:456:1b6f:c878])
- (user=keirf job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:3e15:b0:439:86fb:7340
- with SMTP id 5b1f17b1804b1-4562e39865dmr26121765e9.30.1752664067193; Wed, 16
- Jul 2025 04:07:47 -0700 (PDT)
-Date: Wed, 16 Jul 2025 11:07:36 +0000
+        bh=bFiBh24vfyxUkvL/qAF91ZLaWMijXEEuq00t+Y6HBLE=;
+        b=IriKfP++YCnPhMyPZhAsFsA6bwjqCGWEvX3u96utfRXQgQ3OAghsqxTuktZogRZX9E
+         UPTytuPL0PZUDHU9p13Ud+jIcSCKxw/QaSYW04VKZnT3QVB0EA54rx0ALF2OfQwr99Xo
+         sMmV9N+8UdmcYYEzgBTVktu2s5cEEoaUwTeN7CmGx6iggucDxf72tGq/mi4d52gXEq3b
+         3HMBuG4Gpg/wzQskvcJqzOWPnef1OuDCRCLi/qefHlt1KOJoh2D4x2lQJUvD8YU6CU5c
+         FT0WPGAM2U4+2kZSHzdznye65gvvme8SEZLW7KauWoqejPJ2ODT+QzKhqWH2WNVVlJyY
+         1uJw==
+X-Gm-Message-State: AOJu0YyRhgb2l+khtjpDBIutqUxa2ma9EJhbc057yKKgwWN0UIGQloNR
+	JKb0RzAX94zFTfYaniqsoECawVZL6DIYtd/U31gfBoRQcYL1RkxCh4Pef0kKCu6HRdA0n5sC8aJ
+	A36mb7BhfAoEC7fdCa3+61ayeyoLDUg5i5za98OYYHQaiA9m86oS3Q9PgFees/MXRA4E1guqbvu
+	Yb9udP6axR/MempkcILDuT0Xq0idPa7NBvfufgWCXPB+1O5HCZdA==
+X-Google-Smtp-Source: AGHT+IHS3mDNKI5f7HxVRvsGrhgPtKyzq6M9m0VkLvornMAR5mJ3Yg4oC8wem/+qjRBiPoyYxBKnOYGMMA==
+X-Received: from wmqd13.prod.google.com ([2002:a05:600c:34cd:b0:456:23aa:8bf])
+ (user=keirf job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6000:2486:b0:3a5:232c:6976
+ with SMTP id ffacd0b85a97d-3b60dd99677mr1925159f8f.44.1752664068593; Wed, 16
+ Jul 2025 04:07:48 -0700 (PDT)
+Date: Wed, 16 Jul 2025 11:07:37 +0000
 In-Reply-To: <20250716110737.2513665-1-keirf@google.com>
 Mime-Version: 1.0
 References: <20250716110737.2513665-1-keirf@google.com>
 X-Mailer: git-send-email 2.50.0.727.gbf7dc18ff4-goog
-Message-ID: <20250716110737.2513665-4-keirf@google.com>
-Subject: [PATCH v2 3/4] KVM: Implement barriers before accessing kvm->buses[]
- on SRCU read paths
+Message-ID: <20250716110737.2513665-5-keirf@google.com>
+Subject: [PATCH v2 4/4] KVM: Avoid synchronize_srcu() in kvm_io_bus_register_dev()
 From: Keir Fraser <keirf@google.com>
 To: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
 	kvm@vger.kernel.org
@@ -76,8 +75,8 @@ Cc: Sean Christopherson <seanjc@google.com>, Eric Auger <eric.auger@redhat.com>,
 	Paolo Bonzini <pbonzini@redhat.com>, Keir Fraser <keirf@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250716_040749_156378_D73F0B84 
-X-CRM114-Status: GOOD (  17.99  )
+X-CRM114-CacheID: sfid-20250716_040750_576656_C0A09A0F 
+X-CRM114-Status: GOOD (  12.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,155 +91,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This ensures that, if a VCPU has "observed" that an IO registration has
-occurred, the instruction currently being trapped or emulated will also
-observe the IO registration.
+Device MMIO registration may happen quite frequently during VM boot,
+and the SRCU synchronization each time has a measurable effect
+on VM startup time. In our experiments it can account for around 25%
+of a VM's startup time.
 
-At the same time, enforce that kvm_get_bus() is used only on the
-update side, ensuring that a long-term reference cannot be obtained by
-an SRCU reader.
+Replace the synchronization with a deferred free of the old kvm_io_bus
+structure.
 
 Signed-off-by: Keir Fraser <keirf@google.com>
 ---
- arch/x86/kvm/vmx/vmx.c   |  7 +++++++
- include/linux/kvm_host.h | 10 +++++++---
- virt/kvm/kvm_main.c      | 33 +++++++++++++++++++++++++++------
- 3 files changed, 41 insertions(+), 9 deletions(-)
+ include/linux/kvm_host.h |  1 +
+ virt/kvm/kvm_main.c      | 10 ++++++++--
+ 2 files changed, 9 insertions(+), 2 deletions(-)
 
-diff --git a/arch/x86/kvm/vmx/vmx.c b/arch/x86/kvm/vmx/vmx.c
-index 191a9ed0da22..425e3d8074ab 100644
---- a/arch/x86/kvm/vmx/vmx.c
-+++ b/arch/x86/kvm/vmx/vmx.c
-@@ -5861,6 +5861,13 @@ static int handle_invalid_guest_state(struct kvm_vcpu *vcpu)
- 		if (kvm_test_request(KVM_REQ_EVENT, vcpu))
- 			return 1;
- 
-+		/*
-+		 * Ensure that any updates to kvm->buses[] observed by the
-+		 * previous instruction (emulated or otherwise) are also
-+		 * visible to the instruction we are about to emulate.
-+		 */
-+		smp_rmb();
-+
- 		if (!kvm_emulate_instruction(vcpu, 0))
- 			return 0;
- 
 diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
-index 3bde4fb5c6aa..9132148fb467 100644
+index 9132148fb467..802ca46f7537 100644
 --- a/include/linux/kvm_host.h
 +++ b/include/linux/kvm_host.h
-@@ -965,11 +965,15 @@ static inline bool kvm_dirty_log_manual_protect_and_init_set(struct kvm *kvm)
- 	return !!(kvm->manual_dirty_log_protect & KVM_DIRTY_LOG_INITIALLY_SET);
- }
+@@ -205,6 +205,7 @@ struct kvm_io_range {
+ struct kvm_io_bus {
+ 	int dev_count;
+ 	int ioeventfd_count;
++	struct rcu_head rcu;
+ 	struct kvm_io_range range[];
+ };
  
-+/*
-+ * Get a bus reference under the update-side lock. No long-term SRCU reader
-+ * references are permitted, to avoid stale reads vs concurrent IO
-+ * registrations.
-+ */
- static inline struct kvm_io_bus *kvm_get_bus(struct kvm *kvm, enum kvm_bus idx)
- {
--	return srcu_dereference_check(kvm->buses[idx], &kvm->srcu,
--				      lockdep_is_held(&kvm->slots_lock) ||
--				      !refcount_read(&kvm->users_count));
-+	return rcu_dereference_protected(kvm->buses[idx],
-+					 lockdep_is_held(&kvm->slots_lock));
- }
- 
- static inline struct kvm_vcpu *kvm_get_vcpu(struct kvm *kvm, int i)
 diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
-index 222f0e894a0c..9ec3b96b9666 100644
+index 9ec3b96b9666..f690a4997a0f 100644
 --- a/virt/kvm/kvm_main.c
 +++ b/virt/kvm/kvm_main.c
-@@ -1103,6 +1103,15 @@ void __weak kvm_arch_create_vm_debugfs(struct kvm *kvm)
- {
+@@ -5948,6 +5948,13 @@ int kvm_io_bus_read(struct kvm_vcpu *vcpu, enum kvm_bus bus_idx, gpa_t addr,
  }
+ EXPORT_SYMBOL_GPL(kvm_io_bus_read);
  
-+/* Called only on cleanup and destruction paths when there are no users. */
-+static inline struct kvm_io_bus *kvm_get_bus_for_destruction(struct kvm *kvm,
-+							     enum kvm_bus idx)
++static void __free_bus(struct rcu_head *rcu)
 +{
-+	return rcu_dereference_protected(kvm->buses[idx],
-+					 !refcount_read(&kvm->users_count));
++	struct kvm_io_bus *bus = container_of(rcu, struct kvm_io_bus, rcu);
++
++	kfree(bus);
 +}
 +
-+
- static struct kvm *kvm_create_vm(unsigned long type, const char *fdname)
+ int kvm_io_bus_register_dev(struct kvm *kvm, enum kvm_bus bus_idx, gpa_t addr,
+ 			    int len, struct kvm_io_device *dev)
  {
- 	struct kvm *kvm = kvm_arch_alloc_vm();
-@@ -1228,7 +1237,7 @@ static struct kvm *kvm_create_vm(unsigned long type, const char *fdname)
- out_err_no_arch_destroy_vm:
- 	WARN_ON_ONCE(!refcount_dec_and_test(&kvm->users_count));
- 	for (i = 0; i < KVM_NR_BUSES; i++)
--		kfree(kvm_get_bus(kvm, i));
-+		kfree(kvm_get_bus_for_destruction(kvm, i));
- 	kvm_free_irq_routing(kvm);
- out_err_no_irq_routing:
- 	cleanup_srcu_struct(&kvm->irq_srcu);
-@@ -1276,7 +1285,7 @@ static void kvm_destroy_vm(struct kvm *kvm)
+@@ -5986,8 +5993,7 @@ int kvm_io_bus_register_dev(struct kvm *kvm, enum kvm_bus bus_idx, gpa_t addr,
+ 	memcpy(new_bus->range + i + 1, bus->range + i,
+ 		(bus->dev_count - i) * sizeof(struct kvm_io_range));
+ 	rcu_assign_pointer(kvm->buses[bus_idx], new_bus);
+-	synchronize_srcu_expedited(&kvm->srcu);
+-	kfree(bus);
++	call_srcu(&kvm->srcu, &bus->rcu, __free_bus);
  
- 	kvm_free_irq_routing(kvm);
- 	for (i = 0; i < KVM_NR_BUSES; i++) {
--		struct kvm_io_bus *bus = kvm_get_bus(kvm, i);
-+		struct kvm_io_bus *bus = kvm_get_bus_for_destruction(kvm, i);
- 
- 		if (bus)
- 			kvm_io_bus_destroy(bus);
-@@ -5838,6 +5847,18 @@ static int __kvm_io_bus_write(struct kvm_vcpu *vcpu, struct kvm_io_bus *bus,
- 	return -EOPNOTSUPP;
+ 	return 0;
  }
- 
-+static struct kvm_io_bus *kvm_get_bus_srcu(struct kvm *kvm, enum kvm_bus idx)
-+{
-+	/*
-+	 * Ensure that any updates to kvm_buses[] observed by the previous VCPU
-+	 * machine instruction are also visible to the VCPU machine instruction
-+	 * that triggered this call.
-+	 */
-+	smp_mb__after_srcu_read_lock();
-+
-+	return srcu_dereference(kvm->buses[idx], &kvm->srcu);
-+}
-+
- int kvm_io_bus_write(struct kvm_vcpu *vcpu, enum kvm_bus bus_idx, gpa_t addr,
- 		     int len, const void *val)
- {
-@@ -5850,7 +5871,7 @@ int kvm_io_bus_write(struct kvm_vcpu *vcpu, enum kvm_bus bus_idx, gpa_t addr,
- 		.len = len,
- 	};
- 
--	bus = srcu_dereference(vcpu->kvm->buses[bus_idx], &vcpu->kvm->srcu);
-+	bus = kvm_get_bus_srcu(vcpu->kvm, bus_idx);
- 	if (!bus)
- 		return -ENOMEM;
- 	r = __kvm_io_bus_write(vcpu, bus, &range, val);
-@@ -5869,7 +5890,7 @@ int kvm_io_bus_write_cookie(struct kvm_vcpu *vcpu, enum kvm_bus bus_idx,
- 		.len = len,
- 	};
- 
--	bus = srcu_dereference(vcpu->kvm->buses[bus_idx], &vcpu->kvm->srcu);
-+	bus = kvm_get_bus_srcu(vcpu->kvm, bus_idx);
- 	if (!bus)
- 		return -ENOMEM;
- 
-@@ -5919,7 +5940,7 @@ int kvm_io_bus_read(struct kvm_vcpu *vcpu, enum kvm_bus bus_idx, gpa_t addr,
- 		.len = len,
- 	};
- 
--	bus = srcu_dereference(vcpu->kvm->buses[bus_idx], &vcpu->kvm->srcu);
-+	bus = kvm_get_bus_srcu(vcpu->kvm, bus_idx);
- 	if (!bus)
- 		return -ENOMEM;
- 	r = __kvm_io_bus_read(vcpu, bus, &range, val);
-@@ -6028,7 +6049,7 @@ struct kvm_io_device *kvm_io_bus_get_dev(struct kvm *kvm, enum kvm_bus bus_idx,
- 
- 	srcu_idx = srcu_read_lock(&kvm->srcu);
- 
--	bus = srcu_dereference(kvm->buses[bus_idx], &kvm->srcu);
-+	bus = kvm_get_bus_srcu(kvm, bus_idx);
- 	if (!bus)
- 		goto out_unlock;
- 
 -- 
 2.50.0.727.gbf7dc18ff4-goog
 
