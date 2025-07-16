@@ -4,88 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DB20C83F22
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 13:14:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11996C83F22
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 13:19:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:References:
-	In-Reply-To:Message-ID:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qCz3qkpSM0PaErwoNukZei1+0CUNeJ1oEHCchsaW8T0=; b=nd823AO7lov0n8
-	e0bapYkUQrDNYCP2tQhg84XSmttHEcAQHhaoqx6W3Y5mw9iuyLCuGb/L5bFuCifwS7pTQwmsxmitg
-	ebcso0pfxT1NAI/dH37wjgEw1ePZYouunnNOXhH1LYj2nCI/QRWJGXeVnW1PZglz8QyaL4RfsRdez
-	vwp7UOkEuwoyQF0NabXf4DyFIHD6YEmiMX6TOErs7Pt85M32nQuYR0mzj3rpm5x6InBuCstSYIzNt
-	J0rFTAFpPtW3t59nn3sOhVD8KJjBanUPtiurTQoV0wYsBWnhkx3lF6SFrDsuvQghomuT2aJRBYCzL
-	PHfcP0cMq1k0Q8lsU1GA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=H+FcwZ2StdVrL7h4mw8NPeZ2wbOYhicbGHRulVJPCH8=; b=tz8BEr4jlGpgVUmn6V/n0ic+ME
+	kCJ9wlazkrGEOzw/pYr8U1tN1VBBrt2h6pkUk9XiPEfDyKo76uMuDhHNpq9WyrKnZnZtOWQ77DNIY
+	g664EUFEQmk1/XPFPsVagGFfhCv0sCRx/3wTqsitX+Apu3PvBY33wK6PavUfmheQTeNI9l6OruMYH
+	O1BaltLLZ8bI8+trPDf6G0rD1i8PVZgmbTo64fHu2sOnhmTYOysGy1n8coGi0+QVrX2zasOWziOXO
+	HK4CaWgycdc8z+eCjeoFB8cejuX9pte+FL72wnAzVIjgsqGFRBK9j4hU2WfJrkIV2ozQvrP0wUaz+
+	z8xFmZuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uc1y3-00000007lq3-3q8v;
-	Wed, 16 Jul 2025 13:14:39 +0000
-Received: from server.couthit.com ([162.240.164.96])
+	id 1uc22G-00000007mGI-3YbV;
+	Wed, 16 Jul 2025 13:19:00 +0000
+Received: from mgamail.intel.com ([198.175.65.14])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uc1vZ-00000007lRs-3upN
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Jul 2025 13:12:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=couthit.com
-	; s=default; h=Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:
-	References:In-Reply-To:Message-ID:Cc:To:From:Date:Sender:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=qCz3qkpSM0PaErwoNukZei1+0CUNeJ1oEHCchsaW8T0=; b=mSsRorqpu8GvUFSOiJ0BQI+6mh
-	JPeC9IG0TZWWoUPrYxSxp/HSk4sfNrro88xvoXztLeT2sWWhWHoK/loc6rAKWyNY89ipAUNhTqnvV
-	n0Qx7fc13cSny0+cZlDbSKoYb3QLub0NkXYJjToQuBVCB5iGE9euU8iEWwqbu8xz0rSFxdiN9utnh
-	2xFhX0vZSoaiavvfmR+RoiFlLtv01kpcoxXHB9XtSWKWvH16wGKXPvATqawaiX79n/ZfVbymvdIy1
-	4jXKo4t2Cqck/hLrZVHpm5bswdpAVoLgdFpuyA1b1px9onoRU4A9w93r0On4zBJ2gu2lMB92G5Zsk
-	gtS1oukg==;
-Received: from [122.175.9.182] (port=31570 helo=zimbra.couthit.local)
-	by server.couthit.com with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.1)
-	(envelope-from <parvathi@couthit.com>)
-	id 1uc1uq-0000000HP1m-0wjn;
-	Wed, 16 Jul 2025 09:11:20 -0400
-Received: from zimbra.couthit.local (localhost [127.0.0.1])
-	by zimbra.couthit.local (Postfix) with ESMTPS id 5A5831784069;
-	Wed, 16 Jul 2025 18:41:12 +0530 (IST)
-Received: from localhost (localhost [127.0.0.1])
-	by zimbra.couthit.local (Postfix) with ESMTP id 3F13E1784068;
-	Wed, 16 Jul 2025 18:41:12 +0530 (IST)
-Received: from zimbra.couthit.local ([127.0.0.1])
-	by localhost (zimbra.couthit.local [127.0.0.1]) (amavisd-new, port 10026)
-	with ESMTP id CYRcvNkisBKt; Wed, 16 Jul 2025 18:41:12 +0530 (IST)
-Received: from zimbra.couthit.local (zimbra.couthit.local [10.10.10.103])
-	by zimbra.couthit.local (Postfix) with ESMTP id D20231781DBB;
-	Wed, 16 Jul 2025 18:41:11 +0530 (IST)
-Date: Wed, 16 Jul 2025 18:41:11 +0530 (IST)
-From: Parvathi Pudi <parvathi@couthit.com>
-To: parvathi <parvathi@couthit.com>, kuba <kuba@kernel.org>
-Message-ID: <1616453705.30524.1752671471644.JavaMail.zimbra@couthit.local>
-In-Reply-To: <723330733.1712525.1752237188810.JavaMail.zimbra@couthit.local>
-References: <20250702140633.1612269-1-parvathi@couthit.com> <20250702151756.1656470-5-parvathi@couthit.com> <20250708180107.7886ea41@kernel.org> <723330733.1712525.1752237188810.JavaMail.zimbra@couthit.local>
-Subject: Re: [PATCH net-next v10 04/11] net: ti: prueth: Adds link
- detection, RX and TX support.
+	id 1uc1zm-00000007lxa-3vkJ;
+	Wed, 16 Jul 2025 13:16:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1752671787; x=1784207787;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=T2m/oiuwjR2kBEt3SpOmzte4WJb1A9iDMDoZGf9vy1I=;
+  b=nIwWcKz49ieoEkD3iadhM1JVQl81JgV+CsIxZmgnNG120eDoHBl7nzA5
+   ughALHmlq91kUwkfCos3bi+URaC4r+VrxYrs3GasAmONqCYTqXMRJfEdV
+   Ue1TBMozu9PVmgEQlnbatCm1Hsva7GWy4UgzB3AgUk6sri8+AFj/FTWXc
+   srjahTDfLMGtDpqklH7UXsKAv9kB32BqhwIPg6ZZ0XgV75ITvl3uHSIUr
+   wMGT3Hv1dDWOyJ8Z2biWszcbpjrRadN4eeiIZlg3LUFgESdBdTf1BpPr3
+   jYw/TjINzv++FW6Y10Idat4wfMyJ1ezhVR8ugt8eYRyi3Trc9VRajDByD
+   A==;
+X-CSE-ConnectionGUID: vG8S6HvaQ+u1O+g0+XtCAg==
+X-CSE-MsgGUID: bvBL3sGMT06L5EYJKhhN/w==
+X-IronPort-AV: E=McAfee;i="6800,10657,11493"; a="58685706"
+X-IronPort-AV: E=Sophos;i="6.16,316,1744095600"; 
+   d="scan'208";a="58685706"
+Received: from orviesa006.jf.intel.com ([10.64.159.146])
+  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Jul 2025 06:16:26 -0700
+X-CSE-ConnectionGUID: e8YbxVzmQ7uhXb6J+nSkqQ==
+X-CSE-MsgGUID: g9WY1BjiTLuoz6pD7l1wYg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.16,316,1744095600"; 
+   d="scan'208";a="156894575"
+Received: from lkp-server01.sh.intel.com (HELO 9ee84586c615) ([10.239.97.150])
+  by orviesa006.jf.intel.com with ESMTP; 16 Jul 2025 06:16:22 -0700
+Received: from kbuild by 9ee84586c615 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1uc1zf-000CQl-1x;
+	Wed, 16 Jul 2025 13:16:19 +0000
+Date: Wed, 16 Jul 2025 21:15:43 +0800
+From: kernel test robot <lkp@intel.com>
+To: Arseniy Velikanov <me@adomerle.pw>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>
+Cc: oe-kbuild-all@lists.linux.dev, linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	~postmarketos/upstreaming@lists.sr.ht,
+	Arseniy Velikanov <me@adomerle.pw>
+Subject: Re: [PATCH v1 2/2] clk: mediatek: Add MT6789 clock controllers
+Message-ID: <202507162133.0p74u7j1-lkp@intel.com>
+References: <20250715222221.29406-2-me@adomerle.pw>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-Originating-IP: [10.10.10.103]
-X-Mailer: Zimbra 8.8.15_GA_3968 (ZimbraWebClient - GC138 (Linux)/8.8.15_GA_3968)
-Thread-Topic: prueth: Adds link detection, RX and TX support.
-Thread-Index: frcZHpE/y/6hXxyDNRDspT8aDcWlcTdy9M2r
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - server.couthit.com
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - couthit.com
-X-Get-Message-Sender-Via: server.couthit.com: authenticated_id: smtp@couthit.com
-X-Authenticated-Sender: server.couthit.com: smtp@couthit.com
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250715222221.29406-2-me@adomerle.pw>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250716_061205_996523_42011A48 
-X-CRM114-Status: UNSURE (   2.07  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250716_061627_040228_1710BAF3 
+X-CRM114-Status: GOOD (  13.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,47 +94,57 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Vignesh Raghavendra <vigneshr@ti.com>, praneeth <praneeth@ti.com>, edumazet <edumazet@google.com>, glaroque <glaroque@baylibre.com>, pmohan <pmohan@couthit.com>, diogo ivo <diogo.ivo@siemens.com>, robh <robh@kernel.org>, javier carrasco cruz <javier.carrasco.cruz@gmail.com>, saikrishnag <saikrishnag@marvell.com>, m-karicheri2 <m-karicheri2@ti.com>, jacob e keller <jacob.e.keller@intel.com>, pabeni <pabeni@redhat.com>, richardcochran <richardcochran@gmail.com>, devicetree <devicetree@vger.kernel.org>, conor+dt <conor+dt@kernel.org>, mohan <mohan@couthit.com>, s hauer <s.hauer@pengutronix.de>, Prajith Jayarajan <prajith@ti.com>, rogerq <rogerq@kernel.org>, basharath <basharath@couthit.com>, ssantosh <ssantosh@kernel.org>, Vadim Fedorenko <vadim.fedorenko@linux.dev>, linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, rogerq <rogerq@ti.com>, srk <srk@ti.com>, pratheesh <pratheesh@ti.com>, m-malladi <m-malladi@ti.com>, netdev <netdev@vger.kernel.org>, linux-kernel <linux-kernel@vger.kernel.org>, danishanwar <danishanwar@ti.com>, afd <afd@ti.com>, andrew+netdev <andrew+netdev@lunn.ch>, horms <horms@kernel.org>, krishna <krishna@couthit.com>, krzk+dt <krzk+dt@kernel.org>, davem <davem@davemloft.net>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Hi Arseniy,
 
->>> +=09qid =3D icssm_prueth_get_tx_queue_id(emac->prueth, skb);
->>> +=09ret =3D icssm_prueth_tx_enqueue(emac, skb, qid);
->>> +=09if (ret) {
->>> +=09=09if (ret !=3D -ENOBUFS && netif_msg_tx_err(emac) &&
->>> +=09=09    net_ratelimit())
->>> +=09=09=09netdev_err(ndev, "packet queue failed: %d\n", ret);
->>> +=09=09goto fail_tx;
->>> +=09}
->>=20
->>> +=09if (ret =3D=3D -ENOBUFS) {
->>> +=09=09ret =3D NETDEV_TX_BUSY;
->>=20
->>=20
->> Something needs to stop the queue, right? Otherwise the stack will
->> send the frame right back to the driver.
->>=20
->=20
-> Yes, we will notify upper layer with =E2=80=9Cnetif_tx_stop_queue()=E2=80=
-=9D when returning
-> =E2=80=9CNETDEV_TX_BUSY=E2=80=9D to not push again immediately.
->=20
+kernel test robot noticed the following build errors:
 
-We reviewed the flow and found that the reason for NETDEV_TX_BUSY being
-notified to the upper layers is due lack of support for reliably detecting
-the TX completion event.
+[auto build test ERROR on clk/clk-next]
+[also build test ERROR on robh/for-next pza/reset/next linus/master v6.16-rc6 next-20250715]
+[cannot apply to pza/imx-drm/next]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-In case of ICSSM PRU Ethernet, we do not have support for TX complete
-notification back to the driver from firmware and its like store and
-forget approach. So it will be tricky to enable back/resume the queue
-if we stop it when we see busy status.
+url:    https://github.com/intel-lab-lkp/linux/commits/Arseniy-Velikanov/clk-mediatek-Add-MT6789-clock-controllers/20250716-062512
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/clk/linux.git clk-next
+patch link:    https://lore.kernel.org/r/20250715222221.29406-2-me%40adomerle.pw
+patch subject: [PATCH v1 2/2] clk: mediatek: Add MT6789 clock controllers
+config: m68k-allmodconfig (https://download.01.org/0day-ci/archive/20250716/202507162133.0p74u7j1-lkp@intel.com/config)
+compiler: m68k-linux-gcc (GCC) 15.1.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250716/202507162133.0p74u7j1-lkp@intel.com/reproduce)
 
-Returning NETDEV_TX_BUSY seems to be the best option so that the stack can
-retry as soon as possible.
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202507162133.0p74u7j1-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+   In file included from drivers/clk/mediatek/clk-mt6789-imp_iic_wrap.c:13:
+>> drivers/clk/mediatek/clk-mt6789-imp_iic_wrap.c:33:27: error: 'CLK_IMP_IIC_WRAP_W_I2C0' undeclared here (not in a function); did you mean 'CLK_IMP_IIC_WRAP_W_I2C1'?
+      33 |         GATE_IMP_IIC_WRAP(CLK_IMP_IIC_WRAP_W_I2C0, "imp_iic_wrap_w_i2c0", "top_i2c", 0),
+         |                           ^~~~~~~~~~~~~~~~~~~~~~~
+   drivers/clk/mediatek/clk-gate.h:41:23: note: in definition of macro 'GATE_MTK_FLAGS'
+      41 |                 .id = _id,                                      \
+         |                       ^~~
+   drivers/clk/mediatek/clk-mt6789-imp_iic_wrap.c:33:9: note: in expansion of macro 'GATE_IMP_IIC_WRAP'
+      33 |         GATE_IMP_IIC_WRAP(CLK_IMP_IIC_WRAP_W_I2C0, "imp_iic_wrap_w_i2c0", "top_i2c", 0),
+         |         ^~~~~~~~~~~~~~~~~
 
 
-Thanks and Regards,
-Parvathi.
+vim +33 drivers/clk/mediatek/clk-mt6789-imp_iic_wrap.c
+
+    31	
+    32	static const struct mtk_gate imp_iic_wrap_w_clks[] = {
+  > 33		GATE_IMP_IIC_WRAP(CLK_IMP_IIC_WRAP_W_I2C0, "imp_iic_wrap_w_i2c0", "top_i2c", 0),
+    34		GATE_IMP_IIC_WRAP(CLK_IMP_IIC_WRAP_W_I2C1, "imp_iic_wrap_w_i2c1", "top_i2c", 1),
+    35	};
+    36	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
