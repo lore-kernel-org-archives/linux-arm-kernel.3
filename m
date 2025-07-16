@@ -4,59 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8B32C83F1B
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09C68C83F27
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 21:24:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZvjiIuDfrlWWbykzDv6yMKlbKFJ9c3SfR0on8ygzWv8=; b=hHzeJ7asPmdIfi
-	hvvb35juCTGIsPOlgcFIv51sgEOg8xtKUGy4ZSSKRep6kMZWaEsg6at5kQtvByi/tcEyv+xr4mAkr
-	nonHVk3n4ewqFEcC6ZY7aRvLTc2GeZQXuAViQXb0bJlDlEkqnbgGJvotjlUWNDrvNm7FK2PopETOB
-	x2FB7wBj8hK9lOpj0LAeDXVtWU+iogGbF6A8ZgzEj4hCjxpEqQ3n1YbtOeaxgg3fe9DHy/d/uTecx
-	giMXUg5iIA6XrM/IOMnI7WMZS54R34/kLvKNlQ9a9c8RqL9bgFeUQUwqFevevGf6nW7Z4TxVwTkKJ
-	CXqmM9VC8ala0R71xuzg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gRKMCti2Ai/CuBdEyVpIY2yewXiU7F1sYeoCE/NOUlg=; b=JBPflF3FQuDGsQek68J5u8r9V9
+	Dp+S/UEXjh+8y/rj5t7+qWUFJAf28p3/u9+kTAjVCNhgeMf2loGYFUEbimEW3qd6MaCMUl5OF3M3h
+	PvJToNWOAQlEIr8aiz18hdXTYMyfk+Mr9VB2vgAuBdAG+enHCaiwZPLAs9M7XPxZxXEiw0+81lT4T
+	tgYU8VSiOM5A3hRt/cMAQ/otphNkC8rSA32kx1LAE9jRHqAc+8wVY9ZK/6MW1HkSQ5xFXB0KqZIXI
+	zhFihJOuQgFZuNyD3RB95Bzv5cRpNKc3l7V5OQmCLOSWu+RyHRrRBWZr6oUfVBCCdh2JOIWjk/rAW
+	N4uoFJFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uc9bm-00000008hA8-2aTd;
-	Wed, 16 Jul 2025 21:24:10 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uc9bn-00000008hAS-1i0J;
+	Wed, 16 Jul 2025 21:24:11 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uc9Nb-00000008fqz-31eh
+	id 1uc9Wr-00000008glC-1EGC
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Jul 2025 21:09:31 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 36E76601BB;
-	Wed, 16 Jul 2025 21:09:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A1FEAC4CEE7;
-	Wed, 16 Jul 2025 21:09:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752700168;
-	bh=ZvjiIuDfrlWWbykzDv6yMKlbKFJ9c3SfR0on8ygzWv8=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=MihocQ5CfRgKpACI/aeFhkJ5efmhxN3ecKFo8AYnY89VPMXR1C4T9t3Q5aqmsISYQ
-	 qCkS257leQLzb3LjhZJLla7Ra3zItwwNU0vjngd7HF8DOwzYXcApTXAtRKMdASzWXk
-	 bsIuuYDUqO8H9+hXjPIpDIyxKpdq9ojwWIjBZpnPONeJ+NUMqJfY9apufkcTpVxGf+
-	 mqxztjqJ45Cuf0YQFLrSYrn+NgT04N5m5cXOPE0zL4wk8Md5xd1+z++31VnqlA3wDv
-	 MPZi8dXrwsIGfwlsTYa1mm6JKvAWH2KnMbiq1NDRbD5vdqWTAuBn4wx7y3ZTYAYN7r
-	 p1LStuyyw3sgQ==
-Date: Wed, 16 Jul 2025 14:09:26 -0700
-From: Jakub Kicinski <kuba@kernel.org>
-To: Parvathi Pudi <parvathi@couthit.com>
-Subject: Re: [PATCH net-next v10 04/11] net: ti: prueth: Adds link
- detection, RX and TX support.
-Message-ID: <20250716140926.3aa10894@kernel.org>
-In-Reply-To: <1616453705.30524.1752671471644.JavaMail.zimbra@couthit.local>
-References: <20250702140633.1612269-1-parvathi@couthit.com>
-	<20250702151756.1656470-5-parvathi@couthit.com>
-	<20250708180107.7886ea41@kernel.org>
-	<723330733.1712525.1752237188810.JavaMail.zimbra@couthit.local>
-	<1616453705.30524.1752671471644.JavaMail.zimbra@couthit.local>
+	Wed, 16 Jul 2025 21:19:06 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-45634205adaso1230115e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Jul 2025 14:19:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1752700744; x=1753305544; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=gRKMCti2Ai/CuBdEyVpIY2yewXiU7F1sYeoCE/NOUlg=;
+        b=I83T/AZSA6TjUavdXmC14NtWZcsnuyo8vvAT2ADdPPoNfcqyE7lDsOavnEjFAzjrG0
+         7kYgIBUckWEVyf8QI6wSxrMvL4NRgQ/8NkmFLvS7b4DP6IaTcFVp4ligENdc769Mo7to
+         /Xf091BIKKEkJCKoc8ZkP2oa2yWI8zNikoajIZ7KQhX4UVW9zrahskxWWmkXsOj70Bye
+         VqlQibzA1+FnHUpKvnl3Hi9RzOe2L4b/85DAtUG2/5UGB+z5hHDwc+dxICM8t4Y7998V
+         XsVR0PQYH9+pHVRjFlH4CLjp7g93QDsmzcYraBaYrquwYfO6ZJ3KailShBkvkfpVMr4v
+         vBgQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1752700744; x=1753305544;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=gRKMCti2Ai/CuBdEyVpIY2yewXiU7F1sYeoCE/NOUlg=;
+        b=Dy9PfDLAooSoPI8/mqdm8XfPhvCOJ+zVIchgHrW4Po6XpZGdMw2IvoZ0YAkWEmHv0y
+         J3GGHAArO5GdMmrU11xaN9o+/i+k480ykQrmrdo4NxWaF8N9EM9DBe+Sea1PR0t43+cQ
+         30+7GmdFuxrNSslKAhAtIZSI7X+mdqw/iV6uXcJXn1olc03p766RA4P+JxPwF+XF7sc7
+         y/gBTPyznvcTtEJPLehiIwlFqlQiFfzTgd/IemI1j0rQFE8o7gc36yq6VrXIapZqtWWv
+         IBsCA5zN0j6eWWEd3a3ZsjUDgApdt+8IalKOTv5DqVh18VZNkOXZPLXZjCQNnoWoMrWB
+         mFFw==
+X-Forwarded-Encrypted: i=1; AJvYcCUeDuXf7GzX9nZno1aWQmAfZDUhDrvLL7aY0GWLjovC9sboFe/eA18xe4OtOCm3XiI/rtuDxsB5as36Hs8zDbWD@lists.infradead.org
+X-Gm-Message-State: AOJu0YwybL2n81kCljTHuRAn3+6WDK49XsW3WwYF2sOsLB999CuXfTOo
+	2QRx4/XDVLN/ZWAowulQYPl/y6EuQ3JnrT3l5TQApvU26AvqmOdSTInJKLGlA1HQCh0=
+X-Gm-Gg: ASbGnctOv+GFk/2FfouXxKfI4bnGWBslLAT+PYkX5QORcWHt1zHigl8sR365M0Memgh
+	3sIjWE2cYFpA61UtkhvzdJiN34yXOrTOgGlGU0ZQjn8W4Z9x5lVm4ioPajcJd29DUsb56zg3yxX
+	/9GdyKG3h8PZ30uBOrWumlIRAzi+fD81PzirD5MarasLiQXsyLO6jIfT3tuVq0c7rSXcu1fqBwL
+	E6XnzYoa8kbb6haq6ovwWqquvYe0Tn3VZANQIuxFXH0zN/laah6APBmHHofudEB3s/OxG0b+goW
+	hIyEvvVdIImVkJYNHFeEAZktU5t+/dUNAjCeAjs/lZfY0yEFAng9701MgxwK2lO8NtuJrA4Fbd5
+	pDiLmMzerMGV609twELRCZMTGRyJUrCV1Y4ejpAl0EsPKBnssZUDbL6Az3S6s
+X-Google-Smtp-Source: AGHT+IGU+ypDAJJxAGg8IJL70QMGqBYPckZVXPJfzPAtYPsw777vZbMiHPPbbkBp+5WtNr4iOtNXRw==
+X-Received: by 2002:a05:600c:6097:b0:456:302:6dc3 with SMTP id 5b1f17b1804b1-4562e3c4b98mr33569505e9.26.1752700743650;
+        Wed, 16 Jul 2025 14:19:03 -0700 (PDT)
+Received: from mai.linaro.org (146725694.box.freepro.com. [130.180.211.218])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4562e7f4294sm31833045e9.3.2025.07.16.14.19.02
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 16 Jul 2025 14:19:03 -0700 (PDT)
+Date: Wed, 16 Jul 2025 23:19:01 +0200
+From: Daniel Lezcano <daniel.lezcano@linaro.org>
+To: Mason Chang <mason-cw.chang@mediatek.com>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
+	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	=?iso-8859-1?Q?N=EDcolas_F=2E_R=2E_A=2E?= Prado <nfraprado@collabora.com>,
+	Julien Panis <jpanis@baylibre.com>,
+	Nicolas Pitre <npitre@baylibre.com>,
+	Colin Ian King <colin.i.king@gmail.com>,
+	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>,
+	Chen-Yu Tsai <wenst@chromium.org>, linux-pm@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	Frank Wunderlich <frank-w@public-files.de>,
+	Daniel Golle <daniel@makrotopia.org>,
+	Steven Liu <steven.liu@mediatek.com>,
+	Sam Shih <sam.shih@mediatek.com>
+Subject: Re: [PATCH 0/3] thermal/drivers/mediatek/lvts_thermal: add mt7988
+ lvts commands
+Message-ID: <aHgXRcyEWreMC_P-@mai.linaro.org>
+References: <20250526102659.30225-1-mason-cw.chang@mediatek.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250526102659.30225-1-mason-cw.chang@mediatek.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250716_141905_352941_BF8CEE73 
+X-CRM114-Status: GOOD (  12.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,27 +110,34 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Vignesh Raghavendra <vigneshr@ti.com>, praneeth <praneeth@ti.com>, edumazet <edumazet@google.com>, glaroque <glaroque@baylibre.com>, pmohan <pmohan@couthit.com>, diogo ivo <diogo.ivo@siemens.com>, robh <robh@kernel.org>, javier carrasco cruz <javier.carrasco.cruz@gmail.com>, saikrishnag <saikrishnag@marvell.com>, m-karicheri2 <m-karicheri2@ti.com>, jacob e keller <jacob.e.keller@intel.com>, pabeni <pabeni@redhat.com>, richardcochran <richardcochran@gmail.com>, devicetree <devicetree@vger.kernel.org>, conor+dt <conor+dt@kernel.org>, mohan <mohan@couthit.com>, s hauer <s.hauer@pengutronix.de>, Prajith Jayarajan <prajith@ti.com>, rogerq <rogerq@kernel.org>, basharath <basharath@couthit.com>, ssantosh <ssantosh@kernel.org>, Vadim Fedorenko <vadim.fedorenko@linux.dev>, linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, rogerq <rogerq@ti.com>, srk <srk@ti.com>, pratheesh <pratheesh@ti.com>, m-malladi <m-malladi@ti.com>, netdev <netdev@vger.kernel.org>, linux-kernel <linux-kernel@vger.kernel.org>, danishanwar <danishanwar@ti.com>, afd <afd@ti.com>, andrew+netdev <andrew+netdev@lunn.ch>, horms <horms@kernel.org>, krishna <krishna@couthit.com>, krzk+dt <krzk+dt@kernel.org>, davem <davem@davemloft.net>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 16 Jul 2025 18:41:11 +0530 (IST) Parvathi Pudi wrote:
-> >> Something needs to stop the queue, right? Otherwise the stack will
-> >> send the frame right back to the driver.
-> >=20
-> > Yes, we will notify upper layer with =E2=80=9Cnetif_tx_stop_queue()=E2=
-=80=9D when returning
-> > =E2=80=9CNETDEV_TX_BUSY=E2=80=9D to not push again immediately.
->=20
-> We reviewed the flow and found that the reason for NETDEV_TX_BUSY being
-> notified to the upper layers is due lack of support for reliably detecting
-> the TX completion event.
->=20
-> In case of ICSSM PRU Ethernet, we do not have support for TX complete
-> notification back to the driver from firmware and its like store and
-> forget approach. So it will be tricky to enable back/resume the queue
-> if we stop it when we see busy status.
+On Mon, May 26, 2025 at 06:26:56PM +0800, Mason Chang wrote:
+> Add the LVTS commands for Mediatek Filogic 880/MT7988.
+> 
+> This series fixes severely abnormal and inaccurate LVTS temperature
+> readings when using the default commands.
+> 
+> Signed-off-by: Mason Chang <mason-cw.chang@mediatek.com>
+> 
+> Mason Chang (3):
+>   thermal/drivers/mediatek/lvts_thermal: change lvts commands array to
+>     static const
+>   thermal/drivers/mediatek/lvts_thermal: add lvts commands and their
+>     sizes to driver data
+>   thermal/drivers/mediatek/lvts_thermal: add mt7988 lvts commands
+> 
+>  drivers/thermal/mediatek/lvts_thermal.c | 74 ++++++++++++++++++++-----
+>  1 file changed, 61 insertions(+), 13 deletions(-)
 
-IIUC this is all implemented in SW / FW. You either need to add=20
-the notification or use a timer to unblock the queue.
+Changes applied, thanks
+
+-- 
+
+ <http://www.linaro.org/> Linaro.org │ Open source software for ARM SoCs
+
+Follow Linaro:  <http://www.facebook.com/pages/Linaro> Facebook |
+<http://twitter.com/#!/linaroorg> Twitter |
+<http://www.linaro.org/linaro-blog/> Blog
 
