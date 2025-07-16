@@ -4,115 +4,157 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC783C83F22
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 18:25:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25B94C83F1B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 18:27:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XqYy+Dz+71twI0him0hUjZk/6GLWJWbYmCSfdczxwFc=; b=f3769NtmpzKVpQLscg7OJc87eQ
-	BpzamqbTgNVUT2pufBwSoFYhSv/KIAuyiq/le5H/iTxC7xoRjLt9QlMSBvH/NOOMhGMLN8SMWo6KC
-	P0mXCWWKxWSgY8k5mC5q/XVYFoYw0mA6m2mlf5faxGDXPI8VtdsStkn+5s2pFsxHRK4/7x35JzjUr
-	vrIZLrFghMY12pJ4YCbsPWlWK2koSnCLLJu18Nj6oj4n5J0BAh4iMXJA9krbvQcMeAF64adC9kXBD
-	YhA5AVgL6/l3g8Rlouv7oiOM/8DpdHlGSOYARS6yAEO805qGL2nQ1FQf3qo5MwAt59ULqbzxs/fTL
-	wbrzu12g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2XZEkZ8Nh7IJar+QLhbRsqhoZs1SudCLK65C/XokS+Y=; b=oqhx3WE6F8QYCkO33CCidk/OaD
+	9n1BhB3l2iXOmgUSv3Y/ZdvueV9Sl9ZaJ5pijVsBUzS8cr3OAN8ct0uUGcasih3k5R71B8wEVX4TK
+	uYyJ+3fNWC913V3ER50Dxy5zlD8SGZamyN6uBQTjOpO8/TvOEuN0yYqJBxaoh4w1ViqNwkx2AVNN+
+	tvWZDpSOprzw+4GxvzoXQDKcCqZ5YZ4HPobeyOb/KqSPX7wFNH/qutsTwJy/lPbZFYCZ/SGXefLAn
+	FvvB9qgOADjEJqIuUqn2GoeHwLVbodf36RgudqsGay5tM3f6h4HjAZcLaqc5piToymf37awKAE+eW
+	lQHaHy6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uc6oQ-00000008OMP-3eoH;
-	Wed, 16 Jul 2025 18:25:02 +0000
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	id 1uc6qs-00000008Oi9-33Qt;
+	Wed, 16 Jul 2025 18:27:34 +0000
+Received: from mail-mw2nam04on2061b.outbound.protection.outlook.com ([2a01:111:f403:240a::61b] helo=NAM04-MW2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uc6l0-00000008Ncv-2Ftq
+	id 1uc6mK-00000008Nuw-2Qd4
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Jul 2025 18:21:31 +0000
-Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-23dd9ae5aacso20535ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Jul 2025 11:21:29 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1752690089; x=1753294889; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=XqYy+Dz+71twI0him0hUjZk/6GLWJWbYmCSfdczxwFc=;
-        b=WoR6uBMg2Br4gsf4dkDW5iq57RZOacPZNPW3JOPAi4O5+Evutuf3qxabBgIoKh25Mo
-         5TuiHCbZJ7HvqS9JFpKVsbx2N9mCFrFz5HBlKQxg4Ubp/zCHG58tjOe/uowEZK0L5r2a
-         mm9VZRHNL8gDPHUrJ+TLV4SX7AskkqI9eO9ZwocP4+owAiWdEnO96XFjB7FhbMddmxg6
-         O+v8tbqe4sxQG1fWau+ZtgcfsMQjkr7LKKKq93PGTo0xHFmcEQaUZwBFF0HABjLvbYPD
-         XJB/J78AWbxSO5+cmFPuITXolcb8Ym6TbcAoudM7yA5LBbe+IDbTNd3S3MQxS+FhpEYY
-         n29A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752690089; x=1753294889;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=XqYy+Dz+71twI0him0hUjZk/6GLWJWbYmCSfdczxwFc=;
-        b=aGpKO2cDUwjAiao7dXp/WfdFsT7KP9XirMqFZK6o4KVqK/QP29CVYp75BSDHA6aSp5
-         C3LvEtjutidzLU4tpR40R+WBEpRasJLbTjtGV5Mv4SVZgVSuX5c1TZs9it3xh8u9OpwC
-         Zejpg1q8F4iNrPqNoXGsVvHotKerZyY7kfOSDbKp/tNnjUWOmpsA36a/vRzseos9o/wr
-         UFUDfRtSt3gw3n8YUdeS7wT+hItR70sIdl1//oHIyt8UY7tLfkOwnGvLM4ex2o8dnCTt
-         lr+lLHvfJAYTqtrnSCqdxDkVqy7VMidyl9gG87hUALb71ZpVdu128uHWvbNtOZeUuUdg
-         gw2w==
-X-Forwarded-Encrypted: i=1; AJvYcCWFTn+7tr3OTil8PxZya+N62dowNgiImxeXS2dvklj9VGKhSMtd6LSfLRDS23Xny5Gn7vekawr1LXEqMmdYigh4@lists.infradead.org
-X-Gm-Message-State: AOJu0YxOFch0xip9Gp+sv26RqN5HNpxmhKJEcbJhmwgOZPzXHpi+eFA8
-	r2or+1HdqGQeU2JdUqF/UtoPdQ7jBGsMQa9YAOONiFYAFaAYose4TrtY3WjYJoyQ9A==
-X-Gm-Gg: ASbGncsBTqdmFY1uLfFuWZg4tsrM+Lwdtl0QynuLjcmb4phhWAXprIZAoA0hmMMDMqL
-	PI5BqK02zh+Mb+eyinT4n1N4XrLtpDgULvQhuLVhJ0zLPeDknktS5nwl+zBpNMdLu8jkdHz3VoS
-	UA9WMg13EHVaBcc0FUCbKhCDFqVkjDRXz0ozD+IjF6GuNrJ5U8YGrvzm+s22Hgc8PbCM9PTKNU8
-	/PGhJCqQXCKSBnz3VCrbPdz5tFQ3RonJzFrEygmYrEFS7xbBUEN0YdxO1z71unSe1ielayZTC2U
-	K+QMeJ1Y7eq9FWomFO4LeHzAdejewTdm8b6lZ3k+gkIjlIaj+j0SnBQITpaTUR+/XcrbY7tQRTk
-	Y55mI+5bJlro+j1rfwfqKytBpJt3dqzntOfhhnTC+PeRvhEjImb2LtTGCD/nDNDw=
-X-Google-Smtp-Source: AGHT+IGlMcCW/yVhugE6YAY332fyg5msAyrVkd1WM6bK1ZITZ1zHK/NiN+y5Y44tdPQTE58o+NEh5Q==
-X-Received: by 2002:a17:903:3b8e:b0:231:ddc9:7b82 with SMTP id d9443c01a7336-23e2ffdd014mr186685ad.13.1752690088747;
-        Wed, 16 Jul 2025 11:21:28 -0700 (PDT)
-Received: from google.com (135.228.125.34.bc.googleusercontent.com. [34.125.228.135])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-31ca786eac1sm1153352a91.48.2025.07.16.11.21.25
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 16 Jul 2025 11:21:27 -0700 (PDT)
-Date: Wed, 16 Jul 2025 18:21:21 +0000
-From: Carlos Llamas <cmllamas@google.com>
-To: =?utf-8?B?5YiY5rW354eVIChIYWl5YW4gTGl1KQ==?= <haiyan.liu@unisoc.com>,
-	Alice Ryhl <aliceryhl@google.com>,
-	Matthew Maurer <mmaurer@google.com>
-Cc: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>,
-	Miguel Ojeda <ojeda@kernel.org>,
-	=?utf-8?B?5ZGo5bmzIChQaW5nIFpob3UvOTAzMik=?= <Ping.Zhou1@unisoc.com>,
-	=?utf-8?B?5Luj5a2Q5Li6IChaaXdlaSBEYWkp?= <Ziwei.Dai@unisoc.com>,
-	=?utf-8?B?5p2o5Li95aicIChMaW5hIFlhbmcp?= <lina.yang@unisoc.com>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"rust-for-linux@vger.kernel.org" <rust-for-linux@vger.kernel.org>,
-	=?utf-8?B?546L5Y+MIChTaHVhbmcgV2FuZyk=?= <shuang.wang@unisoc.com>,
-	Andrey Ryabinin <ryabinin.a.a@gmail.com>,
-	Alexander Potapenko <glider@google.com>,
-	Andrey Konovalov <andreyknvl@gmail.com>,
-	Dmitry Vyukov <dvyukov@google.com>,
-	Vincenzo Frascino <vincenzo.frascino@arm.com>,
-	"kasan-dev@googlegroups.com" <kasan-dev@googlegroups.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Arve =?iso-8859-1?B?SGr4bm5lduVn?= <arve@android.com>,
-	Todd Kjos <tkjos@android.com>, Martijn Coenen <maco@android.com>,
-	Joel Fernandes <joelagnelf@nvidia.com>,
-	Christian Brauner <christian@brauner.io>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Jamie Cunliffe <Jamie.Cunliffe@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>
-Subject: Re: Meet compiled kernel binaray abnormal issue while enabling
- generic kasan in kernel 6.12 with some default KBUILD_RUSTFLAGS on
-Message-ID: <aHftocnJcLg64c29@google.com>
-References: <4c459085b9ae42bdbf99b6014952b965@BJMBX01.spreadtrum.com>
- <202507150830.56F8U908028199@SHSPAM01.spreadtrum.com>
- <c34f4f606eb04c38b64e8f3a658cd051@BJMBX01.spreadtrum.com>
- <CANiq72=v6jkOasLiem7RXe-WUSg9PkNqrZneeMOTi1pzwXuHYg@mail.gmail.com>
- <24e87f60203c443abe7549ce5c0e9e75@BJMBX01.spreadtrum.com>
+	Wed, 16 Jul 2025 18:22:53 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=U5Um1CM4JrelU2i7hqjDI4qh+RdSySTlfZibF4w0ZsiRPF87ls+o9VODW2Z4x+Ut95Vt+TaVO9JKkOSgZ4ASgZ8DxtJuCGYx4rzFDHazrXjG38MmXIYGexl8XfmVD6z721FJu1jSBRdJJB54F3d6cWSSYAAujWTOHY3spJleFKzWfHQBCoCXP8+jZqUfpLrlCfS5hHoirHym0OgKAJQGb7inPK5Si1U6ezQFLNXde0s85syXQ8cqvw8rW0HuQwHJO5n+kViNlQrzTQ3XIoxkufyIViV/mwYjubwo4vU02Z4loMdxs/qtJEgMz0qXaLqEJXs+YMNJetjA0wYw7Qf2eg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=2XZEkZ8Nh7IJar+QLhbRsqhoZs1SudCLK65C/XokS+Y=;
+ b=QAbDu5G+/fmutp4/PbNb56qSWPGz+e8GtdwUudMdF3DtlDOAetXjOdx8HPuKHhfIhfblPONuJ0+Tf4QuhT9RQBHIkzPD5ysikGay6VPbqlD8V/lUQb/EWfgRZ1m5NU/usFcvAvbeb3o61nK+/ZF570Gv5MOEvOPyR2gz5+dvn2EuukRzWNaqbCLMVLUfVmaOv92eNC7l2No0wkAgAunoAMCQHoomWFRrrpnkTs2NmZrSu+P8/4Tk1g5YICWqQCW2gtxM2rYqfPE18Ex+PhK6ANsWNJVifsqzE9EAoDzqw6pawc/Xe2x7WFj9DUb85EKiXSp08NqvrYbX/CaCWzPVdg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.161) smtp.rcpttodomain=lists.ozlabs.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=2XZEkZ8Nh7IJar+QLhbRsqhoZs1SudCLK65C/XokS+Y=;
+ b=gCnXc01IQebtPlbVSD6R9BB9vch+sNKEimzQIFlz8dZAArhlwARDeLdNfmuF9iEHfWsF1ginuvk6kBtLCO0scu/ZPe7qpHYT18EJIFDTlr2vciU31yx0XEHw2mddobQfK7TZUVJ4DYEiYSedEgWKKuoqkkTzPJBIQjBQWUsWKTMoKMdv2U5WkZCc41grcqdAe6G5J9arJiMAWK1kQs7vJdWjEOleV39mfGbIYH7g1TKhofmo60PKcLpTlbUZ4sLEy7/UBEhWwO1qccwWvuIaZ4eyhkNNXbfbDJyQm1oXNj9J/YLHG0UsVpHs37qkz0nlXB8CHHBfmWtjmQeBP3yCTw==
+Received: from BY3PR05CA0045.namprd05.prod.outlook.com (2603:10b6:a03:39b::20)
+ by IA1PR12MB7613.namprd12.prod.outlook.com (2603:10b6:208:42a::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8922.36; Wed, 16 Jul
+ 2025 18:22:47 +0000
+Received: from SJ5PEPF000001C9.namprd05.prod.outlook.com
+ (2603:10b6:a03:39b:cafe::6f) by BY3PR05CA0045.outlook.office365.com
+ (2603:10b6:a03:39b::20) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8964.14 via Frontend Transport; Wed,
+ 16 Jul 2025 18:22:47 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ SJ5PEPF000001C9.mail.protection.outlook.com (10.167.242.37) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8943.21 via Frontend Transport; Wed, 16 Jul 2025 18:22:46 +0000
+Received: from rnnvmail205.nvidia.com (10.129.68.10) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Wed, 16 Jul
+ 2025 11:22:31 -0700
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by rnnvmail205.nvidia.com
+ (10.129.68.10) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Wed, 16 Jul
+ 2025 11:22:30 -0700
+Received: from willie-obmc-builder.nvidia.com (10.127.8.10) by mail.nvidia.com
+ (10.129.68.8) with Microsoft SMTP Server id 15.2.1544.14 via Frontend
+ Transport; Wed, 16 Jul 2025 11:22:29 -0700
+From: Willie Thai <wthai@nvidia.com>
+Date: Wed, 16 Jul 2025 18:21:56 +0000
+Subject: [PATCH v2 2/4] ARM: dts: aspeed: nvidia: gb200nvl: Enable i2c3 bus
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <24e87f60203c443abe7549ce5c0e9e75@BJMBX01.spreadtrum.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-ID: <20250716-update-gb200nvl-dts-for-new-hardware-v2-2-9a1a916f461d@nvidia.com>
+References: <20250716-update-gb200nvl-dts-for-new-hardware-v2-0-9a1a916f461d@nvidia.com>
+In-Reply-To: <20250716-update-gb200nvl-dts-for-new-hardware-v2-0-9a1a916f461d@nvidia.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, "Andrew
+ Jeffery" <andrew@codeconstruct.com.au>, <openbmc@lists.ozlabs.org>
+CC: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-aspeed@lists.ozlabs.org>, <linux-kernel@vger.kernel.org>, "Deepak
+ Kodihalli" <dkodihalli@nvidia.com>, Ed Tanous <etanous@nvidia.com>, Leo Huang
+	<leohu@nvidia.com>, Willie Thai <wthai@nvidia.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1752690148; l=909;
+ i=wthai@nvidia.com; s=20250525; h=from:subject:message-id;
+ bh=E5CvWtfedBNindT75YTTq7hmXgdKy6ZDH+6awigFKQg=;
+ b=RjrCFH0zc7Y063/5GThjGSbNQi0mXcnVtMNKNhsZ8/EYliLo0kGxuNO7WSsbwNthPZhJEJ+oW
+ Jch+QaruvgeALHuJWBGS4r5s1vI06ZKC0ZuaqTjqfhJvMFrNyrYnnrX
+X-Developer-Key: i=wthai@nvidia.com; a=ed25519;
+ pk=i/6dxnUqKdr7Z6GA0KECRkwz5HX4RCiodw0v6kB9fbs=
+X-NV-OnPremToCloud: AnonymousSubmission
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ5PEPF000001C9:EE_|IA1PR12MB7613:EE_
+X-MS-Office365-Filtering-Correlation-Id: fdebf74a-d767-4491-ca31-08ddc495c379
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|82310400026|1800799024|7416014|376014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?YXlaeUx2WEpsVFRFQnN3M2JicUZsQ0NKUWx2Nm9FRDVaejg1YXNjTGZ1Y2F4?=
+ =?utf-8?B?WGJjYnlRNWVlaTlKQkE0RXlPeGs0N3R6U1pya3NsbTZLOWtkaUpnamRjUEpL?=
+ =?utf-8?B?Zm5zMlk3R1Zna2tGYmU1U01YV2NSTVFBYjFjdHFSaDZRRjQrSEwrTXVlYlRv?=
+ =?utf-8?B?YnNQWXlCSGFHU3EwNGV6TEhTa2xEeEpmWm8yZHl2alF2SytVVlFqdjdZa0Iz?=
+ =?utf-8?B?VGxUOEdKU2UzaHJEaThDN1YyQytWSndxOXh3elN6a1h3ZTE1bGVQUXhlSnpF?=
+ =?utf-8?B?aDdaMG5uUGs1OGVpemZWeUVCM2tjMktheEI1QjlnNmtrcUtRTHNGMDBhVG1M?=
+ =?utf-8?B?bGpaalVPcGl2VFdneWFWc2FpeFZqNnIwZUhwQjR1Z2tkTHhmT0h3TVZDSjRP?=
+ =?utf-8?B?RUhCU0dIWDFwaThXOWRBa25Qb2w0VTZhMy85SWFWYnE4VW8ySTF0WTY4RUly?=
+ =?utf-8?B?TUwwMXRjQ1lpSDRVdDZrbTl6YTFYWWtFQVFTYTZVWnpkVGZINjlwbG90Q0ZX?=
+ =?utf-8?B?S0ozNWFpV3dRbU94NFVzbUlQZ2JaU0N0aHZkSEtEb2p0WGt0YnJ1YzVSbkZ5?=
+ =?utf-8?B?UXovK3c0S2thNmdtRVhhd1V4eU0yK2xPd25nWEVUbW85dnJDVDRVcmJzdkJR?=
+ =?utf-8?B?MUppZzJiZ0IrZ294RlU5Z0VFNVNycXp2bERSb1VXd2ZwNlluWFRCVVVVNHVZ?=
+ =?utf-8?B?akdGbVNYTTlMWGMwVnlINWovMUtnd3AzZGxXeFo0eWFBRDIxYW1GamRRcFl0?=
+ =?utf-8?B?dUlnMEdwOU9PU1oyZ2V3RURwc3BXT3g2NlY2YUhzOEYya0NLOC9CWGg0R3U4?=
+ =?utf-8?B?VHpzdTAzaXBrMWJGOHdTYld3VjJBdGIyRHFLUU40RGd5cy80ODdwZkNTU04z?=
+ =?utf-8?B?aUJNcUJtbXpYSkVaa3ZYaXB2bE14eVdVbjUzeXJSQUhWQzFORnNXTWxsdEo4?=
+ =?utf-8?B?YW80NmNJdGpMT1BSMkVsMW9qUWN4L3dGODdRNWtZK2M2Q0xBSzd3RUc4SGtT?=
+ =?utf-8?B?OFJZZ3lTc2NuWnlnbHdkVUJZME1UelpyV1Zzc2M4UU50SXhFZE84MkRWa1Vw?=
+ =?utf-8?B?SGgwSDlkTW0wZWZRT0l4NFlIS2s0UkdJR2pMWm82S3dwWmhRRzA2c0hBL2pP?=
+ =?utf-8?B?anpqQ2haLytSM2o3aHI4YllBQzVqRVVYbzhtY3VFcmlMSytrWHRIVmJRQncx?=
+ =?utf-8?B?OWE4SGxBdTZxaFhtd2hxVExFckFCdklnNkJhd0VFODlremtMWnlNTVRRQUhs?=
+ =?utf-8?B?cmRRNWoyYjlvQ1pDKzZQai9lQUZmR2o2cUlTOG5YUGo5ZWtnOE1MYloxSDl5?=
+ =?utf-8?B?RmozMjdHemF2Ry9rZ1ZPbytvSlREeTB2UFQycEhhOTBPWm02S0JUUEViWnFO?=
+ =?utf-8?B?Zk84L0V5Y3c3NHh1Rm5vRTNVRXdkQno3em9ZQk41Q2lPZko5TThHKzIrZlBU?=
+ =?utf-8?B?bW1kbnZMeEpFTnFVWHowY25mNVVROEhOM3IzTVdEMlVsM1FOdXlQTDlkaEht?=
+ =?utf-8?B?N3RQYWFPK2xydVlmQzd4dGFNOTNVQWpQek1mMmN4RWxoSUJLUWRDRTd6MmNl?=
+ =?utf-8?B?dk0vaUxhQUlxWThjZFNvTWFubGxISW9md25SWmhkUVl0ZFZPSm9zcFJXdGxu?=
+ =?utf-8?B?alBSNUNQSWk2NWg1cW1rRjB5Nks3aEpLcXZ4bmswZG5lRzV5Yk5ENnR3UjJo?=
+ =?utf-8?B?eDQ3MEZHaTNqSUNtVEpicFgwOXlWam5PQk9VMG8wUkNEbGszMFpQQXVnb3ZX?=
+ =?utf-8?B?anhGRk50OURWTEFnZkRqbHRvYnRwNlErQm8vdE9RV0JrcDBTNkFTSTJTbmF2?=
+ =?utf-8?B?YUxBdndFcWl1UGVtNjZBVFFyajlGNVYyOFRzWUE4T0kzdngxQmdqb051SUhh?=
+ =?utf-8?B?VVllTlJzUXhKSzl4S0ZGK2FxQTZnZXJ0dTlCdEd0N255WVpySEFxV2lKbEU1?=
+ =?utf-8?B?QW95QlM3Z0hQN3JXVW9KL2NBU01iWVBabUJLd1piU2d2anRONStYNS9yNWlD?=
+ =?utf-8?B?RW9WL0pHRzdvSnFpN245aytoYy9YTVE1OEZ2YmtDMU10cC81aVR4RmhMR1hI?=
+ =?utf-8?Q?OHI8ej?=
+X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(36860700013)(82310400026)(1800799024)(7416014)(376014);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Jul 2025 18:22:46.3900
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: fdebf74a-d767-4491-ca31-08ddc495c379
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ5PEPF000001C9.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB7613
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250716_112130_581730_3982EE7B 
-X-CRM114-Status: GOOD (  21.20  )
+X-CRM114-CacheID: sfid-20250716_112252_624692_17FC27E5 
+X-CRM114-Status: GOOD (  10.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,93 +169,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 16, 2025 at 07:01:29AM +0000, 刘海燕 (Haiyan Liu) wrote:
-> 
-> 
-> > -----邮件原件-----
-> > 发件人: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
-> > 发送时间: 2025年7月16日 1:51
-> > 收件人: 刘海燕 (Haiyan Liu) <haiyan.liu@unisoc.com>
-> > 抄送: Miguel Ojeda <ojeda@kernel.org>; 周平 (Ping Zhou/9032) <Ping.Zhou1@unisoc.com>; 代子为 (Ziwei Dai)
-> > <Ziwei.Dai@unisoc.com>; 杨丽娜 (Lina Yang) <lina.yang@unisoc.com>; linux-arm-kernel@lists.infradead.org;
-> > linux-kernel@vger.kernel.org; rust-for-linux@vger.kernel.org; 王双 (Shuang Wang) <shuang.wang@unisoc.com>; Andrey Ryabinin
-> > <ryabinin.a.a@gmail.com>; Alexander Potapenko <glider@google.com>; Andrey Konovalov <andreyknvl@gmail.com>; Dmitry Vyukov
-> > <dvyukov@google.com>; Vincenzo Frascino <vincenzo.frascino@arm.com>; kasan-dev@googlegroups.com; Greg Kroah-Hartman
-> > <gregkh@linuxfoundation.org>; Arve Hjønnevåg <arve@android.com>; Todd Kjos <tkjos@android.com>; Martijn Coenen
-> > <maco@android.com>; Joel Fernandes <joelagnelf@nvidia.com>; Christian Brauner <christian@brauner.io>; Carlos Llamas
-> > <cmllamas@google.com>; Suren Baghdasaryan <surenb@google.com>; Jamie Cunliffe <Jamie.Cunliffe@arm.com>; Catalin Marinas
-> > <catalin.marinas@arm.com>
-> > 主题: Re: Meet compiled kernel binaray abnormal issue while enabling generic kasan in kernel 6.12 with some default KBUILD_RUSTFLAGS
-> > on
-> > 
-> > 
-> > 注意: 这封邮件来自于外部。除非你确定邮件内容安全，否则不要点击任何链接和附件。
-> > CAUTION: This email originated from outside of the organization. Do not click links or open attachments unless you recognize the sender
-> > and know the content is safe.
-> > 
-> > 
-> > 
-> > On Tue, Jul 15, 2025 at 11:41 AM 刘海燕 (Haiyan Liu) <haiyan.liu@unisoc.com> wrote:
-> > >
-> > > The commit changes the fragment and diff is:
-> > 
-> > An Android engineer should know how to handle that, but if you are reporting upstream, it is best to try to reproduce the issue with the
-> > upstream kernels (e.g. arm64 is not in 6.6.y) and provide the full kernel config used.
-> > 
-> > > Only two rust-related global variables in fmr.rs and layout.rs have this issue. Their asan.module_ctor complied binaries are wrong.
-> > 
-> > I am not sure what you mean by `fmr.rs`. As for `layout.rs`, that is in the `kernel` crate in 6.12.y -- isn't there a single `asan.module_ctor`
-> > per TU? Which object file are you referring to? I get the pair for my `rust/kernel.o`.
-> 
->   NSX:FFFFFFC0800A7C94|F800865E  asan.module_ctor:   str     x30,[x18],#0x8   ; x30,[x18],#8
->    NSX:FFFFFFC0800A7C98|F81F0FFE                      str     x30,[sp,#-0x10]!   ; x30,[sp,#-16]!
->    NSX:FFFFFFC0800A7C9C|F00240A0                      adrp    x0,0xFFFFFFC0848BE000
->    NSX:FFFFFFC0800A7CA0|911D8000                      add     x0,x0,#0x760     ; x0,x0,#1888
->    NSX:FFFFFFC0800A7CA4|52803D61                      mov     w1,#0x1EB        ; w1,#491
->    NSX:FFFFFFC0800A7CA8|94233816                      bl      0xFFFFFFC080975D00   ; __asan_register_globals
->    NSX:FFFFFFC0800A7CAC|F84107FE                      ldr     x30,[sp],#0x10   ; x30,[sp],#16
->    NSX:FFFFFFC0800A7CB0|D50323BF                      autiasp
->    NSX:FFFFFFC0800A7CB4|D65F03C0                      ret
-> The first __asan_global struct value is 
->  ENAXI:FFFFFFC0848BE760|>FFFFFFC082EDB180 000000000000005F ........_.......
->  ENAXI:FFFFFFC0848BE770| 0000000000000080 FFFFFFC0836DC431 ........1.m.....
->  ENAXI:FFFFFFC0848BE780| FFFFFFC082EEC780 0000000000000000 ................
->  ENAXI:FFFFFFC0848BE790| 0000000000000000 FFFFFFFFFFFFFFFF ................
-> The address of the global is 0xFFFFFFC082EDB180 which value is '/proc/self/cwd/prebuilts/rust/linux-x86/1.82.0/lib/rustlib/src/rust/library/core/src/num/fmt.rs' and its viewinfo is 'vmlinux\Global\__unnamed_357'
-> The original size of the global is 0x5F
-> The name of the global is kmalloc-2k
-> The module name of the global is 'core.27758904ccee4c80-cgu.o'
-> 
->    NSX:FFFFFFC0800A7D4C|F800865E  asan.mod.:str     x30,[x18],#0x8   ; x30,[x18],#8
->    NSX:FFFFFFC0800A7D50|F81F0FFE            str     x30,[sp,#-0x10]!   ; x30,[sp,#-16]!
->    NSX:FFFFFFC0800A7D54|F00240E0            adrp    x0,0xFFFFFFC0848C6000
->    NSX:FFFFFFC0800A7D58|912E8000            add     x0,x0,#0xBA0     ; x0,x0,#2976
->    NSX:FFFFFFC0800A7D5C|52800961            mov     w1,#0x4B         ; w1,#75
->    NSX:FFFFFFC0800A7D60|942337E8            bl      0xFFFFFFC080975D00   ; __asan_register_globals
->    NSX:FFFFFFC0800A7D64|F84107FE            ldr     x30,[sp],#0x10   ; x30,[sp],#16
->    NSX:FFFFFFC0800A7D68|D50323BF            autiasp
->    NSX:FFFFFFC0800A7D6C|D65F03C0            ret
-> The second __asan_global struct value is 
->    NSD:FFFFFFC0848C6BA0|>FFFFFFC082EECA80 0000000000000020 ........ .......
->    NSD:FFFFFFC0848C6BB0| 0000000000000040 FFFFFFC0836DC431 @.......1.m.....
->    NSD:FFFFFFC0848C6BC0| FFFFFFC082EEDA80 0000000000000000 ................
->    NSD:FFFFFFC0848C6BD0| 0000000000000000 FFFFFFFFFFFFFFFF ................
-> The address of the global is 0xFFFFFFC082EECA80 which value is 0 and its viewinfo is '<&usize_as_core::f..vmlinux\kernel_9a6cb9fd7c8dfd66_cgu\<&usize_as_core::fmt::Debug>::{vtable}'
-> The original size of the global is 0x20
-> The name of the global is kmalloc-2k
-> The module name of the global is 'kernel.9a6cb9fd7c8dfd66-cgu.o'
-> 
-> > Cheers,
-> > Miguel
+Enable i2c3 bus for telemetry fetching purpose.
 
-We have KASAN builds with android16-6.12 and haven't seen this issue.
-Can you share your entire config file, so we can try to reproduce?
+Signed-off-by: Deepak Kodihalli <dkodihalli@nvidia.com>
+Signed-off-by: Ed Tanous <etanous@nvidia.com>
+Signed-off-by: Willie Thai <wthai@nvidia.com>
+---
+Changes v1 -> v2:
+   - Fix unevaluated vcc-supply properties [Rob Herring]
+---
+---
+ arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dts | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Cc: Alice Ryhl <aliceryhl@google.com>
-Cc: Matthew Maurer <mmaurer@google.com>
+diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dts
+index bd9395a194137ea70d184665ad6cb659541ef175..f0a18adc328759e290bc354ad8ef703f28c1ffe8 100644
+--- a/arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dts
++++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dts
+@@ -422,7 +422,7 @@ &i2c2 {
+ 
+ // I2C4
+ &i2c3 {
+-	status = "disabled";
++	status = "okay";
+ };
+ 
+ // I2C5
 
-Alice, Matthew, have you seen this before?
+-- 
+2.25.1
 
---
-Carlos Llamas
 
