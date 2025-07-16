@@ -4,73 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5769CC83F22
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 15:40:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 732E1C83F1B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 15:50:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FQygm47vH/WofEnzOqR26vDr26pm660we3NQTOLEBBA=; b=UgGh6yGMog7Z9NHzqn2aFobcP+
-	E8YtTRQgd1iy38tLC9lnMfJ2AIhvCRnwSVtE2a1RuHxzVisgdwdyGiS3nlGouAhbwt23EU20gHfqG
-	uhYDQmhppzArz3FkoBpMHWgAzfHUlwtb1wjqNGFalNOcQI5YIiNiBWp4KCZE0/DD/9OwI7jKIHuG0
-	ZzsJW3rSKXKVls/xTO0XFhzchmvrHcrMaEotAretRnUMwcuOT2qaqTjMELReqplUmBzX8UzGr0ea2
-	WSbxsaJ04hid8nxd7q4oLBFI6KkgpjgWb/ccPgRKutIJMHtdhRYrmkWQXlE7UQHW2+HLPzPtP4/cE
-	Nge8+Gjg==;
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=lKjVbstUaXUkfpWGZfi4yqhbObtoazSimLO3Mc4PdaA=; b=sj9AxwWX1BED6UMuiUHNHEX10K
+	MDeugwquQXBFbOxfEbgX3qAsLKiRSFM4bhVzVgTpQZQDsLXY5E6g3aHhwkEKlCgXEpQV6MsVr8kTf
+	TIcxXvqm67p1WVZpKcEm94g+zpL+fqUG/0YTEhqsMCJ03ib1/3QtKKvE6H17eYeGmJZnf169ImGcg
+	ldTnpaxo+JF6ASZdotP57rBq6JF1oLUOA2V67JAUyQLxCerQDO0UzaTf8YZAhyYjagfpIQyx29Pyb
+	Ib6pN11VjOTDVrTI3Gl/bdz/3fBSJgq78SOs2RtXhwhYCuRjQYDq+eglNEK8oH5dR9oMHvMMs/ZoC
+	/Pw2UCTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uc4F4-000000085jC-018B;
-	Wed, 16 Jul 2025 15:40:22 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uc4PB-000000086ju-3N1W;
+	Wed, 16 Jul 2025 15:50:49 +0000
+Received: from mail-ed1-x529.google.com ([2a00:1450:4864:20::529])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uc4Ca-000000085Qx-0rIE;
-	Wed, 16 Jul 2025 15:37:49 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 12678A52163;
-	Wed, 16 Jul 2025 15:37:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 63A91C4CEF7;
-	Wed, 16 Jul 2025 15:37:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752680266;
-	bh=kREwtPjCgKfqsTgv5NM0Mvvtgu8NBDUf/T41rzVZ/eM=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=BLwgbfXuexHaW+TPNa+a6iWrfr4C93SXyFNP1m6zjdbchQIQjSDQN2bPIFxq8BOpe
-	 3Y4LzFtdIUdhJXmJbTn203g5qdg44tOZHIiKBjGVH/5wnPgme7Tctz2W+/IpaDnKLe
-	 8BH6cepPRo11/392JBcaABYWXwIdAxzxeBnssoB5sZ9TDXipnQosvkIEHom5c/u7FR
-	 D5nq5bg/vTcOff2xiwUMeSzoEHZJ+oD85tH7KUakcBcdGy7jLA6BdqiTOB742SS7aD
-	 cPI1ykzdDf1e9s8V5rHlN8rkVCKkwk/zgI6tMkbncjd8p53Y7Ww2OULF2uyhky8RTf
-	 UqoBVX+/4gwsg==
-From: Maxime Ripard <mripard@kernel.org>
-To: Neil Armstrong <neil.armstrong@linaro.org>,
-	Jessica Zhang <jessica.zhang@oss.qualcomm.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Sumit Semwal <sumit.semwal@linaro.org>,
-	Casey Connolly <casey.connolly@linaro.org>,
-	Jerry Han <hanxu5@huaqin.corp-partner.google.com>,
-	Anusha Srivatsa <asrivats@redhat.com>
-Cc: Maxime Ripard <mripard@kernel.org>,
-	dri-devel@lists.freedesktop.org,
+	id 1uc4Mh-000000086Kg-1IFS
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 16 Jul 2025 15:48:16 +0000
+Received: by mail-ed1-x529.google.com with SMTP id 4fb4d7f45d1cf-60c79bedc19so11824281a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Jul 2025 08:48:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1752680893; x=1753285693; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=lKjVbstUaXUkfpWGZfi4yqhbObtoazSimLO3Mc4PdaA=;
+        b=DLhcFqMVQPoB/xF1NQ6Gts8fBatOh12xBzvqiF/TVvSvXX2D7W5Rd/rpP6Dgtfhj1v
+         pImHrzcBQdVdwWvgTkuh61SF9wb5UkGgyRcxBaewLaqkgKSVW9I84Ws0ZSWjaQn6Gpib
+         t1dNGcpJX9tybK7uPAJcGMbbYDoClGto3784bnOyBoDEHoKlYYMjS0xaWDTJeGsKySQa
+         Ahx8U2SN1qlY3RaWY33pHWT96ZREUAAJJzPlAKDwByuDri8xZKFGjHua94dHZE7QSMub
+         Fd7UGv/bJy/PYz4qvwVHhONTKrFruzunIVJ5271bcQFzaGVCKAk4LmnmtXWWUfXLDD70
+         ycTA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1752680893; x=1753285693;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=lKjVbstUaXUkfpWGZfi4yqhbObtoazSimLO3Mc4PdaA=;
+        b=wgk/tffBIPXMpxdhvL/KYDnzfkYrN8eBhERA8Wo2FoSxGd802huTTGiF9MGzYMNB3c
+         kcsW0zzbjW35IgOEFnzSd3rp3r50HsHwffdkT7fr7aVYYg284o2dAGoDdfMlFYxwNscU
+         7M3vnv+GIuoq5ZSAI+SOJoSaM+LAJihMtUwuMb7Y+KAV/QsM/nEWgJG5jZ2IQ8oQGx1q
+         ChvYXglHTolAo1wcbZZsEmrqAgNPU2wcQoa5NTBC9/+FOr7tHOd0bjvhX+nP0zIK5r+j
+         MMWe9UBfeBKPyOOXUc5RUBJMFHo4zAXGoIFGP1MQsnGRydeCbEl0ea0xUw/T97N7DQey
+         OfYQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVtnmqAPohbw6+OLRp+Nl3YHhbJU26GnKrukqZV3vzkFDS06RSM9mF3ux6p5yadcz2NqzfRDVAFRww1R9d4jcG/@lists.infradead.org
+X-Gm-Message-State: AOJu0YyzwbweX4aogp6sEKfQTh+1woWLjJhcYDITq6/RzIsN+14BMlgL
+	IYrVanE4cJsnsdsfiCTjwa+cI+2mqgpQiFFv7/s4fgdJ9hJ0y6r6qT8H
+X-Gm-Gg: ASbGnctHJcnkzXqJu5ufG8oV0Wex3rzSthScrq+/feExoEtIIA1Oq69Qn5Y/nuCJ+rR
+	ACGPe9CNQ0tfznZgvUou2jLPvfz4L1WB99MxKMTveaHn4L+9uABEumIU/9/Kg+ByUVsbf3/mKlX
+	Tjc+YwhU7JfIlBrwtpBc3oEl7dGGuebUHXmqIms0GF26OrizfZcop19gTl7hY/aKcjMNi7dcC+Y
+	901837Vem12mkklyTKRIXbgS/OcfG/JK6ft9SLZ9obrzHKcBSpH8O2QZXKQ/9J6VCjZIOShsl0q
+	7QOhOQ3hO0uSreVZdafwE7QWr+G6gTpoSGF+2gEJ8dRlX9NnOFr7Fi/VGXwYVTzUpkP7NIkZy/b
+	YwYqbHh4ds8XXpzQ8ghMETh94ug==
+X-Google-Smtp-Source: AGHT+IFex17gwksYmEfwRekLYMBaX4AofLHIu+ZY9di4Kvn6YVkKnhCVyoBbL95UX6lWR4Ue7UJ9Pg==
+X-Received: by 2002:a17:907:d24:b0:ae2:9291:9226 with SMTP id a640c23a62f3a-ae9ce1e71b1mr337656766b.59.1752680892887;
+        Wed, 16 Jul 2025 08:48:12 -0700 (PDT)
+Received: from wslxew242.. ([188.193.103.108])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ae6e8293fe7sm1196705266b.123.2025.07.16.08.48.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 16 Jul 2025 08:48:12 -0700 (PDT)
+From: =?UTF-8?q?Goran=20Ra=C4=91enovi=C4=87?= <goran.radni@gmail.com>
+To: Frank.li@nxp.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	shawnguo@kernel.org,
+	boerge.struempfel@gmail.com,
+	s.hauer@pengutronix.de,
+	festevam@gmail.com
+Cc: =?UTF-8?q?Goran=20Ra=C4=91enovi=C4=87?= <goran.radni@gmail.com>,
+	kernel@pengutronix.de,
+	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	linux-rpi-kernel@lists.infradead.org,
+	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 00/14] drm/panel: Use refcounted allocation in place of devm_kzalloc() - Part5
-Date: Wed, 16 Jul 2025 17:37:42 +0200
-Message-ID: <175268024705.1893267.8357084891720845996.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20250710-b4-driver-convert-last-part-july-v1-0-de73ba81b2f5@redhat.com>
-References: <20250710-b4-driver-convert-last-part-july-v1-0-de73ba81b2f5@redhat.com>
+Subject: [PATCH v5 0/3] arm64: dts: Add support for Ultratronik i.MX8MP Ultra-MACH SBC
+Date: Wed, 16 Jul 2025 17:48:03 +0200
+Message-ID: <20250716154808.335138-1-goran.radni@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250716_083748_306744_EBDB95BD 
-X-CRM114-Status: GOOD (  10.69  )
+X-CRM114-CacheID: sfid-20250716_084815_349220_53D417B3 
+X-CRM114-Status: GOOD (  17.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,20 +107,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 10 Jul 2025 23:31:11 -0500, Anusha Srivatsa wrote:
-> Use the new API devm_drm_panel_alloc() for panel allocations.
-> A major chunk of driver conversion was sent in a 3 part series
-> which is already merged. The coccinelle patch that was used to
-> identify unsafe panel allocations didnt flag about 20 drivers.
-> 
-> Not using any semantic patch for the remaining drivers.
-> This series does the conversion by not passing explicit type
-> to the helper and maintaining type safety suggested by Geert.
-> 
-> [...]
+This patch series adds support for the Ultratronik i.MX8MP-based Ultra-MACH SBC.
 
-Applied to misc/kernel.git (drm-misc-next).
+The Ultra-MACH SBC is an industrial-grade single-board computer based on the NXP i.MX8M Plus SoC. This initial support includes:
 
-Thanks!
-Maxime
+- Updating the MAINTAINERS file to include the new board in the Ultratronik support section.
+- Adding a compatible string entry for the board to `fsl.yaml` in device tree bindings.
+- Introducing a new device tree source file `imx8mp-ultra-mach-sbc.dts` with basic hardware support.
+
+This series is modeled after the support added for the STM32MP157C-based Ultra-FLY SBC and aims to follow the conventions used for other i.MX8MP boards in mainline..
+
+Changes in v2:
+  - Use `enum` with `const:` values in fsl.yaml to correctly represent multiple compatibles.
+  - Updated SPI child node name to use the generic `nfc-transceiver` per DT naming conventions.
+  - Renamed several peripheral nodes (`crypto@35`, `pmic@25`, etc.) to standard names.
+  - Minor formatting cleanup and compliance fixes per review feedback.
+
+Changes in v3:
+- Added "ultratronik,imx8mp-ultra-mach-sbc" to the shared i.MX8MP enum block in `fsl.yaml` [1].
+- Ensured the compatible entry is validated by the existing binding structure.
+- Updated `imx8mp-ultra-mach-sbc.dts` to address review feedback from v2 [2], including:
+  - Proper formatting and indentation fixes.
+  - Cleaned up node ordering and property alignment.
+
+Changes in v4:
+  - Moved `status = "okay";` to the last property in the TPM node.
+  - Fixed indentation of `cs-gpios` multi-line property in the ecspi2 node.
+  - Removed an outdated comment.
+
+Changes in v5:
+
+  - Reordered and grouped pinctrl-names and pinctrl-0 at the top of nodes for consistency.
+  - Removed redundant status = "okay"; from TPM and NFC nodes, as their parent nodes already enable them.
+  - Inserted required newlines between properties and child nodes (e.g., in ports {} block).
+  - Cleaned up minor formatting and property order issues in regulator and gpio-leds nodes.
+
+No functional changes otherwise. Patch series is based on feedback from Frank Li, Krzysztof Kozlowski and Shawn Guo.
+
+Thanks for the reviews!
+
+Link to v2 DT binding discussion:
+[1] https://lore.kernel.org/all/578ea477-c68c-4427-8013-550bf4f9c05b@kernel.org/#t
+
+Link to v2 DTS review:
+[2] https://lore.kernel.org/all/aEmh7VL7BHkXp5Fu@lizhi-Precision-Tower-5810/
+
+The board is based on NXP's i.MX8MP SoC and includes eMMC, LPDDR4, USB-C, Ethernet, and HDMI.
+
+Tested with:
+- `make ARCH=arm64 dtbs_check` (passes)
+- Boot tested on hardware
+
+Best regards,  
+Goran Rađenović
+
+
+Goran Rađenović (3):
+  MAINTAINERS: Add i.MX8MP Ultra-MACH SBC to ULTRATRONIK BOARD SUPPORT
+  dt-bindings: arm: imx8mp: Add Ultratronik Ultra-MACH SBC
+  arm64: dts: imx8mp: Add initial support for Ultratronik
+    imx8mp-ultra-mach-sbc board
+
+ .../devicetree/bindings/arm/fsl.yaml          |   1 +
+ MAINTAINERS                                   |   1 +
+ arch/arm64/boot/dts/freescale/Makefile        |   1 +
+ .../dts/freescale/imx8mp-ultra-mach-sbc.dts   | 907 ++++++++++++++++++
+ 4 files changed, 910 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-ultra-mach-sbc.dts
+
+
+base-commit: 155a3c003e555a7300d156a5252c004c392ec6b0
+-- 
+2.43.0
+
 
