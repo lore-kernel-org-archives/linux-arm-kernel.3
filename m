@@ -4,62 +4,207 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A9BEC83F1B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 07:05:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3080C83F1B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 07:07:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=eP8L2/Q/fL9MEvSrQAgzxFQOX5QG4Of1oWP6kDp1o1U=; b=o4eTMtxx5t1ppd
-	QMX2YdDBebrLqt7/lybUqDLt30HVou1wdeyCI8Mk2gShn4hyVLSjjEfhKucyIWa8iiD3Onjeza/Ci
-	VwaOshvnvd4Eq4HazUhJ+diBzxAfoFk6JEFf4WJx8Lko/7hc2z71iqNm6kCFDTErqedJdY/zG46cd
-	BmMRt61sdg9jHGknWxke3mnOxOGJKYYgQtJhDEVk9Oeu6E1K0vA6sjBqfQtBwzETL4e3TfLZ9WaPk
-	n7/NuIt2dr9ILZb8a9OM/qDTY9JuaJVnFXvUgqD699qU7770zcrDsCHVXGmFTDGTe0cZG3MMvVmyh
-	md4KrGA/u4k3o1+/BtwA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=feJV4wpKK4+kiiAFnxenDkwjwY7y+ddgk1M2g9RMxfA=; b=uXpyAHPagXkqzXCecHsSzSKXrJ
+	m65CYT8/o4Qw5hRnmLRuah9vnR9mNxBD1XvYdlaAeIAzhXHULzlRRGB+YGL4u98tZYps090dC0JC4
+	EqIBlYQKW2dHqTDvHNbjZi68OTzthfHzgMX8ANyLvt4zoMUaf6y879emkn5Mm7sFGamxXGU2UrL2W
+	/xcu8IpqXtc6AqoQbaxBvR19tyoWfac5/JcH//APJhbmpoW5E+L5GWibXicRoRQ6AITcwJyy55Elk
+	nlCjTcaXWUpwGZjlXeNlpCdpSQ4K6dCO+w+IwSvRnyLrms/5M0SzrXY/uQ1TPrn8hYsEUGvliMlkb
+	42I6A/MQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubwCN-00000006xb5-3Uqq;
-	Wed, 16 Jul 2025 07:05:03 +0000
-Received: from szxga01-in.huawei.com ([45.249.212.187])
+	id 1ubwEn-00000006xxP-2tNa;
+	Wed, 16 Jul 2025 07:07:33 +0000
+Received: from esa11.fujitsucc.c3s2.iphmx.com ([216.71.156.121])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubvwI-00000006vQh-2frX
+	id 1ubvxP-00000006vYx-135u
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Jul 2025 06:48:28 +0000
-Received: from mail.maildlp.com (unknown [172.19.162.254])
-	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4bhmjG3SLtz14M26;
-	Wed, 16 Jul 2025 14:43:30 +0800 (CST)
-Received: from kwepemo100006.china.huawei.com (unknown [7.202.195.47])
-	by mail.maildlp.com (Postfix) with ESMTPS id 32DC6180489;
-	Wed, 16 Jul 2025 14:48:17 +0800 (CST)
-Received: from [10.67.121.58] (10.67.121.58) by kwepemo100006.china.huawei.com
- (7.202.195.47) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Wed, 16 Jul
- 2025 14:48:16 +0800
-Message-ID: <bab969f4-819d-4f81-6487-328014c94491@hisilicon.com>
-Date: Wed, 16 Jul 2025 14:48:15 +0800
+	Wed, 16 Jul 2025 06:49:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj1;
+  t=1752648574; x=1784184574;
+  h=from:to:cc:subject:date:message-id:references:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=+H2TOnbBgxUMMNKRHrL0P991mgy6FuBFP3vbP2OqXyc=;
+  b=zWfEqcQUy/OJtViojZQKn0A2yqD6RTy3AmmjhNDgHe6702FnY8WMJR+b
+   RnBhzHIA8yzE7RI0MZHsgPRMw8QaDTFK3CV+GVHEsfmI9go525wUmaXZv
+   h2KJwB/qSYQlnVB1+Cw2yDNnAJGijOPsyDsA0FsbAd50KIeGU0/OwobHx
+   O6ch6c3GfQKULX9BAbhDI2Ikgj8HG5dAGNaXJenOkOpN+ecAQSZe1MFwQ
+   5wK+d1J2OzZs3IUN4ZAFT3A3uE0PXZZqokcBLSTQm/RZjrgVADGh6U8VT
+   n2hTiBeD4xjkf5VOUwdQR/q59lE1hRi5TJO+EaLTevDpehJ8AQ3DtKzi/
+   A==;
+X-CSE-ConnectionGUID: rUZJx0ibQOW982LjkZZxSw==
+X-CSE-MsgGUID: 7XYi1mOQTAK1DsqIxRF4Jw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11493"; a="162662049"
+X-IronPort-AV: E=Sophos;i="6.16,315,1744038000"; 
+   d="scan'208";a="162662049"
+Received: from mail-japanwestazon11010047.outbound.protection.outlook.com (HELO OS0P286CU011.outbound.protection.outlook.com) ([52.101.228.47])
+  by ob1.fujitsucc.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Jul 2025 15:49:23 +0900
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=OSjRdEbEMbR+qwbKpcIghkzKoMTUia9IUN/20hdUD7c51Z8Y23tzxjtSFX/KeyO5iOzDeCI+Yn46Cb2tPjYoFGkN28UTc2ZSANjfNnKbvroVW4J54s5F2QuHXnIArIKMD8hDhkj/GLFva9ts5VLksNk9XXbP/AfvLrvgJ35Bdfwg16UJ/5Aa7iyMRFXXGXZq2ymKZVO7rQbJLGjmokQcTp4dVyHNBi3IAXk3x83Usvl2IE4GJeCPdchczbiIXfNJEnaogAjcsZMiWQRYrw+r1/QHscSbS52l9w+5dPYO1Brv+ag5DIyetgc0W8S5rU7pnNIWgxLyt2XjBQzcfQ0VIQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=feJV4wpKK4+kiiAFnxenDkwjwY7y+ddgk1M2g9RMxfA=;
+ b=ZZgzari6HyOyaJThrcnER5qnYTyBhturZ2cZQnn5MiJ/2EjVX1so7eZVw2pZsfPpHy2Nob2H+BixaSV5IX7JXRVMUOJM0lADk2GFutir/8KEjNSfOYTHl+msVKNCmwzOI2k427HSZDM8duxqdhUBUld5880eL2dNqnUhAbUcJkH9h29X2JY1t+bHct0W0umdyPUN8z7SvfzkyBPmz4y5TThwkyAswLu++p5fcABvp/GkhpCsXOPM1fErid5CjRhJvO20r0rDns9VVgOPWiLKygVyvBeQsm1ciaUfnA+n5gF/3l4Ip2JlZUJrNdQc+mXZ1pI4jeARn9fxhdr6eiDxqw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=fujitsu.com; dmarc=pass action=none header.from=fujitsu.com;
+ dkim=pass header.d=fujitsu.com; arc=none
+Received: from OSZPR01MB8798.jpnprd01.prod.outlook.com (2603:1096:604:15f::6)
+ by TYWPR01MB8282.jpnprd01.prod.outlook.com (2603:1096:400:165::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8922.25; Wed, 16 Jul
+ 2025 06:49:21 +0000
+Received: from OSZPR01MB8798.jpnprd01.prod.outlook.com
+ ([fe80::4344:1f7b:e34d:c672]) by OSZPR01MB8798.jpnprd01.prod.outlook.com
+ ([fe80::4344:1f7b:e34d:c672%7]) with mapi id 15.20.8922.028; Wed, 16 Jul 2025
+ 06:49:20 +0000
+From: "Shaopeng Tan (Fujitsu)" <tan.shaopeng@fujitsu.com>
+To: 'James Morse' <james.morse@arm.com>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>
+CC: Rob Herring <robh@kernel.org>, Ben Horgan <ben.horgan@arm.com>, Rohit
+ Mathew <rohit.mathew@arm.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+	Zeng Heng <zengheng4@huawei.com>, Lecopzer Chen <lecopzerc@nvidia.com>, Carl
+ Worth <carl@os.amperecomputing.com>, "shameerali.kolothum.thodi@huawei.com"
+	<shameerali.kolothum.thodi@huawei.com>, D Scott Phillips OS
+	<scott@os.amperecomputing.com>, "lcherian@marvell.com"
+	<lcherian@marvell.com>, "bobo.shaobowang@huawei.com"
+	<bobo.shaobowang@huawei.com>, "baolin.wang@linux.alibaba.com"
+	<baolin.wang@linux.alibaba.com>, Jamie Iles <quic_jiles@quicinc.com>, Xin Hao
+	<xhao@linux.alibaba.com>, "peternewman@google.com" <peternewman@google.com>,
+	"dfustini@baylibre.com" <dfustini@baylibre.com>, "amitsinght@marvell.com"
+	<amitsinght@marvell.com>, David Hildenbrand <david@redhat.com>, Rex Nie
+	<rex.nie@jaguarmicro.com>, Dave Martin <dave.martin@arm.com>, Koba Ko
+	<kobak@nvidia.com>, Dave Martin <Dave.Martin@arm.com>
+Subject: RE: [RFC PATCH 27/36] arm_mpam: Allow configuration to be applied and
+ restored during cpu online
+Thread-Topic: [RFC PATCH 27/36] arm_mpam: Allow configuration to be applied
+ and restored during cpu online
+Thread-Index: AQHb8pMFQliP6V+zF0Wi1HZVo7Pom7Q0VYog
+Date: Wed, 16 Jul 2025 06:49:20 +0000
+Message-ID: <OSZPR01MB8798812D121619E9BB9BDF2A8B56A@OSZPR01MB8798.jpnprd01.prod.outlook.com>
+References: <20250711183648.30766-1-james.morse@arm.com>
+ <20250711183648.30766-28-james.morse@arm.com>
+In-Reply-To: <20250711183648.30766-28-james.morse@arm.com>
+Accept-Language: ja-JP, en-US
+Content-Language: ja-JP
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+msip_labels: MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_ActionId=7651964c-a365-43d6-9105-9ecc59af39ea;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_ContentBits=0;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_Enabled=true;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_Method=Standard;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_Name=FUJITSU-RESTRICTED?;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_SetDate=2025-07-16T06:46:22Z;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_SiteId=a19f121d-81e1-4858-a9d8-736e267fd4c7;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_Tag=10,
+ 3, 0, 1;
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=fujitsu.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: OSZPR01MB8798:EE_|TYWPR01MB8282:EE_
+x-ms-office365-filtering-correlation-id: c249534a-a392-40a8-9ecb-08ddc434e498
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|7416014|1800799024|366016|376014|1580799027|38070700018;
+x-microsoft-antispam-message-info: =?iso-2022-jp?B?TWxKRkQvaTB4NTdKeE5aS0VnWlBsUC80c1FuckdneXN6SUN6bTVXanl1?=
+ =?iso-2022-jp?B?VW8yS1pRK0lGemdod0QwaXlPaVZ5L2lNY2tCVEJhajBvNGhhRm00aHdI?=
+ =?iso-2022-jp?B?SUpMUGpUNE5pd0JzRTBYSHd4aWgzRlFPVC8rSHhyeXlSaHRjZkVON1ln?=
+ =?iso-2022-jp?B?VWxteFp0UThKUTlpTTFGaUxaSFJQYktrVUx4WVpja3V6RWlacGp2SzdG?=
+ =?iso-2022-jp?B?Q1lVc2VmdVo0SG9rbElKNEZ6Wm5PSXJrVDNTTndsNmEzQzF2Njc1UEx0?=
+ =?iso-2022-jp?B?ZWp6UUNCT3o5L09vd25qcDdGR2VJOEFzcERDa1M5ejZDdkZlWDNwTDhD?=
+ =?iso-2022-jp?B?TzFyZDNud3E4WjRYeUxwNmlURnQrZ21oODFFVFZ3T1RBbWJscTc5bVdZ?=
+ =?iso-2022-jp?B?SWF6emZIU0tjL3hJak9IOFpiTXZpMjZpZlhJdnA4WE9DL3N6Wi9HNzcv?=
+ =?iso-2022-jp?B?RUxqeWtmeEFLcDJWRE1LazlpVWRoYTR5UFpLN295L2R0NW5waVdQT05v?=
+ =?iso-2022-jp?B?M3hNSlRBTjIydk12clUzYWtqVXBDQm54eVdtQkhsQkF4T1RnUzRlc2M4?=
+ =?iso-2022-jp?B?bVZXWk1PMHptNW43RGR1eTZEVTlwUlhSR1BkMFlYVk9uelpOWjhNakFX?=
+ =?iso-2022-jp?B?Q1NKUitBSTdIYkdaOFJtMWpnN2ZzRTJteWdVa0NSeVlTMndsWmUvcDRj?=
+ =?iso-2022-jp?B?aEdKWkd1eXkxdEVZMTdQMWJocmI4K2VXNjBOWVVNVG02aG51d0YxNUd3?=
+ =?iso-2022-jp?B?Q2ZPOFR3ckdMYjVPblFlZDR6QWdsQzFIaG5MSlNzcDdWdmUzZDdVbm9U?=
+ =?iso-2022-jp?B?WG0ycmJuOEZzbFVhNTRLcHo0aWN3Zm5IWUwrU0h4cm9XdUMyYnd1SFNT?=
+ =?iso-2022-jp?B?NjVRd2ZpN1RlTUdvR2RPb3ZFZFc0NHNVMFM2Yno5bVUzVEVpRThjMTdo?=
+ =?iso-2022-jp?B?Yk5KTWkyMWg0QTRUN3ZPMzZQOURkbW5ZSlhDMG9Pb3NadlZYeHZSdmZ0?=
+ =?iso-2022-jp?B?K2xPWkRURXUvVUo4bytBVFdoendIQ21WbmxNYklsbVU1cnIwbExMZHIw?=
+ =?iso-2022-jp?B?NmZidlJxdlp3ZDc3dVU4UkhQK2FRT25aZG84YU50eDhvbWhHdmQrTVJs?=
+ =?iso-2022-jp?B?TUY1Z21kRUNwRGJ4a1RRSElMTjl3c0RPa01XTUJwc0E0Q05qc3pKcHVC?=
+ =?iso-2022-jp?B?MFRGQkZXNXdaTHZxYURzNnFFbVA0OEpSS0hQY1JpTWl6RGplRG9zQTlp?=
+ =?iso-2022-jp?B?SkdvTTM4eEVYRGw3KzY2ci96S1V0emZIaE94YnVNWlFoUDRuTWpiOWo3?=
+ =?iso-2022-jp?B?cGNzdTZLVEtPWENOMzFzemhRMjBHT2cyc2NQVTBMSVhaU1dEeE9yZGdr?=
+ =?iso-2022-jp?B?ME9mZHJ0U1RrdDcyeU9BWk5FeFlJR2o3RDVnMWpmbmYzSXhSUGh2M0FE?=
+ =?iso-2022-jp?B?SDM1SGt1QUVFOWovbFlITUh5QkRQWjYyL2xObTRiN2IrQmQzUlBGQ25V?=
+ =?iso-2022-jp?B?NDhnd3hXMDRyVkcrRkhDOHdJb3M0bkdva0x2dnFHZmhGWlJVV29xVk5X?=
+ =?iso-2022-jp?B?Zi9UT0NkTTQ0c3o5SGxMR2x2SVFjOWh4UU83MVQ0WHNBbGpiWXdIT3NF?=
+ =?iso-2022-jp?B?RnU4SFR4QWN1MDVlZ2RKWExBbjV4YkJFeWI3TXdVb09iSDY1Q3djSisy?=
+ =?iso-2022-jp?B?RkFGR3l6SmxZQW0yL0xHeDN6bmZ6MnQvOWJ4RkJYRGJIRk0rdE90K1BS?=
+ =?iso-2022-jp?B?L0xGZmlSTFJZcmNoenl2ckFObnFPQU55QzA4QUI4TFJ4anlzSDBGZDVy?=
+ =?iso-2022-jp?B?bHhJaW9SUmE3cUc1YVVnVjh2cTVUSXhKWHFNVTBXb0E5Y0hwTlFvdDdw?=
+ =?iso-2022-jp?B?THVrZGIways3UEd5RXZ6b2hKNkZEU2dBYkxFNjVuQytZa1lUR2xFNmJE?=
+ =?iso-2022-jp?B?V2NBZ0t0MTErOHJTcGRXR2NLRW9ydnFhSUZ6SjJic25XTVdzMzhGKzRZ?=
+ =?iso-2022-jp?B?aW5SRUxsSTZBaEJKN093T2txRjdHRWtsK2kya0dzYkVkUEdTa2RkbEJo?=
+ =?iso-2022-jp?B?QjdldE5hZG5JVHZHTFF4WFAwRE4yU0hxdU5GRjNmeElHR25jaTlUS0to?=
+ =?iso-2022-jp?B?MDQ0elJiaFhleE1lN1lRNkM5S3VMTXRzZlcwd1lWa2ZqcXpkN0JNV0NI?=
+ =?iso-2022-jp?B?U2dTRUQ5N1ZtckhHK3MxaE5aZ3ovcFQw?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:ja;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:OSZPR01MB8798.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(366016)(376014)(1580799027)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?iso-2022-jp?B?WnVWTUlqYXJEN1hwYWZsWnhUOGFwKys0N0FKck82TlZseXRac0tWRXMv?=
+ =?iso-2022-jp?B?SUw2emVxQkp3T016Y0F4NEZwM2RGUldiWkdRTE9CK0NVbWhUMWJIM1h2?=
+ =?iso-2022-jp?B?bmxhUUFUVHNjenJIYTdpY25rbXZ3d003dTJNVUFhL3d0QU95cE9keW1a?=
+ =?iso-2022-jp?B?M2g0NUlxaE8yeHRzRlVIemVUOWp2amNvUnd5WTlIbXZIUE9BejAwYnNP?=
+ =?iso-2022-jp?B?bjlLUXgwU3AwZjdXSVFrQ20zWEovV0dmcE5jY2JqWFRyck9JLzRWQlhJ?=
+ =?iso-2022-jp?B?ck5DSFZuQXd1dTNROGVBU1pXWk0vcjBtbDQ3d3dJUktEQW1zN2pneFRv?=
+ =?iso-2022-jp?B?c0laenVmbm01dGNvSklUU1dvMnRZZCtGTk0wRVl3aVJWdXVyV08zTTk1?=
+ =?iso-2022-jp?B?bXgzbjBVbTY1V1VNTC85N2hpQkhQdWhGM0t2NUVrRXVvQnZ6My9yaDBC?=
+ =?iso-2022-jp?B?b2Vybk9wenorcmtTa3plRTRmM0Y1NTRtVTJwTlhnTTNnUGlxMzFDa0Rm?=
+ =?iso-2022-jp?B?UHJ2Wk8vdzM3TXh6dE1Va0RXTFhMdlZWTkRPamVuUyt1UmtFR1JiNS9E?=
+ =?iso-2022-jp?B?aVVmdHM1Z1liVTRZcHBBTWtraVNROXpPREFZaEk4RTZYSjdpa1h1NVJF?=
+ =?iso-2022-jp?B?Q3RZSHhvLzRNMjNwSnZPczlXdS83dVdSOUpRWVpQSW9iQUdWSzdyYjZG?=
+ =?iso-2022-jp?B?NEYvV3NPelZDajREK1p4WnZ0ZFB0ZThHQXRyWEwzNTJsNDNiRmQ4bVpJ?=
+ =?iso-2022-jp?B?RXBERWJhdlZyTDY0VG5hM0IyUlZHakc2aVZyT3FUUDQ4Z1UrSCttQ1Vl?=
+ =?iso-2022-jp?B?ZlM5aENlOWhzbmRTTDNaUHhXWWR4SFNXamU0WHNKVlNFMlNOd3pJd1Ju?=
+ =?iso-2022-jp?B?R05iMDlLVGJWWTBsV0YxcjVmcTlIZVRrOXFDbkQvL0RtTld4MXNKRjhu?=
+ =?iso-2022-jp?B?bElYeHNGTEtMektGUmgrMDYvNkZjUkVPR1MyUDRuK2pXaGtrcG5jUmRX?=
+ =?iso-2022-jp?B?UDFhQTZNNVM5QkM0c2hjbC9YdzR3TFJYVmRqcDF4WTFNM2krUHJqOFp2?=
+ =?iso-2022-jp?B?MFUvL3BsM0dHdGxMQVZiV0ZRMEZ2c0hmWU5IQVQrYWM3dTQzU3hqTWRi?=
+ =?iso-2022-jp?B?UzdLd0l4dWc4T0M1alFWbEhBM3QyZjNmeDNSZ0hpZm9MY1I3UENBaVRY?=
+ =?iso-2022-jp?B?L1pQWXN5bVRMcy9aeUdkVGxqeEFCN0t2VmN1c05YYmZoQ2x2WmRPMWYw?=
+ =?iso-2022-jp?B?OFVtVGwwVWt0dml2bm40Kyt4R25yeEthTmpZYmF1SFg0NVROVUhSeUpp?=
+ =?iso-2022-jp?B?WUZoR01jSzJuVndxSmR0T1pIanlzQzErU2J4dzJpNFNVa1RHQ0pvNEJT?=
+ =?iso-2022-jp?B?VE8ya2YrbVJZaFdjbjlwTm9XR3lIbFFlK2NLd2RzSXVPN2tnZUhsMy9F?=
+ =?iso-2022-jp?B?S0RPYUR3bjN5QlJwM1RCMkZrRmFZVE93MHVkZFJyU2NvcHBLdFlHdGVi?=
+ =?iso-2022-jp?B?N1g1WjdBc1JkR3JGOGplNzhid1MzSkIvZjJBYzdia0VFZ2hBbnlnQXIv?=
+ =?iso-2022-jp?B?ZTZNRnlmSzEyVzNLSGZHbCt3VkVYRnBMZWgydyt0WG91TXJwRXRLTVpi?=
+ =?iso-2022-jp?B?QkEwNytZbkNQWmZEZjhaTFVtL1BpZTlpN3hVUk9BRzY3WE43WkhBUG9m?=
+ =?iso-2022-jp?B?VTNLTUpTeFk4OG81TmJBeWhBNEpqcHFQRzd2eEp6aFRScmJWaHBEVm5a?=
+ =?iso-2022-jp?B?RGxzWkczZ1hIR2sxczZ1YXZTMHI5eWVUSVkrL0d5ZU5ZVlgrZ1BBOFRF?=
+ =?iso-2022-jp?B?aUtKWGlycEhvMHlONnFzNis0S0lkMkIxL3hlREx1SXlvcVBIdkFrVlJ5?=
+ =?iso-2022-jp?B?VEZRV2tsMFNvMlhxSkhXc2tVS0FyNHhFYzB3SHZXOHNLeG1yWDdsTy94?=
+ =?iso-2022-jp?B?SW9wMDc3a21vQUh3Vm1JazFzdFJqK1kwdEt6b1pSWDZrd3ZhS2FyZ2Qx?=
+ =?iso-2022-jp?B?UFRETkJreGx5eG12VWhteFFNZ1NQUkZ1T0Q3U1ppUlV6dStnMytKQWZz?=
+ =?iso-2022-jp?B?VlVyYXdwUGthUHFOZEVqTU12K3RObzJGSjUreml2alBvYjF5TndiQnhm?=
+ =?iso-2022-jp?B?enVrMWEyNUpjN295Q0Z6WXN3SjhxRkNCbFZiYjdWWDFtRmQrMVdJVTBh?=
+ =?iso-2022-jp?B?TVFCTXd5VkR1Qy9DSE1IUFRLdVN5NG1KcE81QmhwcGhOZExjV3lKN2g2?=
+ =?iso-2022-jp?B?R1phSmlWS0E4U1c0RkNBUmpEMHhPdytXdyt0VWQ1RnJxQUszN3dyMXAv?=
+ =?iso-2022-jp?B?ZGVzVmQyTGN1aUU0TnlKUUtxMEhUWUJFRFE9PQ==?=
+Content-Type: text/plain; charset="iso-2022-jp"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.3.2
-Subject: Re: [PATCH v6 0/2] PM / devfreq: Add HiSilicon uncore frequency
- scaling driver
-To: Chanwoo Choi <chanwoo@kernel.org>
-References: <20250623143401.4095045-1-zhanjie9@hisilicon.com>
- <9e028620-75b9-5a9a-dab6-8374b0a4fa4e@hisilicon.com>
- <CAGTfZH0eHz8aRDkSOTNosNqZGv9Qhf2K-Rtz-Yt+_GpNQzXo5g@mail.gmail.com>
- <0038c928-60ff-f6ab-763b-6958f1c24200@hisilicon.com>
- <CAGTfZH0fY1Bv5=a8t2w0iNH0shHkQ6-v9077F0XWheK6iGMoZA@mail.gmail.com>
-From: Jie Zhan <zhanjie9@hisilicon.com>
-In-Reply-To: <CAGTfZH0fY1Bv5=a8t2w0iNH0shHkQ6-v9077F0XWheK6iGMoZA@mail.gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.121.58]
-X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
- kwepemo100006.china.huawei.com (7.202.195.47)
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: RlO3Qby1DUzmt0tDvwd1AIsONon7cWBS/99YH8jP6kSZfyuPuky+FNxHrM031w7uxu4l4GvdXxkUtwwN2Y24G3mlfYdlwralT3JdNoQaS6lcUMbuGO0uSoF4x2hBzZhF7qOo3oF6J3s2XWjPhhBkzli1mhjxdfUiK1mWjN7RQ+NBHJOI/fOb+WMUOoMUv+HcGSG6SRKxg/+j2p2iHPOUnZuzafchO8REc7kIJmekMjyto4u81K99Hyy1gwUGO2NdCLHwJJ5RX3ldMro7nsUWOitZWYYhnKo6ju6+oLRMm7hHkGsvvNv2joaNmsSduo5Co5u44yhNWXPZ00IjoMgq4HCJaIbAaz+wyKb77xX8g+jXOQTBP3pBTiE3duyqNmqwOalBv8f7m4jh8oEusfRsGJuSs8CUQ2Nn24tQJHjjiXQ7+0KpIBdkxaIiK6hOxwAybjaZOosyVo03RE7JoUIwgFcxqAFi/w0CNltqdOWEeys/pV3f4lqBX43T/6BJER988VMVc87yD7uSeE+DaE6s9c1riX4XXwF0A6yH7RJdCIXbUSr5xG5m5UA78YiWN14kVgxdlx4l6Eay3yPdWSrQkdQ37/wXKuas3T9F2J4cBZmQVmUIFaPfz41rV7W4bL+1
+X-OriginatorOrg: fujitsu.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: OSZPR01MB8798.jpnprd01.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c249534a-a392-40a8-9ecb-08ddc434e498
+X-MS-Exchange-CrossTenant-originalarrivaltime: 16 Jul 2025 06:49:20.8763
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: a19f121d-81e1-4858-a9d8-736e267fd4c7
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: iIck5eWoikLy4xySVthdKcKeumz+ta9uJX3qn+S3cQgVqMSIBKvUsMZ0SxKr2LwXfjb3NgJSTtLoLlF6HqcQcu1lkJDQ+NVxb5Cf09SgoPI=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYWPR01MB8282
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250715_234826_991984_D8A7A001 
-X-CRM114-Status: GOOD (  30.60  )
+X-CRM114-CacheID: sfid-20250715_234935_851162_E28B9604 
+X-CRM114-Status: GOOD (  15.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,125 +216,461 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: yubowen8@huawei.com, Linux PM list <linux-pm@vger.kernel.org>, Lifeng Zheng <zhenglifeng1@huawei.com>, liwei728@huawei.com, linuxarm@huawei.com, =?UTF-8?B?7LWc7LCs7Jqw?= <cw00.choi@samsung.com>, Kyungmin Park <kyungmin.park@samsung.com>, MyungJoo Ham <myungjoo.ham@samsung.com>, lihuisong@huawei.com, prime.zeng@hisilicon.com, Jonathan Cameron <jonathan.cameron@huawei.com>, linux-arm-kernel <linux-arm-kernel@lists.infradead.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hello James,
+=20
+> When CPUs come online the original configuration should be restored.
+> Once the maximum partid is known, allocate an configuration array for eac=
+h
+> component, and reprogram each RIS configuration from this.
+>=20
+> The MPAM spec describes how multiple controls can interact. To prevent th=
+is
+> happening by accident, always reset controls that don't have a valid
+> configuration. This allows the same helper to be used for configuration a=
+nd
+> reset.
+>=20
+> CC: Dave Martin <Dave.Martin@arm.com>
+> Signed-off-by: James Morse <james.morse@arm.com>
+> ---
+>  drivers/platform/arm64/mpam/mpam_devices.c  | 236
+> ++++++++++++++++++--
+> drivers/platform/arm64/mpam/mpam_internal.h |  26 ++-
+>  2 files changed, 234 insertions(+), 28 deletions(-)
+>=20
+> diff --git a/drivers/platform/arm64/mpam/mpam_devices.c
+> b/drivers/platform/arm64/mpam/mpam_devices.c
+> index bb3695eb84e9..f3ecfda265d2 100644
+> --- a/drivers/platform/arm64/mpam/mpam_devices.c
+> +++ b/drivers/platform/arm64/mpam/mpam_devices.c
+> @@ -374,12 +374,16 @@ static void mpam_class_destroy(struct mpam_class
+> *class)
+>  	add_to_garbage(class);
+>  }
+>=20
+> +static void __destroy_component_cfg(struct mpam_component *comp);
+> +
+>  static void mpam_comp_destroy(struct mpam_component *comp)  {
+>  	struct mpam_class *class =3D comp->class;
+>=20
+>  	lockdep_assert_held(&mpam_list_lock);
+>=20
+> +	__destroy_component_cfg(comp);
+> +
+>  	list_del_rcu(&comp->class_list);
+>  	add_to_garbage(comp);
+>=20
+> @@ -909,51 +913,90 @@ static void mpam_reset_msc_bitmap(struct
+> mpam_msc *msc, u16 reg, u16 wd)
+>  		__mpam_write_reg(msc, reg, bm);
+>  }
+>=20
+> -static void mpam_reset_ris_partid(struct mpam_msc_ris *ris, u16 partid)
+> +/* Called via IPI. Call while holding an SRCU reference */ static void
+> +mpam_reprogram_ris_partid(struct mpam_msc_ris *ris, u16 partid,
+> +				      struct mpam_config *cfg)
+>  {
+>  	u16 bwa_fract =3D MPAMCFG_MBW_MAX_MAX;
+>  	struct mpam_msc *msc =3D ris->vmsc->msc;
+>  	struct mpam_props *rprops =3D &ris->props;
+>=20
+> -	mpam_assert_srcu_read_lock_held();
+> -
+>  	mutex_lock(&msc->part_sel_lock);
+>  	__mpam_part_sel(ris->ris_idx, partid, msc);
+>=20
+> -	if (mpam_has_feature(mpam_feat_cpor_part, rprops))
+> -		mpam_reset_msc_bitmap(msc, MPAMCFG_CPBM,
+> rprops->cpbm_wd);
+> +	if (mpam_has_feature(mpam_feat_cpor_part, rprops)) {
+> +		if (mpam_has_feature(mpam_feat_cpor_part, cfg))
+> +			mpam_write_partsel_reg(msc, CPBM, cfg->cpbm);
+> +		else
+> +			mpam_reset_msc_bitmap(msc, MPAMCFG_CPBM,
+> +					      rprops->cpbm_wd);
+> +	}
+>=20
+> -	if (mpam_has_feature(mpam_feat_mbw_part, rprops))
+> -		mpam_reset_msc_bitmap(msc, MPAMCFG_MBW_PBM,
+> rprops->mbw_pbm_bits);
+> +	if (mpam_has_feature(mpam_feat_mbw_part, rprops)) {
+> +		if (mpam_has_feature(mpam_feat_mbw_part, cfg))
+> +			mpam_write_partsel_reg(msc, MBW_PBM,
+> cfg->mbw_pbm);
+> +		else
+> +			mpam_reset_msc_bitmap(msc,
+> MPAMCFG_MBW_PBM,
+> +					      rprops->mbw_pbm_bits);
+> +	}
+>=20
+>  	if (mpam_has_feature(mpam_feat_mbw_min, rprops))
+>  		mpam_write_partsel_reg(msc, MBW_MIN, 0);
+>=20
+> -	if (mpam_has_feature(mpam_feat_mbw_max, rprops))
+> -		mpam_write_partsel_reg(msc, MBW_MAX, bwa_fract);
+> +	if (mpam_has_feature(mpam_feat_mbw_max, rprops)) {
+> +		if (mpam_has_feature(mpam_feat_mbw_max, cfg))
+> +			mpam_write_partsel_reg(msc, MBW_MAX,
+> cfg->mbw_max);
+> +		else
+> +			mpam_write_partsel_reg(msc, MBW_MAX,
+> bwa_fract);
+> +	}
+
+0 was written to MPAMCFG_MBW_MAX. [HARDLIM].
+Depending on the chip, if [HARDLIM] is set to 1 by default, it will be over=
+written.
 
 
-On 16/07/2025 14:45, Chanwoo Choi wrote:
-> Hi Jie,
-> 
-> Yes. I'll send pull request to be merged into v6.17-rc1 within this week.
+Best regards,
+Shaopeng TAN
 
-Sure, thanks!
+>  	if (mpam_has_feature(mpam_feat_mbw_prop, rprops))
+>  		mpam_write_partsel_reg(msc, MBW_PROP, bwa_fract);
+>  	mutex_unlock(&msc->part_sel_lock);
+>  }
+>=20
+> +struct reprogram_ris {
+> +	struct mpam_msc_ris *ris;
+> +	struct mpam_config *cfg;
+> +};
+> +
+> +/* Call with MSC lock held */
+> +static int mpam_reprogram_ris(void *_arg) {
+> +	u16 partid, partid_max;
+> +	struct reprogram_ris *arg =3D _arg;
+> +	struct mpam_msc_ris *ris =3D arg->ris;
+> +	struct mpam_config *cfg =3D arg->cfg;
+> +
+> +	if (ris->in_reset_state)
+> +		return 0;
+> +
+> +	spin_lock(&partid_max_lock);
+> +	partid_max =3D mpam_partid_max;
+> +	spin_unlock(&partid_max_lock);
+> +	for (partid =3D 0; partid <=3D partid_max; partid++)
+> +		mpam_reprogram_ris_partid(ris, partid, cfg);
+> +
+> +	return 0;
+> +}
+> +
+>  /*
+>   * Called via smp_call_on_cpu() to prevent migration, while still being
+>   * pre-emptible.
+>   */
+>  static int mpam_reset_ris(void *arg)
+>  {
+> -	u16 partid, partid_max;
+>  	struct mpam_msc_ris *ris =3D arg;
+> +	struct reprogram_ris reprogram_arg;
+> +	struct mpam_config empty_cfg =3D { 0 };
+>=20
+>  	if (ris->in_reset_state)
+>  		return 0;
+>=20
+> -	spin_lock(&partid_max_lock);
+> -	partid_max =3D mpam_partid_max;
+> -	spin_unlock(&partid_max_lock);
+> -	for (partid =3D 0; partid < partid_max; partid++)
+> -		mpam_reset_ris_partid(ris, partid);
+> +	reprogram_arg.ris =3D ris;
+> +	reprogram_arg.cfg =3D &empty_cfg;
+> +
+> +	mpam_reprogram_ris(&reprogram_arg);
+>=20
+>  	return 0;
+>  }
+> @@ -984,13 +1027,11 @@ static int mpam_touch_msc(struct mpam_msc
+> *msc, int (*fn)(void *a), void *arg)
+>=20
+>  static void mpam_reset_msc(struct mpam_msc *msc, bool online)  {
+> -	int idx;
+>  	struct mpam_msc_ris *ris;
+>=20
+>  	mpam_assert_srcu_read_lock_held();
+>=20
+>  	mpam_mon_sel_outer_lock(msc);
+> -	idx =3D srcu_read_lock(&mpam_srcu);
+>  	list_for_each_entry_srcu(ris, &msc->ris, msc_list,
+> srcu_read_lock_held(&mpam_srcu)) {
+>  		mpam_touch_msc(msc, &mpam_reset_ris, ris);
+>=20
+> @@ -1000,10 +1041,38 @@ static void mpam_reset_msc(struct mpam_msc
+> *msc, bool online)
+>  		 */
+>  		ris->in_reset_state =3D online;
+>  	}
+> -	srcu_read_unlock(&mpam_srcu, idx);
+>  	mpam_mon_sel_outer_unlock(msc);
+>  }
+>=20
+> +static void mpam_reprogram_msc(struct mpam_msc *msc) {
+> +	int idx;
+> +	u16 partid;
+> +	bool reset;
+> +	struct mpam_config *cfg;
+> +	struct mpam_msc_ris *ris;
+> +
+> +	idx =3D srcu_read_lock(&mpam_srcu);
+> +	list_for_each_entry_rcu(ris, &msc->ris, msc_list) {
+> +		if (!mpam_is_enabled() && !ris->in_reset_state) {
+> +			mpam_touch_msc(msc, &mpam_reset_ris, ris);
+> +			ris->in_reset_state =3D true;
+> +			continue;
+> +		}
+> +
+> +		reset =3D true;
+> +		for (partid =3D 0; partid <=3D mpam_partid_max; partid++) {
+> +			cfg =3D &ris->vmsc->comp->cfg[partid];
+> +			if (cfg->features)
+> +				reset =3D false;
+> +
+> +			mpam_reprogram_ris_partid(ris, partid, cfg);
+> +		}
+> +		ris->in_reset_state =3D reset;
+> +	}
+> +	srcu_read_unlock(&mpam_srcu, idx);
+> +}
+> +
+>  static void _enable_percpu_irq(void *_irq)  {
+>  	int *irq =3D _irq;
+> @@ -1025,7 +1094,7 @@ static int mpam_cpu_online(unsigned int cpu)
+>  			_enable_percpu_irq(&msc->reenable_error_ppi);
+>=20
+>  		if (atomic_fetch_inc(&msc->online_refs) =3D=3D 0)
+> -			mpam_reset_msc(msc, true);
+> +			mpam_reprogram_msc(msc);
+>  	}
+>  	srcu_read_unlock(&mpam_srcu, idx);
+>=20
+> @@ -1806,6 +1875,43 @@ static void mpam_unregister_irqs(void)
+>  	cpus_read_unlock();
+>  }
+>=20
+> +static void __destroy_component_cfg(struct mpam_component *comp) {
+> +	add_to_garbage(comp->cfg);
+> +}
+> +
+> +static int __allocate_component_cfg(struct mpam_component *comp) {
+> +	if (comp->cfg)
+> +		return 0;
+> +
+> +	comp->cfg =3D kcalloc(mpam_partid_max + 1, sizeof(*comp->cfg),
+> GFP_KERNEL);
+> +	if (!comp->cfg)
+> +		return -ENOMEM;
+> +	init_garbage(comp->cfg);
+> +
+> +	return 0;
+> +}
+> +
+> +static int mpam_allocate_config(void)
+> +{
+> +	int err =3D 0;
+> +	struct mpam_class *class;
+> +	struct mpam_component *comp;
+> +
+> +	lockdep_assert_held(&mpam_list_lock);
+> +
+> +	list_for_each_entry(class, &mpam_classes, classes_list) {
+> +		list_for_each_entry(comp, &class->components, class_list) {
+> +			err =3D __allocate_component_cfg(comp);
+> +			if (err)
+> +				return err;
+> +		}
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+>  static void mpam_enable_once(void)
+>  {
+>  	int err;
+> @@ -1817,12 +1923,21 @@ static void mpam_enable_once(void)
+>  	 */
+>  	cpus_read_lock();
+>  	mutex_lock(&mpam_list_lock);
+> -	mpam_enable_merge_features(&mpam_classes);
+> +	do {
+> +		mpam_enable_merge_features(&mpam_classes);
+>=20
+> -	err =3D mpam_register_irqs();
+> -	if (err)
+> -		pr_warn("Failed to register irqs: %d\n", err);
+> +		err =3D mpam_allocate_config();
+> +		if (err) {
+> +			pr_err("Failed to allocate configuration arrays.\n");
+> +			break;
+> +		}
+>=20
+> +		err =3D mpam_register_irqs();
+> +		if (err) {
+> +			pr_warn("Failed to register irqs: %d\n", err);
+> +			break;
+> +		}
+> +	} while (0);
+>  	mutex_unlock(&mpam_list_lock);
+>  	cpus_read_unlock();
+>=20
+> @@ -1861,6 +1976,8 @@ static void mpam_reset_component_locked(struct
+> mpam_component *comp)
+>  	might_sleep();
+>  	lockdep_assert_cpus_held();
+>=20
+> +	memset(comp->cfg, 0, (mpam_partid_max * sizeof(*comp->cfg)));
+> +
+>  	idx =3D srcu_read_lock(&mpam_srcu);
+>  	list_for_each_entry_rcu(vmsc, &comp->vmsc, comp_list) {
+>  		msc =3D vmsc->msc;
+> @@ -1963,6 +2080,79 @@ void mpam_enable(struct work_struct *work)
+>  		mpam_enable_once();
+>  }
+>=20
+> +struct mpam_write_config_arg {
+> +	struct mpam_msc_ris *ris;
+> +	struct mpam_component *comp;
+> +	u16 partid;
+> +};
+> +
+> +static int __write_config(void *arg)
+> +{
+> +	struct mpam_write_config_arg *c =3D arg;
+> +
+> +	mpam_reprogram_ris_partid(c->ris, c->partid,
+> +&c->comp->cfg[c->partid]);
+> +
+> +	return 0;
+> +}
+> +
+> +#define maybe_update_config(cfg, feature, newcfg, member, changes) do { =
+\
+> +	if (mpam_has_feature(feature, newcfg) &&			\
+> +	    (newcfg)->member !=3D (cfg)->member) {			\
+> +		(cfg)->member =3D (newcfg)->member;			\
+> +		cfg->features |=3D (1 << feature);			\
+> +									\
+> +		(changes) |=3D (1 << feature);				\
+> +	}								\
+> +} while (0)
+> +
+> +static mpam_features_t mpam_update_config(struct mpam_config *cfg,
+> +					  const struct mpam_config
+> *newcfg) {
+> +	mpam_features_t changes =3D 0;
+> +
+> +	maybe_update_config(cfg, mpam_feat_cpor_part, newcfg, cpbm,
+> changes);
+> +	maybe_update_config(cfg, mpam_feat_mbw_part, newcfg,
+> mbw_pbm, changes);
+> +	maybe_update_config(cfg, mpam_feat_mbw_max, newcfg, mbw_max,
+> changes);
+> +
+> +	return changes;
+> +}
+> +
+> +/* TODO: split into write_config/sync_config */
+> +/* TODO: add config_dirty bitmap to drive sync_config */ int
+> +mpam_apply_config(struct mpam_component *comp, u16 partid,
+> +		      struct mpam_config *cfg)
+> +{
+> +	struct mpam_write_config_arg arg;
+> +	struct mpam_msc_ris *ris;
+> +	struct mpam_vmsc *vmsc;
+> +	struct mpam_msc *msc;
+> +	int idx;
+> +
+> +	lockdep_assert_cpus_held();
+> +
+> +	/* Don't pass in the current config! */
+> +	WARN_ON_ONCE(&comp->cfg[partid] =3D=3D cfg);
+> +
+> +	if (!mpam_update_config(&comp->cfg[partid], cfg))
+> +		return 0;
+> +
+> +	arg.comp =3D comp;
+> +	arg.partid =3D partid;
+> +
+> +	idx =3D srcu_read_lock(&mpam_srcu);
+> +	list_for_each_entry_rcu(vmsc, &comp->vmsc, comp_list) {
+> +		msc =3D vmsc->msc;
+> +
+> +		list_for_each_entry_rcu(ris, &vmsc->ris, vmsc_list) {
+> +			arg.ris =3D ris;
+> +			mpam_touch_msc(msc, __write_config, &arg);
+> +		}
+> +	}
+> +	srcu_read_unlock(&mpam_srcu, idx);
+> +
+> +	return 0;
+> +}
+> +
+>  /*
+>   * MSC that are hidden under caches are not created as platform devices
+>   * as there is no cache driver. Caches are also special-cased in diff --=
+git
+> a/drivers/platform/arm64/mpam/mpam_internal.h
+> b/drivers/platform/arm64/mpam/mpam_internal.h
+> index 1a24424b48df..029ec89f56f2 100644
+> --- a/drivers/platform/arm64/mpam/mpam_internal.h
+> +++ b/drivers/platform/arm64/mpam/mpam_internal.h
+> @@ -190,11 +190,7 @@ struct mpam_props {
+>  	u16			num_mbwu_mon;
+>  };
+>=20
+> -static inline bool mpam_has_feature(enum mpam_device_features feat,
+> -				    struct mpam_props *props)
+> -{
+> -	return (1 << feat) & props->features;
+> -}
+> +#define mpam_has_feature(_feat, x)	((1 << (_feat)) & (x)->features)
+>=20
+>  static inline void mpam_set_feature(enum mpam_device_features feat,
+>  				    struct mpam_props *props)
+> @@ -225,6 +221,17 @@ struct mpam_class {
+>  	struct mpam_garbage	garbage;
+>  };
+>=20
+> +struct mpam_config {
+> +	/* Which configuration values are valid. 0 is used for reset */
+> +	mpam_features_t		features;
+> +
+> +	u32	cpbm;
+> +	u32	mbw_pbm;
+> +	u16	mbw_max;
+> +
+> +	struct mpam_garbage	garbage;
+> +};
+> +
+>  struct mpam_component {
+>  	u32			comp_id;
+>=20
+> @@ -233,6 +240,12 @@ struct mpam_component {
+>=20
+>  	cpumask_t		affinity;
+>=20
+> +	/*
+> +	 * Array of configuration values, indexed by partid.
+> +	 * Read from cpuhp callbacks, hold the cpuhp lock when writing.
+> +	 */
+> +	struct mpam_config	*cfg;
+> +
+>  	/* member of mpam_class:components */
+>  	struct list_head	class_list;
+>=20
+> @@ -297,6 +310,9 @@ extern u8 mpam_pmg_max;  void mpam_enable(struct
+> work_struct *work);  void mpam_disable(struct work_struct *work);
+>=20
+> +int mpam_apply_config(struct mpam_component *comp, u16 partid,
+> +		      struct mpam_config *cfg);
+> +
+>  int mpam_get_cpumask_from_cache_id(unsigned long cache_id, u32
+> cache_level,
+>  				   cpumask_t *affinity);
+>=20
+> --
+> 2.39.5
 
-> 
-> 
-> Best Regards,
-> Chanwoo Choi
-> 
-> 2025년 7월 16일 (수) 오후 3:33, Jie Zhan <zhanjie9@hisilicon.com <mailto:zhanjie9@hisilicon.com>>님이 작성:
-> 
->     Hi Chanwoo,
-> 
->     A quick check. Is this series queueing up for v6.17-rc1?
-> 
->     Regards,
->     Jie
-> 
->     On 02/07/2025 11:21, Chanwoo Choi wrote:
->     > Hi,
->     >
->     > I'm sorry for late review. I'll review and then merge until this week.
->     >
->     > Best Regards,
->     > Chanwoo Choi
->     >
->     > 2025년 7월 2일 (수) 오전 11:37, Jie Zhan <zhanjie9@hisilicon.com <mailto:zhanjie9@hisilicon.com> <mailto:zhanjie9@hisilicon.com <mailto:zhanjie9@hisilicon.com>>>님이 작성:
->     >
->     >     Hi devfreq maintainers,
->     >
->     >     A kindly ping on this series.
->     >     I believe it's in a good shape now.
->     >
->     >     Jie
->     >
->     >     On 23/06/2025 22:33, Jie Zhan wrote:
->     >     > Add the HiSilicon uncore frequency scaling driver for Kunpeng SoCs based on
->     >     > the devfreq framework.  The uncore domain contains shared computing
->     >     > resources, including system interconnects and L3 cache.  The uncore
->     >     > frequency significantly impacts the system-wide performance as well as
->     >     > power consumption.  This driver adds support for runtime management of
->     >     > uncore frequency from kernel and userspace.  The main function includes
->     >     > setting and getting frequencies, changing frequency scaling policies, and
->     >     > querying the list of CPUs whose performance is significantly related to
->     >     > this uncore frequency domain, etc.  The driver communicates with a platform
->     >     > controller through an ACPI PCC mailbox to take the actual actions of
->     >     > frequency scaling.
->     >     >
->     >     > Changelog:
->     >     >
->     >     > v6:
->     >     > Consolidate hisi_uncore_init_pcc_chan() related stuff:
->     >     > - Move devm_mutex_init() to hisi_uncore_init_pcc_chan()
->     >     > - Move devm_add_action_or_reset() into hisi_uncore_request_pcc_chan()
->     >     >
->     >     > v5:
->     >     > https://lore.kernel.org/all/20250619151456.3328624-1-zhanjie9@hisilicon.com/ <https://lore.kernel.org/all/20250619151456.3328624-1-zhanjie9@hisilicon.com/> <https://lore.kernel.org/all/20250619151456.3328624-1-zhanjie9@hisilicon.com/ <https://lore.kernel.org/all/20250619151456.3328624-1-zhanjie9@hisilicon.com/>>
->     >     > - Comment more on error code related stuff about
->     >     >   hisi_uncore_mark_related_cpus(), and return failure early on errors
->     >     >   except for -EINVAL, which indicates possibly broken firmware.
->     >     > - Separate error prints apart for two cases in hisi_platform_gov_handler()
->     >     > - Make the 'related_cpus' sysfs ABI description more generic
->     >     > - Some coding style cleanups and typo fixes
->     >     >
->     >     > v4:
->     >     > https://lore.kernel.org/linux-pm/20250530081722.280776-1-zhanjie9@hisilicon.com/ <https://lore.kernel.org/linux-pm/20250530081722.280776-1-zhanjie9@hisilicon.com/> <https://lore.kernel.org/linux-pm/20250530081722.280776-1-zhanjie9@hisilicon.com/ <https://lore.kernel.org/linux-pm/20250530081722.280776-1-zhanjie9@hisilicon.com/>>
->     >     > - Allow devfreq core to accept device-specific sysfs ABIs
->     >     > - Replace custom sysfs attrs with dev_groups and let the devfreq core
->     >     >   manage it
->     >     > - Update 'related_cpus' description in the devfreq ABI doc
->     >     > - Remove COMPILE_TEST in Kconfig as the mailbox_client.h doesn't support
->     >     >   this yet
->     >     > - Replace dev_err() with dev_err_probe() during drv->probe()
->     >     > - Replace mutex_init() with devm_mutex_init() to warn on UAF
->     >     > - Replace uncore->dev with dev in some places to make code a bit shorter
->     >     > - Remove redundant uncore->pchan check in hisi_uncore_free_pcc_chan()
->     >     > - Use __free() to let compiler release temporary memory
->     >     > - Clean up the error handling and redundant 'status = 0' in
->     >     >   hisi_uncore_send_cmd()
->     >     > - Some coding style cleanup
->     >     >
->     >     > v3:
->     >     > https://lore.kernel.org/linux-pm/20250522031701.1912458-1-zhanjie9@hisilicon.com/ <https://lore.kernel.org/linux-pm/20250522031701.1912458-1-zhanjie9@hisilicon.com/> <https://lore.kernel.org/linux-pm/20250522031701.1912458-1-zhanjie9@hisilicon.com/ <https://lore.kernel.org/linux-pm/20250522031701.1912458-1-zhanjie9@hisilicon.com/>>
->     >     > - Remove redundant resource freeing processes when drv->probe() fails as
->     >     >   they're already handled by devm
->     >     >
->     >     > v2:
->     >     > https://lore.kernel.org/linux-pm/20250520074120.4187096-1-zhanjie9@hisilicon.com/ <https://lore.kernel.org/linux-pm/20250520074120.4187096-1-zhanjie9@hisilicon.com/> <https://lore.kernel.org/linux-pm/20250520074120.4187096-1-zhanjie9@hisilicon.com/ <https://lore.kernel.org/linux-pm/20250520074120.4187096-1-zhanjie9@hisilicon.com/>>
->     >     > - Make devm manage the release sequence, remove drv->remove()
->     >     > - Warn on !uncore or !uncore->pchan as they're no longer expected
->     >     > - Remove ioremap of pcc shared memory because it's done by the pcc driver
->     >     > - Fix compiler warning of discarding 'const'
->     >     > - Minor trivial coding style changes
->     >     >
->     >     > v1:
->     >     > https://lore.kernel.org/linux-pm/20250506021434.944386-1-zhanjie9@hisilicon.com/ <https://lore.kernel.org/linux-pm/20250506021434.944386-1-zhanjie9@hisilicon.com/> <https://lore.kernel.org/linux-pm/20250506021434.944386-1-zhanjie9@hisilicon.com/ <https://lore.kernel.org/linux-pm/20250506021434.944386-1-zhanjie9@hisilicon.com/>>
->     >     >
->     >     > Jie Zhan (2):
->     >     >   PM / devfreq: Allow devfreq driver to add custom sysfs ABIs
->     >     >   PM / devfreq: Add HiSilicon uncore frequency scaling driver
->     >     >
->     >     >  Documentation/ABI/testing/sysfs-class-devfreq |   9 +
->     >     >  drivers/devfreq/Kconfig                       |  11 +
->     >     >  drivers/devfreq/Makefile                      |   1 +
->     >     >  drivers/devfreq/devfreq.c                     |   1 +
->     >     >  drivers/devfreq/hisi_uncore_freq.c            | 658 ++++++++++++++++++
->     >     >  include/linux/devfreq.h                       |   4 +
->     >     >  6 files changed, 684 insertions(+)
->     >     >  create mode 100644 drivers/devfreq/hisi_uncore_freq.c
->     >     >
->     >
-> 
 
