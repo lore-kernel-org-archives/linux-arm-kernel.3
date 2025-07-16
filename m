@@ -4,86 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DD0EC83F27
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 14:27:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0033CC83F27
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 14:29:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Mz5RRhyfwITv33oCf/7iVVV0cKwknfvfP+MVHktAv/o=; b=Qqy8GJLsrLmPeYFi1HjDyvbEug
-	zyFJuBsuF6aU9Tjuc4/9piyIssmZY6OfsFwSgcwXoOJ0ZPsdXLmdRMMrpI1SFPiYqYMPERvKwHGwE
-	aVfM8atYPiYXMrtIqOvILvi/+OW66BWW7RlEaE15gBwbaYR0rlLkG0q5KkvQZkGQJfDA34VuJL+80
-	OS3RQW/QxPr5KNkmi6yjdlaLeXGwD6o6Ri4c/RPds9torr62I9Q/FflHGwC7feGg6HRcfNL4HTOyh
-	dljg/Hn8nL0OKc96frwCvgnR7autYLVrn9/FjnzwvHZm3/Y6moRDRzYm2wyjIEIRETiiLPb2W+oyf
-	pNkmbjhA==;
+	bh=VuHTPSN5ob/sxMMWugl2mb75NZygOdwpDw39+8JfWkw=; b=trz03wZUecmtHMG7yVmVsaCB2s
+	7Y5LXjd/8crETAsca9eeOCf1b4Bu36bGhhUg3jB8chdKwba1Uz4YZujbbK0kfNmb2ThLoVbT1dCnf
+	vy8tfu4+bVOX5pUvqMkYvnKlGndSMYKr7PHjenx9EKxBO1k+CafWBB1fNzgyJjaKX51G4uIRAwUNr
+	CGS/ykncvZzBvPXSOzrNMGLtZAsIYaw3PWOK9svgW29h2kGcFQ8p0MCYi79RRDAyEBkMfcZObjtT5
+	IjEhfvXu/ZqNhx0Rjmxmu4cSJlTg5P5kdD/0TLDibK1STJarNV/Zj5BD1nyZoNEIJr4YadhsIU8sJ
+	HDP1nmzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uc366-00000007trk-14Sz;
-	Wed, 16 Jul 2025 14:27:02 +0000
-Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
+	id 1uc38Y-00000007uFY-0NVt;
+	Wed, 16 Jul 2025 14:29:34 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uc31N-00000007tFs-3UPQ
+	id 1uc31Y-00000007tHA-1dt6
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Jul 2025 14:22:10 +0000
-Received: by mail-pj1-x102e.google.com with SMTP id 98e67ed59e1d1-315cd33fa79so5039904a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Jul 2025 07:22:09 -0700 (PDT)
+	Wed, 16 Jul 2025 14:22:21 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-236192f8770so6303175ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Jul 2025 07:22:20 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1752675725; x=1753280525; darn=lists.infradead.org;
+        d=chromium.org; s=google; t=1752675735; x=1753280535; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Mz5RRhyfwITv33oCf/7iVVV0cKwknfvfP+MVHktAv/o=;
-        b=mTAzCYkaW+hBhXsVct1gKQ23OGSLZk1LgMLw9G/bvkMW77gP601LbrnmSe6mQkVeZ0
-         Ea97Z3fV9Ib/KFdB/Ux0uC2w6PF7ONxA6r5SW/0uBvveZ84w2jKw1NOU69unipsrUcri
-         54/IBmwPrZMikFXUpL0tuizuefRzlbL98lYNw=
+        bh=VuHTPSN5ob/sxMMWugl2mb75NZygOdwpDw39+8JfWkw=;
+        b=kRrZqT+4nopQhA5IKhCY3T6n7njAEZTRFe/GwfEATzqY1eRUFudTHmCm7lgzphNkg1
+         0ow8gWOC69eJKd0K2vNctCAJoMepFeq9GOvELUemdbx+snb8j2K9+J64/W7IhH2KU6G9
+         LTKjCnWs24AC1NJyoz3cNaRzw5VuP80VOteH8=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752675725; x=1753280525;
+        d=1e100.net; s=20230601; t=1752675735; x=1753280535;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=Mz5RRhyfwITv33oCf/7iVVV0cKwknfvfP+MVHktAv/o=;
-        b=NyXsDnoVb8BQNtVuf2AbCcZFHlwA4dOJ5nEK67juBWxox06HfTK/5x9sXs2YB4cJCu
-         G744Yxu2YsQ7PvTDbhz3Y8gO2nV3nGKacUe1d6jMia02JwoKm7uZvt+6DlFOGzBfHPNA
-         C6UDEYUOJWvCo+QaJayeECuN/yr4mwndpyc9Rydx/UJXmZYuKkZ1n19N5t6cOOT8fozg
-         9lcdbDtV0/757eLxbWoe0ZNeOLQn9CHWdBU0/vVzY9JZsrkNOU0xXDAvV8X2NV8vmn2F
-         4tSKkQ0P2+AfdruAoc+9zhybL2H/exKlnDQOf8BWIXkXbgp9K1V04eBGGtNaYtIEumMN
-         7mZQ==
-X-Forwarded-Encrypted: i=1; AJvYcCX2fraTiqtkyP07huj8XkyvdWs2NFaZty3SCLNGIqeXJUZ13zhAkvReEPsh9wJvliOyqH9HgGE2pvKlyLMYZU/v@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy+lq5nZLM1NKmIyTz3pdUxaEZiIBFa7sKL5bZOSWVtLfpKn/JP
-	7y9jG5BoykGLT3CmUnFqt+zwP33qexbCLpbRjGNyJbzfO9aRuaGQcqubeJZ56wa9QSIudaqabW8
-	ksSY=
-X-Gm-Gg: ASbGncvpMSqcpQUrX6ALyDwwDri8rbODtIG5Ux4XR0f8IU2Aq6PO3gEfcBOIOQuX3Ae
-	/H5K1iffm5XXmw3b8NAUUBNlJL3pb9IZ9i50rXFk8E4clgl/WEF3JOomjWOzmVrYgWjLop4sfgx
-	+fSX54KTPXksxp4Oy/VcVU4LsU/gp4iwyBdDvQcIfCgxv/PwTtRha/23M5rdZ/aPp+WKGxSMjfo
-	EyPPZGoFMJWyW1+Mno8ds9WUuuF7HOl9xicQr9/8Z/mkb+YDgtH0OmhWVjHT6B+w0qguNRKLyJS
-	2JWvy9Ho3s185KDYEMEGkKLWp3FOHpWNbBQP04iwIzK6U67w7SQ+S4QYpaDPVd92ndQjyt6D9BZ
-	0Ow8tEaiEngRvrVx7uUbRXKuRnx1Ln3UyjKyNvZtnBJ2GkxHmg3g9ljMf8j7F4eVRQ5B3uTqH
-X-Google-Smtp-Source: AGHT+IEf7178pT74V2/2SmwLqT2SONY7GCNYxXDTTm736CDEhvwrZhlmM/+iH3gcvhVXTEsifLLN7Q==
-X-Received: by 2002:a17:90b:524d:b0:30e:9349:2da2 with SMTP id 98e67ed59e1d1-31c9e6e9238mr4578954a91.4.1752675724594;
-        Wed, 16 Jul 2025 07:22:04 -0700 (PDT)
-Received: from mail-pj1-f51.google.com (mail-pj1-f51.google.com. [209.85.216.51])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-31c9f1ba687sm1606191a91.2.2025.07.16.07.21.53
+        bh=VuHTPSN5ob/sxMMWugl2mb75NZygOdwpDw39+8JfWkw=;
+        b=H8YWzdM1JC3uL1o42Vb8WBBQr60vYJ5pv6JX1qoMd0cvruS9ggexQKiPnFXe3Q/4P0
+         R1DwElYNSC1De6EbSth94xbN+s+tsAe17Qo3bZKhMY3Lxuq0oOivqO46KWxbB9uiH1PH
+         oeYAWj/TY/PIYI1ypyD0WvA9TRDwxJkbP4DL5KVfuiI+9NQ0OH0oJ1hnXKYZJunKWHpL
+         NP7yY2KO/kJQLcwVL3BxP/t5CFn5aG1jnV8pdj0E5py/81VujgyuKEVpQH5CutLljHHt
+         VCRe9XTp4X/fiN+cu4CDsFUwDhW1rtd8naAxm0G1cOkNnUq4efbvOh/6E08dcBo/PWGc
+         DxPg==
+X-Forwarded-Encrypted: i=1; AJvYcCXxpMNRp10sANOKZyeVQN4R13zZBkMeaZx4pHigJ02bUYyxNQ3L1CHJq8h1T3DjXWWDLKCjEghGRdJ7ZXQO5mcU@lists.infradead.org
+X-Gm-Message-State: AOJu0YxH9WFIkBDbdYM/rne24gdjGzgPkZjpOFsIziQipaY2jy5DH6EG
+	Ey2tacNqSpyUnxJFugWJpFYpM1ONzJXKyfErV1Q7LUIPVU6RHryFaY3I9RvbqABvbaNiqnxN9lX
+	WgJs=
+X-Gm-Gg: ASbGncujKqGOdwv/yyqTQ6ICahudc3O5Rd6Blp6KXi89kA3CLAsPKWwDpj89sZed5qH
+	7yDpBR/Ig9jENgWiu7k507GKaXQjYLWLwDKcun8Ix9y70FrCxr60SQS1UP65zC+faQG3gftqmge
+	kArl7vYqRonu+Dzls8rvTAIAhXvb1T1CLaF5DP38ov6elm8fyA631ERwoA0vPqq7/q2QLYtsMlZ
+	Qi+qQyMNvrabwa5OkgRzZ1WcAr1NRI9qaS7Pm3bMJ4KBaVhnIttjwqc2OMFbmo8w6YqmXCAElsZ
+	um3M4fm2cPdnWD0RFC2TqTgNtzmYyCM0UfF44Hi+bkaGHyo7wWCi1mgNg2BX1eykx9FQJtDKcPq
+	akCNHC+VlDC1T+dXz95WselDL6cCYEYHETUF2+OD22bT5v4gQ8SpP2WDpMg1Kzw==
+X-Google-Smtp-Source: AGHT+IFmx4IvnUoLFP+LQxh6jrNZExmM6NL3plvJZRLSmoI5sd58MpukXxPzYPStXrEfKd/JVL4rPg==
+X-Received: by 2002:a17:902:db0c:b0:23c:7b55:d051 with SMTP id d9443c01a7336-23e24b19c72mr62373185ad.14.1752675735063;
+        Wed, 16 Jul 2025 07:22:15 -0700 (PDT)
+Received: from mail-pj1-f49.google.com (mail-pj1-f49.google.com. [209.85.216.49])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23de4323f0asm131363135ad.115.2025.07.16.07.22.04
         for <linux-arm-kernel@lists.infradead.org>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 16 Jul 2025 07:22:02 -0700 (PDT)
-Received: by mail-pj1-f51.google.com with SMTP id 98e67ed59e1d1-311e46d38ddso6070138a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Jul 2025 07:21:53 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCX8CqE/9Ijg07BnuVfTDEycNju7z2aYRzOkLXqXQj5uQfo3v7WQSw0+fjsAQ8cuy7KbXiP/mmRkiHDtG2he5xUp@lists.infradead.org
-X-Received: by 2002:a17:90b:1646:b0:2fe:85f0:e115 with SMTP id
- 98e67ed59e1d1-31c9e77cfe5mr4368025a91.26.1752675712704; Wed, 16 Jul 2025
- 07:21:52 -0700 (PDT)
+        Wed, 16 Jul 2025 07:22:07 -0700 (PDT)
+Received: by mail-pj1-f49.google.com with SMTP id 98e67ed59e1d1-31329098ae8so825993a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Jul 2025 07:22:04 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCXUYJr/tOnIO5Er+T1377PrIA3Bh1FqqoF34rXHt6W2S782TtmM9L44j4/wSYojEsCrtkiRgqd+1faDjLwuUrdX@lists.infradead.org
+X-Received: by 2002:a17:90b:3e45:b0:310:c8ec:4192 with SMTP id
+ 98e67ed59e1d1-31c8f9bab05mr11330150a91.10.1752675724138; Wed, 16 Jul 2025
+ 07:22:04 -0700 (PDT)
 MIME-Version: 1.0
 References: <20250716-topic-goodnight_cheza-v2-0-6fa8d3261813@oss.qualcomm.com>
- <20250716-topic-goodnight_cheza-v2-2-6fa8d3261813@oss.qualcomm.com>
-In-Reply-To: <20250716-topic-goodnight_cheza-v2-2-6fa8d3261813@oss.qualcomm.com>
+ <20250716-topic-goodnight_cheza-v2-3-6fa8d3261813@oss.qualcomm.com>
+In-Reply-To: <20250716-topic-goodnight_cheza-v2-3-6fa8d3261813@oss.qualcomm.com>
 From: Doug Anderson <dianders@chromium.org>
-Date: Wed, 16 Jul 2025 07:21:40 -0700
-X-Gmail-Original-Message-ID: <CAD=FV=Wj=J0-3rpjEsdLzgHzY3nXw0CWaCTHfbkNnu5H=VCPgQ@mail.gmail.com>
-X-Gm-Features: Ac12FXzTw0wKAIsfrwSNsVdCEfNSNshL9d8ykTsLQev02btB00hc45WqX4Wa3pM
-Message-ID: <CAD=FV=Wj=J0-3rpjEsdLzgHzY3nXw0CWaCTHfbkNnu5H=VCPgQ@mail.gmail.com>
-Subject: Re: [PATCH v2 2/4] dt-bindings: arm: qcom: Remove sdm845-cheza
+Date: Wed, 16 Jul 2025 07:21:51 -0700
+X-Gmail-Original-Message-ID: <CAD=FV=XmwiA_gX9pF5Dja1vezson7f21WHC8u8+Rhg_6OUJ+rw@mail.gmail.com>
+X-Gm-Features: Ac12FXxTIFX6vNFTUbNM5dNMu4K5yloNK1nFrEKpkxnVSSYFOEXl7o-QWsvciQ8
+Message-ID: <CAD=FV=XmwiA_gX9pF5Dja1vezson7f21WHC8u8+Rhg_6OUJ+rw@mail.gmail.com>
+Subject: Re: [PATCH v2 3/4] dt-bindings: arm-smmu: Remove sdm845-cheza
+ specific entry
 To: Konrad Dybcio <konradybcio@kernel.org>
 Cc: Bjorn Andersson <andersson@kernel.org>, Rob Herring <robh@kernel.org>, 
 	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
@@ -96,8 +97,8 @@ Cc: Bjorn Andersson <andersson@kernel.org>, Rob Herring <robh@kernel.org>,
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250716_072209_869214_4055B8C4 
-X-CRM114-Status: GOOD (  13.50  )
+X-CRM114-CacheID: sfid-20250716_072220_429041_13DCAF54 
+X-CRM114-Status: GOOD (  17.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,18 +120,41 @@ cros-qcom-dts-watchers <cros-qcom-dts-watchers@chromium.org> wrote:
 >
 > From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
 >
-> Cheza was a prototype board, used mainly by the ChromeOS folks.
+> The firmware on SDM845-based Cheza boards did not provide the same
+> level of feature support for SMMUs (particularly around the Adreno
+> GPU integration).
 >
-> Almost no working devices are known to exist, and the small amount of
-> remaining ones are not in use anymore.
+> Now that Cheza is being removed from the kernel (almost none exist at
+> this point in time), retire the entry as well.
 >
-> Remove the compatible strings reserved for it, as, quite frankly, Cheza
-> is no more.
+> Most notably, it's not being marked as deprecated instead, as there is
+> no indication that any more of those ~7 year old devboards will be
+> built.
 >
 > Signed-off-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
 > ---
->  Documentation/devicetree/bindings/arm/qcom.yaml | 3 ---
->  1 file changed, 3 deletions(-)
+>  Documentation/devicetree/bindings/iommu/arm,smmu.yaml | 4 ----
+>  1 file changed, 4 deletions(-)
+>
+> diff --git a/Documentation/devicetree/bindings/iommu/arm,smmu.yaml b/Docu=
+mentation/devicetree/bindings/iommu/arm,smmu.yaml
+> index 7b9d5507d6ccd6b845a57eeae59fe80ba75cc652..646814ec7d15f6d8a0136de73=
+b7eaddae232ea64 100644
+> --- a/Documentation/devicetree/bindings/iommu/arm,smmu.yaml
+> +++ b/Documentation/devicetree/bindings/iommu/arm,smmu.yaml
+> @@ -132,10 +132,6 @@ properties:
+>                - qcom,sm7150-smmu-v2
+>            - const: qcom,adreno-smmu
+>            - const: qcom,smmu-v2
+> -      - description: Qcom Adreno GPUs on Google Cheza platform
+> -        items:
+> -          - const: qcom,sdm845-smmu-v2
+> -          - const: qcom,smmu-v2
+
+The code supporting this can also be removed then, right?
+
+drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c:     { .compatible =3D
+"qcom,sdm845-smmu-v2", .data =3D &qcom_smmu_v2_data },
 
 Reviewed-by: Douglas Anderson <dianders@chromium.org>
 
