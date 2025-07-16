@@ -4,89 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95DA0C83F22
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 10:52:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A6CBC83F22
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 10:55:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yE7s53Z2C1xLVTq+sUbquydW2QufgfeXOwWrYj8BYEY=; b=WDPHxdfWgeccAx98cURed1vOKD
-	grZe/uOuMnCUlN1uuOU85p48pQo2fsEmIoDmHJnzAQeCogyyET49ooP6XQFKUK1c2brW407xSilyP
-	eZGa2RGGaEoC5UXCwS2dAmuSfSbYU/ABvMhd2n6XrWfzC5g5wMl9HurC65/IZzl7ai9oqtmFJmKSX
-	/cWUUzNhVlRwHnKVUGZa9YrgEVPkVVsxeFmdz6fbJw0W8UXFspJHfXwTD7iCSU3TWYkoUpQepr88w
-	a7S221Cxhag3JO8/2pq0pDIrbAei2MQwurymdBDnL5oBcrFx7SYjIaJJEvwi+tHfBkkQ/dnMcY6ef
-	06hVRUBA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=BBw/vLcdZTEd7E19R34/4wkSfQrkxleM3SgmFMlaSiE=; b=SZMuvgoRFhQeSv+53OTO+xbDgF
+	EkP0Y8xOseecyrZQmzMIczDfSJTCi7ozlJJKhv4uymumSOxshosQ1MbkFsfmYs6+6eytY+bA6JKrJ
+	6OrkOpI5/IlRKGxzu1IzNKuvgHXKDriOCOGmG5VyYDUNf9oyNmJUtDpDNN5e3a//E7fqE/OkBOGhu
+	X4DjEu7mP1hnpmpbAf8KV8KPyVPYwyU/0l0owUpLJAW3LS+Se/3t1veZLpopZXuAGRrQWSQvryPAp
+	artx6P/aq+uB3Z5JOEiOXwrtmkNz4qXoj+dMTL9nw2DyB/VoaLlvOCcXxlKUcab0+M7chJ/rk8poK
+	A99heftw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubzkn-00000007TdQ-14n0;
-	Wed, 16 Jul 2025 10:52:49 +0000
-Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
+	id 1ubznB-00000007Ttk-436B;
+	Wed, 16 Jul 2025 10:55:17 +0000
+Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubzFY-00000007PAK-1QzG
+	id 1ubzNs-00000007QHm-48Rx
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Jul 2025 10:20:33 +0000
-Received: by mail-pf1-x42e.google.com with SMTP id d2e1a72fcca58-7425bd5a83aso5424346b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Jul 2025 03:20:32 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1752661231; x=1753266031; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=yE7s53Z2C1xLVTq+sUbquydW2QufgfeXOwWrYj8BYEY=;
-        b=jl5B3Nm74Vi75Eny5I1JHN4ODD+f3rxf83CxGaQRWa8UWRv9LQ3TXRHoNviiSDsjmj
-         9JWCEioDoKWv+vBUx9HQRGQGUThUOjciT7LolwB+gpD82rzZq91ApHddORjRlkI5SltW
-         nC5D9vh4rjXXA7x15aNK55/8v6OFwOK44Vzp9foc3lXg1/lnFiKeqG50helCzoV7A7mV
-         MwySIDLxiKt2E4cP1OmzKpAUPYXZqoylL4GDp0d/QQHRs7fNHDgthwvgTMtnDI4wBOUT
-         qTCQM5snq/jnFbqVhhwJbS9xI4XXVedzoOP0F7Yr866FmSEiOqEjac1ldzOood5r3peq
-         fxoQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752661231; x=1753266031;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=yE7s53Z2C1xLVTq+sUbquydW2QufgfeXOwWrYj8BYEY=;
-        b=hhI+MtYERQJFTtyZE8hgaKXa4xkpeN19RwKwQRy/3cC0zydcM/ZdUs3HWRBAD531nG
-         Z/LmKz5r04Z3UvI7ZWPgmUV/iaPY74tboYvhhzYsrC8f6pRJ7JCgB52tEs5hLsS232zD
-         gIxFz2JNlbz362zPjXfUuV2kihiALxS8FsRkCGnlJ0LPNbPvBS8xSI7WCzE6CAWvwF1E
-         ilmz1awcMcBjAd1m1r27tXwYiFrDMZfVWRdj83fSwHOPSA8SCDEVxK+QgrGjg/dsSPzP
-         Vpxze8T+ZS2fECq6GpUuZeQ4cNwSHon/LPem81lCgnysB96BmaHkqve6Qh4LE6CfYdP0
-         3EIA==
-X-Forwarded-Encrypted: i=1; AJvYcCVy6S4061u7Dw6Jd3jHSEyjs7lXiODBKMpXGzBUD99Iqx2Kszjhnu/630SP+lxG/xOLBO/EfzVsLhPjqlNFMDzV@lists.infradead.org
-X-Gm-Message-State: AOJu0YywE6OG1T8nxc2aQ+edIvRDWyDs4UClsHIYVeTaOuda3Hg84PrQ
-	L1fNbNGAqeNUnVy+ka5TxZtu+RhV4Wiu2dt5bz7YlSY3sshIriimVzGWbC5zaHFj+XkEXyVCu67
-	RirB5MfrM8nZnoHifCsVilaFVW3Lt2m8fX5lfXU66cw==
-X-Gm-Gg: ASbGncu+ezd5CFNpmeegrivMXP+PCneRE8ksZ6ejqdr5vgYk9V4ZaRl0/AQeS3d/Yzt
-	fp9kZDAR4h3tXP584FGZwp1LUJjpFUsYWEQJ22f3LjFkXIbrPMvugZ8HNQf/7QWacfp8JYdATQ5
-	iT+DHmjYT5nqtoFIFii68dPjPehYng0bo6myIAUD07i/qJ7eZtMMo69Fq1scN4ctGgVXqjW9T9a
-	rn+VgXXqwhbdSbeb0pxAozgaQJXNRH9PSMGw1w=
-X-Google-Smtp-Source: AGHT+IEJfkGlROyu9Urq3ipL4Dbt8kv9P0xUk3Y2bWsJERuyYfUiMSGv/EVjUwE4Kw1m9p08wVXMdS7ntVU1yq9lKEg=
-X-Received: by 2002:a05:6a00:99f:b0:74e:b9fd:4a3f with SMTP id
- d2e1a72fcca58-75722869e6dmr2716478b3a.10.1752661231203; Wed, 16 Jul 2025
- 03:20:31 -0700 (PDT)
+	Wed, 16 Jul 2025 10:29:10 +0000
+Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
+	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTP id 56GASviL231925;
+	Wed, 16 Jul 2025 05:28:57 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1752661737;
+	bh=BBw/vLcdZTEd7E19R34/4wkSfQrkxleM3SgmFMlaSiE=;
+	h=From:To:CC:Subject:Date;
+	b=T06nQLWnSnuhU/LcpzFOdgB0ETHsLZ3RgGKEEpPr9InsHR92efQwXGRXkPFBtd6aJ
+	 TicOJ7Nfx5Po/lks/54iJknhClpI5FppM7u0u/X8KrxsOUtZxINCUWsSTD9D7CDPlx
+	 qEh7JErmK6Pct3SjFIlB6PiXAOzfVXYFN+pjhzAI=
+Received: from DLEE108.ent.ti.com (dlee108.ent.ti.com [157.170.170.38])
+	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 56GASvkl3498764
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Wed, 16 Jul 2025 05:28:57 -0500
+Received: from DLEE103.ent.ti.com (157.170.170.33) by DLEE108.ent.ti.com
+ (157.170.170.38) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Wed, 16
+ Jul 2025 05:28:56 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE103.ent.ti.com
+ (157.170.170.33) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Wed, 16 Jul 2025 05:28:56 -0500
+Received: from uda0492258.dhcp.ti.com (uda0492258.dhcp.ti.com [172.24.227.169])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 56GASpjO286647;
+	Wed, 16 Jul 2025 05:28:52 -0500
+From: Siddharth Vadapalli <s-vadapalli@ti.com>
+To: <lpieralisi@kernel.org>, <kwilczynski@kernel.org>, <mani@kernel.org>,
+        <robh@kernel.org>, <bhelgaas@google.com>, <vigneshr@ti.com>,
+        <kishon@kernel.org>
+CC: <stable@vger.kernel.org>, <linux-pci@vger.kernel.org>,
+        <linux-omap@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>,
+        <s-vadapalli@ti.com>
+Subject: [PATCH] PCI: j721e: Fix programming sequence of "strap" settings
+Date: Wed, 16 Jul 2025 15:58:51 +0530
+Message-ID: <20250716102851.121742-1-s-vadapalli@ti.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-References: <20250714063109.591-1-jie.gan@oss.qualcomm.com> <20250714063109.591-2-jie.gan@oss.qualcomm.com>
-In-Reply-To: <20250714063109.591-2-jie.gan@oss.qualcomm.com>
-From: Mike Leach <mike.leach@linaro.org>
-Date: Wed, 16 Jul 2025 11:20:18 +0100
-X-Gm-Features: Ac12FXz-xYQrg0Cua4muCLaPsoupDwBUZISKjIA1TU9xkJsYijMrosZo4H6_Ghk
-Message-ID: <CAJ9a7VjyWtopbnTirRnd4-486PrdQH00cvUR0kcPde2hxCUH-A@mail.gmail.com>
-Subject: Re: [PATCH v3 RESEND 01/10] coresight: core: Refactoring
- ctcu_get_active_port and make it generic
-To: Jie Gan <jie.gan@oss.qualcomm.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, James Clark <james.clark@linaro.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
-	Tingwei Zhang <quic_tingweiz@quicinc.com>, Yuanfang Zhang <quic_yuanfang@quicinc.com>, 
-	Mao Jinlong <quic_jinlmao@quicinc.com>, Jie Gan <quic_jiegan@quicinc.com>, 
-	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
-	devicetree@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250716_032032_382183_51196139 
-X-CRM114-Status: GOOD (  28.08  )
+X-CRM114-CacheID: sfid-20250716_032909_196017_5CD07A8E 
+X-CRM114-Status: GOOD (  28.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,131 +85,262 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+The Cadence PCIe Controller integrated in the TI K3 SoCs supports both
+Root-Complex and Endpoint modes of operation. The Glue Layer allows
+"strapping" the mode of operation of the Controller, the Link Speed
+and the Link Width. This is enabled by programming the "PCIEn_CTRL"
+register (n corresponds to the PCIe instance) within the CTRL_MMR
+memory-mapped register space.
 
-On Mon, 14 Jul 2025 at 07:31, Jie Gan <jie.gan@oss.qualcomm.com> wrote:
->
-> Remove ctcu_get_active_port from CTCU module and add it to the core
-> framework.
->
-> The port number is crucial for the CTCU device to identify which ETR
-> it serves. With the port number we can correctly get required parameters
-> of the CTCU device in TMC module.
->
-> Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
-> ---
->  drivers/hwtracing/coresight/coresight-core.c  | 24 +++++++++++++++++++
->  .../hwtracing/coresight/coresight-ctcu-core.c | 19 +--------------
->  drivers/hwtracing/coresight/coresight-priv.h  |  2 ++
->  3 files changed, 27 insertions(+), 18 deletions(-)
->
-> diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
-> index 1accd7cbd54b..5297a5ff7921 100644
-> --- a/drivers/hwtracing/coresight/coresight-core.c
-> +++ b/drivers/hwtracing/coresight/coresight-core.c
-> @@ -580,6 +580,30 @@ struct coresight_device *coresight_get_sink(struct coresight_path *path)
->  }
->  EXPORT_SYMBOL_GPL(coresight_get_sink);
->
-> +/**
-> + * coresight_get_port_helper: get the in-port number of the helper device
-> + * that is connected to the csdev.
-> + *
+In the PCIe Controller's register space, the same set of registers
+that correspond to the Root-Port configuration space when the
+Controller is configured for Root-Complex mode of operation, also
+correspond to the Physical Function configuration space when the
+Controller is configured for Endpoint mode of operation. As a result,
+the "reset-value" of these set of registers _should_ vary depending
+on the selected mode of operation. This is the expected behavior
+according to the description of the registers and their reset values
+in the Technical Reference Manual for the SoCs.
 
-As written this looks at all connections, not just those that are
-helpers. That is fine, so perhaps rename as such.
+However, it is observed that the "reset-value" seen in practice
+do not match the description. To be precise, when the Controller
+is configured for Root-Complex mode of operation, the "reset-value"
+of the Root-Port configuration space reflect the "reset-value"
+corresponding to the Physical Function configuration space.
+This can be attributed to the fact that the "strap" settings play
+a role in "switching" the "reset-value" of the registers to match
+the expected values as determined by the selected mode of operation.
+Since the "strap" settings are sampled the moment the PCIe Controller
+is powered ON, the "reset-value" of the registers are setup at that
+point in time. As a result, if the "strap" settings are programmed
+at a later point in time, it _will not_ update the "reset-value" of
+the registers. This will cause the Physical Function configuration
+space to be seen when the Root-Port configuration space is accessed
+after programming the PCIe Controller for Root-Complex mode of
+operation.
 
-e.g. coresight_get_in_port_dest
+Fix this by powering off the PCIe Controller before programming the
+"strap" settings and powering it on after that. This will ensure
+that the "strap" settings that have been sampled convey the intended
+mode of operation, thereby resulting in the "reset-value" of the
+registers being accurate.
 
-and name the input parameters src , dest respectively.
+Fixes: f3e25911a430 ("PCI: j721e: Add TI J721E PCIe driver")
+Cc: <stable@vger.kernel.org>
+Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
+---
 
-> + * @csdev: csdev of the device that is connected to helper.
-> + * @helper: csdev of the helper device.
-> + *
-> + * Return: port number upson success or -EINVAL for fail.
+Hello,
 
-sp: upon/upson
+This patch is based on commit
+155a3c003e55 Merge tag 'for-6.16/dm-fixes-2' of git://git.kernel.org/pub/scm/linux/kernel/git/device-mapper/linux-dm
+of Mainline Linux.
 
-> + */
-> +int coresight_get_port_helper(struct coresight_device *csdev,
-> +                             struct coresight_device *helper)
-> +{
-> +       struct coresight_platform_data *pdata = helper->pdata;
-> +       int i;
-> +
-> +       for (i = 0; i < pdata->nr_inconns; ++i) {
-> +               if (pdata->in_conns[i]->src_dev == csdev)
-> +                       return pdata->in_conns[i]->dest_port;
-> +       }
-> +
-> +       return -EINVAL;
-> +}
-> +EXPORT_SYMBOL_GPL(coresight_get_port_helper);
-> +
->  u32 coresight_get_sink_id(struct coresight_device *csdev)
->  {
->         if (!csdev->ea)
-> diff --git a/drivers/hwtracing/coresight/coresight-ctcu-core.c b/drivers/hwtracing/coresight/coresight-ctcu-core.c
-> index c6bafc96db96..28ea4a216345 100644
-> --- a/drivers/hwtracing/coresight/coresight-ctcu-core.c
-> +++ b/drivers/hwtracing/coresight/coresight-ctcu-core.c
-> @@ -118,23 +118,6 @@ static int __ctcu_set_etr_traceid(struct coresight_device *csdev, u8 traceid, in
->         return 0;
->  }
->
-> -/*
-> - * Searching the sink device from helper's view in case there are multiple helper devices
-> - * connected to the sink device.
-> - */
-> -static int ctcu_get_active_port(struct coresight_device *sink, struct coresight_device *helper)
-> -{
-> -       struct coresight_platform_data *pdata = helper->pdata;
-> -       int i;
-> -
-> -       for (i = 0; i < pdata->nr_inconns; ++i) {
-> -               if (pdata->in_conns[i]->src_dev == sink)
-> -                       return pdata->in_conns[i]->dest_port;
-> -       }
-> -
-> -       return -EINVAL;
-> -}
-> -
->  static int ctcu_set_etr_traceid(struct coresight_device *csdev, struct coresight_path *path,
->                                 bool enable)
->  {
-> @@ -147,7 +130,7 @@ static int ctcu_set_etr_traceid(struct coresight_device *csdev, struct coresight
->                 return -EINVAL;
->         }
->
-> -       port_num = ctcu_get_active_port(sink, csdev);
-> +       port_num = coresight_get_port_helper(sink, csdev);
->         if (port_num < 0)
->                 return -EINVAL;
->
-> diff --git a/drivers/hwtracing/coresight/coresight-priv.h b/drivers/hwtracing/coresight/coresight-priv.h
-> index 33e22b1ba043..07a5f03de81d 100644
-> --- a/drivers/hwtracing/coresight/coresight-priv.h
-> +++ b/drivers/hwtracing/coresight/coresight-priv.h
-> @@ -156,6 +156,8 @@ void coresight_remove_links(struct coresight_device *orig,
->  u32 coresight_get_sink_id(struct coresight_device *csdev);
->  void coresight_path_assign_trace_id(struct coresight_path *path,
->                                    enum cs_mode mode);
-> +int coresight_get_port_helper(struct coresight_device *csdev,
-> +                             struct coresight_device *helper);
->
-rename here too
+Patch has been validated on the J7200 SoC which is affected by
+the existing programming sequence of the "strap" settings.
 
->  #if IS_ENABLED(CONFIG_CORESIGHT_SOURCE_ETM3X)
->  int etm_readl_cp14(u32 off, unsigned int *val);
-> --
-> 2.34.1
->
+Regards,
+Siddharth.
 
-regards
+ drivers/pci/controller/cadence/pci-j721e.c | 82 ++++++++++++++--------
+ 1 file changed, 53 insertions(+), 29 deletions(-)
 
-Mike
+diff --git a/drivers/pci/controller/cadence/pci-j721e.c b/drivers/pci/controller/cadence/pci-j721e.c
+index 6c93f39d0288..d5e7cb7277dc 100644
+--- a/drivers/pci/controller/cadence/pci-j721e.c
++++ b/drivers/pci/controller/cadence/pci-j721e.c
+@@ -19,6 +19,7 @@
+ #include <linux/of.h>
+ #include <linux/pci.h>
+ #include <linux/platform_device.h>
++#include <linux/pm_domain.h>
+ #include <linux/pm_runtime.h>
+ #include <linux/regmap.h>
+ 
+@@ -173,10 +174,9 @@ static const struct cdns_pcie_ops j721e_pcie_ops = {
+ 	.link_up = j721e_pcie_link_up,
+ };
+ 
+-static int j721e_pcie_set_mode(struct j721e_pcie *pcie, struct regmap *syscon,
+-			       unsigned int offset)
++static int j721e_pcie_set_mode(struct j721e_pcie *pcie, struct device *dev,
++			       struct regmap *syscon, unsigned int offset)
+ {
+-	struct device *dev = pcie->cdns_pcie->dev;
+ 	u32 mask = J721E_MODE_RC;
+ 	u32 mode = pcie->mode;
+ 	u32 val = 0;
+@@ -193,9 +193,9 @@ static int j721e_pcie_set_mode(struct j721e_pcie *pcie, struct regmap *syscon,
+ }
+ 
+ static int j721e_pcie_set_link_speed(struct j721e_pcie *pcie,
++				     struct device *dev,
+ 				     struct regmap *syscon, unsigned int offset)
+ {
+-	struct device *dev = pcie->cdns_pcie->dev;
+ 	struct device_node *np = dev->of_node;
+ 	int link_speed;
+ 	u32 val = 0;
+@@ -214,9 +214,9 @@ static int j721e_pcie_set_link_speed(struct j721e_pcie *pcie,
+ }
+ 
+ static int j721e_pcie_set_lane_count(struct j721e_pcie *pcie,
++				     struct device *dev,
+ 				     struct regmap *syscon, unsigned int offset)
+ {
+-	struct device *dev = pcie->cdns_pcie->dev;
+ 	u32 lanes = pcie->num_lanes;
+ 	u32 mask = BIT(8);
+ 	u32 val = 0;
+@@ -234,9 +234,9 @@ static int j721e_pcie_set_lane_count(struct j721e_pcie *pcie,
+ }
+ 
+ static int j721e_enable_acspcie_refclk(struct j721e_pcie *pcie,
++				       struct device *dev,
+ 				       struct regmap *syscon)
+ {
+-	struct device *dev = pcie->cdns_pcie->dev;
+ 	struct device_node *node = dev->of_node;
+ 	u32 mask = ACSPCIE_PAD_DISABLE_MASK;
+ 	struct of_phandle_args args;
+@@ -263,9 +263,8 @@ static int j721e_enable_acspcie_refclk(struct j721e_pcie *pcie,
+ 	return 0;
+ }
+ 
+-static int j721e_pcie_ctrl_init(struct j721e_pcie *pcie)
++static int j721e_pcie_ctrl_init(struct j721e_pcie *pcie, struct device *dev)
+ {
+-	struct device *dev = pcie->cdns_pcie->dev;
+ 	struct device_node *node = dev->of_node;
+ 	struct of_phandle_args args;
+ 	unsigned int offset = 0;
+@@ -284,19 +283,19 @@ static int j721e_pcie_ctrl_init(struct j721e_pcie *pcie)
+ 	if (!ret)
+ 		offset = args.args[0];
+ 
+-	ret = j721e_pcie_set_mode(pcie, syscon, offset);
++	ret = j721e_pcie_set_mode(pcie, dev, syscon, offset);
+ 	if (ret < 0) {
+ 		dev_err(dev, "Failed to set pci mode\n");
+ 		return ret;
+ 	}
+ 
+-	ret = j721e_pcie_set_link_speed(pcie, syscon, offset);
++	ret = j721e_pcie_set_link_speed(pcie, dev, syscon, offset);
+ 	if (ret < 0) {
+ 		dev_err(dev, "Failed to set link speed\n");
+ 		return ret;
+ 	}
+ 
+-	ret = j721e_pcie_set_lane_count(pcie, syscon, offset);
++	ret = j721e_pcie_set_lane_count(pcie, dev, syscon, offset);
+ 	if (ret < 0) {
+ 		dev_err(dev, "Failed to set num-lanes\n");
+ 		return ret;
+@@ -308,7 +307,7 @@ static int j721e_pcie_ctrl_init(struct j721e_pcie *pcie)
+ 	if (!syscon)
+ 		return 0;
+ 
+-	return j721e_enable_acspcie_refclk(pcie, syscon);
++	return j721e_enable_acspcie_refclk(pcie, dev, syscon);
+ }
+ 
+ static int cdns_ti_pcie_config_read(struct pci_bus *bus, unsigned int devfn,
+@@ -469,6 +468,47 @@ static int j721e_pcie_probe(struct platform_device *pdev)
+ 	if (!pcie)
+ 		return -ENOMEM;
+ 
++	pcie->mode = mode;
++
++	ret = of_property_read_u32(node, "num-lanes", &num_lanes);
++	if (ret || num_lanes > data->max_lanes) {
++		dev_warn(dev, "num-lanes property not provided or invalid, setting num-lanes to 1\n");
++		num_lanes = 1;
++	}
++
++	pcie->num_lanes = num_lanes;
++	pcie->max_lanes = data->max_lanes;
++
++	/*
++	 * The PCIe Controller's registers have different "reset-value" depending
++	 * on the "strap" settings programmed into the Controller's Glue Layer.
++	 * This is because the same set of registers are used for representing the
++	 * Physical Function configuration space in Endpoint mode and for
++	 * representing the Root-Port configuration space in Root-Complex mode.
++	 *
++	 * The registers latch onto a "reset-value" based on the "strap" settings
++	 * sampled after the Controller is powered on. Therefore, for the
++	 * "reset-value" to be accurate, it is necessary to program the "strap"
++	 * settings when the Controller is powered off, and power on the Controller
++	 * after the "strap" settings have been programmed.
++	 *
++	 * The "strap" settings are programmed by "j721e_pcie_ctrl_init()".
++	 * Therefore, power off the Controller before invoking "j721e_pcie_ctrl_init()",
++	 * program the "strap" settings, and then power on the Controller. This ensures
++	 * that the reset values are accurate and reflect the "strap" settings.
++	 */
++	dev_pm_domain_detach(dev, true);
++
++	ret = j721e_pcie_ctrl_init(pcie, dev);
++	if (ret < 0)
++		return ret;
++
++	ret = dev_pm_domain_attach(dev, true);
++	if (ret < 0) {
++		dev_err(dev, "failed to power on PCIe Controller\n");
++		return ret;
++	}
++
+ 	switch (mode) {
+ 	case PCI_MODE_RC:
+ 		if (!IS_ENABLED(CONFIG_PCI_J721E_HOST))
+@@ -510,7 +550,6 @@ static int j721e_pcie_probe(struct platform_device *pdev)
+ 		return 0;
+ 	}
+ 
+-	pcie->mode = mode;
+ 	pcie->linkdown_irq_regfield = data->linkdown_irq_regfield;
+ 
+ 	base = devm_platform_ioremap_resource_byname(pdev, "intd_cfg");
+@@ -523,15 +562,6 @@ static int j721e_pcie_probe(struct platform_device *pdev)
+ 		return PTR_ERR(base);
+ 	pcie->user_cfg_base = base;
+ 
+-	ret = of_property_read_u32(node, "num-lanes", &num_lanes);
+-	if (ret || num_lanes > data->max_lanes) {
+-		dev_warn(dev, "num-lanes property not provided or invalid, setting num-lanes to 1\n");
+-		num_lanes = 1;
+-	}
+-
+-	pcie->num_lanes = num_lanes;
+-	pcie->max_lanes = data->max_lanes;
+-
+ 	if (dma_set_mask_and_coherent(dev, DMA_BIT_MASK(48)))
+ 		return -EINVAL;
+ 
+@@ -547,12 +577,6 @@ static int j721e_pcie_probe(struct platform_device *pdev)
+ 		goto err_get_sync;
+ 	}
+ 
+-	ret = j721e_pcie_ctrl_init(pcie);
+-	if (ret < 0) {
+-		dev_err_probe(dev, ret, "pm_runtime_get_sync failed\n");
+-		goto err_get_sync;
+-	}
+-
+ 	ret = devm_request_irq(dev, irq, j721e_pcie_link_irq_handler, 0,
+ 			       "j721e-pcie-link-down-irq", pcie);
+ 	if (ret < 0) {
+@@ -680,7 +704,7 @@ static int j721e_pcie_resume_noirq(struct device *dev)
+ 	struct cdns_pcie *cdns_pcie = pcie->cdns_pcie;
+ 	int ret;
+ 
+-	ret = j721e_pcie_ctrl_init(pcie);
++	ret = j721e_pcie_ctrl_init(pcie, dev);
+ 	if (ret < 0)
+ 		return ret;
+ 
 -- 
-Mike Leach
-Principal Engineer, ARM Ltd.
-Manchester Design Centre. UK
+2.34.1
+
 
