@@ -4,54 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1F94C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 02:37:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45BCFC83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 02:45:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pPRrCb3kamR6x0ErPCGsJVGKIRY2RRMDww8SEuFPAuY=; b=uPJsmotA1CCR7EYsSi4To8K3mc
-	8N0/UXsVdnrfx1Xb5QicelBrh9c5NmmCf6TmFddtEpzDp1KBbtmvqvTXvPUlIWxwWfEAUzltfZCD3
-	LCQJlndwCRpvRVrUWL9RT2Gjw73bHTIGKgRr4zLDVXGqkf3VI3+UhAiR9u0BL738gJoXvB+6dUXR7
-	W4T6J39CR4UmUZKDg7d0BtvwRor+fuJ7uM7uiukjN5qnVT5cGatBUpvJiDpiSRDguLWBgX+TSKHmb
-	hJkz5gJavRlgTZJKqnVnTXCy4LcDeY8AXzsLLmLb3rqe/1bP3fOY6CRa23AePoXmchcVpClvUYTb8
-	5D9Jk2+g==;
+	bh=lS5WELhkTJFHx/D90OsST2R2TOJPD1ztPrKBsgFiv1s=; b=XKC4b4+2EonLW2DXT8XE1hGqk/
+	VrnSYLVcKfdMRIdYNmSJJvw+2OrnLthfZGL5MchC0vhe9gVcbcrR5ehF/la1TE2NBHGtJApSdps0M
+	QQjuGiOcg/e01WotvNDsmdmEcUQXVkrKzLc1xfmoxulJry27Act+HJAlRuQt6/tue7y55mERK1yqf
+	pdXnZ6C9ih38a14tKZFDQ2jeUE1bBs+Qf+8eq6jLthLppGKkI4JMehMOo+B2PKQhvOzVFmAnOm8U5
+	wRYNaTbmEynZmrgooRzf2a6R/mf0a8/bmeseOvQjq0DIN1+y+BTFh/VNbxeC4TWegzrm6TCVgKCw7
+	6uhmp9fw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubs1U-00000006c5e-2ogy;
-	Wed, 16 Jul 2025 02:37:32 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubrz2-00000006c04-3O9f
+	id 1ubs9J-00000006cSY-3d1l;
+	Wed, 16 Jul 2025 02:45:37 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ubs6s-00000006cMa-1OlT
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Jul 2025 02:35:02 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 61E3112FC;
-	Tue, 15 Jul 2025 19:34:51 -0700 (PDT)
-Received: from [10.164.146.16] (J09HK2D2RT.blr.arm.com [10.164.146.16])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8080D3F6A8;
-	Tue, 15 Jul 2025 19:34:57 -0700 (PDT)
-Message-ID: <a717d6ee-3b24-47de-a1fc-90a4ad0a020d@arm.com>
-Date: Wed, 16 Jul 2025 08:04:54 +0530
+	Wed, 16 Jul 2025 02:43:07 +0000
+Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56FGDE2a024502;
+	Wed, 16 Jul 2025 02:42:58 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	lS5WELhkTJFHx/D90OsST2R2TOJPD1ztPrKBsgFiv1s=; b=G09AqviZWK0iDaI3
+	KMXt7YK5+txK6CxTbsGg5BwmvEQpa6UZloP5zQqqHI5n/kE45LUNhoXPz+mXHj0M
+	HqHOLZmW/FKAh2HBepHpY50ptONcW/eGAMvfC2wUkHhZZWQ814pvRh53gR5zyhF8
+	GkwN6pOo6TGcOef6e4qawegCXa6/hedOr9gO5rc4Tmwnk9cNP0ijEANyaLdEN3c+
+	KZkdSWdRq7LVw0QuurTHDcwFTrY9U3xvdtnJaqLZWSSWnHpFxg1gZvp+BimiP+N0
+	T8K5eH/uwWAQmbaCJnGMxMjINwx8FN3niq9XmkfbQ9NfVMVv5f9kZL88vgVyONqf
+	uPQsTQ==
+Received: from nalasppmta03.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 47w5dpd5mw-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 16 Jul 2025 02:42:58 +0000 (GMT)
+Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
+	by NALASPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 56G2gvqi014800
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 16 Jul 2025 02:42:57 GMT
+Received: from [10.239.133.49] (10.80.80.8) by nalasex01a.na.qualcomm.com
+ (10.47.209.196) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Tue, 15 Jul
+ 2025 19:42:54 -0700
+Message-ID: <0e7ae7d1-4877-4e8a-a0fb-0fda5cc03cf2@quicinc.com>
+Date: Wed, 16 Jul 2025 10:42:51 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] kselftest/arm4: Provide local defines for AT_HWCAP3
-To: Mark Brown <broonie@kernel.org>, Catalin Marinas
- <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Shuah Khan <shuah@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kselftest@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20250715-arm64-selftest-bodge-hwcap3-v1-1-541b54bc43bb@kernel.org>
+Subject: Re: [PATCH v8 2/2] coresight: Add label sysfs node support
+To: Leo Yan <leo.yan@arm.com>
+CC: Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach
+	<mike.leach@linaro.org>, James Clark <james.clark@arm.com>,
+        Rob Herring
+	<robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>,
+        Mathieu Poirier <mathieu.poirier@linaro.org>,
+        Bjorn
+ Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>, <coresight@lists.linaro.org>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>
+References: <20250703130453.4265-1-quic_jinlmao@quicinc.com>
+ <20250703130453.4265-3-quic_jinlmao@quicinc.com>
+ <20250703141905.GE1039028@e132581.arm.com>
 Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <20250715-arm64-selftest-bodge-hwcap3-v1-1-541b54bc43bb@kernel.org>
-Content-Type: text/plain; charset=UTF-8
+From: Jinlong Mao <quic_jinlmao@quicinc.com>
+In-Reply-To: <20250703141905.GE1039028@e132581.arm.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nalasex01a.na.qualcomm.com (10.47.209.196)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNzE2MDAyMyBTYWx0ZWRfX0jxODwosWt9u
+ m7zgTP9LzZjYsHKSXw2vo7u3GczgQ56Hs3ash/KV4E6yVPS8mPj5C7qIcIXtMXDwpmQooSQJpR0
+ ERa/jXs3aMf2OmZq0EghIwmypY0HnG46vOhwacNXoX53gfRYEPL9LeP6hdvyR6knLJjLg9wDr8P
+ zJnP8hS8ubd+rF87pVoFrrBpLQY5LoG2uOKFHRjEyUo8lXnHQU5S49DMu3vuvEEOgloFih9kUiv
+ FEAazczUpmfM53aHmhczUHQPccQN0PhHaCp8XL7MmtcZJy6w8/wtBSdmcepCpo0ATnHc3FOYJj0
+ LkBZ64Gw+74O+7mV2UpHZrcW+22ba65HIO0M0iTbrgwjP/RzmSvxKPJndhwWrevY8m7RidWAAiO
+ 0xEpXdiZOKN3bwYAPprGx8aBRlFLhu0RJ3l+DIZ5XAVUCHsnfIE81kRw10MqJ2T+i8+4t4by
+X-Proofpoint-GUID: A7GTv4g83rHadCvpUp3EZt54Th64gB2b
+X-Proofpoint-ORIG-GUID: A7GTv4g83rHadCvpUp3EZt54Th64gB2b
+X-Authority-Analysis: v=2.4 cv=Y+r4sgeN c=1 sm=1 tr=0 ts=687711b2 cx=c_pps
+ a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
+ a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=Wb1JkmetP80A:10 a=VwQbUJbxAAAA:8
+ a=COk6AnOGAAAA:8 a=KKAkSRfTAAAA:8 a=7DyI6OxBC52R2nxcTEgA:9 a=QEXdDO2ut3YA:10
+ a=TjNXssC_j7lpFel5tvFf:22 a=cvBusfyB2V15izCimMoJ:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-07-16_01,2025-07-15_02,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 mlxlogscore=999 phishscore=0 malwarescore=0 priorityscore=1501
+ adultscore=0 impostorscore=0 mlxscore=0 suspectscore=0 lowpriorityscore=0
+ bulkscore=0 spamscore=0 classifier=spam authscore=0 authtc=n/a authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2505280000
+ definitions=main-2507160023
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250715_193500_896985_3AFD41C4 
-X-CRM114-Status: GOOD (  18.56  )
+X-CRM114-CacheID: sfid-20250715_194306_398630_257B26D4 
+X-CRM114-Status: GOOD (  27.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,63 +127,107 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 16/07/25 2:41 AM, Mark Brown wrote:
-> Some build environments for the selftests are not picking up the newly
-> added AT_HWCAP3 when using the libc headers, even with headers_install
-> (which we require already for the arm64 selftests).  As a quick fix add
-> local definitions of the constant to tools use it, while auxvec.h is
-> installed with some toolchains it needs some persuasion to get picked up.
+On 2025/7/3 22:19, Leo Yan wrote:
+> On Thu, Jul 03, 2025 at 09:04:53PM +0800, Mao Jinlong wrote:
 > 
-> Signed-off-by: Mark Brown <broonie@kernel.org>
-> ---
->  tools/testing/selftests/arm64/abi/hwcap.c       | 4 ++++
->  tools/testing/selftests/arm64/mte/check_prctl.c | 4 ++++
->  2 files changed, 8 insertions(+)
+> [...]
 > 
-> diff --git a/tools/testing/selftests/arm64/abi/hwcap.c b/tools/testing/selftests/arm64/abi/hwcap.c
-> index 35f521e5f41c..aa902408facd 100644
-> --- a/tools/testing/selftests/arm64/abi/hwcap.c
-> +++ b/tools/testing/selftests/arm64/abi/hwcap.c
-> @@ -21,6 +21,10 @@
->  
->  #define TESTS_PER_HWCAP 3
->  
-> +#ifndef AT_HWCAP3
-> +#define AT_HWCAP3 29
+>> +static ssize_t label_show(struct device *dev,
+>> +		struct device_attribute *attr, char *buf)
+>> +{
+>> +
+>> +	const char *str;
+>> +	int ret = 0;
+> 
+> No need to init ret to 0.
+> 
+>> +	ret = fwnode_property_read_string(dev_fwnode(dev), "label", &str);
+>> +	if (ret == 0)
+>> +		return scnprintf(buf, PAGE_SIZE, "%s\n", str);
+>> +	else
+>> +		return ret;
+>> +}
+>> +static DEVICE_ATTR_RO(label);
+>> +
+>>   static struct attribute *coresight_sink_attrs[] = {
+>>   	&dev_attr_enable_sink.attr,
+>> +	&dev_attr_label.attr,
+>>   	NULL,
+>>   };
+>>   ATTRIBUTE_GROUPS(coresight_sink);
+>>   
+>>   static struct attribute *coresight_source_attrs[] = {
+>>   	&dev_attr_enable_source.attr,
+>> +	&dev_attr_label.attr,
+>>   	NULL,
+>>   };
+>>   ATTRIBUTE_GROUPS(coresight_source);
+>>   
+>> +static struct attribute *coresight_link_attrs[] = {
+>> +	&dev_attr_label.attr,
+>> +	NULL,
+>> +};
+>> +ATTRIBUTE_GROUPS(coresight_link);
+>> +
+>> +static struct attribute *coresight_helper_attrs[] = {
+>> +	&dev_attr_label.attr,
+>> +	NULL,
+>> +};
+>> +ATTRIBUTE_GROUPS(coresight_helper);
+>> +
+> 
+> This change adds a 'label' entry for source, link, helper, and sink
+> components, but the documentation has only updated for three components:
+> CTI, funnel, and TPDM.
+> 
+> Should we also update the documentation for all relevant components,
+> such as ETM, ETR, etc.?
+> 
+> Additionally, patch 01 is missing the update to the ETM yaml file for
+> the new property. I checked patch v4 [1], which includes a change to
+> etm.yaml, but this change was dropped since v5. I briefly read the
+> v4 discussion thread and didn't see any mention of removing the ETM
+> related change. Did you see any particular issue when add label for
+> ETM devices?
+> 
+> Overall, this series is fine for me. Just please ensure that all
+> relevant components are covered for completeness.
+> 
+> Thanks,
+> Leo
+> 
 
-Just wondering - would it be better to add a comment that this is a
-temporary construct till libc headers pick up AT_HWCAP3 definitions.
+I will update all coresight docs.
 
+Thanks
+Jinlong Mao
 
-> +#endif
-> +
->  /*
->   * Function expected to generate exception when the feature is not
->   * supported and return when it is supported. If the specific exception
-> diff --git a/tools/testing/selftests/arm64/mte/check_prctl.c b/tools/testing/selftests/arm64/mte/check_prctl.c
-> index 4c89e9538ca0..c36c4c49ff95 100644
-> --- a/tools/testing/selftests/arm64/mte/check_prctl.c
-> +++ b/tools/testing/selftests/arm64/mte/check_prctl.c
-> @@ -12,6 +12,10 @@
->  
->  #include "kselftest.h"
->  
-> +#ifndef AT_HWCAP3
-> +#define AT_HWCAP3 29
-> +#endif
-> +
->  static int set_tagged_addr_ctrl(int val)
->  {
->  	int ret;
+> [1] https://patchwork.kernel.org/project/linux-arm-msm/cover/20240703122340.26864-1-quic_jinlmao@quicinc.com/
 > 
-> ---
-> base-commit: 86731a2a651e58953fc949573895f2fa6d456841
-> change-id: 20250710-arm64-selftest-bodge-hwcap3-b6ab30ab69cd
-> 
-> Best regards,
-> --  
-> Mark Brown <broonie@kernel.org>
-> 
-> 
+>>   const struct device_type coresight_dev_type[] = {
+>>   	[CORESIGHT_DEV_TYPE_SINK] = {
+>>   		.name = "sink",
+>> @@ -390,6 +420,7 @@ const struct device_type coresight_dev_type[] = {
+>>   	},
+>>   	[CORESIGHT_DEV_TYPE_LINK] = {
+>>   		.name = "link",
+>> +		.groups = coresight_link_groups,
+>>   	},
+>>   	[CORESIGHT_DEV_TYPE_LINKSINK] = {
+>>   		.name = "linksink",
+>> @@ -401,6 +432,7 @@ const struct device_type coresight_dev_type[] = {
+>>   	},
+>>   	[CORESIGHT_DEV_TYPE_HELPER] = {
+>>   		.name = "helper",
+>> +		.groups = coresight_helper_groups,
+>>   	}
+>>   };
+>>   /* Ensure the enum matches the names and groups */
+>> -- 
+>> 2.17.1
+>>
+>> _______________________________________________
+>> CoreSight mailing list -- coresight@lists.linaro.org
+>> To unsubscribe send an email to coresight-leave@lists.linaro.org
 
 
