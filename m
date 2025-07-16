@@ -4,117 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FFAFC83F1B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 20:51:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3160C83F22
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 20:54:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qEYpTZa3Y4vwSZ4jAJpwbteYGgx8CkQz5dFbWshNptM=; b=tEu6kEl1Q0cmdK9DmCmWo08OB8
-	Tm5vLrTH5Va/dAfAfNoS1aIgcN5Isswm2GsBel5+GSxsFPcMdGNN2UK1jeY5a36T2DpDhLyPzJXsc
-	wi42FGEl0UCWndihtC6SVic96qDKgE4QmQevMcnuDKVkdboItpb3yy21vQZYx2oeLyPCjrrB+mMrV
-	wfTikKEK77CKLebignQN9G3U5/NneRWcov0a13lDPwdj0secfUtuiGjx2lzAOLnrsFCWpm9WbdAIT
-	L/7PNt8Lquht8zIBxNBNojL3a3x+npRd2mBkq+9LNE/zTB1dx7QhtXsbO9nm2DApwDe2/bKwcZMSp
-	EXUzpTgg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=4xBu3m27NNNiyYtPNYLiQI7tnJpGA2VIKgO7tKMJhM0=; b=bunPYD4FQEE+7p
+	lb6YMmssa9Ac+kIDmRetz/P2CVk0Ue6mAnG6C6tPB5V9yCFpEMmIcCO32Aw4NJpbQbm27/MWeR1Fi
+	+iDptWJgFjKUcFQJ5M36AqdRSqfJ11IlJKhfylBrzXmrAbggvXEESj6ElcoGUSeik3BQkv+Ek5ivq
+	Jo3Qh5mIG1BSJDo1w7TI0aLCeQu4p7Qac2ajP0+2In5C9ybkX/4KPcsMOo/THGlEy2pWfLnJO7uiI
+	2dEQwizphPfSU747uOlLhe2khkVaUBfy3FoNmY34+6t4yslefF4s4JRdoROBdgzZ8Uj90NuQt1MnZ
+	eK0RdPr0IPmITAwnsU0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uc96E-00000008dt3-2koZ;
-	Wed, 16 Jul 2025 20:51:34 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uc98d-00000008e2a-1eJv;
+	Wed, 16 Jul 2025 20:54:03 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uc7zz-00000008Wll-19Rv
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Jul 2025 19:41:04 +0000
+	id 1uc806-00000008WoB-3W4X;
+	Wed, 16 Jul 2025 19:41:10 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B4CFD465E5;
-	Wed, 16 Jul 2025 19:41:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 74FABC4CEF1;
-	Wed, 16 Jul 2025 19:40:58 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 3A89A601BB;
+	Wed, 16 Jul 2025 19:41:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B2291C4CEF1;
+	Wed, 16 Jul 2025 19:41:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752694862;
-	bh=M2KuzF6vIbgB5dXebMK4tiV/bNRjr4BLnLT0FT7VmS0=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=XamKL9rmdcIW/EAJ4YAqEzfiVfEqMTRi0giaWE09F0iyy+2s6PclCdyDAgO12tPFe
-	 MUUkdy7Cj/M4iEbItuOBdvDhj/+iRvb3iKRa7bBmQyo+WhC8f+qup6WQemR7F8arRj
-	 NkMGc3xTmAKjf8OaBIGNU9Q32BJWJRqWilqN4grXJXFHmzDgZp6LqaizJnDMl8M3Yy
-	 jkLHTicWQhEWuBzMhQc/XD9dxCLKRx9WcvNuS4hUZzU0xGFxyd3Y3p+zNJZu0ywP//
-	 Ko1gvP/W4PkAsQfdBgeYrLUZ1HbWae6USIMtOL3P+cQUWpXIFO/wMMhqxfSxCPp9RA
-	 OfyO4Y+NI7ZJA==
-Message-ID: <35207b9f-fe61-4e6f-8eb8-26a6d1477596@kernel.org>
-Date: Wed, 16 Jul 2025 21:40:56 +0200
+	s=k20201202; t=1752694869;
+	bh=GeJXBYx5qreogy5Ib1b/M+uzTrVK0WNP7q/uKYx+wC0=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=mvKHdPMOuiYnkaLaqsb3FXWodVA3TMXDKgD3HpGfpcNITyHhK+1ZV2+s/s1yjR5bZ
+	 wApnXjCZX4+zQ3PIT4L35IPisNDX68Q2WmdUrEN2cMFVmSmp+OJnrLQdZwh6gUT0Uk
+	 JKF7nKO2y/dXZX2lpbAs3ppOqgB8AA9fOt60N8srWS475NkyMwFqG8BbMnYHOLP8ox
+	 lWhgOVV5pDi/IpvkEehROFwQdf3Gv0ewt/vba5cxM2rJJ6WL/H2kGFGViMFx2Vhcgq
+	 v+Y+7BkWHMSYa5GymoXLrMwbNtnvynIaM07xSSYdQhPaHUBygv5m7ayKNTwJsaaVpr
+	 WgSOK6tOERjtA==
+Date: Wed, 16 Jul 2025 14:41:08 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Nirmal Patel <nirmal.patel@linux.intel.com>
+Cc: Nam Cao <namcao@linutronix.de>, Marc Zyngier <maz@kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Karthikeyan Mitran <m.karthikeyan@mobiveil.co.in>,
+	Hou Zhiqiang <Zhiqiang.Hou@nxp.com>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	Pali =?utf-8?B?Um9ow6Fy?= <pali@kernel.org>,
+	"K . Y . Srinivasan" <kys@microsoft.com>,
+	Haiyang Zhang <haiyangz@microsoft.com>,
+	Wei Liu <wei.liu@kernel.org>, Dexuan Cui <decui@microsoft.com>,
+	Joyce Ooi <joyce.ooi@intel.com>, Jim Quinlan <jim2101024@gmail.com>,
+	Nicolas Saenz Julienne <nsaenz@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
+	Ryder Lee <ryder.lee@mediatek.com>,
+	Jianjun Wang <jianjun.wang@mediatek.com>,
+	Marek Vasut <marek.vasut+renesas@gmail.com>,
+	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
+	Michal Simek <michal.simek@amd.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Jonathan Derrick <jonathan.derrick@linux.dev>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-arm-kernel@lists.infradead.org, linux-hyperv@vger.kernel.org,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	linux-renesas-soc@vger.kernel.org
+Subject: Re: [PATCH 16/16] PCI: vmd: Switch to msi_create_parent_irq_domain()
+Message-ID: <20250716194108.GA2552070@bhelgaas>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 06/10] dt-bindings: display: imx: Add bindings for
- i.MX94 DCIF
-To: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>, imx@lists.linux.dev,
- Philipp Zabel <p.zabel@pengutronix.de>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>
-Cc: dri-devel@lists.freedesktop.org, Frank Li <frank.li@nxp.com>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20250716081519.3400158-1-laurentiu.palcu@oss.nxp.com>
- <20250716081519.3400158-7-laurentiu.palcu@oss.nxp.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250716081519.3400158-7-laurentiu.palcu@oss.nxp.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250716_124103_360517_18BB47D6 
-X-CRM114-Status: UNSURE (   9.87  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250716111009.000022ff@linux.intel.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,70 +96,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 16/07/2025 10:15, Laurentiu Palcu wrote:
-> DCIF is the i.MX94 Display Controller Interface which is used to
-> drive a TFT LCD panel or connects to a display interface depending
-> on the chip configuration.
+On Wed, Jul 16, 2025 at 11:10:09AM -0700, Nirmal Patel wrote:
+> On Thu, 26 Jun 2025 16:48:06 +0200
+> Nam Cao <namcao@linutronix.de> wrote:
 > 
-> Signed-off-by: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
+> > Move away from the legacy MSI domain setup, switch to use
+> > msi_create_parent_irq_domain().
 
+> > -			unsigned int virq, irq_hw_number_t hwirq,
+> > -			msi_alloc_info_t *arg)
+> > +static void vmd_msi_free(struct irq_domain *domain, unsigned int
+> > virq, unsigned int nr_irqs); +
+> > +static int vmd_msi_alloc(struct irq_domain *domain, unsigned int
+> > virq, unsigned int nr_irqs,
+> > +			 void *arg)
+> 
+> Is this wrapped in 80 columns? I can see few lines are more than 80.
+> Disregard this if it is wrapped and it can be my claws mail client
+> issue.
 
-...
+Wrapped locally, thanks Nirmal.
 
-> +
-> +  interrupts:
-> +    items:
-> +      - description:
-> +          Interrupt output for CPU domain 0 (controlled by common registers group).
-> +      - description:
-> +          Interrupt output for CPU domain 1 (controlled by background layer registers group).
-> +      - description:
-> +          Interrupt output for CPU domain 2 (controlled by foreground layer registers group).
-
-
-Keep these in one line with description, by dropping redundant part
-"Interrupt output for".
-
-> +
-> +  interrupt-names:
-> +    items:
-> +      - const: common
-> +      - const: bg_layer
-> +      - const: fg_layer
-> +
-> +  clocks:
-> +    items:
-> +      - description: APB bus clock
-> +      - description: AXI bus clock
-> +      - description: Pixel clock
-> +
-> +  clock-names:
-> +    items:
-> +      - const: apb
-> +      - const: axi
-> +      - const: pix
-> +
-> +  power-domains:
-> +    maxItems: 1
-> +
-> +  nxp,blk-ctrl:
-> +    $ref: /schemas/types.yaml#/definitions/phandle
-> +    description: A phandle which points to NXP displaymix blk-ctrl.
-
-
-Describe for what purpose (from hardware point of view)
-
-With these improvements:
-
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-
-> +
-> +  port:
-> +    $ref: /schemas/graph.yaml#/properties/port
-> +    description: Display Pixel Interface(DPI) output port
-> +
-
-
-Best regards,
-Krzysztof
+Bjorn
 
