@@ -4,172 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A5C2C83F1B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 06:50:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21AA7C83F27
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 06:52:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UAXlT70bqDPC4tm7EcTmntMhUu5eqv5WgWGupdcDBY8=; b=vVi6BLpxrCkFRMnbIo3y38F4UG
-	wFxIZfOGwVF+URjyGpYclJH1A3Gu/eY0dSWENy9qTPJN2VwCynqqBGzt10XDo3EecNEP8UiZ2BKXw
-	aeXY43FvMEI8CC0+Ti84n9qNwwtditQE/x9Uifgw54S7rvare5W6iaiplNa/BIDy+p+v50J1AvFyr
-	bChVdNpuCGJlupSLWFE4w9yUFUQCb1GMLdjEVPQxC77Ll/wfFG9cyYQObNh66STcVOaJV35hZsXHq
-	SrLy6m/eBULu3ZwC0e9REZlz2OIVSgyCKEyZRO1SdGpJKH8LwI0WnsabVZQRuya0WImMfLSN/Djcr
-	bWcyTBIA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=xN5huL6xTqeqII3MsthXx9/VfySuz3yNlHgCNfG5dq8=; b=T7dCdYZ223u53e
+	ugUmkWX9uxjfySXYjXHT983GzthypJ1xvjwVv9lrecRy/snL3DfnzXONc2+Wt+6f0PQdpi+NeSLwR
+	GxTwqYxImS2qzh2OtusvhsOXHlLTFQrBL+uDKWbFegIbfUzF4gt3CUxmGChJeZUDxChNDAeXgd72r
+	JAy1tEABO8XCS2Ss2btEKw5RgdH0eSfGNsjgevcR2qffvJR8cJKTAUo82CXPi/rBdF2LZfBZZinyG
+	TBLtEhQQrRVfzBJnd8FuZOy6u1HxoHM9qqTkF/YV3TEk04UqTs9ognRL+jFgx+ur3RSjEauCT/MRO
+	eQDGmIzvfGnvdIQclptQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubvxy-00000006vaE-0Z2u;
-	Wed, 16 Jul 2025 06:50:10 +0000
-Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1ubw0M-00000006vlq-3qcu;
+	Wed, 16 Jul 2025 06:52:38 +0000
+Received: from szxga02-in.huawei.com ([45.249.212.188])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubvdO-00000006tOf-1KPH
+	id 1ubviF-00000006tta-2rz9
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Jul 2025 06:28:55 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=wEVu/6eVriDhlQ13SB28UriqKEMPwUrcnHYOVAcuCh9wQL1mQadwLte0jP9j0phosPPbo2j45eaxXjjAmGzvIS44T1k3x7LPyWBK9Gc2P6THT/EDCQd4tLBJeFc93CT1wlpTTN+r8/62UczkQcviu71MEXeqd/6/CNTGmP8T7ikoMJggAC9TsOvMr8sFk5cKUhE0RzckPj3GQkOUN+TxA/56nRNID8Uz+yVpourniwwmMQrSyD2gs7inCoe1h1yqtISWqOLpnI82Fu66gRfQDMszwb/o2qcJwt+uIxiSlla7FgYZ9OgWXx9kai84XjD3wNTpeafE3c1gUnhqClz6ZA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=UAXlT70bqDPC4tm7EcTmntMhUu5eqv5WgWGupdcDBY8=;
- b=d3lTCU1fTGOCFl+L9WGxdJ84rSZoo2OPaRu/3cPuUCZVgneWMGWPDV584GGQ3M0RgpZRM3oSbUdCikyEU4U/H+qK9ECb3qWAVSnEX+G3iZfWu0d2FpLFFB3m8/+Hdmh3z3veAlU+CuU82N7TE+d6AXr6lgybTwtpZhdFcULAFRI1mw1YL0sZHFVvW1tzCcCgzKEhQTVwfM5euhgb8RApWqqmuTiq7KQznkf9I/4I3U/rvrx7rmg7Di4c6DnSF5BvypK0hHPvjO6a0KofY7a9TyRbAsxtlR2JG5Ghq62wn7aNi9FItp5JYugX6zD4bNz8fM63D0eBjOKsca+1dapZvg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=kontron.de; dmarc=pass action=none header.from=kontron.de;
- dkim=pass header.d=kontron.de; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kontron.de;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=UAXlT70bqDPC4tm7EcTmntMhUu5eqv5WgWGupdcDBY8=;
- b=Atd4gqpNS8+WAQDmixJQRWbWzg/y3TaHX2A6h9uolHai9VZDAb+obWVG6vQESfSbjuwdQD1PdVuuZa9y+CB9pzwiqeNENxWF3W5tIfTTGrEALrXl42jxla08zrR8PPiXWLtGzrnlEbtppnR1Ts3/ttG/accbrralTtiKdmYf+SzCgJLRxNbDSl1OLRwr2VuEgQq6O9SifscqO0DlBX6wTdr2fpMbN6lYAxH4HLK9QC65eptB/vXmIWElTYAG8Qxq23LM7bxWvnhUOuDVhK96tXwoMy/SM3Xmaqm5SzELlmHTa0ET4JZcsVPZMzXZoXdMOlIXUFtvDojtkangK+5H9Q==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=kontron.de;
-Received: from PA4PR10MB5681.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:102:263::10)
- by DB9PR10MB5858.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:10:395::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8901.35; Wed, 16 Jul
- 2025 06:28:50 +0000
-Received: from PA4PR10MB5681.EURPRD10.PROD.OUTLOOK.COM
- ([fe80::b854:7611:1533:2a19]) by PA4PR10MB5681.EURPRD10.PROD.OUTLOOK.COM
- ([fe80::b854:7611:1533:2a19%4]) with mapi id 15.20.8901.033; Wed, 16 Jul 2025
- 06:28:50 +0000
-Message-ID: <691c5adc-9c0f-49dc-a51b-08cca38bf572@kontron.de>
-Date: Wed, 16 Jul 2025 08:28:49 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 10/12] arm64: dts: imx93-kontron: Add RTC interrupt signal
-To: Primoz Fiser <primoz.fiser@norik.com>, Frieder Schrempf
- <frieder@fris.de>, linux-arm-kernel@lists.infradead.org,
- Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
- imx@lists.linux.dev, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- linux-kernel@vger.kernel.org, Rob Herring <robh@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>
-Cc: Fabio Estevam <festevam@gmail.com>,
- Pengutronix Kernel Team <kernel@pengutronix.de>
-References: <20250714141852.116455-1-frieder@fris.de>
- <20250714141852.116455-11-frieder@fris.de>
- <b32ebf83-0c4f-4321-94b3-1efcbb811073@norik.com>
-Content-Language: en-US, de-DE
-From: Frieder Schrempf <frieder.schrempf@kontron.de>
-In-Reply-To: <b32ebf83-0c4f-4321-94b3-1efcbb811073@norik.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: FR4P281CA0308.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:f6::12) To PA4PR10MB5681.EURPRD10.PROD.OUTLOOK.COM
- (2603:10a6:102:263::10)
+	Wed, 16 Jul 2025 06:33:57 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.252])
+	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4bhmSk30v4ztScv;
+	Wed, 16 Jul 2025 14:32:38 +0800 (CST)
+Received: from kwepemo100006.china.huawei.com (unknown [7.202.195.47])
+	by mail.maildlp.com (Postfix) with ESMTPS id AE101180B54;
+	Wed, 16 Jul 2025 14:33:43 +0800 (CST)
+Received: from [10.67.121.58] (10.67.121.58) by kwepemo100006.china.huawei.com
+ (7.202.195.47) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Wed, 16 Jul
+ 2025 14:33:42 +0800
+Message-ID: <0038c928-60ff-f6ab-763b-6958f1c24200@hisilicon.com>
+Date: Wed, 16 Jul 2025 14:33:42 +0800
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR10MB5681:EE_|DB9PR10MB5858:EE_
-X-MS-Office365-Filtering-Correlation-Id: 82139c75-4e4f-4fb1-2bad-08ddc4320701
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|921020;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?VG1POSthUm9qMFdocURNTU4wcWoySmxJSVVpMGE5N2FHRUxwdkRHUVB6L254?=
- =?utf-8?B?SWorL3MzbU40RHBYckVYei9RcXBkRFpPZkpBQWlmaG80MjdidGZQaFU3cnpu?=
- =?utf-8?B?WlFPSEI0TklPbkNrR2pVV096N3NQVjlDNmhjd0pwL3k5eWxWQlNadEVFQ0FT?=
- =?utf-8?B?bmZTalJrcDRRNXN5QXM1N2xRRTZSamRpTnlMVklzQVFxTmVTeVE1bDNsejVt?=
- =?utf-8?B?Uk0yQXhFbWtnZFV5NE0wbThQL1BqYUoyYWgvQVU1c05ZY0Y4Tm9NK0ZZZG54?=
- =?utf-8?B?UUc1K3kyTjF0VTdUQTNDaExhWk81R042VkExVXBwd0lMSit3ZktINXh5OS9R?=
- =?utf-8?B?SEM5KzJndUttaU1UK01lTndrdVZudXVENlZnQ1FPWkJQdXc0UmNob3hqcFpw?=
- =?utf-8?B?Q2NlQlZEczloNnFpNC9LVW5HakR6SW9mNHcrM3JlaGZVdGJKZjgvRkhIcEk4?=
- =?utf-8?B?T2x5UkFsZmVQSTc5S05FeS91RFh2dDd1ODlHaURJaTBWQ3N6Sk1lUFpCQnJD?=
- =?utf-8?B?QWg5M0ZMdnNhR2Fja2RSZEp0WlY1ekIwTUpuZ3U5b2ZRcjBtdjdYZTRacXUv?=
- =?utf-8?B?alVQa1ZGNmpPRTZia3NzWHNlNjVuQ09hVUZsZXJMV1FmWFpEUStvVmxWcCs5?=
- =?utf-8?B?MWVPc0ZRYitwVEpqNEt4VlQ1cFRyNDFabEZxZmR5UEtlSXBiNXNYSE5zU00r?=
- =?utf-8?B?QVI1WnROTkpwKzFRSVlMKzU2azZNY3hwZDN0M2p6dHhsU0pGWFBrSjVkUEU3?=
- =?utf-8?B?bHdzNGNqdmRJU0lKb2NCV0xVcldva3NtQmpGSjkxQ0dDVVZpdTdCWUpIUEhD?=
- =?utf-8?B?WUpuWGZCbjN4cGphWnRSRXdyeGo0VHh4VVR2NFd5VXNLbi9DVVg1M3NjQjhF?=
- =?utf-8?B?WUxrNVhqUFFseWRxQW5VQnZ5N0lxUEh2b2srRlM5dkcvd0l4dlkyQzFhQ3oz?=
- =?utf-8?B?K3QyQ25DYjFKbnhENG1LWDVvczdsSC9PM3pKeE5vTG5TZ2dUV0REMmJ0eGMv?=
- =?utf-8?B?SW5CY0dGWjkxTTdmOENtQ2laTWM3aUdFcDRpUlZGTjQwYWRmeEVGQnozVWxQ?=
- =?utf-8?B?cHdsY0JUend4bE1rNkVLYlJ2MkhlcXp5cFZzZnZINmY4OS9MeVY2OHZHK1pq?=
- =?utf-8?B?RldHbHMxeEVDaW9ReWZaMEVnNFVYV1o5Q3ZMVGc2ODVrT3BPSzl5ZVdydlZx?=
- =?utf-8?B?d0VUL2I0cmxLRjBhMVBHbDZua0EvZFBsZTRWaHM0QmVkME9MRlJEMkRTWkNn?=
- =?utf-8?B?WG9LU0Z2NXNBTmJMRUJiSEVFQWpIdDhUUk0rQzJKTFRKYjd5eFp2b1JoNmVN?=
- =?utf-8?B?TTNrS0R0YlZ2US9PMlZVL2FVbFFzZ2dpMEZyUnd5VWlLWGx4NW1ScTNVbk1G?=
- =?utf-8?B?WFZKVjVYelY0UmxZQi90dFhOSTF4QlRQR1dQcnQ1NjZueGoxeEZvYWJIN1dh?=
- =?utf-8?B?dDJrdTIyaXZkcDhyNi85NGZ0ZjN0VjRZbnpuZ29XYVk2cHlONk5OcWwxOWI0?=
- =?utf-8?B?eVg4QVlNTWF0RXZrRldxcEpSNlJtNHAraitLVWV1alFuams2WktrclA1VStG?=
- =?utf-8?B?cmx3ZWZtZXE2c0dwR1ZudUhQZmFxZTBLTk4vTU1EUTJTQnlBM0ZaVGl2T3Ux?=
- =?utf-8?B?RVVKbXpUV0RBYStCemN5OCtjMVhPbS83RVZ5VnI2V1AyNjlrKzlHVEFFODFO?=
- =?utf-8?B?aEx2N1htWU1qWUlQL3MybzlSSTYrUG1LU1ZiaU1HMzVPVk14TXJPQkljWDA2?=
- =?utf-8?B?L212alpUUFRVdC9UZGo4RHVVQUN5aEhzcDVCSG5ZTjFhQW1SZ1I3Mnh5L0h3?=
- =?utf-8?B?dVdwTTBpbDJXN09BN1BzRGcvcUJSV3BHWEJLNnRjZG9VRTlSSUNjempVRWUx?=
- =?utf-8?B?YUpKeTVuWU5yOTJNaDRLYlhNNVk0U1NqeHE4V0dvYVlqeE1yU0lnMWlhbnR3?=
- =?utf-8?B?OUtKaTc0RkFGaUp2R2Frbm55UzVER0tRREJieFc1c1F5K3VicjlXbWd4ZlBZ?=
- =?utf-8?B?WjRMdkdDZllnPT0=?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR10MB5681.EURPRD10.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(921020);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?c0tCOXp3RW03S0VkOHNHSW1VOGNrdVU0RzNneE0wYUkzWGhOZ1hrSFhxN254?=
- =?utf-8?B?eW9tZ0x0L3ZXQ0FuREY0aDdQMWJrYld3eTZ4bjdORHlzbkp4c0NITnZkWVYx?=
- =?utf-8?B?STV0YXBRdWJKMmJvOHYwQTd6eVRLNUp2QWMwbTR0TUNSM0pVeWpBTHVOb2VC?=
- =?utf-8?B?SlJQZDgrajVtbkE0RWoxNVk4Nm1vdHZiLzU1czd2dDM3WFJZZkg1ajNMN2dM?=
- =?utf-8?B?QlM2ZzdZRUlyLzlOTE85SFU2aFFlWk5yWnZJRTFuakJGSEwyaERuaWQ5bHYr?=
- =?utf-8?B?d1VLQ2huM3NwY01PTUsyNWRta1JtTVpFMmxTRVg4NnNFRzZJeVI5TnE1QkZn?=
- =?utf-8?B?UlhZYlRQS0l6MHppTDhLbTFMenh3WklXV285d29pUk1rRy9WNHcyaWMva2s5?=
- =?utf-8?B?ZVowcDlrQ3BWRWN4WHRMN041N1YzOFQ5R3J5Zm1najhrbnpHVmM3elh6OS9a?=
- =?utf-8?B?R2x6TExmdkZiUzd0Y2VWb0k1M0NaM1V3dmFacWdWdkJybG03TEtzSmIrcWlq?=
- =?utf-8?B?ei9SakpFdUt4eGI2QlRNVkk5WmhnenhBKzVycXdObmZHcGxLMnlGbE51ZzZ2?=
- =?utf-8?B?RnUyMVRCTitrcE9kUTQrbTJjdzYrTWZxYlFWV1J5eHphWElRU0xJSWd1RFkz?=
- =?utf-8?B?UHd5ZkFkUmFnaHNGRkwrejEvQnBiVWpaOG11UFJmUXpFWkcyMm5TUERtcEov?=
- =?utf-8?B?Rk1RVW5pSWNXbUhoMDR4UjBQNWJIa0RWV3NUaENJbEs0MnJISkNxSTJMRDNB?=
- =?utf-8?B?S0Zidi9YRTJXWUZIajhvbWFLWXI0VjlBUUt0VmVLSENUV0kvWWRoVmU2aENj?=
- =?utf-8?B?T1ZmZVJxVEw0RjZPMzAxb1c4UWx0b1dacXFFbjdJeUNpMHYrY0VYV0RqUFRX?=
- =?utf-8?B?YU9uaWpldjhpVjV3ckViLzNteXZYUldQeVJMVXI5TW1vbzBpMGRmcHdPYUp6?=
- =?utf-8?B?Mk1NUlgyZlp5VUNnWDNMdlJZQ3BJVXNSTFhUU1gzRC9NbDZJSEk5N09XZVBh?=
- =?utf-8?B?cDZKazdJYjhwejgvbnJSakRJcHNZQUpQeSs4WjhvamhtcDgzZFpETzhiWEtJ?=
- =?utf-8?B?VXVWU25jVTQ3dmIyOWhNKzJHK3RVQmRTSTdUT0NqQTJqOGlCNG9qQVc2Nld5?=
- =?utf-8?B?eHVxTGVGYkZLdVErNEJTK1p2QXgzVWRSZnpDS2pVa1AvSU5PL0dqVVhmNXBV?=
- =?utf-8?B?bkhoVlpKYUk2SVplZXBYWmFaUzRjVGxLM3gwWVZxRTBzVmUwSC9wNmRkZ1o0?=
- =?utf-8?B?SVpuRDFvMUFMV0VuL0M5WGdKMExLR1lTa3ROeWJnUS9MaURGRGh2a1ZzN21G?=
- =?utf-8?B?SFJrY3VBZ2dZNWZHTmxYVlhueSsvdkVSYmc2bmJZWDNPOC9RWjdrMDVQK3h5?=
- =?utf-8?B?TjAxQTY4dzg1ZjBlRmZ4ejNCY2JrVW1MMzM0ejNXaVoyWXkzdnVUUFJBMjdx?=
- =?utf-8?B?RXN4S1hJUWdoQW9rUkZISTNheG8yQ2dQNXd4OUtRcnJvU0ZmS1pReTMrc1dO?=
- =?utf-8?B?dDBWNk9ya2tjd0w2Y2ZwenVYVTR0VDlER3I3UmY3d0tYVHMvTXU5YjFVS21O?=
- =?utf-8?B?Q0VWMFNkTXlIQWhDRmdLclVETXplQ1ZNdnpCY2k0ZGhoVjhIZ2FuY0xZalJ6?=
- =?utf-8?B?NUw1VEtBOFl3RWw0a3QxQXVxcWhjMmJBSTBJWUlyLzl6ZW9pSldJZzU4bWdD?=
- =?utf-8?B?aTRWYTd5SjBNTXozUFQzbHV4Qm1oVTBuUlMvZ3BmL1VzWDI3ZGJvVHdFa2RU?=
- =?utf-8?B?MVo1Sk9ONDdDMGs1dVJybURnZXAyeEVuNjY4M0tDa0VFS2xDaDhFZkpybWdE?=
- =?utf-8?B?empjeGNmSlBaKzNISW94bjF3NnBrc1ZkYlR5RWNCYnRsRHphSmQvM2pCWVhN?=
- =?utf-8?B?ZGRBMDhFanMvVURmd2QzSDZuQkZjMHUrN0NPcmx0Sm1TSklpWDNsbmJaSita?=
- =?utf-8?B?ZmNDMGx6UjE0WWhTWldkcGVXTXI5cXZrWC9sWHJtODBycVpjeU5MU051N29y?=
- =?utf-8?B?QTg4cUNITXJmejU2d2pFcUdUeVJ0di82QXQ2V1ZVaEpwdTQ5TnZmalBvWFlU?=
- =?utf-8?B?RHNhSUcyMWt5eEZ1ZDBqWnJONmZjZ295ZHNZeWsyZjNJNzloeE5xdXZxcnpp?=
- =?utf-8?B?RjYza2JIc2hMS2VETHV6WUN3bGhWSXQ4TytSQlYrVmk2ZlhrWnh4ZllKbjY1?=
- =?utf-8?B?d0E9PQ==?=
-X-OriginatorOrg: kontron.de
-X-MS-Exchange-CrossTenant-Network-Message-Id: 82139c75-4e4f-4fb1-2bad-08ddc4320701
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR10MB5681.EURPRD10.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Jul 2025 06:28:50.3396
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 8c9d3c97-3fd9-41c8-a2b1-646f3942daf1
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: uKjxuouIdI3IbIT155BZpfCSveaC1KC9QlQKk/j3X2ezjutOMDIhaLF9p90kBTHVnA9/KK/sDCyX7z8Z/J3GUrnm0Fal8hXAXYk1cFtlUoI=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR10MB5858
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.3.2
+Subject: Re: [PATCH v6 0/2] PM / devfreq: Add HiSilicon uncore frequency
+ scaling driver
+To: Chanwoo Choi <chanwoo@kernel.org>
+References: <20250623143401.4095045-1-zhanjie9@hisilicon.com>
+ <9e028620-75b9-5a9a-dab6-8374b0a4fa4e@hisilicon.com>
+ <CAGTfZH0eHz8aRDkSOTNosNqZGv9Qhf2K-Rtz-Yt+_GpNQzXo5g@mail.gmail.com>
+From: Jie Zhan <zhanjie9@hisilicon.com>
+In-Reply-To: <CAGTfZH0eHz8aRDkSOTNosNqZGv9Qhf2K-Rtz-Yt+_GpNQzXo5g@mail.gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.121.58]
+X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
+ kwepemo100006.china.huawei.com (7.202.195.47)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250715_232854_714208_D2B79B33 
-X-CRM114-Status: GOOD (  16.76  )
+X-CRM114-CacheID: sfid-20250715_233356_050082_0E3B726D 
+X-CRM114-Status: GOOD (  26.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -181,65 +69,108 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: yubowen8@huawei.com, Linux PM list <linux-pm@vger.kernel.org>, Lifeng Zheng <zhenglifeng1@huawei.com>, liwei728@huawei.com, linuxarm@huawei.com, =?UTF-8?B?7LWc7LCs7Jqw?= <cw00.choi@samsung.com>, Kyungmin Park <kyungmin.park@samsung.com>, MyungJoo Ham <myungjoo.ham@samsung.com>, lihuisong@huawei.com, prime.zeng@hisilicon.com, Jonathan Cameron <jonathan.cameron@huawei.com>, linux-arm-kernel <linux-arm-kernel@lists.infradead.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Primoz,
+Hi Chanwoo,
 
-Am 16.07.25 um 08:21 schrieb Primoz Fiser:
-> Hi Frieder,
-> 
-> On 14. 07. 25 16:17, Frieder Schrempf wrote:
->> From: Frieder Schrempf <frieder.schrempf@kontron.de>
->>
->> The RTC EVI ouptut is connected to a GPIO. Add the interrupt
->> so it can be used by the RTC driver.
-> 
-> AFAIK, RV3028's EVI is an input pin (EVent Input).
-> 
-> Please check.
+A quick check. Is this series queueing up for v6.17-rc1?
 
-Thanks for noticing! It seems like the commit message is wrong here. The
-patch is about the INT signal which is an output on the RTC. I will fix
-the description in v2.
+Regards,
+Jie
 
-Thanks
-Frieder
-
->>
->> Signed-off-by: Frieder Schrempf <frieder.schrempf@kontron.de>
->> ---
->>  arch/arm64/boot/dts/freescale/imx93-kontron-osm-s.dtsi | 9 +++++++++
->>  1 file changed, 9 insertions(+)
->>
->> diff --git a/arch/arm64/boot/dts/freescale/imx93-kontron-osm-s.dtsi b/arch/arm64/boot/dts/freescale/imx93-kontron-osm-s.dtsi
->> index 119a162070596..c79b1df339db1 100644
->> --- a/arch/arm64/boot/dts/freescale/imx93-kontron-osm-s.dtsi
->> +++ b/arch/arm64/boot/dts/freescale/imx93-kontron-osm-s.dtsi
->> @@ -205,6 +205,9 @@ eeprom@50 {
->>  	rv3028: rtc@52 {
->>  		compatible = "microcrystal,rv3028";
->>  		reg = <0x52>;
->> +		pinctrl-names = "default";
->> +		pinctrl-0 = <&pinctrl_rtc>;
->> +		interrupts-extended = <&gpio3 19 IRQ_TYPE_LEVEL_LOW>;
->>  	};
->>  };
->>  
->> @@ -468,6 +471,12 @@ MX93_PAD_CCM_CLKO4__GPIO4_IO29			0x31e /* CARRIER_PWR_EN */
->>  		>;
->>  	};
->>  
->> +	pinctrl_rtc: rtcgrp {
->> +		fsl,pins = <
->> +			MX93_PAD_SD2_VSELECT__GPIO3_IO19		0x31e
->> +		>;
->> +	};
->> +
->>  	pinctrl_sai3: sai3grp {
->>  		fsl,pins = <
->>  			MX93_PAD_GPIO_IO20__SAI3_RX_DATA00		0x31e /* I2S_A_DATA_IN */
+On 02/07/2025 11:21, Chanwoo Choi wrote:
+> Hi, 
 > 
+> I'm sorry for late review. I'll review and then merge until this week.
 > 
-
+> Best Regards,
+> Chanwoo Choi
+> 
+> 2025년 7월 2일 (수) 오전 11:37, Jie Zhan <zhanjie9@hisilicon.com <mailto:zhanjie9@hisilicon.com>>님이 작성:
+> 
+>     Hi devfreq maintainers,
+> 
+>     A kindly ping on this series.
+>     I believe it's in a good shape now.
+> 
+>     Jie
+> 
+>     On 23/06/2025 22:33, Jie Zhan wrote:
+>     > Add the HiSilicon uncore frequency scaling driver for Kunpeng SoCs based on
+>     > the devfreq framework.  The uncore domain contains shared computing
+>     > resources, including system interconnects and L3 cache.  The uncore
+>     > frequency significantly impacts the system-wide performance as well as
+>     > power consumption.  This driver adds support for runtime management of
+>     > uncore frequency from kernel and userspace.  The main function includes
+>     > setting and getting frequencies, changing frequency scaling policies, and
+>     > querying the list of CPUs whose performance is significantly related to
+>     > this uncore frequency domain, etc.  The driver communicates with a platform
+>     > controller through an ACPI PCC mailbox to take the actual actions of
+>     > frequency scaling.
+>     >
+>     > Changelog:
+>     >
+>     > v6:
+>     > Consolidate hisi_uncore_init_pcc_chan() related stuff:
+>     > - Move devm_mutex_init() to hisi_uncore_init_pcc_chan()
+>     > - Move devm_add_action_or_reset() into hisi_uncore_request_pcc_chan()
+>     >
+>     > v5:
+>     > https://lore.kernel.org/all/20250619151456.3328624-1-zhanjie9@hisilicon.com/ <https://lore.kernel.org/all/20250619151456.3328624-1-zhanjie9@hisilicon.com/>
+>     > - Comment more on error code related stuff about
+>     >   hisi_uncore_mark_related_cpus(), and return failure early on errors
+>     >   except for -EINVAL, which indicates possibly broken firmware.
+>     > - Separate error prints apart for two cases in hisi_platform_gov_handler()
+>     > - Make the 'related_cpus' sysfs ABI description more generic
+>     > - Some coding style cleanups and typo fixes
+>     >
+>     > v4:
+>     > https://lore.kernel.org/linux-pm/20250530081722.280776-1-zhanjie9@hisilicon.com/ <https://lore.kernel.org/linux-pm/20250530081722.280776-1-zhanjie9@hisilicon.com/>
+>     > - Allow devfreq core to accept device-specific sysfs ABIs
+>     > - Replace custom sysfs attrs with dev_groups and let the devfreq core
+>     >   manage it
+>     > - Update 'related_cpus' description in the devfreq ABI doc
+>     > - Remove COMPILE_TEST in Kconfig as the mailbox_client.h doesn't support
+>     >   this yet
+>     > - Replace dev_err() with dev_err_probe() during drv->probe()
+>     > - Replace mutex_init() with devm_mutex_init() to warn on UAF
+>     > - Replace uncore->dev with dev in some places to make code a bit shorter
+>     > - Remove redundant uncore->pchan check in hisi_uncore_free_pcc_chan()
+>     > - Use __free() to let compiler release temporary memory
+>     > - Clean up the error handling and redundant 'status = 0' in
+>     >   hisi_uncore_send_cmd()
+>     > - Some coding style cleanup
+>     >
+>     > v3:
+>     > https://lore.kernel.org/linux-pm/20250522031701.1912458-1-zhanjie9@hisilicon.com/ <https://lore.kernel.org/linux-pm/20250522031701.1912458-1-zhanjie9@hisilicon.com/>
+>     > - Remove redundant resource freeing processes when drv->probe() fails as
+>     >   they're already handled by devm
+>     >
+>     > v2:
+>     > https://lore.kernel.org/linux-pm/20250520074120.4187096-1-zhanjie9@hisilicon.com/ <https://lore.kernel.org/linux-pm/20250520074120.4187096-1-zhanjie9@hisilicon.com/>
+>     > - Make devm manage the release sequence, remove drv->remove()
+>     > - Warn on !uncore or !uncore->pchan as they're no longer expected
+>     > - Remove ioremap of pcc shared memory because it's done by the pcc driver
+>     > - Fix compiler warning of discarding 'const'
+>     > - Minor trivial coding style changes
+>     >
+>     > v1:
+>     > https://lore.kernel.org/linux-pm/20250506021434.944386-1-zhanjie9@hisilicon.com/ <https://lore.kernel.org/linux-pm/20250506021434.944386-1-zhanjie9@hisilicon.com/>
+>     >
+>     > Jie Zhan (2):
+>     >   PM / devfreq: Allow devfreq driver to add custom sysfs ABIs
+>     >   PM / devfreq: Add HiSilicon uncore frequency scaling driver
+>     >
+>     >  Documentation/ABI/testing/sysfs-class-devfreq |   9 +
+>     >  drivers/devfreq/Kconfig                       |  11 +
+>     >  drivers/devfreq/Makefile                      |   1 +
+>     >  drivers/devfreq/devfreq.c                     |   1 +
+>     >  drivers/devfreq/hisi_uncore_freq.c            | 658 ++++++++++++++++++
+>     >  include/linux/devfreq.h                       |   4 +
+>     >  6 files changed, 684 insertions(+)
+>     >  create mode 100644 drivers/devfreq/hisi_uncore_freq.c
+>     >
+> 
 
