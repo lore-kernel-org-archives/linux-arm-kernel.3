@@ -4,75 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EECAEC83F1B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 10:47:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEE15C83F1B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 10:50:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Cp9vNxFVE61mtQfVZ1xC7aCKo2yRPekH+M/h7ezzeWQ=; b=oB+sn8FDjuJFYdyDzR86+WeW0i
-	7RpuABoQlqHAJGpNaucyhXma1fcFRW8Rfs0s8PVB4CI+nVoH47ULpILytGQVOzr0s39HS4UpfF/hf
-	sKnZR4jV5Hnx5vckjVJi+n24Yr2abXrNwpzc/Mnc6wTCJNqNQ+lQpFrhSzEI7kgemCbRvTCv/3pxW
-	eigm1J9JV8tv94nAC/sp00wLoDo3zyDi/XRRUMwvO74DjIuts49DnRcrlD8Si/UjkKZSmCR+IfXVB
-	luKUqX1VGodbNEzVz5bNZqpcM9nerSyiIjQ4dsH+Dmd1L6IaMJ+2w5ix8oqtAeyHRkGUbqB02tyNJ
-	NfHr1h2Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GwY+ydg7QNO8ffgOhspbvFzuLK5V0VJeLu7G3qLFQ9o=; b=imEG1TNe5oAvG+zxTDhS4Dr+oR
+	jRkq75y6xMwXmw+EtTfZA/MDJcs3bcVIRZwv37cR/HtfN5cdlbPUa/5I1YZZ4rBOa/0lr4gAgrXaD
+	LURl5bls4PVaMIZQjXUitsuUIBZTUBxkEm6+GG/i3sDAsOYYQMqXqPAgZr0lR1dOZFgODQ9JgFD1s
+	Ek3LZbcrgOI/TMH7/4v0pnz9RfouF/wngUbmiT2zeLAcOfhlb0JYPWqzrxhI1k4u143LzuK/gECDE
+	2sJhhdsPJkzDiGoDS6BZZ8+kqtW6fyNBVaA1BilKJ84s4+vehXj7fnhdZNK3uCEVIPMvITtXOKZtp
+	oqJyvIMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubzfx-00000007T4l-2zSl;
-	Wed, 16 Jul 2025 10:47:49 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1ubziN-00000007TOy-2CET;
+	Wed, 16 Jul 2025 10:50:19 +0000
+Received: from mail-oa1-x2d.google.com ([2001:4860:4864:20::2d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubzBt-00000007OGK-07vP
+	id 1ubzC9-00000007OIY-3ohh
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Jul 2025 10:16:46 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 54689A53603;
-	Wed, 16 Jul 2025 10:16:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DE950C4CEF1;
-	Wed, 16 Jul 2025 10:16:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752661004;
-	bh=XT9cXOKCmgl+ldwrsrHzx8+e2njm2xgZ6MA6eRd2e/w=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=LxcZwS4aCnkKDwRprVZ6dIySrzUO2MocrydHWue/iOuPpLgSEvTwNrEg0h3f3EF6i
-	 Sb4gUi2vhzfyem5XOWmJMa4rmCJJD1kpdjVaIA9NoQtQaP0AUJ1dMk62mxeHrjq+dE
-	 qEE82XVL6VH2M0jlIrFl/LRKxFNIN6zyZgEut36q26nThcrpv95YtIJXY9f2QjTEYa
-	 D2f9+kKHQk09fWT0Msq0IFEljX9xz9OPn3fiEOe8/5iYipAw95KGOj8ttxUvpqinNp
-	 R6Zntx3xNm/i1UjTvEw+Qc7AiBhySpFTNsV75LquyGPBEWCFEkG6DEDhydjL3uGrkH
-	 5Cr56zlrxRLCg==
-From: Konrad Dybcio <konradybcio@kernel.org>
-Date: Wed, 16 Jul 2025 12:16:10 +0200
-Subject: [PATCH v2 4/4] MAINTAINERS: Remove sdm845-cheza device trees
+	Wed, 16 Jul 2025 10:17:03 +0000
+Received: by mail-oa1-x2d.google.com with SMTP id 586e51a60fabf-2eaf96c7579so3941227fac.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Jul 2025 03:17:01 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1752661020; x=1753265820; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=GwY+ydg7QNO8ffgOhspbvFzuLK5V0VJeLu7G3qLFQ9o=;
+        b=jHO9OZ+yy18/T05U/MFKP1Zyk/5WGpdeuZLXH4o14fcYj/4hmK0YVxTlQK2Ewaru17
+         RVO8jOWQICEWc+b6PdX6WSAiu76z0/U61lkhOLqrmesQRyzbhUgwnd7/o3Ko259f8E+W
+         p4ugcCZAckkwRIVEOKkgfrIYuFcCGZeDegfyhaJy6qmjT2OSLalKx9CHVEtALLdiApNG
+         NReBwsob1nrnALZtImLVFHzzC8FQKiHQ+JaNxMbkq08GHvheI3KLhEbn2BwTXYPHVXcr
+         BDOWyo+5O+h1F1ei7WJpcNWUX7alxKhx64cfxUtBh1iwI7VfFZrf2yWbFqSPTOGOePvJ
+         NcHQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1752661020; x=1753265820;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=GwY+ydg7QNO8ffgOhspbvFzuLK5V0VJeLu7G3qLFQ9o=;
+        b=iLtN9PV3VkyKrbDJFKhEiksk8nIM/cHDdIwvsGzB/KMczpRNVlVrPAdVF/f2w8yTc9
+         zBb3GMET/J038ynPnWvWkfrdxDjfJwJ0zL6wZ118/tqa0WxxhhFIzdS+NCKmvJChNbc9
+         u+xY+2ub17Nc1Me5wgiwU1xONgUNfVhvjPlbJIjQ5nuK7lsq6Qxdi2IFm2Y8kzY6GvZR
+         tIPPHtreiLK8f6gBni6v/Tun5lMyDhwE/hOouQSQWGkuNSydfCqo1mY5y/04p946Vgph
+         1kyoH+ZkZ9dgOa0P/UFpuXAeYoZT4KOTApt9L2yd3n96HlSJzkREWRrpR1F3vSsM3rDE
+         A7wA==
+X-Forwarded-Encrypted: i=1; AJvYcCUXu6W3nolBgwEiyJuXl45G1LTPEm8yFiTjXYY2L8uBrNFM1qrJIp/CYrexnQiBb8Yupom4tsnFNHcKf9ZevKn4@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyt3Tf27juj/hoLI2w/Xt/HBqICjG1+mQ+IzIrShZPYYboeLiqr
+	qZYLGwER7LdYwZp7PYasz1OhRzXgbiiWW2ehWqlW53RLlH8YS90FQCEPmA/6HiDPRNpr61WGQCg
+	WKDtEGDf7fE7Tk0HuSxe/5QQfCMUvl4+j5VmFSeyOaw==
+X-Gm-Gg: ASbGncshMlyjFVWg3vt96SmWJGHmKHpixrBjtWrelwpnAWbufj1Yw3D0v2JDp9y3SNv
+	H8EJPqiYadIJ8IsOrGN07yVOigBtOZPHXHaMFThCE2nan7782HJhq1stuivZDhU0WGyII7VEGQ9
+	SulqMUa4CJ0m8KCQoPlePgHkLHACD0qygrf1qP3opHnT+F75/RAhoVlLvIrcomwSCP+H4/B3lK5
+	Fyjgxqn
+X-Google-Smtp-Source: AGHT+IFBJVxKAXo/cKR2ndkM9X7Bsz8i7y0trbE2KS4VktpXvhySzwMgUoWrnTeCkvYzPODvF62WRFigY53HbadClC8=
+X-Received: by 2002:a05:6871:71f:b0:2eb:a8fb:8622 with SMTP id
+ 586e51a60fabf-2ffb229c270mr1371804fac.15.1752661020506; Wed, 16 Jul 2025
+ 03:17:00 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250716-topic-goodnight_cheza-v2-4-6fa8d3261813@oss.qualcomm.com>
-References: <20250716-topic-goodnight_cheza-v2-0-6fa8d3261813@oss.qualcomm.com>
-In-Reply-To: <20250716-topic-goodnight_cheza-v2-0-6fa8d3261813@oss.qualcomm.com>
-To: Bjorn Andersson <andersson@kernel.org>, 
- Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, cros-qcom-dts-watchers@chromium.org, 
- Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, 
- Joerg Roedel <joro@8bytes.org>
-Cc: Marijn Suijten <marijn.suijten@somainline.org>, 
- linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Rob Clark <robin.clark@oss.qualcomm.com>, 
- linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev, 
- Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1752660979; l=865;
- i=konrad.dybcio@oss.qualcomm.com; s=20230215; h=from:subject:message-id;
- bh=ANVp9wD1JKerNgZkOFesI2FiXPrTvVkvGY5Hg/6LtoA=;
- b=qAkxUuVfq2BgTuvJ55zGB+Qi2KJW+DlZZqVzcXUyp80yzPuP4rZbQ+3K+h4pndYjSXVkqT85t
- nuAx28SbwTqDRfiIdrqHZl5cmxa9zQNkE5WnrvbgDQ6nobfM+Xnp5EO
-X-Developer-Key: i=konrad.dybcio@oss.qualcomm.com; a=ed25519;
- pk=iclgkYvtl2w05SSXO5EjjSYlhFKsJ+5OSZBjOkQuEms=
+References: <20250703-ufs-exynos-phy_notify_pmstate-v1-1-49446d7852d1@linaro.org>
+ <yq11pqiaedd.fsf@ca-mkp.ca.oracle.com> <yq1a556776b.fsf@ca-mkp.ca.oracle.com>
+In-Reply-To: <yq1a556776b.fsf@ca-mkp.ca.oracle.com>
+From: Peter Griffin <peter.griffin@linaro.org>
+Date: Wed, 16 Jul 2025 11:16:49 +0100
+X-Gm-Features: Ac12FXyVvVETCy_fvebhSLHtpuQY_pd3_d6Vt5LZcabX59ifAwOETZg6eR50R8Q
+Message-ID: <CADrjBPrCBG4ZatLwYyH07f5EQrbO876M7WqXX7UfgD9Cg8w9Uw@mail.gmail.com>
+Subject: Re: [PATCH] scsi: ufs: exynos: call phy_notify_pmstate() from hibern8 callbacks
+To: "Martin K. Petersen" <martin.petersen@oracle.com>, Vinod Koul <vkoul@kernel.org>
+Cc: Alim Akhtar <alim.akhtar@samsung.com>, 
+	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>, 
+	Krzysztof Kozlowski <krzk@kernel.org>, linux-scsi@vger.kernel.org, 
+	linux-samsung-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250716_031645_142567_16D6F262 
-X-CRM114-Status: GOOD (  10.40  )
+X-CRM114-CacheID: sfid-20250716_031701_956305_7428C44B 
+X-CRM114-Status: GOOD (  12.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,35 +97,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+Hi Martin,
 
-Cheza was a prototype board, used for developing Snapdragon platform
-support on ChromeOS.
++ Vinod (phy maintainer)
 
-Since almost none are left in existence, and none are left in use, the
-device trees for that family of devices are being removed.
+On Mon, 14 Jul 2025 at 23:15, Martin K. Petersen
+<martin.petersen@oracle.com> wrote:
+>
+>
+> >> Notify the ufs phy of the hibern8 link state so that it can program the
+> >> appropriate values.
+> >
+> > Applied to 6.17/scsi-staging, thanks!
+>
+> This appears to have a dependency on a patch series aimed at the phy
+> tree.
 
-Clean up the maintainers entry with it.
+Thanks for your email. Yes you're correct, as mentioned after the ---
+in the patch this has a dependency on the new API proposed in [1] so
+can't be queued currently.
 
-Signed-off-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
----
- MAINTAINERS | 1 -
- 1 file changed, 1 deletion(-)
+Thanks,
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 5efcdb5537f52b84a57505857399af70f0fa7e45..1458ff091a864e539c554ef9e915331c44c87370 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -3071,7 +3071,6 @@ ARM/QUALCOMM CHROMEBOOK SUPPORT
- R:	cros-qcom-dts-watchers@chromium.org
- F:	arch/arm64/boot/dts/qcom/sc7180*
- F:	arch/arm64/boot/dts/qcom/sc7280*
--F:	arch/arm64/boot/dts/qcom/sdm845-cheza*
- 
- ARM/QUALCOMM MAILING LIST
- L:	linux-arm-msm@vger.kernel.org
+Peter
 
--- 
-2.50.1
-
+[1] https://lore.kernel.org/lkml/20250703-phy-notify-pmstate-v2-0-fc1690439117@linaro.org/
 
