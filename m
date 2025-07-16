@@ -4,95 +4,215 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 100FDC83F22
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 13:28:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28329C83F1B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 13:31:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=d6kfc10B6ok/s3QG/0BYXTIDoit26JaipG2QuAEmJ7I=; b=Dc/Y3yaxj36iem
-	ka9H12kj8299gTyr3Qm2KPk/xN8kn3TH0+ozUM2L2IPzRGbyj2YKLvG1GWxKvN6tPt6fognnjraiz
-	RtbywcN2eUkMFkZLEnACpHz482WOjEZoT0OiT7iISgNjewoa9Edqlk2UVgWBLrVSDulxAKVeLRlAh
-	OZxxDPqyoMepfIDf6wdoXiihYXhDLc6nDyFbNnZaUeMIEx+58t8DlBa4QClo5PdEpyLhBTqvEBMDH
-	2FwEww2/WADrjY+FOTycqQ4m4B4fv18j0638quzMSI8uZ24+BrGa1s6ezyfS+rCCBFnbsrs35MZ6+
-	453eL3wyB4sdhjkl3+nA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2woRELVHNVyshBDQlp+XBscfMnl0ayZXPRlzVywt9vc=; b=fObRC/N9mSqjgjkVnADbjagJBa
+	TaJEIPSLi2lfgZ7VWG6vT0VkE9hw+RGtO4rlENoeIFcHGEFB+IL/RrMmW4h/surUzKd0PripTnQ3Y
+	26lGANoAz6DV3O2bU7KX85rf4DhagxaPDZpbY5tNOvvh/9D0xTZT8Wq/aC27SqRX7p6rIyymhYa1B
+	Y0RKiBzFL5YA3/J2BmJJSB3qLY+XkOGMKb2cXh22FdBxOZ3AyL9EaeWx3hptkd4ctMpuF1agHHREf
+	hI8uv8YzmZtiEcANr2Ur+eiAO0mL7xnM9pnGFWp5ufnXi2b7x0QRNo6Nzw1EnTwjub2fww1Velbr/
+	vdWFkKeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uc2Bg-00000007nJ1-0yQy;
-	Wed, 16 Jul 2025 13:28:44 +0000
-Received: from mail-ua1-x931.google.com ([2607:f8b0:4864:20::931])
+	id 1uc2E8-00000007njQ-1coj;
+	Wed, 16 Jul 2025 13:31:16 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uc293-00000007mxH-1H03
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Jul 2025 13:26:02 +0000
-Received: by mail-ua1-x931.google.com with SMTP id a1e0cc1a2514c-86fea8329cdso4053511241.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Jul 2025 06:26:00 -0700 (PDT)
+	id 1uc29l-00000007n5z-2YkJ;
+	Wed, 16 Jul 2025 13:26:46 +0000
+X-UUID: 81da963e624811f09f706fa2197c6ceb-20250716
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=MIME-Version:Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From; bh=2woRELVHNVyshBDQlp+XBscfMnl0ayZXPRlzVywt9vc=;
+	b=kIuSWZWO8po3+Rwliz2x4mSVFB2NNduTfjga2WZ23MgYvYdicQsVY+2zXDDbypRz2JMJ4lkC+f6j77ds5AjRQzFFSJP/huZpkmNJNWopTT0Z/tQ8fHbKCtNcfPDfWzvpFom2DCPKaXShqjspCHW29C8qDTo9yU+oxIk/o4135bU=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.2,REQID:85ca9e78-7ed4-4e0d-9231-65884e77d567,IP:0,UR
+	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
+	elease,TS:0
+X-CID-META: VersionHash:9eb4ff7,CLOUDID:85a3d90e-6968-429c-a74d-a1cce2b698bd,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|110|111,TC:nil,Conte
+	nt:0|50,EDM:-3,IP:nil,URL:99|1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL
+	:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0,NGT
+X-CID-BAS: 0,NGT,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULS
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 81da963e624811f09f706fa2197c6ceb-20250716
+Received: from mtkmbs14n2.mediatek.inc [(172.21.101.76)] by mailgw01.mediatek.com
+	(envelope-from <macpaul.lin@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 979030746; Wed, 16 Jul 2025 06:26:40 -0700
+Received: from mtkmbs10n2.mediatek.inc (172.21.101.183) by
+ MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.39; Wed, 16 Jul 2025 21:26:37 +0800
+Received: from TYDPR03CU002.outbound.protection.outlook.com (172.21.101.237)
+ by mtkmbs10n2.mediatek.inc (172.21.101.183) with Microsoft SMTP Server id
+ 15.2.1258.39 via Frontend Transport; Wed, 16 Jul 2025 21:26:37 +0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=MtX6OdnhvfrMqwlfZwtAJ46xZjpIlMUuZuR8ES/10nOGGvxkaK0chAwqV71oYHnM51KHCz48DsJnstc1v7b8PAlFemt6zKy7+qORIkHsqqwKjwyiU0GXfo2upfLNXWGdCsylwuRrZUVHdJMCQuF6pcrce3wLfBf/8/8iy9qCA3IJP/+w0V8PZQRbl8D+aFjtBgxLkhqnAylvpnzVDZSnFVvEGKnnKvlQccM8foDYn79Im32Bk3TiA8gKnfaHogRlad/H61XBt6Mql2EqFaoEgu4ozeoGepLhW0BvxB1uOvLbXcjE6UakcnApxcJdQHp7eZd6HNDcX//xcr92pJK+TQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=2woRELVHNVyshBDQlp+XBscfMnl0ayZXPRlzVywt9vc=;
+ b=t25YO+YThP+8DAqh88Fo5jwzrggXyh7Y7SdSUVp6vIE77XoOFxjbOWlIfk2/EGWWRghgJvgddjdqjnNBUnTekFJJgcSPqdDx67rlPApRj3oGVjzLgeH8wwKSc7RJqGoGVxl0NxWTtZaqAFBKXdhSQI1G1oYuT8sX4B/SCIbImhi0KlP+d5MC9tixP620JUY818hW6CJ8d1HPyt1Nok+p7SeoM5UsAxjt/lhYNvzH42DoCPmqOHq2YVs2aQ1pv5pnSAosBDIrEUBhBavyux5/U2c5AVCPhV8lahOCZ/T+XP2R89utwXNaPnpiQh/9E+9vZpKsebG56O6z9SAF+fRq2Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=mediatek.com; dmarc=pass action=none header.from=mediatek.com;
+ dkim=pass header.d=mediatek.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1752672360; x=1753277160; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:message-id:subject:cc
-         :to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=d6kfc10B6ok/s3QG/0BYXTIDoit26JaipG2QuAEmJ7I=;
-        b=jjojWNayYtdKBBsyvgyRIcdUoFq29vYGVrLW9K5Hk1s2XA/iM9+A6T3PS+ZH6h9QcT
-         QM/VgtC9CdowswborpYJ22LpEpj1VihXmQAbDTncw/CQU9frNyKPjD8ND8nMVyi7kboI
-         4H5WrnecAJRtSXpd//VFtuusM7LD3Njmkk1igtwe1YDBDPZFOnL1XBavE0aQNI0Twu3I
-         e+xWgrBJvkiY4FvEurRjOaNy7+AJI4KoQVhmqGjM6zvD7G/sY83mpfzMZVtmtNTPPhnH
-         tVJdFTuRv69uIm5If1VKrG7MMgZBibUHtdvS2crFbN8lOPRyx7Qd+kvo+/iYtx5aCCFW
-         crWA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752672360; x=1753277160;
-        h=in-reply-to:content-disposition:mime-version:message-id:subject:cc
-         :to:from:date:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=d6kfc10B6ok/s3QG/0BYXTIDoit26JaipG2QuAEmJ7I=;
-        b=l3DGmn2cRvFMA8mB9qa0PWCxfvomfIaX9I6ir5GPsYtQ70tIMcpCwnnwolxmd8sCTK
-         VuvrgG5g8WHQD+ueGySqFgL9byJGtMhTSgRHodcUV988nuk7MMGKapLyz7FwP6B/pMy0
-         DPJp6Il7H98UUtL8U+k3yi/A4Xz/YdVF3SVuWsjDtNrUF8/kLUcUWAnWj8157vznfhDg
-         KMjq0zfWASzJh4yTCQ8eriw1SVjAipzH6dtMih2kTYx5y6KcbFu9iROYSZIX9D9XRqTN
-         C1EBXSmXm5nuyqSLFtTk8Dx97l2ALXK8okxwYn9x1ICHYPT7zMGF1vRL8VJf8n9j+a7r
-         E+lw==
-X-Forwarded-Encrypted: i=1; AJvYcCXazDkAMpd1cdfaDEZ7kx6km0pzk516rMExHfx8Y7p4wHHacwGrLNiEgMitP83Y39GtQ8rla52n+aPArewaSl0h@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyg8s+XELAzuXHMKv8hF/m2Oq5GZKTsozsUq2Q8pNEECT5ROF1X
-	WKCHOsoawGhBMEvZaiDI117HddjKf++Qbm+D8D2lEl02V6J1K92TKhp5
-X-Gm-Gg: ASbGnctdcmqBpdN6cBVlPM5c8BUxg8XqC/uM5glFaYTQ9Ig0i5xSYcJjDReAA4OLmep
-	fnY8ve5E/TMDrd2jQbi59kf8nK3BsWv+BZw5XiX790/3vZEwSjq4L4v8j5BLWnTT6+37UdJqorE
-	4OEjapcijn3fPF/ULLOo3Z6MTgb4Aw2gaOm/aUH/z0qyAvDKrmRu8t2cWQ3INOVjcKlLuRkXdmC
-	wkX+gCiN3I3nbl5p3BgDRza1jvME9wS1zd+H2R39Q7CP1pfvD3hG+joiBWZ7Kr8jdhWJJ1ltQzt
-	lgnXZGC7kjkhtGWM912T6Lsd7D/UnltzJnCEXTq8XJ9ck7de4eKvSyASe36mC99b+19Ll3ft+jB
-	s0U7y3W3G88w10yw2tZk=
-X-Google-Smtp-Source: AGHT+IGLZtQSK5F5avY+4+/nRGti/F+DWgaDPqtV4DEb2TtE0xcBhcqnIWzqD/MfxQq4TFm15BZo2w==
-X-Received: by 2002:a05:6102:808d:b0:4e5:fe5e:2be4 with SMTP id ada2fe7eead31-4f89999f155mr1651316137.22.1752672359482;
-        Wed, 16 Jul 2025 06:25:59 -0700 (PDT)
-Received: from hiagonb ([2804:1b3:a7c1:459e:e3dd:d2e:b1ee:b9ec])
-        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-888ec44ad97sm3105837241.25.2025.07.16.06.25.54
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 16 Jul 2025 06:25:58 -0700 (PDT)
-Date: Wed, 16 Jul 2025 10:25:52 -0300
-From: Hiago De Franco <hiagofranco@gmail.com>
-To: Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Ulf Hansson <ulf.hansson@linaro.org>
-Cc: linux-pm@vger.kernel.org, linux-remoteproc@vger.kernel.org,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Hiago De Franco <hiago.franco@toradex.com>, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Peng Fan <peng.fan@oss.nxp.com>, daniel.baluta@nxp.com,
-	iuliana.prodan@oss.nxp.com,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH v7 3/3] remoteproc: imx_rproc: detect and attach to
- pre-booted remote cores
-Message-ID: <20250716132552.bra37ucw4fcjwril@hiagonb>
+ d=mediateko365.onmicrosoft.com; s=selector2-mediateko365-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=2woRELVHNVyshBDQlp+XBscfMnl0ayZXPRlzVywt9vc=;
+ b=Rh9Ezuy+tfae/Hz/zlLm5RwfA6URurh6ypuxMKd4FUQWRJf/i8HFlLn7BQWmle+ab/7AoZm8i+FZgOwijc/PMGiRZ44Lu3XtOKkgU5fZ8PZoZq7NG6TNbLAn8wNz050solydTjpzKVUloWjmfLQrjgko28biJj8hZX40qEGlMlw=
+Received: from SEZPR03MB7810.apcprd03.prod.outlook.com (2603:1096:101:184::13)
+ by PUZPR03MB7209.apcprd03.prod.outlook.com (2603:1096:301:110::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8922.32; Wed, 16 Jul
+ 2025 13:26:32 +0000
+Received: from SEZPR03MB7810.apcprd03.prod.outlook.com
+ ([fe80::2557:de4d:a3c7:41e8]) by SEZPR03MB7810.apcprd03.prod.outlook.com
+ ([fe80::2557:de4d:a3c7:41e8%4]) with mapi id 15.20.8922.028; Wed, 16 Jul 2025
+ 13:26:31 +0000
+From: =?utf-8?B?TWFjcGF1bCBMaW4gKOael+aZuuaWjCk=?= <Macpaul.Lin@mediatek.com>
+To: "gregkh@linuxfoundation.org" <gregkh@linuxfoundation.org>,
+	"krzysztof.kozlowski@linaro.org" <krzysztof.kozlowski@linaro.org>
+CC: =?utf-8?B?UGFibG8gU3VuICjlravmr5Pnv5Qp?= <pablo.sun@mediatek.com>,
+	"patches@lists.linux.dev" <patches@lists.linux.dev>, "stable@vger.kernel.org"
+	<stable@vger.kernel.org>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "catalin.marinas@arm.com"
+	<catalin.marinas@arm.com>, Project_Global_Chrome_Upstream_Group
+	<Project_Global_Chrome_Upstream_Group@mediatek.com>,
+	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+	"peter.griffin@linaro.org" <peter.griffin@linaro.org>,
+	"conor.dooley@microchip.com" <conor.dooley@microchip.com>, "arnd@arndb.de"
+	<arnd@arndb.de>, "will@kernel.org" <will@kernel.org>, "macpaul@gmail.com"
+	<macpaul@gmail.com>, "openembedded-core@lists.openembedded.org"
+	<openembedded-core@lists.openembedded.org>, Nicolas Prado
+	<nfraprado@collabora.com>, =?utf-8?B?QmVhciBXYW5nICjokKnljp/mg5/lvrcp?=
+	<bear.wang@mediatek.com>, "sashal@kernel.org" <sashal@kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "matthias.bgg@gmail.com"
+	<matthias.bgg@gmail.com>, "andre.draszik@linaro.org"
+	<andre.draszik@linaro.org>
+Subject: Re: [PATCH 6.12 2/2] arm64: defconfig: enable Maxim TCPCI driver
+Thread-Topic: [PATCH 6.12 2/2] arm64: defconfig: enable Maxim TCPCI driver
+Thread-Index: AQHb9jyk4qZzv2uKXkCC7OfMA5VfC7Q0jMkAgAAK/QCAACYtAA==
+Date: Wed, 16 Jul 2025 13:26:31 +0000
+Message-ID: <f1820496a5b54c0af0accbadf54a45b6969029ab.camel@mediatek.com>
+References: <20250716102854.4012956-1-macpaul.lin@mediatek.com>
+	 <20250716102854.4012956-2-macpaul.lin@mediatek.com>
+	 <8698f842-a464-47b8-8c47-97cda016e227@linaro.org>
+	 <2025071601-unwatched-chowtime-82ff@gregkh>
+In-Reply-To: <2025071601-unwatched-chowtime-82ff@gregkh>
+Accept-Language: zh-TW, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=mediatek.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: SEZPR03MB7810:EE_|PUZPR03MB7209:EE_
+x-ms-office365-filtering-correlation-id: bf266c71-f1ba-4a6a-0f5e-08ddc46c609f
+x-ld-processed: a7687ede-7a6b-4ef6-bace-642f677fbe31,ExtAddr
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016|38070700018;
+x-microsoft-antispam-message-info: =?utf-8?B?aXFwcUlrSDlablQ4NWVWeXVmT3JxQjdEc3FFS21rMzRkMk5iSjJmZm5HR2Ir?=
+ =?utf-8?B?alhsOGp5OWo0R3hBSDVjOFVPVlUxeTFYc0FZYjJOWGJRUk5PV0dWM0p3TXpM?=
+ =?utf-8?B?L1pBTFpPWDFGaFA5TndSNXBqYlhxWGNwb1F3Uk5MSUlIdjkyMUFERTJhSkxC?=
+ =?utf-8?B?cHlSTVBKd2psSlNjZk9BMklhb1RObzM1SW5MRG9ZRyt0Wno0V1JHdThoRXVo?=
+ =?utf-8?B?WFFqeWRPNWU5L2VtQ0M1N0Y3RjFDVUxEM2NRQmZ2d0gwK3F6VVJQOGcrR21t?=
+ =?utf-8?B?UkN2NHl0VVZSRUkrZTdLdEg3UFllTzk2ejZZSXJ1aDVIcUJ0YWllZUN4bDRm?=
+ =?utf-8?B?aFJaK21EZnhadVpldDFJYi9ERllHeFZpMm03ZFo1RnFKUElib2VJRUtvSG1K?=
+ =?utf-8?B?RFlwbi9tSER0MjRtM284Q0tOaE9GK2dMYWpZRmJjai9ad1NpeTVJZ1czNEdz?=
+ =?utf-8?B?YXNlQTdPUW5RSmtrUkw0eS9hSG90UFBNbldGeFg2M1FFRG9Hbk5Qek9JWDgy?=
+ =?utf-8?B?NzNtTG9Rd3FmVjJqSjlPMFpIZ0t0cnM5aEZQcUNRYk9HN3NUaWFxaU1RTGpS?=
+ =?utf-8?B?R1NhUVpBalpjeEpDZU1RV1JpNU1LOUx0eWM1aWl6MVpxTkRBNU0zOGN3R0tw?=
+ =?utf-8?B?ZWZTbVUvWU9KZmVRbkRnTGtyT2FDRXpua2hlbmJwSkcwOGdjMGJ2K2dDODJZ?=
+ =?utf-8?B?OFVFY0F4b1REdSt3Yms5Uy9DZFlCTmRmRjQ2aWxzOFhyQUZBUFhIN3BmOHdr?=
+ =?utf-8?B?TUhaUG52ODVJWGZDb05mbUkzSldFdmp1K3FUMnRyVFJwd25YVk91TGhDVWts?=
+ =?utf-8?B?ekw4VnhOcVlpbmFQaWZtQWUxQTZ4R0NTSlZobzlkWnp6bGhpL3RtY3prTXB2?=
+ =?utf-8?B?bkgrZUNQSFpYMWtzNjB5UkZKWDFrMXZYWDR4RHMraUdBT0IzWFc4MWxlNG9I?=
+ =?utf-8?B?bjh4S0NTVHRnREc2QkNPcWQzN0ZnRE4wZW84cDlQdDRPSWs2N1NURlpOYmZq?=
+ =?utf-8?B?UmVOUHYxTkllZHFaN3lzVDBIK2VUcjQ4ZU42Tkd0U3lleTNVWmd5dHRzWkJ6?=
+ =?utf-8?B?SVlpTUhpTy9pZmJUeDdtSjhuaDJ1RUFQS1ZUSUcxejMrSWdqNXl0SWRMVDZC?=
+ =?utf-8?B?aWMreUdRQ3Qwd2pORmpBU09XR1RMMWpsRFFSTlRnSXRIeUdIemNrNUpXcmg5?=
+ =?utf-8?B?VGZqeHAya2dtams2TzU1TDNjUDJWSHV4YldOakgwUzhHdUplM2VhWXJvalJY?=
+ =?utf-8?B?TE9VQ1hjY25VY0NPalFHVnMwaGZxVFUxbWRYSWRHTDQ4Q0dSSlhGMmdWVUxN?=
+ =?utf-8?B?QldhNXdrSm10cVRGdFZ3a01FUXZnc3loNnE1eks5L1NIZ2N2VFNPUlhvK1Iv?=
+ =?utf-8?B?dVRDdzBtYU5udUtuTE96VkxWV21lMXR6aXcwYlJvYmVhSDBxR1Q0Rm9YVDAv?=
+ =?utf-8?B?WVlHWFlDNS91QW5XM2NmWGEwMk9UY1ROUU01eFZoNHdsVWhUaGZUT3hOZHJH?=
+ =?utf-8?B?eVhWV1BTYVBId2U4NTVGdVhyb2pkZ1dWeUtmNzJCazROWmhoRitRbFJPWENX?=
+ =?utf-8?B?c0N0UmtydUdTUjJ4MXRrUnRpZ2t2M3laKzl1bWxYdFR6RkM3c3NDMlVMcWpZ?=
+ =?utf-8?B?SUloWWQ4VEJiRmFIRnU1SWwrSS80Q3JmQTRaZnJ3YkcrOGJud0xVbXVDemRk?=
+ =?utf-8?B?TExGdEptamtYNzErY0ozb1BrVm5za0dTQnUyWUdycXk4bUlCa3JwRG14SytF?=
+ =?utf-8?B?SlFXVCtOQTA3K01qbEx6TW5UY1E1MnczR3BkRjVVUEpIVWZKWHV5QXUwRjJZ?=
+ =?utf-8?B?TDJLd09BVUI5QXF5cnQ2czViaEpZRkZVUzVzdXRDbDFPSFdnYTg1dUtSeDlo?=
+ =?utf-8?B?Y1phMkRza3VKMS9JZXR6WkVsUHlXaWUrQ0xBai9IZjF4MlpHWnNndlRuL3NX?=
+ =?utf-8?B?dUVrcFgyTkwyT3Q0djMrSDlxazlmbWd0RXFZR2RSSklnNHBVVmpqbVYrTmY2?=
+ =?utf-8?B?eENWSzYvS1h3PT0=?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SEZPR03MB7810.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?QmRHQ2Z6VjBsYWxhcHBjaytxeUNqTlJJb3NCTXkxRmJvRFpheEUrNkszNmdQ?=
+ =?utf-8?B?ZWpXazh6UGlvS2dPS09iMjFzTmNMVlpFbWtOUjlLMWFFRURBSkNHR0lDaGhD?=
+ =?utf-8?B?YXVSeDBudndGWkpwODBnTkNteno3N1g2eDJHVGRsQnlPMlUvRnhaQWJsU3ZZ?=
+ =?utf-8?B?b0M2QkxBK1ovMWhEVTBUY2NvbXhtNExSeVA5dDZYblV0cnhjcm1zN1BVL2Vi?=
+ =?utf-8?B?NFBZbzlhRUZxYjJWQkdMWi92N3ptZXZjRmxUTEs0UnlBOHlhQXF5SVFuSXN4?=
+ =?utf-8?B?a1R6ZXowS3VReEtDVGZhN0lPSkJvSjJXWk9RMEd2ZmlCMi9lTm5zaDgyS2Y4?=
+ =?utf-8?B?VENtYkNmQ0FXNVY2SmI3NTZMWittekxONFRHT3dWb0xEOXNvRCtpVktQdERm?=
+ =?utf-8?B?V09leXNXSnB6QnJGQisrb3N6dEtEakR5ZFBlVE5zeVZXam1tRW9kMFRaVTQy?=
+ =?utf-8?B?Uzk2aXIvMWIyOGZTNjY3UGRjMGFLRzVGemF0eGt6cU55QUY3eUtQR3BUT0VG?=
+ =?utf-8?B?NnZ3UENQK055ZTB0WHJBcHViRTN5SWlSSEFIczVqbmpBWWxHS29QWnk4UFVP?=
+ =?utf-8?B?TFVNM1hiVk1hekIyamtTNitoUUpHa3MrQUF2WnQxaEkyUnlPcHN4ckowcmZt?=
+ =?utf-8?B?eHBaOEJsN0Q5a3hpUG82RHhWNjIwRlloREltMW5EaWZJT1hSTzdIMXkyYWFN?=
+ =?utf-8?B?M0g1SDVLNzgra3Q2Z0pIeVVFSkxLUVpsaFBQZWc0V0J4UWhaMlg4cDlkTEwy?=
+ =?utf-8?B?MUE1TDRvUFlyMnRJczVUdWgrdXlnWmV5cy9Mdkoxa2kzM1g4WDlleXBHOTNu?=
+ =?utf-8?B?NllhaWNNMHhYcHF5M2JsVkpvVFIweWNkL2ljbWpKY3ZLZGI5VkNNTWZ6Y3Vw?=
+ =?utf-8?B?b0dlWHJYc25oaUI0TnlIY05MbWgrZ0NjVGpWVDRkTG5hcWpLNk5HOTZ2cHpZ?=
+ =?utf-8?B?Sit4WXJ6VXlocnBxZUxQS0t1akN6UlYxWmV3V2pjRUlmZ2t3R2U4UVprQW41?=
+ =?utf-8?B?YzBtSlpKTndoVkptajhOWnpBK0cwSWVLYXdTRFcwTXk2UE1SemhqR3VyNlNq?=
+ =?utf-8?B?NHRZUkRIMmdjQWJRK0xlRklnZk5mdjZmb2hUSWk1Q0hkNm9WVnNCdFpOeHFt?=
+ =?utf-8?B?eU9haVZCM3BOby9SeVNYL1d1Y2ZIN2REZEhFZFFkd2xpOTU0dWQzMVhZQW5h?=
+ =?utf-8?B?cFl5NnJxZmFLZjU2b0N1NXcxc0xBaUFoL000MVkzRjV1cjRWamJwckhnbGdO?=
+ =?utf-8?B?MWdyRE1Ja0FOMzhUUXdjaU0yeG9GOGVvcUZ1VnRvTkUrNDFwUTJ1dXVuTmgw?=
+ =?utf-8?B?K0lxQktLTWdOMUE3b2pyYk5hV0tucUlWMmZscmJsbWxhVTVZSE1rZjhlVTRD?=
+ =?utf-8?B?eVBzVVpEYWZrNy9tWGRGd09vUGJBREFGRUtIY283dlA2endPUFhsQi93WGJK?=
+ =?utf-8?B?YWUvVWI2WS9pRjBaUHEvcDRhcllmcyt4U0I3dGJPeFdTakpqSWdSQ0JoSWtX?=
+ =?utf-8?B?aEFRdDZXTGhDWVZCckxHbWFERjYwbi9idzNJSGlIRTQ2NmZnYzdUTzJaMFJp?=
+ =?utf-8?B?bG1JbVVZbEx4RDFTakdhSjF2alVyb0VWL1RsZndQTzEzYlk3UTJHV1R0VVJm?=
+ =?utf-8?B?a1pIeFhuUFpObkNQR3JveGpvNzlGbHNOSHRiTDJTcnY3eGxtK3RPY29SVkxL?=
+ =?utf-8?B?RlJoYU5vck9oNnJ1UjBlaDRlc25qNjZXd2puYU9DNWkyVnNodHJoSGh2eEhQ?=
+ =?utf-8?B?QjRSS0dnSVRTemZ3U2R4cXE1VnhPT3BucEx0M0lXem4weFpNN3dtMDRBVFNB?=
+ =?utf-8?B?elgvb2dSMCtyRnRpU0VlUElRc3ZFdFNnRlBkME1HTlI5QXhaRjNObDBwdVdz?=
+ =?utf-8?B?ajR0MTNaaWVLYk4rZ09ySnZJZllpTjFMMjhvYXBvWUM1ckExZ2MrWCsrbU5m?=
+ =?utf-8?B?OGtvZi9TU0NNSi9jUnhQZU41cWdQcWtuVExyK0pyNk1UbXhrdjNZRmNBVk0x?=
+ =?utf-8?B?Skp6c3Q2c0VncDJQV1locVR5MWJIOEZrZFB2TW5tbUtjV3FYWmU2M05wOW5q?=
+ =?utf-8?B?VWdRYVNmMlFhT1MvQnRKRHJJMWNXdlZYQ3lQVmFGMTFoaUhoeWZlMXoxM3d6?=
+ =?utf-8?B?dUpZSWVjakhaYm96RW9yVTdPSzhNZDNvRDhuOCttRjNicGRDc1Z6T24yMG9E?=
+ =?utf-8?B?VWc9PQ==?=
+Content-Type: text/plain; charset="utf-8"
+Content-ID: <4E18C233300AE442A7364356732710BA@apcprd03.prod.outlook.com>
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aHZ0nK4ZZShAr6Xz@p14s>
- <CAPDyKFrWng0CY-ayKoEbnS_yanghSqogxfuizxEVbVogJ4DT=g@mail.gmail.com>
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: SEZPR03MB7810.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: bf266c71-f1ba-4a6a-0f5e-08ddc46c609f
+X-MS-Exchange-CrossTenant-originalarrivaltime: 16 Jul 2025 13:26:31.2830
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: a7687ede-7a6b-4ef6-bace-642f677fbe31
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: DTXO6+6gbroaU7KCyyGGb6Pi/caLxdyjYKJnWgHUXS1U6xa5e01Eqv1/Nz/RIbTSdUj+m0OunDQBijHpnQf4W0vHKqAJzseZKZqgJWoDDsI=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PUZPR03MB7209
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250716_062601_371255_F9816764 
-X-CRM114-Status: GOOD (  51.69  )
+X-CRM114-CacheID: sfid-20250716_062645_656531_8374339F 
+X-CRM114-Status: GOOD (  15.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,318 +227,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Mathieu, Ulf,
-
-On Tue, Jul 15, 2025 at 09:32:44AM -0600, Mathieu Poirier wrote:
-> On Sun, Jun 29, 2025 at 02:25:12PM -0300, Hiago De Franco wrote:
-> > From: Hiago De Franco <hiago.franco@toradex.com>
-> > 
-> > When the Cortex-M remote core is started and already running before
-> > Linux boots (typically by the Cortex-A bootloader using a command like
-> > bootaux), the current driver is unable to attach to it. This is because
-> > the driver only checks for remote cores running in different SCFW
-> > partitions. However in this case, the M-core is in the same partition as
-> > Linux and is already powered up and running by the bootloader.
-> > 
-> > This patch adds a check using dev_pm_genpd_is_on() to verify whether the
-> > M-core's power domains are already on. If all power domain devices are
-> > on, the driver assumes the M-core is running and proceed to attach to
-> > it.
-> > 
-> > To accomplish this, we need to avoid passing any attach_data or flags to
-> > dev_pm_domain_attach_list(), allowing the platform device become a
-> > consumer of the power domain provider without changing its current
-> > state.
-> > 
-> > During probe, also enable and sync the device runtime PM to make sure
-> > the power domains are correctly managed when the core is controlled by
-> > the kernel.
-> > 
-> > Suggested-by: Ulf Hansson <ulf.hansson@linaro.org>
-> > Reviewed-by: Ulf Hansson <ulf.hansson@linaro.org>
-> > Reviewed-by: Peng Fan <peng.fan@nxp.com>
-> > Signed-off-by: Hiago De Franco <hiago.franco@toradex.com>
-> > ---
-> > v6 -> v7:
-> >  - Added Peng reviewed-by.
-> > v5 -> v6:
-> >  - Commit description improved, as suggested. Added Ulf Hansson reviewed
-> >    by. Comment on imx-rproc.c improved.
-> > v4 -> v5:
-> >  - pm_runtime_get_sync() removed in favor of
-> >    pm_runtime_resume_and_get(). Now it also checks the return value of
-> >    this function.
-> >  - Added pm_runtime_disable() and pm_runtime_put() to imx_rproc_remove()
-> >    function.
-> > v3 -> v4:
-> >  - Changed to use the new dev_pm_genpd_is_on() function instead, as
-> >    suggested by Ulf. This will now get the power status of the two
-> >    remote cores power domains to decided if imx_rpoc needs to attach or
-> >    not. In order to do that, pm_runtime_enable() and
-> >    pm_runtime_get_sync() were introduced and pd_data was removed.
-> > v2 -> v3:
-> >  - Unchanged.
-> > v1 -> v2:
-> >  - Dropped unecessary include. Removed the imx_rproc_is_on function, as
-> >    suggested.
-> > ---
-> >  drivers/remoteproc/imx_rproc.c | 37 +++++++++++++++++++++++++++++-----
-> >  1 file changed, 32 insertions(+), 5 deletions(-)
-> > 
-> > diff --git a/drivers/remoteproc/imx_rproc.c b/drivers/remoteproc/imx_rproc.c
-> > index 627e57a88db2..24597b60c5b0 100644
-> > --- a/drivers/remoteproc/imx_rproc.c
-> > +++ b/drivers/remoteproc/imx_rproc.c
-> > @@ -18,6 +18,7 @@
-> >  #include <linux/of_reserved_mem.h>
-> >  #include <linux/platform_device.h>
-> >  #include <linux/pm_domain.h>
-> > +#include <linux/pm_runtime.h>
-> >  #include <linux/reboot.h>
-> >  #include <linux/regmap.h>
-> >  #include <linux/remoteproc.h>
-> > @@ -890,10 +891,8 @@ static int imx_rproc_partition_notify(struct notifier_block *nb,
-> >  static int imx_rproc_attach_pd(struct imx_rproc *priv)
-> >  {
-> >  	struct device *dev = priv->dev;
-> > -	int ret;
-> > -	struct dev_pm_domain_attach_data pd_data = {
-> > -		.pd_flags = PD_FLAG_DEV_LINK_ON,
-> > -	};
-> > +	int ret, i;
-> > +	bool detached = true;
-> >  
-> >  	/*
-> >  	 * If there is only one power-domain entry, the platform driver framework
-> > @@ -902,7 +901,22 @@ static int imx_rproc_attach_pd(struct imx_rproc *priv)
-> >  	if (dev->pm_domain)
-> >  		return 0;
-> >  
-> > -	ret = dev_pm_domain_attach_list(dev, &pd_data, &priv->pd_list);
-> > +	ret = dev_pm_domain_attach_list(dev, NULL, &priv->pd_list);
-> > +	/*
-> > +	 * If all the power domain devices are already turned on, the remote
-> > +	 * core is already powered up and running when the kernel booted (e.g.,
-> > +	 * started by U-Boot's bootaux command). In this case attach to it.
-> > +	 */
-> > +	for (i = 0; i < ret; i++) {
-> > +		if (!dev_pm_genpd_is_on(priv->pd_list->pd_devs[i])) {
-> > +			detached = false;
-> > +			break;
-> > +		}
-> > +	}
-> 
-> I was doing one final review of this work when I noticed the return code for
-> dev_pm_domain_attach_list() is never checked for error.
-
-As Ulf pointed out, the 'return' a few lines below will return the
-negative value to the caller of 'imx_rproc_attach_pd', which ultimately
-will fail 'imx_rproc_detect_mode' and fail the probe of imx_rproc.
-
-Please notice that even tough 'dev_pm_domain_attach_list' fails, the
-rproc->state will still be set as RPROC_DETACHED because we are starting
-'detached' as true, but I am not seeing this as an issue because as
-mentioned above the probe will fail anyway. Please let me know if you
-see this as an issue.
-
-> 
-> Thanks,
-> Mathieu
-> 
-> > +
-> > +	if (detached)
-> > +		priv->rproc->state = RPROC_DETACHED;
-> > +
-> >  	return ret < 0 ? ret : 0;
-> >  }
-> >  
-> > @@ -1146,6 +1160,15 @@ static int imx_rproc_probe(struct platform_device *pdev)
-> >  		}
-> >  	}
-> >  
-> > +	if (dcfg->method == IMX_RPROC_SCU_API) {
-> > +		pm_runtime_enable(dev);
-> > +		ret = pm_runtime_resume_and_get(dev);
-> > +		if (ret) {
-> > +			dev_err(dev, "pm_runtime get failed: %d\n", ret);
-> > +			goto err_put_clk;
-> > +		}
-> > +	}
-> > +
-> >  	ret = rproc_add(rproc);
-> >  	if (ret) {
-> >  		dev_err(dev, "rproc_add failed\n");
-> > @@ -1171,6 +1194,10 @@ static void imx_rproc_remove(struct platform_device *pdev)
-> >  	struct rproc *rproc = platform_get_drvdata(pdev);
-> >  	struct imx_rproc *priv = rproc->priv;
-> >  
-> > +	if (priv->dcfg->method == IMX_RPROC_SCU_API) {
-> > +		pm_runtime_disable(priv->dev);
-> > +		pm_runtime_put(priv->dev);
-> > +	}
-> >  	clk_disable_unprepare(priv->clk);
-> >  	rproc_del(rproc);
-> >  	imx_rproc_put_scu(rproc);
-> > -- 
-> > 2.39.5
-> > 
-
-On Tue, Jul 15, 2025 at 06:03:44PM +0200, Ulf Hansson wrote:
-> On Tue, 15 Jul 2025 at 17:32, Mathieu Poirier
-> <mathieu.poirier@linaro.org> wrote:
-> >
-> > On Sun, Jun 29, 2025 at 02:25:12PM -0300, Hiago De Franco wrote:
-> > > From: Hiago De Franco <hiago.franco@toradex.com>
-> > >
-> > > When the Cortex-M remote core is started and already running before
-> > > Linux boots (typically by the Cortex-A bootloader using a command like
-> > > bootaux), the current driver is unable to attach to it. This is because
-> > > the driver only checks for remote cores running in different SCFW
-> > > partitions. However in this case, the M-core is in the same partition as
-> > > Linux and is already powered up and running by the bootloader.
-> > >
-> > > This patch adds a check using dev_pm_genpd_is_on() to verify whether the
-> > > M-core's power domains are already on. If all power domain devices are
-> > > on, the driver assumes the M-core is running and proceed to attach to
-> > > it.
-> > >
-> > > To accomplish this, we need to avoid passing any attach_data or flags to
-> > > dev_pm_domain_attach_list(), allowing the platform device become a
-> > > consumer of the power domain provider without changing its current
-> > > state.
-> > >
-> > > During probe, also enable and sync the device runtime PM to make sure
-> > > the power domains are correctly managed when the core is controlled by
-> > > the kernel.
-> > >
-> > > Suggested-by: Ulf Hansson <ulf.hansson@linaro.org>
-> > > Reviewed-by: Ulf Hansson <ulf.hansson@linaro.org>
-> > > Reviewed-by: Peng Fan <peng.fan@nxp.com>
-> > > Signed-off-by: Hiago De Franco <hiago.franco@toradex.com>
-> > > ---
-> > > v6 -> v7:
-> > >  - Added Peng reviewed-by.
-> > > v5 -> v6:
-> > >  - Commit description improved, as suggested. Added Ulf Hansson reviewed
-> > >    by. Comment on imx-rproc.c improved.
-> > > v4 -> v5:
-> > >  - pm_runtime_get_sync() removed in favor of
-> > >    pm_runtime_resume_and_get(). Now it also checks the return value of
-> > >    this function.
-> > >  - Added pm_runtime_disable() and pm_runtime_put() to imx_rproc_remove()
-> > >    function.
-> > > v3 -> v4:
-> > >  - Changed to use the new dev_pm_genpd_is_on() function instead, as
-> > >    suggested by Ulf. This will now get the power status of the two
-> > >    remote cores power domains to decided if imx_rpoc needs to attach or
-> > >    not. In order to do that, pm_runtime_enable() and
-> > >    pm_runtime_get_sync() were introduced and pd_data was removed.
-> > > v2 -> v3:
-> > >  - Unchanged.
-> > > v1 -> v2:
-> > >  - Dropped unecessary include. Removed the imx_rproc_is_on function, as
-> > >    suggested.
-> > > ---
-> > >  drivers/remoteproc/imx_rproc.c | 37 +++++++++++++++++++++++++++++-----
-> > >  1 file changed, 32 insertions(+), 5 deletions(-)
-> > >
-> > > diff --git a/drivers/remoteproc/imx_rproc.c b/drivers/remoteproc/imx_rproc.c
-> > > index 627e57a88db2..24597b60c5b0 100644
-> > > --- a/drivers/remoteproc/imx_rproc.c
-> > > +++ b/drivers/remoteproc/imx_rproc.c
-> > > @@ -18,6 +18,7 @@
-> > >  #include <linux/of_reserved_mem.h>
-> > >  #include <linux/platform_device.h>
-> > >  #include <linux/pm_domain.h>
-> > > +#include <linux/pm_runtime.h>
-> > >  #include <linux/reboot.h>
-> > >  #include <linux/regmap.h>
-> > >  #include <linux/remoteproc.h>
-> > > @@ -890,10 +891,8 @@ static int imx_rproc_partition_notify(struct notifier_block *nb,
-> > >  static int imx_rproc_attach_pd(struct imx_rproc *priv)
-> > >  {
-> > >       struct device *dev = priv->dev;
-> > > -     int ret;
-> > > -     struct dev_pm_domain_attach_data pd_data = {
-> > > -             .pd_flags = PD_FLAG_DEV_LINK_ON,
-> > > -     };
-> > > +     int ret, i;
-> > > +     bool detached = true;
-> > >
-> > >       /*
-> > >        * If there is only one power-domain entry, the platform driver framework
-> > > @@ -902,7 +901,22 @@ static int imx_rproc_attach_pd(struct imx_rproc *priv)
-> > >       if (dev->pm_domain)
-> > >               return 0;
-> > >
-> > > -     ret = dev_pm_domain_attach_list(dev, &pd_data, &priv->pd_list);
-> > > +     ret = dev_pm_domain_attach_list(dev, NULL, &priv->pd_list);
-> > > +     /*
-> > > +      * If all the power domain devices are already turned on, the remote
-> > > +      * core is already powered up and running when the kernel booted (e.g.,
-> > > +      * started by U-Boot's bootaux command). In this case attach to it.
-> > > +      */
-> > > +     for (i = 0; i < ret; i++) {
-> > > +             if (!dev_pm_genpd_is_on(priv->pd_list->pd_devs[i])) {
-> > > +                     detached = false;
-> > > +                     break;
-> > > +             }
-> > > +     }
-> >
-> > I was doing one final review of this work when I noticed the return code for
-> > dev_pm_domain_attach_list() is never checked for error.
-> 
-> The for loop covers the error condition correctly, I think. It's only
-> when ret >=1 when the loop should be started - and ret is propagated
-> to the caller a few lines below.
-> 
-> >
-> > Thanks,
-> > Mathieu
-> >
-> 
-> Kind regards
-> Uffe
-> 
-> > > +
-> > > +     if (detached)
-> > > +             priv->rproc->state = RPROC_DETACHED;
-> > > +
-> > >       return ret < 0 ? ret : 0;
-> > >  }
-> > >
-> > > @@ -1146,6 +1160,15 @@ static int imx_rproc_probe(struct platform_device *pdev)
-> > >               }
-> > >       }
-> > >
-> > > +     if (dcfg->method == IMX_RPROC_SCU_API) {
-> > > +             pm_runtime_enable(dev);
-> > > +             ret = pm_runtime_resume_and_get(dev);
-> > > +             if (ret) {
-> > > +                     dev_err(dev, "pm_runtime get failed: %d\n", ret);
-> > > +                     goto err_put_clk;
-> > > +             }
-> > > +     }
-> > > +
-> > >       ret = rproc_add(rproc);
-> > >       if (ret) {
-> > >               dev_err(dev, "rproc_add failed\n");
-> > > @@ -1171,6 +1194,10 @@ static void imx_rproc_remove(struct platform_device *pdev)
-> > >       struct rproc *rproc = platform_get_drvdata(pdev);
-> > >       struct imx_rproc *priv = rproc->priv;
-> > >
-> > > +     if (priv->dcfg->method == IMX_RPROC_SCU_API) {
-> > > +             pm_runtime_disable(priv->dev);
-> > > +             pm_runtime_put(priv->dev);
-> > > +     }
-> > >       clk_disable_unprepare(priv->clk);
-> > >       rproc_del(rproc);
-> > >       imx_rproc_put_scu(rproc);
-> > > --
-> > > 2.39.5
-> > >
-
-Best Regards,
-
-Hiago.
+T24gV2VkLCAyMDI1LTA3LTE2IGF0IDEzOjA5ICswMjAwLCBHcmVnIEtIIHdyb3RlOg0KPiBPbiBX
+ZWQsIEp1bCAxNiwgMjAyNSBhdCAxMjozMDoyMFBNICswMjAwLCBLcnp5c3p0b2YgS296bG93c2tp
+IHdyb3RlOg0KPiA+IE9uIDE2LzA3LzIwMjUgMTI6MjgsIE1hY3BhdWwgTGluIHdyb3RlOg0KPiA+
+ID4gRnJvbTogQW5kcsOpIERyYXN6aWsgPGFuZHJlLmRyYXN6aWtAbGluYXJvLm9yZz4NCj4gPiA+
+IA0KPiA+ID4gWyBVcHN0cmVhbSBjb21taXQgZDJjYTMxOTgyMmUwNzE0MjNhYjg4M2JjODQ5MzA1
+MzMyMGI4ZTUyYyBdDQo+ID4gPiANCj4gPiA+IEVuYWJsZSB0aGUgTWF4aW0gbWF4MzMzNTkgYXMg
+dGhpcyBpcyB1c2VkIGJ5IHRoZSBnczEwMS1vcmlvbGUNCj4gPiA+IChHb29nbGUNCj4gPiA+IFBp
+eGVsIDYpIGJvYXJkLg0KPiA+ID4gDQo+ID4gPiBSZXZpZXdlZC1ieTogUGV0ZXIgR3JpZmZpbiA8
+cGV0ZXIuZ3JpZmZpbkBsaW5hcm8ub3JnPg0KPiA+ID4gU2lnbmVkLW9mZi1ieTogQW5kcsOpIERy
+YXN6aWsgPGFuZHJlLmRyYXN6aWtAbGluYXJvLm9yZz4NCj4gPiA+IExpbms6DQo+ID4gPiBodHRw
+czovL2xvcmUua2VybmVsLm9yZy9yLzIwMjQxMjAzLWdzMTAxLXBoeS1sYW5lcy1vcmllbnRhdGlv
+bi1kdHMtdjItMS0xNDEyNzgzYTZiMDFAbGluYXJvLm9yZw0KPiA+ID4gU2lnbmVkLW9mZi1ieTog
+S3J6eXN6dG9mIEtvemxvd3NraQ0KPiA+ID4gPGtyenlzenRvZi5rb3psb3dza2lAbGluYXJvLm9y
+Zz4NCj4gPiA+IEFja2VkLWJ5OiBDb25vciBEb29sZXkgPGNvbm9yLmRvb2xleUBtaWNyb2NoaXAu
+Y29tPg0KPiA+ID4gTGluazoNCj4gPiA+IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL3IvMjAyNDEy
+MzExMzE3NDIuMTM0MzI5LTEta3J6eXN6dG9mLmtvemxvd3NraUBsaW5hcm8ub3JnDQo+ID4gPiBT
+aWduZWQtb2ZmLWJ5OiBBcm5kIEJlcmdtYW5uIDxhcm5kQGFybmRiLmRlPg0KPiA+ID4gU2lnbmVk
+LW9mZi1ieTogTWFjcGF1bCBMaW4gPG1hY3BhdWwubGluQG1lZGlhdGVrLmNvbT4NCj4gPiANCj4g
+PiBObywgdGhhdCdzIG5vdCBhIGZpeC4NCj4gDQo+IFllYWgsIGRlZmNvbmZpZyBjaGFuZ2VzIGRv
+bid0IHJlYWxseSBtYWtlIHNlbnNlIGZvciBzdGFibGUgdXBkYXRlcyBhcw0KPiBldmVyeW9uZSBh
+bHJlYWR5IGhhcyBhIC5jb25maWcgZmlsZSBmb3IgdGhlaXIgc3lzdGVtcyBieSBub3cgZm9yDQo+
+IHRob3NlDQo+IGtlcm5lbCB2ZXJzaW9ucywgYW5kIGNoYW5naW5nIHRoZSBkZWZjb25maWcgd2ls
+bCBub3QgY2hhbmdlIGFueXRoaW5nDQo+IGZvcg0KPiBhbnlvbmUuDQo+IA0KPiBTb3JyeSwNCj4g
+DQo+IGdyZWcgay1oDQoNCkFoLCBJIHdhcyBkb2luZyBiYWNrcG9ydCBmb3Igc29tZSBrZXJuZWwg
+b3B0aW9ucyBhbmQgc29tZSBkZXBlbmRlbmNpZXMNCnBhdGNoZXMgYmFzZWQgb24gY29kZSBkaWZm
+LiBJIGZvcmdldCB0byBjaGVjayBpZiBlYWNoIGludGVybWVkaWF0ZQ0KcGF0Y2ggaGFkIGEgJ2Zp
+eGVzJyB0YWcuIFNvcnJ5IGZvciBib3RoZXJpbmcuDQoNClRoYW5rcw0KTWFjcGF1bCBMaW4NCg0K
 
