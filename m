@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEF7FC83F1B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 11:35:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AB8FC83F27
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 11:37:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oNZ3hl0pYrYAN9J5qbkuvM+oqPP2dFKJvz1qk8IWdmk=; b=SUHiKDFgakMnTWji1k4Fz+nylo
-	47ot2jGRBBMpFwiLSzQcC30i94fORIj+PM95JDYTjVGcwcRqEe2CzKQJJ0WCzfucHGQdOSLS/iSeD
-	6N4NR9chgG88KsgUAYJJ+B72XApRG8UN40V9oG6r7PEVYdH1bWqoRE2MILAKsZiEjJBTggL3w7Vtz
-	hCAXtI6wvG9oDLBHN4K2oCdrSiqGwEYc6it5mbBVpiPINSmonuRFu95uOCKpFXUDou9tmP4usmKXm
-	HOuKkEXmzQyu4sRJdxXJNsSY641GLhSQxSIs7XDimICrd8sTaUZXKIXhrgBIhyqId4XcHuJrBEA92
-	MCsyu3wQ==;
+	bh=XfGtXAbZx9k3aU8riZw6lTg76OBHD+O4N2ZDRTk1Ly0=; b=cb1NVqxGku4WIlwEWLbFT+Jx3o
+	mLct3BCiGxWhPO7bJwbWy4HI4HbImWBprT94JfqYtcW1yyEMscNPJEHFb1hA/SfsBR+GVnNG+dFMl
+	5KRlL6gfNjmxbwoPWBEdhAQcog/xUAzqMMKErr9eTbE9GY+BzrBdMHb9sFKgU9TUwYl47IIva7djF
+	69qAg2CkazHzJE1mkIp0cVAzGP94BSdrpnFaG62Xim/cACLthf36Y0dXcg7nINWxpiB97DHahPaKX
+	di8q4RYpUBq+q78SebR419xaZsVSGQnvJWngajwIggjuUZ9xGkVSg0gns5ZGrStlonf75Umk53euL
+	4YLvff3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uc0Ph-00000007ZbE-2hKi;
-	Wed, 16 Jul 2025 11:35:05 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uc0S7-00000007Zq9-1nE8;
+	Wed, 16 Jul 2025 11:37:35 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uc01J-00000007W4u-3Xf9
+	id 1uc03H-00000007WY5-3bLl
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Jul 2025 11:09:55 +0000
+	Wed, 16 Jul 2025 11:11:55 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 4B98E5C5871;
-	Wed, 16 Jul 2025 11:09:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 49C9AC4CEF0;
-	Wed, 16 Jul 2025 11:09:49 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 49F0A6115E;
+	Wed, 16 Jul 2025 11:11:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 342DFC4CEF0;
+	Wed, 16 Jul 2025 11:11:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752664193;
-	bh=SXvV+xvahJ4GlG8CRCNdvVkYEyzFzMwxAQUNJL7bRZI=;
+	s=k20201202; t=1752664315;
+	bh=697QA1przeJV2t+/GGj0NAeCDBvL3eZlT7aC+lc3IWA=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=qtKmqmAdez4vwr0Rsi6fZPLXRyv5t1M15zq2EMIs2vbwbWis4/fiEH7A3HVblZT5j
-	 VWfyvV6NXvQJr7dU6SDgm2sjM3eZu5uWa7hGYVh3HOncl0/vuJpG+7uKmyrG1kI15f
-	 ae7CQGmXPCTOO6eTm1tmaxmlZp9J9dMCeDL+61vshwnk7MiEUTestjGuuHEBM2Z+DI
-	 F4uU4noufcLJQ8gNZZ4P3fNBKrW2Trr2QbmvHqL2WHbtocPMhgile7M49YNQit4Ew+
-	 zwohLyMtPOR4H060qp8kGXd9HBcLOequ+albWIw1SReQExXH7ASlEUvrw41cGA2FjI
-	 m2yS6FGYo6BXA==
-Message-ID: <571d4df6-620f-4bac-95c6-5ad9a4088e5e@kernel.org>
-Date: Wed, 16 Jul 2025 13:09:47 +0200
+	b=IZsg76rEeZkQf4mXOkydJr/P7FWiQ3lUeZvXeZES3U3FwVjWcrAqEDs1nXyYvF6lu
+	 rFQ5Htw8N7bwJVe5CLsEKI5IOsdjIlda8IyOwmX1OCxyHtY2bHHNVrAmYnH9hM8r+1
+	 z0/P1upllnmTKIEKCjGM9UbWUgJFuNoe+vjUa5HLdQD0wroJL/60yClXO0MbHMzVV+
+	 4/IZDayCZElbrAbDStekuhTrxtQ3QiuxLcL8VXdv7hXAwjZdjYAwc3S4WIzz+fPTut
+	 8NrFskj3Oj+GWZBvVv8fK/BPTK3sQYgQ3U3QdTBJhdSmY28bhqFoTG/TXEfsw1rWxL
+	 yskVRA0yVBbXA==
+Message-ID: <616c7739-5c05-4a32-a80b-8ecdd23e5be0@kernel.org>
+Date: Wed, 16 Jul 2025 13:11:49 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 4/4] MAINTAINERS: Remove sdm845-cheza device trees
+Subject: Re: [PATCH v2 2/4] dt-bindings: arm: qcom: Remove sdm845-cheza
 To: Konrad Dybcio <konradybcio@kernel.org>,
  Bjorn Andersson <andersson@kernel.org>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
@@ -59,7 +59,7 @@ Cc: Marijn Suijten <marijn.suijten@somainline.org>,
  linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
  Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
 References: <20250716-topic-goodnight_cheza-v2-0-6fa8d3261813@oss.qualcomm.com>
- <20250716-topic-goodnight_cheza-v2-4-6fa8d3261813@oss.qualcomm.com>
+ <20250716-topic-goodnight_cheza-v2-2-6fa8d3261813@oss.qualcomm.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -105,12 +105,9 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250716-topic-goodnight_cheza-v2-4-6fa8d3261813@oss.qualcomm.com>
+In-Reply-To: <20250716-topic-goodnight_cheza-v2-2-6fa8d3261813@oss.qualcomm.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250716_040953_970645_3E5264B0 
-X-CRM114-Status: GOOD (  15.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,31 +125,20 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On 16/07/2025 12:16, Konrad Dybcio wrote:
 > From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
 > 
-> Cheza was a prototype board, used for developing Snapdragon platform
-> support on ChromeOS.
+> Cheza was a prototype board, used mainly by the ChromeOS folks.
 > 
-> Since almost none are left in existence, and none are left in use, the
-> device trees for that family of devices are being removed.
+> Almost no working devices are known to exist, and the small amount of
+> remaining ones are not in use anymore.
 > 
-> Clean up the maintainers entry with it.
+> Remove the compatible strings reserved for it, as, quite frankly, Cheza
+> is no more.
 > 
 > Signed-off-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
 > ---
->  MAINTAINERS | 1 -
->  1 file changed, 1 deletion(-)
-> 
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 5efcdb5537f52b84a57505857399af70f0fa7e45..1458ff091a864e539c554ef9e915331c44c87370 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -3071,7 +3071,6 @@ ARM/QUALCOMM CHROMEBOOK SUPPORT
->  R:	cros-qcom-dts-watchers@chromium.org
->  F:	arch/arm64/boot/dts/qcom/sc7180*
->  F:	arch/arm64/boot/dts/qcom/sc7280*
-> -F:	arch/arm64/boot/dts/qcom/sdm845-cheza*
+>  Documentation/devicetree/bindings/arm/qcom.yaml | 3 ---
+>  1 file changed, 3 deletions(-)
 
-This should be squashed with first patch, otherwise you have warnings
-for unmatched patterns (and this is not bisectable patchset).
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
 Best regards,
 Krzysztof
