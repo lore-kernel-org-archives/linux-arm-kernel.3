@@ -4,63 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EAE0C83F22
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 14:37:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E83FC83F27
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 14:39:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=v+ROraIt3sWpwRVpzxejml8PGEn0XBzve3bPg5bD0kQ=; b=ob525SA+q6SigE+gsEmjqp/VPd
-	kEmNBQSkGCR55oDqfzIE2xedkFpLC7KoWE5WXAGmHAQIu3LCjq4atP9Jqmk6NtWOvcqgxX7Ptivhv
-	gFAfUy1HqOwSd6JtdURHVBW/ED/gbFmVEuUiUR3tnwcJHegr4sia/BOlSdUD2WZBsKftQCkKMsa7V
-	Yb2fX4KVXwt/D5JOcSv4G52SD42YikNgW3s9f4zX6XKmOS77779+wOPcMtWYeoL6Hl4gYshV69TTt
-	JShKa8MbeCOj7nqr9iiQVx5+Z9IwK06yP/AdYC9epgaU78L7axfnIhul5XE70ErLd4MtdBdDojHQj
-	moI0f7Fw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lPLBEuuhIxrHhRwVX/zuYKW/i7YKx1Cyd/zAXxeOPcU=; b=VCENaZmjgy1Lh4wITqAIwdu0k6
+	aUtVHMRNyKU2bTXsbquc1EUMyYEXP698/wWfm14Y5V+1CANjROIDAFm5OUGKIS1J3Ii3PrJnwRSxJ
+	N8mZP+oWQMBZJdyHDGoiW6uvdxh/EwIGtegLfoZNnPMJyTvTXB34MXfTxrhLIHpAc3xuW9nIHZmwZ
+	mRmGy6V1tkwo5KjR9jyfRP1UiUlHUkqF3L/89QymubjGYmweBgJ1afOeC8RHwam4VfsMToNHdBEz3
+	vxyBBOMaF4LJeLoqq4dpVq9VhzfoykgZ4EoT9fJkooiBqriUdugMQICWbA/V8QIqQ9cyV7QeV1F0z
+	RvpOHkAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uc3Fw-00000007vOB-014S;
-	Wed, 16 Jul 2025 14:37:12 +0000
-Received: from mail-m49198.qiye.163.com ([45.254.49.198])
+	id 1uc3IN-00000007vh5-3MiV;
+	Wed, 16 Jul 2025 14:39:43 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uc39W-00000007uSD-0HCN;
-	Wed, 16 Jul 2025 14:30:35 +0000
-Received: from localhost.localdomain (unknown [119.122.214.181])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 1c3b8f49f;
-	Wed, 16 Jul 2025 22:30:22 +0800 (GMT+08:00)
-From: Chukun Pan <amadeus@jmu.edu.cn>
-To: alchark@gmail.com
-Cc: amadeus@jmu.edu.cn,
-	conor+dt@kernel.org,
-	devicetree@vger.kernel.org,
-	heiko@sntech.de,
-	jonas@kwiboo.se,
-	krzk+dt@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	ziyao@disroot.org
-Subject: Re: [PATCH v2 1/1] arm64: dts: rockchip: rk3528: Add CPU frequency scaling support
-Date: Wed, 16 Jul 2025 22:30:16 +0800
-Message-Id: <20250716143016.620430-1-amadeus@jmu.edu.cn>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <CABjd4YzCL3U9yf65FUBE6EMqFjZHosULU7fUcjVo9VJ_=Ov+Dw@mail.gmail.com>
-References: <CABjd4YzCL3U9yf65FUBE6EMqFjZHosULU7fUcjVo9VJ_=Ov+Dw@mail.gmail.com>
+	id 1uc3E6-00000007vDc-0Nwo
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 16 Jul 2025 14:35:19 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 7D9C45C2753;
+	Wed, 16 Jul 2025 14:35:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B14A3C4CEEB;
+	Wed, 16 Jul 2025 14:35:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1752676517;
+	bh=m6dMr4mmc+ehuhuOcxxv5TIdC9hKtCvMg4Uo67cqnrQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=dt45FC45lr4Y5Yj3uPvtIZIp6ciObQ9O2GVHJqBWqI/DLPZcpWsBg+1utqSq+YDw+
+	 TTJ19/zC3kTV+soJUz1OQg6F20EoxtqkYFznrlG07TYT9OwefLF+uUOoxgh73ZfBBh
+	 8SLneOMyK6P6c1iwB2WDkSzSjY245qEG5+H7F2QqcQx2Mh9mjqPlZFwKhRcF5+24Ct
+	 cNsz5f+KIF7vHtSZJm9SAA2iNaGsi09yJS4bgJ5Rq9l9ZvQpLb37Tq3YiEMeKhwgUF
+	 3O9gxF1imLn9OunEnp/rcY/rLf2AqX97EG5ibd/BdzyrfVM1RgO08vlXbJqogYNczt
+	 9YD87lNN0ufMw==
+Date: Wed, 16 Jul 2025 15:35:09 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Thomas =?iso-8859-1?Q?Wei=DFschuh?= <thomas.weissschuh@linutronix.de>
+Cc: Marek Szyprowski <m.szyprowski@samsung.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Andy Lutomirski <luto@kernel.org>,
+	Vincenzo Frascino <vincenzo.frascino@arm.com>,
+	Shuah Khan <shuah@kernel.org>,
+	Anna-Maria Behnsen <anna-maria@linutronix.de>,
+	Frederic Weisbecker <frederic@kernel.org>,
+	John Stultz <jstultz@google.com>, Stephen Boyd <sboyd@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-arch@vger.kernel.org,
+	Richard Cochran <richardcochran@gmail.com>,
+	Christopher Hall <christopher.s.hall@intel.com>,
+	Miroslav Lichvar <mlichvar@redhat.com>,
+	Werner Abt <werner.abt@meinberg-usa.com>,
+	David Woodhouse <dwmw2@infradead.org>,
+	Kurt Kanzenbach <kurt@linutronix.de>,
+	Nam Cao <namcao@linutronix.de>, Antoine Tenart <atenart@kernel.org>
+Subject: Re: [PATCH 06/14] vdso/gettimeofday: Return bool from
+ clock_gettime() helpers
+Message-ID: <69499cb9-b13b-4eec-a7c4-c219a77c6260@sirena.org.uk>
+References: <20250701-vdso-auxclock-v1-6-df7d9f87b9b8@linutronix.de>
+ <02bcd954-5323-4663-a766-f53c67c5a18f@samsung.com>
+ <CGME20250708154921eucas1p1fd8fa4374610a991ca5c67bd612ca0c2@eucas1p1.samsung.com>
+ <e8c6b9a7-eaa6-4947-98e1-9d6fecc958d4@samsung.com>
+ <20250709092958-37148883-ed89-40fe-8cd5-ded5dd60957e@linutronix.de>
+ <eb5feef3-0a7d-438c-9dbb-00d1d72fad66@samsung.com>
+ <6bee5ae0-2a9e-4793-a5bd-9e6c72b03f27@sirena.org.uk>
+ <20250716142933-41089f40-0628-4821-83a3-fddbd4c4f9bf@linutronix.de>
+ <3a9504d1-2c6a-459a-a98e-3010d34b546c@sirena.org.uk>
+ <20250716152041-189100b1-7f5e-4388-8ada-b79ec09d18f5@linutronix.de>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVkaSk9CVhpJT0lLSUgdHk5PGVYeHw5VEwETFhoSFy
-	QUDg9ZV1kYEgtZQVlKSkJVSklJVUlKT1VKQ0pZV1kWGg8SFR0UWUFZT0tIVUpLSEpOTE5VSktLVU
-	pCS0tZBg++
-X-HM-Tid: 0a9813a4c74803a2kunm62c672118974a5
-X-HM-MType: 10
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6ODI6Hgw*EzExDQ1LVk0MNTM8
-	DTxPCz5VSlVKTE5JTUxNSUlIQ0pNVTMWGhIXVRoWGh8eDgg7ERYOVR4fDlUYFUVZV1kSC1lBWUpK
-	QlVKSUlVSUpPVUpDSllXWQgBWUFITk9LNwY+
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="BuIqEQ3Xb0IJOloe"
+Content-Disposition: inline
+In-Reply-To: <20250716152041-189100b1-7f5e-4388-8ada-b79ec09d18f5@linutronix.de>
+X-Cookie: osteopornosis:
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250716_073034_302473_70256A7E 
-X-CRM114-Status: GOOD (  19.56  )
+X-CRM114-CacheID: sfid-20250716_073518_221714_2A2307BD 
+X-CRM114-Status: GOOD (  16.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,64 +100,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
 
-> > There has often been the argument that selecting a frequency that has
-> > the same voltage as a faster frequency does not save any power.
-> >
-> > Hence I remember that we dropped slower frequencies on other socs
-> > that share the same voltage with a higher frequency.
+--BuIqEQ3Xb0IJOloe
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Sorry, but soc.dtsi on rockchip doesn't seem to have dropped slower
-frequencies with the same voltage?
+On Wed, Jul 16, 2025 at 03:23:24PM +0200, Thomas Wei=DFschuh wrote:
 
-rk3562.dtsi: CPU 408MHz -  816MHz 825mV | GPU 300MHz - 600MHz 825mV
-rk3566.dtsi: CPU 408MHz -  816MHz 850mV | GPU 200MHz - 400MHz 850mV
-rk3576.dtsi: CPU 408MHz - 1200MHz 700mV | GPU 300MHz - 600MHz 700mV
+> Can you try the following?
+> I missed this despite the double-checking after the last reported issue.
 
-> I.e. here the mainline kernel will always choose opp-1008000000 as
-> long as the regulator voltage is 875000 uV, unless explicitly
-> prevented from doing so by userspace. Whereas the BSP kernel [1] would
-> request different frequencies for different silicon, e.g.
-> opp-1200000000 for a silicon specimen with a leakage value of L4 and
-> opp-1416000000 for a silicon specimen with a leakage value of L8 - all
-> for the same regulator voltage of 875000 uV.
->
-> So my 2 cents would be: no added benefit in having "lower frequency,
-> same voltage" OPPs defined here until we implement an OPP driver
-> reading the NVMEM programmed leakage values and selecting different
-> *-L* voltages for each OPP depending on those. Once there is this
-> support in the drivers, those OPPs can be added together with
-> leakage-specific voltages (opp-microvolt-L0..11).
+I needed to fix that up a bit, it was missing an update of the final ret
+in the function and didn't apply directly to -next for some reason so I
+had to manually apply but it seems to do the trick, thanks!
 
-I assume this has nothing to do with the NVMEM driver?
+Tested-by: Mark Brown <broonie@kernel.org>
 
-From [1], we can see that the voltage used by the same board from
-408MHz to 1008MHz is the same. The actual test is also like this:
+with this against -next:
 
-The first  board: CPU 408MHz - 1008MHz both 850mV | 1200MHz 862mV
-The second board: CPU 408MHz - 1008MHz both 875mV | 1200MHz 875mV
+diff --git a/lib/vdso/gettimeofday.c b/lib/vdso/gettimeofday.c
+index 97aa9059a5c97..487e3458e536e 100644
+--- a/lib/vdso/gettimeofday.c
++++ b/lib/vdso/gettimeofday.c
+@@ -365,18 +365,18 @@ __cvdso_clock_gettime32_data(const struct vdso_time_d=
+ata *vd, clockid_t clock,
+ 			     struct old_timespec32 *res)
+ {
+ 	struct __kernel_timespec ts;
+-	int ret;
++	bool ok;
+=20
+-	ret =3D __cvdso_clock_gettime_common(vd, clock, &ts);
++	ok =3D __cvdso_clock_gettime_common(vd, clock, &ts);
+=20
+-	if (unlikely(ret))
++	if (unlikely(!ok))
+ 		return clock_gettime32_fallback(clock, res);
+=20
+-	/* For ret =3D=3D 0 */
++	/* For ok =3D=3D true */
+ 	res->tv_sec =3D ts.tv_sec;
+ 	res->tv_nsec =3D ts.tv_nsec;
+=20
+-	return ret;
++	return 0;
+ }
+=20
+ static __maybe_unused int
 
-[1] https://github.com/rockchip-linux/kernel/blob/develop-5.10/arch/arm64/boot/dts/rockchip/rk3528.dtsi#L227-L271
+--BuIqEQ3Xb0IJOloe
+Content-Type: application/pgp-signature; name="signature.asc"
 
-> Right now OPP values with frequencies lower than 1008000000 won't be
-> selected by any of the energy-aware cpufreq governors anyway, because
-> their voltages are the same. Exercise for the reader: try to convince
-> e.g. the "schedutil" governor to select anything below 1008000000
-> without touching
-> /sys/devices/system/cpu/cpufreq/policy0/scaling_max_freq :) This may
-> change if OPP tuning logic is implemented such as in [2]: that will
-> try and find the _voltage_ resulting in PVTPLL providing a frequency
-> closest to what cpufreq requested, and use that for the in-memory OPP
-> table instead of what was provided by the DTS.
+-----BEGIN PGP SIGNATURE-----
 
-Thanks for the clarification, so should we remove 408MHz, 600MHz and
-816MHz from the opp-table? Is this also the case with GPU's opp-table?
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmh3uJ0ACgkQJNaLcl1U
+h9CA4Af/Tjt27XD+sH0XsHGiqrvVkfVxva7ofqhkGScEh/mKgfSbmkbXHANzMMcN
+i0cqh+YA1JvkdO9PRMQKygFdjOmHF6f8fLJ89tv362PI4fWlABSmiorpUwrX/J76
+1DnAJBk3+BI/Ea4E5KVldzfU+figgDJeX1YWeicBcnGCnMrdHPub+24Wgclm4MIs
+mxPCfZnczo7mLioF3QxjetxtWIFrsPNxoRJp7kJN0Kyz6lGJQBmZc+dY1UzEVtyR
+GBCX/hWkjFxJzX9EBQ3d7C/LgP6AuvykylzYC2M5AZC9TOzvRpEhjp6WGJHCRrwa
+K72ju7AAJ/9Vit9ykmOIMbQUpAZUYA==
+=rAsr
+-----END PGP SIGNATURE-----
 
-Thanks,
-Chukun
-
---
-2.25.1
-
+--BuIqEQ3Xb0IJOloe--
 
