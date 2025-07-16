@@ -4,94 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49F12C83F1B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 22:56:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49872C83F22
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 23:22:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0u/YC913AnORCbk7RT9GNyXowu0h11qkd01RjAkHwZc=; b=EGCAX/XPWebhfd2Q/UXxuVkc7y
-	slCNzu1IR0nXnv0/euWONDd2s/eXJBnUOnWIMOF+JuMXplI8FhQR8hVneadNbNxGVesrjH2keVezD
-	rxQD1G4SCJXYOYgxz7o33Tu1tjxmgiAsJTbNUw6bVmDfC3eAubvYfG4mCFan1xhiVyPNMjMmajHF2
-	FEry9HRLDK7yXUiFLQwPBqofrw/tEkHuMWdoDwxCXIR51egFEyWSLn/SLfVtqfrgIfCB5eSTQ4Lht
-	yD5drB9r8AjeIjWQ9TtgxRaQgvMsYRhmBt+6ExDLzMge05ov8kV3QqoMQ7r9ZTvfLZDBM6NLYqcNY
-	ADJ6hk8A==;
+	bh=9/NnJDTcQwKH0nX4EoIsUlDscSEoGQ+CI3cGaPK+Ctg=; b=22rke+aD6lkvavRP5w0EH9z9GB
+	IMVNkeJtmj/qZlOoc+9RyWUKEB0SjeTtkRFCEaHRrSsfrYbR1r4GMg+Ptdq6UbPPz0qQcBr2NT8IA
+	SfrwvGDOET+drLdBN0S7TkZ+zehvTWJ/DCxXkbthgQNouU1JlD6dg/LlfOhGK6tZLIAMPSI2iIDIA
+	R6l7de9H+q9DZnektMDLac7g+A/F//83y4Og2XS5S6zcR6ZSPVLLckRR/mtZi7EP3jjdMpn1EOlKv
+	3nXaR7jPNdY9ytv7zgdNqY2abCuOk+c7yt5+8//nnBacJI3H4rJw9MGKsIjpvEh5f5bsuOKSWa9Oi
+	5/rwu3eg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucB30-00000008pfV-2Sc5;
-	Wed, 16 Jul 2025 22:56:22 +0000
-Received: from mail-ot1-x332.google.com ([2607:f8b0:4864:20::332])
+	id 1ucBRw-00000008qy2-37pa;
+	Wed, 16 Jul 2025 23:22:08 +0000
+Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucAta-00000008ohX-2bsA
+	id 1ucBPU-00000008qlx-3ukK
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Jul 2025 22:46:39 +0000
-Received: by mail-ot1-x332.google.com with SMTP id 46e09a7af769-73b5350980cso1065894a34.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Jul 2025 15:46:38 -0700 (PDT)
+	Wed, 16 Jul 2025 23:19:38 +0000
+Received: by mail-ed1-x530.google.com with SMTP id 4fb4d7f45d1cf-60b86fc4b47so2413a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Jul 2025 16:19:35 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1752705997; x=1753310797; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=0u/YC913AnORCbk7RT9GNyXowu0h11qkd01RjAkHwZc=;
-        b=B9RrmYXLYm75YyNhNzgr6J9tBJmRgKI2aR5Bi/jHkDhdVV71gHgBBwAfaKm1Yc3DUA
-         ivcpwKsz0PgJfD84gi6btjVqCKWwHnrL+1MRYxYimd+2TbLnh6m6gu3tizdTAcHD/g/k
-         VirOaFGV0h08G3DZBR+AcDIYwQQeEnLNMjxxZxH9M/ur5yxXdgWUwXot4iVVPPaulSgo
-         Zi9nwUsNTjxVhsNNu0TquTnC1ytTHTLXh7Q1GYH99v5Eg9pwk2nw3lQFaCcLJacY4eFj
-         BLNoWJUicVbL1caViK6eFxpaTQuHqh/SmeenAf783VcAqFUk/TllFvL0c0eO/I1G3tqk
-         AVcg==
+        d=google.com; s=20230601; t=1752707974; x=1753312774; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=9/NnJDTcQwKH0nX4EoIsUlDscSEoGQ+CI3cGaPK+Ctg=;
+        b=4mvXgkhzRGBTJCHM/MVAw342OgxYMSpGLeyACNQgIKRzVpJTJ5bV++gMVaIeeCXd3y
+         vq7uBjycBPn4YRkmCA02hyhMYoGXCZZqiCnojJWGGbeujXWAkf9SWfMYuHuCFPnUJY2k
+         ZPSAeoOwxKjRvJ2tE4mCRXQcxj4vlhWnNT4LKBbaFTSeafdOasxBg+RKuHw/tXrQ+J0Y
+         cygJzA9AYQZ7OeMrxywdSukEaNqx12U05esraHs4AVYDyk4WpriJzxW+orvx+vj+arnz
+         sKUwD/xz/wQ9U2NJ4gWgIIDP2zX7/MKoyEp9sov/9vyDFxl/oHUSfto+I2JgONI9qdYP
+         MDKw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752705997; x=1753310797;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=0u/YC913AnORCbk7RT9GNyXowu0h11qkd01RjAkHwZc=;
-        b=Myk5ZvmyAlUUJLBbaS5C2Rcpp2AfQGt7t9c42NofsGhTAVGa/Eet1Ctc/zwI6A4FuK
-         1JWuswVkmYQIT2aLxMc38CXFqNRIHYP15Dgvi2Ce2SCjIMH8X1sIPK7Xq7pTV6Y7VMuw
-         hlyxZNonDbOvCQSM+b7P1Jj8o0/UvXy4Nvhln2C+J6DqkfAhszt8CtONrq8XaXvxktC8
-         risYcGwO22RYqr2H6H08undhUmGCsZfhX9ye6VTOjt2SOUAP9Y8uklujCc48AnpFRSMN
-         n1BsKg6vdnGL/D51yX5ntkDc5x5Tmsfx/vcSZNc7XsoTPv0UsCwHpQBV17g3ZVhWylfM
-         bWHA==
-X-Forwarded-Encrypted: i=1; AJvYcCVh/vKB8rxiMtsBarVwqRLnnpSrjp7Au17F6SQmI7XoLnaD5VqG8HQSLes86WwAi34iLE8iS9jua5aqG/FP0Weh@lists.infradead.org
-X-Gm-Message-State: AOJu0YySrwRP9Gjxp624tvlBrS6EnIqMk1/8SJLSacSkoDokn2kGI2ry
-	YRcn6vvyw8y3ytrSQfjvGK5NKuv7lrYvjegGcqHGZRA35yCRcj9NZ8sB8bSJhzY/bhg=
-X-Gm-Gg: ASbGncvOkveYDFty0dnrvixVso58QtAn9rPQqS12LG7IKlPWsvjQMitCEcmWuJYMJo3
-	9jo/ij0jC2jxEWsSFaEjanJ80fegLjhLWOYUsrKZ+wMmqj35EcrpwrUbimUm1Bc+JdIdyfa43/0
-	j6b+O/CWrInb2zBzl/6yJymSNFMxsu25xjJ5iFlk2/G4+/CtfDDfummOMy1bseFTZDjLPvUQJKP
-	r7BdFTFY/6SuBov/uwy4MW6KnEk9vv7eJtLvE5pq63KtNc+WSizLKQkoq0iLQhZm1228IxqZHjl
-	hRbOSFDQofQ0cZnXQE0lPTD0uKKq89PA7k+p577bwAugg8aGmXQFMI8n9sHcSOCvSY6Kx9KvvWK
-	dBTEcv8MsPfE/U/h+IitXAalWR+lQgQ==
-X-Google-Smtp-Source: AGHT+IHW7jvGVN1nZDNV19D23iLay5SH3FruLv6n11izEuEkrlyk9Tea64PpmwgpUO6OAQQLBc1AXA==
-X-Received: by 2002:a05:6808:50ab:b0:41b:2876:a93b with SMTP id 5614622812f47-41e26d2426dmr821249b6e.6.1752705997476;
-        Wed, 16 Jul 2025 15:46:37 -0700 (PDT)
-Received: from localhost ([2603:8080:b800:f700:3f28:4161:2162:7ea2])
-        by smtp.gmail.com with UTF8SMTPSA id 5614622812f47-41dcf3be2a7sm466494b6e.23.2025.07.16.15.46.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 16 Jul 2025 15:46:37 -0700 (PDT)
-Date: Wed, 16 Jul 2025 17:46:35 -0500
-From: Dan Carpenter <dan.carpenter@linaro.org>
-To: Xu Yang <xu.yang_2@nxp.com>
-Cc: Chester Lin <chester62515@gmail.com>,
-	Matthias Brugger <mbrugger@suse.com>,
-	Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>,
-	NXP S32 Linux Team <s32@nxp.com>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: [PATCH 3/3] arm64: dts: s32g2: Re-order usbmisc device tree section
-Message-ID: <14d3cfde-57bd-452e-afa6-8a468281e5e7@sabinyo.mountain>
-References: <cover.1752703107.git.dan.carpenter@linaro.org>
+        d=1e100.net; s=20230601; t=1752707974; x=1753312774;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=9/NnJDTcQwKH0nX4EoIsUlDscSEoGQ+CI3cGaPK+Ctg=;
+        b=Vg9zl7wYrZnnKNmLPdQihOlLm0KkjYc4Xz4P6/cLFe2YzXQlfuAvCGM83lqQCYB7vj
+         3M3LbkfPesK1wqA653RpCm1adyDDESs5Rw1PUdEExDyArkncL+8E8ZHQ2FV3gMKwXf6S
+         FpN5o49Lu9HF0uBvbgEi2lknqmk1KaYB2TL2rEL0aTC5X6+sf5jx4zumP8C4q9I5GToE
+         yRenfAq5jNTg+/yJz1ybrAySbh/BZBc3Fb7qq/vrfWddiV+VvGhrcXHnrwa92ZEhYKkm
+         PyEdLvQouR88swArfB7wKn8y+z+6KDpGqTRjXkyKQk/Q1yPnAKCG6T2SpYgiVfhV04OD
+         AFDQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWHgNe1c3Ijbh3x+rqA/1tIK8ZfdcjEJuieYd3LGOMY9wQHLWu+L7wYNW7Kq5nKmHtpZIdFXs/RWUGdQuUGbk+M@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx5VBZ3+++JDvb2XNocY3nFe77VHxpBxizNcxXnHHXWE0GseBMa
+	zeAnEg3hZwu11IYX6ZqOY14vMy4BCfMnFsmMF7gXOo2Jb1DMCTIKCISXUbgOGGdNRUTEVlUlf/B
+	au8XK/jJblFScJ7jpe48EG2ZOZvEx+fz9hB/8uy4w
+X-Gm-Gg: ASbGncu0785+F9QYTGVfmS7fRwMAHjLbaNB9A88qFYdOSzpXUeqbgbn3RGIChUeHKhz
+	zSxfraSSGdV8WMa/MM5Uk8ubo+APE8jJnTdqAsIN/CNOudJYQDEt9JJwtqvKc082Wsm+s3Sj/Os
+	yyzP64tv4lSwSskor5W6LhJtFVNgRVK0XlWSMcOtA1fdUjnWxNGrViGodHWxp0EzITfcoO5LCfE
+	otuaDQYKuJ6CIVjL7ubIheo0pNUi8N/VkSYSkBrJVh5sRS1
+X-Google-Smtp-Source: AGHT+IEWW6wSvnNGlneW8csSuEUINBhv5Xrj4krisO4j8KjigJe6weh6HtfKmo/FhQRiZhIVz1T5uW67ohk4ura9SHY=
+X-Received: by 2002:a50:d75b:0:b0:601:f23b:a377 with SMTP id
+ 4fb4d7f45d1cf-612a4cf8fc8mr29145a12.6.1752707974101; Wed, 16 Jul 2025
+ 16:19:34 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <cover.1752703107.git.dan.carpenter@linaro.org>
+References: <4c459085b9ae42bdbf99b6014952b965@BJMBX01.spreadtrum.com>
+ <202507150830.56F8U908028199@SHSPAM01.spreadtrum.com> <c34f4f606eb04c38b64e8f3a658cd051@BJMBX01.spreadtrum.com>
+ <CANiq72=v6jkOasLiem7RXe-WUSg9PkNqrZneeMOTi1pzwXuHYg@mail.gmail.com>
+ <24e87f60203c443abe7549ce5c0e9e75@BJMBX01.spreadtrum.com> <aHftocnJcLg64c29@google.com>
+ <CAH5fLgiiZE_mFhB4J+G7-Jdz46+d-5NP15npjn2_H7DgSAynxw@mail.gmail.com>
+In-Reply-To: <CAH5fLgiiZE_mFhB4J+G7-Jdz46+d-5NP15npjn2_H7DgSAynxw@mail.gmail.com>
+From: Matthew Maurer <mmaurer@google.com>
+Date: Wed, 16 Jul 2025 16:19:22 -0700
+X-Gm-Features: Ac12FXxXgsXM-s4jPwxbK0qidi2uE_QL2umvn-Fdybn9nHdZCi0VGiyXjMukuYQ
+Message-ID: <CAGSQo03DH9L7OFZsGXU8gt_4iq2zo6gZbJtw3p2hD6tGp0KTzA@mail.gmail.com>
+Subject: Re: Meet compiled kernel binaray abnormal issue while enabling
+ generic kasan in kernel 6.12 with some default KBUILD_RUSTFLAGS on
+To: Alice Ryhl <aliceryhl@google.com>
+Cc: Carlos Llamas <cmllamas@google.com>, =?UTF-8?B?5YiY5rW354eVIChIYWl5YW4gTGl1KQ==?= <haiyan.liu@unisoc.com>, 
+	Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>, Miguel Ojeda <ojeda@kernel.org>, 
+	=?UTF-8?B?5ZGo5bmzIChQaW5nIFpob3UvOTAzMik=?= <Ping.Zhou1@unisoc.com>, 
+	=?UTF-8?B?5Luj5a2Q5Li6IChaaXdlaSBEYWkp?= <Ziwei.Dai@unisoc.com>, 
+	=?UTF-8?B?5p2o5Li95aicIChMaW5hIFlhbmcp?= <lina.yang@unisoc.com>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
+	"rust-for-linux@vger.kernel.org" <rust-for-linux@vger.kernel.org>, 
+	=?UTF-8?B?546L5Y+MIChTaHVhbmcgV2FuZyk=?= <shuang.wang@unisoc.com>, 
+	Andrey Ryabinin <ryabinin.a.a@gmail.com>, Alexander Potapenko <glider@google.com>, 
+	Andrey Konovalov <andreyknvl@gmail.com>, Dmitry Vyukov <dvyukov@google.com>, 
+	Vincenzo Frascino <vincenzo.frascino@arm.com>, 
+	"kasan-dev@googlegroups.com" <kasan-dev@googlegroups.com>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, =?UTF-8?B?QXJ2ZSBIasO4bm5ldsOlZw==?= <arve@android.com>, 
+	Todd Kjos <tkjos@android.com>, Martijn Coenen <maco@android.com>, 
+	Joel Fernandes <joelagnelf@nvidia.com>, Christian Brauner <christian@brauner.io>, 
+	Suren Baghdasaryan <surenb@google.com>, Jamie Cunliffe <Jamie.Cunliffe@arm.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250716_154638_663272_FB08667E 
-X-CRM114-Status: GOOD (  12.92  )
+X-CRM114-CacheID: sfid-20250716_161936_972100_808051B5 
+X-CRM114-Status: GOOD (  12.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,30 +114,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The compatible line is supposed to be first.
+The reason removing that code makes your build "work" is because it
+entirely disables pointer authentication in Rust code when you remove
+it. That is likely not what you want.
 
-Reported-by: Xu Yang <xu.yang_2@nxp.com>
-Closes: https://lore.kernel.org/all/u7glt7mn33lbdeskbr4ily6tjjifvffy64llwpi5b2rrhx5tnv@y2h2y3oz3xc4/
-Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
----
- arch/arm64/boot/dts/freescale/s32g2.dtsi | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+> > We have KASAN builds with android16-6.12 and haven't seen this issue.
+> > Can you share your entire config file, so we can try to reproduce?
 
-diff --git a/arch/arm64/boot/dts/freescale/s32g2.dtsi b/arch/arm64/boot/dts/freescale/s32g2.dtsi
-index 089f54415571..6f700085dec2 100644
---- a/arch/arm64/boot/dts/freescale/s32g2.dtsi
-+++ b/arch/arm64/boot/dts/freescale/s32g2.dtsi
-@@ -424,8 +424,8 @@ spi2: spi@401dc000 {
- 		};
- 
- 		usbmisc: usbmisc@44064200 {
--			#index-cells = <1>;
- 			compatible = "nxp,s32g2-usbmisc";
-+			#index-cells = <1>;
- 			reg = <0x44064200 0x200>;
- 		};
- 
--- 
-2.47.2
-
+This - please provide the config file or instructions to reproduce the
+build. Since this is an upstream avenue, ideally provide instructions
+for reproducing against `linux-next`, or failing that (e.g. if it's
+not broken there) against v6.12.38. The default android16-6.12 build
+will work fine with ASAN. If you can't provide the entire config file
+in a public context, or if you only have instructions for building it
+with Kleaf + fragments, or can only reproduce with the Android tree,
+please reroute this request to our bug intake system (I am pretty sure
+unisoc has access) and cc myself, carlos, and Alice.
 
