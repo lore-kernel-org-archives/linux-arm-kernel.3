@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6E40C83F1B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 08:40:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3358BC83F1B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 08:43:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zMqIeYsdByrg0V4XfdLCEiDMy3FizptbIRYnCCNLKvU=; b=x7rjK27kUxGpeWoM44uv2dY1r7
-	oJgv2tXg8S+D68zDBVItOv8xW4bvXi+xFXwQXYLNDUQDcSt0Fvmamt+h92mU5mqaViDTGRCNWOP81
-	2er482yzWTa3Mj8ysTOnoAKsYnpxOJnEP/yzolXoVZfrmaMDRbk8fp8jL9ynFEV8oJVTVR9+tGftg
-	f8tYav6/7PDgPsJO/YSQJcVJu0+BeJzb/uPFtuZi94DTrYrxK6crtdqqmM7x7CjDNq2mq7Hpr6A3U
-	8KPcHF2uX8RvUVD0S+nRac7Nb5zBMWZnvk8LHYaWAMaFceEY/ggcIxGatfataXquWx8k0rzTh//7d
-	sYZRGRIw==;
+	bh=dBYw5oog6yO0VQIk58vTdpBz6vwF0hjlDU5vofNWgIo=; b=uGBrz56rKvvO6tnodbV+tqbTnL
+	zwPSK7WQuQfmsP+fFibQtDHzlHL1XoRoWpvV5rtNcNVSAFIWxgvogjWPETU4yOJPL/sjRM0ogqQLN
+	AnkmrzIIzdyTPTl20iVKwmcscpwivmZSfwYYl0W4qyM2Nf65tl1YEYQt0/2ccxRzfjZCrq1lfocI+
+	aY47HQBy7gOzl9xnBUlOvYf2qai+EjdNc1OLZvnJHsxz2uO7I2OKiNtxhZjCcuIVP1X+IPcHcXAwM
+	GkJJe5hBYabgT0JvGJfVjmQJ2PfnEenoG5scbtbLhTDlvvf41Punhb05bgF7A5lcOTuNV1T/zv6RQ
+	404xpk5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubxgv-00000007CC2-0bhK;
-	Wed, 16 Jul 2025 08:40:41 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1ubxjJ-00000007CVS-3Xub;
+	Wed, 16 Jul 2025 08:43:09 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubxQR-000000079zy-3AdQ
+	id 1ubxRH-00000007AAO-17hW
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Jul 2025 08:23:41 +0000
+	Wed, 16 Jul 2025 08:24:32 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 3FCFD5C5674;
-	Wed, 16 Jul 2025 08:23:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5A6F9C4CEF0;
-	Wed, 16 Jul 2025 08:23:38 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 846F943FF3;
+	Wed, 16 Jul 2025 08:24:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CAFDEC4CEF0;
+	Wed, 16 Jul 2025 08:24:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752654218;
-	bh=cp2m1cQPpeNT2d53wsl0tGzY5ODL2sh/xGBe89ivRr4=;
+	s=k20201202; t=1752654270;
+	bh=Sx6GtXQhUUHM3FrpmZ+GaCxjq7UxqdGBPOXm9TRFxoM=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=OsuSqHmDg5QaUkjKR88pXkBRjXFiGTJmpqIR2xTr5Z9U1Ok9P/L5vM+a06yTG3toz
-	 at3wk0tkzeoEdt0BukhNBUIqcbPqs732/P+an+XUDciRV3hHnaPzyNPpyHmN8OXYWc
-	 BfRruYWHr+/kBdTkHGaGdfGb+meDtFsBpDNxR8r2f82JlPhK7gakGM2tsl+l0OjIcU
-	 sPZL6T47LdaQ43C70ikZe6EPoBxS36V78shXEYhmf5W5W03iRjAkjgrj8TRd3Atm+c
-	 WmPx1C5+9MA91F/pTTKGPiALFC+YTLSWiyrLEBh89IIL12Ks8wyLQ+BJCGLvU8rGQb
-	 MpkLR0taXi9CA==
-Date: Wed, 16 Jul 2025 10:23:36 +0200
+	b=Iiu//ig0tvsYWLj3RYhibc9P+zvAzAbb29UT0vX3qk8p/xgxwKLdf3zW7fwGYc1Oj
+	 AjEzWR0K269SObv38lNZWA5KeWYZ/Wv1szxIR7/2VkY64vkA3AXs+op48eVXtKkXCr
+	 Rf5f2m7eVMdB4efgBFeU+ydDBGGB2kkZEilBlSb36zDBslg2cOU5mprxqHxhCXPSWL
+	 jCOs/zzWzvSsfcyHaG7AJwtVPbQpy1VuNCV7y5zNqCOAD0y7XMJ4N6DUDGoa0eMaT6
+	 N1ZW3ORoGmddFRSF1oL2BQu0Y2TrfHglL1GyLHzrmTcSLym1gc186GnN1KeSWs2wNt
+	 87f12ZxVIRozQ==
+Date: Wed, 16 Jul 2025 10:24:27 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Jacky Chou <jacky_chou@aspeedtech.com>
 Cc: bhelgaas@google.com, lpieralisi@kernel.org, kwilczynski@kernel.org, 
@@ -51,18 +51,19 @@ Cc: bhelgaas@google.com, lpieralisi@kernel.org, kwilczynski@kernel.org,
 	linux-pci@vger.kernel.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
 	linux-kernel@vger.kernel.org, openbmc@lists.ozlabs.org, linux-gpio@vger.kernel.org, 
 	linus.walleij@linaro.org, p.zabel@pengutronix.de, BMC-SW@aspeedtech.com
-Subject: Re: [PATCH v2 02/10] dt-bindings: soc: aspeed: Add ASPEED PCIe PHY
- support
-Message-ID: <20250716-innocent-satisfied-pug-9ecc15@krzk-bin>
+Subject: Re: [PATCH v2 01/10] dt-bindings: soc: aspeed: Add ASPEED PCIe
+ Config support
+Message-ID: <20250716-wine-partridge-of-wonder-af10a6@krzk-bin>
 References: <20250715034320.2553837-1-jacky_chou@aspeedtech.com>
- <20250715034320.2553837-3-jacky_chou@aspeedtech.com>
+ <20250715034320.2553837-2-jacky_chou@aspeedtech.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250715034320.2553837-3-jacky_chou@aspeedtech.com>
+In-Reply-To: <20250715034320.2553837-2-jacky_chou@aspeedtech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250716_012339_876881_91D04638 
-X-CRM114-Status: GOOD (  22.40  )
+X-CRM114-CacheID: sfid-20250716_012431_323017_951E1631 
+X-CRM114-Status: UNSURE (   9.18  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,88 +78,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 15, 2025 at 11:43:12AM +0800, Jacky Chou wrote:
-> This PHY is used by many modules. In our design, our
-> PCIe has RC and EP funcitons. On the different function,
-> each driver will use configure and get some information
-> from the PHY interface to do somting that it wants to.
-> Getting link status, setting syscon credits and so on.
-> Therefore, define it as syscon for all modules.
-> 
-> Signed-off-by: Jacky Chou <jacky_chou@aspeedtech.com>
-> ---
->  .../bindings/soc/aspeed/aspeed,pcie-phy.yaml  | 44 +++++++++++++++++++
->  1 file changed, 44 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/soc/aspeed/aspeed,pcie-phy.yaml
-
-Phys go to phy, not soc directory. Soc is not a dumping ground.
-
-> 
-> diff --git a/Documentation/devicetree/bindings/soc/aspeed/aspeed,pcie-phy.yaml b/Documentation/devicetree/bindings/soc/aspeed/aspeed,pcie-phy.yaml
-> new file mode 100644
-> index 000000000000..5fa585d63ca6
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/soc/aspeed/aspeed,pcie-phy.yaml
-> @@ -0,0 +1,44 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/soc/aspeed/aspeed,pcie-phy.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: ASPEED PCIe PHY
-> +
+On Tue, Jul 15, 2025 at 11:43:11AM +0800, Jacky Chou wrote:
 > +maintainers:
 > +  - Jacky Chou <jacky_chou@aspeedtech.com>
 > +
-> +description:
-> +  The ASPEED PCIe PHY provides the physical layer interface for PCIe
-> +  controllers in the SoC. This node represents the register block for the PCIe
-> +  PHY, which is typically accessed by PCIe Root Complex or Endpoint drivers
-> +  via syscon. It is used to configure and get the status of the PCIe PHY
-> +  hardware, including power management, link training, and other PHY-specific
-> +  operations.
+> +description: |
+
+Drop |
+
+> +  The ASPEED PCIe configuration syscon block provides a set of registers shared
+> +  by multiple PCIe-related devices within the SoC. This node represents the
+> +  common configuration space that allows these devices to coordinate and manage
+> +  shared PCIe settings, including address mapping, control, and status
+> +  registers. The syscon interface enables for various PCIe devices to access
+> +  and modify these shared registers in a consistent and centralized manner.
 > +
 > +properties:
 > +  compatible:
 > +    items:
 > +      - enum:
-> +          - aspeed,pcie-phy
+> +          - aspeed,pcie-cfg
 
-No, see writing bindings.
+NAK, see writing bindings. You already received comments about generic
+compatible in the past.
 
-> +      - const: syscon
+Best regards,
+Krzysztof
 
-It's not a syscon, but phy. I don't think you understood previous
-feedback. Go back to v1. You just send something to pass the review
-instead of reworking to make it correct.
-
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  "#phy-cells":
-> +    const: 0
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    syscon@1e6ed200 {
-
-wrong name, that's a phy
-
-> +      compatible = "aspeed,pcie-phy", "syscon";
-> +      reg = <0x1e6ed200 0x100>;
-
-Incomplete
-
-> +    };
-> -- 
-> 2.43.0
-> 
 
