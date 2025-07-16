@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CDB5C83F27
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 05:25:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 549F5C83F27
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 05:27:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R2q3vmvSPY6bztzupG4FTBbtoFsGOYfbQq9ejBnjuc4=; b=Y3cRxEwIRuhiHwkQ/Ra0Z39/6c
-	C8Bych3jB8Xlys5ehX2cGo4ltJ/dOkyXDaP9yyN8LgGeC2JCeAA3Z6r8/KHJu4Jg3bWLpQG5/jUtN
-	w2Q6b1gQ2L7q3mNasAQHq5qW29wpr60MSjJXz/6BBGEzMdod8cHkw/vnh4OSqnTKYWUL0xQK/M/7u
-	av8hz+YI+zsGHyrG+riTWaiwl43jaevS3JD53BHt1vujBiWon5U60Fqsm8xlqHUngQ6xMu2YiNv3S
-	KENlAfBvadW95TinT9K06a0PPOucFaBq49EmFSp53Vu/HC+RyPWHFwmtTYXX3/SuOFY+tiaLp33PA
-	C3mIZSKQ==;
+	bh=q/BKbhuL0vKp+y2KpfAqEHa8O7EtSQwyOm6GZvSm+1w=; b=vW1uiH906kV6jKX1TDMcQQcWpW
+	tya+uow7Lkkn6+fbpfqIJHp+0pWX7jHjnUT1ciJOAxKL2/UyGA67XqDpo22z4BRLcHubS9dCQTDuo
+	uZcNVrUJqfWZDgYI/nahAUhlGx8gs6t5OilTwNVBh4/Mwql2FYk8Y2KVR0qL4+oxtB0SmgeFOViw0
+	mCyJLCSNo/aiou4CDfe/8h5C7PV8uAdyGKdFBLXIRTyy0XzN6vF08U4TYuH6gWC9avE/WTFmk50z6
+	7Z19MeYbmMEIN755LtGWcdO4DLHrN1RxvLpa3Gz5GpKuBWWuREpmZtvuLHEuW7mYWGR6KcocN2mmC
+	KvC+TNJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubudW-00000006n1L-1h76;
-	Wed, 16 Jul 2025 05:24:58 +0000
+	id 1ubufv-00000006n9M-0nKX;
+	Wed, 16 Jul 2025 05:27:27 +0000
 Received: from mta-64-228.siemens.flowmailer.net ([185.136.64.228])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubuQR-00000006lk7-0Te7
+	id 1ubuQV-00000006lk7-1XAX
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Jul 2025 05:11:28 +0000
-Received: by mta-64-228.siemens.flowmailer.net with ESMTPSA id 202507160511233336e75ba2dd1f037c
+	Wed, 16 Jul 2025 05:11:32 +0000
+Received: by mta-64-228.siemens.flowmailer.net with ESMTPSA id 20250716051130dd063590c7d3589760
         for <linux-arm-kernel@lists.infradead.org>;
-        Wed, 16 Jul 2025 07:11:23 +0200
+        Wed, 16 Jul 2025 07:11:30 +0200
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; s=fm1;
  d=siemens.com; i=huaqian.li@siemens.com;
  h=Date:From:Subject:To:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding:Cc:References:In-Reply-To;
- bh=R2q3vmvSPY6bztzupG4FTBbtoFsGOYfbQq9ejBnjuc4=;
- b=P8Uik0/+YabvQjN5vm0Q2JpesQOH6X2ewIggqhtB6ICmy2qCzEG0yTZcyOPf/lijqI5iKg
- sT7E4O35/oiJEAHvCcXO+GQRWiECG7MEeSVqWXBjd1aEsN7BLBMO2G7+REwnIWmzGKG6su6k
- +MXz5vh/Vq0jOxhalwRl8Fwh1nLSihtJqGzqRxBDUxdOkbPZlyxvjpKoSK8tFQoHQ3jah2Iw
- RRnjneO9NtJeLHMRY4tFdJFVMnC2TLw5kUiKzOjo/1Col3iOsmaJCVpBCGvTn8/4SPDDMNh0
- YXUn2OAx1bIgWi5/MTBF4ig6IOFcqP3cdvSv4h1663VR5/PORv1TwLHQ==;
+ bh=q/BKbhuL0vKp+y2KpfAqEHa8O7EtSQwyOm6GZvSm+1w=;
+ b=nc1ODcdUKf6nFUVbNJmc2ZfghpF+13G4DOQja0sNWR/Y2fEmGdMFcr36WX1fCeRaNSRdnv
+ ASDgf5/L/06qb0BZhi0ihCAWn3nGlGDvAhVtHlI6PylEgvZkYovV0uL4ULnCKh6zbrxlSbMH
+ Hz+T4Wl6xetirc+YFWTVAeLKDymmLzZUQ/M4taiu2oHL23L+yKftiynsGN1Y6QOHXKxLHzl2
+ kJWxTAUGjF9+tEMKOSjPJjqOBMw/zPQ3wi+KISJwM1wCj4M8yGlsKpOibN4lB1O8GSr/+nIX
+ 0a0zwOTAntPxVSKBOIhTFG5YauXWHrIRKyBe7pc6GuK9+roOv4IyTI5Q==;
 From: huaqian.li@siemens.com
 To: s-vadapalli@ti.com
 Cc: baocheng.su@siemens.com,
@@ -60,9 +60,9 @@ Cc: baocheng.su@siemens.com,
 	robh@kernel.org,
 	ssantosh@kernel.org,
 	vigneshr@ti.com
-Subject: [PATCH v9 4/7] PCI: keystone: Add support for PVU-based DMA isolation on AM654
-Date: Wed, 16 Jul 2025 13:10:32 +0800
-Message-Id: <20250716051035.170988-5-huaqian.li@siemens.com>
+Subject: [PATCH v9 5/7] arm64: dts: ti: k3-am65-main: Add PVU nodes
+Date: Wed, 16 Jul 2025 13:10:33 +0800
+Message-Id: <20250716051035.170988-6-huaqian.li@siemens.com>
 In-Reply-To: <20250716051035.170988-1-huaqian.li@siemens.com>
 References: <e21c6ead-2bcb-422b-a1b9-eb9dd63b7dc7@ti.com>
  <20250716051035.170988-1-huaqian.li@siemens.com>
@@ -71,8 +71,9 @@ Content-Transfer-Encoding: 8bit
 X-Flowmailer-Platform: Siemens
 Feedback-ID: 519:519-959203:519-21489:flowmailer
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250715_221127_287652_0865D197 
-X-CRM114-Status: GOOD (  20.06  )
+X-CRM114-CacheID: sfid-20250715_221131_562480_B402AD6C 
+X-CRM114-Status: UNSURE (   7.62  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,175 +90,47 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Jan Kiszka <jan.kiszka@siemens.com>
 
-The AM654 lacks an IOMMU, thus does not support isolating DMA requests
-from untrusted PCI devices to selected memory regions this way. Use
-static PVU-based protection instead. The PVU, when enabled, will only
-accept DMA requests that address previously configured regions.
-
-Use the availability of a restricted-dma-pool memory region as trigger
-and register it as valid DMA target with the PVU. In addition, enable
-the mapping of requester IDs to VirtIDs in the PCI RC. Use only a single
-VirtID so far, catching all devices.
+Add nodes for the two PVUs of the AM65. Keep them disabled, though,
+because the board has to additionally define DMA pools and the devices
+to be isolated.
 
 Signed-off-by: Jan Kiszka <jan.kiszka@siemens.com>
-Acked-by: Bjorn Helgaas <bhelgaas@google.com>
 Signed-off-by: Li Hua Qian <huaqian.li@siemens.com>
 ---
- drivers/pci/controller/dwc/pci-keystone.c | 106 ++++++++++++++++++++++
- 1 file changed, 106 insertions(+)
+ arch/arm64/boot/dts/ti/k3-am65-main.dtsi | 20 ++++++++++++++++++++
+ 1 file changed, 20 insertions(+)
 
-diff --git a/drivers/pci/controller/dwc/pci-keystone.c b/drivers/pci/controller/dwc/pci-keystone.c
-index 2b2632e513b5..fbf1bf43b7ca 100644
---- a/drivers/pci/controller/dwc/pci-keystone.c
-+++ b/drivers/pci/controller/dwc/pci-keystone.c
-@@ -19,6 +19,7 @@
- #include <linux/mfd/syscon.h>
- #include <linux/msi.h>
- #include <linux/of.h>
-+#include <linux/of_address.h>
- #include <linux/of_irq.h>
- #include <linux/of_pci.h>
- #include <linux/phy/phy.h>
-@@ -26,6 +27,7 @@
- #include <linux/regmap.h>
- #include <linux/resource.h>
- #include <linux/signal.h>
-+#include <linux/ti-pvu.h>
+diff --git a/arch/arm64/boot/dts/ti/k3-am65-main.dtsi b/arch/arm64/boot/dts/ti/k3-am65-main.dtsi
+index b085e7361116..be65e6aa7b80 100644
+--- a/arch/arm64/boot/dts/ti/k3-am65-main.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-am65-main.dtsi
+@@ -843,6 +843,26 @@ main_cpts_mux: refclk-mux {
+ 				assigned-clock-parents = <&k3_clks 118 5>;
+ 			};
+ 		};
++
++		ti_pvu0: iommu@30f80000 {
++			compatible = "ti,am654-pvu";
++			reg = <0 0x30f80000 0 0x1000>,
++			<0 0x36000000 0 0x100000>;
++			reg-names = "cfg", "tlbif";
++			interrupts-extended = <&intr_main_navss 390>;
++			interrupt-names = "pvu";
++			status = "disabled";
++		};
++
++		ti_pvu1: iommu@30f81000 {
++			compatible = "ti,am654-pvu";
++			reg = <0 0x30f81000 0 0x1000>,
++			<0 0x36100000 0 0x100000>;
++			reg-names = "cfg", "tlbif";
++			interrupts-extended = <&intr_main_navss 389>;
++			interrupt-names = "pvu";
++			status = "disabled";
++		};
+ 	};
  
- #include "../../pci.h"
- #include "pcie-designware.h"
-@@ -111,6 +113,16 @@
- 
- #define PCI_DEVICE_ID_TI_AM654X		0xb00c
- 
-+#define KS_PCI_VIRTID			0
-+
-+#define PCIE_VMAP_xP_CTRL		0x0
-+#define PCIE_VMAP_xP_REQID		0x4
-+#define PCIE_VMAP_xP_VIRTID		0x8
-+
-+#define PCIE_VMAP_xP_CTRL_EN		BIT(0)
-+
-+#define PCIE_VMAP_xP_VIRTID_VID_MASK	0xfff
-+
- struct ks_pcie_of_data {
- 	enum dw_pcie_device_mode mode;
- 	const struct dw_pcie_host_ops *host_ops;
-@@ -1136,6 +1148,94 @@ static const struct of_device_id ks_pcie_of_match[] = {
- 	{ },
- };
- 
-+static int ks_init_vmap(struct platform_device *pdev, const char *vmap_name)
-+{
-+	struct resource *res;
-+	void __iomem *base;
-+	u32 val;
-+
-+	if (!IS_ENABLED(CONFIG_TI_PVU))
-+		return 0;
-+
-+	res = platform_get_resource_byname(pdev, IORESOURCE_MEM, vmap_name);
-+	base = devm_pci_remap_cfg_resource(&pdev->dev, res);
-+	if (IS_ERR(base))
-+		return PTR_ERR(base);
-+
-+	writel(0, base + PCIE_VMAP_xP_REQID);
-+
-+	val = readl(base + PCIE_VMAP_xP_VIRTID);
-+	val &= ~PCIE_VMAP_xP_VIRTID_VID_MASK;
-+	val |= KS_PCI_VIRTID;
-+	writel(val, base + PCIE_VMAP_xP_VIRTID);
-+
-+	val = readl(base + PCIE_VMAP_xP_CTRL);
-+	val |= PCIE_VMAP_xP_CTRL_EN;
-+	writel(val, base + PCIE_VMAP_xP_CTRL);
-+
-+	return 0;
-+}
-+
-+static int ks_init_restricted_dma(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct of_phandle_iterator it;
-+	struct resource phys;
-+	int err;
-+
-+	if (!IS_ENABLED(CONFIG_TI_PVU))
-+		return 0;
-+
-+	/* Only process the first restricted DMA pool, more are not allowed */
-+	of_for_each_phandle(&it, err, dev->of_node, "memory-region",
-+			    NULL, 0) {
-+		if (of_device_is_compatible(it.node, "restricted-dma-pool"))
-+			break;
-+	}
-+	if (err)
-+		return err == -ENOENT ? 0 : err;
-+
-+	err = of_address_to_resource(it.node, 0, &phys);
-+	if (err < 0) {
-+		dev_err(dev, "failed to parse memory region %pOF: %d\n",
-+			it.node, err);
-+		return 0;
-+	}
-+
-+	/* Map all incoming requests on low and high prio port to virtID 0 */
-+	err = ks_init_vmap(pdev, "vmap_lp");
-+	if (err)
-+		return err;
-+	err = ks_init_vmap(pdev, "vmap_hp");
-+	if (err)
-+		return err;
-+
-+	/*
-+	 * Enforce DMA pool usage with the help of the PVU.
-+	 * Any request outside will be dropped and raise an error at the PVU.
-+	 */
-+	return ti_pvu_create_region(KS_PCI_VIRTID, &phys);
-+}
-+
-+static void ks_release_restricted_dma(struct platform_device *pdev)
-+{
-+	struct of_phandle_iterator it;
-+	struct resource phys;
-+	int err;
-+
-+	if (!IS_ENABLED(CONFIG_TI_PVU))
-+		return;
-+
-+	of_for_each_phandle(&it, err, pdev->dev.of_node, "memory-region",
-+			    NULL, 0) {
-+		if (of_device_is_compatible(it.node, "restricted-dma-pool") &&
-+		    of_address_to_resource(it.node, 0, &phys) == 0) {
-+			ti_pvu_remove_region(KS_PCI_VIRTID, &phys);
-+			break;
-+		}
-+	}
-+}
-+
- static int ks_pcie_probe(struct platform_device *pdev)
- {
- 	const struct dw_pcie_host_ops *host_ops;
-@@ -1284,6 +1384,10 @@ static int ks_pcie_probe(struct platform_device *pdev)
- 	if (ret < 0)
- 		goto err_get_sync;
- 
-+	ret = ks_init_restricted_dma(pdev);
-+	if (ret < 0)
-+		goto err_get_sync;
-+
- 	switch (mode) {
- 	case DW_PCIE_RC_TYPE:
- 		if (!IS_ENABLED(CONFIG_PCI_KEYSTONE_HOST)) {
-@@ -1365,6 +1469,8 @@ static void ks_pcie_remove(struct platform_device *pdev)
- 	int num_lanes = ks_pcie->num_lanes;
- 	struct device *dev = &pdev->dev;
- 
-+	ks_release_restricted_dma(pdev);
-+
- 	pm_runtime_put(dev);
- 	pm_runtime_disable(dev);
- 	ks_pcie_disable_phy(ks_pcie);
+ 	main_gpio0: gpio@600000 {
 -- 
 2.34.1
 
