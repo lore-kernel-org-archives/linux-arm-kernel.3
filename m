@@ -4,167 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF406C83F1B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 07:02:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A9BEC83F1B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 07:05:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VEUoLTT5I8yzxJpfDzrdKZYJvEEQsf+bCiIncTF9xFA=; b=P+RDgHWV7HlDmgCRIEutv4TxW8
-	qeTi6r3IW90rHxE7md5CkatKu2bO0DRuquKdSoRCAlqx6cSJGmH5gxOzVtH7c4JQJavkBqg7Sc4DW
-	qpFpdOMWToBqya5KK4vMzORQSO4eXWcSxPz6a6o5bH9AWtILfRLNDMNPmmQ9j9lFt1csOCyqgc/Hy
-	EwFQrJgVKRqaMPI/0yZDcqpZVU/yAVm3pYENm8X1P4Jy15G97xXVmsAKxJ6BqDJoEhVWZjHQjEKex
-	/17eWJ//vV4ET20/TAk70djoFSLbYJMlZGm5oCRalRyt8JVrGiKo0ntK9uNMv/8J2xoU8C+XQzfQI
-	C50i9eWA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=eP8L2/Q/fL9MEvSrQAgzxFQOX5QG4Of1oWP6kDp1o1U=; b=o4eTMtxx5t1ppd
+	QMX2YdDBebrLqt7/lybUqDLt30HVou1wdeyCI8Mk2gShn4hyVLSjjEfhKucyIWa8iiD3Onjeza/Ci
+	VwaOshvnvd4Eq4HazUhJ+diBzxAfoFk6JEFf4WJx8Lko/7hc2z71iqNm6kCFDTErqedJdY/zG46cd
+	BmMRt61sdg9jHGknWxke3mnOxOGJKYYgQtJhDEVk9Oeu6E1K0vA6sjBqfQtBwzETL4e3TfLZ9WaPk
+	n7/NuIt2dr9ILZb8a9OM/qDTY9JuaJVnFXvUgqD699qU7770zcrDsCHVXGmFTDGTe0cZG3MMvVmyh
+	md4KrGA/u4k3o1+/BtwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubw9y-00000006xBO-2TFb;
-	Wed, 16 Jul 2025 07:02:34 +0000
-Received: from smtp-out1.suse.de ([195.135.223.130])
+	id 1ubwCN-00000006xb5-3Uqq;
+	Wed, 16 Jul 2025 07:05:03 +0000
+Received: from szxga01-in.huawei.com ([45.249.212.187])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubvs4-00000006uor-3Fnj
+	id 1ubvwI-00000006vQh-2frX
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Jul 2025 06:44:06 +0000
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id 1DC392122B;
-	Wed, 16 Jul 2025 06:44:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1752648243; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=VEUoLTT5I8yzxJpfDzrdKZYJvEEQsf+bCiIncTF9xFA=;
-	b=lF9DIVbOAhMVTxiD08F1NaRufP6txNZuZn4Szmzu50e5fpgBSKnc6lx/LkO/n6Gti1iEvR
-	uvzOKwkIqYOcPo25PK1jWSkVZF0dw/zr9EmUR9aRRcI7VxfwPWajTVD2ZQlWJdyCkiuEuO
-	t4bfILADOnpKPSgOuhfC22tFZ1/ozVU=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1752648243;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=VEUoLTT5I8yzxJpfDzrdKZYJvEEQsf+bCiIncTF9xFA=;
-	b=QOpY3Ktx5QNQsjpv1l4ST1Enz02WmMWpXX3x+vKXuHRRXUT0wg19Y1ef3roxYrUT4d8HY6
-	H3DRYY6pepx65mBw==
-Authentication-Results: smtp-out1.suse.de;
-	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=lF9DIVbO;
-	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=QOpY3Ktx
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1752648243; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=VEUoLTT5I8yzxJpfDzrdKZYJvEEQsf+bCiIncTF9xFA=;
-	b=lF9DIVbOAhMVTxiD08F1NaRufP6txNZuZn4Szmzu50e5fpgBSKnc6lx/LkO/n6Gti1iEvR
-	uvzOKwkIqYOcPo25PK1jWSkVZF0dw/zr9EmUR9aRRcI7VxfwPWajTVD2ZQlWJdyCkiuEuO
-	t4bfILADOnpKPSgOuhfC22tFZ1/ozVU=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1752648243;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=VEUoLTT5I8yzxJpfDzrdKZYJvEEQsf+bCiIncTF9xFA=;
-	b=QOpY3Ktx5QNQsjpv1l4ST1Enz02WmMWpXX3x+vKXuHRRXUT0wg19Y1ef3roxYrUT4d8HY6
-	H3DRYY6pepx65mBw==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 7CFB513A52;
-	Wed, 16 Jul 2025 06:44:02 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id AOgYHTJKd2iPcAAAD6G6ig
-	(envelope-from <tzimmermann@suse.de>); Wed, 16 Jul 2025 06:44:02 +0000
-Message-ID: <f5a5f4a2-3ea5-4a38-9e2a-19421c532bf3@suse.de>
-Date: Wed, 16 Jul 2025 08:44:02 +0200
+	Wed, 16 Jul 2025 06:48:28 +0000
+Received: from mail.maildlp.com (unknown [172.19.162.254])
+	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4bhmjG3SLtz14M26;
+	Wed, 16 Jul 2025 14:43:30 +0800 (CST)
+Received: from kwepemo100006.china.huawei.com (unknown [7.202.195.47])
+	by mail.maildlp.com (Postfix) with ESMTPS id 32DC6180489;
+	Wed, 16 Jul 2025 14:48:17 +0800 (CST)
+Received: from [10.67.121.58] (10.67.121.58) by kwepemo100006.china.huawei.com
+ (7.202.195.47) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Wed, 16 Jul
+ 2025 14:48:16 +0800
+Message-ID: <bab969f4-819d-4f81-6487-328014c94491@hisilicon.com>
+Date: Wed, 16 Jul 2025 14:48:15 +0800
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 15/15] backlight: Do not include <linux/fb.h> in header
- file
-To: Simona Vetter <simona.vetter@ffwll.ch>
-Cc: lee@kernel.org, danielt@kernel.org, jingoohan1@gmail.com,
- neil.armstrong@linaro.org, jessica.zhang@oss.qualcomm.com, deller@gmx.de,
- maarten.lankhorst@linux.intel.com, mripard@kernel.org, airlied@gmail.com,
- simona@ffwll.ch, fnkl.kernel@gmail.com, j@jannau.net, hdegoede@redhat.com,
- ilpo.jarvinen@linux.intel.com, sven@kernel.org, alyssa@rosenzweig.io,
- neal@gompa.dev, support.opensource@diasemi.com, duje.mihanovic@skole.hr,
- dri-devel@lists.freedesktop.org, asahi@lists.linux.dev,
- platform-driver-x86@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-fbdev@vger.kernel.org
-References: <20250715122643.137027-1-tzimmermann@suse.de>
- <20250715122643.137027-16-tzimmermann@suse.de>
- <aHZWGnJ9D72YFgNh@phenom.ffwll.local>
-Content-Language: en-US
-From: Thomas Zimmermann <tzimmermann@suse.de>
-Autocrypt: addr=tzimmermann@suse.de; keydata=
- xsBNBFs50uABCADEHPidWt974CaxBVbrIBwqcq/WURinJ3+2WlIrKWspiP83vfZKaXhFYsdg
- XH47fDVbPPj+d6tQrw5lPQCyqjwrCPYnq3WlIBnGPJ4/jreTL6V+qfKRDlGLWFjZcsrPJGE0
- BeB5BbqP5erN1qylK9i3gPoQjXGhpBpQYwRrEyQyjuvk+Ev0K1Jc5tVDeJAuau3TGNgah4Yc
- hdHm3bkPjz9EErV85RwvImQ1dptvx6s7xzwXTgGAsaYZsL8WCwDaTuqFa1d1jjlaxg6+tZsB
- 9GluwvIhSezPgnEmimZDkGnZRRSFiGP8yjqTjjWuf0bSj5rUnTGiyLyRZRNGcXmu6hjlABEB
- AAHNJ1Rob21hcyBaaW1tZXJtYW5uIDx0emltbWVybWFubkBzdXNlLmRlPsLAjgQTAQgAOAIb
- AwULCQgHAgYVCgkICwIEFgIDAQIeAQIXgBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftODH
- AAoJEGgNwR1TC3ojx1wH/0hKGWugiqDgLNXLRD/4TfHBEKmxIrmfu9Z5t7vwUKfwhFL6hqvo
- lXPJJKQpQ2z8+X2vZm/slsLn7J1yjrOsoJhKABDi+3QWWSGkaGwRJAdPVVyJMfJRNNNIKwVb
- U6B1BkX2XDKDGffF4TxlOpSQzdtNI/9gleOoUA8+jy8knnDYzjBNOZqLG2FuTdicBXblz0Mf
- vg41gd9kCwYXDnD91rJU8tzylXv03E75NCaTxTM+FBXPmsAVYQ4GYhhgFt8S2UWMoaaABLDe
- 7l5FdnLdDEcbmd8uLU2CaG4W2cLrUaI4jz2XbkcPQkqTQ3EB67hYkjiEE6Zy3ggOitiQGcqp
- j//OwE0EWznS4AEIAMYmP4M/V+T5RY5at/g7rUdNsLhWv1APYrh9RQefODYHrNRHUE9eosYb
- T6XMryR9hT8XlGOYRwKWwiQBoWSDiTMo/Xi29jUnn4BXfI2px2DTXwc22LKtLAgTRjP+qbU6
- 3Y0xnQN29UGDbYgyyK51DW3H0If2a3JNsheAAK+Xc9baj0LGIc8T9uiEWHBnCH+RdhgATnWW
- GKdDegUR5BkDfDg5O/FISymJBHx2Dyoklv5g4BzkgqTqwmaYzsl8UxZKvbaxq0zbehDda8lv
- hFXodNFMAgTLJlLuDYOGLK2AwbrS3Sp0AEbkpdJBb44qVlGm5bApZouHeJ/+n+7r12+lqdsA
- EQEAAcLAdgQYAQgAIAIbDBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftOH6AAoJEGgNwR1T
- C3ojVSkIALpAPkIJPQoURPb1VWjh34l0HlglmYHvZszJWTXYwavHR8+k6Baa6H7ufXNQtThR
- yIxJrQLW6rV5lm7TjhffEhxVCn37+cg0zZ3j7zIsSS0rx/aMwi6VhFJA5hfn3T0TtrijKP4A
- SAQO9xD1Zk9/61JWk8OysuIh7MXkl0fxbRKWE93XeQBhIJHQfnc+YBLprdnxR446Sh8Wn/2D
- Ya8cavuWf2zrB6cZurs048xe0UbSW5AOSo4V9M0jzYI4nZqTmPxYyXbm30Kvmz0rYVRaitYJ
- 4kyYYMhuULvrJDMjZRvaNe52tkKAvMevcGdt38H4KSVXAylqyQOW5zvPc4/sq9c=
-In-Reply-To: <aHZWGnJ9D72YFgNh@phenom.ffwll.local>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Spamd-Result: default: False [-3.01 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	SUSPICIOUS_RECIPS(1.50)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	MX_GOOD(-0.01)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	FUZZY_RATELIMITED(0.00)[rspamd.com];
-	ARC_NA(0.00)[];
-	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	RCPT_COUNT_TWELVE(0.00)[25];
-	MIME_TRACE(0.00)[0:+];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com,gmx.de];
-	RCVD_TLS_ALL(0.00)[];
-	TO_DN_SOME(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	DNSWL_BLOCKED(0.00)[2a07:de40:b281:104:10:150:64:97:from,2a07:de40:b281:106:10:150:64:167:received];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	FREEMAIL_CC(0.00)[kernel.org,gmail.com,linaro.org,oss.qualcomm.com,gmx.de,linux.intel.com,ffwll.ch,jannau.net,redhat.com,rosenzweig.io,gompa.dev,diasemi.com,skole.hr,lists.freedesktop.org,lists.linux.dev,vger.kernel.org,lists.infradead.org];
-	MID_RHS_MATCH_FROM(0.00)[];
-	TAGGED_RCPT(0.00)[];
-	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
-	DKIM_TRACE(0.00)[suse.de:+];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:mid,suse.de:dkim,suse.de:email]
-X-Rspamd-Queue-Id: 1DC392122B
-X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
-X-Rspamd-Action: no action
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.3.2
+Subject: Re: [PATCH v6 0/2] PM / devfreq: Add HiSilicon uncore frequency
+ scaling driver
+To: Chanwoo Choi <chanwoo@kernel.org>
+References: <20250623143401.4095045-1-zhanjie9@hisilicon.com>
+ <9e028620-75b9-5a9a-dab6-8374b0a4fa4e@hisilicon.com>
+ <CAGTfZH0eHz8aRDkSOTNosNqZGv9Qhf2K-Rtz-Yt+_GpNQzXo5g@mail.gmail.com>
+ <0038c928-60ff-f6ab-763b-6958f1c24200@hisilicon.com>
+ <CAGTfZH0fY1Bv5=a8t2w0iNH0shHkQ6-v9077F0XWheK6iGMoZA@mail.gmail.com>
+From: Jie Zhan <zhanjie9@hisilicon.com>
+In-Reply-To: <CAGTfZH0fY1Bv5=a8t2w0iNH0shHkQ6-v9077F0XWheK6iGMoZA@mail.gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.121.58]
+X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
+ kwepemo100006.china.huawei.com (7.202.195.47)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250715_234404_969841_906B3AD9 
-X-CRM114-Status: GOOD (  14.36  )
+X-CRM114-CacheID: sfid-20250715_234826_991984_D8A7A001 
+X-CRM114-Status: GOOD (  30.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -176,64 +71,125 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: yubowen8@huawei.com, Linux PM list <linux-pm@vger.kernel.org>, Lifeng Zheng <zhenglifeng1@huawei.com>, liwei728@huawei.com, linuxarm@huawei.com, =?UTF-8?B?7LWc7LCs7Jqw?= <cw00.choi@samsung.com>, Kyungmin Park <kyungmin.park@samsung.com>, MyungJoo Ham <myungjoo.ham@samsung.com>, lihuisong@huawei.com, prime.zeng@hisilicon.com, Jonathan Cameron <jonathan.cameron@huawei.com>, linux-arm-kernel <linux-arm-kernel@lists.infradead.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi
 
-Am 15.07.25 um 15:22 schrieb Simona Vetter:
-> On Tue, Jul 15, 2025 at 02:24:52PM +0200, Thomas Zimmermann wrote:
->> The backlight interfaces don't require anything from <linux/fb.h>, so
->> don't include it.
->>
->> Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
-> I like this very much.
->
-> Reviewed-by: Simona Vetter <simona.vetter@ffwll.ch>
 
-Thanks for reviewing. backlight.h is also the last major header file the 
-includes <linux/fb.h>. Not including it here will free many other files 
-from the dependency.
+On 16/07/2025 14:45, Chanwoo Choi wrote:
+> Hi Jie,
+> 
+> Yes. I'll send pull request to be merged into v6.17-rc1 within this week.
 
->
-> I guess also my Acked-by for merging the entire pile through the backlight
-> subsystem, that's probably the easiest path to land this all.
+Sure, thanks!
 
-Yeah, that was the plan.
-
-Best regards
-Thomas
-
->
-> Cheers, Sima
->
->> ---
->>   include/linux/backlight.h | 1 -
->>   1 file changed, 1 deletion(-)
->>
->> diff --git a/include/linux/backlight.h b/include/linux/backlight.h
->> index 10e626db7eee..f29a9ef1052e 100644
->> --- a/include/linux/backlight.h
->> +++ b/include/linux/backlight.h
->> @@ -10,7 +10,6 @@
->>   #define _LINUX_BACKLIGHT_H
->>   
->>   #include <linux/device.h>
->> -#include <linux/fb.h>
->>   #include <linux/mutex.h>
->>   #include <linux/types.h>
->>   
->> -- 
->> 2.50.0
->>
-
--- 
---
-Thomas Zimmermann
-Graphics Driver Developer
-SUSE Software Solutions Germany GmbH
-Frankenstrasse 146, 90461 Nuernberg, Germany
-GF: Ivo Totev, Andrew Myers, Andrew McDonald, Boudien Moerman
-HRB 36809 (AG Nuernberg)
-
+> 
+> 
+> Best Regards,
+> Chanwoo Choi
+> 
+> 2025년 7월 16일 (수) 오후 3:33, Jie Zhan <zhanjie9@hisilicon.com <mailto:zhanjie9@hisilicon.com>>님이 작성:
+> 
+>     Hi Chanwoo,
+> 
+>     A quick check. Is this series queueing up for v6.17-rc1?
+> 
+>     Regards,
+>     Jie
+> 
+>     On 02/07/2025 11:21, Chanwoo Choi wrote:
+>     > Hi,
+>     >
+>     > I'm sorry for late review. I'll review and then merge until this week.
+>     >
+>     > Best Regards,
+>     > Chanwoo Choi
+>     >
+>     > 2025년 7월 2일 (수) 오전 11:37, Jie Zhan <zhanjie9@hisilicon.com <mailto:zhanjie9@hisilicon.com> <mailto:zhanjie9@hisilicon.com <mailto:zhanjie9@hisilicon.com>>>님이 작성:
+>     >
+>     >     Hi devfreq maintainers,
+>     >
+>     >     A kindly ping on this series.
+>     >     I believe it's in a good shape now.
+>     >
+>     >     Jie
+>     >
+>     >     On 23/06/2025 22:33, Jie Zhan wrote:
+>     >     > Add the HiSilicon uncore frequency scaling driver for Kunpeng SoCs based on
+>     >     > the devfreq framework.  The uncore domain contains shared computing
+>     >     > resources, including system interconnects and L3 cache.  The uncore
+>     >     > frequency significantly impacts the system-wide performance as well as
+>     >     > power consumption.  This driver adds support for runtime management of
+>     >     > uncore frequency from kernel and userspace.  The main function includes
+>     >     > setting and getting frequencies, changing frequency scaling policies, and
+>     >     > querying the list of CPUs whose performance is significantly related to
+>     >     > this uncore frequency domain, etc.  The driver communicates with a platform
+>     >     > controller through an ACPI PCC mailbox to take the actual actions of
+>     >     > frequency scaling.
+>     >     >
+>     >     > Changelog:
+>     >     >
+>     >     > v6:
+>     >     > Consolidate hisi_uncore_init_pcc_chan() related stuff:
+>     >     > - Move devm_mutex_init() to hisi_uncore_init_pcc_chan()
+>     >     > - Move devm_add_action_or_reset() into hisi_uncore_request_pcc_chan()
+>     >     >
+>     >     > v5:
+>     >     > https://lore.kernel.org/all/20250619151456.3328624-1-zhanjie9@hisilicon.com/ <https://lore.kernel.org/all/20250619151456.3328624-1-zhanjie9@hisilicon.com/> <https://lore.kernel.org/all/20250619151456.3328624-1-zhanjie9@hisilicon.com/ <https://lore.kernel.org/all/20250619151456.3328624-1-zhanjie9@hisilicon.com/>>
+>     >     > - Comment more on error code related stuff about
+>     >     >   hisi_uncore_mark_related_cpus(), and return failure early on errors
+>     >     >   except for -EINVAL, which indicates possibly broken firmware.
+>     >     > - Separate error prints apart for two cases in hisi_platform_gov_handler()
+>     >     > - Make the 'related_cpus' sysfs ABI description more generic
+>     >     > - Some coding style cleanups and typo fixes
+>     >     >
+>     >     > v4:
+>     >     > https://lore.kernel.org/linux-pm/20250530081722.280776-1-zhanjie9@hisilicon.com/ <https://lore.kernel.org/linux-pm/20250530081722.280776-1-zhanjie9@hisilicon.com/> <https://lore.kernel.org/linux-pm/20250530081722.280776-1-zhanjie9@hisilicon.com/ <https://lore.kernel.org/linux-pm/20250530081722.280776-1-zhanjie9@hisilicon.com/>>
+>     >     > - Allow devfreq core to accept device-specific sysfs ABIs
+>     >     > - Replace custom sysfs attrs with dev_groups and let the devfreq core
+>     >     >   manage it
+>     >     > - Update 'related_cpus' description in the devfreq ABI doc
+>     >     > - Remove COMPILE_TEST in Kconfig as the mailbox_client.h doesn't support
+>     >     >   this yet
+>     >     > - Replace dev_err() with dev_err_probe() during drv->probe()
+>     >     > - Replace mutex_init() with devm_mutex_init() to warn on UAF
+>     >     > - Replace uncore->dev with dev in some places to make code a bit shorter
+>     >     > - Remove redundant uncore->pchan check in hisi_uncore_free_pcc_chan()
+>     >     > - Use __free() to let compiler release temporary memory
+>     >     > - Clean up the error handling and redundant 'status = 0' in
+>     >     >   hisi_uncore_send_cmd()
+>     >     > - Some coding style cleanup
+>     >     >
+>     >     > v3:
+>     >     > https://lore.kernel.org/linux-pm/20250522031701.1912458-1-zhanjie9@hisilicon.com/ <https://lore.kernel.org/linux-pm/20250522031701.1912458-1-zhanjie9@hisilicon.com/> <https://lore.kernel.org/linux-pm/20250522031701.1912458-1-zhanjie9@hisilicon.com/ <https://lore.kernel.org/linux-pm/20250522031701.1912458-1-zhanjie9@hisilicon.com/>>
+>     >     > - Remove redundant resource freeing processes when drv->probe() fails as
+>     >     >   they're already handled by devm
+>     >     >
+>     >     > v2:
+>     >     > https://lore.kernel.org/linux-pm/20250520074120.4187096-1-zhanjie9@hisilicon.com/ <https://lore.kernel.org/linux-pm/20250520074120.4187096-1-zhanjie9@hisilicon.com/> <https://lore.kernel.org/linux-pm/20250520074120.4187096-1-zhanjie9@hisilicon.com/ <https://lore.kernel.org/linux-pm/20250520074120.4187096-1-zhanjie9@hisilicon.com/>>
+>     >     > - Make devm manage the release sequence, remove drv->remove()
+>     >     > - Warn on !uncore or !uncore->pchan as they're no longer expected
+>     >     > - Remove ioremap of pcc shared memory because it's done by the pcc driver
+>     >     > - Fix compiler warning of discarding 'const'
+>     >     > - Minor trivial coding style changes
+>     >     >
+>     >     > v1:
+>     >     > https://lore.kernel.org/linux-pm/20250506021434.944386-1-zhanjie9@hisilicon.com/ <https://lore.kernel.org/linux-pm/20250506021434.944386-1-zhanjie9@hisilicon.com/> <https://lore.kernel.org/linux-pm/20250506021434.944386-1-zhanjie9@hisilicon.com/ <https://lore.kernel.org/linux-pm/20250506021434.944386-1-zhanjie9@hisilicon.com/>>
+>     >     >
+>     >     > Jie Zhan (2):
+>     >     >   PM / devfreq: Allow devfreq driver to add custom sysfs ABIs
+>     >     >   PM / devfreq: Add HiSilicon uncore frequency scaling driver
+>     >     >
+>     >     >  Documentation/ABI/testing/sysfs-class-devfreq |   9 +
+>     >     >  drivers/devfreq/Kconfig                       |  11 +
+>     >     >  drivers/devfreq/Makefile                      |   1 +
+>     >     >  drivers/devfreq/devfreq.c                     |   1 +
+>     >     >  drivers/devfreq/hisi_uncore_freq.c            | 658 ++++++++++++++++++
+>     >     >  include/linux/devfreq.h                       |   4 +
+>     >     >  6 files changed, 684 insertions(+)
+>     >     >  create mode 100644 drivers/devfreq/hisi_uncore_freq.c
+>     >     >
+>     >
+> 
 
