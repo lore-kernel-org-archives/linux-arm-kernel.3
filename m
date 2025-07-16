@@ -4,68 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F2F8C83F1B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 21:37:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D5E2C83F22
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 21:50:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CIl37IDSYE5BYRg+APo99CZFbK4PgAh12KYOJeQesTg=; b=KanFSpzaO/ItON6hoUB/n1L771
-	jjACejq4xCwHVixXw0y11Sadw7MIa4C/ZCaMKmeF0C6xDGaAFvwUuu74yV5LfYbg9L36i2fStfZaa
-	a//qJPmPNBMivtS+oqwDZgbpraNbgQSS/CAq0toWnsc4kFfvoGgOhUoJMzEdCph0XQwRJdZpKuc8G
-	g8t1t7BoAv5QAoGjGZCEDNlkwHnDNggp/eOBMpN0FzlpSbtw0/6+0obnMDWMeyRhvyxZ19/jdBXAb
-	cXNgoNbb3zy3RAsgzNmnJi1WypD/KBinPkf0NWL+n0yNJ9bP5pP3duONKKS97xYD32fpH8QD8YurR
-	3VGvayfg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=fAmbroP5DianhCtrLpE3Fuaj5ZpEDwaVPcszCKwu8ZA=; b=UILX74B4CY6brRefj1w6Jm+pmr
+	PHgQgiwkDBRgtIaOuBEYSBZ1vt/AO8PVsR6SuqbmODXTvU0MOTMloL6//+lWeHWhDSdg99WVJes7E
+	mrnsmAfsJut+QM7JyJI46EbbYb2lrPzpZaM1PzpH1H4Jbdm9Sm57mb4rVSZ8zpIFdMbowTh1Kjixm
+	23otXVWIFxBnLTpN+/nWRKFUv3DCKL87Ir2HmuiGtdOU6EHi0uQn+VoruZktiT0Gt6wrR60SfnYHj
+	0RASVC8dSjH64p6M7UhjFzNBguB0UQG+4wo9EP+zG8tPOsrCL/iiwXNkgx+1zoE8LT2r+3GU/mk8i
+	SQmHJDxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uc9ow-00000008iHj-3NpA;
-	Wed, 16 Jul 2025 21:37:46 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1ucA1J-00000008jH7-1Gc2;
+	Wed, 16 Jul 2025 21:50:33 +0000
+Received: from mx.denx.de ([89.58.32.78])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uc9mV-00000008i8w-2DMm
+	id 1uc9yq-00000008im2-1tn3
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Jul 2025 21:35:15 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 85F0D601BB;
-	Wed, 16 Jul 2025 21:35:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 06CE1C4CEE7;
-	Wed, 16 Jul 2025 21:35:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752701714;
-	bh=I+SsuYKuKb1oPJn8xEiqBq/dE2QgqTu7aIwJzz2nSGM=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=TIYCGT6KEhF7zj5LNSho42EyJc1rH7Veqeu4TNU3xuXjY10FO0fGt9OdG/o9ZEPIi
-	 TqifTc+caMjefREvUC2W6hZutwGSG4S/jDenIoeuSKkBDOhgxDzBhXXCaAIV9R7vyc
-	 tNVDpbGA/yxi/fHzZWljc3+u7E7Jt3QELfNn7TuViQ6wxYBovpIO6GvExdHpFBv6Qu
-	 HG0WWH296RmLIrHnJByQZw5Rv+owREEvR7MgvBDCj3lG4TkFfoX/RMcX9Xmf4r0u96
-	 Gd4Nvo/IhlEQn6aatWlC4xrZQTBMz2tqAJ6TN0obzv+SEsk3MzpKnKIC6kESvHSnCZ
-	 uJtUnAS/kAhZA==
-Date: Wed, 16 Jul 2025 16:35:13 -0500
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	Wed, 16 Jul 2025 21:48:02 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 4854E10397286;
+	Wed, 16 Jul 2025 23:47:50 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
+	t=1752702475; h=from:subject:date:message-id:to:cc:mime-version:
+	 content-transfer-encoding; bh=fAmbroP5DianhCtrLpE3Fuaj5ZpEDwaVPcszCKwu8ZA=;
+	b=fCctXadLnfWppgxvWur4O0+msuqvRzmUIIGG0Bme6kVKb4L6iryWOfue/9SHO56e7Pnprq
+	cjCpBe6BAbzJKSKpOXn2fX0MQY3YSVARRs8aJTtl4ZvDXepsCnaf+Ix6g8UDf+SrAmz+12
+	Wxw+7xOlHZq6rfQLmIAzmqrPX+580DlC8xy0wLbZCZoUCxmqoc7gzCLM5YQ2PPOptxTi5S
+	WnqXncLk7EPk4TjaOF7ocU5rDAbaCBJoEU6rypr8TS2tFrSRBe4LzVspuZkggm4pANM/JS
+	De52fufp1U/ebrPPde+0/NsE+sFIc90QQuwLSgUUGEFPS5T1xBoC6neOduFGVg==
+From: Lukasz Majewski <lukma@denx.de>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+	davem@davemloft.net,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>
+Cc: Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Richard Cochran <richardcochran@gmail.com>,
+	netdev@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Stefan Wahren <wahrenst@gmx.net>,
+	Simon Horman <horms@kernel.org>,
+	Lukasz Majewski <lukasz.majewski@mailbox.org>
+Subject: [net-next v15 00/12] net: mtip: Add support for MTIP imx287 L2 switch driver
+Date: Wed, 16 Jul 2025 23:47:19 +0200
+Message-Id: <20250716214731.3384273-1-lukma@denx.de>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Tomi Valkeinen <tomi.valkeinen+renesas@ideasonboard.com>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, devicetree@vger.kernel.org, 
- linux-gpio@vger.kernel.org, 
- =?utf-8?q?Niklas_S=C3=B6derlund?= <niklas.soderlund@ragnatech.se>, 
- linux-media@vger.kernel.org, 
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
- Julien Massot <julien.massot@collabora.com>, linux-staging@lists.linux.dev, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Sakari Ailus <sakari.ailus@linux.intel.com>, 
- linux-arm-kernel@lists.infradead.org, 
- Cosmin Tanislav <cosmin.tanislav@analog.com>, 
- Linus Walleij <linus.walleij@linaro.org>, linux-kernel@vger.kernel.org
-To: Cosmin Tanislav <demonsingur@gmail.com>
-In-Reply-To: <20250716193111.942217-15-demonsingur@gmail.com>
-References: <20250716193111.942217-1-demonsingur@gmail.com>
- <20250716193111.942217-15-demonsingur@gmail.com>
-Message-Id: <175270171321.1284786.126748563521510901.robh@kernel.org>
-Subject: Re: [PATCH v6 14/24] dt-bindings: media: i2c: add MAX9296A,
- MAX96716A, MAX96792A
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250716_144800_789044_6AE684DA 
+X-CRM114-Status: GOOD (  19.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,58 +83,129 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Lukasz Majewski <lukasz.majewski@mailbox.org>
 
-On Wed, 16 Jul 2025 22:30:59 +0300, Cosmin Tanislav wrote:
-> The MAX9296A deserializer converts single or dual serial inputs to MIPI
-> CSI-2 outputs. The GMSL2 links operate at a fixed rate of 3Gbps or 6Gbps
-> in the forward direction and 187.5Mbps in the reverse direction.
-> In GMSL1 mode, each serial link can be paired with 3.12Gbps or 1.5Gbps
-> GMSL1 serializers or operate up to 4.5Gbps with GMSL2 serializers with
-> GMSL1 backward compatibility. The MAX9296A supports mixed GMSL2 and
-> GMSL1 links. The serial inputs operate independently, allowing videos
-> with different timings and resolutions to be received on each input.
-> 
-> MAX96716A supports both tunnel and pixel mode.
-> MAX96792A supports both tunnel and pixel mode, and has two GMSL3 links.
-> 
-> Signed-off-by: Cosmin Tanislav <demonsingur@gmail.com>
-> Acked-by: Rob Herring (Arm) <robh@kernel.org>
-> ---
->  .../bindings/media/i2c/maxim,max9296a.yaml    | 242 ++++++++++++++++++
->  MAINTAINERS                                   |   6 +
->  2 files changed, 248 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/media/i2c/maxim,max9296a.yaml
-> 
+This patch series adds support for More Than IP's L2 switch driver embedded
+in some NXP's SoCs. This one has been tested on imx287, but is also available
+in the vf610.
 
-My bot found errors running 'make dt_binding_check' on your patch:
+In the past there has been performed some attempts to upstream this driver:
 
-yamllint warnings/errors:
+1. The 4.19-cip based one [1]
+2. DSA based one for 5.12 [2] - i.e. the switch itself was treat as a DSA switch
+   with NO tag appended.
+3. The extension for FEC driver for 5.12 [3] - the trick here was to fully reuse
+   FEC when the in-HW switching is disabled. When bridge offloading is enabled,
+   the driver uses already configured MAC and PHY to also configure PHY.
 
-dtschema/dtc warnings/errors:
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/media/i2c/maxim,max9296a.example.dtb: serializer@40 (maxim,max96717): compatible: 'oneOf' conditional failed, one must be fixed:
-	['maxim,max96717'] is too short
-	'maxim,max96717' is not one of ['maxim,max9295a', 'maxim,max96717f']
-	from schema $id: http://devicetree.org/schemas/media/i2c/maxim,max96717.yaml#
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/media/i2c/maxim,max9296a.example.dtb: serializer@40 (maxim,max96717): compatible: 'oneOf' conditional failed, one must be fixed:
-	['maxim,max96717'] is too short
-	'maxim,max96717' is not one of ['maxim,max9295a', 'maxim,max96717f']
-	from schema $id: http://devicetree.org/schemas/media/i2c/maxim,max96717.yaml#
+All three approaches were not accepted as eligible for upstreaming.
 
-doc reference errors (make refcheckdocs):
+The driver from this series has floowing features:
 
-See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250716193111.942217-15-demonsingur@gmail.com
+1. It is fully separated from fec_main - i.e. can be used interchangeable
+   with it. To be more specific - one can build them as modules and
+   if required switch between them when e.g. bridge offloading is required.
 
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
+   To be more specific:
+        - Use FEC_MAIN: When one needs support for two ETH ports with separate
+          uDMAs used for both and bridging can be realized in SW.
 
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
+        - Use MTIPL2SW: When it is enough to support two ports with only uDMA0
+          attached to switch and bridging shall be offloaded to HW. 
 
-pip3 install dtschema --upgrade
+2. This driver uses MTIP's L2 switch internal VLAN feature to provide port
+   separation at boot time. Port separation is disabled when bridging is
+   required.
 
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
+3. Example usage:
+        Configuration:
+        ip link set lan0 up; sleep 1;
+        ip link set lan1 up; sleep 1;
+        ip link add name br0 type bridge;
+        ip link set br0 up; sleep 1;
+        ip link set lan0 master br0;
+        ip link set lan1 master br0;
+        bridge link;
+        ip addr add 192.168.2.17/24 dev br0;
+        ping -c 5 192.168.2.222
+
+        Removal:
+        ip link set br0 down;
+        ip link delete br0 type bridge;
+        ip link set dev lan1 down
+        ip link set dev lan0 down
+
+4. Limitations:
+        - Driver enables and disables switch operation with learning and ageing.
+        - Missing is the advanced configuration (e.g. adding entries to FBD). This is
+          on purpose, as up till now we didn't had consensus about how the driver
+          shall be added to Linux.
+
+5. Clang build:
+	make LLVM_SUFFIX=-19 LLVM=1 mrproper
+	cp ./arch/arm/configs/mxs_defconfig .config
+	make ARCH=arm LLVM_SUFFIX=-19 LLVM=1 W=1 menuconfig
+	make ARCH=arm LLVM_SUFFIX=-19 LLVM=1 W=1 -j8 LOADADDR=0x40008000 uImage dtbs
+
+        make LLVM_SUFFIX=-19 LLVM=1 mrproper
+        make LLVM_SUFFIX=-19 LLVM=1 allmodconfig
+        make LLVM_SUFFIX=-19 LLVM=1 W=1 drivers/net/ethernet/freescale/mtipsw/ | tee llvm_build.log
+        make LLVM_SUFFIX=-19 LLVM=1 W=1 -j8 | tee llvm_build.log
+
+6. Kernel compliance checks:
+	make coccicheck MODE=report J=4 M=drivers/net/ethernet/freescale/mtipsw/
+	~/work/src/smatch/smatch_scripts/kchecker drivers/net/ethernet/freescale/mtipsw/
+
+7. GCC
+        make mrproper
+        make allmodconfig
+        make W=1 drivers/net/ethernet/freescale/mtipsw/
+
+Links:
+[1] - https://github.com/lmajewski/linux-imx28-l2switch/commits/master
+[2] - https://github.com/lmajewski/linux-imx28-l2switch/tree/imx28-v5.12-L2-upstream-RFC_v1
+[3] - https://source.denx.de/linux/linux-imx28-l2switch/-/tree/imx28-v5.12-L2-upstream-switchdev-RFC_v1?ref_type=heads
+
+
+Lukasz Majewski (12):
+  dt-bindings: net: Add MTIP L2 switch description
+  ARM: dts: nxp: mxs: Adjust the imx28.dtsi L2 switch description
+  ARM: dts: nxp: mxs: Adjust XEA board's DTS to support L2 switch
+  net: mtip: The L2 switch driver for imx287
+  net: mtip: Add buffers management functions to the L2 switch driver
+  net: mtip: Add net_device_ops functions to the L2 switch driver
+  net: mtip: Add mtip_switch_{rx|tx} functions to the L2 switch driver
+  net: mtip: Extend the L2 switch driver with management operations
+  net: mtip: Extend the L2 switch driver for imx287 with bridge
+    operations
+  ARM: mxs_defconfig: Enable CONFIG_NFS_FSCACHE
+  ARM: mxs_defconfig: Update mxs_defconfig to 6.16-rc5
+  ARM: mxs_defconfig: Enable CONFIG_FEC_MTIP_L2SW to support MTIP L2
+    switch
+
+ .../bindings/net/nxp,imx28-mtip-switch.yaml   |  150 ++
+ MAINTAINERS                                   |    7 +
+ arch/arm/boot/dts/nxp/mxs/imx28-xea.dts       |   56 +
+ arch/arm/boot/dts/nxp/mxs/imx28.dtsi          |    9 +-
+ arch/arm/configs/mxs_defconfig                |   13 +-
+ drivers/net/ethernet/freescale/Kconfig        |    1 +
+ drivers/net/ethernet/freescale/Makefile       |    1 +
+ drivers/net/ethernet/freescale/mtipsw/Kconfig |   13 +
+ .../net/ethernet/freescale/mtipsw/Makefile    |    4 +
+ .../net/ethernet/freescale/mtipsw/mtipl2sw.c  | 1953 +++++++++++++++++
+ .../net/ethernet/freescale/mtipsw/mtipl2sw.h  |  652 ++++++
+ .../ethernet/freescale/mtipsw/mtipl2sw_br.c   |  120 +
+ .../ethernet/freescale/mtipsw/mtipl2sw_mgnt.c |  443 ++++
+ 13 files changed, 3411 insertions(+), 11 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/net/nxp,imx28-mtip-switch.yaml
+ create mode 100644 drivers/net/ethernet/freescale/mtipsw/Kconfig
+ create mode 100644 drivers/net/ethernet/freescale/mtipsw/Makefile
+ create mode 100644 drivers/net/ethernet/freescale/mtipsw/mtipl2sw.c
+ create mode 100644 drivers/net/ethernet/freescale/mtipsw/mtipl2sw.h
+ create mode 100644 drivers/net/ethernet/freescale/mtipsw/mtipl2sw_br.c
+ create mode 100644 drivers/net/ethernet/freescale/mtipsw/mtipl2sw_mgnt.c
+
+-- 
+2.39.5
 
 
