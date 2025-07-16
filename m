@@ -4,114 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 316F2C83F1B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 11:30:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5A1BC83F1B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 11:32:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wp6h9zDJJaYWzOO4b6FKNAHVaNGZCKwIu115nzZA53U=; b=s9x2mWUQLqmdU/ZACZVQm0Iwuh
-	k2TxR86IpqKhzIWDLPGU8Y1enMxFN47qQrAYS+fGnwRyQJZUwRVPRzCCUhs0/IEn3J6alRcsBIej4
-	S4gxnD5vpbJaIf/8vOYx29JkhslvmpdTuoel6/IVUqhDgMhEVKhZYgCPDX4i4lQ3dnfMoMT6CB9iX
-	vwaVIdpSVYDjv/urWOvOMn8EUu6k3hYp5zf2NNWZ50MUZYUtHVEggJRtsyr9urLJsEJeBN6A+9fC4
-	p2lbi89S+DUggWG1gu4lS5K3A7liC8n1lSayTDr2hSno9SaR+4pAvRLs5SVcXNCDkxYEg0eCfT4ub
-	LcT6rOew==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=S9JWwkg2xZByLaR764uBKl+J0JnlvBnOPHlzPl6CgY0=; b=Qj3ojKUQM9LvfI1vcB4FMQxy7c
+	TrEY6EIHVQ5BW2IsIHY0C2k+xScVm4kBN0Se/KHlhy6EPp4uDF5GsLw8HlyUWQAoGtAnOTK/xhfII
+	2L7LeyZL81eYvcmUPPvaW8o294ZA2DgRZpukvPlKit96+aqWO46G0SaQ/VZOnH9fZleQmR6KhniL9
+	7ti8gPkWlk37fsO5Y9KsW+mEqVFYc/KKLlycf1a/T3+UF7BOnbQgyKA4IDP9AglPXEJUQSIT1Abqo
+	GMEl792BivauZ5DeHHnxSKQhW1LaVRtWSFhCqHCM2iO272oCPf205ZS9butKxg3wPzvJMUOzLlaA9
+	C1THBmFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uc0Kt-00000007Z5K-3lLW;
-	Wed, 16 Jul 2025 11:30:07 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uc0NI-00000007ZE9-2eWR;
+	Wed, 16 Jul 2025 11:32:36 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uc00X-00000007VqY-26VO
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Jul 2025 11:09:06 +0000
+	id 1uc019-00000007W2S-2qrb;
+	Wed, 16 Jul 2025 11:09:43 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id DA9594357A;
-	Wed, 16 Jul 2025 11:09:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 105CEC4CEF0;
-	Wed, 16 Jul 2025 11:09:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752664144;
-	bh=sHjdraUARsVWVZBGA5coEHjXWQVtdwaBp0GEW28hRn0=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=i9370MmE4onzDAHbdbG+eM9s+llGM6I5tmz00ihHxlTthE4Yslrhe2KH4shuLMvDj
-	 gpSwd7FFL/diVxGq4hxVcVgeJ9+WWiWTawQln+aLIjlNZBwWLrVqgiyHmd3h+qVllx
-	 e597REE0ePkOOIAxfJoNd2VQOOIt8ovocv/BlL7rBqSj62dPjtRyp+hKJETV1LtTTH
-	 pyIUNHN50KUWdI17juUtRIJLVeSu1TpZYBQWOwqLUNQSGCzTKOd/QJaUpNPpSnsNlh
-	 I/jXOx35DunuAcUs54P2JoFY6d/IM1HHJFnWk4/ZGgc8SdyoXjoZlfEoRhMXhc/CBV
-	 x/u42v1IZ7klQ==
-Message-ID: <8fb39195-05ac-4166-a254-ec773853b9ba@kernel.org>
-Date: Wed, 16 Jul 2025 13:08:58 +0200
+	by tor.source.kernel.org (Postfix) with ESMTP id D695F6115E;
+	Wed, 16 Jul 2025 11:09:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0D985C4CEF0;
+	Wed, 16 Jul 2025 11:09:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1752664182;
+	bh=RZjR+zBNXTDV8Esh9IbuzSTwt+E2KPtd34O2E1kw9CE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=KJqdX+uEV25XZ8V+PYzhBOfdC8nG9XiSSNaTauNQAnXakMuWAOiBA0WryVQc0ljES
+	 THSz5iSKYWKBOyEOxt0XXR5aoMl1sDDlkbD6CixsHIEDKyP+muT9tPuOKnXGIPZFRN
+	 gpGhilsXOq0hXU7pH6ZfVdPz+ehvb0rOY1CbSGBU=
+Date: Wed, 16 Jul 2025 13:09:40 +0200
+From: Greg KH <gregkh@linuxfoundation.org>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: Macpaul Lin <macpaul.lin@mediatek.com>,
+	openembedded-core@lists.openembedded.org, patches@lists.linux.dev,
+	stable@vger.kernel.org, Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Sasha Levin <sashal@kernel.org>,
+	=?iso-8859-1?Q?N=EDcolas_F_=2E_R_=2E_A_=2E?= Prado <nfraprado@collabora.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
+	Bear Wang <bear.wang@mediatek.com>,
+	Pablo Sun <pablo.sun@mediatek.com>, Macpaul Lin <macpaul@gmail.com>,
+	MediaTek Chromebook Upstream <Project_Global_Chrome_Upstream_Group@mediatek.com>,
+	=?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>,
+	Peter Griffin <peter.griffin@linaro.org>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Arnd Bergmann <arnd@arndb.de>
+Subject: Re: [PATCH 6.12 2/2] arm64: defconfig: enable Maxim TCPCI driver
+Message-ID: <2025071601-unwatched-chowtime-82ff@gregkh>
+References: <20250716102854.4012956-1-macpaul.lin@mediatek.com>
+ <20250716102854.4012956-2-macpaul.lin@mediatek.com>
+ <8698f842-a464-47b8-8c47-97cda016e227@linaro.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/4] dt-bindings: arm-smmu: Remove sdm845-cheza
- specific entry
-To: Konrad Dybcio <konradybcio@kernel.org>,
- Bjorn Andersson <andersson@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, cros-qcom-dts-watchers@chromium.org,
- Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
- Joerg Roedel <joro@8bytes.org>
-Cc: Marijn Suijten <marijn.suijten@somainline.org>,
- linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, Rob Clark <robin.clark@oss.qualcomm.com>,
- linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
- Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-References: <20250716-topic-goodnight_cheza-v2-0-6fa8d3261813@oss.qualcomm.com>
- <20250716-topic-goodnight_cheza-v2-3-6fa8d3261813@oss.qualcomm.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250716-topic-goodnight_cheza-v2-3-6fa8d3261813@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250716_040905_590470_F472496A 
-X-CRM114-Status: GOOD (  10.45  )
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <8698f842-a464-47b8-8c47-97cda016e227@linaro.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,25 +82,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 16/07/2025 12:16, Konrad Dybcio wrote:
-> From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+On Wed, Jul 16, 2025 at 12:30:20PM +0200, Krzysztof Kozlowski wrote:
+> On 16/07/2025 12:28, Macpaul Lin wrote:
+> > From: André Draszik <andre.draszik@linaro.org>
+> > 
+> > [ Upstream commit d2ca319822e071423ab883bc8493053320b8e52c ]
+> > 
+> > Enable the Maxim max33359 as this is used by the gs101-oriole (Google
+> > Pixel 6) board.
+> > 
+> > Reviewed-by: Peter Griffin <peter.griffin@linaro.org>
+> > Signed-off-by: André Draszik <andre.draszik@linaro.org>
+> > Link: https://lore.kernel.org/r/20241203-gs101-phy-lanes-orientation-dts-v2-1-1412783a6b01@linaro.org
+> > Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> > Acked-by: Conor Dooley <conor.dooley@microchip.com>
+> > Link: https://lore.kernel.org/r/20241231131742.134329-1-krzysztof.kozlowski@linaro.org
+> > Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+> > Signed-off-by: Macpaul Lin <macpaul.lin@mediatek.com>
 > 
-> The firmware on SDM845-based Cheza boards did not provide the same
-> level of feature support for SMMUs (particularly around the Adreno
-> GPU integration).
-> 
-> Now that Cheza is being removed from the kernel (almost none exist at
-> this point in time), retire the entry as well.
-> 
-> Most notably, it's not being marked as deprecated instead, as there is
-> no indication that any more of those ~7 year old devboards will be
-> built.
-> 
-> Signed-off-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-> ---
+> No, that's not a fix.
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Yeah, defconfig changes don't really make sense for stable updates as
+everyone already has a .config file for their systems by now for those
+kernel versions, and changing the defconfig will not change anything for
+anyone.
 
-Best regards,
-Krzysztof
+Sorry,
+
+greg k-h
 
