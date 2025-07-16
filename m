@@ -4,60 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD983C83F2D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 07:36:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3BCEC83F2D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 07:40:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4MMtSjLmAV/YTiKI6wpK7PHd2VJs1znSATT/ZPI2Iks=; b=xP+31WOupV6TCDi8eHayLmmIjW
-	dWp+ULoYsciyy3TinUQUKRAXP66FwyrOBo8qlyiraaDkHy9j7yDvv4QgNzJgZyJXjfdccSZFCCr7/
-	0mqJUppJ/zkwYdeCFSs5KmmnZyLgAmMDc0Oc+wheLqlCzAqlLIUIEnpX8yuw821koOE6Gat8y6TJ1
-	kHoMtbJ6rEAaY4wBXDlfR0h7n/1JIWN6L9Ybw4n9/fepUy2i78JdceOxZ75/IfVRHw5deIBSWlDCX
-	5NZAtw2adMJC7HXGXh/OT4cjKovIYD78i2NP3eGk13N4CL9xdM6BT+dS7K2mwYsnPjIukvbb8xbpV
-	qrqMwL8g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Cc:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dOqyrEbThUNu8kjTdwYn5QaXe7g+9MiXUqx8MLf4IGE=; b=n07KonO7vjBFbq4z9c+/julJD9
+	u0257j4SNUjlefqtX82qyXbqVo04qQHQhWNhBCa068U2UqpY/Ig+FX4HDNvCKtX0ulEB1T9VeBZN8
+	QCi3nkepJQoWP7vEWQ88xKubEc0QsZQgFUZtxYl5oP/v5YM4i5CbZZwsm/j0qs3sd6O3ZvPjLUWZU
+	E1/bLX2rQV3L3WXVc1gIuip5Px9Mlvew29s4UtfaRn2TDCaqI8fs0zE/ZOF/Q7FcgB3RWZeh9AUGZ
+	VA5NzxgreIVdFn5ZHBuva+z/q1/u7S9NSgLrCS6zb0ujv7Tlg9Pf1iAf2jpz+lqpFZEVKWjEsAVYJ
+	yviI1WXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubwgy-000000071pj-2nUS;
-	Wed, 16 Jul 2025 07:36:40 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1ubwkk-000000072QT-2b1q;
+	Wed, 16 Jul 2025 07:40:34 +0000
+Received: from relay4-d.mail.gandi.net ([2001:4b98:dc4:8::224])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubwdY-000000071EB-28w0
+	id 1ubwiJ-000000072CV-2adm
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Jul 2025 07:33:08 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6EB406144D;
-	Wed, 16 Jul 2025 07:33:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA951C4CEF0;
-	Wed, 16 Jul 2025 07:33:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1752651187;
-	bh=wSS+MxIy+JyaYWx3+wf/p7Zd06S5TWqVfO1PJxPUgZE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=fddcbr6DEZO1a73wntEdYLzsy5sHn3xtD9CsDxtPCJGWF2xxowZUT6gckYLxfSVuS
-	 oKLkNkqhahFO9O8+bPh2QT/WaslT1QmsRrVHQRVh0j4K2/Uk3xxv0fhwXzko38scVj
-	 4ql2gdc4mlHVY0HsiNDvFJL9qGnB+kg1srEcBEPc=
-Date: Wed, 16 Jul 2025 09:33:04 +0200
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: Stefan Wahren <wahrenst@gmx.net>
-Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
-	Dan Carpenter <dan.carpenter@linaro.org>,
-	linux-arm-kernel@lists.infradead.org,
-	bcm-kernel-feedback-list@broadcom.com, kernel-list@raspberrypi.com,
-	linux-staging@lists.linux.dev
-Subject: Re: [PATCH V2 0/3] staging: vchiq_arm: Fix regression & resource
- leaks
-Message-ID: <2025071644-sulphate-outdoors-02ae@gregkh>
-References: <20250715161108.3411-1-wahrenst@gmx.net>
- <2025071555-stubbed-hardiness-8306@gregkh>
- <5e9e606e-d227-4d87-a5b7-cb5a105dcd98@gmx.net>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <5e9e606e-d227-4d87-a5b7-cb5a105dcd98@gmx.net>
+	Wed, 16 Jul 2025 07:38:05 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 525E1444FC;
+	Wed, 16 Jul 2025 07:37:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1752651481;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=dOqyrEbThUNu8kjTdwYn5QaXe7g+9MiXUqx8MLf4IGE=;
+	b=hK4Bw9jRab/6Cok5R5487qjPcLp0nbakwx4NSy24zxfV/91Rhu8aVKvFIXXiTcoS6bBLgI
+	jhDMkJbcEvaGsA5dojIPFtavKMWASnsdwGoTR7z7RtGCtF6yH8vkG3B4PHp0vNcKO67cqW
+	mr97hFp1KdYsxF6YS6IhPSV7YnIMqhruGQCj1p8cREYw1a3c2I3/1GzYzh6W8jWB8Mc5Hr
+	kkXUgWKMDSdiOBQqiin/iBNIe91TGzvDQP1voXbxPYBF2rtLgeufyYRIxBhfPsx//1mKuK
+	YyGXecYfTJah/5AL2Mhic946zySddzeg4EJPVTbCrWAhj7QDr+hmmFYuNq0qIg==
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Wed, 16 Jul 2025 09:37:59 +0200
+Message-Id: <DBDB3I5H4PW1.39J6V9NEXG2LI@bootlin.com>
+Subject: Re: [PATCH 1/2] bpf, arm64: remove structs on stack constraint
+Cc: "Alexei Starovoitov" <ast@kernel.org>, "Daniel Borkmann"
+ <daniel@iogearbox.net>, "Andrii Nakryiko" <andrii@kernel.org>, "Martin
+ KaFai Lau" <martin.lau@linux.dev>, "Eduard Zingerman" <eddyz87@gmail.com>,
+ "Song Liu" <song@kernel.org>, "Yonghong Song" <yonghong.song@linux.dev>,
+ "John Fastabend" <john.fastabend@gmail.com>, "KP Singh"
+ <kpsingh@kernel.org>, "Stanislav Fomichev" <sdf@fomichev.me>, "Hao Luo"
+ <haoluo@google.com>, "Jiri Olsa" <jolsa@kernel.org>, "Puranjay Mohan"
+ <puranjay@kernel.org>, "Xu Kuohai" <xukuohai@huaweicloud.com>, "Catalin
+ Marinas" <catalin.marinas@arm.com>, "Mykola Lysenko" <mykolal@fb.com>,
+ "Shuah Khan" <shuah@kernel.org>, <ebpf@linuxfoundation.org>, "Thomas
+ Petazzoni" <thomas.petazzoni@bootlin.com>, "Bastien Curutchet"
+ <bastien.curutchet@bootlin.com>, "Ihor Solodrai" <ihor.solodrai@linux.dev>,
+ "bpf" <bpf@vger.kernel.org>, "linux-arm-kernel"
+ <linux-arm-kernel@lists.infradead.org>, "LKML"
+ <linux-kernel@vger.kernel.org>, "open list:KERNEL SELFTEST FRAMEWORK"
+ <linux-kselftest@vger.kernel.org>
+From: =?utf-8?q?Alexis_Lothor=C3=A9?= <alexis.lothore@bootlin.com>
+To: "Alexei Starovoitov" <alexei.starovoitov@gmail.com>, "Will Deacon"
+ <will@kernel.org>
+X-Mailer: aerc 0.20.1-0-g2ecb8770224a-dirty
+References: <20250709-arm64_relax_jit_comp-v1-0-3850fe189092@bootlin.com>
+ <20250709-arm64_relax_jit_comp-v1-1-3850fe189092@bootlin.com>
+ <aHZYcY_9JtK8so3C@willie-the-truck>
+ <DBCONB7XHN7E.2UQMMG6RICMFY@bootlin.com>
+ <aHZmOVpcoyTvGY1u@willie-the-truck>
+ <CAADnVQK=x7p6zjvNbv0iqOfE73DM3j0nGSGrFX+pVExLMkJb=w@mail.gmail.com>
+In-Reply-To: <CAADnVQK=x7p6zjvNbv0iqOfE73DM3j0nGSGrFX+pVExLMkJb=w@mail.gmail.com>
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdehjedufecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepggfgtgffkffuvefhvffofhgjsehtqhertdertdejnecuhfhrohhmpeetlhgvgihishcunfhothhhohhrrocuoegrlhgvgihishdrlhhothhhohhrvgessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepieekgeelvdekvdevhfdvgfeiffeuieelfffgleeivdelheelvdeiveetfedtiedtnecuffhomhgrihhnpehkvghrnhgvlhdrohhrghdpsghoohhtlhhinhdrtghomhenucfkphepvdgrtddvmeekgedvkeemfhelgegtmegvtddtmeemfhekheenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtvdemkeegvdekmehfleegtgemvgdttdemmehfkeehpdhhvghloheplhhotggrlhhhohhsthdpmhgrihhlfhhrohhmpegrlhgvgihishdrlhhothhhohhrvgessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepvdejpdhrtghpthhtoheprghlvgigvghirdhsthgrrhhovhhoihhtohhvsehgmhgrihhlrdgtohhmpdhrtghpthhtohepfihilhhlsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegrshhtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegurghnihgvlhesi
+ hhoghgvrghrsghogidrnhgvthdprhgtphhtthhopegrnhgurhhiiheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepmhgrrhhtihhnrdhlrghusehlihhnuhigrdguvghvpdhrtghpthhtohepvgguugihiiekjeesghhmrghilhdrtghomhdprhgtphhtthhopehsohhngheskhgvrhhnvghlrdhorhhg
+X-GND-Sasl: alexis.lothore@bootlin.com
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250716_003803_806656_35556720 
+X-CRM114-Status: GOOD (  39.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,31 +96,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 15, 2025 at 09:59:45PM +0200, Stefan Wahren wrote:
-> Am 15.07.25 um 19:44 schrieb Greg Kroah-Hartman:
-> > On Tue, Jul 15, 2025 at 06:11:05PM +0200, Stefan Wahren wrote:
-> > > This small series fixes a regression introduced by recent changes and
-> > > possible resource leaks in the VCHIQ driver.
-> > > 
-> > > Changes in V2:
-> > > - Add Maíra's Reviewed-bys
-> > > - Fix Reported address in patch #2
-> > > 
-> > > Stefan Wahren (3):
-> > >    Revert "staging: vchiq_arm: Improve initial VCHIQ connect"
-> > >    Revert "staging: vchiq_arm: Create keep-alive thread during probe"
-> > >    staging: vchiq_arm: Make vchiq_shutdown never fail
-> > > 
-> > >   .../interface/vchiq_arm/vchiq_arm.c           | 98 +++++++++++--------
-> > >   .../interface/vchiq_arm/vchiq_core.c          |  1 -
-> > >   .../interface/vchiq_arm/vchiq_core.h          |  2 -
-> > >   3 files changed, 56 insertions(+), 45 deletions(-)
-> > I already applied v1, is there any code changes that are different here?
-> Strange, I didn't received a mail that the patches has been applied. No,
-> there wasn't any code changes.
+On Tue Jul 15, 2025 at 5:40 PM CEST, Alexei Starovoitov wrote:
+> On Tue, Jul 15, 2025 at 7:31=E2=80=AFAM Will Deacon <will@kernel.org> wro=
+te:
+>>
+>> On Tue, Jul 15, 2025 at 04:02:25PM +0200, Alexis Lothor=C3=A9 wrote:
+>> > On Tue Jul 15, 2025 at 3:32 PM CEST, Will Deacon wrote:
+>> > > On Wed, Jul 09, 2025 at 10:36:55AM +0200, Alexis Lothor=C3=A9 (eBPF =
+Foundation) wrote:
+>> > >> While introducing support for 9+ arguments for tracing programs on
+>> > >> ARM64, commit 9014cf56f13d ("bpf, arm64: Support up to 12 function
+>> > >> arguments") has also introduced a constraint preventing BPF trampol=
+ines
+>> > >> from being generated if the target function consumes a struct argum=
+ent
+>> > >> passed on stack, because of uncertainties around the exact struct
+>> > >> location: if the struct has been marked as packed or with a custom
+>> > >> alignment, this info is not reflected in BTF data, and so generated
+>> > >> tracing trampolines could read the target function arguments at wro=
+ng
+>> > >> offsets.
+>> > >>
+>> > >> This issue is not specific to ARM64: there has been an attempt (see=
+ [1])
+>> > >> to bring the same constraint to other architectures JIT compilers. =
+But
+>> > >> discussions following this attempt led to the move of this constrai=
+nt
+>> > >> out of the kernel (see [2]): instead of preventing the kernel from
+>> > >> generating trampolines for those functions consuming structs on sta=
+ck,
+>> > >> it is simpler to just make sure that those functions with uncertain
+>> > >> struct arguments location are not encoded in BTF information, and s=
+o
+>> > >> that one can not even attempt to attach a tracing program to such
+>> > >> function. The task is then deferred to pahole (see [3]).
+>> > >>
+>> > >> Now that the constraint is handled by pahole, remove it from the ar=
+m64
+>> > >> JIT compiler to keep it simple.
+>> > >>
+>> > >> [1] https://lore.kernel.org/bpf/20250613-deny_trampoline_structs_on=
+_stack-v1-0-5be9211768c3@bootlin.com/
+>> > >> [2] https://lore.kernel.org/bpf/CAADnVQ+sj9XhscN9PdmTzjVa7Eif21noAU=
+H3y1K6x5bWcL-5pg@mail.gmail.com/
+>> > >> [3] https://lore.kernel.org/bpf/20250707-btf_skip_structs_on_stack-=
+v3-0-29569e086c12@bootlin.com/
+>> > >>
+>> > >> Signed-off-by: Alexis Lothor=C3=A9 (eBPF Foundation) <alexis.lothor=
+e@bootlin.com>
+>> > >> ---
+>> > >>  arch/arm64/net/bpf_jit_comp.c | 5 -----
+>> > >>  1 file changed, 5 deletions(-)
+>> > >
+>> > > This is a question born more out of ignorance that insight, but how =
+do
+>> > > we ensure that the version of pahole being used is sufficiently
+>> > > up-to-date that the in-kernel check is not required?
+>> >
+>> > Based on earlier discussions, I am not convinced it is worth maintaini=
+ng
+>> > the check depending on the pahole version used in BTF. Other architect=
+ures
+>> > exposing a JIT compiler don't have the in-kernel check and so are alre=
+ady
+>> > exposed to this very specific case, but discussions around my attempt =
+to
+>> > enforce the check on other JIT comp showed that the rarity of this cas=
+e do
+>> > not justify protecting it on kernel side (see [1]).
+>>
+>> I can understand why doing this in pahole rather than in each individual
+>> JIT is preferable, but I don't think there's any harm leaving the
+>> existing two line check in arm64 as long as older versions of pahole
+>> might be used, is there? I wouldn't say that removing it really
+>> simplifies the JIT compiler when you consider the rest of the
+>> implementation.
+>>
+>> Of course, once the kernel requires a version of pahole recent enough
+>> to contain [3], we should drop the check in the JIT compiler as the
+>> one in pahole looks like it's more selective about the functions it
+>> rejects.
+>
+> I frankly don't see the point in adding and maintaining such checks
+> and code in the kernel for hypothetical cases that are not present
+> in the kernel and highly unlikely ever be.
+> The arm64 jit check was added out of abundance of caution.
+> There was way too much "caution".
 
-Ah, I hadn't pushed it publiclly yet, that's why!  I'll go drop my
-internal tree and queue up this one now instead, thanks.
+To complete Alexei's point: the check currently implemented in ARM64 JIT
+comp is filtering _too many_ functions. It prevents attachment to any
+function consuming a struct passed by value on the stack. But what we
+really want is only about filtering those _when their alignment is
+altered_, which is something that can not currently be deduced at runtime
+in JIT comps. That's part of the reason why this has been moved to pahole.
 
-greg k-h
+I would also add that there is another small drawback about keeping this
+check on ARM64 only, while not adding it to other JIT comps: we have to
+keep filtering out some tests for ARM64, while the feature set is actually
+the same as for the other archs. Sure, this discrepancy could be eliminated
+once pahole minimum version in kernel build system contains the needed
+development, as Will suggests, but I don't see that hapenning before many
+months/years.
+
+Alexis
+
+--=20
+Alexis Lothor=C3=A9, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
+
 
