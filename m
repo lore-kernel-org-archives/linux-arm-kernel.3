@@ -4,162 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24FE9C83F1B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 18:22:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC783C83F22
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 18:25:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zyDXjwVUy7sWdd4AnS0BRamaayO6x9EB8a9X8ksaOrI=; b=0Gwk/M9dwiz43r+E5acpPc5lAn
-	FN43PaYTh+U+v0tf/w6cjyDsF+QwKGNDVW5XA6itklGQUpSOkgHjQ4aihh2gS2Ypm+TG78Xx3Yjm+
-	SUdn7nQ2j24Kq/mj4JBwE5OOboQAhGYWUx0fdnVWXMNfiymeJ5WLJtSpATFai4U0YP0F8NErJDzC3
-	cVwo5FegcY1u3cUrLXocaq4V+pdApGlPbJmMpnqjx65XHOhVAZWcYb5h7UA3+D6vjhsd45Em7qMAC
-	gfjDJfz1Ux6NAMgtHDI2+OwwNorDOHeBNV76kCZnzeHBILNCEuwgWQ5eerGpiSlEtn+d2W+/C3A4Q
-	5MpFSdnQ==;
+	bh=XqYy+Dz+71twI0him0hUjZk/6GLWJWbYmCSfdczxwFc=; b=f3769NtmpzKVpQLscg7OJc87eQ
+	BpzamqbTgNVUT2pufBwSoFYhSv/KIAuyiq/le5H/iTxC7xoRjLt9QlMSBvH/NOOMhGMLN8SMWo6KC
+	P0mXCWWKxWSgY8k5mC5q/XVYFoYw0mA6m2mlf5faxGDXPI8VtdsStkn+5s2pFsxHRK4/7x35JzjUr
+	vrIZLrFghMY12pJ4YCbsPWlWK2koSnCLLJu18Nj6oj4n5J0BAh4iMXJA9krbvQcMeAF64adC9kXBD
+	YhA5AVgL6/l3g8Rlouv7oiOM/8DpdHlGSOYARS6yAEO805qGL2nQ1FQf3qo5MwAt59ULqbzxs/fTL
+	wbrzu12g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uc6ly-00000008NnX-0JiZ;
-	Wed, 16 Jul 2025 18:22:30 +0000
-Received: from mail-japaneastazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c405::1] helo=TY3P286CU002.outbound.protection.outlook.com)
+	id 1uc6oQ-00000008OMP-3eoH;
+	Wed, 16 Jul 2025 18:25:02 +0000
+Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uc6jS-00000008NUB-338S
+	id 1uc6l0-00000008Ncv-2Ftq
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Jul 2025 18:19:57 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=UNOcEgVJSMaQu4SrfxxCYyBXmIafDsA/Nr8Ffsc49yWk9fKaMTAsw1AT6FmO4qVjj/OJkQ7JoPvo/OftC9xoVuwK1Np9vVWtsxHtH8W9oJ69pNMKC/u2DOqfl+vjZJwBLQzOtsRJ4zc/KngiAGzgy151brDyoSXIK7N3ZGGeoPYJy6ETR7yq5vD9cbbjacEDXRH3LWS1l2lKBXsep27l/FXeBKMwc9pZ3/P1yPmVe/b9AGuPmehlwITQfyn5tUpLvbyh9jjaxiNWM1m+U4CT+Ge7Y+NN5PpDYwwSd9r5lwak33nPd/4SsWUYmCFyUenHuN7JAILxBgLnG+3MQXMm/g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=zyDXjwVUy7sWdd4AnS0BRamaayO6x9EB8a9X8ksaOrI=;
- b=LyKhV6h69qZr9lwnckHz36bBawjhiVxDPGDuWWZxu8ZJImxT4FAzrllpBvPSIU5mJfVa09re7dETlfzIe6O0Hnwc6yVQcYadeclahJ6VKK2JmnrtXnm66oofELU4KOov+j8s6P8UUv2QpkRmFO2/64nAL8bTzJjNUwFsd0UVFMkYOL1CdRtw/tXxbXlTwURTk1IH5YI7Pw69gZdunnqdcB+zevETFnDX6SgQATheErP2XMHl9Ny86TiMl4GKX/i6+498BTupvcMAFCN70zHcfwmsmxJOR7CT72nh/VY0GmX3XcJPwvG1vOyEKfJ0vRL5o7iB+utGWkgYLiMuky8r/Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=bp.renesas.com; dmarc=pass action=none
- header.from=bp.renesas.com; dkim=pass header.d=bp.renesas.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bp.renesas.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=zyDXjwVUy7sWdd4AnS0BRamaayO6x9EB8a9X8ksaOrI=;
- b=iZl1Saq0JrcZy5X2WfNORNLQch4kXtALoXRMOu1KOKj6nRSecbO2vShD8pPvdoS9ke5R+gLjxhwdS+Nxbf6046gbjtgaZU/I90o4K4+6qUxkVc4yLb8y8MMCoTJWiYAb2GaTqf3vDIHJv1aMGe6IQoOv2cBNPjGm6ku5pkHi7v0=
-Received: from TY3PR01MB11346.jpnprd01.prod.outlook.com (2603:1096:400:3d0::7)
- by OS3PR01MB10075.jpnprd01.prod.outlook.com (2603:1096:604:1e5::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8922.32; Wed, 16 Jul
- 2025 18:19:35 +0000
-Received: from TY3PR01MB11346.jpnprd01.prod.outlook.com
- ([fe80::86ef:ca98:234d:60e1]) by TY3PR01MB11346.jpnprd01.prod.outlook.com
- ([fe80::86ef:ca98:234d:60e1%4]) with mapi id 15.20.8922.028; Wed, 16 Jul 2025
- 18:19:33 +0000
-From: Biju Das <biju.das.jz@bp.renesas.com>
-To: Biju Das <biju.das.jz@bp.renesas.com>, Prabhakar Mahadev Lad
-	<prabhakar.mahadev-lad.rj@bp.renesas.com>, Andrew Lunn
-	<andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Eric
- Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
-	<pabeni@redhat.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre
- Torgue <alexandre.torgue@foss.st.com>
-CC: "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
-	"linux-renesas-soc@vger.kernel.org" <linux-renesas-soc@vger.kernel.org>,
-	"linux-stm32@st-md-mailman.stormreply.com"
-	<linux-stm32@st-md-mailman.stormreply.com>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, Geert Uytterhoeven <geert+renesas@glider.be>,
-	biju.das.au <biju.das.au@gmail.com>
-Subject: RE: [PATCH net-next] net: stmmac: dwmac-renesas-gbeth: Add PM
- suspend/resume callbacks
-Thread-Topic: [PATCH net-next] net: stmmac: dwmac-renesas-gbeth: Add PM
- suspend/resume callbacks
-Thread-Index: AQHb7c6+F2cIzXpCE0eHQabSLpoq6LQ1IIJw
-Date: Wed, 16 Jul 2025 18:19:33 +0000
-Message-ID: <TY3PR01MB11346F9BF41DA974F52CD4CB88656A@TY3PR01MB11346.jpnprd01.prod.outlook.com>
-References: <20250705170326.106073-1-biju.das.jz@bp.renesas.com>
-In-Reply-To: <20250705170326.106073-1-biju.das.jz@bp.renesas.com>
-Accept-Language: en-GB, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=bp.renesas.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: TY3PR01MB11346:EE_|OS3PR01MB10075:EE_
-x-ms-office365-filtering-correlation-id: c65e6165-e331-406a-57d6-08ddc4955087
-x-ld-processed: 53d82571-da19-47e4-9cb4-625a166a4a2a,ExtAddr
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|376014|1800799024|7416014|38070700018;
-x-microsoft-antispam-message-info: =?us-ascii?Q?QcaZtl0ra5oKd9YdoCpljEQhLHAh3uyILAMIPVvppIoQ8OI5MAEz6S3qjTqw?=
- =?us-ascii?Q?D2p2gSEeYKDqVXRnxDCOr/mUiND2VbdJslPOsrNiK0YhjH55BsRnaQaSbJbU?=
- =?us-ascii?Q?m2Tc7rrybEGDT6Q+O0YdAyKW0s01Pw/DZqp/haREVGFHkXEuHB9M6Hq+ZBUC?=
- =?us-ascii?Q?5Ny+/R4md3+i10PTTtdItt4xy0Jvljoq5bFwViJHJqHelwALA0bvMfKfXXCt?=
- =?us-ascii?Q?89sTayn9V7TvZyniXmaq/c1bkYQAeY9/nBL0qn9tsByUlF/SX4t+8rC5U4FK?=
- =?us-ascii?Q?lovlzqNyo01kcuMvDBdK31afbKYbNe9/1ye5jFv7We2YRMGG43mQ+N9jY3Yl?=
- =?us-ascii?Q?927kxIgJIoBXzFDuSyjqvx5VrRoNs4MaDW0nLBk3ikvKLN95LdH6ysGbjuYN?=
- =?us-ascii?Q?/S83Ab4h2+h59jQ489fiCqsXonP7gv4vwJP9FFj1tq/ON6Wi4JL3QZPovpvH?=
- =?us-ascii?Q?KCZHnacrTUeLmXO5r7IcAV6IEXaVz06IYuthaKPANtrz1gVqVTLrzmZbXv22?=
- =?us-ascii?Q?BNSCwnWX3qevsUx3OhC3SE1HWmKYuMhkelxfFrZ6cd5busD/YoRlmgOOI76G?=
- =?us-ascii?Q?j3RDUqXF2c2c2fQQBhDeifLIlr517DgkRSZ5QLbELPNP4hRkX5GZgkQzvFRf?=
- =?us-ascii?Q?DwDPN0x4PhSWmb9G4PcM8wSnVzBnMCI920WZbHffmnSKsuJDr4xX2w5LbMG9?=
- =?us-ascii?Q?VnfVmDzPmtPDAhbFuNSp09Cq0Qsh40XyJ7Ux9ck1xcnC8RcmW9LhTGlCJFyo?=
- =?us-ascii?Q?r/g1v6uIiyYFUcGDq5eu3MT/9ztNC9nCK9zkz6rjU3UHxZ7rGQvn4AsjF5Dt?=
- =?us-ascii?Q?5uV5brKr21KmUYnLtWaffQY6kVjQ5mJRR0pYhoTA24Oqos5fVYYBw7+Ndcxt?=
- =?us-ascii?Q?8p3s9QwbFlW477nfHVLkYwT5dTOD8VFPuZCxTGe7TGHErxNpi2Qb6RRVWDdG?=
- =?us-ascii?Q?jGYY6TMHVvfQ1eEgRnglNyVdh9MMNHjYKgyAbv43hJvYJJAPObRj6qya6WXb?=
- =?us-ascii?Q?YpsurI/hbrQVd+UlP3YOjmet709to4nREaw1jo6YaFg2NGr3vuTveSZAU+X7?=
- =?us-ascii?Q?zAIz9li7XjwhWG2dNv3uO5fvVIq+8X9XhXis90DPhakZn/BOs76nexd1loEo?=
- =?us-ascii?Q?JyCN1tA8e/kOt7JB7Ef96AfA1qatfSUqj9TeTdEKnRvaW/si62X9czK8dS1b?=
- =?us-ascii?Q?4Qt1aRz7f0UVS7GG3IUDooy+wOUxf5nJWG72WNcqPiuiwb1OC01mKlxGba1m?=
- =?us-ascii?Q?/VKLduqKUXhDpEqxIQtF3GVrefXFiECQB5c/fBK2Awj0Nx9EfvOikE1tczeS?=
- =?us-ascii?Q?yPsjIzAKLrAJQpkPR59WHnAv+XC2hId4vJP++aqSM/X7IdRaHqr3pwMcSoLc?=
- =?us-ascii?Q?tzp2m+nJElSvGzILMA1LWEb8gHPhWJKbPjs/tIKKjCEvuk2bW0QtVIPt2C5s?=
- =?us-ascii?Q?iWnPLBlAoNTEM70klF5WTAUifxA2q75//PHHXy3T9Nzbytws5fDo7A=3D=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TY3PR01MB11346.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(7416014)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?bfFnZeJcd3vISO1RhzumAV9MIqw6fGJSt7xL3sM+vi5M40sCQRV961OEMTvZ?=
- =?us-ascii?Q?7apBOc1ZezPJ3dq2JuXHKrHl9ywVLv4saHfeUJuYQOY9qhgLbiRaIo5ClJ/G?=
- =?us-ascii?Q?qbiSDUCT1Cgu33RGfeBu3c7+sECeMKnxNocpj3bqVPG2SpppctxwLgXIotZd?=
- =?us-ascii?Q?7SQioEoZytNYlrNGQztKa4fsUrplCOkh6sRmZEk7ECzXj9vXM1eo+19hOieI?=
- =?us-ascii?Q?kpkxP73c7zWxH0XYNwAyRbIXy3KzifaINiH+AyW57iAt50NfesDLcmhwqREh?=
- =?us-ascii?Q?G9+9l2bu8yZU1rx2c1l4cxdRbmKoX14ghuTSXB8X2HBm3Od66NLTb3mENzHG?=
- =?us-ascii?Q?9HyruVjjps7rD4GL3a8709AomrEldJkR6/7qkXhe8jVsnzk+Flb1dt4afh2L?=
- =?us-ascii?Q?YB9dUE4jz89IchzYsy+MOoLkr9g0bHCBx7Aeo02Fw3PtsREx1P7eWJFAe+c4?=
- =?us-ascii?Q?9zn6JGgKZ45QyviJ+X36c9lV8by1rqlzwonMXEs3kMV9zrmFm8zxmy7hEEKC?=
- =?us-ascii?Q?0XnKgvEwGUegY0Toy0REFJLjmnqX5k30G5Hjj6E7uCNNRTIG5E5iGXtKRLb5?=
- =?us-ascii?Q?QKyS+aR62InVMr20oZusNM7y9U7eMZA0LDqH2rtGHELAozyRRIS2FxwdgyC1?=
- =?us-ascii?Q?kVpRi/O07tZ/PCxJvUJwL41SBTpXE0xOwGeZN3HsP4uc3pUif8J2+6g+yUZa?=
- =?us-ascii?Q?ISG3txWqd01DGxxw+4c1MLDpERRn3trQ8zhhVDUAWAPHEtO+O2fIRfp4FEK1?=
- =?us-ascii?Q?VyWsaAjD8Y1I2IXTHtHJFfdYtP0Moow5hJORydSE7Dy4KpBY/ElH9Ab+UYj+?=
- =?us-ascii?Q?QVxDXvI2ehur1682VVA0Om9I288wmTs62QJwC90eO0K6UdErKRjQx91gTrNs?=
- =?us-ascii?Q?oUrQ35RPulA+HI2rj8KDQsvAM585SyHEiu9Bsfi2QI3OMzoZVdIdWTRUELFB?=
- =?us-ascii?Q?6BQC9yYmzsg/GvA2/Q/FxwW7alux9pLzW43FGNNqaZ6KQgu4yawzJcZ04P0k?=
- =?us-ascii?Q?lJ/n5M88R9hzJ2EPBpXso4HBUarvCRrqD76pkMQkjjwwY9BRsbf+nXS/Br9o?=
- =?us-ascii?Q?KzlVksR8joCnSnDtwxNwvZNYYv+OwS5kn0PpndrgOK4XWUuQeel9WU0TSM1w?=
- =?us-ascii?Q?PNF80ZWW0bdoUHX6o9c/52ecVLYk8JSQf/pjj1EtzZ5+uWRnpO2RdNKZ2zAY?=
- =?us-ascii?Q?0GNX1QYJhUBBZX0hyZx/6zLIz3BBK0UCrpDU9U82/r9j3I3FsV/MZkxSXDp9?=
- =?us-ascii?Q?V9Mewt3+hads3DK5k38Uh+H9Piyh+P6cK3dnz6xndWDxazFdbBybGOTQMcKb?=
- =?us-ascii?Q?dbX1s1iwiElfLDkp4ee0ifo+yffPVivVYTjKOYrLQ8FbUR+4DF+qaYp2r0DH?=
- =?us-ascii?Q?7KrQnHrbvN1tCKpmBuCtlBENTgipfPB8gyGk3bzauS80pfJsYuzz1ZqDCUMN?=
- =?us-ascii?Q?sznobvtR8qAp3gGhSdnVBskK8GNo38VuleLyaDwZ6lMeTqP61VAEHGIU+Ihs?=
- =?us-ascii?Q?9E7/CmVTmrqFjsFw373NxWbZNl0clBdEVa9btcIU56YwYgRlWPJXYm5kqGTr?=
- =?us-ascii?Q?H62l6kLx8AbBN1MMmkZp3aUUnFQukdL4zdu6rr93NHs4I7BIsk1PfSNOelG3?=
- =?us-ascii?Q?7g=3D=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Wed, 16 Jul 2025 18:21:31 +0000
+Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-23dd9ae5aacso20535ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Jul 2025 11:21:29 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1752690089; x=1753294889; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=XqYy+Dz+71twI0him0hUjZk/6GLWJWbYmCSfdczxwFc=;
+        b=WoR6uBMg2Br4gsf4dkDW5iq57RZOacPZNPW3JOPAi4O5+Evutuf3qxabBgIoKh25Mo
+         5TuiHCbZJ7HvqS9JFpKVsbx2N9mCFrFz5HBlKQxg4Ubp/zCHG58tjOe/uowEZK0L5r2a
+         mm9VZRHNL8gDPHUrJ+TLV4SX7AskkqI9eO9ZwocP4+owAiWdEnO96XFjB7FhbMddmxg6
+         O+v8tbqe4sxQG1fWau+ZtgcfsMQjkr7LKKKq93PGTo0xHFmcEQaUZwBFF0HABjLvbYPD
+         XJB/J78AWbxSO5+cmFPuITXolcb8Ym6TbcAoudM7yA5LBbe+IDbTNd3S3MQxS+FhpEYY
+         n29A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1752690089; x=1753294889;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=XqYy+Dz+71twI0him0hUjZk/6GLWJWbYmCSfdczxwFc=;
+        b=aGpKO2cDUwjAiao7dXp/WfdFsT7KP9XirMqFZK6o4KVqK/QP29CVYp75BSDHA6aSp5
+         C3LvEtjutidzLU4tpR40R+WBEpRasJLbTjtGV5Mv4SVZgVSuX5c1TZs9it3xh8u9OpwC
+         Zejpg1q8F4iNrPqNoXGsVvHotKerZyY7kfOSDbKp/tNnjUWOmpsA36a/vRzseos9o/wr
+         UFUDfRtSt3gw3n8YUdeS7wT+hItR70sIdl1//oHIyt8UY7tLfkOwnGvLM4ex2o8dnCTt
+         lr+lLHvfJAYTqtrnSCqdxDkVqy7VMidyl9gG87hUALb71ZpVdu128uHWvbNtOZeUuUdg
+         gw2w==
+X-Forwarded-Encrypted: i=1; AJvYcCWFTn+7tr3OTil8PxZya+N62dowNgiImxeXS2dvklj9VGKhSMtd6LSfLRDS23Xny5Gn7vekawr1LXEqMmdYigh4@lists.infradead.org
+X-Gm-Message-State: AOJu0YxOFch0xip9Gp+sv26RqN5HNpxmhKJEcbJhmwgOZPzXHpi+eFA8
+	r2or+1HdqGQeU2JdUqF/UtoPdQ7jBGsMQa9YAOONiFYAFaAYose4TrtY3WjYJoyQ9A==
+X-Gm-Gg: ASbGncsBTqdmFY1uLfFuWZg4tsrM+Lwdtl0QynuLjcmb4phhWAXprIZAoA0hmMMDMqL
+	PI5BqK02zh+Mb+eyinT4n1N4XrLtpDgULvQhuLVhJ0zLPeDknktS5nwl+zBpNMdLu8jkdHz3VoS
+	UA9WMg13EHVaBcc0FUCbKhCDFqVkjDRXz0ozD+IjF6GuNrJ5U8YGrvzm+s22Hgc8PbCM9PTKNU8
+	/PGhJCqQXCKSBnz3VCrbPdz5tFQ3RonJzFrEygmYrEFS7xbBUEN0YdxO1z71unSe1ielayZTC2U
+	K+QMeJ1Y7eq9FWomFO4LeHzAdejewTdm8b6lZ3k+gkIjlIaj+j0SnBQITpaTUR+/XcrbY7tQRTk
+	Y55mI+5bJlro+j1rfwfqKytBpJt3dqzntOfhhnTC+PeRvhEjImb2LtTGCD/nDNDw=
+X-Google-Smtp-Source: AGHT+IGlMcCW/yVhugE6YAY332fyg5msAyrVkd1WM6bK1ZITZ1zHK/NiN+y5Y44tdPQTE58o+NEh5Q==
+X-Received: by 2002:a17:903:3b8e:b0:231:ddc9:7b82 with SMTP id d9443c01a7336-23e2ffdd014mr186685ad.13.1752690088747;
+        Wed, 16 Jul 2025 11:21:28 -0700 (PDT)
+Received: from google.com (135.228.125.34.bc.googleusercontent.com. [34.125.228.135])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-31ca786eac1sm1153352a91.48.2025.07.16.11.21.25
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 16 Jul 2025 11:21:27 -0700 (PDT)
+Date: Wed, 16 Jul 2025 18:21:21 +0000
+From: Carlos Llamas <cmllamas@google.com>
+To: =?utf-8?B?5YiY5rW354eVIChIYWl5YW4gTGl1KQ==?= <haiyan.liu@unisoc.com>,
+	Alice Ryhl <aliceryhl@google.com>,
+	Matthew Maurer <mmaurer@google.com>
+Cc: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>,
+	Miguel Ojeda <ojeda@kernel.org>,
+	=?utf-8?B?5ZGo5bmzIChQaW5nIFpob3UvOTAzMik=?= <Ping.Zhou1@unisoc.com>,
+	=?utf-8?B?5Luj5a2Q5Li6IChaaXdlaSBEYWkp?= <Ziwei.Dai@unisoc.com>,
+	=?utf-8?B?5p2o5Li95aicIChMaW5hIFlhbmcp?= <lina.yang@unisoc.com>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"rust-for-linux@vger.kernel.org" <rust-for-linux@vger.kernel.org>,
+	=?utf-8?B?546L5Y+MIChTaHVhbmcgV2FuZyk=?= <shuang.wang@unisoc.com>,
+	Andrey Ryabinin <ryabinin.a.a@gmail.com>,
+	Alexander Potapenko <glider@google.com>,
+	Andrey Konovalov <andreyknvl@gmail.com>,
+	Dmitry Vyukov <dvyukov@google.com>,
+	Vincenzo Frascino <vincenzo.frascino@arm.com>,
+	"kasan-dev@googlegroups.com" <kasan-dev@googlegroups.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Arve =?iso-8859-1?B?SGr4bm5lduVn?= <arve@android.com>,
+	Todd Kjos <tkjos@android.com>, Martijn Coenen <maco@android.com>,
+	Joel Fernandes <joelagnelf@nvidia.com>,
+	Christian Brauner <christian@brauner.io>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Jamie Cunliffe <Jamie.Cunliffe@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>
+Subject: Re: Meet compiled kernel binaray abnormal issue while enabling
+ generic kasan in kernel 6.12 with some default KBUILD_RUSTFLAGS on
+Message-ID: <aHftocnJcLg64c29@google.com>
+References: <4c459085b9ae42bdbf99b6014952b965@BJMBX01.spreadtrum.com>
+ <202507150830.56F8U908028199@SHSPAM01.spreadtrum.com>
+ <c34f4f606eb04c38b64e8f3a658cd051@BJMBX01.spreadtrum.com>
+ <CANiq72=v6jkOasLiem7RXe-WUSg9PkNqrZneeMOTi1pzwXuHYg@mail.gmail.com>
+ <24e87f60203c443abe7549ce5c0e9e75@BJMBX01.spreadtrum.com>
 MIME-Version: 1.0
-X-OriginatorOrg: bp.renesas.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: TY3PR01MB11346.jpnprd01.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c65e6165-e331-406a-57d6-08ddc4955087
-X-MS-Exchange-CrossTenant-originalarrivaltime: 16 Jul 2025 18:19:33.6576
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 53d82571-da19-47e4-9cb4-625a166a4a2a
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: 9rzr93f7NXdZVoyLYaGsgBdU0aYncBazTcdLLyg+Kvdnw00Cs/xmxY3OXNczPkFbeDUI1QhtKZt7e2JSz9QFplRLXHlKoQCAq4QaxxLLht0=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: OS3PR01MB10075
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <24e87f60203c443abe7549ce5c0e9e75@BJMBX01.spreadtrum.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250716_111954_767353_A0376438 
-X-CRM114-Status: GOOD (  19.39  )
+X-CRM114-CacheID: sfid-20250716_112130_581730_3982EE7B 
+X-CRM114-Status: GOOD (  21.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -174,102 +127,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi all,
+On Wed, Jul 16, 2025 at 07:01:29AM +0000, 刘海燕 (Haiyan Liu) wrote:
+> 
+> 
+> > -----邮件原件-----
+> > 发件人: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
+> > 发送时间: 2025年7月16日 1:51
+> > 收件人: 刘海燕 (Haiyan Liu) <haiyan.liu@unisoc.com>
+> > 抄送: Miguel Ojeda <ojeda@kernel.org>; 周平 (Ping Zhou/9032) <Ping.Zhou1@unisoc.com>; 代子为 (Ziwei Dai)
+> > <Ziwei.Dai@unisoc.com>; 杨丽娜 (Lina Yang) <lina.yang@unisoc.com>; linux-arm-kernel@lists.infradead.org;
+> > linux-kernel@vger.kernel.org; rust-for-linux@vger.kernel.org; 王双 (Shuang Wang) <shuang.wang@unisoc.com>; Andrey Ryabinin
+> > <ryabinin.a.a@gmail.com>; Alexander Potapenko <glider@google.com>; Andrey Konovalov <andreyknvl@gmail.com>; Dmitry Vyukov
+> > <dvyukov@google.com>; Vincenzo Frascino <vincenzo.frascino@arm.com>; kasan-dev@googlegroups.com; Greg Kroah-Hartman
+> > <gregkh@linuxfoundation.org>; Arve Hjønnevåg <arve@android.com>; Todd Kjos <tkjos@android.com>; Martijn Coenen
+> > <maco@android.com>; Joel Fernandes <joelagnelf@nvidia.com>; Christian Brauner <christian@brauner.io>; Carlos Llamas
+> > <cmllamas@google.com>; Suren Baghdasaryan <surenb@google.com>; Jamie Cunliffe <Jamie.Cunliffe@arm.com>; Catalin Marinas
+> > <catalin.marinas@arm.com>
+> > 主题: Re: Meet compiled kernel binaray abnormal issue while enabling generic kasan in kernel 6.12 with some default KBUILD_RUSTFLAGS
+> > on
+> > 
+> > 
+> > 注意: 这封邮件来自于外部。除非你确定邮件内容安全，否则不要点击任何链接和附件。
+> > CAUTION: This email originated from outside of the organization. Do not click links or open attachments unless you recognize the sender
+> > and know the content is safe.
+> > 
+> > 
+> > 
+> > On Tue, Jul 15, 2025 at 11:41 AM 刘海燕 (Haiyan Liu) <haiyan.liu@unisoc.com> wrote:
+> > >
+> > > The commit changes the fragment and diff is:
+> > 
+> > An Android engineer should know how to handle that, but if you are reporting upstream, it is best to try to reproduce the issue with the
+> > upstream kernels (e.g. arm64 is not in 6.6.y) and provide the full kernel config used.
+> > 
+> > > Only two rust-related global variables in fmr.rs and layout.rs have this issue. Their asan.module_ctor complied binaries are wrong.
+> > 
+> > I am not sure what you mean by `fmr.rs`. As for `layout.rs`, that is in the `kernel` crate in 6.12.y -- isn't there a single `asan.module_ctor`
+> > per TU? Which object file are you referring to? I get the pair for my `rust/kernel.o`.
+> 
+>   NSX:FFFFFFC0800A7C94|F800865E  asan.module_ctor:   str     x30,[x18],#0x8   ; x30,[x18],#8
+>    NSX:FFFFFFC0800A7C98|F81F0FFE                      str     x30,[sp,#-0x10]!   ; x30,[sp,#-16]!
+>    NSX:FFFFFFC0800A7C9C|F00240A0                      adrp    x0,0xFFFFFFC0848BE000
+>    NSX:FFFFFFC0800A7CA0|911D8000                      add     x0,x0,#0x760     ; x0,x0,#1888
+>    NSX:FFFFFFC0800A7CA4|52803D61                      mov     w1,#0x1EB        ; w1,#491
+>    NSX:FFFFFFC0800A7CA8|94233816                      bl      0xFFFFFFC080975D00   ; __asan_register_globals
+>    NSX:FFFFFFC0800A7CAC|F84107FE                      ldr     x30,[sp],#0x10   ; x30,[sp],#16
+>    NSX:FFFFFFC0800A7CB0|D50323BF                      autiasp
+>    NSX:FFFFFFC0800A7CB4|D65F03C0                      ret
+> The first __asan_global struct value is 
+>  ENAXI:FFFFFFC0848BE760|>FFFFFFC082EDB180 000000000000005F ........_.......
+>  ENAXI:FFFFFFC0848BE770| 0000000000000080 FFFFFFC0836DC431 ........1.m.....
+>  ENAXI:FFFFFFC0848BE780| FFFFFFC082EEC780 0000000000000000 ................
+>  ENAXI:FFFFFFC0848BE790| 0000000000000000 FFFFFFFFFFFFFFFF ................
+> The address of the global is 0xFFFFFFC082EDB180 which value is '/proc/self/cwd/prebuilts/rust/linux-x86/1.82.0/lib/rustlib/src/rust/library/core/src/num/fmt.rs' and its viewinfo is 'vmlinux\Global\__unnamed_357'
+> The original size of the global is 0x5F
+> The name of the global is kmalloc-2k
+> The module name of the global is 'core.27758904ccee4c80-cgu.o'
+> 
+>    NSX:FFFFFFC0800A7D4C|F800865E  asan.mod.:str     x30,[x18],#0x8   ; x30,[x18],#8
+>    NSX:FFFFFFC0800A7D50|F81F0FFE            str     x30,[sp,#-0x10]!   ; x30,[sp,#-16]!
+>    NSX:FFFFFFC0800A7D54|F00240E0            adrp    x0,0xFFFFFFC0848C6000
+>    NSX:FFFFFFC0800A7D58|912E8000            add     x0,x0,#0xBA0     ; x0,x0,#2976
+>    NSX:FFFFFFC0800A7D5C|52800961            mov     w1,#0x4B         ; w1,#75
+>    NSX:FFFFFFC0800A7D60|942337E8            bl      0xFFFFFFC080975D00   ; __asan_register_globals
+>    NSX:FFFFFFC0800A7D64|F84107FE            ldr     x30,[sp],#0x10   ; x30,[sp],#16
+>    NSX:FFFFFFC0800A7D68|D50323BF            autiasp
+>    NSX:FFFFFFC0800A7D6C|D65F03C0            ret
+> The second __asan_global struct value is 
+>    NSD:FFFFFFC0848C6BA0|>FFFFFFC082EECA80 0000000000000020 ........ .......
+>    NSD:FFFFFFC0848C6BB0| 0000000000000040 FFFFFFC0836DC431 @.......1.m.....
+>    NSD:FFFFFFC0848C6BC0| FFFFFFC082EEDA80 0000000000000000 ................
+>    NSD:FFFFFFC0848C6BD0| 0000000000000000 FFFFFFFFFFFFFFFF ................
+> The address of the global is 0xFFFFFFC082EECA80 which value is 0 and its viewinfo is '<&usize_as_core::f..vmlinux\kernel_9a6cb9fd7c8dfd66_cgu\<&usize_as_core::fmt::Debug>::{vtable}'
+> The original size of the global is 0x20
+> The name of the global is kmalloc-2k
+> The module name of the global is 'kernel.9a6cb9fd7c8dfd66-cgu.o'
+> 
+> > Cheers,
+> > Miguel
 
-> -----Original Message-----
-> From: Biju Das <biju.das.jz@bp.renesas.com>
-> Sent: 05 July 2025 18:03
-> Subject: [PATCH net-next] net: stmmac: dwmac-renesas-gbeth: Add PM suspen=
-d/resume callbacks
->=20
-> Add PM suspend/resume callbacks for RZ/G3E SMARC EVK.
->=20
-> The PM deep entry is executed by pressing the SLEEP button and exit from =
-entry is by pressing the
-> power button.
->=20
-> Logs:
-> root@smarc-rzg3e:~# PM: suspend entry (deep) Filesystems sync: 0.115 seco=
-nds Freezing user space
-> processes Freezing user space processes completed (elapsed 0.002 seconds)=
- OOM killer disabled.
-> Freezing remaining freezable tasks
-> Freezing remaining freezable tasks completed (elapsed 0.001 seconds)
-> printk: Suspending console(s) (use no_console_suspend to debug)
-> NOTICE:  BL2: v2.10.5(release):2.10.5/rz_soc_dev-162-g7148ba838
-> NOTICE:  BL2: Built : 14:23:58, Jul  5 2025
-> NOTICE:  BL2: SYS_LSI_MODE: 0x13e06
-> NOTICE:  BL2: SYS_LSI_DEVID: 0x8679447
-> NOTICE:  BL2: SYS_LSI_PRR: 0x0
-> NOTICE:  BL2: Booting BL31
-> renesas-gbeth 15c30000.ethernet end0: Link is Down Disabling non-boot CPU=
-s ...
-> psci: CPU3 killed (polled 0 ms)
-> psci: CPU2 killed (polled 0 ms)
-> psci: CPU1 killed (polled 0 ms)
-> Enabling non-boot CPUs ...
-> Detected VIPT I-cache on CPU1
-> GICv3: CPU1: found redistributor 100 region 0:0x0000000014960000
-> CPU1: Booted secondary processor 0x0000000100 [0x412fd050]
-> CPU1 is up
-> Detected VIPT I-cache on CPU2
-> GICv3: CPU2: found redistributor 200 region 0:0x0000000014980000
-> CPU2: Booted secondary processor 0x0000000200 [0x412fd050]
-> CPU2 is up
-> Detected VIPT I-cache on CPU3
-> GICv3: CPU3: found redistributor 300 region 0:0x00000000149a0000
-> CPU3: Booted secondary processor 0x0000000300 [0x412fd050]
-> CPU3 is up
-> dwmac4: Master AXI performs fixed burst length 15c30000.ethernet end0: No=
- Safety Features support
-> found 15c30000.ethernet end0: IEEE 1588-2008 Advanced Timestamp supported=
- 15c30000.ethernet end0:
-> configuring for phy/rgmii-id link mode
-> dwmac4: Master AXI performs fixed burst length 15c40000.ethernet end1: No=
- Safety Features support
-> found 15c40000.ethernet end1: IEEE 1588-2008 Advanced Timestamp supported=
- 15c40000.ethernet end1:
-> configuring for phy/rgmii-id link mode OOM killer enabled.
-> Restarting tasks: Starting
-> Restarting tasks: Done
-> random: crng reseeded on system resumption
-> PM: suspend exit
->=20
-> 15c30000.ethernet end0: Link is Up - 1Gbps/Full - flow control rx/tx root=
-@smarc-rzg3e:~# ifconfig end0
-> 192.168.10.7 up root@smarc-rzg3e:~# ping 192.168.10.1 PING 192.168.10.1 (=
-192.168.10.1) 56(84) bytes of
-> data.
-> 64 bytes from 192.168.10.1: icmp_seq=3D1 ttl=3D64 time=3D2.05 ms
-> 64 bytes from 192.168.10.1: icmp_seq=3D2 ttl=3D64 time=3D0.928 ms
->=20
-> Signed-off-by: Biju Das <biju.das.jz@bp.renesas.com>
-> ---
-> This patch is tested with out-of tree patch for save/restore ethernet OEN=
- registers in the pinctrl
-> block.
-> ---
->  drivers/net/ethernet/stmicro/stmmac/dwmac-renesas-gbeth.c | 1 +
->  1 file changed, 1 insertion(+)
->=20
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-renesas-gbeth.c
-> b/drivers/net/ethernet/stmicro/stmmac/dwmac-renesas-gbeth.c
-> index 9a774046455b..df4ca897a60c 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-renesas-gbeth.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-renesas-gbeth.c
-> @@ -136,6 +136,7 @@ static struct platform_driver renesas_gbeth_driver =
-=3D {
->  	.probe  =3D renesas_gbeth_probe,
->  	.driver =3D {
->  		.name		=3D "renesas-gbeth",
-> +		.pm		=3D &stmmac_pltfr_pm_ops,
->  		.of_match_table	=3D renesas_gbeth_match,
->  	},
->  };
+We have KASAN builds with android16-6.12 and haven't seen this issue.
+Can you share your entire config file, so we can try to reproduce?
 
+Cc: Alice Ryhl <aliceryhl@google.com>
+Cc: Matthew Maurer <mmaurer@google.com>
 
-Gentle ping.
+Alice, Matthew, have you seen this before?
 
-Cheers,
-Biju
+--
+Carlos Llamas
 
