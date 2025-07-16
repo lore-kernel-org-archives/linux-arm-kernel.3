@@ -4,86 +4,147 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AC57C83F22
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 11:00:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A50DC83F1B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 11:02:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yK6pP8ct3hWE54sonE1HMGIx5/H1eGrNIjCFJab0FW4=; b=krIg4PCNKmkupZmSxBotTnxnd7
-	Z8E/OT4ycscFj/qRn4OLZ61qbf8Ik3UKjGXhdCbuFKMoy+CUmE00DE0nMdSK8QTRL65lFhKxlazFL
-	2PdIVcSD3WH7m7UmCXap4lOPHh48AX5vZNTWTQ+GWTPXZTtWnIYftQxxARKc/UoUFxdurAKzC9aGj
-	fD2GHeiPdCP08rcJjrjMv3wJ2VOKVy88DXTW5LXmt2AUd9RuC8YJ1Z2pqpaCW7b9RqX8c5+xz16vd
-	ZxaVTTSERKr7BZahz64ULOJZzLLF4ekwV+8uFOUzxRrLyO8mlyWgeVSRZlnhIVcAEfTAgTYMmIyTl
-	JWmhMN4A==;
+	bh=6XnqCTUVDxXqLw605VpQiOmmAr4VEm5DLMnQo1CAZWc=; b=ppEMbmazRv+CkfBRm0sfk8qahM
+	gntkWZhWgcaDXN9aDoYTn27Bm+v81PPc86jwkXa3dJe/+z47/nQsmVWsZZTKTQZWk3ghyRWVsuyi2
+	PI7dPIafBAiz92tcKiZ/EAi4w2rzKP3ulBukCd89jIEwrRnvfwgRMT+soI5py5KURcMNltv+Q4c38
+	mJ0itX87EzrWDNcl6a2+kpz4dLkaDS3saS+DpY1kwui9b7XCRjnT4PuKUvcfJFBO3U57DTJZdk63t
+	VTOdDnJVmZEcIx7wOd2KFbiamztATgx/9eAdtScN1fRYxi4aGuHpxCS0rZINfSB5j9NvJYPVkoI1u
+	d7CKAYIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubzrz-00000007UXH-3Idr;
-	Wed, 16 Jul 2025 11:00:15 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1ubzuP-00000007UoH-14cx;
+	Wed, 16 Jul 2025 11:02:45 +0000
+Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubzO5-00000007QLA-2K6B;
-	Wed, 16 Jul 2025 10:29:22 +0000
-X-UUID: b891de3a622f11f09eb0dd999d3936bf-20250716
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Transfer-Encoding:Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=yK6pP8ct3hWE54sonE1HMGIx5/H1eGrNIjCFJab0FW4=;
-	b=sOUHRnesE38FQeBqCLAxkjghxLR5zZQSqqaUwtrt46bdS4i4U4KIxaZHm9Wa1d+a4Peb+ayoguvFCXHM/vHrL2Fxa86zJFVL7KA9dIRMecXc5Jp5kmVussJlRJ7Il9zcWyQKjcXDevYlX7L2P4R6c3lr80LUg+aP/AfikvP/d3g=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.2,REQID:ae7c93c8-47a5-43da-8de6-e33e6c7edeed,IP:0,UR
-	L:0,TC:0,Content:-5,EDM:-30,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
-	N:release,TS:-35
-X-CID-META: VersionHash:9eb4ff7,CLOUDID:dc8f8184-a7ec-4748-8ac1-dca5703e241f,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:nil,Content:0|50,EDM:2,
-	IP:nil,URL:99|1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,
-	AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0
-X-CID-BAS: 0,_,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULS
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: b891de3a622f11f09eb0dd999d3936bf-20250716
-Received: from mtkmbs10n2.mediatek.inc [(172.21.101.183)] by mailgw02.mediatek.com
-	(envelope-from <macpaul.lin@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1198364127; Wed, 16 Jul 2025 03:29:14 -0700
-Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
- mtkmbs11n1.mediatek.inc (172.21.101.185) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Wed, 16 Jul 2025 18:29:11 +0800
-Received: from mtksitap99.mediatek.inc (10.233.130.16) by
- mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.39 via Frontend Transport; Wed, 16 Jul 2025 18:29:10 +0800
-From: Macpaul Lin <macpaul.lin@mediatek.com>
-To: <openembedded-core@lists.openembedded.org>, <patches@lists.linux.dev>,
-	<stable@vger.kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Will
- Deacon <will@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Sasha
- Levin <sashal@kernel.org>,
-	=?UTF-8?q?N=C3=ADcolas=20F=20=2E=20R=20=2E=20A=20=2E=20Prado?=
-	<nfraprado@collabora.com>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <linux-mediatek@lists.infradead.org>
-CC: Bear Wang <bear.wang@mediatek.com>, Pablo Sun <pablo.sun@mediatek.com>,
-	Macpaul Lin <macpaul.lin@mediatek.com>, Macpaul Lin <macpaul@gmail.com>,
-	MediaTek Chromebook Upstream
-	<Project_Global_Chrome_Upstream_Group@mediatek.com>,
-	=?UTF-8?q?Andr=C3=A9=20Draszik?= <andre.draszik@linaro.org>, Peter Griffin
-	<peter.griffin@linaro.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski@linaro.org>, Conor Dooley <conor.dooley@microchip.com>,
-	Arnd Bergmann <arnd@arndb.de>
-Subject: [PATCH 6.12 2/2] arm64: defconfig: enable Maxim TCPCI driver
-Date: Wed, 16 Jul 2025 18:28:54 +0800
-Message-ID: <20250716102854.4012956-2-macpaul.lin@mediatek.com>
-X-Mailer: git-send-email 2.45.2
-In-Reply-To: <20250716102854.4012956-1-macpaul.lin@mediatek.com>
-References: <20250716102854.4012956-1-macpaul.lin@mediatek.com>
+	id 1ubzP6-00000007QXy-2QOm
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 16 Jul 2025 10:30:26 +0000
+Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-3b60565d5f4so301277f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Jul 2025 03:30:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1752661823; x=1753266623; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=6XnqCTUVDxXqLw605VpQiOmmAr4VEm5DLMnQo1CAZWc=;
+        b=layoGBbGTrwbwKnS6o+jQHZTfDkXUISgDNyZMa/EYnVgERTXRsHT5ZaHXBWen9iqQg
+         NYr2wQL8LPOIwW3l1G2RDwwn3tCVxRZzid0ipP66OdqE9Nzo11gzWSDL7dQ08d4gbqS3
+         V1inJouPCq3dVFxKL9Mr42uejdOJi0dbAKszctA5ixgfOVY9htonWBCd0linK+mCFO/b
+         Aque96MncjdGDDcHfqjjtHGdeNf/ytAO7/HVO0WO45gSoGPr5FjcTTJz8nmivhQsWIzi
+         4w+iOp9JOSuYDK+EO9w+BIleD2ELcNIyZaLUkjvIQSGApqMtRi374c1gaTtd2F27s4jy
+         1X7g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1752661823; x=1753266623;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=6XnqCTUVDxXqLw605VpQiOmmAr4VEm5DLMnQo1CAZWc=;
+        b=qzmq+QZW+gtSHVOMcX17OpOlpLRscj2GnX7o3TM3xaYbNwKNmJncyTZk5w74Fyoe6V
+         31VX1rvLHpF6zcoTauXdfWG37J8oYMtGreQur9wGBa1zpo+/1cHnKqUKNf/o/GsZ0IJl
+         N3znInZJa+Rgle+/4qKCOOfLS2r7PSF7jzAVED7CzP+4UCRaqp/gpC6OLHY5N47LrEh8
+         CBB/wD8YZ0gKPip/I3Wl1XLe/bcowCjr9O3CFTmncPeFhb7S1yHekSSddb3kNhF5Ug7j
+         umeb4wVDs1m1Xea64n3UgXDhQLyplT/2r/mIrLXggP7iaWOijvqw8wj3A2UsetItjBVN
+         P0xg==
+X-Forwarded-Encrypted: i=1; AJvYcCU1+M/T2T5Uq3wpPAbnkNMBMunQHN0djhI63XIoFCbUEFLR7FGfmf9XL+jzxch/G15tsceeboU5N/cc/uvkbR7E@lists.infradead.org
+X-Gm-Message-State: AOJu0YxJSvdzAOOrvs2OX/BuPwj/MsJeLTuiaxKibk7NF1lrz89UdAHS
+	l3Y1QSfj9qhkhS/o0g/troOOw0K6m/zbpnvYceCXYMiXWtMyTRpZqAPvAxtSBVWo8y8=
+X-Gm-Gg: ASbGnctOCKbwHhLUJf1UKo/fQ1O9jnNXnvkNHoPwdiVwJRphcUH/EG+KEPQ5ekACYP8
+	ebN9Pbi0maseX+vxETESePuwxjn7dLMmx0sDdY48xRoCclcuRbmELlDag2utlp04WyfDmO37r5c
+	r8A9jtmMOCs8aEiOT8FV+d2+Q5jIgreskGz27lH9E8dfvUcRl7+sq3eE4leP7niJEbkIv6PBWVf
+	BmBQsWnW4ZdQv5jyE4m6ksvnmHtSyg27JX1tTo/FwbOR8iUDTHF9JNLtVooWkiAlQ3GLhN7hoTi
+	zTOdJyHuf6zzo0hhlbGDji1xKwDSyk5602dB7jrA0hr1+30G1DlxhMqYnfphfCMe5WzFgmczoDE
+	2w/om0DKXTGBPcUVzRlZAduEH2sAYcGFXqshHhHKtkA==
+X-Google-Smtp-Source: AGHT+IEWEOxnRmsY7CW6qzxqOxUEAfhDQBThVtGYsxYdHnrMvbBgNTYPuxWQrQr9DcPA8NVplhCfqg==
+X-Received: by 2002:a05:6000:40dc:b0:3a5:3369:52f3 with SMTP id ffacd0b85a97d-3b60dd4a834mr810416f8f.3.1752661822704;
+        Wed, 16 Jul 2025 03:30:22 -0700 (PDT)
+Received: from [192.168.1.110] ([178.197.222.89])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3b5e8bd15bfsm17790152f8f.19.2025.07.16.03.30.21
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 16 Jul 2025 03:30:22 -0700 (PDT)
+Message-ID: <8698f842-a464-47b8-8c47-97cda016e227@linaro.org>
+Date: Wed, 16 Jul 2025 12:30:20 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 6.12 2/2] arm64: defconfig: enable Maxim TCPCI driver
+To: Macpaul Lin <macpaul.lin@mediatek.com>,
+ openembedded-core@lists.openembedded.org, patches@lists.linux.dev,
+ stable@vger.kernel.org, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Sasha Levin <sashal@kernel.org>,
+ =?UTF-8?Q?N=C3=ADcolas_F_=2E_R_=2E_A_=2E_Prado?= <nfraprado@collabora.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-mediatek@lists.infradead.org
+Cc: Bear Wang <bear.wang@mediatek.com>, Pablo Sun <pablo.sun@mediatek.com>,
+ Macpaul Lin <macpaul@gmail.com>,
+ MediaTek Chromebook Upstream
+ <Project_Global_Chrome_Upstream_Group@mediatek.com>,
+ =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+ Peter Griffin <peter.griffin@linaro.org>,
+ Conor Dooley <conor.dooley@microchip.com>, Arnd Bergmann <arnd@arndb.de>
+References: <20250716102854.4012956-1-macpaul.lin@mediatek.com>
+ <20250716102854.4012956-2-macpaul.lin@mediatek.com>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Content-Language: en-US
+Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
+ 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
+ 2+47PN9NZAOyb771QoVr8A==
+In-Reply-To: <20250716102854.4012956-2-macpaul.lin@mediatek.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250716_032921_606535_4C4E4C77 
-X-CRM114-Status: UNSURE (   9.59  )
+X-CRM114-CacheID: sfid-20250716_033024_672713_B6C8C2B5 
+X-CRM114-Status: UNSURE (   8.75  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -99,38 +160,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: André Draszik <andre.draszik@linaro.org>
+On 16/07/2025 12:28, Macpaul Lin wrote:
+> From: André Draszik <andre.draszik@linaro.org>
+> 
+> [ Upstream commit d2ca319822e071423ab883bc8493053320b8e52c ]
+> 
+> Enable the Maxim max33359 as this is used by the gs101-oriole (Google
+> Pixel 6) board.
+> 
+> Reviewed-by: Peter Griffin <peter.griffin@linaro.org>
+> Signed-off-by: André Draszik <andre.draszik@linaro.org>
+> Link: https://lore.kernel.org/r/20241203-gs101-phy-lanes-orientation-dts-v2-1-1412783a6b01@linaro.org
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> Acked-by: Conor Dooley <conor.dooley@microchip.com>
+> Link: https://lore.kernel.org/r/20241231131742.134329-1-krzysztof.kozlowski@linaro.org
+> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+> Signed-off-by: Macpaul Lin <macpaul.lin@mediatek.com>
 
-[ Upstream commit d2ca319822e071423ab883bc8493053320b8e52c ]
+No, that's not a fix.
 
-Enable the Maxim max33359 as this is used by the gs101-oriole (Google
-Pixel 6) board.
-
-Reviewed-by: Peter Griffin <peter.griffin@linaro.org>
-Signed-off-by: André Draszik <andre.draszik@linaro.org>
-Link: https://lore.kernel.org/r/20241203-gs101-phy-lanes-orientation-dts-v2-1-1412783a6b01@linaro.org
-Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-Link: https://lore.kernel.org/r/20241231131742.134329-1-krzysztof.kozlowski@linaro.org
-Signed-off-by: Arnd Bergmann <arnd@arndb.de>
-Signed-off-by: Macpaul Lin <macpaul.lin@mediatek.com>
----
- arch/arm64/configs/defconfig | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-index d2fdef159210..960fe7183539 100644
---- a/arch/arm64/configs/defconfig
-+++ b/arch/arm64/configs/defconfig
-@@ -1123,6 +1123,7 @@ CONFIG_USB_MASS_STORAGE=m
- CONFIG_TYPEC=m
- CONFIG_TYPEC_TCPM=m
- CONFIG_TYPEC_TCPCI=m
-+CONFIG_TYPEC_TCPCI_MAXIM=m
- CONFIG_TYPEC_FUSB302=m
- CONFIG_TYPEC_QCOM_PMIC=m
- CONFIG_TYPEC_UCSI=m
--- 
-2.45.2
-
+Best regards,
+Krzysztof
 
