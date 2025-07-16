@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89AA5C83F1B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 06:10:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 231B2C83F1B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 16 Jul 2025 06:13:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V6Jx7tymbv7CFfVuioCoeqVpv/okvvgwHXucpnHXpPU=; b=a0Y1Nrkmtdw6uleRghYTvhoEN2
-	z1BwILm2ti2lkmEzHEHjpG+2VAchPJjdF6kWacCkIu8jFPlZk7VRREzUfy+xetSVAPWsaRfxk0vea
-	qOBxGwtCxDkmzEWDPJN3QIop5imBrAHCSkuJb9MPUQNlT16iYnCOO3hvKh1BQvYVnUKigZgNzzCVK
-	tc1t2iZDainrBw9kGyWJ1aim3d+XzQV7fwWwS5/PRI49u2RI9Rn+AuXvJNKFBx7s/MsB4bmMrVquP
-	pCA3ASdQB5y3xDljCdq0QwCvdUk/vCRGeos47g+qYibaoUpuleyth4OcOwoNQm4adDTHo7N2ZAWRc
-	g3sbiyWA==;
+	bh=Xb3iRxXvGk20O23xKEKRuA+Ow7dsmLleFKY4SD/OGQI=; b=f2XFA7YJybpaFavZ5tXdZ6/lak
+	Z1AwYBsbaNtSZMW9+HeOoxAsmjhDSiKlbFQkT4Q9cPkUvU8Jv9Kp4fgeH4JjWSBrJlP7Bn9AhJpfI
+	hyJaMAx1mhHVIpw1hMI09ePMPo/pC3yyyumrc2RKnH3lPqpxT9d1KDPlj7mIv58Tiit5EzTVtdfl3
+	ZC5xO7MPd7ceryoxFc+1hxBi9YsLfSiRRjiy1XOOql2cXOMIcIePKgXceZRKNVZ1g54l6dHWf4ZVW
+	JMimJGoXzRfrqS4iGUly1yUr8lJcUE9jJvfq4zSJ10aEdtUNsj9c67CW8yEVykyBMYo+fIb1tL0BZ
+	32g970Fg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubvLT-00000006r1f-0FvB;
-	Wed, 16 Jul 2025 06:10:23 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1ubvNs-00000006rSU-3Ltp;
+	Wed, 16 Jul 2025 06:12:52 +0000
+Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ubvCl-00000006pjc-0AyH
+	id 1ubvCn-00000006pk7-0IcN
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 16 Jul 2025 06:01:24 +0000
+	Wed, 16 Jul 2025 06:01:26 +0000
 Received: from fllvem-sh03.itg.ti.com ([10.64.41.86])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 56G61Jeo2432908;
-	Wed, 16 Jul 2025 01:01:19 -0500
+	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTP id 56G61M25178212;
+	Wed, 16 Jul 2025 01:01:22 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1752645679;
-	bh=V6Jx7tymbv7CFfVuioCoeqVpv/okvvgwHXucpnHXpPU=;
+	s=ti-com-17Q1; t=1752645682;
+	bh=Xb3iRxXvGk20O23xKEKRuA+Ow7dsmLleFKY4SD/OGQI=;
 	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=KoYcpJj5J29U7NdEo40tE/J5AFz6Xw/Bxo1PePX58jgaYQFjTaj4ouzxBVD51mLjw
-	 lvicjBOc0t/2siqdMIGv+eDq9tN2allUDrfqBAJ3KRYh6CfsZkrm5cXM5YPuXBaSGl
-	 sxKYDiLSNzFI06UWnGVlBTTkGFswoj/SicO8Jx3c=
-Received: from DLEE102.ent.ti.com (dlee102.ent.ti.com [157.170.170.32])
-	by fllvem-sh03.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 56G61Jb5622864
+	b=CQF9n9Jqt0ntEZwcO0O9PC7MlFTDlkT/j3psYaltP2A7nqmMlA55xYkO5MCzRh1uH
+	 WPslolGg9EFQSzL5O9zsSROHivUMKRoi/eOLrfHVKH7b3uZZPL1iTHmQ73eiEd4Apu
+	 QvUZ8LqpQPemEbj/xgIUGvDNZHrxkfdh3IpS+ZE0=
+Received: from DLEE108.ent.ti.com (dlee108.ent.ti.com [157.170.170.38])
+	by fllvem-sh03.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 56G61Li1622895
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Wed, 16 Jul 2025 01:01:19 -0500
-Received: from DLEE112.ent.ti.com (157.170.170.23) by DLEE102.ent.ti.com
- (157.170.170.32) with Microsoft SMTP Server (version=TLS1_2,
+	Wed, 16 Jul 2025 01:01:22 -0500
+Received: from DLEE105.ent.ti.com (157.170.170.35) by DLEE108.ent.ti.com
+ (157.170.170.38) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Wed, 16
- Jul 2025 01:01:19 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE112.ent.ti.com
- (157.170.170.23) with Microsoft SMTP Server (version=TLS1_2,
+ Jul 2025 01:01:21 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE105.ent.ti.com
+ (157.170.170.35) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Wed, 16 Jul 2025 01:01:19 -0500
+ Frontend Transport; Wed, 16 Jul 2025 01:01:21 -0500
 Received: from localhost (jayesh-hp-z2-tower-g5-workstation.dhcp.ti.com [172.24.227.166])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 56G61IoZ4147917;
-	Wed, 16 Jul 2025 01:01:19 -0500
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 56G61K583833010;
+	Wed, 16 Jul 2025 01:01:20 -0500
 From: Jayesh Choudhary <j-choudhary@ti.com>
 To: <nm@ti.com>, <vigneshr@ti.com>
 CC: <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
         <conor+dt@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
         <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
         <u-kumar1@ti.com>, <devarsht@ti.com>, <j-choudhary@ti.com>
-Subject: [PATCH v3 2/7] arm64: dts: ti: k3-j784s4-j742s2-evm-common: Enable DisplayPort-1
-Date: Wed, 16 Jul 2025 11:31:09 +0530
-Message-ID: <20250716060114.52122-3-j-choudhary@ti.com>
+Subject: [PATCH v3 3/7] arm64: dts: ti: k3-j721s2-main: add DSI & DSI PHY
+Date: Wed, 16 Jul 2025 11:31:10 +0530
+Message-ID: <20250716060114.52122-4-j-choudhary@ti.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250716060114.52122-1-j-choudhary@ti.com>
 References: <20250716060114.52122-1-j-choudhary@ti.com>
@@ -69,8 +69,8 @@ Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250715_230123_169862_E4C4576F 
-X-CRM114-Status: GOOD (  12.33  )
+X-CRM114-CacheID: sfid-20250715_230125_200794_19C59721 
+X-CRM114-Status: GOOD (  10.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,172 +85,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable DSI display for J784S4 EVM.
+From: Rahul T R <r-ravikumar@ti.com>
 
-Add DT node for DSI-to-eDP bridge. The DSI to eDP bridge is
-SN65DSI86 on the board.
+Add DT nodes for DPI to DSI Bridge and DSI Phy. The DSI bridge is
+Cadence DSI and the PHY is a Cadence DPHY with TI wrapper.
 
-Add the endpoint nodes to describe connection from:
-DSS => DSI => SN65DSI86 bridge => DisplayPort-1
-
-Set status for all required nodes for display as 'okay'.
-
+Signed-off-by: Rahul T R <r-ravikumar@ti.com>
+[j-choudhary@ti.com: disable dsi and dphy nodes, rename dphy node]
 Signed-off-by: Jayesh Choudhary <j-choudhary@ti.com>
 ---
- .../dts/ti/k3-j784s4-j742s2-evm-common.dtsi   | 121 +++++++++++++++++-
- 1 file changed, 120 insertions(+), 1 deletion(-)
+ arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi | 39 ++++++++++++++++++++++
+ 1 file changed, 39 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-evm-common.dtsi b/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-evm-common.dtsi
-index fa656b7b13a1..7b2d8d140c33 100644
---- a/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-evm-common.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-evm-common.dtsi
-@@ -301,6 +301,52 @@ codec_audio: sound {
- 		clock-names = "cpb-mcasp-auxclk", "cpb-mcasp-auxclk-48000",
- 			      "cpb-codec-scki", "cpb-codec-scki-48000";
+diff --git a/arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi b/arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi
+index 62f45377a2c9..c31d7f3eab28 100644
+--- a/arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi
+@@ -1795,6 +1795,45 @@ main_spi7: spi@2170000 {
+ 		status = "disabled";
  	};
-+
-+	vsys_io_1v8: regulator-vsys-io-1v8 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vsys_io_1v8";
-+		regulator-min-microvolt = <1800000>;
-+		regulator-max-microvolt = <1800000>;
-+		regulator-always-on;
-+		regulator-boot-on;
-+	};
-+
-+	vsys_io_1v2: regulator-vsys-io-1v2 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vsys_io_1v2";
-+		regulator-min-microvolt = <1200000>;
-+		regulator-max-microvolt = <1200000>;
-+		regulator-always-on;
-+		regulator-boot-on;
-+	};
-+
-+	edp1_refclk: clock-edp1-refclk {
-+		#clock-cells = <0>;
-+		compatible = "fixed-clock";
-+		clock-frequency = <19200000>;
-+	};
-+
-+	dp1_pwr_3v3: regulator-dp1-prw {
-+		compatible = "regulator-fixed";
-+		regulator-name = "dp1-pwr";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		gpio = <&exp4 1 GPIO_ACTIVE_HIGH>;
-+		enable-active-high;
-+	};
-+
-+	dp1: connector-dp1 {
-+		compatible = "dp-connector";
-+		label = "DP1";
-+		type = "full-size";
-+		dp-pwr-supply = <&dp1_pwr_3v3>;
-+
-+		port {
-+			dp1_connector_in: endpoint {
-+				remote-endpoint = <&dp1_out>;
-+			};
-+		};
-+	};
- };
  
- &wkup_gpio0 {
-@@ -1340,12 +1386,26 @@ &mhdp {
- };
- 
- &dss_ports {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+
- 	/* DP */
--	port {
-+	port@0 {
-+		reg = <0>;
-+
- 		dpi0_out: endpoint {
- 			remote-endpoint = <&dp0_in>;
- 		};
- 	};
-+
-+	/* DSI */
-+	port@2 {
-+		reg = <2>;
-+
-+		dpi2_out: endpoint {
-+			remote-endpoint = <&dsi0_in>;
-+		};
++	dphy_tx0: phy@4480000 {
++		compatible = "ti,j721e-dphy";
++		reg = <0x00 0x04480000 0x00 0x00001000>;
++		clocks = <&k3_clks 363 8>, <&k3_clks 363 14>;
++		clock-names = "psm", "pll_ref";
++		#phy-cells = <0>;
++		power-domains = <&k3_pds 363 TI_SCI_PD_EXCLUSIVE>;
++		assigned-clocks = <&k3_clks 363 14>;
++		assigned-clock-parents = <&k3_clks 363 15>;
++		assigned-clock-rates = <19200000>;
++		status = "disabled";
 +	};
- };
- 
- &main_i2c4 {
-@@ -1360,6 +1420,65 @@ exp4: gpio@20 {
- 		gpio-controller;
- 		#gpio-cells = <2>;
- 	};
 +
-+	bridge_dsi_edp: bridge-dsi-edp@2c {
-+		compatible = "ti,sn65dsi86";
-+		reg = <0x2c>;
-+		clock-names = "refclk";
-+		clocks = <&edp1_refclk>;
-+		enable-gpios = <&exp4 2 GPIO_ACTIVE_HIGH>;
-+		vpll-supply = <&vsys_io_1v8>;
-+		vccio-supply = <&vsys_io_1v8>;
-+		vcca-supply = <&vsys_io_1v2>;
-+		vcc-supply = <&vsys_io_1v2>;
++	dsi0: dsi@4800000 {
++		compatible = "ti,j721e-dsi";
++		reg = <0x00 0x04800000 0x00 0x00100000>,
++		      <0x00 0x04710000 0x00 0x00000100>;
++		clocks = <&k3_clks 154 4>, <&k3_clks 154 1>;
++		clock-names = "dsi_p_clk", "dsi_sys_clk";
++		power-domains = <&k3_pds 154 TI_SCI_PD_EXCLUSIVE>;
++		interrupts = <GIC_SPI 600 IRQ_TYPE_LEVEL_HIGH>;
++		phys = <&dphy_tx0>;
++		phy-names = "dphy";
++		status = "disabled";
 +
-+		dsi_edp_bridge_ports: ports {
++		dsi0_ports: ports {
 +			#address-cells = <1>;
 +			#size-cells = <0>;
 +
 +			port@0 {
 +				reg = <0>;
-+
-+				dp1_in: endpoint {
-+					remote-endpoint = <&dsi0_out>;
-+				};
 +			};
 +
 +			port@1 {
 +				reg = <1>;
-+
-+				dp1_out: endpoint {
-+					remote-endpoint = <&dp1_connector_in>;
-+				};
 +			};
 +		};
 +	};
-+};
 +
-+&dsi0_ports {
-+	port@0 {
-+		reg = <0>;
-+
-+		dsi0_out: endpoint {
-+			remote-endpoint = <&dp1_in>;
-+		};
-+	};
-+
-+	port@1 {
-+		reg = <1>;
-+
-+		dsi0_in: endpoint {
-+			remote-endpoint = <&dpi2_out>;
-+		};
-+	};
-+};
-+
-+&dphy_tx0 {
-+	status = "okay";
-+};
-+
-+&dsi0 {
-+	status = "okay";
- };
- 
- &dp0_ports {
+ 	dss: dss@4a00000 {
+ 		compatible = "ti,j721e-dss";
+ 		reg = <0x00 0x04a00000 0x00 0x10000>, /* common_m */
 -- 
 2.34.1
 
