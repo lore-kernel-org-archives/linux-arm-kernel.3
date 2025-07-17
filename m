@@ -4,80 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF584C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 04:41:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB22CC83F1B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 05:47:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kRBDeYFpXHkPkQvfQURXYTu0y0RRAtbTjpADZ0LpoJs=; b=EEs2L5REcbvNolb3afY+UCgw9x
-	cw8jMbc5nKehUkaifzsqV8o4hmkvn29EjCuw7ZEMc9r9ScGHNlZuJFSZyj4D/51+UB6uL3nRJ7xpE
-	E7XXCYrHBK9bawIsuweNeNNGsb680mYHxI5v5rCcXF2drYPlDgEtnpP2uVb6BcAA6FG4DodyPuOWh
-	wkfrgB6x5mhve++jx8wXmsoCJyQ+tYpFuzEN6AeA6F3iag5kI8DspwP0xm7GDO66pOJ78MSPgav0l
-	qWPccsvFYqVt3tR7lqV71F5xmW2jIm4/vnhEfjQSLWnf4strrgJdD2/NvjphwN/56DznYdQEra14E
-	RATWs9Gw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kBJJqTsK6OR0NVSYEEqLg25vZSFAVXL/THfeZ/uRZK8=; b=tqIv8iw0SYuvrYb23bO/438nkD
+	JcGQnmGYbgv6P6PjqmTk4j3kmw7dsCY0PEwGFrAwoVkV/+WBwsAVfKi/vpDdGqEwWbaL64u4q4oJg
+	UnIpyoxusWKa+BnoEw15HsmjbIOjYFdFG4OWB7s9vw4i3XNBV7DCpgjRnueBfbpmEPdjCk2fbCFdx
+	X9F0T0TVhewoceGh03Rbx5+OeOgNPMVmuS3LdKjM7vQUvtYISht56oNAXS4nrFWVSux5VZviP6RJ8
+	p69DExm7c2HnBhyudjA3+XT6XdSA9OeL23mK9nFWA28+U6UkFOaYKjnsqGGQaBG9vSTavEftuKwF1
+	UlM0qsgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucGQp-00000009BxJ-49cU;
-	Thu, 17 Jul 2025 04:41:19 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1ucHSs-00000009EWJ-0tBD;
+	Thu, 17 Jul 2025 05:47:30 +0000
+Received: from out30-112.freemail.mail.aliyun.com ([115.124.30.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucGHW-00000009AjA-2p3u
+	id 1ucHQQ-00000009EPl-2ymZ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Jul 2025 04:31:43 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3949043988;
-	Thu, 17 Jul 2025 04:31:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F589C4CEED;
-	Thu, 17 Jul 2025 04:31:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752726700;
-	bh=qENoYhA1g4akZdId0NkSg19NP8Al2V4G59lneQ1JC04=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=M+wCNfQuRa9NoHZoLI2b+Ld3ETiIagnAIGSPlyPbBR3o6V+UbpZF4m+q2iJyTAwkF
-	 3y40ETt7Cyi1cBEtooA1dEHvv+1rQBsbBQY+I7BQXLgMuaWGSDeG3n+4zXPyMhjScq
-	 yjmHHsu3n7hPrDnQvhS4QckKza32eVeKQbfu2vTiOFClZZX4w0re4/UqJrsdEurhC/
-	 9NOP/WgocUfcRt3/6tdaSIxFXFwFdxSDmIb5040ZHRegy+ajCeVfWsE0Wyeko+Y06M
-	 xeQPllbTkq/5Q9u/NzrTq44PeEQ8JfB7RrSdCzgC0QZk39ipHj6x1XdnkFUkRORe/b
-	 LGfYUHvgGu/yA==
-From: Bjorn Andersson <andersson@kernel.org>
-To: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Taniya Das <quic_tdas@quicinc.com>
-Cc: Ajit Pandey <quic_ajipan@quicinc.com>,
-	Imran Shaik <quic_imrashai@quicinc.com>,
-	Jagadeesh Kona <quic_jkona@quicinc.com>,
-	linux-arm-msm@vger.kernel.org,
-	linux-clk@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
-	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-	Dmitry Baryshkov <lumag@kernel.org>
-Subject: Re: (subset) [PATCH v11 00/10] Add support for videocc, camcc, dispcc and gpucc on Qualcomm QCS615 platform
-Date: Wed, 16 Jul 2025 23:31:11 -0500
-Message-ID: <175272667148.130869.4243317040220963660.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250702-qcs615-mm-v10-clock-controllers-v11-0-9c216e1615ab@quicinc.com>
-References: <20250702-qcs615-mm-v10-clock-controllers-v11-0-9c216e1615ab@quicinc.com>
+	Thu, 17 Jul 2025 05:45:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1752731092; h=Date:From:To:Subject:Message-ID:MIME-Version:Content-Type;
+	bh=kBJJqTsK6OR0NVSYEEqLg25vZSFAVXL/THfeZ/uRZK8=;
+	b=LvIRZZwbEJb4MCgWZQpLTnWQeV0fBIzUqX8zdu1BmId485IQ2pDGknVC2LLpRFs2BaxLp4V4XirjL6/H77JGRo9R/tWHMWQtuVfpm10MJfEMcqd9gRXaK6+WmOG7LFpgaTgrBRTyIGJeK3QU4M5Im85xMV1EECPX5NG1Itl4mR0=
+Received: from localhost(mailfrom:yaoyuan@linux.alibaba.com fp:SMTPD_---0Wj6rlc._1752731088 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Thu, 17 Jul 2025 13:44:49 +0800
+Date: Thu, 17 Jul 2025 13:44:48 +0800
+From: Yao Yuan <yaoyuan@linux.alibaba.com>
+To: Keir Fraser <keirf@google.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	kvm@vger.kernel.org, Sean Christopherson <seanjc@google.com>, 
+	Eric Auger <eric.auger@redhat.com>, Oliver Upton <oliver.upton@linux.dev>, 
+	Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>, 
+	Paolo Bonzini <pbonzini@redhat.com>
+Subject: Re: [PATCH v2 2/4] KVM: arm64: vgic: Explicitly implement
+ vgic_dist::ready ordering
+Message-ID: <kb7nwrco6s7e6catcareyic72pxvx52jbqbfc5gbqb5zu434kg@w3rrzbut3h34>
+References: <20250716110737.2513665-1-keirf@google.com>
+ <20250716110737.2513665-3-keirf@google.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250716110737.2513665-3-keirf@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250716_213142_749281_9C1625AC 
-X-CRM114-Status: UNSURE (   9.48  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250716_224459_225758_B291AD7F 
+X-CRM114-Status: GOOD (  15.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,41 +69,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, Jul 16, 2025 at 11:07:35AM +0800, Keir Fraser wrote:
+> In preparation to remove synchronize_srcu() from MMIO registration,
+> remove the distributor's dependency on this implicit barrier by
+> direct acquire-release synchronization on the flag write and its
+> lock-free check.
+>
+> Signed-off-by: Keir Fraser <keirf@google.com>
+> ---
+>  arch/arm64/kvm/vgic/vgic-init.c | 11 ++---------
+>  1 file changed, 2 insertions(+), 9 deletions(-)
+>
+> diff --git a/arch/arm64/kvm/vgic/vgic-init.c b/arch/arm64/kvm/vgic/vgic-init.c
+> index 502b65049703..bc83672e461b 100644
+> --- a/arch/arm64/kvm/vgic/vgic-init.c
+> +++ b/arch/arm64/kvm/vgic/vgic-init.c
+> @@ -567,7 +567,7 @@ int kvm_vgic_map_resources(struct kvm *kvm)
+>  	gpa_t dist_base;
+>  	int ret = 0;
+>
+> -	if (likely(dist->ready))
+> +	if (likely(smp_load_acquire(&dist->ready)))
+>  		return 0;
+>
+>  	mutex_lock(&kvm->slots_lock);
+> @@ -598,14 +598,7 @@ int kvm_vgic_map_resources(struct kvm *kvm)
+>  		goto out_slots;
+>  	}
+>
+> -	/*
+> -	 * kvm_io_bus_register_dev() guarantees all readers see the new MMIO
+> -	 * registration before returning through synchronize_srcu(), which also
+> -	 * implies a full memory barrier. As such, marking the distributor as
+> -	 * 'ready' here is guaranteed to be ordered after all vCPUs having seen
+> -	 * a completely configured distributor.
+> -	 */
+> -	dist->ready = true;
+> +	smp_store_release(&dist->ready, true);
 
-On Wed, 02 Jul 2025 14:34:20 +0530, Taniya Das wrote:
-> Add support for multimedia clock controllers on Qualcomm QCS615 platform.
-> Update the defconfig to enable these clock controllers.
-> 
-> Changes in v11:
-> - Add a new reusable helper function to extract PLL_L_VAL, PLL_ALPHA_VAL and
->   PLL_USER_CTL / PLL_VCO_MASK [Dmitry]
-> - Add static to fix bot error in gpucc
-> - Link to v10: https://lore.kernel.org/r/20250625-qcs615-mm-v10-clock-controllers-v10-0-ec48255f90d8@quicinc.com
-> 
-> [...]
+No need the store-release and load-acquire for replacing
+synchronize_srcu_expedited() w/ call_srcu() IIUC:
 
-Applied, thanks!
+Tree SRCU on SMP:
+call_srcu()
+ __call_srcu()
+  srcu_gp_start_if_needed()
+    __srcu_read_unlock_nmisafe()
+	 #ifdef	CONFIG_NEED_SRCU_NMI_SAFE
+	   	  smp_mb__before_atomic() // __smp_mb() on ARM64, do nothing on x86.
+	 #else
+          __srcu_read_unlock()
+		   smp_mb()
+	 #endif
 
-[01/10] clk: qcom: clk-alpha-pll: Add support for dynamic update for slewing PLLs
-        commit: 48d2c6dec1c46460ee7028915595d49a644e8a77
-[02/10] dt-bindings: clock: Add Qualcomm QCS615 Camera clock controller
-        commit: 8df29649903c067138180ef89f315b6f166b8732
-[03/10] clk: qcom: camcc-qcs615: Add QCS615 camera clock controller driver
-        commit: 28bc422939540b37eeaa11dd9c0fb412caaaca27
-[04/10] dt-bindings: clock: Add Qualcomm QCS615 Display clock controller
-        commit: 8b1750ea009f2774a3acd6c7bc9e61b5157101d1
-[05/10] clk: qcom: dispcc-qcs615: Add QCS615 display clock controller driver
-        commit: 9b47105f5434707eab065f65e7d35c62a51179f8
-[06/10] dt-bindings: clock: Add Qualcomm QCS615 Graphics clock controller
-        commit: 3590dfbdd1b3e4ceba0b7daed2a396f644c277c4
-[07/10] clk: qcom: gpucc-qcs615: Add QCS615 graphics clock controller driver
-        commit: f4b5b40805ab116aad57ee7042359f97d065bd70
-[08/10] dt-bindings: clock: Add Qualcomm QCS615 Video clock controller
-        commit: 9c51c66c997cae09c12ec250a9f538c0c23d8930
-[09/10] clk: qcom: videocc-qcs615: Add QCS615 video clock controller driver
-        commit: f6a8abe0cc16c44eda30712a8922261363d6d3ac
+TINY SRCY on UP:
+Should have no memory ordering issue on UP.
 
-Best regards,
--- 
-Bjorn Andersson <andersson@kernel.org>
+>  	goto out_slots;
+>  out:
+>  	mutex_unlock(&kvm->arch.config_lock);
+> --
+> 2.50.0.727.gbf7dc18ff4-goog
+>
 
