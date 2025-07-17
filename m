@@ -4,93 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12621C83F34
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 15:06:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11217C83F34
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 15:11:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HMki3EREzOkEdCOqJgQuxQoEpYrU9bwlyOJXDCisQCI=; b=fYIrVxidnL123J8x7nHvziu6DD
-	VciwA3c5AxAEYPtJBDGc2cAp2Fk9juIlmHqwU0bLB3c48Hora7A5Ri8MazSFgCcGq542HnhrkgbQr
-	NaAsYaXaoShg4vbUckp4TRkUWH6wKQK4wRkArpZKmsJH1yGDEJP22e8LOCMAfoBmho3PFs4rcJxGi
-	+0SoU8IoyRgoBcPGhx9pwBaTkEHTDGPy0HDhsT9++kglUXJBtbvs7wv53Be/zPJrHhHsn8br4+Msy
-	oxR9hKRqvV+9WrfmoDSHiB770nFLaKnomJ62MAc2VM9eO8rLpMvFvcL1Fe9khq97Qhsp3LwA/Y+wg
-	mACcUtrg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=efekQXQZrme7QsOpedSZsB6fxq6pPsbBEH1ewRwDxdA=; b=FuiBtcu3jAdT0y96orERHj2jIy
+	kpl1CvFlcC1uirI22BXhV/qLnM44cky1lruFCWSMdWCaeffhG2OuDn5Xo4rLe3p5kqbqYbvcE1N3D
+	ZDsoCe+k7B3IDghIN9m+PF4Y/8OKa29DfYvmfQFjHEbGQwtK5EE/XIJd7ClAxxygh9KBRfN6mVY1z
+	zb2972yVQydTPOKwp9LUwS5xnozj4QQNqMk4OWZa7SOXsZYY7lQTrjw/acuDorQv08FdQIQJ3oVnM
+	H+dVUjPSieD+rf5ozA3fBfYxwxZxqBWSX2XF+kJQugJlZHPAuvtGpYDLIK5rkRX71B4FAF3hajJ0D
+	ypzKdCvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucQBv-0000000ATTF-34Yg;
-	Thu, 17 Jul 2025 15:06:35 +0000
-Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
+	id 1ucQGl-0000000ATwh-3aBk;
+	Thu, 17 Jul 2025 15:11:35 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucPqr-0000000APa8-0H3x
+	id 1ucPv6-0000000APyT-3vfh
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Jul 2025 14:44:50 +0000
-Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-23649faf69fso9741735ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Jul 2025 07:44:48 -0700 (PDT)
+	Thu, 17 Jul 2025 14:49:14 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-4561ed868b5so8338095e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Jul 2025 07:49:12 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1752763488; x=1753368288; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=HMki3EREzOkEdCOqJgQuxQoEpYrU9bwlyOJXDCisQCI=;
-        b=URbm7OePf1XCOLqxITSZ5gtrgQeCkmjr09xgs6/6TWUVY87MYGj0rx/Hfl8FqZm9D+
-         4avJuhKUE6jq3K3QoPqwQ4plGJ3pLIbk2nHrXTC/AlbYIc3rMniateaXkc29TOETy7m7
-         /HKdGq6houXUOPH2uNCtkycRbeR6bez3pMcvajoGgMuaAKzqij+O3JayKaBfjifX0i5W
-         I0QAqNa0FfTgCI+LzNXCwpW0W69QryMIoeerPFzF3XV0OkT4hiJaX2RuKVC6xziSXrG8
-         N9ksIqoYTKViNoAhFLybK5lo0K9wlsAGCBmYQqohMePyF3r0sOZzburcFhCrOAJRloDB
-         MLcA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752763488; x=1753368288;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20230601; t=1752763751; x=1753368551; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=HMki3EREzOkEdCOqJgQuxQoEpYrU9bwlyOJXDCisQCI=;
-        b=NXbF8D4grgcUZKz85gFwuSImpa7dXe3fFWzh0gajaDS7HzHnqBRwyDZ/Nw3lt/Tqkx
-         2rDorJST1kqqL0e8SQsKjv05mk94i7UnRX7FqdDLilcTpmu7ld0InjV8zkRoruvuClSb
-         6iYTbduBTpWruvdJwdgIY8d1kloAxW5AF0lHTZG6QaveQBl3AJnQOgRs+DkXNqTx+EtZ
-         AB9oQkdab4Qe8MEtPmm6EL/7KCG461alGU36Ge+oq6Y8rhmUWIq5L4pk0xo00XVebtTJ
-         ToVoWtHgNBppL39LnLNdREMsLvcP4ZEa10SzLkUzqKshxUn7fy6aAuJqFlVmp+hpVvPo
-         mE8Q==
-X-Forwarded-Encrypted: i=1; AJvYcCWWbLbZnxEWqPsLnP5gWxgKMESuxwy6547Ijkhhzx8WHfzttuvhlw3yQANlYIBz4600Cm0bMygVdfYb1PH0+4b/@lists.infradead.org
-X-Gm-Message-State: AOJu0YyYu3giGny4vku5iDTIr+Ozbk09Xdm/RM5KUNJh0tpVDoos/oIX
-	9lPotzE50toQ8tS1xKL94HxwatwVsRTzd+Pd2KtqjshU/yYUC9+PsaV4OxFTj0rXOII=
-X-Gm-Gg: ASbGnctgM8Jb7aMf8X/hgFQMSVK3oB+Agky8Vx8pmPMwgjeI3430yKKn1ClML6InGlw
-	R9yT2EU/JvRy0LMOuQ8eyZyUmuTYEvl6sfrqWcxo/Fgw1vY8EYpPbUVptoPOCEKLGYVze3C3p2k
-	+zX3+71k2l/BHMp+tWxLHXO6qJBsTwPoIbhGTIEqnsCtJ7Kw5pvVO9uiqrnZ15PmTtku4fSbfIQ
-	p356P2q07TnYzAY7tPlGqY7miRiuXf1o0ZD+pSd2CXqtFgrEu1Djb1E8tZOxkPrYfs8bkfjXotL
-	sVVQ5zbgevrsrB4wk0pxJKr5lTMKgh8a4Xt1OqrRxeg0rqmBjshYeNYzQPEW0KGz0u/kUXgPuU1
-	cqlsO/PRDQwEOz5wS/ePBSFIH
-X-Google-Smtp-Source: AGHT+IFxbtqBAGkJym8+VFRPzdrsyZhZt1QmNmPClKyw9FUHG1z6ALCqHlkDrXho3ZJx8sxkci5pug==
-X-Received: by 2002:a17:903:1ac8:b0:234:d431:ec6e with SMTP id d9443c01a7336-23e256849dfmr104855025ad.3.1752763488194;
-        Thu, 17 Jul 2025 07:44:48 -0700 (PDT)
-Received: from p14s ([2604:3d09:148c:c800:e0c8:a1e8:3882:b37])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23de4322b2dsm145347495ad.92.2025.07.17.07.44.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 17 Jul 2025 07:44:47 -0700 (PDT)
-Date: Thu, 17 Jul 2025 08:44:45 -0600
-From: Mathieu Poirier <mathieu.poirier@linaro.org>
-To: Hiago De Franco <hiagofranco@gmail.com>
-Cc: Ulf Hansson <ulf.hansson@linaro.org>, linux-remoteproc@vger.kernel.org,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Bjorn Andersson <andersson@kernel.org>, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	daniel.baluta@nxp.com, iuliana.prodan@oss.nxp.com,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Hiago De Franco <hiago.franco@toradex.com>,
-	Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH v8] remoteproc: imx_rproc: detect and attach to
- pre-booted remote cores
-Message-ID: <aHkMXWfs0iXqFTbw@p14s>
-References: <20250716194638.113115-1-hiagofranco@gmail.com>
+        bh=efekQXQZrme7QsOpedSZsB6fxq6pPsbBEH1ewRwDxdA=;
+        b=ZteZWHpYi8+Xg4CkbBa7dclepsPCrXR7jqdXfuMcN7RNCDFp1DgdoM241PlkvvfnrT
+         5RK18vtwYNFJYmu8DUqHt2cadcVcKXIwDxlCYkBwJ8YHMYA1oV+jykwwW15zQeujIThc
+         NNBPFpzV02L3haEx8W50ja2ess++2tKkYdCoVoklhkXYw5bnZQeqgy7mj5p6UM5OdHfY
+         LeKbO0U13P5hvw/B197d5OSroMAKYIArc+5VqI5Dl6kLvevzKqwI6p1Bxq3wBXqWAdQQ
+         RExGc45Tvx2wfu03Rn020L2bH9YNuv88EpVZCs5jNTRuCRKn8TjdXIfGWNKL1dp7rGLj
+         5Haw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1752763751; x=1753368551;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=efekQXQZrme7QsOpedSZsB6fxq6pPsbBEH1ewRwDxdA=;
+        b=a6+oOktM9Kz6eUc9a2jcmr1hqTCTvBhFNn0SmW4awTmGGmQp3gWEhMxNbmcFMP3Bqm
+         J8KERHt6F8fQHTLBv2hDRx52WC26NO83+SHfGxw5/WXTFiYEKbmbv0hKiSCb4xNOok+F
+         xBUujQqtQp30qLwxcMoXKyJmoBwrGokokiFNJ5mEewN491VTfbwuY3dvlZgxjtJgQvfU
+         nQzep/q+jM3tJBecO2ofFTfEloGeOaidIgC98+VSXysanNzrgrVq8fFPilgBUzWLB8ZC
+         tNsc5UaBe3z8kSypmHPyKZCnocB7NHOnXYFAhHTVSUhElxZ99lTQhdocUZxGvWI6NKKU
+         Mymw==
+X-Forwarded-Encrypted: i=1; AJvYcCWHIuBxP3Zt+8AYEVNRZ5SK3o3mQFXW78Mqm6RzLUPDFeISYLPb06LbL1PJt3stXkPa23HI426Z5NJ153CPh/Kn@lists.infradead.org
+X-Gm-Message-State: AOJu0YwlqEOhPFPGLksHMMrdb+2+2OIzW12sIH29g/Vwrp4MIm7wgzFf
+	xsXM6WGlZudNv59fWJIsj6OdqRLIi55dd7yFve71PqfGsgKhaouPxN8z/cmnpVAsyL2wJA9sh+G
+	32b4KAG84MkhXHNaM5L3zbRNNgJbmEU0=
+X-Gm-Gg: ASbGncsEsCWo4kVtm9ImMLZlZasbG1qcCXsvFAnbIbsBBdGAv7x1gjBiNBC1jpmt6p6
+	PhnjWQ8uH1XTjsagRyDLKVV3mZ0l5pcDibhMZiIL1eXsOYz0AbD6TWLy2glp0gETWtcg+n09ogi
+	PT5NlEThVrTSrPdnFdNftShLZhXJv6Z8N9UYKcIpFt1iEI9fTccHGaTqnQq9OWEWPaxq6lJFcjH
+	eljh7AfkVWU32cj7WwO87w=
+X-Google-Smtp-Source: AGHT+IG4miO/dv212kLZpG/e9v0ljtOerGAGBpNDY1tobNdy2ARDGjlhc1t+cVUf7eDrDA2bneaE9/9c2sJ3VTWdlXU=
+X-Received: by 2002:a05:600c:5492:b0:456:207e:fd83 with SMTP id
+ 5b1f17b1804b1-4562e330ff3mr65892995e9.4.1752763750958; Thu, 17 Jul 2025
+ 07:49:10 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250716194638.113115-1-hiagofranco@gmail.com>
+References: <20250520-vmlinux-mmap-v5-0-e8c941acc414@isovalent.com>
+ <20250520-vmlinux-mmap-v5-1-e8c941acc414@isovalent.com> <g2gqhkunbu43awrofzqb4cs4sxkxg2i4eud6p4qziwrdh67q4g@mtw3d3aqfgmb>
+ <CAN+4W8hsK6FMBon0-J6mAYk1yVsamYL=cHqFkj3syepxiv16Ug@mail.gmail.com>
+In-Reply-To: <CAN+4W8hsK6FMBon0-J6mAYk1yVsamYL=cHqFkj3syepxiv16Ug@mail.gmail.com>
+From: Alexei Starovoitov <alexei.starovoitov@gmail.com>
+Date: Thu, 17 Jul 2025 07:48:59 -0700
+X-Gm-Features: Ac12FXxv9eZP3WGHijR1aiMMgitwCgckpKc4CSnltjSp9gY2rQ-YiI071IreGAA
+Message-ID: <CAADnVQ+WZsaDS-Vuc9AN7P3=xvX8TG=rY65A8wYdOARLtkt6Mw@mail.gmail.com>
+Subject: Re: [PATCH bpf-next v5 1/3] btf: allow mmap of vmlinux btf
+To: Lorenz Bauer <lmb@isovalent.com>
+Cc: Breno Leitao <leitao@debian.org>, 
+	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, Arnd Bergmann <arnd@arndb.de>, 
+	Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
+	Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau <martin.lau@linux.dev>, 
+	Eduard Zingerman <eddyz87@gmail.com>, Song Liu <song@kernel.org>, 
+	Yonghong Song <yonghong.song@linux.dev>, John Fastabend <john.fastabend@gmail.com>, 
+	KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@fomichev.me>, Hao Luo <haoluo@google.com>, 
+	Jiri Olsa <jolsa@kernel.org>, Mykola Lysenko <mykolal@fb.com>, Shuah Khan <shuah@kernel.org>, 
+	linux-arch <linux-arch@vger.kernel.org>, LKML <linux-kernel@vger.kernel.org>, 
+	bpf <bpf@vger.kernel.org>, 
+	"open list:KERNEL SELFTEST FRAMEWORK" <linux-kselftest@vger.kernel.org>, Alan Maguire <alan.maguire@oracle.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250717_074449_123909_35778B0B 
-X-CRM114-Status: GOOD (  47.14  )
+X-CRM114-CacheID: sfid-20250717_074912_978356_EDCE4568 
+X-CRM114-Status: GOOD (  13.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,169 +106,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 16, 2025 at 04:46:38PM -0300, Hiago De Franco wrote:
-> From: Hiago De Franco <hiago.franco@toradex.com>
-> 
-> When the Cortex-M remote core is started and already running before
-> Linux boots (typically by the Cortex-A bootloader using a command like
-> bootaux), the current driver is unable to attach to it. This is because
-> the driver only checks for remote cores running in different SCU
-> partitions. However in this case, the M-core is in the same partition as
-> Linux and is already powered up and running by the bootloader.
-> 
-> This patch adds a check using dev_pm_genpd_is_on() to verify whether the
-> M-core's power domains are already on. If all power domain devices are
-> on, the driver assumes the M-core is running and proceed to attach to
-> it.
-> 
-> To accomplish this, we need to avoid passing any attach_data or flags to
-> dev_pm_domain_attach_list(), allowing the platform device become a
-> consumer of the power domain provider without changing its current
-> state.
-> 
-> During probe, also enable and sync the device runtime PM to make sure
-> the power domains are correctly managed when the core is controlled by
-> the kernel.
-> 
-> Suggested-by: Ulf Hansson <ulf.hansson@linaro.org>
-> Reviewed-by: Ulf Hansson <ulf.hansson@linaro.org>
-> Reviewed-by: Peng Fan <peng.fan@nxp.com>
-> Signed-off-by: Hiago De Franco <hiago.franco@toradex.com>
+On Thu, Jul 17, 2025 at 6:18=E2=80=AFAM Lorenz Bauer <lmb@isovalent.com> wr=
+ote:
+>
+> Hi Breno,
+>
+> Thanks for reaching out.
+>
+> On Thu, Jul 17, 2025 at 1:39=E2=80=AFPM Breno Leitao <leitao@debian.org> =
+wrote:
+>
+> > Should __pa_symbol() be used instead of virt_to_phys()?
+>
+> I'm not really well versed with mm in general. Looking around a bit I
+> found some explanation in [1]. Your suggested fix does make sense to
+> me based on that.
+>
+> Let me run the patch against bpf-ci and see what happens.
+>
+> 1: https://lore.kernel.org/all/90667b2b7f773308318261f96ebefd1a67133c4c.1=
+732464395.git.lukas@wunner.de/
 
-Reviewed-by: Mathieu Poirier <mathieu.poirier@linaro.org>
-
-> ---
-> Hi Mathieu, Ulf,
-> 
-> This is the v8 of patch3 from the patch series:
-> https://lore.kernel.org/all/20250629172512.14857-1-hiagofranco@gmail.com/
-> 
-> As patches 1 and 2 are already applied on Ulf's next branch, as
-> requested I am sending now only the v8 of patch 3.
-> 
-> I made a small correction into the commit description, s/SCFW
-> partitions/SCU partitions/g and updated with the check for the return
-> value.
-> 
-> I hope this is ok.
-> 
-> Thanks!
-> 
-> Hiago.
-> 
-> v7 -> v8:
->     - Added return error check for dev_pm_domain_attach_list().
->     - Commit description: changed to use "SCU partitions" instead of
->       "SCFW partitions". This is more accurate since these are hardware
->       enforced partitions.
-> v6 -> v7:
->  - Added Peng reviewed-by.
-> v5 -> v6:
->  - Commit description improved, as suggested. Added Ulf Hansson reviewed
->    by. Comment on imx-rproc.c improved.
-> v4 -> v5:
->  - pm_runtime_get_sync() removed in favor of
->    pm_runtime_resume_and_get(). Now it also checks the return value of
->    this function.
->  - Added pm_runtime_disable() and pm_runtime_put() to imx_rproc_remove()
->    function.
-> v3 -> v4:
->  - Changed to use the new dev_pm_genpd_is_on() function instead, as
->    suggested by Ulf. This will now get the power status of the two
->    remote cores power domains to decided if imx_rpoc needs to attach or
->    not. In order to do that, pm_runtime_enable() and
->    pm_runtime_get_sync() were introduced and pd_data was removed.
-> v2 -> v3:
->  - Unchanged.
-> v1 -> v2:
->  - Dropped unecessary include. Removed the imx_rproc_is_on function, as
->    suggested.
-> ---
-> ---
->  drivers/remoteproc/imx_rproc.c | 41 +++++++++++++++++++++++++++++-----
->  1 file changed, 35 insertions(+), 6 deletions(-)
-> 
-> diff --git a/drivers/remoteproc/imx_rproc.c b/drivers/remoteproc/imx_rproc.c
-> index 627e57a88db2..a6eef0080ca9 100644
-> --- a/drivers/remoteproc/imx_rproc.c
-> +++ b/drivers/remoteproc/imx_rproc.c
-> @@ -18,6 +18,7 @@
->  #include <linux/of_reserved_mem.h>
->  #include <linux/platform_device.h>
->  #include <linux/pm_domain.h>
-> +#include <linux/pm_runtime.h>
->  #include <linux/reboot.h>
->  #include <linux/regmap.h>
->  #include <linux/remoteproc.h>
-> @@ -890,10 +891,8 @@ static int imx_rproc_partition_notify(struct notifier_block *nb,
->  static int imx_rproc_attach_pd(struct imx_rproc *priv)
->  {
->  	struct device *dev = priv->dev;
-> -	int ret;
-> -	struct dev_pm_domain_attach_data pd_data = {
-> -		.pd_flags = PD_FLAG_DEV_LINK_ON,
-> -	};
-> +	int ret, i;
-> +	bool detached = true;
->  
->  	/*
->  	 * If there is only one power-domain entry, the platform driver framework
-> @@ -902,8 +901,25 @@ static int imx_rproc_attach_pd(struct imx_rproc *priv)
->  	if (dev->pm_domain)
->  		return 0;
->  
-> -	ret = dev_pm_domain_attach_list(dev, &pd_data, &priv->pd_list);
-> -	return ret < 0 ? ret : 0;
-> +	ret = dev_pm_domain_attach_list(dev, NULL, &priv->pd_list);
-> +	if (ret < 0)
-> +		return ret;
-> +	/*
-> +	 * If all the power domain devices are already turned on, the remote
-> +	 * core is already powered up and running when the kernel booted (e.g.,
-> +	 * started by U-Boot's bootaux command). In this case attach to it.
-> +	 */
-> +	for (i = 0; i < ret; i++) {
-> +		if (!dev_pm_genpd_is_on(priv->pd_list->pd_devs[i])) {
-> +			detached = false;
-> +			break;
-> +		}
-> +	}
-> +
-> +	if (detached)
-> +		priv->rproc->state = RPROC_DETACHED;
-> +
-> +	return 0;
->  }
->  
->  static int imx_rproc_detect_mode(struct imx_rproc *priv)
-> @@ -1146,6 +1162,15 @@ static int imx_rproc_probe(struct platform_device *pdev)
->  		}
->  	}
->  
-> +	if (dcfg->method == IMX_RPROC_SCU_API) {
-> +		pm_runtime_enable(dev);
-> +		ret = pm_runtime_resume_and_get(dev);
-> +		if (ret) {
-> +			dev_err(dev, "pm_runtime get failed: %d\n", ret);
-> +			goto err_put_clk;
-> +		}
-> +	}
-> +
->  	ret = rproc_add(rproc);
->  	if (ret) {
->  		dev_err(dev, "rproc_add failed\n");
-> @@ -1171,6 +1196,10 @@ static void imx_rproc_remove(struct platform_device *pdev)
->  	struct rproc *rproc = platform_get_drvdata(pdev);
->  	struct imx_rproc *priv = rproc->priv;
->  
-> +	if (priv->dcfg->method == IMX_RPROC_SCU_API) {
-> +		pm_runtime_disable(priv->dev);
-> +		pm_runtime_put(priv->dev);
-> +	}
->  	clk_disable_unprepare(priv->clk);
->  	rproc_del(rproc);
->  	imx_rproc_put_scu(rproc);
-> -- 
-> 2.39.5
-> 
+Thanks for the link.
+Key quote: "arm64 maps the kernel in the vmalloc space."
+I think the map shouldn't be destroying linearity of kernel rodata.
+__pa_symbol() should work for start_BTF, but would be good
+to double check with Ard that the rest stays linear.
 
