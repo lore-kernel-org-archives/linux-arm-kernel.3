@@ -4,167 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77471C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 13:29:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5816C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 13:32:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H7ewydCkaWbY70NTSgS2/SowvSDW7glWGukpgLQ/s18=; b=z6K/UunooU+y50QuUuk7O6f5jv
-	AeZKQ6u7QbN1dKAXBl7/6ljvguOT8BZCeAAnFqPmXCeLBd401hTexIfwZICMg3/lNkVzktnZX/c13
-	M/fU6fpKGM0QlJLuKjN6XC7zdsFniQeUMIy4B353dbFZCPyAlgjLXVFAW65iUPY0hfw+NyeF/+6Le
-	Nm5iEdMHkyUGv452PxR/6nXyRfgEz80yNBETeD9H4ao63QnzQFgQQtFH0UCORegvHpuD+RbjaNUxI
-	29wFYAPnAtrzLymliT5MpPLwF2cMEZM8nxVEORc89X5ToPZy9W8aqn8QJv5lHXpxo9USkDKx2e6JI
-	4/2oF3Tw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Y5arV8lX7IBukuH7OkTz0byecvokYysW8uQMKecd47Y=; b=P7lZXhba/ZiKoevS//hL4Q4ZYd
+	w3/AAk9ymYwdm7bkX7oiTFiwRB3oxReypJFOpYKRBCglCIqNjQD6FFjXkYjIRnnd8asW8nc8V9YFa
+	gfIKciU19zH3Im9hc+reLKGfWN/S7b2TGjzqCJ7qgWy321PJUkjQCuEvx6CCcugxZCH3Z97iZEy9/
+	j/7YGXj8hdnQXbJVaeMHQ1cHszcCwPpZhUFqqLsv2pjw7oW6e+to8DHxlqAUlQCYCR9i6UVianf+y
+	ft7Y0+sPFhzpbSo12DTNcBL4gsDf7OHBCe/eWmFLF+vH3cQrro9a83RwZkpMj3/teRcPF4aoMp73W
+	r4f40IYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucOgA-0000000AGDQ-1d7m;
-	Thu, 17 Jul 2025 13:29:42 +0000
-Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1ucOia-0000000AGbw-29oI;
+	Thu, 17 Jul 2025 13:32:12 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucNc9-0000000A6O3-1QTX;
-	Thu, 17 Jul 2025 12:21:30 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=R0v6SnB2Owf8FbcRDJp1xrpXQBHIv+Cv4c+GRUgsptDqKRZFcQh+bYhhGgil5JeZ1zGNL4EqkbWS6cG/y3O+9veRdAKjNtUKGa6pHEuFeJJQrG8nFBgY36v7aa28XtqldTFHT1xYRwhHrUq0Qrf8XS+d/6bgFchFfpE66MqTNoR+VZl9QMvVh6IbqUphbJm4tFmySZHhAEP5OQWfpHnf4CU9L1vrsTCiu85LkryuTN4K4r3bnUN2jbTLamXL9bcDWm2lkXAoFv3q6U91ICuY7KnpnllaUKwTffvqQm+NT7wzG0x2UXIn7l65i8NhKKeGxpuuJnOarJj28qMFPb1VRw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=H7ewydCkaWbY70NTSgS2/SowvSDW7glWGukpgLQ/s18=;
- b=xq3uc6DcFE9q6aksm6WaVaz16/SANX0wJoG3Xd0fkbfDvpiBUwIAqyYNQWrkCmB+6CRWqh15a+rw4PXszQ9qmtveMjDuRkKVjFaGOFn4FnYUfr8fYvpF3utg8oV6HJKSTKExKiJMt5cbGDZtWfKRhP7UQKrxtDpKkkga9OCXGZtBywQJEoZyB/lK0PSK80iEE7wEBlNy+jnCycGGp7qIy0emhwlUEGi+ANHg9jay8ddPH/UVLth7Cl5l7xapd5NAlo1jwBg0mAhPcg7UFcb8Rn7DNp5o2lRDz7Tyxry9Y62nmYczA2IMHvf3ZcUDdfkai5itjX/wZ2vcuwXPIUCxVw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=cherry.de; dmarc=pass action=none header.from=cherry.de;
- dkim=pass header.d=cherry.de; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cherry.de;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=H7ewydCkaWbY70NTSgS2/SowvSDW7glWGukpgLQ/s18=;
- b=G3p40X7OOHg5hKg/CvKXO/VE+3f5YTk36oashr/zXo2jit2g8t1LHkf2RUb0cS9PRj1KDllhLVzIac8IA/LUamI/iLCXuuVSi6rryB3XBioo0HHdFuqVyuhw9AdK/hQq6afs6bNWEFvIYtuFbRPZdRDN78MOwYgr3e9qsUXLoeA=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=cherry.de;
-Received: from AS8PR04MB8897.eurprd04.prod.outlook.com (2603:10a6:20b:42c::20)
- by PA2PR04MB10347.eurprd04.prod.outlook.com (2603:10a6:102:424::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8922.39; Thu, 17 Jul
- 2025 12:21:23 +0000
-Received: from AS8PR04MB8897.eurprd04.prod.outlook.com
- ([fe80::5ee:7297:93b4:a8d1]) by AS8PR04MB8897.eurprd04.prod.outlook.com
- ([fe80::5ee:7297:93b4:a8d1%4]) with mapi id 15.20.8922.037; Thu, 17 Jul 2025
- 12:21:23 +0000
-Message-ID: <470dc543-9619-419c-9ea3-6671f4d52326@cherry.de>
-Date: Thu, 17 Jul 2025 14:21:22 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] arm64: dts: rockchip: add RK3588 DP carrier from
- Theobroma Systems
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: robh@kernel.org, krzk+dt@kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, damon.ding@rock-chips.com,
- Heiko Stuebner <heiko.stuebner@cherry.de>
-References: <20250716185027.2762175-1-heiko@sntech.de>
- <20250716185027.2762175-3-heiko@sntech.de>
-Content-Language: en-US
-From: Quentin Schulz <quentin.schulz@cherry.de>
-In-Reply-To: <20250716185027.2762175-3-heiko@sntech.de>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: VI1PR09CA0185.eurprd09.prod.outlook.com
- (2603:10a6:800:120::39) To AS8PR04MB8897.eurprd04.prod.outlook.com
- (2603:10a6:20b:42c::20)
+	id 1ucNdv-0000000A6Yh-3PP1
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 17 Jul 2025 12:23:19 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 051BB601F7;
+	Thu, 17 Jul 2025 12:23:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A3341C4CEE3;
+	Thu, 17 Jul 2025 12:23:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1752754998;
+	bh=M53rRLCNKkngAVcTP3yYjTLxPORb3dP838zH8c0EAeo=;
+	h=From:To:Cc:Subject:Date:From;
+	b=KIvQ2uOKfGL0kJgBh6WZe8351GfcqhX+SDK0dvb5rejhE1JIRzdyY5E5Eay5nEDpk
+	 CMz/b0BBTYI69yYDIisErqoi5pxj+SNE/oop0dmaw4WPhN2DqIExZl53iPs0t0m4zR
+	 hCtuT7MnE5ql5Qe7ajFPG0M9d/OZvW1Pkm6S/o8YqhMYKfymjdzd9SBgtIXCCSkzrT
+	 4gdtKdhPycjFBYtefrbcN1qgUrwKa78vw3Cme0CSfzQNO+y6ccAcP571k9DCg3RS/Y
+	 iBsWkA2NLV3qtxyvRVXf7c7aGU/0lwBKSOi5/GXa6PLLg1OInhNi+Ta3xDUhp7+Jal
+	 a/9l4sTg3Dyxw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1ucNdr-00Gbkc-CY;
+	Thu, 17 Jul 2025 13:23:15 +0100
+From: Marc Zyngier <maz@kernel.org>
+To: Thomas Gleixner <tglx@linutronix.de>
+Cc: Breno Leitao <leitao@debian.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Jonathan Cameron <Jonathan.Cameron@huawei.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Rob Herring <robh@kernel.org>,
+	Sascha Bischoff <sascha.bischoff@arm.com>,
+	Timothy Hayes <timothy.hayes@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev
+Subject: [GIT PULL] irqchip: Add GICv5 support
+Date: Thu, 17 Jul 2025 13:23:06 +0100
+Message-Id: <20250717122306.4043011-1-maz@kernel.org>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS8PR04MB8897:EE_|PA2PR04MB10347:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4bdf07d6-bbbf-4dc5-0d50-08ddc52c719f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|366016;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?bnQrTHNmZnh5VExMQ2pDMUMvNVRsYU93MmVVTVpvc3l6V3VzVW1hSzhKMmhq?=
- =?utf-8?B?UXRheExjNTd2cXBPazNlQmZwdGNjQ3dDVGg4RHd2Wk9NT2xJZ2tDdDMyU1JB?=
- =?utf-8?B?RW5UTVZVc3JsZEtWaVFPTG9JNDFBV3VRa2RxUjNVQVJJOTAyNVRRYjdubjd2?=
- =?utf-8?B?dXg3aGlRaHFBd1JycUkzMEFHekNkMEhWS1E2WGEzVWpwZGdHMmZYN013RTNN?=
- =?utf-8?B?MTR5VHVtaFRUem4xUEZCamg3b01hK2VyNnRxcDdoWFJXWWNhOHB4b3NVQ096?=
- =?utf-8?B?ZEZhcGljcjhHTmdvREJVbTh0eWpMeEtCWmROVmNiM2VPeDJBeWptWFVNdkRY?=
- =?utf-8?B?cmhXVEtTMFJkM0Nza2JEdkNNV01adkZ0R3g0WklQNlhkbUpzTUNyTll6N0kr?=
- =?utf-8?B?QXZXNGV3eXFCQmZpUU0vR2pzTk00a3prZ3MxM3FnYUVqblk5WWpUTmxsZDNy?=
- =?utf-8?B?cTVKNEN2Q29QVGVzcnFtTlFEamZnNy9kbGJPM25GM3pROUJiak9Kbkx0Y2VO?=
- =?utf-8?B?R0JvZzlIc3F6bDZSQkFUQ2Z0UHphM28vK2lqTW5yWlE0VlROVTFEdkVWZmZn?=
- =?utf-8?B?U3JlODA2SkJpSlJQM3QxSWQ0YlB0d3VuVWV5YzhhdG1sMURYbW1OVUd4T3cz?=
- =?utf-8?B?Rmh5ZVF0SFovVnltdHpYS0lhdnk1OUJYTjB5ZjVKT2Fqc1FOQ013Rm8yYWpj?=
- =?utf-8?B?U1ZrOFFPMmxLVWFJNmtKS0RMZ2lqSXZFZndhTmdRZGZQR2hkZWlYRmlrVjFm?=
- =?utf-8?B?SjQ3azN6Vk8xa2VGMXU5QUduSTREa3k2eEpYK0cwYk9pdHVrVTlzdEtLOEhQ?=
- =?utf-8?B?OEdtOHhHMXFEY21sRExwbklRbS9lZXZRZG5uTW1GNXp1Uk9NU0FTZUdpMWVk?=
- =?utf-8?B?MGtNVG5FOEhyY0duMGp3UzUzdUZyb3BIaVNWNDIwbFcxU2preXZCeURNY3hS?=
- =?utf-8?B?RnBEMG5tWklBclhVVjY3NEU4QmdiVmpDaGFYTGpuUUVEMGNZbUZ6SXkzWXR5?=
- =?utf-8?B?UWFEdS80aXh3a1Q2em1yVDJVdFhCMHB1bnVPaFdSNlNCdks1QUNDVXY4Y2hC?=
- =?utf-8?B?amtUdXNsOUpQRFhoMWZ0SkJvMk1XN3A4d290eU9KQWMyZGNsZU43V05nOVVI?=
- =?utf-8?B?V0Q3ZG14MTBiNEpqZVVLektzZU5PazNVTHQ5TGc1bmhSWlMzVjcrQjYrNFdB?=
- =?utf-8?B?RG9rcHk1Y1l0SWlKWEpKY2dXUW4zU1h6bnlIa210R2kwY2s5SmtUTlJZNndZ?=
- =?utf-8?B?Q0t1K2krRzdZN012V1BZUE92V0tIR2oza1dPTG5pWEtpWEZwNDB3eHh6dHY3?=
- =?utf-8?B?dTF5Y2g0bmJHWFVOaTljdE9SbEVhWjNwMGRJOHpRbFJiSjBaZWFmSC85YUpr?=
- =?utf-8?B?WS9ZQndsTi9odG03K1V6WkN5Z1dhTzFqb3owZ1E2NjV0SzVWNEduQzRoRGFV?=
- =?utf-8?B?MllORE13T0hLd21XbGVzaXJaMmt1ajhQK0JKS1BXODMwRzI1Ty90WmFRVjZw?=
- =?utf-8?B?eUc4cnE1UHNoK1BYazJvajYxT2lSUXBYOHVzYysvOW5odERMdUlxUjIxTWdB?=
- =?utf-8?B?dm1RbW9DSG1hQ3BuU21xTTdNRHVRNFA1WXJCL3BXVnpJWEZQVmFQV0UzY3lZ?=
- =?utf-8?B?L3B4bnJDcGxmbW91Y2NzVWZQUm1aaXpYRVpLVm9kVVYyeUh6U1hmaXdBTUYx?=
- =?utf-8?B?Z2t3cTNGR1FKdEZTUEdMTWxQM3VGUThKckpRdmFoMGRtNEk1UmVEWnhpSjlT?=
- =?utf-8?B?S3h2cjBVY3lqQ2dHRUNxeVNnYW95VjFQUXVNVFJvREpDWmpLRlFYV0RQcUpE?=
- =?utf-8?B?cVpFcUJhZTlrTVVWOGg4NThsdGRkSDhnOFU4c0VMa0pSTXE5T3E1RDlUa05x?=
- =?utf-8?B?L3lhZUF4cmliQkN4dmFXbllvUnU3eVdlTEx2SEdZTi9GNEhVZUxOSERxZW9l?=
- =?utf-8?Q?qw/zo4au9Bs=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8897.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?U2RCVmtaVGJ5QjRKTFJJb25hb2ZVS2hmbmw4ZjVVUmdMQVV4NTJSNENRcFBl?=
- =?utf-8?B?L291TnB5TmNQZnFaUXpTVXAwYkFuMWNuNHZrTE9MWWFLQi92YVVjQ0M2dlZ5?=
- =?utf-8?B?R3FML0QxRitzNkwvSVVCbFRKRFB4MGxkbHR0SXpUZWFZYnhET3hNZ2N4MG9J?=
- =?utf-8?B?SXVEQXVvQUZOd2VCaHQrNnh3L2ZnanFzYkJBVnlOWElyT3gvcDF2RW9yeEZV?=
- =?utf-8?B?aHJLbVJMSVVTTTJIZThSam9CSHNqenppRVlMYzd4T3cxUCtaeFVtR3MvZUlz?=
- =?utf-8?B?MnloUDJzRlFSWllYQ3hyVGJlZ1Q5REZkM2ZNaEliaGRkRk9lQjlmbWJnM2tr?=
- =?utf-8?B?Ty9rQmx3dHFSOERDUm5YMFhRWTZyWDdvUkxHNDAvenZVeDQzS3ZMNVpQYzAz?=
- =?utf-8?B?WVd0eXZaMXBtNklUaE1pRWtDYS82NERnNUZTOGpLTmtzQXBKR3Q0TFdUWk9B?=
- =?utf-8?B?VENvMkZIcEE0TlA0U0pQU0FKU2NlM3UzaUh5eGx6MVRtQnB3cDZqSzZWbEpB?=
- =?utf-8?B?RlBZOWFxd0JrTHBnaS81Z3lrbUtpV2N4VWhwMXlWclV6L2FzVm0vZkQ1TGNJ?=
- =?utf-8?B?VEVIUWF6b3VVRW1yMlN6QUVDT1AxMEQyTm5Mb0xkaXNNeDV4TWFBeHA5VFBT?=
- =?utf-8?B?V2Fjd080d0w5Vkp2YlB5Qm5TOXRNT2RIYkFoVUNPYUVOQUVaZkFicWJpVjNT?=
- =?utf-8?B?d3FqWkh1N3I4U2VtT2ZSejhoNGl3SFJpOGhuMXpNODEyT3VCeGZQSnJrbXQ0?=
- =?utf-8?B?ajBsZzdPbU52bEp1NmIza3hCMmlOYXFFV1IzRHhGVVh6b1NpYnFKcXM5dFFP?=
- =?utf-8?B?UVVZY2JGL2g0Q0FsTGdaalFHckcwOGRrWEVVTlBoOUtzNGpaR0VBTnNtamt4?=
- =?utf-8?B?TFJUcmk5M293dG1sQWZnVnlya09Jc0gyN05tQkkwZ2dqZVZMS2VzV1dPNDJi?=
- =?utf-8?B?QmxOTGN5SnFLYVE1aktoSU5CRXY1SzNSYkNKNDBGUUxxRmRONTREUWhySm9i?=
- =?utf-8?B?Ym9ZWURnbE12VEhEOXE0bWIydXRQWWJ1RU1HU2hPRm1pWThadDZEd3BGQXpG?=
- =?utf-8?B?b243bzNsTXVhL1dpa2ZRaGtjTHBPcm9wUjRiazk0Tkt1QTBzcmlzK1J4dHRo?=
- =?utf-8?B?MkNPYjRqWmsvRnRSRkc0NFdka1FlRDkxTnZIblZGNjg3TjZYQkI2OUFKcjY4?=
- =?utf-8?B?V3l6QVF5RmhmVENOSnhrK1VyN0lRREFtT2R3WkQyVnFKUng1NXhrMnlKK0ly?=
- =?utf-8?B?SkhPb0Vkd0I3UWQ1Y2Zoa3JScW9XMXA5bklPN000NEF6OVFhMHdONjNSZTNN?=
- =?utf-8?B?a0VVdjJsdWt5ejNPYUFYdFJmMjZDd2xSRVYzVWJ1ZDJWdWlZekJaQjNKb3FJ?=
- =?utf-8?B?U2luZyt0Ym9sR080bm9DbHo5QUtvMjFORjA4ZDI5bnhVb2Mzb2ZrRklCbTV5?=
- =?utf-8?B?NDNsRUM5RnY5K1BQU2ZVZCtUdVY0U1BVKzluVXRERmgvWnQ3YWRFOVNWbk41?=
- =?utf-8?B?WEQ2cTdGd2x2Q3JEOGY5czlVeng2UzlEQnNtVEFXK2pLNFc3NkE1dnZCOTEw?=
- =?utf-8?B?ZklLQm5IbG9xMWh3WkMzeWlTWnYxb3dEaVNkMmh5M0ZxS1NTZytwOFN4cjVQ?=
- =?utf-8?B?YVFzVzlKeHVuMWcyNHdzVjRpM0pEL3VMRUpsNGNkMlVKOHNENGg5cTJkN2JX?=
- =?utf-8?B?NVJNSW9iTFI3YXV3QkNaUlVMdDBOTFZlekNjeHRscS9SbTdqMS9FNzNUSkVw?=
- =?utf-8?B?SDRsbWpLSzczbXlLaWN5NWI5dTJEYU93SGE4VnNpeU1DNTUzZElXelIvSkNw?=
- =?utf-8?B?QlRjS09qK013TmtMUlA0Si9aK1dxSnhhd1U0cGFmWmpqT1FaaUpwVTVlQlJR?=
- =?utf-8?B?WU8rQmQxWWx0TTdvdlUxSklRU3M3WjJuaEJ2WU1ab0pxbFJMcldsUWRJZUc2?=
- =?utf-8?B?dG04NHNta1Q4dnBQT1BKSGk0WXZ2MnBDU0NPZngvdlVXVDlxenNpSkNlUDFr?=
- =?utf-8?B?K2RVcElVOWp6QU1XNUFvWGNsWEdjbExhaUlKdW5WenIybURmSS9ka3hPR3ls?=
- =?utf-8?B?ejVjOEN3LzhOOS9DV3NUc2xoRzFITG5GMlBVRk9JTlJmQ2RwQ3ltU1BpMHh6?=
- =?utf-8?B?bHEyWkFRV09uRVRnSDVVUmtXQ3VXWWYrOGFiUDJoZy82ZVNmTjNyVk1YQXJj?=
- =?utf-8?B?YXc9PQ==?=
-X-OriginatorOrg: cherry.de
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4bdf07d6-bbbf-4dc5-0d50-08ddc52c719f
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8897.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Jul 2025 12:21:23.4001
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 5e0e1b52-21b5-4e7b-83bb-514ec460677e
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 6MHtSICGH1Csf2Pr/K1Am2r4QXYN/dFUlEpQIJ5seChsYRBnfnEmbFv6MB2LV789siz/PSrPuMiGxesJ1pFi5FMPzh9Z4dEXbHg5WiLwQjc=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA2PR04MB10347
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250717_052129_546283_BA69FDFD 
-X-CRM114-Status: GOOD (  31.78  )
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: tglx@linutronix.de, leitao@debian.org, catalin.marinas@arm.com, conor+dt@kernel.org, Jonathan.Cameron@huawei.com, krzk+dt@kernel.org, lpieralisi@kernel.org, mark.rutland@arm.com, robh@kernel.org, sascha.bischoff@arm.com, timothy.hayes@arm.com, will@kernel.org, oliver.upton@linux.dev, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -179,154 +89,125 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Heiko,
+Thomas,
 
-On 7/16/25 8:50 PM, Heiko Stuebner wrote:
-> From: Heiko Stuebner <heiko.stuebner@cherry.de>
-> 
-> The DisplayPort carrier is a very simple baseboard only providing serial,
-> ethernet and a displayport output.
-> 
-> But its main functionality is that it routes the Analogix eDP controller
-> to this DisplayPort output, which allows to test that controller simply
-> by hooking it up to a suitable monitor.
-> 
-> The Analogix-DP controller supports eDP 1.3 and DP 1.2, so can drive
-> both eDP displays as well as full DP monitors. It does not support DP+
-> so passive DP-to-HDMI adapters won't work.
-> 
-> Signed-off-by: Heiko Stuebner <heiko.stuebner@cherry.de>
-> ---
->   arch/arm64/boot/dts/rockchip/Makefile         |   1 +
->   .../rk3588-tiger-displayport-carrier.dts      | 118 ++++++++++++++++++
->   2 files changed, 119 insertions(+)
->   create mode 100644 arch/arm64/boot/dts/rockchip/rk3588-tiger-displayport-carrier.dts
-> 
-> diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/dts/rockchip/Makefile
-> index 7946bec10670..0c915679fde6 100644
-> --- a/arch/arm64/boot/dts/rockchip/Makefile
-> +++ b/arch/arm64/boot/dts/rockchip/Makefile
-> @@ -178,6 +178,7 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-rock-5b-pcie-srns.dtbo
->   dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-rock-5b-plus.dtb
->   dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-tiger-haikou.dtb
->   dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-tiger-haikou-video-demo.dtbo
-> +dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-tiger-displayport-carrier.dtb
+After some time simmering in -next without much catching fire (only a
+single regression has been reported, which was promptly fixed), here's
+the pull request for the GICv5 core infrastructure.
 
-Please sort this alphabetically.
+There are still a couple of patches on the list (mostly addressing
+error paths, and actively being reviewed), but I don't see anything
+that would warrant holding this any longer, and these fixes can be
+added down the line. If anything, this work has allowed us to
+pipe-clean a number of issues in the tree.
 
->   dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-toybrick-x0.dtb
->   dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-turing-rk1.dtb
->   dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-coolpi-4b.dtb
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-tiger-displayport-carrier.dts b/arch/arm64/boot/dts/rockchip/rk3588-tiger-displayport-carrier.dts
-> new file mode 100644
-> index 000000000000..5bd79877194a
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/rockchip/rk3588-tiger-displayport-carrier.dts
-> @@ -0,0 +1,118 @@
-> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-> +/*
-> + * Copyright (c) 2024 Cherry Embedded Solutions GmbH
-> + */
-> +
-> +/dts-v1/;
-> +#include <dt-bindings/soc/rockchip,vop2.h>
-> +#include "rk3588-tiger.dtsi"
-> +
-> +/ {
-> +	model = "Theobroma Systems RK3588-Q7 SoM on Tiger Displayport Carrier v1";
-> +	compatible = "tsd,rk3588-tiger-displayport-carrier", "tsd,rk3588-tiger", "rockchip,rk3588";
-> +
+Please note that the kvmarm tree also carries this branch, as this is
+a dependency for enabling GICv3 compatibility for guests on a GICv5
+host.
 
-Please add ethernet0 to /aliases?
+Please pull,
 
-> +	chosen {
-> +		stdout-path = "serial2:115200n8";
-> +	};
-> +
-> +	dp-connector {
-> +		compatible = "dp-connector";
-> +		dp-pwr-supply = <&vcc3v3_baseboard>;
-> +		label = "dp0";
-> +		type = "full-size";
+	M.
 
-Please order alphabetically the two properties above.
+The following changes since commit 86731a2a651e58953fc949573895f2fa6d456841:
 
-> +
-> +		/* Q7_DP_HPD# but Q7_HDMI_HPD# could be used too */
-> +		hpd-gpios = <&gpio4 RK_PB5 GPIO_ACTIVE_LOW>;
-> +		pinctrl-0 = <&edp0_hpd_l>;
-> +		pinctrl-names = "default";
-> +
-> +		port {
-> +			dp_con_in: endpoint {
-> +				remote-endpoint = <&edp0_out_con>;
-> +			};
-> +		};
-> +	};
-> +
-> +	vcc3v3_baseboard: regulator-vcc3v3-baseboard {
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "vcc3v3_baseboard";
-> +		regulator-always-on;
-> +		regulator-boot-on;
-> +		regulator-min-microvolt = <3300000>;
-> +		regulator-max-microvolt = <3300000>;
-> +		vin-supply = <&vcc5v0_baseboard>;
-> +	};
-> +
-> +	vcc5v0_baseboard: regulator-vcc5v0-baseboard {
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "vcc5v0_baseboard";
-> +		regulator-always-on;
-> +		regulator-boot-on;
-> +		regulator-min-microvolt = <5000000>;
-> +		regulator-max-microvolt = <5000000>;
-> +	};
-> +};
-> +
-> +&edp0 {
-> +	/*
-> +	 * Note that this board doesn't respect Q7 standard as Q7 has
-> +	 * lane 2 of HDMI on the same pin as lane 0 of DP and lane 0 of HDMI
-> +	 * on lane 2 of DP but this board uses HDMI lane numbering instead of
-> +	 * DP lane numbering for its DP lanes.
-> +	 *
-> +	 * It should be possible to match Q7 standard if required by requesting
-> +	 * the eDPTX controller to swap lanes with:
-> +	 *
-> +	 * data-lanes = <2 1 0 3>;
+  Linux 6.16-rc3 (2025-06-22 13:30:08 -0700)
 
-I don't think that's true currently?
+are available in the Git repository at:
 
-The driver only seems to be supporting swapping the lanes, c.f. 
-analogix_dp_lane_swap() which routes it to either 0 1 2 3 or 3 2 1 0 but 
-no mix like the one we would need. Also, this function is never called 
-with anything but "do not swap" argument. So we would need to fix the 
-driver to support that.
+  git://git.kernel.org/pub/scm/linux/kernel/git/maz/arm-platforms.git tags/irqchip-gic-v5-host
 
-Also, this is the kind of information we should have in Tiger DTSI and 
-not some "random" baseboard DTS which will actually not make use of it. 
-We should have data-lanes = <2 1 0 3>; in Tiger DTSI actually but 
-considering 1) the driver doesn't support that, 2) we don't have HW to 
-validate it works; I guess we'll just leave it at that.
+for you to fetch changes up to 65a5520a27570787b17e6f0b093829fc7e0514e2:
 
-> +	 */
-> +
+  arm64: smp: Fix pNMI setup after GICv5 rework (2025-07-15 18:11:12 +0100)
 
-Aren't we missing the data-lanes property here? I don't see a default 
-and I would assume we should be providing one?
+----------------------------------------------------------------
+GICv5 initial host support
 
-Documentation/devicetree/bindings/media/video-interfaces.yaml specifies 
-it either starts at 0 or 1, depending if there's a clock lane or not. As 
-far as I could tell, DP has 4 data lanes and the AUX lane as well, but 
-nothing clock-specific so I assume starting at 0 would be correct?
+Add host kernel support for the new arm64 GICv5 architecture, which is
+quite a departure from the previous ones.
 
-On a side note, is the audio output on eDP TX controller already 
-supported like on HDMI? If so, we should add the edp0-sound node like in 
-our downstream fork. But looking at the driver, I don't think we 
-implement any dp_audio_* callbacks from drm_bridge_funcs which I assume 
-would be the way to implement that.
+Include support for the full gamut of the architecture (interrupt
+routing and delivery to CPUs, wired interrupts, MSIs, and interrupt
+translation).
 
-Cheers,
-Quentin
+----------------------------------------------------------------
+Lorenzo Pieralisi (30):
+      dt-bindings: interrupt-controller: Add Arm GICv5
+      arm64/sysreg: Add GCIE field to ID_AA64PFR2_EL1
+      arm64/sysreg: Add ICC_PPI_PRIORITY<n>_EL1
+      arm64/sysreg: Add ICC_ICSR_EL1
+      arm64/sysreg: Add ICC_PPI_HMR<n>_EL1
+      arm64/sysreg: Add ICC_PPI_ENABLER<n>_EL1
+      arm64/sysreg: Add ICC_PPI_{C/S}ACTIVER<n>_EL1
+      arm64/sysreg: Add ICC_PPI_{C/S}PENDR<n>_EL1
+      arm64/sysreg: Add ICC_CR0_EL1
+      arm64/sysreg: Add ICC_PCR_EL1
+      arm64/sysreg: Add ICC_IDR0_EL1
+      arm64/sysreg: Add ICH_HFGRTR_EL2
+      arm64/sysreg: Add ICH_HFGWTR_EL2
+      arm64/sysreg: Add ICH_HFGITR_EL2
+      arm64: Disable GICv5 read/write/instruction traps
+      arm64: cpucaps: Rename GICv3 CPU interface capability
+      arm64: cpucaps: Add GICv5 CPU interface (GCIE) capability
+      arm64: Add support for GICv5 GSB barriers
+      irqchip/gic-v5: Add GICv5 PPI support
+      irqchip/gic-v5: Add GICv5 IRS/SPI support
+      irqchip/gic-v5: Add GICv5 LPI/IPI support
+      irqchip/gic-v5: Enable GICv5 SMP booting
+      of/irq: Add of_msi_xlate() helper function
+      PCI/MSI: Add pci_msi_map_rid_ctlr_node() helper function
+      irqchip/gic-v3: Rename GICv3 ITS MSI parent
+      irqchip/msi-lib: Add IRQ_DOMAIN_FLAG_FWNODE_PARENT handling
+      irqchip/gic-v5: Add GICv5 ITS support
+      irqchip/gic-v5: Add GICv5 IWB support
+      docs: arm64: gic-v5: Document booting requirements for GICv5
+      arm64: Kconfig: Enable GICv5
+
+Marc Zyngier (2):
+      arm64: smp: Support non-SGIs for IPIs
+      arm64: smp: Fix pNMI setup after GICv5 rework
+
+ Documentation/arch/arm64/booting.rst               |   41 +
+ .../interrupt-controller/arm,gic-v5-iwb.yaml       |   78 ++
+ .../bindings/interrupt-controller/arm,gic-v5.yaml  |  267 +++++
+ MAINTAINERS                                        |   10 +
+ arch/arm64/Kconfig                                 |    1 +
+ arch/arm64/include/asm/barrier.h                   |    3 +
+ arch/arm64/include/asm/el2_setup.h                 |   45 +
+ arch/arm64/include/asm/smp.h                       |   24 +-
+ arch/arm64/include/asm/sysreg.h                    |   71 +-
+ arch/arm64/kernel/cpufeature.c                     |   17 +-
+ arch/arm64/kernel/smp.c                            |  142 ++-
+ arch/arm64/tools/cpucaps                           |    3 +-
+ arch/arm64/tools/sysreg                            |  495 +++++++-
+ drivers/irqchip/Kconfig                            |   12 +
+ drivers/irqchip/Makefile                           |    5 +-
+ drivers/irqchip/irq-gic-common.h                   |    2 -
+ ...3-its-msi-parent.c => irq-gic-its-msi-parent.c} |  168 ++-
+ drivers/irqchip/irq-gic-its-msi-parent.h           |   12 +
+ drivers/irqchip/irq-gic-v3-its.c                   |    1 +
+ drivers/irqchip/irq-gic-v5-irs.c                   |  822 +++++++++++++
+ drivers/irqchip/irq-gic-v5-its.c                   | 1228 ++++++++++++++++++++
+ drivers/irqchip/irq-gic-v5-iwb.c                   |  284 +++++
+ drivers/irqchip/irq-gic-v5.c                       | 1087 +++++++++++++++++
+ drivers/irqchip/irq-gic.c                          |    2 +-
+ drivers/irqchip/irq-msi-lib.c                      |    5 +-
+ drivers/of/irq.c                                   |   22 +-
+ drivers/pci/msi/irqdomain.c                        |   20 +
+ include/asm-generic/msi.h                          |    1 +
+ include/linux/irqchip/arm-gic-v5.h                 |  394 +++++++
+ include/linux/irqdomain.h                          |    3 +
+ include/linux/msi.h                                |    1 +
+ include/linux/of_irq.h                             |    5 +
+ 32 files changed, 5199 insertions(+), 72 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/interrupt-controller/arm,gic-v5-iwb.yaml
+ create mode 100644 Documentation/devicetree/bindings/interrupt-controller/arm,gic-v5.yaml
+ rename drivers/irqchip/{irq-gic-v3-its-msi-parent.c => irq-gic-its-msi-parent.c} (59%)
+ create mode 100644 drivers/irqchip/irq-gic-its-msi-parent.h
+ create mode 100644 drivers/irqchip/irq-gic-v5-irs.c
+ create mode 100644 drivers/irqchip/irq-gic-v5-its.c
+ create mode 100644 drivers/irqchip/irq-gic-v5-iwb.c
+ create mode 100644 drivers/irqchip/irq-gic-v5.c
+ create mode 100644 include/linux/irqchip/arm-gic-v5.h
 
