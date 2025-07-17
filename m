@@ -4,128 +4,167 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A7A6C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 13:27:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77471C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 13:29:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:Subject:References:Cc:To:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=a9frde+TCHsKKJJekqPE+TXCVkRomw5gr4tBN4H9t1w=; b=b3epzNj0MzFIoMGbjPbO2VjaA7
-	tcmy+ibxkS8LpGgAjkovMtGLcfvVwF+niEsyDnC6hIqfEZdeFZy6aqgURLJBvENWx39xWT2EDNgaV
-	NnEg9PSE4sHHMXJUk8dWqJuTfX01GlqWUcbH+Ta8w7GQ54U2aQEpqJ9juIi7255n6Hn0mWXW8KNeM
-	DJrOXnnm9HT5bDR4FZQZay5pWHKJKZM13Tx7YoNOz94bYAqIPmrVWKls+C53p8UJyiCtMQQP9lmLe
-	kQDouypc0e5Tk+5Unv1HnHy7odLe+dcstahABx6ED2TB1jzGsxz0RgFCdWgUiirSl1zAt6fM0lhE5
-	id75dtLQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=H7ewydCkaWbY70NTSgS2/SowvSDW7glWGukpgLQ/s18=; b=z6K/UunooU+y50QuUuk7O6f5jv
+	AeZKQ6u7QbN1dKAXBl7/6ljvguOT8BZCeAAnFqPmXCeLBd401hTexIfwZICMg3/lNkVzktnZX/c13
+	M/fU6fpKGM0QlJLuKjN6XC7zdsFniQeUMIy4B353dbFZCPyAlgjLXVFAW65iUPY0hfw+NyeF/+6Le
+	Nm5iEdMHkyUGv452PxR/6nXyRfgEz80yNBETeD9H4ao63QnzQFgQQtFH0UCORegvHpuD+RbjaNUxI
+	29wFYAPnAtrzLymliT5MpPLwF2cMEZM8nxVEORc89X5ToPZy9W8aqn8QJv5lHXpxo9USkDKx2e6JI
+	4/2oF3Tw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucOdk-0000000AFpS-20mD;
-	Thu, 17 Jul 2025 13:27:12 +0000
-Received: from mout.web.de ([217.72.192.78])
+	id 1ucOgA-0000000AGDQ-1d7m;
+	Thu, 17 Jul 2025 13:29:42 +0000
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucNZt-0000000A62r-1vMn
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Jul 2025 12:19:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
-	s=s29768273; t=1752754737; x=1753359537; i=markus.elfring@web.de;
-	bh=a9frde+TCHsKKJJekqPE+TXCVkRomw5gr4tBN4H9t1w=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:References:
-	 Subject:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 cc:content-transfer-encoding:content-type:date:from:message-id:
-	 mime-version:reply-to:subject:to;
-	b=M9WmBD88KOV+FGJEEL3REnVKRQJHORo2WC4sfFCXfuqXwrm2+Ht0WEFR1SeiTYL4
-	 Ci3W/nsD9mjvuDLbp69ltuiNQcqfjn3Wcy53rnTtrOqc2ZUappiGn3PEppeOgIuSE
-	 pycydGixZxpwgOYYGTALaapO/QH8NZkVTJYSpXvWKTPrJ3LOuzhhC5fcY3JP6Fh4Z
-	 0RmooGQ5CtiaF9nvB0i4jx6z38GsmJlgL9d1fcrDsS29OrhbVw+3OMBIt+Fgd2gR2
-	 uG/BwOvP0fCcaDnHKEf6xTcFKJVLeBkNbkiS3YOlxNbR+o+ZBTYyleZOLUhdIYW06
-	 UWMPqaaPb92NdQ095g==
-X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
-Received: from [192.168.178.29] ([94.31.69.185]) by smtp.web.de (mrweb105
- [213.165.67.124]) with ESMTPSA (Nemesis) id 1M1JAm-1uaicN0apW-00Bk5J; Thu, 17
- Jul 2025 14:18:57 +0200
-Message-ID: <21104b21-c24f-4b1f-bd6e-072597927e81@web.de>
-Date: Thu, 17 Jul 2025 14:18:53 +0200
-MIME-Version: 1.0
+	id 1ucNc9-0000000A6O3-1QTX;
+	Thu, 17 Jul 2025 12:21:30 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=R0v6SnB2Owf8FbcRDJp1xrpXQBHIv+Cv4c+GRUgsptDqKRZFcQh+bYhhGgil5JeZ1zGNL4EqkbWS6cG/y3O+9veRdAKjNtUKGa6pHEuFeJJQrG8nFBgY36v7aa28XtqldTFHT1xYRwhHrUq0Qrf8XS+d/6bgFchFfpE66MqTNoR+VZl9QMvVh6IbqUphbJm4tFmySZHhAEP5OQWfpHnf4CU9L1vrsTCiu85LkryuTN4K4r3bnUN2jbTLamXL9bcDWm2lkXAoFv3q6U91ICuY7KnpnllaUKwTffvqQm+NT7wzG0x2UXIn7l65i8NhKKeGxpuuJnOarJj28qMFPb1VRw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=H7ewydCkaWbY70NTSgS2/SowvSDW7glWGukpgLQ/s18=;
+ b=xq3uc6DcFE9q6aksm6WaVaz16/SANX0wJoG3Xd0fkbfDvpiBUwIAqyYNQWrkCmB+6CRWqh15a+rw4PXszQ9qmtveMjDuRkKVjFaGOFn4FnYUfr8fYvpF3utg8oV6HJKSTKExKiJMt5cbGDZtWfKRhP7UQKrxtDpKkkga9OCXGZtBywQJEoZyB/lK0PSK80iEE7wEBlNy+jnCycGGp7qIy0emhwlUEGi+ANHg9jay8ddPH/UVLth7Cl5l7xapd5NAlo1jwBg0mAhPcg7UFcb8Rn7DNp5o2lRDz7Tyxry9Y62nmYczA2IMHvf3ZcUDdfkai5itjX/wZ2vcuwXPIUCxVw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=cherry.de; dmarc=pass action=none header.from=cherry.de;
+ dkim=pass header.d=cherry.de; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cherry.de;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=H7ewydCkaWbY70NTSgS2/SowvSDW7glWGukpgLQ/s18=;
+ b=G3p40X7OOHg5hKg/CvKXO/VE+3f5YTk36oashr/zXo2jit2g8t1LHkf2RUb0cS9PRj1KDllhLVzIac8IA/LUamI/iLCXuuVSi6rryB3XBioo0HHdFuqVyuhw9AdK/hQq6afs6bNWEFvIYtuFbRPZdRDN78MOwYgr3e9qsUXLoeA=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=cherry.de;
+Received: from AS8PR04MB8897.eurprd04.prod.outlook.com (2603:10a6:20b:42c::20)
+ by PA2PR04MB10347.eurprd04.prod.outlook.com (2603:10a6:102:424::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8922.39; Thu, 17 Jul
+ 2025 12:21:23 +0000
+Received: from AS8PR04MB8897.eurprd04.prod.outlook.com
+ ([fe80::5ee:7297:93b4:a8d1]) by AS8PR04MB8897.eurprd04.prod.outlook.com
+ ([fe80::5ee:7297:93b4:a8d1%4]) with mapi id 15.20.8922.037; Thu, 17 Jul 2025
+ 12:21:23 +0000
+Message-ID: <470dc543-9619-419c-9ea3-6671f4d52326@cherry.de>
+Date: Thu, 17 Jul 2025 14:21:22 +0200
 User-Agent: Mozilla Thunderbird
-To: Himanshu Mittal <h-mittal1@ti.com>, netdev@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-Cc: LKML <linux-kernel@vger.kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, MD Danish Anwar <danishanwar@ti.com>,
- Meghana Malladi <m-malladi@ti.com>, Paolo Abeni <pabeni@redhat.com>,
- prajith@ti.com, Pratheesh Gangadhar <pratheesh@ti.com>,
- Simon Horman <horms@kernel.org>, Sriramakrishnan <srk@ti.com>,
- Roger Quadros <rogerq@kernel.org>, Vignesh Raghavendra <vigneshr@ti.com>
-References: <20250710131250.1294278-1-h-mittal1@ti.com>
-Subject: Re: [PATCH net v2] net: ti: icssg-prueth: Fix buffer allocation for
- ICSSG
-Content-Language: en-GB, de-DE
-From: Markus Elfring <Markus.Elfring@web.de>
-In-Reply-To: <20250710131250.1294278-1-h-mittal1@ti.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:HdKKwwCkdS0uUcMCsjU4EauINBHqY1JcQjAzy+hip0DXyMEwYBL
- lMsp2/fjKpABmTfH6R3tS7aHb6m3nWDlr7rzI1L2swy8rjAduUkp/4rGXsp8EXvzuxLt4ps
- 6P2t6Y2+41K9T0RRArCiudKZ/8cr8uof7vGNX1IHi4zZedu3Mxa67swgmgmJ4B/hUqkEuZ4
- Nl9y9bzDKG3SKYOdtSszA==
-UI-OutboundReport: notjunk:1;M01:P0:Ylv/pdWbBjo=;2DUCA7MBwYkvSDJGexulglLoII6
- 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
- ggTBo=
+Subject: Re: [PATCH 2/2] arm64: dts: rockchip: add RK3588 DP carrier from
+ Theobroma Systems
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: robh@kernel.org, krzk+dt@kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, damon.ding@rock-chips.com,
+ Heiko Stuebner <heiko.stuebner@cherry.de>
+References: <20250716185027.2762175-1-heiko@sntech.de>
+ <20250716185027.2762175-3-heiko@sntech.de>
+Content-Language: en-US
+From: Quentin Schulz <quentin.schulz@cherry.de>
+In-Reply-To: <20250716185027.2762175-3-heiko@sntech.de>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: VI1PR09CA0185.eurprd09.prod.outlook.com
+ (2603:10a6:800:120::39) To AS8PR04MB8897.eurprd04.prod.outlook.com
+ (2603:10a6:20b:42c::20)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS8PR04MB8897:EE_|PA2PR04MB10347:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4bdf07d6-bbbf-4dc5-0d50-08ddc52c719f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|366016;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?bnQrTHNmZnh5VExMQ2pDMUMvNVRsYU93MmVVTVpvc3l6V3VzVW1hSzhKMmhq?=
+ =?utf-8?B?UXRheExjNTd2cXBPazNlQmZwdGNjQ3dDVGg4RHd2Wk9NT2xJZ2tDdDMyU1JB?=
+ =?utf-8?B?RW5UTVZVc3JsZEtWaVFPTG9JNDFBV3VRa2RxUjNVQVJJOTAyNVRRYjdubjd2?=
+ =?utf-8?B?dXg3aGlRaHFBd1JycUkzMEFHekNkMEhWS1E2WGEzVWpwZGdHMmZYN013RTNN?=
+ =?utf-8?B?MTR5VHVtaFRUem4xUEZCamg3b01hK2VyNnRxcDdoWFJXWWNhOHB4b3NVQ096?=
+ =?utf-8?B?ZEZhcGljcjhHTmdvREJVbTh0eWpMeEtCWmROVmNiM2VPeDJBeWptWFVNdkRY?=
+ =?utf-8?B?cmhXVEtTMFJkM0Nza2JEdkNNV01adkZ0R3g0WklQNlhkbUpzTUNyTll6N0kr?=
+ =?utf-8?B?QXZXNGV3eXFCQmZpUU0vR2pzTk00a3prZ3MxM3FnYUVqblk5WWpUTmxsZDNy?=
+ =?utf-8?B?cTVKNEN2Q29QVGVzcnFtTlFEamZnNy9kbGJPM25GM3pROUJiak9Kbkx0Y2VO?=
+ =?utf-8?B?R0JvZzlIc3F6bDZSQkFUQ2Z0UHphM28vK2lqTW5yWlE0VlROVTFEdkVWZmZn?=
+ =?utf-8?B?U3JlODA2SkJpSlJQM3QxSWQ0YlB0d3VuVWV5YzhhdG1sMURYbW1OVUd4T3cz?=
+ =?utf-8?B?Rmh5ZVF0SFovVnltdHpYS0lhdnk1OUJYTjB5ZjVKT2Fqc1FOQ013Rm8yYWpj?=
+ =?utf-8?B?U1ZrOFFPMmxLVWFJNmtKS0RMZ2lqSXZFZndhTmdRZGZQR2hkZWlYRmlrVjFm?=
+ =?utf-8?B?SjQ3azN6Vk8xa2VGMXU5QUduSTREa3k2eEpYK0cwYk9pdHVrVTlzdEtLOEhQ?=
+ =?utf-8?B?OEdtOHhHMXFEY21sRExwbklRbS9lZXZRZG5uTW1GNXp1Uk9NU0FTZUdpMWVk?=
+ =?utf-8?B?MGtNVG5FOEhyY0duMGp3UzUzdUZyb3BIaVNWNDIwbFcxU2preXZCeURNY3hS?=
+ =?utf-8?B?RnBEMG5tWklBclhVVjY3NEU4QmdiVmpDaGFYTGpuUUVEMGNZbUZ6SXkzWXR5?=
+ =?utf-8?B?UWFEdS80aXh3a1Q2em1yVDJVdFhCMHB1bnVPaFdSNlNCdks1QUNDVXY4Y2hC?=
+ =?utf-8?B?amtUdXNsOUpQRFhoMWZ0SkJvMk1XN3A4d290eU9KQWMyZGNsZU43V05nOVVI?=
+ =?utf-8?B?V0Q3ZG14MTBiNEpqZVVLektzZU5PazNVTHQ5TGc1bmhSWlMzVjcrQjYrNFdB?=
+ =?utf-8?B?RG9rcHk1Y1l0SWlKWEpKY2dXUW4zU1h6bnlIa210R2kwY2s5SmtUTlJZNndZ?=
+ =?utf-8?B?Q0t1K2krRzdZN012V1BZUE92V0tIR2oza1dPTG5pWEtpWEZwNDB3eHh6dHY3?=
+ =?utf-8?B?dTF5Y2g0bmJHWFVOaTljdE9SbEVhWjNwMGRJOHpRbFJiSjBaZWFmSC85YUpr?=
+ =?utf-8?B?WS9ZQndsTi9odG03K1V6WkN5Z1dhTzFqb3owZ1E2NjV0SzVWNEduQzRoRGFV?=
+ =?utf-8?B?MllORE13T0hLd21XbGVzaXJaMmt1ajhQK0JKS1BXODMwRzI1Ty90WmFRVjZw?=
+ =?utf-8?B?eUc4cnE1UHNoK1BYazJvajYxT2lSUXBYOHVzYysvOW5odERMdUlxUjIxTWdB?=
+ =?utf-8?B?dm1RbW9DSG1hQ3BuU21xTTdNRHVRNFA1WXJCL3BXVnpJWEZQVmFQV0UzY3lZ?=
+ =?utf-8?B?L3B4bnJDcGxmbW91Y2NzVWZQUm1aaXpYRVpLVm9kVVYyeUh6U1hmaXdBTUYx?=
+ =?utf-8?B?Z2t3cTNGR1FKdEZTUEdMTWxQM3VGUThKckpRdmFoMGRtNEk1UmVEWnhpSjlT?=
+ =?utf-8?B?S3h2cjBVY3lqQ2dHRUNxeVNnYW95VjFQUXVNVFJvREpDWmpLRlFYV0RQcUpE?=
+ =?utf-8?B?cVpFcUJhZTlrTVVWOGg4NThsdGRkSDhnOFU4c0VMa0pSTXE5T3E1RDlUa05x?=
+ =?utf-8?B?L3lhZUF4cmliQkN4dmFXbllvUnU3eVdlTEx2SEdZTi9GNEhVZUxOSERxZW9l?=
+ =?utf-8?Q?qw/zo4au9Bs=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8897.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?U2RCVmtaVGJ5QjRKTFJJb25hb2ZVS2hmbmw4ZjVVUmdMQVV4NTJSNENRcFBl?=
+ =?utf-8?B?L291TnB5TmNQZnFaUXpTVXAwYkFuMWNuNHZrTE9MWWFLQi92YVVjQ0M2dlZ5?=
+ =?utf-8?B?R3FML0QxRitzNkwvSVVCbFRKRFB4MGxkbHR0SXpUZWFZYnhET3hNZ2N4MG9J?=
+ =?utf-8?B?SXVEQXVvQUZOd2VCaHQrNnh3L2ZnanFzYkJBVnlOWElyT3gvcDF2RW9yeEZV?=
+ =?utf-8?B?aHJLbVJMSVVTTTJIZThSam9CSHNqenppRVlMYzd4T3cxUCtaeFVtR3MvZUlz?=
+ =?utf-8?B?MnloUDJzRlFSWllYQ3hyVGJlZ1Q5REZkM2ZNaEliaGRkRk9lQjlmbWJnM2tr?=
+ =?utf-8?B?Ty9rQmx3dHFSOERDUm5YMFhRWTZyWDdvUkxHNDAvenZVeDQzS3ZMNVpQYzAz?=
+ =?utf-8?B?WVd0eXZaMXBtNklUaE1pRWtDYS82NERnNUZTOGpLTmtzQXBKR3Q0TFdUWk9B?=
+ =?utf-8?B?VENvMkZIcEE0TlA0U0pQU0FKU2NlM3UzaUh5eGx6MVRtQnB3cDZqSzZWbEpB?=
+ =?utf-8?B?RlBZOWFxd0JrTHBnaS81Z3lrbUtpV2N4VWhwMXlWclV6L2FzVm0vZkQ1TGNJ?=
+ =?utf-8?B?VEVIUWF6b3VVRW1yMlN6QUVDT1AxMEQyTm5Mb0xkaXNNeDV4TWFBeHA5VFBT?=
+ =?utf-8?B?V2Fjd080d0w5Vkp2YlB5Qm5TOXRNT2RIYkFoVUNPYUVOQUVaZkFicWJpVjNT?=
+ =?utf-8?B?d3FqWkh1N3I4U2VtT2ZSejhoNGl3SFJpOGhuMXpNODEyT3VCeGZQSnJrbXQ0?=
+ =?utf-8?B?ajBsZzdPbU52bEp1NmIza3hCMmlOYXFFV1IzRHhGVVh6b1NpYnFKcXM5dFFP?=
+ =?utf-8?B?UVVZY2JGL2g0Q0FsTGdaalFHckcwOGRrWEVVTlBoOUtzNGpaR0VBTnNtamt4?=
+ =?utf-8?B?TFJUcmk5M293dG1sQWZnVnlya09Jc0gyN05tQkkwZ2dqZVZMS2VzV1dPNDJi?=
+ =?utf-8?B?QmxOTGN5SnFLYVE1aktoSU5CRXY1SzNSYkNKNDBGUUxxRmRONTREUWhySm9i?=
+ =?utf-8?B?Ym9ZWURnbE12VEhEOXE0bWIydXRQWWJ1RU1HU2hPRm1pWThadDZEd3BGQXpG?=
+ =?utf-8?B?b243bzNsTXVhL1dpa2ZRaGtjTHBPcm9wUjRiazk0Tkt1QTBzcmlzK1J4dHRo?=
+ =?utf-8?B?MkNPYjRqWmsvRnRSRkc0NFdka1FlRDkxTnZIblZGNjg3TjZYQkI2OUFKcjY4?=
+ =?utf-8?B?V3l6QVF5RmhmVENOSnhrK1VyN0lRREFtT2R3WkQyVnFKUng1NXhrMnlKK0ly?=
+ =?utf-8?B?SkhPb0Vkd0I3UWQ1Y2Zoa3JScW9XMXA5bklPN000NEF6OVFhMHdONjNSZTNN?=
+ =?utf-8?B?a0VVdjJsdWt5ejNPYUFYdFJmMjZDd2xSRVYzVWJ1ZDJWdWlZekJaQjNKb3FJ?=
+ =?utf-8?B?U2luZyt0Ym9sR080bm9DbHo5QUtvMjFORjA4ZDI5bnhVb2Mzb2ZrRklCbTV5?=
+ =?utf-8?B?NDNsRUM5RnY5K1BQU2ZVZCtUdVY0U1BVKzluVXRERmgvWnQ3YWRFOVNWbk41?=
+ =?utf-8?B?WEQ2cTdGd2x2Q3JEOGY5czlVeng2UzlEQnNtVEFXK2pLNFc3NkE1dnZCOTEw?=
+ =?utf-8?B?ZklLQm5IbG9xMWh3WkMzeWlTWnYxb3dEaVNkMmh5M0ZxS1NTZytwOFN4cjVQ?=
+ =?utf-8?B?YVFzVzlKeHVuMWcyNHdzVjRpM0pEL3VMRUpsNGNkMlVKOHNENGg5cTJkN2JX?=
+ =?utf-8?B?NVJNSW9iTFI3YXV3QkNaUlVMdDBOTFZlekNjeHRscS9SbTdqMS9FNzNUSkVw?=
+ =?utf-8?B?SDRsbWpLSzczbXlLaWN5NWI5dTJEYU93SGE4VnNpeU1DNTUzZElXelIvSkNw?=
+ =?utf-8?B?QlRjS09qK013TmtMUlA0Si9aK1dxSnhhd1U0cGFmWmpqT1FaaUpwVTVlQlJR?=
+ =?utf-8?B?WU8rQmQxWWx0TTdvdlUxSklRU3M3WjJuaEJ2WU1ab0pxbFJMcldsUWRJZUc2?=
+ =?utf-8?B?dG04NHNta1Q4dnBQT1BKSGk0WXZ2MnBDU0NPZngvdlVXVDlxenNpSkNlUDFr?=
+ =?utf-8?B?K2RVcElVOWp6QU1XNUFvWGNsWEdjbExhaUlKdW5WenIybURmSS9ka3hPR3ls?=
+ =?utf-8?B?ejVjOEN3LzhOOS9DV3NUc2xoRzFITG5GMlBVRk9JTlJmQ2RwQ3ltU1BpMHh6?=
+ =?utf-8?B?bHEyWkFRV09uRVRnSDVVUmtXQ3VXWWYrOGFiUDJoZy82ZVNmTjNyVk1YQXJj?=
+ =?utf-8?B?YXc9PQ==?=
+X-OriginatorOrg: cherry.de
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4bdf07d6-bbbf-4dc5-0d50-08ddc52c719f
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8897.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Jul 2025 12:21:23.4001
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 5e0e1b52-21b5-4e7b-83bb-514ec460677e
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 6MHtSICGH1Csf2Pr/K1Am2r4QXYN/dFUlEpQIJ5seChsYRBnfnEmbFv6MB2LV789siz/PSrPuMiGxesJ1pFi5FMPzh9Z4dEXbHg5WiLwQjc=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA2PR04MB10347
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250717_051909_888098_30E49141 
-X-CRM114-Status: UNSURE (   7.62  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250717_052129_546283_BA69FDFD 
+X-CRM114-Status: GOOD (  31.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,30 +179,154 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-=E2=80=A6
-> +++ b/drivers/net/ethernet/ti/icssg/icssg_config.c
-> @@ -288,8 +288,12 @@ static int prueth_fw_offload_buffer_setup(struct pr=
-ueth_emac *emac)
->  	int i;
-> =20
->  	addr =3D lower_32_bits(prueth->msmcram.pa);
-> -	if (slice)
-> -		addr +=3D PRUETH_NUM_BUF_POOLS * PRUETH_EMAC_BUF_POOL_SIZE;
-> +	if (slice) {
-> +		if (prueth->pdata.banked_ms_ram)
-> +			addr +=3D MSMC_RAM_BANK_SIZE;
-> +		else
-> +			addr +=3D PRUETH_SW_TOTAL_BUF_SIZE_PER_SLICE;
-> +	}
-=E2=80=A6
+Hi Heiko,
 
-How do you think about to use the following code variant?
+On 7/16/25 8:50 PM, Heiko Stuebner wrote:
+> From: Heiko Stuebner <heiko.stuebner@cherry.de>
+> 
+> The DisplayPort carrier is a very simple baseboard only providing serial,
+> ethernet and a displayport output.
+> 
+> But its main functionality is that it routes the Analogix eDP controller
+> to this DisplayPort output, which allows to test that controller simply
+> by hooking it up to a suitable monitor.
+> 
+> The Analogix-DP controller supports eDP 1.3 and DP 1.2, so can drive
+> both eDP displays as well as full DP monitors. It does not support DP+
+> so passive DP-to-HDMI adapters won't work.
+> 
+> Signed-off-by: Heiko Stuebner <heiko.stuebner@cherry.de>
+> ---
+>   arch/arm64/boot/dts/rockchip/Makefile         |   1 +
+>   .../rk3588-tiger-displayport-carrier.dts      | 118 ++++++++++++++++++
+>   2 files changed, 119 insertions(+)
+>   create mode 100644 arch/arm64/boot/dts/rockchip/rk3588-tiger-displayport-carrier.dts
+> 
+> diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/dts/rockchip/Makefile
+> index 7946bec10670..0c915679fde6 100644
+> --- a/arch/arm64/boot/dts/rockchip/Makefile
+> +++ b/arch/arm64/boot/dts/rockchip/Makefile
+> @@ -178,6 +178,7 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-rock-5b-pcie-srns.dtbo
+>   dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-rock-5b-plus.dtb
+>   dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-tiger-haikou.dtb
+>   dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-tiger-haikou-video-demo.dtbo
+> +dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-tiger-displayport-carrier.dtb
 
-	if (slice)
-		addr +=3D ( prueth->pdata.banked_ms_ram
-			? MSMC_RAM_BANK_SIZE
-			: PRUETH_SW_TOTAL_BUF_SIZE_PER_SLICE);
+Please sort this alphabetically.
 
-Regards,
-Markus
+>   dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-toybrick-x0.dtb
+>   dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-turing-rk1.dtb
+>   dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-coolpi-4b.dtb
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-tiger-displayport-carrier.dts b/arch/arm64/boot/dts/rockchip/rk3588-tiger-displayport-carrier.dts
+> new file mode 100644
+> index 000000000000..5bd79877194a
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/rockchip/rk3588-tiger-displayport-carrier.dts
+> @@ -0,0 +1,118 @@
+> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+> +/*
+> + * Copyright (c) 2024 Cherry Embedded Solutions GmbH
+> + */
+> +
+> +/dts-v1/;
+> +#include <dt-bindings/soc/rockchip,vop2.h>
+> +#include "rk3588-tiger.dtsi"
+> +
+> +/ {
+> +	model = "Theobroma Systems RK3588-Q7 SoM on Tiger Displayport Carrier v1";
+> +	compatible = "tsd,rk3588-tiger-displayport-carrier", "tsd,rk3588-tiger", "rockchip,rk3588";
+> +
+
+Please add ethernet0 to /aliases?
+
+> +	chosen {
+> +		stdout-path = "serial2:115200n8";
+> +	};
+> +
+> +	dp-connector {
+> +		compatible = "dp-connector";
+> +		dp-pwr-supply = <&vcc3v3_baseboard>;
+> +		label = "dp0";
+> +		type = "full-size";
+
+Please order alphabetically the two properties above.
+
+> +
+> +		/* Q7_DP_HPD# but Q7_HDMI_HPD# could be used too */
+> +		hpd-gpios = <&gpio4 RK_PB5 GPIO_ACTIVE_LOW>;
+> +		pinctrl-0 = <&edp0_hpd_l>;
+> +		pinctrl-names = "default";
+> +
+> +		port {
+> +			dp_con_in: endpoint {
+> +				remote-endpoint = <&edp0_out_con>;
+> +			};
+> +		};
+> +	};
+> +
+> +	vcc3v3_baseboard: regulator-vcc3v3-baseboard {
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "vcc3v3_baseboard";
+> +		regulator-always-on;
+> +		regulator-boot-on;
+> +		regulator-min-microvolt = <3300000>;
+> +		regulator-max-microvolt = <3300000>;
+> +		vin-supply = <&vcc5v0_baseboard>;
+> +	};
+> +
+> +	vcc5v0_baseboard: regulator-vcc5v0-baseboard {
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "vcc5v0_baseboard";
+> +		regulator-always-on;
+> +		regulator-boot-on;
+> +		regulator-min-microvolt = <5000000>;
+> +		regulator-max-microvolt = <5000000>;
+> +	};
+> +};
+> +
+> +&edp0 {
+> +	/*
+> +	 * Note that this board doesn't respect Q7 standard as Q7 has
+> +	 * lane 2 of HDMI on the same pin as lane 0 of DP and lane 0 of HDMI
+> +	 * on lane 2 of DP but this board uses HDMI lane numbering instead of
+> +	 * DP lane numbering for its DP lanes.
+> +	 *
+> +	 * It should be possible to match Q7 standard if required by requesting
+> +	 * the eDPTX controller to swap lanes with:
+> +	 *
+> +	 * data-lanes = <2 1 0 3>;
+
+I don't think that's true currently?
+
+The driver only seems to be supporting swapping the lanes, c.f. 
+analogix_dp_lane_swap() which routes it to either 0 1 2 3 or 3 2 1 0 but 
+no mix like the one we would need. Also, this function is never called 
+with anything but "do not swap" argument. So we would need to fix the 
+driver to support that.
+
+Also, this is the kind of information we should have in Tiger DTSI and 
+not some "random" baseboard DTS which will actually not make use of it. 
+We should have data-lanes = <2 1 0 3>; in Tiger DTSI actually but 
+considering 1) the driver doesn't support that, 2) we don't have HW to 
+validate it works; I guess we'll just leave it at that.
+
+> +	 */
+> +
+
+Aren't we missing the data-lanes property here? I don't see a default 
+and I would assume we should be providing one?
+
+Documentation/devicetree/bindings/media/video-interfaces.yaml specifies 
+it either starts at 0 or 1, depending if there's a clock lane or not. As 
+far as I could tell, DP has 4 data lanes and the AUX lane as well, but 
+nothing clock-specific so I assume starting at 0 would be correct?
+
+On a side note, is the audio output on eDP TX controller already 
+supported like on HDMI? If so, we should add the edp0-sound node like in 
+our downstream fork. But looking at the driver, I don't think we 
+implement any dp_audio_* callbacks from drm_bridge_funcs which I assume 
+would be the way to implement that.
+
+Cheers,
+Quentin
 
