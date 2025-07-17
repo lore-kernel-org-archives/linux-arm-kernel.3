@@ -4,79 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 797FFC83F1B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 10:37:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF351C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 10:48:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=YsvJzJZksMHyPgxlzp5g7bmyBUFLA7czr+FzeFnmb+0=; b=1wR3D3szY1nroSNM6d0+/d0aOq
-	nbGpvMChucxdbZangU7S+i+gj2bx6ci6m4+77D/2EUBF7WlJpMaVErRX/+96W7Le+VFYj4Cv15n3Q
-	crou7xiWEnDtFuyuHhwxuyhpzuv2uXO6+RH0g2d99sDi0K5BcUTcYXjPgYDcUDUtr80iBnGKrJ1Do
-	iFGapjglAscXDt28g7HxSITUbvV9kcTpSkIe9mOC0kyZu6AHl46P1UjcziR5esqs8evH0Lf1+i5uZ
-	HvBiKOSSXKKMz3FOsoaFT8p8ne6wQ/TtP+kLw610Ukds+P9Azs1P8mnFh+A4I9KnZ4SExxYD8Phs2
-	d3KGjGtg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2aLo6QmBH2sfDcjFNDrVzv+tdtk/K/9cagqqXKGweA0=; b=A1zyzIymvt7Xz6FTqzArykk32s
+	Qg7bdGFncZAT2OPdcVnBt38TftyNa7CVHbDBajryTS7j6VfonAxfi2S20L3jO/UOWEpPop/s8buPK
+	iIiLwlxbxtItvfQX6Z3tGwc9DG/nH6ag4EPA2o1yFgrIqM+9NdLYiEB0h5gzRoJ9FOh/psaDxe6Hh
+	nRkhLkMaxw7YVaAUdY3MCJC9ITWo7+LqlUrzVS/+8hcilgwAq8eTwF1ket/ns7xLOS4rRSbmqALwd
+	DuhQ4RzxuURgsF/KTnvyy0tKHMifi6+vSdckJKQR1cauooyf0DrJvPdOpsXnGMsyEj2+NcuoHYczl
+	pO5Glq+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucLz2-00000009rfp-3rj9;
-	Thu, 17 Jul 2025 10:37:00 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1ucM9j-00000009tGH-3o8S;
+	Thu, 17 Jul 2025 10:48:03 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucKSY-00000009ekS-1qAj;
-	Thu, 17 Jul 2025 08:59:23 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 3ED58A577C8;
-	Thu, 17 Jul 2025 08:59:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id D4059C4CEED;
-	Thu, 17 Jul 2025 08:59:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752742758;
-	bh=M7D/j07sXCiX3umOa4PmP/ROxTjpH2Q+J8kImyrBWYs=;
-	h=From:Date:Subject:To:Cc:Reply-To:From;
-	b=IGpASrfmw1FDQQOEgSJMncOd/GV51zSPjIHldeEP7xjxpylB5G7IgmZteNAjDnunu
-	 Cckxgdn8xqJ+AChr43i5R3K+HKWRb3oqnWXum8ir/i4H4uNMHRMnouv6dLMPTGgY+P
-	 jQcERLetqSEzWkoSqNNb3ibnknvwo56qllmIkunmKjMBXx/QrJtvObD/YUGn5sMIKO
-	 h/sEzduEONXMPxGSECcvBbAPqDOqBgxGJ9aHCpBMewHYFA626Ly6ZaIKRd93CVPln+
-	 MByC6YFIIfnQccqy4CRahR0LfSkbHk0tmgkraPngf6P7Tf3cMooK8gFzVo6/uaPHXw
-	 LzTXHG0NHDpOQ==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C4EE9C83F1A;
-	Thu, 17 Jul 2025 08:59:18 +0000 (UTC)
-From: Xianwei Zhao via B4 Relay <devnull+xianwei.zhao.amlogic.com@kernel.org>
-Date: Thu, 17 Jul 2025 16:59:17 +0800
-Subject: [PATCH] dts: arm: amlogic: fix pwm node for c3
+	id 1ucLv4-00000009qUF-0NTc;
+	Thu, 17 Jul 2025 10:32:55 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-4560d176f97so9038145e9.0;
+        Thu, 17 Jul 2025 03:32:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1752748372; x=1753353172; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=2aLo6QmBH2sfDcjFNDrVzv+tdtk/K/9cagqqXKGweA0=;
+        b=McWbYrrFPyMnxqcy+aYnZ1e8lOlQOhfvo297yHDqeozVfn67cDFDClvG1/Tkey79Cm
+         /Ildmj/5zLqqcjbMEdafeoyJNv1HAhKMsO3hgKcUOw+C13CEku329qnyDiu2cl97T46E
+         4kmpm5lPuaQtYyayAjxgHDt9WlpI1UQkHk565v++8qEON3PiqiwRR/LSad0qtPE2FE+Z
+         Su9sPWox1VxuGdw4Q17iK6LpXt53pZv1nVVh/jEWvUGa6QPASk+E5CwyZL2cIGGLBavx
+         hAfba4nQgpBAjE1zZUjt5RITOTKcaeKvutEKwYzUAptQiYfT73MUdMADE9f7/0SZvxZP
+         KwGw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1752748372; x=1753353172;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=2aLo6QmBH2sfDcjFNDrVzv+tdtk/K/9cagqqXKGweA0=;
+        b=BPxnrg52OvvwEcAzC+5NTreTF0k9jSPJdt1R3HEY4deglA28wFHAtSyjynrnT2oF7E
+         Gpk55hKYmYip+/AJ40hr5uL+Vm5E88DdYkkdI3ea+L9bK7mITBSKgY136dAih5LdNeYa
+         5ubjYlWp7SJFbYar7jYiMzAbK1R036QEOmbqAGAZLPTGmmx4rwk41Ta830oxDLH30Tm6
+         DJA91hiyIk7EhWbZM4b8xj2gM9tjLpieXpKpprVsuw1FhQhhMzNJ7yO8hcc9elVrlqUa
+         W/sgD1pMulMgxGq67hVpqfjCNKn/cBTEdjllgbdKqVAOWPLm6/TwG+JT1hCxcPStZuTh
+         YA4w==
+X-Forwarded-Encrypted: i=1; AJvYcCU37EZ9NIf9fdzAQvbWRSyP7X9LvhHKHUUsWoOqkAHC+jHe/sfg9sKAzf7bIXQn0LLs7oVu5ozV4dBX+eY=@lists.infradead.org, AJvYcCXeTJmml0SoUjj2TaReIAcQCOYYf/uIr9arv6GOUTG9ryLk5z4Ww4IADqlM5Axq77CvtUXFMexbxtpeDiXvi3m8@lists.infradead.org
+X-Gm-Message-State: AOJu0YyOJDpBsVQfNXG6JWvcYZYWQJe5u8ZjYgsTFamolzFtjogJke24
+	KNmKl+YHRv5mLWL8fZy/5E7NNLvzrWbbXssQSS7+6Zr9JStMOKFms/GD
+X-Gm-Gg: ASbGncs0U49vbQOyQmFgvIJKP487bhJTreMw59GenypXyjDdlXfWdk8v647UCBem+2T
+	2yVL8S5+X7CGN24NorFQjT6b75cOkBn6crQvaBaTPADtDTGnrViqotTnbERCDN5g21JA71CJjsW
+	9O0ulSAOqMvzidgo57Ctb3I+0yqzBJQh8MtYcLIzIaBAqct/Cv/RLZh7f2mYz0hxlHocT1duygX
+	E6EeeMJgJ2fw9RfWOrQTpfq5FjguC4MLIBm+ZnfXm+ev0saGLnfMSb5g1c3UB2R6nzqenpHdNkc
+	22SHrlOlSF9MBgdJCYsu0AWUya78Jvjpw1mPZRfiltIm2Sivo6AEOWc5WDDD/MAZ8GFSJIWTOgm
+	jiHBdW1pGnoWX26lfP0LZTYvqGfDbjvJ13tI7X8BGM7f9jr/OEnok1OaCrCbx039Imjgc5ZzU2W
+	k6pl2eeS0bJpFibA==
+X-Google-Smtp-Source: AGHT+IHy7PA+ydb4zAWKmtnVkxvp2yVipMuhRsPFmT5ULPVHvkEqwkx5+jJwmnytUHEZv9na/OVQiw==
+X-Received: by 2002:a05:600c:1d20:b0:454:a37a:db67 with SMTP id 5b1f17b1804b1-4562e36c7a6mr69982365e9.17.1752748372489;
+        Thu, 17 Jul 2025 03:32:52 -0700 (PDT)
+Received: from localhost (p200300e41f4e9b00f22f74fffe1f3a53.dip0.t-ipconnect.de. [2003:e4:1f4e:9b00:f22f:74ff:fe1f:3a53])
+        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-3b5e8bd15bfsm20610595f8f.19.2025.07.17.03.32.50
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 17 Jul 2025 03:32:50 -0700 (PDT)
+From: Thierry Reding <thierry.reding@gmail.com>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: x86@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	linux-mips@vger.kernel.org,
+	loongarch@lists.linux.dev,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-sh@vger.kernel.org,
+	linux-pci@vger.kernel.org,
+	linux-acpi@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2 2/7] MIPS: Embed syscore_ops in PCI context
+Date: Thu, 17 Jul 2025 12:32:36 +0200
+Message-ID: <20250717103241.2806798-3-thierry.reding@gmail.com>
+X-Mailer: git-send-email 2.50.0
+In-Reply-To: <20250717103241.2806798-1-thierry.reding@gmail.com>
+References: <20250717103241.2806798-1-thierry.reding@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250717-fix-pwm-node-v1-1-45021777efa9@amlogic.com>
-X-B4-Tracking: v=1; b=H4sIAGS7eGgC/x2MQQqAIBAAvxJ7bkEFlfpKdLBcaw9ZKFQg/j3pO
- AwzBTIlpgxjVyDRzZnP2ED2Hay7ixsh+8aghNLCSouBX7yeA+PpCY2koOziBiM0tORK1Py/m+Z
- aP+a/zN9eAAAA
-To: Neil Armstrong <neil.armstrong@linaro.org>, 
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Chuan Liu <chuan.liu@amlogic.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Xianwei Zhao <xianwei.zhao@amlogic.com>
-X-Mailer: b4 0.12.4
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1752742757; l=1025;
- i=xianwei.zhao@amlogic.com; s=20231208; h=from:subject:message-id;
- bh=o5anEexAdJpsa2RWVePMFRWkvLxzPjZ8flBM5Edgoco=;
- b=WiA8ozMtVIYrzvTWtrwaxBiYQ1SRzjW6Ye/Tg8+39l0g9LF2BvFGboskS2qOMR+lmFFa8W+jL
- Wo+31HvFNR4DFp7Ch5eHYMjU1LfkqNrvMUZSOaxphRUWBHalHX/VvNz
-X-Developer-Key: i=xianwei.zhao@amlogic.com; a=ed25519;
- pk=o4fDH8ZXL6xQg5h17eNzRljf6pwZHWWjqcOSsj3dW24=
-X-Endpoint-Received: by B4 Relay for xianwei.zhao@amlogic.com/20231208 with
- auth_id=107
-X-Original-From: Xianwei Zhao <xianwei.zhao@amlogic.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250717_015922_553583_124A9DD4 
-X-CRM114-Status: UNSURE (   8.28  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250717_033254_130694_4EE2593F 
+X-CRM114-Status: GOOD (  14.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,43 +103,90 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: xianwei.zhao@amlogic.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Xianwei Zhao <xianwei.zhao@amlogic.com>
+From: Thierry Reding <treding@nvidia.com>
 
-Fix reg address for c3 pwm node.
+This enables the syscore callbacks to obtain the PCI context without
+relying on a separate global variable.
 
-Fixes: 431a5281e701 ("arm64: dts: amlogic: Add Amlogic C3 PWM")
-Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
+Signed-off-by: Thierry Reding <treding@nvidia.com>
 ---
-Fix c3 pwm node reg.
----
- arch/arm64/boot/dts/amlogic/amlogic-c3.dtsi | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/mips/pci/pci-alchemy.c | 24 ++++++++++++------------
+ 1 file changed, 12 insertions(+), 12 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/amlogic/amlogic-c3.dtsi b/arch/arm64/boot/dts/amlogic/amlogic-c3.dtsi
-index cb9ea3ca6ee0..71b2b3b547f7 100644
---- a/arch/arm64/boot/dts/amlogic/amlogic-c3.dtsi
-+++ b/arch/arm64/boot/dts/amlogic/amlogic-c3.dtsi
-@@ -792,7 +792,7 @@ spicc1: spi@52000 {
- 			pwm_mn: pwm@54000 {
- 				compatible = "amlogic,c3-pwm",
- 					     "amlogic,meson-s4-pwm";
--				reg = <0x0 54000 0x0 0x24>;
-+				reg = <0x0 0x54000 0x0 0x24>;
- 				clocks = <&clkc_periphs CLKID_PWM_M>,
- 					 <&clkc_periphs CLKID_PWM_N>;
- 				#pwm-cells = <3>;
-
----
-base-commit: 58abdca0eb653c1a2e755ba9ba406ee475d87636
-change-id: 20250717-fix-pwm-node-61ef27ba9605
-
-Best regards,
+diff --git a/arch/mips/pci/pci-alchemy.c b/arch/mips/pci/pci-alchemy.c
+index a20de7160b6b..02f0616518e1 100644
+--- a/arch/mips/pci/pci-alchemy.c
++++ b/arch/mips/pci/pci-alchemy.c
+@@ -33,6 +33,7 @@
+ 
+ struct alchemy_pci_context {
+ 	struct pci_controller alchemy_pci_ctrl; /* leave as first member! */
++	struct syscore_ops pmops;
+ 	void __iomem *regs;			/* ctrl base */
+ 	/* tools for wired entry for config space access */
+ 	unsigned long last_elo0;
+@@ -46,6 +47,12 @@ struct alchemy_pci_context {
+ 	int (*board_pci_idsel)(unsigned int devsel, int assert);
+ };
+ 
++static inline struct alchemy_pci_context *
++syscore_to_pci_context(struct syscore_ops *ops)
++{
++	return container_of(ops, struct alchemy_pci_context, pmops);
++}
++
+ /* for syscore_ops. There's only one PCI controller on Alchemy chips, so this
+  * should suffice for now.
+  */
+@@ -306,9 +313,7 @@ static int alchemy_pci_def_idsel(unsigned int devsel, int assert)
+ /* save PCI controller register contents. */
+ static int alchemy_pci_suspend(struct syscore_ops *ops)
+ {
+-	struct alchemy_pci_context *ctx = __alchemy_pci_ctx;
+-	if (!ctx)
+-		return 0;
++	struct alchemy_pci_context *ctx = syscore_to_pci_context(ops);
+ 
+ 	ctx->pm[0]  = __raw_readl(ctx->regs + PCI_REG_CMEM);
+ 	ctx->pm[1]  = __raw_readl(ctx->regs + PCI_REG_CONFIG) & 0x0009ffff;
+@@ -328,9 +333,7 @@ static int alchemy_pci_suspend(struct syscore_ops *ops)
+ 
+ static void alchemy_pci_resume(struct syscore_ops *ops)
+ {
+-	struct alchemy_pci_context *ctx = __alchemy_pci_ctx;
+-	if (!ctx)
+-		return;
++	struct alchemy_pci_context *ctx = syscore_to_pci_context(ops);
+ 
+ 	__raw_writel(ctx->pm[0],  ctx->regs + PCI_REG_CMEM);
+ 	__raw_writel(ctx->pm[2],  ctx->regs + PCI_REG_B2BMASK_CCH);
+@@ -354,11 +357,6 @@ static void alchemy_pci_resume(struct syscore_ops *ops)
+ 	alchemy_pci_wired_entry(ctx);	/* install it */
+ }
+ 
+-static struct syscore_ops alchemy_pci_pmops = {
+-	.suspend	= alchemy_pci_suspend,
+-	.resume		= alchemy_pci_resume,
+-};
+-
+ static int alchemy_pci_probe(struct platform_device *pdev)
+ {
+ 	struct alchemy_pci_platdata *pd = pdev->dev.platform_data;
+@@ -478,7 +476,9 @@ static int alchemy_pci_probe(struct platform_device *pdev)
+ 
+ 	__alchemy_pci_ctx = ctx;
+ 	platform_set_drvdata(pdev, ctx);
+-	register_syscore_ops(&alchemy_pci_pmops);
++	ctx->pmops.suspend = alchemy_pci_suspend;
++	ctx->pmops.resume = alchemy_pci_resume;
++	register_syscore_ops(&ctx->pmops);
+ 	register_pci_controller(&ctx->alchemy_pci_ctrl);
+ 
+ 	dev_info(&pdev->dev, "PCI controller at %ld MHz\n",
 -- 
-Xianwei Zhao <xianwei.zhao@amlogic.com>
-
+2.50.0
 
 
