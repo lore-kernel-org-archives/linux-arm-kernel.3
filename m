@@ -4,91 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E711EC83F22
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 08:48:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8948BC83F22
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 08:51:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hD4y1SLZJQd2PH2XBfB5P8oz9CHIUFEzn5s15HZzp5k=; b=vPZCvGTGZB3l9H+09ZmY9gwmhU
-	U2vFg11ZPV2g3S1fyFoa5uUGHpuO9X8w3lvTk856KmQkICMOrew7Vc6tIU8bPbWXlpjSc+o9ZLFRf
-	Dbd908q1U44DHxCHkh6Y5rbS0hd38WgMK1XNwI4a3euPaQ+2Wezlzd7Es+uTdD/5Jm2waNFKIbbVZ
-	dkUl/nbKlGLNX+ptaVIvHcRArwoIjfLIVs2FkXlLSHLCAtmvu8dqR0JZV9LwMFPF0ujRQb/x29nAk
-	qEVo1eNn7f5K/RM3j4Ze8jSAfjot79bwYzxUo11/t69Qr4dAzdXtsIRyUk+hb65ZXc9f3Tw7fKp/U
-	FkTyPqPQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AaSOxGGhzwJhhcgad0wITM8RrrIu2ZeiGEYbrIdBCb8=; b=Me0eWsskwIKioWAhjeChb+EXLn
+	Z5otD9rTln8E/IY5Mkft1oodyFdukO/9bkbkTvCbI6DndnVjveEshKe61QZZ6Rc2nnF2FJUhBO7wA
+	/DLEP0jRDfq38BLKz+hWQQlgbV8szzYCClmtPNnPw1oWMqTN7VOU1tGLjn6f7dea0/ACFVTYH90q6
+	D691NvNL+nDxsxcVBgEV8r0CJnQIxVfVSpe2xe8oHcCO0WbJTlcwQk+luMIBIG4Bocl7vMspQFyWv
+	6IvZY9o6/l4NlQnAyZWC6dCMhQRxzrv2iE4w6uP3dIVA5KT3osqi0EDG0WpH0Wbv9QwFLktqqcipI
+	tll3905g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucKHt-00000009bn4-44DW;
-	Thu, 17 Jul 2025 08:48:21 +0000
-Received: from relay9-d.mail.gandi.net ([2001:4b98:dc4:8::229])
+	id 1ucKKM-00000009cxm-06fH;
+	Thu, 17 Jul 2025 08:50:54 +0000
+Received: from szxga01-in.huawei.com ([45.249.212.187])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucJ4b-00000009S3j-1PHT
+	id 1ucJFu-00000009UDF-1bhL
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Jul 2025 07:30:34 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 5BA4A443EB;
-	Thu, 17 Jul 2025 07:30:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1752737431;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=hD4y1SLZJQd2PH2XBfB5P8oz9CHIUFEzn5s15HZzp5k=;
-	b=m+jLMiyWS6TwCP0qQolGWoz7FQi6b5HsSMU48ZDepL12MEuBoERqn3JAAMDa5nrAJWfO6j
-	zRnEC0kbxR2f6bF7fFlTGsmuVQUi99f2VpOFiZ6ysRCCobeNsH3m4ZhWzPp/QG8PEbe8HL
-	FZe9VFN01nB+ECkuufCKJSfvSA14zvCmQ+FijZmLwaPVEgdK+yio9oyrfiYFidMkaX+jQR
-	SDWBurJGuQITrjbhZ+0MM5RxlAjS1gCDEQd40WH6lXwbCvR6Dgho/dXwyU/Sgfi1H98uOY
-	lJR9BRlM7lgw7ihk2NxM1v16mbJLmrtuUM33DlZIQe3SBal8pudd0qBprTetMw==
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-To: davem@davemloft.net
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org,
-	thomas.petazzoni@bootlin.com,
-	Andrew Lunn <andrew@lunn.ch>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Eric Dumazet <edumazet@google.com>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Russell King <linux@armlinux.org.uk>,
-	linux-arm-kernel@lists.infradead.org,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Herve Codina <herve.codina@bootlin.com>,
-	Florian Fainelli <f.fainelli@gmail.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Vladimir Oltean <vladimir.oltean@nxp.com>,
-	=?UTF-8?q?K=C3=B6ry=20Maincent?= <kory.maincent@bootlin.com>,
-	=?UTF-8?q?Marek=20Beh=C3=BAn?= <kabel@kernel.org>,
-	Oleksij Rempel <o.rempel@pengutronix.de>,
-	=?UTF-8?q?Nicol=C3=B2=20Veronese?= <nicveronese@gmail.com>,
-	Simon Horman <horms@kernel.org>,
-	mwojtas@chromium.org,
-	Antoine Tenart <atenart@kernel.org>,
-	devicetree@vger.kernel.org,
-	Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Romain Gantois <romain.gantois@bootlin.com>,
-	Daniel Golle <daniel@makrotopia.org>,
-	Dimitri Fedrau <dimitri.fedrau@liebherr.com>
-Subject: [PATCH net-next v9 04/15] net: phy: Introduce PHY ports representation
-Date: Thu, 17 Jul 2025 09:30:08 +0200
-Message-ID: <20250717073020.154010-5-maxime.chevallier@bootlin.com>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250717073020.154010-1-maxime.chevallier@bootlin.com>
-References: <20250717073020.154010-1-maxime.chevallier@bootlin.com>
+	Thu, 17 Jul 2025 07:42:16 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.252])
+	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4bjPv904xMz13Mls;
+	Thu, 17 Jul 2025 15:39:17 +0800 (CST)
+Received: from dggemv705-chm.china.huawei.com (unknown [10.3.19.32])
+	by mail.maildlp.com (Postfix) with ESMTPS id 1E27B180B64;
+	Thu, 17 Jul 2025 15:42:06 +0800 (CST)
+Received: from kwepemq200018.china.huawei.com (7.202.195.108) by
+ dggemv705-chm.china.huawei.com (10.3.19.32) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Thu, 17 Jul 2025 15:42:05 +0800
+Received: from localhost.localdomain (10.50.165.33) by
+ kwepemq200018.china.huawei.com (7.202.195.108) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Thu, 17 Jul 2025 15:42:04 +0800
+From: Yicong Yang <yangyicong@huawei.com>
+To: <will@kernel.org>, <mark.rutland@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+CC: <hejunhao3@huawei.com>, <jonathan.cameron@huawei.com>,
+	<prime.zeng@hisilicon.com>, <linuxarm@huawei.com>,
+	<yangyicong@hisilicon.com>, <wangyushan12@huawei.com>
+Subject: [PATCH v4 1/2] drivers/perf: hisi: Add support for HiSilicon NoC PMU
+Date: Thu, 17 Jul 2025 15:41:37 +0800
+Message-ID: <20250717074138.39903-2-yangyicong@huawei.com>
+X-Mailer: git-send-email 2.31.0
+In-Reply-To: <20250717074138.39903-1-yangyicong@huawei.com>
+References: <20250717074138.39903-1-yangyicong@huawei.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdehleellecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhephffvvefufffkofgjfhgggfestdekredtredttdenucfhrhhomhepofgrgihimhgvucevhhgvvhgrlhhlihgvrhcuoehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeevgedtffelffelveeuleelgfejfeevvdejhfehgeefgfffvdefteegvedutefftdenucfkphepvdgrtddumegtsgduleemkegugeehmeegledttdemieehieekmedvlegsudemlegvfhehmegvkegtjeenucevlhhushhtvghrufhiiigvpedunecurfgrrhgrmhepihhnvghtpedvrgdtudemtggsudelmeekugegheemgeeltddtmeeiheeikeemvdelsgdumeelvghfheemvgektgejpdhhvghlohepfhgvughorhgrrdhhohhmvgdpmhgrihhlfhhrohhmpehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeefuddprhgtphhtthhopegurghvvghmsegurghvvghmlhhofhhtrdhnvghtpdhrtghpthhtohepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdprhgtphhtthhopehnvghtuggvvhesvhhgvghrrdhkv
- ghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhmshhmsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtohepthhhohhmrghsrdhpvghtrgiiiihonhhisegsohhothhlihhnrdgtohhmpdhrtghpthhtoheprghnughrvgifsehluhhnnhdrtghhpdhrtghpthhtohepkhhusggrsehkvghrnhgvlhdrohhrgh
-X-GND-Sasl: maxime.chevallier@bootlin.com
+Content-Type: text/plain
+X-Originating-IP: [10.50.165.33]
+X-ClientProxiedBy: dggems702-chm.china.huawei.com (10.3.19.179) To
+ kwepemq200018.china.huawei.com (7.202.195.108)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250717_003033_681258_1D910808 
-X-CRM114-Status: GOOD (  34.29  )
+X-CRM114-CacheID: sfid-20250717_004214_741134_FBD743DF 
+X-CRM114-Status: GOOD (  26.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,750 +76,519 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Ethernet provides a wide variety of layer 1 protocols and standards for
-data transmission. The front-facing ports of an interface have their own
-complexity and configurability.
+From: Yicong Yang <yangyicong@hisilicon.com>
 
-Introduce a representation of these front-facing ports. The current code
-is minimalistic and only support ports controlled by PHY devices, but
-the plan is to extend that to SFP as well as raw Ethernet MACs that
-don't use PHY devices.
+Adds the support for HiSilicon NoC (Network on Chip) PMU which
+will be used to monitor the events on the system bus. The PMU
+device will be named after the SCL ID (either Super CPU cluster
+or Super IO cluster) and the index ID, just similar to other
+HiSilicon Uncore PMUs. Below PMU formats are provided besides
+the event:
 
-This minimal port representation allows describing the media and number
-of lanes of a port. From that information, we can derive the linkmodes
-usable on the port, which can be used to limit the capabilities of an
-interface.
+- ch: the transaction channel (data, request, response, etc) which
+  can be used to filter the counting.
+- tt_en: tracetag filtering enable. Just as other HiSilicon Uncore
+  PMUs the NoC PMU supports only counting the transactions with
+  tracetag.
 
-For now, the port lanes and medium is derived from devicetree, defined
-by the PHY driver, or populated with default values (as we assume that
-all PHYs expose at least one port).
+The NoC PMU doesn't have an interrupt to indicate the overflow.
+However we have a 64 bit counter which is large enough and it's
+nearly impossible to overflow.
 
-The typical example is 100M ethernet. 100BaseT can work using only 2
-lanes on a Cat 5 cables. However, in the situation where a 10/100/1000
-capable PHY is wired to its RJ45 port through 2 lanes only, we have no
-way of detecting that. The "max-speed" DT property can be used, but a
-more accurate representation can be used :
-
-mdi {
-	connector-0 {
-		media = "BaseT";
-		lanes = <2>;
-	};
-};
-
-From that information, we can derive the max speed reachable on the
-port.
-
-Another benefit of having that is to avoid vendor-specific DT properties
-(micrel,fiber-mode or ti,fiber-mode).
-
-This basic representation is meant to be expanded, by the introduction
-of port ops, userspace listing of ports, and support for multi-port
-devices.
-
-Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
 ---
- MAINTAINERS                  |   1 +
- drivers/net/phy/Makefile     |   2 +-
- drivers/net/phy/phy-caps.h   |   5 +
- drivers/net/phy/phy_caps.c   |  58 +++++++++++
- drivers/net/phy/phy_device.c | 180 +++++++++++++++++++++++++++++++++++
- drivers/net/phy/phy_port.c   | 135 ++++++++++++++++++++++++++
- include/linux/ethtool.h      |  26 +++++
- include/linux/phy.h          |  30 ++++++
- include/linux/phy_port.h     |  96 +++++++++++++++++++
- 9 files changed, 532 insertions(+), 1 deletion(-)
- create mode 100644 drivers/net/phy/phy_port.c
- create mode 100644 include/linux/phy_port.h
+ Documentation/admin-guide/perf/hisi-pmu.rst  |  11 +
+ drivers/perf/hisilicon/Makefile              |   3 +-
+ drivers/perf/hisilicon/hisi_uncore_noc_pmu.c | 443 +++++++++++++++++++
+ 3 files changed, 456 insertions(+), 1 deletion(-)
+ create mode 100644 drivers/perf/hisilicon/hisi_uncore_noc_pmu.c
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 9231e6ef0a19..2317e420c311 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -8981,6 +8981,7 @@ F:	include/linux/of_net.h
- F:	include/linux/phy.h
- F:	include/linux/phy_fixed.h
- F:	include/linux/phy_link_topology.h
-+F:	include/linux/phy_port.h
- F:	include/linux/phylib_stubs.h
- F:	include/linux/platform_data/mdio-bcm-unimac.h
- F:	include/linux/platform_data/mdio-gpio.h
-diff --git a/drivers/net/phy/Makefile b/drivers/net/phy/Makefile
-index b4795aaf9c1c..b4207d7d092a 100644
---- a/drivers/net/phy/Makefile
-+++ b/drivers/net/phy/Makefile
-@@ -3,7 +3,7 @@
+diff --git a/Documentation/admin-guide/perf/hisi-pmu.rst b/Documentation/admin-guide/perf/hisi-pmu.rst
+index 48992a0b8e94..6f0ea4f641cc 100644
+--- a/Documentation/admin-guide/perf/hisi-pmu.rst
++++ b/Documentation/admin-guide/perf/hisi-pmu.rst
+@@ -112,6 +112,17 @@ uring channel. It is 2 bits. Some important codes are as follows:
+ - 2'b00: default value, count the events which sent to the both uring and
+   uring_ext channel;
  
- libphy-y			:= phy.o phy-c45.o phy-core.o phy_device.o \
- 				   linkmode.o phy_link_topology.o \
--				   phy_caps.o mdio_bus_provider.o
-+				   phy_caps.o mdio_bus_provider.o phy_port.o
- mdio-bus-y			+= mdio_bus.o mdio_device.o
- 
- ifdef CONFIG_PHYLIB
-diff --git a/drivers/net/phy/phy-caps.h b/drivers/net/phy/phy-caps.h
-index 157759966650..01df1bdc1516 100644
---- a/drivers/net/phy/phy-caps.h
-+++ b/drivers/net/phy/phy-caps.h
-@@ -60,4 +60,9 @@ const struct link_capabilities *
- phy_caps_lookup(int speed, unsigned int duplex, const unsigned long *supported,
- 		bool exact);
- 
-+void phy_caps_medium_get_supported(unsigned long *supported,
-+				   enum ethtool_link_medium medium,
-+				   int lanes);
-+u32 phy_caps_mediums_from_linkmodes(unsigned long *linkmodes);
++6. ch: NoC PMU supports filtering the event counts of certain transaction
++channel with this option. The current supported channels are as follows:
 +
- #endif /* __PHY_CAPS_H */
-diff --git a/drivers/net/phy/phy_caps.c b/drivers/net/phy/phy_caps.c
-index 2cc9ee97e867..96dfe17e1f71 100644
---- a/drivers/net/phy/phy_caps.c
-+++ b/drivers/net/phy/phy_caps.c
-@@ -376,3 +376,61 @@ unsigned long phy_caps_from_interface(phy_interface_t interface)
- 	return link_caps;
- }
- EXPORT_SYMBOL_GPL(phy_caps_from_interface);
++- 3'b010: Request channel
++- 3'b100: Snoop channel
++- 3'b110: Response channel
++- 3'b111: Data channel
 +
-+/**
-+ * phy_caps_medium_get_supported() - Returns linkmodes supported on a given medium
-+ * @supported: After this call, contains all possible linkmodes on a given medium,
-+ *	       and with the given number of lanes.
-+ * @medium: The medium to get the support from
-+ * @lanes: The number of lanes used on the given medium
++7. tt_en: NoC PMU supports counting only transactions that have tracetag set
++if this option is set. See the 2nd list for more information about tracetag.
++
+ Users could configure IDs to count data come from specific CCL/ICL, by setting
+ srcid_cmd & srcid_msk, and data desitined for specific CCL/ICL by setting
+ tgtid_cmd & tgtid_msk. A set bit in srcid_msk/tgtid_msk means the PMU will not
+diff --git a/drivers/perf/hisilicon/Makefile b/drivers/perf/hisilicon/Makefile
+index 48dcc8381ea7..dcec8f39719d 100644
+--- a/drivers/perf/hisilicon/Makefile
++++ b/drivers/perf/hisilicon/Makefile
+@@ -1,7 +1,8 @@
+ # SPDX-License-Identifier: GPL-2.0-only
+ obj-$(CONFIG_HISI_PMU) += hisi_uncore_pmu.o hisi_uncore_l3c_pmu.o \
+ 			  hisi_uncore_hha_pmu.o hisi_uncore_ddrc_pmu.o hisi_uncore_sllc_pmu.o \
+-			  hisi_uncore_pa_pmu.o hisi_uncore_cpa_pmu.o hisi_uncore_uc_pmu.o
++			  hisi_uncore_pa_pmu.o hisi_uncore_cpa_pmu.o hisi_uncore_uc_pmu.o \
++			  hisi_uncore_noc_pmu.o
+ 
+ obj-$(CONFIG_HISI_PCIE_PMU) += hisi_pcie_pmu.o
+ obj-$(CONFIG_HNS3_PMU) += hns3_pmu.o
+diff --git a/drivers/perf/hisilicon/hisi_uncore_noc_pmu.c b/drivers/perf/hisilicon/hisi_uncore_noc_pmu.c
+new file mode 100644
+index 000000000000..2e3eb7881caa
+--- /dev/null
++++ b/drivers/perf/hisilicon/hisi_uncore_noc_pmu.c
+@@ -0,0 +1,443 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Driver for HiSilicon Uncore NoC (Network on Chip) PMU device
 + *
-+ * If no match exists, the supported field is left untouched.
++ * Copyright (c) 2025 HiSilicon Technologies Co., Ltd.
++ * Author: Yicong Yang <yangyicong@hisilicon.com>
 + */
-+void phy_caps_medium_get_supported(unsigned long *supported,
-+				   enum ethtool_link_medium medium,
-+				   int lanes)
++#include <linux/bitops.h>
++#include <linux/cpuhotplug.h>
++#include <linux/device.h>
++#include <linux/io.h>
++#include <linux/mod_devicetable.h>
++#include <linux/module.h>
++#include <linux/platform_device.h>
++#include <linux/property.h>
++#include <linux/sysfs.h>
++
++#include "hisi_uncore_pmu.h"
++
++#define NOC_PMU_VERSION			0x1e00
++#define NOC_PMU_GLOBAL_CTRL		0x1e04
++#define   NOC_PMU_GLOBAL_CTRL_PMU_EN	BIT(0)
++#define   NOC_PMU_GLOBAL_CTRL_TT_EN	BIT(1)
++#define NOC_PMU_CNT_INFO		0x1e08
++#define   NOC_PMU_CNT_INFO_OVERFLOW(n)	BIT(n)
++#define NOC_PMU_EVENT_CTRL0		0x1e20
++#define   NOC_PMU_EVENT_CTRL_TYPE	GENMASK(4, 0)
++/*
++ * Note channel of 0x0 will reset the counter value, so don't do it before
++ * we read out the counter.
++ */
++#define   NOC_PMU_EVENT_CTRL_CHANNEL	GENMASK(10, 8)
++#define   NOC_PMU_EVENT_CTRL_EN		BIT(11)
++#define NOC_PMU_EVENT_COUNTER0		0x1e80
++
++#define NOC_PMU_NR_COUNTERS		4
++#define NOC_PMU_CH_DEFAULT		0x7
++
++#define NOC_PMU_EVENT_CTRLn(ctrl0, n)	((ctrl0) + 4 * (n))
++#define NOC_PMU_EVENT_CNTRn(cntr0, n)	((cntr0) + 8 * (n))
++
++HISI_PMU_EVENT_ATTR_EXTRACTOR(ch, config1, 2, 0);
++HISI_PMU_EVENT_ATTR_EXTRACTOR(tt_en, config1, 3, 3);
++
++/* Dynamic CPU hotplug state used by this PMU driver */
++static enum cpuhp_state hisi_noc_pmu_cpuhp_state;
++
++struct hisi_noc_pmu_regs {
++	u32 version;
++	u32 pmu_ctrl;
++	u32 event_ctrl0;
++	u32 event_cntr0;
++	u32 ovflow_status;
++};
++
++/*
++ * Tracetag filtering is not per event and all the events should keep
++ * the consistence. Return true if the new comer doesn't match the
++ * tracetag filtering configuration of the current scheduled events.
++ */
++static bool hisi_noc_pmu_check_global_filter(struct perf_event *curr,
++					     struct perf_event *new)
 +{
-+	int i;
++	return hisi_get_tt_en(curr) == hisi_get_tt_en(new);
++}
 +
-+	for (i = 0; i < __ETHTOOL_LINK_MODE_MASK_NBITS; i++) {
-+		/* Special bits such as Autoneg, Pause, Asym_pause, etc. are
-+		 * set and will be masked away by the port parent.
-+		 */
-+		if (link_mode_params[i].mediums == BIT(ETHTOOL_LINK_MEDIUM_NONE)) {
-+			linkmode_set_bit(i, supported);
-+			continue;
-+		}
++static void hisi_noc_pmu_write_evtype(struct hisi_pmu *noc_pmu, int idx, u32 type)
++{
++	struct hisi_noc_pmu_regs *reg_info = noc_pmu->dev_info->private;
++	u32 reg;
 +
-+		/* For most cases, min_lanes == lanes, except for 10/100BaseT that work
-+		 * on 2 lanes but are compatible with 4 lanes mediums
-+		 */
-+		if (link_mode_params[i].mediums & BIT(medium) &&
-+		    link_mode_params[i].lanes >= lanes &&
-+		    link_mode_params[i].min_lanes <= lanes) {
-+			linkmode_set_bit(i, supported);
-+		}
++	reg = readl(noc_pmu->base + NOC_PMU_EVENT_CTRLn(reg_info->event_ctrl0, idx));
++	reg &= ~NOC_PMU_EVENT_CTRL_TYPE;
++	reg |= FIELD_PREP(NOC_PMU_EVENT_CTRL_TYPE, type);
++	writel(reg, noc_pmu->base + NOC_PMU_EVENT_CTRLn(reg_info->event_ctrl0, idx));
++}
++
++static int hisi_noc_pmu_get_event_idx(struct perf_event *event)
++{
++	struct hisi_pmu *noc_pmu = to_hisi_pmu(event->pmu);
++	struct hisi_pmu_hwevents *pmu_events = &noc_pmu->pmu_events;
++	int cur_idx;
++
++	cur_idx = find_first_bit(pmu_events->used_mask, noc_pmu->num_counters);
++	if (cur_idx != noc_pmu->num_counters &&
++	    !hisi_noc_pmu_check_global_filter(pmu_events->hw_events[cur_idx], event))
++		return -EAGAIN;
++
++	return hisi_uncore_pmu_get_event_idx(event);
++}
++
++static u64 hisi_noc_pmu_read_counter(struct hisi_pmu *noc_pmu,
++				     struct hw_perf_event *hwc)
++{
++	struct hisi_noc_pmu_regs *reg_info = noc_pmu->dev_info->private;
++
++	return readq(noc_pmu->base + NOC_PMU_EVENT_CNTRn(reg_info->event_cntr0, hwc->idx));
++}
++
++static void hisi_noc_pmu_write_counter(struct hisi_pmu *noc_pmu,
++				       struct hw_perf_event *hwc, u64 val)
++{
++	struct hisi_noc_pmu_regs *reg_info = noc_pmu->dev_info->private;
++
++	writeq(val, noc_pmu->base + NOC_PMU_EVENT_CNTRn(reg_info->event_cntr0, hwc->idx));
++}
++
++static void hisi_noc_pmu_enable_counter(struct hisi_pmu *noc_pmu,
++					struct hw_perf_event *hwc)
++{
++	struct hisi_noc_pmu_regs *reg_info = noc_pmu->dev_info->private;
++	u32 reg;
++
++	reg = readl(noc_pmu->base + NOC_PMU_EVENT_CTRLn(reg_info->event_ctrl0, hwc->idx));
++	reg |= NOC_PMU_EVENT_CTRL_EN;
++	writel(reg, noc_pmu->base + NOC_PMU_EVENT_CTRLn(reg_info->event_ctrl0, hwc->idx));
++}
++
++static void hisi_noc_pmu_disable_counter(struct hisi_pmu *noc_pmu,
++					 struct hw_perf_event *hwc)
++{
++	struct hisi_noc_pmu_regs *reg_info = noc_pmu->dev_info->private;
++	u32 reg;
++
++	reg = readl(noc_pmu->base + NOC_PMU_EVENT_CTRLn(reg_info->event_ctrl0, hwc->idx));
++	reg &= ~NOC_PMU_EVENT_CTRL_EN;
++	writel(reg, noc_pmu->base + NOC_PMU_EVENT_CTRLn(reg_info->event_ctrl0, hwc->idx));
++}
++
++static void hisi_noc_pmu_enable_counter_int(struct hisi_pmu *noc_pmu,
++					    struct hw_perf_event *hwc)
++{
++	/* We don't support interrupt, so a stub here. */
++}
++
++static void hisi_noc_pmu_disable_counter_int(struct hisi_pmu *noc_pmu,
++					     struct hw_perf_event *hwc)
++{
++}
++
++static void hisi_noc_pmu_start_counters(struct hisi_pmu *noc_pmu)
++{
++	struct hisi_noc_pmu_regs *reg_info = noc_pmu->dev_info->private;
++	u32 reg;
++
++	reg = readl(noc_pmu->base + reg_info->pmu_ctrl);
++	reg |= NOC_PMU_GLOBAL_CTRL_PMU_EN;
++	writel(reg, noc_pmu->base + reg_info->pmu_ctrl);
++}
++
++static void hisi_noc_pmu_stop_counters(struct hisi_pmu *noc_pmu)
++{
++	struct hisi_noc_pmu_regs *reg_info = noc_pmu->dev_info->private;
++	u32 reg;
++
++	reg = readl(noc_pmu->base + reg_info->pmu_ctrl);
++	reg &= ~NOC_PMU_GLOBAL_CTRL_PMU_EN;
++	writel(reg, noc_pmu->base + reg_info->pmu_ctrl);
++}
++
++static u32 hisi_noc_pmu_get_int_status(struct hisi_pmu *noc_pmu)
++{
++	struct hisi_noc_pmu_regs *reg_info = noc_pmu->dev_info->private;
++
++	return readl(noc_pmu->base + reg_info->ovflow_status);
++}
++
++static void hisi_noc_pmu_clear_int_status(struct hisi_pmu *noc_pmu, int idx)
++{
++	struct hisi_noc_pmu_regs *reg_info = noc_pmu->dev_info->private;
++	u32 reg;
++
++	reg = readl(noc_pmu->base + reg_info->ovflow_status);
++	reg &= ~NOC_PMU_CNT_INFO_OVERFLOW(idx);
++	writel(reg, noc_pmu->base + reg_info->ovflow_status);
++}
++
++static void hisi_noc_pmu_enable_filter(struct perf_event *event)
++{
++	struct hisi_pmu *noc_pmu = to_hisi_pmu(event->pmu);
++	struct hisi_noc_pmu_regs *reg_info = noc_pmu->dev_info->private;
++	struct hw_perf_event *hwc = &event->hw;
++	u32 tt_en = hisi_get_tt_en(event);
++	u32 ch = hisi_get_ch(event);
++	u32 reg;
++
++	if (!ch)
++		ch = NOC_PMU_CH_DEFAULT;
++
++	reg = readl(noc_pmu->base + NOC_PMU_EVENT_CTRLn(reg_info->event_ctrl0, hwc->idx));
++	reg &= ~NOC_PMU_EVENT_CTRL_CHANNEL;
++	reg |= FIELD_PREP(NOC_PMU_EVENT_CTRL_CHANNEL, ch);
++	writel(reg, noc_pmu->base + NOC_PMU_EVENT_CTRLn(reg_info->event_ctrl0, hwc->idx));
++
++	/*
++	 * Since tracetag filter applies to all the counters, don't touch it
++	 * if user doesn't specify it explicitly.
++	 */
++	if (tt_en) {
++		reg = readl(noc_pmu->base + reg_info->pmu_ctrl);
++		reg |= NOC_PMU_GLOBAL_CTRL_TT_EN;
++		writel(reg, noc_pmu->base + reg_info->pmu_ctrl);
 +	}
 +}
-+EXPORT_SYMBOL_GPL(phy_caps_medium_get_supported);
 +
-+/**
-+ * phy_caps_mediums_from_linkmodes() - Get all mediums from a linkmodes list
-+ * @linkmodes: A bitset of linkmodes to get the mediums from
-+ *
-+ * Returns: A bitset of ETHTOOL_MEDIUM_XXX values corresponding to all medium
-+ *	    types in the linkmodes list
-+ */
-+u32 phy_caps_mediums_from_linkmodes(unsigned long *linkmodes)
++static void hisi_noc_pmu_disable_filter(struct perf_event *event)
 +{
-+	const struct link_mode_info *linkmode;
-+	u32 mediums = 0;
-+	int i;
++	struct hisi_pmu *noc_pmu = to_hisi_pmu(event->pmu);
++	struct hisi_noc_pmu_regs *reg_info = noc_pmu->dev_info->private;
++	u32 tt_en = hisi_get_tt_en(event);
++	u32 reg;
 +
-+	for_each_set_bit(i, linkmodes, __ETHTOOL_LINK_MODE_MASK_NBITS) {
-+		linkmode = &link_mode_params[i];
-+		mediums |= linkmode->mediums;
-+	}
-+
-+	return mediums;
-+}
-+EXPORT_SYMBOL_GPL(phy_caps_mediums_from_linkmodes);
-diff --git a/drivers/net/phy/phy_device.c b/drivers/net/phy/phy_device.c
-index 7556aa3dd7ee..6c6645889352 100644
---- a/drivers/net/phy/phy_device.c
-+++ b/drivers/net/phy/phy_device.c
-@@ -30,6 +30,7 @@
- #include <linux/phylib_stubs.h>
- #include <linux/phy_led_triggers.h>
- #include <linux/phy_link_topology.h>
-+#include <linux/phy_port.h>
- #include <linux/pse-pd/pse.h>
- #include <linux/property.h>
- #include <linux/ptp_clock_kernel.h>
-@@ -836,6 +837,13 @@ struct phy_device *phy_device_create(struct mii_bus *bus, int addr, u32 phy_id,
- 
- 	dev->state = PHY_DOWN;
- 	INIT_LIST_HEAD(&dev->leds);
-+	INIT_LIST_HEAD(&dev->ports);
-+
-+	/* The driver's probe function must change that to the real number
-+	 * of ports possible on the PHY. We assume by default we are dealing
-+	 * with a single-port PHY
++	/*
++	 * If we're not the last counter, don't touch the global tracetag
++	 * configuration.
 +	 */
-+	dev->max_n_ports = 1;
- 
- 	mutex_init(&dev->lock);
- 	INIT_DELAYED_WORK(&dev->state_queue, phy_state_machine);
-@@ -1579,6 +1587,46 @@ void phy_sfp_detach(void *upstream, struct sfp_bus *bus)
- }
- EXPORT_SYMBOL(phy_sfp_detach);
- 
-+static int phy_add_port(struct phy_device *phydev, struct phy_port *port)
-+{
-+	int ret = 0;
-+
-+	if (phydev->n_ports == phydev->max_n_ports)
-+		return -EBUSY;
-+
-+	/* We set all ports as active by default, PHY drivers may deactivate
-+	 * them (when unused)
-+	 */
-+	port->active = true;
-+
-+	if (phydev->drv && phydev->drv->attach_port)
-+		ret = phydev->drv->attach_port(phydev, port);
-+
-+	if (ret)
-+		return ret;
-+
-+	/* The PHY driver might have added, removed or set medium/lanes info,
-+	 * so update the port supported accordingly.
-+	 */
-+	phy_port_update_supported(port);
-+
-+	list_add(&port->head, &phydev->ports);
-+
-+	phydev->n_ports++;
-+
-+	return 0;
-+}
-+
-+static void phy_del_port(struct phy_device *phydev, struct phy_port *port)
-+{
-+	if (!phydev->n_ports)
++	if (bitmap_weight(noc_pmu->pmu_events.used_mask, noc_pmu->num_counters) > 1)
 +		return;
 +
-+	list_del(&port->head);
-+
-+	phydev->n_ports--;
-+}
-+
- /**
-  * phy_sfp_probe - probe for a SFP cage attached to this PHY device
-  * @phydev: Pointer to phy_device
-@@ -3312,6 +3360,131 @@ static int of_phy_leds(struct phy_device *phydev)
- 	return 0;
- }
- 
-+static void phy_cleanup_ports(struct phy_device *phydev)
-+{
-+	struct phy_port *tmp, *port;
-+
-+	list_for_each_entry_safe(port, tmp, &phydev->ports, head) {
-+		phy_del_port(phydev, port);
-+		phy_port_destroy(port);
++	if (tt_en) {
++		reg = readl(noc_pmu->base + reg_info->pmu_ctrl);
++		reg &= ~NOC_PMU_GLOBAL_CTRL_TT_EN;
++		writel(reg, noc_pmu->base + reg_info->pmu_ctrl);
 +	}
 +}
 +
-+static int phy_default_setup_single_port(struct phy_device *phydev)
++static const struct hisi_uncore_ops hisi_uncore_noc_ops = {
++	.write_evtype		= hisi_noc_pmu_write_evtype,
++	.get_event_idx		= hisi_noc_pmu_get_event_idx,
++	.read_counter		= hisi_noc_pmu_read_counter,
++	.write_counter		= hisi_noc_pmu_write_counter,
++	.enable_counter		= hisi_noc_pmu_enable_counter,
++	.disable_counter	= hisi_noc_pmu_disable_counter,
++	.enable_counter_int	= hisi_noc_pmu_enable_counter_int,
++	.disable_counter_int	= hisi_noc_pmu_disable_counter_int,
++	.start_counters		= hisi_noc_pmu_start_counters,
++	.stop_counters		= hisi_noc_pmu_stop_counters,
++	.get_int_status		= hisi_noc_pmu_get_int_status,
++	.clear_int_status	= hisi_noc_pmu_clear_int_status,
++	.enable_filter		= hisi_noc_pmu_enable_filter,
++	.disable_filter		= hisi_noc_pmu_disable_filter,
++};
++
++static struct attribute *hisi_noc_pmu_format_attrs[] = {
++	HISI_PMU_FORMAT_ATTR(event, "config:0-7"),
++	HISI_PMU_FORMAT_ATTR(ch, "config1:0-2"),
++	HISI_PMU_FORMAT_ATTR(tt_en, "config1:3"),
++	NULL
++};
++
++static const struct attribute_group hisi_noc_pmu_format_group = {
++	.name = "format",
++	.attrs = hisi_noc_pmu_format_attrs,
++};
++
++static struct attribute *hisi_noc_pmu_events_attrs[] = {
++	HISI_PMU_EVENT_ATTR(cycles, 0x0e),
++	/* Flux on/off the ring */
++	HISI_PMU_EVENT_ATTR(ingress_flow_sum, 0x1a),
++	HISI_PMU_EVENT_ATTR(egress_flow_sum, 0x17),
++	/* Buffer full duration on/off the ring */
++	HISI_PMU_EVENT_ATTR(ingress_buf_full, 0x19),
++	HISI_PMU_EVENT_ATTR(egress_buf_full, 0x12),
++	/* Failure packets count on/off the ring */
++	HISI_PMU_EVENT_ATTR(cw_ingress_fail, 0x01),
++	HISI_PMU_EVENT_ATTR(cc_ingress_fail, 0x09),
++	HISI_PMU_EVENT_ATTR(cw_egress_fail, 0x03),
++	HISI_PMU_EVENT_ATTR(cc_egress_fail, 0x0b),
++	/* Flux of the ring */
++	HISI_PMU_EVENT_ATTR(cw_main_flow_sum, 0x05),
++	HISI_PMU_EVENT_ATTR(cc_main_flow_sum, 0x0d),
++	NULL
++};
++
++static const struct attribute_group hisi_noc_pmu_events_group = {
++	.name = "events",
++	.attrs = hisi_noc_pmu_events_attrs,
++};
++
++static const struct attribute_group *hisi_noc_pmu_attr_groups[] = {
++	&hisi_noc_pmu_format_group,
++	&hisi_noc_pmu_events_group,
++	&hisi_pmu_cpumask_attr_group,
++	&hisi_pmu_identifier_group,
++	NULL
++};
++
++static int hisi_noc_pmu_dev_init(struct platform_device *pdev, struct hisi_pmu *noc_pmu)
 +{
-+	struct phy_port *port = phy_port_alloc();
++	struct hisi_noc_pmu_regs *reg_info;
 +
-+	if (!port)
-+		return -ENOMEM;
++	hisi_uncore_pmu_init_topology(noc_pmu, &pdev->dev);
 +
-+	port->parent_type = PHY_PORT_PHY;
-+	port->phy = phydev;
++	if (noc_pmu->topo.scl_id < 0)
++		return dev_err_probe(&pdev->dev, -EINVAL, "failed to get scl-id\n");
 +
-+	/* Let the PHY driver know that this port was never described anywhere.
-+	 * This is the usual case, where we assume single-port PHY devices with
-+	 * no SFP. In that case, the port supports exactly the same thing as
-+	 * the PHY itself.
-+	 *
-+	 * However, this can also be because we have a combo-port PHY, with
-+	 * only one port described in DT, through SFP for example.
-+	 *
-+	 * In that case, the PHY driver will be in charge of saying what we can
-+	 * do on that non-represented port.
-+	 */
-+	port->not_described = true;
-+	linkmode_copy(port->supported, phydev->supported);
-+	port->mediums = phy_caps_mediums_from_linkmodes(port->supported);
++	if (noc_pmu->topo.index_id < 0)
++		return dev_err_probe(&pdev->dev, -EINVAL, "failed to get idx-id\n");
 +
-+	phy_add_port(phydev, port);
++	if (noc_pmu->topo.sub_id < 0)
++		return dev_err_probe(&pdev->dev, -EINVAL, "failed to get sub-id\n");
++
++	noc_pmu->base = devm_platform_ioremap_resource(pdev, 0);
++	if (IS_ERR(noc_pmu->base))
++		return dev_err_probe(&pdev->dev, PTR_ERR(noc_pmu->base),
++				     "fail to remap io memory\n");
++
++	noc_pmu->dev_info = device_get_match_data(&pdev->dev);
++	if (!noc_pmu->dev_info)
++		return -ENODEV;
++
++	noc_pmu->pmu_events.attr_groups = noc_pmu->dev_info->attr_groups;
++	noc_pmu->counter_bits = noc_pmu->dev_info->counter_bits;
++	noc_pmu->check_event = noc_pmu->dev_info->check_event;
++	noc_pmu->num_counters = NOC_PMU_NR_COUNTERS;
++	noc_pmu->ops = &hisi_uncore_noc_ops;
++	noc_pmu->dev = &pdev->dev;
++	noc_pmu->on_cpu = -1;
++
++	reg_info = noc_pmu->dev_info->private;
++	noc_pmu->identifier = readl(noc_pmu->base + reg_info->version);
 +
 +	return 0;
 +}
 +
-+static int of_phy_ports(struct phy_device *phydev)
++static void hisi_noc_pmu_remove_cpuhp_instance(void *hotplug_node)
 +{
-+	struct device_node *node = phydev->mdio.dev.of_node;
-+	struct device_node *mdi;
-+	struct phy_port *port;
-+	int err;
-+
-+	if (!IS_ENABLED(CONFIG_OF_MDIO))
-+		return 0;
-+
-+	if (!node)
-+		return 0;
-+
-+	mdi = of_get_child_by_name(node, "mdi");
-+	if (!mdi)
-+		return 0;
-+
-+	for_each_available_child_of_node_scoped(mdi, port_node) {
-+		port = phy_of_parse_port(port_node);
-+		if (IS_ERR(port)) {
-+			err = PTR_ERR(port);
-+			goto out_err;
-+		}
-+
-+		port->parent_type = PHY_PORT_PHY;
-+		port->phy = phydev;
-+		err = phy_add_port(phydev, port);
-+		if (err)
-+			goto out_err;
-+	}
-+	of_node_put(mdi);
-+
-+	return 0;
-+
-+out_err:
-+	phy_cleanup_ports(phydev);
-+	of_node_put(mdi);
-+	return err;
++	cpuhp_state_remove_instance_nocalls(hisi_noc_pmu_cpuhp_state, hotplug_node);
 +}
 +
-+static int phy_setup_ports(struct phy_device *phydev)
++static void hisi_noc_pmu_unregister_pmu(void *pmu)
 +{
-+	__ETHTOOL_DECLARE_LINK_MODE_MASK(ports_supported);
-+	struct phy_port *port;
++	perf_pmu_unregister(pmu);
++}
++
++static int hisi_noc_pmu_probe(struct platform_device *pdev)
++{
++	struct device *dev = &pdev->dev;
++	struct hisi_pmu *noc_pmu;
++	char *name;
 +	int ret;
 +
-+	ret = of_phy_ports(phydev);
++	noc_pmu = devm_kzalloc(dev, sizeof(*noc_pmu), GFP_KERNEL);
++	if (!noc_pmu)
++		return -ENOMEM;
++
++	/*
++	 * HiSilicon Uncore PMU framework needs to get common hisi_pmu device
++	 * from device's drvdata.
++	 */
++	platform_set_drvdata(pdev, noc_pmu);
++
++	ret = hisi_noc_pmu_dev_init(pdev, noc_pmu);
 +	if (ret)
 +		return ret;
 +
-+	if (phydev->n_ports < phydev->max_n_ports) {
-+		ret = phy_default_setup_single_port(phydev);
-+		if (ret)
-+			goto out;
-+	}
++	ret = cpuhp_state_add_instance(hisi_noc_pmu_cpuhp_state, &noc_pmu->node);
++	if (ret)
++		return dev_err_probe(dev, ret, "Fail to register cpuhp instance\n");
 +
-+	linkmode_zero(ports_supported);
++	ret = devm_add_action_or_reset(dev, hisi_noc_pmu_remove_cpuhp_instance,
++				       &noc_pmu->node);
++	if (ret)
++		return ret;
 +
-+	/* Aggregate the supported modes, which are made-up of :
-+	 *  - What the PHY itself supports
-+	 *  - What the sum of all ports support
-+	 */
-+	list_for_each_entry(port, &phydev->ports, head)
-+		if (port->active)
-+			linkmode_or(ports_supported, ports_supported,
-+				    port->supported);
++	hisi_pmu_init(noc_pmu, THIS_MODULE);
 +
-+	if (!linkmode_empty(ports_supported))
-+		linkmode_and(phydev->supported, phydev->supported,
-+			     ports_supported);
++	name = devm_kasprintf(dev, GFP_KERNEL, "hisi_scl%d_noc%d_%d",
++			      noc_pmu->topo.scl_id, noc_pmu->topo.index_id,
++			      noc_pmu->topo.sub_id);
++	if (!name)
++		return -ENOMEM;
 +
-+	/* For now, the phy->port field is set as the first active port's type */
-+	list_for_each_entry(port, &phydev->ports, head)
-+		if (port->active) {
-+			phydev->port = phy_port_get_type(port);
-+			break;
-+		}
++	ret = perf_pmu_register(&noc_pmu->pmu, name, -1);
++	if (ret)
++		return dev_err_probe(dev, ret, "Fail to register PMU\n");
 +
-+	return 0;
-+
-+out:
-+	phy_cleanup_ports(phydev);
-+	return ret;
++	return devm_add_action_or_reset(dev, hisi_noc_pmu_unregister_pmu,
++					&noc_pmu->pmu);
 +}
 +
- /**
-  * fwnode_mdio_find_device - Given a fwnode, find the mdio_device
-  * @fwnode: pointer to the mdio_device's fwnode
-@@ -3449,6 +3622,11 @@ static int phy_probe(struct device *dev)
- 		phydev->is_gigabit_capable = 1;
- 
- 	of_set_phy_supported(phydev);
++static struct hisi_noc_pmu_regs hisi_noc_v1_pmu_regs = {
++	.version = NOC_PMU_VERSION,
++	.pmu_ctrl = NOC_PMU_GLOBAL_CTRL,
++	.event_ctrl0 = NOC_PMU_EVENT_CTRL0,
++	.event_cntr0 = NOC_PMU_EVENT_COUNTER0,
++	.ovflow_status = NOC_PMU_CNT_INFO,
++};
 +
-+	err = phy_setup_ports(phydev);
-+	if (err)
-+		goto out;
++static const struct hisi_pmu_dev_info hisi_noc_v1 = {
++	.attr_groups = hisi_noc_pmu_attr_groups,
++	.counter_bits = 64,
++	.check_event = NOC_PMU_EVENT_CTRL_TYPE,
++	.private = &hisi_noc_v1_pmu_regs,
++};
 +
- 	phy_advertise_supported(phydev);
- 
- 	/* Get PHY default EEE advertising modes and handle them as potentially
-@@ -3524,6 +3702,8 @@ static int phy_remove(struct device *dev)
- 
- 	phydev->state = PHY_DOWN;
- 
-+	phy_cleanup_ports(phydev);
++static const struct acpi_device_id hisi_noc_pmu_ids[] = {
++	{ "HISI04E0", (kernel_ulong_t) &hisi_noc_v1 },
++	{ }
++};
++MODULE_DEVICE_TABLE(acpi, hisi_noc_pmu_ids);
 +
- 	sfp_bus_del_upstream(phydev->sfp_bus);
- 	phydev->sfp_bus = NULL;
- 
-diff --git a/drivers/net/phy/phy_port.c b/drivers/net/phy/phy_port.c
-new file mode 100644
-index 000000000000..51870f2378ec
---- /dev/null
-+++ b/drivers/net/phy/phy_port.c
-@@ -0,0 +1,135 @@
-+// SPDX-License-Identifier: GPL-2.0+
-+/* Framework to drive Ethernet ports
-+ *
-+ * Copyright (c) 2024 Maxime Chevallier <maxime.chevallier@bootlin.com>
-+ */
++static struct platform_driver hisi_noc_pmu_driver = {
++	.driver = {
++		.name = "hisi_noc_pmu",
++		.acpi_match_table = hisi_noc_pmu_ids,
++		.suppress_bind_attrs = true,
++	},
++	.probe = hisi_noc_pmu_probe,
++};
 +
-+#include <linux/linkmode.h>
-+#include <linux/of.h>
-+#include <linux/phy_port.h>
-+
-+#include "phy-caps.h"
-+
-+/**
-+ * phy_port_alloc() - Allocate a new phy_port
-+ *
-+ * Returns: a newly allocated struct phy_port, or NULL.
-+ */
-+struct phy_port *phy_port_alloc(void)
++static int __init hisi_noc_pmu_module_init(void)
 +{
-+	struct phy_port *port;
-+
-+	port = kzalloc(sizeof(*port), GFP_KERNEL);
-+	if (!port)
-+		return NULL;
-+
-+	linkmode_zero(port->supported);
-+	INIT_LIST_HEAD(&port->head);
-+
-+	return port;
-+}
-+EXPORT_SYMBOL_GPL(phy_port_alloc);
-+
-+/**
-+ * phy_port_destroy() - Free a struct phy_port
-+ * @port: The port to destroy
-+ */
-+void phy_port_destroy(struct phy_port *port)
-+{
-+	kfree(port);
-+}
-+EXPORT_SYMBOL_GPL(phy_port_destroy);
-+
-+/**
-+ * phy_of_parse_port() - Create a phy_port from a firmware representation
-+ * @dn: device_node representation of the port, following the
-+ *	ethernet-connector.yaml binding
-+ *
-+ * Returns: a newly allocated and initialized phy_port pointer, or an ERR_PTR.
-+ */
-+struct phy_port *phy_of_parse_port(struct device_node *dn)
-+{
-+	struct fwnode_handle *fwnode = of_fwnode_handle(dn);
-+	enum ethtool_link_medium medium;
-+	struct phy_port *port;
-+	const char *med_str;
-+	u32 lanes, mediums = 0;
 +	int ret;
 +
-+	ret = fwnode_property_read_u32(fwnode, "lanes", &lanes);
-+	if (ret)
-+		lanes = 0;
-+
-+	ret = fwnode_property_read_string(fwnode, "media", &med_str);
-+	if (ret)
-+		return ERR_PTR(ret);
-+
-+	medium = ethtool_str_to_medium(med_str);
-+	if (medium == ETHTOOL_LINK_MEDIUM_NONE)
-+		return ERR_PTR(-EINVAL);
-+
-+	mediums |= BIT(medium);
-+
-+	if (!mediums)
-+		return ERR_PTR(-EINVAL);
-+
-+	port = phy_port_alloc();
-+	if (!port)
-+		return ERR_PTR(-ENOMEM);
-+
-+	port->lanes = lanes;
-+	port->mediums = mediums;
-+
-+	return port;
-+}
-+EXPORT_SYMBOL_GPL(phy_of_parse_port);
-+
-+/**
-+ * phy_port_update_supported() - Setup the port->supported field
-+ * @port: the port to update
-+ *
-+ * Once the port's medium list and number of lanes has been configured based
-+ * on firmware, straps and vendor-specific properties, this function may be
-+ * called to update the port's supported linkmodes list.
-+ *
-+ * Any mode that was manually set in the port's supported list remains set.
-+ */
-+void phy_port_update_supported(struct phy_port *port)
-+{
-+	__ETHTOOL_DECLARE_LINK_MODE_MASK(supported) = { 0 };
-+	int i, lanes = 1;
-+
-+	/* If there's no lanes specified, we grab the default number of
-+	 * lanes as the max of the default lanes for each medium
-+	 */
-+	if (!port->lanes)
-+		for_each_set_bit(i, &port->mediums, __ETHTOOL_LINK_MEDIUM_LAST)
-+			lanes = max_t(int, lanes, phy_medium_default_lanes(i));
-+
-+	port->lanes = lanes;
-+
-+	for_each_set_bit(i, &port->mediums, __ETHTOOL_LINK_MEDIUM_LAST) {
-+		linkmode_zero(supported);
-+		phy_caps_medium_get_supported(supported, i, port->lanes);
-+		linkmode_or(port->supported, port->supported, supported);
++	ret = cpuhp_setup_state_multi(CPUHP_AP_ONLINE_DYN, "perf/hisi/noc:online",
++				      hisi_uncore_pmu_online_cpu,
++				      hisi_uncore_pmu_offline_cpu);
++	if (ret < 0) {
++		pr_err("hisi_noc_pmu: Fail to setup cpuhp callbacks, ret = %d\n", ret);
++		return ret;
 +	}
-+}
-+EXPORT_SYMBOL_GPL(phy_port_update_supported);
++	hisi_noc_pmu_cpuhp_state = ret;
 +
-+/**
-+ * phy_port_get_type() - get the PORT_* attribut for that port.
-+ * @port: The port we want the information from
-+ *
-+ * Returns: A PORT_XXX value.
-+ */
-+int phy_port_get_type(struct phy_port *port)
++	ret = platform_driver_register(&hisi_noc_pmu_driver);
++	if (ret)
++		cpuhp_remove_multi_state(hisi_noc_pmu_cpuhp_state);
++
++	return ret;
++}
++module_init(hisi_noc_pmu_module_init);
++
++static void __exit hisi_noc_pmu_module_exit(void)
 +{
-+	if (port->mediums & BIT(ETHTOOL_LINK_MEDIUM_BASET))
-+		return PORT_TP;
-+
-+	if (phy_port_is_fiber(port))
-+		return PORT_FIBRE;
-+
-+	return PORT_OTHER;
++	platform_driver_unregister(&hisi_noc_pmu_driver);
++	cpuhp_remove_multi_state(hisi_noc_pmu_cpuhp_state);
 +}
-+EXPORT_SYMBOL_GPL(phy_port_get_type);
-diff --git a/include/linux/ethtool.h b/include/linux/ethtool.h
-index a0696cb840f7..baa5ec1d76ed 100644
---- a/include/linux/ethtool.h
-+++ b/include/linux/ethtool.h
-@@ -227,6 +227,10 @@ extern const struct link_mode_info link_mode_params[];
- 
- extern const char ethtool_link_medium_names[][ETH_GSTRING_LEN];
- 
-+#define ETHTOOL_MEDIUM_FIBER_BITS (BIT(ETHTOOL_LINK_MEDIUM_BASES) | \
-+				   BIT(ETHTOOL_LINK_MEDIUM_BASEL) | \
-+				   BIT(ETHTOOL_LINK_MEDIUM_BASEF))
++module_exit(hisi_noc_pmu_module_exit);
 +
- static inline const char *phy_mediums(enum ethtool_link_medium medium)
- {
- 	if (medium >= __ETHTOOL_LINK_MEDIUM_LAST)
-@@ -235,6 +239,28 @@ static inline const char *phy_mediums(enum ethtool_link_medium medium)
- 	return ethtool_link_medium_names[medium];
- }
- 
-+static inline enum ethtool_link_medium ethtool_str_to_medium(const char *str)
-+{
-+	int i;
-+
-+	for (i = 0; i < __ETHTOOL_LINK_MEDIUM_LAST; i++)
-+		if (!strcmp(phy_mediums(i), str))
-+			return i;
-+
-+	return ETHTOOL_LINK_MEDIUM_NONE;
-+}
-+
-+static inline int phy_medium_default_lanes(enum ethtool_link_medium medium)
-+{
-+	/* Let's consider that the default BaseT ethernet is BaseT4, i.e.
-+	 * Gigabit Ethernet.
-+	 */
-+	if (medium == ETHTOOL_LINK_MEDIUM_BASET)
-+		return 4;
-+
-+	return 1;
-+}
-+
- /* declare a link mode bitmap */
- #define __ETHTOOL_DECLARE_LINK_MODE_MASK(name)		\
- 	DECLARE_BITMAP(name, __ETHTOOL_LINK_MODE_MASK_NBITS)
-diff --git a/include/linux/phy.h b/include/linux/phy.h
-index 4c2b8b6e7187..cb95f9008007 100644
---- a/include/linux/phy.h
-+++ b/include/linux/phy.h
-@@ -317,6 +317,7 @@ static inline long rgmii_clock(int speed)
- struct device;
- struct kernel_hwtstamp_config;
- struct phylink;
-+struct phy_port;
- struct sfp_bus;
- struct sfp_upstream_ops;
- struct sk_buff;
-@@ -611,6 +612,9 @@ struct macsec_ops;
-  * @master_slave_state: Current master/slave configuration
-  * @mii_ts: Pointer to time stamper callbacks
-  * @psec: Pointer to Power Sourcing Equipment control struct
-+ * @ports: List of PHY ports structures
-+ * @n_ports: Number of ports currently attached to the PHY
-+ * @max_n_ports: Max number of ports this PHY can expose
-  * @lock:  Mutex for serialization access to PHY
-  * @state_queue: Work queue for state machine
-  * @link_down_events: Number of times link was lost
-@@ -748,6 +752,10 @@ struct phy_device {
- 	struct mii_timestamper *mii_ts;
- 	struct pse_control *psec;
- 
-+	struct list_head ports;
-+	int n_ports;
-+	int max_n_ports;
-+
- 	u8 mdix;
- 	u8 mdix_ctrl;
- 
-@@ -1264,6 +1272,27 @@ struct phy_driver {
- 	 * Returns the time in jiffies until the next update event.
- 	 */
- 	unsigned int (*get_next_update_time)(struct phy_device *dev);
-+
-+	/**
-+	 * @attach_port: Indicates to the PHY driver that a port is detected
-+	 * @dev: PHY device to notify
-+	 * @port: The port being added
-+	 *
-+	 * Called when a port that needs to be driven by the PHY is found. The
-+	 * number of time this will be called depends on phydev->max_n_ports,
-+	 * which the driver can change in .probe().
-+	 *
-+	 * The port that is being passed may or may not be initialized. If it is
-+	 * already initialized, it is by the generic port representation from
-+	 * devicetree, which superseeds any strapping or vendor-specific
-+	 * properties.
-+	 *
-+	 * If the port isn't initialized, the port->mediums and port->lanes
-+	 * fields must be set, possibly according to stapping information.
-+	 *
-+	 * Returns 0, or an error code.
-+	 */
-+	int (*attach_port)(struct phy_device *dev, struct phy_port *port);
- };
- #define to_phy_driver(d) container_of_const(to_mdio_common_driver(d),		\
- 				      struct phy_driver, mdiodrv)
-@@ -2001,6 +2030,7 @@ void phy_trigger_machine(struct phy_device *phydev);
- void phy_mac_interrupt(struct phy_device *phydev);
- void phy_start_machine(struct phy_device *phydev);
- void phy_stop_machine(struct phy_device *phydev);
-+
- void phy_ethtool_ksettings_get(struct phy_device *phydev,
- 			       struct ethtool_link_ksettings *cmd);
- int phy_ethtool_ksettings_set(struct phy_device *phydev,
-diff --git a/include/linux/phy_port.h b/include/linux/phy_port.h
-new file mode 100644
-index 000000000000..f47ac5f5ef9e
---- /dev/null
-+++ b/include/linux/phy_port.h
-@@ -0,0 +1,96 @@
-+/* SPDX-License-Identifier: GPL-2.0-or-later */
-+
-+#ifndef __PHY_PORT_H
-+#define __PHY_PORT_H
-+
-+#include <linux/ethtool.h>
-+#include <linux/types.h>
-+#include <linux/phy.h>
-+
-+struct phy_port;
-+
-+/**
-+ * enum phy_port_parent - The device this port is attached to
-+ *
-+ * @PHY_PORT_PHY: Indicates that the port is driven by a PHY device
-+ */
-+enum phy_port_parent {
-+	PHY_PORT_PHY,
-+};
-+
-+struct phy_port_ops {
-+	/* Sometimes, the link state can be retrieved from physical,
-+	 * out-of-band channels such as the LOS signal on SFP. These
-+	 * callbacks allows notifying the port about state changes
-+	 */
-+	void (*link_up)(struct phy_port *port);
-+	void (*link_down)(struct phy_port *port);
-+
-+	/* If the port acts as a Media Independent Interface (Serdes port),
-+	 * configures the port with the relevant state and mode. When enable is
-+	 * not set, interface should be ignored
-+	 */
-+	int (*configure_mii)(struct phy_port *port, bool enable, phy_interface_t interface);
-+};
-+
-+/**
-+ * struct phy_port - A representation of a network device physical interface
-+ *
-+ * @head: Used by the port's parent to list ports
-+ * @parent_type: The type of device this port is directly connected to
-+ * @phy: If the parent is PHY_PORT_PHYDEV, the PHY controlling that port
-+ * @ops: Callback ops implemented by the port controller
-+ * @lanes: The number of lanes (diff pairs) this port has, 0 if not applicable
-+ * @mediums: Bitmask of the physical mediums this port provides access to
-+ * @supported: The link modes this port can expose, if this port is MDI (not MII)
-+ * @interfaces: The MII interfaces this port supports, if this port is MII
-+ * @not_described: Indicates to the parent driver if this port isn't described,
-+ *		   so it's up to the parent to filter its capabilities.
-+ * @active: Indicates if the port is currently part of the active link.
-+ * @is_mii: Indicates if this port is MII (Media Independent Interface),
-+ *          or MDI (Media Dependent Interface).
-+ */
-+struct phy_port {
-+	struct list_head head;
-+	enum phy_port_parent parent_type;
-+	union {
-+		struct phy_device *phy;
-+	};
-+
-+	const struct phy_port_ops *ops;
-+
-+	int lanes;
-+	unsigned long mediums;
-+	__ETHTOOL_DECLARE_LINK_MODE_MASK(supported);
-+	DECLARE_PHY_INTERFACE_MASK(interfaces);
-+
-+	unsigned int not_described:1;
-+	unsigned int active:1;
-+	unsigned int is_mii:1;
-+};
-+
-+struct phy_port *phy_port_alloc(void);
-+void phy_port_destroy(struct phy_port *port);
-+
-+static inline struct phy_device *port_phydev(struct phy_port *port)
-+{
-+	return port->phy;
-+}
-+
-+struct phy_port *phy_of_parse_port(struct device_node *dn);
-+
-+static inline bool phy_port_is_copper(struct phy_port *port)
-+{
-+	return port->mediums == BIT(ETHTOOL_LINK_MEDIUM_BASET);
-+}
-+
-+static inline bool phy_port_is_fiber(struct phy_port *port)
-+{
-+	return !!(port->mediums & ETHTOOL_MEDIUM_FIBER_BITS);
-+}
-+
-+void phy_port_update_supported(struct phy_port *port);
-+
-+int phy_port_get_type(struct phy_port *port);
-+
-+#endif
++MODULE_IMPORT_NS("HISI_PMU");
++MODULE_DESCRIPTION("HiSilicon SoC Uncore NoC PMU driver");
++MODULE_LICENSE("GPL");
++MODULE_AUTHOR("Yicong Yang <yangyicong@hisilicon.com>");
 -- 
-2.49.0
+2.24.0
 
 
