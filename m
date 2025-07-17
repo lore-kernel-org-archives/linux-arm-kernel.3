@@ -4,69 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE726C83F1B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 13:14:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07BF9C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 13:17:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=xA00jKif1Xuf/U1rsSjs5Phuq/bmyeN3v9XfSiZkCX0=; b=2nowDmfLiUqK2m2hcbSPILre0H
-	uO1n/3FosZgh5EVBo+niaUIbyNtXR1ecPQxp0QH+RxWQSNpBHY5iYjqDavG2EFLOfotdqlDgR8Wgd
-	T/KnQWe1sKWD59OdSvxIqjmCb0wetZbTGq6nxcD+HS/Vj6ujqm926Dxdp9K9CbrD4/NUuYnRoMilW
-	QLLsRJtDNDHoQlxuQ+g1blaoocpKb0uAT7NO3jVknF4gOWK1gvIhxWgvtDcbZOFnt0TT2j1HZ4Bmb
-	J3OSNMmA7rTXBryXOgl3q2TqeDfPNpOdMM7NfgSlzaF3u8szVj4BZFVmHGLZuUJhYbfA4C1lb0YKx
-	ajHhCsEA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lwvMFzYwUfeNWt6ikDRmW5Er6TMqCf8g6T8QKpTn0UE=; b=31e0ifwIcOgXp7XYnFkXunCu81
+	aflQqcnA6KFLX/p942iiB0LF2dnAQxbxoAqHrLorEKK2R1L6zpQ1YEHW5fhd8A5UYCFfW81+WuDfo
+	oFXp7xc2SzofH0kI15FCrCeBkRWphoCsM17lTiv/qovdLuN5KTOjKhO47SsfArXhREEZQ+rSPAHfg
+	sgT/HszWK+VyiH7nnMPOcAmUDYimMcApsS5Guc48wqbPCAFHVts6p4M6gjGedPywgHN8cm5yBftAu
+	bjsOLboheiPQ3s3hF6bvMbmUi5Tza5IPT/fTZYqc0Uqe1FbgJDSMzKFeYJF3En0xmUfrjMVz1THRb
+	ipzD9EuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucORe-0000000AE3n-20ao;
-	Thu, 17 Jul 2025 13:14:43 +0000
-Received: from out-186.mta0.migadu.com ([2001:41d0:1004:224b::ba])
+	id 1ucOU5-0000000AEef-10ZT;
+	Thu, 17 Jul 2025 13:17:13 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucNFz-0000000A2wI-2Lnn
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Jul 2025 11:58:37 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1752753501;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=xA00jKif1Xuf/U1rsSjs5Phuq/bmyeN3v9XfSiZkCX0=;
-	b=Hp8awFxxYJS44VzcWpL9s0NNCpc4wJENQzB7wswBrKcAaKncIeFm7UkWaHc97p3N9uB/XL
-	k7X+Pj7r0RD1hY/pyh2D6F+IqsJbFy2WZL6Npyl/tgVjIFK7Y1ab8xrO2ao6IE50B7vtmo
-	qtHcX7uXNdK8x7JjAvwwa/D979GnoMQ=
-From: Troy Mitchell <troy.mitchell@linux.dev>
-Date: Thu, 17 Jul 2025 19:58:01 +0800
-Subject: [PATCH v2] ASoC: rockchip: i2s: simplify clock handling and error
- cleanup in probe
+	id 1ucNSj-0000000A5E1-44yM;
+	Thu, 17 Jul 2025 12:11:46 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 5F613601F7;
+	Thu, 17 Jul 2025 12:11:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 663D5C4CEEB;
+	Thu, 17 Jul 2025 12:11:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1752754305;
+	bh=u7SEQClQAB7gDVI1zZ2Aqc9od3vbr6CRMh/fPM8fFwc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=2Qt6Z4X11YhogWwmPVhJNTezRMtYrXrmvZKzpaNeXXzrRKVkm27yaCiy5/7CxAvjd
+	 YkN/PYtnuacWtPoixP/hG2zdXON89AXUdXcpob0TSY8888tb0EIehkEW0RBPkmwf/I
+	 5rwizpj+UPQM+PsLiZ95EScAmEzGwG7w2hBjdInI=
+Date: Thu, 17 Jul 2025 14:11:41 +0200
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: Thierry Reding <thierry.reding@gmail.com>
+Cc: x86@kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org, linux-mips@vger.kernel.org,
+	loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
+	linux-sh@vger.kernel.org, linux-pci@vger.kernel.org,
+	linux-acpi@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 0/7] syscore: Pass context data to callbacks
+Message-ID: <2025071716-phoney-object-1648@gregkh>
+References: <20250717103241.2806798-1-thierry.reding@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250717-rockchip-i2s-simplify-clk-v2-1-b697542a7c32@linux.dev>
-X-B4-Tracking: v=1; b=H4sIAEjleGgC/42NQQ6CMBBFr0Jm7Zh2KpK48h6EhbRTmYBAWm0gh
- LtbOYHL95L//gaRg3CEW7FB4CRRpjEDnQqw3WN8MorLDKSoVJUmDJPtbSczCkWM8poH8SvaoUd
- WlbqUlXet0ZD3c2Avy9Gum8ydxPcU1uMq6Z/9p5o0ajQtGe90a5iu90HGz3J2nKDZ9/0LrI/EU
- 8IAAAA=
-X-Change-ID: 20250712-rockchip-i2s-simplify-clk-e070457fdb31
-To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
- Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
- Heiko Stuebner <heiko@sntech.de>
-Cc: linux-sound@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Troy Mitchell <troy.mitchell@linux.dev>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1752753489; l=4356;
- i=troy.mitchell@linux.dev; s=20250712; h=from:subject:message-id;
- bh=5U5+oKM9TS56skKvfyBUuonPmWf8aGSQ+l3JH2CKHPI=;
- b=H3hkHMXg+LJmKavNAJi6r6t4igwPotof77JG4whPYAh5YKQkdHsjFaSDCELs6RIYLtRrQpeke
- aK/5osgdscRDVYT5GW9fb2mt9rGyqmXcehKlwzBOhMHud0Y+c6hEvEE
-X-Developer-Key: i=troy.mitchell@linux.dev; a=ed25519;
- pk=zhRP1xE0bftrurqSWI+SzcSdJGIZ0BTTY9Id0ESzqlI=
-X-Migadu-Flow: FLOW_OUT
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250717_045836_155939_53A41F04 
-X-CRM114-Status: GOOD (  13.60  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250717103241.2806798-1-thierry.reding@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,134 +67,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Replace devm_clk_get + clk_prepare_enable with devm_clk_get_enabled
-to simplify clock acquisition and enabling.
+On Thu, Jul 17, 2025 at 12:32:34PM +0200, Thierry Reding wrote:
+> From: Thierry Reding <treding@nvidia.com>
+> 
+> Hi,
+> 
+> Something that's been bugging me over the years is how some drivers have
+> had to adopt file-scoped variables to pass data into something like the
+> syscore operations. This is often harmless, but usually leads to drivers
+> not being able to deal with multiple instances, or additional frameworks
+> or data structures needing to be created to handle multiple instances.
+> 
+> This series proposes to "objectify" struct syscore_ops by passing a
+> pointer to struct syscore_ops to the syscore callbacks. Implementations
+> of these callbacks can then make use of container_of() to get access to
+> contextual data that struct syscore_ops was embedded in. This elegantly
+> avoids the need for file-scoped, singleton variables, by tying syscore
+> to individual instances.
+> 
+> Patch 1 contains the bulk of these changes. It's fairly intrusive
+> because it does the conversion of the function signature all in one
+> patch. An alternative would've been to introduce new callbacks such that
+> these changes could be staged in. However, the amount of changes here
+> are not quite numerous enough to justify that, in my opinion, and
+> syscore isn't very frequently used, so the risk of another user getting
+> added while this is merged is rather small. All in all I think merging
+> this in one go is the simplest way.
 
-Use dev_err_probe for concise error logging and return handling,
-reducing boilerplate code and improving readability.
+All at once is good, I like the idea, but:
 
-Signed-off-by: Troy Mitchell <troy.mitchell@linux.dev>
----
-Changes in v2:
-- Fix return value of regmap resource(robot's warning)
-- Link to v1: https://lore.kernel.org/r/20250712-rockchip-i2s-simplify-clk-v1-1-3b23fd1b3e26@linux.dev
----
- sound/soc/rockchip/rockchip_i2s.c | 52 +++++++++++----------------------------
- 1 file changed, 15 insertions(+), 37 deletions(-)
+> Patches 2-7 are conversions of some existing drivers to take advantage
+> of this new parameter and tie the code to per-instance data.
 
-diff --git a/sound/soc/rockchip/rockchip_i2s.c b/sound/soc/rockchip/rockchip_i2s.c
-index 0a0a95b4f5204701b52ca924683d51c29992015d..1dba2d9b2241860a9d87dd4319b135dc249d8e17 100644
---- a/sound/soc/rockchip/rockchip_i2s.c
-+++ b/sound/soc/rockchip/rockchip_i2s.c
-@@ -31,7 +31,6 @@ struct rk_i2s_pins {
- struct rk_i2s_dev {
- 	struct device *dev;
- 
--	struct clk *hclk;
- 	struct clk *mclk;
- 
- 	struct snd_dmaengine_dai_dma_data capture_dma_data;
-@@ -739,6 +738,7 @@ static int rockchip_i2s_probe(struct platform_device *pdev)
- 	struct snd_soc_dai_driver *dai;
- 	struct resource *res;
- 	void __iomem *regs;
-+	struct clk *clk;
- 	int ret;
- 
- 	i2s = devm_kzalloc(&pdev->dev, sizeof(*i2s), GFP_KERNEL);
-@@ -757,38 +757,24 @@ static int rockchip_i2s_probe(struct platform_device *pdev)
- 	}
- 
- 	/* try to prepare related clocks */
--	i2s->hclk = devm_clk_get(&pdev->dev, "i2s_hclk");
--	if (IS_ERR(i2s->hclk)) {
--		dev_err(&pdev->dev, "Can't retrieve i2s bus clock\n");
--		return PTR_ERR(i2s->hclk);
--	}
--	ret = clk_prepare_enable(i2s->hclk);
--	if (ret) {
--		dev_err(i2s->dev, "hclock enable failed %d\n", ret);
--		return ret;
--	}
-+	clk = devm_clk_get_enabled(&pdev->dev, "i2s_hclk");
-+	if (IS_ERR(clk))
-+		return dev_err_probe(&pdev->dev, PTR_ERR(clk), "hclock enable failed");
- 
- 	i2s->mclk = devm_clk_get(&pdev->dev, "i2s_clk");
--	if (IS_ERR(i2s->mclk)) {
--		dev_err(&pdev->dev, "Can't retrieve i2s master clock\n");
--		ret = PTR_ERR(i2s->mclk);
--		goto err_clk;
--	}
-+	if (IS_ERR(i2s->mclk))
-+		return dev_err_probe(&pdev->dev, PTR_ERR(i2s->mclk),
-+				     "Can't retrieve i2s master clock");
- 
- 	regs = devm_platform_get_and_ioremap_resource(pdev, 0, &res);
--	if (IS_ERR(regs)) {
--		ret = PTR_ERR(regs);
--		goto err_clk;
--	}
-+	if (IS_ERR(regs))
-+		dev_err_probe(&pdev->dev, PTR_ERR(regs), "Can't ioremap registers");
- 
- 	i2s->regmap = devm_regmap_init_mmio(&pdev->dev, regs,
- 					    &rockchip_i2s_regmap_config);
--	if (IS_ERR(i2s->regmap)) {
--		dev_err(&pdev->dev,
--			"Failed to initialise managed register map\n");
--		ret = PTR_ERR(i2s->regmap);
--		goto err_clk;
--	}
-+	if (IS_ERR(i2s->regmap))
-+		return dev_err_probe(&pdev->dev, PTR_ERR(i2s->regmap),
-+				     "Failed to initialise managed register map");
- 
- 	i2s->bclk_ratio = 64;
- 	i2s->pinctrl = devm_pinctrl_get(&pdev->dev);
-@@ -796,11 +782,9 @@ static int rockchip_i2s_probe(struct platform_device *pdev)
- 		i2s->bclk_on = pinctrl_lookup_state(i2s->pinctrl, "bclk_on");
- 		if (!IS_ERR_OR_NULL(i2s->bclk_on)) {
- 			i2s->bclk_off = pinctrl_lookup_state(i2s->pinctrl, "bclk_off");
--			if (IS_ERR_OR_NULL(i2s->bclk_off)) {
--				dev_err(&pdev->dev, "failed to find i2s bclk_off\n");
--				ret = -EINVAL;
--				goto err_clk;
--			}
-+			if (IS_ERR_OR_NULL(i2s->bclk_off))
-+				return dev_err_probe(&pdev->dev, -EINVAL,
-+						     "failed to find i2s bclk_off");
- 		}
- 	} else {
- 		dev_dbg(&pdev->dev, "failed to find i2s pinctrl\n");
-@@ -843,20 +827,14 @@ static int rockchip_i2s_probe(struct platform_device *pdev)
- 		i2s_runtime_suspend(&pdev->dev);
- err_pm_disable:
- 	pm_runtime_disable(&pdev->dev);
--err_clk:
--	clk_disable_unprepare(i2s->hclk);
- 	return ret;
- }
- 
- static void rockchip_i2s_remove(struct platform_device *pdev)
- {
--	struct rk_i2s_dev *i2s = dev_get_drvdata(&pdev->dev);
--
- 	pm_runtime_disable(&pdev->dev);
- 	if (!pm_runtime_status_suspended(&pdev->dev))
- 		i2s_runtime_suspend(&pdev->dev);
--
--	clk_disable_unprepare(i2s->hclk);
- }
- 
- static const struct dev_pm_ops rockchip_i2s_pm_ops = {
+That's great, but none of these conversions actually get rid of the
+global structure, so what actually was helped here other than the churn
+of this "potentially" allowing the global data variables from being
+removed in the future?
 
----
-base-commit: 733923397fd95405a48f165c9b1fbc8c4b0a4681
-change-id: 20250712-rockchip-i2s-simplify-clk-e070457fdb31
+So how does this actually help?
 
-Best regards,
--- 
-Troy Mitchell <troy.mitchell@linux.dev>
+Also, small nit, make the function pointers const please :)
 
+thanks,
+
+greg k-h
 
