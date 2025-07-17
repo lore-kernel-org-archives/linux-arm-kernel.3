@@ -4,62 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52F6BC83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 18:43:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67843C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 18:46:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=z8+rI+enL4BSqLq2MJbBJbkJP0/8ld0NpkqpPbeKKVc=; b=h6T50dCYR3wXsEh/WWkeo7G0rw
-	bDKywkEy5qfeHNnY/KuJiE6gB5WWOErpVRi3uDWpugfhFRa4+OPc593qOh0WmXQFx3ewXFrVf78Pk
-	Qf2vFxjAhWK5UJHXoK8/0jzkT1GmPDkZcVJZ4xY5KrVB1dqd2883mejxonlrjMxzKWbaYH24HSucO
-	dMWtWjhn9mqRZWa/cmjVW48I2pfeccvv4/3dRVZtGO7gc3elRdjkMHad8h2XnNhY4ipOgxkapkBSI
-	beyP3F5M9GlG0jw87id/1nB5CNMfJ/C9CTtHk4SmihTz91Igy4RBEnEstxqwDPt8103LG6+wYCpEX
-	6OBjxyWA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dGrxhCeS1UihQtSyLwZYefdsHJ3gt32bAk+gCeT3YuQ=; b=Q3WlyFQRYROb3fkI8v9Viszq9V
+	UtcqHguRtr45rSZl1uJbGIO97AZBab4+7CSBWQ5fxniGo+I6L+YGh7YwutHhRh5IkzUuZdjOleWhc
+	PSjsTQyes/rbEyY50xGnW3JkUybRV8WVyBhxplFqLOlsDj8wTB9Ej/euExY6eo1rq9Gb6Z4538IwW
+	7Kjf87OusP7AtGJ+Oi8XJ3ghqscpSr4x5xqgpv94PP7sMk2N2s1HW9re+/BSZIvcG8AAwHqUrOQnC
+	iHWfjRUroQFXY5MGGxqfx/xS35lo22a8V1qE9OG8d3YudJwQ+XBgB3eYt6kvNRSPfXt26khQleHtm
+	by+tUkXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucTZz-0000000AuPf-49Qj;
-	Thu, 17 Jul 2025 18:43:39 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1ucTcR-0000000Av2k-0lri;
+	Thu, 17 Jul 2025 18:46:11 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucTXU-0000000AtwC-1gTj;
-	Thu, 17 Jul 2025 18:41:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=z8+rI+enL4BSqLq2MJbBJbkJP0/8ld0NpkqpPbeKKVc=; b=msRlLmCiHmUcDmop9bQYx2XvJT
-	0aucsQ8fV2s9REhSuLOn1834b3FxtUmsBDVtsgREcF2UKJsxMqDiiSJ9wPhkIRIdd99HeUoyyAhHc
-	iFFVB/uZM6InObn2gGsXFDwwN1PBDUZC2swKuq2ooJYQ05LYkAJz+WvV3GG/9ZDXTYB44cFhIW/vz
-	qjMxkon24v6lOrlp0xOM2kB0mxsRdT1SksUV4bGJlIy2hgpSWpxY66eGz7ugirPW5kmncyY2Oz54h
-	TA3bXG/er6NFMZriVtHfoUqhsZELemb3ctbcmK3wbwX5xFOoynoueu2grFS/dtI1KE2XOy+beRYgN
-	MatY/ONg==;
-Received: from cst-prg-35-241.cust.vodafone.cz ([46.135.35.241] helo=phil.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1ucTXR-0005fE-9W; Thu, 17 Jul 2025 20:41:01 +0200
-From: Heiko Stuebner <heiko@sntech.de>
-To: Quentin Schulz <quentin.schulz@cherry.de>
-Cc: robh@kernel.org, krzk+dt@kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, damon.ding@rock-chips.com,
- Heiko Stuebner <heiko.stuebner@cherry.de>
-Subject: Re: [PATCH 2/2] arm64: dts: rockchip: add RK3588 DP carrier from Theobroma
- Systems
-Date: Thu, 17 Jul 2025 20:40:59 +0200
-Message-ID: <11143499.CDJkKcVGEf@phil>
-In-Reply-To: <470dc543-9619-419c-9ea3-6671f4d52326@cherry.de>
-References: <20250716185027.2762175-1-heiko@sntech.de>
- <20250716185027.2762175-3-heiko@sntech.de>
- <470dc543-9619-419c-9ea3-6671f4d52326@cherry.de>
+	id 1ucTXx-0000000Au36-0T1G
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 17 Jul 2025 18:41:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1752777692;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=dGrxhCeS1UihQtSyLwZYefdsHJ3gt32bAk+gCeT3YuQ=;
+	b=KQVMfJFv4I+XNsGvBzasO2XNHltwSYB6q7HKMnn5pOo+6/UPt66/ue1EFW6jvduCjaDyqL
+	b9YdP1OnpA6luN91V6+y7LN2Z40HuPEqRxnmpWPDyZaZEEAClhYy/s5eawZVEjSKKJoJPX
+	SI8R+/mO9XjcwejsmIYQ5byWfdmY3GU=
+Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-58-_31ifGVKPp6mZ4YwN5wsEA-1; Thu,
+ 17 Jul 2025 14:41:26 -0400
+X-MC-Unique: _31ifGVKPp6mZ4YwN5wsEA-1
+X-Mimecast-MFC-AGG-ID: _31ifGVKPp6mZ4YwN5wsEA_1752777683
+Received: from mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.12])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id E0CAC1800368;
+	Thu, 17 Jul 2025 18:41:22 +0000 (UTC)
+Received: from chopper.redhat.com (unknown [10.22.66.69])
+	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 86CC6196664F;
+	Thu, 17 Jul 2025 18:41:17 +0000 (UTC)
+From: Lyude Paul <lyude@redhat.com>
+To: rust-for-linux@vger.kernel.org,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Boqun Feng <boqun.feng@gmail.com>,
+	linux-kernel@vger.kernel.org,
+	Daniel Almeida <daniel.almeida@collabora.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	x86@kernel.org (maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)),
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Juergen Christ <jchrist@linux.ibm.com>,
+	Uros Bizjak <ubizjak@gmail.com>,
+	Brian Gerst <brgerst@gmail.com>,
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM64 PORT (AARCH64 ARCHITECTURE)),
+	linux-s390@vger.kernel.org (open list:S390 ARCHITECTURE),
+	linux-arch@vger.kernel.org (open list:GENERIC INCLUDE/ASM HEADER FILES)
+Subject: [PATCH v11 02/14] preempt: Introduce __preempt_count_{sub, add}_return()
+Date: Thu, 17 Jul 2025 14:37:54 -0400
+Message-ID: <20250717184055.2071216-3-lyude@redhat.com>
+In-Reply-To: <20250717184055.2071216-1-lyude@redhat.com>
+References: <20250717184055.2071216-1-lyude@redhat.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.12
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250717_114104_471799_3717EDA4 
-X-CRM114-Status: GOOD (  33.86  )
+X-CRM114-CacheID: sfid-20250717_114133_220892_F8E4458E 
+X-CRM114-Status: GOOD (  14.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,87 +103,142 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Quentin,
+From: Boqun Feng <boqun.feng@gmail.com>
 
-Am Donnerstag, 17. Juli 2025, 14:21:22 Mitteleurop=C3=A4ische Sommerzeit sc=
-hrieb Quentin Schulz:
-> On 7/16/25 8:50 PM, Heiko Stuebner wrote:
-> > From: Heiko Stuebner <heiko.stuebner@cherry.de>
-> >=20
-> > The DisplayPort carrier is a very simple baseboard only providing seria=
-l,
-> > ethernet and a displayport output.
-> >=20
-> > But its main functionality is that it routes the Analogix eDP controller
-> > to this DisplayPort output, which allows to test that controller simply
-> > by hooking it up to a suitable monitor.
-> >=20
-> > The Analogix-DP controller supports eDP 1.3 and DP 1.2, so can drive
-> > both eDP displays as well as full DP monitors. It does not support DP+
-> > so passive DP-to-HDMI adapters won't work.
-> >=20
-> > Signed-off-by: Heiko Stuebner <heiko.stuebner@cherry.de>
-> > ---
+In order to use preempt_count() to tracking the interrupt disable
+nesting level, __preempt_count_{add,sub}_return() are introduced, as
+their name suggest, these primitives return the new value of the
+preempt_count() after changing it. The following example shows the usage
+of it in local_interrupt_disable():
 
-> > +&edp0 {
-> > +	/*
-> > +	 * Note that this board doesn't respect Q7 standard as Q7 has
-> > +	 * lane 2 of HDMI on the same pin as lane 0 of DP and lane 0 of HDMI
-> > +	 * on lane 2 of DP but this board uses HDMI lane numbering instead of
-> > +	 * DP lane numbering for its DP lanes.
-> > +	 *
-> > +	 * It should be possible to match Q7 standard if required by requesti=
-ng
-> > +	 * the eDPTX controller to swap lanes with:
-> > +	 *
-> > +	 * data-lanes =3D <2 1 0 3>;
->=20
-> I don't think that's true currently?
->=20
-> The driver only seems to be supporting swapping the lanes, c.f.=20
-> analogix_dp_lane_swap() which routes it to either 0 1 2 3 or 3 2 1 0 but=
-=20
-> no mix like the one we would need. Also, this function is never called=20
-> with anything but "do not swap" argument. So we would need to fix the=20
-> driver to support that.
->=20
-> Also, this is the kind of information we should have in Tiger DTSI and=20
-> not some "random" baseboard DTS which will actually not make use of it.=20
-> We should have data-lanes =3D <2 1 0 3>; in Tiger DTSI actually but=20
-> considering 1) the driver doesn't support that, 2) we don't have HW to=20
-> validate it works; I guess we'll just leave it at that.
->=20
-> > +	 */
-> > +
->=20
-> Aren't we missing the data-lanes property here? I don't see a default=20
-> and I would assume we should be providing one?
+	// increase the HARDIRQ_DISABLE bit
+	new_count = __preempt_count_add_return(HARDIRQ_DISABLE_OFFSET);
 
-The analogix-dp controller binding does not specify data-lanes at all
-and the current driver also does not read it, or use anything
-regarding it.
+	// if it's the first-time increment, then disable the interrupt
+	// at hardware level.
+	if (new_count & HARDIRQ_DISABLE_MASK == HARDIRQ_DISABLE_OFFSET) {
+		local_irq_save(flags);
+		raw_cpu_write(local_interrupt_disable_state.flags, flags);
+	}
 
+Having these primitives will avoid a read of preempt_count() after
+changing preempt_count() on certain architectures.
 
-> Documentation/devicetree/bindings/media/video-interfaces.yaml specifies=20
-> it either starts at 0 or 1, depending if there's a clock lane or not. As=
-=20
-> far as I could tell, DP has 4 data lanes and the AUX lane as well, but=20
-> nothing clock-specific so I assume starting at 0 would be correct?
+Signed-off-by: Boqun Feng <boqun.feng@gmail.com>
+Signed-off-by: Lyude Paul <lyude@redhat.com>
 
-Looks like it. I looked at the vendor-kernel which does allow data-lane
-settings and specifies the default as <0 1 2 3> .
+---
+V10:
+* Add commit message I forgot
+* Rebase against latest pcpu_hot changes
+V11:
+* Remove CONFIG_PROFILE_ALL_BRANCHES workaround from
+  __preempt_count_add_return()
 
-So for now, I'll just drop the comment.
+---
+ arch/arm64/include/asm/preempt.h | 18 ++++++++++++++++++
+ arch/s390/include/asm/preempt.h  | 10 ++++++++++
+ arch/x86/include/asm/preempt.h   | 10 ++++++++++
+ include/asm-generic/preempt.h    | 14 ++++++++++++++
+ 4 files changed, 52 insertions(+)
 
-
-> On a side note, is the audio output on eDP TX controller already=20
-> supported like on HDMI? If so, we should add the edp0-sound node like in=
-=20
-> our downstream fork. But looking at the driver, I don't think we=20
-> implement any dp_audio_* callbacks from drm_bridge_funcs which I assume=20
-> would be the way to implement that.
-
-Heiko
-
+diff --git a/arch/arm64/include/asm/preempt.h b/arch/arm64/include/asm/preempt.h
+index 0159b625cc7f0..49cb886c8e1dd 100644
+--- a/arch/arm64/include/asm/preempt.h
++++ b/arch/arm64/include/asm/preempt.h
+@@ -56,6 +56,24 @@ static inline void __preempt_count_sub(int val)
+ 	WRITE_ONCE(current_thread_info()->preempt.count, pc);
+ }
+ 
++static inline int __preempt_count_add_return(int val)
++{
++	u32 pc = READ_ONCE(current_thread_info()->preempt.count);
++	pc += val;
++	WRITE_ONCE(current_thread_info()->preempt.count, pc);
++
++	return pc;
++}
++
++static inline int __preempt_count_sub_return(int val)
++{
++	u32 pc = READ_ONCE(current_thread_info()->preempt.count);
++	pc -= val;
++	WRITE_ONCE(current_thread_info()->preempt.count, pc);
++
++	return pc;
++}
++
+ static inline bool __preempt_count_dec_and_test(void)
+ {
+ 	struct thread_info *ti = current_thread_info();
+diff --git a/arch/s390/include/asm/preempt.h b/arch/s390/include/asm/preempt.h
+index 6ccd033acfe52..5ae366e26c57d 100644
+--- a/arch/s390/include/asm/preempt.h
++++ b/arch/s390/include/asm/preempt.h
+@@ -98,6 +98,16 @@ static __always_inline bool should_resched(int preempt_offset)
+ 	return unlikely(READ_ONCE(get_lowcore()->preempt_count) == preempt_offset);
+ }
+ 
++static __always_inline int __preempt_count_add_return(int val)
++{
++	return val + __atomic_add(val, &get_lowcore()->preempt_count);
++}
++
++static __always_inline int __preempt_count_sub_return(int val)
++{
++	return __preempt_count_add_return(-val);
++}
++
+ #define init_task_preempt_count(p)	do { } while (0)
+ /* Deferred to CPU bringup time */
+ #define init_idle_preempt_count(p, cpu)	do { } while (0)
+diff --git a/arch/x86/include/asm/preempt.h b/arch/x86/include/asm/preempt.h
+index 578441db09f0b..1220656f3370b 100644
+--- a/arch/x86/include/asm/preempt.h
++++ b/arch/x86/include/asm/preempt.h
+@@ -85,6 +85,16 @@ static __always_inline void __preempt_count_sub(int val)
+ 	raw_cpu_add_4(__preempt_count, -val);
+ }
+ 
++static __always_inline int __preempt_count_add_return(int val)
++{
++	return raw_cpu_add_return_4(__preempt_count, val);
++}
++
++static __always_inline int __preempt_count_sub_return(int val)
++{
++	return raw_cpu_add_return_4(__preempt_count, -val);
++}
++
+ /*
+  * Because we keep PREEMPT_NEED_RESCHED set when we do _not_ need to reschedule
+  * a decrement which hits zero means we have no preempt_count and should
+diff --git a/include/asm-generic/preempt.h b/include/asm-generic/preempt.h
+index 51f8f3881523a..c8683c046615d 100644
+--- a/include/asm-generic/preempt.h
++++ b/include/asm-generic/preempt.h
+@@ -59,6 +59,20 @@ static __always_inline void __preempt_count_sub(int val)
+ 	*preempt_count_ptr() -= val;
+ }
+ 
++static __always_inline int __preempt_count_add_return(int val)
++{
++	*preempt_count_ptr() += val;
++
++	return *preempt_count_ptr();
++}
++
++static __always_inline int __preempt_count_sub_return(int val)
++{
++	*preempt_count_ptr() -= val;
++
++	return *preempt_count_ptr();
++}
++
+ static __always_inline bool __preempt_count_dec_and_test(void)
+ {
+ 	/*
+-- 
+2.50.0
 
 
