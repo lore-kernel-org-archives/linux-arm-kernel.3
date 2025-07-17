@@ -4,70 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DEA3C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 11:13:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17B71C83F1B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 11:15:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KBzfM5pbLtk9nETtg9LmAuTF3wNpe0ChRxZFPRe1dds=; b=EYYadHSU2pNbqTg1qQifHXPMZP
-	GkZDBpuswftOYN4uvwE3KV74FAvyane/v4MWo15m0ziLdhwRhk5K2BMHeJRALB9cE5KbzPPeHwAe2
-	H67rf2PKbQBlqdHRfGkdhHCIXP/D28W/djganfuKUxITMU0vgiIx9NlZgHwIT4sRrPchdLGNHrUUn
-	I4JyOmVYj//qHZrBBwy2jAAN5xaVC/ADhovtQ8Y57f+8oTlxC2Ngz7nKhDU/CMLe9UP4F8X4B2uRa
-	ppejzfXvNPdKnL61kFKb6R26nAZs1OEDAZmGgOPkBj79K4UVROVhH2oiFSFDfzOX5xlpPSMgwX+8O
-	ZO46CXfg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6P3L01kf/NeHjEyj4+JDo1jjrAzNzq7t4P0TBCUcRvY=; b=D3JZoEP2G4uIp5I6vGDbzLyG3a
+	nHaRx3ou3bsW90PSuVviw5xe43GybA7Cp3LfF8/L/8qXYrSi+xf69ezxq7xSarFIl875lyQl9r5kr
+	VNPyGURusKyjTv8kDpaP0lcFG/ytJ1NGuXKP3+Cn1C/oG1WhBwv72M4xTQ2UomS2wi5dZ1a7Q55NY
+	+fVUZUFZmHdD7XuNNkXfDzFhgsFcpcxgRD+xMU4XmXp2O/vo8frHMFezz2k0038etZjvQJ0oQGGWB
+	GoBRaW3iebO7sksTKYuLwEoIUInBli+SkOUPyhLdl6OGjkpG9e8wPxRD3Y80FdcswgdESYv1kAVDz
+	rnXiC0sA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucMXq-00000009xCo-3VZI;
-	Thu, 17 Jul 2025 11:12:58 +0000
-Received: from smtp.forwardemail.net ([149.28.215.223])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucLzz-00000009rux-3dmy
+	id 1ucMaF-00000009xNf-3wKP;
+	Thu, 17 Jul 2025 11:15:27 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ucM15-00000009s5J-06lG
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Jul 2025 10:38:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
- h=Content-Transfer-Encoding: MIME-Version: References: In-Reply-To:
- Message-ID: Date: Subject: Cc: To: From; q=dns/txt; s=fe-e1b5cab7be;
- t=1752748679; bh=KBzfM5pbLtk9nETtg9LmAuTF3wNpe0ChRxZFPRe1dds=;
- b=aLJBDFCJyF0yWhUqybG7xaWafVi96ZwonJaVwNPAZf9aNSyBfzQU2v+fa849BgtMsqatH31zq
- Bs1UwCY4BmxtZDyWOVMM7YnHLW91uw7ZQF3pYlmxu37c7Ah0knXnYTItPKT2Fg4J3PEQihvMNxp
- leyjtrlVhyTUL3AXIYK7J4C8i3akSaR3RMRjVg9CfXs9wnDrke35aZC614JENAVZKs76OxRsHEs
- qbv5/sM0Y3NtZs6IM07Zsd+tIYjUINSwszVoGXGtQi2ykNkEJ0cL0hUtfhOklIvXq0w1dWR2JTe
- SVlE73gQIuXQrwbqMB+37t6eHIpTY3d3iWppw3tF6I2w==
-X-Forward-Email-ID: 6878d2815e51505848fe609d
-X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
- 149.28.215.223
-X-Forward-Email-Version: 1.1.6
-X-Forward-Email-Website: https://forwardemail.net
-X-Complaints-To: abuse@forwardemail.net
-X-Report-Abuse: abuse@forwardemail.net
-X-Report-Abuse-To: abuse@forwardemail.net
-From: Jonas Karlman <jonas@kwiboo.se>
-To: Heiko Stuebner <heiko@sntech.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: Yao Zi <ziyao@disroot.org>,
-	Chukun Pan <amadeus@jmu.edu.cn>,
-	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
-	linux-rockchip@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Jonas Karlman <jonas@kwiboo.se>
-Subject: [PATCH v4 6/6] arm64: dts: rockchip: Add FriendlyElec NanoPi Zero2
-Date: Thu, 17 Jul 2025 10:37:08 +0000
-Message-ID: <20250717103720.2853031-7-jonas@kwiboo.se>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20250717103720.2853031-1-jonas@kwiboo.se>
-References: <20250717103720.2853031-1-jonas@kwiboo.se>
+	Thu, 17 Jul 2025 10:39:08 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E8FEF1596;
+	Thu, 17 Jul 2025 03:38:57 -0700 (PDT)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8A4393F6A8;
+	Thu, 17 Jul 2025 03:39:03 -0700 (PDT)
+Date: Thu, 17 Jul 2025 11:38:56 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: =?utf-8?B?5YiY5rW354eVIChIYWl5YW4gTGl1KQ==?= <haiyan.liu@unisoc.com>
+Cc: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"rust-for-linux@vger.kernel.org" <rust-for-linux@vger.kernel.org>,
+	=?utf-8?B?5Luj5a2Q5Li6IChaaXdlaSBEYWkp?= <Ziwei.Dai@unisoc.com>,
+	=?utf-8?B?5ZGo5bmzIChQaW5nIFpob3UvOTAzMik=?= <Ping.Zhou1@unisoc.com>,
+	=?utf-8?B?5p2o5Li95aicIChMaW5hIFlhbmcp?= <lina.yang@unisoc.com>,
+	=?utf-8?B?546L5Y+MIChTaHVhbmcgV2FuZyk=?= <shuang.wang@unisoc.com>,
+	Alice Ryhl <aliceryhl@google.com>, Miguel Ojeda <ojeda@kernel.org>,
+	Matthew Maurer <mmaurer@google.com>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Sami Tolvanen <samitolvanen@google.com>
+Subject: Re: Meet compiled kernel binaray abnormal issue while enabling
+ generic kasan in kernel 6.12 with some default KBUILD_RUSTFLAGS on
+Message-ID: <aHjSwCK98Bpgu_jb@J2N7QTR9R3>
+References: <4c459085b9ae42bdbf99b6014952b965@BJMBX01.spreadtrum.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <4c459085b9ae42bdbf99b6014952b965@BJMBX01.spreadtrum.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250717_033759_945197_84FE64FB 
-X-CRM114-Status: GOOD (  12.99  )
+X-CRM114-CacheID: sfid-20250717_033907_139992_FB4A554B 
+X-CRM114-Status: GOOD (  22.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,390 +73,160 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The NanoPi Zero2 is a small single board computer developed by
-FriendlyElec, based on the Rockchip RK3528A SoC.
+Hi,
 
-Add initial device tree for the FriendlyElec NanoPi Zero2 board.
+From a quick scan, I think this might have something to do with
+UNWIND_PATCH_PAC_INTO_SCS, notes below.
 
-Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
-Tested-by: Yao Zi <ziyao@disroot.org>
----
-Changes in v4:
-- No change
+On Mon, Jul 14, 2025 at 03:12:33AM +0000, 刘海燕 (Haiyan Liu) wrote:
+> I am enabling generic kasan feature in kernel 6.12, and met kernel boot crash.
+> Unable to handle kernel NULL pointer dereference at virtual address 0000000000000008
+> pc : do_basic_setup+0x6c/0xac
+> lr : do_basic_setup+0x88/0xac
+> sp : ffffffc080087e40
 
-Changes in v3:
-- Rename led nodes to led-0/led-1 (Chukun Pan)
+Can you say which hardware this is on? Given this is a NULL-dereference,
+this looks ike a dodgy pointer (or memory corruption) rather than a PAC
+failure.
 
-Changes in v2:
-- Drop clock-output-names prop from rtc node (Chukun Pan)
-- Collect t-b tag
+> After debug, I find some error in do_ctors().
+> Normally, the complier should insert the paciasp instruction at the function entry so that its corresponding autiasp instruction is used to validate the return address when the function returns.
+> NSX:FFFFFFC0800A840C|F800865E     asan.module_ctor:   str  x30,[x18],#0x8；x30,[x18],#8
+> NSX:FFFFFFC0800A8410|A9BF7BFD                       stp     x29,x30,[sp,#-0x10]!   ; x29,x30,[sp,#-16]!
+> NSX:FFFFFFC0800A8414|910003FD                       mov     x29,sp
+> NSX:FFFFFFC0800A8418|B0023420                       adrp    x0,0xFFFFFFC08472D000
+> NSX:FFFFFFC0800A841C|91390000                       add     x0,x0,#0xE40     ; x0,x0,#3648
+> NSX:FFFFFFC0800A8420|528000A1                       mov     w1,#0x5          ; w1,#5
+> NSX:FFFFFFC0800A8424|9422AF50                       bl      0xFFFFFFC080954164   ; __asan_register_globals
+> NSX:FFFFFFC0800A8428|A8C17BFD                       ldp     x29,x30,[sp],#0x10   ; x29,x30,[sp],#16
+> NSX:FFFFFFC0800A842C|F85F8E5E                       ldr     x30,[x18,#-0x8]!   ; x30,[x18,#-8]!    
+> NSX:FFFFFFC0800A8430|D65F03C0                       ret
 
-Schematics: https://wiki.friendlyelec.com/wiki/images/3/37/NanoPi_Zero2_2407_SCH.pdf
----
- arch/arm64/boot/dts/rockchip/Makefile         |   1 +
- .../boot/dts/rockchip/rk3528-nanopi-zero2.dts | 340 ++++++++++++++++++
- 2 files changed, 341 insertions(+)
- create mode 100644 arch/arm64/boot/dts/rockchip/rk3528-nanopi-zero2.dts
+Here you evidently have shadow call stack enabled...
 
-diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/dts/rockchip/Makefile
-index 206fb8572cf7..0662fcf00628 100644
---- a/arch/arm64/boot/dts/rockchip/Makefile
-+++ b/arch/arm64/boot/dts/rockchip/Makefile
-@@ -90,6 +90,7 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3399-sapphire.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3399-sapphire-excavator.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3399pro-rock-pi-n10.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3528-armsom-sige1.dtb
-+dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3528-nanopi-zero2.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3528-radxa-e20c.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3528-rock-2a.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3528-rock-2f.dtb
-diff --git a/arch/arm64/boot/dts/rockchip/rk3528-nanopi-zero2.dts b/arch/arm64/boot/dts/rockchip/rk3528-nanopi-zero2.dts
-new file mode 100644
-index 000000000000..9f683033c5f3
---- /dev/null
-+++ b/arch/arm64/boot/dts/rockchip/rk3528-nanopi-zero2.dts
-@@ -0,0 +1,340 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+
-+/dts-v1/;
-+
-+#include <dt-bindings/input/input.h>
-+#include <dt-bindings/leds/common.h>
-+#include <dt-bindings/pwm/pwm.h>
-+#include "rk3528.dtsi"
-+
-+/ {
-+	model = "FriendlyElec NanoPi Zero2";
-+	compatible = "friendlyarm,nanopi-zero2", "rockchip,rk3528";
-+
-+	aliases {
-+		ethernet0 = &gmac1;
-+		i2c1 = &i2c1;
-+		mmc0 = &sdhci;
-+		mmc1 = &sdmmc;
-+		serial0 = &uart0;
-+	};
-+
-+	chosen {
-+		stdout-path = "serial0:1500000n8";
-+	};
-+
-+	adc-keys-0 {
-+		compatible = "adc-keys";
-+		io-channels = <&saradc 0>;
-+		io-channel-names = "buttons";
-+		keyup-threshold-microvolt = <1800000>;
-+		poll-interval = <100>;
-+
-+		button-maskrom {
-+			label = "MASK";
-+			linux,code = <KEY_SETUP>;
-+			press-threshold-microvolt = <0>;
-+		};
-+	};
-+
-+	adc-keys-1 {
-+		compatible = "adc-keys";
-+		io-channels = <&saradc 1>;
-+		io-channel-names = "buttons";
-+		keyup-threshold-microvolt = <1800000>;
-+		poll-interval = <100>;
-+
-+		button-recovery {
-+			label = "RECOVERY";
-+			linux,code = <KEY_VENDOR>;
-+			press-threshold-microvolt = <0>;
-+		};
-+	};
-+
-+	leds {
-+		compatible = "gpio-leds";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&led1>, <&led_sys>;
-+
-+		led-0 {
-+			color = <LED_COLOR_ID_RED>;
-+			default-state = "on";
-+			function = LED_FUNCTION_HEARTBEAT;
-+			gpios = <&gpio4 RK_PB0 GPIO_ACTIVE_HIGH>;
-+			linux,default-trigger = "heartbeat";
-+		};
-+
-+		led-1 {
-+			color = <LED_COLOR_ID_GREEN>;
-+			default-state = "on";
-+			function = LED_FUNCTION_STATUS;
-+			gpios = <&gpio4 RK_PB1 GPIO_ACTIVE_HIGH>;
-+			linux,default-trigger = "default-on";
-+		};
-+	};
-+
-+	vcc0v6_ddr: regulator-0v6-vcc-ddr {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc0v6_ddr";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <600000>;
-+		regulator-max-microvolt = <600000>;
-+		vin-supply = <&vcc5v0_sys>;
-+	};
-+
-+	vdd_0v9: regulator-0v9-vdd {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vdd_0v9";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <900000>;
-+		regulator-max-microvolt = <900000>;
-+		vin-supply = <&vcc5v0_sys>;
-+	};
-+
-+	vcc_ddr: regulator-1v1-vcc-ddr {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc_ddr";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <1100000>;
-+		regulator-max-microvolt = <1100000>;
-+		vin-supply = <&vcc5v0_sys>;
-+	};
-+
-+	vcc_1v8: regulator-1v8-vcc {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc_1v8";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <1800000>;
-+		regulator-max-microvolt = <1800000>;
-+		vin-supply = <&vcc_3v3>;
-+	};
-+
-+	vcc_3v3: regulator-3v3-vcc {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc_3v3";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		vin-supply = <&vcc5v0_sys>;
-+	};
-+
-+	vcc3v3_sd: regulator-3v3-vcc-sd {
-+		compatible = "regulator-fixed";
-+		gpios = <&gpio4 RK_PA1 GPIO_ACTIVE_LOW>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&sdmmc_pwren_l>;
-+		regulator-name = "vcc3v3_sd";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		vin-supply = <&vcc_3v3>;
-+	};
-+
-+	vcc5v0_sys: regulator-5v0-vcc-sys {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc5v0_sys";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+	};
-+
-+	usb2_host_5v: regulator-5v0-usb2-host {
-+		compatible = "regulator-fixed";
-+		enable-active-high;
-+		gpios = <&gpio4 RK_PB5 GPIO_ACTIVE_HIGH>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&usb20_host1_pwren>;
-+		regulator-name = "usb2_host_5v";
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+		vin-supply = <&vcc5v0_sys>;
-+	};
-+
-+	vccio_sd: regulator-vccio-sd {
-+		compatible = "regulator-gpio";
-+		gpios = <&gpio4 RK_PB6 GPIO_ACTIVE_HIGH>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&sdmmc_vol_ctrl_h>;
-+		regulator-name = "vccio_sd";
-+		regulator-min-microvolt = <1800000>;
-+		regulator-max-microvolt = <3300000>;
-+		states = <1800000 0x0>, <3300000 0x1>;
-+		vin-supply = <&vcc5v0_sys>;
-+	};
-+
-+	vdd_arm: regulator-vdd-arm {
-+		compatible = "pwm-regulator";
-+		pwms = <&pwm1 0 5000 PWM_POLARITY_INVERTED>;
-+		pwm-supply = <&vcc5v0_sys>;
-+		regulator-name = "vdd_arm";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <746000>;
-+		regulator-max-microvolt = <1201000>;
-+		regulator-settling-time-up-us = <250>;
-+	};
-+
-+	vdd_logic: regulator-vdd-logic {
-+		compatible = "pwm-regulator";
-+		pwms = <&pwm2 0 5000 PWM_POLARITY_INVERTED>;
-+		pwm-supply = <&vcc5v0_sys>;
-+		regulator-name = "vdd_logic";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <705000>;
-+		regulator-max-microvolt = <1006000>;
-+		regulator-settling-time-up-us = <250>;
-+	};
-+};
-+
-+&cpu0 {
-+	cpu-supply = <&vdd_arm>;
-+};
-+
-+&cpu1 {
-+	cpu-supply = <&vdd_arm>;
-+};
-+
-+&cpu2 {
-+	cpu-supply = <&vdd_arm>;
-+};
-+
-+&cpu3 {
-+	cpu-supply = <&vdd_arm>;
-+};
-+
-+&gmac1 {
-+	clock_in_out = "output";
-+	phy-handle = <&rgmii_phy>;
-+	phy-mode = "rgmii-id";
-+	phy-supply = <&vcc_3v3>;
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&rgmii_miim>, <&rgmii_tx_bus2>, <&rgmii_rx_bus2>,
-+		    <&rgmii_rgmii_clk>, <&rgmii_rgmii_bus>;
-+	status = "okay";
-+};
-+
-+&gpu {
-+	mali-supply = <&vdd_logic>;
-+	status = "okay";
-+};
-+
-+&i2c1 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&i2c1m0_xfer>;
-+	status = "okay";
-+
-+	hym8563: rtc@51 {
-+		compatible = "haoyu,hym8563";
-+		reg = <0x51>;
-+		#clock-cells = <0>;
-+		interrupt-parent = <&gpio4>;
-+		interrupts = <RK_PC1 IRQ_TYPE_LEVEL_LOW>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&rtc_int_l>;
-+		wakeup-source;
-+	};
-+};
-+
-+&mdio1 {
-+	rgmii_phy: ethernet-phy@1 {
-+		compatible = "ethernet-phy-ieee802.3-c22";
-+		reg = <0x1>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&gmac1_rstn_l>;
-+		reset-assert-us = <20000>;
-+		reset-deassert-us = <100000>;
-+		reset-gpios = <&gpio4 RK_PC2 GPIO_ACTIVE_LOW>;
-+	};
-+};
-+
-+&pinctrl {
-+	ethernet {
-+		gmac1_rstn_l: gmac1-rstn-l {
-+			rockchip,pins = <4 RK_PC2 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+
-+	leds {
-+		led1: led1 {
-+			rockchip,pins = <4 RK_PB1 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+
-+		led_sys: led-sys {
-+			rockchip,pins = <4 RK_PB0 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+
-+	rtc {
-+		rtc_int_l: rtc-int-l {
-+			rockchip,pins = <4 RK_PC1 RK_FUNC_GPIO &pcfg_pull_up>;
-+		};
-+	};
-+
-+	sdmmc {
-+		sdmmc_vol_ctrl_h: sdmmc-vol-ctrl-h {
-+			rockchip,pins = <4 RK_PB6 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+
-+		sdmmc_pwren_l: sdmmc-pwren-l {
-+			rockchip,pins = <4 RK_PA1 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+
-+	usb {
-+		usb20_host1_pwren: usb20-host1-pwren {
-+			rockchip,pins = <4 RK_PB5 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+};
-+
-+&pwm1 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pwm1m0_pins>;
-+	status = "okay";
-+};
-+
-+&pwm2 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pwm2m0_pins>;
-+	status = "okay";
-+};
-+
-+&saradc {
-+	vref-supply = <&vcc_1v8>;
-+	status = "okay";
-+};
-+
-+&sdhci {
-+	bus-width = <8>;
-+	cap-mmc-highspeed;
-+	mmc-hs200-1_8v;
-+	no-sd;
-+	no-sdio;
-+	non-removable;
-+	vmmc-supply = <&vcc_3v3>;
-+	vqmmc-supply = <&vcc_1v8>;
-+	status = "okay";
-+};
-+
-+&sdmmc {
-+	bus-width = <4>;
-+	cap-mmc-highspeed;
-+	cap-sd-highspeed;
-+	disable-wp;
-+	sd-uhs-sdr104;
-+	vmmc-supply = <&vcc3v3_sd>;
-+	vqmmc-supply = <&vccio_sd>;
-+	status = "okay";
-+};
-+
-+&uart0 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&uart0m0_xfer>;
-+	status = "okay";
-+};
--- 
-2.50.1
+> NSX:FFFFFFC0800A8478|D503233F  asan.module_ctor:    paciasp                                         
+> NSX:FFFFFFC0800A847C|A9BF7BFD                       stp     x29,x30,[sp,#-0x10]!   ; x29,x30,[sp,#-16]!
+> NSX:FFFFFFC0800A8480|910003FD                       mov     x29,sp
+> NSX:FFFFFFC0800A8484|B0023420                       adrp    x0,0xFFFFFFC08472D000
+> NSX:FFFFFFC0800A8488|913E0000                       add     x0,x0,#0xF80     ; x0,x0,#3968
+> NSX:FFFFFFC0800A848C|52800021                       mov     w1,#0x1          ; w1,#1
+> NSX:FFFFFFC0800A8490|9422AF35                       bl      0xFFFFFFC080954164   ; __asan_register_globals
+> NSX:FFFFFFC0800A8494|A8C17BFD                       ldp     x29,x30,[sp],#0x10   ; x29,x30,[sp],#16
+> NSX:FFFFFFC0800A8498|D50323BF                       autiasp                                         
+> NSX:FFFFFFC0800A849C|D65F03C0                       ret
 
+... but here you evidently don't, and have PAC instead.
+
+Are these from the same kernel Image?
+
+Are these decoded from the static kernel binary, or are these dumps from
+memory once a kernel has booted (or is in the process of booting)?
+
+> But actually, in two asan.module_ctor functions, there is only autiasp  instruction inserted before return, for validation of return address, while paciasp instruction is missing before.
+> NSX:FFFFFFC0800A72D8|F800865E  asan.module_ctor:    str     x30,[x18],#0x8   ; x30,[x18],#8          
+> NSX:FFFFFFC0800A72DC|F81F0FFE                       str     x30,[sp,#-0x10]!   ; x30,[sp,#-16]!
+> NSX:FFFFFFC0800A72E0|B00233C0                       adrp    x0,0xFFFFFFC084720000
+> NSX:FFFFFFC0800A72E4|91350000                       add     x0,x0,#0xD40     ; x0,x0,#3392
+> NSX:FFFFFFC0800A72E8|52803D61                       mov     w1,#0x1EB        ; w1,#491
+> NSX:FFFFFFC0800A72EC|9422B39E                       bl      0xFFFFFFC080954164   ; __asan_register_globals
+> NSX:FFFFFFC0800A72F0|F84107FE                       ldr     x30,[sp],#0x10   ; x30,[sp],#16
+> NSX:FFFFFFC0800A72F4|D50323BF                       autiasp                                         
+> NSX:FFFFFFC0800A72F8|D65F03C0                       ret
+
+Thas has a mixture of SCS and PAC; there's a shadow call stack prologue
+but a PAC epilogue:
+
+	str     x30, [x18], #8	// SCS
+	...
+	autiasp                 // PAC
+
+... so I'll hazard a guess that these are dumps from memory, and you
+have UNWIND_PATCH_PAC_INTO_SCS selected. Assuming that is the case,
+either this dump has been made mid-patching, or the patching has gone
+wrong somehow and left the prologues/epilogues in an inconsistent state
+(and the NULL dereference could be a secondary effect of that).
+
+Ard, does that sound plausible to you?
+
+I can't see why that would depend on KBUILD_RUSTFLAGS, but maybe the
+DWARF generated by rustc has confused the patching code somehow, or the
+linker has aggregated that in a suprising way.
+
+Mark.
+
+> NSX:FFFFFFC0800A7390|F800865E  asan.module_ctor:    str     x30,[x18],#0x8   ; x30,[x18],#8          
+> NSX:FFFFFFC0800A7394|F81F0FFE                       str     x30,[sp,#-0x10]!   ; x30,[sp,#-16]!
+> NSX:FFFFFFC0800A7398|B0023400                       adrp    x0,0xFFFFFFC084728000
+> NSX:FFFFFFC0800A739C|91210000                       add     x0,x0,#0x840     ; x0,x0,#2112
+> NSX:FFFFFFC0800A73A0|528006E1                       mov     w1,#0x37         ; w1,#55
+> NSX:FFFFFFC0800A73A4|9422B370                       bl      0xFFFFFFC080954164   ; __asan_register_globals
+> NSX:FFFFFFC0800A73A8|F84107FE                       ldr     x30,[sp],#0x10   ; x30,[sp],#16
+> NSX:FFFFFFC0800A73AC|D50323BF                       autiasp                                          
+> NSX:FFFFFFC0800A73B0|D65F03C0                       ret
+> 
+> I compare kernel 6.6 and kernel 6.12 ARM Makefile, and find the difference.
+> Kernel6.6 Makefile
+> 66 ifeq ($(CONFIG_ARM64_BTI_KERNEL),y)
+> 67   KBUILD_CFLAGS += -mbranch-protection=pac-ret+bti
+> 68 else ifeq ($(CONFIG_ARM64_PTR_AUTH_KERNEL),y)
+> 69   ifeq ($(CONFIG_CC_HAS_BRANCH_PROT_PAC_RET),y)
+> 70     KBUILD_CFLAGS += -mbranch-protection=pac-ret
+> 71   else
+> 72     KBUILD_CFLAGS += -msign-return-address=non-leaf
+> 73   endif
+> 74 else
+> 75   KBUILD_CFLAGS += $(call cc-option,-mbranch-protection=none)
+> 76 endif
+> 
+> Kernel6.12  Makefile
+> 81 ifeq ($(CONFIG_ARM64_BTI_KERNEL),y)
+> 82   KBUILD_CFLAGS += -mbranch-protection=pac-ret+bti
+> 83   KBUILD_RUSTFLAGS += -Zbranch-protection=bti,pac-ret                                 
+> 84 else ifeq ($(CONFIG_ARM64_PTR_AUTH_KERNEL),y)
+> 85   KBUILD_RUSTFLAGS += -Zbranch-protection=pac-ret                                   
+> 86   ifeq ($(CONFIG_CC_HAS_BRANCH_PROT_PAC_RET),y)
+> 87     KBUILD_CFLAGS += -mbranch-protection=pac-ret
+> 88   else
+> 89     KBUILD_CFLAGS += -msign-return-address=non-leaf
+> 90   endif
+> 91 else
+> 92   KBUILD_CFLAGS += $(call cc-option,-mbranch-protection=none)
+> 93 endif
+> 
+> After I delete the rust build flags, the asan.module_ctor binary is right and kasan feature works fine.Could you help check why KBUILD_RUSTFLAGS impacts kernel complication with kasan feature enabled and how can this issue fixed?
+> 
+> I use the build.config.constants:
+> BRANCH=android16-6.12
+> KMI_GENERATION=4
+> CLANG_VERSION=r536225
+> RUSTC_VERSION=1.82.0
+> AARCH64_NDK_TRIPLE=aarch64-linux-android31
+> X86_64_NDK_TRIPLE=x86_64-linux-android31
+> ARM_NDK_TRIPLE=arm-linux-androideabi31
+> 
+> compile configuration is :
+> CONFIG_GCC_VERSION=0
+> CONFIG_CC_IS_CLANG=y
+> CONFIG_CLANG_VERSION=190001
+> CONFIG_AS_IS_LLVM=y
+> CONFIG_AS_VERSION=190001
+> CONFIG_LD_VERSION=0
+> CONFIG_LD_IS_LLD=y
+> CONFIG_LLD_VERSION=190001
+> CONFIG_RUSTC_VERSION=108200
+> CONFIG_RUST_IS_AVAILABLE=y
+> CONFIG_RUSTC_LLVM_VERSION=190001
+> CONFIG_CC_CAN_LINK=y
+> CONFIG_CC_CAN_LINK_STATIC=y
+> CONFIG_CC_HAS_ASM_GOTO_OUTPUT=y
+> CONFIG_CC_HAS_ASM_GOTO_TIED_OUTPUT=y
+> CONFIG_TOOLS_SUPPORT_RELR=y
+> CONFIG_CC_HAS_ASM_INLINE=y
+> CONFIG_CC_HAS_NO_PROFILE_FN_ATTR=y
+> CONFIG_PAHOLE_VERSION=125
+> CONFIG_IRQ_WORK=y
+> CONFIG_BUILDTIME_TABLE_SORT=y
+> CONFIG_THREAD_INFO_IN_TASK=y
+> 
+> Thank you
 
