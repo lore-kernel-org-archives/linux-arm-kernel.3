@@ -4,95 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3807C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 16:04:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEEF9C83F34
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 16:06:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K6VckmbMeNSXle4zRhCa92H9M1awVcFui2HysraFMAs=; b=grcv126dy9ePnLFITxBXeyFnmp
-	5XF7AVxqaLz8GHsaprt1gs4rdHNOALRXZsVlmZZfNPgXfamipeTK4YSfUzN9UmQmkzjDA1HaIoEbk
-	anHgzsnwiRX3qKuNUbhznSk13BTWRopcRfefwm5lMFJusHNAaLCFcpu8fV8l8BifwA4GLnLW2m1cn
-	+vP5Uc5ng8KeBM04kxVax3ZxY/JNz0qEnbnRwXHH65jbXI/zl1NIkybKwi75hGnYNNXp/9CLaJDNs
-	5q+bfmqVTXFZ6z/YXkIzZ0zOnJm2k8hdQ5daYhisc8wCTnh1w28fGvCt5ccy62P6FyVDuaPGb5Fl5
-	iv6BDIYQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=I4T2ihdXgHR6g6u1BX7sOJqglqe4PqM2KMli6OwkVns=; b=xMd2362UvqEZ/hdmdvZcb3mXds
+	BF1MmTwksC19uIjVhd5/x32aG4t+QHKXuxq4g5IXijs9hx/pgbwyBW070UZ/6dQsJkXXO8UQqYsKS
+	EXYJf2Cg7aFaIuOzteMYEC196NCINwbQIJW4gjaY6O9eggLIBLNsIAaB1+aoekD0evPkInQtqoqNH
+	fhQvr30kHQyD7vPlQzAExyvcv1gI6dkLpDhtb3HMSQ3TKqVykN3zZhQTe94SdzxzZOJXS786ubpOA
+	nEDe6gqzfuJDPzmV+MvK5OoenQNWSRCchT++2F+Bl0vCmmm16E/eACnYUebWJgy9fv4oUWbJqRaOY
+	lQYPrsqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucR5Y-0000000AZoA-1yUa;
-	Thu, 17 Jul 2025 16:04:04 +0000
-Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
+	id 1ucR7y-0000000AaCe-1tPZ;
+	Thu, 17 Jul 2025 16:06:34 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucQTn-0000000AV9G-1pfR
+	id 1ucQW3-0000000AVIU-39Qt
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 17 Jul 2025 15:27:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=I4T2ihdXgHR6g6u1BX7sOJqglqe4PqM2KMli6OwkVns=; b=c9Nqap6e/CCxpBtMDsLlF7su4c
+	dvJP8qvRNKmGuhCvhWoo9jciC9aUucQYLRByBAkXk7ZmclzFIOKsORhdPgye7BUSSpzIeo7m0DS3s
+	Xa0hh2WwPNF8nYGbVR6/UHT5UhYW4Y1QsgRwLWWdbSYQ7FnkvFXmu9s6fDx8p3mpi7QClRcbc1/q8
+	DM/ZytEq3BSgd6JgnKMHB97YeRDk33NgY9iEsjg8u6xWF20ufnaUThiiJcBDYtIlA6bbd4SG5DQ6N
+	YYGOJARMZCm1QkxHjzeJAWyoAp/S9zfCM2lFTMxYDnwuWVHwUUeAb7c/w3NnjrxaDwfN4BwjRJ6G1
+	VlxCsLuQ==;
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ucQW0-0000000AIuh-158R
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Jul 2025 15:25:04 +0000
-Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-3a51481a598so583459f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Jul 2025 08:25:03 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1752765902; x=1753370702; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=K6VckmbMeNSXle4zRhCa92H9M1awVcFui2HysraFMAs=;
-        b=Ly/oD4q3sE7rUge+KTQOma0e9jGPh9jc+IxhTsFrjDtG2MR+8r/A8oHT99ZrqvNA1P
-         GaPyiDVYEJmFn2Rmaw5rdpy3VAQWFDzwn7yZfbC3ukoWRU5LzSCOnbwbZwBahVMfRUM5
-         U4X4TQHyZB0gO0SNqlVy0uG6IYwBxZpLY/aDrlHwRtP94sdisyrQDGkZx6v8zR6dASF2
-         T8crXHgw8ZXkjf2MYW9IWSbHkyJnm1bMpilGAveczK8b0uO7mKUkWSGJ961tOd9UiAxM
-         1zeI8wG+WGNUUkZVX6k7pxVf8lLRI/XV3PJxGGSPF7wCJbP7ga4n3dcOZ8NJ3OjcK1+b
-         HIsA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752765902; x=1753370702;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=K6VckmbMeNSXle4zRhCa92H9M1awVcFui2HysraFMAs=;
-        b=bgF3gfztes7HZ3o3skgrG+QgPoTEYg3ATIDbilfyUqa22rvIosJHt3McLfZVuEfOMq
-         KHXU0nq54t5QfFImkAhps+ULOJbpXTGRCllObss5k0lh4vsnZIq+4AUz4XXlPqKg2q3m
-         jEllI8275Dl7+Gsos/4XKY1Ppfq0IYo3JnHBIXHh1ZPitqv9DhXzjKOl2OCD5NkHlhKQ
-         qBXG6/85UCboz2WLF1V06/uF8wZDuYw6PWOOH1mO9z9mruUNvYWWTt8QGJR87sMMshud
-         wFqIsIFbFDOIOsE+GjGyRR3P7OM1vWnnqO4hDo2I0yc84O2kJ8MdEgY2+g93LkM/F/jk
-         4djg==
-X-Forwarded-Encrypted: i=1; AJvYcCUWytjQGm/kTHTA8h6xILEpwWAczTX80uQV5pGQ83b4zDZFjgqdE404Zt0FRNaEG/lsF4Lty8ZbgMXbdJCR/hns@lists.infradead.org
-X-Gm-Message-State: AOJu0YzK7TafEno9T0xC9L82fbDVegyCwxJtH3NSpCv6np3Yvwp7q736
-	ZKxznhgYif6OX8ppE9MepWV5yAym2MmJ7ebjL9Knkjb/JmkIJFYLFioOoYA43ZDMHozOSYv+Xcg
-	0noHQwW/5IbVyZPaYrMTdNrV2KH9FnRM=
-X-Gm-Gg: ASbGncvMmclZnTjqIpNMJpa0bId/UyuTv47cGl5WCaitYq/gMMLMuzbHu+QUkiH+ZIA
-	cUBLonRNg2gky/RRKfIu55PEGoKyLVvuYtRSb24a99+phq7qi3OSepvg1X0nKVIFcU+P7RIuBlK
-	mmCaBoYrWXhTLwEn4/CQ06iWiXww/ro2kf5lHH01tGZBaPQWs02Klyb4Bf3zyPUP2Eczln9t9zl
-	A3p1yvRy/AiS05HGlndcNg=
-X-Google-Smtp-Source: AGHT+IGeW++fImtoeS2B0SWaaDzKCqDG3PBDTK7fijr/paFUbpQ9Q2BBphVZE3USeT269JcqVLR3X4fwk0ujRPHOEEo=
-X-Received: by 2002:a05:6000:144b:b0:3b5:dfc2:f0ca with SMTP id
- ffacd0b85a97d-3b60e53ea17mr6047409f8f.40.1752765901784; Thu, 17 Jul 2025
- 08:25:01 -0700 (PDT)
+	Thu, 17 Jul 2025 15:27:22 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 8C3B846199;
+	Thu, 17 Jul 2025 15:27:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B64C4C4CEE3;
+	Thu, 17 Jul 2025 15:27:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1752766037;
+	bh=4yydri2iXJ+vkt3rGzpbKbnKbfLngsgnmN/hlvqV+sM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Jkc2HIzlh/f85sSERCDk6FnHc0o7b/fmOkjr6/ic6/EdFaEA6woHqSEIO4UapszO3
+	 e44POPFs96UF2owJnF1avPhvQuRZb5ouwef1zHHAjIy52Oz0BirO81qvr+Eh2YT8b6
+	 8B8xIrTOYVNMboxBpbEH4wB1OHUbsvjAVNYlwhxBEM/r8CJNP34/vxr9JgvjPrkoca
+	 9gDVTA8RV8ohYM5nBBQ4rKUGFvm1jVOwuhO4KfdUicfQSuM29KK4mSro9vBNXeCaXu
+	 5/ZyE4QwYAq1ZyS+4u2iCDD0/ofDKmH9rlEu+Yb7H+ZnnDzW+otjrPKMmLW+4mE4YC
+	 FCYvQo3eJAbIA==
+Date: Thu, 17 Jul 2025 16:27:10 +0100
+From: Will Deacon <will@kernel.org>
+To: James Clark <james.clark@linaro.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>, leo.yan@arm.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-perf-users@vger.kernel.org, linux-doc@vger.kernel.org,
+	kvmarm@lists.linux.dev
+Subject: Re: [PATCH v3 07/10] perf: arm_spe: Add support for filtering on
+ data source
+Message-ID: <aHkWTlaRKdXbnA0r@willie-the-truck>
+References: <20250605-james-perf-feat_spe_eft-v3-0-71b0c9f98093@linaro.org>
+ <20250605-james-perf-feat_spe_eft-v3-7-71b0c9f98093@linaro.org>
+ <aHUOig-kaRo15ZH5@willie-the-truck>
+ <7f51d4f9-7e08-49b5-ab43-8bc765bb2ca8@linaro.org>
+ <aHkI5_IOV35L4YJa@willie-the-truck>
+ <ca99af3b-e358-4c2b-8d62-0b6c29984391@linaro.org>
 MIME-Version: 1.0
-References: <20250520-vmlinux-mmap-v5-0-e8c941acc414@isovalent.com>
- <20250520-vmlinux-mmap-v5-1-e8c941acc414@isovalent.com> <g2gqhkunbu43awrofzqb4cs4sxkxg2i4eud6p4qziwrdh67q4g@mtw3d3aqfgmb>
- <CAN+4W8hsK6FMBon0-J6mAYk1yVsamYL=cHqFkj3syepxiv16Ug@mail.gmail.com>
- <CAADnVQ+WZsaDS-Vuc9AN7P3=xvX8TG=rY65A8wYdOARLtkt6Mw@mail.gmail.com> <CAN+4W8i+PqYDcJjWk+g63W4kdKvhFKSad61q-T=JJky5m7j79w@mail.gmail.com>
-In-Reply-To: <CAN+4W8i+PqYDcJjWk+g63W4kdKvhFKSad61q-T=JJky5m7j79w@mail.gmail.com>
-From: Alexei Starovoitov <alexei.starovoitov@gmail.com>
-Date: Thu, 17 Jul 2025 08:24:48 -0700
-X-Gm-Features: Ac12FXww1JBCS6XraoQajcOSXv0y_LFuMb7d0LFifqkes7LZtbikQbv87_xdbD8
-Message-ID: <CAADnVQLJTmjt8nE-xoPhE=6Q+bDOWTTwQ9OqQjX+YKT5RPBNrA@mail.gmail.com>
-Subject: Re: [PATCH bpf-next v5 1/3] btf: allow mmap of vmlinux btf
-To: Lorenz Bauer <lmb@isovalent.com>
-Cc: Breno Leitao <leitao@debian.org>, 
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, Arnd Bergmann <arnd@arndb.de>, 
-	Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
-	Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau <martin.lau@linux.dev>, 
-	Eduard Zingerman <eddyz87@gmail.com>, Song Liu <song@kernel.org>, 
-	Yonghong Song <yonghong.song@linux.dev>, John Fastabend <john.fastabend@gmail.com>, 
-	KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@fomichev.me>, Hao Luo <haoluo@google.com>, 
-	Jiri Olsa <jolsa@kernel.org>, Mykola Lysenko <mykolal@fb.com>, Shuah Khan <shuah@kernel.org>, 
-	linux-arch <linux-arch@vger.kernel.org>, LKML <linux-kernel@vger.kernel.org>, 
-	bpf <bpf@vger.kernel.org>, 
-	"open list:KERNEL SELFTEST FRAMEWORK" <linux-kselftest@vger.kernel.org>, Alan Maguire <alan.maguire@oracle.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <ca99af3b-e358-4c2b-8d62-0b6c29984391@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250717_082503_479563_E53FD3B0 
-X-CRM114-Status: GOOD (  11.76  )
+X-CRM114-CacheID: sfid-20250717_162720_713908_209A72F7 
+X-CRM114-Status: GOOD (  41.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,28 +107,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 17, 2025 at 8:15=E2=80=AFAM Lorenz Bauer <lmb@isovalent.com> wr=
-ote:
->
-> On Thu, Jul 17, 2025 at 3:49=E2=80=AFPM Alexei Starovoitov
-> <alexei.starovoitov@gmail.com> wrote:
->
-> > __pa_symbol() should work for start_BTF, but would be good
-> > to double check with Ard that the rest stays linear.
->
-> Alexei,
->
-> This code in the arm64 setup does make me think we'll be OK.
->
-> kernel_code.start   =3D __pa_symbol(_stext);
-> kernel_code.end     =3D __pa_symbol(__init_begin - 1);
-> kernel_data.start   =3D __pa_symbol(_sdata);
-> kernel_data.end     =3D __pa_symbol(_end - 1);
->
-> Using these as start and end only makes sense to me if the addresses
-> are linear? See
-> https://elixir.bootlin.com/linux/v6.15.6/source/arch/arm64/kernel/setup.c=
-#L217
+On Thu, Jul 17, 2025 at 04:16:32PM +0100, James Clark wrote:
+> 
+> 
+> On 17/07/2025 3:29 pm, Will Deacon wrote:
+> > On Tue, Jul 15, 2025 at 02:04:18PM +0100, James Clark wrote:
+> > > On 14/07/2025 3:04 pm, Will Deacon wrote:
+> > > > On Thu, Jun 05, 2025 at 11:49:05AM +0100, James Clark wrote:
+> > > > > @@ -406,6 +416,9 @@ static u64 arm_spe_event_to_pmsfcr(struct perf_event *event)
+> > > > >    	if (ATTR_CFG_GET_FLD(attr, inv_event_filter))
+> > > > >    		reg |= PMSFCR_EL1_FnE;
+> > > > > +	if (ATTR_CFG_GET_FLD(attr, data_src_filter))
+> > > > > +		reg |= PMSFCR_EL1_FDS;
+> > > > 
+> > > > Is the polarity correct here? The description of PMSDSFR_EL1.S<m> suggests
+> > > > that setting bits to 1 _excludes_ the FDS filtering.
+> > > > 
+> > > 
+> > > Setting filter bits to 1 means that samples matching are included. Setting
+> > > bits to 0 means that they are excluded. And PMSFCR_EL1.FDS enables filtering
+> > > as a whole, so if the user sets any filter bit to 1 we want to enable
+> > > filtering:
+> > > 
+> > >    PMSDSFR_EL1.S<m>
+> > > 
+> > >    0b0  If PMSFCR_EL1.FDS is 1, do not record load operations that have
+> > >         bits [5:0] of the Data Source packet set to <m>.
+> > > 
+> > >    0b1  Load operations with Data Source <m> are unaffected by
+> > >         PMSFCR_EL1.FDS.
+> > > 
+> > > I think it's all the right way around and it ends up being the same as the
+> > > other filters in SPE. Because we're using any bit being set to enable the
+> > > filtering, the only thing you can't do is enable filtering with a 0 filter,
+> > > but I didn't think that was useful. See the previous discussion on this
+> > > here:
+> > > https://lore.kernel.org/all/5752f039-51c1-4452-b5df-03ff06da7be3@linaro.org/
+> > > 
+> > > Reading the "Data source filtering" section in the docs change at the end
+> > > might help too.
+> > 
+> > Sorry, but I still don't get it :/
+> > 
+> > afaict, if any of the bits in 'data_src_filter' are _zero_ then we
+> > should set PMSFCR_EL1.FDS. That also means that a mask of zero means all
+> > loads are filtered, which is what the architecture says and is what we
+> > should provide to userspace.
+> > 
+> > Will
+> 
+> We'd have to add another format flag to enable data source filtering then,
+> because otherwise the default would be zero and people's samples would
+> disappear.
+> 
+> But the only use cases I could think of were more like "I want to see
+> samples from data source 1":
+> 
+>   -e arm_spe/data_src_filter=0x1/
+> 
+> Or "I want to see all data sources except 1":
+> 
+>   -e arm_spe/data_src_filter=0xfffffffe/
+> 
+> Filtering out all samples with any data source didn't seem to make sense to
+> me, and I think you can already do that with the other filters (remove loads
+> etc).
+> 
+> It would be a shame to be inconsistent and to add an enable flag just for
+> that one case because the other filters in SPE are auto enabled for non-zero
+> values. Although to be fair for PMSFCR.FT and others, zero filters are
+> explicitly not allowed:
+> 
+>   If this field is set to 1 and the PMSFCR_EL1.{ST, LD, B} bits are all
+>   set to zero, it is CONSTRAINED UNPREDICTABLE whether no samples are
+>   recorded or the PE behaves as if PMSFCR_EL1.FT is set to 0
+> 
+> Seems like FDS doesn't end up as neat as the others, but IMO I can't see
+> anyone needing a zero filter. I did discuss it with Leo and we decided that
+> we could always add the enable flag at a later date if a use case turned up
+> and it wouldn't be a breaking change.
+> 
+> But if you think it's there so it should be exposed I can add it.
 
-Thanks for checking. lgtm.
+What about if we expose the inverse of PMSDSFR_EL1 to userspace instead?
+
+Will
 
