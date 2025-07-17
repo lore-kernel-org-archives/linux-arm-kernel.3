@@ -4,63 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDCC4C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 09:57:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A983C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 09:59:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jp84UrVQeqIjFOnZaUVZnWwJMwuQPnbhrYwnqRHzCAM=; b=NFPvyXASihtXzwAnLweS/Zk/8/
-	j+cQ3Nn7gcq73vTPF8g+sEQxRTiT+VQEjrHFH0KWiw/PsLYnDNwjAPTJmOI0EpB8wRaSZUL98QwEC
-	rh5rcRz9UtcacVZQob7Un7sCHt4eJjAQyHWpMDSyQmUT/ywe7FMHBaGyhOQWRGkoaMHljA5Z0Wq9Y
-	5j7JMNBl5d/48/KTBCbtDc4a6BBmM4HpXrHo+wsO5SeVx7aqnI5PQT0l9H+kpqdB6BH8kRQGSFUU4
-	6Eh+9gOrSWNtZjSZmvgbSu/v5OWcrafPVfm5Oy/1JOKBUjwgHupfsFqzwYdu13EFXxVG3FIew1oQQ
-	LPMC2MOA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=oiQL4vtCj1XtBg7pGMq7wHVCDTKmKNmeHi1gPKpQ8jM=; b=hNFddjS5cj1lEBNiDlqyQjSOa+
+	4CxogXTUlOv/elBe0tI+LOXWSqr3ZyMN00FTUFp8N31wqXhvGhs9bFRHZE1hlLnyBrT6KKLwxAIcA
+	EdWfbcdHg0sUljairF07vPNKDifYpRPinjovyLwOhFMN9wRFrdYPGLIzWe+WYKShrS0iPNeUfho5E
+	0jubSU4L5EOmiNWs+buYffrwOWHxEDLP1nV/+kui2f41/mBXCBsxqJ12WAIMXVP7Bm0c0zPrVaZjj
+	nt0PCED2Ylts9dO72yhz6fWVIf/HwBDtwAjlPkddBPHb8y3tjQZ0ijTKgKfYVmOAXASTUcC4OnLt3
+	ox9kEKHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucLMV-00000009nKD-3EoK;
-	Thu, 17 Jul 2025 09:57:11 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1ucLOv-00000009ngS-2FAg;
+	Thu, 17 Jul 2025 09:59:41 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucKrh-00000009izw-36Xr
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Jul 2025 09:25:22 +0000
+	id 1ucKw9-00000009jQM-1TO0;
+	Thu, 17 Jul 2025 09:29:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 7EA605C077F;
-	Thu, 17 Jul 2025 09:25:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7617CC4CEEB;
-	Thu, 17 Jul 2025 09:25:18 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 8283F601EA;
+	Thu, 17 Jul 2025 09:29:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 2C367C4CEE3;
+	Thu, 17 Jul 2025 09:29:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752744320;
-	bh=21OlRn5Tc3SuYE+8FTQNy15rkxkozWxGI6bsYMCzUxs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=EM8GCicAlRYjBB8i/419ADE8vJ8mSfHU3Shjzg3mH1sYrOtHTfRa2jMuk0UFpEqYx
-	 sCvduz/fUv7+1QNun6UnNQ9Rr6AYjQ2xTlN70IrLBv+pVUlIBhi/R2cp6g6T46M7Nf
-	 7V2MeT95zjm0z4MH0kGvLVA6hdTdRA7SGDThcCgzjUcn24E9TnCmEyxjfeP/dbdi8P
-	 Ka6/m2Sk3eNDsz49cHmSojmrG19f74O0uhI673imWmirrjsS42QFj7r2GjegdzFOIE
-	 ixLmDgbH4w3SUy7e8vkCjHezJH2zl3Ra2N/GsMdowYkxpN9BXsp+otMUoHu3amxWD3
-	 ZYbZQpzB3jigg==
-Date: Thu, 17 Jul 2025 11:25:15 +0200
-From: Lorenzo Pieralisi <lpieralisi@kernel.org>
-To: Dan Carpenter <dan.carpenter@linaro.org>
-Cc: Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
-	Timothy Hayes <timothy.hayes@arm.com>,
-	Sascha Bischoff <sascha.bischoff@arm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 3/3] irqchip/gic-v5: Fix error handling in
- gicv5_its_irq_domain_alloc()
-Message-ID: <aHjBe9k2Igl2iopq@lpieralisi>
-References: <cover.1752693640.git.dan.carpenter@linaro.org>
- <4787a3c4-9713-4b99-9b8a-7ba227e91d02@sabinyo.mountain>
+	s=k20201202; t=1752744596;
+	bh=BSK0uIAcmO4oPS5QlKIFn6TVQZfBtcq3Y0E6j9kT5u0=;
+	h=From:Date:Subject:To:Cc:Reply-To:From;
+	b=k3DjxbjHiBnXKDWDbeU4sh6wy6dGKnkrK/K90bPDsn8nRdTPYMOXN1M6NCCcWFvGW
+	 X4L36ehDXoxdW0teWmyntC04XTzyKOFN2GYkamarDOa1Um8qOIDcdMEllBhKbTJ9sz
+	 pEbJ7GVg2EmNQC7kvrahZvzw1OFuCYGQbH3FdqFWKgvsNEXGY/KltIdGc9TNVmA8iy
+	 0a3CoFDsru6mp1vdBlWo7Dn+OZhXjUpN98IidcXDyhnwiJCpuoLbiBfCTLKsrExnGu
+	 QoxXZ8dagNkcUh593fPM1igXd914U0Nf7dhc0H1HPrcPdjkNK9b3NVSPhzdfbI5Rro
+	 6Hl7CoAgQJYLQ==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 2204CC83F1A;
+	Thu, 17 Jul 2025 09:29:56 +0000 (UTC)
+From: Xianwei Zhao via B4 Relay <devnull+xianwei.zhao.amlogic.com@kernel.org>
+Date: Thu, 17 Jul 2025 17:29:54 +0800
+Subject: [PATCH v2] dts: arm: amlogic: fix pwm node for c3
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <4787a3c4-9713-4b99-9b8a-7ba227e91d02@sabinyo.mountain>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250717_022521_816585_AC0F4B2F 
-X-CRM114-Status: GOOD (  23.67  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250717-fix-pwm-node-v2-1-7365ac7d5320@amlogic.com>
+X-B4-Tracking: v=1; b=H4sIAJHCeGgC/3WMQQ6CMBBFr0Jm7ZhOY2lw5T0IiwoDTCKUtKZqS
+ O9uZe/y/Z/3dogchCNcqx0CJ4ni1wL6VEE/u3VilKEwaKWNsmRxlDdurwVXPzDWxKO2d9fUykB
+ RtsDlP3JtV3iW+PThc9QT/dY/oURIeDFKk7WWR9fc3PLwk/Tn3i/Q5Zy/MEzEaKoAAAA=
+To: Neil Armstrong <neil.armstrong@linaro.org>, 
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Chuan Liu <chuan.liu@amlogic.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Xianwei Zhao <xianwei.zhao@amlogic.com>
+X-Mailer: b4 0.12.4
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1752744595; l=1176;
+ i=xianwei.zhao@amlogic.com; s=20231208; h=from:subject:message-id;
+ bh=Gl5aQb1KI68vaz1xI6GSSxa1gnslD6ZLVXgkTOwj19o=;
+ b=ndz6krIm5rTHcF0VCgZszdjiIhZ9+NkgcPqV41Y1+BuN0ax4ZI3OVdxiPxYwolQ3HkunwrNXV
+ jRLiAD5X/tdAi+pBzR4xvpRvheVKtmMezVlUdfm5OusW9s+D9+EZ2ya
+X-Developer-Key: i=xianwei.zhao@amlogic.com; a=ed25519;
+ pk=o4fDH8ZXL6xQg5h17eNzRljf6pwZHWWjqcOSsj3dW24=
+X-Endpoint-Received: by B4 Relay for xianwei.zhao@amlogic.com/20231208 with
+ auth_id=107
+X-Original-From: Xianwei Zhao <xianwei.zhao@amlogic.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,75 +84,47 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: xianwei.zhao@amlogic.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 16, 2025 at 02:38:22PM -0500, Dan Carpenter wrote:
-> There are two issues to fix in this code:
-> 1) If gicv5_alloc_lpi() fails the original code was checking the wrong
-> variable.  Fix the mixup between "ret" and "lpi".
-> 2) If irq_domain_alloc_irqs_parent() fails, then clean up all the loop
-> iterations instead of just the current iteration.
-> 
-> Fixes: 57d72196dfc8 ("irqchip/gic-v5: Add GICv5 ITS support")
-> Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
-> ---
->  drivers/irqchip/irq-gic-v5-its.c | 14 +++++++++++---
->  1 file changed, 11 insertions(+), 3 deletions(-)
-> 
-> diff --git a/drivers/irqchip/irq-gic-v5-its.c b/drivers/irqchip/irq-gic-v5-its.c
-> index 55360ae9f1f6..8cc8563e27d5 100644
-> --- a/drivers/irqchip/irq-gic-v5-its.c
-> +++ b/drivers/irqchip/irq-gic-v5-its.c
-> @@ -949,15 +949,18 @@ static int gicv5_its_irq_domain_alloc(struct irq_domain *domain, unsigned int vi
->  	device_id = its_dev->device_id;
->  
->  	for (i = 0; i < nr_irqs; i++) {
-> -		lpi = gicv5_alloc_lpi();
-> +		ret = gicv5_alloc_lpi();
->  		if (ret < 0) {
->  			pr_debug("Failed to find free LPI!\n");
->  			goto out_eventid;
+From: Xianwei Zhao <xianwei.zhao@amlogic.com>
 
-This should be:
+Fix reg address for c3 pwm node.
 
-goto out_free_lpi;
+Fixes: be90cd4bd422 ("arm64: dts: amlogic: Add Amlogic C3 PWM")
+Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
+---
+Fix c3 pwm node reg.
+---
+Changes in v2:
+- Fix commit change-id about Fixes.
+- Link to v1: https://lore.kernel.org/r/20250717-fix-pwm-node-v1-1-45021777efa9@amlogic.com
+---
+ arch/arm64/boot/dts/amlogic/amlogic-c3.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-otherwise we miss cleaning up for [0, i - 1] on LPI alloc failure.
+diff --git a/arch/arm64/boot/dts/amlogic/amlogic-c3.dtsi b/arch/arm64/boot/dts/amlogic/amlogic-c3.dtsi
+index cb9ea3ca6ee0..71b2b3b547f7 100644
+--- a/arch/arm64/boot/dts/amlogic/amlogic-c3.dtsi
++++ b/arch/arm64/boot/dts/amlogic/amlogic-c3.dtsi
+@@ -792,7 +792,7 @@ spicc1: spi@52000 {
+ 			pwm_mn: pwm@54000 {
+ 				compatible = "amlogic,c3-pwm",
+ 					     "amlogic,meson-s4-pwm";
+-				reg = <0x0 54000 0x0 0x24>;
++				reg = <0x0 0x54000 0x0 0x24>;
+ 				clocks = <&clkc_periphs CLKID_PWM_M>,
+ 					 <&clkc_periphs CLKID_PWM_N>;
+ 				#pwm-cells = <3>;
 
-I can fix it up - not sure it is worth splitting it into two patches,
-just let me know please how you want me to handle it.
+---
+base-commit: 58abdca0eb653c1a2e755ba9ba406ee475d87636
+change-id: 20250717-fix-pwm-node-61ef27ba9605
 
-Thanks,
-Lorenzo
+Best regards,
+-- 
+Xianwei Zhao <xianwei.zhao@amlogic.com>
 
->  		}
-> +		lpi = ret;
->  
->  		ret = irq_domain_alloc_irqs_parent(domain, virq + i, 1, &lpi);
-> -		if (ret)
-> +		if (ret) {
-> +			gicv5_free_lpi(lpi);
->  			goto out_free_lpi;
-> +		}
->  
->  		/*
->  		 * Store eventid and deviceid into the hwirq for later use.
-> @@ -979,7 +982,12 @@ static int gicv5_its_irq_domain_alloc(struct irq_domain *domain, unsigned int vi
->  	return 0;
->  
->  out_free_lpi:
-> -	gicv5_free_lpi(lpi);
-> +	while (--i >= 0) {
-> +		irqd = irq_domain_get_irq_data(domain, virq + i);
-> +		gicv5_free_lpi(irqd->parent_data->hwirq);
-> +		irq_domain_reset_irq_data(irqd);
-> +		irq_domain_free_irqs_parent(domain, virq + i, 1);
-> +	}
->  out_eventid:
->  	gicv5_its_free_eventid(its_dev, event_id_base, nr_irqs);
->  	return ret;
-> -- 
-> 2.47.2
-> 
+
 
