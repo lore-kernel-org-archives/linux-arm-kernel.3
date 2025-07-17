@@ -4,93 +4,125 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93EB0C83F1B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 12:52:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1715BC83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 12:54:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:Subject:References:Cc:To:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vaeHUHDhpHicpyEPArevNCJsvIdCbCzGZYXB98wgi1s=; b=MZzV4v9yI8yvjaRG0vaWxqdC7k
-	t8TysWjbwpw2DT9ULhRa6t6vfPASyS1o/4VMbkqpHJHLNphCwIfSrccAs6HtCKsmfV+p5sxU6C4kw
-	X3lJbo35oGZ2zhxkwhdy8DDCmr4dkwGqWWY7MrhzCYtEYyk/Tz+WITHG8n+8YYKqTZ72cg/oH191O
-	ycZLa2slOOifFgS2tCKvApydpL+FP9iK9JV3SODUj/gBoRbfjlYQn72CfSjDvUAjDnda10dqjbGpu
-	19/b18lvt3Ymck4RtR4VvU7xlz8kJrCh6ID9QOR7lOv9JD6U4dd66ZhmOU3CxAM/JlXQ0V/YQrdj3
-	un6yqzMA==;
+	bh=8OcPZ0Ucw1okByzNGmf7IO+mBf7QUuTP6TAjK8en5rw=; b=bmSQW6Gzb0ygNg/Dm8hp1CTvxY
+	NmKTb2UZF4OkLbvTv9Y/tMFAdUPArUrapysGU9pNenn9RYMefyld9UachHX+h+c3p9taUTzmq9ya9
+	K/mRWHt4JMC8NDKR1pObcpf/jjKmUnzwLCMLM9MKpXl4qE8IO7Bu0H3X6X74nDuHaNlVDOrIFbsng
+	75jSKZZiy2bICP3ok6tlfrPHMNTWrPCAO9Ep7A7WRUC+8w35Ax9ghuEsfGYuCy28cvsfZXmgGg1DJ
+	ou4IqcHWTZc3UXVnjJWskYU+ERWQKvVJ8ViQcuwWT7MlsK8FCOI8FFDfwHCMYJlC1Pziz421LRx/7
+	qVPj0HBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucO5w-0000000AAS8-19b5;
-	Thu, 17 Jul 2025 12:52:16 +0000
-Received: from mailout2.samsung.com ([203.254.224.25])
+	id 1ucO8L-0000000AAqQ-35hh;
+	Thu, 17 Jul 2025 12:54:45 +0000
+Received: from mout.web.de ([212.227.17.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucMf8-00000009xpp-3ML2
+	id 1ucMjZ-00000009yQU-0YFk
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Jul 2025 11:20:32 +0000
-Received: from epcas5p4.samsung.com (unknown [182.195.41.42])
-	by mailout2.samsung.com (KnoxPortal) with ESMTP id 20250717112028epoutp02748882f148b04b7080efa6e3a7854acf~TBfSje7L21727517275epoutp02J
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Jul 2025 11:20:28 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.samsung.com 20250717112028epoutp02748882f148b04b7080efa6e3a7854acf~TBfSje7L21727517275epoutp02J
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1752751228;
-	bh=vaeHUHDhpHicpyEPArevNCJsvIdCbCzGZYXB98wgi1s=;
-	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
-	b=oXUL+P+yi1b6GGgxeAdl3fkacZa5Eqwy/w97hspuH5aKuqUTGcg6efrNCStz5Tzd/
-	 yCPzt5bW4gyx16aycTiIlK4Vp8+YvTB6omd5U4PCw/NZxqu0nBNDn8G5J+vweYDWld
-	 wnEnp5ANA8Wd8ifKZLuFE/Hap1AuHQi/L9MFEjEk=
-Received: from epsnrtp04.localdomain (unknown [182.195.42.156]) by
-	epcas5p1.samsung.com (KnoxPortal) with ESMTPS id
-	20250717112026epcas5p17ba342f1a18c68254b3c95c7aa7117e0~TBfQ8Kwl32028120281epcas5p1v;
-	Thu, 17 Jul 2025 11:20:26 +0000 (GMT)
-Received: from epcas5p1.samsung.com (unknown [182.195.38.90]) by
-	epsnrtp04.localdomain (Postfix) with ESMTP id 4bjVpK3w9Hz6B9m7; Thu, 17 Jul
-	2025 11:20:25 +0000 (GMT)
-Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
-	epcas5p1.samsung.com (KnoxPortal) with ESMTPA id
-	20250717111830epcas5p1c4816682379933819fef343a70e1e13b~TBdk6ieaL0129601296epcas5p1l;
-	Thu, 17 Jul 2025 11:18:30 +0000 (GMT)
-Received: from INBRO001840 (unknown [107.122.3.105]) by epsmtip2.samsung.com
-	(KnoxPortal) with ESMTPA id
-	20250717111827epsmtip2d57c2524f47be7d8d1a79801f3a884f0~TBdiAJ8Ex3070830708epsmtip2O;
-	Thu, 17 Jul 2025 11:18:27 +0000 (GMT)
-From: "Pritam Manohar Sutar" <pritam.sutar@samsung.com>
-To: "'Krzysztof Kozlowski'" <krzk@kernel.org>, <vkoul@kernel.org>,
-	<kishon@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-	<conor+dt@kernel.org>, <alim.akhtar@samsung.com>,
-	<andre.draszik@linaro.org>, <peter.griffin@linaro.org>,
-	<neil.armstrong@linaro.org>, <kauschluss@disroot.org>,
-	<ivo.ivanov.ivanov1@gmail.com>, <m.szyprowski@samsung.com>,
-	<s.nawrocki@samsung.com>
-Cc: <linux-phy@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-samsung-soc@vger.kernel.org>, <rosa.pila@samsung.com>,
-	<dev.tailor@samsung.com>, <faraz.ata@samsung.com>,
-	<muhammed.ali@samsung.com>, <selvarasu.g@samsung.com>
-In-Reply-To: <40c06385-26bc-4d5f-8fdc-fee2600afdeb@kernel.org>
-Subject: RE: [PATCH v4 2/6] phy: exynos5-usbdrd: support HS phy for
- ExynosAutov920
-Date: Thu, 17 Jul 2025 16:48:26 +0530
-Message-ID: <000d01dbf70c$86602e00$93208a00$@samsung.com>
+	Thu, 17 Jul 2025 11:25:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1752751498; x=1753356298; i=markus.elfring@web.de;
+	bh=8OcPZ0Ucw1okByzNGmf7IO+mBf7QUuTP6TAjK8en5rw=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:References:
+	 Subject:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 cc:content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=JRBirgXZoqHs7ciKoNImLi5fWfh040hoVidCtoyw7bfo0YpnUyoc5mRg/t1M4qGz
+	 47bnJr9RNYBGdQH66Y9zI2CyYoR5Q0onmFRs/mAGq7Q2JDPWzguSHOy3VQvYTXAYH
+	 C/hF1HmD4KJy5Ey7KJju4zC+t4DrFwrrv7h2eYgjK6+MhLI6JFsoAvl8XOuRsrso2
+	 dpd5nhMOy40yN32CitPJEPKXeiTVtnZ6oFghlG5f4fuO9j/RiKuYvxA5gyqJlCLNt
+	 BFzC18ft3viZkmHS99vfgQFrWnFF8K2hppa5MDGBOSf+SSKIZuIplH2+1Up9Ss9r4
+	 nDiXUZG8j+HRwDEARg==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from [192.168.178.29] ([94.31.69.185]) by smtp.web.de (mrweb106
+ [213.165.67.124]) with ESMTPSA (Nemesis) id 1M8kAN-1uYDs032o5-00EyOC; Thu, 17
+ Jul 2025 13:24:57 +0200
+Message-ID: <fe0d27b2-cc86-4681-b089-b214afbbd3fc@web.de>
+Date: Thu, 17 Jul 2025 13:24:56 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+To: Marc Zyngier <maz@kernel.org>, linux-pci@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+Cc: LKML <linux-kernel@vger.kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+ =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>,
+ Thomas Gleixner <tglx@linutronix.de>, Toan Le <toan@os.amperecomputing.com>
+References: <20250708173404.1278635-7-maz@kernel.org>
+Subject: Re: [PATCH v2 06/13] PCI: xgene-msi: Drop superfluous fields from
+ xgene_msi structure
+Content-Language: en-GB, de-DE
+From: Markus Elfring <Markus.Elfring@web.de>
+In-Reply-To: <20250708173404.1278635-7-maz@kernel.org>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: quoted-printable
-X-Mailer: Microsoft Outlook 16.0
-Content-Language: en-in
-Thread-Index: AQJAgQZ9LFXBZrDskwNBYris6jFv1AFx24JLAb5T8KIBPEtVBrNJsbUw
-X-CMS-MailID: 20250717111830epcas5p1c4816682379933819fef343a70e1e13b
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-Sendblock-Type: REQ_APPROVE
-CMS-TYPE: 105P
-cpgsPolicy: CPGSC10-542,Y
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250701115959epcas5p40f28954777a620b018251301eea13873
-References: <20250701120706.2219355-1-pritam.sutar@samsung.com>
-	<CGME20250701115959epcas5p40f28954777a620b018251301eea13873@epcas5p4.samsung.com>
-	<20250701120706.2219355-3-pritam.sutar@samsung.com>
-	<40c06385-26bc-4d5f-8fdc-fee2600afdeb@kernel.org>
+X-Provags-ID: V03:K1:FgQynEO40w9zI3vDeDUCbwgqIxMItoKDVDQm4BSC3xqahQfs1Zk
+ nbQ+37U9hYGSSCcrHfGt5XPJycP9qZi+0hXezt0JQCAxiVmQqO/9KQpeG8VFL1XJe0VAeLW
+ dMwwsmuhfGxZB1Ov8rmspCQ8eF7Y/oIrRDoFfkY9Op73xyl+juCJcg273FcGrWyc+GjHTCH
+ FfvEPpOEOYUvA6xSVFtGg==
+UI-OutboundReport: notjunk:1;M01:P0:AeAtWUZA79U=;q+ItQTMz043vZWcIX4O0CV2z6CD
+ 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
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250717_042031_162463_3A9D651A 
-X-CRM114-Status: GOOD (  21.56  )
+X-CRM114-CacheID: sfid-20250717_042505_473755_915CB66E 
+X-CRM114-Status: UNSURE (   4.45  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,101 +137,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
+=E2=80=A6
+> +++ b/drivers/pci/controller/pci-xgene-msi.c
+=E2=80=A6
+> @@ -214,7 +212,7 @@ static void xgene_irq_domain_free(struct irq_domain =
+*domain,
+>  	mutex_lock(&msi->bitmap_lock);
+> =20
+>  	hwirq =3D hwirq_to_canonical_hwirq(d->hwirq);
+> -	bitmap_clear(msi->bitmap, hwirq, msi->num_cpus);
+> +	bitmap_clear(msi->bitmap, hwirq, num_possible_cpus());
+> =20
+>  	mutex_unlock(&msi->bitmap_lock);
+=E2=80=A6
 
-> -----Original Message-----
-> From: Krzysztof Kozlowski <krzk=40kernel.org>
-> Sent: 12 July 2025 01:46 PM
-> To: Pritam Manohar Sutar <pritam.sutar=40samsung.com>; vkoul=40kernel.org=
-;
-> kishon=40kernel.org; robh=40kernel.org; krzk+dt=40kernel.org;
-> conor+dt=40kernel.org; alim.akhtar=40samsung.com; andre.draszik=40linaro.=
-org;
-> peter.griffin=40linaro.org; neil.armstrong=40linaro.org; kauschluss=40dis=
-root.org;
-> ivo.ivanov.ivanov1=40gmail.com; m.szyprowski=40samsung.com;
-> s.nawrocki=40samsung.com
-> Cc: linux-phy=40lists.infradead.org; devicetree=40vger.kernel.org; linux-
-> kernel=40vger.kernel.org; linux-arm-kernel=40lists.infradead.org; linux-s=
-amsung-
-> soc=40vger.kernel.org; rosa.pila=40samsung.com; dev.tailor=40samsung.com;
-> faraz.ata=40samsung.com; muhammed.ali=40samsung.com;
-> selvarasu.g=40samsung.com
-> Subject: Re: =5BPATCH v4 2/6=5D phy: exynos5-usbdrd: support HS phy for
-> ExynosAutov920
->=20
-> On 01/07/2025 14:07, Pritam Manohar Sutar wrote:
-> > This SoC has a single USB 3.1 DRD combo phy that supports both
-> > UTMI+ (HS) and PIPE3 (SS) and three USB2.0 DRD HS phy controllers
-> > those only support the UTMI+ (HS) interface.
-> >
-> > Support only UTMI+ port for this SoC which is very similar to what the
-> > existing Exynos850 supports.
-> >
-> > This SoC shares phy isol between USBs. Bypass PHY isol when first USB
-> > is powered on and enable it when all of then are powered off. Add
-> > required change in phy driver to support HS phy for this SoC.
-> >
-> > Reviewed-by: Neil Armstrong <neil.armstrong=40linaro.org>
->=20
-> Drop
-
-Sure.
-
->=20
-> You again added significant changes and claimed they were reviewed.
->=20
-> > Signed-off-by: Pritam Manohar Sutar <pritam.sutar=40samsung.com>
-> > ---
-> >  drivers/phy/samsung/phy-exynos5-usbdrd.c    =7C 131 ++++++++++++++++++=
-++
-> >  include/linux/soc/samsung/exynos-regs-pmu.h =7C   2 +
-> >  2 files changed, 133 insertions(+)
-> >
-> > diff --git a/drivers/phy/samsung/phy-exynos5-usbdrd.c
-> > b/drivers/phy/samsung/phy-exynos5-usbdrd.c
-> > index dd660ebe8045..64f3316f6ad4 100644
-> > --- a/drivers/phy/samsung/phy-exynos5-usbdrd.c
-> > +++ b/drivers/phy/samsung/phy-exynos5-usbdrd.c
-> > =40=40 -480,6 +480,8 =40=40 struct exynos5_usbdrd_phy =7B
-> >  	enum typec_orientation orientation;
-> >  =7D;
-> >
-> > +static atomic_t usage_count =3D ATOMIC_INIT(0);
-
-Presently, existed SoC in driver, supports only one USB port and=20
-it does not have any complications to handle shared isol. However,=20
-phy isols are shared across USB20s in ExynosAutov920=20
-(here ExynosAutov920 has 4 ports with shared phy isols). phy isol=20
-should be enabled when all ports are disabled else bypassed if any=20
-one of usbs is in use. phy isol is handled at bootloader in Downstream code=
-.=20
-USB20 ports won't work if isol is not handled in any bootloader. Hence,=20
-added usage_count for the purpose.
-  =20
-But still, it depends on phy isol architecture, if SoC shares phy isol with=
-=20
-USBs or it can have separate phy isols for each usbs.
-
->=20
-> No, you cannot have singletons. How are you going to handle two independe=
-nt
-> phys?
-
-Agreed with your point and have to handle shared and separate isols in same=
- driver. =20
-We will take this later in subsequent patch-sets.
-  =20
-For now, will remove this usage_count and bring up only basic support for E=
-xynosAutov920 phy.
-
->=20
-> Best regards,
-> Krzysztof
-
-Thank you.
+Under which circumstances would you become interested to apply a statement
+like =E2=80=9Cguard(mutex)(&msi->bitmap_lock);=E2=80=9D?
+https://elixir.bootlin.com/linux/v6.16-rc6/source/include/linux/mutex.h#L2=
+25
 
 Regards,
-Pritam
-
+Markus
 
