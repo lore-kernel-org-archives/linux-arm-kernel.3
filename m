@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9FACC83F27
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 01:07:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD686C83F1B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 01:11:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yyGP509grphr6L/Mh9FEl5l3BzlhmlwMcGDwHIm3UOE=; b=ZoC56bYTZcoSMv6e/jV+59SDQA
-	y77XtSmXewRKeELs2+jAPoUfbJX3g4ySipmU+94bnqwL9WFtMLO9ELpHS+GWlYnIKSF9xdihxME9V
-	Eefh/CsIWvpuHGi4fnWHsj0Udh6uPnBk5GUM75VoS/yr/2UGlsnS2uBbN07OOgbT16kjaFeBZLPD8
-	fCtODh7crglBNXxOvRlpQZl1NRu4G2qxJZe1wlhjhLbYwbJvNeWTSXFnErlE4pPTJ36z3KYZFEez6
-	sUazarF/98ZZrlAbIdUmz5VxoPiLP5Lh5yOV8GQN/MncGxbF0JiqLAEVFt0901Lzko7mdeXXCs5ny
-	+twm4ADQ==;
+	bh=pOwuCibNEd9AotqJU7UxkSBlhTL81dNOuqZWZx/q53k=; b=LydBbNkfydk5xXss1u6KvaMq0e
+	NgDaVk9/hVOvJIhiY6zfqCXABCL5QYIk7p+LEQbuK3imcD/ShqZZiM7lqRcpKDGXN6+eSe0HPo3RR
+	TMdB1lsLNM5tvu4Q1i7DJbI13Mo+/e1TWuE72ZkrgQSOIxpug4KsPa7xHe4NbkgEiYYtly01b3XdG
+	jqTHhtMYIskQJ0MlxK9d3K7WFoIUnAr/LHVzBqy5DlFeIwBAGoL3J1mGL0s3ePAwaNFhwYOOIRgHm
+	4xwvT4E7aXPHOtVNp0teJ5k3Emi1R8tOg63ONRoZjt4HQ/6tXsUHM8TpIoN/mOl7WXiFbYau5athM
+	6/7CMvxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucD5o-00000008xfK-17ZD;
-	Thu, 17 Jul 2025 01:07:24 +0000
-Received: from esa15.fujitsucc.c3s2.iphmx.com ([68.232.156.107])
+	id 1ucDA0-00000008y6h-2WGR;
+	Thu, 17 Jul 2025 01:11:44 +0000
+Received: from esa14.fujitsucc.c3s2.iphmx.com ([68.232.156.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucD3M-00000008xPX-1lxr
+	id 1ucD7Z-00000008xqO-1IV9
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Jul 2025 01:04:54 +0000
+	Thu, 17 Jul 2025 01:09:14 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
   d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj1;
-  t=1752714293; x=1784250293;
+  t=1752714553; x=1784250553;
   h=from:to:cc:subject:date:message-id:references:
    in-reply-to:content-transfer-encoding:mime-version;
-  bh=r++flkeuoHWVwzXtI3reb1uw6SivqZ7eIDkOJX1Gcbo=;
-  b=Ta1bLj20fSh5DoBmCQwn3ZVtA3jc9EervmTdRZbIlaNNY01f2WzKs/yl
-   jkyAXQVTtMS/bO8g/2d9eNN5F7PazetvA7HLfXKGuHoI3AJAmaaWCfHQ8
-   GaDakALKjePY4hPIlqdBlKAhSmZc/uUOh0tjhZ5UW0D8kfxh7uMCq8XLY
-   hgYHHjfHGiV8FScX+2e9lrcwlcF9m9iJVaWLuorxJkyPjsPVS+aUfAnwT
-   UqgOtrg3za6sw/O9AjsqfI60jURcImxa7bydpz9MEeyAFzaoAcYCAqEBc
-   r7zHOuiLypNP0tUbXnBjCUfZLQEitiI0uebNpKSF2FFEzdMb22ZDd83Bv
-   Q==;
-X-CSE-ConnectionGUID: yZveoR5ATy+D3wE0xoZLSw==
-X-CSE-MsgGUID: 9MhKO4+bSvSpMWhU5Ca++Q==
-X-IronPort-AV: E=McAfee;i="6800,10657,11493"; a="162355842"
+  bh=8HbPoVAEKg++oNpoqvILYUIKJXijoKycKJLFVDSZZaI=;
+  b=tg3eYNbJwvZdGN1CGDLnUvEH2IFeNofjtkMItYvsYgnonQL3NYkBX490
+   lygDmnHwvm4+lE2w4XB75S5Oj91Zwmdcn4w2kASORqX33CWSHnOpvpmN/
+   Cp/2MWLUi80m8NXIvLWLIVboBAUj78FzpAs8x8aggDGBAQGir6+l1MO1L
+   sWMmL/IjVdH0onrQe4rrT1UvhtyNRRTJzENEBG/xqUpqkaIiY7Q5+LKQu
+   GDiZWR1WtGa0I8pueonS6wh9xw7UjDfU+kyTVzKBrAbuDaL/lR/ROuQy8
+   yMBA0+sEI8nNy2jYp+wPMfKKf/hzYh0N69uI8gaJ4+xEzfTBPJlhDX1Vx
+   A==;
+X-CSE-ConnectionGUID: tcW18KeLQHKpo/Va2EcsoA==
+X-CSE-MsgGUID: jiTE8CNuSyKEL3S/yO4Uhw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11493"; a="161407189"
 X-IronPort-AV: E=Sophos;i="6.16,317,1744038000"; 
-   d="scan'208";a="162355842"
-Received: from mail-japaneastazon11011038.outbound.protection.outlook.com (HELO TYVP286CU001.outbound.protection.outlook.com) ([52.101.125.38])
-  by ob1.fujitsucc.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Jul 2025 10:04:43 +0900
+   d="scan'208";a="161407189"
+Received: from mail-japanwestazon11010053.outbound.protection.outlook.com (HELO OS0P286CU011.outbound.protection.outlook.com) ([52.101.228.53])
+  by ob1.fujitsucc.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Jul 2025 10:09:01 +0900
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=wsniNUGvCRt3OYwJviLj9QIWvBTbPYTtaQ4Q5y0Yulo9QvXCDBGVHrZ7v0f+LOQdcXc6pfVkuYQJ4Hd7/wAkXnz/RNbCSYk9ak9l6PbV6sbocrhgqjzPeoNLr5QqA81UBGiw3gMhTSfNkZbu73HP2qHj8N4hYVbzw9GPgE5adAKtGcRtRICG2N8Ny/kPFmsaiU9jRKioljAIEKvRhT1DTPToaqBCCzvorc/50HEJpkSCzF0qOS80bMDaQ8zjw20qlYfSJ5FmlL4JYFNpFDUkBCzaaOx2W81sJHqPXgyXsiiJjH4LD7APtvmApx7g99vN2FT7CpogdSjkNq8xOssGxA==
+ b=HaG0+zr6lGu2e5+Rj70SprE+00M9OSXxMpySBMjvZ1+Z2jIGiWZWbQwgs6epgwGtWLLk6EbiFOcVBpp1VlmIFk67+GRsWbPWS/jByQvOBAXL5x9x3olrkDIRumFHGCl7Qobaq/IaA0NqETm5BgdrBJs86xkROzeq+j5Zj5diDgYuLgCiE4zF2JVCSuyF1u8gXsBbGSmP1DokmxTGFn4Qpz8n8Y70TIGJkY/eo+dScFJJ/2YsgUzUpzblKVw7XyyXKwUzeDMIkpJkzaUqZdpxqwUeVMRc4CuShMwHvvaBl21KhBh6Pz6YMWA/tTnN9B6qo/WiaSNymEyqDpak8C7BSg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=yyGP509grphr6L/Mh9FEl5l3BzlhmlwMcGDwHIm3UOE=;
- b=chcaw/d5t6rWGOUbl42oPHFRref4MJ157UOjCdD7iV8ayrCsGcOUbsFBo6Rl4tNgX41vd/y3Dvle58XhbUORiLQ7/EIdBNAfWaGu12LqSdGF/+o5Bmqo8jLkW2zVAjgOcu9QIUkfdVniisdPr2EGA+SHvISuyZKAhnjTUfnHmaFQB21n455cXpt0FbggzTnvwxxAB55ONuzuyzhEKQ+d5X7RIxgL9QH2nJjpCbbz4jmNkuANR1DR+70G2j4GzYHojHyzberNapTabIompJSgwVOav2I8GWZ+PjAORlmxZwjnzqcVFDgMKx3YI/1Pyww/gm/Chc28ySWzENFdUMcRsA==
+ bh=pOwuCibNEd9AotqJU7UxkSBlhTL81dNOuqZWZx/q53k=;
+ b=ASN6bRKAANZOIzoTU5V/RBJWT44oC/OdQR+MTPsZAzs5EZbGHQ3iDIbf2kC2d7gzRJ9DUHS2+Pa8GSDFSTVuaDLmV0lIXkM52kmOUfqBT03sJsRGxILkxCxa7fngkJLfj0ragkETHtwCV/AGH2wfi2OEACwJ4x52lIdR5DGB+650c3pppF8VH4W05OT4hR2IZe+F4eNOcYdQbMfs/B1RfIqRSIRYx9b6MMwGWgdqCYybmCrvQb7TVsWxwvmzLSzPzO42SsgTjmLvk1v8GpcsgppjJPfPVTX5Nrvt1Xb1058hL+LILzftp6cMzblJDFJa/YrXTH3hGbWq1eYvKeeNPQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=fujitsu.com; dmarc=pass action=none header.from=fujitsu.com;
  dkim=pass header.d=fujitsu.com; arc=none
 Received: from OSZPR01MB8798.jpnprd01.prod.outlook.com (2603:1096:604:15f::6)
- by TYWPR01MB9837.jpnprd01.prod.outlook.com (2603:1096:400:233::11) with
+ by TYCPR01MB10228.jpnprd01.prod.outlook.com (2603:1096:400:1ed::11) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8922.39; Thu, 17 Jul
- 2025 01:04:39 +0000
+ 2025 01:08:56 +0000
 Received: from OSZPR01MB8798.jpnprd01.prod.outlook.com
  ([fe80::4344:1f7b:e34d:c672]) by OSZPR01MB8798.jpnprd01.prod.outlook.com
  ([fe80::4344:1f7b:e34d:c672%7]) with mapi id 15.20.8922.037; Thu, 17 Jul 2025
- 01:04:39 +0000
+ 01:08:56 +0000
 From: "Shaopeng Tan (Fujitsu)" <tan.shaopeng@fujitsu.com>
 To: 'James Morse' <james.morse@arm.com>, "linux-kernel@vger.kernel.org"
 	<linux-kernel@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
@@ -84,127 +84,125 @@ CC: Rob Herring <robh@kernel.org>, Ben Horgan <ben.horgan@arm.com>, Rohit
 	<amitsinght@marvell.com>, David Hildenbrand <david@redhat.com>, Rex Nie
 	<rex.nie@jaguarmicro.com>, Dave Martin <dave.martin@arm.com>, Koba Ko
 	<kobak@nvidia.com>
-Subject: RE: [RFC PATCH 16/36] arm_mpam: Add MPAM MSC register layout
- definitions
-Thread-Topic: [RFC PATCH 16/36] arm_mpam: Add MPAM MSC register layout
- definitions
-Thread-Index: AQHb8pLvNDZkiG3tI0+6SdsU1pKeOLQ1hJwQ
-Date: Thu, 17 Jul 2025 01:04:39 +0000
-Message-ID: <OSZPR01MB87980409C12B21D619324C5E8B51A@OSZPR01MB8798.jpnprd01.prod.outlook.com>
+Subject: RE: [RFC PATCH 25/36] arm_mpam: Register and enable IRQs
+Thread-Topic: [RFC PATCH 25/36] arm_mpam: Register and enable IRQs
+Thread-Index: AQHb8pL/ydsOasyOj0OV22KVGGpjDbQ1iM0w
+Date: Thu, 17 Jul 2025 01:08:56 +0000
+Message-ID: <OSZPR01MB87989B1F13F79EE70D2D3B238B51A@OSZPR01MB8798.jpnprd01.prod.outlook.com>
 References: <20250711183648.30766-1-james.morse@arm.com>
- <20250711183648.30766-17-james.morse@arm.com>
-In-Reply-To: <20250711183648.30766-17-james.morse@arm.com>
+ <20250711183648.30766-26-james.morse@arm.com>
+In-Reply-To: <20250711183648.30766-26-james.morse@arm.com>
 Accept-Language: ja-JP, en-US
 Content-Language: ja-JP
 X-MS-Has-Attach: 
 X-MS-TNEF-Correlator: 
-msip_labels: MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_ActionId=b3c1c7f4-7c5b-4569-91ce-ad81716e1b71;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_ContentBits=0;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_Enabled=true;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_Method=Standard;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_Name=FUJITSU-RESTRICTED?;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_SetDate=2025-07-17T00:51:06Z;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_SiteId=a19f121d-81e1-4858-a9d8-736e267fd4c7;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_Tag=10,
+msip_labels: MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_ActionId=3251e8fa-cd2b-44c8-bd02-4b46b9c1b197;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_ContentBits=0;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_Enabled=true;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_Method=Standard;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_Name=FUJITSU-RESTRICTED?;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_SetDate=2025-07-17T01:06:07Z;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_SiteId=a19f121d-81e1-4858-a9d8-736e267fd4c7;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_Tag=10,
  3, 0, 1;
 authentication-results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=fujitsu.com;
 x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: OSZPR01MB8798:EE_|TYWPR01MB9837:EE_
-x-ms-office365-filtering-correlation-id: 91e2720b-c235-481c-d621-08ddc4cde7c0
+x-ms-traffictypediagnostic: OSZPR01MB8798:EE_|TYCPR01MB10228:EE_
+x-ms-office365-filtering-correlation-id: 70138741-53c4-44ca-3340-08ddc4ce80ed
 x-ms-exchange-senderadcheck: 1
 x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|1580799027|38070700018;
-x-microsoft-antispam-message-info: =?iso-2022-jp?B?ZzhCaTFwcUJPdVdVUHl6dGZKOXg2a0tpSjMrd2xQb2M0Zk56MDAvTDFK?=
- =?iso-2022-jp?B?OTVMbEVGRTZCWjhRUlZ1Q0haekZnbjdQNlVxcURvMUdEU29iYmRvWHRx?=
- =?iso-2022-jp?B?bjlPdWtZb3M3S0hXK2c2ME9kZjFYTWZRY2xOVUVkNWlJOCtJZ251ZmFz?=
- =?iso-2022-jp?B?bG1McklvS3BSemdDcXBXVlpHMzF5S2o3RG5NWnphM01tc0RvTGRMZUZw?=
- =?iso-2022-jp?B?T1o0aHp0c2d4eVBPM1J0a25ld3dQV25IU0ZiRVhhTWRTeWE3NTRYNDNP?=
- =?iso-2022-jp?B?emVRdmdjMytnRks5QllVRjZlMXhSd1pCS05nL1JrRHhlZzR5YXk0SWNY?=
- =?iso-2022-jp?B?T29ONS9Qd3FRVDc2TXpQZjlDR1ZjcWsvQW9ka1k4djdYSkp0K25DMDZN?=
- =?iso-2022-jp?B?b2RrNStBNjVBWUxQTnFMVXF6YkJoSExseDRaY1hoUm5WWUNITXp1NmJC?=
- =?iso-2022-jp?B?ME13aWl6TTJJaUMwdGZoTTA3T0hUWS9HUExKWWJNNXlGR1VkeGp0MWFL?=
- =?iso-2022-jp?B?a1VaY0VxSzFiREhMUnN2SkhiUlVkK3JXaG5tVjB0V1JsWmNsWGlqZ3Q2?=
- =?iso-2022-jp?B?a1NWdkhhSUFReVpINXNLZndvd0pJVkNacDlCa1JxUFdGUFpvMVA3MDEr?=
- =?iso-2022-jp?B?eUZxZWVDTkV3d21VS21RamkrSFNtSW1xYTMyNkJ4WTNUUmRjcHV5c2FE?=
- =?iso-2022-jp?B?OEpqVmZWdEJqMzUzUXFsNWU0anc3dWNMdS83QThIWnhiUVUxbjF2YlpV?=
- =?iso-2022-jp?B?SXBjRUdhMEVnbDYxM2tNdmhYZm83NCtYMUdDV0duQmEvSTAwd3J1RTky?=
- =?iso-2022-jp?B?d0FNTlphckpNMWpLY3BiUHNqMERnUXYzVVZQV0krbE42aEVKZWpwbEVP?=
- =?iso-2022-jp?B?M2JMT25hQzNYSDZBV24rbEw0Yks2R0VCWVFrWjgreTJlUkp5dUc4aDFT?=
- =?iso-2022-jp?B?LzhDYlhXYXRjM2VkbkZGeVpvNFgvMHNpeUlsNERPbXdNQ3FybFVFNTNa?=
- =?iso-2022-jp?B?Qi9LNXFCSUJ2dW1pbWZRQkxFMlgzOUU3enFRa0ZEeWdtckFGWEtrVDlB?=
- =?iso-2022-jp?B?bWRhN1JBYWw2OFBNSlh5dFdWdHp3N3FtQm9BOVo5YzhLeWI2TFQ0dFlp?=
- =?iso-2022-jp?B?aEtidHlkdk12YjBZa1U3SWZJWEJDUWd5YUc2VHFGVlN6bFI5cWE1ZmZu?=
- =?iso-2022-jp?B?d2hXRDhtd0VUSC9BMnNlank1dklYdDFHTUEwSUNoY0R1NGtnMlFEbHZR?=
- =?iso-2022-jp?B?N3lXLzU5MTY2NGcwb0hNVDZiMG14aWtTTVlNZnR1Y2V3TnN0WFZiT21S?=
- =?iso-2022-jp?B?NlBka01hZE50cDlLS29sbUpUY05NZjgzUWlYUzlRWkt6MFJFS0oyb21V?=
- =?iso-2022-jp?B?WC9BbCt1L2xaZENjZG5lbmZQVWRiYWNtdDNZVnZkaVVFc2RmMlhRMSs0?=
- =?iso-2022-jp?B?cUNLWFYwNVNHZWsydi9XN3creU1BWnh6UDVMUGNQdy9DcmZXSmhmNFhH?=
- =?iso-2022-jp?B?c2ZoSXU2ZDVOUXFFdzRXKzc1ZFZKZjFpaU9yNEgzR04xNDVyUjRPZ2Jy?=
- =?iso-2022-jp?B?M3FKU1lYSlF5M2ZpbEJBRzRaUDBFOTBoY3dBKzZBMFhGK0FvdzNXUStv?=
- =?iso-2022-jp?B?QlpQb0N5NnI0bzhkNVhuL09sNkZwbG91ZXRTNzJYZXRzVUtVZUJhZXlv?=
- =?iso-2022-jp?B?d0luVHRiZk1IbC9RS0cxUnd2K2xoejYyL3N1ajgwQ2NnRmp6M0dmT3Z3?=
- =?iso-2022-jp?B?anhFc0czR3hiclhCWTRHK3kybTJRVVJkQy9VMHlVOXBPZDBIR2ovRWN0?=
- =?iso-2022-jp?B?dzhFZWdZa2duWCthSEhGdGpsazBBMEtTVlczQU9tVUp4YTcrR3BxTWFz?=
- =?iso-2022-jp?B?MTFGbTdnbWdDZGVFVUNQbjVFWmVtWFVhMXJEVm4zQVp2Y1lScmg4QmNT?=
- =?iso-2022-jp?B?bnJtNEFmM0xSMDFXd3RBcXluSmdEamRuY3BoaElpUjRFOFBTV2pwYnRo?=
- =?iso-2022-jp?B?MHU0Y0NkMnEvZE90aXF5S09WUSsvejZxWnJPRFB3ZjZ1aGlSYXBEWGZW?=
- =?iso-2022-jp?B?V1pNU24vYXh2eWJDNUpTR25TaHBwYXdtTmRWcTZGSVo5ek9DOExBM1Bt?=
- =?iso-2022-jp?B?ZlNPaGtDeE9OdGhHa29PUTlCamk5OHJkbW5PNjBFanVya0hLTGlwcUc2?=
- =?iso-2022-jp?B?aGl6ZEdsSnVkL2tRMUtVbmlobkZtMnVh?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:ja;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:OSZPR01MB8798.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(1580799027)(38070700018);DIR:OUT;SFP:1101;
+x-microsoft-antispam: BCL:0;ARA:13230040|7416014|366016|376014|1800799024|1580799027|38070700018;
+x-microsoft-antispam-message-info: =?iso-2022-jp?B?c0VoSnpXdjRxdHZESjdvSmZHVFVRek80L3d5Q2lmSjJaUkNLVFdya3pm?=
+ =?iso-2022-jp?B?cU80b2N0Ni9uRGh2b200N09ZU1ZwSU1TQng5UDN5SjRRNG1VdU5pcE1l?=
+ =?iso-2022-jp?B?QkhIRGEwUDNJanhvZjN0YjdNcjRXUkFvTFVNd3YweXJoTTUrQWErZkor?=
+ =?iso-2022-jp?B?UU03SElFTG15VTF3b0U1K2IvNHB6aU9pendZbTM3VHd6emR5WkdlTEo5?=
+ =?iso-2022-jp?B?cURkc2F3VDl4akY5UTBsZmx2ZDVWcmJYMkU3QkhqK29RcXFIc1NDL2dF?=
+ =?iso-2022-jp?B?QU5ydCtvdi95NXZHSjdMMzhRWnFQajVsTFI5Y2swZ24vWHV3WFo1bi9X?=
+ =?iso-2022-jp?B?VDRmRFF3emYyRTIzYUdXeVRuL2xtSUN3SS9vRkMrcGhjUzI2bEdleXU5?=
+ =?iso-2022-jp?B?cCtZSHdLSWNjSzU3RjB0UVVyNUh6S0JST3dQZ0dkcG82d2tWeUpJT1hq?=
+ =?iso-2022-jp?B?c04zSEh6eEh5RlRqVFVtYmp2emJFbjVqUTZXaXlGdkVmSmZmaFR5VEpn?=
+ =?iso-2022-jp?B?YUw4b09xZVB4ZVg5cTMvanZJY3h4UjVKTlMrYTFNNExFUjNIdmloR2FJ?=
+ =?iso-2022-jp?B?SENGZW9JcTN2aDUrL1pvMmI2L0wyNkhReTM3SENzTHU0cHIxQkh6T0p3?=
+ =?iso-2022-jp?B?N1V4VFV3MVhGMEVnKzN3Y0d1dG9CNkw4VmJ4OUJuLzhQRHdHR0VyTzg2?=
+ =?iso-2022-jp?B?NXJTem5RaFkrYVp6NEY4WlV4UUhXeVlEZTJUVDdRYW55TzRlVFdDNldU?=
+ =?iso-2022-jp?B?NGlEVEgvb1VkT3JWbWIwR1ZNSVdkQVZ3WDZtenEzZDhMcFErVXNRK2xR?=
+ =?iso-2022-jp?B?WGZ2b2JwWEhncW1jd2JkeHBIV0tJUHg5Z2o0S1l1VCsrNnZOVDFFRlg5?=
+ =?iso-2022-jp?B?UG1DMEFvUE15ZFlqTnhXaFlnSDVNeGhMSlJQSGpWRUYyNU9WOVV5Rlk4?=
+ =?iso-2022-jp?B?YWFJdWVMNjhoalFFRHJaQ1V6T2d2dmRFSDVXSGJ6blArUk8vRWZMak84?=
+ =?iso-2022-jp?B?WDFPQWxkMFZiR2IxanlMT0pNWGxwQXFIcVlYSWg3NmNKRCtDRTR3dm54?=
+ =?iso-2022-jp?B?TjhlSzJ0WVhUV2lzNlhoOWZPODhhNk5jdU9tT1d0a0tRQU5MRlV5eVVo?=
+ =?iso-2022-jp?B?Zk1DRmlTY1JNQjlEaXBmQUFuUzNXZnhEMUVGZUhoY3AzdUt0a1lPNU1m?=
+ =?iso-2022-jp?B?eTBuajd2ejMxZXpCc3dtVU9nUFo2cGUrTTlYcU4yaGY0WUhpZU5ZM0hL?=
+ =?iso-2022-jp?B?MW45VEovanpqSVBXb2x2dFhNYVl4dWVmS2hhK0lXWkpJV2Q2YWNJeVd0?=
+ =?iso-2022-jp?B?M29RcHpOWSswNlExOXNWdGdtRlMxd1YyNnYwYWJNTDJzd3NONWdUdHBJ?=
+ =?iso-2022-jp?B?OFp5WUVkaFJrYWE2RW9JTUVEV01IamozbHpzMkpweHBOd3NnSjV2RTdO?=
+ =?iso-2022-jp?B?STg1OFFZQjA0OGZSU1N1Ni94Mi9uY2tRYXI3czlpRzhKZmhJRjVlVmcv?=
+ =?iso-2022-jp?B?OFZIRWE4T0NISlFRK25VVnJHM0J3Mk5OQnZWZnYzclZURVFKNHNTQzBq?=
+ =?iso-2022-jp?B?WGRQKzk5dXRDdlZqTWVDR3UzSjRsMlQySTRCdWNTNGhFd0dXNVYvRk11?=
+ =?iso-2022-jp?B?WE1jeWx6M01FcXNDRUw5cjd0cG0xallwQ0ZkTkF0VVNzUzFiL29vRGhF?=
+ =?iso-2022-jp?B?d29aY2Y4Y0IycGI1QlV5cXBYaUE4VUlKcWdscGtycDZoRHNTRjZqVWNC?=
+ =?iso-2022-jp?B?cVkyYVA2MFRrQzdIZCtabnBmTFVPendEVU83UmZOOFR5ZVhBQ3REcFdW?=
+ =?iso-2022-jp?B?emZCdHhZa0NvQmF6UE15bnUxZVZFQzFiYWp4UnEzQkNrblpPU2UzWEFG?=
+ =?iso-2022-jp?B?dEZZeloycXduU0orTFZWUHcrQ1JDY0FFcVRvRzBNKzA1RktTS2w5c3lj?=
+ =?iso-2022-jp?B?Wk9KSHRGcU15WmxkVDJhWnNTcFlVZUlrQitrUXRRRDVoNW1GblgyV3Q4?=
+ =?iso-2022-jp?B?Z1dvVEZhVFN3L2UvK25wU3V3aXJFZnllUnVNQUlNYjMxcUd5TlhiWDV6?=
+ =?iso-2022-jp?B?SjJZd0Q0alJBbVM2b2ZVTkFsTDRaWlo5ZW1pdHhSR3ZSbU9oQk5TTFc5?=
+ =?iso-2022-jp?B?enM1MnlDMktLMlhtSWlnKzd1eDNISVJESjRsY3Q4OTVhckJzeVJQMlZS?=
+ =?iso-2022-jp?B?MWxlMEhOcklSWXh3R0NteGZrSVQ2Y3ps?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:ja;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:OSZPR01MB8798.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(366016)(376014)(1800799024)(1580799027)(38070700018);DIR:OUT;SFP:1101;
 x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?iso-2022-jp?B?SVR1bnBaT2RheTZjMXNTaHF3SkhIQUlaeXp3VVVHR0xWbkJNUENTcnYx?=
- =?iso-2022-jp?B?NUNrSXUwMEkva2VSc29JTG1IVXF5OTdoVlF2NjgvQk1ScHJwQnpDdWRi?=
- =?iso-2022-jp?B?elRTRDdJbUk0c1RCZzVBSG9Fd2psY0JBTXN5YytOT0p0dWFCQWhORGQz?=
- =?iso-2022-jp?B?L3ZyWFJmMUJqa3NxVWNoT2hFb3EzWW1MUEE3MitTMUhuVXhjMU5FWSs2?=
- =?iso-2022-jp?B?ZnI4S2FxK1J6L3BMeW9LUGRRMnZValZ4R1FjaS9iZWNRUVZqdHlwbVkz?=
- =?iso-2022-jp?B?V1FCaGVCQ1FoZnNYb25uaFo5eFBhRVBjWDlNQjVPbXdmeUVaM2t2Ny9G?=
- =?iso-2022-jp?B?TllsbENvYWVMZVQxVE9wM3B0cVUyckltYXVVQ1VQcldRa2FpZlZ2TzJW?=
- =?iso-2022-jp?B?NWxyc1I5WUJFUXFXR0RhbGNOMFJKRmM4QXV3Q1lpYUpDMDhraHdqTWZs?=
- =?iso-2022-jp?B?clZuV2JvYlRjTElYcFVvYmdZOEsveWoyQTJZYkFqZkNJMnRLSHZySGVI?=
- =?iso-2022-jp?B?VEQ0NXEyVk8vc0VyeEIrM1VBeTB3bllRNlVNODdGWG1pVEJBQXdzcXRL?=
- =?iso-2022-jp?B?OTVhNXVqUUtRNlVObjlpOFNuR3RXWWt4YmNYUnRzbU9qbXBQUmd1RkNW?=
- =?iso-2022-jp?B?em5oY3dqd0prYTF0aG8xNVh2U3dzT25Jc2kwMUhKMGllTW4wOEFtOFNl?=
- =?iso-2022-jp?B?SXYwQjdIT0tJN1NrMWlGV0FSMm1mMjJ1NFVBMUtGUlM0dDRUdS8vRWt0?=
- =?iso-2022-jp?B?eE9wNnpGaEh0WHVIOEFKK2hhdU91eklXWDR3eTltZzYrbnNXWE42Q2NX?=
- =?iso-2022-jp?B?VlpLTGJnbXRMUmEvd21OemRXSTl1S2x5UUV4bVppU05sK0xQbnRLUnhU?=
- =?iso-2022-jp?B?bkJyZUxYelRRMnpHdUpGZnNiQTNsdHRWVUNHSnhVRS9SMDQ5ZVlWcmhq?=
- =?iso-2022-jp?B?VWlsZkszTlhtc1BWMFRlYXludnFKRjdQcERCQytuZFRYZlJvbGtIWG5I?=
- =?iso-2022-jp?B?cjRZVk5NTFFMQzBtTElvR1pSaldGNFFobDdDMnlhUEdjU0IrTjZYSjhl?=
- =?iso-2022-jp?B?NmZwZklSSzBOYU16THdTZFh3NW9ZNWNXcFNGU21RNmhlZkk1VzBKZTFF?=
- =?iso-2022-jp?B?enhIUlUwUVZzOWZsK3FqS2xiRlJZMGZJYXd2WkZpWWlNajlkSjBCWlph?=
- =?iso-2022-jp?B?T3dSUGQxVjluOVZhQ09hb3c0SHJ5Nms5Zld2U3RZQVR5WDRTSEJyKzZ0?=
- =?iso-2022-jp?B?OUtBNC80djhpcEZycWduemZTMW5XaHFYNzdtSmt1NUFnTkE0am1jSVdR?=
- =?iso-2022-jp?B?SDhObzc1c2tlRy9EM00xaGIrTGFoMnFGWHNWaVpsL25wMHN4SlpQQ1M4?=
- =?iso-2022-jp?B?L3YzVUZuSEZZSThqWWdMKzNRS1dndSthR1pCQkgyODNhMmk1WlpBWnFV?=
- =?iso-2022-jp?B?TXpWdFh6OHQwdWpmQUN2MW5VS3d2ZDJDZmFIV21ua255dDdtaWpkUG5X?=
- =?iso-2022-jp?B?eTJRMWRpUXBFS0VMZWpmN3hyQUsvajU1L3JYMlcwVHpSMlpNVGZGV0ND?=
- =?iso-2022-jp?B?TkhOMXV5YjBZZ2JyTk42T1p6aUZhb3VnRGE1S1I1UTIyWHdrWEpJcm8z?=
- =?iso-2022-jp?B?K2paUFZadmZXV3g5TUxOV3V4MG12dUFDVTdmREFFME5iR1NtNGhOQlhO?=
- =?iso-2022-jp?B?S0MweGNlSmVJc3dPMnYxeU9zOExoOVVrZW91Mk9SU1F2bWZCd0NGMklR?=
- =?iso-2022-jp?B?NVNhMVRsaGNpVHYwTE5jT1dZUkFRNzRBelVrSXYwRlZCVE1LcnV0TytH?=
- =?iso-2022-jp?B?YSs4NzhpMFU2a1FKUWY2cVNKUWxVOWZYVDhEQ0pzcGdBUkg5UTBFT2dl?=
- =?iso-2022-jp?B?OVQ5a1poa3YyR0k4Ukx2T21rbFFmZXdFZEU2d2JQSlNOMmFFRmdoeUF2?=
- =?iso-2022-jp?B?MmlvV0JLQ25KWm1DZ1lwYXdOTm8xL3BHMTZGa1o1VnZ0enNSdjFSYXJv?=
- =?iso-2022-jp?B?OFJBWWpYT2V0K01xUjdmK2huMUJRcTlxbkhTL01ZeDlSWDg3OHFLM1RZ?=
- =?iso-2022-jp?B?bkJ3UmlTYVdIdnMyb0hHV3dxTUtZV0xjN0Z6aXMvMG50WGMvM2FKUnBi?=
- =?iso-2022-jp?B?TWJNei9SK28zS3d4VFl3cE8zT1MrMGJVbUZZUWgwaXJ0Y1d3RHhKN2oy?=
- =?iso-2022-jp?B?QkZKNnp0RTRpRkdtREZFWTM1OGxPWHJoeWdCOEk5VUpKbWM3a3lTdzdJ?=
- =?iso-2022-jp?B?d3FiaVNjZERndmZJY0QxK3FKYXkrWW5ReEhGMGoreE5yYXdKVC8zQW1B?=
- =?iso-2022-jp?B?Mmp4QUhmdzAxTW9GNWdFK2lRaEEvVUhtdGc9PQ==?=
+x-ms-exchange-antispam-messagedata-0: =?iso-2022-jp?B?R0hIT3prSmp0RE0yUHhsaWtRZW1YS0tKbjNwbmdYVlN3RTF5VUk2N0hZ?=
+ =?iso-2022-jp?B?bnFvVXJMRlpUZDk3OElVNkZOaTlncXVsYTNzTHZxL2JiSlQ2alhTT1N4?=
+ =?iso-2022-jp?B?bmFwaHJET2xRZ2VPZk0zcnJtU2NoK0dWZlc2ZHVtblkxMmdtR1FhU1d3?=
+ =?iso-2022-jp?B?WnVvcWFNR3RjN0JtZDFBcG9LeFA4SDk5bVZBcnYvbHJVNUs1eFRyTGx3?=
+ =?iso-2022-jp?B?bTFvYi9BRjRrZzdsUVVURHF1bHluQ3ZOWUpvWHRyczZ1cjdxOFFWc2Jm?=
+ =?iso-2022-jp?B?ejFTMVFBL1VQQ1NXeFYyNGVaNlF6SHhjTTNEN2R6bDlCTlpOSXJOdis1?=
+ =?iso-2022-jp?B?ZG1Rdjgvdi85RzNOem1jbUdMOFRWYUtCL1duMktuYnc2QzV2VG02WGhU?=
+ =?iso-2022-jp?B?aUxQL2pPQ3drQWNxajNTRmkyOGRDSUU0WUZ1Tnp6NEorYmVoLzlDSnRu?=
+ =?iso-2022-jp?B?eThJaVhPZWlkVFdYUlUrRy9uWWNTZUE0eEV5MGsySW5xNkNnN1FBWUc2?=
+ =?iso-2022-jp?B?UnVsZkpUNzYwTkl4UTM3ZmxoQmpOWnNCUVpPK2RNOTl4WUJrRHMycVc4?=
+ =?iso-2022-jp?B?Q1RnMm1adDM4TzFoZ05IQlRqL1ozR3ZUNlhIVldTb0RQSTh4Nmk0RE8w?=
+ =?iso-2022-jp?B?VVJsdlJKMHpkQlF5Z2ZrU2JjQ1d1QUNwVGVUREJ4MWZsZ0N2SFFvOHpa?=
+ =?iso-2022-jp?B?WGFkK1IzTjcyQ1hRdER3R09HNTJpaWs1cVp5bmhMWEJrZi9RbzJBWWdv?=
+ =?iso-2022-jp?B?M2d3N2tra2YxZDBmWTdlQ2dqaE42MytWZnowY0FGWmtvdXh1bFlhY05m?=
+ =?iso-2022-jp?B?WkozWGRFUGhsYzhId0FJOGRlbmNFZ21DM2g0SGQzTUFtNEtQZzhHMlNK?=
+ =?iso-2022-jp?B?aGF4V3lraWd4aURETTNhTDJVRjZIdWtjcUtDenRFWVU1VmNvNjJ3VmVq?=
+ =?iso-2022-jp?B?dVgwZWpySlNKeHQzVGRKYjJ5RDk1SE5INFhzVENUTVp5ZDVkUkNoTkpZ?=
+ =?iso-2022-jp?B?UDF3RUgwQ3ZMNTZLb3hvYjZJV2h6ZlI3RkxUeXlQNG5ZMGl0cjZ0RXNK?=
+ =?iso-2022-jp?B?T2NBMzQwcmNaNWdDTTZCSVFZZjV0YWx4MnhDNnYxb2RzQUVNaWdvQVNJ?=
+ =?iso-2022-jp?B?SXdHNVF5STFXVHlQZGFBSGFWRndmNGFodjZGZU1XTE1BN2ZrY0NOTjVq?=
+ =?iso-2022-jp?B?NWwvcEFORmphRnR5eDcyQjI5cTBNWHJCQzZXczJVNVkzR1pFZjQ3Rk55?=
+ =?iso-2022-jp?B?Mldvdkhjdlp6Wm9TeHhzK0RYcU5LUUpuL2oxTlVKMlNNdFBMdVgzWTlN?=
+ =?iso-2022-jp?B?YmRhQVdRQmd0Qy9PQ3k4Ym5zT1dSVGlINiszQjZ3Y3ZrK3FrQS9pRDZM?=
+ =?iso-2022-jp?B?NU1mS1ZnQU54OEVtKzcwTEZBYUdGaVJqRW0wVGFTSHpnK1BpZ0JQcktw?=
+ =?iso-2022-jp?B?OU5wSURlYndMcyt4YVZySk5vSzA0RkJwOExNaTVEcTIzNzM4QXBId05n?=
+ =?iso-2022-jp?B?aWxlc0FRbHBwa0hnYU96TnhLYUpDQkpBcXhlVFM0RWxVcTFMWGxKTWkz?=
+ =?iso-2022-jp?B?L2hCM1RFNTRKdnhnMSszY1lHZ2JMalAxbFpXSHhmS09pZlB1ZnhHUzJP?=
+ =?iso-2022-jp?B?eW5wOS9YTFNpOVdPejZ1bzVjZ2srdUdka3NWWGswWWVFQW5hWk1xTmt4?=
+ =?iso-2022-jp?B?b0U1ZEZ2Yy9heHpBcWJnYWtWS2xvZG4vTVBaT1VmWnF2RUVrZmlhV1Vi?=
+ =?iso-2022-jp?B?dDJoTGgydWx2Y2lPRE5tZWFsMVQ2UmFTOGJOcm9YZGU0ZHhFTUFJVGM3?=
+ =?iso-2022-jp?B?emZFYVN0bkZjaWhkcDhzNndHQjNCdnRDS3hiQlVGdWNmOFV2cFVCcjVE?=
+ =?iso-2022-jp?B?MExncTl5Z0FiQzJsNllsQW5iWEt0QUQyM0Vpcm95ZGNJb0V2bnYyV1c2?=
+ =?iso-2022-jp?B?S0ZNMTV6VGtKSW1WUmlZbmpBWDZ0RGZmY1EwSnYwNDdHcGFqYjg5dVdE?=
+ =?iso-2022-jp?B?VVBPcTlHNDlsai95YjFzdWVMY3BRU3JmaTlWOFZKSnI3NTVtNXBPZzhw?=
+ =?iso-2022-jp?B?WGNBaG5COG8wbEZoWXM1V2drcFRydlhyakxDWkkxYloxYVVYRVQzVmlU?=
+ =?iso-2022-jp?B?bllCenlFdHMyUjhqVDgxaFdTMEd5YUdRaVFiNCtYVWhXNDh2c2FDZmRR?=
+ =?iso-2022-jp?B?ejJPb2FoWmZqMi9mSWtpYzVwN09tcFpwL3Z3N0pWTzYrS1duamFyL3Rm?=
+ =?iso-2022-jp?B?TDViTERiL1B2WG5NZXNzNGlERTE3dEFlM0tkcHZCb3pCbUxPcXVzM3J5?=
+ =?iso-2022-jp?B?VXRPeUkyWFovQU9VNFljTW9pSGVnK1BGYXc9PQ==?=
 Content-Type: text/plain; charset="iso-2022-jp"
 Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
 X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: EZNxnrUp2oqd3B5lMc35BHGQEz2pAGH7ISAHR5k7w9Gk9+qinw4k+rj5uBdiarGjglDNc43ly4NEAvmvJT5/12Zw6d4WPWbSdD0HM3CSIB8XjHON5Dkas+3kOsg5D8iJtOyPSO3i7OMII3T3xrNhlnsaZ3kvXudY+LUr85DVi8/B2NIm9Juzud0REklwnpwJ529h8E9h+TL9zfDNVyRtoBD+1L8QDAqpbx8M7DLeMYs0ZFpsJ1/CymV6ApqobqhTmJrjeUKZSjSQloRjI6byM7BVY+Rv5MIwA3vVxbRdZ+5nPL6A8Q33BITB6pG7HDslrVbyGpf1TqxrTotZddQlC3kawEvzXVpa/uWjkE3eMi6i2VYyZ8zg+aSe/1dklntw1I8M/Q3iaGYIK9AdyECEAKHMMkoZXSk87KyhlB5Cve7vI9QzmEqAO1mE/decdaySZdRXeoEzU3I2TuuCKBt3NLMPNxM/bydzpWkXR1FnO8QsTWp9GOsoOLy/Pl7LFFhd9+uNxusOBi3WvUbS8zDE3+W3M60J1SbcxB2G6ykG0G2CIgAMwRow1KdgnBTXpuzO3+wsUftRQTsrX/wP90Sfkocu/kxd81irXkNTtALxHtI0lEWtAvX4MOYSgYGbc3/X
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: PrJ+CuIxcDtqQxQFGKaG+ruSOz3WrWTRP1PGSQrc9RPTht2ZS9Tm6WKT85uIEOFSXcIARoRHGIyTEBekaVBvCOq+WGEtVUzkl5DMj+D0fvTy0SEiLTSpRnd6CsobOXHEeuFZf2s5+9cSHu6Wi3XsfekyeVhDvUZLW5nIfZiR3sSkOsAQZMJClbIm8P/Q2lykHqo9YmAnglWUE9fsLQIn31rrcr73hEYsHv4jOaGWhvAiDW2lSS3hrT4SuCS+zipZPZZu58y5ri0XHA6LMX5WbEl7/4BVAsFtvmVr2e6Jr+FGKYf1lVTFeeJOK6EwlLjfo2jfKVytHEQp7aNE6hii2CELn4yyhkHqo0Di35poGheGs3jFPCn+kF+zzz4VRb8K/wbJplMSgIbnw3zEatSPAh7qlxI8tfwhxh/VwBR0P+mUTPdIPmsriBoW5U1SwlqCQbcqUIKrrIifcR/fF5b4lNfFBQuxh+A+t6B+GkRaVARK036oC9+OzCivp749SX0l4vYrGGnCkwl0icGcaNVxOGiYzOGd0d/HdhYI4wcPUFxU1jPoX6yepELgaPnCAzRgafJz0q7XK5tV8Y+qQxk4L2QayQjPxyMY7b8takffsZxu52Xz4roSzKBCUMcIguyB
 X-OriginatorOrg: fujitsu.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
 X-MS-Exchange-CrossTenant-AuthSource: OSZPR01MB8798.jpnprd01.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 91e2720b-c235-481c-d621-08ddc4cde7c0
-X-MS-Exchange-CrossTenant-originalarrivaltime: 17 Jul 2025 01:04:39.1530
+X-MS-Exchange-CrossTenant-Network-Message-Id: 70138741-53c4-44ca-3340-08ddc4ce80ed
+X-MS-Exchange-CrossTenant-originalarrivaltime: 17 Jul 2025 01:08:56.1642
  (UTC)
 X-MS-Exchange-CrossTenant-fromentityheader: Hosted
 X-MS-Exchange-CrossTenant-id: a19f121d-81e1-4858-a9d8-736e267fd4c7
 X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: GZZA4X7Rec68IdD4TFKvlvbvyYOtdAuq5CqpPNIK4Zj5mssDybrqMKD6hjyuSbHeXv/v7va2p02U2E+e1dibm5WHS7yVV7/gWjC8lLhYwYs=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYWPR01MB9837
+X-MS-Exchange-CrossTenant-userprincipalname: dHwuBu036p/u98tmu1T8LVR3UwX0yJIMBibuw9FpM/BbDpEK21AcgMDIzNOO7yYs3cg/br4LAOW3fbhgJ0YWvZvDaWU1JADF41Hlj5qxhCU=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYCPR01MB10228
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250716_180453_053313_E49F6E27 
-X-CRM114-Status: GOOD (  12.71  )
+X-CRM114-CacheID: sfid-20250716_180913_765992_14A77ABC 
+X-CRM114-Status: GOOD (  18.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -221,347 +219,499 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hello James,
 
-> Memory Partitioning and Monitoring (MPAM) has memory mapped devices
-> (MSCs) with an identity/configuration page.
 >=20
-> Add the definitions for these registers as offset within the page(s).
+> Register and enable error IRQs. All the MPAM error interrupts indicate a
+> software bug, e.g. out of range partid. If the error interrupt is ever si=
+gnalled,
+> attempt to disable MPAM.
 >=20
+> Only the irq handler accesses the ESR register, so no locking is needed.
+> The work to disable MPAM after an error needs to happen at process contex=
+t,
+> use a threaded interrupt.
+>=20
+> There is no support for percpu threaded interrupts, for now schedule the =
+work
+> to be done from the irq handler.
+>=20
+> Enabling the IRQs in the MSC may involve cross calling to a CPU that can
+> access the MSC.
+>=20
+> CC: Rohit Mathew <rohit.mathew@arm.com>
+> Tested-by: Rohit Mathew <rohit.mathew@arm.com>
 > Signed-off-by: James Morse <james.morse@arm.com>
 > ---
->  drivers/platform/arm64/mpam/mpam_internal.h | 268
-> ++++++++++++++++++++
->  1 file changed, 268 insertions(+)
+>  drivers/platform/arm64/mpam/mpam_devices.c  | 304
+> +++++++++++++++++++-
+>  drivers/platform/arm64/mpam/mpam_internal.h |   9 +-
+>  2 files changed, 307 insertions(+), 6 deletions(-)
 >=20
-> diff --git a/drivers/platform/arm64/mpam/mpam_internal.h
-> b/drivers/platform/arm64/mpam/mpam_internal.h
-> index d49bb884b433..9110c171d9d2 100644
-> --- a/drivers/platform/arm64/mpam/mpam_internal.h
-> +++ b/drivers/platform/arm64/mpam/mpam_internal.h
-> @@ -150,4 +150,272 @@ extern struct list_head mpam_classes;  int
-> mpam_get_cpumask_from_cache_id(unsigned long cache_id, u32
-> cache_level,
->  				   cpumask_t *affinity);
+> diff --git a/drivers/platform/arm64/mpam/mpam_devices.c
+> b/drivers/platform/arm64/mpam/mpam_devices.c
+> index 145535cd4732..af19cc25d16e 100644
+> --- a/drivers/platform/arm64/mpam/mpam_devices.c
+> +++ b/drivers/platform/arm64/mpam/mpam_devices.c
+> @@ -14,6 +14,9 @@
+>  #include <linux/device.h>
+>  #include <linux/errno.h>
+>  #include <linux/gfp.h>
+> +#include <linux/interrupt.h>
+> +#include <linux/irq.h>
+> +#include <linux/irqdesc.h>
+>  #include <linux/list.h>
+>  #include <linux/lockdep.h>
+>  #include <linux/mutex.h>
+> @@ -62,6 +65,12 @@ static DEFINE_SPINLOCK(partid_max_lock);
+>   */
+>  static DECLARE_WORK(mpam_enable_work, &mpam_enable);
 >=20
 > +/*
-> + * MPAM MSCs have the following register layout. See:
-> + * Arm Architecture Reference Manual Supplement - Memory System
-> +Resource
-> + * Partitioning and Monitoring (MPAM), for Armv8-A. DDI 0598A.a  */
-> +#define MPAM_ARCHITECTURE_V1    0x10
-> +
-> +/* Memory mapped control pages: */
-> +/* ID Register offsets in the memory mapped page */
-> +#define MPAMF_IDR               0x0000  /* features id register */
-> +#define MPAMF_MSMON_IDR         0x0080  /* performance monitoring
-> features */
-> +#define MPAMF_IMPL_IDR          0x0028  /* imp-def partitioning */
-> +#define MPAMF_CPOR_IDR          0x0030  /* cache-portion partitioning
-> */
-> +#define MPAMF_CCAP_IDR          0x0038  /* cache-capacity
-> partitioning */
-> +#define MPAMF_MBW_IDR           0x0040  /* mem-bw partitioning */
-> +#define MPAMF_PRI_IDR           0x0048  /* priority partitioning */
-> +#define MPAMF_CSUMON_IDR        0x0088  /* cache-usage monitor */
-> +#define MPAMF_MBWUMON_IDR       0x0090  /* mem-bw usage
-> monitor */
-> +#define MPAMF_PARTID_NRW_IDR    0x0050  /* partid-narrowing */
-> +#define MPAMF_IIDR              0x0018  /* implementer id register */
-> +#define MPAMF_AIDR              0x0020  /* architectural id register */
-> +
-> +/* Configuration and Status Register offsets in the memory mapped page *=
-/
-> +#define MPAMCFG_PART_SEL        0x0100  /* partid to configure: */
-> +#define MPAMCFG_CPBM            0x1000  /* cache-portion config */
-> +#define MPAMCFG_CMAX            0x0108  /* cache-capacity config */
-> +#define MPAMCFG_CMIN            0x0110  /* cache-capacity config */
-> +#define MPAMCFG_MBW_MIN         0x0200  /* min mem-bw config */
-> +#define MPAMCFG_MBW_MAX         0x0208  /* max mem-bw config */
-> +#define MPAMCFG_MBW_WINWD       0x0220  /* mem-bw accounting
-> window config */
-> +#define MPAMCFG_MBW_PBM         0x2000  /* mem-bw portion
-> bitmap config */
-> +#define MPAMCFG_PRI             0x0400  /* priority partitioning config
-> */
-> +#define MPAMCFG_MBW_PROP        0x0500  /* mem-bw stride config
-> */
-> +#define MPAMCFG_INTPARTID       0x0600  /* partid-narrowing config
-> */
-> +
-> +#define MSMON_CFG_MON_SEL       0x0800  /* monitor selector */
-> +#define MSMON_CFG_CSU_FLT       0x0810  /* cache-usage monitor
-> filter */
-> +#define MSMON_CFG_CSU_CTL       0x0818  /* cache-usage monitor
-> config */
-> +#define MSMON_CFG_MBWU_FLT      0x0820  /* mem-bw monitor filter
-> */
-> +#define MSMON_CFG_MBWU_CTL      0x0828  /* mem-bw monitor
-> config */
-> +#define MSMON_CSU               0x0840  /* current cache-usage */
-> +#define MSMON_CSU_CAPTURE       0x0848  /* last cache-usage value
-> captured */
-> +#define MSMON_MBWU              0x0860  /* current mem-bw usage
-> value */
-> +#define MSMON_MBWU_CAPTURE      0x0868  /* last mem-bw value
-> captured */
-> +#define MSMON_CAPT_EVNT         0x0808  /* signal a capture event */
-> +#define MPAMF_ESR               0x00F8  /* error status register */
-> +#define MPAMF_ECR               0x00F0  /* error control register */
-> +
-> +/* MPAMF_IDR - MPAM features ID register */
-> +#define MPAMF_IDR_PARTID_MAX            GENMASK(15, 0)
-> +#define MPAMF_IDR_PMG_MAX               GENMASK(23, 16)
-> +#define MPAMF_IDR_HAS_CCAP_PART         BIT(24)
-> +#define MPAMF_IDR_HAS_CPOR_PART         BIT(25)
-> +#define MPAMF_IDR_HAS_MBW_PART          BIT(26)
-> +#define MPAMF_IDR_HAS_PRI_PART          BIT(27)
-> +#define MPAMF_IDR_HAS_EXT               BIT(28)
-> +#define MPAMF_IDR_HAS_IMPL_IDR          BIT(29)
-> +#define MPAMF_IDR_HAS_MSMON             BIT(30)
-> +#define MPAMF_IDR_HAS_PARTID_NRW        BIT(31)
-> +#define MPAMF_IDR_HAS_RIS               BIT(32)
-> +#define MPAMF_IDR_HAS_EXT_ESR           BIT(38)
-> +#define MPAMF_IDR_HAS_ESR               BIT(39)
-> +#define MPAMF_IDR_RIS_MAX               GENMASK(59, 56)
-> +
-> +/* MPAMF_MSMON_IDR - MPAM performance monitoring ID register */
-> +#define MPAMF_MSMON_IDR_MSMON_CSU               BIT(16)
-> +#define MPAMF_MSMON_IDR_MSMON_MBWU              BIT(17)
-> +#define MPAMF_MSMON_IDR_HAS_LOCAL_CAPT_EVNT     BIT(31)
-> +
-> +/* MPAMF_CPOR_IDR - MPAM features cache portion partitioning ID
-> register */
-> +#define MPAMF_CPOR_IDR_CPBM_WD                  GENMASK(15,
-> 0)
-> +
-> +/* MPAMF_CCAP_IDR - MPAM features cache capacity partitioning ID
-> register */
-> +#define MPAMF_CCAP_IDR_HAS_CMAX_SOFTLIM         BIT(31)
-> +#define MPAMF_CCAP_IDR_NO_CMAX                  BIT(30)
-> +#define MPAMF_CCAP_IDR_HAS_CMIN                 BIT(29)
-> +#define MPAMF_CCAP_IDR_HAS_CASSOC               BIT(28)
-> +#define MPAMF_CCAP_IDR_CASSOC_WD                GENMASK(12,
-> 8)
-> +#define MPAMF_CCAP_IDR_CMAX_WD                  GENMASK(5, 0)
-> +
-> +/* MPAMF_MBW_IDR - MPAM features memory bandwidth partitioning ID
-> register */
-> +#define MPAMF_MBW_IDR_BWA_WD            GENMASK(5, 0)
-> +#define MPAMF_MBW_IDR_HAS_MIN           BIT(10)
-> +#define MPAMF_MBW_IDR_HAS_MAX           BIT(11)
-> +#define MPAMF_MBW_IDR_HAS_PBM           BIT(12)
-> +#define MPAMF_MBW_IDR_HAS_PROP          BIT(13)
-> +#define MPAMF_MBW_IDR_WINDWR            BIT(14)
-> +#define MPAMF_MBW_IDR_BWPBM_WD          GENMASK(28, 16)
-> +
-> +/* MPAMF_PRI_IDR - MPAM features priority partitioning ID register */
-> +#define MPAMF_PRI_IDR_HAS_INTPRI        BIT(0)
-> +#define MPAMF_PRI_IDR_INTPRI_0_IS_LOW   BIT(1)
-> +#define MPAMF_PRI_IDR_INTPRI_WD         GENMASK(9, 4)
-> +#define MPAMF_PRI_IDR_HAS_DSPRI         BIT(16)
-> +#define MPAMF_PRI_IDR_DSPRI_0_IS_LOW    BIT(17)
-> +#define MPAMF_PRI_IDR_DSPRI_WD          GENMASK(25, 20)
-> +
-> +/* MPAMF_CSUMON_IDR - MPAM cache storage usage monitor ID register
-> */
-> +#define MPAMF_CSUMON_IDR_NUM_MON        GENMASK(15, 0)
-> +#define MPAMF_CSUMON_IDR_HAS_OFLOW_CAPT	BIT(24)
-> +#define MPAMF_CSUMON_IDR_HAS_CEVNT_OFLW	BIT(25)
-> +#define MPAMF_CSUMON_IDR_HAS_OFSR	BIT(26)
-> +#define MPAMF_CSUMON_IDR_HAS_OFLOW_LNKG	BIT(27)
-> +#define MPAMF_CSUMON_IDR_HAS_XCL	BIT(29)
-> +#define MPAMF_CSUMON_IDR_CSU_RO		BIT(30)
-> +#define MPAMF_CSUMON_IDR_HAS_CAPTURE    BIT(31)
-> +
-> +/* MPAMF_MBWUMON_IDR - MPAM memory bandwidth usage monitor ID
-> register */
-> +#define MPAMF_MBWUMON_IDR_NUM_MON       GENMASK(15, 0)
-> +#define MPAMF_MBWUMON_IDR_HAS_RWBW      BIT(28)
-> +#define MPAMF_MBWUMON_IDR_LWD           BIT(29)
-> +#define MPAMF_MBWUMON_IDR_HAS_LONG      BIT(30)
-> +#define MPAMF_MBWUMON_IDR_HAS_CAPTURE   BIT(31)
-> +
-> +/* MPAMF_PARTID_NRW_IDR - MPAM PARTID narrowing ID register */
-> +#define MPAMF_PARTID_NRW_IDR_INTPARTID_MAX      GENMASK(15,
-> 0)
-> +
-> +/* MPAMF_IIDR - MPAM implementation ID register */
-> +#define MPAMF_IIDR_PRODUCTID    GENMASK(31, 20)
-> +#define MPAMF_IIDR_PRODUCTID_SHIFT	20
-> +#define MPAMF_IIDR_VARIANT      GENMASK(19, 16)
-> +#define MPAMF_IIDR_VARIANT_SHIFT	16
-> +#define MPAMF_IIDR_REVISON      GENMASK(15, 12)
-> +#define MPAMF_IIDR_REVISON_SHIFT	12
-> +#define MPAMF_IIDR_IMPLEMENTER  GENMASK(11, 0)
-> +#define MPAMF_IIDR_IMPLEMENTER_SHIFT	0
-> +
-> +/* MPAMF_AIDR - MPAM architecture ID register */
-> +#define MPAMF_AIDR_ARCH_MAJOR_REV       GENMASK(7, 4)
-> +#define MPAMF_AIDR_ARCH_MINOR_REV       GENMASK(3, 0)
-> +
-> +/* MPAMCFG_PART_SEL - MPAM partition configuration selection register
-> */
-> +#define MPAMCFG_PART_SEL_PARTID_SEL     GENMASK(15, 0)
-> +#define MPAMCFG_PART_SEL_INTERNAL       BIT(16)
-> +#define MPAMCFG_PART_SEL_RIS            GENMASK(27, 24)
-> +
-> +/* MPAMCFG_CMAX - MPAM cache capacity configuration register */
-> +#define MPAMCFG_CMAX_SOFTLIM            BIT(31)
-> +#define MPAMCFG_CMAX_CMAX               GENMASK(15, 0)
-> +
-> +/* MPAMCFG_CMIN - MPAM cache capacity configuration register */
-> +#define MPAMCFG_CMIN_CMIN               GENMASK(15, 0)
-> +
-> +/*
-> + * MPAMCFG_MBW_MIN - MPAM memory minimum bandwidth partitioning
-> configuration
-> + *                   register
+> + * All mpam error interrupts indicate a software bug. On receipt,
+> +disable the
+> + * driver.
 > + */
-> +#define MPAMCFG_MBW_MIN_MIN             GENMASK(15, 0)
+> +static DECLARE_WORK(mpam_broken_work, &mpam_disable);
 > +
-> +/*
-> + * MPAMCFG_MBW_MAX - MPAM memory maximum bandwidth
-> partitioning configuration
-> + *                   register
-> + */
-> +#define MPAMCFG_MBW_MAX_MAX             GENMASK(15, 0)
-> +#define MPAMCFG_MBW_MAX_HARDLIM         BIT(31)
+>  /*
+>   * An MSC is a physical container for controls and monitors, each identi=
+fied by
+>   * their RIS index. These share a base-address, interrupts and some MMIO
+> @@ -159,6 +168,24 @@ static u64 mpam_msc_read_idr(struct mpam_msc
+> *msc)
+>  	return (idr_high << 32) | idr_low;
+>  }
+>=20
+> +static void mpam_msc_zero_esr(struct mpam_msc *msc) {
+> +	__mpam_write_reg(msc, MPAMF_ESR, 0);
+> +	if (msc->has_extd_esr)
+> +		__mpam_write_reg(msc, MPAMF_ESR + 4, 0); }
 > +
-> +/*
-> + * MPAMCFG_MBW_WINWD - MPAM memory bandwidth partitioning
-> window width
-> + *                     register
-> + */
-> +#define MPAMCFG_MBW_WINWD_US_FRAC       GENMASK(7, 0)
-> +#define MPAMCFG_MBW_WINWD_US_INT        GENMASK(23, 8)
+> +static u64 mpam_msc_read_esr(struct mpam_msc *msc) {
+> +	u64 esr_high =3D 0, esr_low;
 > +
-> +/* MPAMCFG_PRI - MPAM priority partitioning configuration register */
-> +#define MPAMCFG_PRI_INTPRI              GENMASK(15, 0)
-> +#define MPAMCFG_PRI_DSPRI               GENMASK(31, 16)
+> +	esr_low =3D __mpam_read_reg(msc, MPAMF_ESR);
+> +	if (msc->has_extd_esr)
+> +		esr_high =3D __mpam_read_reg(msc, MPAMF_ESR + 4);
 > +
-> +/*
-> + * MPAMCFG_MBW_PROP - Memory bandwidth proportional stride
-> partitioning
-> + *                    configuration register
-> + */
-> +#define MPAMCFG_MBW_PROP_STRIDEM1       GENMASK(15, 0)
-> +#define MPAMCFG_MBW_PROP_EN             BIT(31)
+> +	return (esr_high << 32) | esr_low;
+> +}
 > +
-> +/*
-> + * MPAMCFG_INTPARTID - MPAM internal partition narrowing configuration
-> +register  */
-> +#define MPAMCFG_INTPARTID_INTPARTID     GENMASK(15, 0)
-> +#define MPAMCFG_INTPARTID_INTERNAL      BIT(16)
+>  static void __mpam_part_sel_raw(u32 partsel, struct mpam_msc *msc)  {
+>  	lockdep_assert_held(&msc->part_sel_lock);
+> @@ -405,12 +432,12 @@ static void mpam_msc_destroy(struct mpam_msc
+> *msc)
+>=20
+>  	lockdep_assert_held(&mpam_list_lock);
+>=20
+> -	list_del_rcu(&msc->glbl_list);
+> -	platform_set_drvdata(pdev, NULL);
+> -
+>  	list_for_each_entry_safe(ris, tmp, &msc->ris, msc_list)
+>  		mpam_ris_destroy(ris);
+>=20
+> +	list_del_rcu(&msc->glbl_list);
+> +	platform_set_drvdata(pdev, NULL);
 > +
-> +/* MSMON_CFG_MON_SEL - Memory system performance monitor
-> selection register */
-> +#define MSMON_CFG_MON_SEL_MON_SEL       GENMASK(15, 0)
-> +#define MSMON_CFG_MON_SEL_RIS           GENMASK(27, 24)
+>  	add_to_garbage(msc);
+>  	msc->garbage.pdev =3D pdev;
+>  }
+> @@ -828,6 +855,7 @@ static int mpam_msc_hw_probe(struct mpam_msc
+> *msc)
+>  		pmg_max =3D FIELD_GET(MPAMF_IDR_PMG_MAX, idr);
+>  		msc->partid_max =3D min(msc->partid_max, partid_max);
+>  		msc->pmg_max =3D min(msc->pmg_max, pmg_max);
+> +		msc->has_extd_esr =3D
+> FIELD_GET(MPAMF_IDR_HAS_EXT_ESR, idr);
+>=20
+>  		ris =3D mpam_get_or_create_ris(msc, ris_idx);
+>  		if (IS_ERR(ris))
+> @@ -974,6 +1002,13 @@ static void mpam_reset_msc(struct mpam_msc
+> *msc, bool online)
+>  	mpam_mon_sel_outer_unlock(msc);
+>  }
+>=20
+> +static void _enable_percpu_irq(void *_irq) {
+> +	int *irq =3D _irq;
 > +
-> +/* MPAMF_ESR - MPAM Error Status Register */ #define
-> +MPAMF_ESR_PARTID_OR_MON GENMASK(15, 0)
-> +#define MPAMF_ESR_PMG           GENMASK(23, 16)
-> +#define MPAMF_ESR_ERRCODE       GENMASK(27, 24)
-> +#define MPAMF_ESR_OVRWR         BIT(31)
-> +#define MPAMF_ESR_RIS           GENMASK(35, 32)
+> +	enable_percpu_irq(*irq, IRQ_TYPE_NONE); }
 > +
-> +/* MPAMF_ECR - MPAM Error Control Register */
-> +#define MPAMF_ECR_INTEN         BIT(0)
+>  static int mpam_cpu_online(unsigned int cpu)  {
+>  	int idx;
+> @@ -984,6 +1019,9 @@ static int mpam_cpu_online(unsigned int cpu)
+>  		if (!cpumask_test_cpu(cpu, &msc->accessibility))
+>  			continue;
+>=20
+> +		if (msc->reenable_error_ppi)
+> +			_enable_percpu_irq(&msc->reenable_error_ppi);
 > +
-> +/* Error conditions in accessing memory mapped registers */
-> +#define MPAM_ERRCODE_NONE                       0
-> +#define MPAM_ERRCODE_PARTID_SEL_RANGE           1
-> +#define MPAM_ERRCODE_REQ_PARTID_RANGE           2
-> +#define MPAM_ERRCODE_MSMONCFG_ID_RANGE          3
-> +#define MPAM_ERRCODE_REQ_PMG_RANGE              4
-> +#define MPAM_ERRCODE_MONITOR_RANGE              5
-> +#define MPAM_ERRCODE_INTPARTID_RANGE            6
-> +#define MPAM_ERRCODE_UNEXPECTED_INTERNAL        7
+>  		if (atomic_fetch_inc(&msc->online_refs) =3D=3D 0)
+>  			mpam_reset_msc(msc, true);
+>  	}
+> @@ -1032,6 +1070,9 @@ static int mpam_cpu_offline(unsigned int cpu)
+>  		if (!cpumask_test_cpu(cpu, &msc->accessibility))
+>  			continue;
+>=20
+> +		if (msc->reenable_error_ppi)
+> +			disable_percpu_irq(msc->reenable_error_ppi);
 > +
-> +/*
-> + * MSMON_CFG_CSU_FLT - Memory system performance monitor configure
-> cache storage
-> + *                    usage monitor filter register
-> + */
-> +#define MSMON_CFG_CSU_FLT_PARTID       GENMASK(15, 0)
-> +#define MSMON_CFG_CSU_FLT_PMG          GENMASK(23, 16)
+>  		if (atomic_dec_and_test(&msc->online_refs))
+>  			mpam_reset_msc(msc, false);
+>  	}
+> @@ -1058,6 +1099,51 @@ static void mpam_register_cpuhp_callbacks(int
+> (*online)(unsigned int online),
+>  	mutex_unlock(&mpam_cpuhp_state_lock);
+>  }
+>=20
+> +static int __setup_ppi(struct mpam_msc *msc) {
+> +	int cpu;
 > +
-> +/*
-> + * MSMON_CFG_CSU_CTL - Memory system performance monitor configure
-> cache storage
-> + *                    usage monitor control register
-> + * MSMON_CFG_MBWU_CTL - Memory system performance monitor
-> configure memory
-> + *                     bandwidth usage monitor control register
-> + */
-> +#define MSMON_CFG_x_CTL_TYPE           GENMASK(7, 0)
-> +#define MSMON_CFG_x_CTL_OFLOW_STATUS_L BIT(15)
-> +#define MSMON_CFG_x_CTL_MATCH_PARTID   BIT(16)
-> +#define MSMON_CFG_x_CTL_MATCH_PMG      BIT(17)
-> +#define MSMON_CFG_x_CTL_SCLEN          BIT(19)
-> +#define MSMON_CFG_x_CTL_SUBTYPE        GENMASK(23, 20)
-> +#define MSMON_CFG_x_CTL_OFLOW_FRZ      BIT(24)
-> +#define MSMON_CFG_x_CTL_OFLOW_INTR     BIT(25)
-> +#define MSMON_CFG_x_CTL_OFLOW_STATUS   BIT(26)
-> +#define MSMON_CFG_x_CTL_CAPT_RESET     BIT(27)
-> +#define MSMON_CFG_x_CTL_CAPT_EVNT      GENMASK(30, 28)
-> +#define MSMON_CFG_x_CTL_EN             BIT(31)
+> +	msc->error_dev_id =3D alloc_percpu_gfp(struct mpam_msc *,
+> GFP_KERNEL);
+> +	if (!msc->error_dev_id)
+> +		return -ENOMEM;
 > +
-> +#define MSMON_CFG_MBWU_CTL_TYPE_MBWU
-> 	0x42
-> +#define MSMON_CFG_MBWU_CTL_TYPE_CSU
-> 	0x43
+> +	for_each_cpu(cpu, &msc->accessibility) {
+> +		struct mpam_msc *empty =3D *per_cpu_ptr(msc->error_dev_id,
+> cpu);
+> +
+> +		if (empty) {
+> +			pr_err_once("%s shares PPI with %s!\n",
+> +				    dev_name(&msc->pdev->dev),
+> +				    dev_name(&empty->pdev->dev));
+> +			return -EBUSY;
+> +		}
+> +		*per_cpu_ptr(msc->error_dev_id, cpu) =3D msc;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static int mpam_msc_setup_error_irq(struct mpam_msc *msc) {
+> +	int irq;
+> +
+> +	irq =3D platform_get_irq_byname_optional(msc->pdev, "error");
+> +	if (irq <=3D 0)
+> +		return 0;
+> +
+> +	/* Allocate and initialise the percpu device pointer for PPI */
+> +	if (irq_is_percpu(irq))
+> +		return __setup_ppi(msc);
+> +
+> +	/* sanity check: shared interrupts can be routed anywhere? */
+> +	if (!cpumask_equal(&msc->accessibility, cpu_possible_mask)) {
+> +		pr_err_once("msc:%u is a private resource with a shared error
+> interrupt",
+> +			    msc->id);
+> +		return -EINVAL;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+>  static int mpam_dt_count_msc(void)
+>  {
+>  	int count =3D 0;
+> @@ -1266,6 +1352,10 @@ static int mpam_msc_drv_probe(struct
+> platform_device *pdev)
+>  			break;
+>  		}
+>=20
+> +		err =3D mpam_msc_setup_error_irq(msc);
+> +		if (err)
+> +			break;
+> +
+>  		if (device_property_read_u32(&pdev->dev, "pcc-channel",
+>  					     &msc->pcc_subspace_id))
+>  			msc->iface =3D MPAM_IFACE_MMIO;
+> @@ -1548,11 +1638,193 @@ static void mpam_enable_merge_features(struct
+> list_head *all_classes_list)
+>  	}
+>  }
+>=20
+> +static char *mpam_errcode_names[16] =3D {
+> +	[0] =3D "No error",
+> +	[1] =3D "PARTID_SEL_Range",
+> +	[2] =3D "Req_PARTID_Range",
+> +	[3] =3D "MSMONCFG_ID_RANGE",
+> +	[4] =3D "Req_PMG_Range",
+> +	[5] =3D "Monitor_Range",
+> +	[6] =3D "intPARTID_Range",
+> +	[7] =3D "Unexpected_INTERNAL",
+> +	[8] =3D "Undefined_RIS_PART_SEL",
+> +	[9] =3D "RIS_No_Control",
+> +	[10] =3D "Undefined_RIS_MON_SEL",
+> +	[11] =3D "RIS_No_Monitor",
+> +	[12 ... 15] =3D "Reserved"
+> +};
+> +
+> +static int mpam_enable_msc_ecr(void *_msc) {
+> +	struct mpam_msc *msc =3D _msc;
+> +
+> +	__mpam_write_reg(msc, MPAMF_ECR, 1);
+> +
+> +	return 0;
+> +}
+> +
+> +static int mpam_disable_msc_ecr(void *_msc) {
+> +	struct mpam_msc *msc =3D _msc;
+> +
+> +	__mpam_write_reg(msc, MPAMF_ECR, 0);
+> +
+> +	return 0;
+> +}
+> +
+> +static irqreturn_t __mpam_irq_handler(int irq, struct mpam_msc *msc) {
+> +	u64 reg;
+> +	u16 partid;
+> +	u8 errcode, pmg, ris;
+> +
+> +	if (WARN_ON_ONCE(!msc) ||
+> +	    WARN_ON_ONCE(!cpumask_test_cpu(smp_processor_id(),
+> +					   &msc->accessibility)))
+> +		return IRQ_NONE;
+> +
+> +	reg =3D mpam_msc_read_esr(msc);
+> +
+> +	errcode =3D FIELD_GET(MPAMF_ESR_ERRCODE, reg);
+> +	if (!errcode)
+> +		return IRQ_NONE;
 
-MSMON_CFG_CSU_CTL_TYPE_CSU?
+In general, I think there is no problem.=20
+However, the initial value of MPAMF_ESR_ERRCODE may not be 0 on some chips.=
+=20
+It is better to initialize when loading the MPAM driver.
 
 Best regards,
 Shaopeng TAN
 
+> +	/* Clear level triggered irq */
+> +	mpam_msc_zero_esr(msc);
 > +
-> +#define MSMON_CFG_MBWU_CTL_SUBTYPE_NONE                 0
-> +#define MSMON_CFG_MBWU_CTL_SUBTYPE_READ                 1
-> +#define MSMON_CFG_MBWU_CTL_SUBTYPE_WRITE                2
-> +#define MSMON_CFG_MBWU_CTL_SUBTYPE_BOTH                 3
+> +	partid =3D FIELD_GET(MPAMF_ESR_PARTID_OR_MON, reg);
+> +	pmg =3D FIELD_GET(MPAMF_ESR_PMG, reg);
+> +	ris =3D FIELD_GET(MPAMF_ESR_PMG, reg);
 > +
-> +#define MSMON_CFG_MBWU_CTL_SUBTYPE_MAX                  3
-> +#define MSMON_CFG_MBWU_CTL_SUBTYPE_MASK                 0x3
+> +	pr_err("error irq from msc:%u '%s', partid:%u, pmg: %u, ris: %u\n",
+> +	       msc->id, mpam_errcode_names[errcode], partid, pmg, ris);
 > +
-> +/*
-> + * MSMON_CFG_MBWU_FLT - Memory system performance monitor
-> configure memory
-> + *                     bandwidth usage monitor filter register
-> + */
-> +#define MSMON_CFG_MBWU_FLT_PARTID               GENMASK(15,
-> 0)
-> +#define MSMON_CFG_MBWU_FLT_PMG                  GENMASK(23,
-> 16)
-> +#define MSMON_CFG_MBWU_FLT_RWBW                 GENMASK(31,
-> 30)
+> +	if (irq_is_percpu(irq)) {
+> +		mpam_disable_msc_ecr(msc);
+> +		schedule_work(&mpam_broken_work);
+> +		return IRQ_HANDLED;
+> +	}
 > +
-> +/*
-> + * MSMON_CSU - Memory system performance monitor cache storage usage
-> monitor
-> + *            register
-> + * MSMON_CSU_CAPTURE -  Memory system performance monitor cache
-> storage usage
-> + *                     capture register
-> + * MSMON_MBWU  - Memory system performance monitor memory
-> bandwidth usage
-> + *               monitor register
-> + * MSMON_MBWU_CAPTURE - Memory system performance monitor
-> memory bandwidth usage
-> + *                     capture register
-> + */
-> +#define MSMON___VALUE          GENMASK(30, 0)
-> +#define MSMON___NRDY           BIT(31)
-> +#define MSMON_MBWU_L_VALUE     GENMASK(62, 0)
-> +/*
-> + * MSMON_CAPT_EVNT - Memory system performance monitoring capture
-> event
-> + *                  generation register
-> + */
-> +#define MSMON_CAPT_EVNT_NOW    BIT(0)
+> +	return IRQ_WAKE_THREAD;
+> +}
 > +
->  #endif /* MPAM_INTERNAL_H */
+> +static irqreturn_t mpam_ppi_handler(int irq, void *dev_id) {
+> +	struct mpam_msc *msc =3D *(struct mpam_msc **)dev_id;
+> +
+> +	return __mpam_irq_handler(irq, msc);
+> +}
+> +
+> +static irqreturn_t mpam_spi_handler(int irq, void *dev_id) {
+> +	struct mpam_msc *msc =3D dev_id;
+> +
+> +	return __mpam_irq_handler(irq, msc);
+> +}
+> +
+> +static irqreturn_t mpam_disable_thread(int irq, void *dev_id);
+> +
+> +static int mpam_register_irqs(void)
+> +{
+> +	int err, irq, idx;
+> +	struct mpam_msc *msc;
+> +
+> +	lockdep_assert_cpus_held();
+> +
+> +	idx =3D srcu_read_lock(&mpam_srcu);
+> +	list_for_each_entry_srcu(msc, &mpam_all_msc, glbl_list,
+> srcu_read_lock_held(&mpam_srcu)) {
+> +		irq =3D platform_get_irq_byname_optional(msc->pdev, "error");
+> +		if (irq <=3D 0)
+> +			continue;
+> +
+> +		/* The MPAM spec says the interrupt can be SPI, PPI or LPI */
+> +		/* We anticipate sharing the interrupt with other MSCs */
+> +		if (irq_is_percpu(irq)) {
+> +			err =3D request_percpu_irq(irq, &mpam_ppi_handler,
+> +						 "mpam:msc:error",
+> +						 msc->error_dev_id);
+> +			if (err)
+> +				return err;
+> +
+> +			msc->reenable_error_ppi =3D irq;
+> +			smp_call_function_many(&msc->accessibility,
+> +					       &_enable_percpu_irq, &irq,
+> +					       true);
+> +		} else {
+> +			err =3D
+> devm_request_threaded_irq(&msc->pdev->dev, irq,
+> +
+> 	&mpam_spi_handler,
+> +
+> 	&mpam_disable_thread,
+> +							IRQF_SHARED,
+> +							"mpam:msc:error",
+> msc);
+> +			if (err)
+> +				return err;
+> +		}
+> +
+> +		msc->error_irq_requested =3D true;
+> +		mpam_touch_msc(msc, mpam_enable_msc_ecr, msc);
+> +		msc->error_irq_hw_enabled =3D true;
+> +	}
+> +	srcu_read_unlock(&mpam_srcu, idx);
+> +
+> +	return 0;
+> +}
+> +
+> +static void mpam_unregister_irqs(void)
+> +{
+> +	int irq, idx;
+> +	struct mpam_msc *msc;
+> +
+> +	cpus_read_lock();
+> +	/* take the lock as free_irq() can sleep */
+> +	idx =3D srcu_read_lock(&mpam_srcu);
+> +	list_for_each_entry_srcu(msc, &mpam_all_msc, glbl_list,
+> srcu_read_lock_held(&mpam_srcu)) {
+> +		irq =3D platform_get_irq_byname_optional(msc->pdev, "error");
+> +		if (irq <=3D 0)
+> +			continue;
+> +
+> +		if (msc->error_irq_hw_enabled) {
+> +			mpam_touch_msc(msc, mpam_disable_msc_ecr,
+> msc);
+> +			msc->error_irq_hw_enabled =3D false;
+> +		}
+> +
+> +		if (msc->error_irq_requested) {
+> +			if (irq_is_percpu(irq)) {
+> +				msc->reenable_error_ppi =3D 0;
+> +				free_percpu_irq(irq, msc->error_dev_id);
+> +			} else {
+> +				devm_free_irq(&msc->pdev->dev, irq, msc);
+> +			}
+> +			msc->error_irq_requested =3D false;
+> +		}
+> +	}
+> +	srcu_read_unlock(&mpam_srcu, idx);
+> +	cpus_read_unlock();
+> +}
+> +
+>  static void mpam_enable_once(void)
+>  {
+> +	int err;
+> +
+> +	/*
+> +	 * If all the MSC have been probed, enabling the IRQs happens next.
+> +	 * That involves cross-calling to a CPU that can reach the MSC, and
+> +	 * the locks must be taken in this order:
+> +	 */
+> +	cpus_read_lock();
+>  	mutex_lock(&mpam_list_lock);
+>  	mpam_enable_merge_features(&mpam_classes);
+> +
+> +	err =3D mpam_register_irqs();
+> +	if (err)
+> +		pr_warn("Failed to register irqs: %d\n", err);
+> +
+>  	mutex_unlock(&mpam_list_lock);
+> +	cpus_read_unlock();
+> +
+> +	if (err) {
+> +		schedule_work(&mpam_broken_work);
+> +		return;
+> +	}
+>=20
+>  	mutex_lock(&mpam_cpuhp_state_lock);
+>  	cpuhp_remove_state(mpam_cpuhp_state);
+> @@ -1621,16 +1893,39 @@ static void mpam_reset_class(struct mpam_class
+> *class)
+>   * All of MPAMs errors indicate a software bug, restore any modified
+>   * controls to their reset values.
+>   */
+> -void mpam_disable(void)
+> +static irqreturn_t mpam_disable_thread(int irq, void *dev_id)
+>  {
+>  	int idx;
+>  	struct mpam_class *class;
+> +	struct mpam_msc *msc, *tmp;
+> +
+> +	mutex_lock(&mpam_cpuhp_state_lock);
+> +	if (mpam_cpuhp_state) {
+> +		cpuhp_remove_state(mpam_cpuhp_state);
+> +		mpam_cpuhp_state =3D 0;
+> +	}
+> +	mutex_unlock(&mpam_cpuhp_state_lock);
+> +
+> +	mpam_unregister_irqs();
+>=20
+>  	idx =3D srcu_read_lock(&mpam_srcu);
+>  	list_for_each_entry_srcu(class, &mpam_classes, classes_list,
+>  				 srcu_read_lock_held(&mpam_srcu))
+>  		mpam_reset_class(class);
+>  	srcu_read_unlock(&mpam_srcu, idx);
+> +
+> +	mutex_lock(&mpam_list_lock);
+> +	list_for_each_entry_safe(msc, tmp, &mpam_all_msc, glbl_list)
+> +		mpam_msc_destroy(msc);
+> +	mutex_unlock(&mpam_list_lock);
+> +	mpam_free_garbage();
+> +
+> +	return IRQ_HANDLED;
+> +}
+> +
+> +void mpam_disable(struct work_struct *ignored) {
+> +	mpam_disable_thread(0, NULL);
+>  }
+>=20
+>  /*
+> @@ -1644,7 +1939,6 @@ void mpam_enable(struct work_struct *work)
+>  	struct mpam_msc *msc;
+>  	bool all_devices_probed =3D true;
+>=20
+> -	/* Have we probed all the hw devices? */
+>  	mutex_lock(&mpam_list_lock);
+>  	list_for_each_entry(msc, &mpam_all_msc, glbl_list) {
+>  		mutex_lock(&msc->probe_lock);
+> diff --git a/drivers/platform/arm64/mpam/mpam_internal.h
+> b/drivers/platform/arm64/mpam/mpam_internal.h
+> index de05eece0a31..e1c6a2676b54 100644
+> --- a/drivers/platform/arm64/mpam/mpam_internal.h
+> +++ b/drivers/platform/arm64/mpam/mpam_internal.h
+> @@ -44,6 +44,11 @@ struct mpam_msc {
+>  	struct pcc_mbox_chan	*pcc_chan;
+>  	u32			nrdy_usec;
+>  	cpumask_t		accessibility;
+> +	bool			has_extd_esr;
+> +
+> +	int				reenable_error_ppi;
+> +	struct mpam_msc * __percpu	*error_dev_id;
+> +
+>  	atomic_t		online_refs;
+>=20
+>  	/*
+> @@ -52,6 +57,8 @@ struct mpam_msc {
+>  	 */
+>  	struct mutex		probe_lock;
+>  	bool			probed;
+> +	bool			error_irq_requested;
+> +	bool			error_irq_hw_enabled;
+>  	u16			partid_max;
+>  	u8			pmg_max;
+>  	unsigned long		ris_idxs[128 / BITS_PER_LONG];
+> @@ -280,7 +287,7 @@ extern u8 mpam_pmg_max;
+>=20
+>  /* Scheduled work callback to enable mpam once all MSC have been probed
+> */  void mpam_enable(struct work_struct *work); -void mpam_disable(void);
+> +void mpam_disable(struct work_struct *work);
+>=20
+>  int mpam_get_cpumask_from_cache_id(unsigned long cache_id, u32
+> cache_level,
+>  				   cpumask_t *affinity);
 > --
 > 2.39.5
 
