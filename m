@@ -4,62 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B04FDC83F1B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 12:07:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9113C83F1B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 12:07:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mRM7ea8WF4O4QsZ/i20kItQnxWi8KnJBkgRIgCsm0IE=; b=BtDxzHdxl+5+Q59jWdLDS+QeeY
-	IKTeBhvakr5exdidohBsmCiw64Vc2fq6wIv+4NtCPen1hHlgqyV6X41UUVx0TEcyWx3d7J65oxNfX
-	Cqm3ktu9dzdcpJTKYnxyfS4bue66WIPcOypqVIEeamD1fxinarmDLsUusmvFA3phNcXJJDvQcO4HP
-	lmY3agwtj0oVE85cOhYrxlmVQI7qwldB1DlF/2B3kgPxp8u8INkBgavX1b/CFIgjANNPawWjC1XPj
-	i8e5rfbHaosOgrrS8pCgbd5dkIpswY4CTDHtcjdSedqhJ+ZEHBfoEYkZGlP3MWmccZ/3wb3dLbmbv
-	05Sgpy4g==;
+	bh=fQ5UISxBYxDM+28ZiOqgjc5u5zPalIxVUf3DW0H66yg=; b=LUbK3rsh7iI6xtkyRS+L/GYZKd
+	J2kAh+pKFFdefce/UnECy376BHfDRoQkLeTXWxWY07ilMzuLDilitADIjgeerZkEhudWrTh2O+3Wc
+	hf3Tc6skp3CDhOhkKYZVvO4AslchZKfZfxUGObei7M+9rq5PXfKYb74BiIGunMU70OPGXuWG/b/Jq
+	lRa2SeE9tbcPHK/jlIBOZCUyrsPdWk6xmwJKvsrjk0qiWofXQvQXY4q0xIgSZewyf3LmWGlp/O9EO
+	pdlpNH3EppErNfTnmgbgzmXobvTTan9A4u+z+W8m7hPtLhhViy6ArZl8Ziz0wLGzy6fhSsZ2tYWKh
+	+izGznMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucNO9-0000000A4LE-10UM;
-	Thu, 17 Jul 2025 12:07:01 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1ucNOR-0000000A4R5-0mJN;
+	Thu, 17 Jul 2025 12:07:19 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucLza-00000009rk6-3of1
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Jul 2025 10:37:36 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.216])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4bjTqL3vS6z6K5qc;
-	Thu, 17 Jul 2025 18:36:14 +0800 (CST)
-Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
-	by mail.maildlp.com (Postfix) with ESMTPS id 560581402F7;
-	Thu, 17 Jul 2025 18:37:28 +0800 (CST)
-Received: from localhost (10.48.159.214) by frapeml500008.china.huawei.com
- (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Thu, 17 Jul
- 2025 12:37:27 +0200
-Date: Thu, 17 Jul 2025 11:37:25 +0100
-From: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-To: Yicong Yang <yangyicong@huawei.com>
-CC: <will@kernel.org>, <mark.rutland@arm.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<hejunhao3@huawei.com>, <prime.zeng@hisilicon.com>, <linuxarm@huawei.com>,
-	<yangyicong@hisilicon.com>, <wangyushan12@huawei.com>
-Subject: Re: [PATCH v4 1/2] drivers/perf: hisi: Add support for HiSilicon
- NoC PMU
-Message-ID: <20250717113725.000075fb@huawei.com>
-In-Reply-To: <20250717074138.39903-2-yangyicong@huawei.com>
-References: <20250717074138.39903-1-yangyicong@huawei.com>
-	<20250717074138.39903-2-yangyicong@huawei.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	id 1ucM84-00000009syw-1ed6;
+	Thu, 17 Jul 2025 10:46:21 +0000
+Received: from [192.168.0.172] (mob-5-90-140-254.net.vodafone.it [5.90.140.254])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 39114198D;
+	Thu, 17 Jul 2025 12:45:44 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1752749145;
+	bh=Ee9J4mCFwsXOb6mRepzI/4oK3qWzitZE/F4KVxjoUTk=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=cQ2dcqSA5NULHDFYF95BOzb2Z9+5jQEIZxGFqamQec1RH/cSXPus8dG4wUAW+JuDl
+	 tgIiPG4d9ZvUBt0XZaCrgYAKMYFVllO6gZ6pjztSU6P2KlL+efH+qkhyHJZlJU8LMF
+	 uzjGUT62eqiDvb9VY8xNNSLZryTZ2/kDz+W9CyIM=
+From: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+Date: Thu, 17 Jul 2025 12:45:50 +0200
+Subject: [PATCH DNI 24/26] media: pisp_be: Implement link validation
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.48.159.214]
-X-ClientProxiedBy: lhrpeml100002.china.huawei.com (7.191.160.241) To
- frapeml500008.china.huawei.com (7.182.85.71)
+Message-Id: <20250717-multicontext-mainline-2025-v1-24-81ac18979c03@ideasonboard.com>
+References: <20250717-multicontext-mainline-2025-v1-0-81ac18979c03@ideasonboard.com>
+In-Reply-To: <20250717-multicontext-mainline-2025-v1-0-81ac18979c03@ideasonboard.com>
+To: Sakari Ailus <sakari.ailus@linux.intel.com>, 
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+ Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, 
+ Kieran Bingham <kieran.bingham@ideasonboard.com>, 
+ Nicolas Dufresne <nicolas.dufresne@collabora.com>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Tomasz Figa <tfiga@chromium.org>, 
+ Marek Szyprowski <m.szyprowski@samsung.com>, 
+ Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
+ Florian Fainelli <florian.fainelli@broadcom.com>, 
+ Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+ Hans Verkuil <hverkuil@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
+ linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3786;
+ i=jacopo.mondi@ideasonboard.com; h=from:subject:message-id;
+ bh=Ee9J4mCFwsXOb6mRepzI/4oK3qWzitZE/F4KVxjoUTk=;
+ b=owEBbQKS/ZANAwAKAXI0Bo8WoVY8AcsmYgBoeNRR8lqbOlQJMHVVCjAWrrf8cZGeJbBx/gxq1
+ dWWByn84cOJAjMEAAEKAB0WIQS1xD1IgJogio9YOMByNAaPFqFWPAUCaHjUUQAKCRByNAaPFqFW
+ PMdFD/9l8t4aehW6Q1OdtHw9gsMaWhBbA3/zHf/j9Up9Ky3olpwFQQpkb9xaD8oXN7lUHHkZp5P
+ bjCX81l5L0bCbiCPSy5KoQITMtxvwg24/VDI2fbbyiP1U4yQwTyeLxuzgldRJkuaBj7BsVZcPP4
+ Zo2LEGzbkfAyTHIKHB20mUPXyfSSa09MNRCeoDrpnwS0rs69LGM9MhlbAl619YPcyYP2nGKWu5t
+ 9a/W+2H1iNFxHGriNqktbAR7ht5LRo8yxHeNUSsmusQOkFrkbEtIMZ/8sz38RROqAUr6lCsOSH5
+ 5sWctmkRaY6DbGIA6MSZVUdFqcjHYxzAzQLpIw7UPYSFTKu5ma/MXR9F40Z3UYOeMJL8rUImuOZ
+ m83BBFza3CUplaCjJ1gyPq2m9hSkrRoIIPjiKgnQPpci1lI/UwINgF0K1qWVQ9n6wiJoqBwU7Pw
+ 3X/GrcEOEcQ4JbKdbwqSm2z7kgELHym5MpdHmJY78pOP0L9noX7s/oYehA5/0C6QvIGUi6zxrMz
+ lKyDl23RPMtmyjEXcCZdmgcr7zAreAbwhb7MqlvdrxQZtjxJ9HaxazaGaoE90LTLINGZMDAz3Jj
+ vObO9EtrWQh1We0RrOYpL688ktx7H9KxBDGEEkHEj3fSMvRGAVTW1TkRACfQBgP0uX+OZ6fceEo
+ RoZT4adGK6nmaxA==
+X-Developer-Key: i=jacopo.mondi@ideasonboard.com; a=openpgp;
+ fpr=72392EDC88144A65C701EA9BA5826A2587AD026B
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250717_033735_155496_58BF3B9A 
-X-CRM114-Status: GOOD (  15.38  )
+X-CRM114-CacheID: sfid-20250717_034620_580312_230827BC 
+X-CRM114-Status: GOOD (  12.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,63 +95,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 17 Jul 2025 15:41:37 +0800
-Yicong Yang <yangyicong@huawei.com> wrote:
+Implement link validation to validate that the sizes of the format on
+the video device matches the size programmed on the ISP subdevice
+connected pad.
 
-> From: Yicong Yang <yangyicong@hisilicon.com>
-> 
-> Adds the support for HiSilicon NoC (Network on Chip) PMU which
-> will be used to monitor the events on the system bus. The PMU
-> device will be named after the SCL ID (either Super CPU cluster
-> or Super IO cluster) and the index ID, just similar to other
-> HiSilicon Uncore PMUs. Below PMU formats are provided besides
-> the event:
-> 
-> - ch: the transaction channel (data, request, response, etc) which
->   can be used to filter the counting.
-> - tt_en: tracetag filtering enable. Just as other HiSilicon Uncore
->   PMUs the NoC PMU supports only counting the transactions with
->   tracetag.
-> 
-> The NoC PMU doesn't have an interrupt to indicate the overflow.
-> However we have a 64 bit counter which is large enough and it's
-> nearly impossible to overflow.
-> 
-> Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
+Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+---
+ .../media/platform/raspberrypi/pisp_be/pisp_be.c   | 67 ++++++++++++++++++++++
+ 1 file changed, 67 insertions(+)
 
-Hi.
+diff --git a/drivers/media/platform/raspberrypi/pisp_be/pisp_be.c b/drivers/media/platform/raspberrypi/pisp_be/pisp_be.c
+index 22e440f387b5e5560b2cc80a8b3bf6064dc12d7c..2a8c09a9c70952c9f99e542271e994d62392c617 100644
+--- a/drivers/media/platform/raspberrypi/pisp_be/pisp_be.c
++++ b/drivers/media/platform/raspberrypi/pisp_be/pisp_be.c
+@@ -1362,6 +1362,67 @@ static const struct v4l2_ioctl_ops pispbe_node_ioctl_ops = {
+ 	.vidioc_streamoff = vb2_ioctl_streamoff,
+ };
+ 
++static int pispbe_link_validate(struct media_link *link)
++{
++	const struct v4l2_mbus_framefmt *sd_fmt;
++	struct v4l2_pix_format_mplane *pix_mp;
++	struct v4l2_subdev_state *state;
++	struct media_entity *vdev_ent;
++	struct media_entity *sd_ent;
++	struct pispbe_node *node;
++	struct v4l2_subdev *sd;
++
++	if (is_media_entity_v4l2_video_device(link->source->entity)) {
++		vdev_ent = link->source->entity;
++		sd_ent = link->sink->entity;
++	} else {
++		sd_ent = link->source->entity;
++		vdev_ent = link->sink->entity;
++	}
++
++	node = container_of(media_entity_to_video_device(vdev_ent),
++			    struct pispbe_node, vfd);
++	switch (node->id) {
++	case TDN_INPUT_NODE:
++		fallthrough;
++	case STITCH_INPUT_NODE:
++		fallthrough;
++	case TDN_OUTPUT_NODE:
++		fallthrough;
++	case STITCH_OUTPUT_NODE:
++		fallthrough;
++	case CONFIG_NODE:
++		/* Skip validation for these nodes. */
++		return 0;
++	}
++	pix_mp = &node->format.fmt.pix_mp;
++
++	sd = media_entity_to_v4l2_subdev(sd_ent);
++	state = v4l2_subdev_get_unlocked_active_state(sd);
++	sd_fmt = v4l2_subdev_state_get_format(state, node->id);
++
++	/* Only check for sizes. */
++	if (pix_mp->width != sd_fmt->width) {
++		dev_dbg(node->pispbe->dev,
++			"%s: width does not match (vdev %u, sd %u)\n",
++			__func__, pix_mp->width, sd_fmt->width);
++		return -EPIPE;
++	}
++
++	if (pix_mp->height != sd_fmt->height) {
++		dev_dbg(node->pispbe->dev,
++			"%s: height does not match (vdev %u, sd %u)\n",
++			__func__, pix_mp->height, sd_fmt->height);
++		return -EPIPE;
++	}
++
++	return 0;
++}
++
++static const struct media_entity_operations pispbe_node_entity_ops = {
++	.link_validate = pispbe_link_validate,
++};
++
+ static const struct video_device pispbe_videodev = {
+ 	.name = PISPBE_NAME,
+ 	.vfl_dir = VFL_DIR_M2M, /* gets overwritten */
+@@ -1445,6 +1506,7 @@ static int pispbe_init_node(struct pispbe_dev *pispbe, unsigned int id)
+ 	vdev->device_caps = V4L2_CAP_STREAMING | node_desc[id].caps;
+ 
+ 	node->pad.flags = output ? MEDIA_PAD_FL_SOURCE : MEDIA_PAD_FL_SINK;
++	entity->ops = &pispbe_node_entity_ops;
+ 	ret = media_entity_pads_init(entity, 1, &node->pad);
+ 	if (ret) {
+ 		dev_err(pispbe->dev,
+@@ -1561,6 +1623,10 @@ static const struct v4l2_subdev_internal_ops pispbe_subdev_internal_ops = {
+ 	.init_state = pispbe_init_state,
+ };
+ 
++static const struct media_entity_operations pispbe_subdev_entity_ops = {
++	.link_validate = v4l2_subdev_link_validate,
++};
++
+ static int pispbe_init_subdev(struct pispbe_dev *pispbe)
+ {
+ 	struct v4l2_subdev *sd = &pispbe->sd;
+@@ -1569,6 +1635,7 @@ static int pispbe_init_subdev(struct pispbe_dev *pispbe)
+ 	v4l2_subdev_init(sd, &pispbe_sd_ops);
+ 	sd->internal_ops = &pispbe_subdev_internal_ops;
+ 	sd->entity.function = MEDIA_ENT_F_PROC_VIDEO_PIXEL_FORMATTER;
++	sd->entity.ops = &pispbe_subdev_entity_ops;
+ 	sd->owner = THIS_MODULE;
+ 	sd->dev = pispbe->dev;
+ 	strscpy(sd->name, PISPBE_NAME, sizeof(sd->name));
 
-Just one trivial thing that I missed in internal review yesterday.
-Not worth a respin though!
-
-Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-
-> diff --git a/drivers/perf/hisilicon/hisi_uncore_noc_pmu.c b/drivers/perf/hisilicon/hisi_uncore_noc_pmu.c
-> new file mode 100644
-> index 000000000000..2e3eb7881caa
-> --- /dev/null
-> +++ b/drivers/perf/hisilicon/hisi_uncore_noc_pmu.c
-
-> +
-> +static struct hisi_noc_pmu_regs hisi_noc_v1_pmu_regs = {
-> +	.version = NOC_PMU_VERSION,
-> +	.pmu_ctrl = NOC_PMU_GLOBAL_CTRL,
-> +	.event_ctrl0 = NOC_PMU_EVENT_CTRL0,
-> +	.event_cntr0 = NOC_PMU_EVENT_COUNTER0,
-> +	.ovflow_status = NOC_PMU_CNT_INFO,
-
-Trivial but if you are spinning a v5 for some I'd just spell out
-as .overflow_status.
-
-I've never seen any consistency in abbreviations for overflow!
-
-> +};
-> +
-> +static const struct hisi_pmu_dev_info hisi_noc_v1 = {
-> +	.attr_groups = hisi_noc_pmu_attr_groups,
-> +	.counter_bits = 64,
-> +	.check_event = NOC_PMU_EVENT_CTRL_TYPE,
-> +	.private = &hisi_noc_v1_pmu_regs,
-> +};
+-- 
+2.49.0
 
 
