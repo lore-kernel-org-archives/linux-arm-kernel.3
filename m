@@ -4,76 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2FE7C83F22
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 14:27:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63835C83F22
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 14:29:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XbHmu1wlkPzmq8ZR9eK2OK/E9gteDV5LtX2iIQMw/Gs=; b=DBkLNtb9CSUO2gbrnKfLKeHPGC
-	3KZTNlEdupRkhfp0gIy6ewqExJx463ko7YAWRGRwldX4t5Y64kr0Qfk8B74CPMVzBtoarBMB3gV7Q
-	ZBOSduKYv191s0E73ZKnU72aDQk+Wxf/GJQvVupdhDZmTRIFJpjpET59+zCYhMUhgDGDHZldox7vt
-	rZy1v3OCG/iPBqbX/ZBwrrjEfHrDUNeleRO0zl6AVTSzmGdHekUfxgO3CaZJDqbDFFVNJbu0cvRq3
-	fFyBL8qnVqam1KDc1BuO3nSbH4Nc5GW0VDVMbIRspmrkIYReDPCHjS2ngL4WMx1RnrfE0dnifrc8J
-	qkeC84CA==;
+	bh=btR7qKp6PBPkVFhADwoeRG+ePmqyWKhb7taFi8fTGdQ=; b=jXUjQeXipKgWtAFSIb0zf6/Ccl
+	mdHOEGcnO9K98TIIwTCn0ewjIB98XoI9tOrpKw2zFyqZjiep+u83XBJ1MvP20pY3Jt8frACte0YJX
+	5lCKAMYM1A0RmJOMyuSycF4+ua20adUOxnm9Bhw370TWM9R7Mv9MKfBNXUkPR3i/RwUKRdCg/P/n6
+	/2qI8vykY8hxY25IF6/hPorZAKSGDyAspSrwYwPhC8yjSyU0VYcn8mYnD8f5CsXakzcSwakKRb20A
+	LK5z+c3JpmH6FnBHP2JeBs9PbUbABcMyL+to+QICnARE5/3Ur/zuTtOOSFjPtFuPwjEXj6M493m+Q
+	iXMfMkwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucPZg-0000000AMnR-3VDJ;
-	Thu, 17 Jul 2025 14:27:04 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1ucPc8-0000000ANZ9-0K7b;
+	Thu, 17 Jul 2025 14:29:36 +0000
+Received: from fout-b1-smtp.messagingengine.com ([202.12.124.144])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucOl8-0000000AGvR-3QqU;
-	Thu, 17 Jul 2025 13:34:52 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id A138E5C6A19;
-	Thu, 17 Jul 2025 13:34:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CE04EC4CEE3;
-	Thu, 17 Jul 2025 13:34:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752759289;
-	bh=N17lcip5xVPoQD+TFin5urXVNUr0BGOOZWXqfYJOvDQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Zw3fmP3Ej/UUXMQw3cQ2bCnSKH21C5fqKi7M1D0iQWcGY/54wxKO6PHcbwnNSAnTk
-	 KPiRDPO/ep7Ccb7fC11Tdx/NxAt/uozjeSTLgx50PtZkGu6edDy+1jVgDZqBlezEEC
-	 +vWi//koGAJYIsSD940iTETcUrymC2XqBh/NmZ3rrxv5OOFKHYFAKb1O/pQR1VGZAq
-	 pUyA02BNZRoAbpQXeR2xI7Pwx5itPB27MXZl488EhZ3rpfmyFXQMWw0oLtCQNOpY4k
-	 27Yo+9gsGk72vxU6s1KTcnJ7VRRH46Dtp65dZBEPdsz884klLtO8V0r+yirXhZLz5v
-	 s3JDWj0J9hJ9Q==
-Date: Thu, 17 Jul 2025 15:34:46 +0200
-From: Frederic Weisbecker <frederic@kernel.org>
-To: Tze-nan Wu <Tze-nan.Wu@mediatek.com>
-Cc: rcu@vger.kernel.org, bobule.chang@mediatek.com,
-	wsd_upstream@mediatek.com,
-	Cheng-jui Wang <cheng-jui.wang@mediatek.com>,
-	Lorry.Luo@mediatek.com, weiyangyang@vivo.com,
-	"Paul E. McKenney" <paulmck@kernel.org>,
-	Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
-	Joel Fernandes <joelagnelf@nvidia.com>,
-	Josh Triplett <josh@joshtriplett.org>,
-	Boqun Feng <boqun.feng@gmail.com>,
-	Uladzislau Rezki <urezki@gmail.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	Lai Jiangshan <jiangshanlai@gmail.com>,
-	Zqiang <qiang.zhang@linux.dev>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	"Joel Fernandes (Google)" <joel@joelfernandes.org>,
+	id 1ucNrG-0000000A8Yx-0TL8
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 17 Jul 2025 12:37:08 +0000
+Received: from phl-compute-10.internal (phl-compute-10.phl.internal [10.202.2.50])
+	by mailfout.stl.internal (Postfix) with ESMTP id 937211D00120;
+	Thu, 17 Jul 2025 08:37:02 -0400 (EDT)
+Received: from phl-mailfrontend-02 ([10.202.2.163])
+  by phl-compute-10.internal (MEProxy); Thu, 17 Jul 2025 08:37:03 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ragnatech.se; h=
+	cc:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm1; t=1752755822;
+	 x=1752842222; bh=btR7qKp6PBPkVFhADwoeRG+ePmqyWKhb7taFi8fTGdQ=; b=
+	akTZCRDbPi4GLc/Wihv5Pz6JNCCcc2BA+Rbb3etvhBw4ElKTkBgT/4fnZ1y61ROq
+	cfeFIiPER/ozMhf/jCKNEeFcAOVliPcLSABouJyRzzEGr4nluJWLXW9wchs8mPfl
+	gw+DUB2ZF73QRg+1KbCP9exWXV4zNpPLsM5wV0kBbHpZtgLk5+ZZQxF2eViZcdZx
+	Xp9XH8lk5vMOtPRMaorYLChazoQdZ1MsmJLNRWZ/xZqh2+WBXo2m+49AWRnzWymE
+	glIVh5jUh60T1BG5Im5iY1GkfjL4uVe/t94T6HzcGkbDjiIYNhnIqoNKkkV62ddX
+	nc2t62nSkbt9fzbN8cTzYw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1752755822; x=
+	1752842222; bh=btR7qKp6PBPkVFhADwoeRG+ePmqyWKhb7taFi8fTGdQ=; b=S
+	dOdpdabIRz8mJVm9Q59cdsSYpnlWY1zU3AxtBVQ6Lq8uS48dpn1ePeLqqiI0X6Xp
+	6HReU5UcwuikEkqPwiwIU9nYldIpdfe0TENw+Scg7yTYHytHhFKbr1z8vAtBCovo
+	BKmXEv88VLc6J9iGt5+hqPULh+sEbeRBRqqd8Bm2pufr/uVZjYBe9pUM9EtTn21n
+	/ubSeWvbPCmlDx9kkGQw0Pd82eoe6Sy05piqVRV6H0FCMJ3cnE92/7Sy51nyieqs
+	WIUfpTgBY519A03n45pXL2lh8us43g812J+mE1K7ui07ZOVEr5QID4ggVqU4rju2
+	s6k9AMQnsy/Iex+XiS4Gg==
+X-ME-Sender: <xms:be54aLyFMOglYOGLlxBXwnm7SFplZazuTS-RsgpeSFxxnWACbfZiKA>
+    <xme:be54aHZ7FYCDKFZoh-8IO49lSt46X4pZ-Eem0HyunbK-Ld6-DZZxshOL2UXrpJDYI
+    59QCI1LSeNywDszMrc>
+X-ME-Received: <xmr:be54aCVUHkR6dHqVMWaksij1Web2f6XUtq9oCC6keN3cVZZO0ocOp9UGhcP2A3P61p8cVgighhAIOyBCMf7vdVXPtI7y1Puxxw>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdeitdeitdcutefuodetggdotefrod
+    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
+    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
+    hrpeffhffvvefukfhfgggtugfgjgesthekredttddtjeenucfhrhhomheppfhikhhlrghs
+    ucfunpguvghrlhhunhguuceonhhikhhlrghsrdhsohguvghrlhhunhgusehrrghgnhgrth
+    gvtghhrdhsvgeqnecuggftrfgrthhtvghrnhepveetgedtvddvhfdtkeeghfeffeehteeh
+    keekgeefjeduieduueelgedtheekkeetnecuvehluhhsthgvrhfuihiivgeptdenucfrrg
+    hrrghmpehmrghilhhfrhhomhepnhhikhhlrghsrdhsohguvghrlhhunhgusehrrghgnhgr
+    thgvtghhrdhsvgdpnhgspghrtghpthhtohepudeipdhmohguvgepshhmthhpohhuthdprh
+    gtphhtthhopeguvghmohhnshhinhhguhhrsehgmhgrihhlrdgtohhmpdhrtghpthhtohep
+    tghoshhmihhnrdhtrghnihhslhgrvhesrghnrghlohhgrdgtohhmpdhrtghpthhtohepth
+    homhhirdhvrghlkhgvihhnvghnodhrvghnvghsrghssehiuggvrghsohhnsghorghrugdr
+    tghomhdprhgtphhtthhopehmtghhvghhrggssehkvghrnhgvlhdrohhrghdprhgtphhtth
+    hopehrohgshheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepjhhulhhivghnrdhmrghs
+    shhothestgholhhlrggsohhrrgdrtghomhdprhgtphhtthhopehsrghkrghrihdrrghilh
+    husheslhhinhhugidrihhnthgvlhdrtghomhdprhgtphhtthhopehlrghurhgvnhhtrdhp
+    ihhntghhrghrthesihguvggrshhonhgsohgrrhgurdgtohhmpdhrtghpthhtohepghhrvg
+    hgkhhhsehlihhnuhigfhhouhhnuggrthhiohhnrdhorhhg
+X-ME-Proxy: <xmx:be54aAGugKsxSho3UuP9Ud8aPExQIoejxvDua5tv5MTvVrvetkkP_Q>
+    <xmx:be54aEDVsAv3lS9yZAsCYq_r_hdH9fEFuqHxlrrLN8aVZRL5II70RQ>
+    <xmx:be54aAz_of3IdFi4hBGYjVx-EmWH8vi5rQBT-6Azh2COrxtaoyt7uw>
+    <xmx:be54aND7Vq2l1oFC2ev1TDVXFYhRB_ewlyDSZ3-UtjW4Bm2g9JXg3A>
+    <xmx:bu54aGxKEjT-GsbSEzj638kzkXmU9zAqc2UP9UIYP0mAeoWBL1w0A61u>
+Feedback-ID: i80c9496c:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
+ 17 Jul 2025 08:37:00 -0400 (EDT)
+Date: Thu, 17 Jul 2025 14:36:58 +0200
+From: Niklas =?utf-8?Q?S=C3=B6derlund?= <niklas.soderlund@ragnatech.se>
+To: Cosmin Tanislav <demonsingur@gmail.com>
+Cc: Cosmin Tanislav <cosmin.tanislav@analog.com>,
+	Tomi Valkeinen <tomi.valkeinen+renesas@ideasonboard.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Julien Massot <julien.massot@collabora.com>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	linux-media@vger.kernel.org, devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH] rcu: Fix delayed execution of hurry callbacks
-Message-ID: <aHj79rtgLm-7tT9E@localhost.localdomain>
-References: <20250717055341.246468-1-Tze-nan.Wu@mediatek.com>
+	linux-staging@lists.linux.dev, linux-gpio@vger.kernel.org
+Subject: Re: [PATCH v6 22/24] staging: media: remove MAX96712 driver
+Message-ID: <20250717123658.GA169517@ragnatech.se>
+References: <20250716193111.942217-1-demonsingur@gmail.com>
+ <20250716193111.942217-23-demonsingur@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250717055341.246468-1-Tze-nan.Wu@mediatek.com>
+In-Reply-To: <20250716193111.942217-23-demonsingur@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250717_063450_944724_02F65418 
-X-CRM114-Status: GOOD (  30.55  )
+X-CRM114-CacheID: sfid-20250717_053706_860091_0AA83539 
+X-CRM114-Status: GOOD (  24.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,133 +127,596 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Le Thu, Jul 17, 2025 at 01:53:38PM +0800, Tze-nan Wu a écrit :
-> We observed a regression in our customer’s environment after enabling
-> CONFIG_LAZY_RCU. In the Android Update Engine scenario, where ioctl() is
-> used heavily, we found that callbacks queued via call_rcu_hurry (such as
-> percpu_ref_switch_to_atomic_rcu) can sometimes be delayed by up to 5
-> seconds before execution. This occurs because the new grace period does
-> not start immediately after the previous one completes.
+Hi Cosmin,
+
+Thanks for your work.
+
+On 2025-07-16 22:31:07 +0300, Cosmin Tanislav wrote:
+> Remove the staging MAX96712 driver.
+> Its functionality has been moved to the MAX96724 driver which makes use
+> of the Maxim GMSL2/3 deserializer framework.
 > 
-> The root cause is that the wake_nocb_gp_defer() function now checks
-> "rdp->nocb_defer_wakeup" instead of "rdp_gp->nocb_defer_wakeup". On CPUs
-> that are not rcuog, "rdp->nocb_defer_wakeup" may always be
-> RCU_NOCB_WAKE_NOT. This can cause "rdp_gp->nocb_defer_wakeup" to be
-> downgraded and the "rdp_gp->nocb_timer" to be postponed by up to 10
-> seconds, delaying the execution of hurry RCU callbacks.
-> 
-> The trace log of one scenario we encountered is as follow:
->   // previous GP ends at this point
->   rcu_preempt   [000] d..1.   137.240210: rcu_grace_period: rcu_preempt 8369 end
->   rcu_preempt   [000] .....   137.240212: rcu_grace_period: rcu_preempt 8372 reqwait
->   // call_rcu_hurry enqueues "percpu_ref_switch_to_atomic_rcu", the callback waited on by UpdateEngine
->   update_engine [002] d..1.   137.301593: __call_rcu_common: wyy: unlikely p_ref = 00000000********. lazy = 0
->   // FirstQ on cpu 2 rdp_gp->nocb_timer is set to fire after 1 jiffy (4ms)
->   // and the rdp_gp->nocb_defer_wakeup is set to RCU_NOCB_WAKE
->   update_engine [002] d..2.   137.301595: rcu_nocb_wake: rcu_preempt 2 FirstQ on cpu2 with rdp_gp (cpu0).
->   // FirstBQ event on cpu2 during the 1 jiffy, make the timer postpond 10 seconds later.
->   // also, the rdp_gp->nocb_defer_wakeup is overwrite to RCU_NOCB_WAKE_LAZY
->   update_engine [002] d..1.   137.301601: rcu_nocb_wake: rcu_preempt 2 WakeEmptyIsDeferred
->   ...
->   ...
->   ...
->   // before the 10 seconds timeout, cpu0 received another call_rcu_hurry
->   // reset the timer to jiffies+1 and set the waketype = RCU_NOCB_WAKE.
->   kworker/u32:0 [000] d..2.   142.557564: rcu_nocb_wake: rcu_preempt 0 FirstQ
->   kworker/u32:0 [000] d..1.   142.557576: rcu_nocb_wake: rcu_preempt 0 WakeEmptyIsDeferred
->   kworker/u32:0 [000] d..1.   142.558296: rcu_nocb_wake: rcu_preempt 0 WakeNot
->   kworker/u32:0 [000] d..1.   142.558562: rcu_nocb_wake: rcu_preempt 0 WakeNot
->   // idle(do_nocb_deferred_wakeup) wake rcuog due to waketype == RCU_NOCB_WAKE
->   <idle>        [000] d..1.   142.558786: rcu_nocb_wake: rcu_preempt 0 DoWake
->   <idle>        [000] dN.1.   142.558839: rcu_nocb_wake: rcu_preempt 0 DeferredWake
->   rcuog/0       [000] .....   142.558871: rcu_nocb_wake: rcu_preempt 0 EndSleep
->   rcuog/0       [000] .....   142.558877: rcu_nocb_wake: rcu_preempt 0 Check
->   // finally rcuog request a new GP at this point (5 seconds after the FirstQ event)
->   rcuog/0       [000] d..2.   142.558886: rcu_grace_period: rcu_preempt 8372 newreq
->   rcu_preempt   [001] d..1.   142.559458: rcu_grace_period: rcu_preempt 8373 start
->   ...
->   rcu_preempt   [000] d..1.   142.564258: rcu_grace_period: rcu_preempt 8373 end
->   rcuop/2       [000] D..1.   142.566337: rcu_batch_start: rcu_preempt CBs=219 bl=10
->   // the hurry CB is invoked at this point
->   rcuop/2       [000] b....   142.566352: blk_queue_usage_counter_release: wyy: wakeup. p_ref = 00000000********.
-> 
-> This patch changes the condition to check "rdp_gp->nocb_defer_wakeup" in
-> the lazy path. This prevents an already scheduled "rdp_gp->nocb_timer"
-> from being postponed and avoids overwriting "rdp_gp->nocb_defer_wakeup"
-> when it is not RCU_NOCB_WAKE_NOT.
-> 
-> Fixes: 3cb278e73be5 ("rcu: Make call_rcu() lazy to save power")
-> Co-developed-by: Cheng-jui Wang <cheng-jui.wang@mediatek.com>
-> Signed-off-by: Cheng-jui Wang <cheng-jui.wang@mediatek.com>
-> Co-developed-by: Lorry.Luo@mediatek.com
-> Signed-off-by: Lorry.Luo@mediatek.com
-> Tested-by: weiyangyang@vivo.com
-> Signed-off-by: weiyangyang@vivo.com
-> Signed-off-by: Tze-nan Wu <Tze-nan.Wu@mediatek.com>
+> Signed-off-by: Cosmin Tanislav <demonsingur@gmail.com>
+
+With the new driver merged before this one being removed,
+
+Acked-by: Niklas Söderlund <niklas.soderlund+renesas@ragnatech.se>
+
 > ---
-> The regression is first observed by wyy in the Update Engine scenario
-> with  CONFIG_LAZY_RCU enabled. there is an additional delay of 4–5
-> seconds during the heavy ioctl API call, waiting for
-> percpu_ref_switch_to_atomic_rcu (RCU hurry CB) to complete.
+>  MAINTAINERS                               |   1 -
+>  drivers/staging/media/Kconfig             |   2 -
+>  drivers/staging/media/Makefile            |   1 -
+>  drivers/staging/media/max96712/Kconfig    |  14 -
+>  drivers/staging/media/max96712/Makefile   |   2 -
+>  drivers/staging/media/max96712/max96712.c | 487 ----------------------
+>  6 files changed, 507 deletions(-)
+>  delete mode 100644 drivers/staging/media/max96712/Kconfig
+>  delete mode 100644 drivers/staging/media/max96712/Makefile
+>  delete mode 100644 drivers/staging/media/max96712/max96712.c
 > 
-> Initially, we suspected that the percpu_ref_switch_to_atomic_rcu
-> function itself was taking too long. However, after enabling some
-> custome and the following trace events: rcu_do_batch, rcu_nocb_wake, and
-> rcu_grace_period. we found that the root cause was that rcuog was not
-> being woken up in time to request a new GP. This led to the delay in
-> invoking the hurry RCU callback (percpu_ref_switch_to_atomic_rcu).
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 0c75a5c195c28..ff0c7fe22ce6e 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -14751,7 +14751,6 @@ M:	Cosmin Tanislav <cosmin.tanislav@analog.com>
+>  L:	linux-media@vger.kernel.org
+>  S:	Maintained
+>  F:	Documentation/devicetree/bindings/media/i2c/maxim,max96712.yaml
+> -F:	drivers/staging/media/max96712/max96712.c
+>  
+>  MAX96714 GMSL2 DESERIALIZER DRIVER
+>  M:	Julien Massot <julien.massot@collabora.com>
+> diff --git a/drivers/staging/media/Kconfig b/drivers/staging/media/Kconfig
+> index ab250c89cd4d4..edcec810433de 100644
+> --- a/drivers/staging/media/Kconfig
+> +++ b/drivers/staging/media/Kconfig
+> @@ -30,8 +30,6 @@ source "drivers/staging/media/ipu3/Kconfig"
+>  
+>  source "drivers/staging/media/ipu7/Kconfig"
+>  
+> -source "drivers/staging/media/max96712/Kconfig"
+> -
+>  source "drivers/staging/media/meson/vdec/Kconfig"
+>  
+>  source "drivers/staging/media/starfive/Kconfig"
+> diff --git a/drivers/staging/media/Makefile b/drivers/staging/media/Makefile
+> index 4a073938b2b2d..e38421c81d0e7 100644
+> --- a/drivers/staging/media/Makefile
+> +++ b/drivers/staging/media/Makefile
+> @@ -2,7 +2,6 @@
+>  obj-$(CONFIG_VIDEO_ATMEL_ISC_BASE)	+= deprecated/atmel/
+>  obj-$(CONFIG_INTEL_ATOMISP)     += atomisp/
+>  obj-$(CONFIG_VIDEO_IMX_MEDIA)	+= imx/
+> -obj-$(CONFIG_VIDEO_MAX96712)	+= max96712/
+>  obj-$(CONFIG_VIDEO_MESON_VDEC)	+= meson/vdec/
+>  obj-$(CONFIG_VIDEO_STARFIVE_CAMSS)	+= starfive/
+>  obj-$(CONFIG_VIDEO_SUNXI)	+= sunxi/
+> diff --git a/drivers/staging/media/max96712/Kconfig b/drivers/staging/media/max96712/Kconfig
+> deleted file mode 100644
+> index 117fadf81bd08..0000000000000
+> --- a/drivers/staging/media/max96712/Kconfig
+> +++ /dev/null
+> @@ -1,14 +0,0 @@
+> -# SPDX-License-Identifier: GPL-2.0
+> -config VIDEO_MAX96712
+> -	tristate "Maxim MAX96712 Quad GMSL2 Deserializer support"
+> -	depends on I2C
+> -	depends on OF_GPIO
+> -	depends on VIDEO_DEV
+> -	select V4L2_FWNODE
+> -	select VIDEO_V4L2_SUBDEV_API
+> -	select MEDIA_CONTROLLER
+> -	help
+> -	  This driver supports the Maxim MAX96712 Quad GMSL2 Deserializer.
+> -
+> -	  To compile this driver as a module, choose M here: the
+> -	  module will be called max96712.
+> diff --git a/drivers/staging/media/max96712/Makefile b/drivers/staging/media/max96712/Makefile
+> deleted file mode 100644
+> index 70c1974ce3f05..0000000000000
+> --- a/drivers/staging/media/max96712/Makefile
+> +++ /dev/null
+> @@ -1,2 +0,0 @@
+> -# SPDX-License-Identifier: GPL-2.0
+> -obj-$(CONFIG_VIDEO_MAX96712) += max96712.o
+> diff --git a/drivers/staging/media/max96712/max96712.c b/drivers/staging/media/max96712/max96712.c
+> deleted file mode 100644
+> index 0751b2e048958..0000000000000
+> --- a/drivers/staging/media/max96712/max96712.c
+> +++ /dev/null
+> @@ -1,487 +0,0 @@
+> -// SPDX-License-Identifier: GPL-2.0
+> -/*
+> - * Maxim MAX96712 Quad GMSL2 Deserializer Driver
+> - *
+> - * Copyright (C) 2021 Renesas Electronics Corporation
+> - * Copyright (C) 2021 Niklas Söderlund
+> - */
+> -
+> -#include <linux/delay.h>
+> -#include <linux/i2c.h>
+> -#include <linux/module.h>
+> -#include <linux/of_graph.h>
+> -#include <linux/regmap.h>
+> -
+> -#include <media/v4l2-ctrls.h>
+> -#include <media/v4l2-fwnode.h>
+> -#include <media/v4l2-subdev.h>
+> -
+> -#define DEBUG_EXTRA_REG			0x09
+> -#define DEBUG_EXTRA_PCLK_25MHZ		0x00
+> -#define DEBUG_EXTRA_PCLK_75MHZ		0x01
+> -
+> -enum max96712_pattern {
+> -	MAX96712_PATTERN_CHECKERBOARD = 0,
+> -	MAX96712_PATTERN_GRADIENT,
+> -};
+> -
+> -struct max96712_info {
+> -	unsigned int dpllfreq;
+> -	bool have_debug_extra;
+> -};
+> -
+> -struct max96712_priv {
+> -	struct i2c_client *client;
+> -	struct regmap *regmap;
+> -	struct gpio_desc *gpiod_pwdn;
+> -
+> -	const struct max96712_info *info;
+> -
+> -	bool cphy;
+> -	struct v4l2_mbus_config_mipi_csi2 mipi;
+> -
+> -	struct v4l2_subdev sd;
+> -	struct v4l2_ctrl_handler ctrl_handler;
+> -	struct media_pad pads[1];
+> -
+> -	enum max96712_pattern pattern;
+> -};
+> -
+> -static int max96712_write(struct max96712_priv *priv, unsigned int reg, u8 val)
+> -{
+> -	int ret;
+> -
+> -	ret = regmap_write(priv->regmap, reg, val);
+> -	if (ret)
+> -		dev_err(&priv->client->dev, "write 0x%04x failed\n", reg);
+> -
+> -	return ret;
+> -}
+> -
+> -static int max96712_update_bits(struct max96712_priv *priv, unsigned int reg,
+> -				u8 mask, u8 val)
+> -{
+> -	int ret;
+> -
+> -	ret = regmap_update_bits(priv->regmap, reg, mask, val);
+> -	if (ret)
+> -		dev_err(&priv->client->dev, "update 0x%04x failed\n", reg);
+> -
+> -	return ret;
+> -}
+> -
+> -static int max96712_write_bulk(struct max96712_priv *priv, unsigned int reg,
+> -			       const void *val, size_t val_count)
+> -{
+> -	int ret;
+> -
+> -	ret = regmap_bulk_write(priv->regmap, reg, val, val_count);
+> -	if (ret)
+> -		dev_err(&priv->client->dev, "bulk write 0x%04x failed\n", reg);
+> -
+> -	return ret;
+> -}
+> -
+> -static int max96712_write_bulk_value(struct max96712_priv *priv,
+> -				     unsigned int reg, unsigned int val,
+> -				     size_t val_count)
+> -{
+> -	unsigned int i;
+> -	u8 values[4];
+> -
+> -	for (i = 1; i <= val_count; i++)
+> -		values[i - 1] = (val >> ((val_count - i) * 8)) & 0xff;
+> -
+> -	return max96712_write_bulk(priv, reg, &values, val_count);
+> -}
+> -
+> -static void max96712_reset(struct max96712_priv *priv)
+> -{
+> -	max96712_update_bits(priv, 0x13, 0x40, 0x40);
+> -	msleep(20);
+> -}
+> -
+> -static void max96712_mipi_enable(struct max96712_priv *priv, bool enable)
+> -{
+> -	if (enable) {
+> -		max96712_update_bits(priv, 0x40b, 0x02, 0x02);
+> -		max96712_update_bits(priv, 0x8a0, 0x80, 0x80);
+> -	} else {
+> -		max96712_update_bits(priv, 0x8a0, 0x80, 0x00);
+> -		max96712_update_bits(priv, 0x40b, 0x02, 0x00);
+> -	}
+> -}
+> -
+> -static void max96712_mipi_configure(struct max96712_priv *priv)
+> -{
+> -	unsigned int i;
+> -	u8 phy5 = 0;
+> -
+> -	max96712_mipi_enable(priv, false);
+> -
+> -	/* Select 2x4 mode. */
+> -	max96712_write(priv, 0x8a0, 0x04);
+> -
+> -	/* TODO: Add support for 2-lane and 1-lane configurations. */
+> -	if (priv->cphy) {
+> -		/* Configure a 3-lane C-PHY using PHY0 and PHY1. */
+> -		max96712_write(priv, 0x94a, 0xa0);
+> -
+> -		/* Configure C-PHY timings. */
+> -		max96712_write(priv, 0x8ad, 0x3f);
+> -		max96712_write(priv, 0x8ae, 0x7d);
+> -	} else {
+> -		/* Configure a 4-lane D-PHY using PHY0 and PHY1. */
+> -		max96712_write(priv, 0x94a, 0xc0);
+> -	}
+> -
+> -	/* Configure lane mapping for PHY0 and PHY1. */
+> -	/* TODO: Add support for lane swapping. */
+> -	max96712_write(priv, 0x8a3, 0xe4);
+> -
+> -	/* Configure lane polarity for PHY0 and PHY1. */
+> -	for (i = 0; i < priv->mipi.num_data_lanes + 1; i++)
+> -		if (priv->mipi.lane_polarities[i])
+> -			phy5 |= BIT(i == 0 ? 5 : i < 3 ? i - 1 : i);
+> -	max96712_write(priv, 0x8a5, phy5);
+> -
+> -	/* Set link frequency for PHY0 and PHY1. */
+> -	max96712_update_bits(priv, 0x415, 0x3f,
+> -			     ((priv->info->dpllfreq / 100) & 0x1f) | BIT(5));
+> -	max96712_update_bits(priv, 0x418, 0x3f,
+> -			     ((priv->info->dpllfreq / 100) & 0x1f) | BIT(5));
+> -
+> -	/* Enable PHY0 and PHY1 */
+> -	max96712_update_bits(priv, 0x8a2, 0xf0, 0x30);
+> -}
+> -
+> -static void max96712_pattern_enable(struct max96712_priv *priv, bool enable)
+> -{
+> -	const u32 h_active = 1920;
+> -	const u32 h_fp = 88;
+> -	const u32 h_sw = 44;
+> -	const u32 h_bp = 148;
+> -	const u32 h_tot = h_active + h_fp + h_sw + h_bp;
+> -
+> -	const u32 v_active = 1080;
+> -	const u32 v_fp = 4;
+> -	const u32 v_sw = 5;
+> -	const u32 v_bp = 36;
+> -	const u32 v_tot = v_active + v_fp + v_sw + v_bp;
+> -
+> -	if (!enable) {
+> -		max96712_write(priv, 0x1051, 0x00);
+> -		return;
+> -	}
+> -
+> -	/* Set PCLK to 75MHz if device have DEBUG_EXTRA register. */
+> -	if (priv->info->have_debug_extra)
+> -		max96712_write(priv, DEBUG_EXTRA_REG, DEBUG_EXTRA_PCLK_75MHZ);
+> -
+> -	/* Configure Video Timing Generator for 1920x1080 @ 30 fps. */
+> -	max96712_write_bulk_value(priv, 0x1052, 0, 3);
+> -	max96712_write_bulk_value(priv, 0x1055, v_sw * h_tot, 3);
+> -	max96712_write_bulk_value(priv, 0x1058,
+> -				  (v_active + v_fp + + v_bp) * h_tot, 3);
+> -	max96712_write_bulk_value(priv, 0x105b, 0, 3);
+> -	max96712_write_bulk_value(priv, 0x105e, h_sw, 2);
+> -	max96712_write_bulk_value(priv, 0x1060, h_active + h_fp + h_bp, 2);
+> -	max96712_write_bulk_value(priv, 0x1062, v_tot, 2);
+> -	max96712_write_bulk_value(priv, 0x1064,
+> -				  h_tot * (v_sw + v_bp) + (h_sw + h_bp), 3);
+> -	max96712_write_bulk_value(priv, 0x1067, h_active, 2);
+> -	max96712_write_bulk_value(priv, 0x1069, h_fp + h_sw + h_bp, 2);
+> -	max96712_write_bulk_value(priv, 0x106b, v_active, 2);
+> -
+> -	/* Generate VS, HS and DE in free-running mode. */
+> -	max96712_write(priv, 0x1050, 0xfb);
+> -
+> -	/* Configure Video Pattern Generator. */
+> -	if (priv->pattern == MAX96712_PATTERN_CHECKERBOARD) {
+> -		/* Set checkerboard pattern size. */
+> -		max96712_write(priv, 0x1074, 0x3c);
+> -		max96712_write(priv, 0x1075, 0x3c);
+> -		max96712_write(priv, 0x1076, 0x3c);
+> -
+> -		/* Set checkerboard pattern colors. */
+> -		max96712_write_bulk_value(priv, 0x106e, 0xfecc00, 3);
+> -		max96712_write_bulk_value(priv, 0x1071, 0x006aa7, 3);
+> -
+> -		/* Generate checkerboard pattern. */
+> -		max96712_write(priv, 0x1051, 0x10);
+> -	} else {
+> -		/* Set gradient increment. */
+> -		max96712_write(priv, 0x106d, 0x10);
+> -
+> -		/* Generate gradient pattern. */
+> -		max96712_write(priv, 0x1051, 0x20);
+> -	}
+> -}
+> -
+> -static int max96712_s_stream(struct v4l2_subdev *sd, int enable)
+> -{
+> -	struct max96712_priv *priv = v4l2_get_subdevdata(sd);
+> -
+> -	if (enable) {
+> -		max96712_pattern_enable(priv, true);
+> -		max96712_mipi_enable(priv, true);
+> -	} else {
+> -		max96712_mipi_enable(priv, false);
+> -		max96712_pattern_enable(priv, false);
+> -	}
+> -
+> -	return 0;
+> -}
+> -
+> -static const struct v4l2_subdev_video_ops max96712_video_ops = {
+> -	.s_stream = max96712_s_stream,
+> -};
+> -
+> -static int max96712_init_state(struct v4l2_subdev *sd,
+> -			       struct v4l2_subdev_state *state)
+> -{
+> -	static const struct v4l2_mbus_framefmt default_fmt = {
+> -		.width          = 1920,
+> -		.height         = 1080,
+> -		.code           = MEDIA_BUS_FMT_RGB888_1X24,
+> -		.colorspace     = V4L2_COLORSPACE_SRGB,
+> -		.field          = V4L2_FIELD_NONE,
+> -		.ycbcr_enc      = V4L2_YCBCR_ENC_DEFAULT,
+> -		.quantization   = V4L2_QUANTIZATION_DEFAULT,
+> -		.xfer_func      = V4L2_XFER_FUNC_DEFAULT,
+> -	};
+> -	struct v4l2_mbus_framefmt *fmt;
+> -
+> -	fmt = v4l2_subdev_state_get_format(state, 0);
+> -	*fmt = default_fmt;
+> -
+> -	return 0;
+> -}
+> -
+> -static const struct v4l2_subdev_internal_ops max96712_internal_ops = {
+> -	.init_state = max96712_init_state,
+> -};
+> -
+> -static const struct v4l2_subdev_pad_ops max96712_pad_ops = {
+> -	.get_fmt = v4l2_subdev_get_fmt,
+> -	.set_fmt = v4l2_subdev_get_fmt,
+> -};
+> -
+> -static const struct v4l2_subdev_ops max96712_subdev_ops = {
+> -	.video = &max96712_video_ops,
+> -	.pad = &max96712_pad_ops,
+> -};
+> -
+> -static const char * const max96712_test_pattern[] = {
+> -	"Checkerboard",
+> -	"Gradient",
+> -};
+> -
+> -static int max96712_s_ctrl(struct v4l2_ctrl *ctrl)
+> -{
+> -	struct max96712_priv *priv =
+> -		container_of(ctrl->handler, struct max96712_priv, ctrl_handler);
+> -
+> -	switch (ctrl->id) {
+> -	case V4L2_CID_TEST_PATTERN:
+> -		priv->pattern = ctrl->val ?
+> -			MAX96712_PATTERN_GRADIENT :
+> -			MAX96712_PATTERN_CHECKERBOARD;
+> -		break;
+> -	}
+> -	return 0;
+> -}
+> -
+> -static const struct v4l2_ctrl_ops max96712_ctrl_ops = {
+> -	.s_ctrl = max96712_s_ctrl,
+> -};
+> -
+> -static int max96712_v4l2_register(struct max96712_priv *priv)
+> -{
+> -	long pixel_rate;
+> -	int ret;
+> -
+> -	priv->sd.internal_ops = &max96712_internal_ops;
+> -	v4l2_i2c_subdev_init(&priv->sd, priv->client, &max96712_subdev_ops);
+> -	priv->sd.flags |= V4L2_SUBDEV_FL_HAS_DEVNODE;
+> -	priv->sd.entity.function = MEDIA_ENT_F_VID_IF_BRIDGE;
+> -
+> -	v4l2_ctrl_handler_init(&priv->ctrl_handler, 2);
+> -
+> -	/*
+> -	 * TODO: Once V4L2_CID_LINK_FREQ is changed from a menu control to an
+> -	 * INT64 control it should be used here instead of V4L2_CID_PIXEL_RATE.
+> -	 */
+> -	pixel_rate = priv->info->dpllfreq / priv->mipi.num_data_lanes * 1000000;
+> -	v4l2_ctrl_new_std(&priv->ctrl_handler, NULL, V4L2_CID_PIXEL_RATE,
+> -			  pixel_rate, pixel_rate, 1, pixel_rate);
+> -
+> -	v4l2_ctrl_new_std_menu_items(&priv->ctrl_handler, &max96712_ctrl_ops,
+> -				     V4L2_CID_TEST_PATTERN,
+> -				     ARRAY_SIZE(max96712_test_pattern) - 1,
+> -				     0, 0, max96712_test_pattern);
+> -
+> -	priv->sd.ctrl_handler = &priv->ctrl_handler;
+> -	ret = priv->ctrl_handler.error;
+> -	if (ret)
+> -		goto error;
+> -
+> -	priv->pads[0].flags = MEDIA_PAD_FL_SOURCE;
+> -	ret = media_entity_pads_init(&priv->sd.entity, 1, priv->pads);
+> -	if (ret)
+> -		goto error;
+> -
+> -	v4l2_set_subdevdata(&priv->sd, priv);
+> -
+> -	priv->sd.state_lock = priv->ctrl_handler.lock;
+> -	ret = v4l2_subdev_init_finalize(&priv->sd);
+> -	if (ret)
+> -		goto error;
+> -
+> -	ret = v4l2_async_register_subdev(&priv->sd);
+> -	if (ret < 0) {
+> -		dev_err(&priv->client->dev, "Unable to register subdevice\n");
+> -		goto error;
+> -	}
+> -
+> -	return 0;
+> -error:
+> -	v4l2_ctrl_handler_free(&priv->ctrl_handler);
+> -
+> -	return ret;
+> -}
+> -
+> -static int max96712_parse_dt(struct max96712_priv *priv)
+> -{
+> -	struct fwnode_handle *ep;
+> -	struct v4l2_fwnode_endpoint v4l2_ep = {
+> -		.bus_type = V4L2_MBUS_UNKNOWN,
+> -	};
+> -	unsigned int supported_lanes;
+> -	int ret;
+> -
+> -	ep = fwnode_graph_get_endpoint_by_id(dev_fwnode(&priv->client->dev), 4,
+> -					     0, 0);
+> -	if (!ep) {
+> -		dev_err(&priv->client->dev, "Not connected to subdevice\n");
+> -		return -EINVAL;
+> -	}
+> -
+> -	ret = v4l2_fwnode_endpoint_parse(ep, &v4l2_ep);
+> -	fwnode_handle_put(ep);
+> -	if (ret) {
+> -		dev_err(&priv->client->dev, "Could not parse v4l2 endpoint\n");
+> -		return -EINVAL;
+> -	}
+> -
+> -	switch (v4l2_ep.bus_type) {
+> -	case V4L2_MBUS_CSI2_DPHY:
+> -		supported_lanes = 4;
+> -		priv->cphy = false;
+> -		break;
+> -	case V4L2_MBUS_CSI2_CPHY:
+> -		supported_lanes = 3;
+> -		priv->cphy = true;
+> -		break;
+> -	default:
+> -		dev_err(&priv->client->dev, "Unsupported bus-type %u\n",
+> -			v4l2_ep.bus_type);
+> -		return -EINVAL;
+> -	}
+> -
+> -	if (v4l2_ep.bus.mipi_csi2.num_data_lanes != supported_lanes) {
+> -		dev_err(&priv->client->dev, "Only %u data lanes supported\n",
+> -			supported_lanes);
+> -		return -EINVAL;
+> -	}
+> -
+> -	priv->mipi = v4l2_ep.bus.mipi_csi2;
+> -
+> -	return 0;
+> -}
+> -
+> -static const struct regmap_config max96712_i2c_regmap = {
+> -	.reg_bits = 16,
+> -	.val_bits = 8,
+> -	.max_register = 0x1f00,
+> -};
+> -
+> -static int max96712_probe(struct i2c_client *client)
+> -{
+> -	struct max96712_priv *priv;
+> -	int ret;
+> -
+> -	priv = devm_kzalloc(&client->dev, sizeof(*priv), GFP_KERNEL);
+> -	if (!priv)
+> -		return -ENOMEM;
+> -
+> -	priv->info = of_device_get_match_data(&client->dev);
+> -
+> -	priv->client = client;
+> -
+> -	priv->regmap = devm_regmap_init_i2c(client, &max96712_i2c_regmap);
+> -	if (IS_ERR(priv->regmap))
+> -		return PTR_ERR(priv->regmap);
+> -
+> -	priv->gpiod_pwdn = devm_gpiod_get_optional(&client->dev, "enable",
+> -						   GPIOD_OUT_HIGH);
+> -	if (IS_ERR(priv->gpiod_pwdn))
+> -		return PTR_ERR(priv->gpiod_pwdn);
+> -
+> -	gpiod_set_consumer_name(priv->gpiod_pwdn, "max96712-pwdn");
+> -	gpiod_set_value_cansleep(priv->gpiod_pwdn, 1);
+> -
+> -	if (priv->gpiod_pwdn)
+> -		usleep_range(4000, 5000);
+> -
+> -	max96712_reset(priv);
+> -
+> -	ret = max96712_parse_dt(priv);
+> -	if (ret)
+> -		return ret;
+> -
+> -	max96712_mipi_configure(priv);
+> -
+> -	return max96712_v4l2_register(priv);
+> -}
+> -
+> -static void max96712_remove(struct i2c_client *client)
+> -{
+> -	struct v4l2_subdev *sd = i2c_get_clientdata(client);
+> -	struct max96712_priv *priv = container_of(sd, struct max96712_priv, sd);
+> -
+> -	v4l2_async_unregister_subdev(&priv->sd);
+> -
+> -	gpiod_set_value_cansleep(priv->gpiod_pwdn, 0);
+> -}
+> -
+> -static const struct max96712_info max96712_info_max96712 = {
+> -	.dpllfreq = 1000,
+> -	.have_debug_extra = true,
+> -};
+> -
+> -static const struct max96712_info max96712_info_max96724 = {
+> -	.dpllfreq = 1200,
+> -};
+> -
+> -static const struct of_device_id max96712_of_table[] = {
+> -	{ .compatible = "maxim,max96712", .data = &max96712_info_max96712 },
+> -	{ .compatible = "maxim,max96724", .data = &max96712_info_max96724 },
+> -	{ /* sentinel */ }
+> -};
+> -MODULE_DEVICE_TABLE(of, max96712_of_table);
+> -
+> -static struct i2c_driver max96712_i2c_driver = {
+> -	.driver	= {
+> -		.name = "max96712",
+> -		.of_match_table	= of_match_ptr(max96712_of_table),
+> -	},
+> -	.probe = max96712_probe,
+> -	.remove = max96712_remove,
+> -};
+> -
+> -module_i2c_driver(max96712_i2c_driver);
+> -
+> -MODULE_DESCRIPTION("Maxim MAX96712 Quad GMSL2 Deserializer Driver");
+> -MODULE_AUTHOR("Niklas Söderlund <niklas.soderlund@ragnatech.se>");
+> -MODULE_LICENSE("GPL");
+> -- 
+> 2.50.1
 > 
-> Environment:
->   Android-16, Kernel: 6.12, 8 CPUs (ARM)
-> 
-> Configuration:
->   CONFIG_TREE_RCU=y
->   CONFIG_PREEMPT_RCU=y
->   CONFIG_LAZY_RCU=y
->   CONFIG_RCU_NOCB_CPU=y
->   CONFIG_RCU_NOCB_CPU_DEFAULT_ALL=y
->   rcu_nocb_gp_stride = -1 (default is 4 for 8 cores)
->   jiffies_lazy_flush = 10 * HZ
-> 
-> Contributions:
-> Tze-Nan Wu:
-> Collaborated with Cheng-Jui to discuss which tracepoints needed to be
-> added, jointly analyzed the trace logs, identified the root cause, and
-> proposed this upstream change.
-> 
-> Cheng-Jui Wang:
-> Provided many valuable suggestions during the debugging process,
-> repeatedly found breakthroughs when we were stuck, and helped identify
-> the root cause.
-> 
-> Lorry Luo:
-> Assisted in verifying whether rcu-hurry-callback was executed too long
-> or deferred, supported with testing, and helped with communication.
-> 
-> Weiyangyang:
-> Main tester who discovered the regression scenario, confirmed that
-> enabling CONFIG_LAZY_RCU caused the regression, and verified that this
-> patch resolves the issue
-
-Nice team work :-)
-
-> 
-> Note:
-> With my limited understanding of lazy RCU, I am not fully confident that
-> this is a real issue. In my opinion, hurry callbacks should not be
-> delayed by other events such as firstBQ trace event.
-> If my understanding is incorrect, I would greatly appreciate any
-> guidance or clarification from the maintainers.
-
-Your understanding looks quite right!
-
-Reviewed-by: Frederic Weisbecker <frederic@kernel.org>
-
-Since the issue is there for 3 years now and was introduced with
-the CONFIG_LAZY_RCU new feature, it can probably wait a few weeks
-for the next merge window.
 
 -- 
-Frederic Weisbecker
-SUSE Labs
+Kind Regards,
+Niklas Söderlund
 
