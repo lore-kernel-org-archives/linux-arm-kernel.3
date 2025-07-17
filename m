@@ -4,70 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D713BC83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 12:22:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AC36C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 12:24:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=L13MOQ3eusIHZuQBJdx4TLjWdRO8SOVWdxZ9KhOagNc=; b=w9fMe2Z8CqKmFjJ+VTtpan1maP
-	TrUzyuK7B1cA/2Mla3BDHMbaZemtptB2M8ACIerwsksyLQ/keQAWlsUGtgMi2LYQw51FUmyCPM3Tk
-	q1dBLMi0AljGosEElLL45om3Ebo9MZpZOLBzhZb9+WW2U76hv480GdM16qIN3rrkosu4sAmP1mLo4
-	v/tAvsM4/X1sj09+dv/1MVes4tUr6Hv/sZ51Sujf55Tpa3EVmezIe4vluH8n0wbwMStFZ/jgpTt8C
-	8QVxRMnrPmOvb4XQPEZrJPgIMDWWJR5PmA34lOPtPjhCjl5ahiZeqR5yVH+OdhMfKDxsLyCJJ1rTF
-	tgOGKrLQ==;
+	bh=SLKDCSBar7TEHGf/3yjKm5ts8mUeyQn6MQragX0irtY=; b=zFONoZ6iMOa0pB3iE3Mg2WyuMg
+	pkG+4097z5sHw5OixpbvbrbCXGXwyMAwJ/trnQk7AejiFvN+g7jlrb64v5Zvt/moCUr7LCzuiI7Pb
+	zdMqOQ5Htzpt7B2HIacWh/5SM3i9gLFTL8a5LAc8uQOeCfyAWKmLokwvx7VJDo0u1uK0Sc4wwBXNY
+	MQZBDRMTIHKFLkc5Ki0mWzWBIJTw+ZceOjuWodIb68Z2JYOuXJuI+4KmdqEsHC7L+ofQPzzzIP6uM
+	LcFFTnyYTHiF5kU1qnk1zQOAhUF9etO8S6BfMfN7WGhIgCE9npQFSzWwDYUVuvoawrRXhWX5qJnnl
+	WjVtM1vA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucNcw-0000000A6RX-470o;
-	Thu, 17 Jul 2025 12:22:19 +0000
-Received: from smtp.forwardemail.net ([121.127.44.73])
+	id 1ucNfN-0000000A6hY-0P93;
+	Thu, 17 Jul 2025 12:24:49 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucM9t-00000009tNR-2rCm
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Jul 2025 10:48:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
- h=Content-Transfer-Encoding: MIME-Version: References: In-Reply-To:
- Message-ID: Date: Subject: Cc: To: From; q=dns/txt; s=fe-e1b5cab7be;
- t=1752749292; bh=L13MOQ3eusIHZuQBJdx4TLjWdRO8SOVWdxZ9KhOagNc=;
- b=Y9Hh4NcUWnMlTAht1v9z4QZw11wtSRxhVwgl8UPOlSNicVN54T2RKb/1UzAZPknExSp/6qSi6
- /U24YuJPeW2+S3p7uHQDcSZ2zmqEU5tgk210K9BeJ/mQo6WBp1RpDpza+6QfIuU1e8SxQTNcGdG
- mMz8abnyk0gButnm84ogZxRTCI5iUFbQtPTqM/V230gti9yHQO8dO5dqNnnA3ffTx6uxhSQTB6e
- 0BMGMrkaUVGyg6QCwy3XoDFxTjBSE3S9e/Ruq6FeSE7KwrZU7xfCGRsuCyQ8sKK0KxoLY4894Xf
- YucJXPA2wB9AN2JxGOe2y6Kl17emYi50Q56ekGOTZgBA==
-X-Forward-Email-ID: 6878d26f5e51505848fe5fcf
-X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
- 121.127.44.73
-X-Forward-Email-Version: 1.1.6
-X-Forward-Email-Website: https://forwardemail.net
-X-Complaints-To: abuse@forwardemail.net
-X-Report-Abuse: abuse@forwardemail.net
-X-Report-Abuse-To: abuse@forwardemail.net
-From: Jonas Karlman <jonas@kwiboo.se>
-To: Heiko Stuebner <heiko@sntech.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: Yao Zi <ziyao@disroot.org>,
-	Chukun Pan <amadeus@jmu.edu.cn>,
-	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
-	linux-rockchip@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Jonas Karlman <jonas@kwiboo.se>
-Subject: [PATCH v4 2/6] arm64: dts: rockchip: Add Radxa ROCK 2A/2F
-Date: Thu, 17 Jul 2025 10:37:04 +0000
-Message-ID: <20250717103720.2853031-3-jonas@kwiboo.se>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20250717103720.2853031-1-jonas@kwiboo.se>
-References: <20250717103720.2853031-1-jonas@kwiboo.se>
+	id 1ucMB8-00000009u2o-2hQq;
+	Thu, 17 Jul 2025 10:49:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1752749368;
+	bh=lSP0/9GbrNfw0NFb6DWBwXGSVoqPXgSk/vHOEKnsPg0=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=afqILlfAdc29dXdjkvF4I3YSbufR0yN5zVs7ZWdCQnSNZrXwIiIA4WW9e1PQ/k43p
+	 Df1AEB2qgK1CcIC2XuMPGOq9i8MF1PgD9lXMQFMyfHMy2qs2lYKYLkDmM6v0Us/shN
+	 DeZgcw8OSfYG3OVsnu4GAfPh22EEkfQwIerr8K2enqKMerzEu+rty9auXYe9uCeihA
+	 xDeE/B9ljTejzYjPTj+lWQyrWh+2TTo1hlFb/5Ahd9q6yRn0Z8nVafoUvgo1a4iuez
+	 mm2tuRwf/QUSDWqydPf4JT/ZMW8F76gshZk4c96BmE7M0kUvnAbtKZ8fWuWGawmgNh
+	 khghTJQCBNxeg==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id EE95F17E0C37;
+	Thu, 17 Jul 2025 12:49:27 +0200 (CEST)
+Message-ID: <327287aa-98c8-4745-adb9-2c36e8d5d825@collabora.com>
+Date: Thu, 17 Jul 2025 12:49:27 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 2/2] clk: mediatek: Add MT6789 clock controllers
+To: Arseniy Velikanov <me@adomerle.pw>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>
+Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, ~postmarketos/upstreaming@lists.sr.ht
+References: <20250715222221.29406-1-me@adomerle.pw>
+ <20250715222221.29406-2-me@adomerle.pw>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20250715222221.29406-2-me@adomerle.pw>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250717_034813_782351_7A39D1ED 
-X-CRM114-Status: GOOD (  13.70  )
+X-CRM114-CacheID: sfid-20250717_034930_877952_FB4A7E75 
+X-CRM114-Status: GOOD (  20.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,450 +81,230 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The ROCK 2A and ROCK 2F is a high-performance single board computer
-developed by Radxa, based on the Rockchip RK3528A SoC.
+Il 16/07/25 00:22, Arseniy Velikanov ha scritto:
+> Add support for MT6789 clock controllers, which includes apmixed, afe,
+> camsys, imgsys, infracfg, mcusys, mdpsys, mfgcfg, mmsys, topckgen,
+> vdec, venc.
+> 
+> Signed-off-by: Arseniy Velikanov <me@adomerle.pw>
 
-Add initial device tree for the Radxa ROCK 2A and ROCK 2F boards.
+Hi Arseniy,
+Thanks for all this work!
 
-Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
-Tested-by: Yao Zi <ziyao@disroot.org>
-Reviewed-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Tested-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
----
-v4: Collect r-b and t-b tags
-v3: Rename led nodes to led-0/led-1 (Chukun Pan)
-v2: Limit sdmmc max-frequency to 100 MHz (Yao Zi)
+The submission looks generally fine, and I'm happy that you've ported those drivers
+to the common probe, however, there are a few (relatively small) things to fixup.
 
-Schematics:
-- https://dl.radxa.com/rock2/2a/v1.2/radxa_rock_2a_v1.2_schematic.pdf
-- https://dl.radxa.com/rock2/2f/radxa_rock2f_v1.01_schematic.pdf
----
- arch/arm64/boot/dts/rockchip/Makefile         |   2 +
- .../boot/dts/rockchip/rk3528-rock-2.dtsi      | 293 ++++++++++++++++++
- .../boot/dts/rockchip/rk3528-rock-2a.dts      |  82 +++++
- .../boot/dts/rockchip/rk3528-rock-2f.dts      |  10 +
- 4 files changed, 387 insertions(+)
- create mode 100644 arch/arm64/boot/dts/rockchip/rk3528-rock-2.dtsi
- create mode 100644 arch/arm64/boot/dts/rockchip/rk3528-rock-2a.dts
- create mode 100644 arch/arm64/boot/dts/rockchip/rk3528-rock-2f.dts
+Please check below.
 
-diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/dts/rockchip/Makefile
-index 099520962ffb..4cb6106b16f2 100644
---- a/arch/arm64/boot/dts/rockchip/Makefile
-+++ b/arch/arm64/boot/dts/rockchip/Makefile
-@@ -90,6 +90,8 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3399-sapphire.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3399-sapphire-excavator.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3399pro-rock-pi-n10.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3528-radxa-e20c.dtb
-+dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3528-rock-2a.dtb
-+dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3528-rock-2f.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3562-evb2-v10.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3566-anbernic-rg-arc-d.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3566-anbernic-rg-arc-s.dtb
-diff --git a/arch/arm64/boot/dts/rockchip/rk3528-rock-2.dtsi b/arch/arm64/boot/dts/rockchip/rk3528-rock-2.dtsi
-new file mode 100644
-index 000000000000..aedc7ee9ee46
---- /dev/null
-+++ b/arch/arm64/boot/dts/rockchip/rk3528-rock-2.dtsi
-@@ -0,0 +1,293 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+
-+/dts-v1/;
-+
-+#include <dt-bindings/input/input.h>
-+#include <dt-bindings/leds/common.h>
-+#include <dt-bindings/pwm/pwm.h>
-+#include "rk3528.dtsi"
-+
-+/ {
-+	aliases {
-+		i2c1 = &i2c1;
-+		mmc0 = &sdhci;
-+		mmc1 = &sdmmc;
-+		serial0 = &uart0;
-+	};
-+
-+	chosen {
-+		stdout-path = "serial0:1500000n8";
-+	};
-+
-+	adc-keys {
-+		compatible = "adc-keys";
-+		io-channels = <&saradc 0>;
-+		io-channel-names = "buttons";
-+		keyup-threshold-microvolt = <1800000>;
-+		poll-interval = <100>;
-+
-+		button-maskrom {
-+			label = "MASKROM";
-+			linux,code = <KEY_SETUP>;
-+			press-threshold-microvolt = <0>;
-+		};
-+	};
-+
-+	leds: leds {
-+		compatible = "gpio-leds";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&state_led_b>;
-+
-+		led-0 {
-+			color = <LED_COLOR_ID_BLUE>;
-+			default-state = "on";
-+			function = LED_FUNCTION_HEARTBEAT;
-+			gpios = <&gpio1 RK_PA3 GPIO_ACTIVE_HIGH>;
-+			linux,default-trigger = "heartbeat";
-+		};
-+	};
-+
-+	vdd_0v9: regulator-0v9-vdd {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vdd_0v9";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <900000>;
-+		regulator-max-microvolt = <900000>;
-+		vin-supply = <&vcc5v0_sys>;
-+	};
-+
-+	vcc_ddr: regulator-1v1-vcc-ddr {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc_ddr";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <1100000>;
-+		regulator-max-microvolt = <1100000>;
-+		vin-supply = <&vcc5v0_sys>;
-+	};
-+
-+	vcc_1v8: regulator-1v8-vcc {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc_1v8";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <1800000>;
-+		regulator-max-microvolt = <1800000>;
-+		vin-supply = <&vcc_3v3>;
-+	};
-+
-+	vcc_3v3: regulator-3v3-vcc {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc_3v3";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		vin-supply = <&vcc5v0_sys>;
-+	};
-+
-+	vcc_wifi: regulator-3v3-vcc-wifi {
-+		compatible = "regulator-fixed";
-+		enable-active-high;
-+		gpios = <&gpio4 RK_PA4 GPIO_ACTIVE_HIGH>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&usb_wifi_pwr>;
-+		regulator-name = "vcc_wifi";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		vin-supply = <&vcc_3v3>;
-+	};
-+
-+	vcc5v0_sys: regulator-5v0-vcc-sys {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc5v0_sys";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+	};
-+
-+	vcc5v0_usb20: regulator-5v0-vcc-usb20 {
-+		compatible = "regulator-fixed";
-+		enable-active-high;
-+		gpios = <&gpio0 RK_PA1 GPIO_ACTIVE_HIGH>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&usb_host_en>;
-+		regulator-name = "vcc5v0_usb20";
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+		vin-supply = <&vcc5v0_sys>;
-+	};
-+
-+	vccio_sd: regulator-vccio-sd {
-+		compatible = "regulator-gpio";
-+		gpios = <&gpio1 RK_PC1 GPIO_ACTIVE_HIGH>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&sdmmc_vol_ctrl_h>;
-+		regulator-name = "vccio_sd";
-+		regulator-min-microvolt = <1800000>;
-+		regulator-max-microvolt = <3300000>;
-+		states = <1800000 0x0>, <3300000 0x1>;
-+		vin-supply = <&vcc5v0_sys>;
-+	};
-+
-+	vdd_arm: regulator-vdd-arm {
-+		compatible = "pwm-regulator";
-+		pwms = <&pwm1 0 5000 PWM_POLARITY_INVERTED>;
-+		pwm-supply = <&vcc5v0_sys>;
-+		regulator-name = "vdd_arm";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <746000>;
-+		regulator-max-microvolt = <1201000>;
-+		regulator-settling-time-up-us = <250>;
-+	};
-+
-+	vdd_logic: regulator-vdd-logic {
-+		compatible = "pwm-regulator";
-+		pwms = <&pwm2 0 5000 PWM_POLARITY_INVERTED>;
-+		pwm-supply = <&vcc5v0_sys>;
-+		regulator-name = "vdd_logic";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <705000>;
-+		regulator-max-microvolt = <1006000>;
-+		regulator-settling-time-up-us = <250>;
-+	};
-+
-+	rfkill {
-+		compatible = "rfkill-gpio";
-+		label = "rfkill-wlan";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&wifi_reg_on_h>;
-+		radio-type = "wlan";
-+		shutdown-gpios = <&gpio1 RK_PA6 GPIO_ACTIVE_HIGH>;
-+	};
-+};
-+
-+&cpu0 {
-+	cpu-supply = <&vdd_arm>;
-+};
-+
-+&cpu1 {
-+	cpu-supply = <&vdd_arm>;
-+};
-+
-+&cpu2 {
-+	cpu-supply = <&vdd_arm>;
-+};
-+
-+&cpu3 {
-+	cpu-supply = <&vdd_arm>;
-+};
-+
-+&gpu {
-+	mali-supply = <&vdd_logic>;
-+	status = "okay";
-+};
-+
-+&i2c1 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&i2c1m0_xfer>;
-+	status = "okay";
-+
-+	eeprom@50 {
-+		compatible = "belling,bl24c16a", "atmel,24c16";
-+		reg = <0x50>;
-+		pagesize = <16>;
-+		read-only;
-+		vcc-supply = <&vcc_3v3>;
-+	};
-+};
-+
-+&pinctrl {
-+	bluetooth {
-+		bt_wake_host_h: bt-wake-host-h {
-+			rockchip,pins = <1 RK_PC2 RK_FUNC_GPIO &pcfg_pull_down>;
-+		};
-+
-+		host_wake_bt_h: host-wake-bt-h {
-+			rockchip,pins = <1 RK_PA5 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+
-+	leds {
-+		state_led_b: state-led-b {
-+			rockchip,pins = <1 RK_PA3 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+
-+	sdmmc {
-+		sdmmc_vol_ctrl_h: sdmmc-vol-ctrl-h {
-+			rockchip,pins = <1 RK_PC1 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+
-+	usb {
-+		usb_host_en: usb-host-en {
-+			rockchip,pins = <0 RK_PA1 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+
-+	wifi {
-+		usb_wifi_pwr: usb-wifi-pwr {
-+			rockchip,pins = <4 RK_PA4 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+
-+		wifi_reg_on_h: wifi-reg-on-h {
-+			rockchip,pins = <1 RK_PA6 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+
-+		wifi_wake_host_h: wifi-wake-host-h {
-+			rockchip,pins = <1 RK_PA7 RK_FUNC_GPIO &pcfg_pull_down>;
-+		};
-+	};
-+};
-+
-+&pwm1 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pwm1m0_pins>;
-+	status = "okay";
-+};
-+
-+&pwm2 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pwm2m0_pins>;
-+	status = "okay";
-+};
-+
-+&saradc {
-+	vref-supply = <&vcc_1v8>;
-+	status = "okay";
-+};
-+
-+&sdhci {
-+	bus-width = <8>;
-+	cap-mmc-highspeed;
-+	mmc-hs200-1_8v;
-+	no-sd;
-+	no-sdio;
-+	non-removable;
-+	vmmc-supply = <&vcc_3v3>;
-+	vqmmc-supply = <&vcc_1v8>;
-+	status = "okay";
-+};
-+
-+&sdmmc {
-+	bus-width = <4>;
-+	cap-mmc-highspeed;
-+	cap-sd-highspeed;
-+	disable-wp;
-+	max-frequency = <100000000>;
-+	sd-uhs-sdr104;
-+	vmmc-supply = <&vcc_3v3>;
-+	vqmmc-supply = <&vccio_sd>;
-+	status = "okay";
-+};
-+
-+&uart0 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&uart0m0_xfer>;
-+	status = "okay";
-+};
-diff --git a/arch/arm64/boot/dts/rockchip/rk3528-rock-2a.dts b/arch/arm64/boot/dts/rockchip/rk3528-rock-2a.dts
-new file mode 100644
-index 000000000000..c03ae1dd3456
---- /dev/null
-+++ b/arch/arm64/boot/dts/rockchip/rk3528-rock-2a.dts
-@@ -0,0 +1,82 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+
-+/dts-v1/;
-+
-+#include "rk3528-rock-2.dtsi"
-+
-+/ {
-+	model = "Radxa ROCK 2A";
-+	compatible = "radxa,rock-2a", "rockchip,rk3528";
-+
-+	aliases {
-+		ethernet0 = &gmac1;
-+	};
-+
-+	vcc5v0_usb30_otg: regulator-5v0-vcc-usb30-otg {
-+		compatible = "regulator-fixed";
-+		enable-active-high;
-+		gpios = <&gpio1 RK_PC3 GPIO_ACTIVE_HIGH>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&usb_otg_en>;
-+		regulator-name = "vcc5v0_usb30_otg";
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+		vin-supply = <&vcc5v0_sys>;
-+	};
-+};
-+
-+&gmac1 {
-+	clock_in_out = "output";
-+	phy-handle = <&rgmii_phy>;
-+	phy-mode = "rgmii-id";
-+	phy-supply = <&vcc_3v3>;
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&rgmii_miim>, <&rgmii_tx_bus2>, <&rgmii_rx_bus2>,
-+		    <&rgmii_rgmii_clk>, <&rgmii_rgmii_bus>;
-+	status = "okay";
-+};
-+
-+&leds {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&state_led_b>, <&sys_led_g>;
-+
-+	led-1 {
-+		color = <LED_COLOR_ID_GREEN>;
-+		default-state = "on";
-+		function = LED_FUNCTION_STATUS;
-+		gpios = <&gpio3 RK_PC1 GPIO_ACTIVE_LOW>;
-+		linux,default-trigger = "default-on";
-+	};
-+};
-+
-+&mdio1 {
-+	rgmii_phy: ethernet-phy@1 {
-+		compatible = "ethernet-phy-ieee802.3-c22";
-+		reg = <0x1>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&gmac1_rstn_l>;
-+		reset-assert-us = <20000>;
-+		reset-deassert-us = <100000>;
-+		reset-gpios = <&gpio4 RK_PC2 GPIO_ACTIVE_LOW>;
-+	};
-+};
-+
-+&pinctrl {
-+	ethernet {
-+		gmac1_rstn_l: gmac1-rstn-l {
-+			rockchip,pins = <4 RK_PC2 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+
-+	leds {
-+		sys_led_g: sys-led-g {
-+			rockchip,pins = <3 RK_PC1 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+
-+	usb {
-+		usb_otg_en: usb-otg-en {
-+			rockchip,pins = <1 RK_PC3 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+};
-diff --git a/arch/arm64/boot/dts/rockchip/rk3528-rock-2f.dts b/arch/arm64/boot/dts/rockchip/rk3528-rock-2f.dts
-new file mode 100644
-index 000000000000..3e2b9b685cb2
---- /dev/null
-+++ b/arch/arm64/boot/dts/rockchip/rk3528-rock-2f.dts
-@@ -0,0 +1,10 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+
-+/dts-v1/;
-+
-+#include "rk3528-rock-2.dtsi"
-+
-+/ {
-+	model = "Radxa ROCK 2F";
-+	compatible = "radxa,rock-2f", "rockchip,rk3528";
-+};
--- 
-2.50.1
+> ---
+>   drivers/clk/mediatek/Kconfig                  |  68 ++
+>   drivers/clk/mediatek/Makefile                 |  11 +
+>   drivers/clk/mediatek/clk-mt6789-apmixed.c     | 147 +++
+>   drivers/clk/mediatek/clk-mt6789-audiosys.c    | 100 +++
+>   drivers/clk/mediatek/clk-mt6789-cam.c         | 131 +++
+>   drivers/clk/mediatek/clk-mt6789-img.c         | 100 +++
+>   .../clk/mediatek/clk-mt6789-imp_iic_wrap.c    |  90 ++
+>   drivers/clk/mediatek/clk-mt6789-infra_ao.c    | 228 +++++
+>   drivers/clk/mediatek/clk-mt6789-mcu.c         |  68 ++
+>   drivers/clk/mediatek/clk-mt6789-mdp.c         |  81 ++
+>   drivers/clk/mediatek/clk-mt6789-mfgcfg.c      |  61 ++
+>   drivers/clk/mediatek/clk-mt6789-mm.c          |  85 ++
+>   drivers/clk/mediatek/clk-mt6789-topckgen.c    | 846 ++++++++++++++++++
+>   drivers/clk/mediatek/clk-mt6789-vdec.c        | 119 +++
+>   drivers/clk/mediatek/clk-mt6789-venc.c        |  65 ++
+>   15 files changed, 2200 insertions(+)
+>   create mode 100644 drivers/clk/mediatek/clk-mt6789-apmixed.c
+>   create mode 100644 drivers/clk/mediatek/clk-mt6789-audiosys.c
+>   create mode 100644 drivers/clk/mediatek/clk-mt6789-cam.c
+>   create mode 100644 drivers/clk/mediatek/clk-mt6789-img.c
+>   create mode 100644 drivers/clk/mediatek/clk-mt6789-imp_iic_wrap.c
+>   create mode 100644 drivers/clk/mediatek/clk-mt6789-infra_ao.c
+>   create mode 100644 drivers/clk/mediatek/clk-mt6789-mcu.c
+>   create mode 100644 drivers/clk/mediatek/clk-mt6789-mdp.c
+>   create mode 100644 drivers/clk/mediatek/clk-mt6789-mfgcfg.c
+>   create mode 100644 drivers/clk/mediatek/clk-mt6789-mm.c
+>   create mode 100644 drivers/clk/mediatek/clk-mt6789-topckgen.c
+>   create mode 100644 drivers/clk/mediatek/clk-mt6789-vdec.c
+>   create mode 100644 drivers/clk/mediatek/clk-mt6789-venc.c
+> 
 
+..snip..
+
+> diff --git a/drivers/clk/mediatek/clk-mt6789-topckgen.c b/drivers/clk/mediatek/clk-mt6789-topckgen.c
+> new file mode 100644
+> index 000000000000..bd986e861eb4
+> --- /dev/null
+> +++ b/drivers/clk/mediatek/clk-mt6789-topckgen.c
+> @@ -0,0 +1,846 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * Copyright (c) 2022 MediaTek Inc.
+> + * Copyright (c) 2025 Arseniy Velikanov <me@adomerle.pw>
+> + */
+
+..snip..
+
+
+ > +static const struct mtk_fixed_factor top_divs[] = {
+ > +	FACTOR(CLK_TOP_MFGPLL, "mfgpll_ck", "mfgpll", 1, 1),
+
+..snip..
+
+ > +	FACTOR(CLK_TOP_F26M, "f26m_ck", "clk26m", 1, 1),
+ > +	FACTOR(CLK_TOP_AXI, "axi_ck", "axi_sel", 1, 1),
+ > +	FACTOR(CLK_TOP_DISP, "disp_ck", "disp_sel", 1, 1),
+
+Please, remove all instances of FACTOR(.... 1, 1) and use the right parent directly
+for the other clocks.
+
+The factor(1,1) means clock_rate * 1 / 1 == clock_rate.
+
+I'm not sure why MediaTek likes to declare these - they are doing that in newer
+SoCs as well, but that's not for upstream: it does not make any sense to have those
+clocks in the driver, as those are effectively just name wrappers and nothing else.
+
+The only thing those do is increasing the footprint for, well, no good reason...!
+
+There's a pattern that you want to check: all of the "_ck" clocks are suspect! :-)
+
+ > +	FACTOR(CLK_TOP_MDP, "mdp_ck", "mdp_sel", 1, 1),
+ > +	FACTOR(CLK_TOP_IMG1, "img1_ck", "img1_sel", 1, 1),
+ > +	FACTOR(CLK_TOP_IPE, "ipe_ck", "ipe_sel", 1, 1),
+ > +	FACTOR(CLK_TOP_CAM, "cam_ck", "cam_sel", 1, 1),
+ > +	FACTOR(CLK_TOP_MFG_REF, "mfg_ref_ck", "mfg_ref_sel", 1, 1),
+ > +	FACTOR(CLK_TOP_MFG_PLL, "mfg_pll_ck", "mfg_pll_sel", 1, 1),
+
+..snip..
+
+> +
+> +static const char * const dvfsrc_parents[] = {
+> +	"tck_26m_mx9_ck",
+> +	"osc_d10"
+> +};
+> +
+> +static const char * const aes_msdcfde_parents[] = {
+> +	"tck_26m_mx9_ck",
+> +	"mainpll_d4_d2",
+> +	"mainpll_d6",
+> +	"mainpll_d4_d4",
+> +	"univpll_d4_d2",
+> +	"univpll_d6"
+> +};
+> +
+> +static const char * const mcupm_parents[] = {
+> +	"tck_26m_mx9_ck",
+> +	"mainpll_d6_d4",
+> +	"mainpll_d6_d2"
+> +};
+> +
+> +static const char * const dsi_occ_parents[] = {
+> +	"tck_26m_mx9_ck",
+> +	"mainpll_d6_d2",
+> +	"univpll_d5_d2",
+> +	"univpll_d4_d2"
+> +};
+> +
+
+Look at those parents, you're redefining the very same identical array 10 times
+in a row!
+
+Please, avoid this kind of duplication: delete all the duplicated arrays and
+just have one called, for example, "apll_i2s_mck_parents", then assign that
+to all of the relevant clocks.
+
+Same goes for camtg and others :-)
+
+> +static const char * const apll_i2s0_mck_parents[] = {
+> +	"aud_1_sel",
+> +	"aud_2_sel"
+> +};
+> +
+> +static const char * const apll_i2s1_mck_parents[] = {
+> +	"aud_1_sel",
+> +	"aud_2_sel"
+> +};
+> +
+> +static const char * const apll_i2s2_mck_parents[] = {
+> +	"aud_1_sel",
+> +	"aud_2_sel"
+> +};
+> +
+> +static const char * const apll_i2s3_mck_parents[] = {
+> +	"aud_1_sel",
+> +	"aud_2_sel"
+> +};
+> +
+> +static const char * const apll_i2s4_mck_parents[] = {
+> +	"aud_1_sel",
+> +	"aud_2_sel"
+> +};
+> +
+> +static const char * const apll_i2s5_mck_parents[] = {
+> +	"aud_1_sel",
+> +	"aud_2_sel"
+> +};
+> +
+> +static const char * const apll_i2s6_mck_parents[] = {
+> +	"aud_1_sel",
+> +	"aud_2_sel"
+> +};
+> +
+> +static const char * const apll_i2s7_mck_parents[] = {
+> +	"aud_1_sel",
+> +	"aud_2_sel"
+> +};
+> +
+> +static const char * const apll_i2s8_mck_parents[] = {
+> +	"aud_1_sel",
+> +	"aud_2_sel"
+> +};
+> +
+> +static const char * const apll_i2s9_mck_parents[] = {
+> +	"aud_1_sel",
+> +	"aud_2_sel"
+> +};
+
+..snip..
+
+> +module_platform_driver(clk_mt6789_topckgen_drv);
+> +
+> +MODULE_DESCRIPTION("MediaTek MT6789 top clock generators driver");
+> +MODULE_LICENSE("GPL");
+> diff --git a/drivers/clk/mediatek/clk-mt6789-vdec.c b/drivers/clk/mediatek/clk-mt6789-vdec.c
+> new file mode 100644
+> index 000000000000..81d6e720b6cd
+> --- /dev/null
+> +++ b/drivers/clk/mediatek/clk-mt6789-vdec.c
+> @@ -0,0 +1,119 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * Copyright (c) 2022 MediaTek Inc.
+> + * Copyright (c) 2025 Arseniy Velikanov <me@adomerle.pw>
+> + */
+> +
+
+..snip..
+
+> +
+> +static const struct mtk_clk_desc vde2_desc = {
+> +	.clks = vde2_clks,
+> +	.num_clks = ARRAY_SIZE(vde2_clks),
+> +};
+> +
+> +static const struct of_device_id of_match_clk_mt6789_vdec[] = {
+
+Can you please compress all of those?
+
+static const struct of_device_id of_match_clk_mt6789_vdec[] ={
+	{ .compatible = "mediatek,mt6789-vdecsys", .data = &vde2_desc },
+	{ /* sentinel */ }
+};
+
+
+Note that the same comments do apply to other clock drivers that you're introducing
+but I'm only writing once - please apply the comments in the others and wherever
+they fit.
+
+Cheers!
+Angelo
 
