@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9B14C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 08:18:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77BD6C83F37
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 08:33:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9iQH4kxfqf3NCgkxryD8jJxsQEYrTj/jEyun2UwK9nQ=; b=19fbj3ix86paz9O5KAOaFZ2C98
-	NcZFilVv7yFImOabT64tgPjx0dUeMFCFdzSKJ3wVq/wd8PAzGlbmXtlR+OtslyPyhtZ7jiF1yj2gJ
-	2lu4yk9RHpc1OBDrBKfyy2uJYn86CoSyeZr4hzw5MXudCxnYOd5kPcRsUp6N5I8PeNoPOl5ox1fOB
-	oMP+ToNnuZSc6nY8JL5+iKW+IHLqd8Sx3M0WvU8CNGPVe5b8hHqcSxLxYEwIos6ssezDo6N/qCcyK
-	+uIdQ/SmdyngvoJyKs1MTqmYnXjVq23ThMWqrcgp/Wn9yryFMt37A4QIXxdxP4fTt5liQDl47xLSQ
-	U1hVKmVA==;
+	bh=7gNgiyMv2bSdDu5VMOx6z036osR1pFqt9yiUokhcsoo=; b=sVgMLbbizZPpCGo3Ae1Vk4CM+S
+	QARr9Vd2oRnohooCu95Fu+49ROJoaAa59IRFjgwRA2muh773Dp+UU6L1tC4qmou1KaBRFHU3C49DX
+	DNuI64+0mP33gHyV/sFAzsqsxc0gHqmWMaF/axiAn+NccfcXMVyzF37CU3I+/DlwzARaWLFR12FYs
+	YPHrGObP5uCznd/JWfeYIC2TnOo4/UfKSuQEOgDzWFmowSBPq/ItPwTYrd+6gffns6GDmeGdrBhFP
+	59aPr7DkzIQH55850EmTnvqAnxB10NgaU0DOaDrdeOXCT53PqywaC9i5spNy4Q/dma5lIWH6iT5HR
+	0z1kWX7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucJom-00000009Yov-1v8i;
-	Thu, 17 Jul 2025 08:18:16 +0000
-Received: from relay9-d.mail.gandi.net ([217.70.183.199])
+	id 1ucK3N-00000009Zzg-0yFU;
+	Thu, 17 Jul 2025 08:33:21 +0000
+Received: from relay9-d.mail.gandi.net ([2001:4b98:dc4:8::229])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucJ4k-00000009S5o-2PpC
+	id 1ucJ4l-00000009S5t-2w7l
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 17 Jul 2025 07:30:46 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 5E935443F3;
-	Thu, 17 Jul 2025 07:30:39 +0000 (UTC)
+Received: by mail.gandi.net (Postfix) with ESMTPSA id D348E443F0;
+	Thu, 17 Jul 2025 07:30:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1752737440;
+	t=1752737442;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=9iQH4kxfqf3NCgkxryD8jJxsQEYrTj/jEyun2UwK9nQ=;
-	b=OTbYLYO9CtI7kjeztIY5G9oYjrokYq/1ztbk3utDnIG1E4tKEAJEcan4rGdEclHRA1eG7f
-	ilxtnMKS74hKuRizjGVNgtSDh7bKrdDhLbv8pi1nv4fAeRSq43+hujUvdyKuXHkw51xQOk
-	t6M4e+YbJepdPNDGJL107P+Q/xi05FJ9Qw7mvIDp/vmclyal+tRmMaPFO4tMAAv7+rMZfZ
-	VW6AroFIm3ylha3Rcqgjt1K6QCs8wvd9sHOzWNGaZC/cvXh3/d7hOO8mYUeJBeZvSqGd3V
-	2b5nC6iLCeTVumOAzIbvEz42GEJJyDohT/UU+ag0NfMQxEYztHw75WqBATm2QQ==
+	bh=7gNgiyMv2bSdDu5VMOx6z036osR1pFqt9yiUokhcsoo=;
+	b=hRYKzqxVbhocKsFTqNofFZ0QOBEkSXzQkR+0A/alMft7yH7hrwXQxXtkD+GTSd2rgxOfGd
+	BaAdHOryHiKxsDaEFZlSn8tURKcIlBXBSwE7qsDaw+05iP1qehnUKoJ+nBfZreVhM8X7fN
+	B+v7/amCaSJbOJJb4A/RpKHA1Cg+Hw+k8Bts42eoDUWV/fNUcbwceesg8/jSY2MO5HDjEd
+	g41ag+kowaqJtpelJPMP+wwZQeQ5URrA3dicbQTw4PuTm2o4m6nxv+N+qUBHG3Xo6qR6+Q
+	LdNNnYtJIHa8iO09HvDpJgHB7vqjbksaEDlI65q37J8XVsH1g1nq3fb7fELeIQ==
 From: Maxime Chevallier <maxime.chevallier@bootlin.com>
 To: davem@davemloft.net
 Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
@@ -73,9 +73,9 @@ Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
 	Romain Gantois <romain.gantois@bootlin.com>,
 	Daniel Golle <daniel@makrotopia.org>,
 	Dimitri Fedrau <dimitri.fedrau@liebherr.com>
-Subject: [PATCH net-next v9 10/15] net: phy: marvell10g: Support SFP through phy_port
-Date: Thu, 17 Jul 2025 09:30:14 +0200
-Message-ID: <20250717073020.154010-11-maxime.chevallier@bootlin.com>
+Subject: [PATCH net-next v9 11/15] net: phy: at803x: Support SFP through phy_port interface
+Date: Thu, 17 Jul 2025 09:30:15 +0200
+Message-ID: <20250717073020.154010-12-maxime.chevallier@bootlin.com>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250717073020.154010-1-maxime.chevallier@bootlin.com>
 References: <20250717073020.154010-1-maxime.chevallier@bootlin.com>
@@ -83,12 +83,12 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-GND-State: clean
 X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdehleellecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhephffvvefufffkofgjfhgggfestdekredtredttdenucfhrhhomhepofgrgihimhgvucevhhgvvhgrlhhlihgvrhcuoehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeevgedtffelffelveeuleelgfejfeevvdejhfehgeefgfffvdefteegvedutefftdenucfkphepvdgrtddumegtsgduleemkegugeehmeegledttdemieehieekmedvlegsudemlegvfhehmegvkegtjeenucevlhhushhtvghrufhiiigvpeehnecurfgrrhgrmhepihhnvghtpedvrgdtudemtggsudelmeekugegheemgeeltddtmeeiheeikeemvdelsgdumeelvghfheemvgektgejpdhhvghlohepfhgvughorhgrrdhhohhmvgdpmhgrihhlfhhrohhmpehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeefuddprhgtphhtthhopegurghvvghmsegurghvvghmlhhofhhtrdhnvghtpdhrtghpthhtohepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdprhgtphhtthhopehnvghtuggvvhesvhhgvghrrdhkv
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdehleellecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhephffvvefufffkofgjfhgggfestdekredtredttdenucfhrhhomhepofgrgihimhgvucevhhgvvhgrlhhlihgvrhcuoehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeevgedtffelffelveeuleelgfejfeevvdejhfehgeefgfffvdefteegvedutefftdenucfkphepvdgrtddumegtsgduleemkegugeehmeegledttdemieehieekmedvlegsudemlegvfhehmegvkegtjeenucevlhhushhtvghrufhiiigvpeelnecurfgrrhgrmhepihhnvghtpedvrgdtudemtggsudelmeekugegheemgeeltddtmeeiheeikeemvdelsgdumeelvghfheemvgektgejpdhhvghlohepfhgvughorhgrrdhhohhmvgdpmhgrihhlfhhrohhmpehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeefuddprhgtphhtthhopegurghvvghmsegurghvvghmlhhofhhtrdhnvghtpdhrtghpthhtohepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdprhgtphhtthhopehnvghtuggvvhesvhhgvghrrdhkv
  ghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhmshhmsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtohepthhhohhmrghsrdhpvghtrgiiiihonhhisegsohhothhlihhnrdgtohhmpdhrtghpthhtoheprghnughrvgifsehluhhnnhdrtghhpdhrtghpthhtohepkhhusggrsehkvghrnhgvlhdrohhrgh
 X-GND-Sasl: maxime.chevallier@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250717_003043_288366_A9634072 
-X-CRM114-Status: GOOD (  17.85  )
+X-CRM114-CacheID: sfid-20250717_003045_396608_668687B9 
+X-CRM114-Status: GOOD (  18.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,176 +103,123 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert the Marvell10G driver to use the generic SFP handling, through a
-dedicated .attach_port() handler to populate the port's supported
-interfaces.
+Convert the at803x driver to use the generic phylib SFP handling, via a
+dedicated .attach_port() callback, populating the supported interfaces.
 
-As the 88x3310 supports multiple MDI, the .attach_port() logic handles
-both SFP attach with 10GBaseR support, and support for the "regular"
-port that usually is a BaseT port.
+As these devices are limited to 1000BaseX, a workaround is used to also
+support, in a very limited way, copper modules. This is done by
+supporting SGMII but limiting it to 1G full duplex (in which case it's
+somwhat compatible with 1000BaseX).
 
 Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 ---
- drivers/net/phy/marvell10g.c | 47 +++++++++++++++++++-----------------
- drivers/net/phy/phy_port.c   | 20 +++++++++++++++
- include/linux/phy_port.h     |  1 +
- 3 files changed, 46 insertions(+), 22 deletions(-)
+ drivers/net/phy/qcom/at803x.c | 64 ++++++++++-------------------------
+ 1 file changed, 17 insertions(+), 47 deletions(-)
 
-diff --git a/drivers/net/phy/marvell10g.c b/drivers/net/phy/marvell10g.c
-index 13e81dff42c1..7cb638804a3f 100644
---- a/drivers/net/phy/marvell10g.c
-+++ b/drivers/net/phy/marvell10g.c
-@@ -28,7 +28,7 @@
- #include <linux/hwmon.h>
- #include <linux/marvell_phy.h>
- #include <linux/phy.h>
+diff --git a/drivers/net/phy/qcom/at803x.c b/drivers/net/phy/qcom/at803x.c
+index 51a132242462..526c88051487 100644
+--- a/drivers/net/phy/qcom/at803x.c
++++ b/drivers/net/phy/qcom/at803x.c
+@@ -20,7 +20,7 @@
+ #include <linux/of.h>
+ #include <linux/phylink.h>
+ #include <linux/reset.h>
 -#include <linux/sfp.h>
 +#include <linux/phy_port.h>
- #include <linux/netdevice.h>
+ #include <dt-bindings/net/qca-ar803x.h>
  
- #define MV_PHY_ALASKA_NBT_QUIRK_MASK	0xfffffffe
-@@ -463,36 +463,31 @@ static int mv3310_set_edpd(struct phy_device *phydev, u16 edpd)
- 	return err;
- }
- 
--static int mv3310_sfp_insert(void *upstream, const struct sfp_eeprom_id *id)
-+static int mv3310_attach_port(struct phy_device *phydev, struct phy_port *port)
- {
--	struct phy_device *phydev = upstream;
--	__ETHTOOL_DECLARE_LINK_MODE_MASK(support) = { 0, };
--	DECLARE_PHY_INTERFACE_MASK(interfaces);
--	phy_interface_t iface;
--
--	sfp_parse_support(phydev->sfp_bus, id, support, interfaces);
--	iface = sfp_select_interface(phydev->sfp_bus, support);
--
--	if (iface != PHY_INTERFACE_MODE_10GBASER) {
--		dev_err(&phydev->mdio.dev, "incompatible SFP module inserted\n");
--		return -EINVAL;
-+	if (port->is_mii) {
-+		__set_bit(PHY_INTERFACE_MODE_10GBASER, port->interfaces);
-+	} else if (port->not_described) {
-+		/* This PHY can do combo-ports, i.e. 2 MDI outputs, usually one
-+		 * of them going to an SFP and the other one to a RJ45
-+		 * connector. If we don't have any representation for the port
-+		 * in DT, and we are dealing with a non-SFP port, then we
-+		 * mask the port's capabilities to report BaseT-only modes
-+		 */
-+		port->mediums = BIT(ETHTOOL_LINK_MEDIUM_BASET);
-+
-+		phy_port_filter_supported(port);
- 	}
-+
+ #include "qcom.h"
+@@ -769,58 +769,28 @@ static int at8031_register_regulators(struct phy_device *phydev)
  	return 0;
  }
  
--static const struct sfp_upstream_ops mv3310_sfp_ops = {
+-static int at8031_sfp_insert(void *upstream, const struct sfp_eeprom_id *id)
++static int at8031_attach_port(struct phy_device *phydev, struct phy_port *port)
+ {
+-	struct phy_device *phydev = upstream;
+-	__ETHTOOL_DECLARE_LINK_MODE_MASK(phy_support);
+-	__ETHTOOL_DECLARE_LINK_MODE_MASK(sfp_support);
+-	DECLARE_PHY_INTERFACE_MASK(interfaces);
+-	phy_interface_t iface;
+-
+-	linkmode_zero(phy_support);
+-	phylink_set(phy_support, 1000baseX_Full);
+-	phylink_set(phy_support, 1000baseT_Full);
+-	phylink_set(phy_support, Autoneg);
+-	phylink_set(phy_support, Pause);
+-	phylink_set(phy_support, Asym_Pause);
+-
+-	linkmode_zero(sfp_support);
+-	sfp_parse_support(phydev->sfp_bus, id, sfp_support, interfaces);
+-	/* Some modules support 10G modes as well as others we support.
+-	 * Mask out non-supported modes so the correct interface is picked.
+-	 */
+-	linkmode_and(sfp_support, phy_support, sfp_support);
+-
+-	if (linkmode_empty(sfp_support)) {
+-		dev_err(&phydev->mdio.dev, "incompatible SFP module inserted\n");
+-		return -EINVAL;
+-	}
++	if (!port->is_mii)
++		return 0;
+ 
+-	iface = sfp_select_interface(phydev->sfp_bus, sfp_support);
++	linkmode_zero(port->supported);
++	phylink_set(port->supported, 1000baseX_Full);
++	phylink_set(port->supported, 1000baseT_Full);
++	phylink_set(port->supported, Autoneg);
++	phylink_set(port->supported, Pause);
++	phylink_set(port->supported, Asym_Pause);
+ 
+-	/* Only 1000Base-X is supported by AR8031/8033 as the downstream SerDes
+-	 * interface for use with SFP modules.
+-	 * However, some copper modules detected as having a preferred SGMII
+-	 * interface do default to and function in 1000Base-X mode, so just
+-	 * print a warning and allow such modules, as they may have some chance
+-	 * of working.
++	/* This device doesn't really support SGMII. However, do our best
++	 * to be compatible with copper modules (that usually require SGMII),
++	 * in a degraded mode as we only allow 1000BaseT Full
+ 	 */
+-	if (iface == PHY_INTERFACE_MODE_SGMII)
+-		dev_warn(&phydev->mdio.dev, "module may not function if 1000Base-X not supported\n");
+-	else if (iface != PHY_INTERFACE_MODE_1000BASEX)
+-		return -EINVAL;
++	__set_bit(PHY_INTERFACE_MODE_SGMII, port->interfaces);
++	__set_bit(PHY_INTERFACE_MODE_1000BASEX, port->interfaces);
+ 
+ 	return 0;
+ }
+ 
+-static const struct sfp_upstream_ops at8031_sfp_ops = {
 -	.attach = phy_sfp_attach,
 -	.detach = phy_sfp_detach,
+-	.module_insert = at8031_sfp_insert,
 -	.connect_phy = phy_sfp_connect_phy,
 -	.disconnect_phy = phy_sfp_disconnect_phy,
--	.module_insert = mv3310_sfp_insert,
 -};
 -
- static int mv3310_probe(struct phy_device *phydev)
+ static int at8031_parse_dt(struct phy_device *phydev)
  {
- 	const struct mv3310_chip *chip = to_mv3310_chip(phydev);
- 	struct mv3310_priv *priv;
- 	u32 mmd_mask = MDIO_DEVS_PMAPMD | MDIO_DEVS_AN;
-+	DECLARE_PHY_INTERFACE_MASK(interfaces);
- 	int ret;
- 
- 	if (!phydev->is_c45 ||
-@@ -543,9 +538,13 @@ static int mv3310_probe(struct phy_device *phydev)
- 	if (ret)
+ 	struct device_node *node = phydev->mdio.dev.of_node;
+@@ -841,8 +811,7 @@ static int at8031_parse_dt(struct phy_device *phydev)
  		return ret;
+ 	}
  
-+	__set_bit(PHY_INTERFACE_MODE_10GBASER, interfaces);
-+
- 	chip->init_supported_interfaces(priv->supported_interfaces);
- 
--	return phy_sfp_probe(phydev, &mv3310_sfp_ops);
-+	phydev->max_n_ports = 2;
-+
+-	/* Only AR8031/8033 support 1000Base-X for SFP modules */
+-	return phy_sfp_probe(phydev, &at8031_sfp_ops);
 +	return 0;
  }
  
- static void mv3310_remove(struct phy_device *phydev)
-@@ -1406,6 +1405,7 @@ static struct phy_driver mv3310_drivers[] = {
- 		.set_loopback	= genphy_c45_loopback,
- 		.get_wol	= mv3110_get_wol,
- 		.set_wol	= mv3110_set_wol,
-+		.attach_port	= mv3310_attach_port,
- 	},
- 	{
- 		.phy_id		= MARVELL_PHY_ID_88X3310,
-@@ -1425,6 +1425,7 @@ static struct phy_driver mv3310_drivers[] = {
- 		.set_tunable	= mv3310_set_tunable,
- 		.remove		= mv3310_remove,
- 		.set_loopback	= genphy_c45_loopback,
-+		.attach_port	= mv3310_attach_port,
- 	},
- 	{
- 		.phy_id		= MARVELL_PHY_ID_88E2110,
-@@ -1445,6 +1446,7 @@ static struct phy_driver mv3310_drivers[] = {
- 		.set_loopback	= genphy_c45_loopback,
- 		.get_wol	= mv3110_get_wol,
- 		.set_wol	= mv3110_set_wol,
-+		.attach_port	= mv3310_attach_port,
- 	},
- 	{
- 		.phy_id		= MARVELL_PHY_ID_88E2110,
-@@ -1463,6 +1465,7 @@ static struct phy_driver mv3310_drivers[] = {
- 		.set_tunable	= mv3310_set_tunable,
- 		.remove		= mv3310_remove,
- 		.set_loopback	= genphy_c45_loopback,
-+		.attach_port	= mv3310_attach_port,
- 	},
- };
- 
-diff --git a/drivers/net/phy/phy_port.c b/drivers/net/phy/phy_port.c
-index 36de8c5c9ad5..cd7ace64ed4b 100644
---- a/drivers/net/phy/phy_port.c
-+++ b/drivers/net/phy/phy_port.c
-@@ -131,6 +131,26 @@ void phy_port_update_supported(struct phy_port *port)
- }
- EXPORT_SYMBOL_GPL(phy_port_update_supported);
- 
-+/**
-+ * phy_port_filter_supported() - Make sure that port->supported match port->mediums
-+ * @port: The port to filter
-+ *
-+ * After updating a port's mediums to a more restricted subset, this helper will
-+ * make sure that port->supported only contains linkmodes that are compatible
-+ * with port->mediums.
-+ */
-+void phy_port_filter_supported(struct phy_port *port)
-+{
-+	__ETHTOOL_DECLARE_LINK_MODE_MASK(supported) = { 0 };
-+	int i;
-+
-+	for_each_set_bit(i, &port->mediums, __ETHTOOL_LINK_MEDIUM_LAST)
-+		phy_caps_medium_get_supported(supported, i, port->lanes);
-+
-+	linkmode_and(port->supported, port->supported, supported);
-+}
-+EXPORT_SYMBOL_GPL(phy_port_filter_supported);
-+
- /**
-  * phy_port_get_type() - get the PORT_* attribut for that port.
-  * @port: The port we want the information from
-diff --git a/include/linux/phy_port.h b/include/linux/phy_port.h
-index f47ac5f5ef9e..ce735d81bcd0 100644
---- a/include/linux/phy_port.h
-+++ b/include/linux/phy_port.h
-@@ -90,6 +90,7 @@ static inline bool phy_port_is_fiber(struct phy_port *port)
- }
- 
- void phy_port_update_supported(struct phy_port *port);
-+void phy_port_filter_supported(struct phy_port *port);
- 
- int phy_port_get_type(struct phy_port *port);
- 
+ static int at8031_probe(struct phy_device *phydev)
+@@ -1173,6 +1142,7 @@ static struct phy_driver at803x_driver[] = {
+ 	.set_tunable		= at803x_set_tunable,
+ 	.cable_test_start	= at8031_cable_test_start,
+ 	.cable_test_get_status	= at8031_cable_test_get_status,
++	.attach_port		= at8031_attach_port,
+ }, {
+ 	/* Qualcomm Atheros AR8032 */
+ 	PHY_ID_MATCH_EXACT(ATH8032_PHY_ID),
 -- 
 2.49.0
 
