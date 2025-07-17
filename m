@@ -4,39 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84ADCC83F22
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 11:08:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1759BC83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 11:10:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k7+9NHA8uHKcSqN4ck0qSZ7hO6Im2rYR1f73RFBsaas=; b=oNm5tQ0pNdQQFQrDW8S4kHv8px
-	enFsTScrPnAiA9VOjgV+nX8iQ/HtbATz//YaGQoTcXiKqLTjP/MCMQxf7wbEZDuR7m0R51aG9X44u
-	b4Po3VfkYXOLAP4P6SzjSb/Fc25SJ/n0naZT5EAeVK0nSwTemMNDtc11zySu8XlbyAN/Y5Z5hWkBt
-	cD77aOXqNkW4IKFcu1vsNIZq0A9gPNsXqDYwo/RdzCERMfvH7hA3Po1nAILfjfC1IsD4UA49DnqwQ
-	s3YHJKJnONdGcma11Ulz8OJJ1eU4CpVZXb9k/QPjQY6Wywx8xfPnEnysyRfJJcXNBkFQkKHB0yXhN
-	B5/35IRA==;
+	bh=U9R78Fe8MYJT+w+RW5iMkiULWXCBwnDJRvcz4OW63rw=; b=KSHIRMiX6RFCLXcAZc3c/xNZoS
+	KrjfTQLAY8Wn49Ek74nU5tRrco3GC03L9Yy9LthLuacuu2kfGiaF+URYiUXE03nS9SDKTO7l1BFpx
+	Py6dApvxl8iii2phlT4TuycY94Z/dCLHYdMS7sKkEWiypO1Y+h8Q7Sp+P+hRQrrBP6q1cDe9YbvUr
+	hdWlj3EQn3aAvbPcftlyzlxXLs9zlcerN725R9KlwkM2eQg1XrEhHs/BvijTNwbpMB3R1PtRYkD73
+	aUQxGoPzgRX+bcg1G/QT/rxsliefGNbuC0HAoeUrfvNHTqIttNylsqC1OZ7BZrg9j3afCpaMTElh4
+	uj9UDGnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucMT3-00000009wnd-2nF8;
-	Thu, 17 Jul 2025 11:08:01 +0000
+	id 1ucMVS-00000009x0v-0GIx;
+	Thu, 17 Jul 2025 11:10:30 +0000
 Received: from smtp.forwardemail.net ([149.28.215.223])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucLzv-00000009rsG-3O5G
+	id 1ucLzw-00000009rsf-0krD
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 17 Jul 2025 10:37:57 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
  h=Content-Transfer-Encoding: MIME-Version: References: In-Reply-To:
  Message-ID: Date: Subject: Cc: To: From; q=dns/txt; s=fe-e1b5cab7be;
- t=1752748675; bh=k7+9NHA8uHKcSqN4ck0qSZ7hO6Im2rYR1f73RFBsaas=;
- b=YjUwodTcSzvR3Kkew3IIEn9XnEKhcSCgJ8rxBxSBM0QTXwTPFp+nP/g61fBPir73WI/snhCuI
- OHUm/nxz1SnF86jIW/GJWY5q4VIjtwew8jj9DBgpDkQ1m2/HSTQk3FhORMmIHIO8sRsYdoPXp3z
- QZmd9YRF6tW0V2v5AcvnUbjennqgEMU8tS8HM5BfaNRhKzntJsQsARnH/huNEwXMXQKXqasSiJj
- SsYd+Zq9oPbWVi6oWLM0ejOkWommB4EMw6RxDs9pOTPYhfDK5UeeTZDwu6a/rUQV3Vs07JuSltd
- KB0yovbgPvUJwGisJzsU32uEElvEozmcJ7TtFrgQkTWw==
-X-Forward-Email-ID: 6878d27c5e51505848fe6067
+ t=1752748675; bh=U9R78Fe8MYJT+w+RW5iMkiULWXCBwnDJRvcz4OW63rw=;
+ b=J8LVFrSt+bDckaCNbPd6b/jGu9dLHe2MJb7TprSiI44H2Y6fUeJOXehPscbLeDiJa5021MvTD
+ N1nUfUmwJszHQLmAUGWENGhWRc6ts2FqsPKB2MBp5GYDlDWc8QAqCW4goGSzsjaMvaKTeMTMqTF
+ PMs/NX4lSG9EcWy3At63O9lokbWXAlmDM/iAUwBTFww3mNOILdlM5GXWMvOGVd9/eYzdvHnPtJY
+ MZl8cI9aI1ibcVe7pHvqGLC66qU9UXyLEQp1sCiBzvKjx/1/1R8Yu57xQqQoY1W0LXZNKu5se7E
+ tbZcLIWJ2wEr8GSrXk0riOG/IL3K3yjz47kyxEPZDGrw==
+X-Forward-Email-ID: 6878d2785e51505848fe602f
 X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
  149.28.215.223
 X-Forward-Email-Version: 1.1.6
@@ -56,20 +56,18 @@ Cc: Yao Zi <ziyao@disroot.org>,
 	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: [PATCH v4 5/6] dt-bindings: arm: rockchip: Add FriendlyElec NanoPi Zero2
-Date: Thu, 17 Jul 2025 10:37:07 +0000
-Message-ID: <20250717103720.2853031-6-jonas@kwiboo.se>
+	Jonas Karlman <jonas@kwiboo.se>
+Subject: [PATCH v4 4/6] arm64: dts: rockchip: Add ArmSoM Sige1
+Date: Thu, 17 Jul 2025 10:37:06 +0000
+Message-ID: <20250717103720.2853031-5-jonas@kwiboo.se>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20250717103720.2853031-1-jonas@kwiboo.se>
 References: <20250717103720.2853031-1-jonas@kwiboo.se>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250717_033755_884920_945C5062 
-X-CRM114-Status: UNSURE (   7.38  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250717_033756_252567_61BF5E90 
+X-CRM114-Status: GOOD (  14.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,38 +82,516 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The NanoPi Zero2 is small single board computer developed by
-FriendlyElec, based on the Rockchip RK3528A SoC.
+The Sige1 is a single board computer developed by ArmSoM, based on the
+Rockchip RK3528A SoC.
 
-Add devicetree binding documentation for the FriendlyElec NanoPi Zero2
-board.
+Add initial device tree for the ArmSoM Sige1 board.
 
 Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 ---
-v4: No change
-v3: Collect a-b tag
-v2: No change
----
- Documentation/devicetree/bindings/arm/rockchip.yaml | 5 +++++
- 1 file changed, 5 insertions(+)
+Changes in v4:
+- Remove disable-wp prop from sdio0 (Chukun Pan)
 
-diff --git a/Documentation/devicetree/bindings/arm/rockchip.yaml b/Documentation/devicetree/bindings/arm/rockchip.yaml
-index 43f6403ecad6..e3d3d483de4a 100644
---- a/Documentation/devicetree/bindings/arm/rockchip.yaml
-+++ b/Documentation/devicetree/bindings/arm/rockchip.yaml
-@@ -325,6 +325,11 @@ properties:
-               - friendlyarm,nanopi-r6s
-           - const: rockchip,rk3588s
- 
-+      - description: FriendlyElec NanoPi Zero2
-+        items:
-+          - const: friendlyarm,nanopi-zero2
-+          - const: rockchip,rk3528
+Changes in v3:
+- Rename led nodes to led-0/led-1 (Chukun Pan)
+- Remove pinctrl* props from sdio0 (Chukun Pan)
+
+Changes in v2:
+- Drop regulator-boot-on from usb 2.0 host regulators (Chukun Pan)
+- Change rfkill to sdio-pwrseq (Chukun Pan)
+- Drop clock-output-names prop from rtc node (Chukun Pan)
+- Add bluetooth and wifi nodes (Chukun Pan)
+- Enable use of DMA for bluetooth on uart2
+
+Schematics: https://drive.google.com/drive/folders/15uvc2lcOAKP0enXezASUhVFLuzkq3IEX
+---
+ arch/arm64/boot/dts/rockchip/Makefile         |   1 +
+ .../boot/dts/rockchip/rk3528-armsom-sige1.dts | 464 ++++++++++++++++++
+ 2 files changed, 465 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3528-armsom-sige1.dts
+
+diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/dts/rockchip/Makefile
+index 4cb6106b16f2..206fb8572cf7 100644
+--- a/arch/arm64/boot/dts/rockchip/Makefile
++++ b/arch/arm64/boot/dts/rockchip/Makefile
+@@ -89,6 +89,7 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3399-rockpro64-screen.dtbo
+ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3399-sapphire.dtb
+ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3399-sapphire-excavator.dtb
+ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3399pro-rock-pi-n10.dtb
++dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3528-armsom-sige1.dtb
+ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3528-radxa-e20c.dtb
+ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3528-rock-2a.dtb
+ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3528-rock-2f.dtb
+diff --git a/arch/arm64/boot/dts/rockchip/rk3528-armsom-sige1.dts b/arch/arm64/boot/dts/rockchip/rk3528-armsom-sige1.dts
+new file mode 100644
+index 000000000000..6e21579365a5
+--- /dev/null
++++ b/arch/arm64/boot/dts/rockchip/rk3528-armsom-sige1.dts
+@@ -0,0 +1,464 @@
++// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
 +
-       - description: FriendlyElec NanoPC T6 series boards
-         items:
-           - enum:
++/dts-v1/;
++
++#include <dt-bindings/input/input.h>
++#include <dt-bindings/leds/common.h>
++#include <dt-bindings/pwm/pwm.h>
++#include "rk3528.dtsi"
++
++/ {
++	model = "ArmSoM Sige1";
++	compatible = "armsom,sige1", "rockchip,rk3528";
++
++	aliases {
++		ethernet0 = &gmac1;
++		i2c0 = &i2c0;
++		mmc0 = &sdhci;
++		mmc1 = &sdmmc;
++		mmc2 = &sdio0;
++		serial0 = &uart0;
++		serial2 = &uart2;
++	};
++
++	chosen {
++		stdout-path = "serial0:1500000n8";
++	};
++
++	adc-keys {
++		compatible = "adc-keys";
++		io-channels = <&saradc 0>;
++		io-channel-names = "buttons";
++		keyup-threshold-microvolt = <1800000>;
++		poll-interval = <100>;
++
++		button-maskrom {
++			label = "MASKROM";
++			linux,code = <KEY_SETUP>;
++			press-threshold-microvolt = <0>;
++		};
++	};
++
++	leds {
++		compatible = "gpio-leds";
++		pinctrl-names = "default";
++		pinctrl-0 = <&g_led>, <&r_led>;
++
++		led-0 {
++			color = <LED_COLOR_ID_GREEN>;
++			default-state = "on";
++			function = LED_FUNCTION_HEARTBEAT;
++			gpios = <&gpio3 RK_PB3 GPIO_ACTIVE_HIGH>;
++			linux,default-trigger = "heartbeat";
++		};
++
++		led-1 {
++			color = <LED_COLOR_ID_RED>;
++			default-state = "on";
++			function = LED_FUNCTION_STATUS;
++			gpios = <&gpio3 RK_PB2 GPIO_ACTIVE_HIGH>;
++			linux,default-trigger = "default-on";
++		};
++	};
++
++	vcc0v6_ddr: regulator-0v6-vcc-ddr {
++		compatible = "regulator-fixed";
++		regulator-name = "vcc0v6_ddr";
++		regulator-always-on;
++		regulator-boot-on;
++		regulator-min-microvolt = <600000>;
++		regulator-max-microvolt = <600000>;
++		vin-supply = <&vcc5v0_sys>;
++	};
++
++	vdd_0v9: regulator-0v9-vdd {
++		compatible = "regulator-fixed";
++		regulator-name = "vdd_0v9";
++		regulator-always-on;
++		regulator-boot-on;
++		regulator-min-microvolt = <900000>;
++		regulator-max-microvolt = <900000>;
++		vin-supply = <&vcc5v0_sys>;
++	};
++
++	vcc_ddr: regulator-1v1-vcc-ddr {
++		compatible = "regulator-fixed";
++		regulator-name = "vcc_ddr";
++		regulator-always-on;
++		regulator-boot-on;
++		regulator-min-microvolt = <1100000>;
++		regulator-max-microvolt = <1100000>;
++		vin-supply = <&vcc5v0_sys>;
++	};
++
++	vcc_1v8: regulator-1v8-vcc {
++		compatible = "regulator-fixed";
++		regulator-name = "vcc_1v8";
++		regulator-always-on;
++		regulator-boot-on;
++		regulator-min-microvolt = <1800000>;
++		regulator-max-microvolt = <1800000>;
++		vin-supply = <&vcc_3v3>;
++	};
++
++	vcc1v8_ddr: regulator-1v8-vcc-ddr {
++		compatible = "regulator-fixed";
++		regulator-name = "vcc1v8_ddr";
++		regulator-always-on;
++		regulator-boot-on;
++		regulator-min-microvolt = <1800000>;
++		regulator-max-microvolt = <1800000>;
++		vin-supply = <&vcc5v0_sys>;
++	};
++
++	vcc_3v3: regulator-3v3-vcc {
++		compatible = "regulator-fixed";
++		regulator-name = "vcc_3v3";
++		regulator-always-on;
++		regulator-boot-on;
++		regulator-min-microvolt = <3300000>;
++		regulator-max-microvolt = <3300000>;
++		vin-supply = <&vcc_dcin>;
++	};
++
++	vcc3v3_sd: regulator-3v3-vcc-sd {
++		compatible = "regulator-fixed";
++		gpios = <&gpio4 RK_PA1 GPIO_ACTIVE_LOW>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&sdmmc_pwren_l>;
++		regulator-name = "vcc3v3_sd";
++		regulator-min-microvolt = <3300000>;
++		regulator-max-microvolt = <3300000>;
++		vin-supply = <&vcc_3v3>;
++	};
++
++	vcc5v0_sys: regulator-5v0-vcc-sys {
++		compatible = "regulator-fixed";
++		regulator-name = "vcc5v0_sys";
++		regulator-always-on;
++		regulator-boot-on;
++		regulator-min-microvolt = <5000000>;
++		regulator-max-microvolt = <5000000>;
++		vin-supply = <&vcc_dcin>;
++	};
++
++	vcc5v0_usb1_host: regulator-5v0-vcc-usb1-host {
++		compatible = "regulator-fixed";
++		enable-active-high;
++		gpios = <&gpio4 RK_PB1 GPIO_ACTIVE_HIGH>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&usb20_host1_drv_h>;
++		regulator-name = "vcc5v0_usb1_host";
++		regulator-always-on;
++		regulator-min-microvolt = <5000000>;
++		regulator-max-microvolt = <5000000>;
++		vin-supply = <&vcc5v0_sys>;
++	};
++
++	vcc5v0_usb2_host: regulator-5v0-vcc-usb2-host {
++		compatible = "regulator-fixed";
++		enable-active-high;
++		gpios = <&gpio4 RK_PB0 GPIO_ACTIVE_HIGH>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&usb20_host2_drv_h>;
++		regulator-name = "vcc5v0_usb2_host";
++		regulator-always-on;
++		regulator-min-microvolt = <5000000>;
++		regulator-max-microvolt = <5000000>;
++		vin-supply = <&vcc5v0_sys>;
++	};
++
++	vcc5v0_usb_otg: regulator-5v0-vcc-usb-otg {
++		compatible = "regulator-fixed";
++		enable-active-high;
++		gpios = <&gpio1 RK_PB4 GPIO_ACTIVE_HIGH>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&usb20_otg0_drv_h>;
++		regulator-name = "vcc5v0_usb_otg";
++		regulator-min-microvolt = <5000000>;
++		regulator-max-microvolt = <5000000>;
++		vin-supply = <&vcc5v0_sys>;
++	};
++
++	vcc_dcin: regulator-vcc-dcin {
++		compatible = "regulator-fixed";
++		regulator-name = "vcc_dcin";
++		regulator-always-on;
++		regulator-boot-on;
++	};
++
++	vccio_sd: regulator-vccio-sd {
++		compatible = "regulator-gpio";
++		gpios = <&gpio4 RK_PC2 GPIO_ACTIVE_LOW>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&sdmmc_vol_ctrl_h>;
++		regulator-name = "vccio_sd";
++		regulator-min-microvolt = <1800000>;
++		regulator-max-microvolt = <3300000>;
++		states = <1800000 0x0>, <3300000 0x1>;
++		vin-supply = <&vcc5v0_sys>;
++	};
++
++	vdd_arm: regulator-vdd-arm {
++		compatible = "pwm-regulator";
++		pwms = <&pwm3 0 5000 PWM_POLARITY_INVERTED>;
++		pwm-supply = <&vcc5v0_sys>;
++		regulator-name = "vdd_arm";
++		regulator-always-on;
++		regulator-boot-on;
++		regulator-min-microvolt = <746000>;
++		regulator-max-microvolt = <1201000>;
++		regulator-settling-time-up-us = <250>;
++	};
++
++	vdd_logic: regulator-vdd-logic {
++		compatible = "pwm-regulator";
++		pwms = <&pwm2 0 5000 PWM_POLARITY_INVERTED>;
++		pwm-supply = <&vcc5v0_sys>;
++		regulator-name = "vdd_logic";
++		regulator-always-on;
++		regulator-boot-on;
++		regulator-min-microvolt = <705000>;
++		regulator-max-microvolt = <1006000>;
++		regulator-settling-time-up-us = <250>;
++	};
++
++	sdio_pwrseq: sdio-pwrseq {
++		compatible = "mmc-pwrseq-simple";
++		pinctrl-names = "default";
++		pinctrl-0 = <&wifi_reg_on_h>, <&clkm1_32k_out>;
++		post-power-on-delay-ms = <200>;
++		reset-gpios = <&gpio1 RK_PA6 GPIO_ACTIVE_LOW>;
++	};
++};
++
++&cpu0 {
++	cpu-supply = <&vdd_arm>;
++};
++
++&cpu1 {
++	cpu-supply = <&vdd_arm>;
++};
++
++&cpu2 {
++	cpu-supply = <&vdd_arm>;
++};
++
++&cpu3 {
++	cpu-supply = <&vdd_arm>;
++};
++
++&gmac1 {
++	clock_in_out = "output";
++	phy-handle = <&rgmii_phy>;
++	phy-mode = "rgmii-id";
++	phy-supply = <&vcc_3v3>;
++	pinctrl-names = "default";
++	pinctrl-0 = <&rgmii_miim>, <&rgmii_tx_bus2>, <&rgmii_rx_bus2>,
++		    <&rgmii_rgmii_clk>, <&rgmii_rgmii_bus>;
++	status = "okay";
++};
++
++&gpu {
++	mali-supply = <&vdd_logic>;
++	status = "okay";
++};
++
++&i2c0 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&i2c0m0_xfer>;
++	status = "okay";
++
++	hym8563: rtc@51 {
++		compatible = "haoyu,hym8563";
++		reg = <0x51>;
++		#clock-cells = <0>;
++		interrupt-parent = <&gpio4>;
++		interrupts = <RK_PA0 IRQ_TYPE_LEVEL_LOW>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&rtc_int_l>;
++		wakeup-source;
++	};
++};
++
++&mdio1 {
++	rgmii_phy: ethernet-phy@1 {
++		compatible = "ethernet-phy-ieee802.3-c22";
++		reg = <0x1>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&gmac1_rstn_l>;
++		reset-assert-us = <20000>;
++		reset-deassert-us = <100000>;
++		reset-gpios = <&gpio4 RK_PB5 GPIO_ACTIVE_LOW>;
++	};
++};
++
++&pinctrl {
++	bluetooth {
++		bt_reg_on_h: bt-reg-on-h {
++			rockchip,pins = <1 RK_PC1 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++
++		bt_wake_host_h: bt-wake-host-h {
++			rockchip,pins = <1 RK_PC2 RK_FUNC_GPIO &pcfg_pull_down>;
++		};
++
++		host_wake_bt_h: host-wake-bt-h {
++			rockchip,pins = <3 RK_PC3 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++	};
++
++	ethernet {
++		gmac1_rstn_l: gmac1-rstn-l {
++			rockchip,pins = <4 RK_PB5 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++	};
++
++	leds {
++		g_led: g-led {
++			rockchip,pins = <3 RK_PB3 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++
++		r_led: r-led {
++			rockchip,pins = <3 RK_PB2 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++	};
++
++	rtc {
++		rtc_int_l: rtc-int-l {
++			rockchip,pins = <4 RK_PA0 RK_FUNC_GPIO &pcfg_pull_up>;
++		};
++	};
++
++	sdmmc {
++		sdmmc_vol_ctrl_h: sdmmc-vol-ctrl-h {
++			rockchip,pins = <4 RK_PC2 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++
++		sdmmc_pwren_l: sdmmc-pwren-l {
++			rockchip,pins = <4 RK_PA1 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++	};
++
++	usb {
++		usb20_host1_drv_h: usb20-host1-drv-h {
++			rockchip,pins = <4 RK_PB1 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++
++		usb20_host2_drv_h: usb20-host2-drv-h {
++			rockchip,pins = <4 RK_PB0 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++
++		usb20_otg0_drv_h: usb20-otg0-drv-h {
++			rockchip,pins = <1 RK_PB4 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++	};
++
++	wifi {
++		wifi_reg_on_h: wifi-reg-on-h {
++			rockchip,pins = <1 RK_PA6 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++
++		wifi_wake_host_h: wifi-wake-host-h {
++			rockchip,pins = <1 RK_PA7 RK_FUNC_GPIO &pcfg_pull_down>;
++		};
++	};
++};
++
++&pwm2 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pwm2m0_pins>;
++	status = "okay";
++};
++
++&pwm3 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pwm3m0_pins>;
++	status = "okay";
++};
++
++&saradc {
++	vref-supply = <&vcc_1v8>;
++	status = "okay";
++};
++
++&sdhci {
++	bus-width = <8>;
++	cap-mmc-highspeed;
++	mmc-hs200-1_8v;
++	no-sd;
++	no-sdio;
++	non-removable;
++	vmmc-supply = <&vcc_3v3>;
++	vqmmc-supply = <&vcc_1v8>;
++	status = "okay";
++};
++
++&sdio0 {
++	bus-width = <4>;
++	cap-sd-highspeed;
++	cap-sdio-irq;
++	keep-power-in-suspend;
++	mmc-pwrseq = <&sdio_pwrseq>;
++	no-mmc;
++	no-sd;
++	non-removable;
++	sd-uhs-sdr104;
++	vmmc-supply = <&vcc_3v3>;
++	vqmmc-supply = <&vcc_1v8>;
++	#address-cells = <1>;
++	#size-cells = <0>;
++	status = "okay";
++
++	wifi@1 {
++		compatible = "brcm,bcm4329-fmac";
++		reg = <1>;
++		clocks = <&cru CLK_DEEPSLOW>;
++		clock-names = "lpo";
++		interrupt-parent = <&gpio1>;
++		interrupts = <RK_PA7 IRQ_TYPE_LEVEL_HIGH>;
++		interrupt-names = "host-wake";
++		pinctrl-names = "default";
++		pinctrl-0 = <&wifi_wake_host_h>;
++	};
++};
++
++&sdmmc {
++	bus-width = <4>;
++	cap-mmc-highspeed;
++	cap-sd-highspeed;
++	disable-wp;
++	sd-uhs-sdr104;
++	vmmc-supply = <&vcc3v3_sd>;
++	vqmmc-supply = <&vccio_sd>;
++	status = "okay";
++};
++
++&uart0 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&uart0m0_xfer>;
++	status = "okay";
++};
++
++&uart2 {
++	dma-names = "tx", "rx";
++	pinctrl-names = "default";
++	pinctrl-0 = <&uart2m1_xfer>, <&uart2m1_ctsn>, <&uart2m1_rtsn>;
++	uart-has-rtscts;
++	status = "okay";
++
++	bluetooth {
++		compatible = "brcm,bcm43438-bt";
++		clocks = <&cru CLK_DEEPSLOW>;
++		clock-names = "lpo";
++		device-wakeup-gpios = <&gpio3 RK_PC3 GPIO_ACTIVE_HIGH>;
++		interrupt-parent = <&gpio1>;
++		interrupts = <RK_PC2 IRQ_TYPE_LEVEL_HIGH>;
++		interrupt-names = "host-wakeup";
++		pinctrl-names = "default";
++		pinctrl-0 = <&bt_reg_on_h>, <&bt_wake_host_h>, <&host_wake_bt_h>;
++		shutdown-gpios = <&gpio1 RK_PC1 GPIO_ACTIVE_HIGH>;
++		vbat-supply = <&vcc_3v3>;
++		vddio-supply = <&vcc_1v8>;
++	};
++};
 -- 
 2.50.1
 
