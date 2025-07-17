@@ -4,53 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8948DC83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 14:12:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BEC3C83F22
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 14:14:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZqRo0xnVJ0Po4fomawgerlSqa+dCsT5m2tPaoMqXUuk=; b=32AALioo2Z/w7D1WjHdU3WwWQd
-	jtvcLLt6ZPW1N0PivOfnaeRTP5G/rXiSuor89tjG08OeCLiyElgq9Oms6+L2WnTmT54utzX2Fgjhk
-	i8bCvPz/y8bnE5uSPipwIQazj873A/pKOBRH7zxzKrbkt0XchEKuYfQwwfw8cqVebo8f/XBIMjOaC
-	PG+nR8X/ZdHRE6ikP+x0K7/bmLDpCXdO5ifW7MpDcSzBph1Wi7uuJsx/6m0RvProqvMGga0LJbgu/
-	nNHQ2ga4IaiHVNQORUQcc6oRU4U07PMSX2UdxdpgOCJZnHzEtbpFOnB5acgcz3dK66w490E3fcIJc
-	qguF9+MA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3WStEEHxM7hIolT44TcmXxeaXFZn2SEfRQGztdT2zzA=; b=dnp+bkhd5tMG/dqrY6u1D849A0
+	RHDEKR+nUmNo5aON1zpC9ILcKkQwRy0HOl0O0pI9w+pxu2tU6HJ9oEWf5HhESwUndt38IW9M6/uJw
+	ALFPirlHE/ucg9xaA77pLh2ox8Gn1B7tLYyBLT4UuQfyR2p6zWizsPLTEO9u82NMT8SRWxLxtDKxm
+	kMttlrJ/Zksvqn6IhOD6hTo2b/38n0rOe7GGdRcBMnCacxdYw6/w5vg1hlGLoF9rO7L8PLuzogMt6
+	C1n/iHi7tCajoXKhKn45yW8wctm1UL+yN0CRntJ6b6zTn1bgm1/9+ZkyheKSt+sC+jCacMIkjvVXk
+	c+lh5jSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucPLC-0000000AKpf-1sFS;
-	Thu, 17 Jul 2025 14:12:06 +0000
-Received: from ni.piap.pl ([195.187.100.5])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucOHJ-0000000ACoR-1Pqd;
-	Thu, 17 Jul 2025 13:04:03 +0000
-Received: from t19.piap.pl (OSB1819.piap.pl [10.0.9.19])
-	by ni.piap.pl (Postfix) with ESMTPS id B1AF0C3E4DEE;
-	Thu, 17 Jul 2025 15:03:54 +0200 (CEST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 ni.piap.pl B1AF0C3E4DEE
-From: =?utf-8?Q?Krzysztof_Ha=C5=82asa?= <khalasa@piap.pl>
-To: Dafna Hirschfeld <dafna@fastmail.com>
-Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,  Heiko Stuebner
- <heiko@sntech.de>,  Paul Elder <paul.elder@ideasonboard.com>,  Jacopo
- Mondi <jacopo.mondi@ideasonboard.com>,  Ondrej Jirman <megi@xff.cz>,
-  linux-media@vger.kernel.org,  linux-rockchip@lists.infradead.org,
-  linux-arm-kernel@lists.infradead.org,  linux-kernel@vger.kernel.org
-Subject: Re: FYI: i.MX8MP ISP (RKISP1) MI registers corruption
-In-Reply-To: <m3h5zbxkc6.fsf@t19.piap.pl> ("Krzysztof =?utf-8?Q?Ha=C5=82as?=
- =?utf-8?Q?a=22's?= message of
-	"Thu, 17 Jul 2025 11:00:57 +0200")
-References: <m3h5zbxkc6.fsf@t19.piap.pl>
-Date: Thu, 17 Jul 2025 15:03:54 +0200
-Message-ID: <m38qknx939.fsf@t19.piap.pl>
+	id 1ucPNd-0000000ALDU-0GO1;
+	Thu, 17 Jul 2025 14:14:37 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ucOKI-0000000ADMu-29xW
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 17 Jul 2025 13:07:07 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0F67B1596;
+	Thu, 17 Jul 2025 06:06:56 -0700 (PDT)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CB6613F694;
+	Thu, 17 Jul 2025 06:07:01 -0700 (PDT)
+Date: Thu, 17 Jul 2025 14:06:56 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: =?utf-8?B?5YiY5rW354eVIChIYWl5YW4gTGl1KQ==?= <haiyan.liu@unisoc.com>
+Cc: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"rust-for-linux@vger.kernel.org" <rust-for-linux@vger.kernel.org>,
+	=?utf-8?B?5Luj5a2Q5Li6IChaaXdlaSBEYWkp?= <Ziwei.Dai@unisoc.com>,
+	=?utf-8?B?5ZGo5bmzIChQaW5nIFpob3UvOTAzMik=?= <Ping.Zhou1@unisoc.com>,
+	=?utf-8?B?5p2o5Li95aicIChMaW5hIFlhbmcp?= <lina.yang@unisoc.com>,
+	=?utf-8?B?546L5Y+MIChTaHVhbmcgV2FuZyk=?= <shuang.wang@unisoc.com>,
+	Alice Ryhl <aliceryhl@google.com>, Miguel Ojeda <ojeda@kernel.org>,
+	Matthew Maurer <mmaurer@google.com>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Sami Tolvanen <samitolvanen@google.com>
+Subject: Re: Meet compiled kernel binaray abnormal issue while enabling
+ generic kasan in kernel 6.12 with some default KBUILD_RUSTFLAGS on
+Message-ID: <aHj1cKzCaDDsHLHe@J2N7QTR9R3>
+References: <3655537d80024fc8bccb7874dfed4c73@BJMBX01.spreadtrum.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <3655537d80024fc8bccb7874dfed4c73@BJMBX01.spreadtrum.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250717_060401_537471_DD5B5966 
-X-CRM114-Status: UNSURE (   7.73  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250717_060706_642961_535E17F5 
+X-CRM114-Status: GOOD (  29.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,80 +73,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> The "reference" (NXP) VVCam driver simply does the operations twice
-> (i.e., reads twice with the first result discarded, and writes twice).
-> This fixes the problem on most accesses, but the problems still persist.
+On Thu, Jul 17, 2025 at 11:25:00AM +0000, 刘海燕 (Haiyan Liu) wrote:
+> > -----邮件原件-----
+> > 发件人: Mark Rutland <mark.rutland@arm.com>
 
-It appears the corruptions are quite frequent, though.
-Using "ldp qXX, qYY, [x0]" (2 * 128-bit load pair) I get results like
-this (each data row is a result of a single ldp):
+> > From a quick scan, I think this might have something to do with UNWIND_PATCH_PAC_INTO_SCS, notes below.
+> > 
+> > On Mon, Jul 14, 2025 at 03:12:33AM +0000, 刘海燕 (Haiyan Liu) wrote:
+> > > I am enabling generic kasan feature in kernel 6.12, and met kernel boot crash.
+> > > Unable to handle kernel NULL pointer dereference at virtual address
+> > > 0000000000000008 pc : do_basic_setup+0x6c/0xac lr :
+> > > do_basic_setup+0x88/0xac sp : ffffffc080087e40
 
-addr:  32E21400 32E21404 32E21408 32E2140C 32E21410 32E21414 32E21418 32E21=
-41C
----------------------------------------------------------------------------=
------
-values 3D000007       20 3C300000   1FA400        0        0        0 3C380=
-000 count 99993097
-values        0       20 3C300000   1FA400        0        0        0 3C380=
-000 count 5930
-values    7E900       20 3C300000   1FA400        0        0        0 3C380=
-000 count 338
-values    FD200       20 3C300000   1FA400        0        0        0 3C380=
-000 count 223
-values 3C380000       20 3C300000   1FA400        0        0        0 3C380=
-000 count 220
-values       40       20 3C300000   1FA400        0        0        0 3C380=
-000 count 192
+> > Here you evidently have shadow call stack enabled...
+> > 
+> > > NSX:FFFFFFC0800A8478|D503233F  asan.module_ctor:    paciasp
+> > > NSX:FFFFFFC0800A847C|A9BF7BFD                       stp     x29,x30,[sp,#-0x10]!   ; x29,x30,[sp,#-16]!
+> > > NSX:FFFFFFC0800A8480|910003FD                       mov     x29,sp
+> > > NSX:FFFFFFC0800A8484|B0023420                       adrp    x0,0xFFFFFFC08472D000
+> > > NSX:FFFFFFC0800A8488|913E0000                       add     x0,x0,#0xF80     ; x0,x0,#3968
+> > > NSX:FFFFFFC0800A848C|52800021                       mov     w1,#0x1          ; w1,#1
+> > > NSX:FFFFFFC0800A8490|9422AF35                       bl      0xFFFFFFC080954164   ; __asan_register_globals
+> > > NSX:FFFFFFC0800A8494|A8C17BFD                       ldp     x29,x30,[sp],#0x10   ; x29,x30,[sp],#16
+> > > NSX:FFFFFFC0800A8498|D50323BF                       autiasp
+> > > NSX:FFFFFFC0800A849C|D65F03C0                       ret
+> > 
+> > ... but here you evidently don't, and have PAC instead.
 
-The valid value (in 0x32E21400 register) is 3D000007 only, the rest are
-corruptions: ca. 6 errors per 100k reads. With other registers, 15 errors
-per 100k reads etc.
+> > Are these decoded from the static kernel binary, or are these dumps
+> > from memory once a kernel has booted (or is in the process of
+> > booting)?
+> 
+>  These are dumped from memory during the kernel booted by trace32.
 
-I also got this:
-addr:  32E213F0 32E213F4 32E213F8 32E213FC 32E21400 32E21404 32E21408 32E21=
-40C
----------------------------------------------------------------------------=
------
-values        0        0        0        0 3D000007       20 3C300000   1FA=
-400 count 98638773
-values        0        0        0        0        0       20 3C300000   1FA=
-400 count 1330227
-values        0        0        0        0       40       20 3C300000   1FA=
-400 count 3721
-values        0        0        0        0 3C380000       20 3C300000   1FA=
-400 count 314
-values        0        0        0        0    7E900       20 3C300000   1FA=
-400 count 572
-values        0        0        0        0    FD200       20 3C300000   1FA=
-400 count 428
-values        0        0        0        0    4C010       20 3C300000   1FA=
-400 count 25965
+At which point have you dumped the memory contents? e.g. has the kernel
+booted to a prompt before you make the dump, or have you stopped the
+kernel early during the boot process?
 
-which is ca. 14 errors per 1k reads, though maybe it's special -
-non-MI/MI boundary (at 0x32E21400), reserved addresses (0x32E213Fx) etc.
+Are you certain this is dumped *after* scs_patch() has run?
 
-> The problems show themselves maybe in 5% or 10% of boots.
+> > > But actually, in two asan.module_ctor functions, there is only autiasp  instruction inserted before return, for validation of return address,
+> > while paciasp instruction is missing before.
+> > > NSX:FFFFFFC0800A72D8|F800865E  asan.module_ctor:    str     x30,[x18],#0x8   ; x30,[x18],#8
+> > > NSX:FFFFFFC0800A72DC|F81F0FFE                       str     x30,[sp,#-0x10]!   ; x30,[sp,#-16]!
+> > > NSX:FFFFFFC0800A72E0|B00233C0                       adrp    x0,0xFFFFFFC084720000
+> > > NSX:FFFFFFC0800A72E4|91350000                       add     x0,x0,#0xD40     ; x0,x0,#3392
+> > > NSX:FFFFFFC0800A72E8|52803D61                       mov     w1,#0x1EB        ; w1,#491
+> > > NSX:FFFFFFC0800A72EC|9422B39E                       bl      0xFFFFFFC080954164   ; __asan_register_globals
+> > > NSX:FFFFFFC0800A72F0|F84107FE                       ldr     x30,[sp],#0x10   ; x30,[sp],#16
+> > > NSX:FFFFFFC0800A72F4|D50323BF                       autiasp
+> > > NSX:FFFFFFC0800A72F8|D65F03C0                       ret
+> > 
+> > Thas has a mixture of SCS and PAC; there's a shadow call stack prologue but a PAC epilogue:
+> > 
+> >         str     x30, [x18], #8  // SCS
+> >         ...
+> >         autiasp                 // PAC
+> 
+> Yes, this is my issue and I wanted to resolve.
+> 
+> > ... so I'll hazard a guess that these are dumps from memory, 
 
-Well, now it appears more like 20%: e.g. in 41 system runs (soft reboots
-only, no power-downs), I got problems 8 times.
+This was confirmed above...
 
-Obviously I can post the tester source if anyone is interested.
+> > and you have UNWIND_PATCH_PAC_INTO_SCS selected.
 
+... can you please confirm this? i.e. does your config have
+CONFIG_UNWIND_PATCH_PAC_INTO_SCS selected?
 
-Generally ISP MI register read accesses which can be corrupted are:
-- first 32 bits read in a given transfer, and additionally
-- every 32 bits on a 32-byte boundary (addresses 0x....00, ...20 etc.).
+> > Assuming that is the case, either this dump has been made
+> > mid-patching, or the patching has gone wrong somehow and left the
+> > prologues/epilogues in an inconsistent state (and the NULL
+> > dereference could be a secondary effect of that).
+> >
+> > Ard, does that sound plausible to you?
+> >
+> > I can't see why that would depend on KBUILD_RUSTFLAGS, but maybe the DWARF generated by rustc has confused the patching code
+> > somehow, or the linker has aggregated that in a suprising way.
+> > Mark.
+> 
+>   Yes, Thank you. What can cause this issue? Can you give some
+>   directions so that we can gradually investigate.
 
-This means, in practice, on i.MX8MP only, RKISP1_CIF_MI_CTRL and
-RKISP1_CIF_MI_MP_CB_SIZE_INIT (with the workaround).
+Find out specifically where the affected asan.module_ctor functions are
+from, i.e. whether they're generated by rustc or the C compiler that
+you're using.
 
-What is this 32-byte boundary?
+Go and read scs_patch(), see what it does, and check the data it
+consumes.
 
-Writing is a bigger problem, though.
---=20
-Krzysztof "Chris" Ha=C5=82asa
+See if rustc is generating DWARF as we expect or not.
 
-Sie=C4=87 Badawcza =C5=81ukasiewicz
-Przemys=C5=82owy Instytut Automatyki i Pomiar=C3=B3w PIAP
-Al. Jerozolimskie 202, 02-486 Warszawa
+See if the linker is combining that correctly into the resulting
+vmlinux, and that this correctly propagates into the resulting Image.
+
+Mark.
 
