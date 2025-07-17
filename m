@@ -4,54 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CE39C83F34
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 15:21:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2968C83F34
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 15:24:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DlD6AuVRVDatK+VtWeA658+FAtt02mo9vv0HvJ1zP58=; b=w0iQP2VyA9AaoRbOhRyLABrfsE
-	mLVyLZ22jBUSKiaIxW7RRlUvF4GW9+lGrQPOHvT3wxhxnhbCupfsR/uNwcFcmr1SJjt4eQWNSX9xc
-	ungY7bWhFayqaCTDSfxJ7XWnk+KcQwQXKXY7wbg3AoYJqOooTrXDxhdsg9KXf84BfOMxSBC4DyGO7
-	xEEqufypNdFqorJEMwBfZHJ3szrUcY/5kQuYmWoU1mNKefKtLVEj0sHRyjbMITYMAXO9tDr0B0cbQ
-	D39hv2c/s1em8PwQ6YedZnUIu361Y9rWRVwXJ8n8S4i/NNJ9gkc1NRYjo4Dj9X+TYj9Q0uWDvgW7p
-	js2YDq0g==;
+	bh=OFoZFsmVBgIgOnRb6v56ZyJVL3iVN9nED2Us643BX3E=; b=40FeOU9lcGevrFZH9ZM37YqMmW
+	WYKEipK98deCamiHfW6T61zreu4dY4RLkwZeFeFqimcVt58cfAGiDuOW/JSU5t79fALWNnTKAFnVu
+	PgAMInotpKB/5q6xvkpX8RmnptZDf+DXXJ4O8262b9nY5bNJyCmnIY314j9lW3mtG2XuMJpumAQ27
+	X6fwicr6rIAuQnzCvXrjmcvujeJbSvu9S/UwhKI3RVe5gtYbWoDa3MlebNAYD11Ya+RVHf4Gku1Em
+	bY5GuM918T45rFSyhcF6unaIFPL9MUaQGIZ/lXmZlQRW0w51pfRVmlve5TVQimYErtnCYW7dZvTKh
+	ZOPC1KQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucQQP-0000000AUuI-31Ww;
-	Thu, 17 Jul 2025 15:21:33 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucOxM-0000000AIDJ-1SOj
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Jul 2025 13:47:29 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 59B981596;
-	Thu, 17 Jul 2025 06:47:19 -0700 (PDT)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 09E543F694;
-	Thu, 17 Jul 2025 06:47:25 -0700 (PDT)
-Date: Thu, 17 Jul 2025 14:47:23 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: Nathan Chancellor <nathan@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
-	D Scott Phillips <scott@os.amperecomputing.com>,
-	Mark Brown <broonie@kernel.org>
-Subject: Re: Revisiting c0a454b9044f
-Message-ID: <aHj-6xGYQ6RDvUHE@J2N7QTR9R3>
-References: <20250714195205.GA3723043@ax162>
- <aHY4d46ehF-j_pbw@J2N7QTR9R3>
- <20250716182641.GA2746700@ax162>
+	id 1ucQSp-0000000AV07-25fM;
+	Thu, 17 Jul 2025 15:24:03 +0000
+Received: from mail-ua1-x92a.google.com ([2607:f8b0:4864:20::92a])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ucP0s-0000000AIXq-1KXA;
+	Thu, 17 Jul 2025 13:51:07 +0000
+Received: by mail-ua1-x92a.google.com with SMTP id a1e0cc1a2514c-881114808e4so577816241.3;
+        Thu, 17 Jul 2025 06:51:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1752760265; x=1753365065; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=OFoZFsmVBgIgOnRb6v56ZyJVL3iVN9nED2Us643BX3E=;
+        b=iUzNWGS5qcmCdTRMeiCwdF7MkTOom+N3g6zIWIHIvufJTQSjbwhQU3FUAjkGxnPOAI
+         UYQAsKmXcKUacmwOaDWu5lPiEIyEK9JGJcXu111SEZuNBAHqN5fEnRUjZdYfaXA0nxJV
+         +ffAtSd4FKFnb5DzUa0fU0zprlqpA6YYz/fovXnyJdY7PuIWnMscDUxxj4DznDBCodlJ
+         /OsbXJnXVH0Q2wQFNVBHXwotqfrUZAmxjMYvbP2EqrdYTyhHB0xscpmrBb7u+uxixw4i
+         1p+BzvKifggSECYRPCJx27FpS/1pUEV2gwqnlSEbJbK5e3k/nTRCcghSqX/uwVt/NN3K
+         U+UA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1752760265; x=1753365065;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=OFoZFsmVBgIgOnRb6v56ZyJVL3iVN9nED2Us643BX3E=;
+        b=pW+/C5HpzlzUdLDRMzh7976lmU2kvKE7cPiwoZpFt6cM47S2+rrqz62zcBjDyqyX+9
+         +LoAQhs99VGLKGoSiBtyJf0LDP0FS/q3W5JLuxyFaH4g4O2xvblQuYFWg/wEs+E9NPll
+         yID+eDfY+fi1BtsfnisfgNeu12xfPTmNjlru/ZYYNVx20xPTGSXzZ1OB0gZFy0z7y80P
+         dQwvrIzqQ9N8JkJVBV1wpjxrEf5YxlYxw5yhj5GJ/eJDZxDNsKNs1jNqpPdcNtxx1TP4
+         ProeqU98jwUNyHFQ+usiLRbCLe8c0Yc9CZCzlT0M/Eov+i1pRvFs/brab47JxFNYBxov
+         Xxpw==
+X-Forwarded-Encrypted: i=1; AJvYcCVqDBYwWYRfYp7BdqS7P2XCfw2xO14XeRbXygcgYoNv46TgQ864mJH4VXAi4S0JYzYgcjatD9QMvpECN3pSMmqY@lists.infradead.org, AJvYcCX8RL8Bnq22Iq91IE6UYcPkdmxS4qTY7NQOT6YPFXNkVvAPI4Pt2qOlMd2t06nQP3jMFU66oeyGucekOU36xzI=@lists.infradead.org
+X-Gm-Message-State: AOJu0YznENbcWNiaIEf5br4ZETG2BJovOVc+BdX+wMK7Ut0BlJmXAqqU
+	NzhDStdNoxsC4MpnnqLnac/jGbFLvLfybq5iRwfEjs1xYdSFJM2Eu8oT
+X-Gm-Gg: ASbGncsCHr5rnh8ooabkWgvUjsnYyRKBMjn3418y5rybN3isUc9y23UhLhGbY4FsPQx
+	4N2IloOJick2qMPyX3aSqtvGm8wanNZnJ+gMOPFM/6UXKx3DAFoLOrn1t+KWHioZwRf9E5YodWI
+	BFdLNMe1W+k7E/Y7Ujn5DRXOsTVOzKsrXHTG7ivVIROToK+vilEY6u4BCON9yJWMEPWG+FsiLs2
+	eWd7O417B9nqCDfwxwDEBqEKfyLfy1n8FX+sEkhOKY1XQ0U2COrNmLzc7KbokVtJA0J5/cH/rcz
+	GgYKRojrffUTqf/q6pbBAvdcafH7KsLgVK2mA8mqrB58appo6XGs52hn49Xeh2ybzvUtBz1/+Xm
+	nVaCV6CoCxg==
+X-Google-Smtp-Source: AGHT+IGzgyrDUgDH08RDqZ3hkrbd5Lom3WMZY7KIBjhCX4qRVfQkKF54K0pt01hz0j8j+3pC5nv9qg==
+X-Received: by 2002:a05:6102:4421:b0:4e7:dbd2:4604 with SMTP id ada2fe7eead31-4f8999bcbeamr4068557137.17.1752760264477;
+        Thu, 17 Jul 2025 06:51:04 -0700 (PDT)
+Received: from geday ([2804:7f2:800b:2246::dead:c001])
+        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-4f62faf5ec1sm2853884137.23.2025.07.17.06.51.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 17 Jul 2025 06:51:03 -0700 (PDT)
+Date: Thu, 17 Jul 2025 10:50:49 -0300
+From: Geraldo Nascimento <geraldogabriel@gmail.com>
+To: Manivannan Sadhasivam <mani@kernel.org>
+Cc: Shawn Lin <shawn.lin@rock-chips.com>,
+	linux-rockchip@lists.infradead.org,
+	Hugh Cole-Baker <sigmaris@gmail.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Heiko Stuebner <heiko@sntech.de>, linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [RFC PATCH v3 2/3] PCI: rockchip-host: Retry link training on
+ failure without PERST#
+Message-ID: <aHj_ue-eFQu_NgHd@geday>
+References: <cover.1749582046.git.geraldogabriel@gmail.com>
+ <b7c09279b4a7dbdba92543db9b9af169776bd90c.1749582046.git.geraldogabriel@gmail.com>
+ <zuiq3b2rsixymtjr3xzrb26clikvlja62wgj65umnse4kuk75c@x5qan73ispxe>
+ <aFk-MeIWFcBiGBPr@geday>
+ <djbhz7qfyzrn7mdqmvqhyh6yjsjyigjly7py4f7aj5f4qbabou@67gk3qdnvzws>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250716182641.GA2746700@ax162>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <djbhz7qfyzrn7mdqmvqhyh6yjsjyigjly7py4f7aj5f4qbabou@67gk3qdnvzws>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250717_064728_468827_EA33CF03 
-X-CRM114-Status: GOOD (  26.76  )
+X-CRM114-CacheID: sfid-20250717_065106_371527_1FBD0C57 
+X-CRM114-Status: GOOD (  23.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,87 +110,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 16, 2025 at 12:26:41PM -0600, Nathan Chancellor wrote:
-> On Tue, Jul 15, 2025 at 12:16:07PM +0100, Mark Rutland wrote:
-> > The concern from the kernel side is simply whether we get unexpected BTI
-> > failures. IIUC so long as compiler and linker agree we should be good,
-> > and we simply need to forbid broken combinations.
+On Thu, Jul 17, 2025 at 05:59:32PM +0530, Manivannan Sadhasivam wrote:
+> On Mon, Jun 23, 2025 at 08:44:49AM GMT, Geraldo Nascimento wrote:
+> > On Mon, Jun 23, 2025 at 05:29:46AM -0600, Manivannan Sadhasivam wrote:
+> > > On Tue, Jun 10, 2025 at 04:05:40PM -0300, Geraldo Nascimento wrote:
+> > > > +reinit:
+> > > 
+> > > So this reinit part only skips the PERST# assert, but calls
+> > > rockchip_pcie_init_port() which resets the Root Port including PHY. I don't
+> > > think it is safe to do it if PERST# is wired.
+> > 
+> > I don't understand, could you be a bit more verbose on why do you
+> > think this is dangerous?
+> > 
 > 
-> Mark Brown did mention something about the module loader as well so I
-> was not sure if that was relevant here.
+> When the Root Port and PHY gets reset, there is a good chance that the refclk
+> would also be cutoff. So if that happens without PERST# assert, then the device
+> has no chance to clean its state machine. If the device gets its own refclk,
+> then it is a different story, but we should not make assumptions.
 
-Sorry, I had forgotten anout that, and that is a concern.
+Hi Mani, thank you for your time spent looking into this!
 
-If a single module has executable sections placed more than 128MiB apart
-we'd potentially have the same problem with any cross-section branch.
-Truly handling that would be quite tricky and require a fair amount of
-rework, so the best bet is probably to reject loading modules that are
-too large (or where we specifically find such cross-section branches
-needing veneers).
+I'm not sure if the following information helps, but patch 2 of this
+series disables the PCIe 3.3V always-on/boot-on through DT. That was
+not incidental, and in fact it is required for patch 1 to work.
 
-Note that exported symbols and address-taken functions should have a
-BTI, so this only really matters for cross-section calls within a single
-module.
+Then, if you follow the proposed code change, you will see that power
+is effectively cut via disabling the power regulators, even before
+disabling the clocks. So there's effectively zero chance of corrupting
+the endpoint device state machine, since the device is power-cycled.
 
-I suspect it should be relatively simple but I'm not sure exactly where
-to plumb that in. I can put that on my TODO list if no-one gets around
-to it.
+While I understand we should not make assumptions on kernel work, and
+that the patch is unmergeable on its current form (it's a goddamn hack),
+it does empirically alleviate a very real report, that of known-good
+working devices refusing to cooperate with Rockchip-IP PCIe.
 
-> > > Or should the kernel adjust its expectations now that the ABI and
-> > > toolchains all agree?
-> > 
-> > Yes, we can probably rework this.
-> > 
-> > IIUC we'd need to forbid BTI with:
-> > 
-> > * GCC + old GNU LD
-> > * GCC + old LLD
-> > * new clang + old GNU LD
-> > * new clang + old LLD
-> > 
-> > ... and can enable BTI otherwise.
-> > 
-> > Does that make sense to you?
+I agree we should wait on Shawn Lin's feedback.
+
+Thank you,
+Geraldo Nascimento
+
 > 
-> So something like this if I understand correctly?
+> - Mani
 > 
-> Cheers,
-> Nathan
-> 
-> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> index 393d71124f5d..fe523f9f2d61 100644
-> --- a/arch/arm64/Kconfig
-> +++ b/arch/arm64/Kconfig
-> @@ -2097,7 +2097,11 @@ config ARM64_BTI_KERNEL
->  	# https://gcc.gnu.org/bugzilla/show_bug.cgi?id=94697
->  	depends on !CC_IS_GCC || GCC_VERSION >= 100100
->  	# https://gcc.gnu.org/bugzilla/show_bug.cgi?id=106671
-> -	depends on !CC_IS_GCC
-> +	# https://sourceware.org/bugzilla/show_bug.cgi?id=30076
-> +	depends on !CC_IS_GCC || LD_VERSION >= 24100 || LLD_VERSION >= 210000
-> +	# https://github.com/llvm/llvm-project/commit/7af2b51e761f49974a64c3009882239cea618f2a
-> +	# https://github.com/llvm/llvm-project/commit/098b0d18add97dea94e16006486b2fded65e228d
-> +	depends on !CC_IS_CLANG || CLANG_VERSION < 210000 || (CLANG_VERSION >= 210000 && (LD_VERSION >= 24100 || LLD_VERSION >= 210000))
-
-Yep, something like that.
-
-I was thinking that we could factor this out into a separate config,
-like we have for BUILTIN_RETURN_ADDRESS_STRIPS_PAC, as that'll make it
-easier to avoid duplication, e.g.
-
-| config TOOLCHAIN_HAS_WORKING_BTI
-| 	bool
-| 	# https://gcc.gnu.org/bugzilla/show_bug.cgi?id=94697
-| 	default n if CC_IS_GCC && GCC_VERSION < 100100
-|	# Newer LD/LLD handle BTI in veneers automatically
-| 	default y if LD_IS_LLD && LLD_VERSION >= 210000
-| 	default y if LD_IS_GNU && LD_VERSION >= 24100
-| 	# Newer clang requires newer LD/LLD above
-| 	default y if CC_IS_CLANG && CLANG_VERSION < 210000
-| 	default n
-
-... and we can easily extend that to handle fixed stable versions, like with
-BUILTIN_RETURN_ADDRESS_STRIPS_PAC.
-
-Mark.
+> -- 
+> மணிவண்ணன் சதாசிவம்
 
