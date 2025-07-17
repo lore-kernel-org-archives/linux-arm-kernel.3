@@ -4,54 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7B5AC83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 23:35:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07871C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 23:38:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p9nb4+HuUbLHT0nPoaXq8rPVIIkeznEeRR3Cry5eQV0=; b=UsJO5oFU7yf4zrP5Hnoh5Hr+gK
-	AcvkJFjYRt+B8jyOkndtm5WM/KSPWJj5OyP5wRlcy6N/srHDcTh3h8Mr3UvwdUVzVRUke4hRkxEj3
-	4Ws3ke1DTj9KUPSIkbQvpvntTtYpLlBcC4mgPr3pj8WlJtn5pKOjjUd/Kx7cEug6MF33JS7jmRgCC
-	cfoQ9H9TGFUEzkDZbm/msUjhlNNUT3OMtkYbp6dxJ7HOfU4hsrbsf0sDIJ8RIrBdwLfK/E/ULZH93
-	wzgTRtxTwKitFurdjBJJPj8uy9QyEd7it6PXQYNwo3//A8xkAqb4H35JcgBIyruF0Uq86Rd8sNLCU
-	E+jWJuAA==;
+	bh=ChtZ/qkZniTa98imgF/hybF0gSiormIisVha96eCkyA=; b=3P3D7Qh8Iw5Jq5YM1oXOkwY6ZB
+	4QtByEHSmoqgLmTfL2TZgG72tKTMiBXFjH4rNapTbBi9D3zB62TWZRa4EvLvqgkraOT+GYNOzONK5
+	JSHk+S3lpOFOoy4jZE1xGaisBULRXy2EWi2Npfcb5IvX63KFsfrWD8qqxVWl/0yf/C1N06lEjh0z3
+	27afWo1VnbxpktIw9DdChSVvE+2wPNbITlmllXocWgjfxJsoIH2kL3So2u3bT45km8YtafMw/K72h
+	LfvdYVLHrh6gH/hrqGt/9Z+BDTj5WBH/brQkria1aFqBxSZdBiuqfrqhHWorOFubYYipjfvAoeIsT
+	h4g0ypeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucY8N-0000000BJxG-3Ssg;
-	Thu, 17 Jul 2025 23:35:27 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1ucYAp-0000000BKVU-3byC;
+	Thu, 17 Jul 2025 23:37:59 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucXyc-0000000BGsE-29yJ;
-	Thu, 17 Jul 2025 23:25:22 +0000
+	id 1ucXyb-0000000BGrU-3bu1;
+	Thu, 17 Jul 2025 23:25:23 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 50C9061401;
+	by sea.source.kernel.org (Postfix) with ESMTP id 2518645D21;
 	Thu, 17 Jul 2025 23:25:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8A518C19424;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 71E24C116B1;
 	Thu, 17 Jul 2025 23:25:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1752794720;
-	bh=w4dfSlEX1TBFugBqGp8JAUT2yBh6pSwtKD0mxGK1YQU=;
+	bh=ClXmyf5tYbBw+sj2/5CbB5OIJFvi5W3ekaTQ6nQnftI=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=bCLGzgvXVHsHkz8w3Y0Kb2UmtdjsIVjMDj9d4MbqlBY2vMFC06YtJ8ndKGIbuwa4T
-	 cTP6dtj6xqil4DQudwS8dDj06vEw0tdANDNY4YWGYpv9PBYCZV7PzKOyZ20A3DqmIk
-	 GoL2uVHjWuIIwUnzP5LSkfJEjV/ENP7/xGPvPrKD5vizLyb9mhYCmDeaooINsuO4xm
-	 unrjEQZvM3C5gvqrYkyStpgP4R+W5gIXbatg6wHTzD7uaZLrZVYwsHz9djIrXk1hCu
-	 dOEphjp1hPldDWw3cfeJYEoVkoG/ytzYmICpWeNgkb9M3gseDiqbCDsFjvUvuvY+6k
-	 VQE2gjmuFnegA==
+	b=rkHtSj4laX1uwxJb9+itmvRPgqj/a9zzxR6dZs4Rcw+Zv2wOFRy/Jlli8Sx5Lrc3O
+	 Mqxty6XZGkll/puwlIlPFh8MrhhtzDs0cP5iFaZYX9Yhb977fQ8919R6Ng1LwBxbXc
+	 XB1+ko2d4Fj5tbTCaZ0iGdJ88LXvmbN3xLk3FycYbr0IANV4iUfcSdApSDABHGQcu3
+	 1xO4j6AL3ufiRwzjOs758tFgmoTRSohX9hFAnsx5uvmO4v5aHPFsYvgIxL3Xum7v0b
+	 5PagtpHqQl2Rn4WnRM5u0ozPH67yHuAG46YTpaHeRRTtSJYlsnv5hqw9IA6Hp3QTPj
+	 jASKKjUdVM2Qg==
 From: Kees Cook <kees@kernel.org>
 To: Arnd Bergmann <arnd@arndb.de>
 Cc: Kees Cook <kees@kernel.org>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
-	Gaosheng Cui <cuigaosheng1@huawei.com>,
-	linux-s390@vger.kernel.org,
+	Nishanth Menon <nm@ti.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Santosh Shilimkar <ssantosh@kernel.org>,
+	Lee Jones <lee@kernel.org>,
+	Allison Randal <allison@lohutok.net>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	linux-arm-kernel@lists.infradead.org,
 	Ingo Molnar <mingo@kernel.org>,
 	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
 	Christoph Hellwig <hch@lst.de>,
@@ -68,9 +69,9 @@ Cc: Kees Cook <kees@kernel.org>,
 	x86@kernel.org,
 	kasan-dev@googlegroups.com,
 	linux-doc@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
 	kvmarm@lists.linux.dev,
 	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
 	linux-efi@vger.kernel.org,
 	linux-hardening@vger.kernel.org,
 	linux-kbuild@vger.kernel.org,
@@ -78,16 +79,19 @@ Cc: Kees Cook <kees@kernel.org>,
 	linux-kselftest@vger.kernel.org,
 	sparclinux@vger.kernel.org,
 	llvm@lists.linux.dev
-Subject: [PATCH v3 07/13] s390: Handle KCOV __init vs inline mismatches
-Date: Thu, 17 Jul 2025 16:25:12 -0700
-Message-Id: <20250717232519.2984886-7-kees@kernel.org>
+Subject: [PATCH v3 05/13] arm: Handle KCOV __init vs inline mismatches
+Date: Thu, 17 Jul 2025 16:25:10 -0700
+Message-Id: <20250717232519.2984886-5-kees@kernel.org>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250717231756.make.423-kees@kernel.org>
 References: <20250717231756.make.423-kees@kernel.org>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2371; i=kees@kernel.org; h=from:subject; bh=w4dfSlEX1TBFugBqGp8JAUT2yBh6pSwtKD0mxGK1YQU=; b=owGbwMvMwCVmps19z/KJym7G02pJDBmVbdG/2KY8Xu85O2j+4nWyVw/mC3Emf3168P7KWTN/x p5rPzPPrKOUhUGMi0FWTJElyM49zsXjbXu4+1xFmDmsTCBDGLg4BWAiD+QZGT4bhW+wyPBOq197 8b3pj39iU253eKhfucT7+XV+gIb17DkM/738av/xuz8z5jvAWfzMWOHsI8UljCZsWs2/wlaI/f6 Yzg0A
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3532; i=kees@kernel.org; h=from:subject; bh=ClXmyf5tYbBw+sj2/5CbB5OIJFvi5W3ekaTQ6nQnftI=; b=owGbwMvMwCVmps19z/KJym7G02pJDBmVbdHzv79/XV1xJstusdnUqKz7Z5dHlrE6aFlJyp1qZ dnzg2NTRykLgxgXg6yYIkuQnXuci8fb9nD3uYowc1iZQIYwcHEKwEReKTD8D5xT9f+GLcsH7/OS +p2zDZ+FrQrRdJgsff/Ac9fi4/Fb0xn+p9lw+6n86zbZmHZD0rOutDS+/8HNzd1tb3IiBPnKK6Y zAwA=
 X-Developer-Key: i=kees@kernel.org; a=openpgp; fpr=A5C3F68F229DD60F723E6E138972F4DFDC6DC026
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250717_162521_940114_33A7FD02 
+X-CRM114-Status: GOOD (  14.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,66 +110,95 @@ When KCOV is enabled all functions get instrumented, unless
 the __no_sanitize_coverage attribute is used. To prepare for
 __no_sanitize_coverage being applied to __init functions, we have to
 handle differences in how GCC's inline optimizations get resolved. For
-s390 this exposed a place where the __init annotation was missing but
-ended up being "accidentally correct". Fix this cases and force a couple
-functions to be inline with __always_inline.
+arm this exposed several places where __init annotations were missing
+but ended up being "accidentally correct". Fix these cases and force
+several functions to be inline with __always_inline.
 
-Acked-by: Heiko Carstens <hca@linux.ibm.com>
+Acked-by: Nishanth Menon <nm@ti.com>
 Signed-off-by: Kees Cook <kees@kernel.org>
 ---
-Cc: Heiko Carstens <hca@linux.ibm.com>
-Cc: Vasily Gorbik <gor@linux.ibm.com>
-Cc: Alexander Gordeev <agordeev@linux.ibm.com>
-Cc: Christian Borntraeger <borntraeger@linux.ibm.com>
-Cc: Sven Schnelle <svens@linux.ibm.com>
-Cc: Gerald Schaefer <gerald.schaefer@linux.ibm.com>
-Cc: Gaosheng Cui <cuigaosheng1@huawei.com>
-Cc: <linux-s390@vger.kernel.org>
+Cc: Russell King <linux@armlinux.org.uk>
+Cc: Daniel Lezcano <daniel.lezcano@linaro.org>
+Cc: Thomas Gleixner <tglx@linutronix.de>
+Cc: Nishanth Menon <nm@ti.com>
+Cc: Santosh Shilimkar <ssantosh@kernel.org>
+Cc: Lee Jones <lee@kernel.org>
+Cc: Allison Randal <allison@lohutok.net>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: <linux-arm-kernel@lists.infradead.org>
 ---
- arch/s390/hypfs/hypfs.h      | 2 +-
- arch/s390/hypfs/hypfs_diag.h | 2 +-
- arch/s390/mm/init.c          | 2 +-
- 3 files changed, 3 insertions(+), 3 deletions(-)
+ include/linux/mfd/dbx500-prcmu.h  | 2 +-
+ arch/arm/mm/cache-feroceon-l2.c   | 2 +-
+ arch/arm/mm/cache-tauros2.c       | 2 +-
+ drivers/clocksource/timer-orion.c | 2 +-
+ drivers/soc/ti/pm33xx.c           | 2 +-
+ 5 files changed, 5 insertions(+), 5 deletions(-)
 
-diff --git a/arch/s390/hypfs/hypfs.h b/arch/s390/hypfs/hypfs.h
-index 83ebf54cca6b..4dc2e068e0ff 100644
---- a/arch/s390/hypfs/hypfs.h
-+++ b/arch/s390/hypfs/hypfs.h
-@@ -48,7 +48,7 @@ void hypfs_sprp_exit(void);
+diff --git a/include/linux/mfd/dbx500-prcmu.h b/include/linux/mfd/dbx500-prcmu.h
+index 98567623c9df..828362b7860c 100644
+--- a/include/linux/mfd/dbx500-prcmu.h
++++ b/include/linux/mfd/dbx500-prcmu.h
+@@ -213,7 +213,7 @@ struct prcmu_fw_version {
  
- int __hypfs_fs_init(void);
+ #if defined(CONFIG_UX500_SOC_DB8500)
  
--static inline int hypfs_fs_init(void)
-+static __always_inline int hypfs_fs_init(void)
+-static inline void prcmu_early_init(void)
++static inline void __init prcmu_early_init(void)
  {
- 	if (IS_ENABLED(CONFIG_S390_HYPFS_FS))
- 		return __hypfs_fs_init();
-diff --git a/arch/s390/hypfs/hypfs_diag.h b/arch/s390/hypfs/hypfs_diag.h
-index 7090eff27fef..b5218135b8fe 100644
---- a/arch/s390/hypfs/hypfs_diag.h
-+++ b/arch/s390/hypfs/hypfs_diag.h
-@@ -19,7 +19,7 @@ int diag204_store(void *buf, int pages);
- int __hypfs_diag_fs_init(void);
- void __hypfs_diag_fs_exit(void);
- 
--static inline int hypfs_diag_fs_init(void)
-+static __always_inline int hypfs_diag_fs_init(void)
- {
- 	if (IS_ENABLED(CONFIG_S390_HYPFS_FS))
- 		return __hypfs_diag_fs_init();
-diff --git a/arch/s390/mm/init.c b/arch/s390/mm/init.c
-index 074bf4fb4ce2..e4953453d254 100644
---- a/arch/s390/mm/init.c
-+++ b/arch/s390/mm/init.c
-@@ -142,7 +142,7 @@ bool force_dma_unencrypted(struct device *dev)
+ 	db8500_prcmu_early_init();
+ }
+diff --git a/arch/arm/mm/cache-feroceon-l2.c b/arch/arm/mm/cache-feroceon-l2.c
+index 25dbd84a1aaf..2bfefb252ffd 100644
+--- a/arch/arm/mm/cache-feroceon-l2.c
++++ b/arch/arm/mm/cache-feroceon-l2.c
+@@ -295,7 +295,7 @@ static inline u32 read_extra_features(void)
+ 	return u;
  }
  
- /* protected virtualization */
--static void pv_init(void)
-+static void __init pv_init(void)
+-static inline void write_extra_features(u32 u)
++static inline void __init write_extra_features(u32 u)
  {
- 	if (!is_prot_virt_guest())
- 		return;
+ 	__asm__("mcr p15, 1, %0, c15, c1, 0" : : "r" (u));
+ }
+diff --git a/arch/arm/mm/cache-tauros2.c b/arch/arm/mm/cache-tauros2.c
+index b1e1aba602f7..bfe166ccace0 100644
+--- a/arch/arm/mm/cache-tauros2.c
++++ b/arch/arm/mm/cache-tauros2.c
+@@ -177,7 +177,7 @@ static inline void __init write_actlr(u32 actlr)
+ 	__asm__("mcr p15, 0, %0, c1, c0, 1\n" : : "r" (actlr));
+ }
+ 
+-static void enable_extra_feature(unsigned int features)
++static void __init enable_extra_feature(unsigned int features)
+ {
+ 	u32 u;
+ 
+diff --git a/drivers/clocksource/timer-orion.c b/drivers/clocksource/timer-orion.c
+index 49e86cb70a7a..61f1e27fc41e 100644
+--- a/drivers/clocksource/timer-orion.c
++++ b/drivers/clocksource/timer-orion.c
+@@ -43,7 +43,7 @@ static struct delay_timer orion_delay_timer = {
+ 	.read_current_timer = orion_read_timer,
+ };
+ 
+-static void orion_delay_timer_init(unsigned long rate)
++static void __init orion_delay_timer_init(unsigned long rate)
+ {
+ 	orion_delay_timer.freq = rate;
+ 	register_current_timer_delay(&orion_delay_timer);
+diff --git a/drivers/soc/ti/pm33xx.c b/drivers/soc/ti/pm33xx.c
+index dfdff186c805..dc52a2197d24 100644
+--- a/drivers/soc/ti/pm33xx.c
++++ b/drivers/soc/ti/pm33xx.c
+@@ -145,7 +145,7 @@ static int am33xx_do_sram_idle(u32 wfi_flags)
+ 	return pm_ops->cpu_suspend(am33xx_do_wfi_sram, wfi_flags);
+ }
+ 
+-static int __init am43xx_map_gic(void)
++static int am43xx_map_gic(void)
+ {
+ 	gic_dist_base = ioremap(AM43XX_GIC_DIST_BASE, SZ_4K);
+ 
 -- 
 2.34.1
 
