@@ -4,110 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34283C83F22
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 13:57:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86F46C83F22
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 13:59:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eKH30b7BMC6pPxd1XOUXuJlcdzMn1Xji0dDCwsMpuMo=; b=MaluzPBlOrG7G5GegtLxREaKPY
-	7KIRxX/LdqaW7Q2Sev5OfdPksMBwLahW3F28NzdPk34kKIBIYtabTMWIHK+SZeW7ZyJMZuTlrKD7a
-	pqOdcEy9ojiVD2D8KZdN4TaWpfDsDvAE5uzq7OOqj1src9LXoCdrAPnjW4RTFyB9D35uyOpBw1kc7
-	Mi+KtixheLYi3O9LbkDo+TKdzBLDgpGzmujzjCzYtRi7CLqs0r+na50SLT6rW7nmTt1kFpjfgz5NX
-	bA3ZCjq70ry0f1Y+KBOKqBeEvWQm7ELlZCPhQZLSb80vJzshsUz5/aOLwOpN9+SnuIOwJzO3V7KB8
-	MXQVGqIQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:Subject:References:Cc:To:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=c0Dgq398SWqsv0xGVYrsHLUK2zfzUks/6cy5jNdhTwA=; b=I2TcImR4UxDXQmH3yQX0jA71TM
+	6S2bR9Kfue7Lo2rb04Iex96GPaNw1XllvnlNaJb7rAPGB0nr7KKX+Ggtuj6p+tAp3FSJyEbUqYipg
+	nnCg6wBtD0XMhx88KIgUDNj2juwJyAegbkEpbLkf/U6L0RGPrfzU9zkD8fck64t2mUG49BKEgooZz
+	ShVE2xIksgvQxGq59r5MRH+MKFvOnkzxn0WIW9xIonUnu/w/fyDoVrRFqPtsUz7Qd3KNDkt3PBdrz
+	H7Wxx39ux5dYY19G0MVt6oP9ko1YCMhAKaLzniUIDsTcNxeLKssFWCsshMQ2ToOvF3OX1UuItvtxi
+	5LxgK/wQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucP6j-0000000AJ9A-2slY;
-	Thu, 17 Jul 2025 13:57:09 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1ucP9A-0000000AJXH-2Bym;
+	Thu, 17 Jul 2025 13:59:40 +0000
+Received: from mout.web.de ([212.227.17.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucO7g-0000000AAj7-0VG0
+	id 1ucOA1-0000000AB8f-3iI1
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Jul 2025 12:54:05 +0000
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56HBQHZw030393;
-	Thu, 17 Jul 2025 12:53:56 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	eKH30b7BMC6pPxd1XOUXuJlcdzMn1Xji0dDCwsMpuMo=; b=Mhez8FarNqxY2lX+
-	QQXRXEE4+r3zM5Gjg4xP12wBQcUOMCM07FEogFSh3Vjmg6Xvw21jg4LGuoGbu9DZ
-	ottkb+oZ4SwS/IpepXHTfxOuUlempd+RIy6STLax18UudyAlrYVWPNVXsAAidiD6
-	hMztDDMpYFV0TG6stErQd2MfM7+ESalnuXucOLQirlCD6wdDghKQIyD3c83WEhyj
-	9e6BL94F363tHK0THNayns7zqO+S8yuAQEDOkDNHg+OXVpE1xWUTxyK4GkloIlZX
-	AnUSi/HDovgyA7Q4YoqZyQ7FttyQdta4uNE96VcgeiHZ5LGp90esGJ8Php6ceGj8
-	y2dUyQ==
-Received: from nalasppmta02.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 47x8x7mh93-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 17 Jul 2025 12:53:56 +0000 (GMT)
-Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
-	by NALASPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 56HCrtuX002077
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 17 Jul 2025 12:53:55 GMT
-Received: from hu-jinlmao-lv.qualcomm.com (10.49.16.6) by
- nalasex01a.na.qualcomm.com (10.47.209.196) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1748.10; Thu, 17 Jul 2025 05:53:54 -0700
-From: Mao Jinlong <quic_jinlmao@quicinc.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Mike Leach
-	<mike.leach@linaro.org>, James Clark <james.clark@arm.com>,
-        Rob Herring
-	<robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
-	<conor+dt@kernel.org>,
-        Mathieu Poirier <mathieu.poirier@linaro.org>,
-        "Bjorn
- Andersson" <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>
-CC: Mao Jinlong <quic_jinlmao@quicinc.com>, <coresight@lists.linaro.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>
-Subject: [PATCH v9 2/2] coresight: Add label sysfs node support
-Date: Thu, 17 Jul 2025 05:53:42 -0700
-Message-ID: <20250717125343.3820505-3-quic_jinlmao@quicinc.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20250717125343.3820505-1-quic_jinlmao@quicinc.com>
-References: <20250717125343.3820505-1-quic_jinlmao@quicinc.com>
+	Thu, 17 Jul 2025 12:56:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1752756982; x=1753361782; i=markus.elfring@web.de;
+	bh=c0Dgq398SWqsv0xGVYrsHLUK2zfzUks/6cy5jNdhTwA=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:References:
+	 Subject:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 cc:content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=lCv/XBJ2x8MA9jBzvMANgdBzpFvEqJZVEOAMYPbbv5czqaixHrqIl4mX+F7c+RE0
+	 M/Tb4gBYU0eJPCzhcBMcLArXijEDliBtqUst5qdIktM+QpCEp4xsDiUVBrEKdRB5m
+	 nqjD09AhuhzYmmTDkDOw9LYXPlng3OB3XZIGXWcHBNoj2h4UsOAvu0GXsw9MyP/lu
+	 PW0Av0vh5L8lz9Xp/YCyZ47G+BTMnZFm8dT0nZiDJ2ziyu5YsHwrMUrJcmzD/B2MR
+	 kqbS57yi5gkSLDRubTtvC43UjYcdccxnAegBcTL9eYd1H8WNU3geHGyaGfvMKvsRG
+	 QIUV21CXMbZcUGrzYQ==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from [192.168.178.29] ([94.31.69.185]) by smtp.web.de (mrweb105
+ [213.165.67.124]) with ESMTPSA (Nemesis) id 1MjxeE-1v0QIf3sG8-00bPwF; Thu, 17
+ Jul 2025 14:56:21 +0200
+Message-ID: <4c677fdb-e6d6-4961-b911-78aaa28130e6@web.de>
+Date: Thu, 17 Jul 2025 14:56:15 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.49.16.6]
-X-ClientProxiedBy: nalasex01a.na.qualcomm.com (10.47.209.196) To
- nalasex01a.na.qualcomm.com (10.47.209.196)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNzE3MDExMyBTYWx0ZWRfX+Sj+H+ADN44L
- d5pieJ5SQN97zatfruJw+jttsfqVQ/2Ywxtfik94kWNtJXg2DsLZlC8DlQtxNPTOfoZyhZu4bi4
- gXQHof02ujnU9ysi3y7MT0MfpIDYYuDZIqlxnqgy/2DI8om9wSH+I8Bv1s14pkoBs54XzlB5fNw
- wilgLf9+7HPhAKKjC+37oPxSNmAdnQjGfJAk+7yhSEuUsjbENvbDnt/1CFRAXHnPrII56DO3L89
- SmEHOmGVPCCoQjOWKTvb+xPxKL3+H90P8hWK2cuHlCODOQIs4ELipYMJYSwHR4JRutyKYpUNmsf
- z2HbkN8ofxgzAL9E7NK3kbthigW8+NAMz4o2IbvgTBu9Q/xObT23kCbo+N8Vg7ZZXY1M8QfaOrA
- o3kUeGwBtj9mCh4jBhLqezxjJIFouZmMdtH1aafQIt7Y5btrvVkMGLNRYtZCBFQACwx63euj
-X-Proofpoint-GUID: NMkHASZxKmoPe39pxl4Noh8c99PFPcVj
-X-Proofpoint-ORIG-GUID: NMkHASZxKmoPe39pxl4Noh8c99PFPcVj
-X-Authority-Analysis: v=2.4 cv=N9YpF39B c=1 sm=1 tr=0 ts=6878f264 cx=c_pps
- a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
- a=3H110R4YSZwA:10 a=Wb1JkmetP80A:10 a=COk6AnOGAAAA:8 a=KKAkSRfTAAAA:8
- a=7CQSdrXTAAAA:8 a=TYLdrY_46NNtcs5PGGUA:9 a=TjNXssC_j7lpFel5tvFf:22
- a=cvBusfyB2V15izCimMoJ:22 a=a-qgeE7W1pNrGK8U0ZQC:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-07-17_01,2025-07-17_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 lowpriorityscore=0 mlxlogscore=999 bulkscore=0 adultscore=0
- priorityscore=1501 clxscore=1015 mlxscore=0 suspectscore=0 impostorscore=0
- phishscore=0 malwarescore=0 classifier=spam authscore=0 authtc=n/a authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2505280000
- definitions=main-2507170113
+User-Agent: Mozilla Thunderbird
+To: Himanshu Mittal <h-mittal1@ti.com>, netdev@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+Cc: LKML <linux-kernel@vger.kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, MD Danish Anwar <danishanwar@ti.com>,
+ Meghana Malladi <m-malladi@ti.com>, Paolo Abeni <pabeni@redhat.com>,
+ prajith@ti.com, Pratheesh Gangadhar <pratheesh@ti.com>,
+ Simon Horman <horms@kernel.org>, Sriramakrishnan <srk@ti.com>,
+ Roger Quadros <rogerq@kernel.org>, Vignesh Raghavendra <vigneshr@ti.com>
+References: <20250717094220.546388-1-h-mittal1@ti.com>
+Subject: Re: [PATCH net v3] net: ti: icssg-prueth: Fix buffer allocation for
+ ICSSG
+Content-Language: en-GB, de-DE
+From: Markus Elfring <Markus.Elfring@web.de>
+In-Reply-To: <20250717094220.546388-1-h-mittal1@ti.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:dvFpaitgATAn9Spja7xoTYCvaq5BvkujF8BPlDw5/Gm7fRy8aiH
+ uSzSc/ZpxTMcSBrIl513g7PDjhmkSZk+GlDF3xVPz+ICNwGWe1exx79CjW0XOvT9F8UXueo
+ uUifKtgNNbxDDlLdEDlUKe4y4olEhowlpOd5HqmSop8hYvLiYpaEmcn8oXtkpLlCwbN4qG5
+ k21Z+2oTFlFmaRiKpPRsA==
+UI-OutboundReport: notjunk:1;M01:P0:I7+okI5HW0I=;KVc7WKXuK/RBHn7IP17dT5Fj5nF
+ 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
+ Swhho=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250717_055404_281317_C5549C7D 
-X-CRM114-Status: GOOD (  21.34  )
+X-CRM114-CacheID: sfid-20250717_055630_232122_E5D2E2BB 
+X-CRM114-Status: UNSURE (   8.20  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,290 +140,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-For some coresight components like CTI and TPDM, there could be
-numerous of them. From the node name, we can only get the type and
-register address of the component. We can't identify the HW or the
-system the component belongs to. Add label sysfs node support for
-showing the intuitive name of the device.
+=E2=80=A6
+> +++ b/drivers/net/ethernet/ti/icssg/icssg_config.c
+> @@ -288,8 +288,12 @@ static int prueth_fw_offload_buffer_setup(struct pr=
+ueth_emac *emac)
+>  	int i;
+> =20
+>  	addr =3D lower_32_bits(prueth->msmcram.pa);
+> -	if (slice)
+> -		addr +=3D PRUETH_NUM_BUF_POOLS * PRUETH_EMAC_BUF_POOL_SIZE;
+> +	if (slice) {
+> +		if (prueth->pdata.banked_ms_ram)
+> +			addr +=3D MSMC_RAM_BANK_SIZE;
+> +		else
+> +			addr +=3D PRUETH_SW_TOTAL_BUF_SIZE_PER_SLICE;
+> +	}
+=E2=80=A6
 
-Signed-off-by: Mao Jinlong <quic_jinlmao@quicinc.com>
-Reviewed-by: Mike Leach <mike.leach@linaro.org>
----
- .../testing/sysfs-bus-coresight-devices-cti   |  6 ++
- .../sysfs-bus-coresight-devices-dummy-source  |  6 ++
- .../testing/sysfs-bus-coresight-devices-etb10 |  6 ++
- .../testing/sysfs-bus-coresight-devices-etm3x |  6 ++
- .../testing/sysfs-bus-coresight-devices-etm4x |  6 ++
- .../sysfs-bus-coresight-devices-funnel        |  6 ++
- .../testing/sysfs-bus-coresight-devices-stm   |  6 ++
- .../testing/sysfs-bus-coresight-devices-tmc   |  6 ++
- .../testing/sysfs-bus-coresight-devices-tpdm  |  6 ++
- .../testing/sysfs-bus-coresight-devices-trbe  |  6 ++
- drivers/hwtracing/coresight/coresight-sysfs.c | 71 ++++++++++++++++++-
- 11 files changed, 129 insertions(+), 2 deletions(-)
+Would you like to use the following code variant?
 
-diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices-cti b/Documentation/ABI/testing/sysfs-bus-coresight-devices-cti
-index a97b70f588da..55367bbc696f 100644
---- a/Documentation/ABI/testing/sysfs-bus-coresight-devices-cti
-+++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-cti
-@@ -239,3 +239,9 @@ Date:		March 2020
- KernelVersion:	5.7
- Contact:	Mike Leach or Mathieu Poirier
- Description:	(Write) Clear all channel / trigger programming.
-+
-+What:           /sys/bus/coresight/devices/<cti-name>/label
-+Date:           Jul 2025
-+KernelVersion   6.17
-+Contact:        Mao Jinlong <quic_jinlmao@quicinc.com>
-+Description:    (Read) Show hardware context information of device.
-diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices-dummy-source b/Documentation/ABI/testing/sysfs-bus-coresight-devices-dummy-source
-index 0830661ef656..9a11bd5b15cc 100644
---- a/Documentation/ABI/testing/sysfs-bus-coresight-devices-dummy-source
-+++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-dummy-source
-@@ -13,3 +13,9 @@ KernelVersion:	6.14
- Contact:	Mao Jinlong <quic_jinlmao@quicinc.com>
- Description:	(R) Show the trace ID that will appear in the trace stream
- 		coming from this trace entity.
-+
-+What:           /sys/bus/coresight/devices/dummy_source<N>/label
-+Date:           Jul 2025
-+KernelVersion   6.17
-+Contact:        Mao Jinlong <quic_jinlmao@quicinc.com>
-+Description:    (Read) Show hardware context information of device.
-diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices-etb10 b/Documentation/ABI/testing/sysfs-bus-coresight-devices-etb10
-index 9a383f6a74eb..ff1f89795188 100644
---- a/Documentation/ABI/testing/sysfs-bus-coresight-devices-etb10
-+++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-etb10
-@@ -19,6 +19,12 @@ Description:	(RW) Disables write access to the Trace RAM by stopping the
- 		into the Trace RAM following the trigger event is equal to the
- 		value stored in this register+1 (from ARM ETB-TRM).
- 
-+What:           /sys/bus/coresight/devices/<memory_map>.etb/label
-+Date:           Jul 2025
-+KernelVersion   6.17
-+Contact:        Mao Jinlong <quic_jinlmao@quicinc.com>
-+Description:    (Read) Show hardware context information of device.
-+
- What:		/sys/bus/coresight/devices/<memory_map>.etb/mgmt/rdp
- Date:		March 2016
- KernelVersion:	4.7
-diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices-etm3x b/Documentation/ABI/testing/sysfs-bus-coresight-devices-etm3x
-index 271b57c571aa..743f26619c69 100644
---- a/Documentation/ABI/testing/sysfs-bus-coresight-devices-etm3x
-+++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-etm3x
-@@ -251,6 +251,12 @@ KernelVersion:	4.4
- Contact:	Mathieu Poirier <mathieu.poirier@linaro.org>
- Description:	(RO) Holds the cpu number this tracer is affined to.
- 
-+What:           /sys/bus/coresight/devices/<memory_map>.[etm|ptm]/label
-+Date:           Jul 2025
-+KernelVersion   6.17
-+Contact:        Mao Jinlong <quic_jinlmao@quicinc.com>
-+Description:    (Read) Show hardware context information of device.
-+
- What:		/sys/bus/coresight/devices/<memory_map>.[etm|ptm]/mgmt/etmccr
- Date:		September 2015
- KernelVersion:	4.4
-diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices-etm4x b/Documentation/ABI/testing/sysfs-bus-coresight-devices-etm4x
-index a0425d70d009..e6a584a4b040 100644
---- a/Documentation/ABI/testing/sysfs-bus-coresight-devices-etm4x
-+++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-etm4x
-@@ -329,6 +329,12 @@ Contact:	Mathieu Poirier <mathieu.poirier@linaro.org>
- Description:	(RW) Access the selected single show PE comparator control
- 		register.
- 
-+What:           /sys/bus/coresight/devices/etm<N>/label
-+Date:           Jul 2025
-+KernelVersion   6.17
-+Contact:        Mao Jinlong <quic_jinlmao@quicinc.com>
-+Description:    (Read) Show hardware context information of device.
-+
- What:		/sys/bus/coresight/devices/etm<N>/mgmt/trcoslsr
- Date:		April 2015
- KernelVersion:	4.01
-diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices-funnel b/Documentation/ABI/testing/sysfs-bus-coresight-devices-funnel
-index d75acda5e1b3..5578fa5f6f02 100644
---- a/Documentation/ABI/testing/sysfs-bus-coresight-devices-funnel
-+++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-funnel
-@@ -10,3 +10,9 @@ Date:		November 2014
- KernelVersion:	3.19
- Contact:	Mathieu Poirier <mathieu.poirier@linaro.org>
- Description:	(RW) Defines input port priority order.
-+
-+What:           /sys/bus/coresight/devices/<memory_map>.funnel/label
-+Date:           Jul 2025
-+KernelVersion   6.17
-+Contact:        Mao Jinlong <quic_jinlmao@quicinc.com>
-+Description:    (Read) Show hardware context information of device.
-diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices-stm b/Documentation/ABI/testing/sysfs-bus-coresight-devices-stm
-index 53e1f4815d64..c3a81978e30b 100644
---- a/Documentation/ABI/testing/sysfs-bus-coresight-devices-stm
-+++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-stm
-@@ -51,3 +51,9 @@ KernelVersion:	4.7
- Contact:	Mathieu Poirier <mathieu.poirier@linaro.org>
- Description:	(RW) Holds the trace ID that will appear in the trace stream
- 		coming from this trace entity.
-+
-+What:           /sys/bus/coresight/devices/<memory_map>.stm/label
-+Date:           Jul 2025
-+KernelVersion   6.17
-+Contact:        Mao Jinlong <quic_jinlmao@quicinc.com>
-+Description:    (Read) Show hardware context information of device.
-diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices-tmc b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tmc
-index 339cec3b2f1a..9554f4f453a3 100644
---- a/Documentation/ABI/testing/sysfs-bus-coresight-devices-tmc
-+++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tmc
-@@ -107,3 +107,9 @@ Contact:	Anshuman Khandual <anshuman.khandual@arm.com>
- Description:	(RW) Current Coresight TMC-ETR buffer mode selected. But user could
- 		only provide a mode which is supported for a given ETR device. This
- 		file is available only for TMC ETR devices.
-+
-+What:           /sys/bus/coresight/devices/<memory_map>.tmc/label
-+Date:           Jul 2025
-+KernelVersion   6.17
-+Contact:        Mao Jinlong <quic_jinlmao@quicinc.com>
-+Description:    (Read) Show hardware context information of device.
-diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpdm b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpdm
-index a341b08ae70b..e6d935e83042 100644
---- a/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpdm
-+++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpdm
-@@ -272,3 +272,9 @@ KernelVersion	6.15
- Contact:	Jinlong Mao (QUIC) <quic_jinlmao@quicinc.com>, Tao Zhang (QUIC) <quic_taozha@quicinc.com>
- Description:
- 		(RW) Set/Get the enablement of the individual lane.
-+
-+What:           /sys/bus/coresight/devices/<tpdm-name>/label
-+Date:           Jul 2025
-+KernelVersion   6.17
-+Contact:        Mao Jinlong <quic_jinlmao@quicinc.com>
-+Description:    (Read) Show hardware context information of device.
-diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices-trbe b/Documentation/ABI/testing/sysfs-bus-coresight-devices-trbe
-index ad3bbc6fa751..2a5868ba3d6b 100644
---- a/Documentation/ABI/testing/sysfs-bus-coresight-devices-trbe
-+++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-trbe
-@@ -12,3 +12,9 @@ Contact:	Anshuman Khandual <anshuman.khandual@arm.com>
- Description:	(Read) Shows if TRBE updates in the memory are with access
- 		and dirty flag updates as well. This value is fetched from
- 		the TRBIDR register.
-+
-+What:           /sys/bus/coresight/devices/trbe<cpu>/label
-+Date:           Jul 2025
-+KernelVersion   6.17
-+Contact:        Mao Jinlong <quic_jinlmao@quicinc.com>
-+Description:    (Read) Show hardware context information of device.
-diff --git a/drivers/hwtracing/coresight/coresight-sysfs.c b/drivers/hwtracing/coresight/coresight-sysfs.c
-index feadaf065b53..f7a0c9056854 100644
---- a/drivers/hwtracing/coresight/coresight-sysfs.c
-+++ b/drivers/hwtracing/coresight/coresight-sysfs.c
-@@ -7,6 +7,7 @@
- #include <linux/device.h>
- #include <linux/idr.h>
- #include <linux/kernel.h>
-+#include <linux/property.h>
- 
- #include "coresight-priv.h"
- #include "coresight-trace-id.h"
-@@ -371,17 +372,81 @@ static ssize_t enable_source_store(struct device *dev,
- }
- static DEVICE_ATTR_RW(enable_source);
- 
-+static ssize_t label_show(struct device *dev,
-+		struct device_attribute *attr, char *buf)
-+{
-+
-+	const char *str;
-+	int ret;
-+
-+	ret = fwnode_property_read_string(dev_fwnode(dev), "label", &str);
-+	if (ret == 0)
-+		return scnprintf(buf, PAGE_SIZE, "%s\n", str);
-+	else
-+		return ret;
-+}
-+static DEVICE_ATTR_RO(label);
-+
-+static umode_t label_is_visible(struct kobject *kobj,
-+				   struct attribute *attr, int n)
-+{
-+	struct device *dev = kobj_to_dev(kobj);
-+
-+	if (attr == &dev_attr_label.attr) {
-+		if (fwnode_property_present(dev_fwnode(dev), "label"))
-+			return attr->mode;
-+		else
-+			return 0;
-+	}
-+
-+	return attr->mode;
-+}
-+
- static struct attribute *coresight_sink_attrs[] = {
- 	&dev_attr_enable_sink.attr,
-+	&dev_attr_label.attr,
- 	NULL,
- };
--ATTRIBUTE_GROUPS(coresight_sink);
-+
-+static struct attribute_group coresight_sink_group = {
-+	.attrs = coresight_sink_attrs,
-+	.is_visible = label_is_visible,
-+};
-+__ATTRIBUTE_GROUPS(coresight_sink);
- 
- static struct attribute *coresight_source_attrs[] = {
- 	&dev_attr_enable_source.attr,
-+	&dev_attr_label.attr,
- 	NULL,
- };
--ATTRIBUTE_GROUPS(coresight_source);
-+
-+static struct attribute_group coresight_source_group = {
-+	.attrs = coresight_source_attrs,
-+	.is_visible = label_is_visible,
-+};
-+__ATTRIBUTE_GROUPS(coresight_source);
-+
-+static struct attribute *coresight_link_attrs[] = {
-+	&dev_attr_label.attr,
-+	NULL,
-+};
-+
-+static struct attribute_group coresight_link_group = {
-+	.attrs = coresight_link_attrs,
-+	.is_visible = label_is_visible,
-+};
-+__ATTRIBUTE_GROUPS(coresight_link);
-+
-+static struct attribute *coresight_helper_attrs[] = {
-+	&dev_attr_label.attr,
-+	NULL,
-+};
-+
-+static struct attribute_group coresight_helper_group = {
-+	.attrs = coresight_helper_attrs,
-+	.is_visible = label_is_visible,
-+};
-+__ATTRIBUTE_GROUPS(coresight_helper);
- 
- const struct device_type coresight_dev_type[] = {
- 	[CORESIGHT_DEV_TYPE_SINK] = {
-@@ -390,6 +455,7 @@ const struct device_type coresight_dev_type[] = {
- 	},
- 	[CORESIGHT_DEV_TYPE_LINK] = {
- 		.name = "link",
-+		.groups = coresight_link_groups,
- 	},
- 	[CORESIGHT_DEV_TYPE_LINKSINK] = {
- 		.name = "linksink",
-@@ -401,6 +467,7 @@ const struct device_type coresight_dev_type[] = {
- 	},
- 	[CORESIGHT_DEV_TYPE_HELPER] = {
- 		.name = "helper",
-+		.groups = coresight_helper_groups,
- 	}
- };
- /* Ensure the enum matches the names and groups */
--- 
-2.25.1
+	if (slice)
+		addr +=3D ( prueth->pdata.banked_ms_ram
+			? MSMC_RAM_BANK_SIZE
+			: PRUETH_SW_TOTAL_BUF_SIZE_PER_SLICE);
 
+
+Can the usage of the conditional operator be extended another bit
+(also for the function =E2=80=9Cprueth_emac_buffer_setup=E2=80=9D for exam=
+ple)?
+
+Regards,
+Markus
 
