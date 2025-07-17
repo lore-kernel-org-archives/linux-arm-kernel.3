@@ -4,94 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D57DC83F34
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 16:52:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3680C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 16:53:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SEjYoBcwqDptwkNDt9J1x/LYBRGTVclbAUkgXREtLhI=; b=EC+oXiOqsfXDzs6Xov0fjeC+Zw
-	VYYXghvCYWpgbbtpnVxH7E4Y8ANNngsHWlFwVp2ukDHBjNNbzfvljVuZYR+OT4XATvGK58QRAOwU6
-	JG/0q75fBeuGFPH9M+GyusQNMGjkL7mQmG9OevkaN0WYj0R1Ix+WfhpxoL1fNKgtjuZCoTlWfWLc/
-	Mybr1uhmU6ZciO1coyxuuBdHJjprSawkf83ukQ9dMAGW6uSj8P2ey/VqcuoSnpR+hzPcaNcEj1ggq
-	NKA32nFsOpfvxuDXXd7CGWOrQN+jQ0PJ0SKZRhgX0JuTsRPacWvG1xURoKYBIJAMP8QZcUGSw9qAs
-	e1Z6gLxg==;
+	bh=4Ay4UsrwBiPcaslZNYrakqAaTaS1CuBXla7xAvqK4iw=; b=3U/ESbdCr9v6y7KCjtb0A1H0qP
+	zx+Mi3UPLKNXpizSemP0x4s46YyC1tbLcbS2Sxf6XU/TA/sP1sl/m8sYgNYCXg2DEFypx2ghmePbQ
+	WfjQvSuyVhpte9ahhUY9YKOtLykV5ClaPoM2MZupMrt+lqBwssfoQh+VW8eNQpjcmg3GPJiiujGzA
+	paB4Ovb4zOGx6EeTU0zQ7vjH8uySwSNFsm60UFG5y++6rd4q2Nf0pUNuYbHtjVoTxLnxofQXQz6Nj
+	dxGbKMYK1drXw3vbCe6YKaM+LZ3v/qxk0Yem9m7MGN1SOb9Jd4Eob2aFNyphBahKUJ75zG8xhJtlS
+	cmb8ZQuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucRq0-0000000AhOu-31v1;
-	Thu, 17 Jul 2025 16:52:04 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1ucRrL-0000000AhbF-2HL2;
+	Thu, 17 Jul 2025 16:53:27 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucQFs-0000000ATqb-0PzC
+	id 1ucRSj-0000000AdxB-0jgu
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 17 Jul 2025 16:28:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=4Ay4UsrwBiPcaslZNYrakqAaTaS1CuBXla7xAvqK4iw=; b=HivIE1J+oFsrGe2UrLJlaLKD+q
+	5GSRwSERwStWIu5ot583mt2YZWxCUxhV2VrzFJTp0KW3MVAFhjSt7l/IRS29Xq3EeIKxOAmI5ESD9
+	L42Smdtz+QlHlI6S6iI/X7w45ezK6jYg/V1/gz1FUQJ5cdIyk6fLl4kvU0Bh9x+5xptbobVxuK6z3
+	CkM/MdI3IXB1HQO26DaTRAcXYcXgIAUrsXDm+rAzisWBUulJbxS76Ydyu0CbZk/bf9G8FYX16GuUZ
+	k//9qNXoUeHY01MBVtQIbExvo0Z63VI2VdMYQ83/m39Ed1YdboD7Ip7rouzx+e3CpFernPW+zYjdC
+	3HvfS6qQ==;
+Received: from out-181.mta1.migadu.com ([95.215.58.181])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ucRSf-0000000AK6D-2NZk
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Jul 2025 15:10:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1752765038;
+	Thu, 17 Jul 2025 16:28:00 +0000
+Message-ID: <03e04d98-e5eb-41c0-8407-23cccd578dbe@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1752769673;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=SEjYoBcwqDptwkNDt9J1x/LYBRGTVclbAUkgXREtLhI=;
-	b=G4Ssq28fSYZAG8Gse4+K+v/Gc/KZOYIOFOuMbEtpY59Ul30A6KrTgFG91ByUYZidHvfLvE
-	plAgZpbZenSisl+z79UupA3L4OBGojqY6mrjC55ELKxaMOTVbX1sWK+oPmo6GXMvcgxah5
-	QnRSkrb0PDHZDRSvFz6pPE/C6xCPZdc=
-Received: from mail-wm1-f72.google.com (mail-wm1-f72.google.com
- [209.85.128.72]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-21-g82Rpxt_Nk-8BPyOY4qHlw-1; Thu, 17 Jul 2025 11:10:35 -0400
-X-MC-Unique: g82Rpxt_Nk-8BPyOY4qHlw-1
-X-Mimecast-MFC-AGG-ID: g82Rpxt_Nk-8BPyOY4qHlw_1752765034
-Received: by mail-wm1-f72.google.com with SMTP id 5b1f17b1804b1-456013b59c1so6172265e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Jul 2025 08:10:35 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752765034; x=1753369834;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=SEjYoBcwqDptwkNDt9J1x/LYBRGTVclbAUkgXREtLhI=;
-        b=NIlmoc4AJ644KMm8qcVhj41Cv1Z8+LFfreK7SEd2ltIFbGyTzw5XEt2PYmLiil4jdL
-         HocOthKjQrfkRvb/BaFt7qOANIGv1JCxxyN4bsyDsYZ0Lm1ctxE3ObZZOK5kAeJx7MhH
-         BxcbxQSpMIHT+OY8c1elyec0WAZu2HGipiwNgQQ4gMA2bvyTTrShL2zSRAkqdmfy1oih
-         h8IYQq/haNIU2P00EHIVQX5Gv0MDHF9n1dsWFwUP+s3GFfu8JBpmczicwcJp/s/cowEs
-         aICKJwoZy7+HlbX4XeC0MCD9HBcOWu7JlJt3cB1LcRM57862wR6zeSwT8LDBw6u5yRVU
-         5pAA==
-X-Forwarded-Encrypted: i=1; AJvYcCWcY4L0E2kTTfH6HdisKY77X/QtbR4lCBphNrxirBu6ra1wnj27UvyMetkUfI6DtjNwVy6O351dJxm+e6oIvucG@lists.infradead.org
-X-Gm-Message-State: AOJu0YwfBnWP5sOnAmy2PUla3DbZKOeTsR2cA5hce7vQ6S9JEWCR3124
-	h/nBNKLOsxvZskq1AKi7MXbN6lCK4/Ye+GiadC3/S+KNmGpDC7pYi9Jes50av/eL2fj3OJKAIqA
-	8dxCWpi7XBa7jiBN3RE79K7fIF4f0RGyVo4fNgjS7NUZZhQzXYPICVsNzH9/wMNKam0a2DKopPr
-	v3uytfbR3NZuWhjri0ts++Zg/Ce3fxaZomu/DCx8rjyWYgbu/0kn0=
-X-Gm-Gg: ASbGnctl6SUoMocRWgTuLhLEZIOkafU93eEnTrDKwUrSS7pXN69NnCo4ifnsWctMaKE
-	qUHL/r53rIn3MHqHOvxQc4CSr9BR2be5rXSOQbPFSdILoRoQzIumrGT5xtgweCG2I32Pk+xaVVP
-	lLxV4+XenyzPdqQEBPSYex
-X-Received: by 2002:a05:600c:8206:b0:456:1ac8:cac8 with SMTP id 5b1f17b1804b1-456389d8648mr20322705e9.15.1752765034259;
-        Thu, 17 Jul 2025 08:10:34 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IEqFKu12WNYkyuv+EBrH40VIjm3DSpAGBvOZK5BRr1yGNQvSYPEChTjgLpLHbHmtfrETxQh9JFrb2OtUf6QmQA=
-X-Received: by 2002:a05:600c:8206:b0:456:1ac8:cac8 with SMTP id
- 5b1f17b1804b1-456389d8648mr20322395e9.15.1752765033769; Thu, 17 Jul 2025
- 08:10:33 -0700 (PDT)
+	bh=4Ay4UsrwBiPcaslZNYrakqAaTaS1CuBXla7xAvqK4iw=;
+	b=eJaW5FYN3JIqaJZB1WK5+nmumKzxiIdylG3v2/byRwszJdN7xY/ErtD/wKGWIDxY/r0CyE
+	eA0uTx59AjxDvKL5jzF7aI4+g82sbb19mGdMvZ9tY80nyztEB9+ROft0/sFIfvW0x7RkAV
+	TDgELQ4sup+IAwpp036PgvB8G8CbbSo=
+Date: Thu, 17 Jul 2025 12:27:44 -0400
 MIME-Version: 1.0
-References: <20250711084835.2411230-1-maz@kernel.org>
-In-Reply-To: <20250711084835.2411230-1-maz@kernel.org>
-From: Paolo Bonzini <pbonzini@redhat.com>
-Date: Thu, 17 Jul 2025 17:10:21 +0200
-X-Gm-Features: Ac12FXzzA7dEcA7kGiq4t8H3V98DgvDEFcCmXVWP7oItkogbslxByYn5IOuKZ9c
-Message-ID: <CABgObfbEXvmbSFdku=bRKaB+1Pe9g_7ZuVmy-vmgJwUczA99cg@mail.gmail.com>
-Subject: Re: [GIT PULL] KVM/arm64 fixes for 6.16, take #6
-To: Marc Zyngier <maz@kernel.org>
-Cc: Ben Horgan <ben.horgan@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
-	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Oliver Upton <oliver.upton@linux.dev>, kvmarm@lists.linux.dev, kvm@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: -ErjuwfbkLP7odWQ1dssw9f47asZFUy39PXrgjjsASg_1752765034
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH net v2 1/4] auxiliary: Support hexadecimal ids
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ netdev@vger.kernel.org, Dave Ertman <david.m.ertman@intel.com>,
+ Saravana Kannan <saravanak@google.com>, Leon Romanovsky <leon@kernel.org>,
+ linux-kernel@vger.kernel.org, Michal Simek <michal.simek@amd.com>,
+ linux-arm-kernel@lists.infradead.org, Ira Weiny <ira.weiny@intel.com>
+References: <20250716000110.2267189-1-sean.anderson@linux.dev>
+ <20250716000110.2267189-2-sean.anderson@linux.dev>
+ <2025071637-doubling-subject-25de@gregkh>
+ <719ff2ee-67e3-4df1-9cec-2d9587c681be@linux.dev>
+ <2025071747-icing-issuing-b62a@gregkh>
+ <5d8205e1-b384-446b-822a-b5737ea7bd6c@linux.dev>
+ <2025071736-viscous-entertain-ff6c@gregkh>
+Content-Language: en-US
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Sean Anderson <sean.anderson@linux.dev>
+In-Reply-To: <2025071736-viscous-entertain-ff6c@gregkh>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250717_081040_208983_994F7021 
-X-CRM114-Status: GOOD (  12.71  )
+X-CRM114-CacheID: sfid-20250717_172757_765542_2DA0AF6A 
+X-CRM114-Status: GOOD (  26.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,51 +96,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 11, 2025 at 10:49=E2=80=AFAM Marc Zyngier <maz@kernel.org> wrot=
-e:
->
-> Paolo,
->
-> Here the (hopefully) last fix for 6.16, addressing what can adequately
-> be called a brain fart in dealing with the sanitisation of the number
-> of PMU registers in nested virt.
->
-> Please pull,
->
->         M.
->
-> The following changes since commit 42ce432522a17685f5a84529de49e555477c0a=
-1f:
->
->   KVM: arm64: Remove kvm_arch_vcpu_run_map_fp() (2025-07-03 10:39:24 +010=
-0)
->
-> are available in the Git repository at:
->
->   git://git.kernel.org/pub/scm/linux/kernel/git/kvmarm/kvmarm.git tags/kv=
-marm-fixes-6.16-6
->
-> for you to fetch changes up to 2265c08ec393ef1f5ef5019add0ab1e3a7ee0b79:
->
->   KVM: arm64: Fix enforcement of upper bound on MDCR_EL2.HPMN (2025-07-09=
- 13:19:24 +0100)
+On 7/17/25 12:21, Greg Kroah-Hartman wrote:
+> On Thu, Jul 17, 2025 at 12:04:15PM -0400, Sean Anderson wrote:
+>> On 7/17/25 11:59, Greg Kroah-Hartman wrote:
+>> > On Thu, Jul 17, 2025 at 11:49:37AM -0400, Sean Anderson wrote:
+>> >> On 7/16/25 01:09, Greg Kroah-Hartman wrote:
+>> >> > On Tue, Jul 15, 2025 at 08:01:07PM -0400, Sean Anderson wrote:
+>> >> >> Support creating auxiliary devices with the id included as part of the
+>> >> >> name. This allows for hexadecimal ids, which may be more appropriate for
+>> >> >> auxiliary devices created as children of memory-mapped devices. If an
+>> >> >> auxiliary device's id is set to AUXILIARY_DEVID_NONE, the name must
+>> >> >> be of the form "name.id".
+>> >> >> 
+>> >> >> With this patch, dmesg logs from an auxiliary device might look something
+>> >> >> like
+>> >> >> 
+>> >> >> [    4.781268] xilinx_axienet 80200000.ethernet: autodetected 64-bit DMA range
+>> >> >> [   21.889563] xilinx_emac.mac xilinx_emac.mac.80200000 net4: renamed from eth0
+>> >> >> [   32.296965] xilinx_emac.mac xilinx_emac.mac.80200000 net4: PHY [axienet-80200000:05] driver [RTL8211F Gigabit Ethernet] (irq=70)
+>> >> >> [   32.313456] xilinx_emac.mac xilinx_emac.mac.80200000 net4: configuring for inband/sgmii link mode
+>> >> >> [   65.095419] xilinx_emac.mac xilinx_emac.mac.80200000 net4: Link is Up - 1Gbps/Full - flow control rx/tx
+>> >> >> 
+>> >> >> this is especially useful when compared to what might happen if there is
+>> >> >> an error before userspace has the chance to assign a name to the netdev:
+>> >> >> 
+>> >> >> [    4.947215] xilinx_emac.mac xilinx_emac.mac.1 (unnamed net_device) (uninitialized): incorrect link mode  for in-band status
+>> >> >> 
+>> >> >> Signed-off-by: Sean Anderson <sean.anderson@linux.dev>
+>> >> >> ---
+>> >> >> 
+>> >> >> Changes in v2:
+>> >> >> - Add example log output to commit message
+>> >> > 
+>> >> > I rejected v1, why is this being sent again?
+>> >> 
+>> >> You asked for explanation, I provided it. I specifically pointed out why
+>> >> I wanted to do things this way. But I got no response. So here in v2.
+>> > 
+>> > Again, I said, "do not do that, this is not how ids work in the driver
+>> > model", and you tried to show lots of reasons why you wanted to do it
+>> > this way despite me saying so.
+>> > 
+>> > So again, no, sorry, this isn't ok.  Don't attempt to encode information
+>> > in a device id like you are trying to do here, that's not what a device
+>> > id is for at all.  I need to go dig up my old patch that made all device
+>> > ids random numbers just to see what foolish assumptions busses and
+>> > userspace tools are making....
+>> 
+>> But it *is* how ids work in platform devices.
+> 
+> No one should ever use platform devices/bus as an excuse to do anything,
+> it's "wrong" in so many ways, but needs to be because of special
+> reasons.  No other bus should work like that, sorry.
+> 
+>> And because my auxiliary
+>> devices are created by a platform device, it is guaranteed that the
+>> platform device id is unique and that it will also be unique for
+>> auxiliary devices. So there is no assumption here about the uniqueness
+>> of any given id.
+> 
+> Then perhaps use the faux device api instead?
 
-Pulled, thanks.
+There's *another* pseudo bus? OK the reason why is that faux was added
+four months ago and there is nothing under Documentation for it. So I
+had no idea it existed. I will have a look, but perhaps you should write
+up some documentation about why someone might want to use a "faux" bus
+over the auxiliary bus or MFD.
 
-Paolo
-
-> ----------------------------------------------------------------
-> KVM/arm64 fixes for 6.16, take #6
->
-> - Fix use of u64_replace_bits() in adjusting the guest's view of
->   MDCR_EL2.HPMN.
->
-> ----------------------------------------------------------------
-> Ben Horgan (1):
->       KVM: arm64: Fix enforcement of upper bound on MDCR_EL2.HPMN
->
->  arch/arm64/kvm/sys_regs.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->
-
+--Sean
 
