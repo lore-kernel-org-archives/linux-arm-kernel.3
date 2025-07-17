@@ -4,87 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70B87C83F34
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 20:45:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB68FC83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 20:48:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=btnQhzarulwbLxm5Wfc2hc6orCS8fh/kqLPZHqU1lrU=; b=kmYRuwfu3opcVJ0MmL9gQTnXw3
-	bOPy0GArm0WlHVHOOeR9joZEevIMva/4zwyW4rbKHWsvEfODv/6xIQYKgUxwNnp1Gbk89jXeMgfI5
-	6zyrTxDh2SoHBhHG7lto6wWsF8a79zD8AiWcHzI90ehV0XaJ6o/LgOdiD+sT62yPVUqsLq0KGkkgA
-	uhnmgQCISIWcPPvtFZsb3Zu6oI4AS9OFzExiqLmD1UbOe9bjL/UnOlRrUFGULXaBk5I14vz9dpDg3
-	ei7AbRbdWQ1+aLxpaHUNN3VhOR98wG1k9hp64v2MTCKPY12rAyTrrn6x8c3G3fkAhSWkj8g9HHaja
-	O+jA2VGQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TmpfxjkNhdt9dhUb9Z4sklqbRlDt+2S3rq7vCoARvZI=; b=qyn4/2ClzwSb1nLNKM1+2yOR6o
+	on+it1M0YdQ2V+XvE2hAm5hQWSb9Dct0+1iyqrYxYwhf8F5KxXPHFqOoO392C2mcX6bsyP65+BzAn
+	zwjMK4Sec56k18jA0GpWELW4xw3NTtJV/ghg0gg387jHmr9MZ3ovjDP5r/65xqfnKE8MfQ2hD9rQN
+	ZMbZ8zapTmD3R2Y4mobqy+ui8nv01Dz73M1XzXPYd9Q6xgvc6fbJJEMbrjXKDaG5mSDPNHT8pi6Fw
+	bzVzfFgAYL/8BeugJEM8Thq2B73qlzR3tk+cIbIuwICc+bG+fEj/QJkWwsSUS+oPWWSL3E0XokUVx
+	F2LALIhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucVTz-0000000B7AH-1ROy;
-	Thu, 17 Jul 2025 20:45:35 +0000
-Received: from mgamail.intel.com ([198.175.65.18])
+	id 1ucVWP-0000000B7Kj-0lwj;
+	Thu, 17 Jul 2025 20:48:05 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucVP8-0000000B6Z3-05j9
+	id 1ucVQe-0000000B6mO-0KZJ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Jul 2025 20:40:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1752784835; x=1784320835;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=PdIbTdktWh/WBwrcyr3gCqj0Qy8ntRTyRqr3z/psMAs=;
-  b=YRBojVwcrxX3CdYcyHMMjJEElpvASNG1SFW2jG9NXLXYPYb7OPJWNLex
-   xjIMh4X/CqHs2rSnF71QWsFxzWwJJg7glcfL6+BWXTJDnfq6TBbQ7NFm5
-   ASfLKtyajCUtNIGcPIiEpUkZF4PukmVLVSaBaVy6z/LZy48ibczcdg00p
-   iN7svrvmriuJwR5Jo2YBCY0QVj3mGceFx8MP8ZzSDLwjnmUn4mU46fRL9
-   O6ojCQzIo7RiqDTsBdcB0ras9H5yfEpPaF5T0Bz/l8THcoaJXF6Wgi0D6
-   p4NrxKcVeI45/2OAqWCk/fPST37RPlPwrJn/m4Ro4y8iJcWSeE1/QYAM1
-   w==;
-X-CSE-ConnectionGUID: XjySN7+CSUeNXamI33ZAGg==
-X-CSE-MsgGUID: 65qGBKqrSxCG/9VAS5afdg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11495"; a="55200015"
-X-IronPort-AV: E=Sophos;i="6.16,319,1744095600"; 
-   d="scan'208";a="55200015"
-Received: from fmviesa010.fm.intel.com ([10.60.135.150])
-  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Jul 2025 13:40:34 -0700
-X-CSE-ConnectionGUID: IuN4fVvGSIalVbCR9aDz2Q==
-X-CSE-MsgGUID: BkOKgBq2Qm2hEkuq4K7EAw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.16,319,1744095600"; 
-   d="scan'208";a="158585075"
-Received: from lkp-server01.sh.intel.com (HELO 9ee84586c615) ([10.239.97.150])
-  by fmviesa010.fm.intel.com with ESMTP; 17 Jul 2025 13:40:29 -0700
-Received: from kbuild by 9ee84586c615 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1ucVP1-000E0Z-0X;
-	Thu, 17 Jul 2025 20:40:27 +0000
-Date: Fri, 18 Jul 2025 04:39:46 +0800
-From: kernel test robot <lkp@intel.com>
-To: Cosmin Tanislav <demonsingur@gmail.com>,
-	Cosmin Tanislav <cosmin.tanislav@analog.com>,
-	Tomi Valkeinen <tomi.valkeinen+renesas@ideasonboard.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Niklas =?iso-8859-1?Q?S=F6derlund?= <niklas.soderlund@ragnatech.se>,
-	Julien Massot <julien.massot@collabora.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Linus Walleij <linus.walleij@linaro.org>
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	linux-media@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-staging@lists.linux.dev, linux-gpio@vger.kernel.org
-Subject: Re: [PATCH v6 19/24] media: i2c: maxim-serdes: add MAX96724 driver
-Message-ID: <202507180433.nXvvwmFy-lkp@intel.com>
-References: <20250716193111.942217-20-demonsingur@gmail.com>
+	Thu, 17 Jul 2025 20:42:09 +0000
+Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56HCAGJs020661
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Jul 2025 20:42:07 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	TmpfxjkNhdt9dhUb9Z4sklqbRlDt+2S3rq7vCoARvZI=; b=FhQhQ2ETqrCc2+y4
+	HFVwT1131Db7D+9s4XwC3oIlNrsScBTDWs9VTASF3EX4t8uZ/yISjsuRGBcRa6zs
+	qy+oi3CA1Zwn23UH1vLa5d05L56n8CaVyfCMD3kLvjnVJErJSBm5RiislTStFI8M
+	7Vph2rnsQTY8rU1WGJ6uY4zUNnBFZqf/brojlUeokI7DuPmEi9S+xR5ETye+2F/D
+	ZbvqLezI2i+Yfld1A5Qwh45Osx5U3+wKekfrnR3kgA7L8UbvYxTirWo19hrWXIAB
+	ZW0Uf2kPXZck9qz4j/rdpS+s2XL/alH5pw2VDRAU82BsZcE2mBR+VawUaxsvhbrW
+	8VRfRQ==
+Received: from mail-qt1-f199.google.com (mail-qt1-f199.google.com [209.85.160.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 47w5dpm6ne-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Jul 2025 20:42:07 +0000 (GMT)
+Received: by mail-qt1-f199.google.com with SMTP id d75a77b69052e-4ab61b91608so3974621cf.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Jul 2025 13:42:07 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1752784926; x=1753389726;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=TmpfxjkNhdt9dhUb9Z4sklqbRlDt+2S3rq7vCoARvZI=;
+        b=GXL4gdOFj74ku+KIJ4qt4GQv/iWKLfLadDoHhMsRrTKutS+46d3H0KL5prsL0+dZTa
+         oUlg0ILxYZa2MWdfGuBwE5OPq+TYgEzCwk7nvQa9G1mAsuvnemTVGFL29+L5mshAlqDl
+         oHPsnxg8jKZYgKZb+uOlHRjdCSlMmxddlt3Oc3kY6pIx54waADT0Zpe+YBRN8U87jz8V
+         V+8yuSojJ7t7w7FQSLC8a/7EMkpbSqnbimDRjyyOVic2hWU0UoMZWzVYnEJm4QyB8B+E
+         s/zcs0oppfyb5hygemijaEZWJBBZF96D4Uq9nc5IyvnW8xsBcVWos+2i022HcpUx+lDA
+         C9IQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUyVjut27rMHnWcpdYgzGITCMK/xiYrhykr7VWF3l6Iu24msLnaEF3VxZ2tVBNAbMmr45OVcW4O73YM4eBNkPVk@lists.infradead.org
+X-Gm-Message-State: AOJu0YwjCXc289wUgtRkmqVhlnAXrmFeLd/8wg/GCoiRO2W7Ok/E8AOL
+	2VWfzeZ6IudBjdWewYKtHrvfKvQA+SD4yNl8zz6A7ar0jL5lZTRPDws4UctEUdoxDqEz/bfzNPL
+	08EajNpnccdUJiWJky+shq47NMqYCkMfcWR8V6qCbvYkZdzIJ1Lp5pcHsPsbSCjVuBniXi08t9h
+	hVKw==
+X-Gm-Gg: ASbGncsW6rOgp7lmQVRVUeAMIP2JhXyCc2fgpNjWUCv2T6vq8he6MeZZydLlpL2LfIy
+	Tua/d8ahcUxAGPv/D0/VtvQzLaZMAXcuMnPKPz9WR1qHjjFupPheLJPIoeUBXoQD3Tx60ykDNev
+	AFJRoBV2InB/oKV5Ekd+30MIF58BXDSZ7MxFdqQPocMQYbPNtW7gSPj1mlMluwI8L+tPqZquVqz
+	K46N3Wkh/Ni2fGgPqoe5+38hRNPD2PgHtXUgYyxhvMMH2xWH9RTXCfvttukRlAvx5maIyudb9Q7
+	/qeY9GtFE3tMKRAC0fkHmVSVU83ePUgn6LuckqndTSKJ7V14jiO3Pn763Vi6PJcAET5xeiboSVC
+	Ih2zLB6sCKckEpwLgLFJ3
+X-Received: by 2002:a05:622a:1a98:b0:47a:e6e1:c071 with SMTP id d75a77b69052e-4ab90a82a28mr55030251cf.7.1752784926058;
+        Thu, 17 Jul 2025 13:42:06 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGRWAhwxvL0YQ5lOLx3J9S62rBalvJHOr8MWbHqXNprUdHSqk24MYX4tdyqOdn3P7ha6yUnvQ==
+X-Received: by 2002:a05:622a:1a98:b0:47a:e6e1:c071 with SMTP id d75a77b69052e-4ab90a82a28mr55029901cf.7.1752784925586;
+        Thu, 17 Jul 2025 13:42:05 -0700 (PDT)
+Received: from [192.168.143.225] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-611d04d8347sm10357916a12.42.2025.07.17.13.42.00
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 17 Jul 2025 13:42:04 -0700 (PDT)
+Message-ID: <193de865-980d-4fd7-9c43-39ae387a5d0b@oss.qualcomm.com>
+Date: Thu, 17 Jul 2025 22:41:59 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250716193111.942217-20-demonsingur@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 04/10] clock: qcom: gcc-ipq5424: Add gpll0_out_aux
+ clock
+To: Luo Jie <quic_luoj@quicinc.com>, Georgi Djakov <djakov@kernel.org>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Michael Turquette <mturquette@baylibre.com>,
+        Stephen Boyd
+ <sboyd@kernel.org>, Anusha Rao <quic_anusha@quicinc.com>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Philipp Zabel <p.zabel@pengutronix.de>,
+        Richard Cochran <richardcochran@gmail.com>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>
+Cc: linux-arm-msm@vger.kernel.org, linux-pm@vger.kernel.org,
+        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-clk@vger.kernel.org, netdev@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, quic_kkumarcs@quicinc.com,
+        quic_linchen@quicinc.com, quic_leiwei@quicinc.com,
+        quic_pavir@quicinc.com, quic_suruchia@quicinc.com
+References: <20250710-qcom_ipq5424_nsscc-v3-0-f149dc461212@quicinc.com>
+ <20250710-qcom_ipq5424_nsscc-v3-4-f149dc461212@quicinc.com>
+Content-Language: en-US
+From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+In-Reply-To: <20250710-qcom_ipq5424_nsscc-v3-4-f149dc461212@quicinc.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNzE3MDE4MyBTYWx0ZWRfX0R2Yojpr/pMP
+ brFq6rDK77SBwspf4bra0vtoWT0+V/+roETSWUkh26tbSphPxFf95lw6ABzGPnQIDUZLqF0eeLR
+ 49Ze8WU+Yse915/MxcIYqHZGyP0rID53ZimHtk+FV+e84azDD5Cy/SDAOZH5GAwPMjQQpiE+rfw
+ /8KMNY4FJpEvDIHU7vrNEXQ38ZJll9uW6EBhp5GJ4+SIDSAaesBl5t7xOaPFHhZPbxWMciOayxE
+ Zr8j/gkyxs6PtQTpp7X/152n+lvWCIsmY3OSQ8yjTDksm4zGffL5ZNO+e73b7TRzChHR18c/fTI
+ eZ/f1xiA/Q6Ko4uSWElKq6Ln9JtTXLv49rvTzSQFLFO6RbjbtX67pgRu6jbVvSnT0ZN2gxePg5Y
+ Aen6OKItoNpW/2GjnEI3fvkPP3VKeXCVJwNnFoIVN3E9qXdCpRG8Sgjss4BG+4UO4vN1xBXr
+X-Proofpoint-GUID: ivLSffn2gcnYxoaa9mDoyrj3S9LeH2xp
+X-Proofpoint-ORIG-GUID: ivLSffn2gcnYxoaa9mDoyrj3S9LeH2xp
+X-Authority-Analysis: v=2.4 cv=Y+r4sgeN c=1 sm=1 tr=0 ts=6879601f cx=c_pps
+ a=WeENfcodrlLV9YRTxbY/uA==:117 a=FpWmc02/iXfjRdCD7H54yg==:17
+ a=IkcTkHD0fZMA:10 a=Wb1JkmetP80A:10 a=COk6AnOGAAAA:8 a=qx8TOUd7-QwhcYYS848A:9
+ a=QEXdDO2ut3YA:10 a=jh1YyD438LUA:10 a=kacYvNCVWA4VmyqE58fU:22
+ a=TjNXssC_j7lpFel5tvFf:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-07-17_03,2025-07-17_02,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 mlxlogscore=992 phishscore=0 malwarescore=0 priorityscore=1501
+ adultscore=0 impostorscore=0 mlxscore=0 suspectscore=0 lowpriorityscore=0
+ bulkscore=0 spamscore=0 classifier=spam authscore=0 authtc=n/a authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2505280000
+ definitions=main-2507170183
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250717_134034_271841_FD725988 
-X-CRM114-Status: GOOD (  11.90  )
+X-CRM114-CacheID: sfid-20250717_134208_123935_9629E232 
+X-CRM114-Status: GOOD (  10.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,80 +150,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Cosmin,
+On 7/10/25 2:28 PM, Luo Jie wrote:
+> The clock gpll0_out_aux acts as the parent clock for some of the NSS
+> (Network Subsystem) clocks.
+> 
+> Signed-off-by: Luo Jie <quic_luoj@quicinc.com>
+> ---
 
-kernel test robot noticed the following build errors:
+nit: subject: "clock:" -> "clk:" to match the other commits to this
+subsystem
 
-[auto build test ERROR on next-20250716]
-[also build test ERROR on v6.16-rc6]
-[cannot apply to robh/for-next staging/staging-testing staging/staging-next staging/staging-linus arm64/for-next/core linus/master v6.16-rc6 v6.16-rc5 v6.16-rc4]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Cosmin-Tanislav/media-mc-Add-INTERNAL-pad-flag/20250717-033901
-base:   next-20250716
-patch link:    https://lore.kernel.org/r/20250716193111.942217-20-demonsingur%40gmail.com
-patch subject: [PATCH v6 19/24] media: i2c: maxim-serdes: add MAX96724 driver
-config: hexagon-allmodconfig (https://download.01.org/0day-ci/archive/20250718/202507180433.nXvvwmFy-lkp@intel.com/config)
-compiler: clang version 17.0.6 (https://github.com/llvm/llvm-project 6009708b4367171ccdbf4b5905cb6a803753fe18)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250718/202507180433.nXvvwmFy-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202507180433.nXvvwmFy-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
->> drivers/media/i2c/maxim-serdes/max96724.c:273:6: error: call to undeclared function 'FIELD_PREP'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-     273 |                                  FIELD_PREP(MAX96724_PWR1_RESET_ALL, 1));
-         |                                  ^
-   drivers/media/i2c/maxim-serdes/max96724.c:494:6: error: call to undeclared function 'FIELD_PREP'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-     494 |                                  FIELD_PREP(MAX96724_MIPI_TX10_CSI2_LANE_CNT,
-         |                                  ^
-   drivers/media/i2c/maxim-serdes/max96724.c:693:7: error: call to undeclared function 'FIELD_PREP'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-     693 |                            FIELD_PREP(MAX96724_MIPI_TX13_MAP_SRC_DT,
-         |                            ^
-   drivers/media/i2c/maxim-serdes/max96724.c:741:7: error: call to undeclared function 'FIELD_PREP'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-     741 |                                   FIELD_PREP(MAX96724_MIPI_TX57_TUN_DEST,
-         |                                   ^
-   drivers/media/i2c/maxim-serdes/max96724.c:914:8: error: call to undeclared function 'FIELD_PREP'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-     914 |                             FIELD_PREP(MAX96724_PATGEN_0_VTG_MODE,
-         |                             ^
-   drivers/media/i2c/maxim-serdes/max96724.c:957:6: error: call to undeclared function 'FIELD_PREP'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-     957 |                                  FIELD_PREP(MAX96724_VPRBS_PATGEN_CLK_SRC,
-         |                                  ^
-   drivers/media/i2c/maxim-serdes/max96724.c:985:7: error: call to undeclared function 'FIELD_PREP'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-     985 |                                   FIELD_PREP(MAX96724_PATGEN_1_PATGEN_MODE,
-         |                                   ^
-   7 errors generated.
-
-
-vim +/FIELD_PREP +273 drivers/media/i2c/maxim-serdes/max96724.c
-
-   262	
-   263	static int max96724_reset(struct max96724_priv *priv)
-   264	{
-   265		int ret;
-   266	
-   267		ret = max96724_wait_for_device(priv);
-   268		if (ret)
-   269			return ret;
-   270	
-   271		ret = regmap_update_bits(priv->regmap, MAX96724_PWR1,
-   272					 MAX96724_PWR1_RESET_ALL,
- > 273					 FIELD_PREP(MAX96724_PWR1_RESET_ALL, 1));
-   274		if (ret)
-   275			return ret;
-   276	
-   277		fsleep(10000);
-   278	
-   279		return max96724_wait_for_device(priv);
-   280	}
-   281	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Konrad
 
