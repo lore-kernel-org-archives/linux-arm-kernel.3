@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACB87C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 07:12:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A949C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 07:14:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kgouilohiRGDUzAiKFLFboe1RsXh/ydae+mxl/dMUx8=; b=27MDzbMWG+sAN80LCezdpmf1tL
-	gYsDU5q7Xrf8vtSaxwFx/kikh+aIWzGwpAdL6x9WPQg6e95K2MNilZhbp7KnmEbwrflnEIEFvRUUX
-	mT/BBP+QYky0UKq+BOHj9lqI9MZWS1s2hqVuzoaiRuf+IFGzhEnLUnQFFuKHWXA8sHccgA+UW4THE
-	2LV+IExxUzcuE5X58GvKnPt+ZpaGbdL2h+qIVIeYYXfTm6UgAQP/ojjdhQjizlmUJ6CeM1d+HgM8g
-	zzoupIxjINhEqzAW6MuLsT7aFGKTkrvrzrXtpa+mLBFOlPgGthVndR3an0XOeM1rnc+20M1eTT6XB
-	Ac/3g3DQ==;
+	bh=abYy7jOEM75pX3pLc+SQpTmyAmQ+oGbg2Ja8k5D8qeQ=; b=AhwcMxokUZrgnFm+gySuybEp0f
+	GC9tp5B2mKv9Cy7gOzVEQ6U0RKD4WRG6LiGfVo2j9YQMcHTvmxdgOwOfj9XGhBZt444EbhO5TRLds
+	sRYqPP+Kq0/0oSRCR2fPaaKKfutywbM90d0sd2/uHUgBVmoJFdVnvpjAAbguSA3HfWNTBJYLoYIhi
+	K0cqJiSO8nSH1UiuilRXBGrIEM0I5UdUDJtCwtY14i6hNUHe2xjeUwiDdOVUdsudCn73sc9nYJ4VE
+	MwFKECOn7/T+l5qVN3fNjMhxn7/+3J28Wlmg5g7YgrTEqe8+yiupJWIN6sGWYtPTURudTCrfFsvIL
+	9vT8N5fQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucImj-00000009OYq-0Pdq;
-	Thu, 17 Jul 2025 07:12:05 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1ucIp8-00000009Oxq-0uB0;
+	Thu, 17 Jul 2025 07:14:34 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucIZT-00000009Ldk-24DO;
-	Thu, 17 Jul 2025 06:58:24 +0000
+	id 1ucIZW-00000009Lez-0kLC;
+	Thu, 17 Jul 2025 06:58:27 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id CF889A5773F;
-	Thu, 17 Jul 2025 06:58:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4BDD4C4CEEB;
-	Thu, 17 Jul 2025 06:58:22 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 8EC795C1F2C;
+	Thu, 17 Jul 2025 06:58:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DD5D5C4CEE3;
+	Thu, 17 Jul 2025 06:58:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752735502;
-	bh=dobj3y1w8fjsYR9k5BjFXpDstQzOpvz6Xw7A5zyEszY=;
+	s=k20201202; t=1752735505;
+	bh=L+SQUyTu0j0pHRhGxGvvCTjZpOMdAJ6X2onquk5e6NI=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=GQFuvvQtj9/FZMW85NPo45kGcdErXM0h0mO/o7Qv51hfTfnTaqXuaLouK3Gh9dau5
-	 wv3uozmmfPK9o+yDqdSkxGwOeNuVpgL+KCqe+JwFKqUC5rtywwE46AWyQcHgAtvQO8
-	 nP2oV+IzMG4KwddJY//Zc+WzBSkjBUBxoGGQsFVc7H3mVWrGNzZ7GYecRU90Lfdjia
-	 qgasSKaz0IzBQpqhVG2KdU76ZWlX8CrLLP9RxYu7EYcbnQN5y5LzzNkIu+f72702eP
-	 Au0ZIDnIWz2JjweKl0Pa7bbngLAkg6mr8eQ4V4VsXdC4KjZ82ZTXZPjKgqsoHqaDuz
-	 CJsWj912Di/NQ==
+	b=LXkdHpPruLApkKNiEMxk+PZY28JmRwP6u0Rds4MrJCW8q4gIpigEsWoa78+jDha99
+	 JfInjIiIO6D8ryIjqJdWs/jF1n5unK9SF3pwJkDcROPk5jIAdL7QGIy+lCWFLuGwhu
+	 3TXB2B1BCbz/v0RNxuQHbDUjRltU15CbFHc9Q/thC60Yw+BiAQkulQ1Y8UqpOe06Ol
+	 8dHPBp4PcQ9y6wWRUqbfP078sTaRsd6bUYxbT1MKnzfU24pkPP84EZRUxYUf7pLnXB
+	 VJdKcyyq8LBIi7cY/BA14klohrve0EAj8fmel6+zYgopEORpU/o3ODKWoDcIdC3NrJ
+	 nliSYUTajH/6w==
 From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Thu, 17 Jul 2025 08:57:45 +0200
-Subject: [PATCH net-next v4 4/7] net: airoha: npu: Add wlan irq management
- callbacks
+Date: Thu, 17 Jul 2025 08:57:46 +0200
+Subject: [PATCH net-next v4 5/7] net: airoha: npu: Read NPU wlan interrupt
+ lines from the DTS
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250717-airoha-en7581-wlan-offlaod-v4-4-6db178391ed2@kernel.org>
+Message-Id: <20250717-airoha-en7581-wlan-offlaod-v4-5-6db178391ed2@kernel.org>
 References: <20250717-airoha-en7581-wlan-offlaod-v4-0-6db178391ed2@kernel.org>
 In-Reply-To: <20250717-airoha-en7581-wlan-offlaod-v4-0-6db178391ed2@kernel.org>
 To: Andrew Lunn <andrew+netdev@lunn.ch>, 
@@ -61,8 +61,8 @@ Cc: Simon Horman <horms@kernel.org>, linux-arm-kernel@lists.infradead.org,
  devicetree@vger.kernel.org
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250716_235823_665875_28857A36 
-X-CRM114-Status: GOOD (  10.41  )
+X-CRM114-CacheID: sfid-20250716_235826_257880_4321A8A6 
+X-CRM114-Status: GOOD (  13.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,77 +77,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce callbacks used by the MT76 driver to configure NPU SoC
-interrupts. This is a preliminary patch to enable wlan flowtable
-offload for EN7581 SoC with MT76 driver.
+Read all NPU wlan IRQ lines from the NPU device-tree node.
+NPU module fires wlan irq lines when the traffic to/from the WiFi NIC is
+not hw accelerated (these interrupts will be consumed by the MT76 driver
+in subsequent patches).
+This is a preliminary patch to enable wlan flowtable offload for EN7581
+SoC.
 
-Reviewed-by: Simon Horman <horms@kernel.org>
 Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 ---
- drivers/net/ethernet/airoha/airoha_npu.c | 27 +++++++++++++++++++++++++++
- drivers/net/ethernet/airoha/airoha_npu.h |  4 ++++
- 2 files changed, 31 insertions(+)
+ drivers/net/ethernet/airoha/airoha_npu.c | 9 +++++++++
+ drivers/net/ethernet/airoha/airoha_npu.h | 3 +++
+ 2 files changed, 12 insertions(+)
 
 diff --git a/drivers/net/ethernet/airoha/airoha_npu.c b/drivers/net/ethernet/airoha/airoha_npu.c
-index cf087daa5d0b7b5e60edda632423a8d07240ed4f..d25c9e799c8b0725e82f44f067112caa101ec12e 100644
+index d25c9e799c8b0725e82f44f067112caa101ec12e..68ddc940f675b42599bd2c0245dc715bb56edb32 100644
 --- a/drivers/net/ethernet/airoha/airoha_npu.c
 +++ b/drivers/net/ethernet/airoha/airoha_npu.c
-@@ -525,6 +525,29 @@ static u32 airoha_npu_wlan_queue_addr_get(struct airoha_npu *npu, int qid,
- 	return REG_RX_BASE(qid);
- }
+@@ -694,6 +694,15 @@ static int airoha_npu_probe(struct platform_device *pdev)
+ 		INIT_WORK(&core->wdt_work, airoha_npu_wdt_work);
+ 	}
  
-+static void airoha_npu_wlan_irq_status_set(struct airoha_npu *npu, u32 val)
-+{
-+	regmap_write(npu->regmap, REG_IRQ_STATUS, val);
-+}
++	/* wlan IRQ lines */
++	for (i = 0; i < ARRAY_SIZE(npu->irqs); i++) {
++		irq = platform_get_irq(pdev, i + ARRAY_SIZE(npu->cores) + 1);
++		if (irq < 0)
++			return irq;
 +
-+static u32 airoha_npu_wlan_irq_status_get(struct airoha_npu *npu, int q)
-+{
-+	u32 val;
++		npu->irqs[i] = irq;
++	}
 +
-+	regmap_read(npu->regmap, REG_IRQ_STATUS, &val);
-+	return val;
-+}
-+
-+static void airoha_npu_wlan_irq_enable(struct airoha_npu *npu, int q)
-+{
-+	regmap_set_bits(npu->regmap, REG_IRQ_RXDONE(q), NPU_IRQ_RX_MASK(q));
-+}
-+
-+static void airoha_npu_wlan_irq_disable(struct airoha_npu *npu, int q)
-+{
-+	regmap_clear_bits(npu->regmap, REG_IRQ_RXDONE(q), NPU_IRQ_RX_MASK(q));
-+}
-+
- struct airoha_npu *airoha_npu_get(struct device *dev, dma_addr_t *stats_addr)
- {
- 	struct platform_device *pdev;
-@@ -631,6 +654,10 @@ static int airoha_npu_probe(struct platform_device *pdev)
- 	npu->ops.wlan_send_msg = airoha_npu_wlan_msg_send;
- 	npu->ops.wlan_get_msg = airoha_npu_wlan_msg_get;
- 	npu->ops.wlan_get_queue_addr = airoha_npu_wlan_queue_addr_get;
-+	npu->ops.wlan_set_irq_status = airoha_npu_wlan_irq_status_set;
-+	npu->ops.wlan_get_irq_status = airoha_npu_wlan_irq_status_get;
-+	npu->ops.wlan_enable_irq = airoha_npu_wlan_irq_enable;
-+	npu->ops.wlan_disable_irq = airoha_npu_wlan_irq_disable;
- 
- 	npu->regmap = devm_regmap_init_mmio(dev, base, &regmap_config);
- 	if (IS_ERR(npu->regmap))
+ 	err = dma_set_coherent_mask(dev, DMA_BIT_MASK(32));
+ 	if (err)
+ 		return err;
 diff --git a/drivers/net/ethernet/airoha/airoha_npu.h b/drivers/net/ethernet/airoha/airoha_npu.h
-index b81bb9398fed9366a18f9bf79e323372969ee138..8e830d12bd8a518038f2df7605a5d9f455725e40 100644
+index 8e830d12bd8a518038f2df7605a5d9f455725e40..981b283806fa8347256f6dce756729daa4736e47 100644
 --- a/drivers/net/ethernet/airoha/airoha_npu.h
 +++ b/drivers/net/ethernet/airoha/airoha_npu.h
-@@ -88,6 +88,10 @@ struct airoha_npu {
- 				    u32 *data, gfp_t gfp);
- 		u32 (*wlan_get_queue_addr)(struct airoha_npu *npu, int qid,
- 					   bool xmit);
-+		void (*wlan_set_irq_status)(struct airoha_npu *npu, u32 val);
-+		u32 (*wlan_get_irq_status)(struct airoha_npu *npu, int q);
-+		void (*wlan_enable_irq)(struct airoha_npu *npu, int q);
-+		void (*wlan_disable_irq)(struct airoha_npu *npu, int q);
- 	} ops;
- };
+@@ -5,6 +5,7 @@
+  */
  
+ #define NPU_NUM_CORES		8
++#define NPU_NUM_IRQ		6
+ 
+ enum airoha_npu_wlan_set_cmd {
+ 	WLAN_FUNC_SET_WAIT_PCIE_ADDR,
+@@ -67,6 +68,8 @@ struct airoha_npu {
+ 		struct work_struct wdt_work;
+ 	} cores[NPU_NUM_CORES];
+ 
++	int irqs[NPU_NUM_IRQ];
++
+ 	struct airoha_foe_stats __iomem *stats;
+ 
+ 	struct {
 
 -- 
 2.50.1
