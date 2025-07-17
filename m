@@ -4,128 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86F46C83F22
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 13:59:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F88FC83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 14:02:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:Subject:References:Cc:To:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c0Dgq398SWqsv0xGVYrsHLUK2zfzUks/6cy5jNdhTwA=; b=I2TcImR4UxDXQmH3yQX0jA71TM
-	6S2bR9Kfue7Lo2rb04Iex96GPaNw1XllvnlNaJb7rAPGB0nr7KKX+Ggtuj6p+tAp3FSJyEbUqYipg
-	nnCg6wBtD0XMhx88KIgUDNj2juwJyAegbkEpbLkf/U6L0RGPrfzU9zkD8fck64t2mUG49BKEgooZz
-	ShVE2xIksgvQxGq59r5MRH+MKFvOnkzxn0WIW9xIonUnu/w/fyDoVrRFqPtsUz7Qd3KNDkt3PBdrz
-	H7Wxx39ux5dYY19G0MVt6oP9ko1YCMhAKaLzniUIDsTcNxeLKssFWCsshMQ2ToOvF3OX1UuItvtxi
-	5LxgK/wQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=hkmEdAi1mYXLj0GumaAbmFTj8/Vf6pdxJ9LxWbK4qIA=; b=qt/3OdfWFlrpxcA1/FhKxfANUg
+	+4fhbhkqQ1N6jih9ZQ4yruKCkRUqB0rZ1eY+YxN76nJHZOhZdPxyOslAT3jXiFkokhm+6OtVkGvuk
+	OQSoetBw99PkDc+2jdNCOIiSEB+M/2YPE53VeEdJc12J87PCkHD61J+qHWcB2W9jiwRrm/C20RJxB
+	4qm5wAy2Rnd3w/0Xj8VX6fl45zbSID51pW+w1pkoulzrfqw9lyhvnnOrTDaSJj6adXgdkE2JwZMZT
+	Hwh1jFAse31bGVDSOW0KdwWyQ30nhjKoy5c7sQ9YJlIC+W14c5QY2UwxeRIsAkDG4rnmWBoN1aA79
+	hgid+qzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucP9A-0000000AJXH-2Bym;
-	Thu, 17 Jul 2025 13:59:40 +0000
-Received: from mout.web.de ([212.227.17.12])
+	id 1ucPBZ-0000000AJp8-10d2;
+	Thu, 17 Jul 2025 14:02:09 +0000
+Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucOA1-0000000AB8f-3iI1
+	id 1ucOBX-0000000ABPO-0pGb
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Jul 2025 12:56:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
-	s=s29768273; t=1752756982; x=1753361782; i=markus.elfring@web.de;
-	bh=c0Dgq398SWqsv0xGVYrsHLUK2zfzUks/6cy5jNdhTwA=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:References:
-	 Subject:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 cc:content-transfer-encoding:content-type:date:from:message-id:
-	 mime-version:reply-to:subject:to;
-	b=lCv/XBJ2x8MA9jBzvMANgdBzpFvEqJZVEOAMYPbbv5czqaixHrqIl4mX+F7c+RE0
-	 M/Tb4gBYU0eJPCzhcBMcLArXijEDliBtqUst5qdIktM+QpCEp4xsDiUVBrEKdRB5m
-	 nqjD09AhuhzYmmTDkDOw9LYXPlng3OB3XZIGXWcHBNoj2h4UsOAvu0GXsw9MyP/lu
-	 PW0Av0vh5L8lz9Xp/YCyZ47G+BTMnZFm8dT0nZiDJ2ziyu5YsHwrMUrJcmzD/B2MR
-	 kqbS57yi5gkSLDRubTtvC43UjYcdccxnAegBcTL9eYd1H8WNU3geHGyaGfvMKvsRG
-	 QIUV21CXMbZcUGrzYQ==
-X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
-Received: from [192.168.178.29] ([94.31.69.185]) by smtp.web.de (mrweb105
- [213.165.67.124]) with ESMTPSA (Nemesis) id 1MjxeE-1v0QIf3sG8-00bPwF; Thu, 17
- Jul 2025 14:56:21 +0200
-Message-ID: <4c677fdb-e6d6-4961-b911-78aaa28130e6@web.de>
-Date: Thu, 17 Jul 2025 14:56:15 +0200
+	Thu, 17 Jul 2025 12:58:04 +0000
+Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-3a531fcaa05so405244f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Jul 2025 05:58:02 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1752757081; x=1753361881; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=hkmEdAi1mYXLj0GumaAbmFTj8/Vf6pdxJ9LxWbK4qIA=;
+        b=g1mvmW6R3PAYVbrGgaCfUSJ4NLh6ijFWyGRFTVtTwIw7Gs9O1wRRe1PsKUOLTgfe5o
+         xwlPJfhJzQJ7yzK3CaaJPujbRPkN+JHZp5cNSIJP9p77JlHTJWHr2VKCZ5YDFniV9Zat
+         scdqfBTLiBamb/Lhjx1HEZtIKsilbNBTzwFGmvIhUPOICeOeB188ANCsRAwejCe6hTMj
+         OeKDInJDBIrIav2PLi013e+UBpBTFtCMxwr9XB+6589JDpsceFYXjecDBJfY6sDjoHUx
+         46DicSPLkHDC3acAvGJA3SjI1I5n2619otDCftqQLzYaBppVb7UEU1qzdHW8ojcmGmmW
+         ZJgg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1752757081; x=1753361881;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=hkmEdAi1mYXLj0GumaAbmFTj8/Vf6pdxJ9LxWbK4qIA=;
+        b=jNMJCiGfH5qLdpgy7ERWDeq+ynZQoAcJvAGX9FqsfE0aYlwQGWNX44s/4O6Lk8aDru
+         Zm4IvN9Tx5bZ4KSHW+9rnAAPGT2LnrvNLt+io8ZcL7i+/omimK/Qzt0KWtTYwz8CXbM3
+         tgBS/r47om7c5dnzfQjgLbp1VZkYZuNwA8O5xnwk/42zWhIkyTfRYS/ROYoumb6ckHjo
+         /Cr/rB/ZvVgzrWoPnppM6JsZQhF55WvmHy9Okad2JTzYDmKM/zsp9JzUKZOfgm0LJV5C
+         o1kvCU4fv/nSVzcv/4nClLPUM4qTbSw7KyXIiW60XXfhR7r5tGnNGa57ck+zyqC+/R0j
+         yHdg==
+X-Gm-Message-State: AOJu0YwtCJ053ELYQIa/5yY9MoJeBpcs9pl9twTwGSSOhE6JHMAkVOX8
+	H/95I8rdbk94swvlPhzRCmhekryWl51tV7yQAxXjzlO96QsVyM/D9dkMsfkzfPDujJA=
+X-Gm-Gg: ASbGnctilglVM24RlnJ/ynXbFUdh32U24piDjEm+9ztKjZ/1IhRu/LoW7SUa+pUmeRz
+	pDuqecQtYAABYTP5sZLeomnjFoBefsZQ0A6Sx3JJGB52I35MU/XeKd0gJswghj61UcY3rMOqt8J
+	AH7lpzkS86SqWpnLsNhu65zeSEfHSQQFMSCucCaE3FGDR+VuNpDBS0++cG1fs7rv2PRwtSPtW4Z
+	UsnkiFQD5BmXY3biU3ADhFS26yc+r4w+Rd/V73AYflLy7e+KUWMBj84yEDKgxnjSL31+B2HnroL
+	jFon8jSec86U7tD5+LVR6muftjs+PuZoRxmAYrkm182zr9LYJbxMIvpP7pBbIgE+9bP8D48IrcA
+	ASfkGLO+qGFIgObAStxjTW9adobtNUhIO4g==
+X-Google-Smtp-Source: AGHT+IEUUPM2Bn3BQQTqraXEIB2Jm5m5lpH7CokHPg/MliMMzl3/KP587ZU4bPNjNv333+jZ1/DKow==
+X-Received: by 2002:a05:6000:290f:b0:3a3:6a9a:5ebf with SMTP id ffacd0b85a97d-3b60e4d0841mr6039464f8f.20.1752757080738;
+        Thu, 17 Jul 2025 05:58:00 -0700 (PDT)
+Received: from brgl-uxlite.home ([2a01:cb1d:dc:7e00:9e61:4694:c621:5693])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4562e89c308sm50080735e9.30.2025.07.17.05.57.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 17 Jul 2025 05:58:00 -0700 (PDT)
+From: Bartosz Golaszewski <brgl@bgdev.pl>
+To: Jacky Huang <ychuang3@nuvoton.com>,
+	Shan-Chun Hung <schung@nuvoton.com>,
+	Linus Walleij <linus.walleij@linaro.org>
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-gpio@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Subject: [PATCH] pinctrl: ma35: use new GPIO line value setter callbacks
+Date: Thu, 17 Jul 2025 14:57:58 +0200
+Message-ID: <20250717125758.53141-1-brgl@bgdev.pl>
+X-Mailer: git-send-email 2.48.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-To: Himanshu Mittal <h-mittal1@ti.com>, netdev@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-Cc: LKML <linux-kernel@vger.kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, MD Danish Anwar <danishanwar@ti.com>,
- Meghana Malladi <m-malladi@ti.com>, Paolo Abeni <pabeni@redhat.com>,
- prajith@ti.com, Pratheesh Gangadhar <pratheesh@ti.com>,
- Simon Horman <horms@kernel.org>, Sriramakrishnan <srk@ti.com>,
- Roger Quadros <rogerq@kernel.org>, Vignesh Raghavendra <vigneshr@ti.com>
-References: <20250717094220.546388-1-h-mittal1@ti.com>
-Subject: Re: [PATCH net v3] net: ti: icssg-prueth: Fix buffer allocation for
- ICSSG
-Content-Language: en-GB, de-DE
-From: Markus Elfring <Markus.Elfring@web.de>
-In-Reply-To: <20250717094220.546388-1-h-mittal1@ti.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:dvFpaitgATAn9Spja7xoTYCvaq5BvkujF8BPlDw5/Gm7fRy8aiH
- uSzSc/ZpxTMcSBrIl513g7PDjhmkSZk+GlDF3xVPz+ICNwGWe1exx79CjW0XOvT9F8UXueo
- uUifKtgNNbxDDlLdEDlUKe4y4olEhowlpOd5HqmSop8hYvLiYpaEmcn8oXtkpLlCwbN4qG5
- k21Z+2oTFlFmaRiKpPRsA==
-UI-OutboundReport: notjunk:1;M01:P0:I7+okI5HW0I=;KVc7WKXuK/RBHn7IP17dT5Fj5nF
- 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
- Swhho=
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250717_055630_232122_E5D2E2BB 
-X-CRM114-Status: UNSURE (   8.20  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250717_055803_477421_4D291B4B 
+X-CRM114-Status: GOOD (  11.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,35 +98,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-=E2=80=A6
-> +++ b/drivers/net/ethernet/ti/icssg/icssg_config.c
-> @@ -288,8 +288,12 @@ static int prueth_fw_offload_buffer_setup(struct pr=
-ueth_emac *emac)
->  	int i;
-> =20
->  	addr =3D lower_32_bits(prueth->msmcram.pa);
-> -	if (slice)
-> -		addr +=3D PRUETH_NUM_BUF_POOLS * PRUETH_EMAC_BUF_POOL_SIZE;
-> +	if (slice) {
-> +		if (prueth->pdata.banked_ms_ram)
-> +			addr +=3D MSMC_RAM_BANK_SIZE;
-> +		else
-> +			addr +=3D PRUETH_SW_TOTAL_BUF_SIZE_PER_SLICE;
-> +	}
-=E2=80=A6
+From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 
-Would you like to use the following code variant?
+struct gpio_chip now has callbacks for setting line values that return
+an integer, allowing to indicate failures. Convert the driver to using
+them.
 
-	if (slice)
-		addr +=3D ( prueth->pdata.banked_ms_ram
-			? MSMC_RAM_BANK_SIZE
-			: PRUETH_SW_TOTAL_BUF_SIZE_PER_SLICE);
+Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+---
+I realized one of the pinctrl drivers was missed during the conversion.
 
+ drivers/pinctrl/nuvoton/pinctrl-ma35.c | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
 
-Can the usage of the conditional operator be extended another bit
-(also for the function =E2=80=9Cprueth_emac_buffer_setup=E2=80=9D for exam=
-ple)?
+diff --git a/drivers/pinctrl/nuvoton/pinctrl-ma35.c b/drivers/pinctrl/nuvoton/pinctrl-ma35.c
+index b51704bafd81..da5220da5149 100644
+--- a/drivers/pinctrl/nuvoton/pinctrl-ma35.c
++++ b/drivers/pinctrl/nuvoton/pinctrl-ma35.c
+@@ -361,7 +361,7 @@ static int ma35_gpio_core_get(struct gpio_chip *gc, unsigned int gpio)
+ 	return !!(readl(reg_pin) & BIT(gpio));
+ }
+ 
+-static void ma35_gpio_core_set(struct gpio_chip *gc, unsigned int gpio, int val)
++static int ma35_gpio_core_set(struct gpio_chip *gc, unsigned int gpio, int val)
+ {
+ 	struct ma35_pin_bank *bank = gpiochip_get_data(gc);
+ 	void __iomem *reg_dout = bank->reg_base + MA35_GP_REG_DOUT;
+@@ -373,6 +373,8 @@ static void ma35_gpio_core_set(struct gpio_chip *gc, unsigned int gpio, int val)
+ 		regval = readl(reg_dout) & ~BIT(gpio);
+ 
+ 	writel(regval, reg_dout);
++
++	return 0;
+ }
+ 
+ static int ma35_gpio_core_to_request(struct gpio_chip *gc, unsigned int gpio)
+@@ -524,7 +526,7 @@ static int ma35_gpiolib_register(struct platform_device *pdev, struct ma35_pinct
+ 		bank->chip.direction_input = ma35_gpio_core_direction_in;
+ 		bank->chip.direction_output = ma35_gpio_core_direction_out;
+ 		bank->chip.get = ma35_gpio_core_get;
+-		bank->chip.set = ma35_gpio_core_set;
++		bank->chip.set_rv = ma35_gpio_core_set;
+ 		bank->chip.base = -1;
+ 		bank->chip.ngpio = bank->nr_pins;
+ 		bank->chip.can_sleep = false;
+-- 
+2.48.1
 
-Regards,
-Markus
 
