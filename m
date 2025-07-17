@@ -4,133 +4,207 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B8DFC83F1B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 00:58:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9FACC83F27
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 01:07:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IE2mv/XyFgD4b+TvkQGaKdoVQYDSr2EgRQz4YF0xCJw=; b=LVBAwRri1fEYSQWy1hCVbfgQAx
-	SMdZi36QxaXIcHEIaSFzeNzSE2ro0zcrvMeO9FoD8QHvyFaf/7rh7xMPi268EP0+29lc4wiKWtnu5
-	/KajMGyuQeWKFQrXlPB9AJoDvrvQJeatq6gCwWn+wkuOrlU1pO4qJeKA9PN4Wp4VZJJ2mki529jGs
-	Gew3QYMD2vYgcvJ8UT1fXT1ivAAarV7iBAqi02mTFHzvzJo1pt2ouOJZauD8VEFk6FtdeAqyacz1k
-	UpT/RYAvLuxCOtguANeQpCS1hOnj/ZuR+WfCrIup66qxWn12TwCxFGfvd9qAWQNYr892sOgtLbikD
-	xiZR6EKg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yyGP509grphr6L/Mh9FEl5l3BzlhmlwMcGDwHIm3UOE=; b=ZoC56bYTZcoSMv6e/jV+59SDQA
+	y77XtSmXewRKeELs2+jAPoUfbJX3g4ySipmU+94bnqwL9WFtMLO9ELpHS+GWlYnIKSF9xdihxME9V
+	Eefh/CsIWvpuHGi4fnWHsj0Udh6uPnBk5GUM75VoS/yr/2UGlsnS2uBbN07OOgbT16kjaFeBZLPD8
+	fCtODh7crglBNXxOvRlpQZl1NRu4G2qxJZe1wlhjhLbYwbJvNeWTSXFnErlE4pPTJ36z3KYZFEez6
+	sUazarF/98ZZrlAbIdUmz5VxoPiLP5Lh5yOV8GQN/MncGxbF0JiqLAEVFt0901Lzko7mdeXXCs5ny
+	+twm4ADQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucCx3-00000008wvK-05Tr;
-	Thu, 17 Jul 2025 00:58:21 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1ucD5o-00000008xfK-17ZD;
+	Thu, 17 Jul 2025 01:07:24 +0000
+Received: from esa15.fujitsucc.c3s2.iphmx.com ([68.232.156.107])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucCub-00000008wo2-30XH
+	id 1ucD3M-00000008xPX-1lxr
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Jul 2025 00:55:51 +0000
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56GGDVto007196
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Jul 2025 00:55:47 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	IE2mv/XyFgD4b+TvkQGaKdoVQYDSr2EgRQz4YF0xCJw=; b=OCNca29K4/heGuRI
-	EuoPnowCMwoZD2GJk0v9O20MttCKZB0gRAcvZzZPPCbx9Q2uMUzQ21mJgoqzFQjD
-	Odfj+DMhJXRXXz3uKKqBhI3F0JEgq4VHi1N+6mY+igTUdBhaTFTcuqu5QecEvyuF
-	ztD8SErr+ku9d/WRaz0H8UbZP5ykZGIXd6/M+xHcgYf1WJ0NjWru43SgQT0t7B0t
-	zWnHQh0LVS80FQXNkuc14oju7UtxAmzb8SGkj1SsVSjUnsFscUOHJgvuO7R3N0Fi
-	LSTVtwEh8b0uR8be32h8vzzSQoXSUQXZS7+2BMLjyuLksnggQO6yEk0qkkf2BmQv
-	9SkOzA==
-Received: from mail-pg1-f199.google.com (mail-pg1-f199.google.com [209.85.215.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 47wfca71f0-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Jul 2025 00:55:47 +0000 (GMT)
-Received: by mail-pg1-f199.google.com with SMTP id 41be03b00d2f7-b2c37558eccso317766a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 16 Jul 2025 17:55:47 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752713746; x=1753318546;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=IE2mv/XyFgD4b+TvkQGaKdoVQYDSr2EgRQz4YF0xCJw=;
-        b=ZCA7qvXgKWjTf0S7+pKbsAlzAFXjMkT0zD3o6ot9xQH9+380s4WfqzU5W2uUY5XgpF
-         B0Wur6sy4yGkpU0LeE5IWRiOdagrk7FmruLr1fa9ZJNBuzuJKbHX1A64Ko+mY/Z/8o3o
-         pmKs/AKoG9vVQVN1EaNpnNz2qDHpTxIozPqpYJKjJZ375WDxZrGe0bzxyB8/4X3wXMrr
-         7QkWyUH+eGPeIMCFPOGA95xkCsmoEC6/Trd7qmAwEzRtOIcjdo1ly7tMXovw91m1T/6m
-         oOZlx9/wwuh1ZyAGF872lp+ldAPIVmTZlg27GI+UURZvUYdtEw6ZU9S5Devy3dQSIrQA
-         HYFA==
-X-Forwarded-Encrypted: i=1; AJvYcCX8bmuRdx+AIdhibdSkIroRO66znfFtfYLZu3/H49k8rWZdtX2mF0dMTYEBdrTYypaTrf2Ls/VZZc15aF1kk2rG@lists.infradead.org
-X-Gm-Message-State: AOJu0YwrYag+BCpqNdHDnLvQoUUFM2tly7mlCAvGmzVIV8WUnviksD3Y
-	cfPyXXtSYa9a0eaD1QRmAMO8h3jjDJoHSM4FPdPwwN3C0Khvreysew35AhQHFYDO/i2aYlB/5HU
-	FM/VuC5LI/Rtgi8Y72Zu8WSixRgrVNJN9WVSN8eXJ9uROjAE5I69yOtSrdyltXkQN8V5n7oaDrR
-	Zb7w==
-X-Gm-Gg: ASbGncsXqxwyyzo4TPYyEGYWWgD5eT9AlgZgJm5DPUZVFt0enp9k8GxtK9osw79+Tvz
-	/a08S3gBBxExtJjvBAPGRw88eEbKvgRhBC5cxM00HrJfD0EqMu7aTRIKgw4OKW3xOJqbMYP7Ua0
-	MCBn7U3u4dMP+TZyEHN5LNHf2p2qDWuRG8+xYXrZkoH3PltWlez0c5SwVt6qeKT8mh8D3qsa4Dl
-	eyyVJhaTK4FL6yFg9NgOKqPRecStRuwXkxD1C+vprApcUAJPkPEvFbECwOIchVYCuDefj0y0oq7
-	raqMsjdNwChxtFkETJi7+2yqZZXTGWntU6S79PBCSOAClXTtuuzbw8nOlIBO5Cp18uxYOP2jWx4
-	ej+N5+iTeYh8GEY6pCkNUvhoL
-X-Received: by 2002:a05:6a20:431b:b0:215:efed:acfc with SMTP id adf61e73a8af0-237d5f28f06mr9124563637.7.1752713745958;
-        Wed, 16 Jul 2025 17:55:45 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IEsusfkryQNV4zgPxlZ3pgSGcpHupRiF5HVteLlYpaFodV/KYUSAfdyKsskldFXBYJwvAiNtA==
-X-Received: by 2002:a05:6a20:431b:b0:215:efed:acfc with SMTP id adf61e73a8af0-237d5f28f06mr9124527637.7.1752713745535;
-        Wed, 16 Jul 2025 17:55:45 -0700 (PDT)
-Received: from [10.133.33.228] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b3bbe6bd7d1sm14379656a12.35.2025.07.16.17.55.40
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 16 Jul 2025 17:55:44 -0700 (PDT)
-Message-ID: <4850a2a5-dbeb-43f4-9005-1cc022545dcd@oss.qualcomm.com>
-Date: Thu, 17 Jul 2025 08:55:39 +0800
+	Thu, 17 Jul 2025 01:04:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj1;
+  t=1752714293; x=1784250293;
+  h=from:to:cc:subject:date:message-id:references:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=r++flkeuoHWVwzXtI3reb1uw6SivqZ7eIDkOJX1Gcbo=;
+  b=Ta1bLj20fSh5DoBmCQwn3ZVtA3jc9EervmTdRZbIlaNNY01f2WzKs/yl
+   jkyAXQVTtMS/bO8g/2d9eNN5F7PazetvA7HLfXKGuHoI3AJAmaaWCfHQ8
+   GaDakALKjePY4hPIlqdBlKAhSmZc/uUOh0tjhZ5UW0D8kfxh7uMCq8XLY
+   hgYHHjfHGiV8FScX+2e9lrcwlcF9m9iJVaWLuorxJkyPjsPVS+aUfAnwT
+   UqgOtrg3za6sw/O9AjsqfI60jURcImxa7bydpz9MEeyAFzaoAcYCAqEBc
+   r7zHOuiLypNP0tUbXnBjCUfZLQEitiI0uebNpKSF2FFEzdMb22ZDd83Bv
+   Q==;
+X-CSE-ConnectionGUID: yZveoR5ATy+D3wE0xoZLSw==
+X-CSE-MsgGUID: 9MhKO4+bSvSpMWhU5Ca++Q==
+X-IronPort-AV: E=McAfee;i="6800,10657,11493"; a="162355842"
+X-IronPort-AV: E=Sophos;i="6.16,317,1744038000"; 
+   d="scan'208";a="162355842"
+Received: from mail-japaneastazon11011038.outbound.protection.outlook.com (HELO TYVP286CU001.outbound.protection.outlook.com) ([52.101.125.38])
+  by ob1.fujitsucc.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Jul 2025 10:04:43 +0900
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=wsniNUGvCRt3OYwJviLj9QIWvBTbPYTtaQ4Q5y0Yulo9QvXCDBGVHrZ7v0f+LOQdcXc6pfVkuYQJ4Hd7/wAkXnz/RNbCSYk9ak9l6PbV6sbocrhgqjzPeoNLr5QqA81UBGiw3gMhTSfNkZbu73HP2qHj8N4hYVbzw9GPgE5adAKtGcRtRICG2N8Ny/kPFmsaiU9jRKioljAIEKvRhT1DTPToaqBCCzvorc/50HEJpkSCzF0qOS80bMDaQ8zjw20qlYfSJ5FmlL4JYFNpFDUkBCzaaOx2W81sJHqPXgyXsiiJjH4LD7APtvmApx7g99vN2FT7CpogdSjkNq8xOssGxA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=yyGP509grphr6L/Mh9FEl5l3BzlhmlwMcGDwHIm3UOE=;
+ b=chcaw/d5t6rWGOUbl42oPHFRref4MJ157UOjCdD7iV8ayrCsGcOUbsFBo6Rl4tNgX41vd/y3Dvle58XhbUORiLQ7/EIdBNAfWaGu12LqSdGF/+o5Bmqo8jLkW2zVAjgOcu9QIUkfdVniisdPr2EGA+SHvISuyZKAhnjTUfnHmaFQB21n455cXpt0FbggzTnvwxxAB55ONuzuyzhEKQ+d5X7RIxgL9QH2nJjpCbbz4jmNkuANR1DR+70G2j4GzYHojHyzberNapTabIompJSgwVOav2I8GWZ+PjAORlmxZwjnzqcVFDgMKx3YI/1Pyww/gm/Chc28ySWzENFdUMcRsA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=fujitsu.com; dmarc=pass action=none header.from=fujitsu.com;
+ dkim=pass header.d=fujitsu.com; arc=none
+Received: from OSZPR01MB8798.jpnprd01.prod.outlook.com (2603:1096:604:15f::6)
+ by TYWPR01MB9837.jpnprd01.prod.outlook.com (2603:1096:400:233::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8922.39; Thu, 17 Jul
+ 2025 01:04:39 +0000
+Received: from OSZPR01MB8798.jpnprd01.prod.outlook.com
+ ([fe80::4344:1f7b:e34d:c672]) by OSZPR01MB8798.jpnprd01.prod.outlook.com
+ ([fe80::4344:1f7b:e34d:c672%7]) with mapi id 15.20.8922.037; Thu, 17 Jul 2025
+ 01:04:39 +0000
+From: "Shaopeng Tan (Fujitsu)" <tan.shaopeng@fujitsu.com>
+To: 'James Morse' <james.morse@arm.com>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>
+CC: Rob Herring <robh@kernel.org>, Ben Horgan <ben.horgan@arm.com>, Rohit
+ Mathew <rohit.mathew@arm.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+	Zeng Heng <zengheng4@huawei.com>, Lecopzer Chen <lecopzerc@nvidia.com>, Carl
+ Worth <carl@os.amperecomputing.com>, "shameerali.kolothum.thodi@huawei.com"
+	<shameerali.kolothum.thodi@huawei.com>, D Scott Phillips OS
+	<scott@os.amperecomputing.com>, "lcherian@marvell.com"
+	<lcherian@marvell.com>, "bobo.shaobowang@huawei.com"
+	<bobo.shaobowang@huawei.com>, "baolin.wang@linux.alibaba.com"
+	<baolin.wang@linux.alibaba.com>, Jamie Iles <quic_jiles@quicinc.com>, Xin Hao
+	<xhao@linux.alibaba.com>, "peternewman@google.com" <peternewman@google.com>,
+	"dfustini@baylibre.com" <dfustini@baylibre.com>, "amitsinght@marvell.com"
+	<amitsinght@marvell.com>, David Hildenbrand <david@redhat.com>, Rex Nie
+	<rex.nie@jaguarmicro.com>, Dave Martin <dave.martin@arm.com>, Koba Ko
+	<kobak@nvidia.com>
+Subject: RE: [RFC PATCH 16/36] arm_mpam: Add MPAM MSC register layout
+ definitions
+Thread-Topic: [RFC PATCH 16/36] arm_mpam: Add MPAM MSC register layout
+ definitions
+Thread-Index: AQHb8pLvNDZkiG3tI0+6SdsU1pKeOLQ1hJwQ
+Date: Thu, 17 Jul 2025 01:04:39 +0000
+Message-ID: <OSZPR01MB87980409C12B21D619324C5E8B51A@OSZPR01MB8798.jpnprd01.prod.outlook.com>
+References: <20250711183648.30766-1-james.morse@arm.com>
+ <20250711183648.30766-17-james.morse@arm.com>
+In-Reply-To: <20250711183648.30766-17-james.morse@arm.com>
+Accept-Language: ja-JP, en-US
+Content-Language: ja-JP
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+msip_labels: MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_ActionId=b3c1c7f4-7c5b-4569-91ce-ad81716e1b71;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_ContentBits=0;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_Enabled=true;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_Method=Standard;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_Name=FUJITSU-RESTRICTED?;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_SetDate=2025-07-17T00:51:06Z;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_SiteId=a19f121d-81e1-4858-a9d8-736e267fd4c7;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_Tag=10,
+ 3, 0, 1;
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=fujitsu.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: OSZPR01MB8798:EE_|TYWPR01MB9837:EE_
+x-ms-office365-filtering-correlation-id: 91e2720b-c235-481c-d621-08ddc4cde7c0
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|1580799027|38070700018;
+x-microsoft-antispam-message-info: =?iso-2022-jp?B?ZzhCaTFwcUJPdVdVUHl6dGZKOXg2a0tpSjMrd2xQb2M0Zk56MDAvTDFK?=
+ =?iso-2022-jp?B?OTVMbEVGRTZCWjhRUlZ1Q0haekZnbjdQNlVxcURvMUdEU29iYmRvWHRx?=
+ =?iso-2022-jp?B?bjlPdWtZb3M3S0hXK2c2ME9kZjFYTWZRY2xOVUVkNWlJOCtJZ251ZmFz?=
+ =?iso-2022-jp?B?bG1McklvS3BSemdDcXBXVlpHMzF5S2o3RG5NWnphM01tc0RvTGRMZUZw?=
+ =?iso-2022-jp?B?T1o0aHp0c2d4eVBPM1J0a25ld3dQV25IU0ZiRVhhTWRTeWE3NTRYNDNP?=
+ =?iso-2022-jp?B?emVRdmdjMytnRks5QllVRjZlMXhSd1pCS05nL1JrRHhlZzR5YXk0SWNY?=
+ =?iso-2022-jp?B?T29ONS9Qd3FRVDc2TXpQZjlDR1ZjcWsvQW9ka1k4djdYSkp0K25DMDZN?=
+ =?iso-2022-jp?B?b2RrNStBNjVBWUxQTnFMVXF6YkJoSExseDRaY1hoUm5WWUNITXp1NmJC?=
+ =?iso-2022-jp?B?ME13aWl6TTJJaUMwdGZoTTA3T0hUWS9HUExKWWJNNXlGR1VkeGp0MWFL?=
+ =?iso-2022-jp?B?a1VaY0VxSzFiREhMUnN2SkhiUlVkK3JXaG5tVjB0V1JsWmNsWGlqZ3Q2?=
+ =?iso-2022-jp?B?a1NWdkhhSUFReVpINXNLZndvd0pJVkNacDlCa1JxUFdGUFpvMVA3MDEr?=
+ =?iso-2022-jp?B?eUZxZWVDTkV3d21VS21RamkrSFNtSW1xYTMyNkJ4WTNUUmRjcHV5c2FE?=
+ =?iso-2022-jp?B?OEpqVmZWdEJqMzUzUXFsNWU0anc3dWNMdS83QThIWnhiUVUxbjF2YlpV?=
+ =?iso-2022-jp?B?SXBjRUdhMEVnbDYxM2tNdmhYZm83NCtYMUdDV0duQmEvSTAwd3J1RTky?=
+ =?iso-2022-jp?B?d0FNTlphckpNMWpLY3BiUHNqMERnUXYzVVZQV0krbE42aEVKZWpwbEVP?=
+ =?iso-2022-jp?B?M2JMT25hQzNYSDZBV24rbEw0Yks2R0VCWVFrWjgreTJlUkp5dUc4aDFT?=
+ =?iso-2022-jp?B?LzhDYlhXYXRjM2VkbkZGeVpvNFgvMHNpeUlsNERPbXdNQ3FybFVFNTNa?=
+ =?iso-2022-jp?B?Qi9LNXFCSUJ2dW1pbWZRQkxFMlgzOUU3enFRa0ZEeWdtckFGWEtrVDlB?=
+ =?iso-2022-jp?B?bWRhN1JBYWw2OFBNSlh5dFdWdHp3N3FtQm9BOVo5YzhLeWI2TFQ0dFlp?=
+ =?iso-2022-jp?B?aEtidHlkdk12YjBZa1U3SWZJWEJDUWd5YUc2VHFGVlN6bFI5cWE1ZmZu?=
+ =?iso-2022-jp?B?d2hXRDhtd0VUSC9BMnNlank1dklYdDFHTUEwSUNoY0R1NGtnMlFEbHZR?=
+ =?iso-2022-jp?B?N3lXLzU5MTY2NGcwb0hNVDZiMG14aWtTTVlNZnR1Y2V3TnN0WFZiT21S?=
+ =?iso-2022-jp?B?NlBka01hZE50cDlLS29sbUpUY05NZjgzUWlYUzlRWkt6MFJFS0oyb21V?=
+ =?iso-2022-jp?B?WC9BbCt1L2xaZENjZG5lbmZQVWRiYWNtdDNZVnZkaVVFc2RmMlhRMSs0?=
+ =?iso-2022-jp?B?cUNLWFYwNVNHZWsydi9XN3creU1BWnh6UDVMUGNQdy9DcmZXSmhmNFhH?=
+ =?iso-2022-jp?B?c2ZoSXU2ZDVOUXFFdzRXKzc1ZFZKZjFpaU9yNEgzR04xNDVyUjRPZ2Jy?=
+ =?iso-2022-jp?B?M3FKU1lYSlF5M2ZpbEJBRzRaUDBFOTBoY3dBKzZBMFhGK0FvdzNXUStv?=
+ =?iso-2022-jp?B?QlpQb0N5NnI0bzhkNVhuL09sNkZwbG91ZXRTNzJYZXRzVUtVZUJhZXlv?=
+ =?iso-2022-jp?B?d0luVHRiZk1IbC9RS0cxUnd2K2xoejYyL3N1ajgwQ2NnRmp6M0dmT3Z3?=
+ =?iso-2022-jp?B?anhFc0czR3hiclhCWTRHK3kybTJRVVJkQy9VMHlVOXBPZDBIR2ovRWN0?=
+ =?iso-2022-jp?B?dzhFZWdZa2duWCthSEhGdGpsazBBMEtTVlczQU9tVUp4YTcrR3BxTWFz?=
+ =?iso-2022-jp?B?MTFGbTdnbWdDZGVFVUNQbjVFWmVtWFVhMXJEVm4zQVp2Y1lScmg4QmNT?=
+ =?iso-2022-jp?B?bnJtNEFmM0xSMDFXd3RBcXluSmdEamRuY3BoaElpUjRFOFBTV2pwYnRo?=
+ =?iso-2022-jp?B?MHU0Y0NkMnEvZE90aXF5S09WUSsvejZxWnJPRFB3ZjZ1aGlSYXBEWGZW?=
+ =?iso-2022-jp?B?V1pNU24vYXh2eWJDNUpTR25TaHBwYXdtTmRWcTZGSVo5ek9DOExBM1Bt?=
+ =?iso-2022-jp?B?ZlNPaGtDeE9OdGhHa29PUTlCamk5OHJkbW5PNjBFanVya0hLTGlwcUc2?=
+ =?iso-2022-jp?B?aGl6ZEdsSnVkL2tRMUtVbmlobkZtMnVh?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:ja;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:OSZPR01MB8798.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(1580799027)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?iso-2022-jp?B?SVR1bnBaT2RheTZjMXNTaHF3SkhIQUlaeXp3VVVHR0xWbkJNUENTcnYx?=
+ =?iso-2022-jp?B?NUNrSXUwMEkva2VSc29JTG1IVXF5OTdoVlF2NjgvQk1ScHJwQnpDdWRi?=
+ =?iso-2022-jp?B?elRTRDdJbUk0c1RCZzVBSG9Fd2psY0JBTXN5YytOT0p0dWFCQWhORGQz?=
+ =?iso-2022-jp?B?L3ZyWFJmMUJqa3NxVWNoT2hFb3EzWW1MUEE3MitTMUhuVXhjMU5FWSs2?=
+ =?iso-2022-jp?B?ZnI4S2FxK1J6L3BMeW9LUGRRMnZValZ4R1FjaS9iZWNRUVZqdHlwbVkz?=
+ =?iso-2022-jp?B?V1FCaGVCQ1FoZnNYb25uaFo5eFBhRVBjWDlNQjVPbXdmeUVaM2t2Ny9G?=
+ =?iso-2022-jp?B?TllsbENvYWVMZVQxVE9wM3B0cVUyckltYXVVQ1VQcldRa2FpZlZ2TzJW?=
+ =?iso-2022-jp?B?NWxyc1I5WUJFUXFXR0RhbGNOMFJKRmM4QXV3Q1lpYUpDMDhraHdqTWZs?=
+ =?iso-2022-jp?B?clZuV2JvYlRjTElYcFVvYmdZOEsveWoyQTJZYkFqZkNJMnRLSHZySGVI?=
+ =?iso-2022-jp?B?VEQ0NXEyVk8vc0VyeEIrM1VBeTB3bllRNlVNODdGWG1pVEJBQXdzcXRL?=
+ =?iso-2022-jp?B?OTVhNXVqUUtRNlVObjlpOFNuR3RXWWt4YmNYUnRzbU9qbXBQUmd1RkNW?=
+ =?iso-2022-jp?B?em5oY3dqd0prYTF0aG8xNVh2U3dzT25Jc2kwMUhKMGllTW4wOEFtOFNl?=
+ =?iso-2022-jp?B?SXYwQjdIT0tJN1NrMWlGV0FSMm1mMjJ1NFVBMUtGUlM0dDRUdS8vRWt0?=
+ =?iso-2022-jp?B?eE9wNnpGaEh0WHVIOEFKK2hhdU91eklXWDR3eTltZzYrbnNXWE42Q2NX?=
+ =?iso-2022-jp?B?VlpLTGJnbXRMUmEvd21OemRXSTl1S2x5UUV4bVppU05sK0xQbnRLUnhU?=
+ =?iso-2022-jp?B?bkJyZUxYelRRMnpHdUpGZnNiQTNsdHRWVUNHSnhVRS9SMDQ5ZVlWcmhq?=
+ =?iso-2022-jp?B?VWlsZkszTlhtc1BWMFRlYXludnFKRjdQcERCQytuZFRYZlJvbGtIWG5I?=
+ =?iso-2022-jp?B?cjRZVk5NTFFMQzBtTElvR1pSaldGNFFobDdDMnlhUEdjU0IrTjZYSjhl?=
+ =?iso-2022-jp?B?NmZwZklSSzBOYU16THdTZFh3NW9ZNWNXcFNGU21RNmhlZkk1VzBKZTFF?=
+ =?iso-2022-jp?B?enhIUlUwUVZzOWZsK3FqS2xiRlJZMGZJYXd2WkZpWWlNajlkSjBCWlph?=
+ =?iso-2022-jp?B?T3dSUGQxVjluOVZhQ09hb3c0SHJ5Nms5Zld2U3RZQVR5WDRTSEJyKzZ0?=
+ =?iso-2022-jp?B?OUtBNC80djhpcEZycWduemZTMW5XaHFYNzdtSmt1NUFnTkE0am1jSVdR?=
+ =?iso-2022-jp?B?SDhObzc1c2tlRy9EM00xaGIrTGFoMnFGWHNWaVpsL25wMHN4SlpQQ1M4?=
+ =?iso-2022-jp?B?L3YzVUZuSEZZSThqWWdMKzNRS1dndSthR1pCQkgyODNhMmk1WlpBWnFV?=
+ =?iso-2022-jp?B?TXpWdFh6OHQwdWpmQUN2MW5VS3d2ZDJDZmFIV21ua255dDdtaWpkUG5X?=
+ =?iso-2022-jp?B?eTJRMWRpUXBFS0VMZWpmN3hyQUsvajU1L3JYMlcwVHpSMlpNVGZGV0ND?=
+ =?iso-2022-jp?B?TkhOMXV5YjBZZ2JyTk42T1p6aUZhb3VnRGE1S1I1UTIyWHdrWEpJcm8z?=
+ =?iso-2022-jp?B?K2paUFZadmZXV3g5TUxOV3V4MG12dUFDVTdmREFFME5iR1NtNGhOQlhO?=
+ =?iso-2022-jp?B?S0MweGNlSmVJc3dPMnYxeU9zOExoOVVrZW91Mk9SU1F2bWZCd0NGMklR?=
+ =?iso-2022-jp?B?NVNhMVRsaGNpVHYwTE5jT1dZUkFRNzRBelVrSXYwRlZCVE1LcnV0TytH?=
+ =?iso-2022-jp?B?YSs4NzhpMFU2a1FKUWY2cVNKUWxVOWZYVDhEQ0pzcGdBUkg5UTBFT2dl?=
+ =?iso-2022-jp?B?OVQ5a1poa3YyR0k4Ukx2T21rbFFmZXdFZEU2d2JQSlNOMmFFRmdoeUF2?=
+ =?iso-2022-jp?B?MmlvV0JLQ25KWm1DZ1lwYXdOTm8xL3BHMTZGa1o1VnZ0enNSdjFSYXJv?=
+ =?iso-2022-jp?B?OFJBWWpYT2V0K01xUjdmK2huMUJRcTlxbkhTL01ZeDlSWDg3OHFLM1RZ?=
+ =?iso-2022-jp?B?bkJ3UmlTYVdIdnMyb0hHV3dxTUtZV0xjN0Z6aXMvMG50WGMvM2FKUnBi?=
+ =?iso-2022-jp?B?TWJNei9SK28zS3d4VFl3cE8zT1MrMGJVbUZZUWgwaXJ0Y1d3RHhKN2oy?=
+ =?iso-2022-jp?B?QkZKNnp0RTRpRkdtREZFWTM1OGxPWHJoeWdCOEk5VUpKbWM3a3lTdzdJ?=
+ =?iso-2022-jp?B?d3FiaVNjZERndmZJY0QxK3FKYXkrWW5ReEhGMGoreE5yYXdKVC8zQW1B?=
+ =?iso-2022-jp?B?Mmp4QUhmdzAxTW9GNWdFK2lRaEEvVUhtdGc9PQ==?=
+Content-Type: text/plain; charset="iso-2022-jp"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 RESEND 01/10] coresight: core: Refactoring
- ctcu_get_active_port and make it generic
-To: Mike Leach <mike.leach@linaro.org>, Jie Gan <jie.gan@oss.qualcomm.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
-        James Clark <james.clark@linaro.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
- <conor+dt@kernel.org>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-        Tingwei Zhang <quic_tingweiz@quicinc.com>,
-        Yuanfang Zhang <quic_yuanfang@quicinc.com>,
-        Mao Jinlong <quic_jinlmao@quicinc.com>, coresight@lists.linaro.org,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org
-References: <20250714063109.591-1-jie.gan@oss.qualcomm.com>
- <20250714063109.591-2-jie.gan@oss.qualcomm.com>
- <CAJ9a7VjyWtopbnTirRnd4-486PrdQH00cvUR0kcPde2hxCUH-A@mail.gmail.com>
-Content-Language: en-US
-From: Jie Gan <jie.gan@oss.qualcomm.com>
-In-Reply-To: <CAJ9a7VjyWtopbnTirRnd4-486PrdQH00cvUR0kcPde2hxCUH-A@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNzE3MDAwNiBTYWx0ZWRfX50qv695FxNz0
- nMUSt6jvAzlC6MM4puSXxxUWqNJqCwS6Gpo6pwhwzxK+ZcXJXbWZc8atZR86zbN55jrj7uXLjO3
- XtAV4b2NaTHeeNJyK+WsYCW9Se9+BwM4EuIHLDhp4n+MHXcecvEfbkX+7uJ07mdaaCuJwVx/j7f
- U/Fsy2eH7oe0+7PP4V0QMZ5X+xm+IJ13Z9z7QBgBuUI8vklVJ8GB7bw5yQIlZ5MiQpwYom9eddM
- jijs4iHs9zN2mVJ93lIboNSsEpWZpr8DSrEur4/+NgW6SJrEfNVIILEMlXHaQHpEzVLoSAiTQ0a
- F6uwfF1xEM5NGEpAVvi6/raZ6VURlACCAR7IGfu6OAV2bY/7X8aysH09Ehn5l2qYhMFHJ0LhU39
- vQ4h7v3DI3ci5gRxJlP9x4iXasRhyA3YpefXD3EPwVtRzhnUzZHkL0TdCeV8ncnLQLAVApVw
-X-Proofpoint-GUID: 804ZVRJiie22SjJP9zSInukVT7W9gk42
-X-Authority-Analysis: v=2.4 cv=SeX3duRu c=1 sm=1 tr=0 ts=68784a13 cx=c_pps
- a=Oh5Dbbf/trHjhBongsHeRQ==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
- a=IkcTkHD0fZMA:10 a=Wb1JkmetP80A:10 a=EUspDBNiAAAA:8 a=CCvaVWANnUWFBPVUepYA:9
- a=QEXdDO2ut3YA:10 a=_Vgx9l1VpLgwpw_dHYaR:22
-X-Proofpoint-ORIG-GUID: 804ZVRJiie22SjJP9zSInukVT7W9gk42
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-07-16_05,2025-07-16_02,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 mlxscore=0 priorityscore=1501 bulkscore=0 phishscore=0
- lowpriorityscore=0 mlxlogscore=999 impostorscore=0 clxscore=1015 adultscore=0
- suspectscore=0 malwarescore=0 classifier=spam authscore=0 authtc=n/a authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2505280000
- definitions=main-2507170006
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: EZNxnrUp2oqd3B5lMc35BHGQEz2pAGH7ISAHR5k7w9Gk9+qinw4k+rj5uBdiarGjglDNc43ly4NEAvmvJT5/12Zw6d4WPWbSdD0HM3CSIB8XjHON5Dkas+3kOsg5D8iJtOyPSO3i7OMII3T3xrNhlnsaZ3kvXudY+LUr85DVi8/B2NIm9Juzud0REklwnpwJ529h8E9h+TL9zfDNVyRtoBD+1L8QDAqpbx8M7DLeMYs0ZFpsJ1/CymV6ApqobqhTmJrjeUKZSjSQloRjI6byM7BVY+Rv5MIwA3vVxbRdZ+5nPL6A8Q33BITB6pG7HDslrVbyGpf1TqxrTotZddQlC3kawEvzXVpa/uWjkE3eMi6i2VYyZ8zg+aSe/1dklntw1I8M/Q3iaGYIK9AdyECEAKHMMkoZXSk87KyhlB5Cve7vI9QzmEqAO1mE/decdaySZdRXeoEzU3I2TuuCKBt3NLMPNxM/bydzpWkXR1FnO8QsTWp9GOsoOLy/Pl7LFFhd9+uNxusOBi3WvUbS8zDE3+W3M60J1SbcxB2G6ykG0G2CIgAMwRow1KdgnBTXpuzO3+wsUftRQTsrX/wP90Sfkocu/kxd81irXkNTtALxHtI0lEWtAvX4MOYSgYGbc3/X
+X-OriginatorOrg: fujitsu.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: OSZPR01MB8798.jpnprd01.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 91e2720b-c235-481c-d621-08ddc4cde7c0
+X-MS-Exchange-CrossTenant-originalarrivaltime: 17 Jul 2025 01:04:39.1530
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: a19f121d-81e1-4858-a9d8-736e267fd4c7
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: GZZA4X7Rec68IdD4TFKvlvbvyYOtdAuq5CqpPNIK4Zj5mssDybrqMKD6hjyuSbHeXv/v7va2p02U2E+e1dibm5WHS7yVV7/gWjC8lLhYwYs=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYWPR01MB9837
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250716_175549_907129_7D69FEF2 
-X-CRM114-Status: GOOD (  28.65  )
+X-CRM114-CacheID: sfid-20250716_180453_053313_E49F6E27 
+X-CRM114-Status: GOOD (  12.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,141 +219,350 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hello James,
 
+> Memory Partitioning and Monitoring (MPAM) has memory mapped devices
+> (MSCs) with an identity/configuration page.
+>=20
+> Add the definitions for these registers as offset within the page(s).
+>=20
+> Signed-off-by: James Morse <james.morse@arm.com>
+> ---
+>  drivers/platform/arm64/mpam/mpam_internal.h | 268
+> ++++++++++++++++++++
+>  1 file changed, 268 insertions(+)
+>=20
+> diff --git a/drivers/platform/arm64/mpam/mpam_internal.h
+> b/drivers/platform/arm64/mpam/mpam_internal.h
+> index d49bb884b433..9110c171d9d2 100644
+> --- a/drivers/platform/arm64/mpam/mpam_internal.h
+> +++ b/drivers/platform/arm64/mpam/mpam_internal.h
+> @@ -150,4 +150,272 @@ extern struct list_head mpam_classes;  int
+> mpam_get_cpumask_from_cache_id(unsigned long cache_id, u32
+> cache_level,
+>  				   cpumask_t *affinity);
+>=20
+> +/*
+> + * MPAM MSCs have the following register layout. See:
+> + * Arm Architecture Reference Manual Supplement - Memory System
+> +Resource
+> + * Partitioning and Monitoring (MPAM), for Armv8-A. DDI 0598A.a  */
+> +#define MPAM_ARCHITECTURE_V1    0x10
+> +
+> +/* Memory mapped control pages: */
+> +/* ID Register offsets in the memory mapped page */
+> +#define MPAMF_IDR               0x0000  /* features id register */
+> +#define MPAMF_MSMON_IDR         0x0080  /* performance monitoring
+> features */
+> +#define MPAMF_IMPL_IDR          0x0028  /* imp-def partitioning */
+> +#define MPAMF_CPOR_IDR          0x0030  /* cache-portion partitioning
+> */
+> +#define MPAMF_CCAP_IDR          0x0038  /* cache-capacity
+> partitioning */
+> +#define MPAMF_MBW_IDR           0x0040  /* mem-bw partitioning */
+> +#define MPAMF_PRI_IDR           0x0048  /* priority partitioning */
+> +#define MPAMF_CSUMON_IDR        0x0088  /* cache-usage monitor */
+> +#define MPAMF_MBWUMON_IDR       0x0090  /* mem-bw usage
+> monitor */
+> +#define MPAMF_PARTID_NRW_IDR    0x0050  /* partid-narrowing */
+> +#define MPAMF_IIDR              0x0018  /* implementer id register */
+> +#define MPAMF_AIDR              0x0020  /* architectural id register */
+> +
+> +/* Configuration and Status Register offsets in the memory mapped page *=
+/
+> +#define MPAMCFG_PART_SEL        0x0100  /* partid to configure: */
+> +#define MPAMCFG_CPBM            0x1000  /* cache-portion config */
+> +#define MPAMCFG_CMAX            0x0108  /* cache-capacity config */
+> +#define MPAMCFG_CMIN            0x0110  /* cache-capacity config */
+> +#define MPAMCFG_MBW_MIN         0x0200  /* min mem-bw config */
+> +#define MPAMCFG_MBW_MAX         0x0208  /* max mem-bw config */
+> +#define MPAMCFG_MBW_WINWD       0x0220  /* mem-bw accounting
+> window config */
+> +#define MPAMCFG_MBW_PBM         0x2000  /* mem-bw portion
+> bitmap config */
+> +#define MPAMCFG_PRI             0x0400  /* priority partitioning config
+> */
+> +#define MPAMCFG_MBW_PROP        0x0500  /* mem-bw stride config
+> */
+> +#define MPAMCFG_INTPARTID       0x0600  /* partid-narrowing config
+> */
+> +
+> +#define MSMON_CFG_MON_SEL       0x0800  /* monitor selector */
+> +#define MSMON_CFG_CSU_FLT       0x0810  /* cache-usage monitor
+> filter */
+> +#define MSMON_CFG_CSU_CTL       0x0818  /* cache-usage monitor
+> config */
+> +#define MSMON_CFG_MBWU_FLT      0x0820  /* mem-bw monitor filter
+> */
+> +#define MSMON_CFG_MBWU_CTL      0x0828  /* mem-bw monitor
+> config */
+> +#define MSMON_CSU               0x0840  /* current cache-usage */
+> +#define MSMON_CSU_CAPTURE       0x0848  /* last cache-usage value
+> captured */
+> +#define MSMON_MBWU              0x0860  /* current mem-bw usage
+> value */
+> +#define MSMON_MBWU_CAPTURE      0x0868  /* last mem-bw value
+> captured */
+> +#define MSMON_CAPT_EVNT         0x0808  /* signal a capture event */
+> +#define MPAMF_ESR               0x00F8  /* error status register */
+> +#define MPAMF_ECR               0x00F0  /* error control register */
+> +
+> +/* MPAMF_IDR - MPAM features ID register */
+> +#define MPAMF_IDR_PARTID_MAX            GENMASK(15, 0)
+> +#define MPAMF_IDR_PMG_MAX               GENMASK(23, 16)
+> +#define MPAMF_IDR_HAS_CCAP_PART         BIT(24)
+> +#define MPAMF_IDR_HAS_CPOR_PART         BIT(25)
+> +#define MPAMF_IDR_HAS_MBW_PART          BIT(26)
+> +#define MPAMF_IDR_HAS_PRI_PART          BIT(27)
+> +#define MPAMF_IDR_HAS_EXT               BIT(28)
+> +#define MPAMF_IDR_HAS_IMPL_IDR          BIT(29)
+> +#define MPAMF_IDR_HAS_MSMON             BIT(30)
+> +#define MPAMF_IDR_HAS_PARTID_NRW        BIT(31)
+> +#define MPAMF_IDR_HAS_RIS               BIT(32)
+> +#define MPAMF_IDR_HAS_EXT_ESR           BIT(38)
+> +#define MPAMF_IDR_HAS_ESR               BIT(39)
+> +#define MPAMF_IDR_RIS_MAX               GENMASK(59, 56)
+> +
+> +/* MPAMF_MSMON_IDR - MPAM performance monitoring ID register */
+> +#define MPAMF_MSMON_IDR_MSMON_CSU               BIT(16)
+> +#define MPAMF_MSMON_IDR_MSMON_MBWU              BIT(17)
+> +#define MPAMF_MSMON_IDR_HAS_LOCAL_CAPT_EVNT     BIT(31)
+> +
+> +/* MPAMF_CPOR_IDR - MPAM features cache portion partitioning ID
+> register */
+> +#define MPAMF_CPOR_IDR_CPBM_WD                  GENMASK(15,
+> 0)
+> +
+> +/* MPAMF_CCAP_IDR - MPAM features cache capacity partitioning ID
+> register */
+> +#define MPAMF_CCAP_IDR_HAS_CMAX_SOFTLIM         BIT(31)
+> +#define MPAMF_CCAP_IDR_NO_CMAX                  BIT(30)
+> +#define MPAMF_CCAP_IDR_HAS_CMIN                 BIT(29)
+> +#define MPAMF_CCAP_IDR_HAS_CASSOC               BIT(28)
+> +#define MPAMF_CCAP_IDR_CASSOC_WD                GENMASK(12,
+> 8)
+> +#define MPAMF_CCAP_IDR_CMAX_WD                  GENMASK(5, 0)
+> +
+> +/* MPAMF_MBW_IDR - MPAM features memory bandwidth partitioning ID
+> register */
+> +#define MPAMF_MBW_IDR_BWA_WD            GENMASK(5, 0)
+> +#define MPAMF_MBW_IDR_HAS_MIN           BIT(10)
+> +#define MPAMF_MBW_IDR_HAS_MAX           BIT(11)
+> +#define MPAMF_MBW_IDR_HAS_PBM           BIT(12)
+> +#define MPAMF_MBW_IDR_HAS_PROP          BIT(13)
+> +#define MPAMF_MBW_IDR_WINDWR            BIT(14)
+> +#define MPAMF_MBW_IDR_BWPBM_WD          GENMASK(28, 16)
+> +
+> +/* MPAMF_PRI_IDR - MPAM features priority partitioning ID register */
+> +#define MPAMF_PRI_IDR_HAS_INTPRI        BIT(0)
+> +#define MPAMF_PRI_IDR_INTPRI_0_IS_LOW   BIT(1)
+> +#define MPAMF_PRI_IDR_INTPRI_WD         GENMASK(9, 4)
+> +#define MPAMF_PRI_IDR_HAS_DSPRI         BIT(16)
+> +#define MPAMF_PRI_IDR_DSPRI_0_IS_LOW    BIT(17)
+> +#define MPAMF_PRI_IDR_DSPRI_WD          GENMASK(25, 20)
+> +
+> +/* MPAMF_CSUMON_IDR - MPAM cache storage usage monitor ID register
+> */
+> +#define MPAMF_CSUMON_IDR_NUM_MON        GENMASK(15, 0)
+> +#define MPAMF_CSUMON_IDR_HAS_OFLOW_CAPT	BIT(24)
+> +#define MPAMF_CSUMON_IDR_HAS_CEVNT_OFLW	BIT(25)
+> +#define MPAMF_CSUMON_IDR_HAS_OFSR	BIT(26)
+> +#define MPAMF_CSUMON_IDR_HAS_OFLOW_LNKG	BIT(27)
+> +#define MPAMF_CSUMON_IDR_HAS_XCL	BIT(29)
+> +#define MPAMF_CSUMON_IDR_CSU_RO		BIT(30)
+> +#define MPAMF_CSUMON_IDR_HAS_CAPTURE    BIT(31)
+> +
+> +/* MPAMF_MBWUMON_IDR - MPAM memory bandwidth usage monitor ID
+> register */
+> +#define MPAMF_MBWUMON_IDR_NUM_MON       GENMASK(15, 0)
+> +#define MPAMF_MBWUMON_IDR_HAS_RWBW      BIT(28)
+> +#define MPAMF_MBWUMON_IDR_LWD           BIT(29)
+> +#define MPAMF_MBWUMON_IDR_HAS_LONG      BIT(30)
+> +#define MPAMF_MBWUMON_IDR_HAS_CAPTURE   BIT(31)
+> +
+> +/* MPAMF_PARTID_NRW_IDR - MPAM PARTID narrowing ID register */
+> +#define MPAMF_PARTID_NRW_IDR_INTPARTID_MAX      GENMASK(15,
+> 0)
+> +
+> +/* MPAMF_IIDR - MPAM implementation ID register */
+> +#define MPAMF_IIDR_PRODUCTID    GENMASK(31, 20)
+> +#define MPAMF_IIDR_PRODUCTID_SHIFT	20
+> +#define MPAMF_IIDR_VARIANT      GENMASK(19, 16)
+> +#define MPAMF_IIDR_VARIANT_SHIFT	16
+> +#define MPAMF_IIDR_REVISON      GENMASK(15, 12)
+> +#define MPAMF_IIDR_REVISON_SHIFT	12
+> +#define MPAMF_IIDR_IMPLEMENTER  GENMASK(11, 0)
+> +#define MPAMF_IIDR_IMPLEMENTER_SHIFT	0
+> +
+> +/* MPAMF_AIDR - MPAM architecture ID register */
+> +#define MPAMF_AIDR_ARCH_MAJOR_REV       GENMASK(7, 4)
+> +#define MPAMF_AIDR_ARCH_MINOR_REV       GENMASK(3, 0)
+> +
+> +/* MPAMCFG_PART_SEL - MPAM partition configuration selection register
+> */
+> +#define MPAMCFG_PART_SEL_PARTID_SEL     GENMASK(15, 0)
+> +#define MPAMCFG_PART_SEL_INTERNAL       BIT(16)
+> +#define MPAMCFG_PART_SEL_RIS            GENMASK(27, 24)
+> +
+> +/* MPAMCFG_CMAX - MPAM cache capacity configuration register */
+> +#define MPAMCFG_CMAX_SOFTLIM            BIT(31)
+> +#define MPAMCFG_CMAX_CMAX               GENMASK(15, 0)
+> +
+> +/* MPAMCFG_CMIN - MPAM cache capacity configuration register */
+> +#define MPAMCFG_CMIN_CMIN               GENMASK(15, 0)
+> +
+> +/*
+> + * MPAMCFG_MBW_MIN - MPAM memory minimum bandwidth partitioning
+> configuration
+> + *                   register
+> + */
+> +#define MPAMCFG_MBW_MIN_MIN             GENMASK(15, 0)
+> +
+> +/*
+> + * MPAMCFG_MBW_MAX - MPAM memory maximum bandwidth
+> partitioning configuration
+> + *                   register
+> + */
+> +#define MPAMCFG_MBW_MAX_MAX             GENMASK(15, 0)
+> +#define MPAMCFG_MBW_MAX_HARDLIM         BIT(31)
+> +
+> +/*
+> + * MPAMCFG_MBW_WINWD - MPAM memory bandwidth partitioning
+> window width
+> + *                     register
+> + */
+> +#define MPAMCFG_MBW_WINWD_US_FRAC       GENMASK(7, 0)
+> +#define MPAMCFG_MBW_WINWD_US_INT        GENMASK(23, 8)
+> +
+> +/* MPAMCFG_PRI - MPAM priority partitioning configuration register */
+> +#define MPAMCFG_PRI_INTPRI              GENMASK(15, 0)
+> +#define MPAMCFG_PRI_DSPRI               GENMASK(31, 16)
+> +
+> +/*
+> + * MPAMCFG_MBW_PROP - Memory bandwidth proportional stride
+> partitioning
+> + *                    configuration register
+> + */
+> +#define MPAMCFG_MBW_PROP_STRIDEM1       GENMASK(15, 0)
+> +#define MPAMCFG_MBW_PROP_EN             BIT(31)
+> +
+> +/*
+> + * MPAMCFG_INTPARTID - MPAM internal partition narrowing configuration
+> +register  */
+> +#define MPAMCFG_INTPARTID_INTPARTID     GENMASK(15, 0)
+> +#define MPAMCFG_INTPARTID_INTERNAL      BIT(16)
+> +
+> +/* MSMON_CFG_MON_SEL - Memory system performance monitor
+> selection register */
+> +#define MSMON_CFG_MON_SEL_MON_SEL       GENMASK(15, 0)
+> +#define MSMON_CFG_MON_SEL_RIS           GENMASK(27, 24)
+> +
+> +/* MPAMF_ESR - MPAM Error Status Register */ #define
+> +MPAMF_ESR_PARTID_OR_MON GENMASK(15, 0)
+> +#define MPAMF_ESR_PMG           GENMASK(23, 16)
+> +#define MPAMF_ESR_ERRCODE       GENMASK(27, 24)
+> +#define MPAMF_ESR_OVRWR         BIT(31)
+> +#define MPAMF_ESR_RIS           GENMASK(35, 32)
+> +
+> +/* MPAMF_ECR - MPAM Error Control Register */
+> +#define MPAMF_ECR_INTEN         BIT(0)
+> +
+> +/* Error conditions in accessing memory mapped registers */
+> +#define MPAM_ERRCODE_NONE                       0
+> +#define MPAM_ERRCODE_PARTID_SEL_RANGE           1
+> +#define MPAM_ERRCODE_REQ_PARTID_RANGE           2
+> +#define MPAM_ERRCODE_MSMONCFG_ID_RANGE          3
+> +#define MPAM_ERRCODE_REQ_PMG_RANGE              4
+> +#define MPAM_ERRCODE_MONITOR_RANGE              5
+> +#define MPAM_ERRCODE_INTPARTID_RANGE            6
+> +#define MPAM_ERRCODE_UNEXPECTED_INTERNAL        7
+> +
+> +/*
+> + * MSMON_CFG_CSU_FLT - Memory system performance monitor configure
+> cache storage
+> + *                    usage monitor filter register
+> + */
+> +#define MSMON_CFG_CSU_FLT_PARTID       GENMASK(15, 0)
+> +#define MSMON_CFG_CSU_FLT_PMG          GENMASK(23, 16)
+> +
+> +/*
+> + * MSMON_CFG_CSU_CTL - Memory system performance monitor configure
+> cache storage
+> + *                    usage monitor control register
+> + * MSMON_CFG_MBWU_CTL - Memory system performance monitor
+> configure memory
+> + *                     bandwidth usage monitor control register
+> + */
+> +#define MSMON_CFG_x_CTL_TYPE           GENMASK(7, 0)
+> +#define MSMON_CFG_x_CTL_OFLOW_STATUS_L BIT(15)
+> +#define MSMON_CFG_x_CTL_MATCH_PARTID   BIT(16)
+> +#define MSMON_CFG_x_CTL_MATCH_PMG      BIT(17)
+> +#define MSMON_CFG_x_CTL_SCLEN          BIT(19)
+> +#define MSMON_CFG_x_CTL_SUBTYPE        GENMASK(23, 20)
+> +#define MSMON_CFG_x_CTL_OFLOW_FRZ      BIT(24)
+> +#define MSMON_CFG_x_CTL_OFLOW_INTR     BIT(25)
+> +#define MSMON_CFG_x_CTL_OFLOW_STATUS   BIT(26)
+> +#define MSMON_CFG_x_CTL_CAPT_RESET     BIT(27)
+> +#define MSMON_CFG_x_CTL_CAPT_EVNT      GENMASK(30, 28)
+> +#define MSMON_CFG_x_CTL_EN             BIT(31)
+> +
+> +#define MSMON_CFG_MBWU_CTL_TYPE_MBWU
+> 	0x42
+> +#define MSMON_CFG_MBWU_CTL_TYPE_CSU
+> 	0x43
 
-On 7/16/2025 6:20 PM, Mike Leach wrote:
-> Hi,
-> 
-> On Mon, 14 Jul 2025 at 07:31, Jie Gan <jie.gan@oss.qualcomm.com> wrote:
->>
->> Remove ctcu_get_active_port from CTCU module and add it to the core
->> framework.
->>
->> The port number is crucial for the CTCU device to identify which ETR
->> it serves. With the port number we can correctly get required parameters
->> of the CTCU device in TMC module.
->>
->> Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
->> ---
->>   drivers/hwtracing/coresight/coresight-core.c  | 24 +++++++++++++++++++
->>   .../hwtracing/coresight/coresight-ctcu-core.c | 19 +--------------
->>   drivers/hwtracing/coresight/coresight-priv.h  |  2 ++
->>   3 files changed, 27 insertions(+), 18 deletions(-)
->>
->> diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
->> index 1accd7cbd54b..5297a5ff7921 100644
->> --- a/drivers/hwtracing/coresight/coresight-core.c
->> +++ b/drivers/hwtracing/coresight/coresight-core.c
->> @@ -580,6 +580,30 @@ struct coresight_device *coresight_get_sink(struct coresight_path *path)
->>   }
->>   EXPORT_SYMBOL_GPL(coresight_get_sink);
->>
->> +/**
->> + * coresight_get_port_helper: get the in-port number of the helper device
->> + * that is connected to the csdev.
->> + *
-> 
-> As written this looks at all connections, not just those that are
-> helpers. That is fine, so perhaps rename as such.
-> 
-> e.g. coresight_get_in_port_dest
-> 
-> and name the input parameters src , dest respectively.
+MSMON_CFG_CSU_CTL_TYPE_CSU?
 
-Make sense for me, will update in next version.
-Thanks for the suggestion.
+Best regards,
+Shaopeng TAN
 
-> 
->> + * @csdev: csdev of the device that is connected to helper.
->> + * @helper: csdev of the helper device.
->> + *
->> + * Return: port number upson success or -EINVAL for fail.
-> 
-> sp: upon/upson
-> 
->> + */
->> +int coresight_get_port_helper(struct coresight_device *csdev,
->> +                             struct coresight_device *helper)
->> +{
->> +       struct coresight_platform_data *pdata = helper->pdata;
->> +       int i;
->> +
->> +       for (i = 0; i < pdata->nr_inconns; ++i) {
->> +               if (pdata->in_conns[i]->src_dev == csdev)
->> +                       return pdata->in_conns[i]->dest_port;
->> +       }
->> +
->> +       return -EINVAL;
->> +}
->> +EXPORT_SYMBOL_GPL(coresight_get_port_helper);
->> +
->>   u32 coresight_get_sink_id(struct coresight_device *csdev)
->>   {
->>          if (!csdev->ea)
->> diff --git a/drivers/hwtracing/coresight/coresight-ctcu-core.c b/drivers/hwtracing/coresight/coresight-ctcu-core.c
->> index c6bafc96db96..28ea4a216345 100644
->> --- a/drivers/hwtracing/coresight/coresight-ctcu-core.c
->> +++ b/drivers/hwtracing/coresight/coresight-ctcu-core.c
->> @@ -118,23 +118,6 @@ static int __ctcu_set_etr_traceid(struct coresight_device *csdev, u8 traceid, in
->>          return 0;
->>   }
->>
->> -/*
->> - * Searching the sink device from helper's view in case there are multiple helper devices
->> - * connected to the sink device.
->> - */
->> -static int ctcu_get_active_port(struct coresight_device *sink, struct coresight_device *helper)
->> -{
->> -       struct coresight_platform_data *pdata = helper->pdata;
->> -       int i;
->> -
->> -       for (i = 0; i < pdata->nr_inconns; ++i) {
->> -               if (pdata->in_conns[i]->src_dev == sink)
->> -                       return pdata->in_conns[i]->dest_port;
->> -       }
->> -
->> -       return -EINVAL;
->> -}
->> -
->>   static int ctcu_set_etr_traceid(struct coresight_device *csdev, struct coresight_path *path,
->>                                  bool enable)
->>   {
->> @@ -147,7 +130,7 @@ static int ctcu_set_etr_traceid(struct coresight_device *csdev, struct coresight
->>                  return -EINVAL;
->>          }
->>
->> -       port_num = ctcu_get_active_port(sink, csdev);
->> +       port_num = coresight_get_port_helper(sink, csdev);
->>          if (port_num < 0)
->>                  return -EINVAL;
->>
->> diff --git a/drivers/hwtracing/coresight/coresight-priv.h b/drivers/hwtracing/coresight/coresight-priv.h
->> index 33e22b1ba043..07a5f03de81d 100644
->> --- a/drivers/hwtracing/coresight/coresight-priv.h
->> +++ b/drivers/hwtracing/coresight/coresight-priv.h
->> @@ -156,6 +156,8 @@ void coresight_remove_links(struct coresight_device *orig,
->>   u32 coresight_get_sink_id(struct coresight_device *csdev);
->>   void coresight_path_assign_trace_id(struct coresight_path *path,
->>                                     enum cs_mode mode);
->> +int coresight_get_port_helper(struct coresight_device *csdev,
->> +                             struct coresight_device *helper);
->>
-> rename here too
-
-will do.
-
-Best Regards,
-Jie
-
-> 
->>   #if IS_ENABLED(CONFIG_CORESIGHT_SOURCE_ETM3X)
->>   int etm_readl_cp14(u32 off, unsigned int *val);
->> --
->> 2.34.1
->>
-> 
-> regards
-> 
-> Mike
+> +
+> +#define MSMON_CFG_MBWU_CTL_SUBTYPE_NONE                 0
+> +#define MSMON_CFG_MBWU_CTL_SUBTYPE_READ                 1
+> +#define MSMON_CFG_MBWU_CTL_SUBTYPE_WRITE                2
+> +#define MSMON_CFG_MBWU_CTL_SUBTYPE_BOTH                 3
+> +
+> +#define MSMON_CFG_MBWU_CTL_SUBTYPE_MAX                  3
+> +#define MSMON_CFG_MBWU_CTL_SUBTYPE_MASK                 0x3
+> +
+> +/*
+> + * MSMON_CFG_MBWU_FLT - Memory system performance monitor
+> configure memory
+> + *                     bandwidth usage monitor filter register
+> + */
+> +#define MSMON_CFG_MBWU_FLT_PARTID               GENMASK(15,
+> 0)
+> +#define MSMON_CFG_MBWU_FLT_PMG                  GENMASK(23,
+> 16)
+> +#define MSMON_CFG_MBWU_FLT_RWBW                 GENMASK(31,
+> 30)
+> +
+> +/*
+> + * MSMON_CSU - Memory system performance monitor cache storage usage
+> monitor
+> + *            register
+> + * MSMON_CSU_CAPTURE -  Memory system performance monitor cache
+> storage usage
+> + *                     capture register
+> + * MSMON_MBWU  - Memory system performance monitor memory
+> bandwidth usage
+> + *               monitor register
+> + * MSMON_MBWU_CAPTURE - Memory system performance monitor
+> memory bandwidth usage
+> + *                     capture register
+> + */
+> +#define MSMON___VALUE          GENMASK(30, 0)
+> +#define MSMON___NRDY           BIT(31)
+> +#define MSMON_MBWU_L_VALUE     GENMASK(62, 0)
+> +/*
+> + * MSMON_CAPT_EVNT - Memory system performance monitoring capture
+> event
+> + *                  generation register
+> + */
+> +#define MSMON_CAPT_EVNT_NOW    BIT(0)
+> +
+>  #endif /* MPAM_INTERNAL_H */
+> --
+> 2.39.5
 
 
