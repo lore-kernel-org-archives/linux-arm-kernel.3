@@ -4,148 +4,176 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EC8AC83F22
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 13:37:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FF2FC83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 13:39:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IbmcROfOzVtWLlLwTUK701q3d6gz5yN28T/mfJ33MIw=; b=nRWNwOTNTyHivv4Z3EGg7STYX0
-	QLfNeJ2fbt762+9dt0/1tIqMIccHA0LMJh/F69pyx0jiRMLtYlqQvE4cG/7LeJOJL4jtnHtT8qgfx
-	qLoTUfP3QmDmpUY4u4gY+KfB18s9sAc8INdCFT8JRCmhi2nIG4JXgO7KaC+vobi2vlPtKE81g+O0a
-	NInRCn5J6BH64nSxTQF8QFNzxt23VP/pnBH4uiiy/SU4JVQ+TbqQqCSjS1NjfzG1+h4iycQcIW4Ze
-	D9gYaAtnWIrNr1jhF0mAUCJ6eJmGiRHMyrpoWcmab7w5oL68ckwngu6hWk797BC1fg9tNq5e19Dob
-	//1eGkKg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LF3aXo7s8jSoHZHfH1Y45V2Y5si0+HLXRgDNPqhr5SA=; b=1M2QTEnK6Ex5pA2QNhzTahRvzg
+	hBhRI0m/Dv1efiidDz6d2cBP03WfcY56HRCBOeN0JXFIrdUXtYqPzkgBNx5uKLezH7yis1jRT0118
+	J44UXcF/mqAXQR0HOJA9fCDn1MOPmFdwynAc0YebtUGwqTGYwj5Plkn8iDH2Auw4HBIdP2p/JBhgQ
+	z/R4ZnJRgQGTGMFUHHCPXjTUyy1TzBb4a77eLU/zc5QDKVnQmOWZ99yXv9SHgKeYpuparnC2clX52
+	dcxFE+0T0GkPfVULiYRrCYmt7m8cC7R99buE6xGPuWpM+0n41D1mCeNPGOyGRt3rHYM0AjdNZnPtL
+	nRyW6hTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucOnP-0000000AHAl-24oG;
-	Thu, 17 Jul 2025 13:37:11 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1ucOpp-0000000AHTF-1LEY;
+	Thu, 17 Jul 2025 13:39:41 +0000
+Received: from mail-dm6nam12on2060d.outbound.protection.outlook.com ([2a01:111:f403:2417::60d] helo=NAM12-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucNhU-0000000A6wp-0QlU
+	id 1ucNhj-0000000A6yC-04FK
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Jul 2025 12:27:01 +0000
-Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56HBrQT3020802
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Jul 2025 12:26:59 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	IbmcROfOzVtWLlLwTUK701q3d6gz5yN28T/mfJ33MIw=; b=TE25JG2VN6qQdbFI
-	+EPMUOzIJpT9ZbN4ZIkZATeVvy4GwUPV5dCscItU/HZvCgO6zt8HQRfg2IkbcAT+
-	/bRkQgCwvhtEQkpUQScqWrWuB+LunPUpfuPEa9/YyBRJ5RWfX3dru0yV6Ck8UISD
-	QAoil+qyBsfyp0uBtBYRio7QFWo2/NrN7YMfHYntO4dGtjiBDS77+iZmAJKB8y6e
-	YY5aSsLonYn4nSw5GocPrVGB5jgSgad6gzeOGzIhTJX9yDqeuCq7Bma8SyfEsfks
-	Qfhx/IiDic3dsw1TEgmCJWQ8dpS53t20P6vudUZXZ9KFyP8FslENwvzt4Q2JV/IZ
-	SmDm4g==
-Received: from mail-qv1-f69.google.com (mail-qv1-f69.google.com [209.85.219.69])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 47w5dpjn3w-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Jul 2025 12:26:59 +0000 (GMT)
-Received: by mail-qv1-f69.google.com with SMTP id 6a1803df08f44-6f539358795so3308576d6.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Jul 2025 05:26:59 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752755218; x=1753360018;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=IbmcROfOzVtWLlLwTUK701q3d6gz5yN28T/mfJ33MIw=;
-        b=EFJPVMkInbOXmC9gxaMtSiNDCb5FgEGqethr2rcbLk2cK28eJOl3UfV6sA+tRcEzXO
-         VR1uvbv3tKaYArwccXBoO+ThBhW+NXL9ZIZrgsCBW+ROMnQKk+ZofvNVm3bnAC8WxZ1M
-         s9gL8krZHUnnaCUwHodvIfaIr2Nted1A6rBwmRCcuO72If9srWkhvZUccchiNV5VDlk9
-         wEhA6mbTPNQ/T/SBGI19K8J3PGUatgliZFvO1Nfc9sJrIJ0lcxRK+YuOf1z2m5jzoU5D
-         4OwaURX6wdbGCyM4i6OO5kbFJfjk/M+NDLtI0QUpn+32n3tDSDkMrP+ES0sPsDDkB4Bq
-         HOZw==
-X-Forwarded-Encrypted: i=1; AJvYcCXSpAiI5Orghxjv2YBlk5sU70tNAAVcNK55oI5jiduR5aYqTDLPXF7pYec5RbeYokhdRVww0sNCIUyChs32br0X@lists.infradead.org
-X-Gm-Message-State: AOJu0YwaI9kc0seNBLOeu2+atXOq9ThutVhsT3oB4Pvkpp1O5j5tssWY
-	6O1C2CXuqKXybYQnyJIXEYqKJaGaBYs0x3uvjq5SBzRCyL7yJEx/kiZj9BNohABAZJLJcsiL5Wd
-	u/901Hr77l8A9OHXn1g36tb7HilkGhOB4joZTIXvamLM28Ld+r8PGUx60jHzWWtTpAy8BmDkYaV
-	wRKg==
-X-Gm-Gg: ASbGnctguiN2NcL4zQVYRZlGn8rehVzq6J0DsK7y8pzGrHn3UosaSeOoHpqfoMG2K9n
-	dvv+KXYUr4Cvf+BlRke4bS5v9zpkXBDMnyCs1LTX2wgJEQtH6SGQf2yG6Zewyns4EyKdiamGEJ2
-	v3Faii+a1Y6OgqYxTSYFEjIv/0k+E4dy+MwJsiIQUKNPqOeHphuW94JS4pQsfoU7XNX0qy5SFou
-	PS1EZLtyyPEc329fv0+ItfQxFouPPyBvxy6UnRsj+aFAkaBwo1jmGWvKLHs9T6LauWV5pZG+qlE
-	EGZXL1EyOw1IEI/Aufhaf46xlA0+CDmAsECefoa049qDJLYpW5Xe3VddofIiV6vhmbU0NU+OEKM
-	w5T+b/aR7UIPc0PXqo5+M
-X-Received: by 2002:a05:620a:4093:b0:7e3:302a:3e9d with SMTP id af79cd13be357-7e342ad54e7mr401314385a.7.1752755217795;
-        Thu, 17 Jul 2025 05:26:57 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IEWMwBx+PyOHxTxgnaS5xzRvQae4iwC7dd8Cj0Sms6zoxQGp+IkrMAc/iJ+gLrK8J7XJbyIqA==
-X-Received: by 2002:a05:620a:4093:b0:7e3:302a:3e9d with SMTP id af79cd13be357-7e342ad54e7mr401311985a.7.1752755217290;
-        Thu, 17 Jul 2025 05:26:57 -0700 (PDT)
-Received: from [192.168.143.225] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ae6e7ee8d9fsm1336084466b.46.2025.07.17.05.26.53
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 17 Jul 2025 05:26:56 -0700 (PDT)
-Message-ID: <d25c3f81-38c3-4559-a1e6-7b586c817d57@oss.qualcomm.com>
-Date: Thu, 17 Jul 2025 14:26:52 +0200
-MIME-Version: 1.0
+	Thu, 17 Jul 2025 12:27:16 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=X26mg6ZIcrX+8jLGASfuLCjvx2anWVM707jBXgq283Zq1u1DfiRiRwGJxyX0C+ghgUmL55UNlPwJKpzaqO470hS9uxmvnNyt2OpJ0zb9SOCHBjXOlG158ut+qUGIxPpHZSb+FwkXEtF0kujlvE4NPRrAodSW9d3dv8BpgFdmr6r2Cz6ZNlScwVCvJCaPj5As48WZa/D4Pof7Wt/HemKIJCBb8V54BvBHVYhdHjKClyu9iQ4eIIoE9ZDE8KwfjFxzOdLf9cXXI2mjEZpseb65WuMefS0191taO+hQ5kLgfKf+evW+Y6j1fcXbddguQobbSajml/RwUTz3MnOhaM29rw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=LF3aXo7s8jSoHZHfH1Y45V2Y5si0+HLXRgDNPqhr5SA=;
+ b=S3EjqPWxfYIWK06XUTcmoAUp3Zol2JY7TpGPS/0yAu6qF8wh+13Er0S9MgfKxf1ekmVh/0bq75WDyKBdFKd0M1R2w9ZEL2tc1Tol1boR6NKtdwffnPEVr7QZanoQlgHLUJE6ak9NyhsMhkeTtMQs9WJ/fzG3aUEO21igiYPrEEBWVXU+QmtAc34i+WZMuU/1RnucSk0yntg8S7sU84X9jTzAYQn4XXDayULDhcWIuOBHfSGjuzjKQnjMdHsm7A6O+VS9jvujf/I178uhhnxyogovOXbB5OzkwpP+KzkAi2+qNQvAIJZUr2GdZwhrfJLCwD5CKnxzefLfXUhd5ALgjw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=altera.com; dmarc=pass action=none header.from=altera.com;
+ dkim=pass header.d=altera.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=altera.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=LF3aXo7s8jSoHZHfH1Y45V2Y5si0+HLXRgDNPqhr5SA=;
+ b=XyN0+qcFnxReAFai8xTw7mCq2yi5czBdFw1/HdSIpqnXfBsAYpCcqnAF4ptCaz4ghTyAm8bD11g+EnAM45ZGD5WzWi995x/nLADZerPF7HyHpJ9y8hTIxjgpZ3CUrBI4B4GHJyQmr1DI3SR2cflhaZWWSdqiBzwbeZ9CpV+O4PzOtZS5Z7t8CnX3VoFtxai8KQo7+Ygt1i9F4kcuP6wuyNUJt9kdmG2L+UXcngDL79wDrkyUo33mYtnNooIZ6IsymVl2/QYyGdaPwG7FuOinwPIAfFBWbeid4fJKwLsay1hT81Okz+xpX6A0X5CEaFEWRNSU0In/N0cBjesqp/TqGQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=altera.com;
+Received: from DM6PR03MB5371.namprd03.prod.outlook.com (2603:10b6:5:24c::21)
+ by BY5PR03MB5063.namprd03.prod.outlook.com (2603:10b6:a03:1e4::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8922.39; Thu, 17 Jul
+ 2025 12:26:59 +0000
+Received: from DM6PR03MB5371.namprd03.prod.outlook.com
+ ([fe80::8d3c:c90d:40c:7076]) by DM6PR03MB5371.namprd03.prod.outlook.com
+ ([fe80::8d3c:c90d:40c:7076%3]) with mapi id 15.20.8922.037; Thu, 17 Jul 2025
+ 12:26:58 +0000
+Message-ID: <9fe98cb8-f1c7-472c-a619-1ecabd636b07@altera.com>
+Date: Thu, 17 Jul 2025 17:56:43 +0530
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 14/15] arm64: dts: qcom: Add initial Milos dtsi
-To: Luca Weiss <luca.weiss@fairphone.com>, Will Deacon <will@kernel.org>,
-        Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        "Rafael J. Wysocki" <rafael@kernel.org>,
-        Viresh Kumar <viresh.kumar@linaro.org>,
-        Manivannan Sadhasivam <mani@kernel.org>,
-        Herbert Xu <herbert@gondor.apana.org.au>,
-        "David S. Miller" <davem@davemloft.net>, Vinod Koul <vkoul@kernel.org>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Robert Marko <robimarko@gmail.com>,
-        Das Srinagesh <quic_gurus@quicinc.com>,
-        Thomas Gleixner
- <tglx@linutronix.de>,
-        Jassi Brar <jassisinghbrar@gmail.com>,
-        Amit Kucheria <amitk@kernel.org>,
-        Thara Gopinath <thara.gopinath@gmail.com>,
-        Daniel Lezcano <daniel.lezcano@linaro.org>,
-        Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>,
-        Ulf Hansson <ulf.hansson@linaro.org>
-Cc: ~postmarketos/upstreaming@lists.sr.ht, phone-devel@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-pm@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-        linux-crypto@vger.kernel.org, dmaengine@vger.kernel.org,
-        linux-mmc@vger.kernel.org
-References: <20250713-sm7635-fp6-initial-v2-0-e8f9a789505b@fairphone.com>
- <20250713-sm7635-fp6-initial-v2-14-e8f9a789505b@fairphone.com>
- <3e0299ad-766a-4876-912e-438fe2cc856d@oss.qualcomm.com>
- <DBE6TK1KDOTP.IIT72I1LUN5M@fairphone.com>
+Subject: Re: [PATCH net-next 2/3] net: stmmac: xgmac: Correct supported speed
+ modes
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Serge Semin <fancer.lancer@gmail.com>,
+ Romain Gantois <romain.gantois@bootlin.com>, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Matthew Gerlach <matthew.gerlach@altera.com>
+References: <20250714-xgmac-minor-fixes-v1-0-c34092a88a72@altera.com>
+ <20250714-xgmac-minor-fixes-v1-2-c34092a88a72@altera.com>
+ <aHib9V1_WZfj3S8M@shell.armlinux.org.uk>
 Content-Language: en-US
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <DBE6TK1KDOTP.IIT72I1LUN5M@fairphone.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNzE3MDEwOSBTYWx0ZWRfX3KVFoUFaMhZS
- HiOvBxho28XAuXPaty8LFUCE8uNUCvHFVIgG873Yi8Z6u7AwmYNPAeSz9Ywhj94cHCCb/2wbyKM
- 78nVXNsDjGKj/UMJ9rr6RZMaGJi4/leHBqfYUnqFYgcr1G3aWXaHZ57Q5SK5+sFOqqenq6qV/+F
- P4JP/bkyKxUbzy9qDisZ0Oz093fpHjqlTzfHDsf7yu4kcFXBDrhnASdTkGT0pz9wUmeoHF1klO/
- xQdlRa76lhAdnhgsntDHJztEAIY9opFooYHQ1WZYIp/IhOJaJxu7V1ouhvwB+WP1dNbgzVAqDjI
- 3p2Jrbz1CztJbd75S0gAYVgzfZqTRWxMge8BNAESHszDiwwo+Ccc4xMgzgRx3sRfxgunH9W0S4+
- jEYVLheCz0LHJ335jI4G2tqaxaDWPejVXKpVLfT0UpVlC0z8keip2FkHSpeU2NMglbBJsg7y
-X-Proofpoint-GUID: xPrT4Not6CF2y4KjpHSiVYVr-NLVVPIC
-X-Proofpoint-ORIG-GUID: xPrT4Not6CF2y4KjpHSiVYVr-NLVVPIC
-X-Authority-Analysis: v=2.4 cv=Y+r4sgeN c=1 sm=1 tr=0 ts=6878ec13 cx=c_pps
- a=wEM5vcRIz55oU/E2lInRtA==:117 a=FpWmc02/iXfjRdCD7H54yg==:17
- a=IkcTkHD0fZMA:10 a=Wb1JkmetP80A:10 a=7CQSdrXTAAAA:8 a=6H0WHjuAAAAA:8
- a=iHGpd6SFZaqAm2lpoLIA:9 a=QEXdDO2ut3YA:10 a=OIgjcC2v60KrkQgK7BGD:22
- a=a-qgeE7W1pNrGK8U0ZQC:22 a=Soq9LBFxuPC4vsCAQt-j:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-07-17_01,2025-07-17_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 mlxlogscore=999 phishscore=0 malwarescore=0 priorityscore=1501
- adultscore=0 impostorscore=0 mlxscore=0 suspectscore=0 lowpriorityscore=0
- bulkscore=0 spamscore=0 classifier=spam authscore=0 authtc=n/a authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2505280000
- definitions=main-2507170109
+From: "G Thomas, Rohan" <rohan.g.thomas@altera.com>
+In-Reply-To: <aHib9V1_WZfj3S8M@shell.armlinux.org.uk>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: MA1PR01CA0162.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a00:71::32) To DM6PR03MB5371.namprd03.prod.outlook.com
+ (2603:10b6:5:24c::21)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DM6PR03MB5371:EE_|BY5PR03MB5063:EE_
+X-MS-Office365-Filtering-Correlation-Id: a3c73884-7c76-483c-8def-08ddc52d38ec
+X-MS-Exchange-AtpMessageProperties: SA
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|1800799024|7416014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?djcveDE5WjlFZXJjTHQvdEhGaTJFakNCeFZjakRrMG1UUFhpNmZYYVFsMHg0?=
+ =?utf-8?B?Rll0RnhUeWdlZ0RZbG1RaFJNTVhCMkJQY3NEVGxWQ0pReEVYbENudjVKRGFQ?=
+ =?utf-8?B?S0F4eUF5ZHN2UGJ4RFlyR0tXT2dPazExSGt2ZE45RkwzWUZTcVZXbEljcHBG?=
+ =?utf-8?B?OUY5SlcvTHVJbG45QlZsck1uamZZZGRSZ1FtdjJjRDd3SWliSTVkYURrdFdF?=
+ =?utf-8?B?L21Qb0o2VVhrS3BwTDJZNy8raHBod0xQb2FnUi9xeGtYQlpadk1icHBuNFFK?=
+ =?utf-8?B?VTlTMkRlazZHemg1K1Y5TUdlZ0piL1BmdHMvS2lISWRSSkRiZ0Y4RnZBamlW?=
+ =?utf-8?B?bHQvelNLWE82TUNidmJpdUNZWjUvaUp3cldiMk1VQVUvaXluRG9KNFBQT0kz?=
+ =?utf-8?B?WFlwRzUrb3FxYXlWOW1lbkdPM3BBR2Q1dk5Da0Z3eFU5RXRjVDhFY3hKdFY2?=
+ =?utf-8?B?RDVTa2xYV0FCTHBRd1RFdlpvYXdKaDN6MllydDF4ZGJRWUFyU2UzeG5DTXJ1?=
+ =?utf-8?B?MHdsaDVmYWZJNENPcUFrc1pCaS9uNGhVaDVGRXhpL29uU0Z6NGtrZ01ZTjdP?=
+ =?utf-8?B?ZWsyM29KQ0FuVERaYVBxck91K3k2MHRuMXk3M0xTVUkyRUdiTGp6TGlTZERF?=
+ =?utf-8?B?c0VjT3FMeEJPeWx3MzRHOFBCM3hSbHpjQ3B3SnN3djJ2T0VXVHorTC9KQVFI?=
+ =?utf-8?B?OGlzZ2pYanE0OXlZczMxdGFzczhyMzRpS2xaQUppRHlJeVkxMjRKZjhXRDVa?=
+ =?utf-8?B?ckZBNy9OeEZEYmlZMzl3SlVHdG9qMUdQUU9FMkoyTUpYZys3RWJxem9ORnVL?=
+ =?utf-8?B?dCtRcG5vZXV6YjZHeW1VY3NoNkdGYWp4b1FySlRpRENCeGZpVlF3UnhhSEh1?=
+ =?utf-8?B?SnZ2eFlPQnk5ODRZNmlYSzQ2bW52NG5LS0V2S3RrZm1rUGRFOEhKSElQUHhV?=
+ =?utf-8?B?OFNRT3NEcUVwM2p5ZWJjRERHelVYaDhtV0VwWkRkaU9QNmpGM1JqLzJLSEV0?=
+ =?utf-8?B?QmlLdXgzMkdzZ1c0ZUdjMHVqZnVGVUpBZk85OHRvT3NudWE2Uk00clpxY3p4?=
+ =?utf-8?B?OU5MaEZpcmRMMlBQOVNRS3kvVGc0Y2krNnZ4bjU2YzluZ2J1bkFueWpENjFl?=
+ =?utf-8?B?SUdNR3ROdC81NmswTUhsZ1RFQmdOdm1rempscy9YeTVpcmtpclBTZFh3OWhn?=
+ =?utf-8?B?MjZmVlZFWEE0S3BncXl3aEJyM2gxZTQzTWZpZ1cvejlSNG14bjVMS0xETTB4?=
+ =?utf-8?B?ZlhBbUpQa2VFZGkzNHJIb2d2bmFkb1J2UVlSVHdELy9XMmtPZnJVTDBDMDE0?=
+ =?utf-8?B?dkVFdkJoamlRcXdQM1FqbzlYY2o5VGxVbVVMUll3RVFhcmY2N0hxcTMyM1JP?=
+ =?utf-8?B?bWo3WGcrZWdmdytPL2s4RFdYdUFpSi9VOXpmdFNZdm9ycm9pOVd3UmVuK3V0?=
+ =?utf-8?B?L3dpbER5bHBhTFhUYlJDZUFyQmdkVmhldXNjZEM5bkpMTmdSNmZ0UU02QWRi?=
+ =?utf-8?B?bzhkL0hMSjdKZG9vK1NJbTBYbmYwVC9EeGNQMXNYMVp2eE5qcExJZ2VvdTlC?=
+ =?utf-8?B?RStKcnNCbWVYMlljRHRDbmFia055a3I0VFFjZmNTRHhIZTB5R0M3K3Uyd1pT?=
+ =?utf-8?B?dzNqN2xiajd1N0thM05Dd2tDMmNra0lyU1VxbWRVYVgvSUZPbTdNY21JK1Ur?=
+ =?utf-8?B?cmxMdm5nNmN0SnhwT0JpTnVPbnY0ZVBld0twdEpGZll5cHR2NGo0YzRMQ1Bh?=
+ =?utf-8?B?M0lNUzRSeFJpWUwwSThQcVNuOUtuZVp5c2pIM1I2NU5IODlSNmptcVR1dFpG?=
+ =?utf-8?B?MnpGd0lXd1MwS2YwSlYvRzN6MzdiN3FwTE91NXovZmVuU1gvRGMvSERaQTlZ?=
+ =?utf-8?B?YUVqVHBLU3RBRnlyMVJsRklZRGlKYjNDM0pZRWxsa0Q2SDl2S1NjczQ1WVJF?=
+ =?utf-8?Q?zxumegiY4qk=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR03MB5371.namprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(7416014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UFRmd0lCT2I5emJIckdEWmd3Sll5QmpuQ2hhdy9KTnpaSGtZMzk0ZThJekdE?=
+ =?utf-8?B?UllMT2VWUWpkZUp5dUR2N01rNmhNTzFtdlZsVVFpdGxQd1ZKMmRNcnBPd2dK?=
+ =?utf-8?B?bTJxLzVTTlluQVBGdFExenVYU2k0UGtJWDM1eHJhVHJpd2d6Y3NvMnQ3WlBR?=
+ =?utf-8?B?K3RSMExmNFg2WGI5cUs2MVNTVzlhak92RmR4Q2Nlb1Z6cGNKdjNjRHB6eDdp?=
+ =?utf-8?B?d215WXBWK3NSeXhMYnlBejRFN2w3SG93bERUS203UG5uTzRWam56eDhxQkhX?=
+ =?utf-8?B?TmswdEx2SG1OOS9pUjFEMFpORklkQkd1d0dHSUc4akhJV2RWVzZPcWVTMzht?=
+ =?utf-8?B?QlF3ZUczU2xZaU83b3M2QlNtY2pTUS84SVU4ckdjSW8zNkNESU41UXQ3NVFh?=
+ =?utf-8?B?V3lkRmhhQU9xK1B5VHNwVUo0dEQ3Um5Lc0RSSURzWTVNWTdkd0piNUdaOGhh?=
+ =?utf-8?B?TUNreTFma2NkZW1HZmU5N0psbzNSaWprMFB4TGNyZ1JKSFc1MGFJV3RXMnZP?=
+ =?utf-8?B?ZDRMY1dVb3dlZXkwTDRGSUlvREVGYlN2citDcjdOVDRoTG1iOGxUbVduWjVk?=
+ =?utf-8?B?ZGkxazFSQ2FaMWFCWEhoaHR3dGYyZTRtaFVhS05rZ2VnVVdaVGEvQzltSUN6?=
+ =?utf-8?B?M0ZyakYrdFlQdUw1TUlwZWNJVXlIQU5zWEh4MlFDRCtUaGdVRGI1a1ZRd1FO?=
+ =?utf-8?B?V1V0cHZoK1VjQ3JFRW5QcUpDRDVrNDlvbU54Z2JRZVg2c0ZsazZ3WFVzR245?=
+ =?utf-8?B?MzFNdC9UY0x6OWlSekpuYm1PUmdVSjRMYjM1bVZlN1E0ajRuMmIxMnk3RkxP?=
+ =?utf-8?B?UDdTWEU0YXFXQmI4TmxkRUM2ekd2bDhPb2NpWHdQT3dlcjdhYVlPQlFreklF?=
+ =?utf-8?B?WWZ5YVdVOWRaN2xSM0FQMzVRV1hqZmZJU21IVWtDZ2RhNFdmV1crMTNzQnBv?=
+ =?utf-8?B?c1c2NTVvWGQ3T3lNSUJXVlE2OVg4M0c4R1c1SUY1WjFvSzNFak1uNU1vWFU2?=
+ =?utf-8?B?MU9HMWdNZnVtQzR5SHEvNlB6aFl5MTY0WW1YRXZ0NGkrMnJFQ01UUzZkOXZu?=
+ =?utf-8?B?ZmJuSWxmNndBa2xXVE4wTG1OSnN4VTBEVER1MGlBbVVqWjk5RHZkQW5NanBW?=
+ =?utf-8?B?THVheGpxRXNlZDRWanFPWmc3TjBWak9qcHkzRU5zY2xhQ3JPMk1Cd2NNR3Rv?=
+ =?utf-8?B?eUxrT3g3Z2Vxb1JSK1lKUHJXNW1RckZKOXNndXZLSUNEc3NNSTg3SncvaGYy?=
+ =?utf-8?B?bHFacVo4aEdBWGNya0JJdld5aHk2MXVURHh1TzJMaldSOWNXQm1rNjltOEdC?=
+ =?utf-8?B?T3RuSGhPbnVqT2x3Y3pIamZKRGlKaitNako4dStReUR0cUZOUFpjb0doV01T?=
+ =?utf-8?B?OGxjZUlsM1ZJS09NRENTcnF3ZG96Q0llbjZqYWE3Yks2NDlQWGhIYXRMRGNn?=
+ =?utf-8?B?dmpHVWpoVjd2RzI0ekFjeDVtY0RHUnZsQk5DRlFtcU9YNTJ1VUN3bndPTGV5?=
+ =?utf-8?B?b0I4eENjeG1xQlZ1ZzN3dWZ1UTBZRmVkMTdtc2tlWUMrL0tpTkRGcVRib1pW?=
+ =?utf-8?B?RTY0U1p4VWE0U3B0UW1xd1hQZ0FMdkh0MUNlRENjNzM3T0dXSmN4QWNETUI1?=
+ =?utf-8?B?VHEyZG5aRG91dWl0NCtRYVZDcUYvTmQrSzFkMG9leEo5QXViQ09ZRGdkNGtV?=
+ =?utf-8?B?OEtjNFplV1ltZnU4WFRSRm9qTUNKYnlXVmJuWGZSbGs3T25qVWdkQjdYaUFq?=
+ =?utf-8?B?QXAveVN3b0V4VXE3dlZ2bmVmVis5Zmt5aE9nazcrV2g1ejg3N09JVzF6bXhm?=
+ =?utf-8?B?V3hURUY0L3kxWlJDS0w4R0VMS3ZsRDhjcVdlVkVaME9ud1VoY29ZZXdPUlYz?=
+ =?utf-8?B?QjJraWpHU2UvN1dtZlhabjFhRmkrc0FnbDJ1R1dJaVRxUERXZVAzenp2UGEz?=
+ =?utf-8?B?ZEFvUmdVcW0wU2hiOG5rQlBDTjErMThadG5PRkdFSHNZdy80UE90RHdqSXNR?=
+ =?utf-8?B?SzR4ZkF4REpSOUZSZDI5ZUhEV05VNG5FMWY5bVZ6VHhXQ1ZuZlZ2NytURnpE?=
+ =?utf-8?B?Q1VSVnVzOGUwSERDMHBGRjh1WmRTc08xcDJEMWlRcWZYVDZhaHdycE5EVFAz?=
+ =?utf-8?B?NjNZS3UyT2VNOFBKdkhob0tlUnFUeUtjN1BOQ0MvWWpIaURxZ1F5c1c1OHBR?=
+ =?utf-8?B?aXc9PQ==?=
+X-OriginatorOrg: altera.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: a3c73884-7c76-483c-8def-08ddc52d38ec
+X-MS-Exchange-CrossTenant-AuthSource: DM6PR03MB5371.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Jul 2025 12:26:58.7113
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: fbd72e03-d4a5-4110-adce-614d51f2077a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: FJzL7md7p1X8ivCnBZaZe/NdDmUSbPYHRDH2R4Wk3oxy0J4XTmA0hVo/xoaT8J/3fAZrj+ICJfm2XWqXGTEcUVa40NPmnpAXnId4Yk+cp48=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY5PR03MB5063
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250717_052700_157164_1078F61E 
-X-CRM114-Status: GOOD (  27.08  )
+X-CRM114-CacheID: sfid-20250717_052715_075248_1A786CA5 
+X-CRM114-Status: GOOD (  14.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,130 +188,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/17/25 10:29 AM, Luca Weiss wrote:
-> On Mon Jul 14, 2025 at 1:06 PM CEST, Konrad Dybcio wrote:
->> On 7/13/25 10:05 AM, Luca Weiss wrote:
->>> Add a devicetree description for the Milos SoC, which is for example
->>> Snapdragon 7s Gen 3 (SM7635).
->>>
->>> Signed-off-by: Luca Weiss <luca.weiss@fairphone.com>
->>> ---
+Hi Russell,
 
-[...]
+Thanks for reviewing the patch.
 
->>
->> [...]
->>
->>> +		cpu-map {
->>> +			cluster0 {
->>> +				core0 {
->>> +					cpu = <&cpu0>;
->>> +				};
->>> +
->>> +				core1 {
->>> +					cpu = <&cpu1>;
->>> +				};
->>> +
->>> +				core2 {
->>> +					cpu = <&cpu2>;
->>> +				};
->>> +
->>> +				core3 {
->>> +					cpu = <&cpu3>;
->>> +				};
->>> +			};
->>> +
->>> +			cluster1 {
->>> +				core0 {
->>> +					cpu = <&cpu4>;
->>> +				};
->>> +
->>> +				core1 {
->>> +					cpu = <&cpu5>;
->>> +				};
->>> +
->>> +				core2 {
->>> +					cpu = <&cpu6>;
->>> +				};
->>> +			};
->>> +
->>> +			cluster2 {
->>> +				core0 {
->>> +					cpu = <&cpu7>;
->>> +				};
->>> +			};
->>> +		};
->>
->> I'm getting mixed information about the core topology.. 
->>
->> What does dmesg say wrt this line?
->>
->> CPU%u: Booted secondary processor 0x%010lx [0x%08x]\n
+On 7/17/2025 12:15 PM, Russell King (Oracle) wrote:
+> On Mon, Jul 14, 2025 at 03:59:18PM +0800, Rohan G Thomas via B4 Relay wrote:
+>> @@ -1532,8 +1542,8 @@ int dwxgmac2_setup(struct stmmac_priv *priv)
+>>   		mac->mcast_bits_log2 = ilog2(mac->multicast_filter_bins);
+>>   
+>>   	mac->link.caps = MAC_ASYM_PAUSE | MAC_SYM_PAUSE |
+>> -			 MAC_1000FD | MAC_2500FD | MAC_5000FD |
+>> -			 MAC_10000FD;
+>> +			 MAC_10FD | MAC_100FD | MAC_1000FD |
+>> +			 MAC_2500FD | MAC_5000FD | MAC_10000FD;
+> ...
+>> @@ -405,6 +405,7 @@ static int dwxgmac2_get_hw_feature(void __iomem *ioaddr,
+>>   	dma_cap->sma_mdio = (hw_cap & XGMAC_HWFEAT_SMASEL) >> 5;
+>>   	dma_cap->vlhash = (hw_cap & XGMAC_HWFEAT_VLHASH) >> 4;
+>>   	dma_cap->half_duplex = (hw_cap & XGMAC_HWFEAT_HDSEL) >> 3;
+>> +	dma_cap->mbps_10_100 = (hw_cap & XGMAC_HWFEAT_GMIISEL) >> 1;
 > 
-> [    0.003570] CPU1: Booted secondary processor 0x0000000100 [0x410fd801]
-> [    0.004738] CPU2: Booted secondary processor 0x0000000200 [0x410fd801]
-> [    0.005783] CPU3: Booted secondary processor 0x0000000300 [0x410fd801]
-> [    0.007206] CPU4: Booted secondary processor 0x0000000400 [0x410fd811]
-> [    0.008206] CPU5: Booted secondary processor 0x0000000500 [0x410fd811]
-> [    0.009073] CPU6: Booted secondary processor 0x0000000600 [0x410fd811]
-> [    0.010406] CPU7: Booted secondary processor 0x0000000700 [0x410fd811]
+> What if dma_cap->mbps_10_100 is false? Should MAC_10FD | MAC_100FD
+> still be set? What if dma_cap->half_duplex is set but
+> dma_cap->mbps_10_100 is not? Should we avoid setting 10HD and 100HD?
 
-Okay, so the cache topology that I can make out of docs matches your dt..
+As per the XGMAC databook, 10Mbps/100Mbps/1Gbps speeds are supported
+only when the GMIISEL bit is set. As Serge pointed out, I also need to
+consider the MAC version (≥ v3.00a) when enabling these modes. I’ll
+update the next version of the patch to include checks for both the
+GMIISEL bit and the MAC version before enabling the 
+MAC_10FD/MAC_100FD/MAC_1000FD capabilities.
 
-As for the CPU map, we tended to simply throw all cores that are in
-the same "DSU cluster" [1] together, represented as a single CPU cluster.
-This is not what other vendors do though, it seems. And downstream has
-the same silver/gold/prime split as you did above.
+Also, regarding the HDSEL bit — it is set only if 10Mbps/100Mbps modes
+are supported. I’ll include this condition as well when handling half
+duplex support in the updated patch.
 
-Looking at some docs, it seems like the prime core shares the cache
-bridge with the gold cluster so I'm not sure how separate it really is.
-
-There was a time when the MIDR_EL1 register would be more helpful, but
-according to [2], it would mean that each core is in its own cluster..
-For reference exynos2200.dtsi seems to have the very same MPIDRs (though
-with cores that are a little older). One would expect the small cores
-that share the L2 to be within the same cluster [3].
-
-All in all, I don't know what to tell you for sure..
-
-[1] https://developer.arm.com/documentation/100453/0401/Technical-overview/Components?lang=en
-[2] https://developer.arm.com/documentation/102517/0004/AArch64-registers/AArch64-Identification-registers-summary/MPIDR-EL1--Multiprocessor-Affinity-Register?lang=en
-[3] https://developer.arm.com/documentation/102517/0004/The-Cortex-A520--core/Cortex-A520--core-configuration-options?lang=en
-
-[...]
-
->> Does access control disallow accessing these on your prod-fused
->> device?
 > 
-> Hm, taking another look, this property should probably be moved to
-> device dts.
-> 
-> Downstream has this in volcano.dtsi but volcano6i.dtsi (QCM6690?) and
-> volcano6ip.dtsi (QCS6690?) have a /delete-property/ for this, because
-> they have PCIe available.
-> 
-> I don't think this has anything to do with secure boot fuses, but I
-> don't think I have tried enabling these clocks on my SB-off prototype.
 
-I wouldn't be so sure about sb-off being necessarily a difference, but
-I wouldn't object to a smoke test either ;)
+Best Regards,
+Rohan
 
-[...]
-
->>> +			interrupts = <GIC_SPI 506 IRQ_TYPE_LEVEL_HIGH>,
->>
->> pdc 26
-> 
-> You mean replace <GIC_SPI 506 IRQ_TYPE_LEVEL_HIGH> with
-> <&pdc 26 IRQ_TYPE_LEVEL_HIGH> (plus interrupts-extended)?
-
-Yes
-
-> I assume you got this from internal docs, but just to mention,
-> volcano-thermal.dtsi contains GIC_SPI 506 (+ 507 for tsens1).
-
-Right, I found it in the docs (but we most likely want the device to
-wake up from sleep and try to power off if it's too hot/cold)
-
-Konrad
 
