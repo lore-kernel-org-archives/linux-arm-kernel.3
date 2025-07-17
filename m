@@ -4,85 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBB1FC83F1B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 04:06:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B40EC83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 04:34:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1RkO/FiptvNcnImODz0dg3TOItds46aHSk4kZBgr/T4=; b=Tqpto5sZ5RBPsZ7GRnNCoI3DXR
-	aTb1qMgH396q8/aMCE5TzUMPZgt/HitDGYYkjIEGY8Y7dBWs/FBUML15GPukeQyqXOwdLUTRPkl69
-	lyf4bPiVW7YSOWiSf4QKwjYD22WwGEiCqqv7vPbsa54R5jD2CqRCFhMZGALsXAVvkzjZmkGjKiHpy
-	l983DqvmaFbrJ2agv89K/nHmX2W86vCgwXAP3eXoPhwe6xJ7eG0fd6XHPKxo7JupAzpsM/a4P6SPT
-	Kn6PuJUYLYTJp0H0oxdMgvYdCVzOuFmjJ0qRXEw8PDc/uaMf2Oa6HZa0SxvDPqTZuPYuHj/iNYHgg
-	b5exGXyQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DIjtwJfkN7ZiZcHT4jzSh398jmINFhF08hB7N7xJt3E=; b=yoc+KLuACyR7vp9cl1WKG+cu0+
+	qoi83MpeiZz6fnD/CXP3MYLSHz9MQkLPaNxpwN9BdQDgBvCSHFNmE3RxzG2FiouieA2pVPETLfr0u
+	A3iCbSVFhm9kMCRl2JzFMdG+dj26aDK5thkDWl23whl9n6+QG7wRJ5YGxbCoM48jfmJsjzqN2MBKq
+	MYu5uqeiOeVxo4YJD1sjvRyxYaFwfLlcCIwwrHXR/gIuX/30SMbWYJvp2CEBaPuUBT9YoGfQSBUtQ
+	ct18VBonR4p0E1sLeI/Rw+mBrXuGBDvfJBecW5XqnaAalJU3WnL5akAnFwEnti6HF7tfbK9Uf6xkS
+	/LyeywQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucFse-000000099dJ-2UpT;
-	Thu, 17 Jul 2025 04:06:00 +0000
-Received: from mgamail.intel.com ([192.198.163.13])
+	id 1ucGJb-00000009B3l-0wtx;
+	Thu, 17 Jul 2025 04:33:51 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucFqD-000000099Xg-2Vzq
+	id 1ucGHA-00000009Aeg-12Oo
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Jul 2025 04:03:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1752725009; x=1784261009;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=tnwJ0nfGdmO4kzHiCdsk8siEsbxTWszsH8I6n93yCl4=;
-  b=VM+SQTqzOlg35V64kTuLt0OWEJdpcsI9irobbR8xI1pmFAtIYYWPjz/E
-   mW94LcVhBYb/53hkcApnCkWlMDIk/Xqtp0vfB8KXaVxwf1KFJDhoFR9m7
-   Dc4QTcQdAg1ze5WOsK4EzO7gk4mP4GoKkatEMgg3tcvpR1zONoFOmeZYj
-   qJ4Cy2vcxzwL/wcy6PVwLVY2/SuPfuBCJCcfjlQ0A57b9+3pobzm0ufsu
-   nlwRFX50wH1C5VIWKWRWmV+skOK4yYLKmcgoHFcr5Gggkemc4IBsEZWzA
-   AmGyrT6yjCkbaRAIPrf9/3SJYQbAgvE3zAOmhlhDbiEgvtBl6rVPsQrcb
-   w==;
-X-CSE-ConnectionGUID: acAOQBzlR/eS0+1FjgTyqQ==
-X-CSE-MsgGUID: LTSABNT2QvG/lyjs7ld23w==
-X-IronPort-AV: E=McAfee;i="6800,10657,11493"; a="57596034"
-X-IronPort-AV: E=Sophos;i="6.16,317,1744095600"; 
-   d="scan'208";a="57596034"
-Received: from orviesa001.jf.intel.com ([10.64.159.141])
-  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Jul 2025 21:03:24 -0700
-X-CSE-ConnectionGUID: ADtF+glrTbmoNNNluCCIyQ==
-X-CSE-MsgGUID: NlxNpl7gStqD4fOCL/DkCg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.16,317,1744095600"; 
-   d="scan'208";a="194810445"
-Received: from lkp-server01.sh.intel.com (HELO 9ee84586c615) ([10.239.97.150])
-  by orviesa001.jf.intel.com with ESMTP; 16 Jul 2025 21:03:20 -0700
-Received: from kbuild by 9ee84586c615 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1ucFq1-000D7z-2t;
-	Thu, 17 Jul 2025 04:03:17 +0000
-Date: Thu, 17 Jul 2025 12:03:01 +0800
-From: kernel test robot <lkp@intel.com>
-To: Yassine Ouaissa via B4 Relay <devnull+yassine.ouaissa.allegrodvt.com@kernel.org>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Michael Tretter <m.tretter@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Michal Simek <monstr@monstr.eu>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
+	Thu, 17 Jul 2025 04:31:20 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 22EC3601D1;
+	Thu, 17 Jul 2025 04:31:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C6FCDC4CEE3;
+	Thu, 17 Jul 2025 04:31:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1752726678;
+	bh=x3k38YgM7pT0R+UbD5jaz5YqCqk54/Ulve4u9NBd+Pk=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=enOTDJXhI0p2+BgVz7sGN+ipLqHVKXox/clCzv3nCga8X79fuU0izlkdHUyFv//TT
+	 P9jL1ijF6+nK7rQi7m2D50n/TiElRvLOPxnHgzGP01T5fuwo85ArM84kY7YFUf+Aen
+	 intA4GMXLZI6gHL7FTFvvhh1VSiMf/7uaRAlW5mG2BsCVjOiOSq2fEiZuQyzBVVR5q
+	 As2JItT2oR691EnIWGirRvhR1NXPFh0yWLX8PyTenrc4bE/oanX5HA1iD4DcG1RVqL
+	 SShiBHPZCoFoawtvB9h70n2T8JMHHGFKLIX1328s1ks1Cb/Kz+P0WWQWTR4SUM4bnV
+	 w+PfUP+4s9EgQ==
+From: Bjorn Andersson <andersson@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Rob Clark <robin.clark@oss.qualcomm.com>,
+	Sean Paul <sean@poorly.run>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Dmitry Baryshkov <lumag@kernel.org>,
+	Abhinav Kumar <abhinav.kumar@linux.dev>,
+	Jessica Zhang <jessica.zhang@oss.qualcomm.com>,
+	Marijn Suijten <marijn.suijten@somainline.org>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Yassine OUAISSA <yassine.ouaissa@allegrodvt.com>,
-	Nicolas Dufresne <nicolas@ndufresne.ca>
-Cc: oe-kbuild-all@lists.linux.dev, linux-media@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH v4 4/4] media: allegro-dvt: Add Gen 3 IP stateful decoder
- driver
-Message-ID: <202507171125.Cy8G5dte-lkp@intel.com>
-References: <20250716-allegro_dvt_al300_dec_driver-v4-4-f87c01c9f7b5@allegrodvt.com>
+	Viresh Kumar <vireshk@kernel.org>,
+	Nishanth Menon <nm@ti.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Akhil P Oommen <akhilpo@oss.qualcomm.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	freedreno@lists.freedesktop.org,
+	devicetree@vger.kernel.org,
+	linux-pm@vger.kernel.org,
+	Jens Glathe <jens.glathe@oldschoolsolutions.biz>,
+	Viresh Kumar <viresh.kumar@linaro.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	Aleksandrs Vinarskis <alex.vinarskis@gmail.com>,
+	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Subject: Re: (subset) [PATCH v4 0/4] Support for Adreno X1-45 GPU
+Date: Wed, 16 Jul 2025 23:30:52 -0500
+Message-ID: <175272667115.130869.4357209750133500599.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20250623-x1p-adreno-v4-0-d2575c839cbb@oss.qualcomm.com>
+References: <20250623-x1p-adreno-v4-0-d2575c839cbb@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250716-allegro_dvt_al300_dec_driver-v4-4-f87c01c9f7b5@allegrodvt.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250716_210329_654717_051FE868 
-X-CRM114-Status: GOOD (  10.96  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,74 +97,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Yassine,
 
-kernel test robot noticed the following build errors:
+On Mon, 23 Jun 2025 19:42:05 +0530, Akhil P Oommen wrote:
+> Add support for X1-45 GPU found in X1P41200 chipset (8 cpu core
+> version). X1-45 is a smaller version of X1-85 with lower core count and
+> smaller memories. From UMD perspective, this is similar to "FD735"
+> present in Mesa.
+> 
+> Tested Glmark & Vkmark on Debian Gnome desktop.
+> 
+> [...]
 
-[auto build test ERROR on 155a3c003e555a7300d156a5252c004c392ec6b0]
+Applied, thanks!
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Yassine-Ouaissa-via-B4-Relay/media-allegro-dvt-Move-the-current-driver-to-a-subdirectory/20250716-225824
-base:   155a3c003e555a7300d156a5252c004c392ec6b0
-patch link:    https://lore.kernel.org/r/20250716-allegro_dvt_al300_dec_driver-v4-4-f87c01c9f7b5%40allegrodvt.com
-patch subject: [PATCH v4 4/4] media: allegro-dvt: Add Gen 3 IP stateful decoder driver
-config: m68k-allmodconfig (https://download.01.org/0day-ci/archive/20250717/202507171125.Cy8G5dte-lkp@intel.com/config)
-compiler: m68k-linux-gcc (GCC) 15.1.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250717/202507171125.Cy8G5dte-lkp@intel.com/reproduce)
+[4/4] arm64: dts: qcom: Add GPU support to X1P42100 SoC
+      commit: 2c66665d8defe1c36bdd2848b245dc906d4f3ab4
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202507171125.Cy8G5dte-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
-   drivers/media/platform/allegro-dvt/al300/al_codec_util.c: In function 'al_codec_cmd_cleanup':
->> drivers/media/platform/allegro-dvt/al300/al_codec_util.c:149:9: error: implicit declaration of function 'kfree' [-Wimplicit-function-declaration]
-     149 |         kfree(cmd->reply);
-         |         ^~~~~
-   drivers/media/platform/allegro-dvt/al300/al_codec_util.c: In function 'al_codec_cmd_create':
->> drivers/media/platform/allegro-dvt/al300/al_codec_util.c:165:15: error: implicit declaration of function 'kmalloc'; did you mean 'mm_alloc'? [-Wimplicit-function-declaration]
-     165 |         cmd = kmalloc(sizeof(*cmd), GFP_KERNEL);
-         |               ^~~~~~~
-         |               mm_alloc
->> drivers/media/platform/allegro-dvt/al300/al_codec_util.c:165:13: error: assignment to 'struct al_codec_cmd *' from 'int' makes pointer from integer without a cast [-Wint-conversion]
-     165 |         cmd = kmalloc(sizeof(*cmd), GFP_KERNEL);
-         |             ^
->> drivers/media/platform/allegro-dvt/al300/al_codec_util.c:169:20: error: assignment to 'void *' from 'int' makes pointer from integer without a cast [-Wint-conversion]
-     169 |         cmd->reply = kmalloc(reply_size, GFP_KERNEL);
-         |                    ^
-
-
-vim +/kfree +149 drivers/media/platform/allegro-dvt/al300/al_codec_util.c
-
-   144	
-   145	static void al_codec_cmd_cleanup(struct kref *ref)
-   146	{
-   147		struct al_codec_cmd *cmd = container_of(ref, typeof(*cmd), refcount);
-   148	
- > 149		kfree(cmd->reply);
-   150		kfree(cmd);
-   151	}
-   152	
-   153	void al_codec_cmd_put(struct al_codec_cmd *cmd)
-   154	{
-   155		if (WARN_ON(!cmd))
-   156			return;
-   157	
-   158		kref_put(&cmd->refcount, al_codec_cmd_cleanup);
-   159	}
-   160	
-   161	struct al_codec_cmd *al_codec_cmd_create(int reply_size)
-   162	{
-   163		struct al_codec_cmd *cmd;
-   164	
- > 165		cmd = kmalloc(sizeof(*cmd), GFP_KERNEL);
-   166		if (!cmd)
-   167			return NULL;
-   168	
- > 169		cmd->reply = kmalloc(reply_size, GFP_KERNEL);
-
+Best regards,
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Bjorn Andersson <andersson@kernel.org>
 
