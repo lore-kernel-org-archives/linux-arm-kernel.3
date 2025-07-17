@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 914BBC83F1B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 12:02:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D5D9C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 12:04:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7txSPD2h9BT9cMsgGrzSuiJnopnqRS3A8l9r5XVabt0=; b=O8aaEIdRDZ8Dti/1ShyRUxzBMF
-	+HR5QKpdqiFbvYdalLHhiaCiY3gWImgoVhmB94H4+uNa1X+28wMXB/dsgOc2AvCytjPruGwcnZXNT
-	1/O+kmS61WnH4SETKzX/9tBzZ6XWRSBk3UOFwSirVowXiDRQ2guG1XbJBYZdzC/lbmg1/PKvJoff1
-	2LYEzwCb8mFRg+/3HkZiTA/SUdk5wXXvwep9DITlneWCOpjNpa2qocDT8b3gflRJZdzMSmpbKWgX5
-	LloKkFz2tv3h3QBlM/gaBz6Bnn0oPDzfOL1fC4digGR5+MZo2pV8ZBxFlgvCfW3HHNOv3veTeHEUw
-	ZjtygdkA==;
+	bh=PhM8GE1xZoKGyrAe7YVj++mHCNDn2ZM4viM56ZyqlN4=; b=nUQX+HbkoDC0Q7sKI40Fo5whyi
+	w414pZqF5wmk9LhnKEmhbHItudrUTjLVXfwGxeXddjmFekTYQ6jOprsvVxmDBmZ38ZUS0XGD525MC
+	mmSa8p5Yp3YFW8IgDf3XE18FPE9vuyik0rOqAeJ0rbpNiIMx/tY+tz6sz6akC0Bb8AYQ1EjKO36oO
+	pPtI23X8iEwq5LiwAjSuJYXOBelvsKS0txgu0JQx1bGOC39NgcFietkrfI4CZ3DTvqFc8fK2hQJof
+	LFeZrnsATHeVDYdbAf1ABnrKdvtclNIyFSv1FemfPEN/RCPeZQk/j07nhEFM1SUslR0GAQy02BLDC
+	BIoLTPig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucNJU-0000000A3hP-1H3C;
-	Thu, 17 Jul 2025 12:02:12 +0000
+	id 1ucNLu-0000000A41s-1AUu;
+	Thu, 17 Jul 2025 12:04:42 +0000
 Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucM81-00000009sxA-1k8U;
-	Thu, 17 Jul 2025 10:46:18 +0000
+	id 1ucM82-00000009sxg-3Uec;
+	Thu, 17 Jul 2025 10:46:20 +0000
 Received: from [192.168.0.172] (mob-5-90-140-254.net.vodafone.it [5.90.140.254])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 7AF2C1E74;
-	Thu, 17 Jul 2025 12:45:41 +0200 (CEST)
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id C7D201AE2;
+	Thu, 17 Jul 2025 12:45:42 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1752749142;
-	bh=9aZhUEi8nzk0nQ1lg/OYG7ZJZJnqA3OQHgxh4Ti+sSs=;
+	s=mail; t=1752749144;
+	bh=YyXmr6Wtr5A4ih2ag5qo99kLDMbBWLONqHu1vyrmcVI=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=lMH6BjkNJfBOxwgNQfFoFlDmJyVde8+lHri01kln6JgFe7kf4uq6RWQWnNq+MIDBT
-	 PM9kBe0e1b16Ej8L8uqmqRPz5jHnVJNKV5gmxP6y2HBOYj1/jHj5z5A1RtNcDnvDx0
-	 JBLbUklElR/VldW0dozOFWdWxUXYldqIumwveGaQ=
+	b=uiwxmilUyeUwUbhXT+Z3DOUylJFzWaOUMiyPqvYTUp4+ecDcr2ZRpyrJJ/pClK7EP
+	 HC9VLTioj6+n9rvkpV7bdvKWoF7FHTjE4wDOpktqUwrNqJmS2Etgzw5wAfkf9kTtL7
+	 2rYDY8h6AG3srtfYxn3SaqJT9Ma2qMdDM8ZZUPDA=
 From: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-Date: Thu, 17 Jul 2025 12:45:48 +0200
-Subject: [PATCH DNI 22/26] media: pisp_be: Add support for subdev state
+Date: Thu, 17 Jul 2025 12:45:49 +0200
+Subject: [PATCH DNI 23/26] media: pisp_be: Implement set/get_pad_fmt
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250717-multicontext-mainline-2025-v1-22-81ac18979c03@ideasonboard.com>
+Message-Id: <20250717-multicontext-mainline-2025-v1-23-81ac18979c03@ideasonboard.com>
 References: <20250717-multicontext-mainline-2025-v1-0-81ac18979c03@ideasonboard.com>
 In-Reply-To: <20250717-multicontext-mainline-2025-v1-0-81ac18979c03@ideasonboard.com>
 To: Sakari Ailus <sakari.ailus@linux.intel.com>, 
@@ -61,26 +61,27 @@ Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
  linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
  Jacopo Mondi <jacopo.mondi@ideasonboard.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2271;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1831;
  i=jacopo.mondi@ideasonboard.com; h=from:subject:message-id;
- bh=9aZhUEi8nzk0nQ1lg/OYG7ZJZJnqA3OQHgxh4Ti+sSs=;
- b=owEBbQKS/ZANAwAKAXI0Bo8WoVY8AcsmYgBoeNRRVJywCBAo7BIzYjV82f8QM3uGxHTpYi2Rt
- C39bakUCimJAjMEAAEKAB0WIQS1xD1IgJogio9YOMByNAaPFqFWPAUCaHjUUQAKCRByNAaPFqFW
- PIFBD/4uLBHQuvpaSyM6QrS1Mwp9UC008FWTYRM5RQrbx+5/10SzLLpWWEjsismkOyWFAe+ld5N
- 97fTwHqiVHEIne/j+39cXN3J2Dyb+4DYRTfeaG8poBPhLsBQexXvsHlehsMKTN2cUrjqqdC3P+L
- Go8W3IqAV3hirQDAGN0Y78z/DWu7XbAFwZtdDd1Y2GosdLfw9x1WI2Cv6Lu0ZvS1jB5MTBdzpvk
- y/WpbOmSDvxMRHzdYWiLxcE3wrYBEK6LNk939H5Zbu3Tx6GGHGnn4KwwcQIuuw3CfB00l4Vamv5
- ebbkBRD3gBn7QWJ21KQySTiv2i9c9gq3dWDTevk9I8dfzzlU1ggpotKjZG5butVooPSFuB9Vefi
- bF81TLpLk+gvQY+X34EyxD6bkrfmeVGcz0gl2bn1oN8ndw9/IC9hMaWCwmSHtsJBoo1L+kqacaO
- KSp1M/qgLLkOgTBfzKG84OI3W9NlEqqMDUrikaOUCAhzb1qOFiAIjqBXPoDn7epL6bo6wBkOqs3
- RzCqVC4qf1wOLsDjs6j63CuprP29p+KbnkcYPAlGgbw4P3VGS19TVWsCmFcvA9bwhYpaw3jsP0c
- +0bCV7MiA/zb8Kk8g2+eytbe4vvjLzmsFVgT33leutuwIASJKTvuXLTewSX40hJ0/Gazhyw+qPu
- KzBIVTUKJJYVbNA==
+ bh=YyXmr6Wtr5A4ih2ag5qo99kLDMbBWLONqHu1vyrmcVI=;
+ b=owEBbQKS/ZANAwAKAXI0Bo8WoVY8AcsmYgBoeNRR446grg45jSOazWmLg7XRPDLLG/B80g+S+
+ 8a4h6emRMuJAjMEAAEKAB0WIQS1xD1IgJogio9YOMByNAaPFqFWPAUCaHjUUQAKCRByNAaPFqFW
+ PHIcD/4nIDePGNOBSTZXua3WG5IPv5k4ZIU7nI1QDA4K1hbYrxMBgTT4OSo+Cme46A2XAe1vzgU
+ nweba/418w7v34UBvBbQuVKa4HnWC1apjPZYAQ9QNkYkVXBSDeMoApB83UvIBgYzqpSzB4msTy+
+ HrvY4dzEVVNe7RrFUbtJJf313vzRfKcaEUtLz5JXE+CtdXLhv+iRLl3hovKuWv0Tpl9xw9cw0ca
+ JyrLlnLiQ6/wfQaDdOe7obChvMgeErN9tv/8OEV4T56RCcGABsDlRJQAlRx1649PkLmuoxOD3ln
+ cqeeVKdT9xjK0oFihEJtCvGJISxv11x2QfV6xjQpDg/EDMZ73SJC1zMtGcF0FEPGEOg2PCb8dAd
+ jvx55GGnAfoc3PBl1+/Vu+q0H9GutBmNVhhMq4gdStnXr5GnfWu/D0TmdiJQtdG92/yBg10EClw
+ 3uq0nvKh6JaITdRdIyDCzLI0ibnmH7nzVkvDC/KrhS3rhgw8GxxIfUWjk25Z6Db2q1bqRwx48DP
+ HzCx0YF8z1KT0j54/+RxGp1w6pg3X/I7MvFtjFG+np8fRhvqXTBy2ZDYJhUd8LW2056qo0P+uf8
+ ZS1Bgt5F2kzwSWJL9GLjF3uz95lO1uyk9wihRscneEATpBN2VPzjLBgwFJkanvsR8NjRC/1aGDp
+ i6TdcGazjri2pQA==
 X-Developer-Key: i=jacopo.mondi@ideasonboard.com; a=openpgp;
  fpr=72392EDC88144A65C701EA9BA5826A2587AD026B
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250717_034617_618444_AA6959CC 
-X-CRM114-Status: GOOD (  11.76  )
+X-CRM114-CacheID: sfid-20250717_034619_024694_970E9348 
+X-CRM114-Status: UNSURE (   8.70  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,80 +96,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for subdev state in the ISP subdevice by providing an
-init_state() callback and by calling init_finalize() before registering
-the subdev.
+Implement operation handlers for the set and get pad_fmt subdev
+pad operations.
+
+Format is only modifiable on the image nodes (of both output and capture
+types). Only sizes can be modified.
 
 Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
 ---
- .../media/platform/raspberrypi/pisp_be/pisp_be.c   | 41 ++++++++++++++++++++++
- 1 file changed, 41 insertions(+)
+ .../media/platform/raspberrypi/pisp_be/pisp_be.c   | 29 ++++++++++++++++++++++
+ 1 file changed, 29 insertions(+)
 
 diff --git a/drivers/media/platform/raspberrypi/pisp_be/pisp_be.c b/drivers/media/platform/raspberrypi/pisp_be/pisp_be.c
-index 423cb21298309c2ba51214b129fbf6e875370c98..5aec4f8979053500c870e71ce7171bbd1cac9606 100644
+index 5aec4f8979053500c870e71ce7171bbd1cac9606..22e440f387b5e5560b2cc80a8b3bf6064dc12d7c 100644
 --- a/drivers/media/platform/raspberrypi/pisp_be/pisp_be.c
 +++ b/drivers/media/platform/raspberrypi/pisp_be/pisp_be.c
-@@ -1496,12 +1496,49 @@ static const struct v4l2_subdev_ops pispbe_sd_ops = {
- 	.pad = &pispbe_pad_ops,
- };
+@@ -1488,7 +1488,36 @@ static int pispbe_init_node(struct pispbe_dev *pispbe, unsigned int id)
+ 	return ret;
+ }
  
-+static int pispbe_init_state(struct v4l2_subdev *sd,
-+			     struct v4l2_subdev_state *state)
++static int pispbe_subdev_set_pad_fmt(struct v4l2_subdev *sd,
++				     struct v4l2_subdev_state *state,
++				     struct v4l2_subdev_format *format)
 +{
-+	struct v4l2_mbus_framefmt *fmt;
++	struct v4l2_mbus_framefmt *fmt = &format->format;
 +
-+	for (unsigned int i = 0; i < PISPBE_NUM_NODES; i++) {
-+		fmt = v4l2_subdev_state_get_format(state, i);
++	/* Only allow setting sizes on the image input and output pads. */
 +
-+		switch (i) {
-+		case MAIN_INPUT_NODE:
-+			fallthrough;
-+		case OUTPUT0_NODE:
-+			fallthrough;
-+		case OUTPUT1_NODE:
-+			fmt->width = 1920;
-+			fmt->height = 1080;
-+			fmt->code = MEDIA_BUS_FMT_FIXED;
-+			break;
-+		case CONFIG_NODE:
-+			fmt->width =  sizeof(struct pisp_be_tiles_config);
-+			fmt->height = 1;
-+			fmt->code = MEDIA_BUS_FMT_METADATA_FIXED;
-+			break;
-+		default:
-+			/* No need to configure other nodes. */
-+			continue;
-+		}
++	switch (format->pad) {
++	case TDN_INPUT_NODE:
++	case STITCH_INPUT_NODE:
++	case TDN_OUTPUT_NODE:
++	case STITCH_OUTPUT_NODE:
++		return -EINVAL;
 +	}
++
++	fmt->width = clamp(fmt->width, PISP_BACK_END_MIN_TILE_WIDTH,
++			   PISP_BACK_END_MAX_TILE_WIDTH);
++	fmt->height = clamp(fmt->height, PISP_BACK_END_MIN_TILE_HEIGHT,
++			    PISP_BACK_END_MAX_TILE_HEIGHT);
++	fmt->code = MEDIA_BUS_FMT_FIXED;
++
++	*v4l2_subdev_state_get_format(state, format->pad) = *fmt;
 +
 +	return 0;
 +}
 +
-+static const struct v4l2_subdev_internal_ops pispbe_subdev_internal_ops = {
-+	.init_state = pispbe_init_state,
-+};
-+
- static int pispbe_init_subdev(struct pispbe_dev *pispbe)
- {
- 	struct v4l2_subdev *sd = &pispbe->sd;
- 	int ret;
+ static const struct v4l2_subdev_pad_ops pispbe_pad_ops = {
++	.set_fmt = pispbe_subdev_set_pad_fmt,
++	.get_fmt = v4l2_subdev_get_fmt,
+ 	.link_validate = v4l2_subdev_link_validate_default,
+ };
  
- 	v4l2_subdev_init(sd, &pispbe_sd_ops);
-+	sd->internal_ops = &pispbe_subdev_internal_ops;
- 	sd->entity.function = MEDIA_ENT_F_PROC_VIDEO_PIXEL_FORMATTER;
- 	sd->owner = THIS_MODULE;
- 	sd->dev = pispbe->dev;
-@@ -1517,6 +1554,10 @@ static int pispbe_init_subdev(struct pispbe_dev *pispbe)
- 	if (ret)
- 		goto error;
- 
-+	ret = v4l2_subdev_init_finalize(sd);
-+	if (ret)
-+		goto error;
-+
- 	ret = v4l2_device_register_subdev(&pispbe->v4l2_dev, sd);
- 	if (ret)
- 		goto error;
 
 -- 
 2.49.0
