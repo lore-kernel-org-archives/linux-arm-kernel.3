@@ -4,63 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28CC2C83F34
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 23:43:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68388C83F34
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 23:45:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Io0O9ivrDSI7ib4HbNGMnvrCvRBFdYG2jjlaeqr/xtQ=; b=J8K07UDgzzATQcs8rQjrjM5Kde
-	/2mCy/OsKp2lPAF5NTyjzE0Qd74jYwduZ1KIO+R20/7L25aKcuM9znory8TC4i3PnK/EbKJTDKDB6
-	+iOoSFgMWi0hktxPnv7ayImOOio+fBUHbpMiyZO/2fvGpjYDBqT7v3PGZ+qev6Yg7YZuFYSBbFNj/
-	EbukPjF64WzRr2wn9+8kG57x3gdjWOKK6nelLMlFbRphiuw/U5b4PMWoHFPAsLXtG0TWP+j0SY6Ui
-	i8D4XRm8mlaAMhAy6t92E2olyJTC9WaEasK8Yw3OqSAR5MSFNJG/+FUp1Cz5fW07kLo+nNVfPBg8B
-	jKJ6WTTA==;
+	bh=C8D4LxVY5xiBAnCpq4qjYfypcmK3R7vRmG4YyK+yYkI=; b=dfEbc3O0y0Nr3sT0m3X/52JMeP
+	XT4f6hKAmvKOtJb6Y71QjB+HYO9J9AxmKYjN2Enng5O2nTfJzZUKzsRbw4Hk4LkxNimooXZxTxKQZ
+	H4H6DeGYLV7IRNazdR2bzDkiEhRJZjpMBFbTsGn4RPLtQJifBxIQS9dPC02ZmdFRbB/9K+/ndDhON
+	Kj/38kTJRgVkKzkZK3nkRA6sLkYUU9IsklgOt6s+Ck6jjo2w1QZmyyw6ZTlwYryuiWIoZTq5pbqV0
+	SUmHAneU0ddIqGoICnJaWQxyT6Kp/L/eUViJuBBkmIv7QBfq2KN4nr0TiRiGhHvT6YRSGcvzuZnXv
+	7uZ2ARqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucYFg-0000000BLZz-2y4c;
-	Thu, 17 Jul 2025 23:43:00 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1ucYI8-0000000BM5w-0E92;
+	Thu, 17 Jul 2025 23:45:32 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucXyc-0000000BGrO-0ceU;
+	id 1ucXyc-0000000BGsT-1jwT;
 	Thu, 17 Jul 2025 23:25:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 534EF5C6CCA;
+	by sea.source.kernel.org (Postfix) with ESMTP id 49BB745D43;
 	Thu, 17 Jul 2025 23:25:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 91A59C4AF53;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 98294C2BC9E;
 	Thu, 17 Jul 2025 23:25:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1752794720;
-	bh=osvUgpgEO64bNEnbAttwqVDbq5vm5KYdqiVGeRyBetc=;
+	bh=9V+bffTinVGVEjmw6TF+C5G0YfQpy53YZa3Wm2q7aj4=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=ncp2PaoyESx2mGPRUqpIl0USPY8odVZlpHCAh8Jn8DMOfU2i3n6bxhTits5POjFD/
-	 bY4yixVHOiYP4Xr5dlJRUNXHIu0s3iF+7Jvzx7ManD4PgBcgoDYwpxzyP5HZBUbEKf
-	 N5jHFE8Q4iH4wYl9qS/j1MV1rhYbo+WiB/igaYTWTayw1U+4sCLdqlfJBc3EAxGAbp
-	 nGQOt09scJ/N1rGKReZbb+NdWKcJQXbmcKxaPIjYigz7JLWgHP6pmAB6xsB3vM43U0
-	 65A2iSAqp3UWSI4HOKWJdn4TUFpTPnOHuWSJMjk/OBW/zagGOcIRnp8f70lkanBO7A
-	 GO84yR/PXKBLA==
+	b=gez9+rF3CryUNwcEQtA7RUXem9doT2g4V6wsPRN78qjIj4fqXVEaDSWIKAEg+Bf4e
+	 h4BuEZn8DU7tarJdZD79F/4JKt1I7bFF5u7GXuVhWyhr4UwHIg64WNk2Y9T8k01BDD
+	 SW1sAzyC4gKfp3hHPNjqZzazHZehkymj+tU/XkoHB1QvIFgd9XT0A38ywPLme4Jsmg
+	 23Xzj+xead69z94QqjlPQ0rwuJNmcm+70iN2VP0yNW6BbmFrfQcbyf1ldgs7XJ7ZLl
+	 jS2lxW+//WGZUxXACctXTC3gPdOZaGUw7xXB7nv+iGoyMpo48sqZ5B+y5izyuWTPY/
+	 USq2LmYVxe0Nw==
 From: Kees Cook <kees@kernel.org>
 To: Arnd Bergmann <arnd@arndb.de>
 Cc: Kees Cook <kees@kernel.org>,
-	"Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
-	kernel test robot <lkp@intel.com>,
+	Marco Elver <elver@google.com>,
+	Andrey Konovalov <andreyknvl@gmail.com>,
+	Andrey Ryabinin <ryabinin.a.a@gmail.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	x86@kernel.org,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	"Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>,
+	Hou Wenlong <houwenlong.hwl@antgroup.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	"Peter Zijlstra (Intel)" <peterz@infradead.org>,
+	Luis Chamberlain <mcgrof@kernel.org>,
+	Sami Tolvanen <samitolvanen@google.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	kasan-dev@googlegroups.com,
 	Ingo Molnar <mingo@kernel.org>,
 	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
 	Christoph Hellwig <hch@lst.de>,
-	Andrey Konovalov <andreyknvl@gmail.com>,
-	Andrey Ryabinin <ryabinin.a.a@gmail.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Masahiro Yamada <masahiroy@kernel.org>,
 	Nathan Chancellor <nathan@kernel.org>,
 	Nicolas Schier <nicolas.schier@linux.dev>,
 	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
 	Bill Wendling <morbo@google.com>,
 	Justin Stitt <justinstitt@google.com>,
 	linux-kernel@vger.kernel.org,
-	x86@kernel.org,
-	kasan-dev@googlegroups.com,
 	linux-doc@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	kvmarm@lists.linux.dev,
@@ -73,19 +84,19 @@ Cc: Kees Cook <kees@kernel.org>,
 	linux-kselftest@vger.kernel.org,
 	sparclinux@vger.kernel.org,
 	llvm@lists.linux.dev
-Subject: [PATCH v3 08/13] powerpc/mm/book3s64: Move kfence and debug_pagealloc related calls to __init section
-Date: Thu, 17 Jul 2025 16:25:13 -0700
-Message-Id: <20250717232519.2984886-8-kees@kernel.org>
+Subject: [PATCH v3 10/13] init.h: Disable sanitizer coverage for __init and __head
+Date: Thu, 17 Jul 2025 16:25:15 -0700
+Message-Id: <20250717232519.2984886-10-kees@kernel.org>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250717231756.make.423-kees@kernel.org>
 References: <20250717231756.make.423-kees@kernel.org>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3037; i=kees@kernel.org; h=from:subject; bh=CG642rxsBTdbPAtwaZfuIeBH3/DpJlnhh8PcAMrPPa0=; b=owGbwMvMwCVmps19z/KJym7G02pJDBmVbTEqNd9vzJzycNaO4gcXLpt8qbN9PS/KjKft9UGzD eY5vwSjO0pZGMS4GGTFFFmC7NzjXDzetoe7z1WEmcPKBDKEgYtTACZSI8jI8GVbRcbCExcPa6wy fDZNO+lvONfEslf91zgk5+/tDwzasp+RYXdX0OYrJ9+2fley5O3+YLKGlStl6nnrVzK5ghu5VvP GMQEA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2887; i=kees@kernel.org; h=from:subject; bh=9V+bffTinVGVEjmw6TF+C5G0YfQpy53YZa3Wm2q7aj4=; b=owGbwMvMwCVmps19z/KJym7G02pJDBmVbTGcdzX9tOWPqxw+mDi5QoXrybvVpVEcLdzJH6fPO Hv5wvF9HaUsDGJcDLJiiixBdu5xLh5v28Pd5yrCzGFlAhnCwMUpABPZXMbwT1t6VfRt+waJrHcP M97sUJ2g32a/ijfzZfGnNs2MG/kxuxgZjrSFtfu+Ewq/KH3vrQuLOt+l1c0dXpwtCrXq7Ak7wmZ yAwA=
 X-Developer-Key: i=kees@kernel.org; a=openpgp; fpr=A5C3F68F229DD60F723E6E138972F4DFDC6DC026
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250717_162522_303337_AAF87A7B 
-X-CRM114-Status: GOOD (  12.12  )
+X-CRM114-CacheID: sfid-20250717_162522_491315_9EC4DCC4 
+X-CRM114-Status: GOOD (  14.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,90 +111,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>
+While __noinstr already contained __no_sanitize_coverage, it needs to
+be added to __init and __head section markings to support the Clang
+implementation of CONFIG_KSTACK_ERASE. This is to make sure the stack
+depth tracking callback is not executed in unsupported contexts.
 
-Move a few kfence and debug_pagealloc related functions in hash_utils.c
-and radix_pgtable.c to __init sections since these are only invoked once
-by an __init function during system initialization.
+The other sanitizer coverage options (trace-pc and trace-cmp) aren't
+needed in __head nor __init either ("We are interested in code coverage
+as a function of a syscall inputs"[1]), so this is fine to disable for
+them as well.
 
-i.e.
-- hash_debug_pagealloc_alloc_slots()
-- hash_kfence_alloc_pool()
-- hash_kfence_map_pool()
-  The above 3 functions only gets called by __init htab_initialize().
-
-- alloc_kfence_pool()
-- map_kfence_pool()
-  The above 2 functions only gets called by __init radix_init_pgtable()
-
-This should also help fix warning msgs like:
-
->> WARNING: modpost: vmlinux: section mismatch in reference:
-hash_debug_pagealloc_alloc_slots+0xb0 (section: .text) ->
-memblock_alloc_try_nid (section: .init.text)
-
-Reported-by: kernel test robot <lkp@intel.com>
-Closes: https://lore.kernel.org/oe-kbuild-all/202504190552.mnFGs5sj-lkp@intel.com/
-Signed-off-by: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
+Link: https://web.git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/kernel/kcov.c?h=v6.14#n179 [1]
+Acked-by: Marco Elver <elver@google.com>
 Signed-off-by: Kees Cook <kees@kernel.org>
 ---
- arch/powerpc/mm/book3s64/hash_utils.c    | 6 +++---
- arch/powerpc/mm/book3s64/radix_pgtable.c | 4 ++--
- 2 files changed, 5 insertions(+), 5 deletions(-)
+Cc: Marco Elver <elver@google.com>
+Cc: Andrey Konovalov <andreyknvl@gmail.com>
+Cc: Andrey Ryabinin <ryabinin.a.a@gmail.com>
+Cc: Thomas Gleixner <tglx@linutronix.de>
+Cc: Ingo Molnar <mingo@redhat.com>
+Cc: Borislav Petkov <bp@alien8.de>
+Cc: Dave Hansen <dave.hansen@linux.intel.com>
+Cc: <x86@kernel.org>
+Cc: "H. Peter Anvin" <hpa@zytor.com>
+Cc: Ard Biesheuvel <ardb@kernel.org>
+Cc: "Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>
+Cc: Hou Wenlong <houwenlong.hwl@antgroup.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>
+Cc: Masahiro Yamada <masahiroy@kernel.org>
+Cc: "Peter Zijlstra (Intel)" <peterz@infradead.org>
+Cc: Luis Chamberlain <mcgrof@kernel.org>
+Cc: Sami Tolvanen <samitolvanen@google.com>
+Cc: Arnd Bergmann <arnd@arndb.de>
+Cc: Christophe Leroy <christophe.leroy@csgroup.eu>
+Cc: <kasan-dev@googlegroups.com>
+---
+ arch/x86/include/asm/init.h | 2 +-
+ include/linux/init.h        | 4 +++-
+ 2 files changed, 4 insertions(+), 2 deletions(-)
 
-diff --git a/arch/powerpc/mm/book3s64/hash_utils.c b/arch/powerpc/mm/book3s64/hash_utils.c
-index 5158aefe4873..4693c464fc5a 100644
---- a/arch/powerpc/mm/book3s64/hash_utils.c
-+++ b/arch/powerpc/mm/book3s64/hash_utils.c
-@@ -343,7 +343,7 @@ static inline bool hash_supports_debug_pagealloc(void)
- static u8 *linear_map_hash_slots;
- static unsigned long linear_map_hash_count;
- static DEFINE_RAW_SPINLOCK(linear_map_hash_lock);
--static void hash_debug_pagealloc_alloc_slots(void)
-+static __init void hash_debug_pagealloc_alloc_slots(void)
- {
- 	if (!hash_supports_debug_pagealloc())
- 		return;
-@@ -409,7 +409,7 @@ static DEFINE_RAW_SPINLOCK(linear_map_kf_hash_lock);
+diff --git a/arch/x86/include/asm/init.h b/arch/x86/include/asm/init.h
+index 8b1b1abcef15..6bfdaeddbae8 100644
+--- a/arch/x86/include/asm/init.h
++++ b/arch/x86/include/asm/init.h
+@@ -5,7 +5,7 @@
+ #if defined(CONFIG_CC_IS_CLANG) && CONFIG_CLANG_VERSION < 170000
+ #define __head	__section(".head.text") __no_sanitize_undefined __no_stack_protector
+ #else
+-#define __head	__section(".head.text") __no_sanitize_undefined
++#define __head	__section(".head.text") __no_sanitize_undefined __no_sanitize_coverage
+ #endif
  
- static phys_addr_t kfence_pool;
+ struct x86_mapping_info {
+diff --git a/include/linux/init.h b/include/linux/init.h
+index ee1309473bc6..c65a050d52a7 100644
+--- a/include/linux/init.h
++++ b/include/linux/init.h
+@@ -49,7 +49,9 @@
  
--static inline void hash_kfence_alloc_pool(void)
-+static __init void hash_kfence_alloc_pool(void)
- {
- 	if (!kfence_early_init_enabled())
- 		goto err;
-@@ -445,7 +445,7 @@ static inline void hash_kfence_alloc_pool(void)
- 	disable_kfence();
- }
- 
--static inline void hash_kfence_map_pool(void)
-+static __init void hash_kfence_map_pool(void)
- {
- 	unsigned long kfence_pool_start, kfence_pool_end;
- 	unsigned long prot = pgprot_val(PAGE_KERNEL);
-diff --git a/arch/powerpc/mm/book3s64/radix_pgtable.c b/arch/powerpc/mm/book3s64/radix_pgtable.c
-index 9f908b1a52db..be523e5fe9c5 100644
---- a/arch/powerpc/mm/book3s64/radix_pgtable.c
-+++ b/arch/powerpc/mm/book3s64/radix_pgtable.c
-@@ -363,7 +363,7 @@ static int __meminit create_physical_mapping(unsigned long start,
- }
- 
- #ifdef CONFIG_KFENCE
--static inline phys_addr_t alloc_kfence_pool(void)
-+static __init phys_addr_t alloc_kfence_pool(void)
- {
- 	phys_addr_t kfence_pool;
- 
-@@ -393,7 +393,7 @@ static inline phys_addr_t alloc_kfence_pool(void)
- 	return 0;
- }
- 
--static inline void map_kfence_pool(phys_addr_t kfence_pool)
-+static __init void map_kfence_pool(phys_addr_t kfence_pool)
- {
- 	if (!kfence_pool)
- 		return;
+ /* These are for everybody (although not all archs will actually
+    discard it in modules) */
+-#define __init		__section(".init.text") __cold  __latent_entropy __noinitretpoline
++#define __init		__section(".init.text") __cold __latent_entropy	\
++						__noinitretpoline	\
++						__no_sanitize_coverage
+ #define __initdata	__section(".init.data")
+ #define __initconst	__section(".init.rodata")
+ #define __exitdata	__section(".exit.data")
 -- 
 2.34.1
 
