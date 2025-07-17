@@ -4,126 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4E08C83F34
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 21:26:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6491BC83F34
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 21:55:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WGQo42bPBIeGM7xGkyPrzTeu28HqdSS9vy6iWRQ9EnU=; b=TAg/elef6xqZ9OXjNJ8M1tJ9BZ
-	tVbWpuJ5CwSnkljOmWGED+G2d3Az6bwiqaP1Mc1ApYDIde0JrDAMVPtvQRZZZCBU5XjJjog1vg6Ax
-	7V41Cuwta6Bv/sXecbMpegFBBcMtZiIKbJNvhHZLDvude//d5ToUwQoLBkNoH/nkLjds/IxECdjFJ
-	trXcGVR+3X5V5/sVYYlXvc+trbQIi8mubYh4LBRwqhCFR26h3Lclpw/ECtk+ARMbdZbR/2D/cishX
-	xMNEWap8f/VVCMmRKZeA/mZaMI5GLgdMjpuhM+aWGicNMsyriF/aGpG/NDoIvjU/7iAtekevoPcNl
-	0znHqeMw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6KjN8QagsfjIfw38T7EUwgFTc3pATvc7/A53dj+f9J8=; b=XmoYxdWWh6N1vaEdBn3ButWr2Y
+	K1YeLo2x/Guq7WoRtjSHR+BKJE5NDyLAIKOh3uZuSyR3VdrSMMoE1czN2AR7N7iwJV2yWO5itdmtU
+	Xrma8khQOJipPpfASKFZ7YfJkOzx34do3ZrwOdjKnyr+P5l48ejr8DUukakP1/YIqJT8b7RvmIGvU
+	bGFWy1Nqsv4QDZ9ODqNrD7ljxSbWxMWnHJZjaNoAu+MbdZKq7cbG1tYF9lWgcRvnkG7ZfasSKV32m
+	8sq9LP7h0UoflUBLkghhpLKZpdd+0iEkoDBayc0V1PBsydnLQndD5AR19SXIlZpuQjPoUTq5v8IGZ
+	5jNA1aBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucW74-0000000BA0C-2EAt;
-	Thu, 17 Jul 2025 21:25:58 +0000
-Received: from mail-qv1-xf33.google.com ([2607:f8b0:4864:20::f33])
+	id 1ucWZO-0000000BBdx-3Jyc;
+	Thu, 17 Jul 2025 21:55:14 +0000
+Received: from mgamail.intel.com ([192.198.163.17])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucW4b-0000000B9u4-2PTG
+	id 1ucWWw-0000000BBSL-2eSb
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Jul 2025 21:23:27 +0000
-Received: by mail-qv1-xf33.google.com with SMTP id 6a1803df08f44-6fae04a3795so13290586d6.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Jul 2025 14:23:24 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1752787404; x=1753392204; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=WGQo42bPBIeGM7xGkyPrzTeu28HqdSS9vy6iWRQ9EnU=;
-        b=BGBHXRJMGVklTwLZIRjWnXr2jilyxknGqxlOBM9d8b6YifL7bJ+fozNou9tFli2TV5
-         wjGebGqQ5shhncnk3vIQoWeHbmReQGvt9HGRSpZbbjXlmHV0zJV+wdw3ChtvNiAdjFLq
-         mw6WN1Tb8v6NCk5LY6gjkpVFmXr2zQZiRpioo=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752787404; x=1753392204;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=WGQo42bPBIeGM7xGkyPrzTeu28HqdSS9vy6iWRQ9EnU=;
-        b=fPfc6AYBJ/WifXUG6DyD9xDUx6F+ASooQOsH3frj0o2rqalSj5sTtoKAtc9ifsImFL
-         ZCh9SmIY81PeJOgBI4z9EdXFF0DYuIU9HqjlW0KxY80d8UGNDJaii4jCTUXI1Asilmzj
-         xDW8WkN7P5pnSuVvnNEMQZCaW+JAf+srQgzwMxXRLl80FgE3KcKp+9DF3JmaudbpHt4P
-         v7wMNHnjGYaZKJGilia7zVVghwR8j1G0RJAfBXDn7thftTsoysQS7U5p4+xMOFN7oVrS
-         kflPZqZgSQjsSaEK7jmrXckcC6C/VcZjDmnhTAJcCIYPWP8tKvtrZ25cMOyU5AlmjwPt
-         93wg==
-X-Forwarded-Encrypted: i=1; AJvYcCXljQyCmd3SSX6OQ3w0oSl9GrpVL3IgUZs6z9SuQLGgxpnbeWrrKlIyCSN4vu0+/XQKZTSQnX7l1qI2npCvhW+p@lists.infradead.org
-X-Gm-Message-State: AOJu0YxKHZIkE1W2g5mMGodTE1NpjVdxOxli+jZYOcSmEyu+mWdjtowh
-	TRabVUioglGwO2rrsDBCLh/FqBJphB77fD6aeD0ZJEzq9K8Rov6xw/NMWTjc6vLqxA==
-X-Gm-Gg: ASbGncssRLHnrr+bVW3MUQvJVUXkdj0HaGnE6vXUcI5hYYR1Y2mcOR7tNj05LJ9YcQu
-	44wdD5BwAmmOaosHko0yjdQQ3Nt0H7kU5MbStN626sjHH/xtcFFUqLazpIVOi2S/CvxF6Y4lQLK
-	Q+1cQAzjy3zeuoQz2uYziQG9gTD6DgJVHt5UFlNkDtvtmhs7K9p6GNCtOCLMV2mhrAXWbLNBAfH
-	X8QHdFQ1fb29c1imE/WxN2GHxqtR6mO2VMhrV4Qpu4ER/6ChMLyw8mvn+3DaXw5SBvfu9bLA2aM
-	g35M58LVcj5zjFFikDB2vRgnyShuzEK47gdf+7BuXx98stlnmkGNACLKQtJGkf8dtZTB5Jo49aC
-	+YgUZCVe5RsbUwkrymwCnC80msb0R1EWYHqnNvJD4qexfZC2bbbKxriYByVjGojAcpmoSKn3V
-X-Google-Smtp-Source: AGHT+IHpve3fVu0HltyKOyRRlJFRsFzdsU/suMNJJM0ivrDzSlO2Vn2cDGZWsdanj6d2xCh0gpH/GA==
-X-Received: by 2002:ad4:5be2:0:b0:6fa:fdb3:587b with SMTP id 6a1803df08f44-704f47f0c31mr117322876d6.1.1752787403711;
-        Thu, 17 Jul 2025 14:23:23 -0700 (PDT)
-Received: from [10.67.48.245] ([192.19.223.252])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-7051b8c04fdsm533226d6.15.2025.07.17.14.23.17
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 17 Jul 2025 14:23:22 -0700 (PDT)
-Message-ID: <923a455e-b1d2-4ea7-a620-74aa040facbb@broadcom.com>
-Date: Thu, 17 Jul 2025 14:23:15 -0700
+	Thu, 17 Jul 2025 21:52:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1752789162; x=1784325162;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=5CBicrbhXtL9L2WtqL7HdX/deKcqvUNeJR9TBkHR9N0=;
+  b=FvoT+2HAS7JkO1UMEkO+MiHiajZXYBjlh8Gd2swvbISHGi1COqI2Jsn/
+   iHxgvgQLCJ5oqdXX9+6SkAw9p2zZIAf7uKk0K6Px1ED4LLDG/DXwZL5gR
+   ZEeTD3VumQGqruOVKi6zVHFm1+29hwy9103Ce+Powp8N399e9TuGgL8PW
+   izM5REk+HzZXWZL5MOf2SyuEkqL+XeIiekgKH6/1yvCovcN9I9wbb5KGD
+   zlXgObhOKuLn7cYTS0MIXQPD2itqcIbKGxacX/diba1QyzpjhTKqF64f1
+   yfBehedjSdanG9wcA5BAjrV/oTe4eD6gAkeSv0lJGq8gSw/KDaMtgXTbt
+   Q==;
+X-CSE-ConnectionGUID: tSn4VYWjT0iqif2iaRVgQg==
+X-CSE-MsgGUID: irMEuwgATQCpvfTvnigArg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11495"; a="55021229"
+X-IronPort-AV: E=Sophos;i="6.16,319,1744095600"; 
+   d="scan'208";a="55021229"
+Received: from orviesa007.jf.intel.com ([10.64.159.147])
+  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Jul 2025 14:52:40 -0700
+X-CSE-ConnectionGUID: wMDSmwFfQvWxkbaZSiXyJg==
+X-CSE-MsgGUID: iTiStihjT2KaBwyiCRyjzA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.16,319,1744095600"; 
+   d="scan'208";a="157980363"
+Received: from lkp-server01.sh.intel.com (HELO 9ee84586c615) ([10.239.97.150])
+  by orviesa007.jf.intel.com with ESMTP; 17 Jul 2025 14:52:36 -0700
+Received: from kbuild by 9ee84586c615 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1ucWWn-000E2p-1y;
+	Thu, 17 Jul 2025 21:52:33 +0000
+Date: Fri, 18 Jul 2025 05:52:06 +0800
+From: kernel test robot <lkp@intel.com>
+To: Cosmin Tanislav <demonsingur@gmail.com>,
+	Cosmin Tanislav <cosmin.tanislav@analog.com>,
+	Tomi Valkeinen <tomi.valkeinen+renesas@ideasonboard.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Niklas =?iso-8859-1?Q?S=F6derlund?= <niklas.soderlund@ragnatech.se>,
+	Julien Massot <julien.massot@collabora.com>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Linus Walleij <linus.walleij@linaro.org>
+Cc: Paul Gazzillo <paul@pgazz.com>,
+	Necip Fazil Yildiran <fazilyildiran@gmail.com>,
+	oe-kbuild-all@lists.linux.dev, linux-media@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-staging@lists.linux.dev,
+	linux-gpio@vger.kernel.org
+Subject: Re: [PATCH v6 18/24] media: i2c: maxim-serdes: add MAX96717 driver
+Message-ID: <202507180543.aUfFOLJo-lkp@intel.com>
+References: <20250716193111.942217-19-demonsingur@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/2] PCI: brcmstb: Trivial changes
-To: Bjorn Helgaas <helgaas@kernel.org>,
- Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
-Cc: linux-kernel@vger.kernel.org,
- Florian Fainelli <florian.fainelli@broadcom.com>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>, Jim Quinlan <jim2101024@gmail.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
- Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>,
- Bjorn Helgaas <bhelgaas@google.com>, linux-rpi-kernel@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org
-References: <20250717210043.GA2654580@bhelgaas>
-Content-Language: en-US
-From: Florian Fainelli <florian.fainelli@broadcom.com>
-Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
- xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
- M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
- JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
- PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
- KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
- AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
- IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
- ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
- bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
- Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
- tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
- TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
- zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
- WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
- IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
- U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
- 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
- pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
- MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
- IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
- gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
- obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
- N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
- CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
- C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
- wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
- EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
- fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
- MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
- 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
- 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
-In-Reply-To: <20250717210043.GA2654580@bhelgaas>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250716193111.942217-19-demonsingur@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250717_142325_644243_02FF9579 
-X-CRM114-Status: GOOD (  11.38  )
+X-CRM114-CacheID: sfid-20250717_145242_680931_ED41ACD3 
+X-CRM114-Status: GOOD (  11.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,36 +101,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/17/25 14:00, Bjorn Helgaas wrote:
-> On Thu, Jul 17, 2025 at 06:17:28PM +0530, Manivannan Sadhasivam wrote:
->>
->> On Tue, 24 Jun 2025 16:19:21 -0700, Florian Fainelli wrote:
->>> The first patch removes Nicolas from the maintainers list since he has
->>> not been active and the second patch uses an existing constant rather
->>> than open code the value.
->>>
->>> Florian Fainelli (2):
->>>    MAINTAINERS: Drop Nicolas from maintaining pcie-brcmstb
->>>    PCI: brcmstb: Replace open coded value with PCIE_T_RRS_READY_MS
->>>
->>> [...]
->>
->> Applied, thanks!
->>
->> [1/2] MAINTAINERS: Drop Nicolas from maintaining pcie-brcmstb
->>        commit: fde41f282590b46e96864ae88da2e2c20a967b3a
->> [2/2] PCI: brcmstb: Replace open coded value with PCIE_T_RRS_READY_MS
->>        commit: e8e7c1e95d6d4ccdc53654a5966d2183532ab115
-> 
-> Thanks, I updated s/PCIE_T_RRS_READY_MS/PCIE_RESET_CONFIG_WAIT_MS/
-> when merging this branch to account for the removal of
-> PCIE_T_RRS_READY_MS by
-> https://git.kernel.org/cgit/linux/kernel/git/pci/pci.git/commit/?id=bbc6a829ad3f
-> ("PCI: rockchip-host: Use macro PCIE_RESET_CONFIG_WAIT_MS")
-> 
+Hi Cosmin,
 
-OK, thank you both!
+kernel test robot noticed the following build warnings:
+
+[auto build test WARNING on next-20250716]
+[also build test WARNING on v6.16-rc6]
+[cannot apply to robh/for-next staging/staging-testing staging/staging-next staging/staging-linus arm64/for-next/core linus/master v6.16-rc6 v6.16-rc5 v6.16-rc4]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Cosmin-Tanislav/media-mc-Add-INTERNAL-pad-flag/20250717-033901
+base:   next-20250716
+patch link:    https://lore.kernel.org/r/20250716193111.942217-19-demonsingur%40gmail.com
+patch subject: [PATCH v6 18/24] media: i2c: maxim-serdes: add MAX96717 driver
+config: nios2-kismet-CONFIG_GENERIC_PINCTRL_GROUPS-CONFIG_VIDEO_MAX96717-0-0 (https://download.01.org/0day-ci/archive/20250718/202507180543.aUfFOLJo-lkp@intel.com/config)
+reproduce: (https://download.01.org/0day-ci/archive/20250718/202507180543.aUfFOLJo-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202507180543.aUfFOLJo-lkp@intel.com/
+
+kismet warnings: (new ones prefixed by >>)
+>> kismet: WARNING: unmet direct dependencies detected for GENERIC_PINCTRL_GROUPS when selected by VIDEO_MAX96717
+   WARNING: unmet direct dependencies detected for GENERIC_PINCONF
+     Depends on [n]: PINCTRL [=n]
+     Selected by [y]:
+     - VIDEO_MAX96717 [=y] && MEDIA_SUPPORT [=y] && VIDEO_DEV [=y] && COMMON_CLK [=y]
+   
+   WARNING: unmet direct dependencies detected for GENERIC_PINMUX_FUNCTIONS
+     Depends on [n]: PINCTRL [=n]
+     Selected by [y]:
+     - VIDEO_MAX96717 [=y] && MEDIA_SUPPORT [=y] && VIDEO_DEV [=y] && COMMON_CLK [=y]
+   
+   WARNING: unmet direct dependencies detected for GENERIC_PINCTRL_GROUPS
+     Depends on [n]: PINCTRL [=n]
+     Selected by [y]:
+     - VIDEO_MAX96717 [=y] && MEDIA_SUPPORT [=y] && VIDEO_DEV [=y] && COMMON_CLK [=y]
+
 -- 
-Florian
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
