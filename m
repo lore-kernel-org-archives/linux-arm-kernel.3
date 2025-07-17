@@ -4,96 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5C88C83F1B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 13:09:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6304FC83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 13:12:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hUzQnHUphnbfFgIY49ERlZzZ414PTUWI3wMK+KFf1L8=; b=U1ry8FbptvC4rYXb5uhr4D/7uK
-	eXVJQfTRZL1jPBCZoJDCXAs0yziw3BaRPMEm8ySQFfGOmvgGGY4FIuCPsdMbk7Tagqy6Bye3aIOD9
-	vvRbbmZCxP4QP5uWvE6OlycucAvbAXtRUxUgj9r6m9OxUCRda0sJkEg1Qe/daZ0scooeFGKBXrLDL
-	yfL+EJKvUttoPeUTvKMJRj0OM8UjCnhzhjWTTNSKBlBKkF4SoasqizSRiRu+ijqPhH5ePirmMLrbP
-	eSEIfoeL60jVafXtkNZIsum0a6A6tEUi6hVRRlooX213GATTMQOsVgmMDtBmmoUYIfAdrbQ1YDx1X
-	Zf/p65Ug==;
+	bh=crLW5Vrd54qLw8nj/7RWj8EBP7UgxvD/1amZrbwaJOk=; b=gkgSH4ZaiacHcyuQqhEqzIIogF
+	T8j2fA+Pic6Mtv8BdyTXzOcaOnAMw9LLwyrSChveTTcibwIJjQbzsZIvJUH/7KuO+ReKzLnFjxBLi
+	LGgZsXZN+gOte53bpTRBWDv96S3VTqwHaEl29YP6StZXqRc6rYM59gmWTHH5J3bwi8M7KgWcD3uKI
+	S+du/eVbiD8jXHERY96jyZ3VsjVMTnDFOQXfMYP88OxyEDEa3xEqkd9aDO6FlWyUeUjezxzNOUUjE
+	lRyndo+rKXJbBXgUG5X7SZGD/0QU30n5YrO3XeH0JwZsSunWyYhsR3p4yfplgjrHLaX6OhXwO1NJg
+	QvHL512g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucOMr-0000000ADdH-094W;
-	Thu, 17 Jul 2025 13:09:45 +0000
-Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
+	id 1ucOPG-0000000ADoU-1GXK;
+	Thu, 17 Jul 2025 13:12:14 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucN5A-0000000A0fm-03ck
+	id 1ucNAV-0000000A1er-0ER3
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Jul 2025 11:47:25 +0000
-Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-54b10594812so853264e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Jul 2025 04:47:23 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1752752842; x=1753357642; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=hUzQnHUphnbfFgIY49ERlZzZ414PTUWI3wMK+KFf1L8=;
-        b=MgJk4m8Q4yA+l/gZjevarej168HKyh7wQmLKFV2HhUzF4PuhD1I24bsGRkr1uPZ7Sd
-         UJKgPtR0Y2AneBtNflTTI6FCmx0WuY25Mwdxy+LsCU/ngU1mid9ZyFV34Kf/IJ0FvhIY
-         LoOWW3RDyjMhap2W6tgbfBnwtPq3zgn6TA4ORx5zMGpA8rm+9qSZlgHHm7IqPLnu8zFZ
-         cRXu8LqmnwPP6JUZQvYoBMNhbHup4eYbj+92PQK/uIqp3lTtebURRQJx8Fhvq8pHOEcB
-         9iWswAtqjVsv81tHI0SdXmtNVLMN2iwn412qZ/HDTGCrvmju2jXoQ4MJu7orE/vM8LxF
-         RO3Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752752842; x=1753357642;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=hUzQnHUphnbfFgIY49ERlZzZ414PTUWI3wMK+KFf1L8=;
-        b=SIpeiZHx6xp00Y5iqFOgkQlTta9ERBS3xKdN4S3+QxFn0tc39zXn8mqdXDkieJuT5j
-         whkLXaGDpKglR2S1FFkKFYmDpv1IPtrGoj+bsmMp0DM2KN2/iF8riWU9a2J9v/HtpmfW
-         fyCyFpI1mxEWyzvnM++3435Ss6k4/+VmeiS7CWBC7pKygqrqQYmWybWNhVZu3bUsFI9S
-         kydEgOK2gAxVg9BxIn1dx0sTO/D3RzgTIQyjOPPNonQQHPQDFeBfUfKI/yApbgozTJgG
-         S5oy30RKkQeZNpW89daFjnP19M5uoColyaD8r0xbUZxJurE33gukeFtGBzRjFydU82uN
-         JI0Q==
-X-Forwarded-Encrypted: i=1; AJvYcCW+o/umlci8oSWzlIwAlztYGzmZG8zObsZbWVl6k3qmTvNeAi/NoUZHPu++LJNF1he0+76ss5lx8NfNsll+OU8n@lists.infradead.org
-X-Gm-Message-State: AOJu0YxrmCO14QN056yDZ/xg/n1F4R+yl/t7H2uTobQx6dImEwFl3pxW
-	s/wXyJ5buVXhzPzNriyaaDdqFxOh2L7aeRjvsK/p0SQMb1K3ILpvPIdQ
-X-Gm-Gg: ASbGnctbSQlPSILkom3T76J9Mt6RsYAIuqY/4NlYoB5G0Sis0zI71Gyyv2d6RdzL0X5
-	RPDBudlnFDY1cOBchHD2Kp+/GG8wfSyKTipUzKNkubSbnDiyJGW/MktJuXPZwfZ9BERbJaCMYfZ
-	5Dy/wdPwEXuhMRArlN23wiULrcdl8haAaM5P7nLSX1EY8X7Dl+nT0lrLt4olMReVhNTP3Zx1Qtq
-	VmM8eTlNqXV9oC9XIDFDZfO366LzRwroNYdT5QWDn7HgpxGr3cIwxXDzui7I6SoTWqyHnO79B5z
-	iH4zJrpjjnZusab0RAsUzGp0dvWYuP/Xsmwcx13pYxUKcf1kaGEQUaAa9qHxNekUo8zFI+Ii5ei
-	AtsZ6n60eyiIqZ/anQDvkDOxFHpF18A==
-X-Google-Smtp-Source: AGHT+IEeUss8ZBlPkHLakvGxJF2K58yDRc8vQWOCbMdXUi501yCOkwF9vYWrYBaVVUbMnozeWCQi6Q==
-X-Received: by 2002:a05:6512:33c1:b0:553:d910:9340 with SMTP id 2adb3069b0e04-55a23f72cf3mr1951594e87.46.1752752841436;
-        Thu, 17 Jul 2025 04:47:21 -0700 (PDT)
-Received: from mobilestation ([178.176.56.174])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5593c7bca2asm3021540e87.29.2025.07.17.04.47.19
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 17 Jul 2025 04:47:20 -0700 (PDT)
-Date: Thu, 17 Jul 2025 14:47:14 +0300
-From: Serge Semin <fancer.lancer@gmail.com>
-To: "G Thomas, Rohan" <rohan.g.thomas@altera.com>
-Cc: Andrew Lunn <andrew@lunn.ch>, Andrew Lunn <andrew+netdev@lunn.ch>, 
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Romain Gantois <romain.gantois@bootlin.com>, netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Matthew Gerlach <matthew.gerlach@altera.com>
-Subject: Re: [PATCH net-next 2/3] net: stmmac: xgmac: Correct supported speed
- modes
-Message-ID: <6fsqayppkyubkucghk5i6m7jjgytajtzm4wxhtdkh7i2v3znk5@vwqbzz5uffyy>
-References: <20250714-xgmac-minor-fixes-v1-0-c34092a88a72@altera.com>
- <20250714-xgmac-minor-fixes-v1-2-c34092a88a72@altera.com>
- <b192c96a-2989-4bdf-ba4f-8b7bcfd09cfa@lunn.ch>
- <e903cb0f-3970-4ad2-a0a2-ee58551779dc@altera.com>
+	Thu, 17 Jul 2025 11:52:55 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 29126601E0;
+	Thu, 17 Jul 2025 11:52:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 276E6C4CEF6;
+	Thu, 17 Jul 2025 11:52:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1752753173;
+	bh=768jnmLVmr/V6ZyVJm0rYYFSz76GLOLtXyYMf0pndCk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=O7UGW1d3rjbTWkmaRHwUuO+4xw8pbVWJb/FnZE7jAYa9Rk8FiEZuhmIoIdcRiu4mP
+	 mvKD5TYzhiaeMPUaszLAa+1ep6tyzZSBcGwilCx7XZjbTF0FZ3ZxEbC4SvfYJKkYwc
+	 DIDM5QDywPSAo2EGXHsTDJUBRSkSyf8dlB49GC5QeXSpNnH9nObwZU0RWPX5heiSTK
+	 NijJp76wqTWn3Ogf7f7IALBu523yGOa1QJlgPBzKU/WbmKrDX3x8l32U7JtoH+889G
+	 BV3VLFNA0U1UeQXSHf7wGX5P44vMv6wJYnnZNe0fJO/lbdi//0Sh3GKTSbm00oul2K
+	 knMskkyRTSktw==
+Date: Thu, 17 Jul 2025 12:52:46 +0100
+From: Will Deacon <will@kernel.org>
+To: James Clark <james.clark@linaro.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>, leo.yan@arm.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-perf-users@vger.kernel.org, linux-doc@vger.kernel.org,
+	kvmarm@lists.linux.dev
+Subject: Re: [PATCH v3 04/10] arm64/boot: Enable EL2 requirements for
+ SPE_FEAT_FDS
+Message-ID: <aHjkDl7TXX9UjVmo@willie-the-truck>
+References: <20250605-james-perf-feat_spe_eft-v3-0-71b0c9f98093@linaro.org>
+ <20250605-james-perf-feat_spe_eft-v3-4-71b0c9f98093@linaro.org>
+ <aHUMMk9JUdK6luLN@willie-the-truck>
+ <04d52182-6043-4eaf-a898-9f8ccc893e5f@linaro.org>
+ <aHZQH7QGhi5pbXU8@willie-the-truck>
+ <e1210c84-69d1-4fb2-88c2-a6a1bcb179c5@linaro.org>
+ <80b7c29e-83b9-46a4-826e-d252ad425d4d@linaro.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <e903cb0f-3970-4ad2-a0a2-ee58551779dc@altera.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250717_044724_052045_A11794DE 
-X-CRM114-Status: GOOD (  31.52  )
+In-Reply-To: <80b7c29e-83b9-46a4-826e-d252ad425d4d@linaro.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,76 +91,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 15, 2025 at 07:03:58PM +0530, G Thomas, Rohan wrote:
-> Hi Andrew,
+On Tue, Jul 15, 2025 at 02:28:19PM +0100, James Clark wrote:
 > 
-> Thanks for reviewing the patch.
 > 
-> On 7/14/2025 7:12 PM, Andrew Lunn wrote:
-> > On Mon, Jul 14, 2025 at 03:59:18PM +0800, Rohan G Thomas via B4 Relay wrote:
-> > > From: Rohan G Thomas <rohan.g.thomas@altera.com>
+> On 15/07/2025 2:10 pm, James Clark wrote:
+> > 
+> > 
+> > On 15/07/2025 1:57 pm, Will Deacon wrote:
+> > > On Tue, Jul 15, 2025 at 01:48:03PM +0100, James Clark wrote:
+> > > > 
+> > > > 
+> > > > On 14/07/2025 2:54 pm, Will Deacon wrote:
+> > > > > On Thu, Jun 05, 2025 at 11:49:02AM +0100, James Clark wrote:
+> > > > > > SPE data source filtering (optional from Armv8.8)
+> > > > > > requires that traps to
+> > > > > > the filter register PMSDSFR be disabled. Document the requirements and
+> > > > > > disable the traps if the feature is present.
+> > > > > > 
+> > > > > > Tested-by: Leo Yan <leo.yan@arm.com>
+> > > > > > Signed-off-by: James Clark <james.clark@linaro.org>
+> > > > > > ---
+> > > > > >    Documentation/arch/arm64/booting.rst | 11 +++++++++++
+> > > > > >    arch/arm64/include/asm/el2_setup.h   | 14 ++++++++++++++
+> > > > > >    2 files changed, 25 insertions(+)
+> > > > > > 
+> > > > > > diff --git a/Documentation/arch/arm64/booting.rst
+> > > > > > b/Documentation/ arch/arm64/booting.rst
+> > > > > > index dee7b6de864f..abd75085a239 100644
+> > > > > > --- a/Documentation/arch/arm64/booting.rst
+> > > > > > +++ b/Documentation/arch/arm64/booting.rst
+> > > > > > @@ -404,6 +404,17 @@ Before jumping into the kernel, the
+> > > > > > following conditions must be met:
+> > > > > >        - HDFGWTR2_EL2.nPMICFILTR_EL0 (bit 3) must be
+> > > > > > initialised to 0b1.
+> > > > > >        - HDFGWTR2_EL2.nPMUACR_EL1 (bit 4) must be initialised to 0b1.
+> > > > > > +  For CPUs with SPE data source filtering (FEAT_SPE_FDS):
+> > > > > > +
+> > > > > > +  - If EL3 is present:
+> > > > > > +
+> > > > > > +    - MDCR_EL3.EnPMS3 (bit 42) must be initialised to 0b1.
+> > > > > > +
+> > > > > > +  - If the kernel is entered at EL1 and EL2 is present:
+> > > > > > +
+> > > > > > +    - HDFGRTR2_EL2.nPMSDSFR_EL1 (bit 19) must be initialised to 0b1.
+> > > > > > +    - HDFGWTR2_EL2.nPMSDSFR_EL1 (bit 19) must be initialised to 0b1.
+> > > > > > +
+> > > > > >      For CPUs with Memory Copy and Memory Set
+> > > > > > instructions (FEAT_MOPS):
+> > > > > >      - If the kernel is entered at EL1 and EL2 is present:
+> > > > > > diff --git a/arch/arm64/include/asm/el2_setup.h
+> > > > > > b/arch/arm64/ include/asm/el2_setup.h
+> > > > > > index 1e7c7475e43f..02b4a7fc016e 100644
+> > > > > > --- a/arch/arm64/include/asm/el2_setup.h
+> > > > > > +++ b/arch/arm64/include/asm/el2_setup.h
+> > > > > > @@ -279,6 +279,20 @@
+> > > > > >        orr    x0, x0, #HDFGRTR2_EL2_nPMICFILTR_EL0
+> > > > > >        orr    x0, x0, #HDFGRTR2_EL2_nPMUACR_EL1
+> > > > > >    .Lskip_pmuv3p9_\@:
+> > > > > > +    mrs    x1, id_aa64dfr0_el1
+> > > > > > +    ubfx    x1, x1, #ID_AA64DFR0_EL1_PMSVer_SHIFT, #4
+> > > > > > +    /* If SPE is implemented, */
+> > > > > > +    cmp    x1, #ID_AA64DFR0_EL1_PMSVer_IMP
+> > > > > > +    b.lt    .Lskip_spefds_\@
+> > > > > > +    /* we can read PMSIDR and */
+> > > > > > +    mrs_s    x1, SYS_PMSIDR_EL1
+> > > > > > +    and    x1, x1,  #PMSIDR_EL1_FDS
+> > > > > > +    /* if FEAT_SPE_FDS is implemented, */
+> > > > > > +    cbz    x1, .Lskip_spefds_\@
+> > > > > > +    /* disable traps to PMSDSFR. */
+> > > > > > +    orr    x0, x0, #HDFGRTR2_EL2_nPMSDSFR_EL1
+> > > > > 
+> > > > > Why is this being done here rather than alongside the existing SPE
+> > > > > configuration of HDFGRTR_EL2 and HDFGWTR_EL2 near the start of
+> > > > > __init_el2_fgt?
+> > > > > 
+> > > > I thought everything was separated by which trap configs it writes to,
+> > > > rather than the feature. This SPE feature is in HDFGRTR2 so I put it in
+> > > > __init_el2_fgt2 rather than __init_el2_fgt.
 > > > 
-> > > Correct supported speed modes as per the XGMAC databook.
-> > > Commit 9cb54af214a7 ("net: stmmac: Fix IP-cores specific
-> > > MAC capabilities") removes support for 10M, 100M and
-> > > 1000HD. 1000HD is not supported by XGMAC IP, but it does
-> > > support 10M and 100M FD mode, and it also supports 10M and
-> > > 100M HD mode if the HDSEL bit is set in the MAC_HW_FEATURE0
-> > > reg. This commit adds support for 10M and 100M speed modes
-> > > for XGMAC IP.
+> > > That's fair; __init_el2_fgt isn't the right place. But the redundancy of
+> > > re-reading PMSVer from DFR0 is a little jarring.
+> > > 
+> > > > I suppose we could have a single __init_el2_spe that writes to
+> > > > both HDFGRTR
+> > > > and HDFGRTR2 but we'd have to be careful to not overwrite what
+> > > > was already
+> > > > done in the other sections.
+> > > 
+> > > Right, perhaps it would be clearer to have trap-preserving macros for
+> > > features in a specific ID register rather than per-trap configuration
+> > > register macros.
+> > > 
+> > > In other words, we have something like __init_fgt_aa64dfr0 which would
+> > > configure the FGT and FGT2 registers based on features in aa64dfr0. I
+> > > think you'd need to have a play to see how it ends up looking but the
+> > > main thing to avoid is having duplicate ID register parsing code for
+> > > setting up FGT and FGT2 traps.
+> > > 
 > > 
-> > > +++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c
-> > > @@ -405,6 +405,7 @@ static int dwxgmac2_get_hw_feature(void __iomem *ioaddr,
-> > >   	dma_cap->sma_mdio = (hw_cap & XGMAC_HWFEAT_SMASEL) >> 5;
-> > >   	dma_cap->vlhash = (hw_cap & XGMAC_HWFEAT_VLHASH) >> 4;
-> > >   	dma_cap->half_duplex = (hw_cap & XGMAC_HWFEAT_HDSEL) >> 3;
-> > > +	dma_cap->mbps_10_100 = (hw_cap & XGMAC_HWFEAT_GMIISEL) >> 1;
+> > I'll give it a go but that could end up being fragile to something that
+> > is dependent on two different ID registers in the future. Then we'd end
+> > up in the same situation for a different reason.
 > > 
-> > The commit message does not mention this change.
 > 
-> Agreed. Will do in the next version.
-> 
-> > 
-> > What does XGMAC_HWFEAT_GMIISEL mean? That a SERDES style interface is
-> > not being used? Could that be why Serge removed these speeds? He was
-> > looking at systems with a SERDES, and they don't support slower
-> > speeds?
-> > 
-> > 	Andrew
-> As per the XGMAC databook ver 3.10a, GMIISEL bit of MAC_HW_Feature_0
-> register indicates whether the XGMAC IP on the SOC is synthesized with
-> DWCXG_GMII_SUPPORT. Specifically, it states:
-> "1000/100/10 Mbps Support. This bit is set to 1 when the GMII Interface
-> option is selected."
-> 
-> So yes, itâ€™s likely that Serge was working with a SERDES interface which
-> doesn't support 10/100Mbps speeds. Do you think it would be appropriate
-> to add a check for this bit before enabling 10/100Mbps speeds?
+> I think I've run into it already. Wouldn't checking for FGT and FGT2 have to
+> be repeated when doing each ID register? Now we only do that once at the
+> start of __init_el2_fgt and __init_el2_fgt2, even if we might sometimes
+> check a different ID register twice. But if we flipped it we'd always have
+> to repeat those.
 
-DW XGMAC IP-core of v2.x and older don't support 10/100Mbps modes
-neither in the XGMII nor in the GMII interfaces. That's why I dropped
-the 10/100Mbps link capabilities retaining 1G, 2.5G and 10G speeds
-only (the only speeds supported for DW XGMAC 1.20a/2.11a Tx in the
-MAC_Tx_Configuration.SS register field). Although I should have
-dropped the MAC_5000FD too since it has been supported since v3.0
-IP-core version. My bad.(
+Bah, this is quite horrible! Maybe the best we can do for now is have a
+macro for safely getting at PMBIDR?
 
-Starting from DW XGMAC v3.00a IP-core the list of the supported speeds
-has been extended to: 10/100Mbps (MII), 1G/2.5G (GMII), 2.5G/5G/10G
-(XGMII). Thus the more appropriate fix here should take into account
-the IP-core version. Like this:
-	if (dma_cap->mbps_1000 && MAC_Version.SNPSVER >= 0x30)
-		dma_cap->mbps_10_100 = 1;
+At some point, I suspect this whole FGT-configuration logic will need
+reworking but at the moment it's hard to see what the best approach
+would be.
 
-Then you can use the mbps_1000 and mbps_10_100 flags to set the proper
-MAC-capabilities to hw->link.caps in the dwxgmac2_setup() method. I
-would have added the XGMII 2.5G/5G MAC-capabilities setting up to the
-dwxgmac2_setup() method too for the v3.x IP-cores and newer.
-
--Serge(y)
-
-> 
-> Best Regards,
-> Rohan
-> 
+Will
 
