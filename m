@@ -4,79 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6304FC83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 13:12:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE726C83F1B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 13:14:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=crLW5Vrd54qLw8nj/7RWj8EBP7UgxvD/1amZrbwaJOk=; b=gkgSH4ZaiacHcyuQqhEqzIIogF
-	T8j2fA+Pic6Mtv8BdyTXzOcaOnAMw9LLwyrSChveTTcibwIJjQbzsZIvJUH/7KuO+ReKzLnFjxBLi
-	LGgZsXZN+gOte53bpTRBWDv96S3VTqwHaEl29YP6StZXqRc6rYM59gmWTHH5J3bwi8M7KgWcD3uKI
-	S+du/eVbiD8jXHERY96jyZ3VsjVMTnDFOQXfMYP88OxyEDEa3xEqkd9aDO6FlWyUeUjezxzNOUUjE
-	lRyndo+rKXJbBXgUG5X7SZGD/0QU30n5YrO3XeH0JwZsSunWyYhsR3p4yfplgjrHLaX6OhXwO1NJg
-	QvHL512g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=xA00jKif1Xuf/U1rsSjs5Phuq/bmyeN3v9XfSiZkCX0=; b=2nowDmfLiUqK2m2hcbSPILre0H
+	uO1n/3FosZgh5EVBo+niaUIbyNtXR1ecPQxp0QH+RxWQSNpBHY5iYjqDavG2EFLOfotdqlDgR8Wgd
+	T/KnQWe1sKWD59OdSvxIqjmCb0wetZbTGq6nxcD+HS/Vj6ujqm926Dxdp9K9CbrD4/NUuYnRoMilW
+	QLLsRJtDNDHoQlxuQ+g1blaoocpKb0uAT7NO3jVknF4gOWK1gvIhxWgvtDcbZOFnt0TT2j1HZ4Bmb
+	J3OSNMmA7rTXBryXOgl3q2TqeDfPNpOdMM7NfgSlzaF3u8szVj4BZFVmHGLZuUJhYbfA4C1lb0YKx
+	ajHhCsEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucOPG-0000000ADoU-1GXK;
-	Thu, 17 Jul 2025 13:12:14 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1ucORe-0000000AE3n-20ao;
+	Thu, 17 Jul 2025 13:14:43 +0000
+Received: from out-186.mta0.migadu.com ([2001:41d0:1004:224b::ba])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucNAV-0000000A1er-0ER3
+	id 1ucNFz-0000000A2wI-2Lnn
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Jul 2025 11:52:55 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 29126601E0;
-	Thu, 17 Jul 2025 11:52:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 276E6C4CEF6;
-	Thu, 17 Jul 2025 11:52:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752753173;
-	bh=768jnmLVmr/V6ZyVJm0rYYFSz76GLOLtXyYMf0pndCk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=O7UGW1d3rjbTWkmaRHwUuO+4xw8pbVWJb/FnZE7jAYa9Rk8FiEZuhmIoIdcRiu4mP
-	 mvKD5TYzhiaeMPUaszLAa+1ep6tyzZSBcGwilCx7XZjbTF0FZ3ZxEbC4SvfYJKkYwc
-	 DIDM5QDywPSAo2EGXHsTDJUBRSkSyf8dlB49GC5QeXSpNnH9nObwZU0RWPX5heiSTK
-	 NijJp76wqTWn3Ogf7f7IALBu523yGOa1QJlgPBzKU/WbmKrDX3x8l32U7JtoH+889G
-	 BV3VLFNA0U1UeQXSHf7wGX5P44vMv6wJYnnZNe0fJO/lbdi//0Sh3GKTSbm00oul2K
-	 knMskkyRTSktw==
-Date: Thu, 17 Jul 2025 12:52:46 +0100
-From: Will Deacon <will@kernel.org>
-To: James Clark <james.clark@linaro.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>, leo.yan@arm.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-perf-users@vger.kernel.org, linux-doc@vger.kernel.org,
-	kvmarm@lists.linux.dev
-Subject: Re: [PATCH v3 04/10] arm64/boot: Enable EL2 requirements for
- SPE_FEAT_FDS
-Message-ID: <aHjkDl7TXX9UjVmo@willie-the-truck>
-References: <20250605-james-perf-feat_spe_eft-v3-0-71b0c9f98093@linaro.org>
- <20250605-james-perf-feat_spe_eft-v3-4-71b0c9f98093@linaro.org>
- <aHUMMk9JUdK6luLN@willie-the-truck>
- <04d52182-6043-4eaf-a898-9f8ccc893e5f@linaro.org>
- <aHZQH7QGhi5pbXU8@willie-the-truck>
- <e1210c84-69d1-4fb2-88c2-a6a1bcb179c5@linaro.org>
- <80b7c29e-83b9-46a4-826e-d252ad425d4d@linaro.org>
+	Thu, 17 Jul 2025 11:58:37 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1752753501;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=xA00jKif1Xuf/U1rsSjs5Phuq/bmyeN3v9XfSiZkCX0=;
+	b=Hp8awFxxYJS44VzcWpL9s0NNCpc4wJENQzB7wswBrKcAaKncIeFm7UkWaHc97p3N9uB/XL
+	k7X+Pj7r0RD1hY/pyh2D6F+IqsJbFy2WZL6Npyl/tgVjIFK7Y1ab8xrO2ao6IE50B7vtmo
+	qtHcX7uXNdK8x7JjAvwwa/D979GnoMQ=
+From: Troy Mitchell <troy.mitchell@linux.dev>
+Date: Thu, 17 Jul 2025 19:58:01 +0800
+Subject: [PATCH v2] ASoC: rockchip: i2s: simplify clock handling and error
+ cleanup in probe
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <80b7c29e-83b9-46a4-826e-d252ad425d4d@linaro.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250717-rockchip-i2s-simplify-clk-v2-1-b697542a7c32@linux.dev>
+X-B4-Tracking: v=1; b=H4sIAEjleGgC/42NQQ6CMBBFr0Jm7Zh2KpK48h6EhbRTmYBAWm0gh
+ LtbOYHL95L//gaRg3CEW7FB4CRRpjEDnQqw3WN8MorLDKSoVJUmDJPtbSczCkWM8poH8SvaoUd
+ WlbqUlXet0ZD3c2Avy9Gum8ydxPcU1uMq6Z/9p5o0ajQtGe90a5iu90HGz3J2nKDZ9/0LrI/EU
+ 8IAAAA=
+X-Change-ID: 20250712-rockchip-i2s-simplify-clk-e070457fdb31
+To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+ Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+ Heiko Stuebner <heiko@sntech.de>
+Cc: linux-sound@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Troy Mitchell <troy.mitchell@linux.dev>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1752753489; l=4356;
+ i=troy.mitchell@linux.dev; s=20250712; h=from:subject:message-id;
+ bh=5U5+oKM9TS56skKvfyBUuonPmWf8aGSQ+l3JH2CKHPI=;
+ b=H3hkHMXg+LJmKavNAJi6r6t4igwPotof77JG4whPYAh5YKQkdHsjFaSDCELs6RIYLtRrQpeke
+ aK/5osgdscRDVYT5GW9fb2mt9rGyqmXcehKlwzBOhMHud0Y+c6hEvEE
+X-Developer-Key: i=troy.mitchell@linux.dev; a=ed25519;
+ pk=zhRP1xE0bftrurqSWI+SzcSdJGIZ0BTTY9Id0ESzqlI=
+X-Migadu-Flow: FLOW_OUT
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250717_045836_155939_53A41F04 
+X-CRM114-Status: GOOD (  13.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,121 +81,134 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 15, 2025 at 02:28:19PM +0100, James Clark wrote:
-> 
-> 
-> On 15/07/2025 2:10 pm, James Clark wrote:
-> > 
-> > 
-> > On 15/07/2025 1:57 pm, Will Deacon wrote:
-> > > On Tue, Jul 15, 2025 at 01:48:03PM +0100, James Clark wrote:
-> > > > 
-> > > > 
-> > > > On 14/07/2025 2:54 pm, Will Deacon wrote:
-> > > > > On Thu, Jun 05, 2025 at 11:49:02AM +0100, James Clark wrote:
-> > > > > > SPE data source filtering (optional from Armv8.8)
-> > > > > > requires that traps to
-> > > > > > the filter register PMSDSFR be disabled. Document the requirements and
-> > > > > > disable the traps if the feature is present.
-> > > > > > 
-> > > > > > Tested-by: Leo Yan <leo.yan@arm.com>
-> > > > > > Signed-off-by: James Clark <james.clark@linaro.org>
-> > > > > > ---
-> > > > > >    Documentation/arch/arm64/booting.rst | 11 +++++++++++
-> > > > > >    arch/arm64/include/asm/el2_setup.h   | 14 ++++++++++++++
-> > > > > >    2 files changed, 25 insertions(+)
-> > > > > > 
-> > > > > > diff --git a/Documentation/arch/arm64/booting.rst
-> > > > > > b/Documentation/ arch/arm64/booting.rst
-> > > > > > index dee7b6de864f..abd75085a239 100644
-> > > > > > --- a/Documentation/arch/arm64/booting.rst
-> > > > > > +++ b/Documentation/arch/arm64/booting.rst
-> > > > > > @@ -404,6 +404,17 @@ Before jumping into the kernel, the
-> > > > > > following conditions must be met:
-> > > > > >        - HDFGWTR2_EL2.nPMICFILTR_EL0 (bit 3) must be
-> > > > > > initialised to 0b1.
-> > > > > >        - HDFGWTR2_EL2.nPMUACR_EL1 (bit 4) must be initialised to 0b1.
-> > > > > > +  For CPUs with SPE data source filtering (FEAT_SPE_FDS):
-> > > > > > +
-> > > > > > +  - If EL3 is present:
-> > > > > > +
-> > > > > > +    - MDCR_EL3.EnPMS3 (bit 42) must be initialised to 0b1.
-> > > > > > +
-> > > > > > +  - If the kernel is entered at EL1 and EL2 is present:
-> > > > > > +
-> > > > > > +    - HDFGRTR2_EL2.nPMSDSFR_EL1 (bit 19) must be initialised to 0b1.
-> > > > > > +    - HDFGWTR2_EL2.nPMSDSFR_EL1 (bit 19) must be initialised to 0b1.
-> > > > > > +
-> > > > > >      For CPUs with Memory Copy and Memory Set
-> > > > > > instructions (FEAT_MOPS):
-> > > > > >      - If the kernel is entered at EL1 and EL2 is present:
-> > > > > > diff --git a/arch/arm64/include/asm/el2_setup.h
-> > > > > > b/arch/arm64/ include/asm/el2_setup.h
-> > > > > > index 1e7c7475e43f..02b4a7fc016e 100644
-> > > > > > --- a/arch/arm64/include/asm/el2_setup.h
-> > > > > > +++ b/arch/arm64/include/asm/el2_setup.h
-> > > > > > @@ -279,6 +279,20 @@
-> > > > > >        orr    x0, x0, #HDFGRTR2_EL2_nPMICFILTR_EL0
-> > > > > >        orr    x0, x0, #HDFGRTR2_EL2_nPMUACR_EL1
-> > > > > >    .Lskip_pmuv3p9_\@:
-> > > > > > +    mrs    x1, id_aa64dfr0_el1
-> > > > > > +    ubfx    x1, x1, #ID_AA64DFR0_EL1_PMSVer_SHIFT, #4
-> > > > > > +    /* If SPE is implemented, */
-> > > > > > +    cmp    x1, #ID_AA64DFR0_EL1_PMSVer_IMP
-> > > > > > +    b.lt    .Lskip_spefds_\@
-> > > > > > +    /* we can read PMSIDR and */
-> > > > > > +    mrs_s    x1, SYS_PMSIDR_EL1
-> > > > > > +    and    x1, x1,  #PMSIDR_EL1_FDS
-> > > > > > +    /* if FEAT_SPE_FDS is implemented, */
-> > > > > > +    cbz    x1, .Lskip_spefds_\@
-> > > > > > +    /* disable traps to PMSDSFR. */
-> > > > > > +    orr    x0, x0, #HDFGRTR2_EL2_nPMSDSFR_EL1
-> > > > > 
-> > > > > Why is this being done here rather than alongside the existing SPE
-> > > > > configuration of HDFGRTR_EL2 and HDFGWTR_EL2 near the start of
-> > > > > __init_el2_fgt?
-> > > > > 
-> > > > I thought everything was separated by which trap configs it writes to,
-> > > > rather than the feature. This SPE feature is in HDFGRTR2 so I put it in
-> > > > __init_el2_fgt2 rather than __init_el2_fgt.
-> > > 
-> > > That's fair; __init_el2_fgt isn't the right place. But the redundancy of
-> > > re-reading PMSVer from DFR0 is a little jarring.
-> > > 
-> > > > I suppose we could have a single __init_el2_spe that writes to
-> > > > both HDFGRTR
-> > > > and HDFGRTR2 but we'd have to be careful to not overwrite what
-> > > > was already
-> > > > done in the other sections.
-> > > 
-> > > Right, perhaps it would be clearer to have trap-preserving macros for
-> > > features in a specific ID register rather than per-trap configuration
-> > > register macros.
-> > > 
-> > > In other words, we have something like __init_fgt_aa64dfr0 which would
-> > > configure the FGT and FGT2 registers based on features in aa64dfr0. I
-> > > think you'd need to have a play to see how it ends up looking but the
-> > > main thing to avoid is having duplicate ID register parsing code for
-> > > setting up FGT and FGT2 traps.
-> > > 
-> > 
-> > I'll give it a go but that could end up being fragile to something that
-> > is dependent on two different ID registers in the future. Then we'd end
-> > up in the same situation for a different reason.
-> > 
-> 
-> I think I've run into it already. Wouldn't checking for FGT and FGT2 have to
-> be repeated when doing each ID register? Now we only do that once at the
-> start of __init_el2_fgt and __init_el2_fgt2, even if we might sometimes
-> check a different ID register twice. But if we flipped it we'd always have
-> to repeat those.
+Replace devm_clk_get + clk_prepare_enable with devm_clk_get_enabled
+to simplify clock acquisition and enabling.
 
-Bah, this is quite horrible! Maybe the best we can do for now is have a
-macro for safely getting at PMBIDR?
+Use dev_err_probe for concise error logging and return handling,
+reducing boilerplate code and improving readability.
 
-At some point, I suspect this whole FGT-configuration logic will need
-reworking but at the moment it's hard to see what the best approach
-would be.
+Signed-off-by: Troy Mitchell <troy.mitchell@linux.dev>
+---
+Changes in v2:
+- Fix return value of regmap resource(robot's warning)
+- Link to v1: https://lore.kernel.org/r/20250712-rockchip-i2s-simplify-clk-v1-1-3b23fd1b3e26@linux.dev
+---
+ sound/soc/rockchip/rockchip_i2s.c | 52 +++++++++++----------------------------
+ 1 file changed, 15 insertions(+), 37 deletions(-)
 
-Will
+diff --git a/sound/soc/rockchip/rockchip_i2s.c b/sound/soc/rockchip/rockchip_i2s.c
+index 0a0a95b4f5204701b52ca924683d51c29992015d..1dba2d9b2241860a9d87dd4319b135dc249d8e17 100644
+--- a/sound/soc/rockchip/rockchip_i2s.c
++++ b/sound/soc/rockchip/rockchip_i2s.c
+@@ -31,7 +31,6 @@ struct rk_i2s_pins {
+ struct rk_i2s_dev {
+ 	struct device *dev;
+ 
+-	struct clk *hclk;
+ 	struct clk *mclk;
+ 
+ 	struct snd_dmaengine_dai_dma_data capture_dma_data;
+@@ -739,6 +738,7 @@ static int rockchip_i2s_probe(struct platform_device *pdev)
+ 	struct snd_soc_dai_driver *dai;
+ 	struct resource *res;
+ 	void __iomem *regs;
++	struct clk *clk;
+ 	int ret;
+ 
+ 	i2s = devm_kzalloc(&pdev->dev, sizeof(*i2s), GFP_KERNEL);
+@@ -757,38 +757,24 @@ static int rockchip_i2s_probe(struct platform_device *pdev)
+ 	}
+ 
+ 	/* try to prepare related clocks */
+-	i2s->hclk = devm_clk_get(&pdev->dev, "i2s_hclk");
+-	if (IS_ERR(i2s->hclk)) {
+-		dev_err(&pdev->dev, "Can't retrieve i2s bus clock\n");
+-		return PTR_ERR(i2s->hclk);
+-	}
+-	ret = clk_prepare_enable(i2s->hclk);
+-	if (ret) {
+-		dev_err(i2s->dev, "hclock enable failed %d\n", ret);
+-		return ret;
+-	}
++	clk = devm_clk_get_enabled(&pdev->dev, "i2s_hclk");
++	if (IS_ERR(clk))
++		return dev_err_probe(&pdev->dev, PTR_ERR(clk), "hclock enable failed");
+ 
+ 	i2s->mclk = devm_clk_get(&pdev->dev, "i2s_clk");
+-	if (IS_ERR(i2s->mclk)) {
+-		dev_err(&pdev->dev, "Can't retrieve i2s master clock\n");
+-		ret = PTR_ERR(i2s->mclk);
+-		goto err_clk;
+-	}
++	if (IS_ERR(i2s->mclk))
++		return dev_err_probe(&pdev->dev, PTR_ERR(i2s->mclk),
++				     "Can't retrieve i2s master clock");
+ 
+ 	regs = devm_platform_get_and_ioremap_resource(pdev, 0, &res);
+-	if (IS_ERR(regs)) {
+-		ret = PTR_ERR(regs);
+-		goto err_clk;
+-	}
++	if (IS_ERR(regs))
++		dev_err_probe(&pdev->dev, PTR_ERR(regs), "Can't ioremap registers");
+ 
+ 	i2s->regmap = devm_regmap_init_mmio(&pdev->dev, regs,
+ 					    &rockchip_i2s_regmap_config);
+-	if (IS_ERR(i2s->regmap)) {
+-		dev_err(&pdev->dev,
+-			"Failed to initialise managed register map\n");
+-		ret = PTR_ERR(i2s->regmap);
+-		goto err_clk;
+-	}
++	if (IS_ERR(i2s->regmap))
++		return dev_err_probe(&pdev->dev, PTR_ERR(i2s->regmap),
++				     "Failed to initialise managed register map");
+ 
+ 	i2s->bclk_ratio = 64;
+ 	i2s->pinctrl = devm_pinctrl_get(&pdev->dev);
+@@ -796,11 +782,9 @@ static int rockchip_i2s_probe(struct platform_device *pdev)
+ 		i2s->bclk_on = pinctrl_lookup_state(i2s->pinctrl, "bclk_on");
+ 		if (!IS_ERR_OR_NULL(i2s->bclk_on)) {
+ 			i2s->bclk_off = pinctrl_lookup_state(i2s->pinctrl, "bclk_off");
+-			if (IS_ERR_OR_NULL(i2s->bclk_off)) {
+-				dev_err(&pdev->dev, "failed to find i2s bclk_off\n");
+-				ret = -EINVAL;
+-				goto err_clk;
+-			}
++			if (IS_ERR_OR_NULL(i2s->bclk_off))
++				return dev_err_probe(&pdev->dev, -EINVAL,
++						     "failed to find i2s bclk_off");
+ 		}
+ 	} else {
+ 		dev_dbg(&pdev->dev, "failed to find i2s pinctrl\n");
+@@ -843,20 +827,14 @@ static int rockchip_i2s_probe(struct platform_device *pdev)
+ 		i2s_runtime_suspend(&pdev->dev);
+ err_pm_disable:
+ 	pm_runtime_disable(&pdev->dev);
+-err_clk:
+-	clk_disable_unprepare(i2s->hclk);
+ 	return ret;
+ }
+ 
+ static void rockchip_i2s_remove(struct platform_device *pdev)
+ {
+-	struct rk_i2s_dev *i2s = dev_get_drvdata(&pdev->dev);
+-
+ 	pm_runtime_disable(&pdev->dev);
+ 	if (!pm_runtime_status_suspended(&pdev->dev))
+ 		i2s_runtime_suspend(&pdev->dev);
+-
+-	clk_disable_unprepare(i2s->hclk);
+ }
+ 
+ static const struct dev_pm_ops rockchip_i2s_pm_ops = {
+
+---
+base-commit: 733923397fd95405a48f165c9b1fbc8c4b0a4681
+change-id: 20250712-rockchip-i2s-simplify-clk-e070457fdb31
+
+Best regards,
+-- 
+Troy Mitchell <troy.mitchell@linux.dev>
+
 
