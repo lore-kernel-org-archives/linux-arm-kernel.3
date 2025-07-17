@@ -4,110 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13404C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 19:29:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 361F0C83F34
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 19:31:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IniKC5WKFomByrKxv+MfxE4r4cLS1U5X+1446OuWw/4=; b=rx7SpE3aSI7/0WcDPRhxHNovts
-	HQC3QI6IuzgNI5fSy9J/oGp8AnXXLDphIOdpX5khSkikqHs2pMKfzIJXD2ouyswce5wJnIdRWegNo
-	GZpFcFxNzSaIQJBTNq7AykMRjP/sQKtF3QhehPctXt8RE7EM8ZQul8sk9hVNcoIk4rQqrCxOb2ayG
-	PbrNPyh/1kzc+CrRhMBWDdfEfEo9wXoozFYYZc31WoO+Q0rYYCum+6lOSqxhAtrA44ROnKGE+15Ds
-	eKvmkNja4w5ThTeU5w6ia6LUL3hGxCRhN1JuzKApgdm43D/O0tpw1rs+3lp6ePdURTGKxxvDRzSIv
-	vgpyWuNQ==;
+	bh=pgbqc2byaduB6oA4fQByf+JaGcP0jYWqwMPFb3GyxXA=; b=iUEIvkdSI502Y8otiWmzRDZOqF
+	H8agw5VtfJJpbFoRmbHyDqWpvxE/Fn2FkcOvEunC2HRDUs1QwmfqInCUtKb6n16uIM3boGIXu8MHH
+	WbaFsy1bFxmwkb40KMOMkIZgfWVoWf0BLkKfpihBID31CDffkDltw4DjzgWBy0ruVSIF0s/RUA2yH
+	iT9aBE02G5q+Xklb/fEdsaVb0UEZUUZgGIgm0noMCfc2iqG1/fs1G7IjeFF3cUkg+eBNrno1g985G
+	wctcW4teZCvW6KwyUgcg9F9dzvdF0iUR6HBX7u8Y0onzmxGm/Uyjb0TZ1A3xOaAAgxQ7jylqsf36h
+	50uwOEMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucUI9-0000000B14v-2269;
-	Thu, 17 Jul 2025 19:29:17 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1ucUKZ-0000000B1HJ-1MRJ;
+	Thu, 17 Jul 2025 19:31:47 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucU64-0000000Ayyw-1NrR
+	id 1ucU72-0000000AzEB-34KS
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Jul 2025 19:16:49 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-45610582d07so10702435e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Jul 2025 12:16:48 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1752779807; x=1753384607; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=IniKC5WKFomByrKxv+MfxE4r4cLS1U5X+1446OuWw/4=;
-        b=CFoEn0dcsK9MBgb1Amk1BbyvVTdGMNNKbkCBHEvEln6y67LKo6goE1oqdeav5CnziE
-         t4ON5jpY9oit8ur03dsDQ8jJyNCG+7tTB4SsF4cUf95wvyT06L8u5cQ5HKOytJzvaPJR
-         sHY/ZVCgNBWKxFiRQpH+aSMy6PtuICg5u0zaqjNfM7ztWrky0HFZKIoyvmDWwYxin86D
-         ueh5d/sOUi4ZsJzfP4hp+O8zFmlM6/PjletlPaSjQ9qVCXCcri7L2o4fVrilEkAJzwHZ
-         IRPck+2XVlyUcjgqYZuwvTaM42tM5qFNPiqOuWb7GJny0+TmtisHIsuaXdtkNBBBFhfV
-         W96A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752779807; x=1753384607;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=IniKC5WKFomByrKxv+MfxE4r4cLS1U5X+1446OuWw/4=;
-        b=gIQCLxBTS721NSwxy554njNDeU4r5MkE8AMfTgUrBRAFpe4jWwHsHOkT0bRKiMGARY
-         oBHJjvbX6+Kq0ON2nkGe5OqVyPzWhB9AnH4FDVlIuGoOjWZ+5D8DzgrtaVaExeJ9Tn8j
-         lSKoh5epbdc0CZGbEsHK5w8zqBq2gttZoUQzFhE0/Sk7H2F3gk7CX4aNyFExGxOsXeRF
-         f4CX1zwaO36A//hMiAz/UzX4GPih9LcavAmxgrGgr4paF2JsJ023Y+ZpocIcjKPR7Ecm
-         eSGgy8rfjpS/mdWgPPFUNCA8XyPrhGrstP9Cl/ownA/1De3j2Jmi558N7/ACb4FcPQqH
-         3Qwg==
-X-Forwarded-Encrypted: i=1; AJvYcCW2zk6PSnFtiuyECMytwAizpBg53kBQD6i9Nq4EVrx+jyj4CujeMSBujl3WslI/6FyQad9Playc0Xr+qpRqxn3B@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx0aSs3cSv5Tag3b2fvPe+yDwkhakpyCMRcLV3YmIfFj9tTbtLF
-	MVKVhvv1j2y1C8LKHxdse8RR5aJhDhH2CzIPioVGHT8l/2n05JNliIg/
-X-Gm-Gg: ASbGncszYHjDRxOCUL3VvMUa5TBEArKoVNynoUXOREWRVzmuXWgY/XCxzzyzZVPtsh+
-	qOXDJVFeL6gwJHXLc8mSPEwtVzkrZeIDOUJcY/afaqc7E2qcS2WunEiNDMGW3ohjU8Apw37M3Cb
-	4UC2JLYANlr/48p2lQC8GmZOwgSzAYULPaF0i8UZeFehpk6NDDOwRuIIEbLnsGaurzYXRIfTObx
-	en0kg8iT1fgKvzsnmos5x7RK1UjkdTJGNrlB8xfCTpjiG0ZyLtiIU/jIt4/DTDiRCS3roaMBTvU
-	b3pfB0vhCGlmuqCWCJ+tLdWmvcVhJQOfygC1ZceuKbXhCsZAhdf2ta0sxODXrnVPU5HHXFRNLjy
-	bkBHDchkoPBaEi+scgqe1f/BpZUtmwpBl
-X-Google-Smtp-Source: AGHT+IGHzyOYCw/m0HyP4umB1YuYT0FPkPuXBFk/lapuzoe2X+waZSCxE0xX5hMXQCuEqnY0X0GUaA==
-X-Received: by 2002:a05:600c:3d97:b0:456:29da:bb25 with SMTP id 5b1f17b1804b1-4563532c32fmr38379325e9.19.1752779806421;
-        Thu, 17 Jul 2025 12:16:46 -0700 (PDT)
-Received: from localhost ([2001:861:3385:e20:6384:4cf:52c5:3194])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-4562e80246asm58861725e9.10.2025.07.17.12.16.45
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 17 Jul 2025 12:16:46 -0700 (PDT)
-From: Raphael Gallais-Pou <rgallaispou@gmail.com>
-Date: Thu, 17 Jul 2025 21:15:35 +0200
-Subject: [PATCH 4/4] ARM: dts: sti: remove useless cells fields
+	Thu, 17 Jul 2025 19:17:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1752779867;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=pgbqc2byaduB6oA4fQByf+JaGcP0jYWqwMPFb3GyxXA=;
+	b=JGqIpWc7gaTtetA5YqujYy/Arf0XJojRxQLu6SXhHBMEhnn5Ja5SjGMlXMMy13WIaxs4VC
+	naRggYb86q829D07WVnzZBth0MoGblrDOP8ecNI8MVm7vKAwvwMZOTMgcw0Dfh5uZ5j6iP
+	3AclywHLo64Az9iooUxl6J6IxQlAIVc=
+Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-505-UGXMtMRgN5qBHs7wokkJvw-1; Thu,
+ 17 Jul 2025 15:17:43 -0400
+X-MC-Unique: UGXMtMRgN5qBHs7wokkJvw-1
+X-Mimecast-MFC-AGG-ID: UGXMtMRgN5qBHs7wokkJvw_1752779860
+Received: from mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.4])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id E99CE1800D82;
+	Thu, 17 Jul 2025 19:17:39 +0000 (UTC)
+Received: from chopper.redhat.com (unknown [10.22.66.69])
+	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id B834C30001B1;
+	Thu, 17 Jul 2025 19:17:33 +0000 (UTC)
+From: Lyude Paul <lyude@redhat.com>
+To: rust-for-linux@vger.kernel.org,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Boqun Feng <boqun.feng@gmail.com>,
+	linux-kernel@vger.kernel.org,
+	Daniel Almeida <daniel.almeida@collabora.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	x86@kernel.org (maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)),
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Juergen Christ <jchrist@linux.ibm.com>,
+	Brian Gerst <brgerst@gmail.com>,
+	Uros Bizjak <ubizjak@gmail.com>,
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM64 PORT (AARCH64 ARCHITECTURE)),
+	linux-s390@vger.kernel.org (open list:S390 ARCHITECTURE),
+	linux-arch@vger.kernel.org (open list:GENERIC INCLUDE/ASM HEADER FILES)
+Subject: [PATCH v12 02/15] preempt: Introduce __preempt_count_{sub, add}_return()
+Date: Thu, 17 Jul 2025 15:15:41 -0400
+Message-ID: <20250717191719.2076270-3-lyude@redhat.com>
+In-Reply-To: <20250717191719.2076270-1-lyude@redhat.com>
+References: <20250717191719.2076270-1-lyude@redhat.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250717-sti-rework-v1-4-46d516fb1ebb@gmail.com>
-References: <20250717-sti-rework-v1-0-46d516fb1ebb@gmail.com>
-In-Reply-To: <20250717-sti-rework-v1-0-46d516fb1ebb@gmail.com>
-To: Alain Volmat <alain.volmat@foss.st.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Patrice Chotard <patrice.chotard@foss.st.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=834; i=rgallaispou@gmail.com;
- h=from:subject:message-id; bh=l0o8fS1wvKD2cvbhZZBTKbtQIm4NdpPP35SyjFhlGvg=;
- b=owEBbQKS/ZANAwAKAechimjUEsK1AcsmYgBoeUwYbZ7h03ffdcgJqJpcrr4dawhJoUjOSplKv
- rVN0WaP95eJAjMEAAEKAB0WIQQgmXv2E+fvbV/9ui/nIYpo1BLCtQUCaHlMGAAKCRDnIYpo1BLC
- tUtkEACW2KbCulMwEimw5aLEGZ5XRbUYEK7XeBo+HKLYJJZUDJuQC1lR6m2p044x5FaJ90wxFic
- DwY64YN6E1Y5WlBqrd9DRQPsD64eKHKllh8x1vnZI4LpzBcFj9Npq6E7ozfkWRn6yMvqJLcOszf
- SN3aZcsYMAZE71FPuYLnl9SikG4VidpUxwdQcdZ8s6nAFiLhujxNraibTFDnYhD669+iLSx4RP+
- qIq62BqIZXxgUn571k4tMjWD/63S7F0utZeWyyrlraP6NJkJaEVSsYyrtvgfVN1+I27Km8O7nWH
- Y/yH3h97XhTfnK+ipaY4hvjbo0G71vRJ+yKtlU0UjLTYYDk87RsuxPl8DKe4r3flNbC7mqqW2/w
- UbDCozcdswbFuNBu8+d5kpg5CoYwGjuVejsf1UeECrDkwrIsXnoQWOMZSC40NSGwdzzvOirWVQa
- iu7JUWIOiNYhbgvgtcbwrZmRRD1KUHKCOroSkxymsxUWyfDP5q8ILa8tDUXT4cWuKzdYNFP0oUx
- cSqDGKJ8nhMkWrjkZvuPfisb6oUGkOU15WrBM/ChJB3FF062Jws69igkXENPjXQ4kwXgmHS7JWT
- qMiKi2iGZrtWxXIiwzgB/NEk209ajh85JzSlZHgcCK3GOS4IlC4IDTIyDukjbYO/3Q6UXaE43+t
- oIYTG2joSLVDe2g==
-X-Developer-Key: i=rgallaispou@gmail.com; a=openpgp;
- fpr=20997BF613E7EF6D5FFDBA2FE7218A68D412C2B5
+Content-Transfer-Encoding: 8bit
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.4
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250717_121648_373749_91611A66 
-X-CRM114-Status: UNSURE (   9.11  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250717_121748_855077_8C78CD79 
+X-CRM114-Status: GOOD (  13.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,28 +103,142 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tvout node do not need the cells fields. Remove them.
+From: Boqun Feng <boqun.feng@gmail.com>
 
-Signed-off-by: Raphael Gallais-Pou <rgallaispou@gmail.com>
+In order to use preempt_count() to tracking the interrupt disable
+nesting level, __preempt_count_{add,sub}_return() are introduced, as
+their name suggest, these primitives return the new value of the
+preempt_count() after changing it. The following example shows the usage
+of it in local_interrupt_disable():
+
+	// increase the HARDIRQ_DISABLE bit
+	new_count = __preempt_count_add_return(HARDIRQ_DISABLE_OFFSET);
+
+	// if it's the first-time increment, then disable the interrupt
+	// at hardware level.
+	if (new_count & HARDIRQ_DISABLE_MASK == HARDIRQ_DISABLE_OFFSET) {
+		local_irq_save(flags);
+		raw_cpu_write(local_interrupt_disable_state.flags, flags);
+	}
+
+Having these primitives will avoid a read of preempt_count() after
+changing preempt_count() on certain architectures.
+
+Signed-off-by: Boqun Feng <boqun.feng@gmail.com>
+
 ---
- arch/arm/boot/dts/st/stih410.dtsi | 2 --
- 1 file changed, 2 deletions(-)
+V10:
+* Add commit message I forgot
+* Rebase against latest pcpu_hot changes
+V11:
+* Remove CONFIG_PROFILE_ALL_BRANCHES workaround from
+  __preempt_count_add_return()
 
-diff --git a/arch/arm/boot/dts/st/stih410.dtsi b/arch/arm/boot/dts/st/stih410.dtsi
-index 47d66d7eb07a3d73d98b3e21d62b2253aa1171e4..07da9b48ccac16c25da546ace8e6ac5773c68569 100644
---- a/arch/arm/boot/dts/st/stih410.dtsi
-+++ b/arch/arm/boot/dts/st/stih410.dtsi
-@@ -191,8 +191,6 @@ tvout: encoder@8d08000 {
- 			reg-names = "tvout-reg";
- 			reset-names = "tvout";
- 			resets = <&softreset STIH407_HDTVOUT_SOFTRESET>;
--			#address-cells = <1>;
--			#size-cells = <1>;
- 			assigned-clocks = <&clk_s_d2_flexgen CLK_PIX_HDMI>,
- 					  <&clk_s_d2_flexgen CLK_TMDS_HDMI>,
- 					  <&clk_s_d2_flexgen CLK_REF_HDMIPHY>,
+Signed-off-by: Lyude Paul <lyude@redhat.com>
+---
+ arch/arm64/include/asm/preempt.h | 18 ++++++++++++++++++
+ arch/s390/include/asm/preempt.h  | 10 ++++++++++
+ arch/x86/include/asm/preempt.h   | 10 ++++++++++
+ include/asm-generic/preempt.h    | 14 ++++++++++++++
+ 4 files changed, 52 insertions(+)
 
+diff --git a/arch/arm64/include/asm/preempt.h b/arch/arm64/include/asm/preempt.h
+index 0159b625cc7f0..49cb886c8e1dd 100644
+--- a/arch/arm64/include/asm/preempt.h
++++ b/arch/arm64/include/asm/preempt.h
+@@ -56,6 +56,24 @@ static inline void __preempt_count_sub(int val)
+ 	WRITE_ONCE(current_thread_info()->preempt.count, pc);
+ }
+ 
++static inline int __preempt_count_add_return(int val)
++{
++	u32 pc = READ_ONCE(current_thread_info()->preempt.count);
++	pc += val;
++	WRITE_ONCE(current_thread_info()->preempt.count, pc);
++
++	return pc;
++}
++
++static inline int __preempt_count_sub_return(int val)
++{
++	u32 pc = READ_ONCE(current_thread_info()->preempt.count);
++	pc -= val;
++	WRITE_ONCE(current_thread_info()->preempt.count, pc);
++
++	return pc;
++}
++
+ static inline bool __preempt_count_dec_and_test(void)
+ {
+ 	struct thread_info *ti = current_thread_info();
+diff --git a/arch/s390/include/asm/preempt.h b/arch/s390/include/asm/preempt.h
+index 6ccd033acfe52..5ae366e26c57d 100644
+--- a/arch/s390/include/asm/preempt.h
++++ b/arch/s390/include/asm/preempt.h
+@@ -98,6 +98,16 @@ static __always_inline bool should_resched(int preempt_offset)
+ 	return unlikely(READ_ONCE(get_lowcore()->preempt_count) == preempt_offset);
+ }
+ 
++static __always_inline int __preempt_count_add_return(int val)
++{
++	return val + __atomic_add(val, &get_lowcore()->preempt_count);
++}
++
++static __always_inline int __preempt_count_sub_return(int val)
++{
++	return __preempt_count_add_return(-val);
++}
++
+ #define init_task_preempt_count(p)	do { } while (0)
+ /* Deferred to CPU bringup time */
+ #define init_idle_preempt_count(p, cpu)	do { } while (0)
+diff --git a/arch/x86/include/asm/preempt.h b/arch/x86/include/asm/preempt.h
+index 578441db09f0b..1220656f3370b 100644
+--- a/arch/x86/include/asm/preempt.h
++++ b/arch/x86/include/asm/preempt.h
+@@ -85,6 +85,16 @@ static __always_inline void __preempt_count_sub(int val)
+ 	raw_cpu_add_4(__preempt_count, -val);
+ }
+ 
++static __always_inline int __preempt_count_add_return(int val)
++{
++	return raw_cpu_add_return_4(__preempt_count, val);
++}
++
++static __always_inline int __preempt_count_sub_return(int val)
++{
++	return raw_cpu_add_return_4(__preempt_count, -val);
++}
++
+ /*
+  * Because we keep PREEMPT_NEED_RESCHED set when we do _not_ need to reschedule
+  * a decrement which hits zero means we have no preempt_count and should
+diff --git a/include/asm-generic/preempt.h b/include/asm-generic/preempt.h
+index 51f8f3881523a..c8683c046615d 100644
+--- a/include/asm-generic/preempt.h
++++ b/include/asm-generic/preempt.h
+@@ -59,6 +59,20 @@ static __always_inline void __preempt_count_sub(int val)
+ 	*preempt_count_ptr() -= val;
+ }
+ 
++static __always_inline int __preempt_count_add_return(int val)
++{
++	*preempt_count_ptr() += val;
++
++	return *preempt_count_ptr();
++}
++
++static __always_inline int __preempt_count_sub_return(int val)
++{
++	*preempt_count_ptr() -= val;
++
++	return *preempt_count_ptr();
++}
++
+ static __always_inline bool __preempt_count_dec_and_test(void)
+ {
+ 	/*
 -- 
-2.50.1
+2.50.0
 
 
