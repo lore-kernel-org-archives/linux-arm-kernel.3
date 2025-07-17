@@ -4,109 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93086C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 10:53:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE2B1C83F1B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 10:55:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5hAdkFjzlZ96J9ZvADDEOxzZCwxKXpOY5bpgjR9cuyI=; b=GP3t47P5QZcLpdaU2vGKJsGqDl
-	+M5LHVQk21ZWGGg23Jrtfl8Eq1BKHyaFKVt6ddRoPkZMR9zrxTknRLkCBBPvBosADuPSMbscCGVF6
-	PpNdHYkZpBDHgXvDr+oNivGFs8kkOb1eW5+cJH3a4XB30rYvApBIHLMlzn8UB0MGUY+EY5z1w5yid
-	JxQWvjWrIOlCvx+1mqsNrZVZfg0CnY1I/muDHt2Wx6iEdNtVvXcwR4zqxWcLrugQf5ocxmD52GhSh
-	gnRmx7FbqrQIQN6pmuHhrLOOHU+1b3xKJglao4wDmj6lPoPadgX0liN89UAP1hketgpLAgmATnYVB
-	tS5ROqQw==;
+	bh=C0uBCwRaBE2x5ESICSaRvmcxNJ0uFcNEBOpanN+P4sY=; b=eEqyS1b4lEaYPLSeT5x6vbupG+
+	UngtL5Z+UBUJ9hNbWyzuTpA0a3oh8+qV39tpmk1+ZhLaoGiLOCein7A8b6wAZM5PXfXUYwQwVx8Gm
+	C0jEiFfD/HpZ6vSe+iPJrtC+Ja5aoqU0rHsjG5nwXQAsLshHFaZ7NFjp+kgVZhLJSybX0enQ6wBgR
+	25Z1H0571D5REiVwh3A4/gen3nLjEomZGZQDrZDrSy7wXB6Uv388La4REpdhbqGrl3GmG9nNy0Jic
+	S4hJFfknl5GiTqJEV/tfqBptNbfKuQaC6DbOqxWrrV32cMprQhAp9/n9C7DXx8Ct33X5AdSvkgVy+
+	hPhkNDIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucMEc-00000009umm-0OWR;
-	Thu, 17 Jul 2025 10:53:06 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1ucMH1-00000009vC6-1lVn;
+	Thu, 17 Jul 2025 10:55:35 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucLvH-00000009qeB-3qW3;
-	Thu, 17 Jul 2025 10:33:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=5hAdkFjzlZ96J9ZvADDEOxzZCwxKXpOY5bpgjR9cuyI=; b=rBHwhE5idsTSPbvXznsw8R89Hk
-	tVb9e+N2OxSBWWnWqVqFOnRqYR62IHbkHIRc5+RkwbqbT4xiyiFem0ZkiVvnHNX+oOjU5ixlHHf2u
-	7nt/hoCSXV6wcNc9fGFsGABHA6mMW8dYxuRVKadu1L7tLVXyN8nSiennvoOR0jXTYak694VE85/X7
-	Q0DWRtbyYQzmKDqrRFtbJOJsfKUvI3P5IjClZb+f56gNYP7MZ4YfEH/l7f/G3+FaB0ilzBaWvzqt4
-	vKhDil0CmOIMc2q1MOxQ0WPUzahq8rOhiyE8Mtw6x9S0KwUJfoAviFpVd3ocgzrPDfKYYxeZVPelc
-	Xi8e4F9g==;
-Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucLvF-0000000AFqB-0Zlz;
-	Thu, 17 Jul 2025 10:33:06 +0000
-Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-3b45edf2303so700823f8f.2;
-        Thu, 17 Jul 2025 03:33:03 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1752748383; x=1753353183; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=5hAdkFjzlZ96J9ZvADDEOxzZCwxKXpOY5bpgjR9cuyI=;
-        b=X/pMkgQB1Wm05b3Hl32aKl/T5OJqlz7jlNtgvekpSdEGMXV+M1z9dsQgcUrEeooAVJ
-         WtNS0x+gH/8exvOzNtedbNPe0amYWgogdlXwZo5bKAGIYYBdEPEn/FgAEQtfpAR1iTfM
-         mMKHkLo9jE61DQ6NmWbClfbyQ45LAHc0XtLWcwkYM2AXBYnarXC6aTRbtYsr5IdgLz3b
-         CGimgKobqglLnppWnskhVR2O+MfvMIO8KFa1ZPhUL34y1/DCrg7b8S0V2p2Vk6RdhcN/
-         s+BMWY+hgd+ixnYmslras3nfp69S2Se8Sc8mMmtstKkTVVAKFhrL4vOjNSHXdeM6O+WA
-         i7Hg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752748383; x=1753353183;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=5hAdkFjzlZ96J9ZvADDEOxzZCwxKXpOY5bpgjR9cuyI=;
-        b=adv1JHb7D1cfm2Z4VcC9SAYEO3AO36g8BQJY52I4U9PF6597Ii+84V0uQmw4bSTqKw
-         4nZh6jp4r+7v6AbgKwMihCkuw+d5yX1MnqgflWLceE3/Pb6p1QRjHCRNiJriSXUXycY4
-         HK2JElkbcezwQo6WPsyNyLRAMYetPBOmFJxBTg3fNMUvKpPnYwHG/o+sQte1j2yK545S
-         OkbBYI9abnIq1Y1wFEdMhVZqN7uhCfEHmMOh2+uLe/JK9uJxl15H0saqTvM4x5FY0ZyY
-         UfK5lYZB5dRVyuv3kRyHJ0HNZfy1+Pz7KqmpHPjTjxXGu+xPSiSWtUu7/1EBLGi8ygNd
-         uDaA==
-X-Forwarded-Encrypted: i=1; AJvYcCVtkqy5OkZlo11I0v+hVc05LnbHHa9dWf0i4LpSj5aR0p5wtf3+2Dw4ZfUYMAcHgbZG3D6Tw4/eyhXFzXw=@lists.infradead.org, AJvYcCXplLgazXYCkaDIwhw0LOnvVh3qkf31TKrhOVwrluUPi3HfW77zv6H3Xh/6+bgc2TvDsWcbt/seZLD0nigNY+9H@lists.infradead.org
-X-Gm-Message-State: AOJu0YzeCmylooO53WRfdyWaVsX8KI8nXIgZBUGS4V5ghdlQBNe/Q5S6
-	md5c8z4yINEMCPwEyNNp5E7xCM48yAH/pKimHIkhGKALgyLhdlWCfAhd
-X-Gm-Gg: ASbGncuCdD/pL5N49Gju3VOo9rKkZpiTsWVG41gY33rm0a3uhyTjmEi0nyt+Uu3m6sy
-	eWR2eVZ9fmAX4dszAH8kRF2r1NEnrMUiUkdkenQLkwFxM6o3bmUdhjZ2GlE9I5gvT/oP5nRWHmX
-	Xm9uhSZ6HDEE+gPr8bwGPmYknlCbph8CbzRKltYWkTTEmEcxjeGcROheKFLQvMUYEj1tt0Ncns0
-	oykkgm/b383CBJ71p0wmPOtsDwA455suItsMjSxKEqyhM5clxB99oeE3E3bHtM6N5IaDwZ7B1Lf
-	0aabUaEhOJaqka5Rz383iRkFqB0BEWS6UiHfQZQ7qgQ3T+licxaimDbXFeoSf2MHCKT9a8w+Xcr
-	1GFcmMRKsrMo6P+ZGs5LXXgf902ypslFevnBaEYmgUrAbkD6Rb45R42t5y7q1nihmhon8hN7pRt
-	QHJucvCGhcJa4yCrza8LxyWfNP
-X-Google-Smtp-Source: AGHT+IEqfCFpIQcuogdtVlks+s7mtGT9PHZg7lN5UDyP9j1DEHEgnDRrYCSmStX9iLPaLpOJf76oyg==
-X-Received: by 2002:a05:6000:1ac9:b0:3b6:d7c:f4ce with SMTP id ffacd0b85a97d-3b60dd88801mr5936545f8f.54.1752748382518;
-        Thu, 17 Jul 2025 03:33:02 -0700 (PDT)
-Received: from localhost (p200300e41f4e9b00f22f74fffe1f3a53.dip0.t-ipconnect.de. [2003:e4:1f4e:9b00:f22f:74ff:fe1f:3a53])
-        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-3b612db7060sm2629613f8f.52.2025.07.17.03.33.01
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 17 Jul 2025 03:33:01 -0700 (PDT)
-From: Thierry Reding <thierry.reding@gmail.com>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: x86@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	linux-mips@vger.kernel.org,
-	loongarch@lists.linux.dev,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-sh@vger.kernel.org,
-	linux-pci@vger.kernel.org,
-	linux-acpi@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 7/7] soc/tegra: pmc: Derive PMC context from syscore ops
-Date: Thu, 17 Jul 2025 12:32:41 +0200
-Message-ID: <20250717103241.2806798-8-thierry.reding@gmail.com>
-X-Mailer: git-send-email 2.50.0
-In-Reply-To: <20250717103241.2806798-1-thierry.reding@gmail.com>
-References: <20250717103241.2806798-1-thierry.reding@gmail.com>
+	id 1ucLyZ-00000009rb1-3IR3;
+	Thu, 17 Jul 2025 10:36:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1752748590;
+	bh=xqQlXd0lb1r+JYcGwIbgeT/oRINSjbiPGiuQzE3If+M=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=ntDdZyBHOgKnPOdEGQw/I5EL8KR2PXe6U3DisRLzypC795hgqWv+OLRQf+cWqSflJ
+	 2YeI3EMt87mUa5Cg0s575h9jR8fm13kTDSxreIvCvw/lVco+wq4FdPBTk7yC0DHQqm
+	 gV2pFTBonGcj0SPoICTLc4SrvRHRhgikxbb/HVonr+dl7pj+GKyMBnoUjd90nQcvkA
+	 y6W+3henmYDkJKk4A6F/HhMNTa13xyIjYIN1RFNzhAMBiKoEKwnkrAW2xdC5FHB9I2
+	 EpKeLcPsKbpTntbNSjiXw/dM72FLmBCfJJf96r9gbbpDTISuXkU8npuvY43xaSAOUa
+	 /G34kMeufYjng==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 4FAD317E0B72;
+	Thu, 17 Jul 2025 12:36:29 +0200 (CEST)
+Message-ID: <0089a5e5-4e16-4d30-8b56-3811a6d7af88@collabora.com>
+Date: Thu, 17 Jul 2025 12:36:28 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 1/2] dt-bindings: clock: mediatek: Describe MT6789
+ clock controllers
+To: Krzysztof Kozlowski <krzk@kernel.org>, Arseniy Velikanov <me@adomerle.pw>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+ Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>, linux-clk@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ ~postmarketos/upstreaming@lists.sr.ht
+References: <20250715222221.29406-1-me@adomerle.pw>
+ <20250716-manipulative-dormouse-of-current-9af4e6@krzk-bin>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20250716-manipulative-dormouse-of-current-9af4e6@krzk-bin>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250717_113305_316810_555CCCB4 
-X-CRM114-Status: UNSURE (   9.94  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250717_033631_987763_97A4A8BC 
+X-CRM114-Status: GOOD (  15.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,39 +82,123 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Thierry Reding <treding@nvidia.com>
+Il 16/07/25 09:04, Krzysztof Kozlowski ha scritto:
+> On Wed, Jul 16, 2025 at 02:22:20AM +0400, Arseniy Velikanov wrote:
+>> +properties:
+>> +  compatible:
+>> +    items:
+>> +      - enum:
+>> +          - mediatek,mt6789-afe
+>> +          - mediatek,mt6789-camsys
+>> +          - mediatek,mt6789-camsys-rawa
+>> +          - mediatek,mt6789-camsys-rawb
+>> +          - mediatek,mt6789-imgsys
+>> +          - mediatek,mt6789-imp-iic-wrap-c
+>> +          - mediatek,mt6789-imp-iic-wrap-en
+>> +          - mediatek,mt6789-imp-iic-wrap-w
+>> +          - mediatek,mt6789-ipesys
+>> +          - mediatek,mt6789-mdpsys
+>> +          - mediatek,mt6789-mfgcfg
+>> +          - mediatek,mt6789-vdecsys
+>> +          - mediatek,mt6789-vencsys
+>> +
+>> +  reg:
+>> +    maxItems: 1
+>> +
+>> +  '#clock-cells':
+>> +    const: 1
+>> +
+>> +required:
+>> +  - compatible
+>> +  - reg
+>> +
+>> +additionalProperties: false
+>> +
+>> +examples:
+>> +  - |
+>> +    afe: clock-controller@11210000 {
+>> +        compatible = "mediatek,mt6789-afe";
+>> +        reg = <0x11210000 0x1000>;
+>> +        #clock-cells = <1>;
+>> +    };
+>> +
+> 
+> Drop the rest of nodes. One example is enough. They are ALL THE SAME.
+> 
+> ...
+> 
+>> diff --git a/Documentation/devicetree/bindings/clock/mediatek,mt6789-sys-clock.yaml b/Documentation/devicetree/bindings/clock/mediatek,mt6789-sys-clock.yaml
+>> new file mode 100644
+>> index 000000000000..d6f70ee918ad
+>> --- /dev/null
+>> +++ b/Documentation/devicetree/bindings/clock/mediatek,mt6789-sys-clock.yaml
+>> @@ -0,0 +1,68 @@
+>> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+>> +%YAML 1.2
+>> +---
+>> +$id: http://devicetree.org/schemas/clock/mediatek,mt6789-sys-clock.yaml#
+>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>> +
+>> +title: MediaTek System Clock Controller for MT6789
+>> +
+>> +maintainers:
+>> +  - Arseniy Velikanov <me@adomerle.pw>
+>> +
+>> +description:
+>> +  The Mediatek system clock controller provides various clocks and system configuration
+>> +  like reset and bus protection on MT6789.
+>> +
+>> +properties:
+>> +  compatible:
+>> +    items:
+>> +      - enum:
+>> +          - mediatek,mt6789-apmixedsys
+> 
+> Why this does not fit existing binding file? Or Mediatek maintainers
+> preference was to switch to one-binding-per-SoC?
+> 
 
-Rather than relying on a global variable, make use of the fact that the
-syscore ops are embedded in the PMC context and can be obtained via
-container_of().
+We have been using one binding per soc for sys-clock and multimedia clocks because
+the sys-clock has multiple clock controllers in one macro-block, while all of the
+multimedia (and peripheral, depending on the soc) are in different macro-blocks.
+There are also some historical reasons which aren't really relevant anymore.
 
-Signed-off-by: Thierry Reding <treding@nvidia.com>
----
- drivers/soc/tegra/pmc.c | 3 +++
- 1 file changed, 3 insertions(+)
+So, we do have mt{soc}-sys-clock.yaml, mt{soc}-clock.yaml - that's right.
 
-diff --git a/drivers/soc/tegra/pmc.c b/drivers/soc/tegra/pmc.c
-index 455e55cbd2cc..a5c179636a69 100644
---- a/drivers/soc/tegra/pmc.c
-+++ b/drivers/soc/tegra/pmc.c
-@@ -3143,6 +3143,7 @@ static void tegra186_pmc_process_wake_events(struct tegra_pmc *pmc, unsigned int
- 
- static void tegra186_pmc_wake_syscore_resume(struct syscore_ops *ops)
- {
-+	struct tegra_pmc *pmc = container_of(ops, struct tegra_pmc, syscore);
- 	u32 status, mask;
- 	unsigned int i;
- 
-@@ -3156,6 +3157,8 @@ static void tegra186_pmc_wake_syscore_resume(struct syscore_ops *ops)
- 
- static int tegra186_pmc_wake_syscore_suspend(struct syscore_ops *ops)
- {
-+	struct tegra_pmc *pmc = container_of(ops, struct tegra_pmc, syscore);
-+
- 	wke_read_sw_wake_status(pmc);
- 
- 	/* flip the wakeup trigger for dual-edge triggered pads
--- 
-2.50.0
+> 
+>> +          - mediatek,mt6789-topckgen
+>> +          - mediatek,mt6789-infracfg-ao
+>> +          - mediatek,mt6789-mcusys
+>> +      - const: syscon
+>> +
+>> +  reg:
+>> +    maxItems: 1
+>> +
+>> +  '#clock-cells':
+>> +    const: 1
+>> +
+>> +  '#reset-cells':
+>> +    const: 1
+>> +
+>> +required:
+>> +  - compatible
+>> +  - reg
+>> +
+>> +additionalProperties: false
+>> +
+>> +examples:
+>> +  - |
+>> +    mcusys: syscon@c530000 {
+> 
+> Drop unused labels, everywhere.
+> 
+> Also, node name is supposed to be clock or reset controller, not syscon.
+> 
+
+MCUSYS is all three - but please use clock-controller.
+
+Cheers,
+Angelo
+
 
 
