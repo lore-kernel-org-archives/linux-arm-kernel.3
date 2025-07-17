@@ -4,101 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B9D8C83F34
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 16:01:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3807C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 16:04:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F5xUBrBCpzFPT/Ceifws++OIUGJp175GJMu2Bn4O4tU=; b=ioMxXxbCQihw947Xdeyhb0hulO
-	Cq62odre2kpy6MOXZ+SAnv7ke3esgtJpxY0nuVswRSiVPs799+Hq8M36EYKbgUYItM2ccS+PVSxBn
-	9zNe7OCMJ2JLdaaSri+LZWphShA/Mi4xC+C+7yv/icIdoPRx5JtvOE5QTa95SWdNP3EHYGuBYE7Er
-	6ZxEx86drLzDCEu3LoUIuSu7y1UwtEmDzIQDjsktxb5WNAXcv/OtcbIlBHbvPOrggrDAPxCwXpvtW
-	XxBxL52dbMA/li27NhEvEphlHwVroaYAWpinlMXEZ+j6i3gt4s3KqlVr2gxzC+FMhVjM5BSHOKZPL
-	VwnraFiQ==;
+	bh=K6VckmbMeNSXle4zRhCa92H9M1awVcFui2HysraFMAs=; b=grcv126dy9ePnLFITxBXeyFnmp
+	5XF7AVxqaLz8GHsaprt1gs4rdHNOALRXZsVlmZZfNPgXfamipeTK4YSfUzN9UmQmkzjDA1HaIoEbk
+	anHgzsnwiRX3qKuNUbhznSk13BTWRopcRfefwm5lMFJusHNAaLCFcpu8fV8l8BifwA4GLnLW2m1cn
+	+vP5Uc5ng8KeBM04kxVax3ZxY/JNz0qEnbnRwXHH65jbXI/zl1NIkybKwi75hGnYNNXp/9CLaJDNs
+	5q+bfmqVTXFZ6z/YXkIzZ0zOnJm2k8hdQ5daYhisc8wCTnh1w28fGvCt5ccy62P6FyVDuaPGb5Fl5
+	iv6BDIYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucR38-0000000AZMr-0j6g;
-	Thu, 17 Jul 2025 16:01:34 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1ucR5Y-0000000AZoA-1yUa;
+	Thu, 17 Jul 2025 16:04:04 +0000
+Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucQOD-0000000AUm6-1ZIF
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 17 Jul 2025 15:19:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=F5xUBrBCpzFPT/Ceifws++OIUGJp175GJMu2Bn4O4tU=; b=TigRB03GIqPfurdXvmA9SlqXxo
-	HUc+ohpD3yn1P3mztW4Wj+h+KO8RuWi60++byycOs0KR+gZIVHOyC81cypu+4syauz/+4BROVKTDL
-	V08vWUtH0k3U4at+6ujv6aqnQLcvqC9ixKVSpPjdSWQ5Iks6bSqE+X8ieDBMcBiEtZrXwRlrigIYl
-	mYN0cbNy3tPCDcrD0+wrY9fRWlv1tPkwKnsRpImorocaUtN1V61l6Vl5RsYNbwKkbKHknFt0Xh9G2
-	PVVsT9K6sKz0YRY/XiH2ZeJsH+13YtLAs9+ovrFQk2tmYOwj552beh9HBi0bTYLN796RGeA6kPugu
-	/rVEw0Gg==;
-Received: from mail-qk1-x730.google.com ([2607:f8b0:4864:20::730])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucQOA-0000000AIbO-2RsJ
+	id 1ucQTn-0000000AV9G-1pfR
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Jul 2025 15:19:16 +0000
-Received: by mail-qk1-x730.google.com with SMTP id af79cd13be357-7e2c1dc6567so70130385a.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Jul 2025 08:19:13 -0700 (PDT)
+	Thu, 17 Jul 2025 15:25:04 +0000
+Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-3a51481a598so583459f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Jul 2025 08:25:03 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=brainfault-org.20230601.gappssmtp.com; s=20230601; t=1752765552; x=1753370352; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1752765902; x=1753370702; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=F5xUBrBCpzFPT/Ceifws++OIUGJp175GJMu2Bn4O4tU=;
-        b=cI8t/Z8YnKxF/khvfB8kgK+dIjxq3dCwJfhwEJKzkH3ac8W4gfd2Mq2h0ydV890Bpi
-         h0PzFJOZPo7cmN20+4YS/gv5GpjpQ4d2EdNWlsH9YjzhqErqx60CsQrskJ5m7rgjlcEX
-         phEm7eeAcv54/4WU/Ya1PNvjabqsAjKSyYiDCjBlDEnhkQlU+zfnMQrXnJd7QmSniNEh
-         0mD7yA1v+rl9naBCOfDLyro/7lgk+SDTcf/qC+HP7g+Q67qbWRlVfrvx7xwMEHZhwGz/
-         +6dk1Y1bkLme7yhgUJYYickurdEtSOTnb50/UCFLZbzcj59sNQzpDgoaFEUpS22HSkEg
-         ToHw==
+        bh=K6VckmbMeNSXle4zRhCa92H9M1awVcFui2HysraFMAs=;
+        b=Ly/oD4q3sE7rUge+KTQOma0e9jGPh9jc+IxhTsFrjDtG2MR+8r/A8oHT99ZrqvNA1P
+         GaPyiDVYEJmFn2Rmaw5rdpy3VAQWFDzwn7yZfbC3ukoWRU5LzSCOnbwbZwBahVMfRUM5
+         U4X4TQHyZB0gO0SNqlVy0uG6IYwBxZpLY/aDrlHwRtP94sdisyrQDGkZx6v8zR6dASF2
+         T8crXHgw8ZXkjf2MYW9IWSbHkyJnm1bMpilGAveczK8b0uO7mKUkWSGJ961tOd9UiAxM
+         1zeI8wG+WGNUUkZVX6k7pxVf8lLRI/XV3PJxGGSPF7wCJbP7ga4n3dcOZ8NJ3OjcK1+b
+         HIsA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752765552; x=1753370352;
+        d=1e100.net; s=20230601; t=1752765902; x=1753370702;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=F5xUBrBCpzFPT/Ceifws++OIUGJp175GJMu2Bn4O4tU=;
-        b=M3YbJi3x5uSPioQ2S9vemvN+QsAVNePwmdPQRK40nXRxUn7GLSq2aN1+Bgv9S61iZk
-         /sk6uFRubYqVjY8p4fGEg01RwEwhKZxRA50+Q/09M2nts0/VCyL/2Vc7jYqgsg6UdYRM
-         hqlnmCw50RbTZAUEvTHtyoCRzbdJdSovJa3j0+f+44w8ORvpQu1iq26kJRF1Rba+sKcj
-         LdgovnSjw7zkKxztB3rYN8WwhAnYR3cxX2uS1xJDQfdiOo2Rdf1tZ2TqpaS8/y4KHzdH
-         aFFLoiKVmBXE8TQZleNNEN8N7O8fmLlpwjF+mGuCgKnwyizRLP7BcRu9lauNe1B4sQ0/
-         yMWw==
-X-Forwarded-Encrypted: i=1; AJvYcCWOyE6mu30o7hpPpUKDWRc8jktwGQqO/YAIHHftGYzOXaZelBgbY5ZmrSOGvJHgbZg+cWTF4quc9kAAK5vpYTAq@lists.infradead.org
-X-Gm-Message-State: AOJu0YyOdx4ndEWMgfLpkWIrtM57YWfL9m4fdV2SCF8MAvd3mP5fh33C
-	0Y+VZ54UDcu5xmzT++qiIUEEKtTsqOdkfX3moMDdI3XcZsKOCuC63TI+sxI8G7nKxTi/xOAKwh8
-	z5U8OiCW85o15qlqVXTs726gczQF8DmK9UyonIoOKzA==
-X-Gm-Gg: ASbGncsebXcilmrsmv8zbe5YlruXQ5Yzy1F9qFbOg94Jm9s/H75Yir2PO341KedXm18
-	Q3rFgIRrmg9qwUPYPH/2wPGIOmzhTY0XeEVtJXqnUbPVeuC2RS1bSlnTnXh3zw1TPQmVn8n8D4t
-	8U25VpSoP0SdtANkCC+U8/pgEtUyptqqG7+z+NLBfrcykW8J1Xpko9tpOJ5s4AZv5PNbkyu6WYt
-	Rdascd4
-X-Google-Smtp-Source: AGHT+IE3X2vck2pgSl2t6KFn5NgHq0p0Hh8fU3rZDbhsrXFgiaKsssOSMAr59vMNLRAJb0iXVxOVbhMl8sP6UXRX7pU=
-X-Received: by 2002:a05:620a:1794:b0:7e3:320b:437 with SMTP id
- af79cd13be357-7e343351613mr1118889785a.1.1752765551906; Thu, 17 Jul 2025
- 08:19:11 -0700 (PDT)
+        bh=K6VckmbMeNSXle4zRhCa92H9M1awVcFui2HysraFMAs=;
+        b=bgF3gfztes7HZ3o3skgrG+QgPoTEYg3ATIDbilfyUqa22rvIosJHt3McLfZVuEfOMq
+         KHXU0nq54t5QfFImkAhps+ULOJbpXTGRCllObss5k0lh4vsnZIq+4AUz4XXlPqKg2q3m
+         jEllI8275Dl7+Gsos/4XKY1Ppfq0IYo3JnHBIXHh1ZPitqv9DhXzjKOl2OCD5NkHlhKQ
+         qBXG6/85UCboz2WLF1V06/uF8wZDuYw6PWOOH1mO9z9mruUNvYWWTt8QGJR87sMMshud
+         wFqIsIFbFDOIOsE+GjGyRR3P7OM1vWnnqO4hDo2I0yc84O2kJ8MdEgY2+g93LkM/F/jk
+         4djg==
+X-Forwarded-Encrypted: i=1; AJvYcCUWytjQGm/kTHTA8h6xILEpwWAczTX80uQV5pGQ83b4zDZFjgqdE404Zt0FRNaEG/lsF4Lty8ZbgMXbdJCR/hns@lists.infradead.org
+X-Gm-Message-State: AOJu0YzK7TafEno9T0xC9L82fbDVegyCwxJtH3NSpCv6np3Yvwp7q736
+	ZKxznhgYif6OX8ppE9MepWV5yAym2MmJ7ebjL9Knkjb/JmkIJFYLFioOoYA43ZDMHozOSYv+Xcg
+	0noHQwW/5IbVyZPaYrMTdNrV2KH9FnRM=
+X-Gm-Gg: ASbGncvMmclZnTjqIpNMJpa0bId/UyuTv47cGl5WCaitYq/gMMLMuzbHu+QUkiH+ZIA
+	cUBLonRNg2gky/RRKfIu55PEGoKyLVvuYtRSb24a99+phq7qi3OSepvg1X0nKVIFcU+P7RIuBlK
+	mmCaBoYrWXhTLwEn4/CQ06iWiXww/ro2kf5lHH01tGZBaPQWs02Klyb4Bf3zyPUP2Eczln9t9zl
+	A3p1yvRy/AiS05HGlndcNg=
+X-Google-Smtp-Source: AGHT+IGeW++fImtoeS2B0SWaaDzKCqDG3PBDTK7fijr/paFUbpQ9Q2BBphVZE3USeT269JcqVLR3X4fwk0ujRPHOEEo=
+X-Received: by 2002:a05:6000:144b:b0:3b5:dfc2:f0ca with SMTP id
+ ffacd0b85a97d-3b60e53ea17mr6047409f8f.40.1752765901784; Thu, 17 Jul 2025
+ 08:25:01 -0700 (PDT)
 MIME-Version: 1.0
-References: <20250522-pmu_event_info-v3-0-f7bba7fd9cfe@rivosinc.com> <20250522-pmu_event_info-v3-3-f7bba7fd9cfe@rivosinc.com>
-In-Reply-To: <20250522-pmu_event_info-v3-3-f7bba7fd9cfe@rivosinc.com>
-From: Anup Patel <anup@brainfault.org>
-Date: Thu, 17 Jul 2025 20:48:58 +0530
-X-Gm-Features: Ac12FXyPbawu-s2Ss3H3yKP5ugd9T6IetcEyIWyv14Bbl9oa3EI2UsBfWrZcDw8
-Message-ID: <CAAhSdy304FBYo-3TZyNhKqtDsUSnW+B=U3ktR5JHLr9+LLqXEg@mail.gmail.com>
-Subject: Re: [PATCH v3 3/9] RISC-V: KVM: Add support for Raw event v2
-To: Atish Patra <atishp@rivosinc.com>
-Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Mayuresh Chitale <mchitale@ventanamicro.com>, linux-riscv@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Palmer Dabbelt <palmer@rivosinc.com>, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org
+References: <20250520-vmlinux-mmap-v5-0-e8c941acc414@isovalent.com>
+ <20250520-vmlinux-mmap-v5-1-e8c941acc414@isovalent.com> <g2gqhkunbu43awrofzqb4cs4sxkxg2i4eud6p4qziwrdh67q4g@mtw3d3aqfgmb>
+ <CAN+4W8hsK6FMBon0-J6mAYk1yVsamYL=cHqFkj3syepxiv16Ug@mail.gmail.com>
+ <CAADnVQ+WZsaDS-Vuc9AN7P3=xvX8TG=rY65A8wYdOARLtkt6Mw@mail.gmail.com> <CAN+4W8i+PqYDcJjWk+g63W4kdKvhFKSad61q-T=JJky5m7j79w@mail.gmail.com>
+In-Reply-To: <CAN+4W8i+PqYDcJjWk+g63W4kdKvhFKSad61q-T=JJky5m7j79w@mail.gmail.com>
+From: Alexei Starovoitov <alexei.starovoitov@gmail.com>
+Date: Thu, 17 Jul 2025 08:24:48 -0700
+X-Gm-Features: Ac12FXww1JBCS6XraoQajcOSXv0y_LFuMb7d0LFifqkes7LZtbikQbv87_xdbD8
+Message-ID: <CAADnVQLJTmjt8nE-xoPhE=6Q+bDOWTTwQ9OqQjX+YKT5RPBNrA@mail.gmail.com>
+Subject: Re: [PATCH bpf-next v5 1/3] btf: allow mmap of vmlinux btf
+To: Lorenz Bauer <lmb@isovalent.com>
+Cc: Breno Leitao <leitao@debian.org>, 
+	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, Arnd Bergmann <arnd@arndb.de>, 
+	Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
+	Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau <martin.lau@linux.dev>, 
+	Eduard Zingerman <eddyz87@gmail.com>, Song Liu <song@kernel.org>, 
+	Yonghong Song <yonghong.song@linux.dev>, John Fastabend <john.fastabend@gmail.com>, 
+	KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@fomichev.me>, Hao Luo <haoluo@google.com>, 
+	Jiri Olsa <jolsa@kernel.org>, Mykola Lysenko <mykolal@fb.com>, Shuah Khan <shuah@kernel.org>, 
+	linux-arch <linux-arch@vger.kernel.org>, LKML <linux-kernel@vger.kernel.org>, 
+	bpf <bpf@vger.kernel.org>, 
+	"open list:KERNEL SELFTEST FRAMEWORK" <linux-kselftest@vger.kernel.org>, Alan Maguire <alan.maguire@oracle.com>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250717_161914_828547_2A668942 
-X-CRM114-Status: GOOD (  17.16  )
+X-CRM114-CacheID: sfid-20250717_082503_479563_E53FD3B0 
+X-CRM114-Status: GOOD (  11.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,53 +107,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 23, 2025 at 12:33=E2=80=AFAM Atish Patra <atishp@rivosinc.com> =
-wrote:
+On Thu, Jul 17, 2025 at 8:15=E2=80=AFAM Lorenz Bauer <lmb@isovalent.com> wr=
+ote:
 >
-> SBI v3.0 introuced a new raw event type v2 for wider mhpmeventX
-
-s/introuced/introduced/
-
-> programming. Add the support in kvm for that.
+> On Thu, Jul 17, 2025 at 3:49=E2=80=AFPM Alexei Starovoitov
+> <alexei.starovoitov@gmail.com> wrote:
 >
-> Signed-off-by: Atish Patra <atishp@rivosinc.com>
-> ---
->  arch/riscv/kvm/vcpu_pmu.c | 4 ++++
->  1 file changed, 4 insertions(+)
+> > __pa_symbol() should work for start_BTF, but would be good
+> > to double check with Ard that the rest stays linear.
 >
-> diff --git a/arch/riscv/kvm/vcpu_pmu.c b/arch/riscv/kvm/vcpu_pmu.c
-> index 78ac3216a54d..15d71a7b75ba 100644
-> --- a/arch/riscv/kvm/vcpu_pmu.c
-> +++ b/arch/riscv/kvm/vcpu_pmu.c
-> @@ -60,6 +60,7 @@ static u32 kvm_pmu_get_perf_event_type(unsigned long ei=
-dx)
->                 type =3D PERF_TYPE_HW_CACHE;
->                 break;
->         case SBI_PMU_EVENT_TYPE_RAW:
-> +       case SBI_PMU_EVENT_TYPE_RAW_V2:
->         case SBI_PMU_EVENT_TYPE_FW:
->                 type =3D PERF_TYPE_RAW;
->                 break;
-> @@ -128,6 +129,9 @@ static u64 kvm_pmu_get_perf_event_config(unsigned lon=
-g eidx, uint64_t evt_data)
->         case SBI_PMU_EVENT_TYPE_RAW:
->                 config =3D evt_data & RISCV_PMU_RAW_EVENT_MASK;
->                 break;
-> +       case SBI_PMU_EVENT_TYPE_RAW_V2:
-> +               config =3D evt_data & RISCV_PMU_RAW_EVENT_V2_MASK;
-> +               break;
->         case SBI_PMU_EVENT_TYPE_FW:
->                 if (ecode < SBI_PMU_FW_MAX)
->                         config =3D (1ULL << 63) | ecode;
+> Alexei,
 >
-> --
-> 2.43.0
+> This code in the arm64 setup does make me think we'll be OK.
 >
+> kernel_code.start   =3D __pa_symbol(_stext);
+> kernel_code.end     =3D __pa_symbol(__init_begin - 1);
+> kernel_data.start   =3D __pa_symbol(_sdata);
+> kernel_data.end     =3D __pa_symbol(_end - 1);
+>
+> Using these as start and end only makes sense to me if the addresses
+> are linear? See
+> https://elixir.bootlin.com/linux/v6.15.6/source/arch/arm64/kernel/setup.c=
+#L217
 
-Otherwise, it looks good to me.
-
-Reviewed-by: Anup Patel <anup@brainfault.org>
-
-Regards,
-Anup
+Thanks for checking. lgtm.
 
