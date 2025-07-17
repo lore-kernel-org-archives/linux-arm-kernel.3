@@ -4,89 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61028C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 23:17:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DF83C83F34
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 23:28:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xLQzrPAPpwvRdPXfy7ciYokBJHsSlttpxaCtP1mp9yI=; b=4y5IkWhR24c6WyKJXVM/i9gvqe
-	ql00rBft4acSL/m0IuYBfPSCUew2ORUa1zgENwLLeBgIe4FZaSrlt7MUq2+a07OLL9I4g180OwOHc
-	pm+vwzibruA90uGgLsLsearkmpBJfxbnvi1YhO9EeUix6sFtfK0P/GUQplSCuzotlPlDj7pQl+d5r
-	S2TmatiIecPyZziTFCbpmcBIFrsdDESGaZapMS5L4cUweUCXtde0jUvtaGpRgik+wCir8lwzRCa9T
-	nhoMg830nUi7iJxET3xwoe7nEfNe9W6OWuXKgdDx/QTST4uthqO6Q25PhyNVRt/qGKZeiF44sm128
-	u1iMihZQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=l5/DiOMP5IDBoe3PFgRykYkj5ZQc4B51RptLIWYVtXY=; b=oT/6hdUOLzWufn4ogtbFWNuJlL
+	IQsK5OJi4sfQ0NvDDvZB/pMJgMaa91SXRzrQwEXuILWk//D9IFrLV/wY7QvDKd3scbK6AXJJTe95N
+	jFzJIuCLZysbx8aU/GxI9i69gKV0lNCYUhooFtg2CO8AB6Drm6kCnxznOKYDCrd1deipDgy0if3jT
+	ciy5r3gJhuAURL5VYuJFirhsV4syk8aDCr6sGGfnh1N5ioi0dvwC9vun32wOBnyah/RBAmMBuYc8a
+	0NT0qOgGmx27w3MCu3h+6JHdqnTXntxCTVD90kluoSAqrKXYWwwtdisf6ACWtfBPCuAnzJnSsKz/6
+	fI/6Sndg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucXqv-0000000BGGx-07yl;
-	Thu, 17 Jul 2025 23:17:25 +0000
-Received: from mgamail.intel.com ([198.175.65.9])
+	id 1ucY15-0000000BHjc-1g10;
+	Thu, 17 Jul 2025 23:27:55 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucXoS-0000000BG8d-2zFh
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Jul 2025 23:14:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1752794093; x=1784330093;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=DHh9MHsxm/AndHxSwD8Zrn6sApOHgMAxtoGxE7zYV+s=;
-  b=YFYFp58roGsK0Bi+RWjSbBYSb5reoO2eCrEEBejrX18advRcV68O925y
-   V8eHJbwvrEPdGYX3t4paUosbUHrNYttg1bTav8gkyJfuGIODwBC4gfyOo
-   EeP90dO2OHS/LaUjAUVr4wUYidqADi9mQYW401klojVIDCJKn01I621f7
-   OkLb02g/TjXWgyB2DT+KqPOt6BhT4ZlRvSeufJUXTppeF7MtItWwhCcEE
-   z6sRtR3wFF/skYv4xPAHH6kTFIwJRx+aVf3aQcM+Ph5iC7P2KBRLLn4kt
-   HkRe1OjRRDHWSna0IykKMjFIT190e+Wjx5l6rTRK89sq+Q8UCfk4Xfhy0
-   Q==;
-X-CSE-ConnectionGUID: OV3aZWrERlCyy8Yc3vf1mw==
-X-CSE-MsgGUID: ha3qIktjRQq9FKPrz54vQQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11495"; a="77623848"
-X-IronPort-AV: E=Sophos;i="6.16,320,1744095600"; 
-   d="scan'208";a="77623848"
-Received: from fmviesa010.fm.intel.com ([10.60.135.150])
-  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Jul 2025 16:14:48 -0700
-X-CSE-ConnectionGUID: iMlsDpHLRUayH9Sj6wKtyQ==
-X-CSE-MsgGUID: LVK4sNXLStq+13I8f91Z5g==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.16,320,1744095600"; 
-   d="scan'208";a="158612855"
-Received: from lkp-server01.sh.intel.com (HELO 9ee84586c615) ([10.239.97.150])
-  by fmviesa010.fm.intel.com with ESMTP; 17 Jul 2025 16:14:44 -0700
-Received: from kbuild by 9ee84586c615 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1ucXoH-000E5v-2Q;
-	Thu, 17 Jul 2025 23:14:41 +0000
-Date: Fri, 18 Jul 2025 07:13:44 +0800
-From: kernel test robot <lkp@intel.com>
-To: Cosmin Tanislav <demonsingur@gmail.com>,
-	Cosmin Tanislav <cosmin.tanislav@analog.com>,
-	Tomi Valkeinen <tomi.valkeinen+renesas@ideasonboard.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Niklas =?iso-8859-1?Q?S=F6derlund?= <niklas.soderlund@ragnatech.se>,
-	Julien Massot <julien.massot@collabora.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Linus Walleij <linus.walleij@linaro.org>
-Cc: Paul Gazzillo <paul@pgazz.com>,
-	Necip Fazil Yildiran <fazilyildiran@gmail.com>,
-	oe-kbuild-all@lists.linux.dev, linux-media@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-staging@lists.linux.dev,
-	linux-gpio@vger.kernel.org
-Subject: Re: [PATCH v6 18/24] media: i2c: maxim-serdes: add MAX96717 driver
-Message-ID: <202507180700.ACATL5wj-lkp@intel.com>
-References: <20250716193111.942217-19-demonsingur@gmail.com>
+	id 1ucXyb-0000000BGrK-3aoa;
+	Thu, 17 Jul 2025 23:25:21 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 103AF613F9;
+	Thu, 17 Jul 2025 23:25:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3D078C4CEF0;
+	Thu, 17 Jul 2025 23:25:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1752794720;
+	bh=QO3sphraMQU4pplXqgpqBgGUJOqKb6MMyrCLVjfJgf4=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=bnYTbDgTrxn/US13xnLGIWVM+1l2SgC25iDKs4ToRaXBjMubfyZ99D+7Y/rX3/6Kd
+	 W28azcx5cIF6GWj7YzmdUs5cfA+6MmxbNIwIBLLY2sefQxNI+w5UWmY5L17cGEzMn5
+	 DoNagWZp9K4mnyYRS37UYTafFXS36OSloJ1wKMrQo3QHBMlaENkbIWM2sabDX7jRrh
+	 2SJ0kexYpgiPmBReZvS8960aRS+vLtWg3rwGGIbuS9o1SFN+zpSy5HUsFbjFtONBzU
+	 mADXDiuF2E8kbtrMvfH1K86qBcoDdxjqhpvA/E4rY2uQyqwGerTVKEq8q3wJBoZmaY
+	 uiQI1Cfrx7LsA==
+From: Kees Cook <kees@kernel.org>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: Kees Cook <kees@kernel.org>,
+	linux-hardening@vger.kernel.org,
+	Ingo Molnar <mingo@kernel.org>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	Christoph Hellwig <hch@lst.de>,
+	Andrey Konovalov <andreyknvl@gmail.com>,
+	Andrey Ryabinin <ryabinin.a.a@gmail.com>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nicolas Schier <nicolas.schier@linux.dev>,
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>,
+	linux-kernel@vger.kernel.org,
+	x86@kernel.org,
+	kasan-dev@googlegroups.com,
+	linux-doc@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	linux-efi@vger.kernel.org,
+	linux-kbuild@vger.kernel.org,
+	linux-security-module@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	sparclinux@vger.kernel.org,
+	llvm@lists.linux.dev
+Subject: [PATCH v3 02/13] stackleak: Rename stackleak_track_stack to __sanitizer_cov_stack_depth
+Date: Thu, 17 Jul 2025 16:25:07 -0700
+Message-Id: <20250717232519.2984886-2-kees@kernel.org>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250717231756.make.423-kees@kernel.org>
+References: <20250717231756.make.423-kees@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250716193111.942217-19-demonsingur@gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250717_161452_785414_4EDCCC4A 
-X-CRM114-Status: GOOD (  11.04  )
+X-Developer-Signature: v=1; a=openpgp-sha256; l=11486; i=kees@kernel.org; h=from:subject; bh=QO3sphraMQU4pplXqgpqBgGUJOqKb6MMyrCLVjfJgf4=; b=owGbwMvMwCVmps19z/KJym7G02pJDBmVbVFRYqs7HtQl3OrNeT1jq9hG1gfr7PnFD3xh7FzY7 aM18yV7RykLgxgXg6yYIkuQnXuci8fb9nD3uYowc1iZQIYwcHEKwERmnGX4XxQUq2kysTBh9Yqi gx0XD2ffidwp9TBF0XG2aNZOt/kfPRkZbqSGvrbV7LugE1awdMeemZ8P/z4lWN73Wnp36mS7u+4 v+QE=
+X-Developer-Key: i=kees@kernel.org; a=openpgp; fpr=A5C3F68F229DD60F723E6E138972F4DFDC6DC026
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,57 +95,262 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Cosmin,
+The Clang stack depth tracking implementation has a fixed name for
+the stack depth tracking callback, "__sanitizer_cov_stack_depth", so
+rename the GCC plugin function to match since the plugin has no external
+dependencies on naming.
 
-kernel test robot noticed the following build warnings:
+Signed-off-by: Kees Cook <kees@kernel.org>
+---
+Cc: Arnd Bergmann <arnd@arndb.de>
+Cc: <linux-hardening@vger.kernel.org>
+---
+ security/Kconfig.hardening             |  4 +-
+ scripts/gcc-plugins/stackleak_plugin.c | 52 +++++++++++++-------------
+ include/linux/kstack_erase.h           |  2 +-
+ kernel/kstack_erase.c                  |  4 +-
+ tools/objtool/check.c                  |  2 +-
+ 5 files changed, 32 insertions(+), 32 deletions(-)
 
-[auto build test WARNING on next-20250716]
-[also build test WARNING on v6.16-rc6]
-[cannot apply to robh/for-next staging/staging-testing staging/staging-next staging/staging-linus arm64/for-next/core linus/master v6.16-rc6 v6.16-rc5 v6.16-rc4]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Cosmin-Tanislav/media-mc-Add-INTERNAL-pad-flag/20250717-033901
-base:   next-20250716
-patch link:    https://lore.kernel.org/r/20250716193111.942217-19-demonsingur%40gmail.com
-patch subject: [PATCH v6 18/24] media: i2c: maxim-serdes: add MAX96717 driver
-config: nios2-kismet-CONFIG_GENERIC_PINMUX_FUNCTIONS-CONFIG_VIDEO_MAX96717-0-0 (https://download.01.org/0day-ci/archive/20250718/202507180700.ACATL5wj-lkp@intel.com/config)
-reproduce: (https://download.01.org/0day-ci/archive/20250718/202507180700.ACATL5wj-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202507180700.ACATL5wj-lkp@intel.com/
-
-kismet warnings: (new ones prefixed by >>)
->> kismet: WARNING: unmet direct dependencies detected for GENERIC_PINMUX_FUNCTIONS when selected by VIDEO_MAX96717
-   WARNING: unmet direct dependencies detected for I2C_MUX
-     Depends on [n]: I2C [=n]
-     Selected by [y]:
-     - VIDEO_MAXIM_SERDES [=y] && MEDIA_SUPPORT [=y] && VIDEO_DEV [=y]
-   
-   WARNING: unmet direct dependencies detected for GENERIC_PINCONF
-     Depends on [n]: PINCTRL [=n]
-     Selected by [y]:
-     - VIDEO_MAX96717 [=y] && MEDIA_SUPPORT [=y] && VIDEO_DEV [=y] && COMMON_CLK [=y]
-   
-   WARNING: unmet direct dependencies detected for GENERIC_PINMUX_FUNCTIONS
-     Depends on [n]: PINCTRL [=n]
-     Selected by [y]:
-     - VIDEO_MAX96717 [=y] && MEDIA_SUPPORT [=y] && VIDEO_DEV [=y] && COMMON_CLK [=y]
-   
-   WARNING: unmet direct dependencies detected for GENERIC_PINCTRL_GROUPS
-     Depends on [n]: PINCTRL [=n]
-     Selected by [y]:
-     - VIDEO_MAX96717 [=y] && MEDIA_SUPPORT [=y] && VIDEO_DEV [=y] && COMMON_CLK [=y]
-   
-   WARNING: unmet direct dependencies detected for I2C_ATR
-     Depends on [n]: I2C [=n]
-     Selected by [y]:
-     - VIDEO_MAXIM_SERDES [=y] && MEDIA_SUPPORT [=y] && VIDEO_DEV [=y]
-
+diff --git a/security/Kconfig.hardening b/security/Kconfig.hardening
+index 125b35e2ef0f..f7aa2024ab25 100644
+--- a/security/Kconfig.hardening
++++ b/security/Kconfig.hardening
+@@ -129,8 +129,8 @@ config KSTACK_ERASE_TRACK_MIN_SIZE
+ 	help
+ 	  The KSTACK_ERASE option instruments the kernel code for tracking
+ 	  the lowest border of the kernel stack (and for some other purposes).
+-	  It inserts the stackleak_track_stack() call for the functions with
+-	  a stack frame size greater than or equal to this parameter.
++	  It inserts the __sanitizer_cov_stack_depth() call for the functions
++	  with a stack frame size greater than or equal to this parameter.
+ 	  If unsure, leave the default value 100.
+ 
+ config KSTACK_ERASE_METRICS
+diff --git a/scripts/gcc-plugins/stackleak_plugin.c b/scripts/gcc-plugins/stackleak_plugin.c
+index d20c47d21ad8..e486488c867d 100644
+--- a/scripts/gcc-plugins/stackleak_plugin.c
++++ b/scripts/gcc-plugins/stackleak_plugin.c
+@@ -9,7 +9,7 @@
+  * any of the gcc libraries
+  *
+  * This gcc plugin is needed for tracking the lowest border of the kernel stack.
+- * It instruments the kernel code inserting stackleak_track_stack() calls:
++ * It instruments the kernel code inserting __sanitizer_cov_stack_depth() calls:
+  *  - after alloca();
+  *  - for the functions with a stack frame size greater than or equal
+  *     to the "track-min-size" plugin parameter.
+@@ -33,7 +33,7 @@ __visible int plugin_is_GPL_compatible;
+ 
+ static int track_frame_size = -1;
+ static bool build_for_x86 = false;
+-static const char track_function[] = "stackleak_track_stack";
++static const char track_function[] = "__sanitizer_cov_stack_depth";
+ static bool disable = false;
+ static bool verbose = false;
+ 
+@@ -58,7 +58,7 @@ static void add_stack_tracking_gcall(gimple_stmt_iterator *gsi, bool after)
+ 	cgraph_node_ptr node;
+ 	basic_block bb;
+ 
+-	/* Insert calling stackleak_track_stack() */
++	/* Insert calling __sanitizer_cov_stack_depth() */
+ 	stmt = gimple_build_call(track_function_decl, 0);
+ 	gimple_call = as_a_gcall(stmt);
+ 	if (after)
+@@ -120,12 +120,12 @@ static void add_stack_tracking_gasm(gimple_stmt_iterator *gsi, bool after)
+ 	gcc_assert(build_for_x86);
+ 
+ 	/*
+-	 * Insert calling stackleak_track_stack() in asm:
+-	 *   asm volatile("call stackleak_track_stack"
++	 * Insert calling __sanitizer_cov_stack_depth() in asm:
++	 *   asm volatile("call __sanitizer_cov_stack_depth"
+ 	 *		  :: "r" (current_stack_pointer))
+ 	 * Use ASM_CALL_CONSTRAINT trick from arch/x86/include/asm/asm.h.
+ 	 * This constraint is taken into account during gcc shrink-wrapping
+-	 * optimization. It is needed to be sure that stackleak_track_stack()
++	 * optimization. It is needed to be sure that __sanitizer_cov_stack_depth()
+ 	 * call is inserted after the prologue of the containing function,
+ 	 * when the stack frame is prepared.
+ 	 */
+@@ -137,7 +137,7 @@ static void add_stack_tracking_gasm(gimple_stmt_iterator *gsi, bool after)
+ 	input = build_tree_list(NULL_TREE, build_const_char_string(2, "r"));
+ 	input = chainon(NULL_TREE, build_tree_list(input, sp_decl));
+ 	vec_safe_push(inputs, input);
+-	asm_call = gimple_build_asm_vec("call stackleak_track_stack",
++	asm_call = gimple_build_asm_vec("call __sanitizer_cov_stack_depth",
+ 					inputs, NULL, NULL, NULL);
+ 	gimple_asm_set_volatile(asm_call, true);
+ 	if (after)
+@@ -151,11 +151,11 @@ static void add_stack_tracking(gimple_stmt_iterator *gsi, bool after)
+ {
+ 	/*
+ 	 * The 'no_caller_saved_registers' attribute is used for
+-	 * stackleak_track_stack(). If the compiler supports this attribute for
+-	 * the target arch, we can add calling stackleak_track_stack() in asm.
++	 * __sanitizer_cov_stack_depth(). If the compiler supports this attribute for
++	 * the target arch, we can add calling __sanitizer_cov_stack_depth() in asm.
+ 	 * That improves performance: we avoid useless operations with the
+ 	 * caller-saved registers in the functions from which we will remove
+-	 * stackleak_track_stack() call during the stackleak_cleanup pass.
++	 * __sanitizer_cov_stack_depth() call during the stackleak_cleanup pass.
+ 	 */
+ 	if (lookup_attribute_spec(get_identifier("no_caller_saved_registers")))
+ 		add_stack_tracking_gasm(gsi, after);
+@@ -165,7 +165,7 @@ static void add_stack_tracking(gimple_stmt_iterator *gsi, bool after)
+ 
+ /*
+  * Work with the GIMPLE representation of the code. Insert the
+- * stackleak_track_stack() call after alloca() and into the beginning
++ * __sanitizer_cov_stack_depth() call after alloca() and into the beginning
+  * of the function if it is not instrumented.
+  */
+ static unsigned int stackleak_instrument_execute(void)
+@@ -205,7 +205,7 @@ static unsigned int stackleak_instrument_execute(void)
+ 					DECL_NAME_POINTER(current_function_decl));
+ 			}
+ 
+-			/* Insert stackleak_track_stack() call after alloca() */
++			/* Insert __sanitizer_cov_stack_depth() call after alloca() */
+ 			add_stack_tracking(&gsi, true);
+ 			if (bb == entry_bb)
+ 				prologue_instrumented = true;
+@@ -241,7 +241,7 @@ static unsigned int stackleak_instrument_execute(void)
+ 		return 0;
+ 	}
+ 
+-	/* Insert stackleak_track_stack() call at the function beginning */
++	/* Insert __sanitizer_cov_stack_depth() call at the function beginning */
+ 	bb = entry_bb;
+ 	if (!single_pred_p(bb)) {
+ 		/* gcc_assert(bb_loop_depth(bb) ||
+@@ -270,15 +270,15 @@ static void remove_stack_tracking_gcall(void)
+ 	rtx_insn *insn, *next;
+ 
+ 	/*
+-	 * Find stackleak_track_stack() calls. Loop through the chain of insns,
++	 * Find __sanitizer_cov_stack_depth() calls. Loop through the chain of insns,
+ 	 * which is an RTL representation of the code for a function.
+ 	 *
+ 	 * The example of a matching insn:
+-	 *  (call_insn 8 4 10 2 (call (mem (symbol_ref ("stackleak_track_stack")
+-	 *  [flags 0x41] <function_decl 0x7f7cd3302a80 stackleak_track_stack>)
+-	 *  [0 stackleak_track_stack S1 A8]) (0)) 675 {*call} (expr_list
+-	 *  (symbol_ref ("stackleak_track_stack") [flags 0x41] <function_decl
+-	 *  0x7f7cd3302a80 stackleak_track_stack>) (expr_list (0) (nil))) (nil))
++	 *  (call_insn 8 4 10 2 (call (mem (symbol_ref ("__sanitizer_cov_stack_depth")
++	 *  [flags 0x41] <function_decl 0x7f7cd3302a80 __sanitizer_cov_stack_depth>)
++	 *  [0 __sanitizer_cov_stack_depth S1 A8]) (0)) 675 {*call} (expr_list
++	 *  (symbol_ref ("__sanitizer_cov_stack_depth") [flags 0x41] <function_decl
++	 *  0x7f7cd3302a80 __sanitizer_cov_stack_depth>) (expr_list (0) (nil))) (nil))
+ 	 */
+ 	for (insn = get_insns(); insn; insn = next) {
+ 		rtx body;
+@@ -318,7 +318,7 @@ static void remove_stack_tracking_gcall(void)
+ 		if (SYMBOL_REF_DECL(body) != track_function_decl)
+ 			continue;
+ 
+-		/* Delete the stackleak_track_stack() call */
++		/* Delete the __sanitizer_cov_stack_depth() call */
+ 		delete_insn_and_edges(insn);
+ #if BUILDING_GCC_VERSION < 8000
+ 		if (GET_CODE(next) == NOTE &&
+@@ -340,12 +340,12 @@ static bool remove_stack_tracking_gasm(void)
+ 	gcc_assert(build_for_x86);
+ 
+ 	/*
+-	 * Find stackleak_track_stack() asm calls. Loop through the chain of
++	 * Find __sanitizer_cov_stack_depth() asm calls. Loop through the chain of
+ 	 * insns, which is an RTL representation of the code for a function.
+ 	 *
+ 	 * The example of a matching insn:
+ 	 *  (insn 11 5 12 2 (parallel [ (asm_operands/v
+-	 *  ("call stackleak_track_stack") ("") 0
++	 *  ("call __sanitizer_cov_stack_depth") ("") 0
+ 	 *  [ (reg/v:DI 7 sp [ current_stack_pointer ]) ]
+ 	 *  [ (asm_input:DI ("r")) ] [])
+ 	 *  (clobber (reg:CC 17 flags)) ]) -1 (nil))
+@@ -375,7 +375,7 @@ static bool remove_stack_tracking_gasm(void)
+ 			continue;
+ 
+ 		if (strcmp(ASM_OPERANDS_TEMPLATE(body),
+-						"call stackleak_track_stack")) {
++						"call __sanitizer_cov_stack_depth")) {
+ 			continue;
+ 		}
+ 
+@@ -389,7 +389,7 @@ static bool remove_stack_tracking_gasm(void)
+ 
+ /*
+  * Work with the RTL representation of the code.
+- * Remove the unneeded stackleak_track_stack() calls from the functions
++ * Remove the unneeded __sanitizer_cov_stack_depth() calls from the functions
+  * which don't call alloca() and don't have a large enough stack frame size.
+  */
+ static unsigned int stackleak_cleanup_execute(void)
+@@ -474,13 +474,13 @@ static bool stackleak_gate(void)
+ 	return track_frame_size >= 0;
+ }
+ 
+-/* Build the function declaration for stackleak_track_stack() */
++/* Build the function declaration for __sanitizer_cov_stack_depth() */
+ static void stackleak_start_unit(void *gcc_data __unused,
+ 				 void *user_data __unused)
+ {
+ 	tree fntype;
+ 
+-	/* void stackleak_track_stack(void) */
++	/* void __sanitizer_cov_stack_depth(void) */
+ 	fntype = build_function_type_list(void_type_node, NULL_TREE);
+ 	track_function_decl = build_fn_decl(track_function, fntype);
+ 	DECL_ASSEMBLER_NAME(track_function_decl); /* for LTO */
+diff --git a/include/linux/kstack_erase.h b/include/linux/kstack_erase.h
+index 4e432eefa4d0..bf3bf1905557 100644
+--- a/include/linux/kstack_erase.h
++++ b/include/linux/kstack_erase.h
+@@ -80,7 +80,7 @@ static inline void stackleak_task_init(struct task_struct *t)
+ asmlinkage void noinstr stackleak_erase(void);
+ asmlinkage void noinstr stackleak_erase_on_task_stack(void);
+ asmlinkage void noinstr stackleak_erase_off_task_stack(void);
+-void __no_caller_saved_registers noinstr stackleak_track_stack(void);
++void __no_caller_saved_registers noinstr __sanitizer_cov_stack_depth(void);
+ 
+ #else /* !CONFIG_KSTACK_ERASE */
+ static inline void stackleak_task_init(struct task_struct *t) { }
+diff --git a/kernel/kstack_erase.c b/kernel/kstack_erase.c
+index 201b846f8345..e49bb88b4f0a 100644
+--- a/kernel/kstack_erase.c
++++ b/kernel/kstack_erase.c
+@@ -156,7 +156,7 @@ asmlinkage void noinstr stackleak_erase_off_task_stack(void)
+ 	__stackleak_erase(false);
+ }
+ 
+-void __used __no_caller_saved_registers noinstr stackleak_track_stack(void)
++void __used __no_caller_saved_registers noinstr __sanitizer_cov_stack_depth(void)
+ {
+ 	unsigned long sp = current_stack_pointer;
+ 
+@@ -174,4 +174,4 @@ void __used __no_caller_saved_registers noinstr stackleak_track_stack(void)
+ 		current->lowest_stack = sp;
+ 	}
+ }
+-EXPORT_SYMBOL(stackleak_track_stack);
++EXPORT_SYMBOL(__sanitizer_cov_stack_depth);
+diff --git a/tools/objtool/check.c b/tools/objtool/check.c
+index 1b3e6968a82d..01144ab8e906 100644
+--- a/tools/objtool/check.c
++++ b/tools/objtool/check.c
+@@ -1193,7 +1193,7 @@ static const char *uaccess_safe_builtin[] = {
+ 	"__ubsan_handle_shift_out_of_bounds",
+ 	"__ubsan_handle_load_invalid_value",
+ 	/* KSTACK_ERASE */
+-	"stackleak_track_stack",
++	"__sanitizer_cov_stack_depth",
+ 	/* TRACE_BRANCH_PROFILING */
+ 	"ftrace_likely_update",
+ 	/* STACKPROTECTOR */
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+2.34.1
+
 
