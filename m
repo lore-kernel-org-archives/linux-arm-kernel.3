@@ -4,112 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 163CEC83F1B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 03:06:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EE3CC83F1B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 03:10:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yl9WiInfw+XrjWyYXlry8+JNjMfLk8gIbN0qzqtc8Bo=; b=EOzx9zSqTkdJqgplmgExeDaZzi
-	WYciSF4F+7WHftvja+PNvXhXvaaQ0ZaKu7m2HnjV8PveQcyAxiFCn/4o+oBsnpcJkHq063QUuXCta
-	ZJ+G7FchkrEj4nN3f7rocKjodoQ8edQkGFTMrxbs1mgjkk254iR8rrpZ3zrZeOzBmKW04Mz9r7MMj
-	659I0o4rl5SQ7VItyIKo10ORZdmKmDc7261wElL34khm0EFhKjTvZ+YAGXhswM+Rz4ztW8/i5yTG3
-	4RbsR8fk/mOcGt5p9SKag4TPbEiyVReiy+kpjO6tu80XM65R4PZoq142K5DkSCC5su2af/CTn710M
-	5n1JONRA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=AiQftiDlkgdqE6xpX3q0L1KvBwqZ6iIU75/7AnqfxAo=; b=Wngdasw+ssRvB7NkPUurxePbFl
+	MsHpWmznxmzuEzwhWVWDwakXfJqc5OauIpWo3YINZOwJkC/8/bplXDUUSgaqY6zGX9znl8S52YGPZ
+	ibQ2V2jR+POdPyBRP09N2mhKFynp6WPd/olL1dmVOSH1+6+OgONbSbq5gnJVxM48IlqRWdNNeqXgs
+	RacYDw8ZzeI2wod2hcQtJhyH267tQBtInjjH6hzFdPxJAguCDCtrBHwZ2lIyH6cxujmmzcRYfQ91V
+	01HgAQriWNyBsDEeMk12DMQGNAR0gMbg2o3lO91bjCJF6SjB4pHMTvNH05QjFqP3LOWmFs5KpEvcH
+	ADgUK1ag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucExE-0000000968M-0YfU;
-	Thu, 17 Jul 2025 03:06:40 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1ucF19-000000096Y2-2ksz;
+	Thu, 17 Jul 2025 03:10:43 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucEuk-000000095wg-3yhi
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Jul 2025 03:04:08 +0000
-Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56GGDY6b015664;
-	Thu, 17 Jul 2025 03:03:59 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	yl9WiInfw+XrjWyYXlry8+JNjMfLk8gIbN0qzqtc8Bo=; b=T/p9XIm+xYThRzY+
-	lVfT5U3UTkKi8I3H5Zqv6Qd8s+Hd3EL+tM3HnsGBmO4MJ0jTOVn64ITZeOZr9Qkc
-	MJygOO51Vwf8n8gXj7pxD3sg7nFBb7YEF40HIoH92g39x/jpoWmCc8/m6gZL08gW
-	is6xe9rH1o3FyocB573VIjplWUpmMcsnzVTKBupuSrHw7XI2iKOYps7QFk821h87
-	Lb0kx2u2/dVgeOqbV6XdBeDsiEVMIFZNjaiu7VxKutBgrOTvpsZPAQGeTzmGeITb
-	r0en7wWy4fAkfhoZZ5ve/0xw99WNDQ29usvRFosoEaH3F5BhXnm4q13FiNbU6RD0
-	9xNAMg==
-Received: from nalasppmta02.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 47w5dys1gp-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 17 Jul 2025 03:03:59 +0000 (GMT)
-Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
-	by NALASPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 56H33w2i017033
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 17 Jul 2025 03:03:58 GMT
-Received: from [10.239.133.49] (10.80.80.8) by nalasex01a.na.qualcomm.com
- (10.47.209.196) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Wed, 16 Jul
- 2025 20:03:55 -0700
-Message-ID: <eed04042-ce69-491f-b42e-7c173afdb234@quicinc.com>
-Date: Thu, 17 Jul 2025 11:03:52 +0800
+	id 1ucEyh-000000096Ka-3aIQ;
+	Thu, 17 Jul 2025 03:08:12 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id CA02D4611C;
+	Thu, 17 Jul 2025 03:08:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id A9DD0C4CEE7;
+	Thu, 17 Jul 2025 03:08:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1752721690;
+	bh=4SbZOGoIxtQo1rGECKFAZdr/6VLyc+7wD892puNo1I0=;
+	h=From:Date:Subject:To:Cc:Reply-To:From;
+	b=XX5pypdBtSxAK3cVqbi+5sN9zs8G69RNUKndz5wXo5YuRJd6BwZ6NgY8mqYf74lGi
+	 i+GYeT1uYsVcd4H33gvUlcZl8z5ulq4e0f6SJUl1cAv6D5l6+nr+geY4GWmnos1xI1
+	 3bvAkSFCaVumYxYQgzETozeSpShr8vXur97YReu6vIqIgGXsQnOK7x8VJfudCpwz4W
+	 CBQyOW+bEPspiwb84D5ET6rqW5JHc+IASyiU2aaEsA8NMvv7S5QapJSBaXgauBNO21
+	 z/oXza/2ztSa/29EsFvnskupKPeAoTyy2Bu9K9TfpU0KsHVQU8qj8Wq11RLOZ/kLOw
+	 OweTlOYraIxIA==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 962E4C83F27;
+	Thu, 17 Jul 2025 03:08:10 +0000 (UTC)
+From: Chuan Liu via B4 Relay <devnull+chuan.liu.amlogic.com@kernel.org>
+Date: Thu, 17 Jul 2025 11:08:06 +0800
+Subject: [PATCH] soc: amlogic: clk-measure: Optimize measurement accuracy
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 2/2] coresight: Add label sysfs node support
-To: Mike Leach <mike.leach@linaro.org>
-CC: Leo Yan <leo.yan@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
-        James Clark <james.clark@arm.com>, Rob Herring <robh@kernel.org>,
-        Krzysztof
- Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Mathieu
- Poirier <mathieu.poirier@linaro.org>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>, <coresight@lists.linaro.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>
-References: <20250703130453.4265-1-quic_jinlmao@quicinc.com>
- <20250703130453.4265-3-quic_jinlmao@quicinc.com>
- <20250703141905.GE1039028@e132581.arm.com>
- <0e7ae7d1-4877-4e8a-a0fb-0fda5cc03cf2@quicinc.com>
- <CAJ9a7ViQ2A9FQV=fxzhu1DkZEBdiAvAijb6OjOeJriNio1nX6w@mail.gmail.com>
-Content-Language: en-US
-From: Jinlong Mao <quic_jinlmao@quicinc.com>
-In-Reply-To: <CAJ9a7ViQ2A9FQV=fxzhu1DkZEBdiAvAijb6OjOeJriNio1nX6w@mail.gmail.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nalasex01a.na.qualcomm.com (10.47.209.196)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: L_YyO-VRz5U42y7Nvyj6bm9BrLvwwg2a
-X-Authority-Analysis: v=2.4 cv=RtXFLDmK c=1 sm=1 tr=0 ts=6878681f cx=c_pps
- a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
- a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=Wb1JkmetP80A:10 a=VwQbUJbxAAAA:8
- a=COk6AnOGAAAA:8 a=KKAkSRfTAAAA:8 a=aWtVbIlNkpBLB9TuODAA:9 a=QEXdDO2ut3YA:10
- a=TjNXssC_j7lpFel5tvFf:22 a=cvBusfyB2V15izCimMoJ:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNzE3MDAyNyBTYWx0ZWRfX6ZJOOEuStCmU
- AI7Q4nskWrxM/oQKaAOixiOMMk9zwsatd8TK2NvW4NkhzAGIKukar7/zufXQbmlwg0FJWPAO+HZ
- kPqe+7mbn9UMeW2tWG8XZxs9Y/0XpdUaoIsTsvEFKMK/Bo/epHVSWZU9p8NqbGgfADkRGyfGcrm
- cti7SAZRsviRlYV2v1xP+WFRSQEj7lo9yZ0psiwB7xN9NhWpuQTdhvhQO2qewNDbmQhP3pPUuYG
- m7aaFEAAOFuiH8s1xGkUMxM/jKy8qCmMA8a6EntkDj1LALODvIdzYBzgzAdk4uiqjW4fBwiZQuo
- nzgvLnOf18BT9c8oy9pFQl0qVfLLc+KK/5ErhAWzeYE3hcSPpoL6XlEdKEy+Y33/OFhi5hBFEjs
- d76++/Dt76Z+XaiY0muKjCM5Un3ZEVfvSndOLQmpFiTYUEqTjux+zEoyIgt+rbdb4X1CtxCH
-X-Proofpoint-GUID: L_YyO-VRz5U42y7Nvyj6bm9BrLvwwg2a
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-07-17_01,2025-07-16_02,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 mlxscore=0 bulkscore=0 suspectscore=0 lowpriorityscore=0
- impostorscore=0 malwarescore=0 clxscore=1015 mlxlogscore=999
- priorityscore=1501 phishscore=0 spamscore=0 classifier=spam authscore=0
- authtc=n/a authcc= route=outbound adjust=0 reason=mlx scancount=1
- engine=8.19.0-2505280000 definitions=main-2507170027
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Message-Id: <20250717-optimize_clk-measure_accuracy-v1-1-3b82d7ccd743@amlogic.com>
+X-B4-Tracking: v=1; b=H4sIABVpeGgC/x3MywqDMBAF0F+RWTeg8QH6K1IkTK52qC8mtbSK/
+ 25weTbnoAAVBGqSgxRfCbLMEdkjIX65eYARH002tWVa2tws60cm2dHx+DYTXNgUnWPe1PHf1Mg
+ qIC8q7y3FY1X08rv/9nmeF2IYvtRvAAAA
+To: Neil Armstrong <neil.armstrong@linaro.org>, 
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Chuan Liu <chuan.liu@amlogic.com>
+X-Mailer: b4 0.14.1
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1752721686; l=5665;
+ i=chuan.liu@amlogic.com; s=20240902; h=from:subject:message-id;
+ bh=N/3vlGG77ppUoldRn7mPDqs/Hb4HNtWv9DnFUzoDwtI=;
+ b=G3dQuHvUVUhhE01nAgkCx1Jt5YmO8wMiDGj6Wgqen4aLCwVYmY/SBQ+xhKvn1XBhd/zWh9yDz
+ qH6T4KFQQTUC/T1P15jA2eUb5E7cUIo9jrtuAttVgOH2m/4UrgN0D1Q
+X-Developer-Key: i=chuan.liu@amlogic.com; a=ed25519;
+ pk=fnKDB+81SoWGKW2GJNFkKy/ULvsDmJZRGBE7pR5Xcpo=
+X-Endpoint-Received: by B4 Relay for chuan.liu@amlogic.com/20240902 with
+ auth_id=203
+X-Original-From: Chuan Liu <chuan.liu@amlogic.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250716_200406_998890_2CA5B703 
-X-CRM114-Status: GOOD (  25.72  )
+X-CRM114-CacheID: sfid-20250716_200811_938311_B0A7DC95 
+X-CRM114-Status: GOOD (  11.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,135 +84,152 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: chuan.liu@amlogic.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Chuan Liu <chuan.liu@amlogic.com>
 
+The cycle count register has a 20-bit effective width, but the driver
+only utilizes 16 bits. This reduces the sampling window when measuring
+high-frequency clocks, resulting in (slightly) degraded measurement
+accuracy.
 
-On 2025/7/16 18:45, Mike Leach wrote:
-> Hi,
-> 
-> On Wed, 16 Jul 2025 at 03:43, Jinlong Mao <quic_jinlmao@quicinc.com> wrote:
->>
->>
->>
->> On 2025/7/3 22:19, Leo Yan wrote:
->>> On Thu, Jul 03, 2025 at 09:04:53PM +0800, Mao Jinlong wrote:
->>>
->>> [...]
->>>
->>>> +static ssize_t label_show(struct device *dev,
->>>> +            struct device_attribute *attr, char *buf)
->>>> +{
->>>> +
->>>> +    const char *str;
->>>> +    int ret = 0;
->>>
->>> No need to init ret to 0.
->>>
->>>> +    ret = fwnode_property_read_string(dev_fwnode(dev), "label", &str);
->>>> +    if (ret == 0)
->>>> +            return scnprintf(buf, PAGE_SIZE, "%s\n", str);
->>>> +    else
->>>> +            return ret;
->>>> +}
->>>> +static DEVICE_ATTR_RO(label);
->>>> +
->>>>    static struct attribute *coresight_sink_attrs[] = {
->>>>       &dev_attr_enable_sink.attr,
->>>> +    &dev_attr_label.attr,
->>>>       NULL,
->>>>    };
->>>>    ATTRIBUTE_GROUPS(coresight_sink);
->>>>
->>>>    static struct attribute *coresight_source_attrs[] = {
->>>>       &dev_attr_enable_source.attr,
->>>> +    &dev_attr_label.attr,
->>>>       NULL,
->>>>    };
->>>>    ATTRIBUTE_GROUPS(coresight_source);
->>>>
->>>> +static struct attribute *coresight_link_attrs[] = {
->>>> +    &dev_attr_label.attr,
->>>> +    NULL,
->>>> +};
->>>> +ATTRIBUTE_GROUPS(coresight_link);
->>>> +
->>>> +static struct attribute *coresight_helper_attrs[] = {
->>>> +    &dev_attr_label.attr,
->>>> +    NULL,
->>>> +};
->>>> +ATTRIBUTE_GROUPS(coresight_helper);
->>>> +
->>>
->>> This change adds a 'label' entry for source, link, helper, and sink
->>> components, but the documentation has only updated for three components:
->>> CTI, funnel, and TPDM.
->>>
->>> Should we also update the documentation for all relevant components,
->>> such as ETM, ETR, etc.?
->>>
->>> Additionally, patch 01 is missing the update to the ETM yaml file for
->>> the new property. I checked patch v4 [1], which includes a change to
->>> etm.yaml, but this change was dropped since v5. I briefly read the
->>> v4 discussion thread and didn't see any mention of removing the ETM
->>> related change. Did you see any particular issue when add label for
->>> ETM devices?
->>>
->>> Overall, this series is fine for me. Just please ensure that all
->>> relevant components are covered for completeness.
->>>
->>> Thanks,
->>> Leo
->>>
->>
->> I will update all coresight docs.
->>
->> Thanks
->> Jinlong Mao
->>
->>> [1] https://patchwork.kernel.org/project/linux-arm-msm/cover/20240703122340.26864-1-quic_jinlmao@quicinc.com/
->>>
->>>>    const struct device_type coresight_dev_type[] = {
->>>>       [CORESIGHT_DEV_TYPE_SINK] = {
->>>>               .name = "sink",
->>>> @@ -390,6 +420,7 @@ const struct device_type coresight_dev_type[] = {
->>>>       },
->>>>       [CORESIGHT_DEV_TYPE_LINK] = {
->>>>               .name = "link",
->>>> +            .groups = coresight_link_groups,
->>>>       },
->>>>       [CORESIGHT_DEV_TYPE_LINKSINK] = {
->>>>               .name = "linksink",
->>>> @@ -401,6 +432,7 @@ const struct device_type coresight_dev_type[] = {
->>>>       },
->>>>       [CORESIGHT_DEV_TYPE_HELPER] = {
->>>>               .name = "helper",
->>>> +            .groups = coresight_helper_groups,
->>>>       }
->>>>    };
->>>>    /* Ensure the enum matches the names and groups */
->>>> --
->>>> 2.17.1
->>>>
->>>> _______________________________________________
->>>> CoreSight mailing list -- coresight@lists.linaro.org
->>>> To unsubscribe send an email to coresight-leave@lists.linaro.org
->>
-> 
-> Revisiting this - the label DT attribute is purely optional, and
-> provides context for the hardware instance.
-> This code as written appears to add a "label" file to all devices,
-> irrespective of if the label is set in the DT.or not, with blank
-> labels where  the attribute is not present.
-> The visibility of the sysfs attribute should be controlled so that it
-> only appears if label is present in the DT.
-> 
-I will follow this.
+The input clock signal path from gate (Controlled by MSR_RUN) to internal
+sampling circuit in clk-measure has a propagation delay requirement: 24
+clock cycles must elapse after mux selection before sampling.
 
-Thanks
-Jinlong Mao
-> Mike
-> 
+The measurement circuit employs single-edge sampling for clock frequency
+detection, resulting in a ±1 cycle count error within the measurement window.
+
++1 cycle: 3 rising edges captured in 2-cycle measurement window.
+    __    __    __
+ __↑  |__↑  |__↑  |__
+  ^             ^
+
+-1 cycle: 2 rising edges captured in 3-cycle measurement window.
+    __    __    __
+ __↑  |__↑  |__↑  |__↑
+    ^               ^
+
+Change-Id: If367c013fe2a8d0c8f5f06888bb8f30a1e46b927
+Signed-off-by: Chuan Liu <chuan.liu@amlogic.com>
+---
+Improve measurement accuracy by increasing the bit width of the cycle
+counter register and adding delay during measurement.
+
+The 800μs delay between enabling the input clock gate and activating
+sampling is determined by the minimum sampling frequency of 30kHz (the
+lowest commonly used frequency in applications is 32.768kHz).
+
+Here are the test comparisons based on C3:
+
+Pre-optimization:
+cat /sys/kernel/debug/meson-clk-msr/measure_summary 
+  clock                     rate    precision
+---------------------------------------------
+ sys_clk               166664063    +/-5208Hz
+ axi_clk               499968750    +/-15625Hz
+ rtc_clk                23982813    +/-3125Hz
+ p20_usb2_ckout        479968750    +/-15625Hz
+ eth_mpll_test         499992188    +/-15625Hz
+ sys_pll              1919875000    +/-62500Hz
+ cpu_clk_div16         119998162    +/-3676Hz
+ ts_pll                        0    +/-3125Hz
+ fclk_div2             999843750    +/-31250Hz
+ fclk_div2p5           799953125    +/-31250Hz
+ fclk_div3             666625000    +/-20833Hz
+ fclk_div4             499914063    +/-15625Hz
+ fclk_div5             399987500    +/-12500Hz
+ fclk_div7             285709821    +/-8928Hz
+ fclk_50m               49982813    +/-3125Hz
+ sys_oscin32k_i            26563    +/-3125Hz
+
+Post-optimization:
+cat /sys/kernel/debug/meson-clk-msr/measure_summary 
+  clock                     rate    precision
+---------------------------------------------
+ sys_clk               166665625    +/-1562Hz
+ axi_clk               499996875    +/-1562Hz
+ rtc_clk                24000000    +/-1562Hz
+ p20_usb2_ckout        479996875    +/-1562Hz
+ eth_mpll_test         499996875    +/-1562Hz
+ sys_pll              1919987132    +/-1838Hz
+ cpu_clk_div16         119998438    +/-1562Hz
+ ts_pll                        0    +/-1562Hz
+ fclk_div2             999993750    +/-1562Hz
+ fclk_div2p5           799995313    +/-1562Hz
+ fclk_div3             666656250    +/-1562Hz
+ fclk_div4             499996875    +/-1562Hz
+ fclk_div5             399993750    +/-1562Hz
+ fclk_div7             285712500    +/-1562Hz
+ fclk_50m               49998438    +/-1562Hz
+ sys_oscin32k_i            32813    +/-1562Hz
+---
+ drivers/soc/amlogic/meson-clk-measure.c | 27 ++++++++++++++++++---------
+ 1 file changed, 18 insertions(+), 9 deletions(-)
+
+diff --git a/drivers/soc/amlogic/meson-clk-measure.c b/drivers/soc/amlogic/meson-clk-measure.c
+index d862e30a244e..82acd8635bf8 100644
+--- a/drivers/soc/amlogic/meson-clk-measure.c
++++ b/drivers/soc/amlogic/meson-clk-measure.c
+@@ -22,7 +22,7 @@ static DEFINE_MUTEX(measure_lock);
+ #define MSR_CLK_SRC		GENMASK(26, 20)
+ #define MSR_BUSY		BIT(31)
+ 
+-#define MSR_VAL_MASK		GENMASK(15, 0)
++#define MSR_VAL_MASK		GENMASK(19, 0)
+ 
+ #define DIV_MIN			32
+ #define DIV_STEP		32
+@@ -805,14 +805,23 @@ static int meson_measure_id(struct meson_msr_id *clk_msr_id,
+ 	regmap_update_bits(priv->regmap, reg->freq_ctrl, MSR_DURATION,
+ 			   FIELD_PREP(MSR_DURATION, duration - 1));
+ 
+-	/* Set ID */
+-	regmap_update_bits(priv->regmap, reg->freq_ctrl, MSR_CLK_SRC,
+-			   FIELD_PREP(MSR_CLK_SRC, clk_msr_id->id));
++	/* Set the clock channel ID and enable the input clock gate. */
++	regmap_update_bits(priv->regmap, reg->freq_ctrl, MSR_CLK_SRC | MSR_RUN,
++			   FIELD_PREP(MSR_CLK_SRC, clk_msr_id->id) | MSR_RUN);
+ 
+-	/* Enable & Start */
+-	regmap_update_bits(priv->regmap, reg->freq_ctrl,
+-			   MSR_RUN | MSR_ENABLE,
+-			   MSR_RUN | MSR_ENABLE);
++	/*
++	 * HACK: The input clock signal path from gate (Controlled by MSR_RUN)
++	 * to internal sampling circuit in clk-measure has a propagation delay
++	 * requirement: 24 clock cycles must elapse after mux selection before
++	 * sampling.
++	 *
++	 * For a 30kHz measurement clock, this translates to an 800μs delay:
++	 * 800us = 24 / 30000Hz.
++	 */
++	fsleep(800);
++
++	/* Enable the internal sampling circuit and start clock measurement. */
++	regmap_update_bits(priv->regmap, reg->freq_ctrl, MSR_ENABLE, MSR_ENABLE);
+ 
+ 	ret = regmap_read_poll_timeout(priv->regmap, reg->freq_ctrl,
+ 				       val, !(val & MSR_BUSY), 10, 10000);
+@@ -846,7 +855,7 @@ static int meson_measure_best_id(struct meson_msr_id *clk_msr_id,
+ 	do {
+ 		ret = meson_measure_id(clk_msr_id, duration);
+ 		if (ret >= 0)
+-			*precision = (2 * 1000000) / duration;
++			*precision = 1000000 / duration;
+ 		else
+ 			duration -= DIV_STEP;
+ 	} while (duration >= DIV_MIN && ret == -EINVAL);
+
+---
+base-commit: 87b480e04af45833deb5af1584694b0077805ea6
+change-id: 20250523-optimize_clk-measure_accuracy-9e16ee346dd2
+
+Best regards,
+-- 
+Chuan Liu <chuan.liu@amlogic.com>
+
 
 
