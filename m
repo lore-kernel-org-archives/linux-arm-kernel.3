@@ -4,91 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 361F0C83F34
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 19:31:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F40DC83F34
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 20:32:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pgbqc2byaduB6oA4fQByf+JaGcP0jYWqwMPFb3GyxXA=; b=iUEIvkdSI502Y8otiWmzRDZOqF
-	H8agw5VtfJJpbFoRmbHyDqWpvxE/Fn2FkcOvEunC2HRDUs1QwmfqInCUtKb6n16uIM3boGIXu8MHH
-	WbaFsy1bFxmwkb40KMOMkIZgfWVoWf0BLkKfpihBID31CDffkDltw4DjzgWBy0ruVSIF0s/RUA2yH
-	iT9aBE02G5q+Xklb/fEdsaVb0UEZUUZgGIgm0noMCfc2iqG1/fs1G7IjeFF3cUkg+eBNrno1g985G
-	wctcW4teZCvW6KwyUgcg9F9dzvdF0iUR6HBX7u8Y0onzmxGm/Uyjb0TZ1A3xOaAAgxQ7jylqsf36h
-	50uwOEMw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6z7QFDFQQWZTPcIYG1N+mBlJl1O+AJOze8wDpcjoZsc=; b=UF4/rkfe+1tPq8rZ5bsbq7akqn
+	5SFr8DCaNh4DusH6H/OkLnG9LZDr96fCnLXA8+n+RyLlvRhORDuqaJ3jLg6YKjQ8hQocurLMQeeYz
+	rcnR/jGIW8EB1XxBeKVOpM8mzDI79Kolof2uXGQ0Se6/1/w6LexKHVVIDDuGQrPQ0viDDL1Xg3Rxd
+	zw5grOT1/mXgjvuLdHzKnH1eZjCK7KiMt+r1q36JwSeI8VNtf50ZcKekQgbCVNgrMMfHFiePFYfcj
+	in2Ttc76ax0AKxPY0KNHOhga5Wlc1hWv/Q4jxiXY9weNLXHSix2aGqkWSmZrLfWNn4qmPSbfrAqdO
+	cimaOlPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucUKZ-0000000B1HJ-1MRJ;
-	Thu, 17 Jul 2025 19:31:47 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1ucVGv-0000000B5zz-44TM;
+	Thu, 17 Jul 2025 20:32:05 +0000
+Received: from mgamail.intel.com ([198.175.65.18])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucU72-0000000AzEB-34KS
+	id 1ucVEU-0000000B5k3-1B2h
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Jul 2025 19:17:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1752779867;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=pgbqc2byaduB6oA4fQByf+JaGcP0jYWqwMPFb3GyxXA=;
-	b=JGqIpWc7gaTtetA5YqujYy/Arf0XJojRxQLu6SXhHBMEhnn5Ja5SjGMlXMMy13WIaxs4VC
-	naRggYb86q829D07WVnzZBth0MoGblrDOP8ecNI8MVm7vKAwvwMZOTMgcw0Dfh5uZ5j6iP
-	3AclywHLo64Az9iooUxl6J6IxQlAIVc=
-Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-505-UGXMtMRgN5qBHs7wokkJvw-1; Thu,
- 17 Jul 2025 15:17:43 -0400
-X-MC-Unique: UGXMtMRgN5qBHs7wokkJvw-1
-X-Mimecast-MFC-AGG-ID: UGXMtMRgN5qBHs7wokkJvw_1752779860
-Received: from mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.4])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id E99CE1800D82;
-	Thu, 17 Jul 2025 19:17:39 +0000 (UTC)
-Received: from chopper.redhat.com (unknown [10.22.66.69])
-	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id B834C30001B1;
-	Thu, 17 Jul 2025 19:17:33 +0000 (UTC)
-From: Lyude Paul <lyude@redhat.com>
-To: rust-for-linux@vger.kernel.org,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Boqun Feng <boqun.feng@gmail.com>,
-	linux-kernel@vger.kernel.org,
-	Daniel Almeida <daniel.almeida@collabora.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	x86@kernel.org (maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)),
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Juergen Christ <jchrist@linux.ibm.com>,
-	Brian Gerst <brgerst@gmail.com>,
-	Uros Bizjak <ubizjak@gmail.com>,
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM64 PORT (AARCH64 ARCHITECTURE)),
-	linux-s390@vger.kernel.org (open list:S390 ARCHITECTURE),
-	linux-arch@vger.kernel.org (open list:GENERIC INCLUDE/ASM HEADER FILES)
-Subject: [PATCH v12 02/15] preempt: Introduce __preempt_count_{sub, add}_return()
-Date: Thu, 17 Jul 2025 15:15:41 -0400
-Message-ID: <20250717191719.2076270-3-lyude@redhat.com>
-In-Reply-To: <20250717191719.2076270-1-lyude@redhat.com>
-References: <20250717191719.2076270-1-lyude@redhat.com>
+	Thu, 17 Jul 2025 20:29:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1752784175; x=1784320175;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=C6FdhU3UGgV2AuO9mM334Y3xFvIMzWgfEMGceIlV6tA=;
+  b=QJgeC7mzrF50Mg9BWWp2LbyaB3n5aviU7Du0is17ICPkTSUk2247sc8V
+   ZblH+Pim5JcOA2LuCIUPEfL3cac+mhSkreRoNK4kE9KwTLZaBQ6Hg/7TF
+   cNDAQH0bJ/qh2M3X9lfaIpD3JI3uTKC1pNxRhuT+D3XFxr/PYxt7dHBY3
+   QxiSyeGGT4phB+UVk0QjUi8LKySQcljk6mSJDf0/vYGpWomKLu7cI2UoU
+   SL50RoPDVL55tidpERQn6CJKSwW2D+oUD1MZTCIjPBVKwTFNRJ8FOip3U
+   PG0QPx5qLip4og6g44GAdyws40o1VzrD+z5P00leU8pJjGXEJbQkzO5Fy
+   g==;
+X-CSE-ConnectionGUID: l25hyWngSGCEWikS5jDPPg==
+X-CSE-MsgGUID: Ub0gf1veSuO7zXERPLq+uw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11495"; a="55199025"
+X-IronPort-AV: E=Sophos;i="6.16,319,1744095600"; 
+   d="scan'208";a="55199025"
+Received: from fmviesa010.fm.intel.com ([10.60.135.150])
+  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Jul 2025 13:29:33 -0700
+X-CSE-ConnectionGUID: IRcuRXtURFCGgyf33KkCAg==
+X-CSE-MsgGUID: TM9lQl1yQcCDNX9X15Gm1A==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.16,319,1744095600"; 
+   d="scan'208";a="158583072"
+Received: from lkp-server01.sh.intel.com (HELO 9ee84586c615) ([10.239.97.150])
+  by fmviesa010.fm.intel.com with ESMTP; 17 Jul 2025 13:29:28 -0700
+Received: from kbuild by 9ee84586c615 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1ucVEM-000E03-0r;
+	Thu, 17 Jul 2025 20:29:26 +0000
+Date: Fri, 18 Jul 2025 04:29:11 +0800
+From: kernel test robot <lkp@intel.com>
+To: Cosmin Tanislav <demonsingur@gmail.com>,
+	Cosmin Tanislav <cosmin.tanislav@analog.com>,
+	Tomi Valkeinen <tomi.valkeinen+renesas@ideasonboard.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Niklas =?iso-8859-1?Q?S=F6derlund?= <niklas.soderlund@ragnatech.se>,
+	Julien Massot <julien.massot@collabora.com>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Linus Walleij <linus.walleij@linaro.org>
+Cc: Paul Gazzillo <paul@pgazz.com>,
+	Necip Fazil Yildiran <fazilyildiran@gmail.com>,
+	oe-kbuild-all@lists.linux.dev, linux-media@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-staging@lists.linux.dev,
+	linux-gpio@vger.kernel.org
+Subject: Re: [PATCH v6 18/24] media: i2c: maxim-serdes: add MAX96717 driver
+Message-ID: <202507180404.Rvs0GsdN-lkp@intel.com>
+References: <20250716193111.942217-19-demonsingur@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.4
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250716193111.942217-19-demonsingur@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250717_121748_855077_8C78CD79 
-X-CRM114-Status: GOOD (  13.83  )
+X-CRM114-CacheID: sfid-20250717_132934_364904_05388A65 
+X-CRM114-Status: GOOD (  11.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,142 +101,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Boqun Feng <boqun.feng@gmail.com>
+Hi Cosmin,
 
-In order to use preempt_count() to tracking the interrupt disable
-nesting level, __preempt_count_{add,sub}_return() are introduced, as
-their name suggest, these primitives return the new value of the
-preempt_count() after changing it. The following example shows the usage
-of it in local_interrupt_disable():
+kernel test robot noticed the following build warnings:
 
-	// increase the HARDIRQ_DISABLE bit
-	new_count = __preempt_count_add_return(HARDIRQ_DISABLE_OFFSET);
+[auto build test WARNING on next-20250716]
+[also build test WARNING on v6.16-rc6]
+[cannot apply to robh/for-next staging/staging-testing staging/staging-next staging/staging-linus arm64/for-next/core linus/master v6.16-rc6 v6.16-rc5 v6.16-rc4]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-	// if it's the first-time increment, then disable the interrupt
-	// at hardware level.
-	if (new_count & HARDIRQ_DISABLE_MASK == HARDIRQ_DISABLE_OFFSET) {
-		local_irq_save(flags);
-		raw_cpu_write(local_interrupt_disable_state.flags, flags);
-	}
+url:    https://github.com/intel-lab-lkp/linux/commits/Cosmin-Tanislav/media-mc-Add-INTERNAL-pad-flag/20250717-033901
+base:   next-20250716
+patch link:    https://lore.kernel.org/r/20250716193111.942217-19-demonsingur%40gmail.com
+patch subject: [PATCH v6 18/24] media: i2c: maxim-serdes: add MAX96717 driver
+config: nios2-kismet-CONFIG_GENERIC_PINCONF-CONFIG_VIDEO_MAX96717-0-0 (https://download.01.org/0day-ci/archive/20250718/202507180404.Rvs0GsdN-lkp@intel.com/config)
+reproduce: (https://download.01.org/0day-ci/archive/20250718/202507180404.Rvs0GsdN-lkp@intel.com/reproduce)
 
-Having these primitives will avoid a read of preempt_count() after
-changing preempt_count() on certain architectures.
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202507180404.Rvs0GsdN-lkp@intel.com/
 
-Signed-off-by: Boqun Feng <boqun.feng@gmail.com>
+kismet warnings: (new ones prefixed by >>)
+>> kismet: WARNING: unmet direct dependencies detected for GENERIC_PINCONF when selected by VIDEO_MAX96717
+   WARNING: unmet direct dependencies detected for I2C_MUX
+     Depends on [n]: I2C [=n]
+     Selected by [y]:
+     - VIDEO_MAXIM_SERDES [=y] && MEDIA_SUPPORT [=y] && VIDEO_DEV [=y]
+   
+   WARNING: unmet direct dependencies detected for GENERIC_PINCONF
+     Depends on [n]: PINCTRL [=n]
+     Selected by [y]:
+     - VIDEO_MAX96717 [=y] && MEDIA_SUPPORT [=y] && VIDEO_DEV [=y] && COMMON_CLK [=y]
+   
+   WARNING: unmet direct dependencies detected for GENERIC_PINMUX_FUNCTIONS
+     Depends on [n]: PINCTRL [=n]
+     Selected by [y]:
+     - VIDEO_MAX96717 [=y] && MEDIA_SUPPORT [=y] && VIDEO_DEV [=y] && COMMON_CLK [=y]
+   
+   WARNING: unmet direct dependencies detected for GENERIC_PINCTRL_GROUPS
+     Depends on [n]: PINCTRL [=n]
+     Selected by [y]:
+     - VIDEO_MAX96717 [=y] && MEDIA_SUPPORT [=y] && VIDEO_DEV [=y] && COMMON_CLK [=y]
+   
+   WARNING: unmet direct dependencies detected for I2C_ATR
+     Depends on [n]: I2C [=n]
+     Selected by [y]:
+     - VIDEO_MAXIM_SERDES [=y] && MEDIA_SUPPORT [=y] && VIDEO_DEV [=y]
 
----
-V10:
-* Add commit message I forgot
-* Rebase against latest pcpu_hot changes
-V11:
-* Remove CONFIG_PROFILE_ALL_BRANCHES workaround from
-  __preempt_count_add_return()
-
-Signed-off-by: Lyude Paul <lyude@redhat.com>
----
- arch/arm64/include/asm/preempt.h | 18 ++++++++++++++++++
- arch/s390/include/asm/preempt.h  | 10 ++++++++++
- arch/x86/include/asm/preempt.h   | 10 ++++++++++
- include/asm-generic/preempt.h    | 14 ++++++++++++++
- 4 files changed, 52 insertions(+)
-
-diff --git a/arch/arm64/include/asm/preempt.h b/arch/arm64/include/asm/preempt.h
-index 0159b625cc7f0..49cb886c8e1dd 100644
---- a/arch/arm64/include/asm/preempt.h
-+++ b/arch/arm64/include/asm/preempt.h
-@@ -56,6 +56,24 @@ static inline void __preempt_count_sub(int val)
- 	WRITE_ONCE(current_thread_info()->preempt.count, pc);
- }
- 
-+static inline int __preempt_count_add_return(int val)
-+{
-+	u32 pc = READ_ONCE(current_thread_info()->preempt.count);
-+	pc += val;
-+	WRITE_ONCE(current_thread_info()->preempt.count, pc);
-+
-+	return pc;
-+}
-+
-+static inline int __preempt_count_sub_return(int val)
-+{
-+	u32 pc = READ_ONCE(current_thread_info()->preempt.count);
-+	pc -= val;
-+	WRITE_ONCE(current_thread_info()->preempt.count, pc);
-+
-+	return pc;
-+}
-+
- static inline bool __preempt_count_dec_and_test(void)
- {
- 	struct thread_info *ti = current_thread_info();
-diff --git a/arch/s390/include/asm/preempt.h b/arch/s390/include/asm/preempt.h
-index 6ccd033acfe52..5ae366e26c57d 100644
---- a/arch/s390/include/asm/preempt.h
-+++ b/arch/s390/include/asm/preempt.h
-@@ -98,6 +98,16 @@ static __always_inline bool should_resched(int preempt_offset)
- 	return unlikely(READ_ONCE(get_lowcore()->preempt_count) == preempt_offset);
- }
- 
-+static __always_inline int __preempt_count_add_return(int val)
-+{
-+	return val + __atomic_add(val, &get_lowcore()->preempt_count);
-+}
-+
-+static __always_inline int __preempt_count_sub_return(int val)
-+{
-+	return __preempt_count_add_return(-val);
-+}
-+
- #define init_task_preempt_count(p)	do { } while (0)
- /* Deferred to CPU bringup time */
- #define init_idle_preempt_count(p, cpu)	do { } while (0)
-diff --git a/arch/x86/include/asm/preempt.h b/arch/x86/include/asm/preempt.h
-index 578441db09f0b..1220656f3370b 100644
---- a/arch/x86/include/asm/preempt.h
-+++ b/arch/x86/include/asm/preempt.h
-@@ -85,6 +85,16 @@ static __always_inline void __preempt_count_sub(int val)
- 	raw_cpu_add_4(__preempt_count, -val);
- }
- 
-+static __always_inline int __preempt_count_add_return(int val)
-+{
-+	return raw_cpu_add_return_4(__preempt_count, val);
-+}
-+
-+static __always_inline int __preempt_count_sub_return(int val)
-+{
-+	return raw_cpu_add_return_4(__preempt_count, -val);
-+}
-+
- /*
-  * Because we keep PREEMPT_NEED_RESCHED set when we do _not_ need to reschedule
-  * a decrement which hits zero means we have no preempt_count and should
-diff --git a/include/asm-generic/preempt.h b/include/asm-generic/preempt.h
-index 51f8f3881523a..c8683c046615d 100644
---- a/include/asm-generic/preempt.h
-+++ b/include/asm-generic/preempt.h
-@@ -59,6 +59,20 @@ static __always_inline void __preempt_count_sub(int val)
- 	*preempt_count_ptr() -= val;
- }
- 
-+static __always_inline int __preempt_count_add_return(int val)
-+{
-+	*preempt_count_ptr() += val;
-+
-+	return *preempt_count_ptr();
-+}
-+
-+static __always_inline int __preempt_count_sub_return(int val)
-+{
-+	*preempt_count_ptr() -= val;
-+
-+	return *preempt_count_ptr();
-+}
-+
- static __always_inline bool __preempt_count_dec_and_test(void)
- {
- 	/*
 -- 
-2.50.0
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
