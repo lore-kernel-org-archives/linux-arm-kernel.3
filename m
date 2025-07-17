@@ -4,43 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74975C83F1B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 08:38:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C6ACC83F34
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 08:40:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=elEq4TGB1p/+toB2wqJm07o1LyqtL0pBFF4yduOZLOk=; b=SAEJXNoO8MZinlLV+4iuqhM/9v
-	5o7244Z0Lf4ymag9r2MiKEfNsKuVsc6tJVrLS0cAsZrwLuEX9b+gAVWcEwi8Oxf/tA1hfQFNqKaWH
-	VyoQvURd+eqg4xI2QoPHWt8mMgDQzkO+/j5GltfwUnqO2sDs/2BttXBu0punwDzE+cx2knzLgvHwD
-	Ojs4OiQtMFDsNt45EGz5QAJsDBiYFhGbt0csakqhUa+V6yIOtwZDejyJ3o9AXMAlflIOB/uSZrK8m
-	AA/q8rJ0zmXVbHFyQvconWDsd2suycaMCcuTAf5IPTRE3egyL8bqsNbj9lyoJDi2izv9XFfGcDj57
-	KLxsGqBQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=F6qJz6FW92hpTJPKGEZ8jdqv8tNGizAfpJ2FexjvlZE=; b=Mn5rhenBHLTz7bRcswkCvqEAc5
+	VDMqkWdTX4rAwp3VM+q3jJQ2yu4snkl9JprXp8jRfMC7KtNfByxvzb0hdEEwEspuhj/oj5j1w5CpM
+	ZC+sn+VHbGL61LzrtRRKvsDMHbFCvZzsKFpFzSaZDQkT1SWSJohP188P0L6mItBiuL6ddTTPEM/7d
+	i9rM7C3STbLf7kIyAv2g5S6VzpqzuXO/KC516TO3P+ruuxd29+mr7z2K2rEVTiEh8BbMP5ajQBQDZ
+	6G1zMabOwnE74KXM91XA9nY2WtQO7LAk1LZEGHFLvqC7e6I1sKIcOEcLbpBsYzXkCT0BFJfoBFaJm
+	ZtYPWgZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucK8E-00000009akw-3DBC;
-	Thu, 17 Jul 2025 08:38:22 +0000
+	id 1ucKAe-00000009b3p-2snj;
+	Thu, 17 Jul 2025 08:40:52 +0000
 Received: from relay9-d.mail.gandi.net ([2001:4b98:dc4:8::229])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucJ4Y-00000009S2c-0sE1
+	id 1ucJ4X-00000009S2P-27ew
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 17 Jul 2025 07:30:31 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 47485443E9;
-	Thu, 17 Jul 2025 07:30:27 +0000 (UTC)
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 7FA8D443F2;
+	Thu, 17 Jul 2025 07:30:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1752737428;
+	t=1752737425;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=elEq4TGB1p/+toB2wqJm07o1LyqtL0pBFF4yduOZLOk=;
-	b=M81MQu7wFyylQYqe5mYGiMJCvvRMlen0fACiCKbwOQTNgK6ilQqYVm4eANB5NQX9VGtoCl
-	nA/ddoJ0ShZhL7mWAj317EW284opuT0XT0Zxb2g3wfcI2XK80g0dHNxjaPb7UTMaDKjdup
-	UUI3rwLyHiZmoDFpnL3kLW7B+xXHQfZt5PZ+c5m47ITfAZb892q7yPfvFuf1102etivWdL
-	84bdCfjBP6Y0KzJbhfwR/oVQMzy4MrCIqLwnpuRs0IzAfDipJ1ooXRO3P4DXaPxXcssutO
-	5HZKUDIw96S2uWNuQy6XNuYU22GD3k177UgqiBX5Mvl8ps1b0REwHD443hYjiw==
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=F6qJz6FW92hpTJPKGEZ8jdqv8tNGizAfpJ2FexjvlZE=;
+	b=mnQATOc3JQW/VbrXaHC3ctIgELJULkrtEQmkUVcN1IraLZF2AmPXoo70V+Gc4vJaSRgn5y
+	7xW43NsGhSgXggVRbC/I3h46gB0mCXPJJx9jp00ff7PooG+4uIQRf7Ve90bbYzFT+9T5F3
+	ZnBVYIcTqb4GUO5FoeLMngGbRVaWMxTEphXzzAhMMoDMeb3QF0AC3U8MfTfdwDBiuXpow2
+	2Yagh8q+J9GbHDILox/X90nQAq1zeAvp4IdkTRtDYjkZVlhsLK1iw0bl2LA+H00Jk221Jo
+	CoT3Eb8uSpyG9VxvDaZoZ2Cfcx67275qqqLX/Q4Q8vS9Ml2ilAPfdiZW5nCGSQ==
 From: Maxime Chevallier <maxime.chevallier@bootlin.com>
 To: davem@davemloft.net
 Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
@@ -73,22 +72,20 @@ Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
 	Romain Gantois <romain.gantois@bootlin.com>,
 	Daniel Golle <daniel@makrotopia.org>,
 	Dimitri Fedrau <dimitri.fedrau@liebherr.com>
-Subject: [PATCH net-next v9 02/15] net: ethtool: common: Indicate that BaseT works on up to 4 lanes
-Date: Thu, 17 Jul 2025 09:30:06 +0200
-Message-ID: <20250717073020.154010-3-maxime.chevallier@bootlin.com>
+Subject: [PATCH net-next v9 00/15] net: phy: Introduce PHY ports representation
+Date: Thu, 17 Jul 2025 09:30:04 +0200
+Message-ID: <20250717073020.154010-1-maxime.chevallier@bootlin.com>
 X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250717073020.154010-1-maxime.chevallier@bootlin.com>
-References: <20250717073020.154010-1-maxime.chevallier@bootlin.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-GND-State: clean
 X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdehleellecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhephffvvefufffkofgjfhgggfestdekredtredttdenucfhrhhomhepofgrgihimhgvucevhhgvvhgrlhhlihgvrhcuoehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeevgedtffelffelveeuleelgfejfeevvdejhfehgeefgfffvdefteegvedutefftdenucfkphepvdgrtddumegtsgduleemkegugeehmeegledttdemieehieekmedvlegsudemlegvfhehmegvkegtjeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtudemtggsudelmeekugegheemgeeltddtmeeiheeikeemvdelsgdumeelvghfheemvgektgejpdhhvghlohepfhgvughorhgrrdhhohhmvgdpmhgrihhlfhhrohhmpehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeefuddprhgtphhtthhopegurghvvghmsegurghvvghmlhhofhhtrdhnvghtpdhrtghpthhtohepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdprhgtphhtthhopehnvghtuggvvhesvhhgvghrrdhkv
- ghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhmshhmsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtohepthhhohhmrghsrdhpvghtrgiiiihonhhisegsohhothhlihhnrdgtohhmpdhrtghpthhtoheprghnughrvgifsehluhhnnhdrtghhpdhrtghpthhtohepkhhusggrsehkvghrnhgvlhdrohhrgh
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdehleellecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhephffvvefufffkofgggfestdekredtredttdenucfhrhhomhepofgrgihimhgvucevhhgvvhgrlhhlihgvrhcuoehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeeufeevvdfggfdvteeliefhudfgtdfgffeuudehtdeiveeigeehgfeiudeludelfeenucffohhmrghinhepnhgvthguvghvtghonhhfrdhinhhfohdplhhptgdrvghvvghnthhspdhkvghrnhgvlhdrohhrghenucfkphepvdgrtddumegtsgduleemkegugeehmeegledttdemieehieekmedvlegsudemlegvfhehmegvkegtjeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtudemtggsudelmeekugegheemgeeltddtmeeiheeikeemvdelsgdumeelvghfheemvgektgejpdhhvghlohepfhgvughorhgrrdhhohhmvgdpmhgrihhlfhhrohhmpehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeefuddprhgtphhtthhopegurghvvghmsegurghvvghmlhhofhhtrdhnvghtpdhrtghpthhtohepmhgrgihimhgvr
+ dgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdprhgtphhtthhopehnvghtuggvvhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhmshhmsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtohepthhhohhmrghsrdhpvghtrgiiiihonhhisegsohhothhlihhnrdgtohhmpdhrtghpthhtoheprghnughrvgifsehluhhnnhdrtghhpdhrtghpthhtohepkhhusggrsehkvghrnhgvlhdrohhrgh
 X-GND-Sasl: maxime.chevallier@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250717_003030_393917_B91E75B2 
-X-CRM114-Status: GOOD (  12.88  )
+X-CRM114-CacheID: sfid-20250717_003030_372964_3FCAB2CC 
+X-CRM114-Status: GOOD (  25.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,60 +100,179 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The way BaseT modes (Ethernet over twisted copper pairs) are represented
-in the kernel are through the following modes :
+Hi everyone,
 
-  ETHTOOL_LINK_MODE_10baseT_Half
-  ETHTOOL_LINK_MODE_10baseT_Full
-  ETHTOOL_LINK_MODE_100baseT_Half
-  ETHTOOL_LINK_MODE_100baseT_Full
-  ETHTOOL_LINK_MODE_1000baseT_Half
-  ETHTOOL_LINK_MODE_1000baseT_Full
-  ETHTOOL_LINK_MODE_2500baseT_Full
-  ETHTOOL_LINK_MODE_5000baseT_Full
-  ETHTOOL_LINK_MODE_10000baseT_Full
-  ETHTOOL_LINK_MODE_100baseT1_Full
-  ETHTOOL_LINK_MODE_1000baseT1_Full
-  ETHTOOL_LINK_MODE_10baseT1L_Full
-  ETHTOOL_LINK_MODE_10baseT1S_Full
-  ETHTOOL_LINK_MODE_10baseT1S_Half
-  ETHTOOL_LINK_MODE_10baseT1S_P2MP_Half
-  ETHTOOL_LINK_MODE_10baseT1BRR_Full
+Here's a V9 for the phy port work, that includes some fixes from Rob's
+reviews, by addressing a typo and the mediums item list.
 
-The baseT1* modes explicitly specify that they work on a single,
-unshielded twister copper pair.
+I didn't include a compatible in the connector yet, but this can indeed
+be added if need be.
 
-However, the other modes do not state the number of pairs that are used
-to carry the link. 10 and 100BaseT use 2 twisted copper pairs, while
-1GBaseT and higher use 4 pairs.
+Before going into the details, a few important notes :
 
-although 10 and 100BaseT use 2 pairs, they can work on a Cat3/4/5+
-cables that contain 4 pairs.
+ - This is only a first phase. It instantiates the port, and leverage
+   that to make the MAC <-> PHY <-> SFP usecase simpler.
 
-Change the number of pairs associated to BaseT modes to indicate the
-allowable number of pairs for BaseT. Further commits will then refine
-the minimum number of pairs required for the linkmode to work.
+ - Next phase will deal with controlling the port state, as well as the
+   netlink uAPI for that.
 
-BaseT1 modes aren't affected by this commit.
+ - The end-goal is to enable support for complex port MUX. This
+   preliminary work focuses on PHY-driven ports, but this will be
+   extended to support muxing at the MII level (Multi-phy, or compo PHY
+   + SFP as found on Turris Omnia for example).
 
-Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
----
- net/ethtool/common.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ - The naming is definitely not set in stone. I named that "phy_port",
+   but this may convey the false sense that this is phylib-specific.
+   Even the word "port" is not that great, as it already has several
+   different meanings in the net world (switch port, devlink port,
+   etc.). I used the term "connector" in the binding.
 
-diff --git a/net/ethtool/common.c b/net/ethtool/common.c
-index 459cf25e763e..56467532a19a 100644
---- a/net/ethtool/common.c
-+++ b/net/ethtool/common.c
-@@ -267,7 +267,7 @@ static_assert(ARRAY_SIZE(link_mode_names) == __ETHTOOL_LINK_MODE_MASK_NBITS);
- #define __LINK_MODE_LANES_LR8_ER8_FR8	8
- #define __LINK_MODE_LANES_LRM		1
- #define __LINK_MODE_LANES_MLD2		2
--#define __LINK_MODE_LANES_T		1
-+#define __LINK_MODE_LANES_T		4
- #define __LINK_MODE_LANES_T1		1
- #define __LINK_MODE_LANES_X		1
- #define __LINK_MODE_LANES_FX		1
+A bit of history on that work :
+
+The end goal that I personnaly want to achieve is :
+
+            + PHY - RJ45
+            | 
+ MAC - MUX -+ PHY - RJ45
+
+After many discussions here on netdev@, but also at netdevconf[1] and
+LPC[2], there appears to be several analoguous designs that exist out
+there.
+
+[1] : https://netdevconf.info/0x17/sessions/talk/improving-multi-phy-and-multi-port-interfaces.html
+[2] : https://lpc.events/event/18/contributions/1964/ (video isn't the
+right one)
+
+Take the MAchiatobin, it has 2 interfaces that looks like this :
+
+ MAC - PHY -+ RJ45
+            |
+	    + SFP - Whatever the module does
+
+Now, looking at the Turris Omnia, we have :
+
+
+ MAC - MUX -+ PHY - RJ45
+            |
+	    + SFP - Whatever the module does
+
+We can find more example of this kind of designs, the common part is
+that we expose multiple front-facing media ports. This is what this
+current work aims at supporting. As of right now, it does'nt add any
+support for muxing, but this will come later on.
+
+This first phase focuses on phy-driven ports only, but there are already
+quite some challenges already. For one, we can't really autodetect how
+many ports are sitting behind a PHY. That's why this series introduces a
+new binding. Describing ports in DT should however be a last-resort
+thing when we need to clear some ambiguity about the PHY media-side.
+
+The only use-cases that we have today for multi-port PHYs are combo PHYs
+that drive both a Copper port and an SFP (the Macchiatobin case). This
+in itself is challenging and this series only addresses part of this
+support, by registering a phy_port for the PHY <-> SFP connection. The
+SFP module should in the end be considered as a port as well, but that's
+not yet the case.
+
+However, because now PHYs can register phy_ports for every media-side
+interface they have, they can register the capabilities of their ports,
+which allows making the PHY-driver SFP case much more generic.
+
+Let me know what you think, I'm all in for discussions :)
+
+Regards,
+
+Changes in V9:
+ - Removed maxItems and items from the connector binding
+ - Fixed a typo in the binding
+
+Changes in V8:
+ - Added maxItems on the connector media binding
+ - Made sure we parse a single medium
+ - Added a missing bitwise macro
+
+Changes in V7:
+ - Move ethtool_medium_get_supported to phy_caps
+ - support combo-ports, each with a given set of supported modes
+ - Introduce the notion of 'not-described' ports
+
+Changes in V6:
+
+ - Fixed kdoc on patch 3
+ - Addressed a missing port-ops registration for the Marvell 88x2222
+   driver
+ - Addressed a warning reported by Simon on the DP83822 when building
+   without CONFIG_OF_MDIO
+
+Changes in V5 :
+
+ - renamed the bindings to use the term "connector" instead of "port"
+ - Rebased, and fixed some issues reported on the 83822 driver
+ - Use phy_caps
+
+Changes in V4 :
+
+ - Introduced a kernel doc
+ - Reworked the mediums definitions in patch 2
+ - QCA807x now uses the generic SFP support
+ - Fixed some implementation bugs to build the support list based on the
+   interfaces supported on a port
+
+V8: https://lore.kernel.org/netdev/20250710134533.596123-1-maxime.chevallier@bootlin.com/
+v7: https://lore.kernel.org/netdev/20250630143315.250879-1-maxime.chevallier@bootlin.com/
+V6: https://lore.kernel.org/netdev/20250507135331.76021-1-maxime.chevallier@bootlin.com/
+V5: https://lore.kernel.org/netdev/20250425141511.182537-1-maxime.chevallier@bootlin.com/
+V4: https://lore.kernel.org/netdev/20250213101606.1154014-1-maxime.chevallier@bootlin.com/
+V3: https://lore.kernel.org/netdev/20250207223634.600218-1-maxime.chevallier@bootlin.com/
+RFC V2: https://lore.kernel.org/netdev/20250122174252.82730-1-maxime.chevallier@bootlin.com/
+RFC V1: https://lore.kernel.org/netdev/20241220201506.2791940-1-maxime.chevallier@bootlin.com/
+
+Maxime
+
+Maxime Chevallier (15):
+  dt-bindings: net: Introduce the ethernet-connector description
+  net: ethtool: common: Indicate that BaseT works on up to 4 lanes
+  net: ethtool: Introduce ETHTOOL_LINK_MEDIUM_* values
+  net: phy: Introduce PHY ports representation
+  net: phy: dp83822: Add support for phy_port representation
+  net: phy: Create a phy_port for PHY-driven SFPs
+  net: phy: Introduce generic SFP handling for PHY drivers
+  net: phy: marvell-88x2222: Support SFP through phy_port interface
+  net: phy: marvell: Support SFP through phy_port interface
+  net: phy: marvell10g: Support SFP through phy_port
+  net: phy: at803x: Support SFP through phy_port interface
+  net: phy: qca807x: Support SFP through phy_port interface
+  net: phy: Only rely on phy_port for PHY-driven SFP
+  net: phy: dp83822: Add SFP support through the phy_port interface
+  Documentation: networking: Document the phy_port infrastructure
+
+ .../bindings/net/ethernet-connector.yaml      |  45 +++
+ .../devicetree/bindings/net/ethernet-phy.yaml |  18 +
+ Documentation/networking/index.rst            |   1 +
+ Documentation/networking/phy-port.rst         | 111 ++++++
+ MAINTAINERS                                   |   3 +
+ drivers/net/phy/Makefile                      |   2 +-
+ drivers/net/phy/dp83822.c                     |  78 +++--
+ drivers/net/phy/marvell-88x2222.c             |  98 +++---
+ drivers/net/phy/marvell.c                     | 100 +++---
+ drivers/net/phy/marvell10g.c                  |  47 +--
+ drivers/net/phy/phy-caps.h                    |   5 +
+ drivers/net/phy/phy_caps.c                    |  58 ++++
+ drivers/net/phy/phy_device.c                  | 327 +++++++++++++++++-
+ drivers/net/phy/phy_port.c                    | 170 +++++++++
+ drivers/net/phy/qcom/at803x.c                 |  64 +---
+ drivers/net/phy/qcom/qca807x.c                |  75 ++--
+ include/linux/ethtool.h                       |  44 ++-
+ include/linux/phy.h                           |  38 +-
+ include/linux/phy_port.h                      |  97 ++++++
+ include/uapi/linux/ethtool.h                  |  20 ++
+ net/ethtool/common.c                          | 267 ++++++++------
+ 21 files changed, 1279 insertions(+), 389 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/net/ethernet-connector.yaml
+ create mode 100644 Documentation/networking/phy-port.rst
+ create mode 100644 drivers/net/phy/phy_port.c
+ create mode 100644 include/linux/phy_port.h
+
 -- 
 2.49.0
 
