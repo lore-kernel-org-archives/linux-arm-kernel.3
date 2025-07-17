@@ -4,66 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C52FAC83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 12:17:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBC5CC83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 12:19:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FzDViqHwu2RfpqU3N6PKdbRLm/UvcA4k+JxCzWWo+Xw=; b=ugWfq5FNEbHlFueEQaDM3bA3E+
-	Drz1fQ+BbGh8BXAOk5xF4L4JHa41YtJETTucwM7tKoUkv9r+En374dEg60VMkz/BgnE2p6h5aja0u
-	fYArJXpbx8TVztOcP6OrahtnXtq5wSUyZg2x9ZdBO6rVxxiPH2YibfqmlivbBEhAHvEgyHWVVuSUp
-	24kwvS77d/6r08jXtFePFwjhLKIptoJAozUe9xxssGmkD/UqZ3Y+9hZtVt4erdT3+UhW5Uu/K9EFL
-	kk3mbB2uVVcThaTCwTkiU+q/RQO3ma4KHmf5x5qqc6ZNRzCwEtj3JpmT1yaIv1GtpOy4sxmM5BaMH
-	odtvgVVA==;
+	bh=zdYamypvTxAx3Ku7DHfPuZb9WEnEeHrJk3VSFs/401A=; b=j5yKftNezK+sqMhiIAi2Zvr7sp
+	kFnsQbkZyxcWHAtcqG/QoysB8H8roOq6xuJM2Uo/ER2vkGAQvOEPSXBbbiVp8V4467gO86/YVxdq6
+	/JGxiuWbJ7lRhc1a8VHB3pM5EZew1VSj61P9Nn+LoRz3md1gbrF9MmeL5duwuFmLpGBGr40Hg0avg
+	QU9TaGVuXTL2fuemBZ/6sHfPD4GwISo1jJ5/BLfFwjP3MowqRl+aYzvt+aiBPu+g4Q07Dmyfq+uJH
+	FZbRNergMrmo/XlIayiPT1HjjlBtsBN1eXmutp3xkhFp+VXbl5h215VOvW7TqukXm1V0eDDEreuur
+	XevQCv1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucNY7-0000000A5fT-29GN;
-	Thu, 17 Jul 2025 12:17:19 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1ucNaX-0000000A685-11fB;
+	Thu, 17 Jul 2025 12:19:49 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucM8C-00000009t3B-0IHe
+	id 1ucM8E-00000009t3V-0JJI
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Jul 2025 10:46:29 +0000
+	Thu, 17 Jul 2025 10:46:31 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 90D4F5C6907;
+	by nyc.source.kernel.org (Postfix) with ESMTP id 6265FA57853;
+	Thu, 17 Jul 2025 10:46:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BCAE2C4CEF0;
 	Thu, 17 Jul 2025 10:46:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9AD73C4CEED;
-	Thu, 17 Jul 2025 10:46:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752749187;
-	bh=gx5/G6zzlqK9prZpiz6/I2jYvB1WZ4q5jmJ/0wHnyEw=;
+	s=k20201202; t=1752749189;
+	bh=BPQRhJu4WuTyEH2d/mXKogr4/Dl2oBnBFlU/tk2u1YI=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=mGKvmMCmUZ+GzcSVQRFWy3zlaCTPGCGzmUiN5x7qOgZ3wcIXrPY0e5Dy/lXX2PsBO
-	 W+JhlTJSfnxllqQyhZ2r4UXNZ9k8pOslCZBD0sRg3fimb95vLgHTNvhtVkpuhHGDot
-	 d4mFNt/KtHtHN/zN+vinIJD23AKyMCdRYYfwTnwQuodhnf0jJ1O6yu6SeURhDdh9mF
-	 1e4MC9lT7FZ69d6EKGbh/TK6NM7vR5xtYfqRFPF+EyLDXv4x7ah+iZxvyu/DJwFPzu
-	 1ZbxaBeYtmX/dinV4MTPeduJYna467wXWy5/AI4BmfQhCF4dqKtAv+uAoh33i/MO98
-	 KEHclzV/CGZTg==
+	b=qT+QkDG5FL0haJPJ6DU3Jxayt9PLHcnpuSZX8OsXHGX/nFNEKukRsi/NSbThXsfHX
+	 XW80y2LwnngWFYDAKhNhP6FHDqW7r+TV/p1nb9ZbF7QZp6zUo0liO9b/n6GQ+TPPzW
+	 VhbkkajrXlUTKdCYVl3YL/Qj+76CuHHfHaL2v7l6rK5rakEPS51e5/usEjkgrR997I
+	 kNYFgUqG4fUCoIqJ1V2a27RV59ta1UDiayakhGGEX1G1aj14UhMn++ERnfcJxyZWjw
+	 +6sVO3Hn6LIun+FrHEXbA9oeHNIO5bi6QNtcJ08BEjqSF4jgH5F3a8eXjJFNi1xhnc
+	 JW7bmaAd56X6w==
 From: Will Deacon <will@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>,
-	Shuah Khan <shuah@kernel.org>,
 	Mark Brown <broonie@kernel.org>
 Cc: kernel-team@android.com,
 	Will Deacon <will@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kselftest@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] kselftest/arm4: Provide local defines for AT_HWCAP3
-Date: Thu, 17 Jul 2025 11:46:16 +0100
-Message-Id: <175274687562.736017.4541105049784210584.b4-ty@kernel.org>
+Subject: Re: [PATCH v2] arm64/gcs: Don't call gcs_free() when releasing task_struct
+Date: Thu, 17 Jul 2025 11:46:17 +0100
+Message-Id: <175258790439.3684657.2697022341807842240.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250715-arm64-selftest-bodge-hwcap3-v1-1-541b54bc43bb@kernel.org>
-References: <20250715-arm64-selftest-bodge-hwcap3-v1-1-541b54bc43bb@kernel.org>
+In-Reply-To: <20250714-arm64-gcs-release-task-v2-1-8a83cadfc846@kernel.org>
+References: <20250714-arm64-gcs-release-task-v2-1-8a83cadfc846@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250717_034628_154981_0CF26086 
-X-CRM114-Status: UNSURE (   9.06  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250717_034630_183849_5CAA729E 
+X-CRM114-Status: GOOD (  12.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,20 +75,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 15 Jul 2025 22:11:41 +0100, Mark Brown wrote:
-> Some build environments for the selftests are not picking up the newly
-> added AT_HWCAP3 when using the libc headers, even with headers_install
-> (which we require already for the arm64 selftests).  As a quick fix add
-> local definitions of the constant to tools use it, while auxvec.h is
-> installed with some toolchains it needs some persuasion to get picked up.
+On Mon, 14 Jul 2025 12:21:27 +0100, Mark Brown wrote:
+> Currently we call gcs_free() when releasing task_struct but this is
+> redundant, it attempts to deallocate any kernel managed userspace GCS
+> which should no longer be relevant and resets values in the struct we're
+> in the process of freeing.
 > 
+> By the time arch_release_task_struct() is called the mm will have been
+> disassociated from the task so the check for a mm in gcs_free() will
+> always be false, for threads that are exiting leaving the mm active
+> deactivate_mm() will have been called previously and freed any kernel
+> managed GCS.
 > 
 > [...]
 
-Applied to arm64 (for-next/kselftest), thanks!
+Applied to arm64 (for-next/misc), thanks!
 
-[1/1] kselftest/arm4: Provide local defines for AT_HWCAP3
-      https://git.kernel.org/arm64/c/54c605124da6
+[1/1] arm64/gcs: Don't call gcs_free() when releasing task_struct
+      https://git.kernel.org/arm64/c/75fdf823f94b
 
 Cheers,
 -- 
