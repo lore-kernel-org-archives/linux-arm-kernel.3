@@ -4,45 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A590C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 11:28:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B410C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 11:31:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1wfZiqyoMIkdNVGwHZy+CMiRdJypJbrqsshvmZY5qss=; b=NVB/RAiacWzX7z9VLbKi9g/dZJ
-	SGMhLn/4slO/1/aEszvs8flm/ZiX32BOa1ctrWRazW7P4S6UcqbnSHAYpGuVwEfZBzuf+HL3rR9Or
-	ksddLDJjGYKiQIhLXs4l6Dt981IbBuX7I9Ke7snqpuV8TQiKQCsDiE0O8NPQpWKkk6q1WrazES1vW
-	B6BIahFJyWFSJV6qxJTYIT/Mg470dcDzIL1Lse/bGjOkJoZ7baBjjCm7ewY9oSSaVmWkjrlVCb6p6
-	D+TyRmI2s3svnY1AVDC5n5UXsqsTE8LeT2qgmkyODTgAgGQOzGwbUZ0UrW+A1Tcwrb7YJC4Fd6ZKr
-	FQQuwPvQ==;
+	bh=xJuVCgpbZNFFhObKZrE01zWGJP+qON9crufkzVPywzQ=; b=XJR4N0pqvaJn+UaltyYN7bmIjl
+	L8ritlCW5p5s/hB6wJ8iGt93umryZWOIrejxDhPQ4RnEivg6/bCoWk9GH4kkWic4+XO8TLtOZ+z+3
+	tIkQckXUKC+xfnHolgUuZKn3IUXmqKbrsVgGhsfHSCCsYeDrt2Xf+pvG7A7Derp4oY1cx2Hu1Y6nX
+	3FhnFF1qDj/M6bfuz6S70/D9xKGxnhqfrsOBawTa0oH4HYwSbNa4PUYv+uinbFazYB8TzUjwCOiY9
+	K/QUtjvA5h8F1nIjszlhu6sYQLWc2DTB1kIxgvFl3w7vfE5wh/Ii5q9rpEnYhyvv/UhQPC//vXIg+
+	NTtHxgSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucMmM-00000009yme-1av9;
-	Thu, 17 Jul 2025 11:27:58 +0000
+	id 1ucMpr-00000009zBg-04TP;
+	Thu, 17 Jul 2025 11:31:35 +0000
 Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucM7V-00000009seI-3HAd;
-	Thu, 17 Jul 2025 10:45:47 +0000
+	id 1ucM7e-00000009skK-32OW;
+	Thu, 17 Jul 2025 10:45:56 +0000
 Received: from [192.168.0.172] (mob-5-90-140-254.net.vodafone.it [5.90.140.254])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 2334920EE;
-	Thu, 17 Jul 2025 12:45:09 +0200 (CEST)
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 8609C21F2;
+	Thu, 17 Jul 2025 12:45:18 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1752749110;
-	bh=MQRwA7fqy++hrn9wDtM90iaXfefqzRiYRYRIsmH0eBo=;
+	s=mail; t=1752749119;
+	bh=197W8u1gSO7XU4oga3u7Ge9U/VY49m37BOEZ2Y4hDcg=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=UmMTSjqpvuVK3Q9KhJ/6vo6FB2X7TmnS9CtKSLhWRQWZkt9vsA1wVHbZOThrW7dhz
-	 IhhdheGJKW8JWVr1A2GaERsmxTUZv78WloBiw4NxFgKEclyMQYv5i+sdFiRtexJAZH
-	 lziStg4Yo7dms0xsYVljmvVKFq0eT2rBh4QE/c9U=
+	b=ja8iQTKheZrLtCb1fEdWhqHs4ashqfpbS6Qc77UCXxliQQ1HArA2OrSDb6YapkbMO
+	 estn3R9optM/LLPZjT0X4kvpP7mKvO/HJCyQPNn5bHRm0429McUbs0cRPx1JX/A6x3
+	 A4nUgW+bNdItefXcwOzffLuMqkgTZN38VR2tBQt4=
 From: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-Date: Thu, 17 Jul 2025 12:45:29 +0200
-Subject: [PATCH 03/26] media: media-entity: Introduce media_entity_context
+Date: Thu, 17 Jul 2025 12:45:35 +0200
+Subject: [PATCH 09/26] media: v4l2-dev: Add
+ video_device_context_from_file()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250717-multicontext-mainline-2025-v1-3-81ac18979c03@ideasonboard.com>
+Message-Id: <20250717-multicontext-mainline-2025-v1-9-81ac18979c03@ideasonboard.com>
 References: <20250717-multicontext-mainline-2025-v1-0-81ac18979c03@ideasonboard.com>
 In-Reply-To: <20250717-multicontext-mainline-2025-v1-0-81ac18979c03@ideasonboard.com>
 To: Sakari Ailus <sakari.ailus@linux.intel.com>, 
@@ -61,26 +62,26 @@ Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
  linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
  Jacopo Mondi <jacopo.mondi@ideasonboard.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=7515;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3667;
  i=jacopo.mondi@ideasonboard.com; h=from:subject:message-id;
- bh=MQRwA7fqy++hrn9wDtM90iaXfefqzRiYRYRIsmH0eBo=;
- b=owEBbQKS/ZANAwAKAXI0Bo8WoVY8AcsmYgBoeNRP61XYyB838338Dlg46RgQigjlhUEOJLdzh
- pII+hfKMCSJAjMEAAEKAB0WIQS1xD1IgJogio9YOMByNAaPFqFWPAUCaHjUTwAKCRByNAaPFqFW
- PI2dEACya3+bVHv1j5Q2ClKKwUIQDW7LYn3klEs1T+ShPGyyx4nq8E5dcUCsVwIxWxozjM7CUoD
- smQnWh4p2o9Spj5d0CBlpbwE3Lbwb3MgCdy714aRGAVEBiZ21gdBPX0oGsqZsj0ypzH3Zv/ShA0
- aEhfY+C2MYh3DELVyD7jTOqXH5qxv+tJ1FgWzHeow2PfbBwgDKA7XmWptovTY7Z9snAg3bEIb8Z
- m76uybcPBLDfk/wT0oawiBV8sqP1Ime9lccZPSZ5tcZ+XXnlahPesOCAvTrd2ynoMcZd8wFSJwj
- SxBQGy0y1O90+ZlZF3KHS6q7ACip6TWG+9JWbAseveDK6ErmPrvLZtKZK9uBnsu5F+vMDMDZIq8
- U8iuwMrfglLTNOl+3REOkp0VWAULKQB12uhf6LBjOs1ytGK/l0V7+7V2pvAauXsjB2BVEKsgYDm
- OtizhgDp40rxeDL1Kx2Q343YbH5JjvwakLgC3Z5BplfsBvQvlNc0ysRz42heI+5ZIhwEgP1CBJ1
- GOr0O9+qEljK1wqSCi6uVGWD5P5vtlwPqxAoKPcRzzGIciWb9yXayQryVB4AM7UCtHh0Mly+oY0
- SW1PMxXxt8rL4Kdf5wbgwRgpamluIh1JMZ6DfMMrR5nCHHNkiWJh/AuRRcjyRce5129+T81TZWS
- UHFcHlZr5cbHwWQ==
+ bh=197W8u1gSO7XU4oga3u7Ge9U/VY49m37BOEZ2Y4hDcg=;
+ b=owEBbQKS/ZANAwAKAXI0Bo8WoVY8AcsmYgBoeNRPaIxen4Bw+KjcuuI/aC5KhOiFFpyZ9JkIi
+ eu2RNObyE2JAjMEAAEKAB0WIQS1xD1IgJogio9YOMByNAaPFqFWPAUCaHjUTwAKCRByNAaPFqFW
+ PMX6D/4380V0vWPd3gLiLX2RuDp2c2NJYxbw0KLgTkZAmggpTnVeZHIBeZ1lgcUOQM34GAhqQBl
+ Skv2pazfVaQZio+jfqnSTW5526fyb56tq3618wm4Wanq2R1MKN7lsBkqNtmgMWR6Uod2lsHKHhd
+ bnmhhyvNFUKkpKAcEmMcWctv+9cRZaBhpRjtkaFFI7jGL8i/Cj8q99Qp0VFx85u9wBnbsxHeV91
+ qcUEZV2t7IfqOacFeoNhCMg95wB31iyQHVDMir8Mnc0lqd/VSc6j4MN0glKjaz+EWGFeLYeUD9i
+ 1v/wJdyZiC+6ECKFTgL5yn2bu2vuqhqAKcckj9/I0gIB0EfToDlNdHfK2bqQ43+Dre5l2J5VVNb
+ +1b+qZ9rt7VNuOdfVNLDoC6PWGYFOR31U2syyfW2KsJhc+SjfK+njqVBuZ+QggRHyRJsP9/Z7K/
+ QKmdk2lExSHvmlVR4ZiuzJxf22lxDPYfnHl3ZfwBqfqlP+o0UWY4MeHZOijMezr/dOOZc3QRyAd
+ aLrOHG1tYEPHoynqFzqmlzLkBnJzNJa7IMFkkJUiq9eMGkmD9f1YQKhtYH8P/vR/ozlki/XLZht
+ DPANRuh9Z9U+kckKjZ6tuWZHZabo/whsWs8+VQIlS0lvM5mJdiS1ITOf025nkHF1UmRanm36ikM
+ cdpq3tAQIE/ogQQ==
 X-Developer-Key: i=jacopo.mondi@ideasonboard.com; a=openpgp;
  fpr=72392EDC88144A65C701EA9BA5826A2587AD026B
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250717_034546_007066_30D69815 
-X-CRM114-Status: GOOD (  17.95  )
+X-CRM114-CacheID: sfid-20250717_034554_910497_6A6007A4 
+X-CRM114-Status: GOOD (  16.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,211 +96,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce the 'struct media_entity_context' type, which serves for
-reference counting and introduce two new media entity operations to
-allow drivers to allocate and free a media entity context.
+Introduce an helper function to get a video_device_context from file.
+If no context has been bound to the file, return the video device
+default context.
 
-The newly introduced type will be used as a base type for the
-device context types (video_device_context and v4l2_subdevice_context)
-that will be introduced in the next patches.
+As a video device context lifetime is bound to the one of the file
+handle it is associated with, and the intended user of this helper are
+the v4l2_ioctl_ops handlers that operates on an open file handle, the
+context returned by this function is guaranteed to be valid for the
+whole function scope of the caller.
 
 Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
 ---
- drivers/media/mc/mc-entity.c |  46 ++++++++++++++++++++
- include/media/media-entity.h | 101 +++++++++++++++++++++++++++++++++++++++++++
- 2 files changed, 147 insertions(+)
+ drivers/media/v4l2-core/v4l2-dev.c | 15 +++++++++++++++
+ include/media/v4l2-dev.h           | 30 ++++++++++++++++++++++++++++++
+ 2 files changed, 45 insertions(+)
 
-diff --git a/drivers/media/mc/mc-entity.c b/drivers/media/mc/mc-entity.c
-index 045590905582054c46656e20463271b1f93fa6b4..b4a9f0a0aa7353d7a3333f20903980956b3df4a7 100644
---- a/drivers/media/mc/mc-entity.c
-+++ b/drivers/media/mc/mc-entity.c
-@@ -1673,3 +1673,49 @@ struct media_link *__media_entity_next_link(struct media_entity *entity,
- 	return NULL;
- }
- EXPORT_SYMBOL_GPL(__media_entity_next_link);
-+
-+static void media_entity_release_context(struct kref *refcount)
-+{
-+	struct media_entity_context *ctx =
-+		container_of(refcount, struct media_entity_context, refcount);
-+
-+	ctx->entity->ops->destroy_context(ctx);
-+}
-+
-+struct media_entity_context *
-+media_entity_context_get(struct media_entity_context *ctx)
-+{
-+	if (!ctx)
-+		return ERR_PTR(-EINVAL);
-+
-+	kref_get(&ctx->refcount);
-+
-+	return ctx;
-+}
-+EXPORT_SYMBOL_GPL(media_entity_context_get);
-+
-+void media_entity_context_put(struct media_entity_context *ctx)
-+{
-+	if (!ctx)
-+		return;
-+
-+	kref_put(&ctx->refcount, media_entity_release_context);
-+}
-+EXPORT_SYMBOL_GPL(media_entity_context_put);
-+
-+void media_entity_init_context(struct media_entity *entity,
-+			       struct media_entity_context *ctx)
-+{
-+	if (!ctx)
-+		return;
-+
-+	ctx->entity = entity;
-+	kref_init(&ctx->refcount);
-+	INIT_LIST_HEAD(&ctx->list);
-+}
-+EXPORT_SYMBOL_GPL(media_entity_init_context);
-+
-+void media_entity_cleanup_context(struct media_entity_context *ctx)
-+{
-+}
-+EXPORT_SYMBOL_GPL(media_entity_cleanup_context);
-diff --git a/include/media/media-entity.h b/include/media/media-entity.h
-index 64cf590b11343f68a456c5870ca2f32917c122f9..32298fe8a18c6ee3c1dbcff9ef869548904417a7 100644
---- a/include/media/media-entity.h
-+++ b/include/media/media-entity.h
-@@ -15,6 +15,7 @@
- #include <linux/bug.h>
- #include <linux/container_of.h>
- #include <linux/fwnode.h>
-+#include <linux/kref.h>
- #include <linux/list.h>
- #include <linux/media.h>
- #include <linux/minmax.h>
-@@ -248,6 +249,37 @@ struct media_pad {
- 	struct media_pipeline *pipe;
- };
- 
-+/**
-+ * struct media_entity_context - A media entity execution context
-+ * @mdev_context: The media device context this media entity is bound to.
-+ *		  The field is initialized when the entity is bound to a media
-+ *		  device context.
-+ * @entity: The media entity this context belongs to
-+ * @refcount: The kref reference counter
-+ * list: The list entry to link the entity context in the media device context
-+ *
-+ * This type represent the 'base class' used to implement execution context for
-+ * video device contexts and subdevice contexts. Those types embedds an instance
-+ * of 'struct media_entity_context' as their first member, allowing the MC core
-+ * to implement type polymorphism and handle video device and subdevice contexts
-+ * transparently.
-+ *
-+ * The main function of this type is to provide reference counting for the
-+ * 'dervived' device context types. The video device and subdevice core
-+ * populates the 'context_release' function pointer that implement specific
-+ * clean-up operations, similar to what a 'virtual destructor' would do in C++.
-+ *
-+ * Drivers are not expected to use this type directly, but only the MC core
-+ * will.
-+ */
-+struct media_device_context;
-+struct media_entity_context {
-+	struct media_device_context *mdev_context;
-+	struct media_entity *entity;
-+	struct kref refcount;
-+	struct list_head list;
-+};
-+
- /**
-  * struct media_entity_operations - Media entity operations
-  * @get_fwnode_pad:	Return the pad number based on a fwnode endpoint or
-@@ -269,6 +301,15 @@ struct media_pad {
-  *			media_entity_has_pad_interdep().
-  *			Optional: If the operation isn't implemented all pads
-  *			will be considered as interdependent.
-+ * @alloc_context:	Allocate a media entity context. Drivers are allowed to
-+ *			sub-class the entity context type by defining a driver
-+ *			specific type that embeds an instance of either a
-+ *			video_device_context or subdevice_context as first
-+ *			member, and allocate the size of a driver-specific type
-+ *			in the implementation of this operation. Returns 0 for
-+ *			success, or an error code < 0 otherwise.
-+ * @destroy_context:	Release a media entity context previously allocated by
-+ *			the driver.
-  *
-  * .. note::
-  *
-@@ -284,6 +325,9 @@ struct media_entity_operations {
- 	int (*link_validate)(struct media_link *link);
- 	bool (*has_pad_interdep)(struct media_entity *entity, unsigned int pad0,
- 				 unsigned int pad1);
-+	int (*alloc_context)(struct media_entity *entity,
-+			     struct media_entity_context **context);
-+	void (*destroy_context)(struct media_entity_context *context);
- };
- 
- /**
-@@ -1448,3 +1492,60 @@ struct media_link *__media_entity_next_link(struct media_entity *entity,
- 					     MEDIA_LNK_FL_DATA_LINK))
- 
+diff --git a/drivers/media/v4l2-core/v4l2-dev.c b/drivers/media/v4l2-core/v4l2-dev.c
+index 2d78096931efd88215bc847b105e198a54035546..96696959314abfb1864ea5d96742e579b5a41f6f 100644
+--- a/drivers/media/v4l2-core/v4l2-dev.c
++++ b/drivers/media/v4l2-core/v4l2-dev.c
+@@ -1180,6 +1180,21 @@ struct dentry *v4l2_debugfs_root(void)
+ EXPORT_SYMBOL_GPL(v4l2_debugfs_root);
  #endif
+ 
++struct video_device_context *
++video_device_context_from_file(struct file *filp, struct video_device *vfd)
++{
++	struct v4l2_fh *vfh =
++		test_bit(V4L2_FL_USES_V4L2_FH, &vfd->flags) ? filp->private_data
++							    : NULL;
 +
-+/**
-+ * media_entity_context_get - Increase the media entity context reference count
-+ *			      and return a reference to it
-+ *
-+ * @ctx: the media entity context
-+ *
-+ * Increase the media entity context reference count. The reference count
-+ * is increased by the V4L2 core when:
-+ *
-+ * * a new context is allocated when bounding a media entity to a media device
-+ *   context (by kref_init())
-+ * * the media pipeline the context is part of starts streaming
-+ *
-+ * The entity context gets automatically decreased by the V4L2 core when:
-+ *
-+ * * a context is unbound
-+ * * the pipeline stops streaming
-+ */
-+struct media_entity_context *
-+media_entity_context_get(struct media_entity_context *ctx);
++	/* If the file handle has been bound to a context return it. */
++	if (vfh && vfh->context)
++		return vfh->context;
 +
-+/**
-+ * media_entity_context_put - Decrease the media entity context reference count
-+ *
-+ * @ctx: the media entity context
-+ *
-+ * Decrease the media entity context reference count. The reference count
-+ * is decreased by the V4L2 core when:
-+ *
-+ * * the file handle the context is associated with is closed
-+ * * the media pipeline the context is part of is stopped
-+ */
-+void media_entity_context_put(struct media_entity_context *ctx);
++	return vfd->default_context;
++}
++EXPORT_SYMBOL_GPL(video_device_context_from_file);
 +
+ #if defined(CONFIG_MEDIA_CONTROLLER)
+ 
+ __must_check int video_device_pipeline_start(struct video_device *vdev,
+diff --git a/include/media/v4l2-dev.h b/include/media/v4l2-dev.h
+index 9e1cf58623acc4ab5f503a9663fd999b38130226..a41afb81663bc9cb3bfc06dcf9b11ceeaf7c3415 100644
+--- a/include/media/v4l2-dev.h
++++ b/include/media/v4l2-dev.h
+@@ -789,6 +789,36 @@ int video_device_init_context(struct video_device *vdev,
+  */
+ void video_device_cleanup_context(struct video_device_context *ctx);
+ 
 +/**
-+ * media_entity_init_context - Initialize the media entity context
++ * video_device_context_from_file - Get the video device context associated with
++ *				    an open file handle
++ * @filp: The file handle
++ * @vdev: The video device
 + *
-+ * @entity: the media entity this context belongs to
-+ * @ctx: the media entity context
++ * If a video device context has been bound to an open file handle by a call
++ * to the VIDIOC_BIND_CONTEXT ioctl this function returns it, otherwise returns
++ * the default video device context.
 + *
-+ * Initialize the media entity context by initializing the kref reference
-+ * counter. The intended caller of this function are the video device context
-+ * and subdevic context initialize functions.
++ * The intended callers of this helper are the driver-specific v4l2_ioctl_ops
++ * handlers, which receive as first argument a file pointer. By using this
++ * helper drivers can get the context associated with such file, if any.
++ * Otherwise, if the video device  has not been bound to any media device
++ * context, the default video device context is returned.
++ *
++ * As video device contexts are reference counted and their lifetime is
++ * guaranteed to be at least the one of the file handle they are associated
++ * with, callers of this function are guaranteed to always receive a valid
++ * context reference by this function. The reference will remain valid for the
++ * whole function scope of the caller that has received the open file handle as
++ * argument. Likewise, accessing the media context from the video device context
++ * returned by this function is always safe within the same function scope.
++ *
++ * This function does not increase the reference count of the returned video
++ * device context.
 + */
-+void media_entity_init_context(struct media_entity *entity,
-+			       struct media_entity_context *ctx);
++struct video_device_context *
++video_device_context_from_file(struct file *filp, struct video_device *vdev);
 +
-+/**
-+ * media_entity_cleanup_context - Cleanup the media entity context
-+ *
-+ * @ctx: the media entity context
-+ *
-+ * Cleanup the media entity context. The intended caller of this function are
-+ * the video device and subdevice context cleanup functions.
-+ */
-+void media_entity_cleanup_context(struct media_entity_context *ctx);
+ #endif /* CONFIG_MEDIA_CONTROLLER */
+ 
+ #endif /* _V4L2_DEV_H */
 
 -- 
 2.49.0
