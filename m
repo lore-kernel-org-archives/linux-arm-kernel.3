@@ -4,176 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FF2FC83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 13:39:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CF81C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 13:42:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LF3aXo7s8jSoHZHfH1Y45V2Y5si0+HLXRgDNPqhr5SA=; b=1M2QTEnK6Ex5pA2QNhzTahRvzg
-	hBhRI0m/Dv1efiidDz6d2cBP03WfcY56HRCBOeN0JXFIrdUXtYqPzkgBNx5uKLezH7yis1jRT0118
-	J44UXcF/mqAXQR0HOJA9fCDn1MOPmFdwynAc0YebtUGwqTGYwj5Plkn8iDH2Auw4HBIdP2p/JBhgQ
-	z/R4ZnJRgQGTGMFUHHCPXjTUyy1TzBb4a77eLU/zc5QDKVnQmOWZ99yXv9SHgKeYpuparnC2clX52
-	dcxFE+0T0GkPfVULiYRrCYmt7m8cC7R99buE6xGPuWpM+0n41D1mCeNPGOyGRt3rHYM0AjdNZnPtL
-	nRyW6hTg==;
+	bh=Ii71JBdT89Skk8uqBw9KL0eKLMJPh/CEFIbkAlKzemw=; b=WFysUVN0KTawnTHnM7Fin9xWgP
+	9gftoNriS/bpQfcrVqyYX7uwbD08K3zpKrPzhQM9DPb6cPXe/i+Hcf6V93Yi3oaRRc2rg5MxtUQ3+
+	4WZbkaFrMpZdgwPJfP+oA3w5Kobmws6P8gohJSeSTCnk4QLYmyypuAx8M1tauDj7wynuGE36D/g+z
+	LLHB48JgVRDUxeWUyvY/U1BBFsjK9IL8MiXtj0Ga46KPDT/qkEmnqMKFkLYjirfeuNJgN/qkqoehO
+	s/Ln6IdkL5GyajSZ8qFy/s70g2tKFDmizujL9H4X7BEWHAzXtgPG8FlxYB8Wnb3Fkezh1VWnyzwpP
+	ahgRd/zw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucOpp-0000000AHTF-1LEY;
-	Thu, 17 Jul 2025 13:39:41 +0000
-Received: from mail-dm6nam12on2060d.outbound.protection.outlook.com ([2a01:111:f403:2417::60d] helo=NAM12-DM6-obe.outbound.protection.outlook.com)
+	id 1ucOsG-0000000AHjm-3vnP;
+	Thu, 17 Jul 2025 13:42:12 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucNhj-0000000A6yC-04FK
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Jul 2025 12:27:16 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=X26mg6ZIcrX+8jLGASfuLCjvx2anWVM707jBXgq283Zq1u1DfiRiRwGJxyX0C+ghgUmL55UNlPwJKpzaqO470hS9uxmvnNyt2OpJ0zb9SOCHBjXOlG158ut+qUGIxPpHZSb+FwkXEtF0kujlvE4NPRrAodSW9d3dv8BpgFdmr6r2Cz6ZNlScwVCvJCaPj5As48WZa/D4Pof7Wt/HemKIJCBb8V54BvBHVYhdHjKClyu9iQ4eIIoE9ZDE8KwfjFxzOdLf9cXXI2mjEZpseb65WuMefS0191taO+hQ5kLgfKf+evW+Y6j1fcXbddguQobbSajml/RwUTz3MnOhaM29rw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=LF3aXo7s8jSoHZHfH1Y45V2Y5si0+HLXRgDNPqhr5SA=;
- b=S3EjqPWxfYIWK06XUTcmoAUp3Zol2JY7TpGPS/0yAu6qF8wh+13Er0S9MgfKxf1ekmVh/0bq75WDyKBdFKd0M1R2w9ZEL2tc1Tol1boR6NKtdwffnPEVr7QZanoQlgHLUJE6ak9NyhsMhkeTtMQs9WJ/fzG3aUEO21igiYPrEEBWVXU+QmtAc34i+WZMuU/1RnucSk0yntg8S7sU84X9jTzAYQn4XXDayULDhcWIuOBHfSGjuzjKQnjMdHsm7A6O+VS9jvujf/I178uhhnxyogovOXbB5OzkwpP+KzkAi2+qNQvAIJZUr2GdZwhrfJLCwD5CKnxzefLfXUhd5ALgjw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=altera.com; dmarc=pass action=none header.from=altera.com;
- dkim=pass header.d=altera.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=altera.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=LF3aXo7s8jSoHZHfH1Y45V2Y5si0+HLXRgDNPqhr5SA=;
- b=XyN0+qcFnxReAFai8xTw7mCq2yi5czBdFw1/HdSIpqnXfBsAYpCcqnAF4ptCaz4ghTyAm8bD11g+EnAM45ZGD5WzWi995x/nLADZerPF7HyHpJ9y8hTIxjgpZ3CUrBI4B4GHJyQmr1DI3SR2cflhaZWWSdqiBzwbeZ9CpV+O4PzOtZS5Z7t8CnX3VoFtxai8KQo7+Ygt1i9F4kcuP6wuyNUJt9kdmG2L+UXcngDL79wDrkyUo33mYtnNooIZ6IsymVl2/QYyGdaPwG7FuOinwPIAfFBWbeid4fJKwLsay1hT81Okz+xpX6A0X5CEaFEWRNSU0In/N0cBjesqp/TqGQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=altera.com;
-Received: from DM6PR03MB5371.namprd03.prod.outlook.com (2603:10b6:5:24c::21)
- by BY5PR03MB5063.namprd03.prod.outlook.com (2603:10b6:a03:1e4::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8922.39; Thu, 17 Jul
- 2025 12:26:59 +0000
-Received: from DM6PR03MB5371.namprd03.prod.outlook.com
- ([fe80::8d3c:c90d:40c:7076]) by DM6PR03MB5371.namprd03.prod.outlook.com
- ([fe80::8d3c:c90d:40c:7076%3]) with mapi id 15.20.8922.037; Thu, 17 Jul 2025
- 12:26:58 +0000
-Message-ID: <9fe98cb8-f1c7-472c-a619-1ecabd636b07@altera.com>
-Date: Thu, 17 Jul 2025 17:56:43 +0530
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next 2/3] net: stmmac: xgmac: Correct supported speed
- modes
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Serge Semin <fancer.lancer@gmail.com>,
- Romain Gantois <romain.gantois@bootlin.com>, netdev@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Matthew Gerlach <matthew.gerlach@altera.com>
-References: <20250714-xgmac-minor-fixes-v1-0-c34092a88a72@altera.com>
- <20250714-xgmac-minor-fixes-v1-2-c34092a88a72@altera.com>
- <aHib9V1_WZfj3S8M@shell.armlinux.org.uk>
-Content-Language: en-US
-From: "G Thomas, Rohan" <rohan.g.thomas@altera.com>
-In-Reply-To: <aHib9V1_WZfj3S8M@shell.armlinux.org.uk>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: MA1PR01CA0162.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a00:71::32) To DM6PR03MB5371.namprd03.prod.outlook.com
- (2603:10b6:5:24c::21)
+	id 1ucNk6-0000000A7FM-0UwW;
+	Thu, 17 Jul 2025 12:29:43 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 85673465F6;
+	Thu, 17 Jul 2025 12:29:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D8082C4CEE3;
+	Thu, 17 Jul 2025 12:29:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1752755381;
+	bh=wuTslYNT33q0ZwkBocmRlf+/H/EC1qjjCuq+1hLV8/8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ceJopmgBy57bJV7/pVeyCt/sWnxvpAsEluSAjSqU2w3Jh04BHtaiAKo9lmJ9AvYfZ
+	 K5pBwXOHitlun8dR26Zstr1RUWJM84CUNJfJY0BVF+gf0zWoLpnwdZR4sNr81K1YBk
+	 VUBJ/VjvFxZgy3wMohvdUgSwrCUch0CBivHiD0o0g95164OK9/znhIREB+z7g1Nqfm
+	 VsB2MSBRiMVxTaAYbHVNFLA/s2h37gLvnyn9KZt5WyJYtPI3Y+idAjq2x0myzQGof3
+	 7u8IWr9UGLr91Oy0qtj9GnGEqOjcPxca775YWvWve0YENWg7eoUzNJiULTgSMnK/Ev
+	 dWpaGUGxT++EQ==
+Date: Thu, 17 Jul 2025 17:59:32 +0530
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Geraldo Nascimento <geraldogabriel@gmail.com>, 
+	Shawn Lin <shawn.lin@rock-chips.com>
+Cc: linux-rockchip@lists.infradead.org, 
+	Hugh Cole-Baker <sigmaris@gmail.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>, Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, 
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
+	Heiko Stuebner <heiko@sntech.de>, linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [RFC PATCH v3 2/3] PCI: rockchip-host: Retry link training on
+ failure without PERST#
+Message-ID: <djbhz7qfyzrn7mdqmvqhyh6yjsjyigjly7py4f7aj5f4qbabou@67gk3qdnvzws>
+References: <cover.1749582046.git.geraldogabriel@gmail.com>
+ <b7c09279b4a7dbdba92543db9b9af169776bd90c.1749582046.git.geraldogabriel@gmail.com>
+ <zuiq3b2rsixymtjr3xzrb26clikvlja62wgj65umnse4kuk75c@x5qan73ispxe>
+ <aFk-MeIWFcBiGBPr@geday>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DM6PR03MB5371:EE_|BY5PR03MB5063:EE_
-X-MS-Office365-Filtering-Correlation-Id: a3c73884-7c76-483c-8def-08ddc52d38ec
-X-MS-Exchange-AtpMessageProperties: SA
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|1800799024|7416014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?djcveDE5WjlFZXJjTHQvdEhGaTJFakNCeFZjakRrMG1UUFhpNmZYYVFsMHg0?=
- =?utf-8?B?Rll0RnhUeWdlZ0RZbG1RaFJNTVhCMkJQY3NEVGxWQ0pReEVYbENudjVKRGFQ?=
- =?utf-8?B?S0F4eUF5ZHN2UGJ4RFlyR0tXT2dPazExSGt2ZE45RkwzWUZTcVZXbEljcHBG?=
- =?utf-8?B?OUY5SlcvTHVJbG45QlZsck1uamZZZGRSZ1FtdjJjRDd3SWliSTVkYURrdFdF?=
- =?utf-8?B?L21Qb0o2VVhrS3BwTDJZNy8raHBod0xQb2FnUi9xeGtYQlpadk1icHBuNFFK?=
- =?utf-8?B?VTlTMkRlazZHemg1K1Y5TUdlZ0piL1BmdHMvS2lISWRSSkRiZ0Y4RnZBamlW?=
- =?utf-8?B?bHQvelNLWE82TUNidmJpdUNZWjUvaUp3cldiMk1VQVUvaXluRG9KNFBQT0kz?=
- =?utf-8?B?WFlwRzUrb3FxYXlWOW1lbkdPM3BBR2Q1dk5Da0Z3eFU5RXRjVDhFY3hKdFY2?=
- =?utf-8?B?RDVTa2xYV0FCTHBRd1RFdlpvYXdKaDN6MllydDF4ZGJRWUFyU2UzeG5DTXJ1?=
- =?utf-8?B?MHdsaDVmYWZJNENPcUFrc1pCaS9uNGhVaDVGRXhpL29uU0Z6NGtrZ01ZTjdP?=
- =?utf-8?B?ZWsyM29KQ0FuVERaYVBxck91K3k2MHRuMXk3M0xTVUkyRUdiTGp6TGlTZERF?=
- =?utf-8?B?c0VjT3FMeEJPeWx3MzRHOFBCM3hSbHpjQ3B3SnN3djJ2T0VXVHorTC9KQVFI?=
- =?utf-8?B?OGlzZ2pYanE0OXlZczMxdGFzczhyMzRpS2xaQUppRHlJeVkxMjRKZjhXRDVa?=
- =?utf-8?B?ckZBNy9OeEZEYmlZMzl3SlVHdG9qMUdQUU9FMkoyTUpYZys3RWJxem9ORnVL?=
- =?utf-8?B?dCtRcG5vZXV6YjZHeW1VY3NoNkdGYWp4b1FySlRpRENCeGZpVlF3UnhhSEh1?=
- =?utf-8?B?SnZ2eFlPQnk5ODRZNmlYSzQ2bW52NG5LS0V2S3RrZm1rUGRFOEhKSElQUHhV?=
- =?utf-8?B?OFNRT3NEcUVwM2p5ZWJjRERHelVYaDhtV0VwWkRkaU9QNmpGM1JqLzJLSEV0?=
- =?utf-8?B?QmlLdXgzMkdzZ1c0ZUdjMHVqZnVGVUpBZk85OHRvT3NudWE2Uk00clpxY3p4?=
- =?utf-8?B?OU5MaEZpcmRMMlBQOVNRS3kvVGc0Y2krNnZ4bjU2YzluZ2J1bkFueWpENjFl?=
- =?utf-8?B?SUdNR3ROdC81NmswTUhsZ1RFQmdOdm1rempscy9YeTVpcmtpclBTZFh3OWhn?=
- =?utf-8?B?MjZmVlZFWEE0S3BncXl3aEJyM2gxZTQzTWZpZ1cvejlSNG14bjVMS0xETTB4?=
- =?utf-8?B?ZlhBbUpQa2VFZGkzNHJIb2d2bmFkb1J2UVlSVHdELy9XMmtPZnJVTDBDMDE0?=
- =?utf-8?B?dkVFdkJoamlRcXdQM1FqbzlYY2o5VGxVbVVMUll3RVFhcmY2N0hxcTMyM1JP?=
- =?utf-8?B?bWo3WGcrZWdmdytPL2s4RFdYdUFpSi9VOXpmdFNZdm9ycm9pOVd3UmVuK3V0?=
- =?utf-8?B?L3dpbER5bHBhTFhUYlJDZUFyQmdkVmhldXNjZEM5bkpMTmdSNmZ0UU02QWRi?=
- =?utf-8?B?bzhkL0hMSjdKZG9vK1NJbTBYbmYwVC9EeGNQMXNYMVp2eE5qcExJZ2VvdTlC?=
- =?utf-8?B?RStKcnNCbWVYMlljRHRDbmFia055a3I0VFFjZmNTRHhIZTB5R0M3K3Uyd1pT?=
- =?utf-8?B?dzNqN2xiajd1N0thM05Dd2tDMmNra0lyU1VxbWRVYVgvSUZPbTdNY21JK1Ur?=
- =?utf-8?B?cmxMdm5nNmN0SnhwT0JpTnVPbnY0ZVBld0twdEpGZll5cHR2NGo0YzRMQ1Bh?=
- =?utf-8?B?M0lNUzRSeFJpWUwwSThQcVNuOUtuZVp5c2pIM1I2NU5IODlSNmptcVR1dFpG?=
- =?utf-8?B?MnpGd0lXd1MwS2YwSlYvRzN6MzdiN3FwTE91NXovZmVuU1gvRGMvSERaQTlZ?=
- =?utf-8?B?YUVqVHBLU3RBRnlyMVJsRklZRGlKYjNDM0pZRWxsa0Q2SDl2S1NjczQ1WVJF?=
- =?utf-8?Q?zxumegiY4qk=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR03MB5371.namprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(7416014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UFRmd0lCT2I5emJIckdEWmd3Sll5QmpuQ2hhdy9KTnpaSGtZMzk0ZThJekdE?=
- =?utf-8?B?UllMT2VWUWpkZUp5dUR2N01rNmhNTzFtdlZsVVFpdGxQd1ZKMmRNcnBPd2dK?=
- =?utf-8?B?bTJxLzVTTlluQVBGdFExenVYU2k0UGtJWDM1eHJhVHJpd2d6Y3NvMnQ3WlBR?=
- =?utf-8?B?K3RSMExmNFg2WGI5cUs2MVNTVzlhak92RmR4Q2Nlb1Z6cGNKdjNjRHB6eDdp?=
- =?utf-8?B?d215WXBWK3NSeXhMYnlBejRFN2w3SG93bERUS203UG5uTzRWam56eDhxQkhX?=
- =?utf-8?B?TmswdEx2SG1OOS9pUjFEMFpORklkQkd1d0dHSUc4akhJV2RWVzZPcWVTMzht?=
- =?utf-8?B?QlF3ZUczU2xZaU83b3M2QlNtY2pTUS84SVU4ckdjSW8zNkNESU41UXQ3NVFh?=
- =?utf-8?B?V3lkRmhhQU9xK1B5VHNwVUo0dEQ3Um5Lc0RSSURzWTVNWTdkd0piNUdaOGhh?=
- =?utf-8?B?TUNreTFma2NkZW1HZmU5N0psbzNSaWprMFB4TGNyZ1JKSFc1MGFJV3RXMnZP?=
- =?utf-8?B?ZDRMY1dVb3dlZXkwTDRGSUlvREVGYlN2citDcjdOVDRoTG1iOGxUbVduWjVk?=
- =?utf-8?B?ZGkxazFSQ2FaMWFCWEhoaHR3dGYyZTRtaFVhS05rZ2VnVVdaVGEvQzltSUN6?=
- =?utf-8?B?M0ZyakYrdFlQdUw1TUlwZWNJVXlIQU5zWEh4MlFDRCtUaGdVRGI1a1ZRd1FO?=
- =?utf-8?B?V1V0cHZoK1VjQ3JFRW5QcUpDRDVrNDlvbU54Z2JRZVg2c0ZsazZ3WFVzR245?=
- =?utf-8?B?MzFNdC9UY0x6OWlSekpuYm1PUmdVSjRMYjM1bVZlN1E0ajRuMmIxMnk3RkxP?=
- =?utf-8?B?UDdTWEU0YXFXQmI4TmxkRUM2ekd2bDhPb2NpWHdQT3dlcjdhYVlPQlFreklF?=
- =?utf-8?B?WWZ5YVdVOWRaN2xSM0FQMzVRV1hqZmZJU21IVWtDZ2RhNFdmV1crMTNzQnBv?=
- =?utf-8?B?c1c2NTVvWGQ3T3lNSUJXVlE2OVg4M0c4R1c1SUY1WjFvSzNFak1uNU1vWFU2?=
- =?utf-8?B?MU9HMWdNZnVtQzR5SHEvNlB6aFl5MTY0WW1YRXZ0NGkrMnJFQ01UUzZkOXZu?=
- =?utf-8?B?ZmJuSWxmNndBa2xXVE4wTG1OSnN4VTBEVER1MGlBbVVqWjk5RHZkQW5NanBW?=
- =?utf-8?B?THVheGpxRXNlZDRWanFPWmc3TjBWak9qcHkzRU5zY2xhQ3JPMk1Cd2NNR3Rv?=
- =?utf-8?B?eUxrT3g3Z2Vxb1JSK1lKUHJXNW1RckZKOXNndXZLSUNEc3NNSTg3SncvaGYy?=
- =?utf-8?B?bHFacVo4aEdBWGNya0JJdld5aHk2MXVURHh1TzJMaldSOWNXQm1rNjltOEdC?=
- =?utf-8?B?T3RuSGhPbnVqT2x3Y3pIamZKRGlKaitNako4dStReUR0cUZOUFpjb0doV01T?=
- =?utf-8?B?OGxjZUlsM1ZJS09NRENTcnF3ZG96Q0llbjZqYWE3Yks2NDlQWGhIYXRMRGNn?=
- =?utf-8?B?dmpHVWpoVjd2RzI0ekFjeDVtY0RHUnZsQk5DRlFtcU9YNTJ1VUN3bndPTGV5?=
- =?utf-8?B?b0I4eENjeG1xQlZ1ZzN3dWZ1UTBZRmVkMTdtc2tlWUMrL0tpTkRGcVRib1pW?=
- =?utf-8?B?RTY0U1p4VWE0U3B0UW1xd1hQZ0FMdkh0MUNlRENjNzM3T0dXSmN4QWNETUI1?=
- =?utf-8?B?VHEyZG5aRG91dWl0NCtRYVZDcUYvTmQrSzFkMG9leEo5QXViQ09ZRGdkNGtV?=
- =?utf-8?B?OEtjNFplV1ltZnU4WFRSRm9qTUNKYnlXVmJuWGZSbGs3T25qVWdkQjdYaUFq?=
- =?utf-8?B?QXAveVN3b0V4VXE3dlZ2bmVmVis5Zmt5aE9nazcrV2g1ejg3N09JVzF6bXhm?=
- =?utf-8?B?V3hURUY0L3kxWlJDS0w4R0VMS3ZsRDhjcVdlVkVaME9ud1VoY29ZZXdPUlYz?=
- =?utf-8?B?QjJraWpHU2UvN1dtZlhabjFhRmkrc0FnbDJ1R1dJaVRxUERXZVAzenp2UGEz?=
- =?utf-8?B?ZEFvUmdVcW0wU2hiOG5rQlBDTjErMThadG5PRkdFSHNZdy80UE90RHdqSXNR?=
- =?utf-8?B?SzR4ZkF4REpSOUZSZDI5ZUhEV05VNG5FMWY5bVZ6VHhXQ1ZuZlZ2NytURnpE?=
- =?utf-8?B?Q1VSVnVzOGUwSERDMHBGRjh1WmRTc08xcDJEMWlRcWZYVDZhaHdycE5EVFAz?=
- =?utf-8?B?NjNZS3UyT2VNOFBKdkhob0tlUnFUeUtjN1BOQ0MvWWpIaURxZ1F5c1c1OHBR?=
- =?utf-8?B?aXc9PQ==?=
-X-OriginatorOrg: altera.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a3c73884-7c76-483c-8def-08ddc52d38ec
-X-MS-Exchange-CrossTenant-AuthSource: DM6PR03MB5371.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Jul 2025 12:26:58.7113
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: fbd72e03-d4a5-4110-adce-614d51f2077a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: FJzL7md7p1X8ivCnBZaZe/NdDmUSbPYHRDH2R4Wk3oxy0J4XTmA0hVo/xoaT8J/3fAZrj+ICJfm2XWqXGTEcUVa40NPmnpAXnId4Yk+cp48=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY5PR03MB5063
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <aFk-MeIWFcBiGBPr@geday>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250717_052715_075248_1A786CA5 
-X-CRM114-Status: GOOD (  14.12  )
+X-CRM114-CacheID: sfid-20250717_052942_196634_27726916 
+X-CRM114-Status: GOOD (  45.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -188,45 +80,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Russell,
-
-Thanks for reviewing the patch.
-
-On 7/17/2025 12:15 PM, Russell King (Oracle) wrote:
-> On Mon, Jul 14, 2025 at 03:59:18PM +0800, Rohan G Thomas via B4 Relay wrote:
->> @@ -1532,8 +1542,8 @@ int dwxgmac2_setup(struct stmmac_priv *priv)
->>   		mac->mcast_bits_log2 = ilog2(mac->multicast_filter_bins);
->>   
->>   	mac->link.caps = MAC_ASYM_PAUSE | MAC_SYM_PAUSE |
->> -			 MAC_1000FD | MAC_2500FD | MAC_5000FD |
->> -			 MAC_10000FD;
->> +			 MAC_10FD | MAC_100FD | MAC_1000FD |
->> +			 MAC_2500FD | MAC_5000FD | MAC_10000FD;
-> ...
->> @@ -405,6 +405,7 @@ static int dwxgmac2_get_hw_feature(void __iomem *ioaddr,
->>   	dma_cap->sma_mdio = (hw_cap & XGMAC_HWFEAT_SMASEL) >> 5;
->>   	dma_cap->vlhash = (hw_cap & XGMAC_HWFEAT_VLHASH) >> 4;
->>   	dma_cap->half_duplex = (hw_cap & XGMAC_HWFEAT_HDSEL) >> 3;
->> +	dma_cap->mbps_10_100 = (hw_cap & XGMAC_HWFEAT_GMIISEL) >> 1;
+On Mon, Jun 23, 2025 at 08:44:49AM GMT, Geraldo Nascimento wrote:
+> On Mon, Jun 23, 2025 at 05:29:46AM -0600, Manivannan Sadhasivam wrote:
+> > On Tue, Jun 10, 2025 at 04:05:40PM -0300, Geraldo Nascimento wrote:
+> > > After almost 30 days of battling with RK3399 buggy PCIe on my Rock Pi
+> > > N10 through trial-and-error debugging, I finally got positive results
+> > > with enumeration on the PCI bus for both a Realtek 8111E NIC and a
+> > > Samsung PM981a SSD.
+> > > 
+> > > The NIC was connected to a M.2->PCIe x4 riser card and it would get
+> > > stuck on Polling.Compliance, without breaking electrical idle on the
+> > > Host RX side. The Samsung PM981a SSD is directly connected to M.2
+> > > connector and that SSD is known to be quirky (OEM... no support)
+> > > and non-functional on the RK3399 platform.
+> > > 
+> > > The Samsung SSD was even worse than the NIC - it would get stuck on
+> > > Detect.Active like a bricked card, even though it was fully functional
+> > > via USB adapter.
+> > > 
+> > > It seems both devices benefit from retrying Link Training if - big if
+> > > here - PERST# is not toggled during retry.
+> > > 
+> > > For retry to work, flow must be exactly as handled by present patch,
+> > > that is, we must cut power, disable the clocks, then re-enable
+> > > both clocks and power regulators and go through initialization
+> > > without touching PERST#. Then quirky devices are able to sucessfully
+> > > enumerate.
+> > > 
+> > 
+> > This sounds weird. PERST# is just an indication to the device that the power and
+> > refclk are applied or going to be removed. The devices uses PERST# to prepare
+> > for the power removal during assert and start functioning after deassert.
 > 
-> What if dma_cap->mbps_10_100 is false? Should MAC_10FD | MAC_100FD
-> still be set? What if dma_cap->half_duplex is set but
-> dma_cap->mbps_10_100 is not? Should we avoid setting 10HD and 100HD?
-
-As per the XGMAC databook, 10Mbps/100Mbps/1Gbps speeds are supported
-only when the GMIISEL bit is set. As Serge pointed out, I also need to
-consider the MAC version (≥ v3.00a) when enabling these modes. I’ll
-update the next version of the patch to include checks for both the
-GMIISEL bit and the MAC version before enabling the 
-MAC_10FD/MAC_100FD/MAC_1000FD capabilities.
-
-Also, regarding the HDSEL bit — it is set only if 10Mbps/100Mbps modes
-are supported. I’ll include this condition as well when handling half
-duplex support in the updated patch.
-
+> Hi Mani! Thank you for looking into this.
+> 
+> Yeah, tell me about it, it is beyond weird. I posted RFC Patch in the
+> hopes someone with access to PCIe Analyzer could have deeper look
+> at what the heck is going on here - because it does work, but I don't
+> claim to understand how.
 > 
 
-Best Regards,
-Rohan
+I was hoping that the Rockchip folks would chime in, but no reply from them so
+far.
 
+@Shawn: Could you please shed some light here?
+
+> > 
+> > It looks like the PERST# polarity is inverted in your case. Could you please
+> > change the 'ep-gpios' polarity to GPIO_ACTIVE_LOW and see if it fixes the issue
+> > without this patch?
+> > 
+> > If that didn't work, could you please drop the 'ep-gpios' property and check?
+> 
+> Sorry to decline your request, but I assure you I have tried many
+> other combinations before reaching present patch, including your
+> suggestion. It will do nothing. It won't work, won't make SSD that
+> refuse to work with RK3399, working. Note that this isn't specific
+> to my board - RK3399 is infamous for being picky about devices.
+> 
+> > 
+> > > No functional change intended for already working devices.
+> > > 
+> > > Signed-off-by: Geraldo Nascimento <geraldogabriel@gmail.com>
+> > > ---
+> > >  drivers/pci/controller/pcie-rockchip-host.c | 47 ++++++++++++++++++---
+> > >  1 file changed, 40 insertions(+), 7 deletions(-)
+> > > 
+> > > diff --git a/drivers/pci/controller/pcie-rockchip-host.c b/drivers/pci/controller/pcie-rockchip-host.c
+> > > index 2a1071cd3241..67b3b379d277 100644
+> > > --- a/drivers/pci/controller/pcie-rockchip-host.c
+> > > +++ b/drivers/pci/controller/pcie-rockchip-host.c
+> > > @@ -338,11 +338,14 @@ static int rockchip_pcie_set_vpcie(struct rockchip_pcie *rockchip)
+> > >  static int rockchip_pcie_host_init_port(struct rockchip_pcie *rockchip)
+> > >  {
+> > >  	struct device *dev = rockchip->dev;
+> > > -	int err, i = MAX_LANE_NUM;
+> > > +	int err, i = MAX_LANE_NUM, is_reinit = 0;
+> > >  	u32 status;
+> > >  
+> > > -	gpiod_set_value_cansleep(rockchip->perst_gpio, 0);
+> > > +	if (!is_reinit) {
+> > > +		gpiod_set_value_cansleep(rockchip->perst_gpio, 0);
+> > > +	}
+> > >  
+> > > +reinit:
+> > 
+> > So this reinit part only skips the PERST# assert, but calls
+> > rockchip_pcie_init_port() which resets the Root Port including PHY. I don't
+> > think it is safe to do it if PERST# is wired.
+> 
+> I don't understand, could you be a bit more verbose on why do you
+> think this is dangerous?
+> 
+
+When the Root Port and PHY gets reset, there is a good chance that the refclk
+would also be cutoff. So if that happens without PERST# assert, then the device
+has no chance to clean its state machine. If the device gets its own refclk,
+then it is a different story, but we should not make assumptions.
+
+- Mani
+
+-- 
+மணிவண்ணன் சதாசிவம்
 
