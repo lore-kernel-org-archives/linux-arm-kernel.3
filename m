@@ -4,65 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26391C83F34
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 15:59:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B9D8C83F34
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 16:01:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q8dZ0cLO+3lu8dDLMfrc3hqACkcnzlbweOM08iAToro=; b=COplwARy62/6/xNIHWm569MLkr
-	m4royJOwzecruDCcW2LGsdXYWlPTDMA5lpjMeNb6Xvye+2Fu1epq8/vf2nehUCyDkDYY/zHvNfP0k
-	JsSA9qZp6g4s6b9ZjAJPtf8zCx/R7sHQmMt3P3h8eL5u9Wq0O7nX+lox9mWZlkJSR/PUmdfXmzv0a
-	6t7HCvH3KRUhv06Ig0wHORDPsEUL3VQsuB2Gc+3pFmF/tsnVrCQwuXF+rnc8MWflHTYpIhntc53q4
-	Xm2/591xYdsP2+Wqq3Zi0hixH/9zo5zC3a6lFB4hdUOu6DA1ilvW4QslS92DIm3rVwnnov6jUl+To
-	vnNkqjug==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=F5xUBrBCpzFPT/Ceifws++OIUGJp175GJMu2Bn4O4tU=; b=ioMxXxbCQihw947Xdeyhb0hulO
+	Cq62odre2kpy6MOXZ+SAnv7ke3esgtJpxY0nuVswRSiVPs799+Hq8M36EYKbgUYItM2ccS+PVSxBn
+	9zNe7OCMJ2JLdaaSri+LZWphShA/Mi4xC+C+7yv/icIdoPRx5JtvOE5QTa95SWdNP3EHYGuBYE7Er
+	6ZxEx86drLzDCEu3LoUIuSu7y1UwtEmDzIQDjsktxb5WNAXcv/OtcbIlBHbvPOrggrDAPxCwXpvtW
+	XxBxL52dbMA/li27NhEvEphlHwVroaYAWpinlMXEZ+j6i3gt4s3KqlVr2gxzC+FMhVjM5BSHOKZPL
+	VwnraFiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucR0h-0000000AYul-0OHN;
-	Thu, 17 Jul 2025 15:59:03 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1ucR38-0000000AZMr-0j6g;
+	Thu, 17 Jul 2025 16:01:34 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucQNi-0000000AUiI-2L6l
+	id 1ucQOD-0000000AUm6-1ZIF
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 17 Jul 2025 15:19:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=F5xUBrBCpzFPT/Ceifws++OIUGJp175GJMu2Bn4O4tU=; b=TigRB03GIqPfurdXvmA9SlqXxo
+	HUc+ohpD3yn1P3mztW4Wj+h+KO8RuWi60++byycOs0KR+gZIVHOyC81cypu+4syauz/+4BROVKTDL
+	V08vWUtH0k3U4at+6ujv6aqnQLcvqC9ixKVSpPjdSWQ5Iks6bSqE+X8ieDBMcBiEtZrXwRlrigIYl
+	mYN0cbNy3tPCDcrD0+wrY9fRWlv1tPkwKnsRpImorocaUtN1V61l6Vl5RsYNbwKkbKHknFt0Xh9G2
+	PVVsT9K6sKz0YRY/XiH2ZeJsH+13YtLAs9+ovrFQk2tmYOwj552beh9HBi0bTYLN796RGeA6kPugu
+	/rVEw0Gg==;
+Received: from mail-qk1-x730.google.com ([2607:f8b0:4864:20::730])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ucQOA-0000000AIbO-2RsJ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Jul 2025 15:18:47 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id C02785C6A57;
-	Thu, 17 Jul 2025 15:18:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B9D86C4CEE3;
-	Thu, 17 Jul 2025 15:18:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752765525;
-	bh=Jw+UufvGG9YoXeX/nFnnouHPq9n7dVmvn+Bie3jDHBY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=e69wEdF7/wu2NNbteCHp+xXQoVctHXe5Ybgobxf+pddr4vSu5vqcHmV+ouuoU3iWz
-	 ysx9L7jOmtyRhQ8h9k9Sa7IoMhPoHhKj6y8GlCQ8yCdGOsRrZmiX4YgYrzxCfvaCSO
-	 8V8lX167yI5kxnDhHeBsh5o0N6ZsEAyxqyjzuroMJB2jnaapO3h9gWgmDg1EXOkNK5
-	 498azzqhrCdaZfJZs4nO4VJBjSP5Bwb6ZVtllbmTVRFCwY9QLdgB56tgeN+FISA9af
-	 2mrE01RsEv8uLPu6Vr/xmwvDNjGXdSyaX/XwHx7Y4A4lL2wRmkbN5kGlDMaZRdOrX8
-	 YOs1/LuW1gzKw==
-Date: Thu, 17 Jul 2025 17:18:41 +0200
-From: Lorenzo Pieralisi <lpieralisi@kernel.org>
-To: Dan Carpenter <dan.carpenter@linaro.org>
-Cc: Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
-	Timothy Hayes <timothy.hayes@arm.com>,
-	Sascha Bischoff <sascha.bischoff@arm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 3/3] irqchip/gic-v5: Fix error handling in
- gicv5_its_irq_domain_alloc()
-Message-ID: <aHkUUWFk/AIxh1Nj@lpieralisi>
-References: <cover.1752693640.git.dan.carpenter@linaro.org>
- <4787a3c4-9713-4b99-9b8a-7ba227e91d02@sabinyo.mountain>
- <aHjBe9k2Igl2iopq@lpieralisi>
- <5c22b679-853d-410c-973a-ba3c91a54b84@suswa.mountain>
+	Thu, 17 Jul 2025 15:19:16 +0000
+Received: by mail-qk1-x730.google.com with SMTP id af79cd13be357-7e2c1dc6567so70130385a.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Jul 2025 08:19:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=brainfault-org.20230601.gappssmtp.com; s=20230601; t=1752765552; x=1753370352; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=F5xUBrBCpzFPT/Ceifws++OIUGJp175GJMu2Bn4O4tU=;
+        b=cI8t/Z8YnKxF/khvfB8kgK+dIjxq3dCwJfhwEJKzkH3ac8W4gfd2Mq2h0ydV890Bpi
+         h0PzFJOZPo7cmN20+4YS/gv5GpjpQ4d2EdNWlsH9YjzhqErqx60CsQrskJ5m7rgjlcEX
+         phEm7eeAcv54/4WU/Ya1PNvjabqsAjKSyYiDCjBlDEnhkQlU+zfnMQrXnJd7QmSniNEh
+         0mD7yA1v+rl9naBCOfDLyro/7lgk+SDTcf/qC+HP7g+Q67qbWRlVfrvx7xwMEHZhwGz/
+         +6dk1Y1bkLme7yhgUJYYickurdEtSOTnb50/UCFLZbzcj59sNQzpDgoaFEUpS22HSkEg
+         ToHw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1752765552; x=1753370352;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=F5xUBrBCpzFPT/Ceifws++OIUGJp175GJMu2Bn4O4tU=;
+        b=M3YbJi3x5uSPioQ2S9vemvN+QsAVNePwmdPQRK40nXRxUn7GLSq2aN1+Bgv9S61iZk
+         /sk6uFRubYqVjY8p4fGEg01RwEwhKZxRA50+Q/09M2nts0/VCyL/2Vc7jYqgsg6UdYRM
+         hqlnmCw50RbTZAUEvTHtyoCRzbdJdSovJa3j0+f+44w8ORvpQu1iq26kJRF1Rba+sKcj
+         LdgovnSjw7zkKxztB3rYN8WwhAnYR3cxX2uS1xJDQfdiOo2Rdf1tZ2TqpaS8/y4KHzdH
+         aFFLoiKVmBXE8TQZleNNEN8N7O8fmLlpwjF+mGuCgKnwyizRLP7BcRu9lauNe1B4sQ0/
+         yMWw==
+X-Forwarded-Encrypted: i=1; AJvYcCWOyE6mu30o7hpPpUKDWRc8jktwGQqO/YAIHHftGYzOXaZelBgbY5ZmrSOGvJHgbZg+cWTF4quc9kAAK5vpYTAq@lists.infradead.org
+X-Gm-Message-State: AOJu0YyOdx4ndEWMgfLpkWIrtM57YWfL9m4fdV2SCF8MAvd3mP5fh33C
+	0Y+VZ54UDcu5xmzT++qiIUEEKtTsqOdkfX3moMDdI3XcZsKOCuC63TI+sxI8G7nKxTi/xOAKwh8
+	z5U8OiCW85o15qlqVXTs726gczQF8DmK9UyonIoOKzA==
+X-Gm-Gg: ASbGncsebXcilmrsmv8zbe5YlruXQ5Yzy1F9qFbOg94Jm9s/H75Yir2PO341KedXm18
+	Q3rFgIRrmg9qwUPYPH/2wPGIOmzhTY0XeEVtJXqnUbPVeuC2RS1bSlnTnXh3zw1TPQmVn8n8D4t
+	8U25VpSoP0SdtANkCC+U8/pgEtUyptqqG7+z+NLBfrcykW8J1Xpko9tpOJ5s4AZv5PNbkyu6WYt
+	Rdascd4
+X-Google-Smtp-Source: AGHT+IE3X2vck2pgSl2t6KFn5NgHq0p0Hh8fU3rZDbhsrXFgiaKsssOSMAr59vMNLRAJb0iXVxOVbhMl8sP6UXRX7pU=
+X-Received: by 2002:a05:620a:1794:b0:7e3:320b:437 with SMTP id
+ af79cd13be357-7e343351613mr1118889785a.1.1752765551906; Thu, 17 Jul 2025
+ 08:19:11 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <5c22b679-853d-410c-973a-ba3c91a54b84@suswa.mountain>
+References: <20250522-pmu_event_info-v3-0-f7bba7fd9cfe@rivosinc.com> <20250522-pmu_event_info-v3-3-f7bba7fd9cfe@rivosinc.com>
+In-Reply-To: <20250522-pmu_event_info-v3-3-f7bba7fd9cfe@rivosinc.com>
+From: Anup Patel <anup@brainfault.org>
+Date: Thu, 17 Jul 2025 20:48:58 +0530
+X-Gm-Features: Ac12FXyPbawu-s2Ss3H3yKP5ugd9T6IetcEyIWyv14Bbl9oa3EI2UsBfWrZcDw8
+Message-ID: <CAAhSdy304FBYo-3TZyNhKqtDsUSnW+B=U3ktR5JHLr9+LLqXEg@mail.gmail.com>
+Subject: Re: [PATCH v3 3/9] RISC-V: KVM: Add support for Raw event v2
+To: Atish Patra <atishp@rivosinc.com>
+Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Mayuresh Chitale <mchitale@ventanamicro.com>, linux-riscv@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Palmer Dabbelt <palmer@rivosinc.com>, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250717_081846_680975_74A5C790 
-X-CRM114-Status: GOOD (  33.85  )
+X-CRM114-CacheID: sfid-20250717_161914_828547_2A668942 
+X-CRM114-Status: GOOD (  17.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,65 +113,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 17, 2025 at 05:41:06PM +0300, Dan Carpenter wrote:
-> On Thu, Jul 17, 2025 at 11:25:15AM +0200, Lorenzo Pieralisi wrote:
-> > On Wed, Jul 16, 2025 at 02:38:22PM -0500, Dan Carpenter wrote:
-> > > There are two issues to fix in this code:
-> > > 1) If gicv5_alloc_lpi() fails the original code was checking the wrong
-> > > variable.  Fix the mixup between "ret" and "lpi".
-> > > 2) If irq_domain_alloc_irqs_parent() fails, then clean up all the loop
-> > > iterations instead of just the current iteration.
-> > > 
-> > > Fixes: 57d72196dfc8 ("irqchip/gic-v5: Add GICv5 ITS support")
-> > > Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
-> > > ---
-> > >  drivers/irqchip/irq-gic-v5-its.c | 14 +++++++++++---
-> > >  1 file changed, 11 insertions(+), 3 deletions(-)
-> > > 
-> > > diff --git a/drivers/irqchip/irq-gic-v5-its.c b/drivers/irqchip/irq-gic-v5-its.c
-> > > index 55360ae9f1f6..8cc8563e27d5 100644
-> > > --- a/drivers/irqchip/irq-gic-v5-its.c
-> > > +++ b/drivers/irqchip/irq-gic-v5-its.c
-> > > @@ -949,15 +949,18 @@ static int gicv5_its_irq_domain_alloc(struct irq_domain *domain, unsigned int vi
-> > >  	device_id = its_dev->device_id;
-> > >  
-> > >  	for (i = 0; i < nr_irqs; i++) {
-> > > -		lpi = gicv5_alloc_lpi();
-> > > +		ret = gicv5_alloc_lpi();
-> > >  		if (ret < 0) {
-> > >  			pr_debug("Failed to find free LPI!\n");
-> > >  			goto out_eventid;
-> > 
-> > This should be:
-> > 
-> > goto out_free_lpi;
-> > 
-> 
-> Yes, you're right.
+On Fri, May 23, 2025 at 12:33=E2=80=AFAM Atish Patra <atishp@rivosinc.com> =
+wrote:
+>
+> SBI v3.0 introuced a new raw event type v2 for wider mhpmeventX
 
-While at it I'd rename the label, out_free_irqs or something like
-that, now we are doing more than freeing an LPI.
+s/introuced/introduced/
 
-> > otherwise we miss cleaning up for [0, i - 1] on LPI alloc failure.
-> > 
-> > I can fix it up - not sure it is worth splitting it into two patches,
-> > just let me know please how you want me to handle it.
-> 
-> I don't think it should be split up.  As a reviewer I would be annoyed
-> by a split up version of this.
-> 
-> I'm a little bit surprised by the offer to fix it up for me...  Is this
-> going through your tree?  It's probably easiest if I just send a v2...
-> Let me do that.
+> programming. Add the support in kvm for that.
+>
+> Signed-off-by: Atish Patra <atishp@rivosinc.com>
+> ---
+>  arch/riscv/kvm/vcpu_pmu.c | 4 ++++
+>  1 file changed, 4 insertions(+)
+>
+> diff --git a/arch/riscv/kvm/vcpu_pmu.c b/arch/riscv/kvm/vcpu_pmu.c
+> index 78ac3216a54d..15d71a7b75ba 100644
+> --- a/arch/riscv/kvm/vcpu_pmu.c
+> +++ b/arch/riscv/kvm/vcpu_pmu.c
+> @@ -60,6 +60,7 @@ static u32 kvm_pmu_get_perf_event_type(unsigned long ei=
+dx)
+>                 type =3D PERF_TYPE_HW_CACHE;
+>                 break;
+>         case SBI_PMU_EVENT_TYPE_RAW:
+> +       case SBI_PMU_EVENT_TYPE_RAW_V2:
+>         case SBI_PMU_EVENT_TYPE_FW:
+>                 type =3D PERF_TYPE_RAW;
+>                 break;
+> @@ -128,6 +129,9 @@ static u64 kvm_pmu_get_perf_event_config(unsigned lon=
+g eidx, uint64_t evt_data)
+>         case SBI_PMU_EVENT_TYPE_RAW:
+>                 config =3D evt_data & RISCV_PMU_RAW_EVENT_MASK;
+>                 break;
+> +       case SBI_PMU_EVENT_TYPE_RAW_V2:
+> +               config =3D evt_data & RISCV_PMU_RAW_EVENT_V2_MASK;
+> +               break;
+>         case SBI_PMU_EVENT_TYPE_FW:
+>                 if (ecode < SBI_PMU_FW_MAX)
+>                         config =3D (1ULL << 63) | ecode;
+>
+> --
+> 2.43.0
+>
 
-I just wanted to help. FYI Marc has sent a PR today mentioning these patches:
+Otherwise, it looks good to me.
 
-https://lore.kernel.org/lkml/20250717122306.4043011-1-maz@kernel.org/
+Reviewed-by: Anup Patel <anup@brainfault.org>
 
-I think that keeping the CC list is good so that Thomas can pick them
-up if he pulls the branch.
-
-Thanks again for fixing these issues.
-
-Lorenzo
+Regards,
+Anup
 
