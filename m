@@ -4,82 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E46EC83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 06:41:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C4B0C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 06:48:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dwwi92ajr3Hx7+OnqQ/c83G/3mwouq+VJfJgJebS2Lg=; b=cc/AOg69YwTswpisfDpvq9NTtW
-	QHBbOxAa4sZrqzxSgbX/y5oVUU3KqMKpFW+kY5eajYxOiSFHBvLmbLDcTu2i/f0KgLcc0p7gpRwx2
-	37UcAZBdcO0fxHUy89F1MO5eetUMUt6I3QhAFhnd5lQpq73hlUgmqYTiH6RQs/OVOKhSO7P50/LTi
-	TaJFvJd9RuEIJCrPWdwgPI0Nf81aXNazsf1F8xL3KZZk3XUt0tclGilyJONaVTvNhLcB1SWctgyNH
-	CUtth0CdZMZe9rhYa9WgyPovdgHkXhPPLVqDywVY768SJ85b9YvJ4ToVD7Ooso0WIRHaTDifxiREc
-	XpRuiR2g==;
+	bh=nXMaxus8XfDIaPk/PrV9R055UFe2h6R0FRKpTuO5XRQ=; b=OUF6pFanUxcvYTOREQAj+8dJnA
+	6ZBb64xLBMiq/Jm5OwFRWPVM1PNw+4xKSS4kqW+urBRV+M+5vjQpJ/j/3qyAiPqB51ow+qDvUWXVR
+	vwu5rGIqNKyIJSR3Va6yit9DbSFjNqmkiqo+PGI1yyq5BS6aNvB5YwN7TWPFzMnK3XIXJKKykBko2
+	HvFDIQVlM0Ss8jsmWd86EweGhrbANexz/a6SBAr+VCbfK2m2nZNr3i1qV+Ob7g3VLs1zwYwpFK8ve
+	00jQHJjffAgSioukeRvj/edMZm54pKjn00qy/vRn0GD8pDPob/aqQ/xrNXTPbYVx2r6LFtIDZNcwU
+	TI9oXByg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucIIf-00000009JTV-2hfd;
-	Thu, 17 Jul 2025 06:41:01 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	id 1ucIPO-00000009K16-3Jsu;
+	Thu, 17 Jul 2025 06:47:58 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucIBP-00000009IfE-2Qv6
+	id 1ucIMy-00000009Jjw-04xu
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Jul 2025 06:33:34 +0000
-Received: from pps.filterd (m0046661.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56H2W55C019996;
-	Thu, 17 Jul 2025 08:33:21 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	dwwi92ajr3Hx7+OnqQ/c83G/3mwouq+VJfJgJebS2Lg=; b=RVrVYkbd4bX0SVY5
-	BdSY02pTpW6qPdNinX2+osvN0l5c9hCR1hwItQnswWOUN4LLWrJq1TaU0lkjxfQz
-	ZEoG8VOfsqAGT4RpGFANhRtcEHNNTU5UKDHOyVP3WAjTp9vh+FRDHrIxxnlTWoft
-	u5NV0ktnZPAU1637KtvnSS2cDlNWZ51ROdbH5tHzBFsXfRDLPXGdiYh3dmkxyOFn
-	sxi5wShjsNeJ4FJ13J95oNhDC9C456iE4MVYLeRhCGo3wVlTiZ6BzNfJLFnEBG5g
-	vcD2OLdg9IT3UhGj10VZosVg33q/pjIPHUAKx5eUd86IXWU7nZGJZGCh8o2il6FY
-	bszB/g==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 47uekh6329-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 17 Jul 2025 08:33:21 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id C47CA40046;
-	Thu, 17 Jul 2025 08:32:24 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node3.st.com [10.75.129.71])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 951D478D295;
-	Thu, 17 Jul 2025 08:31:31 +0200 (CEST)
-Received: from localhost (10.130.77.120) by SHFDAG1NODE3.st.com (10.75.129.71)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Thu, 17 Jul
- 2025 08:31:31 +0200
-From: Christian Bruel <christian.bruel@foss.st.com>
-To: <christian.bruel@foss.st.com>, <lpieralisi@kernel.org>,
-        <kwilczynski@kernel.org>, <mani@kernel.org>, <robh@kernel.org>,
-        <bhelgaas@google.com>, <mcoquelin.stm32@gmail.com>,
-        <alexandre.torgue@foss.st.com>, <linus.walleij@linaro.org>
-CC: <linux-pci@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <linux-gpio@vger.kernel.org>, kernel test robot <lkp@intel.com>
-Subject: [RESEND PATCH 2/2] PCI: stm32: use pinctrl_pm_select_init_state() in stm32_pcie_resume_noirq()
-Date: Thu, 17 Jul 2025 08:30:42 +0200
-Message-ID: <20250717063042.2236524-3-christian.bruel@foss.st.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250717063042.2236524-1-christian.bruel@foss.st.com>
-References: <20250717063042.2236524-1-christian.bruel@foss.st.com>
+	Thu, 17 Jul 2025 06:45:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=nXMaxus8XfDIaPk/PrV9R055UFe2h6R0FRKpTuO5XRQ=; b=DxO1GOMJ+NvrBkIAX8Br+aJ8Q9
+	UVSDgZx6yS6GnqdC6mbMhOo+egX/a4ywDvA/Y7MRENl1PBLe/pQSbKvqGO1wW1Xye0TMIWZ1xKeXW
+	Tyb16/sYf+YqErU0ebo/9wYDSXu/buZ3YR34wYlFdF9UCZ04yqgmgX6ncL9I8r1YkYbgX0AznLY81
+	4IBi2iGczQYKWyluBOEXXUpVUEDpyAUznKrV+5EF14Kyt63iS7bxfsDet6xbKGQ8okRyfv0o0jCY7
+	fxvhI2tw8Ryo77AJW3q7eEyoutc1b+IfXnxrG27npSdqvOO9TrbUANgXOgDc7mpjkdp0lFnOtyjSl
+	sICQEDMw==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:49690)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1ucIMk-0000fd-1w;
+	Thu, 17 Jul 2025 07:45:14 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1ucIMf-0001xN-1N;
+	Thu, 17 Jul 2025 07:45:09 +0100
+Date: Thu, 17 Jul 2025 07:45:09 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: rohan.g.thomas@altera.com
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Serge Semin <fancer.lancer@gmail.com>,
+	Romain Gantois <romain.gantois@bootlin.com>, netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Matthew Gerlach <matthew.gerlach@altera.com>
+Subject: Re: [PATCH net-next 2/3] net: stmmac: xgmac: Correct supported speed
+ modes
+Message-ID: <aHib9V1_WZfj3S8M@shell.armlinux.org.uk>
+References: <20250714-xgmac-minor-fixes-v1-0-c34092a88a72@altera.com>
+ <20250714-xgmac-minor-fixes-v1-2-c34092a88a72@altera.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.130.77.120]
-X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE3.st.com
- (10.75.129.71)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-07-17_01,2025-07-16_02,2025-03-28_01
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250714-xgmac-minor-fixes-v1-2-c34092a88a72@altera.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250716_233331_880923_7D09DCA1 
-X-CRM114-Status: GOOD (  14.49  )
+X-CRM114-CacheID: sfid-20250716_234528_061908_EA01CCFA 
+X-CRM114-Status: UNSURE (   8.71  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,56 +90,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Replace direct access to dev->pins->init_state with the new helper
-pinctrl_pm_select_init_state() to select the init pinctrl state.
-This fixes build issues when CONFIG_PINCTRL is not defined.
+On Mon, Jul 14, 2025 at 03:59:18PM +0800, Rohan G Thomas via B4 Relay wrote:
+> @@ -1532,8 +1542,8 @@ int dwxgmac2_setup(struct stmmac_priv *priv)
+>  		mac->mcast_bits_log2 = ilog2(mac->multicast_filter_bins);
+>  
+>  	mac->link.caps = MAC_ASYM_PAUSE | MAC_SYM_PAUSE |
+> -			 MAC_1000FD | MAC_2500FD | MAC_5000FD |
+> -			 MAC_10000FD;
+> +			 MAC_10FD | MAC_100FD | MAC_1000FD |
+> +			 MAC_2500FD | MAC_5000FD | MAC_10000FD;
+...
+> @@ -405,6 +405,7 @@ static int dwxgmac2_get_hw_feature(void __iomem *ioaddr,
+>  	dma_cap->sma_mdio = (hw_cap & XGMAC_HWFEAT_SMASEL) >> 5;
+>  	dma_cap->vlhash = (hw_cap & XGMAC_HWFEAT_VLHASH) >> 4;
+>  	dma_cap->half_duplex = (hw_cap & XGMAC_HWFEAT_HDSEL) >> 3;
+> +	dma_cap->mbps_10_100 = (hw_cap & XGMAC_HWFEAT_GMIISEL) >> 1;
 
-Signed-off-by: Christian Bruel <christian.bruel@foss.st.com>
-Reported-by: Bjorn Helgaas <bhelgaas@google.com>  
-Reported-by: kernel test robot <lkp@intel.com>
-Closes: https://lore.kernel.org/oe-kbuild-all/202506260920.bmQ9hQ9s-lkp@intel.com/
-Fixes: 633f42f48af5 ("PCI: stm32: Add PCIe host support for STM32MP25")
----
- drivers/pci/controller/dwc/pcie-stm32.c | 10 +++++++---
- 1 file changed, 7 insertions(+), 3 deletions(-)
+What if dma_cap->mbps_10_100 is false? Should MAC_10FD | MAC_100FD
+still be set? What if dma_cap->half_duplex is set but
+dma_cap->mbps_10_100 is not? Should we avoid setting 10HD and 100HD?
 
-diff --git a/drivers/pci/controller/dwc/pcie-stm32.c b/drivers/pci/controller/dwc/pcie-stm32.c
-index 50fae5f5ced2..c1d803dc3778 100644
---- a/drivers/pci/controller/dwc/pcie-stm32.c
-+++ b/drivers/pci/controller/dwc/pcie-stm32.c
-@@ -28,6 +28,7 @@ struct stm32_pcie {
- 	struct clk *clk;
- 	struct gpio_desc *perst_gpio;
- 	struct gpio_desc *wake_gpio;
-+	bool   have_pinctrl_init;
- };
- 
- static void stm32_pcie_deassert_perst(struct stm32_pcie *stm32_pcie)
-@@ -91,10 +92,10 @@ static int stm32_pcie_resume_noirq(struct device *dev)
- 	/*
- 	 * The core clock is gated with CLKREQ# from the COMBOPHY REFCLK,
- 	 * thus if no device is present, must force it low with an init pinmux
--	 * to be able to access the DBI registers.
-+	 * if present to be able to access the DBI registers.
- 	 */
--	if (!IS_ERR(dev->pins->init_state))
--		ret = pinctrl_select_state(dev->pins->p, dev->pins->init_state);
-+	if (stm32_pcie->have_pinctrl_init)
-+		ret = pinctrl_pm_select_init_state(dev);
- 	else
- 		ret = pinctrl_pm_select_default_state(dev);
- 
-@@ -274,6 +275,9 @@ static int stm32_pcie_probe(struct platform_device *pdev)
- 		return dev_err_probe(dev, PTR_ERR(stm32_pcie->rst),
- 				     "Failed to get PCIe reset\n");
- 
-+	if (device_property_match_string(dev, "pinctrl-names", PINCTRL_STATE_INIT) >= 0)
-+		stm32_pcie->have_pinctrl_init = true;
-+
- 	ret = stm32_pcie_parse_port(stm32_pcie);
- 	if (ret)
- 		return ret;
 -- 
-2.34.1
-
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
