@@ -4,70 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 839FCC83F22
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 01:32:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75822C83F22
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 02:07:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eQ7sz9jSdryZy65v29omXfEbj/QlEOEo/SktB7nfe8E=; b=Uy2yElCQCqARM9lcy6iVP2QXny
-	wFJeUcNSisn/tmDxKGVyfR+DvTX9Ml9Yaf+xFP6t4Zv/DBdrdHhgaHwgVMxvQc8rWcEau5dd0zqIl
-	s/HBecBPX4zMEN6DcEjBgPP6LyzV1k9D8YnW/DyfpQ1QE2/kQcH8JUuWuYeygAClYF5/BEH7Vcnbi
-	ShfJc05AUMx61OdCpdis8j9AYNH/erDTHRHchzDxbyEEAg/HUDBtPV4brwMKIYl/sIvoKmdQ29tZ6
-	vK4a31eG6gz5Be8JMojsRO7S1Xjeye5o800/9DDsGRPiwf842zw3/IjUEoUKyPUTkLphVURNz8LHS
-	HPSMF4Xg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=cu/yDUrxST+1uvsl2WRsJcz+fPWrEMdPUqli4QG1bzU=; b=CCUXLWiuRz3s5YqCkfY4lGfEXB
+	6H2tDDqEGbeWPr4K/XKSRLz7TrJbaCaiXGZc/68fcTGKfymg2ElsqBgBQIWPJd4r73y2VLsORwnn2
+	dYv+pemtyrGB/hgOF2MfHvzukwrT4dfKlfAzr3VqQ80UGjT0WeaUP50y+NA4SeN5/oqk9ymXs8Ick
+	eTEf7ZGuD0KstFuOB2oe2J7MpqANvY24fDHRMtSfIxFeV/IURJUTMF56wbz14GbsPeIrTv3XtI4r5
+	6edgsOeBpCFv0rlahzMmEV05zOqc6KJlHXUrvv4W3MBpWlDBGbCoOr0efRvIVjo7qgUkb234/mj2J
+	6zN1QvVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucDTy-00000008zf0-1FUb;
-	Thu, 17 Jul 2025 01:32:22 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1ucE1i-000000092WJ-0Yuv;
+	Thu, 17 Jul 2025 02:07:14 +0000
+Received: from mx1.unisoc.com ([222.66.158.135] helo=SHSQR01.spreadtrum.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucDRW-00000008zDK-06Nl
+	id 1ucDzH-000000092N5-0jgw
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Jul 2025 01:29:51 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 57F82A575A8;
-	Thu, 17 Jul 2025 01:29:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EE572C4CEE7;
-	Thu, 17 Jul 2025 01:29:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752715789;
-	bh=4ZNCZwXvNH9vuMgkk/NS1R5HXJ7/MpNDC0QStIdElmA=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=YjhE2soT7mhlqrz+/hkv3UjIrd5XJxlzIWKRy4zyAirX+U4A0rLCOdVJwIcMAKtkF
-	 EhftIpSOliE6OCY8gTiRvb2rYVSFqA+VyPfVRzBwB7Ae9Ii2EdpNA47RpiuSpQiSym
-	 PVgiVPuUPCqNbS3LUCrQEP4AFeqqYfkB1N06MBSOQCcLjm/q7jEGCYNJssogem0mRK
-	 rQ799N8bkepZb/UQ6iPmhDA1sD9VyJfvMMBha52u1ql5LGmVsyKmSiAhpUn89fw1iG
-	 /PDFnM3DngrNaJY6ET5b5fAAzinjgQLualv6oSvVbESwkarCId05yWhVkQk6cWYVVc
-	 CcPguFCGX43ng==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 593D0383BA38;
-	Thu, 17 Jul 2025 01:30:10 +0000 (UTC)
+	Thu, 17 Jul 2025 02:04:44 +0000
+Received: from dlp.unisoc.com ([10.29.3.86])
+	by SHSQR01.spreadtrum.com with ESMTP id 56H22LlB062816;
+	Thu, 17 Jul 2025 10:02:21 +0800 (+08)
+	(envelope-from haiyan.liu@unisoc.com)
+Received: from SHDLP.spreadtrum.com (bjmbx02.spreadtrum.com [10.0.64.8])
+	by dlp.unisoc.com (SkyGuard) with ESMTPS id 4bjGKN62JQz2K925k;
+	Thu, 17 Jul 2025 09:58:00 +0800 (CST)
+Received: from BJMBX01.spreadtrum.com (10.0.64.7) by BJMBX02.spreadtrum.com
+ (10.0.64.8) with Microsoft SMTP Server (TLS) id 15.0.1497.48; Thu, 17 Jul
+ 2025 10:02:18 +0800
+Received: from BJMBX01.spreadtrum.com ([fe80::54e:9a:129d:fac7]) by
+ BJMBX01.spreadtrum.com ([fe80::54e:9a:129d:fac7%16]) with mapi id
+ 15.00.1497.048; Thu, 17 Jul 2025 10:02:18 +0800
+From: =?utf-8?B?5YiY5rW354eVIChIYWl5YW4gTGl1KQ==?= <haiyan.liu@unisoc.com>
+To: Carlos Llamas <cmllamas@google.com>, Alice Ryhl <aliceryhl@google.com>,
+        Matthew Maurer <mmaurer@google.com>
+CC: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>,
+        Miguel Ojeda
+	<ojeda@kernel.org>,
+        =?utf-8?B?5ZGo5bmzIChQaW5nIFpob3UvOTAzMik=?=
+	<Ping.Zhou1@unisoc.com>,
+        =?utf-8?B?5Luj5a2Q5Li6IChaaXdlaSBEYWkp?=
+	<Ziwei.Dai@unisoc.com>,
+        =?utf-8?B?5p2o5Li95aicIChMaW5hIFlhbmcp?=
+	<lina.yang@unisoc.com>,
+        "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>,
+        "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>,
+        "rust-for-linux@vger.kernel.org"
+	<rust-for-linux@vger.kernel.org>,
+        =?utf-8?B?546L5Y+MIChTaHVhbmcgV2FuZyk=?=
+	<shuang.wang@unisoc.com>,
+        Andrey Ryabinin <ryabinin.a.a@gmail.com>,
+        "Alexander Potapenko" <glider@google.com>,
+        Andrey Konovalov
+	<andreyknvl@gmail.com>,
+        Dmitry Vyukov <dvyukov@google.com>,
+        Vincenzo Frascino
+	<vincenzo.frascino@arm.com>,
+        "kasan-dev@googlegroups.com"
+	<kasan-dev@googlegroups.com>,
+        Greg Kroah-Hartman
+	<gregkh@linuxfoundation.org>,
+        =?utf-8?B?QXJ2ZSBIasO4bm5ldsOlZw==?=
+	<arve@android.com>,
+        Todd Kjos <tkjos@android.com>, Martijn Coenen
+	<maco@android.com>,
+        Joel Fernandes <joelagnelf@nvidia.com>,
+        Christian Brauner
+	<christian@brauner.io>,
+        Suren Baghdasaryan <surenb@google.com>,
+        "Jamie
+ Cunliffe" <Jamie.Cunliffe@arm.com>,
+        Catalin Marinas <catalin.marinas@arm.com>
+Subject: =?utf-8?B?5pKk5ZueOiBNZWV0IGNvbXBpbGVkIGtlcm5lbCBiaW5hcmF5IGFibm9ybWFs?=
+ =?utf-8?B?IGlzc3VlIHdoaWxlIGVuYWJsaW5nIGdlbmVyaWMga2FzYW4gaW4ga2VybmVs?=
+ =?utf-8?Q?_6.12_with_some_default_KBUILD=5FRUSTFLAGS_on?=
+Thread-Topic: Meet compiled kernel binaray abnormal issue while enabling
+ generic kasan in kernel 6.12 with some default KBUILD_RUSTFLAGS on
+Thread-Index: AQHb9r7T3quLQs5+RfaRTr3Yr7SnUQ==
+X-CallingTelephoneNumber: IPM.Note
+X-VoiceMessageDuration: 1
+X-FaxNumberOfPages: 0
+Date: Thu, 17 Jul 2025 02:02:18 +0000
+Message-ID: <484211314e1f4a7990a43852db79fb20@BJMBX01.spreadtrum.com>
+Accept-Language: zh-CN, en-US
+Content-Language: zh-CN
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-exchange-transport-fromentityheader: Hosted
+x-originating-ip: [10.0.93.65]
 Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH 0/2] bpf, arm64: relax constraint in BPF JIT compiler
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <175271580926.1388574.2871718742808894447.git-patchwork-notify@kernel.org>
-Date: Thu, 17 Jul 2025 01:30:09 +0000
-References: <20250709-arm64_relax_jit_comp-v1-0-3850fe189092@bootlin.com>
-In-Reply-To: <20250709-arm64_relax_jit_comp-v1-0-3850fe189092@bootlin.com>
-To: =?utf-8?q?Alexis_Lothor=C3=A9_=3Calexis=2Elothore=40bootlin=2Ecom=3E?=@aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org
-Cc: ast@kernel.org, daniel@iogearbox.net, andrii@kernel.org,
- martin.lau@linux.dev, eddyz87@gmail.com, song@kernel.org,
- yonghong.song@linux.dev, john.fastabend@gmail.com, kpsingh@kernel.org,
- sdf@fomichev.me, haoluo@google.com, jolsa@kernel.org, puranjay@kernel.org,
- xukuohai@huaweicloud.com, catalin.marinas@arm.com, will@kernel.org,
- mykolal@fb.com, shuah@kernel.org, ebpf@linuxfoundation.org,
- thomas.petazzoni@bootlin.com, bastien.curutchet@bootlin.com,
- ihor.solodrai@linux.dev, bpf@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-kselftest@vger.kernel.org
+X-MAIL: SHSQR01.spreadtrum.com 56H22LlB062816
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250716_182950_129998_3A381D72 
-X-CRM114-Status: GOOD (  11.80  )
+X-CRM114-CacheID: sfid-20250716_190443_481346_6D883EF6 
+X-CRM114-Status: UNSURE (   2.16  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,34 +121,8 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
-
-This series was applied to bpf/bpf-next.git (master)
-by Alexei Starovoitov <ast@kernel.org>:
-
-On Wed, 09 Jul 2025 10:36:54 +0200 you wrote:
-> Hello,
-> this series follows up on the one introducing 9+ args for tracing
-> programs [1]. It has been observed with this series that there are cases
-> for which we can not identify accurately the location of the target
-> function arguments to prepare correctly the corresponding BPF
-> trampoline. This is the case for example if:
-> - the function consumes a struct variable _by value_
-> - it is passed on the stack (no more register available for it)
-> - it has some __packed__ or __aligned(X)__ attribute
-> 
-> [...]
-
-Here is the summary with links:
-  - [1/2] bpf, arm64: remove structs on stack constraint
-    https://git.kernel.org/bpf/bpf-next/c/dc704d0cfa43
-  - [2/2] selftests/bpf: enable tracing_struct tests for arm64
-    https://git.kernel.org/bpf/bpf-next/c/4a760d2d7aa6
-
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
+5YiY5rW354eVIChIYWl5YW4gTGl1KSDlsIbmkqTlm57pgq7ku7bigJxNZWV0IGNvbXBpbGVkIGtl
+cm5lbCBiaW5hcmF5IGFibm9ybWFsIGlzc3VlIHdoaWxlIGVuYWJsaW5nIGdlbmVyaWMga2FzYW4g
+aW4ga2VybmVsIDYuMTIgd2l0aCBzb21lIGRlZmF1bHQgS0JVSUxEX1JVU1RGTEFHUyBvbuKAneOA
+gg==
 
