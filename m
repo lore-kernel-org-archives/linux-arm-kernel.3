@@ -4,85 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A6FEC83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 09:15:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A368BC83F34
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 09:18:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SoZi3uH4bM8ut3s23CSSIKzUfpDb/RYJxJSCVL7F3f4=; b=wqbIaXWpViW/sQP6aEk0BrWG8Z
-	24d3/bHHzh+f2/Wq+Ss+mP/MaJ+boy3gJb7HdUSQ3n7ZQO6GLLPp1iqkownmq/X7znwamY6AkJpJP
-	2MFmc4MMo+k3uQhXlpwloRqv9Wjga6O8WESLtdMCw324rcqKckOJf7l7hyC9mODDFja0lPUmX7Ehk
-	tAf9Hhe0GMGQDw5MCdRnwL6aM05FNqKvt4Zy+dOJFB1IXvs4ufstBGOQ108mz5eYEhsbFI2LP+FAz
-	jfm/Kih3vrlvbk+r2vmE4ZyQVXPZ7woh4QzuAZb1miC6p5Z3YblKJ+2b8EZ76ol53KT6Y3m6aJrL5
-	Pxo6eS3Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Zie8FPC+ypBCiXTadchBVHx1J62Vde/cFCP4jTGgfSo=; b=l1DzEOpEzQQG8n4wKWUYWoFvOu
+	GqHJ7YKVHe5btHVTiDRyGyGrglol9EeQD45nBDQa5Qe0+dzvBS/hEms1Q7arVB66g3pA5kV5ifTCn
+	4QRwMUP7O8gWODD3ie1Oo683whjZc9SUiwPpmyD1tW3m+U7XsNkRiNrh1q0XZtN1SgiEhecu9ljg2
+	1tuWRrmDjhMZigINUog0kiy4T7QRbqElzwqgaS3VegiOiofNcHUIqMK7Z+C4+TejTKVgV6zYXsD1J
+	pi3984sNbikG9R/Y6tEIYtO+ttZK87zaHFbtP8dTy5pNeIGzjudumcgo6nhUNHv8zCYD6hNpulycQ
+	RhdVa2wA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucKiW-00000009hj8-1lkx;
-	Thu, 17 Jul 2025 09:15:52 +0000
-Received: from mail-qt1-x82d.google.com ([2607:f8b0:4864:20::82d])
+	id 1ucKkv-00000009i0g-0Aqz;
+	Thu, 17 Jul 2025 09:18:21 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucKGa-00000009bfR-1U5d;
-	Thu, 17 Jul 2025 08:47:01 +0000
-Received: by mail-qt1-x82d.google.com with SMTP id d75a77b69052e-4ab63f8fb91so6825811cf.0;
-        Thu, 17 Jul 2025 01:47:00 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1752742019; x=1753346819; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=SoZi3uH4bM8ut3s23CSSIKzUfpDb/RYJxJSCVL7F3f4=;
-        b=Zf4nl+7+ziVJuHaO6upliQgbt4MIchRbdmogn8wiqIbClZUNW6OYK5Z+lp5KuquxS8
-         7me6x0X9RrrdVxIdknp+oPpwY+Irm/rFVpYDMKRn36oRW78GkAlwprKALEVysdyQ72mq
-         lC2MUoyhIbIcBtWlnzx0iTsFj7p7ehIo53YmEqfTH7F2gD25l0zj6DyaVOyDwQH0CQbA
-         tli9wajuNNbSMRX+ezTpRPJI+NvTmjI9bK57Chh3ttwlRtwBI3tHMuGkp06wccppSRCK
-         WFoTp+3C8/JAroMiVqRE2smvue1yiRSUEhjUCdKXDWNyqNCn3rR0cX1lNP0V33ZB6HvL
-         rbbg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752742019; x=1753346819;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=SoZi3uH4bM8ut3s23CSSIKzUfpDb/RYJxJSCVL7F3f4=;
-        b=ao7FJ/YeRmEA1WJCc1ILFKY1z9Z//Xfooz00f0saNhIdmd9U8QLOJN1de/mdw4l50f
-         fPa+r2arIQk8TDGwg2he6o1bfVng1zOxPlX8zM+91YuBCaJmM0Z2+aFtdi8Zx6VKC+w/
-         PI2EnjO9k0G2IJ2jJbV2WvZW7Knzdkyoim+T5ZpO/TxIIFR2FnREQexEzazNB5+2abDS
-         EZGWVuLqWERnqObgFOONecQlylMVfHCNuMQc1jI1bv6mhUR3xZFyinikwz37bM9BP+RZ
-         P8Za7HYY27G7YwBFg/b4GIMFbruqYI6KHs4HEuOV+bsQ4mrc3iFH+lHt/naKdUCq/Q/C
-         UQ7A==
-X-Forwarded-Encrypted: i=1; AJvYcCV+8+olZPIGIq1LwQhMuc3Ef1ioC6vMGUpOe/ed6pq7mxw5IdHdGo9UObtp0IkWu5xUFpGhnNugxe6ZIEH0Xdup@lists.infradead.org, AJvYcCV0iQL300KsV1honVvyLmJx0A3W8SQ5/Yrc0AqLWEhRuPqIpt3s33Ceipu9nrvntVLZrgktgrPZLiXlJzYu9k0=@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw56qcr1UrED5hvoj5+SVgQ9+v6TxsVw7VRKQrQDoOkizQO42ZY
-	xhszI1rUqIZtmUtPe7Np6rvnmDbIhFS4RGAfzMaXxNz+nypMgHNarMT6Nz9Rv/NCKYTCdjBDFJ1
-	rZgfSfqZ7gAIycgfUFwVKOvukfaUVQIU=
-X-Gm-Gg: ASbGnctaEnpMdDJv/VFRy0KdkFz9fFs9ZPf686qtJsuQIGhskza+a9m+7zdci8mVah2
-	tiaHf6Fc+iEuD0ooRNmSL3qHrrvN9ZtaZtHNLZW+SuwAMODjpifQDlWp/9QbgqTm92U9rqm0YKs
-	OpZrVScuKf/vuJ/g2c2CyHEX6Vtnsl0vvZ6sFYGbnhwU5AghHubspsrDHlgFEVcM1mWAT+P/Ox1
-	A+pKFjOxULHEMs7
-X-Google-Smtp-Source: AGHT+IHjj5vn0+lqcDlxTyECjf51uWo+wHz/e3GDdA4Lfz1XnPAokoHWuCf3MPYFpyI+USr4C4GDng9B+wsuijb5spQ=
-X-Received: by 2002:a05:622a:228b:b0:4a5:912a:7c64 with SMTP id
- d75a77b69052e-4ab93d49434mr62145001cf.30.1752742019019; Thu, 17 Jul 2025
- 01:46:59 -0700 (PDT)
+	id 1ucKJH-00000009cVB-1C2B
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 17 Jul 2025 08:49:48 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 23580A56051;
+	Thu, 17 Jul 2025 08:49:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 08DE7C4CEED;
+	Thu, 17 Jul 2025 08:49:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1752742185;
+	bh=1LaZMmufVKTiGZ1B+WdO3aR89rghURP6uEd2rsuld3s=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=lOSFBXonALTq4dkOywT4xN2hhzCqX0iqVkTVuJJXa9C+H+FN9PkqbyO++9Mocnm5o
+	 TlSekzaBH6Pn6oaDakF4NIRz9K9B0pwRmhyf+81WMF80SRwwOorv57DUCjzoItdwyd
+	 fdIzVUxI4Yl0bgZ+BGfo5jzvRmFTSlYhMP3KZDlQmlmYMRbLb8vbR96EOxqttldm3L
+	 CFoa7CpqGqfB6RZzgn4zJcdDjgdvfFCG1ShybgH1FM1Ka+fDvFUC076bL5DklbnXZE
+	 fOQ+SImE0z8OiZQtbxTElodRLlanUXmH1gehrnxsHT95TTc4+Ty6LK1an5NU6FSeg6
+	 vSiIYpw/35h/g==
+Date: Thu, 17 Jul 2025 09:49:37 +0100
+From: Will Deacon <will@kernel.org>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: jgg@nvidia.com, kevin.tian@intel.com, corbet@lwn.net,
+	bagasdotme@gmail.com, robin.murphy@arm.com, joro@8bytes.org,
+	thierry.reding@gmail.com, vdumpa@nvidia.com, jonathanh@nvidia.com,
+	shuah@kernel.org, jsnitsel@redhat.com, nathan@kernel.org,
+	peterz@infradead.org, yi.l.liu@intel.com, mshavit@google.com,
+	praan@google.com, zhangzekun11@huawei.com, iommu@lists.linux.dev,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-tegra@vger.kernel.org,
+	linux-kselftest@vger.kernel.org, patches@lists.linux.dev,
+	mochs@nvidia.com, alok.a.tiwari@oracle.com, vasant.hegde@amd.com,
+	dwmw2@infradead.org, baolu.lu@linux.intel.com
+Subject: Re: [PATCH v9 23/29] iommu/arm-smmu-v3-iommufd: Add vsmmu_size/type
+ and vsmmu_init impl ops
+Message-ID: <aHi5IUXqHJZGB67M@willie-the-truck>
+References: <cover.1752126748.git.nicolinc@nvidia.com>
+ <375ac2b056764534bb7c10ecc4f34a0bae82b108.1752126748.git.nicolinc@nvidia.com>
+ <aHE4Y-fbucm-j-yi@willie-the-truck>
+ <aHahEP0+LKmeA/Tf@Asurada-Nvidia>
 MIME-Version: 1.0
-References: <b6f8f705-f661-46cf-9dda-6f18f8658622@kwiboo.se> <20250717070006.192765-1-amadeus@jmu.edu.cn>
-In-Reply-To: <20250717070006.192765-1-amadeus@jmu.edu.cn>
-From: Alexey Charkov <alchark@gmail.com>
-Date: Thu, 17 Jul 2025 12:46:47 +0400
-X-Gm-Features: Ac12FXzqkgYPLwPzfI0Wfzx3xJg_aHq911YS94XX9w26rk3khvCHNvT0xMmUc6s
-Message-ID: <CABjd4Yxz=mrNpqgnHSgD0tr4ALH3YW9MvLULES568yHNFiPB_w@mail.gmail.com>
-Subject: Re: [PATCH v2 1/1] arm64: dts: rockchip: rk3528: Add CPU frequency
- scaling support
-To: Chukun Pan <amadeus@jmu.edu.cn>
-Cc: jonas@kwiboo.se, conor+dt@kernel.org, devicetree@vger.kernel.org, 
-	heiko@sntech.de, krzk+dt@kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org, 
-	ziyao@disroot.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aHahEP0+LKmeA/Tf@Asurada-Nvidia>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250717_014700_390106_27150243 
-X-CRM114-Status: GOOD (  16.31  )
+X-CRM114-CacheID: sfid-20250717_014947_458667_03CDF742 
+X-CRM114-Status: GOOD (  26.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,40 +84,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 17, 2025 at 11:01=E2=80=AFAM Chukun Pan <amadeus@jmu.edu.cn> wr=
-ote:
->
-> Hi Jonas,
->
-> > One possible difference here is that the actual CPU rate is controlled
-> > by a PVTPLL where TF-A will configure a osc ring-length based on the
-> > requested rate and Linux only configure the regulator voltage.
-> >
-> > I have no idea if the configuration made by TF-A will have any affect o=
-n
-> > power usage, but I suggest we keep all opp here because both TF-A and
-> > Linux is involved in configuring the CPU rate.
-> >
-> > The measured rate can typically be read from a PVTPLL status reg, it
-> > will be different depending on the ring-length, voltage and silicon
-> > quality for the rates >=3D 816 MHz.
->
-> Alexey suggested that we remove 408MHz, 600MHz and 816MHz from the
-> opp-table. Do you think it is acceptable to use 850mV for 1008MHz?
+Hi Nicolin,
 
-But why 850 mV? Vendor .dtsi [1] implies that chips with leakage
-values of L0..L4 might be unstable at this frequency with a 850 mV
-supply and need 875 mV instead.
+On Tue, Jul 15, 2025 at 11:42:24AM -0700, Nicolin Chen wrote:
+> Sorry for the late response.
 
-As long as we don't read out OTP leakage values, we should pick a
-voltage for each OPP that is sufficient for all possible chip
-characteristics, meaning the maximum of all opp-microvolt* given in
-each OPP. This will result in higher -L* chips burning more power than
-they have to, but at least they will be stable.
+No problem at all.
 
-[1] https://github.com/rockchip-linux/kernel/blob/792a7d4273a59e80dafca48ba=
-11438f43a6d8bda/arch/arm64/boot/dts/rockchip/rk3528.dtsi#L268
+> On Fri, Jul 11, 2025 at 05:14:27PM +0100, Will Deacon wrote:
+> > >  /* MMIO registers */
+> > >  #define ARM_SMMU_IDR0			0x0
+> > > @@ -720,6 +721,10 @@ struct arm_smmu_impl_ops {
+> > >  	int (*init_structures)(struct arm_smmu_device *smmu);
+> > >  	struct arm_smmu_cmdq *(*get_secondary_cmdq)(
+> > >  		struct arm_smmu_device *smmu, struct arm_smmu_cmdq_ent *ent);
+> > > +	const size_t vsmmu_size;
+> > > +	const enum iommu_viommu_type vsmmu_type;
+> > > +	int (*vsmmu_init)(struct arm_vsmmu *vsmmu,
+> > > +			  const struct iommu_user_data *user_data);
+> > 
+> > It would be nice to avoid adding data members to the ops structure, if
+> 
+> You mean the "vsmmu_size" and "vsmmu_type" right?
 
-Best regards,
-Alexey
+Yup.
+
+> So you want them to be removed, by having two impl_ops:
+> 	size_t get_vsmmu_size(enum iommu_viommu_type vsmmu_type);
+> 	int (*vsmmu_init)(struct arm_vsmmu *vsmmu,
+> 			  const struct iommu_user_data *user_data);
+> 
+> right?
+
+Yes, please.
+
+> > at all possible. The easiest thing would probably be to add a function
+> > for getting the vsmmu size and then pushing the two checks against
+> > 'vsmmu_type' down into the impl_ops callbacks so that:
+> > 
+> >   1. If the type is IOMMU_VIOMMU_TYPE_ARM_SMMUV3, we don't bother with
+> >      the impl_ops at all in arm_vsmmu_init() and arm_smmu_get_viommu_size()
+> 
+> Hmm, I was hoping for an implementation could support the default
+> IOMMU_VIOMMU_TYPE_ARM_SMMUV3 while having its own viommu_ops or so.
+> But I think your suggestion is fine since there is no such a use
+> case at this moment :)
+> 
+> >   2. Otherwise, we pass the type into the impl_ops and they can check it
+> > 
+> > Of course, that can be a patch on top of the series as there's no point
+> > respinning the whole just for this.
+> 
+> Thanks for that! I can draft a patch to send later this week once
+> the requirements are confirmed.
+
+Thank you!
+
+Will
 
