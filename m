@@ -4,71 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6397BC83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 17:14:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AAE5C83F34
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 17:22:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+EluqO2moZ07z54L0ghbT5HaZt1N6sU75p1MHiMf6X4=; b=2WoXl+n8oAvyThVlBVJXgWVBXb
-	+nNrM8N55E3Oq/jb7oAsaah6ongwy5h3Uajnm6kE4sElbgrOogzLo6+q7ipc3iZYG6g7Adj8JLcPj
-	4a4zOmX8O4Me6i1Dse1PxXKr+NrYbjct2kPinGmv7XqA+KCkebl2j/L1aprE4hCszXXCowSLprPvt
-	io5qybLEfyAhZTcUIvuOb4SXd+Iozrh5/1EqVK2dfeFtEe+CV80WSlJXNy/omtQX948Q3YgOc2Xtn
-	RwhZ07Or31Wax9cX2+GqDOwtbmBjpLj/WNCmysiVv9iZ7vXK/jUXgjVwfeNgVzfbonNiwqcYBk4aP
-	v/w//bDQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=vnmPbk+SzjnQUab3zLiOuEdr6xig/TglCXCOUdlG6xw=; b=Zk4QclTx/8KDNh
+	ylZyi17fDyu7ZnJMnyOE2HwduWFb0ViLQE9Hl+5kzeuotBZPJ767sesGROE3V2clRAw8HFUBn8Itp
+	pBm9+RY/FZOlrvsRKevz9DDDmTagAmZUyfCynGISZg8ZF2UhPuS3/jNbB8RaywoSkVhnai8jf9ao2
+	ZXftuCMU79ZbqcFN5W/TL4L8FndkzGwEFt9gat0FuyCBxMwSIcCiukbPpeOn87mqLGugCySStU6wY
+	UO8H0ADyeNoy9W9pJrSMxavgoMpjIsBDVJehYB06FSkoyOEdcXJs9FOv1lAsIVfE4Ax6FhEBWuXKy
+	7PwwctwkHSfDRHYWeMkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucSC2-0000000AlZm-1Xdc;
-	Thu, 17 Jul 2025 17:14:50 +0000
-Received: from out-180.mta0.migadu.com ([2001:41d0:1004:224b::b4])
+	id 1ucSJ2-0000000AmBl-41EA;
+	Thu, 17 Jul 2025 17:22:04 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucS9Y-0000000AlBD-2Sra
+	id 1ucQ4y-0000000AR1Q-3I0F
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Jul 2025 17:12:18 +0000
-Message-ID: <5ee4bac4-957b-481a-8608-15886da458c2@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1752772333;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=+EluqO2moZ07z54L0ghbT5HaZt1N6sU75p1MHiMf6X4=;
-	b=ckjsxq98tfEm25Th4zH5CRqje3rC68aGTOC/Bz9djpqcTCgTf7FWRD/UptBN0Z8iycl2fz
-	Urr+zWCtba04bzEP+CB2lSUU7vfWCQcHB1Q4/Eo5D2a1CgSN2dm79DE3nsMuIvl/8Oxqg7
-	GOayi3n/u+4ztkqeCj69hLCLZkwdNdg=
-Date: Thu, 17 Jul 2025 13:12:08 -0400
+	Thu, 17 Jul 2025 14:59:26 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-2350fc2591dso11549095ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Jul 2025 07:59:23 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1752764363; x=1753369163; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=vnmPbk+SzjnQUab3zLiOuEdr6xig/TglCXCOUdlG6xw=;
+        b=gTTEr5oHpY5zYpvhDzzXIFL77bTSA7IN4bLEgtc2d6+w0y8oX2A1fgh6wQFONNGXl9
+         e9CfaLHygmY5XvdNEzvxuUqozMCmhmCwUTDbuw7OPE13+VjEy4EfVfqyjL+fDIe/bUg5
+         gAUKBGF4whFTK2iQfUC54iy/fx+2AkfGn22AC2KWjW5X3TQI0N0G63D9xyEDUo/KA/Zl
+         b+xnHOu0+zTBlF1Gag5BwwG/uBVGaQirUVYxVRVL052LYdMvmaE6tstLpc2F+tyAWLit
+         RPoUb/oxMO/xBZz/Jr9AdXTmHADc5Jap3a2s9O9G3ha2Y5kdS/92kvRAf+GZzL7kmQzV
+         S7Aw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1752764363; x=1753369163;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=vnmPbk+SzjnQUab3zLiOuEdr6xig/TglCXCOUdlG6xw=;
+        b=vJX/z4VZWR86V/84qYFnuPJQw4VGRpe3vUPf7mSBwCoAeOsCshLbi/bbCYsph9iSKu
+         3Ib5SufmfCpPk5Dcffxbre44b7VmE/jk43HQbIifChfbAXoBNaa7EkAPTlf2IBTMnP+A
+         rDcgsLRrjMRCsS63yyuRJsIVGinBUuEWXwR1qOT7afHFIddT65GxzFXNOITT/TSm7I3Q
+         1Z2O8FoS3brZWZVJuwVk6rAIQ36K7Sm0uTteWQsLTA1gsui/A5bIF++PtMaAQn0DC/3b
+         /WDmvELcNJ2KM3gU1GKjQSk5I4iPPZrdzQdwQP7FchabbdM1LA4buB3fZPuTeMSe9tcD
+         XVcQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXCck9ufImnoxy4xy3An10ciRT5Ll8L/uKeA77DycU57lGiGGSvSJhILi4AwJZsSsORmnyY37LKNPRtCNRU5zBw@lists.infradead.org
+X-Gm-Message-State: AOJu0YyzgG9fGT9uHBRE9Kd8DrgC/ZTXYbzUoIdIa/6nzheLdwBXzFZb
+	IFgsRtRRVSDSi8UZA3Ij5mloVrz9lMqjMT+d9tG6o8AXZkSOx+k7Hdyc
+X-Gm-Gg: ASbGncu+p41AYaJtSmjsZOPieOxjU8hXE01ZSyfMYc2HHdFssVQztdTPhovb/2mutdh
+	2y//VNSYI6hIwqF/wX38SLPYvZRSN5tNuJ2TRwAE0wDsJrGkh9v8TR32eTkYNRLRqkCCRz2//QU
+	Ed/XNzD4OieHXg52Fs1+1xNAKkqOCiJV8+E8wVuSEPxIqdB6OWl3YmDHGXN0VZO1BymFIKR5ryw
+	MMjtu2xCLfPnA4DSyd2K3e0Cgwe+evPaqEj1QG3QZpJSCCTxvOaKZPOFCVxZcx7+SIZ4KsgbrBk
+	cTkRLYdijso6J6xbjSCtd5NsoB5zrLdnB7/MfFSlTzBaueja/JPdSzv82ED4ArjT0up419Z5MXC
+	NEGbBlzbDg1ouQMmmWeq72EryHY7AJxqyPcozY2OP4S9YpueRkzEJZ9EFnsFRQTDsGNI=
+X-Google-Smtp-Source: AGHT+IHgkzEOYEeBylkMIDMLWlCKIz9EjBVWlMOVczHADMYS0NEj3G6AuhDKx5MYpE25LRvaHDKgNg==
+X-Received: by 2002:a17:902:d4c1:b0:234:595d:a58e with SMTP id d9443c01a7336-23e38fb11efmr1511875ad.25.1752764363108;
+        Thu, 17 Jul 2025 07:59:23 -0700 (PDT)
+Received: from [172.17.0.2] (125-227-29-20.hinet-ip.hinet.net. [125.227.29.20])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23de42aea81sm144603915ad.82.2025.07.17.07.59.19
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 17 Jul 2025 07:59:22 -0700 (PDT)
+From: Leo Wang <leo.jt.wang@gmail.com>
+X-Google-Original-From: Leo Wang <leo.jt.wang@fii-foxconn.com>
+Subject: [PATCH v8 0/2] ARM: dts: Add support for Meta Clemente BMC
+Date: Thu, 17 Jul 2025 22:58:58 +0800
+Message-Id: <20250717-add-support-for-meta-clemente-bmc-v8-0-2ff6afb36b0e@fii-foxconn.com>
 MIME-Version: 1.0
-Subject: Re: [PATCH net v2 1/4] auxiliary: Support hexadecimal ids
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- netdev@vger.kernel.org, Dave Ertman <david.m.ertman@intel.com>,
- Saravana Kannan <saravanak@google.com>, Leon Romanovsky <leon@kernel.org>,
- linux-kernel@vger.kernel.org, Michal Simek <michal.simek@amd.com>,
- linux-arm-kernel@lists.infradead.org, Ira Weiny <ira.weiny@intel.com>
-References: <20250716000110.2267189-1-sean.anderson@linux.dev>
- <20250716000110.2267189-2-sean.anderson@linux.dev>
- <2025071637-doubling-subject-25de@gregkh>
- <719ff2ee-67e3-4df1-9cec-2d9587c681be@linux.dev>
- <2025071747-icing-issuing-b62a@gregkh>
- <5d8205e1-b384-446b-822a-b5737ea7bd6c@linux.dev>
- <2025071736-viscous-entertain-ff6c@gregkh>
- <03e04d98-e5eb-41c0-8407-23cccd578dbe@linux.dev>
- <2025071726-ramp-friend-a3e5@gregkh>
-Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Sean Anderson <sean.anderson@linux.dev>
-In-Reply-To: <2025071726-ramp-friend-a3e5@gregkh>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-Migadu-Flow: FLOW_OUT
+X-B4-Tracking: v=1; b=H4sIALIPeWgC/5XRTWrDMBAF4KsErauif0Vd9R6lC2k0agS1ZWTXp
+ ATfvXI2NdQFZ/mG4XsDcyMj1owjeTndSMU5j7n0LZyfTgQuvv9AmmPLRDChmeFn6mOk49cwlDr
+ RVCrtcPIUPrHDfkIaOqBOca+MC6CFJM0ZKqZ8vXe8vbd8yeNU6ve9cubr9BF95pRR1OCNcYjKh
+ teUc9u9Qun7ZygdWTtmsXEFP+KK5hrQmJh2XDnYd+XWlUdc2VwQQqYESRlI+67auvaIq1YXbUp
+ CKsNA7bv6YVc3l8kzRpM4BPfPvebXtezQ30xzbZKobYhMSrPv2o3LzRHXNjfqEKzSDrT3f91lW
+ X4A8/ldSugCAAA=
+X-Change-ID: 20250618-add-support-for-meta-clemente-bmc-941a469bc523
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
+ Andrew Jeffery <andrew@codeconstruct.com.au>, Kees Cook <kees@kernel.org>, 
+ Tony Luck <tony.luck@intel.com>, 
+ "Guilherme G. Piccoli" <gpiccoli@igalia.com>, 
+ Geert Uytterhoeven <geert+renesas@glider.be>, 
+ Magnus Damm <magnus.damm@gmail.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
+ linux-hardening@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
+ leo.jt.wang@fii-foxconn.com, george.kw.lee@fii-foxconn.com, 
+ bruce.jy.hung@fii-foxconn.com, Leo Wang <leo.jt.wang@gmail.com>, 
+ Conor Dooley <conor.dooley@microchip.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1752764359; l=2456;
+ i=leo.jt.wang@fii-foxconn.com; s=20250618; h=from:subject:message-id;
+ bh=JMX/QgUhmqLWxuEkWEUiV/WuMSD4F4bRfw4zHmMzWUw=;
+ b=O7FZv7SmN+3mZNqZcFF0E6+kINF6Do9tG1Je+dkH5V0XJWXbF2wApr0D+XWg6pkWRwXAS+RhJ
+ tgITsqyOYw1AMNw2JUBAAELEhjLPkzXTNYi7iabDimDhxy6AIb8bJbp
+X-Developer-Key: i=leo.jt.wang@fii-foxconn.com; a=ed25519;
+ pk=x+DKjAtU/ZbbMkkAVdwfZzKpvNUVgiV1sLJbidVIwSQ=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250717_101217_272132_7C876470 
-X-CRM114-Status: GOOD (  31.27  )
+X-CRM114-CacheID: sfid-20250717_075924_826357_47C33C37 
+X-CRM114-Status: GOOD (  12.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,91 +121,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/17/25 12:33, Greg Kroah-Hartman wrote:
-> On Thu, Jul 17, 2025 at 12:27:44PM -0400, Sean Anderson wrote:
->> On 7/17/25 12:21, Greg Kroah-Hartman wrote:
->> > On Thu, Jul 17, 2025 at 12:04:15PM -0400, Sean Anderson wrote:
->> >> On 7/17/25 11:59, Greg Kroah-Hartman wrote:
->> >> > On Thu, Jul 17, 2025 at 11:49:37AM -0400, Sean Anderson wrote:
->> >> >> On 7/16/25 01:09, Greg Kroah-Hartman wrote:
->> >> >> > On Tue, Jul 15, 2025 at 08:01:07PM -0400, Sean Anderson wrote:
->> >> >> >> Support creating auxiliary devices with the id included as part of the
->> >> >> >> name. This allows for hexadecimal ids, which may be more appropriate for
->> >> >> >> auxiliary devices created as children of memory-mapped devices. If an
->> >> >> >> auxiliary device's id is set to AUXILIARY_DEVID_NONE, the name must
->> >> >> >> be of the form "name.id".
->> >> >> >> 
->> >> >> >> With this patch, dmesg logs from an auxiliary device might look something
->> >> >> >> like
->> >> >> >> 
->> >> >> >> [    4.781268] xilinx_axienet 80200000.ethernet: autodetected 64-bit DMA range
->> >> >> >> [   21.889563] xilinx_emac.mac xilinx_emac.mac.80200000 net4: renamed from eth0
->> >> >> >> [   32.296965] xilinx_emac.mac xilinx_emac.mac.80200000 net4: PHY [axienet-80200000:05] driver [RTL8211F Gigabit Ethernet] (irq=70)
->> >> >> >> [   32.313456] xilinx_emac.mac xilinx_emac.mac.80200000 net4: configuring for inband/sgmii link mode
->> >> >> >> [   65.095419] xilinx_emac.mac xilinx_emac.mac.80200000 net4: Link is Up - 1Gbps/Full - flow control rx/tx
->> >> >> >> 
->> >> >> >> this is especially useful when compared to what might happen if there is
->> >> >> >> an error before userspace has the chance to assign a name to the netdev:
->> >> >> >> 
->> >> >> >> [    4.947215] xilinx_emac.mac xilinx_emac.mac.1 (unnamed net_device) (uninitialized): incorrect link mode  for in-band status
->> >> >> >> 
->> >> >> >> Signed-off-by: Sean Anderson <sean.anderson@linux.dev>
->> >> >> >> ---
->> >> >> >> 
->> >> >> >> Changes in v2:
->> >> >> >> - Add example log output to commit message
->> >> >> > 
->> >> >> > I rejected v1, why is this being sent again?
->> >> >> 
->> >> >> You asked for explanation, I provided it. I specifically pointed out why
->> >> >> I wanted to do things this way. But I got no response. So here in v2.
->> >> > 
->> >> > Again, I said, "do not do that, this is not how ids work in the driver
->> >> > model", and you tried to show lots of reasons why you wanted to do it
->> >> > this way despite me saying so.
->> >> > 
->> >> > So again, no, sorry, this isn't ok.  Don't attempt to encode information
->> >> > in a device id like you are trying to do here, that's not what a device
->> >> > id is for at all.  I need to go dig up my old patch that made all device
->> >> > ids random numbers just to see what foolish assumptions busses and
->> >> > userspace tools are making....
->> >> 
->> >> But it *is* how ids work in platform devices.
->> > 
->> > No one should ever use platform devices/bus as an excuse to do anything,
->> > it's "wrong" in so many ways, but needs to be because of special
->> > reasons.  No other bus should work like that, sorry.
->> > 
->> >> And because my auxiliary
->> >> devices are created by a platform device, it is guaranteed that the
->> >> platform device id is unique and that it will also be unique for
->> >> auxiliary devices. So there is no assumption here about the uniqueness
->> >> of any given id.
->> > 
->> > Then perhaps use the faux device api instead?
->> 
->> There's *another* pseudo bus? OK the reason why is that faux was added
->> four months ago and there is nothing under Documentation for it. So I
->> had no idea it existed. I will have a look, but perhaps you should write
->> up some documentation about why someone might want to use a "faux" bus
->> over the auxiliary bus or MFD.
-> 
-> "faux" is for when platform devices were being abused because someone
-> just wanted a device in the device tree, and did not use any of the
-> platform device resources.
+This series adds initial support for the Meta Clemente BMC based on the
+ASPEED AST2600 SoC.
 
-OK, well that's not this. These are real devices and there may be more
-than one per system. Actually, that's the primary problem I wanted to
-address with this patch: you can't create more than one device with
-devm_auxiliary_device_create because they will have the same id (0).
+Patch 1 documents the compatible string.
+Patch 2 adds the device tree for the board.
 
-Anyway, if you really think ids should be random or whatever, why not
-just ida_alloc one in axiliary_device_init and ignore whatever's
-provided? I'd say around half the auxiliary drivers just use 0 (or some
-other constant), which is just as deterministic as using the device
-address. Another third use ida_alloc (or xa_alloc) so all that could be
-removed. And the remainder just use an address of some kind (which ends
-up be formatted as decimal).
+Signed-off-by: Leo Wang <leo.jt.wang@gmail.com>
+---
+Changes in v8:
+- Relocate IOBx_NICx_TEMP TMP421 sensors
+- Enable byte mode for i2c11
+- Link to v7: https://lore.kernel.org/r/20250716-add-support-for-meta-clemente-bmc-v7-0-d5bb7459c5aa@fii-foxconn.com
 
---Sean
+Changes in v7:
+- Relocate CBC FRU EEPROMs from i2c13 to i2c12.
+- Link to v6: https://lore.kernel.org/r/20250708-add-support-for-meta-clemente-bmc-v6-0-7f3e57bd0336@fii-foxconn.com
+
+Changes in v6:
+- Correct Author email to match Signed-off-by email address.
+- Link to v5: https://lore.kernel.org/r/20250627-add-support-for-meta-clemente-bmc-v5-0-038ed6f1cb9f@fii-foxconn.com
+
+Changes in v5:
+- Remove accidentally pasted texts.
+- Link to v4: https://lore.kernel.org/r/20250627-add-support-for-meta-clemente-bmc-v4-0-ce7ff23460c4@fii-foxconn.com
+
+Changes in v4:
+- Move properties of nodes defined in the same file from label ref back to where they belong.
+- Move pinctrl default configs for ncsi3 and ncsi4 to aspeed-g6-pinctrl.dtsi.
+- Add properties to i2c10 and i2c15 to enable MCTP.
+- Link to v3: https://lore.kernel.org/r/20250623-add-support-for-meta-clemente-bmc-v3-0-c223ffcf46cf@fii-foxconn.com
+
+Changes in v3:
+- Modify leakage sensor to reflect current design.
+- Link to v2: https://lore.kernel.org/r/20250621-add-support-for-meta-clemente-bmc-v2-0-6c5ef059149c@fii-foxconn.com
+
+Changes in v2:
+- Fix patch 1/2 subject line to match dt-bindings convention.
+- Reorder device tree nodes in patch 2/2 to follow upstream DTS style.
+- Link to v1: https://lore.kernel.org/r/20250618-add-support-for-meta-clemente-bmc-v1-0-e5ca669ee47b@fii-foxconn.com
+
+---
+Leo Wang (2):
+      dt-bindings: arm: aspeed: add Meta Clemente board
+      ARM: dts: aspeed: clemente: add Meta Clemente BMC
+
+ .../devicetree/bindings/arm/aspeed/aspeed.yaml     |    1 +
+ arch/arm/boot/dts/aspeed/Makefile                  |    1 +
+ .../dts/aspeed/aspeed-bmc-facebook-clemente.dts    | 1295 ++++++++++++++++++++
+ arch/arm/boot/dts/aspeed/aspeed-g6-pinctrl.dtsi    |   11 +
+ 4 files changed, 1308 insertions(+)
+---
+base-commit: 52da431bf03b5506203bca27fe14a97895c80faf
+change-id: 20250618-add-support-for-meta-clemente-bmc-941a469bc523
+
+Best regards,
+-- 
+Leo Wang <leo.jt.wang@fii-foxconn.com>
+
 
