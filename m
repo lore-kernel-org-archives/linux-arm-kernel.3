@@ -4,149 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D1F6C83F34
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 16:16:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7475CC83F3B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 16:19:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OxBbmHYZXN+ZnKBoKiR7OMr9g2xYiMYp6HoGeXXptPw=; b=RBRjDnsPwU7oAIIojxX5O5O0u+
-	drohQvvnnFku57MtyXhP/0brSKRsC9ZI4UznLR73F7soglxmI/ejRrc/uZftnl8R3RC+UqxulcPEF
-	rF88UcMuj5IYP2am3K98IdVAHCAUfP1zqXsAHjIS3iuntiDVutDoznLFtG4eh2WvsKYHUYjgm9vjQ
-	bt69nEYBNiO9tTkvDPlhbeVPkXoMHmZtZBcpv3BKfVlN07hkpyApKZ6mpD5jOcFrOlYCiYN/t4k/D
-	BbeZHb5VcKm+S1Lfh5rpeo8FCh1vG+SmV3ZG1XVst4M1DoBazdjN3sKbWsklPDU/VlUddrqknNO3I
-	OybZDWQA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rN4bJ0MLHsMuhB36620IX8nWVKMPLDlQLQ5oOeKTkGg=; b=i3h8NcIVjX9b0NkZKNV0YajmAk
+	XhgTn1n8A5t8xcwkxIMJdAftOD0ixqr5G4vQS5NGR1o43J1Eg2JML5q3uOJGcxrWewUGRki0gmK1X
+	5LpzXGyHXzGw5Ry4XBALrGBjH3aZrc0gb13M4rXEyydBI/AMdGGFUSG7GmwN6NHNHnfWG76g6wSDl
+	8TWPa4f1GmJCvBuyYCxcBgLlxR+NhAFzozfZWfCmmunS6QxeKEkYRjB3Mv4GcsRh1DIDb71IFvTwK
+	0/pVAA6ecCViOl79P1DqJSq5BKUnSo4JQUCaxEiXOB79WMvVKGECWC59tB7RmFMJaptzqwYOlK8Cs
+	x3C3LPUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucRHi-0000000Ac6C-0hf0;
-	Thu, 17 Jul 2025 16:16:38 +0000
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1ucRK7-0000000AcNL-3f8k;
+	Thu, 17 Jul 2025 16:19:07 +0000
+Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucQlp-0000000AWud-17UZ
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Jul 2025 15:43:42 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=bnyyGvoHlvKa6RqHVPqVQGDaoOGBcV/VEtRxvw7PYV3ZGk4a6RDsxZOO9cSLAy20ZdtMxKelse2JKKSG/Jaz2+W5HiLjbF2qIuBa0DNu0i/MT3620AyIhTjx0wuPrs4zbNrYEILKChL6TJt4zF/UOERE3b/hKPbtfd4/8Zctv3gB9K73j5YXX7sofruuNbgJy7mdv27Y/OTkpDNdcxD1yMZpt9adnrTVTBJsZFVihI4/jVTqmTxmNsV4yR1C5FDdmnOI+rgUVznS4J5ROXYBwhKw4BppyHlgTfzO4i3ciPs2YpccvlHmTlZjnh7VjJUjM0W6heC0ch4lSgeIzZZkeg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=OxBbmHYZXN+ZnKBoKiR7OMr9g2xYiMYp6HoGeXXptPw=;
- b=yqbyUVd3OU+webg/gwjLQswaQseoj2BUWNbti3fzplk0n2cFhOH1LRd5/6bFTcFAnb86g8uhmGcqM+gcMpes/kaynogFlras4PJnS9gX5/I8gkbFiT069kQSJQj8xLZxmsO7jEzFVpgI0hBoaUq6U+U6IfUnbZ3SoXsF3FPbPDSPZGazIy2PtCepNgNBdXecOXCG/+n9eYBq0HrcK2t98tWOSBPu6gyA04XqYpAAA0MTFRkQN1QwdljKVP00DbhQGfnvnBuF/RtQj60+WIWMBdG3IiF7iBfY1nuIqEhzzhnmYjk590/l1xERXDY8qrh5wjdF6/Ok30dRpFzwcEkRZA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=OxBbmHYZXN+ZnKBoKiR7OMr9g2xYiMYp6HoGeXXptPw=;
- b=DD0Pi9cNX5XEMn7RxP3sRDQ3k6IzVLtOyAevdzWjceJW8fp56T84p6OlO7lwiSB2MIotrHH7lSMGPXlcCcuHGNnnz/rvlwtxM61QavRr0B/f1P8WqbKauS/E6VCMbkenAjf046MWgOlXeoqkkNgOP/ZOu2+vkuJlSh5NEwPQ/wRLs512vf3opslc82yQ+pOdpHfufMkgWtcwIdL4lKRmpb4ysN/HdEtG0v28JEam25RBGZTv8C+h8lLwYB9mwW/gdwDd1uT8X0SskV3kF9kKWkBn7v0qNSDdSK5qwU9ZYDTId1KFQk3lDwDFedtpvyS2Bx+Jwqa1gQJRnJnji2RAJQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by AM8PR04MB7250.eurprd04.prod.outlook.com (2603:10a6:20b:1dc::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8922.39; Thu, 17 Jul
- 2025 15:43:36 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%5]) with mapi id 15.20.8922.037; Thu, 17 Jul 2025
- 15:43:36 +0000
-Date: Thu, 17 Jul 2025 11:43:31 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: guoniu.zhou@oss.nxp.com
-Cc: rmfrfs@gmail.com, laurent.pinchart@ideasonboard.com, martink@posteo.de,
-	kernel@puri.sm, mchehab@kernel.org, shawnguo@kernel.org,
-	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
-	linux-media@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/3] media: imx8mq-mipi-csi2: Add data type field in
- pixel format
-Message-ID: <aHkaI/bA1EM3/Omn@lizhi-Precision-Tower-5810>
-References: <20250717071359.1910515-1-guoniu.zhou@oss.nxp.com>
- <20250717071359.1910515-2-guoniu.zhou@oss.nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250717071359.1910515-2-guoniu.zhou@oss.nxp.com>
-X-ClientProxiedBy: AM4PR07CA0035.eurprd07.prod.outlook.com
- (2603:10a6:205:1::48) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	id 1ucQmA-0000000AWxe-40Jr;
+	Thu, 17 Jul 2025 15:44:04 +0000
+Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-23dea2e01e4so13346215ad.1;
+        Thu, 17 Jul 2025 08:44:02 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlemail.com; s=20230601; t=1752767042; x=1753371842; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=rN4bJ0MLHsMuhB36620IX8nWVKMPLDlQLQ5oOeKTkGg=;
+        b=Y5Bp15vgPFOl3f/oHldwOFX7jqvyQzC6tspDP8v+pw9ndZU13t5EZt7nrRpFU5oyRr
+         zHN33FjL5nZRX9EiUR1lBIOom65+JOKe/PPZT8waDEdH10Xzx+3c6pgbUFWLhOLc0ODN
+         Pces95uo8gAFYPQPt+OYVQcBfqg6rmGN3CYouNquV4CzcmnSVyg0z1GTGXb7db6m6bdt
+         avkLf2ikTBQG+cgk4A9JYmkCSm6HfuhEP1B7jIOpQPXego3sJfAHEdnZzun0bmFmbabd
+         hKLmttTqVO4YpeL8MJsgcQOovKHySG/v9iXI1ijIUmuy/70ZZz4xKrjVyFv2UjZgds4o
+         npzQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1752767042; x=1753371842;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=rN4bJ0MLHsMuhB36620IX8nWVKMPLDlQLQ5oOeKTkGg=;
+        b=kkNJR3Vbw4nk+pzPDvdMYug3zyS9M7I1s+pB0k9uMNyMfTvoo6+syCjBgG2ebGr7X6
+         oKWqGKPiSsonZTKPCmtegZxpIcivyqttkju/svbO7vSm5GUpOOjEgy8SVqHcfGGhJbbf
+         l1sOCiEoPEdej/K+ynRZWXUlHX+mmWEbUT/UEX+PTZc6sv5euIjzlzYzDG37zTkYUfkj
+         Utr2yDuSmlz5TaJHD1JGe6HVSsBVi4GV3PAdiBo8Wkj+Uc3VvGDoR+9CIKLxVbN8dSpW
+         i0ZnkeSmtGNG3a28lvUV2ZaZS15MAYIWUZPRXhyJ6VJgn7sWjhGfF7OXa2bEg3ZMY4/n
+         d9rQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWxsN2mZ27WgkdAKTNSSmKSHDRcS/3pUvO0505kmBi6LR1haq5frkdRaww5lG9J49W3gWd0LalAsNcge8eE@lists.infradead.org, AJvYcCXTvVDX89QGdYfI7RzKx6/kp4j2wHDwqE5C3dMn0LxWpGHfCTe47r2LiY8XlBnVAiat+1UNqUWGKAxPAXI0j4puBQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzpjSGYE0u7aS8Lv9QS8mGzE1NURpa1AACYCxXCZVwtj4cVk3Rd
+	WdHheNBnPEldLuOzYK2Lui7IVsKlX6OkXozyvngUK8yTPuRfJ2v76wq23i54MDNKMGJ4Fa/n1iG
+	HvQXIFtOFWrmKdtadBxhWzEfYAeqAITchg3lq
+X-Gm-Gg: ASbGncsEMHqGgfxnSeCPzQEQaHWAzzK8mUlZ2uYPkbJbzmgduIUZGZF6ArvbvVxqHLA
+	QZG8JeB3nFWkgLO7849DC549uxYiU7b1euUKs0KKOGfBa23oUZJ6pUnh3xLN46sByK2vmGQdlIe
+	1+GhfvLCq01+n9g0oincFwAOduhLMooj5do6v3qdMHT+26885deqbGK7E5Vsfd0iu9a3L+IZ6OP
+	BOeDSVGqvppBa2GshyXsZm4cpApIO1O
+X-Google-Smtp-Source: AGHT+IHA1ZrKnYuPXE4GXLTfL1TF9TCNgu66q+ocBubO7yF3+9AbPVtS6s8vpRxMX8NX3hB8Al+UyUorAl8wjgpvBEM=
+X-Received: by 2002:a17:902:ebcb:b0:234:f200:51a1 with SMTP id
+ d9443c01a7336-23e2566a7bfmr87576115ad.9.1752767042136; Thu, 17 Jul 2025
+ 08:44:02 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|AM8PR04MB7250:EE_
-X-MS-Office365-Filtering-Correlation-Id: 86e4736a-a70e-41ec-4910-08ddc548b17e
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|1800799024|52116014|376014|7416014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?xE78C/zjLozwJ8oVxmILu0wgJRmRPbrdumxrXagxAjMMdc22QcbRwUYLZBt3?=
- =?us-ascii?Q?66g5RolnEsiMGBAfLAaG1F9B0aHWfWvMC10E/pdi4AeHnAmMqZBurxqVHEv0?=
- =?us-ascii?Q?33ug1Uqa4vwScvMYviLt47nVfRYPQSNkwHzflJR6wzhGFoOX2XaKe+TP/ndE?=
- =?us-ascii?Q?BAzPLJO+pfCy1vFnbE/+nmRdrGkd81p65w97p6Y9DjeUmN/tAV2UqaL0AzAx?=
- =?us-ascii?Q?W9MSP3qZcMAzE7uKOImXklx3Sm4OiyS4QJIJT853udyDtJxGvtqLK+DOhbj5?=
- =?us-ascii?Q?Vhzg8REGy3Pn5dJQ6rb/TzueP7hXZ41v4SuVmb+to2cxzIVjikcbslPvRnt3?=
- =?us-ascii?Q?Wpb1VhbPlGwA0XpXoLGAo6egC5vSWTV4fNBPOW6mg+/6VFJYolAJB9npebRZ?=
- =?us-ascii?Q?KBadvHbzZCcyqIkoAJEel6Q5FII15CsafInReAkmFV6SZBLAbp8r5RGT+Di6?=
- =?us-ascii?Q?jfU0q094IGTUTH6mGfD/Jib1xlBJQvPIzyFDR66ao/Rszhe1BNjD8rerwIeB?=
- =?us-ascii?Q?V/U/6XglMFG4M91FwPMzRjm8wfIWRWFRa93O6PJR/s615GGlRFi1GaPx8j+Q?=
- =?us-ascii?Q?8Iv0yrkzuG2NLBQe+FCE5n8vFOGm+KTqD6U/mrtoZyfz5Sr2/D04gUOKyWpN?=
- =?us-ascii?Q?YHy6+2C3XQoOdGXF0Q6vtPTNCT9IKjvanlDNXzvzibpW+Ri6x2DowXeRx7i9?=
- =?us-ascii?Q?jfAQjtPaGi3ZPcQqk5k7jtsmPbF57RTXSRT8KyQBDY7ousTQ/ySTvbQ3vSVi?=
- =?us-ascii?Q?HC9aoEPqX0zBeJ3weWXmxdrVq2+QCnBJZ36sY6Nv3/ADtk4ilr82g8vhL7FR?=
- =?us-ascii?Q?hrwlTsmvWfycxkuR1nVc22i7F1WVdADU4XrUT72dHpp4N0k+hoCBTgKszMW8?=
- =?us-ascii?Q?se9QsdaKV9lVT5uiChWs8MyXf0qr4o+7/TdqOaVMgsldNSMtiUa8VhIPIVot?=
- =?us-ascii?Q?g4VrE65gE5WwVE3FXFg5PF04n+DKVYL6iJuHXBPIXJ7p2707nmQFwc5Y1Du+?=
- =?us-ascii?Q?57N1tY6rmPWfemltOk6rOtLtWMeB0e17UCFcX1Ly0ipM8x2/X8Wn6KIBv7o6?=
- =?us-ascii?Q?og62CFRV0Mn5us+GcDTZ3CvPtcduTrNHZJB1taYRtWH7U7wpcbc0KJkCx8Q2?=
- =?us-ascii?Q?DCmmZBXrga09Wepj8JFEZXAPHsDRRRpKmOaaLqufJnvdFhTuizCr7UTUn2lg?=
- =?us-ascii?Q?KtyTe5c5n3pVu0GDE2NcnQWtBg//f+QpT86Ok7m7eBUyAzXq/n7aE/Zc7NZL?=
- =?us-ascii?Q?q/N+Sczpc7n/KtD48sALQphUKg2MJaW2np+8wnE0QS7EbNrcns6xN/t2hhnQ?=
- =?us-ascii?Q?EyxOKiVSibICxIG+UAc5XW7C4Owx5KyIpDOJ9KxO4trp4IPKLe1ab1CisHz9?=
- =?us-ascii?Q?MC6y4IN52qoECGBSKsa52851qxGKsF93lPqbHRpOkdFf47rkgcvHRKBw4x0X?=
- =?us-ascii?Q?w/Ya4KbhbfO4v5I1eD/8LC+GB1dmWCBYGUnPQwAeJVc0jjtjk2XFEA=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(1800799024)(52116014)(376014)(7416014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?QdGhsA5kydLg2g/7PjFgdp5wJLGpQkSJLRDibHArx1u+JXzYzeXKjm6jmB6T?=
- =?us-ascii?Q?G8LVz11CeWaU0QJPqINPOO4OoJf9Jz9IowU+M6MclVdcuIGMwZqqSpHcSNPM?=
- =?us-ascii?Q?Y0P8AVFnIkqiMkft56xlmnh3MkjpmCt7stSQK3LMT2mu9GVCsdHP9u1VNUPu?=
- =?us-ascii?Q?3yL8ZW2INp+Fez4gho6toZGqz2HZceo9HoeU2IaZX1sVhOKVf01w5b67yyvi?=
- =?us-ascii?Q?jFGkXGypkFT/Du7+mzGAnCeJrSgrE/ZOF75GGDsKHkAMgAjt4kZrPByP04L+?=
- =?us-ascii?Q?Cvo/sJPqnPJUWVVF3GydiGV6aK2qreKcw5Ke1nQbfVXixy0c/Y++oIIBxIQL?=
- =?us-ascii?Q?aWPpUSjgLRzEtyEkQjOJEUTAt8i5C4qoTBVod+NEHffHMKnYxPocF79LoQGe?=
- =?us-ascii?Q?oq0SmNH+xktIebMm8RrJPsQub+J6nC2XwWGvDKhIr+jscThSrH1Okg2XogrM?=
- =?us-ascii?Q?4uiqeNgpW+P/C8WzIo2pFi9uuGp6c8Jr76hQghjWXnjSq5NOehpPD7yBzvrD?=
- =?us-ascii?Q?/iVj2HlsSdJbzNyqED+xWICDr9G3oiXVmK3j/b+dygOyOPiUFLS4PGYVf2vA?=
- =?us-ascii?Q?5ys9uZsfV8tjBtTmwgNYPfaKNMF9iF6A7N+X/Mx+gcphmLtgfLwPK6lkmIU1?=
- =?us-ascii?Q?1I2R9i4jsF8gLYMEsWzHokLRMIizjp2wFX1nfR+e9N5F0Mm+bdc+EJdOBxYD?=
- =?us-ascii?Q?DPyo8kTm/5iNzlvgqlrCBU65xexBlugcrHtpIqSde1x7z/nwf8d1AY5BSa6v?=
- =?us-ascii?Q?BN8ggq+U5jX53/PWMlnNA6Vg8zd+T9YQDJ/e521LUHD8mon8hn1espBg4FjN?=
- =?us-ascii?Q?wmBjg2JHQFgjvEtCswzqzjVmBU3K670nBwpq5xS//nhcM2Sc2aCUQFRtqLXp?=
- =?us-ascii?Q?z+T4IlJwwbxrR6wSVFW2msFuhCoCrR0X37PZLh86KwhHMQAFdxgJ/zufY0WC?=
- =?us-ascii?Q?qH7gWLEol5Zh6VC5FY2lZhFXTrDCRkr8vlo0C6g0eGsD4z3SVBlpxviZHOcr?=
- =?us-ascii?Q?zQO4l68ZoG1HPpvfCVFw6Mgvz/DbQvjgA5iggP5p3hciMeNDI6w5HUwAorO/?=
- =?us-ascii?Q?enqQJtuGdQHpn0A6OikhGTzZw/xXtjmVTE6Oe8DhvJmoF1Kw0B0QCLOWobH/?=
- =?us-ascii?Q?z30n6sWqScOBx8SRIPcryEgedMi6jx0EWWHqh33dbeI8mBz2RgjWT/8aF0bW?=
- =?us-ascii?Q?iH4HUW8nvn4TN93i/+1I0yL5zom2s/8r6elFeMOqHSJAJ+68HLmhJz5PKFGw?=
- =?us-ascii?Q?Cl2OIsHTOS+p1k3J0jn876r8SWWB2eClSct4s0t5mjVvFAVsygrvHdMMgWiB?=
- =?us-ascii?Q?G8S3De74fX9auYw/2ogdX9ieEOSzAJL6+3cQW23k+tai6obCobpFCB6Y11R3?=
- =?us-ascii?Q?DYvdfce9qQIY/1/PGy72WRRtbs5a3J6kZ7hZRJ6DlGy9BlvZ9YAtYfFhOZ6W?=
- =?us-ascii?Q?/3iONL5Q67Bh6sJ4kh6y9z1U3F6bLR5DJW96VClISKD6HklVDKemOra8AqQi?=
- =?us-ascii?Q?giPSLlNHVIPGyaJr5X7x2heXhfnRCJaf1JDSr7nnXhHKu7EX6zpVdtsqqnzV?=
- =?us-ascii?Q?Z3O6alVmguswN7C/iOrHrpZX78FYArUQ0iwroohu?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 86e4736a-a70e-41ec-4910-08ddc548b17e
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Jul 2025 15:43:36.4572
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: +U/cxWBCuYjykdtTJCmIiwJS3VkeXKVASu+FfuWpHHB21i8Tg0vcA1GJCYUa9USU0HkwhDYGp8rzQ0zfru8THg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM8PR04MB7250
+References: <20250717-optimize_clk-measure_accuracy-v1-1-3b82d7ccd743@amlogic.com>
+In-Reply-To: <20250717-optimize_clk-measure_accuracy-v1-1-3b82d7ccd743@amlogic.com>
+From: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Date: Thu, 17 Jul 2025 17:43:51 +0200
+X-Gm-Features: Ac12FXxyJdrkT0-Udvls8NBCEN5HDOxcf-2RPU7Aaa4UPg2Q8zxybsDbpxTtPl4
+Message-ID: <CAFBinCDyjf7MOE6f_AGEEwqV8z68qRv6JAUxn7zt5ZZqwFLkPg@mail.gmail.com>
+Subject: Re: [PATCH] soc: amlogic: clk-measure: Optimize measurement accuracy
+To: chuan.liu@amlogic.com
+Cc: Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, 
+	Jerome Brunet <jbrunet@baylibre.com>, linux-arm-kernel@lists.infradead.org, 
+	linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250717_084341_307211_3092E988 
-X-CRM114-Status: GOOD (  18.36  )
+X-CRM114-CacheID: sfid-20250717_084402_992901_D9E6CCCC 
+X-CRM114-Status: GOOD (  14.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,152 +95,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 17, 2025 at 03:13:57PM +0800, guoniu.zhou@oss.nxp.com wrote:
-> From: "Guoniu.zhou" <guoniu.zhou@nxp.com>
+Hello,
+
+thank you for this patch!
+
+On Thu, Jul 17, 2025 at 5:08=E2=80=AFAM Chuan Liu via B4 Relay
+<devnull+chuan.liu.amlogic.com@kernel.org> wrote:
 >
-> Add data type field in CSI pixel format info since the downstream
-> subdev in the pipeline need to know.
+> From: Chuan Liu <chuan.liu@amlogic.com>
 >
-> Signed-off-by: Guoniu.zhou <guoniu.zhou@nxp.com>
-> Signed-off-by: Guoniu Zhou <guoniu.zhou@nxp.com>
+> The cycle count register has a 20-bit effective width, but the driver
+> only utilizes 16 bits. This reduces the sampling window when measuring
+> high-frequency clocks, resulting in (slightly) degraded measurement
+> accuracy.
+I checked the Meson8 downstream code [0] and it uses 0x000FFFFF to
+mask the register value -> this means that old SoCs also have a 20-bit
+wide width.
 
-double signed off line.
+[...]
+> Here are the test comparisons based on C3:
+[...]
+> Here are the test comparisons based on C3:
+I have tested this patch with Meson8b based Odroid-C1:
+pre-optimization:
+# time cat /sys/kernel/debug/meson-clk-msr/measure_summary | grep -v "  0  =
+"
+  clock                     rate    precision
+---------------------------------------------
+ clk81                 159372396    +/-5208Hz
+ a9_clk_div16           24000000    +/-3125Hz
+ rtc_osc_clk_out           31250    +/-3125Hz
+ hdmi_ch0_tmds         146399038    +/-4807Hz
+ sar_adc                 1140625    +/-3125Hz
+ sdhc_rx                94443750    +/-3125Hz
+ sdhc_sd                94443750    +/-3125Hz
+ pwm_d                 849921875    +/-31250Hz
+ pwm_c                 849921875    +/-31250Hz
 
-> ---
->  drivers/media/platform/nxp/imx8mq-mipi-csi2.c | 23 +++++++++++++++++++
->  1 file changed, 23 insertions(+)
->
-> diff --git a/drivers/media/platform/nxp/imx8mq-mipi-csi2.c b/drivers/media/platform/nxp/imx8mq-mipi-csi2.c
-> index 3a4645f59a44..7495400adc22 100644
-> --- a/drivers/media/platform/nxp/imx8mq-mipi-csi2.c
-> +++ b/drivers/media/platform/nxp/imx8mq-mipi-csi2.c
-> @@ -25,6 +25,7 @@
->  #include <linux/reset.h>
->  #include <linux/spinlock.h>
->
-> +#include <media/mipi-csi2.h>
->  #include <media/v4l2-common.h>
->  #include <media/v4l2-device.h>
->  #include <media/v4l2-fwnode.h>
-> @@ -138,6 +139,7 @@ struct csi_state {
->
->  struct csi2_pix_format {
->  	u32 code;
-> +	u32 data_type;
->  	u8 width;
->  };
->
-> @@ -262,68 +264,89 @@ static const struct csi2_pix_format imx8mq_mipi_csi_formats[] = {
->  	/* RAW (Bayer and greyscale) formats. */
->  	{
->  		.code = MEDIA_BUS_FMT_SBGGR8_1X8,
-> +		.data_type = MIPI_CSI2_DT_RAW8,
+real    0m0.102s
+user    0m0.005s
+sys     0m0.069s
 
-I found many place have similar convert. Is it fixed map for csi2?  If yes,
 
-Can you add helper function, like
+post-optimization:
+# time cat /sys/kernel/debug/meson-clk-msr/measure_summary | grep -v "  0  =
+"
+  clock                     rate    precision
+---------------------------------------------
+ clk81                 159373438    +/-1562Hz
+ a9_clk_div16           12000000    +/-1562Hz
+ rtc_osc_clk_out           32813    +/-1562Hz
+ hdmi_ch0_tmds         146398438    +/-1562Hz
+ sar_adc                 1143750    +/-1562Hz
+ sdhc_rx                94443750    +/-1562Hz
+ sdhc_sd                94443750    +/-1562Hz
+ pwm_d                 849992188    +/-1562Hz
+ pwm_c                 849992188    +/-1562Hz
 
-in include mipi-csi2.h
+real    0m0.173s
+user    0m0.008s
+sys     0m0.109s
 
-media_bus_fmt_to_csi(int bus_fmt)
-{
-	switch (buf_fmt)
-	{
-	case MEDIA_BUS_FMT_SBGGR8_1X8:
-		return MIPI_CSI2_DT_RAW8;
+So there's also an improvement in accuracy. The only downside I'm
+seeing is that it takes 75% extra time for the measurement. For me
+this is irrelevant since we use this for debugging.
 
-	...
-	}
-}
+[...]
+> +       /*
+> +        * HACK: The input clock signal path from gate (Controlled by MSR=
+_RUN)
+> +        * to internal sampling circuit in clk-measure has a propagation =
+delay
+> +        * requirement: 24 clock cycles must elapse after mux selection b=
+efore
+> +        * sampling.
+> +        *
+> +        * For a 30kHz measurement clock, this translates to an 800=CE=BC=
+s delay:
+> +        * 800us =3D 24 / 30000Hz.
+> +        */
+> +       fsleep(800);
+What is needed to make this not a HACK anymore? Is there a register
+that we can poll for the number of clock cycles that have passed?
 
-Frank
 
->  		.width = 8,
->  	}, {
->  		.code = MEDIA_BUS_FMT_SGBRG8_1X8,
-> +		.data_type = MIPI_CSI2_DT_RAW8,
->  		.width = 8,
->  	}, {
->  		.code = MEDIA_BUS_FMT_SGRBG8_1X8,
-> +		.data_type = MIPI_CSI2_DT_RAW8,
->  		.width = 8,
->  	}, {
->  		.code = MEDIA_BUS_FMT_SRGGB8_1X8,
-> +		.data_type = MIPI_CSI2_DT_RAW8,
->  		.width = 8,
->  	}, {
->  		.code = MEDIA_BUS_FMT_Y8_1X8,
-> +		.data_type = MIPI_CSI2_DT_RAW8,
->  		.width = 8,
->  	}, {
->  		.code = MEDIA_BUS_FMT_SBGGR10_1X10,
-> +		.data_type = MIPI_CSI2_DT_RAW10,
->  		.width = 10,
->  	}, {
->  		.code = MEDIA_BUS_FMT_SGBRG10_1X10,
-> +		.data_type = MIPI_CSI2_DT_RAW10,
->  		.width = 10,
->  	}, {
->  		.code = MEDIA_BUS_FMT_SGRBG10_1X10,
-> +		.data_type = MIPI_CSI2_DT_RAW10,
->  		.width = 10,
->  	}, {
->  		.code = MEDIA_BUS_FMT_SRGGB10_1X10,
-> +		.data_type = MIPI_CSI2_DT_RAW10,
->  		.width = 10,
->  	}, {
->  		.code = MEDIA_BUS_FMT_Y10_1X10,
-> +		.data_type = MIPI_CSI2_DT_RAW10,
->  		.width = 10,
->  	}, {
->  		.code = MEDIA_BUS_FMT_SBGGR12_1X12,
-> +		.data_type = MIPI_CSI2_DT_RAW12,
->  		.width = 12,
->  	}, {
->  		.code = MEDIA_BUS_FMT_SGBRG12_1X12,
-> +		.data_type = MIPI_CSI2_DT_RAW12,
->  		.width = 12,
->  	}, {
->  		.code = MEDIA_BUS_FMT_SGRBG12_1X12,
-> +		.data_type = MIPI_CSI2_DT_RAW12,
->  		.width = 12,
->  	}, {
->  		.code = MEDIA_BUS_FMT_SRGGB12_1X12,
-> +		.data_type = MIPI_CSI2_DT_RAW12,
->  		.width = 12,
->  	}, {
->  		.code = MEDIA_BUS_FMT_Y12_1X12,
-> +		.data_type = MIPI_CSI2_DT_RAW12,
->  		.width = 12,
->  	}, {
->  		.code = MEDIA_BUS_FMT_SBGGR14_1X14,
-> +		.data_type = MIPI_CSI2_DT_RAW14,
->  		.width = 14,
->  	}, {
->  		.code = MEDIA_BUS_FMT_SGBRG14_1X14,
-> +		.data_type = MIPI_CSI2_DT_RAW14,
->  		.width = 14,
->  	}, {
->  		.code = MEDIA_BUS_FMT_SGRBG14_1X14,
-> +		.data_type = MIPI_CSI2_DT_RAW14,
->  		.width = 14,
->  	}, {
->  		.code = MEDIA_BUS_FMT_SRGGB14_1X14,
-> +		.data_type = MIPI_CSI2_DT_RAW14,
->  		.width = 14,
->  	},
->  	/* YUV formats */
->  	{
->  		.code = MEDIA_BUS_FMT_YUYV8_1X16,
-> +		.data_type = MIPI_CSI2_DT_YUV422_8B,
->  		.width = 16,
->  	}, {
->  		.code = MEDIA_BUS_FMT_UYVY8_1X16,
-> +		.data_type = MIPI_CSI2_DT_YUV422_8B,
->  		.width = 16,
->  	}
->  };
-> --
-> 2.34.1
->
+Best regards,
+Martin
 
