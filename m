@@ -4,91 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54F4CC83F22
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 14:22:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51DBAC83F38
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 14:24:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZDviKLcvI9VrAI+wR/RQw9Ygk7b5+KAWd1c6p2r0hE0=; b=ydLpz+JYCzypeP4gxrh9CA/2eJ
-	FmQTZwoJm4jijHIxKZy+U+zw7r2QVpznWYJZnnImTyy2lwFOFMhaT2awx8FGxeOJy7aNlDs/9+6Zm
-	XrEHUtIusITMBeMSphVUtLM2w8waRb5oojX7HfMG5PwbRz8yojCBnt7trWq93myiesaeZ0R/XNDMN
-	YhNjnGdpTp6bjSWFPARjzREKL2EqtFAhYhEmBJeJtgf2XCk0NyNMNNd53ZMQ//BsfFIeZvMkgm9uH
-	nwWqZHOo/qD4IraUDfTJAmfRAzZF39KVQIGMmKNWOQA5nCn2N4DIU90XuCWqx7B3QdlaEsm0OC9L4
-	AgxGMnng==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5vKkpSNYuEZ47V5IXfS7grf5UeR9f7X+lXcZ0a8iOck=; b=YpFnSptTfnkZ2okZr1B8otjuoi
+	GnuzTaKPS6QiMpd5EjFTJVCJcZGQApyojxIYMRLQc8hPoleq1bplD6zyelbiY0dlpofU5YLIfrA7E
+	WnmHTnKCmT5L2MPfwQgNdnsSK/GsdwBykWrkkjj8t+OLT0jx7CPqqhZ6RbkPZQ07pzOuCgzMr1iSJ
+	lPosZ+mwg6Zjo6THVDDoyjycCupuiDFVCNJjQCSLXK7IMg4RZXUTGsqectkznBuzxfxwfKLGSkK61
+	PHB7xIw7HluQRSpjGzamnOVj6hdI/K/7I3ax+qzx7K+ixjQWd9ewI6ydw7iDVTu7TwqBgkUhRJU/9
+	xcUWZNaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucPUr-0000000ALqp-26Gh;
-	Thu, 17 Jul 2025 14:22:05 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	id 1ucPXH-0000000AML0-1RyE;
+	Thu, 17 Jul 2025 14:24:35 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucOUp-0000000AElN-2L74
+	id 1ucOVA-0000000AEpq-1XSA
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Jul 2025 13:18:00 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-45619d70c72so17269905e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Jul 2025 06:17:58 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=isovalent.com; s=google; t=1752758277; x=1753363077; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ZDviKLcvI9VrAI+wR/RQw9Ygk7b5+KAWd1c6p2r0hE0=;
-        b=F2ovuRGAY4U5sQuKxFnDcW21T4zRyZhFuzNPRLk2nMWse18tqg7oGOEfRaIWiz1z7K
-         MvBTPFvHWJX39MRq/upXz2eFzgFm6aMn20fFopEWCcoFwVGUd9QpdrI8znqKuExYevfv
-         ZjSYYNU6E3ib0z1Wy79ij0O3iBvCICYI1A3uxh8gp28A0BfQ/rwNjuWla4KNKAXQYfUI
-         drZlv7Kqy9c47Rj9Ge3tJ7zIVbmMt5iV5DV5Lg46XXdiAKI6kFrUBEMzpc7U7qze3t+V
-         Fgif6Sw7hcjiNzBLPE1JS6w3ZHk9YELr4YjLyIK9Ok4KZvq4dhj/zKyZh3clKnploGKM
-         8g3Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752758277; x=1753363077;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=ZDviKLcvI9VrAI+wR/RQw9Ygk7b5+KAWd1c6p2r0hE0=;
-        b=ECf53y/aywrWUIK2wkT8SgwQDnCtx05CoZ3U8kDs5qdOSsmvJOI4U/4k4b84SCi1v9
-         DHZb+FrOvLITXB2MsE2VWmCWjOPog51n906UqlKLngI/OcdszjuSk3sXtFLdFFSnY1NK
-         aHY7vIC84h+dD8BjW1k3PMrUxEDJWHENwPCxNja76l1+ryr7PfptvylvyAjyONKDAeyj
-         tePhYOe8Rsi7DBf0IMFAsjFVUs/I0iY+l7HktAKE9Cup7+4DYuqw2l38+fA23LDAdIQL
-         shqFdsjRH6WGLoIoPJ/YEMwi5HM3ZyTwm7Y4D61G43ArKuN4XgqDih7qykMj/BSZNb//
-         aSIQ==
-X-Gm-Message-State: AOJu0Yzl7GJGyuQbKvJEBxLL8JaqsGkHlkw/CbH+fvZfra9ncCdQboyh
-	2+slVU4alAUC7t4A+R/uMk3quA3XfM6oafSyd5+64E8YU+q+9h9vi2EmFsbeGI9YBPujAWlfupQ
-	/rbim3TpNNeEYn593uTw40JtBIAZNF5w33OwRx4qwoA==
-X-Gm-Gg: ASbGncuIe2Ggocl1e0ML+JvtWxSpzXC5tNs48s5xBOeS/PMBq4iOMiS3IQ+8z9pidIr
-	GXE9YZkqxuH1nfb3zmQ2PGOvwnZIGTZfKKHceFY02QyM0v2GvoZj4jn8E5GjSYNZuC3ww9hm3YG
-	mH+lMjdQ0nYjAWZ2BEs9TiMJ6ajwLjyqzyVCBTKAR3wlFSW1dXtuoNEPNsWSdbVpl5UyaN4GCAG
-	I4vpg==
-X-Google-Smtp-Source: AGHT+IHWUpImxyj/M1iYj87ohSochOBEwmwUERfKvdToAyTI2JfgPVjFu+KTHMnlrSfiuDb5dWth2zr65OoSOyIcwLg=
-X-Received: by 2002:a05:600d:17:b0:456:15be:d113 with SMTP id
- 5b1f17b1804b1-4563451f300mr28829025e9.1.1752758276810; Thu, 17 Jul 2025
- 06:17:56 -0700 (PDT)
+	Thu, 17 Jul 2025 13:18:20 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id C7462601FC;
+	Thu, 17 Jul 2025 13:18:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 01C69C4CEE3;
+	Thu, 17 Jul 2025 13:18:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1752758299;
+	bh=ptH7dNBspgIP6UsKnSP/sRCJoEZvn2kCE+mTvSXMsi0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=RN8FmRrAJahPQDvzq6wXUASrBSm9U8a7sStPNCPg2PzmRgWoRMOLlKSUfxQKHkOca
+	 ACI2CYsu6n5evkETU8BI370l/55L7WoAP91aZ8pQ5iMPJNep0n8xD76FjS1ha9FZ8V
+	 DZaDxW1NBnSgAsXtYnZFzY/07xYcwUzF6wXs21GVaovD6B4zTyXwWhCpgboVM7VyyW
+	 OSVslg/RHqJhZAqPNhCCQdTpQL2o7M2RsrpRKoLVhS/YKzPa7vf+cRzSObl0vfm4NR
+	 8hzIdts8NiAGGV/1H10n7JmLWXFL9m8aiPBvIiXtAtXufPxpLrfeOirmV8+Iu9ElQr
+	 C4LL6pzIHki+g==
+Date: Thu, 17 Jul 2025 15:18:14 +0200
+From: Lorenzo Pieralisi <lpieralisi@kernel.org>
+To: Markus Elfring <Markus.Elfring@web.de>
+Cc: Marc Zyngier <maz@kernel.org>, linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	LKML <linux-kernel@vger.kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
+	Toan Le <toan@os.amperecomputing.com>
+Subject: Re: [PATCH v2 11/13] PCI: xgene-msi: Probe as a standard platform
+ driver
+Message-ID: <aHj4FstvO+MnnB0B@lpieralisi>
+References: <20250708173404.1278635-12-maz@kernel.org>
+ <9193ef71-72b6-4946-a830-14fbbc786658@web.de>
 MIME-Version: 1.0
-References: <20250520-vmlinux-mmap-v5-0-e8c941acc414@isovalent.com>
- <20250520-vmlinux-mmap-v5-1-e8c941acc414@isovalent.com> <g2gqhkunbu43awrofzqb4cs4sxkxg2i4eud6p4qziwrdh67q4g@mtw3d3aqfgmb>
-In-Reply-To: <g2gqhkunbu43awrofzqb4cs4sxkxg2i4eud6p4qziwrdh67q4g@mtw3d3aqfgmb>
-From: Lorenz Bauer <lmb@isovalent.com>
-Date: Thu, 17 Jul 2025 14:17:46 +0100
-X-Gm-Features: Ac12FXzAj1uStiEkTmwdY3kJmq5UyFHyQ5GKtR_wcQY_1cDKPtpY4TzHkBJQvTY
-Message-ID: <CAN+4W8hsK6FMBon0-J6mAYk1yVsamYL=cHqFkj3syepxiv16Ug@mail.gmail.com>
-Subject: Re: [PATCH bpf-next v5 1/3] btf: allow mmap of vmlinux btf
-To: Breno Leitao <leitao@debian.org>
-Cc: linux-arm-kernel@lists.infradead.org, Arnd Bergmann <arnd@arndb.de>, 
-	Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
-	Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau <martin.lau@linux.dev>, 
-	Eduard Zingerman <eddyz87@gmail.com>, Song Liu <song@kernel.org>, 
-	Yonghong Song <yonghong.song@linux.dev>, John Fastabend <john.fastabend@gmail.com>, 
-	KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@fomichev.me>, Hao Luo <haoluo@google.com>, 
-	Jiri Olsa <jolsa@kernel.org>, Mykola Lysenko <mykolal@fb.com>, Shuah Khan <shuah@kernel.org>, 
-	linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org, bpf@vger.kernel.org, 
-	linux-kselftest@vger.kernel.org, Alan Maguire <alan.maguire@oracle.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250717_061759_605400_23B7A5F5 
-X-CRM114-Status: UNSURE (   7.27  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <9193ef71-72b6-4946-a830-14fbbc786658@web.de>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,23 +77,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Breno,
+On Thu, Jul 17, 2025 at 01:45:12PM +0200, Markus Elfring wrote:
+> > Now that we have made the dependedncy between the PCI driver and
+> …
+> 
+>                             dependency?
 
-Thanks for reaching out.
+https://git.kernel.org/pci/pci/c/a435be2c3318
 
-On Thu, Jul 17, 2025 at 1:39=E2=80=AFPM Breno Leitao <leitao@debian.org> wr=
-ote:
-
-> Should __pa_symbol() be used instead of virt_to_phys()?
-
-I'm not really well versed with mm in general. Looking around a bit I
-found some explanation in [1]. Your suggested fix does make sense to
-me based on that.
-
-Let me run the patch against bpf-ci and see what happens.
-
-1: https://lore.kernel.org/all/90667b2b7f773308318261f96ebefd1a67133c4c.173=
-2464395.git.lukas@wunner.de/
-
-Lorenz
+Thanks,
+Lorenzo
 
