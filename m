@@ -4,84 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A031CC83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 12:47:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E99FFC83F1B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 12:49:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G1qX3B3nHNOXsqNUalFkvM5w6I4jRhFh7qMVhYbCdZc=; b=XLsSlqpMLQgbWhdCxIleSiycg1
-	JpLHFwR5S+GlkbsT+mNguWHi+/ilxGJmYagQp2sHOuJzHcfwzR6hOHDjG0Lx29IiGSVHVbO31x9vR
-	RB/PQdJxcQ4I7ku8V2zp0nwn513ZvBkUTeYF5QrK/pemOXMRjaycVxJHkGbjkUS/pQIMOTBj/Ulxf
-	8YO2RjcfRZ9e/6fFKpDt+KQAA7r7BqtmenBcjQp1rFzSaJhAwjIIfbBkrQJHbASkyHheAm97PvUPY
-	InlaHVwH9DwnSXAadFFDhm7disG6BKVYef39vtSa8dVcFBOjy0d5DidGgZMzV9bclH9LcrMg4ZCqR
-	oZ7eOv9w==;
+	bh=iVJvMorr9e4gO7pUnO5sm7M1f1+TEwB413ip1IEG1+U=; b=DQCKuLbB8EB58MS2xwHdtn02n0
+	qrWIrWCOBXSnV6p0eARbwO2XbRX4mNpMVkxdJlsQ560IVNt7QH3r58ZdcaqcqZZ0BXhv/4h7M6QmW
+	baqfkrLblzZbG9KzV0sOpuhUr0EKOXPenyHnqP3El2+Bw27XZKTcpbtE34/Bakz61HFsGrOMjMMOe
+	/JA2xn6Rbq8M/SgoBOS7x5Q151gVUMghFtfMSyQFFmbyS3pg7MwrJXF/QvvhnyyMApq16NVqGoCFV
+	YhtswtmLCUaiUckaUptMP05F14hcUd6krjMOlM8lCO3jWwDVeW8NvdKztoySzcHNQaWIGXW3umiWa
+	IJMn6A6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucO16-0000000A9la-2h44;
-	Thu, 17 Jul 2025 12:47:16 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1ucO3W-0000000AA9D-1xQH;
+	Thu, 17 Jul 2025 12:49:46 +0000
+Received: from mailout1.samsung.com ([203.254.224.24])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucM7p-00000009sqA-3j2l;
-	Thu, 17 Jul 2025 10:46:07 +0000
-Received: from [192.168.0.172] (mob-5-90-140-254.net.vodafone.it [5.90.140.254])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id C4A0521F2;
-	Thu, 17 Jul 2025 12:45:29 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1752749131;
-	bh=LTlCiL6fmmVVuL8bKDmzSBOA/E25dmRY67EoUr9sHTM=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=ExdYgcp0jOZrgrTJ3NTwlKNEE7iLSHOFyghIB051ctiBngx1VTdYq6OnU4YYkUpt7
-	 sR5VEDheliciCq/T4+axPVRHx8TNwyfplpEV7FvV4QGuJwOECuZRpZEw0qRuuYC9v3
-	 qrTwqgN7iuAzpiRMC52H+B576ZzT/8etsj6M/sUk=
-From: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-Date: Thu, 17 Jul 2025 12:45:42 +0200
-Subject: [PATCH 16/26] media: v4l2-subdev: Add subdev state accessor
- helpers
+	id 1ucMeL-00000009xjt-44M8
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 17 Jul 2025 11:19:44 +0000
+Received: from epcas5p1.samsung.com (unknown [182.195.41.39])
+	by mailout1.samsung.com (KnoxPortal) with ESMTP id 20250717111935epoutp011c8b12dd5422157d9b9909fdd52a49fb~TBehv-Wcf2880928809epoutp01Q
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Jul 2025 11:19:35 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.samsung.com 20250717111935epoutp011c8b12dd5422157d9b9909fdd52a49fb~TBehv-Wcf2880928809epoutp01Q
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1752751175;
+	bh=iVJvMorr9e4gO7pUnO5sm7M1f1+TEwB413ip1IEG1+U=;
+	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
+	b=m0WSaaEnrPcYoyHXonwaCJPC5O1DJXYPSMbaJ1NNTjFy5dHNcw2/kZUPptSoj/9x4
+	 ZL2aSxPpbzSkvWGplDV4gi0v8Xx4UiB+aDQsc+2k0gwbjxNLq/Dx7GW0cNGwsAo7fw
+	 JdZBZ/EA1wJsiHudXmwUfCc0Z5x3OaL+YmIBHIa8=
+Received: from epsnrtp01.localdomain (unknown [182.195.42.153]) by
+	epcas5p2.samsung.com (KnoxPortal) with ESMTPS id
+	20250717111934epcas5p2c6c599d499f95a22472d5c1d136da103~TBeg8yiOm1560515605epcas5p21;
+	Thu, 17 Jul 2025 11:19:34 +0000 (GMT)
+Received: from epcas5p2.samsung.com (unknown [182.195.38.89]) by
+	epsnrtp01.localdomain (Postfix) with ESMTP id 4bjVnL0D8mz6B9m4; Thu, 17 Jul
+	2025 11:19:34 +0000 (GMT)
+Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
+	epcas5p2.samsung.com (KnoxPortal) with ESMTPA id
+	20250717111319epcas5p2966882346d4b080ee66304c282244b04~TBZDCzSPL2396823968epcas5p2f;
+	Thu, 17 Jul 2025 11:13:19 +0000 (GMT)
+Received: from INBRO001840 (unknown [107.122.3.105]) by epsmtip2.samsung.com
+	(KnoxPortal) with ESMTPA id
+	20250717111316epsmtip2442ee3e177e39afa1ddecb88214d4136~TBZAAUg0_2779927799epsmtip2O;
+	Thu, 17 Jul 2025 11:13:15 +0000 (GMT)
+From: "Pritam Manohar Sutar" <pritam.sutar@samsung.com>
+To: "'Krzysztof Kozlowski'" <krzk@kernel.org>, "'Krzysztof Kozlowski'"
+	<krzysztof.kozlowski@linaro.org>
+Cc: <vkoul@kernel.org>, <kishon@kernel.org>, <robh@kernel.org>,
+	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <alim.akhtar@samsung.com>,
+	<andre.draszik@linaro.org>, <peter.griffin@linaro.org>,
+	<neil.armstrong@linaro.org>, <kauschluss@disroot.org>,
+	<ivo.ivanov.ivanov1@gmail.com>, <m.szyprowski@samsung.com>,
+	<s.nawrocki@samsung.com>, <linux-phy@lists.infradead.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-samsung-soc@vger.kernel.org>,
+	<rosa.pila@samsung.com>, <dev.tailor@samsung.com>, <faraz.ata@samsung.com>,
+	<muhammed.ali@samsung.com>, <selvarasu.g@samsung.com>
+In-Reply-To: <9a2d0ad7-cb1f-473d-a91a-3a1b59b71280@kernel.org>
+Subject: RE: [PATCH v4 1/6] dt-bindings: phy: samsung,usb3-drd-phy: add
+ ExynosAutov920 HS phy compatible
+Date: Thu, 17 Jul 2025 16:43:14 +0530
+Message-ID: <000c01dbf70b$ccdbf630$6693e290$@samsung.com>
 MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+X-Mailer: Microsoft Outlook 16.0
+Content-Language: en-in
+Thread-Index: AQJAgQZ9LFXBZrDskwNBYris6jFv1AKCX9A9Aa5wAf0Bi5UAqwCML2yKAWUlSf+zL6XGYA==
+X-CMS-MailID: 20250717111319epcas5p2966882346d4b080ee66304c282244b04
+X-Msg-Generator: CA
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250717-multicontext-mainline-2025-v1-16-81ac18979c03@ideasonboard.com>
-References: <20250717-multicontext-mainline-2025-v1-0-81ac18979c03@ideasonboard.com>
-In-Reply-To: <20250717-multicontext-mainline-2025-v1-0-81ac18979c03@ideasonboard.com>
-To: Sakari Ailus <sakari.ailus@linux.intel.com>, 
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
- Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, 
- Kieran Bingham <kieran.bingham@ideasonboard.com>, 
- Nicolas Dufresne <nicolas.dufresne@collabora.com>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, 
- Tomasz Figa <tfiga@chromium.org>, 
- Marek Szyprowski <m.szyprowski@samsung.com>, 
- Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
- Florian Fainelli <florian.fainelli@broadcom.com>, 
- Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
- Hans Verkuil <hverkuil@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
- linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
- Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=10156;
- i=jacopo.mondi@ideasonboard.com; h=from:subject:message-id;
- bh=LTlCiL6fmmVVuL8bKDmzSBOA/E25dmRY67EoUr9sHTM=;
- b=owEBbQKS/ZANAwAKAXI0Bo8WoVY8AcsmYgBoeNRQppY7U0ZAkK4bd8Un0L22hEFZVYylXs1Q/
- 2N51ZSjJyiJAjMEAAEKAB0WIQS1xD1IgJogio9YOMByNAaPFqFWPAUCaHjUUAAKCRByNAaPFqFW
- PFCMEAC7Vpxyn3TlgIXtjyd3nHZhEEbHYqCMJIr+IccAXw5XtgqCfAqX7NCSn7VTy9B6i2eVTp/
- CKYWjGpxUlygChhQMuQl0dMF/T2hI9VokTUymwEepxwIF081U2JaFJv9l2qCDSZ0s/2zX0nfo7X
- +zeHTMzQZNkmcpCUem26Fi9n+EO1Fm01Btbjp0+bahp/ZfvXV7LUqQ786mByz0EFcJPBKosGq2u
- U/10n65+FjV8VWYo7ppOXlRF4YDRzQtpKKkaK9y521Niak+iTycxbB3oF8nRDZ2439X1f8zs34p
- 31gm2h5HyVZIABFjwkaC5o4279SaMIhFRxNGnPhgmZ4BBvDw/dCPCcGLUR5RsWGSffR5oYQ2FIc
- gh3I58zpqjhxQIws1UfzS+rZZDrxyIAazguf3JGjfJdhUvs4pX+FEkzeYTTDc3jaVOGZyyJvdzS
- RFdG6LnwCQz4HK4Mgu87YDHTsGG9zDv66muAdASeMT0arw46ZLwLuqY7dnnIoRpySPfwy6qEAwG
- SKyNlxDiZn/pb0cVLGDrNuCdHEtgakwQhHruzwHjc1t/D8Hv5SV/bIDraLJFekTbPrPUD074xrK
- Ip56FEMo6iq57hbG2w0+1553eBfuqkuuL6MQKS57q4vtDmA0c38eVi51avRcq8knvKXq5qdJDIb
- ZXBVegHPTuM8MWg==
-X-Developer-Key: i=jacopo.mondi@ideasonboard.com; a=openpgp;
- fpr=72392EDC88144A65C701EA9BA5826A2587AD026B
+X-Sendblock-Type: REQ_APPROVE
+CMS-TYPE: 105P
+cpgsPolicy: CPGSC10-542,Y
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20250701115955epcas5p320cfe73ca33522cd2f9f7970cfde1c63
+References: <20250701120706.2219355-1-pritam.sutar@samsung.com>
+	<CGME20250701115955epcas5p320cfe73ca33522cd2f9f7970cfde1c63@epcas5p3.samsung.com>
+	<20250701120706.2219355-2-pritam.sutar@samsung.com>
+	<20250706-fresh-meaty-cougar-5af170@krzk-bin>
+	<07d301dbf0ae$0658cbe0$130a63a0$@samsung.com>
+	<9a2d0ad7-cb1f-473d-a91a-3a1b59b71280@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250717_034606_110946_BA822E2E 
-X-CRM114-Status: GOOD (  19.84  )
+X-CRM114-CacheID: sfid-20250717_041942_647800_C41E044E 
+X-CRM114-Status: GOOD (  27.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,299 +107,199 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The v4l2-subdev.c file offers three helpers to access the subdevice
-active state from a v4l2_subdev pointer:
+Hi Krzysztof,=20
 
-- v4l2_subdev_get_unlocked_active_state(sd)
-- v4l2_subdev_get_locked_active_state(sd)
-- v4l2_subdev_lock_and_get_active_state(sd)
+> -----Original Message-----
+> From: Krzysztof Kozlowski <krzk=40kernel.org>
+> Sent: 12 July 2025 01:44 PM
+> To: Pritam Manohar Sutar <pritam.sutar=40samsung.com>; 'Krzysztof Kozlows=
+ki'
+> <krzysztof.kozlowski=40linaro.org>
+> Cc: vkoul=40kernel.org; kishon=40kernel.org; robh=40kernel.org;
+> krzk+dt=40kernel.org; conor+dt=40kernel.org; alim.akhtar=40samsung.com;
+> andre.draszik=40linaro.org; peter.griffin=40linaro.org; neil.armstrong=40=
+linaro.org;
+> kauschluss=40disroot.org; ivo.ivanov.ivanov1=40gmail.com;
+> m.szyprowski=40samsung.com; s.nawrocki=40samsung.com; linux-
+> phy=40lists.infradead.org; devicetree=40vger.kernel.org; linux-
+> kernel=40vger.kernel.org; linux-arm-kernel=40lists.infradead.org; linux-s=
+amsung-
+> soc=40vger.kernel.org; rosa.pila=40samsung.com; dev.tailor=40samsung.com;
+> faraz.ata=40samsung.com; muhammed.ali=40samsung.com;
+> selvarasu.g=40samsung.com
+> Subject: Re: =5BPATCH v4 1/6=5D dt-bindings: phy: samsung,usb3-drd-phy: a=
+dd
+> ExynosAutov920 HS phy compatible
+>=20
+> On 09/07/2025 10:46, Pritam Manohar Sutar wrote:
+> > Hi Krzysztof,
+> >
+> >> -----Original Message-----
+> >> From: Krzysztof Kozlowski <krzysztof.kozlowski=40linaro.org>
+> >> Sent: 06 July 2025 03:11 PM
+> >> To: Pritam Manohar Sutar <pritam.sutar=40samsung.com>
+> >> Cc: vkoul=40kernel.org; kishon=40kernel.org; robh=40kernel.org;
+> >> krzk+dt=40kernel.org; conor+dt=40kernel.org; alim.akhtar=40samsung.com=
+;
+> >> andre.draszik=40linaro.org; peter.griffin=40linaro.org;
+> >> neil.armstrong=40linaro.org; kauschluss=40disroot.org;
+> >> ivo.ivanov.ivanov1=40gmail.com; m.szyprowski=40samsung.com;
+> >> s.nawrocki=40samsung.com; linux- phy=40lists.infradead.org;
+> >> devicetree=40vger.kernel.org; linux- kernel=40vger.kernel.org;
+> >> linux-arm-kernel=40lists.infradead.org; linux-samsung-
+> >> soc=40vger.kernel.org; rosa.pila=40samsung.com; dev.tailor=40samsung.c=
+om;
+> >> faraz.ata=40samsung.com; muhammed.ali=40samsung.com;
+> >> selvarasu.g=40samsung.com
+> >> Subject: Re: =5BPATCH v4 1/6=5D dt-bindings: phy: samsung,usb3-drd-phy=
+:
+> >> add
+> >> ExynosAutov920 HS phy compatible
+> >>
+> >> On Tue, Jul 01, 2025 at 05:37:01PM +0530, Pritam Manohar Sutar wrote:
+> >>> Add a dedicated compatible string for USB HS phy found in this SoC.
+> >>> The SoC requires two clocks, named =22phy=22 and =22ref=22 (same as c=
+locks
+> >>> required by Exynos850).
+> >>>
+> >>> It also requires various power supplies (regulators) for the
+> >>> internal circuitry to work. The required voltages are:
+> >>> * avdd075_usb - 0.75v
+> >>> * avdd18_usb20 - 1.8v
+> >>> * avdd33_usb20 - 3.3v
+> >>>
+> >>> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski=40linaro.org>
+> >>
+> >> No, really. Look:
+> >>
+> >>> Signed-off-by: Pritam Manohar Sutar <pritam.sutar=40samsung.com>
+> >>> ---
+> >>>  .../bindings/phy/samsung,usb3-drd-phy.yaml    =7C 37 +++++++++++++++=
+++++
+> >>>  1 file changed, 37 insertions(+)
+> >>>
+> >>> diff --git
+> >>> a/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml
+> >>> b/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml
+> >>> index e906403208c0..2e29ff749bba 100644
+> >>> ---
+> >>> a/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml
+> >>> +++ b/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yam
+> >>> +++ l
+> >>> =40=40 -34,6 +34,7 =40=40 properties:
+> >>>        - samsung,exynos7870-usbdrd-phy
+> >>>        - samsung,exynos850-usbdrd-phy
+> >>>        - samsung,exynos990-usbdrd-phy
+> >>> +      - samsung,exynosautov920-usbdrd-phy
+> >>>
+> >>>    clocks:
+> >>>      minItems: 1
+> >>> =40=40 -110,6 +111,15 =40=40 properties:
+> >>>    vddh-usbdp-supply:
+> >>>      description: VDDh power supply for the USB DP phy.
+> >>>
+> >>> +  avdd075_usb-supply:
+> >>> +    description: 0.75V power supply for USB phy
+> >>> +
+> >>> +  avdd18_usb20-supply:
+> >>> +    description: 1.8V power supply for USB phy
+> >>> +
+> >>> +  avdd33_usb20-supply:
+> >>> +    description: 3.3V power supply for USB phy
+> >>> +
+> >>
+> >> None of these were here. Follow DTS coding style... but why are you
+> >> adding completely new supplies?
+> >
+> > Digital supplies were here. Need Analog supplies for exynosautov920,
+> > hence added new Analog supplies; 'a'vdd075_usb, 'a'vdd18_usb20,
+> > 'a'vdd33_usb20
+> >
+> > Will add =22full stops=22 for DTS coding style in description.
+>=20
+> You cannot grow one line change into 50 line change and retain the review=
+.
 
-With the introduction of struct v4l2_subdev_context which contains a
-subdev_state as well, the actual "active" state is stored in three
-possible places:
-- A context associated with a v4l2_subdev_fh for context aware drivers
-  operated by context aware userspace
-- The default subdevice context for context aware drivers operated by
-  non-context aware userspace
-- The subdevice active state for non-context aware drivers
+Yes agreed. Will remove =22Reviewed-by=22 tag and requesting you to review =
+the=20
+patches again and provide your valuable comments.
 
-Provide helpers similar in spirit the existing ones but accept as
-argument either a subdevice the context itself and retrieve the active
-state from the correct place.
+> >
+> >>
+> >>
+> >>>  required:
+> >>>    - compatible
+> >>>    - clocks
+> >>> =40=40 -235,6 +245,33 =40=40 allOf:
+> >>>
+> >>>          reg-names:
+> >>>            maxItems: 1
+> >>> +  - if:
+> >>> +      properties:
+> >>> +        compatible:
+> >>> +          contains:
+> >>> +            enum:
+> >>> +              - samsung,exynosautov920-usbdrd-phy
+> >>> +    then:
+> >>> +      properties:
+> >>> +        clocks:
+> >>> +          minItems: 2
+> >>> +          maxItems: 2
+> >>> +
+> >>> +        clock-names:
+> >>> +          items:
+> >>> +            - const: phy
+> >>> +            - const: ref
+> >>> +
+> >>> +        reg:
+> >>> +          maxItems: 1
+> >>> +
+> >>> +        reg-names:
+> >>> +          maxItems: 1
+> >>> +
+> >>> +      required:
+> >>> +        - avdd075_usb-supply
+> >>> +        - avdd18_usb20-supply
+> >>> +        - avdd33_usb20-supply
+> >>
+> >> Neither was this entire diff hunk here.
+> >>
+> >> This was part of other block for a reason.
+> >
+> > Added regulators in driver. This block is added for regulators (other
+> > block does not have =22required=22 field for power supplies) if exclude=
+d
+> > this block, =22make ARCH=3Darm64 dtbs_check
+> > DT_SCHEMA_FILES=3DDocumentation/devicetree/bindings/phy/samsung,usb3-
+> drd
+> > -phy.yaml=22 will fail as mentioned below
+>=20
+>=20
+> Nothing is explained in changelog/cover letter. You claim you only added =
+Rb tag.
+> This is an entirely silent change while keeping the review.
 
-Helpers will be used in following patches for link validation.
+Will add more explanations in cover letter/changelog why this block is adde=
+d.
 
-Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
----
- drivers/media/v4l2-core/v4l2-subdev.c | 101 +++++++++++++++++++++++++++++++++
- include/media/v4l2-subdev.h           | 104 +++++++++++++++++++---------------
- 2 files changed, 159 insertions(+), 46 deletions(-)
+> Combined with not even following DTS style=21
 
-diff --git a/drivers/media/v4l2-core/v4l2-subdev.c b/drivers/media/v4l2-core/v4l2-subdev.c
-index 438f51980e5ac0f092ba6b0a979a376133968ddf..7372f61127c871cec44a3d1900e2b8bef34632b9 100644
---- a/drivers/media/v4l2-core/v4l2-subdev.c
-+++ b/drivers/media/v4l2-core/v4l2-subdev.c
-@@ -20,6 +20,7 @@
- #include <linux/version.h>
- #include <linux/videodev2.h>
- 
-+#include <media/media-device.h>
- #include <media/v4l2-ctrls.h>
- #include <media/v4l2-device.h>
- #include <media/v4l2-event.h>
-@@ -189,6 +190,106 @@ static inline int check_pad(struct v4l2_subdev *sd, u32 pad)
- 	return 0;
- }
- 
-+/* subdev state accessor helpers */
-+
-+/*
-+ * Access the state from the subdevice.
-+ *
-+ * If the driver is context-aware use the state stored in the default context
-+ * otherwise use the active state stored in the subdevice.
-+ */
-+
-+struct v4l2_subdev_state *
-+v4l2_subdev_get_unlocked_active_state_from_sd(struct v4l2_subdev *sd)
-+{
-+	if (!sd)
-+		return NULL;
-+
-+	if (sd->default_context) {
-+		lockdep_assert_not_held(sd->default_context->state->lock);
-+
-+		return sd->default_context->state;
-+	}
-+
-+	if (sd->active_state)
-+		lockdep_assert_not_held(sd->active_state->lock);
-+	return sd->active_state;
-+}
-+EXPORT_SYMBOL_GPL(v4l2_subdev_get_unlocked_active_state_from_sd);
-+
-+struct v4l2_subdev_state *
-+v4l2_subdev_get_locked_active_state_from_sd(struct v4l2_subdev *sd)
-+{
-+	if (!sd)
-+		return NULL;
-+
-+	if (sd->default_context) {
-+		lockdep_assert_held(sd->default_context->state->lock);
-+
-+		return sd->default_context->state;
-+	}
-+
-+	if (sd->active_state)
-+		lockdep_assert_held(sd->active_state->lock);
-+	return sd->active_state;
-+}
-+EXPORT_SYMBOL_GPL(v4l2_subdev_get_locked_active_state_from_sd);
-+
-+struct v4l2_subdev_state *
-+v4l2_subdev_lock_and_get_active_state_from_sd(struct v4l2_subdev *sd)
-+{
-+	if (!sd)
-+		return NULL;
-+
-+	if (sd->default_context) {
-+		v4l2_subdev_lock_state(sd->default_context->state);
-+
-+		return sd->default_context->state;
-+	}
-+
-+	if (sd->active_state)
-+		v4l2_subdev_lock_state(sd->active_state);
-+	return sd->active_state;
-+}
-+EXPORT_SYMBOL_GPL(v4l2_subdev_lock_and_get_active_state_from_sd);
-+
-+/* Access the subdevice state from a subdvice context. */
-+struct v4l2_subdev_state *
-+v4l2_subdev_get_unlocked_active_state_from_ctx(struct v4l2_subdev_context *ctx)
-+{
-+	if (!ctx)
-+		return NULL;
-+
-+	if (ctx->state)
-+		lockdep_assert_not_held(ctx->state->lock);
-+	return ctx->state;
-+}
-+EXPORT_SYMBOL_GPL(v4l2_subdev_get_unlocked_active_state_from_ctx);
-+
-+struct v4l2_subdev_state *
-+v4l2_subdev_get_locked_active_state_from_ctx(struct v4l2_subdev_context *ctx)
-+{
-+	if (!ctx)
-+		return NULL;
-+
-+	if (ctx->state)
-+		lockdep_assert_held(ctx->state->lock);
-+	return ctx->state;
-+}
-+EXPORT_SYMBOL_GPL(v4l2_subdev_get_locked_active_state_from_ctx);
-+
-+struct v4l2_subdev_state *
-+v4l2_subdev_lock_and_get_active_state_from_ctx(struct v4l2_subdev_context *ctx)
-+{
-+	if (!ctx)
-+		return NULL;
-+
-+	if (ctx->state)
-+		v4l2_subdev_lock_state(ctx->state);
-+	return ctx->state;
-+}
-+EXPORT_SYMBOL_GPL(v4l2_subdev_lock_and_get_active_state_from_ctx);
-+
- static int check_state(struct v4l2_subdev *sd, struct v4l2_subdev_state *state,
- 		       u32 which, u32 pad, u32 stream)
- {
-diff --git a/include/media/v4l2-subdev.h b/include/media/v4l2-subdev.h
-index 1fa42a9f322be0be44fc9308744f4f4ae0cf1606..8087c0ae3bc0a0a95512b4b0ff5257522a104ca0 100644
---- a/include/media/v4l2-subdev.h
-+++ b/include/media/v4l2-subdev.h
-@@ -29,16 +29,17 @@
- 
- #define	V4L2_DEVICE_NOTIFY_EVENT		_IOW('v', 2, struct v4l2_event)
- 
--struct v4l2_device;
-+struct led_classdev;
-+struct media_device_context;
-+struct tuner_setup;
- struct v4l2_ctrl_handler;
-+struct v4l2_device;
- struct v4l2_event;
- struct v4l2_event_subscription;
- struct v4l2_fh;
-+struct v4l2_mbus_frame_desc;
- struct v4l2_subdev;
- struct v4l2_subdev_fh;
--struct tuner_setup;
--struct v4l2_mbus_frame_desc;
--struct led_classdev;
- 
- /**
-  * struct v4l2_decode_vbi_line - used to decode_vbi_line
-@@ -1968,64 +1969,75 @@ static inline void v4l2_subdev_unlock_states(struct v4l2_subdev_state *state1,
- 		mutex_unlock(state2->lock);
- }
- 
-+struct v4l2_subdev_state *
-+v4l2_subdev_get_unlocked_active_state_from_sd(struct v4l2_subdev *sd);
-+struct v4l2_subdev_state *
-+v4l2_subdev_get_locked_active_state_from_sd(struct v4l2_subdev *sd);
-+struct v4l2_subdev_state *
-+v4l2_subdev_lock_and_get_active_state_from_sd(struct v4l2_subdev *sd);
-+
-+struct v4l2_subdev_state *
-+v4l2_subdev_get_unlocked_active_state_from_ctx(struct v4l2_subdev_context *ctx);
-+struct v4l2_subdev_state *
-+v4l2_subdev_get_locked_active_state_from_ctx(struct v4l2_subdev_context *ctx);
-+struct v4l2_subdev_state *
-+v4l2_subdev_lock_and_get_active_state_from_ctx(struct v4l2_subdev_context *ctx);
-+
- /**
-- * v4l2_subdev_get_unlocked_active_state() - Checks that the active subdev state
-- *					     is unlocked and returns it
-- * @sd: The subdevice
-+ * v4l2_subdev_get_unlocked_active_state() - Checks that the subdev state is
-+ *					     unlocked and returns it
-+ * @sdctx: The subdevice, or the subdevice context
-  *
-- * Returns the active state for the subdevice, or NULL if the subdev does not
-- * support active state. If the state is not NULL, calls
-- * lockdep_assert_not_held() to issue a warning if the state is locked.
-+ * Returns the subdevice state, or NULL if it is not valid. If the state is
-+ * not NULL, calls lockdep_assert_not_held() to issue a warning if the state
-+ * is locked.
-  *
-- * This function is to be used e.g. when getting the active state for the sole
-- * purpose of passing it forward, without accessing the state fields.
-+ * This function is to be used e.g. when getting the state for the sole purpose
-+ * of passing it forward, without accessing the state fields.
-  */
--static inline struct v4l2_subdev_state *
--v4l2_subdev_get_unlocked_active_state(struct v4l2_subdev *sd)
--{
--	if (sd->active_state)
--		lockdep_assert_not_held(sd->active_state->lock);
--	return sd->active_state;
--}
-+#define v4l2_subdev_get_unlocked_active_state(sdctx)				\
-+	_Generic((sdctx),							\
-+		struct v4l2_subdev *: 						\
-+			v4l2_subdev_get_unlocked_active_state_from_sd,		\
-+		struct v4l2_subdev_context *:					\
-+			v4l2_subdev_get_unlocked_active_state_from_ctx)		\
-+	(sdctx)
- 
- /**
-- * v4l2_subdev_get_locked_active_state() - Checks that the active subdev state
-- *					   is locked and returns it
-- *
-- * @sd: The subdevice
-+ * v4l2_subdev_get_locked_active_state() - Checks that the subdev state is
-+ *					   locked and returns it
-+ * @sdctx: The subdevice, or the subdevice context
-  *
-- * Returns the active state for the subdevice, or NULL if the subdev does not
-- * support active state. If the state is not NULL, calls lockdep_assert_held()
-- * to issue a warning if the state is not locked.
-+ * Returns the subdevice state, or NULL is not valid. If the state is not NULL,
-+ * calls lockdep_assert_held() to issue a warning if the state is not locked.
-  *
-- * This function is to be used when the caller knows that the active state is
-+ * This function is to be used when the caller knows that the context state is
-  * already locked.
-  */
--static inline struct v4l2_subdev_state *
--v4l2_subdev_get_locked_active_state(struct v4l2_subdev *sd)
--{
--	if (sd->active_state)
--		lockdep_assert_held(sd->active_state->lock);
--	return sd->active_state;
--}
-+#define v4l2_subdev_get_locked_active_state(sdctx)				\
-+	_Generic((sdctx),							\
-+		struct v4l2_subdev *:						\
-+			v4l2_subdev_get_locked_active_state_from_sd,		\
-+		struct v4l2_subdev_context *:					\
-+			v4l2_subdev_get_locked_active_state_from_ctx)		\
-+	(sdctx)
- 
- /**
-- * v4l2_subdev_lock_and_get_active_state() - Locks and returns the active subdev
-- *					     state for the subdevice
-- * @sd: The subdevice
-+ * v4l2_subdev_lock_and_get_active_state_from_ctx() - Locks and returns the
-+ *						      subdevice state
-+ * @sdctx: The subdevice, or the subdevice context
-  *
-- * Returns the locked active state for the subdevice, or NULL if the subdev
-- * does not support active state.
-+ * Returns the locked subdevice state, or NULL if it is not valid.
-  *
-  * The state must be unlocked with v4l2_subdev_unlock_state() after use.
-  */
--static inline struct v4l2_subdev_state *
--v4l2_subdev_lock_and_get_active_state(struct v4l2_subdev *sd)
--{
--	if (sd->active_state)
--		v4l2_subdev_lock_state(sd->active_state);
--	return sd->active_state;
--}
-+#define v4l2_subdev_lock_and_get_active_state(sdctx)				\
-+	_Generic((sdctx),							\
-+		struct v4l2_subdev *:						\
-+			v4l2_subdev_lock_and_get_active_state_from_sd,		\
-+		struct v4l2_subdev_context *:					\
-+			v4l2_subdev_get_locked_active_state_from_ctx)		\
-+	(sdctx)
- 
- /**
-  * v4l2_subdev_init - initializes the sub-device struct
+Ok got it. Will change supplies name as below=20
+avdd075_usb =3D> avdd075-usb
+avdd18_usb20 =3D> avdd18-usb20
+avdd33_usb20 =3D> avdd33-usb20
+  =20
+Confirm the above change that is meant in terms of DTS style.
 
--- 
-2.49.0
+>=20
+> It's not acceptable.
+>=20
+> Best regards,
+> Krzysztof
+
+Thank you.
+
+Regards,
+Pritam
 
 
