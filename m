@@ -4,46 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DC94C83F34
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 23:40:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28CC2C83F34
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 23:43:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=EYgAYwsBBvJfM8LX3r7dwr8+iapgS1Bh05pfLczFKL8=; b=Sj6thQ7f2k9TIhzNvm7SypFwZV
-	zhH1wBJ4GxkUYv+5EnvTHiIw2chp1XIRIri3jGDJE6hSocimMHSP5krpshluoxM1vTcZHqDV4GDHg
-	QNWJFNQEPm/uZ5a+kgygGVW1QeW2LIpzc7/cnpA12SKykYsNdzh1bpc0v3o1NqWWfKUVMk86LIBP9
-	a3IJaK5T75PurZK8Wg62858mS7fNPUYc0x1k3uyXMplxLOaZIzu+YkVLdrec3LGb67j5vzMweWfTw
-	bz1/i/xfn0Paxv9+27jr/CdoiuWfLR+Pb97LeXbYGsMhYfJI7biW2h1iH0TCuwjbi6LYWUYk2NuC7
-	eHQ5sfmQ==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Io0O9ivrDSI7ib4HbNGMnvrCvRBFdYG2jjlaeqr/xtQ=; b=J8K07UDgzzATQcs8rQjrjM5Kde
+	/2mCy/OsKp2lPAF5NTyjzE0Qd74jYwduZ1KIO+R20/7L25aKcuM9znory8TC4i3PnK/EbKJTDKDB6
+	+iOoSFgMWi0hktxPnv7ayImOOio+fBUHbpMiyZO/2fvGpjYDBqT7v3PGZ+qev6Yg7YZuFYSBbFNj/
+	EbukPjF64WzRr2wn9+8kG57x3gdjWOKK6nelLMlFbRphiuw/U5b4PMWoHFPAsLXtG0TWP+j0SY6Ui
+	i8D4XRm8mlaAMhAy6t92E2olyJTC9WaEasK8Yw3OqSAR5MSFNJG/+FUp1Cz5fW07kLo+nNVfPBg8B
+	jKJ6WTTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucYDG-0000000BL1j-0wcs;
-	Thu, 17 Jul 2025 23:40:30 +0000
+	id 1ucYFg-0000000BLZz-2y4c;
+	Thu, 17 Jul 2025 23:43:00 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucXyc-0000000BGrJ-0ao1;
+	id 1ucXyc-0000000BGrO-0ceU;
 	Thu, 17 Jul 2025 23:25:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 899365C6CAD;
-	Thu, 17 Jul 2025 23:25:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 29831C4CEEB;
+	by dfw.source.kernel.org (Postfix) with ESMTP id 534EF5C6CCA;
+	Thu, 17 Jul 2025 23:25:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 91A59C4AF53;
 	Thu, 17 Jul 2025 23:25:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1752794720;
-	bh=ix3ybSX3HXyR5ul7nVKO/r/KYy1s5o0+DAZiEgLkmcM=;
-	h=From:To:Cc:Subject:Date:From;
-	b=Gn7vBNA8ECW01pz7bzzi6l7uJmullsgdYyyFGomxO2fchHp+SDepdG+I6wOhD/gNK
-	 T3SEIM+1NfmErc+8DhsFxy8ppv7/K4qPjswgAhSVTH/FsykQ/fNbHEvrnupijvTyea
-	 b5T6AUCskwP0bPJyW348phxgXsYznPGl6Tfu0rEgmHXOlEMleiD7DVHcHq590DH2FY
-	 oMdbUTk24voKuAcf1WeqMrcw3JXvI5a4jYL/MBUz2SF0aWznalOa6/vg9ppvdbzmOv
-	 2MAUd25KsoHSEQdyNB+y5jYu/S+BPCr2PLArdK7j9HFT5emGVOiw+WzwFsulmUJmbM
-	 r4pAIwieJbXxA==
+	bh=osvUgpgEO64bNEnbAttwqVDbq5vm5KYdqiVGeRyBetc=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=ncp2PaoyESx2mGPRUqpIl0USPY8odVZlpHCAh8Jn8DMOfU2i3n6bxhTits5POjFD/
+	 bY4yixVHOiYP4Xr5dlJRUNXHIu0s3iF+7Jvzx7ManD4PgBcgoDYwpxzyP5HZBUbEKf
+	 N5jHFE8Q4iH4wYl9qS/j1MV1rhYbo+WiB/igaYTWTayw1U+4sCLdqlfJBc3EAxGAbp
+	 nGQOt09scJ/N1rGKReZbb+NdWKcJQXbmcKxaPIjYigz7JLWgHP6pmAB6xsB3vM43U0
+	 65A2iSAqp3UWSI4HOKWJdn4TUFpTPnOHuWSJMjk/OBW/zagGOcIRnp8f70lkanBO7A
+	 GO84yR/PXKBLA==
 From: Kees Cook <kees@kernel.org>
 To: Arnd Bergmann <arnd@arndb.de>
 Cc: Kees Cook <kees@kernel.org>,
+	"Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
+	kernel test robot <lkp@intel.com>,
 	Ingo Molnar <mingo@kernel.org>,
 	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
 	Christoph Hellwig <hch@lst.de>,
@@ -71,18 +73,19 @@ Cc: Kees Cook <kees@kernel.org>,
 	linux-kselftest@vger.kernel.org,
 	sparclinux@vger.kernel.org,
 	llvm@lists.linux.dev
-Subject: [PATCH v3 00/13] stackleak: Support Clang stack depth tracking
-Date: Thu, 17 Jul 2025 16:25:05 -0700
-Message-Id: <20250717231756.make.423-kees@kernel.org>
+Subject: [PATCH v3 08/13] powerpc/mm/book3s64: Move kfence and debug_pagealloc related calls to __init section
+Date: Thu, 17 Jul 2025 16:25:13 -0700
+Message-Id: <20250717232519.2984886-8-kees@kernel.org>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250717231756.make.423-kees@kernel.org>
+References: <20250717231756.make.423-kees@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5918; i=kees@kernel.org; h=from:subject:message-id; bh=ix3ybSX3HXyR5ul7nVKO/r/KYy1s5o0+DAZiEgLkmcM=; b=owGbwMvMwCVmps19z/KJym7G02pJDBmVbZHJG+bN3K/qtDByvmFFwWZOiegr7v9P8cdPbSg4o 3Zj+4WOjlIWBjEuBlkxRZYgO/c4F4+37eHucxVh5rAygQxh4OIUgIkYBjMyfNv4wNam5MZaxztb DVV2bLscf+z93ddLbf58MJq2fUdLOyfDP/uXom2zOn6oGNnZ+vY/6tuxYr3x7FmnbTaV1Sr/nay 2lB0A
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3037; i=kees@kernel.org; h=from:subject; bh=CG642rxsBTdbPAtwaZfuIeBH3/DpJlnhh8PcAMrPPa0=; b=owGbwMvMwCVmps19z/KJym7G02pJDBmVbTEqNd9vzJzycNaO4gcXLpt8qbN9PS/KjKft9UGzD eY5vwSjO0pZGMS4GGTFFFmC7NzjXDzetoe7z1WEmcPKBDKEgYtTACZSI8jI8GVbRcbCExcPa6wy fDZNO+lvONfEslf91zgk5+/tDwzasp+RYXdX0OYrJ9+2fley5O3+YLKGlStl6nnrVzK5ghu5VvP GMQEA
 X-Developer-Key: i=kees@kernel.org; a=openpgp; fpr=A5C3F68F229DD60F723E6E138972F4DFDC6DC026
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250717_162522_329105_8293F18D 
-X-CRM114-Status: GOOD (  12.66  )
+X-CRM114-CacheID: sfid-20250717_162522_303337_AAF87A7B 
+X-CRM114-Status: GOOD (  12.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,123 +100,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
- v3:
-  - split up and drop __init vs inline patches that went via arch trees
-  - apply feedback about preferring __init to __always_inline
-  - incorporate Ritesh Harjani's patch for __init cleanups in powerpc
-  - wider build testing on older compilers
- v2: https://lore.kernel.org/lkml/20250523043251.it.550-kees@kernel.org/
- v1: https://lore.kernel.org/lkml/20250507180852.work.231-kees@kernel.org/
+From: "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>
 
-Hi,
+Move a few kfence and debug_pagealloc related functions in hash_utils.c
+and radix_pgtable.c to __init sections since these are only invoked once
+by an __init function during system initialization.
 
-As part of looking at what GCC plugins could be replaced with Clang
-implementations, this series uses the recently landed stack depth tracking
-callback in Clang[1] to implement the stackleak feature. Since the Clang
-feature is now landed, I'm moving this out of RFC to a v1.
+i.e.
+- hash_debug_pagealloc_alloc_slots()
+- hash_kfence_alloc_pool()
+- hash_kfence_map_pool()
+  The above 3 functions only gets called by __init htab_initialize().
 
-Since this touches a lot of arch-specific Makefiles, I tried to trim
-the CC list down to just mailing lists in those cases, otherwise the CC
-was giant.
+- alloc_kfence_pool()
+- map_kfence_pool()
+  The above 2 functions only gets called by __init radix_init_pgtable()
 
-Thanks!
+This should also help fix warning msgs like:
 
--Kees
+>> WARNING: modpost: vmlinux: section mismatch in reference:
+hash_debug_pagealloc_alloc_slots+0xb0 (section: .text) ->
+memblock_alloc_try_nid (section: .init.text)
 
-[1] https://clang.llvm.org/docs/SanitizerCoverage.html#tracing-stack-depth
+Reported-by: kernel test robot <lkp@intel.com>
+Closes: https://lore.kernel.org/oe-kbuild-all/202504190552.mnFGs5sj-lkp@intel.com/
+Signed-off-by: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
+Signed-off-by: Kees Cook <kees@kernel.org>
+---
+ arch/powerpc/mm/book3s64/hash_utils.c    | 6 +++---
+ arch/powerpc/mm/book3s64/radix_pgtable.c | 4 ++--
+ 2 files changed, 5 insertions(+), 5 deletions(-)
 
-Kees Cook (12):
-  stackleak: Rename STACKLEAK to KSTACK_ERASE
-  stackleak: Rename stackleak_track_stack to __sanitizer_cov_stack_depth
-  stackleak: Split KSTACK_ERASE_CFLAGS from GCC_PLUGINS_CFLAGS
-  x86: Handle KCOV __init vs inline mismatches
-  arm: Handle KCOV __init vs inline mismatches
-  arm64: Handle KCOV __init vs inline mismatches
-  s390: Handle KCOV __init vs inline mismatches
-  mips: Handle KCOV __init vs inline mismatch
-  init.h: Disable sanitizer coverage for __init and __head
-  kstack_erase: Support Clang stack depth tracking
-  configs/hardening: Enable CONFIG_KSTACK_ERASE
-  configs/hardening: Enable CONFIG_INIT_ON_FREE_DEFAULT_ON
-
-Ritesh Harjani (IBM) (1):
-  powerpc/mm/book3s64: Move kfence and debug_pagealloc related calls to
-    __init section
-
- arch/Kconfig                                  |  4 +-
- arch/arm/Kconfig                              |  2 +-
- arch/arm64/Kconfig                            |  2 +-
- arch/riscv/Kconfig                            |  2 +-
- arch/s390/Kconfig                             |  2 +-
- arch/x86/Kconfig                              |  2 +-
- security/Kconfig.hardening                    | 45 +++++++++-------
- Makefile                                      |  1 +
- arch/arm/boot/compressed/Makefile             |  2 +-
- arch/arm/vdso/Makefile                        |  2 +-
- arch/arm64/kernel/pi/Makefile                 |  2 +-
- arch/arm64/kernel/vdso/Makefile               |  3 +-
- arch/arm64/kvm/hyp/nvhe/Makefile              |  2 +-
- arch/riscv/kernel/pi/Makefile                 |  2 +-
- arch/riscv/purgatory/Makefile                 |  2 +-
- arch/sparc/vdso/Makefile                      |  3 +-
- arch/x86/entry/vdso/Makefile                  |  3 +-
- arch/x86/purgatory/Makefile                   |  2 +-
- drivers/firmware/efi/libstub/Makefile         |  8 +--
- drivers/misc/lkdtm/Makefile                   |  2 +-
- kernel/Makefile                               | 10 ++--
- lib/Makefile                                  |  2 +-
- scripts/Makefile.gcc-plugins                  | 16 +-----
- scripts/Makefile.kstack_erase                 | 21 ++++++++
- scripts/gcc-plugins/stackleak_plugin.c        | 52 +++++++++----------
- Documentation/admin-guide/sysctl/kernel.rst   |  4 +-
- Documentation/arch/x86/x86_64/mm.rst          |  2 +-
- Documentation/security/self-protection.rst    |  2 +-
- .../zh_CN/security/self-protection.rst        |  2 +-
- arch/arm64/include/asm/acpi.h                 |  2 +-
- arch/mips/include/asm/time.h                  |  2 +-
- arch/s390/hypfs/hypfs.h                       |  2 +-
- arch/s390/hypfs/hypfs_diag.h                  |  2 +-
- arch/x86/entry/calling.h                      |  4 +-
- arch/x86/include/asm/acpi.h                   |  4 +-
- arch/x86/include/asm/init.h                   |  2 +-
- arch/x86/include/asm/realmode.h               |  2 +-
- include/linux/acpi.h                          |  4 +-
- include/linux/bootconfig.h                    |  2 +-
- include/linux/efi.h                           |  2 +-
- include/linux/init.h                          |  4 +-
- include/linux/{stackleak.h => kstack_erase.h} | 20 +++----
- include/linux/memblock.h                      |  2 +-
- include/linux/mfd/dbx500-prcmu.h              |  2 +-
- include/linux/sched.h                         |  4 +-
- include/linux/smp.h                           |  2 +-
- arch/arm/kernel/entry-common.S                |  2 +-
- arch/arm64/kernel/entry.S                     |  2 +-
- arch/riscv/kernel/entry.S                     |  2 +-
- arch/s390/kernel/entry.S                      |  2 +-
- arch/arm/mm/cache-feroceon-l2.c               |  2 +-
- arch/arm/mm/cache-tauros2.c                   |  2 +-
- arch/powerpc/mm/book3s64/hash_utils.c         |  6 +--
- arch/powerpc/mm/book3s64/radix_pgtable.c      |  4 +-
- arch/s390/mm/init.c                           |  2 +-
- arch/x86/kernel/kvm.c                         |  2 +-
- arch/x86/mm/init_64.c                         |  2 +-
- drivers/clocksource/timer-orion.c             |  2 +-
- .../lkdtm/{stackleak.c => kstack_erase.c}     | 26 +++++-----
- drivers/soc/ti/pm33xx.c                       |  2 +-
- fs/proc/base.c                                |  6 +--
- kernel/fork.c                                 |  2 +-
- kernel/kexec_handover.c                       |  4 +-
- kernel/{stackleak.c => kstack_erase.c}        | 22 ++++----
- tools/objtool/check.c                         |  4 +-
- tools/testing/selftests/lkdtm/config          |  2 +-
- MAINTAINERS                                   |  6 ++-
- kernel/configs/hardening.config               |  6 +++
- 68 files changed, 204 insertions(+), 172 deletions(-)
- create mode 100644 scripts/Makefile.kstack_erase
- rename include/linux/{stackleak.h => kstack_erase.h} (81%)
- rename drivers/misc/lkdtm/{stackleak.c => kstack_erase.c} (89%)
- rename kernel/{stackleak.c => kstack_erase.c} (87%)
-
+diff --git a/arch/powerpc/mm/book3s64/hash_utils.c b/arch/powerpc/mm/book3s64/hash_utils.c
+index 5158aefe4873..4693c464fc5a 100644
+--- a/arch/powerpc/mm/book3s64/hash_utils.c
++++ b/arch/powerpc/mm/book3s64/hash_utils.c
+@@ -343,7 +343,7 @@ static inline bool hash_supports_debug_pagealloc(void)
+ static u8 *linear_map_hash_slots;
+ static unsigned long linear_map_hash_count;
+ static DEFINE_RAW_SPINLOCK(linear_map_hash_lock);
+-static void hash_debug_pagealloc_alloc_slots(void)
++static __init void hash_debug_pagealloc_alloc_slots(void)
+ {
+ 	if (!hash_supports_debug_pagealloc())
+ 		return;
+@@ -409,7 +409,7 @@ static DEFINE_RAW_SPINLOCK(linear_map_kf_hash_lock);
+ 
+ static phys_addr_t kfence_pool;
+ 
+-static inline void hash_kfence_alloc_pool(void)
++static __init void hash_kfence_alloc_pool(void)
+ {
+ 	if (!kfence_early_init_enabled())
+ 		goto err;
+@@ -445,7 +445,7 @@ static inline void hash_kfence_alloc_pool(void)
+ 	disable_kfence();
+ }
+ 
+-static inline void hash_kfence_map_pool(void)
++static __init void hash_kfence_map_pool(void)
+ {
+ 	unsigned long kfence_pool_start, kfence_pool_end;
+ 	unsigned long prot = pgprot_val(PAGE_KERNEL);
+diff --git a/arch/powerpc/mm/book3s64/radix_pgtable.c b/arch/powerpc/mm/book3s64/radix_pgtable.c
+index 9f908b1a52db..be523e5fe9c5 100644
+--- a/arch/powerpc/mm/book3s64/radix_pgtable.c
++++ b/arch/powerpc/mm/book3s64/radix_pgtable.c
+@@ -363,7 +363,7 @@ static int __meminit create_physical_mapping(unsigned long start,
+ }
+ 
+ #ifdef CONFIG_KFENCE
+-static inline phys_addr_t alloc_kfence_pool(void)
++static __init phys_addr_t alloc_kfence_pool(void)
+ {
+ 	phys_addr_t kfence_pool;
+ 
+@@ -393,7 +393,7 @@ static inline phys_addr_t alloc_kfence_pool(void)
+ 	return 0;
+ }
+ 
+-static inline void map_kfence_pool(phys_addr_t kfence_pool)
++static __init void map_kfence_pool(phys_addr_t kfence_pool)
+ {
+ 	if (!kfence_pool)
+ 		return;
 -- 
 2.34.1
 
