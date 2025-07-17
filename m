@@ -4,64 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA47EC83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 13:24:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A7A6C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 13:27:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1a1zW9Gdxfcq96xHQb0JEse6evHVyDr8XYk+iSvdfio=; b=S/ikyYrUHV5kyLx/0MTjdjiJk0
-	/Wg/22mcJUQ+Q936UzYzGGHJfZ3Xr9JrMs6QSEm23NdnVSNh984RR/N248E/95aaE81+t5BmKeOB+
-	to/1cqKi+g6oy2g4lFUSO4rCTTFL2Q+mCEzmFt02JjjDXFlcfQcpddprrVp9gTmqwfVtW6E0ukjui
-	XnmKXdG6JhosDLpM8dSH+wN7FOheN3oWQDUTY7kYW9XPJvV+KFTXBqdItj2Ximmoi9+O2BilTS0e3
-	Ij9r/2idM5vYLRJzgSkmVx42R5ZuKnKm70vgyuzzEdtWObeBH5w5b33eUJPt2wvGlqfO9f/S2nxAh
-	TcC4gMGA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:Subject:References:Cc:To:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=a9frde+TCHsKKJJekqPE+TXCVkRomw5gr4tBN4H9t1w=; b=b3epzNj0MzFIoMGbjPbO2VjaA7
+	tcmy+ibxkS8LpGgAjkovMtGLcfvVwF+niEsyDnC6hIqfEZdeFZy6aqgURLJBvENWx39xWT2EDNgaV
+	NnEg9PSE4sHHMXJUk8dWqJuTfX01GlqWUcbH+Ta8w7GQ54U2aQEpqJ9juIi7255n6Hn0mWXW8KNeM
+	DJrOXnnm9HT5bDR4FZQZay5pWHKJKZM13Tx7YoNOz94bYAqIPmrVWKls+C53p8UJyiCtMQQP9lmLe
+	kQDouypc0e5Tk+5Unv1HnHy7odLe+dcstahABx6ED2TB1jzGsxz0RgFCdWgUiirSl1zAt6fM0lhE5
+	id75dtLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucObK-0000000AFZK-2yWD;
-	Thu, 17 Jul 2025 13:24:42 +0000
-Received: from szxga03-in.huawei.com ([45.249.212.189])
+	id 1ucOdk-0000000AFpS-20mD;
+	Thu, 17 Jul 2025 13:27:12 +0000
+Received: from mout.web.de ([217.72.192.78])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucNYn-0000000A5mI-3Uf6
+	id 1ucNZt-0000000A62r-1vMn
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Jul 2025 12:18:03 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.174])
-	by szxga03-in.huawei.com (SkyGuard) with ESMTP id 4bjWzt6RytzdbwW;
-	Thu, 17 Jul 2025 20:13:46 +0800 (CST)
-Received: from dggemv706-chm.china.huawei.com (unknown [10.3.19.33])
-	by mail.maildlp.com (Postfix) with ESMTPS id A1066140259;
-	Thu, 17 Jul 2025 20:17:54 +0800 (CST)
-Received: from kwepemq200018.china.huawei.com (7.202.195.108) by
- dggemv706-chm.china.huawei.com (10.3.19.33) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Thu, 17 Jul 2025 20:17:54 +0800
-Received: from localhost.localdomain (10.50.165.33) by
- kwepemq200018.china.huawei.com (7.202.195.108) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Thu, 17 Jul 2025 20:17:53 +0800
-From: Yicong Yang <yangyicong@huawei.com>
-To: <will@kernel.org>, <mark.rutland@arm.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-CC: <hejunhao3@huawei.com>, <jonathan.cameron@huawei.com>,
-	<prime.zeng@hisilicon.com>, <linuxarm@huawei.com>,
-	<yangyicong@hisilicon.com>, <wangyushan12@huawei.com>
-Subject: [PATCH v5 1/2] drivers/perf: hisi: Add support for HiSilicon NoC PMU
-Date: Thu, 17 Jul 2025 20:17:26 +0800
-Message-ID: <20250717121727.61057-2-yangyicong@huawei.com>
-X-Mailer: git-send-email 2.31.0
-In-Reply-To: <20250717121727.61057-1-yangyicong@huawei.com>
-References: <20250717121727.61057-1-yangyicong@huawei.com>
+	Thu, 17 Jul 2025 12:19:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1752754737; x=1753359537; i=markus.elfring@web.de;
+	bh=a9frde+TCHsKKJJekqPE+TXCVkRomw5gr4tBN4H9t1w=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:References:
+	 Subject:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 cc:content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=M9WmBD88KOV+FGJEEL3REnVKRQJHORo2WC4sfFCXfuqXwrm2+Ht0WEFR1SeiTYL4
+	 Ci3W/nsD9mjvuDLbp69ltuiNQcqfjn3Wcy53rnTtrOqc2ZUappiGn3PEppeOgIuSE
+	 pycydGixZxpwgOYYGTALaapO/QH8NZkVTJYSpXvWKTPrJ3LOuzhhC5fcY3JP6Fh4Z
+	 0RmooGQ5CtiaF9nvB0i4jx6z38GsmJlgL9d1fcrDsS29OrhbVw+3OMBIt+Fgd2gR2
+	 uG/BwOvP0fCcaDnHKEf6xTcFKJVLeBkNbkiS3YOlxNbR+o+ZBTYyleZOLUhdIYW06
+	 UWMPqaaPb92NdQ095g==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from [192.168.178.29] ([94.31.69.185]) by smtp.web.de (mrweb105
+ [213.165.67.124]) with ESMTPSA (Nemesis) id 1M1JAm-1uaicN0apW-00Bk5J; Thu, 17
+ Jul 2025 14:18:57 +0200
+Message-ID: <21104b21-c24f-4b1f-bd6e-072597927e81@web.de>
+Date: Thu, 17 Jul 2025 14:18:53 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.50.165.33]
-X-ClientProxiedBy: dggems702-chm.china.huawei.com (10.3.19.179) To
- kwepemq200018.china.huawei.com (7.202.195.108)
+User-Agent: Mozilla Thunderbird
+To: Himanshu Mittal <h-mittal1@ti.com>, netdev@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+Cc: LKML <linux-kernel@vger.kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, MD Danish Anwar <danishanwar@ti.com>,
+ Meghana Malladi <m-malladi@ti.com>, Paolo Abeni <pabeni@redhat.com>,
+ prajith@ti.com, Pratheesh Gangadhar <pratheesh@ti.com>,
+ Simon Horman <horms@kernel.org>, Sriramakrishnan <srk@ti.com>,
+ Roger Quadros <rogerq@kernel.org>, Vignesh Raghavendra <vigneshr@ti.com>
+References: <20250710131250.1294278-1-h-mittal1@ti.com>
+Subject: Re: [PATCH net v2] net: ti: icssg-prueth: Fix buffer allocation for
+ ICSSG
+Content-Language: en-GB, de-DE
+From: Markus Elfring <Markus.Elfring@web.de>
+In-Reply-To: <20250710131250.1294278-1-h-mittal1@ti.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:HdKKwwCkdS0uUcMCsjU4EauINBHqY1JcQjAzy+hip0DXyMEwYBL
+ lMsp2/fjKpABmTfH6R3tS7aHb6m3nWDlr7rzI1L2swy8rjAduUkp/4rGXsp8EXvzuxLt4ps
+ 6P2t6Y2+41K9T0RRArCiudKZ/8cr8uof7vGNX1IHi4zZedu3Mxa67swgmgmJ4B/hUqkEuZ4
+ Nl9y9bzDKG3SKYOdtSszA==
+UI-OutboundReport: notjunk:1;M01:P0:Ylv/pdWbBjo=;2DUCA7MBwYkvSDJGexulglLoII6
+ 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
+ ggTBo=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250717_051802_194128_F55B9217 
-X-CRM114-Status: GOOD (  26.11  )
+X-CRM114-CacheID: sfid-20250717_051909_888098_30E49141 
+X-CRM114-Status: UNSURE (   7.62  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,520 +140,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Yicong Yang <yangyicong@hisilicon.com>
+=E2=80=A6
+> +++ b/drivers/net/ethernet/ti/icssg/icssg_config.c
+> @@ -288,8 +288,12 @@ static int prueth_fw_offload_buffer_setup(struct pr=
+ueth_emac *emac)
+>  	int i;
+> =20
+>  	addr =3D lower_32_bits(prueth->msmcram.pa);
+> -	if (slice)
+> -		addr +=3D PRUETH_NUM_BUF_POOLS * PRUETH_EMAC_BUF_POOL_SIZE;
+> +	if (slice) {
+> +		if (prueth->pdata.banked_ms_ram)
+> +			addr +=3D MSMC_RAM_BANK_SIZE;
+> +		else
+> +			addr +=3D PRUETH_SW_TOTAL_BUF_SIZE_PER_SLICE;
+> +	}
+=E2=80=A6
 
-Adds the support for HiSilicon NoC (Network on Chip) PMU which
-will be used to monitor the events on the system bus. The PMU
-device will be named after the SCL ID (either Super CPU cluster
-or Super IO cluster) and the index ID, just similar to other
-HiSilicon Uncore PMUs. Below PMU formats are provided besides
-the event:
+How do you think about to use the following code variant?
 
-- ch: the transaction channel (data, request, response, etc) which
-  can be used to filter the counting.
-- tt_en: tracetag filtering enable. Just as other HiSilicon Uncore
-  PMUs the NoC PMU supports only counting the transactions with
-  tracetag.
+	if (slice)
+		addr +=3D ( prueth->pdata.banked_ms_ram
+			? MSMC_RAM_BANK_SIZE
+			: PRUETH_SW_TOTAL_BUF_SIZE_PER_SLICE);
 
-The NoC PMU doesn't have an interrupt to indicate the overflow.
-However we have a 64 bit counter which is large enough and it's
-nearly impossible to overflow.
-
-Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
----
- Documentation/admin-guide/perf/hisi-pmu.rst  |  11 +
- drivers/perf/hisilicon/Makefile              |   3 +-
- drivers/perf/hisilicon/hisi_uncore_noc_pmu.c | 443 +++++++++++++++++++
- 3 files changed, 456 insertions(+), 1 deletion(-)
- create mode 100644 drivers/perf/hisilicon/hisi_uncore_noc_pmu.c
-
-diff --git a/Documentation/admin-guide/perf/hisi-pmu.rst b/Documentation/admin-guide/perf/hisi-pmu.rst
-index 48992a0b8e94..6f0ea4f641cc 100644
---- a/Documentation/admin-guide/perf/hisi-pmu.rst
-+++ b/Documentation/admin-guide/perf/hisi-pmu.rst
-@@ -112,6 +112,17 @@ uring channel. It is 2 bits. Some important codes are as follows:
- - 2'b00: default value, count the events which sent to the both uring and
-   uring_ext channel;
- 
-+6. ch: NoC PMU supports filtering the event counts of certain transaction
-+channel with this option. The current supported channels are as follows:
-+
-+- 3'b010: Request channel
-+- 3'b100: Snoop channel
-+- 3'b110: Response channel
-+- 3'b111: Data channel
-+
-+7. tt_en: NoC PMU supports counting only transactions that have tracetag set
-+if this option is set. See the 2nd list for more information about tracetag.
-+
- Users could configure IDs to count data come from specific CCL/ICL, by setting
- srcid_cmd & srcid_msk, and data desitined for specific CCL/ICL by setting
- tgtid_cmd & tgtid_msk. A set bit in srcid_msk/tgtid_msk means the PMU will not
-diff --git a/drivers/perf/hisilicon/Makefile b/drivers/perf/hisilicon/Makefile
-index 48dcc8381ea7..dcec8f39719d 100644
---- a/drivers/perf/hisilicon/Makefile
-+++ b/drivers/perf/hisilicon/Makefile
-@@ -1,7 +1,8 @@
- # SPDX-License-Identifier: GPL-2.0-only
- obj-$(CONFIG_HISI_PMU) += hisi_uncore_pmu.o hisi_uncore_l3c_pmu.o \
- 			  hisi_uncore_hha_pmu.o hisi_uncore_ddrc_pmu.o hisi_uncore_sllc_pmu.o \
--			  hisi_uncore_pa_pmu.o hisi_uncore_cpa_pmu.o hisi_uncore_uc_pmu.o
-+			  hisi_uncore_pa_pmu.o hisi_uncore_cpa_pmu.o hisi_uncore_uc_pmu.o \
-+			  hisi_uncore_noc_pmu.o
- 
- obj-$(CONFIG_HISI_PCIE_PMU) += hisi_pcie_pmu.o
- obj-$(CONFIG_HNS3_PMU) += hns3_pmu.o
-diff --git a/drivers/perf/hisilicon/hisi_uncore_noc_pmu.c b/drivers/perf/hisilicon/hisi_uncore_noc_pmu.c
-new file mode 100644
-index 000000000000..de3b9cc7aada
---- /dev/null
-+++ b/drivers/perf/hisilicon/hisi_uncore_noc_pmu.c
-@@ -0,0 +1,443 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Driver for HiSilicon Uncore NoC (Network on Chip) PMU device
-+ *
-+ * Copyright (c) 2025 HiSilicon Technologies Co., Ltd.
-+ * Author: Yicong Yang <yangyicong@hisilicon.com>
-+ */
-+#include <linux/bitops.h>
-+#include <linux/cpuhotplug.h>
-+#include <linux/device.h>
-+#include <linux/io.h>
-+#include <linux/mod_devicetable.h>
-+#include <linux/module.h>
-+#include <linux/platform_device.h>
-+#include <linux/property.h>
-+#include <linux/sysfs.h>
-+
-+#include "hisi_uncore_pmu.h"
-+
-+#define NOC_PMU_VERSION			0x1e00
-+#define NOC_PMU_GLOBAL_CTRL		0x1e04
-+#define   NOC_PMU_GLOBAL_CTRL_PMU_EN	BIT(0)
-+#define   NOC_PMU_GLOBAL_CTRL_TT_EN	BIT(1)
-+#define NOC_PMU_CNT_INFO		0x1e08
-+#define   NOC_PMU_CNT_INFO_OVERFLOW(n)	BIT(n)
-+#define NOC_PMU_EVENT_CTRL0		0x1e20
-+#define   NOC_PMU_EVENT_CTRL_TYPE	GENMASK(4, 0)
-+/*
-+ * Note channel of 0x0 will reset the counter value, so don't do it before
-+ * we read out the counter.
-+ */
-+#define   NOC_PMU_EVENT_CTRL_CHANNEL	GENMASK(10, 8)
-+#define   NOC_PMU_EVENT_CTRL_EN		BIT(11)
-+#define NOC_PMU_EVENT_COUNTER0		0x1e80
-+
-+#define NOC_PMU_NR_COUNTERS		4
-+#define NOC_PMU_CH_DEFAULT		0x7
-+
-+#define NOC_PMU_EVENT_CTRLn(ctrl0, n)	((ctrl0) + 4 * (n))
-+#define NOC_PMU_EVENT_CNTRn(cntr0, n)	((cntr0) + 8 * (n))
-+
-+HISI_PMU_EVENT_ATTR_EXTRACTOR(ch, config1, 2, 0);
-+HISI_PMU_EVENT_ATTR_EXTRACTOR(tt_en, config1, 3, 3);
-+
-+/* Dynamic CPU hotplug state used by this PMU driver */
-+static enum cpuhp_state hisi_noc_pmu_cpuhp_state;
-+
-+struct hisi_noc_pmu_regs {
-+	u32 version;
-+	u32 pmu_ctrl;
-+	u32 event_ctrl0;
-+	u32 event_cntr0;
-+	u32 overflow_status;
-+};
-+
-+/*
-+ * Tracetag filtering is not per event and all the events should keep
-+ * the consistence. Return true if the new comer doesn't match the
-+ * tracetag filtering configuration of the current scheduled events.
-+ */
-+static bool hisi_noc_pmu_check_global_filter(struct perf_event *curr,
-+					     struct perf_event *new)
-+{
-+	return hisi_get_tt_en(curr) == hisi_get_tt_en(new);
-+}
-+
-+static void hisi_noc_pmu_write_evtype(struct hisi_pmu *noc_pmu, int idx, u32 type)
-+{
-+	struct hisi_noc_pmu_regs *reg_info = noc_pmu->dev_info->private;
-+	u32 reg;
-+
-+	reg = readl(noc_pmu->base + NOC_PMU_EVENT_CTRLn(reg_info->event_ctrl0, idx));
-+	reg &= ~NOC_PMU_EVENT_CTRL_TYPE;
-+	reg |= FIELD_PREP(NOC_PMU_EVENT_CTRL_TYPE, type);
-+	writel(reg, noc_pmu->base + NOC_PMU_EVENT_CTRLn(reg_info->event_ctrl0, idx));
-+}
-+
-+static int hisi_noc_pmu_get_event_idx(struct perf_event *event)
-+{
-+	struct hisi_pmu *noc_pmu = to_hisi_pmu(event->pmu);
-+	struct hisi_pmu_hwevents *pmu_events = &noc_pmu->pmu_events;
-+	int cur_idx;
-+
-+	cur_idx = find_first_bit(pmu_events->used_mask, noc_pmu->num_counters);
-+	if (cur_idx != noc_pmu->num_counters &&
-+	    !hisi_noc_pmu_check_global_filter(pmu_events->hw_events[cur_idx], event))
-+		return -EAGAIN;
-+
-+	return hisi_uncore_pmu_get_event_idx(event);
-+}
-+
-+static u64 hisi_noc_pmu_read_counter(struct hisi_pmu *noc_pmu,
-+				     struct hw_perf_event *hwc)
-+{
-+	struct hisi_noc_pmu_regs *reg_info = noc_pmu->dev_info->private;
-+
-+	return readq(noc_pmu->base + NOC_PMU_EVENT_CNTRn(reg_info->event_cntr0, hwc->idx));
-+}
-+
-+static void hisi_noc_pmu_write_counter(struct hisi_pmu *noc_pmu,
-+				       struct hw_perf_event *hwc, u64 val)
-+{
-+	struct hisi_noc_pmu_regs *reg_info = noc_pmu->dev_info->private;
-+
-+	writeq(val, noc_pmu->base + NOC_PMU_EVENT_CNTRn(reg_info->event_cntr0, hwc->idx));
-+}
-+
-+static void hisi_noc_pmu_enable_counter(struct hisi_pmu *noc_pmu,
-+					struct hw_perf_event *hwc)
-+{
-+	struct hisi_noc_pmu_regs *reg_info = noc_pmu->dev_info->private;
-+	u32 reg;
-+
-+	reg = readl(noc_pmu->base + NOC_PMU_EVENT_CTRLn(reg_info->event_ctrl0, hwc->idx));
-+	reg |= NOC_PMU_EVENT_CTRL_EN;
-+	writel(reg, noc_pmu->base + NOC_PMU_EVENT_CTRLn(reg_info->event_ctrl0, hwc->idx));
-+}
-+
-+static void hisi_noc_pmu_disable_counter(struct hisi_pmu *noc_pmu,
-+					 struct hw_perf_event *hwc)
-+{
-+	struct hisi_noc_pmu_regs *reg_info = noc_pmu->dev_info->private;
-+	u32 reg;
-+
-+	reg = readl(noc_pmu->base + NOC_PMU_EVENT_CTRLn(reg_info->event_ctrl0, hwc->idx));
-+	reg &= ~NOC_PMU_EVENT_CTRL_EN;
-+	writel(reg, noc_pmu->base + NOC_PMU_EVENT_CTRLn(reg_info->event_ctrl0, hwc->idx));
-+}
-+
-+static void hisi_noc_pmu_enable_counter_int(struct hisi_pmu *noc_pmu,
-+					    struct hw_perf_event *hwc)
-+{
-+	/* We don't support interrupt, so a stub here. */
-+}
-+
-+static void hisi_noc_pmu_disable_counter_int(struct hisi_pmu *noc_pmu,
-+					     struct hw_perf_event *hwc)
-+{
-+}
-+
-+static void hisi_noc_pmu_start_counters(struct hisi_pmu *noc_pmu)
-+{
-+	struct hisi_noc_pmu_regs *reg_info = noc_pmu->dev_info->private;
-+	u32 reg;
-+
-+	reg = readl(noc_pmu->base + reg_info->pmu_ctrl);
-+	reg |= NOC_PMU_GLOBAL_CTRL_PMU_EN;
-+	writel(reg, noc_pmu->base + reg_info->pmu_ctrl);
-+}
-+
-+static void hisi_noc_pmu_stop_counters(struct hisi_pmu *noc_pmu)
-+{
-+	struct hisi_noc_pmu_regs *reg_info = noc_pmu->dev_info->private;
-+	u32 reg;
-+
-+	reg = readl(noc_pmu->base + reg_info->pmu_ctrl);
-+	reg &= ~NOC_PMU_GLOBAL_CTRL_PMU_EN;
-+	writel(reg, noc_pmu->base + reg_info->pmu_ctrl);
-+}
-+
-+static u32 hisi_noc_pmu_get_int_status(struct hisi_pmu *noc_pmu)
-+{
-+	struct hisi_noc_pmu_regs *reg_info = noc_pmu->dev_info->private;
-+
-+	return readl(noc_pmu->base + reg_info->overflow_status);
-+}
-+
-+static void hisi_noc_pmu_clear_int_status(struct hisi_pmu *noc_pmu, int idx)
-+{
-+	struct hisi_noc_pmu_regs *reg_info = noc_pmu->dev_info->private;
-+	u32 reg;
-+
-+	reg = readl(noc_pmu->base + reg_info->overflow_status);
-+	reg &= ~NOC_PMU_CNT_INFO_OVERFLOW(idx);
-+	writel(reg, noc_pmu->base + reg_info->overflow_status);
-+}
-+
-+static void hisi_noc_pmu_enable_filter(struct perf_event *event)
-+{
-+	struct hisi_pmu *noc_pmu = to_hisi_pmu(event->pmu);
-+	struct hisi_noc_pmu_regs *reg_info = noc_pmu->dev_info->private;
-+	struct hw_perf_event *hwc = &event->hw;
-+	u32 tt_en = hisi_get_tt_en(event);
-+	u32 ch = hisi_get_ch(event);
-+	u32 reg;
-+
-+	if (!ch)
-+		ch = NOC_PMU_CH_DEFAULT;
-+
-+	reg = readl(noc_pmu->base + NOC_PMU_EVENT_CTRLn(reg_info->event_ctrl0, hwc->idx));
-+	reg &= ~NOC_PMU_EVENT_CTRL_CHANNEL;
-+	reg |= FIELD_PREP(NOC_PMU_EVENT_CTRL_CHANNEL, ch);
-+	writel(reg, noc_pmu->base + NOC_PMU_EVENT_CTRLn(reg_info->event_ctrl0, hwc->idx));
-+
-+	/*
-+	 * Since tracetag filter applies to all the counters, don't touch it
-+	 * if user doesn't specify it explicitly.
-+	 */
-+	if (tt_en) {
-+		reg = readl(noc_pmu->base + reg_info->pmu_ctrl);
-+		reg |= NOC_PMU_GLOBAL_CTRL_TT_EN;
-+		writel(reg, noc_pmu->base + reg_info->pmu_ctrl);
-+	}
-+}
-+
-+static void hisi_noc_pmu_disable_filter(struct perf_event *event)
-+{
-+	struct hisi_pmu *noc_pmu = to_hisi_pmu(event->pmu);
-+	struct hisi_noc_pmu_regs *reg_info = noc_pmu->dev_info->private;
-+	u32 tt_en = hisi_get_tt_en(event);
-+	u32 reg;
-+
-+	/*
-+	 * If we're not the last counter, don't touch the global tracetag
-+	 * configuration.
-+	 */
-+	if (bitmap_weight(noc_pmu->pmu_events.used_mask, noc_pmu->num_counters) > 1)
-+		return;
-+
-+	if (tt_en) {
-+		reg = readl(noc_pmu->base + reg_info->pmu_ctrl);
-+		reg &= ~NOC_PMU_GLOBAL_CTRL_TT_EN;
-+		writel(reg, noc_pmu->base + reg_info->pmu_ctrl);
-+	}
-+}
-+
-+static const struct hisi_uncore_ops hisi_uncore_noc_ops = {
-+	.write_evtype		= hisi_noc_pmu_write_evtype,
-+	.get_event_idx		= hisi_noc_pmu_get_event_idx,
-+	.read_counter		= hisi_noc_pmu_read_counter,
-+	.write_counter		= hisi_noc_pmu_write_counter,
-+	.enable_counter		= hisi_noc_pmu_enable_counter,
-+	.disable_counter	= hisi_noc_pmu_disable_counter,
-+	.enable_counter_int	= hisi_noc_pmu_enable_counter_int,
-+	.disable_counter_int	= hisi_noc_pmu_disable_counter_int,
-+	.start_counters		= hisi_noc_pmu_start_counters,
-+	.stop_counters		= hisi_noc_pmu_stop_counters,
-+	.get_int_status		= hisi_noc_pmu_get_int_status,
-+	.clear_int_status	= hisi_noc_pmu_clear_int_status,
-+	.enable_filter		= hisi_noc_pmu_enable_filter,
-+	.disable_filter		= hisi_noc_pmu_disable_filter,
-+};
-+
-+static struct attribute *hisi_noc_pmu_format_attrs[] = {
-+	HISI_PMU_FORMAT_ATTR(event, "config:0-7"),
-+	HISI_PMU_FORMAT_ATTR(ch, "config1:0-2"),
-+	HISI_PMU_FORMAT_ATTR(tt_en, "config1:3"),
-+	NULL
-+};
-+
-+static const struct attribute_group hisi_noc_pmu_format_group = {
-+	.name = "format",
-+	.attrs = hisi_noc_pmu_format_attrs,
-+};
-+
-+static struct attribute *hisi_noc_pmu_events_attrs[] = {
-+	HISI_PMU_EVENT_ATTR(cycles, 0x0e),
-+	/* Flux on/off the ring */
-+	HISI_PMU_EVENT_ATTR(ingress_flow_sum, 0x1a),
-+	HISI_PMU_EVENT_ATTR(egress_flow_sum, 0x17),
-+	/* Buffer full duration on/off the ring */
-+	HISI_PMU_EVENT_ATTR(ingress_buf_full, 0x19),
-+	HISI_PMU_EVENT_ATTR(egress_buf_full, 0x12),
-+	/* Failure packets count on/off the ring */
-+	HISI_PMU_EVENT_ATTR(cw_ingress_fail, 0x01),
-+	HISI_PMU_EVENT_ATTR(cc_ingress_fail, 0x09),
-+	HISI_PMU_EVENT_ATTR(cw_egress_fail, 0x03),
-+	HISI_PMU_EVENT_ATTR(cc_egress_fail, 0x0b),
-+	/* Flux of the ring */
-+	HISI_PMU_EVENT_ATTR(cw_main_flow_sum, 0x05),
-+	HISI_PMU_EVENT_ATTR(cc_main_flow_sum, 0x0d),
-+	NULL
-+};
-+
-+static const struct attribute_group hisi_noc_pmu_events_group = {
-+	.name = "events",
-+	.attrs = hisi_noc_pmu_events_attrs,
-+};
-+
-+static const struct attribute_group *hisi_noc_pmu_attr_groups[] = {
-+	&hisi_noc_pmu_format_group,
-+	&hisi_noc_pmu_events_group,
-+	&hisi_pmu_cpumask_attr_group,
-+	&hisi_pmu_identifier_group,
-+	NULL
-+};
-+
-+static int hisi_noc_pmu_dev_init(struct platform_device *pdev, struct hisi_pmu *noc_pmu)
-+{
-+	struct hisi_noc_pmu_regs *reg_info;
-+
-+	hisi_uncore_pmu_init_topology(noc_pmu, &pdev->dev);
-+
-+	if (noc_pmu->topo.scl_id < 0)
-+		return dev_err_probe(&pdev->dev, -EINVAL, "failed to get scl-id\n");
-+
-+	if (noc_pmu->topo.index_id < 0)
-+		return dev_err_probe(&pdev->dev, -EINVAL, "failed to get idx-id\n");
-+
-+	if (noc_pmu->topo.sub_id < 0)
-+		return dev_err_probe(&pdev->dev, -EINVAL, "failed to get sub-id\n");
-+
-+	noc_pmu->base = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(noc_pmu->base))
-+		return dev_err_probe(&pdev->dev, PTR_ERR(noc_pmu->base),
-+				     "fail to remap io memory\n");
-+
-+	noc_pmu->dev_info = device_get_match_data(&pdev->dev);
-+	if (!noc_pmu->dev_info)
-+		return -ENODEV;
-+
-+	noc_pmu->pmu_events.attr_groups = noc_pmu->dev_info->attr_groups;
-+	noc_pmu->counter_bits = noc_pmu->dev_info->counter_bits;
-+	noc_pmu->check_event = noc_pmu->dev_info->check_event;
-+	noc_pmu->num_counters = NOC_PMU_NR_COUNTERS;
-+	noc_pmu->ops = &hisi_uncore_noc_ops;
-+	noc_pmu->dev = &pdev->dev;
-+	noc_pmu->on_cpu = -1;
-+
-+	reg_info = noc_pmu->dev_info->private;
-+	noc_pmu->identifier = readl(noc_pmu->base + reg_info->version);
-+
-+	return 0;
-+}
-+
-+static void hisi_noc_pmu_remove_cpuhp_instance(void *hotplug_node)
-+{
-+	cpuhp_state_remove_instance_nocalls(hisi_noc_pmu_cpuhp_state, hotplug_node);
-+}
-+
-+static void hisi_noc_pmu_unregister_pmu(void *pmu)
-+{
-+	perf_pmu_unregister(pmu);
-+}
-+
-+static int hisi_noc_pmu_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct hisi_pmu *noc_pmu;
-+	char *name;
-+	int ret;
-+
-+	noc_pmu = devm_kzalloc(dev, sizeof(*noc_pmu), GFP_KERNEL);
-+	if (!noc_pmu)
-+		return -ENOMEM;
-+
-+	/*
-+	 * HiSilicon Uncore PMU framework needs to get common hisi_pmu device
-+	 * from device's drvdata.
-+	 */
-+	platform_set_drvdata(pdev, noc_pmu);
-+
-+	ret = hisi_noc_pmu_dev_init(pdev, noc_pmu);
-+	if (ret)
-+		return ret;
-+
-+	ret = cpuhp_state_add_instance(hisi_noc_pmu_cpuhp_state, &noc_pmu->node);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "Fail to register cpuhp instance\n");
-+
-+	ret = devm_add_action_or_reset(dev, hisi_noc_pmu_remove_cpuhp_instance,
-+				       &noc_pmu->node);
-+	if (ret)
-+		return ret;
-+
-+	hisi_pmu_init(noc_pmu, THIS_MODULE);
-+
-+	name = devm_kasprintf(dev, GFP_KERNEL, "hisi_scl%d_noc%d_%d",
-+			      noc_pmu->topo.scl_id, noc_pmu->topo.index_id,
-+			      noc_pmu->topo.sub_id);
-+	if (!name)
-+		return -ENOMEM;
-+
-+	ret = perf_pmu_register(&noc_pmu->pmu, name, -1);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "Fail to register PMU\n");
-+
-+	return devm_add_action_or_reset(dev, hisi_noc_pmu_unregister_pmu,
-+					&noc_pmu->pmu);
-+}
-+
-+static struct hisi_noc_pmu_regs hisi_noc_v1_pmu_regs = {
-+	.version = NOC_PMU_VERSION,
-+	.pmu_ctrl = NOC_PMU_GLOBAL_CTRL,
-+	.event_ctrl0 = NOC_PMU_EVENT_CTRL0,
-+	.event_cntr0 = NOC_PMU_EVENT_COUNTER0,
-+	.overflow_status = NOC_PMU_CNT_INFO,
-+};
-+
-+static const struct hisi_pmu_dev_info hisi_noc_v1 = {
-+	.attr_groups = hisi_noc_pmu_attr_groups,
-+	.counter_bits = 64,
-+	.check_event = NOC_PMU_EVENT_CTRL_TYPE,
-+	.private = &hisi_noc_v1_pmu_regs,
-+};
-+
-+static const struct acpi_device_id hisi_noc_pmu_ids[] = {
-+	{ "HISI04E0", (kernel_ulong_t) &hisi_noc_v1 },
-+	{ }
-+};
-+MODULE_DEVICE_TABLE(acpi, hisi_noc_pmu_ids);
-+
-+static struct platform_driver hisi_noc_pmu_driver = {
-+	.driver = {
-+		.name = "hisi_noc_pmu",
-+		.acpi_match_table = hisi_noc_pmu_ids,
-+		.suppress_bind_attrs = true,
-+	},
-+	.probe = hisi_noc_pmu_probe,
-+};
-+
-+static int __init hisi_noc_pmu_module_init(void)
-+{
-+	int ret;
-+
-+	ret = cpuhp_setup_state_multi(CPUHP_AP_ONLINE_DYN, "perf/hisi/noc:online",
-+				      hisi_uncore_pmu_online_cpu,
-+				      hisi_uncore_pmu_offline_cpu);
-+	if (ret < 0) {
-+		pr_err("hisi_noc_pmu: Fail to setup cpuhp callbacks, ret = %d\n", ret);
-+		return ret;
-+	}
-+	hisi_noc_pmu_cpuhp_state = ret;
-+
-+	ret = platform_driver_register(&hisi_noc_pmu_driver);
-+	if (ret)
-+		cpuhp_remove_multi_state(hisi_noc_pmu_cpuhp_state);
-+
-+	return ret;
-+}
-+module_init(hisi_noc_pmu_module_init);
-+
-+static void __exit hisi_noc_pmu_module_exit(void)
-+{
-+	platform_driver_unregister(&hisi_noc_pmu_driver);
-+	cpuhp_remove_multi_state(hisi_noc_pmu_cpuhp_state);
-+}
-+module_exit(hisi_noc_pmu_module_exit);
-+
-+MODULE_IMPORT_NS("HISI_PMU");
-+MODULE_DESCRIPTION("HiSilicon SoC Uncore NoC PMU driver");
-+MODULE_LICENSE("GPL");
-+MODULE_AUTHOR("Yicong Yang <yangyicong@hisilicon.com>");
--- 
-2.24.0
-
+Regards,
+Markus
 
