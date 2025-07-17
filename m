@@ -4,141 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3FE5C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 17:37:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 574CBC83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 17:38:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=82OHoUr0Z9aQ08e56ySzE42nN8RW+aLi/MMtZyEhPrU=; b=YuCMu4aiNlfLntksSbgxQtR+Ps
-	MOIJb8t6G1wZYEuFd9mERQTG8to7gB+U+zJvnviOx2bbRt0nZ3ZElRneMxegbr5RXC1rgXEeaflEQ
-	XwRWOQsBD10Zs+xcb77yoyCIQ9jZQ9+lxEj++F9SV3PcSULIRWQugMD2eUOu6PdbArStTBBHmW8bW
-	0Aw+t1EVtsveO3i5EbZlvR5PtkCf1WZ7jek+TqsXH4r6NjMUmyuyDMIHB1TygfsojOhmB5AO/i2SV
-	eHLFELpeE+Dtuq1FgflQCunRDkF0ArFJ6Fop6gEVzICex+YpIX1Q+KOSJLJD/Hy88u4k2HMMO5Mjo
-	uy7VnlJQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1M9VBNshXRr/zeZayfHhf6pLw+VHfQ7XhNs8UL9FnqY=; b=ymtMQox7jfi0XTuph34WSgujs7
+	IHpINR0lD0eb7Ki3RRZLzIEpP8GFVdBGM/W0BVGj3rY7JLvfclrqdOrt1anIMYrISisfw71/zgiDy
+	KCzhWK3pgamIqEEns8qZ7Lbj9s+6v56WWoAa0etLCXqVhBDs3inYP+4On7KYTxx1U6eCBWBDcLAs8
+	DpEXyy3asrz5nVxsPoIckY7szft34/hMAk56nc3NV/3WfUCKsV6aWbOwRrLt5jHjja67bxEiaLdUe
+	bPEQI5cKkOyfDKShJUJkzPel6ktCfBCMEh6UTTrLis8un5JysPQlhbGoN+LHhsaVLWy8WUz/UDv8v
+	YBXdcAXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucSXZ-0000000Aodd-0XJA;
-	Thu, 17 Jul 2025 17:37:05 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1ucSZ9-0000000Aox2-3pmw;
+	Thu, 17 Jul 2025 17:38:43 +0000
+Received: from mail-lf1-x129.google.com ([2a00:1450:4864:20::129])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucR8s-0000000AaQs-0c7i
+	id 1ucSJl-0000000AmS5-2IYC
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Jul 2025 16:07:31 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-451dbe494d6so11771145e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Jul 2025 09:07:29 -0700 (PDT)
+	Thu, 17 Jul 2025 17:22:50 +0000
+Received: by mail-lf1-x129.google.com with SMTP id 2adb3069b0e04-55a28be32eeso1119805e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Jul 2025 10:22:49 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1752768449; x=1753373249; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=82OHoUr0Z9aQ08e56ySzE42nN8RW+aLi/MMtZyEhPrU=;
-        b=JKlX71Ru5NGSaS6ELCpX2murLxJzyGtT8HoDjTKzQSy8/3dWq9Z/buzl+Glt7A5Anr
-         BPaebAeb/UNjHJ91iTIYULuy6TuRWUyDzXmM5bRE0OaxdAy/7Nqehi6wYjvHzmYOVL7m
-         2o+33DLzvNdEwYvGeBt1LVD1lSBgwJhlQC6e+vDNkP8CtHF7grsdrLkPJ5r/hFicT01q
-         o1q0qok2GUuEVgQuUL4rFeEC2ZMfrkroCtzHLZOLRLhybYEXfrYSrb8aXNBfwAtlcSDj
-         D6csFP9mbiGZBp6g6qEO9G7PmnyNJfmLFw0gGvHy1plzM6YcEWInQvweCbhuW3WKH5x4
-         EmeA==
+        d=gmail.com; s=20230601; t=1752772968; x=1753377768; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=1M9VBNshXRr/zeZayfHhf6pLw+VHfQ7XhNs8UL9FnqY=;
+        b=iIW7FwvA2GeKutyPZZvuaHUglobt1SbwDdkr+x5pYcd8iaPHhfkDwXtqt+WtpCebUC
+         /DX00/sOUa7HHM8g89BY2coDfLvjRUG0Gf1ocF58yZ39s3TR8pHI2+KWZ45goxaFh86M
+         MSro1W8wawn2rqA7vcJiQPsTA8FX6pbc0OenT5+jujMrBkp3Bpz+9sZlZPWK5Hm88n2K
+         xeB5ZH/NC5k1j7XiI1Mwu8Ml8lMUiKM1vUKlqcnnlN3KOqPRNx/brqIq48VC9uLrWOvU
+         8TcXBHEJUk0NXYRv8v2ocEqARZcAJWCC3dYdpmSxcC4yIL2g6YSfD7E8HK7qshDCKRv7
+         DrmA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752768449; x=1753373249;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=82OHoUr0Z9aQ08e56ySzE42nN8RW+aLi/MMtZyEhPrU=;
-        b=n+OuV/2Lrl39TXg4iAjnD5hDjjKX7FwIRMXcPYaBkyte7JuJGOZ79/orZfjN61fRfL
-         OvL7TOl9ltZdlmRmFBJKPQVwxBrhHJYp2/+10TtLzIyRGABySpqf2z4QkGcY0EDOWcaM
-         1z87xEKcBY49t3RTJXUA4ufAxNnkrDYH/0mQ7JaiBhmvS/FBaesrjwKeC4ourso6AK1E
-         fiHuWF76QUMutS0qxNUNSkDBiPHexGABD8mf0QepEgtHbXu0lIryxj48AOH4cEKC2+qm
-         jGeeF27Nmm5pZnEeKm0TwvsMBJU/asnOaJYUJV3W6oq29cux4gCEPiFqBQ8kedo/bAwC
-         YrBQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXqgyUXqkeguSgOLMs4CYWdvoaTPUmbgPi73K4MI3ZPE8B1+Vdsi1iPXtoAKSA9mpRk8FRMJofrhbQRPcnh+eBB@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx5mNSCzbi9OliKehqLQegOFEFT1f3k3ux9cTskZ4bgGdxTd7ys
-	m3r9GCAnjxXXwblVt7HxOJPjh3a83OqDRb6Djffy8CFyQb8XZXWbil1drLis+m+Oa3E=
-X-Gm-Gg: ASbGnctjfmeSJerIkjAJwPVa8di25mc900PVSMidnz+AfuEmHgQAozKwzODnGnSWSVA
-	iCCSflmRZidmqQtMxxZSNs+05u6Us5ONxmvBZKlBA5sFp4vZmF1iEvDV4L3UwuE1QiNxiHx0Svu
-	yCld/Kr1QMuzE2r3l0fSQhEAJ0Q7aAz6aQIITQ0VJAk99peiNVeAce/7YG7u4PcoyFCHaTEG72b
-	bifk1d0UnnjjTQuWcIJWVp+UrpGRi8ln++k/vrudLxftLXjKZYewD09inVGMFoflJkX/AlC0JrS
-	7hYeFZdH/jD/pTdt/Prj2XtO5MrcOg22aRNTIAjq+gVqraA6t6uOPPdSE+YbKI33V0Ua+B7ICsE
-	qNCf3b6b1faxUifvmqW7E3yk=
-X-Google-Smtp-Source: AGHT+IHzm2I/lhPKbGUV5CyURK1Tn69rc/pQKbI+7FTppM+fvafp7RbqiJF9UaoOuE40qre4CBuyNw==
-X-Received: by 2002:a05:600c:4f4f:b0:456:2cd9:fc41 with SMTP id 5b1f17b1804b1-4562e3b9937mr64319855e9.20.1752768448653;
-        Thu, 17 Jul 2025 09:07:28 -0700 (PDT)
-Received: from [192.168.2.177] ([91.116.220.47])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45634f4c34dsm26799925e9.6.2025.07.17.09.07.27
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 17 Jul 2025 09:07:28 -0700 (PDT)
-Message-ID: <27025862-dc2c-438d-8413-d61ddff01a44@suse.com>
-Date: Thu, 17 Jul 2025 18:07:26 +0200
+        d=1e100.net; s=20230601; t=1752772968; x=1753377768;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=1M9VBNshXRr/zeZayfHhf6pLw+VHfQ7XhNs8UL9FnqY=;
+        b=hUN01FLRQvFsqUrhQMcMdqkdm2CqdQbbjF2tkS/chvZH7XV0PZ4HLlWATnSU2Sqpkt
+         +c5NZBAvhZV3YdYXk7odaK4IgOe9WGZ5u8CVLLW3TVmncdjY2rVlUA+KsY56t+S1y4Tu
+         UJOS8DhghvVUXX5msD0/EwJL0tccVvmmDojNwsGXHhFI7FeO3pfsxkPSTszIuiFy7ePv
+         eowm0ZauC1noGM9CmRI8g/0qKJ0CAHHNbg+NHoXhPq6JQAXeaYiyE6TT5kAfEVhg/DMf
+         8i55yvVItB7/s840zkxVOvqxC3P+DU4bNa0X81gXq49cQSYeVRoXlGSQc0kGCvHt2YnP
+         lzMQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVkgl9gR8KSg+R87dkma+EJ/BcHY8LMIdCZ8Y7DOYvI2vnzIA5wcMlICYdbWxGLr4Igt30sA/fUmbbi0KAwrB5/@lists.infradead.org
+X-Gm-Message-State: AOJu0YwCXKHI+pz+LTH1MPwklPtIzbAHyfo+I3k3CKKwHjCLlFpLxYH/
+	GrIFgyE8Ps8MpUyLXgxQ5TU/b0yG8RhTl553SGel8vsLJkYl2f03920R
+X-Gm-Gg: ASbGnctnsmjVgOWJrzkMxZiCvYz4NdgS+HJL5VqN6S1VGx5hnz/dFZ9RtSjxghwr7pC
+	E+dwobdhbIsy/Rbu5cK/NhiknzeuoiIGWGzGxn0B9IAsV9mVoscz+/5Rdh/afHYhJWrcUIT+eC7
+	cM3CKXiSF8fH/qXMEdfYIrt5adXm09X1jox/c4CQq86GRz+nd99+77S3Ulbh9JRlY/TpdzTIJuE
+	kygeUW6JPqZWiU9lcAn0QAKbRxoSxY4Z4WRx8mXfUSC8+SH/1KhBpAydT1rn/GKx+0bgltli/Bg
+	fJKzd3RAo5yu4c9lVFZjxvtM2vU2a7lgGBHeqeqPj6HjZdkufvPX5Wp4ADN2+/CvuswrSCL8Qfu
+	lc11iLnTV3dPPhI0mvzKgZL+3OCoPG5ux9CGKVycz
+X-Google-Smtp-Source: AGHT+IEhgPNpF+RY7Hv5LcpAToSUDOepB85CikAQqsHl0t8s9Rr18M+5Pk7Yf+LwBrK6Q8QRUcK15A==
+X-Received: by 2002:a05:6512:4017:b0:553:a64a:18b0 with SMTP id 2adb3069b0e04-55a2970ec7bmr1282403e87.42.1752772967348;
+        Thu, 17 Jul 2025 10:22:47 -0700 (PDT)
+Received: from mobilestation ([178.176.56.174])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5593c7bcd48sm3119279e87.46.2025.07.17.10.22.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 17 Jul 2025 10:22:46 -0700 (PDT)
+Date: Thu, 17 Jul 2025 20:22:44 +0300
+From: Serge Semin <fancer.lancer@gmail.com>
+To: "G Thomas, Rohan" <rohan.g.thomas@altera.com>
+Cc: Andrew Lunn <andrew@lunn.ch>, Andrew Lunn <andrew+netdev@lunn.ch>, 
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Romain Gantois <romain.gantois@bootlin.com>, netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Matthew Gerlach <matthew.gerlach@altera.com>
+Subject: Re: [PATCH net-next 2/3] net: stmmac: xgmac: Correct supported speed
+ modes
+Message-ID: <ae4b3iobvbdyyijkpqhh4xv32rnfql2nvzmlzvmfbluefecy7z@t5o42w4orpfi>
+References: <20250714-xgmac-minor-fixes-v1-0-c34092a88a72@altera.com>
+ <20250714-xgmac-minor-fixes-v1-2-c34092a88a72@altera.com>
+ <b192c96a-2989-4bdf-ba4f-8b7bcfd09cfa@lunn.ch>
+ <e903cb0f-3970-4ad2-a0a2-ee58551779dc@altera.com>
+ <6fsqayppkyubkucghk5i6m7jjgytajtzm4wxhtdkh7i2v3znk5@vwqbzz5uffyy>
+ <74770df8-007a-45de-b77e-6aa491bbb2ae@altera.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/3] arm64: dts: s32g3: Fix whitespace issue in device
- tree
-To: Dan Carpenter <dan.carpenter@linaro.org>, Xu Yang <xu.yang_2@nxp.com>
-Cc: Chester Lin <chester62515@gmail.com>,
- Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>,
- NXP S32 Linux Team <s32@nxp.com>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, linux-arm-kernel@lists.infradead.org,
- imx@lists.linux.dev, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <cover.1752703107.git.dan.carpenter@linaro.org>
- <52960eb1-4432-436b-89aa-d50fc7da2c3a@sabinyo.mountain>
-Content-Language: en-US, ca-ES, es-ES
-From: Matthias Brugger <mbrugger@suse.com>
-Autocrypt: addr=mbrugger@suse.com; keydata=
- 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
- PVrr2NoUqi/bxI8fFQJD1jVj8K0=
-In-Reply-To: <52960eb1-4432-436b-89aa-d50fc7da2c3a@sabinyo.mountain>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <74770df8-007a-45de-b77e-6aa491bbb2ae@altera.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250717_090730_190013_F9A3759E 
-X-CRM114-Status: GOOD (  12.91  )
+X-CRM114-CacheID: sfid-20250717_102249_590013_431A31B2 
+X-CRM114-Status: GOOD (  40.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,64 +110,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 17/07/2025 00:46, Dan Carpenter wrote:
-> Checkpatch points out that this should use spaces instead of tabs.
-> "ERROR: code indent should use tabs where possible".
+On Thu, Jul 17, 2025 at 06:29:33PM +0530, G Thomas, Rohan wrote:
+> Hi Serge,
 > 
-> Reported-by: Xu Yang <xu.yang_2@nxp.com>
-> Closes: https://lore.kernel.org/all/u7glt7mn33lbdeskbr4ily6tjjifvffy64llwpi5b2rrhx5tnv@y2h2y3oz3xc4/
-> Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
-
-Reviewed-by: Matthias Brugger <mbrugger@suse.com>
-
-> ---
->   arch/arm64/boot/dts/freescale/s32g3.dtsi | 32 ++++++++++++------------
->   1 file changed, 16 insertions(+), 16 deletions(-)
+> Thanks for the review comments and the detailed explanation.
 > 
-> diff --git a/arch/arm64/boot/dts/freescale/s32g3.dtsi b/arch/arm64/boot/dts/freescale/s32g3.dtsi
-> index 68c11ebd405f..e80144e33efb 100644
-> --- a/arch/arm64/boot/dts/freescale/s32g3.dtsi
-> +++ b/arch/arm64/boot/dts/freescale/s32g3.dtsi
-> @@ -489,22 +489,22 @@ usbmisc: usbmisc@44064200 {
->   			reg = <0x44064200 0x200>;
->   		};
->   
-> -                usbotg: usb@44064000 {
-> -                        compatible = "nxp,s32g3-usb", "nxp,s32g2-usb";
-> -                        reg = <0x44064000 0x200>;
-> -                        interrupt-parent = <&gic>;
-> -                        interrupts = <GIC_SPI 211 IRQ_TYPE_LEVEL_HIGH>, /* OTG Core */
-> -                                     <GIC_SPI 212 IRQ_TYPE_LEVEL_HIGH>; /* OTG Wakeup */
-> -                        clocks = <&clks 94>, <&clks 95>;
-> -                        fsl,usbmisc = <&usbmisc 0>;
-> -                        ahb-burst-config = <0x3>;
-> -                        tx-burst-size-dword = <0x10>;
-> -                        rx-burst-size-dword = <0x10>;
-> -                        phy_type = "ulpi";
-> -                        dr_mode = "host";
-> -                        maximum-speed = "high-speed";
-> -                        status = "disabled";
-> -                };
-> +		usbotg: usb@44064000 {
-> +			compatible = "nxp,s32g3-usb", "nxp,s32g2-usb";
-> +			reg = <0x44064000 0x200>;
-> +			interrupt-parent = <&gic>;
-> +			interrupts = <GIC_SPI 211 IRQ_TYPE_LEVEL_HIGH>, /* OTG Core */
-> +				     <GIC_SPI 212 IRQ_TYPE_LEVEL_HIGH>; /* OTG Wakeup */
-> +			clocks = <&clks 94>, <&clks 95>;
-> +			fsl,usbmisc = <&usbmisc 0>;
-> +			ahb-burst-config = <0x3>;
-> +			tx-burst-size-dword = <0x10>;
-> +			rx-burst-size-dword = <0x10>;
-> +			phy_type = "ulpi";
-> +			dr_mode = "host";
-> +			maximum-speed = "high-speed";
-> +			status = "disabled";
-> +		};
->   
->   		i2c0: i2c@401e4000 {
->   			compatible = "nxp,s32g3-i2c",
+> On 7/17/2025 5:17 PM, Serge Semin wrote:
+> > On Tue, Jul 15, 2025 at 07:03:58PM +0530, G Thomas, Rohan wrote:
 
+...
+
+> > > 
+> > > > 
+> > > > What does XGMAC_HWFEAT_GMIISEL mean? That a SERDES style interface is
+> > > > not being used? Could that be why Serge removed these speeds? He was
+> > > > looking at systems with a SERDES, and they don't support slower
+> > > > speeds?
+> > > > 
+> > > > 	Andrew
+> > > As per the XGMAC databook ver 3.10a, GMIISEL bit of MAC_HW_Feature_0
+> > > register indicates whether the XGMAC IP on the SOC is synthesized with
+> > > DWCXG_GMII_SUPPORT. Specifically, it states:
+> > > "1000/100/10 Mbps Support. This bit is set to 1 when the GMII Interface
+> > > option is selected."
+> > > 
+> > > So yes, it’s likely that Serge was working with a SERDES interface which
+> > > doesn't support 10/100Mbps speeds. Do you think it would be appropriate
+> > > to add a check for this bit before enabling 10/100Mbps speeds?
+> > 
+> > DW XGMAC IP-core of v2.x and older don't support 10/100Mbps modes
+> > neither in the XGMII nor in the GMII interfaces. That's why I dropped
+> > the 10/100Mbps link capabilities retaining 1G, 2.5G and 10G speeds
+> > only (the only speeds supported for DW XGMAC 1.20a/2.11a Tx in the
+> > MAC_Tx_Configuration.SS register field). Although I should have
+> > dropped the MAC_5000FD too since it has been supported since v3.0
+> > IP-core version. My bad.(
+> > 
+> > Starting from DW XGMAC v3.00a IP-core the list of the supported speeds
+> > has been extended to: 10/100Mbps (MII), 1G/2.5G (GMII), 2.5G/5G/10G
+> > (XGMII). Thus the more appropriate fix here should take into account
+> > the IP-core version. Like this:
+> > 	if (dma_cap->mbps_1000 && MAC_Version.SNPSVER >= 0x30)
+> > 		dma_cap->mbps_10_100 = 1;
+> >  > Then you can use the mbps_1000 and mbps_10_100 flags to set the proper
+> > MAC-capabilities to hw->link.caps in the dwxgmac2_setup() method. I
+> > would have added the XGMII 2.5G/5G MAC-capabilities setting up to the
+> > dwxgmac2_setup() method too for the v3.x IP-cores and newer.
+> > 
+> 
+> Agreed. Will do in the next version.
+> 
+> Will ensure that mbps_10_100 is set only if SNPSVER >= 0x30 and will
+> also conditionally enable 2.5G/5G MAC capabilities for IP versions
+> v3.00a and above.
+> 
+> In the stmmac_dvr_probe() the setup() callback is invoked before
+> hw_cap_support is populated. Given that, do you think it is sufficient
+> to add these checks into the dwxgmac2_update_caps() instead?
+
+Arrgh, I was looking at my local repo with a refactored hwif initialization
+procedure which, amongst other things, implies the HW-features detection
+performed in the setup methods.(
+So in case of the vanilla STMMAC driver AFAICS there are three options
+here:
+
+1. Repeat what I did in my local repo and move the HW-features
+detection procedure (calling the *_get_hw_feature() functions) to the
+*_setup() methods. After that change you can use the retrieved
+dma_cap-data to init the MAC capabilities exactly in sync to the
+detected HW-features. But that must be thoroughly thought through
+since there are Sun8i and Loongson MACs which provide their own HWIF
+setup() methods (by means of plat_stmmacenet_data::setup()). So the
+respective *_get_hw_feature() functions might need to be called in
+these methods too (at least in the Loongson MACs setup() method).
+
+2. Define new dwxgmac3_setup() method and thus a new entry in
+stmmac_hw[]. Then dwxgmac2_setup() could be left with only 1G, 2.5G
+and 10G MAC-capabilities declared, meanwhile dwxgmac3_setup() would
+add all the DW XGMAC v3.00a MAC-capabilities. In this case you'd need
+the dwxgmac2_update_caps() method defined anyway in order to filter
+out the MAC-capabilities based on the
+dma_features::{mbps_1000,mbps_10_100,half_duplex} flags state.
+
+3. As you suggest indeed declare all the possible DW XGMAC
+MAC-capabilities in the dwxgmac2_setup() method and then filter them
+out in dwxgmac2_update_caps() based on the
+dma_features::{mbps_1000,mbps_10_100,half_duplex} flags state and
+IP-core version.
+
+The later option seems the least code-invasive but implements a more
+complex logic with declaring all the possible MAC-capabilities and
+then filtering them out. Option two still implies filtering the
+MAC-capabilities out but only from those specific for the particular
+IP-core version. Finally option one is more complex to implement
+implying the HWIF procedure refactoring with higher risks to break
+things, but after it's done the setup() methods will turn to a more
+useful procedures which could be used not only for the more exact
+MAC-capabilities initialization but also for other
+data/fields/callbacks setting up.
+
+It's up to you and the maintainers to decide which solution would be
+more appropriate.
+
+-Serge(y)
+
+> 
+> > -Serge(y)
+> > 
+> > > 
+> > > Best Regards,
+> > > Rohan
+> > > 
+> 
+> Best Regards,
+> Rohan
+> 
 
