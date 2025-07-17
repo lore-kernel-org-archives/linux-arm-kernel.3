@@ -4,49 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 784C9C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 23:53:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDC2CC83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 23:55:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JaXnETxdWqbmIbvIT6H5WRFYzJ05uVw7n70J2uUzaFQ=; b=waOp3m4biPYUJPUbk8l9KwEwD8
-	QlBTHsADv3SuGMs4jvkL7t+CtmFhlb/LwF/+Y4JQzwCmeIwdK+uyLB846EbV7ZdLKaSg/1XnaDck+
-	q+Fy/iN9o1oFca51pMMxqFb77a6L6rwtowv7PEWfpsk/Yn6m06yXVmBbmXzT7eaQEM6x/E2jkSO2c
-	6DT8xOjdBEq4Hw18rUr/VeOkbVCJT+TUp6zfO0HfR6M2BTYpSjT/TIMVrvCTEU9hlaegjlc9zb/T5
-	Jeif/Z6iVKHmpjpDKN1wkosAex8zooaDQOK7gCD9aVpOu5LJIcorb/TQX6NN5A9X2K3lNtrsJ8+/P
-	ct3poEvA==;
+	bh=M709jLRtc2XgE706Ixh8CoyF/CdRnneMUqovlV8ji3k=; b=IHn1gZCJIVWSwxAIQDWZXYesLH
+	AY6KRn/NN/zv4E7jHaqfpTmAE48FZ7V7a80oxskS7T67keivQDz1QuFMLchShe7SMsOgYqFnDqbfQ
+	nuDMAQAIMSNspIhNkMZ4CDSes6ur0ybkvVKd7hlA0W5CcqXjtPbgDBOF2AcGWKevgYRHIMWQeQsET
+	59cCflp1iKTw4lyKBRE4VIjS1PptR4kUD9FrhnptEu4upVrLyx9xwvH5sG8766prA6czMpgbvogbv
+	JcmmsZoGLs+Dl5SrLGaoCAFMOqpO3VolURfEaZQblzNAcEP4r7jEvzisfeY9V3bZusy+PmChz4El3
+	ST+grb9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucYPO-0000000BNAn-2g06;
-	Thu, 17 Jul 2025 23:53:02 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1ucYRp-0000000BNQ1-2MBs;
+	Thu, 17 Jul 2025 23:55:33 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucXyd-0000000BGtp-0Eig;
-	Thu, 17 Jul 2025 23:25:26 +0000
+	id 1ucXze-0000000BHLX-0rez;
+	Thu, 17 Jul 2025 23:26:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=M709jLRtc2XgE706Ixh8CoyF/CdRnneMUqovlV8ji3k=; b=dqeCHOoKoHMkSsuxY3XDG/ypLO
+	nQwPxAgWKz/VupnM+pgsKJD639qaZQp3FwM5fPG3SSKUWE3o0tnfxNrqWvM5ycxV/Y2iyoNJPIRHs
+	d6M+lqPpNZpH3X0S7XgbvT6P9Gy/1iO3h0/XTQsOrfrPZZaTq2cY0S7SRJiyMN+yLl4VUZ+iFyFra
+	sajPXLPYqzNygs8945XzPn7472JAv0G/kSdfuoKeTyzp5EQBP5FXVeKvENUj3wSryG6jp5+Osb22o
+	7FiS1qpQigqTfQs6IAfWiOijVORNuXCRpalVaAXrj+Fey2ydSyp6u3/K5qB1CF35qCX1yj6sif1Pn
+	HJWLCHEg==;
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ucXyh-0000000AN9E-1JIG;
+	Thu, 17 Jul 2025 23:26:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6AD8D45D82;
+	by sea.source.kernel.org (Postfix) with ESMTP id 5618645D4E;
 	Thu, 17 Jul 2025 23:25:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B75F1C2BCC6;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9DBF8C2BCB1;
 	Thu, 17 Jul 2025 23:25:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1752794720;
-	bh=qfrc6vYarbMRQKv1a7xZvSfoxfkNIKlLJL8wJGuWS5I=;
+	bh=2ug/lH8nh3wdYXaBdZPOL2AvIMcZUPQ6EhDC2jpITSk=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=TDQPJoue8FZRuS/LJrGq2GchrAASLibnSmGeRRoSUGpvH3awBC+7kUb1yyaVYH89y
-	 ULfO45CeKqJRVGvpXRA0BcyHOvq/18F0odTwMODSsaKPhyZ6a5RObjGBHyzV8F/o67
-	 bRdab3eThDwtbXMkLCf7OvDiOrTOIwe/+HGDzhnD0XxLPtqyR6jgFUfqETsGM1mdv+
-	 bnFaNOMq8O4teU/HwNwUrtNBKmLU5MLmrmRF+Dfv34p8l9jQ3mz2PYnKIToPImVNxa
-	 KM1ucd9mD0unIDTP+r5FbWZidX3EtXT5OQTFbfBDNgNkXEVraPMIWLffBOUAzwljDl
-	 L3ZGqkwchCdPg==
+	b=NteDUBwai+jItLwcpYckNP0xUiUtzclbkaFWn020YjQgwFVuyGGWrARl8Vn8ogjbU
+	 HA7N6JUbwARRKiomN6gJkMEtj3ziS/fItDI81YF+wfJMRXtKK3j0GP8SF0gvhoO51X
+	 oCI2fsMsgsVBz/v7awiAMsuOKmnfKRD72nOBmmxlXSV9CvjEStIWVUPEtq6gBKTXfH
+	 f9qwUWBwEQ3d6FAPVDsBxaPct1USs9Cn4jw01nkaUPzrxrGxP/fXlkew24VQuyaEGH
+	 PVVayYayn3gDzPIYcf1Hm8MivLp/HLHtpzhQm2HDSnwA74AgKf1aZYpvBe0CeBN0Zw
+	 F8AX99YLu6fsw==
 From: Kees Cook <kees@kernel.org>
 To: Arnd Bergmann <arnd@arndb.de>
 Cc: Kees Cook <kees@kernel.org>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	linux-hardening@vger.kernel.org,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	linux-mips@vger.kernel.org,
 	Ingo Molnar <mingo@kernel.org>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
 	Christoph Hellwig <hch@lst.de>,
 	Andrey Konovalov <andreyknvl@gmail.com>,
 	Andrey Ryabinin <ryabinin.a.a@gmail.com>,
@@ -66,25 +81,25 @@ Cc: Kees Cook <kees@kernel.org>,
 	linux-riscv@lists.infradead.org,
 	linux-s390@vger.kernel.org,
 	linux-efi@vger.kernel.org,
+	linux-hardening@vger.kernel.org,
 	linux-kbuild@vger.kernel.org,
 	linux-security-module@vger.kernel.org,
 	linux-kselftest@vger.kernel.org,
 	sparclinux@vger.kernel.org,
 	llvm@lists.linux.dev
-Subject: [PATCH v3 13/13] configs/hardening: Enable CONFIG_INIT_ON_FREE_DEFAULT_ON
-Date: Thu, 17 Jul 2025 16:25:18 -0700
-Message-Id: <20250717232519.2984886-13-kees@kernel.org>
+Subject: [PATCH v3 09/13] mips: Handle KCOV __init vs inline mismatch
+Date: Thu, 17 Jul 2025 16:25:14 -0700
+Message-Id: <20250717232519.2984886-9-kees@kernel.org>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250717231756.make.423-kees@kernel.org>
 References: <20250717231756.make.423-kees@kernel.org>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=961; i=kees@kernel.org; h=from:subject; bh=qfrc6vYarbMRQKv1a7xZvSfoxfkNIKlLJL8wJGuWS5I=; b=owGbwMvMwCVmps19z/KJym7G02pJDBmVbbGrLRYky9XJyFyITXiqam157PKKj7mdDyYc/Xw7s uRv7WSGjlIWBjEuBlkxRZYgO/c4F4+37eHucxVh5rAygQxh4OIUgIkc62Vk+Hwt/L3Rbm1tn84l unrT0jgulm5lD+LgcnL+WfbLeJOREcN/7/17erb+Zmw+2dikfKTxS9XuurzmRR6/80+FfF6/xlG FFQA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1054; i=kees@kernel.org; h=from:subject; bh=2ug/lH8nh3wdYXaBdZPOL2AvIMcZUPQ6EhDC2jpITSk=; b=owGbwMvMwCVmps19z/KJym7G02pJDBmVbTEaTpwT/CqkP/gFhCj/XO54+7qYREShYs8l04cXr l6frm7XUcrCIMbFICumyBJk5x7n4vG2Pdx9riLMHFYmkCEMXJwCMBEtE4b/Xqd+XFyVnrjymfWn 4Kf1C05k68rFv26yrf/i2iH18eJ2SUaGV0lMd+enHioMXSjkm7z02hWe6SLiP1bPKvlVrXb+1vx GFgA=
 X-Developer-Key: i=kees@kernel.org; a=openpgp; fpr=A5C3F68F229DD60F723E6E138972F4DFDC6DC026
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250717_162523_139146_3C90368D 
-X-CRM114-Status: UNSURE (   8.10  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250718_002532_147096_16DD6C51 
+X-CRM114-Status: GOOD (  10.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,32 +114,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-To reduce stale data lifetimes, enable CONFIG_INIT_ON_FREE_DEFAULT_ON as
-well. This matches the addition of CONFIG_STACKLEAK=y, which is doing
-similar for stack memory.
+When KCOV is enabled all functions get instrumented, unless
+the __no_sanitize_coverage attribute is used. To prepare for
+__no_sanitize_coverage being applied to __init functions, we
+have to handle differences in how GCC's inline optimizations get
+resolved. For mips this requires adding the __init annotation on
+init_mips_clocksource().
 
 Signed-off-by: Kees Cook <kees@kernel.org>
 ---
-Cc: "Gustavo A. R. Silva" <gustavoars@kernel.org>
-Cc: <linux-hardening@vger.kernel.org>
+Cc: Thomas Bogendoerfer <tsbogend@alpha.franken.de>
+Cc: <linux-mips@vger.kernel.org>
 ---
- kernel/configs/hardening.config | 3 +++
- 1 file changed, 3 insertions(+)
+ arch/mips/include/asm/time.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/kernel/configs/hardening.config b/kernel/configs/hardening.config
-index d24c2772d04d..64caaf997fc0 100644
---- a/kernel/configs/hardening.config
-+++ b/kernel/configs/hardening.config
-@@ -60,6 +60,9 @@ CONFIG_LIST_HARDENED=y
- # Initialize all heap variables to zero on allocation.
- CONFIG_INIT_ON_ALLOC_DEFAULT_ON=y
+diff --git a/arch/mips/include/asm/time.h b/arch/mips/include/asm/time.h
+index e855a3611d92..5e7193b759f3 100644
+--- a/arch/mips/include/asm/time.h
++++ b/arch/mips/include/asm/time.h
+@@ -55,7 +55,7 @@ static inline int mips_clockevent_init(void)
+  */
+ extern int init_r4k_clocksource(void);
  
-+# Initialize all heap variables to zero on free to reduce stale data lifetime.
-+CONFIG_INIT_ON_FREE_DEFAULT_ON=y
-+
- # Initialize all stack variables to zero on function entry.
- CONFIG_INIT_STACK_ALL_ZERO=y
- 
+-static inline int init_mips_clocksource(void)
++static inline __init int init_mips_clocksource(void)
+ {
+ #ifdef CONFIG_CSRC_R4K
+ 	return init_r4k_clocksource();
 -- 
 2.34.1
 
