@@ -4,85 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B40EC83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 04:34:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 316D1C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 04:36:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DIjtwJfkN7ZiZcHT4jzSh398jmINFhF08hB7N7xJt3E=; b=yoc+KLuACyR7vp9cl1WKG+cu0+
-	qoi83MpeiZz6fnD/CXP3MYLSHz9MQkLPaNxpwN9BdQDgBvCSHFNmE3RxzG2FiouieA2pVPETLfr0u
-	A3iCbSVFhm9kMCRl2JzFMdG+dj26aDK5thkDWl23whl9n6+QG7wRJ5YGxbCoM48jfmJsjzqN2MBKq
-	MYu5uqeiOeVxo4YJD1sjvRyxYaFwfLlcCIwwrHXR/gIuX/30SMbWYJvp2CEBaPuUBT9YoGfQSBUtQ
-	ct18VBonR4p0E1sLeI/Rw+mBrXuGBDvfJBecW5XqnaAalJU3WnL5akAnFwEnti6HF7tfbK9Uf6xkS
-	/LyeywQw==;
+	bh=D803eWTVzVs6Uo0+bSMfFpICtFh8d7svxREoBEc+BWE=; b=y+uSVlfC9s8MRfZqsWdFEaIn4Y
+	2nIavjoKLimI4bz7ot36EaCGtpWal3TQWnMD/hDcyMCCEthlxUucq44LRVflmWWiqLjI+NhppdwYC
+	qvEhGTWykAeANQFIC+F4bv7aIQSxiPxxKNk+hcD9UhwUGzEFZ5o3lS5eRnPMQWfrHSoM5Pmyg7QTa
+	Zjz/iuq5X2etWLBdFAquBpvWMAnWrd8T/Oq5MlCGCsz1WMgBDZsEXfwqju7R3xqFrX0bBbs4c0nKW
+	07PUcrxnn99g3mRRvNKMJYu5RF7zE8q7juAemqph6AMhusim1W785taw/GswlkimwqeSS+Gk7aYA7
+	zdtZgJ9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucGJb-00000009B3l-0wtx;
-	Thu, 17 Jul 2025 04:33:51 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1ucGM0-00000009BVp-3syb;
+	Thu, 17 Jul 2025 04:36:20 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucGHA-00000009Aeg-12Oo
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Jul 2025 04:31:20 +0000
+	id 1ucGHB-00000009Af3-1ZpS;
+	Thu, 17 Jul 2025 04:31:22 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 22EC3601D1;
-	Thu, 17 Jul 2025 04:31:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C6FCDC4CEE3;
-	Thu, 17 Jul 2025 04:31:16 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 62F2F5C5DEF;
+	Thu, 17 Jul 2025 04:31:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0BB0DC4CEF8;
+	Thu, 17 Jul 2025 04:31:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752726678;
-	bh=x3k38YgM7pT0R+UbD5jaz5YqCqk54/Ulve4u9NBd+Pk=;
+	s=k20201202; t=1752726680;
+	bh=IM68S//NvUk9WOnAVFcOtxIP85pYqJsXzJfP01d3rmY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=enOTDJXhI0p2+BgVz7sGN+ipLqHVKXox/clCzv3nCga8X79fuU0izlkdHUyFv//TT
-	 P9jL1ijF6+nK7rQi7m2D50n/TiElRvLOPxnHgzGP01T5fuwo85ArM84kY7YFUf+Aen
-	 intA4GMXLZI6gHL7FTFvvhh1VSiMf/7uaRAlW5mG2BsCVjOiOSq2fEiZuQyzBVVR5q
-	 As2JItT2oR691EnIWGirRvhR1NXPFh0yWLX8PyTenrc4bE/oanX5HA1iD4DcG1RVqL
-	 SShiBHPZCoFoawtvB9h70n2T8JMHHGFKLIX1328s1ks1Cb/Kz+P0WWQWTR4SUM4bnV
-	 w+PfUP+4s9EgQ==
+	b=PDiskj3pbtFFwWBsuiRXKd7QTukP+bg9n/LtZzr4+kMf8kZLpvFnCR1B5ePhqXRC0
+	 v/pPAjZ/En2daNHaSWiK22g8MBKKI/3IzaTtDKGTNiNNBp+Ixt2aluhMVezkqGqOWH
+	 ujyplu5d2UlgNap9+SBtTrTFtW00963rjBWlcplLNsAK+YqEeEAVQwRYl/Z5kvk1cy
+	 eoAO6lIbhJ0PAcTUU7WJr49iDDrjKp+BC7SwfXeLQgX5ba4AaXa0Tk/6l1dHK7kDF5
+	 GnaHkbBuZ2UBCtE0WeOwcRNo2MkhoKYphbhefkdDZFSBpTkcExnO9siG13/eVe38AK
+	 oMimYhtWBMudQ==
 From: Bjorn Andersson <andersson@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Rob Clark <robin.clark@oss.qualcomm.com>,
-	Sean Paul <sean@poorly.run>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Dmitry Baryshkov <lumag@kernel.org>,
-	Abhinav Kumar <abhinav.kumar@linux.dev>,
-	Jessica Zhang <jessica.zhang@oss.qualcomm.com>,
-	Marijn Suijten <marijn.suijten@somainline.org>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Viresh Kumar <vireshk@kernel.org>,
-	Nishanth Menon <nm@ti.com>,
+To: Michael Turquette <mturquette@baylibre.com>,
 	Stephen Boyd <sboyd@kernel.org>,
-	Akhil P Oommen <akhilpo@oss.qualcomm.com>
-Cc: linux-arm-kernel@lists.infradead.org,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Ray Jui <rjui@broadcom.com>,
+	Scott Branden <sbranden@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Maxime Ripard <mripard@redhat.com>,
+	Brian Masney <bmasney@redhat.com>
+Cc: linux-clk@vger.kernel.org,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	linux-arm-msm@vger.kernel.org,
-	dri-devel@lists.freedesktop.org,
-	freedreno@lists.freedesktop.org,
-	devicetree@vger.kernel.org,
-	linux-pm@vger.kernel.org,
-	Jens Glathe <jens.glathe@oldschoolsolutions.biz>,
-	Viresh Kumar <viresh.kumar@linaro.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	Aleksandrs Vinarskis <alex.vinarskis@gmail.com>,
-	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Subject: Re: (subset) [PATCH v4 0/4] Support for Adreno X1-45 GPU
-Date: Wed, 16 Jul 2025 23:30:52 -0500
-Message-ID: <175272667115.130869.4357209750133500599.b4-ty@kernel.org>
+	linux-sunxi@lists.linux.dev
+Subject: Re: (subset) [PATCH 00/10] clk: convert drivers from deprecated round_rate() to determine_rate()
+Date: Wed, 16 Jul 2025 23:30:53 -0500
+Message-ID: <175272667152.130869.11156864283181133253.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250623-x1p-adreno-v4-0-d2575c839cbb@oss.qualcomm.com>
-References: <20250623-x1p-adreno-v4-0-d2575c839cbb@oss.qualcomm.com>
+In-Reply-To: <20250703-clk-cocci-drop-round-rate-v1-0-3a8da898367e@redhat.com>
+References: <20250703-clk-cocci-drop-round-rate-v1-0-3a8da898367e@redhat.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250716_213121_453672_7D5DDB7D 
+X-CRM114-Status: GOOD (  11.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,20 +86,33 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Mon, 23 Jun 2025 19:42:05 +0530, Akhil P Oommen wrote:
-> Add support for X1-45 GPU found in X1P41200 chipset (8 cpu core
-> version). X1-45 is a smaller version of X1-85 with lower core count and
-> smaller memories. From UMD perspective, this is similar to "FD735"
-> present in Mesa.
+On Thu, 03 Jul 2025 19:22:24 -0400, Brian Masney wrote:
+> The round_rate() clk ops is deprecated in the clk framework in favor
+> of the determine_rate() ops, so let's go ahead and convert some of the
+> outstanding bcm, qcom, and sunxi drivers that have a round_rate()
+> implementation over to determine_rate() using the Coccinelle semantic
+> patch posted below.
 > 
-> Tested Glmark & Vkmark on Debian Gnome desktop.
+> This Coccinelle semantic patch is able to automatically convert ~95% of
+> the clk drivers, and I can clean up the remaining ones by hand. I'll
+> initially post some small changes to get feedback about the approach,
+> and I can post some larger series by submaintainer once we get
+> agreement that the approach looks good.
 > 
 > [...]
 
 Applied, thanks!
 
-[4/4] arm64: dts: qcom: Add GPU support to X1P42100 SoC
-      commit: 2c66665d8defe1c36bdd2848b245dc906d4f3ab4
+[02/10] clk: qcom: gcc-ipq4019: convert from round_rate() to determine_rate()
+        commit: 3ebefed3d3afbda632b5647a06598e1bad1baeb6
+[03/10] clk: qcom: rpm: convert from round_rate() to determine_rate()
+        commit: 120c4b7a35a2e2414fc3e35b34526b60ac54515d
+[04/10] clk: qcom: rpmh: convert from round_rate() to determine_rate()
+        commit: 2c0dce7392fdc0fcca1f133114c7c4295ac69233
+[05/10] clk: qcom: smd-rpm: convert from round_rate() to determine_rate()
+        commit: 11add2107c04bdcfb499cdb96ab156a4646ec9e1
+[06/10] clk: qcom: spmi-pmic-div: convert from round_rate() to determine_rate()
+        commit: ebec04773bf313280fe1cd9c0877c73660e69a10
 
 Best regards,
 -- 
