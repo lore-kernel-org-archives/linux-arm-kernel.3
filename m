@@ -4,85 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2D5BC83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 17:07:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6397BC83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 17:14:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=X2+K5kZAESVH5bjbMGycl+BENKKTT9M601876vlEf2I=; b=g8WetKUP/t/qEdLKDlcM32O2nX
-	QvovwadyqkUdXZiCtz8g45MKci0Ovo5k2qd9lc8cRM6apIR2kzRkUVcvL2XS3izmmF71rmlGJTs/F
-	czD7zXFiQe03UbLl+XGZVSGRMEwf9Ml5DDTBF2K8P20ufm2a8yLXW3kIhof4pdvjintD6qi/vme4B
-	YDXvJhDH+GpvwTKuyagRezKVLHe3Vy+XjssB6cdCkQVWOmiR5/+lUPN/rjkkqZ5h81HM+dbhdMrFQ
-	b4XErJo0/TlwjkrhjEXfwOytwJoRvOwUrA1kjFMXd8tMbUY2z3WBJgJt9rSyXw6sk9jFtIvBIK/qL
-	ZlWG5FGw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+EluqO2moZ07z54L0ghbT5HaZt1N6sU75p1MHiMf6X4=; b=2WoXl+n8oAvyThVlBVJXgWVBXb
+	+nNrM8N55E3Oq/jb7oAsaah6ongwy5h3Uajnm6kE4sElbgrOogzLo6+q7ipc3iZYG6g7Adj8JLcPj
+	4a4zOmX8O4Me6i1Dse1PxXKr+NrYbjct2kPinGmv7XqA+KCkebl2j/L1aprE4hCszXXCowSLprPvt
+	io5qybLEfyAhZTcUIvuOb4SXd+Iozrh5/1EqVK2dfeFtEe+CV80WSlJXNy/omtQX948Q3YgOc2Xtn
+	RwhZ07Or31Wax9cX2+GqDOwtbmBjpLj/WNCmysiVv9iZ7vXK/jUXgjVwfeNgVzfbonNiwqcYBk4aP
+	v/w//bDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucS4M-0000000AjeZ-1pOi;
-	Thu, 17 Jul 2025 17:06:54 +0000
-Received: from mail-oa1-x32.google.com ([2001:4860:4864:20::32])
+	id 1ucSC2-0000000AlZm-1Xdc;
+	Thu, 17 Jul 2025 17:14:50 +0000
+Received: from out-180.mta0.migadu.com ([2001:41d0:1004:224b::b4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucRYh-0000000AfAR-2lYO
+	id 1ucS9Y-0000000AlBD-2Sra
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Jul 2025 16:34:12 +0000
-Received: by mail-oa1-x32.google.com with SMTP id 586e51a60fabf-2eacb421554so498262fac.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Jul 2025 09:34:11 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1752770051; x=1753374851; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=X2+K5kZAESVH5bjbMGycl+BENKKTT9M601876vlEf2I=;
-        b=NiGpZF6+AR/SSvawm+1Ou+5CMVDD940RbYYsRucMMFsrp73hmhHJC3idclo3HU4qc+
-         YyrwE7it7aiP2KItYKygPSZiyh7Lnu2ydx2UbOuwnUIBqQkqkWWvYjS+ln8fPIbPiRcP
-         GQcCvE9B+fUnf4IlZQkWIdnj21T+XdiK2Tqk1cY62brUh2LMxsd8q1fel6/tx3dE54Hh
-         jJfJErA2YHlwAccIJP7/k7k3A7ODZ3hli4uP+13KZfjfjc9bfBaug3MUGwPxVZXfC8cY
-         VJkF/KE4jv4bGA1oEtxpQyO7CcJAZ7/xPlVh0TEW5MnQ1nw2pd7CyDIdvP8YbpB/Dzvd
-         /Xvw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752770051; x=1753374851;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=X2+K5kZAESVH5bjbMGycl+BENKKTT9M601876vlEf2I=;
-        b=NP1GiY+Ow+csODH9bzdf01c6s053Rnk1NMJ4UfNNQKiOU/w76AsVETgF+ltVPBBni8
-         rd0LI22QijUL6bCaTgiGU1jiqy1XJWXk7QJJwvQ6sxmwzgC+s1pxB5bg2lRvt/tCejA7
-         nT0Rz7apidOIXXZ4apZ29uKACMoBBHyoA+x6ikRwz8J1eIPdfZRi9bKQcDMCPu/W/eq3
-         KiDdZOICH7DNu5UqumfM1Jzubv5uPsDxuRr+enRkmnanbli+uNeunayvW/x4+ucyUWX3
-         ZOCkYMOQ3OCtPDzgq8gkrWaL+APsh21H1SZ814+yrZEChWpzkf+1BKwbb+nfzsg6ry9h
-         VJXA==
-X-Forwarded-Encrypted: i=1; AJvYcCX1Cs3xbr/KxrUTLRZKFz02/3jBkXsvrDP1TyhzEPsZ0YH7BO4KpcgoC4s+3kYA8d5Qpi+FTuJNaP9vAGRbb3qB@lists.infradead.org
-X-Gm-Message-State: AOJu0YxmDteYAMF+vip9cxqotIxbryWbOtnyuQNKYnmkoTjkoskpiCxP
-	4JcIX8o/HlzJ0a+LKZa/rbQ4pSyqovbw1LuzdLEUJKr6Twa6tSjZPZ9Zy+Xtp/kK9gcoqLvaBF8
-	GQOmgmqwf9+9ww/VqySLJCHSfnBwOrs6xNrh9C+F67g==
-X-Gm-Gg: ASbGncsvYgC6komY/xmXyaz973GY9ZwXElzzOipTueJ0d5y52yu1KN+YmMZI+ZE68KE
-	tmTjtBb42HYhC+BHhRY27khIK3567KWvOU4hPHZ89x42fNVeSE9u+btNpy3K6NG7C919xPEDtGS
-	jcB/ykuX/RPovmlLF0GOaVdNEYts2jECbPsnZeZ60zQrNR5RUP8/pE4UpjpHSEFMqhLD56PVlxS
-	2c2vt/9Vg==
-X-Google-Smtp-Source: AGHT+IFwM46WAT88MwJQfwmy316aoGs2iMb5yuh3tLyPaOUzGsTIYwh4NOAiA1/hlEtURXz89n0/pWNod1NhIzdMukc=
-X-Received: by 2002:a05:6870:2c9a:b0:296:aef8:fe9a with SMTP id
- 586e51a60fabf-2ffb223d9damr5943160fac.7.1752770050610; Thu, 17 Jul 2025
- 09:34:10 -0700 (PDT)
+	Thu, 17 Jul 2025 17:12:18 +0000
+Message-ID: <5ee4bac4-957b-481a-8608-15886da458c2@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1752772333;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=+EluqO2moZ07z54L0ghbT5HaZt1N6sU75p1MHiMf6X4=;
+	b=ckjsxq98tfEm25Th4zH5CRqje3rC68aGTOC/Bz9djpqcTCgTf7FWRD/UptBN0Z8iycl2fz
+	Urr+zWCtba04bzEP+CB2lSUU7vfWCQcHB1Q4/Eo5D2a1CgSN2dm79DE3nsMuIvl/8Oxqg7
+	GOayi3n/u+4ztkqeCj69hLCLZkwdNdg=
+Date: Thu, 17 Jul 2025 13:12:08 -0400
 MIME-Version: 1.0
-References: <20250711-gs101-cpuidle-v6-1-503ec55fc2f9@linaro.org> <5597644b-267d-40d0-aa33-a8a665cebd70@kernel.org>
-In-Reply-To: <5597644b-267d-40d0-aa33-a8a665cebd70@kernel.org>
-From: Peter Griffin <peter.griffin@linaro.org>
-Date: Thu, 17 Jul 2025 17:33:54 +0100
-X-Gm-Features: Ac12FXxDArSCCUN95XLlnHhF6jYPPCI7qSjY8zS1Dogc057C5wMeWh2BJ5AljmM
-Message-ID: <CADrjBPq_ofiUirxUx+VyzTeGMgWKLmFRhPErVTSV3Qd3hKp-RA@mail.gmail.com>
-Subject: Re: [PATCH v6] soc: samsung: exynos-pmu: Enable CPU Idle for gs101
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
-	Tudor Ambarus <tudor.ambarus@linaro.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
-	William Mcvicker <willmcvicker@google.com>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, linux-arm-kernel@lists.infradead.org, 
-	linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	kernel-team@android.com, sudeep.holla@arm.com
-Content-Type: text/plain; charset="UTF-8"
+Subject: Re: [PATCH net v2 1/4] auxiliary: Support hexadecimal ids
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ netdev@vger.kernel.org, Dave Ertman <david.m.ertman@intel.com>,
+ Saravana Kannan <saravanak@google.com>, Leon Romanovsky <leon@kernel.org>,
+ linux-kernel@vger.kernel.org, Michal Simek <michal.simek@amd.com>,
+ linux-arm-kernel@lists.infradead.org, Ira Weiny <ira.weiny@intel.com>
+References: <20250716000110.2267189-1-sean.anderson@linux.dev>
+ <20250716000110.2267189-2-sean.anderson@linux.dev>
+ <2025071637-doubling-subject-25de@gregkh>
+ <719ff2ee-67e3-4df1-9cec-2d9587c681be@linux.dev>
+ <2025071747-icing-issuing-b62a@gregkh>
+ <5d8205e1-b384-446b-822a-b5737ea7bd6c@linux.dev>
+ <2025071736-viscous-entertain-ff6c@gregkh>
+ <03e04d98-e5eb-41c0-8407-23cccd578dbe@linux.dev>
+ <2025071726-ramp-friend-a3e5@gregkh>
+Content-Language: en-US
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Sean Anderson <sean.anderson@linux.dev>
+In-Reply-To: <2025071726-ramp-friend-a3e5@gregkh>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250717_093411_710056_A5CCFDD8 
-X-CRM114-Status: GOOD (  27.91  )
+X-CRM114-CacheID: sfid-20250717_101217_272132_7C876470 
+X-CRM114-Status: GOOD (  31.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,135 +83,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
+On 7/17/25 12:33, Greg Kroah-Hartman wrote:
+> On Thu, Jul 17, 2025 at 12:27:44PM -0400, Sean Anderson wrote:
+>> On 7/17/25 12:21, Greg Kroah-Hartman wrote:
+>> > On Thu, Jul 17, 2025 at 12:04:15PM -0400, Sean Anderson wrote:
+>> >> On 7/17/25 11:59, Greg Kroah-Hartman wrote:
+>> >> > On Thu, Jul 17, 2025 at 11:49:37AM -0400, Sean Anderson wrote:
+>> >> >> On 7/16/25 01:09, Greg Kroah-Hartman wrote:
+>> >> >> > On Tue, Jul 15, 2025 at 08:01:07PM -0400, Sean Anderson wrote:
+>> >> >> >> Support creating auxiliary devices with the id included as part of the
+>> >> >> >> name. This allows for hexadecimal ids, which may be more appropriate for
+>> >> >> >> auxiliary devices created as children of memory-mapped devices. If an
+>> >> >> >> auxiliary device's id is set to AUXILIARY_DEVID_NONE, the name must
+>> >> >> >> be of the form "name.id".
+>> >> >> >> 
+>> >> >> >> With this patch, dmesg logs from an auxiliary device might look something
+>> >> >> >> like
+>> >> >> >> 
+>> >> >> >> [    4.781268] xilinx_axienet 80200000.ethernet: autodetected 64-bit DMA range
+>> >> >> >> [   21.889563] xilinx_emac.mac xilinx_emac.mac.80200000 net4: renamed from eth0
+>> >> >> >> [   32.296965] xilinx_emac.mac xilinx_emac.mac.80200000 net4: PHY [axienet-80200000:05] driver [RTL8211F Gigabit Ethernet] (irq=70)
+>> >> >> >> [   32.313456] xilinx_emac.mac xilinx_emac.mac.80200000 net4: configuring for inband/sgmii link mode
+>> >> >> >> [   65.095419] xilinx_emac.mac xilinx_emac.mac.80200000 net4: Link is Up - 1Gbps/Full - flow control rx/tx
+>> >> >> >> 
+>> >> >> >> this is especially useful when compared to what might happen if there is
+>> >> >> >> an error before userspace has the chance to assign a name to the netdev:
+>> >> >> >> 
+>> >> >> >> [    4.947215] xilinx_emac.mac xilinx_emac.mac.1 (unnamed net_device) (uninitialized): incorrect link mode  for in-band status
+>> >> >> >> 
+>> >> >> >> Signed-off-by: Sean Anderson <sean.anderson@linux.dev>
+>> >> >> >> ---
+>> >> >> >> 
+>> >> >> >> Changes in v2:
+>> >> >> >> - Add example log output to commit message
+>> >> >> > 
+>> >> >> > I rejected v1, why is this being sent again?
+>> >> >> 
+>> >> >> You asked for explanation, I provided it. I specifically pointed out why
+>> >> >> I wanted to do things this way. But I got no response. So here in v2.
+>> >> > 
+>> >> > Again, I said, "do not do that, this is not how ids work in the driver
+>> >> > model", and you tried to show lots of reasons why you wanted to do it
+>> >> > this way despite me saying so.
+>> >> > 
+>> >> > So again, no, sorry, this isn't ok.  Don't attempt to encode information
+>> >> > in a device id like you are trying to do here, that's not what a device
+>> >> > id is for at all.  I need to go dig up my old patch that made all device
+>> >> > ids random numbers just to see what foolish assumptions busses and
+>> >> > userspace tools are making....
+>> >> 
+>> >> But it *is* how ids work in platform devices.
+>> > 
+>> > No one should ever use platform devices/bus as an excuse to do anything,
+>> > it's "wrong" in so many ways, but needs to be because of special
+>> > reasons.  No other bus should work like that, sorry.
+>> > 
+>> >> And because my auxiliary
+>> >> devices are created by a platform device, it is guaranteed that the
+>> >> platform device id is unique and that it will also be unique for
+>> >> auxiliary devices. So there is no assumption here about the uniqueness
+>> >> of any given id.
+>> > 
+>> > Then perhaps use the faux device api instead?
+>> 
+>> There's *another* pseudo bus? OK the reason why is that faux was added
+>> four months ago and there is nothing under Documentation for it. So I
+>> had no idea it existed. I will have a look, but perhaps you should write
+>> up some documentation about why someone might want to use a "faux" bus
+>> over the auxiliary bus or MFD.
+> 
+> "faux" is for when platform devices were being abused because someone
+> just wanted a device in the device tree, and did not use any of the
+> platform device resources.
 
-Thanks, as always, for your review feedback.
+OK, well that's not this. These are real devices and there may be more
+than one per system. Actually, that's the primary problem I wanted to
+address with this patch: you can't create more than one device with
+devm_auxiliary_device_create because they will have the same id (0).
 
-On Sat, 12 Jul 2025 at 18:42, Krzysztof Kozlowski <krzk@kernel.org> wrote:
->
-> On 11/07/2025 15:50, Peter Griffin wrote:
-> >
-> >  #include <linux/soc/samsung/exynos-regs-pmu.h>
-> > @@ -35,6 +37,14 @@ struct exynos_pmu_context {
-> >       const struct exynos_pmu_data *pmu_data;
-> >       struct regmap *pmureg;
-> >       struct regmap *pmuintrgen;
-> > +     /*
-> > +      * Serialization lock for CPU hot plug and cpuidle ACPM hint
-> > +      * programming. Also protects the in_hotplug flag.
-> > +      */
-> > +     raw_spinlock_t cpupm_lock;
-> > +     bool *in_hotplug;
->
-> This should be bitmap - more obvious code.
+Anyway, if you really think ids should be random or whatever, why not
+just ida_alloc one in axiliary_device_init and ignore whatever's
+provided? I'd say around half the auxiliary drivers just use 0 (or some
+other constant), which is just as deterministic as using the device
+address. Another third use ida_alloc (or xa_alloc) so all that could be
+removed. And the remainder just use an address of some kind (which ends
+up be formatted as decimal).
 
-I've done this in v7 which I just sent.
-
->
-> > +     atomic_t sys_suspended;
-> > +     atomic_t sys_rebooting;
-> >  };
-> >
-> >  void __iomem *pmu_base_addr;
-> > @@ -221,6 +231,15 @@ static const struct regmap_config regmap_smccfg = {
-> >       .reg_read = tensor_sec_reg_read,
-> >       .reg_write = tensor_sec_reg_write,
-> >       .reg_update_bits = tensor_sec_update_bits,
-> > +     .use_raw_spinlock = true,
-> > +};
-> > +
-> > +static const struct regmap_config regmap_pmu_intr = {
-> > +     .name = "pmu_intr_gen",
-> > +     .reg_bits = 32,
-> > +     .reg_stride = 4,
-> > +     .val_bits = 32,
-> > +     .use_raw_spinlock = true,
-> >  };
-> >
-> >  static const struct exynos_pmu_data gs101_pmu_data = {
-> > @@ -330,13 +349,19 @@ struct regmap *exynos_get_pmu_regmap_by_phandle(struct device_node *np,
-> >  EXPORT_SYMBOL_GPL(exynos_get_pmu_regmap_by_phandle);
-> >
->
->
-> ...
->
-> > +/* Called from CPU PM notifier (CPUIdle code path) with IRQs disabled */
-> > +static int gs101_cpu_pmu_offline(void)
-> > +{
-> > +     int cpu;
-> > +
-> > +     raw_spin_lock(&pmu_context->cpupm_lock);
-> > +     cpu = smp_processor_id();
-> > +
-> > +     if (pmu_context->in_hotplug[cpu]) {
-> > +             raw_spin_unlock(&pmu_context->cpupm_lock);
-> > +             return NOTIFY_BAD;
-> > +     }
-> > +
-> > +     __gs101_cpu_pmu_offline(cpu);
-> > +     raw_spin_unlock(&pmu_context->cpupm_lock);
-> > +
-> > +     return NOTIFY_OK;
-> > +}
-> > +
-> > +/* Called from CPU hot plug callback with IRQs enabled */
-> > +static int gs101_cpuhp_pmu_offline(unsigned int cpu)
-> > +{
-> > +     unsigned long flags;
-> > +
-> > +     raw_spin_lock_irqsave(&pmu_context->cpupm_lock, flags);
-> > +     /*
-> > +      * Mark this CPU as entering hotplug. So as not to confuse
-> > +      * ACPM the CPU entering hotplug should not enter C2 idle state.
-> > +      */
-> > +     pmu_context->in_hotplug[cpu] = true;
-> > +     __gs101_cpu_pmu_offline(cpu);
-> > +
-> > +     raw_spin_unlock_irqrestore(&pmu_context->cpupm_lock, flags);
-> > +
-> > +     return 0;
-> > +}
-> > +
-> > +static int gs101_cpu_pm_notify_callback(struct notifier_block *self,
-> > +                                     unsigned long action, void *v)
-> > +{
-> > +     switch (action) {
-> > +     case CPU_PM_ENTER:
-> > +             /*
-> > +              * Ignore CPU_PM_ENTER event in reboot or
-> > +              * suspend sequence.
-> > +              */
-> > +
-> > +             if (atomic_read(&pmu_context->sys_suspended) ||
-> > +                 atomic_read(&pmu_context->sys_rebooting))
->
-> I don't get exactly why you need here atomics. You don't have here
-> barriers, so ordering is not kept (non-RMW atomics are unordered), so
-> maybe ordering was not the problem to be solved here. But then you don't
-> use these at all as RMW and this is even explicitly described in atomic doc!
->
-> "Therefore, if you find yourself only using the Non-RMW operations of
-> atomic_t, you do not in fact need atomic_t at all and are doing it wrong."
->
-> And it is right. READ/WRITE_ONCE gives you the same.
->
-> The question is whether you need ordering or barriers in general
-> (atomics don't give you these) - you have here control dependency
-> if-else, however it is immediately followed with gs101_cpu_pmu_offline()
-> which will use spin-lock (so memory barrier).
->
-> Basically you should have here comment explaining why there is no
-> barrier - you rely on barrier from spin lock in next calls.
->
-> And if my reasoning is correct, then you should use just READ/WRITE_ONCE.
-
-There was a bad assumption on my part that atomic_read etc would have
-barriers. After looking at this some more in v7 I decided to protect
-the reboot/suspend flags with the raw spinlock. I think that makes it
-much easier to reason about the code.
-
-Thanks,
-
-Peter
+--Sean
 
