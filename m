@@ -4,91 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52CAAC83F1B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 08:33:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E60BC83F1B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 08:35:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4jTDyoISAKqJ6yoBRmBxJGabYsMp9DWXVs7dHeIYUcU=; b=mKovyZPDgwUhU2U6Kf1I3XCm8B
-	ecBmd6iOSnLWtjek6VIFB2pGvDbJ5rwoPf3qSE/Z/RJbBJjp02nNPE/rjyv+UGXtOmLu6SBkvChUh
-	P4cERbKjD8fBLkQ6NW49H6tlEUJw/yCj40ukJHDs8Jmrod0AMXxXnrMC3gi1PmiBflOCMRYKD47r0
-	1l5gVdXUpR/v4ahgHR1Pn0u6hMLSbZQoeBXUF1TUqpLmHiEZbYg8EtVau4X8VqQ+dDp9pjRX/V2cT
-	XicAsd11mcf8NO2XneVp48deXD0ORlxMHVpxAxL82HkIwKkOkB6iXACcbJwGI8EVyE1kKcMeOeOut
-	vL7IDr7w==;
+	bh=DDF4dAgrnw34VJPjjy2t0SDWi0MqtesXMSOxY10q/fY=; b=hNJv7mj/an22T6eOtV01YUSN1C
+	XFkqNzznzCv3+Ok+a++s80CO4nGioOoUdUxjTEMa364HKDNqn++o63njcuYairpxtLVDhpRfIAX6P
+	y20NfxuC2iMfuBd8cDBVU6bBSIgqRz2xO098oi9GaTUnrRB6dWw/UYfCGvMU1F8NyZhye9Flh+ezk
+	tgzmsUXXGsRYAkZ5o3DjKz4xHCNAw/39b03450zwQ7BumdGHzVSV91M/OXMrBgRutKBdzC3AjFdca
+	DAKmo5xhXGaLO/lPm5cbo/Nw8CzxQ3doyS/Mg152+PBAcCSHGDbqfBfU0he1mubvHNRHmi93DSSDY
+	YnkvGnpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucK3P-00000009a1u-2iNN;
-	Thu, 17 Jul 2025 08:33:23 +0000
-Received: from relay9-d.mail.gandi.net ([217.70.183.199])
+	id 1ucK5n-00000009aaO-3wCq;
+	Thu, 17 Jul 2025 08:35:51 +0000
+Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucJ4r-00000009S95-2bf4
+	id 1ucJ3v-00000009RxC-2F8p
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Jul 2025 07:30:50 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id D10D9443E8;
-	Thu, 17 Jul 2025 07:30:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1752737448;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=4jTDyoISAKqJ6yoBRmBxJGabYsMp9DWXVs7dHeIYUcU=;
-	b=Y8U1vxSqPs0StEXualMiHptg9f+IeS2axb8oxhi7bMllkCU9xYeY52GFLRt1C7Lw2Ft7bN
-	rXCT09IMTzTSmChU9BZJj9mgwjSxXYu/GwSud6o5T0Y94lOTYvlFm8063m1cKGHbSkRiHA
-	y54QAV1ixQX2rlClfhWPdrwEs0fydomDWgZqj3aGg/RwSAgSoxvcgPdhyGKxuGAv7DCeFz
-	g4vD52nV0Rnw25zfg+xxnUwU24IlClMYnTHueJ2y0lsEqEH7jWVNMNV4kVb7W/EiVlKZeP
-	nV7S2rFrUmepl3v6qmyTqcB/pgHLnms1MBIi1ouP3nnanwKlsgCVWtclqJQbbA==
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-To: davem@davemloft.net
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org,
-	thomas.petazzoni@bootlin.com,
-	Andrew Lunn <andrew@lunn.ch>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Eric Dumazet <edumazet@google.com>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Russell King <linux@armlinux.org.uk>,
-	linux-arm-kernel@lists.infradead.org,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Herve Codina <herve.codina@bootlin.com>,
-	Florian Fainelli <f.fainelli@gmail.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Vladimir Oltean <vladimir.oltean@nxp.com>,
-	=?UTF-8?q?K=C3=B6ry=20Maincent?= <kory.maincent@bootlin.com>,
-	=?UTF-8?q?Marek=20Beh=C3=BAn?= <kabel@kernel.org>,
-	Oleksij Rempel <o.rempel@pengutronix.de>,
-	=?UTF-8?q?Nicol=C3=B2=20Veronese?= <nicveronese@gmail.com>,
-	Simon Horman <horms@kernel.org>,
-	mwojtas@chromium.org,
-	Antoine Tenart <atenart@kernel.org>,
-	devicetree@vger.kernel.org,
-	Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Romain Gantois <romain.gantois@bootlin.com>,
-	Daniel Golle <daniel@makrotopia.org>,
-	Dimitri Fedrau <dimitri.fedrau@liebherr.com>
-Subject: [PATCH net-next v9 15/15] Documentation: networking: Document the phy_port infrastructure
-Date: Thu, 17 Jul 2025 09:30:19 +0200
-Message-ID: <20250717073020.154010-16-maxime.chevallier@bootlin.com>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250717073020.154010-1-maxime.chevallier@bootlin.com>
-References: <20250717073020.154010-1-maxime.chevallier@bootlin.com>
+	Thu, 17 Jul 2025 07:29:52 +0000
+Received: by mail-pj1-x102c.google.com with SMTP id 98e67ed59e1d1-312a806f002so116538a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Jul 2025 00:29:51 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1752737390; x=1753342190; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=DDF4dAgrnw34VJPjjy2t0SDWi0MqtesXMSOxY10q/fY=;
+        b=WCX9gYsQONUg2cZPVix8GA/k40nWDUkk+KfNGAWB3NvGt0lN8QhoJVUvdPDsRT4DdA
+         5Lcu/sEboRDHACBz88xu15DrCAbeNBTTzwI4LH5DgrSpgSTMXLduRpAzj+cFFojEwwwF
+         VsnftLbgGFjy+qMV++fVg7M9j2LKqPrMeEalDaZud6s84O0nkj+MTT84cVy8QY/20Oiu
+         oMkSR/3tKwx+qN0XfDUFql5uE+2Wz/E33v1arqLWceS6j+4YTy26r77zfuCHSbFF4PTj
+         XotMsmEbSz0JP/iTOdUyGdCgf+cEdMh6iDql+/lRAw1p565rDuXqYI77jsmVDGmlCAW5
+         Viow==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1752737390; x=1753342190;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=DDF4dAgrnw34VJPjjy2t0SDWi0MqtesXMSOxY10q/fY=;
+        b=OhfM16Q7uyneYEWQg3rIqjqMIyBxNfqeOqs/anyC1Xt/kfes2Hz0q0BiBP+tL3GPuV
+         v1qWZv6aAPTXXS61JVQmIffFTkWY1qMIINHuqRSjR+OKAphAn0dd9wOFYFq+OV329Bz3
+         RmtlfWZ+uRj/OBYGj1GQcFa2L2q3+ir8I7BUY576wuwea/q1MdsO32fXbLcWviIf6V8a
+         NayRAPzGSJY2V6yBQZqcju9XkTrlqZgnaWugd6IaEY+5oYVX9t1GQ5qL4KgmX6cliPVw
+         qRft3Y7M+GMcabmzNeqUAbJQ6ziLfHOHaq72dlEs0KREkWJkjhYt7rrN0Ao7Csgx4l1c
+         yagA==
+X-Forwarded-Encrypted: i=1; AJvYcCWbJ+rZi7EGi2X/upnRDn7BGy2eBZR4hYALYTnxuHVGYBuoCHLBSb3ewLxhbCeRmL09smBdUgt2BKhNE5iDxagV@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzlw/NRQ3cEeMtHG3T5N4DkHOxS4sG4ub9IDi84JIrmT6IBzM7V
+	2G7+1JEbEnvKBCkY5Ro5egFEqwi3ur1nIXG022dD6t6wPLy6svIHxsYBwrGNl/00MUJv/T2IyYe
+	ddGv76+iXJdexfTsujFvCiMbCrt/9URA=
+X-Gm-Gg: ASbGncttEjAd6fSpvSicDt26qAbxvSJJv6aliHd6qP1f+ovaut9RUDbAPJ1bN25kd6c
+	kf4D15vRYDwg0OY6GpMJxZSVQ1Yy83IJ/u1P27tMtv096lIpwYzHwQY5+CSsdedGPwFIURuT0ga
+	zVs/YD5WrktgVeW6nxA6X+tqrJjJlC3ldaA2VzZofH+W1BzvANiMDomcBbQ+qRZcOMJFEvGZn6A
+	BHCaEya
+X-Google-Smtp-Source: AGHT+IGpKE7Xwql6x+dfghjVcPLc+7GCO0f3s03I9+vINqgrnqS87x+wD8n71frCSyCK+IPmdf7M8h+CCtrDqBIT4wg=
+X-Received: by 2002:a17:90b:1348:b0:313:f9fc:7214 with SMTP id
+ 98e67ed59e1d1-31c9e6ec8c7mr3596901a91.1.1752737390348; Thu, 17 Jul 2025
+ 00:29:50 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdehleellecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhephffvvefufffkofgjfhgggfestdekredtredttdenucfhrhhomhepofgrgihimhgvucevhhgvvhgrlhhlihgvrhcuoehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeevgedtffelffelveeuleelgfejfeevvdejhfehgeefgfffvdefteegvedutefftdenucfkphepvdgrtddumegtsgduleemkegugeehmeegledttdemieehieekmedvlegsudemlegvfhehmegvkegtjeenucevlhhushhtvghrufhiiigvpedufeenucfrrghrrghmpehinhgvthepvdgrtddumegtsgduleemkegugeehmeegledttdemieehieekmedvlegsudemlegvfhehmegvkegtjedphhgvlhhopehfvgguohhrrgdrhhhomhgvpdhmrghilhhfrhhomhepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepfedupdhrtghpthhtohepuggrvhgvmhesuggrvhgvmhhlohhfthdrnhgvthdprhgtphhtthhopehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmpdhrtghpthhtohepnhgvthguvghvsehvghgvrhdrk
- hgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqrghrmhdqmhhsmhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehthhhomhgrshdrphgvthgriiiiohhnihessghoohhtlhhinhdrtghomhdprhgtphhtthhopegrnhgurhgvfieslhhunhhnrdgthhdprhgtphhtthhopehkuhgsrgeskhgvrhhnvghlrdhorhhg
-X-GND-Sasl: maxime.chevallier@bootlin.com
+References: <4c459085b9ae42bdbf99b6014952b965@BJMBX01.spreadtrum.com>
+ <202507150830.56F8U908028199@SHSPAM01.spreadtrum.com> <c34f4f606eb04c38b64e8f3a658cd051@BJMBX01.spreadtrum.com>
+ <CANiq72=v6jkOasLiem7RXe-WUSg9PkNqrZneeMOTi1pzwXuHYg@mail.gmail.com>
+ <24e87f60203c443abe7549ce5c0e9e75@BJMBX01.spreadtrum.com> <aHftocnJcLg64c29@google.com>
+ <7afa22cbbb85481cbb3fabb09a58bd63@BJMBX01.spreadtrum.com>
+In-Reply-To: <7afa22cbbb85481cbb3fabb09a58bd63@BJMBX01.spreadtrum.com>
+From: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
+Date: Thu, 17 Jul 2025 09:29:35 +0200
+X-Gm-Features: Ac12FXybXl51xhyGUacxmi5kHiXFRNN_uQ8UNQosRGKU2Urpiu5evh4hcAyLZNM
+Message-ID: <CANiq72n3L6JE-pfR=8x0GUU++=8nPLw44oNEV1shdsHqXbts8w@mail.gmail.com>
+Subject: Re: Meet compiled kernel binaray abnormal issue while enabling
+ generic kasan in kernel 6.12 with some default KBUILD_RUSTFLAGS on
+To: =?UTF-8?B?5YiY5rW354eVIChIYWl5YW4gTGl1KQ==?= <haiyan.liu@unisoc.com>
+Cc: Carlos Llamas <cmllamas@google.com>, Alice Ryhl <aliceryhl@google.com>, 
+	Matthew Maurer <mmaurer@google.com>, Miguel Ojeda <ojeda@kernel.org>, 
+	=?UTF-8?B?5ZGo5bmzIChQaW5nIFpob3UvOTAzMik=?= <Ping.Zhou1@unisoc.com>, 
+	=?UTF-8?B?5Luj5a2Q5Li6IChaaXdlaSBEYWkp?= <Ziwei.Dai@unisoc.com>, 
+	=?UTF-8?B?5p2o5Li95aicIChMaW5hIFlhbmcp?= <lina.yang@unisoc.com>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
+	"rust-for-linux@vger.kernel.org" <rust-for-linux@vger.kernel.org>, 
+	=?UTF-8?B?546L5Y+MIChTaHVhbmcgV2FuZyk=?= <shuang.wang@unisoc.com>, 
+	Andrey Ryabinin <ryabinin.a.a@gmail.com>, Alexander Potapenko <glider@google.com>, 
+	Andrey Konovalov <andreyknvl@gmail.com>, Dmitry Vyukov <dvyukov@google.com>, 
+	Vincenzo Frascino <vincenzo.frascino@arm.com>, 
+	"kasan-dev@googlegroups.com" <kasan-dev@googlegroups.com>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, =?UTF-8?B?QXJ2ZSBIasO4bm5ldsOlZw==?= <arve@android.com>, 
+	Todd Kjos <tkjos@android.com>, Martijn Coenen <maco@android.com>, 
+	Joel Fernandes <joelagnelf@nvidia.com>, Christian Brauner <christian@brauner.io>, 
+	Suren Baghdasaryan <surenb@google.com>, Jamie Cunliffe <Jamie.Cunliffe@arm.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250717_003049_806875_5FA8920A 
-X-CRM114-Status: GOOD (  20.03  )
+X-CRM114-CacheID: sfid-20250717_002951_575971_68402579 
+X-CRM114-Status: UNSURE (   8.83  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,159 +117,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This documentation aims at describing the main goal of the phy_port
-infrastructure.
+On Thu, Jul 17, 2025 at 3:35=E2=80=AFAM =E5=88=98=E6=B5=B7=E7=87=95 (Haiyan=
+ Liu) <haiyan.liu@unisoc.com> wrote:
+>
+> The config file is included in the compressed file kernel_artifacts.tgz w=
+hich can get from ' http://artifactory.unisoc.com/ui/native/VERIFY_ANDROID/=
+1746740/PAC/sprdroid15_sys_dev_plus_sprdroid15_vnd_dev_plus_sprdlinux6.12_k=
+ernel_dev/ums9632_1h10_64only_k612-userdebug-gms/sprdlinux6.12_kernel_dev/u=
+ms9632_1h10_64only_k612-userdebug/' . The path is 'kernel_artifacts/ums9632=
+_arm64_kernel6.12-userdebug/kernel'.
+>
+> Can you get it?
 
-Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
----
- Documentation/networking/index.rst    |   1 +
- Documentation/networking/phy-port.rst | 111 ++++++++++++++++++++++++++
- MAINTAINERS                           |   1 +
- 3 files changed, 113 insertions(+)
- create mode 100644 Documentation/networking/phy-port.rst
+If you mean to report upstream, then please post the config as a
+simple text attachment here and clarify how to reproduce the issue
+with an upstream kernel, as I and others have mentioned since the
+first reply.
 
-diff --git a/Documentation/networking/index.rst b/Documentation/networking/index.rst
-index ac90b82f3ce9..f60acc06e3f7 100644
---- a/Documentation/networking/index.rst
-+++ b/Documentation/networking/index.rst
-@@ -96,6 +96,7 @@ Contents:
-    packet_mmap
-    phonet
-    phy-link-topology
-+   phy-port
-    pktgen
-    plip
-    ppp_generic
-diff --git a/Documentation/networking/phy-port.rst b/Documentation/networking/phy-port.rst
-new file mode 100644
-index 000000000000..6d9d46ebe438
---- /dev/null
-+++ b/Documentation/networking/phy-port.rst
-@@ -0,0 +1,111 @@
-+.. SPDX-License-Identifier: GPL-2.0
-+.. _phy_port:
-+
-+=================
-+Ethernet ports
-+=================
-+
-+This document is a basic description of the phy_port infrastructure,
-+introduced to represent physical interfaces of Ethernet devices.
-+
-+Without phy_port, we already have quite a lot of information about what the
-+media-facing interface of a NIC can do and looks like, through the
-+:c:type:`struct ethtool_link_ksettings <ethtool_link_ksettings>` attributes,
-+which includes :
-+
-+ - What the NIC can do through the :c:member:`supported` field
-+ - What the Link Partner advertises through :c:member:`lp_advertising`
-+ - Which features we're advertising through :c:member:`advertising`
-+
-+We also have info about the number of lanes and the PORT type. These settings
-+are built by aggregating together information reported by various devices that
-+are sitting on the link :
-+
-+  - The NIC itself, through the :c:member:`get_link_ksettings` callback
-+  - Precise information from the MAC and PCS by using phylink in the MAC driver
-+  - Information reported by the PHY device
-+  - Information reported by an SFP module (which can itself include a PHY)
-+
-+This model however starts showing its limitations when we consider devices that
-+have more than one media interface. In such a case, only information about the
-+actively used interface is reported, and it's not possible to know what the
-+other interfaces can do. In fact, we have very few information about whether or
-+not there are any other media interfaces.
-+
-+The goal of the phy_port representation is to provide a way of representing a
-+physical interface of a NIC, regardless of what is driving the port (NIC through
-+a firmware, SFP module, Ethernet PHY).
-+
-+Multi-port interfaces examples
-+==============================
-+
-+Several cases of multi-interface NICs have been observed so far :
-+
-+Internal MII Mux::
-+
-+  +------------------+
-+  | SoC              |
-+  |          +-----+ |           +-----+
-+  | +-----+  |     |-------------| PHY |
-+  | | MAC |--| Mux | |   +-----+ +-----+
-+  | +-----+  |     |-----| SFP |
-+  |          +-----+ |   +-----+
-+  +------------------+
-+
-+Internal Mux with internal PHY::
-+
-+  +------------------------+
-+  | SoC                    |
-+  |          +-----+ +-----+
-+  | +-----+  |     |-| PHY |
-+  | | MAC |--| Mux | +-----+   +-----+
-+  | +-----+  |     |-----------| SFP |
-+  |          +-----+       |   +-----+
-+  +------------------------+
-+
-+External Mux::
-+
-+  +---------+
-+  | SoC     |  +-----+  +-----+
-+  |         |  |     |--| PHY |
-+  | +-----+ |  |     |  +-----+
-+  | | MAC |----| Mux |  +-----+
-+  | +-----+ |  |     |--| PHY |
-+  |         |  +-----+  +-----+
-+  |         |     |
-+  |    GPIO-------+
-+  +---------+
-+
-+Double-port PHY::
-+
-+  +---------+
-+  | SoC     | +-----+
-+  |         | |     |--- RJ45
-+  | +-----+ | |     |
-+  | | MAC |---| PHY |   +-----+
-+  | +-----+ | |     |---| SFP |
-+  +---------+ +-----+   +-----+
-+
-+phy_port aims at providing a path to support all the above topologies, by
-+representing the media interfaces in a way that's agnostic to what's driving
-+the interface. the struct phy_port object has its own set of callback ops, and
-+will eventually be able to report its own ksettings::
-+
-+             _____      +------+
-+            (     )-----| Port |
-+ +-----+   (       )    +------+
-+ | MAC |--(   ???   )
-+ +-----+   (       )    +------+
-+            (_____)-----| Port |
-+                        +------+
-+
-+Next steps
-+==========
-+
-+As of writing this documentation, only ports controlled by PHY devices are
-+supported. The next steps will be to add the Netlink API to expose these
-+to userspace and add support for raw ports (controlled by some firmware, and directly
-+managed by the NIC driver).
-+
-+Another parallel task is the introduction of a MII muxing framework to allow the
-+control of non-PHY driver multi-port setups.
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 2317e420c311..8fcb43cce415 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -8965,6 +8965,7 @@ F:	Documentation/devicetree/bindings/net/ethernet-connector.yaml
- F:	Documentation/devicetree/bindings/net/ethernet-phy.yaml
- F:	Documentation/devicetree/bindings/net/mdio*
- F:	Documentation/devicetree/bindings/net/qca,ar803x.yaml
-+F:	Documentation/networking/phy-port.rst
- F:	Documentation/networking/phy.rst
- F:	drivers/net/mdio/
- F:	drivers/net/mdio/acpi_mdio.c
--- 
-2.49.0
-
+Cheers,
+Miguel
 
