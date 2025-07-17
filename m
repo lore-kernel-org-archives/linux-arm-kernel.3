@@ -4,102 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDC2CC83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 23:55:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5DAAC83F34
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 23:58:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=M709jLRtc2XgE706Ixh8CoyF/CdRnneMUqovlV8ji3k=; b=IHn1gZCJIVWSwxAIQDWZXYesLH
-	AY6KRn/NN/zv4E7jHaqfpTmAE48FZ7V7a80oxskS7T67keivQDz1QuFMLchShe7SMsOgYqFnDqbfQ
-	nuDMAQAIMSNspIhNkMZ4CDSes6ur0ybkvVKd7hlA0W5CcqXjtPbgDBOF2AcGWKevgYRHIMWQeQsET
-	59cCflp1iKTw4lyKBRE4VIjS1PptR4kUD9FrhnptEu4upVrLyx9xwvH5sG8766prA6czMpgbvogbv
-	JcmmsZoGLs+Dl5SrLGaoCAFMOqpO3VolURfEaZQblzNAcEP4r7jEvzisfeY9V3bZusy+PmChz4El3
-	ST+grb9w==;
+	bh=4j17pn+//SHkaX8ONm+HlhNEvqzcDQ+QNAUfr7A3lEQ=; b=nmlF/pfP7RHoDSowVtZkr81hEL
+	f7PwepJgzALSh93Jyl/KFh790sQQVo709YFAu88IAFRsAw47alnRO7eANwBDrkFC8Rd7vJwsj9PU7
+	TBZX/YmvPfCF0D16wvXVcAXwzpeYHTjECDzaY0+3jJhgxH+y8MaNF5bAisBDx2eqGFz6fUS+kFML+
+	J3hBKf/4bjhTTsu75rWnw5qTc9OWhnTrStInuDtXWWLh/92M8kDyb20WEBvAR0nUJMJ5YUdYZUnME
+	cP1y0vltHZ6jKMqo9IHbSiV8eYI2SP9bWVRe1wmBzIynDBlsLrVeJt4e38uP9mSBtfBmBDaCz9ap2
+	7VpbOsvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucYRp-0000000BNQ1-2MBs;
-	Thu, 17 Jul 2025 23:55:33 +0000
+	id 1ucYUF-0000000BNc0-438L;
+	Thu, 17 Jul 2025 23:58:03 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucXze-0000000BHLX-0rez;
-	Thu, 17 Jul 2025 23:26:26 +0000
+	id 1ucXzq-0000000BHPQ-3S28;
+	Thu, 17 Jul 2025 23:26:38 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=M709jLRtc2XgE706Ixh8CoyF/CdRnneMUqovlV8ji3k=; b=dqeCHOoKoHMkSsuxY3XDG/ypLO
-	nQwPxAgWKz/VupnM+pgsKJD639qaZQp3FwM5fPG3SSKUWE3o0tnfxNrqWvM5ycxV/Y2iyoNJPIRHs
-	d6M+lqPpNZpH3X0S7XgbvT6P9Gy/1iO3h0/XTQsOrfrPZZaTq2cY0S7SRJiyMN+yLl4VUZ+iFyFra
-	sajPXLPYqzNygs8945XzPn7472JAv0G/kSdfuoKeTyzp5EQBP5FXVeKvENUj3wSryG6jp5+Osb22o
-	7FiS1qpQigqTfQs6IAfWiOijVORNuXCRpalVaAXrj+Fey2ydSyp6u3/K5qB1CF35qCX1yj6sif1Pn
-	HJWLCHEg==;
+	bh=4j17pn+//SHkaX8ONm+HlhNEvqzcDQ+QNAUfr7A3lEQ=; b=riD6fjaMU0Fp2qXKKH13lKvHsz
+	A8j33IPSx8VRxIQajJXR3pbi5w/iirrR4iRlNW1Ni9ZrenHBQD/koiaMOOzkOFdvlg19VGuOy6dbs
+	6OJXb2h+Rt8gi23wbXgzv2yj0C8bjM12XkOzcRoM7049zqMKP2Bv7+EX/Gi7pvzznxc6A81kfcY2S
+	7ZBHfhVbgw4hTSuWQZS4xn1Vc6hiMPhDJmgKLK4xUD+9GC/lL4I25v1VF7eaAHk6oNBJ6Dv3r8vPG
+	XUdlsHLEboldvLFJvJXuOKYYjSN7Lp/dQ1G6YnPm3+pEwqIdD1bQLeW+OssO9ShIgPOfNlkgXfbXX
+	od5iJOCw==;
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucXyh-0000000AN9E-1JIG;
-	Thu, 17 Jul 2025 23:26:24 +0000
+	id 1ucXyh-0000000AN9F-1IVf;
+	Thu, 17 Jul 2025 23:26:37 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5618645D4E;
+	by sea.source.kernel.org (Postfix) with ESMTP id 63DCE45D74;
 	Thu, 17 Jul 2025 23:25:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9DBF8C2BCB1;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A4C60C2BCB2;
 	Thu, 17 Jul 2025 23:25:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1752794720;
-	bh=2ug/lH8nh3wdYXaBdZPOL2AvIMcZUPQ6EhDC2jpITSk=;
+	bh=p+7YUBTmffdnZ8pKAPuZ2rzC3Zvp9P0MFRgY7Xz1ydU=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=NteDUBwai+jItLwcpYckNP0xUiUtzclbkaFWn020YjQgwFVuyGGWrARl8Vn8ogjbU
-	 HA7N6JUbwARRKiomN6gJkMEtj3ziS/fItDI81YF+wfJMRXtKK3j0GP8SF0gvhoO51X
-	 oCI2fsMsgsVBz/v7awiAMsuOKmnfKRD72nOBmmxlXSV9CvjEStIWVUPEtq6gBKTXfH
-	 f9qwUWBwEQ3d6FAPVDsBxaPct1USs9Cn4jw01nkaUPzrxrGxP/fXlkew24VQuyaEGH
-	 PVVayYayn3gDzPIYcf1Hm8MivLp/HLHtpzhQm2HDSnwA74AgKf1aZYpvBe0CeBN0Zw
-	 F8AX99YLu6fsw==
+	b=AUGKErrg+Y6wyR8X016iAdX/CzHiD3Gvy8i4hRZiFL4Flb6LjgHgjJH+mJS2LnnDn
+	 8iX4D1Zu87uxViJ44NKTe4gXqYeRsMgik92PN+3S8V1Qs414+Lt739pD20Mi5QiHaH
+	 L2bCDQzwiWp66b54iXVkQl+1F9WXK9vm7ytOrB/hW0RC4iQszKomNouVqo3AyBkUiM
+	 c3HGwAV9yPXFs5e3GnC4+ol+dfrEfQLBb3QK+/uKV0wHJKw5mHkh9VGexADfLn42+K
+	 +5cS6zaY/wNKOz2vKLe9X2SSzFr5lTzT6HTGktZhjGTkI6hje+/MNZtXrHekOaxflN
+	 iHKD4XAIQijvQ==
 From: Kees Cook <kees@kernel.org>
 To: Arnd Bergmann <arnd@arndb.de>
 Cc: Kees Cook <kees@kernel.org>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	linux-mips@vger.kernel.org,
-	Ingo Molnar <mingo@kernel.org>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	Christoph Hellwig <hch@lst.de>,
-	Andrey Konovalov <andreyknvl@gmail.com>,
-	Andrey Ryabinin <ryabinin.a.a@gmail.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
 	Masahiro Yamada <masahiroy@kernel.org>,
 	Nathan Chancellor <nathan@kernel.org>,
 	Nicolas Schier <nicolas.schier@linux.dev>,
+	Marco Elver <elver@google.com>,
+	Andrey Konovalov <andreyknvl@gmail.com>,
+	Andrey Ryabinin <ryabinin.a.a@gmail.com>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	linux-kbuild@vger.kernel.org,
+	kasan-dev@googlegroups.com,
+	linux-hardening@vger.kernel.org,
+	Ingo Molnar <mingo@kernel.org>,
+	Christoph Hellwig <hch@lst.de>,
 	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
 	Bill Wendling <morbo@google.com>,
 	Justin Stitt <justinstitt@google.com>,
 	linux-kernel@vger.kernel.org,
 	x86@kernel.org,
-	kasan-dev@googlegroups.com,
 	linux-doc@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	kvmarm@lists.linux.dev,
 	linux-riscv@lists.infradead.org,
 	linux-s390@vger.kernel.org,
 	linux-efi@vger.kernel.org,
-	linux-hardening@vger.kernel.org,
-	linux-kbuild@vger.kernel.org,
 	linux-security-module@vger.kernel.org,
 	linux-kselftest@vger.kernel.org,
 	sparclinux@vger.kernel.org,
 	llvm@lists.linux.dev
-Subject: [PATCH v3 09/13] mips: Handle KCOV __init vs inline mismatch
-Date: Thu, 17 Jul 2025 16:25:14 -0700
-Message-Id: <20250717232519.2984886-9-kees@kernel.org>
+Subject: [PATCH v3 11/13] kstack_erase: Support Clang stack depth tracking
+Date: Thu, 17 Jul 2025 16:25:16 -0700
+Message-Id: <20250717232519.2984886-11-kees@kernel.org>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250717231756.make.423-kees@kernel.org>
 References: <20250717231756.make.423-kees@kernel.org>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1054; i=kees@kernel.org; h=from:subject; bh=2ug/lH8nh3wdYXaBdZPOL2AvIMcZUPQ6EhDC2jpITSk=; b=owGbwMvMwCVmps19z/KJym7G02pJDBmVbTEaTpwT/CqkP/gFhCj/XO54+7qYREShYs8l04cXr l6frm7XUcrCIMbFICumyBJk5x7n4vG2Pdx9riLMHFYmkCEMXJwCMBEtE4b/Xqd+XFyVnrjymfWn 4Kf1C05k68rFv26yrf/i2iH18eJ2SUaGV0lMd+enHioMXSjkm7z02hWe6SLiP1bPKvlVrXb+1vx GFgA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2299; i=kees@kernel.org; h=from:subject; bh=p+7YUBTmffdnZ8pKAPuZ2rzC3Zvp9P0MFRgY7Xz1ydU=; b=owGbwMvMwCVmps19z/KJym7G02pJDBmVbbG7zxw1MKkM064+GM3V+Tde9mealUNMf2f76+qDy 8tCpi7qKGVhEONikBVTZAmyc49z8XjbHu4+VxFmDisTyBAGLk4BmMipUEaG5+yu528923yg/cGf LXo63TrVrF9WH93oLN82IVl472aLiYwMX8V2fuAxEd03U60q9AgTd2GJSKHMR3slK0ZZ/dXf71Y xAwA=
 X-Developer-Key: i=kees@kernel.org; a=openpgp; fpr=A5C3F68F229DD60F723E6E138972F4DFDC6DC026
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250718_002532_147096_16DD6C51 
-X-CRM114-Status: GOOD (  10.36  )
+X-CRM114-CacheID: sfid-20250718_002532_147408_B1EE0DC5 
+X-CRM114-Status: GOOD (  10.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,34 +113,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When KCOV is enabled all functions get instrumented, unless
-the __no_sanitize_coverage attribute is used. To prepare for
-__no_sanitize_coverage being applied to __init functions, we
-have to handle differences in how GCC's inline optimizations get
-resolved. For mips this requires adding the __init annotation on
-init_mips_clocksource().
+Wire up CONFIG_KSTACK_ERASE to Clang 21's new stack depth tracking
+callback[1] option.
 
+Link: https://clang.llvm.org/docs/SanitizerCoverage.html#tracing-stack-depth [1]
 Signed-off-by: Kees Cook <kees@kernel.org>
 ---
-Cc: Thomas Bogendoerfer <tsbogend@alpha.franken.de>
-Cc: <linux-mips@vger.kernel.org>
+Cc: Arnd Bergmann <arnd@arndb.de>
+Cc: Masahiro Yamada <masahiroy@kernel.org>
+Cc: Nathan Chancellor <nathan@kernel.org>
+Cc: Nicolas Schier <nicolas.schier@linux.dev>
+Cc: Marco Elver <elver@google.com>
+Cc: Andrey Konovalov <andreyknvl@gmail.com>
+Cc: Andrey Ryabinin <ryabinin.a.a@gmail.com>
+Cc: Ard Biesheuvel <ardb@kernel.org>
+Cc: "Gustavo A. R. Silva" <gustavoars@kernel.org>
+Cc: <linux-kbuild@vger.kernel.org>
+Cc: <kasan-dev@googlegroups.com>
+Cc: <linux-hardening@vger.kernel.org>
 ---
- arch/mips/include/asm/time.h | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ security/Kconfig.hardening    | 5 ++++-
+ scripts/Makefile.kstack_erase | 6 ++++++
+ 2 files changed, 10 insertions(+), 1 deletion(-)
 
-diff --git a/arch/mips/include/asm/time.h b/arch/mips/include/asm/time.h
-index e855a3611d92..5e7193b759f3 100644
---- a/arch/mips/include/asm/time.h
-+++ b/arch/mips/include/asm/time.h
-@@ -55,7 +55,7 @@ static inline int mips_clockevent_init(void)
-  */
- extern int init_r4k_clocksource(void);
+diff --git a/security/Kconfig.hardening b/security/Kconfig.hardening
+index f7aa2024ab25..b9a5bc3430aa 100644
+--- a/security/Kconfig.hardening
++++ b/security/Kconfig.hardening
+@@ -82,10 +82,13 @@ choice
  
--static inline int init_mips_clocksource(void)
-+static inline __init int init_mips_clocksource(void)
- {
- #ifdef CONFIG_CSRC_R4K
- 	return init_r4k_clocksource();
+ endchoice
+ 
++config CC_HAS_SANCOV_STACK_DEPTH_CALLBACK
++	def_bool $(cc-option,-fsanitize-coverage-stack-depth-callback-min=1)
++
+ config KSTACK_ERASE
+ 	bool "Poison kernel stack before returning from syscalls"
+ 	depends on HAVE_ARCH_KSTACK_ERASE
+-	depends on GCC_PLUGINS
++	depends on GCC_PLUGINS || CC_HAS_SANCOV_STACK_DEPTH_CALLBACK
+ 	help
+ 	  This option makes the kernel erase the kernel stack before
+ 	  returning from system calls. This has the effect of leaving
+diff --git a/scripts/Makefile.kstack_erase b/scripts/Makefile.kstack_erase
+index 5223d3a35817..c7bc2379e113 100644
+--- a/scripts/Makefile.kstack_erase
++++ b/scripts/Makefile.kstack_erase
+@@ -8,6 +8,12 @@ kstack-erase-cflags-$(CONFIG_GCC_PLUGIN_STACKLEAK_VERBOSE) += -fplugin-arg-stack
+ DISABLE_KSTACK_ERASE := -fplugin-arg-stackleak_plugin-disable
+ endif
+ 
++ifdef CONFIG_CC_IS_CLANG
++kstack-erase-cflags-y += -fsanitize-coverage=stack-depth
++kstack-erase-cflags-y += -fsanitize-coverage-stack-depth-callback-min=$(CONFIG_KSTACK_ERASE_TRACK_MIN_SIZE)
++DISABLE_KSTACK_ERASE  := -fno-sanitize-coverage=stack-depth
++endif
++
+ KSTACK_ERASE_CFLAGS   := $(kstack-erase-cflags-y)
+ 
+ export STACKLEAK_CFLAGS DISABLE_KSTACK_ERASE
 -- 
 2.34.1
 
