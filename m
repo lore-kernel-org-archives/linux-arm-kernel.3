@@ -4,68 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90894C83F1B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 10:19:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8858C83F1B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 10:22:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ij8sQ0PZojeFLAf4MdDXPZA2nHvOpAbNVzssIL+5IpQ=; b=X1Nyto6prhmGGNfAB5vPaYdrpo
-	ZMa74Jh4HGgsvbhb19JHKxdHdbfVg77989ceOvqqSWbwofRzicxK0a8XfzUV/SEY3z3Pmx69uWayQ
-	JGCSpP0ubC9uMgFBcwlxLnCKE1v/DWtb8pQ9v7u2Agl24ZE9Xo0K8xBsC1db+hnnFIqM7L2wDzdGa
-	YDtR5o9S6W+iIRtuQVAjn8GPKPp8A5bNvMY6wVJ/9PsHoblRmb8I5OmyODv4a6tznWEExvSNVMuTG
-	GTK1iP09r/mNnP+Q6EvVicBb5XgGJ46Xs3kq81DIqHLB9x2mGplWEXb7mcVhPBsP5F8snRbtXysf4
-	P6keoYPw==;
+	bh=EugVGfjpT5aZcVn3tOsIXI05r1gcEejxN6RL3Ma83Wc=; b=rxZC7Ba4twIsHEp2nw3n7+YdtX
+	e4s7xNQE23tJwxohN4nf0qAvMLNF7MEEILTqsYti8oclsdevdKQAQdmkeFK63kQ+9t1uAYvuJopDJ
+	ZLyc0xfAye/EDmVF3DRlVYKuCRdkURPDJfeMoIGzo7LnA5YFEG0Ib9kkaaKXuI4+/bIeZefWPno1D
+	qNLr+mLR9lznVJWPMEpEr2ztAcwE7PWx+K+Xq6RK9xbRfwnXztPLrgmzvlMzhWJ1EcByIMfATrbFe
+	1nZAGI+CZQ4DbtG2EULcGlYFwHH5V5DBQGxJQSdNiRqVjqukLFX3V/wYwfZM0MTfru5XAunklszjY
+	PfFoxpMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucLi9-00000009pKT-0hBH;
-	Thu, 17 Jul 2025 10:19:33 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1ucLkY-00000009pXX-2SB6;
+	Thu, 17 Jul 2025 10:22:02 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucLIq-00000009msz-3a4b
+	id 1ucLRD-00000009o37-3LIj
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 17 Jul 2025 10:02:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=EugVGfjpT5aZcVn3tOsIXI05r1gcEejxN6RL3Ma83Wc=; b=WZNwgsqihnBPVEBpndAjnRc/iQ
+	SCHwSJHr98XUM7WgMXTcdXrILze1ti/b5M2TkKDCIEayXz5zYiJA98WpsIGZ2OXC5qlKRACoPF7m6
+	I4KqwZaJtvErYWGEh3reZ94ExJzuYIdIjvmtam0NfByEgE80T6apFqLnaKRw0I5gztly9LX/rnyG2
+	V0uHRPxv4irxMQocRCQSzmDkFFCPhVMf+xCLzwNBxajxoKD4f43rr79y4um3h1l9rvtujThRt795A
+	kdO9iN8m2x82E3BGa6I0bA60ioFa5Yz9yCbRuBJEF/dAQIVLSTbyiJ+XdbQ89oHyR43FJbHqOJvpg
+	jlxVXDJA==;
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ucLRA-0000000AFDv-2wl8
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Jul 2025 09:53:26 +0000
+	Thu, 17 Jul 2025 10:02:02 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 6265D5C5CB4;
-	Thu, 17 Jul 2025 09:53:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5B4A2C4CEF7;
-	Thu, 17 Jul 2025 09:53:21 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 481A85C0072;
+	Thu, 17 Jul 2025 10:01:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B30F6C4CEEB;
+	Thu, 17 Jul 2025 10:01:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752746004;
-	bh=79WBhvJn26OfZelR9I5aNME3T7KKPk5kwAHzs9mtrWo=;
+	s=k20201202; t=1752746516;
+	bh=fJQ+2oEx65X73kZYLhyRibH8bNmQTyazpPzrgi/ip1Y=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Ss0gnunK0w/lqoGyuWXzxn6IwCftyipoYUczlCWvEDN+/XwvvnFYfs1jIosBn07yK
-	 cBoW022cIxh5mkGU2bumukgtJsQyRtXkbjei3Xjj0Tgqj6GP7tMJKK1NNfqdQzgoLf
-	 aMvPe3hknB23C1KbLKhwhqbVe/WZP58Uipek/jWOS3r81AN9JJlnmmZRhMaPdFqAoE
-	 utgRTYqMYqFBTjyIJ43+VDtxfa8OkTi+lTRq5Cf8sEZZFW5bGSPgcKBWuuBCCSXLDI
-	 iofq45uEXG5IK3sDKpz8vHdmx/1I2/BLOm3IHfbC7Qtwr3uNC58Iq5DViELTQU/ryR
-	 erchg6tWqfAWQ==
-From: Lorenzo Pieralisi <lpieralisi@kernel.org>
-To: linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Marc Zyngier <maz@kernel.org>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Toan Le <toan@os.amperecomputing.com>,
-	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
+	b=WsID2V0soseOGU9BAyxuzAMgdU0jAWJjMiXP1mJKtiYoh9vWjY0isSL5b1zJlopj2
+	 /ZGr2CYFkjNNJa8Owr+PPRu91CPJJJdHIhhI/EQUTS8C+vGOAAs5OxcO12C8oaCs+w
+	 MXuTCMjEB07ZcN3csUeoGU0iy7Hp/HG8Fepv5geMeHVeTpd9mKNMMJtGaTNbN2ETP6
+	 Sq4+EBQ5JFu1zUR/vjBknjp7+e14Cr6o2s5kIZeukQc0OdyLCe/837clqpEsFBkfJI
+	 nkmWhLZb0KmmZOLa5f7eKB2jRlPpuFdSeuadPLB5u5tw7SmNkqMps96Fh6s8+fUWiL
+	 9jGivpbfd2nXw==
+From: Will Deacon <will@kernel.org>
+To: Bjorn Andersson <andersson@kernel.org>,
 	Rob Herring <robh@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Thomas Gleixner <tglx@linutronix.de>
-Subject: Re: [PATCH v2 00/13] PCI: xgene: Fix and simplify the MSI driver
-Date: Thu, 17 Jul 2025 11:52:38 +0200
-Message-ID: <175274579907.217726.8694214469184941348.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.48.0
-In-Reply-To: <20250708173404.1278635-1-maz@kernel.org>
-References: <20250708173404.1278635-1-maz@kernel.org>
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	cros-qcom-dts-watchers@chromium.org,
+	Robin Murphy <robin.murphy@arm.com>,
+	Joerg Roedel <joro@8bytes.org>,
+	Konrad Dybcio <konradybcio@kernel.org>
+Cc: catalin.marinas@arm.com,
+	kernel-team@android.com,
+	Will Deacon <will@kernel.org>,
+	Marijn Suijten <marijn.suijten@somainline.org>,
+	linux-arm-msm@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Rob Clark <robin.clark@oss.qualcomm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	iommu@lists.linux.dev,
+	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+Subject: Re: [PATCH v2 0/4] Retire SDM845-cheza devboards
+Date: Thu, 17 Jul 2025 11:01:30 +0100
+Message-Id: <175274460748.247797.878702173890066148.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20250716-topic-goodnight_cheza-v2-0-6fa8d3261813@oss.qualcomm.com>
+References: <20250716-topic-goodnight_cheza-v2-0-6fa8d3261813@oss.qualcomm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250717_025324_932205_FFBA1CF0 
-X-CRM114-Status: GOOD (  10.67  )
+X-CRM114-CacheID: sfid-20250717_110200_996244_BC31ADB6 
+X-CRM114-Status: UNSURE (   8.74  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,46 +104,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 08 Jul 2025 18:33:51 +0100, Marc Zyngier wrote:
-> Having recently dipped into the xgene-msi driver to bring it to use
-> the MSI-parent concept, I have realised that some of it was slightly
-> sub-par (read: downright broken).
+On Wed, 16 Jul 2025 12:16:06 +0200, Konrad Dybcio wrote:
+> Cheza was a prototype class of boards, based on the 2017 SDM845 SoC,
+> used for bringing up ChromiumOS on Snapdragon platforms.
 > 
-> The driver is playing horrible tricks behind the core code, missing
-> proper affinity management, is terribly over-designed for no good
-> reason, and despite what MAINTAINERS says, completely unmaintained.
+> Today, almost none are left in existence, and the small amount of
+> remaining ones don't get any real use.
+> 
+> To ease maintenance burden, remove it from the kernel tree.
 > 
 > [...]
 
-Applied to controller/xgene, thanks!
+Applied SMMU bindings change to iommu (arm/smmu/bindings), thanks!
 
-[01/13] genirq: Teach handle_simple_irq() to resend an in-progress interrupt
-        https://git.kernel.org/pci/pci/c/fad9efd72b5f
-[02/13] PCI: xgene: Defer probing if the MSI widget driver hasn't probed yet
-        https://git.kernel.org/pci/pci/c/b3ffac51b6a7
-[03/13] PCI: xgene: Drop useless conditional compilation
-        https://git.kernel.org/pci/pci/c/1ded8cc14884
-[04/13] PCI: xgene: Drop XGENE_PCIE_IP_VER_UNKN
-        https://git.kernel.org/pci/pci/c/14a347069f71
-[05/13] PCI: xgene-msi: Make per-CPU interrupt setup robust
-        https://git.kernel.org/pci/pci/c/84cb4108bf6f
-[06/13] PCI: xgene-msi: Drop superfluous fields from xgene_msi structure
-        https://git.kernel.org/pci/pci/c/61aeded55e5b
-[07/13] PCI: xgene-msi: Use device-managed memory allocations
-        https://git.kernel.org/pci/pci/c/a782a50689d6
-[08/13] PCI: xgene-msi: Get rid of intermediate tracking structure
-        https://git.kernel.org/pci/pci/c/9a7ca398f2d4
-[09/13] PCI: xgene-msi: Sanitise MSI allocation and affinity setting
-        https://git.kernel.org/pci/pci/c/7112647f6d19
-[10/13] PCI: xgene-msi: Resend an MSI racing with itself on a different CPU
-        https://git.kernel.org/pci/pci/c/b43fa1b0691b
-[11/13] PCI: xgene-msi: Probe as a standard platform driver
-        https://git.kernel.org/pci/pci/c/a435be2c3318
-[12/13] PCI: xgene-msi: Restructure handler setup/teardown
-        https://git.kernel.org/pci/pci/c/f7d447633452
-[13/13] cpu/hotplug: Remove unused cpuhp_state CPUHP_PCI_XGENE_DEAD
-        https://git.kernel.org/pci/pci/c/8db22d697c52
+[3/4] dt-bindings: arm-smmu: Remove sdm845-cheza specific entry
+      https://git.kernel.org/iommu/c/ac1207f516c2
 
-Thanks,
-Lorenzo
+Cheers,
+-- 
+Will
+
+https://fixes.arm64.dev
+https://next.arm64.dev
+https://will.arm64.dev
 
