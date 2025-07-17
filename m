@@ -4,89 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DD25C83F34
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 18:56:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40CDCC83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 19:19:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ppg9NFBaFqyEViTmHd7vwh3QVG6vwbeyv4M1sjO9lQw=; b=G5YMEc/XPeMEwI1LWF0svVhhrG
-	YFyOfBsLwGmvvVXwz0Vwpr2MdHXncXJyX2i2yi+GF6sJlTXhPsRtiGcL7p+S8P4/ScU7pgWNKJjBe
-	S+Fi5cyYqNSjtogZpNeXPUROSvaj5gCIw2nGyuI1TbKG3xkM4Bl3+ufKyx14tsYxCpDfTjL5oHxy3
-	dpZFu5ML6xFY2cJ1d/YJxwxlYOqaCfc4ypS+nwoHO//jMchuULndqi42471rrZZi9hlaKX8b50Kz/
-	ttBmCvENldPBbfBfDL0ZqxICzf7+Kxe/ioXrDJLv+EH3CmiTA3+szai0XRibHmOCcDDOhMXPpjCO/
-	lNTYErCg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Mzt9wZOnZ6+CbKPnKZeU8dqGY8Qw3egF+06TS84cda4=; b=VyoXEVTUEgoUBR
+	kn4hSQBXFdTZGFpi76tL0qXlpTBv85ibcR7miOrJMlse/24fMKGEVKRFK7r61uvT6NsH8+ETHGi9w
+	BjjKs8mjYWAbD4I2HCxwRQ5zSB1DRDPIuVZu/547YxeZyR7ki7+wxSFOAmGR4eKfGRoTbHapAnj+U
+	gxCm6pbmrddtQM97xGdGTHA+bl3KOClqIIVX/afIEfZuvwoEB+m8jJv4/xd52vAlPIfLkqiLEfAIG
+	Mdj2j/Eg8b6oILA4LjyURRqC9e7IaAXx88a5KY3VutIq19u1I1g4qjDHEurHgyDBX3kaQxaCr0Tav
+	fAcjphbIF/5BrnrCwwdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucTm8-0000000AwxP-3s9W;
-	Thu, 17 Jul 2025 18:56:12 +0000
-Received: from mail-oa1-x2b.google.com ([2001:4860:4864:20::2b])
+	id 1ucU8S-0000000AzYh-1Lpp;
+	Thu, 17 Jul 2025 19:19:16 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucTcH-0000000Av1H-02Iu
+	id 1ucU60-0000000AywN-1sW2
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 17 Jul 2025 18:46:02 +0000
-Received: by mail-oa1-x2b.google.com with SMTP id 586e51a60fabf-2ffa1b10918so835727fac.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Jul 2025 11:46:00 -0700 (PDT)
+	Thu, 17 Jul 2025 19:16:45 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-45610582d07so10701965e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Jul 2025 12:16:43 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1752777960; x=1753382760; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Ppg9NFBaFqyEViTmHd7vwh3QVG6vwbeyv4M1sjO9lQw=;
-        b=IMBuz4n+dBoL6iutttmelLZcC38K6R0fQcYuIrmFUsGEXE8K+kxRpIIpfW5OBxLfB0
-         Pc1cXS1+ef9xjYjXsZijI+LqNUz7eKy6A9L3VrdWgm3j9JA2WDxVAbW8qM7iPjtEsD/k
-         BFGp7FcT8jjqjKhrK/Kvqjjg4C3XB4W3H4saxC+AiM1aA58i3uRKqwgh7WpOZHfEagTq
-         1T/cKa99Rjd4cHY3Whp/cSLvLK59w66f40z9M6YjwMj14UWz0hWWuHKRMXtErriQllKe
-         JCmXzFPBmTHHcs75F7mxUI33B3ItfscS7c+m8n96+xWEoPXXLNgLRE8BjyhG+S+H8UPa
-         LaZw==
+        d=gmail.com; s=20230601; t=1752779802; x=1753384602; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=Mzt9wZOnZ6+CbKPnKZeU8dqGY8Qw3egF+06TS84cda4=;
+        b=ifwM9uM05P8PwhlmjSx9hNQ1WN1YtsFv4b8rP9FjKlk0atPYDA8ZJ1Crz/MkxGyqdE
+         waYHjsdhaRKyfLqX/DW/7NKvSZWAaWqMIQzCTpWu36PjUTgnBuZV18vTEbECsQr2uhlp
+         SmTmOnXz0GdCgS4ixBtp3m5bh3aCx6JAXEo7MPPlk3/WEZpHvRpm33UnwCqbUPj3d5f1
+         rIzp5E+mkcXwC7IUuVVihJdaaLlQArp1NV5m8X+obYBaXCugn/r7xM1AVlVjKs9yfgr3
+         gZoYuRBWjIl62ePsg3kRjSE9Il007paHNv6QsNMHHBGXX7kXs8ZGnN2az4sK4646KTY5
+         i4fg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752777960; x=1753382760;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Ppg9NFBaFqyEViTmHd7vwh3QVG6vwbeyv4M1sjO9lQw=;
-        b=HDLRSYHi90LqRpIGO+sOAaRph6rv94+uRFpEFp3ajtEByaP/WZH1gEt4JGtT/+W6pC
-         LgKTBzXmXZAFefUCt/Oa2rIK/oKLHBzBY54o8IzNOX4Hx60sffNo2JGgjPALZKAQahQh
-         B8SH8//9HSb7PQ/cHUtrKbdXkb1Me3h61LxQ1ruLTZckckUfIgHI9Jrqb6te6WnZL+Fo
-         rIkZ21etqHZ/O+BYGYvZgy2xGYOKo/7286D7vVdyuTRbf6l1c9zTampj+4SaFnVnXslU
-         COX+eA60CBgywXuJzZJyWAvCEFY+saD8sUtp06jW7JiwfaPFPGlNvjOgzzlNRpsbDpZj
-         plhA==
-X-Forwarded-Encrypted: i=1; AJvYcCVnQ4OAyieLTOsHUBGJXjclv6nLYFmCwpoTQ+5OO4Cw72Q6WPblRwpz0oZsizXFdsi4C027mDj6IlgHZ9JRDjVg@lists.infradead.org
-X-Gm-Message-State: AOJu0YxcmoaIyr7f0h/f5Yuzhw3LCoZEv5L+ZSUBBiMW67qI5E07j3Mz
-	ZHKrfI6JDvzUufEaAwF8OdWA0Rt4GVzxF4eQRy8n3xPXGertu9GXsPicAQt18OVcG+4sk1khgOL
-	Jl+WP
-X-Gm-Gg: ASbGncsS+8n9XnEVtqsGBzaQK+NtMVdtxfQKPDQyNHyacCJmeQ9rCGSFO34/W89dIMj
-	15/5CAoYo212w5oGN+MpE7JDGppNDWUBi3x9sPQnc9V44PuzWIOsfKW9a3pT+gKI9z8U8qOPNo7
-	PeO481xCAMRcIPnxZ737SYSVz0JOxYZFchY8LRbuUu/CsxlfxbHl5hVGy5NaSSdYz9aWFSmndW/
-	VA4t7mB8BnEpdyT9MJoSWT7q5szIq4Z0b2c915B3MinkeN2RV5k0kHlbllfvj9qbljc7cLsGV/p
-	2MX2aamyEFyEAzQLGZzYzln9UcdZRV6w1PiOeJqbfQYtMvfvISJY4NgA8AH0ImyceSuej0OSgKS
-	2vOqWK6MpDUcr3le2mmKLkvVmqsEfWg==
-X-Google-Smtp-Source: AGHT+IHxFpdmg1jv/EBACz/Mfw+u9EqxSDZacKqFZbISEkaUgQNdX2Tnthbd34XjvoUXtDcoFnV+Ag==
-X-Received: by 2002:a05:6871:68c1:b0:297:24ad:402f with SMTP id 586e51a60fabf-2ffd0632288mr2506200fac.12.1752777959956;
-        Thu, 17 Jul 2025 11:45:59 -0700 (PDT)
-Received: from localhost ([2603:8080:b800:f700:1982:bb13:46f1:2e60])
-        by smtp.gmail.com with UTF8SMTPSA id 586e51a60fabf-2ff1127a238sm4687687fac.18.2025.07.17.11.45.59
+        d=1e100.net; s=20230601; t=1752779802; x=1753384602;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Mzt9wZOnZ6+CbKPnKZeU8dqGY8Qw3egF+06TS84cda4=;
+        b=b81EpVtwoExzvpSRBz7x1Zk+1HdThroi9nnGU8z+wCYQKeqQeJdn27IZOs0Q7gXD08
+         wpCjcnlFCCpFiLCfvcgxC8SYLSPD7rYyJeHFpHzEDlFSanpVTCJVWRTCo5fW3c3IIihT
+         bLPEfYp5SXbd7CLp6cPxPYrXfIvU+A8uFuvRPdOboo9hck3JqvCkVGJF8+l0fwtK3rLe
+         pH3LBJAPmX48jLOowdBslb0NneTWspkHZTdEeWSO+Xc6gaCDktViEpNho9lwZ1tN8PpV
+         JHHIMNu7n3iwGkEJrzb9vxNouhu1hTzOUztEEImTzctgAhJns6EvR+ugNDq4fxOcqNqV
+         Af9w==
+X-Forwarded-Encrypted: i=1; AJvYcCU0SKuti2oBldyqOimgLMgdqFZxpOWcxJAL4iQoN9OKCTgtuOYqxFxmXqvzeO4eSIBzdihCIRFN3xLOlYZ/d75f@lists.infradead.org
+X-Gm-Message-State: AOJu0YxgdRANgKZ6ZaHmHxn5wejJRopBq8o5A1Zkgw9rUJ6dpyKwQYQU
+	b0PfH/5LPi5g/bunUXd5pFq+jmk9L86kXOlo6a4hKk4VugsSVNPO9VJj
+X-Gm-Gg: ASbGnctEFD+SUUs8QFDgT46XvGkBqkzi168tKOt5Vs+qAOsS/vflOWghesfnRlWJLAv
+	T0WzwXq56DDYsZrqbB2r/JI9F4FBnWmXSbcvaNJHT4rkVJb9eUsU1xLSSscn7ms/O+ZsvjhvLy9
+	czILGrVhMpBu8O1bnk9Nym+exPjjd8EYIgTWPncPB6EeWo2r073UqzvSa5Pf56gzWmZJhPW++1E
+	mDAEuJNGicjWq2oqtIO9QvzNcGEUWlqJ46oXx3dBdzdXEWEqzxu4He/4fIrbrjdBHbfGnO/IHa/
+	0POL01MS+iRZhB2X318L71+vMJq0bGM5VuozWixKOw90m5reWXX3csktsZMr2kUmcbKmUBqpuXD
+	663CssiDRB8xjDvLV2MxMP205Z4OEOMht
+X-Google-Smtp-Source: AGHT+IFF8lsVWJTJwrDMD6i4As+eyuiIbEESQQF0qhNLx6tTwcszxJEOXDFYIrXcHilqwhBPrGxWeg==
+X-Received: by 2002:a05:6000:420b:b0:3a8:6260:d321 with SMTP id ffacd0b85a97d-3b613e60143mr3320230f8f.3.1752779802135;
+        Thu, 17 Jul 2025 12:16:42 -0700 (PDT)
+Received: from localhost ([2001:861:3385:e20:6384:4cf:52c5:3194])
+        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-3b5e8dc22a8sm21918017f8f.34.2025.07.17.12.16.41
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 17 Jul 2025 11:45:59 -0700 (PDT)
-Date: Thu, 17 Jul 2025 13:45:58 -0500
-From: Dan Carpenter <dan.carpenter@linaro.org>
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
-	Sascha Bischoff <sascha.bischoff@arm.com>,
-	Timothy Hayes <timothy.hayes@arm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: [PATCH v2 3/3] irqchip/gic-v5: Fix error handling in
- gicv5_its_irq_domain_alloc()
-Message-ID: <c9ee3799-8b70-4109-aa13-2febaff9973c@sabinyo.mountain>
-References: <cover.1752777667.git.dan.carpenter@linaro.org>
+        Thu, 17 Jul 2025 12:16:41 -0700 (PDT)
+From: Raphael Gallais-Pou <rgallaispou@gmail.com>
+Subject: [PATCH 0/4] STi device-tree display subsystem rework
+Date: Thu, 17 Jul 2025 21:15:31 +0200
+Message-Id: <20250717-sti-rework-v1-0-46d516fb1ebb@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <cover.1752777667.git.dan.carpenter@linaro.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIANNLeWgC/03M0QrCIBTG8VcZ5zrjaNNYV71H7EKd2w61OXRYM
+ Xz3bBB0+f/g+20QXSAX4VJtEFyiSH4uwQ8V2FHPg2PUlQaBQmKNnMWVWHBPH+7MIDZScn1SwkI
+ 5LMH19NqxW1t6pLj68N7tJL7rj1H/TBIMWceN4r3Bc1Or6zBpehytn6DNOX8A7qr4j6QAAAA=
+X-Change-ID: 20250401-sti-rework-b009551a362c
+To: Alain Volmat <alain.volmat@foss.st.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Patrice Chotard <patrice.chotard@foss.st.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1460; i=rgallaispou@gmail.com;
+ h=from:subject:message-id; bh=PyayYQ0JPKYC1bSL+yF6YQ9AEnmvymFEa0T+fiUNE9w=;
+ b=owEBbQKS/ZANAwAKAechimjUEsK1AcsmYgBoeUwQs4pAM5O38T3nlF8WEU7Y1ach2SghQdlSd
+ adJbgagmsiJAjMEAAEKAB0WIQQgmXv2E+fvbV/9ui/nIYpo1BLCtQUCaHlMEAAKCRDnIYpo1BLC
+ tUxUEACQ1QihV0/vZF+Z/ZIMLTCNbEanzLlzjAJHu/gACUzwmyqQJhxOU2sI0NlfI4fNnrDXVXX
+ 3jXo+32bwmKHyRv00ls59P4a2tNtmANDSLl29KDKXRQofRMWv8Z4gadAbZyH9+vV08C5a34d7KP
+ HGmgHSzq3EzRHjI3+uLXSSayuLzZlWKc8wF0XPbSLvna47gLHxqjZ9TQg9QOIyswiDsIXchnSKs
+ JSJGCTSQQzbU04fuToq8JHXUSoMUHclxDppK0+SfJ/r77L4+0DWUy2bzuyf8G/ixqNragahIjBW
+ YvoOvV/xGgXrdKUnt7cfP2CRRCpIcgRUx9KL0hBol/m6Xm5QuSY66guBwaNJkBCBjLnibmw/jab
+ uny3szjVv6tviSINjWBqFxxIqV9lPGGjs1krT4VhA8pxmNIDvWhyRw0iz+FbyU/8nhyKkFGKzwM
+ egEKm3+tFJSy5/nT/2BiC7P36ip9UyFi1s7+1lhIV3kY5ZCy6j3XDET5JyyC445WceMSPGy9drt
+ PdKXf1ILK1uaMaOTREFlH5zQb8pADUj/v3A8n1c7PJPtC479R7Er/hFwGPD8VXo7lU4dALC7IGA
+ oW1UaNYAKydYyRTL0a8gHxXM2jeIj12ozjm2xhrJO2uE4jZ+aav5Ou/vGzJn29QZ0zJqBylIydS
+ 4yPttkUKVVLkHTg==
+X-Developer-Key: i=rgallaispou@gmail.com; a=openpgp;
+ fpr=20997BF613E7EF6D5FFDBA2FE7218A68D412C2B5
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250717_114601_049045_1DBB9FC9 
-X-CRM114-Status: GOOD (  18.06  )
+X-CRM114-CacheID: sfid-20250717_121644_491171_A16C8CA4 
+X-CRM114-Status: UNSURE (   8.55  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,65 +123,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-There are two issues to fix in this code:
-1) If gicv5_alloc_lpi() fails the original code was checking the wrong
-variable.  Fix the mixup between "ret" and "lpi".
-2) Clean up from all the previous iterations and not just the current
-iteration.
+This serie aims to rework the display-subsystem node, which was
+previously included directly within the SoC node.  This was wrong
+because it is an abstraction and describes how IPs behave together, not
+what the hardware is.  Instead, extract display-subsystem outside of the
+SoC node, and let IPs describe their connections.  Doing so helps the
+readability, and eases the understanding of the hardware.
 
-Fixes: 57d72196dfc8 ("irqchip/gic-v5: Add GICv5 ITS support")
-Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
+Several nodes have been renamed to stick to the generic names defined in
+the device-tree specification.
+
+This series depends on another sent a few days ago.  It is not critical
+though, since not having it only triggers warnings when building
+deprecated device-trees.  Please see link below.
+
+Link: https://lore.kernel.org/lkml/20250714-sti-rework-v2-0-f4274920858b@gmail.com
+
+Signed-off-by: Raphael Gallais-Pou <rgallaispou@gmail.com>
 ---
-v2: In v1 I had the wrong goto if gicv5_alloc_lpi() failed.  Also change
-the label name from out_free_lpi to out_free_irqs.
+Raphael Gallais-Pou (4):
+      drm/sti: check dma_set_coherent_mask return value
+      drm/sti: make use of drm_of_component_probe
+      ARM: dts: sti: extract display subsystem out of soc
+      ARM: dts: sti: remove useless cells fields
 
- drivers/irqchip/irq-gic-v5-its.c | 20 ++++++++++++++------
- 1 file changed, 14 insertions(+), 6 deletions(-)
+ arch/arm/boot/dts/st/stih410.dtsi | 316 ++++++++++++++++++++++----------------
+ drivers/gpu/drm/sti/sti_drv.c     |  18 +--
+ 2 files changed, 192 insertions(+), 142 deletions(-)
+---
+base-commit: b9a572f471993d3e8bf874fcb57f331d66650440
+change-id: 20250401-sti-rework-b009551a362c
 
-diff --git a/drivers/irqchip/irq-gic-v5-its.c b/drivers/irqchip/irq-gic-v5-its.c
-index 55360ae9f1f6..40e361d5499c 100644
---- a/drivers/irqchip/irq-gic-v5-its.c
-+++ b/drivers/irqchip/irq-gic-v5-its.c
-@@ -949,15 +949,18 @@ static int gicv5_its_irq_domain_alloc(struct irq_domain *domain, unsigned int vi
- 	device_id = its_dev->device_id;
- 
- 	for (i = 0; i < nr_irqs; i++) {
--		lpi = gicv5_alloc_lpi();
-+		ret = gicv5_alloc_lpi();
- 		if (ret < 0) {
- 			pr_debug("Failed to find free LPI!\n");
--			goto out_eventid;
-+			goto out_free_irqs;
- 		}
-+		lpi = ret;
- 
- 		ret = irq_domain_alloc_irqs_parent(domain, virq + i, 1, &lpi);
--		if (ret)
--			goto out_free_lpi;
-+		if (ret) {
-+			gicv5_free_lpi(lpi);
-+			goto out_free_irqs;
-+		}
- 
- 		/*
- 		 * Store eventid and deviceid into the hwirq for later use.
-@@ -978,8 +981,13 @@ static int gicv5_its_irq_domain_alloc(struct irq_domain *domain, unsigned int vi
- 
- 	return 0;
- 
--out_free_lpi:
--	gicv5_free_lpi(lpi);
-+out_free_irqs:
-+	while (--i >= 0) {
-+		irqd = irq_domain_get_irq_data(domain, virq + i);
-+		gicv5_free_lpi(irqd->parent_data->hwirq);
-+		irq_domain_reset_irq_data(irqd);
-+		irq_domain_free_irqs_parent(domain, virq + i, 1);
-+	}
- out_eventid:
- 	gicv5_its_free_eventid(its_dev, event_id_base, nr_irqs);
- 	return ret;
+Best regards,
 -- 
-2.47.2
+Raphael Gallais-Pou <rgallaispou@gmail.com>
 
 
