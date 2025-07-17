@@ -4,83 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7475CC83F3B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 16:19:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A5DBC83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 17 Jul 2025 16:21:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rN4bJ0MLHsMuhB36620IX8nWVKMPLDlQLQ5oOeKTkGg=; b=i3h8NcIVjX9b0NkZKNV0YajmAk
-	XhgTn1n8A5t8xcwkxIMJdAftOD0ixqr5G4vQS5NGR1o43J1Eg2JML5q3uOJGcxrWewUGRki0gmK1X
-	5LpzXGyHXzGw5Ry4XBALrGBjH3aZrc0gb13M4rXEyydBI/AMdGGFUSG7GmwN6NHNHnfWG76g6wSDl
-	8TWPa4f1GmJCvBuyYCxcBgLlxR+NhAFzozfZWfCmmunS6QxeKEkYRjB3Mv4GcsRh1DIDb71IFvTwK
-	0/pVAA6ecCViOl79P1DqJSq5BKUnSo4JQUCaxEiXOB79WMvVKGECWC59tB7RmFMJaptzqwYOlK8Cs
-	x3C3LPUw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=01t/Q5EEAf+mYeSSRj7Eddyqvq+tatmkK7o/fY+CgT8=; b=CU4hlR0GTBQ44HHRYRHLh1NixE
+	3j4xmN6g0MK4u9vou5mxHCDXibg92FazqKm4Une4A4wQSADMMG/i+V7Sd1Is+EFr5c7Hqpn1KeIl2
+	JvjIRUR5giKN7FAAGFoETyRspbkY2yDzJ3Y3plHw9pIU6/hW2kl9Y/5BDSaDWPHf2JEYNVgTUZCp8
+	POP6BVyPEzbZTNvZoTBpaEZvYdAkatRa0oLfkGhdxPmWlFZDZGiY3y3EvoLHKGuJe50tzPf0EsyX8
+	iemmc/fg0XRzOn1B62Lcwut6L5xbFYLP0dh/sDYIRwTFyFZ2B9KU0uH6kTSY4TYD2EWwI2M9StVyz
+	AMt+W/uA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucRK7-0000000AcNL-3f8k;
-	Thu, 17 Jul 2025 16:19:07 +0000
-Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
+	id 1ucRMX-0000000Acjo-2JcN;
+	Thu, 17 Jul 2025 16:21:37 +0000
+Received: from mail-westeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c201::5] helo=AS8PR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucQmA-0000000AWxe-40Jr;
-	Thu, 17 Jul 2025 15:44:04 +0000
-Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-23dea2e01e4so13346215ad.1;
-        Thu, 17 Jul 2025 08:44:02 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=googlemail.com; s=20230601; t=1752767042; x=1753371842; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=rN4bJ0MLHsMuhB36620IX8nWVKMPLDlQLQ5oOeKTkGg=;
-        b=Y5Bp15vgPFOl3f/oHldwOFX7jqvyQzC6tspDP8v+pw9ndZU13t5EZt7nrRpFU5oyRr
-         zHN33FjL5nZRX9EiUR1lBIOom65+JOKe/PPZT8waDEdH10Xzx+3c6pgbUFWLhOLc0ODN
-         Pces95uo8gAFYPQPt+OYVQcBfqg6rmGN3CYouNquV4CzcmnSVyg0z1GTGXb7db6m6bdt
-         avkLf2ikTBQG+cgk4A9JYmkCSm6HfuhEP1B7jIOpQPXego3sJfAHEdnZzun0bmFmbabd
-         hKLmttTqVO4YpeL8MJsgcQOovKHySG/v9iXI1ijIUmuy/70ZZz4xKrjVyFv2UjZgds4o
-         npzQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752767042; x=1753371842;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=rN4bJ0MLHsMuhB36620IX8nWVKMPLDlQLQ5oOeKTkGg=;
-        b=kkNJR3Vbw4nk+pzPDvdMYug3zyS9M7I1s+pB0k9uMNyMfTvoo6+syCjBgG2ebGr7X6
-         oKWqGKPiSsonZTKPCmtegZxpIcivyqttkju/svbO7vSm5GUpOOjEgy8SVqHcfGGhJbbf
-         l1sOCiEoPEdej/K+ynRZWXUlHX+mmWEbUT/UEX+PTZc6sv5euIjzlzYzDG37zTkYUfkj
-         Utr2yDuSmlz5TaJHD1JGe6HVSsBVi4GV3PAdiBo8Wkj+Uc3VvGDoR+9CIKLxVbN8dSpW
-         i0ZnkeSmtGNG3a28lvUV2ZaZS15MAYIWUZPRXhyJ6VJgn7sWjhGfF7OXa2bEg3ZMY4/n
-         d9rQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWxsN2mZ27WgkdAKTNSSmKSHDRcS/3pUvO0505kmBi6LR1haq5frkdRaww5lG9J49W3gWd0LalAsNcge8eE@lists.infradead.org, AJvYcCXTvVDX89QGdYfI7RzKx6/kp4j2wHDwqE5C3dMn0LxWpGHfCTe47r2LiY8XlBnVAiat+1UNqUWGKAxPAXI0j4puBQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzpjSGYE0u7aS8Lv9QS8mGzE1NURpa1AACYCxXCZVwtj4cVk3Rd
-	WdHheNBnPEldLuOzYK2Lui7IVsKlX6OkXozyvngUK8yTPuRfJ2v76wq23i54MDNKMGJ4Fa/n1iG
-	HvQXIFtOFWrmKdtadBxhWzEfYAeqAITchg3lq
-X-Gm-Gg: ASbGncsEMHqGgfxnSeCPzQEQaHWAzzK8mUlZ2uYPkbJbzmgduIUZGZF6ArvbvVxqHLA
-	QZG8JeB3nFWkgLO7849DC549uxYiU7b1euUKs0KKOGfBa23oUZJ6pUnh3xLN46sByK2vmGQdlIe
-	1+GhfvLCq01+n9g0oincFwAOduhLMooj5do6v3qdMHT+26885deqbGK7E5Vsfd0iu9a3L+IZ6OP
-	BOeDSVGqvppBa2GshyXsZm4cpApIO1O
-X-Google-Smtp-Source: AGHT+IHA1ZrKnYuPXE4GXLTfL1TF9TCNgu66q+ocBubO7yF3+9AbPVtS6s8vpRxMX8NX3hB8Al+UyUorAl8wjgpvBEM=
-X-Received: by 2002:a17:902:ebcb:b0:234:f200:51a1 with SMTP id
- d9443c01a7336-23e2566a7bfmr87576115ad.9.1752767042136; Thu, 17 Jul 2025
- 08:44:02 -0700 (PDT)
+	id 1ucQnU-0000000AXDg-3SjU
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 17 Jul 2025 15:45:25 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=hv0M8zorki5HYWr/ObNd1RN4ltV147ifB8/dfUJubEGs3eYxrkykSt/+bF4MF9Id8YOfOzITOObKmA+K/jbwssFlvyjCj8BVfdGjo4FVZeH98VdtgfDlcAt7iQb2Lap0GDyS2voAVA6vzyh2/JMXBnY7x2CVppzTQFrGjOTOI7Na6QweEUKq4V+vXWFLJ/TowhOsKdPcQILNYcEe09u0lKy0MevPP3Ppu6owVnuFj7j6gcCQ4ppVVq+hU6wRo3FBbaWyX+wY+94yL8Wx5i+dXe6SUSA0mP7J4ZTuHUmAweXWqC4RFMAeTvyrJvMYUY9/sDXmgUixCDf8rUCUN2BcBA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=01t/Q5EEAf+mYeSSRj7Eddyqvq+tatmkK7o/fY+CgT8=;
+ b=hDfUeQIYIZjL9mUFkVVQZpIoyx5yh/a+/GM75sXtC23jQcDNGOFPGjjZAyabYzm7MGJCHHF5N95s2YC+clmC3wSKc/oeiKXEjnSiJnEpkJXWmTXTuO+E0nKRy3UtOBHJra59W9CRiz31U0DuhQZHct9knn6rhL/9pTsagqvpXE2Dv26lfAH1v7nKMbFyQHV7aGFHURhMuVKnBHR29r+R2/5sil3e2VEbcslrsl+IXODocGea2IB+Je/qtYiXQ1JKXInqS1CvWQIZRn7B1vK+hWqQip4df+GM8/qg2A5F727JmfOXxIsoiL4vDg8oZlXiOsRKf5D6S6kAGq1zqSsgPA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=01t/Q5EEAf+mYeSSRj7Eddyqvq+tatmkK7o/fY+CgT8=;
+ b=ZuAjBQEUJM2eenoDZgiPals3rW1tmGO7UZpaU2kTmc3K8mg7DBmgqhWhjGaDZIGWaX06cXovoXA0CSt3sF2gLnro4o0XKapmzccA/YZ+ubCQgFBETuolPNCvD66OZRY/i7wU0XmldSiNekOhfWUcyi628VE7a3L2bAoB9xm5itvGrYAEh598zbOhUZLoKf2WdhVgOByPJy2WetTIG5se+07gJGbxluQOLnDw+ZQSDdn8fTzgJsHUSUkDD0QwOzAYuOiMtrQjwYSDOQ6PttrCvrGMcDdRmnKT2bk6sEa4AlLq+5PIHy4pJigZxLQBUbkkmyHvkvGytgnx7nAtiO3VRg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by AM8PR04MB7809.eurprd04.prod.outlook.com (2603:10a6:20b:242::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8922.39; Thu, 17 Jul
+ 2025 15:45:20 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%5]) with mapi id 15.20.8922.037; Thu, 17 Jul 2025
+ 15:45:20 +0000
+Date: Thu, 17 Jul 2025 11:45:15 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: guoniu.zhou@oss.nxp.com
+Cc: laurent.pinchart@ideasonboard.com, rmfrfs@gmail.com, martink@posteo.de,
+	kernel@puri.sm, mchehab@kernel.org, s.hauer@pengutronix.de,
+	kernel@pengutronix.de, festevam@gmail.com,
+	linux-media@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] media: nxp: imx8-isi: Add suspend/resume support for ISI
+ mem2memy
+Message-ID: <aHkai3+d25+PnuZT@lizhi-Precision-Tower-5810>
+References: <20250717024353.1811576-1-guoniu.zhou@oss.nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250717024353.1811576-1-guoniu.zhou@oss.nxp.com>
+X-ClientProxiedBy: AS4P191CA0012.EURP191.PROD.OUTLOOK.COM
+ (2603:10a6:20b:5d5::11) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
 MIME-Version: 1.0
-References: <20250717-optimize_clk-measure_accuracy-v1-1-3b82d7ccd743@amlogic.com>
-In-Reply-To: <20250717-optimize_clk-measure_accuracy-v1-1-3b82d7ccd743@amlogic.com>
-From: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Date: Thu, 17 Jul 2025 17:43:51 +0200
-X-Gm-Features: Ac12FXxyJdrkT0-Udvls8NBCEN5HDOxcf-2RPU7Aaa4UPg2Q8zxybsDbpxTtPl4
-Message-ID: <CAFBinCDyjf7MOE6f_AGEEwqV8z68qRv6JAUxn7zt5ZZqwFLkPg@mail.gmail.com>
-Subject: Re: [PATCH] soc: amlogic: clk-measure: Optimize measurement accuracy
-To: chuan.liu@amlogic.com
-Cc: Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, 
-	Jerome Brunet <jbrunet@baylibre.com>, linux-arm-kernel@lists.infradead.org, 
-	linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|AM8PR04MB7809:EE_
+X-MS-Office365-Filtering-Correlation-Id: ddc61a1d-2b2e-403f-6efe-08ddc548ef2d
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|7416014|376014|1800799024|366016|19092799006|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Z6Y5/tLeIr6RUkPRCUxytByqcewlxX2/pWiTjww/93c5RxarHfHuFUFqKQDO?=
+ =?us-ascii?Q?Pv4ApiNBrtTLoXfDSaOaD7ctxvRvT7tYLbCJNjUsO4pN/YbbY0RO+APFcmck?=
+ =?us-ascii?Q?UTOrjzob+nAgFm3bLihywaiXdCVevlUXT4uuHd/6ZPkWhTdVKGsIwmcvHoxu?=
+ =?us-ascii?Q?BvmjfkDaaeDfmMaRRzi6NZs1fRU9NHOFGzdhrKZxToarRzq3vdq70oakXvHP?=
+ =?us-ascii?Q?ei6uKZAMcWVcoIaHq66RDxTMX0Pq66lNu19HUZ5awHe/dpaH4VDXoGusZsxE?=
+ =?us-ascii?Q?PnJVQwggweH7C6kF0IzgT7TaUZi2UWI46hcwfLDGudCqa0nQzFpf9ZMfmQCm?=
+ =?us-ascii?Q?SSG5exv97oUxZqCzvBGtlXgmdn6ZVWR0X25nR+HrFnQr5FvRwx0I7EES/BwT?=
+ =?us-ascii?Q?JZxADC2Oavcgv2oaDA19qrfJmkhXa2wiQaev2RbT/6iXeiN826Wk23Dgo8n1?=
+ =?us-ascii?Q?BIKW7DkXmXe1yXRkF7uaBWbpmQ08G1XrNYONW3+mFB4efIexBGfAQfPe2sU7?=
+ =?us-ascii?Q?LOctyXy2NkNm/ZZ14B+XhUJXcrYznqZbp8sRntuhNWyLyqb3SN4J7qpl2QjQ?=
+ =?us-ascii?Q?8ORjKdoASDPR/ZvGqgr7Ya/0R+10Ub5vSVRealG9SstulKEYZwCDNY0SvonE?=
+ =?us-ascii?Q?iyYHoloW5qr+7s8UISaSTLhqgLtO1Mc8igweARhcC9SjJaHml4T67tYvlvBh?=
+ =?us-ascii?Q?EPrgV+bZuUUhzNiRjgLnsnbMfesmvhpTqrO3JgEyIbuBhsEfggmTR87QlLU5?=
+ =?us-ascii?Q?XohZlmLiwfB0kKHGlBBh9wB7KUicBFE0xcpTbRknzWNJNBJFV4Hc6LH0xurZ?=
+ =?us-ascii?Q?KMTT9X9fr69Y2wXCNkrJcR5oeDIWLkbcktY82x2dAVtimVsZBodT5FvYTuTL?=
+ =?us-ascii?Q?RKCTkK6s5KcUW2uxL4y16kPjtCVgCA+waz+rZjAgp0JEJ2qGdrSV4QxsOK1b?=
+ =?us-ascii?Q?S43/BUdX4M4Nb7MB1mcn1ZQPQgqQxYunV8zZzSKQWgfMyCr+LfefUKtTGXxs?=
+ =?us-ascii?Q?v7Q36QQ//XX01lZYiLTyQZKUEAKNL3GiYye3mqFF8xPRBO/0OHuz1UR22Kw9?=
+ =?us-ascii?Q?oPl7BSanUW0PXIcZb0dMvfxgFRKmz7vrQVfCds6uEza24mhF4utaunPpvmvD?=
+ =?us-ascii?Q?OFofbl1WpsffkLRELwp0wtzDa3z7d3aicHIdBwI5hk8zFbMf353kEM8qwyaL?=
+ =?us-ascii?Q?svGyDzbflYM+fZ/Qv3ja6TdfNqHuwf4WzEFmkUJlDbtVl2LAe+q95EvR43jH?=
+ =?us-ascii?Q?3hOoaqpwVMicZ69VITKHxlSBaXkJQDrqR/6cMSULSNlY3ItXFW5O2BQnXkeH?=
+ =?us-ascii?Q?N6m8CFzfCxJq71Fp/og7ZuLZpYUMAOHmulO1P8ju7A7HOYq769Ejp7cjvYB+?=
+ =?us-ascii?Q?pTpMD7D0Puixcoa02zeXoeIzWMa5Ga6jYMQOft42NvGlFFr++9TxKOIXvZkp?=
+ =?us-ascii?Q?oNZCOECejyvTrX3MjDjOnC18mV5qiV35Vx/5Kv5A0UO+vBV1UQB0ZA=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(7416014)(376014)(1800799024)(366016)(19092799006)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?XYfK0GP3P+1KTdD17w8TmYzfR14U3voXydHOG8jBAFsvwFcI70y3obreI7vw?=
+ =?us-ascii?Q?gLQHVqCefz3WIqd2SJzJAklRYlTGUsvoT2C7lraj1X/Itx42iYrhq8tw5XOI?=
+ =?us-ascii?Q?5YnR/v2ru6h4i2NfzYpPyvBu5FQe3EbcI4OTrym5FWfhEl50Ahp6aORWqoc4?=
+ =?us-ascii?Q?TykjuUllgGu0WClKtNh5HpzgvGSnSx7JOdHUGRlA56SdJ49ylNtqculd5iT3?=
+ =?us-ascii?Q?aiqNmCiikacrRwnsNQn8nk+quTizTIDb2r9x78Dswuu8rg0/idkYOC/LBXcO?=
+ =?us-ascii?Q?5A+edn4RXNJMsOWSTR1xz82oFctXcayP9zSJP6mAKm25WkeqbickCdZdiYw2?=
+ =?us-ascii?Q?qzoYnAiFnZTdsYLdMeEWh7aTkxxkm6qlZbxyjzDeNHQ1StmMsDRHMRhYL+bc?=
+ =?us-ascii?Q?+tGP2R+gw2eWz9VbliHdCKLQTqST0hSf/txlV+ZCjALolCERePG1vXscrAjc?=
+ =?us-ascii?Q?rRasOVsMt4P7eoqPDjy4+tSC47joPX6LDgdrabgOCJbxCw3W5erwx3+MDAqP?=
+ =?us-ascii?Q?9JfhRtSGpLwxwW745wRw1B9GZP8Lp0fTUApLekY7Y4MRbzhVr4qmD4YVUmsS?=
+ =?us-ascii?Q?+GX9ii/AO6E/F2hY70SLdaXTQeskTz4Vp4X2i/KrXv6sPAzqumlVqdr6rqws?=
+ =?us-ascii?Q?mNfhRqnX1P7heFZ76NwrHTRvaFx/JDdcALg8RvI/mfQ3kQn21xlVB6CSWszu?=
+ =?us-ascii?Q?mma+hxvEEexleBDlRE8Me/XPgr17BMlwFw3gSK85SDTNlLAgKu2akpSJ1F7e?=
+ =?us-ascii?Q?VedkpWFHQpQyNw2OgG+c4v0/+MGeopqkMaOPYZmm+sxUVqURbzFzfKguOb2O?=
+ =?us-ascii?Q?lLnukVY96JhCNZRTM+YdLxBRWOU39L1WICG49T3lglC5btORyxFp8TDLuuPY?=
+ =?us-ascii?Q?7ImcuiG8KHG9unUFSi41cyJSFKcRuZI8NP+5BvAfpVF2YGR/DUaJmdPxavFl?=
+ =?us-ascii?Q?twjFdsqW3CYrrJ46y6rpfqsjzkNRFvcZriARCdubCfM/4copKJh7pdHQiUc6?=
+ =?us-ascii?Q?7ViwBkQHkPPqUuVZCHyYMjeKaz6p0k6v9oCCeEIlP5Odn91l1CAS3h0wH3l7?=
+ =?us-ascii?Q?5jkd2ztooMye6OtwxKZR5X5FwyPO2rCHaj26MgdHUVodkpNpsckU1KM6MO/Y?=
+ =?us-ascii?Q?QGI8Sf6f8v63Ar7WCQKzZAxqdmbWljHk9UNV59Ph89gPcx6Tox0RzxeOGHAR?=
+ =?us-ascii?Q?L0zTw5yizQwrMgKZdDSWvGAj1gKXoAzbsWSYVQ3P/bMGy8wRaz234jdpQjfk?=
+ =?us-ascii?Q?hMheVhFhNQHvEVJ7fwEqr5lJfOHlAZYPfO3BFssKbfSNZVacctuxQKyp3IGJ?=
+ =?us-ascii?Q?AXJ2riHOVj1X/i7pkXDXeEF4rCIiGeA2fvT6rF95qQm6HXrDfdelp46W0T06?=
+ =?us-ascii?Q?4RZrY7Kl7r3qxG+tDe807qzMCM2Q1yLXWWE+UWshYyG20ia0dNaR3thpxl/j?=
+ =?us-ascii?Q?IEorRs8LQtuYIHW5iHi/BhzVf0cVRVsEpd7zHsCSaH5859cZ3Mav7SOyGGMZ?=
+ =?us-ascii?Q?TsG99enlZR7t4V4JSi2uTxysc03m9JEU+xCJ1NiFjMrLrssZsXg4YZoFUMN8?=
+ =?us-ascii?Q?2fJU6a8QVNSDGvoHHzkNUb9FXsd8+HOJl6xx1F/p?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ddc61a1d-2b2e-403f-6efe-08ddc548ef2d
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Jul 2025 15:45:20.1370
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: gykmINVeZyWROqVCh0mIcXxru9svX5a3S7/Tcw52XCGHsdEd7pSJbH9tdRfGmzxlvDJIFlzwTjgsHKNc1R0mAA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM8PR04MB7809
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250717_084402_992901_D9E6CCCC 
-X-CRM114-Status: GOOD (  14.65  )
+X-CRM114-CacheID: sfid-20250717_084524_869660_D5FA3EC3 
+X-CRM114-Status: GOOD (  22.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,90 +160,135 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
-
-thank you for this patch!
-
-On Thu, Jul 17, 2025 at 5:08=E2=80=AFAM Chuan Liu via B4 Relay
-<devnull+chuan.liu.amlogic.com@kernel.org> wrote:
+On Thu, Jul 17, 2025 at 10:43:54AM +0800, guoniu.zhou@oss.nxp.com wrote:
+> From: Guoniu Zhou <guoniu.zhou@nxp.com>
 >
-> From: Chuan Liu <chuan.liu@amlogic.com>
+> Add suspend/resume support for ISI when work at memory to memory mode.
 >
-> The cycle count register has a 20-bit effective width, but the driver
-> only utilizes 16 bits. This reduces the sampling window when measuring
-> high-frequency clocks, resulting in (slightly) degraded measurement
-> accuracy.
-I checked the Meson8 downstream code [0] and it uses 0x000FFFFF to
-mask the register value -> this means that old SoCs also have a 20-bit
-wide width.
+> Signed-off-by: Guoniu Zhou <guoniu.zhou@nxp.com>
 
-[...]
-> Here are the test comparisons based on C3:
-[...]
-> Here are the test comparisons based on C3:
-I have tested this patch with Meson8b based Odroid-C1:
-pre-optimization:
-# time cat /sys/kernel/debug/meson-clk-msr/measure_summary | grep -v "  0  =
-"
-  clock                     rate    precision
----------------------------------------------
- clk81                 159372396    +/-5208Hz
- a9_clk_div16           24000000    +/-3125Hz
- rtc_osc_clk_out           31250    +/-3125Hz
- hdmi_ch0_tmds         146399038    +/-4807Hz
- sar_adc                 1140625    +/-3125Hz
- sdhc_rx                94443750    +/-3125Hz
- sdhc_sd                94443750    +/-3125Hz
- pwm_d                 849921875    +/-31250Hz
- pwm_c                 849921875    +/-31250Hz
-
-real    0m0.102s
-user    0m0.005s
-sys     0m0.069s
-
-
-post-optimization:
-# time cat /sys/kernel/debug/meson-clk-msr/measure_summary | grep -v "  0  =
-"
-  clock                     rate    precision
----------------------------------------------
- clk81                 159373438    +/-1562Hz
- a9_clk_div16           12000000    +/-1562Hz
- rtc_osc_clk_out           32813    +/-1562Hz
- hdmi_ch0_tmds         146398438    +/-1562Hz
- sar_adc                 1143750    +/-1562Hz
- sdhc_rx                94443750    +/-1562Hz
- sdhc_sd                94443750    +/-1562Hz
- pwm_d                 849992188    +/-1562Hz
- pwm_c                 849992188    +/-1562Hz
-
-real    0m0.173s
-user    0m0.008s
-sys     0m0.109s
-
-So there's also an improvement in accuracy. The only downside I'm
-seeing is that it takes 75% extra time for the measurement. For me
-this is irrelevant since we use this for debugging.
-
-[...]
-> +       /*
-> +        * HACK: The input clock signal path from gate (Controlled by MSR=
-_RUN)
-> +        * to internal sampling circuit in clk-measure has a propagation =
-delay
-> +        * requirement: 24 clock cycles must elapse after mux selection b=
-efore
-> +        * sampling.
-> +        *
-> +        * For a 30kHz measurement clock, this translates to an 800=CE=BC=
-s delay:
-> +        * 800us =3D 24 / 30000Hz.
-> +        */
-> +       fsleep(800);
-What is needed to make this not a HACK anymore? Is there a register
-that we can poll for the number of clock cycles that have passed?
-
-
-Best regards,
-Martin
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> ---
+>  .../platform/nxp/imx8-isi/imx8-isi-core.c     |  8 ++++
+>  .../platform/nxp/imx8-isi/imx8-isi-core.h     | 11 +++++
+>  .../platform/nxp/imx8-isi/imx8-isi-m2m.c      | 48 +++++++++++++++++++
+>  3 files changed, 67 insertions(+)
+>
+> diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
+> index 981648a03113..6eef45302e6c 100644
+> --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
+> +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
+> @@ -372,6 +372,7 @@ static int mxc_isi_pm_suspend(struct device *dev)
+>  		struct mxc_isi_pipe *pipe = &isi->pipes[i];
+>
+>  		mxc_isi_video_suspend(pipe);
+> +		mxc_isi_m2m_suspend(pipe);
+>  	}
+>
+>  	return pm_runtime_force_suspend(dev);
+> @@ -401,6 +402,13 @@ static int mxc_isi_pm_resume(struct device *dev)
+>  			 */
+>  			err = ret;
+>  		}
+> +
+> +		ret = mxc_isi_m2m_resume(pipe);
+> +		if (ret) {
+> +			dev_err(dev, "Failed to resume ISI%u (%d) for m2m\n", i,
+> +				ret);
+> +			err = ret;
+> +		}
+>  	}
+>
+>  	return err;
+> diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
+> index 206995bedca4..b979b79b5525 100644
+> --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
+> +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
+> @@ -343,6 +343,8 @@ int mxc_isi_video_buffer_prepare(struct mxc_isi_dev *isi, struct vb2_buffer *vb2
+>  #ifdef CONFIG_VIDEO_IMX8_ISI_M2M
+>  int mxc_isi_m2m_register(struct mxc_isi_dev *isi, struct v4l2_device *v4l2_dev);
+>  int mxc_isi_m2m_unregister(struct mxc_isi_dev *isi);
+> +void mxc_isi_m2m_suspend(struct mxc_isi_pipe *pipe);
+> +int mxc_isi_m2m_resume(struct mxc_isi_pipe *pipe);
+>  #else
+>  static inline int mxc_isi_m2m_register(struct mxc_isi_dev *isi,
+>  				       struct v4l2_device *v4l2_dev)
+> @@ -353,6 +355,15 @@ static inline int mxc_isi_m2m_unregister(struct mxc_isi_dev *isi)
+>  {
+>  	return 0;
+>  }
+> +
+> +static inline void mxc_isi_m2m_suspend(struct mxc_isi_pipe *pipe)
+> +{
+> +}
+> +
+> +static inline int mxc_isi_m2m_resume(struct mxc_isi_pipe *pipe)
+> +{
+> +	return 0;
+> +}
+>  #endif
+>
+>  int mxc_isi_channel_acquire(struct mxc_isi_pipe *pipe,
+> diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-m2m.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-m2m.c
+> index 22e49d3a1287..fe9d85335b6c 100644
+> --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-m2m.c
+> +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-m2m.c
+> @@ -732,6 +732,54 @@ static const struct v4l2_file_operations mxc_isi_m2m_fops = {
+>  	.mmap		= v4l2_m2m_fop_mmap,
+>  };
+>
+> +/* -----------------------------------------------------------------------------
+> + * Suspend & resume
+> + */
+> +
+> +void mxc_isi_m2m_suspend(struct mxc_isi_pipe *pipe)
+> +{
+> +	struct mxc_isi_m2m *m2m = &pipe->isi->m2m;
+> +	struct mxc_isi_m2m_ctx *ctx = m2m->last_ctx;
+> +
+> +	/*
+> +	 * Check pipe for ISI memory to memory since only
+> +	 * channel 0 support this feature.
+> +	 */
+> +	if (m2m->pipe != pipe || m2m->usage_count == 0)
+> +		return;
+> +
+> +	v4l2_m2m_suspend(m2m->m2m_dev);
+> +
+> +	if (ctx->chained)
+> +		mxc_isi_channel_unchain(pipe);
+> +
+> +	mxc_isi_channel_disable(pipe);
+> +	mxc_isi_channel_put(pipe);
+> +}
+> +
+> +int mxc_isi_m2m_resume(struct mxc_isi_pipe *pipe)
+> +{
+> +	struct mxc_isi_m2m *m2m = &pipe->isi->m2m;
+> +	struct mxc_isi_m2m_ctx *ctx = m2m->last_ctx;
+> +
+> +	/*
+> +	 * Check pipe for ISI memory to memory since only
+> +	 * channel 0 support this feature.
+> +	 */
+> +	if (m2m->pipe != pipe || m2m->usage_count == 0)
+> +		return 0;
+> +
+> +	mxc_isi_channel_get(pipe);
+> +
+> +	if (ctx->chained)
+> +		mxc_isi_channel_chain(pipe, false);
+> +
+> +	m2m->last_ctx = NULL;
+> +	v4l2_m2m_resume(m2m->m2m_dev);
+> +
+> +	return 0;
+> +}
+> +
+>  /* -----------------------------------------------------------------------------
+>   * Registration
+>   */
+> --
+> 2.34.1
+>
 
