@@ -4,65 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68EFFC83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Jul 2025 12:12:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D445C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Jul 2025 12:14:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Vv5TWpEB6gsRzedrfh2ltipaqB9vueeGyIpbpJfQaY0=; b=f6PmgL1343Jiw60fr6VJ/EhLCg
-	BgdtrKTiCAtKpbRlSSmDm6pjYDg4b3eQbcUpt/kodslNgCXgYBVxjsVLcKOea5eseuFcsC8nlJvFi
-	WH9MdP/EMvXAIh/R1Fvz3hshPSbSz65tLWWUkJzbeZhcagV3KTn8eaAy3J+soyCW7yFxlr32TaSq6
-	zZmQi50cP0rTKM+d9vXkSMp2hDlOzToPHVLyhWKO5+HSD2ujuYCO/093bN6n5Jlp8xbSIplTnewyO
-	SIOGTn2QU/vGSCBpHvcz9y7hTFzB9N0fm8S6YEsydJ+AG58Wkonzam490oJneSTl5rjeEpqyorcyK
-	RHYV3wvw==;
+	bh=q/bShRskAr6RPGlQMi2JoRFa3cMfRMsav3q4ioTmjY8=; b=z/sAnJKt5x3SfB69uB3m+MXhh8
+	47lAS25sOTZvZ44BHqYyX52DqXcZTYAHog0QBxSBplSO/BDCuJ8NBYq+HJKW/UCvJY9SvHQkJn8mL
+	tol9REPGqEGRjJwEHiYEJBuzL6ulzAvMI1A/6DPvYSt/zuMOXWwspyNAbaIkhEgwQsUd5vNRi8b5T
+	iCAk23jDtOyRGvM2CLROhJgIvmbro2i3O7YAcig99K/eKR9Z0tvcdHr4gRPWMsgy21PT6nJS0tZfg
+	s6zb0cwFOZIyz9BSnZpX0WbSkhShAzDuohqGeS2jifi+Gtb+F/rPEubFX3d7wYi8b5EvtgKw5LM9R
+	LVYO8LSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucjwb-0000000CYDl-0l3E;
-	Fri, 18 Jul 2025 12:12:05 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1ucjz0-0000000CYVO-3kgS;
+	Fri, 18 Jul 2025 12:14:34 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucizM-0000000CP3c-1nMX
+	id 1ucj0j-0000000CPBi-3DGz
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Jul 2025 11:10:54 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.231])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4bk6W943lmz6M4jb;
-	Fri, 18 Jul 2025 19:09:25 +0800 (CST)
-Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
-	by mail.maildlp.com (Postfix) with ESMTPS id DC339140371;
-	Fri, 18 Jul 2025 19:10:43 +0800 (CST)
-Received: from localhost (10.203.177.66) by frapeml500008.china.huawei.com
- (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Fri, 18 Jul
- 2025 13:10:43 +0200
-Date: Fri, 18 Jul 2025 12:10:42 +0100
-From: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-To: Alireza Sanaee <alireza.sanaee@huawei.com>
-CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<coresight@lists.linaro.org>, <dianders@chromium.org>,
-	<james.clark@linaro.org>, <krzk@kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-perf-users@vger.kernel.org>,
-	<linuxarm@huawei.com>, <mark.rutland@arm.com>, <mike.leach@linaro.org>,
-	<robh@kernel.org>, <ruanjinjie@huawei.com>, <saravanak@google.com>,
-	<shameerali.kolothum.thodi@huawei.com>, <suzuki.poulose@arm.com>
-Subject: Re: [PATCH v3 1/6] of: add infra for finding CPU id from phandle
-Message-ID: <20250718121042.00007fe5@huawei.com>
-In-Reply-To: <20250718094848.587-2-alireza.sanaee@huawei.com>
-References: <20250718094848.587-1-alireza.sanaee@huawei.com>
-	<20250718094848.587-2-alireza.sanaee@huawei.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	Fri, 18 Jul 2025 11:12:17 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 3646D601D9;
+	Fri, 18 Jul 2025 11:12:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DFF00C4CEF6;
+	Fri, 18 Jul 2025 11:12:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1752837136;
+	bh=24+36KjjrD0NWHFuhivqLnbkQAQ1TArPFkrRpr8pj5g=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=R33nzHIyLv9AcgRjbXDMPz6PgR+4A1Li7+48f5b1sAgJYu9/fWJTkOu53F9AZePSv
+	 3jRSnNtZimbz4wu22en5eZD9jqnCbx5kYs+DpL0PwVw9KNzM+sTPwjMHbT/DggAbv/
+	 AvnC3S1suKWCtQrtvgdtASh5w+uk3IggRNy4ocLiWQVEwDO55/++6On1RjzoWNw/XS
+	 szI4BdxAbeTGEIqebNZH6JEH5K/jhpEVGaG5taxhjY2Jc3RrLh5kH+CFuiQH4iBsCn
+	 UhJ5aRXpIe0X+WG5LIPfXLk2x87z/a8nA/IjHqkajkdDvNFEFljagNaxCu5Zuydao8
+	 EqXL3ZWhQ3giw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1ucj0g-00Gt2B-UD;
+	Fri, 18 Jul 2025 12:12:15 +0100
+From: Marc Zyngier <maz@kernel.org>
+To: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org
+Cc: Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Eric Auger <eric.auger@redhat.com>
+Subject: [PATCH 2/4] KVM: arm64: Clarify the check for reset callback in check_sysreg_table()
+Date: Fri, 18 Jul 2025 12:11:52 +0100
+Message-Id: <20250718111154.104029-3-maz@kernel.org>
+X-Mailer: git-send-email 2.39.2
+In-Reply-To: <20250718111154.104029-1-maz@kernel.org>
+References: <20250718111154.104029-1-maz@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.203.177.66]
-X-ClientProxiedBy: lhrpeml100003.china.huawei.com (7.191.160.210) To
- frapeml500008.china.huawei.com (7.182.85.71)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250718_041052_609857_C18C3EAB 
-X-CRM114-Status: UNSURE (   9.93  )
-X-CRM114-Notice: Please train this message.
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, eric.auger@redhat.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,21 +83,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 18 Jul 2025 10:48:43 +0100
-Alireza Sanaee <alireza.sanaee@huawei.com> wrote:
+check_sysreg_table() has a wonky 'is_32" parameter, which is really
+an indication that we should enforce the presence of a reset helper.
 
-> Get CPU ID from phandle. Some drivers such as coresight, cti-coresight,
-> or arm-dsu use this API for finding CPU node in DT. In particular,
-> drivers do this by getting the CPU device_node through a phandle and
-> then find the CPU ID using of_cpu_node_to_id(). This commit encapsulates
-> CPU node finding and improves readability.
-> 
-> The API interface takes three parameters, 1) node, 2) pointer to
-> pointer of CPU node, 3) CPU node index. API sets the pointer to the CPU
-> node and allows the driver to work with the CPU node, for logging
-> purposes for instance.
-> 
-> Signed-off-by: Alireza Sanaee <alireza.sanaee@huawei.com>
+Clean this up by naming the variable accordingly and inverting the
+condition. Contrary to popular belief, system instructions don't
+have a reset value (duh!), and therefore do not need to be checked
+for reset (they escaped the check through luck...).
 
-Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+---
+ arch/arm64/kvm/sys_regs.c | 14 +++++++-------
+ 1 file changed, 7 insertions(+), 7 deletions(-)
+
+diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+index af743494538a2..f8b10966d0c3e 100644
+--- a/arch/arm64/kvm/sys_regs.c
++++ b/arch/arm64/kvm/sys_regs.c
+@@ -4335,12 +4335,12 @@ static const struct sys_reg_desc cp15_64_regs[] = {
+ };
+ 
+ static bool check_sysreg_table(const struct sys_reg_desc *table, unsigned int n,
+-			       bool is_32)
++			       bool reset_check)
+ {
+ 	unsigned int i;
+ 
+ 	for (i = 0; i < n; i++) {
+-		if (!is_32 && table[i].reg && !table[i].reset) {
++		if (reset_check && table[i].reg && !table[i].reset) {
+ 			kvm_err("sys_reg table %pS entry %d (%s) lacks reset\n",
+ 				&table[i], i, table[i].name);
+ 			return false;
+@@ -5334,11 +5334,11 @@ int __init kvm_sys_reg_table_init(void)
+ 	int ret = 0;
+ 
+ 	/* Make sure tables are unique and in order. */
+-	valid &= check_sysreg_table(sys_reg_descs, ARRAY_SIZE(sys_reg_descs), false);
+-	valid &= check_sysreg_table(cp14_regs, ARRAY_SIZE(cp14_regs), true);
+-	valid &= check_sysreg_table(cp14_64_regs, ARRAY_SIZE(cp14_64_regs), true);
+-	valid &= check_sysreg_table(cp15_regs, ARRAY_SIZE(cp15_regs), true);
+-	valid &= check_sysreg_table(cp15_64_regs, ARRAY_SIZE(cp15_64_regs), true);
++	valid &= check_sysreg_table(sys_reg_descs, ARRAY_SIZE(sys_reg_descs), true);
++	valid &= check_sysreg_table(cp14_regs, ARRAY_SIZE(cp14_regs), false);
++	valid &= check_sysreg_table(cp14_64_regs, ARRAY_SIZE(cp14_64_regs), false);
++	valid &= check_sysreg_table(cp15_regs, ARRAY_SIZE(cp15_regs), false);
++	valid &= check_sysreg_table(cp15_64_regs, ARRAY_SIZE(cp15_64_regs), false);
+ 	valid &= check_sysreg_table(sys_insn_descs, ARRAY_SIZE(sys_insn_descs), false);
+ 
+ 	if (!valid)
+-- 
+2.39.2
+
 
