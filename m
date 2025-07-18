@@ -4,134 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C841FC83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Jul 2025 10:19:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F46FC83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Jul 2025 10:22:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=72fuRZDHA2C4w80oHJ+JOeIuL4vnW4n3bjADol5r4EQ=; b=L/G+BBO/zS/+eDqTQUOdmAEmEB
-	P/bawz8qd72Kg0noMmqcScQT3e6DB+ztIzEXc6Bz4xTZ4rJUv2vUGdDki2Nw7HpawCILjYJcPg9yX
-	6k5BfqAvsXKwjSfHJrMDSejxIBoY/M0XGKiJyfP4M5QMsLiREh0owW0v/yBYE6ecRyucNAqUVnvPY
-	2vsNpXptzRac1CFfTQCuV459Dh7U896e1vi0cT3OYq9hkXM1KKxniSeU8o0F7E54/WFOMf0bZtvE0
-	ECOWQHeB9xYBr3BIM8DmSzfkElvjXDFwDh/3v+o5qgn1prJaNcCsLmWYQmjFOpwa+CwjOzGrkr+GZ
-	jGOxxliw==;
+	bh=4EBd4deoSlWWu5r7TOgG4vdhxOZPcQceO0h84RqTHMo=; b=cLTT2NXUZwCf5nnKkErpYD/llE
+	hRWHycIyOS7AkogdbZlyoMsA/n+KYEJzZKhItskEM+QXXWgPSg5D5Svfjrukum1zIfsfnkj5BGhfy
+	DlooWQmAFFyma03QeK2Xc/cwolqdw/a2sHUp5jPRal1U70HbMub1IponFZ36FJGTDKtA1edyPufL5
+	pklngss1WpN6YY8BWP9KaRikUFligcLv2LLZO3xWBfpn6tVNocLu5EwY+B4z9AYuh7bp+XC/q2ziq
+	IFh8vOyQrNG9P3qusdm8TjDZt3Qz7/YWd8ATf8AK0c9yNnnX6eWSzsdq8VwoUWYmy/0O1X94s6nFR
+	7IHA9z4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uciBj-0000000CHfK-0OZk;
-	Fri, 18 Jul 2025 10:19:35 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1uciE9-0000000CHzf-3x08;
+	Fri, 18 Jul 2025 10:22:05 +0000
+Received: from mail-pg1-x532.google.com ([2607:f8b0:4864:20::532])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uchWF-0000000CCvc-2hAz
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Jul 2025 09:36:44 +0000
-Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56I70LSl022251
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Jul 2025 09:36:42 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	72fuRZDHA2C4w80oHJ+JOeIuL4vnW4n3bjADol5r4EQ=; b=OOpgf8hoD7V37vAx
-	B2k1F++oE8DrbU5e9psagCXnTfbdUG664WOHtYv5bXYTWSZYWUNVbXFOTKF+VkTE
-	TXrVjMF0uzp9pzSoumW8oAW0JzeYMw3u78Uq4vO+tA2Vo/oRw4kmLFp6KbLdJP1K
-	z+UBkzh8jHVpRKXM462OwntkvVH1VQRzmwnLzNSAVMI2vj2apa9WVuOQlMILUhBH
-	x6VDwpiZ79+qs9zOGAo+M5i/fIlsNJlSbOIdAzRQYIhLE0RnIBDGh35ZZ5SMtaPU
-	7iRu1qFz+yqEuuAEvTLCIOXQuZ6rlIPZTGqOvXBeYKRwdjsUzoJF6wzs6JfWbc1J
-	Zqaleg==
-Received: from mail-pl1-f197.google.com (mail-pl1-f197.google.com [209.85.214.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 47wqsyayva-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Jul 2025 09:36:42 +0000 (GMT)
-Received: by mail-pl1-f197.google.com with SMTP id d9443c01a7336-235c897d378so18003395ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Jul 2025 02:36:42 -0700 (PDT)
+	id 1uchXQ-0000000CD4c-2T3W;
+	Fri, 18 Jul 2025 09:37:57 +0000
+Received: by mail-pg1-x532.google.com with SMTP id 41be03b00d2f7-b38fdac002bso307236a12.0;
+        Fri, 18 Jul 2025 02:37:55 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1752831475; x=1753436275; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=4EBd4deoSlWWu5r7TOgG4vdhxOZPcQceO0h84RqTHMo=;
+        b=Dp3V6KhDKNLCiMKeoopG4BGwVsVHHDMRT2okIlrm7rWalbobed+cGLwgqZtIhcv3N+
+         GK4qV/gxYP1sMFhBJbRGkO5KR0JcdfUCYx91Nj3oBfBkhN3oFp6YB5bqux7JYr3xcSbM
+         pl2M6rgDm9tBzF0RymDJ6p+wdETByDOco+B7WoG3jui309q5IdKSctPxF4LsAGcLyI5I
+         LSuI1oCNml2yb9LJeuhBZ6wGQVxrniMXgAp8kfOnkt9jzC1e3X1PkY8mCqytt1NbHVp+
+         Dhk4U5eJZjhdomFlh0pJoJJ8s7e2JhUUZz7yFN8SPRnEg5dr/d9hRI4xeSXCJq3qFqM8
+         vV9g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752831401; x=1753436201;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=72fuRZDHA2C4w80oHJ+JOeIuL4vnW4n3bjADol5r4EQ=;
-        b=h/20pdAEl8mTG/Qol6XaHemOcJXQ9an6ZdIq2X4t/IkV0zGBA8Om7ZD8t5rzN4LUad
-         cNINXHGFc53Kdg8kGrcvWXbHTviysp07aFJPl5/f/LXwnOzg/TPVREaNXFN0V+bBYKFy
-         hSgoNpJeyXACnu3oeD2gvNSsjw5CMSiQj/PzlVW3a9paJxXTcoeg7P9leW1XiNfY/4Ct
-         u1U7XS9uiKfD6dVdM9m0jY6p4JxYjmLMzYI/oe1MERZ2+IfCEoloSetgigPM5CXWpq/U
-         cxFPqI+ralYjTa1xJdkTQjxE43Q+4SARh5Dk9iLlvb0OWZ8wDuenW6rtPbWZh2tWEI+p
-         c02A==
-X-Forwarded-Encrypted: i=1; AJvYcCWFvw4aUL782mukHTWul9BV2y5/PQwmbpseyq4SfnPVL5jH4jOBe8++309tCu+tN7/K+w6NXDBQPTqWkSRZLuMY@lists.infradead.org
-X-Gm-Message-State: AOJu0YyxZaK7iVSOUUZbUS8dXwUSS/6Q6BmnLp1HJwS9wjqGNdAmIHTC
-	jcCn8riGkvR2TLTDp/Ki0BKYhLir2aQvmencyqZ6fnK7fq19rx1Q7dnng0PtNVfsAU892erYVKn
-	0IgSzHO1iOZICPg8HbKxO0+aX2b9QtlIDNWIxPDJqEh8Ir16ki4IBFOvS1VB045mrNxgWsKfysi
-	eoZA==
-X-Gm-Gg: ASbGncvsapgXB3NC8vnsqO6HtRlcaqe8DRQbTnuUy+YPR2BS/wf9MgmPpHlFIlrCWEP
-	BuZZUYyib9qNqMmOK4798jV/xMC1BCmv5IQvnaLt7GV3+vJOdlFazOqUYiLSh52Pi4Um8hoX9vU
-	wTOzcnmy2gKq6U63UKSr8r1y8yC0juZICzGtnxs5MWNRldPt9eCuc0iRI3CdY6VgkAx5d1PaNZS
-	M6otZ48oCZm3u+h08WQHEArLHV0HfBG0sdR5JbF4tjKBxeA2oBWH3Wz6aUStMS/qdpgEaNr0UUW
-	5YBH/y8KyhZYgOobihR4FxZKByfBspRSRQOufCux+5OiTqiZ5iKR5c0lJPun2+D+7Uw3Nlt4WLJ
-	o73VZFVZ7x+ocMyXGU+5w8us=
-X-Received: by 2002:a17:902:c943:b0:234:ba37:87a5 with SMTP id d9443c01a7336-23e24f4a7c9mr130870395ad.25.1752831401603;
-        Fri, 18 Jul 2025 02:36:41 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IEp4sFfqHaGHRuWJ/EeS/AGLmlnSykkRcmXhCvLfBNJz2Ba7o/Pxq0DoSFqc2RPSb3hpiQ0Kw==
-X-Received: by 2002:a17:902:c943:b0:234:ba37:87a5 with SMTP id d9443c01a7336-23e24f4a7c9mr130869955ad.25.1752831401127;
-        Fri, 18 Jul 2025 02:36:41 -0700 (PDT)
-Received: from [10.133.33.13] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23e3b6d2a82sm9687825ad.156.2025.07.18.02.36.35
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 18 Jul 2025 02:36:40 -0700 (PDT)
-Message-ID: <da49f445-7365-4863-bb41-f7a55150c4dd@oss.qualcomm.com>
-Date: Fri, 18 Jul 2025 17:36:33 +0800
+        d=1e100.net; s=20230601; t=1752831475; x=1753436275;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=4EBd4deoSlWWu5r7TOgG4vdhxOZPcQceO0h84RqTHMo=;
+        b=OdnV3g+fgfSXzrUCrYMtcKf7tdcGYE/THKi1A/ahgBIN/NxcR+9WRXk5LhC3LdIKjB
+         +hWrXQZOu3fk9XU19yNxYopwm5wKm4tj8epJCGcoKS+uNWcssi/cG8nQK2p70kt3XMPE
+         MiRv9AM9klORFc90bcy50u2cwGP0SGDsMhrKWG5xA1UWCVsRA+qQ1cYJ9TSt1LeyTvuf
+         qrFntVI1jqgtruFI2pk4bT9QpvDk0OPRxDFRXvxqB2pU0aCmEsW2rXZnY9LHcEFUboxE
+         ozXnAnywHH+ioOxXZJlAuSh5sGqGGqYuvdioaoJaoNfp7XuCTJpgYBmQVfKg2VZqTwxg
+         LrGA==
+X-Forwarded-Encrypted: i=1; AJvYcCV5v1YFnBxg/ESbBUI+HXSSYZlBxPlFfRpmf7L5t9i4LyRbnCzMzEm4AqtybBCKfU49lNHJXxEfuHQwHtXCobv1@lists.infradead.org, AJvYcCWkXcpNkL1PVkg6DFOJcACy8FZbKv3yC2BggAwOOLTBnwnFwE/OazozM/SB4QBftOzKL7cPDGpo/mH3Gqdh9wk=@lists.infradead.org
+X-Gm-Message-State: AOJu0YzEp7SJU45CYSL8Hns8P+ZCAuiH0RQQWeOGNkeLHaN5VoIFBWTM
+	0u0IY0I/IqHeA/8uWEhLqMv5J/vq8i/ei31oxajbVw59DN6ThoGb/enC
+X-Gm-Gg: ASbGncuVb8lR93VtYtXFl5vX+mi3w515f+gMSvhb31T0Z3rGxQasDPpM7bSHSJHhVe9
+	enPGMsBmJR6wxdsTj5b1An6naUCL0HgFY2MxIBaO7X5sx9/k5Yf70xBMLl58Ehc/Uq+sW94KG2W
+	1+zGaN8fYMLOJ25CRxjPJUprdIVvctCc1kQgeyW6BK0hQYs63c+98OhyCtl9TZ7+Dlkfy3Q3bL7
+	9zU2HQVh3/CMzaEf4sQZzfpOr88bHxEZMmvWCIWaiXeKeHs6fIjVFTjyBPaSVd1oKmxN0lSSFaC
+	tTejc6fF20ns/JfHCy+WQUsrFJ5sqcSCKlEvnofHMqR0vm39+hYAiQ0UdbJaJ/6rAacP7giou5G
+	6ukTQpFZjxJ2TU80JmREguv1wuapLRg==
+X-Google-Smtp-Source: AGHT+IGCUC6qtOTPLVD5EFj2fkX/fbe7ZYZSvuYuyD99VU2oBiOtt+o9kheMsFPNhNInYamunyzPbA==
+X-Received: by 2002:a05:6a00:300b:b0:736:6ecd:8e39 with SMTP id d2e1a72fcca58-756e80a30abmr6780556b3a.2.1752831475105;
+        Fri, 18 Jul 2025 02:37:55 -0700 (PDT)
+Received: from rock-5b.. ([111.172.109.143])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-759cbc68ba1sm908771b3a.146.2025.07.18.02.37.49
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 18 Jul 2025 02:37:54 -0700 (PDT)
+From: Jianfeng Liu <liujianfeng1994@gmail.com>
+To: liujianfeng1994@gmail.com
+Cc: detlev.casanova@collabora.com,
+	heiko@sntech.de,
+	kernel@collabora.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-media@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	mchehab@kernel.org,
+	nicolas.dufresne@collabora.com,
+	nicolas.frattaroli@collabora.com,
+	jonas@kwiboo.se,
+	benjamin.gaignard@collabora.com
+Subject: Re: [PATCH 00/12] media: rkvdec: Add support for VDPU381 and VDPU383
+Date: Fri, 18 Jul 2025 17:37:46 +0800
+Message-ID: <20250718093746.631072-1-liujianfeng1994@gmail.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250714144610.258372-1-liujianfeng1994@gmail.com>
+References: <20250714144610.258372-1-liujianfeng1994@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 RESEND 02/10] coresight: core: add a new API to
- retrieve the helper device
-To: Mike Leach <mike.leach@linaro.org>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
-        James Clark <james.clark@linaro.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
- <conor+dt@kernel.org>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-        Tingwei Zhang <quic_tingweiz@quicinc.com>,
-        Yuanfang Zhang <quic_yuanfang@quicinc.com>,
-        Mao Jinlong <quic_jinlmao@quicinc.com>,
-        Jie Gan <quic_jiegan@quicinc.com>, coresight@lists.linaro.org,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org
-References: <20250714063109.591-1-jie.gan@oss.qualcomm.com>
- <20250714063109.591-3-jie.gan@oss.qualcomm.com>
- <CAJ9a7VikU9UktC-fpLfR5EdpGupHHor2GaDGAujBnQJky=W17w@mail.gmail.com>
-Content-Language: en-US
-From: Jie Gan <jie.gan@oss.qualcomm.com>
-In-Reply-To: <CAJ9a7VikU9UktC-fpLfR5EdpGupHHor2GaDGAujBnQJky=W17w@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNzE4MDA3NSBTYWx0ZWRfX8+6y3EwhLH5F
- 9y4jm95IX4u4wGF0fqItwIKLAy1WltSrZPgw062yCxeOOiAHPc6MGnbb3PWPoW9//flG25gjOd1
- FTLNuqrBfIhdni0zTRKjgCVDXIaUib3DzfeBUlWwk9v8qEIaCD5vID0e3rB5nDJIi/AUC1l6jq0
- Uc0BH5JJkwvePxV2HrLweg3UbAB0qm5H00CeWLDTsWt0wXg0iFT8eaA8rqdTD+BrYsZWUb2sbT7
- OR4QQX11hqRTaCuu4ZWdN4QPgwHzjOiXWsfP6/W/sjL75JtbiLQCr1WjbZ7Cg/Zr4YRX5W5zszB
- BrDBVfLRuYeJQX7hqmGbKsq0lsfzqi6wtv1kcwexky0g/+uLvHegdfxVtOSELqmOEwZ/6PrikqP
- 3TOGCoQS6IuOvkOVfxkMQq//ckIpU3R2eVGzsnfLB90bkXJ7BuFZnLdEHcTRanJ9e4zekcL6
-X-Proofpoint-GUID: 7JxT4LD89EBrudH-rS7l6GKWuK7duNf0
-X-Proofpoint-ORIG-GUID: 7JxT4LD89EBrudH-rS7l6GKWuK7duNf0
-X-Authority-Analysis: v=2.4 cv=McZsu4/f c=1 sm=1 tr=0 ts=687a15aa cx=c_pps
- a=cmESyDAEBpBGqyK7t0alAg==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
- a=IkcTkHD0fZMA:10 a=Wb1JkmetP80A:10 a=EUspDBNiAAAA:8 a=4z_qIjeFvS-qpd6pgFUA:9
- a=QEXdDO2ut3YA:10 a=1OuFwYUASf3TG4hYMiVC:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-07-18_02,2025-07-17_02,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 mlxlogscore=999 impostorscore=0 mlxscore=0 phishscore=0
- adultscore=0 lowpriorityscore=0 bulkscore=0 clxscore=1015 suspectscore=0
- spamscore=0 priorityscore=1501 classifier=spam authscore=0 authtc=n/a authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2505280000
- definitions=main-2507180075
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250718_023643_689433_3618CBA2 
-X-CRM114-Status: GOOD (  24.29  )
+X-CRM114-CacheID: sfid-20250718_023756_625986_A4E67292 
+X-CRM114-Status: GOOD (  14.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,94 +107,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi,
 
+On Mon, 14 Jul 2025 22:46:10 +0800, Jianfeng Liu wrote:
+>You are right, the code of chromium should be fixed for frame size type
+>V4L2_FRMSIZE_TYPE_CONTINUOUS.
 
-On 7/18/2025 4:37 PM, Mike Leach wrote:
-> Hi,
-> 
-> On Mon, 14 Jul 2025 at 07:31, Jie Gan <jie.gan@oss.qualcomm.com> wrote:
->>
->> Retrieving the helper device of the specific coresight device based on
->> its helper_subtype because a single coresight device may has multiple types
->> of the helper devices.
->>
->> Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
->> ---
->>   drivers/hwtracing/coresight/coresight-core.c | 30 ++++++++++++++++++++
->>   drivers/hwtracing/coresight/coresight-priv.h |  2 ++
->>   2 files changed, 32 insertions(+)
->>
->> diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
->> index 5297a5ff7921..76e10c36a8a1 100644
->> --- a/drivers/hwtracing/coresight/coresight-core.c
->> +++ b/drivers/hwtracing/coresight/coresight-core.c
->> @@ -580,6 +580,36 @@ struct coresight_device *coresight_get_sink(struct coresight_path *path)
->>   }
->>   EXPORT_SYMBOL_GPL(coresight_get_sink);
->>
->> +/**
->> + * coresight_get_helper: find the helper device of the assigned csdev.
->> + *
->> + * @csdev: The csdev the helper device is conntected to.
->> + * @type:  helper_subtype of the expected helper device.
->> + *
->> + * Retrieve the helper device for the specific csdev based on its
->> + * helper_subtype.
->> + *
->> + * Return: the helper's csdev upon success or NULL for fail.
->> + */
->> +struct coresight_device *coresight_get_helper(struct coresight_device *csdev,
->> +                                             int type)
->> +{
->> +       int i;
->> +       struct coresight_device *helper;
->> +
->> +       for (i = 0; i < csdev->pdata->nr_outconns; ++i) {
->> +               helper = csdev->pdata->out_conns[i]->dest_dev;
->> +               if (!helper || !coresight_is_helper(helper))
->> +                       continue;
->> +
-> 
-> Manipulating the connections list almost certainly requires some
-> locking. See other functions in this file
-> 
+I have just sent a cr at chromium[1] to fix this.
 
-Thanks for pointing out. I will fix it in next version.
+>I have checked that this issue is not introduced by your series. After
+>reverting this commit[2] which adds Support High 10 and 4:2:2 profiles,
+>chromium can play video well on rk3399. I will investigate further.
 
-Thanks,
-Jie
+I found that this issue is caused by this code block[2]. Before adding
+.get_image_fmt, rkvdec_s_ctrl will just return 0. But now when detecting
+image format change(usually from RKVDEC_IMG_FMT_ANY to real video format
+like RKVDEC_IMG_FMT_420_8BIT), it will return -EBUSY, then I get green
+frame at chromium.
 
-> Mike
-> 
-> 
->> +               if (helper->subtype.helper_subtype == type)
->> +                       return helper;
->> +       }
->> +
->> +       return NULL;
->> +}
->> +EXPORT_SYMBOL_GPL(coresight_get_helper);
->> +
->>   /**
->>    * coresight_get_port_helper: get the in-port number of the helper device
->>    * that is connected to the csdev.
->> diff --git a/drivers/hwtracing/coresight/coresight-priv.h b/drivers/hwtracing/coresight/coresight-priv.h
->> index 07a5f03de81d..5b912eb60401 100644
->> --- a/drivers/hwtracing/coresight/coresight-priv.h
->> +++ b/drivers/hwtracing/coresight/coresight-priv.h
->> @@ -158,6 +158,8 @@ void coresight_path_assign_trace_id(struct coresight_path *path,
->>                                     enum cs_mode mode);
->>   int coresight_get_port_helper(struct coresight_device *csdev,
->>                                struct coresight_device *helper);
->> +struct coresight_device *coresight_get_helper(struct coresight_device *csdev,
->> +                                             int type);
->>
->>   #if IS_ENABLED(CONFIG_CORESIGHT_SOURCE_ETM3X)
->>   int etm_readl_cp14(u32 off, unsigned int *val);
->> --
->> 2.34.1
->>
-> 
-> 
+After taking a look at hantro's code, I find that it is not necessary to
+let .s_ctrl return -EBUSY when format changes, here is a commit[3]
+disabling this check in hantro_set_fmt_cap. I have written a patch that
+can fix my issue with chromium, you can see it at the bottom of my mail.
 
+[1] https://chromium-review.googlesource.com/c/chromium/src/+/6767118
+[2] https://github.com/torvalds/linux/blob/v6.16-rc6/drivers/staging/media/rkvdec/rkvdec.c#L143-L146
+[3] https://github.com/torvalds/linux/commit/bbd267daf4fc831f58bf4a2530a8b64881779e6a
+
+diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.c b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+index 5d86fb7cdd6..7800d159fad 100644
+--- a/drivers/media/platform/rockchip/rkvdec/rkvdec.c
++++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+@@ -185,7 +185,6 @@ static int rkvdec_s_ctrl(struct v4l2_ctrl *ctrl)
+ 	struct rkvdec_ctx *ctx = container_of(ctrl->handler, struct rkvdec_ctx, ctrl_hdl);
+ 	const struct rkvdec_coded_fmt_desc *desc = ctx->coded_fmt_desc;
+ 	enum rkvdec_image_fmt image_fmt;
+-	struct vb2_queue *vq;
+ 
+ 	/* Check if this change requires a capture format reset */
+ 	if (!desc->ops->get_image_fmt)
+@@ -193,11 +192,6 @@ static int rkvdec_s_ctrl(struct v4l2_ctrl *ctrl)
+ 
+ 	image_fmt = desc->ops->get_image_fmt(ctx, ctrl);
+ 	if (rkvdec_image_fmt_changed(ctx, image_fmt)) {
+-		vq = v4l2_m2m_get_vq(ctx->fh.m2m_ctx,
+-				     V4L2_BUF_TYPE_VIDEO_CAPTURE_MPLANE);
+-		if (vb2_is_busy(vq))
+-			return -EBUSY;
+-
+ 		ctx->image_fmt = image_fmt;
+ 		rkvdec_reset_decoded_fmt(ctx);
+ 	}
 
