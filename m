@@ -4,190 +4,161 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 584B3C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Jul 2025 16:51:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16349C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Jul 2025 16:54:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Type:References:Message-ID:Subject:To:From:Date:Reply-To:Cc:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w9FOQyE/Vv/gHUsm5VvXWZL73YhfyAvmTrMywulc6bI=; b=TBO/uA/YScnkGQOFAZg6iSIQpm
-	vBeM/yDbrZd5ezCXOmU3TMRLwr2DEkzlHUo6rAtZeyhVdBtyJ02EViOc16wpd41Uh3mVmDrejxGOi
-	VI3uAAf5W7I2G5uRDB4MQRiewjVQJhoPjn1E+HwpUlxI7I9nqYV/Cpt9M70JG5ix3omMlf9C6KJOr
-	djd9IHPthnINwEfneHt5GTqPlsXEkHon6MAU2KbVIl5bT5QOuXWaYmJPSvbjskZkAJsyhfD13hgBe
-	aOWredYhod3onSLgZVVJnsqH8NMUaSqMVMF4mdW05Kg+HNxfB6XcjAbGeWTTJjv61MkZ/9IWQD/96
-	hoK6PJWA==;
+	bh=SyVzP2cVa6vooAJufK1RtCsaf8p+yj63LRHsl68kDsE=; b=2cOoUhcMfMqp7vHoacpx1W/8J+
+	0fEhEU7QAypwP173rJarmoH1XYvRkxVzGQ+kgPVABmTD/HARpGwwbpiWBilp4ITYBav1syiZPsY7K
+	AWlhS/xe7Ss1fc6nh2i2uOZMHD32faOultkD+ij5CvYu1S6M5Q+T2I6ZRTbVU8fyBoz7OxuMh5VCk
+	IkpBkec3Eywrf5YD89CVoP0WcFbmxoDxjKXV9yFLSddY5SHXDJc4LgZSMhHCGMyC9e9qRJSINrUGs
+	V5rUHaXmWvsSi4OkmaM4J8cwXBm+JIxQfTgUziWfzrJNBW8Z8e2UyvpG5nQYuQ2hqElPubZNxg9g/
+	bh02YuFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucoJG-0000000DA1Y-0vny;
-	Fri, 18 Jul 2025 16:51:46 +0000
-Received: from mx0a-00069f02.pphosted.com ([205.220.165.32])
+	id 1ucoLg-0000000DADz-44GB;
+	Fri, 18 Jul 2025 16:54:17 +0000
+Received: from mail-westeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c201::5] helo=AS8PR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uco9G-0000000D7wY-30Ie
+	id 1ucoCO-0000000D8bt-3Sm8
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Jul 2025 16:41:27 +0000
-Received: from pps.filterd (m0246629.ppops.net [127.0.0.1])
-	by mx0b-00069f02.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56IFtrtn004446;
-	Fri, 18 Jul 2025 16:40:59 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=corp-2025-04-25; bh=w9FOQyE/Vv/gHUsm5V
-	vXWZL73YhfyAvmTrMywulc6bI=; b=UnR0uMjXi/sZcuYrWjKqjda24HyhFNrBm2
-	3vjXV1xYy3TX9EfnpozC295xCOZd2CO7NbrFYQa2OylgfCDmgDIbAouTQCsO8pCX
-	Fk+V+yWmz66u5VRwowckMVppkMpLfbWp44Ft45nmSfEaugFvA9Ss47HJmuYfXQln
-	HnkCN4RSVTQgzjjsAVBfjnpB9fnO1c461fiCffkEOgc0147KqdKZ21dhsdUy84Cm
-	jz0QdN6eH6IMJ8/DxM77BLvVItnfmku67zIKlbN3QKkaJg71MIRZx7dpufd6HNwF
-	50J/NbPJYYfMmTakWV9bogzUNG3s16UM+GPg6TQ4dhYmcRibCZ2A==
-Received: from iadpaimrmta01.imrmtpd1.prodappiadaev1.oraclevcn.com (iadpaimrmta01.appoci.oracle.com [130.35.100.223])
-	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 47uk6754v4-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 18 Jul 2025 16:40:59 +0000 (GMT)
-Received: from pps.filterd (iadpaimrmta01.imrmtpd1.prodappiadaev1.oraclevcn.com [127.0.0.1])
-	by iadpaimrmta01.imrmtpd1.prodappiadaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 56IFna5J013753;
-	Fri, 18 Jul 2025 16:40:57 GMT
-Received: from nam11-co1-obe.outbound.protection.outlook.com (mail-co1nam11on2074.outbound.protection.outlook.com [40.107.220.74])
-	by iadpaimrmta01.imrmtpd1.prodappiadaev1.oraclevcn.com (PPS) with ESMTPS id 47ue5dtg4u-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 18 Jul 2025 16:40:57 +0000
+	Fri, 18 Jul 2025 16:44:42 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=n8Z6mEERvkmjAPZeOKJQNBKE+Iv+ONILNia4XorGd/0eLySyPzTO6CkDAYGVj94+agGSsk2k47+7KnnyXZcHv0K7qfl/t47zK9CVyv1TVPPdAjURrfEmjaVDrZWr0GB1NGn+FvPmlkPAAnLVtZAGZ52/nSmZ7PjVVlUwp3PcP3I5U2xFkqmsCCv/0TeWGl/bwp9ohuJG3u9JaAunnnVCP2nfESkFkEpFH7yRnr68qRFQ1CuRFh4SLonlvtdILdlotrYmyYZPE1vkwAGFKI9xsrGkWviDg6bBRWz4kaYkib7VBdxLfhvgKbpskRGWDnP0UTo01mYlYZurNHobgJkOZA==
+ b=iZNWoQMHA5lEXJDSzbfJmiuddxqc48hMZHKt1uejOg+HmoMTnEDSlLRkqYFSDeQfoYrFF4cYs4TWNOoARULhkCHWtZgnBqDmm1z8bGDjg7T91ERTi5cqSnYRjXoOy+TV7lp23iWiBcQ//FHPjaAXReOQpYOpbvzWwVKBZLxk/JmbGaySba1jjIQy1GWAw8z665Xe9PXgpevUntdAIaiXsxijjXmj2o7BcQakYFGsp34ERl/R43hvLhg/QT7ijkOey8AtS9GZyYEv1oMQskxOO50qTj5GNsRdz39sbqL5oTLxf7w2+YzLW1EP5MzcRuDDFtEnBs+06FhEJZJ2kJZZYw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=w9FOQyE/Vv/gHUsm5VvXWZL73YhfyAvmTrMywulc6bI=;
- b=dGJulFm/IS4f58ifnWUQzAK+rONytGHM6VubI/VnxsKBDKCzs56FjqLe/bNjAGIxexHtjsSv+48WVRh/a88N9/UD7JEck+FrduiuWeI978dyReaKsm4F96JEeUP3X5WOqoGaYbFq6tvHK8i/5SFfdBux/kuC+mA7o3TYmwI594yBxWgrzwEOYjwXup6YPVZa7jD3eswo9IPzF0zIQ/9Ubw0cLBs5y3JuaQpr1I/+d2JZ5pEjAv25qds2Lp/s1fA3ea154QG/DOvJQR+2DQSdyFxccGuQIwnzHYLytaRuSfBVZ5RPtSS+4gko/U9V/qCisxcjNRUvDh9wb6erOuAloA==
+ bh=SyVzP2cVa6vooAJufK1RtCsaf8p+yj63LRHsl68kDsE=;
+ b=UFyGopNx1hSeKHLxP/wEhQeppxsNmD/dZdEZSYnAOtbx5HYXg5eOGdd+UVpUzYsBVXXKi1XgiuT2DO8k+4R9x5SJGHaXKOcM2VVF4OtqStdUUZLQuCYafzIQxrnGf7GOgIR8lTmSVnG0qgqEOJ732vAbbJuUaFiXdz+I2IkrVBdOg+jvy3iQ0vix3bU6XyJ8RGo+/sJj9w8z9CKULqsXVhkdG3Ggw0AMbhxLtuBbOMuI+Qyce7VHY5vSwpNYBgIMHzoRjNQ4qyRlc07TkVbBQ5dbQeQTOAeR+5mKSKgE3dp6ZsY4RaHEmyNIC2nvr6P/WAlmQC5G93dt1xohEA7/NQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
- dkim=pass header.d=oracle.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=w9FOQyE/Vv/gHUsm5VvXWZL73YhfyAvmTrMywulc6bI=;
- b=S8q9QOB4X6aqrDEiF/Wp8/PnIHyUG8JDS+IRuHZa0CoQfh61JsZazwv+dFEqlQXlloOQct4nguvZE2UXCMlnoxLJo1luGqtucOL1Wk/QGRaH4tEXIoM+0uorYx5sIPepRXHy1t7SdRu2AgJVIObmIAFZb2Jw4SjZ3+Z9XnJanbA=
-Received: from DM4PR10MB8218.namprd10.prod.outlook.com (2603:10b6:8:1cc::16)
- by SJ0PR10MB4543.namprd10.prod.outlook.com (2603:10b6:a03:2d9::17) with
+ bh=SyVzP2cVa6vooAJufK1RtCsaf8p+yj63LRHsl68kDsE=;
+ b=cywv8aTe+DlVinoDFfomMs3qCi298RSRV39mRPd9NhJA1i3kZe4FXFPpDQGF19KtWxbWw+ZupxQI8IeI0r+6s3DY09tNIjMg+Au1mtZOeV2KYyzzGe3kSC6AhH133UYqHLczt5XZVzbTbWo4DFJQ/Hdicu6j3AdvO+UZRWdm5PPglTEdpyxLRxZX/b5DUYUUvUz3LRh9hqgaYjVAg7Stiwzruyxb5/j8bBymHbJDwWuTkCuQBouk7pCpBlOIopeowX/Bq145sz6M1usKEwG1T/7MD3KlxWisFbrBvRTq5n4cwX6BZJhZkGkYeuRo6+TSFv9vgwK0yq7oyTzWSlJehQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by AM9PR04MB8414.eurprd04.prod.outlook.com (2603:10a6:20b:3ef::10) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8922.39; Fri, 18 Jul
- 2025 16:40:54 +0000
-Received: from DM4PR10MB8218.namprd10.prod.outlook.com
- ([fe80::2650:55cf:2816:5f2]) by DM4PR10MB8218.namprd10.prod.outlook.com
- ([fe80::2650:55cf:2816:5f2%6]) with mapi id 15.20.8922.037; Fri, 18 Jul 2025
- 16:40:54 +0000
-Date: Fri, 18 Jul 2025 17:40:52 +0100
-From: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
-To: Dev Jain <dev.jain@arm.com>
-Cc: akpm@linux-foundation.org, ryan.roberts@arm.com, david@redhat.com,
-        willy@infradead.org, linux-mm@kvack.org, linux-kernel@vger.kernel.org,
-        catalin.marinas@arm.com, will@kernel.org, Liam.Howlett@oracle.com,
-        vbabka@suse.cz, jannh@google.com, anshuman.khandual@arm.com,
-        peterx@redhat.com, joey.gouly@arm.com, ioworker0@gmail.com,
-        baohua@kernel.org, kevin.brodsky@arm.com, quic_zhenhuah@quicinc.com,
-        christophe.leroy@csgroup.eu, yangyicong@hisilicon.com,
-        linux-arm-kernel@lists.infradead.org, hughd@google.com,
-        yang@os.amperecomputing.com, ziy@nvidia.com
-Subject: Re: [PATCH v5 2/7] mm: Optimize mprotect() for MM_CP_PROT_NUMA by
- batch-skipping PTEs
-Message-ID: <070ba06d-c32c-41ad-af0b-4bbc5e59f085@lucifer.local>
-References: <20250718090244.21092-1-dev.jain@arm.com>
- <20250718090244.21092-3-dev.jain@arm.com>
+ 2025 16:44:13 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%5]) with mapi id 15.20.8922.037; Fri, 18 Jul 2025
+ 16:44:13 +0000
+Date: Fri, 18 Jul 2025 12:44:07 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Rui Miguel Silva <rmfrfs@gmail.com>,
+	Martin Kepplinger <martink@posteo.de>,
+	Purism Kernel Team <kernel@puri.sm>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>, linux-media@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	Alice Yuan <alice.yuan@nxp.com>,
+	Robert Chiras <robert.chiras@nxp.com>,
+	Zhipeng Wang <zhipeng.wang_1@nxp.com>
+Subject: Re: [PATCH v3 2/4] media: nxp: add V4L2 subdev driver for camera
+ parallel interface (CPI)
+Message-ID: <aHp513CPcCuSdH4O@lizhi-Precision-Tower-5810>
+References: <20250708-imx8qxp_pcam-v3-0-c8533e405df1@nxp.com>
+ <20250708-imx8qxp_pcam-v3-2-c8533e405df1@nxp.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250718090244.21092-3-dev.jain@arm.com>
-X-ClientProxiedBy: LO4P265CA0184.GBRP265.PROD.OUTLOOK.COM
- (2603:10a6:600:311::10) To DM4PR10MB8218.namprd10.prod.outlook.com
- (2603:10b6:8:1cc::16)
+In-Reply-To: <20250708-imx8qxp_pcam-v3-2-c8533e405df1@nxp.com>
+X-ClientProxiedBy: AM0PR05CA0093.eurprd05.prod.outlook.com
+ (2603:10a6:208:136::33) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DM4PR10MB8218:EE_|SJ0PR10MB4543:EE_
-X-MS-Office365-Filtering-Correlation-Id: d9f9d85c-8444-470f-6b3f-08ddc619dd29
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|AM9PR04MB8414:EE_
+X-MS-Office365-Filtering-Correlation-Id: 7fedffd8-7a77-43ee-7423-08ddc61a538c
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|7416014|1800799024|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?kURotK51MH81gkPHbnQi/JnT3qisgZuHAIRHSQHh4fzqjOiM6QONxlfQU8SV?=
- =?us-ascii?Q?bauM2hsfvCTKGXkmAm2jjEz19diyQRjLECb5LjRWyAKAj6/dH0FPTlXywAgA?=
- =?us-ascii?Q?AmI9T5rKQOGBEPUt+tA2fGqAiK2fKilpJcqneK+2GQ3GY2SsteJ5GYrnSmih?=
- =?us-ascii?Q?CO3KHmfhriEX8hX9k3+BkGbItGoHmw4JRXMU2o2EINAch76+wt6aAGIkZfkT?=
- =?us-ascii?Q?nGpJsvws4/2UcczNvDxYFe9cMGlX1xcwtQdWdYI25iHe4ThplmLeP0s2Lrf4?=
- =?us-ascii?Q?qxya67n3cX4CWX+IFGytTkv4YsEP3Mr5iT2mCCEYfXhOC9y2aLLY51/ROxLA?=
- =?us-ascii?Q?S7UXnaUsW0os0ClVgOUgJYNk/BllPkkDPCVlhg+NFNGzbnBvtpyxK8YK/8eM?=
- =?us-ascii?Q?eve2dJnzHDc6b0rp/kq8u2EZh9M1OOQwub0Yp2eByCUZecZl6gPPieKN6c8b?=
- =?us-ascii?Q?piiZhC5VdU+6LaMhdgnrBilRlTiHkhu2eaE2gTY5LVq6A9oJqYTiogdOL696?=
- =?us-ascii?Q?FqsZJQgnk6tkRKnsk72ORIDoaZbG4QYKLDA9HHMN6Ce6N9W8Sr/OZpRf5sFG?=
- =?us-ascii?Q?wSOUU8Jc95kfrpBOKf/0sJjDOWgfhxR50rcLgWCOmR/7D05UFt510WGl1Y12?=
- =?us-ascii?Q?AfVdpmS13bCYs7iDt9hyFexvj24affxOhT45NkH9re6sX+ilqDXjNLbzXlwN?=
- =?us-ascii?Q?TJAC7iV8qmJ/MfHtrX1U5zLeJKlUa0WkV+2JbRHY4GYYzPbF5UPIgJsqSfGC?=
- =?us-ascii?Q?7pjuJLzTMKCOj3KpXF0YcjMSEl/Vswe1ExDNDwVhzz1INag1Ysk1ROjvT3pR?=
- =?us-ascii?Q?3dhuwwvUkY5FiLs37Edzila9G18Tji6AX0da9se1uCZrVRMrsKOs/nHd9Gim?=
- =?us-ascii?Q?Lw/ns5fxpYxZskChAnvH3TIvx/g7L8SfaMnAg6PlB6iMFA4/ODleQR3gJfxl?=
- =?us-ascii?Q?ezy7XH6roFke++KlNTuV1QGoZntGo8334V2EEpCcMIkLWTBF7mZYg+Muyxgd?=
- =?us-ascii?Q?fooiOsaHjGt01dg05Pao1uzGCZuTRoCtAiXFwLocXC5hTQcjeEueeecxdkfT?=
- =?us-ascii?Q?hhs4WeaqmyqpLjf9oACJ5NMaMgjsPScMFcnxR+8WYW3+X8VuA4Jz0JNxQnv4?=
- =?us-ascii?Q?fRUNo68xhoVAMLAxKgVNavg5Pt9pwLOkiH1gawbzcIZkFlB7PMQz0DKc3JD/?=
- =?us-ascii?Q?kHNoYTIT1UAp0buXaD9BzvJdNwes/5M5kCsLYtn4CDfZOzo1rPFa5/aA4GD5?=
- =?us-ascii?Q?rXHRjt+VgZ2ppF2DKzMwrrlqEqtifSwsHLOrfvkzPWRMv3TYsYqY3ccDj+Uo?=
- =?us-ascii?Q?Mtko8O1AE1mGsYAThP/EBzqpW5DR3iekdU/MwKUv4oLMW/Q7ClDNrIjTzOqr?=
- =?us-ascii?Q?Cc3j6wEajeylJkLA6x7xHgpcvhFlNdItpP008hh2P3O9t2pXSQ=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM4PR10MB8218.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(7416014)(1800799024)(7053199007);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|366016|7416014|52116014|376014|1800799024|38350700014|921020;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?uFL+GQipZC/nvjR2bLjIjI8tpNBDt0BxSUQw/3iQhk5rinQ8wJ1XAT38LSA7?=
+ =?us-ascii?Q?IMElcmWHUumUlRSkCRP8TVuDaqnMoSdJh07xyCo4/A/Uzs3Wuth88w2Z2LeH?=
+ =?us-ascii?Q?5kT6v17DVarjFBjXvfu8i2+2g0EXKaYUEValsftl62mlMp7Kty6zWmqUjWqg?=
+ =?us-ascii?Q?wlWLMTSJD/nlY135aPOzrqg1Si2JsQoA/6sDwhWdrUAcIf2INY+u7151ACyA?=
+ =?us-ascii?Q?1aJwNgj2GZi8oSy5aAwg7LI3cn2El91VN1EVrLrs0KlZOyl+gGZM/micVeK0?=
+ =?us-ascii?Q?0xWOkGwjjAB+Fk3C9cXAH5GWu7OS8hFN52sQEoIJxiM/XIflf7+20Nijgvdv?=
+ =?us-ascii?Q?t59xpHQgS1QVtJi3NRUNS2KbC6WX7IreE7xXaznsKjqzwG7U9+b46FUnc64E?=
+ =?us-ascii?Q?+jUrwDY2WTEyQHvZaeA7aGX29/PkAXXFxhBuTm68ec6v9ch0POxKYdWf48Un?=
+ =?us-ascii?Q?pqm1XjV80bqXbPaMikKoIjMSepiozk9h+eNWQUdiJdwwkF5CnM7RchK+/J4A?=
+ =?us-ascii?Q?0RE+CbJaSH2Nd6fuwAp/VX8byfxGa7hd3tSLMV9ow0MG0fGMJZSLl0c9QoiX?=
+ =?us-ascii?Q?rcxx0k4sbpR3i27pAEPgU9hPqm1+lKPM47b7qrUmm71ZaCvAxRzJpFlXr6Eb?=
+ =?us-ascii?Q?hF0QntGxpbBs4KLVfZWj8j1irJJF2qfykr9syDSFTWm3gNUB8Bq+HoC1ivVh?=
+ =?us-ascii?Q?oPhKCunOICO5LKUOjyoThdZz851XX6ZabxhHiSxa27uP+EM4nt470PMl82An?=
+ =?us-ascii?Q?kxGrZpVnOxalixCJYeJHqw0RqDFhlmAGGm0ulLvaRbfhj9DlDy/es9+VYW1G?=
+ =?us-ascii?Q?uaSsJLWYWBgDemMq7iTtF6/ybGgFJmgp76OgIKYvz2haz9OA3OHFgSKc4yLq?=
+ =?us-ascii?Q?TTbRLJ/eV3bgwHL0IjaF+9OnUjYQTEkhsmhyu63DbPDuKlM6goUbNuUit9ic?=
+ =?us-ascii?Q?Pj8tv0xQLJuoyRO5zwlmFT4ktJ8AWR1bEgk4ZJDWfUBBhwGhi3Uqqyw4w15y?=
+ =?us-ascii?Q?9J+rBu5HlaMk6XZhJHOVbFZrZQQbLKAdXJV3cAvfms+QdB9hxZFspU9igZ6o?=
+ =?us-ascii?Q?TRPz/eERNxnC46+s6F6Ccf7R+UogPZsOWEeyXL9B+QRJ4S+GbnhEW97RwYrl?=
+ =?us-ascii?Q?POk7Ynbfg3SlKZ9KRc58uAjmvj2i5ml9icEWWULn1gffjJWwPmy0xpzXwcM/?=
+ =?us-ascii?Q?LjBfI/9H4Lag22hniT4p2VqVWIvG9YJnvgbEf3Fc9ZEQz2bGVeG7KkRAnJ6O?=
+ =?us-ascii?Q?C8Iq0QK0E6QjUQ+1/xsRhkg6d7lJPlRMPNePOclBDaumoYJrgpF2cT0qM4pX?=
+ =?us-ascii?Q?BTwkLv0/5xzaEkYAT0dk97RPnOgsrneNiposOXWZvQ06Ip6ck+uSEAL+RV2J?=
+ =?us-ascii?Q?0Ijwxn2lkJABCtByaw4MMxMS8MrNTq8TBqLYw683vjJ/zXDrSNmlBdlMGFjr?=
+ =?us-ascii?Q?ENFu3Zs9j8iuC5HGtQz6YWVBNuxpfIP5X+9BhhqvkkjDJKkPXeI0VsY36nXa?=
+ =?us-ascii?Q?IcaO9NokY+82yMc=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(7416014)(52116014)(376014)(1800799024)(38350700014)(921020);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?CLEny7vgJ3rQVwDERbSvw0C3VxPKzJX+aJuoFdTZMvN+PX/FtGwsvJ0q4wPN?=
- =?us-ascii?Q?bMGtW41UqXg0udT8p06QLbf6Unp3Sx8egLLQ7lGnLtuuRVLwMYmn+IoZ2d63?=
- =?us-ascii?Q?iolwczgyM6nz2hDUmT3jJwn4WeGEWM+9ehDjAMEUHF8wGM8z1WKcGVP0lY13?=
- =?us-ascii?Q?KR6D0SJseS0wavvN6r4kkKO9+TnlkGQslxGTjVBlOP5WpePQDcflzzQBFup6?=
- =?us-ascii?Q?V2SsacmJ7K1+8ClbAI5PZ6i1GjRs9f0aZQ2Xu046wSqmnIJOi8aHjn9JH9jC?=
- =?us-ascii?Q?qwGOK8WfiyzaYDgYRaC0cZ7ZXkdQl6pta/M+xMuB1wZooPjjVzUAUCvtx8ov?=
- =?us-ascii?Q?u1hKCNMtdESc/0Sl4et3fCFtNTSRI8ZOcozOIghPBLsXW6Jerythi21L5L1l?=
- =?us-ascii?Q?uaLnxsW+81rp/hm9zMT8UmLq5dwXGLe3y7dt85XYrPTPcBOd1POsNRSrUUV1?=
- =?us-ascii?Q?MC+RMfO6/fHqlY0C4j/r4+g/xpium/10O07iWEPm5czae4iFnkZYINsPdRBr?=
- =?us-ascii?Q?qI2cM8mRC9I2hTqOqTgfzmrmraRNOtm98/eZ1yg/wiUD2/E+pPVutfLtXPqN?=
- =?us-ascii?Q?ZbPRxwbjd8TMPJ7IafB3PM8vJ/01X9WldZvbadsaJpbUaBtHFWgAr59hQI9R?=
- =?us-ascii?Q?9b1J3MfUrV3cKwkSoGSnML+3pxnX/TO/a8ZwMadh53YxLH7ojUbKsGq1ADWh?=
- =?us-ascii?Q?nA9agT1CP7Tyj10csIlWkkIGUPKKauPHiEM9l1IqV9pYzleCRoG/mpmlDe8c?=
- =?us-ascii?Q?FjJvuW4JMY5aALM2/gQ0b7tonLQEIkGPWsAOZkA7BM5HnKuGniY9N7aLDMq/?=
- =?us-ascii?Q?atMAD8WMzfpghiVLPemAoyWYS87vRmgy5myszBJdQt/rxWBoVFD/N3G3XlE3?=
- =?us-ascii?Q?Yu2LrzEqZPJLfl35OluU6GB8JsF1bvXByLbfUNzFTSUfH2++/CFmsywmD3Kb?=
- =?us-ascii?Q?hC0/cQyUD5qGSO6QxkndPGmN26k60CsWt9yoCjYzT4iXMwpUVXAc0RABInpN?=
- =?us-ascii?Q?TIN5fmPGMV45HNgH7tnYl0ZX9F2WTdifaDDqbf7cIBsOnmjIFGAgONf2HaWu?=
- =?us-ascii?Q?9obRKgm7FW3a103JYOChVIJKNueWXiUZ2FmsCZo8eFPToxgxP5khYRIpNSye?=
- =?us-ascii?Q?aGDIqP6V9Dr+bfpvjU2PRXSCoH3JqwD3HbXtzpCAqkbUYk1h/2PGyOLr04xk?=
- =?us-ascii?Q?Pt5ROgKgEFyER53Y7eAo+iHjtKJjgcaW+wF2ox4qeIjZhk6ceQyny2LHZ6v9?=
- =?us-ascii?Q?99zFnp0MC/HnD1It37y3OZn1IJPJVRmS5jLxiJeSLZIpiOduLKD/AAKW/CqJ?=
- =?us-ascii?Q?KW1RyHZDJJtYVGeAe4oWtc7K1o6IN1HpIzVegM81RhQY7fI+Q2feeDSign3m?=
- =?us-ascii?Q?4pmz4VKN//NQx4bzP/zMDPubgUqiQ+FwA7cKVoI62M8KizDm9bq+TzebF8Yw?=
- =?us-ascii?Q?zONjZlez3/ZIFik1ek8T3gO7wspccUjunflvn2thMuYLSoLkxw/nYijYsAR4?=
- =?us-ascii?Q?UCNS5HSf6qpM99lpArl+iuVzvtK+qrrldf6yBA/ZsQkGvEtbWWvmuI4ezAJd?=
- =?us-ascii?Q?p6DLpt+eHmx7nGmScyAUqrFVLIgiTvHW38AZ3b/dsyU/t64Y3ymjMyCi6Oar?=
- =?us-ascii?Q?DQ=3D=3D?=
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: uefY+JBKpmMoCzS8nhcSZWzLLOZ8tfBSLXbiZdxEP/mddZwOlv1Ivpb7QWwaspwxIbZBy+rmJE6pf97tDAK5ZAnL+dFKKyDmbA4CVWTRIAfxP6HZqy08RG6liMIvKIDfBPdtox499hDqu8qX7V0s/4fLh/gVuLgIGNrv70k/PAv0b0M9idT1PpWkBVbq5QUZOUtHG35rxiKQFOACkMzgQF7+bSx3aDaFrb93xt2pocczis9ZxNiS0gThHp5PYgN8nQ8kUyBiYttSCT29V0nQXAXE2ioY5PC5BDEHnY9ueSKvPfGl5ll0APYxD8vIaiSAsEgYK9VN/lHvQTcu6iQSIvcUMkGgWQUdIofQCsRPDvI2iG7kKJUWGVAbLiC9T+g4KScjPGEH8DBkfeSiLiMowiJoKWTRY4iaNZtBK8ASjNAJkyUIHjCkStXOzBoOJku1jUD750S9k3nlb82GTfo6J1zshQy7XtCRNsqp6zPgWrcxA3etfiEs71YL1jlxoqv5Y1SNpreNk8z6wuqoGA79u2yQlM/c7+gK2ZHjPDUmDiz0CHivQ1+VSc+FnXS+8SZwwmWiqeowMEjx11ogDieodsW5WOJ74HL/mZUjZHF3Amo=
-X-OriginatorOrg: oracle.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d9f9d85c-8444-470f-6b3f-08ddc619dd29
-X-MS-Exchange-CrossTenant-AuthSource: DM4PR10MB8218.namprd10.prod.outlook.com
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?lKoqxDnVGq2/DeMqxS40SfYvpmbUOhjS7YfmmhnfNuOFrqDjlighmOHUS8KM?=
+ =?us-ascii?Q?dxdGW/saYqno6HWmkt+98LM2EZpQZ1rf32YO32PTNNNYYVPLPtGaZeQrbtUr?=
+ =?us-ascii?Q?g89n0n1TKyQ4kqfg90I1EsApdAt7N7FYWtmbrI91g0qnpQcdztM8E+s1Qzo4?=
+ =?us-ascii?Q?QCaXpKLraq5M17GooOd9gsPIWCb00QWnWvk/pvS2Q62e9KwlimyumgOpU1RS?=
+ =?us-ascii?Q?Mb+qPgo18JHw+LRAuO3VIe51sAN94QVu4OH2QtyzbtjyKQj+SLlSA/wZ55ei?=
+ =?us-ascii?Q?J5pjgywHsJMr6KPNf1g648vuCDfHdVMg5w9rkBcN+0l8vicArtQsY9OakvXA?=
+ =?us-ascii?Q?TMRv5Tl0EQQNcalc2aFRjlCkkZOdnDq0gi2NWbVe1Lbgh8MmUxqiXA05YLnv?=
+ =?us-ascii?Q?CPej8D/pSeRxoZCNXU8yQKQ0FgYZJZqmQzTFE1FeXvxONdjv5KjuVGd7Yi9y?=
+ =?us-ascii?Q?oFTfTJMzpyw3QSLcrZ3mBJwPqZ5Zf6LeOI4jhGFxFgW3zbc/N9BKk1InkWFR?=
+ =?us-ascii?Q?zOnr7r9ObAm2zFUcr8nmalsKyGJQDCHRTDIkSBBPwzVZz/rLg8565mm8G7fW?=
+ =?us-ascii?Q?pacmqhASLAo/ppHcAVFMpw+B9dJ5BMGycncrpk6yiXz7dWppnCmZETui69BP?=
+ =?us-ascii?Q?2lGjvPRfxDQnfdW8XkMzWA38UWiFuWtPoyRtyZJMTMm0+rsYdTsGKiEtx9v3?=
+ =?us-ascii?Q?+4LGlznHYzvtRy8ObufTUDC/Of/lkrZPz2YA0lwTXmI+zdlMY/wf0asj/qSN?=
+ =?us-ascii?Q?Cc/n82+Cx4ZnCjSpvIvVk0Sr7nAtR8mWbPsU9J/6fgj9zFH6R7DxkfRUlV3W?=
+ =?us-ascii?Q?9Ssfhx5XkGWEns4EPOfdASFUO8PMdPBdcASiWOVhZn0yvt8XEWUUiW0oGuhU?=
+ =?us-ascii?Q?5SA/SMkzg+fLpF5USx4Oqfc+eQQce18ALl3WUJOkLuYlqaIR0K7tbw36gztg?=
+ =?us-ascii?Q?PzHw6BOrIJP4BSWXrXIJCnumpCaB2PMWX0vz8uPxIsGvJtVosM2pjC4yuxDz?=
+ =?us-ascii?Q?2u/smiIeze+M9e25Kovwpts7shx4VXpr9u8Pkbv0Os0LVUDmxsGgjCi2x4SO?=
+ =?us-ascii?Q?sukVN0ICrGuBU7JGaHI+lSk2Xb5Kitn1YjBuKu42YDYrNyX8FtZBc9bOjfkC?=
+ =?us-ascii?Q?p0S5VCFDLsgMweV1AyRDn2Zoc4YnmO76XeV6xQ0+O+Z00EImAw/zRxhTrVoX?=
+ =?us-ascii?Q?X2bQLpCBfku+1UV4S9hmMjaOzvT0iFZyoH5WE0xq/Lg9QKXzB60nENn2zC+p?=
+ =?us-ascii?Q?jYJpO/RXzUZI9HE15/vlQz0MHOKN1fRTAD5hwQ637eyFSloSwQzzXLF6aFPF?=
+ =?us-ascii?Q?j8X9yCBHRz0Q3rwRScTOHCSZl5mr5aQs+HCjP3wDBO8qy+ui8GmMUuqUoIg4?=
+ =?us-ascii?Q?6kvEzwVAJIFBYrDLn9VImXd3QkdYjgzl8KuEdBBmwmvZbCktT5XBjXtKcjDE?=
+ =?us-ascii?Q?jw6G37AlA0lsm8UXwtQGYXm4mHs+STuwO740Z76WomkMpghw6vsGLcuTGWZR?=
+ =?us-ascii?Q?ynrK66EkuEKRIFMmudfBNxApUtgUsyf1GaaOprjMrsnswe/6VGfT8c0EhQS+?=
+ =?us-ascii?Q?Svo1bTDNl7xmYjpP7AaifqRis3zI4a+4tdxFnmzJ?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7fedffd8-7a77-43ee-7423-08ddc61a538c
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Jul 2025 16:40:54.4178
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Jul 2025 16:44:13.2972
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 7/j9GnB3MjoTaYb+oaVfLViXGfuzjA/24eb5vTGepdxojB42UJaAjXx7tdWSHDaIvA8Fb0e9ngttDVsvYm9jULHkTEsLIUN09NNqcZDPYdA=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR10MB4543
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-07-18_03,2025-07-17_02,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 adultscore=0 mlxscore=0 malwarescore=0
- phishscore=0 spamscore=0 mlxlogscore=999 bulkscore=0 suspectscore=0
- classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2505160000
- definitions=main-2507180130
-X-Proofpoint-ORIG-GUID: y3kKwyyeMPcqi5j2z0L2X3NEWIKkqRW_
-X-Authority-Analysis: v=2.4 cv=AZGxH2XG c=1 sm=1 tr=0 ts=687a791b b=1 cx=c_pps a=zPCbziy225d3KhSqZt3L1A==:117 a=zPCbziy225d3KhSqZt3L1A==:17 a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19 a=wKuvFiaSGQ0qltdbU6+NXLB8nM8=:19
- a=Ol13hO9ccFRV9qXi2t6ftBPywas=:19 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10 a=Wb1JkmetP80A:10 a=GoEa3M9JfhUA:10 a=7CQSdrXTAAAA:8 a=yPCof4ZbAAAA:8 a=8Hv2gRMSoWPEaWc8n_AA:9 a=CjuIK1q_8ugA:10 a=a-qgeE7W1pNrGK8U0ZQC:22 cc=ntf awl=host:12061
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNzE4MDEzMCBTYWx0ZWRfX8C7gEr27vZjW JKFMd8fn9iqi9SWfTBcHRb2ki+H6r5/je1XIIIa5NnncllshJW7T8DOUtjbZRjwrX9DmO9/7R/P VcxnNmzjdH+O9WL/Ovw4AOT5s9aks/0KjJ+uHPJIKxexI6NBpWhzkbQmM36T5lhkGusoiJguxpj
- ber+ZFL53bsciISM3I0f30DRQo+Sd3zjbASmw86NXWpkJMk1fSQTOueI3pvuVQBDknIKKg+Az6T k7fXucj3s3I8Gq+EnX8EsTn1V0HyvunmAlKcC4+ydPQgHq5YCkIQjBCgT8MO+6KQYfbQ8AWsXt+ XpuTk/0he+M66ZgJ+Qhk6ztaZwX8b6Vp+Fy/HaTVIljhZGjwmP0KtEH/12cH3Hy0FgVho6Ge9OJ
- UXjdAosh8X3tEYxbsf7sRyj1YG8xYGxArzNGQWX2HI7SUbDfCGpThP3DoDCY/6uvzxcmeqJ6
-X-Proofpoint-GUID: y3kKwyyeMPcqi5j2z0L2X3NEWIKkqRW_
+X-MS-Exchange-CrossTenant-UserPrincipalName: dcX01AtDyuR7PtHDh2NxRppGSta79K5Bvmx8EBL86bLA9jcv0NPmDOVEXb8+xSMSGUU2IhDgfwiXqkIGO8l/NQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8414
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250718_094126_780145_470F1E11 
-X-CRM114-Status: GOOD (  26.41  )
+X-CRM114-CacheID: sfid-20250718_094441_044646_7598D06B 
+X-CRM114-Status: GOOD (  24.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -202,170 +173,1015 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 18, 2025 at 02:32:39PM +0530, Dev Jain wrote:
-> For the MM_CP_PROT_NUMA skipping case, observe that, if we skip an
-> iteration due to the underlying folio satisfying any of the skip
-> conditions, then for all subsequent ptes which map the same folio, the
-> iteration will be skipped for them too. Therefore, we can optimize
-> by using folio_pte_batch() to batch skip the iterations.
->
-> Use prot_numa_skip() introduced in the previous patch to determine whether
-> we need to skip the iteration. Change its signature to have a double
-> pointer to a folio, which will be used by mprotect_folio_pte_batch() to
-> determine the number of iterations we can safely skip.
+On Tue, Jul 08, 2025 at 01:48:43PM -0400, Frank Li via B4 Relay wrote:
+> From: Alice Yuan <alice.yuan@nxp.com>
 
-On reflection I don't think this is too bad, it seems neat in this version
-at least :)
+Laurent Pinchart:
+
+	Do you have chance to review this patch ?
+
+Frank
 
 >
-> Signed-off-by: Dev Jain <dev.jain@arm.com>
-
-Overall looks good to me, so:
-
-Reviewed-by: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
-
+> Add a V4L2 sub-device driver for the CPI controller found on i.MX8QXP,
+> i.MX8QM, and i.MX93 SoCs. This controller supports parallel camera sensors
+> and enables image data capture through a parallel interface.
+>
+> Signed-off-by: Alice Yuan <alice.yuan@nxp.com>
+> Signed-off-by: Robert Chiras <robert.chiras@nxp.com>
+> Signed-off-by: Zhipeng Wang <zhipeng.wang_1@nxp.com>
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
 > ---
->  mm/mprotect.c | 55 +++++++++++++++++++++++++++++++++++++++------------
->  1 file changed, 42 insertions(+), 13 deletions(-)
+> change in v3
+> - replace csi with cpi
+> - use __free(fwnode_handle) to simpilfy code
+> - remove imx91 driver data, which is the same as imx93
 >
-> diff --git a/mm/mprotect.c b/mm/mprotect.c
-> index 2a9c73bd0778..97adc62c50ab 100644
-> --- a/mm/mprotect.c
-> +++ b/mm/mprotect.c
-> @@ -83,28 +83,43 @@ bool can_change_pte_writable(struct vm_area_struct *vma, unsigned long addr,
->  	return pte_dirty(pte);
->  }
+> change in v2
+> - remove MODULE_ALIAS
+> - use devm_pm_runtime_enable() and cleanup remove function
+> - change output format to 1x16. controller convert 2x8 to 1x16 format
+> ---
+>  MAINTAINERS                                   |   1 +
+>  drivers/media/platform/nxp/Kconfig            |  11 +
+>  drivers/media/platform/nxp/Makefile           |   1 +
+>  drivers/media/platform/nxp/imx-parallel-cpi.c | 920 ++++++++++++++++++++++++++
+>  4 files changed, 933 insertions(+)
 >
-> +static int mprotect_folio_pte_batch(struct folio *folio, pte_t *ptep,
-> +				    pte_t pte, int max_nr_ptes)
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 8ae0667d2bb41fb6a1549bd3b2b33f326cbd1303..14842a3b860a6f23846f12a684eedcbb9eb69e19 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -15112,6 +15112,7 @@ F:	Documentation/devicetree/bindings/media/nxp,imx-mipi-csi2.yaml
+>  F:	Documentation/devicetree/bindings/media/nxp,imx7-csi.yaml
+>  F:	Documentation/devicetree/bindings/media/nxp,imx8mq-mipi-csi2.yaml
+>  F:	drivers/media/platform/nxp/imx-mipi-csis.c
+> +F:	drivers/media/platform/nxp/imx-parallel-cpi.c
+>  F:	drivers/media/platform/nxp/imx7-media-csi.c
+>  F:	drivers/media/platform/nxp/imx8mq-mipi-csi2.c
+>
+> diff --git a/drivers/media/platform/nxp/Kconfig b/drivers/media/platform/nxp/Kconfig
+> index 40e3436669e213fdc5da70821dc0b420e1821f4f..504ae1c6494f331c16124a224421ac7acd433ba5 100644
+> --- a/drivers/media/platform/nxp/Kconfig
+> +++ b/drivers/media/platform/nxp/Kconfig
+> @@ -39,6 +39,17 @@ config VIDEO_IMX_MIPI_CSIS
+>  	  Video4Linux2 sub-device driver for the MIPI CSI-2 CSIS receiver
+>  	  v3.3/v3.6.3 found on some i.MX7 and i.MX8 SoCs.
+>
+> +config VIDEO_IMX_PARALLEL_CPI
+> +	tristate "NXP i.MX9/i.MX8 Parallel CPI Driver"
+> +	depends on ARCH_MXC || COMPILE_TEST
+> +	depends on VIDEO_DEV
+> +	select MEDIA_CONTROLLER
+> +	select V4L2_FWNODE
+> +	select VIDEO_V4L2_SUBDEV_API
+> +	help
+> +	  Video4Linux2 sub-device driver for PARALLEL CPI receiver found
+> +	  on some iMX8 and iMX9 SoCs.
+> +
+>  source "drivers/media/platform/nxp/imx8-isi/Kconfig"
+>
+>  # mem2mem drivers
+> diff --git a/drivers/media/platform/nxp/Makefile b/drivers/media/platform/nxp/Makefile
+> index 4d90eb71365259ebdda84ea58483e1c4131d3ac7..5346919d2f1083b51ec99b66981c5d38b3df960c 100644
+> --- a/drivers/media/platform/nxp/Makefile
+> +++ b/drivers/media/platform/nxp/Makefile
+> @@ -7,5 +7,6 @@ obj-y += imx8-isi/
+>  obj-$(CONFIG_VIDEO_IMX7_CSI) += imx7-media-csi.o
+>  obj-$(CONFIG_VIDEO_IMX8MQ_MIPI_CSI2) += imx8mq-mipi-csi2.o
+>  obj-$(CONFIG_VIDEO_IMX_MIPI_CSIS) += imx-mipi-csis.o
+> +obj-$(CONFIG_VIDEO_IMX_PARALLEL_CPI) += imx-parallel-cpi.o
+>  obj-$(CONFIG_VIDEO_IMX_PXP) += imx-pxp.o
+>  obj-$(CONFIG_VIDEO_MX2_EMMAPRP) += mx2_emmaprp.o
+> diff --git a/drivers/media/platform/nxp/imx-parallel-cpi.c b/drivers/media/platform/nxp/imx-parallel-cpi.c
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..718f02bf70c4d0ae74ecf842c1ecb1a1afbcdd45
+> --- /dev/null
+> +++ b/drivers/media/platform/nxp/imx-parallel-cpi.c
+> @@ -0,0 +1,920 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * i.MX Parallel CPI receiver driver.
+> + *
+> + * Copyright 2019-2025 NXP
+> + *
+> + */
+> +
+> +#include <linux/bits.h>
+> +#include <linux/clk.h>
+> +#include <linux/debugfs.h>
+> +#include <linux/delay.h>
+> +#include <linux/errno.h>
+> +#include <linux/interrupt.h>
+> +#include <linux/io.h>
+> +#include <linux/kernel.h>
+> +#include <linux/module.h>
+> +#include <linux/mutex.h>
+> +#include <linux/mfd/syscon.h>
+> +#include <linux/of.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/pm_domain.h>
+> +#include <linux/pm_runtime.h>
+> +#include <linux/regulator/consumer.h>
+> +#include <linux/reset.h>
+> +#include <linux/spinlock.h>
+> +
+> +#include <media/v4l2-common.h>
+> +#include <media/v4l2-device.h>
+> +#include <media/v4l2-event.h>
+> +#include <media/v4l2-fwnode.h>
+> +#include <media/v4l2-mc.h>
+> +#include <media/v4l2-subdev.h>
+> +
+> +#define IMX_CPI_DEF_MBUS_CODE			MEDIA_BUS_FMT_UYVY8_2X8
+> +#define IMX_CPI_DEF_PIX_WIDTH			1920
+> +#define IMX_CPI_DEF_PIX_HEIGHT			1080
+> +
+> +#define IMX_CPI_MAX_PIX_WIDTH			0xffff
+> +#define IMX_CPI_MAX_PIX_HEIGHT			0xffff
+> +
+> +#define IMX_CPI_PAD_SINK			0
+> +#define IMX_CPI_PAD_SOURCE			1
+> +#define IMX_CPI_PADS_NUM			2
+> +
+> +/* CI_PI INTERFACE CONTROL */
+> +#define IF_CTRL_REG_PL_ENABLE			BIT(0)
+> +#define IF_CTRL_REG_PL_VALID			BIT(1)
+> +#define IF_CTRL_REG_DATA_TYPE_SEL		BIT(8)
+> +#define IF_CTRL_REG_DATA_TYPE(x)		FIELD_PREP(GENMASK(13, 9), (x))
+> +
+> +#define DATA_TYPE_OUT_NULL			0x00
+> +#define DATA_TYPE_OUT_RGB			0x04
+> +#define DATA_TYPE_OUT_YUV444			0x08
+> +#define DATA_TYPE_OUT_YYU420_ODD		0x10
+> +#define DATA_TYPE_OUT_YYU420_EVEN		0x12
+> +#define DATA_TYPE_OUT_YYY_ODD			0x18
+> +#define DATA_TYPE_OUT_UYVY_EVEN			0x1a
+> +#define DATA_TYPE_OUT_RAW			0x1c
+> +
+> +#define IF_CTRL_REG_IF_FORCE_HSYNV_OVERRIDE	0x4
+> +#define IF_CTRL_REG_IF_FORCE_VSYNV_OVERRIDE	0x2
+> +#define IF_CTRL_REG_IF_FORCE_DATA_ENABLE_OVERRIDE	0x1
+> +
+> +/* CPI INTERFACE CONTROL REG */
+> +#define CPI_CTRL_REG_CPI_EN			BIT(0)
+> +#define CPI_CTRL_REG_PIXEL_CLK_POL		BIT(1)
+> +#define CPI_CTRL_REG_HSYNC_POL			BIT(2)
+> +#define CPI_CTRL_REG_VSYNC_POL			BIT(3)
+> +#define CPI_CTRL_REG_DE_POL			BIT(4)
+> +#define CPI_CTRL_REG_PIXEL_DATA_POL		BIT(5)
+> +#define CPI_CTRL_REG_CCIR_EXT_VSYNC_EN		BIT(6)
+> +#define CPI_CTRL_REG_CCIR_EN			BIT(7)
+> +#define CPI_CTRL_REG_CCIR_VIDEO_MODE		BIT(8)
+> +#define CPI_CTRL_REG_CCIR_NTSC_EN		BIT(9)
+> +#define CPI_CTRL_REG_CCIR_VSYNC_RESET_EN	BIT(10)
+> +#define CPI_CTRL_REG_CCIR_ECC_ERR_CORRECT_EN	BIT(11)
+> +#define CPI_CTRL_REG_HSYNC_FORCE_EN		BIT(12)
+> +#define CPI_CTRL_REG_VSYNC_FORCE_EN		BIT(13)
+> +#define CPI_CTRL_REG_GCLK_MODE_EN		BIT(14)
+> +#define CPI_CTRL_REG_VALID_SEL			BIT(15)
+> +#define CPI_CTRL_REG_RAW_OUT_SEL		BIT(16)
+> +#define CPI_CTRL_REG_HSYNC_OUT_SEL		BIT(17)
+> +#define CPI_CTRL_REG_HSYNC_PULSE(x)		FIELD_PREP(GENMASK(21, 19), (x))
+> +#define CPI_CTRL_REG_UV_SWAP_EN			BIT(22)
+> +#define CPI_CTRL_REG_DATA_TYPE_IN(x)		FIELD_PREP(GENMASK(26, 23), (x))
+> +#define CPI_CTRL_REG_MASK_VSYNC_COUNTER(x)	FIELD_PREP(GENMASK(28, 27), (x))
+> +#define CPI_CTRL_REG_SOFTRST			BIT(31)
+> +
+> +/* CPI INTERFACE STATUS */
+> +#define CPI_STATUS_FIELD_TOGGLE			BIT(0)
+> +#define CPI_STATUS_ECC_ERROR			BIT(1)
+> +
+> +/* CPI INTERFACE CONTROL REG1 */
+> +#define CPI_CTRL_REG1_PIXEL_WIDTH(v)		FIELD_PREP(GENMASK(15, 0), (v))
+> +#define CPI_CTRL_REG1_VSYNC_PULSE(v)		FIELD_PREP(GENMASK(31, 16), (v))
+> +
+> +/* Need match field DATA_TYPE_IN definition at CPI CTRL register */
+> +enum cpi_in_data_type {
+> +	CPI_IN_DT_UYVY_BT656_8 = 0x0,
+> +	CPI_IN_DT_UYVY_BT656_10,
+> +	CPI_IN_DT_RGB_8,
+> +	CPI_IN_DT_BGR_8,
+> +	CPI_IN_DT_YVYU_8 = 0x5,
+> +	CPI_IN_DT_YUV_8,
+> +	CPI_IN_DT_RAW_8 = 0x9,
+> +	CPI_IN_DT_RAW_10,
+> +};
+> +
+> +enum {
+> +	PI_MODE_INIT,
+> +	PI_GATE_CLOCK_MODE,
+> +	PI_CCIR_MODE,
+> +};
+> +
+> +enum {
+> +	PI_V1,
+> +	PI_V2,
+> +};
+> +
+> +static const char *const imx_cpi_clk_id[] = {
+> +	"pixel",
+> +	"ipg",
+> +};
+> +
+> +#define PCPIDEV_NUM_CLKS   ARRAY_SIZE(imx_cpi_clk_id)
+> +
+> +struct imx_cpi_plat_data {
+> +	u32 version;
+> +	u32 if_ctrl_reg;
+> +	u32 interface_status;
+> +	u32 interface_ctrl_reg;
+> +	u32 interface_ctrl_reg1;
+> +	u8 def_hsync_pol;
+> +	u8 def_vsync_pol;
+> +	u8 def_pixel_clk_pol;
+> +	u8 def_cpi_in_data_type;
+> +};
+> +
+> +struct cpi_pm_domain {
+> +	struct device *dev;
+> +	struct device_link *link;
+> +};
+> +
+> +struct imx_cpi_device {
+> +	struct device *dev;
+> +	void __iomem *regs;
+> +	struct reset_control *mrst;
+> +	struct regulator *pcpi_phy_regulator;
+> +	struct clk_bulk_data clks[PCPIDEV_NUM_CLKS];
+> +
+> +	struct v4l2_subdev sd;
+> +	struct media_pad pads[IMX_CPI_PADS_NUM];
+> +	struct v4l2_async_notifier notifier;
+> +
+> +	struct v4l2_mbus_framefmt format;
+> +	const struct imx_cpi_plat_data *pdata;
+> +	struct imx_cpi_pix_format const *pcpidev_fmt;
+> +
+> +	struct {
+> +		struct v4l2_subdev *sd;
+> +		const struct media_pad *pad;
+> +	} source;
+> +
+> +	struct cpi_pm_domain pm_domains[2];
+> +
+> +	u8 mode;
+> +	u8 uv_swap;
+> +};
+> +
+> +struct imx_cpi_pix_format {
+> +	u32 code;
+> +	u32 output;
+> +	u32 data_type;
+> +	u8 width;
+> +};
+> +
+> +static const struct imx_cpi_pix_format imx_cpi_formats[] = {
+> +	/* YUV formats. */
+> +	{
+> +		.code = MEDIA_BUS_FMT_UYVY8_2X8,
+> +		.output = MEDIA_BUS_FMT_UYVY8_1X16,
+> +		.data_type = CPI_IN_DT_YVYU_8,
+> +		.width = 16,
+> +	}, {
+> +		.code = MEDIA_BUS_FMT_YUYV8_2X8,
+> +		.output = MEDIA_BUS_FMT_YUYV8_1X16,
+> +		.data_type = CPI_IN_DT_YVYU_8,
+> +		.width = 16,
+> +	},
+> +};
+> +
+> +static const struct imx_cpi_plat_data imx8qxp_pdata = {
+> +	.version = PI_V1,
+> +	.if_ctrl_reg = 0x0,
+> +	.interface_status = 0x20,
+> +	.interface_ctrl_reg = 0x10,
+> +	.interface_ctrl_reg1 = 0x30,
+> +	.def_hsync_pol = 1,
+> +	.def_vsync_pol = 0,
+> +	.def_pixel_clk_pol = 0,
+> +	.def_cpi_in_data_type = CPI_IN_DT_UYVY_BT656_8,
+> +};
+> +
+> +static const struct imx_cpi_plat_data imx93_pdata = {
+> +	.version = PI_V2,
+> +	.if_ctrl_reg = 0x0,
+> +	.interface_status = 0x4,
+> +	.interface_ctrl_reg = 0x8,
+> +	.interface_ctrl_reg1 = 0xc,
+> +	.def_hsync_pol = 0,
+> +	.def_vsync_pol = 1,
+> +	.def_pixel_clk_pol = 0,
+> +	.def_cpi_in_data_type = CPI_IN_DT_YVYU_8,
+> +};
+> +
+> +static void imx_cpi_regs_dump(struct imx_cpi_device *pcpidev)
 > +{
-> +	/* No underlying folio, so cannot batch */
-> +	if (!folio)
-> +		return 1;
+> +	struct device *dev = pcpidev->dev;
+> +	const struct imx_cpi_plat_data *pdata = pcpidev->pdata;
+> +	u32 i;
 > +
-> +	if (!folio_test_large(folio))
-> +		return 1;
+> +	struct {
+> +		u32 offset;
+> +		const char *const name;
+> +	} registers[] = {
+> +		{ pdata->if_ctrl_reg, "HW_IF_CTRL_REG" },
+> +		{ pdata->interface_ctrl_reg, "HW_CPI_CTRL_REG" },
+> +		{ pdata->interface_status, "HW_CPI_STATUS" },
+> +		{ pdata->interface_ctrl_reg1, "HW_CPI_CTRL_REG1" },
 > +
-> +	return folio_pte_batch(folio, ptep, pte, max_nr_ptes);
+> +	};
+> +
+> +	for (i = 0; i < ARRAY_SIZE(registers); i++) {
+> +		u32 reg = readl(pcpidev->regs + registers[i].offset);
+> +
+> +		dev_dbg(dev, "%20s[0x%.2x]: 0x%.8x\n",
+> +			registers[i].name, registers[i].offset, reg);
+> +	}
 > +}
 > +
->  static bool prot_numa_skip(struct vm_area_struct *vma, unsigned long addr,
-> -			   pte_t oldpte, pte_t *pte, int target_node)
-> +			   pte_t oldpte, pte_t *pte, int target_node,
-> +			   struct folio **foliop)
->  {
-> -	struct folio *folio;
-> +	struct folio *folio = NULL;
-> +	bool ret = true;
->  	bool toptier;
->  	int nid;
->
->  	/* Avoid TLB flush if possible */
->  	if (pte_protnone(oldpte))
-> -		return true;
-> +		goto skip;
->
->  	folio = vm_normal_folio(vma, addr, oldpte);
->  	if (!folio)
-> -		return true;
-> +		goto skip;
->
->  	if (folio_is_zone_device(folio) || folio_test_ksm(folio))
-> -		return true;
-> +		goto skip;
->
->  	/* Also skip shared copy-on-write pages */
->  	if (is_cow_mapping(vma->vm_flags) &&
->  	    (folio_maybe_dma_pinned(folio) || folio_maybe_mapped_shared(folio)))
-> -		return true;
-> +		goto skip;
->
->  	/*
->  	 * While migration can move some dirty pages,
-> @@ -112,7 +127,7 @@ static bool prot_numa_skip(struct vm_area_struct *vma, unsigned long addr,
->  	 * context.
->  	 */
->  	if (folio_is_file_lru(folio) && folio_test_dirty(folio))
-> -		return true;
-> +		goto skip;
->
->  	/*
->  	 * Don't mess with PTEs if page is already on the node
-> @@ -120,7 +135,7 @@ static bool prot_numa_skip(struct vm_area_struct *vma, unsigned long addr,
->  	 */
->  	nid = folio_nid(folio);
->  	if (target_node == nid)
-> -		return true;
-> +		goto skip;
->
->  	toptier = node_is_toptier(nid);
->
-> @@ -129,11 +144,15 @@ static bool prot_numa_skip(struct vm_area_struct *vma, unsigned long addr,
->  	 * balancing is disabled
->  	 */
->  	if (!(sysctl_numa_balancing_mode & NUMA_BALANCING_NORMAL) && toptier)
-> -		return true;
-> +		goto skip;
->
-> +	ret = false;
->  	if (folio_use_access_time(folio))
->  		folio_xchg_access_time(folio, jiffies_to_msecs(jiffies));
-> -	return false;
+> +static const struct imx_cpi_pix_format *find_imx_cpi_format(u32 code)
+> +{
+> +	unsigned int i;
 > +
-> +skip:
-> +	*foliop = folio;
+> +	for (i = 0; i < ARRAY_SIZE(imx_cpi_formats); i++)
+> +		if (code == imx_cpi_formats[i].code)
+> +			return &imx_cpi_formats[i];
+> +
+> +	return NULL;
+> +}
+> +
+> +static void imx_cpi_sw_reset(struct imx_cpi_device *pcpidev)
+> +{
+> +	const struct imx_cpi_plat_data *pdata = pcpidev->pdata;
+> +	u32 val;
+> +
+> +	/* Softwaret Reset */
+> +	val = readl(pcpidev->regs + pdata->interface_ctrl_reg);
+> +	val |= CPI_CTRL_REG_SOFTRST;
+> +	writel(val, pcpidev->regs + pdata->interface_ctrl_reg);
+> +
+> +	usleep_range(500, 1000);
+> +	val = readl(pcpidev->regs + pdata->interface_ctrl_reg);
+> +	val &= ~CPI_CTRL_REG_SOFTRST;
+> +	writel(val, pcpidev->regs + pdata->interface_ctrl_reg);
+> +}
+> +
+> +static void imx_cpi_hw_config(struct imx_cpi_device *pcpidev)
+> +{
+> +	const struct imx_cpi_plat_data *pdata = pcpidev->pdata;
+> +	u32 val;
+> +
+> +	/* Software Reset */
+> +	imx_cpi_sw_reset(pcpidev);
+> +
+> +	/* Config PL Data Type */
+> +	val = readl(pcpidev->regs + pdata->if_ctrl_reg);
+> +	val |= IF_CTRL_REG_DATA_TYPE(DATA_TYPE_OUT_YUV444);
+> +	writel(val, pcpidev->regs + pdata->if_ctrl_reg);
+> +
+> +	/* Enable sync Force */
+> +	val = readl(pcpidev->regs + pdata->interface_ctrl_reg);
+> +	val |= (CPI_CTRL_REG_HSYNC_FORCE_EN | CPI_CTRL_REG_VSYNC_FORCE_EN);
+> +	writel(val, pcpidev->regs + pdata->interface_ctrl_reg);
+> +
+> +	/* Enable Pixel Link */
+> +	val = readl(pcpidev->regs + pdata->if_ctrl_reg);
+> +	val |= IF_CTRL_REG_PL_ENABLE;
+> +	writel(val, pcpidev->regs + pdata->if_ctrl_reg);
+> +
+> +	/* Enable Pixel Link */
+> +	val = readl(pcpidev->regs + pdata->if_ctrl_reg);
+> +	val |= IF_CTRL_REG_PL_VALID;
+> +	writel(val, pcpidev->regs + pdata->if_ctrl_reg);
+> +
+> +	/* Config CTRL REG */
+> +	val = readl(pcpidev->regs + pdata->interface_ctrl_reg);
+> +
+> +	val |= (CPI_CTRL_REG_DATA_TYPE_IN(pdata->def_cpi_in_data_type) |
+> +		FIELD_PREP(CPI_CTRL_REG_HSYNC_POL, pdata->def_hsync_pol) |
+> +		FIELD_PREP(CPI_CTRL_REG_VSYNC_POL, pdata->def_vsync_pol) |
+> +		FIELD_PREP(CPI_CTRL_REG_PIXEL_CLK_POL, pdata->def_pixel_clk_pol) |
+> +		CPI_CTRL_REG_MASK_VSYNC_COUNTER(3) |
+> +		CPI_CTRL_REG_HSYNC_PULSE(2));
+> +
+> +	if (pcpidev->uv_swap)
+> +		val |= CPI_CTRL_REG_UV_SWAP_EN;
+> +
+> +	if (pcpidev->mode & PI_GATE_CLOCK_MODE) {
+> +		val |= CPI_CTRL_REG_GCLK_MODE_EN;
+> +	} else if (pcpidev->mode & PI_CCIR_MODE) {
+> +		val |= (CPI_CTRL_REG_CCIR_EN |
+> +			CPI_CTRL_REG_CCIR_VSYNC_RESET_EN |
+> +			CPI_CTRL_REG_CCIR_EXT_VSYNC_EN |
+> +			CPI_CTRL_REG_CCIR_ECC_ERR_CORRECT_EN);
+> +	}
+> +
+> +	writel(val, pcpidev->regs + pdata->interface_ctrl_reg);
+> +}
+> +
+> +static int get_interface_ctrl_reg1_param(struct imx_cpi_device *pcpidev,
+> +					 u32 *pixel_width, u32 *vsync_pulse,
+> +					 const struct v4l2_mbus_framefmt *format)
+> +{
+> +	u32 version = pcpidev->pdata->version;
+> +
+> +	switch (version) {
+> +	case PI_V1:
+> +		*pixel_width = format->width - 1;
+> +		*vsync_pulse = format->width << 1;
+> +		break;
+> +	case PI_V2:
+> +		*pixel_width = format->width << 3;
+> +		*vsync_pulse = format->width - 1;
+> +		break;
+> +	default:
+> +		dev_err(pcpidev->dev, "Not support PI version %d\n", version);
+> +		return -EINVAL;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static void imx_cpi_config_ctrl_reg1(struct imx_cpi_device *pcpidev,
+> +				     const struct v4l2_mbus_framefmt *format)
+> +{
+> +	const struct imx_cpi_plat_data *pdata = pcpidev->pdata;
+> +	struct device *dev = pcpidev->dev;
+> +	u32 pixel_width;
+> +	u32 vsync_pulse;
+> +	u32 val;
+> +	int ret;
+> +
+> +	dev_dbg(dev, "%s %dx%d, fmt->code:0x%0x\n", __func__,
+> +		format->width, format->height, format->code);
+> +
+> +	if (format->width <= 0 || format->height <= 0) {
+> +		dev_err(dev, "%s width/height invalid\n", __func__);
+> +		return;
+> +	}
+> +
+> +	ret = get_interface_ctrl_reg1_param(pcpidev, &pixel_width,
+> +					    &vsync_pulse, format);
+> +	if (ret < 0)
+> +		return;
+> +
+> +	val = (CPI_CTRL_REG1_PIXEL_WIDTH(pixel_width) |
+> +	       CPI_CTRL_REG1_VSYNC_PULSE(vsync_pulse));
+> +	writel(val, pcpidev->regs + pdata->interface_ctrl_reg1);
+> +}
+> +
+> +static void imx_cpi_enable(struct imx_cpi_device *pcpidev)
+> +{
+> +	const struct imx_cpi_plat_data *pdata = pcpidev->pdata;
+> +	u32 val;
+> +
+> +	/* Enable CPI */
+> +	val = readl(pcpidev->regs + pdata->interface_ctrl_reg);
+> +	val |= CPI_CTRL_REG_CPI_EN;
+> +	writel(val, pcpidev->regs + pdata->interface_ctrl_reg);
+> +
+> +	/* Disable SYNC Force */
+> +	val = readl(pcpidev->regs + pdata->interface_ctrl_reg);
+> +	val &= ~(CPI_CTRL_REG_HSYNC_FORCE_EN | CPI_CTRL_REG_VSYNC_FORCE_EN);
+> +	writel(val, pcpidev->regs + pdata->interface_ctrl_reg);
+> +}
+> +
+> +static void imx_cpi_disable(struct imx_cpi_device *pcpidev)
+> +{
+> +	const struct imx_cpi_plat_data *pdata = pcpidev->pdata;
+> +	u32 val;
+> +
+> +	/* Enable Sync Force */
+> +	val = readl(pcpidev->regs + pdata->interface_ctrl_reg);
+> +	val |= (CPI_CTRL_REG_HSYNC_FORCE_EN | CPI_CTRL_REG_VSYNC_FORCE_EN);
+> +	writel(val, pcpidev->regs + pdata->interface_ctrl_reg);
+> +
+> +	/* Disable CPI */
+> +	val = readl(pcpidev->regs + pdata->interface_ctrl_reg);
+> +	val &= ~CPI_CTRL_REG_CPI_EN;
+> +	writel(val, pcpidev->regs + pdata->interface_ctrl_reg);
+> +
+> +	/* Disable Pixel Link */
+> +	val = readl(pcpidev->regs + pdata->if_ctrl_reg);
+> +	val &= ~(IF_CTRL_REG_PL_VALID | IF_CTRL_REG_PL_ENABLE);
+> +	writel(val, pcpidev->regs + pdata->if_ctrl_reg);
+> +}
+> +
+> +static void imx_cpi_start_stream(struct imx_cpi_device *pcpidev,
+> +				 const struct v4l2_mbus_framefmt *format,
+> +				 const struct imx_cpi_pix_format *pcpidev_fmt)
+> +{
+> +	if (pcpidev_fmt->code == MEDIA_BUS_FMT_YUYV8_2X8 ||
+> +	    pcpidev_fmt->code == MEDIA_BUS_FMT_UYVY8_2X8)
+> +		pcpidev->uv_swap = 1;
+> +
+> +	imx_cpi_hw_config(pcpidev);
+> +	imx_cpi_config_ctrl_reg1(pcpidev, format);
+> +	imx_cpi_enable(pcpidev);
+> +	imx_cpi_regs_dump(pcpidev);
+> +}
+> +
+> +static void imx_cpi_stop_stream(struct imx_cpi_device *pcpidev)
+> +{
+> +	imx_cpi_regs_dump(pcpidev);
+> +	imx_cpi_disable(pcpidev);
+> +}
+> +
+> +/* -----------------------------------------------------------------------------
+> + * Async subdev notifier
+> + */
+> +
+> +static struct imx_cpi_device *
+> +notifier_to_imx_cpi_device(struct v4l2_async_notifier *n)
+> +{
+> +	return container_of(n, struct imx_cpi_device, notifier);
+> +}
+> +
+> +static struct imx_cpi_device *
+> +sd_to_imx_cpi_device(struct v4l2_subdev *sdev)
+> +{
+> +	return container_of(sdev, struct imx_cpi_device, sd);
+> +}
+> +
+> +static int imx_cpi_notify_bound(struct v4l2_async_notifier *notifier,
+> +				struct v4l2_subdev *sd,
+> +				struct v4l2_async_connection *asd)
+> +{
+> +	struct imx_cpi_device *pcpidev = notifier_to_imx_cpi_device(notifier);
+> +	struct media_pad *sink = &pcpidev->sd.entity.pads[IMX_CPI_PAD_SINK];
+> +
+> +	return v4l2_create_fwnode_links_to_pad(sd, sink, 0);
+> +}
+> +
+> +static const struct v4l2_async_notifier_operations imx_cpi_notify_ops = {
+> +	.bound = imx_cpi_notify_bound,
+> +};
+> +
+> +static int imx_cpi_async_register(struct imx_cpi_device *pcpidev)
+> +{
+> +	struct v4l2_fwnode_endpoint vep = {
+> +		.bus_type = V4L2_MBUS_PARALLEL,
+> +	};
+> +	struct v4l2_async_connection *asd;
+> +	struct fwnode_handle *ep __free(fwnode_handle) = NULL;
+> +	int ret;
+> +
+> +	v4l2_async_subdev_nf_init(&pcpidev->notifier, &pcpidev->sd);
+> +
+> +	ep = fwnode_graph_get_endpoint_by_id(dev_fwnode(pcpidev->dev), 0, 0,
+> +					     FWNODE_GRAPH_ENDPOINT_NEXT);
+> +	if (!ep)
+> +		return -ENOTCONN;
+> +
+> +	ret = v4l2_fwnode_endpoint_parse(ep, &vep);
+> +	if (ret)
+> +		return ret;
+> +
+> +	asd = v4l2_async_nf_add_fwnode_remote(&pcpidev->notifier, ep,
+> +					      struct v4l2_async_connection);
+> +	if (IS_ERR(asd))
+> +		return PTR_ERR(asd);
+> +
+> +	pcpidev->notifier.ops = &imx_cpi_notify_ops;
+> +	ret = v4l2_async_nf_register(&pcpidev->notifier);
+> +	if (ret)
+> +		return ret;
+> +
+> +	return v4l2_async_register_subdev(&pcpidev->sd);
+> +}
+> +
+> +/* -----------------------------------------------------------------------------
+> + * Media entity operations
+> + */
+> +
+> +static int imx_cpi_link_setup(struct media_entity *entity,
+> +			      const struct media_pad *local_pad,
+> +			      const struct media_pad *remote_pad,
+> +			      u32 flags)
+> +{
+> +	struct v4l2_subdev *sd = media_entity_to_v4l2_subdev(entity);
+> +	struct imx_cpi_device *pcpidev = sd_to_imx_cpi_device(sd);
+> +	struct v4l2_subdev *remote_sd;
+> +
+> +	dev_dbg(pcpidev->dev, "link setup %s -> %s", remote_pad->entity->name,
+> +		local_pad->entity->name);
+> +
+> +	/* We only care about the link to the source. */
+> +	if (!(local_pad->flags & MEDIA_PAD_FL_SINK))
+> +		return 0;
+> +
+> +	remote_sd = media_entity_to_v4l2_subdev(remote_pad->entity);
+> +	if (flags & MEDIA_LNK_FL_ENABLED) {
+> +		if (pcpidev->source.sd)
+> +			return -EBUSY;
+> +
+> +		pcpidev->source.sd = remote_sd;
+> +		pcpidev->source.pad = remote_pad;
+> +	} else {
+> +		pcpidev->source.sd = NULL;
+> +		pcpidev->source.pad = NULL;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static const struct media_entity_operations imx_cpi_entity_ops = {
+> +	.link_setup = imx_cpi_link_setup,
+> +	.link_validate = v4l2_subdev_link_validate,
+> +	.get_fwnode_pad = v4l2_subdev_get_fwnode_pad_1_to_1,
+> +};
+> +
+> +static int imx_cpi_set_fmt(struct v4l2_subdev *sd,
+> +			   struct v4l2_subdev_state *sd_state,
+> +			   struct v4l2_subdev_format *sdformat)
+> +{
+> +	struct imx_cpi_pix_format const *pcpidev_fmt;
+> +	struct imx_cpi_device *pcpidev = sd_to_imx_cpi_device(sd);
+> +	struct device *dev = pcpidev->dev;
+> +	struct v4l2_mbus_framefmt *fmt;
+> +	unsigned int align;
+> +
+> +	/*
+> +	 * The Parallel cpi can't transcode in any way, the source format
+> +	 * can't be modified.
+> +	 */
+> +	if (sdformat->pad == IMX_CPI_PAD_SOURCE)
+> +		return v4l2_subdev_get_fmt(sd, sd_state, sdformat);
+> +
+> +	/*
+> +	 * Validate the media bus code and clamp and align the size.
+> +	 *
+> +	 * The total number of bits per line must be a multiple of 8. We thus
+> +	 * need to align the width for formats that are not multiples of 8
+> +	 * bits.
+> +	 */
+> +	pcpidev_fmt = find_imx_cpi_format(sdformat->format.code);
+> +	if (!pcpidev_fmt)
+> +		pcpidev_fmt = &imx_cpi_formats[0];
+> +
+> +	switch (pcpidev_fmt->width % 8) {
+> +	case 0:
+> +		align = 0;
+> +		break;
+> +	case 4:
+> +		align = 1;
+> +		break;
+> +	case 2:
+> +	case 6:
+> +		align = 2;
+> +		break;
+> +	default:
+> +		/* 1, 3, 5, 7 */
+> +		align = 3;
+> +		break;
+> +	}
+> +
+> +	v4l_bound_align_image(&sdformat->format.width, 1,
+> +			      IMX_CPI_MAX_PIX_WIDTH, align,
+> +			      &sdformat->format.height, 1,
+> +			      IMX_CPI_MAX_PIX_HEIGHT, 0, 0);
+> +
+> +	fmt = v4l2_subdev_state_get_format(sd_state, sdformat->pad);
+> +	if (!fmt)
+> +		return -EINVAL;
+> +
+> +	fmt->code = pcpidev_fmt->code;
+> +	fmt->width = sdformat->format.width;
+> +	fmt->height = sdformat->format.height;
+> +	fmt->field = V4L2_FIELD_NONE;
+> +	fmt->colorspace = sdformat->format.colorspace;
+> +	fmt->quantization = sdformat->format.quantization;
+> +	fmt->xfer_func = sdformat->format.xfer_func;
+> +	fmt->ycbcr_enc = sdformat->format.ycbcr_enc;
+> +
+> +	sdformat->format = *fmt;
+> +
+> +	/* Propagate the format from sink to source. */
+> +	fmt = v4l2_subdev_state_get_format(sd_state, IMX_CPI_PAD_SOURCE);
+> +	*fmt = sdformat->format;
+> +
+> +	/* The format on the source pad might change due to unpacking. */
+> +	fmt->code = pcpidev_fmt->output;
+> +
+> +	dev_dbg(dev, "%s: fmt_code:0x%0x, %dx%d\n", __func__,
+> +		fmt->code, fmt->width, fmt->height);
+> +	return 0;
+> +}
+> +
+> +static const struct v4l2_mbus_framefmt imx_cpi_default_fmt = {
+> +	.code = IMX_CPI_DEF_MBUS_CODE,
+> +	.width = IMX_CPI_DEF_PIX_WIDTH,
+> +	.height = IMX_CPI_DEF_PIX_HEIGHT,
+> +	.field = V4L2_FIELD_NONE,
+> +	.colorspace = V4L2_COLORSPACE_SMPTE170M,
+> +	.xfer_func = V4L2_MAP_XFER_FUNC_DEFAULT(V4L2_COLORSPACE_SMPTE170M),
+> +	.ycbcr_enc = V4L2_MAP_YCBCR_ENC_DEFAULT(V4L2_COLORSPACE_SMPTE170M),
+> +	.quantization = V4L2_QUANTIZATION_LIM_RANGE,
+> +};
+> +
+> +static int imx_cpi_init_state(struct v4l2_subdev *sd,
+> +			      struct v4l2_subdev_state *sd_state)
+> +{
+> +	struct v4l2_subdev_format fmt = {
+> +		.pad = IMX_CPI_PAD_SINK,
+> +	};
+> +
+> +	fmt.format.code = imx_cpi_formats[0].code;
+> +	fmt.format.width = IMX_CPI_DEF_PIX_WIDTH;
+> +	fmt.format.height = IMX_CPI_DEF_PIX_HEIGHT;
+> +
+> +	fmt.format.colorspace = V4L2_COLORSPACE_SMPTE170M;
+> +	fmt.format.xfer_func =
+> +	    V4L2_MAP_XFER_FUNC_DEFAULT(fmt.format.colorspace);
+> +	fmt.format.ycbcr_enc =
+> +	    V4L2_MAP_YCBCR_ENC_DEFAULT(fmt.format.colorspace);
+> +	fmt.format.quantization =
+> +	    V4L2_MAP_QUANTIZATION_DEFAULT(false,
+> +					  fmt.format.colorspace,
+> +					  fmt.format.ycbcr_enc);
+> +
+> +	return imx_cpi_set_fmt(sd, sd_state, &fmt);
+> +}
+> +
+> +static int imx_cpi_s_stream(struct v4l2_subdev *sd, int enable)
+> +{
+> +	struct imx_cpi_device *pcpidev = sd_to_imx_cpi_device(sd);
+> +	const struct v4l2_mbus_framefmt *format;
+> +	const struct imx_cpi_pix_format *pcpidev_fmt;
+> +	struct v4l2_subdev_state *state;
+> +	int ret;
+> +
+> +	if (!enable) {
+> +		v4l2_subdev_disable_streams(pcpidev->source.sd,
+> +					    pcpidev->source.pad->index, BIT(0));
+> +
+> +		imx_cpi_stop_stream(pcpidev);
+> +
+> +		pm_runtime_put(pcpidev->dev);
+> +
+> +		return 0;
+> +	}
+> +
+> +	state = v4l2_subdev_lock_and_get_active_state(sd);
+> +	format = v4l2_subdev_state_get_format(state, IMX_CPI_PAD_SINK);
+> +	pcpidev_fmt = find_imx_cpi_format(format->code);
+> +
+> +	ret = pm_runtime_resume_and_get(pcpidev->dev);
+> +	if (ret < 0)
+> +		goto err_unlock;
+> +
+> +	imx_cpi_start_stream(pcpidev, format, pcpidev_fmt);
+> +
+> +	ret = v4l2_subdev_enable_streams(pcpidev->source.sd,
+> +					 pcpidev->source.pad->index, BIT(0));
+> +	if (ret < 0)
+> +		goto err_stop;
+> +
+> +	v4l2_subdev_unlock_state(state);
+> +
+> +	return 0;
+> +
+> +err_stop:
+> +	imx_cpi_stop_stream(pcpidev);
+> +	pm_runtime_put(pcpidev->dev);
+> +err_unlock:
+> +	v4l2_subdev_unlock_state(state);
 > +	return ret;
->  }
->
->  static long change_pte_range(struct mmu_gather *tlb,
-> @@ -147,6 +166,7 @@ static long change_pte_range(struct mmu_gather *tlb,
->  	bool prot_numa = cp_flags & MM_CP_PROT_NUMA;
->  	bool uffd_wp = cp_flags & MM_CP_UFFD_WP;
->  	bool uffd_wp_resolve = cp_flags & MM_CP_UFFD_WP_RESOLVE;
-> +	int nr_ptes;
->
->  	tlb_change_page_size(tlb, PAGE_SIZE);
->  	pte = pte_offset_map_lock(vma->vm_mm, pmd, addr, &ptl);
-> @@ -161,8 +181,11 @@ static long change_pte_range(struct mmu_gather *tlb,
->  	flush_tlb_batched_pending(vma->vm_mm);
->  	arch_enter_lazy_mmu_mode();
->  	do {
-> +		nr_ptes = 1;
->  		oldpte = ptep_get(pte);
->  		if (pte_present(oldpte)) {
-> +			int max_nr_ptes = (end - addr) >> PAGE_SHIFT;
-> +			struct folio *folio;
->  			pte_t ptent;
->
->  			/*
-> @@ -170,9 +193,15 @@ static long change_pte_range(struct mmu_gather *tlb,
->  			 * pages. See similar comment in change_huge_pmd.
->  			 */
->  			if (prot_numa) {
-> -				if (prot_numa_skip(vma, addr, oldpte, pte,
-> -						   target_node))
-> +				int ret = prot_numa_skip(vma, addr, oldpte, pte,
-> +							 target_node, &folio);
-> +				if (ret) {
+> +}
 > +
-> +					/* determine batch to skip */
-> +					nr_ptes = mprotect_folio_pte_batch(folio,
-> +						  pte, oldpte, max_nr_ptes);
->  					continue;
-> +				}
->  			}
->
->  			oldpte = ptep_modify_prot_start(vma, addr, pte);
-> @@ -289,7 +318,7 @@ static long change_pte_range(struct mmu_gather *tlb,
->  				pages++;
->  			}
->  		}
-> -	} while (pte++, addr += PAGE_SIZE, addr != end);
-> +	} while (pte += nr_ptes, addr += nr_ptes * PAGE_SIZE, addr != end);
->  	arch_leave_lazy_mmu_mode();
->  	pte_unmap_unlock(pte - 1, ptl);
+> +static int imx_cpi_enum_mbus_code(struct v4l2_subdev *sd,
+> +				  struct v4l2_subdev_state *sd_state,
+> +				  struct v4l2_subdev_mbus_code_enum *code)
+> +{
+> +	/*
+> +	 * The PARALLEL CPI can't transcode in any way, the source format
+> +	 * is identical to the sink format.
+> +	 */
+> +	if (code->pad == IMX_CPI_PAD_SOURCE) {
+> +		struct v4l2_mbus_framefmt *fmt;
+> +
+> +		if (code->index > 0)
+> +			return -EINVAL;
+> +
+> +		fmt = v4l2_subdev_state_get_format(sd_state, code->pad);
+> +		code->code = fmt->code;
+> +		return 0;
+> +	}
+> +
+> +	if (code->pad != IMX_CPI_PAD_SINK)
+> +		return -EINVAL;
+> +
+> +	if (code->index >= ARRAY_SIZE(imx_cpi_formats))
+> +		return -EINVAL;
+> +
+> +	code->code = imx_cpi_formats[code->index].code;
+> +
+> +	return 0;
+> +}
+> +
+> +static int imx_cpi_get_frame_desc(struct v4l2_subdev *sd,
+> +				  unsigned int pad,
+> +				  struct v4l2_mbus_frame_desc *fd)
+> +{
+> +	struct v4l2_mbus_frame_desc_entry *entry = &fd->entry[0];
+> +	const struct imx_cpi_pix_format *pcpidev_fmt;
+> +	const struct v4l2_mbus_framefmt *fmt;
+> +	struct v4l2_subdev_state *state;
+> +
+> +	if (pad != IMX_CPI_PAD_SOURCE)
+> +		return -EINVAL;
+> +
+> +	state = v4l2_subdev_lock_and_get_active_state(sd);
+> +	fmt = v4l2_subdev_state_get_format(state, IMX_CPI_PAD_SOURCE);
+> +	pcpidev_fmt = find_imx_cpi_format(fmt->code);
+> +	v4l2_subdev_unlock_state(state);
+> +
+> +	if (!pcpidev_fmt)
+> +		return -EPIPE;
+> +
+> +	fd->type = V4L2_MBUS_FRAME_DESC_TYPE_PARALLEL;
+> +	fd->num_entries = 1;
+> +
+> +	entry->flags = 0;
+> +	entry->pixelcode = pcpidev_fmt->code;
+> +
+> +	return 0;
+> +}
+> +
+> +static const struct v4l2_subdev_video_ops imx_cpi_video_ops = {
+> +	.s_stream = imx_cpi_s_stream,
+> +};
+> +
+> +static const struct v4l2_subdev_pad_ops imx_cpi_pad_ops = {
+> +	.enum_mbus_code = imx_cpi_enum_mbus_code,
+> +	.get_fmt = v4l2_subdev_get_fmt,
+> +	.set_fmt = imx_cpi_set_fmt,
+> +	.get_frame_desc = imx_cpi_get_frame_desc,
+> +};
+> +
+> +static const struct v4l2_subdev_ops imx_cpi_subdev_ops = {
+> +	.pad = &imx_cpi_pad_ops,
+> +	.video = &imx_cpi_video_ops,
+> +};
+> +
+> +static const struct v4l2_subdev_internal_ops imx_cpi_internal_ops = {
+> +	.init_state = imx_cpi_init_state,
+> +};
+> +
+> +static int imx_cpi_clk_get(struct imx_cpi_device *pcpidev)
+> +{
+> +	unsigned int i;
+> +	int ret = 0;
+> +
+> +	for (i = 0; i < PCPIDEV_NUM_CLKS; i++)
+> +		pcpidev->clks[i].id = imx_cpi_clk_id[i];
+> +
+> +	ret = devm_clk_bulk_get(pcpidev->dev, PCPIDEV_NUM_CLKS, pcpidev->clks);
+> +
+> +	return ret;
+> +}
+> +
+> +/* ----------------------------------------------------------------------
+> + * Suspend/resume
+> + */
+> +static int __maybe_unused imx_cpi_runtime_suspend(struct device *dev)
+> +{
+> +	struct v4l2_subdev *sd = dev_get_drvdata(dev);
+> +	struct imx_cpi_device *pcpidev = sd_to_imx_cpi_device(sd);
+> +
+> +	clk_bulk_disable_unprepare(PCPIDEV_NUM_CLKS, pcpidev->clks);
+> +
+> +	return 0;
+> +}
+> +
+> +static int __maybe_unused imx_cpi_runtime_resume(struct device *dev)
+> +{
+> +	struct v4l2_subdev *sd = dev_get_drvdata(dev);
+> +	struct imx_cpi_device *pcpidev = sd_to_imx_cpi_device(sd);
+> +
+> +	return clk_bulk_prepare_enable(PCPIDEV_NUM_CLKS, pcpidev->clks);
+> +}
+> +
+> +static const struct dev_pm_ops imx_cpi_pm_ops = {
+> +	RUNTIME_PM_OPS(imx_cpi_runtime_suspend, imx_cpi_runtime_resume, NULL)
+> +};
+> +
+> +static int imx_cpi_subdev_init(struct imx_cpi_device *pcpidev)
+> +{
+> +	struct v4l2_subdev *sd = &pcpidev->sd;
+> +	int ret;
+> +
+> +	v4l2_subdev_init(sd, &imx_cpi_subdev_ops);
+> +
+> +	sd->internal_ops = &imx_cpi_internal_ops;
+> +	sd->owner = THIS_MODULE;
+> +	snprintf(sd->name, sizeof(sd->name), "parallel-%s",
+> +		 dev_name(pcpidev->dev));
+> +
+> +	sd->flags |= V4L2_SUBDEV_FL_HAS_DEVNODE;
+> +	sd->ctrl_handler = NULL;
+> +
+> +	sd->entity.function = MEDIA_ENT_F_VID_IF_BRIDGE;
+> +	sd->entity.ops = &imx_cpi_entity_ops;
+> +
+> +	sd->dev = pcpidev->dev;
+> +
+> +	pcpidev->pads[IMX_CPI_PAD_SINK].flags = MEDIA_PAD_FL_SINK | MEDIA_PAD_FL_MUST_CONNECT;
+> +	pcpidev->pads[IMX_CPI_PAD_SOURCE].flags = MEDIA_PAD_FL_SOURCE |
+> +						       MEDIA_PAD_FL_MUST_CONNECT;
+> +
+> +	ret = media_entity_pads_init(&sd->entity, IMX_CPI_PADS_NUM, pcpidev->pads);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = v4l2_subdev_init_finalize(sd);
+> +	if (ret)
+> +		media_entity_cleanup(&sd->entity);
+> +
+> +	return ret;
+> +}
+> +
+> +static void imx_cpi_cleanup(void *data)
+> +{
+> +	struct imx_cpi_device *pcpidev = data;
+> +
+> +	v4l2_subdev_cleanup(&pcpidev->sd);
+> +	media_entity_cleanup(&pcpidev->sd.entity);
+> +	v4l2_async_nf_unregister(&pcpidev->notifier);
+> +	v4l2_async_nf_cleanup(&pcpidev->notifier);
+> +	v4l2_async_unregister_subdev(&pcpidev->sd);
+> +}
+> +
+> +static int imx_cpi_probe(struct platform_device *pdev)
+> +{
+> +	struct imx_cpi_device *pcpidev;
+> +	struct device *dev = &pdev->dev;
+> +	int ret = 0;
+> +
+> +	pcpidev = devm_kzalloc(dev, sizeof(*pcpidev), GFP_KERNEL);
+> +	if (!pcpidev)
+> +		return -ENOMEM;
+> +
+> +	pcpidev->dev = dev;
+> +	platform_set_drvdata(pdev, pcpidev);
+> +
+> +	pcpidev->pdata = of_device_get_match_data(dev);
+> +
+> +	pcpidev->regs = devm_platform_ioremap_resource(pdev, 0);
+> +	if (IS_ERR(pcpidev->regs))
+> +		return dev_err_probe(dev, PTR_ERR(pcpidev->regs),
+> +				     "Failed to get regs\n");
+> +
+> +	ret = imx_cpi_clk_get(pcpidev);
+> +	if (ret < 0)
+> +		return ret;
+> +
+> +	ret = imx_cpi_subdev_init(pcpidev);
+> +	if (ret < 0)
+> +		return ret;
+> +
+> +	ret = devm_add_action_or_reset(dev, imx_cpi_cleanup, pcpidev);
+> +	if (ret)
+> +		return ret;
+> +
+> +	pcpidev->mode = PI_GATE_CLOCK_MODE;
+> +
+> +	platform_set_drvdata(pdev, &pcpidev->sd);
+> +
+> +	ret = imx_cpi_async_register(pcpidev);
+> +	if (ret < 0)
+> +		return ret;
+> +
+> +	devm_pm_runtime_enable(dev);
+> +
+> +	return 0;
+> +}
+> +
+> +static const struct of_device_id imx_cpi_of_match[] = {
+> +	{.compatible = "fsl,imx8qxp-pcif", .data = &imx8qxp_pdata },
+> +	{.compatible = "fsl,imx93-pcif", .data = &imx93_pdata },
+> +	{ },
+> +};
+> +
+> +MODULE_DEVICE_TABLE(of, imx_cpi_of_match);
+> +
+> +static struct platform_driver _driver = {
+> +	.probe = imx_cpi_probe,
+> +	.driver = {
+> +		.of_match_table = imx_cpi_of_match,
+> +		.name = "imx-parallel-cpi",
+> +		.pm = pm_ptr(&imx_cpi_pm_ops),
+> +	},
+> +};
+> +
+> +module_platform_driver(_driver);
+> +
+> +MODULE_DESCRIPTION("i.MX9 Parallel CPI receiver driver");
+> +MODULE_LICENSE("GPL");
 >
 > --
-> 2.30.2
+> 2.34.1
+>
 >
 
