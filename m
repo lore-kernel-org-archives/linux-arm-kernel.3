@@ -4,86 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C067C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Jul 2025 04:47:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AE70C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Jul 2025 05:13:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=83O1oRzrZe3Tf7Tu6tuN/pr1ROh0NC7/xEo52yjes5Y=; b=nfc4OL0JDWJ8q2KpDAdaqZKg1Q
-	TV3IZR2BC3WH7RM9unupojU6MDcU/FFtRI3ER+bRbv7x42eMir1x/Vn8+Zag3rbAU9SOK2ZF2AJ4b
-	k+nrTZXWKZULqULzl7K4frI4bwVITNfBGH4hcFtd05fiDlH3I/20iEsKfAK4kBA4vD9OLbLzhuqOU
-	0GEEzN3MVwrLgOUHrcAT6LHPewFcby+prIVGHhk8qHiDfGPLhYObBrc0MEW1LivgXX0PvjCsiJ6UM
-	3oeGhQrEUUmKSxa+FEq7/KC6ufFjSPOgBNMZjVgZ4suOfwpJaFR01uNBRfKIS749pI9Oykp44sIeq
-	ONzXzJAA==;
+	bh=W/KPWTypw68rlP2ivlSO9Nj2ROf6caTcYTdVpsWKxvc=; b=ZeLNz57GsPLIhQYcD4SZuVPGS/
+	N/439fU1UlxXesMd0JTsiD7r9QpE0eE0nI560ShsPeUc0au1DyAH0oNT2YCfyBA0h+RP84y9lh/p6
+	0HFswCbocGS24jWV3Jj4jDVfWE7CS5DAcbAhBKPBr7ni5JDdvuHtIwvjnUNHewzYthbxsXVQSZf+N
+	df3bWo2vbCaBcW4SYGkXbAk5ELOaitzmKB7LEPyivcjyo+RQZ0O1cPhxSZb2Dz275M/LouDngGB1g
+	37/O/krWCF8u8BkiyCmFHRl6nYAVVPbi5lSOwWgWbvm8GFmy0xjjRV72I8jW3Y4kZXYSGwUjP2Up1
+	dIN/M8YQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucd0M-0000000BgUd-2aUt;
-	Fri, 18 Jul 2025 04:47:30 +0000
-Received: from mail-il1-x135.google.com ([2607:f8b0:4864:20::135])
+	id 1ucdPV-0000000Bi9b-3vbl;
+	Fri, 18 Jul 2025 05:13:29 +0000
+Received: from cpanel.siel.si ([46.19.9.99])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uccxs-0000000BgAw-2WSX
+	id 1ucdN2-0000000Bi1E-3z8I
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Jul 2025 04:44:58 +0000
-Received: by mail-il1-x135.google.com with SMTP id e9e14a558f8ab-3e2953dcaa1so3713175ab.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Jul 2025 21:44:56 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=brainfault-org.20230601.gappssmtp.com; s=20230601; t=1752813896; x=1753418696; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=83O1oRzrZe3Tf7Tu6tuN/pr1ROh0NC7/xEo52yjes5Y=;
-        b=naczrus1Tq87KIEJdd5IRl2AryXsqQCDtLqGkxOyl+uAol87k//LaBgDe3xtwuwD+i
-         kO+zBZxwrYjIk60taZVtHutaovVy7aUx4Wl4w50sndIYjKcl65irNagwGldtY4zazukl
-         Wk8lJTMp9QwMySpORkr0MccYNim/+pJSOldRrJLKtH/50ClULW1374VoRz5ySi5butMl
-         4VbgvYr1gfwZhoPEC/d2xY7LtNFXwBqx3RpfYVUyDdzTdIZLoygLOoM+MV3ZIqVqUE4x
-         +ikzyaSXEtElizXnxtPVjm4JoSwPZauijrMICd8Gov+75OXLllVDgCwRTG0ejEc6syGb
-         uE/g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752813896; x=1753418696;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=83O1oRzrZe3Tf7Tu6tuN/pr1ROh0NC7/xEo52yjes5Y=;
-        b=kMJJ9IkzXM/MiMM1KnqgEuq4me1/yWypHqSC/i0bokVd7GgT5iZvJ6yI0McfvYrnoX
-         qsmXJyzmq/E2jaK7QxKXhDj87ooaPKNej/ybCcVzyUJLoEgQvGBV/1amDHtTDsjOimSw
-         MkGlCxIN7MLhSr2afbo16Dh97Vjl5fz5LcAhHG8YDau4bZp6DVe5tJfIovZK2+9BgPVG
-         gVq168SwMWCbSr8UVVm/SiPuKnXdETejbfnHMGWVTyUi3aFDRogUbOctYLdtPOYj31tW
-         dhAb14tHFbFoJkNmFuaI0vgQDE/FukFyj8bsLtnviF6rHUkfGZ04m4xpWz+wKBalYrb+
-         5otQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWsmwhFX4GJUhdcVvWpwqwLGfAY//2jn1EtrNXAsWcSqd12FxsxBWqM8w1ac0VGRXOc802r2Gz0OB5kn3MzCfU1@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy4kdSaZLEaYZqt+0Jp64qQkMf65KwnPiG25Z9RWMQM5qW7QcXR
-	9lQ0PusbLxmsy7wXGzO23rjZDanhrzjKdxFNixA+Fy93j+/amPC3t2oEjpgb1m5BkchC8I583wM
-	T1DevXJ8So4okeZTrXHVFXI1TRzi4U/Z3+5cSutXWsQ==
-X-Gm-Gg: ASbGncufXGfs/IGx94pb9mACVdkq69JehXJpCXaDxeZBqGE6MdrTexnADpHRCpFmT/R
-	2zITqe2fijJTAgsa554E9fnKUQ1pi5H7bNpvCiDt+n52HG9B86J+T8zrllfRpNM348aeVh0DnUW
-	DCMwbNWkI6E1tfs0wlCzIV7PGfhfk0jh9nqyu9EnFr7Tqsq4TsldSvDuGkRRRTVTZoWoXOf4cnz
-	rUxAD1t
-X-Google-Smtp-Source: AGHT+IEQ4otNtt6pp4gCO0IAJF0iXhgJzg+MtD1U6+aiOibg4+X80HGU1rRgRl9yQCkoPHu/mILJDq3l2KjWUtT69q8=
-X-Received: by 2002:a05:6e02:3786:b0:3e2:9193:f37b with SMTP id
- e9e14a558f8ab-3e29193f441mr38720145ab.16.1752813895694; Thu, 17 Jul 2025
- 21:44:55 -0700 (PDT)
+	Fri, 18 Jul 2025 05:10:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=norik.com;
+	s=default; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
+	References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=W/KPWTypw68rlP2ivlSO9Nj2ROf6caTcYTdVpsWKxvc=; b=bHtpiwwMCcg9TRDTp1vAU0mAOP
+	UjNvWxcSyqSJ1QV/cYhkOdE7c4/VHxifdUj0l19MpDEXumGku8zcyYtRE/wTEdvZMmJBBicB0kTEh
+	Wg5k1ZH2+24DmV/mquzZDK+0fpj65l1nbauMJG6b7w/oJv3LZdhyFJy3dOhRUFG8pypH+zRXWzqDC
+	fGUWkB3gjZAzgGhQ8EMG3d5s0ga0H4gQMlHyQQVTG9fPhWoRIZNXRpVsIEhfA0wq54aCWnnUFK1wc
+	dmH2yiqBHomhi/mzhjf/YKY0q3UlI4McXLMS7XTKkJJBGVIGz1eC1NKy4x1dF3iMmZblqw8P9zDuo
+	UtlbD7jQ==;
+Received: from [89.212.21.243] (port=48060 helo=[192.168.69.116])
+	by cpanel.siel.si with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+	(Exim 4.96.2)
+	(envelope-from <primoz.fiser@norik.com>)
+	id 1ucdN0-000Axh-0k;
+	Fri, 18 Jul 2025 07:10:53 +0200
+Message-ID: <4a882430-877c-40e9-b7bd-21d423340b20@norik.com>
+Date: Fri, 18 Jul 2025 07:10:49 +0200
 MIME-Version: 1.0
-References: <20250522-pmu_event_info-v3-0-f7bba7fd9cfe@rivosinc.com> <20250522-pmu_event_info-v3-9-f7bba7fd9cfe@rivosinc.com>
-In-Reply-To: <20250522-pmu_event_info-v3-9-f7bba7fd9cfe@rivosinc.com>
-From: Anup Patel <anup@brainfault.org>
-Date: Fri, 18 Jul 2025 10:14:43 +0530
-X-Gm-Features: Ac12FXwDM51LcC52YMXP6x19jKkago_UCHpgC4vfOjbMUKEF0l7xeNYNTebWdEY
-Message-ID: <CAAhSdy0t0UuLwBD5abY52dEaHtcai0uVDucY+vtrtxNj0uYQOw@mail.gmail.com>
-Subject: Re: [PATCH v3 9/9] RISC-V: KVM: Upgrade the supported SBI version to 3.0
-To: Atish Patra <atishp@rivosinc.com>
-Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Mayuresh Chitale <mchitale@ventanamicro.com>, linux-riscv@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Palmer Dabbelt <palmer@rivosinc.com>, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/2] Populate of_node for i.MX netdevs
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: Wei Fang <wei.fang@nxp.com>, Shenwei Wang <shenwei.wang@nxp.com>,
+ Clark Wang <xiaoning.wang@nxp.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ davem@davemloft.net, Eric Dumazet <edumazet@google.com>,
+ Paolo Abeni <pabeni@redhat.com>, Maxime Coquelin
+ <mcoquelin.stm32@gmail.com>, Alexandre Torgue
+ <alexandre.torgue@foss.st.com>, imx@lists.linux.dev, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, upstream@lists.phytec.de,
+ Rob Herring <robh@kernel.org>, Saravana Kannan <saravanak@google.com>,
+ "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
+ <devicetree@vger.kernel.org>
+References: <20250717090037.4097520-1-primoz.fiser@norik.com>
+ <20250717070204.66e34588@kernel.org>
+Content-Language: en-US
+From: Primoz Fiser <primoz.fiser@norik.com>
+Autocrypt: addr=primoz.fiser@norik.com; keydata=
+ xjMEZrROOxYJKwYBBAHaRw8BAQdAADVOb5tiLVTUAC9nu/FUl4gj/+4fDLqbc3mk0Vz8riTN
+ JVByaW1veiBGaXNlciA8cHJpbW96LmZpc2VyQG5vcmlrLmNvbT7CiQQTFggAMRYhBK2YFSAH
+ ExsBZLCwJGoLbQEHbnBPBQJmtE47AhsDBAsJCAcFFQgJCgsFFgIDAQAACgkQagttAQducE+T
+ gAD+K4fKlIuvH75fAFwGYG/HT3F9mN64majvqJqvp3gTB9YBAL12gu+cm11m9JMyOyN0l6Os
+ jStsQFghPkzBSDWSDN0NzjgEZrROPBIKKwYBBAGXVQEFAQEHQP2xtEOhbgA+rfzvvcFkV1zK
+ 6ym3/c/OUQObCp50BocdAwEIB8J4BBgWCAAgFiEErZgVIAcTGwFksLAkagttAQducE8FAma0
+ TjwCGwwACgkQagttAQducE8ucAD9F1sXtQD4iA7Qu+SwNUAp/9x7Cqr37CSb2p6hbRmPJP8B
+ AMYR91JYlFmOJ+ScPhQ8/MgFO+V6pa7K2ebk5xYqsCgA
+Organization: Norik systems d.o.o.
+In-Reply-To: <20250717070204.66e34588@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - cpanel.siel.si
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - norik.com
+X-Get-Message-Sender-Via: cpanel.siel.si: authenticated_id: primoz.fiser@norik.com
+X-Authenticated-Sender: cpanel.siel.si: primoz.fiser@norik.com
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250717_214456_632992_899B12BC 
-X-CRM114-Status: GOOD (  16.36  )
+X-CRM114-CacheID: sfid-20250717_221057_462073_A61DAD4E 
+X-CRM114-Status: UNSURE (   7.53  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,44 +107,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 23, 2025 at 12:33=E2=80=AFAM Atish Patra <atishp@rivosinc.com> =
-wrote:
->
-> Upgrade the SBI version to v3.0 so that corresponding features
-> can be enabled in the guest.
->
-> Signed-off-by: Atish Patra <atishp@rivosinc.com>
+Hi Jakub,
 
-Extending the ONE_REG interface to allow KVM user-space select
-SBI version can be done as a separate series.
+On 17. 07. 25 16:02, Jakub Kicinski wrote:
+> On Thu, 17 Jul 2025 11:00:35 +0200 Primoz Fiser wrote:
+>> Recently when working on predictable network names for i.MX SoCs, it
+>> was discovered that of_node sysfs properties are missing for FEC and
+>> EQOS interfaces.
+>>
+>> Without this, udev is unable to expose the OF_* properties (OF_NAME,
+>> OF_FULLNAME, OF_COMPATIBLE, OF_ALIAS, etc.) and thus we cannot identify
+>> interface based on those properties.
+>>
+>> Fix this by populating netdev of_node in respective drivers.
+> 
+> Seems legit, but would be good to CC Open Firmware maintainers.
 
-For this series, we can go ahead with this patch.
+Added Rob & Saravana to CC.
 
-Reviewed-by: Anup Patel <anup@brainfault.org>
+> 
+> If we want to make propagating the OF linkage a think I think we should
+> add a flavor of SET_NETDEV_DEV() which does that for the caller.
+> SET_NETDEV_DEV_OF() ?
 
-Regards,
-Anup
+OK, so you suggest to add MACRO:
 
-> ---
->  arch/riscv/include/asm/kvm_vcpu_sbi.h | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/arch/riscv/include/asm/kvm_vcpu_sbi.h b/arch/riscv/include/a=
-sm/kvm_vcpu_sbi.h
-> index 4ed6203cdd30..194299e0ab0e 100644
-> --- a/arch/riscv/include/asm/kvm_vcpu_sbi.h
-> +++ b/arch/riscv/include/asm/kvm_vcpu_sbi.h
-> @@ -11,7 +11,7 @@
->
->  #define KVM_SBI_IMPID 3
->
-> -#define KVM_SBI_VERSION_MAJOR 2
-> +#define KVM_SBI_VERSION_MAJOR 3
->  #define KVM_SBI_VERSION_MINOR 0
->
->  enum kvm_riscv_sbi_ext_status {
->
-> --
-> 2.43.0
->
+#define SET_NETDEV_DEV_OF(net, np)  ((net)->dev.of_node = (np))
+
+I like the idea too.
+
+Way cleaner especially if others will join later.
+
+Shall we do that already for v2 or as a separate series?
+
+BR,
+Primoz
+
+
+-- 
+Primoz Fiser
+phone: +386-41-390-545
+email: primoz.fiser@norik.com
+--
+Norik systems d.o.o.
+Your embedded software partner
+Slovenia, EU
+phone: +386-41-540-545
+email: info@norik.com
 
