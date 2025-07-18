@@ -4,81 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50D5FC83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Jul 2025 06:58:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 849BBC83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Jul 2025 07:00:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=KDO1CgxSdugL6J3cyk/JcvAqVTcJT4cFkWZUoNx9F8k=; b=ItfZXvWfKZzmR+TLGhxDCSL0Fz
-	K4RSNX3/T/W5VoubPZlUw+yh1hnZdz+x2pLPooT6Ufv/r/Z9HSxTw4dBp5Xp4WZOVRtUgaRltCJWQ
-	QKXuBqp+WSVMDTgGRukQbKAxMfB80nGcOUqBdAoiXPlOEmQq28U9Zjyv5V9s8OSnSaxzuiOYtWhLv
-	ClZbwosnesgEmAk6Roe7p9XeHWAQB48cUZ9Iiu0ofMHMw3xGZwz3ji6gLjMvxogEaKvxpILXQ4div
-	KLoVNWGxPB2Sd172LoD2Qj83mxFQC71V3le+KpFuY5/10f0YLQh26qrMM7d0031YxJflhdLY6xa7F
-	JceAcqvQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+hir00uV1h8lrQfzCYxKJAOuHxGSkKGQYvYM4xy1qmY=; b=OmdGqxGV69UbypXwp2VVDd/PJR
+	cfpGHjM5jPzyVyNoBbwDOyDi4v0BmgN6FobDhRtc29D3rVYyHHT9bE6VXIkZDnrYXPXXBapglP/np
+	T+o+x9oMGVDBAvRdr56tCjsqQ0ETtuix1v9V8kQNQvBIstNpibcWpBpLEhLpZo/ZPx3XdCsUX2HDn
+	tDBH8GphOnQMeZUUCJFcmKNcWMaZ9oP5KmU6IoqA8dAWi3Tux2nRN/lhRoJSzE+PyXfsZqGapXIq5
+	ij/6nJBsyzEB4pr98PeZCsUvTm0NLF/Xj5qrwIRJDPRCSh7JtzFgSTdAgU2MhTOG4+RUSceDSuZ4m
+	pnDHEz9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucf2i-0000000Bp0u-1gAh;
-	Fri, 18 Jul 2025 06:58:04 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1ucf59-0000000BpO5-10lS;
+	Fri, 18 Jul 2025 07:00:35 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucej1-0000000Bmm2-3bP4;
-	Fri, 18 Jul 2025 06:37:43 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id EA4FB601D3;
-	Fri, 18 Jul 2025 06:37:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 8FD88C4CEED;
-	Fri, 18 Jul 2025 06:37:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752820662;
-	bh=zVwBnOBXZNVDZp8+mClSq+Wz1HDJCHk36NiLbL59xXk=;
-	h=From:Subject:Date:To:Cc:Reply-To:From;
-	b=lvTaAumk/nbUCgo8+99L2zAVLaLAVrz7VlKpLaZ4d5UKZmTjnS6SJXT5CKayQYOH4
-	 6/pzcEqkCsiAFYMVc3pG2gbJabuJo1lJDWAnKblEqpUe2aesVrXCTFnaRwMotRyAh3
-	 CVCsuRExjW1TYB216KWqdeEARpTLSiW577533WfeJtcjLTh/BfSErudIddBvNIORZb
-	 L2mX5kXPeVKoDYCwWLkfrhMnx0i9oPVUtz3XkciOlduQZvCusMSOOUwQVAW4zQVMqB
-	 ggxbRt81g9WWGeOm1jJXNz5zY/MhGXIjDXTWt6mdoZIhpd0NsJdl/H2I6R6lvIER4E
-	 vBsKzSz/gNSVQ==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 7A45FC83F34;
-	Fri, 18 Jul 2025 06:37:42 +0000 (UTC)
-From: Xianwei Zhao via B4 Relay <devnull+xianwei.zhao.amlogic.com@kernel.org>
-Subject: [PATCH 0/3] thermal: Support Amlogic C3 thermal
-Date: Fri, 18 Jul 2025 14:37:40 +0800
-Message-Id: <20250718-c3-thermal-v1-0-674f9a991690@amlogic.com>
+	id 1uceq7-0000000BnnL-1TRY;
+	Fri, 18 Jul 2025 06:45:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1752821101;
+	bh=sGbj5FKKg+88/BDygAxdWai9Cf3SHGZigk3s46T72ok=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Fu23QsMJypE9g+UTg1Qa9uvMU6FeZvBncgIcGIexPNIiog9kWIkqimRqQSHiGziYK
+	 3+y9SEAiaPmtjT4oQnCZBLUXo2dF1gsixtdBYWnMNMg1DhqFjDkKMkoO7vjdPqWfyQ
+	 78KqzOMmjs513mek6T7pYDbJk1eZKi8pVpiFmSiyS6VzN/hDXPK8GPAsENlz2vNZOH
+	 n+bNno/I0fVLR3v5A6eyY0XgNjXkgvnV74G2/W2W6h7sltRV/gedGj8GHBSM93PUoO
+	 xyx84itTrjWg6/UuAyz1libm0gzIYB38MR8S20AEsZ70fTBdCwggQyfts7i7N2ubiz
+	 IHMZxHkv7uS+g==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id A03DE17E1439;
+	Fri, 18 Jul 2025 08:45:00 +0200 (CEST)
+Message-ID: <987aeeef-6f3e-4ba3-b04f-a60e0cf201ac@collabora.com>
+Date: Fri, 18 Jul 2025 08:44:59 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/3] arm64: dts: mediatek: mt8189: Add pinmux macro
+ header file
+To: Cathy Xu <ot_cathy.xu@mediatek.com>,
+ Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+ Sean Wang <sean.wang@kernel.org>
+Cc: Lei Xue <lei.xue@mediatek.com>, linux-gpio@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ Yong Mao <yong.mao@mediatek.com>, Wenbin Mei <Wenbin.Mei@mediatek.com>,
+ Axe Yang <Axe.Yang@mediatek.com>
+References: <20250711094513.17073-1-ot_cathy.xu@mediatek.com>
+ <20250711094513.17073-3-ot_cathy.xu@mediatek.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20250711094513.17073-3-ot_cathy.xu@mediatek.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIALTreWgC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDI1MDc0ML3WRj3ZKM1KLcxBzd5LSUNINEo6SkNFMjJaCGgqLUtMwKsGHRsbW
- 1AKyiQAxcAAAA
-To: Guillaume La Roque <glaroque@baylibre.com>, 
- "Rafael J. Wysocki" <rafael@kernel.org>, 
- Daniel Lezcano <daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>, 
- Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Cc: linux-pm@vger.kernel.org, linux-amlogic@lists.infradead.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, 
- Xianwei Zhao <xianwei.zhao@amlogic.com>, 
- Liming Xue <liming.xue@amlogic.com>
-X-Mailer: b4 0.12.4
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1752820661; l=796;
- i=xianwei.zhao@amlogic.com; s=20231208; h=from:subject:message-id;
- bh=zVwBnOBXZNVDZp8+mClSq+Wz1HDJCHk36NiLbL59xXk=;
- b=f2ZEHyZc0eY/iGCAhjC75mGOUf1dT5uPNYGLrZJlrqSW9d8wpn88WbDDKbX/o+Nu9e6sLvQQq
- mK90zlJfD/0CV/AGldhcGn9ZEozYGCwKlNAZwk2Ni0u2D/3Q0hccY20
-X-Developer-Key: i=xianwei.zhao@amlogic.com; a=ed25519;
- pk=o4fDH8ZXL6xQg5h17eNzRljf6pwZHWWjqcOSsj3dW24=
-X-Endpoint-Received: by B4 Relay for xianwei.zhao@amlogic.com/20231208 with
- auth_id=107
-X-Original-From: Xianwei Zhao <xianwei.zhao@amlogic.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250717_234503_549900_162672C1 
+X-CRM114-Status: GOOD (  13.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,31 +80,64 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: xianwei.zhao@amlogic.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add Amlogic C3 thermal compatible string, private_data
-of driver and device node.
+Il 11/07/25 11:44, Cathy Xu ha scritto:
+> Add the pinctrl header file on MediaTek mt8189.
+> 
+> Signed-off-by: Cathy Xu <ot_cathy.xu@mediatek.com>
+> ---
+>   arch/arm64/boot/dts/mediatek/mt8189-pinfunc.h | 1125 +++++++++++++++++
+>   1 file changed, 1125 insertions(+)
+>   create mode 100644 arch/arm64/boot/dts/mediatek/mt8189-pinfunc.h
+> 
+> diff --git a/arch/arm64/boot/dts/mediatek/mt8189-pinfunc.h b/arch/arm64/boot/dts/mediatek/mt8189-pinfunc.h
+> new file mode 100644
+> index 000000000000..f9c270ebab89
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/mediatek/mt8189-pinfunc.h
+> @@ -0,0 +1,1125 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +/*
+> + * Copyright (C) 2025 MediaTek Inc.
+> + * Author: Lei Xue <lei.xue@mediatek.com>
+> + *         Cathy Xu <ot_cathy.xu@mediatek.com>
+> + */
+> +
+> +#ifndef __MT8189_PINFUNC_H
+> +#define __MT8189_PINFUNC_H
+> +
+> +#include "mt65xx.h"
+> +
+..snip..
 
-Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
----
-Xianwei Zhao (3):
-      dt-bindings: thermal: amlogic: Add compatible string for C3
-      thermal: amlogic: Support C3 thermal controller driver
-      arm64: dts: amlogic: c3: Add tempsensor controller node
-
- .../devicetree/bindings/thermal/amlogic,thermal.yaml          |  1 +
- arch/arm64/boot/dts/amlogic/amlogic-c3.dtsi                   | 11 +++++++++++
- drivers/thermal/amlogic_thermal.c                             | 10 ++++++++++
- 3 files changed, 22 insertions(+)
----
-base-commit: 58abdca0eb653c1a2e755ba9ba406ee475d87636
-change-id: 20250718-c3-thermal-cfdf0a2bbf52
-
-Best regards,
--- 
-Xianwei Zhao <xianwei.zhao@amlogic.com>
+> +#define PINMUX_GPIO27__FUNC_GPIO27 (MTK_PIN_NO(27) | 0)
+> +#define PINMUX_GPIO27__FUNC_DP_TX_HPD (MTK_PIN_NO(27) | 1)
 
 
+> +#define PINMUX_GPIO27__FUNC_mbistreaden_trigger (MTK_PIN_NO(27) | 2)
+                                ^^^^^^^^^^^^^^^^^^^
+Please fix: this has to be uppercase as much as the other definitions.
+
+
+> +#define PINMUX_GPIO27__FUNC_MD32_0_GPIO0 (MTK_PIN_NO(27) | 3)
+> +#define PINMUX_GPIO27__FUNC_TP_UCTS1_VCORE (MTK_PIN_NO(27) | 4)
+> +#define PINMUX_GPIO27__FUNC_CMVREF4 (MTK_PIN_NO(27) | 5)
+> +#define PINMUX_GPIO27__FUNC_EXTIF0_ACT (MTK_PIN_NO(27) | 6)
+> +#define PINMUX_GPIO27__FUNC_ANT_SEL0 (MTK_PIN_NO(27) | 7)
+> +
+> +#define PINMUX_GPIO28__FUNC_GPIO28 (MTK_PIN_NO(28) | 0)
+> +#define PINMUX_GPIO28__FUNC_EDP_TX_HPD (MTK_PIN_NO(28) | 1)
+> +#define PINMUX_GPIO28__FUNC_mbistwriteen_trigger (MTK_PIN_NO(28) | 2)
+
+same here
+
+> +#define PINMUX_GPIO28__FUNC_MD32_1_GPIO0 (MTK_PIN_NO(28) | 3)
+> +#define PINMUX_GPIO28__FUNC_TP_URTS1_VCORE (MTK_PIN_NO(28) | 4)
+> +#define PINMUX_GPIO28__FUNC_EXTIF0_PRI (MTK_PIN_NO(28) | 6)
+> +#define PINMUX_GPIO28__FUNC_ANT_SEL1 (MTK_PIN_NO(28) | 7)
+> +
+Cheers,
+Angelo
 
