@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37CF7C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Jul 2025 09:15:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49202C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Jul 2025 09:18:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XFbreoMrbREVmzBILAfDNbybt5zLdiHJFA7H6oI4wRk=; b=iSEl8M3mfP9io5aJf6c3xtAiQP
-	02JMfOkmDB1h3PklS3sa3TwAdI4P8FbCoTVDZjXWk1FCX47z8+7iSrnxIP2Arfxw6LcArtQ8Spwac
-	eSd1kSql4nomAJZMjdZSuc/uYq98XSjEqorW3kkbXaWili1nuzudHMv5Y4XRzEmTmCs+1hYEFQfoF
-	2Rq5Yd2J6wWSPK1DXbPdtjHDyz2II5FvDQoU0IN6paA6QpmC0v/dxJ/GmFvAfJoooGUBEAKS1bmT5
-	kZWMPAKGzjmtO617haQkU2fZiaNCt+Q96prxTcFNPaU2YcJH6/nVnzulDo9g7DKC6FeUqXM215UY6
-	zqphd+rw==;
+	bh=XTswRIxHmGHQeVnB/f9odmxm7RsTWTBKCzGSB4iSFqo=; b=3V8HC1P290Sm2SNBf2b7JCETHl
+	Y6S7v1RVL8KhUkToMrQqnb+DU61COcZqOKtmNHzV0lEaN7DgaeJh+u2e4LdFsXrzPLg9Eb/qVy0Lz
+	pLFZE8JK0jRn2YZD/pXasH18rBMnkQYizrvY43F4osSIPFuP9WC8iW4KCaE/xIQXcWWOCbrTNm3FQ
+	B+tP2r3ivYfCTgyc/Uu7JWVqpVWF6aiNH0gqCew+rX4qNdw3/54+8fQC45icaDKIAkWesdULJix5Y
+	12cYdLHarka2nQn3DAmPmYjPfU8Y3JuE8W/DDipkF4e5uAXGBoXeZtoN4y97DyIfWKyuGTz/Qym3j
+	xBHCHtTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uchBo-0000000C98n-0rVj;
-	Fri, 18 Jul 2025 09:15:36 +0000
+	id 1uchEF-0000000C9dR-0FnM;
+	Fri, 18 Jul 2025 09:18:07 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uch0B-0000000C7Pq-0Ml7
+	id 1uch0J-0000000C7RS-3LLT
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Jul 2025 09:03:36 +0000
+	Fri, 18 Jul 2025 09:03:45 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 58B94176C;
-	Fri, 18 Jul 2025 02:03:27 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 09EBF1A32;
+	Fri, 18 Jul 2025 02:03:36 -0700 (PDT)
 Received: from MacBook-Pro.blr.arm.com (unknown [10.164.18.51])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id A93ED3F66E;
-	Fri, 18 Jul 2025 02:03:26 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 53D8E3F66E;
+	Fri, 18 Jul 2025 02:03:35 -0700 (PDT)
 From: Dev Jain <dev.jain@arm.com>
 To: akpm@linux-foundation.org
 Cc: ryan.roberts@arm.com,
@@ -60,17 +60,17 @@ Cc: ryan.roberts@arm.com,
 	yang@os.amperecomputing.com,
 	ziy@nvidia.com,
 	Dev Jain <dev.jain@arm.com>
-Subject: [PATCH v5 4/7] mm: Introduce FPB_RESPECT_WRITE for PTE batching infrastructure
-Date: Fri, 18 Jul 2025 14:32:41 +0530
-Message-Id: <20250718090244.21092-5-dev.jain@arm.com>
+Subject: [PATCH v5 5/7] mm: Split can_change_pte_writable() into private and shared parts
+Date: Fri, 18 Jul 2025 14:32:42 +0530
+Message-Id: <20250718090244.21092-6-dev.jain@arm.com>
 X-Mailer: git-send-email 2.39.5 (Apple Git-154)
 In-Reply-To: <20250718090244.21092-1-dev.jain@arm.com>
 References: <20250718090244.21092-1-dev.jain@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250718_020335_157497_AE0359BE 
-X-CRM114-Status: GOOD (  12.06  )
+X-CRM114-CacheID: sfid-20250718_020343_909188_20CC593F 
+X-CRM114-Status: GOOD (  11.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,59 +85,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Patch 6 optimizes mprotect() by batch clearing the ptes, masking in the new
-protections, and batch setting the ptes. Suppose that the first pte
-of the batch is writable - with the current implementation of
-folio_pte_batch(), it is not guaranteed that the other ptes in the batch
-are already writable too, so we may incorrectly end up setting the
-writable bit on all ptes via modify_prot_commit_ptes().
+In preparation for patch 6 and modularizing the code in general, split
+can_change_pte_writable() into private and shared VMA parts. No functional
+change intended.
 
-Therefore, introduce FPB_RESPECT_WRITE so that all ptes in the batch
-are writable or not.
-
+Suggested-by: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
 Signed-off-by: Dev Jain <dev.jain@arm.com>
 ---
- mm/internal.h | 11 ++++++++---
- 1 file changed, 8 insertions(+), 3 deletions(-)
+ mm/mprotect.c | 50 ++++++++++++++++++++++++++++++++++++--------------
+ 1 file changed, 36 insertions(+), 14 deletions(-)
 
-diff --git a/mm/internal.h b/mm/internal.h
-index 5b0f71e5434b..28d2d5b051df 100644
---- a/mm/internal.h
-+++ b/mm/internal.h
-@@ -208,17 +208,20 @@ typedef int __bitwise fpb_t;
- /* Compare PTEs respecting the soft-dirty bit. */
- #define FPB_RESPECT_SOFT_DIRTY		((__force fpb_t)BIT(1))
+diff --git a/mm/mprotect.c b/mm/mprotect.c
+index 4977f198168e..a1c7d8a4648d 100644
+--- a/mm/mprotect.c
++++ b/mm/mprotect.c
+@@ -40,11 +40,8 @@
  
-+/* Compare PTEs respecting the writable bit. */
-+#define FPB_RESPECT_WRITE		((__force fpb_t)BIT(2))
-+
- /*
-  * Merge PTE write bits: if any PTE in the batch is writable, modify the
-  * PTE at @ptentp to be writable.
-  */
--#define FPB_MERGE_WRITE			((__force fpb_t)BIT(2))
-+#define FPB_MERGE_WRITE			((__force fpb_t)BIT(3))
+ #include "internal.h"
  
- /*
-  * Merge PTE young and dirty bits: if any PTE in the batch is young or dirty,
-  * modify the PTE at @ptentp to be young or dirty, respectively.
-  */
--#define FPB_MERGE_YOUNG_DIRTY		((__force fpb_t)BIT(3))
-+#define FPB_MERGE_YOUNG_DIRTY		((__force fpb_t)BIT(4))
- 
- static inline pte_t __pte_batch_clear_ignored(pte_t pte, fpb_t flags)
+-bool can_change_pte_writable(struct vm_area_struct *vma, unsigned long addr,
+-			     pte_t pte)
++static bool maybe_change_pte_writable(struct vm_area_struct *vma, pte_t pte)
  {
-@@ -226,7 +229,9 @@ static inline pte_t __pte_batch_clear_ignored(pte_t pte, fpb_t flags)
- 		pte = pte_mkclean(pte);
- 	if (likely(!(flags & FPB_RESPECT_SOFT_DIRTY)))
- 		pte = pte_clear_soft_dirty(pte);
--	return pte_wrprotect(pte_mkold(pte));
-+	if (likely(!(flags & FPB_RESPECT_WRITE)))
-+		pte = pte_wrprotect(pte);
-+	return pte_mkold(pte);
+-	struct page *page;
+-
+ 	if (WARN_ON_ONCE(!(vma->vm_flags & VM_WRITE)))
+ 		return false;
+ 
+@@ -60,16 +57,32 @@ bool can_change_pte_writable(struct vm_area_struct *vma, unsigned long addr,
+ 	if (userfaultfd_pte_wp(vma, pte))
+ 		return false;
+ 
+-	if (!(vma->vm_flags & VM_SHARED)) {
+-		/*
+-		 * Writable MAP_PRIVATE mapping: We can only special-case on
+-		 * exclusive anonymous pages, because we know that our
+-		 * write-fault handler similarly would map them writable without
+-		 * any additional checks while holding the PT lock.
+-		 */
+-		page = vm_normal_page(vma, addr, pte);
+-		return page && PageAnon(page) && PageAnonExclusive(page);
+-	}
++	return true;
++}
++
++static bool can_change_private_pte_writable(struct vm_area_struct *vma,
++					    unsigned long addr, pte_t pte)
++{
++	struct page *page;
++
++	if (!maybe_change_pte_writable(vma, pte))
++		return false;
++
++	/*
++	 * Writable MAP_PRIVATE mapping: We can only special-case on
++	 * exclusive anonymous pages, because we know that our
++	 * write-fault handler similarly would map them writable without
++	 * any additional checks while holding the PT lock.
++	 */
++	page = vm_normal_page(vma, addr, pte);
++	return page && PageAnon(page) && PageAnonExclusive(page);
++}
++
++static bool can_change_shared_pte_writable(struct vm_area_struct *vma,
++					   pte_t pte)
++{
++	if (!maybe_change_pte_writable(vma, pte))
++		return false;
+ 
+ 	VM_WARN_ON_ONCE(is_zero_pfn(pte_pfn(pte)) && pte_dirty(pte));
+ 
+@@ -83,6 +96,15 @@ bool can_change_pte_writable(struct vm_area_struct *vma, unsigned long addr,
+ 	return pte_dirty(pte);
  }
  
- /**
++bool can_change_pte_writable(struct vm_area_struct *vma, unsigned long addr,
++			     pte_t pte)
++{
++	if (!(vma->vm_flags & VM_SHARED))
++		return can_change_private_pte_writable(vma, addr, pte);
++
++	return can_change_shared_pte_writable(vma, pte);
++}
++
+ static int mprotect_folio_pte_batch(struct folio *folio, pte_t *ptep,
+ 				    pte_t pte, int max_nr_ptes)
+ {
 -- 
 2.30.2
 
