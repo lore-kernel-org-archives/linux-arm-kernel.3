@@ -4,65 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9ED4C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Jul 2025 11:44:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F6C6C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Jul 2025 11:46:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NIoUXLToBgL6xP8XdeP6JT6Qm2yYjBFIc4oLZmaYAgY=; b=4/Siu+SPlEBbcUXYfCript1OZ4
-	4SfKLK5NnWWabSEE//5rxUTAj6+Edn24/YUkmplDb1O+F5RZnuwwSjpxJ/6ULDvs9HGYWPWzblRlr
-	Erl7l33edzYb2eybNFvjDfn0i3wmKvXY9pJyRPzRl+lh4RmGMTXDsMWbFCd/K6AYXBKFIgMqA0cZb
-	sut1UVI4gAUtGwjkLkRNEX2eTXI/AaD9498WVztNoNOB4dh2oeTdpT9RJ/+BN+1siOE9LRCfjNCkX
-	Ayj8HeCCIAf5WTi9GmiGSpJ7oPISDVXPSbdwhmS2vu8C+cMvMFlj2DiffWuuBQDNP32VuPgVDuf9G
-	I3vPaa/A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=z3gndaGJcN2hgsC7vt0hd7Xv3Nt3ExEva3jSiEJodDw=; b=VE4Cn/oj4O0GY2+W/fQWd1aX3t
+	rlekpRBKatdKCJqjix2YMv4lvK8TpTJXEn+c4eXCwRw8YhQbuw8wW0dysIb/KcB7uRZeuO+znnfUA
+	vtzA+Chk1qEchE42rQ9nhDoXhyx7qROOAtqx5j8QWhNjx4RFdjt/xcZhPxEGL+gd7Qsnq4Zh75IvN
+	tB1H4mtSszZtBBpVIkJbETCB/O279WRm5doO3B2P1Mu9T4BbcYlIX6BHEAhHzWsAqEKldrkfsbUSj
+	tMBBCUlijPXY2iSPjxS5yv9xlhKl6Zz0bCsWeImoAGmsSgcYjLAjOYAXfjKLDW1TnlNUMdr0xdk2u
+	mb5FKvxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucjVd-0000000CUkY-0cWM;
-	Fri, 18 Jul 2025 11:44:13 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1ucjY2-0000000CUwr-4B8p;
+	Fri, 18 Jul 2025 11:46:42 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucj44-0000000CPpF-1Ato
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Jul 2025 11:15:45 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.216])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4bk6cx5j1Xz6L5SD;
-	Fri, 18 Jul 2025 19:14:25 +0800 (CST)
-Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
-	by mail.maildlp.com (Postfix) with ESMTPS id D83941402F6;
-	Fri, 18 Jul 2025 19:15:42 +0800 (CST)
-Received: from localhost (10.203.177.66) by frapeml500008.china.huawei.com
- (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Fri, 18 Jul
- 2025 13:15:42 +0200
-Date: Fri, 18 Jul 2025 12:15:40 +0100
-From: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-To: Alireza Sanaee <alireza.sanaee@huawei.com>
-CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<coresight@lists.linaro.org>, <dianders@chromium.org>,
-	<james.clark@linaro.org>, <krzk@kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-perf-users@vger.kernel.org>,
-	<linuxarm@huawei.com>, <mark.rutland@arm.com>, <mike.leach@linaro.org>,
-	<robh@kernel.org>, <ruanjinjie@huawei.com>, <saravanak@google.com>,
-	<shameerali.kolothum.thodi@huawei.com>, <suzuki.poulose@arm.com>
-Subject: Re: [PATCH v3 6/6] perf/arm-dsu: refactor cpu id retrieval via new
- API of_cpu_phandle_to_id
-Message-ID: <20250718121540.000008d4@huawei.com>
-In-Reply-To: <20250718094848.587-7-alireza.sanaee@huawei.com>
-References: <20250718094848.587-1-alireza.sanaee@huawei.com>
-	<20250718094848.587-7-alireza.sanaee@huawei.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	id 1ucjAO-0000000CQJ5-1Fvv;
+	Fri, 18 Jul 2025 11:22:17 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 6F511A56FFF;
+	Fri, 18 Jul 2025 11:22:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 833A3C4CEEB;
+	Fri, 18 Jul 2025 11:22:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1752837733;
+	bh=z3gndaGJcN2hgsC7vt0hd7Xv3Nt3ExEva3jSiEJodDw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=R8N985kTHPLNugtnVOg+RXuGHqT+Zz+SodSw21j8A2XMNGSyAS2qLmGjRtdbzVdfe
+	 IFIMulnZKrhgbpw3w3A/wIDLW7jS+0lr7ib7SjYztz4624iM9GPyVasvL+ut1PbsP5
+	 GATm09kiT/gS55onS8uWpLtxEReQqqli+IZv1Yy9PgkTsUWUEC0/zWoIWjaqVIVhco
+	 SkIA3BmQ+Qhzd2LQH9Ep7QagVHdJoHE7Ob0JsgkdtSsXlR4nkYf283TsM9C81gdIQ2
+	 5WVhkuIH1cek7XJyrnqpNFcrBlNvDicGrWLCZv53/xtUyuqeVZlNXH4XKH4CTgNd7Z
+	 8s9kw2QnTs+AQ==
+Date: Fri, 18 Jul 2025 12:22:04 +0100
+From: Will Deacon <will@kernel.org>
+To: Kees Cook <kees@kernel.org>
+Cc: Arnd Bergmann <arnd@arndb.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jonathan Cameron <Jonathan.Cameron@huawei.com>,
+	Gavin Shan <gshan@redhat.com>,
+	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+	James Morse <james.morse@arm.com>,
+	Oza Pawandeep <quic_poza@quicinc.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	Ingo Molnar <mingo@kernel.org>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	Christoph Hellwig <hch@lst.de>,
+	Andrey Konovalov <andreyknvl@gmail.com>,
+	Andrey Ryabinin <ryabinin.a.a@gmail.com>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nicolas Schier <nicolas.schier@linux.dev>,
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>, linux-kernel@vger.kernel.org,
+	x86@kernel.org, kasan-dev@googlegroups.com,
+	linux-doc@vger.kernel.org, kvmarm@lists.linux.dev,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	linux-efi@vger.kernel.org, linux-hardening@vger.kernel.org,
+	linux-kbuild@vger.kernel.org, linux-security-module@vger.kernel.org,
+	linux-kselftest@vger.kernel.org, sparclinux@vger.kernel.org,
+	llvm@lists.linux.dev
+Subject: Re: [PATCH v3 06/13] arm64: Handle KCOV __init vs inline mismatches
+Message-ID: <aHouXI5-tyQw78Ht@willie-the-truck>
+References: <20250717231756.make.423-kees@kernel.org>
+ <20250717232519.2984886-6-kees@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.203.177.66]
-X-ClientProxiedBy: lhrpeml100003.china.huawei.com (7.191.160.210) To
- frapeml500008.china.huawei.com (7.182.85.71)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250717232519.2984886-6-kees@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250718_041544_466151_D6F12A4B 
-X-CRM114-Status: GOOD (  14.48  )
+X-CRM114-CacheID: sfid-20250718_042216_404655_9F6D30DC 
+X-CRM114-Status: GOOD (  10.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,41 +97,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 18 Jul 2025 10:48:48 +0100
-Alireza Sanaee <alireza.sanaee@huawei.com> wrote:
+Hey Kees,
 
-> Update arm-dsu to use the new API (of_cpu_phandle_to_id).
-> 
-> Signed-off-by: Alireza Sanaee <alireza.sanaee@huawei.com>
+On Thu, Jul 17, 2025 at 04:25:11PM -0700, Kees Cook wrote:
+> When KCOV is enabled all functions get instrumented, unless
+> the __no_sanitize_coverage attribute is used. To prepare for
+> __no_sanitize_coverage being applied to __init functions, we
+> have to handle differences in how GCC's inline optimizations get
+> resolved. For arm64 this requires forcing one function to be inline
+> with __always_inline.
 
-Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+Please can you spell out the issue a bit more here? From the description
+you've given, I can't figure out why acpi_get_enable_method() is the
+only function that needs fixing up so I worry that this could be
+fragile.
 
-> ---
->  drivers/perf/arm_dsu_pmu.c | 7 +------
->  1 file changed, 1 insertion(+), 6 deletions(-)
-> 
-> diff --git a/drivers/perf/arm_dsu_pmu.c b/drivers/perf/arm_dsu_pmu.c
-> index cb4fb59fe04b..8f76bd94349c 100644
-> --- a/drivers/perf/arm_dsu_pmu.c
-> +++ b/drivers/perf/arm_dsu_pmu.c
-> @@ -591,17 +591,12 @@ static struct dsu_pmu *dsu_pmu_alloc(struct platform_device *pdev)
->  static int dsu_pmu_dt_get_cpus(struct device *dev, cpumask_t *mask)
->  {
->  	int i = 0, n, cpu;
-> -	struct device_node *cpu_node;
->  
->  	n = of_count_phandle_with_args(dev->of_node, "cpus", NULL);
->  	if (n <= 0)
->  		return -ENODEV;
->  	for (; i < n; i++) {
-> -		cpu_node = of_parse_phandle(dev->of_node, "cpus", i);
-> -		if (!cpu_node)
-> -			break;
-> -		cpu = of_cpu_node_to_id(cpu_node);
-> -		of_node_put(cpu_node);
-> +		cpu = of_cpu_phandle_to_id(dev->of_node, NULL, i);
->  		/*
->  		 * We have to ignore the failures here and continue scanning
->  		 * the list to handle cases where the nr_cpus could be capped
+Thanks,
 
+Will
 
