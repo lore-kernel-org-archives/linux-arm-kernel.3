@@ -4,141 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F084FC83F22
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Jul 2025 02:08:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89F09C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Jul 2025 02:10:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:
-	Content-Type:Subject:From:To:Message-ID:Reply-To:Cc:Content-Transfer-Encoding
-	:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=G0P/RBklAFJHan+O66Q+dJ3B3by6UWeorp5yTNy7DZk=; b=UQFZxDbVut+OgeUwXhFPukoyE4
-	SgU2Rz9r63Qn5BqrTkKPfJy1aazKy3SlyXTCXv33JxMn9hfhJ1iQvQGgAUNWy3ouaWgVAYPzoPQXS
-	rpS/S9f3oRECuBg6nv0PDR4FDcQnHueigal5PHWAQMSSEgJ+cXeWPlUjRMLK7nIw174131wDXVUbY
-	7vlHv1ezuLal6BiyMJIHLMj/HeSMTcrTaHvN6OVI3/jIzlJVGTleEAEkX3lneNqSUcX6Ah0Dr2ezc
-	s2uUrPgPS9JyF4S5nr+SO8Yg/m6o/tMVYfrYGlc/71m/0z8K6nUVu0rRMwHvH1TZPhIUxFh0wOJYG
-	wIZVFz6w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XT+RZ7WEBbWIWW/Jed62+BDDdP8o1iduIJiqKrv6b/A=; b=4PQbctzwZb5/6KJvmyLqi036fd
+	7h3Ova3Q8RCF7aAoXPt1Od3p2MpD+w4mYOAzvxZWEwthfv8sEsaqN8k9bYr3JytPqWfk76u9ZFlyr
+	dFadfFM+iA/am/esyXLaln2aYXfTkaEdl1NnS/0UP7aIgfm2xreKQ872+2Mi01cmvTS34L0WzEG+a
+	nyTQKBy/D1P3okMSRnJg3bTtKPqTOBSxGMd71uXkBPEoXV0W3u83Kcv6V4cYodYp2srdPpi2sVLwZ
+	UbW7zXAtG+OsClBrVJ/lcSQfZ78kVl3qwXpfS3yG7cHpVNUlEti1GyLflQwvYrkf2dPLiGzqd8Q5V
+	C/3t0U/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucaWF-0000000BW0K-1KOh;
-	Fri, 18 Jul 2025 02:08:15 +0000
-Received: from mail-japaneastazlp170110002.outbound.protection.outlook.com ([2a01:111:f403:c405::2] helo=TYVP286CU001.outbound.protection.outlook.com)
+	id 1ucaYh-0000000BWU5-2DXK;
+	Fri, 18 Jul 2025 02:10:47 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucaGj-0000000BUB7-2lhs
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Jul 2025 01:52:14 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=LoJZ3AmUXe3TjDgQAjMXK3Q/fhCIfOLNtRWUwwN+08qZ5FBvdO1ZC7vDru6hCY8/KEUAUe4GZtTVw2tf3nhTJ1jUYb2JzX3wXkodBjoT8jQeHkAqlgHlssFEfmNA4G4r7wGZ8RwRb/4hu8K5uCdJVrCWjOd4F5PuetnT0jQVFkV1xOeexvG5fn2sUYbpH247Gvj2fZYmyfKya/9P4iizuJb2dJ1L6MdsXgOzfMHzOOB5WgxMM447pBL4Lmfx2UYJCM8IkiFSvzS5PJ0PekcEjJ8Dg7vy8eppd9AmN+UWlU8Qfo/+MVEcDVBMMhWezYa4nejSQ/zh6nn8X/PWSY0gbA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=G0P/RBklAFJHan+O66Q+dJ3B3by6UWeorp5yTNy7DZk=;
- b=dgJ3SO8uVTH6Qbg+q6YFg0GgDO9kRx8nyczaIE53J4RZnaj75tbnAYyjEzf4j6Nk21+aqColrWCAJVscKqwkeo2QDR+6PR+NClyuDdQn2PbDvoMWt1D8TL1M89IOT+IDFGAftoGynxqWxrKwFcT0eRgr3siJ9ixZNNzK5Ubr7vMK6dJQMJej+9XCyYRMSXEsy5j8Tzz5PaO38wDuY/e4PwUuR8Cn7UMih7D5C02wq1oUai+rqTACEId/wTtMHvE0TPRF7kgyMGGvshuoCQBpyYLjf36Bxi+QJ2SikBDjjASb97qr7MLsMrJDUde3oQqFAb6n4yBziHg8V6zbDIUVrQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=renesas.com; dmarc=pass action=none header.from=renesas.com;
- dkim=pass header.d=renesas.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=renesas.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=G0P/RBklAFJHan+O66Q+dJ3B3by6UWeorp5yTNy7DZk=;
- b=Ix54YLWt/QQMRTmwYaeL48PdWWhBuLaJGCUYPo3mafzTOTo3Ze1rsLfjIZrPlySiO6v8iyiHmD8lyLNRETJBQYN5Ptu6SLKY03hIwt0uHaiNJYzFHmbs0SrHevJ/esU9l7nt8UaeANu8Bz9YuhoXcSXHQ6T2S9biFGNIwwTUdUs=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=renesas.com;
-Received: from TYCPR01MB10914.jpnprd01.prod.outlook.com
- (2603:1096:400:3a9::11) by TYRPR01MB12514.jpnprd01.prod.outlook.com
- (2603:1096:405:1aa::10) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8943.25; Fri, 18 Jul
- 2025 01:52:12 +0000
-Received: from TYCPR01MB10914.jpnprd01.prod.outlook.com
- ([fe80::c568:1028:2fd1:6e11]) by TYCPR01MB10914.jpnprd01.prod.outlook.com
- ([fe80::c568:1028:2fd1:6e11%5]) with mapi id 15.20.8922.037; Fri, 18 Jul 2025
- 01:52:11 +0000
-Message-ID: <87h5za5kqc.wl-kuninori.morimoto.gx@renesas.com>
-To: rmk+kernel@armlinux.org.uk, Russell King <linux@armlinux.org.uk>, linux-arm-kernel@lists.infradead.org
-From: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
-Subject: [resend][PATCH v2] arm: kernel: bios32: use string choices helper
-Content-Type: text/plain; charset=US-ASCII
-Date: Fri, 18 Jul 2025 01:52:11 +0000
-X-ClientProxiedBy: TYCPR01CA0134.jpnprd01.prod.outlook.com
- (2603:1096:400:26d::13) To TYCPR01MB10914.jpnprd01.prod.outlook.com
- (2603:1096:400:3a9::11)
+	id 1ucaKw-0000000BUfX-0PpI;
+	Fri, 18 Jul 2025 01:56:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=XT+RZ7WEBbWIWW/Jed62+BDDdP8o1iduIJiqKrv6b/A=; b=IGxiXJJ6F4fSHq7yFafjvWmxTn
+	O1PUGGu2IfVD0EnZPbLsUgrWHEcsa7GpcXIvyNA3Do+FDlm1uENQadhLztjGNAqOsAQNIqVib8/QF
+	yDDijC2kX9GrYVA3aatt+GYLnsDckiFxH4iCQAm89v4T1ZKEmrOJe+NhbZYFLFCvYRQKoruQ0nhK1
+	p0eI7uXV03XG2W0afVPi2jdcqqAtMG14sJy7pOYbx1WpqG6+sXFVYEY973lcoicDChDb4waaaGzyb
+	sL18653jxPmmxFjzjqM2Ptel6tIBT5hps7lzJpqEXEJ1ceKeQxjXenRfY3pWIBFbZcmYRQgkCgOfJ
+	e32Yi9LQ==;
+Received: from mail-m81206.xmail.ntesmail.com ([156.224.81.206])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ucaKp-0000000AOjJ-1Mr1;
+	Fri, 18 Jul 2025 01:56:32 +0000
+Received: from [172.16.12.129] (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 1c6a85541;
+	Fri, 18 Jul 2025 09:55:50 +0800 (GMT+08:00)
+Message-ID: <ac48d142-7aec-4fdd-92a4-6f9bc10a7928@rock-chips.com>
+Date: Fri, 18 Jul 2025 09:55:42 +0800
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: TYCPR01MB10914:EE_|TYRPR01MB12514:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6d3234f9-fa67-4161-c301-08ddc59db678
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|52116014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?FWMXnFizLXrk3fWqHdFD3JLexnqNgh8lKDxxG20HfyBy6u7WwghkbeKZbRc2?=
- =?us-ascii?Q?WchmK0pelUviUKbu3lZ2o9dFwGjMdz3Vk6SUF1FCrjAvGn9B6eTl5GZ2//Fd?=
- =?us-ascii?Q?iWknt3a/wR/RbGvHEJpFy4lsLltqUgtPEadKzUnwsJFoFL4/nUFppFL0ZKUM?=
- =?us-ascii?Q?h05R4YrbWYORwQkqp/VuY3bMpzoXjmA+Ce8cOlkudmilSEb29foMGICtz7E/?=
- =?us-ascii?Q?ZuUQDzQfUksFn7nGfkZacjxRtpOxZjlHz1e1Pka/j32b6MZKybYxvJVIXZuE?=
- =?us-ascii?Q?Di7XdMzoZCjGCpsajP86RSROLHuZNUl3qm4le7MMl8QPXgthoOAPZzD4V7dB?=
- =?us-ascii?Q?iLibCgmRHVDl/52SYKhneglT3J11KOAS5xE0kt4ahId5ECghpbS3zUqnAAGE?=
- =?us-ascii?Q?txpP27XLssFF6bp8+pRhpUBrF9XJdAGUf3fTWWVSoA1wihX7JPvysN5NdSgr?=
- =?us-ascii?Q?tayLxI/5EF3jOvDL7DFsK7Z/HRhmpLfuwkq6cIHc3ZsS7PldW4Cjr9KTMXhB?=
- =?us-ascii?Q?dPmYenOPrPU+GDRbkc6pKhjR3KKrKBUvKq+FnyYNX+h7W+aRWApY6PKQY9+c?=
- =?us-ascii?Q?sPgJn7u5mYHLgNVHtr4XQqpHP2QWk/KaA37c72C+0/IyhgRn4SgavoKdMKKb?=
- =?us-ascii?Q?gpjv1twvXT1i6aPf4eEBdEEBQGIprVsPhIwjaey6Dvs2VGvH5/8SVekd2/CU?=
- =?us-ascii?Q?g5xrSvQixYd9RLJRG6eD4HEycWPQa0SV4x4Zlq4cSY41H957ON3pTudga3Z1?=
- =?us-ascii?Q?vBFj5ZhIVqT9jvrQIFqIMRb8SQDgbw8rceVqcgBlQfmRM28noGtNWlq0fyob?=
- =?us-ascii?Q?MSHfW6CJqW7yC4Umd3RAQTTB1w8w6B4IkxbzDuaEMCxtThnajVCn75Nf12R8?=
- =?us-ascii?Q?v4zSEE96w3sraOYEQSwi8/rElUUr0ZRCSA5dpPwYCfS8GTNoq6zE4QWKQaW2?=
- =?us-ascii?Q?JlHaP7pOSfhyGrGmuSaZwWfE9SyA2pSYyaQlXlHUYt/fn4SApezg5x2tJqyw?=
- =?us-ascii?Q?BSjPDaBnAPt7sfWS6AlwvASZnzX+4BE1NeDzDVVv9YwgoC5w0EVTptoPbIXD?=
- =?us-ascii?Q?yb6V3+iKfpDbIrmiaB9l0gfx3r23nMqshePLcjipYyq928Njdc59cH4tqMR1?=
- =?us-ascii?Q?WAScXtlyDvbp4lopcYqYjllClhW1eDljFXwyD6ZXtTia/5gvQTL1Usi71RF+?=
- =?us-ascii?Q?Rh6IEKuJTqeKo4AG94r/s/UZ8tBkVOb44qdgnhD/4kLtI3ikOzGrhOAmCcmt?=
- =?us-ascii?Q?ACLp+CBnWOvvr2Ow3A/40eZrrXjEwDP7xQziKcMBkh2UxJDmW2/KQxlEDyJD?=
- =?us-ascii?Q?cJ17TFc5ZvZSXLksorQVW0Swz7W9g6S+DtHy3Tb7d56Z+GrnVcdS+QhM59Fm?=
- =?us-ascii?Q?vEQaoJ0c9C3AlSODO7RsUYAbWX07V9ckEpJT2njAB6D7tVBNuOTEk3KkVNTw?=
- =?us-ascii?Q?geDyLbdAH+q/xUMhM6/75KXFoYT7P1E2ZKJBw1bhQvQhQZslYlY3sw=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYCPR01MB10914.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(52116014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?3FaLDYcJKQZa8gubAvozcuNFxLZles8m2SICUU2Qzo0+/PWk9hAPahXQ6vUQ?=
- =?us-ascii?Q?0oU3teOf/boGubNO5ihtTJ8mxICKPAZ05FEoHOk0u+Ifi+S8O8ICo64anAe/?=
- =?us-ascii?Q?QQL38RC+W7W3MCboD0RAtCVya7zcgBlWC+unGtN0EtvSetykOWYy6S9Yum7m?=
- =?us-ascii?Q?Odhjw9ijSYHQDazUNmkfaZqzX3onwqOuC/QOitwJ369TVmgw36G7GdjmDzT0?=
- =?us-ascii?Q?aoKEjYP7rpIFN8d5J8gP3je8WFHuRAzmzF8n4ENxAugHXj0P/VZ92ILHRI3b?=
- =?us-ascii?Q?GWeo30rbNoSgPCrdu/OruEBGZrSK/K4w1bun4dqQAOpunMlnJasdirT9q9sR?=
- =?us-ascii?Q?XPD3kEEfsWUp+Ozf5HDQSJPYHTIG0g0eWChFQAdM6Q3d2yZPvjAHtbc2HBdB?=
- =?us-ascii?Q?XLmVn0Jt5aJcTG7bRorvHfUYkSYOgvUykvxrO97KadfAA/9spL+JaDpKSp7j?=
- =?us-ascii?Q?sk6veBbCbFMXS0Fb26eT149KsGEyk6dRHQdf73NIn9d9uVfrsiQFB+Z1pQgG?=
- =?us-ascii?Q?Uu3fbN59SN8Xc4Wwn/YMC6tIGeiRe9B9wUrIyCQ8v7uVFNmjbJMm6su0peWg?=
- =?us-ascii?Q?xooOEtHulF8H3tW9bBi+b09obtJiZx4nXhSW9wV+LNlUWJQNOBgHEEQ57Tio?=
- =?us-ascii?Q?kvWy+snyRHmrkriGaKbmT0ldIgWovrzq3PuAL0VkHiHq10dH/Sz/AmBg55Fg?=
- =?us-ascii?Q?8qbEBcvO6UVOXJM/+js4s0xGBJcHS86o+n9Lu0PbeVNWbpc1VgOoWOKvds4i?=
- =?us-ascii?Q?//VRYidhYay0vl35/gFlodrs+4cJoQFaLV8h6cHiz8p4Atfbn8XhkHKkrCFI?=
- =?us-ascii?Q?rYQYMt8BjN7shwSGJ2SSmd3iHya/27AV72wO1kObrkfRmvCMdakiIeq3xOGL?=
- =?us-ascii?Q?y4egDgfGinJ4dboBf9HZK8vQt/gakAuF1OeuggEpzmBVXIT6oL031jhPtukx?=
- =?us-ascii?Q?NcOfEbub4Qcnft4UGb+4vBUSSlrgY6MWEEImaacLgFX4cv+QwjCi0NI/XS9O?=
- =?us-ascii?Q?6KCn30YX6isHgFeY6pXvskYDACnKtPXnoB/fKEQZBGx5RJMhhj81c5BZe9+o?=
- =?us-ascii?Q?T8lqUbX7RenFwpc5R5wF+Cl1HiRTrwYMUw+PfGMyBKwtOwdo0X6ik6s3sShb?=
- =?us-ascii?Q?0dHkWckCzDHYcNv7mCRcIlsmvxZX5kYTS9KGPBxECXMBcrFVDDP4nUIa8WZA?=
- =?us-ascii?Q?00nOORQx1D1fRwyYamTQ8dY/rRODDNVyVUYL0Lf5Jy62Sgp2hubV4dZmEcQw?=
- =?us-ascii?Q?Nwat4/fEwAb4Q0Ojm0Nd7bRz1y5VRGQkgDw8rnN25E7rLax4npnLxvbJaLph?=
- =?us-ascii?Q?lMMucVgkPqE7LvzJpVxUa7RcGkbN+l4NjHKsVI11PfiQj88xCs8GwAuce9G1?=
- =?us-ascii?Q?9lKJAW/aTQjxbaWpbIe0TxI9qmNwPB/7P3TmptQ9zvuzBwYyOxIXD0s9bftq?=
- =?us-ascii?Q?2QWYYbJp9cyYNsKTYsDe89c7eEcojG1tsr4/jPo5UcOcUg8fxbrhezK1dXOx?=
- =?us-ascii?Q?eelT67/xzwBEPP81XWIzocKs8X3C5UstFAxesLI0az99MZhPwFJicJoidjFs?=
- =?us-ascii?Q?XlDjzApFGrtc0GSn5cps33qfx6z+BhhNfD5AE3KSaHMerWqF9b+MLza9OAwX?=
- =?us-ascii?Q?872WUBf88SEYbagKzflCJ9s=3D?=
-X-OriginatorOrg: renesas.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6d3234f9-fa67-4161-c301-08ddc59db678
-X-MS-Exchange-CrossTenant-AuthSource: TYCPR01MB10914.jpnprd01.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Jul 2025 01:52:11.9100
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 53d82571-da19-47e4-9cb4-625a166a4a2a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: +k61U9fEDx17TmXj6S+X1OgcBHgORpKcRhUIUo4MplMJRc14lgK1pVefq+SlDl5JMUebZcQaBdVbnwevATGkjAV38MilXmXbb04NhDJgPRALtm/DOn5FB14oF7zOs3uW
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYRPR01MB12514
+User-Agent: Mozilla Thunderbird
+Cc: shawn.lin@rock-chips.com, Hugh Cole-Baker <sigmaris@gmail.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>,
+ Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+ Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+ Heiko Stuebner <heiko@sntech.de>, linux-pci@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-rockchip@lists.infradead.org
+Subject: Re: [RFC PATCH v3 2/3] PCI: rockchip-host: Retry link training on
+ failure without PERST#
+To: Geraldo Nascimento <geraldogabriel@gmail.com>
+References: <cover.1749582046.git.geraldogabriel@gmail.com>
+ <b7c09279b4a7dbdba92543db9b9af169776bd90c.1749582046.git.geraldogabriel@gmail.com>
+From: Shawn Lin <shawn.lin@rock-chips.com>
+In-Reply-To: <b7c09279b4a7dbdba92543db9b9af169776bd90c.1749582046.git.geraldogabriel@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGh9MTFYZQxgYGB1CTE5MSkJWFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
+	hVSktLVUpCS0tZBg++
+X-HM-Tid: 0a981b3eb22b09cckunm9ba9285b1f9de7b
+X-HM-MType: 1
+X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6PS46MSo4AzE3P1ZNATguNxEY
+	TQJPCzNVSlVKTE5JQ0tITE5JS09JVTMWGhIXVQgTGgwVVRcSFTsJFBgQVhgTEgsIVRgUFkVZV1kS
+	C1lBWU5DVUlJVUxVSkpPWVdZCAFZQU1DS0g3Bg++
+DKIM-Signature: a=rsa-sha256;
+	b=i6J9wKv2sF8hty+9HcYY7Grx2KFg7v7tdWpFM6j9VKKFMuYavSInJCeIrPUv3bfq9gU0krIP8YR6oB3JncO+CDd/Q55N7THricQKXBdmc+SZmxD/2LnpW/U9kJDPnyAwOwoPH7+gpU2c5Zgu8QcWkSAyv/TCol6SpwigDy7FZB0=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=XT+RZ7WEBbWIWW/Jed62+BDDdP8o1iduIJiqKrv6b/A=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250717_185213_699676_A3BB4850 
-X-CRM114-Status: UNSURE (   9.67  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250718_025628_899199_A4DC0477 
+X-CRM114-Status: GOOD (  28.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,37 +94,155 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-We can use string choices helper, let's use it.
+Hi Geraldo,
 
-Signed-off-by: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
----
- arch/arm/kernel/bios32.c | 5 +++--
- 1 file changed, 3 insertions(+), 2 deletions(-)
+在 2025/06/11 星期三 3:05, Geraldo Nascimento 写道:
+> After almost 30 days of battling with RK3399 buggy PCIe on my Rock Pi
+> N10 through trial-and-error debugging, I finally got positive results
+> with enumeration on the PCI bus for both a Realtek 8111E NIC and a
+> Samsung PM981a SSD.
+> 
+> The NIC was connected to a M.2->PCIe x4 riser card and it would get
+> stuck on Polling.Compliance, without breaking electrical idle on the
+> Host RX side. The Samsung PM981a SSD is directly connected to M.2
+> connector and that SSD is known to be quirky (OEM... no support)
+> and non-functional on the RK3399 platform.
+> 
+> The Samsung SSD was even worse than the NIC - it would get stuck on
+> Detect.Active like a bricked card, even though it was fully functional
+> via USB adapter.
+> 
+> It seems both devices benefit from retrying Link Training if - big if
+> here - PERST# is not toggled during retry.
+> 
 
-diff --git a/arch/arm/kernel/bios32.c b/arch/arm/kernel/bios32.c
-index d334c7fb672b..b5793e8fbdc1 100644
---- a/arch/arm/kernel/bios32.c
-+++ b/arch/arm/kernel/bios32.c
-@@ -10,6 +10,7 @@
- #include <linux/kernel.h>
- #include <linux/pci.h>
- #include <linux/slab.h>
-+#include <linux/string_choices.h>
- #include <linux/init.h>
- #include <linux/io.h>
- 
-@@ -337,8 +338,8 @@ void pcibios_fixup_bus(struct pci_bus *bus)
- 	/*
- 	 * Report what we did for this bus
- 	 */
--	pr_info("PCI: bus%d: Fast back to back transfers %sabled\n",
--		bus->number, (features & PCI_COMMAND_FAST_BACK) ? "en" : "dis");
-+	pr_info("PCI: bus%d: Fast back to back transfers %s\n",
-+		bus->number, str_enabled_disabled(features & PCI_COMMAND_FAST_BACK));
- }
- EXPORT_SYMBOL(pcibios_fixup_bus);
- 
--- 
-2.43.0
+I didn't see this error before especially given RTL8111 NIC is widelly
+used by customers.
+
+Could you help tried this?
+[1] apply your patch 3 first
+[2] apply below changes
+
+--- a/drivers/pci/controller/pcie-rockchip-host.c
++++ b/drivers/pci/controller/pcie-rockchip-host.c
+@@ -314,7 +314,7 @@ static int rockchip_pcie_host_init_port(struct 
+rockchip_pcie *rockchip)
+         rockchip_pcie_write(rockchip, PCIE_CLIENT_LINK_TRAIN_ENABLE,
+                             PCIE_CLIENT_CONFIG);
+
+-       msleep(PCIE_T_PVPERL_MS);
++       msleep(500);
+         gpiod_set_value_cansleep(rockchip->perst_gpio, 1);
+
+         msleep(PCIE_RESET_CONFIG_WAIT_MS);
+@@ -322,7 +322,7 @@ static int rockchip_pcie_host_init_port(struct 
+rockchip_pcie *rockchip)
+         /* 500ms timeout value should be enough for Gen1/2 training */
+         err = readl_poll_timeout(rockchip->apb_base + 
+PCIE_CLIENT_BASIC_STATUS1,
+                                  status, PCIE_LINK_UP(status), 20,
+-                                500 * USEC_PER_MSEC);
++                                5000 * USEC_PER_MSEC);
+         if (err) {
+                 dev_err(dev, "PCIe link training gen1 timeout!\n");
+                 goto err_power_off_phy;
+@@ -951,6 +951,8 @@ static int rockchip_pcie_probe(struct 
+platform_device *pdev)
+         if (err)
+                 return err;
+
++       gpiod_set_value_cansleep(rockchip->perst_gpio, 0);
++
+         err = rockchip_pcie_set_vpcie(rockchip);
+         if (err) {
+                 dev_err(dev, "failed to set vpcie regulator\n");
+
+
+> For retry to work, flow must be exactly as handled by present patch,
+> that is, we must cut power, disable the clocks, then re-enable
+> both clocks and power regulators and go through initialization
+> without touching PERST#. Then quirky devices are able to sucessfully
+> enumerate.
+> 
+> No functional change intended for already working devices.
+> 
+> Signed-off-by: Geraldo Nascimento <geraldogabriel@gmail.com>
+> ---
+>   drivers/pci/controller/pcie-rockchip-host.c | 47 ++++++++++++++++++---
+>   1 file changed, 40 insertions(+), 7 deletions(-)
+> 
+> diff --git a/drivers/pci/controller/pcie-rockchip-host.c b/drivers/pci/controller/pcie-rockchip-host.c
+> index 2a1071cd3241..67b3b379d277 100644
+> --- a/drivers/pci/controller/pcie-rockchip-host.c
+> +++ b/drivers/pci/controller/pcie-rockchip-host.c
+> @@ -338,11 +338,14 @@ static int rockchip_pcie_set_vpcie(struct rockchip_pcie *rockchip)
+>   static int rockchip_pcie_host_init_port(struct rockchip_pcie *rockchip)
+>   {
+>   	struct device *dev = rockchip->dev;
+> -	int err, i = MAX_LANE_NUM;
+> +	int err, i = MAX_LANE_NUM, is_reinit = 0;
+>   	u32 status;
+>   
+> -	gpiod_set_value_cansleep(rockchip->perst_gpio, 0);
+> +	if (!is_reinit) {
+> +		gpiod_set_value_cansleep(rockchip->perst_gpio, 0);
+> +	}
+>   
+> +reinit:
+>   	err = rockchip_pcie_init_port(rockchip);
+>   	if (err)
+>   		return err;
+> @@ -369,16 +372,46 @@ static int rockchip_pcie_host_init_port(struct rockchip_pcie *rockchip)
+>   	rockchip_pcie_write(rockchip, PCIE_CLIENT_LINK_TRAIN_ENABLE,
+>   			    PCIE_CLIENT_CONFIG);
+>   
+> -	msleep(PCIE_T_PVPERL_MS);
+> -	gpiod_set_value_cansleep(rockchip->perst_gpio, 1);
+> -
+> -	msleep(PCIE_T_RRS_READY_MS);
+> +	if (!is_reinit) {
+> +		msleep(PCIE_T_PVPERL_MS);
+> +		gpiod_set_value_cansleep(rockchip->perst_gpio, 1);
+> +		msleep(PCIE_T_RRS_READY_MS);
+> +	}
+>   
+>   	/* 500ms timeout value should be enough for Gen1/2 training */
+>   	err = readl_poll_timeout(rockchip->apb_base + PCIE_CLIENT_BASIC_STATUS1,
+>   				 status, PCIE_LINK_UP(status), 20,
+>   				 500 * USEC_PER_MSEC);
+> -	if (err) {
+> +
+> +	if (err && !is_reinit) {
+> +		while (i--)
+> +			phy_power_off(rockchip->phys[i]);
+> +		i = MAX_LANE_NUM;
+> +		while (i--)
+> +			phy_exit(rockchip->phys[i]);
+> +		i = MAX_LANE_NUM;
+> +		is_reinit = 1;
+> +		dev_dbg(dev, "Will reinit PCIe without toggling PERST#");
+> +		if (!IS_ERR(rockchip->vpcie12v))
+> +			regulator_disable(rockchip->vpcie12v);
+> +		if (!IS_ERR(rockchip->vpcie3v3))
+> +			regulator_disable(rockchip->vpcie3v3);
+> +		regulator_disable(rockchip->vpcie1v8);
+> +		regulator_disable(rockchip->vpcie0v9);
+> +		rockchip_pcie_disable_clocks(rockchip);
+> +		err = rockchip_pcie_enable_clocks(rockchip);
+> +		if (err)
+> +			return err;
+> +		err = rockchip_pcie_set_vpcie(rockchip);
+> +		if (err) {
+> +			dev_err(dev, "failed to set vpcie regulator\n");
+> +			rockchip_pcie_disable_clocks(rockchip);
+> +			return err;
+> +		}
+> +		goto reinit;
+> +	}
+> +
+> +	else if (err) {
+>   		dev_err(dev, "PCIe link training gen1 timeout!\n");
+>   		goto err_power_off_phy;
+>   	}
 
 
