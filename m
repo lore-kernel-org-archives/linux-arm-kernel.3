@@ -4,72 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F7E6C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Jul 2025 11:02:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95937C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Jul 2025 11:04:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IFGNSXyBzlfv/Oj4MgwjqyjIVax4i6/p74f+gTytbJs=; b=UDsNAWvgyM9eYEQ+ntMn1nU1dn
-	lYsTnklUDZP18ux0zfjxHpCAs5lwfki6k/sRpzZtx1HKkRmimncvdfSVGyv3p40pLj4I9iNdWjJJ+
-	BxmUAB84UqwW8k75Ot8Ug5jOIupnwE0RwfywteRCusf9QYsRPXZJZMAvimkFTQct9jlaMfuiJ0b73
-	kLjnz/dzlUc8qhlwVTr7AqkfYOQXHn7hbd8Ye+XdfsOTXAaUTGzxYFemT2ySnSh/cLzkCOh/8+BFJ
-	/gFfCjvIbimrEEWs/ihrRXGeX/hnZPj/IXRwK91+geMfMywSUNgmyHtapplOlYc1lvlgcFwbI7zMS
-	Pf9ZyGMA==;
+	bh=eL4ot+dqM/gHvOleLPQUu1Tr2WKMQ0Kb3pxoJXxeucY=; b=iuKaVSBV2n34mTkLhrQ5N/Foaa
+	g32Cp/e0q87wuqp3RRJGwZVbtBxlvmENHu45NXqsvTdY6eaUwfZNzZupRmqO5avV9y2q/GJKqQpi6
+	yYNP9TWRlKfYaG+xIQikKymQiIdZKyGhXUy7gffJSeHlcB3Q9C40ssyidfk764tEn/Op5U0dbDJUd
+	a7OYNIUE4SapxDMTMh8zrLkvQaLZsblu3wavs1mDvLroocz996pEHIfAh+aKikRV00nUPZoULlRra
+	1ca5A+BbOP+SLdfAjlUyQop24U8+siPcZq32rvlug31NFyh+oLOi2P4JaD9kd7OpafmT527yAIAqd
+	oN8PUa1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uciqu-0000000CO3w-3tQo;
-	Fri, 18 Jul 2025 11:02:08 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1ucitL-0000000COKL-0JDQ;
+	Fri, 18 Jul 2025 11:04:39 +0000
+Received: from mail-yw1-x1133.google.com ([2607:f8b0:4864:20::1133])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uciVR-0000000CKGD-3WB2;
-	Fri, 18 Jul 2025 10:39:59 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 5234E5C5C60;
-	Fri, 18 Jul 2025 10:39:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 161EFC4CEF0;
-	Fri, 18 Jul 2025 10:39:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752835197;
-	bh=J3EdFx6SeghEC/3QrFs16mdw3ziovg04wubMBc5qbUM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=IPlrFQBtvUlZfA7a+pVin1pFTP7wye2etea45L0KxgzvuN5VA5/XYu1MyW3Xtw9BX
-	 cXL2kXR7CiYeUQP0DsONWFLp7zbJ9zl7KUXlq5LI945F+NGunAFWedcpd57Nt4nS+B
-	 DO/r/Cx19XXM7KfS03jieyFoNUBzNpU8bbxrw2L511QVxGAr98ZXWB2uYjftwZ5dnD
-	 4YDpEFwUNh03TE5Ar8Vq6XqGAlWb5aflWRTH/TOH7rLvuWOPgTv+CLF6liQVsvP2ah
-	 yveNKo3QRKnzR2f/ScmBsawG2qE80GXNLSf3orq5fHbG8Mrq+dAmRyfBuGAtgXeiOq
-	 s1uZKCsgGIvXg==
-Date: Fri, 18 Jul 2025 12:39:50 +0200
-From: Niklas Cassel <cassel@kernel.org>
-To: manivannan.sadhasivam@oss.qualcomm.com
-Cc: Bjorn Helgaas <bhelgaas@google.com>,
-	Mahesh J Salgaonkar <mahesh@linux.ibm.com>,
-	Oliver O'Halloran <oohall@gmail.com>, Will Deacon <will@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
-	Philipp Zabel <p.zabel@pengutronix.de>, linux-pci@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	Wilfred Mallawa <wilfred.mallawa@wdc.com>,
-	Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>,
-	Lukas Wunner <lukas@wunner.de>
-Subject: Re: [PATCH v6 0/4] PCI: Add support for resetting the Root Ports in
- a platform specific way
-Message-ID: <aHokdhpJUhSZ5FSp@ryzen>
-References: <20250715-pci-port-reset-v6-0-6f9cce94e7bb@oss.qualcomm.com>
- <aHoh1XfhR8EB_5yY@ryzen>
+	id 1uciaR-0000000CKoz-1l79
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 18 Jul 2025 10:45:08 +0000
+Received: by mail-yw1-x1133.google.com with SMTP id 00721157ae682-7183d264e55so19778897b3.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Jul 2025 03:45:06 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1752835506; x=1753440306; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=eL4ot+dqM/gHvOleLPQUu1Tr2WKMQ0Kb3pxoJXxeucY=;
+        b=TOfex5m/fNwtO2SioeDgqOSiWziNaRuacFGI2R0QJZlLw0LqxMjRcEZV6DLdi82xZn
+         Z3ZL0kekpW5vCJg4FDECBCucWYF1TC7HRChQj1WjD/Wt5W4AX5Qz6pRM/nR/Vl5GG1kT
+         kocc6/yR3ZCQgioZ2tgBud7hIMYXdX7xQIA66TcTcFyX+az629m7FXoOwxxw/rgya02c
+         1ufflF+ztIuVPnlpjyFQ8M9zoiOGv6HemlduhtMxo2kcjdAgKwUwLUv2DO3cgdc7+gpf
+         yJDcERqImiHFmjeWETJt1Y+t9PEjzzMTantEHtMmVgpg9q5HWLhFLBbut0PbtdCZAV7/
+         mMFg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1752835506; x=1753440306;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=eL4ot+dqM/gHvOleLPQUu1Tr2WKMQ0Kb3pxoJXxeucY=;
+        b=Wm6EuiFMKPYq3DmMa8kgbGvTaW+cf+aq8r2iI9Ll/3Prb4jfP6WrijdlqJ4jlB38nB
+         zFQtKdta9cMAFaaQvMeo+vIVFaE3siZh/+Bl0iF9j2yUL9joAvAa6rwK9BFMx/wFb33D
+         iqu8imzA5Ghnyl5e18E4BxH0NtC45JiWlO65XDCAs1eAuVr0mxD42Ej7x9IS4TxMAdfp
+         KDtsKj/WT+3J+FVRGSs39zl/iTG1F4+3GAS/PH53gndToXHNtFWDenJBTiALYV8pAftr
+         SRVLD9f8csaNpz2V3hcP1ujsS0V5cpbTwtuy4PAO4zFWAOSm8+nGez9A9g1hcjY0oHQx
+         m/dw==
+X-Forwarded-Encrypted: i=1; AJvYcCUVzv5Tb0dz30GlvAgS/RMr+p0bflou0IyKx59bQJC895WdGQN5AYqLkw1BGSStU6R+tDnjfz8VnamJVh66JOgI@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz+YeotzpSiFMjlEeUFV8c+giFG2oQOHYzZE5Hx5v6TAIz4eFkw
+	9AaLf4Q6eNk6kyc8AGPLpBWpoM+cRQVKkqRb7deV1JBaNVPhTitcMfz8n3Lbz9xi8ER6VtCbjX6
+	g0jLHZP2hMbIdodzv8jwCZ73kSQHxSAa5B0rdyelpWA==
+X-Gm-Gg: ASbGnctbXxI70jUBsQYhYZIZG674+EgeWLi4ipAay7jYOM8tWXuzc2Mbic2mP4FvX9i
+	VnfP+9UngWlKb96hguo6ODPPL8lb7rK62JegumcpfGhTp7PgxHiBkhNWxHaRnBhdEqjWIkTs5RS
+	TyJOmZVd40wR0NhkkpYlglArFqSiriqtDIlDi0YECn+zPXDzUcI/ve8bYi38bHnb8P4C09pgiXR
+	OHCRtBK
+X-Google-Smtp-Source: AGHT+IFQ1mnk1ZgI1gkcyMhNGTwcwNL/MUejQfWzddIamhebdceSEWNxbqRvh2fYEhcrWIWkwSIrRt9TLlwJqykznrc=
+X-Received: by 2002:a05:690c:25c3:b0:70e:7706:824e with SMTP id
+ 00721157ae682-718a332563dmr82661557b3.6.1752835505656; Fri, 18 Jul 2025
+ 03:45:05 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aHoh1XfhR8EB_5yY@ryzen>
+References: <20250716194638.113115-1-hiagofranco@gmail.com>
+In-Reply-To: <20250716194638.113115-1-hiagofranco@gmail.com>
+From: Ulf Hansson <ulf.hansson@linaro.org>
+Date: Fri, 18 Jul 2025 12:44:28 +0200
+X-Gm-Features: Ac12FXz3wdFyhRFKPg_XEl0cRf6bRNkkouJRpcUk47StJD9WCjNNZdufcqO3Rys
+Message-ID: <CAPDyKFqWkWSahkGkap8SUiuYvmtk_b4OgN-bSyB-H519wf=eBw@mail.gmail.com>
+Subject: Re: [PATCH v8] remoteproc: imx_rproc: detect and attach to pre-booted
+ remote cores
+To: Hiago De Franco <hiagofranco@gmail.com>
+Cc: Mathieu Poirier <mathieu.poirier@linaro.org>, linux-remoteproc@vger.kernel.org, 
+	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Bjorn Andersson <andersson@kernel.org>, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	daniel.baluta@nxp.com, iuliana.prodan@oss.nxp.com, 
+	"Rafael J . Wysocki" <rafael@kernel.org>, Hiago De Franco <hiago.franco@toradex.com>, 
+	Peng Fan <peng.fan@nxp.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250718_033957_960345_996654B5 
-X-CRM114-Status: GOOD (  13.64  )
+X-CRM114-CacheID: sfid-20250718_034507_473371_D6F8684F 
+X-CRM114-Status: GOOD (  47.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,51 +99,173 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 18, 2025 at 12:28:44PM +0200, Niklas Cassel wrote:
-> On Tue, Jul 15, 2025 at 07:51:03PM +0530, Manivannan Sadhasivam via B4 Relay wrote:
-> 2) Testing link down reset:
-> 
-> selftests before link down reset:
-> # FAILED: 14 / 16 tests passed.
-> 
-> ## On EP side:
-> # echo 0 > /sys/kernel/config/pci_ep/controllers/a40000000.pcie-ep/start && \
->   sleep 0.1 && echo 1 > /sys/kernel/config/pci_ep/controllers/a40000000.pcie-ep/start
-> 
-> 
-> [  111.137162] rockchip-dw-pcie a40000000.pcie: PCIE_CLIENT_INTR_STATUS_MISC: 0x4
-> [  111.137881] rockchip-dw-pcie a40000000.pcie: LTSSM_STATUS: 0x0
-> [  111.138432] rockchip-dw-pcie a40000000.pcie: hot reset or link-down reset
-> [  111.139067] pcieport 0000:00:00.0: Recovering Root Port due to Link Down
-> [  111.139686] pci-endpoint-test 0000:01:00.0: AER: can't recover (no error_detected callback)
-> [  111.255407] rockchip-dw-pcie a40000000.pcie: PCIe Gen.3 x4 link up
-> [  111.256019] rockchip-dw-pcie a40000000.pcie: Root Port reset completed
-> [  111.383401] pcieport 0000:00:00.0: Root Port has been reset
-> [  111.384060] pcieport 0000:00:00.0: AER: device recovery failed
-> [  111.384582] rockchip-dw-pcie a40000000.pcie: PCIE_CLIENT_INTR_STATUS_MISC: 0x3
-> [  111.385218] rockchip-dw-pcie a40000000.pcie: LTSSM_STATUS: 0x230011
-> [  111.385771] rockchip-dw-pcie a40000000.pcie: Received Link up event. Starting enumeration!
-> [  111.390866] pcieport 0000:00:00.0: bridge configuration invalid ([bus 00-00]), reconfiguring
-> [  111.391650] pci_bus 0000:01: busn_res: [bus 01-ff] end is updated to 01
-> 
-> Basically all tests timeout
-> # FAILED: 1 / 16 tests passed.
-> 
-> Which is the same as before this patch series.
+On Wed, 16 Jul 2025 at 21:47, Hiago De Franco <hiagofranco@gmail.com> wrote:
+>
+> From: Hiago De Franco <hiago.franco@toradex.com>
+>
+> When the Cortex-M remote core is started and already running before
+> Linux boots (typically by the Cortex-A bootloader using a command like
+> bootaux), the current driver is unable to attach to it. This is because
+> the driver only checks for remote cores running in different SCU
+> partitions. However in this case, the M-core is in the same partition as
+> Linux and is already powered up and running by the bootloader.
+>
+> This patch adds a check using dev_pm_genpd_is_on() to verify whether the
+> M-core's power domains are already on. If all power domain devices are
+> on, the driver assumes the M-core is running and proceed to attach to
+> it.
+>
+> To accomplish this, we need to avoid passing any attach_data or flags to
+> dev_pm_domain_attach_list(), allowing the platform device become a
+> consumer of the power domain provider without changing its current
+> state.
+>
+> During probe, also enable and sync the device runtime PM to make sure
+> the power domains are correctly managed when the core is controlled by
+> the kernel.
+>
+> Suggested-by: Ulf Hansson <ulf.hansson@linaro.org>
+> Reviewed-by: Ulf Hansson <ulf.hansson@linaro.org>
+> Reviewed-by: Peng Fan <peng.fan@nxp.com>
+> Signed-off-by: Hiago De Franco <hiago.franco@toradex.com>
 
-The above was with CONFIG_PCIEAER=y
+Applied for next, thanks!
 
-Wilfred suggested that I tried without this config set.
+Kind regards
+Uffe
 
-However, doing so, I got the exact same result:
-# FAILED: 1 / 16 tests passed.
-
-
-For the record, the test that passes is not actually passing either,
-it is the BAR4 test, which is skipped, since BAR4 is reserved on rock5b:
-ok 5 pci_ep_bar.BAR4.BAR_TEST # SKIP BAR is disabled
-
-
-Kind regards,
-Niklas
+> ---
+> Hi Mathieu, Ulf,
+>
+> This is the v8 of patch3 from the patch series:
+> https://lore.kernel.org/all/20250629172512.14857-1-hiagofranco@gmail.com/
+>
+> As patches 1 and 2 are already applied on Ulf's next branch, as
+> requested I am sending now only the v8 of patch 3.
+>
+> I made a small correction into the commit description, s/SCFW
+> partitions/SCU partitions/g and updated with the check for the return
+> value.
+>
+> I hope this is ok.
+>
+> Thanks!
+>
+> Hiago.
+>
+> v7 -> v8:
+>     - Added return error check for dev_pm_domain_attach_list().
+>     - Commit description: changed to use "SCU partitions" instead of
+>       "SCFW partitions". This is more accurate since these are hardware
+>       enforced partitions.
+> v6 -> v7:
+>  - Added Peng reviewed-by.
+> v5 -> v6:
+>  - Commit description improved, as suggested. Added Ulf Hansson reviewed
+>    by. Comment on imx-rproc.c improved.
+> v4 -> v5:
+>  - pm_runtime_get_sync() removed in favor of
+>    pm_runtime_resume_and_get(). Now it also checks the return value of
+>    this function.
+>  - Added pm_runtime_disable() and pm_runtime_put() to imx_rproc_remove()
+>    function.
+> v3 -> v4:
+>  - Changed to use the new dev_pm_genpd_is_on() function instead, as
+>    suggested by Ulf. This will now get the power status of the two
+>    remote cores power domains to decided if imx_rpoc needs to attach or
+>    not. In order to do that, pm_runtime_enable() and
+>    pm_runtime_get_sync() were introduced and pd_data was removed.
+> v2 -> v3:
+>  - Unchanged.
+> v1 -> v2:
+>  - Dropped unecessary include. Removed the imx_rproc_is_on function, as
+>    suggested.
+> ---
+> ---
+>  drivers/remoteproc/imx_rproc.c | 41 +++++++++++++++++++++++++++++-----
+>  1 file changed, 35 insertions(+), 6 deletions(-)
+>
+> diff --git a/drivers/remoteproc/imx_rproc.c b/drivers/remoteproc/imx_rproc.c
+> index 627e57a88db2..a6eef0080ca9 100644
+> --- a/drivers/remoteproc/imx_rproc.c
+> +++ b/drivers/remoteproc/imx_rproc.c
+> @@ -18,6 +18,7 @@
+>  #include <linux/of_reserved_mem.h>
+>  #include <linux/platform_device.h>
+>  #include <linux/pm_domain.h>
+> +#include <linux/pm_runtime.h>
+>  #include <linux/reboot.h>
+>  #include <linux/regmap.h>
+>  #include <linux/remoteproc.h>
+> @@ -890,10 +891,8 @@ static int imx_rproc_partition_notify(struct notifier_block *nb,
+>  static int imx_rproc_attach_pd(struct imx_rproc *priv)
+>  {
+>         struct device *dev = priv->dev;
+> -       int ret;
+> -       struct dev_pm_domain_attach_data pd_data = {
+> -               .pd_flags = PD_FLAG_DEV_LINK_ON,
+> -       };
+> +       int ret, i;
+> +       bool detached = true;
+>
+>         /*
+>          * If there is only one power-domain entry, the platform driver framework
+> @@ -902,8 +901,25 @@ static int imx_rproc_attach_pd(struct imx_rproc *priv)
+>         if (dev->pm_domain)
+>                 return 0;
+>
+> -       ret = dev_pm_domain_attach_list(dev, &pd_data, &priv->pd_list);
+> -       return ret < 0 ? ret : 0;
+> +       ret = dev_pm_domain_attach_list(dev, NULL, &priv->pd_list);
+> +       if (ret < 0)
+> +               return ret;
+> +       /*
+> +        * If all the power domain devices are already turned on, the remote
+> +        * core is already powered up and running when the kernel booted (e.g.,
+> +        * started by U-Boot's bootaux command). In this case attach to it.
+> +        */
+> +       for (i = 0; i < ret; i++) {
+> +               if (!dev_pm_genpd_is_on(priv->pd_list->pd_devs[i])) {
+> +                       detached = false;
+> +                       break;
+> +               }
+> +       }
+> +
+> +       if (detached)
+> +               priv->rproc->state = RPROC_DETACHED;
+> +
+> +       return 0;
+>  }
+>
+>  static int imx_rproc_detect_mode(struct imx_rproc *priv)
+> @@ -1146,6 +1162,15 @@ static int imx_rproc_probe(struct platform_device *pdev)
+>                 }
+>         }
+>
+> +       if (dcfg->method == IMX_RPROC_SCU_API) {
+> +               pm_runtime_enable(dev);
+> +               ret = pm_runtime_resume_and_get(dev);
+> +               if (ret) {
+> +                       dev_err(dev, "pm_runtime get failed: %d\n", ret);
+> +                       goto err_put_clk;
+> +               }
+> +       }
+> +
+>         ret = rproc_add(rproc);
+>         if (ret) {
+>                 dev_err(dev, "rproc_add failed\n");
+> @@ -1171,6 +1196,10 @@ static void imx_rproc_remove(struct platform_device *pdev)
+>         struct rproc *rproc = platform_get_drvdata(pdev);
+>         struct imx_rproc *priv = rproc->priv;
+>
+> +       if (priv->dcfg->method == IMX_RPROC_SCU_API) {
+> +               pm_runtime_disable(priv->dev);
+> +               pm_runtime_put(priv->dev);
+> +       }
+>         clk_disable_unprepare(priv->clk);
+>         rproc_del(rproc);
+>         imx_rproc_put_scu(rproc);
+> --
+> 2.39.5
+>
 
