@@ -4,71 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91BAAC83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Jul 2025 07:05:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB0B6C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Jul 2025 07:08:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xM5Vp0ejvQLakNL67klFnSYqmCFYMtTTByxp+2HpAfk=; b=3QF3BSMbt/E530wd5Bw3VccJ58
-	Ee52ASksG80nMhea+OY/e/8gcuayPCKZPL3Egd+lEMnuel7SiapuvOWn9tuyipTbumKLp7lS5RrMu
-	fo5wTlaGqzTMDUgkbVHsw2Nkn6RUt0mZe/yBxdBMgl96R5HML2muSQQNHGIaOTO+0KwJBJiaC2py8
-	QelQR0WjXDoX47BlDuLenpWPmXKPOGCx34GbvbLIVbIyGIgz3ZPK6Se1GUjn+4M6wwwSoaxZb+p1v
-	57w/Kn1tW5ySeYYL6TWcBE8nG1XzwZCLkd1zmSxrqgJw5qciVWd7a4ustRBcL9Zl9cgjoNyTLJElE
-	t1w3aV1w==;
+	bh=VVar5g8zOX9FTPpiuRdJzd042YFwcWfhs7Wgs601zJE=; b=wT13djbxdVHDeFRoXzDHEqjx9e
+	1U7N5hTjhgW6JkwxkKAYTdAxjmWKJkLItZAIAAdyUVOQ8/wNKNvPalEeXUmYTqm8OonxC26dYt/mF
+	JEJ9tl7iqtGzK5OHb9ARxypYGhjV+i0llfz1Gc8RNj2fY8shvxI29onvqzFXM4NYYbvgaP9SvQVHS
+	hUvdlckt00i3XYAVdKqmyoTbN5fDjvi6fCQgJw9JGXlKhTcPraVocqOQF29HGbGUtDBM59ZoHjPvv
+	xV3DcQk63IsBrQ3ZApVCzqu/FPTW6T25htFU8Z/sTps/WmRfnbPepm48MppOHXvpT4xCi0Y1Qjd6w
+	J0JJqYog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucfA0-0000000BqEg-1spa;
-	Fri, 18 Jul 2025 07:05:36 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1ucfCQ-0000000BqP0-2ORE;
+	Fri, 18 Jul 2025 07:08:06 +0000
+Received: from mail-ej1-x630.google.com ([2a00:1450:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uceq9-0000000Bnnc-103P;
-	Fri, 18 Jul 2025 06:45:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1752821103;
-	bh=Flu8f5EEMoareDycOibeeDu3AxB1XnSACgaMHVsyW1w=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=DwS0PG5m6sy8pPsSDEEPkvprigDV/c5LttouP7znEuzfmyNRglSTvLZd07oracBng
-	 jDnOTaXFvrL/l83ZUOCpI+KHO6ojM9yqDnTB/Cu1qGRtDwKiKriNdFcAcvU+3KYsJS
-	 igv6SR0FFKXofVtRVWudolGkdWUVlSuKzIChIOyosFoLFE082xvIYgseM/JndxKVas
-	 9ubYc4UpQhpMMzc5Z6vFXwIyHKXNSuMOX+tUHDXuPqosjKabEIkvlrO3Jk1wtAE/Oe
-	 4JV6uYUYheU3Lh7d505ApkMOVsBDaA0ZFEe6GKjOLU2CbrD+E0ohcP0Wi1aZILexk9
-	 erbIGHatW5WhQ==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 0455417E1544;
-	Fri, 18 Jul 2025 08:45:02 +0200 (CEST)
-Message-ID: <409ef1d7-1339-4089-ae28-37a7c032d15c@collabora.com>
-Date: Fri, 18 Jul 2025 08:45:02 +0200
+	id 1uceqA-0000000Bnnl-1q4Z
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 18 Jul 2025 06:45:07 +0000
+Received: by mail-ej1-x630.google.com with SMTP id a640c23a62f3a-ae6fa02d8feso269178366b.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 17 Jul 2025 23:45:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=tuxon.dev; s=google; t=1752821104; x=1753425904; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=VVar5g8zOX9FTPpiuRdJzd042YFwcWfhs7Wgs601zJE=;
+        b=MfFCQFvb2QBLdR/QZbHoHNxtai6Mm0Yd6CIsueRuErR4ebkvQzRg3/d7wwmHDO85d+
+         iH1+34kiP7oLVTwgp36WgFrK67gjRS0QiCQVxQpuJjhzTCYTTTMAmCV4F3oeCT8v0lQb
+         2qrjxqsVgNcnbsoL56scyAntUsgzRJXKoEJHrqU7oRHs4VG0DFW1crTFYBeJFIkSLM/7
+         BJu7Zw/heanfDv9gWROh8hV8e6tv5pSFq1JFTyULjTb2ldvSt18ASAcOJyLRDV5oQkfe
+         ylYgOQbOTftlDSK6bSqzsoSB2u3tUIi11Ii5vj/QZIqi/1brP6oe9cpDARCnqm82wvHu
+         xg5A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1752821104; x=1753425904;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=VVar5g8zOX9FTPpiuRdJzd042YFwcWfhs7Wgs601zJE=;
+        b=QKThsRfGG9UJZ5kU6BcaJKc5V6lhxf8dWrlp6fGRTtjlbjA018gzyMj3MCuKxZreX9
+         SrXICpOA7CChQ88aouKhjBPkaHu2y925g5Z+l7dVEiRfpRXmjA7mX/DbRTqmvxs74Kzi
+         sVrRy8ldZx2Q+TcaUtjHl+Ma3hw6nM+EmEZuomMnWB7rrFu9VSVa/4i0WyPk5g6ycC2u
+         ZCYpuiJBEv5kY565lgBBP5uiAPSoNBg+51NxBE27wEv6RZhhkUY/ElpxeUQpkoqnSEeA
+         lqvxSoQ5MmMbgyRV0VwAzbBw+C7fmwTbuLML1OqoG8vpCvEy9XM2pP64/UKzvUQlYF4+
+         b9eQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVuFLEKUU8TOPXLawkRbG5TOmpeToK95hybgsS4S7/5LB/T60FTLVQDU0B7feu56FHswtn+McYEscYWabUiKbuI@lists.infradead.org
+X-Gm-Message-State: AOJu0YzJao9iEN8UDtGhhJS3b3Jxe+z83P9g2rPvgh0vnCsZuqz9lTZ+
+	VXw2jLt9EQCLC6UkN45fN+Ol2INruU7u3MP+OA5WnJkYSdjHoYdXnbWbXplFCvsO/yg=
+X-Gm-Gg: ASbGncuj7z/MpdNZv1j48JnAgVCCj8nuQVB1sqNi27ULAInCQ+Ja3PMSCmQD0vcmdL2
+	Omw+5uAtJkth1auf0VJ9eVosyCRo7Zh3qHugUeEZ0Voyq/wAW1s34jh/m/XCz7vaHEf+ohRIucW
+	j7SQY8XohIW7SrB4SnF0sIl9vkr83vGJ6cOo4Dgj7gohME6CQULcE3FsjQL6NrbUDjHNWJ5IBOO
+	q+Sm4O58O2PP/1Y+hK4Ptljib984AYy5uHzQHch6Ri3E8fTzD5J0W78OIuWFhXdM5mH6btSQmi3
+	5vgmbP88gp0xg/zMFH5bMM49/ghStOA7fOZZrJ9+rDklaqOwfGYbYLdBFMaRzDK2gF+UqcH2JDk
+	SYEn2HwHPAZ/OCdto9R3/PbCy1+Nezg==
+X-Google-Smtp-Source: AGHT+IHxkNxiwjD0/BPXsctCLjJokMhGtGvK5gTIY+yWmoyQySHcBMCNgSHU8nTNi4mvXEKWD1jTxQ==
+X-Received: by 2002:a17:907:1747:b0:ade:316e:bfc with SMTP id a640c23a62f3a-ae9cde242camr688547966b.21.1752821104166;
+        Thu, 17 Jul 2025 23:45:04 -0700 (PDT)
+Received: from [192.168.50.4] ([82.78.167.30])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aec6caf80e5sm63293766b.163.2025.07.17.23.45.02
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 17 Jul 2025 23:45:03 -0700 (PDT)
+Message-ID: <39b57899-4e8d-445f-a3b5-3b7f9ba3c3cb@tuxon.dev>
+Date: Fri, 18 Jul 2025 09:45:02 +0300
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/3] dt-bindings: pinctrl: mediatek: Add support for
- mt8189
-To: Cathy Xu <ot_cathy.xu@mediatek.com>,
- Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
- Sean Wang <sean.wang@kernel.org>
-Cc: Lei Xue <lei.xue@mediatek.com>, linux-gpio@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- Yong Mao <yong.mao@mediatek.com>, Wenbin Mei <Wenbin.Mei@mediatek.com>,
- Axe Yang <Axe.Yang@mediatek.com>
-References: <20250711094513.17073-1-ot_cathy.xu@mediatek.com>
- <20250711094513.17073-2-ot_cathy.xu@mediatek.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Subject: Re: [PATCH v2] clk: at91: sam9x7: update pll clk ranges
+To: Varshini Rajendran <varshini.rajendran@microchip.com>,
+ mturquette@baylibre.com, sboyd@kernel.org, nicolas.ferre@microchip.com,
+ alexandre.belloni@bootlin.com, linux-clk@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Cc: Patrice Vilchez <Patrice.Vilchez@microchip.com>
+References: <20250714093512.29944-1-varshini.rajendran@microchip.com>
+From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
 Content-Language: en-US
-In-Reply-To: <20250711094513.17073-2-ot_cathy.xu@mediatek.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+In-Reply-To: <20250714093512.29944-1-varshini.rajendran@microchip.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250717_234505_429614_1A68781A 
-X-CRM114-Status: UNSURE (   5.86  )
+X-CRM114-CacheID: sfid-20250717_234506_548851_6A4E9BBF 
+X-CRM114-Status: UNSURE (   7.68  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -84,12 +103,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 11/07/25 11:44, Cathy Xu ha scritto:
-> Add the new binding document for pinctrl on MediaTek mt8189.
+
+
+On 14.07.2025 12:35, Varshini Rajendran wrote:
+> Update the min, max ranges of the PLL clocks according to the latest
+> datasheet to be coherent in the driver. This patch solves the issues in
+> configuring the clocks related to peripherals with the desired frequency
+> within the range.
 > 
-> Signed-off-by: Cathy Xu <ot_cathy.xu@mediatek.com>
+> Fixes: 33013b43e271 ("clk: at91: sam9x7: add sam9x7 pmc driver")
+> Suggested-by: Patrice Vilchez <Patrice.Vilchez@microchip.com>
+> Signed-off-by: Varshini Rajendran <varshini.rajendran@microchip.com>
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-
-
+Applied to clk-microchip, thanks!
 
