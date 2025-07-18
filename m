@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2887DC83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Jul 2025 09:43:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03F6AC83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Jul 2025 09:45:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=a/msmaIuOAD2yXzL6YBJQ/M2VbUrZztRuGynW6womCM=; b=MtKIcwLYXO1jj1eCHNwvcTsFun
-	QMhOchtgVUitRwf7JzR7BUOKjgbeT/oc5MiEkkBJQZlMcyPgMRglUN0GxsGCBPIpxila64rOyrhyh
-	Tts6KCfzg/HJdZwUpdGlG1yaCdm757YI7Mz/WDWEK0/zt3svjpkmSUIudcsDX8q7KEdWGC6vaRafb
-	8I9tvzywgmiI9Vw03UyV2UlYmw1MdoIVxd79CaIOkm5tBRERpfcpPqyC2kySp+ukyx3BLJklvlV7X
-	bO89rgEfqQDTVmO3sNEsD5nbF7k3KxpHnEXGXfe23zHImUF0dTTeRlg8lQr8Vumz8BuDLk9HQHUnm
-	Tl8N8sew==;
+	bh=YoSnm5FTvyqLsHCf2n3+CQQzLFUTVfaDrMYlYvfwNcI=; b=rBEC3kOtn89iTpzLkXo4r4M0FB
+	VFFpnrk8euDFqgR4vFapDVizf5mIOiSXy2TGnv2Q2QcrdKmwaWVGYYRMSE07vEBoovtSVBBAm+e/3
+	LM6+oxKvOOafr2jowR48YiNISyn+HMgXtsgjQMZlGsr2IFNTXPy8hFl6mkKM8k1XkvgyZTq/E95q0
+	Co7Pf26gvb6gZvTGEEzGu/Ct44jW7mT0AjICwjonqi8tr7wpaBdO+WHYQlOapfec/2UnQPhUPUYhA
+	tNz5kt4YBpC+3xBnc0Zh9hvjYaT24XGgmVGiieQYeurKjCrdqsX/doYQgEjHRtTPEZAA3WSXI/pc7
+	W7cJEDNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uchcT-0000000CDaz-488I;
-	Fri, 18 Jul 2025 09:43:09 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uchev-0000000CDtN-1kCN;
+	Fri, 18 Jul 2025 09:45:41 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uchF9-0000000C9qq-1Fii;
-	Fri, 18 Jul 2025 09:19:04 +0000
+	id 1uchG3-0000000CA3K-1X3A;
+	Fri, 18 Jul 2025 09:20:00 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0BC6A45C0D;
-	Fri, 18 Jul 2025 09:19:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 45DA8C4CEED;
-	Fri, 18 Jul 2025 09:18:59 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id D9BBC5C5A88;
+	Fri, 18 Jul 2025 09:19:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0B3ACC4CEED;
+	Fri, 18 Jul 2025 09:19:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752830342;
-	bh=zc0SCSe5dmWIeZjMz3hpH98kv1/ooid1+C6hklMxXHY=;
+	s=k20201202; t=1752830398;
+	bh=YoSnm5FTvyqLsHCf2n3+CQQzLFUTVfaDrMYlYvfwNcI=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=feAxFeI6s7xbdfD7VqMf9akefxnzKYsmkZ/mH2hde8VOomBy2PEh1fmKvFA3t/TmB
-	 UCC6zLMXP2pm1eh6wvbNL4bQ3VksNVHTunfpA44KDJmjIN6urxINtCCiwRJxvCGs0O
-	 I1C2Tx6HMiN6vlCiLBMoBtgYvjRyXw5BRSb8uHKsNn5TdS9GBiiBeM6FaSe/rNu8Jd
-	 FD69hz3QXn9/9hx2QBHsEmFAEhTcVPbGRJBwvTOP67WZ63Udt2Ch4Mtdv3JMv8bPa0
-	 sBuob2YfAJ7UR18UkiYL4uEa1nl9+en+8GKLYyMRdjbo+LGXsMSih4X9Hc3w4rbOTl
-	 hZCoBy6EEQMGA==
-Message-ID: <9a932904-4aec-4e2d-b00f-519a4ca92e17@kernel.org>
-Date: Fri, 18 Jul 2025 11:18:57 +0200
+	b=dtnLh5ekDgM9NLhmCIjQky2BSOhUvbp2H6R/DZexaZ++J9f6uIf7PNG2BVuzlSZL+
+	 n6/DeZlB5AfjzBOpi6esiaudFRTWlTYhbWA9rqJKYgc0Lv4lYz06JF17DOY0SHO/ct
+	 KNwwucKb+1FcJxyQuYSeqqTEKXNb7pwaBiztPaj18Nlfo3bgEnTZoIFS/PQ+nQT5n3
+	 8TpiwIkSak+zkoPUGbx7cbD9A3baHR/wtBbe6fuCNB62xdMx0xRF2uLJNtqY/dRaX5
+	 D+KFkzqpuTG4KtCNeG8LtYsnzXW8Pj23h7VJ6vodmkzPQrkDaHgtkhKePWzZxipl/n
+	 OxywO1mzuIzfg==
+Message-ID: <586566ca-60f3-460a-8630-0d6bf6345eee@kernel.org>
+Date: Fri, 18 Jul 2025 11:19:53 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 09/10] ASoC: mediatek: mt8189: add machine driver with
- nau8825
+Subject: Re: [PATCH 10/10] ASoC: dt-bindings: mediatek,mt8189-nau8825: add
+ mt8189-nau8825 document
 To: =?UTF-8?B?Q3lyaWwgQ2hhbyAo6ZKe5oKmKQ==?= <Cyril.Chao@mediatek.com>,
  "broonie@kernel.org" <broonie@kernel.org>,
  "conor+dt@kernel.org" <conor+dt@kernel.org>, "tiwai@suse.com"
@@ -65,9 +65,9 @@ Cc: "linux-arm-kernel@lists.infradead.org"
  Project_Global_Chrome_Upstream_Group
  <Project_Global_Chrome_Upstream_Group@mediatek.com>
 References: <20250628071442.31155-1-Cyril.Chao@mediatek.com>
- <20250628071442.31155-10-Cyril.Chao@mediatek.com>
- <a62e0111-e3b7-4772-9467-3a2927972f6f@kernel.org>
- <143fb1f0756caeb8287ab02be450ecdb3459c6d8.camel@mediatek.com>
+ <20250628071442.31155-11-Cyril.Chao@mediatek.com>
+ <43b4c2bb-a1ed-4f6d-9977-512617130337@kernel.org>
+ <9f752338a2deda3e3475468ccc881230dc370f88.camel@mediatek.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -113,12 +113,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <143fb1f0756caeb8287ab02be450ecdb3459c6d8.camel@mediatek.com>
+In-Reply-To: <9f752338a2deda3e3475468ccc881230dc370f88.camel@mediatek.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250718_021903_414328_4829C105 
-X-CRM114-Status: UNSURE (   9.56  )
+X-CRM114-CacheID: sfid-20250718_021959_486040_89DFFCE1 
+X-CRM114-Status: UNSURE (   9.75  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -134,32 +134,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 18/07/2025 10:44, Cyril Chao (钞悦) wrote:
-> On Sat, 2025-06-28 at 14:39 +0200, Krzysztof Kozlowski wrote:
->>> +             .of_match_table = mt8189_nau8825_dt_match,
->>> +#endif
->>> +             .pm = &snd_soc_pm_ops,
->>> +     },
->>> +     .probe = mtk_soundcard_common_probe,
->>> +};
->>> +
->>> +module_platform_driver(mt8189_nau8825_driver);
->>> +
->>> +/* Module information */
->>> +MODULE_DESCRIPTION("MT8189 NAU8825 ALSA SoC machine driver");
->>> +MODULE_AUTHOR("Darren Ye <darren.ye@mediatek.com>");
->>> +MODULE_LICENSE("GPL");
->>> +MODULE_ALIAS("mt8189 nau8825 soc card");
+On 18/07/2025 10:48, Cyril Chao (钞悦) wrote:
+> On Sat, 2025-06-28 at 14:42 +0200, Krzysztof Kozlowski wrote:
+>> External email : Please do not click links or open attachments until
+>> you have verified the sender or the content.
 >>
->> That's neither needed nor correct. Look how aliases are created
->> first.
-> 
-> I reffered to the previous platform(mt8188). Could you help to give an
-> example about MODULE_ALIAS or some doc for me to reffer? Much thanks ~~
+>>
+>> On 28/06/2025 09:14, Cyril wrote:
+>>> From: Cyril Chao <Cyril.Chao@mediatek.com>
+>>>
+>>> Add document for mt8189 board with nau8825.
+>>>
+>>> Signed-off-by: Cyril Chao <Cyril.Chao@mediatek.com>
+>>
+>> Why does the binding come after user? Follow submitting patches in
+>> DT.
+>>
+> Could you help to clarify this? Is it the order in which I submitted
+> the dt-binding patch that's incorrect? Much thanks~~
 
-If you ask for doc, then it feels like you do not know if you need it. I
-think you do not need it and the burden of proving why you need it is on
-you.
+
+Yes, it is incorrect. What does the mentioned doc say? I really hope you
+read the doc before you just responded to me..
 
 Best regards,
 Krzysztof
