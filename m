@@ -4,103 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B235C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Jul 2025 17:10:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B96ACC83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Jul 2025 17:13:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vhurBa5mwUKpezcbMzv1+OspD1kqhRvpFJ2L8Bz2kqU=; b=VqUVJB3JFUq9SdxHlHkkjvZ+BW
-	ajHyuv8Yij7VWwR+S7p4K9zMF6hVaHo/sJk8O7UbRcCX+hHtmNiGV/x0Ag/oEfD8t64F3jp3Wq6Ym
-	CAfbw7mZLVTqydXoT1KvHnj/CaBrRzXYvEvvCOCzYBNG1+z2i7FpPKhZcsUjqz2L6UPGZB+KBVLpb
-	X4iojcNG6+yQSdz1B5okXw6QfGDei18PsPnR2zD7ob+KCnCRk9SUHDenkHOHTypiqzTTYPYay0JdT
-	r71mEdJCcgG6ATYjmic/JTuhqbiqaEgrPHNNG5hHa+RJ03Ua0yMP5EVFHJZVQo0uuGjTk4kO5upl7
-	cmyxuwPg==;
+	bh=JODog4W99P7CS8ZRV6Zf5jfAFaFc/53al1khJwbmT8A=; b=zcPidG17mUW6M40jLesUEFwazt
+	t8eUZGLYPpUJqJqkM90Wy0EjNMx3nAHixQxqjyy/JlnwFs5A3vpUFJtYdiuOdlT1hamYKo6QBsf2Z
+	maxCPAYx5pWFztxNI6h4TnM9p1M1SJiYhCdlJtuQZc2ISX8kN8aEXHDeB+TyNaIOiwf7JEWY3wo9p
+	kEIAtrM0ZqTY92ZXtu/JzXQY2ZynCu/u32zV7U67fPb3w3hHv/NxuPNlPYFY89p5ErMpvGL43XBZJ
+	kUn9ZeVeILfh6tUhOVwJAbLJ51y4Uinc3y4I7N+8pQOwIZAsU/KE4PRVAUYbLxwWpxxvN+9QjWzrJ
+	W0VuwgQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucobZ-0000000DBWO-06G6;
-	Fri, 18 Jul 2025 17:10:41 +0000
-Received: from mail-pg1-x52f.google.com ([2607:f8b0:4864:20::52f])
+	id 1ucody-0000000DBqH-3402;
+	Fri, 18 Jul 2025 17:13:10 +0000
+Received: from mail-ua1-x92f.google.com ([2607:f8b0:4864:20::92f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucoXA-0000000DB2i-3qtv
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Jul 2025 17:06:12 +0000
-Received: by mail-pg1-x52f.google.com with SMTP id 41be03b00d2f7-b3bcb168fd5so1932992a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Jul 2025 10:06:08 -0700 (PDT)
+	id 1ucoXL-0000000DB4B-2cBp;
+	Fri, 18 Jul 2025 17:06:20 +0000
+Received: by mail-ua1-x92f.google.com with SMTP id a1e0cc1a2514c-87f4c8e9cdcso1102375241.2;
+        Fri, 18 Jul 2025 10:06:18 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1752858367; x=1753463167; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=vhurBa5mwUKpezcbMzv1+OspD1kqhRvpFJ2L8Bz2kqU=;
-        b=nPzvUulWGiQfSFqmwVp6MJGNDsV/d4bFdx44didPg6dPFhDNiusGy9en4ygMa+96D1
-         Y6E/Hi1YWJnAB6i0bczSwrG6X2tvmfTUCnemOSmqLnJU7jBqrfzhejR7iZm1uaznR7CD
-         kc1mVovX0675qAH2SX6bZw+6jYQQ4YZ/jjaAOaYbb6J7nxhnP200ZTzMWMBYbamEXl5B
-         xCshvL8/22TFpfe6VNmruWM8jVEC1FVTxvvzMWoJ0tXaSLn5zA2al/UNrWvQ6HUDEinW
-         h6aRhUJ+uFB7AzHS3ZR5z1jaD8K+uJB4vYOvuPDASJogupUPFyjL3NVZvBbvZvjWXtpU
-         vTQg==
+        d=gmail.com; s=20230601; t=1752858378; x=1753463178; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=JODog4W99P7CS8ZRV6Zf5jfAFaFc/53al1khJwbmT8A=;
+        b=hEwPO/DL/Y6N0SoBThj7egVVB3TGdaIpHrXeFuSkse9c1EMkRe3uh7Q/m7OlFTrWEO
+         XqiKfUHubHZQzGV/p5oM4P5Y+lHF8SC0eeOIx3qficGVmfAWH6ALRrCOu1eUqaeTzMf7
+         px5yQ+b7NVTU9QX7TnSx1Sk+LbMEYRrZmcxsJVPq8CyVGa7Aak+6b1ePXpaH2weGL9Me
+         GE9tf6WDPDvYDkZFSIRE1qVkZUMZDnVoxylqjopw3P60kCXSHfExTE8be1iihVmtZxgX
+         VnkAE3u3jfagKiffEQAuviqOVEBqslmTpeWUBhz0Ww++0OEVevW65gf2YrdDKUBTnr6F
+         FyYw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752858367; x=1753463167;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=vhurBa5mwUKpezcbMzv1+OspD1kqhRvpFJ2L8Bz2kqU=;
-        b=M6DxxPweHSd9IuIMgZPpX1dq0SZde9OWkn4BtgRhLdAFHMXWK5kqGyEi7jytVVjeeh
-         fJ38XPaWVAFDLlQrOtEKE8nFaxrC1mMN2s+iVDh9e9Ww1OtGDzJUeUU0B+eY2bK4UsLX
-         uDoSaVA4DvbFpAl29Uvuwr1yIasFKVJdf5vFYBXHcmUJhVCZ7q8OsdT7isftmTe8OcBQ
-         3IVC50Y3aEKRessQDpjAq8AGZKH9uU4ZAMpCHGtouYIvUfw0/YdokzSMAcG+V8MDgiUa
-         H74YKCWU1nlKxmAwuVBu4pUmZpGcczkOTAddI4d0ZCDYYltRDMLokC095unhinFao7Wy
-         jbcQ==
-X-Forwarded-Encrypted: i=1; AJvYcCULV2r5a4MwmvyxvrJnm2ycYDx975+bMDvndTzrtZktq15WL3AJPHl54VHE+FSanlzGH/4/7H80ER/qCNMcq1DH@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz2jmsxb3MMTxRhyip1ygHOg3D8aIVOLzgAUc81EYo5D0xQiRf9
-	ILv8n3zGpDEsWTzAPn8/LHE7keh0PLoZSKyxO2xDSBqftDIho5lvZz2pUdB1Y5PFvQs=
-X-Gm-Gg: ASbGncsm7OiHzlurnds/ST9AlRHDB7hxjB0mfb5vh/Ekjuu2FYykGWVS5muc2VoYQz2
-	BZTkGO1mQmsoQCn6zdf83JI43sl6a4NGShO8kvCWldBSp0ubvO5lr9I10Ln97z1xYEN2QAlzgTe
-	Eit5ip5eNbgMTLrQ3L1I7hMrrjLzVYd1mWFyijzyXBogBIK+PgXzA72uaLNHh3DdkmRynjXVnXb
-	47Hk6TLOY93hK/wWzRegegF4ssrBKYSu7XQnlrRTvqUltGrClhKn2veeqA7UIj+AN3ikEtoA4Dx
-	5+07iDHN9d5Ldnf+VjpWj4IEe6lHqHp/5KcoJVFlMriNhuzRM7sUGunRh30uXa4q/iwoxlL8FO6
-	s1wxP0+GeSAmJp3as3lz3CuNtW3/OWbTz7SL9
-X-Google-Smtp-Source: AGHT+IEx6ySB6V3hyKXChSRvGBgPCHaeNn+2Yrx9kNMJebeK99RUGW1gvTuZy2CawEeN7hsJkrecLw==
-X-Received: by 2002:a17:90b:55c4:b0:311:9c9a:58c5 with SMTP id 98e67ed59e1d1-31c9f44b9c3mr16334749a91.12.1752858367484;
-        Fri, 18 Jul 2025 10:06:07 -0700 (PDT)
-Received: from p14s ([2604:3d09:148c:c800:2122:eb88:47da:7caf])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-31cc3f2c708sm1623990a91.30.2025.07.18.10.06.05
+        d=1e100.net; s=20230601; t=1752858378; x=1753463178;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=JODog4W99P7CS8ZRV6Zf5jfAFaFc/53al1khJwbmT8A=;
+        b=f/aqgtCCr26pg4wgZHogzhwPqHkTFa/uI8XSWYnR88qZv/JbGRo2Wi21gQbOfqyfUM
+         bwX67hUPtaTnse56oRUq9m43D6zqH1f65F6UBxZv0NcRGJ599WehBaVHUBwzJjeGeQH7
+         Hcuh6qBelPlTXDiBMLmvyOD2fjjB8ZIYEaBaVoj/z83nxiE2TfOYQGq5GsLZx069tpjL
+         h1jrxTkt4qGF7Hmp6VY3UaiC54G75qRdqPAXa+H34SiUibaHAAu0qzCQLtjxXYmla6ay
+         uzqVvwlXarA8qbISGXZBxdAkPGCEEAYzTZ//OKJp644uXWFo4ZtOLKJ+1gIUjPGfoD6i
+         vpog==
+X-Forwarded-Encrypted: i=1; AJvYcCV788FKsPe2zRHocsGyKIFlrhWJxum8gKXI7XP+ysy2TO1ld+jsvzoXYMHNfB4qfPss/ER94IdgWIT+Vaiiq7g=@lists.infradead.org, AJvYcCVzWHWIOecxnYlX6cfQjWQ6Pwkn0dsHc+jOfLcEtWh+DE3h+xE4xkB1UuPD6n3PY35UGwqWJF8jDRE/0/rX9UrV@lists.infradead.org
+X-Gm-Message-State: AOJu0YxNEefu4XYbQWroFCGe2cQkZfPdzmQcoYhFkwYBCiqj1zLbfsst
+	Xt+wJ2aoQFTqen+0ddner9LtaqsmJ9P1kCIOLRg2hk7I5VdZjbTASZL1
+X-Gm-Gg: ASbGnculs79YASso/oVmhRviR1Q0kMkGQdIkJ1pgfG35GH0SMXbQpAIt6F6nbLvP6x9
+	1xS9kU3KwpdzJL0P7HD/DQNvkriN8YlilTW+voOTYIkNbhivOdOIiioCHxGPQ7qtasu+OGa/pSN
+	jSJIWULwE63t3Pd+YwKx1cHVOdPHXVA+0d15sl2jr3or7JUAmMJrgYY83O4L6oVZ2xN9DcrtHrI
+	9K3N6LI1nuTIc4InCONiO//6tuPaYJ748ou9cH9/xg54g5wbof96kJCOMrKLYXKnpJp7NpY3XnB
+	CWYnItjwM0+BU4Efw1JdsaK8KY5OyLFQx30DSs44AcJnZtZjFqJv14xLLiRtCPLYeYagCy2JLlL
+	mTwOMK0KDLg==
+X-Google-Smtp-Source: AGHT+IHLlDQix1yjP8AWd2tUqC/hSHZ26YyE8eCcJfbFHbJgwOfqTSR7MAKzgkxm2sVR4SNzi9k28Q==
+X-Received: by 2002:a05:6102:8027:b0:4e7:c14c:9e30 with SMTP id ada2fe7eead31-4f998126d21mr4372502137.21.1752858377696;
+        Fri, 18 Jul 2025 10:06:17 -0700 (PDT)
+Received: from geday ([2804:7f2:800b:45e8::dead:c001])
+        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-4f9acdbb99bsm608794137.2.2025.07.18.10.06.13
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 18 Jul 2025 10:06:07 -0700 (PDT)
-Date: Fri, 18 Jul 2025 11:06:04 -0600
-From: Mathieu Poirier <mathieu.poirier@linaro.org>
-To: Peng Fan <peng.fan@oss.nxp.com>
-Cc: Peng Fan <peng.fan@nxp.com>, "Rob Herring (Arm)" <robh@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	Frank Li <frank.li@nxp.com>, Bjorn Andersson <andersson@kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Iuliana Prodan <iuliana.prodan@nxp.com>,
-	Fabio Estevam <festevam@gmail.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	"linux-remoteproc@vger.kernel.org" <linux-remoteproc@vger.kernel.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Daniel Baluta <daniel.baluta@nxp.com>
-Subject: Re: [PATCH v4 0/5] remoteproc: imx_rproc: Support i.MX95
-Message-ID: <aHp-_BRk7Iz81OFp@p14s>
-References: <20250710-imx95-rproc-1-v4-0-a7123e857dfb@nxp.com>
- <175224423523.783161.17907302929832941912.robh@kernel.org>
- <PAXPR04MB845959EF2767C96794EAE6DD8854A@PAXPR04MB8459.eurprd04.prod.outlook.com>
- <aHkNS51jgV5ulsNB@p14s>
- <20250718082033.GA25126@nxa18884-linux>
+        Fri, 18 Jul 2025 10:06:17 -0700 (PDT)
+Date: Fri, 18 Jul 2025 14:06:08 -0300
+From: Geraldo Nascimento <geraldogabriel@gmail.com>
+To: Shawn Lin <shawn.lin@rock-chips.com>
+Cc: Hugh Cole-Baker <sigmaris@gmail.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Heiko Stuebner <heiko@sntech.de>, linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-rockchip@lists.infradead.org
+Subject: Re: [RFC PATCH v3 2/3] PCI: rockchip-host: Retry link training on
+ failure without PERST#
+Message-ID: <aHp_APHDTFqc7wOL@geday>
+References: <cover.1749582046.git.geraldogabriel@gmail.com>
+ <b7c09279b4a7dbdba92543db9b9af169776bd90c.1749582046.git.geraldogabriel@gmail.com>
+ <ac48d142-7aec-4fdd-92a4-6f9bc10a7928@rock-chips.com>
+ <aHnAcbXuFqcMXy_5@geday>
+ <067e1833-8527-4c66-90f5-d284f7d2ca5c@rock-chips.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250718082033.GA25126@nxa18884-linux>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <067e1833-8527-4c66-90f5-d284f7d2ca5c@rock-chips.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250718_100608_968940_C2D13D94 
-X-CRM114-Status: GOOD (  25.36  )
+X-CRM114-CacheID: sfid-20250718_100619_659360_71087B4D 
+X-CRM114-Status: GOOD (  18.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,56 +109,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 18, 2025 at 04:20:34PM +0800, Peng Fan wrote:
-> On Thu, Jul 17, 2025 at 08:48:43AM -0600, Mathieu Poirier wrote:
-> >On Mon, Jul 14, 2025 at 11:52:05AM +0000, Peng Fan wrote:
-> >> > Subject: Re: [PATCH v4 0/5] remoteproc: imx_rproc: Support i.MX95
-> >> > 
-> >> [...] 
-> >> > New warnings running 'make CHECK_DTBS=y for
-> >> > arch/arm64/boot/dts/freescale/' for 20250710-imx95-rproc-1-v4-0-
-> >> > a7123e857dfb@nxp.com:
-> >> > 
-> >> > arch/arm64/boot/dts/freescale/imx95-tqma9596sa-mb-smarc-2.dtb:
-> >> > scmi (arm,scmi): Unevaluated properties are not allowed
-> >> > ('protocol@80', 'protocol@81', 'protocol@82', 'protocol@84' were
-> >> > unexpected)
-> >> 
-> >> Same as replied in v3.
-> >> This is because [1] is still not picked, not because of my patchset.
-> >
-> >I won't move on this patchset until this is resolved.
-> >
+On Fri, Jul 18, 2025 at 11:46:33AM +0800, Shawn Lin wrote:
+> 在 2025/07/18 星期五 11:33, Geraldo Nascimento 写道:
+> > On Fri, Jul 18, 2025 at 09:55:42AM +0800, Shawn Lin wrote:
+> >> Could you help tried this?
+> >> [1] apply your patch 3 first
+> > 
+> > Sure, I'm always open for testing, but could you clarify the patch 3
+> > part? AFAIK this series of mine only has 2 patches, so I'm a little
+> > confused about exactly which patch to apply as a preliminary step.
 > 
-> Not understand why hold on this patchset. I suppose you may not
-> understand what the error means. The warning is totally irrelevant
-> to this patchset, there is no dependency.
-> 
-> Others added a property to arch/arm64/boot/dts/freescale/imx95-tqma9596sa.dtsi
-> &scmi_bbm {
->         linux,code = <KEY_POWER>;
-> };
-> But this "linux,code" property not landed(missed to be picked up) to DT binding.
-> 
-> This patchset does not touch scmi_bbm. I could help address the warning
-> in the other patch, but I do not see why "linux,code" under scmi_bbm node
-> could block this patchset.
-> 
-> Please help clarify if you still think to hold on this patchset.
-> 
-> BTW: with [1] "remoteproc: imx_rproc: skip clock enable when M-core is managed by the SCU"
-> merged in Ulf's tree, there is a minor conflict with patch 2. Please suggest
-> what I should do with this patchset.
->
+> Patch 3 refers to "arm64: dts: rockchip: drop PCIe 3v3 always-on and
+> boot-on" which let kernel fully controller the power in case firmware
+> did it in advanced.
 
-I was afraid of that.  The best way forward with this work is to wait for the
-"linux,code" property to be picked up by Sudeep.  I suggest you make sure that
-he, or anyone else, picks it up for the next merge window.  If that happens
-everything should be set for you to resend this patchset when 6.17-rc1 comes
-out.
- 
-> [1]https://lore.kernel.org/linux-remoteproc/20250629172512.14857-3-hiagofranco@gmail.com/T/#u
-> 
-> Thanks,
-> Peng
+Hi Shawn,
+
+I tested your patch but unfortunately it does not work, PM981a SSD "plays
+dead" and 2.5 GT/s training never completes, even with the bigger
+timeout.
+
+I hope you get the chance to test my patch soon, because once you share
+your results there could be two possible scenarios:
+
+1) Patch does not alleviate problem for you:
+   If this is the case, then there's little I can do further and this
+   becomes a wild goose chase, so no chance of upstreaming anything and
+   I'll just move on to more useful work and leave everybody else to do
+   their useful work too.
+
+2) Patch works and previously non-working SSD is now working:
+   In this case there's something serious going on and it is our mission
+   to find a way to correctly upstream a fix.
+
+Thanks,
+Geraldo Nascimento
 
