@@ -4,72 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3F0CC83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Jul 2025 13:50:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EADD9C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Jul 2025 13:52:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=mo94wdkZNDuu5QGZVvAPQQVCJz7QXGr0/48yptUJ974=; b=B1ex0ddsucEqGZ7fyuy6EA+XjY
-	+mda4Aa8O0aMgVMKVbTJdZBQQD5JLTfm+fyCp/UrWrggmwdOh2IlFwItBnYXovdV8H4HSG/8/Hf4q
-	Sne80xy+vl7uz5BKK17NO5mI4z2nWrw6szpDg+IwPuGZ+iKVkJRi4klHLZ9Thw/KazvuJNGBUDMO/
-	J9Gek3wad25s27VQO2T1ifaJMatQXHkaKaHXluVZqAUsQj+ZeIXRc3PCs87FrpvzkyiZYTFyhvh/P
-	Ov1v54ZyFC7fFqFOslhXBwZ0jtXnkgfKEEgpkmTEZnIYnmjjKGCGft3MR30Z/eTEJ/ztpujOGZV9D
-	AjvPAT1A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uko5dho9StPWdJr9vSxujAGNhLPc6riZ+NbVrSX3Cek=; b=alMKx8RYz06/2S6x415LnRr5dF
+	QZiyuMiwfRma/4ViFQXAAnjsTFbDbnEL9GlbfIvs9tX5f+5R9221rxxnoXh6zPQk97bZdcqY6VFIf
+	6FQQBYoGVg0DLMxfrdb+mt+tNyZBVwL6rjd+0IEGpLc8TVMo9miVLoNBRrg/FNf4ELhTGZF14KqyX
+	iuKYS/h6dXzC1Na5eqHtLXg67iYdxFrB2YbicBLHbm1auKHjvVZjbvpnverV21fk4z67eHTYhmM1J
+	6/Iu7rorCNgtfpZNrYZHDZri2d6Hxgh7L3oR/TWoZOuyh1ic8gI+n2NViakNooeion0CU9G2qTi7o
+	WX/qI/xA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uclTL-0000000CjOc-2b4F;
-	Fri, 18 Jul 2025 13:49:59 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1uclVl-0000000CjZc-1wDd;
+	Fri, 18 Jul 2025 13:52:29 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uclKH-0000000CiLX-2ant
+	id 1uclLV-0000000CiR4-1DCi
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Jul 2025 13:40:38 +0000
-From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1752846034;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=mo94wdkZNDuu5QGZVvAPQQVCJz7QXGr0/48yptUJ974=;
-	b=pMluozIdK72HGQH3aouNde4Sy8FLnoDw6EvYthFAqhtDJApHP5b1VV+saucTVGPZgSvLQ/
-	QPLsAXqCHZGRX+d5JUkvEtWbrUs2AxC8mZJU3iDrNGT7OG8pCVxZUSzSSs7QVbO8p3oVXQ
-	2oIhEA/kAH8FiYUPCksu+tHQfSOwad08orrYTL2N6uh62iwybs4gacV42V36szUcY7XChG
-	KWMPtZJy5oaUJN0E/0eoEhusNgkjD+conIob31AwIl+wZtr9MhqVxhSiMbdcHUBGk/wjH/
-	nL2iy8BUNh1Ya5Nd9zNKsPvwqx+QS12HxDP7fzZgzlWKwELqXGij6EcdJe2gaA==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1752846034;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=mo94wdkZNDuu5QGZVvAPQQVCJz7QXGr0/48yptUJ974=;
-	b=hdIzQ3dUq2/DyohiQtlXkFcSpDOfDUbpjTBI6U0HUYlN6mwq22xDvpd38/KwWEDeG3g+jX
-	3vo3dZXc5+T2ShDg==
-Date: Fri, 18 Jul 2025 15:40:32 +0200
-Subject: [PATCH] soc: ti: pruss: don't use %pK through printk
+	Fri, 18 Jul 2025 13:41:54 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 38AEE5C62C9;
+	Fri, 18 Jul 2025 13:41:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7DD9FC4CEF0;
+	Fri, 18 Jul 2025 13:41:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1752846111;
+	bh=avJpFlqig12EKxnGpyoNFdv5k4eIVYy9aoIS6p/eMc8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=ZbGbpXgCzOARuo5vgET6kteenJppwv4exXdqXMgEzWRrWkIYETKx8sRh+SM/jDtPs
+	 OHjrgWFOE2lRI+saSsdQ6iNGi12rLhAj2pNC4YUKRmsQ10TBqDomKCmv56YFfIBb/n
+	 lux43igB5+Li3CCJMmTPSowTUsDHIgfyrH+O5fuDoj7AowXBMy/epfzIejCFJNYJoV
+	 mFzjfV17nb2j/KUwSG1diISm5kTTiV1YVrRtbjb1I2auZAX4FFanGE+YAGE2vYkU5t
+	 CkmDa4r7DuNDhCOFTRPN82JtP7S6izBIIOsCguK6lc4ts6sGKq6B71MQ3yKbdwmNm1
+	 Bace+ZOeS7C6Q==
+Message-ID: <6a6a471c-1d1b-4283-93b0-0f777a44959c@kernel.org>
+Date: Fri, 18 Jul 2025 16:41:42 +0300
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20250718-restricted-pointers-soc-v1-1-c0d0d0bc2e39@linutronix.de>
-X-B4-Tracking: v=1; b=H4sIAM9OemgC/x3MPQqAMAxA4atIZgMqFn+uIg6aRs3SSlJEEO9uc
- fyG9x4wVmGDsXhA+RKTGDLqsgA6lrAzis+Gpmpc1dU9KltSocQezyghsRpaJGyHoWt77xytBLk
- +lTe5//M0v+8HPaDLd2kAAAA=
-X-Change-ID: 20250718-restricted-pointers-soc-499748d55cbc
-To: Nishanth Menon <nm@ti.com>, Santosh Shilimkar <ssantosh@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1752846034; l=1493;
- i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
- bh=LjAcRieKgnMNYcLnZrs27PGMwV9sd+uOX82BwodEtro=;
- b=q94Q80T1q0imLgWgj4Y25ibsdl1Sv4feNSwafmljzXXGeaVEusmw2CTN8r+ycppoVa+Ucmoy0
- sBNWr6vfvfOBJ14oQ6CDECTADQr+MVkI4HMGBiJ9XboQffjJawv2ag+
-X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
- pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 01/10] dt-bindings: interconnect: Add Qualcomm IPQ5424
+ NSSNOC IDs
+To: Luo Jie <quic_luoj@quicinc.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Bjorn Andersson <andersson@kernel.org>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Anusha Rao <quic_anusha@quicinc.com>,
+ Konrad Dybcio <konradybcio@kernel.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Richard Cochran <richardcochran@gmail.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+Cc: linux-arm-msm@vger.kernel.org, linux-pm@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-clk@vger.kernel.org, netdev@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, quic_kkumarcs@quicinc.com,
+ quic_linchen@quicinc.com, quic_leiwei@quicinc.com, quic_pavir@quicinc.com,
+ quic_suruchia@quicinc.com,
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+References: <20250710-qcom_ipq5424_nsscc-v3-0-f149dc461212@quicinc.com>
+ <20250710-qcom_ipq5424_nsscc-v3-1-f149dc461212@quicinc.com>
+Content-Language: en-US
+From: Georgi Djakov <djakov@kernel.org>
+In-Reply-To: <20250710-qcom_ipq5424_nsscc-v3-1-f149dc461212@quicinc.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250718_064037_806928_E5E29354 
-X-CRM114-Status: GOOD (  10.42  )
+X-CRM114-CacheID: sfid-20250718_064153_375028_9FCDDD7B 
+X-CRM114-Status: GOOD (  12.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,42 +88,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In the past %pK was preferable to %p as it would not leak raw pointer
-values into the kernel log.
-Since commit ad67b74d2469 ("printk: hash addresses printed with %p")
-the regular %p has been improved to avoid this issue.
-Furthermore, restricted pointers ("%pK") were never meant to be used
-through printk(). They can still unintentionally leak raw pointers or
-acquire sleeping locks in atomic contexts.
+On 7/10/25 3:28 PM, Luo Jie wrote:
+> Add the NSSNOC master/slave ids for Qualcomm IPQ5424 network subsystem
+> (NSS) hardware blocks. These will be used by the gcc-ipq5424 driver
+> that provides the interconnect services by using the icc-clk framework.
+> 
+> Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> Signed-off-by: Luo Jie <quic_luoj@quicinc.com>
 
-Switch to the regular pointer formatting which is safer and
-easier to reason about.
+Acked-by: Georgi Djakov <djakov@kernel.org>
 
-Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
----
- drivers/soc/ti/pruss.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/drivers/soc/ti/pruss.c b/drivers/soc/ti/pruss.c
-index d7634bf5413a3421da296103fc1591030cd00cbc..038576805bfa0f8dece569cf6faecedfb43a392f 100644
---- a/drivers/soc/ti/pruss.c
-+++ b/drivers/soc/ti/pruss.c
-@@ -449,7 +449,7 @@ static int pruss_of_setup_memories(struct device *dev, struct pruss *pruss)
- 		pruss->mem_regions[i].pa = res.start;
- 		pruss->mem_regions[i].size = resource_size(&res);
- 
--		dev_dbg(dev, "memory %8s: pa %pa size 0x%zx va %pK\n",
-+		dev_dbg(dev, "memory %8s: pa %pa size 0x%zx va %p\n",
- 			mem_names[i], &pruss->mem_regions[i].pa,
- 			pruss->mem_regions[i].size, pruss->mem_regions[i].va);
- 	}
-
----
-base-commit: d086c886ceb9f59dea6c3a9dae7eb89e780a20c9
-change-id: 20250718-restricted-pointers-soc-499748d55cbc
-
-Best regards,
--- 
-Thomas Weißschuh <thomas.weissschuh@linutronix.de>
+> ---
+>   include/dt-bindings/interconnect/qcom,ipq5424.h | 6 ++++++
+>   1 file changed, 6 insertions(+)
+> 
+> diff --git a/include/dt-bindings/interconnect/qcom,ipq5424.h b/include/dt-bindings/interconnect/qcom,ipq5424.h
+> index a770356112ee..66cd9a9ece03 100644
+> --- a/include/dt-bindings/interconnect/qcom,ipq5424.h
+> +++ b/include/dt-bindings/interconnect/qcom,ipq5424.h
+> @@ -20,5 +20,11 @@
+>   #define SLAVE_CNOC_PCIE3		15
+>   #define MASTER_CNOC_USB			16
+>   #define SLAVE_CNOC_USB			17
+> +#define MASTER_NSSNOC_NSSCC		18
+> +#define SLAVE_NSSNOC_NSSCC		19
+> +#define MASTER_NSSNOC_SNOC_0		20
+> +#define SLAVE_NSSNOC_SNOC_0		21
+> +#define MASTER_NSSNOC_SNOC_1		22
+> +#define SLAVE_NSSNOC_SNOC_1		23
+>   
+>   #endif /* INTERCONNECT_QCOM_IPQ5424_H */
+> 
 
 
