@@ -4,172 +4,126 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73F19C83F1A
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2364C83F17
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Jul 2025 10:37:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-Id:Date:Subject:To:From:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=HTj/JhoU/HgBJdJOCgoCBn1+bgBg0BRA2VZC/M7HdV8=; b=fTFJw2Ajx+/GqifE8LYRrAyFpL
-	jKY/V2bEGcvXp+ayx+EN4CCEWG3MHNB4u7t3YGfAHGSsdWaTxIJcKjJJ3myhG3qK9GI412MpKZaMN
-	YbxHhlc8vcwuwQ4Ang77SrW3vXVZ8GtdeK8RN+OjuDEU66OOYItAhYWlhHOyh7cdNjmYbYLrPn5fC
-	rNIDfkIHK5BU8lHPYVeXOJxKaoKA8830fD2+ut6cRHSQs0zJKE92CcX95gk4eN8LdslMeKGEHwgT8
-	YaGjD0TiuMFp4cljfKthaaYFXwdPTzH1pPi/gm+XjNuaa+6DxnPB3ijk7J5yRpy+gOQ3ctvf1BFCM
-	ql5rI5Mg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zteTB79X+fUFIDXx8fj+5FQ3KCq88qFTkVFdV3sKo+g=; b=QqmAUA/zn5H34nDTf5kIsBPoqM
+	33X7ArC4fsn9XXlaAp8Cx9sGBbMLmboL3txCUdwtQC/ZTv42uWua0XC6kOPg78Iqr+3Jq+jfmudTo
+	JxH97lfD8Od1z8ZhBbE/32weir0lrV1bbM34AJ4eIIKYrIJf1tIyLiljluu2SQX4wleBBj0fZ7zHB
+	oTHonT1BLtKI9fZLXOQAueeRqNcK7+qIpdSUo6ri0Od0gIyrOuOB6KLkSx8qzAEqpPRZ6trczjQTd
+	MWeJHXsybWBzMB7yYhylWFR9sbpkeECbH9pB1iA41mFe2gan8j/Ax/+1o3y+OHbrsEpV9IRoxgFK9
+	trjytUCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uciSg-0000000CJz5-0Tn8;
-	Fri, 18 Jul 2025 10:37:06 +0000
-Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1uciSj-0000000CK01-2l63;
+	Fri, 18 Jul 2025 10:37:09 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uci4y-0000000CGzf-2IUl
+	id 1uch2f-0000000C7xm-344q
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Jul 2025 10:12:37 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=aQdd16xHF/QvP06AFAyRroZItvrF+HdImPvQYy52RFJJeg9XbTGm80nw2rllnDQoLKKsp6nbpdrrAclyrZOMMKDn5BTd5R2YuF0iWChKUcwz+WP5KowruCdUa9YpfcOg8d5/HuxuKsD/uYXPKPUtZ055HwMZUp21gPuuSJ2qPmCpkxOfEspcJQsxqUxxEgwr2M2GJCscTMt6+G8ECcinPZLUI6uGbpHApvLbsGUbch4YuWNKKD2otkH5fQBm2yQpXJhkawqDdj43NDX9nixQBWxwpqnGm4/2N31aZ7MKB2HUhmCuFK+jb85u1urgqgqEn8LpIAc4LGQjYonWOiTgXw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=HTj/JhoU/HgBJdJOCgoCBn1+bgBg0BRA2VZC/M7HdV8=;
- b=Mz+NSDOY7bokKy1VN1sITRHSz2CN6jjsFBKWZNHGL++Z0w7OGt9Ol0+mdXvwThs3YX3+plPk5X40SjT9G9DpAImBH+VrvoiscTo64GS3xkibIEUK20FQcnuNClOFoUzvsNiI8aEIEW6khx/iUexUD5VOJA2uij3b9IKojwIgHkUiBhKmCuzSR1j/nDFTGgXajhtXfB3fCqqFXokBMcutiGiIHnGUORMhoALRa18L6JPrWNaLfJXrt7KPZBxUglyD6mLceCSsruil6ObcEZw0MtI41VMpSkTOLfIAh8U3cZ74yzQy10K2bzZJwQarW31cJ05uheOb4bokvrkoXt9I7w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=HTj/JhoU/HgBJdJOCgoCBn1+bgBg0BRA2VZC/M7HdV8=;
- b=DR+IChoTdKKAPxhIpXSFGj56ZJtdqF7+KAd6w656FcH17Dha5ZIs9HYLZI9uPni3eSGrI+qHujHlov3O/mfyvr2c9+9aIXH2hnbN5JXpTmCoJLsPoJBjrf3WO58FKSMh+NVlWjmeLfS2pdLVfD/ullKT3b9flNtijnGC4u0PbXf/3Add3pzW4AHlKJL70zt/VW57H+/+yNHA8NrB27gMKIm/qIjQuul+GXH+TE4kx6nRVcsBO4nPFTS4dtxrbfZEf/LSuaVuqlonzO+asRHibf1WXgZYlqbP+B09aDWwzTde0gJwqveLUiqvMqfPmpFh5oKTvNbLF6wyfkwSP9HGVw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM0PR04MB7044.eurprd04.prod.outlook.com (2603:10a6:208:191::20)
- by DB8PR04MB7180.eurprd04.prod.outlook.com (2603:10a6:10:12c::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8922.39; Fri, 18 Jul
- 2025 10:12:31 +0000
-Received: from AM0PR04MB7044.eurprd04.prod.outlook.com
- ([fe80::7be0:296:768c:e891]) by AM0PR04MB7044.eurprd04.prod.outlook.com
- ([fe80::7be0:296:768c:e891%5]) with mapi id 15.20.8943.024; Fri, 18 Jul 2025
- 10:12:30 +0000
-From: Shengjiu Wang <shengjiu.wang@nxp.com>
-To: andrzej.hajda@intel.com,
-	neil.armstrong@linaro.org,
-	rfoss@kernel.org,
-	Laurent.pinchart@ideasonboard.com,
-	jonas@kwiboo.se,
-	jernej.skrabec@gmail.com,
-	maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	tzimmermann@suse.de,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	lumag@kernel.org,
-	dianders@chromium.org,
-	cristian.ciocaltea@collabora.com,
-	luca.ceresoli@bootlin.com,
-	dri-devel@lists.freedesktop.org,
-	linux-kernel@vger.kernel.org,
-	victor.liu@nxp.com,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	p.zabel@pengutronix.de,
-	devicetree@vger.kernel.org,
-	l.stach@pengutronix.de,
-	shengjiu.wang@gmail.com
-Subject: [PATCH 0/4] drm/bridge: imx: Add HDMI PAI driver on i.MX8MP
-Date: Fri, 18 Jul 2025 18:11:46 +0800
-Message-Id: <20250718101150.3681002-1-shengjiu.wang@nxp.com>
-X-Mailer: git-send-email 2.37.1
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: MA0PR01CA0048.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:81::19) To AM0PR04MB7044.eurprd04.prod.outlook.com
- (2603:10a6:208:191::20)
+	Fri, 18 Jul 2025 09:06:11 +0000
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56I8h2Bk008487;
+	Fri, 18 Jul 2025 09:05:58 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	zteTB79X+fUFIDXx8fj+5FQ3KCq88qFTkVFdV3sKo+g=; b=gvmy/OZZ3WysJgWy
+	ZIeKGMdraUZK3CLSKAg4lJmyZT/akQCx8UCrO3VktWYp6qabPJnkOiV31U76rUJA
+	TL3MxzFySkAVyhRuVkKpTJBxBYR0F74yJnwzziUuO6NcUqexemEYJjOhikTPYFbZ
+	O4u/6K+lr19pSzDcOeUFffpyeg5vSoGjioKnT0qkpKSBhH8JCQIj6jxYb06URDEk
+	hI/FTTtDhd1CWCY293nWyClCF5qdeuajIwiUTf7qPgUQDVy+85XEGUfmAOoDh9Ii
+	EyqoMwYGe039OY5cWIQuaBkSdzpgFff+3gQiMjzVpDAuiyGVnJpRy7FbPqm0S4LD
+	A7//tg==
+Received: from nasanppmta04.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 47ufxbavc8-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 18 Jul 2025 09:05:58 +0000 (GMT)
+Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
+	by NASANPPMTA04.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 56I95vF1018192
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 18 Jul 2025 09:05:57 GMT
+Received: from [10.253.76.178] (10.80.80.8) by nasanex01b.na.qualcomm.com
+ (10.46.141.250) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Fri, 18 Jul
+ 2025 02:05:51 -0700
+Message-ID: <49d5d360-6a2f-4dd4-bbd7-1a902e556f00@quicinc.com>
+Date: Fri, 18 Jul 2025 17:05:49 +0800
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM0PR04MB7044:EE_|DB8PR04MB7180:EE_
-X-MS-Office365-Filtering-Correlation-Id: eaa78650-3cc5-4872-589a-08ddc5e39ad0
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016|52116014|19092799006|921020|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?cPxDH4Gdvz94yfp+TBEzQGi01ILOY7ZNK5mKY9hReOuni9UBhbkiN/32dcAD?=
- =?us-ascii?Q?FwA4DbDZWjkyepz6+CxqzBnALnCDH4nM/94qurflLjUbyHjeDTJ2maAEuF1e?=
- =?us-ascii?Q?dswGpEoUhlwzUh+i43OqxqQCTGmyduJTZOuCfhQHhn0ixVON57Wujf+sUv+q?=
- =?us-ascii?Q?1qyTQthnz65ybc4W6yJSq7/ZjSjegvc6/UgpPH59JRoF0Wqqttj07wHu4lqO?=
- =?us-ascii?Q?KT9tXKnbumLE511HXh3dgHbtHCqX+tpkQB4awYdO1Relcx0ViQGA7ShEEhrM?=
- =?us-ascii?Q?hzKdWun1cOmW0S9/NTtDaoLf0nh+siQ1gaOrB2ycL51uC5K9yo5ZFv8QsvxC?=
- =?us-ascii?Q?rdUdrwRxll/dLoVYufytyd2+WEldUU62xg6GbLrGKNXdvjDj5RLwUHD5u4GA?=
- =?us-ascii?Q?zAs8Hn/8XWexRVHV1y9fLsddWD/ESTl9/qY+aNPEn0EPOgiFKkK41e/I83lM?=
- =?us-ascii?Q?KjDHeM0h4CJIWs2pIM6bjV+Wa1c7F92VBkaJF4Kmds0O/rUTMRZ3TrRjIrEO?=
- =?us-ascii?Q?Hi4ePIUelHOb0jh4c2tkbOWpKA2bKFwkSPJybACsnu4VsPPHOVzPOeValtqj?=
- =?us-ascii?Q?ZwXp9kJCxXh5ny9TBYLhODwb8MUBdCrUHHV34tHm2Lx/zkW6sbs5hdXM18it?=
- =?us-ascii?Q?1g9kX/6TAtnLN2dPdeQRWQF710H4r8OgnbMkqUefd8VYkm7wX9ryShfzw/uZ?=
- =?us-ascii?Q?zn0oH59M4O2K6p2jepg/VCAl3RHPUrzwdD0HShsECYrphKHYDegZjXqcIIN4?=
- =?us-ascii?Q?zt/jx7ei3LnRx/4HNcVAPzmvJIYZb6JXvWY1c7dqK76nAc0yvSlfTpKqNbsW?=
- =?us-ascii?Q?codBnTiMo2Om16tERbfvkuu+SvljvyEfEbR5rWjAn24gIft6yDnLZeDjpgVX?=
- =?us-ascii?Q?ghYJkUPPLBXprnbHhGGAdKgjWlJOFtASePQgcYuH5oD1oCdoNigB+o3/L0Co?=
- =?us-ascii?Q?FcQOCF1Fxmnpqq8u3QSg9oK+FofVGn7o1pFRMlwi2Rfzf+VZWOdn9/ASBnWa?=
- =?us-ascii?Q?+jPI2v42Eq2C/XvTEmVjB2bel6S3LfeA9sYdya1/6IaOU7SC7yApZHt0otT7?=
- =?us-ascii?Q?DFWi+hix9le8sRZhCJdr/GDUmNFlSLuYUtDqZIl/Qcn3yK1D6/55Rq3hlJjz?=
- =?us-ascii?Q?xoZvxCrKxMNNoigr5CJ6lG0BeNqfqEWS6vaDueIpyzwj8cjfioYjIg7jno+A?=
- =?us-ascii?Q?A/kISIZsBojQ8Eqs0aZ7Cr0m39m67uqAEFvuhzqjrW/pPzPIwFdzZ6gufCBV?=
- =?us-ascii?Q?46BERo+emO+TImff9bn5d2HMRRy1azKVYmDvtPcW+Zh3WlurCOFDh8XhsTyN?=
- =?us-ascii?Q?06Io4iGhHkNIg6Traz0t6TUGenO8eWSx3UYvUjviZY51pHLbEiX7oanw4M9r?=
- =?us-ascii?Q?vi0e9/NnNoEEYmjleRIHZ0QWN5CnVmFzTrVdiLHa0wzXWY0pYNaOJueGvLm+?=
- =?us-ascii?Q?SUovFzYJUv9TeNv33uZjSRbjrVPmI1DRDtwBWTeQSZEeVquG5F/cvQqtvkE0?=
- =?us-ascii?Q?bFQbwzA7YDPzwr8=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM0PR04MB7044.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(52116014)(19092799006)(921020)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?BCqBbPqhtIBKeDnVClWidxTH3F10gXMR5eVEPbyDCfw96Yo+LPzntRHhpnm+?=
- =?us-ascii?Q?M93WXh0upU9MgYbYQ0W/K0AE7BTg3GoxyR6YhUzzPoOZp5XVvb1Ftjy6P+R0?=
- =?us-ascii?Q?pIX0lUUfO9pzbb3xsGHADP0v+NAwj+HjiWTCwQVkmXirvvGQ8oFYi0aisT7A?=
- =?us-ascii?Q?oz8QiLiuKEX//zkUq3/wMwlDVaLDr+r2RYnbcd7vbr17T6FR2N2jRTKmOWHg?=
- =?us-ascii?Q?WDKcywYrCxJtjTCanavGr/gXD3p6vWtc3rGVddXHitUXPe4peJ6IWS5wS8Ri?=
- =?us-ascii?Q?z9Eg15ipnCNyzvPyhukQVNdvW0MHOYEG453e24cWNyg4KYuR9zSHxhilu6sG?=
- =?us-ascii?Q?KGDr7B+U7Urt+YuzMBL/Xw/6gumduZ2T40Rn6mzUdAA97hGk+K3tu74hyJkW?=
- =?us-ascii?Q?gvnNdOQJmXlonDFv7pfc6DYzTGSpgncJTxLaqKzscuvWtlHra+icMVSkirW7?=
- =?us-ascii?Q?CA8uaMKLypRF0dSr6TshgOU3a0RHmDQVyYH0vhtp90WS7lLtBtNz2JIr1rGu?=
- =?us-ascii?Q?eGKvgJFTrgh/sUgDOG9G1aeXmWGUPAOXSBID0+fs7zYV5+z6UbOiEVcyBVOk?=
- =?us-ascii?Q?WTpePezBOkcZAndWFU9T5XEhk0XHBpdXCDo+gUmoFCKt3kQpu8ZQkZtoWedj?=
- =?us-ascii?Q?nvIzhwYklDInxw9pG33E9uSVJlq+5Kh5Nbv1wLoTajwGtMTv9uwL1jeuWDfE?=
- =?us-ascii?Q?oyZOI7K8aN6uiLvjAmxnYmgnhDrheUqMJ9tUkG3omliP0mT5z1qZrLrXeh4T?=
- =?us-ascii?Q?at14e4i78al9OFNSgXcl6fpBkKwuIJUtkotI4yrzGTaslyUkTp8YEJH7u335?=
- =?us-ascii?Q?D6XJPprjZ2fvPah4gQqsM83Kr3WLHkafZ5OskU5rRxm/It7XTT+gbg+kIbNE?=
- =?us-ascii?Q?b/az0hcaxIG53pohxfWPNc82B0e6gCin7Y9wX7usH5In9S+Wj11+Irg+hzh/?=
- =?us-ascii?Q?tMj7SnMz48hHArvSjMoJYZaVekhW+n1WQcJRJFmZlcdQ5qQq1pBq+jzMw68O?=
- =?us-ascii?Q?NK4vIcOLAGlDB3yp3Sy74R2QWLk0J24szmxTKKmnN+JDs6CMHJ+Mt2H5E6t/?=
- =?us-ascii?Q?nfKdQQrVaUvlPDZAbw4e0IP1K2W8wwXuvxwl4bN/OpVZGjYW2gIJyJVx76YR?=
- =?us-ascii?Q?LLlG7opYJT4ag/AkFhfVB47KUehHyk+Q2kZ14cspln/122xP22hH8DsYjet4?=
- =?us-ascii?Q?RqYn9n4wI8r8Mz5DU1H+xTip/9TE+x4NmRJrTrCj7LuIYvDlLAxtBJSbF4sW?=
- =?us-ascii?Q?0kkhDIlvqN4t8IZHFTNKbeQO+3wnGPhQP+shOuAwst3ianZARdC2DnYqeRNy?=
- =?us-ascii?Q?LN8+6XbX0SvWsaYsoQtWtS/Mgzlt75/wa8KBTUsKIl+hs69w7p97t3WWl/kI?=
- =?us-ascii?Q?KIRd4zsYFXoY6hXzozZOo6EHQk1I9CNtHHZlgKTWNPKBVhQ1z6OqeFxZbMEh?=
- =?us-ascii?Q?39vvd8jO+tcKVj0h9mfPcSK1mWVsw8QcMS56Ig9xO1tYeloN5oAqFF0dDpu7?=
- =?us-ascii?Q?nvjPwoZSE5Qf6x5tHqA44z2mZ+2l3Xe3BSUkCo2naTbpbZkmo849G1kvTy/N?=
- =?us-ascii?Q?qmnzjPDARI7Ko7od7Qu8qrqGAN3hz58w7j2wmT9A?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: eaa78650-3cc5-4872-589a-08ddc5e39ad0
-X-MS-Exchange-CrossTenant-AuthSource: AM0PR04MB7044.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Jul 2025 10:12:30.5515
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Rswcm7ZFy8MHng7WT3HN5+NNhlyVL115LfQSX1fWa5b6exW3E4g6bvyHxNIRZePDzIplS+P981D11XCLYSJv8g==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR04MB7180
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 07/10] dt-bindings: clock: qcom: Add NSS clock
+ controller for IPQ5424 SoC
+To: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+        Rob Herring
+	<robh@kernel.org>
+CC: Georgi Djakov <djakov@kernel.org>,
+        Krzysztof Kozlowski
+	<krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Bjorn Andersson
+	<andersson@kernel.org>,
+        Michael Turquette <mturquette@baylibre.com>,
+        "Stephen
+ Boyd" <sboyd@kernel.org>,
+        Anusha Rao <quic_anusha@quicinc.com>,
+        Konrad Dybcio
+	<konradybcio@kernel.org>,
+        Philipp Zabel <p.zabel@pengutronix.de>,
+        "Richard
+ Cochran" <richardcochran@gmail.com>,
+        Catalin Marinas
+	<catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, <linux-arm-msm@vger.kernel.org>,
+        <linux-pm@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <linux-clk@vger.kernel.org>,
+        <netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <quic_kkumarcs@quicinc.com>, <quic_linchen@quicinc.com>,
+        <quic_leiwei@quicinc.com>, <quic_pavir@quicinc.com>,
+        <quic_suruchia@quicinc.com>
+References: <20250710-qcom_ipq5424_nsscc-v3-0-f149dc461212@quicinc.com>
+ <20250710-qcom_ipq5424_nsscc-v3-7-f149dc461212@quicinc.com>
+ <20250710225539.GA29510-robh@kernel.org>
+ <0ef83a1e-38c3-41bb-8fd2-c28565f2a0ba@oss.qualcomm.com>
+Content-Language: en-US
+From: Luo Jie <quic_luoj@quicinc.com>
+In-Reply-To: <0ef83a1e-38c3-41bb-8fd2-c28565f2a0ba@oss.qualcomm.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nasanex01b.na.qualcomm.com (10.46.141.250)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-GUID: AZYG4c9OW3-sedX7DX_sxsCBKToCgLEp
+X-Proofpoint-ORIG-GUID: AZYG4c9OW3-sedX7DX_sxsCBKToCgLEp
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNzE4MDA3MSBTYWx0ZWRfX5LbihV0UUb0t
+ o21O7oJbdD4zibgNivY2bBbTBmsoB+iplPPmx6rChx/ut7gn7Oak9Xo/Cba0tVImzdtQkjf1JHs
+ oBhPicQoATtb1Fewi02B34i2fBfDyxh3jYR9b0phAg+OD5StpMgfsgLmQYmCOShN9QFNsCKMzOn
+ 26tvTc4F9OyOLprj0x3bKaZAaGpQlEg1fhfuj99i0Q8gwfUgzDY6traYYcPkyKmuIIXwsK17vIe
+ TJCR//Ud9056pCQTdr4hFGqOk1FzaAQpT5pfn+wgYcVmWY2xUQ+wpP1ORBNOzNz25K2QkDbzspP
+ 8DK+tiwNRq5rISN3CmyTieuEroCtcDkvB990oXHNm3lmCjGtGTPDHYuRECylvgScCL67CvfA0CJ
+ m+MV1TXB/J3gdyyDPiGbtHPDnjLNTBAeVONL7gP9/lZJabYnuwN1kjL+WO0vQiEzYhGtlMJj
+X-Authority-Analysis: v=2.4 cv=Xc2JzJ55 c=1 sm=1 tr=0 ts=687a0e76 cx=c_pps
+ a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
+ a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=Wb1JkmetP80A:10 a=COk6AnOGAAAA:8
+ a=zwoUeVU6iwdCpd6WVVcA:9 a=QEXdDO2ut3YA:10 a=TjNXssC_j7lpFel5tvFf:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-07-18_02,2025-07-17_02,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ bulkscore=0 mlxscore=0 priorityscore=1501 adultscore=0 mlxlogscore=999
+ phishscore=0 suspectscore=0 spamscore=0 lowpriorityscore=0 impostorscore=0
+ clxscore=1015 malwarescore=0 classifier=spam authscore=0 authtc=n/a authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2505280000
+ definitions=main-2507180071
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250718_031236_613386_F58D5B21 
-X-CRM114-Status: GOOD (  10.62  )
+X-CRM114-CacheID: sfid-20250718_020609_895235_63D0355D 
+X-CRM114-Status: GOOD (  14.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -184,31 +138,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The HDMI TX Parallel Audio Interface (HTX_PAI) is a digital module that
-acts as the bridge between the Audio Subsystem to the HDMI TX Controller.
 
-Add HDMI PAI driver on i.MX8MP to make HDMI audio function fully work.
 
-Shengjiu Wang (4):
-  drm/bridge: dw-hdmi: Add function to get plat_data
-  drm/bridge: imx: add driver for HDMI TX Parallel Audio Interface
-  dt-bindings: display: imx: add binding for i.MX8MP HDMI PAI
-  arm64: dts: imx8mp: Add hdmi parallel audio interface node
+On 7/11/2025 8:16 PM, Konrad Dybcio wrote:
+> On 7/11/25 12:55 AM, Rob Herring wrote:
+>> On Thu, Jul 10, 2025 at 08:28:15PM +0800, Luo Jie wrote:
+>>> NSS clock controller provides the clocks and resets to the networking
+>>> blocks such as PPE (Packet Process Engine) and UNIPHY (PCS) on IPQ5424
+>>> devices.
+>>>
+>>> Add the compatible "qcom,ipq5424-nsscc" support based on the current
+>>> IPQ9574 NSS clock controller DT binding file. ICC clocks are always
+>>> provided by the NSS clock controller of IPQ9574 and IPQ5424, so add
+>>> interconnect-cells as required DT property.
+>>>
+>>> Also add master/slave ids for IPQ5424 networking interfaces, which is
+>>> used by nss-ipq5424 driver for providing interconnect services using
+>>> icc-clk framework.
+>>>
+>>> Signed-off-by: Luo Jie <quic_luoj@quicinc.com>
+>>> ---
+> 
+> [...]
+> 
+>>>     clocks:
+>>>       items:
+>>> @@ -57,6 +61,7 @@ required:
+>>>     - compatible
+>>>     - clocks
+>>>     - clock-names
+>>> +  - '#interconnect-cells'
+>>
+>> You just made this required for everyone. Again, that's an ABI change.
+> 
+> In this case it's actually valid, but should be a separate fixup change
+> 
+> Konrad
 
- .../display/bridge/fsl,imx8mp-hdmi-tx.yaml    |  13 ++
- .../display/imx/fsl,imx8mp-hdmi-pai.yaml      |  61 ++++++++
- arch/arm64/boot/dts/freescale/imx8mp-evk.dts  |   4 +
- arch/arm64/boot/dts/freescale/imx8mp.dtsi     |  26 +++-
- drivers/gpu/drm/bridge/imx/Kconfig            |   7 +
- drivers/gpu/drm/bridge/imx/Makefile           |   1 +
- drivers/gpu/drm/bridge/imx/imx8mp-hdmi-pai.c  | 134 ++++++++++++++++++
- drivers/gpu/drm/bridge/synopsys/dw-hdmi.c     |   6 +
- include/drm/bridge/dw_hdmi.h                  |   7 +
- 9 files changed, 258 insertions(+), 1 deletion(-)
- create mode 100644 Documentation/devicetree/bindings/display/imx/fsl,imx8mp-hdmi-pai.yaml
- create mode 100644 drivers/gpu/drm/bridge/imx/imx8mp-hdmi-pai.c
+Making #interconnect-cells a required property does introduce an ABI
+change in the device tree bindings. However, this change is necessary
+to ensure proper functionality and integration with the interconnect
+framework, which increasingly relies on this property for accurate
+configuration and resource management.
 
--- 
-2.34.1
+Yes, this is a fixup change. Since the current NSS clock controller DTS 
+node for IPQ9574 already includes '#interconnect-cells', I will separate 
+this modification into a standalone fixup patch.
+
+
 
 
