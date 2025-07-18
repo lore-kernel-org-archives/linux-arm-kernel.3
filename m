@@ -4,82 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 050E2C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Jul 2025 13:06:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C671EC83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Jul 2025 13:16:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1QyuKp1ne6S0Nw91olTOl1i1He12QQQlzxYlMWsDPf4=; b=myFH6RyvhtlUjJU/ki0T/hsY1y
-	A+lRbvhDQrDG3lLbni683NjaqrBztQqM+VxBXOvYT+3cARApokZo4YGk0UQjlYHTwjUcMJCocK/W/
-	fQCX1W0OF7xb43NHN6DXDS10Mg8psjdqkpBBvDbcGiOpESVszdWW/GXVM7MzniAcn5acSh8Yr2Uxl
-	QcxF3N8fr+QW4k0/JhryU5LOOS1LG8dw5FzHIlO6B4XnmzZwKaSu22+a6KB7Oy1d2kmYk8w+1lueT
-	oIPeaiNEcqobzzwmUTh4fDUdgMwk9EYuY6h6VtlAIgh3qLTdIEG2b7CDkdzDZ+eZQ6yybTYfvKzmx
-	7QonZPwQ==;
+	bh=y0H/c0Ji+eywIdBM4fr0ycDaR0fc5KCfJryYKKmDwVo=; b=cyqbk4XwvVgFNluiAm4ijHRsbO
+	CV0eRl5bMLuk7DPD4jy8OwtIHMafXChLUnBocN92B+VS786LmoYClPnTIbDjsl1UIyCJsc/I6B8Io
+	gds9SAFTkWXC/K4ka9PaJ+rEogX9EJiLu2crjiHuL1EFLi1uP2a3S+hoxBmlWswACk05CqrHACa/A
+	0MFhmiCqaPv+VjiUKUoM74BPJdweMJOcjb1Z/37imHkxUU4itNvC4JinMZqPm4o6JTgjCGZwen4oB
+	OcwQu8WBLN/8Xf+ycCv6/4u61sNvYiEV+9NBuzK0eYPMzgBtd9DxH+lAAWM1VUOJuUwZI25fZ4j/r
+	OFFJplNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uckna-0000000Cey8-06YQ;
-	Fri, 18 Jul 2025 13:06:50 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uckwQ-0000000CfkU-1Bei;
+	Fri, 18 Jul 2025 13:15:58 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uckl0-0000000CeXP-3ouP;
-	Fri, 18 Jul 2025 13:04:11 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E3DEC601D9;
-	Fri, 18 Jul 2025 13:04:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 76E41C4CEEB;
-	Fri, 18 Jul 2025 13:04:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752843849;
-	bh=e9JV0Z0iQk3JJlBwUijpHfs6OkBiHHnta1gSH+W9zOQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=dSHIa+MrlwXDsebHQMAOBrcdcgNNRuFu1OTjumS8fxdFBEiWA23QLsWePa1HP1jXa
-	 DP7rD2arOXkIYe04ayLXrk6t48TKPhah+qrfUQk4ky4F4LbYRccQTgZL/kXp3nQJYB
-	 nrJLucASNeNNY+00+8mINN6UNjKqm5BId8c4coJWxb2glH/Jf36YSDoPuBM+WSroOr
-	 n4i8t1jm9SduQegLb6spa4A1/MFx1Gu+g8rrZJhbtALp3VA5PnisWIVkS3OfF1re3r
-	 AMqmvtywhenvyRLdeSc0OM7qWEwqaMFUvF5JgNdpEgu+srMur2jwIhNPEyXJW5TR2q
-	 5vV09+6vxMu3A==
-Date: Fri, 18 Jul 2025 14:04:00 +0100
-From: Lee Jones <lee@kernel.org>
-To: Kees Cook <kees@kernel.org>
-Cc: Arnd Bergmann <arnd@arndb.de>, Nishanth Menon <nm@ti.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Santosh Shilimkar <ssantosh@kernel.org>,
-	Allison Randal <allison@lohutok.net>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	linux-arm-kernel@lists.infradead.org,
-	Ingo Molnar <mingo@kernel.org>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	Christoph Hellwig <hch@lst.de>,
-	Andrey Konovalov <andreyknvl@gmail.com>,
-	Andrey Ryabinin <ryabinin.a.a@gmail.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nicolas Schier <nicolas.schier@linux.dev>,
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>, linux-kernel@vger.kernel.org,
-	x86@kernel.org, kasan-dev@googlegroups.com,
-	linux-doc@vger.kernel.org, kvmarm@lists.linux.dev,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	linux-efi@vger.kernel.org, linux-hardening@vger.kernel.org,
-	linux-kbuild@vger.kernel.org, linux-security-module@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, sparclinux@vger.kernel.org,
-	llvm@lists.linux.dev
-Subject: Re: [PATCH v3 05/13] arm: Handle KCOV __init vs inline mismatches
-Message-ID: <20250718130400.GB11056@google.com>
-References: <20250717231756.make.423-kees@kernel.org>
- <20250717232519.2984886-5-kees@kernel.org>
+	id 1ucktx-0000000CfXZ-3DY9;
+	Fri, 18 Jul 2025 13:13:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:Cc;
+	bh=y0H/c0Ji+eywIdBM4fr0ycDaR0fc5KCfJryYKKmDwVo=; b=jV95u3dNl3PKnP2QHxBGu6zErr
+	F5zuKxGoYXPPBziJNCgTpDTuDRy4JPZJa7RlMlHUhun2mDiLUQ5lRL7qJpdU1t5Bhq5+TM4ruDmbb
+	8HcjiRJV28yrttM7Uqa92pfdISc9V0YKhz0NIH/kIAWU6C5d4vTMERBxhnFbaUW6OWHP/dIs1+jEO
+	A503BzZbmVDdY0TKgUIjaGncscelcuUIK7Yi6sCTM7SEkISqpdDbGB+vFOJujwqBdOnWKzYv6Dxcq
+	9jpBdcITtwpxuXdKkkeCk79VBa1NvNtH8Q8ZyDSRXK9L55YFMtysDEcnqVKKOLcdwkuWu8yAb4s/L
+	qGjVZrLQ==;
+Received: from cst-prg-35-241.cust.vodafone.cz ([46.135.35.241] helo=phil.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1ucktu-00045r-BP; Fri, 18 Jul 2025 15:13:22 +0200
+From: Heiko Stuebner <heiko@sntech.de>
+To: linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ soc@lists.linux.dev, Erik Beck <xunil@tahomasoft.com>
+Subject: Re: [PATCH 1/1] arm: dts: rockchip: Add initial support for LinkStar
+ H68K-1432v1 Board with RK3568 SoC
+Date: Fri, 18 Jul 2025 15:13:21 +0200
+Message-ID: <10784977.EvYhyI6sBW@phil>
+In-Reply-To: <20250718075058.243a5619.xunil@tahomasoft.com>
+References: <20250718075058.243a5619.xunil@tahomasoft.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250717232519.2984886-5-kees@kernel.org>
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250718_061325_978913_7B4894B6 
+X-CRM114-Status: GOOD (  27.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,108 +70,250 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 17 Jul 2025, Kees Cook wrote:
+Hi Erik,
 
-> When KCOV is enabled all functions get instrumented, unless
-> the __no_sanitize_coverage attribute is used. To prepare for
-> __no_sanitize_coverage being applied to __init functions, we have to
-> handle differences in how GCC's inline optimizations get resolved. For
-> arm this exposed several places where __init annotations were missing
-> but ended up being "accidentally correct". Fix these cases and force
-> several functions to be inline with __always_inline.
-> 
-> Acked-by: Nishanth Menon <nm@ti.com>
-> Signed-off-by: Kees Cook <kees@kernel.org>
-> ---
-> Cc: Russell King <linux@armlinux.org.uk>
-> Cc: Daniel Lezcano <daniel.lezcano@linaro.org>
-> Cc: Thomas Gleixner <tglx@linutronix.de>
-> Cc: Nishanth Menon <nm@ti.com>
-> Cc: Santosh Shilimkar <ssantosh@kernel.org>
-> Cc: Lee Jones <lee@kernel.org>
-> Cc: Allison Randal <allison@lohutok.net>
-> Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-> Cc: <linux-arm-kernel@lists.infradead.org>
-> ---
->  include/linux/mfd/dbx500-prcmu.h  | 2 +-
+Am Freitag, 18. Juli 2025, 13:50:58 Mitteleurop=C3=A4ische Sommerzeit schri=
+eb Erik Beck:
+> Hello,
+>=20
+> Below please find a patch to three files to provide initial support for
+> the LinkStar H68K-1432v1 board with Rockchip rk3568 SOC.=20
+>=20
+> This has been tested on the hardware and works well in support of
+> router features. Namely, it supports:
+>=20
+> * Two 1 Gbs Ethernet ports
+> * Two 2.5 Gbs Ethernet ports
+> * Two USB 3.0 Type A sockets
+> * One USB 3.0 Type C socket
+> * One USB 2.0 Type A socket
+> * WiFi
+> * LED
+> * Debug console
+>=20
+> I look forward to receiving and responding to questions, comments,
+> concerns, and critiques.
+>=20
+> Thank you for your reviews.
+>=20
+> Regards,
+>=20
+> Erik
 
-Acked-by: Lee Jones <lee@kernel.org>
+The above test reads more like a cover-letter instead of a commit
+message. Please take look at how other board additions are worded.
 
->  arch/arm/mm/cache-feroceon-l2.c   | 2 +-
->  arch/arm/mm/cache-tauros2.c       | 2 +-
->  drivers/clocksource/timer-orion.c | 2 +-
->  drivers/soc/ti/pm33xx.c           | 2 +-
->  5 files changed, 5 insertions(+), 5 deletions(-)
-> 
-> diff --git a/include/linux/mfd/dbx500-prcmu.h b/include/linux/mfd/dbx500-prcmu.h
-> index 98567623c9df..828362b7860c 100644
-> --- a/include/linux/mfd/dbx500-prcmu.h
-> +++ b/include/linux/mfd/dbx500-prcmu.h
-> @@ -213,7 +213,7 @@ struct prcmu_fw_version {
->  
->  #if defined(CONFIG_UX500_SOC_DB8500)
->  
-> -static inline void prcmu_early_init(void)
-> +static inline void __init prcmu_early_init(void)
->  {
->  	db8500_prcmu_early_init();
->  }
-> diff --git a/arch/arm/mm/cache-feroceon-l2.c b/arch/arm/mm/cache-feroceon-l2.c
-> index 25dbd84a1aaf..2bfefb252ffd 100644
-> --- a/arch/arm/mm/cache-feroceon-l2.c
-> +++ b/arch/arm/mm/cache-feroceon-l2.c
-> @@ -295,7 +295,7 @@ static inline u32 read_extra_features(void)
->  	return u;
->  }
->  
-> -static inline void write_extra_features(u32 u)
-> +static inline void __init write_extra_features(u32 u)
->  {
->  	__asm__("mcr p15, 1, %0, c15, c1, 0" : : "r" (u));
->  }
-> diff --git a/arch/arm/mm/cache-tauros2.c b/arch/arm/mm/cache-tauros2.c
-> index b1e1aba602f7..bfe166ccace0 100644
-> --- a/arch/arm/mm/cache-tauros2.c
-> +++ b/arch/arm/mm/cache-tauros2.c
-> @@ -177,7 +177,7 @@ static inline void __init write_actlr(u32 actlr)
->  	__asm__("mcr p15, 0, %0, c1, c0, 1\n" : : "r" (actlr));
->  }
->  
-> -static void enable_extra_feature(unsigned int features)
-> +static void __init enable_extra_feature(unsigned int features)
->  {
->  	u32 u;
->  
-> diff --git a/drivers/clocksource/timer-orion.c b/drivers/clocksource/timer-orion.c
-> index 49e86cb70a7a..61f1e27fc41e 100644
-> --- a/drivers/clocksource/timer-orion.c
-> +++ b/drivers/clocksource/timer-orion.c
-> @@ -43,7 +43,7 @@ static struct delay_timer orion_delay_timer = {
->  	.read_current_timer = orion_read_timer,
->  };
->  
-> -static void orion_delay_timer_init(unsigned long rate)
-> +static void __init orion_delay_timer_init(unsigned long rate)
->  {
->  	orion_delay_timer.freq = rate;
->  	register_current_timer_delay(&orion_delay_timer);
-> diff --git a/drivers/soc/ti/pm33xx.c b/drivers/soc/ti/pm33xx.c
-> index dfdff186c805..dc52a2197d24 100644
-> --- a/drivers/soc/ti/pm33xx.c
-> +++ b/drivers/soc/ti/pm33xx.c
-> @@ -145,7 +145,7 @@ static int am33xx_do_sram_idle(u32 wfi_flags)
->  	return pm_ops->cpu_suspend(am33xx_do_wfi_sram, wfi_flags);
->  }
->  
-> -static int __init am43xx_map_gic(void)
-> +static int am43xx_map_gic(void)
->  {
->  	gic_dist_base = ioremap(AM43XX_GIC_DIST_BASE, SZ_4K);
->  
-> -- 
-> 2.34.1
-> 
+> Signed-off-by: Erik Beck <xunil@tahomasoft.com>
+> Tested-by: Erik Beck <xunil@tahomasoft.com>
+>=20
+>  .../devicetree/bindings/arm/rockchip.yaml          |   5 +
+>  arch/arm64/boot/dts/rockchip/Makefile              |   1 +
+>  .../dts/rockchip/rk3568-linkstar-h68k-1432v1.dts   | 777
 
--- 
-Lee Jones [李琼斯]
+please split this into two commits, one adding the yaml binding and
+one adding the board devicetree.
+
+Also please check scripts/get_maintainer.pl to see who to Cc explicitly
+(like the devicetree maintainers)
+
+
+>  +++++++++++++++++++++ 3 files changed, 783 insertions(+)
+>=20
+>=20
+> diff --git a/Documentation/devicetree/bindings/arm/rockchip.yaml
+> b/Documentation/devicetree/bindings/arm/rockchip.yaml index
+> 28db6bd6aa5b..e48b168cfffe 100644 ---
+
+please try to use "git send-email" to send patches, because it looks
+like your mail program mangled the patch by adding line breaks
+(more of them below). So the patch most likely won't apply.
+
+
+> diff --git
+> a/arch/arm64/boot/dts/rockchip/rk3568-linkstar-h68k-1432v1.dts
+> b/arch/arm64/boot/dts/rockchip/rk3568-linkstar-h68k-1432v1.dts new file
+> mode 100644 index 000000000000..f8f80c7616cd --- /dev/null +++
+> b/arch/arm64/boot/dts/rockchip/rk3568-linkstar-h68k-1432v1.dts @@ -0,0
+> +1,777 @@ +// SPDX-License-Identifier: (GPL-2.0+ OR MIT) +// Copyright
+> (c) 2022 AmadeusGhost <amadeus@jmu.edu.cn> +//
+> +// Copyright (c) 2025 TahomaSoft xunil@tahomasoft.com
+> +//
+> +// Support for Seeed LinkStar H68K-1432v1
+> +// Also likely supports LinkStar H68K-1432v2
+> +// NB: Hinlink H68K is same or very similar under different trade name
+
+please use preferred comment style - see other kernel devicetrees.
+
+> +
+> +/dts-v1/;
+> +#include <dt-bindings/gpio/gpio.h>
+> +#include <dt-bindings/leds/common.h>
+> +#include <dt-bindings/input/input.h>
+> +#include <dt-bindings/pinctrl/rockchip.h>
+> +#include <dt-bindings/soc/rockchip,vop2.h>
+> +#include "rk3568.dtsi"
+> +
+> +
+> +/ {
+> +        model =3D "Seeed LinkStar H68K-1432V1 (RK3568) DDR4 Board";
+> +        compatible =3D "seeed,rk3568-linkstar-h68k-1432v1",
+> "rockchip,rk3568"; +
+> +        aliases {
+> +                ethernet0 =3D &gmac0;
+> +                ethernet1 =3D &gmac1;
+> +
+> +                /* fixed eMMC */
+> +                mmc0 =3D &sdhci;  /* sdhci:=3D @fe310000 */ /* mmcblk0...
+> */
+
+no need for the comments before and after the alias, same below
+
+> +
+> +                /* removable uSD/TF Card */
+> +                mmc1 =3D &sdmmc0; /* sdmmc0:=3D @fe2b0000 */ /* mmcblk1.=
+=2E.
+> */ +
+> +                rtc0 =3D &rk809;
+> +
+> +               led-boot =3D &led_one; /* status LED, green */
+> +               led-failsafe =3D &led_three; /* heartbeat LED */
+> +               led-running =3D &led_one; /* status LED, green */
+> +               led-upgrade =3D &led_two; /* function LED, amber */
+
+I don't think those are specified? What is supposed to use those?
+
+> +
+
+unneeded empty line
+
+> +        };
+> +
+
+[...]
+
+> +        gpio-keys {
+> +                compatible =3D "gpio-keys";
+> +                pinctrl-0 =3D <&reset_button_pin>;
+> +                pinctrl-names =3D "default";
+> +
+> +        /* Middle inset/recessed button,
+> +                  marked by clockwise arrow/circle */
+> +
+> +                button-reset { /* gpiochip=3D0, line=3D0 */
+
+again unneeded comment ... that content is contained in the gpios
+property already
+
+> +                        label =3D "button:system:reset";
+> +                        gpios =3D <&gpio0 RK_PA0 GPIO_ACTIVE_LOW>;
+> +                        linux,code =3D <KEY_RESTART>;
+> +                        debounce-interval =3D <50>;
+> +                };
+> +
+> +        };
+> +
+> + /* gpio chip 0, line 24 responds to console key press */
+> +
+> +        gpio-leds {
+> +                compatible =3D "gpio-leds";
+> +                pinctrl-names =3D "default";
+> +                pinctrl-0 =3D <&led_white_pin>, <&led_green_pin>,
+> +                         <&led_amber_pin>, <&led_blue_pin>;
+> +
+> +                /* White LED inset in power button */
+
+that commment is helpful, so could stay
+
+> +
+> +                led_zero: led_white   { /* gpiochip=3D0, line=3D14 */
+
+preferred naming would probably be
+  led_white: led-0 {}
+
+similar for the other ones
+
+> +                        color =3D <LED_COLOR_ID_WHITE>;
+> +                        default-state =3D "on";
+> +                        function =3D LED_FUNCTION_POWER;
+> +                        gpios =3D <&gpio0 RK_PB6 GPIO_ACTIVE_HIGH>;
+> +                        label =3D "power_button_led:white_led";
+> +                        linux,default-trigger =3D "default-on";
+> +
+> +                };
+> +
+> +        vcc12v_dcin: vcc12v-dcin {
+
+vcc12v_dcin: regulator-vcc12v-dcin {}
+
+same for the others
+
+> +                compatible =3D "regulator-fixed";
+> +                regulator-always-on;
+> +                regulator-boot-on;
+> +                regulator-min-microvolt =3D <12000000>;
+> +                regulator-max-microvolt =3D <12000000>;
+> +                regulator-name =3D "vcc12v_dcin";
+> +        };
+> +
+
+> +&gmac0 {
+> +        assigned-clocks =3D <&cru SCLK_GMAC0_RX_TX>, <&cru SCLK_GMAC0>;
+> +        assigned-clock-parents =3D <&cru SCLK_GMAC0_RGMII_SPEED>;
+> +        assigned-clock-rates =3D <0>, <125000000>;
+> +        clock_in_out =3D "output";
+> +        phy-mode =3D "rgmii-id";
+> +        pinctrl-names =3D "default";
+> +        pinctrl-0 =3D <&gmac0_miim
+> +                     &gmac0_tx_bus2
+> +                     &gmac0_rx_bus2
+> +                     &gmac0_rgmii_clk
+> +                     &gmac0_rgmii_bus>;
+> +        snps,reset-gpio =3D <&gpio2 RK_PD3 GPIO_ACTIVE_LOW>;
+> +        snps,reset-active-low;
+> +        snps,reset-delays-us =3D <0 20000 100000>;
+> +        tx_delay =3D <0x3c>;
+> +        rx_delay =3D <0x2f>;
+
+please see other recent mails about those
+The rgmii-id above should not need those delays?
+
+> +        phy-handle =3D <&rgmii_phy0>;
+> +        status =3D "okay";
+> +};
+> +
+> + /* combphy0/multi-phy0 supports one of: usb3.0 otg, sata0 */
+
+drop the comments
+
+> +&combphy0 {
+> +        status =3D "okay";
+> +
+> +};
+> +
+> + /* combphy1/multi-phy1 supports one of:
+> +                         - usb3.0 host
+> +                         - sata1
+> +                         - qsgmii/sgmii
+> + */
+> +
+> +&combphy1 {
+> +        status =3D "okay";
+> +};
+> +
+> + /* combphy2/multi-phy2 supports one of:
+> +                         - pcie2.1
+> +                         - sata2
+> +                         - qsgmii/sgmii
+> + */
+> +
+> +&combphy2 {
+> +        status =3D "okay";
+> +};
+> +
+
+I did stop here for now.
+
+Heiko
+
+
 
