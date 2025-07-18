@@ -4,74 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38E79C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Jul 2025 11:34:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFAB7C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Jul 2025 11:36:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/szdd2sngXXXi2lW6Meob8K4cOji79iOlyDy5dvpqnc=; b=pCMbOh2xlfh01I3YATc01RQhiC
-	oMpHc2O9qx1HHfq8sV7CKFgWttf++3vMXEm+Z4JpVZy4tPGp3VunEifGwGhi9iEh3Z3JPKw57F2TR
-	yD9Odh303l/wUIQHES2YldVSauZu7s6Yir1CFpuUauxVGJUPocOYfWinjlkYNbJpcy9g7KWF7+ae2
-	AAqghU59HT48akE0xxTl2LMMGvyUeJbg05reBsUXw1rVBHVlOrNQPRU3nkoX7rKatJYI1HC0CfsvI
-	yWJRRBeYGkAyVmyxpbvGxfKpC9skNUTWpFR7uCouP/3ppJs4T9iVA4MaberBj3s5B/c3McR7CJys4
-	mS2R6PwA==;
+	bh=uUxwGglyF0xXiDVcHqrSX/bsBa9N4fsPzuAzKiu/cFw=; b=vdJU5EXMXhB2yhQP2mjVcuFlHh
+	pPXgy8Xf6JAcvx6JDPgy5SyDd0carsjYE0IbdRWynZfMwk0CgvjLCd34CeeROrzFR8Dy+Y+6mme8A
+	eQrDWQf4jCw0lEOCF+kAO8XzcBXSUHngzAi9XpUZdqz++DwiII9wRnekEJpvvsWPHY28Q+/0oGE3P
+	lXyF+zuJDx5SVeVw77PKZX2FZlytdvpNHxbMElIhgCnbX4UPgKzgqIGcW39fpvnPESacSaCgFcKME
+	QZk9gqJg6c3r4kDGN4oWIm2O64ONDVI4MvVXqxUh7AlfwZgM09S/kSthSDPuAS3zXLO2x2NXo4ige
+	QwCSFhuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucjLy-0000000CTnw-3Nrz;
-	Fri, 18 Jul 2025 11:34:14 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1ucjOO-0000000CUAj-2L9y;
+	Fri, 18 Jul 2025 11:36:44 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucj0k-0000000CPBl-2DFi
+	id 1ucj1G-0000000CPLv-1hga
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Jul 2025 11:12:20 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 6CB79A56F43;
-	Fri, 18 Jul 2025 11:12:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3D04AC4CEEB;
-	Fri, 18 Jul 2025 11:12:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752837137;
-	bh=n/axFc2QmqJ/f05WQ9SbxLtmn/ojktUTYjQymh5s7Sw=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=QmUVK2AB9ZreR0lKtb17Aha4agZQaoG6oIlFpMJXD/unXo7lpODQ9GiaPlNqV9FHr
-	 KoCeByobyBa5r1P/9fuZGzhPKTg6/2iwlACgZwH/hFWoiTlFH3+V5nLORInM33ouVP
-	 k0An57Uj0wquilG+dUUlodx+SP8wqn76IvgF+Pp/+hD7hYbWwNSopybDbyS71baWjD
-	 RvAjXm3zpsWI222HVPxsrgglURgKgYcYCO/NPuTXIqk8CAM9WeuT3AsUhcLUP23jNY
-	 D0l+oSbCJUUJ3TbgYJKSISYa0PFH9HvDwA6iyEi7Kr9y6Y7fq84eWZ3bd49Ek3yeBC
-	 fB42tUvtxv48g==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1ucj0h-00Gt2B-40;
-	Fri, 18 Jul 2025 12:12:15 +0100
-From: Marc Zyngier <maz@kernel.org>
-To: kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	kvm@vger.kernel.org
-Cc: Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Eric Auger <eric.auger@redhat.com>
-Subject: [PATCH 3/4] KVM: arm64: Enforce the sorting of the GICv3 system register table
-Date: Fri, 18 Jul 2025 12:11:53 +0100
-Message-Id: <20250718111154.104029-4-maz@kernel.org>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20250718111154.104029-1-maz@kernel.org>
-References: <20250718111154.104029-1-maz@kernel.org>
+	Fri, 18 Jul 2025 11:12:51 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.31])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4bk6Vk6JhGz6L5Gj;
+	Fri, 18 Jul 2025 19:09:02 +0800 (CST)
+Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
+	by mail.maildlp.com (Postfix) with ESMTPS id 0953E140142;
+	Fri, 18 Jul 2025 19:12:41 +0800 (CST)
+Received: from localhost (10.203.177.66) by frapeml500008.china.huawei.com
+ (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Fri, 18 Jul
+ 2025 13:12:40 +0200
+Date: Fri, 18 Jul 2025 12:12:38 +0100
+From: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+To: Alireza Sanaee <alireza.sanaee@huawei.com>
+CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<coresight@lists.linaro.org>, <dianders@chromium.org>,
+	<james.clark@linaro.org>, <krzk@kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-perf-users@vger.kernel.org>,
+	<linuxarm@huawei.com>, <mark.rutland@arm.com>, <mike.leach@linaro.org>,
+	<robh@kernel.org>, <ruanjinjie@huawei.com>, <saravanak@google.com>,
+	<shameerali.kolothum.thodi@huawei.com>, <suzuki.poulose@arm.com>
+Subject: Re: [PATCH v3 2/6] arch_topology: drop the use of cpu_node in the
+ pr_info
+Message-ID: <20250718121238.00005121@huawei.com>
+In-Reply-To: <20250718094848.587-3-alireza.sanaee@huawei.com>
+References: <20250718094848.587-1-alireza.sanaee@huawei.com>
+	<20250718094848.587-3-alireza.sanaee@huawei.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, eric.auger@redhat.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+Content-Type: text/plain; charset="US-ASCII"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.203.177.66]
+X-ClientProxiedBy: lhrpeml100003.china.huawei.com (7.191.160.210) To
+ frapeml500008.china.huawei.com (7.182.85.71)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250718_041218_702135_E2A1B80A 
-X-CRM114-Status: GOOD (  12.58  )
+X-CRM114-CacheID: sfid-20250718_041250_589274_04403DB2 
+X-CRM114-Status: GOOD (  18.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,71 +77,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In order to avoid further embarassing bugs, enforce that the GICv3
-sysreg table is actually sorted, just like all the other tables.
+On Fri, 18 Jul 2025 10:48:44 +0100
+Alireza Sanaee <alireza.sanaee@huawei.com> wrote:
 
-Signed-off-by: Marc Zyngier <maz@kernel.org>
----
- arch/arm64/kvm/sys_regs.c        | 6 +++++-
- arch/arm64/kvm/vgic-sys-reg-v3.c | 6 ++++++
- arch/arm64/kvm/vgic/vgic.h       | 1 +
- 3 files changed, 12 insertions(+), 1 deletion(-)
+> Remove the use of cpu_node in the pr_info. When of_cpu_node_to_id fails,
+> it may set a pointer, cpu_node, and the get_cpu_for_node function uses that
+> pointer to log further in the fail scenario.
+> 
+> Also, change the structure to exit early in fail scenarios which will
+> help enabling code unification that follows in this series.
 
-diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-index f8b10966d0c3e..9d8c47e706b96 100644
---- a/arch/arm64/kvm/sys_regs.c
-+++ b/arch/arm64/kvm/sys_regs.c
-@@ -5329,8 +5329,9 @@ int kvm_finalize_sys_regs(struct kvm_vcpu *vcpu)
- 
- int __init kvm_sys_reg_table_init(void)
- {
-+	const struct sys_reg_desc *gicv3_regs;
- 	bool valid = true;
--	unsigned int i;
-+	unsigned int i, sz;
- 	int ret = 0;
- 
- 	/* Make sure tables are unique and in order. */
-@@ -5341,6 +5342,9 @@ int __init kvm_sys_reg_table_init(void)
- 	valid &= check_sysreg_table(cp15_64_regs, ARRAY_SIZE(cp15_64_regs), false);
- 	valid &= check_sysreg_table(sys_insn_descs, ARRAY_SIZE(sys_insn_descs), false);
- 
-+	gicv3_regs = vgic_v3_get_sysreg_table(&sz);
-+	valid &= check_sysreg_table(gicv3_regs, sz, false);
-+
- 	if (!valid)
- 		return -EINVAL;
- 
-diff --git a/arch/arm64/kvm/vgic-sys-reg-v3.c b/arch/arm64/kvm/vgic-sys-reg-v3.c
-index 1850f1727eb93..bdc2d57370b27 100644
---- a/arch/arm64/kvm/vgic-sys-reg-v3.c
-+++ b/arch/arm64/kvm/vgic-sys-reg-v3.c
-@@ -443,6 +443,12 @@ static const struct sys_reg_desc gic_v3_icc_reg_descs[] = {
- 	EL2_REG(ICH_LR15_EL2, ich_reg),
- };
- 
-+const struct sys_reg_desc *vgic_v3_get_sysreg_table(unsigned int *sz)
-+{
-+	*sz = ARRAY_SIZE(gic_v3_icc_reg_descs);
-+	return gic_v3_icc_reg_descs;
-+}
-+
- static u64 attr_to_id(u64 attr)
- {
- 	return ARM64_SYS_REG(FIELD_GET(KVM_REG_ARM_VGIC_SYSREG_OP0_MASK, attr),
-diff --git a/arch/arm64/kvm/vgic/vgic.h b/arch/arm64/kvm/vgic/vgic.h
-index 5fe554d40c8ef..6ea817d8a804a 100644
---- a/arch/arm64/kvm/vgic/vgic.h
-+++ b/arch/arm64/kvm/vgic/vgic.h
-@@ -315,6 +315,7 @@ int vgic_v3_redist_uaccess(struct kvm_vcpu *vcpu, bool is_write,
- int vgic_v3_cpu_sysregs_uaccess(struct kvm_vcpu *vcpu,
- 				struct kvm_device_attr *attr, bool is_write);
- int vgic_v3_has_cpu_sysregs_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr);
-+const struct sys_reg_desc *vgic_v3_get_sysreg_table(unsigned int *sz);
- int vgic_v3_line_level_info_uaccess(struct kvm_vcpu *vcpu, bool is_write,
- 				    u32 intid, u32 *val);
- int kvm_register_vgic_device(unsigned long type);
--- 
-2.39.2
+So this patch is the trade off to the unification.   Some small
+amount of info in the info message is lost.  To me that looks
+fine, but others may disagree!
+
+I assume the motivation for not just leaving this one alone is
+we ultimately need the flexible handler for the SMT series?
+
+> 
+> Signed-off-by: Alireza Sanaee <alireza.sanaee@huawei.com>
+
+Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+
+> ---
+>  drivers/base/arch_topology.c | 11 ++++++-----
+>  1 file changed, 6 insertions(+), 5 deletions(-)
+> 
+> diff --git a/drivers/base/arch_topology.c b/drivers/base/arch_topology.c
+> index 1037169abb45..6fafd86f608a 100644
+> --- a/drivers/base/arch_topology.c
+> +++ b/drivers/base/arch_topology.c
+> @@ -481,12 +481,13 @@ static int __init get_cpu_for_node(struct device_node *node)
+>  		return -1;
+>  
+>  	cpu = of_cpu_node_to_id(cpu_node);
+> -	if (cpu >= 0)
+> -		topology_parse_cpu_capacity(cpu_node, cpu);
+> -	else
+> -		pr_info("CPU node for %pOF exist but the possible cpu range is :%*pbl\n",
+> -			cpu_node, cpumask_pr_args(cpu_possible_mask));
+> +	if (cpu < 0) {
+> +		pr_info("CPU node exist but the possible cpu range is :%*pbl\n",
+> +			cpumask_pr_args(cpu_possible_mask));
+> +		return cpu;
+> +	}
+>  
+> +	topology_parse_cpu_capacity(cpu_node, cpu);
+>  	return cpu;
+>  }
+>  
 
 
