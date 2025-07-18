@@ -4,87 +4,137 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B113C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Jul 2025 22:44:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37E58C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Jul 2025 23:14:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZHownloYScgx/peEPOAu+NanD7LJponwsGoBJ5e+uKQ=; b=cwQNc/KVNKjkaPdvj9o8O7vFBZ
-	3B3ILhhsYo+pEDm4KuOEwjbvRlkygQBl58Eqjy1iCbFd5rYeh0X/eWb/rbA4sTcEAA8eL/zndPtyy
-	YFTGA3POG/Xm+qcxJ5CxgRd/coF+RkwgcOQOppTGIhxQUwHQljmveVQaYniB1tUUXeGptSsF3fR4j
-	6lLFZ227rX2U8qd9+2Gnmkml8x8inYQQ3Bg6jFcVjM3dzr5e7HdvsmZ4C0dULFk9OyITrvE7q9K55
-	DJ1wQAZ0nn2LT+GMgXVoM4TYv5LieKYWx4kyfFeoVO/dXCRtaD5o5OD51TjMUiIWL2zZDCd1DIFne
-	yvuscFKQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=E3ATMC2qdaMcHIBiexPD9N/1El1J6XW53EiLP/4k2l0=; b=HBilwZ4QIpdic2Hy7UJC+w5/6v
+	iX2IPhGJi4lJzq9U37deQ90o+OZkAbE4VHaRJv9ZNo+G8cgGQhPNAzqTJ71Czb/kxGIT6B33uQ8gK
+	BOf6AOQf1mp39cn5DQYnDTIbwlrzt3awSLIcV+KX/8J8POSAEYop3Tb69AONXkrR8xcX+Sj7Atobv
+	b48YrxqdwfvZyDK2Iv1g/Kar2srMFBkBOem1aPhQjc/taIqvKUk/gJgSkXvJvDdlHh/6XHAbAi0x/
+	OzTt9zUryuG3M2zSbApPZ+jtjkFfFm72QIQWA99YZJV+X0o4EflxMesl8H9Xguq5mUxwj2fTaXhCG
+	/NylSiKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucto2-0000000DYsK-3Od7;
-	Fri, 18 Jul 2025 22:43:54 +0000
-Received: from mail-pg1-x54a.google.com ([2607:f8b0:4864:20::54a])
+	id 1ucuHY-0000000Darj-0TdT;
+	Fri, 18 Jul 2025 23:14:24 +0000
+Received: from mail-mw2nam04on2062c.outbound.protection.outlook.com ([2a01:111:f403:240a::62c] helo=NAM04-MW2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucteP-0000000DYC5-3G3q
+	id 1ucuF5-0000000Daff-2FNt
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Jul 2025 22:33:58 +0000
-Received: by mail-pg1-x54a.google.com with SMTP id 41be03b00d2f7-b3f321dc6abso716409a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Jul 2025 15:33:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1752878036; x=1753482836; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=ZHownloYScgx/peEPOAu+NanD7LJponwsGoBJ5e+uKQ=;
-        b=AklqhIviUz2t75numIPL1gIUHX1bNAyJgbYPYd3nTqtZp4blNybrdf7ZYjgVzgQpKa
-         Bmz83cJqSqWvq0nPIrO5rHR7IpM8nWiXKkBQQ+XjDq+hB//9VQzDVG8kfaufcVk6Pjyt
-         LuXfjJ/BXo7kPRd5mWxlHd3fx7YwzqjDyw1ygJ+OePPkhYa1iQFOHNnSxv3rOp1Azjyj
-         U7PgwmBvFnJIOahOBce5+TMbNN319xoOTfRT/SzObNNvPZLB4vxQXHl5dkMfR6r3YYKr
-         WRD8Z3CwlaA7W/B/6s/Y4Qs6Pb6Pe711A/iLjRpXFZOlTnBK1NpCOI1+hl73X5DYJmut
-         1Now==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752878036; x=1753482836;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=ZHownloYScgx/peEPOAu+NanD7LJponwsGoBJ5e+uKQ=;
-        b=RmgtMuq9D8PF3F9OPLa8c/q/gSjeqhPcMEWviA7RUiH6SBL+kIbcvmJkjpuguP+V8f
-         9t5oKY1ABujqMxVnKtyOBAKFw892nfO+lvv7QP02UNaTiy/xxvfsib5Cwv8ZMhosB6aj
-         yY6WlhIlEVCikvhvfhKErJKawyTm60fQJ+fOtoUknUZLNlaY6aTYxGhxnJIp7OVRGO6i
-         cpXPM1U1f4jJea+EHegCPGDeFXS+cS2YKWSciVbnmCRPYm/DxBWUaMy8MY6yBc6mxtEJ
-         LmdQfYVs7ILEJFiPlkNSCsQVGdPiVw3lQvFkKNzFC06oqTulhU1WI5BsK0xzZsPzMfwZ
-         pQWA==
-X-Forwarded-Encrypted: i=1; AJvYcCWC9aATdy0E7GKVrtNmMb1FQDKXmrrmulcjAJTw8mQhqXFICFgFLHtxqFiga+jlJA4ClDMwTEQe97M7vX6vr787@lists.infradead.org
-X-Gm-Message-State: AOJu0YwqG76FkDGBN9qGAZRjLGItZisbCP14c43fetSyY7cJ7Ruz88xB
-	KtuMatAd1Ktw+2y5BN79W7QbTD3BPbV7+VDNJqN0GcnO/6Y3UbgfqR2f/UEWx8GKP1Hx8QwrgUy
-	pfjPhyGLq+vsJcCHnFAfPu2H8VhS/yQ==
-X-Google-Smtp-Source: AGHT+IH/zdK2zKLGKRZy6B1NJr3Oj3Ajj+FM6XNXJaqaMMi3F49NCdknto5RfR6BR+VXKXY2MJ7ChfHz+3y7/DnjrgM=
-X-Received: from pgbcw13.prod.google.com ([2002:a05:6a02:428d:b0:b3b:b53c:abce])
- (user=samitolvanen job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6a20:7283:b0:220:b161:431 with SMTP id adf61e73a8af0-23811d5b52dmr20957669637.7.1752878036666;
- Fri, 18 Jul 2025 15:33:56 -0700 (PDT)
-Date: Fri, 18 Jul 2025 22:33:49 +0000
-In-Reply-To: <20250718223345.1075521-5-samitolvanen@google.com>
-Mime-Version: 1.0
-References: <20250718223345.1075521-5-samitolvanen@google.com>
-X-Developer-Key: i=samitolvanen@google.com; a=openpgp; fpr=35CCFB63B283D6D3AEB783944CB5F6848BBC56EE
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4115; i=samitolvanen@google.com;
- h=from:subject; bh=Btyu244psEehuoYDLzh4LQVWud/Fy+nWITFJv1APkz4=;
- b=owGbwMvMwCUWxa662nLh8irG02pJDBlVp0+vOOYy/+r1p9FXT9/9bvhfYatWqmliIcvzpfss7
- nEd6b5e0lHKwiDGxSArpsjS8nX11t3fnVJffS6SgJnDygQyhIGLUwAmYv2Q4b/Tz0kKatVhr094
- /Mh1+8s362EK68bAg55SBpU3Z/W19b9h+MOxK2GeXUlXzJuM9M3uFzpnH7O2PvB9isca9m0a5pX XgngB
-X-Mailer: git-send-email 2.50.0.727.gbf7dc18ff4-goog
-Message-ID: <20250718223345.1075521-8-samitolvanen@google.com>
-Subject: [PATCH bpf-next v11 3/3] arm64/cfi,bpf: Support kCFI + BPF on arm64
-From: Sami Tolvanen <samitolvanen@google.com>
-To: bpf@vger.kernel.org, Puranjay Mohan <puranjay@kernel.org>, 
-	Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Andrii Nakryiko <andrii@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Maxwell Bland <mbland@motorola.com>, Puranjay Mohan <puranjay12@gmail.com>, 
-	Sami Tolvanen <samitolvanen@google.com>, Dao Huang <huangdao1@oppo.com>
-Content-Type: text/plain; charset="UTF-8"
+	Fri, 18 Jul 2025 23:11:53 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=PJjjBHtlDbNW8+1gaZNcghmTjB8B7R8qsfk5m4dcIERbjvVBiciniQCj6MJlabrD4/GgTBanVVVHz3e1JXR1rPA4X7VroZgmPMzKgk78MLJy3IQSV9urXgMMw+qaRReoeS8gxbGGtZc8FCyB6ryOQrv7FBedBbUGieAwUYAiIL5UOSIPh2yr8DI8v4xrbueKj8UkcabIn6LWN6Vo1XKZcQkBBJ3fKC86Nhiwm9AJ2wudhcr0CdlbnBtUisSn8RZqmGKafkrhggtpcber9DSPC7SQtmEGLNpc7QS6tGtjR72QAl9HmP9r8IP7fEOJI3anPHE/+cOmiXSMqGO8jHKllw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=E3ATMC2qdaMcHIBiexPD9N/1El1J6XW53EiLP/4k2l0=;
+ b=tjVwpkw8rKWnhPEVtGv1KBP8gjxr63nt8xKZxzmhbwu8R0qvk5dUjyurWSic8gh3e5g6vtO2R4Qs0jF12PYmL01+girllAm9apmipXb5/O6bBlv2Ecetw6iniAZKeZc6d2+xAdWPqQFoVtrLmvbEg7XGAGrKTI0XhXT+8pzJVVFbo1MBjM8DlLU4Lqo3S9JIrVX3W89uwNjcLlsuLbUBAbw/BQpQ0xnNiXrwurC8Y8tNwyNBQpLTWRHijCSAdR5rbM2KdgP6iTmxvYDWgRZ1IcEK9LwsTS+B6C4Q9bYb00olTSZrWH2N/QcyUHE2fSIKAZnvWS/uPBwDjKEM0hHPJQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.160) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=E3ATMC2qdaMcHIBiexPD9N/1El1J6XW53EiLP/4k2l0=;
+ b=aYmXWN2xzc+Hyi2dOtGXDzaG915RIbGk6c4RmM1by8VtA6ricXm5eyme5AmgtxzM4tqbcsgBnSEXDlFqW/ukewbJKaoEb0u4AbIEtWZz5CwV4Vd1OW7KY3YnoRZ43E15uyFONpZ1Q2Towbr+dzkVtutNKebEsgpLgoGldlWpp7SVJkHJQiJYFMliNPeEYpDYdXmpQNY1krQr4t/efXox1lgIT7toflovhJ5dK4MDOhi+3UZ1a4TIEB17Uif+lY3pO1kQsyGqL8aTy5SMHA2/BvQU3i8YML9uSHg8yTHJspZDjAZwSLBSvfTNnf90HAG2oxbn32Wi5n1dyi1h1evi0w==
+Received: from DSZP220CA0006.NAMP220.PROD.OUTLOOK.COM (2603:10b6:5:280::14) by
+ IA0PR12MB7698.namprd12.prod.outlook.com (2603:10b6:208:432::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8943.24; Fri, 18 Jul
+ 2025 23:11:43 +0000
+Received: from DS3PEPF0000C37E.namprd04.prod.outlook.com
+ (2603:10b6:5:280:cafe::f4) by DSZP220CA0006.outlook.office365.com
+ (2603:10b6:5:280::14) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8943.23 via Frontend Transport; Fri,
+ 18 Jul 2025 23:11:43 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.160) by
+ DS3PEPF0000C37E.mail.protection.outlook.com (10.167.23.8) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8943.21 via Frontend Transport; Fri, 18 Jul 2025 23:11:43 +0000
+Received: from rnnvmail203.nvidia.com (10.129.68.9) by mail.nvidia.com
+ (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Fri, 18 Jul
+ 2025 16:11:31 -0700
+Received: from rnnvmail202.nvidia.com (10.129.68.7) by rnnvmail203.nvidia.com
+ (10.129.68.9) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Fri, 18 Jul
+ 2025 16:11:30 -0700
+Received: from dondevbox.nvidia.com (10.127.8.13) by mail.nvidia.com
+ (10.129.68.7) with Microsoft SMTP Server id 15.2.1544.14 via Frontend
+ Transport; Fri, 18 Jul 2025 16:11:30 -0700
+From: Donald Shannon <donalds@nvidia.com>
+To: <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>
+CC: <joel@jms.id.au>, <andrew@codeconstruct.com.au>,
+	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-aspeed@lists.ozlabs.org>, <linux-kernel@vger.kernel.org>, "Donald
+ Shannon" <donalds@nvidia.com>
+Subject: [PATCH v5 0/2] Adding device tree and binding for NVIDIA GB200-UT3.0b
+Date: Fri, 18 Jul 2025 16:11:16 -0700
+Message-ID: <20250718231118.3330855-1-donalds@nvidia.com>
+X-Mailer: git-send-email 2.43.0
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-NV-OnPremToCloud: AnonymousSubmission
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS3PEPF0000C37E:EE_|IA0PR12MB7698:EE_
+X-MS-Office365-Filtering-Correlation-Id: 16e527a7-8bb9-4115-1290-08ddc65075f3
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700013|376014|82310400026|13003099007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?W68IQpIv9M0D3SO0PGi0CZ0mBOA93TmM6bM5G/dzfJq6xtBF2sV0LjJbs1fw?=
+ =?us-ascii?Q?g/Ga/gzuua7TWIAg4RiWAP5/IN7sJ0RMloEpDyJ02BZOF4VcWivgFGhKQO69?=
+ =?us-ascii?Q?yHryMqypYkzs0PbxbXG4cSLMqdd1Xd0AM0npbvVOa0C2G6fc5rkBuILPiz16?=
+ =?us-ascii?Q?fGIO/0LBwGAgWAYaoFV3uF2hw1Hb+zx36YvSvqdVOHW3dQcSUf/RKG8hrt0m?=
+ =?us-ascii?Q?rLdlcOhooo5gPLdQlJvnIdrdKggsspJhqTXAydi83rfTOdbSHn3BxycYDCn7?=
+ =?us-ascii?Q?ObzrYzXZ3LOJCMUC0Kqw2DYOLzwXB17QXGMGxJa8/nBEWmeAWWDLsvsAbXp/?=
+ =?us-ascii?Q?lYdGbvOcrmutK9MgpGhCWqQXJASjwAaGZJ9TgsAGYrlaaolEqIxyTONwBnIM?=
+ =?us-ascii?Q?g2EA3dWDiFpT8CvN6gF7ze9UhFoVAoHoWCXxX5e3gOSszjQVdrDI3s8IhJu8?=
+ =?us-ascii?Q?zIqmAp0AUMBNIyXoE1E05YQZ5JnJ4MYiTDURSPD6RXRNq3o+fD5vQAwj94f5?=
+ =?us-ascii?Q?u0cYZiuvJu8rQ5fTkjP5vWCMx/lL7FY0/VPojWz1vOQ4bR9GIk+qqUWZGnRB?=
+ =?us-ascii?Q?Y+5RUECAeLsK7Q4RnqnifqN3soZ5Lnm/egnEtY3OfSiTgMaAo0BhaYZq5RuC?=
+ =?us-ascii?Q?Mj27+vBK/VFZ/MIEwORWWztKfznhTsAyx4uNwmo7w7rR+DFm0rcDCdgt2lFJ?=
+ =?us-ascii?Q?DDY+HBe+y2Tmw41SWzFtjDR3pnSsXoZaWufMxf3G9jOoLXzmHktYrH/ntXaz?=
+ =?us-ascii?Q?ZS+7ZrQ/StgOM4QXcAlCReh0dGs+agp9vPVHXLVERWRFy8zlR6+OaZhBjaRC?=
+ =?us-ascii?Q?dvgnWrUgGSLLUWRjkWZd8HRiiZ601xsOFWGWMxpg1p++vPQTfNMzOa9WIeYF?=
+ =?us-ascii?Q?ZBgbjd/NEUW4HS1j3hk6gY2s/TVEGc1B8m/ihX2GJbNKZ3mIfjVCFINBD9R1?=
+ =?us-ascii?Q?5uWJGWwMRcH6EAb1WEjirzFImSVo9g/L7NPQrSTmzYzDv5L1YoB+KhZwF16N?=
+ =?us-ascii?Q?nxWg95Ru52Dnj9FYZIYRqPzNgLlXtv4HfXlgqg58hHgTCpl6mVDOH/IiQuG9?=
+ =?us-ascii?Q?3rFqS1YNNQQeKtTXIRRNttUYWs9DDtIi8e9QbiuLHatpnle+Q4YpfuqLu21s?=
+ =?us-ascii?Q?OnTMPlyG7MnmG5ClAQRc68uQP8+eLcCHe+dN6YUXa/9B6nVHGd7BGd9oCDjb?=
+ =?us-ascii?Q?Tuv5ZHzmd2Y++fcP/O/dLkaJ/rAVnZLiMgh5cTAud0w6hgTjYqHMm+9yk2XS?=
+ =?us-ascii?Q?cHFssOuUrd+bV5Bd3xMzQhpn+P+XV8lFB+TDlfuYnX0bZQJVbiHGMY5x5eNe?=
+ =?us-ascii?Q?BacqWpB1qPRMMSQOa1RCxCRbKP0vwUY6605kGXX/a77e1n8UIB8P+k1YogPF?=
+ =?us-ascii?Q?wG7fJtVm0YJNE/NJ1holocU1qlCkS6SWfeJnbAMihxQKNz8AKNNxWlvuXHTG?=
+ =?us-ascii?Q?wd9DGr/PJYN8CmTSChZspQqZOukB5yh4al7O1TE9Y3QAFfIt65YpyJwlDHhb?=
+ =?us-ascii?Q?hZRRlkE7YCSjzn1dxAoSiPz/iPM1D7MfcQUe?=
+X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(36860700013)(376014)(82310400026)(13003099007);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Jul 2025 23:11:43.3487
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 16e527a7-8bb9-4115-1290-08ddc65075f3
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: DS3PEPF0000C37E.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PR12MB7698
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250718_153357_820583_B2E40F60 
-X-CRM114-Status: GOOD (  20.50  )
+X-CRM114-CacheID: sfid-20250718_161151_580919_4581BEFE 
+X-CRM114-Status: GOOD (  11.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,121 +149,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Puranjay Mohan <puranjay12@gmail.com>
+Patch 1 adds the binding for the NVIDIA GB200-UT3.0b platform.
+Patch 2 adds the device tree for the NVIDIA GB200-UT3.0b platform.
 
-Currently, bpf_dispatcher_*_func() is marked with `__nocfi` therefore
-calling BPF programs from this interface doesn't cause CFI warnings.
+This is an Aspeed AST2600 based unit testing platform for GB200.
+UT3.0b is different than nvidia-gb200nvl-bmc due to networking topology
+differences, additional gpio expanders, and voltage regulator gating
+some devices.
 
-When BPF programs are called directly from C: from BPF helpers or
-struct_ops, CFI warnings are generated.
+Reference to Ast2600 SOC [1].
+Reference to Blackwell GB200NVL Platform [2].
 
-Implement proper CFI prologues for the BPF programs and callbacks and
-drop __nocfi for arm64. Fix the trampoline generation code to emit kCFI
-prologue when a struct_ops trampoline is being prepared.
-
-Signed-off-by: Puranjay Mohan <puranjay12@gmail.com>
-Co-developed-by: Maxwell Bland <mbland@motorola.com>
-Signed-off-by: Maxwell Bland <mbland@motorola.com>
-Co-developed-by: Sami Tolvanen <samitolvanen@google.com>
-Signed-off-by: Sami Tolvanen <samitolvanen@google.com>
-Tested-by: Dao Huang <huangdao1@oppo.com>
-Acked-by: Will Deacon <will@kernel.org>
+Link: https://www.aspeedtech.com/server_ast2600/ [1]
+Link: https://nvdam.widen.net/s/wwnsxrhm2w/blackwell-datasheet-3384703 [2]
+Signed-off-by: Donald Shannon <donalds@nvidia.com>
 ---
- arch/arm64/include/asm/cfi.h  |  7 +++++++
- arch/arm64/net/bpf_jit_comp.c | 22 +++++++++++++++++++---
- 2 files changed, 26 insertions(+), 3 deletions(-)
- create mode 100644 arch/arm64/include/asm/cfi.h
+Changes v1 -> v2:
+  - Changed phy-mode to rgmii-id [Lunn]
+  - Removed redundant max-speed for mac0 [Lunn]
+  - Fixed typo from gb200nvl to gb200 in Makefile
+Changes v2 -> v3:
+ - Fixed whitespace issues [Krzysztof]
+ - Fixed schema validation issues from my end ( there are still issues
+ with the aspeed dtsi file that are not related to this new dts)
+ [Herring]
+ - Reordered to follow style guide [Krzysztof]
+ - Removed redundant status okays
+ - Changed vcc to vdd for the power gating on the gpio expanders
+Changes v3 -> v4:
+  - Added changelog [Krzysztof]
+  - Added nvidia,gb200-ut30b board binding [Krzysztof]
+  - Removed unused imports
+  - Reordered a couple other style guide violations
+  - Added back in a couple needed "status okay"s
+Changes v4 -> v5:
+ - Resumed my patch after a pause
+ - Don't plan to make this include of nvidia-gb200nvl-bmc due to some
+ platform differences
+ - Fixed io expanders that weren't gated by the 3.3V standby regulator
+ - Fixed incorrect interrupt pin for one IO expander
+ - Removed some IO expanders and I2C busses
+---
 
-diff --git a/arch/arm64/include/asm/cfi.h b/arch/arm64/include/asm/cfi.h
-new file mode 100644
-index 000000000000..ab90f0351b7a
---- /dev/null
-+++ b/arch/arm64/include/asm/cfi.h
-@@ -0,0 +1,7 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#ifndef _ASM_ARM64_CFI_H
-+#define _ASM_ARM64_CFI_H
-+
-+#define __bpfcall
-+
-+#endif /* _ASM_ARM64_CFI_H */
-diff --git a/arch/arm64/net/bpf_jit_comp.c b/arch/arm64/net/bpf_jit_comp.c
-index 89b1b8c248c6..f4a98c1a1583 100644
---- a/arch/arm64/net/bpf_jit_comp.c
-+++ b/arch/arm64/net/bpf_jit_comp.c
-@@ -10,6 +10,7 @@
- #include <linux/arm-smccc.h>
- #include <linux/bitfield.h>
- #include <linux/bpf.h>
-+#include <linux/cfi.h>
- #include <linux/filter.h>
- #include <linux/memory.h>
- #include <linux/printk.h>
-@@ -166,6 +167,12 @@ static inline void emit_bti(u32 insn, struct jit_ctx *ctx)
- 		emit(insn, ctx);
- }
- 
-+static inline void emit_kcfi(u32 hash, struct jit_ctx *ctx)
-+{
-+	if (IS_ENABLED(CONFIG_CFI_CLANG))
-+		emit(hash, ctx);
-+}
-+
- /*
-  * Kernel addresses in the vmalloc space use at most 48 bits, and the
-  * remaining bits are guaranteed to be 0x1. So we can compose the address
-@@ -476,7 +483,6 @@ static int build_prologue(struct jit_ctx *ctx, bool ebpf_from_cbpf)
- 	const bool is_main_prog = !bpf_is_subprog(prog);
- 	const u8 fp = bpf2a64[BPF_REG_FP];
- 	const u8 arena_vm_base = bpf2a64[ARENA_VM_START];
--	const int idx0 = ctx->idx;
- 	int cur_offset;
- 
- 	/*
-@@ -502,6 +508,9 @@ static int build_prologue(struct jit_ctx *ctx, bool ebpf_from_cbpf)
- 	 *
- 	 */
- 
-+	emit_kcfi(is_main_prog ? cfi_bpf_hash : cfi_bpf_subprog_hash, ctx);
-+	const int idx0 = ctx->idx;
-+
- 	/* bpf function may be invoked by 3 instruction types:
- 	 * 1. bl, attached via freplace to bpf prog via short jump
- 	 * 2. br, attached via freplace to bpf prog via long jump
-@@ -2055,9 +2064,9 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
- 		jit_data->ro_header = ro_header;
- 	}
- 
--	prog->bpf_func = (void *)ctx.ro_image;
-+	prog->bpf_func = (void *)ctx.ro_image + cfi_get_offset();
- 	prog->jited = 1;
--	prog->jited_len = prog_size;
-+	prog->jited_len = prog_size - cfi_get_offset();
- 
- 	if (!prog->is_func || extra_pass) {
- 		int i;
-@@ -2426,6 +2435,12 @@ static int prepare_trampoline(struct jit_ctx *ctx, struct bpf_tramp_image *im,
- 	/* return address locates above FP */
- 	retaddr_off = stack_size + 8;
- 
-+	if (flags & BPF_TRAMP_F_INDIRECT) {
-+		/*
-+		 * Indirect call for bpf_struct_ops
-+		 */
-+		emit_kcfi(cfi_get_func_hash(func_addr), ctx);
-+	}
- 	/* bpf trampoline may be invoked by 3 instruction types:
- 	 * 1. bl, attached to bpf prog or kernel function via short jump
- 	 * 2. br, attached to bpf prog or kernel function via long jump
-@@ -2942,6 +2957,7 @@ void bpf_jit_free(struct bpf_prog *prog)
- 					   sizeof(jit_data->header->size));
- 			kfree(jit_data);
- 		}
-+		prog->bpf_func -= cfi_get_offset();
- 		hdr = bpf_jit_binary_pack_hdr(prog);
- 		bpf_jit_binary_pack_free(hdr, NULL);
- 		WARN_ON_ONCE(!bpf_prog_kallsyms_verify_off(prog));
+Donald Shannon (2):
+  Documentation: devicetree: Add binding for NVIDIA  GB200-UT3.0b
+    platform
+  ARM: dts: aspeed: Add device tree for Nvidia's GB200  UT3.0b platform
+    BMC
+
+ .../bindings/arm/aspeed/aspeed.yaml           |    1 +
+ arch/arm/boot/dts/aspeed/Makefile             |    1 +
+ .../aspeed/aspeed-bmc-nvidia-gb200-ut30b.dts  | 1027 +++++++++++++++++
+ 3 files changed, 1029 insertions(+)
+ create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dts
+
+
+base-commit: d086c886ceb9f59dea6c3a9dae7eb89e780a20c9
 -- 
-2.50.0.727.gbf7dc18ff4-goog
+2.43.0
 
 
