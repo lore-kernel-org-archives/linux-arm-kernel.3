@@ -4,65 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17380C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Jul 2025 14:30:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46E38C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Jul 2025 14:32:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=x5KFpv+HguD1EXq25PZOdZWBAfqqW2oh7rfLtZat8Lo=; b=rs1C61FQ74tZHrv410Kfe4XvQo
-	g4n5FABzyeMc8cgechiUR57cFuHHU7tRulyeGf1YaOF3kwe3Ulmn8mC/1StfQ3GnXE58oNcgtRwwp
-	bVm0TvgieaHHyj5wGfGw9/Uu0XFbQ/tzn+tatCfXWsN55XArLylTIs9kUQKMd7cAUF6WyDhdlOB3X
-	wBVDZHSoKisES9RwIfKYFjwI3Md86zoH0Oq1hAr5Iw8eFX3w9lmYiyuYmHk4cYfLc5Zj5rnP9Dhi3
-	Z9vezLR13fPmUdiNVzYgJ9oOEpuQ63phfmq83yY3GRA4Ef9FOwODSI8afNuHuG54ZWT8ybjB5msoV
-	fFBEV11w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=CtaJGW5QWe0qiAUChS4FBLMJd1/uIw8kCqbYGukC2Zc=; b=gQgB6jIVLYMmIX
+	BTw9vAtZZe7VXPagqfHM0wr12h70JfFMoW/JJT9LB6KNRjXwglMkpbSSHf+mYEXDAV9NajSj/GR+8
+	dJXtgBntQMA7XxYeaQ1ME/FpwbSQTz9UjcsKDv89Gx/N1gNxZSiXom1Mb9+SGCy2OnyBduZcp6l5l
+	bTkwpWybrRgiEA20afJYjtpuOk8HBRZFc+rqQ5gbKmn73tZXGgzRjgZWz6dWufzzE9LGfwIhyKYjP
+	qcFoNXasovir10lLsRM+18NnMMIjyqqpl07ETRHwZAiHj+MTTkXZv/V76LVJEC+6jsneGUVyC0kgL
+	4r2j8R/zE+F5+VFF3oiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucm6L-0000000Cof9-2Ed9;
-	Fri, 18 Jul 2025 14:30:17 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucm3u-0000000CoRx-0378
+	id 1ucm8l-0000000CorP-1Joc;
+	Fri, 18 Jul 2025 14:32:47 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ucm4Y-0000000CoXP-2h0h
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Jul 2025 14:27:47 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id AD199A5730F;
-	Fri, 18 Jul 2025 14:27:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6F856C4CEEB;
-	Fri, 18 Jul 2025 14:27:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752848864;
-	bh=OnxfV2yPEQVTv3ciBTrkkEXKVRS4lJt/Hwo5k2TvS+w=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=kpqpYlSKyInOvbiMDs64WIZazYcsXfGEF5wAu3XhfYchOKHJ2U2M0wtuP86c4aFvG
-	 nrUlAcH5WpOlDuZGAK0+iBwCYanToDXMxe0khgDz/PW72ZnJC4TAo5li5LAiZ+HQrO
-	 QnvXSgQms2eMnTdzs4TLlc5rsZjbZp1anpZ6mqUjbwqKSZKj/aEc8b/zt4Z1Vvbuxv
-	 Hb6snd5Mkh0365llavrBzHGuAxohxjZ4EfdMrqXwW4DJAYGaFcc/aGCajJOSZ/3WBq
-	 gSWFlGCdagzcUnz909IN35j7TiqN/iNPLvepKR3xzK4bvVcid9+BZneRwyNBtrnIE4
-	 0yJ76B4jfOvjg==
-Date: Fri, 18 Jul 2025 15:27:39 +0100
-From: Simon Horman <horms@kernel.org>
-To: Himanshu Mittal <h-mittal1@ti.com>
-Cc: pabeni@redhat.com, kuba@kernel.org, edumazet@google.com,
-	davem@davemloft.net, andrew+netdev@lunn.ch,
-	linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, srk@ti.com,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Roger Quadros <rogerq@kernel.org>, danishanwar@ti.com,
-	m-malladi@ti.com, pratheesh@ti.com, prajith@ti.com
-Subject: Re: [PATCH net v3] net: ti: icssg-prueth: Fix buffer allocation for
- ICSSG
-Message-ID: <20250718142739.GD2459@horms.kernel.org>
-References: <20250717094220.546388-1-h-mittal1@ti.com>
+	Fri, 18 Jul 2025 14:28:28 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F150B16A3;
+	Fri, 18 Jul 2025 07:28:15 -0700 (PDT)
+Received: from e137867.arm.com (unknown [10.57.30.201])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 4B6CD3F694;
+	Fri, 18 Jul 2025 07:28:21 -0700 (PDT)
+From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+To: linux-arm-kernel@lists.infradead.org
+Subject: [PATCH] arm64/entry: Mask DAIF in cpu_switch_to(), call_on_irq_stack()
+Date: Fri, 18 Jul 2025 15:28:14 +0100
+Message-ID: <20250718142814.133329-1-ada.coupriediaz@arm.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250717094220.546388-1-h-mittal1@ti.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250718_072746_181557_7730B5F1 
-X-CRM114-Status: GOOD (  20.00  )
+X-CRM114-CacheID: sfid-20250718_072826_776119_3118F3C2 
+X-CRM114-Status: GOOD (  24.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,159 +55,200 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Mark Rutland <mark.rutland@arm.com>, Catalin Marinas <catalin.marinas@arm.com>, Mark Brown <broonie@kernel.org>, Cristian Prundeanu <cpru@amazon.com>, Will Deacon <will@kernel.org>, Ard Biesheuvel <ardb@kernel.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 17, 2025 at 03:12:20PM +0530, Himanshu Mittal wrote:
-> Fixes overlapping buffer allocation for ICSSG peripheral
-> used for storing packets to be received/transmitted.
-> There are 3 buffers:
-> 1. Buffer for Locally Injected Packets
-> 2. Buffer for Forwarding Packets
-> 3. Buffer for Host Egress Packets
-> 
-> In existing allocation buffers for 2. and 3. are overlapping causing
-> packet corruption.
-> 
-> Packet corruption observations:
-> During tcp iperf testing, due to overlapping buffers the received ack
-> packet overwrites the packet to be transmitted. So, we see packets on
-> wire with the ack packet content inside the content of next TCP packet
-> from sender device.
-> 
-> Details for AM64x switch mode:
-> -> Allocation by existing driver:
-> +---------+-------------------------------------------------------------+
-> |         |          SLICE 0             |          SLICE 1             |
-> |         +------+--------------+--------+------+--------------+--------+
-> |         | Slot | Base Address | Size   | Slot | Base Address | Size   |
-> |---------+------+--------------+--------+------+--------------+--------+
-> |         | 0    | 70000000     | 0x2000 | 0    | 70010000     | 0x2000 |
-> |         | 1    | 70002000     | 0x2000 | 1    | 70012000     | 0x2000 |
-> |         | 2    | 70004000     | 0x2000 | 2    | 70014000     | 0x2000 |
-> | FWD     | 3    | 70006000     | 0x2000 | 3    | 70016000     | 0x2000 |
-> | Buffers | 4    | 70008000     | 0x2000 | 4    | 70018000     | 0x2000 |
-> |         | 5    | 7000A000     | 0x2000 | 5    | 7001A000     | 0x2000 |
-> |         | 6    | 7000C000     | 0x2000 | 6    | 7001C000     | 0x2000 |
-> |         | 7    | 7000E000     | 0x2000 | 7    | 7001E000     | 0x2000 |
-> +---------+------+--------------+--------+------+--------------+--------+
-> |         | 8    | 70020000     | 0x1000 | 8    | 70028000     | 0x1000 |
-> |         | 9    | 70021000     | 0x1000 | 9    | 70029000     | 0x1000 |
-> |         | 10   | 70022000     | 0x1000 | 10   | 7002A000     | 0x1000 |
-> | Our     | 11   | 70023000     | 0x1000 | 11   | 7002B000     | 0x1000 |
-> | LI      | 12   | 00000000     | 0x0    | 12   | 00000000     | 0x0    |
-> | Buffers | 13   | 00000000     | 0x0    | 13   | 00000000     | 0x0    |
-> |         | 14   | 00000000     | 0x0    | 14   | 00000000     | 0x0    |
-> |         | 15   | 00000000     | 0x0    | 15   | 00000000     | 0x0    |
-> +---------+------+--------------+--------+------+--------------+--------+
-> |         | 16   | 70024000     | 0x1000 | 16   | 7002C000     | 0x1000 |
-> |         | 17   | 70025000     | 0x1000 | 17   | 7002D000     | 0x1000 |
-> |         | 18   | 70026000     | 0x1000 | 18   | 7002E000     | 0x1000 |
-> | Their   | 19   | 70027000     | 0x1000 | 19   | 7002F000     | 0x1000 |
-> | LI      | 20   | 00000000     | 0x0    | 20   | 00000000     | 0x0    |
-> | Buffers | 21   | 00000000     | 0x0    | 21   | 00000000     | 0x0    |
-> |         | 22   | 00000000     | 0x0    | 22   | 00000000     | 0x0    |
-> |         | 23   | 00000000     | 0x0    | 23   | 00000000     | 0x0    |
-> +---------+------+--------------+--------+------+--------------+--------+
-> --> here 16, 17, 18, 19 overlapping with below express buffer
-> 
-> +-----+-----------------------------------------------+
-> |     |       SLICE 0       |        SLICE 1          |
-> |     +------------+----------+------------+----------+
-> |     | Start addr | End addr | Start addr | End addr |
-> +-----+------------+----------+------------+----------+
-> | EXP | 70024000   | 70028000 | 7002C000   | 70030000 | <-- Overlapping
-> | PRE | 70030000   | 70033800 | 70034000   | 70037800 |
-> +-----+------------+----------+------------+----------+
-> 
-> +---------------------+----------+----------+
-> |                     | SLICE 0  |  SLICE 1 |
-> +---------------------+----------+----------+
-> | Default Drop Offset | 00000000 | 00000000 |     <-- Field not configured
-> +---------------------+----------+----------+
-> 
-> -> Allocation this patch brings:
-> +---------+-------------------------------------------------------------+
-> |         |          SLICE 0             |          SLICE 1             |
-> |         +------+--------------+--------+------+--------------+--------+
-> |         | Slot | Base Address | Size   | Slot | Base Address | Size   |
-> |---------+------+--------------+--------+------+--------------+--------+
-> |         | 0    | 70000000     | 0x2000 | 0    | 70040000     | 0x2000 |
-> |         | 1    | 70002000     | 0x2000 | 1    | 70042000     | 0x2000 |
-> |         | 2    | 70004000     | 0x2000 | 2    | 70044000     | 0x2000 |
-> | FWD     | 3    | 70006000     | 0x2000 | 3    | 70046000     | 0x2000 |
-> | Buffers | 4    | 70008000     | 0x2000 | 4    | 70048000     | 0x2000 |
-> |         | 5    | 7000A000     | 0x2000 | 5    | 7004A000     | 0x2000 |
-> |         | 6    | 7000C000     | 0x2000 | 6    | 7004C000     | 0x2000 |
-> |         | 7    | 7000E000     | 0x2000 | 7    | 7004E000     | 0x2000 |
-> +---------+------+--------------+--------+------+--------------+--------+
-> |         | 8    | 70010000     | 0x1000 | 8    | 70050000     | 0x1000 |
-> |         | 9    | 70011000     | 0x1000 | 9    | 70051000     | 0x1000 |
-> |         | 10   | 70012000     | 0x1000 | 10   | 70052000     | 0x1000 |
-> | Our     | 11   | 70013000     | 0x1000 | 11   | 70053000     | 0x1000 |
-> | LI      | 12   | 00000000     | 0x0    | 12   | 00000000     | 0x0    |
-> | Buffers | 13   | 00000000     | 0x0    | 13   | 00000000     | 0x0    |
-> |         | 14   | 00000000     | 0x0    | 14   | 00000000     | 0x0    |
-> |         | 15   | 00000000     | 0x0    | 15   | 00000000     | 0x0    |
-> +---------+------+--------------+--------+------+--------------+--------+
-> |         | 16   | 70014000     | 0x1000 | 16   | 70054000     | 0x1000 |
-> |         | 17   | 70015000     | 0x1000 | 17   | 70055000     | 0x1000 |
-> |         | 18   | 70016000     | 0x1000 | 18   | 70056000     | 0x1000 |
-> | Their   | 19   | 70017000     | 0x1000 | 19   | 70057000     | 0x1000 |
-> | LI      | 20   | 00000000     | 0x0    | 20   | 00000000     | 0x0    |
-> | Buffers | 21   | 00000000     | 0x0    | 21   | 00000000     | 0x0    |
-> |         | 22   | 00000000     | 0x0    | 22   | 00000000     | 0x0    |
-> |         | 23   | 00000000     | 0x0    | 23   | 00000000     | 0x0    |
-> +---------+------+--------------+--------+------+--------------+--------+
-> 
-> +-----+-----------------------------------------------+
-> |     |       SLICE 0       |        SLICE 1          |
-> |     +------------+----------+------------+----------+
-> |     | Start addr | End addr | Start addr | End addr |
-> +-----+------------+----------+------------+----------+
-> | EXP | 70018000   | 7001C000 | 70058000   | 7005C000 |
-> | PRE | 7001C000   | 7001F800 | 7005C000   | 7005F800 |
-> +-----+------------+----------+------------+----------+
-> 
-> +---------------------+----------+----------+
-> |                     | SLICE 0  |  SLICE 1 |
-> +---------------------+----------+----------+
-> | Default Drop Offset | 7001F800 | 7005F800 |
-> +---------------------+----------+----------+
-> 
-> Rootcause: missing buffer configuration for Express frames in
-> function: prueth_fw_offload_buffer_setup()
-> 
-> Details:
-> Driver implements two distinct buffer configuration functions that are
-> invoked based on the driver state and ICSSG firmware:-
-> - prueth_fw_offload_buffer_setup()
-> - prueth_emac_buffer_setup()
-> 
-> During initialization, driver creates standard network interfaces
-> (netdevs) and configures buffers via prueth_emac_buffer_setup().
-> This function properly allocates and configures all required memory
-> regions including:
-> - LI buffers
-> - Express packet buffers
-> - Preemptible packet buffers
-> 
-> However, when the driver transitions to an offload mode (switch/HSR/PRP),
-> buffer reconfiguration is handled by prueth_fw_offload_buffer_setup().
-> This function does not reconfigure the buffer regions required for
-> Express packets, leading to incorrect buffer allocation.
-> 
-> Fixes: abd5576b9c57 ("net: ti: icssg-prueth: Add support for ICSSG switch firmware")
-> Signed-off-by: Himanshu Mittal <h-mittal1@ti.com>
+`cpu_switch_to()` and `call_on_irq_stack()` manipulate SP to change
+to different stacks along with the Shadow Call Stack if it is enabled.
+Those two stack changes cannot be done atomically and both functions
+can be interrupted by SErrors or Debug Exceptions which, though unlikely,
+is very much broken : if interrupted, we can end up with mismatched stacks
+and Shadow Call Stack leading to clobbered stacks.
 
-Thanks for the updated patch description.
+In `cpu_switch_to()`, it can happen when SP_EL0 points to the new task,
+but x18 stills points to the old task's SCS. When the interrupt handler
+tries to save the task's SCS pointer, it will save the old task
+SCS pointer (x18) into the new task struct (pointed to by SP_EL0),
+clobbering it.
 
-Reviewed-by: Simon Horman <horms@kernel.org>
+In `call_on_irq_stack()`, it can happen when switching from the task stack
+to the IRQ stack and when switching back. In both cases, we can be
+interrupted when the SCS pointer points to the IRQ SCS, but SP points to
+the task stack. The nested interrupt handler pushes its return addresses
+on the IRQ SCS. It then detects that SP points to the task stack,
+calls `call_on_irq_stack()` and clobbers the task SCS pointer with
+the IRQ SCS pointer, which it will also use !
 
-FTR, I did spend some time looking over the mappings described
-above and correlating them with both the code and the "Details" above.
-I agree with the analysis above and that the patchset addresses
-the problem as described.
+This leads to tasks returning to addresses on the wrong SCS,
+or even on the IRQ SCS, triggering kernel panics via CONFIG_VMAP_STACK
+or FPAC if enabled.
 
-...
+This is possible on a default config, but unlikely.
+However, when enabling CONFIG_ARM64_PSEUDO_NMI, DAIF is unmasked and
+instead the GIC is responsible for filtering what interrupts the CPU
+should receive based on priority.
+Given the goal of emulating NMIs, pseudo-NMIs can be received by the CPU
+even in `cpu_switch_to()` and `call_on_irq_stack()`, possibly *very*
+frequently depending on the system configuration and workload, leading
+to unpredictable kernel panics.
+
+Completely mask DAIF in `cpu_switch_to()` and restore it when returning.
+Do the same in `call_on_irq_stack()`, but restore and mask around
+the branch.
+Mask DAIF even if CONFIG_SHADOW_CALL_STACK is not enabled for consistency
+of behaviour between all configurations.
+
+Introduce and use an assembly macro for saving and masking DAIF,
+as the existing one saves but only masks IF.
+
+Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+Reported-by: Cristian Prundeanu <cpru@amazon.com>
+Fixes: 59b37fe52f49955791a460752c37145f1afdcad1 ("arm64: Stash shadow stack pointer in the task struct on interrupt")
+---
+Hi,
+I spent some time evaluating the performance impact of this change
+to make sure that it would be OK to mask in those functions.
+They have very few instructions so have few chances to be interrupted
+to begin with so the impact should be minimal.
+
+Disclaimer : I am no benchmarking or performance analysis expert.
+I'm happy to take additional inputs/validation of the findings below !
+
+I ran the following benchmarks on 4 core VMs running on recent
+commercial hardware, trying to maximize task switches :
+ - `stress-ng --switch` with 100 processes [0],
+ - `hackbench -T` and `hackbench -P`, both with 400 tasks [1].
+
+Comparing the effect on base defconfig :
+ - `stress-ng` is nearly identical, the median switch time with the fix
+   was reduced by 0.1%, average raised by 0.04%.
+ - `hackbench` results are slightly different, medians were reduced by
+   0.3-0.4%, with some high task time outliers raising the average by
+   1.7-1.8%.
+ - Both benchmarks have almost identical distribution.
+ - The effects seem mostly minimal, possibly in the noise.
+
+Comparing the effects with pNMI+SCS, pNMI enabled :
+ - `stress-ng` is slightly slower : median is +1.9%, average +1.4%.
+ - `hackbench` is similar : median is +0.8-0.9%, average +0.3-+0.6%.
+ - Times distribution is larger in both cases.
+ - There seems to be a small performance impact, however without the fix
+   there is a high likelihood of triggering the race condition and panic
+   at some point.
+
+I also tried to benchmark the performance impact on `memcached`
+as a workload reported to crash with pNMI enabled and SCS.
+I used `mc-crusher`[2] as recommended per the `memcached` documentation,
+specifically the `binconf`, `slab_rebal_torture` and `slab_rebal_torture5`
+configurations, measuring the average amount of get/set operations
+per second each minute.
+Those were also run on a 4 core VM, but running on an older machine.
+
+Comparing the effects on base defconfig :
+ - `binconf` is slightly worse, -0.8% ops/s on average
+ - `slab_rebal_torture` is slightly better, +0.7% op/s on average
+ - `slab_rebal_torture5` is almost identical, +0.1% op/s on average
+ - There is much less variation in operations/s.
+
+Comparing the effects with pNMI+SCS, pNMI enabled :
+ - `binconf` is slightly better, +0.5% op/s on average
+ - `slab_rebal_torture` as well, +0.5% op/s on average
+ - `slab_rebal_torture5` is slightly worse, -0.6% op/s on average
+ - The spread of values is similar
+
+The `mc-crusher` performance results seem to validate that the change
+has little impact in practice and might very much be lost in the noise.
+
+Given those results I feel it is OK to mask DAIF in `call_on_irq_stack()`
+and `cpu_switch_to()` in all configurations for consistency of behaviour,
+as well as not being notably detrimental in cases where it does fix the
+race condition.
+
+My apologies if this is all *very long*. I felt it was important to
+explain the mechanisms triggering the issues, as well as justifying
+the performance impact given the functions affected (though this has
+less place in the commit message itself.)
+I might be wrong on both counts, so I'm happy to trim the commit
+message if needed or be corrected on the performance impact !
+
+Thanks,
+Ada
+
+[0]: https://github.com/ColinIanKing/stress-ng
+[1]: https://man.archlinux.org/man/hackbench.8
+[2]: https://github.com/memcached/mc-crusher
+---
+ arch/arm64/include/asm/assembler.h | 5 +++++
+ arch/arm64/kernel/entry.S          | 6 ++++++
+ 2 files changed, 11 insertions(+)
+
+diff --git a/arch/arm64/include/asm/assembler.h b/arch/arm64/include/asm/assembler.h
+index ad63457a05c5..c56c21bb1eec 100644
+--- a/arch/arm64/include/asm/assembler.h
++++ b/arch/arm64/include/asm/assembler.h
+@@ -41,6 +41,11 @@
+ /*
+  * Save/restore interrupts.
+  */
++	.macro save_and_disable_daif, flags
++	mrs	\flags, daif
++	msr	daifset, #0xf
++	.endm
++
+ 	.macro	save_and_disable_irq, flags
+ 	mrs	\flags, daif
+ 	msr	daifset, #3
+diff --git a/arch/arm64/kernel/entry.S b/arch/arm64/kernel/entry.S
+index 5ae2a34b50bd..30dcb719685b 100644
+--- a/arch/arm64/kernel/entry.S
++++ b/arch/arm64/kernel/entry.S
+@@ -825,6 +825,7 @@ SYM_CODE_END(__bp_harden_el1_vectors)
+  *
+  */
+ SYM_FUNC_START(cpu_switch_to)
++	save_and_disable_daif x11
+ 	mov	x10, #THREAD_CPU_CONTEXT
+ 	add	x8, x0, x10
+ 	mov	x9, sp
+@@ -848,6 +849,7 @@ SYM_FUNC_START(cpu_switch_to)
+ 	ptrauth_keys_install_kernel x1, x8, x9, x10
+ 	scs_save x0
+ 	scs_load_current
++	restore_irq x11
+ 	ret
+ SYM_FUNC_END(cpu_switch_to)
+ NOKPROBE(cpu_switch_to)
+@@ -874,6 +876,7 @@ NOKPROBE(ret_from_fork)
+  * Calls func(regs) using this CPU's irq stack and shadow irq stack.
+  */
+ SYM_FUNC_START(call_on_irq_stack)
++	save_and_disable_daif x9
+ #ifdef CONFIG_SHADOW_CALL_STACK
+ 	get_current_task x16
+ 	scs_save x16
+@@ -888,8 +891,10 @@ SYM_FUNC_START(call_on_irq_stack)
+ 
+ 	/* Move to the new stack and call the function there */
+ 	add	sp, x16, #IRQ_STACK_SIZE
++	restore_irq x9
+ 	blr	x1
+ 
++	save_and_disable_daif x9
+ 	/*
+ 	 * Restore the SP from the FP, and restore the FP and LR from the frame
+ 	 * record.
+@@ -897,6 +902,7 @@ SYM_FUNC_START(call_on_irq_stack)
+ 	mov	sp, x29
+ 	ldp	x29, x30, [sp], #16
+ 	scs_load_current
++	restore_irq x9
+ 	ret
+ SYM_FUNC_END(call_on_irq_stack)
+ NOKPROBE(call_on_irq_stack)
+
+base-commit: 347e9f5043c89695b01e66b3ed111755afcf1911
+-- 
+2.43.0
+
 
