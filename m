@@ -4,67 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE49CC83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Jul 2025 13:42:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 749B9C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Jul 2025 13:45:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e+XXjpP7TXtXVQhaF0YZvfr+9FnAUoMLkIbOnA62APk=; b=cd6MagDXT9vfL+Q7PWHN5cbSQd
-	wb3JaKq6irhSCkvxyvvAraNIleeO3d55UDzZitD1nNKd7sx+FoeKvwelerld6qkKKsXLFHofyrYWS
-	T4UCc16w/+mhCNnyBEw08YPJhHgCpI4e7g0aS/v/nAnoli00IepOm9LwG8I1RzWuJvxkf8MLa/WKV
-	gbZ/Gkjmu0gUwYGNXcHeRH8VeLYBLcEwZPBcgJ0mJi04iWw25OeFe1tkxcvEX+M6+i2imEwbSpqiR
-	CfHlRUZ77LjHASOpdmCn+IqO+0qxHGceMo5/DE2qzEFJiGkKffhtRMCnhDU/nDAlUb3LhanIwtR05
-	1XwpFSLQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BOT9PzsR3/SwNUZlr6pAl3obJXDpAkRcFnZfw12R6F4=; b=QtdS8tyEpJEaBVi08gOL5L4cxL
+	YUrC09pZG8s2QnE7aQ28144dagQbDO6D5iGg138SuognlMFbgDYVMkp3SXmIxrwBPaYbQ+1XfZwdy
+	gBXrqR1ThfOMxMuzMPeA3OIPZM6b45JCRy1f7W3xWW4CVJvRLlfNSpNNH2AWctwekC/Qf7gPnNYXT
+	AdsZbGMLTH2eV1YN3OJ+2Os1kHtsumgrcw4vT6oiU2k0uRy+Am53EyQmAiMy+gIw3QUBe5GLVz3i1
+	lX1aKd9k1TJzjNohxmSnUfX/v2F0u9GcItdB5wghtzpf4z370AZ5c+aCKMFthqLJsId+FclvLng+Q
+	N6YsmKtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uclM0-0000000CiVy-3jLN;
-	Fri, 18 Jul 2025 13:42:24 +0000
-Received: from mail11.truemail.it ([217.194.8.81])
+	id 1uclOS-0000000Citb-2kvM;
+	Fri, 18 Jul 2025 13:44:56 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uclEe-0000000ChkU-0sQg
+	id 1uclH7-0000000Chxn-2m7V
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Jul 2025 13:34:51 +0000
-Received: from francesco-nb.pivistrello.it (93-49-2-63.ip317.fastwebnet.it [93.49.2.63])
-	by mail11.truemail.it (Postfix) with ESMTPA id 335BC21150;
-	Fri, 18 Jul 2025 15:34:43 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
-	s=default; t=1752845683;
-	bh=e+XXjpP7TXtXVQhaF0YZvfr+9FnAUoMLkIbOnA62APk=; h=From:To:Subject;
-	b=rAq3GYp9bLJjHDp9OxCW+xI6C/88NydvBn3jI+2NQEKIjW/rCvhcGylE7QwzKSMad
-	 4eXiTo6QGIhxI9jYVKCk/sMBDu6Hl2WLQTbetLOs6hdzlWNsow50gngFFjx1iXjgFP
-	 amzv7es3gyjRB1r+CahMxnL7ARTk1LTuwKqr73Cumzt8g0sSp11lssIBxArwWCU+sQ
-	 iWL+ScHX1EKKZVnQyHpPlP5ocBYmCgH7MbdwHmYwtSNX9t9FOGbgYxV3Cf0vvmiGGP
-	 fqmnt0pjIVxLpsEFniZ0Q4gOMGkVUoYyzrvoLEjsle0gq3L/5mQYvMSimUEcIoAcrJ
-	 73gX/ATRDEtXg==
-From: Francesco Dolcini <francesco@dolcini.it>
-To: Dong Aisheng <aisheng.dong@nxp.com>,
-	Andi Shyti <andi.shyti@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
-Cc: Emanuele Ghidoli <emanuele.ghidoli@toradex.com>,
-	linux-i2c@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Francesco Dolcini <francesco.dolcini@toradex.com>,
-	Carlos Song <carlos.song@nxp.com>,
-	Primoz Fiser <primoz.fiser@norik.com>
-Subject: [PATCH v5 2/2] i2c: lpi2c: implement xfer_atomic callback
-Date: Fri, 18 Jul 2025 15:34:29 +0200
-Message-Id: <20250718133429.67219-3-francesco@dolcini.it>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250718133429.67219-1-francesco@dolcini.it>
-References: <20250718133429.67219-1-francesco@dolcini.it>
+	Fri, 18 Jul 2025 13:37:22 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 5FD35433A4;
+	Fri, 18 Jul 2025 13:37:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 14FB1C4CEEB;
+	Fri, 18 Jul 2025 13:37:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1752845841;
+	bh=4gYK7cAt8c0eJOPvaPS4yKEvnYcbVrFkdFhehLWxsik=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Yy8qNN24agcDyfnirinDCL8kW7X+EzPdoiBa/bKjTRmdTumHRqgxlq98W1ZY9Lqqp
+	 BXRCWHbuo/mPUK1rrExsvfoJk7+cLFTCsO5hvY5XicL6wgeSN0lHUjcUZDxHt/jJ+G
+	 ikoPOXq+obE1oTE44wqcKgR3kbJP3XhaXkO6AokdrxUywUg/GlKuRNkLpE6k8mWuay
+	 z/Xeoq8r/oezbD3wLUOMIgpPcTCeYaqIyloN9DCat7hju8q6/XvrRm2mk9loVJx5gw
+	 tYPcY1areNux5tMVYVKowc7jJ12vSCEu9jHb/ArpmyAeafi1KBW1VgaAS85YgZT1LV
+	 HY/OUHeipGcAg==
+Date: Fri, 18 Jul 2025 14:37:14 +0100
+From: Will Deacon <will@kernel.org>
+To: Per Larsen <perl@immunant.com>
+Cc: Marc Zyngier <maz@kernel.org>, perlarsen@google.com,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org, ahomescu@google.com,
+	armellel@google.com, arve@android.com, ayrton@google.com,
+	qperret@google.com, sebastianene@google.com, qwandor@google.com
+Subject: Re: [PATCH v7 2/5] KVM: arm64: Use SMCCC 1.2 for FF-A initialization
+ and in host handler
+Message-ID: <aHpOClH1k-3NhI_y@willie-the-truck>
+References: <20250701-virtio-msg-ffa-v7-0-995afc3d385e@google.com>
+ <20250701-virtio-msg-ffa-v7-2-995afc3d385e@google.com>
+ <8634bdbgaz.wl-maz@kernel.org>
+ <3b10fa81-bfdd-4325-a330-c79df2e21621@immunant.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <3b10fa81-bfdd-4325-a330-c79df2e21621@immunant.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250718_063449_140505_1B650287 
-X-CRM114-Status: GOOD (  24.69  )
+X-CRM114-CacheID: sfid-20250718_063721_743500_69BE7905 
+X-CRM114-Status: GOOD (  39.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,386 +84,161 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Emanuele Ghidoli <emanuele.ghidoli@toradex.com>
+On Mon, Jul 07, 2025 at 05:06:23PM -0700, Per Larsen wrote:
+> On 7/3/25 5:38 AM, Marc Zyngier wrote:
+> > On Tue, 01 Jul 2025 23:06:35 +0100,
+> > Per Larsen via B4 Relay <devnull+perlarsen.google.com@kernel.org> wrote:
+> > > diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
+> > > index 2c199d40811efb5bfae199c4a67d8ae3d9307357..65d241ba32403d014b43cc4ef4d5bf9693813809 100644
+> > > --- a/arch/arm64/kvm/hyp/nvhe/ffa.c
+> > > +++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
+> > > @@ -71,36 +71,68 @@ static u32 hyp_ffa_version;
+> > >   static bool has_version_negotiated;
+> > >   static hyp_spinlock_t version_lock;
+> > > -static void ffa_to_smccc_error(struct arm_smccc_res *res, u64 ffa_errno)
+> > > +static void ffa_to_smccc_error(struct arm_smccc_1_2_regs *res, u64 ffa_errno)
+> > >   {
+> > > -	*res = (struct arm_smccc_res) {
+> > > +	*res = (struct arm_smccc_1_2_regs) {
+> > >   		.a0	= FFA_ERROR,
+> > >   		.a2	= ffa_errno,
+> > >   	};
+> > >   }
+> > > -static void ffa_to_smccc_res_prop(struct arm_smccc_res *res, int ret, u64 prop)
+> > > +static void ffa_to_smccc_res_prop(struct arm_smccc_1_2_regs *res, int ret, u64 prop)
+> > >   {
+> > >   	if (ret == FFA_RET_SUCCESS) {
+> > > -		*res = (struct arm_smccc_res) { .a0 = FFA_SUCCESS,
+> > > -						.a2 = prop };
+> > > +		*res = (struct arm_smccc_1_2_regs) { .a0 = FFA_SUCCESS,
+> > > +						      .a2 = prop };
+> > >   	} else {
+> > >   		ffa_to_smccc_error(res, ret);
+> > >   	}
+> > >   }
+> > > -static void ffa_to_smccc_res(struct arm_smccc_res *res, int ret)
+> > > +static void ffa_to_smccc_res(struct arm_smccc_1_2_regs *res, int ret)
+> > >   {
+> > >   	ffa_to_smccc_res_prop(res, ret, 0);
+> > >   }
+> > >   static void ffa_set_retval(struct kvm_cpu_context *ctxt,
+> > > -			   struct arm_smccc_res *res)
+> > > +			   struct arm_smccc_1_2_regs *res)
+> > >   {
+> > > +	DECLARE_REG(u64, func_id, ctxt, 0);
+> > >   	cpu_reg(ctxt, 0) = res->a0;
+> > >   	cpu_reg(ctxt, 1) = res->a1;
+> > >   	cpu_reg(ctxt, 2) = res->a2;
+> > >   	cpu_reg(ctxt, 3) = res->a3;
+> > > +	cpu_reg(ctxt, 4) = res->a4;
+> > > +	cpu_reg(ctxt, 5) = res->a5;
+> > > +	cpu_reg(ctxt, 6) = res->a6;
+> > > +	cpu_reg(ctxt, 7) = res->a7;
+> > 
+> >  From DEN0028G 2.6:
+> > 
+> > <quote>
+> > Registers W4-W7 must be preserved unless they contain results, as
+> > specified in the function definition.
+> > </quote>
+> > 
+> > On what grounds can you blindly change these registers?
+> From DEN0077A 1.2 Section 11.2: Reserved parameter convention
+> 
+> <quote>
+> Unused parameter registers in FF-A ABIs are reserved for future use by the
+> Framework.
+> 
+> [...]
+> 
+> The caller is expected to write zeroes to these registers. The callee
+> ignores the values in these registers.
+> </quote>
+> 
+> My read is that, as long as we are writing zeroes into reserved registers
+> (which I believe we are), we comply with DEN0026G 2.6.>
 
-Rework the read and write code paths in the driver to support operation
-in atomic contexts. To achieve this, the driver must not rely on IRQs
-or perform any scheduling, e.g., via a sleep or schedule routine.
+Right, the specs make this far more difficult to decipher than necessary
+but I think SMCCC defers to the definition of the specific call being
+made and then FF-A is basically saying that unused argument registers
+are always zeroed.
 
-Implement atomic, sleep-free, and IRQ-less operation. This increases
-complexity but is necessary for atomic I2C transfers required by some
-hardware configurations, e.g., to trigger reboots on an external PMIC chip.
+Rather than have the EL2 proxy treat each call differently based on the
+used argument registers, we can rely on EL3 doing the right thing and
+blindly copy everything back, which is what you've done. So I think
+that's ok.
 
-Signed-off-by: Emanuele Ghidoli <emanuele.ghidoli@toradex.com>
-Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
-Reviewed-by: Carlos Song <carlos.song@nxp.com>
-Tested-by: Primoz Fiser <primoz.fiser@norik.com>
----
-v4 -> v5
-- rebased due to commit 614b1c3cbfb0 ("i2c: use inclusive callbacks in struct i2c_algorithm").
-- add Tested-by: Primoz 
+> > > +
+> > > +	/*
+> > > +	 * DEN0028C 2.6: SMC32/HVC32 call from aarch64 must preserve x8-x30.
+> > > +	 *
+> > > +	 * The most straightforward approach is to look at the function ID
+> > > +	 * sent by the caller. However, the caller could send FFA_MSG_WAIT
+> > > +	 * which is a 32-bit interface but the reply could very well be 64-bit
+> > > +	 * such as FFA_FN64_MSG_SEND_DIRECT_REQ or FFA_MSG_SEND_DIRECT_REQ2.
+> > > +	 *
+> > > +	 * Instead, we could look at the function ID in the response (a0) but
+> > > +	 * that doesn't work either as FFA_VERSION responses put the version
+> > > +	 * number (or error code) in w0.
+> > > +	 *
+> > > +	 * Set x8-x17 iff response contains 64-bit function ID in a0.
+> > > +	 */
+> > > +	if (func_id != FFA_VERSION && ARM_SMCCC_IS_64(res->a0)) {
+> > > +		cpu_reg(ctxt, 8) = res->a8;
+> > > +		cpu_reg(ctxt, 9) = res->a9;
+> > > +		cpu_reg(ctxt, 10) = res->a10;
+> > > +		cpu_reg(ctxt, 11) = res->a11;
+> > > +		cpu_reg(ctxt, 12) = res->a12;
+> > > +		cpu_reg(ctxt, 13) = res->a13;
+> > > +		cpu_reg(ctxt, 14) = res->a14;
+> > > +		cpu_reg(ctxt, 15) = res->a15;
+> > > +		cpu_reg(ctxt, 16) = res->a16;
+> > > +		cpu_reg(ctxt, 17) = res->a17;
+> > > +	}
+> > >   }
+> > 
+> > I don't see how that can ever work.
+> > 
+> > Irrespective of how FFA_MSG_WAIT actually works (and I couldn't find
+> > anything in the spec that supports the above), the requester will
+> > fully expect its registers to be preserved based on the initial
+> > function type, and that alone. No ifs, no buts.
+> > 
+> > If what you describe can happen (please provide a convincing example),
+> > then the spec is doomed.
+> 
+> DEN0077A 1.2 Section 8.2 (Runtime Model for FFA_RUN) and 8.3 (Runtime Model
+> for Direct request ABIs) contains Figures 8.1 and 8.2. Each figure shows
+> transitions between states "waiting", "blocked", "running", and "preempted".
+> Key to my understanding is that the waiting state in Figure 8.1 and Figure
+> 8.2 is the exact same state. This appears to be the case per Section 4.10.
+> 
+> So we have to consider the ways to get in and out of the waiting state by
+> joining the state machines in Figures 8.1 and 8.2. Figure 8.1 has an edge
+> between "running" and "waiting" caused by FFA_MSG_WAIT. Figure 8.2 has an
+> edge between "waiting" and "running" caused by a "Direct request ABI".
+> 
+> Direct request ABIs include FFA_MSG_SEND_DIRECT_REQ2 which is why the FF-A
+> 1.2 spec, in my read, permits the response to a 32-bit FFA_MSG_WAIT call can
+> be a 64-bit FFA_MSG_SEND_DIRECT_REQ2 reply.
 
-v3 -> v4
-- Split the patch into two parts: one for the readl_poll_timeout() and one for the atomic implementation.
-- Change the readl_poll_timeout() delay to 0 us to do not change the behavior of the driver.
-- Use err variable consistently.
+That seems bonkers to me and I agree with Marc's assessment above. The
+SMCCC is crystal clear that a caller using the SM32/HVC32 calling
+convention can rely on x8-x30 (as well as the stack pointers) being
+preserved. If FF-A has a problem with that then it needs to be fixed
+there and not bodged in Linux.
 
-v2 -> v3
-- Closes: https://lore.kernel.org/oe-kbuild-all/202505130735.zh3WuTNu-lkp@intel.com/. Using the return value of
-lpi2c_imx_read_msr_poll_timeout() to check for errors.
+Setting that aside, I'm still not sure I follow this part of your check:
 
-v1 -> v2
-- Rename READL_POLL_TIMEOUT to lpi2c_imx_read_msr_poll_timeout
-- Remove addr and timeout_us parameters from lpi2c_imx_read_msr_poll_timeout since they are used always with the same value
-- add r-b tag from Carlos Song
----
- drivers/i2c/busses/i2c-imx-lpi2c.c | 170 ++++++++++++++++++++++-------
- 1 file changed, 132 insertions(+), 38 deletions(-)
+	if (... && ARM_SMCCC_IS_64(res->a0))
 
-diff --git a/drivers/i2c/busses/i2c-imx-lpi2c.c b/drivers/i2c/busses/i2c-imx-lpi2c.c
-index 4a25c92adfc1..3ba7825f66ef 100644
---- a/drivers/i2c/busses/i2c-imx-lpi2c.c
-+++ b/drivers/i2c/busses/i2c-imx-lpi2c.c
-@@ -188,9 +188,11 @@ struct lpi2c_imx_struct {
- 	struct i2c_client	*target;
- };
- 
--#define lpi2c_imx_read_msr_poll_timeout(val, cond)                            \
-+#define lpi2c_imx_read_msr_poll_timeout(atomic, val, cond)                    \
-+	(atomic ? readl_poll_timeout_atomic(lpi2c_imx->base + LPI2C_MSR, val, \
-+					    cond, 0, 500000) :                \
- 		  readl_poll_timeout(lpi2c_imx->base + LPI2C_MSR, val, cond,  \
--				     0, 500000)
-+				     0, 500000))
- 
- static void lpi2c_imx_intctrl(struct lpi2c_imx_struct *lpi2c_imx,
- 			      unsigned int enable)
-@@ -198,12 +200,12 @@ static void lpi2c_imx_intctrl(struct lpi2c_imx_struct *lpi2c_imx,
- 	writel(enable, lpi2c_imx->base + LPI2C_MIER);
- }
- 
--static int lpi2c_imx_bus_busy(struct lpi2c_imx_struct *lpi2c_imx)
-+static int lpi2c_imx_bus_busy(struct lpi2c_imx_struct *lpi2c_imx, bool atomic)
- {
- 	int err;
- 	unsigned int temp;
- 
--	err = lpi2c_imx_read_msr_poll_timeout(temp,
-+	err = lpi2c_imx_read_msr_poll_timeout(atomic, temp,
- 					      temp & (MSR_ALF | MSR_BBF | MSR_MBF));
- 
- 	/* check for arbitration lost, clear if set */
-@@ -248,7 +250,7 @@ static void lpi2c_imx_set_mode(struct lpi2c_imx_struct *lpi2c_imx)
- }
- 
- static int lpi2c_imx_start(struct lpi2c_imx_struct *lpi2c_imx,
--			   struct i2c_msg *msgs)
-+			   struct i2c_msg *msgs, bool atomic)
- {
- 	unsigned int temp;
- 
-@@ -260,17 +262,17 @@ static int lpi2c_imx_start(struct lpi2c_imx_struct *lpi2c_imx,
- 	temp = i2c_8bit_addr_from_msg(msgs) | (GEN_START << 8);
- 	writel(temp, lpi2c_imx->base + LPI2C_MTDR);
- 
--	return lpi2c_imx_bus_busy(lpi2c_imx);
-+	return lpi2c_imx_bus_busy(lpi2c_imx, atomic);
- }
- 
--static void lpi2c_imx_stop(struct lpi2c_imx_struct *lpi2c_imx)
-+static void lpi2c_imx_stop(struct lpi2c_imx_struct *lpi2c_imx, bool atomic)
- {
- 	unsigned int temp;
- 	int err;
- 
- 	writel(GEN_STOP << 8, lpi2c_imx->base + LPI2C_MTDR);
- 
--	err = lpi2c_imx_read_msr_poll_timeout(temp, temp & MSR_SDF);
-+	err = lpi2c_imx_read_msr_poll_timeout(atomic, temp, temp & MSR_SDF);
- 
- 	if (err) {
- 		dev_dbg(&lpi2c_imx->adapter.dev, "stop timeout\n");
-@@ -390,12 +392,12 @@ static int lpi2c_imx_pio_msg_complete(struct lpi2c_imx_struct *lpi2c_imx)
- 	return time_left ? 0 : -ETIMEDOUT;
- }
- 
--static int lpi2c_imx_txfifo_empty(struct lpi2c_imx_struct *lpi2c_imx)
-+static int lpi2c_imx_txfifo_empty(struct lpi2c_imx_struct *lpi2c_imx, bool atomic)
- {
- 	unsigned int temp;
- 	int err;
- 
--	err = lpi2c_imx_read_msr_poll_timeout(temp,
-+	err = lpi2c_imx_read_msr_poll_timeout(atomic, temp,
- 					      (temp & MSR_NDF) || !lpi2c_imx_txfifo_cnt(lpi2c_imx));
- 
- 	if (temp & MSR_NDF) {
-@@ -432,7 +434,7 @@ static void lpi2c_imx_set_rx_watermark(struct lpi2c_imx_struct *lpi2c_imx)
- 	writel(temp << 16, lpi2c_imx->base + LPI2C_MFCR);
- }
- 
--static void lpi2c_imx_write_txfifo(struct lpi2c_imx_struct *lpi2c_imx)
-+static bool lpi2c_imx_write_txfifo(struct lpi2c_imx_struct *lpi2c_imx, bool atomic)
- {
- 	unsigned int data, txcnt;
- 
-@@ -447,13 +449,19 @@ static void lpi2c_imx_write_txfifo(struct lpi2c_imx_struct *lpi2c_imx)
- 		txcnt++;
- 	}
- 
--	if (lpi2c_imx->delivered < lpi2c_imx->msglen)
--		lpi2c_imx_intctrl(lpi2c_imx, MIER_TDIE | MIER_NDIE);
--	else
-+	if (lpi2c_imx->delivered < lpi2c_imx->msglen) {
-+		if (!atomic)
-+			lpi2c_imx_intctrl(lpi2c_imx, MIER_TDIE | MIER_NDIE);
-+		return false;
-+	}
-+
-+	if (!atomic)
- 		complete(&lpi2c_imx->complete);
-+
-+	return true;
- }
- 
--static void lpi2c_imx_read_rxfifo(struct lpi2c_imx_struct *lpi2c_imx)
-+static bool lpi2c_imx_read_rxfifo(struct lpi2c_imx_struct *lpi2c_imx, bool atomic)
- {
- 	unsigned int blocklen, remaining;
- 	unsigned int temp, data;
-@@ -478,8 +486,9 @@ static void lpi2c_imx_read_rxfifo(struct lpi2c_imx_struct *lpi2c_imx)
- 	remaining = lpi2c_imx->msglen - lpi2c_imx->delivered;
- 
- 	if (!remaining) {
--		complete(&lpi2c_imx->complete);
--		return;
-+		if (!atomic)
-+			complete(&lpi2c_imx->complete);
-+		return true;
- 	}
- 
- 	/* not finished, still waiting for rx data */
-@@ -497,7 +506,10 @@ static void lpi2c_imx_read_rxfifo(struct lpi2c_imx_struct *lpi2c_imx)
- 		writel(temp, lpi2c_imx->base + LPI2C_MTDR);
- 	}
- 
--	lpi2c_imx_intctrl(lpi2c_imx, MIER_RDIE);
-+	if (!atomic)
-+		lpi2c_imx_intctrl(lpi2c_imx, MIER_RDIE);
-+
-+	return false;
- }
- 
- static void lpi2c_imx_write(struct lpi2c_imx_struct *lpi2c_imx,
-@@ -505,11 +517,29 @@ static void lpi2c_imx_write(struct lpi2c_imx_struct *lpi2c_imx,
- {
- 	lpi2c_imx->tx_buf = msgs->buf;
- 	lpi2c_imx_set_tx_watermark(lpi2c_imx);
--	lpi2c_imx_write_txfifo(lpi2c_imx);
-+	lpi2c_imx_write_txfifo(lpi2c_imx, false);
- }
- 
--static void lpi2c_imx_read(struct lpi2c_imx_struct *lpi2c_imx,
--			   struct i2c_msg *msgs)
-+static int lpi2c_imx_write_atomic(struct lpi2c_imx_struct *lpi2c_imx,
-+				  struct i2c_msg *msgs)
-+{
-+	u32 temp;
-+	int err;
-+
-+	lpi2c_imx->tx_buf = msgs->buf;
-+
-+	err = lpi2c_imx_read_msr_poll_timeout(true, temp,
-+					      (temp & MSR_NDF) ||
-+					      lpi2c_imx_write_txfifo(lpi2c_imx, true));
-+
-+	if (temp & MSR_NDF)
-+		return -EIO;
-+
-+	return err;
-+}
-+
-+static void lpi2c_imx_read_init(struct lpi2c_imx_struct *lpi2c_imx,
-+				struct i2c_msg *msgs)
- {
- 	unsigned int temp;
- 
-@@ -520,8 +550,43 @@ static void lpi2c_imx_read(struct lpi2c_imx_struct *lpi2c_imx,
- 	temp = msgs->len > CHUNK_DATA ? CHUNK_DATA - 1 : msgs->len - 1;
- 	temp |= (RECV_DATA << 8);
- 	writel(temp, lpi2c_imx->base + LPI2C_MTDR);
-+}
- 
--	lpi2c_imx_intctrl(lpi2c_imx, MIER_RDIE | MIER_NDIE);
-+static bool lpi2c_imx_read_chunk_atomic(struct lpi2c_imx_struct *lpi2c_imx)
-+{
-+	u32 rxcnt;
-+
-+	rxcnt = (readl(lpi2c_imx->base + LPI2C_MFSR) >> 16) & 0xFF;
-+	if (!rxcnt)
-+		return false;
-+
-+	if (!lpi2c_imx_read_rxfifo(lpi2c_imx, true))
-+		return false;
-+
-+	return true;
-+}
-+
-+static int lpi2c_imx_read_atomic(struct lpi2c_imx_struct *lpi2c_imx,
-+				 struct i2c_msg *msgs)
-+{
-+	u32 temp;
-+	int tmo_us;
-+
-+	tmo_us = 1000000;
-+	do {
-+		if (lpi2c_imx_read_chunk_atomic(lpi2c_imx))
-+			return 0;
-+
-+		temp = readl(lpi2c_imx->base + LPI2C_MSR);
-+
-+		if (temp & MSR_NDF)
-+			return -EIO;
-+
-+		udelay(100);
-+		tmo_us -= 100;
-+	} while (tmo_us > 0);
-+
-+	return -ETIMEDOUT;
- }
- 
- static bool is_use_dma(struct lpi2c_imx_struct *lpi2c_imx, struct i2c_msg *msg)
-@@ -541,14 +606,27 @@ static int lpi2c_imx_pio_xfer(struct lpi2c_imx_struct *lpi2c_imx,
- {
- 	reinit_completion(&lpi2c_imx->complete);
- 
--	if (msg->flags & I2C_M_RD)
--		lpi2c_imx_read(lpi2c_imx, msg);
--	else
-+	if (msg->flags & I2C_M_RD) {
-+		lpi2c_imx_read_init(lpi2c_imx, msg);
-+		lpi2c_imx_intctrl(lpi2c_imx, MIER_RDIE | MIER_NDIE);
-+	} else {
- 		lpi2c_imx_write(lpi2c_imx, msg);
-+	}
- 
- 	return lpi2c_imx_pio_msg_complete(lpi2c_imx);
- }
- 
-+static int lpi2c_imx_pio_xfer_atomic(struct lpi2c_imx_struct *lpi2c_imx,
-+				     struct i2c_msg *msg)
-+{
-+	if (msg->flags & I2C_M_RD) {
-+		lpi2c_imx_read_init(lpi2c_imx, msg);
-+		return lpi2c_imx_read_atomic(lpi2c_imx, msg);
-+	}
-+
-+	return lpi2c_imx_write_atomic(lpi2c_imx, msg);
-+}
-+
- static int lpi2c_imx_dma_timeout_calculate(struct lpi2c_imx_struct *lpi2c_imx)
- {
- 	unsigned long time = 0;
-@@ -943,8 +1021,8 @@ static int lpi2c_imx_dma_xfer(struct lpi2c_imx_struct *lpi2c_imx,
- 	return ret;
- }
- 
--static int lpi2c_imx_xfer(struct i2c_adapter *adapter,
--			  struct i2c_msg *msgs, int num)
-+static int lpi2c_imx_xfer_common(struct i2c_adapter *adapter,
-+				 struct i2c_msg *msgs, int num, bool atomic)
- {
- 	struct lpi2c_imx_struct *lpi2c_imx = i2c_get_adapdata(adapter);
- 	unsigned int temp;
-@@ -955,7 +1033,7 @@ static int lpi2c_imx_xfer(struct i2c_adapter *adapter,
- 		return result;
- 
- 	for (i = 0; i < num; i++) {
--		result = lpi2c_imx_start(lpi2c_imx, &msgs[i]);
-+		result = lpi2c_imx_start(lpi2c_imx, &msgs[i], atomic);
- 		if (result)
- 			goto disable;
- 
-@@ -967,28 +1045,33 @@ static int lpi2c_imx_xfer(struct i2c_adapter *adapter,
- 		lpi2c_imx->tx_buf = NULL;
- 		lpi2c_imx->delivered = 0;
- 		lpi2c_imx->msglen = msgs[i].len;
--		init_completion(&lpi2c_imx->complete);
- 
--		if (is_use_dma(lpi2c_imx, &msgs[i])) {
--			result = lpi2c_imx_dma_xfer(lpi2c_imx, &msgs[i]);
--			if (result && lpi2c_imx->dma->using_pio_mode)
--				result = lpi2c_imx_pio_xfer(lpi2c_imx, &msgs[i]);
-+		if (atomic) {
-+			result = lpi2c_imx_pio_xfer_atomic(lpi2c_imx, &msgs[i]);
- 		} else {
--			result = lpi2c_imx_pio_xfer(lpi2c_imx, &msgs[i]);
-+			init_completion(&lpi2c_imx->complete);
-+
-+			if (is_use_dma(lpi2c_imx, &msgs[i])) {
-+				result = lpi2c_imx_dma_xfer(lpi2c_imx, &msgs[i]);
-+				if (result && lpi2c_imx->dma->using_pio_mode)
-+					result = lpi2c_imx_pio_xfer(lpi2c_imx, &msgs[i]);
-+			} else {
-+				result = lpi2c_imx_pio_xfer(lpi2c_imx, &msgs[i]);
-+			}
- 		}
- 
- 		if (result)
- 			goto stop;
- 
- 		if (!(msgs[i].flags & I2C_M_RD)) {
--			result = lpi2c_imx_txfifo_empty(lpi2c_imx);
-+			result = lpi2c_imx_txfifo_empty(lpi2c_imx, atomic);
- 			if (result)
- 				goto stop;
- 		}
- 	}
- 
- stop:
--	lpi2c_imx_stop(lpi2c_imx);
-+	lpi2c_imx_stop(lpi2c_imx, atomic);
- 
- 	temp = readl(lpi2c_imx->base + LPI2C_MSR);
- 	if ((temp & MSR_NDF) && !result)
-@@ -1004,6 +1087,16 @@ static int lpi2c_imx_xfer(struct i2c_adapter *adapter,
- 	return (result < 0) ? result : num;
- }
- 
-+static int lpi2c_imx_xfer(struct i2c_adapter *adapter, struct i2c_msg *msgs, int num)
-+{
-+	return lpi2c_imx_xfer_common(adapter, msgs, num, false);
-+}
-+
-+static int lpi2c_imx_xfer_atomic(struct i2c_adapter *adapter, struct i2c_msg *msgs, int num)
-+{
-+	return lpi2c_imx_xfer_common(adapter, msgs, num, true);
-+}
-+
- static irqreturn_t lpi2c_imx_target_isr(struct lpi2c_imx_struct *lpi2c_imx,
- 					u32 ssr, u32 sier_filter)
- {
-@@ -1066,9 +1159,9 @@ static irqreturn_t lpi2c_imx_master_isr(struct lpi2c_imx_struct *lpi2c_imx)
- 	if (temp & MSR_NDF)
- 		complete(&lpi2c_imx->complete);
- 	else if (temp & MSR_RDF)
--		lpi2c_imx_read_rxfifo(lpi2c_imx);
-+		lpi2c_imx_read_rxfifo(lpi2c_imx, false);
- 	else if (temp & MSR_TDF)
--		lpi2c_imx_write_txfifo(lpi2c_imx);
-+		lpi2c_imx_write_txfifo(lpi2c_imx, false);
- 
- 	return IRQ_HANDLED;
- }
-@@ -1265,6 +1358,7 @@ static u32 lpi2c_imx_func(struct i2c_adapter *adapter)
- 
- static const struct i2c_algorithm lpi2c_imx_algo = {
- 	.xfer = lpi2c_imx_xfer,
-+	.xfer_atomic = lpi2c_imx_xfer_atomic,
- 	.functionality = lpi2c_imx_func,
- 	.reg_target = lpi2c_imx_register_target,
- 	.unreg_target = lpi2c_imx_unregister_target,
--- 
-2.39.5
+won't res->a0 contain something like FFA_SUCCESS? The FFA spec states:
 
+  FFA_SUCCESS64, is used only if any result register encodes a 64-bit
+  parameter.
+
+which doesn't really seem related to whether or not the initial call
+was using SMC32 or SMC64. What am I missing?
+
+Will
 
