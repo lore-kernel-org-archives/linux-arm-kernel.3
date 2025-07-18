@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E16AC83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Jul 2025 11:41:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9ED4C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Jul 2025 11:44:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/NUMc2dh1Mz2/PX5Lutg8F8mTAy+ovWylZ9sXkUp+4A=; b=T6bEgztLFnuegKnxHLcCd9mVGA
-	gc/V6NS1FC7G7JpwjQu4cX1v43EOY7uY7oSz1TSWjkE3gSOxYmwAzFZEJJY6sPp/nRkQGJbnFeU2W
-	TI+S+QnxpfYZlMYiNCvFa1YvvIg86KgQwfOui4A4SD9cdYrnW+zYCcSp2YYke+yam0Ex9ZicibZas
-	xTAUYNfPi3GDIPIlt/6tHeScMGNMycIp/xqfndSrjSeiE1sV3ll1n2AmiveG7YopA9TKBNbTFKnRb
-	Fes7cE+AqFS9cr+fwVQkkNs5krKFDnG5PLbTBI6ZYbf0CuVvT6oQ5I1MQ1zm3XJsDJzpwd3HmoEgh
-	7D/Edvqg==;
+	bh=NIoUXLToBgL6xP8XdeP6JT6Qm2yYjBFIc4oLZmaYAgY=; b=4/Siu+SPlEBbcUXYfCript1OZ4
+	4SfKLK5NnWWabSEE//5rxUTAj6+Edn24/YUkmplDb1O+F5RZnuwwSjpxJ/6ULDvs9HGYWPWzblRlr
+	Erl7l33edzYb2eybNFvjDfn0i3wmKvXY9pJyRPzRl+lh4RmGMTXDsMWbFCd/K6AYXBKFIgMqA0cZb
+	sut1UVI4gAUtGwjkLkRNEX2eTXI/AaD9498WVztNoNOB4dh2oeTdpT9RJ/+BN+1siOE9LRCfjNCkX
+	Ayj8HeCCIAf5WTi9GmiGSpJ7oPISDVXPSbdwhmS2vu8C+cMvMFlj2DiffWuuBQDNP32VuPgVDuf9G
+	I3vPaa/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucjTE-0000000CUbF-0gKW;
-	Fri, 18 Jul 2025 11:41:44 +0000
+	id 1ucjVd-0000000CUkY-0cWM;
+	Fri, 18 Jul 2025 11:44:13 +0000
 Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucj38-0000000CPgu-2Yev
+	id 1ucj44-0000000CPpF-1Ato
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Jul 2025 11:14:47 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.231])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4bk6Y70MQwz6L53F;
-	Fri, 18 Jul 2025 19:11:07 +0800 (CST)
+	Fri, 18 Jul 2025 11:15:45 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.216])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4bk6cx5j1Xz6L5SD;
+	Fri, 18 Jul 2025 19:14:25 +0800 (CST)
 Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
-	by mail.maildlp.com (Postfix) with ESMTPS id 27B20140371;
-	Fri, 18 Jul 2025 19:14:45 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id D83941402F6;
+	Fri, 18 Jul 2025 19:15:42 +0800 (CST)
 Received: from localhost (10.203.177.66) by frapeml500008.china.huawei.com
  (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Fri, 18 Jul
- 2025 13:14:44 +0200
-Date: Fri, 18 Jul 2025 12:14:43 +0100
+ 2025 13:15:42 +0200
+Date: Fri, 18 Jul 2025 12:15:40 +0100
 From: Jonathan Cameron <Jonathan.Cameron@huawei.com>
 To: Alireza Sanaee <alireza.sanaee@huawei.com>
 CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
@@ -47,12 +47,12 @@ CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
 	<linuxarm@huawei.com>, <mark.rutland@arm.com>, <mike.leach@linaro.org>,
 	<robh@kernel.org>, <ruanjinjie@huawei.com>, <saravanak@google.com>,
 	<shameerali.kolothum.thodi@huawei.com>, <suzuki.poulose@arm.com>
-Subject: Re: [PATCH v3 4/6] coresight: cti: Use of_cpu_phandle_to_id for
- grabbing CPU id
-Message-ID: <20250718121443.000011ff@huawei.com>
-In-Reply-To: <20250718094848.587-5-alireza.sanaee@huawei.com>
+Subject: Re: [PATCH v3 6/6] perf/arm-dsu: refactor cpu id retrieval via new
+ API of_cpu_phandle_to_id
+Message-ID: <20250718121540.000008d4@huawei.com>
+In-Reply-To: <20250718094848.587-7-alireza.sanaee@huawei.com>
 References: <20250718094848.587-1-alireza.sanaee@huawei.com>
-	<20250718094848.587-5-alireza.sanaee@huawei.com>
+	<20250718094848.587-7-alireza.sanaee@huawei.com>
 X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
 Content-Type: text/plain; charset="US-ASCII"
@@ -61,9 +61,8 @@ X-Originating-IP: [10.203.177.66]
 X-ClientProxiedBy: lhrpeml100003.china.huawei.com (7.191.160.210) To
  frapeml500008.china.huawei.com (7.182.85.71)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250718_041446_794934_5D630F37 
-X-CRM114-Status: UNSURE (   4.60  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250718_041544_466151_D6F12A4B 
+X-CRM114-Status: GOOD (  14.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,12 +77,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 18 Jul 2025 10:48:46 +0100
+On Fri, 18 Jul 2025 10:48:48 +0100
 Alireza Sanaee <alireza.sanaee@huawei.com> wrote:
 
-> Use the newly created API (of_cpu_phandle_to_id) to grab CPU ID.
+> Update arm-dsu to use the new API (of_cpu_phandle_to_id).
 > 
-> Reviewed-by: Mike Leach <mike.leach@linaro.org>
 > Signed-off-by: Alireza Sanaee <alireza.sanaee@huawei.com>
+
 Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+
+> ---
+>  drivers/perf/arm_dsu_pmu.c | 7 +------
+>  1 file changed, 1 insertion(+), 6 deletions(-)
+> 
+> diff --git a/drivers/perf/arm_dsu_pmu.c b/drivers/perf/arm_dsu_pmu.c
+> index cb4fb59fe04b..8f76bd94349c 100644
+> --- a/drivers/perf/arm_dsu_pmu.c
+> +++ b/drivers/perf/arm_dsu_pmu.c
+> @@ -591,17 +591,12 @@ static struct dsu_pmu *dsu_pmu_alloc(struct platform_device *pdev)
+>  static int dsu_pmu_dt_get_cpus(struct device *dev, cpumask_t *mask)
+>  {
+>  	int i = 0, n, cpu;
+> -	struct device_node *cpu_node;
+>  
+>  	n = of_count_phandle_with_args(dev->of_node, "cpus", NULL);
+>  	if (n <= 0)
+>  		return -ENODEV;
+>  	for (; i < n; i++) {
+> -		cpu_node = of_parse_phandle(dev->of_node, "cpus", i);
+> -		if (!cpu_node)
+> -			break;
+> -		cpu = of_cpu_node_to_id(cpu_node);
+> -		of_node_put(cpu_node);
+> +		cpu = of_cpu_phandle_to_id(dev->of_node, NULL, i);
+>  		/*
+>  		 * We have to ignore the failures here and continue scanning
+>  		 * the list to handle cases where the nr_cpus could be capped
+
 
