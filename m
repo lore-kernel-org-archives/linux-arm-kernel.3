@@ -4,179 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A2E6C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Jul 2025 01:22:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 036FAC83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Jul 2025 01:40:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UESTmwa0ArcC9DNycDa8dhlKCmAN0isTBlNpvMFjL/I=; b=NnR+677BHVtHiglUYHuRO4LJpP
-	+sQIxVn1kTTz8riF+d6PHFROiaWa9ZOQevfg0dU4vBeZdvepNa8tzxGNoDO7owSBLi2fvW1xCkw8J
-	K3+ycaK+Ct7QaC7tLvsHZhTr9aFEvL8W5DyTM6/0RGZBujrs8IL6Q9Pvezs6NNMT83P9ddJNQ+XHk
-	/xMx+/EANCdYoJAiQW02d0cOI1X92nPliaxgRv3Vnvo5yw8/0dI6CjiAGEz+JV94cG2NbEWOgShKH
-	nbptohBu+fgmosg+koayqBbxroFO1GQ4BH3S4qwrwhdBiieSI1aodnoZD6QZUf3JPdRsgA7LjgiF0
-	+ix+0kyA==;
+	bh=C9Pxx6O83iy0hNmgYJuqWyZbhvOSk0MMSBxIS2yd3e0=; b=16TISbPxs1PqD77okS2AnRf2MB
+	beZ7Pth68lekuq0fjDC94y9z275QgZf/D0KffdchtEjT5mkqYvYfoEGYBP7mepo+FC4/SD65QzfW0
+	Ht7ePT1rp/xs2H4dDRaSnsm6wQ26dT+VOqBtxM/v+zCWkH9I0YUTo5BpyFTR5VTYkk6/ltKZLccj8
+	7fiRgyHW1ULJIpUWia+Uy72MGN46WUIq1qPuSTheC+WZvXDazrfaP6F1hyqs6G6Y191qdaL5jGoG9
+	Lzuu9lSnG1bPOfGVrUKhBlM+tBtTJLLAvygRNJkmXD/epfZkQwIW7BUBRtc5dini7ehDZ44pC+Fte
+	gK8rrJYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucZnb-0000000BS4y-1NcS;
-	Fri, 18 Jul 2025 01:22:07 +0000
-Received: from mail-bn8nam12on20719.outbound.protection.outlook.com ([2a01:111:f403:2418::719] helo=NAM12-BN8-obe.outbound.protection.outlook.com)
+	id 1uca5X-0000000BTK2-1zOg;
+	Fri, 18 Jul 2025 01:40:39 +0000
+Received: from mgamail.intel.com ([192.198.163.8])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucYKk-0000000BMf5-214i;
-	Thu, 17 Jul 2025 23:48:15 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=rP4R3ieqQL7T8ASkifvSHU3h9nkQAun/5SHkD9AG0UWy3LdFHFIpTiCkkiHOVVmaJN83caUzI1Ptcc5YUnHLXmnVssG/X3E+p9mtyRLsU+jz1M3UzHIDXUmvRpjI1Pxmo+6pUjwVq9sog+1fu1781CYKIMHR/nER0cKaIwzZOkRu8gWzLegQR4ESo6MMDlVS2VBvzBDIb/4doO81b4VuZGj9YotyA2mQIH1bC2ulGoOpmlZOJHS1OXt9ig3em+heRvYfpCugvffZhYOSwYB6WW5whD1S3X5vhHSzaI6Z/7SyPCGH8rr3KrzJgTp9tDzzNEA747ed0ym7MHLmjN4CbA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=UESTmwa0ArcC9DNycDa8dhlKCmAN0isTBlNpvMFjL/I=;
- b=jld5UzpmhulOkTacYWDvJ3Bb64qG8vf1FxCw2CB8UF8PRJgSQu4T1l3o+4SXgSPmBiaPJoX9idqoFudIR3prpMgzXbfx5MkFgXRfArP2OF7QyaPn8erS++Jka/4/r4T9Q+IoOeeghkyrf0HGKTLQmp6wG2kMl2zfI83ZCFqCiHEOUCJy/ADCeCFQsQwqlmtGoTyn6odDShTm/eX90qhf1i+HG/AgWS3Uyxx9qAGHyNiAv0LOoxtvmTDcc4OvlqLqC615Ym0SVukBhzHTwduvOxFMZiS2SDoBZ39RhBO5BxdZup71JMJZh8H8hRdihhBcihXBF+HKgIHNYK66cWwEsQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=axiado.com; dmarc=pass action=none header.from=axiado.com;
- dkim=pass header.d=axiado.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=axiado.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=UESTmwa0ArcC9DNycDa8dhlKCmAN0isTBlNpvMFjL/I=;
- b=L71Dl1HIjUj8Krl8xnsH0EnSfPDJxaDMWtasQdDjrktf7ULY3MXI8fTFQ5cI7/LHKW/BkU4Qkmm4OLjwIGbe/xetYKj+RV90AmBPgC+m7qJOQHWv4BAt4xdoVuV5bJJ2XEBIjJUAbzqwpR+hmFPJC4+gXfik7pUDayY6YulVYsvmLhEfHN/vE54BQ5ZlVuz6KOp5NZ+zxwQubXJfqSbxaavxq25PxKh2TlosPoZ1cgPGafKvljC0HyQOOqz9Qr9pC+X6vfZkalmGlrs7XjBn5xYI2XRldIAL3CRh672oeTkKWEKIu5w+TCm9t8KtDZ5WBqqvoatiPoYlB6AmhtDsOw==
-Received: from IA0PPFBEC4B1F8E.namprd18.prod.outlook.com
- (2603:10b6:20f:fc04::c3d) by LV1PR18MB6399.namprd18.prod.outlook.com
- (2603:10b6:408:2b4::6) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8922.39; Thu, 17 Jul
- 2025 23:48:07 +0000
-Received: from IA0PPFBEC4B1F8E.namprd18.prod.outlook.com
- ([fe80::ca34:e235:13d9:3f5d]) by IA0PPFBEC4B1F8E.namprd18.prod.outlook.com
- ([fe80::ca34:e235:13d9:3f5d%5]) with mapi id 15.20.8922.037; Thu, 17 Jul 2025
- 23:48:07 +0000
-From: Harshit Shah <hshah@axiado.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>, Arnd Bergmann <arnd@arndb.de>, Catalin
- Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Jan Kotas
-	<jank@cadence.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Jiri
- Slaby <jirislaby@kernel.org>, Michal Simek <michal.simek@amd.com>,
-	=?utf-8?B?UHJ6ZW15c8WCYXcgR2Fq?= <pgaj@cadence.com>, Alexandre Belloni
-	<alexandre.belloni@bootlin.com>, Frank Li <Frank.Li@nxp.com>, Boris Brezillon
-	<bbrezillon@kernel.org>
-CC: "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-gpio@vger.kernel.org"
-	<linux-gpio@vger.kernel.org>, "soc@lists.linux.dev" <soc@lists.linux.dev>,
-	"linux-serial@vger.kernel.org" <linux-serial@vger.kernel.org>,
-	"linux-i3c@lists.infradead.org" <linux-i3c@lists.infradead.org>, Krzysztof
- Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: Re: [PATCH v6 00/10] Axiado AX3000 SoC and Evaluation Board Support
-Thread-Topic: [PATCH v6 00/10] Axiado AX3000 SoC and Evaluation Board Support
-Thread-Index: AQHb7Ec2EpmYZb1fLEiBSh0CfO/MD7Q3Ee0A
-Date: Thu, 17 Jul 2025 23:48:07 +0000
-Message-ID: <b7322d03-2ff9-48a3-bdc6-0e95382ed83f@axiado.com>
-References: <20250703-axiado-ax3000-soc-and-evaluation-board-support-v6-0-cebd810e7e26@axiado.com>
-In-Reply-To: <20250703-axiado-ax3000-soc-and-evaluation-board-support-v6-0-cebd810e7e26@axiado.com>
-Accept-Language: en-GB, en-US
-Content-Language: en-GB
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=axiado.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: IA0PPFBEC4B1F8E:EE_|LV1PR18MB6399:EE_
-x-ms-office365-filtering-correlation-id: 4e2c3a0b-a438-46b1-f909-08ddc58c6154
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|38070700018|921020;
-x-microsoft-antispam-message-info: =?utf-8?B?ak5NaHRINFM1VjA3OXc1bjE0cUhpclI1V3Nkd2FDbHJkMmxvS2laZ0ZQT0hC?=
- =?utf-8?B?bkdaZHlhU29Xayt0NWFhQnRXN3QxblhRbXlveWEzeVlURktzVWNuUFJiWE0v?=
- =?utf-8?B?SlRxOWdpaXV3TmFnMUpYb200RWppQk81RzhGUTF6WVlCNndneFVITFBKV05o?=
- =?utf-8?B?U3FjclpDbFJFaU9TaUtHaXNHQXhzUXRoSkFKKzJaNTQvbmlDeWp4aFNNYTkx?=
- =?utf-8?B?alM0Y0FEV2dId0Q1bHNwNVFQYkVSb3V0em9sRFhqOFJQRER0ZmVCTlRrMXRE?=
- =?utf-8?B?TGFUYTQvL3ErbWRIaEFDQ3NBTys5SWFnWXBFMjA2c2RFSE5JcDJQTDBxZkFW?=
- =?utf-8?B?bElnZnpOL3BwNjdWeFRGeCtXYktyb2loR3JjbkJlaDV2aTRwaVVwcUFIRWdr?=
- =?utf-8?B?YzBnWUNSNi9oLzdMNExReXdIcHBreWNwQVF6bG1yNFZuVjgwcTcyd0N5Wi9U?=
- =?utf-8?B?TDJDcWo2Z2NHZ1BGdzczSEZLdDc0UWdpRHZjd2JlRUNLMURXdFZHL040eUZT?=
- =?utf-8?B?SFlCZ29XMVM1b2J6Qmx3SkNOMDB5VWpUTWNyVm1URmw4RzQ2OG1wb0QxK29G?=
- =?utf-8?B?V3F1VU9pQjNTNVZ4cjIvcVFNVldUeVNsUzV1RGNUNUgyYi8rM0hTcnBKUEJp?=
- =?utf-8?B?NVV1MFNYZldQZlRUeTRwT09PUndSVmh3WGxOSFhYTUVqejZ1b1JJcWNXcDZG?=
- =?utf-8?B?QTNzV0dmb1hwQ3hqUjVmMFlVQWp4S2hzbHRxNk8yN1UrZEpCMUVNUDhUQlFm?=
- =?utf-8?B?aTg2RTE5aXc1NUhqQkdhaTJBdjJJQlRWcGpoa1NtTEdNNGRJU0pTdS9LTXNR?=
- =?utf-8?B?YlV1Nk1ZZUM2YWwraVlKd29ZeWxjMlo4Yjl6NXJZK3R5TW9Dd29sNjRnc3Fv?=
- =?utf-8?B?OFZrejJkd1Zod3FpVDBKTkpqYmdyZTh3dUJmR1lzRXZjQ05TdW1hWHZxbHho?=
- =?utf-8?B?VWVPRWlWdFJpNldWeTFxOVl0dWc0YXVZUlFHclJjTHNiSnJwRW9BdEtPTzd5?=
- =?utf-8?B?YkRzNnR2TjlnRkRxWk1HYno5cjVET2RHMEFvVU5iWmo2U2t1bVZLMDVWNFJu?=
- =?utf-8?B?SW5oS2ZFdHVJbFppR0RicWo4MWpDWTIzZStXUEREQUxwV09GQXFtL0VrNUZB?=
- =?utf-8?B?dVQ1VmorZUtvRThLaVlTbEVHZ1R2TlhVbG5neHN3YXVPd3NkYXIwS29OaGhQ?=
- =?utf-8?B?aUh2SDRMK3dWeGYrYVJMK1A1d3dmOVY4SnIvejdyamtxQWZHcENMaURscjFm?=
- =?utf-8?B?TEZSS2JpZ1lFc1hFdTlTYStuTG1QY09UaFdlclAvanhNbkpNbjliMkdORUVq?=
- =?utf-8?B?cWpodnRkYTAvV1hyMmwxazhBQ1RhVWpyVWNMQmR3OC96VjBvYmlGSExrQTht?=
- =?utf-8?B?L1o4UVA1ejBKUDdyQXNFMS9ma1VuMnBBRGFpdkEybTdxMlZEanN4Yk5ma3Ji?=
- =?utf-8?B?bEFKNWpEQkpsYW9FbjRqbGQ3ZlczZ3hrMkNHUE9wN3FVWXR3eVB2Sldka3lE?=
- =?utf-8?B?Nm9TaHZYZHdLbTg1QWJBVzE5eFdtZWdvZnVGeXEwcWhDZGNsVlMvblRSRERD?=
- =?utf-8?B?b3ZIU3RnaUFtcXRISStJZ2gzSkphNVRtcER0bDVieldJRnZXWjBidFRWYkdN?=
- =?utf-8?B?Q2ZsV2NuM0E5cXdHUzFhTWFYdkgwcWRKM05xK0h3M0Iza25KM3pOU0RGZ0gy?=
- =?utf-8?B?a3g1aUg5aVdzK1VrOXlsZUdJNkxTdEc3Sk5qU2V0Rnh4QU0xTnkvVC81TStY?=
- =?utf-8?B?N3NEajNyejQ5czFpMm5pcWJZZStyVU56eENjZWtOcittbmpxVXlGY0xTNjlG?=
- =?utf-8?B?TStHUjI5bTU2Y0Jnay9panpNWW4zZml4ZUZSbnNTNVRtcEpieHI3VXVlS2NQ?=
- =?utf-8?B?OHNsVUwweVNaOHBVRWFwenFERk9pdjFHS1J4bGl3dzJJNUMxRktiK0lBWHhU?=
- =?utf-8?B?QjJPN01WUUtTWnVTVExNWEhWa1RYOG5Ma2ZZZ2FxVXRtd2Jmd2syYnNSdXY4?=
- =?utf-8?Q?2SMijx4YGuylZ6R2xMJceZJJZkaC5k=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:IA0PPFBEC4B1F8E.namprd18.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(38070700018)(921020);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?bENGQXRob0Z6Z1BTZVpzWG9nMXIvWW01NmZ0YVh1b3hBSjFFNnEydTN0bmNz?=
- =?utf-8?B?N09pOGdhVG5Iems5K3dRUGJSUkt3eGRxcjREUEJJeTAyVmY1dlVRZDVOWER5?=
- =?utf-8?B?VG8zc0dJNW1OYlJKUHpNV29HRGFkS1BMYlQvSEFYOWFJKzc1Wm1ZSXc2UEVF?=
- =?utf-8?B?b2J0bm1EMVZhU3p1STJUTkM5NHV2Ty9TSmNTZ21rdXo4VEFPZkNkdlFaNENJ?=
- =?utf-8?B?WTBiLzlIbmYranozVUNxN1dkMml4bm9iNktsSmlYZ0RubVQ4bzMwSnY4Q1k1?=
- =?utf-8?B?ZEl2VGg0NDZVNVB0aDBXY3pqdlJ1MVVlMEcvbzhhcE5EdjFmdXVKWnduNnNV?=
- =?utf-8?B?ZVd2eURIQ1ZEOUs4YVlIVDI2VFRkNmpwVDZTZTI0dUYybWpHM2RVNWNoak81?=
- =?utf-8?B?cXdhaWlCcXhUY2dIdkRkR0xZQWFGS3lBeHp6L2hqUXc3U3JCWkRuNGU1ZmYy?=
- =?utf-8?B?Ui85Y24yTGk1VWc5V21VV2FvK25NV0JFMkc1eGRRTm8zVnh5RkQ0MnZkLy91?=
- =?utf-8?B?WFN1MVFORkcvSEV2cCtWc0taMVdweDVITTI3WmRqc0tjL3p0by80dEZVYmlT?=
- =?utf-8?B?SzJieGhLVFNlUHk0S3ozdDVrcC9qTVZneUNzWXpFbllXekV5Tjc2TW82cDJw?=
- =?utf-8?B?MWk3OUJwR3FtTDVmL3g0dHVUdmxON3VGQnlRY3JqWmRqcGdMdWNNOFlNVTV2?=
- =?utf-8?B?V0cyQ25SczgzMFcyeDBhTUphdGJ0ZlhZSS9MYmJrOVZ5akZBVG83Vm1mdUxW?=
- =?utf-8?B?aGhWV1ZETm5vSzc2N3ErN3o5TDJhbW45cVhQVEtBN3NMdzJxam1uSnROWWNh?=
- =?utf-8?B?VlhZU2NoWGFKUTk0d043SG42TDJSTmx4WXViL0txdS9mcXpWZ1dwNDg5OGdn?=
- =?utf-8?B?akd1UERrVGQvRE5vRTJwZVZXTXF1bUwvRGd1N01uU1ptRmdNNlVBNCtSUU1o?=
- =?utf-8?B?UVMzZ05ReVBkaSt0Umw2V2dUd09TRG8zOSsvMFcrS2MzWWlhSE1UaklJa3V5?=
- =?utf-8?B?T1N3SGZsbFUvUTNKN1M4RHZQczBJdjY5VEhHTzVpc01OWGJuWW1oang2NVdh?=
- =?utf-8?B?cXlTMTBoSU5pK01zWE1PbTR2bllGdktOMG1qdnROYUpZRGl3VWN5dGpRNElD?=
- =?utf-8?B?NXZ4T0wwMU5Ya1Y3SlNsNlNyWjJCV1krZStkUVhTMkwrL1RFTG5sMEVIMUwv?=
- =?utf-8?B?Z2ovVmhVNEh1SmlqdXhwN1I3SW5RK2dTNGxQSUtwb0VqaDJuQnJsTnpUeGRH?=
- =?utf-8?B?cS9sMmdQNndORmkyN3Q5dkQvLzFYbFdDeHZjVXRCZk5pY3RwTDNlMnRWRXkv?=
- =?utf-8?B?N0N3UmNSa0ZMK0x0OW5OMGdRV0VQNlErS3crdFpXSFhkeFJFUEE2K0N6T1dR?=
- =?utf-8?B?eVp5WTVCNmJkUkNEMUJpZHpyMW9IcjVOZVk4UytjVkxWK0NMU0MxVkR3QXEr?=
- =?utf-8?B?U01XN2RydUR5dEc1RzBCdm95b2UzVitva0tHVkFnQlNWWGxZTEpyRE41WEs5?=
- =?utf-8?B?MVJ4dkR1NUd6R2dwcTNhdGVWNllPWlIrVHBwMEorTWV1T3Q0L0hUVHZlMFZC?=
- =?utf-8?B?dWlOZHBkVHN0NU5kUDRISUZ4MlIxem5OQ3RoMG55STFZWWpaMjJZQkFVQUk2?=
- =?utf-8?B?L2V1NHBXTHYzOWpsWkExL0s4Nm5LbFJseHgrRUdmL3QrcEZFb3RjdmJjTjRq?=
- =?utf-8?B?ZTJ5UlBVZHhLblpCdGc2TlAvdHpHdkNLZkNhZHV2eWVrSTRqT051aitaQ1hX?=
- =?utf-8?B?dXZIQTVCT1M3UnZkNDdSVEU1U1lobEp6UERhU3FCUDdOL1I3aE9wNG1LUUtp?=
- =?utf-8?B?QW91WGdkZklIWVA1QzZ3UTJMRk1vakpjc2ZQWmtpZlNYQ09KNHE2RENFZ2FM?=
- =?utf-8?B?Q3JGdDYwZUZZb3A2N2hBOTZTdXhjNEZQaGJXaVBuSTZnL1ZLblN4YTVUTnZL?=
- =?utf-8?B?U01lRFF6UWtlUnpEdk9tbmt5enNidUJMcWc1NjNuWndLejVNMTBHc2w3Ni9C?=
- =?utf-8?B?NFVzQXp2WlpMMEp1SytPRDVsQllmUUdXU1lhL1ZFSkdQTVdEdWJUZlllSFds?=
- =?utf-8?B?eEJaOG9nY3JVa3ZOZDVpR1VUL0QvUm9CakovSkpQVjRrWDFOQzJiQjg2ZEp5?=
- =?utf-8?Q?apiI=3D?=
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <90141539B03E894F8B025875798023A4@namprd18.prod.outlook.com>
-Content-Transfer-Encoding: base64
+	id 1uca33-0000000BT1S-2Prd
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 18 Jul 2025 01:38:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1752802686; x=1784338686;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=a7LNu8NM/J83vU8tzW57I182ndErEcS3Is01U9ZCDZI=;
+  b=Uyy/hVaK8a1RxcAY1KQCwAQJVOKLzhFpyC8TEXstEbqxU4u0cwwc6O78
+   M1fvku/wYHCdPty/+s0MAHCqunoB7uzqpgSmweJlJwOj5RQDwiSByb08W
+   JYakT01pYC11kcHfcK8Sj1DcpyahcrxO8jawmr0Ow+9Hy0gsom13OiFX9
+   PZMipGyyslviuSWdD2J9BYjQdKbfhM3pKj1ntBSxt0bHuJgp1jAhxbsDS
+   cTNa2iFG/EC7HxML74XfQaMRaIfeQyg9DafrDX5D9HxMgAmN+9Q1EHYPa
+   Z/oMr6/Gh59prC7x08dYvymleSzbxDuO88WeflbIL8pfQfYnTs3+Nh2q+
+   w==;
+X-CSE-ConnectionGUID: JCwgydjhQG68AZJzjWCyKQ==
+X-CSE-MsgGUID: +RmfoadGS6C3gz/WI4yLqQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11495"; a="72661786"
+X-IronPort-AV: E=Sophos;i="6.16,320,1744095600"; 
+   d="scan'208";a="72661786"
+Received: from orviesa003.jf.intel.com ([10.64.159.143])
+  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Jul 2025 18:38:03 -0700
+X-CSE-ConnectionGUID: jpucQ4OlRqKihWV4hGzGMg==
+X-CSE-MsgGUID: oRZWHOB0Srq4cJKs1OFhPw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.16,320,1744095600"; 
+   d="scan'208";a="162216197"
+Received: from lkp-server01.sh.intel.com (HELO 9ee84586c615) ([10.239.97.150])
+  by orviesa003.jf.intel.com with ESMTP; 17 Jul 2025 18:37:59 -0700
+Received: from kbuild by 9ee84586c615 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1uca2u-000ECr-2H;
+	Fri, 18 Jul 2025 01:37:56 +0000
+Date: Fri, 18 Jul 2025 09:37:13 +0800
+From: kernel test robot <lkp@intel.com>
+To: Cosmin Tanislav <demonsingur@gmail.com>,
+	Cosmin Tanislav <cosmin.tanislav@analog.com>,
+	Tomi Valkeinen <tomi.valkeinen+renesas@ideasonboard.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Niklas =?iso-8859-1?Q?S=F6derlund?= <niklas.soderlund@ragnatech.se>,
+	Julien Massot <julien.massot@collabora.com>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Linus Walleij <linus.walleij@linaro.org>
+Cc: oe-kbuild-all@lists.linux.dev, linux-media@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-staging@lists.linux.dev,
+	linux-gpio@vger.kernel.org
+Subject: Re: [PATCH v6 18/24] media: i2c: maxim-serdes: add MAX96717 driver
+Message-ID: <202507180929.p1tVAhva-lkp@intel.com>
+References: <20250716193111.942217-19-demonsingur@gmail.com>
 MIME-Version: 1.0
-X-OriginatorOrg: axiado.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: IA0PPFBEC4B1F8E.namprd18.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4e2c3a0b-a438-46b1-f909-08ddc58c6154
-X-MS-Exchange-CrossTenant-originalarrivaltime: 17 Jul 2025 23:48:07.5215
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: ff2db17c-4338-408e-9036-2dee8e3e17d7
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: BkO/MPpFHrccWZhaNBhdh0cSc/VuCMQJvWWUAJGs5brSGgC3eNAE7yyr/CGwZrt90Td8DGIpzV3tuWiBF4Q0eA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV1PR18MB6399
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250716193111.942217-19-demonsingur@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250717_164814_535594_5F3CEA41 
-X-CRM114-Status: GOOD (  17.39  )
+X-CRM114-CacheID: sfid-20250717_183805_652364_C1AF05B0 
+X-CRM114-Status: GOOD (  13.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -191,31 +99,160 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-T24gNy8zLzIwMjUgMTE6MjAgQU0sIEhhcnNoaXQgU2hhaCB3cm90ZToNCj4gQ0FVVElPTjogVGhp
-cyBlbWFpbCBvcmlnaW5hdGVkIGZyb20gb3V0c2lkZSBvZiB0aGUgb3JnYW5pemF0aW9uLiBEbyBu
-b3QgY2xpY2sgbGlua3Mgb3Igb3BlbiBhdHRhY2htZW50cyB1bmxlc3MgeW91IHJlY29nbml6ZSB0
-aGUgc2VuZGVyIGFuZCBrbm93IHRoZSBjb250ZW50IGlzIHNhZmUuDQo+DQo+DQo+IFRoaXMgcGF0
-Y2ggc2VyaWVzIGFkZHMgaW5pdGlhbCBzdXBwb3J0IGZvciB0aGUgQXhpYWRvIEFYMzAwMCBTb0Mg
-YW5kIGl0cw0KPiBldmFsdWF0aW9uIGJvYXJkLg0KPg0KPiBUaGUgQVgzMDAwIGlzIGEgbXVsdGkt
-Y29yZSBzeXN0ZW0tb24tY2hpcCBmZWF0dXJpbmcgZm91ciBBUk0gQ29ydGV4LUE1Mw0KPiBjb3Jl
-cywgc2VjdXJlIHZhdWx0LCBoYXJkd2FyZSBmaXJld2FsbCwgYW5kIEFJIGFjY2VsZXJhdGlvbiBl
-bmdpbmVzLiBUaGlzDQo+IGluaXRpYWwgc3VwcG9ydCBlbmFibGVzIGJhc2ljIGJyaW5nLXVwIG9m
-IHRoZSBTb0MgYW5kIGV2YWx1YXRpb24gcGxhdGZvcm0NCj4gd2l0aCBDUFUsIHRpbWVyLCBVQVJU
-LCBhbmQgSTNDIGZ1bmN0aW9uYWxpdHkuDQo+DQo+IFRoZSBzZXJpZXMgYmVnaW5zIGJ5IGFkZGlu
-ZyB0aGUgImF4aWFkbyIgdmVuZG9yIHByZWZpeCBhbmQgY29tcGF0aWJsZQ0KPiBzdHJpbmdzIGZv
-ciB0aGUgU29DIGFuZCBib2FyZC4gSXQgdGhlbiBpbnRyb2R1Y2VzIHRoZSBkZXZpY2UgdHJlZSBm
-aWxlcw0KPiBhbmQgbWluaW1hbCBBUkNIX0FYSUFETyBwbGF0Zm9ybSBzdXBwb3J0IGluIGFybTY0
-Lg0KPg0KPiBQYXRjaCBicmVha2Rvd246DQo+ICAgIC0gUGF0Y2ggMSBhZGQgdGhlIHZlbmRvciBw
-cmVmaXggZW50cnkNCj4gICAgLSBQYXRjaCAyIGRvY3VtZW50IHRoZSBTb0MgYW5kIGJvYXJkIGJp
-bmRpbmdzDQo+ICAgIC0gUGF0Y2ggMyBjb252ZXJ0IGNkbnMsZ3Bpby50eHQgdG8gZ3Bpby1jZG5z
-LnlhbWwNCj4gICAgLSBQYXRjaCA0IGFkZCBiaW5kaW5nIGZvciBheDMwMDAgZ3BpbyBjb250cm9s
-bGVyDQo+ICAgIC0gUGF0Y2ggNSBhZGQgYmluZGluZyBmb3IgYXgzMDAwIHVhcnQgY29udHJvbGxl
-cg0KPiAgICAtIFBhdGNoIDYgYWRkIGJpbmRpbmcgZm9yIGF4MzAwMCBpM2MgY29udHJvbGxlcg0K
-PiAgICAtIFBhdGNoIDcgYWRkIEF4aWFkbyBTb0MgZmFtaWx5DQo+ICAgIC0gUGF0Y2ggOCBhZGQg
-ZGV2aWNlIHRyZWUgZm9yIHRoZSBheDMwMDAgJiBheDMwMDAtZXZrDQo+ICAgIC0gUGF0Y2ggOSBh
-ZGQgQVJDSF9BWElBRE8gaW4gZGVmY29uZmlnDQo+ICAgIC0gUGF0Y2ggMTAgdXBkYXRlIE1BSU5U
-QUlORVJTIGZpbGUNCg0KSGkgYWxsLA0KDQpUaGlzIHBhdGNoIHNlcmllcyB3YXMgcmV2aWV3ZWQg
-YnkgS3J6eXN6dG9mLCBhbmQgSSBhbSB3b25kZXJpbmcgaWYgaXTigJlzIA0KcXVldWVkIGZvciB0
-aGUgbmV4dCBtZXJnZSB3aW5kb3cuIFRoYW5rcyBpbiBhZHZhbmNlIQ0KDQpCZXN0IHJlZ2FyZHMs
-DQoNCkhhcnNoaXQNCg==
+Hi Cosmin,
+
+kernel test robot noticed the following build errors:
+
+[auto build test ERROR on next-20250716]
+[cannot apply to robh/for-next staging/staging-testing staging/staging-next staging/staging-linus arm64/for-next/core linus/master v6.16-rc6 v6.16-rc5 v6.16-rc4]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Cosmin-Tanislav/media-mc-Add-INTERNAL-pad-flag/20250717-033901
+base:   next-20250716
+patch link:    https://lore.kernel.org/r/20250716193111.942217-19-demonsingur%40gmail.com
+patch subject: [PATCH v6 18/24] media: i2c: maxim-serdes: add MAX96717 driver
+config: x86_64-randconfig-003-20250717 (https://download.01.org/0day-ci/archive/20250718/202507180929.p1tVAhva-lkp@intel.com/config)
+compiler: gcc-12 (Debian 12.2.0-14+deb12u1) 12.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250718/202507180929.p1tVAhva-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202507180929.p1tVAhva-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+   ld: drivers/media/i2c/maxim-serdes/max96717.o: in function `max96717_conf_pin_config_get':
+>> drivers/media/i2c/maxim-serdes/max96717.c:485: undefined reference to `pinctrl_dev_get_drvdata'
+   ld: drivers/media/i2c/maxim-serdes/max96717.o: in function `max96717_conf_pin_config_set':
+   drivers/media/i2c/maxim-serdes/max96717.c:655: undefined reference to `pinctrl_dev_get_drvdata'
+   ld: drivers/media/i2c/maxim-serdes/max96717.o: in function `max96717_mux_set':
+   drivers/media/i2c/maxim-serdes/max96717.c:712: undefined reference to `pinctrl_dev_get_drvdata'
+   ld: drivers/media/i2c/maxim-serdes/max96717.o: in function `max96717_gpiochip_probe':
+>> drivers/media/i2c/maxim-serdes/max96717.c:1553: undefined reference to `devm_pinctrl_register_and_init'
+>> ld: drivers/media/i2c/maxim-serdes/max96717.c:1557: undefined reference to `pinctrl_enable'
+   ld: drivers/media/i2c/maxim-serdes/max96717.o: in function `pinconf_generic_dt_node_to_map_pin':
+>> include/linux/pinctrl/pinconf-generic.h:219: undefined reference to `pinconf_generic_dt_node_to_map'
+>> ld: drivers/media/i2c/maxim-serdes/max96717.o:(.rodata+0xa68): undefined reference to `pinconf_generic_dt_free_map'
+
+Kconfig warnings: (for reference only)
+   WARNING: unmet direct dependencies detected for GENERIC_PINCONF
+   Depends on [n]: PINCTRL [=n]
+   Selected by [y]:
+   - VIDEO_MAX96717 [=y] && MEDIA_SUPPORT [=y] && VIDEO_DEV [=y] && COMMON_CLK [=y]
+   WARNING: unmet direct dependencies detected for GENERIC_PINMUX_FUNCTIONS
+   Depends on [n]: PINCTRL [=n]
+   Selected by [y]:
+   - VIDEO_MAX96717 [=y] && MEDIA_SUPPORT [=y] && VIDEO_DEV [=y] && COMMON_CLK [=y]
+   WARNING: unmet direct dependencies detected for GENERIC_PINCTRL_GROUPS
+   Depends on [n]: PINCTRL [=n]
+   Selected by [y]:
+   - VIDEO_MAX96717 [=y] && MEDIA_SUPPORT [=y] && VIDEO_DEV [=y] && COMMON_CLK [=y]
+
+
+vim +485 drivers/media/i2c/maxim-serdes/max96717.c
+
+   480	
+   481	static int max96717_conf_pin_config_get(struct pinctrl_dev *pctldev,
+   482						unsigned int offset,
+   483						unsigned long *config)
+   484	{
+ > 485		struct max96717_priv *priv = pinctrl_dev_get_drvdata(pctldev);
+   486		u32 param = pinconf_to_config_param(*config);
+   487		unsigned int reg, mask, val, en_val;
+   488		int ret;
+   489	
+   490		ret = max96717_get_pin_config_reg(offset, param, &reg, &mask, &en_val);
+   491		if (ret)
+   492			return ret;
+   493	
+   494		switch (param) {
+   495		case PIN_CONFIG_DRIVE_OPEN_DRAIN:
+   496		case PIN_CONFIG_DRIVE_PUSH_PULL:
+   497		case PIN_CONFIG_BIAS_DISABLE:
+   498		case PIN_CONFIG_BIAS_PULL_DOWN:
+   499		case PIN_CONFIG_BIAS_PULL_UP:
+   500		case MAX96717_PINCTRL_JITTER_COMPENSATION_EN:
+   501		case MAX96717_PINCTRL_TX_EN:
+   502		case MAX96717_PINCTRL_RX_EN:
+   503		case PIN_CONFIG_OUTPUT_ENABLE:
+   504		case PIN_CONFIG_INPUT_ENABLE:
+   505			ret = regmap_read(priv->regmap, reg, &val);
+   506			if (ret)
+   507				return ret;
+   508	
+   509			val = field_get(mask, val) == en_val;
+   510			if (!val)
+   511				return -EINVAL;
+   512	
+   513			break;
+   514		case MAX96717_PINCTRL_PULL_STRENGTH_HIGH:
+   515		case MAX96717_PINCTRL_INPUT_VALUE:
+   516		case PIN_CONFIG_OUTPUT:
+   517			ret = regmap_read(priv->regmap, reg, &val);
+   518			if (ret)
+   519				return ret;
+   520	
+   521			val = field_get(mask, val) == en_val;
+   522			break;
+   523		case MAX96717_PINCTRL_TX_ID:
+   524		case MAX96717_PINCTRL_RX_ID:
+   525		case PIN_CONFIG_SLEW_RATE:
+   526			ret = regmap_read(priv->regmap, reg, &val);
+   527			if (ret)
+   528				return ret;
+   529	
+   530			val = field_get(mask, val);
+   531			break;
+   532		default:
+   533			return -ENOTSUPP;
+   534		}
+   535	
+   536		switch (param) {
+   537		case PIN_CONFIG_BIAS_PULL_DOWN:
+   538		case PIN_CONFIG_BIAS_PULL_UP:
+   539			*config = pinconf_to_config_packed(MAX96717_PINCTRL_PULL_STRENGTH_HIGH, 0);
+   540	
+   541			ret = max96717_conf_pin_config_get(pctldev, offset, config);
+   542			if (ret)
+   543				return ret;
+   544	
+   545			val = pinconf_to_config_argument(*config);
+   546			if (val)
+   547				val = MAX96717_BIAS_PULL_STRENGTH_1000000_OHM;
+   548			else
+   549				val = MAX96717_BIAS_PULL_STRENGTH_40000_OHM;
+   550	
+   551			break;
+   552		case MAX96717_PINCTRL_TX_ID:
+   553			*config = pinconf_to_config_packed(MAX96717_PINCTRL_TX_EN, 0);
+   554	
+   555			ret = max96717_conf_pin_config_get(pctldev, offset, config);
+   556			if (ret)
+   557				return ret;
+   558	
+   559			break;
+   560		case MAX96717_PINCTRL_RX_ID:
+   561			*config = pinconf_to_config_packed(MAX96717_PINCTRL_RX_EN, 0);
+   562	
+   563			ret = max96717_conf_pin_config_get(pctldev, offset, config);
+   564			if (ret)
+   565				return ret;
+   566	
+   567			break;
+   568		default:
+   569			break;
+   570		}
+   571	
+   572		*config = pinconf_to_config_packed(param, val);
+   573	
+   574		return 0;
+   575	}
+   576	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
