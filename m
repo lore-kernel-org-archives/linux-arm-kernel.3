@@ -4,63 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FFB7C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Jul 2025 08:16:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA782C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Jul 2025 08:19:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Subject:CC:To:MIME-Version:From:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p6ktIF/hpZOLXL+wae3tS30SAl/Eb6EXFHFJdYEA47I=; b=aa6SGLLF4921iPoPgr3P7ArzQN
-	ObWGujkMfrWqJ1wRDJmBby3PxZeWU+yCxRAWcT2Lm1UH4oLTpEPCbf5Y119YPdVnVOfWOS0vo55i8
-	iabtSEbmzLJ7ijjTqAFxJHtfaLvUEABn0ifxFDmjcHfXqosKryTsVqPf1SFH3aHIRZAwj751jGUic
-	irMuSepz5TvXiqIJ7yNFZAZLzQLdWjWz+B3mXtqoq8n01qlJoepGI/qwq0mLjj5O/Xbmk1wagIxJT
-	Lw9I5dZw4XYY90Jrylez/gN7rbwmy4cjBb9PXZphUX4GH7W+bm0M7DeMwuUqfq8CiIYj02uxKIcDn
-	UkrNPNaA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lrpwPeiUHlmCona7+1b9Lx66LvGiZlAjcaqcJBP8Hk0=; b=EdaO5qtEAD3xl+I+Q4haV10Gdo
+	EJdv5e8OGdKhAd6xGoGm3OuIqOysuzTDz6tDTO7eU1uiw4+TkwjpUyrm+XfBA0XKpkZlcwUi2WtXY
+	Xw7phh1UDGlkNUqTWGFrG3pSR8yzLxLbqCu65DbBZnruk7LJ7fkpp01zvvmfMzn2ZuPpbWMMyY4Tc
+	BF90FnUGA9qmrQ5WYLpl2MhRmRlMnhwA/Ze/pvMYWpnXCIL5bvOwgVMDyQu0kONIrjJJoQJCPhBNp
+	bpzks6N+S7mbVsxjTKmhGtOSl1ZzzANs6F+UvQUcUjRDTeqsuuuEUmlRCcSvOiSu0uLrI0MrRAbo2
+	m3iigdHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucgGq-0000000C03n-1kN6;
-	Fri, 18 Jul 2025 08:16:44 +0000
-Received: from szxga02-in.huawei.com ([45.249.212.188])
+	id 1ucgJG-0000000C0Yz-0jZa;
+	Fri, 18 Jul 2025 08:19:14 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucg6J-0000000ByDu-0MY5
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Jul 2025 08:05:52 +0000
-Received: from mail.maildlp.com (unknown [172.19.88.105])
-	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4bk2Pk3gpxztSvY;
-	Fri, 18 Jul 2025 16:04:26 +0800 (CST)
-Received: from dggemv706-chm.china.huawei.com (unknown [10.3.19.33])
-	by mail.maildlp.com (Postfix) with ESMTPS id 70BF314011F;
-	Fri, 18 Jul 2025 16:05:31 +0800 (CST)
-Received: from kwepemq100003.china.huawei.com (7.202.195.72) by
- dggemv706-chm.china.huawei.com (10.3.19.33) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Fri, 18 Jul 2025 16:05:31 +0800
-Received: from [10.67.113.98] (10.67.113.98) by kwepemq100003.china.huawei.com
- (7.202.195.72) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Fri, 18 Jul
- 2025 16:05:30 +0800
-Message-ID: <687A004A.7030905@hisilicon.com>
-Date: Fri, 18 Jul 2025 16:05:30 +0800
-From: Wei Xu <xuwei5@hisilicon.com>
-User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; rv:24.0) Gecko/20100101 Thunderbird/24.2.0
+	id 1ucgAW-0000000Bz46-1sxI;
+	Fri, 18 Jul 2025 08:10:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 2861D41A4C;
+	Fri, 18 Jul 2025 08:10:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 719E1C4CEEB;
+	Fri, 18 Jul 2025 08:10:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1752826212;
+	bh=pYKJJ2hQUpdG2dVQ13Xx5f+NtvuXuDTByPwbcBUy+ao=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=qhKKMwFU7zuaBUi4JjVCyKOTLven1T/f3a8B6gZ+ti4Ac0/5uaHiXKYRdjUuz5R8q
+	 FVep+nERjFceG9fK8v6gAZYFXdfix9YEmlIlfo1+3Sk9Ivro9aDG/boJh6UbFBr+mV
+	 f01GQ8YGzYPvh7ZP2c6mx+CzPlqCrRq1m3fmBV5qzHoMoJY3scMszEhYD2RQzzK+NE
+	 xeitHBg5OWV5ZXrYnEGIkqZlvxHBL9CQoNJp9fvaozaZN4zW1tdNynssq9DUuIGXn8
+	 oxDiTm1Id5woKqn8v1cT1OLl45daF+yZXV5Bz1goNQyl1rJvNHV/MJY6gRmAhhKRzV
+	 yhsxyywjg6bFg==
+Date: Fri, 18 Jul 2025 10:10:09 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Chaoyi Chen <kernel@airkyi.com>
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>, 
+	Heiko Stuebner <heiko@sntech.de>, Sandy Huang <hjc@rock-chips.com>, 
+	Andy Yan <andy.yan@rock-chips.com>, Yubing Zhang <yubing.zhang@rock-chips.com>, 
+	Frank Wang <frank.wang@rock-chips.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Amit Sunil Dhamne <amitsd@google.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Chaoyi Chen <chaoyi.chen@rock-chips.com>, Dragan Simic <dsimic@manjaro.org>, 
+	Johan Jonker <jbx6244@gmail.com>, Diederik de Haas <didi.debian@cknow.org>, 
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, dri-devel@lists.freedesktop.org
+Subject: Re: [PATCH v2 1/5] dt-bindings: phy: rockchip: rk3399-typec-phy:
+ Support mode-switch
+Message-ID: <20250718-psychedelic-panda-of-defiance-ef6aac@kuoka>
+References: <20250718062619.99-1-kernel@airkyi.com>
+ <20250718062619.99-2-kernel@airkyi.com>
 MIME-Version: 1.0
-To: Huisong Li <lihuisong@huawei.com>, <xuwei5@huawei.com>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
-CC: <linuxarm@huawei.com>, <jonathan.cameron@huawei.com>,
-	<zhanjie9@hisilicon.com>
-Subject: Re: [PATCH] soc: hisilicon: kunpeng_hccs: Fix incorrect log information
-References: <20250711063706.3121253-1-lihuisong@huawei.com>
-In-Reply-To: <20250711063706.3121253-1-lihuisong@huawei.com>
-Content-Type: text/plain; charset="ISO-8859-1"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.113.98]
-X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
- kwepemq100003.china.huawei.com (7.202.195.72)
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250718062619.99-2-kernel@airkyi.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250718_010551_282450_85BF92BC 
-X-CRM114-Status: GOOD (  13.44  )
+X-CRM114-CacheID: sfid-20250718_011012_517386_9424ECE1 
+X-CRM114-Status: GOOD (  11.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,42 +84,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Huisong,
-
-On 2025/7/11 14:37, Huisong Li wrote:
-> The hccs_get_all_spec_port_idle_sta() will tell user which port
-> is busy when firmware doesn't allow to decrease HCCS lane number.
-> However, the current log prints the index of die and port instead
-> of the hardware ID user perceived.
+On Fri, Jul 18, 2025 at 02:26:15PM +0800, Chaoyi Chen wrote:
+> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
 > 
-> Signed-off-by: Huisong Li <lihuisong@huawei.com>
-> ---
->  drivers/soc/hisilicon/kunpeng_hccs.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
+> The RK3399 has two USB/DP combo PHY. With the help of external Type-C
+> controller, the PHY can switch altmode between USB and DP.
 > 
-> diff --git a/drivers/soc/hisilicon/kunpeng_hccs.c b/drivers/soc/hisilicon/kunpeng_hccs.c
-> index 7fc353732d55..65ff45fdcac7 100644
-> --- a/drivers/soc/hisilicon/kunpeng_hccs.c
-> +++ b/drivers/soc/hisilicon/kunpeng_hccs.c
-> @@ -1295,11 +1295,11 @@ static int hccs_get_all_spec_port_idle_sta(struct hccs_dev *hdev, u8 port_type,
->  				if (ret) {
->  					dev_err(hdev->dev,
->  						"hccs%u on chip%u/die%u get idle status failed, ret = %d.\n",
-> -						k, i, j, ret);
-> +						port->port_id, chip->chip_id, die->die_id, ret);
->  					return ret;
->  				} else if (idle == 0) {
->  					dev_info(hdev->dev, "hccs%u on chip%u/die%u is busy.\n",
-> -						k, i, j);
-> +						 port->port_id, chip->chip_id, die->die_id);
->  					return 0;
->  				}
->  			}
+> Their connection diagram is shown below:
 > 
+> external Type-C Chip0 ---> USB/DP PHY0 ---+
+>                                           | <----> CDN-DP controller
+> external Type-C Chip1 ---> USB/DP PHY1 ---+
 
-Applied to the Hisilicon driver tree.
-Thanks!
+It looks like your "external" controller is not described. Look at your
+port property - "Connection to USB Type-C connector". Lack of proper
+hardware description leads you to claim that the PHY is the mode switch.
+I have doubts on that.
 
-Best Regards,
-Wei
+You already received the comments that you need to come with rationale
+why making PHY a USB switch is correct. I don't see the arguments for
+that.
+
+Best regards,
+Krzysztof
+
 
