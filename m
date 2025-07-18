@@ -4,104 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D761C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Jul 2025 08:01:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A636FC83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Jul 2025 08:03:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yIkRard6W+E126nlrFH68FBbJJING0uBmwMIZSswXsA=; b=ko2QncOrpm69D74ZHTaPcIic+p
-	ZtVj/b/0KppIt4CL39knoPARqESYHS5+4wLQg4C1rD3plOtMtUC/3mMbI2V/WUaTJYokyxJZ5B+Ib
-	pKnjz0+zQLJOvhBPV7jX2v13RuQITLSUsXs7uWEpJDgIDo/qpExwmyD4aNqPlEJnDOaiXl2sRqpzp
-	nUrK69trtS2iLu5SsOCOlLkNlXXFs43sJZCfT69tZ5kTvXRLRxE7p9frIPF6C7UhqDBTBo7TStDLa
-	US7WBuxTKUcvejItb5vGmqyPdzaLsfC4Wjv++cnAjn2VFjlfI8zNGGCzwLme12xLeG15F8aqYbAyk
-	5AdYPXuw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oZtlXx9YmGtcHhy9EjFkXTPsShcp3UsIVjQ0NqQyPIo=; b=vu8QP7F1UgUYCsnUT7WEJvojHj
+	LV1Kq45HRZTxPVz6YeUfk/PEUfTtjZv4b6Tc0bMot8HL9eDmvS2czDBRjkEsV2Izz86dCmQE6rPdK
+	hWovnrhrzDsIRCG4as0XUgggVd4h6MKHSze4sROpWeN6Hq0UWjKXbbs8jOLzcvPtTikzLGEds9J5m
+	gZzlmC8ArZ9bt1iBJmFvpnmOs4a+eXLnUkAvjKBvvY5d8l0ZFBrcGWh/TUcaPhBu0pMw6C5FtjO2F
+	iomMqZVscMB/Ri1L0cgA0lJ7qeN1WYQwRQe1jmDRY7pviFkYKQwFxdQsNmzJ8jwkLZHD6dpJdmmY3
+	d34al0kQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucg1x-0000000Bxjo-2EQ8;
-	Fri, 18 Jul 2025 08:01:21 +0000
-Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
+	id 1ucg4N-0000000BxyR-19eo;
+	Fri, 18 Jul 2025 08:03:51 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucfxK-0000000BwZh-12Cu
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Jul 2025 07:56:35 +0000
-Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-3a4ef2c2ef3so1267833f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Jul 2025 00:56:33 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1752825393; x=1753430193; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=yIkRard6W+E126nlrFH68FBbJJING0uBmwMIZSswXsA=;
-        b=ESsFpS+gfaJ7LYwX2UJrgLRCdvwdIJBni/LoQDwflaHPRze5RRMhg7CirBYVxisl8i
-         BLi7i1KFwn2n/f7xdCkCTNcRTCwbmSbru3pjMTHTAMlibiWmqlnzn0+xTdtrUq4MVu5V
-         Hjuy4hG+Yx5ONAxuGYutUnRO26lhuE8D3BytdBntAqsCdTXv22QwO5VNu/K6CnzV0Hot
-         KBhNXFKYaHu7RMV7Kshz48le+DPA5OCi/M+JfvyauayA5ZEuQkJJ+7x5jLe3GeWKL2Jl
-         d7HVV63f0fMYdlyUg2ckOsWcORx7SIZ8QM9GVnK/P12GwHKeS/0JG7j/OlWSj8Se+HDc
-         ZjAw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752825393; x=1753430193;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=yIkRard6W+E126nlrFH68FBbJJING0uBmwMIZSswXsA=;
-        b=mkT7fnd2JLPgB2LvRuRa3rW9Ip2b89OmbFaohkFAHyQoYkPl/044SqwKz7deTWX5e7
-         hiOJOpmQmuLyejpVVnXjkHUlDyv+kxc0SYRcU0/7165foQ9YfpmAk3u8aEJ92g1imJTb
-         8dw4NXZw5OSMbuNmFcMtOu8ggBnNFHcphEdUmwZd222OFCk9uajfVdmRjQYnrfVecJwv
-         bSiZHxYliVXvz0yna62J/Y/806Bnc1vMsmmgRKBCMCkX1A7cFKDMgufziOb0dK8LQ4+I
-         3ymvCvjNfro0LzeaABJQArJxF1eB0V9tgH5JmrNCyJcbm0urUr3SKkq+yBaDcoAuLcnI
-         fEZw==
-X-Forwarded-Encrypted: i=1; AJvYcCW4AABclgc48b4gaB44fmtmXkozt+SYHQ3Lcure1AkPdPH43ZKVdlRhmzrZuP1y5mNsRYA1BbNnmEKMI2ScsdrR@lists.infradead.org
-X-Gm-Message-State: AOJu0YygNSSiuVCKV9FP6bneD5lSsyJVGarh67B9gWHXRozjnMwJmtY4
-	8IOTDc/sRB7UNqPzeQ0BFknMxKutlGBiwOY7+BVOEtQCqfbIu2kRd3gpFOiblbvQqiI=
-X-Gm-Gg: ASbGnctCFwRdFVYOWEyhMlNqZxarq4jRC2sCsfFLKyzoEm/vRxRdqwA5A9zBMaswVUc
-	DEiVcj6hJTFUfvDgFc77Y7J9+yeSRMeKUP9YbOjna6ZiY6vBQL0WOIHhztTItsV6y8Mb3QNshBn
-	gVWpe+0cQrvTt5sv4R3OweeOytTy7VnCv7PlUJazmsSykO4k6ti77sRoNid1yCxo+iLUvJBOdKA
-	JxBaZWp2oMATe5HjnfYJ1F//N0eHEaTk93OLYaqQTMDGZtH5FVOG1eYcC1wYAde1tmDoXN0efeQ
-	bxnWpHdyOy2oASVN4EVtUIfblDgNJbD3+K6GgK9kmV+P+j8uyOtrhW1NFq0NRAuBytWJGqSOMi1
-	Oi4UQp7yNn2iftRz3zT2w
-X-Google-Smtp-Source: AGHT+IFR7z0xrtW7kV+L/PWsVn19Mve34KO13llGmq0De9UTBvi6IEowVSVAnjHLfBTTi45HhGu+EQ==
-X-Received: by 2002:a05:6000:1a85:b0:3a4:ef36:1f4d with SMTP id ffacd0b85a97d-3b60e4f2c6amr7520566f8f.38.1752825392621;
-        Fri, 18 Jul 2025 00:56:32 -0700 (PDT)
-Received: from brgl-uxlite.home ([2a01:cb1d:dc:7e00:be63:a233:df8:a223])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3b61ca48a23sm1080851f8f.54.2025.07.18.00.56.31
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 18 Jul 2025 00:56:32 -0700 (PDT)
-From: Bartosz Golaszewski <brgl@bgdev.pl>
-To: Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Keguang Zhang <keguang.zhang@gmail.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Lee Jones <lee@kernel.org>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	"Rob Herring (Arm)" <robh@kernel.org>
-Cc: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
-	linux-gpio@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-mips@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linuxppc-dev@lists.ozlabs.org
-Subject: Re: [PATCH v2] dt-bindings: gpio: Create a trivial GPIO schema
-Date: Fri, 18 Jul 2025 09:56:01 +0200
-Message-ID: <175282531516.45055.8482528409833116992.b4-ty@linaro.org>
-X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20250714201959.2983482-1-robh@kernel.org>
-References: <20250714201959.2983482-1-robh@kernel.org>
+	id 1ucfxR-0000000Bwao-2quo;
+	Fri, 18 Jul 2025 07:56:42 +0000
+X-UUID: ba0a7d4863ac11f09f706fa2197c6ceb-20250718
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=oZtlXx9YmGtcHhy9EjFkXTPsShcp3UsIVjQ0NqQyPIo=;
+	b=al4+qcSt4Ahu+nJCMo6NrymJTIyOvOvKcNcBwn2yoMDpOgkBny7QbWf4aUsowUxIRGMiozWt3qvzJV7OqdnE3BI5Zvle5/4Uoxypf8PiUkL8SyS5n+JQJpi3mXtPkVd5LhHuHQgJg5o9cTqRtI5PWB4IWz2qvKXZUWu3RR0NEqw=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.2,REQID:240b48b3-7d5a-4b2b-8029-3437cfbd077b,IP:0,UR
+	L:0,TC:0,Content:-5,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:-5
+X-CID-META: VersionHash:9eb4ff7,CLOUDID:dc93eb0e-6968-429c-a74d-a1cce2b698bd,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:nil,Content:0|50,EDM:-3
+	,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV
+	:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0
+X-CID-BAS: 0,_,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: ba0a7d4863ac11f09f706fa2197c6ceb-20250718
+Received: from mtkmbs11n1.mediatek.inc [(172.21.101.185)] by mailgw01.mediatek.com
+	(envelope-from <sirius.wang@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 969178783; Fri, 18 Jul 2025 00:56:35 -0700
+Received: from mtkmbs13n2.mediatek.inc (172.21.101.108) by
+ MTKMBS09N2.mediatek.inc (172.21.101.94) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.39; Fri, 18 Jul 2025 15:56:32 +0800
+Received: from mtksitap99.mediatek.inc (10.233.130.16) by
+ mtkmbs13n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1258.39 via Frontend Transport; Fri, 18 Jul 2025 15:56:32 +0800
+From: Sirius Wang <sirius.wang@mediatek.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Greg Kroah-Hartman
+	<gregkh@linuxfoundation.org>, Jiri Slaby <jirislaby@kernel.org>, Matthias
+ Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, Sean Wang <sean.wang@mediatek.com>
+CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-serial@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mediatek@lists.infradead.org>, <wenst@chromium.org>,
+	<xavier.chang@mediatek.com>, Sirius Wang <sirius.wang@mediatek.com>
+Subject: [PATCH v5 1/3] dt-bindings: arm: Add compatible for MediaTek MT8189
+Date: Fri, 18 Jul 2025 15:56:24 +0800
+Message-ID: <20250718075630.644870-2-sirius.wang@mediatek.com>
+X-Mailer: git-send-email 2.45.2
+In-Reply-To: <20250718075630.644870-1-sirius.wang@mediatek.com>
+References: <20250718075630.644870-1-sirius.wang@mediatek.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250718_005634_305195_C8B15EDB 
-X-CRM114-Status: GOOD (  11.20  )
+X-CRM114-CacheID: sfid-20250718_005641_725223_2A8DA0A1 
+X-CRM114-Status: GOOD (  10.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,27 +90,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+This commit adds dt-binding documentation for the MediaTek MT8189
+reference board.
 
+Signed-off-by: Sirius Wang <sirius.wang@mediatek.com>
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+---
+ Documentation/devicetree/bindings/arm/mediatek.yaml | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-On Mon, 14 Jul 2025 15:19:51 -0500, Rob Herring (Arm) wrote:
-> Many simple GPIO controllers without interrupt capability have the same
-> schema other than their compatible value. Combine all these bindings
-> into a single schema. The criteria to be included here is must use 2
-> cells, have no interrupt capability, have 0 or 1 "reg" entries, and
-> have no other resources (like clocks).
-> 
-> Note that "ngpios" is now allowed in some cases it wasn't before and
-> constraints on it have been dropped.
-> 
-> [...]
-
-Applied, thanks!
-
-[1/1] dt-bindings: gpio: Create a trivial GPIO schema
-      https://git.kernel.org/brgl/linux/c/2ace85b5bbd065a4e037970154854dc2b41d7b31
-
-Best regards,
+diff --git a/Documentation/devicetree/bindings/arm/mediatek.yaml b/Documentation/devicetree/bindings/arm/mediatek.yaml
+index 19ed9448c9c2..5052b6b2dcce 100644
+--- a/Documentation/devicetree/bindings/arm/mediatek.yaml
++++ b/Documentation/devicetree/bindings/arm/mediatek.yaml
+@@ -382,6 +382,10 @@ properties:
+           - enum:
+               - mediatek,mt8188-evb
+           - const: mediatek,mt8188
++      - items:
++          - enum:
++              - mediatek,mt8189-evb
++          - const: mediatek,mt8189
+       - description: Google Hayato
+         items:
+           - const: google,hayato-rev1
 -- 
-Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+2.45.2
+
 
