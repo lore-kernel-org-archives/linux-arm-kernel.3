@@ -4,61 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7175C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Jul 2025 22:19:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD68AC83F34
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Jul 2025 22:21:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fsk3V0VQbIGNF9V9BzfAdoh2nj3qMwMbQELsKvZiEGg=; b=earTjdvlUkQDrRw5fxaeTunmLQ
-	oUY8Lwci6MLHmq94KYtEly+vDmUROm7FF619uObSx0T/+hsbLJqowO8KEtPnpwYPdikyoeN66YTBX
-	vdOcJOBGUCoPXcMz4TceMWG4ZAhKFQrnMyWZDzIQgszT1pRDOsifpH11tYSWyGBlmAjI+TFys//HI
-	T/lNkY5yHlIj6PHezyZH+OOnTIav2jm3zNjHrELtcnLft8jLGcdc/luOWrgohk6P5VQBF3nTcZL87
-	x3R7Qa30AL6dMjwnR/q8+AJjnFrEHfl3I8BvhijrUlo3K0M3OxHYcA7UFnEPRuglHrmbFcK0SHgEM
-	9fyuw2Dw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=oZVEBPf2w5/CRhv4DYutALrieLYqNjbWCnkthm/PQlE=; b=Y338YFsV98Y6ge
+	UaLKupPdhmvSygsPaO95qH7m/G8RFqCTXD+hZJuoLHeoLJxPjOPQ69/Ohgijb6tfdQiUI7UtbUvg0
+	r6gGTRtEcvIBanyg/8xJjd0giEYiVxtnWGXSJxjVR4wat4qraXaQ0nTJtzk4k1KoksUlhIAym2ti8
+	spM6rQgkVUXrDgJ8cpIkEV2MCPIoeOBR3u+YDYQ2NU8j/Wvl1njimf0ugeKcEzqI9tMDmEgh/bIXD
+	PaOI2x3xsbKLqY0STa/Sjm+f+tSAtzI0qca1iujFLsoieFPVV/Lpf6oQ7qpkF4arUTSSDJ1oJIV8y
+	d7wJWs6RO38DEAcxzWWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uctQG-0000000DXJl-3thV;
-	Fri, 18 Jul 2025 22:19:20 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uctSg-0000000DXVO-2mDM;
+	Fri, 18 Jul 2025 22:21:50 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uctNo-0000000DX3n-28KB
+	id 1uctNy-0000000DX4q-0v9d
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Jul 2025 22:16:49 +0000
+	Fri, 18 Jul 2025 22:16:59 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 0F62A5C6740;
-	Fri, 18 Jul 2025 22:16:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 897F2C4CEEB;
-	Fri, 18 Jul 2025 22:16:46 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id A1C795C6740;
+	Fri, 18 Jul 2025 22:16:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E43A8C4CEF1;
+	Fri, 18 Jul 2025 22:16:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752877006;
-	bh=7dLXUaF35JFLXtVTJdtA116rk6KmdNjbrXNKgyo9x2o=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=smzVaC/zru/NZ1OsUtZOzGpL7N2eQefqsGBjzyFWUkAN0aNtqoCO8KdJL1ox3qIku
-	 NppnIL86fa467tWVN8CKnOmaJXQEhjmUd7dIK1qMZ9MMBHlBHZhjgaVwjMHC828xP7
-	 EpN7WXxixhShElVmYRKuNzjEOEx4Exh3pFwOPRpp44lucJ6u2MljRWlqMlltLI57iK
-	 iWTwvEfRWEVGc00cTLTLCC7VMVd03VU+fMOBd85SCL9ZM1mMnyaN3QCmmFHua0mBcJ
-	 8MRuNUHIg8g6MpSqXbGnvZa6FcuP6VJgzxY9TkpoI01ODX4Y5HPwWQWV2RY1bvpzYA
-	 dMj4qgCktthIQ==
-Date: Fri, 18 Jul 2025 15:16:45 -0700
-From: Eric Biggers <ebiggers@kernel.org>
-To: Ard Biesheuvel <ardb+git@google.com>
-Cc: linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	herbert@gondor.apana.org.au, Ard Biesheuvel <ardb@kernel.org>
-Subject: Re: [PATCH] crypto: arm64 - Drop asm fallback macros for older
- binutils
-Message-ID: <20250718221645.GA295346@quark>
-References: <20250515142702.2592942-2-ardb+git@google.com>
- <20250515185254.GE1411@quark>
+	s=k20201202; t=1752877017;
+	bh=r0RFJLu3chixovmZTNacoWht9HF6iXxmx1ISjsYOiz0=;
+	h=From:Subject:Date:To:Cc:From;
+	b=dLu/ihKpKjUgyEXIOpeR0kCdH/cDC5wJMJ001PuWCEroEitYpMe1vBlha9QO3Clrv
+	 xofa7OkpgiBjZEzm1EfX17MzviULfQhLdBJPYdKeXI+ExOpqW8jVpWdW10kA+orTgO
+	 KCisHHtkQP68zy7t+8g2PUou7YW6mbi+TaGlHyZJA/qwhyeyzrEb1I2k5/SvEjzyQz
+	 5lRN/T4WF6sI4afOP7EQw6u/fi5Wv8ah2afOeJd5D04gynbvPjJiobqmXmG6BGwdjw
+	 s5ZjEUACfHsDZpIxqIiLsU+fymc8tYxPcTPan4t6c+2tyZz4zQV2wgAZ/4llbrGE3D
+	 fX/VOOQjZs2tA==
+From: Mark Brown <broonie@kernel.org>
+Subject: [PATCH 0/3] kselftest/arm64: Fixes for fp-ptrace on SME only
+ systems
+Date: Fri, 18 Jul 2025 23:14:49 +0100
+Message-Id: <20250718-arm64-fp-ptrace-sme-only-v1-0-3b96dd19a503@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250515185254.GE1411@quark>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAFnHemgC/x3MQQqEMAxA0atI1gZqHa14FXFRbaoBrSWVYUS8+
+ xSXb/H/DYmEKUFf3CD05cRHyKjKAubVhoWQXTZopRtlqg6t7O0HfcR4ip0J0054hO1CO9XaOOO
+ VqzXkPAp5/r3rYXyePxiB4KhqAAAA
+X-Change-ID: 20250718-arm64-fp-ptrace-sme-only-ab327d7f0d32
+To: Catalin Marinas <catalin.marinas@arm.com>, 
+ Will Deacon <will@kernel.org>, Shuah Khan <shuah@kernel.org>
+Cc: Mark Rutland <mark.rutland@arm.com>, 
+ linux-arm-kernel@lists.infradead.org, linux-kselftest@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Mark Brown <broonie@kernel.org>
+X-Mailer: b4 0.15-dev-cff91
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1102; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=r0RFJLu3chixovmZTNacoWht9HF6iXxmx1ISjsYOiz0=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBoesfUa9Bm1z2D3Gq+jJPU0PD2Vbmqp7+5TV6lQ
+ wcKyMeQICCJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCaHrH1AAKCRAk1otyXVSH
+ 0OvpB/4namfzyPgsrTcckROrMuyeAGcdlOIUq8Wm2ddk3GBx7yfxv3W18p8aeM4Je6ht/3LEKbP
+ mrVsoA4b5Xqs3NpgK4GBrUg9LcEi8Itl4ORlap9Y6Oyna+kyuUrjZFTiDH8HuLeh6uJyzjMnlAT
+ Va0LQevVR9lgdv+y5oqnYHLFE3uHUsiNauyoCOywzDXRmPRlrcz9x7cquaAkKB9WPm5I8LtHdf4
+ uzkiGbMgjdTgPz7CAXYFuGwIzfUMk+d2CSKayhPH0x2zees02qrSZGcYQyWgIoPAVwlOXbyJwrY
+ YE75j7eDRXa68rPLnYhZZuiZgGafvbB7VauXjqOAqYnJqIIw
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250718_151648_630634_F327B3A7 
-X-CRM114-Status: GOOD (  22.30  )
+X-CRM114-CacheID: sfid-20250718_151658_304267_084B6D4A 
+X-CRM114-Status: UNSURE (   9.13  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,72 +89,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 15, 2025 at 11:52:54AM -0700, Eric Biggers wrote:
-> On Thu, May 15, 2025 at 04:27:03PM +0200, Ard Biesheuvel wrote:
-> > diff --git a/arch/arm64/crypto/sha512-ce-core.S b/arch/arm64/crypto/sha512-ce-core.S
-> > index 91ef68b15fcc..deb2469ab631 100644
-> > --- a/arch/arm64/crypto/sha512-ce-core.S
-> > +++ b/arch/arm64/crypto/sha512-ce-core.S
-> > @@ -12,26 +12,7 @@
-> >  #include <linux/linkage.h>
-> >  #include <asm/assembler.h>
-> >  
-> > -	.irp		b,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19
-> > -	.set		.Lq\b, \b
-> > -	.set		.Lv\b\().2d, \b
-> > -	.endr
-> > -
-> > -	.macro		sha512h, rd, rn, rm
-> > -	.inst		0xce608000 | .L\rd | (.L\rn << 5) | (.L\rm << 16)
-> > -	.endm
-> > -
-> > -	.macro		sha512h2, rd, rn, rm
-> > -	.inst		0xce608400 | .L\rd | (.L\rn << 5) | (.L\rm << 16)
-> > -	.endm
-> > -
-> > -	.macro		sha512su0, rd, rn
-> > -	.inst		0xcec08000 | .L\rd | (.L\rn << 5)
-> > -	.endm
-> > -
-> > -	.macro		sha512su1, rd, rn, rm
-> > -	.inst		0xce608800 | .L\rd | (.L\rn << 5) | (.L\rm << 16)
-> > -	.endm
-> > +	.arch	armv8-a+sha3
-> 
-> This looked like a mistake: SHA-512 is part of SHA-2, not SHA-3.  However, the
-> current versions of binutils and clang do indeed put it under sha3.  There
-> should be a comment that mentions this unfortunate quirk.
-> 
-> However, there's also the following commit which went into binutils 2.43:
-> 
->     commit 0aac62aa3256719c37be9e0ce6af8b190f45c928
->     Author: Andrew Carlotti <andrew.carlotti@arm.com>
->     Date:   Fri Jan 19 13:01:40 2024 +0000
-> 
->         aarch64: move SHA512 instructions to +sha3
-> 
->         SHA512 instructions were added to the architecture at the same time as SHA3
->         instructions, but later than the SHA1 and SHA256 instructions.  Furthermore,
->         implementations must support either both or neither of the SHA512 and SHA3
->         instruction sets.  However, SHA512 instructions were originally (and
->         incorrectly) added to Binutils under the +sha2 flag.
-> 
->         This patch moves SHA512 instructions under the +sha3 flag, which matches the
->         architecture constraints and existing GCC and LLVM behaviour.
-> 
-> So probably we need ".arch armv8-a+sha2+sha3" to support binutils 2.30 through
-> 2.42, as well as clang and the latest version of binutils?  (I didn't test it
-> yet, but it seems likely...)
+When testing SME only systems I noticed that fp-ptrace does not cope at
+all well with them, this series fixes the major issues so that the test
+program completes successfully.  The reason I was looking at this is
+that following the recent round of fixes to ptrace we do not currently
+offer any mechanism for disabling streaming mode via ptrace, this series
+brings the program to a point where it tests the currently implemented
+ABI.  A further series allowing the disabling of streaming mode via
+ptrace will follow.
 
-Actually "sha2" isn't required here, since "sha3" implies "sha2".
+Signed-off-by: Mark Brown <broonie@kernel.org>
+---
+Mark Brown (3):
+      kselftest/arm64: Test SME on SME only systems in fp-ptrace
+      kselftest/arm64: Fix SVE write data generation for SME only systems
+      kselftest/arm64: Handle attempts to disable SM on SME only systems
 
-The kernel test robot did report a build error on this series.  But it
-was with SHA-3, because in binutils 2.40 and earlier the SHA-3
-instructions required both "sha3" and "armv8.2-a", not just "sha3" like
-they do in clang and in binutils 2.41 and later.
+ tools/testing/selftests/arm64/fp/fp-ptrace.c | 11 ++++++++++-
+ 1 file changed, 10 insertions(+), 1 deletion(-)
+---
+base-commit: 86731a2a651e58953fc949573895f2fa6d456841
+change-id: 20250718-arm64-fp-ptrace-sme-only-ab327d7f0d32
 
-For now, I split the SHA-512 part into a separate patch
-https://lore.kernel.org/r/20250718220706.475240-1-ebiggers@kernel.org
+Best regards,
+--  
+Mark Brown <broonie@kernel.org>
 
-- Eric
 
