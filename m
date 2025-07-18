@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AC7AC83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Jul 2025 13:57:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25AD4C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Jul 2025 14:00:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mq1MBSqrSWf8yG8YzC6c9XubOmGz+LEPdn+cUXh+nOY=; b=lDH7lciMVRbJeA4JBvXOYcQoEc
-	256HUXsKq38J9h80Q444GhetvsP79JFSWj8cdFl+G/REp16FTKTg+kfz88AJsH2qs6hRQK5FAd3Of
-	jCWd/YU2yNLZDWhpc1AUWHj9V6ABEMFJKI2kwMU6j7mg/2RXWBKpGebGvBameM0Igt1K1V9kStwbh
-	zdVYMlYV1D9Gm2L1EmUQISsh0cIBX4TsIrDRqiSE760lg1sqlR6JpXHUr1T3MEAFAYKGYf8mpMyck
-	qb9z+zFhbwVwPctoWIMnmxQw50iGOr3vlYhWCHOBGb9gK9TOYPWdDiHbAC5yQ1OQgsYl+tKjNxl9T
-	TPBi6Cnw==;
+	bh=xgQ7l0F6OK1MkNTe4bfRtZCBRg5iBZx8b2gzwerq6NY=; b=UUPshU0kAPIPe+QkRziALiF9hx
+	iyhN8NM6yernDgiRkNVtJOMG6rfs7uBR0Uvwykjc5sLQQMF5TmeqzRKzExq10fxuI+K5rRkp53Ayd
+	zaBjNxnX702ZSdmrcu0lbBXnl3xMJ9qVYLt97FSd0q1boXA+WjyI0wztZAvcNjzJ0sZzVz0WH9BZb
+	+L9oQQQCaOFISyPZXBMnHqO+ki1HCbr5AyK7tS53U+Fv7CZ0mW9xhtsJ+0gJl/n/gPB3UmpohnlzW
+	wOYEkVIiEYYAbFvXyzENNQpZ3D3lV5KKKE+5S1rwfR07qJG7i0VSYh1uHVleCFhhAQdir7uKoBHH4
+	7Gv/AHtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uclac-0000000Cjuu-04jx;
-	Fri, 18 Jul 2025 13:57:30 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1ucld2-0000000CkOl-3J11;
+	Fri, 18 Jul 2025 14:00:00 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uclP4-0000000Cj3r-0DkW
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Jul 2025 13:45:34 +0000
+	id 1uclQk-0000000CjEO-0R4w;
+	Fri, 18 Jul 2025 13:47:19 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 31A8A601DD;
-	Fri, 18 Jul 2025 13:45:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8DC37C4CEEB;
-	Fri, 18 Jul 2025 13:45:27 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 6E2D343216;
+	Fri, 18 Jul 2025 13:47:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B5CF5C4CEEB;
+	Fri, 18 Jul 2025 13:47:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752846332;
-	bh=n53OG7Ktt1g6FtX1MG3MOkDKBdetprJNhoqQRlyEq00=;
+	s=k20201202; t=1752846437;
+	bh=K6o8NjASe6wViaJFuQvujWx90lgkkbUDOmivtCh4DGE=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=kiIpGf7eO8qSGKjqhnpQWH0KB+dmUKfuAtfZ1XRs8sugvil357dTvIwkUhm+bcZRM
-	 CJgXKkv3TIi6txF0OftB23Tm3TjSSCW7n+a+68XUm/+9Drfj16P9D65Uz2Q3Cmo0fN
-	 h7EpWeWbCbCga9ay9xPdhr8WThYVhFfEwK5gTlCLVp9W249W+96z6l7oCYzHgYOUXr
-	 cn0cGFyGqfEm8al/eWjNvZPHqDte6tQmTVvT5FvErE/E/qRsdNVIj8p6f3iy9yh5+A
-	 /0y4fr//iyvu7felQhd27m5IR8655iF5epjf/EERhnywHx+B0F1SkYojoAQhcuEZme
-	 s5lkDUPCGC2Eg==
-Date: Fri, 18 Jul 2025 14:45:25 +0100
-From: Lee Jones <lee@kernel.org>
-To: Andrei Stefanescu <andrei.stefanescu@oss.nxp.com>
-Cc: linus.walleij@linaro.org, brgl@bgdev.pl, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, chester62515@gmail.com,
-	mbrugger@suse.com, Ghennadi.Procopciuc@nxp.com,
-	larisa.grigore@nxp.com, shawnguo@kernel.org, s.hauer@pengutronix.de,
-	festevam@gmail.com, aisheng.dong@nxp.com, ping.bai@nxp.com,
-	gregkh@linuxfoundation.org, rafael@kernel.org, srini@kernel.org,
-	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
+	b=GuMujI5MdT3wUu7nvneI1RfXlSTj33sW2FjkeunKBiTQoNqX2wy0ZMN8W+zpa0A04
+	 cAfoBMuY+pbDGD6nlHuOpIzsldvyDYteuO5x88S21dq/mjFFDStHZtJg+8jeX5Lih2
+	 VMkJheWun1cyftQ95JSuJOO+HTzatbMGo9p1I3bAQ0W7Z2edLGWY4V8vRf+7qnqgE+
+	 BHilpQkZpY/5QFQucdIx3olXahXNWn2h8bq7LRMFt8au37GV8wddcuXxSzSB2ghxLb
+	 Yvqig3q2DYn8Sr0r0EMCUD5Ff89YRE2SNLX4mTJMc0pu4RVMexqAUzcuslCZVH6cHS
+	 3BPjFbPKFRAZQ==
+Date: Fri, 18 Jul 2025 14:47:11 +0100
+From: Will Deacon <will@kernel.org>
+To: Robin Murphy <robin.murphy@arm.com>
+Cc: Benjamin Gaignard <benjamin.gaignard@collabora.com>, joro@8bytes.org,
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	heiko@sntech.de, nicolas.dufresne@collabora.com, jgg@ziepe.ca,
+	iommu@lists.linux.dev, devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	s32@nxp.com, clizzi@redhat.com, aruizrui@redhat.com,
-	eballetb@redhat.com, echanude@redhat.com, kernel@pengutronix.de,
-	imx@lists.linux.dev, vincent.guittot@linaro.org
-Subject: Re: [PATCH v7 10/12] nvmem: s32g2_siul2: add NVMEM driver for SoC
- information
-Message-ID: <20250718134525.GG11056@google.com>
-References: <20250710142038.1986052-1-andrei.stefanescu@oss.nxp.com>
- <20250710142038.1986052-11-andrei.stefanescu@oss.nxp.com>
+	linux-rockchip@lists.infradead.org, kernel@collabora.com
+Subject: Re: [PATCH v6 3/5] iommu: Add verisilicon IOMMU driver
+Message-ID: <aHpQXy-bnwW56rCn@willie-the-truck>
+References: <20250710082450.125585-1-benjamin.gaignard@collabora.com>
+ <20250710082450.125585-4-benjamin.gaignard@collabora.com>
+ <aHTzPwTob8_5rtBS@willie-the-truck>
+ <baa1fcde-f167-4a1b-afca-0a2957a688cc@collabora.com>
+ <aHozv0NG1OBlAH6c@willie-the-truck>
+ <b4169471-fcd0-4415-8281-c5bd722e5f2b@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250710142038.1986052-11-andrei.stefanescu@oss.nxp.com>
+In-Reply-To: <b4169471-fcd0-4415-8281-c5bd722e5f2b@arm.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250718_064718_190391_6BE5FE60 
+X-CRM114-Status: GOOD (  30.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,23 +80,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 10 Jul 2025, Andrei Stefanescu wrote:
-
-> The SIUL2 hardware module has registers which expose information about
-> the given SoC (version, SRAM size, presence of some hw modules).
+On Fri, Jul 18, 2025 at 01:56:36PM +0100, Robin Murphy wrote:
+> On 2025-07-18 12:45 pm, Will Deacon wrote:
+> > On Mon, Jul 14, 2025 at 04:56:53PM +0200, Benjamin Gaignard wrote:
+> > > Le 14/07/2025 ‡ 14:08, Will Deacon a Ècrit†:
+> > > > On Thu, Jul 10, 2025 at 10:24:44AM +0200, Benjamin Gaignard wrote:
+> > > > > +/* vsi iommu regs address */
+> > > > > +#define VSI_MMU_CONFIG1_BASE			0x1ac
+> > > > > +#define VSI_MMU_AHB_EXCEPTION_BASE		0x380
+> > > > > +#define VSI_MMU_AHB_CONTROL_BASE		0x388
+> > > > > +#define VSI_MMU_AHB_TLB_ARRAY_BASE_L_BASE	0x38C
+> > > > > +
+> > > > > +/* MMU register offsets */
+> > > > > +#define VSI_MMU_FLUSH_BASE		0x184
+> > > > > +#define VSI_MMU_BIT_FLUSH		BIT(4)
+> > > > > +
+> > > > > +#define VSI_MMU_PAGE_FAULT_ADDR		0x380
+> > > > > +#define VSI_MMU_STATUS_BASE		0x384	/* IRQ status */
+> > > > > +
+> > > > > +#define VSI_MMU_BIT_ENABLE		BIT(0)
+> > > > > +
+> > > > > +#define VSI_MMU_OUT_OF_BOUND		BIT(28)
+> > > > > +/* Irq mask */
+> > > > > +#define VSI_MMU_IRQ_MASK		0x7
+> > > > > +
+> > > > > +#define VSI_DTE_PT_ADDRESS_MASK		0xffffffc0
+> > > > > +#define VSI_DTE_PT_VALID		BIT(0)
+> > > > > +
+> > > > > +#define VSI_PAGE_DESC_LO_MASK		0xfffff000
+> > > > > +#define VSI_PAGE_DESC_HI_MASK		GENMASK_ULL(39, 32)
+> > > > > +#define VSI_PAGE_DESC_HI_SHIFT		(32 - 4)
+> > > > How does this page-table format relate to the one supported already by
+> > > > rockchip-iommu.c? From a quick glance, I suspect this is a derivative
+> > > > and so ideally we'd be able to have a common implementation of the
+> > > > page-table code which can be used by both of the drivers.
+> > > > 
+> > > > Similarly:
+> > > 
+> > > No they comes from different IP providers, this one is from Verisilicon.
+> > > I agree they looks very similar and my first attempt was to add it into
+> > > rockchip-iommu code but when doing it I realize that registers addresses
+> > > where all different so I had to code all the functions twice.
+> > 
+> > Understood, and I'm not suggesting to merge the drivers or try to
+> > consolidate the register layouts. What I _am_ saying is that the
+> > in-memory page-table format should be factored out in a way that can
+> > be reused by the two drivers and also that some of the logic (as highlighted
+> > by vsi_iommu_domain_free()) is practically identical between the drivers
+> > and should also be shared.
 > 
-> Signed-off-by: Andrei Stefanescu <andrei.stefanescu@oss.nxp.com>
-> ---
->  drivers/mfd/nxp-siul2.c           |   6 +-
+> All they really have in common is that they're 2-level formats with 32-bit
+> PTEs and 10 bits per level (as is tegra-smmu too). The permission encodings
+> have some overlap but are not fully equivalent. Crucially, the schemes for
+> packing >32-bit PAs into PTEs are incompatibly different, so if you're
+> really keen to genericise things to *that* extent, that's what Jason's
+> already working on.
+> 
+> As for domain_free, you could argue that it also looks basically the same as
+> exynos_iommu_domain_free(), because at the end of the day, there's only so
+> many ways to free a 2-level pagetable, and it's at least better than what,
+> say, sun50i, omap or tegra are doing (or rather, not doing...)
 
-When you re-submit - this needs to be in its own commit.
+Just because the existing drivers are a mess doesn't mean we should
+proliferate it!
 
->  drivers/nvmem/Kconfig             |  10 ++
->  drivers/nvmem/Makefile            |   2 +
->  drivers/nvmem/s32g2_siul2_nvmem.c | 232 ++++++++++++++++++++++++++++++
->  4 files changed, 249 insertions(+), 1 deletion(-)
->  create mode 100644 drivers/nvmem/s32g2_siul2_nvmem.c
-
--- 
-Lee Jones [ÊùéÁêºÊñØ]
+Will
 
