@@ -4,72 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CD7CC83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Jul 2025 14:35:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0626C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Jul 2025 14:52:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pVluEK1U3eqmV+53r29it31vyFIJaW+7bF7qAcKhZos=; b=RG4bgXdMp25lvGbDyD2d29Ofhx
-	AwSN2R6JHe0ucjHMU+Wb8igModjbifUieglB8eKiiAp/vwJrK5OyKmcvG38dBloEQH3g5ngcrNQXc
-	3PGf5gqH4yxA2t/mW8XwNB4IXF12pAz52yiNzb1trJrtlZ2N+b8J7kvDkbeJFG6e9filfTJLJL/Jz
-	T730q04DMZcQLfZwcPHpltSia2o1lTuqR/bX/OXLC75txC25I44in+ii0CpGpmY16EMylDjRC6YGu
-	7vQ5fWwfHKTBQMr/NBthdeKTzUM0ZP+LUvXjqgxKrdezqolWOpSNQzg1KcoOsGSCDKE8CsTIGhHCT
-	1UlGv+jw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=bFb9hgKzTMP601cCw3goVXhMY7NWgY0C8KJIgbPa3E0=; b=wWvO/g0gcvJ18l9rE7R6U/beqe
+	u8ZBxhjhGUBUIFd84GfXSeqi3ENgNCCbqQ0u2MDQUWDp/ZfzcNJ41CN8DolLQLdJEus5D17JC7rl5
+	52ESEVPfb9GH0H9Qru/SlBdnB9oi1QI8d6TsaPC6bxZrxfQQhw/Ixu6GDxEYtAB+qHdRPDnRbXqPj
+	ZAHhY8nYs2VdVHFBs7qebDhh9JMptzprr0BQDjtCMrZpkSaNUDmKOlFxGOqNBTg6EMBmnDO4OkoiQ
+	69ocol8/gWqfH4RzeChuIyDwWyKkhkF8AB84dPq3KhpZUVQbStNS+rZcsYlFwbkjlYZwnlqo/C4iI
+	dshfJKdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucmBD-0000000CpKZ-0rtK;
-	Fri, 18 Jul 2025 14:35:19 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1ucmRX-0000000CrLV-3NQv;
+	Fri, 18 Jul 2025 14:52:11 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucm8V-0000000Copk-2FXb
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Jul 2025 14:32:32 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id D3364A5011D;
-	Fri, 18 Jul 2025 14:32:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6BD6AC4CEEB;
-	Fri, 18 Jul 2025 14:32:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752849150;
-	bh=f+6hv450kX1gmPLqzkXJtJ1MTj1vRlxtu4IdFzoYfxc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=LYGK+fuyhTPtFRjfbj5ql1987bq9LEM3SyDZQXgzbffZJ7+FdZeqST20ZIwTzHRF4
-	 /arw/zy1oJjP0y08SPSD6/M7P8OCBSpt2Vn0b9EyX4pTCu/tPqdT4iaUkUz/Ctwgnp
-	 s6zk/LP7+InrrMYBT2ZXffoG0OWqAcnWDCFueexQk2RjW1H1Z3Lw3f3uIhAuFe+Jxd
-	 bnl21QVUf9WrwUVGDWoQkXBivQPmTSXWM1MTaY0dHlwpxJXLMyB15tzLw1cn7zua2l
-	 HFy/VHaQePf00V70eQvQsBODkfVw7htMTHsZ0H8mQdJgjinyk/52Fh2QWDMCLuJszY
-	 isczmDj5LqSYA==
-Date: Fri, 18 Jul 2025 15:32:25 +0100
-From: Simon Horman <horms@kernel.org>
-To: Markus Elfring <Markus.Elfring@web.de>
-Cc: Himanshu Mittal <h-mittal1@ti.com>, netdev@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	LKML <linux-kernel@vger.kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	MD Danish Anwar <danishanwar@ti.com>,
-	Meghana Malladi <m-malladi@ti.com>, Paolo Abeni <pabeni@redhat.com>,
-	prajith@ti.com, Pratheesh Gangadhar <pratheesh@ti.com>,
-	Sriramakrishnan <srk@ti.com>, Roger Quadros <rogerq@kernel.org>,
-	Vignesh Raghavendra <vigneshr@ti.com>
-Subject: Re: [PATCH net v3] net: ti: icssg-prueth: Fix buffer allocation for
- ICSSG
-Message-ID: <20250718143225.GE2459@horms.kernel.org>
-References: <20250717094220.546388-1-h-mittal1@ti.com>
- <4c677fdb-e6d6-4961-b911-78aaa28130e6@web.de>
+	id 1uclIP-0000000CiBB-3ohY;
+	Fri, 18 Jul 2025 13:38:43 +0000
+From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1752845920;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=bFb9hgKzTMP601cCw3goVXhMY7NWgY0C8KJIgbPa3E0=;
+	b=PgW/SjyEIHljhqgsyaqAg20rXZB3bu5FCgMDMYc/5+Dhol1HbKAmEWbJC49TmF12Dhmez3
+	J2QNTIVOqMWt9j0sjDLxjT/DIHeuf/46fCR4BoO9mNmEoWqzd2zhzz6s/3AaXLblJ+VlJO
+	EFNvLbXoqYrJivq7wFCKDCNcSBr5JdtwSSqMcgDanQeD/wb86zIvwiTJGmi7XPd1fpYPTj
+	RaZBhFeVxdCSLp+sgEdr9C2Iq/ePpRv5X8MEZg1hLTv9a1IJQ1H9r9eTeD6xwvUSB/Nj2s
+	80c6JvRpP/q9v/uYV98uy2gMddEeG0zVd7IG7NOq53B/rTpELa8jAIZLneXbvA==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1752845920;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=bFb9hgKzTMP601cCw3goVXhMY7NWgY0C8KJIgbPa3E0=;
+	b=1V6YYmrGrpjidrZWbbohdQbIxZk7qe2w6+tTBuOuB+/FIshO6L9SHJV9TZbfF1Boc9fWN/
+	siNJv7ve9UJQYnBQ==
+Date: Fri, 18 Jul 2025 15:38:29 +0200
+Subject: [PATCH] media: platform: mtk-mdp3: don't use %pK through printk
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <4c677fdb-e6d6-4961-b911-78aaa28130e6@web.de>
+Message-Id: <20250718-restricted-pointers-mtk-mdp3-v1-1-c7ddaa0612ea@linutronix.de>
+X-B4-Tracking: v=1; b=H4sIAFROemgC/x3MSwqEMAwA0KtI1gZaP1jmKoOL0kYNYi1JGQbEu
+ 1tcvs27QEmYFD7NBUI/Vj5ThW0bCJtPKyHHauhMN5rJOhTSIhwKRcwnp0KieJQdj5h7nIIbvTe
+ DsS5ALbLQwv+3/873/QAfkq38bgAAAA==
+X-Change-ID: 20250718-restricted-pointers-mtk-mdp3-7c85aa04018c
+To: Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: linux-media@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1752845919; l=2403;
+ i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
+ bh=9210zyTPxXhk1SZc/Ce11Ssu8IbxLLufUcb2Hm7DMQk=;
+ b=e9H2sK0SBL5qA1YNFt8iM1tqKdDRhaPu0etUU6rVdENmEVlojk7ZR+ekDb4uWuTWQM8M0CHSI
+ s6LLqFlZ/C0DC7kflJZrqwklQ3M18JzQlPMefePkzRdpHWji2u6/bED
+X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
+ pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250718_073231_637669_05AB7B07 
-X-CRM114-Status: GOOD (  14.79  )
+X-CRM114-CacheID: sfid-20250718_063842_089893_EAEAEA93 
+X-CRM114-Status: GOOD (  11.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,35 +86,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 17, 2025 at 02:56:15PM +0200, Markus Elfring wrote:
-> …
-> > +++ b/drivers/net/ethernet/ti/icssg/icssg_config.c
-> > @@ -288,8 +288,12 @@ static int prueth_fw_offload_buffer_setup(struct prueth_emac *emac)
-> >  	int i;
-> >  
-> >  	addr = lower_32_bits(prueth->msmcram.pa);
-> > -	if (slice)
-> > -		addr += PRUETH_NUM_BUF_POOLS * PRUETH_EMAC_BUF_POOL_SIZE;
-> > +	if (slice) {
-> > +		if (prueth->pdata.banked_ms_ram)
-> > +			addr += MSMC_RAM_BANK_SIZE;
-> > +		else
-> > +			addr += PRUETH_SW_TOTAL_BUF_SIZE_PER_SLICE;
-> > +	}
-> …
-> 
-> Would you like to use the following code variant?
-> 
-> 	if (slice)
-> 		addr += ( prueth->pdata.banked_ms_ram
-> 			? MSMC_RAM_BANK_SIZE
-> 			: PRUETH_SW_TOTAL_BUF_SIZE_PER_SLICE);
-> 
-> 
-> Can the usage of the conditional operator be extended another bit
-> (also for the function “prueth_emac_buffer_setup” for example)?
+In the past %pK was preferable to %p as it would not leak raw pointer
+values into the kernel log.
+Since commit ad67b74d2469 ("printk: hash addresses printed with %p")
+the regular %p has been improved to avoid this issue.
+Furthermore, restricted pointers ("%pK") were never meant to be used
+through printk(). They can still unintentionally leak raw pointers or
+acquire sleeping locks in atomic contexts.
 
-1. (Subjective) The current code seems fine to me
-2. (Objective) Your suggestion features unnecessary parentheses, and
-   incorrect indentation and whitespace
+Switch to the regular pointer formatting which is safer and
+easier to reason about.
+
+Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
+---
+ drivers/media/platform/mediatek/mdp3/mtk-mdp3-core.c | 2 +-
+ drivers/media/platform/mediatek/mdp3/mtk-mdp3-vpu.c  | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/media/platform/mediatek/mdp3/mtk-mdp3-core.c b/drivers/media/platform/mediatek/mdp3/mtk-mdp3-core.c
+index 8de2c8e4d333a8f92684f1590a3dd0d13bdadcc6..6559d72d5d4278071bcec0c5c9be398d1639ba5c 100644
+--- a/drivers/media/platform/mediatek/mdp3/mtk-mdp3-core.c
++++ b/drivers/media/platform/mediatek/mdp3/mtk-mdp3-core.c
+@@ -282,7 +282,7 @@ static int mdp_probe(struct platform_device *pdev)
+ 	}
+ 
+ 	mdp->rproc_handle = scp_get_rproc(mdp->scp);
+-	dev_dbg(&pdev->dev, "MDP rproc_handle: %pK", mdp->rproc_handle);
++	dev_dbg(&pdev->dev, "MDP rproc_handle: %p", mdp->rproc_handle);
+ 
+ 	mutex_init(&mdp->vpu_lock);
+ 	mutex_init(&mdp->m2m_lock);
+diff --git a/drivers/media/platform/mediatek/mdp3/mtk-mdp3-vpu.c b/drivers/media/platform/mediatek/mdp3/mtk-mdp3-vpu.c
+index da3a892ad867eedb4898509da8790981475e9a62..fae3e1ad2df758a50bd175479dbaf7a9eb859222 100644
+--- a/drivers/media/platform/mediatek/mdp3/mtk-mdp3-vpu.c
++++ b/drivers/media/platform/mediatek/mdp3/mtk-mdp3-vpu.c
+@@ -221,7 +221,7 @@ int mdp_vpu_dev_init(struct mdp_vpu_dev *vpu, struct mtk_scp *scp,
+ 	}
+ 
+ 	dev_dbg(&mdp->pdev->dev,
+-		"VPU param:%pK pa:%pad sz:%zx, work:%pK pa:%pad sz:%zx, config:%pK pa:%pad sz:%zx",
++		"VPU param:%p pa:%pad sz:%zx, work:%p pa:%pad sz:%zx, config:%p pa:%pad sz:%zx",
+ 		vpu->param, &vpu->param_addr, vpu->param_size,
+ 		vpu->work, &vpu->work_addr, vpu->work_size,
+ 		vpu->config, &vpu->config_addr, vpu->config_size);
+
+---
+base-commit: d086c886ceb9f59dea6c3a9dae7eb89e780a20c9
+change-id: 20250718-restricted-pointers-mtk-mdp3-7c85aa04018c
+
+Best regards,
+-- 
+Thomas Weißschuh <thomas.weissschuh@linutronix.de>
+
 
