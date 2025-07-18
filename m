@@ -4,126 +4,174 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2364C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Jul 2025 10:37:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71AAFC83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Jul 2025 10:39:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:To:
+	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zteTB79X+fUFIDXx8fj+5FQ3KCq88qFTkVFdV3sKo+g=; b=QqmAUA/zn5H34nDTf5kIsBPoqM
-	33X7ArC4fsn9XXlaAp8Cx9sGBbMLmboL3txCUdwtQC/ZTv42uWua0XC6kOPg78Iqr+3Jq+jfmudTo
-	JxH97lfD8Od1z8ZhBbE/32weir0lrV1bbM34AJ4eIIKYrIJf1tIyLiljluu2SQX4wleBBj0fZ7zHB
-	oTHonT1BLtKI9fZLXOQAueeRqNcK7+qIpdSUo6ri0Od0gIyrOuOB6KLkSx8qzAEqpPRZ6trczjQTd
-	MWeJHXsybWBzMB7yYhylWFR9sbpkeECbH9pB1iA41mFe2gan8j/Ax/+1o3y+OHbrsEpV9IRoxgFK9
-	trjytUCg==;
+	bh=s/8oRPQz8O0KV0+9v0+c34n3I86jF3efa0lqCRGe73g=; b=oABL+UPkbpmyiAGpfnnJ5tnb2O
+	BiwmTeYdo0VfX6yH8HTupjXfzl8g/nhtA2Z9Syii04lhtQtUZDdScEx9VruYWW09nu8DLWiKLiYxa
+	uZcPvb1k0TEbKkfdjthtKGTE6zxKXqkiyX4dQ22xGs7oM4GRVK8Ra0klzvEsc6nfVoJNM43mZZrxa
+	Eq3Q5Wq6y4UJY3bax8nktLnjEdIKJMz4K8mbV8zibkJaotrnvscE1PloPEv/sLHt9wb8qim0j0tkt
+	W+efKqtxpszrGM566izhhUYenYm4c5niESgqeaUFSjmOSXdMfCqoxolcfitwNTLaEnGRc12vq9PcL
+	C+3a+mwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uciSj-0000000CK01-2l63;
-	Fri, 18 Jul 2025 10:37:09 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1uciV6-0000000CKCl-2KYZ;
+	Fri, 18 Jul 2025 10:39:36 +0000
+Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uch2f-0000000C7xm-344q
+	id 1uci53-0000000CH13-3fwq
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Jul 2025 09:06:11 +0000
-Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56I8h2Bk008487;
-	Fri, 18 Jul 2025 09:05:58 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	zteTB79X+fUFIDXx8fj+5FQ3KCq88qFTkVFdV3sKo+g=; b=gvmy/OZZ3WysJgWy
-	ZIeKGMdraUZK3CLSKAg4lJmyZT/akQCx8UCrO3VktWYp6qabPJnkOiV31U76rUJA
-	TL3MxzFySkAVyhRuVkKpTJBxBYR0F74yJnwzziUuO6NcUqexemEYJjOhikTPYFbZ
-	O4u/6K+lr19pSzDcOeUFffpyeg5vSoGjioKnT0qkpKSBhH8JCQIj6jxYb06URDEk
-	hI/FTTtDhd1CWCY293nWyClCF5qdeuajIwiUTf7qPgUQDVy+85XEGUfmAOoDh9Ii
-	EyqoMwYGe039OY5cWIQuaBkSdzpgFff+3gQiMjzVpDAuiyGVnJpRy7FbPqm0S4LD
-	A7//tg==
-Received: from nasanppmta04.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 47ufxbavc8-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 18 Jul 2025 09:05:58 +0000 (GMT)
-Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
-	by NASANPPMTA04.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 56I95vF1018192
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 18 Jul 2025 09:05:57 GMT
-Received: from [10.253.76.178] (10.80.80.8) by nasanex01b.na.qualcomm.com
- (10.46.141.250) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Fri, 18 Jul
- 2025 02:05:51 -0700
-Message-ID: <49d5d360-6a2f-4dd4-bbd7-1a902e556f00@quicinc.com>
-Date: Fri, 18 Jul 2025 17:05:49 +0800
+	Fri, 18 Jul 2025 10:12:43 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=RFRWv7rA9mwdW0c+u7tOjNleKqDnyRl7NsHJOmcxBKVjiODKvaTKBQoqOECKu0nhTmCJTBAMkR7vDDjKNTTrOD100K+VSPyWsoFVVYynZKVhnpSj1prVou8Ol0gfgSSUPVc+lToHfOlGjdiL5MIDgt+BaggsshtlBPkrowFpbLz6EXkMWIShOWi36IFPHjaUm/3MXrw6l4FR5ik6waj69nepN+6gg+uiP8hW98FJpYhapCm5aaLgIJuJtUhCZudGemayp2AuYrC5/38mqBssn2k/fPmu+SelS1agSMUmc7cuvZG14g+FQBI61NGsDqS1qhqEsT8TOXgVhWcoJa3P0Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=s/8oRPQz8O0KV0+9v0+c34n3I86jF3efa0lqCRGe73g=;
+ b=KIhCUJBf2rxx/T5LezvQDuNSpEjfYI71+KuV+hiohDU5RF9xX576aP5KGHvb5Xdhcthj3Iw8mKJ6RNhXDd61YyV7kaedwRTKlSt5yxKbbF6b/WaV19BQslLCnFEQqo6nU5WOCKe1RncMYxYuyA8i07yrbMgyMATKhy+6VNkfCYI7Qg9B66SsUOklRPZh3WA1c84zq+P2fnGgzA4WMMJbiJnuD78R2fnilddTD2WgAWLBDDLhoGy/3dHeqPV0enwnnNIAjBGEqnPlIVWPdx4Xb8sQ0Pjb8PACjcMSRKSLny+PIr5LpzuzhpNt9c4/rkQS/9WanacNkwrAS1GfWVSHQw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=s/8oRPQz8O0KV0+9v0+c34n3I86jF3efa0lqCRGe73g=;
+ b=n8r9u07+fWwZQtLgzjCDH/XrlRALaQk9r8ibUpzZequGLWqLvR/t4BCWX7JZ23nIWBw3yn40O8eAQ3GZjlQVGjI+c+StMOkPkRsXzDKrdwXX9RLVtt27R5AOxDt1pJUcNyosXwnfnIvKQfzyQQLxLKJH4y8BRz5XKPkSjOY/SyVwtuJV8Wg2+mHYN9vJ0Gf+2LUVoAb/Sl1QtWzT9rc2aEhLeLUMGovi4d/m3UVez4eELcNyMAPOi0Wb/YCh+8QdHopRBKhJSWWhNdH28yQn2tAB8EZITxaBeaguAU80KB6MIXZyCY9a/lorSrRBHI2cpyWaDU3ez4BQdHP40gxfaA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AM0PR04MB7044.eurprd04.prod.outlook.com (2603:10a6:208:191::20)
+ by DB8PR04MB7180.eurprd04.prod.outlook.com (2603:10a6:10:12c::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8922.39; Fri, 18 Jul
+ 2025 10:12:39 +0000
+Received: from AM0PR04MB7044.eurprd04.prod.outlook.com
+ ([fe80::7be0:296:768c:e891]) by AM0PR04MB7044.eurprd04.prod.outlook.com
+ ([fe80::7be0:296:768c:e891%5]) with mapi id 15.20.8943.024; Fri, 18 Jul 2025
+ 10:12:39 +0000
+From: Shengjiu Wang <shengjiu.wang@nxp.com>
+To: andrzej.hajda@intel.com,
+	neil.armstrong@linaro.org,
+	rfoss@kernel.org,
+	Laurent.pinchart@ideasonboard.com,
+	jonas@kwiboo.se,
+	jernej.skrabec@gmail.com,
+	maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org,
+	tzimmermann@suse.de,
+	airlied@gmail.com,
+	simona@ffwll.ch,
+	lumag@kernel.org,
+	dianders@chromium.org,
+	cristian.ciocaltea@collabora.com,
+	luca.ceresoli@bootlin.com,
+	dri-devel@lists.freedesktop.org,
+	linux-kernel@vger.kernel.org,
+	victor.liu@nxp.com,
+	shawnguo@kernel.org,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	p.zabel@pengutronix.de,
+	devicetree@vger.kernel.org,
+	l.stach@pengutronix.de,
+	shengjiu.wang@gmail.com
+Subject: [PATCH 1/4] drm/bridge: dw-hdmi: Add function to get plat_data
+Date: Fri, 18 Jul 2025 18:11:47 +0800
+Message-Id: <20250718101150.3681002-2-shengjiu.wang@nxp.com>
+X-Mailer: git-send-email 2.37.1
+In-Reply-To: <20250718101150.3681002-1-shengjiu.wang@nxp.com>
+References: <20250718101150.3681002-1-shengjiu.wang@nxp.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: MA0PR01CA0048.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a01:81::19) To AM0PR04MB7044.eurprd04.prod.outlook.com
+ (2603:10a6:208:191::20)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 07/10] dt-bindings: clock: qcom: Add NSS clock
- controller for IPQ5424 SoC
-To: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-        Rob Herring
-	<robh@kernel.org>
-CC: Georgi Djakov <djakov@kernel.org>,
-        Krzysztof Kozlowski
-	<krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Bjorn Andersson
-	<andersson@kernel.org>,
-        Michael Turquette <mturquette@baylibre.com>,
-        "Stephen
- Boyd" <sboyd@kernel.org>,
-        Anusha Rao <quic_anusha@quicinc.com>,
-        Konrad Dybcio
-	<konradybcio@kernel.org>,
-        Philipp Zabel <p.zabel@pengutronix.de>,
-        "Richard
- Cochran" <richardcochran@gmail.com>,
-        Catalin Marinas
-	<catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>, <linux-arm-msm@vger.kernel.org>,
-        <linux-pm@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-clk@vger.kernel.org>,
-        <netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <quic_kkumarcs@quicinc.com>, <quic_linchen@quicinc.com>,
-        <quic_leiwei@quicinc.com>, <quic_pavir@quicinc.com>,
-        <quic_suruchia@quicinc.com>
-References: <20250710-qcom_ipq5424_nsscc-v3-0-f149dc461212@quicinc.com>
- <20250710-qcom_ipq5424_nsscc-v3-7-f149dc461212@quicinc.com>
- <20250710225539.GA29510-robh@kernel.org>
- <0ef83a1e-38c3-41bb-8fd2-c28565f2a0ba@oss.qualcomm.com>
-Content-Language: en-US
-From: Luo Jie <quic_luoj@quicinc.com>
-In-Reply-To: <0ef83a1e-38c3-41bb-8fd2-c28565f2a0ba@oss.qualcomm.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nasanex01b.na.qualcomm.com (10.46.141.250)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: AZYG4c9OW3-sedX7DX_sxsCBKToCgLEp
-X-Proofpoint-ORIG-GUID: AZYG4c9OW3-sedX7DX_sxsCBKToCgLEp
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNzE4MDA3MSBTYWx0ZWRfX5LbihV0UUb0t
- o21O7oJbdD4zibgNivY2bBbTBmsoB+iplPPmx6rChx/ut7gn7Oak9Xo/Cba0tVImzdtQkjf1JHs
- oBhPicQoATtb1Fewi02B34i2fBfDyxh3jYR9b0phAg+OD5StpMgfsgLmQYmCOShN9QFNsCKMzOn
- 26tvTc4F9OyOLprj0x3bKaZAaGpQlEg1fhfuj99i0Q8gwfUgzDY6traYYcPkyKmuIIXwsK17vIe
- TJCR//Ud9056pCQTdr4hFGqOk1FzaAQpT5pfn+wgYcVmWY2xUQ+wpP1ORBNOzNz25K2QkDbzspP
- 8DK+tiwNRq5rISN3CmyTieuEroCtcDkvB990oXHNm3lmCjGtGTPDHYuRECylvgScCL67CvfA0CJ
- m+MV1TXB/J3gdyyDPiGbtHPDnjLNTBAeVONL7gP9/lZJabYnuwN1kjL+WO0vQiEzYhGtlMJj
-X-Authority-Analysis: v=2.4 cv=Xc2JzJ55 c=1 sm=1 tr=0 ts=687a0e76 cx=c_pps
- a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
- a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=Wb1JkmetP80A:10 a=COk6AnOGAAAA:8
- a=zwoUeVU6iwdCpd6WVVcA:9 a=QEXdDO2ut3YA:10 a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-07-18_02,2025-07-17_02,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 mlxscore=0 priorityscore=1501 adultscore=0 mlxlogscore=999
- phishscore=0 suspectscore=0 spamscore=0 lowpriorityscore=0 impostorscore=0
- clxscore=1015 malwarescore=0 classifier=spam authscore=0 authtc=n/a authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2505280000
- definitions=main-2507180071
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM0PR04MB7044:EE_|DB8PR04MB7180:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4cd0001d-a9f3-416d-ebac-08ddc5e3a017
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016|52116014|19092799006|921020|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?IHXnlhgzy0AmCCwryaoKi95kAVA9U8KZCss9FmZ5ShwfXf66va2kBc6RUKKp?=
+ =?us-ascii?Q?K1zUkAWTBncFhMi7Oz3hBbgWvurXeRO+dh8TQsMkcus+awI6PplyW6pU/pOG?=
+ =?us-ascii?Q?mq4goL2gai859BDpKYNXRNym/ZbqidvdbBJ00/koOps58aoYmrH/udFwLkbE?=
+ =?us-ascii?Q?5d8S/UIdB4a+h4lteqSZLOhSHWFz20KdvxaA/lJ2Y6CuWj9rgTJlNAMBDfZm?=
+ =?us-ascii?Q?9gHHDHgLBY43tX9l9rLaxEztPYtp4s+E9mO5kxiKHFhkcEH83U5GNt7HkCdA?=
+ =?us-ascii?Q?5RVu13zh33SvjusdxI7CYtH/U99s88WhVCCN6jJt/nXiq6A9O12KHMj4Hr6k?=
+ =?us-ascii?Q?hJv/KsqS68KGido9Oe6f0a6uC/VNX49M0oLwK3jbGSChRAnf+SlWTMTM2AeU?=
+ =?us-ascii?Q?AY7KPHJ6h+wcHF6YTHj2If3e+iKOWqr6/X2k1pWP3lB8bfTguFyNSL27vYas?=
+ =?us-ascii?Q?mVCjTLxmhZ70Izhf1Z71BckDAuDVvMGF9POWkyUKtNZdLlmnUaV5XnEL0zq8?=
+ =?us-ascii?Q?1QPxmtVRExmK9DRjjERvTQAsiFRM2hWnv+tvLfrCSvqsGrMTJUGRnkPhi5tt?=
+ =?us-ascii?Q?6+j+zV7FH1t7qYbpHeo3Qsy09m78dsNPR5zbHtFUMUJZDwBzO6pTKtYXalCS?=
+ =?us-ascii?Q?ybqozHJCc2vZD8MP3E63Yi0SmapF7GX6e8sJ8sIoVesw9IEiyL2dpcntTYeE?=
+ =?us-ascii?Q?H8RudW5UL/XsVJpslTZEHdjCBceplpxGzVue1xH+97DgLdosAd003nyVgFMB?=
+ =?us-ascii?Q?B/YKp9XbipjGjP7xUJwV0IscTjvn9hBbsqTLr4wiejx20xw7vQ98M+qMWp8q?=
+ =?us-ascii?Q?yEVZp2FkjFcS1EkdCAScAtBInVKKxCWyLZM+M3gwqrN5KX7AQKl6UksTAeyB?=
+ =?us-ascii?Q?YdP/3MuGQ6R4q0vBDa38O4Pad2w3W1p7sXZTvjWB7+DmZlTPlhOWWs2O5FuP?=
+ =?us-ascii?Q?VslKYnGeKLnJHFl6JsKJldCVHU1t8MvhxwoZtCkY6O1qZSlvq5aPLY9x7GH+?=
+ =?us-ascii?Q?31WlABKCImvKpLqjG2lHksRPiuHZrdVa1HylxuwV+fjtRrVONLKAde4dzzYO?=
+ =?us-ascii?Q?WTdRaM4xVFAPSzRTuNmSpCNFZgzUZ7YS7mzd4+JFyUDLm2bugFR+w5Hv7zbp?=
+ =?us-ascii?Q?oZ3383nC2GB+E/zDxu2vwTBzvp6ZnAiTkbGHHyDScEJx+IQYZx/fvxhZszpM?=
+ =?us-ascii?Q?cg/nMRAXgpk6XIl8BtlgFtE/0Jy3PsI0gZE8e40igFpTihu9H05+DoCCe2sN?=
+ =?us-ascii?Q?BxOWa0Zb2w4N59GtZdP9tXtZFi0AkO1Rsnf32ESH86QIpPIscXGd2DXF28vv?=
+ =?us-ascii?Q?8eDZzm44KSL4gVVcotBURTY5Dtu3Kr9hh9QGiqw0ZdCHu0nxJYj1CXWe5yaB?=
+ =?us-ascii?Q?buib1RfdLFXqu9lJ2PsLurz4gtl7FllEUhLBl33eZaIpih0sZ12XWMXnU5aN?=
+ =?us-ascii?Q?P5ARDczdbvhYEQgNaaeU9KZKTY9JB/JPCe6Hr+YHxfuzL4MAHjjbD6U+OlmO?=
+ =?us-ascii?Q?j3AOxc+2fV0N6Yw=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM0PR04MB7044.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(52116014)(19092799006)(921020)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?UogD0CyqCEHOp+Aoko4BORm5PaRJbRFxjeDdCdbP9B9Tlwchq7FXJ84Ace1/?=
+ =?us-ascii?Q?4+QlPeiUuUbR6GskJHijWxP2ZxIA77VahH4KXbt/bgoiCUHLvi1vzqffIFTh?=
+ =?us-ascii?Q?OCj7CFaDfK8r9H851yVuJ5INXvxHji+viiqnAt03lA4BmtHxYziQ8MKCwFph?=
+ =?us-ascii?Q?+TDSpgdUOnh9caS/9MZgrQCMp5xVKBQa5kKC2kCoHyWba7UFv8WB+x33nMc1?=
+ =?us-ascii?Q?grz1kqaAe/tAEjG3XjX3g31GY60soeZeSIhX2ROAZoR13E8kxV6ai6Wh9AFP?=
+ =?us-ascii?Q?zc62kaKqnMYXOaOJvLAyGL9pzn4mcYWTdt/mtR2NPxVo4I7Li0NuZXUy9o8q?=
+ =?us-ascii?Q?Acvrnvd/A5vj/OvkVq3o+0IGyrxT+O219Xl0DYSEidV7g2XLxMDtCMDByEzc?=
+ =?us-ascii?Q?UULaODOfIYZfcCWaM3rSNOefTeXD2vQ/LBHZPH1K2n3GczMC16cgnf0PhEwf?=
+ =?us-ascii?Q?NFnoaqIBroRFGBM8bhSrGGeSeOSVNCSWjYaoBFKymkIo+kAYYuy3Ez1V+j4n?=
+ =?us-ascii?Q?9alxlePeIvqkUnR80pVimarMg+lSSH8MC///2y+o+huruxiKuzg2Vw/sym8F?=
+ =?us-ascii?Q?2AO5sp6Y4NpL1UV/md7/s88pttGyRgGF/BuwFM+LeZir0J2yP4zZiJqwxoxx?=
+ =?us-ascii?Q?sPWdFk1cS9ih5wK3ZK2iAPr3XRQpo4nlR1FyjpFK9TGZtQuECNHLVbXYkBJo?=
+ =?us-ascii?Q?KXXCZf+UGtUrSvCjK6vzSVMDns7As+sNtHusRZyvSPG10EumEUaxBT1ZXEHM?=
+ =?us-ascii?Q?/ssvBXmKtYImqEHAoDat8CI87745JXVUz0YzZnhCSZH6vjs4JtW0sGxGoYOK?=
+ =?us-ascii?Q?S/GeT43qY5Sw7dN9t3hPa/vlUobNJfujivrPS5g8doECbmpDIVT7P5Je5yh2?=
+ =?us-ascii?Q?0S+9kcXBCiQz0KkXMkClmCwx4HcCwd2Q/TF1DkCy9rdS2GVgXvwn5iI0ww1u?=
+ =?us-ascii?Q?Ap1+ofTEPuJ0v2+hzkFjoLPFyitP9bK/QG7PJvcDrr99zcZf0AMqa8F8sH2/?=
+ =?us-ascii?Q?MSeBw+Q1O2IojhDHGvutJctVvU70BNska1byXK6Gh7tFP0bgnfk62VBs8BuI?=
+ =?us-ascii?Q?vfO7b8SuIw3u9KfmxBXJN//NgviaJx/dP/mhrIkRWIZ3nEcl8RxqgqZCy9wJ?=
+ =?us-ascii?Q?eRx3iOcK05/pdcemQ3L80R9IqFNk+U5FvQBXOrC3azPVRid2oouXAkkFfSC6?=
+ =?us-ascii?Q?Ct3mnpd2hyyYulw656myX/0HC4+63rMATNl3N7CvY9XA8yqBaVbGI49AYZiD?=
+ =?us-ascii?Q?v2O23cnnN/lyUtLUEJYew/J1qEgd99WWLyNQRkjPgmV40KGBNXPJQthGThvb?=
+ =?us-ascii?Q?AFERCOpkOIC5mnGJ0flz2HXvk9qZXbot8qqpbzhkF6pvRVSQyA1Lun/D/1Gg?=
+ =?us-ascii?Q?1pskfkBqeh2KpR3/dINprQ3kPpQE9N6cbL726Ipt47k0UwHb6Dw0my7dGSk5?=
+ =?us-ascii?Q?hG0at8Av/BWPxqU6+/6NYUigqz4HB8iGSATxzOVLA8JjtmB3hupAcf6zvxRA?=
+ =?us-ascii?Q?hk0dWssftr96jrAGYQnbMEtO3KzJmoKperZpqTLZ4lNvgXFuyo/qTJN+r6aW?=
+ =?us-ascii?Q?hH6YEZMfEor08sAgf8jBth2ahNSU5UCJeiHzXPYS?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4cd0001d-a9f3-416d-ebac-08ddc5e3a017
+X-MS-Exchange-CrossTenant-AuthSource: AM0PR04MB7044.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Jul 2025 10:12:39.3027
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: uWh3w7rPd6RIBDYoMMA9oxgZT7mQQjB0dVqk9YPUHtVqO33QLmHbkC82HGyGR3UAnz5qapBx+707GilzN15YpQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR04MB7180
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250718_020609_895235_63D0355D 
-X-CRM114-Status: GOOD (  14.40  )
+X-CRM114-CacheID: sfid-20250718_031241_918508_1DAAB0CA 
+X-CRM114-Status: GOOD (  11.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,53 +186,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The enable_audio() and disable_audio() callback pointers are in
+plat_data structure, and the audio device driver needs to get plat_data
+for assign these pointers. So add a function to export plat_data
+structure.
 
+Signed-off-by: Shengjiu Wang <shengjiu.wang@nxp.com>
+---
+ drivers/gpu/drm/bridge/synopsys/dw-hdmi.c | 6 ++++++
+ include/drm/bridge/dw_hdmi.h              | 1 +
+ 2 files changed, 7 insertions(+)
 
-On 7/11/2025 8:16 PM, Konrad Dybcio wrote:
-> On 7/11/25 12:55 AM, Rob Herring wrote:
->> On Thu, Jul 10, 2025 at 08:28:15PM +0800, Luo Jie wrote:
->>> NSS clock controller provides the clocks and resets to the networking
->>> blocks such as PPE (Packet Process Engine) and UNIPHY (PCS) on IPQ5424
->>> devices.
->>>
->>> Add the compatible "qcom,ipq5424-nsscc" support based on the current
->>> IPQ9574 NSS clock controller DT binding file. ICC clocks are always
->>> provided by the NSS clock controller of IPQ9574 and IPQ5424, so add
->>> interconnect-cells as required DT property.
->>>
->>> Also add master/slave ids for IPQ5424 networking interfaces, which is
->>> used by nss-ipq5424 driver for providing interconnect services using
->>> icc-clk framework.
->>>
->>> Signed-off-by: Luo Jie <quic_luoj@quicinc.com>
->>> ---
-> 
-> [...]
-> 
->>>     clocks:
->>>       items:
->>> @@ -57,6 +61,7 @@ required:
->>>     - compatible
->>>     - clocks
->>>     - clock-names
->>> +  - '#interconnect-cells'
->>
->> You just made this required for everyone. Again, that's an ABI change.
-> 
-> In this case it's actually valid, but should be a separate fixup change
-> 
-> Konrad
-
-Making #interconnect-cells a required property does introduce an ABI
-change in the device tree bindings. However, this change is necessary
-to ensure proper functionality and integration with the interconnect
-framework, which increasingly relies on this property for accurate
-configuration and resource management.
-
-Yes, this is a fixup change. Since the current NSS clock controller DTS 
-node for IPQ9574 already includes '#interconnect-cells', I will separate 
-this modification into a standalone fixup patch.
-
-
+diff --git a/drivers/gpu/drm/bridge/synopsys/dw-hdmi.c b/drivers/gpu/drm/bridge/synopsys/dw-hdmi.c
+index 76c6570e2a85..3dfa42178f6c 100644
+--- a/drivers/gpu/drm/bridge/synopsys/dw-hdmi.c
++++ b/drivers/gpu/drm/bridge/synopsys/dw-hdmi.c
+@@ -198,6 +198,12 @@ struct dw_hdmi {
+ 	enum drm_connector_status last_connector_result;
+ };
+ 
++const struct dw_hdmi_plat_data *dw_hdmi_to_plat_data(struct dw_hdmi *hdmi)
++{
++	return hdmi->plat_data;
++}
++EXPORT_SYMBOL_GPL(dw_hdmi_to_plat_data);
++
+ #define HDMI_IH_PHY_STAT0_RX_SENSE \
+ 	(HDMI_IH_PHY_STAT0_RX_SENSE0 | HDMI_IH_PHY_STAT0_RX_SENSE1 | \
+ 	 HDMI_IH_PHY_STAT0_RX_SENSE2 | HDMI_IH_PHY_STAT0_RX_SENSE3)
+diff --git a/include/drm/bridge/dw_hdmi.h b/include/drm/bridge/dw_hdmi.h
+index 6a46baa0737c..a56a3519a22a 100644
+--- a/include/drm/bridge/dw_hdmi.h
++++ b/include/drm/bridge/dw_hdmi.h
+@@ -208,4 +208,5 @@ void dw_hdmi_phy_setup_hpd(struct dw_hdmi *hdmi, void *data);
+ 
+ bool dw_hdmi_bus_fmt_is_420(struct dw_hdmi *hdmi);
+ 
++const struct dw_hdmi_plat_data *dw_hdmi_to_plat_data(struct dw_hdmi *hdmi);
+ #endif /* __IMX_HDMI_H__ */
+-- 
+2.34.1
 
 
