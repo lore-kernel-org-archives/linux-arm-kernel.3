@@ -4,61 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35C7FC83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Jul 2025 06:55:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50D5FC83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Jul 2025 06:58:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=I5N1yFgSMKSP+yKcbwHy28RLjBgi4tDP/QpC0dPcGt8=; b=CtS8EQW8t5AzHNrIMOLD2xPAS2
-	G4gCZomS97GTXqBfvbjWeDbxk3bSOMxlpEt6X1hB6RSi/oeFolSIlVdREXTzQUwh2a+xHZfDOe4k3
-	vPRTc94QjGHj5rISW5FOZvOPTztVBVHfXjODlIs82TPKlZt1AQoyxd/bQf/Vt2jqmWu3ePsYTchJp
-	MCARiu1lhA4TRRX4rcYgLYKIZd7SsvM3OjV0+RjEZGi6b8FI+t874QKwaicaAdQNey/GreiY+Mv5u
-	T66uXBfrpSdlJwFkm6xtBoJ16bz6/oGMwWmM7I3OHR3fHS5OOJc2080p+lbWuJjshjjrAgQlUFtcO
-	a9/ELPeA==;
+	bh=KDO1CgxSdugL6J3cyk/JcvAqVTcJT4cFkWZUoNx9F8k=; b=ItfZXvWfKZzmR+TLGhxDCSL0Fz
+	K4RSNX3/T/W5VoubPZlUw+yh1hnZdz+x2pLPooT6Ufv/r/Z9HSxTw4dBp5Xp4WZOVRtUgaRltCJWQ
+	QKXuBqp+WSVMDTgGRukQbKAxMfB80nGcOUqBdAoiXPlOEmQq28U9Zjyv5V9s8OSnSaxzuiOYtWhLv
+	ClZbwosnesgEmAk6Roe7p9XeHWAQB48cUZ9Iiu0ofMHMw3xGZwz3ji6gLjMvxogEaKvxpILXQ4div
+	KLoVNWGxPB2Sd172LoD2Qj83mxFQC71V3le+KpFuY5/10f0YLQh26qrMM7d0031YxJflhdLY6xa7F
+	JceAcqvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucf0I-0000000Boqj-19zQ;
-	Fri, 18 Jul 2025 06:55:34 +0000
-Received: from m16.mail.163.com ([117.135.210.3])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucemm-0000000BnPr-10AB;
-	Fri, 18 Jul 2025 06:41:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=I5
-	N1yFgSMKSP+yKcbwHy28RLjBgi4tDP/QpC0dPcGt8=; b=ki+en/rFRoCuGDoc9o
-	jj5icWfNYuhgFscJfdlQOsyh8LJDuKh1mdo4qsx2swDaz57tsHTSz+EMB/vi9Xk5
-	b+5LFHS9zy3gESIYW+wTyyA8JJzF/Cr290qDCSm/S+UY+k5LEbNTex2E+mykwF1k
-	SdO6u4W1zZqhqeFcV2eBfL8Bo=
-Received: from ProDesk.. (unknown [])
-	by gzga-smtp-mtada-g0-3 (Coremail) with SMTP id _____wCHvgSR7HloFskiFg--.22270S2;
-	Fri, 18 Jul 2025 14:41:26 +0800 (CST)
-From: Andy Yan <andyshrk@163.com>
-To: heiko@sntech.de
-Cc: hjc@rock-chips.com,
-	dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	Andy Yan <andy.yan@rock-chips.com>
-Subject: [PATCH 1/2] drm/rockchip: vop2: Add delay between poll registers
-Date: Fri, 18 Jul 2025 14:41:13 +0800
-Message-ID: <20250718064120.8811-1-andyshrk@163.com>
-X-Mailer: git-send-email 2.43.0
+	id 1ucf2i-0000000Bp0u-1gAh;
+	Fri, 18 Jul 2025 06:58:04 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ucej1-0000000Bmm2-3bP4;
+	Fri, 18 Jul 2025 06:37:43 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id EA4FB601D3;
+	Fri, 18 Jul 2025 06:37:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 8FD88C4CEED;
+	Fri, 18 Jul 2025 06:37:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1752820662;
+	bh=zVwBnOBXZNVDZp8+mClSq+Wz1HDJCHk36NiLbL59xXk=;
+	h=From:Subject:Date:To:Cc:Reply-To:From;
+	b=lvTaAumk/nbUCgo8+99L2zAVLaLAVrz7VlKpLaZ4d5UKZmTjnS6SJXT5CKayQYOH4
+	 6/pzcEqkCsiAFYMVc3pG2gbJabuJo1lJDWAnKblEqpUe2aesVrXCTFnaRwMotRyAh3
+	 CVCsuRExjW1TYB216KWqdeEARpTLSiW577533WfeJtcjLTh/BfSErudIddBvNIORZb
+	 L2mX5kXPeVKoDYCwWLkfrhMnx0i9oPVUtz3XkciOlduQZvCusMSOOUwQVAW4zQVMqB
+	 ggxbRt81g9WWGeOm1jJXNz5zY/MhGXIjDXTWt6mdoZIhpd0NsJdl/H2I6R6lvIER4E
+	 vBsKzSz/gNSVQ==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 7A45FC83F34;
+	Fri, 18 Jul 2025 06:37:42 +0000 (UTC)
+From: Xianwei Zhao via B4 Relay <devnull+xianwei.zhao.amlogic.com@kernel.org>
+Subject: [PATCH 0/3] thermal: Support Amlogic C3 thermal
+Date: Fri, 18 Jul 2025 14:37:40 +0800
+Message-Id: <20250718-c3-thermal-v1-0-674f9a991690@amlogic.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wCHvgSR7HloFskiFg--.22270S2
-X-Coremail-Antispam: 1Uf129KBjvJXoW7tr4UWrW3KFW5tF48AF1rXrb_yoW8Zr17pw
-	4jgF12gF97Ga1jvr1xtr4DZw4Yyan7Aay7Gws7t3s7Gr98Kw1DJ3sI93ZYyFyUJ3Z7ArWj
-	vw47J39rAF4q9r7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jweOJUUUUU=
-X-Originating-IP: [103.29.142.67]
-X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/xtbBEgSOXmh56BWTowAAsa
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250717_234136_598245_C7B74902 
-X-CRM114-Status: GOOD (  11.76  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIALTreWgC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDI1MDc0ML3WRj3ZKM1KLcxBzd5LSUNINEo6SkNFMjJaCGgqLUtMwKsGHRsbW
+ 1AKyiQAxcAAAA
+To: Guillaume La Roque <glaroque@baylibre.com>, 
+ "Rafael J. Wysocki" <rafael@kernel.org>, 
+ Daniel Lezcano <daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>, 
+ Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: linux-pm@vger.kernel.org, linux-amlogic@lists.infradead.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, 
+ Xianwei Zhao <xianwei.zhao@amlogic.com>, 
+ Liming Xue <liming.xue@amlogic.com>
+X-Mailer: b4 0.12.4
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1752820661; l=796;
+ i=xianwei.zhao@amlogic.com; s=20231208; h=from:subject:message-id;
+ bh=zVwBnOBXZNVDZp8+mClSq+Wz1HDJCHk36NiLbL59xXk=;
+ b=f2ZEHyZc0eY/iGCAhjC75mGOUf1dT5uPNYGLrZJlrqSW9d8wpn88WbDDKbX/o+Nu9e6sLvQQq
+ mK90zlJfD/0CV/AGldhcGn9ZEozYGCwKlNAZwk2Ni0u2D/3Q0hccY20
+X-Developer-Key: i=xianwei.zhao@amlogic.com; a=ed25519;
+ pk=o4fDH8ZXL6xQg5h17eNzRljf6pwZHWWjqcOSsj3dW24=
+X-Endpoint-Received: by B4 Relay for xianwei.zhao@amlogic.com/20231208 with
+ auth_id=107
+X-Original-From: Xianwei Zhao <xianwei.zhao@amlogic.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,47 +90,31 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: xianwei.zhao@amlogic.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Andy Yan <andy.yan@rock-chips.com>
+Add Amlogic C3 thermal compatible string, private_data
+of driver and device node.
 
-According to the implementation of read_poll_timeout_atomic, if the
-delay time is 0, it will only use a simple loop based on timeout_us to
-decrement the count. Therefore, the final timeout time will differ
-significantly from the setted timteout time. So, here we set a specific
-delay time to ensure that the calculation of the timeout duration is accurate.
-
-Fixes: 3e89a8c68354 ("drm/rockchip: vop2: Fix the update of LAYER/PORT select registers when there are multi display output on rk3588/rk3568")
-Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
+Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
 ---
+Xianwei Zhao (3):
+      dt-bindings: thermal: amlogic: Add compatible string for C3
+      thermal: amlogic: Support C3 thermal controller driver
+      arm64: dts: amlogic: c3: Add tempsensor controller node
 
- drivers/gpu/drm/rockchip/rockchip_vop2_reg.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ .../devicetree/bindings/thermal/amlogic,thermal.yaml          |  1 +
+ arch/arm64/boot/dts/amlogic/amlogic-c3.dtsi                   | 11 +++++++++++
+ drivers/thermal/amlogic_thermal.c                             | 10 ++++++++++
+ 3 files changed, 22 insertions(+)
+---
+base-commit: 58abdca0eb653c1a2e755ba9ba406ee475d87636
+change-id: 20250718-c3-thermal-cfdf0a2bbf52
 
-diff --git a/drivers/gpu/drm/rockchip/rockchip_vop2_reg.c b/drivers/gpu/drm/rockchip/rockchip_vop2_reg.c
-index 45c5e39878133..d712c5b6b50e3 100644
---- a/drivers/gpu/drm/rockchip/rockchip_vop2_reg.c
-+++ b/drivers/gpu/drm/rockchip/rockchip_vop2_reg.c
-@@ -2066,7 +2066,7 @@ static void rk3568_vop2_wait_for_port_mux_done(struct vop2 *vop2)
- 	 * Spin until the previous port_mux figuration is done.
- 	 */
- 	ret = readx_poll_timeout_atomic(rk3568_vop2_read_port_mux, vop2, port_mux_sel,
--					port_mux_sel == vop2->old_port_sel, 0, 50 * 1000);
-+					port_mux_sel == vop2->old_port_sel, 10, 50 * 1000);
- 	if (ret)
- 		DRM_DEV_ERROR(vop2->dev, "wait port_mux done timeout: 0x%x--0x%x\n",
- 			      port_mux_sel, vop2->old_port_sel);
-@@ -2086,7 +2086,7 @@ static void rk3568_vop2_wait_for_layer_cfg_done(struct vop2 *vop2, u32 cfg)
- 	 * Spin until the previous layer configuration is done.
- 	 */
- 	ret = readx_poll_timeout_atomic(rk3568_vop2_read_layer_cfg, vop2, atv_layer_cfg,
--					atv_layer_cfg == cfg, 0, 50 * 1000);
-+					atv_layer_cfg == cfg, 10, 50 * 1000);
- 	if (ret)
- 		DRM_DEV_ERROR(vop2->dev, "wait layer cfg done timeout: 0x%x--0x%x\n",
- 			      atv_layer_cfg, cfg);
+Best regards,
 -- 
-2.43.0
+Xianwei Zhao <xianwei.zhao@amlogic.com>
+
 
 
