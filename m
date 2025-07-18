@@ -4,75 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B32CC83F34
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Jul 2025 20:08:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C444C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Jul 2025 20:48:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n5VaE/XPgYyPNasgE3RFOoo39AL/P1S7YmLqgPmbexM=; b=cJxBNKgsRsxdfEktZIduyxmK4D
-	3LyQE5+P8C8sXMv5VMAnt6QWTMNjhkGTUclkTWTw3AOUFul+JcePYRtX8M2SAz1alo0kegv2MHPZU
-	XXqXZoSk9/KI0Mq6wlxeQd3C5BASPIXnx2aCjsI1OnPhUlLbCXS3s5HtycrIQhGv0obYGiG315pdy
-	ioDvEu0eNBVQjbEOJilp12mYH+XuxK5CQqLcIWJJLqlQbxfcnQCpiOnksiZECpZiBQaaeV1lydCU6
-	JVYHCIWaOr7c5AOvPi9Un68cJMDTv3mLCe0xy/fOkb4ltWjWP1SZhn92YaDk7Neiesac0PPGEvLn+
-	28MT/S9g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uXAK2LcN+D1aB2LwqkwZRyXZHRbBhvjT7o6KbAa+ppk=; b=RNVoJuv4TUewczjoj7LEcPuxuC
+	/646krS0dr5yTL7B5478ar/kwMbbNvkCApeL9bbqYjc0OLRFwrAPTxCiwbL8yOHSKJcdzwElnXYSr
+	IQ4KnoWhOyYNu0QZ7U0DjI+i0sINDGi2/ryhUdTruaT9asqLdS8JTAnULt8qDDUNzVBbpHvHeMkRa
+	/zrnxutCjneA6jX8SBlOAxBboFn5sSRhLmkXLMAK/evrDPtJY+mi2EEd0g8hpSwBjQbOAZbLU7PHQ
+	zvx5utSxSmQkpd6jSISmLtEP2bTrQhrlm1t+TPREjbv+thHgZ1pw/gyUBBNfk9YfmljTxKdto4BJz
+	C2RjA5PQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucrNm-0000000DPPw-3in7;
-	Fri, 18 Jul 2025 20:08:38 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1ucs0W-0000000DR5H-0Mki;
+	Fri, 18 Jul 2025 20:48:40 +0000
+Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucrLM-0000000DPGD-0K5H
+	id 1ucry1-0000000DQxn-11S9
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Jul 2025 20:06:09 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2E6B245C12;
-	Fri, 18 Jul 2025 20:06:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3A2DFC4CEEB;
-	Fri, 18 Jul 2025 20:06:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752869167;
-	bh=iM/cBfn6qf7kJPZApTF05wjQcPVP4ARh8oIYFBvOnbQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Y9sovkPL7D4ADsST94stWH0zK+qSnkGSP7rTG4uGBOET4Estd53I+YmUj05eVidQY
-	 Z+vhivYCZzdG4JK+0+6+msMFyJNHK0jd9mJWkgZjsA0rWpbTLQod7CrLL/6t4CGjlg
-	 WrBVfNMJ/dnR3gXbbikXOA620EjvAhW2I3S8j55lPP9Ac0ModgGoAYg7tSOm+89kbx
-	 8KW1iUdiwkv/vYGZ5+SIlNRxNvKXtkEX/dfo3XC8eIJM7pp91a1JUHBYV38eZXUUdO
-	 wRgL1XMesXepYg8WKV12cra7adqTbHIwuMPNInU5hpbA2zD1TOoriaAY73a9RXqiGl
-	 MGp/HZUCpQj3w==
-Date: Fri, 18 Jul 2025 21:06:02 +0100
-From: Simon Horman <horms@kernel.org>
-To: "G Thomas, Rohan" <rohan.g.thomas@altera.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Serge Semin <fancer.lancer@gmail.com>,
-	Romain Gantois <romain.gantois@bootlin.com>, netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Matthew Gerlach <matthew.gerlach@altera.com>
-Subject: Re: [PATCH net-next 3/3] net: stmmac: Set CIC bit only for TX queues
- with COE
-Message-ID: <20250718200602.GM2459@horms.kernel.org>
-References: <20250714-xgmac-minor-fixes-v1-0-c34092a88a72@altera.com>
- <20250714-xgmac-minor-fixes-v1-3-c34092a88a72@altera.com>
- <20250714134012.GN721198@horms.kernel.org>
- <9f4acd69-12ff-4b2f-bb3a-e8d401b23238@altera.com>
- <20250716082209.GH721198@horms.kernel.org>
- <38d05790-eb4a-482a-89ec-8c17cf2e9680@altera.com>
+	Fri, 18 Jul 2025 20:46:09 +0000
+Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-23c8a5053c2so24298785ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Jul 2025 13:46:04 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1752871564; x=1753476364; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=uXAK2LcN+D1aB2LwqkwZRyXZHRbBhvjT7o6KbAa+ppk=;
+        b=NSQR7wOaswKPpFEk4IJbrvEg764J+JSnTDoUFYrOO3XH7hOuXZ6gD+DS0jw2mwpyUe
+         D3Xl4DDR7ZT6ej7mIN8Swij7KNfNksyAwx5hDdiE/4NteX+xjMqEqXO5qHGSzKCrUpJ1
+         JsF/fFmfzm7GQvAoA8u+01xSz57XFu1+4W86fEsQadUKjAh1oZ49EMmAFxLasgwuPuIy
+         v4i3AzPfsBVDJ8Yj1wpV6wZxLqz/1anjhvzn/EuDJzoLRs/cw/61m+2vEBCtEE0sFgET
+         eO8eGQ1xPw2AnYzvVhpsx/YrZnmRPEX63CF5cn+Gm54YOVRBdu0ecmNisjqzjemH8/HT
+         z3pg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1752871564; x=1753476364;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=uXAK2LcN+D1aB2LwqkwZRyXZHRbBhvjT7o6KbAa+ppk=;
+        b=tiLc+i7dAIRwU+kjZuWFD0X4RzYNRpOd4WLEk81JtUNGlzhYPe9Opz0ro+kvqHKs4X
+         4E4wMbXEERXHiFhrXstDrT7S9jOV35KRb/R4NcM7ds/CyJLkvbuOXlZnYkakcEpSe73t
+         uC87y1oN+kTxV2lUdpl4XEbemdVXREFROjlG3fbAglXY2NBsteTanECt6BE5S5KBWZOz
+         dULAROFG3WTHYq7KFOL/hp+nxAHj6l61+PmtVC2F0XF4LzBkDS7/hvn/tKPNy7RC+7ln
+         SfJ0jxsA7bf8nOsOhLYKFu648J/vYJCNmvWcmRIbDlh8dvaBrlFhwH76K498ouL9uexj
+         +mVg==
+X-Forwarded-Encrypted: i=1; AJvYcCWpYb/cAwvdTXlg2uI80uMNFWfTsoD10RrctTQQ55ewCSQ1r8ZuNq/k9Id1pJnOheY8zy2Q7MYi3GRDfMMsx9TW@lists.infradead.org
+X-Gm-Message-State: AOJu0YymAnUE0+KxzndVmMWw80kQpnKoy3dKIQacrxx9nu9cJB8p0okU
+	C46rYTpWW3z1uVMziqREmPxB+GCmv57STVJRwnmc6bzNkjwDCS0tHtmL
+X-Gm-Gg: ASbGncuKGrAE0jy+ZYhQeYoOI+2T6AKgwpSk1xEyZYFhsMr3I70ZWFTLZYiD+dGhqUm
+	SsK0wG4dnqc2DXDKhmKZKLzScX9UXSE3YU/LADKqPmqwhz4v6tlN+hoik8NgpChz/7Ks8bbPphw
+	bkCG6DUhmDW+vGvm5Lc44rNAtZmIa4qMUaks15AGMa0MeoQAsnw2gINAlD9TVD3KK1T3GZwzZLp
+	+qPKm21LuwDhK4oS6VvldbOU0d2jUMhHMbdVh8K6HBIF7HCf/W4nRs+mk1MJiEs/Kw81zQSl0pE
+	R4aJhL4h6U+DmhRSp16B8cmDDsUQoH85PSCtMPln+cVe1gYLFGJ33LZ6oy7w5gqB15XgaNK5nPK
+	CAHdSGtwAfnZIpAD0SjyVoGYvamb6nq3eRTvLVKE7mCZDnTbImlQ8RF+WGTd/Jv4=
+X-Google-Smtp-Source: AGHT+IFfAzmfpnYky0WJeFj+PkACVQRkUKSaLnIxhEt/NV8Uzws4ecq5iTsonExxyL5PHW/z3ZTr5A==
+X-Received: by 2002:a17:90b:3cc6:b0:30a:4874:5397 with SMTP id 98e67ed59e1d1-31c9e6fbb09mr17031670a91.9.1752871563843;
+        Fri, 18 Jul 2025 13:46:03 -0700 (PDT)
+Received: from [192.168.0.109] (061092221177.ctinets.com. [61.92.221.177])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23e3b61566bsm17746325ad.81.2025.07.18.13.46.00
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 18 Jul 2025 13:46:03 -0700 (PDT)
+Message-ID: <2b69fbd1-067e-4ff4-8ea4-88e32763209a@gmail.com>
+Date: Sat, 19 Jul 2025 04:45:58 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RESEND v7 00/21] drivers/perf: apple_m1: Add Apple A7-A11,
+ T2 SoC support
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: Will Deacon <will@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
+ Janne Grunau <j@jannau.net>, Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+ Neal Gompa <neal@gompa.dev>, Sven Peter <sven@kernel.org>,
+ Marc Zyngier <maz@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linux-perf-users@vger.kernel.org, devicetree@vger.kernel.org,
+ asahi@lists.linux.dev, linux-kernel@vger.kernel.org,
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+References: <20250616-apple-cpmu-v7-0-df2778a44d5c@gmail.com>
+ <aHUeUMmn_19EayL1@willie-the-truck>
+ <be327242-ad55-476a-bed4-44c33c263962@gmail.com>
+ <aHkRJdAuvhS2mNQj@J2N7QTR9R3>
+ <705f1dfb-7e1b-4930-a1a9-c763299a4305@gmail.com>
+ <aHph5u4-b6mfggPv@J2N7QTR9R3>
+Content-Language: en-US
+From: Nick Chan <towinchenmi@gmail.com>
+In-Reply-To: <aHph5u4-b6mfggPv@J2N7QTR9R3>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <38d05790-eb4a-482a-89ec-8c17cf2e9680@altera.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250718_130608_161188_261D0FC5 
-X-CRM114-Status: GOOD (  40.24  )
+X-CRM114-CacheID: sfid-20250718_134605_302945_0F2C9917 
+X-CRM114-Status: GOOD (  28.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,91 +113,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 17, 2025 at 11:50:06AM +0530, G Thomas, Rohan wrote:
-> Hi Simon,
-> 
-> On 7/16/2025 1:52 PM, Simon Horman wrote:
-> > On Tue, Jul 15, 2025 at 07:14:21PM +0530, G Thomas, Rohan wrote:
-> > > Hi Simon,
-> > > 
-> > > Thanks for reviewing the patch.
-> > > 
-> > > On 7/14/2025 7:10 PM, Simon Horman wrote:
-> > > > On Mon, Jul 14, 2025 at 03:59:19PM +0800, Rohan G Thomas via B4 Relay wrote:
-> > > > > From: Rohan G Thomas <rohan.g.thomas@altera.com>
-> > > > > 
-> > > > > Currently, in the AF_XDP transmit paths, the CIC bit of
-> > > > > TX Desc3 is set for all packets. Setting this bit for
-> > > > > packets transmitting through queues that don't support
-> > > > > checksum offloading causes the TX DMA to get stuck after
-> > > > > transmitting some packets. This patch ensures the CIC bit
-> > > > > of TX Desc3 is set only if the TX queue supports checksum
-> > > > > offloading.
-> > > > > 
-> > > > > Signed-off-by: Rohan G Thomas <rohan.g.thomas@altera.com>
-> > > > > Reviewed-by: Matthew Gerlach <matthew.gerlach@altera.com>
-> > > > 
-> > > > Hi Rohan,
-> > > > 
-> > > > I notice that stmmac_xmit() handles a few other cases where
-> > > > checksum offload should not be requested via stmmac_prepare_tx_desc:
-> > > > 
-> > > >           csum_insertion = (skb->ip_summed == CHECKSUM_PARTIAL);
-> > > >           /* DWMAC IPs can be synthesized to support tx coe only for a few tx
-> > > >            * queues. In that case, checksum offloading for those queues that don't
-> > > >            * support tx coe needs to fallback to software checksum calculation.
-> > > >            *
-> > > >            * Packets that won't trigger the COE e.g. most DSA-tagged packets will
-> > > >            * also have to be checksummed in software.
-> > > >            */
-> > > >           if (csum_insertion &&
-> > > >               (priv->plat->tx_queues_cfg[queue].coe_unsupported ||
-> > > >                !stmmac_has_ip_ethertype(skb))) {
-> > > >                   if (unlikely(skb_checksum_help(skb)))
-> > > >                           goto dma_map_err;
-> > > >                   csum_insertion = !csum_insertion;
-> > > >           }
-> > > > 
-> > > > Do we need to care about them in stmmac_xdp_xmit_zc()
-> > > > and stmmac_xdp_xmit_xdpf() too?
-> > > 
-> > > This patch only addresses avoiding the TX DMA hang by ensuring the CIC
-> > > bit is only set when the queue supports checksum offload. For DSA tagged
-> > > packets checksum offloading is not supported by the DWMAC IPs but no TX
-> > > DMA hang. AFAIK, currently AF_XDP paths don't have equivalent handling
-> > > like skb_checksum_help(), since they operate on xdp buffers. So this
-> > > patch doesn't attempt to implement a sw fallback but just avoids DMA
-> > > stall.
-> > 
-> > Ok, fair enough.
-> > 
-> > As per Andrew's advice elsewhere in this thread.
-> > This patch also looks like it should be a fix for net,
-> > and should have a Fixes tag.
-> 
-> Thanks for your comments.
-> 
-> You're right—this patch is a fix for the TX DMA hang issue caused by
-> setting the CIC bit on queues that don't support checksum offload. But
-> I couldn’t pinpoint a specific commit that introduced this behavior in
-> the AF_XDP path. Initially, there was no support for DWMAC IPs with COE
-> enabled only on specific queues, even though there can be IPs with such
-> configuration. Commit 8452a05b2c63 ("net: stmmac: Tx coe sw fallback")
-> added software fallback support for the AF_PACKET path. But the AF_XDP
-> path has always enabled COE unconditionally even before that. So, do you
-> think referencing the commit 8452a05b2c63 in the Fixes tag is
-> appropriate and sufficient?
 
-Hi Rohan,
+Mark Rutland 於 2025/7/18 夜晚11:01 寫道:
+> On Fri, Jul 18, 2025 at 01:00:45AM +0800, Nick Chan wrote:
+>> On 17/7/2025 23:05, Mark Rutland wrote:
+>>> On Mon, Jul 14, 2025 at 11:59:36PM +0800, Nick Chan wrote:
+>>>> Will Deacon 於 2025/7/14 夜晚11:12 寫道:
+>>>>> On Mon, Jun 16, 2025 at 09:31:49AM +0800, Nick Chan wrote:
+>>>>>> Patch 8-12 adds support for the older SoCs.
+>>>>> ... but I'm not sure if anybody actually cares about these older SoCs
+>>>>> and, even if they do, what the state of the rest of Linux is on those
+>>>>> parts. I recall horror stories about the OS being quietly migrated
+>>>>> between CPUs with incompatible features, at which point I think we have
+>>>>> to question whether we actually care about supporting this hardware.
+>>>> The "horror" story you mentioned is about Apple A10/A10X/T2, which
+>>>> has a big little switcher integrated into the cpufreq block, so when the
+>>>> cpufreq driver switch between states in the same way as on other
+>>>> SoCs, on these SoCs that would silently cause a CPU migration. There
+>>>> is only one incompatible feature that I am aware of which is 32-bit EL0
+>>>> support.
+>>> Surely the MIDR/REVIDR/AIDR also change?
+>> They do not change. ID_AA64PFR0_EL1 also does not change (fixed 0x12).
+>> What *does* change however is MPIDR. (P-cores has bit 16 set while
+>> E-cores do not)
+> The MPIDR changing isn't ok either. You might get away with that today,
+> but that's not supposed to change behind the back of the kernel.
+>
+> Is there anything else that can change, or are we absolutley certain
+> that *only* MPIDR changes?
 
-Perhaps I'm missing the point, but my thinking is as follows:
+Only MPIDR changes, and the state of bit 16 in MPIDR is consistent across all PEs. (At any
+given moment, either all PEs are backed by efficiency cores, or all backed by performance
+cores)
 
-As this patch only addresses the AF_XDP path I think we can take the
-approach of asking "in which patch would a user of AF_XDP with this stmmac
-observe this bug". (Or some variant thereof.) And I think the answer to
-that question is the patch that added AF_XDP support to stmmac driver.
+>
+>>>> As mentioned above, it does all work fine when CONFIG_EXPERT is not
+>>>> enabled, and if it is enabled, then 32-bit process may crash with illegal
+>>>> instruction but everything else will still works fine.
+>>> I don't think that's quite true, unless these parts are also violating
+>>> the architecture.
+>>>
+>>> If the CPU doesn't implement AArch32, then an ERET to AArch32 is
+>>> illegal. The way illegal exception returns are handled means that this
+>>> will result in a (fatal) illegal execution state exception being taken
+>>> from the exception return code in the kernel, not an UNDEF being taken
+>>> from userspace that would result in a SIGILL.
+>> Speaking from experience, when testing with the userspace cpufreq governor,
+>> trying to run AArch32 code on the ecores really does result in illegal
+>> instruction for that process while everything else remains fine.
+>>
+>> Referencing ID_AA64PFR0_EL1, the E-cores does claim to support
+>> AArch32 EL0, even though they could not execute it for real.
+> Ok, so that's a clear violation of the architecture, and doesn't fill me
+> with confidence about anything else.
 
-So I think we can use:
+Regarding this, the hardware also needs to handle the case where the PE is already in AArch32
+EL0 and migration to E-cores is attempted. In this case there is no exception return happening so
+the behavior of the hardware is not as bad as it sounds.
 
-Fixes: 132c32ee5bc0 ("net: stmmac: Add TX via XDP zero-copy socket")
+
+>
+>>> I do not think that we should pretend to support hardware with silent
+>>> microarchitectural migration. So at the very least, we do not care about
+>>> A10/A10X/T2.
+>> As explained above, what actually happens on the hardware is different
+>> from what you believed, so please do reconsider.
+> Different certainly, but still problematic.
+>
+> I maintain that we should not pretend to support this hardware.
+>
+> Mark.
+>
+Nick Chan
 
