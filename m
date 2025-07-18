@@ -4,66 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0FBFC83F34
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Jul 2025 20:59:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FD45C83F3B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Jul 2025 21:05:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZgJy0+Ak08s/B1gTJlFV2wzNA1cGTTofN2IFWk+lZFY=; b=HjOHK2jrZscH7TF/t9rXVaXBmT
-	Nexm0fLC3fB3uWbm3zJsbw7SGsC1CP3/TcUsnlGOksu7+qZSEeLykQJcWgHXeOV4/cHDCp24y+oAP
-	cs2C1+VbS1PXSoLYvDGATIkq5vRga6YmUq9Bq+cjufPZomBY4tXEwNSAEVY7pKfWzGK3qSPYmRnJ2
-	z8P16xHxek13KH2EuAjLfD2JeVjn9yc9hp1xKj0d8hnbM/555HLq6dZXkXFJC685lPKdHZbs6Pb3U
-	aFFrtDFbIXqkIOSp7wGCQThcLJFY1F1HiXEZWYbHhr6LrWpHRYbvYnCLyndMuzbmSzuOagj86ECZr
-	4FeWce8Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=UKVVkG8oAn2+Yzx4pKYdU5ZNka6O4M58XLvVY0uPoBU=; b=uhRBiIICjRo0BSAuNUMaGJ3fO8
+	B+5W2kFvyodao3SZRqHUUHJqERvb9/dvhqtS8DqrtMufn76Fhp2lUvNpXkB5A7xyVCQZ6OxXdss21
+	vf8RcADI23OwvcDJWP7N0LJ+K9WMY6XN+RgVt8/SJn4ZrhYTBYT1fLZRbMpmn1fG4iJnM0XHlm1DN
+	cdFH5B6xhVa6ts2qM7gLEXB80WsUkYJroOI9/Wl2Q2ehGHWmv37azkoMm6PGTJ62//m+oRb+F3sQ/
+	W+QBQXKNIvr48etAP4aN+lxJlxdj8DY2TGlKw/syVm/orXb2anlkDafQ/i5oqn8HVUeWpx/BUSiax
+	IZ47wfDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucsBM-0000000DRf9-2CZp;
-	Fri, 18 Jul 2025 20:59:52 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1ucsH9-0000000DS4l-03xW;
+	Fri, 18 Jul 2025 21:05:51 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucs8t-0000000DRSK-3t6q
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Jul 2025 20:57:21 +0000
-From: Thomas Gleixner <tglx@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1752872231;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ZgJy0+Ak08s/B1gTJlFV2wzNA1cGTTofN2IFWk+lZFY=;
-	b=zAwC1zJj7GQK7ZWUcjeUliO3rW+8EGzK+Vh17u2j2XABhmXEIysb2KuhjJ2UA7Mat3z6CM
-	bbE5Q0DCOqaQH58mfnB9kK3BvDILrba0121+5I70eJRD9vvKVu3t45EEkfyTGgGgNxWTck
-	bguPCeP50QRT4ZhwkP1Sbdl7fdM/mfisKcfOeTyac4Irz1E2KKJYMMLESnR4b1SNi+guAr
-	4ZVFIdtteEtZQq85GoKzngAVj6SGgkebulVG9UNQnElNRbK51OzB4jPXElz8B3A+blJXU+
-	MpA4XtRJbus0NWAVS4wi6UkzkU4E0U57HZ3JsKxRytSPN6Itbloeni/F92hSOA==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1752872231;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ZgJy0+Ak08s/B1gTJlFV2wzNA1cGTTofN2IFWk+lZFY=;
-	b=AXTToW9rfnNj5ebh/Wc33yVNaYg7popffNgnVuaPoCrrUh3uD7deKepTjyF4hgYMExwdTe
-	q6138p3Flde1mGDw==
-To: Guillaume La Roque <glaroque@baylibre.com>, vigneshr@ti.com, Nishanth
- Menon <nm@ti.com>, Santosh Shilimkar <ssantosh@kernel.org>, Tero Kristo
- <kristo@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- Guillaume La Roque <glaroque@baylibre.com>
-Subject: Re: [PATCH 1/2] kernel: irq: msi: Export symbols for TI SCI INTA
- MSI module compilation
-In-Reply-To: <20250707-timsi-v1-1-80ae43b2c550@baylibre.com>
-References: <20250707-timsi-v1-0-80ae43b2c550@baylibre.com>
- <20250707-timsi-v1-1-80ae43b2c550@baylibre.com>
-Date: Fri, 18 Jul 2025 22:57:10 +0200
-Message-ID: <874iv9w72x.ffs@tglx>
+	id 1ucsEe-0000000DRvh-32j5;
+	Fri, 18 Jul 2025 21:03:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:In-Reply-To:References;
+	bh=UKVVkG8oAn2+Yzx4pKYdU5ZNka6O4M58XLvVY0uPoBU=; b=LZbrMmDXvVGufpouCEFHzJFaUe
+	TBSDm2S/n6MEwsbZINE5GCPSQNWX14+NGZ7quPcECYcobv9fiFQC/LS6cMyaJGi5Y1IuQZOItQ1QY
+	/07KDmbfBm4TRTkZ94H5dvz5wag5oJIUPGXDJtRi8fpIJGpK9fYFkfYtKxSpYkooTaQ1HDhlHQEwj
+	5nCTU5mbCGb0sZzZ5UaYXQP9+hEWd+bShGrbY10kcGP4ptPKUPPbiuYLSLB1rkgPhiUNnr7CoX+H7
+	eC7F6h3Qxq9EgFRj0fTwPO86E2z7JLPJrTMJBlYVLjs0Fp1EcMADsRlmJeQMwcDn4AT/GDNS9k9bu
+	lTxQboMQ==;
+Received: from cst-prg-35-241.cust.vodafone.cz ([46.135.35.241] helo=phil.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1ucsEd-0007FK-1P; Fri, 18 Jul 2025 23:03:15 +0200
+From: Heiko Stuebner <heiko@sntech.de>
+To: arm@kernel.org
+Cc: soc@kernel.org, linux-rockchip@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org
+Subject: [GIT PULL] Rockchip soc32 changes for 6.17 #1
+Date: Fri, 18 Jul 2025 23:03:13 +0200
+Message-ID: <12434765.CDJkKcVGEf@phil>
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250718_135720_112088_324926BC 
-X-CRM114-Status: UNSURE (   7.31  )
+X-CRM114-CacheID: sfid-20250718_140316_791688_381AB41C 
+X-CRM114-Status: UNSURE (   9.57  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -79,24 +68,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 07 2025 at 17:35, Guillaume La Roque wrote:
+Hi soc maintainers,
 
-The made up subsystem prefix is not really useful. See:
+After a while a fix for a possible kernel hang that seems to appear
+seldomlyv it seems - on my boards I haven't run into that, but the
+change makes sure this won't happen.
 
-  https://www.kernel.org/doc/html/latest/process/maintainer-tip.html#patch-subject
+As this is for old arm32 boards, does not seem to happen very often
+and we're late in the cycle I'd consider that material for 6.17.
 
-> Export MSI domain management functions to allow the TI SCI INTA MSI
-> driver to be compiled as a module. The following symbols are now
-> available for module use:
+Please pull.
+Thanks
+Heiko
 
-While symbols is technically correct, it's way simpler to understand
-that these are functions.
 
-> - msi_domain_insert_msi_desc
+The following changes since commit 19272b37aa4f83ca52bdf9c16d5d81bdd1354494:
 
-And with that you want to use function notation, i.e. foo() instead of foo.
+  Linux 6.16-rc1 (2025-06-08 13:44:43 -0700)
 
-Thanks,
+are available in the Git repository at:
 
-        tglx
+  git://git.kernel.org/pub/scm/linux/kernel/git/mmind/linux-rockchip.git tags/v6.17-rockchip-arm32-1
+
+for you to fetch changes up to 7cdb433bb44cdc87dc5260cdf15bf03cc1cd1814:
+
+  ARM: rockchip: fix kernel hang during smp initialization (2025-07-14 15:38:40 +0200)
+
+----------------------------------------------------------------
+Fix for seldom hangs when bringing up arm32 cpu cores.
+
+----------------------------------------------------------------
+Alexander Kochetkov (1):
+      ARM: rockchip: fix kernel hang during smp initialization
+
+ arch/arm/mach-rockchip/platsmp.c | 15 +++++++++------
+ 1 file changed, 9 insertions(+), 6 deletions(-)
+
+
+
 
