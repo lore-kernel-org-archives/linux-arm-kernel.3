@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 749B9C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Jul 2025 13:45:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3F0CC83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Jul 2025 13:50:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BOT9PzsR3/SwNUZlr6pAl3obJXDpAkRcFnZfw12R6F4=; b=QtdS8tyEpJEaBVi08gOL5L4cxL
-	YUrC09pZG8s2QnE7aQ28144dagQbDO6D5iGg138SuognlMFbgDYVMkp3SXmIxrwBPaYbQ+1XfZwdy
-	gBXrqR1ThfOMxMuzMPeA3OIPZM6b45JCRy1f7W3xWW4CVJvRLlfNSpNNH2AWctwekC/Qf7gPnNYXT
-	AdsZbGMLTH2eV1YN3OJ+2Os1kHtsumgrcw4vT6oiU2k0uRy+Am53EyQmAiMy+gIw3QUBe5GLVz3i1
-	lX1aKd9k1TJzjNohxmSnUfX/v2F0u9GcItdB5wghtzpf4z370AZ5c+aCKMFthqLJsId+FclvLng+Q
-	N6YsmKtA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=mo94wdkZNDuu5QGZVvAPQQVCJz7QXGr0/48yptUJ974=; b=B1ex0ddsucEqGZ7fyuy6EA+XjY
+	+mda4Aa8O0aMgVMKVbTJdZBQQD5JLTfm+fyCp/UrWrggmwdOh2IlFwItBnYXovdV8H4HSG/8/Hf4q
+	Sne80xy+vl7uz5BKK17NO5mI4z2nWrw6szpDg+IwPuGZ+iKVkJRi4klHLZ9Thw/KazvuJNGBUDMO/
+	J9Gek3wad25s27VQO2T1ifaJMatQXHkaKaHXluVZqAUsQj+ZeIXRc3PCs87FrpvzkyiZYTFyhvh/P
+	Ov1v54ZyFC7fFqFOslhXBwZ0jtXnkgfKEEgpkmTEZnIYnmjjKGCGft3MR30Z/eTEJ/ztpujOGZV9D
+	AjvPAT1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uclOS-0000000Citb-2kvM;
-	Fri, 18 Jul 2025 13:44:56 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uclTL-0000000CjOc-2b4F;
+	Fri, 18 Jul 2025 13:49:59 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uclH7-0000000Chxn-2m7V
+	id 1uclKH-0000000CiLX-2ant
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Jul 2025 13:37:22 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5FD35433A4;
-	Fri, 18 Jul 2025 13:37:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 14FB1C4CEEB;
-	Fri, 18 Jul 2025 13:37:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752845841;
-	bh=4gYK7cAt8c0eJOPvaPS4yKEvnYcbVrFkdFhehLWxsik=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Yy8qNN24agcDyfnirinDCL8kW7X+EzPdoiBa/bKjTRmdTumHRqgxlq98W1ZY9Lqqp
-	 BXRCWHbuo/mPUK1rrExsvfoJk7+cLFTCsO5hvY5XicL6wgeSN0lHUjcUZDxHt/jJ+G
-	 ikoPOXq+obE1oTE44wqcKgR3kbJP3XhaXkO6AokdrxUywUg/GlKuRNkLpE6k8mWuay
-	 z/Xeoq8r/oezbD3wLUOMIgpPcTCeYaqIyloN9DCat7hju8q6/XvrRm2mk9loVJx5gw
-	 tYPcY1areNux5tMVYVKowc7jJ12vSCEu9jHb/ArpmyAeafi1KBW1VgaAS85YgZT1LV
-	 HY/OUHeipGcAg==
-Date: Fri, 18 Jul 2025 14:37:14 +0100
-From: Will Deacon <will@kernel.org>
-To: Per Larsen <perl@immunant.com>
-Cc: Marc Zyngier <maz@kernel.org>, perlarsen@google.com,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org, ahomescu@google.com,
-	armellel@google.com, arve@android.com, ayrton@google.com,
-	qperret@google.com, sebastianene@google.com, qwandor@google.com
-Subject: Re: [PATCH v7 2/5] KVM: arm64: Use SMCCC 1.2 for FF-A initialization
- and in host handler
-Message-ID: <aHpOClH1k-3NhI_y@willie-the-truck>
-References: <20250701-virtio-msg-ffa-v7-0-995afc3d385e@google.com>
- <20250701-virtio-msg-ffa-v7-2-995afc3d385e@google.com>
- <8634bdbgaz.wl-maz@kernel.org>
- <3b10fa81-bfdd-4325-a330-c79df2e21621@immunant.com>
+	Fri, 18 Jul 2025 13:40:38 +0000
+From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1752846034;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=mo94wdkZNDuu5QGZVvAPQQVCJz7QXGr0/48yptUJ974=;
+	b=pMluozIdK72HGQH3aouNde4Sy8FLnoDw6EvYthFAqhtDJApHP5b1VV+saucTVGPZgSvLQ/
+	QPLsAXqCHZGRX+d5JUkvEtWbrUs2AxC8mZJU3iDrNGT7OG8pCVxZUSzSSs7QVbO8p3oVXQ
+	2oIhEA/kAH8FiYUPCksu+tHQfSOwad08orrYTL2N6uh62iwybs4gacV42V36szUcY7XChG
+	KWMPtZJy5oaUJN0E/0eoEhusNgkjD+conIob31AwIl+wZtr9MhqVxhSiMbdcHUBGk/wjH/
+	nL2iy8BUNh1Ya5Nd9zNKsPvwqx+QS12HxDP7fzZgzlWKwELqXGij6EcdJe2gaA==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1752846034;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=mo94wdkZNDuu5QGZVvAPQQVCJz7QXGr0/48yptUJ974=;
+	b=hdIzQ3dUq2/DyohiQtlXkFcSpDOfDUbpjTBI6U0HUYlN6mwq22xDvpd38/KwWEDeG3g+jX
+	3vo3dZXc5+T2ShDg==
+Date: Fri, 18 Jul 2025 15:40:32 +0200
+Subject: [PATCH] soc: ti: pruss: don't use %pK through printk
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <3b10fa81-bfdd-4325-a330-c79df2e21621@immunant.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Message-Id: <20250718-restricted-pointers-soc-v1-1-c0d0d0bc2e39@linutronix.de>
+X-B4-Tracking: v=1; b=H4sIAM9OemgC/x3MPQqAMAxA4atIZgMqFn+uIg6aRs3SSlJEEO9uc
+ fyG9x4wVmGDsXhA+RKTGDLqsgA6lrAzis+Gpmpc1dU9KltSocQezyghsRpaJGyHoWt77xytBLk
+ +lTe5//M0v+8HPaDLd2kAAAA=
+X-Change-ID: 20250718-restricted-pointers-soc-499748d55cbc
+To: Nishanth Menon <nm@ti.com>, Santosh Shilimkar <ssantosh@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1752846034; l=1493;
+ i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
+ bh=LjAcRieKgnMNYcLnZrs27PGMwV9sd+uOX82BwodEtro=;
+ b=q94Q80T1q0imLgWgj4Y25ibsdl1Sv4feNSwafmljzXXGeaVEusmw2CTN8r+ycppoVa+Ucmoy0
+ sBNWr6vfvfOBJ14oQ6CDECTADQr+MVkI4HMGBiJ9XboQffjJawv2ag+
+X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
+ pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250718_063721_743500_69BE7905 
-X-CRM114-Status: GOOD (  39.74  )
+X-CRM114-CacheID: sfid-20250718_064037_806928_E5E29354 
+X-CRM114-Status: GOOD (  10.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,161 +84,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 07, 2025 at 05:06:23PM -0700, Per Larsen wrote:
-> On 7/3/25 5:38 AM, Marc Zyngier wrote:
-> > On Tue, 01 Jul 2025 23:06:35 +0100,
-> > Per Larsen via B4 Relay <devnull+perlarsen.google.com@kernel.org> wrote:
-> > > diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
-> > > index 2c199d40811efb5bfae199c4a67d8ae3d9307357..65d241ba32403d014b43cc4ef4d5bf9693813809 100644
-> > > --- a/arch/arm64/kvm/hyp/nvhe/ffa.c
-> > > +++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
-> > > @@ -71,36 +71,68 @@ static u32 hyp_ffa_version;
-> > >   static bool has_version_negotiated;
-> > >   static hyp_spinlock_t version_lock;
-> > > -static void ffa_to_smccc_error(struct arm_smccc_res *res, u64 ffa_errno)
-> > > +static void ffa_to_smccc_error(struct arm_smccc_1_2_regs *res, u64 ffa_errno)
-> > >   {
-> > > -	*res = (struct arm_smccc_res) {
-> > > +	*res = (struct arm_smccc_1_2_regs) {
-> > >   		.a0	= FFA_ERROR,
-> > >   		.a2	= ffa_errno,
-> > >   	};
-> > >   }
-> > > -static void ffa_to_smccc_res_prop(struct arm_smccc_res *res, int ret, u64 prop)
-> > > +static void ffa_to_smccc_res_prop(struct arm_smccc_1_2_regs *res, int ret, u64 prop)
-> > >   {
-> > >   	if (ret == FFA_RET_SUCCESS) {
-> > > -		*res = (struct arm_smccc_res) { .a0 = FFA_SUCCESS,
-> > > -						.a2 = prop };
-> > > +		*res = (struct arm_smccc_1_2_regs) { .a0 = FFA_SUCCESS,
-> > > +						      .a2 = prop };
-> > >   	} else {
-> > >   		ffa_to_smccc_error(res, ret);
-> > >   	}
-> > >   }
-> > > -static void ffa_to_smccc_res(struct arm_smccc_res *res, int ret)
-> > > +static void ffa_to_smccc_res(struct arm_smccc_1_2_regs *res, int ret)
-> > >   {
-> > >   	ffa_to_smccc_res_prop(res, ret, 0);
-> > >   }
-> > >   static void ffa_set_retval(struct kvm_cpu_context *ctxt,
-> > > -			   struct arm_smccc_res *res)
-> > > +			   struct arm_smccc_1_2_regs *res)
-> > >   {
-> > > +	DECLARE_REG(u64, func_id, ctxt, 0);
-> > >   	cpu_reg(ctxt, 0) = res->a0;
-> > >   	cpu_reg(ctxt, 1) = res->a1;
-> > >   	cpu_reg(ctxt, 2) = res->a2;
-> > >   	cpu_reg(ctxt, 3) = res->a3;
-> > > +	cpu_reg(ctxt, 4) = res->a4;
-> > > +	cpu_reg(ctxt, 5) = res->a5;
-> > > +	cpu_reg(ctxt, 6) = res->a6;
-> > > +	cpu_reg(ctxt, 7) = res->a7;
-> > 
-> >  From DEN0028G 2.6:
-> > 
-> > <quote>
-> > Registers W4-W7 must be preserved unless they contain results, as
-> > specified in the function definition.
-> > </quote>
-> > 
-> > On what grounds can you blindly change these registers?
-> From DEN0077A 1.2 Section 11.2: Reserved parameter convention
-> 
-> <quote>
-> Unused parameter registers in FF-A ABIs are reserved for future use by the
-> Framework.
-> 
-> [...]
-> 
-> The caller is expected to write zeroes to these registers. The callee
-> ignores the values in these registers.
-> </quote>
-> 
-> My read is that, as long as we are writing zeroes into reserved registers
-> (which I believe we are), we comply with DEN0026G 2.6.>
+In the past %pK was preferable to %p as it would not leak raw pointer
+values into the kernel log.
+Since commit ad67b74d2469 ("printk: hash addresses printed with %p")
+the regular %p has been improved to avoid this issue.
+Furthermore, restricted pointers ("%pK") were never meant to be used
+through printk(). They can still unintentionally leak raw pointers or
+acquire sleeping locks in atomic contexts.
 
-Right, the specs make this far more difficult to decipher than necessary
-but I think SMCCC defers to the definition of the specific call being
-made and then FF-A is basically saying that unused argument registers
-are always zeroed.
+Switch to the regular pointer formatting which is safer and
+easier to reason about.
 
-Rather than have the EL2 proxy treat each call differently based on the
-used argument registers, we can rely on EL3 doing the right thing and
-blindly copy everything back, which is what you've done. So I think
-that's ok.
+Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
+---
+ drivers/soc/ti/pruss.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-> > > +
-> > > +	/*
-> > > +	 * DEN0028C 2.6: SMC32/HVC32 call from aarch64 must preserve x8-x30.
-> > > +	 *
-> > > +	 * The most straightforward approach is to look at the function ID
-> > > +	 * sent by the caller. However, the caller could send FFA_MSG_WAIT
-> > > +	 * which is a 32-bit interface but the reply could very well be 64-bit
-> > > +	 * such as FFA_FN64_MSG_SEND_DIRECT_REQ or FFA_MSG_SEND_DIRECT_REQ2.
-> > > +	 *
-> > > +	 * Instead, we could look at the function ID in the response (a0) but
-> > > +	 * that doesn't work either as FFA_VERSION responses put the version
-> > > +	 * number (or error code) in w0.
-> > > +	 *
-> > > +	 * Set x8-x17 iff response contains 64-bit function ID in a0.
-> > > +	 */
-> > > +	if (func_id != FFA_VERSION && ARM_SMCCC_IS_64(res->a0)) {
-> > > +		cpu_reg(ctxt, 8) = res->a8;
-> > > +		cpu_reg(ctxt, 9) = res->a9;
-> > > +		cpu_reg(ctxt, 10) = res->a10;
-> > > +		cpu_reg(ctxt, 11) = res->a11;
-> > > +		cpu_reg(ctxt, 12) = res->a12;
-> > > +		cpu_reg(ctxt, 13) = res->a13;
-> > > +		cpu_reg(ctxt, 14) = res->a14;
-> > > +		cpu_reg(ctxt, 15) = res->a15;
-> > > +		cpu_reg(ctxt, 16) = res->a16;
-> > > +		cpu_reg(ctxt, 17) = res->a17;
-> > > +	}
-> > >   }
-> > 
-> > I don't see how that can ever work.
-> > 
-> > Irrespective of how FFA_MSG_WAIT actually works (and I couldn't find
-> > anything in the spec that supports the above), the requester will
-> > fully expect its registers to be preserved based on the initial
-> > function type, and that alone. No ifs, no buts.
-> > 
-> > If what you describe can happen (please provide a convincing example),
-> > then the spec is doomed.
-> 
-> DEN0077A 1.2 Section 8.2 (Runtime Model for FFA_RUN) and 8.3 (Runtime Model
-> for Direct request ABIs) contains Figures 8.1 and 8.2. Each figure shows
-> transitions between states "waiting", "blocked", "running", and "preempted".
-> Key to my understanding is that the waiting state in Figure 8.1 and Figure
-> 8.2 is the exact same state. This appears to be the case per Section 4.10.
-> 
-> So we have to consider the ways to get in and out of the waiting state by
-> joining the state machines in Figures 8.1 and 8.2. Figure 8.1 has an edge
-> between "running" and "waiting" caused by FFA_MSG_WAIT. Figure 8.2 has an
-> edge between "waiting" and "running" caused by a "Direct request ABI".
-> 
-> Direct request ABIs include FFA_MSG_SEND_DIRECT_REQ2 which is why the FF-A
-> 1.2 spec, in my read, permits the response to a 32-bit FFA_MSG_WAIT call can
-> be a 64-bit FFA_MSG_SEND_DIRECT_REQ2 reply.
+diff --git a/drivers/soc/ti/pruss.c b/drivers/soc/ti/pruss.c
+index d7634bf5413a3421da296103fc1591030cd00cbc..038576805bfa0f8dece569cf6faecedfb43a392f 100644
+--- a/drivers/soc/ti/pruss.c
++++ b/drivers/soc/ti/pruss.c
+@@ -449,7 +449,7 @@ static int pruss_of_setup_memories(struct device *dev, struct pruss *pruss)
+ 		pruss->mem_regions[i].pa = res.start;
+ 		pruss->mem_regions[i].size = resource_size(&res);
+ 
+-		dev_dbg(dev, "memory %8s: pa %pa size 0x%zx va %pK\n",
++		dev_dbg(dev, "memory %8s: pa %pa size 0x%zx va %p\n",
+ 			mem_names[i], &pruss->mem_regions[i].pa,
+ 			pruss->mem_regions[i].size, pruss->mem_regions[i].va);
+ 	}
 
-That seems bonkers to me and I agree with Marc's assessment above. The
-SMCCC is crystal clear that a caller using the SM32/HVC32 calling
-convention can rely on x8-x30 (as well as the stack pointers) being
-preserved. If FF-A has a problem with that then it needs to be fixed
-there and not bodged in Linux.
+---
+base-commit: d086c886ceb9f59dea6c3a9dae7eb89e780a20c9
+change-id: 20250718-restricted-pointers-soc-499748d55cbc
 
-Setting that aside, I'm still not sure I follow this part of your check:
+Best regards,
+-- 
+Thomas Weißschuh <thomas.weissschuh@linutronix.de>
 
-	if (... && ARM_SMCCC_IS_64(res->a0))
-
-won't res->a0 contain something like FFA_SUCCESS? The FFA spec states:
-
-  FFA_SUCCESS64, is used only if any result register encodes a 64-bit
-  parameter.
-
-which doesn't really seem related to whether or not the initial call
-was using SMC32 or SMC64. What am I missing?
-
-Will
 
