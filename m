@@ -4,154 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3E96C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Jul 2025 10:27:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C6F7C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Jul 2025 10:29:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=gJf3bMQGotHKt1OZ6CbB843DHEDphWLqyaP6E8HCc7c=; b=n/5VZxPTUnbFi8QlaTJmqybbPh
-	N7l0pdTAgDyUBNOItvjjUTId5bwDnDK5z2/+GyhYApv+36RL8djpKxxm2cn1kV7c9ZSNw7OXWhX5b
-	UNsCr+Pco/9of2M6CTiqgSUHhv/cc1Y07FbS+tWb42m+1lyssHKMyeHtcxvwPsgrx5MF5tCO30ZRR
-	vJV8henhOf2m2y4FoJjQmpSa/oew0fBkxiNcFSDkoXP40h1hHr17yYTLI6O+LTiM4G3iSMteR7lXf
-	vFoPH6ILurPCCbEHDhkdhN/7SrAwfTYavwxbmsmDY01aEiKcnNV5LCXCQiMyk/TJ/Czls1/sO6aBi
-	SoMaENOg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=TVJxN2n1YVTzR1GKUgzX4QElD/moy8xvaPxatGb0gCM=; b=jkQ5hkrnhean2atekM7gY1DKqM
+	4VXlE+VEysF9w/kTja6QhobFx6KN+hm5dU9tlHWT29om0qOjfVJMEIxLNqGgmYoY7oMQuSrqGqR10
+	ZEPlAhKfqX5dWjmLUaC7ChDd3NakhkJ1m0MZP1AqqeajObvxzUTnLLWd7mgGKxzNuhiU0f4zrhcVL
+	lfXf6VPjRLFRwn2V+nQaSF5fbk2q9ZD2DoDg8TTu8Dehk8zfrqzIf+0uRUtTPk0jnHSRamo7LpQ+E
+	8FXw/gMWilIX/vfc3U/amn3Rkq0593U7wUE+hDJFBiVBdQyIzl00tSvjWDxP7ZyqnuWXRQAd805wo
+	4GdU+atA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uciIz-0000000CIMO-20ZG;
-	Fri, 18 Jul 2025 10:27:05 +0000
-Received: from mail-westeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c201::5] helo=AS8PR03CU001.outbound.protection.outlook.com)
+	id 1uciLP-0000000CImR-0xSe;
+	Fri, 18 Jul 2025 10:29:35 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uchgy-0000000CE7j-2F3O
+	id 1uchi7-0000000CEHL-3cky
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Jul 2025 09:47:49 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Oggp9NOMzW25DzB1w4brxQpVsazQrvdj7ayWqhrIrjlJKlFZW2Z4zuNqCAR4VHOwDKXbmHaG1LRpghzatzYGrN1tyB7ZqpRDPTPTS6vZhRg2Br+9Fc+QugQ2roxtyadQFE8EecB3H1uE2xkJ5l+3TIhaKUFWc6WOX1qttYE5BWWZnLxfvmnoAsiekaxnCpttn8ydJLAL8blqzgj1oiiGrsQdnThXylKIB2yhnJXTjWwO8Db43fB3HSRncaLTgUOMyZI8iqOkTvQALYNhUthTMHljhuLscWHEYmr6VlM3HrOKIy9OXRd+kijVCTNI3eKmov18LswlBSrRuyWBIGNouA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=gJf3bMQGotHKt1OZ6CbB843DHEDphWLqyaP6E8HCc7c=;
- b=f+97v3DwqhFUyT4SfuoVijaZQXBCAFVaWpvrmK/VTlzj9EVECEcR090yqs9UND3azpPDOUebf5gYArqv7YwWmjd0LpP8bEeAn5mz1aWDf5d11wRupoxqyAEm+hM0zUmQOa6+a4fEGB+UqaG1vjIUA672G9RuMHHJZRgoRd6Kw3XYxJeE0E0GXDJf4K0LsfJNLfKzApDym1elJ/Pv5wYuu82vZcVIOetEFTkY6F4BF+YLy1HNmOXrcca6NIwtjDMV8oI8z1FoVvyIVLlrBiLC6NgHUDaXI/pXA4pYxlniKpWh+zw2jeyHsWI4O1AviNyBkLewzuqTLFcWU8ymcJcS7Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=gJf3bMQGotHKt1OZ6CbB843DHEDphWLqyaP6E8HCc7c=;
- b=h4K0ZJh8qe51pxWLlmToaEDl0FpNXL+wqShrxTqVW6SLODeMp+Cm0KWJCoAtbh0ZB8o9L6Mf2xi13CimJ/s93pvX6qfQEKTkidqwq9A+pqwF4QK5UzbsqxIZOr9F34FF4lec9mXEh2M6j1cWABPPbVoeEwJNocQn66v4cxzt+UPE2oUsq7prPKsUmwvnNS940A/Qu22y1f9WKJASOn6KJZmJlin1OZpCzZm2kH9GDT8/g/vfwi+aQ94ZIL6FK/wDPYl+45cRm+5sMG0DZAqrKiGRpZVk80nW8KM5G+hFShCPPJe6HEn3MfV2ldC1aF1joaR9Qbjf0cHqSy2hMsAdPQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by AM9PR04MB8874.eurprd04.prod.outlook.com (2603:10a6:20b:409::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8922.39; Fri, 18 Jul
- 2025 09:47:42 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630%7]) with mapi id 15.20.8922.037; Fri, 18 Jul 2025
- 09:47:42 +0000
-From: Peng Fan <peng.fan@nxp.com>
-To: mathieu.poirier@linaro.org,
-	Peng Fan <peng.fan@nxp.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	arm-scmi@vger.kernel.org (open list:SYSTEM CONTROL MANAGEMENT INTERFACE (SCMI) i.MX...),
-	imx@lists.linux.dev (open list:SYSTEM CONTROL MANAGEMENT INTERFACE (SCMI) i.MX...),
-	linux-arm-kernel@lists.infradead.org (moderated list:SYSTEM CONTROL MANAGEMENT INTERFACE (SCMI) i.MX...),
-	devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS),
-	linux-kernel@vger.kernel.org (open list)
-Cc: Alexander Stein <alexander.stein@ew.tq-group.com>
-Subject: [PATCH V2 RESEND] dt-bindings: firmware: imx95-scmi: Allow linux,code for protocol@81
-Date: Fri, 18 Jul 2025 17:47:22 +0800
-Message-Id: <20250718094723.3680482-1-peng.fan@nxp.com>
-X-Mailer: git-send-email 2.37.1
+	Fri, 18 Jul 2025 09:49:01 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.216])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4bk4hh0HRnz6M4gR;
+	Fri, 18 Jul 2025 17:47:32 +0800 (CST)
+Received: from frapeml500003.china.huawei.com (unknown [7.182.85.28])
+	by mail.maildlp.com (Postfix) with ESMTPS id 41E581402F6;
+	Fri, 18 Jul 2025 17:48:50 +0800 (CST)
+Received: from a2303103017.china.huawei.com (10.203.177.99) by
+ frapeml500003.china.huawei.com (7.182.85.28) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.1.2507.39; Fri, 18 Jul 2025 11:48:49 +0200
+From: Alireza Sanaee <alireza.sanaee@huawei.com>
+To: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
+CC: <jonathan.cameron@huawei.com>, <coresight@lists.linaro.org>,
+	<dianders@chromium.org>, <james.clark@linaro.org>, <krzk@kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-perf-users@vger.kernel.org>,
+	<linuxarm@huawei.com>, <mark.rutland@arm.com>, <mike.leach@linaro.org>,
+	<robh@kernel.org>, <ruanjinjie@huawei.com>, <saravanak@google.com>,
+	<shameerali.kolothum.thodi@huawei.com>, <suzuki.poulose@arm.com>
+Subject: [PATCH v3 0/6] Refactoring finding CPU phandles in DT
+Date: Fri, 18 Jul 2025 10:48:42 +0100
+Message-ID: <20250718094848.587-1-alireza.sanaee@huawei.com>
+X-Mailer: git-send-email 2.34.1
+MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-ClientProxiedBy: MA1PR01CA0175.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:d::10) To PAXPR04MB8459.eurprd04.prod.outlook.com
- (2603:10a6:102:1da::15)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|AM9PR04MB8874:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8ec37612-fa85-4d1c-4cb5-08ddc5e023c1
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|52116014|376014|7416014|19092799006|921020|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?ncJXBHfH4uIgzXz4S9QopCCDBS/8LeteMmYMq2CwGFt1lMtg4JMmL14qr9gC?=
- =?us-ascii?Q?U5/6RfjEu9hZEjKCfxuDimiFzfe2igoivR9ECA5vL4SGflszrA7valjEcpdY?=
- =?us-ascii?Q?EsbUz6sGAryHIiUl5NSSAVT98AqVx9pfVn342L8mjyDt0ApM4+SSQrxiJwBF?=
- =?us-ascii?Q?L5cgmozkWUFkwS4OcaRT7LjWrKHsN9nTZKo0I0xIPksaZR8AOvR/hE0FwwXP?=
- =?us-ascii?Q?QuwVJit0MtlrN1Xe+iNVxSavakxUUUIh7W5z4aOAk1weeq/MqcnyXfFZc4Ct?=
- =?us-ascii?Q?EIkHcPwM38sIyRXeU8thA+rmKosvw015L9wGjYq4WaRfTnaZ4N+rU5B7E1QJ?=
- =?us-ascii?Q?/bL9mpjcq4EGCYPSAvGgLPaLzyRMHxJXV8lwdYsQAF5JybnfS4pS0REMlrYU?=
- =?us-ascii?Q?4tC3fd5TvtRYfndtBeWW+QK1n76RIYs32p4KgvSknzwdFffv0K1QJEaNH3e5?=
- =?us-ascii?Q?3pFDdsAX6ZTevqT78ViI4IhNDAGkUduBpnkUJeHSoxKXxfoFrVyAbN1rFIo7?=
- =?us-ascii?Q?Y06y4FTcad83Xm4jsU+qcOWeCGRt+RaqeAt7Vji5T3a3eQrbta2mCWT6wPIo?=
- =?us-ascii?Q?521oXntjrgujAC9Q0d5ocxSH2HBUqavaIqHiEr5O08YYnFj4eUgc/o79/sWI?=
- =?us-ascii?Q?jYVIxONllyuy7QBcn2fe3omkzfSn7PBnCsOv9i/8unhNTc4Jpvpe+6z8yd9p?=
- =?us-ascii?Q?0fZgp8xQBn+RsBX9SoU/4fto/TB92BGPv/8B//v9xi+exGmP032ZA2p6AALF?=
- =?us-ascii?Q?ssZFmbyl7kwB0PedZPWyqQtR2V87vszhWIAeqPHiyVZCe6hiKLTWhC1y/99T?=
- =?us-ascii?Q?eMRg+F5SdlkRLwkTOXViIQPkYPqHZHRtw/IS3jPauzss8xQv7ujoq3FX8jY9?=
- =?us-ascii?Q?s/aKVe6dgOGV9FncEUZwo4T8s0fGAGIz8/Yjhl13EgoGijEWxqMvNUL5enbb?=
- =?us-ascii?Q?BIMOMjCe5AjIKVAnntUdJckAAb6e2reKHn6Iz2qGwzm+LTHnhtZiV2gjHDoE?=
- =?us-ascii?Q?oxSJarzMgzza9Rhy95o3H27xonk2iyUNsg0z4B3VpJNziHJEmyNRO9TFQEIL?=
- =?us-ascii?Q?4gCYcBr8I5gPEeQo7Ek48HYFX9/KOWI59WZUj/l2ZmFvEHNMFXL/6a7jhtRR?=
- =?us-ascii?Q?T5TVaBRo7MiDVKEQhouUq7Kbw74nnOQD0XRxB61Ho5A2TjQjtfJCNixqRbxM?=
- =?us-ascii?Q?fmf4TUFYJgb8esvWrXJtNCg390nRbZIBOSyjimEmOx+rkTZ8J2QVrWvF75V1?=
- =?us-ascii?Q?zPnkssT5juMl1VSimuZP0TzdFEiLz06e5wE9cC5sXONRfTU7ZLrSSh3u3cW/?=
- =?us-ascii?Q?Gf7Yo4Q67p3OA9eNeAj5UojOZmbrX3cWVv6//96NzOQtUeYZGH/bKAytrp2+?=
- =?us-ascii?Q?MP7bL5nYUj9x8YTZ6/pSqICq8QuKYqJtGBLOtrzSOOzcCMc4NKDxKcjLbuJI?=
- =?us-ascii?Q?672Hwg0/DuG0QB7yoDczdwk8xFqI2ZLO?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(52116014)(376014)(7416014)(19092799006)(921020)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?kE8MZ4ToK3eWAWnrYg0rfdRpDiBY4K1R3CM+R+OkZeayit1errwqqu4YRqCx?=
- =?us-ascii?Q?dB45E7yyY5aGPELlhpRiYyPBP9eu7/3+1blUBFpKJsFYiGnXG5kCauIDPdl0?=
- =?us-ascii?Q?9nvDhjTXDy6MHzBoT//sRBW8c/ZrnL+mc3YMloSN5qXnR5WHBUSQry/LVWLp?=
- =?us-ascii?Q?cFXzKoL/UEfgTAbrcH1aDqvqQvuU7bCIATKP1PEHONf2v8T5/10Fxajbw/ML?=
- =?us-ascii?Q?wBi8t+ba1h+QmjR8hvkBL/RCDRkRC5KqjG/fkeYHGiwSQ5WrCt7HQrTfvIKf?=
- =?us-ascii?Q?QwpejqiT02fsmODPqemgfteJ9nHEV8+OeK93MEfulPTKBdbJpWX96nNKW26u?=
- =?us-ascii?Q?L8BYt2C5opgc8YnA30jn8xbZymmU/gua3mcdSDxrJ5HMfLLIqguKjndCWGhu?=
- =?us-ascii?Q?piG1FEhbWBkDRDh+YhP4sCpYEBaXKcoPzEbywisJJJSwJxLTvoLZJ7xpBLHa?=
- =?us-ascii?Q?nwKnXV1dp+sWpSZVWLPgz5j4gKz05VUToKlvUzV48llvoRBt/2xGtZ5+wo2t?=
- =?us-ascii?Q?Z8AJWLaclIFLK7pu1+AIkfgxnmHEtLJ/LnTPvz5w1F3xm7xes2RPRiYWEV0D?=
- =?us-ascii?Q?HgeFbyMKOuIcmeDRaqpJH0NbkLMXKOlxAJhNobnT0tTSekoKnXz1S/06Q13t?=
- =?us-ascii?Q?gmjLd3J0YM8onmc+KK9NwAxnT6diPA6fwR6H1ZvOeB08dny7/dPSelWQk0wb?=
- =?us-ascii?Q?gI0d2+GCYBdkYFQGFcPBf/1XgQVCzi+qLAxP0z3A2/QqSjo5DGJnsQl/IuP/?=
- =?us-ascii?Q?xzSKehs+RaqxHDcDd5ewhQYcw+TSVe9ucgKfOImBdVow3M5iPUYrryfVWPZh?=
- =?us-ascii?Q?arq7INJJqhfNKFbB/Mt4u1x9kuNqRpfwcJcpjIr/iI3gygUdOk8A5MhXpnzA?=
- =?us-ascii?Q?lW+K+X66DO2KJGrAk2Lv2p8XBNDMhr63cwrFYpLpr7kqFiOzExIGphE6tj68?=
- =?us-ascii?Q?dyssvVbCQo2HhER1EoTBH/+0rgDfG4+3bDldxeagbveInQmdwfu62b2G7Hfw?=
- =?us-ascii?Q?d7Xd4Qo0fB+wPshX2kYdFy7fr7WAcoqcmn6ZdinTLx2/x/F7wvgStiUAE5FR?=
- =?us-ascii?Q?Wpgvap7O0ALtsOySsqEVz1syb1jez9klWyNNLSY1hecGyuAls7gJIosBNoeY?=
- =?us-ascii?Q?dbWJgoldI8T6UIgWqv+1JVjSSa4DPLReiJ+Fon692xvx/OcCvygXNJh1k8yj?=
- =?us-ascii?Q?wph7qEv1xZ99XR+22bzxnFa6hhiqYRCVCAtzuj7dwm4ymPZyVDm6NOSTiGWo?=
- =?us-ascii?Q?64oZ4dV4COgbMRwbuLaucWMC7LfdJBkyyOJ+rRl1tO2BoBcqtRElp1S6EvXN?=
- =?us-ascii?Q?3yUbP1nir17cj9A5zEgkkMdD5VGFH/x195Rk+4wz7kAc861OlRp5XrQOJu2q?=
- =?us-ascii?Q?0lmAjNRNNeqYieFLXo6QAKW5LVKS8EW5z7s6EkGvHkMB2lxWjLG272Q/DdrN?=
- =?us-ascii?Q?KpaXdmCEZjpsGkaXR7ibOfctU/8itHO3jNw0BGMyFAi0BhZ5lUjyMeD2yVMa?=
- =?us-ascii?Q?21ve1jV5Bb4iWR/r14TFXUSbFF0zUVf1GB/I68j5SXClIl3CbH0u7kFw9Xe7?=
- =?us-ascii?Q?oxirpqL6ZwqzUu6r1DhwTT1tZKwFZiWGm44KqE10?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8ec37612-fa85-4d1c-4cb5-08ddc5e023c1
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Jul 2025 09:47:42.2153
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 5ccdkINco5hUyNIU/NeGSl1j1BYsLe8jvsYqaOtWfCtvNjhexV06lUn5zHdGNzYXiuefie/qYkb60f6oRSm9Gg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8874
+X-Originating-IP: [10.203.177.99]
+X-ClientProxiedBy: lhrpeml100002.china.huawei.com (7.191.160.241) To
+ frapeml500003.china.huawei.com (7.182.85.28)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250718_024748_584664_78A77664 
-X-CRM114-Status: GOOD (  12.42  )
+X-CRM114-CacheID: sfid-20250718_024900_047002_7F0D115B 
+X-CRM114-Status: GOOD (  11.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,56 +72,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
+This series refactor the way CPU IDs are retrieved from the device
+tree.
 
-BBM protocol supports a single power button, supported by driver
-imx-sm-bbm-key.c. By default this is KEY_POWER, but can also be overwritten
-using linux,code. Add a reference to this schema and add linux,code as a
-supported property.
+Usually, there is a for loop that goes over every single CPU that can be
+avoided. This also reduces the amount of NULL pointer checks in drivers.
+I have abstracted away that loop and introduced a new function
+(of_cpu_node_to_id) for this.
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
-Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
-Signed-off-by: Peng Fan <peng.fan@nxp.com>
----
+This patchset is a subset of [1], where I removed content and patches
+relevant to hyper-threaded cores for DT. Based on the discussion, the
+code refactor is still useful, hence this patchset.
 
-Resend [1].
-I not see a reason that why this patch could block i.MX95 remoteproc support[2].
-But to speed up the work, I took Alexander's work and resend it. Hope this
-could catch 6.17
+[1]
+https://lore.kernel.org/all/20250512080715.82-1-alireza.sanaee@huawei.co
 
-[1]https://lore.kernel.org/imx/20250513-whimsical-almond-quoll-e3ad5b@sudeepholla/
-[2]https://lore.kernel.org/linux-remoteproc/PAXPR04MB8459A0F330554EB69E990E048850A@PAXPR04MB8459.eurprd04.prod.outlook.com/T/#t
+Changes since v2:
+    - Addressed Jonathan Cameron's comments.
+    - Added reviewed-by tags.
+    - Added a new commit where I suggest simplfing the code in
+      arch_topology.c to remove the use of cpu_node on failure path.
+    - Improve documentation.
+    - Caught a bug in patch 1.
+    - Commit message fixed for patch 2.
 
- .../devicetree/bindings/firmware/nxp,imx95-scmi.yaml   | 10 ++++++++--
- 1 file changed, 8 insertions(+), 2 deletions(-)
+Changes since v1:
+    - Rebased on top of the latest mainline.
+    - Addressed Krzysztof Kozlowski's comments -- Hopefully :-)
+    - Addressed Jonathan Cameron's comments.
 
-diff --git a/Documentation/devicetree/bindings/firmware/nxp,imx95-scmi.yaml b/Documentation/devicetree/bindings/firmware/nxp,imx95-scmi.yaml
-index 2bda2e0e1369..7a5a02da2719 100644
---- a/Documentation/devicetree/bindings/firmware/nxp,imx95-scmi.yaml
-+++ b/Documentation/devicetree/bindings/firmware/nxp,imx95-scmi.yaml
-@@ -24,13 +24,19 @@ properties:
-         const: 0x80
- 
-   protocol@81:
--    $ref: '/schemas/firmware/arm,scmi.yaml#/$defs/protocol-node'
--    unevaluatedProperties: false
-+    type: object
-+    allOf:
-+      - $ref: '/schemas/firmware/arm,scmi.yaml#/$defs/protocol-node'
-+      - $ref: /schemas/input/input.yaml#
-+    additionalProperties: false
- 
-     properties:
-       reg:
-         const: 0x81
- 
-+      linux,code:
-+        default: 116  # KEY_POWER
-+
-   protocol@82:
-     description:
-       SCMI CPU Protocol which allows an agent to start or stop a CPU. It is
+Alireza Sanaee (6):
+  of: add infra for finding CPU id from phandle
+  arch_topology: drop the use of cpu_node in the pr_info
+  arch_topology: update CPU map to use of_cpu_phandle_to_id
+  coresight: cti: Use of_cpu_phandle_to_id for grabbing CPU id
+  coresight: Use of_cpu_phandle_to_id for grabbing CPU ID
+  perf/arm-dsu: refactor cpu id retrieval via new API
+    of_cpu_phandle_to_id
+
+ drivers/base/arch_topology.c                  | 22 ++++-----
+ .../coresight/coresight-cti-platform.c        | 13 +----
+ .../hwtracing/coresight/coresight-platform.c  | 15 +-----
+ drivers/of/cpu.c                              | 49 +++++++++++++++++++
+ drivers/perf/arm_dsu_pmu.c                    |  7 +--
+ include/linux/of.h                            |  9 ++++
+ 6 files changed, 72 insertions(+), 43 deletions(-)
+
 -- 
-2.37.1
+2.43.0
 
 
