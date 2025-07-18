@@ -4,95 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AE70C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Jul 2025 05:13:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30979C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Jul 2025 05:26:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W/KPWTypw68rlP2ivlSO9Nj2ROf6caTcYTdVpsWKxvc=; b=ZeLNz57GsPLIhQYcD4SZuVPGS/
-	N/439fU1UlxXesMd0JTsiD7r9QpE0eE0nI560ShsPeUc0au1DyAH0oNT2YCfyBA0h+RP84y9lh/p6
-	0HFswCbocGS24jWV3Jj4jDVfWE7CS5DAcbAhBKPBr7ni5JDdvuHtIwvjnUNHewzYthbxsXVQSZf+N
-	df3bWo2vbCaBcW4SYGkXbAk5ELOaitzmKB7LEPyivcjyo+RQZ0O1cPhxSZb2Dz275M/LouDngGB1g
-	37/O/krWCF8u8BkiyCmFHRl6nYAVVPbi5lSOwWgWbvm8GFmy0xjjRV72I8jW3Y4kZXYSGwUjP2Up1
-	dIN/M8YQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PbhlxJiyVG3PmWSVuHMX5x31HK2jOeSSKF6Nv4cEW7w=; b=GzTeCy86MQq7t22WoSrTikKAMz
+	mFHjl4mGmzc012ATtcgcIGKb8nE2wU9WSobybTqhQziMtJ9zsrlXQ9zFpkPQ60UqygqL8ebYD5qqr
+	w0N75w5uRWjpii08d29naBWF29L81LHl63L/pUVDGTAvL356AQLpAqzM7Ygb2Df+QWQHQEH3m15Va
+	lw1T59+MPs+yhvA8GCKTzT+8sLJDN//7Bn6eXvV6kualqJy9VZT3qu9jzlRx1q3IxT/WvISQLJa0I
+	CFVvSmKKcdpi/3V7CmTGO18gVxUQ64jrtBQNosudrB2T7JEKmZtC7rVo6ruEJ9MHguaoCKBzCQtz1
+	t6beV7wQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucdPV-0000000Bi9b-3vbl;
-	Fri, 18 Jul 2025 05:13:29 +0000
-Received: from cpanel.siel.si ([46.19.9.99])
+	id 1ucdbh-0000000BiYV-1kid;
+	Fri, 18 Jul 2025 05:26:05 +0000
+Received: from mgamail.intel.com ([198.175.65.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucdN2-0000000Bi1E-3z8I
+	id 1ucdZF-0000000BiRB-27XR
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Jul 2025 05:10:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=norik.com;
-	s=default; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
-	References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=W/KPWTypw68rlP2ivlSO9Nj2ROf6caTcYTdVpsWKxvc=; b=bHtpiwwMCcg9TRDTp1vAU0mAOP
-	UjNvWxcSyqSJ1QV/cYhkOdE7c4/VHxifdUj0l19MpDEXumGku8zcyYtRE/wTEdvZMmJBBicB0kTEh
-	Wg5k1ZH2+24DmV/mquzZDK+0fpj65l1nbauMJG6b7w/oJv3LZdhyFJy3dOhRUFG8pypH+zRXWzqDC
-	fGUWkB3gjZAzgGhQ8EMG3d5s0ga0H4gQMlHyQQVTG9fPhWoRIZNXRpVsIEhfA0wq54aCWnnUFK1wc
-	dmH2yiqBHomhi/mzhjf/YKY0q3UlI4McXLMS7XTKkJJBGVIGz1eC1NKy4x1dF3iMmZblqw8P9zDuo
-	UtlbD7jQ==;
-Received: from [89.212.21.243] (port=48060 helo=[192.168.69.116])
-	by cpanel.siel.si with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
-	(Exim 4.96.2)
-	(envelope-from <primoz.fiser@norik.com>)
-	id 1ucdN0-000Axh-0k;
-	Fri, 18 Jul 2025 07:10:53 +0200
-Message-ID: <4a882430-877c-40e9-b7bd-21d423340b20@norik.com>
-Date: Fri, 18 Jul 2025 07:10:49 +0200
+	Fri, 18 Jul 2025 05:23:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1752816213; x=1784352213;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=BQJ7u5QzwImJwqXT1jKBzsgWbTNy67I2QOWlDIjq+GQ=;
+  b=e7RLYmTdNZw0TFrV6+WJM6r1eaddNYH0KwAnRPw/Trma9EQAOGsm1JEF
+   KM5ng9j+woBaaYLkeoc+e3SrGb2l9QADB1oMugh3g+d1RzddyrltN1Lcm
+   Sut9CQUAV3GNLkrLKhggfaaRXl+mozahbyfFFA13YwXv6M1LytRgin/Gp
+   zZV+KbtY3p4/TNg1Ezmzuz0gljoaLl7VTH4bxJKmHDQy6yycD862nEC1R
+   1sh3K7AinWBl+S3pU7MnNIAXCIovGcnk+a+1t9fnHvCC0TzOhPcWR3ld7
+   od09VW1BHGjz1u4Z9no8EG/XD18ItpUYemmtm6ETUDG0LTQMNLRoX72w2
+   Q==;
+X-CSE-ConnectionGUID: oq/+gh5qTRao3P5HKxeKZw==
+X-CSE-MsgGUID: XUabs+KYTv2Wf9bq4GIW4A==
+X-IronPort-AV: E=McAfee;i="6800,10657,11495"; a="66553129"
+X-IronPort-AV: E=Sophos;i="6.16,320,1744095600"; 
+   d="scan'208";a="66553129"
+Received: from fmviesa006.fm.intel.com ([10.60.135.146])
+  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Jul 2025 22:23:29 -0700
+X-CSE-ConnectionGUID: 9YZ4ahgLSm6fv/JuvQz3FA==
+X-CSE-MsgGUID: 1ennyicLQFSBDdJbAUwcQg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.16,320,1744095600"; 
+   d="scan'208";a="158087118"
+Received: from lkp-server01.sh.intel.com (HELO 9ee84586c615) ([10.239.97.150])
+  by fmviesa006.fm.intel.com with ESMTP; 17 Jul 2025 22:23:23 -0700
+Received: from kbuild by 9ee84586c615 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1ucdZ2-000EKN-0K;
+	Fri, 18 Jul 2025 05:23:20 +0000
+Date: Fri, 18 Jul 2025 13:23:00 +0800
+From: kernel test robot <lkp@intel.com>
+To: Cosmin Tanislav <demonsingur@gmail.com>,
+	Cosmin Tanislav <cosmin.tanislav@analog.com>,
+	Tomi Valkeinen <tomi.valkeinen+renesas@ideasonboard.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Niklas =?iso-8859-1?Q?S=F6derlund?= <niklas.soderlund@ragnatech.se>,
+	Julien Massot <julien.massot@collabora.com>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Linus Walleij <linus.walleij@linaro.org>
+Cc: oe-kbuild-all@lists.linux.dev, linux-media@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-staging@lists.linux.dev,
+	linux-gpio@vger.kernel.org
+Subject: Re: [PATCH v6 20/24] media: i2c: maxim-serdes: add MAX9296A driver
+Message-ID: <202507181514.fwoTNxka-lkp@intel.com>
+References: <20250716193111.942217-21-demonsingur@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/2] Populate of_node for i.MX netdevs
-To: Jakub Kicinski <kuba@kernel.org>
-Cc: Wei Fang <wei.fang@nxp.com>, Shenwei Wang <shenwei.wang@nxp.com>,
- Clark Wang <xiaoning.wang@nxp.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
- davem@davemloft.net, Eric Dumazet <edumazet@google.com>,
- Paolo Abeni <pabeni@redhat.com>, Maxime Coquelin
- <mcoquelin.stm32@gmail.com>, Alexandre Torgue
- <alexandre.torgue@foss.st.com>, imx@lists.linux.dev, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, upstream@lists.phytec.de,
- Rob Herring <robh@kernel.org>, Saravana Kannan <saravanak@google.com>,
- "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
- <devicetree@vger.kernel.org>
-References: <20250717090037.4097520-1-primoz.fiser@norik.com>
- <20250717070204.66e34588@kernel.org>
-Content-Language: en-US
-From: Primoz Fiser <primoz.fiser@norik.com>
-Autocrypt: addr=primoz.fiser@norik.com; keydata=
- xjMEZrROOxYJKwYBBAHaRw8BAQdAADVOb5tiLVTUAC9nu/FUl4gj/+4fDLqbc3mk0Vz8riTN
- JVByaW1veiBGaXNlciA8cHJpbW96LmZpc2VyQG5vcmlrLmNvbT7CiQQTFggAMRYhBK2YFSAH
- ExsBZLCwJGoLbQEHbnBPBQJmtE47AhsDBAsJCAcFFQgJCgsFFgIDAQAACgkQagttAQducE+T
- gAD+K4fKlIuvH75fAFwGYG/HT3F9mN64majvqJqvp3gTB9YBAL12gu+cm11m9JMyOyN0l6Os
- jStsQFghPkzBSDWSDN0NzjgEZrROPBIKKwYBBAGXVQEFAQEHQP2xtEOhbgA+rfzvvcFkV1zK
- 6ym3/c/OUQObCp50BocdAwEIB8J4BBgWCAAgFiEErZgVIAcTGwFksLAkagttAQducE8FAma0
- TjwCGwwACgkQagttAQducE8ucAD9F1sXtQD4iA7Qu+SwNUAp/9x7Cqr37CSb2p6hbRmPJP8B
- AMYR91JYlFmOJ+ScPhQ8/MgFO+V6pa7K2ebk5xYqsCgA
-Organization: Norik systems d.o.o.
-In-Reply-To: <20250717070204.66e34588@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - cpanel.siel.si
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - norik.com
-X-Get-Message-Sender-Via: cpanel.siel.si: authenticated_id: primoz.fiser@norik.com
-X-Authenticated-Sender: cpanel.siel.si: primoz.fiser@norik.com
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250716193111.942217-21-demonsingur@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250717_221057_462073_A61DAD4E 
-X-CRM114-Status: UNSURE (   7.53  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250717_222333_582182_CCD1CD4A 
+X-CRM114-Status: GOOD (  12.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,51 +99,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jakub,
+Hi Cosmin,
 
-On 17. 07. 25 16:02, Jakub Kicinski wrote:
-> On Thu, 17 Jul 2025 11:00:35 +0200 Primoz Fiser wrote:
->> Recently when working on predictable network names for i.MX SoCs, it
->> was discovered that of_node sysfs properties are missing for FEC and
->> EQOS interfaces.
->>
->> Without this, udev is unable to expose the OF_* properties (OF_NAME,
->> OF_FULLNAME, OF_COMPATIBLE, OF_ALIAS, etc.) and thus we cannot identify
->> interface based on those properties.
->>
->> Fix this by populating netdev of_node in respective drivers.
-> 
-> Seems legit, but would be good to CC Open Firmware maintainers.
+kernel test robot noticed the following build warnings:
 
-Added Rob & Saravana to CC.
+[auto build test WARNING on next-20250716]
+[also build test WARNING on v6.16-rc6]
+[cannot apply to robh/for-next staging/staging-testing staging/staging-next staging/staging-linus arm64/for-next/core linus/master v6.16-rc6 v6.16-rc5 v6.16-rc4]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-> 
-> If we want to make propagating the OF linkage a think I think we should
-> add a flavor of SET_NETDEV_DEV() which does that for the caller.
-> SET_NETDEV_DEV_OF() ?
+url:    https://github.com/intel-lab-lkp/linux/commits/Cosmin-Tanislav/media-mc-Add-INTERNAL-pad-flag/20250717-033901
+base:   next-20250716
+patch link:    https://lore.kernel.org/r/20250716193111.942217-21-demonsingur%40gmail.com
+patch subject: [PATCH v6 20/24] media: i2c: maxim-serdes: add MAX9296A driver
+config: i386-randconfig-063-20250718 (https://download.01.org/0day-ci/archive/20250718/202507181514.fwoTNxka-lkp@intel.com/config)
+compiler: gcc-12 (Debian 12.2.0-14+deb12u1) 12.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250718/202507181514.fwoTNxka-lkp@intel.com/reproduce)
 
-OK, so you suggest to add MACRO:
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202507181514.fwoTNxka-lkp@intel.com/
 
-#define SET_NETDEV_DEV_OF(net, np)  ((net)->dev.of_node = (np))
+sparse warnings: (new ones prefixed by >>)
+>> drivers/media/i2c/maxim-serdes/max9296a.c:1205:27: sparse: sparse: symbol 'max96714_rlms_reg_sequence' was not declared. Should it be static?
 
-I like the idea too.
+vim +/max96714_rlms_reg_sequence +1205 drivers/media/i2c/maxim-serdes/max9296a.c
 
-Way cleaner especially if others will join later.
-
-Shall we do that already for v2 or as a separate series?
-
-BR,
-Primoz
-
+  1199	
+  1200	/*
+  1201	 * These register writes are described as required in MAX96714 datasheet
+  1202	 * Page 53, Section Register Map, to optimize link performance in 6Gbps
+  1203	 * and 3Gbps links for all cable lengths.
+  1204	 */
+> 1205	const struct reg_sequence max96714_rlms_reg_sequence[] = {
+  1206		{ MAX9296A_RLMS3E(0), 0xfd },
+  1207		{ MAX9296A_RLMS3F(0), 0x3d },
+  1208		{ MAX9296A_RLMS49(0), 0xf5 },
+  1209		{ MAX9296A_RLMS7E(0), 0xa8 },
+  1210		{ MAX9296A_RLMS7F(0), 0x68 },
+  1211		{ MAX9296A_RLMSA3(0), 0x30 },
+  1212		{ MAX9296A_RLMSA5(0), 0x70 },
+  1213		{ MAX9296A_RLMSD8(0), 0x07 },
+  1214	};
+  1215	
 
 -- 
-Primoz Fiser
-phone: +386-41-390-545
-email: primoz.fiser@norik.com
---
-Norik systems d.o.o.
-Your embedded software partner
-Slovenia, EU
-phone: +386-41-540-545
-email: info@norik.com
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
