@@ -4,128 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E37DC83F34
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Jul 2025 18:33:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07CFDC83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Jul 2025 18:38:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2xIIPdhqVfGQJUuusBF8KYkPWzXBgEwTeh2fEMZTkaA=; b=KN6b7CswkhWtu9rTPCeQm7AKFt
-	gCgXXhPBcz8UehXpHq8o8zud+AUwUjSIWC4YnUpk1zyaRucH0UGUb4vxkOn7KeSu3fVPmaq9XBsx3
-	jWpz0V41lpcohphFBOg/dozpAjqvblXjDGxsEp4ACBU2A9lSB8WH1VUV0zP1ow7Cq0ZBCszKB1fEe
-	joLjUJkh3qV4gU/4xSnTiNXfd3wkNwWYHJVTCSGc2/SIfXsCrt0/mDdtHclJGRrxnobNedRxWTz+Q
-	jMmLBknDro6DIV33Re00VDSL+HWz/5lEAMq32/8tSp4cl5qRO4fKDo19GgRSMSOUIRzbAGlSnYrgA
-	hc4L/I5g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=EACFd/geLJY/8m1IpZ3RnKY8u1CpWN0HUfkGpKyP4kg=; b=4CfC3Yyi/raeUO/GjoY3KGyo8H
+	+N/mJBzT5auOdmyA2N7Q3sqqxV8+il77v9twFC3LyHcfEbG7T89OWlDHeAtPGH5laK/W5tUtt3Utb
+	jeEeJZyb8Do1sUdfMU5LKzcEMXSezyi/O/JyhrOsZuMNuTxZEcxw5UkjNloYbhX9zWbqqF3t9NYo2
+	SMhDtK8+AxI1oeCXEI7sBShN2vmagQwSGipGAFNfSBeb4tiKh/VmkDhRzWK+0oK04Uq3HGlMIWew5
+	9/91jpMwjHiQab1Ns5eYnQL8iBNVrlE9NtuQVgo9qgMuTqbu2x9XlL3D4Vv89H2ahKxhcbqgB/pt6
+	OWoNrn8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucpty-0000000DJCy-3E56;
-	Fri, 18 Jul 2025 18:33:46 +0000
-Received: from mout.web.de ([212.227.17.11])
+	id 1ucpyN-0000000DJcu-2kP9;
+	Fri, 18 Jul 2025 18:38:19 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucprW-0000000DJ5y-2jjF
+	id 1ucpvu-0000000DJL7-2J8Z
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Jul 2025 18:31:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
-	s=s29768273; t=1752863446; x=1753468246; i=markus.elfring@web.de;
-	bh=2xIIPdhqVfGQJUuusBF8KYkPWzXBgEwTeh2fEMZTkaA=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
-	 References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=edS32uM/OGSYIGHaj4nlBq8UzHWjarnUtdSqjodh0UznFNY9Oxt1/d/5mf0OYVhX
-	 7qwv6Ivkedmh3RlIBA5c25gdbyTEqLa7VfgTNsvNrWziJ/f7rGG5duOv5ndlDqkBH
-	 ivBaxCjKW9EWnNj+BoFhkpBRjCSaLifLzs3q/FSOglHUWfQnXjv/HjiFL8P7tRqs0
-	 C91rVtzhS+OPNvtLJ/QluT998pcPsGYIcuqPMGQvTJT2bb16pzNCeICvrCHModcsK
-	 vo/PbTMcLiudcFtluHrJkqb5g8vzy/HcvaW5PtCzqn+w1T3DDkVapzbECYbZFqPQs
-	 cIPgIUgUeu4HPmrDwg==
-X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
-Received: from [192.168.178.29] ([94.31.69.219]) by smtp.web.de (mrweb105
- [213.165.67.124]) with ESMTPSA (Nemesis) id 1M1JAm-1ua5lc28jK-00Bk4P; Fri, 18
- Jul 2025 20:30:46 +0200
-Message-ID: <effb9b2a-73da-4e0f-8672-b9d3f800b8b4@web.de>
-Date: Fri, 18 Jul 2025 20:30:35 +0200
+	Fri, 18 Jul 2025 18:35:47 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id BF5365C6AC6;
+	Fri, 18 Jul 2025 18:35:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B2EBFC4CEEB;
+	Fri, 18 Jul 2025 18:35:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1752863745;
+	bh=d2q2TbdCVeqS5rqu/bLRgCJKo3NrsSwrZ6A3XKOfT0g=;
+	h=From:Date:Subject:To:Cc:From;
+	b=oZYjaIcP9cMmKu60dpbyg4SCH49W2emFlditUGxphisynp/39CgbKo/N28bH7JCKp
+	 EdscLKZaZQ7G8HD58Yx/7QLjK6gqdIV5Uz/D9FEgr4lx90Tmo9UaKd0VIaWCYD99f6
+	 wDt63Al9vbWz+H51YkmVGl/u0c8VMQbmNUkcmq6iUPspSbt41znioz2PQ1wBgDB5+/
+	 CBaU7Tj7xDu7TBOXZ8aNLO8/Xr2C3QcaOgujf4E6odoL9ee4cKeyaeVlPk1H4TGwOC
+	 bP4NSrxIuuWk+If0kHeUrBU1hOhN9F9qVOcj7YL7BWurVpnUfbOHycouLohVv3U/Z9
+	 V0NOFeaoIRCvA==
+From: Mark Brown <broonie@kernel.org>
+Date: Fri, 18 Jul 2025 19:33:16 +0100
+Subject: [PATCH] kselftest/arm64: Allow sve-ptrace to run on SME only
+ systems
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [v3] net: ti: icssg-prueth: Fix buffer allocation for ICSSG
-To: Simon Horman <horms@kernel.org>, Himanshu Mittal <h-mittal1@ti.com>,
- netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Cc: LKML <linux-kernel@vger.kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, MD Danish Anwar <danishanwar@ti.com>,
- Meghana Malladi <m-malladi@ti.com>, Paolo Abeni <pabeni@redhat.com>,
- prajith@ti.com, Pratheesh Gangadhar <pratheesh@ti.com>,
- Sriramakrishnan <srk@ti.com>, Roger Quadros <rogerq@kernel.org>,
- Vignesh Raghavendra <vigneshr@ti.com>
-References: <20250717094220.546388-1-h-mittal1@ti.com>
- <4c677fdb-e6d6-4961-b911-78aaa28130e6@web.de>
- <20250718143225.GE2459@horms.kernel.org>
-Content-Language: en-GB, de-DE
-From: Markus Elfring <Markus.Elfring@web.de>
-In-Reply-To: <20250718143225.GE2459@horms.kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:REMjXiQwS+2Nygyl+iKV1Dom5ZZBmsPRvkvuE1wCjjg0Ue0IUNW
- 8rFCUHAB0PkTMAXVrmE0cLB+pgTGKH6vxNvh2mkC26wvOEHmY/a+nFm45PwwAk6yt11C0dC
- +XtFwS5S5tUn8YBa/wn0/4lmeooDqPC2RrBfPhVtKm/r8DQelgTvmL9JzVbeD8Kpfg+jiev
- soqBMqnic0G0l0+dlotEQ==
-UI-OutboundReport: notjunk:1;M01:P0:edaEL2WEa58=;AScAbgCwBAH8Ed9s3wfg8Z9GHFp
- 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
- Ht/0AE2iN/uZKM=
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250718-arm64-sve-ptrace-sme-only-v1-1-2a1121e51b1d@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAGuTemgC/x3MQQqDMBBA0auEWXcgxqi1VxEXUcd2oMYwI6KId
+ 2/o8i3+v0BJmBRe5gKhnZXXmFE8DIyfEN+EPGWDs66yTfHEIEvtUXfCtEkYCXUhXOP3RB8G306
+ 2bFxbQe6T0MzH/9319/0D8agvyWsAAAA=
+X-Change-ID: 20250718-arm64-sve-ptrace-sme-only-4ab49d037295
+To: Catalin Marinas <catalin.marinas@arm.com>, 
+ Will Deacon <will@kernel.org>, Shuah Khan <shuah@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kselftest@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Mark Brown <broonie@kernel.org>
+X-Mailer: b4 0.15-dev-cff91
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1112; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=d2q2TbdCVeqS5rqu/bLRgCJKo3NrsSwrZ6A3XKOfT0g=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBoepP9gEyjTyb6/d1rD8yLE7mUsNFe6A0KL+VEw
+ 8JodIcKEwmJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCaHqT/QAKCRAk1otyXVSH
+ 0CmpB/9AawBTVxco1Vojwq8+KB6lhkWcokuOiooTXWM7NUIUtYQESNsIcYGllucQn+TMGkUYvVZ
+ ldDNU8grNvIL/v3PtBl9MS4zsOlABSgf2jkuGB3UTSzMA6h+X0xp6F2f026TBv7U1xSyRhmZZe/
+ 1KjdyW6m1MWH1W0hRravq+l92o7q+0DN//lW+LWTQF85G/Trp8UU+oh5jSapRzzjEZbDHiiBqpq
+ k+mDVjF1sSJQVwQdw/eYb6Mqeiv7GUCF/XIm9EecYyhe2a+8KyCOTVXjdPr8N/iijDiacBd6yUk
+ 2lTXIu6A0Gk198jFPlr38GQGx2EaoWAUQckLqIzpZB6ji0jw
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250718_113115_065679_03FD3966 
-X-CRM114-Status: UNSURE (   5.83  )
+X-CRM114-CacheID: sfid-20250718_113546_637248_6CC48A5E 
+X-CRM114-Status: UNSURE (   9.86  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -141,21 +88,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
->> Can the usage of the conditional operator be extended another bit
->> (also for the function =E2=80=9Cprueth_emac_buffer_setup=E2=80=9D for e=
-xample)?
->=20
-> 1. (Subjective) The current code seems fine to me
+Currently the sve-ptrace test program only runs if the system supports
+SVE but since SME includes streaming SVE the tests it offers are valid
+even on a system that only supports SME. Since the tests already have
+individual hwcap checks just remove the top level test and rely on those.
 
-Under which circumstances would you get into the mood to avoid
-duplicate source code further?
+Signed-off-by: Mark Brown <broonie@kernel.org>
+---
+ tools/testing/selftests/arm64/fp/sve-ptrace.c | 3 ---
+ 1 file changed, 3 deletions(-)
 
+diff --git a/tools/testing/selftests/arm64/fp/sve-ptrace.c b/tools/testing/selftests/arm64/fp/sve-ptrace.c
+index 7f9b6a61d369..b22303778fb0 100644
+--- a/tools/testing/selftests/arm64/fp/sve-ptrace.c
++++ b/tools/testing/selftests/arm64/fp/sve-ptrace.c
+@@ -753,9 +753,6 @@ int main(void)
+ 	ksft_print_header();
+ 	ksft_set_plan(EXPECTED_TESTS);
+ 
+-	if (!(getauxval(AT_HWCAP) & HWCAP_SVE))
+-		ksft_exit_skip("SVE not available\n");
+-
+ 	child = fork();
+ 	if (!child)
+ 		return do_child();
 
-> 2. (Objective) Your suggestion features unnecessary parentheses, and
->    incorrect indentation and whitespace
+---
+base-commit: 9e8ebfe677f9101bbfe1f75d548a5aec581e8213
+change-id: 20250718-arm64-sve-ptrace-sme-only-4ab49d037295
 
-Which code formatting would you find more reasonable then instead?
+Best regards,
+--  
+Mark Brown <broonie@kernel.org>
 
-Regards,
-Markus
 
