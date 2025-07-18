@@ -4,85 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E5E7C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Jul 2025 12:07:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1996C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Jul 2025 12:09:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZAzXiiY/YIuQ/9uY0l8462fgPlzoh4f7KxWN0ebvqKE=; b=pKVglSLj1OpymlbN77S77iWUvl
-	uKRQjBsOr6wPbx2xWbJocVnSfIBhK0qGsaYLsY5MaRRXxpHwyAYbWn3enNoYikc/EF14p5u+jbLip
-	p2D3/oUgXJuELczCDDJGSfiBQE5tLj43HRWnfYgHWKiQfhWWRQaiifluDve/FVX4eJKQKJEQ9i7uo
-	zTqmKtC9zS9LXsArIJP6Cukhj19+BD+aLfOu+AnSXahDm/bFFxLuuIulUw5NFq/kQlADmOJXdp5lY
-	THbUaSsdFE8PZPp/ppDdzoj2JeFY7XH2z1zlhuQ/38k1lP/0n5fzhHE5Yiy5vl1O3oxM/LOCnqJJx
-	tss2yPUA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8G9viKp190Snv9/y4e9WNoJDJ/21KIBMuhohTjZv+R8=; b=NKHUFeWIYCsV8UThcTuEloF6OF
+	oyNMMZqXs0msOkRLHQ8z5lD3wvjLpPr6X+EoF9wORRBhxdxK7z5dMmH3ZK8tRInl3JHJea2LJnfNH
+	2LU/UNhTV/zOsfLD+r31uZL8KepHDFhl5/EAWyPAEeTRb4W5nLqYB3kX5y+T2ZO7MZsnMBrXkDpIt
+	UT+q14G1f62nirkYwYOb7zWSDA/sBXfUScVdX9rE7ugNBUL203FMyuyDQyD2syyyjCSf6NFF3DMjT
+	bjXaxNrBUUnue7mf0nAbBxsGlqQH/L+0+UhXhtYjbxKcY7lRdU6xaFVmBpFG9wVv2oeVSNgngDRue
+	yOS3fiUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucjrl-0000000CXtX-2eip;
-	Fri, 18 Jul 2025 12:07:05 +0000
-Received: from abb.hmeau.com ([180.181.231.80])
+	id 1ucjuB-0000000CY6f-1vnJ;
+	Fri, 18 Jul 2025 12:09:35 +0000
+Received: from mail-ej1-x634.google.com ([2a00:1450:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucioj-0000000CNcl-2QmG;
-	Fri, 18 Jul 2025 10:59:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hmeau.com;
-	s=formenos; h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=ZAzXiiY/YIuQ/9uY0l8462fgPlzoh4f7KxWN0ebvqKE=; b=gl6/Zd5HCQjexfoJQ5QZ7wWbAN
-	hbTSGnGqU1GFUKmrbFD5jj5vmYPGtEhp2sd/JvCtZM6Ey182276LgB1rE6/Y4aUV+YP9bKd8D1GaR
-	zFO93R0YQ/tC9nTkcRMnuZTdZ9Df6EvDXbhwS0lu+KiAp/tqI1sLtvSsK9OUIfEHv9h1Zgc9fUTSy
-	FhsdvvJ9w0SYBxvit/U5QBdoDkz+FyLZGvo+Wpy+Ut0aSr8T8A7G2SLLgJJQxnRDa/M20K8u0rMGO
-	zTuIwFdckQDDn1z7Fu0M5YEidFHCWP3HUT1OuutOK5JjiGBlgmO95iGw2o9kaSi+0Jbt6qJZK+hZB
-	84nBPNsA==;
-Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
-	by formenos.hmeau.com with smtp (Exim 4.96 #2 (Debian))
-	id 1uciYM-007yZr-27;
-	Fri, 18 Jul 2025 18:58:56 +0800
-Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Fri, 18 Jul 2025 20:58:55 +1000
-Date: Fri, 18 Jul 2025 20:58:55 +1000
-From: Herbert Xu <herbert@gondor.apana.org.au>
-To: Sakari Ailus <sakari.ailus@linux.intel.com>
-Cc: Olivia Mackall <olivia@selenic.com>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Hadar Gat <hadar.gat@arm.com>, Sean Wang <sean.wang@mediatek.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Avi Fishman <avifishman70@gmail.com>,
-	Tomer Maimon <tmaimon77@gmail.com>,
-	Tali Perry <tali.perry1@gmail.com>,
-	Patrick Venture <venture@google.com>, Nancy Yuen <yuenn@google.com>,
-	Benjamin Fair <benjaminfair@google.com>,
-	Daniel Golle <daniel@makrotopia.org>,
-	Aurelien Jarno <aurelien@aurel32.net>,
-	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>,
-	Marek Vasut <marex@denx.de>,
-	Gatien Chevallier <gatien.chevallier@foss.st.com>,
-	linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org,
-	openbmc@lists.ozlabs.org, linux-rockchip@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [PATCH 05/80] hwrng: Remove redundant
- pm_runtime_mark_last_busy() calls
-Message-ID: <aHoo71TbepQD2Nsd@gondor.apana.org.au>
-References: <20250704075225.3212486-1-sakari.ailus@linux.intel.com>
- <20250704075359.3217036-1-sakari.ailus@linux.intel.com>
+	id 1ucipE-0000000CNnm-1CMY
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 18 Jul 2025 11:00:28 +0000
+Received: by mail-ej1-x634.google.com with SMTP id a640c23a62f3a-ad572ba1347so263333966b.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Jul 2025 04:00:23 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=tuxon.dev; s=google; t=1752836423; x=1753441223; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=8G9viKp190Snv9/y4e9WNoJDJ/21KIBMuhohTjZv+R8=;
+        b=qt5TD10doM4BeVsYCHRGefyFqtVJr8RcDP3DSyN63iwtYb9P6KdweOnX73fHtp/peT
+         2EZMNlIZDl+tBh2HZSjBJ2GsjqtdgOiBwnAQyOyw/mWSXZpKRF6GfyvQ60NU0M6xWue6
+         +CnMVsDiR1/wl69WYND6GdoU28qwSeo5mXtGUkW8tJvyR75xLl7eu18IwpNKtpbKT0Tx
+         XFID0F65pxUdmPZU9dn5eaPprZzwAGa6riMOloHynab3zxMe5mALeWYUo/j+yX6wxaEB
+         fJJx6B2/22wzfMfB946n9paDaPMu2EZM/RT4tS6mQh+V7CXcQlKrtgqeZR3stuho6zBT
+         RwoA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1752836423; x=1753441223;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=8G9viKp190Snv9/y4e9WNoJDJ/21KIBMuhohTjZv+R8=;
+        b=FeL6CFSwX3RwOWHlMxx1VD2WJjctArVPwUGijBlZE10P+WbeR3OapHwV+hgkxU2N/q
+         iEHHqC49Xd7KX3/oYt/rMQNdLkoadc7hKRB3WJZdCf309E/4qhhYsthOqxyenqLa4UhJ
+         FjWiSqriP18USvSLJCurCEpQ/rLfJtoeJCILddaD4TjwI3LOSjJRu0hqceRL/pTtnFAj
+         0eXyj8W8dC8wWkwY2FWQOHUzVXP40fMsdeFXnieA438exbH40bLDktuoleZ1ksdpC8lX
+         s8DExgMFXTUEjbOTvw3vcJ6/w56u5d/wGj5vXLpL2b/9aWoMiOO5Ry2NdsfB3ZglW3Ww
+         vKjA==
+X-Forwarded-Encrypted: i=1; AJvYcCXxji0MPr93T4W2pkXpRbWF9CwP5fmfkFYigRPiEaEsuBJpIrlUbu6Khpvtr7zVqPNfXPwaAyKNdbhgdJywQvR/@lists.infradead.org
+X-Gm-Message-State: AOJu0YzGgGFoNeDpYZM6NSptsurTABuIyjeQ928z+171FDMWWLVXA5h/
+	SxEWt53cWmVroXrYGw5E8uNLHg6NfC4Id9bBXjslDYDrdvTHlMK4ZzD6973HCmbiwNE=
+X-Gm-Gg: ASbGnct3o5ckoW/3ydBXw1/u0R6wOFhCumiXoGlyZ+dGgNUXHb1o8Jk6jZAew6jl5LG
+	4J4iC7JgvkxP97Bfqam47FsEO8yeFG2MeBJmICJvx2YUGM68ldP6GMDRtzgeUrHZUEbFKn4/Lfg
+	V7XIUEx3sTcawViXt+xxuJtAOpmOqBhnhBSg/PB2r+D8CMwPxpDqMzZPy9pzbuxOJowBw4Ppg0M
+	e0/3TQ005bttHkZzMI9J2BrzFZi7JHBw80bRiVuqzJ7RRyIMs39u8DsfPNGh6fzGuI1A3+RpJLa
+	+oEz0lZaz7EnrAPDCI+dn6AHgVZ9VtZkgflcWLI4ddvaZHlakNDAt9h7IZ1gY9h/2XomUVOKfop
+	fkE4uXf7nhBamNAMvF4SEltSJNnOs5w==
+X-Google-Smtp-Source: AGHT+IEWR5nv/oQJzwgF0qcajAF2Z8LBQapmjvceGu3HRHJPS7XWZrDCVWw4hyx2KUGl8xQpn1ru3A==
+X-Received: by 2002:a17:907:c5cd:b0:ae3:6744:3661 with SMTP id a640c23a62f3a-ae9ce10c4f9mr786897166b.44.1752836422360;
+        Fri, 18 Jul 2025 04:00:22 -0700 (PDT)
+Received: from [192.168.50.4] ([82.78.167.30])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aec6c79c6a7sm101144766b.26.2025.07.18.04.00.20
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 18 Jul 2025 04:00:21 -0700 (PDT)
+Message-ID: <fe20bc48-8532-441d-bc40-e80dd6d30ee0@tuxon.dev>
+Date: Fri, 18 Jul 2025 14:00:20 +0300
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250704075359.3217036-1-sakari.ailus@linux.intel.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 4/5] net: cadence: macb: sama7g5_emac: Remove USARIO
+ CLKEN flag
+To: Ryan.Wanner@microchip.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@google.com, kuba@kernel.org, pabeni@redhat.com, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, nicolas.ferre@microchip.com,
+ alexandre.belloni@bootlin.com
+Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+References: <cover.1752510727.git.Ryan.Wanner@microchip.com>
+ <1e7a8c324526f631f279925aa8a6aa937d55c796.1752510727.git.Ryan.Wanner@microchip.com>
+From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+Content-Language: en-US
+In-Reply-To: <1e7a8c324526f631f279925aa8a6aa937d55c796.1752510727.git.Ryan.Wanner@microchip.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250718_035953_623828_3DAB2CF9 
-X-CRM114-Status: GOOD (  12.96  )
+X-CRM114-CacheID: sfid-20250718_040024_500936_3899E33D 
+X-CRM114-Status: GOOD (  15.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,36 +105,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 04, 2025 at 10:53:59AM +0300, Sakari Ailus wrote:
-> pm_runtime_put_autosuspend(), pm_runtime_put_sync_autosuspend(),
-> pm_runtime_autosuspend() and pm_request_autosuspend() now include a call
-> to pm_runtime_mark_last_busy(). Remove the now-reduntant explicit call to
-> pm_runtime_mark_last_busy().
-> 
-> Signed-off-by: Sakari Ailus <sakari.ailus@linux.intel.com>
-> ---
-> The cover letter of the set can be found here
-> <URL:https://lore.kernel.org/linux-pm/20250704075225.3212486-1-sakari.ailus@linux.intel.com>.
-> 
-> In brief, this patch depends on PM runtime patches adding marking the last
-> busy timestamp in autosuspend related functions. The patches are here, on
-> rc2:
-> 
->         git://git.kernel.org/pub/scm/linux/kernel/git/rafael/linux-pm.git \
->                 pm-runtime-6.17-rc1
-> 
->  drivers/char/hw_random/atmel-rng.c     | 1 -
->  drivers/char/hw_random/cctrng.c        | 1 -
->  drivers/char/hw_random/mtk-rng.c       | 1 -
->  drivers/char/hw_random/npcm-rng.c      | 1 -
->  drivers/char/hw_random/omap3-rom-rng.c | 1 -
->  drivers/char/hw_random/rockchip-rng.c  | 3 ---
->  drivers/char/hw_random/stm32-rng.c     | 1 -
->  7 files changed, 9 deletions(-)
+Hi, Ryan,
 
-Patch applied.  Thanks.
--- 
-Email: Herbert Xu <herbert@gondor.apana.org.au>
-Home Page: http://gondor.apana.org.au/~herbert/
-PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
+On 14.07.2025 19:37, Ryan.Wanner@microchip.com wrote:
+> From: Ryan Wanner <Ryan.Wanner@microchip.com>
+> 
+> Remove USARIO_CLKEN flag since this is now a device tree argument and
+
+s/USARIO_CLKEN/USRIO_HAS_CLKEN here and in title as well.
+
+> not fixed to the SoC.
+> 
+> This will instead be selected by the "cdns,refclk-ext"
+> device tree property.
+> 
+> Signed-off-by: Ryan Wanner <Ryan.Wanner@microchip.com>
+> ---
+>  drivers/net/ethernet/cadence/macb_main.c | 3 +--
+>  1 file changed, 1 insertion(+), 2 deletions(-)
+> 
+> diff --git a/drivers/net/ethernet/cadence/macb_main.c b/drivers/net/ethernet/cadence/macb_main.c
+> index 51667263c01d..cd54e4065690 100644
+> --- a/drivers/net/ethernet/cadence/macb_main.c
+> +++ b/drivers/net/ethernet/cadence/macb_main.c
+> @@ -5113,8 +5113,7 @@ static const struct macb_config sama7g5_gem_config = {
+>  
+>  static const struct macb_config sama7g5_emac_config = {
+>  	.caps = MACB_CAPS_USRIO_DEFAULT_IS_MII_GMII |
+> -		MACB_CAPS_USRIO_HAS_CLKEN | MACB_CAPS_MIIONRGMII |
+
+Will old DTBs still work with new kernels with this change?
+
+Thank you,
+Claudiu
+
+> -		MACB_CAPS_GEM_HAS_PTP,
+> +		MACB_CAPS_MIIONRGMII | MACB_CAPS_GEM_HAS_PTP,
+>  	.dma_burst_length = 16,
+>  	.clk_init = macb_clk_init,
+>  	.init = macb_init,
+
 
