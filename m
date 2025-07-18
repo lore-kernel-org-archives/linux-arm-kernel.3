@@ -4,55 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84D56C83F34
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Jul 2025 21:10:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A02B0C83F3B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Jul 2025 21:13:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=p0AQ/pfCwCFwh7DZjPjtzQLjW1PeoXmZB6t7fDajNAI=; b=wGPo61C1Didnve/pD89wa9ueW9
-	lJTCWECPj+KCuWE6ToJZXW/+BTxFduZUAuiBWIh3cWi7a7Wu0xNiG4hteHFlj1k9ENbKLk1HXFD1T
-	dduSsB2LyKAY9H4jxqIF7aC6NHuWdi5/Wo93V+zQvjFNC3w24Cjj36BQ4W3zNFqlcQ3yiGxV8h+Sk
-	z1LNpKeN0tEHlOdSX1FIJ+mz4y4VTSwYUrpsRy6hQHRJmM5aqJjuVLQuCvSRgRlz3xetjK9a9WTmh
-	gjds7+EXNr5aCt5/hlmnN6Mpa07FoD+fpMfFR7TG3GS10HvNbR0/ZkYva+PCfOVh7cF1/WUmBFdga
-	ZuQZiF9Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZGhXZyOJNCmIt8fGNKAY+r1NcPVJKPwyIQ57/sp4SqQ=; b=2PPE2klVujOdSRO+FcgF42Ey3/
+	ud7631H8JHf9F20L/YRFvTrebIWpGSkJVmGAGQq7EpcqwSV9+UCL9KjQtEH0vNvXeNjMHkavJb/6W
+	mE/8HrXNkXIK6LMk3p5cv19GSvQ5RXTfg9yVYytMCjDQkMVupF9XmNP6DOgNCnih0dIX/cx+iv4V6
+	JlhAtsPMSfqMHdfbiB+Fsw7tGG/uZA8iA6qhnbktgxy8kNJxb+KDL7NAMC2ZRXxfLbQBE9kDeJmbw
+	tQpmhevReQBD8FveLfKMi5mPROxctP6EpBfOIDS3vLWqCpCVx5tyduQO1Cfyc07YohdsX6MAWyqVq
+	CklRAylg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucsM1-0000000DSRX-1HxZ;
-	Fri, 18 Jul 2025 21:10:53 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1ucsOR-0000000DScy-1hvA;
+	Fri, 18 Jul 2025 21:13:23 +0000
+Received: from mail-il1-x134.google.com ([2607:f8b0:4864:20::134])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucsGU-0000000DS42-36X3;
-	Fri, 18 Jul 2025 21:05:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:In-Reply-To:References;
-	bh=p0AQ/pfCwCFwh7DZjPjtzQLjW1PeoXmZB6t7fDajNAI=; b=CDct+Af1Mv3r59/nKIRFbz2Q/b
-	ki0sFoOhX06FEnQ0HGrd0viEnh2epIWmv28HaRdpav2DY/cma8yN5EjZxesB2SWLpAMSUfGoQeMug
-	tt8/tXpIRZp/GsL8Go8X7eoLLAjq8A4p1rljbiY+DLQlbbaPPquGO3QKE1qqjVeeHEbNCfR8Zl8yJ
-	Gzknghi3YOqcFwfKo1nTAYfT/RKDaSv+NEPkiQYmHwUzRK+GXC5brXi5TDzyHyQyYezIK5Y2BCl9F
-	qRZVhNX8xeUyHX0vs5w5exCBO/3X0NAIxUefQxDfR/PtIt0mIVcTx4J9Wxbz3gYGm48jt2Soq9EMS
-	JX6K98kQ==;
-Received: from cst-prg-35-241.cust.vodafone.cz ([46.135.35.241] helo=phil.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1ucsGT-0007G6-CH; Fri, 18 Jul 2025 23:05:09 +0200
-From: Heiko Stuebner <heiko@sntech.de>
-To: arm@kernel.org
-Cc: soc@kernel.org, linux-rockchip@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org
-Subject: [GIT PULL] Rockchip dts64 changes for 6.17 #2
-Date: Fri, 18 Jul 2025 23:05:08 +0200
-Message-ID: <11552292.NyiUUSuA9g@phil>
+	id 1ucsLk-0000000DSOH-0JJx
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 18 Jul 2025 21:10:37 +0000
+Received: by mail-il1-x134.google.com with SMTP id e9e14a558f8ab-3e28cf0f464so12854765ab.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Jul 2025 14:10:35 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linuxfoundation.org; s=google; t=1752873035; x=1753477835; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=ZGhXZyOJNCmIt8fGNKAY+r1NcPVJKPwyIQ57/sp4SqQ=;
+        b=IJnxLpn75camCR535fWD/FZENFvRdgkdbltl76N3OvkxsNerMm4+63dHoMDVkuo2o0
+         JUhjg7x47LNBiHeAHr66O5Lnr7oizzddMY+loDtPuPmeINUOMMCuSiJlmppSr8IuzfA3
+         STUR5qGgKczrL2otjpYnvmFmftDXNDIeTRQdM=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1752873035; x=1753477835;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=ZGhXZyOJNCmIt8fGNKAY+r1NcPVJKPwyIQ57/sp4SqQ=;
+        b=vjEs9UwjNhKbAh6plinTozmyD3Pjrx5IQFcA3hPbaUo3Ls4+O6ScJoZdMZDFg6geWf
+         1srNm+qT48J9hyP1Nhl65JaakYhovOdQyj4R4P8kPyBaFYYbidEOfsDMgdW4xmCmCk2r
+         ATRNIUBIn46R3euxIJjMy9yuD9o7hulUPnzjSdhUyzT6p/6d94foe2qA0mpeYZgPeA7k
+         J3KQNQgmTPquIcLLXZjCTg07BCoTAEQIKw5ynB+aOb1gDpZxhUKV5XJ4fg8X/IB8inZM
+         XtB/ycRazrKMhSLtoSB/7x0R5ONYd5ya5xaWsiFv64ov8YjWklOpfieqkZhaKJYH0Vmx
+         /T+w==
+X-Forwarded-Encrypted: i=1; AJvYcCW48B3TwXzCIsiGV4DmoedE/85Vrfn1mDzbeEx6zeiM4Zai3ZuQys6udbunLVLjnA218WAhrmHrVSOnvkg5ZbqG@lists.infradead.org
+X-Gm-Message-State: AOJu0YwIVgsiqFHprJs1o8qyWMFcKprEJ+cOpjgSpIuhjmRlXbC/9CVP
+	GKAUpqGLSOoqlpqPeRIzZckaTyaLc7jwpgqsMmK4J1Zc66EzDaM5xxF50oCHEPDpiPs=
+X-Gm-Gg: ASbGncvxVLOo3i/rF0fdEB2aYY1y2HLv84YRd8LJCYQ9nO3JV9cX7yrCpOVLEmJLs65
+	tRP8XzRt7LgsPl975zkkZ6yKtCAf+0QbYMr0JUWdsLieWXyOtZKZoBaXFSVnUrczTqFOB7FSgtL
+	TnDWunx5PrGMmu3DxsO5Ys7dEsySK5rVxVlhnYnhW45prVSLbd7fVgRwO3tf1gMUFwmUOod6vAJ
+	jOwonXC+GOZJO4xULNq/dyHrF2mK/WX78yLHP1Fiaz5Qozg5ZmAZQi1ik/9M9ZhZeok4TG9kEv8
+	SkOS/DvN0MZY/9PZp+GReV2vaJpWNN8JwDa3VOv7ZhODnmrDT/23NQbIgHHCcZnMc+jQ4SV83Uu
+	nO4sqRtYwDiNtXii4djdjLzxd39bSPu4Khw==
+X-Google-Smtp-Source: AGHT+IEzr9jrK3MqEFYKMgLIWYTjssE2U6iSeHK3JVv5WiuQYDYPp5VXlS4Rx6IaMtKrDNjdUXWfqA==
+X-Received: by 2002:a05:6e02:4506:10b0:3e2:8e44:8240 with SMTP id e9e14a558f8ab-3e28e448353mr59141415ab.11.1752873034702;
+        Fri, 18 Jul 2025 14:10:34 -0700 (PDT)
+Received: from [192.168.1.14] ([38.175.170.29])
+        by smtp.gmail.com with ESMTPSA id 8926c6da1cb9f-5084c7bce49sm520209173.28.2025.07.18.14.10.32
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 18 Jul 2025 14:10:33 -0700 (PDT)
+Message-ID: <c6dca956-d0ea-4c63-a48f-d02f21d38b9d@linuxfoundation.org>
+Date: Fri, 18 Jul 2025 15:10:32 -0600
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RESEND PATCH] selftests/pidfd: align stack to fix SP alignment
+ exception
+To: Shuai Xue <xueshuai@linux.alibaba.com>, brauner@kernel.org,
+ shuah@kernel.org, will@kernel.org, linux-kernel@vger.kernel.org,
+ linux-kselftest@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Cc: baolin.wang@linux.alibaba.com, tianruidong@linux.alibaba.com,
+ catalin.marinas@arm.com, mark.rutland@arm.com,
+ Shuah Khan <skhan@linuxfoundation.org>
+References: <20250616050648.58716-1-xueshuai@linux.alibaba.com>
+ <ee095fdd-b3c1-4c41-9b06-a8e3695c1863@linuxfoundation.org>
+ <0a8d5fdb-28b9-41f5-a601-cf36641bddbf@linux.alibaba.com>
+ <821acc51-1429-4625-bae5-daa67bddc7bc@linux.alibaba.com>
+Content-Language: en-US
+From: Shuah Khan <skhan@linuxfoundation.org>
+In-Reply-To: <821acc51-1429-4625-bae5-daa67bddc7bc@linux.alibaba.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250718_140510_792060_7A022B29 
-X-CRM114-Status: GOOD (  16.32  )
+X-CRM114-CacheID: sfid-20250718_141036_486038_2E2CEEF0 
+X-CRM114-Status: GOOD (  12.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,128 +104,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi soc maintainers,
+On 7/16/25 01:00, Shuai Xue wrote:
+> 
+> 
+> 在 2025/6/19 10:26, Shuai Xue 写道:
+>>
+>>
+>> 在 2025/6/19 05:36, Shuah Khan 写道:
+>>> On 6/15/25 23:06, Shuai Xue wrote:
+>>>> The pidfd_test fails on the ARM64 platform with the following error:
+>>>>
+>>>>      Bail out! pidfd_poll check for premature notification on child thread exec test: Failed
+>>>>
+>>>> When exception-trace is enabled, the kernel logs the details:
+>>>>
+>>>>      #echo 1 > /proc/sys/debug/exception-trace
+>>>>      #dmesg | tail -n 20
+>>>>      [48628.713023] pidfd_test[1082142]: unhandled exception: SP Alignment, ESR 0x000000009a000000, SP/PC alignment exception in pidfd_test[400000+4000]
+>>>>      [48628.713049] CPU: 21 PID: 1082142 Comm: pidfd_test Kdump: loaded Tainted: G        W   E      6.6.71-3_rc1.al8.aarch64 #1
+>>>>      [48628.713051] Hardware name: AlibabaCloud AliServer-Xuanwu2.0AM-1UC1P-5B/AS1111MG1, BIOS 1.2.M1.AL.P.157.00 07/29/2023
+>>>>      [48628.713053] pstate: 60001800 (nZCv daif -PAN -UAO -TCO -DIT +SSBS BTYPE=-c)
+>>>>      [48628.713055] pc : 0000000000402100
+>>>>      [48628.713056] lr : 0000ffff98288f9c
+>>>>      [48628.713056] sp : 0000ffffde49daa8
+>>>>      [48628.713057] x29: 0000000000000000 x28: 0000000000000000 x27: 0000000000000000
+>>>>      [48628.713060] x26: 0000000000000000 x25: 0000000000000000 x24: 0000000000000000
+>>>>      [48628.713062] x23: 0000000000000000 x22: 0000000000000000 x21: 0000000000400e80
+>>>>      [48628.713065] x20: 0000000000000000 x19: 0000000000402650 x18: 0000000000000000
+>>>>      [48628.713067] x17: 00000000004200d8 x16: 0000ffff98288f40 x15: 0000ffffde49b92c
+>>>>      [48628.713070] x14: 0000000000000000 x13: 0000000000000000 x12: 0000000000000000
+>>>>      [48628.713072] x11: 0000000000001011 x10: 0000000000402100 x9 : 0000000000000010
+>>>>      [48628.713074] x8 : 00000000000000dc x7 : 3861616239346564 x6 : 000000000000000a
+>>>>      [48628.713077] x5 : 0000ffffde49daa8 x4 : 000000000000000a x3 : 0000ffffde49daa8
+>>>>      [48628.713079] x2 : 0000ffffde49dadc x1 : 0000ffffde49daa8 x0 : 0000000000000000
+>>>>
+>>>> According to ARM ARM D1.3.10.2 SP alignment checking:
+>>>>
+>>>>> When the SP is used as the base address of a calculation, regardless of
+>>>>> any offset applied by the instruction, if bits [3:0] of the SP are not
+>>>>> 0b0000, there is a misaligned SP.
+>>>>
+>>>> To fix it, align the stack with 16 bytes.
+>>>>
+>>>> Signed-off-by: Shuai Xue <xueshuai@linux.alibaba.com>
+>>>> ---
+>>>
+>>> Assuming this is going through Christian's tree.
+>>>
+>>> Acked-by: Shuah Khan <skhan@linuxfoundation.org>
+>>>
+>>> Let me know if you would like me to pick it up.
+>>>
+>>> thanks,
+>>> -- Shuah
+>>
+>> Hi, Shuah
+>>
+>> Thanks for your review.
+>>
+>> I send this fix in Mar, but it missed last linux version.
+>> I think I need your help to pick it up.
+>>
+>> Thanks.
+>> Shuai
+>>
+> 
+> Hi, Shuah,
+> 
+> Gentle ping,
+> 
+> Thanks.
+> Shuai
+> 
 
-please find below some more Rockchip 64bit dt changes for for 6.17 .
-To go on top of the first set.
+Will, Christian,
 
+Can you take a look at this and let me know if this change looks
+good to you both.
 
-Please pull.
-Thanks
-Heiko
+I can take this through my tree after your reviews.
 
-
-The following changes since commit 6e3071f4e03997ca0e4388ca61aa06df2802dcd1:
-
-  arm64: dts: rockchip: Enable eMMC HS200 mode on Radxa E20C (2025-06-30 11:44:12 +0200)
-
-are available in the Git repository at:
-
-  git://git.kernel.org/pub/scm/linux/kernel/git/mmind/linux-rockchip.git tags/v6.17-rockchip-dts64-2
-
-for you to fetch changes up to 07e04c071a35abe12957b575cd1453ccafc02eb6:
-
-  arm64: dts: rockchip: Add maskrom button to NanoPi R5S + R5C (2025-07-17 10:52:16 +0200)
-
-----------------------------------------------------------------
-New board: FriendlyElec NanoPi M5
-Camera support for the PinePhone Pro.
-A bunch of cleanups to make DTC happier, fix ordering of DMA uart
-channels on rk3528 and some video output enablement as well as some
-button definitions.
-An interesting tidbit is the reset behaviour addition in that some
-boards have specific requirements as to how the PMIC needs to do the
-restart. DT-maintainers did not consider the header with helper-constants
-as part of the binding, so that header ended up in the Rockchip directory
-
-----------------------------------------------------------------
-Andy Yan (1):
-      arm64: dts: rockchip: Enable mipi dsi on rk3568-evb1-v10
-
-Detlev Casanova (1):
-      arm64: dts: rockchip: Add UFS support on the ROCK 4D
-
-Diederik de Haas (12):
-      arm64: dts: rockchip: Add rtc0 alias for NanoPi R5S + R5C
-      arm64: dts: rockchip: Add reset button to NanoPi R5S
-      arm64: dts: rockchip: Move dsi address+size-cells from SoC to px30 boards
-      arm64: dts: rockchip: Move dsi address+size-cells from SoC to rk3399 boards
-      arm64: dts: rockchip: Simplify VOP port definition on rk3328
-      arm64: dts: rockchip: Simplify edp endpoints on several rk3399 boards
-      arm64: dts: rockchip: Simplify mipi_out endpoint on rk3399 RP64 dtso
-      arm64: dts: rockchip: Move mipi_out node on rk3399 haikou demo dtso
-      arm64: dts: rockchip: Fix LCD panel port on rk3566-pinetab2
-      arm64: dts: rockchip: Drop unneeded address+size-cells on px30
-      arm64: dts: rockchip: Drop regulator-compatible property on rk3399
-      arm64: dts: rockchip: Add maskrom button to NanoPi R5S + R5C
-
-John Clark (2):
-      dt-bindings: arm: rockchip: add FriendlyElec NanoPi M5 board
-      arm64: dts: rockchip: Add FriendlyElec NanoPi M5 support
-
-Jonas Karlman (2):
-      arm64: dts: rockchip: Fix pinctrl node names for RK3528
-      arm64: dts: rockchip: Fix UART DMA support for RK3528
-
-Nicolas Frattaroli (4):
-      arm64: dts: rockchip: adjust dcin regulator on ROCK 4D
-      arm64: dts: rockchip: complete USB nodes on ROCK 4D
-      arm64: dts: rockchip: theoretically enable Wi-Fi on ROCK 4D
-      arm64: dts: rockchip: add HDMI audio on ROCK 4D
-
-Olivier Benjamin (2):
-      arm64: dts: rockchip: describe I2c Bus 1 and IMX258 world camera on PinePhone Pro
-      arm64: dts: rockchip: describe the OV8858 user camera on PinePhone Pro
-
-Quentin Schulz (3):
-      arm64: dts: rockchip: add header for RK8XX PMIC constants
-      arm64: dts: rockchip: force PMIC reset behavior to restart PMU on RK3588 Jaguar
-      arm64: dts: rockchip: force PMIC reset behavior to restart PMU on RK3588 Tiger
-
-Sebastian Reichel (2):
-      arm64: dts: rockchip: fix PHY handling for ROCK 4D
-      arm64: dts: rockchip: Enable HDMI receiver on RK3588 EVB1
-
- .../devicetree/bindings/arm/rockchip.yaml          |   6 +
- arch/arm64/boot/dts/rockchip/Makefile              |   1 +
- .../dts/rockchip/px30-cobra-ltk050h3146w-a2.dts    |   2 +
- .../boot/dts/rockchip/px30-cobra-ltk050h3146w.dts  |   2 +
- .../boot/dts/rockchip/px30-cobra-ltk050h3148w.dts  |   2 +
- .../boot/dts/rockchip/px30-cobra-ltk500hd1829.dts  |   2 +
- arch/arm64/boot/dts/rockchip/px30-evb.dts          |   2 +
- .../dts/rockchip/px30-pp1516-ltk050h3146w-a2.dts   |   2 +
- .../boot/dts/rockchip/px30-pp1516-ltk050h3148w.dts |   2 +
- arch/arm64/boot/dts/rockchip/px30.dtsi             |   6 -
- .../boot/dts/rockchip/rk3326-anbernic-rg351m.dtsi  |   2 +
- .../boot/dts/rockchip/rk3326-gameforce-chi.dts     |   2 +
- arch/arm64/boot/dts/rockchip/rk3326-odroid-go.dtsi |   2 +
- arch/arm64/boot/dts/rockchip/rk3328.dtsi           |   6 +-
- arch/arm64/boot/dts/rockchip/rk3399-base.dtsi      |   4 -
- .../boot/dts/rockchip/rk3399-gru-chromebook.dtsi   |  15 +-
- .../boot/dts/rockchip/rk3399-gru-scarlet.dtsi      |   4 +-
- arch/arm64/boot/dts/rockchip/rk3399-hugsun-x99.dts |   2 -
- .../boot/dts/rockchip/rk3399-pinebook-pro.dts      |  15 +-
- .../boot/dts/rockchip/rk3399-pinephone-pro.dts     | 141 +++
- .../rockchip/rk3399-puma-haikou-video-demo.dtso    |  12 +-
- .../boot/dts/rockchip/rk3399-rock-4c-plus.dts      |   2 -
- .../boot/dts/rockchip/rk3399-rockpro64-screen.dtso |  22 +-
- .../dts/rockchip/rk3399-sapphire-excavator.dts     |  16 +-
- arch/arm64/boot/dts/rockchip/rk3528-pinctrl.dtsi   |  20 +-
- arch/arm64/boot/dts/rockchip/rk3528.dtsi           |  16 +-
- arch/arm64/boot/dts/rockchip/rk3566-pinetab2.dtsi  |   6 +-
- arch/arm64/boot/dts/rockchip/rk3568-evb1-v10.dts   |  66 +-
- arch/arm64/boot/dts/rockchip/rk3568-nanopi-r5s.dts |  19 +
- .../arm64/boot/dts/rockchip/rk3568-nanopi-r5s.dtsi |  15 +
- arch/arm64/boot/dts/rockchip/rk3576-nanopi-m5.dts  | 941 +++++++++++++++++++++
- arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts    | 101 ++-
- arch/arm64/boot/dts/rockchip/rk3588-evb1-v10.dts   |  17 +
- arch/arm64/boot/dts/rockchip/rk3588-jaguar.dts     |   2 +
- arch/arm64/boot/dts/rockchip/rk3588-tiger.dtsi     |   2 +
- arch/arm64/boot/dts/rockchip/rk8xx.h               |  18 +
- 36 files changed, 1387 insertions(+), 108 deletions(-)
- create mode 100644 arch/arm64/boot/dts/rockchip/rk3576-nanopi-m5.dts
- create mode 100644 arch/arm64/boot/dts/rockchip/rk8xx.h
-
-
-
+thanks,
+-- Shuah
 
