@@ -4,101 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3098C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Jul 2025 06:42:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7E8BC83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Jul 2025 06:45:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8L/77Mn5XZ7DUkt0B8rv59NyXI2YcZ6+wGLcoXpyR/Q=; b=nP3ptVBVcvfLtltNcsgozjPCcy
-	Et/3FiKgFepXCe+MmPjZkYTCyEsAIGsTu0Qf0YLhl8ImzmDifDskeCtWaGvsBF3FrAOUuBX8Jlkyc
-	C/srx2huyepWr6MOFeoiklxk8bT+yC3lqql48+7LKCrGsmf1GhVjry/RWs06G/47RhtN7v1qL5NdE
-	y0lqpDM3vCl8aYNI5lTryI1pfCVaIHIEA9L8z9kUfXK3OdyfJGa3SSEiJfybHeNUWx53Ek3Yy7dwm
-	LrQ0AmDeMcUYAiRV3w7lgTlC9TpSr3jYW8Br+Zg3UvaKBgfiEBeZ3PIPZasycOly6s14wHMUAooUK
-	Gv5LsSqQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2LsIoc1Daqv/yL2zRpVwdxYNaTtHFo+SiuJNg7Y8bgo=; b=tAlst/z0OKZXc2t1UpiflcRlao
+	D/21par3bFLBZ72vKFrXGcgUNG+UBq6475LNwiGZAXjBAGHwshmYVn+cgXkyDN/kUtkKZa6BN1TEy
+	UQ/sDV1k0ZKLBJqkOpztiN+dFjugeVaYSLtJYO0V2oRNf1GdzGrMM84Oa9YJEHg5g3qwT5yNnJpVd
+	W/bZnklqLNsaF0It4fT9iPiHH/GQCcz1iFivadjw0INVPycj3LXG5sU+G0U1Q0CLWwJ5rfLZ8lVje
+	SH+v62Tvd7UbI0p1yq5hm4n4ofVFBnbasOM8GGJQ2GKhNu0tf00TclcKTdH87lBpopNZYziRSN+/N
+	ggnBORIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucenu-0000000BnYr-2Dnh;
-	Fri, 18 Jul 2025 06:42:46 +0000
-Received: from smtpbguseast2.qq.com ([54.204.34.130])
+	id 1uceqc-0000000BntD-2QVa;
+	Fri, 18 Jul 2025 06:45:34 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uceZN-0000000Bllk-2pKp;
-	Fri, 18 Jul 2025 06:27:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=airkyi.com;
-	s=altu2504; t=1752820012;
-	bh=8L/77Mn5XZ7DUkt0B8rv59NyXI2YcZ6+wGLcoXpyR/Q=;
-	h=From:To:Subject:Date:Message-Id;
-	b=fpCqNDj/KaJqkRz4XyXTLCZNocdvUbvDyxlRVzEVzr9TyCME6SAylbYdmgY7zJ86d
-	 acmTTlaNoOEaOCBu0r1SxDl41/zDxrykwtjo65tDo1VC4TTwkzgc/nKB8C3I5Rg6AF
-	 2hLXAoo6p/pxm5tUz9YLeYenytxgOHx7KUoY1rSo=
-X-QQ-mid: zesmtpgz7t1752820003ta854dc60
-X-QQ-Originating-IP: KmGNRB8zsZXB6SadBHY3Wx3w3DveaOIbchoBOWYeHkY=
-Received: from DESKTOP-8BT1A2O.localdomain ( [58.22.7.114])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Fri, 18 Jul 2025 14:26:41 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 18356592917221095869
-From: Chaoyi Chen <kernel@airkyi.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Vinod Koul <vkoul@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Sandy Huang <hjc@rock-chips.com>,
-	Andy Yan <andy.yan@rock-chips.com>,
-	Yubing Zhang <yubing.zhang@rock-chips.com>,
-	Frank Wang <frank.wang@rock-chips.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Amit Sunil Dhamne <amitsd@google.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Chaoyi Chen <chaoyi.chen@rock-chips.com>,
-	Dragan Simic <dsimic@manjaro.org>,
-	Johan Jonker <jbx6244@gmail.com>,
-	Diederik de Haas <didi.debian@cknow.org>,
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Cc: devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-phy@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	dri-devel@lists.freedesktop.org
-Subject: [PATCH v2 5/5] arm64: dts: rockchip: rk3399-evb-ind: Add support for DisplayPort
-Date: Fri, 18 Jul 2025 14:26:19 +0800
-Message-Id: <20250718062619.99-6-kernel@airkyi.com>
-X-Mailer: git-send-email 2.17.1
-In-Reply-To: <20250718062619.99-1-kernel@airkyi.com>
-References: <20250718062619.99-1-kernel@airkyi.com>
-X-QQ-SENDSIZE: 520
-Feedback-ID: zesmtpgz:airkyi.com:qybglogicsvrsz:qybglogicsvrsz4a-0
-X-QQ-XMAILINFO: NEyQURHJEjycWMluSWzY4HQTrvIQK7NDuI2rDK8Ebubw9WpAxDPunBdW
-	y3AJGKaOUab7a/qbb9Fy5HI9tviGcI7j071at7ZRAOaTLuP+amjB9Hb0SJm+GXOa3WUmSnR
-	vQtu60C+jm66kUQ0v/PWrPSnwOAuzlseBwiWPnt4V0EvKxXOQZ+qnDLHSaYQZzqHr85ErPM
-	3M9UsmYZVPnigCSDoNh783cRwOE9LRbeQ06pCQQuDJ6RL955J+gSlrdpIYDqxy+4D4HhWqc
-	7yQ3bJPi22KZrey22RlRVodTT8nkkAVvtY9y3kiujHUxYeeVdA83hn7nO3bZTEzbyjKgtEF
-	pJr/kDNV5E9VS/uYT+Y/2C8QgxUtzlsN2O3bbuQk0yyTDGsIfllEqlqHFr8hGqCvOrb2XNd
-	bo6fJnyYAck8sFzl3sEhep30jOd+4QVNCp53yAJePDjUULqgRzjMBWT3sjkFCmcAc2PY41Z
-	sJM5NOIXvD6URaU8HbFZo7bQlmuTggCbxXb4PD08hHjDg4B+2f8mKp06D96MJme4WHnTLhZ
-	9AzXmiN6OpeuHjSrrwgxP3+eg2qTI3U8tRcHMcrcOMeeBaHuGSDpD1J/rjI7sQi5lYIm2Pa
-	0C+C/lqv4UD/wMMNF0KcjrIdzjUEAjMMuWdF32mUg1a9IB3oGmLna0yWW6P3+4ycBSlp1CY
-	h4ub5FPX1g/i8klmL4ho07sMzdlawjzxbRi7U94TRGZmkMl3uFxZHkXJjBrr1ogDyy/8K9z
-	l4mtFKYXF5/C823yn5HHqWa3q3Z88Ogtda7Eh1Qa/DqzXkuh1mYIM/+DDpUfp/mD/HxaMMX
-	IwLrjmT5jq+zcreHl/XyzcO9gH9aB6QpDmF+21wPazSuBvnt2vwha4GRXRwHZjC2mArxpAH
-	q35da5Ih+41V5JZNRihLme/URjYPDs7YXq3lzXuFXlS3j/NUth1lI2aC6JKbS2ObOYs7qkd
-	UsE9W5U9hne+JG2c0wlznIN1jqnj/Y28DoWqGviB9oJ9ZT9CPFnS5pPhTKuLvBEdqLkXSZn
-	x7IjVQw6V/NiWKsyWN
-X-QQ-XMRINFO: NI4Ajvh11aEj8Xl/2s1/T8w=
-X-QQ-RECHKSPAM: 0
+	id 1ucej1-0000000Bmm4-3VyF;
+	Fri, 18 Jul 2025 06:37:44 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 289BB459FD;
+	Fri, 18 Jul 2025 06:37:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id AF231C4CEF0;
+	Fri, 18 Jul 2025 06:37:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1752820662;
+	bh=Al0PQ4WgTgiRp6IBkH7sto0mB5deBFgoepFFoWiIyo4=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=FM2D4w8cBmcZME1z58dLOhLCT4fOJO7wkwmVKRJSyvuCYIAU+LmJFYlTQU3iV+jRg
+	 BQuRAMmtybPTRjV3jn3y/MffHIwrGGUNzJdv+Vi7ivKT42/NsMlWcnJnlSDkI8U577
+	 wOTwD85jK+0b9K14zenjJCOT5wS51aKda/ksng4xOCiiWKZivQAHH9mTdtXbBPmnhK
+	 eBBlMpci2S3pcbX+zRzMujMI6f0fAxyf5YdkqgayAQ/b54/54mgpUQmEsSqcX9Y6PG
+	 ddxaQyt2lX6dZrXLFDleQbBad1rVhtFmWx3MxskPxsR16cxY/I7ysRszmayH5nRroL
+	 WBF18Or8/UUlg==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 9A2CBC83F3B;
+	Fri, 18 Jul 2025 06:37:42 +0000 (UTC)
+From: Xianwei Zhao via B4 Relay <devnull+xianwei.zhao.amlogic.com@kernel.org>
+Date: Fri, 18 Jul 2025 14:37:42 +0800
+Subject: [PATCH 2/3] thermal: amlogic: Support C3 thermal controller driver
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250718-c3-thermal-v1-2-674f9a991690@amlogic.com>
+References: <20250718-c3-thermal-v1-0-674f9a991690@amlogic.com>
+In-Reply-To: <20250718-c3-thermal-v1-0-674f9a991690@amlogic.com>
+To: Guillaume La Roque <glaroque@baylibre.com>, 
+ "Rafael J. Wysocki" <rafael@kernel.org>, 
+ Daniel Lezcano <daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>, 
+ Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: linux-pm@vger.kernel.org, linux-amlogic@lists.infradead.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, 
+ Xianwei Zhao <xianwei.zhao@amlogic.com>, 
+ Liming Xue <liming.xue@amlogic.com>
+X-Mailer: b4 0.12.4
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1752820661; l=1528;
+ i=xianwei.zhao@amlogic.com; s=20231208; h=from:subject:message-id;
+ bh=EsEZYshflk3g07X2o9lFN7MMXDrdVa6llyBRleDL6iE=;
+ b=/WJc7hFo5hGlnBG5sOuV9xXaq9rc39za+LE5BXslsQe764jgsKJcE/hgckai+SJimk1E6wbLq
+ ucy7yt1rCD8CAtyajT6DfX1+ZGTWOzE0SuDw9purCTxIw38g3vkU0Tq
+X-Developer-Key: i=xianwei.zhao@amlogic.com; a=ed25519;
+ pk=o4fDH8ZXL6xQg5h17eNzRljf6pwZHWWjqcOSsj3dW24=
+X-Endpoint-Received: by B4 Relay for xianwei.zhao@amlogic.com/20231208 with
+ auth_id=107
+X-Original-From: Xianwei Zhao <xianwei.zhao@amlogic.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250717_232746_269243_DBFE09F3 
-X-CRM114-Status: GOOD (  10.94  )
+X-CRM114-CacheID: sfid-20250717_233743_924824_F6260EC4 
+X-CRM114-Status: GOOD (  10.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,225 +92,55 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: xianwei.zhao@amlogic.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+From: Xianwei Zhao <xianwei.zhao@amlogic.com>
 
-The RK3399 EVB IND board has a Type-C interface DisplayPort.
-It use fusb302 chip as Type-C controller.
+Add the thermal controller driver for the C3 SoC family.
 
-fusb302 chip ---> USB/DP PHY0 <----> CDN-DP controller
+The main difference compared to other Amlogic chips lies in the
+offset of the sec_ao base (referred to as u_efuse_off), which is
+handled differently. Everything else remains consistent.
 
-Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+Signed-off-by: Liming Xue <liming.xue@amlogic.com>
+Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
 ---
+ drivers/thermal/amlogic_thermal.c | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
 
-Changes in v2:
-- Add endpoint to link DP PHY and DP controller.
-- Fix devicetree coding style.
+diff --git a/drivers/thermal/amlogic_thermal.c b/drivers/thermal/amlogic_thermal.c
+index 5448d772db12..d1b08119c818 100644
+--- a/drivers/thermal/amlogic_thermal.c
++++ b/drivers/thermal/amlogic_thermal.c
+@@ -226,6 +226,12 @@ static const struct amlogic_thermal_data amlogic_thermal_a1_cpu_param = {
+ 	.regmap_config = &amlogic_thermal_regmap_config_g12a,
+ };
+ 
++static const struct amlogic_thermal_data amlogic_thermal_c3_cpu_param = {
++	.u_efuse_off = 0x108,
++	.calibration_parameters = &amlogic_thermal_g12a,
++	.regmap_config = &amlogic_thermal_regmap_config_g12a,
++};
++
+ static const struct of_device_id of_amlogic_thermal_match[] = {
+ 	{
+ 		.compatible = "amlogic,g12a-ddr-thermal",
+@@ -239,6 +245,10 @@ static const struct of_device_id of_amlogic_thermal_match[] = {
+ 		.compatible = "amlogic,a1-cpu-thermal",
+ 		.data = &amlogic_thermal_a1_cpu_param,
+ 	},
++	{
++		.compatible = "amlogic,c3-cpu-thermal",
++		.data = &amlogic_thermal_c3_cpu_param,
++	},
+ 	{ /* sentinel */ }
+ };
+ MODULE_DEVICE_TABLE(of, of_amlogic_thermal_match);
 
- .../boot/dts/rockchip/rk3399-evb-ind.dts      | 133 ++++++++++++++++++
- 1 file changed, 133 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/rockchip/rk3399-evb-ind.dts b/arch/arm64/boot/dts/rockchip/rk3399-evb-ind.dts
-index 70aee1ab904c..997b822a57ff 100644
---- a/arch/arm64/boot/dts/rockchip/rk3399-evb-ind.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3399-evb-ind.dts
-@@ -4,6 +4,7 @@
-  */
- 
- /dts-v1/;
-+#include <dt-bindings/usb/pd.h>
- #include "rk3399.dtsi"
- 
- / {
-@@ -19,6 +20,21 @@ chosen {
- 		stdout-path = "serial2:1500000n8";
- 	};
- 
-+	sound: sound {
-+		compatible = "rockchip,rk3399-gru-sound";
-+		rockchip,cpu = <&i2s0 &spdif>;
-+	};
-+
-+	vbus_typec: regulator-vbus-typec {
-+		compatible = "regulator-fixed";
-+		enable-active-high;
-+		gpio = <&gpio1 RK_PC2 GPIO_ACTIVE_HIGH>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&vcc5v0_typec0_en>;
-+		regulator-name = "vbus_typec";
-+		vin-supply = <&vcc5v0_sys>;
-+	};
-+
- 	vcc5v0_sys: regulator-vcc5v0-sys {
- 		compatible = "regulator-fixed";
- 		enable-active-high;
-@@ -31,6 +47,11 @@ vcc5v0_sys: regulator-vcc5v0-sys {
- 	};
- };
- 
-+&cdn_dp {
-+	phys = <&tcphy0_dp>;
-+	status = "okay";
-+};
-+
- &cpu_b0 {
- 	cpu-supply = <&vdd_cpu_b>;
- };
-@@ -55,6 +76,12 @@ &cpu_l3 {
- 	cpu-supply = <&vdd_cpu_l>;
- };
- 
-+&dp_out {
-+	dp_controller_output: endpoint {
-+		remote-endpoint = <&dp_phy_in>;
-+	};
-+};
-+
- &emmc_phy {
- 	status = "okay";
- };
-@@ -341,6 +368,63 @@ regulator-state-mem {
- 	};
- };
- 
-+&i2c4 {
-+	i2c-scl-rising-time-ns = <475>;
-+	i2c-scl-falling-time-ns = <26>;
-+	status = "okay";
-+
-+	usbc0: typec-portc@22 {
-+		compatible = "fcs,fusb302";
-+		reg = <0x22>;
-+		interrupt-parent = <&gpio1>;
-+		interrupts = <RK_PA2 IRQ_TYPE_LEVEL_LOW>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&usbc0_int>;
-+		vbus-supply = <&vbus_typec>;
-+
-+		usb_con: connector {
-+			compatible = "usb-c-connector";
-+			label = "USB-C";
-+			data-role = "dual";
-+			power-role = "dual";
-+			try-power-role = "sink";
-+			op-sink-microwatt = <1000000>;
-+			sink-pdos =
-+				<PDO_FIXED(5000, 2500, PDO_FIXED_USB_COMM)>;
-+			source-pdos =
-+				<PDO_FIXED(5000, 1500, PDO_FIXED_USB_COMM)>;
-+
-+			altmodes {
-+				displayport {
-+					svid = /bits/ 16 <0xff01>;
-+					vdo = <0xffffffff>;
-+				};
-+			};
-+
-+			ports {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+
-+				port@0 {
-+					reg = <0>;
-+
-+					usbc0_orien_sw: endpoint {
-+						remote-endpoint = <&tcphy0_orientation_switch>;
-+					};
-+				};
-+
-+				port@1 {
-+					reg = <1>;
-+
-+					dp_mode_sw: endpoint {
-+						remote-endpoint = <&tcphy_dp_altmode_switch>;
-+					};
-+				};
-+			};
-+		};
-+	};
-+};
-+
- &i2s2 {
- 	status = "okay";
- };
-@@ -354,6 +438,16 @@ &io_domains {
- };
- 
- &pinctrl {
-+	usb-typec {
-+		usbc0_int: usbc0-int {
-+			rockchip,pins = <1 RK_PA2 RK_FUNC_GPIO &pcfg_pull_up>;
-+		};
-+
-+		vcc5v0_typec0_en: vcc5v0-typec0-en {
-+			rockchip,pins = <1 RK_PC2 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+
- 	pmic {
- 		pmic_int_l: pmic-int-l {
- 			rockchip,pins = <1 RK_PC5 RK_FUNC_GPIO &pcfg_pull_up>;
-@@ -400,10 +494,48 @@ &sdmmc {
- 	status = "okay";
- };
- 
-+&sound {
-+	rockchip,codec = <&cdn_dp>;
-+	status = "okay";
-+};
-+
-+&spdif {
-+	status = "okay";
-+};
-+
- &tcphy0 {
- 	status = "okay";
- };
- 
-+&tcphy0_dp {
-+	mode-switch;
-+
-+	port {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		tcphy_dp_altmode_switch: endpoint@0 {
-+			reg = <0>;
-+			remote-endpoint = <&dp_mode_sw>;
-+		};
-+
-+		dp_phy_in: endpoint@1 {
-+			reg = <1>;
-+			remote-endpoint = <&dp_controller_output>;
-+		};
-+	};
-+};
-+
-+&tcphy0_usb3 {
-+	orientation-switch;
-+
-+	port {
-+		tcphy0_orientation_switch: endpoint {
-+			remote-endpoint = <&usbc0_orien_sw>;
-+		};
-+	};
-+};
-+
- &tcphy1 {
- 	status = "okay";
- };
-@@ -461,6 +593,7 @@ &usb_host1_ohci {
- };
- 
- &usbdrd_dwc3_0 {
-+	usb-role-switch;
- 	status = "okay";
- };
- 
 -- 
-2.49.0
+2.37.1
 
 
 
