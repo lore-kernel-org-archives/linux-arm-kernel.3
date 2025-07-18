@@ -4,188 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06AEFC83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Jul 2025 17:40:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7593AC83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 18 Jul 2025 17:43:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8Zh5W39tp3NasQHlm1kky8nJQnoU5ZdBlhj17cCijxI=; b=gTmUNBAiYuqgT4nSPkAtegS7CH
-	J4+2dkoONt8jfNUyL4+xhMbm8goDsvEvYjUILkQnsLenO5TWXY8Q+E50PUh3n1nE7GHODaXxWybox
-	PI6b2UaoKT8U9bP2xZ3YevuFJvMSJY0oKaWgDA3ZfWhV2EmwRZDoCQkJVXLhq5k50kDxPYer1oLEo
-	jU+a/vnsY6TQwyZBFbrjoFh0xs4hVY8fnUvJ6Z28WxDQ724F1TT4c3ZdmcL76ZggqaNDPt31+CNyR
-	eHkfV929Gj91dhWMrXJ4++mRtzcGNyQ9mVYTQg9WaLDcfVAVHPj/fnRMwWdTGijQe/QH0fSxhke0e
-	UV5qcKEQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nfdQECwsAKd69oCQQPZXeJ3b8ObsrMbJL3v2gq4m8TM=; b=BE8v0oaEslahrFsw3Id0KKfFyW
+	T6LKWN9We1ROsZz5jRKLtvkPYQG2i/BsYfQw+lJV/UC1cxW3YXhPBYkHwm/3YGkkY377aKQq2ILOd
+	fsyG8ZbLvgZOP+FYmE0Y7OkRiXDjW/9xEzJS8b8xOLw6RVlW6QT5XHhD88+PEDCA8jX1d127VafrD
+	jLearSioUQ8pKmOBsUkWKf051RPzUNAIGN2CThridnZ2sNrxC7h/qJfaQxtZOVou0uc8Azbwvb3LI
+	gZGOZOMgWUlSFdW/tJy40J0jQi9F2RMo53dmlV4E8dOZIYQDevPmdF6KN0uH9K/G3otrL+3hQ5t39
+	CzmCVELw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucp4c-0000000DFQ5-44h6;
-	Fri, 18 Jul 2025 17:40:42 +0000
-Received: from mail-vi1eur05on2070c.outbound.protection.outlook.com ([2a01:111:f403:2613::70c] helo=EUR05-VI1-obe.outbound.protection.outlook.com)
+	id 1ucp73-0000000DFdD-33Xi;
+	Fri, 18 Jul 2025 17:43:13 +0000
+Received: from relay4-d.mail.gandi.net ([217.70.183.196])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucoxO-0000000DEax-3Ue8
+	id 1ucoz2-0000000DEln-2h8Q
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 18 Jul 2025 17:33:16 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=LQ+OueDHc9eMwu1ie2KonlFLV7RrAQ1j789BIioDcTziy/nNrH4zMwYJ2+OC026bDBdyK4B1e4vDcKwtet3b8l5OKX0d3WaHVU9oenNnSQHkPn29DCsmXBSUkrCEWRiNaSzmVF1rop8SN3iBKoUmgAblPEKIirDCXF/HvwV2JHUzYc9BQKMafF0fsVqxkGOiHsu4Sw5nVD1dHhGof01AWO/CldLnlhrG3RWkVJCAokIlhrGQc66zK7K2XvqNus5msm3mjbDS4TXTa3Wi52XunawMLk/8T9fU2Wv8FXd2mEWOZCEFqgIcFgRFEr0NQ3nCOZSqUUo1s+wuowIeAXprpQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=8Zh5W39tp3NasQHlm1kky8nJQnoU5ZdBlhj17cCijxI=;
- b=tuS0mpLqGBlcb1Yscpij/Ho0vtu0Qb2hQpdPgX5DmRkOYH7BwTbOfT8F1R1LkQDljVNN+pVKyOC7YSUn2ynldk1/ajfJyFPuUVDEDaghj+ZHiHk0d8BQkkpk0NChKICCVbutanmPB1TcHJCPYWYwHTZmibl8Z4wWVAEalmxOmNweC+b1EGvLOfObQtGVAfmmWxo3qMryCFRSZRN2AmjNEaX0u4xSGwbWuze24wCPI/AXhfPq6FCDdgG5YjojmlH0yWTOp0g7V3RmAq3aR238dDBJ8pXBc1MzuZx8u2zmo0y8RGQDr0nmYo+uTZ69C3S6M3s99FwGAuqtfMiOmZ9uIw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=phytec.de; dmarc=pass action=none header.from=phytec.de;
- dkim=pass header.d=phytec.de; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=phytec.de;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=8Zh5W39tp3NasQHlm1kky8nJQnoU5ZdBlhj17cCijxI=;
- b=i2GWZ/dxAhbp/KbPRFm0Yk0iLIl9X9OOo5CU1MIv9U+1vpMIEcqFEbeEDxgRgSzwKdTal+On5xEC2AFqmu000p3mvQNUsM0IOOqOcFdb0x2qE+wFTP8LJlCYkE3Z9KQzpmUDd7im4pKvRU2KSPDzuTjMtsGY3+FovK7ka+0vv2o7vGQoyV60SOJ3AsjiysY7N3OQxzwUuUp5FyKS+e0T0ZL214xYYf8nz0pif+KLw5OeGsmZdXlpYjk1o0dN/tD5nAMLDoQtESzAZbj3xZwpTkqkTMr6ySfW2dbv3KLxPknsJGm07GzkfUsIF8kKM4WhOBdiOb6kzgQe7oVx1QPqcg==
-Received: from DB9P195MB1212.EURP195.PROD.OUTLOOK.COM (2603:10a6:10:294::16)
- by AM7PPF7FE030CB9.EURP195.PROD.OUTLOOK.COM (2603:10a6:20f:fff1::755) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8880.17; Fri, 18 Jul
- 2025 17:33:06 +0000
-Received: from DB9P195MB1212.EURP195.PROD.OUTLOOK.COM
- ([fe80::2d26:fa56:5972:5247]) by DB9P195MB1212.EURP195.PROD.OUTLOOK.COM
- ([fe80::2d26:fa56:5972:5247%6]) with mapi id 15.20.8922.037; Fri, 18 Jul 2025
- 17:33:05 +0000
-From: Christoph Stoidner <C.Stoidner@phytec.de>
-To: Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>
-CC: Stefan Wahren <wahrenst@gmx.net>, Rob Herring <robh@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam
-	<festevam@gmail.com>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "upstream@lists.phytec.de"
-	<upstream@lists.phytec.de>, Primoz Fiser <primoz.fiser@norik.com>, Andrew
- Lunn <andrew@lunn.ch>
-Subject: Re: [Upstream] Re: [PATCH v3] arm64: dts: freescale:
- imx93-phycore-som: Delay the phy reset by a gpio
-Thread-Topic: [Upstream] Re: [PATCH v3] arm64: dts: freescale:
- imx93-phycore-som: Delay the phy reset by a gpio
-Thread-Index: AQHbzJ5IkKiCUrqPH06p42f/+549BbPiDcKAgAJsSwCAAChcgIAABDUAgAALOQCAACRcAIADjdKAgAAQWYCAAsNAAIAD9cmAgAChPwCAAAtVAIA4UzkAgBBNlwA=
-Date: Fri, 18 Jul 2025 17:33:05 +0000
-Message-ID: <ad5e7450c5cf3a2f9a5d3c23f7219eb08be31062.camel@phytec.de>
-References: <b2ea6b7f-3623-4486-82a0-cab97053a53e@gmx.net>
-	 <34a4441d4b4ed8db7cac585ce93ec2357738cc11.camel@phytec.de>
-	 <7f6d7199-0a20-4370-a8b0-1d05326af052@gmx.net>
-	 <bf0eb48fc72f4b0abbf62077c2f1fe4438579746.camel@phytec.de>
-	 <967484d9-4165-4b75-bbb7-a203c36e8beb@gmx.net>
-	 <517be266ebc3b55da53372a76a139245f8945cd8.camel@phytec.de>
-	 <5afa6d62-4a3f-4c28-8165-363075ac36d8@lunn.ch>
-	 <a948b903766a82897e5fc17a840ab40e29f5eda4.camel@phytec.de>
-	 <8e448625-b4ad-4bf1-8930-6fecdedb1d8d@lunn.ch>
-	 <78ec24d09d129d52d3442f6319cf1ef5b6ce7f3d.camel@phytec.de>
-	 <739f93d0-4cb4-4f1a-8792-84502d4beefe@lunn.ch>
-	 <626bca58-e481-4d6f-9bb7-252c040f4b3b@norik.com>
-In-Reply-To: <626bca58-e481-4d6f-9bb7-252c040f4b3b@norik.com>
-Accept-Language: de-DE, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=phytec.de;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: DB9P195MB1212:EE_|AM7PPF7FE030CB9:EE_
-x-ms-office365-filtering-correlation-id: ee2bb20d-34c1-45b5-51f9-08ddc62127b4
-x-ld-processed: e609157c-80e2-446d-9be3-9c99c2399d29,ExtAddr
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|7416014|4022899009|376014|1800799024|366016|38070700018;
-x-microsoft-antispam-message-info: =?utf-8?B?RUZQWm40Q0kyS0lsWmFFcXo4K2hTamZYbk4xR3dBNHVpVCszV0NSbVpIN1hR?=
- =?utf-8?B?alU0cHh5aUkxN3dEd3FEdzA0YWlUa2xsdzY5SVkvSHZMdXRUZEptR25URkp3?=
- =?utf-8?B?bDlzbW1oQUJYY0NqQlg0WlpOMmdQTWRCZnJ0c3pSNGxGL1VjRmFtTDlvMHl0?=
- =?utf-8?B?UWg0cGVObklZNHFxeTdwZlE5bnhJeWhpUSs2RVBCcGQxMFFicWhBTk5PUk8w?=
- =?utf-8?B?WGUvdUprN0dYa1RFYnFMamJUSFM4akZDdm01ZE9Oelc5REhmVVdGaEtQckVo?=
- =?utf-8?B?ZzVRdmg3NiswU204ZW42Rk9pTnZSZW1xT20zMW51YS9ocm50K0hQUnAxNVBi?=
- =?utf-8?B?eWxicVJvbTBTTHErYjRLTzFjL3hTeGlNMENvL0lrVUZvbEdSUUtnL0x2a1d0?=
- =?utf-8?B?ZE5OVEhOeGhBMGJlenk4OWxsZG4rejlkOHJRVjBSRVd1VnZFckxFSlk4UE5N?=
- =?utf-8?B?Nzl6M04vVkl0RWhpMHhkclFwMzdCWEorZDQ0M003Z0s1SURUQkJpZS9HclBQ?=
- =?utf-8?B?QUZGbW9UTnJJYjEzUWdpS1pzYk5iTHNhdjFTQnlwdmQ5Y0hUV0MzOGdDaWJL?=
- =?utf-8?B?N1lEb0dDS1hQcHJpMXJuQVZwS0JPTlA4dlJSczliTHNML1dFd21iWDYxcnJC?=
- =?utf-8?B?MVo1RkNsbGpLN0Y3VnZZeVpxVWEvVWJ3WmtpUVJERnBleTE5YmZIdE1DTFEy?=
- =?utf-8?B?d09aUG05VU11MVBxQ3JFT2Y2aWZWa2R5Qk9CdldoQ2o2NVI3T0pyUklVQzZo?=
- =?utf-8?B?ZE9uMUU2a05GRU12cVpqYitPR0xRRkZ5ZmFGa2EyT1ArdW9ncnkzR2p3WXBi?=
- =?utf-8?B?Q0tJclNadE9kYW8raWozZTNVbkZhai9iNnBVc0VuSkRtSjA5c3dGQ3U2aWRh?=
- =?utf-8?B?dFN3TGdOQnU0U2UyZEFvWnowYlRjbm5QbTk0M2lxNXgxTXRXZldraGQ1R2Na?=
- =?utf-8?B?UHVHUDUyS21vYzFEZG8vMDFlanhadXlvOERqK05Sck4xVHgvQVkzcXBqVW1Q?=
- =?utf-8?B?SXZNU1pJK25peGZlYlc2Q09aYzNEVU5RRGJ2NDhpQWNOZ2hUcmN1eDZSYkto?=
- =?utf-8?B?NCtMam4vcjA0QlBwUS8rekp2ZUEvaVU2SmFNTG02cFg5MVZhUFFNb1oreGNn?=
- =?utf-8?B?K0owUEFucnJXemp1Z1FUTFo4M0RpSGZ6ckw3SjhwQjBldjBaa2QwWjJNYzV3?=
- =?utf-8?B?b3g4anN0NlpnaXZmYjlLalgzWmRlMThTZWh5KzA1TzlHbzRmUEUyRDVKWkFp?=
- =?utf-8?B?aFpKVWNQNW9yaGtFVHJHZWJsZ1lXMnVJdFZZY1VIdXYzUVNjSHIyWUFHaGNj?=
- =?utf-8?B?enZmQmhTUGdaTG8wTDZoblZReklDN2xvOVNrMzJncXdWMmRLcnhCb1hRWjBT?=
- =?utf-8?B?ZGtSVUorNFlnOVp6OHpkMGRvdU02SFNmdndIMmpvQjRCdm85cmpCV3Z1ay9P?=
- =?utf-8?B?VDViTXJ6RjBzQSthYi9xR2V5K09EeDlLSTFSenZINENDTUg2S3ZqT0JnNlBi?=
- =?utf-8?B?eFhZZ3dBdTMwLzkvQW9wVnF5QnJFemxKcWZRaU9LRUhoVlVCZVV3TTM2UkVk?=
- =?utf-8?B?ekxTRHFuK1FDYWg4K1M1a05PRjZVZEo5ZlpIckx6SkQreHdFU2E1UG1PNFZY?=
- =?utf-8?B?U0xNOEh3WnhCWWhiVDB3RHJXN1NuU21VL3BTT2NWdk9qZmROcFdZeWVQTTBz?=
- =?utf-8?B?LzNVcEppNjJKOEMzbmRKQWQ3OUZ3S2FaOC8rNUZpeEQ0TUs5VGpqWVQ5T3lX?=
- =?utf-8?B?RkpEU2d4RUV0Qk5XV0MrQVZDUWY2MTBMNngvNDVTRHg1dGtQek9RaTVsTzlv?=
- =?utf-8?B?K0ptWURTZlJvVEkzWGF3Q3NReEtVOXpaN2lsQmhpMldyWFhDckQvejBrL3F3?=
- =?utf-8?B?dnlIWFBNRmtBdlRmSUtJei9pRDV5aVZ2aTlQajE3K3gxRlNxMHNoTzlVTGJN?=
- =?utf-8?B?OUJHdjZUUWVNZWF5ekplbm12eURydjF0ZnlOdXA2TnFxSVAzNmtyeS8yREFr?=
- =?utf-8?B?YVZuNGFPZTh3PT0=?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9P195MB1212.EURP195.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(7416014)(4022899009)(376014)(1800799024)(366016)(38070700018);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?UUtqd3JaMk5pSG5uZElKUUR5UTZHakJyOHM5elpXNU5qbDZzOGJ3VzRmb2pM?=
- =?utf-8?B?T3hNdW9MdlNycDA1ODVTNU1OTUZtOHNEemM4RCtWRWRaSytLdXcvTE9HVlRj?=
- =?utf-8?B?TUlSTW44ZVhVTytJSGd3emZjNnRuWVc5U3Nwc1FLSXZRMlp3YkNUd3ZiQUZv?=
- =?utf-8?B?SFZudkZsaVVrelkzNXZFamJWdmdBcGJhVy9EMEovK0tBT0xzZU13RnRUMnJl?=
- =?utf-8?B?ZUU1QWEvT2lBQTZJc0J1S3VzQ1NxTnlVN2FhQ2J2eVhBZU9yMFhzNlBmaFFw?=
- =?utf-8?B?SEk1LytLOE9tRXcrZElsM28xK2s0UDNyc0pZa2JaQVRNT0gxOGZ2MXh6NE9G?=
- =?utf-8?B?WE9ZSGNlQjVsaHNVbHZpNWd5MVVHOXB3YmowVHFpVXBjeGlGWCsvVGNteGRV?=
- =?utf-8?B?NlBSZkhiekZoa0hxMWQwWFBGemlyVDM5SGQ3SnpCWnUrS2Z3N3hPWS96ME9F?=
- =?utf-8?B?OU5OOUQ3SWsza2orY0twTDdYbm83Vlg1bmtlUU5JQWk5N1pHOEp3dytlamFF?=
- =?utf-8?B?ZFVNZkx5anJYOWNiNVRnciswWWxkeHRUR2JJVHJGNC8zcTlVaG16UmNUMVF5?=
- =?utf-8?B?bjZHREIxeTZ3SmF5anZTSkYvY01Vc2JuSVJOQnY0MW1SSVM5KzlvNHNWMnZL?=
- =?utf-8?B?emQ1eENsdzAwekd6aDAyOGFrMjJhN0RHOWtHdUtnbFhQNTVBSEdpbHBzNVpt?=
- =?utf-8?B?QTFWVHZhVVBZa1RsSTdURk9wVlVUSEcxbVA2K0ZYdTR3M1ZRSG0wYUZpT0cx?=
- =?utf-8?B?cXNrWGZVWTdaS1RiQlhRUm5RZ2xnMTRIRURxZ3U3VEN5ejVrZTQvTWxnQ3lE?=
- =?utf-8?B?T2R0M1FuQ0pScnl5eldiQkVRUE15a09JZU5va0orTzl3RmV1R09ocUhiU0tT?=
- =?utf-8?B?VjVoSmx0UzZlWGVIQ1VaT01iQzAwM29aSjFQRmJIOVBjck9NMDRFYjJBYkZx?=
- =?utf-8?B?c1FLM3pML0hhR2ptMTRXUzFyejAxL08wMWtoN1FyRFFQa2JMMGVZc2d4QnNL?=
- =?utf-8?B?MTlGUG9zYkQ0b0ZYcmxEc2dlTlBXWFVTMFpjVnY0ZEROT2VaTExZeVRFbW9K?=
- =?utf-8?B?TWxtMXkwaVdyRjcyZU5rRVFLQXdwVG81c05maW5tMHNMRDlrdFZraDliVVl1?=
- =?utf-8?B?SWhNT3daRHVqd2UrYjR4dEhRQjBJWFFkREhNU0JXOE5UUVNTeFZ6cnFxcktN?=
- =?utf-8?B?RFdlUW1WcHArTEhneTZTVFVwWDBwbS8xeWhwS2dJeUhPbGdDSVQrL3N3bHF3?=
- =?utf-8?B?UmljcVhMSktCUTZWeE1XcXgyT25HSGRIK3FJVmg0ZU1ZdjBtN1cwRmdPZnBH?=
- =?utf-8?B?blpjVUxUY3lGbUMrYkVBNUVKSlRtUjZzVWI0eDIyZUlCNUZTY3UrSk5KUXVZ?=
- =?utf-8?B?VEUySDdkQjZPZU5CZ0tacG5pU3ZEcllnU3haY3NrQTZmMkFac0RqdXJTS2Nu?=
- =?utf-8?B?WG94MnFvNWVwNFNZcjZTaUlMVkJqNVg5ZnB2WXlhZGhYanBRbXZ6aWMxV3RV?=
- =?utf-8?B?Zk5saXJ4U2xRQkFoU3lpREdoa1RybWIza0pDUSt6WEcvS1NPN0syUHV5V2VO?=
- =?utf-8?B?SHh6NGhjMmFQS0RuZXUwbmgxWnJIbGhWM0IyaFdmNWd5cjlyRTJHbEFWd0RG?=
- =?utf-8?B?c0N5UVREd0tCdmVEa0gyWHJpcDRRM3dtNEdyUEFaNmJmcCs2Q0hML1hEQURG?=
- =?utf-8?B?Tis3YzFwc0lIZitWeFJkcU4yaVNyK0J6NGFPVjVGUnRCNUYwVHI2ME14ZDBB?=
- =?utf-8?B?L1dZZTZWS0lMdHYrZ0tkY2dLMUttN3pQbTMwU3IweFkvWnh3TU9ZV1l5Rjdo?=
- =?utf-8?B?VVl0TzdqWGNMRmRRSTNESjlwWnJDdmdaYTBvTldiU3R5dzM3UzlIVFlLUG1H?=
- =?utf-8?B?eHEreEtmcWVsZjdybFd2aThKbmVZUVRQU1pBZWxPcHArTnlyOTNHOGhGVkN3?=
- =?utf-8?B?UEpKRjM3b2dqRklWWHpveXlvbkR6dDhzYUhMd3lCc3N1R1FjRWRIcnowdXZS?=
- =?utf-8?B?d0ltYmt4dG4rd1o1MjdSN2MzMjBWU0Q5Rmk5Vm9LOU4xb24vTHA0RFljZlRZ?=
- =?utf-8?B?b2tRckNEVzUzNUJUNnI2YnUxR3VUKzFndVgyMzRTK1AyRVg4Q0JicEJlN0dN?=
- =?utf-8?Q?j3wNCkhcpCf5BMsTA9RDViU3+?=
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <71D87B3E8299474D82C7ADDDECC86E88@EURP195.PROD.OUTLOOK.COM>
-Content-Transfer-Encoding: base64
+	Fri, 18 Jul 2025 17:34:58 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id C6525444F8;
+	Fri, 18 Jul 2025 17:34:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1752860091;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=nfdQECwsAKd69oCQQPZXeJ3b8ObsrMbJL3v2gq4m8TM=;
+	b=UmYIc2egaj26juBgJQR+c78DD5Csk9bBatZYAbTD3lMAHKw5HZFfAtWRzUVmfDvMUbyMKC
+	tBn0jwwRswN43TxOcV3Gwgb548OHovR98Ju2XQFHASM/IOugi5oBAh3SNQGXr8YCG1SKah
+	gnSSvFhz9xkVzCWeMh3COa/bcI3MWTS18v9ARc8qGNQKyYq+9YsNQ/UZosBqXlJQO6PQwA
+	Uq5DG0mFC6xY0Boy7Rub7tgkBERWRL1swV8grxzHQZ+G3Fjz5jfR84JOn2svm1FIurvXQt
+	EnuS4WcXvI+jnn+HrG7BNUjCzJ0WVnmH5VwSI1+RvtP/CpF0K6HpGHPWv7OwNg==
+Date: Fri, 18 Jul 2025 19:34:46 +0200
+From: Kory Maincent <kory.maincent@bootlin.com>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Cc: davem@davemloft.net, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+ thomas.petazzoni@bootlin.com, Andrew Lunn <andrew@lunn.ch>, Jakub Kicinski
+ <kuba@kernel.org>, Eric Dumazet <edumazet@google.com>, Paolo Abeni
+ <pabeni@redhat.com>, Russell King <linux@armlinux.org.uk>,
+ linux-arm-kernel@lists.infradead.org, Christophe Leroy
+ <christophe.leroy@csgroup.eu>, Herve Codina <herve.codina@bootlin.com>,
+ Florian Fainelli <f.fainelli@gmail.com>, Heiner Kallweit
+ <hkallweit1@gmail.com>, Vladimir Oltean <vladimir.oltean@nxp.com>, Marek
+ =?UTF-8?B?QmVow7pu?= <kabel@kernel.org>, Oleksij Rempel
+ <o.rempel@pengutronix.de>, =?UTF-8?B?Tmljb2zDsg==?= Veronese
+ <nicveronese@gmail.com>, Simon Horman <horms@kernel.org>,
+ mwojtas@chromium.org, Antoine Tenart <atenart@kernel.org>,
+ devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>, Romain
+ Gantois <romain.gantois@bootlin.com>, Daniel Golle <daniel@makrotopia.org>,
+ Dimitri Fedrau <dimitri.fedrau@liebherr.com>
+Subject: Re: [PATCH net-next v9 01/15] dt-bindings: net: Introduce the
+ ethernet-connector description
+Message-ID: <20250718193431.147df503@kmaincent-XPS-13-7390>
+In-Reply-To: <20250717073020.154010-2-maxime.chevallier@bootlin.com>
+References: <20250717073020.154010-1-maxime.chevallier@bootlin.com>
+	<20250717073020.154010-2-maxime.chevallier@bootlin.com>
+Organization: bootlin
+X-Mailer: Claws Mail 4.2.0 (GTK 3.24.41; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-X-OriginatorOrg: phytec.de
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: DB9P195MB1212.EURP195.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-Network-Message-Id: ee2bb20d-34c1-45b5-51f9-08ddc62127b4
-X-MS-Exchange-CrossTenant-originalarrivaltime: 18 Jul 2025 17:33:05.8424
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: e609157c-80e2-446d-9be3-9c99c2399d29
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: hCSRi9zQNI6Gvj7q1tXj/s+2b8EPe+3RishSDDADo0Thu4M1Vn1im33bk1ZQHDs9P51mGBLlhDbjigqjlHQIHQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM7PPF7FE030CB9
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdeigedtjecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepfffhvfevuffkjghfohfogggtgfesthhqredtredtjeenucfhrhhomhepmfhorhihucforghinhgtvghnthcuoehkohhrhidrmhgrihhntggvnhhtsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpefguddtfeevtddugeevgfevtdfgvdfhtdeuleetffefffffhffgteekvdefudeiieenucffohhmrghinhepsghoohhtlhhinhdrtghomhenucfkphepvdgrtddumegtsgduheemfegvgeemtgehtddtmeekvddttgemiegvtddumeejkegrtgemvdgtugefnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddumegtsgduheemfegvgeemtgehtddtmeekvddttgemiegvtddumeejkegrtgemvdgtugefpdhhvghlohepkhhmrghinhgtvghnthdqigfrufdqudefqdejfeeltddpmhgrihhlfhhrohhmpehkohhrhidrmhgrihhntggvnhhtsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeefuddprhgtphhtthhopehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmpdhrtghpthhtohepuggrvhgvmhesuggrvhgvmhhlohhfthdrnhgvthdprhgtp
+ hhtthhopehnvghtuggvvhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhmshhmsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtohepthhhohhmrghsrdhpvghtrgiiiihonhhisegsohhothhlihhnrdgtohhmpdhrtghpthhtoheprghnughrvgifsehluhhnnhdrtghhpdhrtghpthhtohepkhhusggrsehkvghrnhgvlhdrohhrgh
+X-GND-Sasl: kory.maincent@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250718_103315_179216_A2171393 
-X-CRM114-Status: GOOD (  31.93  )
+X-CRM114-CacheID: sfid-20250718_103456_813261_B68B9870 
+X-CRM114-Status: GOOD (  14.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -200,35 +94,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-T24gRGksIDIwMjUtMDctMDggYXQgMTA6MzUgKzAyMDAsIFByaW1veiBGaXNlciB3cm90ZToKPiBI
-aSBhbGwsCj4gCj4gaXMgdGhlcmUgc29tZXRoaW5nIGhvbGRpbmcgdXAgdGhpcyBwYXRjaD8KCkkg
-ZG9udCBzZWUgYW55IGJsb2NrZXIuCkBNYWludGFpbmVyczogSWYgdGhlcmUgaXMgYW55IG1pc3Np
-bmcvYmxvY2tpbmcgcG9pbnQsIGNvdWxkIHlvdQpwbGVhc2XCoGNvbW1lbnQuCgpUaGFua3MsCkNo
-cmlzdG9waAoKPiAKPiBCUiwKPiBQcmltb3oKPiAKPiBPbiAyLiAwNi4gMjUgMTQ6MjYsIEFuZHJl
-dyBMdW5uIHdyb3RlOgo+ID4gPiA+IEkgYWdyZWUgaXQgaXMgbG9uZyBlbm91Z2gsIGJ1dCBpJ20g
-YWxzbyBzdXJwcmlzZWQgaG93IHNsb3cgdGhlCj4gPiA+ID4ga2VybmVsCj4gPiA+ID4gd2FzLiBB
-cmUgeW91IHVzaW5nIGEgZml4ZWQgSVAgYWRkcmVzcywgb3IgZGhjcD8KPiA+ID4gCj4gPiA+IEkg
-dXNlIGEgZml4ZWQgSVAgYWRkcmVzcy4KPiA+ID4gCj4gPiA+IEJ1dCBpc24ndCB0aGUgYnJpbmd1
-cCBvZiBldGhlcm5ldCtwaHkgaW50ZXJmYWNlIG9uZSBvZiB0aGUgbGFzdAo+ID4gPiB0aGluZ3MK
-PiA+ID4gdGhhdCBoYXBwZW5zIGR1cmluZyB0aGUga2VybmVsIGJvb3QtdXA/Cj4gPiAKPiA+IE1v
-dW50aW5nIHRoZSByb290ZnMgaXMgc29tZXdoYXQgdG93YXJkcyB0aGUgZW5kIG9mIHRoZSBjb3Jl
-Cj4gPiBrZXJuZWwuIEJ1dCBpZiB5b3UgaGF2ZSBhbiBpbml0cmFtZnMsIHRoZXJlIGNhbiBiZSBt
-b2R1bGVzIGxvYWRlZAo+ID4gYm90aAo+ID4gYmVmb3JlIGFuZCBhZnRlcndhcmRzLCBhbmQgb25j
-ZSB0aGUgcm9vdGZzIGhhcyBiZWVuIG1vdW50ZWQsIHlldAo+ID4gbW9yZQo+ID4gbW9kdWxlcyBj
-YW4gYmUgbG9hZGVkLgo+ID4gCj4gPiA+IEhvd2V2ZXIsIHdoYXQgdGltaW5nIHdvdWxkIHlvdSBl
-eHBlY3Q/Cj4gPiAKPiA+IEkndmUgc2VlbiBpbnRlcmZhY2VzIGNvbmZpZ3VyZWQgdXAgZnJvbSBk
-ZWVwIHdpdGhpbgo+ID4gcmVnaXN0ZXJfbmV0ZGV2KCkuIEkgZG9uJ3QgcmVtZW1iZXIgdGhlIGV4
-YWN0IGNvbmZpZ3VyYXRpb24sIGJ1dCBpCj4gPiB0aG91Z2h0IGl0IHdhcyBORlMgcm9vdC4gSXQg
-bWlnaHQgYmUgaW4gY29tYmluYXRpb24gd2l0aCBpbml0cmFtZnMuCj4gPiBJZgo+ID4geW91IGhh
-dmUgdGhlIEV0aGVybmV0IGRyaXZlciBhcyBhIG1vZHVsZSBpbiB0aGUgaW5pdHJhbWZzLCBhbmQg
-YXJlCj4gPiB1c2luZyB0aGUgInJvb3R3YWl0IiBvcHRpb24sIGl0IGNvdWxkIGJlIHRoYXQgeW91
-IGFyZSBhbHJlYWR5IHBhc3QKPiA+IHRoZQo+ID4gcG9pbnQgaXQgd291bGQgZmlyc3QgbW91bnQg
-dGhlIHJvb3RmcywgYW5kIHdpdGggZXZlcnkgbmV3IGRldmljZQo+ID4gcG9wcGluZyBpbnRvIGV4
-aXN0ZW5jZSBpdCBpcyB0cnlpbmcgdG8gc2VlIGlmIHRoZSBqdXN0IGNyZWF0ZWQKPiA+IGRldmlj
-ZQo+ID4gYWxsb3dzIGl0IHRvIGRvIHRoZSBtb3VudC4gQXQgdGhhdCBwb2ludCwgcmVnaXN0ZXJf
-bmV0ZGV2KCkgaXMKPiA+IGdvaW5nCj4gPiB0byB0cmlnZ2VyIGFjdGlvbnMuCj4gPiAKPiA+IMKg
-QW5kcmV3Cj4gPiBfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-Xwo+ID4gdXBzdHJlYW0gbWFpbGluZyBsaXN0IC0tIHVwc3RyZWFtQGxpc3RzLnBoeXRlYy5kZQo+
-ID4gVG8gdW5zdWJzY3JpYmUgc2VuZCBhbiBlbWFpbCB0byB1cHN0cmVhbS1sZWF2ZUBsaXN0cy5w
-aHl0ZWMuZGUKPiAK
+Le Thu, 17 Jul 2025 09:30:05 +0200,
+Maxime Chevallier <maxime.chevallier@bootlin.com> a =C3=A9crit :
+
+> The ability to describe the physical ports of Ethernet devices is useful
+> to describe multi-port devices, as well as to remove any ambiguity with
+> regard to the nature of the port.
+>=20
+> Moreover, describing ports allows for a better description of features
+> that are tied to connectors, such as PoE through the PSE-PD devices.
+>=20
+> Introduce a binding to allow describing the ports, for now with 2
+> attributes :
+>=20
+>  - The number of lanes, which is a quite generic property that allows
+>    differentating between multiple similar technologies such as BaseT1
+>    and "regular" BaseT (which usually means BaseT4).
+>=20
+>  - The media that can be used on that port, such as BaseT for Twisted
+>    Copper, BaseC for coax copper, BaseS/L for Fiber, BaseK for backplane
+>    ethernet, etc. This allows defining the nature of the port, and
+>    therefore avoids the need for vendor-specific properties such as
+>    "micrel,fiber-mode" or "ti,fiber-mode".
+>=20
+> The port description lives in its own file, as it is intended in the
+> future to allow describing the ports for phy-less devices.
+>=20
+> Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+
+Reviewed-by: Kory Maincent <kory.maincent@bootlin.com>
+
+Thank you!
+
+--=20
+K=C3=B6ry Maincent, Bootlin
+Embedded Linux and kernel engineering
+https://bootlin.com
 
