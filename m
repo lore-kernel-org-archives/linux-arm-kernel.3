@@ -4,74 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7281C83F34
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Jul 2025 11:52:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 441ABC83F34
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Jul 2025 12:07:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=outeUP69u0Xntt9zn9rOJgD7Ve3nkruqdrqfEyItxF0=; b=EroYN4WJ2w0retaYZwZrr04JP3
-	sFcRQTpBPIbCSD2loG+oGWbCIJiarE3Qnu3mR2nVyxMnsYEnxf6mC5zTK0V224DZlYdzfxIIWq+xI
-	kU9QPYRhRAhYsQch5SXeauLsPfNid8TNT/SwA5nBAPunTp1exHnF+EpYLcnG+bFz9XY4cYPUXrDjh
-	Ou6JdMZ3DjS70qC6+Sif6lQkeQIyVKFGkFUvBJmzezpItray0C2L7ID8xe/pOPqSktCvmRdLW+idl
-	mlU6Qh+RjKo76ZFxRg6TdQW5Q/LxT3WjXWcjZtRv062bq7yAUeOeVp93fjZShLEim0uVEhAdueGj1
-	p8eFYVog==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IU1PJ+7bmTt0sfaz3Ti28OZ0zF1MZjw/TjjjbcUoVh0=; b=JpGyETVubqjXg/g7jkyAjdnEKU
+	S89i25ZVV/wzUAnSYLJrYc6c3M77mdSypsa4eGaJhGhjK+YC9N6bhOb+eTZxHK+2lJtpQdJk30KOV
+	Zzr2DMwlRTGhrmobtK3G0NmVO/8A1vKHttEajXNpcPtdXFVc1lb6ET4JoTu4+Xa7OZx/A1D9Jgrh5
+	tVpiwiByG70S5OlhOnWxxVvJZtDusMy/kfLz61U+6xqv6HWFyB2OdSAwHPzkxMuhdr17XJ3ZhsKx5
+	iK2Os+MU2Wdihm/q5sk/nfyzmsPnpkJC+xJaaZ6Bb362ZHaR5N1ReDkTcf9kNnm+zvPy1xNeaQ6Ta
+	XszUKv0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ud66h-0000000ECwV-2ZUx;
-	Sat, 19 Jul 2025 11:51:59 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1ud6Lf-0000000EDZx-1EOZ;
+	Sat, 19 Jul 2025 12:07:27 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ud64D-0000000ECq2-0kUx
+	id 1ud6J7-0000000EDRH-3N4U
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 19 Jul 2025 11:49:26 +0000
+	Sat, 19 Jul 2025 12:04:52 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 0DA045C53D8;
-	Sat, 19 Jul 2025 11:49:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 074C5C4CEE3;
-	Sat, 19 Jul 2025 11:49:17 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 580BDA5610C;
+	Sat, 19 Jul 2025 12:04:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B1694C4CEE3;
+	Sat, 19 Jul 2025 12:04:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752925763;
-	bh=ji5NuuZw96p1y7UG1zaDiHhl0TkRDc1FoWgIsQTk1B4=;
+	s=k20201202; t=1752926687;
+	bh=ke51KIB9NWjtgPYjsJ/LrpJY5gyL7OuTgeKtaW3v/T8=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=uxYyLBtz+MpnD29HvpPg8MORaiwSeEuBRF0TRLpOii8eU5KEfmlKIQyS012jd0WF5
-	 Qhm5cO8XqAM86JdgyxcozM02GomXmfHgFbPIhpE8jYWwKT/A1q2ViHzDVUU57dSZ4Q
-	 Rnj1NBinK0maC3cjM5AeAojpm9MpoxgtMJCzsWjYAHf9jHrSDJep8iyjL+WvNJZ6w9
-	 jsvw93ncEcnWqYPtQs/vSF3Rtffo2LWaa+em/P8U9vgJD1ls8IHMyH5usPlHNm5GXR
-	 rxF81Nav8TVf5GSc48nOar2S5jOl/Mzd3V7CLktRMiTZabw1XW3/k2GhpZaCMnpAr5
-	 HLIO9mqHXMNhg==
-Date: Sat, 19 Jul 2025 12:49:14 +0100
-From: Jonathan Cameron <jic23@kernel.org>
-To: Primoz Fiser <primoz.fiser@norik.com>
-Cc: David Lechner <dlechner@baylibre.com>, Haibo Chen <haibo.chen@nxp.com>,
- Nuno =?UTF-8?B?U8Oh?= <noname.nuno@gmail.com>, Andy Shevchenko
- <andy@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Shawn Guo
- <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix
- Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
- linux-iio@vger.kernel.org, imx@lists.linux.dev, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- upstream@lists.phytec.de, andrej.picej@norik.com
-Subject: Re: [PATCH 1/2] dt-bindings: iio: adc: imx93: Add calibration
- properties
-Message-ID: <20250719124914.27536d4a@jic23-huawei>
-In-Reply-To: <c9d17343-e4a5-49ab-9a3e-b6da9d591195@norik.com>
-References: <20250710073905.1105417-1-primoz.fiser@norik.com>
-	<20250710073905.1105417-2-primoz.fiser@norik.com>
-	<2bcd758b-c2d0-488a-8ead-ec7fb39f93e2@baylibre.com>
-	<20250713160247.0f22bbfe@jic23-huawei>
-	<de2c8e15-14e9-4c61-9a13-97ef1ec567a4@norik.com>
-	<6b32118a13e9e28b7cf12152af33642c76367c34.camel@gmail.com>
-	<c9d17343-e4a5-49ab-9a3e-b6da9d591195@norik.com>
-X-Mailer: Claws Mail 4.3.1 (GTK 3.24.49; x86_64-pc-linux-gnu)
-MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
+	b=SE4leeiozu7wB4uf4WqS2CUXxWLMC46HIkpRRltIUxVkCTlDEVoC1emo8Xo8yIsAy
+	 0dhrfhlDgucjyo13+4A49w6RsFVfaW7PwljA/NbhufsFEcZMPpV4u9C7wBzNyGn5im
+	 e3B76R4WFhG9XuxEsssZ6J+II07LE/RlfJ1a3ZRcreSLLX00u5j00qfIyU/LwWvxyM
+	 j6BgZfya5faxu+q8PrREUmgfG+bHiO3nduIEXWtw++LKup78baY9tzTGIiDypNe6hH
+	 PzKLe5z6zCzBwaMHJKMbqvGIzYvT7egJ6ZnEcVonRtppAfOixezVLXqPE9TvqXcV4w
+	 sauzbq+Q+F9tw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1ud6J3-00H8ep-6T;
+	Sat, 19 Jul 2025 13:04:45 +0100
+Date: Sat, 19 Jul 2025 13:04:43 +0100
+Message-ID: <87zfd0e690.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Zenghui Yu <yuzenghui@huawei.com>
+Cc: <kvmarm@lists.linux.dev>,
+	<kvm@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>,
+	James Morse <james.morse@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton
+	<oliver.upton@linux.dev>,
+	Ricardo Koller <ricarkol@google.com>,
+	Simon Veith
+	<sveith@amazon.de>,
+	Reiji Watanabe <reijiw@google.com>,
+	Colton Lewis
+	<coltonlewis@google.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	<dwmw2@infradead.org>
+Subject: Re: [PATCH v4 05/20] KVM: arm64: timers: Allow physical offset without CNTPOFF_EL2
+In-Reply-To: <460258be-0102-e922-c342-4e87cd94b9e5@huawei.com>
+References: <20230330174800.2677007-1-maz@kernel.org>
+	<20230330174800.2677007-6-maz@kernel.org>
+	<460258be-0102-e922-c342-4e87cd94b9e5@huawei.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: yuzenghui@huawei.com, kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, james.morse@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, ricarkol@google.com, sveith@amazon.de, reijiw@google.com, coltonlewis@google.com, joey.gouly@arm.com, dwmw2@infradead.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250719_044925_299174_875B6289 
-X-CRM114-Status: GOOD (  38.12  )
+X-CRM114-CacheID: sfid-20250719_050449_984619_9492E5E2 
+X-CRM114-Status: GOOD (  40.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,149 +98,190 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 15 Jul 2025 07:46:44 +0200
-Primoz Fiser <primoz.fiser@norik.com> wrote:
+On Wed, 09 Jul 2025 09:12:18 +0100,
+Zenghui Yu <yuzenghui@huawei.com> wrote:
+> 
+> [ Record some interesting bits noticed while testing
+>   arch_timer_edge_cases. ]
+> 
+> On 2023/3/31 1:47, Marc Zyngier wrote:
+> > CNTPOFF_EL2 is awesome, but it is mostly vapourware, and no publicly
+> > available implementation has it. So for the common mortals, let's
+> > implement the emulated version of this thing.
+> > 
+> > It means trapping accesses to the physical counter and timer, and
+> > emulate some of it as necessary.
+> > 
+> > As for CNTPOFF_EL2, nobody sets the offset yet.
+> > 
+> > Reviewed-by: Colton Lewis <coltonlewis@google.com>
+> > Signed-off-by: Marc Zyngier <maz@kernel.org>
+> > ---
+> >  arch/arm64/include/asm/sysreg.h    |  2 +
+> >  arch/arm64/kvm/arch_timer.c        | 98 +++++++++++++++++++++++-------
+> >  arch/arm64/kvm/hyp/nvhe/timer-sr.c | 18 ++++--
+> >  arch/arm64/kvm/sys_regs.c          |  9 +++
+> >  4 files changed, 98 insertions(+), 29 deletions(-)
+> > 
+> > diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
+> > index 9e3ecba3c4e6..f8da9e1b0c11 100644
+> > --- a/arch/arm64/include/asm/sysreg.h
+> > +++ b/arch/arm64/include/asm/sysreg.h
+> > @@ -388,6 +388,7 @@
+> >  
+> >  #define SYS_CNTFRQ_EL0			sys_reg(3, 3, 14, 0, 0)
+> >  
+> > +#define SYS_CNTPCT_EL0			sys_reg(3, 3, 14, 0, 1)
+> >  #define SYS_CNTPCTSS_EL0		sys_reg(3, 3, 14, 0, 5)
+> >  #define SYS_CNTVCTSS_EL0		sys_reg(3, 3, 14, 0, 6)
+> >  
+> > @@ -400,6 +401,7 @@
+> >  
+> >  #define SYS_AARCH32_CNTP_TVAL		sys_reg(0, 0, 14, 2, 0)
+> >  #define SYS_AARCH32_CNTP_CTL		sys_reg(0, 0, 14, 2, 1)
+> > +#define SYS_AARCH32_CNTPCT		sys_reg(0, 0, 0, 14, 0)
+> >  #define SYS_AARCH32_CNTP_CVAL		sys_reg(0, 2, 0, 14, 0)
+> >  
+> >  #define __PMEV_op2(n)			((n) & 0x7)
+> > diff --git a/arch/arm64/kvm/arch_timer.c b/arch/arm64/kvm/arch_timer.c
+> > index 3118ea0a1b41..bb64a71ae193 100644
+> > --- a/arch/arm64/kvm/arch_timer.c
+> > +++ b/arch/arm64/kvm/arch_timer.c
+> > @@ -458,6 +458,8 @@ static void timer_save_state(struct arch_timer_context *ctx)
+> >  		goto out;
+> >  
+> >  	switch (index) {
+> > +		u64 cval;
+> > +
+> >  	case TIMER_VTIMER:
+> >  		timer_set_ctl(ctx, read_sysreg_el0(SYS_CNTV_CTL));
+> >  		timer_set_cval(ctx, read_sysreg_el0(SYS_CNTV_CVAL));
+> > @@ -485,7 +487,12 @@ static void timer_save_state(struct arch_timer_context *ctx)
+> >  		break;
+> >  	case TIMER_PTIMER:
+> >  		timer_set_ctl(ctx, read_sysreg_el0(SYS_CNTP_CTL));
+> > -		timer_set_cval(ctx, read_sysreg_el0(SYS_CNTP_CVAL));
+> > +		cval = read_sysreg_el0(SYS_CNTP_CVAL);
+> > +
+> > +		if (!has_cntpoff())
+> > +			cval -= timer_get_offset(ctx);
+> > +
+> > +		timer_set_cval(ctx, cval);
+> >  
+> >  		/* Disable the timer */
+> >  		write_sysreg_el0(0, SYS_CNTP_CTL);
+> > @@ -555,6 +562,8 @@ static void timer_restore_state(struct arch_timer_context *ctx)
+> >  		goto out;
+> >  
+> >  	switch (index) {
+> > +		u64 cval, offset;
+> > +
+> >  	case TIMER_VTIMER:
+> >  		set_cntvoff(timer_get_offset(ctx));
+> >  		write_sysreg_el0(timer_get_cval(ctx), SYS_CNTV_CVAL);
+> > @@ -562,8 +571,12 @@ static void timer_restore_state(struct arch_timer_context *ctx)
+> >  		write_sysreg_el0(timer_get_ctl(ctx), SYS_CNTV_CTL);
+> >  		break;
+> >  	case TIMER_PTIMER:
+> > -		set_cntpoff(timer_get_offset(ctx));
+> > -		write_sysreg_el0(timer_get_cval(ctx), SYS_CNTP_CVAL);
+> > +		cval = timer_get_cval(ctx);
+> > +		offset = timer_get_offset(ctx);
+> > +		set_cntpoff(offset);
+> > +		if (!has_cntpoff())
+> > +			cval += offset;
+> > +		write_sysreg_el0(cval, SYS_CNTP_CVAL);
+> >  		isb();
+> >  		write_sysreg_el0(timer_get_ctl(ctx), SYS_CNTP_CTL);
+> >  		break;
+> 
+> I tested arch_timer_edge_cases on my Kunpeng920 (has VHE, doesn't have
+> ECV) and noticed that the test_timer_cval() below takes a long period to
+> return when testing the _physical_ timer.
+> 
+> static void test_timers_in_the_past(enum arch_timer timer)
+> {
+> 	[...]
+> 
+> 	for (i = 0; i < ARRAY_SIZE(irq_wait_method); i++) {
+> 		irq_wait_method_t wm = irq_wait_method[i];
+> 
+> 		[...]
+> 
+> 		/* Set a timer to counter=0 (in the past) */
+> 		test_timer_cval(timer, 0, wm, DEF_CNT);
+> 
+> The comment is obviously wrong. It should say "Set a timer to CVAL=0".
+> 
+> No physical timer interrupt ("kvm guest ptimer") was triggered when I
+> executed it separately.
+> 
+> Let me try to explain _this_ test_timer_cval() in a bit more detail.
+> 
+> |Guest					KVM
+> |-----					---
+> |local_irq_disable()
+> |
+> |reset_timer_state()
+> |   set_counter()			// SET_ONE_REG via user-space
+> |					// for KVM_REG_ARM_PTIMER_CNT
+> |					kvm_arm_timer_set_reg()
+> |					   timer_set_offset()      [1]
+> |   timer_set_ctl()
+> |      MSR CNTP_CTL_EL0, IMASK
+> |
+> |set_xval_irq()
+> |   timer_set_cval()
+> |      MSR CNTP_CVAL_EL0, cval=0
+> |   timer_set_ctl()
+> |      MSR CNTP_CTL_EL0, ENABLE		// trap
+> |					kvm_arm_timer_write_sysreg()
+> |					   timer_save_state()
+> |					   kvm_arm_timer_write()
+> |					   timer_restore_state()   [2]
+> |
+> |/* This method re-enables IRQs to handle the one we're looking for. */
+> |wm()
+> |
+> |assert_irqs_handled(1)
+> |local_irq_enable()
+> 
+> [1] kvm_phys_timer_read()			= 0x7895c0ab2
+>     value					= 0x7fffffffffffff
+>     offset = kvm_phys_timer_read() - value	= 0xff800007895c0ab3
+> 
+> ... which was observed in my test.
 
-> Hi Nuno,
->=20
-> On 14. 07. 25 18:11, Nuno S=C3=A1 wrote:
-> > On Mon, 2025-07-14 at 07:56 +0200, Primoz Fiser wrote: =20
-> >> Hi all,
-> >>
-> >> On 13. 07. 25 17:02, Jonathan Cameron wrote: =20
-> >>> On Thu, 10 Jul 2025 10:46:44 -0500
-> >>> David Lechner <dlechner@baylibre.com> wrote:
-> >>> =20
-> >>>> On 7/10/25 2:39 AM, Primoz Fiser wrote: =20
-> >>>>> From: Andrej Picej <andrej.picej@norik.com>
-> >>>>>
-> >>>>> Document i.MX93 ADC calibration properties and how to set them.
-> >>>>>
-> >>>>> Signed-off-by: Andrej Picej <andrej.picej@norik.com>
-> >>>>> Signed-off-by: Primoz Fiser <primoz.fiser@norik.com>
-> >>>>> ---
-> >>>>> =C2=A0.../bindings/iio/adc/nxp,imx93-adc.yaml=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0 | 21 +++++++++++++++++++
-> >>>>> =C2=A01 file changed, 21 insertions(+)
-> >>>>>
-> >>>>> diff --git a/Documentation/devicetree/bindings/iio/adc/nxp,imx93-
-> >>>>> adc.yaml b/Documentation/devicetree/bindings/iio/adc/nxp,imx93-adc.=
-yaml
-> >>>>> index c2e5ff418920..d1c04cf85fe6 100644
-> >>>>> --- a/Documentation/devicetree/bindings/iio/adc/nxp,imx93-adc.yaml
-> >>>>> +++ b/Documentation/devicetree/bindings/iio/adc/nxp,imx93-adc.yaml
-> >>>>> @@ -52,6 +52,27 @@ properties:
-> >>>>> =C2=A0=C2=A0 "#io-channel-cells":
-> >>>>> =C2=A0=C2=A0=C2=A0=C2=A0 const: 1
-> >>>>> =C2=A0
-> >>>>> +=C2=A0 nxp,calib-avg-en:
-> >>>>> +=C2=A0=C2=A0=C2=A0 default: 1
-> >>>>> +=C2=A0=C2=A0=C2=A0 description:
-> >>>>> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 Enable or disable calibration avera=
-ging function (AVGEN).
-> >>>>> +=C2=A0=C2=A0=C2=A0 $ref: /schemas/types.yaml#/definitions/uint32
-> >>>>> +=C2=A0=C2=A0=C2=A0 enum: [ 0, 1 ]
-> >>>>> +
-> >>>>> +=C2=A0 nxp,calib-nr-samples:
-> >>>>> +=C2=A0=C2=A0=C2=A0 default: 512
-> >>>>> +=C2=A0=C2=A0=C2=A0 description:
-> >>>>> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 Selects number of samples (NRSMPL) =
-to be used during calibration.
-> >>>>> +=C2=A0=C2=A0=C2=A0 $ref: /schemas/types.yaml#/definitions/uint32
-> >>>>> +=C2=A0=C2=A0=C2=A0 enum: [ 16, 32, 128, 512 ] =20
-> >>>
-> >>> Allow 1 as a value and drop the enabled above.=C2=A0=C2=A0 Averaging =
-over 1 sample
-> >>> is same as no averaging and gives simpler binding.
-> >>> =20
-> >>>>> +
-> >>>>> +=C2=A0 nxp,calib-t-sample:
-> >>>>> +=C2=A0=C2=A0=C2=A0 default: 22
-> >>>>> +=C2=A0=C2=A0=C2=A0 description:
-> >>>>> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 Selects sample time (TSAMP) of cali=
-bration conversions in ADC
-> >>>>> clock cycles
-> >>>>> +=C2=A0=C2=A0=C2=A0 $ref: /schemas/types.yaml#/definitions/uint32
-> >>>>> +=C2=A0=C2=A0=C2=A0 enum: [ 8, 16, 22, 32 ]
-> >>>>> +
-> >>>>> =C2=A0required:
-> >>>>> =C2=A0=C2=A0 - compatible
-> >>>>> =C2=A0=C2=A0 - reg=C2=A0  =20
-> >>>>
-> >>>> This seem like things that should be set at runtime rather than
-> >>>> in the devicetree. Unless there is some justification on why
-> >>>> these values depend on how the chip is wired up? =20
-> >>
-> >> It depends how ADC 1.8V Vref is wired up, especially how noisy it is.
-> >> =20
-> >>>
-> >>> Further to that, I'd like to see some explanation of why we care
-> >>> to change it at all. Is it ever a bad idea to enable averaging and
-> >>> pick a large number of samples for calibration? =20
-> >>
-> >> This is a snippet from the i.MX93 TRM, chapter Analog-to-Digital
-> >> Converter (SAR_ADC) describing calibration steps:
-> >>
-> >> 1. Wait for deassertion of functional reset.
-> >> 2. Configure SAR controller operating clock (MCR[ADCLKSE] =3D 0).
-> >> 3. Bring ADC out of Power-down state (MCR[PWDN] =3D 0).
-> >> 4. Configure desired calibration settings (default values kept for
-> >> highest accuracy maximum time).
-> >> =E2=80=A2 MCR[TSAMP]: Sample time for calibration conversion
-> >> =E2=80=A2 MCR[NRSMPL]: Number of samples in averaging
-> >> =E2=80=A2 MCR[AVGEN]: Averaging function enable in calibration
-> >> 5. Run calibration by writing a one to MCR[CALSTART].
-> >> 6. Check calibration run status in MSR[CALBUSY]=E2=80=94wait until MSR=
-[CALBUSY]
-> >> =3D 0; alternatively, MSR[ADCSTAT] can be
-> >> used to check status.
-> >> 7. Check calibration pass/fail status in MSR[CALFAIL] field. If
-> >> MSR[CALFAIL] =3D 1 then calibration failed. Detailed status
-> >> can be checked in CALSTAT.
-> >>
-> >>
-> >> See point 4).
-> >>
-> >> Not sure why would there be an option to configure i.MX93 ADC
-> >> calibration parameters if one use-case (max accuracy max time) to rule
-> >> them all?
-> >> =20
-> >=20
-> > Sometimes HW guys just want to give you some options. Does not mean we =
-have to
-> > use them all :).
-> >=20
-> > I guess what Jonathan is interested in, is to understand in what condit=
-ions the
-> > defaults are no good for the calibration? If we can have a set of value=
-s that
-> > should pretty much always work, no need to further complicate the bindi=
-ngs or
-> > the driver. =20
->=20
-> In case you have a noisy Vref you can adjust the parameters to pass the
-> calibration and have a working ADC.
+I think this denotes the same problem that was "fixed" in this test
+recently: the arithmetic in the kernel is done on a 64bit value, while
+we have no idea what the number of significant bits actually is. We
+therefore end-up with some outlandish values, and since the timer is
+more or less emulated, we end-up doing the wrong thing.
 
-That's a fairly odd sounding situation.  Is this a case of it will always
-pass because there is some drift going on or something low frequency like t=
-hat?
+> 
+> [2] cval += offset;			// cval	= 0xff800007895c0ab3
+>     kvm_phys_timer_read()			= 0x7895c1b86
+> 
+> No ptimer interrupt was triggered with that. And we relied on the next
+> kvm_timer_vcpu_load() to catch the timer expiration and inject an
+> interrupt to the guest..
+> 
+> It's apparent that this test case is not a practical use case. Not sure
+> if we should (/can) emulate it properly. Or I may have already missed
+> some obvious points.
 
-Or is it a case of retry until it passes?
+Overall, I think the "set a counter value to compute an offset"
+paradigm isn't really practical when we get to the limits. At least,
+the VM_COUNTER_OFFSET approach is consistent, and avoids the above
+calculations.
 
-Jonathan
+I really wish someone would teach QEMU to use it (and maybe even add a
+test for it...).
 
+Thanks,
 
->=20
-> The trade-off is a less precise ADC but at least a working one.
->=20
-> In ideal case you would have Vref supplied by the dedicated LDO and tons
-> of decoupling caps, but in real-world you have it connected to a noisy
-> SMPS and you need to adjust the parameters accordingly.
->=20
-> That's it :)
->=20
-> BR,
-> Primoz
->=20
+	M.
 
+-- 
+Jazz isn't dead. It just smells funny.
 
