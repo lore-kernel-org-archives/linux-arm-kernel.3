@@ -4,66 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07DD2C83F3B
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Jul 2025 01:31:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5C49C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Jul 2025 02:14:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PzgPv34t85hMUxw/v1ooqyt+79boC5oeohNDYV7KXy8=; b=vHJwwTHo/uHA/C+j8Ru6vmq2W9
-	YUXE9IGVp7hoFBt4vRyxcot0HW+wIOXsVXkMOsfS+L5gyywZwzojSn6FFNXpjrgHxYJQAjwOPpJqW
-	ubE9CBe3t825LGEVQkWJx12EhNH8U63GWcElKhwM6uoBA5ToYMZQOYb2mUEBatuPnRr1Ea9ZRqFlm
-	Yc6ekihxRNjMG09rcfScTTd4C5IAaWmsBOIQ1YAF/z7BFVMZtI/B1qT++NgcOjUuizpOs7BzOXBqB
-	INC0lagb2E3TsK7EY6U85DMclk1W+0HfwnI0tz/UsmlMLV/d3x1zsuxVQLZfC0HZ+VIIw2K96mhIM
-	XDEEjfmQ==;
+	bh=/qhxkRUKCXYL/6OjNKW4QxXGZhlrgYaduMTj0vLFlD8=; b=v9YA2einvCQNsAQHuUi9xEGf++
+	Apo45YVDyGOK8FWzHv9h7gYG1Qrxozzn6wyGXkWznuBeoZy2m71iBC747fEdmzOJU7oYwTO8GGcX4
+	wI5nBBvGT2x9CgP/8yfsCZfYi2ImpqwLjLw6LgvQYrvVvAW24FWWK5brOqYLGtu451cM3KAbB4B6D
+	Q9un02yFVKTd5ZffK/6ZF18aqH2+UaD91rMwRdm9Q/QncL3lPNx9zoI9/Gpg4Z3vGYVP6yY3wVAHD
+	LOrDussLp4yrLZluRgAMtReo8cL152XiX+lOi5ZhqIvoPVjhFfnOxeXWJ+5/Ubw9ZgVEqn/Zv1HMg
+	pH/P6eeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucwPx-0000000Dhov-3tnK;
-	Sat, 19 Jul 2025 01:31:13 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1ucx5m-0000000DjeN-0Omv;
+	Sat, 19 Jul 2025 02:14:26 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucwNY-0000000Dhiu-2H5B
+	id 1ucx3L-0000000DjJT-1YZd
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 19 Jul 2025 01:28:44 +0000
+	Sat, 19 Jul 2025 02:11:55 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D37B4601BB;
-	Sat, 19 Jul 2025 01:28:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D7E19C4CEEB;
-	Sat, 19 Jul 2025 01:28:40 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 5ADF260205;
+	Sat, 19 Jul 2025 02:11:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id BB13FC4CEF6;
+	Sat, 19 Jul 2025 02:11:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752888521;
-	bh=Xgk+Vyd7x+6zQrEAnXg5atZzEmalN4PkM8Ip/CYxqwQ=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=lfPZkFoA3Z24WBBd9MMRnhKZMdp5gnVosdYE8Q/i9PYWIAZzRroRFMzV8QnwfDvt4
-	 kz+/Jv8t7a2RGS2sWVjDCYSqG47HmNk6ye1KTrG5zhMf9Ns8LsdwbvDkHU/lW0WM57
-	 ATL1F175Bz0rUtgcrTp65YYpio0cbeoRyAO4bv5i88hiGDLdj6D03jGgsyR4L5+/DS
-	 kUz8MkJ2autaMOIDVk1fMopa3pRG1uEEUigHlDcnvJioMxW6vhhLTCWYVXyHV5pcWA
-	 HURmrr9AXzwN6pqvM/E+SS11bhWPDrvd+ybRm5wGr4PDF/XZUBnCbKGrS8dQUACnRO
-	 Va2gPWTaJ+UxA==
-Date: Fri, 18 Jul 2025 18:28:40 -0700
-From: Jakub Kicinski <kuba@kernel.org>
-To: Lukasz Majewski <lukma@denx.de>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net, Eric Dumazet
- <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Rob Herring
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
- <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Richard Cochran
- <richardcochran@gmail.com>, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, Stefan Wahren
- <wahrenst@gmx.net>, Simon Horman <horms@kernel.org>
-Subject: Re: [net-next v15 06/12] net: mtip: Add net_device_ops functions to
- the L2 switch driver
-Message-ID: <20250718182840.7ab7e202@kernel.org>
-In-Reply-To: <20250716214731.3384273-7-lukma@denx.de>
-References: <20250716214731.3384273-1-lukma@denx.de>
-	<20250716214731.3384273-7-lukma@denx.de>
+	s=k20201202; t=1752891113;
+	bh=z9zKqXOSztmepElhFfcFd2r9dFNNAVlWOFmeg8346cA=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=FfDonPwyTC2Vyi3OA/+yHSTNM5VcNAmFnRbfzYriv8wyrt/BTZgzYSzuveG6qgiXK
+	 JWQbc4FWknlEvm1+Qif9urxFj1yf8JX8pWUb4WHwmEpmHLZgHWhsGdyCNlcIJNyvcl
+	 ZyAAF8eBc9W/FQvQinThwYu6IpBxzKHDSa20oXh2NDF7Udm9nvScEnEhEXkESKH/hg
+	 +O40X+G7qj6byZBmsOL6R28TtPJ4c9cp1Vi1oZLxlZ5DxJi9nAME3RruzI3NEjqxUN
+	 q6cpJIEduMKEjq3tsN/qOm7y8cNMQd4IFMzXdKIpqXBi8ClF7bg777VGGrLr3syTHE
+	 tG6cLODrRRFKA==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B086AC83F17;
+	Sat, 19 Jul 2025 02:11:53 +0000 (UTC)
+From: Per Larsen via B4 Relay <devnull+perlarsen.google.com@kernel.org>
+Date: Sat, 19 Jul 2025 02:11:25 +0000
+Subject: [PATCH v8 3/7] KVM: arm64: Mark FFA_NOTIFICATION_* calls as
+ unsupported
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20250719-virtio-msg-ffa-v8-3-03e8e8dbe856@google.com>
+References: <20250719-virtio-msg-ffa-v8-0-03e8e8dbe856@google.com>
+In-Reply-To: <20250719-virtio-msg-ffa-v8-0-03e8e8dbe856@google.com>
+To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+ Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+ Zenghui Yu <yuzenghui@huawei.com>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+ Sudeep Holla <sudeep.holla@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, ahomescu@google.com, armellel@google.com, 
+ arve@android.com, ayrton@google.com, qperret@google.com, 
+ sebastianene@google.com, qwandor@google.com, 
+ Per Larsen <perlarsen@google.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1752891112; l=1008;
+ i=perlarsen@google.com; s=20250508; h=from:subject:message-id;
+ bh=eQvexLnYoTcxsrnl0Pu9EhkGFuUrJCQc4aSj6eFtezc=;
+ b=ApBsC/BlD81Hz0BWfbZYdBl0BwB/z9CBGvXFont7uPFbpjiEcaQFLI26mF0x2FqaERmhWlMst
+ 2ouZvB9XsInANbSCy3Islp4cVzYEtein+r3ifjM3lFZ9DUUuhiBshV3
+X-Developer-Key: i=perlarsen@google.com; a=ed25519;
+ pk=jjc/Ta4VmrLRmMoahP6d1mBcKzvWU+nsmdtYe2oS2kQ=
+X-Endpoint-Received: by B4 Relay for perlarsen@google.com/20250508 with
+ auth_id=402
+X-Original-From: Per Larsen <perlarsen@google.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,173 +87,42 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: perlarsen@google.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 16 Jul 2025 23:47:25 +0200 Lukasz Majewski wrote:
-> +static netdev_tx_t mtip_start_xmit_port(struct sk_buff *skb,
-> +					struct net_device *dev, int port)
-> +{
-> +	struct mtip_ndev_priv *priv = netdev_priv(dev);
-> +	struct switch_enet_private *fep = priv->fep;
-> +	unsigned short status;
-> +	struct cbd_t *bdp;
-> +	void *bufaddr;
-> +
-> +	spin_lock(&fep->hw_lock);
+From: Per Larsen <perlarsen@google.com>
 
-I see some inconsistencies in how you take this lock.
-Bunch of bare spin_lock() calls from BH context, but there's also
-a _irqsave() call in mtip_adjust_link(). Please align to the strictest
-context (not sure if the irqsave is actually needed, at a glance, IOW
-whether the lock is taken from an IRQ)
+Prevent FFA_NOTIFICATION_* interfaces from being passed through to TZ.
 
-> +	if (!fep->link[0] && !fep->link[1]) {
-> +		/* Link is down or autonegotiation is in progress. */
-> +		netif_stop_queue(dev);
-> +		spin_unlock(&fep->hw_lock);
-> +		return NETDEV_TX_BUSY;
-> +	}
-> +
-> +	/* Fill in a Tx ring entry */
-> +	bdp = fep->cur_tx;
-> +
-> +	/* Force read memory barier on the current transmit description */
+Acked-by: Will Deacon <will@kernel.org>
+Signed-off-by: Per Larsen <perlarsen@google.com>
+---
+ arch/arm64/kvm/hyp/nvhe/ffa.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
-Barrier are between things. What is this barrier separating, and what
-write barrier does it pair with? As far as I can tell cur_tx is just
-a value in memory, and accesses are under ->hw_lock, so there should
-be no ordering concerns.
+diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
+index 52ac3e2689f0c200ebbb57ec564f71a37b0ddc8f..50ec52bcce4b4443c2f3ffeda455594733f3a5a0 100644
+--- a/arch/arm64/kvm/hyp/nvhe/ffa.c
++++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
+@@ -663,6 +663,14 @@ static bool ffa_call_supported(u64 func_id)
+ 	case FFA_RXTX_MAP:
+ 	case FFA_MEM_DONATE:
+ 	case FFA_MEM_RETRIEVE_REQ:
++       /* Optional notification interfaces added in FF-A 1.1 */
++	case FFA_NOTIFICATION_BITMAP_CREATE:
++	case FFA_NOTIFICATION_BITMAP_DESTROY:
++	case FFA_NOTIFICATION_BIND:
++	case FFA_NOTIFICATION_UNBIND:
++	case FFA_NOTIFICATION_SET:
++	case FFA_NOTIFICATION_GET:
++	case FFA_NOTIFICATION_INFO_GET:
+ 		return false;
+ 	}
+ 
 
-> +	rmb();
-> +	status = bdp->cbd_sc;
-> +
-> +	if (status & BD_ENET_TX_READY) {
-> +		/* All transmit buffers are full. Bail out.
-> +		 * This should not happen, since dev->tbusy should be set.
-> +		 */
-> +		netif_stop_queue(dev);
-> +		dev_err(&fep->pdev->dev, "%s: tx queue full!.\n", dev->name);
+-- 
+2.50.0.727.gbf7dc18ff4-goog
 
-This needs to be rate limited, we don't want to flood the logs in case
-there's a bug.
 
-Also at a glance it seems like you have one fep for multiple netdevs.
-So stopping one netdev's Tx queue when fep fills up will not stop the
-other ports from pushing frames, right?
-
-> +		spin_unlock(&fep->hw_lock);
-> +		return NETDEV_TX_BUSY;
-> +	}
-> +
-> +	/* Clear all of the status flags */
-> +	status &= ~BD_ENET_TX_STATS;
-> +
-> +	/* Set buffer length and buffer pointer */
-> +	bufaddr = skb->data;
-> +	bdp->cbd_datlen = skb->len;
-> +
-> +	/* On some FEC implementations data must be aligned on
-> +	 * 4-byte boundaries. Use bounce buffers to copy data
-> +	 * and get it aligned.spin
-> +	 */
-> +	if ((unsigned long)bufaddr & MTIP_ALIGNMENT) {
-
-I think you should add 
-
-	if ... ||
-           fep->quirks & FEC_QUIRK_SWAP_FRAME)
-
-here. You can't modify skb->data without calling skb_cow_data()
-but you already have buffers allocated so can as well use them.
-
-> +		unsigned int index;
-> +
-> +		index = bdp - fep->tx_bd_base;
-> +		memcpy(fep->tx_bounce[index],
-> +		       (void *)skb->data, skb->len);
-
-this fits on one 80 char line BTW, quite easily:
-
-		memcpy(fep->tx_bounce[index], (void *)skb->data, skb->len);
-
-Also the cast to void * is not necessary in C.
-
-> +		bufaddr = fep->tx_bounce[index];
-> +	}
-> +
-> +	if (fep->quirks & FEC_QUIRK_SWAP_FRAME)
-> +		swap_buffer(bufaddr, skb->len);
-> +
-> +	/* Save skb pointer. */
-> +	fep->tx_skbuff[fep->skb_cur] = skb;
-> +
-> +	fep->skb_cur = (fep->skb_cur + 1) & TX_RING_MOD_MASK;
-
-Not sure if this is buggy, but maybe delay updating things until the
-mapping succeeds? Fewer things to unwind.
-
-> +	/* Push the data cache so the CPM does not get stale memory
-> +	 * data.
-> +	 */
-> +	bdp->cbd_bufaddr = dma_map_single(&fep->pdev->dev, bufaddr,
-> +					  MTIP_SWITCH_TX_FRSIZE,
-> +					  DMA_TO_DEVICE);
-> +	if (unlikely(dma_mapping_error(&fep->pdev->dev, bdp->cbd_bufaddr))) {
-> +		dev_err(&fep->pdev->dev,
-> +			"Failed to map descriptor tx buffer\n");
-> +		dev->stats.tx_errors++;
-> +		dev->stats.tx_dropped++;
-
-dropped and errors are two different counters
-I'd stick to dropped
-
-> +		dev_kfree_skb_any(skb);
-> +		goto err;
-> +	}
-> +
-> +	/* Send it on its way.  Tell FEC it's ready, interrupt when done,
-> +	 * it's the last BD of the frame, and to put the CRC on the end.
-> +	 */
-> +
-> +	status |= (BD_ENET_TX_READY | BD_ENET_TX_INTR
-> +			| BD_ENET_TX_LAST | BD_ENET_TX_TC);
-
-The | goes at the end of the previous line, start of new line adjusts 
-to the opening brackets..
-
-> +
-> +	/* Synchronize all descriptor writes */
-> +	wmb();
-> +	bdp->cbd_sc = status;
-> +
-> +	netif_trans_update(dev);
-
-Is this call necessary?
-
-> +	skb_tx_timestamp(skb);
-> +
-> +	/* Trigger transmission start */
-> +	writel(MCF_ESW_TDAR_X_DES_ACTIVE, fep->hwp + ESW_TDAR);
-> +
-> +	dev->stats.tx_bytes += skb->len;
-> +	/* If this was the last BD in the ring,
-> +	 * start at the beginning again.
-> +	 */
-> +	if (status & BD_ENET_TX_WRAP)
-> +		bdp = fep->tx_bd_base;
-> +	else
-> +		bdp++;
-> +
-> +	if (bdp == fep->dirty_tx) {
-> +		fep->tx_full = 1;
-> +		netif_stop_queue(dev);
-> +	}
-> +
-> +	fep->cur_tx = bdp;
-> + err:
-> +	spin_unlock(&fep->hw_lock);
-> +
-> +	return NETDEV_TX_OK;
-> +}
 
