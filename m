@@ -4,61 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19E72C83F34
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Jul 2025 02:29:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4FCEC83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Jul 2025 02:32:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=o0906EP5K0r2F2xgUoUqkJgm+2hZT0Ft0/SR/1igcPA=; b=iIDKkBbEgLmHXtPqFdzT8+HMX7
-	g9KasxZWSwHAfZf89MGLNyQ8BVD4Z1kRdTOvQwnkQoyOXQwyoUREw/Cwra0m3ajOnVhg0g7yQS4Fn
-	pkGbDYCrV7ePwrJAY8O//qni8UoD6lhxoi92AOgzU82kC++L/j3NPcWmjr/ku8X+S2AIK2gQiTrGX
-	vwwL6i1dax3FLb4hAG+tSCgJ+TN+xfV/4pOnm/7rFCQWYWjk7EsWtEuWE3ihnkbq9GJ2xin7zNmU9
-	Nk3hWK4lCEbNpOn/gIOC1PZQ2oeE4LPFG6/PkimI0dKgRh+1WBdKRI89PUXdgNxNjPXWxOo96szgb
-	D87s83uw==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4UcvtSwUE/wLtdElxz8G59NbqdOSdRB9j+Q68sTzJTI=; b=GJbw7mnP9PP9gqVcd3bViGcKQ4
+	fLtWyZEnGEwFr9ukuu0DluPNVYJ9fXXXwWTAaVD5rPFoSY8K7YNdEupHJVcH7XJTuHE6kZlk/E4nC
+	Nh3qUrhuXCsWec07Jh9KPE9D2LPeInLVPMieP56VduHqJ325eXfcuvdNs3PScdQePtZyphDQd3yya
+	yrZwrs5dyvYWVL9Pq07vO1VYBznYvPLndbtvbqr7SHCj4VrNgHSVpRUYYujyUncqPiwTaSQohOLUv
+	KNygYxOPHoq3dcajTdj6Wxhv+DQFv3Nt8KE1kNviW5MO+zZFYVSTG30cLtkumw8V5skgsHZPHGpVH
+	2Wr6Lt4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucxKJ-0000000Dka8-2rAZ;
-	Sat, 19 Jul 2025 02:29:27 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1ucxMl-0000000Dki8-231a;
+	Sat, 19 Jul 2025 02:31:59 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucx3L-0000000DjJO-0Nkv
+	id 1ucx3M-0000000DjKk-1MDZ
 	for linux-arm-kernel@lists.infradead.org;
 	Sat, 19 Jul 2025 02:11:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D24DA451ED;
-	Sat, 19 Jul 2025 02:11:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 9A1A0C4CEEB;
+	by dfw.source.kernel.org (Postfix) with ESMTP id 6B18E5C440B;
+	Sat, 19 Jul 2025 02:11:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id B6ACBC4CEF1;
 	Sat, 19 Jul 2025 02:11:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1752891113;
-	bh=S9tg4OxSGoLcSw6DTtpLwBLOnhyECCWkSW4GScn6akg=;
-	h=From:Subject:Date:To:Cc:Reply-To:From;
-	b=hDlWLWwJb1gHocb2dUgSue5I1WOtEZKhzUPzJbvm2VVvb2gyjxUGre1bAIR/1/csy
-	 Tg1bVr4K7fn8IMaqsVDraqgJwzsksfmymSt3kVGek/wDVYY5cEVrYnkIAjkASI4x1x
-	 /lesEfd4TEl/I1fblfvBwmHgVxdjpzeCfpXzdlKyYApL43dxz8l59eddUWHd4BTTrl
-	 tthFZp8cdLASdsGsutEBNOGB0GpMO+uuueipl9c2Qx25UmyAPk8Sws2+AOlBejqY9k
-	 7hii2uiIqGuIEvx4TBP9mxMLZYntMYGok9Z85bU2A0l50TjEwcS7B9FMpqtUl6WcIs
-	 elvH71/5rVzng==
+	bh=KVQVAwvTzqE/QnEfsFxGuj0q6gToSmv+sLsoZFV8mJM=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=GabzZEKh71aOf48xj7TwEgAphuznfgIrpkHlsppurFVP8KvJvMnwI2+hgj5jzzlVr
+	 ASSkYL5hyC3ea1yq2pLPs584u7ZyqCITYS458lzsEHHIFoajutei/Yx1kevAbH8cml
+	 sAOgRyJEj6dEUpXIfgQ/w1Mc3Xs7f3nI18Z+/ic15wyajlh+JgbV92zNoMU+PFhWMX
+	 Cf8KqdP2TZcKS9rj54RJ+KVjumr4g7Veea5u6fiB6ypuNAJlJQoeZ5mn0wDgZHVTRx
+	 K5GuAVlT0DOMVevLszkHb/fcuXVBBeO5a9+8E3VZ5lq3NTfn9NbNH/57AdzeWwue1c
+	 ecRswR9RIsvyw==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 86F96C83F1A;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A32C8C83F3B;
 	Sat, 19 Jul 2025 02:11:53 +0000 (UTC)
 From: Per Larsen via B4 Relay <devnull+perlarsen.google.com@kernel.org>
-Subject: [PATCH v8 0/7] KVM: arm64: Support FF-A 1.2 and SEND_DIRECT2 ABI
-Date: Sat, 19 Jul 2025 02:11:22 +0000
-Message-Id: <20250719-virtio-msg-ffa-v8-0-03e8e8dbe856@google.com>
+Date: Sat, 19 Jul 2025 02:11:24 +0000
+Subject: [PATCH v8 2/7] KVM: arm64: Use SMCCC 1.2 for FF-A initialization
+ and in host handler
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAMr+emgC/2XQTWrDMBCG4asEr6swGv26q9yjdKHKI0cQW0F2T
- Uvw3SsbStxqOYvn5WMezUQ50tS8nh5NpiVOMY3lsC+nxl/d2BOLXbkbBFSgQLMl5jkmNkw9C8E
- xRBcM+ha5gqage6YQv/bg23u5Q04Dm6+Z3DGDUADYs0CUQnLG2Z3y7RKH4XN043z2adhi1zjNK
- X/v4xbckr8B+3/HggwYdVYGC0q0Wl36lPob7altyCIOnovKi+I7rb3RIfAP9JWXR1/9YZHFKwt
- EBqjs45VXT695W3lVvOTlk1Ypa8FUXh88msrr4q0HDF0rqXP1fvP0BnjlTfFtq1zwohNW0R+/r
- usP5dMV/ioCAAA=
-X-Change-ID: 20250506-virtio-msg-ffa-22af72c92150
+Message-Id: <20250719-virtio-msg-ffa-v8-2-03e8e8dbe856@google.com>
+References: <20250719-virtio-msg-ffa-v8-0-03e8e8dbe856@google.com>
+In-Reply-To: <20250719-virtio-msg-ffa-v8-0-03e8e8dbe856@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
  Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
  Zenghui Yu <yuzenghui@huawei.com>, 
@@ -70,19 +66,19 @@ Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
  sebastianene@google.com, qwandor@google.com, 
  Per Larsen <perlarsen@google.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1752891112; l=5422;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1752891112; l=12373;
  i=perlarsen@google.com; s=20250508; h=from:subject:message-id;
- bh=S9tg4OxSGoLcSw6DTtpLwBLOnhyECCWkSW4GScn6akg=;
- b=xBzVi6qON6PxUBnnfhGd3EnytKzJFu/s+0dfKWqFXLULoHYjU3fG+OrFj8H1ZqJ7+Ju8kAFZW
- GlWvwAGM2R3ApTbbtM4IIfHWYNU4LMgQX/bTn2YaQaPUqGUDIx47ckS
+ bh=m1/HgRESjtd0MBTbe5flhT/3DvCF84rYT4VVWwmoW3Y=;
+ b=l6KonCDHSwJy+yaj8K5jEOgZ31rhZb0fJpXOiYrXkoMRz51nioHtjrWq1MtrA9hCWcSi/ksOf
+ 7nFLYZCPbAjA1J02ejRtEFUr3x7X9aNP0cNIAKa2YdqIAfEjAgB9UXE
 X-Developer-Key: i=perlarsen@google.com; a=ed25519;
  pk=jjc/Ta4VmrLRmMoahP6d1mBcKzvWU+nsmdtYe2oS2kQ=
 X-Endpoint-Received: by B4 Relay for perlarsen@google.com/20250508 with
  auth_id=402
 X-Original-From: Per Larsen <perlarsen@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250718_191155_171394_696031C6 
-X-CRM114-Status: GOOD (  15.69  )
+X-CRM114-CacheID: sfid-20250718_191156_496176_6BAF50C2 
+X-CRM114-Status: GOOD (  18.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,120 +94,397 @@ Reply-To: perlarsen@google.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+From: Per Larsen <perlarsen@google.com>
 
-The FF-A 1.2 specification introduces a new SEND_DIRECT2 ABI which
-allows registers x4-x17 to be used for the message payload. This patch
-set prevents the host from using a lower FF-A version than what has
-already been negotiated with the hypervisor. This is necessary because
-the hypervisor does not have the necessary compatibility paths to
-translate from the hypervisor FF-A version to a previous version.
+SMCCC 1.1 and prior allows four registers to be sent back as a result
+of an FF-A interface. SMCCC 1.2 increases the number of results that can
+be sent back to 8 and 16 for 32-bit and 64-bit SMC/HVCs respectively.
 
-Support for FF-A 1.2 in the hypervisor is added as a precursor to the
-addition of the FFA_MSG_SEND_DIRECT_REQ2 messaging interface. Notably,
-this patch updates all smc calls to use SMCCC 1.2 as it makes it simpler
-to support interfaces that need to accept more than 8 arguments and/or
-return more than 4 values. The list of optional/unsupported interfaces
-was updated to reflect additions in FF-A 1.2.
+FF-A 1.0 references SMCCC 1.2 (reference [4] on page xi) and FF-A 1.2
+explicitly requires SMCCC 1.2 so it should be safe to use this version
+unconditionally. Moreover, it is simpler to implement FF-A features
+without having to worry about compatibility with SMCCC 1.1 and older.
 
-Tested by booting Android under QEMU and loading Trusty as the guest
-VM and observing the SEND_DIRECT2 ABI being used successfully during
-guest boot.
+Update the FF-A initialization and host handler code to use SMCCC 1.2.
 
-Changes in v8:
-- 2/5 -> 2/7: Use func_id argument to distinguish SMC32/SMC64. Update rationale.
-- 4/5 -> 4/7: Split up 4/5: Add optional FF-A 1.2 interfaces
-- 4/5 -> 5/7: Split up 4/5: Mask FFA_RXTX_MAP minium buffer size in a2. Don't check MBZ bits.
-- 4/5 -> 6/7: Remainder of 4/5: Bump supported version to FF-A 1.2
-- 5/5 -> 7/7: Don't check src id in do_ffa_direct_msg2
-- Link to v7: https://lore.kernel.org/r/20250701-virtio-msg-ffa-v7-0-995afc3d385e@google.com
-
-Changes in v7:
-- 0/6:        Revised cover letter slightly
-- 4/6:        ffa_call_supported: Clarify optional interfaces
-              hyp_ffa_post_init: Sanitize MBZ bits in x2 and x3
-              address nit: use GENMASK
-- Link to v6: https://lore.kernel.org/r/20250627-virtio-msg-ffa-v6-0-8c02fd94edac@google.com 
-
-Changes since v5:
-- 3/6 -> 2/5: Merged with parent patch as they were closely related
-              Don't rename variables from "res" to "regs" to avoid churn
-              Update and clarify reasoning for condition added to ffa_set_retval
-              Adopt style suggested by Marc when passing regs to arm_smccc_1_2_smc
-              Fix inadvertent duplicate statements in ffa_{map,unmap}_hyp_buffers
-- Link to v5: https://lore.kernel.org/r/20250619-virtio-msg-ffa-v5-0-412c98558807@google.com
-
-Changes since v4:
-- 1/5 -> 1/6: Added Acked-by: Will Deacon <will@kernel.org>
-              Reworded patch subject and description
-- 2/5:        Dropped patch: zero x4-x7 in ffa_set_retval
--        2/6: New: use SMCCC 1.2 during hyp init
--        3/6: New: use SMCCC 1.2 in host FF-A handler
-- 3/5 -> 4/6: No change; can revisit denylist design in later patchset
-              Added Acked-by: Will Deacon <will@kernel.org>
-- 4/5 -> 5/6: No change
-- 5/5 -> 6/6: No change
-- Link to v4: https://lore.kernel.org/r/20250516-virtio-msg-ffa-v4-0-580ee70e5081@google.com
-
-Changes since v3:
-- all:        Remove Signed-off-by: Per Larsen <perl@immunant.com>
-- 2/5:        Split out from 2/3, zero x4-x7 in set_ffa_retval
-- 3/5:        Split out from 2/3, Mark FFA_NOTIFICATION_* calls as
-              unsupported
-- 2/3 -> 4/5: Drop ffa_get_hypervisor_version, access hyp_ffa_version
-              directly when version negotiation is complete.
-- 3/3 -> 5/5: Call ffa_to_smccc_1_2_error directly in
-              do_do_ffa_direct_msg2
-              Push call to ffa_call_needs_smccc_1_2 lower down by adding
-              ffa_get_func_id and ffa_set_retval_smccc_1_x.
-              Drop ffa_to_smccc_1_2_regs and ffa_to_smccc_1_2_regs_prop
-              as they are no longer used.
-- Link to v3: https://lore.kernel.org/r/20250513-virtio-msg-ffa-v3-0-d66c76ff1b2c@google.com 
-
-Changes since v2:
-- 2/3: Removed files added by mistake.
-       Add and use ffa_get_hypervisor_version to access hyp_ffa_version
-- 3/3: Use ffa_get_hypervisor_version to access hyp_ffa_version safely
-- Link to v2: https://lore.kernel.org/r/20250508-virtio-msg-ffa-v2-0-ed84f8053965@google.com
-
-Changes since v1:
-- 1/3: Simplify commit message; drop long comment in do_ffa_version
-- 2/3: Correct use of Co-developed-by: footer
-       s/arm_smccc_1_2_smc_fallback/arm_smccc_1_x_smc/
-       Always access hyp_ffa_version w/lock held
-       Remove superfluous comments in ffa_call_supported
-       Add and use FFA_FEAT_RXTX_MIN_SZ_MASK instead of constant
-       Add FFA_PARTITION_INFO_GET_REGS to calls that require SMCCC 1.2
-- 3/3: Always access hyp_ffa_version w/lock held
-       Correct formatting
-
-Thanks,
-Per Larsen
-
---
-2.49.0
-
+Signed-off-by: Per Larsen <perlarsen@google.com>
 ---
-Per Larsen (7):
-      KVM: arm64: Correct return value on host version downgrade attempt
-      KVM: arm64: Use SMCCC 1.2 for FF-A initialization and in host handler
-      KVM: arm64: Mark FFA_NOTIFICATION_* calls as unsupported
-      KVM: arm64: Mark optional FF-A 1.2 interfaces as unsupported
-      KVM: arm64: Mask response to FFA_FEATURE call
-      KVM: arm64: Bump the supported version of FF-A to 1.2
-      KVM: arm64: Support FFA_MSG_SEND_DIRECT_REQ2 in host handler
-
  arch/arm64/kvm/hyp/nvhe/Makefile |   1 +
- arch/arm64/kvm/hyp/nvhe/ffa.c    | 227 ++++++++++++++++++++++++++-------------
- include/linux/arm_ffa.h          |   1 +
- 3 files changed, 156 insertions(+), 73 deletions(-)
----
-base-commit: 414aaef1537ac7f90dcb54e618864680aca2e197
-change-id: 20250506-virtio-msg-ffa-22af72c92150
+ arch/arm64/kvm/hyp/nvhe/ffa.c    | 186 ++++++++++++++++++++++++---------------
+ 2 files changed, 118 insertions(+), 69 deletions(-)
 
-Best regards,
+diff --git a/arch/arm64/kvm/hyp/nvhe/Makefile b/arch/arm64/kvm/hyp/nvhe/Makefile
+index a76522d63c3e630795db5972a99abc3d24bc5e26..f859a8fb41a25effea1edd977bef889423153399 100644
+--- a/arch/arm64/kvm/hyp/nvhe/Makefile
++++ b/arch/arm64/kvm/hyp/nvhe/Makefile
+@@ -27,6 +27,7 @@ hyp-obj-y := timer-sr.o sysreg-sr.o debug-sr.o switch.o tlb.o hyp-init.o host.o
+ 	 cache.o setup.o mm.o mem_protect.o sys_regs.o pkvm.o stacktrace.o ffa.o
+ hyp-obj-y += ../vgic-v3-sr.o ../aarch32.o ../vgic-v2-cpuif-proxy.o ../entry.o \
+ 	 ../fpsimd.o ../hyp-entry.o ../exception.o ../pgtable.o
++hyp-obj-y += ../../../kernel/smccc-call.o
+ hyp-obj-$(CONFIG_LIST_HARDENED) += list_debug.o
+ hyp-obj-y += $(lib-objs)
+ 
+diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
+index 2c199d40811efb5bfae199c4a67d8ae3d9307357..52ac3e2689f0c200ebbb57ec564f71a37b0ddc8f 100644
+--- a/arch/arm64/kvm/hyp/nvhe/ffa.c
++++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
+@@ -71,36 +71,61 @@ static u32 hyp_ffa_version;
+ static bool has_version_negotiated;
+ static hyp_spinlock_t version_lock;
+ 
+-static void ffa_to_smccc_error(struct arm_smccc_res *res, u64 ffa_errno)
++static void ffa_to_smccc_error(struct arm_smccc_1_2_regs *res, u64 ffa_errno)
+ {
+-	*res = (struct arm_smccc_res) {
++	*res = (struct arm_smccc_1_2_regs) {
+ 		.a0	= FFA_ERROR,
+ 		.a2	= ffa_errno,
+ 	};
+ }
+ 
+-static void ffa_to_smccc_res_prop(struct arm_smccc_res *res, int ret, u64 prop)
++static void ffa_to_smccc_res_prop(struct arm_smccc_1_2_regs *res, int ret, u64 prop)
+ {
+ 	if (ret == FFA_RET_SUCCESS) {
+-		*res = (struct arm_smccc_res) { .a0 = FFA_SUCCESS,
+-						.a2 = prop };
++		*res = (struct arm_smccc_1_2_regs) { .a0 = FFA_SUCCESS,
++						      .a2 = prop };
+ 	} else {
+ 		ffa_to_smccc_error(res, ret);
+ 	}
+ }
+ 
+-static void ffa_to_smccc_res(struct arm_smccc_res *res, int ret)
++static void ffa_to_smccc_res(struct arm_smccc_1_2_regs *res, int ret)
+ {
+ 	ffa_to_smccc_res_prop(res, ret, 0);
+ }
+ 
+ static void ffa_set_retval(struct kvm_cpu_context *ctxt,
+-			   struct arm_smccc_res *res)
++			   struct arm_smccc_1_2_regs *res)
+ {
++	DECLARE_REG(u64, func_id, ctxt, 0);
+ 	cpu_reg(ctxt, 0) = res->a0;
+ 	cpu_reg(ctxt, 1) = res->a1;
+ 	cpu_reg(ctxt, 2) = res->a2;
+ 	cpu_reg(ctxt, 3) = res->a3;
++	cpu_reg(ctxt, 4) = res->a4;
++	cpu_reg(ctxt, 5) = res->a5;
++	cpu_reg(ctxt, 6) = res->a6;
++	cpu_reg(ctxt, 7) = res->a7;
++
++	/*
++	 * DEN0028C 2.6: SMC32/HVC32 call from aarch64 must preserve x8-x30.
++	 *
++	 * FF-A 1.2 allows FFA_MSG_WAIT (SMC32) to return a SMC64 reply (e.g.
++	 * FFA_MSG_SEND_DIRECT_REQ2) but that isn't an issue as FFA_MSG_WAIT
++	 * isn't supported by the hypervisor.
++	 */
++	if (ARM_SMCCC_IS_64(func_id)) {
++		cpu_reg(ctxt, 8) = res->a8;
++		cpu_reg(ctxt, 9) = res->a9;
++		cpu_reg(ctxt, 10) = res->a10;
++		cpu_reg(ctxt, 11) = res->a11;
++		cpu_reg(ctxt, 12) = res->a12;
++		cpu_reg(ctxt, 13) = res->a13;
++		cpu_reg(ctxt, 14) = res->a14;
++		cpu_reg(ctxt, 15) = res->a15;
++		cpu_reg(ctxt, 16) = res->a16;
++		cpu_reg(ctxt, 17) = res->a17;
++	}
+ }
+ 
+ static bool is_ffa_call(u64 func_id)
+@@ -113,82 +138,92 @@ static bool is_ffa_call(u64 func_id)
+ 
+ static int ffa_map_hyp_buffers(u64 ffa_page_count)
+ {
+-	struct arm_smccc_res res;
++	struct arm_smccc_1_2_regs res;
+ 
+-	arm_smccc_1_1_smc(FFA_FN64_RXTX_MAP,
+-			  hyp_virt_to_phys(hyp_buffers.tx),
+-			  hyp_virt_to_phys(hyp_buffers.rx),
+-			  ffa_page_count,
+-			  0, 0, 0, 0,
+-			  &res);
++	arm_smccc_1_2_smc(&(struct arm_smccc_1_2_regs) {
++		.a0 = FFA_FN64_RXTX_MAP,
++		.a1 = hyp_virt_to_phys(hyp_buffers.tx),
++		.a2 = hyp_virt_to_phys(hyp_buffers.rx),
++		.a3 = ffa_page_count,
++	}, &res);
+ 
+ 	return res.a0 == FFA_SUCCESS ? FFA_RET_SUCCESS : res.a2;
+ }
+ 
+ static int ffa_unmap_hyp_buffers(void)
+ {
+-	struct arm_smccc_res res;
++	struct arm_smccc_1_2_regs res;
+ 
+-	arm_smccc_1_1_smc(FFA_RXTX_UNMAP,
+-			  HOST_FFA_ID,
+-			  0, 0, 0, 0, 0, 0,
+-			  &res);
++	arm_smccc_1_2_smc(&(struct arm_smccc_1_2_regs) {
++		.a0 = FFA_RXTX_UNMAP,
++		.a1 = HOST_FFA_ID,
++	}, &res);
+ 
+ 	return res.a0 == FFA_SUCCESS ? FFA_RET_SUCCESS : res.a2;
+ }
+ 
+-static void ffa_mem_frag_tx(struct arm_smccc_res *res, u32 handle_lo,
++static void ffa_mem_frag_tx(struct arm_smccc_1_2_regs *res, u32 handle_lo,
+ 			     u32 handle_hi, u32 fraglen, u32 endpoint_id)
+ {
+-	arm_smccc_1_1_smc(FFA_MEM_FRAG_TX,
+-			  handle_lo, handle_hi, fraglen, endpoint_id,
+-			  0, 0, 0,
+-			  res);
++	arm_smccc_1_2_smc(&(struct arm_smccc_1_2_regs) {
++		.a0 = FFA_MEM_FRAG_TX,
++		.a1 = handle_lo,
++		.a2 = handle_hi,
++		.a3 = fraglen,
++		.a4 = endpoint_id,
++	}, res);
+ }
+ 
+-static void ffa_mem_frag_rx(struct arm_smccc_res *res, u32 handle_lo,
++static void ffa_mem_frag_rx(struct arm_smccc_1_2_regs *res, u32 handle_lo,
+ 			     u32 handle_hi, u32 fragoff)
+ {
+-	arm_smccc_1_1_smc(FFA_MEM_FRAG_RX,
+-			  handle_lo, handle_hi, fragoff, HOST_FFA_ID,
+-			  0, 0, 0,
+-			  res);
++	arm_smccc_1_2_smc(&(struct arm_smccc_1_2_regs) {
++		.a0 = FFA_MEM_FRAG_RX,
++		.a1 = handle_lo,
++		.a2 = handle_hi,
++		.a3 = fragoff,
++		.a4 = HOST_FFA_ID,
++	}, res);
+ }
+ 
+-static void ffa_mem_xfer(struct arm_smccc_res *res, u64 func_id, u32 len,
++static void ffa_mem_xfer(struct arm_smccc_1_2_regs *res, u64 func_id, u32 len,
+ 			  u32 fraglen)
+ {
+-	arm_smccc_1_1_smc(func_id, len, fraglen,
+-			  0, 0, 0, 0, 0,
+-			  res);
++	arm_smccc_1_2_smc(&(struct arm_smccc_1_2_regs) {
++		.a0 = func_id,
++		.a1 = len,
++		.a2 = fraglen,
++	}, res);
+ }
+ 
+-static void ffa_mem_reclaim(struct arm_smccc_res *res, u32 handle_lo,
++static void ffa_mem_reclaim(struct arm_smccc_1_2_regs *res, u32 handle_lo,
+ 			     u32 handle_hi, u32 flags)
+ {
+-	arm_smccc_1_1_smc(FFA_MEM_RECLAIM,
+-			  handle_lo, handle_hi, flags,
+-			  0, 0, 0, 0,
+-			  res);
++	arm_smccc_1_2_smc(&(struct arm_smccc_1_2_regs) {
++		.a0 = FFA_MEM_RECLAIM,
++		.a1 = handle_lo,
++		.a2 = handle_hi,
++		.a3 = flags,
++	}, res);
+ }
+ 
+-static void ffa_retrieve_req(struct arm_smccc_res *res, u32 len)
++static void ffa_retrieve_req(struct arm_smccc_1_2_regs *res, u32 len)
+ {
+-	arm_smccc_1_1_smc(FFA_FN64_MEM_RETRIEVE_REQ,
+-			  len, len,
+-			  0, 0, 0, 0, 0,
+-			  res);
++	arm_smccc_1_2_smc(&(struct arm_smccc_1_2_regs) {
++		.a0 = FFA_FN64_MEM_RETRIEVE_REQ,
++		.a1 = len,
++		.a2 = len,
++	}, res);
+ }
+ 
+-static void ffa_rx_release(struct arm_smccc_res *res)
++static void ffa_rx_release(struct arm_smccc_1_2_regs *res)
+ {
+-	arm_smccc_1_1_smc(FFA_RX_RELEASE,
+-			  0, 0,
+-			  0, 0, 0, 0, 0,
+-			  res);
++	arm_smccc_1_2_smc(&(struct arm_smccc_1_2_regs) {
++		.a0 = FFA_RX_RELEASE,
++	}, res);
+ }
+ 
+-static void do_ffa_rxtx_map(struct arm_smccc_res *res,
++static void do_ffa_rxtx_map(struct arm_smccc_1_2_regs *res,
+ 			    struct kvm_cpu_context *ctxt)
+ {
+ 	DECLARE_REG(phys_addr_t, tx, ctxt, 1);
+@@ -267,7 +302,7 @@ static void do_ffa_rxtx_map(struct arm_smccc_res *res,
+ 	goto out_unlock;
+ }
+ 
+-static void do_ffa_rxtx_unmap(struct arm_smccc_res *res,
++static void do_ffa_rxtx_unmap(struct arm_smccc_1_2_regs *res,
+ 			      struct kvm_cpu_context *ctxt)
+ {
+ 	DECLARE_REG(u32, id, ctxt, 1);
+@@ -368,7 +403,7 @@ static int ffa_host_unshare_ranges(struct ffa_mem_region_addr_range *ranges,
+ 	return ret;
+ }
+ 
+-static void do_ffa_mem_frag_tx(struct arm_smccc_res *res,
++static void do_ffa_mem_frag_tx(struct arm_smccc_1_2_regs *res,
+ 			       struct kvm_cpu_context *ctxt)
+ {
+ 	DECLARE_REG(u32, handle_lo, ctxt, 1);
+@@ -427,7 +462,7 @@ static void do_ffa_mem_frag_tx(struct arm_smccc_res *res,
+ }
+ 
+ static void __do_ffa_mem_xfer(const u64 func_id,
+-			      struct arm_smccc_res *res,
++			      struct arm_smccc_1_2_regs *res,
+ 			      struct kvm_cpu_context *ctxt)
+ {
+ 	DECLARE_REG(u32, len, ctxt, 1);
+@@ -521,7 +556,7 @@ static void __do_ffa_mem_xfer(const u64 func_id,
+ 		__do_ffa_mem_xfer((fid), (res), (ctxt));	\
+ 	} while (0);
+ 
+-static void do_ffa_mem_reclaim(struct arm_smccc_res *res,
++static void do_ffa_mem_reclaim(struct arm_smccc_1_2_regs *res,
+ 			       struct kvm_cpu_context *ctxt)
+ {
+ 	DECLARE_REG(u32, handle_lo, ctxt, 1);
+@@ -634,7 +669,7 @@ static bool ffa_call_supported(u64 func_id)
+ 	return true;
+ }
+ 
+-static bool do_ffa_features(struct arm_smccc_res *res,
++static bool do_ffa_features(struct arm_smccc_1_2_regs *res,
+ 			    struct kvm_cpu_context *ctxt)
+ {
+ 	DECLARE_REG(u32, id, ctxt, 1);
+@@ -666,17 +701,21 @@ static bool do_ffa_features(struct arm_smccc_res *res,
+ static int hyp_ffa_post_init(void)
+ {
+ 	size_t min_rxtx_sz;
+-	struct arm_smccc_res res;
++	struct arm_smccc_1_2_regs res;
+ 
+-	arm_smccc_1_1_smc(FFA_ID_GET, 0, 0, 0, 0, 0, 0, 0, &res);
++	arm_smccc_1_2_smc(&(struct arm_smccc_1_2_regs){
++		.a0 = FFA_ID_GET,
++	}, &res);
+ 	if (res.a0 != FFA_SUCCESS)
+ 		return -EOPNOTSUPP;
+ 
+ 	if (res.a2 != HOST_FFA_ID)
+ 		return -EINVAL;
+ 
+-	arm_smccc_1_1_smc(FFA_FEATURES, FFA_FN64_RXTX_MAP,
+-			  0, 0, 0, 0, 0, 0, &res);
++	arm_smccc_1_2_smc(&(struct arm_smccc_1_2_regs){
++		.a0 = FFA_FEATURES,
++		.a1 = FFA_FN64_RXTX_MAP,
++	}, &res);
+ 	if (res.a0 != FFA_SUCCESS)
+ 		return -EOPNOTSUPP;
+ 
+@@ -700,7 +739,7 @@ static int hyp_ffa_post_init(void)
+ 	return 0;
+ }
+ 
+-static void do_ffa_version(struct arm_smccc_res *res,
++static void do_ffa_version(struct arm_smccc_1_2_regs *res,
+ 			   struct kvm_cpu_context *ctxt)
+ {
+ 	DECLARE_REG(u32, ffa_req_version, ctxt, 1);
+@@ -724,9 +763,10 @@ static void do_ffa_version(struct arm_smccc_res *res,
+ 	 * first if TEE supports it.
+ 	 */
+ 	if (FFA_MINOR_VERSION(ffa_req_version) < FFA_MINOR_VERSION(hyp_ffa_version)) {
+-		arm_smccc_1_1_smc(FFA_VERSION, ffa_req_version, 0,
+-				  0, 0, 0, 0, 0,
+-				  res);
++		arm_smccc_1_2_smc(&(struct arm_smccc_1_2_regs) {
++			.a0 = FFA_VERSION,
++			.a1 = ffa_req_version,
++		}, res);
+ 		if (res->a0 == FFA_RET_NOT_SUPPORTED)
+ 			goto unlock;
+ 
+@@ -743,7 +783,7 @@ static void do_ffa_version(struct arm_smccc_res *res,
+ 	hyp_spin_unlock(&version_lock);
+ }
+ 
+-static void do_ffa_part_get(struct arm_smccc_res *res,
++static void do_ffa_part_get(struct arm_smccc_1_2_regs *res,
+ 			    struct kvm_cpu_context *ctxt)
+ {
+ 	DECLARE_REG(u32, uuid0, ctxt, 1);
+@@ -759,9 +799,14 @@ static void do_ffa_part_get(struct arm_smccc_res *res,
+ 		goto out_unlock;
+ 	}
+ 
+-	arm_smccc_1_1_smc(FFA_PARTITION_INFO_GET, uuid0, uuid1,
+-			  uuid2, uuid3, flags, 0, 0,
+-			  res);
++	arm_smccc_1_2_smc(&(struct arm_smccc_1_2_regs) {
++		.a0 = FFA_PARTITION_INFO_GET,
++		.a1 = uuid0,
++		.a2 = uuid1,
++		.a3 = uuid2,
++		.a4 = uuid3,
++		.a5 = flags,
++	}, res);
+ 
+ 	if (res->a0 != FFA_SUCCESS)
+ 		goto out_unlock;
+@@ -794,7 +839,7 @@ static void do_ffa_part_get(struct arm_smccc_res *res,
+ 
+ bool kvm_host_ffa_handler(struct kvm_cpu_context *host_ctxt, u32 func_id)
+ {
+-	struct arm_smccc_res res;
++	struct arm_smccc_1_2_regs res;
+ 
+ 	/*
+ 	 * There's no way we can tell what a non-standard SMC call might
+@@ -863,13 +908,16 @@ bool kvm_host_ffa_handler(struct kvm_cpu_context *host_ctxt, u32 func_id)
+ 
+ int hyp_ffa_init(void *pages)
+ {
+-	struct arm_smccc_res res;
++	struct arm_smccc_1_2_regs res;
+ 	void *tx, *rx;
+ 
+ 	if (kvm_host_psci_config.smccc_version < ARM_SMCCC_VERSION_1_2)
+ 		return 0;
+ 
+-	arm_smccc_1_1_smc(FFA_VERSION, FFA_VERSION_1_1, 0, 0, 0, 0, 0, 0, &res);
++	arm_smccc_1_2_smc(&(struct arm_smccc_1_2_regs) {
++		.a0 = FFA_VERSION,
++		.a1 = FFA_VERSION_1_1,
++	}, &res);
+ 	if (res.a0 == FFA_RET_NOT_SUPPORTED)
+ 		return 0;
+ 
+
 -- 
-Per Larsen <perlarsen@google.com>
+2.50.0.727.gbf7dc18ff4-goog
 
 
 
