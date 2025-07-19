@@ -4,90 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85668C83F27
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Jul 2025 21:27:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CBD7C83F34
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Jul 2025 22:49:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f63yjgIij2pyBbqiIUP1PemDCddIWdOXSdPqsmL/FZo=; b=GK8Rm2C2DCz1GT8ckPDx6mc7tr
-	oztT5N2kUG3FOT7FBPVyfK628e6pRX6ODhXpvHfHR1ornfc6ZM6iscP0FWtoz6VfZi51+Z561r0Yj
-	LwADF021v3/uFUEyACLssYLm1rJBjudEZCnDc06gdC4ZRdkH/EJ1oE3dX+nvaNsdRVomfPHmTXtQD
-	d9TfbVPQfo1Urz5NZEjtT4yQvgK9tZxr8Diwjj6RqZZ6Mph7VPjbTR7sYLzgiOTDMK8wQikw65Xou
-	3oVjIJOqVTt8LGQ5ZHQUPoOrJB1/shnZN2qKIx/vnye4OWqxIzO9Kc55e0012ry8i1Yp0jA1xHWQK
-	dOM9SGKg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=dRhGUan9tpWaaqsf9KJqYybyCOMFvarHB1XBp9ZZ7xw=; b=yx+uAaWM9nm2NVJJxM0EgnuUIe
+	7KbOgcPJxL2a/qFRlMgxnRltW/5jO0S+7Azj8K2rVtbYH9jqeDTV6J2eh9DX7Gv3l+nR+PO8jpJ7a
+	MfNfw0i+4iSGBDhcqZgiERtz27NMm7aPEfvs/t7d18BugI4VrrEGrBaYTc572GLuiSv6jcKgzwxyQ
+	YvLE74An7e/yXkJ6lOLMb/pIDlUUC3Bs/D7UqQMbNZEb+ocgu2hW3I+dk1gBsr2+XwlhkfpS9Rdhl
+	KEcrEGpNvDkcpSKjtTt27JFEaDDyD74eTyQ6R+Y1e2BQIXBV8INgAXOB/2Jjn00BIpiDnG8oGf/hg
+	31Qemvgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udF5f-0000000Edsq-0kwu;
-	Sat, 19 Jul 2025 21:27:31 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1udGMZ-0000000Ehqr-0itM;
+	Sat, 19 Jul 2025 22:49:03 +0000
+Received: from mail-qk1-x733.google.com ([2607:f8b0:4864:20::733])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udF3D-0000000Edkf-0YPH
+	id 1udGK5-0000000EhON-3rw5
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 19 Jul 2025 21:25:00 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-456007cfcd7so51645e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 19 Jul 2025 14:24:57 -0700 (PDT)
+	Sat, 19 Jul 2025 22:46:31 +0000
+Received: by mail-qk1-x733.google.com with SMTP id af79cd13be357-7dfd667e539so367736285a.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 19 Jul 2025 15:46:29 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1752960297; x=1753565097; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=f63yjgIij2pyBbqiIUP1PemDCddIWdOXSdPqsmL/FZo=;
-        b=0DXwiHuranocS0qSjUIqA0JpBs2Wtygo/295CVtVK7Io+GXqfeAhuPAAV5/CUzmi17
-         fx/4Pmccnua7yFiIZXEttAYU1Oj6s/7itD0SK/3E4RNTgaCRzRuTyUDBMaP5tLSbQQRV
-         ec167keOptGz0SrWPQrjVd2eBA3ccJeG/BCwmXgwv1rN9CSIcggLZE3EaNeGeMYSu4LH
-         u/xpNuohwq5Bx8zDaR1yF97XhKNGbLQgDe7CI8LOGIgvEk7MtFrs3ZX4JJLApwiBE5RM
-         UxrO1kAXfnXlDGdnqGp5iuVtIRNN+lGImwjXDA6f+kOFriGlzxONWkOQZV3jFL25qcAZ
-         un1g==
+        d=gmail.com; s=20230601; t=1752965188; x=1753569988; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=dRhGUan9tpWaaqsf9KJqYybyCOMFvarHB1XBp9ZZ7xw=;
+        b=dZOFtYJ9pV2WIJiF8HWM3iuT96pKwLAYNTrutpyRGBNdU9RTU/EWnN18MeenyRQ+Pf
+         8xpAJ0UkO7u/LdY/picuvax2GobCnkIUloCB55R6fC0v1ZFSoEfr7BGXQ9fqcj0IURjH
+         Cnt6k1MqyddEpndXB9MaHaQre6DEkSlB1SVoOVZfWODxXOSDd118qmvVEm3ao3ZC/88T
+         f3vr5dG3oIA0UmreKhgpc2T2kOQiRZgogXHM3zDWwx81FQeijS1F4sQYHD875EjywP8W
+         BeuDqEaSDabZZVGzNrrSHbM4maRtkNvZq4WON2bBHXhmQ7qLMlllQ8FxYtzWrhxyNUgv
+         hfoA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752960297; x=1753565097;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=f63yjgIij2pyBbqiIUP1PemDCddIWdOXSdPqsmL/FZo=;
-        b=NA2GetT591oQwboXjK6ZcfQmrHdwIyVG6KpDD6e9Vwtn7d922ZoA7Ej1IThj5e4QUI
-         to/gJN6bLULbfDUNPs/KO7Qx/3DjzI7TggUzKPtJuFkGcAICsZMYAGf35Z/JAq00bKgD
-         mPX3jneBRxza1tbkouuB+aq8Iomg8T6+fYEW0Exd0RYNAkMTfSNCeQUDNIdrPuAXrmzm
-         zntwUYkY+CtPJudblQCerevwnYj5unKXJ5W6YeT8oV14I86JFrM0PQr1iCEo5a8poCDz
-         G9WrUOGXiYETwaw2c/LPQmOO787cZoQO/6OuHSeKGdvs6ycvBupmUIcj3vfwBCIG4B/0
-         HnnA==
-X-Forwarded-Encrypted: i=1; AJvYcCUX99KbKwrwV2a4avkd2mUa3H4pTmImLOZksuPUTzv4Hg3geUOiQuhotMPOXFMqN/8BOSLHz0JreuupA7zvqHnW@lists.infradead.org
-X-Gm-Message-State: AOJu0YwDagtJrkGWCgOa4xVSjeupFAPeYkRcF+oZuUn96mgKnGjzimKt
-	AP/gX1KkfFOeG/tyZufsgMovWDbJ7pd3qUZwkrudzFJ7cZ3W2YXC61Q+UwoFCeihfwNV2T7d1uJ
-	CWMMtmdqZEyiQ+THl3/jQEHQmaEaKS2tj26+6XWtI
-X-Gm-Gg: ASbGncsZhXdJ+bWc7S9i0C9pMz2e/MO0KnhN12DV3YYYI+xH5dxFfniOQf17Yj+2D8r
-	j/P3/KJlslcT/Y4rNImYIEBm/zZGfRXJUMvTZgEUYqLmTL90sXUfeVycW7fBQBJNpp8dtnQiYkr
-	l4iu8URzEEzQdh+lWbo20xVBQuR+OAmYy9v0K3xG+MXhBydNk2pvQ8qW5D/iwjOAZ/OMyBRzkY1
-	Nr61C3D2tzwi9jlzuNJj0OQV10yLaCBJboj5KBb
-X-Google-Smtp-Source: AGHT+IGf1ot/GvGjlReGY+SCww1ADoVseIv3hxLBqFcbTNzIpVPHcI9COFFQzWlOdxVXxNyEqY0RfNdLiHfV8hIodns=
-X-Received: by 2002:a05:600c:4aa9:b0:453:6962:1a72 with SMTP id
- 5b1f17b1804b1-45643860ddbmr900995e9.5.1752960296367; Sat, 19 Jul 2025
- 14:24:56 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1752965188; x=1753569988;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=dRhGUan9tpWaaqsf9KJqYybyCOMFvarHB1XBp9ZZ7xw=;
+        b=v9n2AByYpdlxw+TTmClTOeW6Flxpnb/k2YCg4Y/gwx7kgMppWdolR3Yf3ohrKrPPeR
+         5f/jHOWaeh3CVn2tzbnWjhLe/89kYbqfUF7Vdu6m+avcXZDjnWjUObT+vfTpqg28tEv3
+         I6Pzx44X7PNaIFLoISAVXGCm3aU3eQ09NikGkITq+N+3g+sY6N7oBkADA/Jxd/fOG8XI
+         7yy2C8Ybycuil/KRY9MrEgjHhO4ti1WfW5LJxZGzFlQbFMmwx462853GZMiPHnC3HKB3
+         WJpw2/ULN5DZzQ1gJAD14xKXdRCYEtK3lNj0EeXnRD8KffS+XIZUDnrulGwQB6HEhjEG
+         Eo/Q==
+X-Forwarded-Encrypted: i=1; AJvYcCXSlyPEUdyZRYzpC0ezaM/RmjIYcsDzQpPc+lZPiObIq4GaGG+fR3M9Bg2EJaIWuLJ64lMT64TRsYigW/0Ltb8f@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywlp6fARJ8Yq0F8D32iUJeH09VoU19NuPN1he2QOZnduwGRX9mB
+	/JvWUSSCUsttbhMOgafi01CnJVP+lQmmORtt5qu7kbfDbTghwfc3F5kF
+X-Gm-Gg: ASbGncvLJ1blZjyVqXv3HVTIkz3CpLrkUE+WgvtLW7j2XiS6X787fpSiYLSwZMluMwV
+	L+hqLwwiXfT9Hdm4+nyBM5AMpiwcmxse9Zg5Qf1QF36r7tlvQvpZlYJPStrkWZ4YqJuJ8yaeGUM
+	8ybKDErZsBsHP3AoIJXln4xtBLbun6a2pPjKt6zZZUht4xHIsHUaHUkurtb9UWXvhBMGNlirLLT
+	jZToLou+KAO3PAfSvItfDpSbSvOpPyiBmw/0RlVHwFpZY+TBlv4sg6//vCnDYnEM217CmkzQRsp
+	560va8Ne2RObGimQSIQd5tu7tgjqMsKGOf/TtGOW27u2sp5NEGzk/SWjgaj4YNIkeLIR1Lf/fY8
+	fbbHBEFkxlGzNuaBeSBvFitUj9fuOsuP/lAs0juXXFsjcbV0+KBLTFI/0mKLG
+X-Google-Smtp-Source: AGHT+IEiHYEVzBA68crovop6fol2sTaneHYnWLPDeCRJUxxK18uv8jxfvsq2j3Vkrot0glvdK6lmZQ==
+X-Received: by 2002:a05:6214:c2f:b0:704:9bc2:be36 with SMTP id 6a1803df08f44-704f69fdcefmr302099226d6.7.1752965187687;
+        Sat, 19 Jul 2025 15:46:27 -0700 (PDT)
+Received: from fyre-x-redhat96-nsd-1.fyre.ibm.com ([129.41.87.0])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-7051b8bc2f1sm22626096d6.19.2025.07.19.15.46.26
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 19 Jul 2025 15:46:27 -0700 (PDT)
+From: Chelsy Ratnawat <chelsyratnawat2001@gmail.com>
+To: suzuki.poulose@arm.com,
+	alexander.shishkin@linux.intel.com,
+	mike.leach@linaro.org
+Cc: mcoquelin.stm32@gmail.com,
+	james.clark@linaro.org,
+	alexandre.torgue@foss.st.com,
+	coresight@lists.linaro.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Chelsy Ratnawat <chelsyratnawat2001@gmail.com>
+Subject: [PATCH v4] coresight: Replace scnprintf() with sysfs_emit() in sysfs show functions
+Date: Sat, 19 Jul 2025 15:45:47 -0700
+Message-ID: <20250719224547.2389642-1-chelsyratnawat2001@gmail.com>
+X-Mailer: git-send-email 2.47.1
 MIME-Version: 1.0
-References: <20250604050902.3944054-1-jiaqiyan@google.com> <20250604050902.3944054-2-jiaqiyan@google.com>
- <aHFohmTb9qR_JG1E@linux.dev> <CACw3F509B=AHhpaTcuH9O851rrDdHh1baC8uRYy7bDa7BSMhgg@mail.gmail.com>
- <aHK-DPufhLy5Dtuk@linux.dev>
-In-Reply-To: <aHK-DPufhLy5Dtuk@linux.dev>
-From: Jiaqi Yan <jiaqiyan@google.com>
-Date: Sat, 19 Jul 2025 14:24:45 -0700
-X-Gm-Features: Ac12FXzgnQSCIAhMAANB86CLK2zchWpOFpLESitTVZg7mfd8m8UGK-lo3wLYbzg
-Message-ID: <CACw3F53TYZ1KFv0Yc-GCyOxn7TF3iYjTNSE8bd3nte=KaCN0UQ@mail.gmail.com>
-Subject: Re: [PATCH v2 1/6] KVM: arm64: VM exit to userspace to handle SEA
-To: Oliver Upton <oliver.upton@linux.dev>
-Cc: maz@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, 
-	yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, 
-	pbonzini@redhat.com, corbet@lwn.net, shuah@kernel.org, kvm@vger.kernel.org, 
-	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, 
-	linux-kselftest@vger.kernel.org, duenwen@google.com, rananta@google.com, 
-	jthoughton@google.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250719_142459_173861_E485C8BB 
-X-CRM114-Status: GOOD (  46.74  )
+X-CRM114-CacheID: sfid-20250719_154629_977242_B8037803 
+X-CRM114-Status: GOOD (  15.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,279 +102,1189 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Jul 12, 2025 at 12:57=E2=80=AFPM Oliver Upton <oliver.upton@linux.d=
-ev> wrote:
->
-> On Fri, Jul 11, 2025 at 04:59:11PM -0700, Jiaqi Yan wrote:
-> > >  - Add some detail about FEAT_RAS where we may still exit to userspac=
-e
-> > >    for host-controlled memory, as we cannot differentiate between a
-> > >    stage-1 or stage-2 TTW SEA when taken on the descriptor PA
-> >
-> > Ah, IIUC, you are saying even if the FSC code tells fault is on TTW
-> > (esr_fsc_is_secc_ttw or esr_fsc_is_sea_ttw), it can either be guest
-> > stage-1's or stage-2's descriptor PA, and we can tell which from
-> > which.
-> >
-> > However, if ESR_ELx_S1PTW is set, we can tell this is a sub-case of
-> > stage-2 descriptor PA, their usage is for stage-1 PTW but they are
-> > stage-2 memory.
-> >
-> > Is my current understanding right?
->
-> Yep, that's exactly what I'm getting at. As you note, stage-2 aborts
-> during a stage-1 walk are sufficiently described, but not much else.
+Documentation/filesystems/sysfs.rst mentions that show() should only
+use sysfs_emit() or sysfs_emit_at() when formating the value to be
+returned to user space. So replace scnprintf() with sysfs_emit().
 
-Got it, thanks!
+Signed-off-by: Chelsy Ratnawat <chelsyratnawat2001@gmail.com>
+---
+Changes in v4:
+- Applied changes to 5  more files to replace sprintf/scnprintf with
+  sysfs_emit() and sysfs_emit_at()
+- No functional changes intended
 
->
-> > > +/*
-> > > + * Returns true if the SEA should be handled locally within KVM if t=
-he abort is
-> > > + * caused by a kernel memory allocation (e.g. stage-2 table memory).
-> > > + */
-> > > +static bool host_owns_sea(struct kvm_vcpu *vcpu, u64 esr)
-> > > +{
-> > > +       /*
-> > > +        * Without FEAT_RAS HCR_EL2.TEA is RES0, meaning any external=
- abort
-> > > +        * taken from a guest EL to EL2 is due to a host-imposed acce=
-ss (e.g.
-> > > +        * stage-2 PTW).
-> > > +        */
-> > > +       if (!cpus_have_final_cap(ARM64_HAS_RAS_EXTN))
-> > > +               return true;
-> > > +
-> > > +       /* KVM owns the VNCR when the vCPU isn't in a nested context.=
- */
-> > > +       if (is_hyp_ctxt(vcpu) && (esr & ESR_ELx_VNCR))
-> > > +               return true;
-> > > +
-> > > +       /*
-> > > +        * Determining if an external abort during a table walk happe=
-ned at
-> > > +        * stage-2 is only possible with S1PTW is set. Otherwise, sin=
-ce KVM
-> > > +        * sets HCR_EL2.TEA, SEAs due to a stage-1 walk (i.e. accessi=
-ng the PA
-> > > +        * of the stage-1 descriptor) can reach here and are reported=
- with a
-> > > +        * TTW ESR value.
-> > > +        */
-> > > +       return esr_fsc_is_sea_ttw(esr) && (esr & ESR_ELx_S1PTW);
-> >
-> > Should we include esr_fsc_is_secc_ttw? like
-> >   (esr_fsc_is_sea_ttw(esr) || esr_fsc_is_secc_ttw(esr)) && (esr & ESR_E=
-Lx_S1PTW)
->
-> Parity / ECC errors are not permitted if FEAT_RAS is implemented (which
-> is tested for up front).
+ .../hwtracing/coresight/coresight-cti-sysfs.c |  40 +++---
+ drivers/hwtracing/coresight/coresight-etb10.c |   2 +-
+ .../hwtracing/coresight/coresight-etm-perf.c  |   6 +-
+ .../coresight/coresight-etm3x-sysfs.c         |  66 +++++-----
+ .../coresight/coresight-etm4x-sysfs.c         | 122 +++++++++---------
+ .../hwtracing/coresight/coresight-funnel.c    |   4 +-
+ drivers/hwtracing/coresight/coresight-stm.c   |  10 +-
+ drivers/hwtracing/coresight/coresight-sysfs.c |   6 +-
+ .../hwtracing/coresight/coresight-tmc-core.c  |   6 +-
+ drivers/hwtracing/coresight/coresight-trbe.c  |   4 +-
+ 10 files changed, 133 insertions(+), 133 deletions(-)
 
-Ah, thanks for pointing this out.
+diff --git a/drivers/hwtracing/coresight/coresight-cti-sysfs.c b/drivers/hwtracing/coresight/coresight-cti-sysfs.c
+index 572b80ee96fb..534f78539fb3 100644
+--- a/drivers/hwtracing/coresight/coresight-cti-sysfs.c
++++ b/drivers/hwtracing/coresight/coresight-cti-sysfs.c
+@@ -91,9 +91,9 @@ static ssize_t enable_show(struct device *dev,
+ 	raw_spin_unlock(&drvdata->spinlock);
+ 
+ 	if (powered)
+-		return sprintf(buf, "%d\n", enabled);
++		return sysfs_emit(buf, "%d\n", enabled);
+ 	else
+-		return sprintf(buf, "%d\n", !!enable_req);
++		return sysfs_emit(buf, "%d\n", !!enable_req);
+ }
+ 
+ static ssize_t enable_store(struct device *dev,
+@@ -138,7 +138,7 @@ static ssize_t powered_show(struct device *dev,
+ 	powered = drvdata->config.hw_powered;
+ 	raw_spin_unlock(&drvdata->spinlock);
+ 
+-	return sprintf(buf, "%d\n", powered);
++	return sysfs_emit(buf, "%d\n", powered);
+ }
+ static DEVICE_ATTR_RO(powered);
+ 
+@@ -147,7 +147,7 @@ static ssize_t ctmid_show(struct device *dev,
+ {
+ 	struct cti_drvdata *drvdata = dev_get_drvdata(dev->parent);
+ 
+-	return sprintf(buf, "%d\n", drvdata->ctidev.ctm_id);
++	return sysfs_emit(buf, "%d\n", drvdata->ctidev.ctm_id);
+ }
+ static DEVICE_ATTR_RO(ctmid);
+ 
+@@ -157,7 +157,7 @@ static ssize_t nr_trigger_cons_show(struct device *dev,
+ {
+ 	struct cti_drvdata *drvdata = dev_get_drvdata(dev->parent);
+ 
+-	return sprintf(buf, "%d\n", drvdata->ctidev.nr_trig_con);
++	return sysfs_emit(buf, "%d\n", drvdata->ctidev.nr_trig_con);
+ }
+ static DEVICE_ATTR_RO(nr_trigger_cons);
+ 
+@@ -334,7 +334,7 @@ static ssize_t inout_sel_show(struct device *dev,
+ 	struct cti_drvdata *drvdata = dev_get_drvdata(dev->parent);
+ 
+ 	val = (u32)drvdata->config.ctiinout_sel;
+-	return sprintf(buf, "%d\n", val);
++	return sysfs_emit(buf, "%d\n", val);
+ }
+ 
+ static ssize_t inout_sel_store(struct device *dev,
+@@ -368,7 +368,7 @@ static ssize_t inen_show(struct device *dev,
+ 	index = drvdata->config.ctiinout_sel;
+ 	val = drvdata->config.ctiinen[index];
+ 	raw_spin_unlock(&drvdata->spinlock);
+-	return sprintf(buf, "%#lx\n", val);
++	return sysfs_emit(buf, "%#lx\n", val);
+ }
+ 
+ static ssize_t inen_store(struct device *dev,
+@@ -407,7 +407,7 @@ static ssize_t outen_show(struct device *dev,
+ 	index = drvdata->config.ctiinout_sel;
+ 	val = drvdata->config.ctiouten[index];
+ 	raw_spin_unlock(&drvdata->spinlock);
+-	return sprintf(buf, "%#lx\n", val);
++	return sysfs_emit(buf, "%#lx\n", val);
+ }
+ 
+ static ssize_t outen_store(struct device *dev,
+@@ -609,7 +609,7 @@ static ssize_t chan_gate_enable_show(struct device *dev,
+ 	int size = 0;
+ 
+ 	if (cfg->ctigate == 0)
+-		size = sprintf(buf, "\n");
++		size = sysfs_emit(buf, "\n");
+ 	else
+ 		size = bitmap_print_to_pagebuf(true, buf, &ctigate_bitmask,
+ 					       cfg->nr_ctm_channels);
+@@ -684,7 +684,7 @@ static ssize_t trig_filter_enable_show(struct device *dev,
+ 	raw_spin_lock(&drvdata->spinlock);
+ 	val = drvdata->config.trig_filter_enable;
+ 	raw_spin_unlock(&drvdata->spinlock);
+-	return sprintf(buf, "%d\n", val);
++	return sysfs_emit(buf, "%d\n", val);
+ }
+ 
+ static ssize_t trig_filter_enable_store(struct device *dev,
+@@ -785,7 +785,7 @@ static ssize_t chan_xtrigs_sel_show(struct device *dev,
+ 	val = drvdata->config.xtrig_rchan_sel;
+ 	raw_spin_unlock(&drvdata->spinlock);
+ 
+-	return sprintf(buf, "%ld\n", val);
++	return sysfs_emit(buf, "%ld\n", val);
+ }
+ static DEVICE_ATTR_RW(chan_xtrigs_sel);
+ 
+@@ -801,10 +801,10 @@ static ssize_t chan_xtrigs_in_show(struct device *dev,
+ 
+ 	for (reg_idx = 0; reg_idx < nr_trig_max; reg_idx++) {
+ 		if (chan_mask & cfg->ctiinen[reg_idx])
+-			used += sprintf(buf + used, "%d ", reg_idx);
++			used += sysfs_emit_at(buf, used, "%d ", reg_idx);
+ 	}
+ 
+-	used += sprintf(buf + used, "\n");
++	used += sysfs_emit_at(buf, used, "\n");
+ 	return used;
+ }
+ static DEVICE_ATTR_RO(chan_xtrigs_in);
+@@ -821,10 +821,10 @@ static ssize_t chan_xtrigs_out_show(struct device *dev,
+ 
+ 	for (reg_idx = 0; reg_idx < nr_trig_max; reg_idx++) {
+ 		if (chan_mask & cfg->ctiouten[reg_idx])
+-			used += sprintf(buf + used, "%d ", reg_idx);
++			used += sysfs_emit_at(buf, used, "%d ", reg_idx);
+ 	}
+ 
+-	used += sprintf(buf + used, "\n");
++	used += sysfs_emit_at(buf, used, "\n");
+ 	return used;
+ }
+ static DEVICE_ATTR_RO(chan_xtrigs_out);
+@@ -914,7 +914,7 @@ static ssize_t con_name_show(struct device *dev,
+ 		container_of(attr, struct dev_ext_attribute, attr);
+ 	struct cti_trig_con *con = (struct cti_trig_con *)ext_attr->var;
+ 
+-	return sprintf(buf, "%s\n", con->con_dev_name);
++	return sysfs_emit(buf, "%s\n", con->con_dev_name);
+ }
+ 
+ static ssize_t trigin_sig_show(struct device *dev,
+@@ -969,9 +969,9 @@ static ssize_t trigin_type_show(struct device *dev,
+ 
+ 	for (sig_idx = 0; sig_idx < con->con_in->nr_sigs; sig_idx++) {
+ 		name = cti_sig_type_name(con, sig_idx, true);
+-		used += sprintf(buf + used, "%s ", name);
++		used += sysfs_emit_at(buf, used, "%s ", name);
+ 	}
+-	used += sprintf(buf + used, "\n");
++	used += sysfs_emit_at(buf, used, "\n");
+ 	return used;
+ }
+ 
+@@ -987,9 +987,9 @@ static ssize_t trigout_type_show(struct device *dev,
+ 
+ 	for (sig_idx = 0; sig_idx < con->con_out->nr_sigs; sig_idx++) {
+ 		name = cti_sig_type_name(con, sig_idx, false);
+-		used += sprintf(buf + used, "%s ", name);
++		used += sysfs_emit_at(buf, used, "%s ", name);
+ 	}
+-	used += sprintf(buf + used, "\n");
++	used += sysfs_emit_at(buf, used, "\n");
+ 	return used;
+ }
+ 
+diff --git a/drivers/hwtracing/coresight/coresight-etb10.c b/drivers/hwtracing/coresight/coresight-etb10.c
+index d5efb085b30d..dd1c37c0bd72 100644
+--- a/drivers/hwtracing/coresight/coresight-etb10.c
++++ b/drivers/hwtracing/coresight/coresight-etb10.c
+@@ -672,7 +672,7 @@ static ssize_t trigger_cntr_show(struct device *dev,
+ 	struct etb_drvdata *drvdata = dev_get_drvdata(dev->parent);
+ 	unsigned long val = drvdata->trigger_cntr;
+ 
+-	return sprintf(buf, "%#lx\n", val);
++	return sysfs_emit(buf, "%#lx\n", val);
+ }
+ 
+ static ssize_t trigger_cntr_store(struct device *dev,
+diff --git a/drivers/hwtracing/coresight/coresight-etm-perf.c b/drivers/hwtracing/coresight/coresight-etm-perf.c
+index f1551c08ecb2..af4546850140 100644
+--- a/drivers/hwtracing/coresight/coresight-etm-perf.c
++++ b/drivers/hwtracing/coresight/coresight-etm-perf.c
+@@ -85,7 +85,7 @@ static ssize_t format_attr_contextid_show(struct device *dev,
+ #if IS_ENABLED(CONFIG_CORESIGHT_SOURCE_ETM4X)
+ 	pid_fmt = is_kernel_in_hyp_mode() ? ETM_OPT_CTXTID2 : ETM_OPT_CTXTID;
+ #endif
+-	return sprintf(page, "config:%d\n", pid_fmt);
++	return sysfs_emit(page, "config:%d\n", pid_fmt);
+ }
+ 
+ static struct device_attribute format_attr_contextid =
+@@ -851,7 +851,7 @@ static ssize_t etm_perf_sink_name_show(struct device *dev,
+ 	struct dev_ext_attribute *ea;
+ 
+ 	ea = container_of(dattr, struct dev_ext_attribute, attr);
+-	return scnprintf(buf, PAGE_SIZE, "0x%lx\n", (unsigned long)(ea->var));
++	return sysfs_emit(buf, "0x%lx\n", (unsigned long)(ea->var));
+ }
+ 
+ static struct dev_ext_attribute *
+@@ -943,7 +943,7 @@ static ssize_t etm_perf_cscfg_event_show(struct device *dev,
+ 	struct dev_ext_attribute *ea;
+ 
+ 	ea = container_of(dattr, struct dev_ext_attribute, attr);
+-	return scnprintf(buf, PAGE_SIZE, "configid=0x%lx\n", (unsigned long)(ea->var));
++	return sysfs_emit(buf, "configid=0x%lx\n", (unsigned long)(ea->var));
+ }
+ 
+ int etm_perf_add_symlink_cscfg(struct device *dev, struct cscfg_config_desc *config_desc)
+diff --git a/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c b/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c
+index 762109307b86..2dd80dd0c1bf 100644
+--- a/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c
++++ b/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c
+@@ -17,7 +17,7 @@ static ssize_t nr_addr_cmp_show(struct device *dev,
+ 	struct etm_drvdata *drvdata = dev_get_drvdata(dev->parent);
+ 
+ 	val = drvdata->nr_addr_cmp;
+-	return sprintf(buf, "%#lx\n", val);
++	return sysfs_emit(buf, "%#lx\n", val);
+ }
+ static DEVICE_ATTR_RO(nr_addr_cmp);
+ 
+@@ -27,7 +27,7 @@ static ssize_t nr_cntr_show(struct device *dev,
+ 	struct etm_drvdata *drvdata = dev_get_drvdata(dev->parent);
+ 
+ 	val = drvdata->nr_cntr;
+-	return sprintf(buf, "%#lx\n", val);
++	return sysfs_emit(buf, "%#lx\n", val);
+ }
+ static DEVICE_ATTR_RO(nr_cntr);
+ 
+@@ -38,7 +38,7 @@ static ssize_t nr_ctxid_cmp_show(struct device *dev,
+ 	struct etm_drvdata *drvdata = dev_get_drvdata(dev->parent);
+ 
+ 	val = drvdata->nr_ctxid_cmp;
+-	return sprintf(buf, "%#lx\n", val);
++	return sysfs_emit(buf, "%#lx\n", val);
+ }
+ static DEVICE_ATTR_RO(nr_ctxid_cmp);
+ 
+@@ -58,7 +58,7 @@ static ssize_t etmsr_show(struct device *dev,
+ 	spin_unlock_irqrestore(&drvdata->spinlock, flags);
+ 	pm_runtime_put(dev->parent);
+ 
+-	return sprintf(buf, "%#lx\n", val);
++	return sysfs_emit(buf, "%#lx\n", val);
+ }
+ static DEVICE_ATTR_RO(etmsr);
+ 
+@@ -101,7 +101,7 @@ static ssize_t mode_show(struct device *dev,
+ 	struct etm_config *config = &drvdata->config;
+ 
+ 	val = config->mode;
+-	return sprintf(buf, "%#lx\n", val);
++	return sysfs_emit(buf, "%#lx\n", val);
+ }
+ 
+ static ssize_t mode_store(struct device *dev,
+@@ -186,7 +186,7 @@ static ssize_t trigger_event_show(struct device *dev,
+ 	struct etm_config *config = &drvdata->config;
+ 
+ 	val = config->trigger_event;
+-	return sprintf(buf, "%#lx\n", val);
++	return sysfs_emit(buf, "%#lx\n", val);
+ }
+ 
+ static ssize_t trigger_event_store(struct device *dev,
+@@ -216,7 +216,7 @@ static ssize_t enable_event_show(struct device *dev,
+ 	struct etm_config *config = &drvdata->config;
+ 
+ 	val = config->enable_event;
+-	return sprintf(buf, "%#lx\n", val);
++	return sysfs_emit(buf, "%#lx\n", val);
+ }
+ 
+ static ssize_t enable_event_store(struct device *dev,
+@@ -246,7 +246,7 @@ static ssize_t fifofull_level_show(struct device *dev,
+ 	struct etm_config *config = &drvdata->config;
+ 
+ 	val = config->fifofull_level;
+-	return sprintf(buf, "%#lx\n", val);
++	return sysfs_emit(buf, "%#lx\n", val);
+ }
+ 
+ static ssize_t fifofull_level_store(struct device *dev,
+@@ -276,7 +276,7 @@ static ssize_t addr_idx_show(struct device *dev,
+ 	struct etm_config *config = &drvdata->config;
+ 
+ 	val = config->addr_idx;
+-	return sprintf(buf, "%#lx\n", val);
++	return sysfs_emit(buf, "%#lx\n", val);
+ }
+ 
+ static ssize_t addr_idx_store(struct device *dev,
+@@ -326,7 +326,7 @@ static ssize_t addr_single_show(struct device *dev,
+ 	val = config->addr_val[idx];
+ 	spin_unlock(&drvdata->spinlock);
+ 
+-	return sprintf(buf, "%#lx\n", val);
++	return sysfs_emit(buf, "%#lx\n", val);
+ }
+ 
+ static ssize_t addr_single_store(struct device *dev,
+@@ -385,7 +385,7 @@ static ssize_t addr_range_show(struct device *dev,
+ 	val2 = config->addr_val[idx + 1];
+ 	spin_unlock(&drvdata->spinlock);
+ 
+-	return sprintf(buf, "%#lx %#lx\n", val1, val2);
++	return sysfs_emit(buf, "%#lx %#lx\n", val1, val2);
+ }
+ 
+ static ssize_t addr_range_store(struct device *dev,
+@@ -447,7 +447,7 @@ static ssize_t addr_start_show(struct device *dev,
+ 	val = config->addr_val[idx];
+ 	spin_unlock(&drvdata->spinlock);
+ 
+-	return sprintf(buf, "%#lx\n", val);
++	return sysfs_emit(buf, "%#lx\n", val);
+ }
+ 
+ static ssize_t addr_start_store(struct device *dev,
+@@ -501,7 +501,7 @@ static ssize_t addr_stop_show(struct device *dev,
+ 	val = config->addr_val[idx];
+ 	spin_unlock(&drvdata->spinlock);
+ 
+-	return sprintf(buf, "%#lx\n", val);
++	return sysfs_emit(buf, "%#lx\n", val);
+ }
+ 
+ static ssize_t addr_stop_store(struct device *dev,
+@@ -547,7 +547,7 @@ static ssize_t addr_acctype_show(struct device *dev,
+ 	val = config->addr_acctype[config->addr_idx];
+ 	spin_unlock(&drvdata->spinlock);
+ 
+-	return sprintf(buf, "%#lx\n", val);
++	return sysfs_emit(buf, "%#lx\n", val);
+ }
+ 
+ static ssize_t addr_acctype_store(struct device *dev,
+@@ -579,7 +579,7 @@ static ssize_t cntr_idx_show(struct device *dev,
+ 	struct etm_config *config = &drvdata->config;
+ 
+ 	val = config->cntr_idx;
+-	return sprintf(buf, "%#lx\n", val);
++	return sysfs_emit(buf, "%#lx\n", val);
+ }
+ 
+ static ssize_t cntr_idx_store(struct device *dev,
+@@ -620,7 +620,7 @@ static ssize_t cntr_rld_val_show(struct device *dev,
+ 	val = config->cntr_rld_val[config->cntr_idx];
+ 	spin_unlock(&drvdata->spinlock);
+ 
+-	return sprintf(buf, "%#lx\n", val);
++	return sysfs_emit(buf, "%#lx\n", val);
+ }
+ 
+ static ssize_t cntr_rld_val_store(struct device *dev,
+@@ -655,7 +655,7 @@ static ssize_t cntr_event_show(struct device *dev,
+ 	val = config->cntr_event[config->cntr_idx];
+ 	spin_unlock(&drvdata->spinlock);
+ 
+-	return sprintf(buf, "%#lx\n", val);
++	return sysfs_emit(buf, "%#lx\n", val);
+ }
+ 
+ static ssize_t cntr_event_store(struct device *dev,
+@@ -690,7 +690,7 @@ static ssize_t cntr_rld_event_show(struct device *dev,
+ 	val = config->cntr_rld_event[config->cntr_idx];
+ 	spin_unlock(&drvdata->spinlock);
+ 
+-	return sprintf(buf, "%#lx\n", val);
++	return sysfs_emit(buf, "%#lx\n", val);
+ }
+ 
+ static ssize_t cntr_rld_event_store(struct device *dev,
+@@ -725,7 +725,7 @@ static ssize_t cntr_val_show(struct device *dev,
+ 	if (!coresight_get_mode(drvdata->csdev)) {
+ 		spin_lock(&drvdata->spinlock);
+ 		for (i = 0; i < drvdata->nr_cntr; i++)
+-			ret += sprintf(buf, "counter %d: %x\n",
++			ret += sysfs_emit_at(buf, ret, "counter %d: %x\n",
+ 				       i, config->cntr_val[i]);
+ 		spin_unlock(&drvdata->spinlock);
+ 		return ret;
+@@ -733,7 +733,7 @@ static ssize_t cntr_val_show(struct device *dev,
+ 
+ 	for (i = 0; i < drvdata->nr_cntr; i++) {
+ 		val = etm_readl(drvdata, ETMCNTVRn(i));
+-		ret += sprintf(buf, "counter %d: %x\n", i, val);
++		ret += sysfs_emit_at(buf, ret, "counter %d: %x\n", i, val);
+ 	}
+ 
+ 	return ret;
+@@ -768,7 +768,7 @@ static ssize_t seq_12_event_show(struct device *dev,
+ 	struct etm_config *config = &drvdata->config;
+ 
+ 	val = config->seq_12_event;
+-	return sprintf(buf, "%#lx\n", val);
++	return sysfs_emit(buf, "%#lx\n", val);
+ }
+ 
+ static ssize_t seq_12_event_store(struct device *dev,
+@@ -797,7 +797,7 @@ static ssize_t seq_21_event_show(struct device *dev,
+ 	struct etm_config *config = &drvdata->config;
+ 
+ 	val = config->seq_21_event;
+-	return sprintf(buf, "%#lx\n", val);
++	return sysfs_emit(buf, "%#lx\n", val);
+ }
+ 
+ static ssize_t seq_21_event_store(struct device *dev,
+@@ -826,7 +826,7 @@ static ssize_t seq_23_event_show(struct device *dev,
+ 	struct etm_config *config = &drvdata->config;
+ 
+ 	val = config->seq_23_event;
+-	return sprintf(buf, "%#lx\n", val);
++	return sysfs_emit(buf, "%#lx\n", val);
+ }
+ 
+ static ssize_t seq_23_event_store(struct device *dev,
+@@ -855,7 +855,7 @@ static ssize_t seq_31_event_show(struct device *dev,
+ 	struct etm_config *config = &drvdata->config;
+ 
+ 	val = config->seq_31_event;
+-	return sprintf(buf, "%#lx\n", val);
++	return sysfs_emit(buf, "%#lx\n", val);
+ }
+ 
+ static ssize_t seq_31_event_store(struct device *dev,
+@@ -884,7 +884,7 @@ static ssize_t seq_32_event_show(struct device *dev,
+ 	struct etm_config *config = &drvdata->config;
+ 
+ 	val = config->seq_32_event;
+-	return sprintf(buf, "%#lx\n", val);
++	return sysfs_emit(buf, "%#lx\n", val);
+ }
+ 
+ static ssize_t seq_32_event_store(struct device *dev,
+@@ -913,7 +913,7 @@ static ssize_t seq_13_event_show(struct device *dev,
+ 	struct etm_config *config = &drvdata->config;
+ 
+ 	val = config->seq_13_event;
+-	return sprintf(buf, "%#lx\n", val);
++	return sysfs_emit(buf, "%#lx\n", val);
+ }
+ 
+ static ssize_t seq_13_event_store(struct device *dev,
+@@ -956,7 +956,7 @@ static ssize_t seq_curr_state_show(struct device *dev,
+ 	spin_unlock_irqrestore(&drvdata->spinlock, flags);
+ 	pm_runtime_put(dev->parent);
+ out:
+-	return sprintf(buf, "%#lx\n", val);
++	return sysfs_emit(buf, "%#lx\n", val);
+ }
+ 
+ static ssize_t seq_curr_state_store(struct device *dev,
+@@ -989,7 +989,7 @@ static ssize_t ctxid_idx_show(struct device *dev,
+ 	struct etm_config *config = &drvdata->config;
+ 
+ 	val = config->ctxid_idx;
+-	return sprintf(buf, "%#lx\n", val);
++	return sysfs_emit(buf, "%#lx\n", val);
+ }
+ 
+ static ssize_t ctxid_idx_store(struct device *dev,
+@@ -1038,7 +1038,7 @@ static ssize_t ctxid_pid_show(struct device *dev,
+ 	val = config->ctxid_pid[config->ctxid_idx];
+ 	spin_unlock(&drvdata->spinlock);
+ 
+-	return sprintf(buf, "%#lx\n", val);
++	return sysfs_emit(buf, "%#lx\n", val);
+ }
+ 
+ static ssize_t ctxid_pid_store(struct device *dev,
+@@ -1089,7 +1089,7 @@ static ssize_t ctxid_mask_show(struct device *dev,
+ 		return -EINVAL;
+ 
+ 	val = config->ctxid_mask;
+-	return sprintf(buf, "%#lx\n", val);
++	return sysfs_emit(buf, "%#lx\n", val);
+ }
+ 
+ static ssize_t ctxid_mask_store(struct device *dev,
+@@ -1125,7 +1125,7 @@ static ssize_t sync_freq_show(struct device *dev,
+ 	struct etm_config *config = &drvdata->config;
+ 
+ 	val = config->sync_freq;
+-	return sprintf(buf, "%#lx\n", val);
++	return sysfs_emit(buf, "%#lx\n", val);
+ }
+ 
+ static ssize_t sync_freq_store(struct device *dev,
+@@ -1154,7 +1154,7 @@ static ssize_t timestamp_event_show(struct device *dev,
+ 	struct etm_config *config = &drvdata->config;
+ 
+ 	val = config->timestamp_event;
+-	return sprintf(buf, "%#lx\n", val);
++	return sysfs_emit(buf, "%#lx\n", val);
+ }
+ 
+ static ssize_t timestamp_event_store(struct device *dev,
+@@ -1182,7 +1182,7 @@ static ssize_t cpu_show(struct device *dev,
+ 	struct etm_drvdata *drvdata = dev_get_drvdata(dev->parent);
+ 
+ 	val = drvdata->cpu;
+-	return scnprintf(buf, PAGE_SIZE, "%d\n", val);
++	return sysfs_emit(buf, "%d\n", val);
+ 
+ }
+ static DEVICE_ATTR_RO(cpu);
+diff --git a/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c b/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
+index ab251865b893..863342d7dd5d 100644
+--- a/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
++++ b/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
+@@ -63,7 +63,7 @@ static ssize_t nr_pe_cmp_show(struct device *dev,
+ 	struct etmv4_drvdata *drvdata = dev_get_drvdata(dev->parent);
+ 
+ 	val = drvdata->nr_pe_cmp;
+-	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
++	return sysfs_emit(buf, "%#lx\n", val);
+ }
+ static DEVICE_ATTR_RO(nr_pe_cmp);
+ 
+@@ -75,7 +75,7 @@ static ssize_t nr_addr_cmp_show(struct device *dev,
+ 	struct etmv4_drvdata *drvdata = dev_get_drvdata(dev->parent);
+ 
+ 	val = drvdata->nr_addr_cmp;
+-	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
++	return sysfs_emit(buf, "%#lx\n", val);
+ }
+ static DEVICE_ATTR_RO(nr_addr_cmp);
+ 
+@@ -87,7 +87,7 @@ static ssize_t nr_cntr_show(struct device *dev,
+ 	struct etmv4_drvdata *drvdata = dev_get_drvdata(dev->parent);
+ 
+ 	val = drvdata->nr_cntr;
+-	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
++	return sysfs_emit(buf, "%#lx\n", val);
+ }
+ static DEVICE_ATTR_RO(nr_cntr);
+ 
+@@ -99,7 +99,7 @@ static ssize_t nr_ext_inp_show(struct device *dev,
+ 	struct etmv4_drvdata *drvdata = dev_get_drvdata(dev->parent);
+ 
+ 	val = drvdata->nr_ext_inp;
+-	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
++	return sysfs_emit(buf, "%#lx\n", val);
+ }
+ static DEVICE_ATTR_RO(nr_ext_inp);
+ 
+@@ -111,7 +111,7 @@ static ssize_t numcidc_show(struct device *dev,
+ 	struct etmv4_drvdata *drvdata = dev_get_drvdata(dev->parent);
+ 
+ 	val = drvdata->numcidc;
+-	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
++	return sysfs_emit(buf, "%#lx\n", val);
+ }
+ static DEVICE_ATTR_RO(numcidc);
+ 
+@@ -123,7 +123,7 @@ static ssize_t numvmidc_show(struct device *dev,
+ 	struct etmv4_drvdata *drvdata = dev_get_drvdata(dev->parent);
+ 
+ 	val = drvdata->numvmidc;
+-	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
++	return sysfs_emit(buf, "%#lx\n", val);
+ }
+ static DEVICE_ATTR_RO(numvmidc);
+ 
+@@ -135,7 +135,7 @@ static ssize_t nrseqstate_show(struct device *dev,
+ 	struct etmv4_drvdata *drvdata = dev_get_drvdata(dev->parent);
+ 
+ 	val = drvdata->nrseqstate;
+-	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
++	return sysfs_emit(buf, "%#lx\n", val);
+ }
+ static DEVICE_ATTR_RO(nrseqstate);
+ 
+@@ -147,7 +147,7 @@ static ssize_t nr_resource_show(struct device *dev,
+ 	struct etmv4_drvdata *drvdata = dev_get_drvdata(dev->parent);
+ 
+ 	val = drvdata->nr_resource;
+-	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
++	return sysfs_emit(buf, "%#lx\n", val);
+ }
+ static DEVICE_ATTR_RO(nr_resource);
+ 
+@@ -159,7 +159,7 @@ static ssize_t nr_ss_cmp_show(struct device *dev,
+ 	struct etmv4_drvdata *drvdata = dev_get_drvdata(dev->parent);
+ 
+ 	val = drvdata->nr_ss_cmp;
+-	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
++	return sysfs_emit(buf, "%#lx\n", val);
+ }
+ static DEVICE_ATTR_RO(nr_ss_cmp);
+ 
+@@ -287,7 +287,7 @@ static ssize_t mode_show(struct device *dev,
+ 	struct etmv4_config *config = &drvdata->config;
+ 
+ 	val = config->mode;
+-	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
++	return sysfs_emit(buf, "%#lx\n", val);
+ }
+ 
+ static ssize_t mode_store(struct device *dev,
+@@ -453,7 +453,7 @@ static ssize_t pe_show(struct device *dev,
+ 	struct etmv4_config *config = &drvdata->config;
+ 
+ 	val = config->pe_sel;
+-	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
++	return sysfs_emit(buf, "%#lx\n", val);
+ }
+ 
+ static ssize_t pe_store(struct device *dev,
+@@ -488,7 +488,7 @@ static ssize_t event_show(struct device *dev,
+ 	struct etmv4_config *config = &drvdata->config;
+ 
+ 	val = config->eventctrl0;
+-	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
++	return sysfs_emit(buf, "%#lx\n", val);
+ }
+ 
+ static ssize_t event_store(struct device *dev,
+@@ -537,7 +537,7 @@ static ssize_t event_instren_show(struct device *dev,
+ 	struct etmv4_config *config = &drvdata->config;
+ 
+ 	val = FIELD_GET(TRCEVENTCTL1R_INSTEN_MASK, config->eventctrl1);
+-	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
++	return sysfs_emit(buf, "%#lx\n", val);
+ }
+ 
+ static ssize_t event_instren_store(struct device *dev,
+@@ -593,7 +593,7 @@ static ssize_t event_ts_show(struct device *dev,
+ 	struct etmv4_config *config = &drvdata->config;
+ 
+ 	val = config->ts_ctrl;
+-	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
++	return sysfs_emit(buf, "%#lx\n", val);
+ }
+ 
+ static ssize_t event_ts_store(struct device *dev,
+@@ -623,7 +623,7 @@ static ssize_t syncfreq_show(struct device *dev,
+ 	struct etmv4_config *config = &drvdata->config;
+ 
+ 	val = config->syncfreq;
+-	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
++	return sysfs_emit(buf, "%#lx\n", val);
+ }
+ 
+ static ssize_t syncfreq_store(struct device *dev,
+@@ -653,7 +653,7 @@ static ssize_t cyc_threshold_show(struct device *dev,
+ 	struct etmv4_config *config = &drvdata->config;
+ 
+ 	val = config->ccctlr;
+-	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
++	return sysfs_emit(buf, "%#lx\n", val);
+ }
+ 
+ static ssize_t cyc_threshold_store(struct device *dev,
+@@ -686,7 +686,7 @@ static ssize_t bb_ctrl_show(struct device *dev,
+ 	struct etmv4_config *config = &drvdata->config;
+ 
+ 	val = config->bb_ctrl;
+-	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
++	return sysfs_emit(buf, "%#lx\n", val);
+ }
+ 
+ static ssize_t bb_ctrl_store(struct device *dev,
+@@ -726,7 +726,7 @@ static ssize_t event_vinst_show(struct device *dev,
+ 	struct etmv4_config *config = &drvdata->config;
+ 
+ 	val = FIELD_GET(TRCVICTLR_EVENT_MASK, config->vinst_ctrl);
+-	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
++	return sysfs_emit(buf, "%#lx\n", val);
+ }
+ 
+ static ssize_t event_vinst_store(struct device *dev,
+@@ -758,7 +758,7 @@ static ssize_t s_exlevel_vinst_show(struct device *dev,
+ 	struct etmv4_config *config = &drvdata->config;
+ 
+ 	val = FIELD_GET(TRCVICTLR_EXLEVEL_S_MASK, config->vinst_ctrl);
+-	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
++	return sysfs_emit(buf, "%#lx\n", val);
+ }
+ 
+ static ssize_t s_exlevel_vinst_store(struct device *dev,
+@@ -793,7 +793,7 @@ static ssize_t ns_exlevel_vinst_show(struct device *dev,
+ 
+ 	/* EXLEVEL_NS, bits[23:20] */
+ 	val = FIELD_GET(TRCVICTLR_EXLEVEL_NS_MASK, config->vinst_ctrl);
+-	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
++	return sysfs_emit(buf, "%#lx\n", val);
+ }
+ 
+ static ssize_t ns_exlevel_vinst_store(struct device *dev,
+@@ -827,7 +827,7 @@ static ssize_t addr_idx_show(struct device *dev,
+ 	struct etmv4_config *config = &drvdata->config;
+ 
+ 	val = config->addr_idx;
+-	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
++	return sysfs_emit(buf, "%#lx\n", val);
+ }
+ 
+ static ssize_t addr_idx_store(struct device *dev,
+@@ -866,11 +866,11 @@ static ssize_t addr_instdatatype_show(struct device *dev,
+ 	raw_spin_lock(&drvdata->spinlock);
+ 	idx = config->addr_idx;
+ 	val = FIELD_GET(TRCACATRn_TYPE_MASK, config->addr_acc[idx]);
+-	len = scnprintf(buf, PAGE_SIZE, "%s\n",
+-			val == TRCACATRn_TYPE_ADDR ? "instr" :
+-			(val == TRCACATRn_TYPE_DATA_LOAD_ADDR ? "data_load" :
+-			(val == TRCACATRn_TYPE_DATA_STORE_ADDR ? "data_store" :
+-			"data_load_store")));
++	len = sysfs_emit(buf, "%s\n",
++			 val == TRCACATRn_TYPE_ADDR ? "instr" :
++			 (val == TRCACATRn_TYPE_DATA_LOAD_ADDR ? "data_load" :
++			 (val == TRCACATRn_TYPE_DATA_STORE_ADDR ? "data_store" :
++			 "data_load_store")));
+ 	raw_spin_unlock(&drvdata->spinlock);
+ 	return len;
+ }
+@@ -918,7 +918,7 @@ static ssize_t addr_single_show(struct device *dev,
+ 	}
+ 	val = (unsigned long)config->addr_val[idx];
+ 	raw_spin_unlock(&drvdata->spinlock);
+-	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
++	return sysfs_emit(buf, "%#lx\n", val);
+ }
+ 
+ static ssize_t addr_single_store(struct device *dev,
+@@ -974,7 +974,7 @@ static ssize_t addr_range_show(struct device *dev,
+ 	val1 = (unsigned long)config->addr_val[idx];
+ 	val2 = (unsigned long)config->addr_val[idx + 1];
+ 	raw_spin_unlock(&drvdata->spinlock);
+-	return scnprintf(buf, PAGE_SIZE, "%#lx %#lx\n", val1, val2);
++	return sysfs_emit(buf, "%#lx %#lx\n", val1, val2);
+ }
+ 
+ static ssize_t addr_range_store(struct device *dev,
+@@ -1049,7 +1049,7 @@ static ssize_t addr_start_show(struct device *dev,
+ 
+ 	val = (unsigned long)config->addr_val[idx];
+ 	raw_spin_unlock(&drvdata->spinlock);
+-	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
++	return sysfs_emit(buf, "%#lx\n", val);
+ }
+ 
+ static ssize_t addr_start_store(struct device *dev,
+@@ -1104,7 +1104,7 @@ static ssize_t addr_stop_show(struct device *dev,
+ 
+ 	val = (unsigned long)config->addr_val[idx];
+ 	raw_spin_unlock(&drvdata->spinlock);
+-	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
++	return sysfs_emit(buf, "%#lx\n", val);
+ }
+ 
+ static ssize_t addr_stop_store(struct device *dev,
+@@ -1152,7 +1152,7 @@ static ssize_t addr_ctxtype_show(struct device *dev,
+ 	idx = config->addr_idx;
+ 	/* CONTEXTTYPE, bits[3:2] */
+ 	val = FIELD_GET(TRCACATRn_CONTEXTTYPE_MASK, config->addr_acc[idx]);
+-	len = scnprintf(buf, PAGE_SIZE, "%s\n", val == ETM_CTX_NONE ? "none" :
++	len = sysfs_emit(buf, "%s\n", val == ETM_CTX_NONE ? "none" :
+ 			(val == ETM_CTX_CTXID ? "ctxid" :
+ 			(val == ETM_CTX_VMID ? "vmid" : "all")));
+ 	raw_spin_unlock(&drvdata->spinlock);
+@@ -1219,7 +1219,7 @@ static ssize_t addr_context_show(struct device *dev,
+ 	/* context ID comparator bits[6:4] */
+ 	val = FIELD_GET(TRCACATRn_CONTEXT_MASK, config->addr_acc[idx]);
+ 	raw_spin_unlock(&drvdata->spinlock);
+-	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
++	return sysfs_emit(buf, "%#lx\n", val);
+ }
+ 
+ static ssize_t addr_context_store(struct device *dev,
+@@ -1262,7 +1262,7 @@ static ssize_t addr_exlevel_s_ns_show(struct device *dev,
+ 	idx = config->addr_idx;
+ 	val = FIELD_GET(TRCACATRn_EXLEVEL_MASK, config->addr_acc[idx]);
+ 	raw_spin_unlock(&drvdata->spinlock);
+-	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
++	return sysfs_emit(buf, "%#lx\n", val);
+ }
+ 
+ static ssize_t addr_exlevel_s_ns_store(struct device *dev,
+@@ -1325,17 +1325,17 @@ static ssize_t addr_cmp_view_show(struct device *dev,
+ 	}
+ 	raw_spin_unlock(&drvdata->spinlock);
+ 	if (addr_type) {
+-		size = scnprintf(buf, PAGE_SIZE, "addr_cmp[%i] %s %#lx", idx,
+-				 addr_type_names[addr_type], addr_v);
++		size = sysfs_emit(buf, "addr_cmp[%i] %s %#lx", idx,
++				  addr_type_names[addr_type], addr_v);
+ 		if (addr_type == ETM_ADDR_TYPE_RANGE) {
+-			size += scnprintf(buf + size, PAGE_SIZE - size,
++			size += sysfs_emit_at(buf, size,
+ 					  " %#lx %s", addr_v2,
+ 					  exclude ? "exclude" : "include");
+ 		}
+-		size += scnprintf(buf + size, PAGE_SIZE - size,
++		size += sysfs_emit_at(buf, size,
+ 				  " ctrl(%#lx)\n", addr_ctrl);
+ 	} else {
+-		size = scnprintf(buf, PAGE_SIZE, "addr_cmp[%i] unused\n", idx);
++		size = sysfs_emit(buf, "addr_cmp[%i] unused\n", idx);
+ 	}
+ 	return size;
+ }
+@@ -1352,7 +1352,7 @@ static ssize_t vinst_pe_cmp_start_stop_show(struct device *dev,
+ 	if (!drvdata->nr_pe_cmp)
+ 		return -EINVAL;
+ 	val = config->vipcssctlr;
+-	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
++	return sysfs_emit(buf, "%#lx\n", val);
+ }
+ static ssize_t vinst_pe_cmp_start_stop_store(struct device *dev,
+ 					     struct device_attribute *attr,
+@@ -1383,7 +1383,7 @@ static ssize_t seq_idx_show(struct device *dev,
+ 	struct etmv4_config *config = &drvdata->config;
+ 
+ 	val = config->seq_idx;
+-	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
++	return sysfs_emit(buf, "%#lx\n", val);
+ }
+ 
+ static ssize_t seq_idx_store(struct device *dev,
+@@ -1419,7 +1419,7 @@ static ssize_t seq_state_show(struct device *dev,
+ 	struct etmv4_config *config = &drvdata->config;
+ 
+ 	val = config->seq_state;
+-	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
++	return sysfs_emit(buf, "%#lx\n", val);
+ }
+ 
+ static ssize_t seq_state_store(struct device *dev,
+@@ -1453,7 +1453,7 @@ static ssize_t seq_event_show(struct device *dev,
+ 	idx = config->seq_idx;
+ 	val = config->seq_ctrl[idx];
+ 	raw_spin_unlock(&drvdata->spinlock);
+-	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
++	return sysfs_emit(buf, "%#lx\n", val);
+ }
+ 
+ static ssize_t seq_event_store(struct device *dev,
+@@ -1486,7 +1486,7 @@ static ssize_t seq_reset_event_show(struct device *dev,
+ 	struct etmv4_config *config = &drvdata->config;
+ 
+ 	val = config->seq_rst;
+-	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
++	return sysfs_emit(buf, "%#lx\n", val);
+ }
+ 
+ static ssize_t seq_reset_event_store(struct device *dev,
+@@ -1516,7 +1516,7 @@ static ssize_t cntr_idx_show(struct device *dev,
+ 	struct etmv4_config *config = &drvdata->config;
+ 
+ 	val = config->cntr_idx;
+-	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
++	return sysfs_emit(buf, "%#lx\n", val);
+ }
+ 
+ static ssize_t cntr_idx_store(struct device *dev,
+@@ -1556,7 +1556,7 @@ static ssize_t cntrldvr_show(struct device *dev,
+ 	idx = config->cntr_idx;
+ 	val = config->cntrldvr[idx];
+ 	raw_spin_unlock(&drvdata->spinlock);
+-	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
++	return sysfs_emit(buf, "%#lx\n", val);
+ }
+ 
+ static ssize_t cntrldvr_store(struct device *dev,
+@@ -1594,7 +1594,7 @@ static ssize_t cntr_val_show(struct device *dev,
+ 	idx = config->cntr_idx;
+ 	val = config->cntr_val[idx];
+ 	raw_spin_unlock(&drvdata->spinlock);
+-	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
++	return sysfs_emit(buf, "%#lx\n", val);
+ }
+ 
+ static ssize_t cntr_val_store(struct device *dev,
+@@ -1632,7 +1632,7 @@ static ssize_t cntr_ctrl_show(struct device *dev,
+ 	idx = config->cntr_idx;
+ 	val = config->cntr_ctrl[idx];
+ 	raw_spin_unlock(&drvdata->spinlock);
+-	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
++	return sysfs_emit(buf, "%#lx\n", val);
+ }
+ 
+ static ssize_t cntr_ctrl_store(struct device *dev,
+@@ -1664,7 +1664,7 @@ static ssize_t res_idx_show(struct device *dev,
+ 	struct etmv4_config *config = &drvdata->config;
+ 
+ 	val = config->res_idx;
+-	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
++	return sysfs_emit(buf, "%#lx\n", val);
+ }
+ 
+ static ssize_t res_idx_store(struct device *dev,
+@@ -1708,7 +1708,7 @@ static ssize_t res_ctrl_show(struct device *dev,
+ 	idx = config->res_idx;
+ 	val = config->res_ctrl[idx];
+ 	raw_spin_unlock(&drvdata->spinlock);
+-	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
++	return sysfs_emit(buf, "%#lx\n", val);
+ }
+ 
+ static ssize_t res_ctrl_store(struct device *dev,
+@@ -1746,7 +1746,7 @@ static ssize_t sshot_idx_show(struct device *dev,
+ 	struct etmv4_config *config = &drvdata->config;
+ 
+ 	val = config->ss_idx;
+-	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
++	return sysfs_emit(buf, "%#lx\n", val);
+ }
+ 
+ static ssize_t sshot_idx_store(struct device *dev,
+@@ -1780,7 +1780,7 @@ static ssize_t sshot_ctrl_show(struct device *dev,
+ 	raw_spin_lock(&drvdata->spinlock);
+ 	val = config->ss_ctrl[config->ss_idx];
+ 	raw_spin_unlock(&drvdata->spinlock);
+-	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
++	return sysfs_emit(buf, "%#lx\n", val);
+ }
+ 
+ static ssize_t sshot_ctrl_store(struct device *dev,
+@@ -1815,7 +1815,7 @@ static ssize_t sshot_status_show(struct device *dev,
+ 	raw_spin_lock(&drvdata->spinlock);
+ 	val = config->ss_status[config->ss_idx];
+ 	raw_spin_unlock(&drvdata->spinlock);
+-	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
++	return sysfs_emit(buf, "%#lx\n", val);
+ }
+ static DEVICE_ATTR_RO(sshot_status);
+ 
+@@ -1830,7 +1830,7 @@ static ssize_t sshot_pe_ctrl_show(struct device *dev,
+ 	raw_spin_lock(&drvdata->spinlock);
+ 	val = config->ss_pe_cmp[config->ss_idx];
+ 	raw_spin_unlock(&drvdata->spinlock);
+-	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
++	return sysfs_emit(buf, "%#lx\n", val);
+ }
+ 
+ static ssize_t sshot_pe_ctrl_store(struct device *dev,
+@@ -1864,7 +1864,7 @@ static ssize_t ctxid_idx_show(struct device *dev,
+ 	struct etmv4_config *config = &drvdata->config;
+ 
+ 	val = config->ctxid_idx;
+-	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
++	return sysfs_emit(buf, "%#lx\n", val);
+ }
+ 
+ static ssize_t ctxid_idx_store(struct device *dev,
+@@ -1911,7 +1911,7 @@ static ssize_t ctxid_pid_show(struct device *dev,
+ 	idx = config->ctxid_idx;
+ 	val = (unsigned long)config->ctxid_pid[idx];
+ 	raw_spin_unlock(&drvdata->spinlock);
+-	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
++	return sysfs_emit(buf, "%#lx\n", val);
+ }
+ 
+ static ssize_t ctxid_pid_store(struct device *dev,
+@@ -1972,7 +1972,7 @@ static ssize_t ctxid_masks_show(struct device *dev,
+ 	val1 = config->ctxid_mask0;
+ 	val2 = config->ctxid_mask1;
+ 	raw_spin_unlock(&drvdata->spinlock);
+-	return scnprintf(buf, PAGE_SIZE, "%#lx %#lx\n", val1, val2);
++	return sysfs_emit(buf, "%#lx %#lx\n", val1, val2);
+ }
+ 
+ static ssize_t ctxid_masks_store(struct device *dev,
+@@ -2090,7 +2090,7 @@ static ssize_t vmid_idx_show(struct device *dev,
+ 	struct etmv4_config *config = &drvdata->config;
+ 
+ 	val = config->vmid_idx;
+-	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
++	return sysfs_emit(buf, "%#lx\n", val);
+ }
+ 
+ static ssize_t vmid_idx_store(struct device *dev,
+@@ -2135,7 +2135,7 @@ static ssize_t vmid_val_show(struct device *dev,
+ 	raw_spin_lock(&drvdata->spinlock);
+ 	val = (unsigned long)config->vmid_val[config->vmid_idx];
+ 	raw_spin_unlock(&drvdata->spinlock);
+-	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
++	return sysfs_emit(buf, "%#lx\n", val);
+ }
+ 
+ static ssize_t vmid_val_store(struct device *dev,
+@@ -2187,7 +2187,7 @@ static ssize_t vmid_masks_show(struct device *dev,
+ 	val1 = config->vmid_mask0;
+ 	val2 = config->vmid_mask1;
+ 	raw_spin_unlock(&drvdata->spinlock);
+-	return scnprintf(buf, PAGE_SIZE, "%#lx %#lx\n", val1, val2);
++	return sysfs_emit(buf, "%#lx %#lx\n", val1, val2);
+ }
+ 
+ static ssize_t vmid_masks_store(struct device *dev,
+@@ -2303,7 +2303,7 @@ static ssize_t cpu_show(struct device *dev,
+ 	struct etmv4_drvdata *drvdata = dev_get_drvdata(dev->parent);
+ 
+ 	val = drvdata->cpu;
+-	return scnprintf(buf, PAGE_SIZE, "%d\n", val);
++	return sysfs_emit(buf, "%d\n", val);
+ 
+ }
+ static DEVICE_ATTR_RO(cpu);
+@@ -2461,7 +2461,7 @@ static ssize_t coresight_etm4x_reg_show(struct device *dev,
+ 	val = etmv4_cross_read(drvdata, offset);
+ 	pm_runtime_put_sync(dev->parent);
+ 
+-	return scnprintf(buf, PAGE_SIZE, "0x%x\n", val);
++	return sysfs_emit(buf, "0x%x\n", val);
+ }
+ 
+ static bool
+diff --git a/drivers/hwtracing/coresight/coresight-funnel.c b/drivers/hwtracing/coresight/coresight-funnel.c
+index b1922dbe9292..2b6009bb7a3b 100644
+--- a/drivers/hwtracing/coresight/coresight-funnel.c
++++ b/drivers/hwtracing/coresight/coresight-funnel.c
+@@ -157,7 +157,7 @@ static ssize_t priority_show(struct device *dev,
+ 	struct funnel_drvdata *drvdata = dev_get_drvdata(dev->parent);
+ 	unsigned long val = drvdata->priority;
+ 
+-	return sprintf(buf, "%#lx\n", val);
++	return sysfs_emit(buf, "%#lx\n", val);
+ }
+ 
+ static ssize_t priority_store(struct device *dev,
+@@ -200,7 +200,7 @@ static ssize_t funnel_ctrl_show(struct device *dev,
+ 
+ 	pm_runtime_put(dev->parent);
+ 
+-	return sprintf(buf, "%#x\n", val);
++	return sysfs_emit(buf, "%#x\n", val);
+ }
+ static DEVICE_ATTR_RO(funnel_ctrl);
+ 
+diff --git a/drivers/hwtracing/coresight/coresight-stm.c b/drivers/hwtracing/coresight/coresight-stm.c
+index e45c6c7204b4..81fa4b24e300 100644
+--- a/drivers/hwtracing/coresight/coresight-stm.c
++++ b/drivers/hwtracing/coresight/coresight-stm.c
+@@ -470,7 +470,7 @@ static ssize_t hwevent_enable_show(struct device *dev,
+ 	struct stm_drvdata *drvdata = dev_get_drvdata(dev->parent);
+ 	unsigned long val = drvdata->stmheer;
+ 
+-	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
++	return sysfs_emit(buf, "%#lx\n", val);
+ }
+ 
+ static ssize_t hwevent_enable_store(struct device *dev,
+@@ -499,7 +499,7 @@ static ssize_t hwevent_select_show(struct device *dev,
+ 	struct stm_drvdata *drvdata = dev_get_drvdata(dev->parent);
+ 	unsigned long val = drvdata->stmhebsr;
+ 
+-	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
++	return sysfs_emit(buf, "%#lx\n", val);
+ }
+ 
+ static ssize_t hwevent_select_store(struct device *dev,
+@@ -534,7 +534,7 @@ static ssize_t port_select_show(struct device *dev,
+ 		spin_unlock(&drvdata->spinlock);
+ 	}
+ 
+-	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
++	return sysfs_emit(buf, "%#lx\n", val);
+ }
+ 
+ static ssize_t port_select_store(struct device *dev,
+@@ -581,7 +581,7 @@ static ssize_t port_enable_show(struct device *dev,
+ 		spin_unlock(&drvdata->spinlock);
+ 	}
+ 
+-	return scnprintf(buf, PAGE_SIZE, "%#lx\n", val);
++	return sysfs_emit(buf, "%#lx\n", val);
+ }
+ 
+ static ssize_t port_enable_store(struct device *dev,
+@@ -617,7 +617,7 @@ static ssize_t traceid_show(struct device *dev,
+ 	struct stm_drvdata *drvdata = dev_get_drvdata(dev->parent);
+ 
+ 	val = drvdata->traceid;
+-	return sprintf(buf, "%#lx\n", val);
++	return sysfs_emit(buf, "%#lx\n", val);
+ }
+ static DEVICE_ATTR_RO(traceid);
+ 
+diff --git a/drivers/hwtracing/coresight/coresight-sysfs.c b/drivers/hwtracing/coresight/coresight-sysfs.c
+index feadaf065b53..8c7bfaae0cbd 100644
+--- a/drivers/hwtracing/coresight/coresight-sysfs.c
++++ b/drivers/hwtracing/coresight/coresight-sysfs.c
+@@ -315,7 +315,7 @@ static ssize_t enable_sink_show(struct device *dev,
+ {
+ 	struct coresight_device *csdev = to_coresight_device(dev);
+ 
+-	return scnprintf(buf, PAGE_SIZE, "%u\n", csdev->sysfs_sink_activated);
++	return sysfs_emit(buf, "%u\n", csdev->sysfs_sink_activated);
+ }
+ 
+ static ssize_t enable_sink_store(struct device *dev,
+@@ -343,7 +343,7 @@ static ssize_t enable_source_show(struct device *dev,
+ 	struct coresight_device *csdev = to_coresight_device(dev);
+ 
+ 	guard(mutex)(&coresight_mutex);
+-	return scnprintf(buf, PAGE_SIZE, "%u\n",
++	return sysfs_emit(buf, "%u\n",
+ 			 coresight_get_mode(csdev) == CS_MODE_SYSFS);
+ }
+ 
+@@ -416,7 +416,7 @@ static ssize_t nr_links_show(struct device *dev,
+ {
+ 	struct coresight_device *csdev = to_coresight_device(dev);
+ 
+-	return sprintf(buf, "%d\n", csdev->nr_links);
++	return sysfs_emit(buf, "%d\n", csdev->nr_links);
+ }
+ static DEVICE_ATTR_RO(nr_links);
+ 
+diff --git a/drivers/hwtracing/coresight/coresight-tmc-core.c b/drivers/hwtracing/coresight/coresight-tmc-core.c
+index 88afb16bb6be..a95712fb48b7 100644
+--- a/drivers/hwtracing/coresight/coresight-tmc-core.c
++++ b/drivers/hwtracing/coresight/coresight-tmc-core.c
+@@ -480,7 +480,7 @@ static ssize_t trigger_cntr_show(struct device *dev,
+ 	struct tmc_drvdata *drvdata = dev_get_drvdata(dev->parent);
+ 	unsigned long val = drvdata->trigger_cntr;
+ 
+-	return sprintf(buf, "%#lx\n", val);
++	return sysfs_emit(buf, "%#lx\n", val);
+ }
+ 
+ static ssize_t trigger_cntr_store(struct device *dev,
+@@ -505,7 +505,7 @@ static ssize_t buffer_size_show(struct device *dev,
+ {
+ 	struct tmc_drvdata *drvdata = dev_get_drvdata(dev->parent);
+ 
+-	return sprintf(buf, "%#x\n", drvdata->size);
++	return sysfs_emit(buf, "%#x\n", drvdata->size);
+ }
+ 
+ static ssize_t buffer_size_store(struct device *dev,
+@@ -537,7 +537,7 @@ static ssize_t stop_on_flush_show(struct device *dev,
+ {
+ 	struct tmc_drvdata *drvdata = dev_get_drvdata(dev->parent);
+ 
+-	return sprintf(buf, "%#x\n", drvdata->stop_on_flush);
++	return sysfs_emit(buf, "%#x\n", drvdata->stop_on_flush);
+ }
+ 
+ static ssize_t stop_on_flush_store(struct device *dev,
+diff --git a/drivers/hwtracing/coresight/coresight-trbe.c b/drivers/hwtracing/coresight/coresight-trbe.c
+index 8267dd1a2130..0ba5ea6abe50 100644
+--- a/drivers/hwtracing/coresight/coresight-trbe.c
++++ b/drivers/hwtracing/coresight/coresight-trbe.c
+@@ -1203,7 +1203,7 @@ static ssize_t align_show(struct device *dev, struct device_attribute *attr, cha
+ {
+ 	struct trbe_cpudata *cpudata = dev_get_drvdata(dev);
+ 
+-	return sprintf(buf, "%llx\n", cpudata->trbe_hw_align);
++	return sysfs_emit(buf, "%llx\n", cpudata->trbe_hw_align);
+ }
+ static DEVICE_ATTR_RO(align);
+ 
+@@ -1211,7 +1211,7 @@ static ssize_t flag_show(struct device *dev, struct device_attribute *attr, char
+ {
+ 	struct trbe_cpudata *cpudata = dev_get_drvdata(dev);
+ 
+-	return sprintf(buf, "%d\n", cpudata->trbe_flag);
++	return sysfs_emit(buf, "%d\n", cpudata->trbe_flag);
+ }
+ static DEVICE_ATTR_RO(flag);
+ 
+-- 
+2.47.1
 
->
-> > > +}
-> > > +
-> > >  int kvm_handle_guest_sea(struct kvm_vcpu *vcpu)
-> > >  {
-> > > +       u64 esr =3D kvm_vcpu_get_esr(vcpu);
-> > > +       struct kvm_run *run =3D vcpu->run;
-> > > +       struct kvm *kvm =3D vcpu->kvm;
-> > > +       u64 esr_mask =3D ESR_ELx_EC_MASK  |
-> > > +                      ESR_ELx_FnV      |
-> > > +                      ESR_ELx_EA       |
-> > > +                      ESR_ELx_CM       |
-> > > +                      ESR_ELx_WNR      |
-> > > +                      ESR_ELx_FSC;
-> >
-> > Do you (and why) exclude ESR_ELx_IL on purpose?
->
-> Unintended :)
-
-Will add into my patch.
-
->
-> > BTW, if my previous statement about TTW SEA is correct, then I also
-> > understand why we need to explicitly exclude ESR_ELx_S1PTW.
->
-> Right, we shouldn't be exposing genuine stage-2 external aborts to usersp=
-ace.
->
-> > > +       u64 ipa;
-> > > +
-> > > +
-> > >         /*
-> > >          * Give APEI the opportunity to claim the abort before handli=
-ng it
-> > >          * within KVM. apei_claim_sea() expects to be called with IRQ=
-s
-> > > @@ -1824,7 +1864,32 @@ int kvm_handle_guest_sea(struct kvm_vcpu *vcpu=
-)
-> > >         if (apei_claim_sea(NULL) =3D=3D 0)
-> >
-> > I assume kvm should still lockdep_assert_irqs_enabled(), right? That
-> > is, a WARN_ON_ONCE is still useful in case?
->
-> Ah, this is diffed against my VNCR prefix which has this context. Yes, I
-> want to preserve the lockdep assertion.
-
-Thanks for sharing the patch! Should I wait for you to send and queue
-to kvmarm/next and rebase my v3 to it? Or should I insert it into my
-v3 patch series with you as the commit author, and Signed-off-by you?
-
-BTW, while I am working on v3, I think it is probably better to
-decouple the current patchset into two. The first one for
-KVM_EXIT_ARM_SEA, and the second one for injecting (D|I)ABT with
-user-supplemented esr. This way may help KVM_EXIT_ARM_SEA, the more
-important feature, get reviewed and accepted sooner. I will send out a
-separate patchset for enhancing the guest SEA injection.
-
->
->
-> From eb63dbf07b3d1f42b059f5c94abd147d195299c8 Mon Sep 17 00:00:00 2001
-> From: Oliver Upton <oliver.upton@linux.dev>
-> Date: Thu, 10 Jul 2025 17:14:51 -0700
-> Subject: [PATCH] KVM: arm64: nv: Handle SEAs due to VNCR redirection
->
-> Signed-off-by: Oliver Upton <oliver.upton@linux.dev>
-> ---
->  arch/arm64/include/asm/kvm_mmu.h |  1 +
->  arch/arm64/include/asm/kvm_ras.h | 25 -------------------------
->  arch/arm64/kvm/mmu.c             | 30 ++++++++++++++++++------------
->  arch/arm64/kvm/nested.c          |  3 +++
->  4 files changed, 22 insertions(+), 37 deletions(-)
->  delete mode 100644 arch/arm64/include/asm/kvm_ras.h
->
-> diff --git a/arch/arm64/include/asm/kvm_mmu.h b/arch/arm64/include/asm/kv=
-m_mmu.h
-> index ae563ebd6aee..e4069f2ce642 100644
-> --- a/arch/arm64/include/asm/kvm_mmu.h
-> +++ b/arch/arm64/include/asm/kvm_mmu.h
-> @@ -180,6 +180,7 @@ void kvm_free_stage2_pgd(struct kvm_s2_mmu *mmu);
->  int kvm_phys_addr_ioremap(struct kvm *kvm, phys_addr_t guest_ipa,
->                           phys_addr_t pa, unsigned long size, bool writab=
-le);
->
-> +int kvm_handle_guest_sea(struct kvm_vcpu *vcpu);
->  int kvm_handle_guest_abort(struct kvm_vcpu *vcpu);
->
->  phys_addr_t kvm_mmu_get_httbr(void);
-> diff --git a/arch/arm64/include/asm/kvm_ras.h b/arch/arm64/include/asm/kv=
-m_ras.h
-> deleted file mode 100644
-> index 9398ade632aa..000000000000
-> --- a/arch/arm64/include/asm/kvm_ras.h
-> +++ /dev/null
-> @@ -1,25 +0,0 @@
-> -/* SPDX-License-Identifier: GPL-2.0 */
-> -/* Copyright (C) 2018 - Arm Ltd */
-> -
-> -#ifndef __ARM64_KVM_RAS_H__
-> -#define __ARM64_KVM_RAS_H__
-> -
-> -#include <linux/acpi.h>
-> -#include <linux/errno.h>
-> -#include <linux/types.h>
-> -
-> -#include <asm/acpi.h>
-> -
-> -/*
-> - * Was this synchronous external abort a RAS notification?
-> - * Returns '0' for errors handled by some RAS subsystem, or -ENOENT.
-> - */
-> -static inline int kvm_handle_guest_sea(void)
-> -{
-> -       /* apei_claim_sea(NULL) expects to mask interrupts itself */
-> -       lockdep_assert_irqs_enabled();
-> -
-> -       return apei_claim_sea(NULL);
-> -}
-> -
-> -#endif /* __ARM64_KVM_RAS_H__ */
-> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-> index 1c78864767c5..6934f4acdc45 100644
-> --- a/arch/arm64/kvm/mmu.c
-> +++ b/arch/arm64/kvm/mmu.c
-> @@ -4,19 +4,20 @@
->   * Author: Christoffer Dall <c.dall@virtualopensystems.com>
->   */
->
-> +#include <linux/acpi.h>
->  #include <linux/mman.h>
->  #include <linux/kvm_host.h>
->  #include <linux/io.h>
->  #include <linux/hugetlb.h>
->  #include <linux/sched/signal.h>
->  #include <trace/events/kvm.h>
-> +#include <asm/acpi.h>
->  #include <asm/pgalloc.h>
->  #include <asm/cacheflush.h>
->  #include <asm/kvm_arm.h>
->  #include <asm/kvm_mmu.h>
->  #include <asm/kvm_pgtable.h>
->  #include <asm/kvm_pkvm.h>
-> -#include <asm/kvm_ras.h>
->  #include <asm/kvm_asm.h>
->  #include <asm/kvm_emulate.h>
->  #include <asm/virt.h>
-> @@ -1811,6 +1812,20 @@ static void handle_access_fault(struct kvm_vcpu *v=
-cpu, phys_addr_t fault_ipa)
->         read_unlock(&vcpu->kvm->mmu_lock);
->  }
->
-> +int kvm_handle_guest_sea(struct kvm_vcpu *vcpu)
-> +{
-> +       /*
-> +        * Give APEI the opportunity to claim the abort before handling i=
-t
-> +        * within KVM. apei_claim_sea() expects to be called with IRQs
-> +        * enabled.
-> +        */
-> +       lockdep_assert_irqs_enabled();
-> +       if (apei_claim_sea(NULL) =3D=3D 0)
-> +               return 1;
-> +
-> +       return kvm_inject_serror(vcpu);
-> +}
-> +
->  /**
->   * kvm_handle_guest_abort - handles all 2nd stage aborts
->   * @vcpu:      the VCPU pointer
-> @@ -1834,17 +1849,8 @@ int kvm_handle_guest_abort(struct kvm_vcpu *vcpu)
->         gfn_t gfn;
->         int ret, idx;
->
-> -       /* Synchronous External Abort? */
-> -       if (kvm_vcpu_abt_issea(vcpu)) {
-> -               /*
-> -                * For RAS the host kernel may handle this abort.
-> -                * There is no need to pass the error into the guest.
-> -                */
-> -               if (kvm_handle_guest_sea())
-> -                       return kvm_inject_serror(vcpu);
-> -
-> -               return 1;
-> -       }
-> +       if (kvm_vcpu_abt_issea(vcpu))
-> +               return kvm_handle_guest_sea(vcpu);
->
->         esr =3D kvm_vcpu_get_esr(vcpu);
->
-> diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
-> index 096747a61bf6..38b0e3a9a6db 100644
-> --- a/arch/arm64/kvm/nested.c
-> +++ b/arch/arm64/kvm/nested.c
-> @@ -1289,6 +1289,9 @@ int kvm_handle_vncr_abort(struct kvm_vcpu *vcpu)
->
->         BUG_ON(!(esr & ESR_ELx_VNCR_SHIFT));
->
-> +       if (kvm_vcpu_abt_issea(vcpu))
-> +               return kvm_handle_guest_sea(vcpu);
-> +
->         if (esr_fsc_is_permission_fault(esr)) {
->                 inject_vncr_perm(vcpu);
->         } else if (esr_fsc_is_translation_fault(esr)) {
-> --
-> 2.39.5
->
 
