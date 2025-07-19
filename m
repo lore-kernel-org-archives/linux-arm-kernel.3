@@ -4,81 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4FCEC83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Jul 2025 02:32:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D6A2C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Jul 2025 02:34:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4UcvtSwUE/wLtdElxz8G59NbqdOSdRB9j+Q68sTzJTI=; b=GJbw7mnP9PP9gqVcd3bViGcKQ4
-	fLtWyZEnGEwFr9ukuu0DluPNVYJ9fXXXwWTAaVD5rPFoSY8K7YNdEupHJVcH7XJTuHE6kZlk/E4nC
-	Nh3qUrhuXCsWec07Jh9KPE9D2LPeInLVPMieP56VduHqJ325eXfcuvdNs3PScdQePtZyphDQd3yya
-	yrZwrs5dyvYWVL9Pq07vO1VYBznYvPLndbtvbqr7SHCj4VrNgHSVpRUYYujyUncqPiwTaSQohOLUv
-	KNygYxOPHoq3dcajTdj6Wxhv+DQFv3Nt8KE1kNviW5MO+zZFYVSTG30cLtkumw8V5skgsHZPHGpVH
-	2Wr6Lt4g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Scnqs5pk340zKN/IMxaD8uFN1w3h3QowSgutbiQPbOA=; b=CVCPt57e2Hty5uKqRI+Yfb5aEY
+	uXoFlWFsBa1SZkqPEgY4/4i+OwJi2CSbLTwxvCIdLuIqmOFIwmnK0Aq/r8XixdKtu84yfZw+uAaYb
+	iM0801ionU+zNMfvM9r/WHvYFrKQUfQdQ45nGvXcWU8c7jQEnRptSt8zciOcZ0c7cqLdctVu0X3mk
+	OxxWMpwbO2psRnviv+nYIFe9/SZWrZ+BrUxsks4hisYdxW+2u425GpJxbc7jUUm8eJlG7Gjw0l8jC
+	3FG1jV5RbdUOFa+96z5CeSLhrzqkjXSajKYrGyXN30YBd+k7FYWlvPUI4MD65x1wvrRUT9tOoZpZH
+	/8h8R9Dw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucxMl-0000000Dki8-231a;
-	Sat, 19 Jul 2025 02:31:59 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1ucxPE-0000000Dkue-11Dl;
+	Sat, 19 Jul 2025 02:34:32 +0000
+Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ucx3M-0000000DjKk-1MDZ
+	id 1ucx9d-0000000DjsM-0DAC
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 19 Jul 2025 02:11:57 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 6B18E5C440B;
-	Sat, 19 Jul 2025 02:11:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id B6ACBC4CEF1;
-	Sat, 19 Jul 2025 02:11:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752891113;
-	bh=KVQVAwvTzqE/QnEfsFxGuj0q6gToSmv+sLsoZFV8mJM=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=GabzZEKh71aOf48xj7TwEgAphuznfgIrpkHlsppurFVP8KvJvMnwI2+hgj5jzzlVr
-	 ASSkYL5hyC3ea1yq2pLPs584u7ZyqCITYS458lzsEHHIFoajutei/Yx1kevAbH8cml
-	 sAOgRyJEj6dEUpXIfgQ/w1Mc3Xs7f3nI18Z+/ic15wyajlh+JgbV92zNoMU+PFhWMX
-	 Cf8KqdP2TZcKS9rj54RJ+KVjumr4g7Veea5u6fiB6ypuNAJlJQoeZ5mn0wDgZHVTRx
-	 K5GuAVlT0DOMVevLszkHb/fcuXVBBeO5a9+8E3VZ5lq3NTfn9NbNH/57AdzeWwue1c
-	 ecRswR9RIsvyw==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A32C8C83F3B;
-	Sat, 19 Jul 2025 02:11:53 +0000 (UTC)
-From: Per Larsen via B4 Relay <devnull+perlarsen.google.com@kernel.org>
-Date: Sat, 19 Jul 2025 02:11:24 +0000
-Subject: [PATCH v8 2/7] KVM: arm64: Use SMCCC 1.2 for FF-A initialization
- and in host handler
+	Sat, 19 Jul 2025 02:18:26 +0000
+Received: by mail-pj1-x1035.google.com with SMTP id 98e67ed59e1d1-313f68bc519so1825298a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 18 Jul 2025 19:18:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1752891504; x=1753496304; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=Scnqs5pk340zKN/IMxaD8uFN1w3h3QowSgutbiQPbOA=;
+        b=MeIKoSeYOHxYet1VQheOd9ScfMxNlMMQT3hRTglTDWxG2JILPYNQI+m4y+R6t8IIlp
+         3FflbxlNZ/JXVDobt9ELyoroSmmksY31HJzgh4v3msfN9KHF2w1apuslXyzKZvwRmqg2
+         Q8Cd97ZLcDqlK+sRZteHRrXchGLwmrBsqT58eqi/Vp2krmjzYZKcb1D6QioEVGU3BzNf
+         nwnUAQAFo0DkgDeAWvrfv0yht8uxnd1sSLa8FHzwWJ+MCWRFVOJygUVSEbZ0b2op3TtX
+         d15ZG+IZ04IxamE3eHK+teN9II+OHrS1EHcj1RjSV68lchlvQpgCJjqv+BjzYvlQ9ISc
+         qx0g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1752891504; x=1753496304;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Scnqs5pk340zKN/IMxaD8uFN1w3h3QowSgutbiQPbOA=;
+        b=vCZlFBhc7CGCvQVzlGEtqfuf/7OwV4rBu3wDTuFpFUyfXkaQd8LBuptBExa7/YFM3L
+         CqF9AOfIZ0P3nEzuz7qED8JlV+zWprRMM73QKrs8tp+BPH45RqpYp5oOYduuX0qiFCrj
+         nhIOaZhAYUz5khA0958OTjhXQUSzBFlaAdUwzQRBsIJSrCa9qGFqVJ5flX9r4Jnp0MoQ
+         RaGo3gTnpm0q0Kv2uRcL+yOeD+h611x9a4Dl47dM4R8bnnv3eVRTv4JHUzkLBWDLtk50
+         R+geAMbZn8B2Rw1IS0h+h8SYN95iUfdUiFi0JNgXiOm0W0e9vxG1wICIfjXuW8tncCU3
+         UtDQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWVZ0tDALgabagAjYhwX1WhQSNFiG15x3wuU1JhFFrsIG+axaiQ3aZ9Oz8FYo4zh+yBz/QaXJa+KNhpM1T55uBf@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywcr8ZiuomyzBJxI8T/39Of+dc2Rsc83OXdnpThoGlN/1RLVann
+	ITAJztJbWCzfJHr562SLzBIuWlqlzHGECUpHJ2ad96ezsrJSw9xCFPnU
+X-Gm-Gg: ASbGnctAYBwYXiqGV2Uz6EEDIQp7o2Mg5nkTaic0im8RbxYvTgATjAa9PXdRoWg7eLh
+	/y2YApo8Kr9pIpgOPiQW24oMaaaiwmJMWVV33HVizTfC/AOqlhmsaRV3a5JqCGghuPQF/EHMZ8m
+	B23zijHk56MCrP+I8A/7Icx6/yIVNqZHR5EQQ9vY2l2o3bgzVZaelJmAz8aQoVS5vX6/vFzhK/a
+	wu8jhsAO2p/F2DpJjnRnmia9aKbtW39a6tQErAbklfg2PsK1EOLcVYk9CpFybJMGDTiYO0MbkAG
+	hR04M//kmEqgE/i90cNOi8q6d7m4xpt6MM04Y8Mm6IzweMrf5a9g9AjuQJKBD3DzLxVBUsb3wJR
+	m41gFUTbve16QPLxq5AYi9FA54Q==
+X-Google-Smtp-Source: AGHT+IHXIiFPtH//gJNmM/1/06X218/c+AnTD0afEkaxcRjYT0TB+ufmUNpan+0zr5nVWSbonniezQ==
+X-Received: by 2002:a17:90a:d60c:b0:312:ffdc:42b2 with SMTP id 98e67ed59e1d1-31c9f4b409bmr17155214a91.23.1752891503580;
+        Fri, 18 Jul 2025 19:18:23 -0700 (PDT)
+Received: from localhost ([2409:891f:6a27:93c:d451:d825:eb30:1bcc])
+        by smtp.gmail.com with UTF8SMTPSA id 98e67ed59e1d1-31c9f1ba530sm5900828a91.4.2025.07.18.19.18.21
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 18 Jul 2025 19:18:22 -0700 (PDT)
+Date: Sat, 19 Jul 2025 10:15:56 +0800
+From: Yao Yuan <yaoyuan0329os@gmail.com>
+To: Sean Christopherson <seanjc@google.com>
+Cc: Yao Yuan <yaoyuan@linux.alibaba.com>, Keir Fraser <keirf@google.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, kvm@vger.kernel.org, 
+	Eric Auger <eric.auger@redhat.com>, Oliver Upton <oliver.upton@linux.dev>, 
+	Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>, 
+	Paolo Bonzini <pbonzini@redhat.com>
+Subject: Re: [PATCH v2 2/4] KVM: arm64: vgic: Explicitly implement
+ vgic_dist::ready ordering
+Message-ID: <5zpxxmymnyzncdnewdonnglvmvbtggjyxyqvkf6yars2bbyr4b@gottasrtoq2s>
+References: <20250716110737.2513665-1-keirf@google.com>
+ <20250716110737.2513665-3-keirf@google.com>
+ <kb7nwrco6s7e6catcareyic72pxvx52jbqbfc5gbqb5zu434kg@w3rrzbut3h34>
+ <aHphgd0fOjHXjPCI@google.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250719-virtio-msg-ffa-v8-2-03e8e8dbe856@google.com>
-References: <20250719-virtio-msg-ffa-v8-0-03e8e8dbe856@google.com>
-In-Reply-To: <20250719-virtio-msg-ffa-v8-0-03e8e8dbe856@google.com>
-To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
- Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
- Zenghui Yu <yuzenghui@huawei.com>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
- Sudeep Holla <sudeep.holla@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
- linux-kernel@vger.kernel.org, ahomescu@google.com, armellel@google.com, 
- arve@android.com, ayrton@google.com, qperret@google.com, 
- sebastianene@google.com, qwandor@google.com, 
- Per Larsen <perlarsen@google.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1752891112; l=12373;
- i=perlarsen@google.com; s=20250508; h=from:subject:message-id;
- bh=m1/HgRESjtd0MBTbe5flhT/3DvCF84rYT4VVWwmoW3Y=;
- b=l6KonCDHSwJy+yaj8K5jEOgZ31rhZb0fJpXOiYrXkoMRz51nioHtjrWq1MtrA9hCWcSi/ksOf
- 7nFLYZCPbAjA1J02ejRtEFUr3x7X9aNP0cNIAKa2YdqIAfEjAgB9UXE
-X-Developer-Key: i=perlarsen@google.com; a=ed25519;
- pk=jjc/Ta4VmrLRmMoahP6d1mBcKzvWU+nsmdtYe2oS2kQ=
-X-Endpoint-Received: by B4 Relay for perlarsen@google.com/20250508 with
- auth_id=402
-X-Original-From: Per Larsen <perlarsen@google.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aHphgd0fOjHXjPCI@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250718_191156_496176_6BAF50C2 
-X-CRM114-Status: GOOD (  18.24  )
+X-CRM114-CacheID: sfid-20250718_191825_092527_59DD2BFF 
+X-CRM114-Status: GOOD (  27.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,401 +101,69 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: perlarsen@google.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Per Larsen <perlarsen@google.com>
+On Fri, Jul 18, 2025 at 08:00:17AM -0700, Sean Christopherson wrote:
+> On Thu, Jul 17, 2025, Yao Yuan wrote:
+> > On Wed, Jul 16, 2025 at 11:07:35AM +0800, Keir Fraser wrote:
+> > > In preparation to remove synchronize_srcu() from MMIO registration,
+> > > remove the distributor's dependency on this implicit barrier by
+> > > direct acquire-release synchronization on the flag write and its
+> > > lock-free check.
+> > >
+> > > Signed-off-by: Keir Fraser <keirf@google.com>
+> > > ---
+> > >  arch/arm64/kvm/vgic/vgic-init.c | 11 ++---------
+> > >  1 file changed, 2 insertions(+), 9 deletions(-)
+> > >
+> > > diff --git a/arch/arm64/kvm/vgic/vgic-init.c b/arch/arm64/kvm/vgic/vgic-init.c
+> > > index 502b65049703..bc83672e461b 100644
+> > > --- a/arch/arm64/kvm/vgic/vgic-init.c
+> > > +++ b/arch/arm64/kvm/vgic/vgic-init.c
+> > > @@ -567,7 +567,7 @@ int kvm_vgic_map_resources(struct kvm *kvm)
+> > >  	gpa_t dist_base;
+> > >  	int ret = 0;
+> > >
+> > > -	if (likely(dist->ready))
+> > > +	if (likely(smp_load_acquire(&dist->ready)))
+> > >  		return 0;
+> > >
+> > >  	mutex_lock(&kvm->slots_lock);
+> > > @@ -598,14 +598,7 @@ int kvm_vgic_map_resources(struct kvm *kvm)
+> > >  		goto out_slots;
+> > >  	}
+> > >
+> > > -	/*
+> > > -	 * kvm_io_bus_register_dev() guarantees all readers see the new MMIO
+> > > -	 * registration before returning through synchronize_srcu(), which also
+> > > -	 * implies a full memory barrier. As such, marking the distributor as
+> > > -	 * 'ready' here is guaranteed to be ordered after all vCPUs having seen
+> > > -	 * a completely configured distributor.
+> > > -	 */
+> > > -	dist->ready = true;
+> > > +	smp_store_release(&dist->ready, true);
+> >
+> > No need the store-release and load-acquire for replacing
+> > synchronize_srcu_expedited() w/ call_srcu() IIUC:
+>
+> This isn't about using call_srcu(), because it's not actually about kvm->buses.
+> This code is concerned with ensuring that all stores to kvm->arch.vgic are ordered
+> before the store to set kvm->arch.vgic.ready, so that vCPUs never see "ready==true"
+> with a half-baked distributor.
+>
+> In the current code, kvm_vgic_map_resources() relies on the synchronize_srcu() in
+> kvm_io_bus_register_dev() to provide the ordering guarantees.  Switching to
+> smp_store_release() + smp_load_acquire() removes the dependency on the
+> synchronize_srcu() so that the synchronize_srcu() call can be safely removed.
 
-SMCCC 1.1 and prior allows four registers to be sent back as a result
-of an FF-A interface. SMCCC 1.2 increases the number of results that can
-be sent back to 8 and 16 for 32-bit and 64-bit SMC/HVCs respectively.
+Yes, I understand this and agree with your point.
 
-FF-A 1.0 references SMCCC 1.2 (reference [4] on page xi) and FF-A 1.2
-explicitly requires SMCCC 1.2 so it should be safe to use this version
-unconditionally. Moreover, it is simpler to implement FF-A features
-without having to worry about compatibility with SMCCC 1.1 and older.
+Just for discusstion: I thought it should also work even w/o
+introduce the load acqure + store release after switch to
+call_srcu(): The smp_mb() in call_srcu() order the all store
+to kvm->arch.vgic before store kvm->arch.vgic.ready in
+current implementation.
 
-Update the FF-A initialization and host handler code to use SMCCC 1.2.
-
-Signed-off-by: Per Larsen <perlarsen@google.com>
----
- arch/arm64/kvm/hyp/nvhe/Makefile |   1 +
- arch/arm64/kvm/hyp/nvhe/ffa.c    | 186 ++++++++++++++++++++++++---------------
- 2 files changed, 118 insertions(+), 69 deletions(-)
-
-diff --git a/arch/arm64/kvm/hyp/nvhe/Makefile b/arch/arm64/kvm/hyp/nvhe/Makefile
-index a76522d63c3e630795db5972a99abc3d24bc5e26..f859a8fb41a25effea1edd977bef889423153399 100644
---- a/arch/arm64/kvm/hyp/nvhe/Makefile
-+++ b/arch/arm64/kvm/hyp/nvhe/Makefile
-@@ -27,6 +27,7 @@ hyp-obj-y := timer-sr.o sysreg-sr.o debug-sr.o switch.o tlb.o hyp-init.o host.o
- 	 cache.o setup.o mm.o mem_protect.o sys_regs.o pkvm.o stacktrace.o ffa.o
- hyp-obj-y += ../vgic-v3-sr.o ../aarch32.o ../vgic-v2-cpuif-proxy.o ../entry.o \
- 	 ../fpsimd.o ../hyp-entry.o ../exception.o ../pgtable.o
-+hyp-obj-y += ../../../kernel/smccc-call.o
- hyp-obj-$(CONFIG_LIST_HARDENED) += list_debug.o
- hyp-obj-y += $(lib-objs)
- 
-diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
-index 2c199d40811efb5bfae199c4a67d8ae3d9307357..52ac3e2689f0c200ebbb57ec564f71a37b0ddc8f 100644
---- a/arch/arm64/kvm/hyp/nvhe/ffa.c
-+++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
-@@ -71,36 +71,61 @@ static u32 hyp_ffa_version;
- static bool has_version_negotiated;
- static hyp_spinlock_t version_lock;
- 
--static void ffa_to_smccc_error(struct arm_smccc_res *res, u64 ffa_errno)
-+static void ffa_to_smccc_error(struct arm_smccc_1_2_regs *res, u64 ffa_errno)
- {
--	*res = (struct arm_smccc_res) {
-+	*res = (struct arm_smccc_1_2_regs) {
- 		.a0	= FFA_ERROR,
- 		.a2	= ffa_errno,
- 	};
- }
- 
--static void ffa_to_smccc_res_prop(struct arm_smccc_res *res, int ret, u64 prop)
-+static void ffa_to_smccc_res_prop(struct arm_smccc_1_2_regs *res, int ret, u64 prop)
- {
- 	if (ret == FFA_RET_SUCCESS) {
--		*res = (struct arm_smccc_res) { .a0 = FFA_SUCCESS,
--						.a2 = prop };
-+		*res = (struct arm_smccc_1_2_regs) { .a0 = FFA_SUCCESS,
-+						      .a2 = prop };
- 	} else {
- 		ffa_to_smccc_error(res, ret);
- 	}
- }
- 
--static void ffa_to_smccc_res(struct arm_smccc_res *res, int ret)
-+static void ffa_to_smccc_res(struct arm_smccc_1_2_regs *res, int ret)
- {
- 	ffa_to_smccc_res_prop(res, ret, 0);
- }
- 
- static void ffa_set_retval(struct kvm_cpu_context *ctxt,
--			   struct arm_smccc_res *res)
-+			   struct arm_smccc_1_2_regs *res)
- {
-+	DECLARE_REG(u64, func_id, ctxt, 0);
- 	cpu_reg(ctxt, 0) = res->a0;
- 	cpu_reg(ctxt, 1) = res->a1;
- 	cpu_reg(ctxt, 2) = res->a2;
- 	cpu_reg(ctxt, 3) = res->a3;
-+	cpu_reg(ctxt, 4) = res->a4;
-+	cpu_reg(ctxt, 5) = res->a5;
-+	cpu_reg(ctxt, 6) = res->a6;
-+	cpu_reg(ctxt, 7) = res->a7;
-+
-+	/*
-+	 * DEN0028C 2.6: SMC32/HVC32 call from aarch64 must preserve x8-x30.
-+	 *
-+	 * FF-A 1.2 allows FFA_MSG_WAIT (SMC32) to return a SMC64 reply (e.g.
-+	 * FFA_MSG_SEND_DIRECT_REQ2) but that isn't an issue as FFA_MSG_WAIT
-+	 * isn't supported by the hypervisor.
-+	 */
-+	if (ARM_SMCCC_IS_64(func_id)) {
-+		cpu_reg(ctxt, 8) = res->a8;
-+		cpu_reg(ctxt, 9) = res->a9;
-+		cpu_reg(ctxt, 10) = res->a10;
-+		cpu_reg(ctxt, 11) = res->a11;
-+		cpu_reg(ctxt, 12) = res->a12;
-+		cpu_reg(ctxt, 13) = res->a13;
-+		cpu_reg(ctxt, 14) = res->a14;
-+		cpu_reg(ctxt, 15) = res->a15;
-+		cpu_reg(ctxt, 16) = res->a16;
-+		cpu_reg(ctxt, 17) = res->a17;
-+	}
- }
- 
- static bool is_ffa_call(u64 func_id)
-@@ -113,82 +138,92 @@ static bool is_ffa_call(u64 func_id)
- 
- static int ffa_map_hyp_buffers(u64 ffa_page_count)
- {
--	struct arm_smccc_res res;
-+	struct arm_smccc_1_2_regs res;
- 
--	arm_smccc_1_1_smc(FFA_FN64_RXTX_MAP,
--			  hyp_virt_to_phys(hyp_buffers.tx),
--			  hyp_virt_to_phys(hyp_buffers.rx),
--			  ffa_page_count,
--			  0, 0, 0, 0,
--			  &res);
-+	arm_smccc_1_2_smc(&(struct arm_smccc_1_2_regs) {
-+		.a0 = FFA_FN64_RXTX_MAP,
-+		.a1 = hyp_virt_to_phys(hyp_buffers.tx),
-+		.a2 = hyp_virt_to_phys(hyp_buffers.rx),
-+		.a3 = ffa_page_count,
-+	}, &res);
- 
- 	return res.a0 == FFA_SUCCESS ? FFA_RET_SUCCESS : res.a2;
- }
- 
- static int ffa_unmap_hyp_buffers(void)
- {
--	struct arm_smccc_res res;
-+	struct arm_smccc_1_2_regs res;
- 
--	arm_smccc_1_1_smc(FFA_RXTX_UNMAP,
--			  HOST_FFA_ID,
--			  0, 0, 0, 0, 0, 0,
--			  &res);
-+	arm_smccc_1_2_smc(&(struct arm_smccc_1_2_regs) {
-+		.a0 = FFA_RXTX_UNMAP,
-+		.a1 = HOST_FFA_ID,
-+	}, &res);
- 
- 	return res.a0 == FFA_SUCCESS ? FFA_RET_SUCCESS : res.a2;
- }
- 
--static void ffa_mem_frag_tx(struct arm_smccc_res *res, u32 handle_lo,
-+static void ffa_mem_frag_tx(struct arm_smccc_1_2_regs *res, u32 handle_lo,
- 			     u32 handle_hi, u32 fraglen, u32 endpoint_id)
- {
--	arm_smccc_1_1_smc(FFA_MEM_FRAG_TX,
--			  handle_lo, handle_hi, fraglen, endpoint_id,
--			  0, 0, 0,
--			  res);
-+	arm_smccc_1_2_smc(&(struct arm_smccc_1_2_regs) {
-+		.a0 = FFA_MEM_FRAG_TX,
-+		.a1 = handle_lo,
-+		.a2 = handle_hi,
-+		.a3 = fraglen,
-+		.a4 = endpoint_id,
-+	}, res);
- }
- 
--static void ffa_mem_frag_rx(struct arm_smccc_res *res, u32 handle_lo,
-+static void ffa_mem_frag_rx(struct arm_smccc_1_2_regs *res, u32 handle_lo,
- 			     u32 handle_hi, u32 fragoff)
- {
--	arm_smccc_1_1_smc(FFA_MEM_FRAG_RX,
--			  handle_lo, handle_hi, fragoff, HOST_FFA_ID,
--			  0, 0, 0,
--			  res);
-+	arm_smccc_1_2_smc(&(struct arm_smccc_1_2_regs) {
-+		.a0 = FFA_MEM_FRAG_RX,
-+		.a1 = handle_lo,
-+		.a2 = handle_hi,
-+		.a3 = fragoff,
-+		.a4 = HOST_FFA_ID,
-+	}, res);
- }
- 
--static void ffa_mem_xfer(struct arm_smccc_res *res, u64 func_id, u32 len,
-+static void ffa_mem_xfer(struct arm_smccc_1_2_regs *res, u64 func_id, u32 len,
- 			  u32 fraglen)
- {
--	arm_smccc_1_1_smc(func_id, len, fraglen,
--			  0, 0, 0, 0, 0,
--			  res);
-+	arm_smccc_1_2_smc(&(struct arm_smccc_1_2_regs) {
-+		.a0 = func_id,
-+		.a1 = len,
-+		.a2 = fraglen,
-+	}, res);
- }
- 
--static void ffa_mem_reclaim(struct arm_smccc_res *res, u32 handle_lo,
-+static void ffa_mem_reclaim(struct arm_smccc_1_2_regs *res, u32 handle_lo,
- 			     u32 handle_hi, u32 flags)
- {
--	arm_smccc_1_1_smc(FFA_MEM_RECLAIM,
--			  handle_lo, handle_hi, flags,
--			  0, 0, 0, 0,
--			  res);
-+	arm_smccc_1_2_smc(&(struct arm_smccc_1_2_regs) {
-+		.a0 = FFA_MEM_RECLAIM,
-+		.a1 = handle_lo,
-+		.a2 = handle_hi,
-+		.a3 = flags,
-+	}, res);
- }
- 
--static void ffa_retrieve_req(struct arm_smccc_res *res, u32 len)
-+static void ffa_retrieve_req(struct arm_smccc_1_2_regs *res, u32 len)
- {
--	arm_smccc_1_1_smc(FFA_FN64_MEM_RETRIEVE_REQ,
--			  len, len,
--			  0, 0, 0, 0, 0,
--			  res);
-+	arm_smccc_1_2_smc(&(struct arm_smccc_1_2_regs) {
-+		.a0 = FFA_FN64_MEM_RETRIEVE_REQ,
-+		.a1 = len,
-+		.a2 = len,
-+	}, res);
- }
- 
--static void ffa_rx_release(struct arm_smccc_res *res)
-+static void ffa_rx_release(struct arm_smccc_1_2_regs *res)
- {
--	arm_smccc_1_1_smc(FFA_RX_RELEASE,
--			  0, 0,
--			  0, 0, 0, 0, 0,
--			  res);
-+	arm_smccc_1_2_smc(&(struct arm_smccc_1_2_regs) {
-+		.a0 = FFA_RX_RELEASE,
-+	}, res);
- }
- 
--static void do_ffa_rxtx_map(struct arm_smccc_res *res,
-+static void do_ffa_rxtx_map(struct arm_smccc_1_2_regs *res,
- 			    struct kvm_cpu_context *ctxt)
- {
- 	DECLARE_REG(phys_addr_t, tx, ctxt, 1);
-@@ -267,7 +302,7 @@ static void do_ffa_rxtx_map(struct arm_smccc_res *res,
- 	goto out_unlock;
- }
- 
--static void do_ffa_rxtx_unmap(struct arm_smccc_res *res,
-+static void do_ffa_rxtx_unmap(struct arm_smccc_1_2_regs *res,
- 			      struct kvm_cpu_context *ctxt)
- {
- 	DECLARE_REG(u32, id, ctxt, 1);
-@@ -368,7 +403,7 @@ static int ffa_host_unshare_ranges(struct ffa_mem_region_addr_range *ranges,
- 	return ret;
- }
- 
--static void do_ffa_mem_frag_tx(struct arm_smccc_res *res,
-+static void do_ffa_mem_frag_tx(struct arm_smccc_1_2_regs *res,
- 			       struct kvm_cpu_context *ctxt)
- {
- 	DECLARE_REG(u32, handle_lo, ctxt, 1);
-@@ -427,7 +462,7 @@ static void do_ffa_mem_frag_tx(struct arm_smccc_res *res,
- }
- 
- static void __do_ffa_mem_xfer(const u64 func_id,
--			      struct arm_smccc_res *res,
-+			      struct arm_smccc_1_2_regs *res,
- 			      struct kvm_cpu_context *ctxt)
- {
- 	DECLARE_REG(u32, len, ctxt, 1);
-@@ -521,7 +556,7 @@ static void __do_ffa_mem_xfer(const u64 func_id,
- 		__do_ffa_mem_xfer((fid), (res), (ctxt));	\
- 	} while (0);
- 
--static void do_ffa_mem_reclaim(struct arm_smccc_res *res,
-+static void do_ffa_mem_reclaim(struct arm_smccc_1_2_regs *res,
- 			       struct kvm_cpu_context *ctxt)
- {
- 	DECLARE_REG(u32, handle_lo, ctxt, 1);
-@@ -634,7 +669,7 @@ static bool ffa_call_supported(u64 func_id)
- 	return true;
- }
- 
--static bool do_ffa_features(struct arm_smccc_res *res,
-+static bool do_ffa_features(struct arm_smccc_1_2_regs *res,
- 			    struct kvm_cpu_context *ctxt)
- {
- 	DECLARE_REG(u32, id, ctxt, 1);
-@@ -666,17 +701,21 @@ static bool do_ffa_features(struct arm_smccc_res *res,
- static int hyp_ffa_post_init(void)
- {
- 	size_t min_rxtx_sz;
--	struct arm_smccc_res res;
-+	struct arm_smccc_1_2_regs res;
- 
--	arm_smccc_1_1_smc(FFA_ID_GET, 0, 0, 0, 0, 0, 0, 0, &res);
-+	arm_smccc_1_2_smc(&(struct arm_smccc_1_2_regs){
-+		.a0 = FFA_ID_GET,
-+	}, &res);
- 	if (res.a0 != FFA_SUCCESS)
- 		return -EOPNOTSUPP;
- 
- 	if (res.a2 != HOST_FFA_ID)
- 		return -EINVAL;
- 
--	arm_smccc_1_1_smc(FFA_FEATURES, FFA_FN64_RXTX_MAP,
--			  0, 0, 0, 0, 0, 0, &res);
-+	arm_smccc_1_2_smc(&(struct arm_smccc_1_2_regs){
-+		.a0 = FFA_FEATURES,
-+		.a1 = FFA_FN64_RXTX_MAP,
-+	}, &res);
- 	if (res.a0 != FFA_SUCCESS)
- 		return -EOPNOTSUPP;
- 
-@@ -700,7 +739,7 @@ static int hyp_ffa_post_init(void)
- 	return 0;
- }
- 
--static void do_ffa_version(struct arm_smccc_res *res,
-+static void do_ffa_version(struct arm_smccc_1_2_regs *res,
- 			   struct kvm_cpu_context *ctxt)
- {
- 	DECLARE_REG(u32, ffa_req_version, ctxt, 1);
-@@ -724,9 +763,10 @@ static void do_ffa_version(struct arm_smccc_res *res,
- 	 * first if TEE supports it.
- 	 */
- 	if (FFA_MINOR_VERSION(ffa_req_version) < FFA_MINOR_VERSION(hyp_ffa_version)) {
--		arm_smccc_1_1_smc(FFA_VERSION, ffa_req_version, 0,
--				  0, 0, 0, 0, 0,
--				  res);
-+		arm_smccc_1_2_smc(&(struct arm_smccc_1_2_regs) {
-+			.a0 = FFA_VERSION,
-+			.a1 = ffa_req_version,
-+		}, res);
- 		if (res->a0 == FFA_RET_NOT_SUPPORTED)
- 			goto unlock;
- 
-@@ -743,7 +783,7 @@ static void do_ffa_version(struct arm_smccc_res *res,
- 	hyp_spin_unlock(&version_lock);
- }
- 
--static void do_ffa_part_get(struct arm_smccc_res *res,
-+static void do_ffa_part_get(struct arm_smccc_1_2_regs *res,
- 			    struct kvm_cpu_context *ctxt)
- {
- 	DECLARE_REG(u32, uuid0, ctxt, 1);
-@@ -759,9 +799,14 @@ static void do_ffa_part_get(struct arm_smccc_res *res,
- 		goto out_unlock;
- 	}
- 
--	arm_smccc_1_1_smc(FFA_PARTITION_INFO_GET, uuid0, uuid1,
--			  uuid2, uuid3, flags, 0, 0,
--			  res);
-+	arm_smccc_1_2_smc(&(struct arm_smccc_1_2_regs) {
-+		.a0 = FFA_PARTITION_INFO_GET,
-+		.a1 = uuid0,
-+		.a2 = uuid1,
-+		.a3 = uuid2,
-+		.a4 = uuid3,
-+		.a5 = flags,
-+	}, res);
- 
- 	if (res->a0 != FFA_SUCCESS)
- 		goto out_unlock;
-@@ -794,7 +839,7 @@ static void do_ffa_part_get(struct arm_smccc_res *res,
- 
- bool kvm_host_ffa_handler(struct kvm_cpu_context *host_ctxt, u32 func_id)
- {
--	struct arm_smccc_res res;
-+	struct arm_smccc_1_2_regs res;
- 
- 	/*
- 	 * There's no way we can tell what a non-standard SMC call might
-@@ -863,13 +908,16 @@ bool kvm_host_ffa_handler(struct kvm_cpu_context *host_ctxt, u32 func_id)
- 
- int hyp_ffa_init(void *pages)
- {
--	struct arm_smccc_res res;
-+	struct arm_smccc_1_2_regs res;
- 	void *tx, *rx;
- 
- 	if (kvm_host_psci_config.smccc_version < ARM_SMCCC_VERSION_1_2)
- 		return 0;
- 
--	arm_smccc_1_1_smc(FFA_VERSION, FFA_VERSION_1_1, 0, 0, 0, 0, 0, 0, &res);
-+	arm_smccc_1_2_smc(&(struct arm_smccc_1_2_regs) {
-+		.a0 = FFA_VERSION,
-+		.a1 = FFA_VERSION_1_1,
-+	}, &res);
- 	if (res.a0 == FFA_RET_NOT_SUPPORTED)
- 		return 0;
- 
-
--- 
-2.50.0.727.gbf7dc18ff4-goog
-
-
+>
 
