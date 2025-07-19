@@ -4,93 +4,135 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA9CCC83F34
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Jul 2025 10:01:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59A38C83F34
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Jul 2025 10:53:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Xu0eHIAbZ8YoFp9mG6OmxRR19wlP9Vw9CC33jTH/cSM=; b=3nIvJkGJmOIj8m+np22lQUtbIS
-	SlkpXFENCh7T8d7hwIK3tlnXYncuBqz5i8rR0RNFX2UQlN8IQLXgevz7Jrc9n0HI+g7HJ2MLcU2Xh
-	mLBuc9xFztE9fjkAnWDPPe7h1vLl+dijIn3LSFV+MeKcKvRLBzmp+OYRamrXbgRcM4pWEJH0k7kkc
-	FhGJtdA/r5NOQt4viVxjNDH2ElLync/Nax/D9OO0KAKf1GvQ8fMIdgfhJB7CCRdNTwV9ezSigWRSU
-	VJjinlKCNSjLZd2UPGEaHetPUKPDmWAi4lRbAkQh93l4qw2WZYaBJAjh9B81hEgbV67TW0nQe46xq
-	sHESRRyA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8bWRC+nyUTbnELtrQkJApxVgRlBOEUvNmWuQElnY2wg=; b=zXkin5Lhh0RU06hfVdj+4DRWtK
+	Fv46c/DRIBYBL1+XDnXE98PTcmuVFa7FMHRq97VO7OVVVX8c90FfTSRIaLLvutLERRFfLiQML5Wti
+	ivFGet3R5XvJUkI10Dr30yDpYHUkQJa7Ma2pkonSuTpHCcPToGkXco4tXBbg7nwTOfuFAKhlJq0AZ
+	XAhrN6obj1xQNWzNx2b+zMUITizuwGuns/T56nboW4nGR/32LmcxnxYZh10sKRuYvPriBt7ZOWebd
+	bvojlexzCxO9QZH4vLU75SWYC/S01RfWEGxiE85SNPNeY7zg8jPzJTXb40bURdxrNI8ln6MgpTTzn
+	3IQQ6j0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ud4NR-0000000E7P1-3n6Z;
-	Sat, 19 Jul 2025 10:01:09 +0000
-Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
+	id 1ud5C3-0000000E9eE-3hsv;
+	Sat, 19 Jul 2025 10:53:27 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ud4Ky-0000000E7Eh-3M29;
-	Sat, 19 Jul 2025 09:58:38 +0000
-Received: by mail-ej1-x62e.google.com with SMTP id a640c23a62f3a-ae0d758c3a2so448728566b.2;
-        Sat, 19 Jul 2025 02:58:36 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1752919115; x=1753523915; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=Xu0eHIAbZ8YoFp9mG6OmxRR19wlP9Vw9CC33jTH/cSM=;
-        b=H+P/f2gJ3sLMatzkZvCvgXz/1+cbO/xXDo4yVjNkmjiQKqJNAnSeJI4Pum2oP3z/q0
-         RFxxMz7dQXBfFpf7x04Yyi7Y+UOv5n4bMhFD3Rpp8n4CBpVGx2C+aKY1L3RzTihtf1v1
-         Gl3vMR4+VDZN9YHPXR/vxN81tC3ae2Puhez+RjtVB2udr8p9an4+PH1GCnaVtmhv6EdT
-         2tS16jsRTYagIa6fqANWDC1E4VTyUtxhYkaHscIG+ZE9gOnPyDlF958aK1GpR1q9kQQa
-         p2MyaLLCjPzwKP8HBiGQrZWdxxXtzT45ufURy08wLn7dc6Q94vNW6xgd1WvbvDWfepI7
-         ddzA==
+	id 1ud59a-0000000E9Wy-1wK1
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 19 Jul 2025 10:50:55 +0000
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56J9vIUq023638
+	for <linux-arm-kernel@lists.infradead.org>; Sat, 19 Jul 2025 10:50:53 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=8bWRC+nyUTbnELtrQkJApxVg
+	RlBOEUvNmWuQElnY2wg=; b=hsd8+FBb47O/w+UmniIXkxeCpDvF7pKn7BFkHm0L
+	jSVY0uFMYAc9Xe/AAubuo3x0atiOU+pLs8QeEiZGzvEXwsIQW9M5EzcKnIaB4z4o
+	1HsAr+yidzY+1GC1JLLzuCnzHHsom3mjKXg0qNbpkJlKUH3m00jcqJC6ZxkB07/h
+	rHjwaeWUnyIGfYrpGucBQue26DNN2osr01O7Juwq44hcqphZoqTR5Z38D8PlsMsz
+	TPxIA4MmGX/xg8sr40c3K72dOxJ6F53bdUxnp1zv0drjwrIy5guTYqdHp3xxm3NE
+	lWvWWkqx6cpbR3r1bdRMD8NXV+dHHvmtjLdJ3mWu+pjjjA==
+Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 480459ggf7-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Sat, 19 Jul 2025 10:50:52 +0000 (GMT)
+Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-4ab76d734acso67730091cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 19 Jul 2025 03:50:52 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752919115; x=1753523915;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Xu0eHIAbZ8YoFp9mG6OmxRR19wlP9Vw9CC33jTH/cSM=;
-        b=aR6y+8kH2Sy3Ev7Vvs7TNNw77Avk6XRz19b+L8WplbGQN8Qw0eOgocSwXufeCIPdgw
-         X+MRDnQ6CQYs2bisoM9RXYM0/9Mu+mXiJo8ngzr8JjpWAOgZ4su6FGPTY4jUXYRhspp9
-         6uCBwmnk7pu6F5AOsFn5gGoaKxia32IxIgXAaECPZoaEo/WyqnuQwPKq2Ch8SpN0rwqN
-         gAPmTNaZfC5c0xCl12yXFUqrQkIksM+eRYuO5YUzY3AqJc4DZJmHAN/J0LeYTTyO65KF
-         61SK56NgAZr/LsMdVs0GPVh+tn9FzlxdCRtXYQ2Xe/pJo3R0FOxcWcRaVGX91yGWIu/5
-         GLSA==
-X-Forwarded-Encrypted: i=1; AJvYcCUpgx4JBmWqTiXJT8MVB94saJHJigxFUBwyCsbZAIKi4ytA72Umz2LI7xEksPKHKJF4XDm4L2Mw+vJMXoNEVTU=@lists.infradead.org, AJvYcCVJKQMt0i8792mL5NmepxuMJO4e7X/u+1RJtr3lY/NqIw+oHjaet4HgqEgIVrMUWZa2MZZnnSkqK4oPY6xUW21t@lists.infradead.org
-X-Gm-Message-State: AOJu0YwDVNH/1v/bkuKQXyZ9rE/9e9ahy9zh9JoxXUwE4DJ+iVdeIX1X
-	q+RJZZj2WlQtvSLSvTiKLO8cu4Wqx5rmO1i3pmgLVGckVzQ1cYRGpCc=
-X-Gm-Gg: ASbGncuLRXF/a7I4vJ/zz/OIF60fMmjqqpvlxs40I25ICFtICaA2HKToe4hNF4WN3kV
-	68gJ0EcHmEufC/sVCi3IFymnSAuFoOsto2qbOgrVyI1ucwVh07q3IxwWI8sq0jBDiyEDQdEuZOU
-	bExeKKISGoIvCrO1Zybk5LjqlRTX4zWAqxTGP2klGfnrXPLDTwOKZ4/sDt1Q6wr4YR4hT2Byn+7
-	zleWnaXIQLlVyWAmIbxc06hT265lE9W+9fxP0zyDZazcnBFAxn7Q87lg58agcTyxu4I0CQVTQ+u
-	xuk86YzLCdROvF+0EgZ6WfDzY4UeAndM4y2xma3y65y9YPoqCNiILaG35px2Yud+8QHznAG2aDu
-	xSQ4DlF2Kdm3aL7z0weYzquA3NcuIZDPBpdt567OCsG/oo3149aZIW5nAFy2ZkfVSkv7Q
-X-Google-Smtp-Source: AGHT+IF5sBy8y7SSwQAQOjt1/u4yI/eL6f3AIZ67usdJy63oiXow7Kbazieb7CW57vQ705lEiDq+7A==
-X-Received: by 2002:a17:907:3f95:b0:ae3:5da3:1a23 with SMTP id a640c23a62f3a-ae9c99c0d2bmr1216983766b.21.1752919114187;
-        Sat, 19 Jul 2025 02:58:34 -0700 (PDT)
-Received: from ?IPV6:2a02:810b:f13:8500:e8ef:8c02:6b1e:381c? ([2a02:810b:f13:8500:e8ef:8c02:6b1e:381c])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aec6ca30d2esm276702766b.86.2025.07.19.02.58.33
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 19 Jul 2025 02:58:33 -0700 (PDT)
-Message-ID: <104a501d-b9b2-494e-b073-932ddadd7129@gmail.com>
-Date: Sat, 19 Jul 2025 11:58:32 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 0/6] arm64: dts: rockchip: Add ROCK 2A/2F, Sige1 and
- NanoPi Zero2
-To: =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
- Jonas Karlman <jonas@kwiboo.se>, Yao Zi <ziyao@disroot.org>
+        d=1e100.net; s=20230601; t=1752922251; x=1753527051;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=8bWRC+nyUTbnELtrQkJApxVgRlBOEUvNmWuQElnY2wg=;
+        b=IJ47ZDOFHIOHNTA78hLEBaIytrD3KQ4VXj9dIWfWuMAUQ5nrR2/m6WuboNMGcUrmv8
+         jxRK/3LCopZUxGFWCtEjSotHXE5XK2xV0EHyCGnNOMfy03a8x96hhjjgkhIdwWj8DJ1w
+         tTHTaA3puzmLYmqipFnTAynUwPx9Fj2cl5ny9LC6iCBOMEX+8TE43W99jrBZfcgj8aSU
+         8ulviTxzpH2jjLeVQPvfREHphiUr/Axe8WFDBrpMgGZUaA+V8mzqFFSdEK+jYKW92TRU
+         JhU0ce8do8ihpfc7YmlM+RdJdUGpVQfisxkj6ghJcSNBlCJI/C//iK6CFOmm/sqD/p90
+         Wm8g==
+X-Forwarded-Encrypted: i=1; AJvYcCW+2pFRnLbm2Od7ZyqqBdI9MyL6jxJzBN4i3OhqbKDRYsvrLXASTHJzRsn6+yaHrKUMv9pCY0Z8TFR1rqi+YEkS@lists.infradead.org
+X-Gm-Message-State: AOJu0YzBPBnSF7amm+LewK5cgyszmgOmNk+5nv05OmbWzvgc9oKUMqTF
+	PF382yAwPC9wilsvFVit36lL0EW0jD3YkVEshE8ERzRKvvRg3l1Sl8ZpqsjuiRzVX/On7nLhDkU
+	W9t+EpD/U7BLx/a7XDhBYX2CVS9HHoUmOtHEduf13v5/Ryib5B5w3gW6JHKz6jENipC8Arm4+zJ
+	nz1Q==
+X-Gm-Gg: ASbGncvmKc9ufEf6uOTKYr4mWKAHSAgSEhHywS+fTO7j+4HBZqIY+AR1ii45AuQMysa
+	oaFP7BZUruZcIhL/t7Fa10nhdCyrRViMYzOhq/9YfbGAIkoHO+x+zbd5fIfOxh0hayiahK406Th
+	F6xlJnpqyyo5orDSsWMe5ZupNE+BaOP9jp2j1kfPwdW3/HyoY9turSHPx/cK8Vvf6+iEt/QHKu/
+	oLH3JB6ZVCWnbwbR0ulHEWr13NJoHU2pcxXCb4d3YcrXfvQ9/ymsZSlNvBW1wrvWrNHNpAICq8p
+	YRSF/GhuwtEwjhJgDSLVMx6f28CFlo5TNHk+5HUm/bK8dTUTAhs+I5mRZ0HKzr9NnSSSD3c7nNM
+	z8XAdxA5U42p4FupAozYMOryzT+lETiEIdVRCgJxEVo+e5K+BHSRI
+X-Received: by 2002:a05:622a:4898:b0:4ab:622b:fffb with SMTP id d75a77b69052e-4abb078731emr123876351cf.5.1752922251491;
+        Sat, 19 Jul 2025 03:50:51 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IELvC0t2DoePnMMUcCjwnNp/NwYyNzJMw/LSjDMY6XQx3gX8ifMzX4kwnCHJthxZrRbYsOq9A==
+X-Received: by 2002:a05:622a:4898:b0:4ab:622b:fffb with SMTP id d75a77b69052e-4abb078731emr123875991cf.5.1752922250968;
+        Sat, 19 Jul 2025 03:50:50 -0700 (PDT)
+Received: from umbar.lan (2001-14ba-a0c3-3a00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a0c3:3a00:264b:feff:fe8b:be8a])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-55a31d9122fsm667474e87.152.2025.07.19.03.50.49
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 19 Jul 2025 03:50:50 -0700 (PDT)
+Date: Sat, 19 Jul 2025 13:50:48 +0300
+From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+To: Chaoyi Chen <kernel@airkyi.com>
 Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Chukun Pan <amadeus@jmu.edu.cn>,
- linux-rockchip@lists.infradead.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250712173805.584586-1-jonas@kwiboo.se>
- <16d99271-ba04-4ce1-a335-fab1917637c7@kwiboo.se>
- <063ec197-bbd7-4ad2-add9-40f028e800b7@gmail.com> <11576357.nUPlyArG6x@diego>
-Content-Language: en-US
-From: Alex Bee <knaerzche@gmail.com>
-In-Reply-To: <11576357.nUPlyArG6x@diego>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+        Conor Dooley <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+        Kishon Vijay Abraham I <kishon@kernel.org>,
+        Heiko Stuebner <heiko@sntech.de>, Sandy Huang <hjc@rock-chips.com>,
+        Andy Yan <andy.yan@rock-chips.com>,
+        Yubing Zhang <yubing.zhang@rock-chips.com>,
+        Frank Wang <frank.wang@rock-chips.com>,
+        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Amit Sunil Dhamne <amitsd@google.com>,
+        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+        Chaoyi Chen <chaoyi.chen@rock-chips.com>,
+        Dragan Simic <dsimic@manjaro.org>, Johan Jonker <jbx6244@gmail.com>,
+        Diederik de Haas <didi.debian@cknow.org>, devicetree@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org,
+        linux-arm-kernel@lists.infradead.org,
+        linux-rockchip@lists.infradead.org, dri-devel@lists.freedesktop.org
+Subject: Re: [PATCH v2 5/5] arm64: dts: rockchip: rk3399-evb-ind: Add support
+ for DisplayPort
+Message-ID: <skvceiwrg77ysx74bmywp6buk6yp6dlllrwpkfea4brposrveh@2rqtawpiaikk>
+References: <20250718062619.99-1-kernel@airkyi.com>
+ <20250718062619.99-6-kernel@airkyi.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250718062619.99-6-kernel@airkyi.com>
+X-Proofpoint-ORIG-GUID: od-T80Ui_WpHW0qfckLrmGlcO0SiG6iH
+X-Authority-Analysis: v=2.4 cv=fdyty1QF c=1 sm=1 tr=0 ts=687b788d cx=c_pps
+ a=EVbN6Ke/fEF3bsl7X48z0g==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
+ a=Wb1JkmetP80A:10 a=s8YR1HE3AAAA:8 a=ikJCsuYIIW8Wf-eC7T4A:9 a=CjuIK1q_8ugA:10
+ a=a_PwQJl-kcHnX1M80qC6:22 a=jGH_LyMDp9YhSvY-UuyI:22
+X-Proofpoint-GUID: od-T80Ui_WpHW0qfckLrmGlcO0SiG6iH
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNzE5MDEwNiBTYWx0ZWRfX9psutk+XjWG+
+ qqsirHBemVQvtE1fMwonu6rKUFLN4AAXVESjfuS50+8UHelQqUG2Xfam6IlHXyx6mDQOnSnZXey
+ 9mfPv0KqbgUkrepXt/3KcJTt8AI8GudoHrLreocmC4iNT2sdq0ikQWePdMrQGwTUJpiL4nwLEac
+ fAoSW6nEQmrw1QSXoJBs6WBlU9OUceZ/TD/sAE3TQOqZKVUqevjiBp9YizWnMPocYcaGamcWJUJ
+ UwBwDHoPoreVStNVdRamGvygUCh8qjt7FI/MYx2hSTwX66p38DB0uxJSEiEpAP5DbxbVlqUQxJD
+ CaZIkL41Ft0HyMTS1FEWNTKZ6G3ppd8MZhUIfIkZQNias2BDk3PhdTWz7Qjbf3BlOo4mW9+wOyA
+ sdniKKql/5yQ3wpDpEq+QgjervLpl5+ndQfNSNkPbU12QEwPk0P8og5Qal5lv23lXfXQlPRK
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-07-19_01,2025-07-17_02,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 priorityscore=1501 phishscore=0 impostorscore=0
+ mlxlogscore=999 mlxscore=0 spamscore=0 bulkscore=0 malwarescore=0
+ lowpriorityscore=0 adultscore=0 clxscore=1015 classifier=spam authscore=0
+ authtc=n/a authcc= route=outbound adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2505280000 definitions=main-2507190106
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250719_025836_844873_FE01558E 
-X-CRM114-Status: GOOD (  40.92  )
+X-CRM114-CacheID: sfid-20250719_035054_515541_00904488 
+X-CRM114-Status: GOOD (  26.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,203 +147,242 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, Jul 18, 2025 at 02:26:19PM +0800, Chaoyi Chen wrote:
+> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+> 
+> The RK3399 EVB IND board has a Type-C interface DisplayPort.
+> It use fusb302 chip as Type-C controller.
+> 
+> fusb302 chip ---> USB/DP PHY0 <----> CDN-DP controller
+> 
+> Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+> ---
+> 
+> Changes in v2:
+> - Add endpoint to link DP PHY and DP controller.
+> - Fix devicetree coding style.
+> 
+>  .../boot/dts/rockchip/rk3399-evb-ind.dts      | 133 ++++++++++++++++++
+>  1 file changed, 133 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3399-evb-ind.dts b/arch/arm64/boot/dts/rockchip/rk3399-evb-ind.dts
+> index 70aee1ab904c..997b822a57ff 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3399-evb-ind.dts
+> +++ b/arch/arm64/boot/dts/rockchip/rk3399-evb-ind.dts
+> @@ -4,6 +4,7 @@
+>   */
+>  
+>  /dts-v1/;
+> +#include <dt-bindings/usb/pd.h>
+>  #include "rk3399.dtsi"
+>  
+>  / {
+> @@ -19,6 +20,21 @@ chosen {
+>  		stdout-path = "serial2:1500000n8";
+>  	};
+>  
+> +	sound: sound {
+> +		compatible = "rockchip,rk3399-gru-sound";
+> +		rockchip,cpu = <&i2s0 &spdif>;
+> +	};
+> +
+> +	vbus_typec: regulator-vbus-typec {
+> +		compatible = "regulator-fixed";
+> +		enable-active-high;
+> +		gpio = <&gpio1 RK_PC2 GPIO_ACTIVE_HIGH>;
+> +		pinctrl-names = "default";
+> +		pinctrl-0 = <&vcc5v0_typec0_en>;
+> +		regulator-name = "vbus_typec";
+> +		vin-supply = <&vcc5v0_sys>;
+> +	};
+> +
+>  	vcc5v0_sys: regulator-vcc5v0-sys {
+>  		compatible = "regulator-fixed";
+>  		enable-active-high;
+> @@ -31,6 +47,11 @@ vcc5v0_sys: regulator-vcc5v0-sys {
+>  	};
+>  };
+>  
+> +&cdn_dp {
+> +	phys = <&tcphy0_dp>;
+> +	status = "okay";
+> +};
+> +
+>  &cpu_b0 {
+>  	cpu-supply = <&vdd_cpu_b>;
+>  };
+> @@ -55,6 +76,12 @@ &cpu_l3 {
+>  	cpu-supply = <&vdd_cpu_l>;
+>  };
+>  
+> +&dp_out {
+> +	dp_controller_output: endpoint {
+> +		remote-endpoint = <&dp_phy_in>;
+> +	};
+> +};
+> +
+>  &emmc_phy {
+>  	status = "okay";
+>  };
+> @@ -341,6 +368,63 @@ regulator-state-mem {
+>  	};
+>  };
+>  
+> +&i2c4 {
+> +	i2c-scl-rising-time-ns = <475>;
+> +	i2c-scl-falling-time-ns = <26>;
+> +	status = "okay";
+> +
+> +	usbc0: typec-portc@22 {
+> +		compatible = "fcs,fusb302";
+> +		reg = <0x22>;
+> +		interrupt-parent = <&gpio1>;
+> +		interrupts = <RK_PA2 IRQ_TYPE_LEVEL_LOW>;
+> +		pinctrl-names = "default";
+> +		pinctrl-0 = <&usbc0_int>;
+> +		vbus-supply = <&vbus_typec>;
+> +
+> +		usb_con: connector {
+> +			compatible = "usb-c-connector";
+> +			label = "USB-C";
+> +			data-role = "dual";
+> +			power-role = "dual";
+> +			try-power-role = "sink";
+> +			op-sink-microwatt = <1000000>;
+> +			sink-pdos =
+> +				<PDO_FIXED(5000, 2500, PDO_FIXED_USB_COMM)>;
+> +			source-pdos =
+> +				<PDO_FIXED(5000, 1500, PDO_FIXED_USB_COMM)>;
+> +
+> +			altmodes {
+> +				displayport {
+> +					svid = /bits/ 16 <0xff01>;
+> +					vdo = <0xffffffff>;
 
-Am 15.07.25 um 20:56 schrieb Heiko Stübner:
-> Am Montag, 14. Juli 2025, 07:53:09 Mitteleuropäische Sommerzeit schrieb Alex Bee:
->> Hi Jonas, Hi Yao,
->>
->>> Hi Alex,
->>>
->>> On 7/13/2025 10:56 PM, Alex Bee wrote:
->>>> Hi Jonas,
->>>>
->>>>> Hi Alex,
->>>>>
->>>>> On 7/13/2025 9:13 PM, Alex Bee wrote:
->>>>>> Hi list, Hi Jonas,
->>>>>>
->>>>>>> This series adds dt-bindings and initial device tree for the following
->>>>>>> Rockchip RK3528A boards:
->>>>>>> - Radxa ROCK 2A/2F
->>>>>>> - ArmSoM Sige1
->>>>>>> - FriendlyElec NanoPi Zero2
->>>>>> this only sub-related to this series: Is there any particular reason, why
->>>>>> we call the compatible "rockchip,rk3528" and not "rockchip,rk3528a"? From
->>>>>> what I can see all boards currently supported (and those in this series)
->>>>>> are having the RK3528A version of the SoC. I didn't follow the development
->>>>>> here, but there are differences - I did a quick compare of the datasheets
->>>>>> of those two SoC versions - it looks like RK3528 version has USB3-DRD
->>>>>> controller, while RK3528A has USB3 host-only controller. Also it seems to
->>>>>> have different video codec IPs and the DRAM controller additionally
->>>>>> supports LPDDR4X.
->>>>> What datasheet versions did you check? I can only find:
->>>>> - RK3528 Rev 1.0 (2023-05-22)
->>>>> - RK3528A Rev 1.2 (2024-04-10)
->>>> I used
->>>>
->>>> 2023-07-12 Revision V1.0
->>>>
->>>> which didn't include these features - which is interesting: Why would a
->>>> SoC vendor not try to sell all features in the first place :)
->>>>
->>>> But I now double checked in
->>>>
->>>> 2025-05-12 Revision 1.4
->>>>
->>>> and you are right: It appears there also for RK3528A.
->>>>
->>>> The only difference I could now make out by comparing v1.4 of both versions
->>>> is the cipher engine: RK3528 additionally supports "SM2/SM3/SM4 cipher" -
->>>> but still it exists and additionally the different video codec (if mpp
->>>> userspace library is correct about that).
->>>>
->>>> Anyway: My question was more about: Why didn't we choose the correct
->>>> compatible from the beginning? And of course the dts files would have to be
->>>> renamed if the compatible is changed, as they are named according to their
->>>> SoC-compatible.
->>> Not sure, possible due to lack of technical documentation for this SoC,
->>> to my knowledge all upstream development has been done without any
->>> access to a TRM for the SoC.
->> Hhm, OK: Without any documentation, I'm seeing "RK3528A" silkscreened
->> directly on the SoC package :)
-> So ... the TRM I meanwhile got, calls itself
-> 	"Rockchip RK3528A Technical Reference Manual"
-> in the title and
-> 	"RK3528A TRM (Part 1)"
-> on each page.
->
-> The one thing with an "A" I remember was the rk3066a. There even was
-> a rk3066b variant ... which was quite different, but I've never seen any
-> products using that variant.
->
-> So for the things to do:
->
-> - renaming devicetree _files_ later is no problem ... the given "guarantee"
->    is that the kernel is supposed to boot with an old devicetree blob, you
->    found in the attic ;-) . (if it follows established bindings)
-> - renaming compatibles is more difficult - and a lot of stuff already
->    calls itself rk3528 - without-a in a bunch of bindings.
->
-> So part of me just sees continuing without-a as the way to go, that
-> rk3518 mentioned below even has a different number ;-)
->
-> And wait until an actual rk3528 b-c-whatever variant needing different
-> stuff comes along.
-The issue I was seeing is that there actually *is* a variant called
-'RK3528' which at least according to the latest datasheets slightly differs
-from 'RK3528A'. We are doing development based on 'RK3528A' and calling it
-'rockchip,rk3528' which might make it hard to add the non-A-variant in
-future (unless we call it 'rockchip,the-actual-rk3528').
->
-> Heiko
->
->
->>> Based on vendor code (u-boot and linux) there does not seem to be
->>> anything special about the A-variant, so my thinking has always been
->>> that the A-variant may have just been an updated/fixed hw revision and
->>> is the version that went into newer production devices.
->>>
->>> The recently released U-Boot 2025.07 is referencing the filename
->>> rk3528-radxa-e20c.dtb from the synced devicetree-rebasing tree. So a
->>> possible rename will affect a future release of U-Boot, and possible
->>> devices in the field depending on when a rename would land in linux.
->>>
->>> For this series I tried to just follow what is currently used for the
->>> Radxa E20C.
->>>
->>> If I am correct there is now also a RK3518 tvbox variant of this SoC,
->>> do not know how that would fit into all this :-S
->> Yeah, that's why I started comparing the features - and according to
->> RK3518's datasheet it only has the features I mentioned in my first mail
->> for RK3528A minus PCIe and the ability to connect an external ethernet phy
->> to the gmac controller (it probably has only one). Well, it's version 1.0 of
->> the datasheet ...
->>
->> Regards,
->> Alex
->>
->>> Regards,
->>> Jonas
->>>
->>>> Regards,
->>>> Alex
->>>>> And both list LPDDR4X support and the A-variant seem to list USB3-DRD
->>>>> support, did you mix them up above?
->>>>>
->>>>> I think these SoCs are similar to rk3228/rk3229, rk3228h/rk3328 and now
->>>>> rk3528/rk3528a, in that only the second variant support VP9 decoding.
->>>>>
->>>>> Use of rockchip,rk3528a compatible could be something to change,
->>>>> could also be something that bootloader set at runtime, similar to
->>>>> what it does for rk3288w.
->>>>>
->>>>>> I guess it would be good to discuss this before this series is merged,
->>>>>> because re-naming *.dts files after they have been in a release is somewhat
->>>>>> impossible.
->>>>> I think renaming the device tree files is unnecessary, as there seem to
->>>>> be very little difference. All boards I have come across are currently
->>>>> RK3528A variants. How would we treat the Radxa E20C?, it is not named
->>>>> rk3528-radxa-e20c.dtb, yet uses the A-variant.
->>>>>
->>>>> For mainline U-Boot I have included printing out the SoC-variant,
->>>>> however the compatible is not adjusted:
->>>>>
->>>>>      Model: Radxa E20C
->>>>>      SoC:   RK3528A
->>>>>      DRAM:  2 GiB
->>>>>
->>>>> Regards,
->>>>> Jonas
->>>>>
->>>>>> Regards,
->>>>>> Alex
->>>>>>> The bt/wifi_reg_on pins are described in the device tree using
->>>>>>> rfkill-gpio nodes.
->>>>>>>
->>>>>>> Changes in v3:
->>>>>>> - Rename led nodes to led-0/led-1
->>>>>>> - Remove pinctrl* props from sdio0
->>>>>>> - Collect a-b tags
->>>>>>>
->>>>>>> Changes in v2:
->>>>>>> - Limit sdmmc max-frequency to 100 MHz on ROCK 2A/2F
->>>>>>> - Drop clock-output-names prop from rtc node on Sige1 and NanoPi Zero2
->>>>>>> - Drop regulator-boot-on from usb 2.0 host regulators on Sige1
->>>>>>> - Add bluetooth and wifi nodes on Sige1
->>>>>>> - Collect t-b tag for NanoPi Zero2
->>>>>>>
->>>>>>> These boards can be booted from emmc or sd-card using the U-Boot 2025.07
->>>>>>> generic-rk3528 target or work-in-progress patches for these boards [1].
->>>>>>>
->>>>>>> For working bluetooth on ArmSoM Sige1 the patch "arm64: dts: rockchip:
->>>>>>> Fix UART DMA support for RK3528" [2] is required.
->>>>>>>
->>>>>>> [1] https://source.denx.de/u-boot/contributors/kwiboo/u-boot/-/commits/rk3528
->>>>>>> [2] https://lore.kernel.org/r/20250709210831.3170458-1-jonas@kwiboo.se
->>>>>>>
->>>>>>> Jonas Karlman (6):
->>>>>>>       dt-bindings: arm: rockchip: Add Radxa ROCK 2A/2F
->>>>>>>       arm64: dts: rockchip: Add Radxa ROCK 2A/2F
->>>>>>>       dt-bindings: arm: rockchip: Add ArmSoM Sige1
->>>>>>>       arm64: dts: rockchip: Add ArmSoM Sige1
->>>>>>>       dt-bindings: arm: rockchip: Add FriendlyElec NanoPi Zero2
->>>>>>>       arm64: dts: rockchip: Add FriendlyElec NanoPi Zero2
->>>>>>>
->>>>>>>      .../devicetree/bindings/arm/rockchip.yaml     |  17 +
->>>>>>>      arch/arm64/boot/dts/rockchip/Makefile         |   4 +
->>>>>>>      .../boot/dts/rockchip/rk3528-armsom-sige1.dts | 465 ++++++++++++++++++
->>>>>>>      .../boot/dts/rockchip/rk3528-nanopi-zero2.dts | 340 +++++++++++++
->>>>>>>      .../boot/dts/rockchip/rk3528-rock-2.dtsi      | 293 +++++++++++
->>>>>>>      .../boot/dts/rockchip/rk3528-rock-2a.dts      |  82 +++
->>>>>>>      .../boot/dts/rockchip/rk3528-rock-2f.dts      |  10 +
->>>>>>>      7 files changed, 1211 insertions(+)
->>>>>>>      create mode 100644 arch/arm64/boot/dts/rockchip/rk3528-armsom-sige1.dts
->>>>>>>      create mode 100644 arch/arm64/boot/dts/rockchip/rk3528-nanopi-zero2.dts
->>>>>>>      create mode 100644 arch/arm64/boot/dts/rockchip/rk3528-rock-2.dtsi
->>>>>>>      create mode 100644 arch/arm64/boot/dts/rockchip/rk3528-rock-2a.dts
->>>>>>>      create mode 100644 arch/arm64/boot/dts/rockchip/rk3528-rock-2f.dts
->>>>>>>
->
->
->
+I don't think that this VDO is correct. Please adjust it according to
+the spec.
+
+> +				};
+> +			};
+> +
+> +			ports {
+> +				#address-cells = <1>;
+> +				#size-cells = <0>;
+> +
+> +				port@0 {
+> +					reg = <0>;
+> +
+> +					usbc0_orien_sw: endpoint {
+> +						remote-endpoint = <&tcphy0_orientation_switch>;
+> +					};
+> +				};
+> +
+> +				port@1 {
+> +					reg = <1>;
+> +
+> +					dp_mode_sw: endpoint {
+> +						remote-endpoint = <&tcphy_dp_altmode_switch>;
+> +					};
+> +				};
+> +			};
+> +		};
+> +	};
+> +};
+> +
+>  &i2s2 {
+>  	status = "okay";
+>  };
+> @@ -354,6 +438,16 @@ &io_domains {
+>  };
+>  
+>  &pinctrl {
+> +	usb-typec {
+> +		usbc0_int: usbc0-int {
+> +			rockchip,pins = <1 RK_PA2 RK_FUNC_GPIO &pcfg_pull_up>;
+> +		};
+> +
+> +		vcc5v0_typec0_en: vcc5v0-typec0-en {
+> +			rockchip,pins = <1 RK_PC2 RK_FUNC_GPIO &pcfg_pull_none>;
+> +		};
+> +	};
+> +
+>  	pmic {
+>  		pmic_int_l: pmic-int-l {
+>  			rockchip,pins = <1 RK_PC5 RK_FUNC_GPIO &pcfg_pull_up>;
+> @@ -400,10 +494,48 @@ &sdmmc {
+>  	status = "okay";
+>  };
+>  
+> +&sound {
+> +	rockchip,codec = <&cdn_dp>;
+> +	status = "okay";
+> +};
+> +
+> +&spdif {
+> +	status = "okay";
+> +};
+> +
+>  &tcphy0 {
+>  	status = "okay";
+>  };
+>  
+> +&tcphy0_dp {
+> +	mode-switch;
+
+But not an orientation-switch? Shouldn't it also note the SBU pins
+orientation? Or DP lanes orientation?
+
+> +
+> +	port {
+> +		#address-cells = <1>;
+> +		#size-cells = <0>;
+> +
+> +		tcphy_dp_altmode_switch: endpoint@0 {
+> +			reg = <0>;
+> +			remote-endpoint = <&dp_mode_sw>;
+> +		};
+> +
+> +		dp_phy_in: endpoint@1 {
+> +			reg = <1>;
+> +			remote-endpoint = <&dp_controller_output>;
+> +		};
+> +	};
+> +};
+> +
+> +&tcphy0_usb3 {
+> +	orientation-switch;
+
+
+Hmmm.
+
+> +
+> +	port {
+> +		tcphy0_orientation_switch: endpoint {
+> +			remote-endpoint = <&usbc0_orien_sw>;
+> +		};
+> +	};
+> +};
+> +
+>  &tcphy1 {
+>  	status = "okay";
+>  };
+> @@ -461,6 +593,7 @@ &usb_host1_ohci {
+>  };
+>  
+>  &usbdrd_dwc3_0 {
+> +	usb-role-switch;
+
+This is an SoC-level property.
+
+>  	status = "okay";
+>  };
+>  
+> -- 
+> 2.49.0
+> 
+> 
+
+-- 
+With best wishes
+Dmitry
 
