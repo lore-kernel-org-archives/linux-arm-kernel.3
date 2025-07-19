@@ -4,82 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B886C83F27
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Jul 2025 10:59:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1BB8C83F27
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 19 Jul 2025 11:09:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:CC:References:To:
+	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u+V4okcQg5oev0dJo7W9WyupRbgSuk/hNGg+xMr7j5I=; b=F6vqDUIHYZuhcVSNmJ/gfB/T4N
-	iFg62wkt6gY4n72jH+O6xV4pO6X5sZGrGMbamqmG0qmj0icWqPqr+k5krHXYTUcUEGMzGg2WusYmz
-	htjyDmfNDQCIRowtFNKLey787l2+mJW6BIoK6oAww6CIGxQ/yNLVETxie8KcD1CpSaOAr0RbghX1D
-	x4y7tDPqVFHjsY63zc3e1HV6neT1BNgP8mYrnrNy0lWQk/LM4R6jXBOrDZ7Q3t5n1LfyR7sVblY2p
-	dMpuAbwyDBde6b0dJEB9EikGnbbaEOLJkfkmGCQzDwyC9WLSak/gxs16RMJX5hTuyPxgWW/PSI8ne
-	4JDhgzJA==;
+	bh=zmCYoH2zSxr5WJH3t09zdKaocIisOAhi8yC2NakxiUU=; b=1w7R2EL9R9Fvkwrtx97qMxqk9r
+	tMkBpAIiuPLT97wMyJGzE87/YDY4AxeAjsaYdXP/gyrns+03xovZnZknTB8CcsMgJ5NdUClfn9sfk
+	7uQSbmm3/sz2ECi0VLZ803pZDnzmCRtCQLbeC4Y7iem0epw2pBIXlarSsOKZ1JrYmbkSuUeqitRrd
+	wRkbJw7IJfXw2CnVxMbFW8iAvqoL6XVw07CkH8MGJp1Nj/E8bbcGYEqSADHJ+lPqQdc92gEfrxzmL
+	PPKaJQrq4RHwACuCFYK7kVXLXw1r1y7di8QIslRPLaD/dLr3rcYnv73pBOVjnkC+mtpMSsFLEwWFd
+	rvtX8MFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ud5HP-0000000EA9I-0vpf;
-	Sat, 19 Jul 2025 10:58:59 +0000
-Received: from relay3-d.mail.gandi.net ([217.70.183.195])
+	id 1ud5RV-0000000EAk4-1BCx;
+	Sat, 19 Jul 2025 11:09:25 +0000
+Received: from szxga05-in.huawei.com ([45.249.212.191])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ud5Eu-0000000E9vp-2GW5
+	id 1ud5P1-0000000EAb6-3cRZ
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 19 Jul 2025 10:56:26 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 0EAF71F68D;
-	Sat, 19 Jul 2025 10:56:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1752922581;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=u+V4okcQg5oev0dJo7W9WyupRbgSuk/hNGg+xMr7j5I=;
-	b=P4HrsYYqAhmsXl1kclEkZQG9JsrFGmEV54vH98kLPctV2Q6P14yJc5XQdbugAbDGEtBefU
-	2NTFBx17uTgNhAYS8OJVSkgsFIvVErk9re1JfRlxzl3+hD2o8zk2VQP0f3jLaluiueuONu
-	UVhOoySTeVWarG+s3JB/khD9TQ8H56+sC4O4tyyBtgflwXHXeD7yHuddsZI3yw1DT5EFJe
-	IzQXU1/czG/fPBdnlEg3P0GVQ2T1nxUBq2DhTojmRUGwYVA4DtjYev5rQiCtlgMJWimVu8
-	tX9GkfkKqqVB1nR3UuiircLA7AoVjiB5yBitGLYqAUEZU9V/MgefpOvQ0X7nqA==
-Date: Sat, 19 Jul 2025 12:56:16 +0200
-From: Kory Maincent <kory.maincent@bootlin.com>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Cc: davem@davemloft.net, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
- thomas.petazzoni@bootlin.com, Andrew Lunn <andrew@lunn.ch>, Jakub Kicinski
- <kuba@kernel.org>, Eric Dumazet <edumazet@google.com>, Paolo Abeni
- <pabeni@redhat.com>, Russell King <linux@armlinux.org.uk>,
- linux-arm-kernel@lists.infradead.org, Christophe Leroy
- <christophe.leroy@csgroup.eu>, Herve Codina <herve.codina@bootlin.com>,
- Florian Fainelli <f.fainelli@gmail.com>, Heiner Kallweit
- <hkallweit1@gmail.com>, Vladimir Oltean <vladimir.oltean@nxp.com>, Marek
- =?UTF-8?B?QmVow7pu?= <kabel@kernel.org>, Oleksij Rempel
- <o.rempel@pengutronix.de>, =?UTF-8?B?Tmljb2zDsg==?= Veronese
- <nicveronese@gmail.com>, Simon Horman <horms@kernel.org>,
- mwojtas@chromium.org, Antoine Tenart <atenart@kernel.org>,
- devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>, Romain
- Gantois <romain.gantois@bootlin.com>, Daniel Golle <daniel@makrotopia.org>,
- Dimitri Fedrau <dimitri.fedrau@liebherr.com>
-Subject: Re: [PATCH net-next v9 05/15] net: phy: dp83822: Add support for
- phy_port representation
-Message-ID: <20250719125616.336ece14@kmaincent-XPS-13-7390>
-In-Reply-To: <20250717073020.154010-6-maxime.chevallier@bootlin.com>
-References: <20250717073020.154010-1-maxime.chevallier@bootlin.com>
-	<20250717073020.154010-6-maxime.chevallier@bootlin.com>
-Organization: bootlin
-X-Mailer: Claws Mail 4.2.0 (GTK 3.24.41; x86_64-pc-linux-gnu)
+	Sat, 19 Jul 2025 11:06:53 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.17])
+	by szxga05-in.huawei.com (SkyGuard) with ESMTP id 4bkkKK2DQYz2gKdp;
+	Sat, 19 Jul 2025 19:03:01 +0800 (CST)
+Received: from dggemv706-chm.china.huawei.com (unknown [10.3.19.33])
+	by mail.maildlp.com (Postfix) with ESMTPS id 0BE5A1A0188;
+	Sat, 19 Jul 2025 19:05:40 +0800 (CST)
+Received: from kwepemn500004.china.huawei.com (7.202.194.145) by
+ dggemv706-chm.china.huawei.com (10.3.19.33) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Sat, 19 Jul 2025 19:05:39 +0800
+Received: from [10.67.120.218] (10.67.120.218) by
+ kwepemn500004.china.huawei.com (7.202.194.145) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Sat, 19 Jul 2025 19:05:39 +0800
+Subject: Re: [PATCH v2 1/3] coresight: tmc: Add missing doc of
+ tmc_drvdata::reading
+To: Leo Yan <leo.yan@arm.com>
+References: <20250620075412.952934-1-hejunhao3@huawei.com>
+ <20250620075412.952934-2-hejunhao3@huawei.com>
+ <20250702152720.GA794930@e132581.arm.com>
+CC: <anshuman.khandual@arm.com>, <coresight@lists.linaro.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<linuxarm@huawei.com>, <jonathan.cameron@huawei.com>,
+	<yangyicong@huawei.com>, <prime.zeng@hisilicon.com>
+From: hejunhao <hejunhao3@huawei.com>
+Message-ID: <41ddbd02-f2a5-f287-5096-90a420aee441@huawei.com>
+Date: Sat, 19 Jul 2025 19:05:30 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:45.0) Gecko/20100101
+ Thunderbird/45.7.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdeiieduhecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepfffhvfevuffkjghfohfogggtgfesthhqredtredtjeenucfhrhhomhepmfhorhihucforghinhgtvghnthcuoehkohhrhidrmhgrihhntggvnhhtsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpefguddtfeevtddugeevgfevtdfgvdfhtdeuleetffefffffhffgteekvdefudeiieenucffohhmrghinhepsghoohhtlhhinhdrtghomhenucfkphepvdgrtddumegtsgduheemfegvgeemtgehtddtmeejtggsvgemiedtieeimeeirgdufhemtggsuggunecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddumegtsgduheemfegvgeemtgehtddtmeejtggsvgemiedtieeimeeirgdufhemtggsuggupdhhvghlohepkhhmrghinhgtvghnthdqigfrufdqudefqdejfeeltddpmhgrihhlfhhrohhmpehkohhrhidrmhgrihhntggvnhhtsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeefuddprhgtphhtthhopehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmpdhrtghpthhtohepuggrvhgvmhesuggrvhgvmhhlohhfthdrnhgvthdprhgtp
- hhtthhopehnvghtuggvvhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhmshhmsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtohepthhhohhmrghsrdhpvghtrgiiiihonhhisegsohhothhlihhnrdgtohhmpdhrtghpthhtoheprghnughrvgifsehluhhnnhdrtghhpdhrtghpthhtohepkhhusggrsehkvghrnhgvlhdrohhrgh
-X-GND-Sasl: kory.maincent@bootlin.com
+In-Reply-To: <20250702152720.GA794930@e132581.arm.com>
+Content-Type: text/plain; charset="windows-1252"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.67.120.218]
+X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
+ kwepemn500004.china.huawei.com (7.202.194.145)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250719_035625_254734_1808C5C4 
-X-CRM114-Status: GOOD (  25.41  )
+X-CRM114-CacheID: sfid-20250719_040652_091473_0B0900F6 
+X-CRM114-Status: GOOD (  21.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,156 +80,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Le Thu, 17 Jul 2025 09:30:09 +0200,
-Maxime Chevallier <maxime.chevallier@bootlin.com> a =C3=A9crit :
 
-> With the phy_port representation intrduced, we can use .attach_port to
+On 2025/7/2 23:27, Leo Yan wrote:
+> On Fri, Jun 20, 2025 at 03:54:10PM +0800, Junhao He wrote:
+>> From: Yicong Yang <yangyicong@hisilicon.com>
+>>
+>> tmc_drvdata::reading is used to indicate whether a reading process
+>> is performed through /dev/xyz.tmc. Document it.
+>>
+>> Reviewed-by: James Clark <james.clark@linaro.org>
+>> Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
+>> Signed-off-by: Junhao He <hejunhao3@huawei.com>
+>> ---
+>>   drivers/hwtracing/coresight/coresight-tmc.h | 1 +
+>>   1 file changed, 1 insertion(+)
+>>
+>> diff --git a/drivers/hwtracing/coresight/coresight-tmc.h b/drivers/hwtracing/coresight/coresight-tmc.h
+>> index 6541a27a018e..3ca0d40c580d 100644
+>> --- a/drivers/hwtracing/coresight/coresight-tmc.h
+>> +++ b/drivers/hwtracing/coresight/coresight-tmc.h
+>> @@ -220,6 +220,7 @@ struct tmc_resrv_buf {
+>>    * @pid:	Process ID of the process that owns the session that is using
+>>    *		this component. For example this would be the pid of the Perf
+>>    *		process.
+>> + * @reading:	buffer's in the reading through "/dev/xyz.tmc" entry
+> Are you working on the latest code base? For example, the mainline
+> kernel or coresight next branch.
+> The latest code already has comment for reading, and I saw a duplicated
+> "reading" field in tmc_drvdata.
 
-*introduced
+This patch is based on mainline kernel v6.16-rc1, and adds a comment to 
+struct tmc_drvdata::reading.
+Perhaps, this git log could easily be misunderstood as adding comments 
+to tmc_resrv_buf::reading.
 
-As you will have to resend a new version ;)
+> The tmc_resrv_buf structure does not have the fields "pid",
+> "stop_on_flush", "buf", etc. They have been moved into the tmc_drvdata
+> structure.
+>
+> Thanks,
+> Leo
+>
+>>    * @stop_on_flush: Stop on flush trigger user configuration.
+>>    * @buf:	Snapshot of the trace data for ETF/ETB.
+>>    * @etr_buf:	details of buffer used in TMC-ETR
+>> -- 
+>> 2.33.0
+>>
+> _______________________________________________
+> CoreSight mailing list -- coresight@lists.linaro.org
+> To unsubscribe send an email to coresight-leave@lists.linaro.org
+> .
+>
 
-else
-Reviewed-by: Kory Maincent <kory.maincent@bootlin.com>
-
-Thank you!
-
-> populate the port information based on either the straps or the
-> ti,fiber-mode property. This allows simplifying the probe function and
-> allow users to override the strapping configuration.
->=20
-> Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
-> ---
->  drivers/net/phy/dp83822.c | 71 +++++++++++++++++++++++++--------------
->  1 file changed, 45 insertions(+), 26 deletions(-)
->=20
-> diff --git a/drivers/net/phy/dp83822.c b/drivers/net/phy/dp83822.c
-> index 33db21251f2e..2657be2e9034 100644
-> --- a/drivers/net/phy/dp83822.c
-> +++ b/drivers/net/phy/dp83822.c
-> @@ -11,6 +11,7 @@
->  #include <linux/module.h>
->  #include <linux/of.h>
->  #include <linux/phy.h>
-> +#include <linux/phy_port.h>
->  #include <linux/netdevice.h>
->  #include <linux/bitfield.h>
-> =20
-> @@ -811,17 +812,6 @@ static int dp83822_of_init(struct phy_device *phydev)
->  	int i, ret;
->  	u32 val;
-> =20
-> -	/* Signal detection for the PHY is only enabled if the FX_EN and the
-> -	 * SD_EN pins are strapped. Signal detection can only enabled if
-> FX_EN
-> -	 * is strapped otherwise signal detection is disabled for the PHY.
-> -	 */
-> -	if (dp83822->fx_enabled && dp83822->fx_sd_enable)
-> -		dp83822->fx_signal_det_low =3D device_property_present(dev,
-> -
-> "ti,link-loss-low");
-> -	if (!dp83822->fx_enabled)
-> -		dp83822->fx_enabled =3D device_property_present(dev,
-> -
-> "ti,fiber-mode"); -
->  	if (!device_property_read_string(dev, "ti,gpio2-clk-out", &of_val)) {
->  		if (strcmp(of_val, "mac-if") =3D=3D 0) {
->  			dp83822->gpio2_clk_out =3D DP83822_CLK_SRC_MAC_IF;
-> @@ -950,6 +940,48 @@ static int dp83822_read_straps(struct phy_device *ph=
-ydev)
->  	return 0;
->  }
-> =20
-> +static int dp83822_attach_port(struct phy_device *phydev, struct phy_port
-> *port) +{
-> +	struct dp83822_private *dp83822 =3D phydev->priv;
-> +	int ret;
-> +
-> +	if (port->mediums) {
-> +		if (phy_port_is_fiber(port))
-> +			dp83822->fx_enabled =3D true;
-> +	} else {
-> +		ret =3D dp83822_read_straps(phydev);
-> +		if (ret)
-> +			return ret;
-> +
-> +#if IS_ENABLED(CONFIG_OF_MDIO)
-> +		if (dp83822->fx_enabled && dp83822->fx_sd_enable)
-> +			dp83822->fx_signal_det_low =3D
-> +				device_property_present(&phydev->mdio.dev,
-> +							"ti,link-loss-low");
-> +
-> +		/* ti,fiber-mode is still used for backwards compatibility,
-> but
-> +		 * has been replaced with the mdi node definition, see
-> +		 * ethernet-port.yaml
-> +		 */
-> +		if (!dp83822->fx_enabled)
-> +			dp83822->fx_enabled =3D
-> +				device_property_present(&phydev->mdio.dev,
-> +							"ti,fiber-mode");
-> +#endif /* CONFIG_OF_MDIO */
-> +
-> +		if (dp83822->fx_enabled) {
-> +			port->lanes =3D 1;
-> +			port->mediums =3D BIT(ETHTOOL_LINK_MEDIUM_BASEF);
-> +		} else {
-> +			/* This PHY can only to 100BaseTX max, so on 2 lanes
-> */
-> +			port->lanes =3D 2;
-> +			port->mediums =3D BIT(ETHTOOL_LINK_MEDIUM_BASET);
-> +		}
-> +	}
-> +
-> +	return 0;
-> +}
-> +
->  static int dp8382x_probe(struct phy_device *phydev)
->  {
->  	struct dp83822_private *dp83822;
-> @@ -968,27 +1000,13 @@ static int dp8382x_probe(struct phy_device *phydev)
-> =20
->  static int dp83822_probe(struct phy_device *phydev)
->  {
-> -	struct dp83822_private *dp83822;
->  	int ret;
-> =20
->  	ret =3D dp8382x_probe(phydev);
->  	if (ret)
->  		return ret;
-> =20
-> -	dp83822 =3D phydev->priv;
-> -
-> -	ret =3D dp83822_read_straps(phydev);
-> -	if (ret)
-> -		return ret;
-> -
-> -	ret =3D dp83822_of_init(phydev);
-> -	if (ret)
-> -		return ret;
-> -
-> -	if (dp83822->fx_enabled)
-> -		phydev->port =3D PORT_FIBRE;
-> -
-> -	return 0;
-> +	return dp83822_of_init(phydev);
->  }
-> =20
->  static int dp83826_probe(struct phy_device *phydev)
-> @@ -1172,6 +1190,7 @@ static int dp83822_led_hw_control_get(struct phy_de=
-vice
-> *phydev, u8 index, .led_hw_is_supported =3D dp83822_led_hw_is_supported,
-> \ .led_hw_control_set =3D dp83822_led_hw_control_set,	\
->  		.led_hw_control_get =3D dp83822_led_hw_control_get,	\
-> +		.attach_port =3D dp83822_attach_port		\
->  	}
-> =20
->  #define DP83825_PHY_DRIVER(_id, _name)				\
-
-
-
---=20
-K=C3=B6ry Maincent, Bootlin
-Embedded Linux and kernel engineering
-https://bootlin.com
 
