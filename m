@@ -4,69 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88079C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Jul 2025 15:05:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A90AC83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Jul 2025 15:19:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ttk7fb8XlaFmqm17AyNjg98kleNuPOap8ewNvEIirYU=; b=VutMwpPSaQn2NANogBvTAI7n/5
-	6yMQBvw1gXx39wxBs84rPAbo9mKO/wMXIEEK7K564e4FNcajTotV02XebPwN7DHL/e2IscLMsPR02
-	6/xBbtPFyoQbz1ps/meDJiE5HNc9TG96jyzIFwqtfQ7WH/0Sgs8gd2JBILijpjzsieXGxTi388ipY
-	A6BHofvDf6QdtvvvdMxFywyyAeDF/mu1uwwZdVLntmGa65UF21Mv+moV4ZMP+96DgGIjshAz8TR47
-	EQFgdaIWJ9HzTU7wzmSWedDHNqciUdXfeolBWE7EZHFYdjEF5nluyamwwc577RTkNAb/P79/JmutK
-	Mawbw30g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iciTdbozgbEwpx/j+Tpe9MpyqER+JXwr8LFwyB0pkS8=; b=zXuCi4HjqK5b6kPTbA1V6gaVIJ
+	DLtw/puYYgz6aXbRUsbVJNrp1FdacVaDwZ/WZMP8gVNRE9EYTt+z5CDy1Yip7i3QAYvqsdLMthPiI
+	AwXglrceMbRvlShdoESA704Fa91SrykOAWlpIkTPWNpYTIfDfVHTD2W6D5A2DhSVQEWeMHk/Wv883
+	2mo/NyOogYq/QOn/JFw02Ph6lsBjcd5ukJawxC98d1YrCGgguxzPWruFaPIHxJXeEAiisTsJuQSm/
+	TjI8KJAkCZwqutvG7v4uQU+AD7/hZNF3UgL8NdOLlm9xUAiSd5mPRK/L8bsLvdgYkdUQ6EUAKcfI7
+	8Xb8w8QA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udVb5-0000000FQv8-3z0V;
-	Sun, 20 Jul 2025 15:05:03 +0000
-Received: from mx4.wp.pl ([212.77.101.12])
+	id 1udVpF-0000000FRcu-3FOI;
+	Sun, 20 Jul 2025 15:19:41 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udVYd-0000000FQlv-3bJ4
+	id 1udVmo-0000000FRWt-1nPV
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 20 Jul 2025 15:02:33 +0000
-Received: (wp-smtpd smtp.wp.pl 22382 invoked from network); 20 Jul 2025 15:15:50 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wp.pl; s=20241105;
-          t=1753017350; bh=ttk7fb8XlaFmqm17AyNjg98kleNuPOap8ewNvEIirYU=;
-          h=Subject:To:Cc:From;
-          b=wAVf/WuKhzI2Wh0Hwa1XPCceRe9snvZfE9TgVG0OSy6EOX2sCrh+b4serMD/0eyzJ
-           lNsq15mhnTACay4MQc9TRCUxa4/cTZlY5FL1a7ksnCYlwJCS17BnWaJt24ISdI96kw
-           oZa/XKrl7wag8k7O/qDQHaCCSu41gNKkWaGoZyIQJSVX/uyVkq0EItxw8z7PBkLscu
-           dgESmGZTDw66Z/MUmAOcfko8q9OhNQNLK2sFgm8n+bewOtJoOXRfcuSugioZD99wRs
-           gtx3YytjvvSLUBSlq7WRPxJjASIW/o8ZLEvNesOP7+XLx4yzETGv4wBeSgYG4RJOqN
-           HrGxCQSlshwpQ==
-Received: from 83.24.129.157.ipv4.supernova.orange.pl (HELO [192.168.3.246]) (olek2@wp.pl@[83.24.129.157])
-          (envelope-sender <olek2@wp.pl>)
-          by smtp.wp.pl (WP-SMTPD) with ECDHE-RSA-AES256-GCM-SHA384 encrypted SMTP
-          for <robh@kernel.org>; 20 Jul 2025 15:15:50 +0200
-Message-ID: <fcedccfc-c921-4afb-92d5-5f5e0a60d251@wp.pl>
-Date: Sun, 20 Jul 2025 15:15:49 +0200
+	Sun, 20 Jul 2025 15:17:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=iciTdbozgbEwpx/j+Tpe9MpyqER+JXwr8LFwyB0pkS8=; b=6WsW40lEAD7TZLkmADom+46xBC
+	aO9R8B1l4cvgNm3Av+QCn80uQhZNJVzKsKo0mUQBQ21RG/DsZgaZLswUGUGF/SSV5uDg65iOU1ry4
+	eebh0ZPMHSD1J1jSJCcuzQPEZ0WwxogXTY886yw2EHCQ7IULH0GeGm59T4b5C/R6sogI=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1udVmX-002CZR-Qo; Sun, 20 Jul 2025 17:16:53 +0200
+Date: Sun, 20 Jul 2025 17:16:53 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
+Cc: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Souvik Chakravarty <Souvik.Chakravarty@arm.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Andy Yan <andy.yan@rock-chips.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	cros-qcom-dts-watchers@chromium.org, Vinod Koul <vkoul@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
+	Stephen Boyd <swboyd@chromium.org>,
+	Andre Draszik <andre.draszik@linaro.org>, linux-pm@vger.kernel.org,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	Elliot Berman <quic_eberman@quicinc.com>,
+	Srinivas Kandagatla <srini@kernel.org>
+Subject: Re: [PATCH v11 2/8] power: reset: reboot-mode: Add support for 64
+ bit magic
+Message-ID: <6227828c-5db0-41c8-956f-eea6f790ccac@lunn.ch>
+References: <20250717-arm-psci-system_reset2-vendor-reboots-v11-0-df3e2b2183c3@oss.qualcomm.com>
+ <20250717-arm-psci-system_reset2-vendor-reboots-v11-2-df3e2b2183c3@oss.qualcomm.com>
+ <6vlm3ybjpy2jq3cr2pzj4vcmqwoissdml2xmhfzlulfbrpzakt@xrepu6c5zykb>
+ <713b2cc8-1bc7-a8b7-678b-5fc7fe25615a@oss.qualcomm.com>
+ <8d4a42b6-657f-4c30-8e25-4213d8d53a89@lunn.ch>
+ <1653597d-4d6b-a771-fbd8-c129c630ac0a@oss.qualcomm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 0/2] Add thermal sensors support for MT7981
-To: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: s.hauer@pengutronix.de, conor+dt@kernel.org, krzk+dt@kernel.org,
- linux-kernel@vger.kernel.org, daniel.lezcano@linaro.org,
- angelogioacchino.delregno@collabora.com, rafal@milecki.pl,
- rafael@kernel.org, linux-mediatek@lists.infradead.org,
- devicetree@vger.kernel.org, matthias.bgg@gmail.com, rui.zhang@intel.com,
- linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org,
- lukasz.luba@arm.com
-References: <20250712195904.6988-1-olek2@wp.pl>
- <175250104102.2052726.927170028799402599.robh@kernel.org>
-Content-Language: en-US
-From: Aleksander Jan Bajkowski <olek2@wp.pl>
-In-Reply-To: <175250104102.2052726.927170028799402599.robh@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-WP-MailID: 73e3bbc9459faaf9a42a9134af578f24
-X-WP-AV: skaner antywirusowy Poczty Wirtualnej Polski
-X-WP-SPAM: NO 0000001 [8eLC]                               
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <1653597d-4d6b-a771-fbd8-c129c630ac0a@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250720_080232_383348_BFDFF73C 
-X-CRM114-Status: GOOD (  21.70  )
+X-CRM114-CacheID: sfid-20250720_081710_473904_5F07CA9D 
+X-CRM114-Status: GOOD (  12.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,103 +95,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Sat, Jul 19, 2025 at 11:07:47PM +0530, Shivendra Pratap wrote:
+> 
+> 
+> On 7/19/2025 10:27 PM, Andrew Lunn wrote:
+> >>>> +static int qcom_pon_reboot_mode_write(struct reboot_mode_driver *reboot, u64 magic)
+> >>>>  {
+> >>>>  	struct qcom_pon *pon = container_of
+> >>>>  			(reboot, struct qcom_pon, reboot_mode);
+> >>>> @@ -37,7 +36,7 @@ static int qcom_pon_reboot_mode_write(struct reboot_mode_driver *reboot,
+> >>>>  	ret = regmap_update_bits(pon->regmap,
+> >>>>  				 pon->baseaddr + PON_SOFT_RB_SPARE,
+> >>>>  				 GENMASK(7, pon->reason_shift),
+> >>>> -				 magic << pon->reason_shift);
+> >>>> +				 ((u32)magic) << pon->reason_shift);
+> > 
+> > As a general rule of thumb, code with casts is poor quality code. Try
+> > to write the code without casts.
+> > 
+> > Maybe something like
+> > 
+> >       If (magic > MAX_U32)
+> >       	   return -EINVAL;
+> > 
+> >       magic_32 = magic;
+> sure will update it. And in above, should it be recommended to add a explicit
+> cast(for any avoiding any compiler complains)?
+>  like: magic_32 = (u32)magic;
 
-this is a false positive. The binding patch [1] is already queued for 
-6.17 :)
+I would hope the compiler/optimiser can figure out from the test the
+line before that this is a safe conversion. So i don't think you need
+a cast.
 
-[1] 
-https://git.kernel.org/pub/scm/linux/kernel/git/gregkh/char-misc.git/commit/?h=char-misc-next&id=8749c54202df93af2a01c15865b07eea1e64b6d9
-
-Best regards,
-Aleksander Bajkowski
-
-On 14.07.2025 17:24, Rob Herring (Arm) wrote:
-> On Sat, 12 Jul 2025 21:59:02 +0200, Aleksander Jan Bajkowski wrote:
->> This patch adds support for the temperature sensor in the MT7981 SoC.
->> This sensor is exactly the same as the one in the MT7986.
->>
->> Changes in v4:
->>   - sorted bindings by fallback names
->>   - dropped accepted patch
->>
->> Changes in v3:
->>   - added fallback in bindings
->>
->> Changes in v2:
->>   - added fallback to an existing compatible string
->>   - removed second patch as obsolete
->>
->> Aleksander Jan Bajkowski (2):
->>    dt-bindings: thermal: mediatek: add falback compatible string for
->>      MT7981 and MT8516
->>    arm64: dts: mediatek: add thermal sensor support on mt7981
->>
->>   .../bindings/thermal/mediatek,thermal.yaml    | 27 ++++++++++------
->>   arch/arm64/boot/dts/mediatek/mt7981b.dtsi     | 31 ++++++++++++++++++-
->>   2 files changed, 47 insertions(+), 11 deletions(-)
->>
->> --
->> 2.39.5
->>
->>
->>
->
-> My bot found new DTB warnings on the .dts files added or changed in this
-> series.
->
-> Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
-> are fixed by another series. Ultimately, it is up to the platform
-> maintainer whether these warnings are acceptable or not. No need to reply
-> unless the platform maintainer has comments.
->
-> If you already ran DT checks and didn't see these error(s), then
-> make sure dt-schema is up to date:
->
->    pip3 install dtschema --upgrade
->
->
-> This patch series was applied (using b4) to base:
->   Base: attempting to guess base-commit...
->   Base: tags/v6.16-rc1-8-g95a042a0c8ec (exact match)
->
-> If this is not the correct base, please add 'base-commit' tag
-> (or use b4 which does this automatically)
->
-> New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/mediatek/' for 20250712195904.6988-1-olek2@wp.pl:
->
-> arch/arm64/boot/dts/mediatek/mt7981b-openwrt-one.dtb: adc@1100d000 (mediatek,mt7981-auxadc): compatible: 'oneOf' conditional failed, one must be fixed:
-> 	['mediatek,mt7981-auxadc', 'mediatek,mt7986-auxadc'] is too long
-> 	'mediatek,mt7981-auxadc' is not one of ['mediatek,mt2701-auxadc', 'mediatek,mt2712-auxadc', 'mediatek,mt6765-auxadc', 'mediatek,mt7622-auxadc', 'mediatek,mt7986-auxadc', 'mediatek,mt8173-auxadc']
-> 	'mediatek,mt7981-auxadc' is not one of ['mediatek,mt7623-auxadc']
-> 	'mediatek,mt7981-auxadc' is not one of ['mediatek,mt6893-auxadc', 'mediatek,mt8183-auxadc', 'mediatek,mt8186-auxadc', 'mediatek,mt8188-auxadc', 'mediatek,mt8195-auxadc', 'mediatek,mt8516-auxadc']
-> 	'mediatek,mt2701-auxadc' was expected
-> 	'mediatek,mt8173-auxadc' was expected
-> 	from schema $id: http://devicetree.org/schemas/iio/adc/mediatek,mt2701-auxadc.yaml#
-> arch/arm64/boot/dts/mediatek/mt7981b-openwrt-one.dtb: /soc/adc@1100d000: failed to match any schema with compatible: ['mediatek,mt7981-auxadc', 'mediatek,mt7986-auxadc']
-> arch/arm64/boot/dts/mediatek/mt7981b-cudy-wr3000-v1.dtb: adc@1100d000 (mediatek,mt7981-auxadc): compatible: 'oneOf' conditional failed, one must be fixed:
-> 	['mediatek,mt7981-auxadc', 'mediatek,mt7986-auxadc'] is too long
-> 	'mediatek,mt7981-auxadc' is not one of ['mediatek,mt2701-auxadc', 'mediatek,mt2712-auxadc', 'mediatek,mt6765-auxadc', 'mediatek,mt7622-auxadc', 'mediatek,mt7986-auxadc', 'mediatek,mt8173-auxadc']
-> 	'mediatek,mt7981-auxadc' is not one of ['mediatek,mt7623-auxadc']
-> 	'mediatek,mt7981-auxadc' is not one of ['mediatek,mt6893-auxadc', 'mediatek,mt8183-auxadc', 'mediatek,mt8186-auxadc', 'mediatek,mt8188-auxadc', 'mediatek,mt8195-auxadc', 'mediatek,mt8516-auxadc']
-> 	'mediatek,mt2701-auxadc' was expected
-> 	'mediatek,mt8173-auxadc' was expected
-> 	from schema $id: http://devicetree.org/schemas/iio/adc/mediatek,mt2701-auxadc.yaml#
-> arch/arm64/boot/dts/mediatek/mt7981b-cudy-wr3000-v1.dtb: /soc/adc@1100d000: failed to match any schema with compatible: ['mediatek,mt7981-auxadc', 'mediatek,mt7986-auxadc']
-> arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku6.dtb: clock-controller@15520000 (mediatek,mt8188-imgsys-wpe2): '#reset-cells' does not match any of the regexes: '^pinctrl-[0-9]+$'
-> 	from schema $id: http://devicetree.org/schemas/clock/mediatek,mt8188-clock.yaml#
-> arch/arm64/boot/dts/mediatek/mt7981b-xiaomi-ax3000t.dtb: adc@1100d000 (mediatek,mt7981-auxadc): compatible: 'oneOf' conditional failed, one must be fixed:
-> 	['mediatek,mt7981-auxadc', 'mediatek,mt7986-auxadc'] is too long
-> 	'mediatek,mt7981-auxadc' is not one of ['mediatek,mt2701-auxadc', 'mediatek,mt2712-auxadc', 'mediatek,mt6765-auxadc', 'mediatek,mt7622-auxadc', 'mediatek,mt7986-auxadc', 'mediatek,mt8173-auxadc']
-> 	'mediatek,mt7981-auxadc' is not one of ['mediatek,mt7623-auxadc']
-> 	'mediatek,mt7981-auxadc' is not one of ['mediatek,mt6893-auxadc', 'mediatek,mt8183-auxadc', 'mediatek,mt8186-auxadc', 'mediatek,mt8188-auxadc', 'mediatek,mt8195-auxadc', 'mediatek,mt8516-auxadc']
-> 	'mediatek,mt2701-auxadc' was expected
-> 	'mediatek,mt8173-auxadc' was expected
-> 	from schema $id: http://devicetree.org/schemas/iio/adc/mediatek,mt2701-auxadc.yaml#
-> arch/arm64/boot/dts/mediatek/mt7981b-xiaomi-ax3000t.dtb: /soc/adc@1100d000: failed to match any schema with compatible: ['mediatek,mt7981-auxadc', 'mediatek,mt7986-auxadc']
->
->
->
->
->
+	Andrew
 
