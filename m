@@ -4,84 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8CFDC83F34
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Jul 2025 00:23:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEFACC83F27
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Jul 2025 02:24:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2/dmxM8U7yCFEEDI6/uvUgelwcDT3JQj4aGe50ihU1c=; b=s2xuTTo4qMl8zMfL6b05XUE2EI
-	fuaMCq8MuSmZCzXK4p00BJklkm3FywEoH8teRy4Xjs3M/g+OKjAJYE4CFmQ2VCviZBu29sEv+Z5+u
-	PvhtuN9nSw5zlcsb5og+X6iH2BAahXNKsrVWuKWkvfdAcQykHF3cCQcKoxRDCOm877FLoMrdzfi3S
-	3h9sVQvQ1lN38E8XaFfz8xn9aBHaVtjd2CJSZRgATGvpYWAjVjyuHJOQuBrnQVUJEVDx7ImY2BSBk
-	5v6dA1aQYILStxinApLiTlgSGvxZtYQ1ubar3GxQn0BwoMkMoGZQeNzfUvHXPeKdeGmm1sMuGZZY8
-	B06tcR9g==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=20X0PhCRcRj6aFiBuS5mrmdrBSw8ydwTa695mVAjRJA=; b=dLe5tl5XJ9///ePTrKvSfV5Uof
+	cWFgnjDpc5GUDoM0G5YZuCViY21z4XvQZH9FczMr+NQ3b5y8GtEaF3nCjNAaLOvMmD5OqBMTd7Zzk
+	KyEGJsA3aJFkAx/dlUnJsoEkEFqJ3ZycdggtYE5lqoMVPXdhMDVgxEbTVSgMYaD/8RrVeTqyezu0C
+	So6JU3rukmwJNgoGh4ruc5xRuE1FL2S/S5hCwbHyMI3I26fXxlijH9F9M+44+/1iai1+bbaHYwQbb
+	8ugpee5B67fp0NJb6zUgtW3rdacVBbTGTHqL+adUq3/782+NBrpyl6L9PrzKHrkZT/pk9+41cbGWu
+	LSkMtsjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udHpo-0000000ElbS-3S5l;
-	Sun, 20 Jul 2025 00:23:20 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1udJik-0000000Ep9Z-1Sd2;
+	Sun, 20 Jul 2025 02:24:10 +0000
+Received: from mail-yb1-xb30.google.com ([2607:f8b0:4864:20::b30])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udHnM-0000000ElVn-0z5T;
-	Sun, 20 Jul 2025 00:20:49 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 276E95C4020;
-	Sun, 20 Jul 2025 00:20:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CF514C4CEE3;
-	Sun, 20 Jul 2025 00:20:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752970846;
-	bh=OtFSKnQJLty8pNLNiDG+01ViY9iOpad5TmroInGnKcw=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=gp/L4yUeeuj6moNS7hE8ns2uEdOo4Nyg0bhcpd4SZ0ID+jaFjSLW4qjENp5xWKOxs
-	 ba8zlU3l729BseY5uWou352gHYh1h/FgxSDKWrIyUfnCsVExiTxOQCXPXTKSGHn04e
-	 Fr3B4B8EjJUZLppBfVeGODlDFcqnQerC6JLGlTJwFzDf40DACNofGhMJwffixr24qK
-	 FwoRyYbnlLpwGXOo84BbZQj899W/CBoVmQerDv65bcQvKrpeCxCNx0T8uYn5Lmm4MC
-	 jc7IQ/t1Ct51Hz605ZImGBeZZVVmGfcYGybqxA/S9eHoRo4jldYV/1sAIKwwqnd4gF
-	 2yghXXgl36L3w==
-From: William Breathitt Gray <wbg@kernel.org>
-To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Cc: William Breathitt Gray <wbg@kernel.org>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
-	Sebastian Reichel <sebastian.reichel@collabora.com>,
-	Kever Yang <kever.yang@rock-chips.com>,
-	Yury Norov <yury.norov@gmail.com>,
-	Rasmus Villemoes <linux@rasmusvillemoes.dk>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Dave Ertman <david.m.ertman@intel.com>,
-	Ira Weiny <ira.weiny@intel.com>,
-	Leon Romanovsky <leon@kernel.org>,
-	Lee Jones <lee@kernel.org>,
-	linux-gpio@vger.kernel.org,
-	devicetree@vger.kernel.org,
+	id 1udJgC-0000000Ep3s-1EdA
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 20 Jul 2025 02:21:33 +0000
+Received: by mail-yb1-xb30.google.com with SMTP id 3f1490d57ef6-e8d9f9613d6so25429276.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 19 Jul 2025 19:21:32 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1752978091; x=1753582891; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=20X0PhCRcRj6aFiBuS5mrmdrBSw8ydwTa695mVAjRJA=;
+        b=LFWrR9qF9JMhpAv2bVC6XqtG/5dqtDsxBOILfnJ2ZH6SGKQZZMK33oTxU6/+KLdb6Q
+         uwegHz76LXgCZfsEuRT0HLCz+2Zfw4gmnl1wTKb6snxJwfjcLXAsff4igxU8VSDzPq5U
+         crCq6wX01IM+HnCwU68Zjamt8m1+x0EutVlTb9oMYvMgkq1QexoJc5agcOz9zzoWpDOf
+         +6yUDDHx6fFUMc8y+vgUAWlAgFBwPBuuohdphj8JgjUDLZ2qjoxVV/56bjmPP7qO5prF
+         otW4YlasmyUTwXYS8MgutMUYXPg8bw41yRF/1nkDiYgDGoYRwzfndlV4Y7ScTzx+zHRx
+         h3pA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1752978091; x=1753582891;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=20X0PhCRcRj6aFiBuS5mrmdrBSw8ydwTa695mVAjRJA=;
+        b=rhFNzPrOztjelB5MKbzwqqUxeIsDCVPGoOAkr+fS6Kn2Q74YLNUmjtUTagUHIDRyaw
+         KQkACC0+uDh//RVvQO5EY9698qFzZRtw5ofj7HW3EtozReW9ey+TrcO/KWHau2zzCVpo
+         MDkwgQro9J0YPcE2DdxC0IvNp4+t/nV+eNVvio/H2l0AZSjc0b8clp5x5WVT2PHvO5NE
+         CUfBFmukT+I7XWS2m7tF+62xMMNY4OD8Skb1MD8btrxq6Fmb4ruzhMeH2/1Mo7hCMhQO
+         cxVVq0Dca0CH9XeQY8JHA9JRMcOa51rX3CdeuPrw1UjecULvg5FwfSkFoa5D3T10p+Zz
+         3dYw==
+X-Forwarded-Encrypted: i=1; AJvYcCVEupQIEAuf2wAYsV0OOIRR9OI8aBwZQ0Nm9Hv4qY7ATOdJa3qyRbmMn9YZ6SCbdEtL2CrujQpQjB6FqrTsnzpV@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxq9y0oYLTOqYofCu/iX7YUnHFzBMrowWUBxHChsWxTZeBnZdAr
+	oRVDqDE9w6l+HOhLAOqFNTzjq+fL6zvh0EKo7NEudXEcpL27g4ziwtFD
+X-Gm-Gg: ASbGncux03wsp5EtmHET5FpykQIEOuOmDQ8bUZ0XVyw6nbL4tg8PxA4wTCMUNkwsbSX
+	0QmrGJUu/bssYfwAlKOZFSs6BJvHmeiaCPcXMn+xHk3CtBAZBCBULDuQbu3itNt6d9g7FL4yFhc
+	APikNTs4CZw8rbLh70gkhGEwQqOIBfOjfhVKUSkN0bzDw9mfP7O10jkAIE9sYlKwSTBB0JaxEjt
+	URXEqHDIdDWZWtGZVe+66d//pxqbNq1n2oRMxtnmFYtZEjbv1j6NZHKQVY8f62v+lbJ95xv2jjK
+	+VEcexPKJIDx6t3PxiTl5BsimFUAI22C3Jmuh6VeKqOywsjGBncATmYfn77cbhuPRWYKj+vqQ1o
+	wfrh40zPVuAkhfPeB4Ast2I4x1Hm8TZWWl4Xjj5fYCrVka+8V8TaweeGgon+ctOVC+wum
+X-Google-Smtp-Source: AGHT+IGQeBqt1JgArpYmqU9CC64rnAVFyPtgmr6zEcLd7fPQHv+Rm+/NeKHZqrBKHF8zawaTftE66g==
+X-Received: by 2002:a05:690c:46ca:b0:70e:73ce:80de with SMTP id 00721157ae682-71835185a29mr205173357b3.25.1752978091242;
+        Sat, 19 Jul 2025 19:21:31 -0700 (PDT)
+Received: from localhost (c-73-224-175-84.hsd1.fl.comcast.net. [73.224.175.84])
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-7195310a968sm11599877b3.2.2025.07.19.19.21.30
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 19 Jul 2025 19:21:30 -0700 (PDT)
+From: Yury Norov <yury.norov@gmail.com>
+To: Linus Walleij <linus.walleij@linaro.org>,
+	Vinod Koul <vkoul@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-pwm@vger.kernel.org,
-	linux-iio@vger.kernel.org,
-	kernel@collabora.com,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Detlev Casanova <detlev.casanova@collabora.com>
-Subject: Re: [PATCH v2 6/7] counter: Add rockchip-pwm-capture driver
-Date: Sun, 20 Jul 2025 09:20:15 +0900
-Message-ID: <20250720002024.696040-1-wbg@kernel.org>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20250602-rk3576-pwm-v2-6-a6434b0ce60c@collabora.com>
-References: 
+	dmaengine@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: Yury Norov <yury.norov@gmail.com>
+Subject: [PATCH] ste_dma40: simplify d40_handle_interrupt()
+Date: Sat, 19 Jul 2025 22:21:28 -0400
+Message-ID: <20250720022129.437094-1-yury.norov@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3362; i=wbg@kernel.org; h=from:subject; bh=OtFSKnQJLty8pNLNiDG+01ViY9iOpad5TmroInGnKcw=; b=owGbwMvMwCW21SPs1D4hZW3G02pJDBk1ZoZ8Gz+aTdhw53D1hbVX5Nc3ZaxsPTyL8/YuN56Cw FKrq62WHaUsDGJcDLJiiiy95mfvPrikqvHjxfxtMHNYmUCGMHBxCsBEli5g+GcXl79B3f4I/867 8fImitd+ThGcE1JmLzIzvlMjR/6602qG/9H/Jmx+MC3/sEbhh10T7266ybuXNelCScrmxZ2RmW0 3XnMBAA==
-X-Developer-Key: i=wbg@kernel.org; a=openpgp; fpr=8D37CDDDE0D22528F8E89FB6B54856CABE12232B
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250719_172048_354923_EC265F5E 
-X-CRM114-Status: GOOD (  24.32  )
+X-CRM114-CacheID: sfid-20250719_192132_339537_A23AAE37 
+X-CRM114-Status: GOOD (  11.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,71 +98,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 02, 2025 at 06:19:17PM +0200, Nicolas Frattaroli wrote:
-> Among many other things, Rockchip's new PWMv4 IP in the RK3576 supports
-> PWM capture functionality.
-> 
-> Add a basic driver for this that works to capture period and duty cycle
-> values and return them as nanoseconds to the user. It's quite basic, but
-> works well enough to demonstrate the device function exclusion stuff
-> that mfpwm does, in order to eventually support all the functions of
-> this device in drivers within their appropriate subsystems, without them
-> interfering with each other.
-> 
-> Once enabled, the counter driver waits for enough high-to-low and
-> low-to-high interrupt signals to arrive, and then writes the cycle count
-> register values into some atomic members of the driver instance's state
-> struct. The read callback can then do the conversion from cycle count to
-> the more useful period and duty cycle nanosecond values, which require
-> knowledge of the clock rate, which requires a call that the interrupt
-> handler cannot make itself because said call may sleep.
-> 
-> To detect the condition of a PWM signal disappearing, i.e. turning off,
-> we modify the delay value of a delayed worker whose job it is to simply
-> set those atomic members to zero. Should the "timeout" so to speak be
-> reached, we assume the PWM signal is off. This isn't perfect; it
-> obviously introduces a latency between it being off and the counter
-> reporting it as such. Because there isn't a way to reset the internal
-> double-buffered cycle count in the hardware, we filter out unreliable
-> periods above the timeout value in the counter read callback.
-> 
-> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+From: Yury Norov (NVIDIA) <yury.norov@gmail.com>
 
-Hi Nicolas,
+Use for_each_set_bit() iterator and drop housekeeping code.
 
-Would you help me understand the computations in this driver?
+Signed-off-by: Yury Norov (NVIDIA) <yury.norov@gmail.com>
+---
+ drivers/dma/ste_dma40.c | 12 ++----------
+ 1 file changed, 2 insertions(+), 10 deletions(-)
 
-If I understand the purpose of this driver correctly, it's meant to
-compute the period and duty cycle of a PWM signal. What do LPC and HPC
-represent? I'm guessing they are the low period count (LPC) and the high
-period count (HPC). So then you calculate the total period by adding
-LPC and HPC, whereas the duty cycle derives from HPC.
+diff --git a/drivers/dma/ste_dma40.c b/drivers/dma/ste_dma40.c
+index d52e1685aed5..6cc76f935c7c 100644
+--- a/drivers/dma/ste_dma40.c
++++ b/drivers/dma/ste_dma40.c
+@@ -1664,7 +1664,7 @@ static irqreturn_t d40_handle_interrupt(int irq, void *data)
+ 	int i;
+ 	u32 idx;
+ 	u32 row;
+-	long chan = -1;
++	long chan;
+ 	struct d40_chan *d40c;
+ 	struct d40_base *base = data;
+ 	u32 *regs = base->regs_interrupt;
+@@ -1677,15 +1677,7 @@ static irqreturn_t d40_handle_interrupt(int irq, void *data)
+ 	for (i = 0; i < il_size; i++)
+ 		regs[i] = readl(base->virtbase + il[i].src);
+ 
+-	for (;;) {
+-
+-		chan = find_next_bit((unsigned long *)regs,
+-				     BITS_PER_LONG * il_size, chan + 1);
+-
+-		/* No more set bits found? */
+-		if (chan == BITS_PER_LONG * il_size)
+-			break;
+-
++	for_each_set_bit(chan, (unsigned long *)regs, BITS_PER_LONG * il_size) {
+ 		row = chan / BITS_PER_LONG;
+ 		idx = chan & (BITS_PER_LONG - 1);
+ 
+-- 
+2.43.0
 
-Am I understanding the algorithm correctly? What are the units of HPC
-and LPC; are they ticks from the core clock? Are PWMV4_INT_LPC and
-PWM4_INT_HPC the change-of-state interrupts for LPC and HPC
-respectively?
-
-The Counter subsystem can be used to derive the period and duty cycle of
-a signal, but I believe there's a more idiomatic way to implement this.
-Existing counter drivers such as microchip-tcb-capture achieve this by
-leveraging Counter events exposed via the Counter chrdev interface.
-
-The basic idea would be:
-    * Expose LPC and HPC as count0 and count1;
-    * Push the PWMV4_INT_LPC and PWMV4_INT_HPC interrupts as
-      COUNTER_EVENT_CHANGE_OF_STATE events on channel 0 and channel 1
-      respectively;
-    * Register Counter watches in userspace to capture LPC and HPC on
-      each interrupt;
-
-The Counter chrdev interface records a timestamp in nanoseconds with
-each event capture. So to compute period and duty cycle, you would
-subtract the difference between two HPC/LPC captures; the difference in
-the timestamps gives you the elapsed time between the two captures in
-nanoseconds.
-
-Would that design work for your use case?
-
-William Breathitt Gray
 
