@@ -4,65 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A161C83F27
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Jul 2025 03:10:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07E0AC83F27
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Jul 2025 03:12:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=R/7pankjeYjayVQ3GYY10kZLJpAcjh4ftqZNu2qM2lM=; b=K+KLYgOnt5h6v0sH2Y4UpeL4Xa
-	dHfPuMEvTV/Ara3jC7r6B95rsnSaJb+4YV5+ighU64fhfGkG4C8oFnT/R0U8FNBWJTRKVAOjMxLs6
-	kUvswsvOEeDdzLh946nmBtv4GjsogpS2pQyyBaLy2CIAaZFd6VcjHj068ahvBM+tkyMovEHo+AsNh
-	jKtOKIa4w+/o2hbv823ez9xjbV+G/l4VwBkDGw7Y6QF58BY1qpmWBIM0M8cBx3u2tTHPenyGESIHR
-	LhmyPbeKYFTSmDVZzJ0D8Zv8feO1o1/ikwAiKeCRiGj+kfQvqLUmQJmXLfe5rLLI1ZRQUJE63ZmuU
-	dKahDQBQ==;
+	bh=f4OclK638mOdqXAuDvuWtM7Kn7ptgMYJPXjQxQtHF5c=; b=3KuLMHweXM89tKGCMlksQ9L9Hu
+	OG6SzK36jR9YkvxH69bAisUpplcNdn6EyhZqQf+t8ba9Lr/oOUf8/H18Juztq9y20q1WOQRRlT0TE
+	FLQDFbXbCTxiNE4p6zv6Wk76ZfzpVL7yejQP/LVDwnV/GHMUp7SJXbd1OsW+8wISRK+Ufu6DN7bTB
+	oh3ED9CRR+8+lfTLss3FI+pFJIECB9MC7X+5jNvyUUmr2hntCNavv9eMW/MpnyQa5oOgHmnB+LyOr
+	dUYg2AqBxWAgmqyBe49vAvj51g2QpvHXLRi19SGfzSUI/6wFyC4ODHX/yzHh5OYyWjlcLI9dZ6BlF
+	UetezCSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udKRP-0000000EqQU-0A1V;
-	Sun, 20 Jul 2025 03:10:19 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1udKTq-0000000EqXx-0Ee9;
+	Sun, 20 Jul 2025 03:12:50 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udKOx-0000000EqLe-0JSD
+	id 1udKR9-0000000EqPg-0IRb
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 20 Jul 2025 03:07:48 +0000
+	Sun, 20 Jul 2025 03:10:04 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 36A6245AE9;
-	Sun, 20 Jul 2025 03:07:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 394C1C4CEF4;
-	Sun, 20 Jul 2025 03:07:44 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id BF1F3A5051C;
+	Sun, 20 Jul 2025 03:10:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B31E0C4CEF4;
+	Sun, 20 Jul 2025 03:10:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752980865;
-	bh=noUq5QeP6M5pVXcgC2Y/bXEJ5fNxp/pT0yKbZKkLxek=;
+	s=k20201202; t=1752981001;
+	bh=OZffXe6azFV9FeftGR9X58+sCMXsqv0J8LxCnzDlNhI=;
 	h=From:To:Cc:Subject:Date:From;
-	b=lmd+oZN39JkMHWmfn0BijZDP9B6AOQn7+Bm9XP72IxkiaZbsVtMVJjUuTUcd8z6oC
-	 Opg0wy8jjDOyBfVN+yVWgKiDfyBTiTN7SkhhgU/m6W3YzTnlJOfgX12oz6EuDU+jMO
-	 GAyv8pxWZla5unXYwXo16thsHQ8HWzTWfeeBJkvpE4Rs2nhzTGpMseeuQefGb8bceb
-	 Gcz6dp1efBCu0TjI7nSf3HKi1a1EAmUTSPz6FPf0fwasfK7rlKxHKMm6+9JW6Fy1IL
-	 zhcuBg9NkIXB+JF8CJKb0z6xqGXHvcVrON4xJxH0Cy0BbnZrjCY0DWfI4B6S7YrZsS
-	 6tJ+hky7iK4ZQ==
+	b=PI/M4KWwkMYal/3sU4kxPhbeKgO4moVSM8ZLuwFeR+8sr87bxxA4Sefprpa/KdCli
+	 D3/jv6aMGoHK+ZXJx2WsgPb/0aglrQSiRl+4FTXjRoS0c2RDXUPYRr4YN7zkSvkykS
+	 xZTSO84taA3RP2Y/mUXVmB+lhG17jwNS40S/dpEmP4z+U6lhnIsKRqIR+unAK/877p
+	 tybF1dRUs/pWduBTwdsxa2Q9ngrsOwoj3RDY/oEX3BfNm5r3OYIHlwv+VyuGPC57Se
+	 eHXJFrkz3Z4z8nMHKm4TPaKMj8Of3heLFBTcp1Bl30nWUx16vc+vfD5qidLPX6hGVq
+	 vaLpE2659XF3w==
 From: Bjorn Andersson <andersson@kernel.org>
 To: arm@kernel.org,
 	soc@kernel.org
 Cc: linux-arm-msm@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	Arnd Bergmann <arnd@arndb.de>,
-	Luca Weiss <luca.weiss@fairphone.com>,
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
-	Johan Hovold <johan@kernel.org>,
-	Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>,
-	Maulik Shah <maulik.shah@oss.qualcomm.com>,
-	Rakesh Kota <rakesh.kota@oss.qualcomm.com>
-Subject: [GIT PULL] More Qualcomm driver updates for v6.17
-Date: Sat, 19 Jul 2025 22:07:41 -0500
-Message-ID: <20250720030743.285440-1-andersson@kernel.org>
+	Antony Kurniawan Soemardi <linux@smankusors.com>,
+	Shinjo Park <peremen@gmail.com>
+Subject: [GIT PULL] More Qualcomm Arm32 DeviceTree updates for v6.17
+Date: Sat, 19 Jul 2025 22:09:58 -0500
+Message-ID: <20250720030959.285762-1-andersson@kernel.org>
 X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250719_200747_157737_6FD0C533 
-X-CRM114-Status: UNSURE (   9.68  )
+X-CRM114-CacheID: sfid-20250719_201003_178780_11513629 
+X-CRM114-Status: UNSURE (   8.20  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -79,67 +75,42 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-The following changes since commit 9f35ab0e53ccbea57bb9cbad8065e0406d516195:
+The following changes since commit fb84f0ec527c50c54ab662d45c441f6789ec3550:
 
-  soc: qcom: mdt_loader: Fix error return values in mdt_header_valid() (2025-06-25 14:31:31 -0500)
+  ARM: dts: qcom: msm8974-sony-xperia-rhine: Add alias for mmc0 & mmc1 (2025-06-11 21:40:14 -0500)
 
 are available in the Git repository at:
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux.git tags/qcom-drivers-for-6.17-2
+  https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux.git tags/qcom-arm32-for-6.17-2
 
-for you to fetch changes up to 4587d3910f805ac74348e6c320071a9b65be035e:
+for you to fetch changes up to f36e10fa6e1ed424058b2121c174e105e7c53f1d:
 
-  dt-bindings: soc: qcom: qcom,pmic-glink: document Milos compatible (2025-07-16 22:59:58 -0500)
-
-----------------------------------------------------------------
-More Qualcomm driver updates for v6.17
-
-Fix race condition during SCM driver initialization, in relation to
-tzmem and waitqueue irq handling,
-
-Make the rpmh RSC driver support version 4 of the IP block.
-
-Add SM7635 family and related PMICs to the socinfo driver. Also add
-support for retrieving the bootloader build details.
+  ARM: dts: qcom: pm8921: add vibrator device node (2025-07-16 15:19:53 -0500)
 
 ----------------------------------------------------------------
-Bartosz Golaszewski (4):
-      firmware: qcom: scm: remove unused arguments from SHM bridge routines
-      firmware: qcom: scm: take struct device as argument in SHM bridge enable
-      firmware: qcom: scm: initialize tzmem before marking SCM as available
-      firmware: qcom: scm: request the waitqueue irq *after* initializing SCM
+More Qualcomm Arm32 DeviceTree updates for v6.17
 
-Johan Hovold (1):
-      soc: qcom: pmic_glink: fix OF node leak
+Enable GSBI8 and define the SDCC3 pinctrl state on MSM8960, then add
+support for the Sony Xperia SP phone based on this platform.
 
-Kathiravan Thirumoorthy (1):
-      soc: qcom: socinfo: Add support to retrieve APPSBL build details
+----------------------------------------------------------------
+Antony Kurniawan Soemardi (5):
+      ARM: dts: qcom: msm8960: add sdcc3 pinctrl states
+      ARM: dts: qcom: msm8960: add gsbi8 and its serial configuration
+      ARM: dts: qcom: msm8960: disable gsbi1 and gsbi5 nodes in msm8960 dtsi
+      dt-bindings: arm: qcom: add Sony Xperia SP
+      ARM: dts: qcom: add device tree for Sony Xperia SP
 
-Luca Weiss (6):
-      dt-bindings: arm: qcom,ids: Add SoC IDs for SM7635 family
-      soc: qcom: socinfo: Add SoC IDs for SM7635 family
-      soc: qcom: socinfo: Add PM7550 & PMIV0108 PMICs
-      dt-bindings: firmware: qcom,scm: document Milos SCM Firmware Interface
-      dt-bindings: soc: qcom,aoss-qmp: document the Milos Always-On Subsystem side channel
-      dt-bindings: soc: qcom: qcom,pmic-glink: document Milos compatible
+Shinjo Park (1):
+      ARM: dts: qcom: pm8921: add vibrator device node
 
-Maulik Shah (1):
-      soc: qcom: rpmh-rsc: Add RSC version 4 support
-
-Rakesh Kota (1):
-      soc: qcom: spmi-pmic: add more PMIC SUBTYPE IDs
-
- .../devicetree/bindings/firmware/qcom,scm.yaml     |  2 +
- .../bindings/soc/qcom/qcom,aoss-qmp.yaml           |  1 +
- .../bindings/soc/qcom/qcom,pmic-glink.yaml         |  1 +
- drivers/firmware/qcom/qcom_scm.c                   | 95 +++++++++++-----------
- drivers/firmware/qcom/qcom_scm.h                   |  1 +
- drivers/firmware/qcom/qcom_tzmem.c                 | 11 +--
- drivers/soc/qcom/pmic_glink.c                      |  9 +-
- drivers/soc/qcom/rpmh-rsc.c                        |  2 +-
- drivers/soc/qcom/socinfo.c                         | 11 +++
- include/dt-bindings/arm/qcom,ids.h                 |  5 ++
- include/linux/firmware/qcom/qcom_scm.h             |  5 +-
- include/soc/qcom/qcom-spmi-pmic.h                  |  2 +
- 12 files changed, 85 insertions(+), 60 deletions(-)
+ Documentation/devicetree/bindings/arm/qcom.yaml    |   7 +
+ arch/arm/boot/dts/qcom/Makefile                    |   1 +
+ arch/arm/boot/dts/qcom/pm8921.dtsi                 |   6 +
+ arch/arm/boot/dts/qcom/qcom-msm8960-pins.dtsi      |  40 +++
+ .../dts/qcom/qcom-msm8960-samsung-expressatt.dts   |   5 +
+ .../boot/dts/qcom/qcom-msm8960-sony-huashan.dts    | 361 +++++++++++++++++++++
+ arch/arm/boot/dts/qcom/qcom-msm8960.dtsi           |  32 ++
+ 7 files changed, 452 insertions(+)
+ create mode 100644 arch/arm/boot/dts/qcom/qcom-msm8960-sony-huashan.dts
 
