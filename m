@@ -4,70 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D86B6C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Jul 2025 12:14:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D65FFC83F22
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Jul 2025 13:42:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t+L4x70ZOZGTPWVAoXlLe6xaM+3WtRWF5etY3fPYgCo=; b=LMZFAWrUTEMTrGl4qDYDBTFTcx
-	/ethM2FpajtH+lH1vYsblKvB8fjnIBP0M7FJK2luepy/zkbFT7ACeFbtClYVzbJ/1RkLjS1OHFUN5
-	0to6jFxnaHgW3ZCL59gNAsUuYweVLu6SC8+k+LZewNEYGXNx5kFFKy1TmiFbYscuyNapUmDWFtk2l
-	qP1XYEu9qAY+hTKJgy8LNMesZSGLUZsI+FMJFcSADq48GMVG5OzRdHDPz66//eEeX7tm+6wPB9i6p
-	XwiE3eGTirVNEyWLCqGiXjlyKSEcgNrJMjfj3uXdxoplqhygttcrERqTDSw7eWG++IMf/uq4E7kuN
-	epbQNKyQ==;
+	bh=yUJEWJ/GkcAhiXFrKxdO6cC0Ne9YDbsSUFM5BaDI8lw=; b=4+OjnllSqatU24Sg+B9r9kcA+t
+	dn0+ICuOjfFrIQVpvnuBWrjFn8p9YbekTjwxIYOB0sU+c0V8CXms9bfBz3zuUIa/Gg0k99T6kw5YQ
+	33qO+M7+n9ZYJzfoXLdWP7bVWHxXuxyVXzU8jGV0WnSQXH2ShRa07UN9IJk5qyuUltdWow8PVgmng
+	1OeypF+e6/RyV74SNprpYzCeTvimkoB2giMQcPNVSzAHs6jUC/7NEULie/8+Y/wFO2wbcwhPYrbLR
+	xxik37wJPrXYk3rHgJnIBLfobBhqlXT/vpPkAjtBq+T/AuLRo2WcHXpvyL6Q/APws/P5NYAyxdiAA
+	kcDbFLtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udSw2-0000000FEpW-2MTi;
-	Sun, 20 Jul 2025 12:14:30 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1udUJT-0000000FKKM-3x2J;
+	Sun, 20 Jul 2025 13:42:47 +0000
+Received: from mail-m49198.qiye.163.com ([45.254.49.198])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udSss-0000000FEfj-26hX
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 20 Jul 2025 12:11:14 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8AC71601F9;
-	Sun, 20 Jul 2025 12:11:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6681EC4CEE7;
-	Sun, 20 Jul 2025 12:11:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753013473;
-	bh=MZwQszUH3PF/So1Em/f18h0ala3qC7GcHPl8KVo1lcc=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=gxCrWSQgaMgOKax1iENySyqGpWXXcbFVmHg0P1y2+inKSXXlOfR/C0Fj4tOvxs5+K
-	 RJyOPemUa/w3/M1eNLoEGLH4zKyyMn3N6vUFKngwrKciPNkeJE2Q1NqSSNpWL/d6z1
-	 aff2lZfVsHsCbSgIiCbXHukPjZq/4atvY2RgicutZIlwEZODM5ehkBlBj8C4VtdQQf
-	 4TnDICR8g6DL7xKBICvnXjg2xiC/6W6oPzuIroCkCdKqYNi/y5Bx9MZh3qWqu1lRVD
-	 gkAOFSkDn4ma1wCbXKs7i5VNa9zaxnIqfOkf8dO1iD/twi8A/uuZwAyRYigbgmKmUG
-	 cFTJ+lje7nGLA==
-Message-ID: <1ea2d93d-1d24-412a-96c6-f0285de554e5@kernel.org>
-Date: Sun, 20 Jul 2025 14:11:07 +0200
+	id 1udUH0-0000000FK9a-1kjK;
+	Sun, 20 Jul 2025 13:40:16 +0000
+Received: from amadeus-Vostro-3710.lan (unknown [119.122.214.181])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 1c9e8d011;
+	Sun, 20 Jul 2025 21:40:08 +0800 (GMT+08:00)
+From: Chukun Pan <amadeus@jmu.edu.cn>
+To: knaerzche@gmail.com
+Cc: amadeus@jmu.edu.cn,
+	devicetree@vger.kernel.org,
+	heiko@sntech.de,
+	jonas@kwiboo.se,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	ziyao@disroot.org
+Subject: Re: [PATCH v3 0/6] arm64: dts: rockchip: Add ROCK 2A/2F, Sige1 and NanoPi Zero2
+Date: Sun, 20 Jul 2025 21:40:05 +0800
+Message-Id: <20250720134005.215346-1-amadeus@jmu.edu.cn>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <86814bf6-5d1b-47f3-ad1d-962cae4a543f@gmail.com>
+References: <86814bf6-5d1b-47f3-ad1d-962cae4a543f@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 06/10] gpio: Add new gpio-macsmc driver for Apple Macs
-To: Bartosz Golaszewski <brgl@bgdev.pl>,
- Linus Walleij <linus.walleij@linaro.org>
-Cc: Lee Jones <lee@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Rob Herring <robh@kernel.org>, asahi@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, Hector Martin <marcan@marcan.st>,
- Neal Gompa <neal@gompa.dev>, Alyssa Rosenzweig <alyssa@rosenzweig.io>,
- linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
- Sebastian Reichel <sre@kernel.org>, linux-kernel@vger.kernel.org,
- Marc Zyngier <maz@kernel.org>, linux-pm@vger.kernel.org,
- "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
- Conor Dooley <conor+dt@kernel.org>, Janne Grunau <j@jannau.net>
-References: <20250610-smc-6-15-v7-0-556cafd771d3@kernel.org>
- <20250610-smc-6-15-v7-6-556cafd771d3@kernel.org>
- <8f9fdb3e-9655-44ce-8a2f-c1628c88c929@kernel.org>
- <CACRpkdZdz7eHVjgX-X_UwjJ_qSu5hSPeocuQ9DWSiyjNLU5AmA@mail.gmail.com>
- <CAMRc=McNK3fmbP2UON0EGkjM6gH_1zSHFr_PzZ9JhR7a5swLQw@mail.gmail.com>
-Content-Language: en-US
-From: Sven Peter <sven@kernel.org>
-In-Reply-To: <CAMRc=McNK3fmbP2UON0EGkjM6gH_1zSHFr_PzZ9JhR7a5swLQw@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0a98281039f603a2kunm228903c7f858a
+X-HM-MType: 10
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVlDHkgaVkpNGU1KQ0pCTBlJTlYeHw5VEwETFhoSFy
+	QUDg9ZV1kYEgtZQVlKSkJVSklJVUlKT1VKQ0pZV1kWGg8SFR0UWUFZT0tIVUpLSUhCSEJVSktLVU
+	pCS0tZBg++
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250720_064014_647296_4B3922A2 
+X-CRM114-Status: UNSURE (   6.10  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,31 +71,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 19.07.25 17:52, Bartosz Golaszewski wrote:
-> On Sat, Jul 19, 2025 at 5:42 PM Linus Walleij <linus.walleij@linaro.org> wrote:
->>
->> On Sat, Jul 19, 2025 at 2:59 PM Sven Peter <sven@kernel.org> wrote:
->>
->>> top posting on purpose: are you fine if Lee takes this commit with the
->>> rest through his mfd tree?
->>
->> Bartosz should answer this since he's dealing with the merge
->> window for GPIO, but generally it's fine, and it's even using
->> .set_rv.
-> 
-> Yes, for sure. Lee typically provides all interested parties with
-> immutable branches after picking up complex drivers like this. I
+Hi,
 
-Ah, perfect! I didn't know that.
+> Just for the record: There actually is a non-A version of the
+> RK3528, which I actually own (but forgot about - perhaps my subconscious
+> made me reply to this thread). It's on the Mango Pi M28K board [0][1][2] -
+> which, to my knowledge, is one of the first RK3528-based SBCs.
 
-> already reviewed it but for the sake of completeness:
-> 
-> Acked-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-> 
+Thanks for sharing this. M28S is an engineering test board, and the official
+version was later renamed M28K. The MangoPi M28K board uses the RK3528A SoC.
+As for the M28S board, the silkscreen of SoC is indeed RK3528. [1]
+But then the interesting thing comes, uboot reports it is RK3528A:
 
-Thanks a lot, especially for the fast reply!
+U-Boot 2025.07-rc1-OpenWrt-r30114-9b777547be (Jun 18 2025 - 18:35:23 +0000)
 
+Model: Generic RK3528
+SoC:   RK3528A
+DRAM:  2 GiB
+Core:  130 devices, 20 uclasses, devicetree: separate
+MMC:   mmc@ffbf0000: 0, mmc@ffc30000: 1
+Loading Environment from nowhere... OK
+In:    serial@ff9f0000
+Out:   serial@ff9f0000
+Err:   serial@ff9f0000
+Hit any key to stop autoboot:  0
 
-Sven
+[1] https://imgur.com/a/ddLsnmt
+
+Thanks,
+Chukun
+
+--
+2.25.1
 
 
