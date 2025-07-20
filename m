@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18EEAC83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Jul 2025 09:13:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C18BC83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Jul 2025 09:16:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UNP7aLlH5boXxQzG+t+OENng1ZS04P2rudXCohGPD5s=; b=JXE+ljgff8wwrIz9DJrAj14+lg
-	1sHTGTHft0xH7xhHkRjmJiOlrSgmPXrKcWNS0LsYiQnT1UTcJABoNnPrF2pINTXt6ZICzma/B3cDc
-	fgnSk/pujrLx/Vbiguh2etklxFFdVyXe3fxSBOAcE7Xn+GVKCyQ9/6XekD8BMDwAMrXjuxEsdeISP
-	ZJ1ol75zSyrDTduYnEH486P8vJx0lzcueQaqb/c45GgYerRuDqQ8zVCJQeZA/tyNBNVEwQslKkr7q
-	ij7pHUWtfyoEmnRP/SmhynfD68BFNrePirZrsSar3OoUOp0YmCAADYmV0DCktPKedBo+9VQT5XTxJ
-	C8CxIDFw==;
+	bh=MDm/inKToRcZI4lPjYrALTs7MKQ8nA7DAiyKGXgO4rs=; b=wu6TCcAmq5mzQ2VoXOUm41zqga
+	d+4f4xi+/HRyD8DA7DRDFA4g+5FvsuyYPDvC2utGLuuTxnDli8Cr5OP3T81fnZwGfdYyjZkxQRbhT
+	XgWS+umhbVBD7EAAxBB8aTF5cx2EAYnlgdjsVRyfR+6nQYn7JwTndik7spazHP8qHdgLDSxlSTNbF
+	Vc4CIZpPAkctnjtdUug7HQrkzIdEhUWCnzxsq8kV2uHB6L034+I5DEYVuO5BksVaojHxV71PO5L/T
+	XyEXSYyTsB2XoVutU7PCzNc56dOX5u4pLMplK+G7rbigyzDn/BYS4qqplahpZPqKjHlAtwJK1c3Ba
+	WtKAiKkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udQ76-0000000F5C4-1M2z;
-	Sun, 20 Jul 2025 09:13:44 +0000
-Received: from fhigh-b8-smtp.messagingengine.com ([202.12.124.159])
+	id 1udQ9W-0000000F5JM-0fPX;
+	Sun, 20 Jul 2025 09:16:14 +0000
+Received: from fout-b3-smtp.messagingengine.com ([202.12.124.146])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udPlx-0000000F3dV-3uTW
+	id 1udPm3-0000000F3eo-0Gkk
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 20 Jul 2025 08:51:55 +0000
-Received: from phl-compute-06.internal (phl-compute-06.phl.internal [10.202.2.46])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id 075747A0186;
-	Sun, 20 Jul 2025 04:51:53 -0400 (EDT)
+	Sun, 20 Jul 2025 08:52:00 +0000
+Received: from phl-compute-10.internal (phl-compute-10.phl.internal [10.202.2.50])
+	by mailfout.stl.internal (Postfix) with ESMTP id 2679B1D00167;
+	Sun, 20 Jul 2025 04:51:58 -0400 (EDT)
 Received: from phl-mailfrontend-01 ([10.202.2.162])
-  by phl-compute-06.internal (MEProxy); Sun, 20 Jul 2025 04:51:53 -0400
+  by phl-compute-10.internal (MEProxy); Sun, 20 Jul 2025 04:51:58 -0400
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=testtoast.com;
 	 h=cc:cc:content-transfer-encoding:content-type:date:date:from
 	:from:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to; s=fm2; t=1753001512; x=
-	1753087912; bh=UNP7aLlH5boXxQzG+t+OENng1ZS04P2rudXCohGPD5s=; b=a
-	C+IlIDjGS6uS/efVwEXWOliogCBtxwf9T34p+VQ7kS7P+ci3EySItpeQz8YqNCch
-	Q7nZe4iR4nkDfUrcFY4mn26wJylULYLhkS03lqR1Tg0c1GtQE3wAPHlGvv79S+fu
-	ORw5y2OfCi9Q1hEpJaLTxxDE1dFh7AKoHpjYx6xKLyN6eTij0qrDb+hSwzuuQGXd
-	/kCD281Sekow71xwoRbFFOfE75D0BI1mUjO5VlrYS5/XAWjc4t/QrILVxhsxzVOI
-	nYzjsEZqs+UY4kHQezoewGMeWcIyQCGONmExgA3frF+JTi0HDaw6xVlLwqTfzLn5
-	VWR1gicziIy/c7//2wTxQ==
+	:reply-to:subject:subject:to:to; s=fm2; t=1753001518; x=
+	1753087918; bh=MDm/inKToRcZI4lPjYrALTs7MKQ8nA7DAiyKGXgO4rs=; b=Y
+	w7rfEXXra7bC0rkIKCBLhw+IAwy2w1qx3sug8zetYKXoVQ4bzIE2TJ0TRkpc+TTJ
+	ugpaOz2+JQN9QQriAobkmO4QvgTtP+T8n6T6izuXIaOA22Oa2cqAsbWMIL+RkueY
+	04CusWSiyKtgIc8WuyOIRLX1aa3ZtHr1cdE63NJnQTEmey3ujL9qR8SPLGCqVVbK
+	Z+IjSOKAiHkQH3wyTJOq8/Xnnl/jNfXE04zyw5XTlJwQf7iQZ9/Zjzm+Xa3zUJjF
+	IJ5uWNYn8CXh9BF5T0F9DXTDV4K2qRUIOx8mCKzkI0Y/r2fAjmlf0g5WtC03/+1a
+	eksKaTIVLXjyrDao4kQhA==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
 	messagingengine.com; h=cc:cc:content-transfer-encoding
 	:content-type:date:date:feedback-id:feedback-id:from:from
 	:in-reply-to:in-reply-to:message-id:mime-version:references
 	:reply-to:subject:subject:to:to:x-me-proxy:x-me-sender
-	:x-me-sender:x-sasl-enc; s=fm2; t=1753001512; x=1753087912; bh=U
-	NP7aLlH5boXxQzG+t+OENng1ZS04P2rudXCohGPD5s=; b=N7iOZeN+lYhZZ1zHX
-	+aazxinbHGhqBA6t6g6/4SXdqLlOXW1/mwSx0/LfdOwgn/sQlQII7ymuOkQNheI6
-	Y9rc+0daHoyNlDe6BUfiB4QXDPEAUGSHlAd0tVP4r8bfsZBQ7ku258zfQyDX2Rp8
-	G2muBssyQXhpPrbzA1G0pUC+37rJBgI/G8Szs0FtlAa11TY0trsTB5ToaDzrbUmW
-	4OF4DYXxdrmnW6wCc4c5omrWS2cnFvE1loPJ+E0+J1nHQ3KDOf26CNlqtQDHrOmP
-	o1g1/5hfGnlyDzI1kWtEGecPpVKnHd2OGt+MezEtGXfpxZMTiTWFfQZMCDD5SjoQ
-	xKv5A==
-X-ME-Sender: <xms:KK58aNcf52W5pAVgcUR6jqw5QQnB6VVHyNk_pfUxdMJPgvdVU9EVlQ>
-    <xme:KK58aL0oGzcn7azYl9F76sIB_Zp2M_FUcWF8u03-QCIIwNt1oPxow0wqqOTmcKcfU
-    h35SnGcAkw6aFdZow>
-X-ME-Received: <xmr:KK58aBr296fq-revSCrof_18sdRzATyjBzLPrsbu47Z9kkwRuYCoSF6INVlZGN1pAlfTuqFNlS_JEhkVPEu8JU-y8vEm9Q>
+	:x-me-sender:x-sasl-enc; s=fm2; t=1753001518; x=1753087918; bh=M
+	Dm/inKToRcZI4lPjYrALTs7MKQ8nA7DAiyKGXgO4rs=; b=C/WQIsFrckGSMBGEq
+	CuiIHiPjeOyR3f5W0Zx+U8wQmTGca1f0RuwVReEwSqBtH1fw03SgpRu+/XJ3d+my
+	3HexOyWi3JKBL9SU8kgb77SDfsK5tHY/TZFfcutS3b9JdXDizkBH9cGQLpnRHjsy
+	uvM0iZwwWl3/K2DDwP552fOi/DT+Ui2nKgDM2Mn8O6BEQKe8tCMiaaKFMUIapGDb
+	LC7t6VIWZXt0pio7mbaLw7SY5L/TpZ9ybF7hmgn48M8476TLnLF+6xHZkPg6l3PM
+	v783+frK1jPxNwQFkueqmh4riSlJNWqD/R8BgNx0lP/jKOq24tZFa21bBQ5mzXE0
+	oJViA==
+X-ME-Sender: <xms:La58aP_9DokIjbCcshCG5F19SpanChP59sRPKrD3vIAISbl7ozxDrg>
+    <xme:La58aMWvjH1EYa-jFQEj0UTs_P8eDCNNrcF7nkXwyAILaxW2thyRjd-l9Io3j3hs5
+    96fbS2uXuVorEGOyA>
+X-ME-Received: <xmr:La58aIKk_xAvnd0isxFOjtI0kFcE5sxxM35fBFpAeAQJiU3kyUO1HecnF-SttiRpXdd5rnR7frhL-tUOFtiJT75gqs4TtA>
 X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdeikeejjecutefuodetggdotefrod
     ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
     ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
@@ -76,14 +76,14 @@ X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdeikeejjecutefuodetgg
     hnugdrohhrghdprhgtphhtthhopegrnhgurhgvrdhprhiihiifrghrrgesrghrmhdrtgho
     mhdprhgtphhtthhopehmrggtrhhorghlphhhrgekvdesghhmrghilhdrtghomhdprhgtph
     htthhopehkihhkuhgthhgrnhelkeesghhmrghilhdrtghomh
-X-ME-Proxy: <xmx:KK58aLgvUtKeBiuiqBms1R-4rW7JNs8DDhbjYXBy95BfFwfepEfqVw>
-    <xmx:KK58aNkAMaUZhPeBeA6W3xFR8Sk4udvNumnvx75OAhUe9yeKAdVzLA>
-    <xmx:KK58aEra_WYhc7bLYY73WUXZ6FnbrmDtDfl1kji6m2CXzAHh6KlXxg>
-    <xmx:KK58aJKr8jPJRgHFsV-R3id0BqKzJiLsUJnK1ceCEHwdNJlz-cig_Q>
-    <xmx:KK58aCWqXbWY4pv3vLygyEY1H6uFKlzJvoeTXBLlqjcUzJqoOmEnYYHH>
+X-ME-Proxy: <xmx:La58aADiKGnhV0CjYUmL5IVC3dO8IN0MuSXvIg-BLkPizKYOvZoaqg>
+    <xmx:La58aIGZJ40MC3Yq7M67b9DHl6Pk4V_0IPY0kp8l2lE2rbqulRywIQ>
+    <xmx:La58aNLJAyOzff44nclJ730ldO_1KlUkgHJZy7QgMFAkX-sOSPi2Og>
+    <xmx:La58aHrYDVnJG12IDGjkMVyxcoN_FpF90PAkK34u43F-uy2ynAZj3w>
+    <xmx:La58aO2K9YcMiic-b_gCMiVnb2fSIprvUlCvqMqLN8EHHt6d4IzweTHH>
 Feedback-ID: idc0145fc:Fastmail
 Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sun,
- 20 Jul 2025 04:51:48 -0400 (EDT)
+ 20 Jul 2025 04:51:53 -0400 (EDT)
 From: Ryan Walklin <ryan@testtoast.com>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -100,17 +100,17 @@ Cc: Andre Przywara <andre.przywara@arm.com>,
 	linux-arm-kernel@lists.infradead.org,
 	dri-devel@lists.freedesktop.org,
 	Ryan Walklin <ryan@testtoast.com>
-Subject: [PATCH v2 08/12] drm: sun4i: add compatible for h616 display engine
-Date: Sun, 20 Jul 2025 20:48:46 +1200
-Message-ID: <20250720085047.5340-9-ryan@testtoast.com>
+Subject: [PATCH v2 09/12] arm64: dts: allwinner: h616: add display engine, bus and mixer nodes
+Date: Sun, 20 Jul 2025 20:48:47 +1200
+Message-ID: <20250720085047.5340-10-ryan@testtoast.com>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20250720085047.5340-1-ryan@testtoast.com>
 References: <20250720085047.5340-1-ryan@testtoast.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250720_015154_019980_4B7AEFCA 
-X-CRM114-Status: GOOD (  11.34  )
+X-CRM114-CacheID: sfid-20250720_015159_154345_AE408647 
+X-CRM114-Status: GOOD (  12.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,34 +125,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-As discussed on list in the previous version of this patch [1], H616 DE
-compatible could be added using the H6 as a fallback, however all other
-SoCs have individual compatibles, so add the H616 here for consistency.
+The Allwinner H616 and variants (H618, H700 and T507) have a new display
+engine variant (DE33). Support has been added to the existing DE2/DE3
+sun4i driver in a previous patch series [1]. The variant is selected via
+the appropriate mixer device tree compatible string.
 
-Add a compatible for the H616 display engine.
+Add the respective device-tree nodes for the DE, bus, clock and mixer to
+the H616 DTSI, and the matching SRAM section for the DE.
 
+Signed-off-by: Jernej Skrabec <jernej.skrabec@gmail.com>
 Signed-off-by: Ryan Walklin <ryan@testtoast.com>
 
-[1] https://lore.kernel.org/linux-sunxi/20250224180025.4eb33c3f@donnerap.manchester.arm.com
+[1] https://lore.kernel.org/linux-sunxi/20250528092431.28825-1-ryan@testtoast.com
+
 --
 Changelog v1..v2:
-- Add a compatible for the H616 display engine
+- Use A64 fallback for bus driver rather than add additional compatible in driver, enum added to dt-binding in previous patch.
+- amend order of display clocks (bus/mod) to match dt binding.
+- add mixer register names.
+- removed IOMMU binding due to late binding warning likely reflecting sunxi IOMMU driver bug. This is not required for RGB LCD output.
+- use H616 compatibles
+- Update SRAM name to DE33
 ---
- drivers/gpu/drm/sun4i/sun4i_drv.c | 1 +
- 1 file changed, 1 insertion(+)
+ .../arm64/boot/dts/allwinner/sun50i-h616.dtsi | 58 +++++++++++++++++++
+ 1 file changed, 58 insertions(+)
 
-diff --git a/drivers/gpu/drm/sun4i/sun4i_drv.c b/drivers/gpu/drm/sun4i/sun4i_drv.c
-index c11dfb2739fa..6986b329236c 100644
---- a/drivers/gpu/drm/sun4i/sun4i_drv.c
-+++ b/drivers/gpu/drm/sun4i/sun4i_drv.c
-@@ -436,6 +436,7 @@ static const struct of_device_id sun4i_drv_of_table[] = {
- 	{ .compatible = "allwinner,sun20i-d1-display-engine" },
- 	{ .compatible = "allwinner,sun50i-a64-display-engine" },
- 	{ .compatible = "allwinner,sun50i-h6-display-engine" },
-+	{ .compatible = "allwinner,sun50i-h616-display-engine" },
- 	{ }
- };
- MODULE_DEVICE_TABLE(of, sun4i_drv_of_table);
+diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi b/arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi
+index ceedae9e399b..7347332f54a7 100644
+--- a/arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi
++++ b/arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi
+@@ -94,6 +94,12 @@ l2_cache: l2-cache {
+ 		};
+ 	};
+ 
++	de: display-engine {
++		compatible = "allwinner,sun50i-h616-display-engine";
++		allwinner,pipelines = <&mixer0>;
++		status = "disabled";
++	};
++
+ 	reserved-memory {
+ 		#address-cells = <2>;
+ 		#size-cells = <2>;
+@@ -150,6 +156,52 @@ soc {
+ 		#size-cells = <1>;
+ 		ranges = <0x0 0x0 0x0 0x40000000>;
+ 
++		bus: bus@1000000 {
++			compatible = "allwinner,sun50i-h616-de33",
++				     "allwinner,sun50i-a64-de2";
++			reg = <0x1000000 0x400000>;
++			allwinner,sram = <&de33_sram 1>;
++			#address-cells = <1>;
++			#size-cells = <1>;
++			ranges = <0 0x1000000 0x400000>;
++
++			display_clocks: clock@8000 {
++				compatible = "allwinner,sun50i-h616-de33-clk";
++				reg = <0x8000 0x100>;
++				clocks = <&ccu CLK_BUS_DE>,
++					 <&ccu CLK_DE>;
++				clock-names = "bus", "mod";
++				resets = <&ccu RST_BUS_DE>;
++				#clock-cells = <1>;
++				#reset-cells = <1>;
++			};
++
++			mixer0: mixer@100000 {
++				compatible = "allwinner,sun50i-h616-de33-mixer-0";
++				reg = <0x100000 0x100000>,
++				      <0x8100 0x40>,
++				      <0x280000 0x20000>;
++				reg-names = "layers", "top", "display";
++				clocks = <&display_clocks CLK_BUS_MIXER0>,
++					 <&display_clocks CLK_MIXER0>;
++				clock-names = "bus", "mod";
++				resets = <&display_clocks RST_MIXER0>;
++
++				ports {
++					#address-cells = <1>;
++					#size-cells = <0>;
++
++					mixer0_out: port@1 {
++						reg = <1>;
++
++						mixer0_out_tcon_top: endpoint {
++							remote-endpoint = <&tcon_top_mixer0_in_mixer0>;
++						};
++					};
++				};
++			};
++		};
++
+ 		gpu: gpu@1800000 {
+ 			compatible = "allwinner,sun50i-h616-mali",
+ 				     "arm,mali-bifrost";
+@@ -188,6 +240,12 @@ sram_c: sram@28000 {
+ 				#address-cells = <1>;
+ 				#size-cells = <1>;
+ 				ranges = <0 0x00028000 0x30000>;
++
++				de33_sram: sram-section@0 {
++					compatible = "sun50i-h616-sram-c",
++						     "allwinner,sun50i-a64-sram-c";
++					reg = <0x0000 0x1e000>;
++				};
+ 			};
+ 		};
+ 
 -- 
 2.50.1
 
