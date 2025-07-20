@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECE01C83F22
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Jul 2025 19:53:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F83BC83F22
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Jul 2025 19:55:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RgyhAHdNttgB7UCXQ5eGMG7hG2NbXpPfSEfjq5gWiJg=; b=RJr67FdjdX3vqqyE3d73JStLMA
-	IbCOF66c2VFbQD6u4oY74LNo001icGzj4EVNRd3pb6+BxdjRHxkyvZ/h0zLs7XfvY2POTn7aNyaUM
-	xqSsVoFsrIB4H/B2wYOq9Ed7BqPkLyfXvGK4whWI2zURIbB8TcHHt8936PH0kSoC4Vh6OO3Vw0Ltm
-	DyY4R1rWKpkAVEjrfeMv0OtGQ2TwEITgEMzI//gfQ6+nV8KZRYE6twyVlImAcmRjqGMxCl4K0TYL/
-	2Ct4FD09uOupyyEbSDq8qeE3kVgniDoo0QcAZ60IomwUjBHaoLSEDkRg7izzb7XvIoeaMSW3nxKdw
-	GHjw3erw==;
+	bh=7qmI92MLlIBwFrbUrwXTt/2+OJ1ahYjNp50nlsYvpao=; b=A/s2ecU/u/Xd6ddhHUb/QjC8SO
+	aUnl/+n1TzE24bAZib0aM+dPrMGmdmjK4LrCXIJxKWah0ilwQo/xZBOuv15yf6+toaguVK9sEisZH
+	IrLdhUFpDwqFPP3un1yn9sxRLLsgijNYL4IvpnAA2PdA2wZT02anCFaI2V9FgSXExHjM+pqDIKD8r
+	WNcMvQKRhs/jxFso73nXjXXiikniOd84WVjdaubiEF8a7fImM3GWEAtmtZ73WUedM0RqytbdF7Ec5
+	AEeYpgyO6t5z1lxEosRbSefDjWSpYEbDQbBxtHWAj3y15HQil0PqEfNNhnmpTrnJoT0uAlLmW542u
+	Eef++Rmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uda67-0000000FgGH-3kf6;
-	Sun, 20 Jul 2025 19:53:23 +0000
-Received: from mail-ot1-x330.google.com ([2607:f8b0:4864:20::330])
+	id 1uda8U-0000000FgMo-2xUB;
+	Sun, 20 Jul 2025 19:55:50 +0000
+Received: from mail-oi1-x234.google.com ([2607:f8b0:4864:20::234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udZsO-0000000FfNU-2JRr
+	id 1udZsT-0000000FfOe-1iPJ
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 20 Jul 2025 19:39:13 +0000
-Received: by mail-ot1-x330.google.com with SMTP id 46e09a7af769-73e82d2e99bso1228539a34.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 20 Jul 2025 12:39:12 -0700 (PDT)
+	Sun, 20 Jul 2025 19:39:18 +0000
+Received: by mail-oi1-x234.google.com with SMTP id 5614622812f47-41d826eb310so918727b6e.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 20 Jul 2025 12:39:17 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1753040352; x=1753645152; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1753040356; x=1753645156; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=RgyhAHdNttgB7UCXQ5eGMG7hG2NbXpPfSEfjq5gWiJg=;
-        b=LBmW8sLo/gZ9XMxvrLOKt1KGfbatFC+CgIve7UXSmRRSfNSvpQVAaXaNaXSaXX43Xo
-         BbT8hTcm006zmAKq0j4bkgjPzw5mJt8G5TuKACMnZ/gFKi25Evee9WIHivnWqiF77Ra+
-         O4kkydT+YFBX+tQStqasCRNYa0/9gCn74I5KIeb6oD9i6yN63ElPstzO2UOh2kIdnelk
-         88bRbRD1u5584oTv35f4iXIGkn+eR6w9RzIox2y4E7vgYTM28N2vgPrM1qT0aiNuu/DA
-         +f+LKOlm98bzkAagPR7R0HittkFSYWrV/ZW+6yLo0a1/k2UuFTKeQHZmJ20DK0gOE8X5
-         6XSQ==
+        bh=7qmI92MLlIBwFrbUrwXTt/2+OJ1ahYjNp50nlsYvpao=;
+        b=CH4k6rEWCdhOnIoa0BvrosXUFEkw3ug3zr8LIa8+RoBSqrNWUEm6rtcBoIcABVd1qo
+         TE4YnQaw0k+rWWcVKlPAlJOW+wRHw9zQlK+w0kD959OrRU/eaJccrbOXtC/Qcg29qfzw
+         nPF6pb6K1xHdZGCysCebFxOjuyB3u2PP6eF7aWZvo141MYUrWGvNkO1mcCb1JTzzTK7M
+         ifkVFW+S8bvYeBAdtW2HcBFSHYj9mcLx4DS9rtfCTtgv2oJq/PIWytDZ+mRljCU938UT
+         w28ZNLG3RhbHP7X5wCYaiHPB2drKAlJrl4D2HXTS5OVBWcDuXQgMXhI0r2OcqRGUBPmv
+         lRqw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753040352; x=1753645152;
+        d=1e100.net; s=20230601; t=1753040356; x=1753645156;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=RgyhAHdNttgB7UCXQ5eGMG7hG2NbXpPfSEfjq5gWiJg=;
-        b=ZoSNrjOBHyaqkJOgvQiMHaSXZ7bad8c91h0zeu8onEl2vbgsyazI6DexdYc1a2UbYg
-         s722LsMUr2ib9zFkfxriAb6yBgyTDqskn0n0LWTI19tV3ec7ecR0VFaLvWkRt6Z3cmes
-         5arKUibhf8/O08qEuySzmt7ESN/FbuFFGWU+F3HiLnVKYqbXaVMXTIHAGilbFEvmhH1L
-         Db4ZuY+DixHRAh3XpCmK3IX/ptb+I+6QQulS5HCN2sf3FESCoGlUmH8KIydVRwklz9ld
-         KZbM4aAWE5M1zYjJBcyyt5rqcEVbde3mTVT0m42KlodHbWU3FU8SJ5SbRxrOPGNavDLd
-         Bo+w==
-X-Forwarded-Encrypted: i=1; AJvYcCUwP9tsEl7MffrfTyrY5NPUyeaFYiXQ7/a4BBtm6j9Rxez0jHWUnH6ahxMoiRskaifKwF+94hBWHO5e22UvQMEl@lists.infradead.org
-X-Gm-Message-State: AOJu0YwPAAbFUp0f8gk942dLLaQxcvEZ5BNVs/wiMoLDuEtkdgV8qYcV
-	mSQk7ZJ/rO5ZfN7orV9RTxZHQgsEMtrLxkfIaHpaI2ldI5z6la92vMXTtDD7ySRyBuk=
-X-Gm-Gg: ASbGncvB00Cy5//iKnKGYki6Lv5AFBg2ZFKYfMiHEQirSwHLkU9jMLNFhtS3LV+pAYz
-	JCILVCS78USk7x3ZT5AXBetDW0knLxTNO2VOPJDj3NDyOMh27QRJDmyiG3o3w+/rABxaJJ645Jb
-	l9MJ65/AqEQKioVDZb1INPy034iykOUkQi2FOai4sxztBHMSxF+rkGAen9WcAX3U8cbcfXKb18n
-	wlpteH9Ja2EDNf6TmpjdpsJWbPKAlEMOXJ1AEtzLuwrOl3zjEp314IK4FvtzVx9vyTRRSeAuiyt
-	MGNKzuoWKOsxrF20CKRzbOdmAuJScZ4DQ/nKgM6YHuXd4Jj2UU2QRYIWfwy4PP2rU27Zi1Y+Sut
-	sttWBN/PTyNo=
-X-Google-Smtp-Source: AGHT+IHy8h8fAxy3bWPzzT5SaTNbVxExyHntma33sNuNiRQHREjvH7p9NCon9z5dH6T2S3oJqW8IpQ==
-X-Received: by 2002:a05:6830:6b4a:b0:73a:d3f6:8b22 with SMTP id 46e09a7af769-73e81090c46mr6599365a34.11.1753040351644;
-        Sun, 20 Jul 2025 12:39:11 -0700 (PDT)
+        bh=7qmI92MLlIBwFrbUrwXTt/2+OJ1ahYjNp50nlsYvpao=;
+        b=X6ljtcM6ntByEpJ2trKe2mVjGzqOQz6DYXCoodUZTwS65po1mzrCKYx5RB80WBV/uh
+         vRhTjc9DcfdJ/xFKs8LRtuV1TJFwJpbjoUUYOr+DRH3uHpi7c6pqbsVz3Gl0BXMywEB0
+         6tsWhRUL5IjkxvXNFxd2cTtEYJDHYDwRddHDujezxbzkvR3RiS/97RIdQu9rUYZTWAKf
+         HoBck4xa1uN+6bNDIr0kRiCfgUJxDgt5t8fpRwStkqmyhObs7jYGy6wazTZC7mEAIksK
+         2FjPg4vMGUqzAxcW0eRvNoU4Q0iKNeZadGjn3/V5cfwKROKUIzyAtRjfziQmOXSNHrJj
+         LBDQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVGyrKrEmTNgIaAoLq6g9qpOSRFMYgMVFDvsjGq4gqLE6elkIqNiusaHtQC3DAMlH84+f8baZsOfszdHd1M98XB@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx59neSapOhNWVwIbNxI8A5T6qSquKKkVlm8E2FBivdpUlhY3hs
+	uCPq/8cfDGryc8H+i7YyWK4yMj04E7yKXqF6+Ulg6ajjzBGlF/srJozn6J7fSUwnkMI=
+X-Gm-Gg: ASbGncvdYL+AA7zoxeOHxJtXGZXN0JHOYINW+AfTFN3++RGSdF0ejm1kvaqNd88SRLP
+	0tiY19LwVktTjfIzGfLSqNVj0rFJnFn+Pl9Iw+XExs+DGME/N4nL6DK/M6gZQyz+ufWNuy8tY7K
+	Oq+dVgyOZvFa1kP3saSU4v16LTzrI0Y9ENrBEzsQkO5GAVtmiUVHHTmcOL6Etr0y5waWRGDfKaD
+	jhG6VUj6B9sQIwfYZ+PCaYVd27vY/7Tu2wAwnWHWQuvoyVeLOTLnkdwPNwnGYQyt2ySeErrMry8
+	5nYd/j/LXvk4tz6U9PE5Pmb4Wm6yC88OR3Wxr1GDSh8ayCiBhjNZ+/XeqbW6CgqF3FU1TTKsAaI
+	34x/nxpuQae4=
+X-Google-Smtp-Source: AGHT+IHdyoPC+reGPO2928s8eY4VkIUqzrYH+Trvh6vGBElbMDvsyr9bGCnwye0zSGLIyzetZNTdGw==
+X-Received: by 2002:a05:6808:10c5:b0:3f8:3eeb:1192 with SMTP id 5614622812f47-41f98e4cbc4mr6102894b6e.27.1753040356463;
+        Sun, 20 Jul 2025 12:39:16 -0700 (PDT)
 Received: from localhost ([2603:8080:b800:f700::1fec])
-        by smtp.gmail.com with UTF8SMTPSA id 46e09a7af769-73e8354c8f1sm2296368a34.4.2025.07.20.12.39.10
+        by smtp.gmail.com with UTF8SMTPSA id 5614622812f47-41fd19b3e74sm2025039b6e.15.2025.07.20.12.39.14
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 20 Jul 2025 12:39:11 -0700 (PDT)
-Date: Sun, 20 Jul 2025 14:39:09 -0500
+        Sun, 20 Jul 2025 12:39:15 -0700 (PDT)
+Date: Sun, 20 Jul 2025 14:39:13 -0500
 From: Dan Carpenter <dan.carpenter@linaro.org>
 To: AKASHI Takahiro <takahiro.akashi@linaro.org>,
 	Michal Simek <michal.simek@amd.com>,
@@ -77,17 +77,16 @@ Cc: Cristian Marussi <cristian.marussi@arm.com>,
 	Linus Walleij <linus.walleij@linaro.org>, arm-scmi@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH RFC v2 5/7] pinctrl: Delete PIN_CONFIG_OUTPUT_IMPEDANCE_OHMS
- support
-Message-ID: <bbe178af-62d9-4ac1-b089-09a7ab14d36b@sabinyo.mountain>
+Subject: [PATCH RFC v2 7/7] pinctrl-scmi: remove unused struct member
+Message-ID: <27a80ed0-65a3-4a41-994e-9c2d3bb76b54@sabinyo.mountain>
 References: <cover.1753039612.git.dan.carpenter@linaro.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 In-Reply-To: <cover.1753039612.git.dan.carpenter@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250720_123912_590317_331489D4 
-X-CRM114-Status: GOOD (  11.34  )
+X-CRM114-CacheID: sfid-20250720_123917_445177_7FD15838 
+X-CRM114-Status: GOOD (  11.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,33 +101,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The argument for PIN_CONFIG_OUTPUT_IMPEDANCE_OHMS is supposed to
-be expressed in terms of ohms.  But the pinctrl-scmi driver was
-implementing it the same as PIN_CONFIG_OUTPUT and writing either a
-zero or one to the pin.
-
-The SCMI protocol doesn't have an support configuration type so just
-delete this code instead of fixing it.
+The ->nr_pins is not used so delete that.
 
 Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
 ---
- drivers/pinctrl/pinctrl-scmi.c | 3 ---
- 1 file changed, 3 deletions(-)
+ drivers/pinctrl/pinctrl-scmi.c | 1 -
+ 1 file changed, 1 deletion(-)
 
 diff --git a/drivers/pinctrl/pinctrl-scmi.c b/drivers/pinctrl/pinctrl-scmi.c
-index d1f2f971cd96..fba0a3a2fc10 100644
+index 9a947ced0df7..372fa67589fb 100644
 --- a/drivers/pinctrl/pinctrl-scmi.c
 +++ b/drivers/pinctrl/pinctrl-scmi.c
-@@ -262,9 +262,6 @@ static int pinctrl_scmi_map_pinconf_type(enum pin_config_param param,
- 	case PIN_CONFIG_OUTPUT_ENABLE:
- 		*type = SCMI_PIN_OUTPUT_MODE;
- 		break;
--	case PIN_CONFIG_OUTPUT_IMPEDANCE_OHMS:
--		*type = SCMI_PIN_OUTPUT_VALUE;
--		break;
- 	case PIN_CONFIG_POWER_SOURCE:
- 		*type = SCMI_PIN_POWER_SOURCE;
- 		break;
+@@ -45,7 +45,6 @@ struct scmi_pinctrl {
+ 	struct pinfunction *functions;
+ 	unsigned int nr_functions;
+ 	struct pinctrl_pin_desc *pins;
+-	unsigned int nr_pins;
+ 	struct gpio_chip *gc;
+ };
+ 
 -- 
 2.47.2
 
