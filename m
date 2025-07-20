@@ -4,73 +4,173 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E042CC83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Jul 2025 10:25:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDFBCC83F22
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Jul 2025 11:02:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=vgiOXPnWM4GcLjDTSX5ob44HrpOeeQkVMa7G0D3GbTU=; b=j8XdQiqbXw52VoDKc8CWuTJzkw
-	ulZsRpJo7EQdXZsoJCulSbe6oGBGbJJwiwmOZ9zsCGFn9FQndd1LaJ26Mmk3NzPQYxPO0RiKtGbYq
-	Su922kAeJ6BjUzTxAp7SPWrTKtu8k8OhdYjtlUz9CF0Pjtx1CfyowCI/aCxpx8/wcg+ZF1UPVklqu
-	cjbL1tq7vlBUWSENaQNtLOqZKtG4bgrXBao2D1Qyk/WlDVxV5Qo7mgA/X02rgbxKl9nz/DesNWXA0
-	zVq2gOu2DoF85iCg32ZDDCk9uiZME6sHXVKf3v5IZAnAm3jeGIUdC8rgQGoO/kZd5JSfGG5kR3kaF
-	ems6vRtA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sK1TNJ9FogxM8jNr6ad1nY5Jr47WjojlCAhYtylk56w=; b=PqMWqTwiNqltDJKZqhgNqQrANj
+	cvbjbBB2q+YZjw+wBVSMFRGrnkAZDFgS2MlU3vHG6487vCNOCV3ZDXNEMZpZJjcXtfc33YpIrW3Qp
+	fueBFuspIlYY4xTyeSZxmM5uRuateJmrLT2uN/dRqRxVdATBPp6gFyx7z85NzOX7u0QSqHrWY7N7r
+	3+Fb61atOCNgIKjJEo0/liS2aqf2V8rIWYMG3HeTZGUuj7ggkMW0AZGE2SujbRXlIYclAsRSVaQeH
+	Qe2Eb4UER5QWxj5VXVZfH7pkAYIM14FbAXnI3YVUF2xBTbUUSAjrJbNEsF1Nqn/UFZuhpmUzOSe/6
+	U+lv5GpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udREJ-0000000F8Mf-1BIk;
-	Sun, 20 Jul 2025 10:25:15 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1udRoB-0000000FAgj-0gHL;
+	Sun, 20 Jul 2025 11:02:19 +0000
+Received: from mail-polandcentralazon11021116.outbound.protection.outlook.com ([40.107.154.116] helo=WA1P291CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udRBq-0000000F8B8-3esH
+	id 1udRlh-0000000FA7m-0KEG
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 20 Jul 2025 10:22:44 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 80BBE5C4CFC;
-	Sun, 20 Jul 2025 10:22:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 287A9C4CEE7;
-	Sun, 20 Jul 2025 10:22:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753006961;
-	bh=VpZbHWYgkCPsYBiMifOdXB7lfxAfU+gfPFO1mJoJXAI=;
-	h=From:To:Cc:Subject:Date:From;
-	b=LR/nh38iNvbpoq3ZhjVChs/kEPTbSrQ5C0G6YuoH0DL1QQhe4qvdPu1ZD3SXi7iSQ
-	 y0VWHkw+xBAv+JW3grp5ML+5y17yBTHFvw7Ps7Uhtgs6EK1pe5S8/eJWim+47Z8VRt
-	 dPFBPfM/AICssAE2YuHMStTczw60L0Rggqab1syQJc6BSMfiMn9j7sCaIxXqWYbYO0
-	 2btb6KBWCAXBv6C+c87q5FhC7zWq0jP1EWkjIKwLibcbBWSC1QZpcRgWFjGDjcrgmV
-	 2Ju9M+O7y8I2Ym8CPrfOQK5fBRWIgV3Jgv6U+cHbbOsJND5Ly5biQuc61VOP4LRYnj
-	 cLgI+kEaCueZw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1udRBm-00HIBV-Ox;
-	Sun, 20 Jul 2025 11:22:38 +0100
-From: Marc Zyngier <maz@kernel.org>
-To: kvmarm@lists.linux.dev,
-	kvm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Cc: Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Mark Brown <broonie@kernel.org>,
-	stable@vger.kernel.org
-Subject: [PATCH] KVM: arm64: Check for SYSREGS_ON_CPU before accessing the CPU state
-Date: Sun, 20 Jul 2025 11:22:29 +0100
-Message-Id: <20250720102229.179114-1-maz@kernel.org>
-X-Mailer: git-send-email 2.39.2
+	Sun, 20 Jul 2025 10:59:46 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=XvOpaqIq4ts2War8JNsMEQYJT6RxTJXLqM3Bpu/IiE65xRXSDC4Tow5WkV3XAXfF6cMReROwOnuJq+3+S73tqH9F60cbyWIP2ZBVUe5Adn4Vd5RprwXLn3GjnjEDqvRUyAL23gBviy4OTdFtTZeTSIANe2OcTB0uLOVEoctfWemBDuJFCDMqPSA0L6HjWDdRvJ5ECkEnx9Tb+Uq6RY64Ldgo/z1/ViMS7se8XmDv8IOhpDsVw6ddFaPtmp6AHJJVKcGZXOWTWiUiKH4pqO77qtoA62bLeVC66BbVUZoVNxhJksNnrmViYehCAJm4Qcv/Py2uIRj5QLaoVpMUQ61cig==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=sK1TNJ9FogxM8jNr6ad1nY5Jr47WjojlCAhYtylk56w=;
+ b=Ro45ZLub8tosR66rnbMKfXTlyB+lm8mx1Dzztm2gqdvzO2L5TsYitFvwEgJsDtraMy19G/WQSE6798VU/tFfoitVK30WOtqS3M00MCOgHo3EK0s5rDhsd/3c6cWuy4A/W3mohbk8OF0dOMJ15n9CzT4D5PRGuGShMIduy2FEy0IyxUpEJVRBLGwO4SvZUn4yvwANycJBC3DcZQ0Yk9hB190mA2V7Ffo/y5aIo+nnUpq7KgSRileRJUGUUE0pVRrP/N+ITM1L6u6LFVJaU6jQyJPyPX4KkylAY6+vQiBcnYj4bC0degQNDMpds4WJYcU/MV6vmvFYhUzsKhU+69jdsg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=videtronic.com; dmarc=pass action=none
+ header.from=videtronic.com; dkim=pass header.d=videtronic.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=videtronic.com;
+Received: from WA2P291MB0309.POLP291.PROD.OUTLOOK.COM (2603:10a6:1d0:24::14)
+ by WA2P291MB0094.POLP291.PROD.OUTLOOK.COM (2603:10a6:1d0:23::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8943.29; Sun, 20 Jul
+ 2025 10:58:59 +0000
+Received: from WA2P291MB0309.POLP291.PROD.OUTLOOK.COM
+ ([fe80::5b7e:db51:5934:a36f]) by WA2P291MB0309.POLP291.PROD.OUTLOOK.COM
+ ([fe80::5b7e:db51:5934:a36f%6]) with mapi id 15.20.8943.028; Sun, 20 Jul 2025
+ 10:58:59 +0000
+Message-ID: <6bafe402-29c4-4041-bb72-c8bf2a0ed356@videtronic.com>
+Date: Sun, 20 Jul 2025 12:58:57 +0200
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 15/24] media: i2c: add Maxim GMSL2/3 serializer and
+ deserializer framework
+To: Cosmin Tanislav <demonsingur@gmail.com>,
+ Cosmin Tanislav <cosmin.tanislav@analog.com>,
+ Tomi Valkeinen <tomi.valkeinen+renesas@ideasonboard.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
+ =?UTF-8?Q?Niklas_S=C3=B6derlund?= <niklas.soderlund@ragnatech.se>,
+ Julien Massot <julien.massot@collabora.com>,
+ Sakari Ailus <sakari.ailus@linux.intel.com>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Linus Walleij <linus.walleij@linaro.org>
+Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-staging@lists.linux.dev, linux-gpio@vger.kernel.org
+References: <20250718152500.2656391-1-demonsingur@gmail.com>
+ <20250718152500.2656391-16-demonsingur@gmail.com>
+Content-Language: fr
+From: Jakub Kostiw <jakub.kostiw@videtronic.com>
+In-Reply-To: <20250718152500.2656391-16-demonsingur@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: WA2P291CA0039.POLP291.PROD.OUTLOOK.COM
+ (2603:10a6:1d0:1f::25) To WA2P291MB0309.POLP291.PROD.OUTLOOK.COM
+ (2603:10a6:1d0:24::14)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, broonie@kernel.org, stable@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: WA2P291MB0309:EE_|WA2P291MB0094:EE_
+X-MS-Office365-Filtering-Correlation-Id: 944c0479-8112-4a38-66d7-08ddc77c6de5
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024|921020;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?ZmFLWXQvcGNkMUVrMFNSalQrd3AyVFNRV05NQlJTeUk2Z1g1L05jVEo3Qjdu?=
+ =?utf-8?B?WU5DOFUrZzZKM1R2Y2I2UDVVMklwVkZsbHFpaEFNNERuQmh4VE5pYWFlQTFn?=
+ =?utf-8?B?ZUxuRlRoTHdpdjlFczBTZU5YWlBlcW45NHRhZHBBQlpiZTlFdUlCQXFlOFNS?=
+ =?utf-8?B?ak1iU0pRVzV6VmJrZVZGLzAxWEdMeWxMMThjU0c1bER4b202blJveTZzTjhp?=
+ =?utf-8?B?cElhb0EzMXFHYWtSSXp0cW5nV0RnRVBjV0NvdkR0TVBCUjk1VTEzRjNyeDVk?=
+ =?utf-8?B?MzgyeUtGcFczQmg0YnQ5b1l6a3I2MnBTQ1d4QW9GZWlSd3hpSS9aNVM4Tm1Y?=
+ =?utf-8?B?TmRUczZIVmNhdFNSSXF1ZnBLVWJrQXYyKzgvSmZRREdlbDA5YnNON2t5Zkpj?=
+ =?utf-8?B?Zjk3Skd4YW1QVUx5azVUcDVXUXhEVTNKbFhvbmZwYW5uNnVmQTZ5UHlyRzNW?=
+ =?utf-8?B?UFdYTWsyZnhqZFpESUxqMWhMOUJ3NDJSZkhpRFJnYlVVRjlqcDhqUGdHL1JB?=
+ =?utf-8?B?VllvMkVjeURVT3lBM1gxSUk5c1F1bkh0aUhValFsYVpHMGFMbEJxYlpkZVNp?=
+ =?utf-8?B?VzFmVDBWanFEdEV2Q3BLY1VnNmRFR2JxRG0xRndSWFAyOEZBU2RPaDBDOUZH?=
+ =?utf-8?B?TXpIUWd1Y3RWSGYwMGZCLzJib3owazVBUEFySmFwZ0Q1dlFiZzA3Q0FoUTY3?=
+ =?utf-8?B?My8vVUNSSEI5Mi84b0daZWpWRTRiV3M3b1JCdDBjOVdTaitSTWE3Z002dDht?=
+ =?utf-8?B?V2M2dExSM0ppLzlBd3A3VnQyWjVUV1NuT1FhUnhMWEovN3dtNzBXOUNBdlRB?=
+ =?utf-8?B?VGN3ZHJ4OTNremR3bzZJUU5sWjRhMmowMWQ2WmgxbDVmVkpocVE3S3Z5U3A0?=
+ =?utf-8?B?cWh1aXB5QjRXYjBTcmZWbEpvVGpRY3huMWh3ZW5EZDJyNEVOZGZxVG1mdzRw?=
+ =?utf-8?B?d2dvUWFFMHRUSUgvUDg1dFRSL2xKQkRMOGFpaUlsNEtocTVTMmNGQjZpMkwz?=
+ =?utf-8?B?MGIvN011Y1lITTBoL2I0SThVNGdYemZHdTA3R3dxc3RhdkpxeUpVU3dFTjN3?=
+ =?utf-8?B?UU1uVnUrZVNmMkxDcElsZFUwQzBIelo0QmVRQ213a0szeFV1dWowWkpEbU5S?=
+ =?utf-8?B?SW5semtLek1lNDNOV29YQTE3QlREL0VtaUdEOCtTNm96QmpBUWcyTE1vMEJ0?=
+ =?utf-8?B?Wm9aQ1AzbEFnMFJFc2FXZlJkWXVDVWR1NVcwOVJobDRkN0IzZ3NmMWNzWEdH?=
+ =?utf-8?B?YjVCN3ZiNlZMRHE4TnVLZEVVa2QwWUhiN1V1QVJGU1pCYjNWaWt3bTJBS0Nx?=
+ =?utf-8?B?V0Rqd3VpYnNpYVRweHBBZUVUSFpsQldmVnkvOHRGZW5pdGczQXljZW5hNVI2?=
+ =?utf-8?B?OHo2UldxOTA3dlZLbThpcjZlT2w4SUIxaUQ4Z1lUWjhtSG5Ceit2SEdoQXZs?=
+ =?utf-8?B?N25GREtkaXVUNWp5OTBrRmV6V3JsMElhUGhIQmRNUnUvY3BDMSthYlhTbDFm?=
+ =?utf-8?B?SkdSVTd1Qk1mbFIrT3l6SE90eFp1aGJQekpEYStxWGF0dmJOdDNwTThlRTUw?=
+ =?utf-8?B?S1dqTU1OTTNYeGFRdkFwWXN3ZzRnSHhwc1RxZVBUR1phNTlobzNLb3A1cWVT?=
+ =?utf-8?B?dUt2RkZxWnhVMlJQL1NlYnFBeWc1OVpJZktEZDBSdVRkSzd1N1lVNlNUN0tQ?=
+ =?utf-8?B?Q2NaS2hjZmk3aVVVRTBEaGZ6RG4zYVpUUXlDMUg5RkpLL2svdkdjVTRlYjg3?=
+ =?utf-8?B?T2VNYUtMTmw2ckExTVp2QnZ0a0twSDk4eWQvVk5GY3c3QTJua0VIZGdnUjBk?=
+ =?utf-8?B?a24wZFg0UnVjdVRnN0phSnkwZkNSRGVGMUJMWGdSN1hVZUhwWjREUE1PVDJS?=
+ =?utf-8?B?dmc2T0E3UDBMcjRxR1p2YndXeHh2Q2VDQjRQdC9XNHhyMXdDZ2N1eGM4SlJZ?=
+ =?utf-8?B?MlJ1VGdHRHZoVWpaUDVGeE5aWjFCaXdrcnY5SjRRL244YjBvUm05T3FHQ0ZJ?=
+ =?utf-8?B?M05sU3V3bUJBPT0=?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:WA2P291MB0309.POLP291.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024)(921020);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?eUpJVGVvVzdFVXo0b05VSW1vVDFLN1g1N1Y0K3haQXYyK0M2WG9aNkFmelJ3?=
+ =?utf-8?B?TTN2Y2dOSGk4SnArV09JbnpXWUc3VEs0dXRaM1NFeVRFMFlodDc3b0o2S0or?=
+ =?utf-8?B?ZW0vQ3JMbXlEbHlpYVdmZC92dWZxaldpMi8vZndVOGE0RTBNQVdzejllbktP?=
+ =?utf-8?B?anNxSHk0b0I2eHdvTnpIcUR1eWhtS1B4SDVzeDdsMGVuRGU3R2p1ZStWSjRq?=
+ =?utf-8?B?bWVkQlZUZkdGRXRQMDBVZERocXN2ZzYwQUdpRTRWRktDQ1d3OXFDRXlDVVcz?=
+ =?utf-8?B?TEtTU0V0cTE1MnRMQUZqYTRXVXpRcFNJZlpKOVM1ZTdxbzRaUnM1Q2VtUUZS?=
+ =?utf-8?B?UGcyQmQvSGZyN1NnTEtJMjlBN2pFcVVsTFBxU1R6ZzlhYnlFUXhWSnZwcFor?=
+ =?utf-8?B?cTQyNlgyR3B1ellJRUxEQzBiUWN4Tlhzdk5yUU5mOS9wZzI1Wjd1ZTVSd1A0?=
+ =?utf-8?B?QW5wdGpXcjdYRGpzYkdMT0o0eHpXN1dJY3ZaMFV1U3FzQXJUYzUzWEw3MWth?=
+ =?utf-8?B?VDhnQVN5V0dYQlhNZ2FHWWl2QzdicWY2c045NXVud3RxYUxHTXZKNGFHQ0FZ?=
+ =?utf-8?B?UE41UURUQ2JKb3BwcXNxYyt5VjhTbFViaDlLTUl1NGJDZTFkd1JOSlExYUls?=
+ =?utf-8?B?OWdZQ2dYZG1ISG14QXUxYlNKRmZJVUhFQVU1SEpOd3FiL0lNSnR5V1R2Ulh5?=
+ =?utf-8?B?NlpPRVovVkJ2VXBLSmxiRG1sWHgvbTFaSG5IM3V3b0ZMRm5XWGRvV1UwVmpr?=
+ =?utf-8?B?a1BqYVYvdjEvb2JlMSt1NThZVUk4RHZybDI4TEFrMERCampiaXFsVC9SK2Y4?=
+ =?utf-8?B?WEhPdTJzVzBra0V5cFN0dnRIeURSWENQalEvNHgyUDQ0blF3eU12NVlzQUk5?=
+ =?utf-8?B?cTBRYThHbHYyYUdXOGpBanNtaHNyemZLZ0o0VGoyV1BRV3U1N2xtYW9NSVJm?=
+ =?utf-8?B?WXUrcThjdmxtcUQvemJEQTJRVCs5ZVg2Tm42QUpJdXdqSzIwZTRuQzNqMFZM?=
+ =?utf-8?B?bnl5eEZGaWVhaFdsVEZUN2llcTRwdjdzajRNUUswWm41S3NYNXJiczhuaHFv?=
+ =?utf-8?B?QUgyUTdJaERyTjFKMGdoL1IzU3NKRGN2NlRQNW5yYlcxUjYyNnlsQUZuNHFH?=
+ =?utf-8?B?dk5RRGRUK3QvblRGOUFPRzFSTW1rWnIrOHlsWXdHK25saS9kaFFEQ0g5amhu?=
+ =?utf-8?B?SjdmTU5ZaFQ2Mm9VYjJmazgyeWo2cWdWZ1JDa0x1QmlnNmRnWWg4bVFNb0Fv?=
+ =?utf-8?B?L0I3a1V3elpXOEVkVmhxdnFFWWZYTk1INFQzVkZ2VHVwSnF2WFlOTnZQYjJG?=
+ =?utf-8?B?WHBTbHAwejZRd2V1d1JzUkpyMXlleHlVcjNnVTllRjR1NmlxNG9BS1F0WFFm?=
+ =?utf-8?B?anE1dDN6a1AvZkVQZ2dmck1CUER6N3h1YUE1bmhoQlVVWGpDSnNKUy9ncGtX?=
+ =?utf-8?B?Y2syOU5leTlqMVBhNXhwUDFCN2RTeElnZjlubnR6eDcrSFdzaHMrVTh2TC9t?=
+ =?utf-8?B?YUNLNGI1M2xPYVBGUDNBWEpuQlF3Tm05NTM1OStwUnpPZS9laGM4bEhSelZv?=
+ =?utf-8?B?elhaQ0NNZC9zRHU0aC9kSXluVm1xTkk1OG9ySktXZmFicklVc2JSRUcvUDd0?=
+ =?utf-8?B?WTB6N0wvT1M5Q0hUNEhrRkFwZ2EyQUtaUU9wVGQxWUF1bFRpbTRaWTJKcGxM?=
+ =?utf-8?B?SVA1Mk1JNHE0Q3QwTkVKbzF3ZnBTa3JZK0RLRHhoeGJnOU1td0t0ZWdCWDRZ?=
+ =?utf-8?B?MnQyNWpUWUJVSTNkYnF0VFlHUVlWT0FnSmc1cmVXODMrRUtWNTA1VkJWTUVK?=
+ =?utf-8?B?MHc1ZlhKSlRXdVM2aGV5WGhOdE5DVWtUVUhzMUJzc3prWmE0YmNHWFhKODFB?=
+ =?utf-8?B?MTBoREp4MUs3OGdKUTZNNUdkNDl3YmtUcmFyODVLV3dCaFBsS0JLb1dBVC90?=
+ =?utf-8?B?VnR0YzRPdnNDZmtheVcvbUxTNUZwdGZpemhZeVdaSHJTWnRlU3lhQmYyNzU2?=
+ =?utf-8?B?TG5kb3RhL2tGRVRJaEdrYUcxNFduMnVUSDBYV1hDbFhVYzVIUGsxanBNVmJP?=
+ =?utf-8?B?RWJFNGI5ZGlZNCs4ajJVMGlEQTdkbUNNaUtyVXB6V3VSZTRwS0JEZklBdnJR?=
+ =?utf-8?B?M3dRSTA5cWxMeFkvTkJnRjB2OHNmaHpFZXp5VjhmSi9CemVPaVdFVmJuMjhM?=
+ =?utf-8?B?VkE9PQ==?=
+X-OriginatorOrg: videtronic.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 944c0479-8112-4a38-66d7-08ddc77c6de5
+X-MS-Exchange-CrossTenant-AuthSource: WA2P291MB0309.POLP291.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Jul 2025 10:58:59.1292
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 42908bfd-23a4-4a6c-951d-1ef4d8e0c612
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: oyPthR+QSZLuszuyAtiXRjaKHVye4XAQ1/RIj7aRg+eNRSSzmJ1nrjqLRTcfY8opp5aOPcIDba9XhQJIkbC0ikE9FIdZqoNebsMnNjZzmdA=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: WA2P291MB0094
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250720_032242_995676_2893B385 
-X-CRM114-Status: GOOD (  16.32  )
+X-CRM114-CacheID: sfid-20250720_035945_109245_1991BC10 
+X-CRM114-Status: UNSURE (   6.69  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,76 +185,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Mark Brown reports that since we commit to making exceptions
-visible without the vcpu being loaded, the external abort selftest
-fails.
+Hi Cosmin,
 
-Upon investigation, it turns out that the code that makes registers
-affected by an exception visible to the guest is completely broken
-on VHE, as we don't check whether the system registers are loaded
-on the CPU at this point. We managed to get away with this so far,
-but that's obviously as bad as it gets,
+Thanks for the patch - great work.
 
-Add the required checksm and document the absolute need to check
-for the SYSREGS_ON_CPU flag before calling into any of the
-__vcpu_write_sys_reg_to_cpu()__vcpu_read_sys_reg_from_cpu() helpers.
+I have tested serializer and deserializer framework using the following 
+configurations:
+1. MAX96724 + 2x MAX96717 + 2x IMX219
+2. MAX96714 + MAX96717 + IMX219
 
-Reported-by: Mark Brown <broonie@kernel.org>
-Signed-off-by: Marc Zyngier <maz@kernel.org>
-Cc: stable@vger.kernel.org
-Link: https://lore.kernel.org/r/18535df8-e647-4643-af9a-bb780af03a70@sirena.org.uk
----
- arch/arm64/include/asm/kvm_host.h | 4 ++++
- arch/arm64/kvm/hyp/exception.c    | 6 ++++--
- 2 files changed, 8 insertions(+), 2 deletions(-)
+This enabled me to test the following functionalities:
+1. Video streaming using serdes framework
+2. Lane polarity changing on both serializer and deserializer
+3. Lane swapping on MAX96724
+4. Usage of different PHY combinations on MAX96724
 
-diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index df9c1e1e52025..831cec0e1239e 100644
---- a/arch/arm64/include/asm/kvm_host.h
-+++ b/arch/arm64/include/asm/kvm_host.h
-@@ -1169,6 +1169,8 @@ static inline bool __vcpu_read_sys_reg_from_cpu(int reg, u64 *val)
- 	 * System registers listed in the switch are not saved on every
- 	 * exit from the guest but are only saved on vcpu_put.
- 	 *
-+	 * SYSREGS_ON_CPU *MUST* be checked before using this helper.
-+	 *
- 	 * Note that MPIDR_EL1 for the guest is set by KVM via VMPIDR_EL2 but
- 	 * should never be listed below, because the guest cannot modify its
- 	 * own MPIDR_EL1 and MPIDR_EL1 is accessed for VCPU A from VCPU B's
-@@ -1221,6 +1223,8 @@ static inline bool __vcpu_write_sys_reg_to_cpu(u64 val, int reg)
- 	 * System registers listed in the switch are not restored on every
- 	 * entry to the guest but are only restored on vcpu_load.
- 	 *
-+	 * SYSREGS_ON_CPU *MUST* be checked before using this helper.
-+	 *
- 	 * Note that MPIDR_EL1 for the guest is set by KVM via VMPIDR_EL2 but
- 	 * should never be listed below, because the MPIDR should only be set
- 	 * once, before running the VCPU, and never changed later.
-diff --git a/arch/arm64/kvm/hyp/exception.c b/arch/arm64/kvm/hyp/exception.c
-index 7dafd10e52e8c..95d186e0bf54f 100644
---- a/arch/arm64/kvm/hyp/exception.c
-+++ b/arch/arm64/kvm/hyp/exception.c
-@@ -26,7 +26,8 @@ static inline u64 __vcpu_read_sys_reg(const struct kvm_vcpu *vcpu, int reg)
- 
- 	if (unlikely(vcpu_has_nv(vcpu)))
- 		return vcpu_read_sys_reg(vcpu, reg);
--	else if (__vcpu_read_sys_reg_from_cpu(reg, &val))
-+	else if (vcpu_get_flag(vcpu, SYSREGS_ON_CPU) &&
-+		 __vcpu_read_sys_reg_from_cpu(reg, &val))
- 		return val;
- 
- 	return __vcpu_sys_reg(vcpu, reg);
-@@ -36,7 +37,8 @@ static inline void __vcpu_write_sys_reg(struct kvm_vcpu *vcpu, u64 val, int reg)
- {
- 	if (unlikely(vcpu_has_nv(vcpu)))
- 		vcpu_write_sys_reg(vcpu, val, reg);
--	else if (!__vcpu_write_sys_reg_to_cpu(val, reg))
-+	else if (!vcpu_get_flag(vcpu, SYSREGS_ON_CPU) ||
-+		 !__vcpu_write_sys_reg_to_cpu(val, reg))
- 		__vcpu_assign_sys_reg(vcpu, reg, val);
- }
- 
+Everything is working as expected.
+
 -- 
-2.39.2
-
+Regards
+Jakub
 
