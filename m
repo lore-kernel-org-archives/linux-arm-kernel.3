@@ -4,86 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEFACC83F27
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Jul 2025 02:24:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A161C83F27
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Jul 2025 03:10:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=20X0PhCRcRj6aFiBuS5mrmdrBSw8ydwTa695mVAjRJA=; b=dLe5tl5XJ9///ePTrKvSfV5Uof
-	cWFgnjDpc5GUDoM0G5YZuCViY21z4XvQZH9FczMr+NQ3b5y8GtEaF3nCjNAaLOvMmD5OqBMTd7Zzk
-	KyEGJsA3aJFkAx/dlUnJsoEkEFqJ3ZycdggtYE5lqoMVPXdhMDVgxEbTVSgMYaD/8RrVeTqyezu0C
-	So6JU3rukmwJNgoGh4ruc5xRuE1FL2S/S5hCwbHyMI3I26fXxlijH9F9M+44+/1iai1+bbaHYwQbb
-	8ugpee5B67fp0NJb6zUgtW3rdacVBbTGTHqL+adUq3/782+NBrpyl6L9PrzKHrkZT/pk9+41cbGWu
-	LSkMtsjQ==;
+	bh=R/7pankjeYjayVQ3GYY10kZLJpAcjh4ftqZNu2qM2lM=; b=K+KLYgOnt5h6v0sH2Y4UpeL4Xa
+	dHfPuMEvTV/Ara3jC7r6B95rsnSaJb+4YV5+ighU64fhfGkG4C8oFnT/R0U8FNBWJTRKVAOjMxLs6
+	kUvswsvOEeDdzLh946nmBtv4GjsogpS2pQyyBaLy2CIAaZFd6VcjHj068ahvBM+tkyMovEHo+AsNh
+	jKtOKIa4w+/o2hbv823ez9xjbV+G/l4VwBkDGw7Y6QF58BY1qpmWBIM0M8cBx3u2tTHPenyGESIHR
+	LhmyPbeKYFTSmDVZzJ0D8Zv8feO1o1/ikwAiKeCRiGj+kfQvqLUmQJmXLfe5rLLI1ZRQUJE63ZmuU
+	dKahDQBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udJik-0000000Ep9Z-1Sd2;
-	Sun, 20 Jul 2025 02:24:10 +0000
-Received: from mail-yb1-xb30.google.com ([2607:f8b0:4864:20::b30])
+	id 1udKRP-0000000EqQU-0A1V;
+	Sun, 20 Jul 2025 03:10:19 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udJgC-0000000Ep3s-1EdA
+	id 1udKOx-0000000EqLe-0JSD
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 20 Jul 2025 02:21:33 +0000
-Received: by mail-yb1-xb30.google.com with SMTP id 3f1490d57ef6-e8d9f9613d6so25429276.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 19 Jul 2025 19:21:32 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1752978091; x=1753582891; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=20X0PhCRcRj6aFiBuS5mrmdrBSw8ydwTa695mVAjRJA=;
-        b=LFWrR9qF9JMhpAv2bVC6XqtG/5dqtDsxBOILfnJ2ZH6SGKQZZMK33oTxU6/+KLdb6Q
-         uwegHz76LXgCZfsEuRT0HLCz+2Zfw4gmnl1wTKb6snxJwfjcLXAsff4igxU8VSDzPq5U
-         crCq6wX01IM+HnCwU68Zjamt8m1+x0EutVlTb9oMYvMgkq1QexoJc5agcOz9zzoWpDOf
-         +6yUDDHx6fFUMc8y+vgUAWlAgFBwPBuuohdphj8JgjUDLZ2qjoxVV/56bjmPP7qO5prF
-         otW4YlasmyUTwXYS8MgutMUYXPg8bw41yRF/1nkDiYgDGoYRwzfndlV4Y7ScTzx+zHRx
-         h3pA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1752978091; x=1753582891;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=20X0PhCRcRj6aFiBuS5mrmdrBSw8ydwTa695mVAjRJA=;
-        b=rhFNzPrOztjelB5MKbzwqqUxeIsDCVPGoOAkr+fS6Kn2Q74YLNUmjtUTagUHIDRyaw
-         KQkACC0+uDh//RVvQO5EY9698qFzZRtw5ofj7HW3EtozReW9ey+TrcO/KWHau2zzCVpo
-         MDkwgQro9J0YPcE2DdxC0IvNp4+t/nV+eNVvio/H2l0AZSjc0b8clp5x5WVT2PHvO5NE
-         CUfBFmukT+I7XWS2m7tF+62xMMNY4OD8Skb1MD8btrxq6Fmb4ruzhMeH2/1Mo7hCMhQO
-         cxVVq0Dca0CH9XeQY8JHA9JRMcOa51rX3CdeuPrw1UjecULvg5FwfSkFoa5D3T10p+Zz
-         3dYw==
-X-Forwarded-Encrypted: i=1; AJvYcCVEupQIEAuf2wAYsV0OOIRR9OI8aBwZQ0Nm9Hv4qY7ATOdJa3qyRbmMn9YZ6SCbdEtL2CrujQpQjB6FqrTsnzpV@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxq9y0oYLTOqYofCu/iX7YUnHFzBMrowWUBxHChsWxTZeBnZdAr
-	oRVDqDE9w6l+HOhLAOqFNTzjq+fL6zvh0EKo7NEudXEcpL27g4ziwtFD
-X-Gm-Gg: ASbGncux03wsp5EtmHET5FpykQIEOuOmDQ8bUZ0XVyw6nbL4tg8PxA4wTCMUNkwsbSX
-	0QmrGJUu/bssYfwAlKOZFSs6BJvHmeiaCPcXMn+xHk3CtBAZBCBULDuQbu3itNt6d9g7FL4yFhc
-	APikNTs4CZw8rbLh70gkhGEwQqOIBfOjfhVKUSkN0bzDw9mfP7O10jkAIE9sYlKwSTBB0JaxEjt
-	URXEqHDIdDWZWtGZVe+66d//pxqbNq1n2oRMxtnmFYtZEjbv1j6NZHKQVY8f62v+lbJ95xv2jjK
-	+VEcexPKJIDx6t3PxiTl5BsimFUAI22C3Jmuh6VeKqOywsjGBncATmYfn77cbhuPRWYKj+vqQ1o
-	wfrh40zPVuAkhfPeB4Ast2I4x1Hm8TZWWl4Xjj5fYCrVka+8V8TaweeGgon+ctOVC+wum
-X-Google-Smtp-Source: AGHT+IGQeBqt1JgArpYmqU9CC64rnAVFyPtgmr6zEcLd7fPQHv+Rm+/NeKHZqrBKHF8zawaTftE66g==
-X-Received: by 2002:a05:690c:46ca:b0:70e:73ce:80de with SMTP id 00721157ae682-71835185a29mr205173357b3.25.1752978091242;
-        Sat, 19 Jul 2025 19:21:31 -0700 (PDT)
-Received: from localhost (c-73-224-175-84.hsd1.fl.comcast.net. [73.224.175.84])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-7195310a968sm11599877b3.2.2025.07.19.19.21.30
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 19 Jul 2025 19:21:30 -0700 (PDT)
-From: Yury Norov <yury.norov@gmail.com>
-To: Linus Walleij <linus.walleij@linaro.org>,
-	Vinod Koul <vkoul@kernel.org>,
+	Sun, 20 Jul 2025 03:07:48 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 36A6245AE9;
+	Sun, 20 Jul 2025 03:07:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 394C1C4CEF4;
+	Sun, 20 Jul 2025 03:07:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1752980865;
+	bh=noUq5QeP6M5pVXcgC2Y/bXEJ5fNxp/pT0yKbZKkLxek=;
+	h=From:To:Cc:Subject:Date:From;
+	b=lmd+oZN39JkMHWmfn0BijZDP9B6AOQn7+Bm9XP72IxkiaZbsVtMVJjUuTUcd8z6oC
+	 Opg0wy8jjDOyBfVN+yVWgKiDfyBTiTN7SkhhgU/m6W3YzTnlJOfgX12oz6EuDU+jMO
+	 GAyv8pxWZla5unXYwXo16thsHQ8HWzTWfeeBJkvpE4Rs2nhzTGpMseeuQefGb8bceb
+	 Gcz6dp1efBCu0TjI7nSf3HKi1a1EAmUTSPz6FPf0fwasfK7rlKxHKMm6+9JW6Fy1IL
+	 zhcuBg9NkIXB+JF8CJKb0z6xqGXHvcVrON4xJxH0Cy0BbnZrjCY0DWfI4B6S7YrZsS
+	 6tJ+hky7iK4ZQ==
+From: Bjorn Andersson <andersson@kernel.org>
+To: arm@kernel.org,
+	soc@kernel.org
+Cc: linux-arm-msm@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	dmaengine@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: Yury Norov <yury.norov@gmail.com>
-Subject: [PATCH] ste_dma40: simplify d40_handle_interrupt()
-Date: Sat, 19 Jul 2025 22:21:28 -0400
-Message-ID: <20250720022129.437094-1-yury.norov@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	Arnd Bergmann <arnd@arndb.de>,
+	Luca Weiss <luca.weiss@fairphone.com>,
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
+	Johan Hovold <johan@kernel.org>,
+	Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>,
+	Maulik Shah <maulik.shah@oss.qualcomm.com>,
+	Rakesh Kota <rakesh.kota@oss.qualcomm.com>
+Subject: [GIT PULL] More Qualcomm driver updates for v6.17
+Date: Sat, 19 Jul 2025 22:07:41 -0500
+Message-ID: <20250720030743.285440-1-andersson@kernel.org>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250719_192132_339537_A23AAE37 
-X-CRM114-Status: GOOD (  11.73  )
+X-CRM114-CacheID: sfid-20250719_200747_157737_6FD0C533 
+X-CRM114-Status: UNSURE (   9.68  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,46 +78,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Yury Norov (NVIDIA) <yury.norov@gmail.com>
 
-Use for_each_set_bit() iterator and drop housekeeping code.
+The following changes since commit 9f35ab0e53ccbea57bb9cbad8065e0406d516195:
 
-Signed-off-by: Yury Norov (NVIDIA) <yury.norov@gmail.com>
----
- drivers/dma/ste_dma40.c | 12 ++----------
- 1 file changed, 2 insertions(+), 10 deletions(-)
+  soc: qcom: mdt_loader: Fix error return values in mdt_header_valid() (2025-06-25 14:31:31 -0500)
 
-diff --git a/drivers/dma/ste_dma40.c b/drivers/dma/ste_dma40.c
-index d52e1685aed5..6cc76f935c7c 100644
---- a/drivers/dma/ste_dma40.c
-+++ b/drivers/dma/ste_dma40.c
-@@ -1664,7 +1664,7 @@ static irqreturn_t d40_handle_interrupt(int irq, void *data)
- 	int i;
- 	u32 idx;
- 	u32 row;
--	long chan = -1;
-+	long chan;
- 	struct d40_chan *d40c;
- 	struct d40_base *base = data;
- 	u32 *regs = base->regs_interrupt;
-@@ -1677,15 +1677,7 @@ static irqreturn_t d40_handle_interrupt(int irq, void *data)
- 	for (i = 0; i < il_size; i++)
- 		regs[i] = readl(base->virtbase + il[i].src);
- 
--	for (;;) {
--
--		chan = find_next_bit((unsigned long *)regs,
--				     BITS_PER_LONG * il_size, chan + 1);
--
--		/* No more set bits found? */
--		if (chan == BITS_PER_LONG * il_size)
--			break;
--
-+	for_each_set_bit(chan, (unsigned long *)regs, BITS_PER_LONG * il_size) {
- 		row = chan / BITS_PER_LONG;
- 		idx = chan & (BITS_PER_LONG - 1);
- 
--- 
-2.43.0
+are available in the Git repository at:
 
+  https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux.git tags/qcom-drivers-for-6.17-2
+
+for you to fetch changes up to 4587d3910f805ac74348e6c320071a9b65be035e:
+
+  dt-bindings: soc: qcom: qcom,pmic-glink: document Milos compatible (2025-07-16 22:59:58 -0500)
+
+----------------------------------------------------------------
+More Qualcomm driver updates for v6.17
+
+Fix race condition during SCM driver initialization, in relation to
+tzmem and waitqueue irq handling,
+
+Make the rpmh RSC driver support version 4 of the IP block.
+
+Add SM7635 family and related PMICs to the socinfo driver. Also add
+support for retrieving the bootloader build details.
+
+----------------------------------------------------------------
+Bartosz Golaszewski (4):
+      firmware: qcom: scm: remove unused arguments from SHM bridge routines
+      firmware: qcom: scm: take struct device as argument in SHM bridge enable
+      firmware: qcom: scm: initialize tzmem before marking SCM as available
+      firmware: qcom: scm: request the waitqueue irq *after* initializing SCM
+
+Johan Hovold (1):
+      soc: qcom: pmic_glink: fix OF node leak
+
+Kathiravan Thirumoorthy (1):
+      soc: qcom: socinfo: Add support to retrieve APPSBL build details
+
+Luca Weiss (6):
+      dt-bindings: arm: qcom,ids: Add SoC IDs for SM7635 family
+      soc: qcom: socinfo: Add SoC IDs for SM7635 family
+      soc: qcom: socinfo: Add PM7550 & PMIV0108 PMICs
+      dt-bindings: firmware: qcom,scm: document Milos SCM Firmware Interface
+      dt-bindings: soc: qcom,aoss-qmp: document the Milos Always-On Subsystem side channel
+      dt-bindings: soc: qcom: qcom,pmic-glink: document Milos compatible
+
+Maulik Shah (1):
+      soc: qcom: rpmh-rsc: Add RSC version 4 support
+
+Rakesh Kota (1):
+      soc: qcom: spmi-pmic: add more PMIC SUBTYPE IDs
+
+ .../devicetree/bindings/firmware/qcom,scm.yaml     |  2 +
+ .../bindings/soc/qcom/qcom,aoss-qmp.yaml           |  1 +
+ .../bindings/soc/qcom/qcom,pmic-glink.yaml         |  1 +
+ drivers/firmware/qcom/qcom_scm.c                   | 95 +++++++++++-----------
+ drivers/firmware/qcom/qcom_scm.h                   |  1 +
+ drivers/firmware/qcom/qcom_tzmem.c                 | 11 +--
+ drivers/soc/qcom/pmic_glink.c                      |  9 +-
+ drivers/soc/qcom/rpmh-rsc.c                        |  2 +-
+ drivers/soc/qcom/socinfo.c                         | 11 +++
+ include/dt-bindings/arm/qcom,ids.h                 |  5 ++
+ include/linux/firmware/qcom/qcom_scm.h             |  5 +-
+ include/soc/qcom/qcom-spmi-pmic.h                  |  2 +
+ 12 files changed, 85 insertions(+), 60 deletions(-)
 
