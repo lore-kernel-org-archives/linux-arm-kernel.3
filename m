@@ -4,216 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 992FCC83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Jul 2025 14:43:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88079C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Jul 2025 15:05:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nLAIR6AkL9PrGQVarpvvyJlYi41VGs7vNzow3km6QSk=; b=39axNcb+tObKhXKsNdFxN4a7AX
-	nYmXBlfn9wjapOkAmFNc2GQHJEwK8jHpBTVjoecWYbLE+E3Y/W9ef478UW88TMjsdlzq34/a/GppU
-	jRk1pOXffcdXrOyn5arpDdLft9dk8FZIYLYEDJ2dhSyyGniJmL2s7hWDCAzdkag01jcYt4FrAUEEE
-	KsZ6sOys7VFvoNSdOu5+Fx/YFCKGUNbiCekjfZcmy6ff4ithVU1x815hb83bBfk+U0+L1uLkts2by
-	Z4ntSE6YNEdWaNgDGfu9Ee0/t3JoToK+bp3Q/rU9czWuaSNfKvLNiUuRLnYksFMbMv+PKtSRxUj1h
-	xcXnfnVA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ttk7fb8XlaFmqm17AyNjg98kleNuPOap8ewNvEIirYU=; b=VutMwpPSaQn2NANogBvTAI7n/5
+	6yMQBvw1gXx39wxBs84rPAbo9mKO/wMXIEEK7K564e4FNcajTotV02XebPwN7DHL/e2IscLMsPR02
+	6/xBbtPFyoQbz1ps/meDJiE5HNc9TG96jyzIFwqtfQ7WH/0Sgs8gd2JBILijpjzsieXGxTi388ipY
+	A6BHofvDf6QdtvvvdMxFywyyAeDF/mu1uwwZdVLntmGa65UF21Mv+moV4ZMP+96DgGIjshAz8TR47
+	EQFgdaIWJ9HzTU7wzmSWedDHNqciUdXfeolBWE7EZHFYdjEF5nluyamwwc577RTkNAb/P79/JmutK
+	Mawbw30g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udVFj-0000000FOnR-42GH;
-	Sun, 20 Jul 2025 14:42:59 +0000
-Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1udVb5-0000000FQv8-3z0V;
+	Sun, 20 Jul 2025 15:05:03 +0000
+Received: from mx4.wp.pl ([212.77.101.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udVDG-0000000FOZC-1SoI
+	id 1udVYd-0000000FQlv-3bJ4
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 20 Jul 2025 14:40:28 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=gR3RHumupITvZoDTigKBtcVaf/2c8GiKote+JUj/BMazFqXs8MD1z3pvsk4UvEY5JZrkgrjgywqycAv8/Fyq0BbndeNA68ogDM1/YrXFW5BAdsB/n6XA9rd5x+iUImV5dwvp0b80zlTeSVXygbawkJcIL2IL9oajuWevsJUivEX7N2dMelk1rC1K+VkmDfCQFWvU0oIdYtaMRzFn05q7GkkzbNOhxwkT7lOSFebH8HXpFWWK3wbbX+NXx1B8fZVtewVNPLCqhGmmrIAVxcCbGJ/l/Un8NsANttQDaNcY/1zN1ovgjf/axcywz/5GJkzch1hjecxoU625/MfhxypAwg==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=nLAIR6AkL9PrGQVarpvvyJlYi41VGs7vNzow3km6QSk=;
- b=MknH2GNK0hidp4IvQYi/BFUUsQtZ8cs46+r2Fy1CnMmyNC0IGUsUNKenK/8o+lCxk6d18Ga1dfvduB0B1M+P9tam4nID/xEMI9Qa4B+kKZExpoZwciAwJQPVP1wmdGjAC0hXnK0aWQ5pQAA6Xg24q3bEKzDHaVI5WVvF3beAI8LktBt6UYzy/w7yHVSYQZBigWg3jdIVZ0wU3LJwUU3u3ZDC2aSP6pClwvlaY/RiTOEoV2VtyyjNmTph8wq9MwEDYengjjGKKBKDfz4VxCqtDgb6c5dnSaPYa2CnTdm4KRPpBIX4O/uWGD0o5KWSmaamFNH1+w6Jq+BcD5/zNkQ63g==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=oracle.com smtp.mailfrom=arm.com; dmarc=pass
- (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
- (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=nLAIR6AkL9PrGQVarpvvyJlYi41VGs7vNzow3km6QSk=;
- b=KEUX6pWGnJs/vXAGDqLZl6GHxVmDX7oZQTnXIdHBRQEx3VRDaYk2slrTpsFiROIZXCytFLxKrED5HRfWobYXTkkA5Gux9JJJFNaBlgM12oqwwjSJr+MoSIzyChDqReeGhC8OCwWDbcm6hHcW5VyO0B9VQJ8Ffiu3fJL7Bs8M7Cs=
-Received: from DU7P250CA0025.EURP250.PROD.OUTLOOK.COM (2603:10a6:10:54f::14)
- by GVXPR08MB10473.eurprd08.prod.outlook.com (2603:10a6:150:156::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8943.29; Sun, 20 Jul
- 2025 14:39:57 +0000
-Received: from DU6PEPF0000B622.eurprd02.prod.outlook.com
- (2603:10a6:10:54f:cafe::72) by DU7P250CA0025.outlook.office365.com
- (2603:10a6:10:54f::14) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8943.23 via Frontend Transport; Sun,
- 20 Jul 2025 14:39:57 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- DU6PEPF0000B622.mail.protection.outlook.com (10.167.8.139) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.8964.20
- via Frontend Transport; Sun, 20 Jul 2025 14:39:56 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=RXc5m9nAs+PK5XZPK2p+kLxoODPk4efGgUg9g+4v5W9Oqapg5CJ6erDtPDbvgoBCyVoWmeOBQUoyjcyKNSCPztkEhB/ors13vALgCR59Z3SrFAoLmg6/a6LASkPJqENOWAS5578kU7S9pIk6M8OKmE+Ysoi0KuS0qXJy+h62JPeyp/Tt0Y7A6A+Zw6P5ApBknNIS19/AZ4nt3f8nHy4+GVJOCDrS3HzB2CPLZROvHJl+R4JnmM30d2CmwrtmFOp8azxVtz49nTI2E0txZXXhhcC8YXxwwxyBwWpHeB7sSXndXfhb7oBBhAz+r5vDcTHqMbcyxG5efsqWTjEaCVgMPQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=nLAIR6AkL9PrGQVarpvvyJlYi41VGs7vNzow3km6QSk=;
- b=h4cqrgIU1piTjtP9hOi5LP+sG/AvQ4Yj9TUZW5ZSvae9lLNL7RWP+nVGZ+K05pQuGVg5xh9WdqykkA16mSKm35cT3LVbnD/sz786wmTgOj/lj61MYpK3XpC8ifmAs47N7hXlOugpsGzdN+veQ5kTOMNX91npgKp/s+nkRRsFVwzVJmwVjZ8eob03DmHP+SwpcTSunhiOH3ECUdmXZmk5qlduiCOnScX3kM+3r8aGYC90D2pEqy0ZHAzz/KG3ZrsHaxJfSqzKtUlF1v3XuxmHr/PJcGBvK30/oNFSe9IxLyP7vOiFeCXhLlDXNxO3WSV6xCMSZVQXwFfCwSST4ySbmA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=nLAIR6AkL9PrGQVarpvvyJlYi41VGs7vNzow3km6QSk=;
- b=KEUX6pWGnJs/vXAGDqLZl6GHxVmDX7oZQTnXIdHBRQEx3VRDaYk2slrTpsFiROIZXCytFLxKrED5HRfWobYXTkkA5Gux9JJJFNaBlgM12oqwwjSJr+MoSIzyChDqReeGhC8OCwWDbcm6hHcW5VyO0B9VQJ8Ffiu3fJL7Bs8M7Cs=
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-Received: from AM9PR08MB7120.eurprd08.prod.outlook.com (2603:10a6:20b:3dc::22)
- by DB3PR08MB10335.eurprd08.prod.outlook.com (2603:10a6:10:435::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8943.29; Sun, 20 Jul
- 2025 14:39:23 +0000
-Received: from AM9PR08MB7120.eurprd08.prod.outlook.com
- ([fe80::2933:29aa:2693:d12e]) by AM9PR08MB7120.eurprd08.prod.outlook.com
- ([fe80::2933:29aa:2693:d12e%5]) with mapi id 15.20.8943.029; Sun, 20 Jul 2025
- 14:39:22 +0000
-Message-ID: <c14f174f-29a9-4b39-bfe8-ac96d1c2fcdd@arm.com>
-Date: Sun, 20 Jul 2025 20:09:15 +0530
+	Sun, 20 Jul 2025 15:02:33 +0000
+Received: (wp-smtpd smtp.wp.pl 22382 invoked from network); 20 Jul 2025 15:15:50 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wp.pl; s=20241105;
+          t=1753017350; bh=ttk7fb8XlaFmqm17AyNjg98kleNuPOap8ewNvEIirYU=;
+          h=Subject:To:Cc:From;
+          b=wAVf/WuKhzI2Wh0Hwa1XPCceRe9snvZfE9TgVG0OSy6EOX2sCrh+b4serMD/0eyzJ
+           lNsq15mhnTACay4MQc9TRCUxa4/cTZlY5FL1a7ksnCYlwJCS17BnWaJt24ISdI96kw
+           oZa/XKrl7wag8k7O/qDQHaCCSu41gNKkWaGoZyIQJSVX/uyVkq0EItxw8z7PBkLscu
+           dgESmGZTDw66Z/MUmAOcfko8q9OhNQNLK2sFgm8n+bewOtJoOXRfcuSugioZD99wRs
+           gtx3YytjvvSLUBSlq7WRPxJjASIW/o8ZLEvNesOP7+XLx4yzETGv4wBeSgYG4RJOqN
+           HrGxCQSlshwpQ==
+Received: from 83.24.129.157.ipv4.supernova.orange.pl (HELO [192.168.3.246]) (olek2@wp.pl@[83.24.129.157])
+          (envelope-sender <olek2@wp.pl>)
+          by smtp.wp.pl (WP-SMTPD) with ECDHE-RSA-AES256-GCM-SHA384 encrypted SMTP
+          for <robh@kernel.org>; 20 Jul 2025 15:15:50 +0200
+Message-ID: <fcedccfc-c921-4afb-92d5-5f5e0a60d251@wp.pl>
+Date: Sun, 20 Jul 2025 15:15:49 +0200
+MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 6/7] mm: Optimize mprotect() by PTE batching
-To: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
-Cc: akpm@linux-foundation.org, ryan.roberts@arm.com, david@redhat.com,
- willy@infradead.org, linux-mm@kvack.org, linux-kernel@vger.kernel.org,
- catalin.marinas@arm.com, will@kernel.org, Liam.Howlett@oracle.com,
- vbabka@suse.cz, jannh@google.com, anshuman.khandual@arm.com,
- peterx@redhat.com, joey.gouly@arm.com, ioworker0@gmail.com,
- baohua@kernel.org, kevin.brodsky@arm.com, quic_zhenhuah@quicinc.com,
- christophe.leroy@csgroup.eu, yangyicong@hisilicon.com,
- linux-arm-kernel@lists.infradead.org, hughd@google.com,
- yang@os.amperecomputing.com, ziy@nvidia.com
-References: <20250718090244.21092-1-dev.jain@arm.com>
- <20250718090244.21092-7-dev.jain@arm.com>
- <5c993cf6-13c8-4420-bd78-706ea287fb28@lucifer.local>
- <9377543e-3b92-443c-adb0-bc3227ea994c@arm.com>
- <43ac6e1d-e8b4-49c1-8216-af523e120630@lucifer.local>
+Subject: Re: [PATCH v4 0/2] Add thermal sensors support for MT7981
+To: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: s.hauer@pengutronix.de, conor+dt@kernel.org, krzk+dt@kernel.org,
+ linux-kernel@vger.kernel.org, daniel.lezcano@linaro.org,
+ angelogioacchino.delregno@collabora.com, rafal@milecki.pl,
+ rafael@kernel.org, linux-mediatek@lists.infradead.org,
+ devicetree@vger.kernel.org, matthias.bgg@gmail.com, rui.zhang@intel.com,
+ linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org,
+ lukasz.luba@arm.com
+References: <20250712195904.6988-1-olek2@wp.pl>
+ <175250104102.2052726.927170028799402599.robh@kernel.org>
 Content-Language: en-US
-From: Dev Jain <dev.jain@arm.com>
-In-Reply-To: <43ac6e1d-e8b4-49c1-8216-af523e120630@lucifer.local>
+From: Aleksander Jan Bajkowski <olek2@wp.pl>
+In-Reply-To: <175250104102.2052726.927170028799402599.robh@kernel.org>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: MA1PR01CA0167.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:d::15) To AM9PR08MB7120.eurprd08.prod.outlook.com
- (2603:10a6:20b:3dc::22)
-MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: AM9PR08MB7120:EE_|DB3PR08MB10335:EE_|DU6PEPF0000B622:EE_|GVXPR08MB10473:EE_
-X-MS-Office365-Filtering-Correlation-Id: f3fe7de2-f11a-414e-f81b-08ddc79b4bd9
-x-checkrecipientrouted: true
-NoDisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|7053199007;
-X-Microsoft-Antispam-Message-Info-Original: =?utf-8?B?WDhxZ1lQeU4ySnFDeW41ejVXQ3NyQnV1aVg5N2I1VlZWVUFHcXBUdHo3VXZH?=
- =?utf-8?B?TmtramRaN1JLV3JZZ1cwdSttdzRMR1BWOXR3Tyt6Z2tBZmZiTHc1blpjcktZ?=
- =?utf-8?B?aTBPTjdmVnlJbUR1Yyt0WkpyT0dzbmVNNkk0b0xVYStNU1UxbGFIQVhWeGsr?=
- =?utf-8?B?NXROUExQeFBpTzA2M0RqeGI0MUgvOENHdnQ4bUQvTURlWDI5VHNuU1pIZGQ1?=
- =?utf-8?B?bFYrVlVFb0Eyci9TSEhubzNZRi9IS01rRTVzU2NDMnlTczE3MDlXQXlOTFZR?=
- =?utf-8?B?Y1lEeElmd2Z0Z1Awa1pxRlhpbzBLMzJCbHh1MURFN2FLcDd3NFJibU04NzhE?=
- =?utf-8?B?djEwZ2tkUnpxaFJ2TFFhSXJTWHBWMEZFTkp1Z0NxVkJhSGU3V0pFRnkxTXFi?=
- =?utf-8?B?bUl4bWFNbW4zTUV6eUpHNGNTRllVZmlBdHR3RmpuaVlqOGlwdi9lbE9NZDFF?=
- =?utf-8?B?aEFjLzllaE4ySXM0QXRFM0NabjhxeWZuenlzcHVZMXJoaU9nU0EralorWkY0?=
- =?utf-8?B?NGYrR0xmRmRBSFBMcFVRU0lOQnJZblpkL3lDWWY4aTk1bkUvMnNCS0VSeUhO?=
- =?utf-8?B?Z1RlWXVSRi8vRVV3ZnpPRnNTakhuVmIyRzAvQlhMZUFibE9DaW96MHcwR2Ez?=
- =?utf-8?B?NlFybU1zRnRpN3ppeEpHZXUzeGxZWDNEZ2g2NTRWYWM0MWlvS1RXYkR0eVk3?=
- =?utf-8?B?UWF1ait5djZhZE1DSFVBa2pDOWJrM3M5ZmhLb0J3dmhjYVo2ZlhXTUFySGR5?=
- =?utf-8?B?V0V6RlR2WnBTcUlZeVVmak9oTmZOMGp4U2JpZm9YMTdTWlNlbitZcjdWTGNa?=
- =?utf-8?B?T0h3eHB0QllsYVVEbklISCtwNElWT0VhNno3anlISmVvaHRKZlFYN3VhbHpw?=
- =?utf-8?B?bldyRFo0YTZqblZsTGxLcW1UNXZ2bE05dmoyVnFyb01mOERUeGdsQ2FaeE4v?=
- =?utf-8?B?TlROUExQZGx3U2RUWjNhaU94cEpQd0svY0NseW5FR3JiNk5heGtmQlVZcHUz?=
- =?utf-8?B?ZldIdU1jdmpoSjk2ZlBjeWhXS2d5RHZaMzB0NUtseDAwVlRlWjFFOGN1Y3Zw?=
- =?utf-8?B?dWRPemFmaVJzYnRRa0hneldBb25VUGhEVXFyaXFFVGU5RndwZkRnNmcvb25q?=
- =?utf-8?B?Vi9RTnc5cFBkSDV1UkRudmgrS1dUblNnVThqcGZUL1hsQkladFlETVBKbStm?=
- =?utf-8?B?YVJMbDk4RGNxSkVQMVVDZFN2NXpFakhHcTh1SW40MTBJcHpRSi91Q3JHcFJk?=
- =?utf-8?B?ZWR1eXNlOXlmT09iMGdWUXliVHdkSlA2c2tQUTNVaU9lM25pQTFwSG8wMlMr?=
- =?utf-8?B?UGM2UERLNW4zN1Z3SHEzSDFTUkJkWDNoTDJrNktsUXVnM2V2cDdSZmI4SHE1?=
- =?utf-8?B?WGdWSmFQNkFYK0l1ZFBBemRNSGJEakx6ZzB0Q1hXK1RTNzVFNS9EYnBkSXFa?=
- =?utf-8?B?UlhnSkFwVmZvN2IxaTF1Wmp2UDJWZlZFbVhQbTc3SEpjd3JRb1BkNzRvdUdO?=
- =?utf-8?B?S1JJSHJMNmxxeTdEU2pTOElKK2hqVTlKcWxqeDZtRWRTdmZmUm03QzQ2Wkk0?=
- =?utf-8?B?WUVNL016NXd2UmtTZFc2RjNsZGlrUXRtc2RHb2VVT1NoQXVZeUg0aXU3Vk5B?=
- =?utf-8?B?VnlUc3VocEJuNVJMck5waWZqUVlMYjdhempncWZEdkxqRjZieTRaSmpvRzVD?=
- =?utf-8?B?QmtnbXA0UWJnOXIwdnVKZ0lKNUtqYjZ4RWdyZ21mZzJ1Z29VV0UyYVU1NDhi?=
- =?utf-8?B?RSs3T2VqNlVIT0hKeXlON01KWHRWbDJCZzVVVE0ranVVVzZNOTZaeVNqVmty?=
- =?utf-8?B?ZUhjbzVVYndtcEpSK01NYnNpcXlyVkxtTzBwTi9tOGhqR0lxTHNIc1hCaHlr?=
- =?utf-8?B?bEZxbTBGMkFkTzk4eGVxN1pxNTJwMW9CeUJMK1R2ZmNWbURIMEFsMS9KaGR0?=
- =?utf-8?Q?ZHNXb8F1Js0=3D?=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR08MB7120.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB3PR08MB10335
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: DU6PEPF0000B622.eurprd02.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: b12c13c3-0aea-49f1-544f-08ddc79b37bf
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|14060799003|36860700013|82310400026|1800799024|35042699022|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?R0JOOXBKR3dPTThMUG5PZ1hrVm1UR0NBam5WVkNPaExtR3VtV0JuYjd0VUhw?=
- =?utf-8?B?aFg5cTVWa0g2YkEzVUV0QlU4bzEwU1ZOMWNvOEtJdE0wTUFxdlNwN05SbkF3?=
- =?utf-8?B?eUNtdG9sK1EveG4wSlVtV2paaGluaWZqRi96WEJ6YkNPNjRPUVB6THJwZW85?=
- =?utf-8?B?WFNjTWR6RkNtcVlHcldjZ2FtdjZyK01weDdOakIwQUdMaWZPUU9uWVM3cmpp?=
- =?utf-8?B?SHNYTElHbVkwak00V3RmelB1NWhqbC9GTktOS3lqRVBuaVRmRmwzL2duT2dR?=
- =?utf-8?B?RCtiZkpFME1OekJIa3JYdUNqWCswRlBTRDlmNitxUVVaSFZiU0NMQ0VtNzI0?=
- =?utf-8?B?cFVkNXIyR3lNMllLVnpzT2swa01vRDNvOGR2clNTa3NOTHhKUi9CN0lnRlhr?=
- =?utf-8?B?MlNkUnpjOEdYZFFCQmIzOStyQ1djSFdQUnRBZkpVMmhwdHc4cDkvendzYTIx?=
- =?utf-8?B?N1dYci9tanY4Q29FMlhRckxRUUMrOVk4UGR3QXpXMk9sNkRtWUVFVUQrbmlk?=
- =?utf-8?B?YUNJZExNdW1LdDVTM2pxZ3pWYXE5MExkK3Z2ci9EdG9vb3JoVVFPT1ppdis3?=
- =?utf-8?B?czRSWXZlOEhWSVRTV0RXeUJac2kwdFd3bTJxcGdpZC9MOFYwbDFhcDRNU3pi?=
- =?utf-8?B?VUJxd0FlUFpXRWVFQW9NdjZSU0x5eEVuRTVlcDZJcFdoVG1tTmhzK04rbnd2?=
- =?utf-8?B?ZW5rdlZJaUMrTXlPRGRJLzk4ZWNWR0NUNm52Rzc0a1Q0KzZLc0M5V2tJaUo5?=
- =?utf-8?B?aEVaaVBTOUdEV2xWclpPNWtuRFN4U1BsUXhuT1FoVlhuQU96aHFNVS9XYWlS?=
- =?utf-8?B?ajdGOTNSOE42TDd3OWtyZ3J3Z1FydVppOWtUdk9oOVhaeDd6WkYzelNwcVFD?=
- =?utf-8?B?eEl6d2xzSFlXQmV4T2o5aVRvNVNRQ1pKbkMvVldzekQ4cllMZTRJU3NZSDJD?=
- =?utf-8?B?QXhoaERuQm00cER2ZGs3UFRwZG55THF0M21iOGVIM3FQeEQ1c1ptakFXUWpi?=
- =?utf-8?B?VmkzUktmZXA0RHR0M1pBVFByR0ZYa0ZwbjBvRmMyK1IwVmt5RVJSYTRuSkJi?=
- =?utf-8?B?YkdaclFQcnQ1NEw0Z3plc01OOGRxZmVDd2twVDhCQ0xPOVhWVmNzYVMzSDYx?=
- =?utf-8?B?alRVQ2Y4L2E4dWZHOFRFMk4zZGtobVR6K3BHZWQ5S0czNzRYOEhqd1NzZG95?=
- =?utf-8?B?OGV3b3g5M0RVb0poNnUrUERkWmZhYmRTSDdoc21pLzgwYjJ2dkNKcHI1NWpO?=
- =?utf-8?B?TjlwaUlvbnBsSk1BWlVsRnJCL0w1VWdaVHVNUUF2YlZqL3hScGlEZU5HRWtL?=
- =?utf-8?B?Zm4rWGJwZlBVLzk3dklnZkNVUHVrWmloUXR4WWlUM2o0NDlnYk5qbTUwSEYy?=
- =?utf-8?B?dm1ZMkxRSzZZTGsxdmlNS2xsWlpvb0l6OW4yeStpSk0xcGZUVXJ4eXVDWVJw?=
- =?utf-8?B?R1RhaXhnbmc0Nzh1YlJyT2JkWkM3WnZzUHhEUTk2eWlzV2laU3cyNXhsWGRw?=
- =?utf-8?B?WXl5a3NrcmNodTVqUGxKSzZvdlE4Q1pqUFNLL1FFNkZnQUpZTFZqVWRVUXVO?=
- =?utf-8?B?ZkE3ekxPaVc0Nm5lTlVPcTFGbTN0ckp3aXB3VUt0eExoSFg1eG43Sy80Q1FX?=
- =?utf-8?B?WVN0T3RWd3dLUXNyUVVVK3lQM3FTZEpVRW95WHY0L0E3a2xMQzdyUXRGdThH?=
- =?utf-8?B?ZVRwcDRZNDM4aTNubThpRUNOR2JtUFF6RzJUZlhOL3NlVzhqWTZwSEFqMnow?=
- =?utf-8?B?cHhvWVovR3R0ZmFSRjh4d1RpWGVuM3laOUR3dnVDK3dPYTJxOVhSNDI2Tzda?=
- =?utf-8?B?K01NUUhoSENWN1U1MjRiMjRkSnhEdmZwOXpJZHp6Q05kdVcwRUhlWFptRE5h?=
- =?utf-8?B?VGtRejJpTldTajV2b3QvU2JmWXgzRVhjUlZoR1ZJaWZhdy9YU3Q2VzQweWxa?=
- =?utf-8?B?WU0xczc1NWJaZzNxWlRFcVU1QjZNcHpvU2VOOTQvd0tHMVFvQ0hGWHJaWTBp?=
- =?utf-8?B?NlRraWkycnNkVnJHMjMvaWxBYUhDT2lWZHpZUXRHdFJ1YllVOG1Ld1RtYS9K?=
- =?utf-8?Q?9keFd5?=
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(7416014)(14060799003)(36860700013)(82310400026)(1800799024)(35042699022)(7053199007);DIR:OUT;SFP:1101;
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Jul 2025 14:39:56.1701
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: f3fe7de2-f11a-414e-f81b-08ddc79b4bd9
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: DU6PEPF0000B622.eurprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR08MB10473
+X-WP-MailID: 73e3bbc9459faaf9a42a9134af578f24
+X-WP-AV: skaner antywirusowy Poczty Wirtualnej Polski
+X-WP-SPAM: NO 0000001 [8eLC]                               
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250720_074026_543894_C13CD792 
-X-CRM114-Status: UNSURE (   8.15  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250720_080232_383348_BFDFF73C 
+X-CRM114-Status: GOOD (  21.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -228,176 +81,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi,
 
-On 20/07/25 4:50 pm, Lorenzo Stoakes wrote:
-> On Sat, Jul 19, 2025 at 07:16:48PM +0530, Dev Jain wrote:
->> On 19/07/25 12:19 am, Lorenzo Stoakes wrote:
->>> On Fri, Jul 18, 2025 at 02:32:43PM +0530, Dev Jain wrote:
->>> Reviewed-by: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
->> Thanks!
-> You're welcome :)
->
->>>> ---
->>>>    mm/mprotect.c | 125 +++++++++++++++++++++++++++++++++++++++++++++-----
->>>>    1 file changed, 113 insertions(+), 12 deletions(-)
->>>>
->>>> diff --git a/mm/mprotect.c b/mm/mprotect.c
->>>> index a1c7d8a4648d..2ddd37b2f462 100644
->>>> --- a/mm/mprotect.c
->>>> +++ b/mm/mprotect.c
->>>> @@ -106,7 +106,7 @@ bool can_change_pte_writable(struct vm_area_struct *vma, unsigned long addr,
->>>>    }
->>>>
->>>>    static int mprotect_folio_pte_batch(struct folio *folio, pte_t *ptep,
->>>> -				    pte_t pte, int max_nr_ptes)
->>>> +				    pte_t pte, int max_nr_ptes, fpb_t flags)
->>>>    {
->>>>    	/* No underlying folio, so cannot batch */
->>>>    	if (!folio)
->>>> @@ -115,7 +115,7 @@ static int mprotect_folio_pte_batch(struct folio *folio, pte_t *ptep,
->>>>    	if (!folio_test_large(folio))
->>>>    		return 1;
->>>>
->>>> -	return folio_pte_batch(folio, ptep, pte, max_nr_ptes);
->>>> +	return folio_pte_batch_flags(folio, NULL, ptep, &pte, max_nr_ptes, flags);
->>>>    }
->>>>
->>>>    static bool prot_numa_skip(struct vm_area_struct *vma, unsigned long addr,
->>>> @@ -177,6 +177,102 @@ static bool prot_numa_skip(struct vm_area_struct *vma, unsigned long addr,
->>>>    	return ret;
->>>>    }
->>>>
->>>> +/* Set nr_ptes number of ptes, starting from idx */
->>>> +static void prot_commit_flush_ptes(struct vm_area_struct *vma, unsigned long addr,
->>>> +		pte_t *ptep, pte_t oldpte, pte_t ptent, int nr_ptes,
->>>> +		int idx, bool set_write, struct mmu_gather *tlb)
->>>> +{
->>>> +	/*
->>>> +	 * Advance the position in the batch by idx; note that if idx > 0,
->>>> +	 * then the nr_ptes passed here is <= batch size - idx.
->>>> +	 */
->>>> +	addr += idx * PAGE_SIZE;
->>>> +	ptep += idx;
->>>> +	oldpte = pte_advance_pfn(oldpte, idx);
->>>> +	ptent = pte_advance_pfn(ptent, idx);
->>>> +
->>>> +	if (set_write)
->>>> +		ptent = pte_mkwrite(ptent, vma);
->>>> +
->>>> +	modify_prot_commit_ptes(vma, addr, ptep, oldpte, ptent, nr_ptes);
->>>> +	if (pte_needs_flush(oldpte, ptent))
->>>> +		tlb_flush_pte_range(tlb, addr, nr_ptes * PAGE_SIZE);
->>>> +}
->>>> +
->>>> +/*
->>>> + * Get max length of consecutive ptes pointing to PageAnonExclusive() pages or
->>>> + * !PageAnonExclusive() pages, starting from start_idx. Caller must enforce
->>>> + * that the ptes point to consecutive pages of the same anon large folio.
->>>> + */
->>>> +static int page_anon_exclusive_sub_batch(int start_idx, int max_len,
->>>> +		struct page *first_page, bool expected_anon_exclusive)
->>>> +{
->>>> +	int idx;
->>> Nit but:
->>>
->>> 	int end = start_idx + max_len;
->>>
->>> 	for (idx = start_idx + 1; idx < end; idx++) {
->>>
->>> Would be a little neater here.
->> I politely disagree :) start_idx + max_len is *obviously* the
->> end index, no need to add one more line of code asserting that.
-> Haha, well disagreement is permitted you know ;) as long as it's polite of
-> course...
->
-> That's fine, this isn't a big deal.
->
+this is a false positive. The binding patch [1] is already queued for 
+6.17 :)
+
+[1] 
+https://git.kernel.org/pub/scm/linux/kernel/git/gregkh/char-misc.git/commit/?h=char-misc-next&id=8749c54202df93af2a01c15865b07eea1e64b6d9
+
+Best regards,
+Aleksander Bajkowski
+
+On 14.07.2025 17:24, Rob Herring (Arm) wrote:
+> On Sat, 12 Jul 2025 21:59:02 +0200, Aleksander Jan Bajkowski wrote:
+>> This patch adds support for the temperature sensor in the MT7981 SoC.
+>> This sensor is exactly the same as the one in the MT7986.
 >>
->>>> +
->>>> +	for (idx = start_idx + 1; idx < start_idx + max_len; ++idx) {
->>> Nitty again but the below might be a little clearer?
->>>
->>> 	struct page *page = &firstpage[idx];
->>>
->>> 	if (expected_anon_exclusive != PageAnonExclusive(page))
->> I don't think so. first_page[idx] may confuse us into thinking that
->> we have an array of pages. Also, the way you define it assigns a
->> stack address to struct page *page; this is not a problem in theory
->> and the code will still be correct, but I will prefer struct page *page
->> containing the actual address of the linear map struct page, which is
->> vmemmap + PFN. The way I write it is, I initialize first_page from folio_page()
->> which will derive the address from folio->page, and folio was derived from
->> vm_normal_folio() (which was derived from the PFN in the PTE), therefore
->> first_page will contain the actual vmemmap address of corresponding struct page,
->> hence it is guaranteed that first_page + x will give me the x'th page in
->> the folio.
-> OK, I don't think this is an issue, but I"m not going to press this, as it's a
-> trivial thing, it's fine as-is :)
->
+>> Changes in v4:
+>>   - sorted bindings by fallback names
+>>   - dropped accepted patch
 >>
->>>
->>>> +		if (expected_anon_exclusive != PageAnonExclusive(first_page + idx))
->>>> +			break;
->>>> +	}
->>>> +	return idx - start_idx;
->>>> +}
->>>> +
->>>> +/*
->>>> + * This function is a result of trying our very best to retain the
->>>> + * "avoid the write-fault handler" optimization. In can_change_pte_writable(),
->>>> + * if the vma is a private vma, and we cannot determine whether to change
->>>> + * the pte to writable just from the vma and the pte, we then need to look
->>>> + * at the actual page pointed to by the pte. Unfortunately, if we have a
->>>> + * batch of ptes pointing to consecutive pages of the same anon large folio,
->>>> + * the anon-exclusivity (or the negation) of the first page does not guarantee
->>>> + * the anon-exclusivity (or the negation) of the other pages corresponding to
->>>> + * the pte batch; hence in this case it is incorrect to decide to change or
->>>> + * not change the ptes to writable just by using information from the first
->>>> + * pte of the batch. Therefore, we must individually check all pages and
->>>> + * retrieve sub-batches.
->>>> + */
->>> Nice comment thanks.
->>>
->>>> +static void commit_anon_folio_batch(struct vm_area_struct *vma,
->>>> +		struct folio *folio, unsigned long addr, pte_t *ptep,
->>>> +		pte_t oldpte, pte_t ptent, int nr_ptes, struct mmu_gather *tlb)
->>>> +{
->>>> +	struct page *first_page = folio_page(folio, 0);
->>>> +	bool expected_anon_exclusive;
->>>> +	int sub_batch_idx = 0;
->>>> +	int len;
->>>> +
->>>> +	while (nr_ptes) {
->>> I'd prefer this to be:
->>>
->>> 	int i;
->>>
->>> 	...
->>>
->>> 	for (i = 0; i < nr_ptes; i += len, sub_batch_idx += len) {
->>>
->>>> +		expected_anon_exclusive = PageAnonExclusive(first_page + sub_batch_idx);
->> We won't be able to do nr_ptes -= len with this. And personally a while loop
->> is clearer to me here.
-> Well, you don't need to :) maybe rename i to pte_idx + pass nr_ptes - pte_idx.
+>> Changes in v3:
+>>   - added fallback in bindings
+>>
+>> Changes in v2:
+>>   - added fallback to an existing compatible string
+>>   - removed second patch as obsolete
+>>
+>> Aleksander Jan Bajkowski (2):
+>>    dt-bindings: thermal: mediatek: add falback compatible string for
+>>      MT7981 and MT8516
+>>    arm64: dts: mediatek: add thermal sensor support on mt7981
+>>
+>>   .../bindings/thermal/mediatek,thermal.yaml    | 27 ++++++++++------
+>>   arch/arm64/boot/dts/mediatek/mt7981b.dtsi     | 31 ++++++++++++++++++-
+>>   2 files changed, 47 insertions(+), 11 deletions(-)
+>>
+>> --
+>> 2.39.5
+>>
+>>
+>>
 >
-> Buuuut I'm not going to press this, it's not a big deal, and I see your point!
+> My bot found new DTB warnings on the .dts files added or changed in this
+> series.
 >
-> Overall the R-b tag still stands with the above unchanged.
+> Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
+> are fixed by another series. Ultimately, it is up to the platform
+> maintainer whether these warnings are acceptable or not. No need to reply
+> unless the platform maintainer has comments.
 >
-> Thanks for doing this series and being open to feedback, I feel we're iterated
-> to something nice here!
-
-We definitely iterated to something nice! I definitely found your review very
-useful; as contributors trying to solve our own problems, we simply keep
-adding new features and the code becomes a mess of if-else statements - this
-is what I felt when I began reading kernel code. I am reading code and
-suddenly some conditional handling a uffd-wp pte appears (I know you have
-some nice words about uffd :))
-
-Thank you for actually forcing me to think into how I can implement
-my ideas into code better!
-
+> If you already ran DT checks and didn't see these error(s), then
+> make sure dt-schema is up to date:
 >
-> Cheers, Lorenzo
+>    pip3 install dtschema --upgrade
+>
+>
+> This patch series was applied (using b4) to base:
+>   Base: attempting to guess base-commit...
+>   Base: tags/v6.16-rc1-8-g95a042a0c8ec (exact match)
+>
+> If this is not the correct base, please add 'base-commit' tag
+> (or use b4 which does this automatically)
+>
+> New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/mediatek/' for 20250712195904.6988-1-olek2@wp.pl:
+>
+> arch/arm64/boot/dts/mediatek/mt7981b-openwrt-one.dtb: adc@1100d000 (mediatek,mt7981-auxadc): compatible: 'oneOf' conditional failed, one must be fixed:
+> 	['mediatek,mt7981-auxadc', 'mediatek,mt7986-auxadc'] is too long
+> 	'mediatek,mt7981-auxadc' is not one of ['mediatek,mt2701-auxadc', 'mediatek,mt2712-auxadc', 'mediatek,mt6765-auxadc', 'mediatek,mt7622-auxadc', 'mediatek,mt7986-auxadc', 'mediatek,mt8173-auxadc']
+> 	'mediatek,mt7981-auxadc' is not one of ['mediatek,mt7623-auxadc']
+> 	'mediatek,mt7981-auxadc' is not one of ['mediatek,mt6893-auxadc', 'mediatek,mt8183-auxadc', 'mediatek,mt8186-auxadc', 'mediatek,mt8188-auxadc', 'mediatek,mt8195-auxadc', 'mediatek,mt8516-auxadc']
+> 	'mediatek,mt2701-auxadc' was expected
+> 	'mediatek,mt8173-auxadc' was expected
+> 	from schema $id: http://devicetree.org/schemas/iio/adc/mediatek,mt2701-auxadc.yaml#
+> arch/arm64/boot/dts/mediatek/mt7981b-openwrt-one.dtb: /soc/adc@1100d000: failed to match any schema with compatible: ['mediatek,mt7981-auxadc', 'mediatek,mt7986-auxadc']
+> arch/arm64/boot/dts/mediatek/mt7981b-cudy-wr3000-v1.dtb: adc@1100d000 (mediatek,mt7981-auxadc): compatible: 'oneOf' conditional failed, one must be fixed:
+> 	['mediatek,mt7981-auxadc', 'mediatek,mt7986-auxadc'] is too long
+> 	'mediatek,mt7981-auxadc' is not one of ['mediatek,mt2701-auxadc', 'mediatek,mt2712-auxadc', 'mediatek,mt6765-auxadc', 'mediatek,mt7622-auxadc', 'mediatek,mt7986-auxadc', 'mediatek,mt8173-auxadc']
+> 	'mediatek,mt7981-auxadc' is not one of ['mediatek,mt7623-auxadc']
+> 	'mediatek,mt7981-auxadc' is not one of ['mediatek,mt6893-auxadc', 'mediatek,mt8183-auxadc', 'mediatek,mt8186-auxadc', 'mediatek,mt8188-auxadc', 'mediatek,mt8195-auxadc', 'mediatek,mt8516-auxadc']
+> 	'mediatek,mt2701-auxadc' was expected
+> 	'mediatek,mt8173-auxadc' was expected
+> 	from schema $id: http://devicetree.org/schemas/iio/adc/mediatek,mt2701-auxadc.yaml#
+> arch/arm64/boot/dts/mediatek/mt7981b-cudy-wr3000-v1.dtb: /soc/adc@1100d000: failed to match any schema with compatible: ['mediatek,mt7981-auxadc', 'mediatek,mt7986-auxadc']
+> arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku6.dtb: clock-controller@15520000 (mediatek,mt8188-imgsys-wpe2): '#reset-cells' does not match any of the regexes: '^pinctrl-[0-9]+$'
+> 	from schema $id: http://devicetree.org/schemas/clock/mediatek,mt8188-clock.yaml#
+> arch/arm64/boot/dts/mediatek/mt7981b-xiaomi-ax3000t.dtb: adc@1100d000 (mediatek,mt7981-auxadc): compatible: 'oneOf' conditional failed, one must be fixed:
+> 	['mediatek,mt7981-auxadc', 'mediatek,mt7986-auxadc'] is too long
+> 	'mediatek,mt7981-auxadc' is not one of ['mediatek,mt2701-auxadc', 'mediatek,mt2712-auxadc', 'mediatek,mt6765-auxadc', 'mediatek,mt7622-auxadc', 'mediatek,mt7986-auxadc', 'mediatek,mt8173-auxadc']
+> 	'mediatek,mt7981-auxadc' is not one of ['mediatek,mt7623-auxadc']
+> 	'mediatek,mt7981-auxadc' is not one of ['mediatek,mt6893-auxadc', 'mediatek,mt8183-auxadc', 'mediatek,mt8186-auxadc', 'mediatek,mt8188-auxadc', 'mediatek,mt8195-auxadc', 'mediatek,mt8516-auxadc']
+> 	'mediatek,mt2701-auxadc' was expected
+> 	'mediatek,mt8173-auxadc' was expected
+> 	from schema $id: http://devicetree.org/schemas/iio/adc/mediatek,mt2701-auxadc.yaml#
+> arch/arm64/boot/dts/mediatek/mt7981b-xiaomi-ax3000t.dtb: /soc/adc@1100d000: failed to match any schema with compatible: ['mediatek,mt7981-auxadc', 'mediatek,mt7986-auxadc']
+>
+>
+>
+>
+>
 
