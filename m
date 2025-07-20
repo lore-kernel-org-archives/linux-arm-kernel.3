@@ -4,75 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07EBAC83F22
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Jul 2025 17:42:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90446C83F22
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Jul 2025 17:51:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fFPF32ezJ2Yf2+XDswblaPjW2OBszSAhJA2wXEhIfGg=; b=SyH0QAmVIQSam9tS1hlJ+zbryH
-	GWAsHu+zIpb86rtq0O2yP1fGwo+fKoiztl5i6/TM8T2df/yiTRFxRIMKffnv8fBCIEJjj9m1tvWS0
-	lsh98MGxi0fgh8+bCwb+NvVRjnGUmrTcX57UoPNksA7MzlJB4yAxl+2e6cm9GmfSnSoGNGaZLmMsk
-	LLtlJtpnC5/7zCwk62gzyZWIeoZa+24VxL3/ZWKBX1WIZNnfHPs5fbXOVKpgCz7yk5LWOJ0PxWMDd
-	iOUjnzoymFUW7cahcNyp1+0p0lKq0Z14a70nsPxgXqV88OIk2/Qj292dbioeNduQkraARLNmC4jRh
-	xeqNxkDQ==;
+	bh=vCf/XlZtziyUPtDRK6OGTZ1iwHVlAnqUsHc+bCwUDB8=; b=pvHJ4uCCfQuWS9ikfKiTpfOGCX
+	rsT04QL1Ztf+3mEmnNjS0bJXgUcqPD+jCKyPUfArs0fTqCFz5ItulgsbCjED8P99DkQ4uxQ+rvyb/
+	6pghBH3K3cJOP3z9OBaVEXGtXHGI8794yUYluVE4lZJr8rNDbrp3gUDs0J8AivFyCciOqT5ro93qB
+	l11x0A9UXLtV2wA9rXFOJ0GJR+DkaySVolWjo1ce8WcYE+MBCaaXgPPLtUeilYq/R1xz8Yv02qDnX
+	OFWtqqV9A4ubJUHMWC6wXNis0sc9hkN6mz9cx9E99n6SaAcxntE8ghHfMu9BmnDoHHTZ8LuEL3i/s
+	OxEfBzSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udY3D-0000000FZBw-2Pd4;
-	Sun, 20 Jul 2025 17:42:15 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1udYCO-0000000FZZ4-3SgS;
+	Sun, 20 Jul 2025 17:51:44 +0000
+Received: from mx3.wp.pl ([212.77.101.9])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udY0l-0000000FZ73-2K17
+	id 1udY9v-0000000FZQz-3R0t
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 20 Jul 2025 17:39:44 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 3D49F5C58D7;
-	Sun, 20 Jul 2025 17:39:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 86834C4CEE7;
-	Sun, 20 Jul 2025 17:39:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753033181;
-	bh=kHdJnWMZ/uSXE2znXW0wKKZ9+EwYpTW2ogmdFfsxD/s=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=N/YCS9sr96beqAk3VqRCOHJ8lDgeb19X3LRh4clOUTA3bg1nh6Xglz5/7crHSwMLi
-	 l2eTe5SBAHQjB6gFSyF15O7Frw9DibTEuLntVliH3m0ij0Q95OrlTL8KFlLCaxPDbH
-	 yjhHylKFBaVnsdwLSmGWEYPwSfpkfURIF6qkvWtrSuw1K5/6ZT7+zOUDpOsvbws8Z6
-	 ZvjhRVQ1R+lwn5AzCwQDPT9FxN/D+WmFHhXuHzvID79QwFG49jgRwBJfeeUZSH+Epv
-	 a9ftMTp5KknEMwD0RjtYl/UMrMrTTgs56tQuST8fYIGevJSPXImkcRvGWUsbL/+cKg
-	 BUEkgiBGmlGQA==
-Received: from disco-boy.misterjones.org ([217.182.43.188] helo=www.loen.fr)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1udY0h-00HONo-4C;
-	Sun, 20 Jul 2025 18:39:39 +0100
+	Sun, 20 Jul 2025 17:49:13 +0000
+Received: (wp-smtpd smtp.wp.pl 40373 invoked from network); 20 Jul 2025 19:49:08 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wp.pl; s=20241105;
+          t=1753033748; bh=vCf/XlZtziyUPtDRK6OGTZ1iwHVlAnqUsHc+bCwUDB8=;
+          h=From:To:Cc:Subject;
+          b=CLKD3ZEQUKBP9sB1gdDbntbxETGrqnGz+Gt717JcKDruaQezXHFAuvaJh7LDowXTQ
+           DZYtxA2HfZ3GQ6LSwBnGu+v7CvTTCD++XCrxAPjdGSwIdK+naatvYcIiHy4wPDCp7P
+           azxQOaa+xA7hOfSz4S+VnEkXmYvEBVeJKpcrcBzZ2bcx8hsCInMnJLPxocdFYTB7/q
+           jyaG8PmX9lWxgSqC/N1bOQAEX+L0M5iGKsj7faCBjnOKAWHAQPS7zJGU52g9oBrWRt
+           Ie4eS/S8FYLChPubT9hGdElflJnCQJKgB2Nb2tjw5izSLvPf/kdLS0bRX8+IdO3SSc
+           kBpdPxzpHrkzg==
+Received: from 83.24.129.157.ipv4.supernova.orange.pl (HELO localhost.localdomain) (olek2@wp.pl@[83.24.129.157])
+          (envelope-sender <olek2@wp.pl>)
+          by smtp.wp.pl (WP-SMTPD) with ECDHE-RSA-AES256-GCM-SHA384 encrypted SMTP
+          for <herbert@gondor.apana.org.au>; 20 Jul 2025 19:49:07 +0200
+From: Aleksander Jan Bajkowski <olek2@wp.pl>
+To: herbert@gondor.apana.org.au,
+	davem@davemloft.net,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	atenart@kernel.org,
+	linux-crypto@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Cc: Aleksander Jan Bajkowski <olek2@wp.pl>
+Subject: [PATCH 2/2] arm64: dts: mediatek: add crypto offload support on MT7981
+Date: Sun, 20 Jul 2025 19:49:03 +0200
+Message-Id: <20250720174903.1321533-2-olek2@wp.pl>
+X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20250720174903.1321533-1-olek2@wp.pl>
+References: <20250720174903.1321533-1-olek2@wp.pl>
 MIME-Version: 1.0
-Date: Sun, 20 Jul 2025 18:39:38 +0100
-From: Marc Zyngier <maz@kernel.org>
-To: kvmarm@lists.linux.dev, kvm@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-Cc: Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose
- <suzuki.poulose@arm.com>, Oliver Upton <oliver.upton@linux.dev>, Zenghui Yu
- <yuzenghui@huawei.com>, stable@vger.kernel.org
-Subject: Re: [PATCH] KVM: arm64: Filter out HCR_EL2.VSE when running in
- hypervisor context
-In-Reply-To: <20250720113334.218099-1-maz@kernel.org>
-References: <20250720113334.218099-1-maz@kernel.org>
-User-Agent: Roundcube Webmail/1.4.15
-Message-ID: <7e78eca5652baa9f0fefd4242066c966@kernel.org>
-X-Sender: maz@kernel.org
-Content-Type: text/plain; charset=US-ASCII;
- format=flowed
-Content-Transfer-Encoding: 7bit
-X-SA-Exim-Connect-IP: 217.182.43.188
-X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, stable@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+Content-Transfer-Encoding: 8bit
+X-WP-DKIM-Status: good (id: wp.pl)                                                      
+X-WP-MailID: 2451c495f819e4f25474ddb960c350f4
+X-WP-AV: skaner antywirusowy Poczty Wirtualnej Polski
+X-WP-SPAM: NO 0000009 [IRpE]                               
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250720_103943_643897_483CBAB1 
-X-CRM114-Status: GOOD (  19.09  )
+X-CRM114-CacheID: sfid-20250720_104912_344278_42DC4BC0 
+X-CRM114-Status: UNSURE (   8.07  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,49 +86,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025-07-20 12:33, Marc Zyngier wrote:
-> HCR_EL2.VSE is delivering a virtual SError to the guest, and does not
-> affect EL2 itself. However, when computing the host's HCR_EL2 value,
-> we take the guest's view of HCR_EL2.VSE at face value, and apply it
-> irrespective of the guest's exception level we are returning to.
-> 
-> The result is that a L1 hypervisor injecting a virtual SError to an L2
-> by setting its HCR_EL2.VSE to 1 results in itself getting the SError
-> as if it was a physical one if it traps for any reason before returning
-> to L2.
-> 
-> Fix it by filtering HCR_EL2.VSE out when entering the L1 host context.
-> 
-> Fixes: 04ab519bb86df ("KVM: arm64: nv: Configure HCR_EL2 for FEAT_NV2")
-> Signed-off-by: Marc Zyngier <maz@kernel.org>
-> Cc: stable@vger.kernel.org
-> ---
->  arch/arm64/kvm/hyp/vhe/switch.c | 3 +++
->  1 file changed, 3 insertions(+)
-> 
-> diff --git a/arch/arm64/kvm/hyp/vhe/switch.c 
-> b/arch/arm64/kvm/hyp/vhe/switch.c
-> index 477f1580ffeaa..eddda649d9ee1 100644
-> --- a/arch/arm64/kvm/hyp/vhe/switch.c
-> +++ b/arch/arm64/kvm/hyp/vhe/switch.c
-> @@ -68,6 +68,9 @@ static u64 __compute_hcr(struct kvm_vcpu *vcpu)
->  		if (!vcpu_el2_e2h_is_set(vcpu))
->  			hcr |= HCR_NV1;
-> 
-> +		/* Virtual SErrors only apply to L2, not L1 */
-> +		guest_hcr &= ~HCR_VSE;
-> +
->  		write_sysreg_s(vcpu->arch.ctxt.vncr_array, SYS_VNCR_EL2);
->  	} else {
->  		host_data_clear_flag(VCPU_IN_HYP_CONTEXT);
+The MT7981 as well as the MT7986 have a built-in EIP-97 crypto accelerator.
+This commit adds the missing entry in the dts.
 
-Actually, a better fix would be just nuke any bit that doesn't affect
-the HYP context. And that's almost all of them, bar the RES1 bits.
+Signed-off-by: Aleksander Jan Bajkowski <olek2@wp.pl>
+---
+ arch/arm64/boot/dts/mediatek/mt7981b.dtsi | 14 ++++++++++++++
+ 1 file changed, 14 insertions(+)
 
-I'll repost something once I am done dealing with the rest of the RAS
-enabling stuff.
-
-         M.
+diff --git a/arch/arm64/boot/dts/mediatek/mt7981b.dtsi b/arch/arm64/boot/dts/mediatek/mt7981b.dtsi
+index 5cbea9cd411f..ebab8dde1e70 100644
+--- a/arch/arm64/boot/dts/mediatek/mt7981b.dtsi
++++ b/arch/arm64/boot/dts/mediatek/mt7981b.dtsi
+@@ -94,6 +94,20 @@ pwm@10048000 {
+ 			#pwm-cells = <2>;
+ 		};
+ 
++		crypto@10320000 {
++			compatible = "inside-secure,safexcel-eip97";
++			reg = <0 0x10320000 0 0x40000>;
++			interrupts = <GIC_SPI 116 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 117 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 118 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 119 IRQ_TYPE_LEVEL_HIGH>;
++			interrupt-names = "ring0", "ring1", "ring2", "ring3";
++			clocks = <&topckgen CLK_TOP_EIP97B>;
++			clock-names = "core";
++			assigned-clocks = <&topckgen CLK_TOP_EIP97B_SEL>;
++			assigned-clock-parents = <&topckgen CLK_TOP_CB_NET1_D5>;
++		};
++
+ 		serial@11002000 {
+ 			compatible = "mediatek,mt7981-uart", "mediatek,mt6577-uart";
+ 			reg = <0 0x11002000 0 0x100>;
 -- 
-Jazz is not dead. It just smells funny...
+2.39.5
+
 
