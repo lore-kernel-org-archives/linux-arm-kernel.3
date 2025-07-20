@@ -4,74 +4,139 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A14FCC83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Jul 2025 17:54:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B2ACC83F3E
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Jul 2025 18:46:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ZoV8pDRAyWULEp5ZRBitKk63UkguBuNR7jm0lOnkgcM=; b=NajfHBlWYs8jYdf4hQ9kFIZAMe
-	k60wSCTC1rqp2mVHgQ8zk0z+Cy1mIFD5MGTbNvnon0kL75r/fqQ6x34XFTI5lOoNXQksTEUl0Mo8n
-	y7SDCyEvTGrWDmvDDJLi6mHAve3FQPVC1ocHlZl8jgsFmuj5lzR0CGXZpB2ekF/rV9l7pfGGI6Mx3
-	s3bjgVFH3u9OMQUHQ9eeUROSuJCJF/uay7Iqhi6h+wNhXdOp6pw7BIpQngGXhRdiGhnM48gbvfXos
-	9knne0u5FfJ/h3vF+iUYZAqRSuUBErd9oJmXpbmiaI9aQR3hNwSeKobMHnPX/fAZUh9IHSE9Ujqfr
-	GliIs65A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7DGjbmN9sPVvKAeVUnrmEAYMXlcKkrf96eMlLVCBSP8=; b=zZmymKQRxebPWBSFgMDXK+scCY
+	LBN6xemo6f6KQpy5l3ijgRn0x6k75Cswbeu1/5sY/0qTLJIER111z2Tn7rdJImuFn+UV0j+T2kVwm
+	6jT1Q68wVmOB+mdhbcG8UN/k3AUuLyoNSZWeSz7FmxXIa45JV0nY58KouSC5AxBBFFrCiiNwG9Gvk
+	Xr9LjKhgJndtRTgpaouBjSkeI4Bmy3pIeI6NeFlPag3Ofea6+VMgs9mImlTHkKTUq00TbktZJade6
+	oIJLVWJkn2IY6WusFxxWCbKH+AQnBFMLTNbNma5D6qao57atR6nhLDXc04kwR5h82vLq7Finxc0K0
+	NwVsboOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udYEo-0000000FZh4-2NvF;
-	Sun, 20 Jul 2025 17:54:14 +0000
-Received: from mx3.wp.pl ([212.77.101.9])
+	id 1udZ3N-0000000Fc4h-1Bf8;
+	Sun, 20 Jul 2025 18:46:29 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udY9v-0000000FZQy-3QzK
+	id 1udZ0x-0000000Fbop-2vOo
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 20 Jul 2025 17:49:13 +0000
-Received: (wp-smtpd smtp.wp.pl 39467 invoked from network); 20 Jul 2025 19:49:06 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wp.pl; s=20241105;
-          t=1753033746; bh=ZoV8pDRAyWULEp5ZRBitKk63UkguBuNR7jm0lOnkgcM=;
-          h=From:To:Cc:Subject;
-          b=n7/Hit4kzTHWgHPbjsYJTjEH9Qxe0xVT4tOZE6b7w738YiHZ8vNvtQVgSx6K8DlAr
-           Jx8p4aia2GHBhn+Xs9kefJjss58UlcEBvkYeaqzUnyLI6PgU6zAj3WviaCSE1H5HfP
-           1OCxNR6hjQANdcbH8XE4DZEN+3rsEWJnE+0RYFV/GyCFLSlGX1edHsrwaXPVytKP9y
-           EDb/IbCEMnqoDS7lPa3CV+N02bpgx1hF/gAVh9Spbu6Y/jkv5a7yuMfx/1MXs47P7x
-           9kLLjZodNlQz5rrPZprJYfLInFMhzuhQb/Qsiwxdg+Tkoq4mmxVt/xQB3Cuuf5JFMA
-           R4WXK7+RZ3Evw==
-Received: from 83.24.129.157.ipv4.supernova.orange.pl (HELO localhost.localdomain) (olek2@wp.pl@[83.24.129.157])
-          (envelope-sender <olek2@wp.pl>)
-          by smtp.wp.pl (WP-SMTPD) with ECDHE-RSA-AES256-GCM-SHA384 encrypted SMTP
-          for <herbert@gondor.apana.org.au>; 20 Jul 2025 19:49:06 +0200
-From: Aleksander Jan Bajkowski <olek2@wp.pl>
-To: herbert@gondor.apana.org.au,
-	davem@davemloft.net,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	atenart@kernel.org,
-	linux-crypto@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Cc: Aleksander Jan Bajkowski <olek2@wp.pl>,
-	Sam Shih <sam.shih@mediatek.com>,
-	=?UTF-8?q?Rafa=C5=82=20Mi=C5=82ecki?= <rafal@milecki.pl>
-Subject: [PATCH 1/2] dt-bindings: crypto: inside-secure,safexcel: make eip/mem IRQ optional
-Date: Sun, 20 Jul 2025 19:49:02 +0200
-Message-Id: <20250720174903.1321533-1-olek2@wp.pl>
-X-Mailer: git-send-email 2.39.5
+	Sun, 20 Jul 2025 18:44:01 +0000
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56KGEPaX007775
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 20 Jul 2025 18:43:58 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=7DGjbmN9sPVvKAeVUnrmEAYM
+	XlcKkrf96eMlLVCBSP8=; b=YKjn9yuCwhTXrwZmhQAlmdmkiMhJwCC3zO19Pqes
+	fm5b1b8PrWR3WgOyoteZO8pn8s96wQMWh9YExZHY4P5knYn2N+wCNZZePBdGdW32
+	lPmEteEpb2XCQkIBu7tXJSzWI/skpYItlzUje7st0v//pSi14AGgXSKYmeOCxMwv
+	DBt5rjE72KAjyB4fQAHUsJWTcF+I348ot7YtMGGhuM94OyHsL3vaosCCT6XYjDrv
+	UNoTtKw+r9adxaRvekTw2H1d3sk5hQlTQcjyNQYhxGw+NFYEqMT7ZzTWxy0uf08K
+	juBZWBJEyKC5LebRNNHJMDVIVuqO8GQJjZWcd0VpnmSpjw==
+Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 48047q2m6e-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 20 Jul 2025 18:43:57 +0000 (GMT)
+Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-7e350826d99so555840985a.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 20 Jul 2025 11:43:57 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1753037037; x=1753641837;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=7DGjbmN9sPVvKAeVUnrmEAYMXlcKkrf96eMlLVCBSP8=;
+        b=IkLFOr7VF61RWbcV0irf8M5o1X82qg2V+MemTtoeLJipl2JqJ0y+LxKVo1NzqppH2K
+         1rc+7t2xxIKKdu4FluGWagyKTJsv7kgX90nQVi49QTbCGkTYhcAcIT0i0mqNObtYt3jq
+         YpdzsldDJ9PWZlzcGqS3jxGv6uyRBEyAtb+o/UQhe9AbQY4GgyXIICHYPysRub8gX74t
+         iYpcPx0IIKdWuErbZBmpdwPQ9GMKmvOVRtC+PRRqH9spT7uPDYNENkDUtx9cNo10zL5U
+         b+jk/1W6wYCYpYhmbAMWtT73+DIWP9EVUu/O2Niv2GF8DrFqmyz8ATxdEeGqos1BI2UA
+         PNAA==
+X-Forwarded-Encrypted: i=1; AJvYcCWFevCftj999E4khh5g/hL4kgNx8pFILGFOHwt/QzwdBpjwEjgjiaNLLb27/Fwwsu+VW/SxcfW5sVzxZy3gtiX0@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw4/jiYR2GI4Ec6RUVomj+uJRK0nrGBSbOwqR/Zy97YfuuTNHUc
+	1qzJLHPv1Y3KcM3A2JEIIG/tLKNA0cfvyDMwP+py43A5iJ5dCAGm43WQOFyEpFIGkTOJTJotb1U
+	trJhjNCo6eX8ZusUcg/5tRzL6WPf0bzIrzogpKCzhDPbmjKbfKosNkvfj/vjwv45OI/WMHxGR+s
+	wTkA==
+X-Gm-Gg: ASbGncsm/wenbVCEwGgI5jHw5vCkcsZiDb1AbC7d4wMpLAVvYszfOMNvmdQIiq+uh2j
+	dZqJUgdtysGL0+srgHd0cR/TL0Hi7bP3qJs7zVQTOci2ySxAWf2KKNm6WcdZzAPbl8ubLn56vt9
+	SlX21E37BamPhlE8ARChIZOx54SqV/oPZTqw6fFAYOsOcvGWJOyzBd4ECejq16Gi2ZMDLOB6Efk
+	xlMsQ06StS/U4BWPI8i1bWY71YnVbu8IlbkrtcMMQBmoLrk0XQqoYO3d5RdR1ItmzZnrb+EN/ej
+	r1CYHpYBKI++tOfJzNVvI+fPDbQyzUJKK/J45t1yjwqzEpb/YiK0cx1N7rCn6q3yqFTAPv0iOjE
+	vB6HYKg/nabw63u3135zJHUxdknA3asNE/bnFO0K9uuiSvf/r8K+a
+X-Received: by 2002:a05:620a:28c6:b0:7e2:b955:c2f8 with SMTP id af79cd13be357-7e343615de3mr2383898585a.41.1753037036716;
+        Sun, 20 Jul 2025 11:43:56 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFKbzT9Pz+u7y26dS37ikzmepswmyTtfuYp7Ru3WXjYRaeG4jYtpnsywS5C/gVypdLhcPj5dA==
+X-Received: by 2002:a05:620a:28c6:b0:7e2:b955:c2f8 with SMTP id af79cd13be357-7e343615de3mr2383892985a.41.1753037036107;
+        Sun, 20 Jul 2025 11:43:56 -0700 (PDT)
+Received: from umbar.lan (2001-14ba-a0c3-3a00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a0c3:3a00:264b:feff:fe8b:be8a])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-55a31d911c9sm1220334e87.147.2025.07.20.11.43.53
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 20 Jul 2025 11:43:53 -0700 (PDT)
+Date: Sun, 20 Jul 2025 21:43:52 +0300
+From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+To: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
+Cc: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>,
+        Sudeep Holla <sudeep.holla@arm.com>,
+        Souvik Chakravarty <Souvik.Chakravarty@arm.com>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>, Andy Yan <andy.yan@rock-chips.com>,
+        Mark Rutland <mark.rutland@arm.com>,
+        Lorenzo Pieralisi <lpieralisi@kernel.org>,
+        Arnd Bergmann <arnd@arndb.de>, Konrad Dybcio <konradybcio@kernel.org>,
+        cros-qcom-dts-watchers@chromium.org, Vinod Koul <vkoul@kernel.org>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>,
+        Florian Fainelli <florian.fainelli@broadcom.com>,
+        Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
+        Stephen Boyd <swboyd@chromium.org>,
+        Andre Draszik <andre.draszik@linaro.org>, linux-pm@vger.kernel.org,
+        linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+        Elliot Berman <quic_eberman@quicinc.com>,
+        Srinivas Kandagatla <srini@kernel.org>
+Subject: Re: [PATCH v11 1/8] power: reset: reboot-mode: Add device tree
+ node-based registration
+Message-ID: <ciaouxjcluhxj4hi24ajc4yr3r4xwqd36donieazxood23hcne@sjmwbabkdeuq>
+References: <20250717-arm-psci-system_reset2-vendor-reboots-v11-0-df3e2b2183c3@oss.qualcomm.com>
+ <20250717-arm-psci-system_reset2-vendor-reboots-v11-1-df3e2b2183c3@oss.qualcomm.com>
+ <y7xhfbiwkduo3lytb5gbukdu3yptx6uajtbngbspqbqkyt5dzo@gy62zoxwr6ah>
+ <54eaf8e8-2b4d-b0bd-b65f-1262e72a54dd@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-WP-MailID: 1a3ebb6bead59a00b80590b1222a87ba
-X-WP-AV: skaner antywirusowy Poczty Wirtualnej Polski
-X-WP-SPAM: NO 0000008 [ATvR]                               
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <54eaf8e8-2b4d-b0bd-b65f-1262e72a54dd@oss.qualcomm.com>
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNzIwMDE4MCBTYWx0ZWRfX69IKaXyFLPn7
+ VB96S8/X7iURdfn4qthSsnWTLExCGH8yv7Y/ePV3BCmt658fNoB9N96MnQUXpZ/ZQWdZGdan+Fn
+ /9+E6lSG8n0y6H9ut4eeZV5RwhbP+/yVcqBpGFQIbqtgIYTpTxWSDKwkJXF761+fswtADotP0jr
+ wXH88X0vgT0/nSxayKb//JPD9eHtj5dE0nO+TkD1nkU/gFLB1cVv1vZYV/tSgAdCV0K0wZWMMxy
+ P0hxwbpXto8VUhl6C2GABSc2ZH/+2OhxwpGNZ8ics2izdbMV2nurc5wfge+WXkxBhALE86qkVpV
+ g77+OeBdMty5JQUiGNCpUZnxY08a4hawwEQJv/bEvNIonAI3D5u+A+89k5WCTajv42LFGs/u0cv
+ C2s1JnoN6B+xOdbEz0XZXF7cTWfo6Z0CLXBNqdjqi2WKO08ylVWY5LJkN8oEoL+U34xhxj+n
+X-Proofpoint-ORIG-GUID: fx049MK5FDJ6hPgkqXiSyXwCs-5UDJMO
+X-Proofpoint-GUID: fx049MK5FDJ6hPgkqXiSyXwCs-5UDJMO
+X-Authority-Analysis: v=2.4 cv=IrMecK/g c=1 sm=1 tr=0 ts=687d38ed cx=c_pps
+ a=HLyN3IcIa5EE8TELMZ618Q==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
+ a=Wb1JkmetP80A:10 a=EUspDBNiAAAA:8 a=s3nfzRnEEBKEZTuRKrAA:9 a=CjuIK1q_8ugA:10
+ a=bTQJ7kPSJx9SKPbeHEYW:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-07-20_01,2025-07-17_02,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 lowpriorityscore=0 malwarescore=0 adultscore=0 clxscore=1015
+ priorityscore=1501 spamscore=0 mlxscore=0 mlxlogscore=999 phishscore=0
+ impostorscore=0 bulkscore=0 classifier=spam authscore=0 authtc=n/a authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2505280000
+ definitions=main-2507200180
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250720_104912_340172_1E04D879 
-X-CRM114-Status: UNSURE (   7.65  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250720_114359_871679_F3CD00BC 
+X-CRM114-Status: GOOD (  34.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,68 +151,162 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Binding for this cryptographic engine defined 6 interrupts since its
-beginning. It seems however only 4 rings IRQs are really required for
-operating this hardware. Linux driver doesn't use "eip" or "mem" IRQs
-and it isn't clear if they are always available (MT7986 devicetree
-doesn't specify them).
+On Sat, Jul 19, 2025 at 09:05:16PM +0530, Shivendra Pratap wrote:
+> 
+> 
+> On 7/19/2025 12:07 AM, Dmitry Baryshkov wrote:
+> > On Thu, Jul 17, 2025 at 06:16:47PM +0530, Shivendra Pratap wrote:
+> >> The reboot-mode driver does not have a strict requirement for
+> >> device-based registration. It primarily uses the device's of_node
+> >> to read mode-<cmd> properties and the device pointer for logging.
+> >>
+> >> Remove the dependency on struct device and introduce support for
+> >> Device Tree (DT) node-based registration. This enables drivers
+> >> that are not associated with a struct device to leverage the
+> >> reboot-mode framework.
+> >>
+> >> Signed-off-by: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
+> >> ---
+> >>  drivers/power/reset/reboot-mode.c | 29 +++++++++++++++++++----------
+> >>  include/linux/reboot-mode.h       |  2 +-
+> >>  2 files changed, 20 insertions(+), 11 deletions(-)
+> >>
+> >> diff --git a/drivers/power/reset/reboot-mode.c b/drivers/power/reset/reboot-mode.c
+> >> index fba53f638da04655e756b5f8b7d2d666d1379535..0269ec55106472cf2f2b12bd65704dd0114bf4a3 100644
+> >> --- a/drivers/power/reset/reboot-mode.c
+> >> +++ b/drivers/power/reset/reboot-mode.c
+> >> @@ -3,13 +3,17 @@
+> >>   * Copyright (c) 2016, Fuzhou Rockchip Electronics Co., Ltd
+> >>   */
+> >>  
+> >> +#define pr_fmt(fmt)	"reboot-mode: " fmt
+> >> +
+> >>  #include <linux/device.h>
+> >>  #include <linux/init.h>
+> >>  #include <linux/kernel.h>
+> >> +#include <linux/list.h>
+> >>  #include <linux/module.h>
+> >>  #include <linux/of.h>
+> >>  #include <linux/reboot.h>
+> >>  #include <linux/reboot-mode.h>
+> >> +#include <linux/slab.h>
+> >>  
+> >>  #define PREFIX "mode-"
+> >>  
+> >> @@ -65,33 +69,35 @@ static int reboot_mode_notify(struct notifier_block *this,
+> >>  /**
+> >>   * reboot_mode_register - register a reboot mode driver
+> >>   * @reboot: reboot mode driver
+> >> + * @np: Pointer to device tree node
+> >>   *
+> >>   * Returns: 0 on success or a negative error code on failure.
+> >>   */
+> >> -int reboot_mode_register(struct reboot_mode_driver *reboot)
+> >> +int reboot_mode_register(struct reboot_mode_driver *reboot, struct device_node *np)
+> >>  {
+> >>  	struct mode_info *info;
+> >>  	struct property *prop;
+> >> -	struct device_node *np = reboot->dev->of_node;
+> >>  	size_t len = strlen(PREFIX);
+> >>  	int ret;
+> >>  
+> >> +	if (!np)
+> >> +		return -EINVAL;
+> >> +
+> >>  	INIT_LIST_HEAD(&reboot->head);
+> >>  
+> >>  	for_each_property_of_node(np, prop) {
+> >>  		if (strncmp(prop->name, PREFIX, len))
+> >>  			continue;
+> >>  
+> >> -		info = devm_kzalloc(reboot->dev, sizeof(*info), GFP_KERNEL);
+> >> +		info = kzalloc(sizeof(*info), GFP_KERNEL);
+> >>  		if (!info) {
+> >>  			ret = -ENOMEM;
+> >>  			goto error;
+> >>  		}
+> >>  
+> >>  		if (of_property_read_u32(np, prop->name, &info->magic)) {
+> >> -			dev_err(reboot->dev, "reboot mode %s without magic number\n",
+> >> -				info->mode);
+> >> -			devm_kfree(reboot->dev, info);
+> >> +			pr_err("reboot mode %s without magic number\n", info->mode);
+> >> +			kfree(info);
+> >>  			continue;
+> >>  		}
+> >>  
+> >> @@ -102,8 +108,7 @@ int reboot_mode_register(struct reboot_mode_driver *reboot)
+> >>  		} else if (info->mode[0] == '\0') {
+> >>  			kfree_const(info->mode);
+> >>  			ret = -EINVAL;
+> >> -			dev_err(reboot->dev, "invalid mode name(%s): too short!\n",
+> >> -				prop->name);
+> >> +			pr_err("invalid mode name(%s): too short!\n", prop->name);
+> >>  			goto error;
+> >>  		}
+> >>  
+> >> @@ -130,11 +135,15 @@ EXPORT_SYMBOL_GPL(reboot_mode_register);
+> >>  int reboot_mode_unregister(struct reboot_mode_driver *reboot)
+> >>  {
+> >>  	struct mode_info *info;
+> >> +	struct mode_info *next;
+> >>  
+> >>  	unregister_reboot_notifier(&reboot->reboot_notifier);
+> >>  
+> >> -	list_for_each_entry(info, &reboot->head, list)
+> >> +	list_for_each_entry_safe(info, next, &reboot->head, list) {
+> > 
+> > This feels liks a missing lock.
+> Should we add a lock here? The list will mostly be fully created only
+> once at the time of registration.
 
-The hardware reference manual [1] for the EIP-197 IP core only defines
-ring interrupts and a global interrupt ("eip"). Ring interrupts can
-optionaly be routed via the main interrupt. Role of the "mem" interrupt
-is unknown.
+Does it matter? The code should be correct. List traversal should be
+protected by the lock in all the cases.
 
-This deals with:
-arch/arm64/boot/dts/mediatek/mt7986a-bananapi-bpi-r3.dtb: crypto@10320000: interrupts: [[0, 116, 4], [0, 117, 4], [0, 118, 4], [0, 119, 4]] is too short
-        from schema $id: http://devicetree.org/schemas/crypto/inside-secure,safexcel.yaml#
-arch/arm64/boot/dts/mediatek/mt7986a-bananapi-bpi-r3.dtb: crypto@10320000: interrupt-names: ['ring0', 'ring1', 'ring2', 'ring3'] is too short
-        from schema $id: http://devicetree.org/schemas/crypto/inside-secure,safexcel.yaml#
+> - thanks.
+> > 
+> >>  		kfree_const(info->mode);
+> >> +		list_del(&info->list);
+> > 
+> > list_del should come before kfree, otherwise it's possible to access
+> > freed memory while traversing the list.
+> sure. will make it list_del(&info->list) and then kfree_const(info->mode).
+> - thanks.
+> > 
+> >> +		kfree(info);
+> >> +	}
+> >>  
+> >>  	return 0;
+> >>  }
+> >> @@ -162,7 +171,7 @@ int devm_reboot_mode_register(struct device *dev,
+> >>  	if (!dr)
+> >>  		return -ENOMEM;
+> >>  
+> >> -	rc = reboot_mode_register(reboot);
+> >> +	rc = reboot_mode_register(reboot, reboot->dev->of_node);
+> >>  	if (rc) {
+> >>  		devres_free(dr);
+> >>  		return rc;
+> >> diff --git a/include/linux/reboot-mode.h b/include/linux/reboot-mode.h
+> >> index 4a2abb38d1d612ec0fdf05eb18c98b210f631b7f..36f071f4b82e1fc255d8dd679a18e537655c3179 100644
+> >> --- a/include/linux/reboot-mode.h
+> >> +++ b/include/linux/reboot-mode.h
+> >> @@ -9,7 +9,7 @@ struct reboot_mode_driver {
+> >>  	struct notifier_block reboot_notifier;
+> >>  };
+> >>  
+> >> -int reboot_mode_register(struct reboot_mode_driver *reboot);
+> >> +int reboot_mode_register(struct reboot_mode_driver *reboot, struct device_node *np);
+> >>  int reboot_mode_unregister(struct reboot_mode_driver *reboot);
+> >>  int devm_reboot_mode_register(struct device *dev,
+> >>  			      struct reboot_mode_driver *reboot);
+> >>
+> >> -- 
+> >> 2.34.1
+> >>
+> > 
 
-[1] https://www.scribd.com/document/665924595/Security-IP-197-HW3-4-Hardware-Reference-Manual-RevA
-Cc: Antoine Tenart <atenart@kernel.org>
-Cc: Sam Shih <sam.shih@mediatek.com>
-CC: Rafał Miłecki <rafal@milecki.pl>
-Signed-off-by: Aleksander Jan Bajkowski <olek2@wp.pl>
----
- .../crypto/inside-secure,safexcel.yaml        | 21 ++++++++++++-------
- 1 file changed, 14 insertions(+), 7 deletions(-)
-
-diff --git a/Documentation/devicetree/bindings/crypto/inside-secure,safexcel.yaml b/Documentation/devicetree/bindings/crypto/inside-secure,safexcel.yaml
-index 343e2d04c797..97af96bfe5f6 100644
---- a/Documentation/devicetree/bindings/crypto/inside-secure,safexcel.yaml
-+++ b/Documentation/devicetree/bindings/crypto/inside-secure,safexcel.yaml
-@@ -26,16 +26,23 @@ properties:
-     maxItems: 1
- 
-   interrupts:
-+    minItems: 4
-     maxItems: 6
- 
-   interrupt-names:
--    items:
--      - const: ring0
--      - const: ring1
--      - const: ring2
--      - const: ring3
--      - const: eip
--      - const: mem
-+    oneOf:
-+      - items:
-+          - const: ring0
-+          - const: ring1
-+          - const: ring2
-+          - const: ring3
-+          - const: eip
-+          - const: mem
-+      - items:
-+          - const: ring0
-+          - const: ring1
-+          - const: ring2
-+          - const: ring3
- 
-   clocks:
-     minItems: 1
 -- 
-2.39.5
-
+With best wishes
+Dmitry
 
