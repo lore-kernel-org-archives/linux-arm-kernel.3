@@ -4,87 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3498FC83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Jul 2025 19:46:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 606AFC83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Jul 2025 19:48:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Sk/Cvjmn3F+MvNcu5ECj0qva2OjAj6ueLb9Dbmgomqw=; b=FERzqilBCKbvWeYSG804Snt3M8
-	ijjUdTYj+H4jm8Jlhq45oHx47BmHDrmsk3/GKAMaRwwU2HYlr1yZ3LPbIuSxqFL+bKTO7I4rwrtEY
-	T8Cm8SzZUS24DZPRKVMJEFLP5kHzYh2PYEV13UcScV47oFP5q7Fb8nmZdqGXxwwvpQgqlPtr+wxlJ
-	eaV+SmztE7Kf9pghRXn8YbOiC98mx80TPcrthnwhJRfgChpppRKEqOTC3tGvgal8jpVIhxBxsfxtd
-	YK85t1n2khNFavi+JKcYKw8nWAykri3p0AEblSmbSzloCDCVK5rsSInMwpocFfbgMGxnJlVR3M2wm
-	VgwmGWgg==;
+	bh=6uCGwy/uGkpfb0pvgcXUB8vgobgSJDaGpbJSvSenFqI=; b=l1YsQ/JstFxGzhqulg8zD3Teus
+	DYbT/mi20vc1+z0xBvbqbO5a0VakfV7624ce42iZv05M68zki8Q3bazu7PMSMXf0Fkrc6fIYf0CaR
+	VetVGOcUxdOSrXTBixcA5BABjvYRL27ZL9uUsAsSVBExrJ+pH3T9oa8j5KhKqz5ElONm9Ukncvs1w
+	wQwbTL+N3nbTDKvSVA4j4oKxv3RWjf+/qNnxr/dd3Sxel76nnJxDgk4NGR1PUBvOSJ6xA/jVYg1Y8
+	m8iTrryIxUJ9q4CAJO+RYUGkMc/hnKJfnirbFYmDjDn0dn3WKm58zvm34OPq6/Ty1+R3KY+F4NdcC
+	iDp5krFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udZz0-0000000FfrM-2iZD;
-	Sun, 20 Jul 2025 19:46:02 +0000
-Received: from mail-oo1-xc2d.google.com ([2607:f8b0:4864:20::c2d])
+	id 1uda1N-0000000FfzZ-1kZD;
+	Sun, 20 Jul 2025 19:48:29 +0000
+Received: from mail-oa1-x30.google.com ([2001:4860:4864:20::30])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udZry-0000000FfIG-3ma3
+	id 1udZsF-0000000FfLb-1fjI
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 20 Jul 2025 19:38:48 +0000
-Received: by mail-oo1-xc2d.google.com with SMTP id 006d021491bc7-61594007beeso1242069eaf.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 20 Jul 2025 12:38:46 -0700 (PDT)
+	Sun, 20 Jul 2025 19:39:04 +0000
+Received: by mail-oa1-x30.google.com with SMTP id 586e51a60fabf-2ffa81b41d7so1165436fac.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 20 Jul 2025 12:39:03 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1753040326; x=1753645126; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1753040342; x=1753645142; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Sk/Cvjmn3F+MvNcu5ECj0qva2OjAj6ueLb9Dbmgomqw=;
-        b=LEcH5iXPaaqkdYBL3JeARnyk1s4ljwOqdoKYdd66qW59+C6LK5o38GzGhERZMiaTT0
-         yHGaqEVLa/tL+9s/1PJoiftyHC3yPfw+pfWXm7Q5svu0t7d837+LfwLBpKl/90UH6tMO
-         JDyA7TRG4jMeuOD6WH4+IjwN9g6c07/iUkElYNEHA+Vl7NPAqZT61qofZfdcZOxKy3Ri
-         Re9Nt4K+M8LGlrd9b2ntrvzjpk1GRoPWc8zUsN9cfkIaitaTrhkQA7W57AnsKzuOdGiD
-         euR/iAsI+rgSfTygpDFlRUTTAzipQSSJAzK2i85J+DySfOKN4l/UHldDWFNJQVLcAtOj
-         VzRg==
+        bh=6uCGwy/uGkpfb0pvgcXUB8vgobgSJDaGpbJSvSenFqI=;
+        b=KkG/f2IOOvXFpjvwatA7Q8NFt/1+k6kfYXoajH8bv7tkNCsYs+lePodoexDk1MWkmJ
+         kFKV733Mx/mpRhIsQrOTHwgIqvi9TbLyIqh17cqEWnTbjzySpdzHYsvcjAZCI8exnNGf
+         TfqRK8pARwo9HXmwIPv21GwjXm/o+xqr4/o3KVGe8rR/gq1Fhb72WqAv85DNOGi6P+aE
+         ShT77OcKQpL+AJJlnfvc0m2mFSVTNEiz/r6IcjeHbLFbgWtDAdgP46jDRvLr6F4SzP0p
+         IummsWgP0eOmRm5Ysqv0/1kazlAoahRPON1vNgckCc7Q51RYc0k7ytDAaD3oQWuMQF8Z
+         nZTw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753040326; x=1753645126;
+        d=1e100.net; s=20230601; t=1753040342; x=1753645142;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Sk/Cvjmn3F+MvNcu5ECj0qva2OjAj6ueLb9Dbmgomqw=;
-        b=Nxl05LH9B9iwHI7A3c/ASyWbQJNBbcYFDsUGIT4ugdPcOTbZlilSehTxG3HD3RJYpV
-         itlKb143K/wkyAxldMSrBi+EAODhJnfM8eNW36cHI1IqKVVN+0aHOWNes111qpS/gS0s
-         9Q9on3h4gDWeSsC2vkPS9rIaA9ljVLQ5ptphdI5DSDIvfZ4Ig2QQev0OInF15e/XEjWB
-         JMHii24sGewbQ24h/wd7f6T6jXiCdV4h5My14/lbtcoyLWYLXxpMDkK12+yacqQ9dJ/E
-         lxFdt7YGIDvpSDN5do0e1Zr782jiUu80ubyIr5cO79AXCP5FQD34pnHEL5wFPQwvUf9x
-         PkMA==
-X-Forwarded-Encrypted: i=1; AJvYcCUsSIxY5pWyisN0B8S1K+acec79Q4neHe17LqyarzcotvZTqjJBV8SUkf5N8dO8yQGVDboBhll9knU1r4z55pbZ@lists.infradead.org
-X-Gm-Message-State: AOJu0YxJMqZ0WhH3pgyAeZhG5vvYOHj2Ae0zk9B3Ru6SQS8K8EPU4iQW
-	om8zT4Z53utljGNEd8rKK3Y5Einrl+yLUhEE1L2Ncbd+vugt7ENupK3J1osQWnnYz2c=
-X-Gm-Gg: ASbGnctX2fj8mbp1k46vv8InRURD1TPna1PVfStWPKx6RASoVLtOI68eznr7+5vwex7
-	MmxbikRmqerrRZQJV/BxIHjkYsmho/CaOQD0xXU0gIcs7InFhdUb29aJcXmCzUiT+z/GT1pJySl
-	TNoWPfloZm4XBA/K+dEL0h+QL92S/ym+Ed2IDmQxfNKAxNJQ6jgEI0y+MIagHrQ4pQeQ/5PVsiw
-	caG2I+nRBx6jonYXYBCkYQLMj3zT2HAu+vgnD1dvprmqtyHnFXAQdL9qV8KhujXNhIL7HF0XczE
-	R4D6SbMApW3iW6XYCzy6Dd4jybh3ElpM6K5b22TEEGDy5UqsNiZZEEYTHsTZ2he0RHHN2NHZhzC
-	MQWUwyky77I8JyNuKzM39Cw==
-X-Google-Smtp-Source: AGHT+IHv3AJy6WvLlnGO2CccdtcgTjsbozHvajCI7dbyHtAdaolcMplcFhzuNXWcUN+G/rBrd/RjDA==
-X-Received: by 2002:a05:6808:10d0:b0:406:2bb4:cd77 with SMTP id 5614622812f47-41d034f1585mr12534170b6e.5.1753040326039;
-        Sun, 20 Jul 2025 12:38:46 -0700 (PDT)
+        bh=6uCGwy/uGkpfb0pvgcXUB8vgobgSJDaGpbJSvSenFqI=;
+        b=jCwPFjAW56xP278f4snBJ3kcHQySZJblLUylsvw35+f7nGO0WoO4UhPvQ8eAuHijcm
+         hvHxVUwYCe50HPAuy+Pp6eD+ksBCyF88iQYVUxn0J9Mgkm/WlP/cWSafo6nahO/YOSp+
+         aJ9rQTwek+DqL+RkzTJuzrHYoKa8OYQ+yJQBKX9ArQyCpgH1tc2l/+3ifiQN9vKzAwoe
+         53w1UgpgHeugPmZMCULB067LLZUADfyC1vYi34v75arWmIk+tFvIOnK3z1ixSCmh0eSv
+         lNa3boYeocX7mEhGWpXLV7Lumfb03YBKvKt4KHbOjnuDgkty73w8JpfZFFXYXuneEItu
+         G+7A==
+X-Forwarded-Encrypted: i=1; AJvYcCUiZZny4wLlf4+0vpmFW/N8AkqftP81I5aE0cujuj3Y2H70jkRRE7VmwIsms/kOf+wF1NBYzr0iVo89ZvyWM+L7@lists.infradead.org
+X-Gm-Message-State: AOJu0YzwQ/TvwkOU1cfPVufphcETXLMCr6mgsvkoC0XG0BL2y9T0Z4xB
+	unZ07x2fyc7s3iBn6g1bMssmmBSxg46S9ox0uk9rHE4WrZt80B9vj/BnFFRMKsFlmAk=
+X-Gm-Gg: ASbGnctv7ddlizkAvAQ5fznSiMAiS67tJT5XmH6QTOcgiVIi0qdKFZgCo29TVMpXeUo
+	x+tMLCROB1fufpA5OUCjUb3hRApzlz/UFiMbWQh6JQ+lII2jYElSxcvxruYsVnLZMNXRSh9MT7P
+	Git5MXnK7r/DORstzuUDTwRdDUhUyukZXlf0GKdrdqQI8uYz5EItwOdu6lsgXhqPjWSlBV8pYLt
+	OWXHUmT6vj1ZbaePMsTVamQYl5GM+YwGTx0zo0I0MpgPiSop2Ejz7Im66/lXu6rKLnuqORDDKj/
+	oasJuhRyA5iBytZMeLuFgBYgyHZFlyq2UkJliVYi4R7fqq1lk2kxsuOnMAeZpBB3FUZfABQOvQr
+	a+9ZhJ/DZ9S8=
+X-Google-Smtp-Source: AGHT+IH8XmyhhsiwXlgfzLZBUO70j3GY7Ll+3IavnthbKLQPwxSitZFNpac9MaQeewUcKGCyD5gWsw==
+X-Received: by 2002:a05:6871:7383:b0:2d5:ba2d:80da with SMTP id 586e51a60fabf-2ffaf5c8720mr13188863fac.36.1753040342019;
+        Sun, 20 Jul 2025 12:39:02 -0700 (PDT)
 Received: from localhost ([2603:8080:b800:f700::1fec])
-        by smtp.gmail.com with UTF8SMTPSA id 5614622812f47-41fd498d8d4sm2027882b6e.24.2025.07.20.12.38.43
+        by smtp.gmail.com with UTF8SMTPSA id 586e51a60fabf-30103d1d804sm2810796fac.29.2025.07.20.12.39.00
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 20 Jul 2025 12:38:44 -0700 (PDT)
-Date: Sun, 20 Jul 2025 14:38:42 -0500
+        Sun, 20 Jul 2025 12:39:01 -0700 (PDT)
+Date: Sun, 20 Jul 2025 14:38:59 -0500
 From: Dan Carpenter <dan.carpenter@linaro.org>
 To: Sudeep Holla <sudeep.holla@arm.com>,
 	AKASHI Takahiro <takahiro.akashi@linaro.org>,
 	Michal Simek <michal.simek@amd.com>
-Cc: Cristian Marussi <cristian.marussi@arm.com>, arm-scmi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: [PATCH RFC v2 2/7] firmware: arm_scmi: add is_gpio() function
-Message-ID: <fbcf6cca-784e-47bb-9b61-3028f59a92ba@sabinyo.mountain>
+Cc: Cristian Marussi <cristian.marussi@arm.com>,
+	Linus Walleij <linus.walleij@linaro.org>, arm-scmi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH RFC v2 4/7] pinctrl-scmi: add PIN_CONFIG_INPUT_VALUE
+Message-ID: <6f732f53-7e00-4f0d-82a3-480bc81497bd@sabinyo.mountain>
 References: <cover.1753039612.git.dan.carpenter@linaro.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 In-Reply-To: <cover.1753039612.git.dan.carpenter@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250720_123846_940131_CE685A07 
-X-CRM114-Status: GOOD (  17.62  )
+X-CRM114-CacheID: sfid-20250720_123903_437383_07944A57 
+X-CRM114-Status: GOOD (  19.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,135 +101,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Parse the GPIO response in scmi_pinctrl_attributes(), set the gpio
-flag, and create an is_gpio() function pointer so that it can be queried.
+In SCMI the value of the pin is just another configuration option.  Add
+this as an option in the pin_config_param enum and creating a mapping to
+SCMI_PIN_INPUT_VALUE in pinctrl_scmi_map_pinconf_type()
 
-In SCMI only functions and pins have a GPIO flag so that's why groups are
-not handled here.
+Since this is an RFC patch, I'm going to comment that I think the SCMI
+pinctrl driver misuses the PIN_CONFIG_OUTPUT enum.  It should be for
+enabling and disabling output on pins which can serve as both input and
+output.  Enabling it is supposed to write a 1 and disabling it is
+supposed to write a 0 but we use that side effect to write 1s and 0s.  I
+did't change this because it would break userspace but I'd like to add a
+PIN_CONFIG_OUTPUT_VALUE enum as well and use that in the GPIO driver.
+But in this patchset I just use PIN_CONFIG_OUTPUT.
 
 Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
 ---
- drivers/firmware/arm_scmi/pinctrl.c | 34 +++++++++++++++++++++++++----
- include/linux/scmi_protocol.h       |  2 ++
- 2 files changed, 32 insertions(+), 4 deletions(-)
+ drivers/pinctrl/pinctrl-scmi.c          | 3 +++
+ include/linux/pinctrl/pinconf-generic.h | 3 +++
+ 2 files changed, 6 insertions(+)
 
-diff --git a/drivers/firmware/arm_scmi/pinctrl.c b/drivers/firmware/arm_scmi/pinctrl.c
-index d18c2d248f04..10c92007bc1b 100644
---- a/drivers/firmware/arm_scmi/pinctrl.c
-+++ b/drivers/firmware/arm_scmi/pinctrl.c
-@@ -28,6 +28,7 @@
- 
- #define EXT_NAME_FLAG(x)	le32_get_bits((x), BIT(31))
- #define NUM_ELEMS(x)		le32_get_bits((x), GENMASK(15, 0))
-+#define GPIO_FUNC(x)		le32_get_bits((x), BIT(17))
- 
- #define REMAINING(x)		le32_get_bits((x), GENMASK(31, 16))
- #define RETURNED(x)		le32_get_bits((x), GENMASK(11, 0))
-@@ -107,6 +108,7 @@ struct scmi_group_info {
- struct scmi_function_info {
- 	char name[SCMI_MAX_STR_SIZE];
- 	bool present;
-+	bool gpio;
- 	u32 *groups;
- 	u32 nr_groups;
- };
-@@ -114,6 +116,7 @@ struct scmi_function_info {
- struct scmi_pin_info {
- 	char name[SCMI_MAX_STR_SIZE];
- 	bool present;
-+	bool gpio;
- };
- 
- struct scmi_pinctrl_info {
-@@ -189,7 +192,7 @@ static int scmi_pinctrl_validate_id(const struct scmi_protocol_handle *ph,
- 
- static int scmi_pinctrl_attributes(const struct scmi_protocol_handle *ph,
- 				   enum scmi_pinctrl_selector_type type,
--				   u32 selector, char *name,
-+				   u32 selector, char *name, bool *gpio,
- 				   u32 *n_elems)
- {
- 	int ret;
-@@ -217,6 +220,8 @@ static int scmi_pinctrl_attributes(const struct scmi_protocol_handle *ph,
- 
- 	ret = ph->xops->do_xfer(ph, t);
- 	if (!ret) {
-+		if (gpio)
-+			*gpio = GPIO_FUNC(rx->attributes);
- 		if (n_elems)
- 			*n_elems = NUM_ELEMS(rx->attributes);
- 
-@@ -610,7 +615,7 @@ static int scmi_pinctrl_get_group_info(const struct scmi_protocol_handle *ph,
- 		return 0;
- 
- 	ret = scmi_pinctrl_attributes(ph, GROUP_TYPE, selector, group->name,
--				      &group->nr_pins);
-+				      NULL, &group->nr_pins);
- 	if (ret)
- 		return ret;
- 
-@@ -689,7 +694,7 @@ static int scmi_pinctrl_get_function_info(const struct scmi_protocol_handle *ph,
- 		return 0;
- 
- 	ret = scmi_pinctrl_attributes(ph, FUNCTION_TYPE, selector, func->name,
--				      &func->nr_groups);
-+				      &func->gpio, &func->nr_groups);
- 	if (ret)
- 		return ret;
- 
-@@ -772,7 +777,8 @@ static int scmi_pinctrl_get_pin_info(const struct scmi_protocol_handle *ph,
- 	if (pin->present)
- 		return 0;
- 
--	ret = scmi_pinctrl_attributes(ph, PIN_TYPE, selector, pin->name, NULL);
-+	ret = scmi_pinctrl_attributes(ph, PIN_TYPE, selector, pin->name,
-+				      &pin->gpio, NULL);
- 	if (ret)
- 		return ret;
- 
-@@ -815,9 +821,29 @@ static int scmi_pinctrl_name_get(const struct scmi_protocol_handle *ph,
- 	}
- }
- 
-+static int scmi_pinctrl_is_gpio(const struct scmi_protocol_handle *ph,
-+				u32 selector,
-+				enum scmi_pinctrl_selector_type type)
-+{
-+	struct scmi_pinctrl_info *pi = ph->get_priv(ph);
-+	int ret;
-+
-+	ret = scmi_pinctrl_get_pin_info(ph, selector);
-+	if (ret)
-+		return ret;
-+
-+	if (type == PIN_TYPE)
-+		return pi->pins[selector].gpio;
-+	if (type == FUNCTION_TYPE)
-+		return pi->functions[selector].gpio;
-+
-+	return -EINVAL;
-+}
-+
- static const struct scmi_pinctrl_proto_ops pinctrl_proto_ops = {
- 	.count_get = scmi_pinctrl_count_get,
- 	.name_get = scmi_pinctrl_name_get,
-+	.is_gpio = scmi_pinctrl_is_gpio,
- 	.group_pins_get = scmi_pinctrl_group_pins_get,
- 	.function_groups_get = scmi_pinctrl_function_groups_get,
- 	.mux_set = scmi_pinctrl_mux_set,
-diff --git a/include/linux/scmi_protocol.h b/include/linux/scmi_protocol.h
-index 688466a0e816..b4ad32067fc4 100644
---- a/include/linux/scmi_protocol.h
-+++ b/include/linux/scmi_protocol.h
-@@ -792,6 +792,8 @@ struct scmi_pinctrl_proto_ops {
- 	int (*name_get)(const struct scmi_protocol_handle *ph, u32 selector,
- 			enum scmi_pinctrl_selector_type type,
- 			const char **name);
-+	int (*is_gpio)(const struct scmi_protocol_handle *ph, u32 selector,
-+		       enum scmi_pinctrl_selector_type type);
- 	int (*group_pins_get)(const struct scmi_protocol_handle *ph,
- 			      u32 selector, const unsigned int **pins,
- 			      unsigned int *nr_pins);
+diff --git a/drivers/pinctrl/pinctrl-scmi.c b/drivers/pinctrl/pinctrl-scmi.c
+index 383681041e4c..d1f2f971cd96 100644
+--- a/drivers/pinctrl/pinctrl-scmi.c
++++ b/drivers/pinctrl/pinctrl-scmi.c
+@@ -250,6 +250,9 @@ static int pinctrl_scmi_map_pinconf_type(enum pin_config_param param,
+ 	case PIN_CONFIG_INPUT_SCHMITT_ENABLE:
+ 		*type = SCMI_PIN_INPUT_MODE;
+ 		break;
++	case PIN_CONFIG_INPUT_VALUE:
++		*type = SCMI_PIN_INPUT_VALUE;
++		break;
+ 	case PIN_CONFIG_MODE_LOW_POWER:
+ 		*type = SCMI_PIN_LOW_POWER_MODE;
+ 		break;
+diff --git a/include/linux/pinctrl/pinconf-generic.h b/include/linux/pinctrl/pinconf-generic.h
+index 1bcf071b860e..b37838171581 100644
+--- a/include/linux/pinctrl/pinconf-generic.h
++++ b/include/linux/pinctrl/pinconf-generic.h
+@@ -83,6 +83,8 @@ struct pinctrl_map;
+  *      schmitt-trigger mode is disabled.
+  * @PIN_CONFIG_INPUT_SCHMITT_UV: this will configure an input pin to run in
+  *	schmitt-trigger mode. The argument is in uV.
++ * @PIN_CONFIG_INPUT_VALUE: This is used in SCMI to read the value from the
++ *	pin.
+  * @PIN_CONFIG_MODE_LOW_POWER: this will configure the pin for low power
+  *	operation, if several modes of operation are supported these can be
+  *	passed in the argument on a custom form, else just use argument 1
+@@ -135,6 +137,7 @@ enum pin_config_param {
+ 	PIN_CONFIG_INPUT_SCHMITT,
+ 	PIN_CONFIG_INPUT_SCHMITT_ENABLE,
+ 	PIN_CONFIG_INPUT_SCHMITT_UV,
++	PIN_CONFIG_INPUT_VALUE,
+ 	PIN_CONFIG_MODE_LOW_POWER,
+ 	PIN_CONFIG_MODE_PWM,
+ 	PIN_CONFIG_OUTPUT,
 -- 
 2.47.2
 
