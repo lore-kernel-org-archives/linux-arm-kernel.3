@@ -4,81 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2AC4C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Jul 2025 19:58:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 253BBC83F3D
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Jul 2025 20:00:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=T3lOadESAAHh4H6HI80AHcX9AqZoCllRYNj5xpAyhn0=; b=GmxNBUNL7aQlZvYj4h5ybU5P/U
-	YFOgs60VHyXwvMt7MT29nMba7FX6AgMxjlQaTg8IyNcn4YxKDjXp1oMvyNns1h0NFHzVf/y6l4woJ
-	zlmtmN8y2297vMpwo0bvTRy04IoWAM4TmjwEc432ZpYmEF3Ys2K1rnPGe9JB2t0FHDH3Mhf6S6BD8
-	fOHDyRK7Xm4DF9WfJIcn+LBFcESitqL48z7PVZDGwYO+m4qNTOAUEg4+v3JXSxEBvD7IQ4MyA5BtG
-	cVbQC1oZn2/cHMjoaQLe8ylphxYG8+U2ctqV7S+26ajiPquh+ZDd+hJuF745rFrLjQzTLHzo7XPyq
-	vM6bEmBA==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8pdUiGWbsgg0CJ4pLUwtMgPfW72vVxz6DKVN1oZBlnk=; b=I07J/lbFhXPHsnkxwR62e7Q9jr
+	pUZZwLrZDrqPBeBLMIjuXyChHYTmn+EEHgOq2NXSfmu1+eKkRVJScFaCyXgzveL/uyYKZEpN4OLth
+	WTD73x2fjbL6er0LH3CE1XW04PVOCbTGbi9q53Fp+Iat1RsC4v5ixcSZw79RB7Jpbjpnwc0VQ67cw
+	/JwRekDL7UVKCLEWhkrfa+JraV0wl9z6U+WjfQa0MXXQgOnQFY9AgfgvmZl6qoN4w5xVEfCQFpGgz
+	A/B39sDzQRlll4PhFicxFm/HwyeCWW8rTposc5JNf+bcqwAMAOKQss2RBaghakYuajjIBbObs8aPc
+	0NiBTH3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udaAr-0000000FgZu-48co;
-	Sun, 20 Jul 2025 19:58:17 +0000
-Received: from mout-p-202.mailbox.org ([80.241.56.172])
+	id 1udaDE-0000000Fgqy-2zFj;
+	Sun, 20 Jul 2025 20:00:44 +0000
+Received: from mail-oi1-x234.google.com ([2607:f8b0:4864:20::234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uda1E-0000000FfyJ-1coz
+	id 1uda42-0000000Fg7k-2sUP
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 20 Jul 2025 19:48:21 +0000
-Received: from smtp102.mailbox.org (smtp102.mailbox.org [IPv6:2001:67c:2050:b231:465::102])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-202.mailbox.org (Postfix) with ESMTPS id 4blYwq3Jt0z9sQ0;
-	Sun, 20 Jul 2025 21:48:11 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1753040891;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=T3lOadESAAHh4H6HI80AHcX9AqZoCllRYNj5xpAyhn0=;
-	b=YBcYJKot6u3su4O3fSJb8OKwEuTQXWWrgCbvOcFYspuxNDF+0d/3N2oe+u7GfWq58kFg7w
-	ZkH/wZWkOkWj2SyJopDE05GM0zlRZyHitH/ZSPO8KveyctPNaw+MPDRiS2DPfQlO7tg4bw
-	rA2wCjZu7KCKgxZBQFNiC5mo/mRVteSkNP84hzfBm1rM646j9ArGCgjICIUTNzP1KqlqRJ
-	kiswQCTt+v+byfKvuknma8Mlr9zED7t+aS6Q7ngB4NwZS0RH5x2LDyGmNAkkFRZjJ4avFf
-	+G6FOh3I6jwqCH3K6yrlDH2UO7xgvPOiZPt9jjYCW2z9EGy5Lraxg7FKxcXFgA==
-Authentication-Results: outgoing_mbo_mout;
-	dkim=pass header.d=mailbox.org header.s=mail20150812 header.b=DF02umNP;
-	spf=pass (outgoing_mbo_mout: domain of marek.vasut+renesas@mailbox.org designates 2001:67c:2050:b231:465::102 as permitted sender) smtp.mailfrom=marek.vasut+renesas@mailbox.org
-From: Marek Vasut <marek.vasut+renesas@mailbox.org>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1753040889;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=T3lOadESAAHh4H6HI80AHcX9AqZoCllRYNj5xpAyhn0=;
-	b=DF02umNPEg9sXSEzfmvPby4B0GTYlEHNPYYaqK1vACGp9wpEzrnmQXHFaAy8sR2AGlvJIU
-	vJovo0VHCfQboOY8aZxo0x+SDoS76Mw6zyylE7gkETVz8dqd8OCqaJzZ9owV+l8LxrObGK
-	kAqArU27PX7s3O11rLSWXhDHGoHG4HU0NWa23JQeniyj375rG0MdbOVPxEp0DR2969JXv+
-	AVKQCVOuCbfa4mhNkmUwCZHlSU0RPRO3ZTJ1qC8owr7vhQWvhjrEaMRIYZja3g68mllCAb
-	HC11wvOK2bo5t7AwnEUebzhxp+mWQ8UEiqXec5Z8Ion1tEMCF4FW8swenbaxMw==
-To: linux-arm-kernel@lists.infradead.org
-Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Magnus Damm <magnus.damm@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	devicetree@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org
-Subject: [PATCH] arm64: dts: renesas: r8a779g3: Describe generic SPI NOR support on Retronix R-Car V4H Sparrow Hawk board
-Date: Sun, 20 Jul 2025 21:47:35 +0200
-Message-ID: <20250720194756.413341-1-marek.vasut+renesas@mailbox.org>
+	Sun, 20 Jul 2025 19:51:15 +0000
+Received: by mail-oi1-x234.google.com with SMTP id 5614622812f47-41b6561d3b7so1831752b6e.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 20 Jul 2025 12:51:14 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1753041074; x=1753645874; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=8pdUiGWbsgg0CJ4pLUwtMgPfW72vVxz6DKVN1oZBlnk=;
+        b=RU93KBUtDRpmcLbfcEzoganHSXJZYfoCWknS2QciFhcHfuirwHmzqbIh1Il+Fv5yzM
+         P2/i7K2vYB4DguzqeO818CP43s9lsBudV7dOkYvEhzE15EuyUz1V8thGjBEId2/JI1qa
+         L5rPiq1bxf2DP4G0TUfQ94ZoMaAMlg9dp3LiuY2FF9CR8bWkm/W8h/L7Q7EVd4vwuELK
+         oQ8f1chPoGtx1D/1bZHMbNjADZRnesA62XDOt9DPI9WSUdfSKqZPOBFpX19bHjZrOeus
+         gp966+67A4uV5YPuxYq0aq26akvpndyPwXhUjtOEScvNdU0DJB00BmlgJJtO7EC9yGe1
+         b2OA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1753041074; x=1753645874;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=8pdUiGWbsgg0CJ4pLUwtMgPfW72vVxz6DKVN1oZBlnk=;
+        b=EGpH3zYp/YTY/aN2tE0y9GYwhAlpNx/B/IXj9q+7rNbqbnkYSlK+fSiC4nwp/YXtTp
+         uRegi9U5lNYjK0KBiz1gEC/j566v4q84J3RSALu4DV7yL7VMu4VJxD04ZJNVSnNTdraZ
+         6lIBwDWAQOAn3zxfV8HBl+zX2ZpwMiuFtbQo1IqllJCyk74uteJvnbCtlUbG14NEBTBS
+         PCNMcmCD0j3Y/ev5F9gGgNRtWvbAutePO8KaEFm4uRlfiP/5TbRoaUsjKrG1/SAfdlTq
+         UbBpy76Seu86NtmEAPm8L2waXRQkcjMPfXYm8JJxL+qD0VoUNDllPoQisiTiILHxhXGE
+         TP9A==
+X-Forwarded-Encrypted: i=1; AJvYcCXDK2DWiKtZUxXbEyIdaROoLkYRe0BEogtWfOhDs/r4ZPu8/Y2JPgWvGir3X3YwOda4k9nc+UwtUoXx7cKtRQcZ@lists.infradead.org
+X-Gm-Message-State: AOJu0YwVeje6ivOZTBUiV4MjKiuassCiEUvUHne5c2z2tCMlEXGB00G1
+	Et/UcT+sGeQ82dCZgTuMPvfQUqr7Y0U5InnJEhCFGJGXtpe34SVzfsfEBoeGQPCerOqdCac1o+f
+	qlV4YHoXe6A/DEoIsQxRafO1tsxOQhCTpG7Ma
+X-Gm-Gg: ASbGnctX2jC/mEDVq7Ani7uaVFgLkmop0Eo0X10ukTtjY/arJYOws7X+ac6QJIFDFjh
+	x6FDpmynJmh7x/bRK4qzp2fYsX7xH/NvaRGYFQYJi4BDKJXjnd5c5MbgDjs2F1CCIWelHlQ4Urw
+	CPVhGLnTE5sR5wT+lEq8M4z6D2hHXdnKa6TJGOzd4aYy2acZfhaI8t4AzeWSAXUh0iSBdoqsKKK
+	Nv7q/7xfH/WNb3itjA=
+X-Google-Smtp-Source: AGHT+IHt9uAWCHbIYGEdJFOU/DaDUPPXZITgD+rBr+XvH6npb6aGodI/kJwOtF692HkZTJVuU0Kx7GBVi3i4oDGR0Dk=
+X-Received: by 2002:a05:6808:2226:b0:41b:f2a0:28f7 with SMTP id
+ 5614622812f47-41d05756050mr10790464b6e.36.1753041073815; Sun, 20 Jul 2025
+ 12:51:13 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-MBO-RS-ID: 17fbfd472437da73ad1
-X-MBO-RS-META: 1ydpdb5fm69ntrknicfhkpw98gwodaqz
-X-Rspamd-Queue-Id: 4blYwq3Jt0z9sQ0
+References: <20250702011956.47479-1-jammy_huang@aspeedtech.com> <20250702011956.47479-3-jammy_huang@aspeedtech.com>
+In-Reply-To: <20250702011956.47479-3-jammy_huang@aspeedtech.com>
+From: Jassi Brar <jassisinghbrar@gmail.com>
+Date: Sun, 20 Jul 2025 14:51:02 -0500
+X-Gm-Features: Ac12FXwcwYnjAjxqqsPWb8Z6fZqKu8-qloc1mBHuXxX-CpWSK48rSruJh4ba31s
+Message-ID: <CABb+yY1kyZdMqcMRUEdqCYByQE=DurfnejtvuQsMf9wfLiij2g@mail.gmail.com>
+Subject: Re: [PATCH v6 2/2] mailbox: aspeed: add mailbox driver for AST27XX
+ series SoC
+To: Jammy Huang <jammy_huang@aspeedtech.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, joel@jms.id.au, 
+	andrew@codeconstruct.com.au, linux-kernel@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-aspeed@lists.ozlabs.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250720_124820_615748_3BFF42B7 
-X-CRM114-Status: UNSURE (   8.01  )
+X-CRM114-CacheID: sfid-20250720_125114_725463_2D45CACD 
+X-CRM114-Status: UNSURE (   8.93  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -94,42 +99,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Retronix R-Car V4H Sparrow Hawk EVTA1 is populated with Spansion S25FS512S,
-EVTB1 is populated with Winbond W77Q51NW. Describe the SPI NOR using generic
-"spi-flash" compatible, because both flashes can be auto-detected based on
-their built-in IDs.
+On Tue, Jul 1, 2025 at 8:19=E2=80=AFPM Jammy Huang <jammy_huang@aspeedtech.=
+com> wrote:
 
-Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
----
-Cc: Conor Dooley <conor+dt@kernel.org>
-Cc: Geert Uytterhoeven <geert+renesas@glider.be>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-Cc: Magnus Damm <magnus.damm@gmail.com>
-Cc: Rob Herring <robh@kernel.org>
-Cc: devicetree@vger.kernel.org
-Cc: linux-renesas-soc@vger.kernel.org
----
- arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk.dts | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
+.....
+> +               /* Read the message data */
+> +               for (data_reg =3D mb->rx_regs + IPCR_DATA + mb->msg_size =
+* n,
+> +                    word_data =3D chan->con_priv,
+> +                    num_words =3D (mb->msg_size / sizeof(u32));
+> +                    num_words;
+> +                    num_words--, data_reg +=3D sizeof(u32), word_data++)
+> +                       *word_data =3D readl(data_reg);
+> +
+Please clean this for loop.
 
-diff --git a/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk.dts b/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk.dts
-index 900807fbca8b..ebff536afdd3 100644
---- a/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk.dts
-+++ b/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk.dts
-@@ -767,7 +767,11 @@ &rpc {
- 	status = "okay";
- 
- 	flash@0 {
--		compatible = "spansion,s25fs512s", "jedec,spi-nor";
-+		/*
-+		 * EVTA1 is populated with Spansion S25fS512S
-+		 * EVTB1 is populated with Winbond W77Q51NW
-+		 */
-+		compatible = "jedec,spi-nor";
- 		reg = <0>;
- 		spi-max-frequency = <40000000>;
- 		spi-rx-bus-width = <4>;
--- 
-2.47.2
-
+Thanks
+-Jassi
 
