@@ -4,61 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C632DC83F27
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Jul 2025 03:15:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91527C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Jul 2025 08:20:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=T70bkRltPkXY3Ym5QMEEWBxRwttAA2PuW/B6B2fHeUc=; b=XNBD+FcZFiO1scjnjA15nKfYF4
-	sLIioH9f+YQY7amGVLc4JG2WCO85cNNKHoSfF/gT2njWGu9S3608r3gEOfhRU8zszor+T5Wgny4t1
-	qos0O+cp5BWuraB7Z/ymdhfjt52OVtIdUj6VSg4dE795OxEYQNo/OZRlg+6NR1Sg8zWdcV5osNS1k
-	6ezr6Q+iUlZCqyRj2ifW4fDSap6PrkGYqMuQyTNkVlcjGTTJFpe2JI4tFfO4MKxCIIJZuHFQX/e8N
-	kEYypxeblFtCVpy/YWaX4ipeNNGaeOAoM3x84icw/EE65owCsKY5t+Y7RMLNMmfz+PIgCj+pZdsJB
-	AeyRCkig==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3CtsWPc6sAJEoKTVwIDvEc3RD+jVQAfzGv1fq4mmqVA=; b=gRFVT0kD3zN/N+jlsO/fdKyHnM
+	974w1a7fZ7kMiWjX8ff2UxkQK92QlsTeU/ijxOmKcadQzRxh2dR/5FLtVtgxmUh096UG1lCl84AG9
+	XCHn8Xa1bNGjPIaPK6kAIu6mtnwk4E8m/VpcHa6dnKIn4/3Nv6MQzJ1IWVypghlejOaTJyFvO96lC
+	UM01wpu9rDfxL0cS8Yn0Ye2NSUGh0x14Xq4MDQUlLaWmy/C1v/98oL0MTOdEINvIVUwfZTcp2t4tp
+	Do3YlGqU4GRQ6S/wYMOg/p/FHajGk29vT29Kx6vpIIQ5/xCj6Ie5JsZFCrhaF7tiQ9nHq6kEdI1sA
+	mjoT6oug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udKWE-0000000Eqfz-3MF0;
-	Sun, 20 Jul 2025 03:15:18 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1udPGv-0000000F1UR-48Oa;
+	Sun, 20 Jul 2025 08:19:49 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udKSf-0000000EqVU-2C7e
+	id 1udPEU-0000000F1Ln-1WXd
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 20 Jul 2025 03:11:38 +0000
+	Sun, 20 Jul 2025 08:17:19 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id A9575A5051E;
-	Sun, 20 Jul 2025 03:11:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C1C38C4CEF4;
-	Sun, 20 Jul 2025 03:11:35 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 127635C463F;
+	Sun, 20 Jul 2025 08:17:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8A046C4CEE7;
+	Sun, 20 Jul 2025 08:17:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1752981096;
-	bh=hy6TO0tqYA/iD0UESxM5WRK3VTok12PaLVtblUPe6HI=;
-	h=From:To:Cc:Subject:Date:From;
-	b=kQzFEnELpngKG8C++Y7Zk0MLDE4QHNF9lw3+74sPSXsdz+6W7Cq2IFOv0js7bl5B/
-	 q6XWklc30P5gcz+5PlRc5lEWYyGPBK3+fERq2VW5McAgIEjlcpqhJwcztKapKMiWy9
-	 iIlqp6niZGHAmHWT65QmFw2rvdkX5AhKHC+c5YgRtIy2IrUDJAb/nNOFQgLsiATbuR
-	 ydU3rfVoc+gbEX/Uhxv5o8Mv0sEduDwIP54u3rOkP/MmW1SzzoBjrVFNlIl1vn8D+K
-	 7BzS7zf/3oRuG+iQmFRKNwAfB8H0DRMTstsOw0GbwUj/uvnye1p68IpYs+CdiXx9AI
-	 TnLDYtuAFvhZA==
-From: Bjorn Andersson <andersson@kernel.org>
-To: arm@kernel.org,
-	soc@kernel.org
-Cc: linux-arm-msm@vger.kernel.org,
+	s=k20201202; t=1752999431;
+	bh=uz+9uwg5GzsKa58Af9yysdJmmc/CEhLqyfvKNBmM2Y0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=otYFuESwe3oz6MhxHNte9zld6+C9v6bkFJFgXopq1hRRzIkjZXyzbuaAwRLoxMO2Y
+	 SDfl+sadjw3MG5m9iO3OI9qeasqWg8j0C9jXaPGgJEjf/NLAeNpq4Q7u6AMGclU5Tw
+	 PEmSz/RqowOJi5T+a/4nXVMnnsCXmvdNc59jE9bjDEVS0wKeMZuOsjbtLr1lYeMzS9
+	 WGS5UhowiasmktVQ/Nf/ngB0lSdc6ObVu+v6fPM/UpcxuxvZyFIP/4aaMbaNNudgRA
+	 O4N9k8aaFdcIvPTEtq2Gd30+gwdFatsEt1bKDKx14GKfPGrzAr5XjAxjVwTS3lRFEJ
+	 xOYiuQNt0vWcA==
+Date: Sun, 20 Jul 2025 11:17:05 +0300
+From: Leon Romanovsky <leon@kernel.org>
+To: Sean Anderson <sean.anderson@linux.dev>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	netdev@vger.kernel.org, Dave Ertman <david.m.ertman@intel.com>,
+	Saravana Kannan <saravanak@google.com>,
+	linux-kernel@vger.kernel.org, Michal Simek <michal.simek@amd.com>,
 	linux-arm-kernel@lists.infradead.org,
-	Arnd Bergmann <arnd@arndb.de>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: [GIT PULL] Qualcomm Arm64 defconfig updates for v6.17
-Date: Sat, 19 Jul 2025 22:11:34 -0500
-Message-ID: <20250720031134.286063-1-andersson@kernel.org>
-X-Mailer: git-send-email 2.49.0
+	Ira Weiny <ira.weiny@intel.com>
+Subject: Re: [PATCH net v2 1/4] auxiliary: Support hexadecimal ids
+Message-ID: <20250720081705.GE402218@unreal>
+References: <20250716000110.2267189-1-sean.anderson@linux.dev>
+ <20250716000110.2267189-2-sean.anderson@linux.dev>
+ <2025071637-doubling-subject-25de@gregkh>
+ <719ff2ee-67e3-4df1-9cec-2d9587c681be@linux.dev>
+ <2025071747-icing-issuing-b62a@gregkh>
+ <5d8205e1-b384-446b-822a-b5737ea7bd6c@linux.dev>
+ <2025071736-viscous-entertain-ff6c@gregkh>
+ <03e04d98-e5eb-41c0-8407-23cccd578dbe@linux.dev>
+ <2025071726-ramp-friend-a3e5@gregkh>
+ <5ee4bac4-957b-481a-8608-15886da458c2@linux.dev>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <5ee4bac4-957b-481a-8608-15886da458c2@linux.dev>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250719_201137_627410_C28D050E 
-X-CRM114-Status: UNSURE (   5.36  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250720_011718_447083_82ACDA39 
+X-CRM114-Status: GOOD (  10.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,29 +89,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, Jul 17, 2025 at 01:12:08PM -0400, Sean Anderson wrote:
+> On 7/17/25 12:33, Greg Kroah-Hartman wrote:
 
-The following changes since commit 19272b37aa4f83ca52bdf9c16d5d81bdd1354494:
+<...>
 
-  Linux 6.16-rc1 (2025-06-08 13:44:43 -0700)
+> Anyway, if you really think ids should be random or whatever, why not
+> just ida_alloc one in axiliary_device_init and ignore whatever's
+> provided? I'd say around half the auxiliary drivers just use 0 (or some
+> other constant), which is just as deterministic as using the device
+> address.
 
-are available in the Git repository at:
+I would say that auxiliary bus is not right fit for such devices. This
+bus was introduced for more complex devices, like the one who has their
+own ida_alloc logic.
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux.git tags/qcom-arm64-defconfig-for-6.17
 
-for you to fetch changes up to c5d02bbaa217b2454ba1ce7528113aa2ecf14f3c:
+> Another third use ida_alloc (or xa_alloc) so all that could be
+> removed.
 
-  arm64: defconfig: Enable camcc and videocc on Qualcomm SM8450+ (2025-06-11 10:46:23 -0500)
+These ID numbers need to be per-device.
 
-----------------------------------------------------------------
-Qualcomm Arm64 defconfig updates for v6.17
+Thanks
 
-Enable camera and video clock controllers for SM8450, SM8550, and SM8650
-platforms.
-
-----------------------------------------------------------------
-Krzysztof Kozlowski (1):
-      arm64: defconfig: Enable camcc and videocc on Qualcomm SM8450+
-
- arch/arm64/configs/defconfig | 3 +++
- 1 file changed, 3 insertions(+)
+> 
+> --Sean
 
