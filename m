@@ -4,150 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC3D2C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Jul 2025 15:26:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E909C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 20 Jul 2025 15:54:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Cn5tyQX/xC6r7LynCtZ+cKfCSqVjcFVIFtjOQjXs2ws=; b=wl/PtvfwqZueVDxlMLbUAPOqkx
-	tNLLxYwJrh0WsQfGx8NZzuwt7kD+C6d1biGz/RK1q3o+JuVs0SMKA5TMWs4nkSUdgVXcsui7VirxP
-	4MzVLli25/QcRI+IrONiD0zJK7Pt9fGiPGgT8GHpoDsi5+gNAtdkK6ihjSKLKwWh9NgF5VBGZWlWK
-	46STrdGPhRwnj3zWNUoqRPYiXXWPzAuG2S4zlzigXYniEyTEqT2w5ub7mo/zJUUfvSizsHRH/Hk5E
-	v2Gti/yH1UExmUqMe0QQJxtVjAGcLkh2uK/ko4BK1MQX1mE5xLHwwNyCFIxVdQEPWLZ1gHLRad5Az
-	aCNVrOxg==;
+	bh=ZhSlIzB6MVuqbW9qSicrU8zQ+g68g+LUEKaipuQGk8g=; b=U777KSvtjlyP8Yx/sXs/AZFwj8
+	l52Kvr7G3Am5UCdMRgTsVRiYUHD2yHlrQlQOmPzuuxOuO8uLhSdAX8AskBPRNLhyLnKNpCdaqzBrn
+	7JrP5b1fnC+J4MUbgy1i6nBorunRTwOKNXjK8vJ7xvA3wKua0bIxp9P5SbyvUvPGo/vrOvnmoJENP
+	5xPxgaTWVOn3sinUeY+xKl/8rxXqenins1FgdQFZoy/neVE1rNmAZgmK5gCIwDXkpTBxIko+hRLGc
+	tHoesQKGupv3hBBgLUUD3yC15ynXm1F6DTn4k7oPB2qP2j1d7mSJryhOcGvgryVWLtbJ0rCSTqnyV
+	9/DWN6cg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udVw7-0000000FS9V-1tqO;
-	Sun, 20 Jul 2025 15:26:47 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1udWMQ-0000000FTZ3-017j;
+	Sun, 20 Jul 2025 15:53:58 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udVte-0000000FRtY-3nT1
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 20 Jul 2025 15:24:16 +0000
-Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56KAYbU9000528
-	for <linux-arm-kernel@lists.infradead.org>; Sun, 20 Jul 2025 15:24:13 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	Cn5tyQX/xC6r7LynCtZ+cKfCSqVjcFVIFtjOQjXs2ws=; b=aPpK+mCfhjIK+hdD
-	kc7epzo/3ZcjON3f1eCOhZl/+jNOdPGmcQe0iNhhRhkIZJxBFvmBjEoG1lDhrawW
-	WKq8fUcUjITAkKZzMs73dSdMwxcenkCPDRygzrp9jTPA5TCb+IpU5l1TO9gUjEjn
-	ONgP98f1kU/BXLkWA+J5p+fvp4ddAsZCNepIyspJVfaCI6rC/WhfESxgFavA0MQj
-	xyUzWh6zHybxc0wpKiHYy6v3wdM1ZNTEUA9HpxdNwFdx7oe51MwYXq20yqCTd74B
-	OuFamdAimiUVF3VTbfn1qr3alGcNCYIS8se8lgB8HqvLoCOma2tcZP4HfSkiwwsb
-	fGxYvg==
-Received: from mail-pg1-f198.google.com (mail-pg1-f198.google.com [209.85.215.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 480451ac4k-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Sun, 20 Jul 2025 15:24:12 +0000 (GMT)
-Received: by mail-pg1-f198.google.com with SMTP id 41be03b00d2f7-b26e33ae9d5so3744156a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 20 Jul 2025 08:24:12 -0700 (PDT)
+	id 1udWJy-0000000FTSs-1a0b;
+	Sun, 20 Jul 2025 15:51:27 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-4561514c7f0so37035675e9.0;
+        Sun, 20 Jul 2025 08:51:25 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1753026684; x=1753631484; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=ZhSlIzB6MVuqbW9qSicrU8zQ+g68g+LUEKaipuQGk8g=;
+        b=PRQfJFcsfUGNXobt4efQzaOPUMEwIkjNmdlzdaCN11/DnmT7U8vgv/5bITdjVbjtmh
+         dpjrBOo2GZ+UumUy1RozJE0MYSl58OLNr38nxAG0ntJDvWcV2I1PSQ7eIQ/ei3gO/h3I
+         rISk66ZqGEIzYJK01RJHi7rVOP6kd7nSM3rLIRtCN4uUMuMJH5UyPRn3H7+zq0Lv7vkJ
+         uhK53wmDYhKPr5sCErZ3kHn0AuuPm45Avcx7rcM6DLPPIv0CFECTOBSpv+7RJZ8V8dji
+         prynNONfswSfDokGC3mbWPzOoBidt8o2XAL5Q2hs9+XMxdzMwz5TmjW0ums+uCvYg1ug
+         PUTQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753025051; x=1753629851;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
+        d=1e100.net; s=20230601; t=1753026684; x=1753631484;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Cn5tyQX/xC6r7LynCtZ+cKfCSqVjcFVIFtjOQjXs2ws=;
-        b=NobIwCOoz0T5pUwT5Evs4d9rqP3Lj3zkhumKuB2F3/Q2xPvf+eMWVuewis2Bv9H6kY
-         0ZWQ1A8/m7aRlYo64xqOOjanFcJfxbV/0ZoeoMcD0/MCNsSKW92ti7N52Ayc8KQXiakN
-         0xber8uagDwta1OC3093ZO2fUteHOWpC647DNbZgQIEpoipSkqN76q7oTO8HuFZptTeb
-         YUSfQxC2gJE+C1yOcWy5ihgrK2/wKd7HsVHw58kaSU1BTmLuGoFmX0MD6hcy45ykw6mP
-         3QYXWa2O2FVavzbZ8z1Ujim825h2ScvUHibb+l6+vacJyl7/FNPDZJ2WyV+bW1Ehic7i
-         Jpag==
-X-Forwarded-Encrypted: i=1; AJvYcCVSHkoSl8VadIpKpjwE6Ukn+HaLr7UjciDWKlBbdaADvNOGeXOVBSOcttnZiTRlymMzzf6Hp3V0AZNW1cl0ue4G@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywuefz74aS5DWcByXiHsbUUiTYoQZZBQWrvfwYVSQsoogkqyEtI
-	zZVmY+T2kPNJi2ZrNuGceMCk1KAFTOqvTr/0MfxKNdePac5HQYFYq/B7J19W1tudJvprj2PXY1j
-	o5c37GSZ/krnvLgezyAm7T9Rv36WqVzfd+kk60uynATC1RoQEIRBKS5kfZw88TtvayKybOgwf52
-	Q+2A==
-X-Gm-Gg: ASbGncuLJVtMhJpPGmO0fHrMytjGU83upKPZP0MeY9TYCvNRJecYV2XPiOfqwOwemS6
-	Zf0vsg8I358PoqYYHGI6l85jhOZUZyN6SMVmWJa24t58LwaPdTANVAJimhX5UkFKYRcah3h0uQ8
-	7zmrED5WEzJff/fEPRsUMG/SOEeXynLTJPV/l4fgOJJ0kIYEB/NlArFew7xHZ/VTSn5ANXwU9WY
-	94TYAvGwXq/Xl5ohNRdgmyD97tJnbbqcx5iiKk1OqmiknHbxhkZ1SdOSRDJ1ehxS2vExeZQWMeG
-	vb85VseMwcq8EaOWH2gmbAwCcZGsXupBTQTbCKXgmNVz7OVTm5tCWbWpRhJNM6KaAZ3NMxebj4G
-	B
-X-Received: by 2002:a17:902:e845:b0:234:d7b2:2ac3 with SMTP id d9443c01a7336-23e256b5f6amr233001605ad.20.1753025051558;
-        Sun, 20 Jul 2025 08:24:11 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFUOqsroGWNvuq0aBkHthsIfTFvGKyjKlWXBZvHeY8vMrQhZYhY78dv87gCgxB4llexBH7YVA==
-X-Received: by 2002:a17:902:e845:b0:234:d7b2:2ac3 with SMTP id d9443c01a7336-23e256b5f6amr233001145ad.20.1753025051069;
-        Sun, 20 Jul 2025 08:24:11 -0700 (PDT)
-Received: from [192.168.29.115] ([49.43.229.90])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23e3b6b561bsm42672895ad.89.2025.07.20.08.24.03
+        bh=ZhSlIzB6MVuqbW9qSicrU8zQ+g68g+LUEKaipuQGk8g=;
+        b=IklnOJ+MC8JXkLvI7dYG+rGigzOlR8kVeA17CXozuJ4u4/Mjaq5KqUl1YOrJbiDD2f
+         Y3RtLlnSKT28yNcDjkeD9hU2tT/vMEUFFtpsJ5yEdKZUPqzaR4noJxS4nJz4J8O+A9jU
+         Z5hTsjRB9hNMdC5wo1ET/JAeYicxEbzLj0IOjncNAZxoXNWokxz9esfNFdHTIhPgdhGI
+         daLj3I7miOv1bkUI8CYzyAXc42iZlKWLuHu6WZrC4SPPD8eD43jp73YeT8VN8YZIE3FV
+         X0SIgVd04mxoF4g98gyfeImBbVeWJ3YEL+Y4qDCqzEQ+5qdNsb/a8MkdvHVook5thgwY
+         vGJQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUKFtAgkoNvVO0t2tGmnT+I5KeKXif8VFgk8ZnAT44NyLd72ITmy/Pv5gXBpVorAp6S1q8SFhOtmabYefRi+heo@lists.infradead.org, AJvYcCV8iDjIQrMTiPQIj2JjejHF9tP4JJh3BgEOrCfwF340/1ZMp8c7kWGa2O1NZ/LYujNbqKeZYT+YAchGjxw53Yc=@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxi5GqwErvKgLS0lOIqc0bT2HkmL5fREgkuPl9kcqxysQYdMWEr
+	pHXCTG9mYkWiiLZhuepXc9MzdIuw1hW764Qxfj2TxUjMCpYvHTHjOrw=
+X-Gm-Gg: ASbGncsdpeC+0jnMrI8vAyQIjlVp95rctRFZCUmtIEZpL/r4Fq5hiNb9L+HnyEE6tLr
+	7HVKTpU3vrU2431X2ZkIpQLXLSnkCNh1wqxlyz/zr7CUFQIRNJSl9ikDLPLaBu5BfiE1LPzHcKZ
+	AxA90TbXhLi4L51xGQgnTFRYasonzCpCBMEXDzlFXIGZccr8YRCEIL3OXTLuGmhUXyH8+bbhgBp
+	13qVMVieh9z8jF0jvZJICsu7ALaBukp9NcQTTAAkJ4s3RjcNfyp7fIA2yxMsmbHzRZgK+JPvyUg
+	yYUEE36e0zujbfYqOxerxKrIiJPd/NbEPwnY6yjGrMUTvBuxO1Y6SPuwq9eZVRmyB4+u7fMzn2g
+	A0nYfcOqDiWovRKMIH5yZv8xzR5lIVpE4luAbNv8CBc9gb40u5IqqLP8egwZW0XPv5WTc
+X-Google-Smtp-Source: AGHT+IG+5w27E9q1sMLm5Y1WlTy33FG/bBzJqXE6w27xvGt5x1K2hO4i0gkfmLaVrTrtj/ZKRMJ/bA==
+X-Received: by 2002:adf:e195:0:b0:3a4:ed62:c7e1 with SMTP id ffacd0b85a97d-3b60e4bf986mr13518949f8f.12.1753026684061;
+        Sun, 20 Jul 2025 08:51:24 -0700 (PDT)
+Received: from ?IPV6:2a02:810b:f13:8500:8b91:8a7e:bd07:2736? ([2a02:810b:f13:8500:8b91:8a7e:bd07:2736])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4562e7f2e8csm135189035e9.5.2025.07.20.08.51.23
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 20 Jul 2025 08:24:10 -0700 (PDT)
-Message-ID: <d604104f-837d-34e2-ac62-261a8ccecfed@oss.qualcomm.com>
-Date: Sun, 20 Jul 2025 20:54:02 +0530
+        Sun, 20 Jul 2025 08:51:23 -0700 (PDT)
+Message-ID: <3c83e8cc-9ef0-4560-b6d7-127abab50541@gmail.com>
+Date: Sun, 20 Jul 2025 17:51:22 +0200
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.5.1
-Subject: Re: [PATCH v11 2/8] power: reset: reboot-mode: Add support for 64 bit
- magic
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 0/6] arm64: dts: rockchip: Add ROCK 2A/2F, Sige1 and
+ NanoPi Zero2
+To: Chukun Pan <amadeus@jmu.edu.cn>
+Cc: devicetree@vger.kernel.org, heiko@sntech.de, jonas@kwiboo.se,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-rockchip@lists.infradead.org, ziyao@disroot.org
+References: <86814bf6-5d1b-47f3-ad1d-962cae4a543f@gmail.com>
+ <20250720134005.215346-1-amadeus@jmu.edu.cn>
 Content-Language: en-US
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-        Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>,
-        Sudeep Holla <sudeep.holla@arm.com>,
-        Souvik Chakravarty <Souvik.Chakravarty@arm.com>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
- <conor+dt@kernel.org>,
-        Andy Yan <andy.yan@rock-chips.com>,
-        Mark Rutland <mark.rutland@arm.com>,
-        Lorenzo Pieralisi <lpieralisi@kernel.org>,
-        Arnd Bergmann <arnd@arndb.de>, Konrad Dybcio <konradybcio@kernel.org>,
-        cros-qcom-dts-watchers@chromium.org, Vinod Koul <vkoul@kernel.org>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>,
-        Florian Fainelli <florian.fainelli@broadcom.com>,
-        Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
-        Stephen Boyd <swboyd@chromium.org>,
-        Andre Draszik
- <andre.draszik@linaro.org>, linux-pm@vger.kernel.org,
-        linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-        Elliot Berman <quic_eberman@quicinc.com>,
-        Srinivas Kandagatla <srini@kernel.org>
-References: <20250717-arm-psci-system_reset2-vendor-reboots-v11-0-df3e2b2183c3@oss.qualcomm.com>
- <20250717-arm-psci-system_reset2-vendor-reboots-v11-2-df3e2b2183c3@oss.qualcomm.com>
- <6vlm3ybjpy2jq3cr2pzj4vcmqwoissdml2xmhfzlulfbrpzakt@xrepu6c5zykb>
- <713b2cc8-1bc7-a8b7-678b-5fc7fe25615a@oss.qualcomm.com>
- <8d4a42b6-657f-4c30-8e25-4213d8d53a89@lunn.ch>
- <1653597d-4d6b-a771-fbd8-c129c630ac0a@oss.qualcomm.com>
- <6227828c-5db0-41c8-956f-eea6f790ccac@lunn.ch>
-From: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
-In-Reply-To: <6227828c-5db0-41c8-956f-eea6f790ccac@lunn.ch>
-Content-Type: text/plain; charset=UTF-8
+From: Alex Bee <knaerzche@gmail.com>
+In-Reply-To: <20250720134005.215346-1-amadeus@jmu.edu.cn>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Authority-Analysis: v=2.4 cv=EIMG00ZC c=1 sm=1 tr=0 ts=687d0a1c cx=c_pps
- a=Qgeoaf8Lrialg5Z894R3/Q==:117 a=AKgrFWMC3jRjh4njwhq9Fg==:17
- a=IkcTkHD0fZMA:10 a=Wb1JkmetP80A:10 a=EyloEgBdZQ85O2IC3a4A:9
- a=QEXdDO2ut3YA:10 a=x9snwWr2DeNwDh03kgHS:22
-X-Proofpoint-ORIG-GUID: ncBpeVtLZKI67tYcdrBph9YgqI_halVm
-X-Proofpoint-GUID: ncBpeVtLZKI67tYcdrBph9YgqI_halVm
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNzIwMDE0OCBTYWx0ZWRfX19UidfZff/mt
- 8ugPexHeD4UBSi3oG6/N4w2qnZS/0AV05hC1QR1ZF5JBjgUgOQokoWv91Mt0LKOAGS08bmcWlJd
- mlXoihyyD+UNmPbn52xL1wA5hZLjnlNdLopDeNxqG5QKyzaR0K/iZRkPrXIOmF/cLtGT+puBxuQ
- JlRXCiV9lh9fJfmTgMt6kkye32cUyqzfXry2Yumunq9khKhWaDTdJoW+9a6nc6+X/38/Vk7BXVM
- f1cPT0ez4SNvzsGg+PvdxH0uoRC5sr040IBhvgqinJxAbUvkPElmx5GL0BYgBF6i6+eSws417zy
- fY7x9RgL0vyDBZeMewA+M3ryEMNIFSmkADi/+cSEFGKknzwXTK5qvJtku2Xj78gYeVOCMzL3+Rn
- xwsREh22LZ6NdEKs2cdGYYsrP550qfXQdYJjQo3K+f0KsGzCcjFdBIggin7XpBakU3fy3WE5
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-07-20_01,2025-07-17_02,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 impostorscore=0 lowpriorityscore=0 bulkscore=0 adultscore=0
- priorityscore=1501 mlxlogscore=814 phishscore=0 mlxscore=0 clxscore=1015
- suspectscore=0 malwarescore=0 classifier=spam authscore=0 authtc=n/a authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2505280000
- definitions=main-2507200148
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250720_082415_066421_5D1E962F 
-X-CRM114-Status: GOOD (  14.94  )
+X-CRM114-CacheID: sfid-20250720_085126_424689_3429314E 
+X-CRM114-Status: GOOD (  14.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,40 +103,45 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
+Hi,
+> Hi,
+>
+>> Just for the record: There actually is a non-A version of the
+>> RK3528, which I actually own (but forgot about - perhaps my subconscious
+>> made me reply to this thread). It's on the Mango Pi M28K board [0][1][2] -
+>> which, to my knowledge, is one of the first RK3528-based SBCs.
+> Thanks for sharing this. M28S is an engineering test board, and the official
+> version was later renamed M28K. The MangoPi M28K board uses the RK3528A SoC.
 
-On 7/20/2025 8:46 PM, Andrew Lunn wrote:
-> On Sat, Jul 19, 2025 at 11:07:47PM +0530, Shivendra Pratap wrote:
->>
->>
->> On 7/19/2025 10:27 PM, Andrew Lunn wrote:
->>>>>> +static int qcom_pon_reboot_mode_write(struct reboot_mode_driver *reboot, u64 magic)
->>>>>>  {
->>>>>>  	struct qcom_pon *pon = container_of
->>>>>>  			(reboot, struct qcom_pon, reboot_mode);
->>>>>> @@ -37,7 +36,7 @@ static int qcom_pon_reboot_mode_write(struct reboot_mode_driver *reboot,
->>>>>>  	ret = regmap_update_bits(pon->regmap,
->>>>>>  				 pon->baseaddr + PON_SOFT_RB_SPARE,
->>>>>>  				 GENMASK(7, pon->reason_shift),
->>>>>> -				 magic << pon->reason_shift);
->>>>>> +				 ((u32)magic) << pon->reason_shift);
->>>
->>> As a general rule of thumb, code with casts is poor quality code. Try
->>> to write the code without casts.
->>>
->>> Maybe something like
->>>
->>>       If (magic > MAX_U32)
->>>       	   return -EINVAL;
->>>
->>>       magic_32 = magic;
->> sure will update it. And in above, should it be recommended to add a explicit
->> cast(for any avoiding any compiler complains)?
->>  like: magic_32 = (u32)magic;
-> 
-> I would hope the compiler/optimiser can figure out from the test the
-> line before that this is a safe conversion. So i don't think you need
-> a cast.
-sure, thanks.
-> 
-> 	Andrew
+I'm not sure where you are getting your information from, but as I told
+before I actually *own* this board in the non-development version and it
+has an RK3528 SoC/silkscreen - I just was too lazy to photograph it my own -
+but I did now [0]
+
+[0] https://imgur.com/a/6jwx4dC
+
+> As for the M28S board, the silkscreen of SoC is indeed RK3528. [1]
+> But then the interesting thing comes, uboot reports it is RK3528A:
+>
+> U-Boot 2025.07-rc1-OpenWrt-r30114-9b777547be (Jun 18 2025 - 18:35:23 +0000)
+>
+> Model: Generic RK3528
+> SoC:   RK3528A
+> DRAM:  2 GiB
+> Core:  130 devices, 20 uclasses, devicetree: separate
+> MMC:   mmc@ffbf0000: 0, mmc@ffc30000: 1
+> Loading Environment from nowhere... OK
+> In:    serial@ff9f0000
+> Out:   serial@ff9f0000
+> Err:   serial@ff9f0000
+> Hit any key to stop autoboot:  0
+>
+> [1] https://imgur.com/a/ddLsnmt
+>
+> Thanks,
+> Chukun
+>
+> --
+> 2.25.1
+>
 
