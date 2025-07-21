@@ -4,104 +4,162 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D2C8C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 13:40:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49B9FC83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 13:42:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fqiwAVutR1r5EQfU0bWFAUEcQiPbqDN4nQ+mORgbmZw=; b=lnRMvYaYUCWIpJObSN1APb0f0W
-	gK9/bZUovbZTFBNA/M+q2xtbv26w/5J9gD0d+/fdj+C0f7gydN6CNs+MUyxByzcLAJCv2Ym8zlohm
-	lg3m7FQPI6Hkhr7Oi3OHnQRPufPbV/ejA+LINyEMbxm976JL09t6nBGWu05HML0r0qxmfWsFFg4N5
-	xG5/eFcMgc6/URJjxfS5c2NNEBr54qmTQgXJUYz2zZNKqu8cMZ+CERbTUik/0FqVSrdEKUU2IE3bH
-	fj9D/3ksnGtXP1vPsF6j22/Drp77Q+QmdVXrySEQ1aYd0+xU8M3WDmPtN1/p5MQttRjXwL91lSUzm
-	5TwKEWkw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8pgEWbB8JXzm3jAdnYbI22GAokt6exebYRifayk/zjU=; b=wSFCa+rm3gkSTI85h9LK9/YnPS
+	yiBztxvjHDfotaJT4p9fcc14ROk66zNh59SIWIHSpRRp7LjGn2EmVgzYepjT+4r1IKv+Jt8ftFxjj
+	4kX0YObgYdTLNWpWCXRm+m9hgu3H6w7r0knBDzdFYzH+Q840a5fhyjHye66+c6JolWYTXv5+Y1tzb
+	ajvWBimDPdXHkt2+5kYEG9tfKktLUO+l/bvAHOmo5gMrV9s1yk6fvvtWXDDdotpK5zF49Imaom4ym
+	qbYWb0wMxdNWGcGewJk0s8K04rB+LkxNlQ3E6rF9i1uHbOSwC7mKO8W6b60wa9JOHI0au9IgtSzAF
+	lb8Yoszw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udqkT-0000000HPYh-0pm4;
-	Mon, 21 Jul 2025 13:40:09 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	id 1udqmu-0000000HPux-1G9q;
+	Mon, 21 Jul 2025 13:42:40 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udpbJ-0000000HFkm-49Ke
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Jul 2025 12:26:39 +0000
-Received: from pps.filterd (m0046661.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56LCB6IN007054;
-	Mon, 21 Jul 2025 14:26:25 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	fqiwAVutR1r5EQfU0bWFAUEcQiPbqDN4nQ+mORgbmZw=; b=DAyLPBEAplfXgm0X
-	o93LZeJwbDtNejaod2Dtz+F0rJSKVcNuTfA8NE1KghKatYoZ3/0IcygcXYkoASoe
-	zEN/P+q4CSd4zAqlViY2B+SC3gd82JhjD6eY0nDP+zDwI+9VHZQtpMx64ghQ8G1z
-	7GlfFqfrDZ1b8QpSZanCAOI/VykHbgASaUp2DbRXvaaVFCu+6kO0LMlodu08HsSH
-	MTJY9ox9uug/nPb/MrOkP1kxXx7+zdjn7c2KQLqh3C0ZK7yHRzo5UC5DiV4cm/28
-	HVMXPWAZCEfXT+PvLJd7Ls6uk3fzkEjiiF8EXa+at4Mfdd7r/Esojzkev0DL+s7l
-	shNFCQ==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 48028g0fh8-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 21 Jul 2025 14:26:24 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 56DDC40047;
-	Mon, 21 Jul 2025 14:24:42 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 6CF5B7A4C92;
-	Mon, 21 Jul 2025 14:23:30 +0200 (CEST)
-Received: from [10.48.87.141] (10.48.87.141) by SHFDAG1NODE1.st.com
- (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 21 Jul
- 2025 14:23:29 +0200
-Message-ID: <1fc9d75e-459d-454f-b8dc-1fb7f59d09b4@foss.st.com>
-Date: Mon, 21 Jul 2025 14:23:28 +0200
+	id 1udpeJ-0000000HGA4-2OoZ;
+	Mon, 21 Jul 2025 12:29:44 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=oyEiUQnCoTeycl7+5hTQY/XGB0Zh+alAZjjq3txcsEP1ub0V51XJLNNG1Fk5xCwpRCq4omWdSQCs45pDuv9hlPtEWc2WobnODMPKAR1IcXa1ZHD4nPL3tFH5t9rsdDNk2JHu1E1qEUSEVQXmpUuwI1zAjKEkNK5OO5kRYO2jVexF0bx7U9KSrYYcj4OOlTYh8cpNDTJ/PUEtQ7F9F6LREDsEZE+KQ9EG9e2P3o1QFIVGn29zS2zWUDUlVDzFX/dNLajo8I2f0XI1E+0Hd2QukrSJewv5xk6qL1rnnyVxzAAX5O9NNe9S53z2MENPfhMRl9FskkRP3NsZqvLPzC4W/w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=8pgEWbB8JXzm3jAdnYbI22GAokt6exebYRifayk/zjU=;
+ b=cWL83fpIQQfZFtFqH6lAWyqlhv/TK+X7doGXIMoLtt0Y9e93rA+QQlmJqv3kck+IXulgngfGLid+8990SrnzkCKSAFh1ki5qYerBHjrFz69CWAYrnzxl1Kur6TcM5AOSsbU/lUzwyvEBH6zcxHzwt+5Gvt1kkTdfazkuzHz99LVAJoVkhpUKdPozDHnKQw5oJtA2plQI5fNbYbkxrX2wL+DDVkJEXFVqwNYE+7C6Y3cdnZ0r/sJW/n5ri+P9VUyV+D9Qzrus+uCFKqPuRzyBOAZCEWJXmAEiv7BcnTm+9tRTR91LHOrERwFWhKajk7ICiuD5jBSpw/6ucAPLatr//Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=8pgEWbB8JXzm3jAdnYbI22GAokt6exebYRifayk/zjU=;
+ b=SfGG1BWkLCgxFVlui8UiQ9Xz5E/j2LQwHolbMOzIWpf/UZ5inwkrLoKKMqKJBV28MvumSPGSVkFn9OlHH1JF38sGWDWuEKX8ltPNR+3h61Jrj16OW4GGGAv+lSjPRUmITmlBirTIp66sCUkzr99v1LjJpfu+IHUx4RUn4O8tI0LxBPcKmDFggZvNSzTILjibS1Gx3y7cklP0UwtZM7G99AVQC2VmgtnbZRqeaKWeqap5grfSeYpsuFwXuTKCQzFqsVeW25MRQw0evpqRwyR9r9FHbNaUNrURFrDdQX11HSQAQpZNJ4WeQuxrfENJDSyf//pkOoFez9O+HmgrGYGgFg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by VI1PR04MB9929.eurprd04.prod.outlook.com (2603:10a6:800:1dc::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8943.30; Mon, 21 Jul
+ 2025 12:29:38 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630%7]) with mapi id 15.20.8943.029; Mon, 21 Jul 2025
+ 12:29:38 +0000
+Date: Mon, 21 Jul 2025 21:39:49 +0800
+From: Peng Fan <peng.fan@oss.nxp.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Peng Fan <peng.fan@nxp.com>, Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Li Jun <jun.li@nxp.com>,
+	Xu Yang <xu.yang_2@nxp.com>, Frank Li <Frank.Li@nxp.com>,
+	"open list:GENERIC PHY FRAMEWORK" <linux-phy@lists.infradead.org>,
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
+	"open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <imx@lists.linux.dev>,
+	"moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>,
+	open list <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] dt-bindings: phy: imx8mq-usb: Drop ref for
+ fsl,phy-pcs-tx-deemph-3p5db-attenuation-db
+Message-ID: <20250721133948.GA28518@nxa18884-linux.ap.freescale.net>
+References: <20250721065424.4192351-1-peng.fan@nxp.com>
+ <20250721-imported-quaint-crayfish-d4e44b@kuoka>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250721-imported-quaint-crayfish-d4e44b@kuoka>
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-ClientProxiedBy: MAXP287CA0008.INDP287.PROD.OUTLOOK.COM
+ (2603:1096:a00:49::18) To PAXPR04MB8459.eurprd04.prod.outlook.com
+ (2603:10a6:102:1da::15)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next 3/4] net: phy: smsc: fix and improve WoL support
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-CC: Andrew Lunn <andrew+netdev@lunn.ch>,
-        "David S. Miller"
-	<davem@davemloft.net>,
-        Eric Dumazet <edumazet@google.com>, Jakub Kicinski
-	<kuba@kernel.org>,
-        Paolo Abeni <pabeni@redhat.com>, Rob Herring
-	<robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
-	<conor+dt@kernel.org>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre
- Torgue <alexandre.torgue@foss.st.com>,
-        Christophe Roullier
-	<christophe.roullier@foss.st.com>,
-        Andrew Lunn <andrew@lunn.ch>, Heiner
- Kallweit <hkallweit1@gmail.com>,
-        Simon Horman <horms@kernel.org>,
-        Tristram Ha
-	<Tristram.Ha@microchip.com>,
-        Florian Fainelli
-	<florian.fainelli@broadcom.com>,
-        <netdev@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-References: <20250721-wol-smsc-phy-v1-0-89d262812dba@foss.st.com>
- <20250721-wol-smsc-phy-v1-3-89d262812dba@foss.st.com>
- <aH4kVBTxd4zRYv2l@shell.armlinux.org.uk>
-Content-Language: en-US
-From: Gatien CHEVALLIER <gatien.chevallier@foss.st.com>
-In-Reply-To: <aH4kVBTxd4zRYv2l@shell.armlinux.org.uk>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.48.87.141]
-X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE1.st.com
- (10.75.129.69)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-07-21_03,2025-07-21_01,2025-03-28_01
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|VI1PR04MB9929:EE_
+X-MS-Office365-Filtering-Correlation-Id: 154a22d1-5997-4341-99c9-08ddc8524260
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|19092799006|376014|52116014|7416014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?nQdzQZeWdq9lhIpP1y7uW8x79D4PIUz7IvnlFP6ibRe7SisyE5IuPQ1w0gH4?=
+ =?us-ascii?Q?FesswA7TLsrolnyCcYLVmgkDlIx/z7t8xcaTQJpmZ9QFBg+CR9nlX+Qjegqu?=
+ =?us-ascii?Q?cwGdFO/iWFU+eAi1o5kqLkpueamycLv72gKW6c7yqdWjIjeO4woF/9Xg/ajZ?=
+ =?us-ascii?Q?kjrrm0kTAOq6VAZf1l9zgxamK+TPTyPduur9KLeePH8qaTJM951uD3gaWK5e?=
+ =?us-ascii?Q?f1phJPh7AeoC+PvCLjB4imM7KObM4c+it4nUn7IK0d65Ildo36yXa0VfUmyG?=
+ =?us-ascii?Q?vh4dXhoAXwzfzhl7WvosMo5stT8gERpLv23SNKGHSCP0xedy/l8u9IA3xFRP?=
+ =?us-ascii?Q?t8kEjAMWkE6kqc6/69M6zX3p+IdMpveYcXEJQ97xm3yuPNYEtK1UM6pBx/yv?=
+ =?us-ascii?Q?hbheaMb8NOaJwsz4XjEcZON3oP0y8Jh8cUYRokYEml+GHIMpP4ujodR3dF+X?=
+ =?us-ascii?Q?FAC/Ky7QBNudErDQlakkTykIPt2u0kiquQdTpoew7yzjHK2IRXYOLukVFeqN?=
+ =?us-ascii?Q?MP2avRyHECmV1YIMgnCDSQl9TM8JGACjpGJEq619klodEA0B0Awf34YV2Wew?=
+ =?us-ascii?Q?8sv6iXxk8Yj5sn2RiNP41sl4M7echRtq/zKkQxu1Dbtl2ZiDBbBxvfXFb08y?=
+ =?us-ascii?Q?PGUvuuLTuNeMEGO8m2ChB0a0TyqUFB0UEphO1KDVRCxS7gSzdzDOGnzDtUx3?=
+ =?us-ascii?Q?n6DbUezdttUJEFW006gE2vCAOvsAB9AV0tI6wf6vFC4rIsZGtGajq+Z12IQT?=
+ =?us-ascii?Q?5pRVuI36/CoFccoaYepJkH6jVVx6hiNUCf/zYDXBdsrs9dtUuS2Pz4aZYNxT?=
+ =?us-ascii?Q?PVii2o3rd6XqFm3Xo3qtKlllB8FbXLL+9y6oZjmhHdv7l0AVdSKgQIrIWyxm?=
+ =?us-ascii?Q?31P2AFBHfY76aCH/2RNdL4Ay7RWxYJRY5e8ywWV9X5dGlMUDTRniaDYap/sL?=
+ =?us-ascii?Q?nopqGBjVEbnsFkHUMjdSZssqY1XmyQeRYkLf5zGs9yVKpu/hvsSnVIEj1/16?=
+ =?us-ascii?Q?ghTC7uexHc9UVe9IL1y0iPe5v//W1cuMq8E6Z+puC9rNjVw1zARSc1d1pYfQ?=
+ =?us-ascii?Q?/jBFrASy1ih3+LWmEuyyPFRPsN4YSM8qOvHmjz76ohmcFHeVHPewAB7Gaswk?=
+ =?us-ascii?Q?xsn1KqHN2vmRGzNZ0yCl6VhSFLQ+bB2VPy0sn3XqHjM7yosCwra42sIcU7RY?=
+ =?us-ascii?Q?lcI+XHKTpjdca0K1Pkw/fJon7Af2+5NYhXWG9vJzPW4ZAh6NwP58npfccJQQ?=
+ =?us-ascii?Q?v7domO7yZTMGkRL+3BO9umQXcYtChf1jRsEDDV/u7TMLlx0pXz0ExZQ1ibx1?=
+ =?us-ascii?Q?xkUAju73PXmoo4CYOfOUM7VowYs8c+j5cRt5RMjZTylA6eAaAubJPOMGObw1?=
+ =?us-ascii?Q?Uf5iBcuaWUCa4TchpuZzN8fK7e1OWM0hFgvjlZ5sVS479CBKZzWlQgm6Vi2m?=
+ =?us-ascii?Q?a+lqxTd5rairMAjOOLfzj5u28jZP7s7bZrCucjulBJULGBbbpt0mGJuFrRbG?=
+ =?us-ascii?Q?zAbDpYvwe62e0mI=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(19092799006)(376014)(52116014)(7416014)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?L38x5hEIUfi04PrBBU6/ESaG30+6jJ9GqJBsx54oSpp1HdVpggXNMrPxEABJ?=
+ =?us-ascii?Q?AZtSyhcQ4PZUtTk7bx7DZxMkLNz0/iHQU+Sci9YGyIINOCkFlyj078c5c7OA?=
+ =?us-ascii?Q?p9SqB9r0959IqoEp4naTE4r+n1rhTDdvrLzr4vL3YpBDiSHISAEFHVNEcfSl?=
+ =?us-ascii?Q?vPrDBe+z+ZU6fply7gye+M6tL+a+G9jIyotIBEIqAC3wGbL/9lrIwtLfQy/v?=
+ =?us-ascii?Q?PiniBRNyyG51bJI0obTy9APkXqZuaNxmw24T407FsYzKKCWq/SfMm+UlVjYX?=
+ =?us-ascii?Q?qBB33W6LwwOSWyQXpihV2LFWJTQXVAdixjy4AXlQWFz8hYN0oHrzLUe8ko9G?=
+ =?us-ascii?Q?gyMqL/5WqYIvU8CEvESLauI3PyXsJGHorqL773gPTHDOvxfzws8sR/y+YcCz?=
+ =?us-ascii?Q?7VVcAtL1J8YPp3EwR71ZncAqb8CY4eldER+D0BimAE0O8EPOb+2lIAPp7SjW?=
+ =?us-ascii?Q?QG3DsHjrY2m8LsesxOliWwYAkWmipsEK7STjgbAcUe/amyvMcxgIpzcSb3B7?=
+ =?us-ascii?Q?nObPDG7lI68yofBO6ved/zoUkfdq7/InuUBytmA4MOvXs8q4NlOq5PHuAAPH?=
+ =?us-ascii?Q?d0YovFULXHTq0eHGMyVSzI+O4/zih2FUB+o44Otox7iIf93CrHRfOOKZw0H7?=
+ =?us-ascii?Q?ZzJveMoPMPAyhzOrr+x6Bk0mVmus9nPY1JqcW6zYntUonT5SlqmV7yaDkFoH?=
+ =?us-ascii?Q?sLapBaVXOXQaTK270uZSkSqxE+Sdq5DzHaWBf9QGj0mD1PoRzkPNf656ydt/?=
+ =?us-ascii?Q?eww6hKD4WzCcf8ELRSmbdiscPwu9yORXZqYTLmS/tFUIRoDeayeaL9lzksDG?=
+ =?us-ascii?Q?Zy7jh2Jss2Wf9ov+5nHoOdt46SPaxyENzAG3w2CfVQPiqHCn+bivT7Ievxb3?=
+ =?us-ascii?Q?sFXdtqmcdKgQg8EsSK3/VL2wrP5shqDryEWVxBMT2qdc9HjzOa9tr9DfeV6d?=
+ =?us-ascii?Q?qJOcBJ/OB5FYjQMzciQk6yhhCiOxPto6hQVc5SDuVVsa7YmvkRIQrk5GO21v?=
+ =?us-ascii?Q?r02c2ftaaiKppG/vNuXeRZCDUS9TUJpS5f4eiZEId/i5e4lfqVVi4ako5JSO?=
+ =?us-ascii?Q?GibssbPoi2vtH2kGhhuDtgNz0Qs8V9OtJsWnVX1Jno1qqI4aA2RI6kenFIxQ?=
+ =?us-ascii?Q?PLMsD0t5d8OVpXngOqTExMS0ZqFjHY6eFR5FkSQHUEM1mxLGvoTY0XOvWfGi?=
+ =?us-ascii?Q?bRzEUmuwWwjCth2p5rSuQXNfKv1dCtkjfYpoX/EZnTVMgtEFYcSDUqzHyuiR?=
+ =?us-ascii?Q?oZ9H+cr8oEbwNxwdvo5lqOZIwdQz/izp/KdW97E7awzObu9V53MokD5VaiRd?=
+ =?us-ascii?Q?50YTgTqi2PDg8F1pAYBIxTf9Bqn2cQsaDBcgo8qD2NSsSqOvWGeShduCuSZ9?=
+ =?us-ascii?Q?N8e2cq0uabXz5X4gXdl3+5oClCNjgwNEanWhYljj5REkKfAHYyQnDjoYJLl7?=
+ =?us-ascii?Q?KYa5S7heQTSqAYU22FaL+u8n81UgI9ILrsL3nQL7sZlMCyxAXrsZXPkG5ES7?=
+ =?us-ascii?Q?WS5TLvUpjZCMlyJYyDFdN2OTxlIUfC7UPauJid+vYOsFMMF0tjapc/+f3keL?=
+ =?us-ascii?Q?RkKWOC2KddZCa+PgYouZCsIatbRWhW21MImOAUh0?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 154a22d1-5997-4341-99c9-08ddc8524260
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Jul 2025 12:29:38.4711
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: VVYJo16Z5noRocjDRiclrk+d6GZJ0wNftAzp9qWdbUZGwsnJZTTKnbMXjwJudSnZfeDftIQHFeQ/GIRUWhpBBw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB9929
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250721_052638_295501_76A9ED41 
-X-CRM114-Status: GOOD (  19.33  )
+X-CRM114-CacheID: sfid-20250721_052943_612955_081A8782 
+X-CRM114-Status: UNSURE (   9.06  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,67 +174,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Russel,
+On Mon, Jul 21, 2025 at 11:39:11AM +0200, Krzysztof Kozlowski wrote:
+>On Mon, Jul 21, 2025 at 02:54:24PM +0800, Peng Fan wrote:
+>> Address the device tree check warning: "phy@4c1f0040 (fsl,imx95-usb-phy):
+>> fsl,phy-pcs-tx-deemph-3p5db-attenuation-db: 17 is not of type 'array'"
+>> 
+>> And dt_binding_check reports:
+>> properties:fsl,phy-pcs-tx-deemph-3p5db-attenuation-db: '$ref' should not be
+>> valid under {'const': '$ref'}
+>> hint: Standard unit suffix properties don't need a type $ref
+>> 
+>
+>I already sent it, since I did the change in dtschema...
+>
+>https://lore.kernel.org/linux-devicetree/20250627-dt-bindings-db-v1-2-d5c7072acbee@linaro.org/
 
-On 7/21/25 13:28, Russell King (Oracle) wrote:
-> On Mon, Jul 21, 2025 at 01:14:45PM +0200, Gatien Chevallier wrote:
->> +static int smsc_phy_suspend(struct phy_device *phydev)
->> +{
->> +	if (!phydev->wol_enabled)
->> +		return genphy_suspend(phydev);
-> 
-> This should not be necessary. Take a look at phy_suspend(). Notice:
-> 
->          phydev->wol_enabled = phy_drv_wol_enabled(phydev) ||
->                                (netdev && netdev->ethtool->wol_enabled);
->          /* If the device has WOL enabled, we cannot suspend the PHY */
->          if (phydev->wol_enabled && !(phydrv->flags & PHY_ALWAYS_CALL_SUSPEND))
->                  return -EBUSY;
-> 
-> PHY_ALWAYS_CALL_SUSPEND is not set for this PHY, therefore if
-> phydev->wol_enabled is set by the above code, phydrv->suspend will
-> not be called.
-> 
+Thanks for letting me know, then drop my patch.
 
-Indeed, thank you for pointing this out. I will remove this callback for
-v2.
+Thanks,
+Peng
 
->> +
->> +	return 0;
->> +}
->> +
->> +static int smsc_phy_resume(struct phy_device *phydev)
->> +{
->> +	int rc;
->> +
->> +	if (!phydev->wol_enabled)
->> +		return genphy_resume(phydev);
->> +
->> +	rc = phy_read_mmd(phydev, MDIO_MMD_PCS, MII_LAN874X_PHY_MMD_WOL_WUCSR);
->> +	if (rc < 0)
->> +		return rc;
->> +
->> +	if (!(rc & MII_LAN874X_PHY_WOL_STATUS_MASK))
->> +		return 0;
->> +
->> +	dev_info(&phydev->mdio.dev, "Woke up from LAN event.\n");
->> +	rc = phy_write_mmd(phydev, MDIO_MMD_PCS, MII_LAN874X_PHY_MMD_WOL_WUCSR,
->> +			   rc | MII_LAN874X_PHY_WOL_STATUS_MASK);
->> +
->> +	return rc;
-> 
-> Note that this will be called multiple times, e.g. during attachment of
-> the PHY to the network device, when the device is opened, etc even
-> without ->suspend having been called, and before ->wol_enabled has
-> been set. Make sure your code is safe for this.
-> 
-
-If ->wol_enabled isn't set, then we should fallback to the previous
-implementation so I expect it to be fine for that matter.
-Then, I expect flags to be set only in case of WoL event received.
-Nevertheless, I will double check the phy_* API used in this sequence
-for V2, thank you.
-
-Best regards,
-Gatien
+>
+>Best regards,
+>Krzysztof
+>
 
