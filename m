@@ -4,67 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13FFAC87FC5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 16:43:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB5CBC83F26
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 16:43:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0xJgUZAh/daxxQlgRYl9XFAlfRsMw/lTbOVfm+5M13o=; b=fbgi4bvxJi3V1YutUzBpTVjrx2
-	GiXxcMAe+Cq9XzgCgYKWYSAQDKZozUJlgmji41nYD2Vt2P0dmpbeOGa2eC3jg4zOFoOhdAZ7Hxp+z
-	2UnNkIa5N3JKBM91Q5w0WNbeO2HOTr0IC41S1Ae/g+734IGqBpLjXxa4wxXo+Lp5VYE4dZMDLe7G6
-	9pMTAMSnUb6kI72aBImIjDi6mTYEKsvsnlmUdplMdVcSw9X+8IP8utP+Jt24VCF8MWH0VemrwSXvs
-	m9FPHfIyTgFloq+yPht4R4fWqwNf9NwbYsUnAMd9BM1qMF7+OC1GW6wK7LEni9ttrXl+V+is1uNNE
-	TY51pNzw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZEUThsSpCMUbwMYhQ5KetKy8D1sXeNWxSdmUlfQSjfQ=; b=3NORlaBZT7FeOuqS+HtdQpHiTi
+	/7xxBO1L+c89C8mMHu8JPCGbgxttHxpSnjuKwRian4Pa8epASxFRfk6S66+V1Ys9gtTGZlsEDswzG
+	MiwCb76KdjUuFOVEJTbHi6npTEPWsI/RUCrYZRAJAdIwntqpLUnZNVFhcVo4mIVceouYqvQlDLIo2
+	6QtxQ+LQV3KrknaOpSNf2YhV9Bv27mgITja7qtrEILmSIJjsZV7GvpEuLQoDItthXmSWNPW1IyPeh
+	bEWoSEReZYeMkN9pfH0vROncoT0xt67teeiOhSmmPNN3Y1+Ld8q4AP+lDVvtyx+SiksIhPnebwGcI
+	h6ay6Ckg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udtbN-00000000CJx-2r54;
-	Mon, 21 Jul 2025 16:42:57 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1udtbH-00000000C9g-2tIF;
+	Mon, 21 Jul 2025 16:42:52 +0000
+Received: from out-174.mta0.migadu.com ([91.218.175.174])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udraS-0000000HXtZ-1OV7
+	id 1udrWP-0000000HX9q-0RSy
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Jul 2025 14:33:53 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 9F641A54D64;
-	Mon, 21 Jul 2025 14:33:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4CB5BC4CEED;
-	Mon, 21 Jul 2025 14:33:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753108431;
-	bh=W3DsCBY2u1iSBpXEbgL+BBx51siqsbpsok2aDJTUk7I=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=NA3NF4SwRguReA5PzVLGxM2kOQRnW6dl5eszhshHh05TjV/aXBdeKRfdRVIDfz517
-	 fYvSfJdrVvkqvumZMi2yWX7uZgupy1mbFZ9xGTdyJnulFVybRE4kGIQ1rVYzobRazE
-	 0nzcEEzZZko+3TLWwwi3366OsDH64fjsGVPXRQguBFYtlHEvtD8gSaTlalSv0T6hj5
-	 ETOaHncxlYb7sqYdGlLFPHaXjAaFU9r6G8k0hTU4XlY4yVsUu/vpH0lJEsR0nnG3Tu
-	 4i+bPrJatkkGWPbVqzCIvObFfsa3eSEDloykgduuHFHAZhhe1YkNlOmxh8mSx9X/St
-	 F3GzdYXn6sU+w==
-Date: Mon, 21 Jul 2025 15:33:46 +0100
-From: Will Deacon <will@kernel.org>
-To: Sami Tolvanen <samitolvanen@google.com>
-Cc: bpf@vger.kernel.org, Puranjay Mohan <puranjay@kernel.org>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Maxwell Bland <mbland@motorola.com>
-Subject: Re: [PATCH bpf-next v11 2/3] cfi: Move BPF CFI types and helpers to
- generic code
-Message-ID: <aH5PypjBVdzVxxlo@willie-the-truck>
-References: <20250718223345.1075521-5-samitolvanen@google.com>
- <20250718223345.1075521-7-samitolvanen@google.com>
+	Mon, 21 Jul 2025 14:29:42 +0000
+Message-ID: <e4b5e4fa-45c4-4b67-b8f1-7d9ff9f8654f@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1753108177;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=ZEUThsSpCMUbwMYhQ5KetKy8D1sXeNWxSdmUlfQSjfQ=;
+	b=gGKh0sByoEfCusDPYDneYqYDDtCK981D27SuDhdK1Ixp787h2480p0CgfM/vjALi68PWt0
+	zP91EVutwm8w0xObTCjpJ2olmJx3SK3q8+WFB+Fep0wyQv4Fx+QwckhdeTVMgINSWDoBq0
+	69KICTRAgIckMRGVMUmR9aWZqsf9IvY=
+Date: Mon, 21 Jul 2025 10:29:32 -0400
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250718223345.1075521-7-samitolvanen@google.com>
+Subject: Re: [PATCH net v2 1/4] auxiliary: Support hexadecimal ids
+To: Leon Romanovsky <leon@kernel.org>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ netdev@vger.kernel.org, Dave Ertman <david.m.ertman@intel.com>,
+ Saravana Kannan <saravanak@google.com>, linux-kernel@vger.kernel.org,
+ Michal Simek <michal.simek@amd.com>, linux-arm-kernel@lists.infradead.org,
+ Ira Weiny <ira.weiny@intel.com>
+References: <20250716000110.2267189-1-sean.anderson@linux.dev>
+ <20250716000110.2267189-2-sean.anderson@linux.dev>
+ <2025071637-doubling-subject-25de@gregkh>
+ <719ff2ee-67e3-4df1-9cec-2d9587c681be@linux.dev>
+ <2025071747-icing-issuing-b62a@gregkh>
+ <5d8205e1-b384-446b-822a-b5737ea7bd6c@linux.dev>
+ <2025071736-viscous-entertain-ff6c@gregkh>
+ <03e04d98-e5eb-41c0-8407-23cccd578dbe@linux.dev>
+ <2025071726-ramp-friend-a3e5@gregkh>
+ <5ee4bac4-957b-481a-8608-15886da458c2@linux.dev>
+ <20250720081705.GE402218@unreal>
+Content-Language: en-US
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Sean Anderson <sean.anderson@linux.dev>
+In-Reply-To: <20250720081705.GE402218@unreal>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250721_073352_434610_3CBAF905 
-X-CRM114-Status: GOOD (  12.54  )
+X-CRM114-CacheID: sfid-20250721_072941_292123_32A6F120 
+X-CRM114-Status: GOOD (  11.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,26 +86,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 18, 2025 at 10:33:48PM +0000, Sami Tolvanen wrote:
-> Instead of duplicating the same code for each architecture, move
-> the CFI type hash variables for BPF function types and related
-> helper functions to generic CFI code, and allow architectures to
-> override the function definitions if needed.
+On 7/20/25 04:17, Leon Romanovsky wrote:
+> On Thu, Jul 17, 2025 at 01:12:08PM -0400, Sean Anderson wrote:
+>> On 7/17/25 12:33, Greg Kroah-Hartman wrote:
 > 
-> Signed-off-by: Sami Tolvanen <samitolvanen@google.com>
-> ---
->  arch/riscv/include/asm/cfi.h  | 16 ------------
->  arch/riscv/kernel/cfi.c       | 24 ------------------
->  arch/x86/include/asm/cfi.h    | 10 ++------
->  arch/x86/kernel/alternative.c | 12 ---------
->  include/linux/cfi.h           | 47 +++++++++++++++++++++++++++++------
->  kernel/cfi.c                  | 15 +++++++++++
->  6 files changed, 56 insertions(+), 68 deletions(-)
+> <...>
+> 
+>> Anyway, if you really think ids should be random or whatever, why not
+>> just ida_alloc one in axiliary_device_init and ignore whatever's
+>> provided? I'd say around half the auxiliary drivers just use 0 (or some
+>> other constant), which is just as deterministic as using the device
+>> address.
+> 
+> I would say that auxiliary bus is not right fit for such devices. This
+> bus was introduced for more complex devices, like the one who has their
+> own ida_alloc logic.
 
-Thanks, Sami, I like the look of this now.
+I'd say that around 2/3 of the auxiliary drivers that have non-constant
+ids use ida_alloc solely for the auxiliary bus and for no other purpose.
+I don't think that's the kind of complexity you're referring to.
 
-If you can get the kbuild robot on board too, then I think we're good to
-go!
+>> Another third use ida_alloc (or xa_alloc) so all that could be
+>> removed.
+> 
+> These ID numbers need to be per-device.
 
-Will
+Why? They are arbitrary with no semantic meaning, right?
+
+--Sean
+
 
