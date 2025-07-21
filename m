@@ -4,60 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5372CC83F26
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 13:15:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00420C83F25
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 13:17:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qAEmz+dLc/EJoTZay46h7dAy1fU9ygDGJJ2OybZ9hsc=; b=Ut6h37OE+P36L1mrrBpudo2oTM
-	JvNC6zwAf9ReaJhx81JehxpFvC7iHjTtBbF5KsBunFV/ih30U3iNdmJxa7HewGaOf++pz2xdTi4cx
-	eVCP75CIFONhtJhfOh+HEihM3km54YyQJkYxA4kMkJzkLbRe7hspm9aEKwWLXs4eqy/7oTSqxPyc8
-	uD/eNXUyiUrS6TEi1FEyHSspmeg76KO7ssrSvndQ8OjYX/CssRkEkvZbvUktWvR2no7Rb54xEnkHq
-	rXtdFBShiUVQ8OAcC/FBQBAMpZqEGAiBGL1+9Jxp89v3ZQI3BSRC8rlIAzSXoTvB4U6hVMYcR743w
-	OMctHMrQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0ZUgBqx92qBG7YxcgchOSk9zrFJ4dI1nB3VhodBS568=; b=Fi7BNTf9nHAYKsR29m2pk28sy3
+	lBBkmsuYZGcd6Fn21ufOyoW1mD6uLtShoHhdymHKPYxWXUWfjSGKXHl5AVV1cI4KoIsxf8qVB84KZ
+	2JCquAzu1g96u2l89mQVxdHC1L0vtgCwZQBMpXoNDCoBAzX7jIDN2ZItYsblLgoqN8QXokgwPw7n5
+	v6h9kEFE05vBJJb5dkOg5imxUmIWMbgSlohtPn8NYY6LwJ6WHsTfMyGt+vBUg7g/reJXfWtn15MGN
+	YJrLzSTE25miTN9wPxrKPGxo9ExBnTx44dSv+E+o0D/K+O0QgLsxzG5aZPnozwv04zxGm3fglZCJU
+	L2jKGYEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udqME-0000000HMQy-0zaz;
-	Mon, 21 Jul 2025 13:15:06 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udocC-0000000H4us-0lpP
+	id 1udqOe-0000000HMrm-3wFw;
+	Mon, 21 Jul 2025 13:17:36 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1udohN-0000000H5PF-3uNn
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Jul 2025 11:23:29 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 619BE153B;
-	Mon, 21 Jul 2025 04:23:21 -0700 (PDT)
-Received: from ewhatever.cambridge.arm.com (ewhatever.cambridge.arm.com [10.1.197.1])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id D595A3F6A8;
-	Mon, 21 Jul 2025 04:23:25 -0700 (PDT)
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-To: Yuanfang Zhang <quic_yuanfang@quicinc.com>,
-	Dan Carpenter <dan.carpenter@linaro.org>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@linaro.org>,
-	James Clark <james.clark@linaro.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Leo Yan <leo.yan@arm.com>,
-	coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	kernel-janitors@vger.kernel.org
-Subject: Re: [PATCH next] coresight: Fix a NULL vs IS_ERR() bug in probe
-Date: Mon, 21 Jul 2025 12:23:13 +0100
-Message-ID: <175309697456.771946.4131106247005398198.b4-ty@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <7bd9fae8-a15f-412a-8800-ce47acf0b5ce@sabinyo.mountain>
-References: <7bd9fae8-a15f-412a-8800-ce47acf0b5ce@sabinyo.mountain>
+	Mon, 21 Jul 2025 11:28:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=0ZUgBqx92qBG7YxcgchOSk9zrFJ4dI1nB3VhodBS568=; b=0Dw7LcU4IbmDlG8F3HK/dH3mNC
+	kmeTh2bcWVTzXjyJVMqXg3wQ76dFrx/HO3L7pLaA2sJKblmKg0f4P7Bxnp3HSv3Usb8hLtY4eXo9R
+	04yA3YHQoqwdYfT4R8gseeR8PYNpoGtiRwDVB0fo5QDED4IGKQz6lgqGAdrzVTGq7VWBgP2hFrvK+
+	3leX5BI1MRCdfce+CLH6smel8QBOLGKhFRa9Vz2800x6OP7S0lGSN0qDyRptpSi+v22YP2dO2w3ga
+	uix/Z+iEhNHoA7BzmNAiRbuLDeUrmWV7Po1TtNtdNqMAFOjsEJg8Hu5TD6892xi9HOn2CTtaNqBeQ
+	c6L+ElgA==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:51126)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1udoh1-0006cW-0F;
+	Mon, 21 Jul 2025 12:28:27 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1udogu-00067a-2M;
+	Mon, 21 Jul 2025 12:28:20 +0100
+Date: Mon, 21 Jul 2025 12:28:20 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Gatien Chevallier <gatien.chevallier@foss.st.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Christophe Roullier <christophe.roullier@foss.st.com>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Simon Horman <horms@kernel.org>,
+	Tristram Ha <Tristram.Ha@microchip.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	netdev@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net-next 3/4] net: phy: smsc: fix and improve WoL support
+Message-ID: <aH4kVBTxd4zRYv2l@shell.armlinux.org.uk>
+References: <20250721-wol-smsc-phy-v1-0-89d262812dba@foss.st.com>
+ <20250721-wol-smsc-phy-v1-3-89d262812dba@foss.st.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250721-wol-smsc-phy-v1-3-89d262812dba@foss.st.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250721_042328_265561_577DBCF7 
-X-CRM114-Status: UNSURE (   5.92  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250721_042850_257750_133740CE 
+X-CRM114-Status: GOOD (  15.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,19 +95,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, Jul 21, 2025 at 01:14:45PM +0200, Gatien Chevallier wrote:
+> +static int smsc_phy_suspend(struct phy_device *phydev)
+> +{
+> +	if (!phydev->wol_enabled)
+> +		return genphy_suspend(phydev);
 
-On Wed, 16 Jul 2025 14:38:30 -0500, Dan Carpenter wrote:
-> The devm_ioremap_resource() function returns error pointers on error.
-> It never returns NULL.  Update the error checking to match.
-> 
-> 
+This should not be necessary. Take a look at phy_suspend(). Notice:
 
-Applied, thanks!
+        phydev->wol_enabled = phy_drv_wol_enabled(phydev) ||
+                              (netdev && netdev->ethtool->wol_enabled);
+        /* If the device has WOL enabled, we cannot suspend the PHY */
+        if (phydev->wol_enabled && !(phydrv->flags & PHY_ALWAYS_CALL_SUSPEND))
+                return -EBUSY;
 
-[1/1] coresight: Fix a NULL vs IS_ERR() bug in probe
-      https://git.kernel.org/coresight/c/f59b9437ac95
+PHY_ALWAYS_CALL_SUSPEND is not set for this PHY, therefore if
+phydev->wol_enabled is set by the above code, phydrv->suspend will
+not be called.
 
-Best regards,
+> +
+> +	return 0;
+> +}
+> +
+> +static int smsc_phy_resume(struct phy_device *phydev)
+> +{
+> +	int rc;
+> +
+> +	if (!phydev->wol_enabled)
+> +		return genphy_resume(phydev);
+> +
+> +	rc = phy_read_mmd(phydev, MDIO_MMD_PCS, MII_LAN874X_PHY_MMD_WOL_WUCSR);
+> +	if (rc < 0)
+> +		return rc;
+> +
+> +	if (!(rc & MII_LAN874X_PHY_WOL_STATUS_MASK))
+> +		return 0;
+> +
+> +	dev_info(&phydev->mdio.dev, "Woke up from LAN event.\n");
+> +	rc = phy_write_mmd(phydev, MDIO_MMD_PCS, MII_LAN874X_PHY_MMD_WOL_WUCSR,
+> +			   rc | MII_LAN874X_PHY_WOL_STATUS_MASK);
+> +
+> +	return rc;
+
+Note that this will be called multiple times, e.g. during attachment of
+the PHY to the network device, when the device is opened, etc even
+without ->suspend having been called, and before ->wol_enabled has
+been set. Make sure your code is safe for this.
+
 -- 
-Suzuki K Poulose <suzuki.poulose@arm.com>
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
