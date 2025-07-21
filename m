@@ -4,72 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8744EC83F25
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 15:31:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44917C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 15:33:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f0zjOMTbsL9IYskcxTnBbpsTUpI1b+AoqR8XdDVpdrI=; b=UP1RRi5aWK85JfEnYbzZbXXLAz
-	YT6WCHJ9h2Vp9/RGRrmDrmwCghHgjlFk8Z5fyzpoexZkfCmcWfaXmGU/5ztm5uHLw3RwFwZj3hyBk
-	oCl5cu8gN3eEZmRc8QUGnSJsAAuy1fgkv8k7RJf1crdFq3Ly58iE9KLQSrE3pGz+WAWRhrvzi1xnx
-	0gcSYND41eFcrJejXgp9+tZQRhh1Xumr/bPh+3Xf4bUy48Jpun0jlGD9zwnxGFSPV5ljtXHbyaO2o
-	rwaUJEwrI96xelJakdtYTeUl8Lfm0rCAP9pqe5WtN804H+/CI01WNBvt1Fbov6iODpOgPDdxIL+tV
-	i51nJKpw==;
+	bh=5QwU0NGWMyeilcmDXePBgzPmpc6ax9AtTlEZ92oaUVU=; b=eGUeWbFXRZZdWmrz8uD1xB4aFL
+	fe3IEpBWJYzkZeRGQfJNwd5Cteo5qB1Nv+Vr83x7nbk0LwsE24zSDrSjknUQSooSggY3iEZ3Y42rZ
+	KGoAcVkKVcSMj8YHpuqoJleOyzFvqBRKcef5wgu96921Az+mppCoFtaOyFCKiVCG+cpwwLBgjC5JY
+	AM0V6tYTm1MocJzMqZB8zFVLXfW79q+x5U4XE4HuW7ctO/3EucCt4ymBaqDG+E+ha3AIHyab7nfwu
+	mXwzTOiYJpvvrm/vBwTERnd1poQwIUlUxmc1KeX9AWlp8Lw5e+rzg3d644gru+aRSPmp/Gg8XJtnM
+	t+ujjjfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udsTh-000000005Fh-0Vzg;
-	Mon, 21 Jul 2025 15:30:57 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1udsW7-000000005Q5-0lQB;
+	Mon, 21 Jul 2025 15:33:27 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udqXP-0000000HO5z-1wiA
+	id 1udqe1-0000000HOth-06eF
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Jul 2025 13:26:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=f0zjOMTbsL9IYskcxTnBbpsTUpI1b+AoqR8XdDVpdrI=; b=rDowa1V+pr1UhzVlanIV+mlqe+
-	yi+x6a81Qp2xjGtBieTAdZdnaK3PLVHeziPlVeTDFY+AU7vBY2Li5ixGzFtTemQcIS20U/QvC5Ihr
-	xxAkLgUGpSzVY0r0gOueIKO7mDIUSP3kdU1h3GzEwPfuofWTL4jRmOskhSRsAo9WqMVk=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1udqXE-002MJh-72; Mon, 21 Jul 2025 15:26:28 +0200
-Date: Mon, 21 Jul 2025 15:26:28 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Gatien Chevallier <gatien.chevallier@foss.st.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Christophe Roullier <christophe.roullier@foss.st.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Simon Horman <horms@kernel.org>,
-	Tristram Ha <Tristram.Ha@microchip.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	netdev@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net-next 3/4] net: phy: smsc: fix and improve WoL support
-Message-ID: <cca8e9e6-a063-4e00-87af-f59ea926cce3@lunn.ch>
-References: <20250721-wol-smsc-phy-v1-0-89d262812dba@foss.st.com>
- <20250721-wol-smsc-phy-v1-3-89d262812dba@foss.st.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250721-wol-smsc-phy-v1-3-89d262812dba@foss.st.com>
+	Mon, 21 Jul 2025 13:33:30 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id AE74F452B0;
+	Mon, 21 Jul 2025 13:33:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 82283C4CEED;
+	Mon, 21 Jul 2025 13:33:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1753104808;
+	bh=xqTXA9MKZdUrT8GbMGDNoSR1qCHbkSRrB2BdWos/uaw=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=aechEvHiZ9bmBFJLAHXPkKIgMqAhJ/+ST+KXWiY7sMskalQGQRb0BNmaLRwzl6re3
+	 a4b2ot2kCWHlwJ8Pojj2a1tObrkyfwhwuCTwXL5cH0KanOF9ogwsSUbHTUDXG31Sf6
+	 IyAWxltULsFH+pX9wHmOmOQH9amLDhc+J032kDg8+lxeJkEdrr1ezhTDqmNpo06Cf1
+	 hiAk/rPQb8kv2EKlXl3qn5XAbuxZE/vjIW8RfcirmOIXoPGnU00j9F8257a0UThRsU
+	 cQ7eigJl3Yx4PSViCI012Uh9a4bPITQrJVac/IV0xGQ2t6HcnuioTIi2G4rsOKS55L
+	 Marj8sBpXUjbQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1udqdy-0001hv-81;
+	Mon, 21 Jul 2025 14:33:26 +0100
+Date: Mon, 21 Jul 2025 14:33:24 +0100
+Message-ID: <86ldoh8y8r.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Cornelia Huck <cohuck@redhat.com>
+Cc: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose
+ <suzuki.poulose@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Zenghui
+ Yu <yuzenghui@huawei.com>,
+	Will Deacon <will@kernel.org>,
+	Catalin Marinas
+ <catalin.marinas@arm.com>
+Subject: Re: [PATCH 6/7] KVM: arm64: Expose FEAT_RASv1p1 in a canonical manner
+In-Reply-To: <87pldt6630.fsf@redhat.com>
+References: <20250721101955.535159-1-maz@kernel.org>
+	<20250721101955.535159-7-maz@kernel.org>
+	<87seip67xz.fsf@redhat.com>
+	<86o6td8zzq.wl-maz@kernel.org>
+	<87pldt6630.fsf@redhat.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: cohuck@redhat.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, will@kernel.org, catalin.marinas@arm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250721_062639_499115_54A204F0 
-X-CRM114-Status: GOOD (  11.73  )
+X-CRM114-CacheID: sfid-20250721_063329_101371_8D8A948D 
+X-CRM114-Status: GOOD (  22.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,37 +97,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> +static int smsc_phy_suspend(struct phy_device *phydev)
-> +{
-> +	if (!phydev->wol_enabled)
-> +		return genphy_suspend(phydev);
-> +
-> +	return 0;
-> +}
+On Mon, 21 Jul 2025 14:12:19 +0100,
+Cornelia Huck <cohuck@redhat.com> wrote:
+> 
+> On Mon, Jul 21 2025, Marc Zyngier <maz@kernel.org> wrote:
+> 
+> > On Mon, 21 Jul 2025 13:32:08 +0100,
+> > Cornelia Huck <cohuck@redhat.com> wrote:
+> >> 
+> >> On Mon, Jul 21 2025, Marc Zyngier <maz@kernel.org> wrote:
+> >> 
+> >> > If we have RASv1p1 on the host, advertise it to the guest in the
+> >> > "canonical way", by setting ID_AA64PFR0_EL1 to V1P1, rather than
+> >> > the convoluted RAS+RAS_frac method.
+> >> 
+> >> Don't the two methods have slightly different semantics with RAS == V1P1
+> >> possibly implying FEAT_DoubleFault, and RAS+RAS_frac not?
+> >
+> > Ah, that's an interesting point -- I definitely had glanced over that.
+> >
+> > But I'm not sure a guest can actually distinguish between these two
+> > configurations, given that FEAT_DoubleFault is essentially an EL3
+> > feature (as indicated in the RAS == V1P1 section, and further
+> > confirmed in R_GRJVN), making it invisible to the guest.
+> >
+> > FEAT_DoubleFault2 is, on the contrary, totally visible from the guest,
+> > and independent of EL3.
+> >
+> > Does this make sense to you?
+> 
+> It does; but it might make sense to add a comment explaining that.
 
-Suspend/resume is somewhat complex, and i don't know all the
-details. But this looks odd. Why does the phylib core call suspend
-when phydev->wol_enabled is true? That at least needs an explanation
-in the commit message.
+Sure thing. I'll add a sentence or three on the subject.
 
-> +static int smsc_phy_resume(struct phy_device *phydev)
-> +{
-> +	int rc;
-> +
-> +	if (!phydev->wol_enabled)
-> +		return genphy_resume(phydev);
-> +
-> +	rc = phy_read_mmd(phydev, MDIO_MMD_PCS, MII_LAN874X_PHY_MMD_WOL_WUCSR);
-> +	if (rc < 0)
-> +		return rc;
-> +
-> +	if (!(rc & MII_LAN874X_PHY_WOL_STATUS_MASK))
-> +		return 0;
-> +
-> +	dev_info(&phydev->mdio.dev, "Woke up from LAN event.\n");
+> Userspace should hopefully be able to just map everything to RAS == V1P1
+> and be done with it.
 
-Please don't spam the log. It is clear the system woke up, there are
-messages in the log...
+Indeed, that's the intention. RAS_frac is zeroed and made
+non-writable.  This is also consistent with RASv2, for which RAS_frac
+is not relevant (not that there is a plan to support RASv2 in the
+foreseeable future!).
 
-	Andrew
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
