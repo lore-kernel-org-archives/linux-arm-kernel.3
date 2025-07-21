@@ -4,93 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE5D7C83F25
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 12:47:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72BD3C83F25
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 12:50:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z5NScKoqqRDYpF25UOe7u8EPklWKzZRwjyOT1Jxt9gI=; b=pDuZnITU8LQnzux6fwayVPIDs4
-	LbFEwLPeCEUsjrIpkELmmpKMineGtj7Tbke8xTp9SU6wjniw36W3YrxQ6zLhPrgr9Oli+EjXJni70
-	6umtr91/xwyZdHUxLaG2Jxse/ago52AAjjHsmwiOgb4xxgOaM+liSd2PUoggrSYcRHgx7Y1hLcyB0
-	Dw+jjb8oiFDwxbKUybjxNmL5zZwYMx1s9ZXIEBVtLjaB1yTxY77IjLJqX79EuzsLafEkZTjri3602
-	nHq8EFNiP1nOfxQl61WuRf5XO+y9ceOrU2GhTDmJZVy/jurE8AOM43JjNIDsrkwSXciwTh3RXRdEa
-	ERAHHGtQ==;
+	bh=4WW2uf9Dse9OAFXSGg4nVLrSNNR6IaqC06E35FrZCQw=; b=xGT6wS1oIfKEEZk7sRrS/utxhL
+	PGTK87AVpjiEquDS5I3GVERMCPH0Wh1OeT96xI3Tr087OGLVTt+bKpQgelhr/cpwgD5X5mh7vwOun
+	4w8niDpVJBZ1XRSYmEUvwnC4FuyMRoi5F4uKfRM9zs0k2L3Em4izx7zmoBveh4UfCrIkfPcwoMwJq
+	foKi+VPxHgwwDwfMu3auk4mGXTXz+Q/bH32zY/CkrpVydptQV7nyXXna07FpwDMwHqizf4qbdY8SD
+	2SEvWjI53eV+cKwYXgcbg3cx2qgNAPWyLcTaYJW271rGvF4wrLcMl4bSbxe/D8SDyXCmb1pRqbAFX
+	8tW8yKPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udpvS-0000000HHi1-3Bb0;
-	Mon, 21 Jul 2025 12:47:26 +0000
-Received: from mail-qt1-x834.google.com ([2607:f8b0:4864:20::834])
+	id 1udpxs-0000000HI0S-2Gg1;
+	Mon, 21 Jul 2025 12:49:56 +0000
+Received: from mail-lj1-x234.google.com ([2a00:1450:4864:20::234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udoHW-0000000H1l0-0Il8
+	id 1udoP9-0000000H2iX-0vi8
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Jul 2025 11:02:07 +0000
-Received: by mail-qt1-x834.google.com with SMTP id d75a77b69052e-4ab6e66ea68so57082911cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Jul 2025 04:02:05 -0700 (PDT)
+	Mon, 21 Jul 2025 11:10:00 +0000
+Received: by mail-lj1-x234.google.com with SMTP id 38308e7fff4ca-32f1df5b089so38445231fa.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Jul 2025 04:09:58 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=android.com; s=20230601; t=1753095724; x=1753700524; darn=lists.infradead.org;
+        d=chromium.org; s=google; t=1753096197; x=1753700997; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Z5NScKoqqRDYpF25UOe7u8EPklWKzZRwjyOT1Jxt9gI=;
-        b=mP5K3ENNW0UE6ir/VdSCVExywoLFdhLLmZt0xl0kTVvTliNb5+W0dAttm8/cohKQss
-         /dMnUVZJErQQ2+j53wKschXmU8iUPPwUJ5Xr3QxKyOqV+555BmvDWvBElAYL9zbx7lg4
-         UIEPxPiZ0u/Eg2lrPn9pws13gAb3sCkMuQEcKUy5M5q4OuUehFC9KidIY1QRRLFGYZhV
-         oqBBLZA2kXu0gd6bx8wEggKcgwscJAI1AVAP1JOYmo5Txbw50WVvTgLOxCYukbzMW3zi
-         5lv7OVJYmknG14eW1pUJ0n8Nsn1fXC0bHHG906ivQhEAg7kccjneFnF7dbNyvGvrmQgB
-         K/eA==
+        bh=4WW2uf9Dse9OAFXSGg4nVLrSNNR6IaqC06E35FrZCQw=;
+        b=QH2QLxN2sugGp8EsNjyFVYAN0ATp57cBO3PFs4vL6fWfJH7eaqmhp+jjnH/J6aXVzG
+         MTDE80ZNEFGBsvjtDE4B0q2B0i7CC9cqiGxcQe4l9WYAE3ObZC1om5buDRiwtaTat5an
+         rx+6D+7o9rHBb6Tp+kDgSRCx8MPSaxVpCLWTo=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753095724; x=1753700524;
+        d=1e100.net; s=20230601; t=1753096197; x=1753700997;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=Z5NScKoqqRDYpF25UOe7u8EPklWKzZRwjyOT1Jxt9gI=;
-        b=OHztqLYxk1TliXA6o7xrGacvCRpcezVLyH9j//aoewmJ6+ZfGj60kR/mbxpchGsfIy
-         YzQuhUgdoAbowYvKE3HSRkzYkMld1Z8LPs/LF+apxnDU+QARHu7ujvTBxXdOjxdmUUv+
-         0LGPMN7PPH7TVrX3j103VeWsSmdlJVyJ+MQ4cM69FJxPTdaF9guJW9FeqI1mL5ZoQ69y
-         8g37jORAqoJhoYsAIcTNET9rU6hr2FW9gedD2lmzZKv9hmv6KY4Y6w4ehEq0IyGspAKQ
-         TOmeNkwPtStPNp0XVXlsfgKrM5eOPA/amw00LW/rLkAOUBXxs+/D5q5GXtHhmhoUj+Os
-         ahRA==
-X-Forwarded-Encrypted: i=1; AJvYcCWya2Kgmv0dQStJxgz/XldfJFI4QBvxFlnvr79Q2H6mM6oQrCRC5qN5Ra6csugh4ibdUG/RUF/U44RvPQHjTkcS@lists.infradead.org
-X-Gm-Message-State: AOJu0YwiaNzkRYqUTUr7wze6+nO6srLbUhcUEZ1uVukkDwjnBMMtF93e
-	VjvjTw08LkOri+JgFysi3CsKmlYUzvuuCAragkjyB9vr5DNMzQ0VDl78+FXmqJ6jc9N6K//oChf
-	//3RKqWs/3L+oc+4+caq+USkTF90wb2kvbpoilEkb
-X-Gm-Gg: ASbGnctizAm0Q1FhlQVmCVemCuvViXPAXxYWWjDDzBooNsS1hWZYT3BSPIiqzqGcXoC
-	cJBzBcHV3+Ofa2dfG99B/uWFko5/yusd0e7KkYQfg3pM7pVUe+TM0HVL7kBfSws8eJeW4xNBBUp
-	jRoakvJltFkX8rNOMnyHmAAX3h2O3i1OZkzajnmqyVOgK4CiTPymvUzE6istR4iPz5jOW9SAo8A
-	NB2KkbKFswB+D1Q4DmVZp86dGfFtEFHpYnWRGjfiQ==
-X-Google-Smtp-Source: AGHT+IFi54tA/j4ZfIPctLHHg6b5vyU1fnTS/ZP8EdichbysBiV/QOT7PSO6lGugTEs2q8yVhdWoz8PI8zW1nkRBPYM=
-X-Received: by 2002:a05:6214:310f:b0:700:c7e4:cac6 with SMTP id
- 6a1803df08f44-705071c240cmr195760366d6.8.1753095723949; Mon, 21 Jul 2025
- 04:02:03 -0700 (PDT)
+        bh=4WW2uf9Dse9OAFXSGg4nVLrSNNR6IaqC06E35FrZCQw=;
+        b=jl9AfSTtITm8WPbjsvoYnkGuY+FgimMMdaFdvA+iN5hZvjAyzEdPBlvRQpz9RVNhNx
+         r8kcNIedK6G1NRku7kT8msvEitHcww2uv2zTtDfpK6GT8SBp0MkvGRxXz2ijmu0PJHuh
+         XrYyI0ljZkbL9eHLpW8v4UUICU6JfX0SZCnn8HWbQT/vucrYxwn07UfLTZ6jf6sdcLpx
+         LeBZnsfYX9WbWyxiij6vqVrBoCuGQwiLPPLFPggO9lhG0y1NGD3b/cjaU38EzRVvlRAz
+         M3zD+BnMlckiknj59d4k+f8djTsttXdH7vRsoyk5WQ88AI1USygRrYVnB6LmRo0Gt2SN
+         rsVQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWsj7gSNl7ysFvzrcIjF7cMu5xttXciVj2etIlzvV/I4lfqc1fm7ZtM5GVGBiJxk4DmiYVyWlZD9n4nGdOJjx26@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx1SzKg5MIStzIKN2d/CHPnTaEEEHIeYSIk2UnWsRVrOsuUnbqc
+	yKCruUOfPnFR2mN/9Sg6b2zTZbNefKaeNLm8IjxPApkncIMI0ttOPK9WhUC/FMr1Vduaj6Hayki
+	vGTovmmN50aQ+LjkW0hAUr9a7L2O1x9hAUL0/LmLPp7GIjNBiOqk=
+X-Gm-Gg: ASbGnct/rsnxe09RNIgsymymvjjn6IVOA20HbNg3Ejr3oIm8PfwgdqiFNO0RZW2NhU3
+	95LSu7a+qutIG10HKtt2Yl7D7B0bHVdF9RkIzw0NiVQFYZ0zDo5Yfuz6tUVeg1adD9PnIV7MFtl
+	ayU4hm7dZlatZbmfQcFkL2NO/Aw2A4nHLMeFn//SRl1GFGbG2TkpYq2IwJUFc0sV6ONntGrelbx
+	QC5r+9Jxc2Cg3lEEwMXc34DPsz1x2y+HqhFJwVOEa8O0g==
+X-Google-Smtp-Source: AGHT+IF4nBN7l8BVpT48NL044EtxxNCfvAewP1ZUdA31VvrzYipiWFMocffu+xLGFjFA/wIBhY4ZsuRqkeecG+8Cpu0=
+X-Received: by 2002:a05:651c:3241:b0:32f:522e:f040 with SMTP id
+ 38308e7fff4ca-330a7b352d4mr27431031fa.12.1753096197351; Mon, 21 Jul 2025
+ 04:09:57 -0700 (PDT)
 MIME-Version: 1.0
-References: <20250701-virtio-msg-ffa-v7-0-995afc3d385e@google.com>
- <20250701-virtio-msg-ffa-v7-2-995afc3d385e@google.com> <8634bdbgaz.wl-maz@kernel.org>
- <3b10fa81-bfdd-4325-a330-c79df2e21621@immunant.com> <aHpOClH1k-3NhI_y@willie-the-truck>
- <67cc6766-6493-4171-a6b1-2a105c3e6ff5@immunant.com>
-In-Reply-To: <67cc6766-6493-4171-a6b1-2a105c3e6ff5@immunant.com>
-From: =?UTF-8?B?QXJ2ZSBIasO4bm5ldsOlZw==?= <arve@android.com>
-Date: Mon, 21 Jul 2025 04:01:52 -0700
-X-Gm-Features: Ac12FXxyyw32mDla--L9makX6oeYtEuUpV1sDlGA2J2wilR4nXDa-mqd-j0HZ08
-Message-ID: <CAMP5XgeUwDnf=PbySy6aoF_zc7dtxymDQZEp8DuRSOLg4WEnFQ@mail.gmail.com>
-Subject: Re: [PATCH v7 2/5] KVM: arm64: Use SMCCC 1.2 for FF-A initialization
- and in host handler
-To: Per Larsen <perl@immunant.com>
-Cc: Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>, perlarsen@google.com, 
-	Oliver Upton <oliver.upton@linux.dev>, Joey Gouly <joey.gouly@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Sudeep Holla <sudeep.holla@arm.com>, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, ahomescu@google.com, armellel@google.com, 
-	ayrton@google.com, qperret@google.com, sebastianene@google.com, 
-	qwandor@google.com
+References: <20250721081459.16278-1-laura.nao@collabora.com> <20250721081459.16278-7-laura.nao@collabora.com>
+In-Reply-To: <20250721081459.16278-7-laura.nao@collabora.com>
+From: Chen-Yu Tsai <wenst@chromium.org>
+Date: Mon, 21 Jul 2025 19:09:45 +0800
+X-Gm-Features: Ac12FXzx8td7SOjqLltSsFYEC21ZPF3VEQHs0mR_h7cbh7ksB6i9GixQOdHUn5w
+Message-ID: <CAGXv+5Fgha-3xAa8gOEsub0u=Qr5RjQVzkyPoZ=iDkJL_KCXEg@mail.gmail.com>
+Subject: Re: [PATCH 6/9] thermal/drivers/mediatek/lvts: Add support for ATP mode
+To: Laura Nao <laura.nao@collabora.com>
+Cc: srini@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	rafael@kernel.org, daniel.lezcano@linaro.org, rui.zhang@intel.com, 
+	lukasz.luba@arm.com, matthias.bgg@gmail.com, 
+	angelogioacchino.delregno@collabora.com, andrew-ct.chen@mediatek.com, 
+	lala.lin@mediatek.com, arnd@arndb.de, linux-pm@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, nfraprado@collabora.com, 
+	devicetree@vger.kernel.org, u.kleine-koenig@baylibre.com, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+	kernel@collabora.com, colin.i.king@gmail.com, bchihi@baylibre.com
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250721_040206_134119_A7561BDF 
-X-CRM114-Status: GOOD (  45.21  )
+X-CRM114-CacheID: sfid-20250721_040959_383754_C9963C18 
+X-CRM114-Status: GOOD (  21.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,219 +99,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 18, 2025 at 10:54=E2=80=AFPM Per Larsen <perl@immunant.com> wro=
-te:
+On Mon, Jul 21, 2025 at 4:33=E2=80=AFPM Laura Nao <laura.nao@collabora.com>=
+ wrote:
 >
-> On 7/18/25 6:37 AM, Will Deacon wrote:
-> > On Mon, Jul 07, 2025 at 05:06:23PM -0700, Per Larsen wrote:
-> >> On 7/3/25 5:38 AM, Marc Zyngier wrote:
-> >>> On Tue, 01 Jul 2025 23:06:35 +0100,
-> >>> Per Larsen via B4 Relay <devnull+perlarsen.google.com@kernel.org> wro=
-te:
-> >>>> diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe=
-/ffa.c
-> >>>> index 2c199d40811efb5bfae199c4a67d8ae3d9307357..65d241ba32403d014b43=
-cc4ef4d5bf9693813809 100644
-> >>>> --- a/arch/arm64/kvm/hyp/nvhe/ffa.c
-> >>>> +++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
-> >>>> @@ -71,36 +71,68 @@ static u32 hyp_ffa_version;
-> >>>>    static bool has_version_negotiated;
-> >>>>    static hyp_spinlock_t version_lock;
-> >>>> -static void ffa_to_smccc_error(struct arm_smccc_res *res, u64 ffa_e=
-rrno)
-> >>>> +static void ffa_to_smccc_error(struct arm_smccc_1_2_regs *res, u64 =
-ffa_errno)
-> >>>>    {
-> >>>> -  *res =3D (struct arm_smccc_res) {
-> >>>> +  *res =3D (struct arm_smccc_1_2_regs) {
-> >>>>                    .a0     =3D FFA_ERROR,
-> >>>>                    .a2     =3D ffa_errno,
-> >>>>            };
-> >>>>    }
-> >>>> -static void ffa_to_smccc_res_prop(struct arm_smccc_res *res, int re=
-t, u64 prop)
-> >>>> +static void ffa_to_smccc_res_prop(struct arm_smccc_1_2_regs *res, i=
-nt ret, u64 prop)
-> >>>>    {
-> >>>>            if (ret =3D=3D FFA_RET_SUCCESS) {
-> >>>> -          *res =3D (struct arm_smccc_res) { .a0 =3D FFA_SUCCESS,
-> >>>> -                                          .a2 =3D prop };
-> >>>> +          *res =3D (struct arm_smccc_1_2_regs) { .a0 =3D FFA_SUCCES=
-S,
-> >>>> +                                                .a2 =3D prop };
-> >>>>            } else {
-> >>>>                    ffa_to_smccc_error(res, ret);
-> >>>>            }
-> >>>>    }
-> >>>> -static void ffa_to_smccc_res(struct arm_smccc_res *res, int ret)
-> >>>> +static void ffa_to_smccc_res(struct arm_smccc_1_2_regs *res, int re=
-t)
-> >>>>    {
-> >>>>            ffa_to_smccc_res_prop(res, ret, 0);
-> >>>>    }
-> >>>>    static void ffa_set_retval(struct kvm_cpu_context *ctxt,
-> >>>> -                     struct arm_smccc_res *res)
-> >>>> +                     struct arm_smccc_1_2_regs *res)
-> >>>>    {
-> >>>> +  DECLARE_REG(u64, func_id, ctxt, 0);
-> >>>>            cpu_reg(ctxt, 0) =3D res->a0;
-> >>>>            cpu_reg(ctxt, 1) =3D res->a1;
-> >>>>            cpu_reg(ctxt, 2) =3D res->a2;
-> >>>>            cpu_reg(ctxt, 3) =3D res->a3;
-> >>>> +  cpu_reg(ctxt, 4) =3D res->a4;
-> >>>> +  cpu_reg(ctxt, 5) =3D res->a5;
-> >>>> +  cpu_reg(ctxt, 6) =3D res->a6;
-> >>>> +  cpu_reg(ctxt, 7) =3D res->a7;
-> >>>
-> >>>   From DEN0028G 2.6:
-> >>>
-> >>> <quote>
-> >>> Registers W4-W7 must be preserved unless they contain results, as
-> >>> specified in the function definition.
-> >>> </quote>
-> >>>
-> >>> On what grounds can you blindly change these registers?
-> >>  From DEN0077A 1.2 Section 11.2: Reserved parameter convention
-> >>
-> >> <quote>
-> >> Unused parameter registers in FF-A ABIs are reserved for future use by=
- the
-> >> Framework.
-> >>
-> >> [...]
-> >>
-> >> The caller is expected to write zeroes to these registers. The callee
-> >> ignores the values in these registers.
-> >> </quote>
-> >>
-> >> My read is that, as long as we are writing zeroes into reserved regist=
-ers
-> >> (which I believe we are), we comply with DEN0026G 2.6.>
-> >
-> > Right, the specs make this far more difficult to decipher than necessar=
-y
-> > but I think SMCCC defers to the definition of the specific call being
-> > made and then FF-A is basically saying that unused argument registers
-> > are always zeroed.
-> >
-> > Rather than have the EL2 proxy treat each call differently based on the
-> > used argument registers, we can rely on EL3 doing the right thing and
-> > blindly copy everything back, which is what you've done. So I think
-> > that's ok.
-> >
-> >>>> +
-> >>>> +  /*
-> >>>> +   * DEN0028C 2.6: SMC32/HVC32 call from aarch64 must preserve x8-x=
-30.
-> >>>> +   *
-> >>>> +   * The most straightforward approach is to look at the function I=
-D
-> >>>> +   * sent by the caller. However, the caller could send FFA_MSG_WAI=
-T
-> >>>> +   * which is a 32-bit interface but the reply could very well be 6=
-4-bit
-> >>>> +   * such as FFA_FN64_MSG_SEND_DIRECT_REQ or FFA_MSG_SEND_DIRECT_RE=
-Q2.
-> >>>> +   *
-> >>>> +   * Instead, we could look at the function ID in the response (a0)=
- but
-> >>>> +   * that doesn't work either as FFA_VERSION responses put the vers=
-ion
-> >>>> +   * number (or error code) in w0.
-> >>>> +   *
-> >>>> +   * Set x8-x17 iff response contains 64-bit function ID in a0.
-> >>>> +   */
-> >>>> +  if (func_id !=3D FFA_VERSION && ARM_SMCCC_IS_64(res->a0)) {
-> >>>> +          cpu_reg(ctxt, 8) =3D res->a8;
-> >>>> +          cpu_reg(ctxt, 9) =3D res->a9;
-> >>>> +          cpu_reg(ctxt, 10) =3D res->a10;
-> >>>> +          cpu_reg(ctxt, 11) =3D res->a11;
-> >>>> +          cpu_reg(ctxt, 12) =3D res->a12;
-> >>>> +          cpu_reg(ctxt, 13) =3D res->a13;
-> >>>> +          cpu_reg(ctxt, 14) =3D res->a14;
-> >>>> +          cpu_reg(ctxt, 15) =3D res->a15;
-> >>>> +          cpu_reg(ctxt, 16) =3D res->a16;
-> >>>> +          cpu_reg(ctxt, 17) =3D res->a17;
-> >>>> +  }
-> >>>>    }
-> >>>
-> >>> I don't see how that can ever work.
-> >>>
-> >>> Irrespective of how FFA_MSG_WAIT actually works (and I couldn't find
-> >>> anything in the spec that supports the above), the requester will
-> >>> fully expect its registers to be preserved based on the initial
-> >>> function type, and that alone. No ifs, no buts.
-> >>>
-> >>> If what you describe can happen (please provide a convincing example)=
-,
-> >>> then the spec is doomed.
-> >>
-> >> DEN0077A 1.2 Section 8.2 (Runtime Model for FFA_RUN) and 8.3 (Runtime =
-Model
-> >> for Direct request ABIs) contains Figures 8.1 and 8.2. Each figure sho=
-ws
-> >> transitions between states "waiting", "blocked", "running", and "preem=
-pted".
-> >> Key to my understanding is that the waiting state in Figure 8.1 and Fi=
-gure
-> >> 8.2 is the exact same state. This appears to be the case per Section 4=
-.10.
-> >>
-> >> So we have to consider the ways to get in and out of the waiting state=
- by
-> >> joining the state machines in Figures 8.1 and 8.2. Figure 8.1 has an e=
-dge
-> >> between "running" and "waiting" caused by FFA_MSG_WAIT. Figure 8.2 has=
- an
-> >> edge between "waiting" and "running" caused by a "Direct request ABI".
-> >>
-> >> Direct request ABIs include FFA_MSG_SEND_DIRECT_REQ2 which is why the =
-FF-A
-> >> 1.2 spec, in my read, permits the response to a 32-bit FFA_MSG_WAIT ca=
-ll can
-> >> be a 64-bit FFA_MSG_SEND_DIRECT_REQ2 reply.
-> >
-> > That seems bonkers to me and I agree with Marc's assessment above. The
-> > SMCCC is crystal clear that a caller using the SM32/HVC32 calling
-> > convention can rely on x8-x30 (as well as the stack pointers) being
-> > preserved. If FF-A has a problem with that then it needs to be fixed
-> > there and not bodged in Linux.
-> Ack. Patchset v8 addresses Marc's feedback by using the func_id detect
-> SMC64 instead.>
-> > Setting that aside, I'm still not sure I follow this part of your check=
-:
-> >
-> >       if (... && ARM_SMCCC_IS_64(res->a0))
-> >
-> > won't res->a0 contain something like FFA_SUCCESS? The FFA spec states:
-> >
-> >    FFA_SUCCESS64, is used only if any result register encodes a 64-bit
-> >    parameter.
-> >
-> > which doesn't really seem related to whether or not the initial call
-> > was using SMC32 or SMC64. What am I missing?I agree that we cannot use =
-res->a0 to distinguish SMC32/SMC64 for the
-> reason you stated.
+> MT8196/MT6991 uses ATP (Abnormal Temperature Prevention) mode to detect
+> abnormal temperature conditions, which involves reading temperature data
+> from a dedicated set of registers separate from the ones used for
+> immediate and filtered modes.
+>
+> Add support for ATP mode and its relative registers to ensure accurate
+> temperature readings and proper thermal management on MT8196/MT6991
+> devices.
+>
+> Signed-off-by: Laura Nao <laura.nao@collabora.com>
+> ---
+>  drivers/thermal/mediatek/lvts_thermal.c | 34 ++++++++++++++++++++++---
+>  1 file changed, 31 insertions(+), 3 deletions(-)
+>
+> diff --git a/drivers/thermal/mediatek/lvts_thermal.c b/drivers/thermal/me=
+diatek/lvts_thermal.c
+> index 3c34956e37c1..8f9da0d5b886 100644
+> --- a/drivers/thermal/mediatek/lvts_thermal.c
+> +++ b/drivers/thermal/mediatek/lvts_thermal.c
+> @@ -44,6 +44,10 @@
+>  #define LVTS_EDATA01(__base)   (__base + 0x0058)
+>  #define LVTS_EDATA02(__base)   (__base + 0x005C)
+>  #define LVTS_EDATA03(__base)   (__base + 0x0060)
+> +#define LVTS_ATP0(__base)              (__base + 0x0070)
+> +#define LVTS_ATP1(__base)              (__base + 0x0074)
+> +#define LVTS_ATP2(__base)              (__base + 0x0078)
+> +#define LVTS_ATP3(__base)              (__base + 0x007C)
+>  #define LVTS_MSR0(__base)              (__base + 0x0090)
+>  #define LVTS_MSR1(__base)              (__base + 0x0094)
+>  #define LVTS_MSR2(__base)              (__base + 0x0098)
+> @@ -90,6 +94,7 @@
+>
+>  #define LVTS_MSR_IMMEDIATE_MODE                0
+>  #define LVTS_MSR_FILTERED_MODE         1
+> +#define LVTS_MSR_ATP_MODE              2
 
-I don't think using the function-id of the original call works
-correctly in this context though. If you look at
-drivers/firmware/arm_ffa/driver.c:ffa_msg_send_direct_req2 it has the
-same problem as the FFA_MSG_WAIT example in your comment. In the
-simple case it will use FFA_MSG_SEND_DIRECT_REQ2 for the call and
-FFA_MSG_SEND_DIRECT_RESP2 for the response, both 64 bit opcodes, and
-either approach here will have the same correct result. However if
-FFA_MSG_SEND_DIRECT_REQ2 responds with FFA_INTERRUPT or FFA_YIELD,
-then the driver will resume the call with FFA_RUN, a 32 bit opcode,
-and still expect a 64 bit FFA_MSG_SEND_DIRECT_RESP2 response with a
-full response in x4-17. If you use ARM_SMCCC_IS_64(func_id) here
-instead of ARM_SMCCC_IS_64(res->a0), then the part of response in
-x8-x17 will be lost.
+Nit: I suggest changing this to an enum since they are related, and
+also because these are artificial (unrelated to hardware values).
 
-The FF-A 1.3 ALP2 fixes this by adding a 64 bit FF-A run opcode, but
-at the current patchstack only adds ff-a 1.2 support and the linux
-ff-a driver does not yet support the new 1.3 ALP2 call flow either so
-I think the current v7 patch here is the best option for now.
+Otherwise,
 
---=20
-Arve Hj=C3=B8nnev=C3=A5g
+Reviewed-by: Chen-Yu Tsai <wenst@chromium.org>
+
+>  #define LVTS_MSR_READ_TIMEOUT_US       400
+>  #define LVTS_MSR_READ_WAIT_US          (LVTS_MSR_READ_TIMEOUT_US / 2)
+> @@ -207,6 +212,10 @@ static const struct debugfs_reg32 lvts_regs[] =3D {
+>         LVTS_DEBUG_FS_REGS(LVTS_EDATA01),
+>         LVTS_DEBUG_FS_REGS(LVTS_EDATA02),
+>         LVTS_DEBUG_FS_REGS(LVTS_EDATA03),
+> +       LVTS_DEBUG_FS_REGS(LVTS_ATP0),
+> +       LVTS_DEBUG_FS_REGS(LVTS_ATP1),
+> +       LVTS_DEBUG_FS_REGS(LVTS_ATP2),
+> +       LVTS_DEBUG_FS_REGS(LVTS_ATP3),
+>         LVTS_DEBUG_FS_REGS(LVTS_MSR0),
+>         LVTS_DEBUG_FS_REGS(LVTS_MSR1),
+>         LVTS_DEBUG_FS_REGS(LVTS_MSR2),
+> @@ -621,6 +630,13 @@ static int lvts_sensor_init(struct device *dev, stru=
+ct lvts_ctrl *lvts_ctrl,
+>                 LVTS_IMMD3(lvts_ctrl->base)
+>         };
+>
+> +       void __iomem *atp_regs[] =3D {
+> +               LVTS_ATP0(lvts_ctrl->base),
+> +               LVTS_ATP1(lvts_ctrl->base),
+> +               LVTS_ATP2(lvts_ctrl->base),
+> +               LVTS_ATP3(lvts_ctrl->base)
+> +       };
+> +
+>         int i;
+>
+>         lvts_for_each_valid_sensor(i, lvts_ctrl_data) {
+> @@ -656,8 +672,20 @@ static int lvts_sensor_init(struct device *dev, stru=
+ct lvts_ctrl *lvts_ctrl,
+>                 /*
+>                  * Each sensor has its own register address to read from.
+>                  */
+> -               lvts_sensor[i].msr =3D lvts_ctrl_data->mode =3D=3D LVTS_M=
+SR_IMMEDIATE_MODE ?
+> -                       imm_regs[i] : msr_regs[i];
+> +               switch (lvts_ctrl_data->mode) {
+> +               case LVTS_MSR_IMMEDIATE_MODE:
+> +                       lvts_sensor[i].msr =3D imm_regs[i];
+> +                       break;
+> +               case LVTS_MSR_FILTERED_MODE:
+> +                       lvts_sensor[i].msr =3D msr_regs[i];
+> +                       break;
+> +               case LVTS_MSR_ATP_MODE:
+> +                       lvts_sensor[i].msr =3D atp_regs[i];
+> +                       break;
+> +               default:
+> +                       lvts_sensor[i].msr =3D imm_regs[i];
+> +                       break;
+> +               }
+>
+>                 lvts_sensor[i].low_thresh =3D INT_MIN;
+>                 lvts_sensor[i].high_thresh =3D INT_MIN;
+> @@ -907,7 +935,7 @@ static void lvts_ctrl_monitor_enable(struct device *d=
+ev, struct lvts_ctrl *lvts_
+>         u32 sensor_map =3D 0;
+>         int i;
+>
+> -       if (lvts_ctrl->mode !=3D LVTS_MSR_FILTERED_MODE)
+> +       if (lvts_ctrl->mode =3D=3D LVTS_MSR_IMMEDIATE_MODE)
+>                 return;
+>
+>         if (enable) {
+> --
+> 2.39.5
+>
+>
 
