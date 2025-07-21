@@ -4,63 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAFFFC83F25
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 22:27:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3373BC83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 22:30:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=E0Swdc+rgZd6RYXOhWJTdQCOj/YJAeib/YMEr/j+xKM=; b=XmuGxHSO93SOdcYjhZaahguPLO
-	o9X0BiteztaAUaKCxxm+WJoCZ9KzKMJB+qwi5MJ+a6JCdIHJzS4Z+oSzpGOXzNvQbkLo7F9ds9CJI
-	scgQc84OD0QgQptC7b3hSinS+AFpt+OgeaKlfood/tw1aRyXapM4/pCm6vSx2dRZ+LC4Vrnnl+DBT
-	dShimClAyxlnhD/fQZcsAAG4xF88d6sVmtLailLrXNax+H8pTaQbeIVKUffZ+QfYW2PhkIWSHqDnJ
-	9vMAfia47owtUio/5vNejrszNo6Z/RbOugA9AKpWf6/d+WdT6m/kkaxotD9UOpo1NvrpF+XMIjiZs
-	VHE+AsgQ==;
+	bh=6h0Y/vUQmTbtoADLUGCwDI72dzoGASBmyiGNAfF51R4=; b=h4eKGot7RM9LeXQ2fkyFomw6Ir
+	ORutCdfXdKWQ2OpaDey4VuIjW/nAdK048+C7PIkGNnc91V8WjZ6QK6EW0TRH3qptYCZpXbLzJqL4E
+	9d+/V/u4Bk36OkxhdMmkQasfvjEb9PAHt3up0tYtmxbRH46LOwGaIO564gRpoCMkmRNaK3UtdSgGF
+	3dEehMlSRZsQtaXYUZ3fJC4CbCF8QkQ9cvot9fSmLdSpHcUg0+icj4d1Ygd0QBygW0nTdlCUDtvDj
+	b5LAl8hy9PyeJCqIMb5OVNNPEnEj+Fc4cE5CUzu2vc4/ZwE2OB7IQ0vzmFpRr4fU/QOzonxun2j6g
+	FHTB3M5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udyyr-00000000oS5-473Q;
-	Mon, 21 Jul 2025 22:27:33 +0000
-Received: from out-177.mta0.migadu.com ([91.218.175.177])
+	id 1udz1H-00000000obE-30Bd;
+	Mon, 21 Jul 2025 22:30:03 +0000
+Received: from out-188.mta0.migadu.com ([91.218.175.188])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udywO-00000000oHX-37XZ
+	id 1udywO-00000000oHW-2xeR
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Jul 2025 22:25:02 +0000
+	Mon, 21 Jul 2025 22:25:03 +0000
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1753136698;
+	t=1753136696;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=E0Swdc+rgZd6RYXOhWJTdQCOj/YJAeib/YMEr/j+xKM=;
-	b=HZptrzZrIHb7zDppmEpiXbGBgqebupTQ8pylKpzfG1WZ/EjdDd5SeiMXYBLDklKXGyITLi
-	8X+IcIKCMWgDj89IagWjCFxQnHacJ7CT8bZBk2TkoyPreH7B9QssECZFafwEcr3k17Kf+d
-	b0IyMm2aybdhaf6d8GJ8DTu8aeKfnxQ=
+	bh=6h0Y/vUQmTbtoADLUGCwDI72dzoGASBmyiGNAfF51R4=;
+	b=MfLqUbtlhwAYv0liHJSXD0gXHU4lVULzmtS+CvpD5osa3CNSR9orcz561bZvDpoqfIqZ9i
+	9/CuHFWEv+dtKm3rf5T6c5p5Z1tBsW9ykVmDSo68SxwZOlZp1gVJRMW/Jd7t7C8D2TLJET
+	GI/QPwJ/m58FwDO00A1JdRoLH/OhtiM=
 From: Oliver Upton <oliver.upton@linux.dev>
 To: kvmarm@lists.linux.dev,
-	kvm@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org,
 	Marc Zyngier <maz@kernel.org>
 Cc: Oliver Upton <oliver.upton@linux.dev>,
 	Joey Gouly <joey.gouly@arm.com>,
 	Suzuki K Poulose <suzuki.poulose@arm.com>,
 	Zenghui Yu <yuzenghui@huawei.com>,
-	Mark Brown <broonie@kernel.org>,
-	stable@vger.kernel.org
-Subject: Re: [PATCH] KVM: arm64: Check for SYSREGS_ON_CPU before accessing the CPU state
-Date: Mon, 21 Jul 2025 15:24:45 -0700
-Message-Id: <175313657127.2592298.3949452294355380877.b4-ty@linux.dev>
-In-Reply-To: <20250720102229.179114-1-maz@kernel.org>
-References: <20250720102229.179114-1-maz@kernel.org>
+	Will Deacon <will@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>
+Subject: Re: (subset) [PATCH 0/7] KVM: arm64: FEAT_RASv1p1 support and RAS selection
+Date: Mon, 21 Jul 2025 15:24:44 -0700
+Message-Id: <175313657130.2592298.13962133220387248424.b4-ty@linux.dev>
+In-Reply-To: <20250721101955.535159-1-maz@kernel.org>
+References: <20250721101955.535159-1-maz@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250721_152501_513226_B52EA230 
-X-CRM114-Status: GOOD (  10.30  )
+X-CRM114-CacheID: sfid-20250721_152501_517055_FEE6B132 
+X-CRM114-Status: UNSURE (   7.75  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,23 +76,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 20 Jul 2025 11:22:29 +0100, Marc Zyngier wrote:
-> Mark Brown reports that since we commit to making exceptions
-> visible without the vcpu being loaded, the external abort selftest
-> fails.
+On Mon, 21 Jul 2025 11:19:48 +0100, Marc Zyngier wrote:
+> As I was debugging some RAS-related issues[1], I realised that:
 > 
-> Upon investigation, it turns out that the code that makes registers
-> affected by an exception visible to the guest is completely broken
-> on VHE, as we don't check whether the system registers are loaded
-> on the CPU at this point. We managed to get away with this so far,
-> but that's obviously as bad as it gets,
+> - My test box is implementing RASv1p1
+> 
+> - We unconditionally advertise it to guests
+> 
+> - Issuing RASv1p1 accesses doesn't end very well
 > 
 > [...]
 
+I haven't reviewed this series in full yet but wanted to pick up the
+HCR fix that we need urgently and the obvious FEAT_RAS change.
+
 Applied to next, thanks!
 
-[1/1] KVM: arm64: Check for SYSREGS_ON_CPU before accessing the CPU state
-      https://git.kernel.org/kvmarm/kvmarm/c/c6e35dff58d3
+[2/7] KVM: arm64: Filter out HCR_EL2 bits when running in hypervisor context
+      https://git.kernel.org/kvmarm/kvmarm/c/303084ad1276
+[3/7] KVM: arm64: Make RAS registers UNDEF when RAS isn't advertised
+      https://git.kernel.org/kvmarm/kvmarm/c/d9c5c2320156
 
 --
 Best,
