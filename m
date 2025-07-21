@@ -4,78 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CDC2C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 07:24:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DCB4C87FC5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 07:31:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Pzzj8GjdEcvknYctYdwrrCPn6t7CVQ+ZlgbfQZ6H/f4=; b=qqm0vqMpItPusLdIK/+DuI8mxb
-	rKj8pCallQcJyMnBcXW+27R4mwX6TIbZ+HanbDO46Y7gGcfds/3H2F6rhoUK80Tk+0tH5TdNnuplk
-	XiEkdQ8JuMlZMuRzDC3WoLNH93iXqkBL8NXKbh95evXwNrNhW1eJrrZ6pRJnQnAKiGsfNsZyZE775
-	0j77nFJ6xmFC0vByDzgnaVU5exiphKr2z5ttcUXUdOCP5LSMkPYvQIxomgtp+uv+tOYmfqq9khPOF
-	Cn7uqMXCiQIHl/MWdsrONbEX4w6DHYk292ZC20sYb1DuYKVEA8WTsSEFkExiQvPWkj+BoDogZRtaq
-	5TI5FI3A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Date:Subject:Cc:To:From:Message-ID:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=CECHK3/TvaUBS7vTQd/dCnJSOpEhSRdWvqHUX5n6xGY=; b=qXJRaubNoCmeL081GpQ6T4GoNx
+	gi1UQZ65V4xmCFWx7H0zY9ayAgJh6KyB6MgxSNeBwygNfIUWk8qzQ1/aszU113CZgci2GQpU9sYDN
+	k7osfzz9Cf+488j9xHHXFKXmaW2aJKZeWa70X4HckLbi7zlNmo4gY6s5/vMSn5/X5ueD3O0ut094v
+	X6AD6+hjfyJMG0xTH+QqPeGuJesIMrwGtLw8mbSi6jle5ya5cfTtHXqLLuD1skn3n98D/J0XCXwlT
+	ic6LRBvMIO6WY8EZjAeBeA79Q3fieevS/Yn6RZ3+lrNFpOxFnWgRpMpSw5wGNfuAjD/nlePAcNZGl
+	pOEFVQow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udksN-0000000GU6m-0j0V;
-	Mon, 21 Jul 2025 07:23:55 +0000
-Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	id 1udkzT-0000000GUeD-2LDi;
+	Mon, 21 Jul 2025 07:31:15 +0000
+Received: from out203-205-221-205.mail.qq.com ([203.205.221.205])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udkpx-0000000GTyJ-2vRk
+	id 1udkx0-0000000GUNo-23OY
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Jul 2025 07:21:27 +0000
-Received: from fllvem-sh03.itg.ti.com ([10.64.41.86])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 56L7L8OZ752519;
-	Mon, 21 Jul 2025 02:21:08 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1753082468;
-	bh=Pzzj8GjdEcvknYctYdwrrCPn6t7CVQ+ZlgbfQZ6H/f4=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To;
-	b=j+v6Ue7BX+/w4cxYeYVTxgnSHIQ5WQ69WF2IJcL9ZB5aK6MYNQgR+mUM8RullUQMu
-	 w+WDJWSFl2wfwCMNEzsIzxcFfL29cJKYvV3fu5XA+l53HIL+K0DrKJg9CrCFR/BLvr
-	 I1HR4R4Owy3C4clDneFh2BWpedm04C13z7vEATSs=
-Received: from DLEE114.ent.ti.com (dlee114.ent.ti.com [157.170.170.25])
-	by fllvem-sh03.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 56L7L8lk107316
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Mon, 21 Jul 2025 02:21:08 -0500
-Received: from DLEE112.ent.ti.com (157.170.170.23) by DLEE114.ent.ti.com
- (157.170.170.25) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Mon, 21
- Jul 2025 02:21:08 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE112.ent.ti.com
- (157.170.170.23) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Mon, 21 Jul 2025 02:21:07 -0500
-Received: from localhost (uda0492258.dhcp.ti.com [172.24.227.169])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 56L7L6gT3438091;
-	Mon, 21 Jul 2025 02:21:07 -0500
-Date: Mon, 21 Jul 2025 12:51:06 +0530
-From: s-vadapalli <s-vadapalli@ti.com>
-To: <huaqian.li@siemens.com>
-CC: <s-vadapalli@ti.com>, <baocheng.su@siemens.com>, <bhelgaas@google.com>,
-        <conor+dt@kernel.org>, <devicetree@vger.kernel.org>,
-        <diogo.ivo@siemens.com>, <helgaas@kernel.org>,
-        <jan.kiszka@siemens.com>, <kristo@kernel.org>, <krzk+dt@kernel.org>,
-        <kw@linux.com>, <linux-arm-kernel@lists.infradead.org>,
-        <linux-kernel@vger.kernel.org>, <linux-pci@vger.kernel.org>,
-        <lpieralisi@kernel.org>, <nm@ti.com>, <robh@kernel.org>,
-        <ssantosh@kernel.org>, <vigneshr@ti.com>
-Subject: Re: [PATCH v10 4/7] PCI: keystone: Add support for PVU-based DMA
- isolation on AM654
-Message-ID: <7eb6b36c-da94-4363-9ee2-d3d38ec46a22@ti.com>
-References: <20250721025945.204422-1-huaqian.li@siemens.com>
- <20250721025945.204422-5-huaqian.li@siemens.com>
+	Mon, 21 Jul 2025 07:28:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
+	t=1753082913; bh=CECHK3/TvaUBS7vTQd/dCnJSOpEhSRdWvqHUX5n6xGY=;
+	h=From:To:Cc:Subject:Date;
+	b=njcJqYO8ppAVtjZwg427WgO/XAzvdHEFtwAZaP0CrmhxEbl1k+cwtmdpEncae7EaY
+	 kxA10paC5YFyfojaxiSRDNMTYZbWALVn0EU5Ye8prLOB+4NIFTV2afLKbqUfoKwALL
+	 JJXmexR96XMwTBq262WLWB57nSEmLfLmKlesm+E4=
+Received: from VM-222-126-tencentos.localdomain ([14.22.11.163])
+	by newxmesmtplogicsvrsza28-0.qq.com (NewEsmtp) with SMTP
+	id 70BBB67D; Mon, 21 Jul 2025 15:28:11 +0800
+X-QQ-mid: xmsmtpt1753082891t74zqof58
+Message-ID: <tencent_72EDAD7F6E52D8FB5933030A569A08AEC406@qq.com>
+X-QQ-XMAILINFO: MllZffuBkEb5iY/9mp9LBQpbgJ/fQvfNWOtdXd/FI0PPSmsjDSeD70i+7z2hkb
+	 VA81p3Zxlv1UELLkFOp77t2D3WzzAOUXgPiZxMAyEcaLWS0htXury4GJLJvEB/fPTTGlzd3ZT2rJ
+	 WH2z1IwSWDiYEhO7WNJN/7xDNaPq8M19nGLiqxu2Bd8S3nCfMccWj++8Y/IC1vtAqijmXgLK0fUx
+	 VYJatAySdNzUXV7ntYl7HbodyIvVFUl2w1Kz9AGlU6FFlEOdcQ71pXcxGP7CctBQ1wPvDRnHbPGp
+	 vmxAnaGQebSgRXnv4DKlk7I+Qav0FYQwmUuL/GiyiJeCvVipqSf9hSjs5zpOkREfsLuCnjsm1fAV
+	 4yOWaJIlo2VGgbAfxw7/ZloZrXmoeVBf/BezHOmXqZGR7E2YYwvidyVE6LL9SD5imYJUgEd9xwRm
+	 6+Oko26TplZCNdpI2a+Op1xSWiVJcoYu4zTHmT9kTmzIF2yYia6quUJ0fUpjgZ7oVxITgGdyREhk
+	 iVk/vbmbASdrbD8V3SjVvHmI/z0RH5YOfJjlFzJrTob05JMQzqpq7vglMEWwDKCF5acsrBjo2RBP
+	 eyy2vqaSO4wSR1S29TcizutHzcdXFQPhzgWCXPURon/ZnFozRhygoorMUmRdqh4MUHvYP2GQ6qYA
+	 X8UrZoLiIG10ycQrem5rLf8q1D5VRqUeSf4qAlTcZWt/c3eh7stfisUEQ1v/TNLLkLqs8eXueUYw
+	 g/2Jre5OKTqrjFGPiDdcGRgJM89ZBEj6/Vxdk1UK5qLeJsVDc12e5qmVzqgaCY9bUDiUeEbO2dZM
+	 e2y0wpaqp2PxfghQbn1lWmiiGnqniIQgbGovYa4tkeBrkT9BETJkJMbvlmViWlUx/F+uYaK+6Oen
+	 yERmWPmJ2h29160aJNxPJ9YjXQwEDdPG02g4tYQpb7Jeq1TyoTJ7RnJ45gzjEEb73TleFM2uQ560
+	 rb8r+UhRfexWudE7MgWe7vft8UoBp2jtG+80ClJ5CiF1jcO3UYmkiWqxpcUN2MK1TJbF/su2EIOq
+	 Y0fL7wfCdKt/vfGVpTEDC3L/WXspq/2k1jGFt0HRB3raKDzuvszGe2cDk2Yjo=
+X-QQ-XMRINFO: NI4Ajvh11aEj8Xl/2s1/T8w=
+From: jackysliu <1972843537@qq.com>
+To: maz@kernel.org
+Cc: tglx@linutronix.de,
+	herve.codina@bootlin.com,
+	antonio.borneo@foss.st.com,
+	anup@brainfault.org,
+	jirislaby@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	jackysliu <1972843537@qq.com>
+Subject: [PATCH] irqchip/gic-v3: fix resource leak in partition_domain_translate()
+Date: Mon, 21 Jul 2025 15:28:04 +0800
+X-OQ-MSGID: <20250721072804.343055-1-1972843537@qq.com>
+X-Mailer: git-send-email 2.43.5
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20250721025945.204422-5-huaqian.li@siemens.com>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250721_002125_945738_D4B4D03D 
-X-CRM114-Status: GOOD (  11.27  )
+X-CRM114-CacheID: sfid-20250721_002843_690953_7E405C10 
+X-CRM114-Status: GOOD (  13.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,25 +87,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 21, 2025 at 10:59:42AM +0800, huaqian.li@siemens.com wrote:
-> From: Jan Kiszka <jan.kiszka@siemens.com>
-> 
-> The AM654 lacks an IOMMU, thus does not support isolating DMA requests
-> from untrusted PCI devices to selected memory regions this way. Use
-> static PVU-based protection instead. The PVU, when enabled, will only
-> accept DMA requests that address previously configured regions.
-> 
-> Use the availability of a restricted-dma-pool memory region as trigger
-> and register it as valid DMA target with the PVU. In addition, enable
-> the mapping of requester IDs to VirtIDs in the PCI RC. Use only a single
-> VirtID so far, catching all devices.
-> 
-> Signed-off-by: Jan Kiszka <jan.kiszka@siemens.com>
-> Acked-by: Bjorn Helgaas <bhelgaas@google.com>
-> Signed-off-by: Li Hua Qian <huaqian.li@siemens.com>
+There is a device node reference leak in partition_domain_translate().
+After the function obtains the device node np via of_find_node_by_phandle,
+it does not call of_node_put(np) to release the node reference
+in both the error path and the normal return path.
+This causes the node reference count to increase each time
+the function is called, causing a resource leak.
 
-Reviewed-by: Siddharth Vadapalli <s-vadapalli@ti.com>
+This issue was detected by rule based static tools
+developed by Tencent.
 
-Regards,
-Siddharth.
+Fixes: 87228532e7e9 ("irqchip: Switch to of_fwnode_handle()")
+
+Signed-off-by: jackysliu <1972843537@qq.com>
+---
+ drivers/irqchip/irq-gic-v3.c | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/irqchip/irq-gic-v3.c b/drivers/irqchip/irq-gic-v3.c
+index efc791c43d44..61c1d404b726 100644
+--- a/drivers/irqchip/irq-gic-v3.c
++++ b/drivers/irqchip/irq-gic-v3.c
+@@ -1821,12 +1821,16 @@ static int partition_domain_translate(struct irq_domain *d,
+ 		return -EINVAL;
+ 
+ 	ret = gic_irq_domain_translate(d, fwspec, &ppi_intid, type);
+-	if (WARN_ON_ONCE(ret))
++	if (WARN_ON_ONCE(ret)) {
++		of_node_put(np);
+ 		return 0;
++	}
+ 
+ 	ppi_idx = __gic_get_ppi_index(ppi_intid);
+ 	ret = partition_translate_id(gic_data.ppi_descs[ppi_idx],
+ 				     of_fwnode_handle(np));
++	of_node_put(np);
++
+ 	if (ret < 0)
+ 		return ret;
+ 
+-- 
+2.43.5
+
 
