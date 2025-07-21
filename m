@@ -4,86 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E930C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 07:54:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9612C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 08:13:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mHZGvdft08XzZtFwCnwpB66ElRmz0+FxsxWp1lLfTYo=; b=oyj9EMMBNe28kHtx1LA1my/tzu
-	7/NQw1mbIqhZc+6taOkhAmb0Z1inH0RfCX/XvpHTkuEMPGjt4RM7jtv6WeX3XuMPh1+MANNhUWF3I
-	C/OOuDcWsS2UrKNjTlaL1O6HNNDbhUF1MCUWoBM6SFOxPWjySjQfmtDCtK/8uYnB8gpOquBZiNXb7
-	ZrUFcdJBspZSiQKStcTVN2fqWF0CHyMXbRSY9sIlW5V9AbFlPthZM0m7G2wStYYKfQtNDyKAK2uli
-	q7itAE4yGlkMl9t6hFFelnUPMOPhSAKuIYkJzKAwhcw7r/sF5jiCKfVsrLrclcq9ZEhs85rXhJaDK
-	0J7IImaA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SKFkCkwIghfCr+DM5CXjoz3KrgfvHy+jPlJJIScrzXg=; b=OJs6RKIldYErcjZNDA/s2WhNaZ
+	imMehnpWof9qmwjfqAMl5aOMePF+2HfJQskfz6lbP8B10zqfqTmILVFnERE3NZjy7dLz9zNKzSkRW
+	D7Pz5Bp/dUxulEG1k+UXL+Sl05hXHZh4JhO5ofzk8MeiL2dOPpLuwi1fMD8pIMf+mY9H6KZxwdqBc
+	xcEzvCk9wOc1HvZzzYpswZYBytXXQlDqbBmtLK9Oi9Qy33rqzXai+mkiTVsN8TwbcTEpFLHNkT1tq
+	eGqbm7eR6vsxFCOcxjAOD16cUO4WwhqxEsJ8TsUijMQXUmiVRiF6peJ8eHFwPpWZkiJClEQJvMaV1
+	k2JaTb2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udlMC-0000000GZEG-0SHI;
-	Mon, 21 Jul 2025 07:54:44 +0000
-Received: from mgamail.intel.com ([198.175.65.17])
+	id 1udldm-0000000GbcN-1FeW;
+	Mon, 21 Jul 2025 08:12:54 +0000
+Received: from relay7-d.mail.gandi.net ([2001:4b98:dc4:8::227])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udlJl-0000000GYjp-2FHZ;
-	Mon, 21 Jul 2025 07:52:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1753084333; x=1784620333;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=S81qr9hFOduDkWryR/8Zook9qEaCBaFDKK8h/sGo2HY=;
-  b=VMss2JQTMY5hbXmJlSbFyXVdGLQnBmvOjFzQgzlmnn5D72TrB92WQfc3
-   crZzT8b8HvqbpZs+X2P5pAKJ/2w0p21cXaala9BRdC/7/Qqu6K6ZS5vAo
-   REDevpLgS4KWtFe6kCMbgvFoM/p2dio3TNEK4PYlVRFuYlpWlGQa8fC6h
-   japYvjh9hT81M3zBX5/PQm4tKWz6maiS+Y0RHZGLYTbqQbGIU+9DN6jwq
-   9kQA3y5nVE13qPYHfpCgMtv8V701uUAfCfQ1aYq+PffuVEYoo90gvq1qD
-   cZv2oz2l+sK8Wgzp0h1t3eTZTWrDS9xwVG44l+6s1Gp37JxVr2Rchxhf5
-   w==;
-X-CSE-ConnectionGUID: Y+ZHF6lKTRSY0/YNyX7shg==
-X-CSE-MsgGUID: ALFz8ioCTHG8bkFuwXMEhQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11498"; a="55249408"
-X-IronPort-AV: E=Sophos;i="6.16,328,1744095600"; 
-   d="scan'208";a="55249408"
-Received: from fmviesa002.fm.intel.com ([10.60.135.142])
-  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Jul 2025 00:52:12 -0700
-X-CSE-ConnectionGUID: o0q7XRb0RPitcVimaam3ZA==
-X-CSE-MsgGUID: khK44DSEQ5igeY5q8Fawhw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.16,328,1744095600"; 
-   d="scan'208";a="182474746"
-Received: from smile.fi.intel.com ([10.237.72.52])
-  by fmviesa002.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Jul 2025 00:52:07 -0700
-Received: from andy by smile.fi.intel.com with local (Exim 4.98.2)
-	(envelope-from <andriy.shevchenko@intel.com>)
-	id 1udlJb-0000000HHid-2Qi4;
-	Mon, 21 Jul 2025 10:52:03 +0300
-Date: Mon, 21 Jul 2025 10:52:03 +0300
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: ">" <sanjaysuthar661996@gmail.com>
-Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-iio@vger.kernel.org, netdev@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-amlogic@lists.infradead.org, ribalda@kernel.org,
-	jic23@kernel.org, dlechner@baylibre.com, nuno.sa@analog.com,
-	andy@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
-	edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
-	neil.armstrong@linaro.org, khilman@baylibre.com,
-	jbrunet@baylibre.com, martin.blumenstingl@googlemail.com
-Subject: Re:
-Message-ID: <aH3xo8PeReb0s-QD@smile.fi.intel.com>
-References: <CADU64hCr7mshqfBRE2Wp8zf4BHBdJoLLH=VJt2MrHeR+zHOV4w@mail.gmail.com>
- <20250720182627.39384-1-sanjaysuthar661996@gmail.com>
+	id 1udlbL-0000000GbPx-3VAN
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 21 Jul 2025 08:10:25 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id E68B544380;
+	Mon, 21 Jul 2025 08:10:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1753085418;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=SKFkCkwIghfCr+DM5CXjoz3KrgfvHy+jPlJJIScrzXg=;
+	b=a3/WvkqMro8djZzEjYoTOpL8ApbW10+o2OdBWljK6/GULQv3HQCrw3nmy1Hli4rINv3NdY
+	6vPkg17fGrhAw8aCVgfgbmSQoSn6k6z8HXFjPb3EvD88dAqU5/pfFUDFtftFegQKfU+uFO
+	A6bvphZwJFoc8KJTcYQu47dDc+TESugpgzaLQHs6S+v80sleodXQTk2NeL3FQ29wIpIgtY
+	mL9Hse9JKcUlI0k+3ZhINBn/uldVJrjskVmKdKp0gwd4MM2vUSpElhjCE5yJt+Q0s7rNdO
+	RVr3FGUJgXKDMcQWZmfJiqfQjZyJIJSkBw1kI7PVDtwAFUBtxIfUudoFZI/sOA==
+Date: Mon, 21 Jul 2025 10:10:15 +0200
+From: Herve Codina <herve.codina@bootlin.com>
+To: jackysliu <1972843537@qq.com>
+Cc: maz@kernel.org, tglx@linutronix.de, antonio.borneo@foss.st.com,
+ anup@brainfault.org, jirislaby@kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] irqchip/gic-v3: fix resource leak in
+ partition_domain_translate()
+Message-ID: <20250721101015.1183e89b@bootlin.com>
+In-Reply-To: <tencent_72EDAD7F6E52D8FB5933030A569A08AEC406@qq.com>
+References: <tencent_72EDAD7F6E52D8FB5933030A569A08AEC406@qq.com>
+Organization: Bootlin
+X-Mailer: Claws Mail 4.3.1 (GTK 3.24.43; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250720182627.39384-1-sanjaysuthar661996@gmail.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-GND-State: clean
+X-GND-Score: 0
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdejudehiecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucenucfjughrpeffhffvvefukfgjfhhoofggtgfgsehtkeertdertdejnecuhfhrohhmpefjvghrvhgvucevohguihhnrgcuoehhvghrvhgvrdgtohguihhnrgessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepveeiffefgeeitdelleeigefhjeelueeuveekveetgeffheeltdekgeduiefggfdvnecukfhppeeltddrkeelrdduieefrdduvdejnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepledtrdekledrudeifedruddvjedphhgvlhhopehlohgtrghlhhhoshhtpdhmrghilhhfrhhomhephhgvrhhvvgdrtghoughinhgrsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeekpdhrtghpthhtohepudeljedvkeegfeehfeejsehqqhdrtghomhdprhgtphhtthhopehmrgiisehkvghrnhgvlhdrohhrghdprhgtphhtthhopehtghhlgieslhhinhhuthhrohhnihigrdguvgdprhgtphhtthhopegrnhhtohhnihhordgsohhrnhgvohesfhhoshhsrdhsthdrtghomhdprhgtphhtthhopegrnhhuphessghrrghinhhfrghulhhtrdhorhhgpdhrtghpthhtohepjhhirhhishhlrggshieskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhin
+ hhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhnvghlrdhorhhg
+X-GND-Sasl: herve.codina@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250721_005213_617040_3475907B 
-X-CRM114-Status: UNSURE (   8.66  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250721_011024_544989_5C5FCC80 
+X-CRM114-Status: GOOD (  20.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,28 +79,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jul 20, 2025 at 11:56:27PM +0530, > wrote:
-> Changes in v2:
-> - Fixed commit message grammar
-> - Fixed subject line style as per DT convention
-> - Added missing reviewers/maintainers in CC
+On Mon, 21 Jul 2025 15:28:04 +0800
+jackysliu <1972843537@qq.com> wrote:
+
+> There is a device node reference leak in partition_domain_translate().
+> After the function obtains the device node np via of_find_node_by_phandle,
+> it does not call of_node_put(np) to release the node reference
+> in both the error path and the normal return path.
+> This causes the node reference count to increase each time
+> the function is called, causing a resource leak.
 > 
-> From 5c00524cbb47e30ee04223fe9502af2eb003ddf1 Mon Sep 17 00:00:00 2001
-> From: sanjay suthar <sanjaysuthar661996@gmail.com>
-> Date: Sun, 20 Jul 2025 01:11:00 +0530
-> Subject: [PATCH v2] dt-bindings: cleanup: fix duplicated 'is is' in YAML docs
+> This issue was detected by rule based static tools
+> developed by Tencent.
 > 
-> Fix minor grammatical issues by removing duplicated "is" in two devicetree
-> binding documents:
+> Fixes: 87228532e7e9 ("irqchip: Switch to of_fwnode_handle()")
 > 
-> - net/amlogic,meson-dwmac.yaml
-> - iio/dac/ti,dac7612.yaml
+> Signed-off-by: jackysliu <1972843537@qq.com>
+> ---
+>  drivers/irqchip/irq-gic-v3.c | 6 +++++-
+>  1 file changed, 5 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/irqchip/irq-gic-v3.c b/drivers/irqchip/irq-gic-v3.c
+> index efc791c43d44..61c1d404b726 100644
+> --- a/drivers/irqchip/irq-gic-v3.c
+> +++ b/drivers/irqchip/irq-gic-v3.c
+> @@ -1821,12 +1821,16 @@ static int partition_domain_translate(struct irq_domain *d,
+>  		return -EINVAL;
+>  
+>  	ret = gic_irq_domain_translate(d, fwspec, &ppi_intid, type);
+> -	if (WARN_ON_ONCE(ret))
+> +	if (WARN_ON_ONCE(ret)) {
+> +		of_node_put(np);
+>  		return 0;
+> +	}
+>  
+>  	ppi_idx = __gic_get_ppi_index(ppi_intid);
+>  	ret = partition_translate_id(gic_data.ppi_descs[ppi_idx],
+>  				     of_fwnode_handle(np));
+> +	of_node_put(np);
+> +
+>  	if (ret < 0)
+>  		return ret;
+>  
 
-This mail is b0rken.
+Reviewed-by: Herve Codina <herve.codina@bootlin.com>
 
--- 
-With Best Regards,
-Andy Shevchenko
-
-
+Best regards,
+Hervé
 
