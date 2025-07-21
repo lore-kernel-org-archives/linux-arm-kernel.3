@@ -4,104 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AA1AC83F25
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 18:57:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BB9CC83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 18:57:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P1ZuzEzRREiwLydWZlhzK+dlWBAxlIhEYuf20M8l1eU=; b=wEaqWGs2JQS/a+wna5kNqC7qWG
-	ekAYk9LGK3GslP8fohm4LzN8yWmp8m7vzdLCtovu2AkFzumGeZhW/958ChjmMEIqGmUpZQXVt77AY
-	gPeMGXbYL5OxrsyF7J97hG/KYmN5FZNKWGMcmIZD5Npm80q2MmZDG5gslenblet/jBxku3pheCfa3
-	Bup7IR+MMUFpVXA9e++oHuINS2rEwXLTSvIaOZ7d0c/uZ0w6htETh9hTwEhUJoDrVH9Gq7UYpy9B1
-	P3RQFDp647COy2aoRv+g4TZ3uzkM1OK7SO46gQWBsvQTddk5oOgSQxOsL4nORbTzP2eofrIY65ccX
-	OyWofHdg==;
+	bh=t8PryxF0WyZG0HFp/zmBWPs5+yDIqIJ2R4AoMcsZYZc=; b=VZmKkPOpwXPk7q6JYdWRFod2at
+	ykc8BTi/XpJF0IzeAAhzcYoqqAoCy54xixfUdGqVKaTyklLpAX9xSwjcL3N2y5Iz6mrTWVogV5B/S
+	94mHGC3oG1D1eVbpQComQfV+3szH0etGXi2/GDjDNcaqbCes8l1qaegbORy9NOHgfqNqrkXW0nEmj
+	DC0sFRZEDe5lS5njOqQv/lFGFaP2V7HNOITIGOliqV+ngafOnCkC5ga0+WDyBeax9Bc9c5JN4Sczu
+	il36OIV1HKtQLZ0yoCgLYwlL+Nt/+Dpw9E5u74TJz4nfLw+hBE3z2C3A4FJ04ZSo5IiJxp6tDkKDo
+	yoEqtXdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udvhl-00000000Rf0-0mcm;
-	Mon, 21 Jul 2025 18:57:41 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	id 1udvhq-00000000RiU-1Gey;
+	Mon, 21 Jul 2025 18:57:46 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udsjn-000000006sA-3WIF
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Jul 2025 15:47:37 +0000
-Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56LDt62k020590;
-	Mon, 21 Jul 2025 17:47:23 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	P1ZuzEzRREiwLydWZlhzK+dlWBAxlIhEYuf20M8l1eU=; b=3xbpjXFnyMs0SC5A
-	i2NSTVksJj+qckbzFNDpYbQCrsNAuBlK574aC/pSgp9d95ovb31I7jR/KuivJ7Z7
-	vrlAF+Tjwygg8on9g8Nk5p0sTilTUvoy9mumnLwxZBwjmm5NG/irpmq9NNUmkiFu
-	0wrn5CM/J1V4wrupgXWM38kPE8qB0Av7ZcgyJMY415Yd2dEUQK7cZuJkMRI5BKp/
-	DW2K9XPdF4dI97k5wGLSQiynVfnweB2tJ1SZhLZSWwfrcbbY7ZWOHj3Oq1ycURsO
-	5wh+4Djrh+l9cQH6KWUDkkJClULDqjLBmk0Ufn2f8W5yGH6gc1qtD7k05Ef/cmMt
-	a3Wd6g==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 4800g8hn2a-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 21 Jul 2025 17:47:23 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 822DF4007D;
-	Mon, 21 Jul 2025 17:46:05 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 36E51768F09;
-	Mon, 21 Jul 2025 17:44:23 +0200 (CEST)
-Received: from [10.252.5.249] (10.252.5.249) by SHFDAG1NODE2.st.com
- (10.75.129.70) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 21 Jul
- 2025 17:44:21 +0200
-Message-ID: <162aa05f-69df-4607-bf47-fbec60589f95@foss.st.com>
-Date: Mon, 21 Jul 2025 17:44:20 +0200
+	id 1uduTw-00000000L6a-3NJs;
+	Mon, 21 Jul 2025 17:39:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1753119559;
+	bh=Y056pcbTs6RHBtSSLx5UX4StFs9gHnW29b2RHrxn65E=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=KgKVN/49crFNOWMycdX0yexy1FpVG7YFiotfrrj+R6b0pjcgV8bDTjm/zjORW0Yxb
+	 Ljm8z0X+vmlHi6N3bBKsJpcpAALGMeCPw6xOZqF0wO7i6skhRCdFKtprJHWUvaWpK3
+	 LQKvw5cxbu3moCJZYxvg9y/Q6UorrgI44elziEaou4tAGhzyNpjy3p1TCaL5IG872D
+	 fwF1TZQWxkoI4eHbErBovqmOKpsLxUyYOQ6j8K17EvgVoV0UF/30m6S3kiAGpjP2fg
+	 Z96dhoNtJUR3BSEG86aGh/aQMvwF3Toa4C7YmRuc++L63C1M6/x9SKL38jLe3P+akA
+	 p9AkzgUCGKD7Q==
+Received: from localhost (unknown [82.79.138.60])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with UTF8SMTPSA id 47FF017E1540;
+	Mon, 21 Jul 2025 19:39:19 +0200 (CEST)
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Date: Mon, 21 Jul 2025 20:39:08 +0300
+Subject: [PATCH 5/5] drm/rockchip: dw_hdmi_qp: Add high color depth support
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 06/16] arm64: dts: st: add LPDDR channel to
- stm32mp257f-dk board
-To: Rob Herring <robh@kernel.org>
-CC: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue
-	<alexandre.torgue@foss.st.com>,
-        Philipp Zabel <p.zabel@pengutronix.de>,
-        Jonathan Corbet <corbet@lwn.net>,
-        Gatien Chevallier
-	<gatien.chevallier@foss.st.com>,
-        Michael Turquette <mturquette@baylibre.com>,
-        Stephen Boyd <sboyd@kernel.org>,
-        Gabriel Fernandez
-	<gabriel.fernandez@foss.st.com>,
-        Krzysztof Kozlowski <krzk@kernel.org>,
-        Le
- Goffic <legoffic.clement@gmail.com>,
-        <linux-arm-kernel@lists.infradead.org>,
-        <linux-perf-users@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-kernel@vger.kernel.org>, <linux-doc@vger.kernel.org>,
-        <linux-clk@vger.kernel.org>
-References: <20250711-ddrperfm-upstream-v2-0-cdece720348f@foss.st.com>
- <20250711-ddrperfm-upstream-v2-6-cdece720348f@foss.st.com>
- <20250715032020.GB4144523-robh@kernel.org>
- <ae960a16-65ad-4b22-b9fb-89efbffacd3e@foss.st.com>
- <20250715150224.GA1319886-robh@kernel.org>
-Content-Language: en-US
-From: Clement LE GOFFIC <clement.legoffic@foss.st.com>
-In-Reply-To: <20250715150224.GA1319886-robh@kernel.org>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.252.5.249]
-X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE2.st.com
- (10.75.129.70)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-07-21_04,2025-07-21_02,2025-03-28_01
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250721-rk3588-10bpc-v1-5-e95a4abcf482@collabora.com>
+References: <20250721-rk3588-10bpc-v1-0-e95a4abcf482@collabora.com>
+In-Reply-To: <20250721-rk3588-10bpc-v1-0-e95a4abcf482@collabora.com>
+To: Sandy Huang <hjc@rock-chips.com>, 
+ =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
+ Andy Yan <andy.yan@rock-chips.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>
+Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-kernel@vger.kernel.org
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250721_084736_363799_1FB6BBF7 
-X-CRM114-Status: GOOD (  16.90  )
+X-CRM114-CacheID: sfid-20250721_103921_002425_908AE918 
+X-CRM114-Status: GOOD (  16.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,50 +83,156 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Rob
+Since both RK3576 and RK3588 SoCs are capable of handling 10 bpc color
+depth, introduce a pair of new helpers to program the necessary
+registers, as well as passing bpc at PHY configuration level.
 
-On 7/15/25 17:02, Rob Herring wrote:
-> On Tue, Jul 15, 2025 at 10:32:09AM +0200, Clement LE GOFFIC wrote:
->> Hi Rob,
->>
->> Thanks for the review !
->>
->> On 7/15/25 05:20, Rob Herring wrote:
->>> On Fri, Jul 11, 2025 at 04:48:58PM +0200, Clément Le Goffic wrote:
->>>> Add 32bits LPDDR4 channel to the stm32mp257f-dk board.
->>>>
->>>> Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
->>>> ---
->>>>    arch/arm64/boot/dts/st/stm32mp257f-dk.dts | 7 +++++++
->>>>    1 file changed, 7 insertions(+)
->>>>
->>>> diff --git a/arch/arm64/boot/dts/st/stm32mp257f-dk.dts b/arch/arm64/boot/dts/st/stm32mp257f-dk.dts
->>>> index a278a1e3ce03..a97b41f14ecc 100644
->>>> --- a/arch/arm64/boot/dts/st/stm32mp257f-dk.dts
->>>> +++ b/arch/arm64/boot/dts/st/stm32mp257f-dk.dts
->>>> @@ -54,6 +54,13 @@ led-blue {
->>>>    		};
->>>>    	};
->>>> +	lpddr_channel: lpddr4-channel {
->>>> +		#address-cells = <1>;
->>>> +		#size-cells = <0>;
->>>> +		compatible = "jedec,lpddr4-channel";
->>>
->>> Not tested because this doesn't match the binding.
->>
->> Hmm, I've tested with make dtbs_check and dt_binding_check and it didn't
->> complain on my side.
->> What I have miss ?
-> 
-> Oh wait, we already have a binding for that. I was confused with your
-> adding "jedec,ddr4-channel". Sorry for the noise.
+Note max_bpc is unconditionally set to 10 before initializing the QP
+bridge library, as there is no need to adjust it dynamically, i.e. per
+SoC variant, for now.
 
-It's fine no worries.
-However, in the patch 8, I add the property "memory-channel" that is not 
-in the dtschema repo and I didn't get any reviews on it.
-Is it ok for you ? or maybe should we discuss it over there ?
-I can try to do a PR on the dtschema thought, if it is ok.
+While setting up .enc_init() callbacks of rockchip_hdmi_qp_ctrl_ops,
+also replace the unnecessary whitespace chars before .irq_callback()
+assignments.
 
-Best regards,
-Clément
+Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+---
+ drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c | 59 ++++++++++++++++++++++++--
+ 1 file changed, 56 insertions(+), 3 deletions(-)
+
+diff --git a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
+index 578ff5eb87f1e27b9bb9a6a299347b24b45381bb..49d58f1321034b325a0741794a62a279971d5f4c 100644
+--- a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
++++ b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
+@@ -7,6 +7,7 @@
+  * Author: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+  */
+ 
++#include <linux/bitfield.h>
+ #include <linux/clk.h>
+ #include <linux/gpio/consumer.h>
+ #include <linux/mfd/syscon.h>
+@@ -68,6 +69,12 @@
+ #define RK3588_HDMI1_LEVEL_INT		BIT(24)
+ #define RK3588_GRF_VO1_CON3		0x000c
+ #define RK3588_GRF_VO1_CON6		0x0018
++#define RK3588_COLOR_DEPTH_MASK		GENMASK(7, 4)
++#define RK3588_8BPC			0x0
++#define RK3588_10BPC			0x6
++#define RK3588_COLOR_FORMAT_MASK	GENMASK(3, 0)
++#define RK3588_RGB			0x0
++#define RK3588_YUV420			0x3
+ #define RK3588_SCLIN_MASK		BIT(9)
+ #define RK3588_SDAIN_MASK		BIT(10)
+ #define RK3588_MODE_MASK		BIT(11)
+@@ -96,6 +103,7 @@ struct rockchip_hdmi_qp {
+ 
+ struct rockchip_hdmi_qp_ctrl_ops {
+ 	void (*io_init)(struct rockchip_hdmi_qp *hdmi);
++	void (*enc_init)(struct rockchip_hdmi_qp *hdmi, struct rockchip_crtc_state *state);
+ 	irqreturn_t (*irq_callback)(int irq, void *dev_id);
+ 	irqreturn_t (*hardirq_callback)(int irq, void *dev_id);
+ };
+@@ -110,9 +118,16 @@ static struct rockchip_hdmi_qp *to_rockchip_hdmi_qp(struct drm_encoder *encoder)
+ static void dw_hdmi_qp_rockchip_encoder_enable(struct drm_encoder *encoder)
+ {
+ 	struct rockchip_hdmi_qp *hdmi = to_rockchip_hdmi_qp(encoder);
++	struct drm_crtc *crtc = encoder->crtc;
+ 
+ 	/* Unconditionally switch to TMDS as FRL is not yet supported */
+ 	gpiod_set_value(hdmi->enable_gpio, 1);
++
++	if (!crtc || !crtc->state)
++		return;
++
++	if (hdmi->ctrl_ops->enc_init)
++		hdmi->ctrl_ops->enc_init(hdmi, to_rockchip_crtc_state(crtc->state));
+ }
+ 
+ static int
+@@ -125,16 +140,19 @@ dw_hdmi_qp_rockchip_encoder_atomic_check(struct drm_encoder *encoder,
+ 	union phy_configure_opts phy_cfg = {};
+ 	int ret;
+ 
+-	if (hdmi->tmds_char_rate == conn_state->hdmi.tmds_char_rate)
++	if (hdmi->tmds_char_rate == conn_state->hdmi.tmds_char_rate &&
++	    s->output_bpc == conn_state->hdmi.output_bpc)
+ 		return 0;
+ 
+ 	phy_cfg.hdmi.tmds_char_rate = conn_state->hdmi.tmds_char_rate;
++	phy_cfg.hdmi.bpc = conn_state->hdmi.output_bpc;
+ 
+ 	ret = phy_configure(hdmi->phy, &phy_cfg);
+ 	if (!ret) {
+ 		hdmi->tmds_char_rate = conn_state->hdmi.tmds_char_rate;
+ 		s->output_mode = ROCKCHIP_OUT_MODE_AAAA;
+ 		s->output_type = DRM_MODE_CONNECTOR_HDMIA;
++		s->output_bpc = conn_state->hdmi.output_bpc;
+ 	} else {
+ 		dev_err(hdmi->dev, "Failed to configure phy: %d\n", ret);
+ 	}
+@@ -373,15 +391,49 @@ static void dw_hdmi_qp_rk3588_io_init(struct rockchip_hdmi_qp *hdmi)
+ 	regmap_write(hdmi->regmap, RK3588_GRF_SOC_CON2, val);
+ }
+ 
++static void dw_hdmi_qp_rk3576_enc_init(struct rockchip_hdmi_qp *hdmi,
++				       struct rockchip_crtc_state *state)
++{
++	u32 val;
++
++	if (state->output_bpc == 10)
++		val = HIWORD_UPDATE(FIELD_PREP(RK3576_COLOR_DEPTH_MASK, RK3576_10BPC),
++				    RK3576_COLOR_DEPTH_MASK);
++	else
++		val = HIWORD_UPDATE(FIELD_PREP(RK3576_COLOR_DEPTH_MASK, RK3576_8BPC),
++				    RK3576_COLOR_DEPTH_MASK);
++
++	regmap_write(hdmi->vo_regmap, RK3576_VO0_GRF_SOC_CON8, val);
++}
++
++static void dw_hdmi_qp_rk3588_enc_init(struct rockchip_hdmi_qp *hdmi,
++				       struct rockchip_crtc_state *state)
++{
++	u32 val;
++
++	if (state->output_bpc == 10)
++		val = HIWORD_UPDATE(FIELD_PREP(RK3588_COLOR_DEPTH_MASK, RK3588_10BPC),
++				    RK3588_COLOR_DEPTH_MASK);
++	else
++		val = HIWORD_UPDATE(FIELD_PREP(RK3588_COLOR_DEPTH_MASK, RK3588_8BPC),
++				    RK3588_COLOR_DEPTH_MASK);
++
++	regmap_write(hdmi->vo_regmap,
++		     hdmi->port_id ? RK3588_GRF_VO1_CON6 : RK3588_GRF_VO1_CON3,
++		     val);
++}
++
+ static const struct rockchip_hdmi_qp_ctrl_ops rk3576_hdmi_ctrl_ops = {
+ 	.io_init		= dw_hdmi_qp_rk3576_io_init,
+-	.irq_callback	        = dw_hdmi_qp_rk3576_irq,
++	.enc_init		= dw_hdmi_qp_rk3576_enc_init,
++	.irq_callback		= dw_hdmi_qp_rk3576_irq,
+ 	.hardirq_callback	= dw_hdmi_qp_rk3576_hardirq,
+ };
+ 
+ static const struct rockchip_hdmi_qp_ctrl_ops rk3588_hdmi_ctrl_ops = {
+ 	.io_init		= dw_hdmi_qp_rk3588_io_init,
+-	.irq_callback	        = dw_hdmi_qp_rk3588_irq,
++	.enc_init		= dw_hdmi_qp_rk3588_enc_init,
++	.irq_callback		= dw_hdmi_qp_rk3588_irq,
+ 	.hardirq_callback	= dw_hdmi_qp_rk3588_hardirq,
+ };
+ 
+@@ -476,6 +528,7 @@ static int dw_hdmi_qp_rockchip_bind(struct device *dev, struct device *master,
+ 
+ 	plat_data.phy_ops = cfg->phy_ops;
+ 	plat_data.phy_data = hdmi;
++	plat_data.max_bpc = 10;
+ 
+ 	encoder = &hdmi->encoder.encoder;
+ 	encoder->possible_crtcs = drm_of_find_possible_crtcs(drm, dev->of_node);
+
+-- 
+2.50.0
+
 
