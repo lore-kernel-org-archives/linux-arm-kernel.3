@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D086C87FC5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 06:50:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60D1FC83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 06:52:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1oTvWxKUOgQlps0OwB8LBWnOGmd2anJVrwJNM/ZY6kY=; b=q577kVylnAYLgLlaWpwctWKFmI
-	vt2b80JALpSW94t36qly7cV/zCG4BncxHtIR2e0UlycF4dOdYLC+TflyVg1WU9uRuLWq7AtLm2iV3
-	9eCFkmW5DBVIIh+KM+OYKqBQEgRe5yS9jPgfH8+ybO8CU0z4V5U0iAckVPBDFVNZ+dw9f5dtkiUl7
-	gPgcUIEzuV/76iTmycIkMEKGRFTXb42pEC45nVsAFRbL4y6Az6BON83ZohjA6KeAQSg/HL0L8qKi2
-	yL9NOqvmld6WYwk8cjqS+aVVnpt/IGWn45QrCByXb4IDFGtzIJkBBTNUwesAqr9JfI4qJmKmxY935
-	2OcBbJAw==;
+	bh=7h84xWxe1Vf9iMQaM85ZMqQsCp4rdDVMGdxqm4Z0tEM=; b=Cp1gY65KaFReKCqCBw95xAh17i
+	Bk3tV7n4/BDlNlyHL10/TAGdaXddo7sea8HcUETIuTvHuuwUbBoeYmBQ3oKZfTLVT8eMUlHlgf7Ry
+	qLQdBMjW18zI8cN3Q8EW8PRVCOYtky8f8nV9mEC9fmBVoXhqNzX34brj40zaOqDB5WDxu4y++Zs7u
+	DjM1cZFSsjZV3dcERYVpC1uhyX6OxkfuLQi1dJpz9U5D0Qqxf2qxJQqZ/DIj61Krm5PoOirdGbVKr
+	gB8wIvh4LBPThRpk3DUo6gwW13SR9oS0aKgS+jQogiOwb6+YK1uUvm1HgOC+LUlIpXBqwTtBrR+iT
+	8Mk0dyWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udkLU-0000000GQPE-0JmR;
-	Mon, 21 Jul 2025 06:49:56 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1udkNs-0000000GQf3-3ZGf;
+	Mon, 21 Jul 2025 06:52:24 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udkHm-0000000GPlS-2bXB
+	id 1udkIF-0000000GPqr-0Roq
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Jul 2025 06:46:06 +0000
+	Mon, 21 Jul 2025 06:46:36 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6E474600AE;
-	Mon, 21 Jul 2025 06:46:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B82F9C4CEF1;
-	Mon, 21 Jul 2025 06:46:00 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 8629644CF9;
+	Mon, 21 Jul 2025 06:46:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E9A58C4CEED;
+	Mon, 21 Jul 2025 06:46:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753080364;
-	bh=vikc9/7AWqVBduvZfLN2OQgvdzxZdXkUrCN1s6ev2Jw=;
+	s=k20201202; t=1753080394;
+	bh=yJlCNopcvM830fvt3iNNGN6z/XSOqy61RZ7Rh/ZDF9o=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=hNtryoUhvoYumcPoFX0lmUIGBh+NGeiwBGovFyxNSKqXcB4XsrmCRcXX9VMOIQbLX
-	 VvOd9ECQZ8znDikb+b01AuM/ARg6U3vUZgmpUb5Q33wNMJUpDg38PolW1c31OME1H+
-	 Iv+SZy00Bna47CRHvHk0Wic0nQlqzNlM52UQuZU6KrCxm+3Lbzw7KEfMJSHbbHzo7f
-	 F9Wi+XaJJHA6Z+9rARPDVdwFAYt9cf9iZDCo4Dhptlvjdw4/OmGXgqfT/LIJBmIUa9
-	 ciBu8rvENKRM16eE9vNQ1tIdKt8NvbW7Zasf/KYv/eVkHqcuq9VvAl+FbcGrW9Rw8N
-	 9fCj5IsOY45Xg==
-Message-ID: <9ae13771-e577-4005-84cd-230aba048085@kernel.org>
-Date: Mon, 21 Jul 2025 08:45:59 +0200
+	b=uZz0X0FhVbaaH3gsiXWW6p/2lSmm/9m/tk6MbjAoagVGyTruYrAlF9p7c+UXiloxr
+	 rWUTQBZOVc59A91zvWWJAiQiDe3+ImdGLDai+yvazvgwfu51GCxP+cySATXHeFnfJ3
+	 Zm95qaVOHOOEf4Mb3ILWCIez0sOZPbk+He0ugUJaYR1TeEjl4eJLv9kG4P6x2xyiad
+	 sKOrJKnXBt18b2DOQ1DZA3IXYAjeV2QHENlTx1GilmQMnlfxCYjT1anRUhuWKY/CxY
+	 FprrPmarjQ3+yKrUFX2K6EvjXtKQohzeAyW7scGAQ1rN+32wNBMUw3tWnwdSPYz02y
+	 /ESfimbS6A3NA==
+Message-ID: <856f876d-c6f2-4968-81ea-2e9ccaba879a@kernel.org>
+Date: Mon, 21 Jul 2025 08:46:29 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 5/9] arm64: dts: exynosautov920: Add ABOX IPC Generic
- device node
+Subject: Re: [PATCH 6/9] ASoC : dt-bindings: sound: Add binding for ABOX IPC
+ Generic
 To: ew kim <ew.kim@samsung.com>, broonie@kernel.org, s.nawrocki@samsung.com,
  robh@kernel.org, krzk+dt@kernel.org
 Cc: lgirdwood@gmail.com, tiwai@suse.com, perex@perex.cz, conor+dt@kernel.org,
@@ -55,8 +55,8 @@ Cc: lgirdwood@gmail.com, tiwai@suse.com, perex@perex.cz, conor+dt@kernel.org,
  devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org
 References: <20250721023052.3586000-1-ew.kim@samsung.com>
- <CGME20250721024611epcas2p375cd5e4b53fcff3b69a39ef19c0825a4@epcas2p3.samsung.com>
- <20250721023052.3586000-6-ew.kim@samsung.com>
+ <CGME20250721024611epcas2p382f3decd51152a5c89c673f222e22da1@epcas2p3.samsung.com>
+ <20250721023052.3586000-7-ew.kim@samsung.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -102,9 +102,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250721023052.3586000-6-ew.kim@samsung.com>
+In-Reply-To: <20250721023052.3586000-7-ew.kim@samsung.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250720_234635_190850_B024C8CF 
+X-CRM114-Status: GOOD (  14.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,56 +123,64 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 21/07/2025 04:30, ew kim wrote:
-> This patch adds a new child node `abox_ipc_generic` under the
-
-Please read kernel submitting patches and DT bindings submitting patches.
-
-> `abox_generic` node for ExynosAuto v920. The ABOX IPC Generic
-> driver handles inter-processor communication (IPC) between
-> the ABOX DSP and host SoC using IRQs.
+> This patch updates the existing samsung,exynosauto.yaml schema to
+> describe the ABOX IPC Generic child node. This node represents
+> a virtual IPC interface used by the ABOX audio subsystem to
+> communicate with SoC-specific hardware using shared IRQ channels.
 > 
-> The node includes configuration for the number of IRQ channels
-> used for IPC routing. This allows SoC-specific subsystems to
-> send and receive messages through the ABOX generic audio stack.
+> The schema describes the `samsung,num-irq` property and allows
+> integration of the IPC node under `abox_generic`.
 > 
 > Signed-off-by: ew kim <ew.kim@samsung.com>
 > ---
->  arch/arm64/boot/dts/exynos/exynosautov920-sadk.dts |  6 +++++-
->  arch/arm64/boot/dts/exynos/exynosautov920.dtsi     | 10 ++++++++--
->  2 files changed, 13 insertions(+), 3 deletions(-)
+>  .../bindings/sound/samsung,exynosauto.yaml    | 23 +++++++++++++++++++
+>  1 file changed, 23 insertions(+)
 > 
-> diff --git a/arch/arm64/boot/dts/exynos/exynosautov920-sadk.dts b/arch/arm64/boot/dts/exynos/exynosautov920-sadk.dts
-> index a870c0b6847f..2f4cf112675a 100644
-> --- a/arch/arm64/boot/dts/exynos/exynosautov920-sadk.dts
-> +++ b/arch/arm64/boot/dts/exynos/exynosautov920-sadk.dts
-> @@ -89,4 +89,8 @@ &xtcxo {
+> diff --git a/Documentation/devicetree/bindings/sound/samsung,exynosauto.yaml b/Documentation/devicetree/bindings/sound/samsung,exynosauto.yaml
+> index b1e49f38ffe9..3a7b5be627ee 100644
+> --- a/Documentation/devicetree/bindings/sound/samsung,exynosauto.yaml
+> +++ b/Documentation/devicetree/bindings/sound/samsung,exynosauto.yaml
+> @@ -48,6 +48,23 @@ properties:
+>      description: Required for child nodes that may declare address space.
+>      const: 1
 >  
->  &abox_generic {
->  	status = "okay";
-> -};
-> \ No newline at end of file
-> +};
-> +
-> +&abox_ipc_generic {
-> +	status = "okay";
-> +};
-> diff --git a/arch/arm64/boot/dts/exynos/exynosautov920.dtsi b/arch/arm64/boot/dts/exynos/exynosautov920.dtsi
-> index 4f086a7a79c8..21bcbcf7e2b6 100644
-> --- a/arch/arm64/boot/dts/exynos/exynosautov920.dtsi
-> +++ b/arch/arm64/boot/dts/exynos/exynosautov920.dtsi
-> @@ -1133,8 +1133,14 @@ abox_generic: abox_generic {
->  		samsung,num-pcm-capture = <32>;
->  		samsung,num-i2s-dummy-backend = <5>;
->  		status = "disabled";
-> -		#address-cells = <2>;
-> -		#size-cells = <1>;
-> +		/* #address-cells = <2>; */
-> +		/* #size-cells = <1>; */
-> +
-> +		abox_ipc_generic: abox_ipc_generic {
-> +			compatible = "samsung,abox_ipc_generic";
+> +  abox_ipc_generic:
+> +    type: object
+> +    description: ABOX IPC Generic subnode for SoC-level message routing
+> +    properties:
+> +      compatible:
+> +        const: samsung,abox_ipc_generic
 
-No bindings. Are you sure you follow standard patchset order?
+We cannot take generic IPC.
+> +
+> +      samsung,num-irq:
+> +        $ref: /schemas/types.yaml#/definitions/uint32
+> +        description: Number of IRQ channels supported for IPC routing.
+> +
+> +    required:
+> +      - compatible
+> +      - samsung,num-irq
+> +
+> +    additionalProperties: false
+> +
+>  required:
+>    - compatible
+>    - samsung,num-pcm-playback
+> @@ -66,4 +83,10 @@ examples:
+>        status = "disabled";
+>        #address-cells = <2>;
+>        #size-cells = <1>;
+> +
+> +      abox_ipc_generic {
+> +        compatible = "samsung,abox_ipc_generic";
+> +        samsung,num-irq = <64>;
+> +        status = "disabled";
+
+So you never test it...
+
+> +      };
+>      };
+
 
 Best regards,
 Krzysztof
