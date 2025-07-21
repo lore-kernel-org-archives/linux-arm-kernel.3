@@ -4,79 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96A6EC83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 13:45:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52FCBC83F26
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 13:50:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F6yVoIizskpBbKdog3ktrLxGca0R5J425gZKVF8sBm8=; b=2hsWPvW0miR1elH+mYK6aD8JgU
-	w5OZXJh+dFVp77AQmyT7vQwoz4vtnApxHjAdd5qC22qlz/jYatR/i9MaDCm4zZl4fqG3BXC9VBvls
-	t8tpjMfTwT6eV7O5q9oIomMVn2MtIuWPsr0XatfAmmGdh4efJr7AIYEaBgB+mgwL9bdg5sNJP7wxB
-	/Su7zTTAXr8GByMZsktKJjuKaaBmyxO4Xze3nSjBW//eh+ehTNdbwT2O1mfMmRgIUbL9krLnzGoG6
-	v8fMrhP/qaH/rR9/Gk4PDYP5XNDU1I6JxMB+6y7B4bQg1DgMVQLbIV6YT1IFRpthsuUR76wjZV259
-	Prw0ho8g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QrwPvtm0Y3jVd4A8YMJUm1x2eIlSHpKGIqbTIjvz8DE=; b=lOD2RkIGeWDJgRGxtl9bJHwyBh
+	DyjgIy0UwXxEIbgVV6eYMzsT7QFpnx1tAe5UqVhIYauTNJfuyadoGCA1rZEIpCFh49oElTEZtRWol
+	c47g7OHGsxjKhC3aCGFdgrIFwAulmft4OwWDebL2+XxvteeRqiJY0EMbJFybW2hpwn2tPtUSvUp+2
+	HrPY6kPeC1tUCXnPwr8QpR2RFH6z69PNJfB0NlTsaUYCPx6M38XaNPF0pEnwcQHghl90+l3BpgMyN
+	bm3KsIrEKAbBMMYaqwtvh3jR+PJe7WPrxQ1FShxa6k16BuBXBD4rSO+76A3r0PcSzPnAGZZFRmgVm
+	MgbkezNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udqpK-0000000HQ4k-0ISq;
-	Mon, 21 Jul 2025 13:45:10 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1udquJ-0000000HQeH-39MA;
+	Mon, 21 Jul 2025 13:50:19 +0000
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udpiO-0000000HGUC-0yNH
+	id 1udq5S-0000000HJb7-2FL1
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Jul 2025 12:33:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1753101234;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=F6yVoIizskpBbKdog3ktrLxGca0R5J425gZKVF8sBm8=;
-	b=IGrVnxTD8rlPq9w7ZeRW/vWc7CBMW70oLdCbdoj1kYWum5grCaHH9vydEnU0j9xLKF0/FZ
-	8uueTOFOLuR0SttwrkGKd4wLDv/zNojrFPQ1lsZgiDfnLRFLat6MPO4YdCbzEqMNrh4ysi
-	/qZ4pTHtDRdf+C5ABBBa0XageppUr6M=
-Received: from mx-prod-mc-04.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-688-lsDY9m-DMzyRevcE2smU0A-1; Mon,
- 21 Jul 2025 08:32:15 -0400
-X-MC-Unique: lsDY9m-DMzyRevcE2smU0A-1
-X-Mimecast-MFC-AGG-ID: lsDY9m-DMzyRevcE2smU0A_1753101133
-Received: from mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.4])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-04.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 20FBC19560BB;
-	Mon, 21 Jul 2025 12:32:13 +0000 (UTC)
-Received: from localhost (pixel-6a.str.redhat.com [10.33.192.205])
-	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 5B51D30001BC;
-	Mon, 21 Jul 2025 12:32:11 +0000 (UTC)
-From: Cornelia Huck <cohuck@redhat.com>
-To: Marc Zyngier <maz@kernel.org>, kvmarm@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org
-Cc: Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose
- <suzuki.poulose@arm.com>, Oliver Upton <oliver.upton@linux.dev>, Zenghui
- Yu <yuzenghui@huawei.com>, Will Deacon <will@kernel.org>, Catalin Marinas
- <catalin.marinas@arm.com>
-Subject: Re: [PATCH 6/7] KVM: arm64: Expose FEAT_RASv1p1 in a canonical manner
-In-Reply-To: <20250721101955.535159-7-maz@kernel.org>
-Organization: "Red Hat GmbH, Sitz: Werner-von-Siemens-Ring 12, D-85630
- Grasbrunn, Handelsregister: Amtsgericht =?utf-8?Q?M=C3=BCnchen=2C?= HRB
- 153243,
- =?utf-8?Q?Gesch=C3=A4ftsf=C3=BChrer=3A?= Ryan Barnhart, Charles Cachera,
- Avril Crosse O'Flaherty"
-References: <20250721101955.535159-1-maz@kernel.org>
- <20250721101955.535159-7-maz@kernel.org>
-User-Agent: Notmuch/0.38.3 (https://notmuchmail.org)
-Date: Mon, 21 Jul 2025 14:32:08 +0200
-Message-ID: <87seip67xz.fsf@redhat.com>
+	Mon, 21 Jul 2025 12:57:47 +0000
+Received: from pps.filterd (m0241204.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56LBu24b002202;
+	Mon, 21 Jul 2025 14:57:32 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	QrwPvtm0Y3jVd4A8YMJUm1x2eIlSHpKGIqbTIjvz8DE=; b=0GGCxJo2waUxHJ5n
+	tpo0ZXAtI2x1IQX/mSnLBB2UWXUm8KIM1YYSdht2vwrAt8hPJ60gHkJ9BkepTsne
+	S6KPhuKi4YiazGtGYy5f5sIGs+ghPVjqj9+9VKWwaThEd7P9mYmLu8eNGwEF+kuH
+	VU323u+2uJqOfjh4cDh4NednVsafixyjGv9DsnOex5IwjRzRjQ9LH40CI/E6S/VG
+	hMXz2PONOqf/yvjBjBmz48SmTtMEoo8sKfROTPM2HNWb434oTuu/G2B2AM+6HQJa
+	lV06ykGVAFC8KcrkY6CBGg3schMPNtzYlYSC24vAmGVdCLnhnZbGadm1S2SADXcV
+	G62OpQ==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 4802q211x4-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 21 Jul 2025 14:57:32 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id BDF4C40057;
+	Mon, 21 Jul 2025 14:56:01 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 5B8B37A63A1;
+	Mon, 21 Jul 2025 14:54:41 +0200 (CEST)
+Received: from [10.48.87.141] (10.48.87.141) by SHFDAG1NODE1.st.com
+ (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 21 Jul
+ 2025 14:54:40 +0200
+Message-ID: <5c7dd351-2fca-4a96-b911-c79d326d82df@foss.st.com>
+Date: Mon, 21 Jul 2025 14:54:39 +0200
 MIME-Version: 1.0
-Content-Type: text/plain
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.4
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next 1/4] dt-bindings: net: document st,phy-wol
+ property
+To: Krzysztof Kozlowski <krzk@kernel.org>,
+        Andrew Lunn
+	<andrew+netdev@lunn.ch>,
+        "David S. Miller" <davem@davemloft.net>,
+        Eric
+ Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+        Paolo Abeni
+	<pabeni@redhat.com>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski
+	<krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Christophe Roullier <christophe.roullier@foss.st.com>,
+        Andrew Lunn
+	<andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
+        Russell King
+	<linux@armlinux.org.uk>, Simon Horman <horms@kernel.org>,
+        Tristram Ha
+	<Tristram.Ha@microchip.com>,
+        Florian Fainelli <florian.fainelli@broadcom.com>
+CC: <netdev@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+References: <20250721-wol-smsc-phy-v1-0-89d262812dba@foss.st.com>
+ <20250721-wol-smsc-phy-v1-1-89d262812dba@foss.st.com>
+ <faea23d5-9d5d-4fbb-9c6a-a7bc38c04866@kernel.org>
+ <f5c4bb6d-4ff1-4dc1-9d27-3bb1e26437e3@foss.st.com>
+ <b220ae01-81b5-47f1-bf99-9aa0903995e1@kernel.org>
+Content-Language: en-US
+From: Gatien CHEVALLIER <gatien.chevallier@foss.st.com>
+In-Reply-To: <b220ae01-81b5-47f1-bf99-9aa0903995e1@kernel.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.48.87.141]
+X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE1.st.com
+ (10.75.129.69)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-07-21_04,2025-07-21_01,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250721_053356_390709_F5307C63 
-X-CRM114-Status: GOOD (  17.13  )
+X-CRM114-CacheID: sfid-20250721_055746_875907_F8B4B85C 
+X-CRM114-Status: GOOD (  18.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,42 +118,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 21 2025, Marc Zyngier <maz@kernel.org> wrote:
 
-> If we have RASv1p1 on the host, advertise it to the guest in the
-> "canonical way", by setting ID_AA64PFR0_EL1 to V1P1, rather than
-> the convoluted RAS+RAS_frac method.
 
-Don't the two methods have slightly different semantics with RAS == V1P1
-possibly implying FEAT_DoubleFault, and RAS+RAS_frac not?
+On 7/21/25 14:16, Krzysztof Kozlowski wrote:
+> On 21/07/2025 14:10, Gatien CHEVALLIER wrote:
+>> Hello Krzysztof,
+>>
+>> On 7/21/25 13:30, Krzysztof Kozlowski wrote:
+>>> On 21/07/2025 13:14, Gatien Chevallier wrote:
+>>>> The "st,phy-wol" property can be set to use the wakeup capability of
+>>>> the PHY instead of the MAC.
+>>>
+>>>
+>>> And why would that be property of a SoC or board? Word "can" suggests
+>>> you are documenting something which exists, but this does not exist.
+>> Can you elaborate a bit more on the "not existing" part please?
+> 
+> 
+> Where does this property exist that you suggest that a new binding "can"
+> use it?
+> 
 
->
-> Signed-off-by: Marc Zyngier <maz@kernel.org>
-> ---
->  arch/arm64/kvm/sys_regs.c | 9 +++++++++
->  1 file changed, 9 insertions(+)
->
-> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-> index 9fb2812106cb0..549766d7abca8 100644
-> --- a/arch/arm64/kvm/sys_regs.c
-> +++ b/arch/arm64/kvm/sys_regs.c
-> @@ -1800,6 +1800,15 @@ static u64 sanitise_id_aa64pfr0_el1(const struct kvm_vcpu *vcpu, u64 val)
->  	if (!vcpu_has_sve(vcpu))
->  		val &= ~ID_AA64PFR0_EL1_SVE_MASK;
->  
-> +	/*
-> +	 * Describe RASv1p1 in a canonical way -- ID_AA64PFR1_EL1.RAS_frac
-> +	 * is cleared separately.
-> +	 */
-> +	if (cpus_have_final_cap(ARM64_HAS_RASV1P1_EXTN)) {
-> +		val &= ~ID_AA64PFR0_EL1_RAS;
-> +		val |= SYS_FIELD_PREP_ENUM(ID_AA64PFR0_EL1, RAS, V1P1);
-> +	}
-> +
->  	/*
->  	 * The default is to expose CSV2 == 1 if the HW isn't affected.
->  	 * Although this is a per-CPU feature, we make it global because
-> -- 
-> 2.39.2
+I'm not sure if you're only targeting the wording here?
 
+I found this property: "mediatek,mac-wol". Its non-presence sets the
+same flag AFAICT.
+
+I need to set the flag so that the stmmac_set_wol() in
+drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c eventually
+reaches the PHY driver.
+
+>>
+>> For the WoL from PHY to be supported, the PHY line that is raised
+>> (On nPME pin for this case) when receiving a wake up event has to be
+>> wired to a wakeup event input of the Extended interrupt and event
+>> controller(EXTI), and that's implementation dependent.
+> 
+> 
+> So it is not "can" but some implementations do not have proper wiring.
+> You need to justify your commits and changes.
+> 
+
+Ok, does:
+In case of proper wiring from the PHY to a wake up event input,
+set the "st,phy-wol" to indicate that the PHY WoL capability is
+preferred over the MAC one.
+
+seems better?
+
+> 
+> 
+> Best regards,
+> Krzysztof
 
