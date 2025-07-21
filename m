@@ -4,143 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3BF7C83F25
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 17:34:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C7BCC83F25
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 17:36:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k1To2TtXrWvL7KDLUWwYZS+zt9S2lZ7nkcx7wxlUsgc=; b=yZjcSE/JECRU11nTB5T1g/NTgY
-	wbKS0qQcjZKaH+N1+l0sQuTr9OTFfpYllUkANh8ekNYj9S2w6DuXsJBd5MyV2BlTW25Xl29hWXgbl
-	k8wvpsmwooVIv01siB739UXNhY/SObESbmg1ffMFW+QEeXnukMogPi1E5eZlxfyLEbMByaBu39Arh
-	jCcmeGECHB3GXoFYTlWrsKJVrrxhOZEJNgDgqYU7M/SQe/kcMBWFTnuND/qHhx/bwj04s9GwjHPBX
-	wkSABrrBumsBnTLrI9Kp20+tsKAAtBkG6aenohfR/alvbfD3U8DbxzCbCMLgG8GGe/vtNQUWBbVka
-	kRa73iZg==;
+	bh=+GAVag3m5ecuAfWWIp28IdphYGPB3qD6DensfCFBx4o=; b=fSYTge1EldRCFZOGpp5cFCXRye
+	Ku6Xew3PbRjJho/WruckDIZs1B1MrkqcZq290EDkBcezZF21UGib5J+n/H5yPrJTlWZMiFbsikSKi
+	D6erDgcWECBnH9k+bpjFbA9vAj8NVU89PapVxyM0mitOzRCRW64lQqIuAY+x5ahh2zvJDhUpoiiqh
+	9XVJhxtClJXsVSl7ooqdvbgoP7bLm1QaUhGBDXnMH8mmMf29s9z8GNMCT7TnrbcRPykae/H7oue71
+	0Dsf1if6tboaCmhR3ju/J878jRRXGwztL8Dqcp6VCvBtdrHn78iVaHEmULgvV3Bs2jVit99Fmmsdp
+	P/ewLB2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uduOu-00000000KMo-1nL5;
-	Mon, 21 Jul 2025 17:34:08 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1uduRL-00000000Kgm-0imc;
+	Mon, 21 Jul 2025 17:36:39 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udsoW-000000007YO-12fn
+	id 1udssC-000000008ER-1oEG
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Jul 2025 15:52:29 +0000
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56LAWBG4000994
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Jul 2025 15:52:27 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	k1To2TtXrWvL7KDLUWwYZS+zt9S2lZ7nkcx7wxlUsgc=; b=UMR0HOfNvnMdl+Uc
-	aUIUBqSvnw1RGmMDEBnY1JMRFTTxP2Z9qQLJyzDWK4t5Kh5ui6nVH9DZ9+SpWFQy
-	r/S6xJKg1zJX7bCyCDTK68JxtdLP5pDkuNlvassiqkz5i5Nt/8Yc0dv1uFajWqjQ
-	A5BPK6oCteGYiU0ELJO+agf/aE7m+aOB8xUnfDwZtpujON3yWq1Q+NeLtIS6uqwj
-	7h0o2bzvXjRqlxMI3pNeEq9zFbI88TD0eAAfuAaKlZ5czEO7YvlIC182a/mdDfo1
-	8+FNROe3LNH4TYC6m4vakJgFruUpowdEe/tghuEB8pSuz8IvFtywIuaKQvjsBUFS
-	RUxaPQ==
-Received: from mail-pl1-f197.google.com (mail-pl1-f197.google.com [209.85.214.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 48044ddy0s-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Jul 2025 15:52:27 +0000 (GMT)
-Received: by mail-pl1-f197.google.com with SMTP id d9443c01a7336-234a102faa3so38609125ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Jul 2025 08:52:26 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753113146; x=1753717946;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=k1To2TtXrWvL7KDLUWwYZS+zt9S2lZ7nkcx7wxlUsgc=;
-        b=eMNajtCdV23E1PZNk8Yvkxhr/0p9zjxGaxJpXJmsqkGMnSYtbg5Hj5fI06cdEyivAT
-         e8sCqZvUN+21cyMjjj/phU9nf9++Uej7V0mmQEFHFkffQL7jo3PSu0qrJEH/kaFQuiXT
-         tX+fgM5754s3yNmCeJuoEy3uzR43HTIexc7P8u6Gp8DRdVaQeEPJtqv9Pwdjw1fkC7SJ
-         wbHpNRN2ccTr62i/GaU9CI03OtmRikoW6XDjaOaVMtUmYiG5en+Apcem1KSPXvykZZIG
-         2UW11Kr7jadMDcFp7/Y2OmEo4tY0+Ilxn0shWv+xkzlOgx7a+Y2RvB8LAgabRIdu3JZJ
-         SMCQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWXsxUpRE6zJbpZ4ofLcG3ZBFsoqLD42DgFjZGz6E7An/JgL2OxsPqgkQkHqVzIc3BMSr8ltYltJtjaXgdHEFEL@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx4HFYvp5DATUONYzYp78KDK9lJFtUsffH7LEplC85Ua25oiLH7
-	S9E7ERDLlGi68batJn4RXthY9GZWklk0bzv3AAle21PXz7Kgh7K7b9Gcm6U63spOd794AyDRa+m
-	mBdpHKCGg+kqYDsYGcjW/3lzJ+pwl9PVN1tHGsn8NQn6u1ggRJuWFWts976VgaRm6uETLkl/T9B
-	LPvw==
-X-Gm-Gg: ASbGncsyXdJShYBxe5QAuzDbKJuFq/0tgaLE/cy51N0LNCAA7e3AlBnHsYPWE9FP62F
-	KgURaUYaiNLtBb3P07jsIWkwypDnGn/sR1PNp3iVE+/1nQF5YaC5HREFrWXj33FTSHTMPde/QWC
-	ZzoHqKY/O+iVmiw/dfK2YUIEo+Cz2+0enuRNggrRvxZ5jKcP62mhMYAgxrsgiqesAQOdm5dzmka
-	ieYcRvyXX+b1ZAYPzJtczwezgAoFx1OccrfLzdD4RFZpCyZYH3VbWfxVZh/8ZM3dEYHK6OxIB3n
-	pzMqc1JyMiKfF6S7BEyRX0YTLnwsVzJQtKqzqs9pysJYPs8I0L0YV6xLcSFnbCdEDpKC/zDkmlS
-	JIQnFhb0qE1toPA==
-X-Received: by 2002:a17:903:11c5:b0:23e:1b99:2a71 with SMTP id d9443c01a7336-23e24f59902mr290415685ad.39.1753113145692;
-        Mon, 21 Jul 2025 08:52:25 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFPCwCxq1QkhMyEoe34Z12143edz1TUZnWOSk/9IkmrEyBMoiqaPExRfBVgfEPrzhXVmpdjcQ==
-X-Received: by 2002:a17:903:11c5:b0:23e:1b99:2a71 with SMTP id d9443c01a7336-23e24f59902mr290415145ad.39.1753113145178;
-        Mon, 21 Jul 2025 08:52:25 -0700 (PDT)
-Received: from [10.226.59.182] (i-global254.qualcomm.com. [199.106.103.254])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23e3b6d2a8dsm60084815ad.165.2025.07.21.08.52.21
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 21 Jul 2025 08:52:24 -0700 (PDT)
-Message-ID: <7649e4ff-c712-4db4-8777-f96bc4de97c4@oss.qualcomm.com>
-Date: Mon, 21 Jul 2025 09:52:20 -0600
+	Mon, 21 Jul 2025 15:56:17 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id A416143276;
+	Mon, 21 Jul 2025 15:56:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8D872C4CEED;
+	Mon, 21 Jul 2025 15:56:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1753113375;
+	bh=RmvVp8Cc5s3PNQobge2CUWiM9uh0u33UicVxKxhwc00=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=mzesJ5k8af1yqWf95XwEexGnQdlboi/uiIG5R/a5H2hgmcMzJqbwL3o3LTzr9PtHi
+	 n+I2d/MMeEqRRGxuoM+ZL/D/lgxAodi9PnUZQcq5J+e2c1hcHvJxDtlE6MC7K36ZN/
+	 MDVgMqXN5nS6Dsh38Q4AjUZcFB970DMHP8iNkmhyad2Wna6kdYHbgh22I3Ms1hl14x
+	 kPC93tv+L4Rfp3nTqjM3CP7ubRvOll5FU144rkE3RT1AumWpSyYLm8/u4Kmp//zugD
+	 f6B55wu4pf3Bp0tkrPFZk+KvH0aoWZ4OCmt0urScl8JFZdN4NLDHdr/oYzozquZfq5
+	 q7SBhclNl6j9Q==
+From: Mark Brown <broonie@kernel.org>
+To: linux-spi@vger.kernel.org, Heiko Schocher <hs@denx.de>
+Cc: linux-kernel@vger.kernel.org, Andrei Lalaev <andrey.lalaev@gmail.com>, 
+ Chanh Nguyen <chanh@os.amperecomputing.com>, 
+ Conor Dooley <conor+dt@kernel.org>, Fabio Estevam <festevam@gmail.com>, 
+ Grant Peltier <grantpeltier93@gmail.com>, 
+ Guenter Roeck <linux@roeck-us.net>, 
+ Jonathan Cameron <Jonathan.Cameron@huawei.com>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+ Michal Simek <michal.simek@amd.com>, 
+ Naresh Solanki <naresh.solanki@9elements.com>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Rob Herring <robh@kernel.org>, Rodrigo Gobbi <rodrigo.gobbi.7@gmail.com>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>, 
+ devicetree@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org
+In-Reply-To: <20250719063355.73111-1-hs@denx.de>
+References: <20250719063355.73111-1-hs@denx.de>
+Subject: Re: (subset) [PATCH v1 0/3] spidev: introduce trivial abb sensor
+ device
+Message-Id: <175311337130.327079.7374455187420344577.b4-ty@kernel.org>
+Date: Mon, 21 Jul 2025 16:56:11 +0100
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v9 00/10] New DRM accel driver for Rockchip's RKNN NPU
-To: =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
-        Tomeu Vizoso <tomeu@tomeuvizoso.net>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
- <conor+dt@kernel.org>, Oded Gabbay <ogabbay@kernel.org>,
-        Jonathan Corbet <corbet@lwn.net>,
-        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Sumit Semwal <sumit.semwal@linaro.org>,
-        =?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>,
-        Sebastian Reichel <sebastian.reichel@collabora.com>,
-        Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
-        Kever Yang <kever.yang@rock-chips.com>,
-        Robin Murphy <robin.murphy@arm.com>,
-        Daniel Stone <daniel@fooishbar.org>, Da Xue <da@libre.computer>,
-        Philipp Zabel <p.zabel@pengutronix.de>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
-        dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org,
-        linux-media@vger.kernel.org, linaro-mm-sig@lists.linaro.org,
-        Robert Foss <rfoss@kernel.org>,
-        Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-References: <20250721-6-10-rocket-v9-0-77ebd484941e@tomeuvizoso.net>
- <b48c6694-2bd1-44d0-9dd1-1b7a67e22d87@oss.qualcomm.com>
- <4109088.mvXUDI8C0e@diego>
-Content-Language: en-US
-From: Jeff Hugo <jeff.hugo@oss.qualcomm.com>
-In-Reply-To: <4109088.mvXUDI8C0e@diego>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Authority-Analysis: v=2.4 cv=BJ6zrEQG c=1 sm=1 tr=0 ts=687e623b cx=c_pps
- a=cmESyDAEBpBGqyK7t0alAg==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
- a=IkcTkHD0fZMA:10 a=Wb1JkmetP80A:10 a=e5mUnYsNAAAA:8 a=DISFzqtZAAAA:8
- a=eRn_eXbfG_JMZ2bVrUwA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
- a=1OuFwYUASf3TG4hYMiVC:22 a=Vxmtnl_E_bksehYqCbjh:22 a=aug85vrO5LANNmmtkfAW:22
-X-Proofpoint-GUID: jcloHZG2OeG7BOt5sPRnVB3Qxm9vGFm2
-X-Proofpoint-ORIG-GUID: jcloHZG2OeG7BOt5sPRnVB3Qxm9vGFm2
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNzIxMDE0MSBTYWx0ZWRfX6j2yvCTK5aEP
- GBivZOdnBhxlFfrJ/pLCuhhImXEpTDPhZbo7oo0qUptUMWEImEiQ5MdAVyiZjXz0NXj5T1JS2//
- hW9VSN3cc/u1jybYLuwtFhRvaL2oOB9KDcLRHbefL1o8gAyB9jo4RBZ29JCmuIhGTF3+qXmGzmD
- yLlH5IFcYbYY30QmLfVh1PXuDNZXwwxPaKDhwrv/xkzcVlnbX/DHONG/Hz2JnAX1rQoJ0nde/Xl
- 0znavZli+U8b+k3ZMDuPMNGSj8CBbXku7Iu27j0n0eeTtdPnb6CXt3TjY58sukn66CK7oTGQ1Ig
- XgXWmmY7ILP8O5UmfxBVjJGr7cPNzWwPnVKDlVyL/9fo7LBnIIqZEj52z1uQzZAirb501Q5bAYB
- Izer/S5jPaH4VYsEgS4g2GAotwNkDoqkaQN6+jEglnJPprsr09yj+ejHHIgbC+mnrYf5fb+C
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-07-21_04,2025-07-21_02,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 lowpriorityscore=0 clxscore=1015 spamscore=0
- mlxlogscore=999 suspectscore=0 impostorscore=0 phishscore=0 adultscore=0
- mlxscore=0 malwarescore=0 bulkscore=0 classifier=spam authscore=0 authtc=n/a
- authcc= route=outbound adjust=0 reason=mlx scancount=1
- engine=8.19.0-2505280000 definitions=main-2507210141
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.15-dev-cff91
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250721_085228_403160_E5179150 
-X-CRM114-Status: GOOD (  17.10  )
+X-CRM114-CacheID: sfid-20250721_085616_495549_0A55D7CA 
+X-CRM114-Status: GOOD (  13.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,33 +86,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/21/2025 9:24 AM, Heiko Stübner wrote:
-> Hi Jeff,
+On Sat, 19 Jul 2025 08:33:51 +0200, Heiko Schocher wrote:
+> This series introduces the changes needed for trivial spi
+> based sensors from ABB, currently operated from userspace.
 > 
-> Am Montag, 21. Juli 2025, 16:55:01 Mitteleuropäische Sommerzeit schrieb Jeff Hugo:
->> On 7/21/2025 3:17 AM, Tomeu Vizoso wrote:
->>> This series adds a new driver for the NPU that Rockchip includes in its
->>> newer SoCs, developed by them on the NVDLA base.
->>>
->>> In its current form, it supports the specific NPU in the RK3588 SoC.
->>>
->>> The userspace driver is part of Mesa and an initial draft can be found at:
->>>
->>> https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/29698
->>>
->>> Signed-off-by: Tomeu Vizoso <tomeu@tomeuvizoso.net>
->>
->> This (and the userspace component) appear ready for merge from what I
->> can tell. Tomeu is still working on his drm-misc access so I've offered
->> to merge on his behalf. Planning on waiting until Friday for any final
->> feedback to come in before doing so.
+> The last patch adds the spidevices to the DTS files, already
+> in mainline.
 > 
-> sounds great.
+> make dtbs_check showed no errors/warnings for the dts files
 > 
-> Just to make sure, you're planning to merge patches 1-6 (driver + binding)
-> into drm-misc and I'll pick up the "arm64: dts: " patches 7-10 afterwards?
+> [...]
 
-That works for me. I'll plan on merging 1-6 and leaving 7-10 for you.
+Applied to
 
--Jeff
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-next
+
+Thanks!
+
+[1/3] dt-bindings: trivial-devices: Document ABB sensors
+      commit: aad2f87cbcab56b322109d26d7b11842a09df91f
+[2/3] spi: spidev: Add an entry for the ABB spi sensors
+      commit: d60f7cab7c04944a79af16caa43c141e780a59c6
+
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
+
 
