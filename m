@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFD1CC83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 09:35:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4859C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 09:37:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HyWrAx0qfoeFOd6QPNZwc9PAMy/3ai7CwStF3uhwLDA=; b=rLksZnqrVFvo8irG5d3H07B6RL
-	VH16LFkeaJKa9Ez9QjbL8DyR7T1jqB2j+xE/laZQdGNl4JuZ1W2CQJgB7m7xARwKri4DskvAu+J90
-	V53KqdSv1v3Wf8SgyGqXedCRYg+d3QCuy2V+dCard98l80IMKdZgoYtGliW1AkDLIsaZF7x+zmdq/
-	oJnmj9Hl0tkhRrDEaWdFbN7KDkBhGTgxw1J6UFMv1nVSaXoalamzxa6T6CPGoHMrdjf48vESmtMHg
-	gC/a5NyH6xr4UicRZAMXrlfKRBPrNzXzNgluLnPhZaoF8dlJAjUPdhDOp8WOTpEQamxwfrU4EmGHE
-	MeiQC82w==;
+	bh=mPz06fvHGJS3IqG6pR8pv22PSERO2G5DHxglf8CS8S8=; b=OwASFt0Jp+AwGYhqmYZHliHVNW
+	FtQZ4YaZWFX1lXaKALRz7i9I/SIQxnVhN1s1KbU3LPZZj5ftZnyHqgC0cMU9e48JRRyKa2/UT2QUd
+	0WJMxdd6Q3LZ6YTM3oEop6iRfqBHrERd9cRdHuVCJuHqSBnAgvfCmQQg5utvcPde8uL8Iw90X2L+/
+	Jh2WZWwLyqLf8WN5Cs/BtW5Xh8UYYi1EMOJ2pJaeVLu5a2pAf2TPIcSr8tZJVHwmgNcIN9B4Ubkzf
+	k/j4Wz1MDSyLO0N+uj1uDTWVxGG5ZtuzstpqqjVcfpeAdddYpVnEZODPSxxQ4hgCqwA2388kWdeHV
+	f/irCwLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udmvT-0000000GpFi-2GEn;
-	Mon, 21 Jul 2025 09:35:15 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1udmxr-0000000Gpka-1Nl1;
+	Mon, 21 Jul 2025 09:37:43 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udmQo-0000000Gk2v-1wOt
+	id 1udmSN-0000000GkAb-32ZN
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Jul 2025 09:03:35 +0000
+	Mon, 21 Jul 2025 09:05:12 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 73C26A527D0;
-	Mon, 21 Jul 2025 09:03:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 91394C4CEED;
-	Mon, 21 Jul 2025 09:03:32 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 0EB0E45989;
+	Mon, 21 Jul 2025 09:05:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5EB0FC4CEED;
+	Mon, 21 Jul 2025 09:05:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753088613;
-	bh=2WyU0FIwwAaqd7wKJ14a9HbxLjKc9PEgGxTV9aHjfwE=;
+	s=k20201202; t=1753088710;
+	bh=mPz06fvHGJS3IqG6pR8pv22PSERO2G5DHxglf8CS8S8=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=HkOy6hTH5OkSNlT+Ks1wifmkI4AbOHdrXmvPN0zXOiYQEw8c30+iPdqSyFsAl2LKV
-	 gEIl4zbosH9WaOKEquHdrKFCkwi2vfa1AQKd6127Vl9woCogY6Yy6ZF/AE9wagCw7b
-	 YIJ0OvPYGoa3JLETOoM8wTwgqei4JM0gQ+3EzfGrcNbMuJbMcZOlkenp9Zv5NpdU4a
-	 vl5UmzhnsZ7a4Stjzkg47tMX82ydOP7X3YKDUIOQtTLwnGF3ySqhccVuPrIa2y6KL0
-	 9nabpSOiCrhhX+GCnafaIiYJLEvmYt84BSfIbaWorS58FnF+dSIoUX4Xdrz4PFw6i6
-	 9ssz9OAyrbFTQ==
-Date: Mon, 21 Jul 2025 11:03:30 +0200
+	b=PcLdB/5OATdpifzdPVHBnD7jY4ntBYQ+RoyAN3kug0ppoeuK5wqX7nW6oK3Bntx70
+	 TeZan1U82ZkJOi7jjGEO8fmavhEDrS0r6H5n/VrgNXrhFyorNxACbd9Le+9k3h/gMO
+	 gdH/v+ENMDfI1202+ct9ZKBzuZBK5r5fWhzzibbPykeyYv5LeB2/lXXzioaHJZZcpQ
+	 fo5/x5z3lE0MsulrODgHIU+FtSdW42z6RDHqmFlVxUOrmFnJ10lOyAD41p7CPDSOeG
+	 bZyl1g3zv3de+tGcAQ5XBIa+9iYJImpTSgl7nBr0tqZvj5cxUOMaSET4u94Ha/EMLr
+	 3Mu77StA38p+A==
+Date: Mon, 21 Jul 2025 11:05:08 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Ryan Walklin <ryan@testtoast.com>
 Cc: Rob Herring <robh@kernel.org>, 
@@ -52,18 +52,19 @@ Cc: Rob Herring <robh@kernel.org>,
 	Hironori KIKUCHI <kikuchan98@gmail.com>, Philippe Simons <simons.philippe@gmail.com>, 
 	linux-sunxi@lists.linux.dev, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
 	dri-devel@lists.freedesktop.org, Chris Morgan <macromorgan@hotmail.com>
-Subject: Re: [PATCH v2 04/12] dt-bindings: display: sun4i: Add compatible
- strings for H616 TCON TOP
-Message-ID: <20250721-heretic-solid-firefly-05ce87@kuoka>
+Subject: Re: [PATCH v2 06/12] dt-bindings: sram: sunxi-sram: Add H616 SRAM C
+ compatible
+Message-ID: <20250721-spry-nifty-bandicoot-c7c4ad@kuoka>
 References: <20250720085047.5340-1-ryan@testtoast.com>
- <20250720085047.5340-5-ryan@testtoast.com>
+ <20250720085047.5340-7-ryan@testtoast.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250720085047.5340-5-ryan@testtoast.com>
+In-Reply-To: <20250720085047.5340-7-ryan@testtoast.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250721_020334_572068_716C2F81 
-X-CRM114-Status: GOOD (  10.24  )
+X-CRM114-CacheID: sfid-20250721_020511_785283_183FE330 
+X-CRM114-Status: UNSURE (   7.62  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,19 +79,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jul 20, 2025 at 08:48:42PM +1200, Ryan Walklin wrote:
-> Add compatible string for allwinner,sun50i-h616-tcon-top with a
-> fallback string of allwinner,sun50i-h6-tcon-top.
-> 
-> Signed-off-by: Chris Morgan <macromorgan@hotmail.com>
-> Signed-off-by: Ryan Walklin <ryan@testtoast.com>
-> 
-> --
-> Changelog v1..v2:
-> - Add H616 TCON TOP compatible.
-> ---
->  .../display/allwinner,sun8i-r40-tcon-top.yaml       | 13 +++++++++----
->  1 file changed, 9 insertions(+), 4 deletions(-)
+On Sun, Jul 20, 2025 at 08:48:44PM +1200, Ryan Walklin wrote:
+> Add a compatible string for the H616 SRAM C region which is
+> functionally similar to the A64 SRAM C region.
+
+h616 for the parent device is already documented in the top, right? This
+should be one patch.
+
+Post complete bindings for the device, not chunk by chunk.
 
 Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
