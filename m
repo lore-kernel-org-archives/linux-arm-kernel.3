@@ -4,104 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3665CC87FC8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 08:46:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C3EEC87FC5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 08:48:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sdywicGMC8PWpQoI79nyLjxZDbmHom2ul/36bE097Ak=; b=txxDC9J1RuqJj68lfwekZwc5I1
-	bkIRbA8Sxyri5SPx7NTx1EYaj8WuCZjSVGiWzGTofkALn6PVJ+xO5tRp/SGBFsxIRy9mlTlvP8tzX
-	hjFpgTbAHzTlKwGPCnhCOik9TWRqBwCfealOV3se7vgJzwU0yPU5WIFQc7wJOPQ75c8py8bqNwssW
-	Y/G0miW/OVTTDB8ZuXTGnXjAHzmq6/nlGIx7piSInFDs51DO831sOLqlDy7bfUfypvV9us+ysBCO7
-	m8zTcBMkUUTQhByaNUY8/uTQ4ilBTrvGj12+QwKPhGBFfGv5AhlQQtuM/fpyPr9YFfi5kn7fiWAOx
-	wgxYZjRQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=F2Ib1tKEF1yuS4FANf1IbHCg9VHWr9HAnvrBLZTSSnk=; b=f6svzB7U9oEj6Yj8T0bBhko5Mu
+	JGWpbh2RBUp4jvXPdMDsFbGf88p91WS3JCBQEFHE+xeqatf9uU4OIbCNYa6h7aTcqA7LO01eWLtah
+	nh4edmBx6TkLxrkv3o5KwaHMzF6G0t7f2R4GA7DTMLk9LcdaMeYaaFRQL3jhUShl3sa8i0VQJkIdD
+	G0x8zDlD4olwUf4AA9L+n/S/MJe4j86So16OUYpc1cRxOdslOn+xFta2N4uurN5shwZa5Ig6YB6N8
+	8iJfpuQ5dC5+/UzQOKID1XXVvzadQNc610sbdFT2dUVkRCUJjWu/JAdSHqB2+HFiy6emAbooMrJWf
+	L1CeY4Gw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udm9l-0000000GhhT-3F6L;
-	Mon, 21 Jul 2025 08:45:57 +0000
-Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
+	id 1udmCA-0000000GiPC-3QM6;
+	Mon, 21 Jul 2025 08:48:26 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udlpN-0000000Gdnm-3Rnw
+	id 1udlqP-0000000Ge6t-1YY8
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Jul 2025 08:24:55 +0000
-Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-af0dc229478so6356966b.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Jul 2025 01:24:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1753086292; x=1753691092; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=sdywicGMC8PWpQoI79nyLjxZDbmHom2ul/36bE097Ak=;
-        b=zJoToFsw1I5Ta/wa0gq8Ykl5yI2WaLTeCdOPTJecbj44bGkNj8cNXZonfmQGAAzGY4
-         5HhVmeO0pXS6sWTSqL981r81o93MPSlesgJF2xMDXZpdKtOox1tHd2yNQPJNhjJd4hZ0
-         VhZV3YmUHwi4KHXlkfONQmsQjPYCPptli50MJjHHb4GQ49z6kLeRALAk1ALk1YsQMJ8w
-         9LFcCcXQSvMP64R1JiFbWoLeSf7tnLweqMAGDPZYnB/rZ5zv4v9K932YAQelyy1tElOd
-         4iOy0KT18r8SSSR1KWXBZMKiYg1YzeRAwKhrTaHacU/omVdrD43NsNQp1HTPhTIQaNU+
-         2dqw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753086292; x=1753691092;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=sdywicGMC8PWpQoI79nyLjxZDbmHom2ul/36bE097Ak=;
-        b=L4MIzbiQse6iSaH26e3DYCZvXlQ3r5AIlJT/8HcRxBc4AUjyeGJFFnSK8w99fZBpL/
-         TIRd0U/kcAIv7oWltmkKmyE5zGy78tdc8QsOOaW1lPorkpjAxrB1+akF5WEBJOcT3Y/I
-         YG94ekvHK4SndRcE0+jikq9RVvhBfQy7AzLcanxOkiF1DuYwiQs1CahfbN8f9Qbg933q
-         +qaUDgKInAyl+EMmHl7+VQPSpzf2X+NsLXi2EuaolYEjo1G8N+R9VMvlYhQZTlCOPA6i
-         OMerPphZHlzbF3qfpb0pzEdwcEEs5gdVdhAtgMCVosEYE2dmD7B1jVgXGlp2KHdXa4R5
-         woJQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXCQFcS6Vz5XvxLy6wBDi1NRLEYXeJThW+ngJxhquwVOjmXfQE3Zm0yP2ZbK+4jFw/1W8frwsLMGHNo0YBeAJZa@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx7wHBikRo6S6nI+9sjoFCCG7MU/Vbm4g/ddUv5hCEkDjgbjiAm
-	IrGVesFAnwnrvTmGo1U3ChvI7eS9Gxo6gmKshhiNDS6cmtr0TIGGN7UMK0kAuB67Sz8=
-X-Gm-Gg: ASbGncvCEYgzQJEXv98Hw+VhMpCwKDY+UFat/pC+x3n6aKCQxvXaiSjhGt2HVbexvNP
-	ROJJMmwgNATY7lEQ2CkYcZ9xgBoAdUXM8LLH4U2qEY6HFCDMVKb37pkbNKhw65N3HFUnKhmcNxF
-	2wdU4sfIlu1HtsZpmBNRQ4fFGQfj5wnmTVuLiZIlaOnJk7p5vLpNtUPFf+yIuYPaMvOLFkZ1KgK
-	anlIqocGlX6lVHDFn2Qlhrgoy068DvyafC5Gvx4R3zkcneQWXSqiBkn7lbXiZF1c88ZWLdZ+esp
-	6sjXQE7HSkCvhpfV9F7QuQZWjgIrZpD2qI40VI2sfoSYij+ovB94gDJ8CIxXtCpBXw1vWehIBm/
-	b0WEW6YYEmvsgjgRfn+nC
-X-Google-Smtp-Source: AGHT+IGXBWkrr0OYxAUb4JL3ZpYz7yNfjNojugUdotLeKq4sWMewk8MwN0wQ2Tv8Q662Ax1Tz4MBzA==
-X-Received: by 2002:a17:907:1c17:b0:ad8:ae51:d16 with SMTP id a640c23a62f3a-ae9ce198bf6mr1960198566b.55.1753086291837;
-        Mon, 21 Jul 2025 01:24:51 -0700 (PDT)
-Received: from hackbox.lan ([82.79.186.23])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aec6ca7d330sm633826566b.126.2025.07.21.01.24.50
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 21 Jul 2025 01:24:51 -0700 (PDT)
-From: Abel Vesa <abel.vesa@linaro.org>
-To: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Abel Vesa <abelvesa@kernel.org>,
-	Frank Li <frank.li@nxp.com>,
-	Peng Fan <peng.fan@nxp.com>
-Cc: linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
+	Mon, 21 Jul 2025 08:25:58 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id AF852A52862;
+	Mon, 21 Jul 2025 08:25:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 58622C4CEED;
+	Mon, 21 Jul 2025 08:25:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1753086356;
+	bh=1xwau8tZQNCQ6zAdZiqQOjzdqF7mb5vqd77ulzdkHoE=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=JrmO9zqkBaTc4aRnCXRvZSInVD5DIWDpADJWNVSmAhZErhp1CfOa5yy5VyKdQ7PcE
+	 3/57fV2WXUqvPoQ4s4d8SJZNOZ5YyimwH5G6J6y/8aCr+OB9bWn+Q3viRfAyyzBWLo
+	 XqQifRC+oy3RnGWKf4MsAZ7yC5Q74bOYXAZfmmbCYSCIlHsrYyMBkPSJMpHpVVN7VV
+	 QXgHY7z6oqLEGL8ygMjQhYPup8qY29ku9jbHW41mh0dxWGSPk3KwipFlLoO1sMxsp7
+	 DCBDi9YVdDdUJClsTVXnypR20wKxgAXdkVch2BSBgxzvRL4wiR9HgOK7hAcjsJ/XHE
+	 ujwflBDUInqyg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1udlqM-00HXQo-27;
+	Mon, 21 Jul 2025 09:25:54 +0100
+Date: Mon, 21 Jul 2025 09:25:53 +0100
+Message-ID: <86qzya7xwu.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: jackysliu <1972843537@qq.com>
+Cc: tglx@linutronix.de,
+	herve.codina@bootlin.com,
+	antonio.borneo@foss.st.com,
+	anup@brainfault.org,
+	jirislaby@kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sandor Yu <Sandor.yu@nxp.com>
-Subject: Re: (subset) [PATCH v3 0/6] clock: imx95: Add LVDS/DISPLAY CSR for i.MX94
-Date: Mon, 21 Jul 2025 11:24:46 +0300
-Message-Id: <175308625432.1291588.12529765608002208630.b4-ty@linaro.org>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250707-imx95-blk-ctl-7-1-v3-0-c1b676ec13be@nxp.com>
-References: <20250707-imx95-blk-ctl-7-1-v3-0-c1b676ec13be@nxp.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] irqchip/gic-v3: fix resource leak in partition_domain_translate()
+In-Reply-To: <tencent_72EDAD7F6E52D8FB5933030A569A08AEC406@qq.com>
+References: <tencent_72EDAD7F6E52D8FB5933030A569A08AEC406@qq.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: 1972843537@qq.com, tglx@linutronix.de, herve.codina@bootlin.com, antonio.borneo@foss.st.com, anup@brainfault.org, jirislaby@kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250721_012453_873098_B4C2AF56 
-X-CRM114-Status: GOOD (  14.02  )
+X-CRM114-CacheID: sfid-20250721_012557_539085_173DECD3 
+X-CRM114-Status: GOOD (  28.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,37 +88,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Mon, 07 Jul 2025 10:24:36 +0800, Peng Fan wrote:
-> Similar to i.MX95, i.MX94 also has LVDS/DISPLAY CSR to provide
-> clock gate for LVDS and DISPLAY Controller. So following same approach
-> to add the support, as what have been done for i.MX95.
+On Mon, 21 Jul 2025 08:28:04 +0100,
+jackysliu <1972843537@qq.com> wrote:
 > 
-> Patch 1 is to add the binding doc.
-> Patch 2 is fixes when supporting i.MX94, but the issues are
-> also exposed to i.MX95 even not triggered. No need to rush the
-> two patches for 6.16.
-> Patch 3 and 4 is to add the clk driver. Patch 3 is almost picked from
-> NXP downstream with a minor update. Patch 4 is modified from NXP
-> downstream with a few minor patches merged and updated.
-> Patch 5 is the dts part to give reviewer a whole view on how it is used.
+> There is a device node reference leak in partition_domain_translate().
+> After the function obtains the device node np via of_find_node_by_phandle,
+> it does not call of_node_put(np) to release the node reference
+> in both the error path and the normal return path.
+> This causes the node reference count to increase each time
+> the function is called, causing a resource leak.
+>
+> This issue was detected by rule based static tools
+> developed by Tencent.
 > 
-> [...]
+> Fixes: 87228532e7e9 ("irqchip: Switch to of_fwnode_handle()")
+> 
+> Signed-off-by: jackysliu <1972843537@qq.com>
 
-Applied, thanks!
+Drop the spurious blank line.
 
-[1/6] dt-bindings: clock: Add support for i.MX94 LVDS/DISPLAY CSR
-      commit: 0b0cd1857b783711b4bdfb8eb513c263b8a84f6d
-[2/6] clk: imx95-blk-ctl: Fix synchronous abort
-      commit: b08217a257215ed9130fce93d35feba66b49bf0a
-[3/6] clk: imx95-blk-ctl: Rename lvds and displaymix csr blk
-      commit: 88768d6f8c13ede81b248177fed3ac285499f77c
-[4/6] clk: imx95-blk-ctl: Add clock for i.MX94 LVDS/Display CSR
-      commit: 9678bc7661cb34bec4be92685039eec68ca67dad
-[5/6] MAINTAINERS: Update i.MX Clock Entry
-      commit: c78865241ecffaff7ce5db00ed5b71c1a70c0ff1
+> ---
+>  drivers/irqchip/irq-gic-v3.c | 6 +++++-
+>  1 file changed, 5 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/irqchip/irq-gic-v3.c b/drivers/irqchip/irq-gic-v3.c
+> index efc791c43d44..61c1d404b726 100644
+> --- a/drivers/irqchip/irq-gic-v3.c
+> +++ b/drivers/irqchip/irq-gic-v3.c
+> @@ -1821,12 +1821,16 @@ static int partition_domain_translate(struct irq_domain *d,
+>  		return -EINVAL;
+>  
+>  	ret = gic_irq_domain_translate(d, fwspec, &ppi_intid, type);
+> -	if (WARN_ON_ONCE(ret))
+> +	if (WARN_ON_ONCE(ret)) {
+> +		of_node_put(np);
+>  		return 0;
+> +	}
+>  
+>  	ppi_idx = __gic_get_ppi_index(ppi_intid);
+>  	ret = partition_translate_id(gic_data.ppi_descs[ppi_idx],
+>  				     of_fwnode_handle(np));
+> +	of_node_put(np);
+> +
+>  	if (ret < 0)
+>  		return ret;
+>  
 
-Best regards,
+Frankly, this looks awful, and we have much better ways to solve this
+whole class of problems. Why can't the (untested) patch below do the
+right thing, without the ugliness?
+
+	M.
+
+diff --git a/drivers/irqchip/irq-gic-v3.c b/drivers/irqchip/irq-gic-v3.c
+index efc791c43d441..c4839032ce8d0 100644
+--- a/drivers/irqchip/irq-gic-v3.c
++++ b/drivers/irqchip/irq-gic-v3.c
+@@ -1808,8 +1808,8 @@ static int partition_domain_translate(struct irq_domain *d,
+ 				      unsigned long *hwirq,
+ 				      unsigned int *type)
+ {
++	struct device_node *np __free(device_node) = NULL;
+ 	unsigned long ppi_intid;
+-	struct device_node *np;
+ 	unsigned int ppi_idx;
+ 	int ret;
+ 
+
 -- 
-Abel Vesa <abel.vesa@linaro.org>
+Without deviation from the norm, progress is not possible.
 
