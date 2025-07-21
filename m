@@ -4,62 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAB86C83F25
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 14:48:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6095CC83F25
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 14:50:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xbuDmtARaahF+x2i2F6WIhbiZhdhdVHlj+euc6z86R0=; b=lkeopKh8bmR3zPnm0paUKsUsIA
-	/zUczQyYy3t1cOy7YTyN4CF5ztiTCu6EXoQ8FYSetz2HORxKPgT6uwmGwL9WrLQUJUe0t9jV/iL+L
-	TmpjX86Uw6g33/0rMzI7n2ZigqNax6e9/8jFSeI/xZ6nIUAcaVczKzXQPy8dkqeg3e6uOQwPyyhIJ
-	2nRpemAd/N6mnIgsYeVmmoAg+sw+t4OYshv73p4JPcvm49VjsQfssMunVj5NvCUWYPnSlj5PJT98P
-	3n+ogkosFJLOlFeL4kNx5A7NhLKJoe1CpL6KiCm9GkLBas4bN2GEykqu7pRzZpdqQgWgKyS3Hr9uf
-	h/YFGA9A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=gl6XjWOd36sg6clLSodrsTq+/Bqq5Lfk1BOVUUxIzyg=; b=D+EoStapycfF5XqvMeRwhCdtjo
+	31ycvxrtcUYB9OtQfFEJmiEAr/WvEXIN30yl/9gG797zw45R90/HTAm94uvzLV8TLOGGtHRsQ+/0e
+	ds/H/oy0nwcJlSpqwE1vOdHj1UMQYvJdnaUoGaZvKfZgh3xfGIoUfaTYzV2a8wOYFVCcKMB/JcioB
+	6/90fi3btCR6R35erRPPbTR1BxAHtMwJ4QdKxxmQgwsYBDGMFys4ew7JXbPkcUmjZhpVOY6Gy5ASo
+	l3n50ygbxqFdTEfpdbU3CvN/DdBCXUBNc9uquVEwe/rUy2Zwl7fodMZJg/ZPxyES/hQ7+LW+BSXsg
+	YTRZ2zRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udroK-0000000HaXb-3r10;
-	Mon, 21 Jul 2025 14:48:12 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1udrql-0000000Haww-3Ipx;
+	Mon, 21 Jul 2025 14:50:43 +0000
+Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udqS8-0000000HNNv-1xPv
+	id 1udpy3-0000000HI4U-1xR3
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Jul 2025 13:21:13 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 6B72D5C4C84;
-	Mon, 21 Jul 2025 13:21:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8CBC6C4CEED;
-	Mon, 21 Jul 2025 13:21:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753104071;
-	bh=+Rs7u8kTc1dBhO1Z31VFKO/SHgaW/BFajAQvzqyjiYs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=oqQj/Jki5T+/WgNKZRIa4TjprbZLIziLodKspyeiIB3vvvz4xTHhcFphB/Evp1c6/
-	 UQK6T5FrOvRqR1RUAlsYkk4TfVbpyrlCMvBLZVud5w4i31n0snbxU9nJJsAmvzhDtU
-	 5FHKvNPQX6Kt47DzhLdPKoTPL1Dxxg0ftR9G8FofdOWGtSejYaz7/3WWUN5zemfxlp
-	 xDwgtBeo0J1sQ1k7JnZcIWA+GXEAMbt5ddmLnWw4z8t+XrCTc8CSdjIXIyiNrLNB+n
-	 tsGKYbcZnUtQYKXl6ThksZR/UlpaDbsYSTSGShp3J45wsooZuTL8MQ0mvW67wVc4X7
-	 0LTfRhUvJ+YBA==
-Date: Mon, 21 Jul 2025 14:21:06 +0100
-From: Will Deacon <will@kernel.org>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: jgg@nvidia.com, joro@8bytes.org, robin.murphy@arm.com,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org, linux-tegra@vger.kernel.org
-Subject: Re: [PATCH 1/2] iommu/arm-smmu-v3: Do not bother impl_ops if
- IOMMU_VIOMMU_TYPE_ARM_SMMUV3
-Message-ID: <aH4-wuIjtjyo3aOo@willie-the-truck>
-References: <20250718234822.1734190-1-nicolinc@nvidia.com>
- <20250718234822.1734190-2-nicolinc@nvidia.com>
+	Mon, 21 Jul 2025 12:50:09 +0000
+Received: from fllvem-sh03.itg.ti.com ([10.64.41.86])
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 56LCnOtE805016;
+	Mon, 21 Jul 2025 07:49:24 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1753102164;
+	bh=gl6XjWOd36sg6clLSodrsTq+/Bqq5Lfk1BOVUUxIzyg=;
+	h=From:To:CC:Subject:Date;
+	b=TVF/fyyL9+rKglDbVEtN+yMvMLu3FtzN3zG41NqtbKozP8K31Wu5FoHgKNPWhh2sK
+	 ebKcnGtYdut1NDUw7p/qnAmulScsbl9KcI9X5VavdI12aRMm/RwTwqu+wKaRp336qq
+	 t+gfuwrk1BBO+DfaaEkRLN3yCKBG9p01CkVz55vQ=
+Received: from DFLE109.ent.ti.com (dfle109.ent.ti.com [10.64.6.30])
+	by fllvem-sh03.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 56LCnOtZ280684
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Mon, 21 Jul 2025 07:49:24 -0500
+Received: from DFLE105.ent.ti.com (10.64.6.26) by DFLE109.ent.ti.com
+ (10.64.6.30) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Mon, 21
+ Jul 2025 07:49:23 -0500
+Received: from fllvem-mr07.itg.ti.com (10.64.41.89) by DFLE105.ent.ti.com
+ (10.64.6.26) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Mon, 21 Jul 2025 07:49:23 -0500
+Received: from lelv0854.itg.ti.com (lelv0854.itg.ti.com [10.181.64.140])
+	by fllvem-mr07.itg.ti.com (8.18.1/8.18.1) with ESMTP id 56LCnNFK2685222;
+	Mon, 21 Jul 2025 07:49:23 -0500
+Received: from localhost (meghana-pc.dhcp.ti.com [10.24.69.13] (may be forged))
+	by lelv0854.itg.ti.com (8.14.7/8.14.7) with ESMTP id 56LCnMVg012710;
+	Mon, 21 Jul 2025 07:49:22 -0500
+From: Meghana Malladi <m-malladi@ti.com>
+To: <namcao@linutronix.de>, <jacob.e.keller@intel.com>, <m-malladi@ti.com>,
+        <sdf@fomichev.me>, <john.fastabend@gmail.com>, <hawk@kernel.org>,
+        <daniel@iogearbox.net>, <ast@kernel.org>, <pabeni@redhat.com>,
+        <kuba@kernel.org>, <edumazet@google.com>, <davem@davemloft.net>,
+        <andrew+netdev@lunn.ch>
+CC: <bpf@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <srk@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
+        Roger Quadros
+	<rogerq@kernel.org>, <danishanwar@ti.com>
+Subject: [PATCH net] net: ti: icssg-prueth: Fix skb handling for XDP_PASS
+Date: Mon, 21 Jul 2025 18:19:18 +0530
+Message-ID: <20250721124918.3347679-1-m-malladi@ti.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250718234822.1734190-2-nicolinc@nvidia.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250721_062112_580966_AD2884A5 
-X-CRM114-Status: GOOD (  21.12  )
+X-CRM114-CacheID: sfid-20250721_055007_601932_033DD94A 
+X-CRM114-Status: GOOD (  11.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,71 +91,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 18, 2025 at 04:48:21PM -0700, Nicolin Chen wrote:
-> When viommu type is IOMMU_VIOMMU_TYPE_ARM_SMMUV3, always return or init the
-> standard struct arm_vsmmu, instead of going through impl_ops that must have
-> its own viommu type than the standard IOMMU_VIOMMU_TYPE_ARM_SMMUV3.
-> 
-> Given that arm_vsmmu_init() is called after arm_smmu_get_viommu_size(), any
-> unsupported viommu->type must be a corruption. And missing a pairing impl's
-> vsmmu_init should be a driver bug too. Warn these two cases.
-> 
-> Suggested-by: Will Deacon <will@kernel.org>
-> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
-> ---
->  .../arm/arm-smmu-v3/arm-smmu-v3-iommufd.c     | 30 ++++++++++++-------
->  1 file changed, 19 insertions(+), 11 deletions(-)
-> 
-> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
-> index d9bea8f1f636..0b2acb80f41b 100644
-> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
-> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
-> @@ -420,14 +420,13 @@ size_t arm_smmu_get_viommu_size(struct device *dev,
->  	    !(smmu->features & ARM_SMMU_FEAT_S2FWB))
->  		return 0;
->  
-> -	if (smmu->impl_ops && smmu->impl_ops->vsmmu_size &&
-> -	    viommu_type == smmu->impl_ops->vsmmu_type)
-> -		return smmu->impl_ops->vsmmu_size;
-> +	if (viommu_type == IOMMU_VIOMMU_TYPE_ARM_SMMUV3)
-> +		return VIOMMU_STRUCT_SIZE(struct arm_vsmmu, core);
->  
-> -	if (viommu_type != IOMMU_VIOMMU_TYPE_ARM_SMMUV3)
-> +	if (!smmu->impl_ops || !smmu->impl_ops->vsmmu_size ||
-> +	    viommu_type != smmu->impl_ops->vsmmu_type)
->  		return 0;
-> -
-> -	return VIOMMU_STRUCT_SIZE(struct arm_vsmmu, core);
-> +	return smmu->impl_ops->vsmmu_size;
->  }
->  
->  int arm_vsmmu_init(struct iommufd_viommu *viommu,
-> @@ -447,12 +446,21 @@ int arm_vsmmu_init(struct iommufd_viommu *viommu,
->  	/* FIXME Move VMID allocation from the S2 domain allocation to here */
->  	vsmmu->vmid = s2_parent->s2_cfg.vmid;
->  
-> -	if (smmu->impl_ops && smmu->impl_ops->vsmmu_init &&
-> -	    viommu->type == smmu->impl_ops->vsmmu_type)
-> -		return smmu->impl_ops->vsmmu_init(vsmmu, user_data);
-> +	if (viommu->type == IOMMU_VIOMMU_TYPE_ARM_SMMUV3) {
-> +		viommu->ops = &arm_vsmmu_ops;
-> +		return 0;
-> +	}
->  
-> -	viommu->ops = &arm_vsmmu_ops;
-> -	return 0;
-> +	/*
-> +	 * If a non standard type was supported in arm_smmu_get_viommu_size() by
-> +	 * an implementation, a pairing vsmmu_init op must exist.
-> +	 */
-> +	if (WARN_ON_ONCE(!smmu->impl_ops || !smmu->impl_ops->vsmmu_init))
-> +		return -EOPNOTSUPP;
+emac_rx_packet() is a common function for handling traffic
+for both xdp and non-xdp use cases. Use common logic for
+handling skb with or without xdp to prevent any incorrect
+packet processing. This patch fixes ping working with
+XDP_PASS for icssg driver.
 
-It might be cleaner to check the impl_ops in arm_smmu_impl_probe() where
-we're in a slightly better situation for failing gracefully and
-deterministically.
+Fixes: 62aa3246f4623 ("net: ti: icssg-prueth: Add XDP support")
+Signed-off-by: Meghana Malladi <m-malladi@ti.com>
+---
+ drivers/net/ethernet/ti/icssg/icssg_common.c | 9 +++------
+ 1 file changed, 3 insertions(+), 6 deletions(-)
 
-Otherwise, looks good. Thanks!
+diff --git a/drivers/net/ethernet/ti/icssg/icssg_common.c b/drivers/net/ethernet/ti/icssg/icssg_common.c
+index 12f25cec6255..a0e7def33e8e 100644
+--- a/drivers/net/ethernet/ti/icssg/icssg_common.c
++++ b/drivers/net/ethernet/ti/icssg/icssg_common.c
+@@ -757,15 +757,12 @@ static int emac_rx_packet(struct prueth_emac *emac, u32 flow_id, u32 *xdp_state)
+ 		xdp_prepare_buff(&xdp, pa, PRUETH_HEADROOM, pkt_len, false);
+ 
+ 		*xdp_state = emac_run_xdp(emac, &xdp, page, &pkt_len);
+-		if (*xdp_state == ICSSG_XDP_PASS)
+-			skb = xdp_build_skb_from_buff(&xdp);
+-		else
++		if (*xdp_state != ICSSG_XDP_PASS)
+ 			goto requeue;
+-	} else {
+-		/* prepare skb and send to n/w stack */
+-		skb = napi_build_skb(pa, PAGE_SIZE);
+ 	}
+ 
++	/* prepare skb and send to n/w stack */
++	skb = napi_build_skb(pa, PAGE_SIZE);
+ 	if (!skb) {
+ 		ndev->stats.rx_dropped++;
+ 		page_pool_recycle_direct(pool, page);
 
-Will
+base-commit: 81e0db8e839822b8380ce4716cd564a593ccbfc5
+-- 
+2.43.0
+
 
