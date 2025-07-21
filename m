@@ -4,84 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB3D7C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 03:08:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B47BAC83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 03:11:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:In-Reply-To:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WYO77tq7W5vMECTNJggRjm3ersbeWEtJCeArb977E9A=; b=wkbFh2vIqs/6hY00BUsUbnu/qe
-	+EI9/ykOVJQPLxTwts94NtU7QDipCliSfMY0nQ4HCawdEL2Y29beeYOVyy05Aq05H2Qy+J9hDcl6m
-	GwMXG4av/HhKmlZGFAD1LyTQjWdrvc3RxrGE7sMHOsFgKf+D49zfBSQbaFSk4NV5BMxz+FGHiRN1x
-	ReXEx3k8DClXKbFlOU+v3yo51TQdWN0BA+2OT53pHB8c/GtMGi+jfioKaw4D8O4Bq7Ol2oty9PPTP
-	SvE+jpEv26WPDz7iRM2+b9A+q+Xp29ahF02ebFu1CzUlkNjLFfi80C4iYOJaTUe6BCGU5G8IwfIv/
-	GDKNJv/g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=sPiWAawzP1fMXUjI4LwXIY9bk5kszfAYp+F30dzPrLQ=; b=KkJcxXuzNt1OmVXL1qMAgrg3U4
+	ZPoDZ7QyLhmt5204kPa0ovwAJLvJ/MWR8xEjjTHeh8Ghuxcm3z3BkTTvLx/b1XOvYIyf64NN48qyu
+	97OKdQRrWuW6O1ZFEv0IoOXg5naGfHjaEKBl1bcC5Y4mi8Czfz+gUKmfgksMk9+8g2fXQqxyN8wPJ
+	2XFjSua9oN20o4l6a9RKiV/C1IeBMzehUabFEHmc9El4Y24jtwPAr3GdtaDvpMgnpqGBnNFcQjLbQ
+	3qTV2zXsA2ioyP5/AFWYJ5yz2W8gvuOFYm+cQ7gij3ddfATYD+GMSaZx/Nxsvftc7ogwF7sOdVIA4
+	I5SIVDRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udgtH-0000000G3iB-3sC2;
-	Mon, 21 Jul 2025 03:08:35 +0000
-Received: from mailout4.samsung.com ([203.254.224.34])
+	id 1udgvg-0000000G49J-2eYu;
+	Mon, 21 Jul 2025 03:11:05 +0000
+Received: from mta-64-227.siemens.flowmailer.net ([185.136.64.227])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udgXk-0000000G1L3-2EGX
+	id 1udglP-0000000G2ks-45UO
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Jul 2025 02:46:26 +0000
-Received: from epcas2p1.samsung.com (unknown [182.195.41.53])
-	by mailout4.samsung.com (KnoxPortal) with ESMTP id 20250721024613epoutp04011f3f33cdc11ac2ef1645d0b99c3b20~UJDcCkmFi1495814958epoutp04U
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Jul 2025 02:46:13 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout4.samsung.com 20250721024613epoutp04011f3f33cdc11ac2ef1645d0b99c3b20~UJDcCkmFi1495814958epoutp04U
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1753065973;
-	bh=WYO77tq7W5vMECTNJggRjm3ersbeWEtJCeArb977E9A=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=IFklJoPJZwcqOv/w+VcOE5cb0+2rS6kEFUtb1fl95waOLENyaLtE6mfhZAoSfJVsy
-	 nlAdXPfNzOvZTi/YCTfQKkmyA9CRqs0xO/244HAJUl9MjVlNfVI5ARVnb2gaHG81Et
-	 H+t33manvOoQu3Ixk4BXeZPmPN0FFICn4t/9jZBI=
-Received: from epsnrtp02.localdomain (unknown [182.195.42.154]) by
-	epcas2p2.samsung.com (KnoxPortal) with ESMTPS id
-	20250721024613epcas2p229f3754dac8b54208ffbe0b221c807e4~UJDbfi5Nz2628326283epcas2p22;
-	Mon, 21 Jul 2025 02:46:13 +0000 (GMT)
-Received: from epcas2p1.samsung.com (unknown [182.195.36.90]) by
-	epsnrtp02.localdomain (Postfix) with ESMTP id 4bllC82lmmz2SSKb; Mon, 21 Jul
-	2025 02:46:12 +0000 (GMT)
-Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
-	epcas2p4.samsung.com (KnoxPortal) with ESMTPA id
-	20250721024611epcas2p47ebaf8cb494fc2bf71a83b00ba47f2b3~UJDaEi5pY0522205222epcas2p4i;
-	Mon, 21 Jul 2025 02:46:11 +0000 (GMT)
-Received: from AProject.dsn.sec.samsung.com (unknown [10.229.9.52]) by
-	epsmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20250721024611epsmtip27e4a25bd9da3119a3e88b5ff0c56cce1~UJDaAmW-Q1347413474epsmtip2i;
-	Mon, 21 Jul 2025 02:46:11 +0000 (GMT)
-From: ew kim <ew.kim@samsung.com>
-To: broonie@kernel.org, s.nawrocki@samsung.com, robh@kernel.org,
-	krzk+dt@kernel.org
-Cc: lgirdwood@gmail.com, tiwai@suse.com, perex@perex.cz,
-	conor+dt@kernel.org, alim.akhtar@samsung.com, linux-sound@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, ew kim
-	<ew.kim@samsung.com>
-Subject: [PATCH 3/9] ASoC: dt-bindings: sound: Add Samsung ExynosAuto ABOX
- binding
-Date: Mon, 21 Jul 2025 11:30:46 +0900
-Message-Id: <20250721023052.3586000-4-ew.kim@samsung.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20250721023052.3586000-1-ew.kim@samsung.com>
+	Mon, 21 Jul 2025 03:00:29 +0000
+Received: by mta-64-227.siemens.flowmailer.net with ESMTPSA id 2025072103002019dbc7800779fb7b9e
+        for <linux-arm-kernel@lists.infradead.org>;
+        Mon, 21 Jul 2025 05:00:20 +0200
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; s=fm1;
+ d=siemens.com; i=huaqian.li@siemens.com;
+ h=Date:From:Subject:To:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding:Cc;
+ bh=sPiWAawzP1fMXUjI4LwXIY9bk5kszfAYp+F30dzPrLQ=;
+ b=CSEMp9A3KoTiv8kuiTZ0nmXH1sbnn2ayhZPI3gMlnRi35jicdY+c/ay++aVfpZah6Bwd0F
+ o2rVGQgZysw0S1Ihr1/5r81kdxyediLGgaMWQB1Yqy+JPPMrarhhRPGPQAR1eYqAd/XFaWMm
+ 9bhR7YOx3OUtdsbtuW9tr7gJYMptZRd7GPrJ9TQmtP51aivDMXG+Sw2LJHLWnniqBqHa+WO0
+ KzaPMXoEJSQ48uN+3mvHhXLblmOeykQf7TaSfUXAPtDeo8Jcyjq+Jyp2v9sF/kc+BRlXbAo/
+ VtLq1MOqJHKQeaJNp4ce4DQXLnkL+p++c6Ab5idd3iJrypaAsU12T6eQ==;
+From: huaqian.li@siemens.com
+To: s-vadapalli@ti.com
+Cc: baocheng.su@siemens.com,
+	bhelgaas@google.com,
+	conor+dt@kernel.org,
+	devicetree@vger.kernel.org,
+	diogo.ivo@siemens.com,
+	helgaas@kernel.org,
+	huaqian.li@siemens.com,
+	jan.kiszka@siemens.com,
+	kristo@kernel.org,
+	krzk+dt@kernel.org,
+	kw@linux.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-pci@vger.kernel.org,
+	lpieralisi@kernel.org,
+	nm@ti.com,
+	robh@kernel.org,
+	ssantosh@kernel.org,
+	vigneshr@ti.com
+Subject: [PATCH v10 0/7] soc: ti: Add and use PVU on K3-AM65 for DMA isolation
+Date: Mon, 21 Jul 2025 10:59:38 +0800
+Message-Id: <20250721025945.204422-1-huaqian.li@siemens.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20250721024611epcas2p47ebaf8cb494fc2bf71a83b00ba47f2b3
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-Sendblock-Type: AUTO_CONFIDENTIAL
-CMS-TYPE: 102P
-cpgsPolicy: CPGSC10-234,Y
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250721024611epcas2p47ebaf8cb494fc2bf71a83b00ba47f2b3
-References: <20250721023052.3586000-1-ew.kim@samsung.com>
-	<CGME20250721024611epcas2p47ebaf8cb494fc2bf71a83b00ba47f2b3@epcas2p4.samsung.com>
+X-Flowmailer-Platform: Siemens
+Feedback-ID: 519:519-959203:519-21489:flowmailer
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250720_194620_883759_E2B1055D 
-X-CRM114-Status: GOOD (  17.96  )
+X-CRM114-CacheID: sfid-20250720_200028_638457_68D84F2E 
+X-CRM114-Status: GOOD (  18.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,94 +84,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the device tree binding documentation for the Samsung Exynos Automotive
-ABOX generic audio management core. This binding describes how to configure
-the maximum number of PCM playback, PCM capture, and dummy I2S backend
-instances for the ABOX core. Actual hardware functionality is provided
-by child audio sub-drivers.
+From: Li Hua Qian <huaqian.li@siemens.com>
 
-Signed-off-by: ew kim <ew.kim@samsung.com>
----
- .../bindings/sound/samsung,exynosauto.yaml    | 69 +++++++++++++++++++
- 1 file changed, 69 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/sound/samsung,exynosauto.yaml
+Changes in v10:
+ - Move restricted DMA initialization and cleanup to RC-specific code
+   only (patch 4) as it's only needed for RC mode, not EP mode
 
-diff --git a/Documentation/devicetree/bindings/sound/samsung,exynosauto.yaml b/Documentation/devicetree/bindings/sound/samsung,exynosauto.yaml
-new file mode 100644
-index 000000000000..b1e49f38ffe9
---- /dev/null
-+++ b/Documentation/devicetree/bindings/sound/samsung,exynosauto.yaml
-@@ -0,0 +1,69 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/sound/samsung,exynosauto.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Samsung Exynos Automotive Abox Generic
-+
-+maintainers:
-+  - Eunwoo Kim <ew.kim@samsung.com>
-+
-+description: |
-+  The Samsung Exynos Automotive Abox Generic node represents a
-+  generic audio management platform device inside Exynos Automotive SoCs.
-+  It does not directly control hardware resources itself, but acts as
-+  a common interface to manage child audio sub-drivers for PCM playback,
-+  PCM capture, and I2S dummy backends.
-+
-+  Typically, this node provides configuration for the maximum number of
-+  PCM playback and capture devices (ALSA PCM) and the maximum number
-+  of dummy I2S backend devices. The actual hardware control is handled
-+  by child drivers attached to this generic core.
-+
-+  This node must exist for the platform driver to probe,
-+  even though it does not map any physical hardware address.
-+
-+properties:
-+  compatible:
-+    const: samsung,abox_generic
-+
-+  samsung,num-pcm-playback:
-+    description: Maximum number of PCM playback instances (ALSA PCM devices).
-+    $ref: /schemas/types.yaml#/definitions/uint32
-+
-+  samsung,num-pcm-capture:
-+    description: Maximum number of PCM capture instances (ALSA PCM devices).
-+    $ref: /schemas/types.yaml#/definitions/uint32
-+
-+  samsung,num-i2s-dummy-backend:
-+    description: Maximum number of dummy I2S backend instances.
-+    $ref: /schemas/types.yaml#/definitions/uint32
-+
-+  '#address-cells':
-+    description: Required for child nodes that may declare address space.
-+    const: 2
-+
-+  '#size-cells':
-+    description: Required for child nodes that may declare address space.
-+    const: 1
-+
-+required:
-+  - compatible
-+  - samsung,num-pcm-playback
-+  - samsung,num-pcm-capture
-+  - samsung,num-i2s-dummy-backend
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    abox_generic {
-+      compatible = "samsung,abox_generic";
-+      samsung,num-pcm-playback = <32>;
-+      samsung,num-pcm-capture = <32>;
-+      samsung,num-i2s-dummy-backend = <5>;
-+      status = "disabled";
-+      #address-cells = <2>;
-+      #size-cells = <1>;
-+    };
+Changes in v9:
+ - Update commit message (patch 4) to remove ambiguous extension claims
+   based on upstream feedback
+
+Changes in v8:
+ - remove patch 8 from this series to simplify the patchset
+ - fix dt_bindings_check warnings (patch 2), 'memory-region' must
+   not be a required property
+
+Changes in v7:
+ - add schema expressing dependency as suggested on pci-host bindings
+ - resolve review comments on pci-keystone driver
+ - add a new patch to make IO_TLB_SEGSIZE configurable
+ - improve patches based on checkpath.pl
+
+Changes in v6:
+ - make restricted DMA memory-region available to all pci-keystone
+   devices, moving property to unconditional section (patch 2)
+
+Changes in v5:
+ - resolve review comments on pci-host bindings
+ - reduce DMA memory regions to 1 - swiotlb does not support more
+ - move activation into overlay (controlled via firmware)
+ - use ks_init_vmap helper instead of loop in
+   rework ks_init_restricted_dma
+ - add more comments to pci-keystone
+ - use 2 chained TLBs of PVU to support maximum of swiotlb (320 MB)
+
+Changes in v4:
+ - reorder patch queue, moving all DTS changes to the back
+ - limit activation to IOT2050 Advanced variants
+ - move DMA pool to allow firmware-based expansion it up to 512M
+
+Changes in v3:
+ - fix ti,am654-pvu.yaml according to review comments
+ - address review comments on ti,am65-pci-host.yaml
+ - differentiate between different compatibles in ti,am65-pci-host.yaml
+ - move pvu nodes to k3-am65-main.dtsi
+ - reorder patch series, pulling bindings and generic DT bits to the front
+
+Changes in v2:
+ - fix dt_bindings_check issues (patch 1)
+ - address first review comments (patch 2)
+ - extend ti,am65-pci-host bindings for PVU (new patch 3)
+
+Only few of the K3 SoCs have an IOMMU and, thus, can isolate the system
+against DMA-based attacks of external PCI devices. The AM65 is without
+an IOMMU, but it comes with something close to it: the Peripheral
+Virtualization Unit (PVU).
+
+The PVU was originally designed to establish static compartments via a
+hypervisor, isolate those DMA-wise against each other and the host and
+even allow remapping of guest-physical addresses. But it only provides
+a static translation region, not page-granular mappings. Thus, it cannot
+be handled transparently like an IOMMU.
+
+Now, to use the PVU for the purpose of isolated PCI devices from the
+Linux host, this series takes a different approach. It defines a
+restricted-dma-pool for the PCI host, using swiotlb to map all DMA
+buffers from a static memory carve-out. And to enforce that the devices
+actually follow this, a special PVU soc driver is introduced. The driver
+permits access to the GIC ITS and otherwise waits for other drivers that
+detect devices with constrained DMA to register pools with the PVU.
+
+For the AM65, the first (and possibly only) driver where this is
+introduced is the pci-keystone host controller. Finally, this series
+provides a DT overlay for the IOT2050 Advanced devices (all have
+MiniPCIe or M.2 extension slots) to make use of this protection scheme.
+Application of this overlay will be handled by firmware.
+
+Due to the cross-cutting nature of these changes, multiple subsystems
+are affected. However, I wanted to present the whole thing in one series
+to allow everyone to review with the complete picture in hands. If
+preferred, I can also split the series up, of course.
+
+Jan
+
+Jan Kiszka (7):
+  dt-bindings: soc: ti: Add AM65 peripheral virtualization unit
+  dt-bindings: PCI: ti,am65: Extend for use with PVU
+  soc: ti: Add IOMMU-like PVU driver
+  PCI: keystone: Add support for PVU-based DMA isolation on AM654
+  arm64: dts: ti: k3-am65-main: Add PVU nodes
+  arm64: dts: ti: k3-am65-main: Add VMAP registers to PCI root complexes
+  arm64: dts: ti: iot2050: Add overlay for DMA isolation for devices
+    behind PCI RC
+
+ .../bindings/pci/ti,am65-pci-host.yaml        |  28 +-
+ .../bindings/soc/ti/ti,am654-pvu.yaml         |  51 ++
+ arch/arm64/boot/dts/ti/Makefile               |   5 +
+ arch/arm64/boot/dts/ti/k3-am65-main.dtsi      |  38 +-
+ ...am6548-iot2050-advanced-dma-isolation.dtso |  33 ++
+ drivers/pci/controller/dwc/pci-keystone.c     | 118 ++++-
+ drivers/soc/ti/Kconfig                        |   4 +
+ drivers/soc/ti/Makefile                       |   1 +
+ drivers/soc/ti/ti-pvu.c                       | 500 ++++++++++++++++++
+ include/linux/ti-pvu.h                        |  32 ++
+ 10 files changed, 800 insertions(+), 10 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/soc/ti/ti,am654-pvu.yaml
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am6548-iot2050-advanced-dma-isolation.dtso
+ create mode 100644 drivers/soc/ti/ti-pvu.c
+ create mode 100644 include/linux/ti-pvu.h
+
 -- 
-2.25.1
+2.34.1
 
 
