@@ -4,67 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4EB2C87FCD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 11:39:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 859AEC87FC5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 11:39:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ipyKtg5UVZklGe5U9QDzBiMrFjh0uc+HFQy8UQbyy0w=; b=Lc7/dLWEH0swszRdje1AjMUnDg
-	2ENoch4hoydbMPr8pcWi+Ql1K804H2bfprdq2wCuqt2lf4xXFOkWYhyj1P94Vf7vyRr7+tD+swlFl
-	vAbUFk3BuQf6LhrARnF/xPB1154nA5kmsTJ9BaE/E6CU44pPXD5ukM/N4pjFS9zCTJX7xfE4PFI36
-	delMK2IcOM3xmDFSWGU1u7U8p7fBadJdVGB268CKAKHOJtOsUNwPVhYYnmBiy9ZOS3cnYrzuHYHYz
-	6RUdeCSayX6VSAeXGC6x5jEHlU6Pm+VzZjovFXKLMrfjO8qD3UU2kHxSvA/ugcHhsnhTIOdlh63lD
-	Q8+a8w5g==;
+	bh=Wymr5DPyr9UcQwytV6Y0LOBfEz/pKmcBvYGZjuVzQrI=; b=3X3DitXlBUfeMBsmFBhG7QWlvF
+	+yJPo++xGRr6iYPXSqTzwWdFW86ntXB0g91g1UTS1d30QNCrKqJRqHFp81BJiIXruEXoH6fW+fu0M
+	2jCBG0IDlL/rJwRGNSeyEfqUkDqPkFyOUrlzEem/kNBvgwqIFAyqp3iHSjwX/c431huGjskRK3j7A
+	9xAPCxGocOqax01zqSP5grxPKI9e5UhKu+b6WyQJ11OzUhMvl6eObJtkYRK4d2UU5uycNOGklQhr2
+	qizkappy17cw+g0UiLzffTCP54MJVsgky20ti2ND7ANeO+vK+mTg09/OnsiFW2P+2hyLpgQuYNAzP
+	SGeoLaPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udorW-0000000H7Lq-1CaY;
-	Mon, 21 Jul 2025 11:39:18 +0000
-Received: from mail.fris.de ([116.203.77.234])
+	id 1udorb-0000000H7SF-1yG1;
+	Mon, 21 Jul 2025 11:39:23 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udnS7-0000000GuxZ-1tJG
+	id 1udncu-0000000Gwl3-32ql
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Jul 2025 10:09:00 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 868D7C75FC;
-	Mon, 21 Jul 2025 12:08:57 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fris.de; s=dkim;
-	t=1753092538; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=ipyKtg5UVZklGe5U9QDzBiMrFjh0uc+HFQy8UQbyy0w=;
-	b=OnLSwu8+QOb/g0GNtyXQuISJy79JE/3frJxR9FKOSrl4fQxttrlJ8wQ61JqZ9gXXhsCo8w
-	TxoxBcXp568dD4ZZsu0l1vlNNu7hYy29qs4W/dyBZk0bt/RrbxNT44Sv11mqqKIDxj72Lz
-	4iKJgcxbWzEw5dH4iO+njWIMGM/ZN45zDJy/8T4YQBGk4ZxLncC5zq6KN0C4Utps2qH5tA
-	d1yFmfJ9FhRWC8IJLZfiXJsbH+7vuo7S4S0u3DA3zba6kKTOxoP05O90kCRdSf6VHkqR6C
-	MzCl34dHWjCvJO/Q9mDnb2kUQ+y5aF+efpzubALAtMqV1czBUJNlVWUhuZBJGA==
-From: Frieder Schrempf <frieder@fris.de>
-To: linux-arm-kernel@lists.infradead.org,
-	Conor Dooley <conor+dt@kernel.org>,
-	devicetree@vger.kernel.org,
-	Frieder Schrempf <frieder.schrempf@kontron.de>,
-	imx@lists.linux.dev,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	linux-kernel@vger.kernel.org,
-	Rob Herring <robh@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>
-Cc: Annette Kobou <annette.kobou@kontron.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>
-Subject: [PATCH v2 11/12] arm64: dts: imx93-kontron: Fix GPIO for panel regulator
-Date: Mon, 21 Jul 2025 12:05:45 +0200
-Message-ID: <20250721100701.115548-12-frieder@fris.de>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20250721100701.115548-1-frieder@fris.de>
-References: <20250721100701.115548-1-frieder@fris.de>
+	Mon, 21 Jul 2025 10:20:08 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id DBEF960205;
+	Mon, 21 Jul 2025 10:20:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 812B0C4CEF1;
+	Mon, 21 Jul 2025 10:20:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1753093207;
+	bh=+398xTfyPjG6r7g/gjMZKa7+vZ8AGhHVgFuqAGzWumw=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=dEOJeD/Z6p+mVFRTLhivCVVNclshHZDejVkOPJiUrqRSTopxjFZQQXK9bcKWbkFjw
+	 EeaNr23QfwjkmdFdz+spyjEn9gpiD5pJxk58sLzAmKruTydIk3zSPvhK1ejocP1qAi
+	 Xzd/qEjm5Rjp0kM8lwEeZZCS4/I3jbFyRt9TP6BJ9WOuZV7mfFVS4YWE20AMnixgpY
+	 vXAiiaSn18qonsF0sQ7Sl8CHFtuh3G7mWBjud/QhSADDkf1zDcnzt4r4f7PPSQZa9j
+	 xhAfn5YsgDGHFsR+CIK85+Xv7vdvxJ00ZWhd60p6N1FG2UY4g8GJOwYpC5/XyZwFsJ
+	 RR8ofAdBOxKvg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1udncr-00HZDF-KA;
+	Mon, 21 Jul 2025 11:20:05 +0100
+From: Marc Zyngier <maz@kernel.org>
+To: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org
+Cc: Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Will Deacon <will@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>
+Subject: [PATCH 1/7] arm64: Add capability denoting FEAT_RASv1p1
+Date: Mon, 21 Jul 2025 11:19:49 +0100
+Message-Id: <20250721101955.535159-2-maz@kernel.org>
+X-Mailer: git-send-email 2.39.2
+In-Reply-To: <20250721101955.535159-1-maz@kernel.org>
+References: <20250721101955.535159-1-maz@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250721_030859_635494_97121B2C 
-X-CRM114-Status: UNSURE (   9.80  )
-X-CRM114-Notice: Please train this message.
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, will@kernel.org, catalin.marinas@arm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,45 +84,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Annette Kobou <annette.kobou@kontron.de>
+Detecting FEAT_RASv1p1 is rather complicated, as there are two
+ways for the architecture to advertise the same thing (always a
+delight...).
 
-The regulator uses the wrong GPIO. Fix this.
+Add a capability that will advertise this in a synthetic way to
+the rest of the kernel.
 
-Signed-off-by: Annette Kobou <annette.kobou@kontron.de>
-Signed-off-by: Frieder Schrempf <frieder.schrempf@kontron.de>
-Fixes: 2b52fd6035b7 ("arm64: dts: Add support for Kontron i.MX93 OSM-S SoM and BL carrier board")
+Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- .../boot/dts/freescale/imx93-kontron-bl-osm-s.dts    | 12 +++++++++++-
- 1 file changed, 11 insertions(+), 1 deletion(-)
+ arch/arm64/kernel/cpufeature.c | 24 ++++++++++++++++++++++++
+ arch/arm64/tools/cpucaps       |  1 +
+ 2 files changed, 25 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/freescale/imx93-kontron-bl-osm-s.dts b/arch/arm64/boot/dts/freescale/imx93-kontron-bl-osm-s.dts
-index 89e97c604bd3e..9a9e5d0daf3ba 100644
---- a/arch/arm64/boot/dts/freescale/imx93-kontron-bl-osm-s.dts
-+++ b/arch/arm64/boot/dts/freescale/imx93-kontron-bl-osm-s.dts
-@@ -33,7 +33,9 @@ pwm-beeper {
- 
- 	reg_vcc_panel: regulator-vcc-panel {
- 		compatible = "regulator-fixed";
--		gpio = <&gpio4 3 GPIO_ACTIVE_HIGH>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_reg_vcc_panel>;
-+		gpio = <&gpio2 21 GPIO_ACTIVE_HIGH>;
- 		enable-active-high;
- 		regulator-max-microvolt = <3300000>;
- 		regulator-min-microvolt = <3300000>;
-@@ -161,3 +163,11 @@ &usdhc2 {
- 	vmmc-supply = <&reg_vdd_3v3>;
- 	status = "okay";
- };
-+
-+&iomuxc {
-+	pinctrl_reg_vcc_panel: regvccpanelgrp {
-+		fsl,pins = <
-+			MX93_PAD_GPIO_IO21__GPIO2_IO21		0x31e /* PWM_2 */
-+		>;
+diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+index a40b94f8e14e1..2da246b593ff7 100644
+--- a/arch/arm64/kernel/cpufeature.c
++++ b/arch/arm64/kernel/cpufeature.c
+@@ -2235,6 +2235,24 @@ static void cpu_clear_disr(const struct arm64_cpu_capabilities *__unused)
+ 	/* Firmware may have left a deferred SError in this register. */
+ 	write_sysreg_s(0, SYS_DISR_EL1);
+ }
++static bool has_rasv1p1(const struct arm64_cpu_capabilities *__unused, int scope)
++{
++	const struct arm64_cpu_capabilities rasv1p1_caps[] = {
++		{
++			ARM64_CPUID_FIELDS(ID_AA64PFR0_EL1, RAS, V1P1)
++		},
++		{
++			ARM64_CPUID_FIELDS(ID_AA64PFR0_EL1, RAS, IMP)
++		},
++		{
++			ARM64_CPUID_FIELDS(ID_AA64PFR1_EL1, RAS_frac, RASv1p1)
++		},
 +	};
-+};
++
++	return (has_cpuid_feature(&rasv1p1_caps[0], scope) ||
++		(has_cpuid_feature(&rasv1p1_caps[1], scope) &&
++		 has_cpuid_feature(&rasv1p1_caps[2], scope)));
++}
+ #endif /* CONFIG_ARM64_RAS_EXTN */
+ 
+ #ifdef CONFIG_ARM64_PTR_AUTH
+@@ -2653,6 +2671,12 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
+ 		.cpu_enable = cpu_clear_disr,
+ 		ARM64_CPUID_FIELDS(ID_AA64PFR0_EL1, RAS, IMP)
+ 	},
++	{
++		.desc = "RASv1p1 Extension Support",
++		.capability = ARM64_HAS_RASV1P1_EXTN,
++		.type = ARM64_CPUCAP_SYSTEM_FEATURE,
++		.matches = has_rasv1p1,
++	},
+ #endif /* CONFIG_ARM64_RAS_EXTN */
+ #ifdef CONFIG_ARM64_AMU_EXTN
+ 	{
+diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
+index 115161dd9a24d..eb7f1f5622a8f 100644
+--- a/arch/arm64/tools/cpucaps
++++ b/arch/arm64/tools/cpucaps
+@@ -52,6 +52,7 @@ HAS_S1PIE
+ HAS_S1POE
+ HAS_SCTLR2
+ HAS_RAS_EXTN
++HAS_RASV1P1_EXTN
+ HAS_RNG
+ HAS_SB
+ HAS_STAGE2_FWB
 -- 
-2.50.1
+2.39.2
 
 
