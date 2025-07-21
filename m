@@ -4,97 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8DE4C87FCC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 18:57:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 106D1C87FCF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 18:57:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=h9pKFUGnES5BOvIgz7OhSqjKvwg3RjLuuOEjVJ2EOIQ=; b=TgYPNm6nP0YUpP3zaoZdRQBswi
-	VOyNd5mbYsS3GLlaSSnc8UZaCnWTk9xPWK3RcK4tcPy8r1INUTYqDpSmVhx6SIV6GwkUQnItWWUGK
-	fk5FvJBFiq7mJmzSK7Js/AzXmt5gKZc+KuQxJM6QonmAiYTUPEL37CpXeyP3H0gh2FUktZ6jCUg2w
-	F+boGnud+68JfBI7QwsFzoQvCZ33Wkrt2I4MCow5iw8w33dz/Fhjqc1f65ZFrzjbzU3ZXAgCzAxCq
-	MRXFTZcHvSZdFWOrPOP9Q1XPnkR2a2/ikdl5KjvQftTpliqH55N8odOTXvrr6frIVLlq/Uk4GWAOG
-	+27jqM/w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=bpXq6+eg5tvg1F9qpCoZtJ7h2TZAfgNg6/RIL3iNiQQ=; b=IdUsAMtL2NZiqEhUqDPJMR4DIJ
+	AdisoV+n+1uSxz2denJ+ssuRH41rKt9PYZrcM+tnA4n293ufjjQTzG/8dAxFf5wt03hnN4TVBl4Ip
+	v9UhgsUFcaWJWIOxrPc9PXFluA2Nhg75djO2V/zVLjDvSHdi/b6MRk2wef8R+Vp6khCA0L4+0hEOn
+	nQtSHKP/qffvUlPMH9w6lhDPFyJO7NYXLcYKQ3pbQx2cWNttjzsuYaOQ5Y+LzmsFR7yqAyIQterAC
+	/ShsCUf1EQX+bf5Afy7Z97v/pKY1IxHoaaPbYQZqsASPYcvazkhcZXG8UbO5G9wjYrIpDWoPfTG6m
+	ycvI6y0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udvhk-00000000Rej-2gUY;
-	Mon, 21 Jul 2025 18:57:40 +0000
-Received: from mail-ua1-x929.google.com ([2607:f8b0:4864:20::929])
+	id 1udvht-00000000Rmc-2Kvx;
+	Mon, 21 Jul 2025 18:57:49 +0000
+Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udrsL-0000000006z-0D4m;
-	Mon, 21 Jul 2025 14:52:22 +0000
-Received: by mail-ua1-x929.google.com with SMTP id a1e0cc1a2514c-87f4c8e9cdcso2515866241.2;
-        Mon, 21 Jul 2025 07:52:20 -0700 (PDT)
+	id 1uduvA-00000000OLq-0UW7;
+	Mon, 21 Jul 2025 18:07:29 +0000
+Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-3a528243636so2828369f8f.3;
+        Mon, 21 Jul 2025 11:07:27 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1753109539; x=1753714339; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=h9pKFUGnES5BOvIgz7OhSqjKvwg3RjLuuOEjVJ2EOIQ=;
-        b=Cc5KaId5Ysygss5xwOhIBggn6cktbcILeTzudFSqWnERcYDcb6J4UkaD/x8Stx6qpY
-         H5lbrXzRAowDNaCq+8PBIuCE7rc41UVguW9PGfcAzqkyiD7lBVfpDOjxEfGPEsjxVULc
-         5lYacWN9DBQfnxH409Mca33W3SJ3PLAc6eDIhth1pRik5Mj926Cvu6b3N2mXTh7hhheA
-         e1oMYn4kYH/EKNxq0I05y4o9T8oqtwdRVi2FKFqInXIXRqXVUiGiCHLYR6krv9bTSRCt
-         B3jl2H7r6yY9IW1Xa8JvVLHkLKOyrlEh82ocm7TvPYYf6+Vy8PMm6mECzH8ggINlvd7y
-         OYxw==
+        d=gmail.com; s=20230601; t=1753121246; x=1753726046; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=bpXq6+eg5tvg1F9qpCoZtJ7h2TZAfgNg6/RIL3iNiQQ=;
+        b=EgfYEZ8bdYaOMS5HMLXnBx4gSRdvLwXnUhz+ypXw0XlWgzZtObMumFcEqN/OuWCA3n
+         3H5pUf1gHtOolbX4oNWRqc6BxlwB8Gcpmlbxx5ryzaiZ4u5de3oSH5Er+eYp/1wJZg8Z
+         U0SYsBoY2prfPAfWLN0tdMmtwnaDOO/nGsRHJFO89q75WtCGKTaLl7jPdX6z2aq0MREq
+         jaTSyvAGPWMHQW9WK0MYRbK56/Gsk4GowzjmP3sjtGAdgL2rRQ22N11w7gNsrK6DWRgs
+         Pfgv2/0gbcQXwCILTVjELThSChE+D2TfRZYjXVIWlxryO1v1zfjNtsHByvOGMT9HT1o5
+         KFkA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753109539; x=1753714339;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=h9pKFUGnES5BOvIgz7OhSqjKvwg3RjLuuOEjVJ2EOIQ=;
-        b=ETnkPKJguO7MVDDjaBbROmmKHelnp4Kn7QcUpPRhcCv49HZJQTDKabgFBnAOFk2Jmz
-         uqPmxpjQ5tfMkVbTI07pMigKbQzhvV9OwiTFWNxcahDrCykU8nQF0Jm+XjAJy9w21UYk
-         TbOS1HX2lfjaGdqn9jCoIaVHHkVb2JF2lHNHsqfxnTqwKl7SkzYZfc1IPBR3/flYUbwT
-         EioOTGn002GNziJc/gPEhwAFVfw9HuJZGOP+ffJEf2T9hKmPSqqB6CeOiQJQY07770/9
-         luMrisfXh18HtfBc/besDb6NZv6DO2KbVxckoaJsqojylXXv+RDcf7IfOa/wQrHTLhK/
-         4EYQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVgbH5jIEoBAFX9z881JoW47YYgAbUtdzGCOGhERPfyz73hLrjbWDA2bjzYepM1mfpmpLu067yC7TcjeJQY4bbo@lists.infradead.org, AJvYcCWUQkJiD952RE9rpaOKAb+zKXfLNQT4I6NDeruptzWHh3znwF+rHjruqDHPXoFovuWcgckzgfMxJVGg@lists.infradead.org
-X-Gm-Message-State: AOJu0YycbpN7qniJeBCQelxkXZw5yXfh4CDn6fkZcPRPTJXa+GGs1Bx6
-	idvFJWfn7eomgM+agFsSi9ICLH+RqSa4edHNUj1HFEtsCNTOqBQ3Lz87
-X-Gm-Gg: ASbGncvRFf8djR0Guy3nDKIUqWDDRpRNQyvDXinK5phqiASIpxnTnYO5IgsOjTNlLey
-	Z/V3SzfogjqpU6ZCUPh37H4mVB0/5C4skq2iK1cWKtBd6Y4DZmjH73FCiaZAqPYSn8oJanCI2gf
-	sW0JKSoQKyEciDYNZMq4aAnX+HmoGVpMuMhnB8WBOR1yxhYBal0cUl/L0SJbL71gf4rgNTwXbTu
-	RKrb2TQSIJDXB/hz7hYgwC0mmnfiFSHlXahv81K+rbjDmRKW2LhhMdqGGM3vCRXH4EToXVca67G
-	WX6buFf/BujiTYgnqWqQ01POqvLW/boFWxa0xEEJ5YK2rv01BvvdDLWNkuwUSi8l8jf2eWcc6l6
-	XtbfrZs9Siw==
-X-Google-Smtp-Source: AGHT+IGmd9k2a2Hbn8hJD4fenPYbM7kP6VlkdwpccXej9YWy59eUsaAV2qcil8B3QUVuuNtyCfMeoA==
-X-Received: by 2002:a05:6122:1d56:b0:529:f50:7904 with SMTP id 71dfb90a1353d-5374f6b4ddemr7449549e0c.9.1753109539382;
-        Mon, 21 Jul 2025 07:52:19 -0700 (PDT)
-Received: from geday ([2804:7f2:800b:6584::dead:c001])
-        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-53764f2bd69sm2823702e0c.14.2025.07.21.07.52.14
+        d=1e100.net; s=20230601; t=1753121246; x=1753726046;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=bpXq6+eg5tvg1F9qpCoZtJ7h2TZAfgNg6/RIL3iNiQQ=;
+        b=UWZLQYkiVS/V6PTsckRIfMu82R2Aicu9MtNVGQaIA5aYd5ffKp4VM1GblF9EkGeO8n
+         RcOxyWSFlhmzuI548jpM/JX6asBDnluzuX8Vn+ZcUGyGLRGxUV1cK8YBHViZd9GKvQmG
+         sZuZUeFOvcHPxwqDc9tOIWXpyTgkdqDxW0PZhBfa1zuOvbmCmL6W2oBMTPcYcTXnCXKb
+         nddFqcjnpt1VmSJY0Froa5G/x1zH2+IsZmBuuvmmOntwjHnr8e+XYYnZi1ZIXqwua86m
+         +G0bkP783i7WGYgCv9oG3b0wBwzc96rlbkLiiqcQGSeH/zgPNZeq+r2qPdZrD7ZkdbPY
+         DB6Q==
+X-Forwarded-Encrypted: i=1; AJvYcCVTPr9SBxIz4go8vwBxuOOAdwDNJGYVTTLSYLXY/fHKFcxyGRNQmxXwfXltVK5Y2bGMCDQwX1qo8rQvpYOBRP+s@lists.infradead.org, AJvYcCXW5UsJNFQ7ZdYC6AOu/D/R9BYkBkfGC4D1sSghwdGQU9orfDDFg5aCSo6BbZKgbbPeuWrKh7fL6FPcgd8+HFc=@lists.infradead.org
+X-Gm-Message-State: AOJu0YyOFgwsbmW5LXRFzdqaOXakroq1CcNWZ04EPmZ6jZ0OMUV7XEiQ
+	LSrykvpx4eoUFVbLMsLxXeblBUu+E2c+oOth/bMRqhfcDkO3dcLYDoWhCeWsuw==
+X-Gm-Gg: ASbGncvUa1vYAJmnErWwzoc0fSN63vMiTNaU8CVrkRAkD4wclkhJuiXMPIqAJuFJExI
+	tVuuTutLL0Jxn/1BKbmLLdlEFbZJWX60sMmdqn2Ngj4cSfAihP+eE/5obNRoqsdaMV3fKfCgHbF
+	2hsk7leBe7umuVriIXum8UF8Il6V0bm9mH4fLIsoGiys5C7SiBK8iDAhETJlHGYRpaqUtX+4i1U
+	bixSzM/OKLGlMT6NCoTLEh5y10abYw9yh0P57wurSdd6VW0tpy0jA0JA5KU88SBpfFbrdhgD+R2
+	5VNhslZxagid6SjLO+OxRfS3gWqzltzBCVUCEb6TiBMWJEcCeFmCAcewy6Zbpmf3NLioVFWipMk
+	j18ZSlk6P3wnzcMlUnxavVOE=
+X-Google-Smtp-Source: AGHT+IHLX+hGhgJq3pglvcmk9f8UypfiB0r68+BjcFY7GFFAJdEE4toG3w3gRJtCT/wiIl8UNiWi0Q==
+X-Received: by 2002:a05:6000:2011:b0:3b7:5cae:52b3 with SMTP id ffacd0b85a97d-3b75cae530emr3707606f8f.57.1753121245802;
+        Mon, 21 Jul 2025 11:07:25 -0700 (PDT)
+Received: from Ansuel-XPS24 ([109.52.136.49])
+        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-3b61ca25443sm11183370f8f.9.2025.07.21.11.07.23
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 21 Jul 2025 07:52:18 -0700 (PDT)
-Date: Mon, 21 Jul 2025 11:52:12 -0300
-From: Geraldo Nascimento <geraldogabriel@gmail.com>
-To: Robin Murphy <robin.murphy@arm.com>
-Cc: linux-rockchip@lists.infradead.org,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Shawn Lin <shawn.lin@rock-chips.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Heiko Stuebner <heiko@sntech.de>, Vinod Koul <vkoul@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Rick wertenbroek <rick.wertenbroek@gmail.com>,
-	linux-phy@lists.infradead.org, linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v7 3/4] phy: rockchip-pcie: Enable all four lanes if
- required
-Message-ID: <aH5UHPAtAVb2snSK@geday>
-References: <cover.1751200382.git.geraldogabriel@gmail.com>
- <b203b067e369411b029039f96cfeae300874b4c7.1751200382.git.geraldogabriel@gmail.com>
- <2affed16-f3c4-47d3-9ca6-e4f48e875367@arm.com>
+        Mon, 21 Jul 2025 11:07:25 -0700 (PDT)
+From: Christian Marangi <ansuelsmth@gmail.com>
+To: Stefan Roese <sr@denx.de>,
+	Andi Shyti <andi.shyti@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-i2c@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Cc: Christian Marangi <ansuelsmth@gmail.com>
+Subject: [PATCH v2 0/5] i2c: mt7621: improve support for Airoha
+Date: Mon, 21 Jul 2025 20:05:51 +0200
+Message-ID: <20250721180710.2116-1-ansuelsmth@gmail.com>
+X-Mailer: git-send-email 2.50.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <2affed16-f3c4-47d3-9ca6-e4f48e875367@arm.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250721_075221_088300_87D34E99 
-X-CRM114-Status: GOOD (  14.45  )
+X-CRM114-CacheID: sfid-20250721_110728_156767_14BA7C57 
+X-CRM114-Status: UNSURE (   9.18  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,30 +105,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 30, 2025 at 02:48:25PM +0100, Robin Murphy wrote:
-> On 29/06/2025 9:58 pm, Geraldo Nascimento wrote:
-> > Current code enables only Lane 0 because pwr_cnt will be incremented on
-> > first call to the function. Let's reorder the enablement code to enable
-> > all 4 lanes through GRF.
-> 
-> As usual the TRM isn't very clear, but the way it describes the 
-> GRF_SOC_CON_5_PCIE bits does suggest they're driving external input 
-> signals of the phy block, so it seems reasonable that it could be OK to 
-> update the register itself without worrying about releasing the phy from 
-> reset first. In that case I'd agree this seems the cleanest fix, and if 
-> it works empirically then I think I'm now sufficiently convinced too;
-> 
-> Reviewed-by: Robin Murphy <robin.murphy@arm.com>
+This small series improve support for Airoha SoC that use the
+same MT7621 implementation. Some additional tweak are required
+to better support it.
 
-Hi everyone,
+Also we add support for atomic variant of .xfer required for
+some attached pheriperals on the Airoha SoC.
 
-Patches 1 and 2 of this series were merged thhrough pci git but patches
-3 and 4 of present series got R-b's but were completely ignored by phy
-maintainers.
+Changes v2:
+- Fix compatible order for schema patch
 
-Do you think it's fair if I resend these ones with a new, phy only, cover
-letter but keep the R-b tags?
+Christian Marangi (5):
+  i2c: mt7621: rework cmd/wait OPs to support atomic afer variant
+  i2c: mt7621: clear pending interrupt on i2c reset
+  dt-bindings: i2c: mt7621: Document an7581 compatible
+  i2c: mt7621: limit SCL_STRETCH only to Mediatek SoC
+  i2c: mt7621: make device reset optional
 
-Thank you,
-Geraldo Nascimento
+ .../bindings/i2c/mediatek,mt7621-i2c.yaml     | 14 +++-
+ drivers/i2c/busses/i2c-mt7621.c               | 73 +++++++++++++------
+ 2 files changed, 64 insertions(+), 23 deletions(-)
+
+-- 
+2.50.0
+
 
