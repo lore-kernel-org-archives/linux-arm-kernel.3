@@ -4,65 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6668C83F25
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 16:52:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B968EC83F25
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 16:55:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w3UQyuO3+ny1TOHAc+RHzlgmaR1yU7eVuQL9qsCyH2U=; b=4MciA+b97C4Ikk2kVn6mFLrD5q
-	oUPYmM52tq9Cd0fVKDmIQDNwz8MrjidC67+wjHwxbfMCS4gFvelFAjGjSUlQa6JOMDe2iKr+Tig1c
-	SRB+lS72QQW2PYHRORcPBTON7h6rm7avVE/UtNSbz3Kofzt20x1p8Cy31oKxNyeqyLBHxiaA+Ir7j
-	8oFK1C5gIN9vVEsppKXPAb2F0rp+NhBUjd4bO/Sg16qkf9NA8YTGC0IJBPdwWZ2DsdJCoRvcy9CLi
-	KBNH1QZy0BTuOwKdLOWYaladwhMGHxGUyoU4D2SW6KHzy1kQ6j5Dp3c/LJXTO4Uzgcur6bx6ISprm
-	bzKym6wQ==;
+	bh=N1dy7xoxRKl1sQ1tb4Ipkebpw3UhPsQ6Fu34IdYEgOA=; b=MwDFOXMSU6SMaAyxySmXE7xV3U
+	asEOW3YXjJ6QMXktl8KGxwFsQJhFO3Gt6U62uNPPMIN299sSNpTTmZN8h9MOVD4lEipiyP0X1/lGl
+	O79vMXNqUnp+z0cc/4aOR1Rj1CfcOsTEbNCDeso90ZA7tYzFfHDZAQHr5Fv8OunzIaTl87CD1V/RR
+	snsQXjfoLYJEjFen/jED0wEGkhXlPGNWeuy9u41akkUp2K8Rs2sJbTYZ1Z/aDxUQc12tTLCb3PEb9
+	2iTS4dsX7PwfoQEevVh/MC5s+GtIsNuYvc7o2m0jT3K4gZ625Xdgm9LSFKBg0OwKzHvfjsL9ReTZR
+	v/Le6jRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udtkm-00000000Ehz-3feE;
-	Mon, 21 Jul 2025 16:52:40 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udsKg-000000003zf-0tF5
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Jul 2025 15:21:39 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 82349153B;
-	Mon, 21 Jul 2025 08:21:31 -0700 (PDT)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C80A33F6A8;
-	Mon, 21 Jul 2025 08:21:36 -0700 (PDT)
-Date: Mon, 21 Jul 2025 16:21:34 +0100
-From: Leo Yan <leo.yan@arm.com>
-To: James Clark <james.clark@linaro.org>
-Cc: Alexandru Elisei <alexandru.elisei@arm.com>,
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Anshuman Khandual <Anshuman.Khandual@arm.com>,
-	Rob Herring <Rob.Herring@arm.com>,
-	Suzuki Poulose <Suzuki.Poulose@arm.com>,
-	Robin Murphy <Robin.Murphy@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/3] perf: arm_spe: Disable buffer before writing to
- PMBPTR_EL1 or PMBSR_EL1
-Message-ID: <20250721152134.GF3137075@e132581.arm.com>
-References: <20250701-james-spe-vm-interface-v1-0-52a2cd223d00@linaro.org>
- <20250701-james-spe-vm-interface-v1-2-52a2cd223d00@linaro.org>
- <20250704155016.GI1039028@e132581.arm.com>
- <b77f12e7-ea3f-4c57-9706-ff8e32721cc8@linaro.org>
- <20250707153710.GB2182465@e132581.arm.com>
- <aG4_uYJgpMXo3QHQ@raptor>
- <20250714085849.GC1093654@e132581.arm.com>
- <0c53164a-306a-4cb7-9085-bba8985c32e7@linaro.org>
+	id 1udtnE-00000000F2m-2fbx;
+	Mon, 21 Jul 2025 16:55:12 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1udsNh-000000004Nd-2Whz;
+	Mon, 21 Jul 2025 15:24:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=N1dy7xoxRKl1sQ1tb4Ipkebpw3UhPsQ6Fu34IdYEgOA=; b=N7F21LPIdchD8+2O9CRvE6O6lI
+	gX1sGnojJnysvzXKgRZSVl3qksY/yK/9djn9/YWNxOIWo7kFQbymnEjUusxPGd1xxRZxoe4sKglj0
+	h5Dh1ridpadW6MvtjkAbPCgYeYBiRCxw1Sg96MnfuX+/9+opxxxztm6oYj0PzZmb1sgUJ4KI2NSYg
+	3BVv4bX1JAQbphTSLHK+Me/8AOwc2onF5MjEXKI8VCbzpWtbhsMOvO5HiV0lI01ilo91r6z1ubpOv
+	+Zu5Ulx51fV7sPn3ctWr48CQG/p3JV46sJ2rUHDQ9QNCIY9gs1FwB6HfVy+QTbCfCw1igvlrNNkf5
+	K4zSFjWA==;
+Received: from i53875b2e.versanet.de ([83.135.91.46] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1udsND-00047Z-91; Mon, 21 Jul 2025 17:24:15 +0200
+From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
+To: Tomeu Vizoso <tomeu@tomeuvizoso.net>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Oded Gabbay <ogabbay@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Sumit Semwal <sumit.semwal@linaro.org>,
+ Christian =?UTF-8?B?S8O2bmln?= <christian.koenig@amd.com>,
+ Sebastian Reichel <sebastian.reichel@collabora.com>,
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
+ Kever Yang <kever.yang@rock-chips.com>, Robin Murphy <robin.murphy@arm.com>,
+ Daniel Stone <daniel@fooishbar.org>, Da Xue <da@libre.computer>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Jeff Hugo <jeff.hugo@oss.qualcomm.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org,
+ linux-media@vger.kernel.org, linaro-mm-sig@lists.linaro.org,
+ Robert Foss <rfoss@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: Re: [PATCH v9 00/10] New DRM accel driver for Rockchip's RKNN NPU
+Date: Mon, 21 Jul 2025 17:24:13 +0200
+Message-ID: <4109088.mvXUDI8C0e@diego>
+In-Reply-To: <b48c6694-2bd1-44d0-9dd1-1b7a67e22d87@oss.qualcomm.com>
+References: <20250721-6-10-rocket-v9-0-77ebd484941e@tomeuvizoso.net>
+ <b48c6694-2bd1-44d0-9dd1-1b7a67e22d87@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <0c53164a-306a-4cb7-9085-bba8985c32e7@linaro.org>
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250721_082138_338135_5BE1B1EC 
-X-CRM114-Status: GOOD (  29.43  )
+X-CRM114-CacheID: sfid-20250721_082445_669214_CA93BAE1 
+X-CRM114-Status: GOOD (  16.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,104 +87,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 21, 2025 at 02:20:15PM +0100, James Clark wrote:
+Hi Jeff,
 
-[...]
+Am Montag, 21. Juli 2025, 16:55:01 Mitteleurop=C3=A4ische Sommerzeit schrie=
+b Jeff Hugo:
+> On 7/21/2025 3:17 AM, Tomeu Vizoso wrote:
+> > This series adds a new driver for the NPU that Rockchip includes in its
+> > newer SoCs, developed by them on the NVDLA base.
+> >=20
+> > In its current form, it supports the specific NPU in the RK3588 SoC.
+> >=20
+> > The userspace driver is part of Mesa and an initial draft can be found =
+at:
+> >=20
+> > https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/29698
+> >=20
+> > Signed-off-by: Tomeu Vizoso <tomeu@tomeuvizoso.net>
+>=20
+> This (and the userspace component) appear ready for merge from what I=20
+> can tell. Tomeu is still working on his drm-misc access so I've offered=20
+> to merge on his behalf. Planning on waiting until Friday for any final=20
+> feedback to come in before doing so.
 
-> > > Thought about this some more.
-> > > 
-> > > Before:
-> > > 
-> > > arm_spe_pmu_buf_get_fault_act:
-> > >    <drain buffer>
-> > >    ISB
-> > > arm_spe_perf_aux_output_begin:
-> > >    PMBLIMITR_EL1.E = 1
-> > > ISB
-> > > PMBSR_EL1.S = 0
-> > > ERET
-> > > 
-> > > Now:
-> > > 
-> > > PMBLIMITR_EL1 = 0
-> > > ISB
-> > > 
-> > > PMBSR_EL1.S = 0
-> > > arm_spe_perf_aux_output_begin:
-> > >    ISB
-> > >    PMBLIMITR_EL1.E = 1
-> > > ERET
-> > > 
-> > > I don't see much of a difference between the two sequences - the point after
-> > > which we can be sure that profiling is enabled remains the ERET from the
-> > > exception return.  The only difference is that, before this change, the ERET
-> > > synchronized clearing the PMBSR_EL1.S bit, now it synchronizes setting the
-> > > PMBLIMITR_EL1.E bit.
-> > > 
-> > > Thoughts?
-> > 
-> > To make the discussion easier, I'll focus on the trace enabling flow
-> > in this reply.
-> > 
-> > My understanding of a sane flow would be:
-> > 
-> >    arm_spe_pmu_irq_handler() {
-> >      arm_spe_perf_aux_output_begin() {
-> >            SYS_PMBPTR_EL1 = base;
-> > 
-> >            ISB // Synchronization between SPE register setting and
-> >                // enabling profiling buffer.
-> >            PMBLIMITR_EL1.E = 1;
-> >      }
-> >      ISB // Context synchronization event to ensure visibility to SPE
-> >    }
-> > 
-> >    ... start trace ... (Bottom half, e.g., softirq, etc)
-> > 
-> >    ERET
-> > 
-> > In the current code, arm_spe_perf_aux_output_begin() is followed by an
-> > ISB, which serves as a context synchronization event to ensure
-> > visibility to the SPE. After that, it ensures that the trace unit will
-> > function correctly.
-> > 
-> 
-> But I think Alex's point is that in the existing code the thing that finally
-> enables trace (PMBSR_EL1.S = 0) isn't followed by an isb(), only an ERET. So
-> the new flow isn't any different in that regard.
+sounds great.
 
-Thanks for explanation.
+Just to make sure, you're planning to merge patches 1-6 (driver + binding)
+into drm-misc and I'll pick up the "arm64: dts: " patches 7-10 afterwards?
 
-> > I understand that the Software Usage PKLXF recommends using an ERET as
-> > the synchronization point. However, between enabling the profiling
-> > buffer and the ERET, the kernel might execute other operations (e.g.,
-> > softirqs, tasklets, etc.).
-> 
-> Isn't preemption disabled? Surely that's not possible. Even if something did
-> run it wouldn't be anything that touches the SPE registers, and we're sure
-> there's an isb() between setting up the buffer and the final PMBLIMITR_EL1.E
-> = 1
+Heiko
 
-Yes, bottom half runs in preemtion disabled state. See:
 
-  el1_interrupt() -> __el1_irq() -> irq_exit_rcu() -> invoke_softirq()
-
-In some cases, sotfirq and tasklet might even cause long latency (I
-believe it can be milliseconds or even longer), this is why ftrace
-"irqsoff" tracer is used to profile latency caused by irq off state.
-
-Bottom half does not modify SPE registsers, but it can be a long road
-between enabling SPE trace and ERET.
-
-> > Therefore, it seems to me that using ERET as the synchronization point
-> > may be too late. This is why I think we should keep an ISB after
-> > arm_spe_perf_aux_output_begin().
-> 
-> Wouldn't that make the ERET too late even in the current code then? But I
-> think we're agreeing there's no issue there?
-
-I would say ERET is too late for current code as well.
-
-Thanks,
-Leo
 
