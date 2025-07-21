@@ -4,78 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3D0AC83F25
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 14:05:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F666C83F25
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 14:08:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jJFteMx4M8CuvuwGOOEAn5xVwGW4RJ+pfzFY5hwg8co=; b=rT+gx9+loEzebE5zxaBFVlR3VT
-	Ml2u8FOkpkXAXKmcd5x37BOc6t1SA3urhsUS1OQriS8LRzm6F+hVvZ8G3mNwxoTBxczydBYvuSfuq
-	vkvhLmPYv5dDkIEgUJdDcfUKFO42InQQpzVIvJJI9uhqdObSWXTHcL4vdxNx4GhAhcrIx6sOYcKTZ
-	SZxGaow48dHmYTN1f+Ss974bUf/9gc9iVrAmydKjWCdPjwmFxvEoIdSuNye+HNu+g3m9AISIWx0jM
-	EOaj0zrSwFElLtfpM745A4mcc7zc3HALB4oobl8KsmN1TKisRPJlzQ86XWyXD2XwqrGN8ankuYq4c
-	1R6oO8vg==;
+	bh=Tni0DswMrCD5TnIk9k/V3+/ZJa/XagFEwHSR8GX4s6s=; b=NI/GhIVxV1XmmouTlZrcKcP33c
+	ItCcjwWttOywyoFYfKVCcgVtwrk6Q4fmLvaybKG6GWqNhIepD4DICuD6rcnVwNnqn3yh0yopDjzQ5
+	SV7cDsKd6kJWVDHSLRjzZzktarVaTyUVUoeS6Fa2zDKGUyks4gTA1Z5M1DiiMJ38g5tq/S4sh7tk7
+	kRAf8QiuGItWlwTkSyArwOHhXIpKov8F19xF+b0gzeghrngdT8pdYBTEXNq9egYGYe/YR5UCt/IHd
+	hepZtcz+km2Tsq7KVa0weMw/S5M2RwyrsqzQtK5D1WSiuMUKGisNl3s6MGu2f1oAiHJ76PfCnS/Xj
+	Y97QsXwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udr8u-0000000HScg-0Og7;
-	Mon, 21 Jul 2025 14:05:24 +0000
-Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
+	id 1udrBL-0000000HSsK-03Pp;
+	Mon, 21 Jul 2025 14:07:55 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udqCj-0000000HKpO-2PzI
+	id 1udqCm-0000000HKqf-1FfG
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Jul 2025 13:05:19 +0000
-Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-3ab112dea41so2519690f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Jul 2025 06:05:17 -0700 (PDT)
+	Mon, 21 Jul 2025 13:05:21 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-451dbe494d6so47289675e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Jul 2025 06:05:20 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1753103116; x=1753707916; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1753103117; x=1753707917; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=jJFteMx4M8CuvuwGOOEAn5xVwGW4RJ+pfzFY5hwg8co=;
-        b=R72FPDz3SsL1LPxzzbi1/33uO/TZ89+19c0I0gkqGBfh4cHyQKgJx2JGqJ/zwRZYol
-         ZIb97jeGyusChhObMngMhwFfvtRv6xGPGBukYbc2tt6cK0zhfHYqUxeZKl3rMtKAJVGC
-         xmuxmXylu6mVt9Kqnht9zbd7KBGBeS7kicxI1M8ufNNYwFuJdsRSXE1nz2o2nPnwn67Y
-         fKASWwQKR1Kak4Zgv8bkPjDZhGQymiECogx2AQaNCxA5wXamv59/ca0wjMfxU5arBASI
-         TYJqPmUulamrEr8EBXFAu+ZnO+/l3gaPJyon+BPrAzX6BDWJR4jvA6ftsvkVz1WYrLW9
-         jmGA==
+        bh=Tni0DswMrCD5TnIk9k/V3+/ZJa/XagFEwHSR8GX4s6s=;
+        b=XEZEhiUo3UlUsfcj0lJxH2y5y4f2Dfyxgac4Tk40fP5Ep10rL8m5Z41nduB8dI+aPw
+         FpNc0VrBS/4qWFY4HR/L6NaLXVtkvelwRbnX0UoaWOZlzYnda9WbdS7ejmidj559v144
+         qScvFrdwaJJKhuGWsGoM7h0IEOWD0ocW3XcFT1pniPtILcsWyxSWB+KFIHLWmv2CWIlc
+         /Q2dbqLtwL/hk9nyX/XZiccI8WGXS/om89o/cCBfV561DuFwqWeIX3JWFM3UEJXPIFqP
+         8bVmjKKIPcsTpk1QUKYMDJD/NR1RhIsf0ck668NIifqnjbQKpRm6rSbNoJZvClwdS9Jt
+         SRqg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753103116; x=1753707916;
+        d=1e100.net; s=20230601; t=1753103118; x=1753707918;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=jJFteMx4M8CuvuwGOOEAn5xVwGW4RJ+pfzFY5hwg8co=;
-        b=YwlZNY6Zm7YFOiYpGoXsikSdeVg0R2VU2jh6T9ZEb7PCRBV5JJNfBf7AU6ORGVQrf8
-         CfhOvhMgLJEF9N5SLE4oV0RsAisitzrjmfwWrVYvoPrS4xElyLWStlgu7KtZICNvM9ao
-         bczXYeiKo46VCMM2linKjvS8+KhbI84ot0iP3WSzNXs372xvEqyYTqWyb0GOo+nrBHas
-         awk7tCU/fDqE8FQ5VBZDf91alXddIAy+EUqR61U91P7idqz0EoCrVmRHjm3J9P5OYhp4
-         WeUaL3B+7AoZIAaf8YuNUfjyX382XwhRDWGrGfvoM74C5WdmTbl4fTpnCVWIGQS5RD1B
-         Ks9A==
-X-Gm-Message-State: AOJu0YwrHRp3OMUylIzOdupQKaU3RnszUr+5sISh64wfyYzGKiiU7WVr
-	f4o2Kx63Qor+WMRPPRJ3iKUf16UZx2cwhBfeoK03+g1EPhRZVL7VsA+TTNvJWXVJpWA=
-X-Gm-Gg: ASbGncsRrE6pZmilmGihjt+wlp+a119eXkS1EKzCnFJy27HZjXowQXGXPa2C4WH3cqg
-	TEb8oiQk4oEtXsCwFAZjhpWNP9Zb5lO8RH8KlnfO2Fx+qNcQ+fUkYrPpx5z1ktUbmQmzqUCEliq
-	s4Xgg9D3GxUQ83Fz6/wbHtpzSligwAmH0oopBBbruiIeCerkosSl7b6YZGldmDz05cBQ94JUo/z
-	2KAWwUaAlww+sd73NNxUjgCfannW3w2DFVNMHnQ+DaAtsUqpptmLyKFWwPfG9ZgtK3xRGShGPQV
-	/RFWrTQ6N4MvKzy/UKZUY993VJB77f2z1qcedHZaSEjG7xtVzgKlw8ESL9Rwvzq4Rid+10uBQ12
-	XpcrIdG5GG6tm/JKl8B3A28JJ2CkQnOGU8xotRWQ7Ng==
-X-Google-Smtp-Source: AGHT+IH/BaFdm6qjB9ghQzr4BZgdXtPtkOCmYQc/NNyMmIYlQPK76Vqi5YsqsCJo4ftIcTCJzUtW6A==
-X-Received: by 2002:a5d:64e8:0:b0:3a0:7d27:f076 with SMTP id ffacd0b85a97d-3b60dd651d2mr15563166f8f.2.1753103115987;
-        Mon, 21 Jul 2025 06:05:15 -0700 (PDT)
+        bh=Tni0DswMrCD5TnIk9k/V3+/ZJa/XagFEwHSR8GX4s6s=;
+        b=LE17fDPZY8oDOEzP39OMjLJJd1800CtVTDU5iuWvDMVbdm4D9RBQOO5kfJ3QZ5Wt4B
+         lpA9xR15RQDCcaU9MrK77FU/EzyhQ+c/jTxSmJwx6wdArSgfHEJ3dvXYoAHf3eBrOZf5
+         FKKzE2760SeeNxqN6LEV/+5ZXfhLSQ4kMsmzXHhusEEjA+dLtPMCsuTe4dwXqaJ+kiOB
+         xH9K790wku3YhdHOz0gbh0Nnfyqb/3GsXhucDQzP9pVHhxG6iVANb/Y+LEYSvGxjPIoq
+         KVNr8NYL4FqlatsEis1UuU9l9z5EG1zSVx9I9pbrd8CBkXnq+6PuJo+vbFo3o79vnsrJ
+         SNQw==
+X-Gm-Message-State: AOJu0Yzyk9yvlcyghtQ1KaU/19mpSC9sWEImb3Efu+wdZ73qW9ix879d
+	7ym6CcJcvBPk8VQOrkRDB04dwsQVnIDAkD2uLCSZijT2v0+3erZt8m3tLrXzm3VdK/o=
+X-Gm-Gg: ASbGncvhKX+20Gy0VpAB3LMe4jpsaqTIItHN2YxZU2SHENT+oYtc4N7KOQtonBQXCKz
+	q59cFJYqbov0sEk511P+m9A7QZYxPZrd6jyyCH4fygAP0/twWFGHjREHmv0Vhn10J9OW1UVM/qa
+	U5wypyvbEjtLPAGHyFhxAQ2N0IhLkxBD6wscttBShqxoqmP26ox0IPtbs1EKIGymO07Pznt0l2e
+	BHVpg5hy9+c+lNHDUgqaKCH8hdKeUyABBCDEdeKNpG0Uzg353RkVQ8HjNdAYBd1bJpf8E0vzZBx
+	xQ5mVsQK2Gyy69PssJ4NxBDhWdV7sVOSmk3zIBqQ1hRB7VwEUSJBOY7OV2M7/g+GcV+5jKYUrpA
+	N4cpPeNc3DpnUzbZRPOHxnhxFmliv+0ecky8hE8dHpQ==
+X-Google-Smtp-Source: AGHT+IEbTWNhdSsCoye5ChJxrRKNCcL1bytD0ny/gbd0G1tPqNJCslwd6wNxX0L6BGInIzH8XxTY9A==
+X-Received: by 2002:a05:600c:5298:b0:456:15c7:ce90 with SMTP id 5b1f17b1804b1-4562e38a72fmr200645775e9.12.1753103117481;
+        Mon, 21 Jul 2025 06:05:17 -0700 (PDT)
 Received: from ho-tower-lan.lan ([185.48.76.109])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3b61ca5c632sm10485077f8f.80.2025.07.21.06.05.14
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3b61ca5c632sm10485077f8f.80.2025.07.21.06.05.16
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 21 Jul 2025 06:05:15 -0700 (PDT)
+        Mon, 21 Jul 2025 06:05:17 -0700 (PDT)
 From: James Clark <james.clark@linaro.org>
-Date: Mon, 21 Jul 2025 14:04:59 +0100
-Subject: [PATCH v5 05/12] arm64/boot: Factor out a macro to check SPE
- version
+Date: Mon, 21 Jul 2025 14:05:00 +0100
+Subject: [PATCH v5 06/12] arm64/boot: Enable EL2 requirements for
+ SPE_FEAT_FDS
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250721-james-perf-feat_spe_eft-v5-5-a7bc533485a1@linaro.org>
+Message-Id: <20250721-james-perf-feat_spe_eft-v5-6-a7bc533485a1@linaro.org>
 References: <20250721-james-perf-feat_spe_eft-v5-0-a7bc533485a1@linaro.org>
 In-Reply-To: <20250721-james-perf-feat_spe_eft-v5-0-a7bc533485a1@linaro.org>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
@@ -94,8 +94,8 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  kvmarm@lists.linux.dev, James Clark <james.clark@linaro.org>
 X-Mailer: b4 0.14.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250721_060517_620043_00EFBD12 
-X-CRM114-Status: GOOD (  13.76  )
+X-CRM114-CacheID: sfid-20250721_060520_343862_06945E59 
+X-CRM114-Status: GOOD (  11.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,59 +110,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-We check the version of SPE twice, and we'll add one more check in the
-next commit so factor out a macro to do this. Change the #3 magic number
-to the actual SPE version define (V1p2) to make it more readable.
-
-No functional changes intended.
+SPE data source filtering (optional from Armv8.8) requires that traps to
+the filter register PMSDSFR be disabled. Document the requirements and
+disable the traps if the feature is present.
 
 Signed-off-by: James Clark <james.clark@linaro.org>
 ---
- arch/arm64/include/asm/el2_setup.h | 17 +++++++++++------
- 1 file changed, 11 insertions(+), 6 deletions(-)
+ Documentation/arch/arm64/booting.rst | 11 +++++++++++
+ arch/arm64/include/asm/el2_setup.h   | 11 +++++++++++
+ 2 files changed, 22 insertions(+)
 
+diff --git a/Documentation/arch/arm64/booting.rst b/Documentation/arch/arm64/booting.rst
+index ee9b790c0d72..b4f6d487a322 100644
+--- a/Documentation/arch/arm64/booting.rst
++++ b/Documentation/arch/arm64/booting.rst
+@@ -404,6 +404,17 @@ Before jumping into the kernel, the following conditions must be met:
+     - HDFGWTR2_EL2.nPMICFILTR_EL0 (bit 3) must be initialised to 0b1.
+     - HDFGWTR2_EL2.nPMUACR_EL1 (bit 4) must be initialised to 0b1.
+ 
++  For CPUs with SPE data source filtering (FEAT_SPE_FDS):
++
++  - If EL3 is present:
++
++    - MDCR_EL3.EnPMS3 (bit 42) must be initialised to 0b1.
++
++  - If the kernel is entered at EL1 and EL2 is present:
++
++    - HDFGRTR2_EL2.nPMSDSFR_EL1 (bit 19) must be initialised to 0b1.
++    - HDFGWTR2_EL2.nPMSDSFR_EL1 (bit 19) must be initialised to 0b1.
++
+   For CPUs with Memory Copy and Memory Set instructions (FEAT_MOPS):
+ 
+   - If the kernel is entered at EL1 and EL2 is present:
 diff --git a/arch/arm64/include/asm/el2_setup.h b/arch/arm64/include/asm/el2_setup.h
-index 9f38340d24c2..2bb0d28952e4 100644
+index 2bb0d28952e4..7c89e0d6e739 100644
 --- a/arch/arm64/include/asm/el2_setup.h
 +++ b/arch/arm64/include/asm/el2_setup.h
-@@ -103,8 +103,7 @@
- 	csel	x2, xzr, x0, eq			// all PMU counters from EL1
- 
- 	/* Statistical profiling */
--	ubfx	x0, x1, #ID_AA64DFR0_EL1_PMSVer_SHIFT, #4
--	cbz	x0, .Lskip_spe_\@		// Skip if SPE not present
-+	__spe_vers_imp .Lskip_spe_\@, ID_AA64DFR0_EL1_PMSVer_IMP, x0 // Skip if SPE not present
- 
- 	mrs_s	x0, SYS_PMBIDR_EL1              // If SPE available at EL2,
- 	and	x0, x0, #(1 << PMBIDR_EL1_P_SHIFT)
-@@ -189,6 +188,14 @@
- .Lskip_set_cptr_\@:
- .endm
- 
-+/* Branch to skip_label if SPE version is less than given version */
-+.macro __spe_vers_imp skip_label, version, tmp
-+    mrs    \tmp, id_aa64dfr0_el1
-+    ubfx   \tmp, \tmp, #ID_AA64DFR0_EL1_PMSVer_SHIFT, #4
-+    cmp    \tmp, \version
-+    b.lt   \skip_label
-+.endm
+@@ -284,6 +284,17 @@
+ 	orr	x0, x0, #HDFGRTR2_EL2_nPMICFILTR_EL0
+ 	orr	x0, x0, #HDFGRTR2_EL2_nPMUACR_EL1
+ .Lskip_pmuv3p9_\@:
++	/* If SPE is implemented, */
++	__spe_vers_imp .Lskip_spefds_\@, ID_AA64DFR0_EL1_PMSVer_IMP, x1
++	/* we can read PMSIDR and */
++	mrs_s	x1, SYS_PMSIDR_EL1
++	and	x1, x1,  #PMSIDR_EL1_FDS
++	/* if FEAT_SPE_FDS is implemented, */
++	cbz	x1, .Lskip_spefds_\@
++	/* disable traps to PMSDSFR. */
++	orr	x0, x0, #HDFGRTR2_EL2_nPMSDSFR_EL1
 +
- /* Disable any fine grained traps */
- .macro __init_el2_fgt
- 	mrs	x1, id_aa64mmfr0_el1
-@@ -196,10 +203,8 @@
- 	cbz	x1, .Lskip_fgt_\@
- 
- 	mov	x0, xzr
--	mrs	x1, id_aa64dfr0_el1
--	ubfx	x1, x1, #ID_AA64DFR0_EL1_PMSVer_SHIFT, #4
--	cmp	x1, #3
--	b.lt	.Lskip_spe_fgt_\@
-+	/* If SPEv1p2 is implemented, */
-+	__spe_vers_imp .Lskip_spe_fgt_\@, #ID_AA64DFR0_EL1_PMSVer_V1P2, x1
- 	/* Disable PMSNEVFR_EL1 read and write traps */
- 	orr	x0, x0, #(1 << 62)
- 
++.Lskip_spefds_\@:
+ 	msr_s   SYS_HDFGRTR2_EL2, x0
+ 	msr_s   SYS_HDFGWTR2_EL2, x0
+ 	msr_s   SYS_HFGRTR2_EL2, xzr
 
 -- 
 2.34.1
