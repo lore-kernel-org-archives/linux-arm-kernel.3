@@ -4,66 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7041C83F26
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 13:30:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 625DDC83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 13:32:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=feKog43rJiR+7WrD2fyf/f609Ac+oo2RToGFuyZm920=; b=qAmGWpC3qTGPkSr5NW/BB+72H8
-	N28joIGtHYZJfTaN5neL6Inbtfj2jdXQ1pcoptdptnaLVBKSuSACngIJUiO54sgTJbC5YAkEEgGAf
-	WMAjzny5ndemhEo/69ZIv5+WUA7PWgii8Y+mmKt8kG425YR66rgHX9xB0xPi4e6hjj4OtcPYeyFVd
-	MCpQIJ1d23zak5vds/gaKQRWEx06D9s6mplME+PM2TglL1fFW+xSUDEOCDmjChGUXTCYKchyWUKMA
-	Q9jlqWwlOnj59QuS5/hLH1B5aPvjjZUv7EU9bKDKjgHY9UDbLdl95JPVxXu0vB6n5RsaYwH808X1c
-	agdQfUfw==;
+	bh=IbLO7yjcp13kgrbLMrtPsgFowoaqk261CAPX88WxiV0=; b=gsjwLm+vBCc+Ju8gi+NJ4WVrLT
+	gAgB9cIXAPjWI6l26gzLw2DGXBfEngQCrxpXkNAfj4Kbsm87eHJj+plsnDByN3M0bdLx7JbGuRiUI
+	jU4LkpsnYQQ+8x3KUV5/+CCV3/4l3DKMu+QyBGPetv2hNOBiu0BLLGFTzBYBLVdfMWJ3+y2FVWvkx
+	9ZLTd8RIYxOPZmpCbVBerL3ZHEb+AMHrEBRNBsNRuRbe8agXuUoWVWxYg5HQeyhk3p1yN2hWuEVo/
+	zM4FaTHuRMMCXKfdIhJJhmPaFHAjMfpuDF/T2nT/XJu4A4TXIgk7NvupmpmrUTvY965yogUON4abU
+	rdcBVYwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udqal-0000000HOQW-2iew;
-	Mon, 21 Jul 2025 13:30:07 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1udqdC-0000000HOpA-21t0;
+	Mon, 21 Jul 2025 13:32:38 +0000
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udpOl-0000000HE99-1DkW;
-	Mon, 21 Jul 2025 12:13:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1753100017;
-	bh=89si7M0WjZ1kR/Rl/+DZDesVyoQF4BNz1KXqMbCzo4Q=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=p2m3sLSRllogqBs79NyF8DpM0mdySNUVj4lyfqlTzxqVc7TQCb9Sw54jwx8lGMc7O
-	 HAeoUofH3fXwXuh8D0Q+qveJKsy6D/7JxCOthcP3CZTHo4jUM1zcU4vkAvan2LlQBH
-	 pNYj1SBIoauhQT/dd1N6SLT05P5ITtDUGEQ7CMlpWFEQsmfpsVua8BaYptZsvI50lm
-	 s5aIW9bFV6YKpjMo1S2pXO1dIWN0blw9tfZIVtiaRPiJX7pc1p85O1INHV22vY1QV2
-	 Ug2qfL9b7X6GGZjAs4e9qUZIRFqXyq960GO/ZtSdosJhmyRpg3YfHNmAbU3qZ7V757
-	 mVncr6rK7EPhA==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id E9D0E17E0CE6;
-	Mon, 21 Jul 2025 14:13:36 +0200 (CEST)
-Message-ID: <e2a58394-356f-4c23-bb98-198439cfbce1@collabora.com>
-Date: Mon, 21 Jul 2025 14:13:36 +0200
+	id 1udpPf-0000000HEIT-1mmd
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 21 Jul 2025 12:14:37 +0000
+Received: from pps.filterd (m0241204.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56LC5CAG018486;
+	Mon, 21 Jul 2025 14:14:21 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	IbLO7yjcp13kgrbLMrtPsgFowoaqk261CAPX88WxiV0=; b=nfDgjGedwxd5bWa9
+	NsZdWaCUY3TXRY5k6E72h1w+zNKywB4A0/XE33NGR7muKiXNosUtj28QRr/VU2xb
+	9KLPQ2UDIdnhw7iVmy7/g0SL1U7rsI7NxYN9InjJyKnFI17fUpEDBQzKm4Xwx/Lp
+	hzNSgJbW4nL6/bUXqwaWLOgZBKqneJafjGGIPVxZEz5UD1ZO8bKfn3yS3zt4rcAk
+	syHDwt6zvexxg0ERTSKAkgv6psGf32BliwvVL5Azr6aOOw5JtEsbn1aaQzfDx/Wa
+	PWEhfhoGKpb5V8IvchroZDmFIBjFSBNEk1KWeEq7oJAQm8W0gUxKWUrJZis/h5U7
+	GmKraA==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 4802q20v4v-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 21 Jul 2025 14:14:21 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id B4BED40051;
+	Mon, 21 Jul 2025 14:12:22 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id A35B6787C05;
+	Mon, 21 Jul 2025 14:10:54 +0200 (CEST)
+Received: from [10.48.87.141] (10.48.87.141) by SHFDAG1NODE1.st.com
+ (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 21 Jul
+ 2025 14:10:53 +0200
+Message-ID: <f5c4bb6d-4ff1-4dc1-9d27-3bb1e26437e3@foss.st.com>
+Date: Mon, 21 Jul 2025 14:10:48 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: dts: mediatek: mt8195: Remove suspend-breaking
- reset from pcie0
-To: Guoqing Jiang <guoqing.jiang@canonical.com>, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, matthias.bgg@gmail.com,
- jianjun.wang@mediatek.com, tinghan.shen@mediatek.com
-Cc: macpaul.lin@mediatek.com, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-References: <20250721095959.57703-1-guoqing.jiang@canonical.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Subject: Re: [PATCH net-next 1/4] dt-bindings: net: document st,phy-wol
+ property
+To: Krzysztof Kozlowski <krzk@kernel.org>,
+        Andrew Lunn
+	<andrew+netdev@lunn.ch>,
+        "David S. Miller" <davem@davemloft.net>,
+        Eric
+ Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+        Paolo Abeni
+	<pabeni@redhat.com>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski
+	<krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Christophe Roullier <christophe.roullier@foss.st.com>,
+        Andrew Lunn
+	<andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
+        Russell King
+	<linux@armlinux.org.uk>, Simon Horman <horms@kernel.org>,
+        Tristram Ha
+	<Tristram.Ha@microchip.com>,
+        Florian Fainelli <florian.fainelli@broadcom.com>
+CC: <netdev@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+References: <20250721-wol-smsc-phy-v1-0-89d262812dba@foss.st.com>
+ <20250721-wol-smsc-phy-v1-1-89d262812dba@foss.st.com>
+ <faea23d5-9d5d-4fbb-9c6a-a7bc38c04866@kernel.org>
 Content-Language: en-US
-In-Reply-To: <20250721095959.57703-1-guoqing.jiang@canonical.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+From: Gatien CHEVALLIER <gatien.chevallier@foss.st.com>
+In-Reply-To: <faea23d5-9d5d-4fbb-9c6a-a7bc38c04866@kernel.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.48.87.141]
+X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE1.st.com
+ (10.75.129.69)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-07-21_03,2025-07-21_01,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250721_051339_485722_DD04BF70 
-X-CRM114-Status: UNSURE (   7.92  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250721_051435_967846_1774E1C7 
+X-CRM114-Status: GOOD (  13.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,23 +116,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 21/07/25 11:59, Guoqing Jiang ha scritto:
-> When test suspend resume with 6.8 based kernel, system can't resume
-> and I got below error which can be also reproduced with 6.16 rc6+
-> kernel.
-> 
-> mtk-pcie-gen3 112f0000.pcie: PCIe link down, current LTSSM state: detect.quiet (0x0)
-> mtk-pcie-gen3 112f0000.pcie: PM: dpm_run_callback(): genpd_resume_noirq returns -110
-> mtk-pcie-gen3 112f0000.pcie: PM: failed to resume noirq: error -110
-> 
-> After investigation, looks pcie0 has the same problem as pcie1 as
-> decribed in commit 3d7fdd8e38aa ("arm64: dts: mediatek: mt8195:
-> Remove suspend-breaking reset from pcie1").
-> 
-> Fixes: ecc0af6a3fe6 ("arm64: dts: mt8195: Add pcie and pcie phy nodes")
-> Signed-off-by: Guoqing Jiang <guoqing.jiang@canonical.com>
+Hello Krzysztof,
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+On 7/21/25 13:30, Krzysztof Kozlowski wrote:
+> On 21/07/2025 13:14, Gatien Chevallier wrote:
+>> The "st,phy-wol" property can be set to use the wakeup capability of
+>> the PHY instead of the MAC.
+> 
+> 
+> And why would that be property of a SoC or board? Word "can" suggests
+> you are documenting something which exists, but this does not exist.
+Can you elaborate a bit more on the "not existing" part please?
 
+For the WoL from PHY to be supported, the PHY line that is raised
+(On nPME pin for this case) when receiving a wake up event has to be
+wired to a wakeup event input of the Extended interrupt and event
+controller(EXTI), and that's implementation dependent.
+
+Best regards,
+Gatien
+
+> 
+> Best regards,
+> Krzysztof
 
 
