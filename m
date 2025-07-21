@@ -4,75 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D7B5C83F25
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 11:39:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68697C83F26
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 11:39:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u1VbYmhgXUuSbfhRw1WciUzKalIQhkMzI/K6yxuw8ko=; b=1IzJA1DQNobHjmiR55mFk+DwYZ
-	DK1j62SMt0h4AB7D1Zxh30loR49wPs1ZymV/dTQLtll9+ouTV2bqti2uH5eTAZmy6BexHbayBXKui
-	AsNwkfr47qeoTf/rFBZ0zyKBes4dvwJklYOhPjYgk11rlg1BVeUoXd48TX4rnRL0f0FZVf7/hOca/
-	LEr02xeY/uGqRzqIHPX1KHxPeU54Efo1tCAjSUL1YRJPWVGD0+E9JY2/19MksEJfEyEWVIy2iz7T0
-	fpF6JXe3k5cfUeYsTdFMEaS/sBWZh7c62wiKydhdp+10LqG0VdauQ4H1BmCujqatjWPbWMosApsCk
-	xWbNxa+A==;
+	bh=ayZP9QRUH0BbT4A82JiIxQYd4I9xdr4XTzPAhPcERPQ=; b=i6T6sxIx0Iut3Vak9gNWoKsJpX
+	qBe/yLMUlnT/7/9ak7SF1oBA9jv1zfy9w2FpGUTI4gcoHJBAEkCN98jFYCJbBsESKCO/TUnLj5w7b
+	P+dpjNh5X2vkaU3Plrlxu9zQo02OX7Tfc1vtn+xzrD65FRbbexSytlYuQlgRvlKxN8ws6Wt+Hry4N
+	p4ss0nn1iRXaDs30BI+9nONltCWD7KpX85S0MtTQy/FsI2XRuyTsGAWBrJlio+ZvFFYf+dGYRtiqx
+	oNfjVWp5F6Wve0rzyp2LDHxkyK8UP5YFFjMMbMZGvAQBBNi56PXS5SypIVq17zQydqPQWOB9rMwL5
+	HfbIPPeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udors-0000000H7ri-2auT;
-	Mon, 21 Jul 2025 11:39:40 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1udory-0000000H7zO-1o85;
+	Mon, 21 Jul 2025 11:39:46 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udncu-0000000Gwlw-3ov9
+	id 1udnk2-0000000GxXe-3HCn
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Jul 2025 10:20:11 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A10D645DDD;
-	Mon, 21 Jul 2025 10:20:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 843CAC4CEED;
-	Mon, 21 Jul 2025 10:20:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753093208;
-	bh=hpSa9Hytttj/ZwtZ6FrPhzLZMQJROeFl8J2vEUiLn7U=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=XnoFQNwh2Fgz5KcR53GCy4ZmDpYmWnwB3lczuWDvMfRT6HQ7z8qJ660Qg8xhJYbsq
-	 TFu7sW35VxlvGQpTD/VVS3m22yMPv1fmzPJmrRXvzeIGhOHRU7IevGOkkjqmcjc7Uu
-	 tgE38WDqEaRklsURICOHIlJ6qVNbXzpNTugsHR+JOM1iH+yEK3Qr1vG1oFkmz2DRpQ
-	 S7OlxOOXesq1jBQXYLxHWJOXSChXVXx+9LmMB5sjnGE4EI5jm8YD/j7OUiK8TU4JWr
-	 Egpn4MEIE/+0NB6sdCTe/Ihm6X9nRanr2RFFBP86eKLX8jazGaVgSS2uK4E/EyNjxe
-	 5SDzWwbcot9bA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1udncs-00HZDF-QJ;
-	Mon, 21 Jul 2025 11:20:06 +0100
-From: Marc Zyngier <maz@kernel.org>
-To: kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	kvm@vger.kernel.org
-Cc: Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Will Deacon <will@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>
-Subject: [PATCH 7/7] KVM: arm64: Make ID_AA64PFR0_EL1.RAS writable
-Date: Mon, 21 Jul 2025 11:19:55 +0100
-Message-Id: <20250721101955.535159-8-maz@kernel.org>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20250721101955.535159-1-maz@kernel.org>
-References: <20250721101955.535159-1-maz@kernel.org>
+	Mon, 21 Jul 2025 10:27:32 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.31])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4blxPZ3zbdz6L5RM;
+	Mon, 21 Jul 2025 18:25:54 +0800 (CST)
+Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
+	by mail.maildlp.com (Postfix) with ESMTPS id E4CE3140417;
+	Mon, 21 Jul 2025 18:27:20 +0800 (CST)
+Received: from localhost (10.203.177.66) by frapeml500008.china.huawei.com
+ (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Mon, 21 Jul
+ 2025 12:27:20 +0200
+Date: Mon, 21 Jul 2025 11:27:18 +0100
+From: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+To: Marc Zyngier <maz@kernel.org>
+CC: jackysliu <1972843537@qq.com>, <tglx@linutronix.de>,
+	<herve.codina@bootlin.com>, <antonio.borneo@foss.st.com>,
+	<anup@brainfault.org>, <jirislaby@kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] irqchip/gic-v3: fix resource leak in
+ partition_domain_translate()
+Message-ID: <20250721112718.00002e23@huawei.com>
+In-Reply-To: <86qzya7xwu.wl-maz@kernel.org>
+References: <tencent_72EDAD7F6E52D8FB5933030A569A08AEC406@qq.com>
+	<86qzya7xwu.wl-maz@kernel.org>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, will@kernel.org, catalin.marinas@arm.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+Content-Type: text/plain; charset="US-ASCII"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.203.177.66]
+X-ClientProxiedBy: lhrpeml500009.china.huawei.com (7.191.174.84) To
+ frapeml500008.china.huawei.com (7.182.85.71)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250721_032008_974888_E0442D2B 
-X-CRM114-Status: GOOD (  10.93  )
+X-CRM114-CacheID: sfid-20250721_032731_117799_C157F742 
+X-CRM114-Status: GOOD (  25.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,28 +74,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Make ID_AA64PFR0_EL1.RAS writable so that we can restore a VM from
-a system without RAS to a RAS-equipped machine (or disable RAS
-in the guest).
+On Mon, 21 Jul 2025 09:25:53 +0100
+Marc Zyngier <maz@kernel.org> wrote:
 
-Signed-off-by: Marc Zyngier <maz@kernel.org>
----
- arch/arm64/kvm/sys_regs.c | 1 -
- 1 file changed, 1 deletion(-)
+> On Mon, 21 Jul 2025 08:28:04 +0100,
+> jackysliu <1972843537@qq.com> wrote:
+> > 
+> > There is a device node reference leak in partition_domain_translate().
+> > After the function obtains the device node np via of_find_node_by_phandle,
+> > it does not call of_node_put(np) to release the node reference
+> > in both the error path and the normal return path.
+> > This causes the node reference count to increase each time
+> > the function is called, causing a resource leak.
+> >
+> > This issue was detected by rule based static tools
+> > developed by Tencent.
+> > 
+> > Fixes: 87228532e7e9 ("irqchip: Switch to of_fwnode_handle()")
+> > 
+> > Signed-off-by: jackysliu <1972843537@qq.com>  
+> 
+> Drop the spurious blank line.
+> 
+> > ---
+> >  drivers/irqchip/irq-gic-v3.c | 6 +++++-
+> >  1 file changed, 5 insertions(+), 1 deletion(-)
+> > 
+> > diff --git a/drivers/irqchip/irq-gic-v3.c b/drivers/irqchip/irq-gic-v3.c
+> > index efc791c43d44..61c1d404b726 100644
+> > --- a/drivers/irqchip/irq-gic-v3.c
+> > +++ b/drivers/irqchip/irq-gic-v3.c
+> > @@ -1821,12 +1821,16 @@ static int partition_domain_translate(struct irq_domain *d,
+> >  		return -EINVAL;
+> >  
+> >  	ret = gic_irq_domain_translate(d, fwspec, &ppi_intid, type);
+> > -	if (WARN_ON_ONCE(ret))
+> > +	if (WARN_ON_ONCE(ret)) {
+> > +		of_node_put(np);
+> >  		return 0;
+> > +	}
+> >  
+> >  	ppi_idx = __gic_get_ppi_index(ppi_intid);
+> >  	ret = partition_translate_id(gic_data.ppi_descs[ppi_idx],
+> >  				     of_fwnode_handle(np));
+> > +	of_node_put(np);
+> > +
+> >  	if (ret < 0)
+> >  		return ret;
+> >    
+> 
+> Frankly, this looks awful, and we have much better ways to solve this
+> whole class of problems. Why can't the (untested) patch below do the
+> right thing, without the ugliness?
+> 
+> 	M.
+> 
+> diff --git a/drivers/irqchip/irq-gic-v3.c b/drivers/irqchip/irq-gic-v3.c
+> index efc791c43d441..c4839032ce8d0 100644
+> --- a/drivers/irqchip/irq-gic-v3.c
+> +++ b/drivers/irqchip/irq-gic-v3.c
+> @@ -1808,8 +1808,8 @@ static int partition_domain_translate(struct irq_domain *d,
+>  				      unsigned long *hwirq,
+>  				      unsigned int *type)
+>  {
+> +	struct device_node *np __free(device_node) = NULL;
 
-diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-index 549766d7abca8..64707c62f1cf9 100644
---- a/arch/arm64/kvm/sys_regs.c
-+++ b/arch/arm64/kvm/sys_regs.c
-@@ -2946,7 +2946,6 @@ static const struct sys_reg_desc sys_reg_descs[] = {
- 		    ~(ID_AA64PFR0_EL1_AMU |
- 		      ID_AA64PFR0_EL1_MPAM |
- 		      ID_AA64PFR0_EL1_SVE |
--		      ID_AA64PFR0_EL1_RAS |
- 		      ID_AA64PFR0_EL1_AdvSIMD |
- 		      ID_AA64PFR0_EL1_FP)),
- 	ID_FILTERED(ID_AA64PFR1_EL1, id_aa64pfr1_el1,
--- 
-2.39.2
+Linus has expressed fairly strongly that he really doesn't like separation
+of the constructor and destructor.  See guidance in cleanup.h which was
+based on that and bunch of other early discussion around this stuff.
+
+Here it's easy to solve though. Just move that declaration down to
+give something like:
+
+
+>  	unsigned long ppi_intid;
+> -	struct device_node *np;
+>  	unsigned int ppi_idx;
+>  	int ret;
+>  
+	if (!gic_data.ppi_descs)
+		return -ENOMEM;
+
+	struct device_node *np __free(device_node) =
+		of_find_node_by_phandle(fwspec->param[3]);
+
+
+	if (WARN_ON(!np))
+		return -EINVAL;
 
 
