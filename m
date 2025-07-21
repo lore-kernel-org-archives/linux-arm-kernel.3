@@ -4,157 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C108DC83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 09:25:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A79ADC87FC5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 09:27:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iyIEjbIBlIbc54EHBdLN7/7mtFwlLBQ1SOHaTx2O9cs=; b=hTD5NUlpAUbl+lkGKVa39QNjED
-	ljlI/zGAIGfAJ45KfXMdVZ3R9MA75iloVf/ks/yJRRjTZ0PRW4rkLrOGVHKir5IKadeZ5xuNop5ir
-	B2kKl6xyP4fVr8f7MVcL6OYnTvMpwLH78Ff8u9MZv8KRYYcgWPyFHJsdS1tYGLR5wUHikxMIhUOlB
-	0gUJewI6Sy9PGPLZg2Epm5xkRPnROVfPzVyKPo01xH0Pq1gZ1Rwh5r63BZbCWm2g7aR2zadRZu/WY
-	5gI1VhgOHdCp/dUmlOU4vCiFbo6a1Ryd4BEg8sbGtAfKdbrkAiFhtBj89DP4Q4o7k7qZGSb6Wjmjo
-	sn8QuhBQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qORRuIce4CgG44+z6rN5TQu19ZSWx7jnn0vkZH9g2fU=; b=bFGS4po/rYDrlzvmZqQiasRHxm
+	xCHafUBEktTtWjN0z2PCj/nq1i/VR5JTB/DsLpesdVEvXAI+tzLxBjbMce5Aw2Gkpe4Ux8ESpQucQ
+	vPYywCYMq0qaJR/MattriSk/CePfxJj8yq2OkMLlGjQvsdrg/mh23giLJTqNfnpBPCgUiZYnCBETv
+	D/3oIB8rK2kg1algTk11Wqsg8Yt9JV1lDv0HCXzK0LoR7gEE84H0ZTja1nWnScu49xImJv2+YpQNN
+	bnQLkGfql8Aoad7hjS5AQqpxIeY4iuAY4PIMCcSe9VO9wmGH225qSpbxxpbQ8GO9lGbitvqbFENdE
+	cid0EM4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udmlw-0000000Gnps-3BgY;
-	Mon, 21 Jul 2025 09:25:24 +0000
-Received: from mail-westeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c201::5] helo=AS8PR03CU001.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udm0r-0000000GgHI-1H3F
+	id 1udmoK-0000000Go9B-27RJ;
+	Mon, 21 Jul 2025 09:27:52 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1udm0r-0000000GgHh-1Wce
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Jul 2025 08:36:46 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=v6KnQT4VPHwnUXaYy1NS03PQQ0J35K6ruWkNYksmx0aPKv/Z+XxO3I1re/ocgBqEXvZGuJ+/lyz5VIR9Hc2tBp1hwnQF9oqtq8HChe306ciRUKtAKwXSiL6V00Q23AjuezOiBM9P0jFC8/zFC3l5Ac3t6WliEE27B41B2pj70tai0NTqcxsDUTOEokXVUD+Xzl0B4z30MvHezztNzKARCxJiKOHHX90doD4J6o4fN9r/lDpI27+bLyELcV7Tg8zds8U53LjCxGaSJMHL6hukfG5CNA4ousu8YAaqIz5LZd9i1AV2nXlzJGXRPRzlQ+wL1lR016gXCXaBjem31HKBhw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=iyIEjbIBlIbc54EHBdLN7/7mtFwlLBQ1SOHaTx2O9cs=;
- b=PFY4q7XaBZ8xgATmQ4/w6gsC3l/Sjd4/yDXdCtnQKe7c/YqwPvdaFT0xKD3rpvrAXPOaJjJro+ecz0Y2mzRWVV38xK5Wj6lGIySv0qM3HHTdutdDzHaPGba9hQ6+rwR5KkPXxUmIAQaaKOY3iPb3RbbP+IjrkCbjmzK0FxMgIryevw3sZu2GPUxfhi7t2DwrNyw6nmNtSqrSfaklHpiBYFBiEZ90lrhQ4pafcv4iT7K7uLNog697taK9Y3k2IEGXilR/BKoTzeP/wNVHS0naHJqYr3N/K2VwPK6sPv5FZWQtN3r7+EXBx3lTPze7+Nc9mRwlqO1DcpGpu4UldtGhXg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=iyIEjbIBlIbc54EHBdLN7/7mtFwlLBQ1SOHaTx2O9cs=;
- b=FjyZHw3Z3GX3asY+aylQt49d2RzhQtzW8ZbBqD7T9c/kKlIc98XBTYHr6p5nvzYR1suXfOpG8r4ZoMYwC38/sN/dBeyoVpvg52jAtRmxJlwicXLQ9Ou9A1ldzJWI46n5GNDhn7g7lMWMaXQ4sMP514c8nc6krfLsqj+NVLtF6eyt5WjVUJbsBkqeEHESL1iqfOKYYwHqslCgqeXqce2PocWgevsSJoOqVlO54zcwvKjd3tyPCaOcEDuttcSdZjULQ0P9BdLKtdjCtRejVOwG4poVz9rQdM8J78v+us4C3dcP4KZFx/sUnsLlaaaBkseeRuBbUkGkqDg4wKdvCOrD5w==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by GVXPR04MB9925.eurprd04.prod.outlook.com (2603:10a6:150:112::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8943.30; Mon, 21 Jul
- 2025 08:36:40 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630%7]) with mapi id 15.20.8943.029; Mon, 21 Jul 2025
- 08:36:40 +0000
-Date: Mon, 21 Jul 2025 17:47:05 +0800
-From: Peng Fan <peng.fan@oss.nxp.com>
-To: Primoz Fiser <primoz.fiser@norik.com>
-Cc: Wei Fang <wei.fang@nxp.com>, Shenwei Wang <shenwei.wang@nxp.com>,
-	Clark Wang <xiaoning.wang@nxp.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	imx@lists.linux.dev, netdev@vger.kernel.org,
+	Mon, 21 Jul 2025 08:36:47 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1F56E153B;
+	Mon, 21 Jul 2025 01:36:39 -0700 (PDT)
+Received: from e129823.cambridge.arm.com (e129823.arm.com [10.1.197.6])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 2758F3F66E;
+	Mon, 21 Jul 2025 01:36:43 -0700 (PDT)
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: catalin.marinas@arm.com,
+	will@kernel.org,
+	broonie@kernel.org,
+	oliver.upton@linux.dev,
+	ardb@kernel.org,
+	frederic@kernel.org,
+	james.morse@arm.com,
+	joey.gouly@arm.com,
+	scott@os.amperecomputing.com,
+	maz@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, upstream@lists.phytec.de
-Subject: Re: [PATCH 2/2] net: stmmac: Populate netdev of_node
-Message-ID: <20250721094705.GF4844@nxa18884-linux.ap.freescale.net>
-References: <20250717090037.4097520-1-primoz.fiser@norik.com>
- <20250717090037.4097520-3-primoz.fiser@norik.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250717090037.4097520-3-primoz.fiser@norik.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-ClientProxiedBy: MA0PR01CA0098.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:af::8) To PAXPR04MB8459.eurprd04.prod.outlook.com
- (2603:10a6:102:1da::15)
+	Yeoreum Yun <yeoreum.yun@arm.com>
+Subject: [PATCH v4 6/7] arm64/asm: introduce lsui.h
+Date: Mon, 21 Jul 2025 09:36:17 +0100
+Message-Id: <20250721083618.2743569-7-yeoreum.yun@arm.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250721083618.2743569-1-yeoreum.yun@arm.com>
+References: <20250721083618.2743569-1-yeoreum.yun@arm.com>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|GVXPR04MB9925:EE_
-X-MS-Office365-Filtering-Correlation-Id: bb421a75-faef-4873-5cc5-08ddc831b6b7
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|52116014|7416014|366016|1800799024|19092799006|38350700014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?v7AuwTyRNQFP+N6euWYeLw7S5JrxIY+iOIzUhaqQ0PPZQdHPyl/XtijhkW4g?=
- =?us-ascii?Q?9nfvcrCp10hXc9Ovd8bvWAr2DTvAaNUXIH60TRlxljcH19q3oDiiM9my32dD?=
- =?us-ascii?Q?mJcO1+xvJKvoLcajzCeRnZJWZA6rRnpnIaacmUj1km70FF5K5zvDIznFWxeb?=
- =?us-ascii?Q?uievTbyYo5X6cT9NvGMFarETYWR82sL1sSqIZebX1bbzBtDjqvvEScCRP9c4?=
- =?us-ascii?Q?teSX9OWacHyxHLh3MaXeoIhax3SHlQ0en2eNWwT3zbQDWnm9qwdTOS0NYzgv?=
- =?us-ascii?Q?fLbO3sr3UF2JFsEvbuCDIUVCN5dg3z2g8p0H4OfrXvURQB3PgFBn7s5wz2+e?=
- =?us-ascii?Q?ZeaX2U/pTZgnbkN/01QEQWTWtzpZFRhzSHqZeSq23mZH8dwKYHJyQvvHDeJ/?=
- =?us-ascii?Q?Qx4YUC92TpSyghDQ22irT6vjw576jiGAcrV+H+804atS1ps8AwOR0vimKPl0?=
- =?us-ascii?Q?5FUJ4E5z/t6xnom0HpCtCHoOmqqMQfg2NTjGLmMYr7WRtBNBagzaJ3yAOmcT?=
- =?us-ascii?Q?NPYfwAzpatUB1DO7uUQxKB0zMDaUUclaoOaz1J4uVIyoitX6JnoRE5KUVy1B?=
- =?us-ascii?Q?MuG/JOAodhG8gEyrhXaYR/Vidu70Mu68GqT28PxPFRJbw6s6MRsB5KOSAnGK?=
- =?us-ascii?Q?qSO36T8W0VqqDX8JKtWf4S0O0SRARLr1hD3m9l9tkqvsWJM3rv+ocbtaC/Ru?=
- =?us-ascii?Q?h4tuWfqnSAMhYgZl8ZtiAFFX7UVW3QzEkbMmiSrgr5A2iOKYBtGd3Jg0eFhL?=
- =?us-ascii?Q?9qLDWCLnhGLGa9WXqmK1QhOX/6SgDFQK/PjO6VBbZEYKIPP7R3mb2p8fmAAM?=
- =?us-ascii?Q?dwIJvcMl94Igv8/BkaEUlr2PNwnwuhaauRW7zhPNLF0E/OKHyyafHvPnEE40?=
- =?us-ascii?Q?XB2gwhgeP/PKi5dTa4NMSqvw+9obMyWo53C2hkw5Vd5JJOZNosyrnfWscusW?=
- =?us-ascii?Q?2Mi5VhOQf7es3km3egcdgmMct5+xBUhiMf5YoxKUhXU4X9E1CqAXtlQAYeMH?=
- =?us-ascii?Q?wiE12ICwIAUvNcLirz6KbyoBX3KCkZxePaW7nYksBSV6cEjj2LAI2jYA2onx?=
- =?us-ascii?Q?t2fBUGVWnMFpJD32xt3CtGCzg0juC411pr1PtimAl5ZoJQLhm4ehYB0szS4M?=
- =?us-ascii?Q?ODduugNTSxPKRiS3P0J1MT0X3kfO+xLTi6TdfY31wHbdJU596pOqTfJ2IzXO?=
- =?us-ascii?Q?leK/DOM8emCsJsUIaSflRhUO/0E/ZZAwVBN2T4nKiiV9JvB/ARMJPHkNheWF?=
- =?us-ascii?Q?sewxGjUJbPTWUS0VT29vZ2MtcQAq5GJHwE/OYB/6+hZQEA/zrryu5fzPb4Xt?=
- =?us-ascii?Q?EHEIZYHmgbqTNXq83c3NKHe1xC0/0idLHdSksVSNrdfOtbRdx2kObV7+h5x7?=
- =?us-ascii?Q?QZUnd/uMuQ+ENcvqQftVflhOuRJMDE2EtNonnfQwCBVTg5y7gefNgu5eTpGZ?=
- =?us-ascii?Q?GZIE3em1KS0HrO8B4mKmhfcRxZIR0eML4Od052e2Tu6QFlI63Rip+w=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(52116014)(7416014)(366016)(1800799024)(19092799006)(38350700014)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?1auKVO+gPL1sYyezb2w+4zgdX4ksa/YZqMcVTm9Mnm4BTkL3m4ozHmTQ+2ic?=
- =?us-ascii?Q?DDP/VgfwflROgeT6ti+cXKImgEqzMlf0hkLDpCrx0n2/9RD5HTHwrDnO68Lj?=
- =?us-ascii?Q?Oyz0BFzlfpeHklgfyBl6njCZcd6OdA6thUTHabIFQ7sNfgu71NUN9x+L6jUx?=
- =?us-ascii?Q?YlpPr7fu6vJQVu8aoPnBuO6qRaRzdfuQzDT42mAAmmsQdGeIExy+/Aobpzp9?=
- =?us-ascii?Q?Xm2Uq7B5Hn0kTDGyETxMM/SfJN0GsgboRPwU1oM5G75VucwvfP1LGIVD8XoM?=
- =?us-ascii?Q?YgCHKwuYMYnMjBKBZPosvQ0jgXXQA/oUTPdOc+8xj3zL9vHRXrUZ1FkykYKo?=
- =?us-ascii?Q?svg07Dg/qROqlLZbjVXn0zQ9FRsIQzP+yzv87OPPsq2GhO6RGimKl3hPX8zg?=
- =?us-ascii?Q?dhhj8Gv2avBTsdsLe9rwrTbnTGH89o2bS0J4e3Nze+dpkMcZBR9h980njTJB?=
- =?us-ascii?Q?3X9O2NpLnBs4aL9jX1ZtOdbmct2A8ZdGYSSZwLqowYm1uztBTkLRoG/V4Uf4?=
- =?us-ascii?Q?3JW1oQ9SIiZ9DFhgfRenJHa3CeHVF1cIkjdseZk4Xf6mKJOKTdkxUKNtGFDk?=
- =?us-ascii?Q?3bHjohsT5JmKfVOqehNCFKyArYPbl59+TvBZF/fWjAHMAwqkTXxNd8ayoclt?=
- =?us-ascii?Q?2XHbL6yqvqXNtrOYZMlr11zm5TwDLuabUve8Uq5wl4t8/7zmCOAPi2wxorH9?=
- =?us-ascii?Q?UuqY5Ul7kvc/4kZfjW5w9FQL5lMcSBwY2hdF6MhvmpX1Sw+McNAyipKl4HmH?=
- =?us-ascii?Q?rbmKJSL0TNOsm+5dzETBkwmYpw4QlOUoa3Rx6IE3SIs5IAAsuXegFa6rgvAG?=
- =?us-ascii?Q?md3MiChyq3kLqi4jiVP2MR4hKOzlIFuUZy0GavTh2DsIKaZkha7qpND5t9Ae?=
- =?us-ascii?Q?1VzdsG3ZbxEg8WHp4X5SV/hapCMLzhb0pBzqgUFMO7jCw8VmYRMw+tlT6CbM?=
- =?us-ascii?Q?Vu8N0R54Q62ohDwrnjzXjTd425Vcq/PbfModMYqsFFr9EzZd4WMsxOwtoEWT?=
- =?us-ascii?Q?oX5FdI0Y/hCNjmJb36r3nWXg/VZ62t7JycNWLWVZu884lJ44g8Hzaa+ScT+G?=
- =?us-ascii?Q?zg08Q3St52tNH35AAa6FWPXYVvSZKGNPMLN1tMFpZYZVk6pD5nFYvSjSdTmH?=
- =?us-ascii?Q?Tdzp8c7AmlkfP1fpxyhiccm6FQ/HyJEKQvwUzE9sQ8XMJkS59cEqYvvO3zqF?=
- =?us-ascii?Q?2eAg2wyzVcF8Z4DnIA3KwHNV/3wFaPOjhsi01K7tXC1mDCvnNkiVJNpsz5db?=
- =?us-ascii?Q?FmdbmkKeo2KmcfABsqXvvtr/YEcnva0GLWJWaIwHFn3hWMJ5aPjz1bVwNc9q?=
- =?us-ascii?Q?GEqs7V8WXit9ryc6bDWi8Aw8p5HAdHncK2XSGaEeY5H6IgdmJla3z+XDDOM4?=
- =?us-ascii?Q?5W4jozaLO5Qa//zyHVlMHdFSzc+WNCtq7OFjRMPQsE/q7vnEBNTh1pOOLz/k?=
- =?us-ascii?Q?tmHQ4nLGdGQTt0uDrRVJf5WEk1GDkVOAQadXC65bPIDRE9dQTZ7eBcsVMmke?=
- =?us-ascii?Q?I6Az8rq65YleOSHEb5RYhQECEBVRIYIvSnvD4nStadGxL26b35sc+LHB+xFA?=
- =?us-ascii?Q?mlqbPLlQwwtJgCvop8SjHMGcfU9OK0pqgmCUjDbf?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: bb421a75-faef-4873-5cc5-08ddc831b6b7
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Jul 2025 08:36:40.2124
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Wd2q7DjJEWYs1IndsikVIPS0FRPX0OMntBhEjGfc03dNN93o3eMApLlN4d53njGSprPQ18AFcWXTsZk7/9Ekyw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB9925
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250721_013645_341826_ED74D647 
-X-CRM114-Status: GOOD (  11.20  )
+X-CRM114-CacheID: sfid-20250721_013645_448687_D701C041 
+X-CRM114-Status: GOOD (  11.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -169,47 +72,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 17, 2025 at 11:00:37AM +0200, Primoz Fiser wrote:
->Populate netdev of_node with device of_node so that the network device
->inherits the device tree node information in case of platform device.
->On the other hand, when stmmac_dvr_probe() is called from pci device,
->of_node will be NULL preserving current behavior.
->
->With this in place, when initiated from platform device, udev will be
->able to export OF_* properties (OF_NAME, OF_FULLNAME, OF_COMPATIBLE,
->OF_ALIAS, etc) for the network interface. These properties are commonly
->used by udev rules and other userspace tools for device identification
->and configuration.
->
->Signed-off-by: Primoz Fiser <primoz.fiser@norik.com>
->---
-> drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 1 +
-> 1 file changed, 1 insertion(+)
->
->diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
->index f350a6662880..dfd503a87f22 100644
->--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
->+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
->@@ -7487,6 +7487,7 @@ int stmmac_dvr_probe(struct device *device,
-> 		return -ENOMEM;
-> 
-> 	SET_NETDEV_DEV(ndev, device);
->+	ndev->dev.of_node = device->of_node;
+This patch introduces lsui.h header file for applying runtime patch
+to use load/store unprevileged instructions when cpu supports
+FEAT_LSUI otherwise uses method implemented via ll/sc way with
+clearing PSTATE.PAN bit
 
-You may need to device_set_node.
+Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+---
+ arch/arm64/include/asm/lsui.h | 37 +++++++++++++++++++++++++++++++++++
+ 1 file changed, 37 insertions(+)
+ create mode 100644 arch/arm64/include/asm/lsui.h
 
-TBH: I am not sure why device_set_node does not increments the refcnt,
-while device_set_of_node_from_dev has. But this driver supports
-non-OF platform, so using device_set_of_node_from_dev may not be good,
-and I would suggest use device_set_node.
+diff --git a/arch/arm64/include/asm/lsui.h b/arch/arm64/include/asm/lsui.h
+new file mode 100644
+index 000000000000..39bf232f3eb7
+--- /dev/null
++++ b/arch/arm64/include/asm/lsui.h
+@@ -0,0 +1,37 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * Copyright (C) 2025 Arm Ltd.
++ */
++#ifndef __ASM_LSUI_H
++#define __ASM_LSUI_H
++
++#define LL_SC_MAX_LOOPS	128 /* What's the largest number you can think of? */
++
++#include <asm/futex_ll_sc_u.h>
++
++#ifdef CONFIG_AS_HAS_LSUI
++
++#define __LSUI_PREAMBLE	".arch_extension lsui\n"
++
++#include <linux/compiler_types.h>
++#include <linux/export.h>
++#include <linux/stringify.h>
++#include <asm/alternative.h>
++#include <asm/alternative-macros.h>
++#include <asm/cpucaps.h>
++
++#include <asm/futex_lsui.h>
++
++#define __lsui_ll_sc_u_body(op, ...)					\
++({									\
++	alternative_has_cap_likely(ARM64_HAS_LSUI) ?		\
++		__lsui_##op(__VA_ARGS__) :				\
++		__ll_sc_u_##op(__VA_ARGS__);				\
++})
++
++#else	/* CONFIG_AS_HAS_LSUI */
++
++#define __lsui_ll_sc_u_body(op, ...)		__ll_sc_u_##op(__VA_ARGS__)
++
++#endif	/* CONFIG_AS_HAS_LSUI */
++#endif	/* __ASM_LSUI_H */
+-- 
+LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
 
-Regards
-Peng
-
-> 
-> 	priv = netdev_priv(ndev);
-> 	priv->device = device;
->-- 
->2.34.1
->
 
