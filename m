@@ -4,63 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D98DEC87FC5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 16:42:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38332C83F26
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 16:42:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Pgy7qu/16WzRDDr0E7paFYn90GmmPKh6et0hAtZhSj0=; b=fAFE8lPy0b38vmUTcbySDSbRt/
-	/7BHJsC/3CnfZn69IaPJyMWWvqO62152u1l8qIK3mnmqxQPZM5t4TaOS5rlKkW2vzqNydN4xT+IdI
-	gS1TausF/xoLfkqppKkIVATx/+QFqWZH232xJMlQT5v6CkjUsRKhTTjr/++yrmfGW5/hT0hNf9HNq
-	E50X6lTSjuthlh94QZljqwDKMbAvscKHXofT6vHeA9aix5wc5q/1S3wF+s4Jh+MA2Qwr7fYYqoTT5
-	9PuL9eY2P+RIARek1GHTNZMeaWIO03m4z08obNv1tArIYIHSDWVC88GmHqvQWNqGuj4iSUJQBCa+w
-	6JYRZygQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+LnLWJUsAr+JAkpxUkcXadAzf96B3tnYqEVcIVAbTvg=; b=VzttQ4SbCyk/gMt0zWO01i1ZWD
+	U583qMA5iSIzD8R0EjE1uYg2dBSFyNYmk8kjJWkJl04MCx0+zEKgfQOTw7PTjJeyXffwIFCIzOH0O
+	zoBfII/nveWITGjRU9sSpoYzQ/3xQkt1Sxx71vcubGjG07sd5uI8PRpsZiN3VPz71TG3SyEKHAvU0
+	lbh0fdlJeikmupngaAnrkLb+ZnXA9LA3BeO/AnBQCZ95zmEKjJU+ideUWw11x937g8yCKrzlq7c5Y
+	dY6FBQZK7UTwHjKuUgKPcE/QKp5aNo738vp0qRN4m6sif/dy8RkNOHqsd8atzGmbplrvpoLrC4JPi
+	w/3hIBag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udtb5-00000000BuB-3NQq;
-	Mon, 21 Jul 2025 16:42:39 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1udtb2-00000000Brp-2gVm;
+	Mon, 21 Jul 2025 16:42:36 +0000
+Received: from mail-ot1-f44.google.com ([209.85.210.44])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udrLo-0000000HUjf-1nV6
+	id 1udrCm-0000000HT2W-3ATo
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Jul 2025 14:18:45 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id CD4335C5EC2;
-	Mon, 21 Jul 2025 14:18:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 136B1C4CEED;
-	Mon, 21 Jul 2025 14:18:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753107523;
-	bh=l45SIkARsEf4ojtfNKZ9lIvhx/qNQNY9eMSFKgVVF3A=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=fqsJGafpc6xGnfEgVUoIcjgvNYdbLXsxXS2JhWC0a6re/nkDOC9+anrpDmgMD8YTX
-	 M9EktoSNDzxBdryPZPlgQD9kCT47kk33jgJ1/o6vylt2IizRiXT52m0Zl51uNHP3/a
-	 Y/IVkbWdAh2XFWgCtlTp8APJFjz8MenLhNbShgXERy1qs2i7rzrC/TBJjq0bbq3Hxt
-	 26iWFz+hHI5DZhW+E5fT2GKlLVD+Wg4g2rmxnMuLPXhEXp9jEda1m4bnU8sEHxdmLX
-	 3q1yAg3a2okOZBys9Tspw/RfMx9+a1AyvnLn0b8a5UnISR1P8OfeYpk6ie9Lau0DrB
-	 DBtQTc4kvtIOg==
-Date: Mon, 21 Jul 2025 15:18:39 +0100
-From: Will Deacon <will@kernel.org>
-To: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Ard Biesheuvel <ardb@kernel.org>, Mark Brown <broonie@kernel.org>,
-	Cristian Prundeanu <cpru@amazon.com>
-Subject: Re: [PATCH] arm64/entry: Mask DAIF in cpu_switch_to(),
- call_on_irq_stack()
-Message-ID: <aH5MPwJJzFZxOtfr@willie-the-truck>
-References: <20250718142814.133329-1-ada.coupriediaz@arm.com>
+	Mon, 21 Jul 2025 14:09:26 +0000
+Received: by mail-ot1-f44.google.com with SMTP id 46e09a7af769-73e88bc3728so477373a34.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Jul 2025 07:09:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1753106964; x=1753711764; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=+LnLWJUsAr+JAkpxUkcXadAzf96B3tnYqEVcIVAbTvg=;
+        b=fUtac6v6OPZKO7xu1UTTftCGuYZs/cbFJY5xh3n1We7wQVQgefjP3LyOmHaWXZRX4V
+         J9UYsLSuHCPRDwMBP8YvRmf/IhEeaIC2PHBHhUewIh9T0hsAHMluPAbrhzVSOV1jyzWM
+         1OzNtJ5PixHeNVN73lT8EXbQd8yNFRbqmiRam3tXxJa8pf91ZmQN3Ca1eFVQ/4TJJVwP
+         Zeilv3Gam05+8+h2oCc9KhdxibCaM77LscUMszS0XMONtD6obV6RDRSyjSgWsdTQJlE+
+         9WOg09c4nFJ/H4RyAvCwZOB5/x/yUCsmc03vEyG7aJAKOxKUhR7UCkC6hQr6zK40RnIg
+         KqAQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1753106964; x=1753711764;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=+LnLWJUsAr+JAkpxUkcXadAzf96B3tnYqEVcIVAbTvg=;
+        b=EqvtQhngSEefYngZuMXhVDGnC1fcXQRIm26lXhRWDrFACWMWXkyWssGs2JbD4/UD0w
+         uY1P1A3v0PR1x7cVoVnd3Joxfi7VhP70OyU3xtAwHvx59/1Xrfg1GvRG6yzZRSnNq94U
+         pJM/Iur7fLIlcB5uSffz+CmeDvRTiV8rDTiewIxSP2tO/JYwQjaHlROWFbr3yudWJ35X
+         dMplVTOFnQRGyu/MxsMqRDf8FCHlAv4j+S1K3N0dpdHflRHZKD67Ggg3oVdI+Qp4d3WD
+         rBhumVL9Zlk66tLFAqYL8P0ELCtMafc8fdG27tS1mhcDxk7vsOapJ6sZv9ajDSNJtstQ
+         T6Gw==
+X-Forwarded-Encrypted: i=1; AJvYcCXxXngO9x6q/SZg3h/yrPoDjqqWfRBHf3c7BxLiqprVW0JY4BrLGFkPs0DIX8P4bBstxtIWZHsVrnqmIaS1pT/H@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy3mvl9Bls3X3immIXiErNBb+Gn4V3K6TBpQUQL2cywMBouxpMf
+	gNfcAcpyhizcNQcsQ30vYNczKI1L9cho2uaw7l7Q16mv7cG2+fVH42Cl9bLdSB1lSuQ=
+X-Gm-Gg: ASbGncvPR4L/WZ0xoVBxV5DcTWhImkdQHS+xZsXEnkFu5nGGMbCuT84mHOhRcTg8LBn
+	xE07zSTGMYsGdY3/mjlZ5sPBimK4nCfJxuvmPhOm33yDH5tR2LazBSJJfImVFQ8b7ENGhAqf43N
+	rTrZI8oIPhoJ974hvrmVlcNe5ilJxHVTr5aoMFWV0ecF5kGJPRG+Fh5v53coJuf8AuUXIMhy4qu
+	BiDirGVhQdICgWJApqULtpJHVaoEK1WsSmwFGD1MBGN/77eLp6XAsVu9BkbkrQBskv/5EgMknLN
+	5RfshNpa9r8wD8fs/xCb6/MG6mZEccVdXYmIpgWIzomn3QO9zRZdfWJdd39g4+3uw1qrevW972A
+	fsEePVk+Yb653HgrFuoRXcCI1GZyaCbB+C5lT1GVExv+yscEbYYtcwMtAmCRc2DJbdEhsq8Psie
+	8=
+X-Google-Smtp-Source: AGHT+IEYJ69qw8hWrbyhfCDdoYCGwahdtxo+pfFxwMph5mSmiJShT9DMVnokAtIY6hWFVoiT1iMVrw==
+X-Received: by 2002:a05:6830:3e8b:b0:735:af51:5ea5 with SMTP id 46e09a7af769-73e665b9181mr11113510a34.22.1753106963677;
+        Mon, 21 Jul 2025 07:09:23 -0700 (PDT)
+Received: from ?IPV6:2600:8803:e7e4:1d00:3bea:f296:60f2:c6cb? ([2600:8803:e7e4:1d00:3bea:f296:60f2:c6cb])
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-73e83bf667fsm2820418a34.65.2025.07.21.07.09.22
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 21 Jul 2025 07:09:23 -0700 (PDT)
+Message-ID: <35eba285-2c49-49ac-9da2-29636e257196@baylibre.com>
+Date: Mon, 21 Jul 2025 09:09:22 -0500
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250718142814.133329-1-ada.coupriediaz@arm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re:
+To: Sanjay Suthar <sanjaysuthar661996@gmail.com>,
+ Krzysztof Kozlowski <krzk@kernel.org>
+Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-iio@vger.kernel.org, netdev@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org,
+ ribalda@kernel.org, jic23@kernel.org, nuno.sa@analog.com, andy@kernel.org,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, neil.armstrong@linaro.org,
+ khilman@baylibre.com, jbrunet@baylibre.com,
+ martin.blumenstingl@googlemail.com
+References: <CADU64hCr7mshqfBRE2Wp8zf4BHBdJoLLH=VJt2MrHeR+zHOV4w@mail.gmail.com>
+ <20250720182627.39384-1-sanjaysuthar661996@gmail.com>
+ <84ad0f66-311e-4560-870d-851852c6f902@baylibre.com>
+ <9574826f-3023-4fe1-9346-eacd70990d73@kernel.org>
+ <CADU64hDZeyaCpHXBmSG1rtHjpxmjejT7asK9oGBUMF55eYeh4w@mail.gmail.com>
+Content-Language: en-US
+From: David Lechner <dlechner@baylibre.com>
+In-Reply-To: <CADU64hDZeyaCpHXBmSG1rtHjpxmjejT7asK9oGBUMF55eYeh4w@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250721_071844_547571_01A7B12F 
-X-CRM114-Status: GOOD (  26.47  )
+X-CRM114-CacheID: sfid-20250721_070924_900983_281D26FB 
+X-CRM114-Status: GOOD (  17.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,67 +113,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 18, 2025 at 03:28:14PM +0100, Ada Couprie Diaz wrote:
-> `cpu_switch_to()` and `call_on_irq_stack()` manipulate SP to change
-> to different stacks along with the Shadow Call Stack if it is enabled.
-> Those two stack changes cannot be done atomically and both functions
-> can be interrupted by SErrors or Debug Exceptions which, though unlikely,
-> is very much broken : if interrupted, we can end up with mismatched stacks
-> and Shadow Call Stack leading to clobbered stacks.
+On 7/21/25 5:15 AM, Sanjay Suthar wrote:
+> On Mon, Jul 21, 2025 at 12:22 PM Krzysztof Kozlowski <krzk@kernel.org <mailto:krzk@kernel.org>> wrote:
+>>
+>> On 20/07/2025 21:30, David Lechner wrote:
+>> >>    - Ricardo Ribalda Delgado <ricardo@ribalda.com <mailto:ricardo@ribalda.com>>
+>> >> diff --git a/Documentation/devicetree/bindings/net/amlogic,meson-dwmac.yaml b/Documentation/devicetree/bindings/net/amlogic,meson-dwmac.yaml
+>> >> index 0cd78d71768c..5c91716d1f21 100644
+>> >> --- a/Documentation/devicetree/bindings/net/amlogic,meson-dwmac.yaml
+>> >> +++ b/Documentation/devicetree/bindings/net/amlogic,meson-dwmac.yaml
+>> >> @@ -149,7 +149,7 @@ properties:
+>> >>        - description:
+>> >>            The first register range should be the one of the DWMAC controller
+>> >>        - description:
+>> >> -          The second range is is for the Amlogic specific configuration
+>> >> +          The second range is for the Amlogic specific configuration
+>> >>            (for example the PRG_ETHERNET register range on Meson8b and newer)
+>> >>
+>> >>    interrupts:
+>> >
+>> > I would be tempted to split this into two patches. It's a bit odd to have
+>>
+>>
+>> No, it's a churn to split this into more than one patch.
+>>
 > 
-> In `cpu_switch_to()`, it can happen when SP_EL0 points to the new task,
-> but x18 stills points to the old task's SCS. When the interrupt handler
-> tries to save the task's SCS pointer, it will save the old task
-> SCS pointer (x18) into the new task struct (pointed to by SP_EL0),
-> clobbering it.
+> Thanks for the reply. Since there are suggestions on patch split as it is touching different subsystems, still not clear if I should split the patch or single patch is fine. I would appreciate if you can guide on the next steps to be taken
 > 
-> In `call_on_irq_stack()`, it can happen when switching from the task stack
-> to the IRQ stack and when switching back. In both cases, we can be
-> interrupted when the SCS pointer points to the IRQ SCS, but SP points to
-> the task stack. The nested interrupt handler pushes its return addresses
-> on the IRQ SCS. It then detects that SP points to the task stack,
-> calls `call_on_irq_stack()` and clobbers the task SCS pointer with
-> the IRQ SCS pointer, which it will also use !
-> 
-> This leads to tasks returning to addresses on the wrong SCS,
-> or even on the IRQ SCS, triggering kernel panics via CONFIG_VMAP_STACK
-> or FPAC if enabled.
-> 
-> This is possible on a default config, but unlikely.
-> However, when enabling CONFIG_ARM64_PSEUDO_NMI, DAIF is unmasked and
-> instead the GIC is responsible for filtering what interrupts the CPU
-> should receive based on priority.
-> Given the goal of emulating NMIs, pseudo-NMIs can be received by the CPU
-> even in `cpu_switch_to()` and `call_on_irq_stack()`, possibly *very*
-> frequently depending on the system configuration and workload, leading
-> to unpredictable kernel panics.
-> 
-> Completely mask DAIF in `cpu_switch_to()` and restore it when returning.
-> Do the same in `call_on_irq_stack()`, but restore and mask around
-> the branch.
-> Mask DAIF even if CONFIG_SHADOW_CALL_STACK is not enabled for consistency
-> of behaviour between all configurations.
-> 
-> Introduce and use an assembly macro for saving and masking DAIF,
-> as the existing one saves but only masks IF.
-> 
-> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-> Reported-by: Cristian Prundeanu <cpru@amazon.com>
-> Fixes: 59b37fe52f49955791a460752c37145f1afdcad1 ("arm64: Stash shadow stack pointer in the task struct on interrupt")
-> ---
-> Hi,
-> I spent some time evaluating the performance impact of this change
-> to make sure that it would be OK to mask in those functions.
-> They have very few instructions so have few chances to be interrupted
-> to begin with so the impact should be minimal.
+> Best Regards,
+> Sanjay Suthar
 
-It's definitely worthwhile doing the benchmarking, so thanks for that,
-but realistically I don't think we have an awful lot of choice but to
-fix this, do we?
-
-The code looks good to me:
-
-Acked-by: Will Deacon <will@kernel.org>
-
-Will
+Krzysztof is one of the devicetree maintainers and I am not, so you
+should do what Krzysztof says - leave it as one patch. :-)
 
