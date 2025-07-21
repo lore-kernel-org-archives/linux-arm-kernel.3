@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3526CC83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 02:53:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 042F9C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 02:56:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:In-Reply-To:Message-Id:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l4ztzQRM66v4JExnCsu3+Idlgs0P+nNKywN3oZNZuwo=; b=rIeXbYSzN6B1llErMLPIUs2loc
-	pG/2tpZUvMRU29GK4/xrII762FCELwKP18/++JBJG/RU0uMN2D2ao1cgkTqreKGfsdMHhwaMZ82oq
-	C0O8E6O+9WuJjSyrJdUulDI+KJp00f7VlakOCQl1ZslF0CE71+wuuFDup7fLehrOl0TXuE1a7yf8s
-	lO9LJCLQ2CdF4C6kgjJKToC9V2GS/fcuJD4GW+fvRfz9vU5cQiL/3WM5Wp9JXPdHlbsYzEV4+n1kS
-	BLEvuLzI4uBq8Inv+uAB1qeWoJg83DnK8YB/qhuOZwLQocVq8YXa0A/SBr00OchkHzNPyqU+3Fw87
-	iS8q3tIQ==;
+	bh=CpNmhokPwuwTpBn4wsN8PkNB3GZ70idsqXpWNdIFNhE=; b=Yuh4My6W2XzmxE3FvxF/fOv0C1
+	fUpLjhCJVipygfHLBLOSgBIp4mR5BBZmPFsmjErSxaHk8Qwu1ZWAf/CM4UlmCfU+34YlfTrjZhhga
+	OGLmYVYQ/sdIj6mEMeiXucL9YDuw0vAY1753hPTSm7H4viK6fSSB50vgwD7opUHep78la13nJ0Smm
+	7i5x/b83ujaFAMbqP3zjJDPBAqX7/CufqdpTo2nqaJope5yjylsLpxazlVTZdQ+q8MFF1gX4UOayx
+	fGn+7wd67+l7/ZzYwqQRFlgHaam1O5NVtMiY0+jIQLdwHMr3sHnu7jYrBj0uwda6HvjJh2OYU1Jie
+	brxYtfnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udgew-0000000G25y-084c;
-	Mon, 21 Jul 2025 02:53:46 +0000
-Received: from mailout3.samsung.com ([203.254.224.33])
+	id 1udghJ-0000000G2Jr-3UI5;
+	Mon, 21 Jul 2025 02:56:13 +0000
+Received: from mailout1.samsung.com ([203.254.224.24])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udgXk-0000000G1L5-0yFJ
+	id 1udgXk-0000000G1Ky-0yEJ
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 21 Jul 2025 02:46:23 +0000
-Received: from epcas2p3.samsung.com (unknown [182.195.41.55])
-	by mailout3.samsung.com (KnoxPortal) with ESMTP id 20250721024614epoutp035d664458a9451a19405e6162852d4a3a~UJDcjR5bO2083520835epoutp03U
+Received: from epcas2p2.samsung.com (unknown [182.195.41.54])
+	by mailout1.samsung.com (KnoxPortal) with ESMTP id 20250721024614epoutp012b54f26766df4c17003fa4acbf3e5a5b~UJDcZKMYM1459614596epoutp01p
 	for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Jul 2025 02:46:14 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout3.samsung.com 20250721024614epoutp035d664458a9451a19405e6162852d4a3a~UJDcjR5bO2083520835epoutp03U
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.samsung.com 20250721024614epoutp012b54f26766df4c17003fa4acbf3e5a5b~UJDcZKMYM1459614596epoutp01p
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
 	s=mail20170921; t=1753065974;
-	bh=l4ztzQRM66v4JExnCsu3+Idlgs0P+nNKywN3oZNZuwo=;
+	bh=CpNmhokPwuwTpBn4wsN8PkNB3GZ70idsqXpWNdIFNhE=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=LEr6ybwk4ScxLt6udlv/waeNUcQzioQA20HmS1slmQCDObci9YyuQN5ZgN9tsPUHS
-	 T3tTPVzQVqFeXuSAlYi7KH6T+XIk+G/RQ/s1+EJRPEcyNgfnqLNCNvPqqVJkgMa+Cg
-	 A1aQp3AfyzPu4A7cLaM8/4a1l8rxKiCEYBzldmY4=
+	b=TA6PKCqU5xBPBNpEHgcfDryRLFZEh/Pksi7SNitjJ2BxVKhGIgC2xlhL/ajwEAgwc
+	 XYvieIaHdguWrTML3Vt8pRlZgYEBAQoFZrjLgeejO7EeJ3J8PWojM796COOfFCUsPB
+	 9njO65FHI2g1ITaq0StMqP6uVmeskZfjAeHGAiIA=
 Received: from epsnrtp01.localdomain (unknown [182.195.42.153]) by
 	epcas2p3.samsung.com (KnoxPortal) with ESMTPS id
-	20250721024613epcas2p3ca4d521ac9a807db6c754be729293235~UJDcEZBzp2776427764epcas2p30;
+	20250721024613epcas2p3746a1cce420efac6e5ab7540be0e46fd~UJDb6tTZg2776827768epcas2p39;
 	Mon, 21 Jul 2025 02:46:13 +0000 (GMT)
-Received: from epcas2p1.samsung.com (unknown [182.195.36.90]) by
-	epsnrtp01.localdomain (Postfix) with ESMTP id 4bllC86pMfz6B9m6; Mon, 21 Jul
+Received: from epcas2p4.samsung.com (unknown [182.195.36.98]) by
+	epsnrtp01.localdomain (Postfix) with ESMTP id 4bllC84q0rz6B9mH; Mon, 21 Jul
 	2025 02:46:12 +0000 (GMT)
 Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
-	epcas2p3.samsung.com (KnoxPortal) with ESMTPA id
-	20250721024611epcas2p3da8e99d27a57cf7ad4ed46729e86602f~UJDadSU792776427764epcas2p3q;
-	Mon, 21 Jul 2025 02:46:11 +0000 (GMT)
+	epcas2p1.samsung.com (KnoxPortal) with ESMTPA id
+	20250721024612epcas2p122d627cfb90eac508b6ed3667acd9b9b~UJDahuYAm1461114611epcas2p1i;
+	Mon, 21 Jul 2025 02:46:12 +0000 (GMT)
 Received: from AProject.dsn.sec.samsung.com (unknown [10.229.9.52]) by
 	epsmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20250721024611epsmtip2b5a19c5bef426ff8357771f040150913~UJDaY3pC-1443514435epsmtip2H;
+	20250721024611epsmtip219c09e9d567601a3aba9e4dd34546308~UJDadbf4Z1051310513epsmtip2T;
 	Mon, 21 Jul 2025 02:46:11 +0000 (GMT)
 From: ew kim <ew.kim@samsung.com>
 To: broonie@kernel.org, s.nawrocki@samsung.com, robh@kernel.org,
@@ -61,26 +61,27 @@ Cc: lgirdwood@gmail.com, tiwai@suse.com, perex@perex.cz,
 	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, ew kim
 	<ew.kim@samsung.com>
-Subject: [PATCH 8/9] arm64: dts: exynosautov920: add PCM playback/capture
-Date: Mon, 21 Jul 2025 11:30:51 +0900
-Message-Id: <20250721023052.3586000-9-ew.kim@samsung.com>
+Subject: [PATCH 9/9] ASoC: dt-bindings: sound: exynosauto: add PCM frontend
+ nodes for ABOX generic
+Date: Mon, 21 Jul 2025 11:30:52 +0900
+Message-Id: <20250721023052.3586000-10-ew.kim@samsung.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20250721023052.3586000-1-ew.kim@samsung.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20250721024611epcas2p3da8e99d27a57cf7ad4ed46729e86602f
+X-CMS-MailID: 20250721024612epcas2p122d627cfb90eac508b6ed3667acd9b9b
 X-Msg-Generator: CA
 Content-Type: text/plain; charset="utf-8"
 X-Sendblock-Type: AUTO_CONFIDENTIAL
 CMS-TYPE: 102P
 cpgsPolicy: CPGSC10-234,Y
 X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250721024611epcas2p3da8e99d27a57cf7ad4ed46729e86602f
+X-CMS-RootMailID: 20250721024612epcas2p122d627cfb90eac508b6ed3667acd9b9b
 References: <20250721023052.3586000-1-ew.kim@samsung.com>
-	<CGME20250721024611epcas2p3da8e99d27a57cf7ad4ed46729e86602f@epcas2p3.samsung.com>
+	<CGME20250721024612epcas2p122d627cfb90eac508b6ed3667acd9b9b@epcas2p1.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250720_194620_714367_801F0F1C 
-X-CRM114-Status: GOOD (  15.38  )
+X-CRM114-CacheID: sfid-20250720_194620_743026_2C108EFD 
+X-CRM114-Status: GOOD (  19.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,88 +96,198 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch adds the PCM playback and capture device nodes as children of
-the abox_generic audio controller for ExynosAuto v920.
+This patch extends the Exynos Automotive ABOX generic device tree bindings
+to support PCM playback and capture frontend nodes.
 
-Each PCM device is defined with a unique ID and an associated IRQ SW number
-used for communication with the ADSP. These nodes include information such
-as buffer size, ALSA DAI name prefix, and category type(e.g., deep_buffer).
+Each PCM device node describes an audio stream interface handled by the
+ABOX DSP. These nodes include properties for stream ID, IRQ, ADSP core
+assignment, buffer limits, and stream category (deep_buffer or compress).
 
-The nodes are initially marked as "disabled" and can be enabled per board
-(e.g., in the SADK .dts) as needed.
+The bindings use patternProperties to match playback and capture nodes
+as children of the abox_generic controller.
 
 Signed-off-by: ew kim <ew.kim@samsung.com>
 ---
- .../boot/dts/exynos/exynosautov920-sadk.dts   |  8 +++++
- .../arm64/boot/dts/exynos/exynosautov920.dtsi | 32 +++++++++++++++++--
- 2 files changed, 38 insertions(+), 2 deletions(-)
+ .../bindings/sound/samsung,exynosauto.yaml    | 126 +++++++++++++++++-
+ 1 file changed, 123 insertions(+), 3 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/exynos/exynosautov920-sadk.dts b/arch/arm64/boot/dts/exynos/exynosautov920-sadk.dts
-index 2f4cf112675a..f9f717fa95d4 100644
---- a/arch/arm64/boot/dts/exynos/exynosautov920-sadk.dts
-+++ b/arch/arm64/boot/dts/exynos/exynosautov920-sadk.dts
-@@ -94,3 +94,11 @@ &abox_generic {
- &abox_ipc_generic {
- 	status = "okay";
- };
+diff --git a/Documentation/devicetree/bindings/sound/samsung,exynosauto.yaml b/Documentation/devicetree/bindings/sound/samsung,exynosauto.yaml
+index 3a7b5be627ee..e477550afc7c 100644
+--- a/Documentation/devicetree/bindings/sound/samsung,exynosauto.yaml
++++ b/Documentation/devicetree/bindings/sound/samsung,exynosauto.yaml
+@@ -28,6 +28,14 @@ properties:
+   compatible:
+     const: samsung,abox_generic
+ 
++  status:
++    enum: [ okay, disabled ]
++    description: DTS node enablement state
 +
-+&abox_pcm_playback_0 {
-+	status = "okay";
-+};
++  $nodename:
++    pattern: "^abox_generic$"
++    description: Node name must be 'abox_generic'
 +
-+&abox_pcm_capture_0 {
-+	status = "okay";
-+};
-diff --git a/arch/arm64/boot/dts/exynos/exynosautov920.dtsi b/arch/arm64/boot/dts/exynos/exynosautov920.dtsi
-index 21bcbcf7e2b6..094fdec2e6f5 100644
---- a/arch/arm64/boot/dts/exynos/exynosautov920.dtsi
-+++ b/arch/arm64/boot/dts/exynos/exynosautov920.dtsi
-@@ -1133,14 +1133,42 @@ abox_generic: abox_generic {
- 		samsung,num-pcm-capture = <32>;
- 		samsung,num-i2s-dummy-backend = <5>;
- 		status = "disabled";
--		/* #address-cells = <2>; */
--		/* #size-cells = <1>; */
-+		#address-cells = <1>;
-+		#size-cells = <1>;
-
- 		abox_ipc_generic: abox_ipc_generic {
- 			compatible = "samsung,abox_ipc_generic";
- 			samsung,num-irq = <64>;
- 			status = "disabled";
- 		};
+   samsung,num-pcm-playback:
+     description: Maximum number of PCM playback instances (ALSA PCM devices).
+     $ref: /schemas/types.yaml#/definitions/uint32
+@@ -42,7 +50,7 @@ properties:
+ 
+   '#address-cells':
+     description: Required for child nodes that may declare address space.
+-    const: 2
++    const: 1
+ 
+   '#size-cells':
+     description: Required for child nodes that may declare address space.
+@@ -55,6 +63,10 @@ properties:
+       compatible:
+         const: samsung,abox_ipc_generic
+ 
++      status:
++        enum: [ okay, disabled ]
++        description: DTS node enablement state
 +
-+		abox_pcm_playback_0: abox_pcm_playback@3fd0000 {
-+			compatible = "samsung,abox-pcm-playback";
-+			samsung,id = <0>;
-+			samsung,irq_id = <0>;
-+			samsung,allocate-adsp = <0>;
-+			reg = <0x3fd0000 0x10>;
-+			reg-names = "pp_pointer_offset";
-+			#sound-dai-cells = <0>;
-+			sound-name-prefix = "ABOX";
-+			samsung,category = "deep_buffer";
-+			samsung,buffer_bytes_max = <0x24000>;
-+			status = "disabled";
-+		};
+       samsung,num-irq:
+         $ref: /schemas/types.yaml#/definitions/uint32
+         description: Number of IRQ channels supported for IPC routing.
+@@ -65,13 +77,92 @@ properties:
+ 
+     additionalProperties: false
+ 
++patternProperties:
++  "^abox_pcm_(playback|capture)@[0-9a-f]+$":
++    type: object
++    description: |
++      ABOX PCM playback or capture frontend device node. These nodes define
++      individual PCM streams used by the audio subsystem, and are children of
++      the abox_generic controller. Each node describes a PCM stream ID, IRQ line,
++      ADSP core allocation, and stream-specific parameters.
 +
-+		abox_pcm_capture_0: abox_pcm_capture@3fd0400 {
-+			compatible = "samsung,abox-pcm-capture";
-+			samsung,id = <0>;
-+			samsung,irq_id = <32>;
-+			samsung,allocate-adsp = <0>;
-+			reg = <0x3fd0400 0x10>;
-+			reg-names = "pp_pointer_offset";
-+			#sound-dai-cells = <0>;
-+			sound-name-prefix = "ABOX";
-+			samsung,category = "deep_buffer";
-+			samsung,buffer_bytes_max = <0x24000>;
-+			status = "disabled";
-+		};
- 	};
- };
-
---
++    properties:
++      compatible:
++        enum:
++          - samsung,abox-pcm-playback
++          - samsung,abox-pcm-capture
++        description: Compatible string for PCM playback or capture device.
++
++      reg:
++        maxItems: 1
++        description: Offset for pointer register (pp_pointer_offset) used for communication with ADSP.
++
++      reg-names:
++        const: pp_pointer_offset
++
++      samsung,id:
++        $ref: /schemas/types.yaml#/definitions/uint32
++        description: |
++          Unique ID per PCM Device, separated by stream type (playback or capture).
++          Must be less than samsung,num-of-pcm_playback or samsung,num-of-pcm_capture
++          defined in the abox_generic node.
++
++      samsung,irq_id:
++        $ref: /schemas/types.yaml#/definitions/uint32
++        description: |
++          Software IRQ ID assigned in the control domain. Represents the software interrupt
++          line used by the ADSP to communicate with this PCM device.
++
++      samsung,allocate-adsp:
++        $ref: /schemas/types.yaml#/definitions/uint32
++        description: |
++          Index of the ADSP core that this PCM device is allocated to. Indicates on which core
++          the stream is handled.
++
++      sound-name-prefix:
++        $ref: /schemas/types.yaml#/definitions/string
++        description: |
++          Prefix name for ALSA DAI interface. Helps to namespace controls and routing.
++
++      samsung,category:
++        enum: [deep_buffer, compress]
++        description: |
++          Type of the PCM stream. Can be either 'deep_buffer' for normal PCM playback/capture,
++          or 'compress' for compressed offload streams.
++
++      samsung,buffer_bytes_max:
++        $ref: /schemas/types.yaml#/definitions/uint32
++        description: |
++          Maximum size (in bytes) of the DMA buffer allocated for this PCM device.
++
++      '#sound-dai-cells':
++        const: 0
++        description: Must be 0. Required by ALSA SoC bindings.
++
++      status:
++        enum: [ okay, disabled ]
++        description: Device node enablement status. Set to "okay" to activate the node.
++
++    required:
++      - compatible
++      - reg
++      - reg-names
++      - samsung,id
++      - samsung,irq_id
++      - samsung,allocate-adsp
++      - samsung,category
++      - samsung,buffer_bytes_max
++      - '#sound-dai-cells'
++
++    additionalProperties: true
++
+ required:
+   - compatible
+   - samsung,num-pcm-playback
+   - samsung,num-pcm-capture
+   - samsung,num-i2s-dummy-backend
+ 
+-additionalProperties: false
++unevaluatedProperties: false
+ 
+ examples:
+   - |
+@@ -81,7 +172,7 @@ examples:
+       samsung,num-pcm-capture = <32>;
+       samsung,num-i2s-dummy-backend = <5>;
+       status = "disabled";
+-      #address-cells = <2>;
++      #address-cells = <1>;
+       #size-cells = <1>;
+ 
+       abox_ipc_generic {
+@@ -89,4 +180,33 @@ examples:
+         samsung,num-irq = <64>;
+         status = "disabled";
+       };
++
++      abox_pcm_playback@3fd0000 {
++        compatible = "samsung,abox-pcm-playback";
++        samsung,id = <0>;
++        samsung,irq_id = <0>;
++        samsung,allocate-adsp = <0>;
++        reg = <0x3fd0000 0x10>;
++        reg-names = "pp_pointer_offset";
++        #sound-dai-cells = <0>;
++        sound-name-prefix = "ABOX";
++        samsung,category = "deep_buffer";
++        samsung,buffer_bytes_max = <0x24000>;
++        status = "disabled";
++      };
++
++      abox_pcm_capture@3fd0400 {
++        compatible = "samsung,abox-pcm-capture";
++        samsung,id = <0>;
++        samsung,irq_id = <32>;
++        samsung,allocate-adsp = <0>;
++        reg = <0x3fd0400 0x10>;
++        reg-names = "pp_pointer_offset";
++        #sound-dai-cells = <0>;
++        sound-name-prefix = "ABOX";
++        samsung,category = "deep_buffer";
++        samsung,buffer_bytes_max = <0x24000>;
++        status = "disabled";
++      };
+     };
++
+-- 
 2.25.1
 
 
