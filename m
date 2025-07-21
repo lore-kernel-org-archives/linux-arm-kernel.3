@@ -4,71 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5D6AC83F25
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 12:12:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A62E6C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 12:14:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=3r4761Xm7bRumGcSsEftSuCLaEEDTvBXBfDg9+K//RA=; b=eZvGIwWhEfC0g0ufrIa2/oRN0n
-	qMhBexJKjgWuo/lPp2nqY0nHkf5C2tOz/8Vou6+MrrP/fjWy+LeORTe1UZ2kYDe+To189yQWndkN1
-	gjXskZ9vmYyDZ5hD9CvSV2J7iu2QEMkNn4lJFyDqyEXhsxlLBA5Oae76tMydlVJTEmHRb8SENcFg6
-	7BRAO2qTQ//V8iEijyzeBJ4eE7Hi68Ft+n72brEjNBVsxKlgNdXQtcX2LHsBVQRyrdUXUx8V6022K
-	CjobhuTNESPKzkg0trhPIMqlUJIT4FiRYYPd44JYD5hDlGtAGGeqcgCYtbxyaoef0+zBWxML4yl6h
-	5vMt5axw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=b/qFZK858YsOjJgaX/CGypqm9CNU1nJm/caQS0gaU/Y=; b=tBhUSvntQ9c8axc5Vnnt70S2Uh
+	XvsTTA4nFipQD3VbdCrEPi/zcQt9QlkgtncRNL0hQAtRBu99g7x+b05Lq0tSxHPjctFCJwGwkW9fJ
+	YIbtlMd7fiDodqV/blnWGcBI+h63U4iE6yHgiVD+rQ4OUfGNp1GStKKOn+vuUHsE/E5n2/td/HxHr
+	xv/rhR92hoouuatcpN/RFtKQYiN/GIUoBXdPzukpcSt2ISdeBOMIuECT4pqqoFHaPRBtQ7OisJfSZ
+	sQAgxXLJaSofcudDLn7FA0I0+dStCu/UHJRZBsoNOVp4CyPLTO3vhLQ/D6trg/dHrl5Geo63TFF+6
+	Gk5JcCCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udpNU-0000000HDy9-2Lbw;
-	Mon, 21 Jul 2025 12:12:20 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1udpPv-0000000HEK9-2Csc;
+	Mon, 21 Jul 2025 12:14:51 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udo0R-0000000GzGJ-2mSd;
-	Mon, 21 Jul 2025 10:44:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1753094667; x=1784630667;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=eeZcPHFZpOhD4zGpk7fZOIrm0FhI2Ay4ZWryebwV3e4=;
-  b=Wfl9Sn/5JOZlcqCkIeOnI0UnMfVQR2V9hG9F1IIp0NTQsuSo1Zgd0tMX
-   RgkYvJk0sLbJfGx3pV4KAdaJ2ExNPSHucCgiTP8Tv1AaqeNOWUjkyG+Zy
-   0Zply/9Mr97GJnwqXkwyq6rPGshse6unpYsSb9IgYAsSbz2AqRmPgVbsT
-   KBsA0oVORNtOwAHjSLbu3CkFUuB7cl7usX/s5QgtnIx51nWueusoDITHw
-   zMTIQGrbvpE8mxElEhMShVOuYzMQG+Ue13U6s8/v69fvoz0VGHvxvElwz
-   VWFXdoosVOZC6ZXXkBo70IfeXfTYiWZJ2rrRoFrS8rD7E39kCxsUwVwWe
-   g==;
-X-CSE-ConnectionGUID: CsUIskr/T/eitnidkJP48g==
-X-CSE-MsgGUID: 0iSy9X3VQZalEvopVExI4A==
-X-IronPort-AV: E=Sophos;i="6.16,328,1744095600"; 
-   d="scan'208";a="44829020"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 21 Jul 2025 03:44:23 -0700
-Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.44; Mon, 21 Jul 2025 03:44:05 -0700
-Received: from che-lt-i64410lx.microchip.com (10.10.85.11) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server id
- 15.1.2507.44 via Frontend Transport; Mon, 21 Jul 2025 03:44:00 -0700
-From: Balamanikandan Gunasundar <balamanikandan.gunasundar@microchip.com>
-To: <miquel.raynal@bootlin.com>, <richard@nod.at>, <vigneshr@ti.com>,
-	<nicolas.ferre@microchip.com>, <alexandre.belloni@bootlin.com>,
-	<claudiu.beznea@tuxon.dev>, <dan.carpenter@linaro.org>,
-	<bbrezillon@kernel.org>, <linux-mtd@lists.infradead.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH] mtd: rawnand: atmel: set pmecc data setup time
-Date: Mon, 21 Jul 2025 16:13:40 +0530
-Message-ID: <20250721104340.113581-1-balamanikandan.gunasundar@microchip.com>
-X-Mailer: git-send-email 2.34.1
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+	id 1udo1q-0000000GzZU-2mUB
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 21 Jul 2025 10:45:55 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 3407F5C5B28;
+	Mon, 21 Jul 2025 10:45:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CDDBEC4CEF1;
+	Mon, 21 Jul 2025 10:45:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1753094753;
+	bh=JTydR5BdkjW/STvnduR9ADHyVlGb0CvPo5AgcV7udnY=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=tUBAHWr8DqkY0FS3bOALdajoeNVjdrg+gO5GUvIopEcNAU64dx+2kK8hBZ9Evwwa6
+	 DpyNLZlIed+J4mjtis/jR6MECeXPWmKyccC+QTMOxnTI//t6rnqFf0tSE2eKKOT8PK
+	 5OlDCPyJo4sdmfRjr8loz5VH+6qRPVsWCoe9LS0NjA17cp/RTISxCKeD2bmN5QheQJ
+	 GA90nV26SxuPCVzfSxnVkvrzAozVKbq9DBRivWvJchSLW73oVVh4wZ76aXY0e0iUPw
+	 I+w2o2j2tOzsTdqul8zaEdn7t+nORZT+l5oqEIEW1mIWj2zsRyrK6ZDH90qX7EBE6L
+	 D4NBAxc3XT7zg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1udo1n-00HZc7-Nw;
+	Mon, 21 Jul 2025 11:45:51 +0100
+Date: Mon, 21 Jul 2025 11:45:51 +0100
+Message-ID: <86pldt9600.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+Cc: jackysliu <1972843537@qq.com>,
+	<tglx@linutronix.de>,
+	<herve.codina@bootlin.com>,
+	<antonio.borneo@foss.st.com>,
+	<anup@brainfault.org>,
+	<jirislaby@kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] irqchip/gic-v3: fix resource leak in partition_domain_translate()
+In-Reply-To: <20250721112718.00002e23@huawei.com>
+References: <tencent_72EDAD7F6E52D8FB5933030A569A08AEC406@qq.com>
+	<86qzya7xwu.wl-maz@kernel.org>
+	<20250721112718.00002e23@huawei.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: Jonathan.Cameron@huawei.com, 1972843537@qq.com, tglx@linutronix.de, herve.codina@bootlin.com, antonio.borneo@foss.st.com, anup@brainfault.org, jirislaby@kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250721_034427_948240_7181C1CD 
-X-CRM114-Status: GOOD (  10.30  )
+X-CRM114-CacheID: sfid-20250721_034554_777380_9A421570 
+X-CRM114-Status: GOOD (  35.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,54 +88,110 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Balamanikandan Gunasundar <balamanikandan.gunasundar@microchip.com>, Zixun LI <admin@hifiphile.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Setup the pmecc data setup time as 3 clock cycles for 133MHz as recommended
-by the datasheet.
+On Mon, 21 Jul 2025 11:27:18 +0100,
+Jonathan Cameron <Jonathan.Cameron@huawei.com> wrote:
+> 
+> On Mon, 21 Jul 2025 09:25:53 +0100
+> Marc Zyngier <maz@kernel.org> wrote:
+> 
+> > On Mon, 21 Jul 2025 08:28:04 +0100,
+> > jackysliu <1972843537@qq.com> wrote:
+> > > 
+> > > There is a device node reference leak in partition_domain_translate().
+> > > After the function obtains the device node np via of_find_node_by_phandle,
+> > > it does not call of_node_put(np) to release the node reference
+> > > in both the error path and the normal return path.
+> > > This causes the node reference count to increase each time
+> > > the function is called, causing a resource leak.
+> > >
+> > > This issue was detected by rule based static tools
+> > > developed by Tencent.
+> > > 
+> > > Fixes: 87228532e7e9 ("irqchip: Switch to of_fwnode_handle()")
+> > > 
+> > > Signed-off-by: jackysliu <1972843537@qq.com>  
+> > 
+> > Drop the spurious blank line.
+> > 
+> > > ---
+> > >  drivers/irqchip/irq-gic-v3.c | 6 +++++-
+> > >  1 file changed, 5 insertions(+), 1 deletion(-)
+> > > 
+> > > diff --git a/drivers/irqchip/irq-gic-v3.c b/drivers/irqchip/irq-gic-v3.c
+> > > index efc791c43d44..61c1d404b726 100644
+> > > --- a/drivers/irqchip/irq-gic-v3.c
+> > > +++ b/drivers/irqchip/irq-gic-v3.c
+> > > @@ -1821,12 +1821,16 @@ static int partition_domain_translate(struct irq_domain *d,
+> > >  		return -EINVAL;
+> > >  
+> > >  	ret = gic_irq_domain_translate(d, fwspec, &ppi_intid, type);
+> > > -	if (WARN_ON_ONCE(ret))
+> > > +	if (WARN_ON_ONCE(ret)) {
+> > > +		of_node_put(np);
+> > >  		return 0;
+> > > +	}
+> > >  
+> > >  	ppi_idx = __gic_get_ppi_index(ppi_intid);
+> > >  	ret = partition_translate_id(gic_data.ppi_descs[ppi_idx],
+> > >  				     of_fwnode_handle(np));
+> > > +	of_node_put(np);
+> > > +
+> > >  	if (ret < 0)
+> > >  		return ret;
+> > >    
+> > 
+> > Frankly, this looks awful, and we have much better ways to solve this
+> > whole class of problems. Why can't the (untested) patch below do the
+> > right thing, without the ugliness?
+> > 
+> > 	M.
+> > 
+> > diff --git a/drivers/irqchip/irq-gic-v3.c b/drivers/irqchip/irq-gic-v3.c
+> > index efc791c43d441..c4839032ce8d0 100644
+> > --- a/drivers/irqchip/irq-gic-v3.c
+> > +++ b/drivers/irqchip/irq-gic-v3.c
+> > @@ -1808,8 +1808,8 @@ static int partition_domain_translate(struct irq_domain *d,
+> >  				      unsigned long *hwirq,
+> >  				      unsigned int *type)
+> >  {
+> > +	struct device_node *np __free(device_node) = NULL;
+> 
+> Linus has expressed fairly strongly that he really doesn't like separation
+> of the constructor and destructor.  See guidance in cleanup.h which was
+> based on that and bunch of other early discussion around this stuff.
+> 
+> Here it's easy to solve though. Just move that declaration down to
+> give something like:
+> 
+> 
+> >  	unsigned long ppi_intid;
+> > -	struct device_node *np;
+> >  	unsigned int ppi_idx;
+> >  	int ret;
+> >  
+> 	if (!gic_data.ppi_descs)
+> 		return -ENOMEM;
+> 
+> 	struct device_node *np __free(device_node) =
+> 		of_find_node_by_phandle(fwspec->param[3]);
+> 
+> 
+> 	if (WARN_ON(!np))
+> 		return -EINVAL;
+> 
 
-Fixes: f88fc122cc34 ("mtd: nand: Cleanup/rework the atmel_nand driver")
-Reported-by: Zixun LI <admin@hifiphile.com>
-Closes: https://lore.kernel.org/all/c015bb20-6a57-4f63-8102-34b3d83e0f5b@microchip.com
-Suggested-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-Signed-off-by: Balamanikandan Gunasundar <balamanikandan.gunasundar@microchip.com>
----
- drivers/mtd/nand/raw/atmel/pmecc.c | 6 ++++++
- 1 file changed, 6 insertions(+)
+Yeah, something like that -- it doesn't change a thing in this
+context, but I can see how that could degenerate if we added other
+cleanup statements.
 
-diff --git a/drivers/mtd/nand/raw/atmel/pmecc.c b/drivers/mtd/nand/raw/atmel/pmecc.c
-index 3c7dee1be21d..0b402823b619 100644
---- a/drivers/mtd/nand/raw/atmel/pmecc.c
-+++ b/drivers/mtd/nand/raw/atmel/pmecc.c
-@@ -143,6 +143,7 @@ struct atmel_pmecc_caps {
- 	int nstrengths;
- 	int el_offset;
- 	bool correct_erased_chunks;
-+	bool clk_ctrl;
- };
- 
- struct atmel_pmecc {
-@@ -843,6 +844,10 @@ static struct atmel_pmecc *atmel_pmecc_create(struct platform_device *pdev,
- 	if (IS_ERR(pmecc->regs.errloc))
- 		return ERR_CAST(pmecc->regs.errloc);
- 
-+	/* pmecc data setup time */
-+	if (caps->clk_ctrl)
-+		writel(PMECC_CLK_133MHZ, pmecc->regs.base + ATMEL_PMECC_CLK);
-+
- 	/* Disable all interrupts before registering the PMECC handler. */
- 	writel(0xffffffff, pmecc->regs.base + ATMEL_PMECC_IDR);
- 	atmel_pmecc_reset(pmecc);
-@@ -896,6 +901,7 @@ static struct atmel_pmecc_caps at91sam9g45_caps = {
- 	.strengths = atmel_pmecc_strengths,
- 	.nstrengths = 5,
- 	.el_offset = 0x8c,
-+	.clk_ctrl = true,
- };
- 
- static struct atmel_pmecc_caps sama5d4_caps = {
+In any case, this is the sort of thing I want to see going forward.
+Nothing like the original patch.
+
+	M.
+
 -- 
-2.34.1
-
+Without deviation from the norm, progress is not possible.
 
