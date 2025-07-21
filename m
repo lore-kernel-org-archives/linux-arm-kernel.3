@@ -4,74 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5BECC83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 20:05:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 901E0C83F25
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 20:08:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=faRHgN5I3SJaokyooR8tND95TU4Zl2EbUy+q1BeFqEE=; b=sMyUwozMTWTC1xNh7fkR6lwgz4
-	opOr8FXaOTi+Cyz3dnj77JnUpzdXD/U+ZZ/VHQJU5+4CcIVhHP1TxbgbhEDJCzF7V3TpRrbEmguVG
-	OiHgWVnohOvJCd26EMYfCVa4gWTljysPqK89FmdsgA8KYG9QIq8GcKzbz79ZiihPCf0T84losvn5j
-	9nweVonEwhSdKXd+65brXBtTN5gZIHWHNJqIWqMQ7t9gs+fy/pNGfY9mS9bXtFfDuRJhfiJuKQT9D
-	6e3b9pMpnpOF4WRBtuQgXYhF86zv9Hd325+akY/UcV+YjtcQkoVYwMAP4nRaVEurFgxMqxSUKqiYc
-	PLjtJKSg==;
+	bh=FHiXigxA4hCOXWGH/DtJQxOyDx/fKf4nLlz61cNzowI=; b=wokIgwHHIW0vxQGgRTy3MpWoc2
+	+ZtIHTJDDZCLhy2TZQ0nPIg1o4T2aEuyqnbh2/b9QGDxt1KO00romNncl7hXsyr/ij4T8FjKOil4A
+	MgVa8Z/1ZtnsrK4nvb6KJpklcaHixxyFNwzcTcbzTcpyejv+6tEoryuKWIENBK9V+rLnrDm5dBtxc
+	Pu8ySiX4+WbHxlbyiw+tvtYg7O2h6/VVZVOb33IjHLwQdCakj1+sN2xti5Q5leAUkrr4h9YunBx3v
+	JSxyAOJyzvI1999MlFADkg4AuaPEXA+mxOOmBVJbQUeoQBSfbB8GFosjBaeLRzqIWKV1ALfyiAp2t
+	qOqQ7eFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udwlM-00000000ZYb-3xJM;
-	Mon, 21 Jul 2025 20:05:28 +0000
-Received: from out-189.mta1.migadu.com ([2001:41d0:203:375::bd])
+	id 1udwnn-00000000Zqy-3Ihr;
+	Mon, 21 Jul 2025 20:07:59 +0000
+Received: from mail-dm6nam11on20623.outbound.protection.outlook.com ([2a01:111:f403:2415::623] helo=NAM11-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udwit-00000000ZG4-2i0k
+	id 1udwlC-00000000ZW1-3mOm
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Jul 2025 20:02:56 +0000
-Date: Mon, 21 Jul 2025 22:02:36 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1753128162;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=faRHgN5I3SJaokyooR8tND95TU4Zl2EbUy+q1BeFqEE=;
-	b=Q8Bzke5+07H93rEHZBxSdaUZQO1HcSJZZbt3Y31GkjyWATtGLr9GYplTDdMz9XA5tI1+Qt
-	Mse4e9n9h6U8ANxFWVdiKbdr9BlxJ8bvJzeTJkJQtiXhOKptSQSGIlERkBNxVvepTZrk0w
-	VZSK32PGBIQJoDgradRp6NFwqNeMUhg=
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Nicolas Schier <nicolas.schier@linux.dev>
-To: Kees Cook <kees@kernel.org>
-Cc: Arnd Bergmann <arnd@arndb.de>, Ingo Molnar <mingo@kernel.org>,
-	x86@kernel.org, "Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	linux-doc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev, linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org, linux-efi@vger.kernel.org,
-	linux-hardening@vger.kernel.org, linux-kbuild@vger.kernel.org,
-	linux-security-module@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, Christoph Hellwig <hch@lst.de>,
-	Andrey Konovalov <andreyknvl@gmail.com>,
-	Andrey Ryabinin <ryabinin.a.a@gmail.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>, linux-kernel@vger.kernel.org,
-	kasan-dev@googlegroups.com, sparclinux@vger.kernel.org,
-	llvm@lists.linux.dev
-Subject: Re: [PATCH v3 01/13] stackleak: Rename STACKLEAK to KSTACK_ERASE
-Message-ID: <20250721-spiked-adamant-hyrax-eea284@lindesnes>
-References: <20250717231756.make.423-kees@kernel.org>
- <20250717232519.2984886-1-kees@kernel.org>
+	Mon, 21 Jul 2025 20:05:20 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=wSth1OjPGwC3p4k2pp9O91vLpqsRj47OjkuU97AF0TkQoUqhX5DX63FsF9wBy9UFE2PY8oBRpIQbd99VX0uB1O1K0q/2amDvThGePD4YDFjvfS9VvBL1jrCk36fKRCOFnWjrRFR2C/rEKmi+nCZj/T9f57ytmKBTK6W9YAU7vPzu0Uugg+E5PIJgfJAhUepqn12yJyemdXkuG4rs8BOvPC419oBauiaZD25+8YqmX8a6gxXHVzRBrw3CqAO0+eih52NAnC/PdGMtUdcuFJWjrvLLwppt4yAJbBWkKXi4yeZv34kcuDQOCCUIEkiD8MmVaOxSxD7+mw9qwj+RtmIbdQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=FHiXigxA4hCOXWGH/DtJQxOyDx/fKf4nLlz61cNzowI=;
+ b=XrdgVv04FuDyH7TB3ugvhQSgj72tugGAcbRfCvYrlJMcp1xXS9Hd7wA5g8t3zIz7dVXtlQ2NaGC+3TRWGHxr9TrzQy4+biKQliuo9NP+rzGUHtSTD5ZVCsnrLhUHME8uFBIjnlWuk7GKs4wd6+BpPs3/p244NXCt2A+HdrHyON/0sFx4LnNc5MKToVsYN61+qn412D1zNSQ9oCtMvUznSnNNkoYQDZGxRXuFx8yVEls80udR/ZBI33bW1bDVmC0pf5VdPvQTzwsF6CVOd58lRplgXd/xDJPedhAYhuKxmS2B2CNUFqKtdBrwL36GQr+kiv7KgLsmLtlRLJ8BH0rSKQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.118.233) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=FHiXigxA4hCOXWGH/DtJQxOyDx/fKf4nLlz61cNzowI=;
+ b=S1WXuiegG5c/BiLbgig57ddB8c3fjDmSSyoDLtei7oPTTc4pqW8KOj0INDH2EV/VnB0gGRYNbuHbvz0wB/ebdyRI+QvBUXsheJRsvI4DZXw8pg5cJuVjttvQl3sEGy0yjYzP/MVPWknCEsYvUy2ybPad+vmiJoa4/3MBvSIFuqhztycWkHZaj3xnl71E8ooa42JTAWK4tAIS2eDUSz1B7/VIz3OiRkBiaBShPcx6Y/U4MYnKJxXuRwZxqB8GF7qVqid7J9QRd04dq/A76zZCUeflPC4avP4GXJArI47YAtmd4YGTQkb7dup1VCkDuD8avX1XR1aUioSpeC9dZWfiTg==
+Received: from BY3PR04CA0027.namprd04.prod.outlook.com (2603:10b6:a03:217::32)
+ by IA0PR12MB8302.namprd12.prod.outlook.com (2603:10b6:208:40f::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8943.30; Mon, 21 Jul
+ 2025 20:05:11 +0000
+Received: from SJ1PEPF00001CE4.namprd03.prod.outlook.com
+ (2603:10b6:a03:217:cafe::e1) by BY3PR04CA0027.outlook.office365.com
+ (2603:10b6:a03:217::32) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8943.29 via Frontend Transport; Mon,
+ 21 Jul 2025 20:05:10 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.233)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.118.233) by
+ SJ1PEPF00001CE4.mail.protection.outlook.com (10.167.242.20) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8964.20 via Frontend Transport; Mon, 21 Jul 2025 20:05:10 +0000
+Received: from drhqmail202.nvidia.com (10.126.190.181) by mail.nvidia.com
+ (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Mon, 21 Jul
+ 2025 13:04:56 -0700
+Received: from drhqmail202.nvidia.com (10.126.190.181) by
+ drhqmail202.nvidia.com (10.126.190.181) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.14; Mon, 21 Jul 2025 13:04:56 -0700
+Received: from Asurada-Nvidia.nvidia.com (10.127.8.13) by mail.nvidia.com
+ (10.126.190.181) with Microsoft SMTP Server id 15.2.1544.14 via Frontend
+ Transport; Mon, 21 Jul 2025 13:04:55 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: <jgg@nvidia.com>, <will@kernel.org>
+CC: <joro@8bytes.org>, <robin.murphy@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>, <linux-tegra@vger.kernel.org>
+Subject: [PATCH v3 1/2] iommu/arm-smmu-v3: Do not bother impl_ops if IOMMU_VIOMMU_TYPE_ARM_SMMUV3
+Date: Mon, 21 Jul 2025 13:04:43 -0700
+Message-ID: <20250721200444.1740461-2-nicolinc@nvidia.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250721200444.1740461-1-nicolinc@nvidia.com>
+References: <20250721200444.1740461-1-nicolinc@nvidia.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="cgD5lPAL2MBjPn/0"
-Content-Disposition: inline
-In-Reply-To: <20250717232519.2984886-1-kees@kernel.org>
-X-Operating-System: Debian GNU/Linux 13.0
-X-Migadu-Flow: FLOW_OUT
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-NV-OnPremToCloud: AnonymousSubmission
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ1PEPF00001CE4:EE_|IA0PR12MB8302:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8269c930-69a4-4de8-3636-08ddc891e5c5
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|36860700013|82310400026|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?HpHcjZtL+mh63H1PBhEic48MpRd986yDOEOaAF2kfnqlk71gilB5Ep/DirzU?=
+ =?us-ascii?Q?jwX5AT+j8AA6fF4ikdbSssb9aFu3uYkYAvnLkzsgOGYLxJ8s+t1/W3P6fvtC?=
+ =?us-ascii?Q?nBMDFYMy0lbtc8vxgeLTz0GWRUt6/3bAtrGl7IQq9Uv/sqUNSpiXDcQVejYI?=
+ =?us-ascii?Q?ikIdWMtwiemFCWN8SJ/do4upJNyhcGUOD5f2ATt800nl9z15P1+1+97AuNdc?=
+ =?us-ascii?Q?3WBOoefywHSYnuIYYekypu7IZO1fD7abYx9gHlYa7rCGx/iI2c9DAXEdCWRO?=
+ =?us-ascii?Q?Zgx1qb6OxZqyC6hMClt/ZTMVWQ8rxwVqFGxu2ULjvJfHBNP+0n/0PYAbdDIJ?=
+ =?us-ascii?Q?xb7A1Z3D/MBxSAfYmWOforg2ADlDwvGNN1Z9qG6FaLGcY049/F29YY0924Yj?=
+ =?us-ascii?Q?Pz3S6fcmjLJYjdCWzqMktUuvb3IGzW/cEuTtII1PEUQsO3pu6VgH+GaGmXYa?=
+ =?us-ascii?Q?n0/Cz6O9cCSXmt5OSLTnJhYGrka9Ao9GczzwCmkoVbd8ErOU4DgU6wv4tnPw?=
+ =?us-ascii?Q?pO/R79pt3baRC6xR+KOI0K5YvzZBAkyFuLbwZ+/fxi5t79njRWCyf+TtGIA+?=
+ =?us-ascii?Q?JmhffHlDQ8YXP2T/FLpWKUhTCxXXIqCFaU4UT9OLalE6bIYQqNayXLKrdRyA?=
+ =?us-ascii?Q?Pe2oNIGocQ93c6HVlhxWcO+3hX+vSdhnRhyUwUGG+PwUICrK628yVsXahEK4?=
+ =?us-ascii?Q?WRNozTBGjdJfVFKy6CYK6GO2QvNodDckcxtv+65LhGo3sx0r9vkH09N49GWW?=
+ =?us-ascii?Q?MXRpgvb9j8c87S1Dv+04DtTiYOZgvlNktRrCFN6FHG1FPLHDFBI/YSw3wPhs?=
+ =?us-ascii?Q?CSW7Iu634dyIhT2WdNs79hpUVkSZYZyUFjbEVSZIvuu7/nxPt/QBVqGEgQWV?=
+ =?us-ascii?Q?82oeSjFw5rCFsHmIULH3PCRNrpISaQG6PNIujgEVGmiNh56LMSAh475VuybH?=
+ =?us-ascii?Q?NqEOCGHhZHAZuz3iBp8hoQZ7mhJXM6CeZnhj1rYKtl5YdP+5rCyIZLtx9wOT?=
+ =?us-ascii?Q?PbHz4etC/yt3hNfgRWlQs8DwJYnWkDyDoPeZJipnblgtWUEzYvj25O231Js/?=
+ =?us-ascii?Q?pBH7TovPNmGbsKAFJFtNTLKjOlFdTJyoe4TmFNtth7Go6Z64jdQIYSLE2SSD?=
+ =?us-ascii?Q?ysWJgotyLx/ZubjWYxHyE/vWaSGkHBrq7LM6I/sJ0pUTFW80d1O1nmcSXi5O?=
+ =?us-ascii?Q?s3qURR4yU+iiGYBzvxh+E+3jxcxFKXExCIJG+fDm4Mr1ui4JNa3lzE/IY/SR?=
+ =?us-ascii?Q?nvRKyzh0NaYC3MxTmajxVtkNgeybO4+dxgga/L7tI0cjA+NZcq3jLyuDMxBa?=
+ =?us-ascii?Q?5PhTwwwg5jhNO+zM0rO8gPC9Y5W3xCooot+rVWrN2+tKpI0dMG3PhZ9Y+vz3?=
+ =?us-ascii?Q?NWGqlgpvuIpGGYXrMJNu8yRIxLhctkwqm6w4JH09gNlD4W65U2A4sUWpiCLT?=
+ =?us-ascii?Q?YozMgUw2Hsy/iZjvmqmfJQmxuIEYBHvRYGkSid1k01USBbmKlZ5d/oa6267H?=
+ =?us-ascii?Q?VB428SFfe+JQO8fZkc3dS0M6NfBxnB23gK42?=
+X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(1800799024)(36860700013)(82310400026)(7053199007);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Jul 2025 20:05:10.6999
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8269c930-69a4-4de8-3636-08ddc891e5c5
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF00001CE4.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PR12MB8302
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250721_130255_830120_F67A7737 
-X-CRM114-Status: GOOD (  15.38  )
+X-CRM114-CacheID: sfid-20250721_130518_948703_AD364754 
+X-CRM114-Status: GOOD (  15.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,87 +150,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+When viommu type is IOMMU_VIOMMU_TYPE_ARM_SMMUV3, always return or init the
+standard struct arm_vsmmu, instead of going through impl_ops that must have
+its own viommu type than the standard IOMMU_VIOMMU_TYPE_ARM_SMMUV3.
 
---cgD5lPAL2MBjPn/0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Given that arm_vsmmu_init() is called after arm_smmu_get_viommu_size(), any
+unsupported viommu->type must be a corruption. And it must be a driver bug
+that its vsmmu_size and vsmmu_init ops aren't paired. Warn these two cases.
 
-On Thu, Jul 17, 2025 at 04:25:06PM -0700, Kees Cook wrote:
-> In preparation for adding Clang sanitizer coverage stack depth tracking
-> that can support stack depth callbacks:
->=20
-> - Add the new top-level CONFIG_KSTACK_ERASE option which will be
->   implemented either with the stackleak GCC plugin, or with the Clang
->   stack depth callback support.
-> - Rename CONFIG_GCC_PLUGIN_STACKLEAK as needed to CONFIG_KSTACK_ERASE,
->   but keep it for anything specific to the GCC plugin itself.
-> - Rename all exposed "STACKLEAK" names and files to "KSTACK_ERASE" (named
->   for what it does rather than what it protects against), but leave as
->   many of the internals alone as possible to avoid even more churn.
->=20
-> While here, also split "prev_lowest_stack" into CONFIG_KSTACK_ERASE_METRI=
-CS,
-> since that's the only place it is referenced from.
->=20
-> Suggested-by: Ingo Molnar <mingo@kernel.org>
-> Signed-off-by: Kees Cook <kees@kernel.org>
-> ---
-> Cc: Arnd Bergmann <arnd@arndb.de>
-> Cc: <x86@kernel.org>
-> Cc: "Gustavo A. R. Silva" <gustavoars@kernel.org>
-> Cc: <linux-doc@vger.kernel.org>
-> Cc: <linux-arm-kernel@lists.infradead.org>
-> Cc: <kvmarm@lists.linux.dev>
-> Cc: <linux-riscv@lists.infradead.org>
-> Cc: <linux-s390@vger.kernel.org>
-> Cc: <linux-efi@vger.kernel.org>
-> Cc: <linux-hardening@vger.kernel.org>
-> Cc: <linux-kbuild@vger.kernel.org>
-> Cc: <linux-security-module@vger.kernel.org>
-> Cc: <linux-kselftest@vger.kernel.org>
-> ---
->  arch/Kconfig                                  |  4 +--
->  arch/arm/Kconfig                              |  2 +-
->  arch/arm64/Kconfig                            |  2 +-
->  arch/riscv/Kconfig                            |  2 +-
->  arch/s390/Kconfig                             |  2 +-
->  arch/x86/Kconfig                              |  2 +-
->  security/Kconfig.hardening                    | 36 ++++++++++---------
->  arch/arm/boot/compressed/Makefile             |  2 +-
->  arch/arm64/kernel/pi/Makefile                 |  2 +-
->  arch/arm64/kvm/hyp/nvhe/Makefile              |  2 +-
->  arch/riscv/kernel/pi/Makefile                 |  2 +-
->  arch/riscv/purgatory/Makefile                 |  2 +-
->  arch/x86/purgatory/Makefile                   |  2 +-
+Suggested-by: Will Deacon <will@kernel.org>
+Acked-by: Will Deacon <will@kernel.org>
+Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+---
+ .../arm/arm-smmu-v3/arm-smmu-v3-iommufd.c     | 24 ++++++++++---------
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   | 14 +++++++++++
+ 2 files changed, 27 insertions(+), 11 deletions(-)
 
-Did you miss arch/loongarch/Kconfig by accident?
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
+index d9bea8f1f636..c034d6c5468f 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
+@@ -420,14 +420,13 @@ size_t arm_smmu_get_viommu_size(struct device *dev,
+ 	    !(smmu->features & ARM_SMMU_FEAT_S2FWB))
+ 		return 0;
+ 
+-	if (smmu->impl_ops && smmu->impl_ops->vsmmu_size &&
+-	    viommu_type == smmu->impl_ops->vsmmu_type)
+-		return smmu->impl_ops->vsmmu_size;
++	if (viommu_type == IOMMU_VIOMMU_TYPE_ARM_SMMUV3)
++		return VIOMMU_STRUCT_SIZE(struct arm_vsmmu, core);
+ 
+-	if (viommu_type != IOMMU_VIOMMU_TYPE_ARM_SMMUV3)
++	if (!smmu->impl_ops || !smmu->impl_ops->vsmmu_size ||
++	    viommu_type != smmu->impl_ops->vsmmu_type)
+ 		return 0;
+-
+-	return VIOMMU_STRUCT_SIZE(struct arm_vsmmu, core);
++	return smmu->impl_ops->vsmmu_size;
+ }
+ 
+ int arm_vsmmu_init(struct iommufd_viommu *viommu,
+@@ -447,12 +446,15 @@ int arm_vsmmu_init(struct iommufd_viommu *viommu,
+ 	/* FIXME Move VMID allocation from the S2 domain allocation to here */
+ 	vsmmu->vmid = s2_parent->s2_cfg.vmid;
+ 
+-	if (smmu->impl_ops && smmu->impl_ops->vsmmu_init &&
+-	    viommu->type == smmu->impl_ops->vsmmu_type)
+-		return smmu->impl_ops->vsmmu_init(vsmmu, user_data);
++	if (viommu->type == IOMMU_VIOMMU_TYPE_ARM_SMMUV3) {
++		viommu->ops = &arm_vsmmu_ops;
++		return 0;
++	}
+ 
+-	viommu->ops = &arm_vsmmu_ops;
+-	return 0;
++	/* Unsupported type was rejected in arm_smmu_get_viommu_size() */
++	if (WARN_ON(viommu->type != smmu->impl_ops->vsmmu_type))
++		return -EOPNOTSUPP;
++	return smmu->impl_ops->vsmmu_init(vsmmu, user_data);
+ }
+ 
+ int arm_vmaster_report_event(struct arm_smmu_vmaster *vmaster, u64 *evt)
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+index 181d07bc1a9d..9f4ad3705801 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+@@ -4703,6 +4703,7 @@ static void arm_smmu_impl_remove(void *data)
+ static struct arm_smmu_device *arm_smmu_impl_probe(struct arm_smmu_device *smmu)
+ {
+ 	struct arm_smmu_device *new_smmu = ERR_PTR(-ENODEV);
++	const struct arm_smmu_impl_ops *ops;
+ 	int ret;
+ 
+ 	if (smmu->impl_dev && (smmu->options & ARM_SMMU_OPT_TEGRA241_CMDQV))
+@@ -4713,11 +4714,24 @@ static struct arm_smmu_device *arm_smmu_impl_probe(struct arm_smmu_device *smmu)
+ 	if (IS_ERR(new_smmu))
+ 		return new_smmu;
+ 
++	ops = new_smmu->impl_ops;
++	if (ops) {
++		/* vsmmu_size and vsmmu_init ops must be paired */
++		if (WARN_ON(!ops->vsmmu_size != !ops->vsmmu_init)) {
++			ret = -EINVAL;
++			goto err_remove;
++		}
++	}
++
+ 	ret = devm_add_action_or_reset(new_smmu->dev, arm_smmu_impl_remove,
+ 				       new_smmu);
+ 	if (ret)
+ 		return ERR_PTR(ret);
+ 	return new_smmu;
++
++err_remove:
++	arm_smmu_impl_remove(new_smmu);
++	return ERR_PTR(ret);
+ }
+ 
+ static int arm_smmu_device_probe(struct platform_device *pdev)
+-- 
+2.43.0
 
-$ git grep -Hrne ARCH_STACKLEAK
-arch/loongarch/Kconfig:127:     select HAVE_ARCH_STACKLEAK
-
-Kind regards,
-Nicolas
-
---cgD5lPAL2MBjPn/0
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCAAdFiEEh0E3p4c3JKeBvsLGB1IKcBYmEmkFAmh+nNwACgkQB1IKcBYm
-EmlaKg/+Oulyjlzl6ITiwJiV1weZc0KBlop49wW3/ilmJ9U/16ChNrQlv9S6c21O
-ytwj5NZ3lgiznFSMFUOkOxA6ctKIXVyGyNPSmJIUJ6Sqk9iHm3zMakHBxpr2uemy
-DP6Nb6zORIiNJiTd3lVcdz1XQJRGfHfoMpUoW+GRKqQMtw4NyankD/eCESFv6mKh
-T27cet3p0OMQg5S3lM/AD8uuhCxYlLXnD2LJ1XC7z5v9s2QMFnm2FKuEbwwRikgZ
-k4V5IQ6fVjZRe7AuIZpAgOC2mWYkumx3EriVPGKNQu7L0MSQfUAjDF83NE4CBwIO
-EKdR7rp9ZBpJXIQwG0SNnVDCG/xfryC0LzVorLlZOR65GUHYiONL5Eq+J2QE8zwZ
-ugfv15CDaABIA5Rc6VW655EQePy0grJb6wQRpZAQRtsg5HQQfPgWXewm+OetC6sk
-1yqSuYqUrmJ0j4usrxCxbZRrRcGzfdDuGAmg4XpUKrEJIZRxfsV5InrSJ+o2nA14
-yjqgSeDRliPvyePCLddpnDyye4RgIyNgDQSuYJoivHQryIdrYJE3LIk+EoQdw3dv
-c+5c9ea/sNADpeyyA/RAzDrLGAEXAh2qZFu/o71KZIUOwOLp6IjYtZ9MfI54KyhK
-0TTlmcFody1uFinctfOk+8zBzO/foM1hkNF9knW0vJmnEV4khOU=
-=dSeG
------END PGP SIGNATURE-----
-
---cgD5lPAL2MBjPn/0--
 
