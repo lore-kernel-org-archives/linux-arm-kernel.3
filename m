@@ -4,62 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68697C83F26
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 11:39:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64777C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 11:40:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ayZP9QRUH0BbT4A82JiIxQYd4I9xdr4XTzPAhPcERPQ=; b=i6T6sxIx0Iut3Vak9gNWoKsJpX
-	qBe/yLMUlnT/7/9ak7SF1oBA9jv1zfy9w2FpGUTI4gcoHJBAEkCN98jFYCJbBsESKCO/TUnLj5w7b
-	P+dpjNh5X2vkaU3Plrlxu9zQo02OX7Tfc1vtn+xzrD65FRbbexSytlYuQlgRvlKxN8ws6Wt+Hry4N
-	p4ss0nn1iRXaDs30BI+9nONltCWD7KpX85S0MtTQy/FsI2XRuyTsGAWBrJlio+ZvFFYf+dGYRtiqx
-	oNfjVWp5F6Wve0rzyp2LDHxkyK8UP5YFFjMMbMZGvAQBBNi56PXS5SypIVq17zQydqPQWOB9rMwL5
-	HfbIPPeQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ttOa5yHeILRLQq/pmNyyateoUiHafKjamecRb5Isp2c=; b=CZ+4GXe0fWxS55lYA4XeeyX1fn
+	NNjFHSSSphIqd59wOZhPsDsLZ4C1VJcsSaKALeO8moTeli4TE3APtSbtCidbQx0rfwgc8gGtvvhKJ
+	1jgxtsRIYQ4PvV+/vWWt+G1IJ6TSTIhaHFMAF0S86Gs1XsynY8K1w6c/kUKLPh2/3Zm/zKGQ45W1h
+	jdg1qiyf9y6MRwH64ogW44rLrWxLaT4luZDlvzXE22+acnpGYgiCWsJOomZe5Ab5+ydpj79I8gQZp
+	OBlnOry14QyXwXeG1o65IU16oHc1m91C5C0KT0z834o0++MAZj57W5bNWPJk+byQLiBXkMzXR5e0f
+	uHxBFYhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udory-0000000H7zO-1o85;
-	Mon, 21 Jul 2025 11:39:46 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1udos5-0000000H8AG-0ygG;
+	Mon, 21 Jul 2025 11:39:53 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udnk2-0000000GxXe-3HCn
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Jul 2025 10:27:32 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.31])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4blxPZ3zbdz6L5RM;
-	Mon, 21 Jul 2025 18:25:54 +0800 (CST)
-Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
-	by mail.maildlp.com (Postfix) with ESMTPS id E4CE3140417;
-	Mon, 21 Jul 2025 18:27:20 +0800 (CST)
-Received: from localhost (10.203.177.66) by frapeml500008.china.huawei.com
- (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Mon, 21 Jul
- 2025 12:27:20 +0200
-Date: Mon, 21 Jul 2025 11:27:18 +0100
-From: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-To: Marc Zyngier <maz@kernel.org>
-CC: jackysliu <1972843537@qq.com>, <tglx@linutronix.de>,
-	<herve.codina@bootlin.com>, <antonio.borneo@foss.st.com>,
-	<anup@brainfault.org>, <jirislaby@kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH] irqchip/gic-v3: fix resource leak in
- partition_domain_translate()
-Message-ID: <20250721112718.00002e23@huawei.com>
-In-Reply-To: <86qzya7xwu.wl-maz@kernel.org>
-References: <tencent_72EDAD7F6E52D8FB5933030A569A08AEC406@qq.com>
-	<86qzya7xwu.wl-maz@kernel.org>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	id 1udnvY-0000000GyIk-0oVe;
+	Mon, 21 Jul 2025 10:39:25 +0000
+X-UUID: f411e552661e11f09f706fa2197c6ceb-20250721
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From; bh=ttOa5yHeILRLQq/pmNyyateoUiHafKjamecRb5Isp2c=;
+	b=QtQQ4TAAnIXnyrSoUhJ+P/8GjIOetGznjZRKbAvdiLNQrqI5NgYQdvpTHMZXgSd9OWP2yniF9R8+ALEXOtrV+I/aIhqjYCI6KL1Rbhh4dFdojN3dXginiJzoz/uAsswcEJW7DyFbcfcT+Y/bq8plJc14yrGVXsltwhG+FQGvWG0=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.2,REQID:444b8957-f57a-4233-9527-56c1405c09ef,IP:0,UR
+	L:0,TC:0,Content:0,EDM:-25,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
+	:release,TS:-25
+X-CID-META: VersionHash:9eb4ff7,CLOUDID:5f86ab84-a7ec-4748-8ac1-dca5703e241f,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:nil,Content:0|50,EDM:1,
+	IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:
+	0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0
+X-CID-BAS: 0,_,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: f411e552661e11f09f706fa2197c6ceb-20250721
+Received: from mtkmbs13n2.mediatek.inc [(172.21.101.108)] by mailgw01.mediatek.com
+	(envelope-from <kyrie.wu@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 867086435; Mon, 21 Jul 2025 03:39:17 -0700
+Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
+ mtkmbs13n2.mediatek.inc (172.21.101.108) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.39; Mon, 21 Jul 2025 18:39:14 +0800
+Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
+ mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1258.39 via Frontend Transport; Mon, 21 Jul 2025 18:39:14 +0800
+From: Kyrie Wu <kyrie.wu@mediatek.com>
+To: Hans Verkuil <hverkuil-cisco@xs4all.nl>, Mauro Carvalho Chehab
+	<mchehab@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
+	<matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, Kyrie Wu <kyrie.wu@mediatek.com>,
+	<linux-media@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mediatek@lists.infradead.org>
+Subject: [PATCH v1 1/8] dt-bindings: media: mediatek: decoder: Add MT8189 mediatek,vcodec-decoder
+Date: Mon, 21 Jul 2025 18:38:57 +0800
+Message-ID: <20250721103905.5393-2-kyrie.wu@mediatek.com>
+X-Mailer: git-send-email 2.46.0
+In-Reply-To: <20250721103905.5393-1-kyrie.wu@mediatek.com>
+References: <20250721103905.5393-1-kyrie.wu@mediatek.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.203.177.66]
-X-ClientProxiedBy: lhrpeml500009.china.huawei.com (7.191.174.84) To
- frapeml500008.china.huawei.com (7.182.85.71)
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250721_032731_117799_C157F742 
-X-CRM114-Status: GOOD (  25.83  )
+X-CRM114-CacheID: sfid-20250721_033924_247235_7E8ECEC6 
+X-CRM114-Status: UNSURE (   9.65  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,92 +91,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 21 Jul 2025 09:25:53 +0100
-Marc Zyngier <maz@kernel.org> wrote:
+Add compatible for video decoder on MT8189 platform, which is a
+pure single core architecture.
 
-> On Mon, 21 Jul 2025 08:28:04 +0100,
-> jackysliu <1972843537@qq.com> wrote:
-> > 
-> > There is a device node reference leak in partition_domain_translate().
-> > After the function obtains the device node np via of_find_node_by_phandle,
-> > it does not call of_node_put(np) to release the node reference
-> > in both the error path and the normal return path.
-> > This causes the node reference count to increase each time
-> > the function is called, causing a resource leak.
-> >
-> > This issue was detected by rule based static tools
-> > developed by Tencent.
-> > 
-> > Fixes: 87228532e7e9 ("irqchip: Switch to of_fwnode_handle()")
-> > 
-> > Signed-off-by: jackysliu <1972843537@qq.com>  
-> 
-> Drop the spurious blank line.
-> 
-> > ---
-> >  drivers/irqchip/irq-gic-v3.c | 6 +++++-
-> >  1 file changed, 5 insertions(+), 1 deletion(-)
-> > 
-> > diff --git a/drivers/irqchip/irq-gic-v3.c b/drivers/irqchip/irq-gic-v3.c
-> > index efc791c43d44..61c1d404b726 100644
-> > --- a/drivers/irqchip/irq-gic-v3.c
-> > +++ b/drivers/irqchip/irq-gic-v3.c
-> > @@ -1821,12 +1821,16 @@ static int partition_domain_translate(struct irq_domain *d,
-> >  		return -EINVAL;
-> >  
-> >  	ret = gic_irq_domain_translate(d, fwspec, &ppi_intid, type);
-> > -	if (WARN_ON_ONCE(ret))
-> > +	if (WARN_ON_ONCE(ret)) {
-> > +		of_node_put(np);
-> >  		return 0;
-> > +	}
-> >  
-> >  	ppi_idx = __gic_get_ppi_index(ppi_intid);
-> >  	ret = partition_translate_id(gic_data.ppi_descs[ppi_idx],
-> >  				     of_fwnode_handle(np));
-> > +	of_node_put(np);
-> > +
-> >  	if (ret < 0)
-> >  		return ret;
-> >    
-> 
-> Frankly, this looks awful, and we have much better ways to solve this
-> whole class of problems. Why can't the (untested) patch below do the
-> right thing, without the ugliness?
-> 
-> 	M.
-> 
-> diff --git a/drivers/irqchip/irq-gic-v3.c b/drivers/irqchip/irq-gic-v3.c
-> index efc791c43d441..c4839032ce8d0 100644
-> --- a/drivers/irqchip/irq-gic-v3.c
-> +++ b/drivers/irqchip/irq-gic-v3.c
-> @@ -1808,8 +1808,8 @@ static int partition_domain_translate(struct irq_domain *d,
->  				      unsigned long *hwirq,
->  				      unsigned int *type)
->  {
-> +	struct device_node *np __free(device_node) = NULL;
+Signed-off-by: Kyrie Wu <kyrie.wu@mediatek.com>
+---
+ .../bindings/media/mediatek,vcodec-subdev-decoder.yaml           | 1 +
+ 1 file changed, 1 insertion(+)
 
-Linus has expressed fairly strongly that he really doesn't like separation
-of the constructor and destructor.  See guidance in cleanup.h which was
-based on that and bunch of other early discussion around this stuff.
-
-Here it's easy to solve though. Just move that declaration down to
-give something like:
-
-
->  	unsigned long ppi_intid;
-> -	struct device_node *np;
->  	unsigned int ppi_idx;
->  	int ret;
->  
-	if (!gic_data.ppi_descs)
-		return -ENOMEM;
-
-	struct device_node *np __free(device_node) =
-		of_find_node_by_phandle(fwspec->param[3]);
-
-
-	if (WARN_ON(!np))
-		return -EINVAL;
+diff --git a/Documentation/devicetree/bindings/media/mediatek,vcodec-subdev-decoder.yaml b/Documentation/devicetree/bindings/media/mediatek,vcodec-subdev-decoder.yaml
+index 74e1d88d3056..1bb5a2485e4c 100644
+--- a/Documentation/devicetree/bindings/media/mediatek,vcodec-subdev-decoder.yaml
++++ b/Documentation/devicetree/bindings/media/mediatek,vcodec-subdev-decoder.yaml
+@@ -77,6 +77,7 @@ properties:
+       - mediatek,mt8188-vcodec-dec
+       - mediatek,mt8195-vcodec-dec
+       - mediatek,mt8196-vcodec-dec
++      - mediatek,mt8189-vcodec-dec
+ 
+   reg:
+     minItems: 1
+-- 
+2.46.0
 
 
