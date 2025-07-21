@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A792C83F26
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCF8CC83F25
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 16:42:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,66 +12,60 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hHzpUiLN7Jg4Lz4KXx4NfLv+H9x1eSd9BwpY3gu+U20=; b=NOxCOPZ9qHG8UdfEIycX1Uv5yh
-	sIqfQp+UzMOniuyzkXvkDCvXHvp6L26KMD8+NxAbbWVkhRWWuOfTFv8eAxNqA/a3QANGRc6tMIVho
-	HVfyKgUQif/ObCicz3MMsLPRVK2t2YyDbUrR3VRXA7Y6+VZuM9TrwgXi8rsltwUBDo8TApZpoergC
-	RkFmBuI+mEPLpYDoxLgGncKJ9HJT1Y5eTCNlhgkDUiIsp6H9caGQACHXcEZj3EJ4ywnWdD5OUM/kn
-	As26ZooLhPcWn2t5losat4jqs3ihQYv8/XNv+Z/lFKPN+0x6T7PQGlq9pADNcJOjy//hksxGWpZ7j
-	h8UAK5yg==;
+	bh=TFX4yrHmv79Mo15gO+4ELe8b1C08flBzxLCaw5rewk4=; b=KZpud7IiCs3BztA//wCQe/BYMq
+	Wpk4gjCPqX+pnsbhs8q2O+cj3hcg8ZVq0KPYlW8HolAD6x6KeK1p6xx1WpPZ/5WpB4jzMFRAYiCB9
+	DPtmLc9spuByylceOh5q/5s4UfwgnHovtmyw6Nh1Umi2G0W0Mk6fXzz/il9xFCYZVViJTN636Ajy2
+	v9k1zP+LFuRvd7QQDnPwC8L2AWKGNepP08WS8rXDzDHN6nFNiQxt5uErbQvq099wZwnl05ib/KhZV
+	KslxW2lFXVXThbta5l0dK1S57uRWaZMtEQ57ZOEE8NRSQ24npc1GnBF08b6aKVohXRojNCDAQ8fUS
+	HtDOdlAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udtbD-00000000C20-1Rav;
-	Mon, 21 Jul 2025 16:42:47 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1udtbE-00000000C4J-3ddZ;
+	Mon, 21 Jul 2025 16:42:48 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udrR1-0000000HVoi-0FhR
+	id 1udrR9-0000000HVsQ-0ImT
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Jul 2025 14:24:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=hHzpUiLN7Jg4Lz4KXx4NfLv+H9x1eSd9BwpY3gu+U20=; b=yuZy083TIKWJigFiyJMEIO7mEL
-	CW77wF+9YJR9suubJ3/IY4OYuLkd52G6nptaS9fV7lW7Fj7Lkt1mA/V95X650ZAgj2wdFYvoe6Jh0
-	UeN4rX/9MDUAAXnFyZW8Rr+OYnT+phRL+5FFl1AfFJOmVXjgQuyBgzO7I2Mkn/dgetuM=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1udrQo-002Mif-LR; Mon, 21 Jul 2025 16:23:54 +0200
-Date: Mon, 21 Jul 2025 16:23:54 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Gatien CHEVALLIER <gatien.chevallier@foss.st.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Christophe Roullier <christophe.roullier@foss.st.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Simon Horman <horms@kernel.org>,
-	Tristram Ha <Tristram.Ha@microchip.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	netdev@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net-next 3/4] net: phy: smsc: fix and improve WoL support
-Message-ID: <a3b97fbd-8c4f-4657-aeca-732aee3782c3@lunn.ch>
-References: <20250721-wol-smsc-phy-v1-0-89d262812dba@foss.st.com>
- <20250721-wol-smsc-phy-v1-3-89d262812dba@foss.st.com>
- <cca8e9e6-a063-4e00-87af-f59ea926cce3@lunn.ch>
- <b95e3439-717b-4159-acf9-7ce76d1c43d4@foss.st.com>
+	Mon, 21 Jul 2025 14:24:16 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 227B95C5E80;
+	Mon, 21 Jul 2025 14:24:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C1DA9C4CEF4;
+	Mon, 21 Jul 2025 14:24:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1753107853;
+	bh=kSKd+qqk9Adhb4/W/xZARkQKTnvG601WUoRq0QEIvwk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=c6PxopCPicDshkRsaB/+InyfPI6vrUx2PA1la90miF75xxqAGtsGmzz6yvGBb7BgS
+	 4pzH1Ii/CCRjbbzNJ2lSmlAjyWpYVrS5VNBES/wRp81IoHMKfJd+CJJlMlzqe0HXgo
+	 2cbTQuRSkss33Y1KFD5BPVMJJLodAGPJ/y2TNl+cfGL/oxpCdelQV1UqO9cGDDGfIU
+	 +2ZqfvG1v4V5xc7oVlQDL+rQdNOeU7kAA8+g5LXDGah0gsM2AGdRwFtUGIiVuC9Awm
+	 2Qz1kGK+Js91zXxBGuosxru9ogj5pyJVMcMCxnq/HLlLHPxNbg1gslazPs0anmy+Sc
+	 3TpFm6g7ox/9Q==
+Date: Mon, 21 Jul 2025 15:24:08 +0100
+From: Will Deacon <will@kernel.org>
+To: Shuah Khan <skhan@linuxfoundation.org>
+Cc: Shuai Xue <xueshuai@linux.alibaba.com>, brauner@kernel.org,
+	shuah@kernel.org, linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, baolin.wang@linux.alibaba.com,
+	tianruidong@linux.alibaba.com, catalin.marinas@arm.com,
+	mark.rutland@arm.com
+Subject: Re: [RESEND PATCH] selftests/pidfd: align stack to fix SP alignment
+ exception
+Message-ID: <aH5NiFDmnLwh7J_w@willie-the-truck>
+References: <20250616050648.58716-1-xueshuai@linux.alibaba.com>
+ <ee095fdd-b3c1-4c41-9b06-a8e3695c1863@linuxfoundation.org>
+ <0a8d5fdb-28b9-41f5-a601-cf36641bddbf@linux.alibaba.com>
+ <821acc51-1429-4625-bae5-daa67bddc7bc@linux.alibaba.com>
+ <c6dca956-d0ea-4c63-a48f-d02f21d38b9d@linuxfoundation.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <b95e3439-717b-4159-acf9-7ce76d1c43d4@foss.st.com>
+In-Reply-To: <c6dca956-d0ea-4c63-a48f-d02f21d38b9d@linuxfoundation.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250721_072407_094735_5EC7FFBE 
-X-CRM114-Status: UNSURE (   7.95  )
+X-CRM114-CacheID: sfid-20250721_072415_151294_560FC062 
+X-CRM114-Status: UNSURE (   9.15  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -87,11 +81,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> I wanted to state clearly that the wake up happended because of a WoL
-> event but sure, I understand that it's best if log isn't spammed. Do you
-> prefer it completely removed or dev_info()->dev_dbg() ?
+On Fri, Jul 18, 2025 at 03:10:32PM -0600, Shuah Khan wrote:
+> Can you take a look at this and let me know if this change looks
+> good to you both.
+> 
+> I can take this through my tree after your reviews.
 
-phydev_dbg() is fine.
+I never got to the point of fully understanding how the test was
+supposed to work, but it is true that arm64 requires a 16-byte aligned
+stack pointer and this patch appears to achieve that.
 
-	Andrew
+Will
 
