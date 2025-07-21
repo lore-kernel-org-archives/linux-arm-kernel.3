@@ -4,78 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5C3FC83F25
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 17:44:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5498DC83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 17:46:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ATPRMv6WRS4ltcYjhWI+utSCYQ2pU0+YQZ54Mw2Wv9c=; b=jmSqh2DZp+68GBul4ihRW+iOX+
-	8Ccnc1Q/MXxfDLgJpHKTDEhVridlvndULvJ2aMsjGZDU46mQfDi9Z/h8ZMAknTU3867chPo6H9Wa+
-	F7THIFhfpIoYBVL5EFap5oLQr2B3V4WNH/l1oTlkTccQrXV75AYxySrQLp0OL1uFOG+JsFiTBDaJe
-	9KHPtJu80g4Ao7Fkfb9WrdvDCquADOaMHCdiQ3/0aGSZ6htR1EaiR3zXy89z3WlHZIiGA0i2eAQXV
-	i8O0XlKsJ9PdxrFM3wPJ0fMhVTEXZckYfmNCHNAymAM6zQTEzRuNDfEdPWXGXUE3Q0bTOHtiP3x2P
-	TJXeqf8w==;
+	bh=Plfy83lHaQP2u1DomfTBngev2A9FCiEv/H4cmv5vTNU=; b=pek/RwWFsER6uJtY37WjSa7AGn
+	c5ITPmhbBEVXungb28KDCJM8aNVoPvAQyzeyRgF1godYWnLng7XzMqwiBy0edPEksxQW8ybijBAvm
+	N/UdIXLwYlDUNFMeTVcN3MukYN5+HdgURsYodQZ5wg5VFSQAL4tU6T6tpM7Klj7ctIUAf8xAt/EgY
+	cX08aKy2bnVvHpkqQSubl/UJHguo3VuvRsHKCwGlstVq2MzWt/AVNda/P7RcpLlt2KuklUAoXPyvL
+	eLuvGK2/AdzLU3XIsKEsL2TQVVYHWGYg+6w1OaVTwLi0zrxxnFLYVcKMnRU2V+TJPRRmMLSdxOkRK
+	GIYb7ZEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uduYd-00000000LnJ-1Xs2;
-	Mon, 21 Jul 2025 17:44:11 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1udub3-00000000M9w-1Sao;
+	Mon, 21 Jul 2025 17:46:41 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udtz7-00000000HF0-49BP
+	id 1udu6O-00000000Hz5-0iT5
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Jul 2025 17:07:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=ATPRMv6WRS4ltcYjhWI+utSCYQ2pU0+YQZ54Mw2Wv9c=; b=X/7TOYbiNymO23APCZZzJWZm11
-	8JWuJ8rAH5b6g52xjDQVrrwKBJyvzOj0yDTbRxXe46pU/cyK/RGilf8hLDFIfFnKS6RJGXlv8VNjW
-	wt7HMYS/Vq8zsFgSpNfc+r1HGX0ov6+lSZwPlpzdgiKTlwnu+eMlz53omjI0l+fuHh2Y=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1udtyp-002Nch-Dr; Mon, 21 Jul 2025 19:07:11 +0200
-Date: Mon, 21 Jul 2025 19:07:11 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Gatien CHEVALLIER <gatien.chevallier@foss.st.com>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Christophe Roullier <christophe.roullier@foss.st.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Simon Horman <horms@kernel.org>,
-	Tristram Ha <Tristram.Ha@microchip.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	netdev@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net-next 1/4] dt-bindings: net: document st,phy-wol
- property
-Message-ID: <5b8608cb-1369-4638-9cda-1cf90412fc0f@lunn.ch>
-References: <20250721-wol-smsc-phy-v1-0-89d262812dba@foss.st.com>
- <20250721-wol-smsc-phy-v1-1-89d262812dba@foss.st.com>
- <faea23d5-9d5d-4fbb-9c6a-a7bc38c04866@kernel.org>
- <f5c4bb6d-4ff1-4dc1-9d27-3bb1e26437e3@foss.st.com>
- <e3c99bdb-649a-4652-9f34-19b902ba34c1@lunn.ch>
- <38278e2a-5a1b-4908-907e-7d45a08ea3b7@foss.st.com>
+	Mon, 21 Jul 2025 17:15:01 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id C3B4B45CAC;
+	Mon, 21 Jul 2025 17:14:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 01D09C4CEED;
+	Mon, 21 Jul 2025 17:14:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1753118099;
+	bh=c0l5eADL3DJiA5CLjuYvNt1KKuvoQU9z9pZBTTWVbtA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ZWFF9F6IBAY5fFf2QnyIqqBC9pEYTodsSPjIt6odICY1lu7aiHBApakvbkoMmbuBJ
+	 Ctqo22Mxyi4b7Mb7bw4/F/Qd22n0Otz45sDtH1lCFRECJCr4PTjw21Q7Zgi+Nei1L1
+	 eJW0SXy4vZouNmcijmGUnRJEtkOC8sEGpXjrRZB3S9U34QIGbz0Bfwx/S7O792LNKv
+	 7urlFTyOczxy/uqyTik9fch0fb1xtgVeK2lwEV/xcLjms7ALF5az6YwWecPJNWm0GW
+	 zK63l93FlwLkjDCSSJuQG0MKMoNxxodrJsZlLVuF11nnSieQoQWaQeh4JM/kM5Lpuh
+	 wFJ0YPyEtz+nQ==
+Date: Mon, 21 Jul 2025 18:14:53 +0100
+From: Will Deacon <will@kernel.org>
+To: Marc Zyngier <maz@kernel.org>
+Cc: Jack Thomson <jackabt.amazon@gmail.com>, mark.rutland@arm.com,
+	lpieralisi@kernel.org, sudeep.holla@arm.com, arnd@arndb.de,
+	wei.liu@kernel.org, romank@linux.microsoft.com,
+	mhklinux@outlook.com, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, oliver.upton@linux.dev,
+	kvmarm@lists.linux.dev, roypat@amazon.com,
+	Jack Thomson <jackabt@amazon.com>
+Subject: Re: [PATCH] arm64: kvm, smccc: Fix vendor uuid
+Message-ID: <aH51jfOmPfF3XEke@willie-the-truck>
+References: <20250721130558.50823-1-jackabt.amazon@gmail.com>
+ <86jz418rh3.wl-maz@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <38278e2a-5a1b-4908-907e-7d45a08ea3b7@foss.st.com>
+In-Reply-To: <86jz418rh3.wl-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250721_100730_032439_45A8D661 
-X-CRM114-Status: GOOD (  16.08  )
+X-CRM114-CacheID: sfid-20250721_101500_230488_C31E9625 
+X-CRM114-Status: GOOD (  24.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,33 +77,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Regarding this property, somewhat similar to "mediatek,mac-wol",
-> I need to position a flag at the mac driver level. I thought I'd go
-> using the same approach.
+On Mon, Jul 21, 2025 at 04:59:36PM +0100, Marc Zyngier wrote:
+> [+Will]
+> 
+> On Mon, 21 Jul 2025 14:05:58 +0100,
+> Jack Thomson <jackabt.amazon@gmail.com> wrote:
+> > 
+> > From: Jack Thomson <jackabt@amazon.com>
+> > 
+> > Commit 13423063c7cb ("arm64: kvm, smccc: Introduce and use API for
+> > getting hypervisor UUID") replaced the explicit register constants
+> > with the UUID_INIT macro. However, there is an endian issue, meaning
+> > the UUID generated and used in the handshake didn't match UUID prior to
+> > the commit.
+> > 
+> > The change in UUID causes the SMCCC vendor handshake to fail with older
+> > guest kernels, meaning devices such as PTP were not available in the
+> > guest.
+> > 
+> > This patch updates the parameters to the macro to generate a UUID which
+> > matches the previous value, and re-establish backwards compatibility
+> > with older guest kernels.
+> > 
+> > Fixes: 13423063c7cb ("arm64: kvm, smccc: Introduce and use API for getting hypervisor UUID")
+> > getting hypervisor UUID")
+> > Signed-off-by: Jack Thomson <jackabt@amazon.com>
+> > ---
+> >  include/linux/arm-smccc.h | 2 +-
+> >  1 file changed, 1 insertion(+), 1 deletion(-)
+> > 
+> > diff --git a/include/linux/arm-smccc.h b/include/linux/arm-smccc.h
+> > index 784ebe4607a4..50b47eba7d01 100644
+> > --- a/include/linux/arm-smccc.h
+> > +++ b/include/linux/arm-smccc.h
+> > @@ -113,7 +113,7 @@
+> >  
+> >  /* KVM UID value: 28b46fb6-2ec5-11e9-a9ca-4b564d003a74 */
+> >  #define ARM_SMCCC_VENDOR_HYP_UID_KVM UUID_INIT(\
+> > -	0xb66fb428, 0xc52e, 0xe911, \
+> > +	0x28b46fb6, 0x2ec5, 0x11e9, \
+> >  	0xa9, 0xca, 0x4b, 0x56, \
+> >  	0x4d, 0x00, 0x3a, 0x74)
+> >  
+> > 
+> 
+> Irk. This is remarkably embarrassing, and needs to be addressed ASAP,
+> before 6.16 ships. FWIW, I've just posted a quickly whipped selftest
+> that shows the problem[1].
+> 
+> Will, is there a chance you can pick this up and ferry it to Linus?
+> If you do, please add:
+> 
+> Reviewed-by: Marc Zyngier <maz@kernel.org>
+> Tested-by: Marc Zyngier <maz@kernel.org>
 
-Ideally, you don't need such a flag. WoL should be done as low as
-possible. If the PHY can do the WoL, the PHY should be used. If not,
-fall back to MAC.
+Sure, I'll grab it. Thanks!
 
-Many MAC drivers don't support this, or they get the implementation
-wrong. So it could be you need to fix the MAC driver.
-
-MAC get_wol() should ask the PHY what it supports, and then OR in what
-the MAC supports.
-
-When set_wol() is called, the MAC driver should ask the PHY driver to
-do it. If it return 0, all is good, and the MAC driver can be
-suspended when times comes. If the PHY driver returns EOPNOTSUPP, it
-means it cannot support all the enabled WoL operations, so the MAC
-driver needs to do some of them. The MAC driver then needs to ensure
-it is not suspended.
-
-If the PHY driver is missing the interrupt used to wake the system,
-the get_wol() call should not return any supported WoL modes. The MAC
-will then do WoL. Your "vendor,mac-wol" property is then pointless.
-
-Correctly describe the PHY in DT, list the interrupt it uses for
-waking the system.
-
-	Andrew
+Will
 
