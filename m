@@ -4,141 +4,166 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 253C0C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 19:46:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF9F8C83F25
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 19:48:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kBcdiLldjk8v/gANyZUsSUZ2NKo4cNfOWoKq7oZAIsM=; b=q4BP/3Z/oexYs6PTD9ubpLDagS
-	EVsAfAStkS8S3m63maBIv+ZBMrlUBLU6CXr2oH0i9p3kkd5cWCsFMm5T0lRuQ2U3FyMLlOIb2nfqW
-	smjSmG1+fCkQ8u0kYSCwIPOJ6xWw816exkwiwCJMe/Zn2LqP8YzFrZ6vCXWWnZ4OEjpo4fmOkx/Gi
-	jFyPzBt1BEKmBHgN607+lnq+m5p4Vus8gGTrafFiv860jaOZrEWJPKTdwUZ047m86OkIBw8fXffDy
-	8lDikCsbVKPB0Zk58fQQAYZH+4lcFDI4i00ASexQWzn4Gfn1dOJlufgXpIH7Y3rcsXILwaU33OB3N
-	3SiAIPTw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2IWprOXfvc6EbCygrPqSL0CUWIJ2ps0kwcPH/0eYJTc=; b=W6IcrbHtIZn3096XGRfr2/qto9
+	WiasvL1rf2H1gh7tOyfsicj3p2dZTPusEb2Ca2VcVPDAPxr+naHoe8mQ/WCVEWzNsCM7wfPqt+8wF
+	+9y7ymVFXHyGBKbtG94FnBZT6bODdZOw02EuiRa/M1RljcPUrki5m2VuRRb5v5Nn4xFeWZTmCzcKe
+	LuC+58Z4eapf0MTsovZ2BZFOftos5O9OqmA0p9QPeUeTzFXLBIaGIZHILTPCtv4v3IDFWfVv4/4CC
+	u8K4Aj+Onj+XVdi/e91vwEz+SOtOPrecKB5Zo/sfigrBkeWOLdBDGoIdj5nZivVIUERV7w2VS89TH
+	xM5+nUTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udwSg-00000000Y67-05CP;
-	Mon, 21 Jul 2025 19:46:10 +0000
-Received: from mail-dm6nam10on20604.outbound.protection.outlook.com ([2a01:111:f403:2413::604] helo=NAM10-DM6-obe.outbound.protection.outlook.com)
+	id 1udwV5-00000000YK3-3Gip;
+	Mon, 21 Jul 2025 19:48:39 +0000
+Received: from smtp-out1.suse.de ([2a07:de40:b251:101:10:150:64:1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udwNR-00000000Xcf-37dp
+	id 1udwPS-00000000XpZ-2vlr
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Jul 2025 19:40:47 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=x5lrM5VAB91Q/qPQxCY6Mfv8xFMyorIwJkpew52Tpnd/qqAloJ4U+NlDmT6GCvSUu/hQmc0rbFrQ8IWjNX5nv0H9U5tFLtsg6g/BpL6I1I/Wu0jI1bAInMtGbI8m+gM5TPlKsms49oGDlUrlcaPD8cWwiPzxD1nQ704z1Y0IwneSYyea/NrHbqqNDI0ven/NjOCIDzTc/1hiSTMjnfhHBqpHFzKiRgyMn+gYMALz2w6lQ2g7vgoJ3b2gRrqrZY2cRRyJfv+YL1jAtK4QHYfv3UELx6CcObNSOQrWdoM+vZu2MU/D2ehhnqrFNEwlZBq8Gwq9Esp3cyq+JIvkz297lA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=kBcdiLldjk8v/gANyZUsSUZ2NKo4cNfOWoKq7oZAIsM=;
- b=oPT6jRnwH16gfpLWjlOTMJDKViU7U6SfMJ+z+OxF9nbmBOujqRljJao9eXZAyPODXEd6W1vsTxMRvFynjygOHUlMSDc/BG+eozz9zpbfuZab/WIBgk4FYsIejVBQacE44dvObT9l+CxrQ7Y5B+bTq0F4S80tSQPEhvtAtGAFRKnpvER3AOBImVfujTks+9CSmQMnf8da+h3xtvGYUdM0wiRkAFRn9ZHt45oAgxZAq4lV7kBweRPYZbjHaZZSLIKY+YDiu2w0HOzbbLnDdTzyPLsdo0q9KQBPvJZERYldbbeKm2hXEFsM2E3cIjf5dGiqsOz/JQ7eEqRBkfQ2zJyaUQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.160) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=kBcdiLldjk8v/gANyZUsSUZ2NKo4cNfOWoKq7oZAIsM=;
- b=FMxNJ8F1Z/MsU7qAaomhME6WeHKJv+Lc+UPVz+CNIGlceE3QE5ANJm9YuU75fQGisKKMeoIHNE1EHYHwuQ1NYZ8Htr7kE97RjO7BqpWvMvae5cSMi5y9kp3ym1RuhJw1s3LOPYIgxcsKmQhbk1/vgI3Zz8AkTEzj8mF6GZm9EfA9mBeJZ2HFOArFx4N7sKL+7HCt3nhiJxouvhg82CB7qW1Gk0XQGOl8GVO1igFP/F5NfoWq9AbAsx5xgdxUvQvwm2sR0F1wh4ySV6EGsQmCgu/5M5qvQsHv+oYfZdcIQihA6BT1RYdRIR86jUT3NoujYnKAF6AOeKleQPcMHTFt+w==
-Received: from BLAPR03CA0095.namprd03.prod.outlook.com (2603:10b6:208:32a::10)
- by CY1PR12MB9560.namprd12.prod.outlook.com (2603:10b6:930:fd::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8943.30; Mon, 21 Jul
- 2025 19:40:40 +0000
-Received: from BN1PEPF0000468C.namprd05.prod.outlook.com
- (2603:10b6:208:32a:cafe::1f) by BLAPR03CA0095.outlook.office365.com
- (2603:10b6:208:32a::10) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8943.23 via Frontend Transport; Mon,
- 21 Jul 2025 19:40:39 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.160) by
- BN1PEPF0000468C.mail.protection.outlook.com (10.167.243.137) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8964.20 via Frontend Transport; Mon, 21 Jul 2025 19:40:39 +0000
-Received: from rnnvmail205.nvidia.com (10.129.68.10) by mail.nvidia.com
- (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Mon, 21 Jul
- 2025 12:40:20 -0700
-Received: from rnnvmail201.nvidia.com (10.129.68.8) by rnnvmail205.nvidia.com
- (10.129.68.10) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Mon, 21 Jul
- 2025 12:40:20 -0700
-Received: from Asurada-Nvidia (10.127.8.13) by mail.nvidia.com (10.129.68.8)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14 via Frontend
- Transport; Mon, 21 Jul 2025 12:40:19 -0700
-Date: Mon, 21 Jul 2025 12:40:17 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Will Deacon <will@kernel.org>
-CC: <jgg@nvidia.com>, <joro@8bytes.org>, <robin.murphy@arm.com>,
-	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>, <linux-tegra@vger.kernel.org>
-Subject: Re: [PATCH v2 1/2] iommu/arm-smmu-v3: Do not bother impl_ops if
- IOMMU_VIOMMU_TYPE_ARM_SMMUV3
-Message-ID: <aH6XoVHRBvOfP0ZH@Asurada-Nvidia>
-References: <20250721191236.1739951-1-nicolinc@nvidia.com>
- <20250721191236.1739951-2-nicolinc@nvidia.com>
- <aH6TuLAz4DeoLByx@willie-the-truck>
+	Mon, 21 Jul 2025 19:42:52 +0000
+Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id 87D022118F;
+	Mon, 21 Jul 2025 19:42:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1753126967; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=2IWprOXfvc6EbCygrPqSL0CUWIJ2ps0kwcPH/0eYJTc=;
+	b=fCnv+kVBU7Lfomb+uOH+aKD8kZfgjgfbdrpYgXuown1mcht6eBibr58EaihXBowcBRiGmo
+	r5ecx9XJIWww+ujXi3GxkIBOSMC++gbo2axhWph3j65Clj19nPmsekYNRdzQVXTBwiv9PM
+	KgAJ6QzTmg7DMq/1G9BITGbrkTGYGaU=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1753126967;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=2IWprOXfvc6EbCygrPqSL0CUWIJ2ps0kwcPH/0eYJTc=;
+	b=00x96o/BJT8X0gXMZQsYqn68EISCJbDlwVKkHQHtc04sixLrTRleFFqZeT1gCavj1wCwOW
+	lZixJ5a5/qwDOMBA==
+Authentication-Results: smtp-out1.suse.de;
+	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=fCnv+kVB;
+	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b="00x96o/B"
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1753126967; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=2IWprOXfvc6EbCygrPqSL0CUWIJ2ps0kwcPH/0eYJTc=;
+	b=fCnv+kVBU7Lfomb+uOH+aKD8kZfgjgfbdrpYgXuown1mcht6eBibr58EaihXBowcBRiGmo
+	r5ecx9XJIWww+ujXi3GxkIBOSMC++gbo2axhWph3j65Clj19nPmsekYNRdzQVXTBwiv9PM
+	KgAJ6QzTmg7DMq/1G9BITGbrkTGYGaU=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1753126967;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=2IWprOXfvc6EbCygrPqSL0CUWIJ2ps0kwcPH/0eYJTc=;
+	b=00x96o/BJT8X0gXMZQsYqn68EISCJbDlwVKkHQHtc04sixLrTRleFFqZeT1gCavj1wCwOW
+	lZixJ5a5/qwDOMBA==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 269C3136A8;
+	Mon, 21 Jul 2025 19:42:46 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id YAFYBjaYfmgSQgAAD6G6ig
+	(envelope-from <tzimmermann@suse.de>); Mon, 21 Jul 2025 19:42:46 +0000
+Message-ID: <90d816ba-aaf3-4b7b-9c52-72613be5b85a@suse.de>
+Date: Mon, 21 Jul 2025 21:42:41 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <aH6TuLAz4DeoLByx@willie-the-truck>
-X-NV-OnPremToCloud: AnonymousSubmission
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN1PEPF0000468C:EE_|CY1PR12MB9560:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0451cdd3-1e98-4a00-e95e-08ddc88e78d3
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|36860700013|82310400026|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Rfk5+q7a1GxquPow8paH+7s5u2lqu+iAj5Un4kWRX1AUaALHK/5bCi8Lbe36?=
- =?us-ascii?Q?nfmXS0D0G+N0K4F8HmH2co4ibIBr0DQ70xxUEAX06ov7W+frCQPWK1oRBI7q?=
- =?us-ascii?Q?wbnkscz2+yLygrp90+sxAtfIzfURLn7uHrPbaU6SdqWETXtOJT7hjBcZ8qWd?=
- =?us-ascii?Q?H8fRO3xMJAKONtlkyUCM1owmSiB9keWIbl7Q4L7gF1WMmB8SidOQfK9BQvYl?=
- =?us-ascii?Q?e2J+TD3zPWbz1EfKz3V9s5ra57vG8urM2pLar4X7hijkj2bZF9ViR2jc/E2y?=
- =?us-ascii?Q?VkPfmVNspOTmNIgGZfpIy1Tzm2Q3AgxSlz1pQ7qBYr3KBbdB27Wx+zB+1SNx?=
- =?us-ascii?Q?eO0+WnFlaeFKWaKZ7Gb3jek9XZ/RxBmlw0mb3jIycfGULhHE2/rjaZPGVI15?=
- =?us-ascii?Q?NnVe6Nq7p5TWGtYLvHAwrJEVOkBr8mojPFyesk8GCqh26tyeX/B1D0vgfmEm?=
- =?us-ascii?Q?ONAKpWqfffsDf4/7GZe/XG1jrXyka7lD55wHud5oRUJvh3HS1wWPFP/bbq3u?=
- =?us-ascii?Q?A4rH26R+KkNKXifBMGdph4fg2LVQpwBplgHmsGgli1YWYwN4KYUBdP3dy60V?=
- =?us-ascii?Q?UUD2EHXQYeZZWG6z0ljt0mmPBJzDoIC88EqVGVFMYv4Z8AF3S7smbyLeZR74?=
- =?us-ascii?Q?jbvjEVuf/B7GvDKv86FU7OCBn1NHAMD1yv0t3DF2Pn+D5BOhqNU0r4EWffoD?=
- =?us-ascii?Q?rJgtlFRQ9a9Kjl6kW3DnQWAOoG9UTeOGsLmzBT3vkCFYMUawCz3GUMu0efhi?=
- =?us-ascii?Q?DYp41CchO07yG5z2QKc2PGkircPdIbmmS3yM/FQKW42qOj1Fvux9y9on1lug?=
- =?us-ascii?Q?ttO8io5efygnDNAVcHpQCD+OTPMezD+K6dijK4OJSaZZL+oIlcc17lu1tXlM?=
- =?us-ascii?Q?Q8+oSoJLZ4q/MVwZb8zoaan5HZylWLGfCo/E/qL/rfuRXIbvMSZhyYcwr7Ct?=
- =?us-ascii?Q?MJ4pzNH4tzaQtOPetfZVgEsO5uxdXSyQiG1MnqJUB0hD7npVpmT/oVgHAxWr?=
- =?us-ascii?Q?aYSy/sPZ1SWSEm4SKWxZxuE+xSKbx/c3znwFmXL7F8DEh50grGws9hPt3Y1N?=
- =?us-ascii?Q?EcJ9KQ6h3EXGsQOWOb5safyJwLITsPCbYsWlF4RZleRTawNdPBYwzy7qmSkw?=
- =?us-ascii?Q?EE3EjTfxPrXZOfiGIqu7Wm7br+mfJkHDMksE9fy7t+XmLYYiaGFOuLnop3Ej?=
- =?us-ascii?Q?SHev9RxnYlH+gK6Vi4beMMUqJmkGC6qTCYNQJ6eyAHTK8u3XqdJeFiv40Ceu?=
- =?us-ascii?Q?z+IQRwb9MNvSbXeEOeRlTx8Zx+y+ZilQ2NE3tsQwTVsQKojtrN9LTYObHGDU?=
- =?us-ascii?Q?titI6Q09wcp8zRPKojAihYGi1ZNvQFVZL6mWPM8Jw1L87HW5phZGZ0CXijBT?=
- =?us-ascii?Q?6okmsXjjWpmnizsUMl7IhDCR4uGjTGy4W0Hd3qHe5A36JHukx7/ynmQsPOQN?=
- =?us-ascii?Q?8mlzi+sq8I5L993ltHHe6WWajAm2oqDgOWyod8IscF142BxfM5zp1evv5q9r?=
- =?us-ascii?Q?fRcGT4aQX9FD7i4HYZvCiLJLnlR2vVIzW4Y7?=
-X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(376014)(36860700013)(82310400026)(7053199007);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Jul 2025 19:40:39.2645
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0451cdd3-1e98-4a00-e95e-08ddc88e78d3
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN1PEPF0000468C.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY1PR12MB9560
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 01/15] platform/x86: dell-uart-backlight: Use
+ blacklight power constant
+To: =?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
+Cc: lee@kernel.org, danielt@kernel.org, jingoohan1@gmail.com,
+ neil.armstrong@linaro.org, jessica.zhang@oss.qualcomm.com, deller@gmx.de,
+ maarten.lankhorst@linux.intel.com, mripard@kernel.org, airlied@gmail.com,
+ simona@ffwll.ch, fnkl.kernel@gmail.com, j@jannau.net,
+ Hans de Goede <hdegoede@redhat.com>, sven@kernel.org, alyssa@rosenzweig.io,
+ neal@gompa.dev, support.opensource@diasemi.com, duje.mihanovic@skole.hr,
+ dri-devel@lists.freedesktop.org, asahi@lists.linux.dev,
+ platform-driver-x86@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-fbdev@vger.kernel.org, Hans de Goede <hansg@kernel.org>
+References: <20250715122643.137027-1-tzimmermann@suse.de>
+ <20250715122643.137027-2-tzimmermann@suse.de>
+ <c380d3a4-2a99-cf52-0952-ee916b6c9676@linux.intel.com>
+Content-Language: en-US
+From: Thomas Zimmermann <tzimmermann@suse.de>
+Autocrypt: addr=tzimmermann@suse.de; keydata=
+ xsBNBFs50uABCADEHPidWt974CaxBVbrIBwqcq/WURinJ3+2WlIrKWspiP83vfZKaXhFYsdg
+ XH47fDVbPPj+d6tQrw5lPQCyqjwrCPYnq3WlIBnGPJ4/jreTL6V+qfKRDlGLWFjZcsrPJGE0
+ BeB5BbqP5erN1qylK9i3gPoQjXGhpBpQYwRrEyQyjuvk+Ev0K1Jc5tVDeJAuau3TGNgah4Yc
+ hdHm3bkPjz9EErV85RwvImQ1dptvx6s7xzwXTgGAsaYZsL8WCwDaTuqFa1d1jjlaxg6+tZsB
+ 9GluwvIhSezPgnEmimZDkGnZRRSFiGP8yjqTjjWuf0bSj5rUnTGiyLyRZRNGcXmu6hjlABEB
+ AAHNJ1Rob21hcyBaaW1tZXJtYW5uIDx0emltbWVybWFubkBzdXNlLmRlPsLAjgQTAQgAOAIb
+ AwULCQgHAgYVCgkICwIEFgIDAQIeAQIXgBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftODH
+ AAoJEGgNwR1TC3ojx1wH/0hKGWugiqDgLNXLRD/4TfHBEKmxIrmfu9Z5t7vwUKfwhFL6hqvo
+ lXPJJKQpQ2z8+X2vZm/slsLn7J1yjrOsoJhKABDi+3QWWSGkaGwRJAdPVVyJMfJRNNNIKwVb
+ U6B1BkX2XDKDGffF4TxlOpSQzdtNI/9gleOoUA8+jy8knnDYzjBNOZqLG2FuTdicBXblz0Mf
+ vg41gd9kCwYXDnD91rJU8tzylXv03E75NCaTxTM+FBXPmsAVYQ4GYhhgFt8S2UWMoaaABLDe
+ 7l5FdnLdDEcbmd8uLU2CaG4W2cLrUaI4jz2XbkcPQkqTQ3EB67hYkjiEE6Zy3ggOitiQGcqp
+ j//OwE0EWznS4AEIAMYmP4M/V+T5RY5at/g7rUdNsLhWv1APYrh9RQefODYHrNRHUE9eosYb
+ T6XMryR9hT8XlGOYRwKWwiQBoWSDiTMo/Xi29jUnn4BXfI2px2DTXwc22LKtLAgTRjP+qbU6
+ 3Y0xnQN29UGDbYgyyK51DW3H0If2a3JNsheAAK+Xc9baj0LGIc8T9uiEWHBnCH+RdhgATnWW
+ GKdDegUR5BkDfDg5O/FISymJBHx2Dyoklv5g4BzkgqTqwmaYzsl8UxZKvbaxq0zbehDda8lv
+ hFXodNFMAgTLJlLuDYOGLK2AwbrS3Sp0AEbkpdJBb44qVlGm5bApZouHeJ/+n+7r12+lqdsA
+ EQEAAcLAdgQYAQgAIAIbDBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftOH6AAoJEGgNwR1T
+ C3ojVSkIALpAPkIJPQoURPb1VWjh34l0HlglmYHvZszJWTXYwavHR8+k6Baa6H7ufXNQtThR
+ yIxJrQLW6rV5lm7TjhffEhxVCn37+cg0zZ3j7zIsSS0rx/aMwi6VhFJA5hfn3T0TtrijKP4A
+ SAQO9xD1Zk9/61JWk8OysuIh7MXkl0fxbRKWE93XeQBhIJHQfnc+YBLprdnxR446Sh8Wn/2D
+ Ya8cavuWf2zrB6cZurs048xe0UbSW5AOSo4V9M0jzYI4nZqTmPxYyXbm30Kvmz0rYVRaitYJ
+ 4kyYYMhuULvrJDMjZRvaNe52tkKAvMevcGdt38H4KSVXAylqyQOW5zvPc4/sq9c=
+In-Reply-To: <c380d3a4-2a99-cf52-0952-ee916b6c9676@linux.intel.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Rspamd-Queue-Id: 87D022118F
+X-Rspamd-Action: no action
+X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
+X-Spamd-Result: default: False [-3.01 / 50.00];
+	BAYES_HAM(-3.00)[100.00%];
+	SUSPICIOUS_RECIPS(1.50)[];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	MX_GOOD(-0.01)[];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com,gmx.de];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	ARC_NA(0.00)[];
+	FUZZY_RATELIMITED(0.00)[rspamd.com];
+	RCPT_COUNT_TWELVE(0.00)[25];
+	MIME_TRACE(0.00)[0:+];
+	FREEMAIL_CC(0.00)[kernel.org,gmail.com,linaro.org,oss.qualcomm.com,gmx.de,linux.intel.com,ffwll.ch,jannau.net,redhat.com,rosenzweig.io,gompa.dev,diasemi.com,skole.hr,lists.freedesktop.org,lists.linux.dev,vger.kernel.org,lists.infradead.org];
+	RCVD_TLS_ALL(0.00)[];
+	DKIM_TRACE(0.00)[suse.de:+];
+	RCVD_COUNT_TWO(0.00)[2];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	TO_DN_SOME(0.00)[];
+	DNSWL_BLOCKED(0.00)[2a07:de40:b281:104:10:150:64:97:from,2a07:de40:b281:106:10:150:64:167:received];
+	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
+	MID_RHS_MATCH_FROM(0.00)[];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	TAGGED_RCPT(0.00)[];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo,suse.de:dkim,suse.de:mid,suse.de:email]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250721_124046_140185_8C3ADB68 
-X-CRM114-Status: GOOD (  12.66  )
+X-CRM114-CacheID: sfid-20250721_124251_034388_29E42A5E 
+X-CRM114-Status: GOOD (  14.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,25 +178,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 21, 2025 at 08:23:36PM +0100, Will Deacon wrote:
-> On Mon, Jul 21, 2025 at 12:12:35PM -0700, Nicolin Chen wrote:
-> > +	ops = new_smmu->impl_ops;
-> > +	if (ops) {
-> > +		/* vsmmu_size and vsmmu_init ops must be paired */
-> > +		if (WARN_ON(!ops->vsmmu_size ^ !ops->vsmmu_init)) {
-> > +			ret = -EINVAL;
-> > +			goto err_remove;
-> > +		}
-> 
-> I suppose that could be != instead of ^ to avoid mixing up logical and
-> arithmetic operators, but it does the trick either way so:
-> 
-> Acked-by: Will Deacon <will@kernel.org>
+Hi
 
-Ah, it only compares one bit, so I think "!=" would be nicer.
+Am 21.07.25 um 13:43 schrieb Ilpo Järvinen:
+> On Tue, 15 Jul 2025, Thomas Zimmermann wrote:
+>
+>> The backlight subsystem has gotten its own power constants. Replace
+>> FB_BLANK_UNBLANK with BACKLIGHT_POWER_ON.
+>>
+>> Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
+>> Reviewed-by: Hans de Goede <hansg@kernel.org>
+>> Acked-by: Ilpo Järvinen <ilpo.jarvinen@linux.intel.com>
+>> ---
+>>   drivers/platform/x86/dell/dell-uart-backlight.c | 2 +-
+>>   1 file changed, 1 insertion(+), 1 deletion(-)
+>>
+>> diff --git a/drivers/platform/x86/dell/dell-uart-backlight.c b/drivers/platform/x86/dell/dell-uart-backlight.c
+>> index 8f868f845350..f323a667dc2d 100644
+>> --- a/drivers/platform/x86/dell/dell-uart-backlight.c
+>> +++ b/drivers/platform/x86/dell/dell-uart-backlight.c
+>> @@ -305,7 +305,7 @@ static int dell_uart_bl_serdev_probe(struct serdev_device *serdev)
+>>   	dev_dbg(dev, "Firmware version: %.*s\n", resp[RESP_LEN] - 3, resp + RESP_DATA);
+>>   
+>>   	/* Initialize bl_power to a known value */
+>> -	ret = dell_uart_set_bl_power(dell_bl, FB_BLANK_UNBLANK);
+>> +	ret = dell_uart_set_bl_power(dell_bl, BACKLIGHT_POWER_ON);
+>>   	if (ret)
+>>   		return ret;
+> Hi Thomas,
+>
+> Do you expect this entire series to go in this cycle through some other
+> tree than pdx86? If not, I'll take this through pdx86 tree in this cycle.
 
-Will quickly respin a v3.
+I don't know when the series will get merged, but it might still take a 
+bit. Please take this patch through your tree. Good to have it off the list.
 
-Thanks
-Nicolin
+Best regards
+Thomas
+
+>
+
+-- 
+--
+Thomas Zimmermann
+Graphics Driver Developer
+SUSE Software Solutions Germany GmbH
+Frankenstrasse 146, 90461 Nuernberg, Germany
+GF: Ivo Totev, Andrew Myers, Andrew McDonald, Boudien Moerman
+HRB 36809 (AG Nuernberg)
+
 
