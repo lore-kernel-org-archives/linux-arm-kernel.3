@@ -4,110 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C6C3C83F27
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 04:44:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CEDCC83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 04:46:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fkkRCoPbO262N6nh5T1e3WS51jJoTMENI1DUO2zY2Qs=; b=vL28tUXyWal4NwprIi0mGGL97R
-	HQ2p98BNe8ZgxCEH+ln19LCPjbNP9UF0QtD1GUlkWUq8p+SUlM60tJCReNblNAuHoTCl5Sm3e+pNe
-	PMucogsMm4SEBDeW/LX/0wi479ZuovPDjbCFSfDL9Hh9BJ9K4uHpEcUlq5wYj0NMvtXaV+w8ODLBr
-	yZ3+nFbKV43TPD0/DLyhh250uG6jYIfAZny0SvW+7UmB3DzNPqr3FWO2kH3hCYWQo86wyiRKEHDZD
-	XURUv7n23X5106i2ZxkiFCRNbxwueEOxeQ89HS8B2qd4hI/QzzbQKFaoFchwV4yATd6pDAq03tCHQ
-	FLMMIgaQ==;
+	bh=+xX4FNeTuSGXtFH26CirPRJt3Ku8KpY645McDczejZA=; b=y9GlLrqb9z2bz1zxL7yqgWnJPW
+	h2GNkwowXqTpUcYrHEEuXOw/QhbbItRPWBsz414rx4479aVKUd2PinRoU3XahBAWmiiWFSqNYXrWb
+	St6fvvLY0OWs2o0MTb4Cf2kunuM04sVmYdjCTRyG00lYfgBOeO+4PUncR81kJe+GVmytsF88O5t9o
+	e/XIq6S8Bvb6UTLjXBMfMy25HOLb/68o9X7c/uj4n9wSFNCf8KHaekBi/nx+HDUHbsX78OBghHJKk
+	K0NrJEltKFTFP+W38T2tqD2LsYUnP4iMk7WPlKqq1Hj47sMhuoW/UdT8w2LS/JFnzgDsf+0XX51Hg
+	G7BfTyiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udiNs-0000000GBuA-0f2M;
-	Mon, 21 Jul 2025 04:44:16 +0000
-Received: from mail2.coasia.com ([112.168.119.159] helo=spam.coasia.com)
+	id 1udiQH-0000000GCED-0S58;
+	Mon, 21 Jul 2025 04:46:45 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udiCJ-0000000GATt-40T2
+	id 1udiJB-0000000GBKE-2YCj
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Jul 2025 04:32:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=coasia.com; s=coasia;
-	t=1753072336; bh=fkkRCoPbO262N6nh5T1e3WS51jJoTMENI1DUO2zY2Qs=;
-	l=1861; h=Message-ID:Subject:From:To:Date:Content-Type:MIME-Version;
-	b=tgvv69//Fs2/46nT31h2p0wGINamYYhDrCg79CyxUey8MTdRF1HJGc/TKxIYA5Rc0
-	 XlNgTsN+sZhzN3g1aJ5a+q8qXiGKCc3wsewQxj5nCw5eyP5Y+xniRugyr7dvH5dIjW
-	 tZ4Mxu35CtyS0zkANrBXcO1f39m/BIYPhB2j5YR4=
-Received: from unknown (HELO ?192.168.1.65?) (119.65.249.123)
-	by 192.168.10.159 with ESMTP; 21 Jul 2025 13:32:16 +0900
-X-Original-SENDERIP: 119.65.249.123
-X-Original-SENDERCOUNTRY: KR, South Korea 
-X-Original-MAILFROM: hgkim05@coasia.com
-X-Original-RCPTTO: linus.walleij@linaro.org,
-	ksk4725@coasia.com,
-	jesper.nilsson@axis.com,
-	mturquette@baylibre.com,
-	sboyd@kernel.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	krzk@kernel.org,
-	s.nawrocki@samsung.com,
-	cw00.choi@samsung.com,
-	alim.akhtar@samsung.com,
-	tomasz.figa@gmail.com,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	arnd@arndb.de,
-	kenkim@coasia.com,
-	pjsin865@coasia.com,
-	gwk1013@coasia.com,
-	mingyoungbo@coasia.com,
-	smn1196@coasia.com,
-	pankaj.dubey@samsung.com,
-	shradha.t@samsung.com,
-	ravi.patel@samsung.com,
-	inbaraj.e@samsung.com,
-	swathi.ks@samsung.com,
-	hrishikesh.d@samsung.com,
-	dj76.yang@samsung.com,
-	hypmean.kim@samsung.com,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-arm-kernel@axis.com,
-	linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-gpio@vger.kernel.org,
-	soc@lists.linux.dev
-Message-ID: <d8ab3efec0eac72e74cd7864c81c91cd796e3074.camel@coasia.com>
-Subject: Re: [PATCH 00/16] Add support for the Axis ARTPEC-8 SoC
-From: Hakyeong Kim <hgkim05@coasia.com>
-To: Linus Walleij <linus.walleij@linaro.org>, ksk4725@coasia.com
-Cc: Jesper Nilsson <jesper.nilsson@axis.com>, Michael Turquette
- <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Rob Herring
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>, Sylwester
- Nawrocki <s.nawrocki@samsung.com>, Chanwoo Choi <cw00.choi@samsung.com>,
- Alim Akhtar <alim.akhtar@samsung.com>, Tomasz Figa <tomasz.figa@gmail.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Arnd Bergmann <arnd@arndb.de>, kenkim <kenkim@coasia.com>, Jongshin Park
- <pjsin865@coasia.com>,  GunWoo Kim <gwk1013@coasia.com>, GyoungBo Min
- <mingyoungbo@coasia.com>, SungMin Park <smn1196@coasia.com>,  Pankaj Dubey
- <pankaj.dubey@samsung.com>, Shradha Todi <shradha.t@samsung.com>, Ravi
- Patel <ravi.patel@samsung.com>, Inbaraj E <inbaraj.e@samsung.com>, Swathi K
- S <swathi.ks@samsung.com>, Hrishikesh <hrishikesh.d@samsung.com>, Dongjin
- Yang <dj76.yang@samsung.com>, Sang Min Kim <hypmean.kim@samsung.com>, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-samsung-soc@vger.kernel.org, linux-arm-kernel@axis.com, 
- linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-gpio@vger.kernel.org, soc@lists.linux.dev
-Date: Mon, 21 Jul 2025 13:32:17 +0900
-In-Reply-To: <CACRpkdaxAr8i-AByUsxnBmoSNtEDvik3VFvxAzk525GD=pH97Q@mail.gmail.com>
-References: <20250710002047.1573841-1-ksk4725@coasia.com>
-	 <CACRpkdaxAr8i-AByUsxnBmoSNtEDvik3VFvxAzk525GD=pH97Q@mail.gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.44.4-0ubuntu2 
+	Mon, 21 Jul 2025 04:39:26 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id A6A00A52746
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Jul 2025 04:39:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5A3F2C4CEF4
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Jul 2025 04:39:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1753072764;
+	bh=+NBfCXOVbJTCcOUVmuXMnaKWytljkns5NLJTUzQdkT8=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=AsAp/svaIVEgP1VpxIVkZO33cX4wAekY+udfWkSUnSKMRlSGvLlYY2utXrHjspxFQ
+	 TCJvJyaVm6c4VaL+V8a70fPDo4NxRsgMKinWa4N+sPVZm3+CAlQ5haAt7C3GrKIYDe
+	 FF3HXRPPL7ygJFOLXt3H4BOcQW4hPs+zB94mgEPykDe+DsHv7kwWRkneqY2TLkmGSp
+	 okfpx2xChaw6ZYvbbsfKilJS/v165UiB1CVeJvuI/IgsJBrH+EOy5RtYevctmzcuUq
+	 VXaaLjI27xXWYmj9yhN1HUi7K9F8dseSNveHxmPx8M/Cit1JEX7WOqVcd3vzOP8IBo
+	 i6xAy4jnXi86w==
+Received: by mail-lj1-f178.google.com with SMTP id 38308e7fff4ca-32e14ce168eso42795591fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 20 Jul 2025 21:39:24 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCUvJkEc1sjQFnr1Qo+NTPNuPsHGZxDrzGPcXiKAHvxTwL0u9HaqyWwmEQhy61aLsATJzFSvRwjy8k1nUXIFDF3c@lists.infradead.org
+X-Gm-Message-State: AOJu0YyVpcATUeSXsGkv8oYtODRlgC23OM5qW/93G+K44/aZxyp6iEsH
+	ZF11qZ0dgDL0XM60RWIVh/ab9BjYqgABK2+ZQdJYwy1YRlApgq2nMWe8WHZRFvoZ+s3RXpCaRMR
+	GEM3tfWubjP0grXvMeV8yqM250RkAbqA=
+X-Google-Smtp-Source: AGHT+IEGeV7RQBO68+P8sQxm2CQn5VI9n6G5dpD6w9QCbCBwUCCgh9IpBbAyyug/+b7rFd+0lHZpVseIsQyv1AFi5Lk=
+X-Received: by 2002:a2e:ae18:0:10b0:32f:22f8:a7a1 with SMTP id
+ 38308e7fff4ca-3308f61c682mr40110971fa.32.1753072762733; Sun, 20 Jul 2025
+ 21:39:22 -0700 (PDT)
 MIME-Version: 1.0
+References: <20250515142702.2592942-2-ardb+git@google.com> <20250515185254.GE1411@quark>
+ <20250718221645.GA295346@quark>
+In-Reply-To: <20250718221645.GA295346@quark>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Mon, 21 Jul 2025 14:39:05 +1000
+X-Gmail-Original-Message-ID: <CAMj1kXGp-643YkYko4V-L=nARY5OEMJPp+zQ+2tqzjj4MuyHQQ@mail.gmail.com>
+X-Gm-Features: Ac12FXwhjxTpeivRdfUvJzMe4UjTzvKkHRmLnAluAqeGcL4VFi4H-osOnzM-reQ
+Message-ID: <CAMj1kXGp-643YkYko4V-L=nARY5OEMJPp+zQ+2tqzjj4MuyHQQ@mail.gmail.com>
+Subject: Re: [PATCH] crypto: arm64 - Drop asm fallback macros for older binutils
+To: Eric Biggers <ebiggers@kernel.org>
+Cc: Ard Biesheuvel <ardb+git@google.com>, linux-crypto@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, herbert@gondor.apana.org.au
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250720_213220_250888_4C6DC11A 
-X-CRM114-Status: GOOD (  19.52  )
+X-CRM114-CacheID: sfid-20250720_213925_779552_5A6474F7 
+X-CRM114-Status: GOOD (  29.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,53 +83,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 2025-07-12 at 21:26 +0200, Linus Walleij wrote:
-> Hi Hakyeong,
->=20
-> thanks for your patch!
->=20
-> On Thu, Jul 10, 2025 at 2:20=E2=80=AFAM <ksk4725@coasia.com> wrote:
->=20
-> > Add basic support for the Axis ARTPEC-8 SoC.
-> > This SoC contains four Cortex-A53 CPUs and other several IPs.
-> >=20
-> > Patches 1 to 10 provide the support for the clock controller,
-> > which is similar to other Samsung SoCs.
-> >=20
-> > The remaining patches provide pinctrl support and
-> > initial device tree support.
-> >=20
-> > Hakyeong Kim (9):
-> > =C2=A0 dt-bindings: clock: Add ARTPEC-8 CMU bindings
-> > =C2=A0 clk: samsung: Add clock PLL support for ARTPEC-8 SoC
-> > =C2=A0 clk: samsung: artpec-8: Add initial clock support
-> > =C2=A0 clk: samsung: artpec-8: Add clock support for CMU_CMU block
-> > =C2=A0 clk: samsung: artpec-8: Add clock support for CMU_BUS block
-> > =C2=A0 clk: samsung: artpec-8: Add clock support for CMU_CORE block
-> > =C2=A0 clk: samsung: artpec-8: Add clock support for CMU_CPUCL block
-> > =C2=A0 clk: samsung: artpec-8: Add clock support for CMU_FSYS block
-> > =C2=A0 clk: samsung: artpec-8: Add clock support for CMU_PERI block
->=20
-> Out of the 9 patches there are 7 patches related to "CMU" without
-> any explanation or even expansion of this acronym.
->=20
-> Camera Management Unit? I think I'm not supposed to
-> guess. Is is an Axis-custom piece of hardware? (Would make
-> sense.)
->=20
-> Please expand this acronym and state clearly that (if this
-> is a correct assumption) that you are not supplying any
-> bindings and even less a driver for the "CMU" thing, just the
-> clocks. (That's fine the actual CMU can come later, but
-> it should be clear *what* it is.)
+On Sat, 19 Jul 2025 at 08:16, Eric Biggers <ebiggers@kernel.org> wrote:
+>
+> On Thu, May 15, 2025 at 11:52:54AM -0700, Eric Biggers wrote:
+> > On Thu, May 15, 2025 at 04:27:03PM +0200, Ard Biesheuvel wrote:
+> > > diff --git a/arch/arm64/crypto/sha512-ce-core.S b/arch/arm64/crypto/sha512-ce-core.S
+> > > index 91ef68b15fcc..deb2469ab631 100644
+> > > --- a/arch/arm64/crypto/sha512-ce-core.S
+> > > +++ b/arch/arm64/crypto/sha512-ce-core.S
+> > > @@ -12,26 +12,7 @@
+> > >  #include <linux/linkage.h>
+> > >  #include <asm/assembler.h>
+> > >
+> > > -   .irp            b,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19
+> > > -   .set            .Lq\b, \b
+> > > -   .set            .Lv\b\().2d, \b
+> > > -   .endr
+> > > -
+> > > -   .macro          sha512h, rd, rn, rm
+> > > -   .inst           0xce608000 | .L\rd | (.L\rn << 5) | (.L\rm << 16)
+> > > -   .endm
+> > > -
+> > > -   .macro          sha512h2, rd, rn, rm
+> > > -   .inst           0xce608400 | .L\rd | (.L\rn << 5) | (.L\rm << 16)
+> > > -   .endm
+> > > -
+> > > -   .macro          sha512su0, rd, rn
+> > > -   .inst           0xcec08000 | .L\rd | (.L\rn << 5)
+> > > -   .endm
+> > > -
+> > > -   .macro          sha512su1, rd, rn, rm
+> > > -   .inst           0xce608800 | .L\rd | (.L\rn << 5) | (.L\rm << 16)
+> > > -   .endm
+> > > +   .arch   armv8-a+sha3
+> >
+> > This looked like a mistake: SHA-512 is part of SHA-2, not SHA-3.  However, the
+> > current versions of binutils and clang do indeed put it under sha3.  There
+> > should be a comment that mentions this unfortunate quirk.
+> >
+> > However, there's also the following commit which went into binutils 2.43:
+> >
+> >     commit 0aac62aa3256719c37be9e0ce6af8b190f45c928
+> >     Author: Andrew Carlotti <andrew.carlotti@arm.com>
+> >     Date:   Fri Jan 19 13:01:40 2024 +0000
+> >
+> >         aarch64: move SHA512 instructions to +sha3
+> >
+> >         SHA512 instructions were added to the architecture at the same time as SHA3
+> >         instructions, but later than the SHA1 and SHA256 instructions.  Furthermore,
+> >         implementations must support either both or neither of the SHA512 and SHA3
+> >         instruction sets.  However, SHA512 instructions were originally (and
+> >         incorrectly) added to Binutils under the +sha2 flag.
+> >
+> >         This patch moves SHA512 instructions under the +sha3 flag, which matches the
+> >         architecture constraints and existing GCC and LLVM behaviour.
+> >
+> > So probably we need ".arch armv8-a+sha2+sha3" to support binutils 2.30 through
+> > 2.42, as well as clang and the latest version of binutils?  (I didn't test it
+> > yet, but it seems likely...)
+>
+> Actually "sha2" isn't required here, since "sha3" implies "sha2".
+>
+> The kernel test robot did report a build error on this series.  But it
+> was with SHA-3, because in binutils 2.40 and earlier the SHA-3
+> instructions required both "sha3" and "armv8.2-a",
 
-Ok, I will add CMU abbreviation on cover-letter and respective patches.
+... even though it is part of the ARMv8.1 architecture revision ...
 
-Thanks,
-Hakyeong Kim
+> not just "sha3" like
+> they do in clang and in binutils 2.41 and later.
+>
+> For now, I split the SHA-512 part into a separate patch
+> https://lore.kernel.org/r/20250718220706.475240-1-ebiggers@kernel.org
+>
 
->=20
-> Yours,
-> Linus Walleij
-
+That looks fine. I'll revisit the remaining ones at some point, but
+not a priority.
 
