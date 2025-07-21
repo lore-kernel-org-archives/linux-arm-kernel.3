@@ -4,109 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB817C83F25
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 18:58:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7212C83F26
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 18:58:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Flp2kuB43upoDmZKHtPKy1TYQrSu+LhhKaLm1sYr4pw=; b=p0o/uVj1ijnKeqhd1AJsTPvc5P
-	fOcbz54hoCl+pWc6DEcsmA/MuyssUObtC4vMc+pkYybSrRWs5RT5yinHhd6NeM23n70MDh/WELH/p
-	VCTAgOPMrDjf2SL1VLnJkcPmpbPkXysEpGMnvk0HBkVpNHkFjACvSG4jux/8OH9zWs0NcnkYmQXQ3
-	KxbylqVHMKsfenM3w9M5AkVD40iW0jSTrUegBTZ3d7cBIbjX3UQtgqAlCyeyJTlxs8O3DgHiHF10M
-	DRnzzLC3IuRUNH/fP0cgCF2DKJyrvpCEY2qXiU+VSGZ1AmTH9IUNLELxobr6FeLCfV9OIpyIfYdOf
-	v6ycL5ug==;
+	bh=ArCMIs8cHMmaU6eRMIXZBua41omBX5hUlQZNBFR+A9w=; b=IDN6irrsn3UKV+Ost0WUUJ0Fcn
+	3iYLf/95MiUEo3rQNQIEujnNF1TtTc7cOwsC/6Y129kz2bzQOOhN6KxX6/70qvjrAfk1giPHxU3xp
+	YMQ4A5+ZwiIzD3hCQ+ytaKJhXJVONrUw8MXi2ZY38tR12rdz8ygWJACnBMEetyp6z/+9FLHOE89M2
+	G2LlrMGeXvJO/K9esTytBcIsAuQbvXN8VB5Pi5qdbb9EzUHYzq7XQFGYhqBd12ZY9p0ZBSk8BlEj7
+	FNJ8l0d5QHuvblJ47QkG9BV28b9bJxdGyBXEd6rXfgPjPvz3uXhviCQr9X09AD/03Sdq94YiiNZU+
+	+F3pMzGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udvi1-00000000Rym-0kty;
-	Mon, 21 Jul 2025 18:57:57 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1udvi3-00000000S27-0m45;
+	Mon, 21 Jul 2025 18:57:59 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uduvL-00000000ONb-2cG2;
-	Mon, 21 Jul 2025 18:07:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=Flp2kuB43upoDmZKHtPKy1TYQrSu+LhhKaLm1sYr4pw=; b=hpMuDt6tNzxEwPRgtfGONTWb4S
-	v/zwcNmHbs9Zu6dLL6Rd4buWqAskclWXbTtEPRvuQhH8xksC00XELBz+BpsBSJemFTZEJaFmL7OwG
-	8MkuK8ndqEL5rR9uWMiv7S7rDr8zHNnr1+TQheCqOff3BZvMhOB7lwl+cTKbyuj6AAehPLwhInjii
-	9L/2Yapf3N2BK345cIQ6QCxSy0SVA8y/I0vWB1YYn06jJ/Sp5OAB+pnJJeEh9/K8sPvHpIpgulCTh
-	gvhakXzzz1CBvBwSM5UMP4Qv/V2o+z2vH6J35ainPG1xdAlqPE9ycqfFQ5UVOH8vANJX/urq6TF2h
-	5JBoP9YA==;
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uduvI-0000000B6tG-2lvM;
-	Mon, 21 Jul 2025 18:07:38 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-3a52874d593so3512197f8f.0;
-        Mon, 21 Jul 2025 11:07:36 -0700 (PDT)
+	id 1uduvU-00000000OOd-139p;
+	Mon, 21 Jul 2025 18:07:49 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-45610582d07so36502505e9.0;
+        Mon, 21 Jul 2025 11:07:47 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1753121255; x=1753726055; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Flp2kuB43upoDmZKHtPKy1TYQrSu+LhhKaLm1sYr4pw=;
-        b=Dlt7JLihMboQjfcL1MWrHGM3v1VF5A0jLXMIcW6UF9fPjeNIXM9AE3LqSV4MRnJKQw
-         MuYFBevnRthzpdvI453+FZkR5Q1h5SaIyCUfsw65TXEN2C7NcY2afKKwiHVHYyVK7BiX
-         N4YRPYavSONLaaiMT1BueSyY6DBZR5ZaE2uFi5tQmxagq92AiI+xa5n4SCacHZzvpETF
-         gYz41OGz3qlckmZ59/HPSfgO0jalBoyKkJFhS+M1nCKxDh4UrXp/6fK/GwO3kMoe/YFc
-         CxfR4tF85ILUXJ/bSuuNBJaCphV8FnNNI865wBIxOsAtH9clR9WA96CFAZHZtmQvlmDn
-         5UsA==
+        d=gmail.com; s=20230601; t=1753121266; x=1753726066; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=ArCMIs8cHMmaU6eRMIXZBua41omBX5hUlQZNBFR+A9w=;
+        b=ARjzpdUsp9Ur4PG6J5saKIl4T6gzL2tI/AAPLtemMxsYMjgUpAPf0ULiWj/bk8phck
+         vQzjEfs8dISX2GWlZP+0D1BBxvAf9RisttEcYLa75mKnbz2MW92YvQ2ksQ6XdH+orm6m
+         EK6EGDKo3Fhb6cOCZmeqJRYogEXX9xgyg8RjPmdpi1bnOSXZfjuMVMbTkTBVDCdH/CTO
+         Nw32yte5ZcLCkH4O/jVC1WZBF8EReXwFFWe0YLnCqedQk0c2K3EHPwwuN5ogmjAjCBdO
+         L+zGPfCli+T3KOhSRdgm63rY2CbdyUr3rWpSd+6EnASptDODigid0Bo2cRfe5oSgG5hU
+         BEyw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753121255; x=1753726055;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Flp2kuB43upoDmZKHtPKy1TYQrSu+LhhKaLm1sYr4pw=;
-        b=MMb2tKRT6wMFSiMDJ01V6HasahskYTf92LZjRplJ889lmU5rUeb+QeBM/PjdGP1H0x
-         bGc/b9M75rP9H2oXAoteW8VdPkYGPq2/T8BWQaZieASf9DXzFybsR95mbe9qZdR1UB7n
-         gBgFsQS+KqR4tV7hD47iGXSZh9VO/59hR8x338EsDcpy4QhQhOZOtHVg7P0IJwof7KHJ
-         xHGiJG4Jme7LB7T5Ax0bqoF+FjgavBL+xc/a8l05LbBn+d2TlfUJkf9R1fp5I/sQ+DoW
-         fbnSqBit+t0dtX8pEKLt4KE6ycTx/QJNraf69N5UsM8KUr5EA3zGS0pij6RchA6txr4Z
-         C9Gw==
-X-Forwarded-Encrypted: i=1; AJvYcCUS0dsWZMDBvK5Ccy8rk8GYO3w88B6pN8kyfJ0kkof8VIUJvu6aShvBwrtoYeUcYwkbP6r5yIYGLA49hHWNlJwZ@lists.infradead.org, AJvYcCVrlz1kxl38ZrfcS15mUYuXlkW4GR9cRJ61kF9jS42B0wx9eabQjwSJrtZ8h5qE/woo4jnvqc65ZivL5wmvCQk=@lists.infradead.org
-X-Gm-Message-State: AOJu0YxFAomp5P5tyKiLDczbb8EmhN4ybFFvxNHGFh8CezNMXpHNNvrQ
-	ErSYDoyqwJRc1KRYMZswLVi+qHd3bRS9PiykRDcVcl8OVI3S4UvxLHQE
-X-Gm-Gg: ASbGnctZHewZQUjswoGkGH2yuGOWDWEqcm0iaSJ5kRTCtHU9JDd8Nj3B9YZvn2dofWX
-	ibdPbFF7VxzgWIL0EFUNXQuYedO3RoyObUZG/IOO3J727paFahhPtodMrK50b2wI/E20gRuD8U7
-	Z0ml7L3oZQPW92eC7qZfFtkchoKxm4/Fvd1e7id57eUMKEDA/Va0JfOaJZD6mnG9hlcQo6GPT+T
-	zUVvBT/tbn6IKAZEctaTHophnhLkIrPRP0PKSF73KtWIx9mXRsUHR8vVC5Dwqw1/tztxVrIgOrv
-	BAXPxK2LZ/4bY6NHhc84wKNPFPUHX6Rtmbww+ExchozCxHOqxOH19H0PyBzEsSNjRcrvb7h8QvS
-	D6xbPX2ADpAdLOrDIwsJOBPE=
-X-Google-Smtp-Source: AGHT+IHMDl1HdTYdt7dKUNczFNSMkURtUfgoOq1Dch3s+qbqN05Wekq5XqXHAV+JIJaRsdTcIptzmA==
-X-Received: by 2002:a05:6000:26c9:b0:3b4:9dbd:eee9 with SMTP id ffacd0b85a97d-3b60e510026mr17022246f8f.36.1753121254931;
-        Mon, 21 Jul 2025 11:07:34 -0700 (PDT)
-Received: from Ansuel-XPS24 ([109.52.136.49])
-        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-3b61ca25443sm11183370f8f.9.2025.07.21.11.07.33
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 21 Jul 2025 11:07:34 -0700 (PDT)
-From: Christian Marangi <ansuelsmth@gmail.com>
-To: Stefan Roese <sr@denx.de>,
-	Andi Shyti <andi.shyti@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-i2c@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Cc: Christian Marangi <ansuelsmth@gmail.com>
-Subject: [PATCH v2 5/5] i2c: mt7621: make device reset optional
-Date: Mon, 21 Jul 2025 20:05:56 +0200
-Message-ID: <20250721180710.2116-6-ansuelsmth@gmail.com>
-X-Mailer: git-send-email 2.50.0
-In-Reply-To: <20250721180710.2116-1-ansuelsmth@gmail.com>
-References: <20250721180710.2116-1-ansuelsmth@gmail.com>
+        d=1e100.net; s=20230601; t=1753121266; x=1753726066;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=ArCMIs8cHMmaU6eRMIXZBua41omBX5hUlQZNBFR+A9w=;
+        b=BW/WHwr1axqPvjb3uc2HMvAqQ+PqiwvaFdvouqVot+fxkuGPfR0HetNU/NXGDJrm2E
+         EPcUZDvAzkEgfB0GCmt+AwLESKPWebPggmPMnkDKACnhn/+KGelIZLXrm2N+xoRjpt5y
+         rd2YwMjJmI7WoU38R4VWXEYWduuZUyXbe5ohaf9ObL+SgUwSGrwgsRE2l2hDMZQE+Kcb
+         7QHjIsfB9dIBxwvT+mLOUg/Hjf/bH/ZyZAFoXop6CQ7wmZHCXTyi4wrpr9yhpxZ6Kz01
+         3HtwMIuptwFK2Gr5E4ms+tWqugkm3y+6BCJGoKBMspnWcmms2jzUOh5YNFV0KXYJvM02
+         YOPg==
+X-Forwarded-Encrypted: i=1; AJvYcCWXNS3m3jNfbmQ+H/copCP1xdhM/jtYR5Ycr1f5yYNd0GbeMxY6Ft2kg1lEGdf9Q5iZJ/IWYkJnpeDPpsuyYck=@lists.infradead.org, AJvYcCWhu7zMTasZptfyiWoA1sY1PBMigFt3DDJ0pWDLmAyZbxe5GN+Tm6Ii4Pxl0ZFO7yk3mbyfwHSZ+QxIvqxX5BXa@lists.infradead.org
+X-Gm-Message-State: AOJu0YyI0aYJj6V8ZkGLqUhN8DVhgmP46qr4QGhcsU3pDcRZ19Ki++J+
+	j6NR01g+5QymN0A6nBSQtuzYpkFNctRkY5K3qfVSPTBVy5NeGh8wcPU=
+X-Gm-Gg: ASbGncvg4zgaJjB6Pxxn9HasAuQYu8qryckrIaZUgXoTAv7Pz/h2+/znJwSBDwnBDO+
+	mnqwGpMldOPXwqEmSGWrI5Dnb22mOfquLYOt1F3xUTNOdxnpaSJQxqmud61Zch4W64lCifcjNei
+	SDPQz/mIUr1sjAdovXXjkaJcPGHNY0fqGNqg3K4TU8eX7KHvawWgSv/G2iEl18tstPkvYSknBEp
+	GOU3d1GWoNotHFfC1c/1YvOi1gr88NmgnIDRGbKIV95M5k8wW0cWcIUqQQ+USVT3TkdyDbemT3V
+	aE0zP7RflQVMdiS3HhJ58g+NoT1zR9s3eeBiQot06YFdPDCXnJNQi4wPmEQx+D95jARn484LZhB
+	j2Py4TFg8U2McEVirB0/Sz+v1766dsxGqORyo4I29thn/h5UdSAizvMxRWUcjx+s=
+X-Google-Smtp-Source: AGHT+IGcDPzV6KQjobcMBQcBoKbIIcGU6ckQH+xCZ1tWbwJRYmX8A1xwQRCZIhBoNEVRk2XrDOitug==
+X-Received: by 2002:a05:6000:481a:b0:3a4:e2d8:75e2 with SMTP id ffacd0b85a97d-3b613eaae20mr11933859f8f.50.1753121266097;
+        Mon, 21 Jul 2025 11:07:46 -0700 (PDT)
+Received: from ?IPV6:2a02:810b:f13:8500:e3:9af7:6c0e:f2a1? ([2a02:810b:f13:8500:e3:9af7:6c0e:f2a1])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4562e886286sm171024705e9.26.2025.07.21.11.07.45
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 21 Jul 2025 11:07:45 -0700 (PDT)
+Message-ID: <6d93c92d-2bba-4247-960d-5f2e5e12b594@gmail.com>
+Date: Mon, 21 Jul 2025 20:07:44 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 0/6] arm64: dts: rockchip: Add ROCK 2A/2F, Sige1 and
+ NanoPi Zero2
+To: Chukun Pan <amadeus@jmu.edu.cn>
+Cc: devicetree@vger.kernel.org, heiko@sntech.de, jonas@kwiboo.se,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-rockchip@lists.infradead.org, ziyao@disroot.org
+References: <3c83e8cc-9ef0-4560-b6d7-127abab50541@gmail.com>
+ <20250721140016.308800-1-amadeus@jmu.edu.cn>
+Content-Language: en-US
+From: Alex Bee <knaerzche@gmail.com>
+In-Reply-To: <20250721140016.308800-1-amadeus@jmu.edu.cn>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250721_190736_929849_E3C29708 
-X-CRM114-Status: GOOD (  12.20  )
+X-CRM114-CacheID: sfid-20250721_110748_292496_0A0E22EC 
+X-CRM114-Status: GOOD (  17.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,28 +102,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Airoha SoC that makes use of the same Mediatek I2C driver/logic doesn't
-have reset line for I2C so use optional device_reset variant.
 
-Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
----
- drivers/i2c/busses/i2c-mt7621.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Am 21.07.25 um 16:00 schrieb Chukun Pan:
+> Hi,
+>
+>> I'm not sure where you are getting your information from, but as I told
+>> before I actually *own* this board in the non-development version and it
+>> has an RK3528 SoC/silkscreen - I just was too lazy to photograph it my own
+>> but I did now [0]
+> I have the MangoPi M28S, M28K and M28C boards.
+> The M28K board does have a silkscreen of RK3528A. [2]
+Nope.
 
-diff --git a/drivers/i2c/busses/i2c-mt7621.c b/drivers/i2c/busses/i2c-mt7621.c
-index b4dc1fb269a6..6e3848f163f0 100644
---- a/drivers/i2c/busses/i2c-mt7621.c
-+++ b/drivers/i2c/busses/i2c-mt7621.c
-@@ -91,7 +91,7 @@ static void mtk_i2c_reset(struct mtk_i2c *i2c)
- 	u32 reg;
- 	int ret;
- 
--	ret = device_reset(i2c->adap.dev.parent);
-+	ret = device_reset_optional(i2c->adap.dev.parent);
- 	if (ret)
- 		dev_err(i2c->dev, "I2C reset failed!\n");
- 
--- 
-2.50.0
+Are you really questioning my picture? Ridiculous ... see [0]
+> Regardless of whether the silkscreen is RK3528 or RK3528A,
+> U-Boot reports that the SoC on these boards is RK3528A. (via OTP [1])
+> So one possibility is that Rockchip forgot to update the silkscreen.
+>
+> Comparison chip block diagram:
+> 1. Earlier version: https://docs.armsom.org/img/sige/rk3528.png
+> 2. Final   version: https://docs.radxa.com/img/e/e20c/radxa-e20c-chip-diagram.webp
+>
+> The difference seems to be that RK3528 uses I2S while RK3528A uses SAI.
+> But from the updated diagram here [3], RK3528 also uses the SAI interface.
+>
+> Rockchip BSP does not make any distinction between RK3528 and RK3528A,
+> so it is meaningless to continue to worry about non-A versions.
+I'm sort of impressed on with which conviction you continue to claim plain
+wrong things: [1], [2], [3].
+I'm fine if upstream decides not to care. But it is and remains wrong to
+claim that the other version does not exist - otherwise I doubt Rockchip
+would have gone to the trouble of building the distinction into their SDK
+AND publishing different datasheets.
 
+[0] https://wikidevi.wi-cat.ru/MangoPi_M28K
+
+[1] https://github.com/HermanChen/mpp/blob/develop/osal/mpp_soc.c#L957-L982
+
+[2] 
+https://github.com/rockchip-linux/kernel/blob/develop-6.1/drivers/soc/rockchip/rockchip-cpuinfo.c#L212-L218
+
+[3] 
+https://github.com/rockchip-linux/u-boot/commit/89e1f532de7747d2e962644330666fb1b465926b
+
+> [1] https://github.com/u-boot/u-boot/blob/master/arch/arm/mach-rockchip/rk3528/rk3528.c#L131
+> [2] https://x.com/mangopi_sbc/status/1847851624804602316?t=5hwScxgwCAAid0eCJgrP5w&s=19
+> [3] https://x.com/mangopi_sbc/status/1785115827437760769?t=H5PXRDwbjOfBYa7QotjIZw&s=19
+>
+> --
+> 2.25.1
+>
 
