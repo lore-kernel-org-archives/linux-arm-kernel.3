@@ -4,81 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C72B1C83F25
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 17:54:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8331DC83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 17:56:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2fSI3cIv2IV1ql9qpP8K0ica/85tfrwCtH1iIhOev/8=; b=U/kfxwJcCnon76/H5bc2rMsgTI
-	hTOzVvBYa4LxOxqdXb0W576wZ9qxV7EJ8SXrAvv/IxBK73S7iXLCF6fCmla77bXT/anIRSGq4lKj4
-	h4JMctDYtNxPJv7K91w5S4xTrj4ljSlM9aluffAlfzc8OZSxXBejORxxKqzZx1hBg2Hlhrk5Lmx/M
-	vsSRSJ0/am4TbOSXKBGetHwC/6AnZbXJdzdmVj7pqwrLOf6DUpXw07UnP0qT31XACe2a8wONiK8rn
-	xnHYlm+R+80GwJDMLapv/v2pBu1nonuSRq343X2M+kesa2dywoE8ZI2478cYBCGB17FzfWxiwstWR
-	0IvGehhA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=umkMtB8sjDYEnz/338qyPVyoHYT4b8KQkn3SzMjMfP0=; b=3gz+68DD7015nw
+	422ZwhlEZhabsYPKkPspYn0r84vSSJkGkR1c6Sfcjq8Lz6LWun+xqaR/76/hKJreH8b7oSTpoFV3s
+	gqXgk8y2tFcOmBVR3tFzddKOSOqZZw3SqhiMqC7B1JdkRVbOKj/gZzNRXij48FHZjf8J8DALQ1TYt
+	kkUFGJv/F+AkixBQu+BmxqQybYZOTyq3xtsmGOvvttWnvNrH/qiQgnYM6a5FYP5u0qM6kZgOtojv0
+	W4FHschBnyLDjX+neL6xCk/CS3MbFB22KiAIqLFp42Yp0RMpa3Wn/0cOjPxaGYK7eqxiDUBsqpf27
+	mbI6RLktSVNUC7mpspCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uduiK-00000000Myz-3GzR;
-	Mon, 21 Jul 2025 17:54:12 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1udukm-00000000NN7-2i0O;
+	Mon, 21 Jul 2025 17:56:44 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uduPY-00000000KVq-09OQ
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Jul 2025 17:34:49 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 6A6BE5C6238;
-	Mon, 21 Jul 2025 17:34:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F2A63C4CEF4;
-	Mon, 21 Jul 2025 17:34:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753119287;
-	bh=V/CfjxoEsKYCsa9Ewp5zLHqhCdlau2qmxdYvbksj8K0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=M7diNgsZycI8nmdD1vqsLiLyvQW4lt3MSDPn42taIptUhJV3ffM3zqJMHttjZt3+u
-	 nf/A/8luOCJRRFowuIDDdn4zdPBS4hZCv7Dg36XjWDsep4ZWov6Bb0mfT6rRrAO2p1
-	 ThFPJkv20FUbw64XzqcdkXHnqHS5TxSD5Mhf+jWb88c4EqzT5eoeyCYQKn20KvcdjK
-	 uMJjuz95HD3IgiWDH/iJwmir+eEq8QOnIk0ipej8m2x9s58y6wZ75f4sM0HshkuRuz
-	 P4DzghlEEyXQXYqBOFFB3oGozWRnXFKZg7DKgBG69At9457gttbA237nC9+z8yjgHk
-	 MeAaOKAPZ9JxQ==
-Date: Mon, 21 Jul 2025 18:34:40 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: linux-spi@vger.kernel.org, Heiko Schocher <hs@denx.de>,
-	linux-kernel@vger.kernel.org,
-	Andrei Lalaev <andrey.lalaev@gmail.com>,
-	Chanh Nguyen <chanh@os.amperecomputing.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>,
-	Grant Peltier <grantpeltier93@gmail.com>,
-	Guenter Roeck <linux@roeck-us.net>,
-	Jonathan Cameron <Jonathan.Cameron@huawei.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Michal Simek <michal.simek@amd.com>,
-	Naresh Solanki <naresh.solanki@9elements.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Rodrigo Gobbi <rodrigo.gobbi.7@gmail.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: Re: (subset) [PATCH v1 0/3] spidev: introduce trivial abb sensor
- device
-Message-ID: <2a99b64a-b6d4-46de-acb1-8a9328b7d5f6@sirena.org.uk>
-References: <20250719063355.73111-1-hs@denx.de>
- <175311337130.327079.7374455187420344577.b4-ty@kernel.org>
- <d677ecd9-42d6-43fe-8fe1-a5afd4d270e2@kernel.org>
+	id 1uduTt-00000000L3W-2vGa;
+	Mon, 21 Jul 2025 17:39:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1753119555;
+	bh=dHhguMwz0kEDLX+532xIurAbZ7MjjLHU4FQ7aKYTGBo=;
+	h=From:Subject:Date:To:Cc:From;
+	b=SD9ogbyTVBuGVxmj0D3pEiOix6OM6CMMYuZ/DKqtbCcf3DhtdB9HXtHn8m6I25c/p
+	 Df82h1emHCCkr6EunA5QOYhreHIblt0mnh8fArDFSWQxA709qUnBDlKVsFOQUmqZ+O
+	 qKvrGYNsjhJuU5hVy+ZCq2AHeDGAowVUn+PUbnZuGjldv3j8S6zsj/dcq5jyEaUw+z
+	 9qjjYqOMnW+UqRQ6oocPj8h90voAlH+EAo5GLqLJNxrLj7jA7GpepZFs1n52k/lFQD
+	 E9mGBSLjFLeacocCx07lculEWcHuUTrJ6N6UdJ732J8pviEO/ZwG94j5L8+/DdijYT
+	 iM/2tBI0b1zRg==
+Received: from localhost (unknown [82.79.138.60])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with UTF8SMTPSA id 799DF17E0FA8;
+	Mon, 21 Jul 2025 19:39:15 +0200 (CEST)
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Subject: [PATCH 0/5] High color depth support for RK3576/RK3588 HDMI output
+Date: Mon, 21 Jul 2025 20:39:03 +0300
+Message-Id: <20250721-rk3588-10bpc-v1-0-e95a4abcf482@collabora.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="WCNX58Rd1dpGFNKG"
-Content-Disposition: inline
-In-Reply-To: <d677ecd9-42d6-43fe-8fe1-a5afd4d270e2@kernel.org>
-X-Cookie: Microwaves frizz your heir.
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIADh7fmgC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDI1MDcyND3aJsY1MLC11Dg6SCZF0L07Q0k2QjI4tUM2MloJaCotS0zAqwcdG
+ xtbUAwIc+hl4AAAA=
+X-Change-ID: 20250721-rk3588-10bpc-85ff4c228e63
+To: Sandy Huang <hjc@rock-chips.com>, 
+ =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
+ Andy Yan <andy.yan@rock-chips.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>
+Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-kernel@vger.kernel.org
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250721_103448_112999_27CE6138 
-X-CRM114-Status: GOOD (  11.15  )
+X-CRM114-CacheID: sfid-20250721_103917_897066_21F00E95 
+X-CRM114-Status: UNSURE (   6.96  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,39 +86,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Since both Rockchip RK3576 and RK3588 SoCs are capable of handling 10
+bpc color depth HDMI output and we've already landed the required HDPTX
+PHY driver changes to support the setup, let's add the missing bits and
+pieces to VOP2, DW HDMI QP encoder and bridge library.
 
---WCNX58Rd1dpGFNKG
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+---
+Cristian Ciocaltea (5):
+      drm/rockchip: vop2: Add high color depth support
+      drm/bridge: dw-hdmi-qp: Handle platform supported formats and color depth
+      drm/rockchip: dw_hdmi_qp: Switch to phy_configure()
+      drm/rockchip: dw_hdmi_qp: Use bit macros for RK3576 regs
+      drm/rockchip: dw_hdmi_qp: Add high color depth support
 
-On Mon, Jul 21, 2025 at 06:24:55PM +0200, Krzysztof Kozlowski wrote:
-> On 21/07/2025 17:56, Mark Brown wrote:
+ drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c   |  11 ++-
+ drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c | 113 ++++++++++++++++++-------
+ drivers/gpu/drm/rockchip/rockchip_drm_vop2.c   |   3 +
+ include/drm/bridge/dw_hdmi_qp.h                |   4 +
+ 4 files changed, 97 insertions(+), 34 deletions(-)
+---
+base-commit: 97987520025658f30bb787a99ffbd9bbff9ffc9d
+change-id: 20250721-rk3588-10bpc-85ff4c228e63
 
-> > [1/3] dt-bindings: trivial-devices: Document ABB sensors
-> >       commit: aad2f87cbcab56b322109d26d7b11842a09df91f
-> > [2/3] spi: spidev: Add an entry for the ABB spi sensors
-> >       commit: d60f7cab7c04944a79af16caa43c141e780a59c6
-
-> That's unexpected, Mark. Patches received two objections/comments and I
-> don't think discussion was resolved.
-
-Oh, sorry - I'd missed those (possibly due to only being CCed on part of
-the series).  I guess I'll drop this then.
-
---WCNX58Rd1dpGFNKG
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmh+ei8ACgkQJNaLcl1U
-h9Ce3wf7Bhl+JzqbBICKswFFhvnGdkCuL1QR2PvMdJB/QjSKKq/6JpkPEt53OxqO
-tBQJYCf6QNpcc+HJqlVumz4r4cwpyp8SXuwmwaxihthqVYRcCyiLA1d/RHFIJ9n9
-CyAl/gGjzncNxEIe3trDjSvAzTjGadbAaqmLN54jvS0KPnWfK2S9lzr7r9mkRfqr
-m6iikZoind5xRzssX5XFuiCmMxI3wY9StJ4LocjQB2GPD/aWOtNnIQFBUFiaAE4u
-376S1CX9/m5tthTqMtLfHRICcz4nAFULDsfYmBPq638I5ZguqDiXhz0JoioTP+ka
-SiTSXqIh1a/YSdVXjWkgt6fEzQV0Hw==
-=Xbls
------END PGP SIGNATURE-----
-
---WCNX58Rd1dpGFNKG--
 
