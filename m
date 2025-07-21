@@ -4,62 +4,141 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA25CC83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 11:44:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEFDEC83F25
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 11:47:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8oFHz0n1GyV55V/4S4KYjPImNsph9AVWzsk+xOlZFLI=; b=BxPYA/zP35Yacq/etptUwJFLhs
-	uma9tGb14PuE7GXrgHcwIlQ/Jn5tmnoaSpcVv+J7M/XIlXcwNomK1G3W3UPdGptiixo/CONWfb/NR
-	DQ3Ax6UYVpCEZf66FywnpvKDRt+8M+nfnMGgbPhJ4CDAt/xbd09PwUhsC4tJqdPAsLdILmfeHc8kh
-	VnX3+iTWYMuxUB8I7KWBHLPpDURENcKVLG95x8iF3C4/e54IVzj64YHKCKfkgst49+O/r/8Z66wtw
-	uxpT+vgxdpsFcVfzsdPHaJiL/WhmQJ/v6QQjfpS7leMeNdBBF9+57S8RyDl9TXITJX8rpo5ig1nAZ
-	wBcd/r/Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZesZJAirQ8C1ohHkcmwk/SZqiKf5CT9QYrZbudr96z0=; b=emGMcGSGJXSAqBRuM3aZBZ/ul2
+	hG9HVarc8f7NZdeviwEXJaFKnTzQ6hIOkQEFrHohcb72YD/+p0kUYMGkrjUKVTptQlr0mH8NlMu9N
+	RU5xkqg0gKHZJMoMHKER0H2jb4YfZ+ebLUyiEAmAReec60KSjt6M5HKO+JqEnrKD5iOWBM0ggSQMJ
+	nDzwHk0/th4uR9W+pbeYfCCMk2QGCoXh+Ya8A+IiAbeKMvx9ALNZfcZiOC/P3SxMM99lR4OrxN7a4
+	VDjCT4BNIXYus6lURohhAvLLB5J/6TjKcJHGgJx/w1XohvRPASq1J7FSXjppL9VyRe8EvYipReLxg
+	zHQPu27A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udowU-0000000HAaV-2Y0b;
-	Mon, 21 Jul 2025 11:44:26 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1udoz6-0000000HB9V-2j3u;
+	Mon, 21 Jul 2025 11:47:08 +0000
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udoJP-0000000H24A-3i6P
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Jul 2025 11:04:05 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id BC2C8451E6;
-	Mon, 21 Jul 2025 11:04:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1423EC4CEED;
-	Mon, 21 Jul 2025 11:04:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753095842;
-	bh=EcW+PuwhhXhVoa+pRSceK3tuWnx91zSNXUwkaiOBF8c=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=u9dOftA3ryJYz+Ay2nJJO8r8Hjj/RBFk0OgmQdtlf1ef3l6DokAE5VHSbTQQBdGeX
-	 Qs420DHiuJsJdHGxj2+MO60aUY+0fPelpG7Zs6f4LQHL/+GScWKMwlUZNa6ARyTbTn
-	 0l7Lac6JhTYbLZDtPLQ05t/ebureu9JR/BoCoG39DPhfOiFsmDFIGNAswmIRQ1H22R
-	 nw397Iu/AyML2rPT6zYqAA1lc6HIqW3xlP7RXKuAMNms2X7fGJWJ6zdBx0opk0qbRr
-	 WObsBeaqSg0ThVBTem2M+P4/ZK7jaRP/oG6qtjYG2wq6q4Rrgz6ook2haBB4v3DwKY
-	 AvAGuqkAACxoA==
-Date: Mon, 21 Jul 2025 13:03:59 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-To: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
-Cc: Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	linux-pwm@vger.kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] pwm: imx-tpm: reset counter if CMOD is 0
-Message-ID: <7wsbi7pcwa2otxqkon3zfat7faprhr3l7wc35fkzctmm3cv67m@ph6w7hzwt322>
-References: <20250714123634.6442-1-laurentiumihalcea111@gmail.com>
+	id 1udoNo-0000000H2SZ-3Doj;
+	Mon, 21 Jul 2025 11:08:38 +0000
+Received: from pps.filterd (m0241204.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56LAiMm0014072;
+	Mon, 21 Jul 2025 13:07:23 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	ZesZJAirQ8C1ohHkcmwk/SZqiKf5CT9QYrZbudr96z0=; b=CzmeFdsk3HJI57lf
+	VLKGmGmQh3HC0LKkNuWaKOM3l+4NgchhLNiXV1T8nRre05AknyQJpS7M5wJO9wOm
+	XuV1k2bu1IAf90lIDHIllg989ZrLgbM//VIbAEB3C8CVmGZ1d6PXtQjK8WQyEY5m
+	LsrRFkiefZARVmwg9N/2WMFwuMBkMOQvNN6UGxBgdturUrOqlLPFtM6UfXoFVwgj
+	D8f/bAv0oktn4xffXnsWJJg0khrsCm0nR7tb6Z23OBIbk8dOgTKidpDU07lpa67O
+	4a4ELDPBB/W8hNiDKbVLlz6q5YiYEroFt4A8MU30eFbNqlv4XdWBb0licHEpeeyU
+	4p57+A==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 4802q20j57-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 21 Jul 2025 13:07:23 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 3D3E1400A9;
+	Mon, 21 Jul 2025 13:04:18 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 26B8B7A321F;
+	Mon, 21 Jul 2025 13:03:59 +0200 (CEST)
+Received: from [10.130.78.67] (10.130.78.67) by SHFDAG1NODE1.st.com
+ (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 21 Jul
+ 2025 13:03:57 +0200
+Message-ID: <fa07f01b-1e06-48c1-b380-c41a52f741bc@foss.st.com>
+Date: Mon, 21 Jul 2025 13:03:57 +0200
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="umamwlivydbce7bu"
-Content-Disposition: inline
-In-Reply-To: <20250714123634.6442-1-laurentiumihalcea111@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/1] media: Remove redundant
+ pm_runtime_mark_last_busy() calls
+To: Sakari Ailus <sakari.ailus@linux.intel.com>,
+        Tommaso Merciai
+	<tomm.merciai@gmail.com>,
+        Martin Hecht <mhecht73@gmail.com>,
+        Mauro Carvalho
+ Chehab <mchehab@kernel.org>,
+        Sebastian Reichel <sre@kernel.org>,
+        Alain Volmat
+	<alain.volmat@foss.st.com>,
+        Dave Stevenson <dave.stevenson@raspberrypi.com>,
+        Kieran Bingham <kieran.bingham@ideasonboard.com>,
+        Umang Jain
+	<umang.jain@ideasonboard.com>,
+        Manivannan Sadhasivam <mani@kernel.org>,
+        Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+        Michael Riesch
+	<michael.riesch@collabora.com>,
+        Mikhail Rudenko <mike.rudenko@gmail.com>,
+        Steve Longerbeam <slongerbeam@gmail.com>,
+        Jacopo Mondi
+	<jacopo.mondi@ideasonboard.com>,
+        Nicholas Roth <nicholas@rothemail.net>,
+        Sylvain Petinot <sylvain.petinot@foss.st.com>,
+        Paul Elder
+	<paul.elder@ideasonboard.com>,
+        Matt Ranostay <matt@ranostay.sg>,
+        Nas Chung
+	<nas.chung@chipsnmedia.com>,
+        Jackson Lee <jackson.lee@chipsnmedia.com>,
+        Dmitry Osipenko <digetx@gmail.com>,
+        Thierry Reding
+	<thierry.reding@gmail.com>,
+        Jonathan Hunter <jonathanh@nvidia.com>,
+        Vikash
+ Garodia <quic_vgarodia@quicinc.com>,
+        Dikshita Agarwal
+	<quic_dikshita@quicinc.com>,
+        Abhinav Kumar <abhinav.kumar@linux.dev>,
+        Bryan
+ O'Donoghue <bryan.odonoghue@linaro.org>,
+        Raspberry Pi Kernel Maintenance
+	<kernel-list@raspberrypi.com>,
+        Florian Fainelli
+	<florian.fainelli@broadcom.com>,
+        Broadcom internal kernel review list
+	<bcm-kernel-feedback-list@broadcom.com>,
+        Nicolas Dufresne
+	<nicolas.dufresne@collabora.com>,
+        Benjamin Gaignard
+	<benjamin.gaignard@collabora.com>,
+        Philipp Zabel <p.zabel@pengutronix.de>, Sean Young <sean@mess.org>,
+        Hans Verkuil <hverkuil@xs4all.nl>,
+        Matthias Fend
+	<matthias.fend@emfend.at>,
+        Marco Felsch <m.felsch@pengutronix.de>,
+        Tomi
+ Valkeinen <tomi.valkeinen@ideasonboard.com>,
+        Ricardo Ribalda
+	<ribalda@chromium.org>
+CC: <linux-media@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-tegra@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
+        <linux-rpi-kernel@lists.infradead.org>,
+        <linux-arm-kernel@lists.infradead.org>,
+        <linux-rockchip@lists.infradead.org>
+References: <20250709195348.973873-1-sakari.ailus@linux.intel.com>
+Content-Language: en-US
+From: Benjamin Mugnier <benjamin.mugnier@foss.st.com>
+In-Reply-To: <20250709195348.973873-1-sakari.ailus@linux.intel.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.130.78.67]
+X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE1.st.com
+ (10.75.129.69)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-07-21_03,2025-07-21_01,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250721_040403_965398_3478A5F9 
-X-CRM114-Status: GOOD (  28.15  )
+X-CRM114-CacheID: sfid-20250721_040837_091787_E0FEC522 
+X-CRM114-Status: UNSURE (   9.34  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,113 +153,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Sakari,
 
---umamwlivydbce7bu
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v2] pwm: imx-tpm: reset counter if CMOD is 0
-MIME-Version: 1.0
-
-Hello Laurentiu,
-
-On Mon, Jul 14, 2025 at 08:36:34AM -0400, Laurentiu Mihalcea wrote:
-> From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
->=20
-> As per the i.MX93 TRM, section 67.3.2.1 "MOD register update", the value
-> of the TPM counter does NOT get updated when writing MOD.MOD unless
-> SC.CMOD !=3D 0. Therefore, with the current code, assuming the following
-> sequence:
->=20
-> 	1) pwm_disable()
-> 	2) pwm_apply_might_sleep() /* period is changed here */
-> 	3) pwm_enable()
->=20
-> and assuming only one channel is active, if CNT.COUNT is higher than the
-> MOD.MOD value written during the pwm_apply_might_sleep() call then, when
-> re-enabling the PWM during pwm_enable(), the counter will end up resetting
-> after UINT32_MAX - CNT.COUNT + MOD.MOD cycles instead of MOD.MOD cycles as
-> normally expected.
->=20
-> Fix this problem by forcing a reset of the TPM counter before MOD.MOD is
-> written.
->=20
-> Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
-
-This needs backporting to stable, right? So we need a reference to the
-commit that introduced the problem. I guess that's 738a1cfec2ed ("pwm:
-Add i.MX TPM PWM driver support")? (Please add a matching Fixes: line in
-your v3.)
-
+On 7/9/25 21:53, Sakari Ailus wrote:
+> pm_runtime_put_autosuspend(), pm_runtime_put_sync_autosuspend(),
+> pm_runtime_autosuspend() and pm_request_autosuspend() now include a call
+> to pm_runtime_mark_last_busy(). Remove the now-reduntant explicit call to
+> pm_runtime_mark_last_busy().
+> 
+> Signed-off-by: Sakari Ailus <sakari.ailus@linux.intel.com>
+> Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+> Acked-by: Thierry Reding <treding@nvidia.com> (tegra-vde/h264.c)
+> Acked-by: Tommaso Merciai <tommaso.merciai.xr@bp.renesas.com> (alvium-csi2.c)
+> Reviewed-by: Dikshita Agarwal <quic_dikshita@quicinc.com> (iris_hfi_queue.c)
+> Reviewed-by: Sean Young <sean@mess.org>
+> Acked-by: Dave Stevenson <dave.stevenson@raspberrypi.com> (imx219.c)
 > ---
-> Changes in v2:
->   - dropped the "VERY IMPORTANT" bit as per Uwe's suggestion.
->   - Link to v1: https://lore.kernel.org/lkml/20250701220147.1007786-1-lau=
-rentiumihalcea111@gmail.com/
->=20
->  drivers/pwm/pwm-imx-tpm.c | 13 +++++++++++++
->  1 file changed, 13 insertions(+)
->=20
-> diff --git a/drivers/pwm/pwm-imx-tpm.c b/drivers/pwm/pwm-imx-tpm.c
-> index 7ee7b65b9b90..b15c22796ba9 100644
-> --- a/drivers/pwm/pwm-imx-tpm.c
-> +++ b/drivers/pwm/pwm-imx-tpm.c
-> @@ -204,6 +204,19 @@ static int pwm_imx_tpm_apply_hw(struct pwm_chip *chi=
-p,
->  		val |=3D FIELD_PREP(PWM_IMX_TPM_SC_PS, p->prescale);
->  		writel(val, tpm->base + PWM_IMX_TPM_SC);
-> =20
-> +		/*
-> +		 * if CMOD is set to 0 then writing MOD will NOT reset the
-> +		 * value of the TPM counter.
-> +		 *
-> +		 * Therefore, if CNT.COUNT > MOD.MOD, the counter will reset
-> +		 * after UINT32_MAX - CNT.COUNT + MOD.MOD cycles, which is
-> +		 * incorrect.
-> +		 *
-> +		 * To avoid this, we need to force a reset of the
-> +		 * counter before writing the new MOD value.
-> +		 */
+> since v1:
+> 
+> - Remove now-redundant braces from ccs-core.c, ov64a40.c and gpio-ir-recv.c.
+> 
+> v1 is <20250704075431.3220262-1-sakari.ailus@linux.intel.com> on LMML.
+> 
 
-I asked in reply to v1 about these register semantics. The idea was not
-that you explain them by mail, but improve the comment accordingly that
-someone reading the driver doesn't need to consult the reference manual
-to understand it.
+[...]
 
-So maybe something like:
+>  drivers/media/i2c/st-mipid02.c                           | 2 --
 
-	/*
-	 * If the counter is disabled (CMOD =3D=3D 0), programming the new
-	 * period length (MOD) doesn't reset the counter (CNT). If
-	 * CNT.COUNT happens to be bigger than the new MOD value it will
-	 * reset way to late. So reset it manually to zero.
-	 */
+[...]
 
-?
+>  drivers/media/i2c/vd55g1.c                               | 4 ----
+>  drivers/media/i2c/vd56g3.c                               | 4 ----
 
-> +		if (!cmod)
-> +			writel(0x0, tpm->base + PWM_IMX_TPM_CNT);
->  		/*
->  		 * set period count:
->  		 * if the PWM is disabled (CMOD[1:0] =3D 2b00), then MOD register
+[...]
 
-Best regards
-Uwe
+Acked-by: Benjamin Mugnier <benjamin.mugnier@foss.st.com>
 
---umamwlivydbce7bu
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmh+HpwACgkQj4D7WH0S
-/k4BGwf+P6kPo7r1ntY/Esoxxhlamfit/RB+dpcIWq3XtsaG5FJjB9BtFHeBQUs3
-MgzKcSUT04Ka4PRhM0pFJnJtOTZ2YA5l8tsjM1CHLQXHuYW9x335vbkzjnn3PcBj
-thDW2pGSiSioUrY9HHo+JwHeqPSRQaZMNvBroQvxsJyVZd8Cd1lmA1S6+hTDsM6l
-ZRqetIHUwQFlFZtAu4DF+J5ApamyNkwmrKFskNX32yKkhcJjYbhgx0H4Ei4ZdbQy
-VRdBztPhA+4N+7v3rmUVmnj9NRzjd5yuoMPDdNjVEmuuI2n4q3iPYPK2Xkx1xqQa
-U9Lw9/bDBBnrfC4N79YWPy4WQ+3HCw==
-=yx+y
------END PGP SIGNATURE-----
-
---umamwlivydbce7bu--
+-- 
+Regards,
+Benjamin
 
