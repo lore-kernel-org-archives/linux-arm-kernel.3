@@ -4,60 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44671C87FC5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 09:30:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AEA6C87FC5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 09:32:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:
+	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7/9FiwEZe5oOU+sII/uasrQfhr+oCoSDXvJiEByqRN4=; b=B+Zjo9cIfKMMXyqdsl0PkojfSf
-	hNCnPgtcASQpt8Yul36YMgVF2UIz2TEfDgpDd2TIqFPjHH1bRJyoIarWy6vjRbZ3h2H0RJg3vAgy0
-	EYeBnoKkYwjfTy/pVCZJqeDDpXUkYGfZ1D6R2tkWNhBcnUAO/hThSi6niqX340NM4M8AUSjYky6lk
-	4KaaznhLd2/sqmf25yeNt0s5wJXOXlaceuLwHt49MaF++xVgzHScM1uUjhS6Qf95HWQsL7+PQ+c/u
-	CE2/8kC3dLh1+6ui6rQkmcvslcgbdJni98/flG+UDCmkv+4ZlZ+q8IHzWiNkrrKR/ayc9z5PVvsLu
-	R5qKb2KA==;
+	bh=L0fClDVkYwW5hRsu6g/EtGYpZi+CTZWAkLNpxX3G14c=; b=C1TarcKlD4n0EvRZhs8qgvemCv
+	c8shNJDbpOkVcJpO+WnvKvfcmx26etDqNdySCIjykYVdKgrj7ULQUIy6a9y9hS19Wc8NZCVwm2ywJ
+	Q5kdxl7ku8i12k6LI0umKCV3U+jot8N8KOGbAiPJqmmpjSPDrjneAHg5JmQKJ9JdaufDbG8gxV2DP
+	1Bk3R9Snn72TE2nbCYuTLp0nja/Uvb097y+bd8OGLlI5t0oarBLWcRT82lsEQqA09k0Za/4/C/s9k
+	o+FGVqOdut+INNINiO8I2ScPrfu35JROG/4pFAO9SPrnHgT1BQmNABYJAheYN9z0ZmWlotVjRWQIP
+	1SK2erPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udmqi-0000000GoVJ-17Kg;
-	Mon, 21 Jul 2025 09:30:20 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udm0t-0000000GgJJ-2XZ3
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Jul 2025 08:36:48 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4B49D153B;
-	Mon, 21 Jul 2025 01:36:41 -0700 (PDT)
-Received: from e129823.cambridge.arm.com (e129823.arm.com [10.1.197.6])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 544283F66E;
-	Mon, 21 Jul 2025 01:36:45 -0700 (PDT)
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: catalin.marinas@arm.com,
-	will@kernel.org,
-	broonie@kernel.org,
-	oliver.upton@linux.dev,
-	ardb@kernel.org,
-	frederic@kernel.org,
-	james.morse@arm.com,
-	joey.gouly@arm.com,
-	scott@os.amperecomputing.com,
-	maz@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Yeoreum Yun <yeoreum.yun@arm.com>
-Subject: [PATCH v4 7/7] arm64/futex: support futex with FEAT_LSUI
-Date: Mon, 21 Jul 2025 09:36:18 +0100
-Message-Id: <20250721083618.2743569-8-yeoreum.yun@arm.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250721083618.2743569-1-yeoreum.yun@arm.com>
-References: <20250721083618.2743569-1-yeoreum.yun@arm.com>
+	id 1udmt4-0000000Gop0-4AL7;
+	Mon, 21 Jul 2025 09:32:46 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1udmAJ-0000000Ghu6-1IG2;
+	Mon, 21 Jul 2025 08:46:33 +0000
+Received: from ideasonboard.com (unknown [IPv6:2a00:6020:448c:6c00:c17b:e5e2:6e10:a471])
+	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 148A67928;
+	Mon, 21 Jul 2025 10:45:50 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1753087550;
+	bh=31IBqqE1Ag+vgKp9PT7MGd+rJ3pmoTBb2Ubw46Y8TBI=;
+	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
+	b=G7rf+ZOicJ8LO6QLyDLra9qXAyetCExNk5XfhboXnO6Wux8h5cwM71UCClYkZhJ9A
+	 J1cnNr2zLf+4okgSrH6E7joOjieoZ0QXrlVRXamL+M/ZBSov0qTazvBamyszxGbFSc
+	 q3Kj7E6DT48Abz2Nq6M21t4o6ymC7+zbmgYTtKi4=
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <m38qknx939.fsf@t19.piap.pl>
+References: <m3h5zbxkc6.fsf@t19.piap.pl> <m38qknx939.fsf@t19.piap.pl>
+Subject: Re: FYI: i.MX8MP ISP (RKISP1) MI registers corruption
+From: Stefan Klug <stefan.klug@ideasonboard.com>
+Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>, Heiko Stuebner <heiko@sntech.de>, Paul Elder <paul.elder@ideasonboard.com>, Jacopo Mondi <jacopo.mondi@ideasonboard.com>, Ondrej Jirman <megi@xff.cz>, linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+To: Dafna Hirschfeld <dafna@fastmail.com>, Krzysztof =?utf-8?q?Ha=C5=82asa?= <khalasa@piap.pl>
+Date: Mon, 21 Jul 2025 10:46:23 +0200
+Message-ID: <175308758352.3134829.9472501038683860006@localhost>
+User-Agent: alot/0.12.dev8+g2c003385c862.d20250602
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250721_013647_717993_BFA0F216 
-X-CRM114-Status: GOOD (  12.35  )
+X-CRM114-CacheID: sfid-20250721_014631_776632_0858F564 
+X-CRM114-Status: GOOD (  18.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,167 +65,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since Armv9.6, FEAT_LSUI supplies load/store unprevileged instructions
-for kernel to access user memory without clearing PSTATE.PAN.
+Hi Krzysztof,
 
-This patch makes futex use futex_atomic operations implemented with these
-instruction when cpu supports FEAT_LSUI otherwise they work with
-ldxr/stlxr with clearing PSTATE.PAN bit.
+Thanks for your investigations. This is all quite worrisome to say the
+least.
 
-Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
----
- arch/arm64/include/asm/futex.h | 99 +++++++++++-----------------------
- 1 file changed, 31 insertions(+), 68 deletions(-)
+Quoting Krzysztof Ha=C5=82asa (2025-07-17 15:03:54)
+> > The "reference" (NXP) VVCam driver simply does the operations twice
+> > (i.e., reads twice with the first result discarded, and writes twice).
+> > This fixes the problem on most accesses, but the problems still persist.
+>=20
+> It appears the corruptions are quite frequent, though.
+> Using "ldp qXX, qYY, [x0]" (2 * 128-bit load pair) I get results like
+> this (each data row is a result of a single ldp):
+>=20
+> addr:  32E21400 32E21404 32E21408 32E2140C 32E21410 32E21414 32E21418 32E=
+2141C
+> -------------------------------------------------------------------------=
+-------
+> values 3D000007       20 3C300000   1FA400        0        0        0 3C3=
+80000 count 99993097
+> values        0       20 3C300000   1FA400        0        0        0 3C3=
+80000 count 5930
+> values    7E900       20 3C300000   1FA400        0        0        0 3C3=
+80000 count 338
+> values    FD200       20 3C300000   1FA400        0        0        0 3C3=
+80000 count 223
+> values 3C380000       20 3C300000   1FA400        0        0        0 3C3=
+80000 count 220
+> values       40       20 3C300000   1FA400        0        0        0 3C3=
+80000 count 192
+>=20
+> The valid value (in 0x32E21400 register) is 3D000007 only, the rest are
+> corruptions: ca. 6 errors per 100k reads. With other registers, 15 errors
+> per 100k reads etc.
+>=20
+> I also got this:
+> addr:  32E213F0 32E213F4 32E213F8 32E213FC 32E21400 32E21404 32E21408 32E=
+2140C
+> -------------------------------------------------------------------------=
+-------
+> values        0        0        0        0 3D000007       20 3C300000   1=
+FA400 count 98638773
+> values        0        0        0        0        0       20 3C300000   1=
+FA400 count 1330227
+> values        0        0        0        0       40       20 3C300000   1=
+FA400 count 3721
+> values        0        0        0        0 3C380000       20 3C300000   1=
+FA400 count 314
+> values        0        0        0        0    7E900       20 3C300000   1=
+FA400 count 572
+> values        0        0        0        0    FD200       20 3C300000   1=
+FA400 count 428
+> values        0        0        0        0    4C010       20 3C300000   1=
+FA400 count 25965
+>=20
+> which is ca. 14 errors per 1k reads, though maybe it's special -
+> non-MI/MI boundary (at 0x32E21400), reserved addresses (0x32E213Fx) etc.
+>=20
+> > The problems show themselves maybe in 5% or 10% of boots.
 
-diff --git a/arch/arm64/include/asm/futex.h b/arch/arm64/include/asm/futex.h
-index bc06691d2062..ed4586776655 100644
---- a/arch/arm64/include/asm/futex.h
-+++ b/arch/arm64/include/asm/futex.h
-@@ -9,71 +9,60 @@
- #include <linux/uaccess.h>
- 
- #include <asm/errno.h>
-+#include <asm/lsui.h>
- 
--#define FUTEX_MAX_LOOPS	128 /* What's the largest number you can think of? */
--
--#define __futex_atomic_op(insn, ret, oldval, uaddr, tmp, oparg)		\
--do {									\
--	unsigned int loops = FUTEX_MAX_LOOPS;				\
--									\
--	uaccess_enable_privileged();					\
--	asm volatile(							\
--"	prfm	pstl1strm, %2\n"					\
--"1:	ldxr	%w1, %2\n"						\
--	insn "\n"							\
--"2:	stlxr	%w0, %w3, %2\n"						\
--"	cbz	%w0, 3f\n"						\
--"	sub	%w4, %w4, %w0\n"					\
--"	cbnz	%w4, 1b\n"						\
--"	mov	%w0, %w6\n"						\
--"3:\n"									\
--"	dmb	ish\n"							\
--	_ASM_EXTABLE_UACCESS_ERR(1b, 3b, %w0)				\
--	_ASM_EXTABLE_UACCESS_ERR(2b, 3b, %w0)				\
--	: "=&r" (ret), "=&r" (oldval), "+Q" (*uaddr), "=&r" (tmp),	\
--	  "+r" (loops)							\
--	: "r" (oparg), "Ir" (-EAGAIN)					\
--	: "memory");							\
--	uaccess_disable_privileged();					\
--} while (0)
-+#define FUTEX_ATOMIC_OP(op)										\
-+static __always_inline int										\
-+__futex_atomic_##op(int oparg, u32 __user *uaddr, int *oval)	\
-+{									\
-+	return __lsui_ll_sc_u_body(futex_atomic_##op, oparg, uaddr, oval);					\
-+}
-+
-+FUTEX_ATOMIC_OP(add)
-+FUTEX_ATOMIC_OP(or)
-+FUTEX_ATOMIC_OP(and)
-+FUTEX_ATOMIC_OP(eor)
-+FUTEX_ATOMIC_OP(set)
-+
-+#undef FUTEX_ATOMIC_OP
-+
-+static __always_inline int
-+__futex_cmpxchg(u32 __user *uaddr, u32 oldval, u32 newval, u32 *oval)
-+{
-+	return __lsui_ll_sc_u_body(futex_cmpxchg, uaddr, oldval, newval, oval);
-+}
- 
- static inline int
- arch_futex_atomic_op_inuser(int op, int oparg, int *oval, u32 __user *_uaddr)
- {
--	int oldval = 0, ret, tmp;
--	u32 __user *uaddr = __uaccess_mask_ptr(_uaddr);
-+	int ret;
-+	u32 __user *uaddr;
- 
- 	if (!access_ok(_uaddr, sizeof(u32)))
- 		return -EFAULT;
- 
-+	uaddr = __uaccess_mask_ptr(_uaddr);
-+
- 	switch (op) {
- 	case FUTEX_OP_SET:
--		__futex_atomic_op("mov	%w3, %w5",
--				  ret, oldval, uaddr, tmp, oparg);
-+		ret = __futex_atomic_set(oparg, uaddr, oval);
- 		break;
- 	case FUTEX_OP_ADD:
--		__futex_atomic_op("add	%w3, %w1, %w5",
--				  ret, oldval, uaddr, tmp, oparg);
-+		ret = __futex_atomic_add(oparg, uaddr, oval);
- 		break;
- 	case FUTEX_OP_OR:
--		__futex_atomic_op("orr	%w3, %w1, %w5",
--				  ret, oldval, uaddr, tmp, oparg);
-+		ret = __futex_atomic_or(oparg, uaddr, oval);
- 		break;
- 	case FUTEX_OP_ANDN:
--		__futex_atomic_op("and	%w3, %w1, %w5",
--				  ret, oldval, uaddr, tmp, ~oparg);
-+		ret = __futex_atomic_and(~oparg, uaddr, oval);
- 		break;
- 	case FUTEX_OP_XOR:
--		__futex_atomic_op("eor	%w3, %w1, %w5",
--				  ret, oldval, uaddr, tmp, oparg);
-+		ret = __futex_atomic_eor(oparg, uaddr, oval);
- 		break;
- 	default:
- 		ret = -ENOSYS;
- 	}
- 
--	if (!ret)
--		*oval = oldval;
--
- 	return ret;
- }
- 
-@@ -81,40 +70,14 @@ static inline int
- futex_atomic_cmpxchg_inatomic(u32 *uval, u32 __user *_uaddr,
- 			      u32 oldval, u32 newval)
- {
--	int ret = 0;
--	unsigned int loops = FUTEX_MAX_LOOPS;
--	u32 val, tmp;
- 	u32 __user *uaddr;
- 
- 	if (!access_ok(_uaddr, sizeof(u32)))
- 		return -EFAULT;
- 
- 	uaddr = __uaccess_mask_ptr(_uaddr);
--	uaccess_enable_privileged();
--	asm volatile("// futex_atomic_cmpxchg_inatomic\n"
--"	prfm	pstl1strm, %2\n"
--"1:	ldxr	%w1, %2\n"
--"	sub	%w3, %w1, %w5\n"
--"	cbnz	%w3, 4f\n"
--"2:	stlxr	%w3, %w6, %2\n"
--"	cbz	%w3, 3f\n"
--"	sub	%w4, %w4, %w3\n"
--"	cbnz	%w4, 1b\n"
--"	mov	%w0, %w7\n"
--"3:\n"
--"	dmb	ish\n"
--"4:\n"
--	_ASM_EXTABLE_UACCESS_ERR(1b, 4b, %w0)
--	_ASM_EXTABLE_UACCESS_ERR(2b, 4b, %w0)
--	: "+r" (ret), "=&r" (val), "+Q" (*uaddr), "=&r" (tmp), "+r" (loops)
--	: "r" (oldval), "r" (newval), "Ir" (-EAGAIN)
--	: "memory");
--	uaccess_disable_privileged();
--
--	if (!ret)
--		*uval = val;
- 
--	return ret;
-+	return __futex_cmpxchg(uaddr, oldval, newval, uval);
- }
- 
- #endif /* __ASM_FUTEX_H */
--- 
-LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
+How do you detect if the current boot was a "faulty" one?
 
+>=20
+> Well, now it appears more like 20%: e.g. in 41 system runs (soft reboots
+> only, no power-downs), I got problems 8 times.
+>=20
+> Obviously I can post the tester source if anyone is interested.
+
+I'd like to have a look there. I'm doing a lot of work on the imx8mp at
+the moment. I didn't have too many issues other than the ones caused by
+myself. There were however a few start/stop issues that are still on my
+list for further investigations. But I didn't observe bigger memory
+corruptions. So I think this ties into my earlier question of how you
+observe that the device is in a bad state.
+
+I'm mostly using the debix boards right now, so I could test if I can
+replicate the behavior there.
+
+Can you also share the kernel you are using?
+
+Best regards,
+Stefan
+
+>=20
+>=20
+> Generally ISP MI register read accesses which can be corrupted are:
+> - first 32 bits read in a given transfer, and additionally
+> - every 32 bits on a 32-byte boundary (addresses 0x....00, ...20 etc.).
+>=20
+> This means, in practice, on i.MX8MP only, RKISP1_CIF_MI_CTRL and
+> RKISP1_CIF_MI_MP_CB_SIZE_INIT (with the workaround).
+>=20
+> What is this 32-byte boundary?
+>=20
+> Writing is a bigger problem, though.
+> --=20
+> Krzysztof "Chris" Ha=C5=82asa
+>=20
+> Sie=C4=87 Badawcza =C5=81ukasiewicz
+> Przemys=C5=82owy Instytut Automatyki i Pomiar=C3=B3w PIAP
+> Al. Jerozolimskie 202, 02-486 Warszawa
+>
 
