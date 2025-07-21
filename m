@@ -4,57 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12C1FC83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 13:00:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35ADDC83F25
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 13:02:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RpTvEEcDHDO7ac8oLcy7D/fHoGVLaBDoEyzGnJRc+2U=; b=HzGScHHAbgihP5RY+kMqpQ9/QY
-	IS+vge3wDQdaa1Hhk4oxXR3y6jXQAkEw2aIuuqoysjnUIsofkIg2KYSO2J6mToL4FRaiiMW7Y8azc
-	ncmCNqLqg+GacBxk+mq1736+/6UJXp9bez0EWxuZGD2+Rbb1JaZO7GkXvJ4xwbdjDnaPON+pbeY5h
-	LXIBcjvKTSzHUII5pqvQzoZv7gSKgzOw7jdPXH9fo5MWmxrJhbLNwNRb7yQxb1Jb2ilcRs3P31Eu1
-	75OANl+n63rD882i7drpEJ2hNYjDkCsGLoLOAwojrdFWcCZqXR4H71Niherq9L7A3Vm/uWW8BuZWs
-	4H1E9r+Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=QoQzhe6ekd1hJ/ZaGFBf7SuWNDyQBUmJcxHnIpw3sJo=; b=a5FP1LxWVs19tM
+	jX8oB1XKWEa/p4iLnh3AbvFWXY2ap5CVWQutbvhfFyuLMnxm3RSnR/iXzPliAUlAt4ZcxyyeXJOLK
+	DwJxUj+GGfYnub9NyFhNmUanVQTWogFeT96rD90/gLg/MZkhlU4BSBApZZJK2qcz0yZC1ZsW+gkwB
+	UVRATk9+TuxEEy4krD8RnA2Mj3H5u1LNbLas+8Y3jLvEzkrMFhnkSLGANpzqy6Kw4YU6hU15ZjF2C
+	6FFa1SxVZDka0TzYW9vAGRaqWaurR14BrucMcFH8ZchTST5T9/UdLWxkJbYhiuxGPY+KDZc4P46K7
+	+OFz8+nwa0axtVL0XhnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udq7c-0000000HJum-1JZ5;
-	Mon, 21 Jul 2025 13:00:00 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udoVc-0000000H3lw-245H
+	id 1udqA4-0000000HKD0-0mnm;
+	Mon, 21 Jul 2025 13:02:32 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1udoZW-0000000H4Uq-3OZk
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Jul 2025 11:16:41 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D0D41153B;
-	Mon, 21 Jul 2025 04:16:31 -0700 (PDT)
-Received: from [10.163.95.2] (unknown [10.163.95.2])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EE1F43F6A8;
-	Mon, 21 Jul 2025 04:16:33 -0700 (PDT)
-Message-ID: <6fecd7d0-a5a5-4973-94ce-c63a3dff6bc7@arm.com>
-Date: Mon, 21 Jul 2025 16:46:30 +0530
+	Mon, 21 Jul 2025 11:20:44 +0000
+Received: from pps.filterd (m0046661.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56LBF4uV010018;
+	Mon, 21 Jul 2025 13:20:20 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=selector1; bh=QoQzhe6ekd1hJ/ZaGFBf7S
+	uWNDyQBUmJcxHnIpw3sJo=; b=f+MNoPkA81GS0ddC+vRkWKScn7mJWfwYPUyRW7
+	XZJmRdGSwTMUE5uvYHglUdBFeVAhFVGXAbuILaIcG+hyScev0nWbGxGecVIx5RiI
+	8cLwbfUiotFU7Ps6qYpabzHGtkubsNLnVSYwX6OcrCfMtXF/8pjyxnfUlBx+OXZl
+	lH2u9kn+2/UE4tuo3ZDFUbPA/j6HQ1icM1WxzJ2twf2YHevb+IClmcIH9emng2cd
+	KyiS5scrri0zbfnGxmP9pRO0dTdirw86qHN6Ts/tgCE4nfG0oW64qcto+cK9YEaj
+	nv99cq/rqBYlMZcA/Dy/8lOR9a8jDiEI2CvVGPo5OFj9s+cg==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 48028g06fj-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 21 Jul 2025 13:20:20 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 829A34005A;
+	Mon, 21 Jul 2025 13:18:35 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 31CEA7A16C6;
+	Mon, 21 Jul 2025 13:17:46 +0200 (CEST)
+Received: from localhost (10.48.87.141) by SHFDAG1NODE1.st.com (10.75.129.69)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 21 Jul
+ 2025 13:17:45 +0200
+From: Gatien Chevallier <gatien.chevallier@foss.st.com>
+Subject: [PATCH net-next 0/4] net: add WoL from PHY support for
+ stm32mp135f-dk
+Date: Mon, 21 Jul 2025 13:14:42 +0200
+Message-ID: <20250721-wol-smsc-phy-v1-0-89d262812dba@foss.st.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH next] coresight: Fix a NULL vs IS_ERR() bug in probe
-To: Dan Carpenter <dan.carpenter@linaro.org>,
- Yuanfang Zhang <quic_yuanfang@quicinc.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
- Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Leo Yan <leo.yan@arm.com>, coresight@lists.linaro.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- kernel-janitors@vger.kernel.org
-References: <7bd9fae8-a15f-412a-8800-ce47acf0b5ce@sabinyo.mountain>
-Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <7bd9fae8-a15f-412a-8800-ce47acf0b5ce@sabinyo.mountain>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIACMhfmgC/x3MTQ5AMBBA4avIrE1SRTSuIhZ+pkxCSUeoiLtrL
+ L/Few8IeSaBOnnA08nCm4vI0gSGuXMTIY/RoJUuVaUzvLYFZZUB9/lGa/O+UKYwptQQk92T5fD
+ vGnB0oKNwQPu+H00czfVoAAAA
+X-Change-ID: 20250721-wol-smsc-phy-ff3b40848852
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+        "David S. Miller"
+	<davem@davemloft.net>,
+        Eric Dumazet <edumazet@google.com>, Jakub Kicinski
+	<kuba@kernel.org>,
+        Paolo Abeni <pabeni@redhat.com>, Rob Herring
+	<robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre
+ Torgue <alexandre.torgue@foss.st.com>,
+        Christophe Roullier
+	<christophe.roullier@foss.st.com>,
+        Andrew Lunn <andrew@lunn.ch>, Heiner
+ Kallweit <hkallweit1@gmail.com>,
+        Russell King <linux@armlinux.org.uk>, Simon
+ Horman <horms@kernel.org>,
+        Tristram Ha <Tristram.Ha@microchip.com>,
+        Florian
+ Fainelli <florian.fainelli@broadcom.com>
+CC: <netdev@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        Gatien Chevallier <gatien.chevallier@foss.st.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1625;
+ i=gatien.chevallier@foss.st.com; h=from:subject:message-id;
+ bh=tdvpUOKEzaCuWOlkS6WWclQSY25kc0lUfypoOsiSomo=;
+ b=owEB7QES/pANAwAKAar3Rq6G8cMoAcsmYgBofiHXy5WQo9qc1HiPHV335Rofl8r2vNOuoDj9F
+ zaycVnIc9SJAbMEAAEKAB0WIQRuDsu+jpEBc9gaoV2q90auhvHDKAUCaH4h1wAKCRCq90auhvHD
+ KEoyDACpQVS5/Izrchq3yuy2z2bCLfPWIGikxbq7ATHBiU+P9gSlnbZGyf7i6NVMoNzKpO5pMbM
+ MUfCKhHbWFK3hUTf03KEejPD9xFPir09Se0oxxSlWb1EvWth5tLq9ggZrKi+Qbyi6G4fBLYQyO2
+ UkBVYClMWPeH9oBQY+9XLH2oT27hKzOX/R1P5F53EmzylJdOj4VoX4IszXNHKsU/BHoNi2j2yuC
+ iXRKns9uhl2LzqG6MCxxRxf+IQ6cdxxwbVy9DOHFjzP3vRj+4/5yuTAOWTtt4zKzTwtwHEGU2+V
+ JjJQazacVp/t8PhugNingGDOQnl/FkA9A0QpCammNBF5UODs0ulrQOLvASf6AabV2bp4I4FXyaP
+ t+wESNtmNix3gC/DyrZL7CahvvXuynI5/3sBHgSuNr0jvq1ThWpVx96nj5Iu/rNLKaIo+B0Wc6f
+ keGvnelxrUzjdZzN/bfbRqta/U7m6mGiuPYp5AZxdUcHv/yks4EyQt6Bq9wuaUIN2U3OE=
+X-Developer-Key: i=gatien.chevallier@foss.st.com; a=openpgp;
+ fpr=6E0ECBBE8E910173D81AA15DAAF746AE86F1C328
+X-Originating-IP: [10.48.87.141]
+X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE1.st.com
+ (10.75.129.69)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-07-21_03,2025-07-21_01,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250721_041640_578581_89BCC422 
-X-CRM114-Status: GOOD (  13.81  )
+X-CRM114-CacheID: sfid-20250721_042043_113673_E97DEBF8 
+X-CRM114-Status: GOOD (  12.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,34 +129,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+A previous patchset in drivers/net/phy/smsc.c introduced the WoL
+from PHY capability of some PHYs. The Microchip LAN8742 PHY is
+present on the stm32mp135f-dk board and posesses this capability.
 
+Therefore, add the possibility to specify in the device tree that,
+for a MAC instance, we want to use the WoL from PHY capability
+instead of the MAC one.
 
-On 17/07/25 1:08 AM, Dan Carpenter wrote:
-> The devm_ioremap_resource() function returns error pointers on error.
-> It never returns NULL.  Update the error checking to match.
-> 
-> Fixes: 26e20622a8ae ("coresight: add coresight Trace Network On Chip driver")
-> Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
-> ---
->  drivers/hwtracing/coresight/coresight-tnoc.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/hwtracing/coresight/coresight-tnoc.c b/drivers/hwtracing/coresight/coresight-tnoc.c
-> index 0e4164707eea..d542df46ea39 100644
-> --- a/drivers/hwtracing/coresight/coresight-tnoc.c
-> +++ b/drivers/hwtracing/coresight/coresight-tnoc.c
-> @@ -183,8 +183,8 @@ static int trace_noc_probe(struct amba_device *adev, const struct amba_id *id)
->  	dev_set_drvdata(dev, drvdata);
->  
->  	drvdata->base = devm_ioremap_resource(dev, &adev->res);
-> -	if (!drvdata->base)
-> -		return -ENOMEM;
-> +	if (IS_ERR(drvdata->base))
-> +		return PTR_ERR(drvdata->base);
->  
->  	spin_lock_init(&drvdata->spinlock);
->  
+However, when testing multiple power sequences with magic packets,
+the first one succeeded but the following ones failed. This was
+caused by uncleared flags in a PHY register. Therefore, I added
+a patch to add suspend()/resume() callbacks that handle these.
+These callbacks are only implemented for the Microchip LAN8742 as I
+have no way of testing it for other WoL capable PHYs.
 
-Do we still have more similar instances in coresight ?
+Signed-off-by: Gatien Chevallier <gatien.chevallier@foss.st.com>
+---
+Gatien Chevallier (4):
+      dt-bindings: net: document st,phy-wol property
+      net: stmmac: stm32: add WoL from PHY support
+      net: phy: smsc: fix and improve WoL support
+      arm: dts: st: activate ETH1 WoL from PHY on stm32mp135f-dk
+
+ .../devicetree/bindings/net/stm32-dwmac.yaml       |  6 ++++
+ arch/arm/boot/dts/st/stm32mp135f-dk.dts            |  1 +
+ drivers/net/ethernet/stmicro/stmmac/dwmac-stm32.c  |  5 +++
+ drivers/net/phy/smsc.c                             | 42 +++++++++++++++++++---
+ include/linux/smscphy.h                            |  2 ++
+ 5 files changed, 52 insertions(+), 4 deletions(-)
+---
+base-commit: 4701ee5044fb3992f1c910630a9673c2dc600ce5
+change-id: 20250721-wol-smsc-phy-ff3b40848852
+
+Best regards,
+-- 
+Gatien Chevallier <gatien.chevallier@foss.st.com>
 
 
