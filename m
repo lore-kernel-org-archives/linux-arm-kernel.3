@@ -4,59 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1AB7C87FC5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 06:54:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88192C87FC5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 06:57:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9rQIzyzqN6H9YX/NP2hb4Y4NFgmYtd6W/c02ws33rWw=; b=OBZLxrtO6kiqca6bkvByM4cZyL
-	0pUC7dNKnjt4M/Wtd0EvpsaQFfvojdLfmn4hsCXwAJ2HMK1S13Fpzy/fWOTBCoiizQeTr2qftcb2t
-	LB9HK8FUGZuDD0cVamCGR517xf3glyCupMM31pn2cL/C14pRGvGsfKJ+Sz8c/0ldb0NuP2XleH+D9
-	JRQFu+hmLkviSIaE/fiEzEhuAY32dOm2kTL0kDGI4fIZoKxqnVCxPT6ESgDKqPriO1DvoSvaVKCeu
-	CSPkX4GTxRJ0N04Qtcy6VvYA6QXGcVk5Eg4/dmSEYRsX7N74pp0yPXQOzGq1GSk6hDW4ZT9K41Utc
-	fOu3kCSQ==;
+	bh=J/GJjqow61FRek/O+ogY5NhG/ZHScONcACC79n2zVyI=; b=ZYvJwWcoiwEkkS2Nqr5Z2KAZSu
+	OlNTwQwB0dVHGO/mlg/U4uakopn9h4rp08pjAV6chKMSHOzkB7+idpX+M9Das/zmlNHCqaFD0PJbs
+	Jp9BU6BS5lhRVZGFWplRvhLCg2nnnZS9I+33Kuj0E//m0dRXZKjjHySNQmn+kqCnMuA2wOkcp9OXy
+	pWFUr243rF9URobC7GNW73LH4tNCNP62bCZQOsxDcMnijV3PsrHLrbVywQoOottg6xQqCsNJxcMkc
+	GRjkMxOLe/ZnWh7U6sSJXedS3rYB3QKkMefkAB28/UG8XbqqwhTRMdJ4tqPRjwyI09AFiz/nxMFDC
+	6fI2RShg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udkQF-0000000GQwT-2K0h;
-	Mon, 21 Jul 2025 06:54:51 +0000
+	id 1udkSd-0000000GRKx-1aTN;
+	Mon, 21 Jul 2025 06:57:19 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udkJI-0000000GQ4e-3TdW
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Jul 2025 06:47:42 +0000
+	id 1udkOA-0000000GQhw-2VjO;
+	Mon, 21 Jul 2025 06:52:43 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 84F2844AC7;
-	Mon, 21 Jul 2025 06:47:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E94BBC4CEED;
-	Mon, 21 Jul 2025 06:47:36 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id D5F8D44D44;
+	Mon, 21 Jul 2025 06:52:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8065DC4CEED;
+	Mon, 21 Jul 2025 06:52:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753080460;
-	bh=ZjVTcKbsRevDk/Oaru45By4rM0QU89TkvkSHMwWvxxw=;
+	s=k20201202; t=1753080761;
+	bh=Fj2B+JNw6UkLmg+kDNy6fM5RkSwPiSm8KCZnRQSQWss=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=DHD8hyGfljx5ywckYjCud4sf1NSOvkJJzeSwoh63ofX0BinD6/Is+W3UNNQyT0IH6
-	 J20S2JoL/VRTsKFF/kfrU9rn1B5NmVqiSm5FCush5ffiuUfr7kexOtIEG6Z1riU4n8
-	 4jLmkIQCy+YAjEGCdsmxN9EmGKiPqwXWZetMMZpzhxkIHoRd3+2iBWQOF2WzF8seRg
-	 Xf8reRoJOv4nMNmJhsh8CRi0RNzGKo4iBNdBNF+JNiWj356CCQsLw7fuzH60gTjktT
-	 Xa+m0o/ogOiteifEirY7u3iWm2OmsVgmF0+E9OtH+iafG68f0AU5A92IF6pkvLNEeT
-	 ot2NqjjqqMlsQ==
-Message-ID: <2b6481e8-9a70-4676-bca4-da3ee00e73ba@kernel.org>
-Date: Mon, 21 Jul 2025 08:47:35 +0200
+	b=t9G7JeCGjETBbBP5rsHRIZo0lCY01I/emLq5/di0udM/ulJsYhAuzB09xkp1atpLt
+	 tZlTpNevJ7rDxKm6EbgqR8Xg66c5aeaQmfKJUuNCY3Hcm0qbLiajaMOGoyUAdv2111
+	 JboHLReaD4JA09x/9Mtfo8/O1W/ZOsduvoOr+4OtTXUUjE7L4YkPjkXqweRaL8hWZK
+	 OivoX+yF0GZTTgxWIJmnpJAe35LDYaFroyXB1e/UvgsCoKnw94F5lxrt06fXHcJaw3
+	 7kiLPSfvKbkWzqpGR1324EyDQ85mBwLyEG7LzbvZtVIhvkZoFPkMNimWFfheBuWbPi
+	 kf6GWNzVquXzg==
+Message-ID: <9574826f-3023-4fe1-9346-eacd70990d73@kernel.org>
+Date: Mon, 21 Jul 2025 08:52:34 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 9/9] ASoC: dt-bindings: sound: exynosauto: add PCM
- frontend nodes for ABOX generic
-To: ew kim <ew.kim@samsung.com>, broonie@kernel.org, s.nawrocki@samsung.com,
- robh@kernel.org, krzk+dt@kernel.org
-Cc: lgirdwood@gmail.com, tiwai@suse.com, perex@perex.cz, conor+dt@kernel.org,
- alim.akhtar@samsung.com, linux-sound@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20250721023052.3586000-1-ew.kim@samsung.com>
- <CGME20250721024612epcas2p122d627cfb90eac508b6ed3667acd9b9b@epcas2p1.samsung.com>
- <20250721023052.3586000-10-ew.kim@samsung.com>
+Subject: Re:
+To: David Lechner <dlechner@baylibre.com>, ">"
+ <sanjaysuthar661996@gmail.com>, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-iio@vger.kernel.org,
+ netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-amlogic@lists.infradead.org
+Cc: ribalda@kernel.org, jic23@kernel.org, nuno.sa@analog.com,
+ andy@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, neil.armstrong@linaro.org,
+ khilman@baylibre.com, jbrunet@baylibre.com,
+ martin.blumenstingl@googlemail.com
+References: <CADU64hCr7mshqfBRE2Wp8zf4BHBdJoLLH=VJt2MrHeR+zHOV4w@mail.gmail.com>
+ <20250720182627.39384-1-sanjaysuthar661996@gmail.com>
+ <84ad0f66-311e-4560-870d-851852c6f902@baylibre.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -102,12 +105,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250721023052.3586000-10-ew.kim@samsung.com>
+In-Reply-To: <84ad0f66-311e-4560-870d-851852c6f902@baylibre.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250720_234740_911335_FABA2939 
-X-CRM114-Status: GOOD (  13.69  )
+X-CRM114-CacheID: sfid-20250720_235242_684612_1B2A666C 
+X-CRM114-Status: GOOD (  10.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,41 +125,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 21/07/2025 04:30, ew kim wrote:
-> This patch extends the Exynos Automotive ABOX generic device tree bindings
-> to support PCM playback and capture frontend nodes.
+On 20/07/2025 21:30, David Lechner wrote:
+>>    - Ricardo Ribalda Delgado <ricardo@ribalda.com>
+>> diff --git a/Documentation/devicetree/bindings/net/amlogic,meson-dwmac.yaml b/Documentation/devicetree/bindings/net/amlogic,meson-dwmac.yaml
+>> index 0cd78d71768c..5c91716d1f21 100644
+>> --- a/Documentation/devicetree/bindings/net/amlogic,meson-dwmac.yaml
+>> +++ b/Documentation/devicetree/bindings/net/amlogic,meson-dwmac.yaml
+>> @@ -149,7 +149,7 @@ properties:
+>>        - description:
+>>            The first register range should be the one of the DWMAC controller
+>>        - description:
+>> -          The second range is is for the Amlogic specific configuration
+>> +          The second range is for the Amlogic specific configuration
+>>            (for example the PRG_ETHERNET register range on Meson8b and newer)
+>>  
+>>    interrupts:
 > 
-> Each PCM device node describes an audio stream interface handled by the
-> ABOX DSP. These nodes include properties for stream ID, IRQ, ADSP core
-> assignment, buffer limits, and stream category (deep_buffer or compress).
-> 
-> The bindings use patternProperties to match playback and capture nodes
-> as children of the abox_generic controller.
-
-This split of one device into three makes no sense. Adding new binding
-is one commit.
-
-> 
-> Signed-off-by: ew kim <ew.kim@samsung.com>
-> ---
->  .../bindings/sound/samsung,exynosauto.yaml    | 126 +++++++++++++++++-
->  1 file changed, 123 insertions(+), 3 deletions(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/sound/samsung,exynosauto.yaml b/Documentation/devicetree/bindings/sound/samsung,exynosauto.yaml
-> index 3a7b5be627ee..e477550afc7c 100644
-> --- a/Documentation/devicetree/bindings/sound/samsung,exynosauto.yaml
-> +++ b/Documentation/devicetree/bindings/sound/samsung,exynosauto.yaml
-> @@ -28,6 +28,14 @@ properties:
->    compatible:
->      const: samsung,abox_generic
->  
-> +  status:
-> +    enum: [ okay, disabled ]
-> +    description: DTS node enablement state
+> I would be tempted to split this into two patches. It's a bit odd to have
 
 
-Sorry, but why are you writing something entirely different than every
-other binding?
+No, it's a churn to split this into more than one patch.
+
+> a single patch touching two unrelated bindings.
+
+
 
 
 Best regards,
