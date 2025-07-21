@@ -4,75 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD5EBC87FC5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 18:57:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 030B1C87FCE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 18:57:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5jPXukQxnHFJweD56Mskt5ux7cwhkq/b+3m6IFhLRZY=; b=wLk8N793TIuLGlk8Os4pT/Db6d
-	hh+WzZ1SAqG3YrNxqZYZ/FebHNGMoiVN/giXjhsD/4WuSJQEBZav9P8WMenUxCNTne8Eep8XGklWk
-	T5AgblDvAT1/0rMps6ixA18bbqGe/dH3cyHenUPuSO3TRgLoQNbjOkrnuW/k4uD/IWj8BLR1IOKZu
-	2vXDaATOuFioOP32D4NTIYshmaWDsh//qIXc9byF1Twz/Xpq98Yl4ejk1TShkUqTTN4B+a6VBPUWW
-	vAWJTj8sXow8poAYGMmBFqXCtkcIbJQO10elheNj3WTKI0W+KIDafOqe2eizR59s+4ea/2H9QBnro
-	ebActSQw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=2krLqXbrvL69zHTI+OSB0Sx07egWNgje2ekoJXV//wU=; b=JS5i21kiirHoq9
+	LwfHlisgvn83NRdXjZBLmXgI9/fWrRyxbkLwQf7w/UE2JD2Zgv3JKvvvFUfRg6x5XmAhYyvporfg/
+	XR1ZD8MOATDlyGh1nlUa7Cx7IGY+GIq2AUhqZvYQ4aml/BhW5c18RW/1SNbM4CYAzFnfnHzC80tM7
+	xaUjcgxj7LwGScWMCDDDiK38aRWFe6BQDn5VwybVjPzicR0CujpQz1XiTd72B/13GDg0bnNdZ/qK7
+	t/seoqAvBXZWIaNJ+SZfL9UDTeRh/1V1agt1H50Xf4uWPaYybWoH+cXA2ttedP9rkfzxQk7K4PMog
+	iG/XLqaC6Ar6fuvMuFiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udvhr-00000000Rkn-3cmi;
-	Mon, 21 Jul 2025 18:57:47 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1udvhs-00000000RlH-2KzA;
+	Mon, 21 Jul 2025 18:57:48 +0000
+Received: from mail-io1-xd4a.google.com ([2607:f8b0:4864:20::d4a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uduaM-00000000M13-04ov
+	id 1uduoX-00000000Ng9-0aWs
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Jul 2025 17:45:59 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 62B005C628C;
-	Mon, 21 Jul 2025 17:45:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C7B0AC4CEED;
-	Mon, 21 Jul 2025 17:45:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753119957;
-	bh=O0zfAfduBUbLbWf83/6krXEHER/tdRj0Hvvb37jb62A=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=HZ7FSTUaMx4xX7JIngOhQxfb2uAGgbPqHq804i0Xq4y5PjJO0yjHhC1oI/ja/QSQD
-	 bN0ingyjFKo29Hy8YjRrFW5E5oIGoL7j8JWCu637IvDHr7OORVsHK+R+j4yECPfWJn
-	 yoZlSaTLgvsukYPF09f36O2HYHGgO/MfMU6m+s136SVo9dHPrRYAZpGDO5eNoQapbz
-	 tPIZ/AvfbvzQLiJ8fqnOlvWVbQXqi/fS62P3unI00c9OrZsXMW95x4Euq62wtEe14o
-	 IfJScq1msWA4HF/UegjMgxjlpJIEVADTNm+gDqdTYEGT0w/lNAoOD+J+1yE4zGXRJM
-	 eredAQvF3Vv6w==
-From: Will Deacon <will@kernel.org>
-To: mark.rutland@arm.com,
-	lpieralisi@kernel.org,
-	sudeep.holla@arm.com,
-	arnd@arndb.de,
-	wei.liu@kernel.org,
-	romank@linux.microsoft.com,
-	mhklinux@outlook.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	maz@kernel.org,
-	oliver.upton@linux.dev,
-	kvmarm@lists.linux.dev,
-	Jack Thomson <jackabt.amazon@gmail.com>
-Cc: catalin.marinas@arm.com,
-	kernel-team@android.com,
-	Will Deacon <will@kernel.org>,
-	roypat@amazon.com,
-	Jack Thomson <jackabt@amazon.com>
-Subject: Re: [PATCH] arm64: kvm, smccc: Fix vendor uuid
-Date: Mon, 21 Jul 2025 18:45:48 +0100
-Message-Id: <175311813171.3793918.5949198639937646656.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250721130558.50823-1-jackabt.amazon@gmail.com>
-References: <20250721130558.50823-1-jackabt.amazon@gmail.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	Mon, 21 Jul 2025 18:00:38 +0000
+Received: by mail-io1-xd4a.google.com with SMTP id ca18e2360f4ac-86f4e2434b6so533186239f.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Jul 2025 11:00:36 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1753120835; x=1753725635; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:in-reply-to:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=2krLqXbrvL69zHTI+OSB0Sx07egWNgje2ekoJXV//wU=;
+        b=ijce9q5gh7d/jEGXHecLOhmcW3EJezxHGvs77tswOeaYN+Q8qnnkOSHwGZcrJMQAZF
+         Abm98y/JhPi6jLw7ogSTFRhVZDLDLI74wwU7dUmsiMV6ic3FIWNveBUwzxfV4VfZ0Xxg
+         rEfdKyfUxSJAOOTLAnu1xLEpR3DK5hWoVlYFu6tTmNjVuhXtYL3csPcbRVVnpDCvZ3Ze
+         q5r7IWmNmyMkGoe4PSCOtl6Mbr2sfMQkmaLSizCpkvbWOLFt0M5qiYusE3QrW6QHcQdh
+         jkTef3FuOJce4weEcUjwIOaron62oGoAg8l7GjOMf5wc1pl3WVCRqOni84cr2chHMiVK
+         dacQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1753120835; x=1753725635;
+        h=cc:to:from:subject:message-id:mime-version:in-reply-to:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=2krLqXbrvL69zHTI+OSB0Sx07egWNgje2ekoJXV//wU=;
+        b=Ae2i4sQzhIulJj6dglgDdU79OiLn8zVGy8y1GQRnpM2oeBWlhYzMZU2vtw0qqfXgL5
+         Arg1dynBZlF6s0ltITuf5yEsWnJWCO5M5+XPFWmo7I2EqGVi2KEi3G3mm3JgmXSvQzrC
+         8SMukmJRhOb5zqFsuDR40yMwtZhjMU+eLb6qN82BnXpYHoqDRZCVPfpdnCTQag0u81pL
+         3hNAZVC5/jpShQugQExikWbFO6mG18DfIOgTM5Y1J3ngWBO77vsAyS4IFzFvQkVvmrW9
+         eB3hDzGxN8Z/YGXFd4ZmQ/UVZL+C+QwJRcxCo1GP4JynV6U60C+Hb1s7ZCgvXo6x9kMt
+         zekw==
+X-Forwarded-Encrypted: i=1; AJvYcCVrlv5Z0nqcaNzRQT+PwLOFCIZRSQ5jqcPYcLnShwmHWJAvKUHDDpQaGBjvfSUNetrJ54mvuT6diCuGhz9YhcWB@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw1Ag0JE61XlHS/plg53fV+0V8yffK8c/DwMqdPR9xAGJoo4X1t
+	zF1PaCsfhA+AvxSylb7UPFJW4ZMYp6FUjzZelAhdjxsOFJDg3+SS3k67isMmCekN1WdDXDpUrX9
+	+q7gVRy3TAFDyFkUZnx4OR49uPg==
+X-Google-Smtp-Source: AGHT+IEfZ2MrsGDQt2Apr+GHWZROOgLVqxxVZM8uTrkAEn6W6ybAfMfVvl1rXs9CqPRl3bXlJpF5OsombirkZgJ7Gg==
+X-Received: from iobjk13.prod.google.com ([2002:a05:6602:720d:b0:87c:1d70:43be])
+ (user=coltonlewis job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:6602:2c0f:b0:86c:ee8b:c089 with SMTP id ca18e2360f4ac-879c291915bmr2390181339f.3.1753120835597;
+ Mon, 21 Jul 2025 11:00:35 -0700 (PDT)
+Date: Mon, 21 Jul 2025 18:00:34 +0000
+In-Reply-To: <153b5191-c585-433e-9cf5-1ed19b9a7f5c@arm.com> (message from
+ Suzuki K Poulose on Wed, 16 Jul 2025 00:22:16 +0100)
+Mime-Version: 1.0
+Message-ID: <gsntseipa0fx.fsf@coltonlewis-kvm.c.googlers.com>
+Subject: Re: [PATCH v4 01/23] arm64: cpufeature: Add cpucap for HPMN0
+From: Colton Lewis <coltonlewis@google.com>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: kvm@vger.kernel.org, pbonzini@redhat.com, corbet@lwn.net, 
+	linux@armlinux.org.uk, catalin.marinas@arm.com, will@kernel.org, 
+	maz@kernel.org, oliver.upton@linux.dev, mizhang@google.com, 
+	joey.gouly@arm.com, yuzenghui@huawei.com, mark.rutland@arm.com, 
+	shuah@kernel.org, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-perf-users@vger.kernel.org, linux-kselftest@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"; format=flowed; delsp=yes
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250721_104558_096007_444A9CE8 
-X-CRM114-Status: GOOD (  12.09  )
+X-CRM114-CacheID: sfid-20250721_110037_187276_5E5FB311 
+X-CRM114-Status: GOOD (  17.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,32 +93,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 21 Jul 2025 14:05:58 +0100, Jack Thomson wrote:
-> Commit 13423063c7cb ("arm64: kvm, smccc: Introduce and use API for
-> getting hypervisor UUID") replaced the explicit register constants
-> with the UUID_INIT macro. However, there is an endian issue, meaning
-> the UUID generated and used in the handshake didn't match UUID prior to
-> the commit.
-> 
-> The change in UUID causes the SMCCC vendor handshake to fail with older
-> guest kernels, meaning devices such as PTP were not available in the
-> guest.
-> 
-> [...]
+Hi Suzuki. Thanks for the review.
 
-Applied to arm64 (for-next/fixes), thanks!
+Suzuki K Poulose <suzuki.poulose@arm.com> writes:
 
-[1/1] arm64: kvm, smccc: Fix vendor uuid
-      https://git.kernel.org/arm64/c/ab1612211532
+> On 14/07/2025 23:58, Colton Lewis wrote:
+>> Add a capability for FEAT_HPMN0, whether MDCR_EL2.HPMN can specify 0
+>> counters reserved for the guest.
 
-There was a stray "getting hypervisor UUID")" line in the original
-commit message after the Fixes: tag, so I dropped that bit.
+>> This required changing HPMN0 to an UnsignedEnum in tools/sysreg
+>> because otherwise not all the appropriate macros are generated to add
+>> it to arm64_cpu_capabilities_arm64_features.
 
-Cheers,
--- 
-Will
+>> Acked-by: Mark Rutland <mark.rutland@arm.com>
+>> Signed-off-by: Colton Lewis <coltonlewis@google.com>
+>> ---
+>>    arch/arm64/kernel/cpufeature.c | 8 ++++++++
+>>    arch/arm64/tools/cpucaps       | 1 +
+>>    arch/arm64/tools/sysreg        | 6 +++---
+>>    3 files changed, 12 insertions(+), 3 deletions(-)
 
-https://fixes.arm64.dev
-https://next.arm64.dev
-https://will.arm64.dev
+>> diff --git a/arch/arm64/kernel/cpufeature.c  
+>> b/arch/arm64/kernel/cpufeature.c
+>> index b34044e20128..f38d7b5294ec 100644
+>> --- a/arch/arm64/kernel/cpufeature.c
+>> +++ b/arch/arm64/kernel/cpufeature.c
+>> @@ -548,6 +548,7 @@ static const struct arm64_ftr_bits ftr_id_mmfr0[] = {
+>>    };
+
+>>    static const struct arm64_ftr_bits ftr_id_aa64dfr0[] = {
+>> +	ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE,  
+>> ID_AA64DFR0_EL1_HPMN0_SHIFT, 4, 0),
+
+> This doesn't have to be FTR_STRICT. The kernel can deal with
+> differences, by skipping to use HPMN0. We anyway rely on the
+> system wide cap for using the feature.
+
+Okay. I'll change it
+
+
+> Otherwise,
+
+> Acked-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+
+
+
+Thanks
+>>    	S_ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE,  
+>> ID_AA64DFR0_EL1_DoubleLock_SHIFT, 4, 0),
+>>    	ARM64_FTR_BITS(FTR_HIDDEN, FTR_NONSTRICT, FTR_LOWER_SAFE,  
+>> ID_AA64DFR0_EL1_PMSVer_SHIFT, 4, 0),
+>>    	ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE,  
+>> ID_AA64DFR0_EL1_CTX_CMPs_SHIFT, 4, 0),
+>> @@ -2896,6 +2897,13 @@ static const struct arm64_cpu_capabilities  
+>> arm64_features[] = {
+>>    		.matches = has_cpuid_feature,
+>>    		ARM64_CPUID_FIELDS(ID_AA64MMFR0_EL1, FGT, FGT2)
+>>    	},
+>> +	{
+>> +		.desc = "HPMN0",
+>> +		.type = ARM64_CPUCAP_SYSTEM_FEATURE,
+>> +		.capability = ARM64_HAS_HPMN0,
+>> +		.matches = has_cpuid_feature,
+>> +		ARM64_CPUID_FIELDS(ID_AA64DFR0_EL1, HPMN0, IMP)
+>> +	},
+>>    #ifdef CONFIG_ARM64_SME
+>>    	{
+>>    		.desc = "Scalable Matrix Extension",
+>> diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
+>> index 10effd4cff6b..5b196ba21629 100644
+>> --- a/arch/arm64/tools/cpucaps
+>> +++ b/arch/arm64/tools/cpucaps
+>> @@ -39,6 +39,7 @@ HAS_GIC_CPUIF_SYSREGS
+>>    HAS_GIC_PRIO_MASKING
+>>    HAS_GIC_PRIO_RELAXED_SYNC
+>>    HAS_HCR_NV1
+>> +HAS_HPMN0
+>>    HAS_HCX
+>>    HAS_LDAPR
+>>    HAS_LPA2
+>> diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
+>> index 8a8cf6874298..d29742481754 100644
+>> --- a/arch/arm64/tools/sysreg
+>> +++ b/arch/arm64/tools/sysreg
+>> @@ -1531,9 +1531,9 @@ EndEnum
+>>    EndSysreg
+
+>>    Sysreg	ID_AA64DFR0_EL1	3	0	0	5	0
+>> -Enum	63:60	HPMN0
+>> -	0b0000	UNPREDICTABLE
+>> -	0b0001	DEF
+>> +UnsignedEnum	63:60	HPMN0
+>> +	0b0000	NI
+>> +	0b0001	IMP
+>>    EndEnum
+>>    UnsignedEnum	59:56	ExtTrcBuff
+>>    	0b0000	NI
 
