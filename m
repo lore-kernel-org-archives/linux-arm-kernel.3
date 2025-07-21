@@ -4,184 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22B86C83F27
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 03:48:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2228BC83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 03:50:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7Thpj7Tt9l8HHmcmbOcR5zxQsB9h1ARXEMFAMK7WNnA=; b=CaF8PEjNFktjuZYrZjptimhkt2
-	MqkT5Dc+9scjrj6j5KUGeA1iN+KcLTPDRYJ+7osJ5BszyY7zkzpsg6r5A1n8iilme9/rQRe7G3YgX
-	tJR3HpsdZffskuBnfBtqr2Xw30U3hUeArvnqZDLUP99Zl2ezkXB6EnpmSXj6gwCzqtacwEHfmWo0W
-	MIJBKJHVk1VBN/g7i8HrXCF+t28VSghO77tjFful5KshSZyZXGID2Em5jFSThqtrn/Rt2KcLG2Dse
-	s1MBlA7WgG/Jr/AZRIc2xvk+qyiadQpxVcrcn6sLmRXWrNPtBGdBKMjJ1Wir0oXdRFUapL/etOKt0
-	tJWZEs0Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kxOupiP+AzDKFj9Eqf69444hP/4a0m824WZ/8vreM8A=; b=z3Lv0PUlBpadJb7N6L1JPXjDF8
+	VqIq8lcNhQs89Sv15JJa4fL5hSyH2U31HZcxXRClyeUCDB6mmtNAeNtll2qKUPQC8si0Jx6TErW1D
+	cJIR24GuQrMRWmotByL5EdLU5h/4JlRc3ZXMRJ9Z82FuAG53tP7/H7cl79M3PSeBhsevQcpzvbhNT
+	C1MpFrmsLOsz3PdlFKUjZq20FOOqZ38au8vYlYC+86acbQIFQmOimiBSOLbZSogyyZWY45R7+doJH
+	1/JulqPY6uGQgwduD1S+PjstHIp6sSJFhUknkopgXfM/jMUgcherHXHcdpWEqM2BKF3W8j+SrhXc5
+	I2S7D87Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udhVT-0000000G7bm-3YX4;
-	Mon, 21 Jul 2025 03:48:03 +0000
-Received: from mail-japaneastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c405::7] helo=TYDPR03CU002.outbound.protection.outlook.com)
+	id 1udhXr-0000000G7lW-2Ozp;
+	Mon, 21 Jul 2025 03:50:31 +0000
+Received: from mail-il1-x132.google.com ([2607:f8b0:4864:20::132])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udhGz-0000000G6Tk-1JTr
+	id 1udhPW-0000000G75w-1Uka
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Jul 2025 03:33:06 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=NHSE68/qI+/qoYTV2WJg3b5qHYo1c2eEqtKMuD50qg1Pogu87szmARE8gv9Wua9fOWBYvTwQXCAqls7u8AyupnOCXC1/mfP8Z0NgXloUtacQ7ln3YwbIl/WyWu/M08XGM42ZpUWb9MZzj9o904jrPw68FHVvqS4kpQ/PS6gVzj3bp5AoI9fvUxrjQkQNf5P2gaF/u3gY8MnUgWSFT8eqAEoea+ybpw9C7YVd9GXYh4e8ygFIdo9ogb156PwwJi6SqU82QL9jXmNArT7fXhDB4Hu8PtLyI4oGJaHsp6cuPPrkryrwpUHpxApXbKAS6FxBuTdCgRQVjho8huVtza2YXQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=7Thpj7Tt9l8HHmcmbOcR5zxQsB9h1ARXEMFAMK7WNnA=;
- b=p/dXtkgKvd3D6lOteY3LFULmhMhdl3ehQBQqGJuUMUEo0gQoSJgYPJqrCWzfbfxc7XFdLipx0xeAJqpJQtckqLSwY1xnY5YOlCfaDVIUW66EWUGYmsc1e/kCJwesCikLfWvt+2eb+y68yccgsjyRVdh67OkVjPm/K1Y2nP/FJhrdhI3ojleO/tFG1G+HtgsY8/508wrkb6IQJyCI+u8Mp08ByzZ/7HlTOtBeseyx0vcPwAZ39TmoitmIDg900bvvIaYLpSl6S+KHXPl9cNLFFbKPQHEx5Ws0u0lGZb0Nojn8DaivsvDHpiwuvAvon2PRx7N4hMa/q85Mt3hNd7728A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=aspeedtech.com; dmarc=pass action=none
- header.from=aspeedtech.com; dkim=pass header.d=aspeedtech.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aspeedtech.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=7Thpj7Tt9l8HHmcmbOcR5zxQsB9h1ARXEMFAMK7WNnA=;
- b=NXKpz6T0Gb3StIhmCJnSRO0Q0USpIpg9vYNyTYej38HEe9hAOIqNlox+y1T58+KJhD91EEb/20hXQC1ngk5Z7RDXK4XGnYsGwxzb51VDMdZpcbmteF+Y6pn0mU879fq4AEr2WfBkIBidrO2G3lilOR369carOC0VY4oc7QCYE/ew3Pn0Eemj8pD254b8kqEeHpMczHKv6cSZUbEhxq1TN1Pggqrk88QQmXHP9akal5Ku1DhQb4dL3WJFSGXBGAsn+O1A1QXtzLFURE26mGMVpR3WVOCSRkz/niF6/ihgwbcIsgfcAYt8fQbadO3dSc7Jn1EdzefPQ2BrA3Pu1f3T/A==
-Received: from SEYPR06MB5134.apcprd06.prod.outlook.com (2603:1096:101:5a::12)
- by SG2PR06MB5262.apcprd06.prod.outlook.com (2603:1096:4:1d9::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8943.30; Mon, 21 Jul
- 2025 03:32:58 +0000
-Received: from SEYPR06MB5134.apcprd06.prod.outlook.com
- ([fe80::6b58:6014:be6e:2f28]) by SEYPR06MB5134.apcprd06.prod.outlook.com
- ([fe80::6b58:6014:be6e:2f28%7]) with mapi id 15.20.8943.028; Mon, 21 Jul 2025
- 03:32:57 +0000
-From: Jacky Chou <jacky_chou@aspeedtech.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-CC: "bhelgaas@google.com" <bhelgaas@google.com>, "lpieralisi@kernel.org"
-	<lpieralisi@kernel.org>, "kwilczynski@kernel.org" <kwilczynski@kernel.org>,
-	"mani@kernel.org" <mani@kernel.org>, "robh@kernel.org" <robh@kernel.org>,
-	"krzk+dt@kernel.org" <krzk+dt@kernel.org>, "conor+dt@kernel.org"
-	<conor+dt@kernel.org>, "joel@jms.id.au" <joel@jms.id.au>,
-	"andrew@codeconstruct.com.au" <andrew@codeconstruct.com.au>,
-	"linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
-	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "openbmc@lists.ozlabs.org"
-	<openbmc@lists.ozlabs.org>, "linux-gpio@vger.kernel.org"
-	<linux-gpio@vger.kernel.org>, "linus.walleij@linaro.org"
-	<linus.walleij@linaro.org>, "p.zabel@pengutronix.de"
-	<p.zabel@pengutronix.de>, BMC-SW <BMC-SW@aspeedtech.com>
-Subject: =?utf-8?B?5Zue6KaGOiBbUEFUQ0ggdjIgMDQvMTBdIGR0LWJpbmRpbmdzOiBwaW5jdHJs?=
- =?utf-8?B?OiBhc3BlZWQsYXN0MjYwMC1waW5jdHJsOiBBZGQgUENJZSBSQyBQRVJTVCMg?=
- =?utf-8?Q?group?=
-Thread-Topic: [PATCH v2 04/10] dt-bindings: pinctrl: aspeed,ast2600-pinctrl:
- Add PCIe RC PERST# group
-Thread-Index: AQHb9Tqj6jB5s8BcUESNrJkKTb5wt7Q0bJoAgAeIFyA=
-Date: Mon, 21 Jul 2025 03:32:57 +0000
-Message-ID: <SEYPR06MB513445DC86218E0ACDDB90889D5DA@SEYPR06MB5134.apcprd06.prod.outlook.com>
-References: <20250715034320.2553837-1-jacky_chou@aspeedtech.com>
- <20250715034320.2553837-5-jacky_chou@aspeedtech.com>
- <20250716-provocative-worm-of-gallantry-3797f8@krzk-bin>
-In-Reply-To: <20250716-provocative-worm-of-gallantry-3797f8@krzk-bin>
-Accept-Language: zh-TW, en-US
-Content-Language: zh-TW
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=aspeedtech.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: SEYPR06MB5134:EE_|SG2PR06MB5262:EE_
-x-ms-office365-filtering-correlation-id: 9f167b47-a735-44c7-5b8a-08ddc8074957
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016|38070700018;
-x-microsoft-antispam-message-info: =?utf-8?B?R3orQ1VMNUhKY3cyMHl4WmV1SkxiSFV2bEtjTXZPYnZ0VWZ4TGh1TFJXWWZ0?=
- =?utf-8?B?b3BpK1BjYm54aTNzQmNoamQyNEVBY3RvQnQvaUk5NU1ma3NreWw1STJWck92?=
- =?utf-8?B?a3hiMmpXQjVxTXZtOFBhNHZUM3N2ODV6dkJKTm9aVHp5YjdYVndGa1JFYkQ5?=
- =?utf-8?B?RXJoaFFNK2ovMGhoYTVZTGZJNTBJTHg2ajAxMWRTbWhFVVpXbGVWZlhaaHFI?=
- =?utf-8?B?eGpRbU1qMTVzaDB3RlduVXhnTk1Sbk10V3AyQWp4NjVSNkdJSkJudDFlTTVa?=
- =?utf-8?B?N1V0RFRMdU5sNVdQcy9zaUVDZk1HNWxCd0VVRkY0NGpWOTlDdGlWV3dVb1pD?=
- =?utf-8?B?b01OK2xhWC9sZXdpWXpFZDgzTW1tK0RPK25ZbzNPYjNoVm1FQ3ZEajF3TzZy?=
- =?utf-8?B?WjVLTW1jMzM1RmZkTnhmbFRqazBZVjFCcTI4WjVzNkxSdzc4N0d2Ym90d3hZ?=
- =?utf-8?B?cmJCSk4yai9BTFNFbEh6YStOdEpsRk55akF5MGxBZFdMdFZZdmZGdnlQaTZM?=
- =?utf-8?B?SkRXbXA3cDR6S2ltUTZvcE95VnArUmV6WVl5SXlrUGx1UU5YUzQ0SFo4cUhV?=
- =?utf-8?B?SnJqN2hBMWREemkyTlZZNVROMkpxU2NFQzlZK0t5MG9nTmNVZmc1aVBXNmdz?=
- =?utf-8?B?dXllYlp2RHR0Q211RzFCbmNKbjJyNTBtVUdBMkx4MnlnYzdBRGtnUXowOVo4?=
- =?utf-8?B?OWJackpKZis1VFpNNDlaNW9SSTFyNzgzZDcwUTNqdEgrZGlydi9EOXQrRVRa?=
- =?utf-8?B?YWJxWEtIM25TTmRINUdwcEZyM3NFWVZ2Nkk1ODc5MUxQUEg5dUdZQjdRWk9P?=
- =?utf-8?B?a0xwMnZmZFplTFRJYjRMVk83VVdOME9qWTNuNTVqOWZQRnJlbTJhZ055SmpS?=
- =?utf-8?B?aG53Vmx1Ukp0ZFlrUW1TNExqQVNCemtyZTFtcEJub3RyL3ZkUHBGVUg3cVZa?=
- =?utf-8?B?cnd6MEtUQ1FNV2ZUMm5zdHVqa1pEY2FsWmpKUTlVSXBjUlFYTWQ5S05vWnZy?=
- =?utf-8?B?RCtoMmhrT0NDOUI5dElzZjFKaTNYY1NOZjFGZzdYOUs1Nm9xZ25CdG9hdHRu?=
- =?utf-8?B?TUc2OXAyaG40NXhFL3NpSDFSRy9ZWENNTndBaHJseGhwL2dTYkN3WHJUZkg5?=
- =?utf-8?B?YWh0V3pwM1NwY2x5aXIvOVJsZnRQU25heUZSTUdibGVPZzk2eitray82aGVV?=
- =?utf-8?B?cnk2KzBPbUl1eHRMOFBTL2g3Z3lZS2c3UEQxQ0x1bmlyUGdycm5rWDhaNWpZ?=
- =?utf-8?B?WEJHSk1vSlhabjNZdVJOL2txZjJVdjRmalc0cnBGTWI2NmxSWW5aZXBmMzNC?=
- =?utf-8?B?d2lpbVA5cExibGpmL2hBaFJWbjVGaHI2ZDhtYW5uWGlieFRBaHNUZXl6OTYv?=
- =?utf-8?B?TEx1bnc3SWZnWStoK2F5MnZpZzNLd1NzdEFNZXhQdXp0RU1kS2JFVDFGcnNQ?=
- =?utf-8?B?UzF4aUQwQk9nRVRuQlNIblJ0WHJ0MnFwVldWRjBuczV5Vmo2eVZYM3gvenlr?=
- =?utf-8?B?UHBCdHIxM0hzOFVUNlEwaU45aEJyRFM5dnB0bU9MckdydFNRZUlKNDZXTXBO?=
- =?utf-8?B?aS9pQ3puOHBCSm5FaDNhajlDcTY4RVBrYWRQZjFKYXkvNmwxRXBFbGE3VTNC?=
- =?utf-8?B?UjhKVFp0NDU2RTBmM1Y2bjFpRktsMWo0MkhBVG9ER0greFp3S3ZrUXpSbGdq?=
- =?utf-8?B?b05uRE95OWd0NUx0cmRsVUppdUl4ejJmY0lpUUtSQlVNUmRIdkYzUzBPZkZY?=
- =?utf-8?B?ekVEVlJhdm95VEVsWndHUFRxSDVyb210bnloYzRqT25HVkRuZm9vdFdDV2Vw?=
- =?utf-8?B?SENldUZ3OTdyTFFaS2xsVmVPK1BGM1BncjFlRDQ3UWt2aTVmekg5N3JLMVQy?=
- =?utf-8?B?ckFPOWkzNjRvUU1ZdEhkQnA3YmRwWVBDempzZ3V5VDYvZmNsZGRtdUlqTGRz?=
- =?utf-8?B?ZXNMMHc2STRTVjR5Q0FXSzdiT3BIdFp4Q0JxeElwOHkxRXQxdTJlTFpRN0hm?=
- =?utf-8?B?R3ZHZGpOMGl3PT0=?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:zh-tw;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SEYPR06MB5134.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016)(38070700018);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?K1JxMEpjZFpUeXpqK0NQRzRKcE5DUnorend1c1NidzZ5K0k1QksrT2FHd0Fv?=
- =?utf-8?B?amNYUFB1d0xxNkNaWTUyYk1lSXhRbjFLYTA1akhMNGc5aGtBTmhkeFBHZFAz?=
- =?utf-8?B?Vk56Z3dyc1NDSWtXVTYwUWN2N281MWRPNWJNM2xOUVRuVnBKQXU4ZmhHaUFp?=
- =?utf-8?B?KzN2OURpR2tickVyeHh6Nk92dzh4Ykt0WHRtY1A5NjQySHc4T3dIdVNoMFNh?=
- =?utf-8?B?MUhGd3lpWTNMMUlBZFM4bUhRN25qay96M3FKSkZ3c1loeGxpTEd2UFNUL0I3?=
- =?utf-8?B?QWZRRy9Lcm1jR0tUTmNhbFIzZ0VUc0NhYXpwRlFUNkxaVWlCWEVpUFlaVERo?=
- =?utf-8?B?Nnc3VXBXckRUOFJ2ZWNFcW1MSW8vWS92bVZSVjF6OXNyampSVlg0Si9KdGZw?=
- =?utf-8?B?TVZveW9nWDV0OVFib2Q1WlA5UWxVUXVWUnRPMis5V1FFNjRCNWUrcmhBZVNQ?=
- =?utf-8?B?ZHNkU3BadVFtY3NpdkxMbE1hOUxISUN2dWw0WmVzTmNrOHVScWlScm0za3ps?=
- =?utf-8?B?TENHT1VDM1o1SFlMOGMrc1FSaGNRb0xNK0Q5dTRBamdSNGF1aEkyOWgxeElo?=
- =?utf-8?B?U3JlbGxyMmNBbmNFNFJ1NEEzMzY5bU9rTklSV2h3djU5RnZJdURnei9BQTdr?=
- =?utf-8?B?NU5wZjRyK3Y2YU1KY1o4QjV5UVhnZTQvbCtjNXBLYWJYbitrQmdIMHA5Q3h5?=
- =?utf-8?B?Yk5HZXBsSHdUejhKSGtiMzFqUzVDUllkZWYvQS9kRHBHNHMydlcySm1kUlc2?=
- =?utf-8?B?UkhFZytKMktTaGl2Wnp6bWpnVHg0anFzOUlXUm1ZNlNpaExCNjBuU24rL0hT?=
- =?utf-8?B?N1A1Zk1KTllyWWpZSWlFdTV1NTAwL1JILzloTzJJbWZsQlh2ZFNRVkpDb250?=
- =?utf-8?B?aVVpQVlVSzkzdUJiMmVBaE5pVHpxc0tSek1WNkFLNitoYUpIZ2JwRU9wcFZk?=
- =?utf-8?B?aUtNcWZ4ZTYwZTl5ZUZUYVpkZHg1L3JtallHKzVNUy9RL0lXalhTdmZCb1pw?=
- =?utf-8?B?UDZjSnI5SzNybldqVVNrK3pKMEwzb3duekZpNzBkQktSbm1xdW5xVFZwQjB4?=
- =?utf-8?B?anJlMDFuS0I3N1dZb3JpajJ5eC9NenZjeHpPU1VHZ1g0TW1CekovRC9xMFUz?=
- =?utf-8?B?Q1VPajdGN3RMek5JUmdjRmhZNXJDelRIVkJEd1U0RUJtWlFwK2IzcG1ocm1T?=
- =?utf-8?B?ZHBMamhWczBtYWpmSlJnSDROK0pBZG9BVzYyNUVGSXBwOEtHT2lKVjlyTHJk?=
- =?utf-8?B?eEpJVk12Z2s0Ykp5aUllQ2xOR2dpR2wrbjFBRXVHd2hyYkZ6UWFFZHdscHdq?=
- =?utf-8?B?d0NYaE1IOS9ESXVNK0dWOUtVSEtkTmxlWG44bmRsRkRsSUJRdTJ2aDZwNEdF?=
- =?utf-8?B?SlQrZWNzSjluY0N1NVp3YnIxcnE2aTN3cFBVeEs2VVVVaHJvMFgrS24xVXlY?=
- =?utf-8?B?bEpEQlZSQ3JmSFdpTmVNbWV6QTRhSjZodnJ0Um5hRkw4RmtsQW5CUmdpZlkx?=
- =?utf-8?B?NWJuQ3pKdjFieFF0Y1QxUEtKQjBUTURLV1FiL0JYMi9BNmloaUNzY0wrU0hX?=
- =?utf-8?B?RFpzMERiT3RzTkx1eEVQTzlkWUdyWG5GYXVBVnM3cWN1RThoS3E0L1B4Uisv?=
- =?utf-8?B?Z3Z2RUY5SkZ6UUtYdnlENEhrd0hDd3A1NXNXbGFYbWxMZytxVWkxNXpLL0x1?=
- =?utf-8?B?aE9NeC9WSHI5SHNIQkw2TmtKek9uMVpVamVjYmh5T3lrblFrKzRPYnAvUWpM?=
- =?utf-8?B?Y0Rxc3djUXR1QjIvTVVwUjl0THBpQk04RWU0TG1BcDlFWXZhWEVVT2xqNXQr?=
- =?utf-8?B?bStONm5LVnpaWDFRUmZiWjVkS3ZtejZnbzY2MjhIOUJWRk5tODdneStES0Y2?=
- =?utf-8?B?ZmZybHh3VTdSWTlVRlVraFhBelFVSU00b2hNa3JGa1pSVFNYY0MxK2VzN0Q5?=
- =?utf-8?B?SThFMEJHNFkxdkJ4OWtQdGJsV1RhQ0RwR0cvS1VMbk56ak5VSVYwa2g0YXo5?=
- =?utf-8?B?L2Jidmorb1pSVnpJZ3BkYUc3NldHZnd3L3hsajR0TWM4WjQzQkNQTFhlS3BZ?=
- =?utf-8?B?R1hvRFZNK0lhV1J5b2k0S0hmN0JlMHI2Y3dPTjJGaWFrSGZzNGt2dmRORjBx?=
- =?utf-8?Q?tCPKPjrcWgDy8qU07nBnXG03O?=
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+	Mon, 21 Jul 2025 03:41:55 +0000
+Received: by mail-il1-x132.google.com with SMTP id e9e14a558f8ab-3ddd2710d14so35655015ab.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 20 Jul 2025 20:41:54 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1753069313; x=1753674113; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=kxOupiP+AzDKFj9Eqf69444hP/4a0m824WZ/8vreM8A=;
+        b=VCFJmGuSWAIG24EmJePxvIXN2rRSq760URUk6p3wnXTC8D3R1Z+xBWggAohfu0/S5c
+         6m4G5qxi5iMro02lWCnNIOew/FzMuwPsMw4Hb8WHHeRshysys6ZK4zXHvkgq8ePsaurN
+         nSr3PdcOuN3ipOP/Herz9kk5geHI1fPPWKGisjm4mg/b+HZAVaYoBv+O/eqKqLlOFMx9
+         18Hx8jt0UHM3zwv1Gx+3imq1txcAu+NltBk0I0K7j3rH5TO0zEHfWuynX57SrS2BjZnt
+         T2NoYl63xkssENo/TYeisVVBc4xvN7kbhvldxJm2utOwLWlYohR4fwZ56hE9PG/Xh8ju
+         btVQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1753069313; x=1753674113;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=kxOupiP+AzDKFj9Eqf69444hP/4a0m824WZ/8vreM8A=;
+        b=OXQYWwXKO6EFgQZJA/QibEUSVvRntaBy+AzJFLeHBwP+tZ5ZcrxMrKh4ZUTij+9j1K
+         qJ0/3xNEiVhiawvVxwoPoaGMWEY7+agxu2213I/mdDfcS0yXW+wiaYmiAapiFRdqWS+s
+         WkNAJ04xJtymxqvGeraWCZTvQi6udsjHntb8PZ/V1cK1flNmxdIVzXmrCdA2ml0yj4Pl
+         rcOLDQcMOMdYsbGU5nhxHZIdfp/A3g6ehsVFlHJ8TZTlMcp2gBbDUQFt44EukFsMqC5n
+         z6MpaolXpBqO1vxeVIcT3Ry1w04e0Ubf64flXfc7zmjSUFqjtMChEz7bCTSGz+oxxzAB
+         fORQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUp7DVpKFwlhzDQoF6xDSwLyQY93dQpIngnbEQm3wRfVT/9FkVG7G+99jreYuxzxO9eZDGaNfLwkgtCYjaBhA+B@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxr7QSts/7aNQU0pw9CFN6x8vvJLj96tYPqvv7AqKmu05CS9Vaj
+	odajQdHFvmQmrnGvq1pF0HWgp1iYk8ejIQKYQDR22JJjx117zXf2sPDYAeg7J55KxcAINC6pD7a
+	l2Wluyvrm2qggwsSzja596NYnjtF9Lts=
+X-Gm-Gg: ASbGncuohKA2LqL2iHUuMoQm8shb1OnOIHnaqdVFBmX5v7SPog3wSWwUVjomrLZg3q8
+	WItUuxCPbUh8om5uCvEPuGTXxNZ7nYxkwM5FD3AcCpVey7EQAXI3OGEa8C1yTCiD1U5u1g4Pscz
+	6M/yk6b7YhYDsAXicX1H8AtaHcHZmiidvrwADXQBpS9jI5zGHn2+jz6jatW48LdWJkG765UTmyM
+	wvPiow=
+X-Google-Smtp-Source: AGHT+IFz1HGhNEidAOsOni/rjfsNvb1evXBa1c+HDuQzYd0asweyMsVHkfpWiKwkdYQQRpPesF4vdrwP3e7ac96hFQs=
+X-Received: by 2002:a05:6e02:3c86:b0:3e2:a366:c125 with SMTP id
+ e9e14a558f8ab-3e2a366c42bmr93375905ab.18.1753069313428; Sun, 20 Jul 2025
+ 20:41:53 -0700 (PDT)
 MIME-Version: 1.0
-X-OriginatorOrg: aspeedtech.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: SEYPR06MB5134.apcprd06.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9f167b47-a735-44c7-5b8a-08ddc8074957
-X-MS-Exchange-CrossTenant-originalarrivaltime: 21 Jul 2025 03:32:57.6945
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 43d4aa98-e35b-4575-8939-080e90d5a249
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: maynpR9ayZxBtv1sySn3kNdGmRnfsYF82eyiDC60kiiWsleBeULGWyeIHQfAVCGHhc3qkD4Se+QOFnCWiK+vwE/B3zVjrkkNfUsPKnL1imU=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SG2PR06MB5262
+References: <20250718101150.3681002-1-shengjiu.wang@nxp.com>
+ <20250718101150.3681002-3-shengjiu.wang@nxp.com> <4668607.LvFx2qVVIh@steina-w>
+In-Reply-To: <4668607.LvFx2qVVIh@steina-w>
+From: Shengjiu Wang <shengjiu.wang@gmail.com>
+Date: Mon, 21 Jul 2025 11:41:38 +0800
+X-Gm-Features: Ac12FXytZWevTn3X9nBgcYpx1xuFdbioGQ2AJMdPLLsLdh8ViabsDJrmMi_DxPU
+Message-ID: <CAA+D8ANQdOuEiHrOWAbqVN2oFAAop2agBzKB2_YsoQ3_SFYYNw@mail.gmail.com>
+Subject: Re: [PATCH 2/4] drm/bridge: imx: add driver for HDMI TX Parallel
+ Audio Interface
+To: Alexander Stein <alexander.stein@ew.tq-group.com>
+Cc: andrzej.hajda@intel.com, neil.armstrong@linaro.org, rfoss@kernel.org, 
+	Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se, jernej.skrabec@gmail.com, 
+	maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de, 
+	airlied@gmail.com, simona@ffwll.ch, lumag@kernel.org, dianders@chromium.org, 
+	cristian.ciocaltea@collabora.com, luca.ceresoli@bootlin.com, 
+	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+	victor.liu@nxp.com, shawnguo@kernel.org, s.hauer@pengutronix.de, 
+	kernel@pengutronix.de, festevam@gmail.com, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, p.zabel@pengutronix.de, devicetree@vger.kernel.org, 
+	l.stach@pengutronix.de, Shengjiu Wang <shengjiu.wang@nxp.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250720_203305_352997_5732B874 
-X-CRM114-Status: GOOD (  14.88  )
+X-CRM114-CacheID: sfid-20250720_204154_405437_D11BDFDA 
+X-CRM114-Status: GOOD (  44.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -196,23 +106,298 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SGkgS3J6eXN6dG9mLA0KDQpUaGFuayB5b3UgZm9yIHlvdXIgcmVwbHkuDQoNCj4gPiBBZGQgUENJ
-ZSBQRVJTVCMgZ3JvdXAgdG8gc3VwcG9ydCBmb3IgUENJZSBSQy4NCj4gPg0KPiA+IFNpZ25lZC1v
-ZmYtYnk6IEphY2t5IENob3UgPGphY2t5X2Nob3VAYXNwZWVkdGVjaC5jb20+DQo+ID4gLS0tDQo+
-ID4gIC4uLi9kZXZpY2V0cmVlL2JpbmRpbmdzL3BpbmN0cmwvYXNwZWVkLGFzdDI2MDAtcGluY3Ry
-bC55YW1sICAgICB8IDIgKysNCj4gPiAgMSBmaWxlIGNoYW5nZWQsIDIgaW5zZXJ0aW9ucygrKQ0K
-PiA+DQo+ID4gZGlmZiAtLWdpdA0KPiA+IGEvRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRp
-bmdzL3BpbmN0cmwvYXNwZWVkLGFzdDI2MDAtcGluY3RybC55YW0NCj4gPiBsDQo+ID4gYi9Eb2N1
-bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3MvcGluY3RybC9hc3BlZWQsYXN0MjYwMC1waW5j
-dHJsLnlhbQ0KPiA+IGwgaW5kZXggODA5NzRjNDZmM2VmLi41ZDdmYmIxYzcyYjcgMTAwNjQ0DQo+
-ID4gLS0tDQo+ID4gYS9Eb2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3MvcGluY3RybC9h
-c3BlZWQsYXN0MjYwMC1waW5jdHJsLnlhbQ0KPiA+IGwNCj4gPiArKysgYi9Eb2N1bWVudGF0aW9u
-L2RldmljZXRyZWUvYmluZGluZ3MvcGluY3RybC9hc3BlZWQsYXN0MjYwMC1waW5jdHJsDQo+ID4g
-KysrIC55YW1sDQo+ID4gQEAgLTI1NCw2ICsyNTQsNyBAQCBhZGRpdGlvbmFsUHJvcGVydGllczoN
-Cj4gPiAgICAgICAgICAtIFdEVFJTVDINCj4gPiAgICAgICAgICAtIFdEVFJTVDMNCj4gPiAgICAg
-ICAgICAtIFdEVFJTVDQNCj4gPiArICAgICAgICAtIFBDSUVSQzENCj4gDQo+IFdoYXQgZmVlZGJh
-Y2sgQXNwZWVkIHJlY2VpdmVkIGFib3V0IG9yZGVyaW5nIGxpc3RzPyBNb3JlIHRoYW4gb25jZT8N
-Cj4gDQoNClRoYW5rIHlvdSBmb3IgcG9pbnRpbmcgdGhpcyBvdXQuDQpXZSB3aWxsIHVwZGF0ZSB0
-aGUgb3JkZXJpbmcgYWNjb3JkaW5nbHkgaW4gdGhlIG5leHQgcmV2aXNpb24gdG8ga2VlcCB0aGUg
-bGlzdCBzb3J0ZWQuDQoNClRoYW5rcywNCkphY2t5DQoNCg==
+On Fri, Jul 18, 2025 at 7:51=E2=80=AFPM Alexander Stein
+<alexander.stein@ew.tq-group.com> wrote:
+>
+> Hi,
+>
+> thanks for sending this path.
+>
+> Am Freitag, 18. Juli 2025, 12:11:48 CEST schrieb Shengjiu Wang:
+> > The HDMI TX Parallel Audio Interface (HTX_PAI) is a digital module that
+> > acts as the bridge between the Audio Subsystem to the HDMI TX Controlle=
+r.
+> > This IP block is found in the HDMI subsystem of the i.MX8MP SoC.
+> >
+> > Data received from the audio subsystem can have an arbitrary component
+> > ordering. The HTX_PAI block has integrated muxing options to select whi=
+ch
+> > sections of the 32-bit input data word will be mapped to each IEC60958
+> > field. The HTX_PAI_FIELD_CTRL register contains mux selects to
+> > individually select P,C,U,V,Data, and Preamble.
+> >
+> > Signed-off-by: Shengjiu Wang <shengjiu.wang@nxp.com>
+> > ---
+> >  drivers/gpu/drm/bridge/imx/Kconfig           |   7 +
+> >  drivers/gpu/drm/bridge/imx/Makefile          |   1 +
+> >  drivers/gpu/drm/bridge/imx/imx8mp-hdmi-pai.c | 134 +++++++++++++++++++
+> >  include/drm/bridge/dw_hdmi.h                 |   6 +
+> >  4 files changed, 148 insertions(+)
+> >  create mode 100644 drivers/gpu/drm/bridge/imx/imx8mp-hdmi-pai.c
+> >
+> > diff --git a/drivers/gpu/drm/bridge/imx/Kconfig b/drivers/gpu/drm/bridg=
+e/imx/Kconfig
+> > index 9a480c6abb85..d95fa84a8dcd 100644
+> > --- a/drivers/gpu/drm/bridge/imx/Kconfig
+> > +++ b/drivers/gpu/drm/bridge/imx/Kconfig
+> > @@ -24,6 +24,13 @@ config DRM_IMX8MP_DW_HDMI_BRIDGE
+> >         Choose this to enable support for the internal HDMI encoder fou=
+nd
+> >         on the i.MX8MP SoC.
+> >
+> > +config DRM_IMX8MP_HDMI_PAI
+> > +     tristate "Freescale i.MX8MP HDMI PAI bridge support"
+> > +     depends on OF
+> > +     help
+> > +       Choose this to enable support for the internal HDMI TX Parallel
+> > +       Audio Interface found on the Freescale i.MX8MP SoC.
+> > +
+> >  config DRM_IMX8MP_HDMI_PVI
+> >       tristate "Freescale i.MX8MP HDMI PVI bridge support"
+> >       depends on OF
+> > diff --git a/drivers/gpu/drm/bridge/imx/Makefile b/drivers/gpu/drm/brid=
+ge/imx/Makefile
+> > index dd5d48584806..8d01fda25451 100644
+> > --- a/drivers/gpu/drm/bridge/imx/Makefile
+> > +++ b/drivers/gpu/drm/bridge/imx/Makefile
+> > @@ -1,6 +1,7 @@
+> >  obj-$(CONFIG_DRM_IMX_LDB_HELPER) +=3D imx-ldb-helper.o
+> >  obj-$(CONFIG_DRM_IMX_LEGACY_BRIDGE) +=3D imx-legacy-bridge.o
+> >  obj-$(CONFIG_DRM_IMX8MP_DW_HDMI_BRIDGE) +=3D imx8mp-hdmi-tx.o
+> > +obj-$(CONFIG_DRM_IMX8MP_HDMI_PAI) +=3D imx8mp-hdmi-pai.o
+> >  obj-$(CONFIG_DRM_IMX8MP_HDMI_PVI) +=3D imx8mp-hdmi-pvi.o
+> >  obj-$(CONFIG_DRM_IMX8QM_LDB) +=3D imx8qm-ldb.o
+> >  obj-$(CONFIG_DRM_IMX8QXP_LDB) +=3D imx8qxp-ldb.o
+> > diff --git a/drivers/gpu/drm/bridge/imx/imx8mp-hdmi-pai.c b/drivers/gpu=
+/drm/bridge/imx/imx8mp-hdmi-pai.c
+> > new file mode 100644
+> > index 000000000000..f09ee2622e57
+> > --- /dev/null
+> > +++ b/drivers/gpu/drm/bridge/imx/imx8mp-hdmi-pai.c
+> > @@ -0,0 +1,134 @@
+> > +// SPDX-License-Identifier: GPL-2.0+
+> > +/*
+> > + * Copyright 2025 NXP
+> > + */
+> > +
+> > +#include <drm/bridge/dw_hdmi.h>
+> > +#include <linux/module.h>
+> > +#include <linux/of_platform.h>
+> > +#include <linux/platform_device.h>
+> > +
+> > +#define HTX_PAI_CTRL                   0x00
+> > +#define HTX_PAI_CTRL_EXT               0x04
+> > +#define HTX_PAI_FIELD_CTRL             0x08
+> > +#define HTX_PAI_STAT                   0x0c
+> > +#define HTX_PAI_IRQ_NOMASK             0x10
+> > +#define HTX_PAI_IRQ_MASKED             0x14
+> > +#define HTX_PAI_IRQ_MASK               0x18
+> > +
+> > +#define CTRL_ENABLE                    BIT(0)
+> > +
+> > +#define CTRL_EXT_WTMK_HIGH_MASK                GENMASK(31, 24)
+> > +#define CTRL_EXT_WTMK_HIGH             (0x3 << 24)
+> > +#define CTRL_EXT_WTMK_LOW_MASK         GENMASK(23, 16)
+> > +#define CTRL_EXT_WTMK_LOW              (0x3 << 16)
+> > +#define CTRL_EXT_NUM_CH_MASK           GENMASK(10, 8)
+> > +#define CTRL_EXT_NUM_CH_SHIFT          8
+> > +
+> > +#define FIELD_CTRL_B_FILT              BIT(31)
+> > +#define FIELD_CTRL_PARITY_EN           BIT(30)
+> > +#define FIELD_CTRL_END_SEL             BIT(29)
+> > +#define FIELD_CTRL_PRE_SEL             GENMASK(28, 24)
+> > +#define FIELD_CTRL_PRE_SEL_SHIFT       24
+> > +#define FIELD_CTRL_D_SEL               GENMASK(23, 20)
+> > +#define FIELD_CTRL_D_SEL_SHIFT         20
+> > +#define FIELD_CTRL_V_SEL               GENMASK(19, 15)
+> > +#define FIELD_CTRL_V_SEL_SHIFT         15
+> > +#define FIELD_CTRL_U_SEL               GENMASK(14, 10)
+> > +#define FIELD_CTRL_U_SEL_SHIFT         10
+> > +#define FIELD_CTRL_C_SEL               GENMASK(9, 5)
+> > +#define FIELD_CTRL_C_SEL_SHIFT         5
+> > +#define FIELD_CTRL_P_SEL               GENMASK(4, 0)
+> > +#define FIELD_CTRL_P_SEL_SHIFT         0
+> > +
+> > +struct imx8mp_hdmi_pai {
+> > +     struct device   *dev;
+> > +     void __iomem    *base;
+> > +};
+> > +
+> > +static void imx8mp_hdmi_pai_enable(struct dw_hdmi *dw_hdmi, int channe=
+l,
+> > +                                int width, int rate, int non_pcm)
+> > +{
+> > +     const struct dw_hdmi_plat_data *pdata =3D dw_hdmi_to_plat_data(dw=
+_hdmi);
+> > +     struct imx8mp_hdmi_pai *hdmi_pai =3D (struct imx8mp_hdmi_pai *)pd=
+ata->priv_audio;
+> > +     int val;
+> > +
+> > +     /* PAI set */
+> > +     val =3D CTRL_EXT_WTMK_HIGH | CTRL_EXT_WTMK_LOW;
+> > +     val |=3D ((channel - 1) << CTRL_EXT_NUM_CH_SHIFT);
+> > +     writel(val, hdmi_pai->base + HTX_PAI_CTRL_EXT);
+> > +
+> > +     /* IEC60958 format */
+> > +     val =3D 31 << FIELD_CTRL_P_SEL_SHIFT;
+> > +     val |=3D 30 << FIELD_CTRL_C_SEL_SHIFT;
+> > +     val |=3D 29 << FIELD_CTRL_U_SEL_SHIFT;
+> > +     val |=3D 28 << FIELD_CTRL_V_SEL_SHIFT;
+> > +     val |=3D 4 << FIELD_CTRL_D_SEL_SHIFT;
+> > +     val |=3D 0 << FIELD_CTRL_PRE_SEL_SHIFT;
+>
+> You can use FIELD_PREP_CONST() for these shifts as the GENMASK are
+> already available.
+
+Ok.
+
+> But where do these numbers come from? I can see that downstream kernel
+> sets these bits depending on audio config being passed.
+
+These numbers are defined in standard IEC958 spec.
+
+The implementation in downstream kernel may not good enough, which can't
+distinguish between the raw PCM and IEC958 PCM. Even raw PCM can work,
+but in RM, the supported format is IEC958.
+
+So later we need to update the aud2htx driver to only support IEC958 format=
+.
+Make the alignment between PAI driver and aud2htx driver.
+
+>
+> > +
+> > +     writel(val, hdmi_pai->base + HTX_PAI_FIELD_CTRL);
+> > +     /* PAI start running */
+> > +     writel(CTRL_ENABLE, hdmi_pai->base + HTX_PAI_CTRL);
+> > +}
+> > +
+> > +static void imx8mp_hdmi_pai_disable(struct dw_hdmi *dw_hdmi)
+> > +{
+> > +     const struct dw_hdmi_plat_data *pdata =3D dw_hdmi_to_plat_data(dw=
+_hdmi);
+> > +     struct imx8mp_hdmi_pai *hdmi_pai =3D (struct imx8mp_hdmi_pai *)pd=
+ata->priv_audio;
+> > +
+> > +     /* Stop PAI */
+> > +     writel(0, hdmi_pai->base + HTX_PAI_CTRL);
+> > +}
+> > +
+> > +static int imx8mp_hdmi_pai_probe(struct platform_device *pdev)
+> > +{
+> > +     struct device *dev =3D &pdev->dev;
+> > +     struct dw_hdmi_plat_data *plat_data;
+> > +     struct imx8mp_hdmi_pai *hdmi_pai;
+> > +     struct device_node *remote;
+> > +     struct platform_device *hdmi_tx;
+> > +     struct resource *res;
+> > +
+> > +     hdmi_pai =3D devm_kzalloc(dev, sizeof(*hdmi_pai), GFP_KERNEL);
+> > +     if (!hdmi_pai)
+> > +             return -ENOMEM;
+> > +
+> > +     hdmi_pai->base =3D devm_platform_get_and_ioremap_resource(pdev, 0=
+, &res);
+> > +     if (IS_ERR(hdmi_pai->base))
+> > +             return PTR_ERR(hdmi_pai->base);
+> > +
+> > +     hdmi_pai->dev =3D dev;
+> > +
+> > +     remote =3D of_graph_get_remote_node(pdev->dev.of_node, 0, -1);
+> > +     if (!remote)
+> > +             return -EINVAL;
+> > +
+> > +     hdmi_tx =3D of_find_device_by_node(remote);
+> > +     if (!hdmi_tx)
+> > +             return -EINVAL;
+> > +
+> > +     plat_data =3D platform_get_drvdata(hdmi_tx);
+>
+> How do you ensure hdmi_tx has been probed so that drvdata is set?
+> Also hdmi_tx needs to be dropped.
+
+Good catch. need to update to
+
+        hdmi_tx =3D of_find_device_by_node(remote);
+        of_node_put(remote);
+        if (!hdmi_tx)
+                return -ENODEV;
+
+        plat_data =3D platform_get_drvdata(hdmi_tx);
+        put_device(&hdmi_tx->dev);
+        if (!plat_data)
+                return -EPROBE_DEFER;
+
+>
+> > +     plat_data->enable_audio =3D imx8mp_hdmi_pai_enable;
+> > +     plat_data->disable_audio =3D imx8mp_hdmi_pai_disable;
+> > +     plat_data->priv_audio =3D hdmi_pai;
+>
+> How do you connect this device to aud2htx?
+
+aud2htx -> hdmi_codec -> dw-hdmi-gp-audio
+hdmi_codec is sound/soc/codecs/hdmi-codec.c
+
+gp-audio will call this plat_data->enable(disable)_audio().
+So need to register the plat_data->enable(disable)_audio in this driver.
+
+Best regards
+Shengjiu Wang
+>
+> Best regards,
+> Alexander
+>
+> > +
+> > +     return 0;
+> > +}
+> > +
+> > +static const struct of_device_id imx8mp_hdmi_pai_of_table[] =3D {
+> > +     { .compatible =3D "fsl,imx8mp-hdmi-pai" },
+> > +     { /* Sentinel */ }
+> > +};
+> > +MODULE_DEVICE_TABLE(of, imx8mp_hdmi_pai_of_table);
+> > +
+> > +static struct platform_driver imx8mp_hdmi_pai_platform_driver =3D {
+> > +     .probe          =3D imx8mp_hdmi_pai_probe,
+> > +     .driver         =3D {
+> > +             .name   =3D "imx8mp-hdmi-pai",
+> > +             .of_match_table =3D imx8mp_hdmi_pai_of_table,
+> > +     },
+> > +};
+> > +module_platform_driver(imx8mp_hdmi_pai_platform_driver);
+> > +
+> > +MODULE_DESCRIPTION("i.MX8MP HDMI PAI driver");
+> > +MODULE_LICENSE("GPL");
+> > diff --git a/include/drm/bridge/dw_hdmi.h b/include/drm/bridge/dw_hdmi.=
+h
+> > index a56a3519a22a..9ca70ce80cc5 100644
+> > --- a/include/drm/bridge/dw_hdmi.h
+> > +++ b/include/drm/bridge/dw_hdmi.h
+> > @@ -143,6 +143,12 @@ struct dw_hdmi_plat_data {
+> >                                          const struct drm_display_info =
+*info,
+> >                                          const struct drm_display_mode =
+*mode);
+> >
+> > +     /*
+> > +      * priv_audio is specially used for additional audio device to ge=
+t
+> > +      * driver data through this dw_hdmi_plat_data.
+> > +      */
+> > +     void *priv_audio;
+> > +
+> >       /* Platform-specific audio enable/disable (optional) */
+> >       void (*enable_audio)(struct dw_hdmi *hdmi, int channel,
+> >                            int width, int rate, int non_pcm);
+> >
+>
+>
+> --
+> TQ-Systems GmbH | M=C3=BChlstra=C3=9Fe 2, Gut Delling | 82229 Seefeld, Ge=
+rmany
+> Amtsgericht M=C3=BCnchen, HRB 105018
+> Gesch=C3=A4ftsf=C3=BChrer: Detlef Schneider, R=C3=BCdiger Stahl, Stefan S=
+chneider
+> http://www.tq-group.com/
+>
+>
 
