@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D17BFC87FC5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 09:13:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4947EC83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 09:15:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MSLNG/l5knwQEf3hMyifFK9ob9ZB2h7hFb56GIwkteg=; b=H1uhN1Jr6WGoOFVmdljhDgYaZr
-	9Awb8SM18R2Ga1w+5K8SwRNXVJwG09cXvwNQ9VWKbG1UzKzOFvP4IhlkEU4nK3FiUq2Jpw/dGti8/
-	47nOXwrcaEdu+HOZ6ncKUgjORwFIYbq2TNdRO++ORIzvUFReuglmyVmFNl6VgIk4JZBsWKt187ZA9
-	TKXYt4cl7sFJHzff0Yf0F6JaWV6HiS/reViNno0aXjQmzDNLHlznLOckCQmcy1WuP6raqnakKV06z
-	gQAtl4MXhienrf6wtO7mb/FykhjzkDvJZeAnNluP+sCyR1XVnaJsduY5dLiLkpG8/iDbAh6qYmulU
-	+2vaJCJw==;
+	bh=dgoTHGfZXdy6LlM3rfCdXHfGWqlsua2jfqX/k2XXL88=; b=dYxWuzkZa2Ow+qz7A2lu3AIiR4
+	ZUlKKc3ZJa63iW+XmjJ+j0HHo7UgiAjnsB9jDuTj4U/jKcZp0/NMtTWqQf2VqKmA1s62s6046JWSK
+	A4tpchIeaFG69ZRU/ZYvnrWT5eiSO8tzgVShKs/AuPBx/QUUqLuUygH70JzLl0r8wLQZb1iJZS6Xa
+	CTD4FDmULu16+vgzmqrXCUrEuCoyDE1mGMhEugeFnLtQkaMBPHEl5L9R50qpGAefKHlzNe31XugLI
+	NFP1oAp3w/hzxVrumjwxm0GwbJXR/5zSRGh2vQoO2u++qZ7NHpWthT6pu1R1l0Qq68cC3i+WOM+50
+	1M0x4mjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udma2-0000000GlP9-1Ws5;
-	Mon, 21 Jul 2025 09:13:06 +0000
+	id 1udmcP-0000000GliI-3k8j;
+	Mon, 21 Jul 2025 09:15:33 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udm0g-0000000GgBa-1asv
+	id 1udm0i-0000000GgCI-3B7g
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Jul 2025 08:36:35 +0000
+	Mon, 21 Jul 2025 08:36:37 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2DEB51595;
-	Mon, 21 Jul 2025 01:36:28 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 617A130B1;
+	Mon, 21 Jul 2025 01:36:30 -0700 (PDT)
 Received: from e129823.cambridge.arm.com (e129823.arm.com [10.1.197.6])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 3C7703F66E;
-	Mon, 21 Jul 2025 01:36:32 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 64F9B3F66E;
+	Mon, 21 Jul 2025 01:36:34 -0700 (PDT)
 From: Yeoreum Yun <yeoreum.yun@arm.com>
 To: catalin.marinas@arm.com,
 	will@kernel.org,
@@ -47,17 +47,17 @@ To: catalin.marinas@arm.com,
 Cc: linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Yeoreum Yun <yeoreum.yun@arm.com>
-Subject: [PATCH v4 1/7] arm64: cpufeature: add FEAT_LSUI
-Date: Mon, 21 Jul 2025 09:36:12 +0100
-Message-Id: <20250721083618.2743569-2-yeoreum.yun@arm.com>
+Subject: [PATCH v4 2/7] KVM/arm64: expose FEAT_LSUI to guest
+Date: Mon, 21 Jul 2025 09:36:13 +0100
+Message-Id: <20250721083618.2743569-3-yeoreum.yun@arm.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250721083618.2743569-1-yeoreum.yun@arm.com>
 References: <20250721083618.2743569-1-yeoreum.yun@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250721_013634_463478_BEEE2CBD 
-X-CRM114-Status: UNSURE (   9.69  )
+X-CRM114-CacheID: sfid-20250721_013636_834587_8518B46C 
+X-CRM114-Status: UNSURE (   9.23  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -73,56 +73,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since Armv9.6, FEAT_LSUI supplies load/store instructions
-for privileged level to access user memory without clearing PSTATE.PAN bit.
-
-Add LSUI feature so that the unprevilieged load/store instructions
-could be used when kernel accesses user memory without clearing PSTATE.PAN bit.
+expose FEAT_LSUI to guest.
 
 Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+Acked-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/kernel/cpufeature.c | 8 ++++++++
- arch/arm64/tools/cpucaps       | 1 +
- 2 files changed, 9 insertions(+)
+ arch/arm64/kvm/sys_regs.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-index e151585c6cca..eaf958a0d8bc 100644
---- a/arch/arm64/kernel/cpufeature.c
-+++ b/arch/arm64/kernel/cpufeature.c
-@@ -278,6 +278,7 @@ static const struct arm64_ftr_bits ftr_id_aa64isar2[] = {
- 
- static const struct arm64_ftr_bits ftr_id_aa64isar3[] = {
- 	ARM64_FTR_BITS(FTR_VISIBLE, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64ISAR3_EL1_FPRCVT_SHIFT, 4, 0),
-+	ARM64_FTR_BITS(FTR_HIDDEN, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64ISAR3_EL1_LSUI_SHIFT, 4, ID_AA64ISAR3_EL1_LSUI_NI),
- 	ARM64_FTR_BITS(FTR_VISIBLE, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64ISAR3_EL1_FAMINMAX_SHIFT, 4, 0),
- 	ARM64_FTR_END,
- };
-@@ -3061,6 +3062,13 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
- 		.matches = has_pmuv3,
- 	},
- #endif
-+	{
-+		.desc = "Unprivileged Load Store Instructions (LSUI)",
-+		.capability = ARM64_HAS_LSUI,
-+		.type = ARM64_CPUCAP_SYSTEM_FEATURE,
-+		.matches = has_cpuid_feature,
-+		ARM64_CPUID_FIELDS(ID_AA64ISAR3_EL1, LSUI, IMP)
-+	},
- 	{},
- };
- 
-diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
-index 10effd4cff6b..31f2cd655666 100644
---- a/arch/arm64/tools/cpucaps
-+++ b/arch/arm64/tools/cpucaps
-@@ -43,6 +43,7 @@ HAS_HCX
- HAS_LDAPR
- HAS_LPA2
- HAS_LSE_ATOMICS
-+HAS_LSUI
- HAS_MOPS
- HAS_NESTED_VIRT
- HAS_PAN
+diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+index c20bd6f21e60..cfdf99e92cda 100644
+--- a/arch/arm64/kvm/sys_regs.c
++++ b/arch/arm64/kvm/sys_regs.c
+@@ -1636,7 +1636,8 @@ static u64 __kvm_read_sanitised_id_reg(const struct kvm_vcpu *vcpu,
+ 			val &= ~ARM64_FEATURE_MASK(ID_AA64ISAR2_EL1_WFxT);
+ 		break;
+ 	case SYS_ID_AA64ISAR3_EL1:
+-		val &= ID_AA64ISAR3_EL1_FPRCVT | ID_AA64ISAR3_EL1_FAMINMAX;
++		val &= ID_AA64ISAR3_EL1_FPRCVT | ID_AA64ISAR3_EL1_FAMINMAX |
++		       ID_AA64ISAR3_EL1_LSUI;
+ 		break;
+ 	case SYS_ID_AA64MMFR2_EL1:
+ 		val &= ~ID_AA64MMFR2_EL1_CCIDX_MASK;
+@@ -2921,7 +2922,7 @@ static const struct sys_reg_desc sys_reg_descs[] = {
+ 					ID_AA64ISAR2_EL1_APA3 |
+ 					ID_AA64ISAR2_EL1_GPA3)),
+ 	ID_WRITABLE(ID_AA64ISAR3_EL1, (ID_AA64ISAR3_EL1_FPRCVT |
+-				       ID_AA64ISAR3_EL1_FAMINMAX)),
++				       ID_AA64ISAR3_EL1_FAMINMAX | ID_AA64ISAR3_EL1_LSUI)),
+ 	ID_UNALLOCATED(6,4),
+ 	ID_UNALLOCATED(6,5),
+ 	ID_UNALLOCATED(6,6),
 -- 
 LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
 
