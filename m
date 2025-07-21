@@ -4,91 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F16DC83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 12:55:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A175BC83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 12:57:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GtlRa4EnHRvRTTXOu323ubV7Cd4GPOUPDvFH3dEXzK8=; b=uGHsQkWo9BoZauXaLubJ1vysCE
-	vQz0KH7YAMlbBOH2U/XNhz+D+ZuEXXVyayA1m3ACukLna+lSpyvQuTQJUKTmyQPQ2/DH7BTR42dJZ
-	Dfu46IBME0zq69hjCnfYX36vKZ42k7bfaY71lSsOSJMNbQX6HiAYAgxMhWegDPMmjibThe39DmUPM
-	gpDTMxxBv4fXERrk7PbZj9kJbg55msWTyNvrrhYNQsNIz+BTJQcYPyfPeAxmMS/9dAQI5LNJ86rEQ
-	+yLcTVpAa0ShD7zHCRK4eecUVkX7SL2udZoXi/R3mtO/niSgozZY5omi38eK/SP03JJNKVbgj5mAf
-	41OmfbFw==;
+	bh=apcXxEnb0qJg1v9Cl7JQ6npH3CzfQYbUnRtZrZ2JRQo=; b=jtpGssAEodPGAXayyoe8xWo/2B
+	AJ/QmUK+Cx5zhb6tVIZ8Zg30DBuk5cumkEyqfJCRD9MPWyl2yh+ktxxnLH7J1zzKThicE6WAFjLF0
+	qrQKmaZ3QbUU9jgT4hDBX0I0wUdDm2tDtQ1vRnGAeifl3E0U/rtO9Icx6UWqTfXM5gDT8Casuzabd
+	h2RfmHqbVKIlJZsQRNDNy5uOkuLt+3L8gAn0OKVWcMXHsnVA/z6VJwZgwuHW2lpjmvMdIL4xp7pSR
+	hKmdAOQC9NhLjposKFdjvt9kKF5aFwh6MlX+74xiq1lf11BJaCHs10aIO+4OBMOJfu6q1dY9xOUQQ
+	+xDhtTiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udq2l-0000000HIu6-1RfX;
-	Mon, 21 Jul 2025 12:54:59 +0000
-Received: from mail-qt1-x82b.google.com ([2607:f8b0:4864:20::82b])
+	id 1udq5C-0000000HJWM-0gJ1;
+	Mon, 21 Jul 2025 12:57:30 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udoTD-0000000H3GS-2zwX
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Jul 2025 11:14:12 +0000
-Received: by mail-qt1-x82b.google.com with SMTP id d75a77b69052e-4aba1bc7f44so28754591cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Jul 2025 04:14:11 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=android.com; s=20230601; t=1753096451; x=1753701251; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=GtlRa4EnHRvRTTXOu323ubV7Cd4GPOUPDvFH3dEXzK8=;
-        b=UbdTgafmg30xwAIlhjhNFA8TidhXeDK429+JI/Pp7r/Gj5ZQlLh2elgOvM1RHh4TGl
-         lCT9CE77QwucS+4+KR+KPSTl3pvzhP1z56Xcsl5183qMSdxxx91BaQHq6CDK8lCa8DXz
-         DAdRnuF4XVznO/PiJ7AvNVnXRd5/kswj8yMfi0DlQA6GLWMmZRKblLA73cJ36ZRI4+ko
-         kg/C5Ogu+YCn8eAZn6iwn81kEuk8AxbYPDqqE4OPF3EZ980IlFDTVvETGsT64ydxB71C
-         QYM4tDOGh7jjV1eAbSA0N2+G0R7UkLHIfoovFHNNZu87d8APDwMzKbJX80GakWweidU5
-         eO4A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753096451; x=1753701251;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=GtlRa4EnHRvRTTXOu323ubV7Cd4GPOUPDvFH3dEXzK8=;
-        b=EFGmPhZjdcF1tu3O4ku14WfvHUGEmtBMEezLFDshGU3p9AblIPLQCvvS0STtP/0i9y
-         dnhJc9Fn76tTR6xjI/qGav0P9KHRr8SQJ7mJEEFFv0lbTTYot1QifH1DOv9r+LaKf8kb
-         91RESI3+78A85aj6pKGSyv2W12DMlNudazClJKzXEIxSFIBCbGyrH0FJHZi6EZHVzmRk
-         34FZYgbcXZyZOycBcKfKN98wa1omJpkSpDjVU7X6LiwWpoug64LViHLwSCh9wyGKa86y
-         e2TInB1qMOtEud1v5CKeyJSXDR6BF8Y/LJZDq/ICfSah5axA7/e67sXlZjsV5XaXnP2O
-         eK7Q==
-X-Forwarded-Encrypted: i=1; AJvYcCXgX4yhqFZDZLcjUyrvZZvly0avNc4us76JT+UOFO2JKnuZpOjZv7cmfX7Hi3nJjY7tiF0qQF29bc4Jsb1IrqDk@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyt52onCDlwnVpfm1sZWwJfzoaq7f81IUuQRxAK+tgCa+4+byUW
-	BHxesvcZrXqB6GmNHcKRvkupYxgjZo+lyfsLRQq0JJ/RVMW7AD/a4lpdKVOLonOYs3b1Pc/dhk8
-	Dsnx4eq+4jcxC63lv2X035Ykg5LqVh9lI+Y7cHClF
-X-Gm-Gg: ASbGncvUVFbL1N4ESz+repzqqQODqopqT1pmhZLolCnAo3BrwSH+sKp5EL4PmL8ZBUt
-	P4AX3fdqVdEZjkVzrWYkP5sdRo4zgmmQTPrADAvnK/DbGaUESHHBbqK+gNrZ5+j0Xe2r8KAiueL
-	zAUyuVVE9X/iv2ZZTgG71MJGEHha8bWs5malZB9fWB+TVCeV1eFaejZ7DR27KPL2chatpS2Cw0Y
-	2IfaoIXO9uisUWwe8cYo6zqeAuHB/XGw7by1kaPtA==
-X-Google-Smtp-Source: AGHT+IF/Z0HI6TmXWcSejGmxIumXwzv7Wt4N9tNfpJJWx7Y46lpv4IgUdvc+GB5ne/UGCDyxnW+oQUgbgPZJGkXl9xU=
-X-Received: by 2002:a05:6214:3305:b0:704:f44a:75ff with SMTP id
- 6a1803df08f44-705162103c4mr156533906d6.22.1753096450633; Mon, 21 Jul 2025
- 04:14:10 -0700 (PDT)
+	id 1udoTg-0000000H3Nm-0C4K;
+	Mon, 21 Jul 2025 11:14:41 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1753096461; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=jYDbMhT8vW1zZ55sI4R7g1B58Oih9oqWj6/OHCkN7i3soW0oBjrysLGZCIOIwKpbi/S4R9R6I9DzaB3/a/jfCHc0jge426lJOeXddipzWya2vUv9BJR51q/V5Ym2hd6Xn9XhbIccR0vCC1hhPJZp8pixppyUATKFwpUQMuTxQx4=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1753096461; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=apcXxEnb0qJg1v9Cl7JQ6npH3CzfQYbUnRtZrZ2JRQo=; 
+	b=DtIObIS9tuE0ada0VjeUzVrB6+WAlE06f1oeU6I4KkV87vFL40WUPjQkWn0Qvkk+z/tZ+6ikJFy0J8KzcQ5xIFLHApyCEqyFnQQKMzI3t6NyqUtKahukCqEiCOiFghfwduWM2LKZhq6e47wNS9VpVwcFtxfkHF+Am+V/Z49XFrg=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=benjamin.gaignard@collabora.com;
+	dmarc=pass header.from=<benjamin.gaignard@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1753096461;
+	s=zohomail; d=collabora.com; i=benjamin.gaignard@collabora.com;
+	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
+	bh=apcXxEnb0qJg1v9Cl7JQ6npH3CzfQYbUnRtZrZ2JRQo=;
+	b=Ng8qHnwKp0kseIgsBGNF47L3UKdRF5Gn/rEgrTYuEvTl8P3sWznvC3DDRjddwmj/
+	MrPA+UxXE8ZA3+nMRDuFpZDlOLPlg8RZ57XhLM8Pjv+PN+NFaBihL/2tuYAEDBCTEsB
+	N3aDH1R05bBv2dMGMnp79lTpx9sLG7SNaiWUlAz4=
+Received: by mx.zohomail.com with SMTPS id 1753096458959568.7003735740404;
+	Mon, 21 Jul 2025 04:14:18 -0700 (PDT)
+Message-ID: <e96b1d2f-bff8-4b79-9995-6929648a810b@collabora.com>
+Date: Mon, 21 Jul 2025 13:14:14 +0200
 MIME-Version: 1.0
-References: <20250701-virtio-msg-ffa-v7-0-995afc3d385e@google.com>
- <20250701-virtio-msg-ffa-v7-5-995afc3d385e@google.com> <aHpRvBO864x1vvqP@willie-the-truck>
-In-Reply-To: <aHpRvBO864x1vvqP@willie-the-truck>
-From: =?UTF-8?B?QXJ2ZSBIasO4bm5ldsOlZw==?= <arve@android.com>
-Date: Mon, 21 Jul 2025 04:13:59 -0700
-X-Gm-Features: Ac12FXyFG5yEbBpu73BqZFIB9DdaO3n1VasDGNS_MIwe8KNKSUyKkMDnLJwSvog
-Message-ID: <CAMP5XgenLo3dk=NB-iJ4MLs5azB7w=0RHkbQJRGb_qMnixCTsQ@mail.gmail.com>
-Subject: Re: [PATCH v7 5/5] KVM: arm64: Support FFA_MSG_SEND_DIRECT_REQ2 in
- host handler
-To: Will Deacon <will@kernel.org>
-Cc: perlarsen@google.com, Marc Zyngier <maz@kernel.org>, 
-	Oliver Upton <oliver.upton@linux.dev>, Joey Gouly <joey.gouly@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Sudeep Holla <sudeep.holla@arm.com>, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, ahomescu@google.com, armellel@google.com, 
-	ayrton@google.com, qperret@google.com, sebastianene@google.com, 
-	qwandor@google.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 3/5] iommu: Add verisilicon IOMMU driver
+To: Jason Gunthorpe <jgg@ziepe.ca>, Will Deacon <will@kernel.org>
+Cc: Robin Murphy <robin.murphy@arm.com>, joro@8bytes.org, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, heiko@sntech.de,
+ nicolas.dufresne@collabora.com, iommu@lists.linux.dev,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ kernel@collabora.com
+References: <20250710082450.125585-1-benjamin.gaignard@collabora.com>
+ <20250710082450.125585-4-benjamin.gaignard@collabora.com>
+ <aHTzPwTob8_5rtBS@willie-the-truck>
+ <baa1fcde-f167-4a1b-afca-0a2957a688cc@collabora.com>
+ <aHozv0NG1OBlAH6c@willie-the-truck>
+ <b4169471-fcd0-4415-8281-c5bd722e5f2b@arm.com>
+ <aHpQXy-bnwW56rCn@willie-the-truck> <20250718141401.GD2206214@ziepe.ca>
+Content-Language: en-US
+From: Benjamin Gaignard <benjamin.gaignard@collabora.com>
+In-Reply-To: <20250718141401.GD2206214@ziepe.ca>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250721_041411_755927_059E1006 
-X-CRM114-Status: GOOD (  26.81  )
+X-CRM114-CacheID: sfid-20250721_041440_157791_366C40EA 
+X-CRM114-Status: GOOD (  19.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,77 +87,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 18, 2025 at 6:53=E2=80=AFAM Will Deacon <will@kernel.org> wrote=
-:
->
-> On Tue, Jul 01, 2025 at 10:06:38PM +0000, Per Larsen via B4 Relay wrote:
-> > From: Per Larsen <perlarsen@google.com>
-> >
-> > FF-A 1.2 adds the DIRECT_REQ2 messaging interface which is similar to
-> > the existing FFA_MSG_SEND_DIRECT_{REQ,RESP} functions except that it
-> > uses the SMC calling convention v1.2 which allows calls to use x4-x17 a=
-s
-> > argument and return registers. Add support for FFA_MSG_SEND_DIRECT_REQ2
-> > in the host ffa handler.
-> >
-> > Signed-off-by: Per Larsen <perlarsen@google.com>
-> > ---
-> >  arch/arm64/kvm/hyp/nvhe/ffa.c | 24 +++++++++++++++++++++++-
-> >  include/linux/arm_ffa.h       |  2 ++
-> >  2 files changed, 25 insertions(+), 1 deletion(-)
-> >
-> > diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ff=
-a.c
-> > index 79d834120a3f3d26e17e9170c60012b60c6f5a5e..21225988a9365219ccfd69e=
-8e599d7403b5cdf05 100644
-> > --- a/arch/arm64/kvm/hyp/nvhe/ffa.c
-> > +++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
-> > @@ -679,7 +679,6 @@ static bool ffa_call_supported(u64 func_id)
-> >       case FFA_NOTIFICATION_GET:
-> >       case FFA_NOTIFICATION_INFO_GET:
-> >       /* Optional interfaces added in FF-A 1.2 */
-> > -     case FFA_MSG_SEND_DIRECT_REQ2:          /* Optional per 7.5.1 */
->
-> I think that's the only change needed. In fact, maybe just don't add it
-> in the earlier patch?
->
-> >       case FFA_MSG_SEND_DIRECT_RESP2:         /* Optional per 7.5.1 */
-> >       case FFA_CONSOLE_LOG:                   /* Optional per 13.1: not=
- in Table 13.1 */
-> >       case FFA_PARTITION_INFO_GET_REGS:       /* Optional for virtual i=
-nstances per 13.1 */
-> > @@ -862,6 +861,22 @@ static void do_ffa_part_get(struct arm_smccc_1_2_r=
-egs *res,
-> >       hyp_spin_unlock(&host_buffers.lock);
-> >  }
-> >
-> > +static void do_ffa_direct_msg2(struct arm_smccc_1_2_regs *regs,
-> > +                            struct kvm_cpu_context *ctxt,
-> > +                            u64 vm_handle)
-> > +{
-> > +     DECLARE_REG(u32, endp, ctxt, 1);
-> > +
-> > +     struct arm_smccc_1_2_regs *args =3D (void *)&ctxt->regs.regs[0];
-> > +
-> > +     if (FIELD_GET(FFA_SRC_ENDPOINT_MASK, endp) !=3D vm_handle) {
-> > +             ffa_to_smccc_error(regs, FFA_RET_INVALID_PARAMETERS);
-> > +             return;
-> > +     }
->
-> Why do we care about checking the src id? We don't check that for
-> FFA_MSG_SEND_DIRECT_REQ and I don't think we need to care about it here
-> either.
->
-> Will
 
-I think not checking the src id for FFA_MSG_SEND_DIRECT_REQ is a bug
-that should be fixed as well. The receiver expects the hypervisor to
-have validated this. If the src id is not validated here then the host
-can impersonate other VMs or even the hypervisor itself. This bug
-might be minor at the moment since other VMs can't send messages at
-the moment, but it is still a bug that needs to be fixed at some
-point.
+Le 18/07/2025 à 16:14, Jason Gunthorpe a écrit :
+> On Fri, Jul 18, 2025 at 02:47:11PM +0100, Will Deacon wrote:
+>
+>> Just because the existing drivers are a mess doesn't mean we should
+>> proliferate it!
+> If you want to insist on something here it should be for this driver
+> to use the new generic page table code I've written.
+>
+> Otherwise I don't see the point in trying to improve this in some
+> lesser way.
+>
+> If this had come in a years time I would probably insist on that, but
+> right now it isn't merged yet and it will still be a little bit before
+> people have time to review it.
+>
+> Perhaps a compromise where Benjamin comes with an iommupt format
+> header that works for this and we can progress this series and be
+> ready to swap it out down the road?
 
---=20
-Arve Hj=C3=B8nnev=C3=A5g
+I have take some time to try to understand this new framework and I have
+to admit it isn't super clear in my mind how to use it right now.
+I don't have catch the benefit behind the macro and the nested structures.
+
+Anyway, if VSI driver need to be updated I could, at least, validate the
+changes on my board or make the fix make self (but I will need to see
+more example of drivers using this new feature.
+
+Benjamin
+
+>
+> Jason
 
