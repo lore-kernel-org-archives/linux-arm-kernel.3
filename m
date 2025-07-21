@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F7C5C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 13:05:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 646D9C83F25
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 13:07:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b1X0fuL9CtcX6g3IEG7r9imekG29ASEidJw6mr4wREU=; b=x204uNjCNGhbI5PskTSYLozucJ
-	/ebIMIwJ510z4jVnqbDHByIhnvPb0FTXCqfDXR1xYoqQNipGcd0fHlZ+/+1sNrBAt4w5SueNnGo5L
-	Df7izlEvnkojmVxGwmRj8JStpoMS8hrfzxI6F8RD9sggXQ1XITtdb0XaQzSlvNljz7x6hzfcAu/04
-	ChWMMz8CD0k8b0KQ2SK9fOjuYqqMmew7pdq+0k9CUv/4kiZaIAnXUe81h5PAbS/T/lnTkf2lp74t5
-	19v9hh/m8aZBGiZT8gm+1TC4HLEZEo/fb2z64C4vD37cznzA9qUn0aiqfNad6qeUvzdRdl2e0N2o/
-	YX47ykxg==;
+	bh=fPGrfqg8UaxEktjEHfSecm4NyduW08Yu5c4nY2o6pg8=; b=UsVOqmNuRDQalAfwe+j2fIeXT1
+	qNTg8FLqQUMw+OUtm5gqRj7JX7bX9nW6Vb3qemNHm4585ttO1jOCC6i1gGUWaFCz+ctUzGp9cTdBr
+	VJeLHh7ZWF+rf82lp/3i1atcMK6CX/AzyezMvdMAicJFX+ChSUlsWtEhd/xtXT9Sz9Zr7IT0MgpD6
+	BNO6vJPQec+Mlilu3B2QcOb8ehoFhCq2l0sPgzkoQYsVKYsBaZUkeki/lLUvWutqI/nUxzYGGTxmO
+	0kQ8NRCiMGAiOwGXYt48EF3fUSHodbw39RRiTRC/ux1kzOBLYiTTQL94glbQvsW9bzqDiKvAOCTVv
+	dm4Px7Wg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udqCU-0000000HKi2-49Ew;
-	Mon, 21 Jul 2025 13:05:02 +0000
+	id 1udqEw-0000000HLPK-3Uri;
+	Mon, 21 Jul 2025 13:07:34 +0000
 Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udoZZ-0000000H4V9-0mVT
+	id 1udoZm-0000000H4WQ-406v
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Jul 2025 11:20:47 +0000
-Received: from pps.filterd (m0288072.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56LB7PB1006642;
-	Mon, 21 Jul 2025 13:20:31 +0200
+	Mon, 21 Jul 2025 11:21:00 +0000
+Received: from pps.filterd (m0241204.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56LB6qGI018077;
+	Mon, 21 Jul 2025 13:20:46 +0200
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	b1X0fuL9CtcX6g3IEG7r9imekG29ASEidJw6mr4wREU=; b=HYe47YEZUTNoJYQh
-	T/2IjBN55bAJkVxJYzyXpIDLAanCNWjT7pm5gU/C8a2OA50PlWv4eidqi6pUKoX+
-	3w3Becc2OTbYGGNlmw+FxEWyBfJU+Nms+JDcTLO+rxy7zknVH6UaTfiLobiyzKe4
-	uZHvKbHH8+VKLAW92tnTK06bvYj93wJKbsDyQascnWj2lFSFyPzVO52ROIkfnvbP
-	a4uOF4DqoFxBG8HpSTyU9v3pZVT8/dQk0xH6YTRA1lYVYwJ8wxZ7nHTUTFnRBUw1
-	54bD7BUjJQujLK7kdCZtrvAk3tnwJhKz5aqL7QXi/pp6WR7r5+H0W5kMebBn4hdb
-	obH4BQ==
+	fPGrfqg8UaxEktjEHfSecm4NyduW08Yu5c4nY2o6pg8=; b=f5nmHjvn4IpzkOBS
+	T9BjLS6WLAVsGTndvlbqeiKu7xeh5SADJr8xPJLXgSfi/P2ENunRwsTEZDACrdxD
+	ouQqSNZPnjGvjDOFf+u6DBzYv0jNWJof5JbchdAFj4K822olnI8syeC8wnRC2h4Z
+	u/C2Cwp0tFPnc6wjYWwhUdvlsLtM9da3Ihrh2NHTA3Wy6LYdZMGM/KJcyD+Os/C5
+	V9pWZnJLpC2Mz9D9qnl1/EZzDHpaRZr8OwHjWtP2CsGRgAq1Ek/zw/bJnRV1kaiY
+	K+4L7jMeTv2C6BQb2XjpRsq840oxFe0Slp3dCpbHvwOklXQoL/grEClMYXpU+2Er
+	afmK9g==
 Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 4800sks1g2-1
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 4802q20mm9-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 21 Jul 2025 13:20:31 +0200 (MEST)
+	Mon, 21 Jul 2025 13:20:46 +0200 (MEST)
 Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id B985540045;
-	Mon, 21 Jul 2025 13:18:52 +0200 (CEST)
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id D2AAA40052;
+	Mon, 21 Jul 2025 13:19:07 +0200 (CEST)
 Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id DDB8F7A320F;
-	Mon, 21 Jul 2025 13:17:46 +0200 (CEST)
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 119277A16E0;
+	Mon, 21 Jul 2025 13:17:49 +0200 (CEST)
 Received: from localhost (10.48.87.141) by SHFDAG1NODE1.st.com (10.75.129.69)
  with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 21 Jul
- 2025 13:17:46 +0200
+ 2025 13:17:48 +0200
 From: Gatien Chevallier <gatien.chevallier@foss.st.com>
-Date: Mon, 21 Jul 2025 13:14:43 +0200
-Subject: [PATCH net-next 1/4] dt-bindings: net: document st,phy-wol
- property
+Date: Mon, 21 Jul 2025 13:14:46 +0200
+Subject: [PATCH net-next 4/4] arm: dts: st: activate ETH1 WoL from PHY on
+ stm32mp135f-dk
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20250721-wol-smsc-phy-v1-1-89d262812dba@foss.st.com>
+Message-ID: <20250721-wol-smsc-phy-v1-4-89d262812dba@foss.st.com>
 References: <20250721-wol-smsc-phy-v1-0-89d262812dba@foss.st.com>
 In-Reply-To: <20250721-wol-smsc-phy-v1-0-89d262812dba@foss.st.com>
 To: Andrew Lunn <andrew+netdev@lunn.ch>,
@@ -91,18 +91,18 @@ CC: <netdev@vger.kernel.org>, <devicetree@vger.kernel.org>,
         <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
         Gatien Chevallier <gatien.chevallier@foss.st.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=922;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=731;
  i=gatien.chevallier@foss.st.com; h=from:subject:message-id;
- bh=Avv0u0uet8c5vtxzqKAUxwgjxaChkzjjAaArsW/vmjk=;
- b=owEB7QES/pANAwAKAar3Rq6G8cMoAcsmYgBofiHY88LFa3fXDxaGmYnrUy6pV1AKeZuGRUcAD
- ReXaesVm4qJAbMEAAEKAB0WIQRuDsu+jpEBc9gaoV2q90auhvHDKAUCaH4h2AAKCRCq90auhvHD
- KJ3lDACBs2nHBOOs5HXp4qavSVXFh3fM0Nadp4bsTykIIfRE/DzwWWCk1k5kffsi3m6v4fHG1Hu
- 0wwqWl2Aklr448xtZNx+LsFWL4FQQaiAdLrksz+cEoRaaJc8QXopBmDRYpJny2lj3FRyx81TF2Z
- bCx9NTqSLh2T0EZZwe8/Jm/ynHoAdHUDMJELVHgmRL7j7mWULiUPuVEzra65oLaK4uhNQu9gWaP
- qXn+PeTvYLNzwJzr8vuDBJ2ZIu7Iuv95caFuWjVlPUCTpCgYyffvTZ/qJNjQtcaLd9Xr/tCj5r7
- 0UWvo++8ZRPZbHObcAF7HLmoCYoPWAiczq7GgIcb4rkf+e/y4fdoj/eTlqRt+eV/F7BYozOlv1G
- +1IlRmapIVGKcPxS+I2Btr2sr46MI0qg0bM6I6ulpY7/LpBhHc+mMqHa1Bnm+EVOgNPsMdPjy7E
- ocZd3sm9hEVVEUKHLhkFyUZ/5DKIhplTCr4jCJD3FKmh3GMNW5NYv0QJsUvf1h/Xvrpls=
+ bh=5zlOyseGY2a12mIH0pp7n82/QDRPL8mVnq+tTRpVY5E=;
+ b=owEB7QES/pANAwAKAar3Rq6G8cMoAcsmYgBofiHZMUPjiV5/QfVT9gWzWZYWZtjpH9vw1Lm1Z
+ fKGFiG/opGJAbMEAAEKAB0WIQRuDsu+jpEBc9gaoV2q90auhvHDKAUCaH4h2QAKCRCq90auhvHD
+ KJxPDACVprDiGGi6h62GgbvAIbaolnGJjbtI3aAQUy0LzF8zbEIgUY/GruoXoMtHLOEpIYWosco
+ R3udACN4dTSARxGTXGEB09/s/QQ7gsm4JnJ+pT3zGPghDKb4fZrrDkXfBjYQfUoayN8dn0HylCt
+ 1RsKyLZ8HNqbeqcvQSyCugjKrXUqnsMqXs/t326ToQAGXcdPKl2uy/NeiCijpFaaA/Hgclwjdsk
+ 9CXiEHYIrLdTZJd2PaBBlOpd3thUXZZAEwmhboqZhJKzn4j3wSLMcCkSnWZXB6JYQhoo3u1XdYb
+ z+THksSe77k6vlhS809zwnHywkwT70Zfk4Wouje8pe8bvTFIlPHOafNqXcPSNdfBxQJTolTWk6i
+ 1QcO2iPovhd8SYHyH475smn4qm8Z9OWsPY1eKaOHsP1d+zDjIDsVoGrvhsch6XX3kHey72ksXzq
+ PzHgTqYnPaXdoScj8smDS94Q8EbUpPAHGbJpsmLRb7iKEbpKk7Odx0ALbdu1S38J8IosI=
 X-Developer-Key: i=gatien.chevallier@foss.st.com; a=openpgp;
  fpr=6E0ECBBE8E910173D81AA15DAAF746AE86F1C328
 X-Originating-IP: [10.48.87.141]
@@ -112,8 +112,8 @@ X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
  definitions=2025-07-21_03,2025-07-21_01,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250721_042045_522178_F631674E 
-X-CRM114-Status: GOOD (  10.91  )
+X-CRM114-CacheID: sfid-20250721_042059_283119_2667AF6B 
+X-CRM114-Status: GOOD (  10.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,31 +128,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The "st,phy-wol" property can be set to use the wakeup capability of
-the PHY instead of the MAC.
+On this board, the ETH1 supports WoL from PHY. Add the "st,phy-wol"
+property to support it.
 
 Signed-off-by: Gatien Chevallier <gatien.chevallier@foss.st.com>
 ---
- Documentation/devicetree/bindings/net/stm32-dwmac.yaml | 6 ++++++
- 1 file changed, 6 insertions(+)
+ arch/arm/boot/dts/st/stm32mp135f-dk.dts | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/Documentation/devicetree/bindings/net/stm32-dwmac.yaml b/Documentation/devicetree/bindings/net/stm32-dwmac.yaml
-index 987254900d0da7aab81237f20b1540ad8a17bd21..985bd4c320b3e07fd1cd0aa398d6cce0b55a4e4d 100644
---- a/Documentation/devicetree/bindings/net/stm32-dwmac.yaml
-+++ b/Documentation/devicetree/bindings/net/stm32-dwmac.yaml
-@@ -121,6 +121,12 @@ properties:
-     minItems: 1
-     maxItems: 2
+diff --git a/arch/arm/boot/dts/st/stm32mp135f-dk.dts b/arch/arm/boot/dts/st/stm32mp135f-dk.dts
+index 9764a6bfa5b428c8524a5902c10b7807dda46b3d..d746424b039013759bfbcce5193a701ff775e715 100644
+--- a/arch/arm/boot/dts/st/stm32mp135f-dk.dts
++++ b/arch/arm/boot/dts/st/stm32mp135f-dk.dts
+@@ -193,6 +193,7 @@ &ethernet1 {
+ 	pinctrl-names = "default", "sleep";
+ 	phy-mode = "rmii";
+ 	phy-handle = <&phy0_eth1>;
++	st,phy-wol;
  
-+  st,phy-wol:
-+    description:
-+      set this property to use the wakeup capability from the PHY, if supported, instead of the
-+      MAC.
-+    type: boolean
-+
- required:
-   - compatible
-   - clocks
+ 	mdio {
+ 		#address-cells = <1>;
 
 -- 
 2.35.3
