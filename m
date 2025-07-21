@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40601C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 11:39:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C24C3C83F25
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 11:39:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hEWn8R6xTyTNY04jO6IV6mM8iK9PobyeNUDDr8nCo8A=; b=IXgshbIgh2e0nOxSOqRzTWeNva
-	EZeLhIwRq8SyC/w+G6qkAZmR+6aEmYwhRO5FCxY1/5rPiZ6/cA45jX6yigU8v6+P/ebJqHZUO0u13
-	o6rRiRQZzNmYpiS85PjUMyiK8EpHEkWHez64mMbdRQP4S1cy+snt4+rDFK8gus49fTnfbj262BmL+
-	Pxmgv67nHlhKnJCQrxoTPD3EOmonV1nuojkpdqfpQmVJTguiWsKW87YARokqHIizA2wpTMq22ryaC
-	IwFtL6baPnHpHInCWovfHQ2zjACgUNZeUoMrJLaQIxruwOVUvmWgSVY/m3aYDmAnl/Hk22oQCUdZg
-	84sZrJKA==;
+	bh=e0QNMhV/M9OVqh2YUk+/5GFzaAlej2BfgiyW1K3U5NE=; b=CQOF3604RhNQfeakyBpMyO9Uht
+	oRU3YpWmvpfS9uO0Wg9Gxw8YOxiQ6rNn62643J4vR8pdPcorG/Y35tE4ttDO6So5PuUjg6m1h72bh
+	Q5oM8yG9mmD3kNKGNtuNMY97h0+0n5TyAzvEB/x9jtrw9GR/rM98yXCnop52xOPJFCrOfoH412g4m
+	znW+bDzlDXbKf23DKpucfijOKrXEQJNILgiLWwl8642ory2ota7jFH2TBUsK5if0LqRk/C0l/6VUP
+	VNxUnSgh+dMs0a8hDgnyx0CO+x+64RExRLMtRhy0OZi9LOkpzLfHaM/FumrXCDGYwCXFLg36QjAh2
+	Ec0o8NTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udorg-0000000H7Zz-1V8N;
-	Mon, 21 Jul 2025 11:39:28 +0000
+	id 1udori-0000000H7eW-2xkY;
+	Mon, 21 Jul 2025 11:39:30 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udncu-0000000Gwl1-25g9
+	id 1udncu-0000000Gwl8-2awR
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 21 Jul 2025 10:20:10 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id DFD8644C52;
-	Mon, 21 Jul 2025 10:20:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BE413C4CEF4;
-	Mon, 21 Jul 2025 10:20:07 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 5A952448BB;
+	Mon, 21 Jul 2025 10:20:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3E203C4CEF4;
+	Mon, 21 Jul 2025 10:20:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753093207;
-	bh=aU3ERR3QXKPxAdBKGuj6WvEx4vWELd23g27wVC/6O8U=;
+	s=k20201202; t=1753093208;
+	bh=eANUx6yTarI1XjY5Wc/aBHqOLih6GMKUKHwFun94n8E=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=e/bOeeGhumpGirTKEEVLNgLFpqIqkwkLHcrgMdCAha3qEZYikGGIf+lKbrEbzhnYt
-	 6YAFSrv/CcZ259ma57vVPP1TUD8AK9P6EWlmo5Mt2+hKdumFMltsg3E6PGa0V9zZmw
-	 qi7LMlZswL661VfvPUPfF/1kw5RFFWHoTT1O67RQ0nIH9AcGoIGi9if3ncSNNdmpSi
-	 pIXT+Pvvd6rA0tMdAMP5Q9MNec4bEpvWNStI44mwoUzRz8Jyn7Xs4W1pVn5xIWLsUS
-	 He3xgxGOCsfTfM8K1UaaaxIlw1i9wGHJIhiwaAhwgDpq7IdjH14ppB1afHhXFFLYEQ
-	 EF0bONN3rUUVA==
+	b=ATtVxx+QilGd5YPeJZNWCLGmEkqrFGbNjANZg5mXUmT586Kq+YAs81ewdQv5IIo7E
+	 WXJPrus7nFJlEz4IGyI4GUedH6EMglFYEij+Z4rOdr2c7nnIFkoBDW2YwDV3anHqd2
+	 clETiOjjA2krM5XOsW4E7YfyoWDzx4WKGSjO7c0WjICffaTGDFsknPhsIci2+zIpva
+	 dXyHRh6cnPhl7PVokgMTQUb3ktqZSgX4FZHzYUu4xqqEuWIhOQ4ev2L2g/5XGUCue7
+	 zhf5w5a7VATgSHzgEBQwtxO6Tr4BBZ4qkUgC1wJIDtE8XBzF8p3X+MQBBbO0QwX75T
+	 NHhabJ3lOZhVQ==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1udncs-00HZDF-17;
+	id 1udncs-00HZDF-Dc;
 	Mon, 21 Jul 2025 11:20:06 +0100
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
@@ -58,9 +58,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Will Deacon <will@kernel.org>,
 	Catalin Marinas <catalin.marinas@arm.com>
-Subject: [PATCH 3/7] KVM: arm64: Make RAS registers UNDEF when RAS isn't advertised
-Date: Mon, 21 Jul 2025 11:19:51 +0100
-Message-Id: <20250721101955.535159-4-maz@kernel.org>
+Subject: [PATCH 5/7] KVM: arm64: Ignore HCR_EL2.FIEN set by L1 guest's EL2
+Date: Mon, 21 Jul 2025 11:19:53 +0100
+Message-Id: <20250721101955.535159-6-maz@kernel.org>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20250721101955.535159-1-maz@kernel.org>
 References: <20250721101955.535159-1-maz@kernel.org>
@@ -71,8 +71,8 @@ X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250721_032008_586071_EDF944C4 
-X-CRM114-Status: GOOD (  12.22  )
+X-CRM114-CacheID: sfid-20250721_032008_692228_14004415 
+X-CRM114-Status: GOOD (  12.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,68 +87,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-We currently always expose FEAT_RAS when available on the host.
+An EL2 guest can set HCR_EL2.FIEN, which gives access to the RASv1p1
+fault injection mechanism. This would allow an EL1 guest to inject
+error records into the system, which does sound like a terrible idea.
 
-As we are about to make this feature selectable from userspace,
-check for it being present before emulating register accesses
-as RAZ/WI, and inject an UNDEF otherwise.
+Prevent this situation by added FIEN to the list of bits we silently
+exclude from being inserted into the host configuration.
 
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/kvm/sys_regs.c | 33 +++++++++++++++++++++++++--------
- 1 file changed, 25 insertions(+), 8 deletions(-)
+ arch/arm64/kvm/hyp/vhe/switch.c | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-index 9d8c47e706b96..aea50870d9f11 100644
---- a/arch/arm64/kvm/sys_regs.c
-+++ b/arch/arm64/kvm/sys_regs.c
-@@ -2688,6 +2688,23 @@ static bool access_mdcr(struct kvm_vcpu *vcpu,
- 	return true;
- }
+diff --git a/arch/arm64/kvm/hyp/vhe/switch.c b/arch/arm64/kvm/hyp/vhe/switch.c
+index e482181c66322..0998ad4a25524 100644
+--- a/arch/arm64/kvm/hyp/vhe/switch.c
++++ b/arch/arm64/kvm/hyp/vhe/switch.c
+@@ -43,8 +43,11 @@ DEFINE_PER_CPU(unsigned long, kvm_hyp_vector);
+  *
+  * - API/APK: they are already accounted for by vcpu_load(), and can
+  *   only take effect across a load/put cycle (such as ERET)
++ *
++ * - FIEN: no way we let a guest have access to the RAS "Common Fault
++ *   Injection" thing, whatever that does
+  */
+-#define NV_HCR_GUEST_EXCLUDE	(HCR_TGE | HCR_API | HCR_APK)
++#define NV_HCR_GUEST_EXCLUDE	(HCR_TGE | HCR_API | HCR_APK | HCR_FIEN)
  
-+static bool access_ras(struct kvm_vcpu *vcpu,
-+		       struct sys_reg_params *p,
-+		       const struct sys_reg_desc *r)
-+{
-+	struct kvm *kvm = vcpu->kvm;
-+
-+	switch(reg_to_encoding(r)) {
-+	default:
-+		if (!kvm_has_feat(kvm, ID_AA64PFR0_EL1, RAS, IMP)) {
-+			kvm_inject_undefined(vcpu);
-+			return false;
-+		}
-+	}
-+
-+	return trap_raz_wi(vcpu, p, r);
-+}
-+
- /*
-  * For historical (ahem ABI) reasons, KVM treated MIDR_EL1, REVIDR_EL1, and
-  * AIDR_EL1 as "invariant" registers, meaning userspace cannot change them.
-@@ -3035,14 +3052,14 @@ static const struct sys_reg_desc sys_reg_descs[] = {
- 	{ SYS_DESC(SYS_AFSR1_EL1), access_vm_reg, reset_unknown, AFSR1_EL1 },
- 	{ SYS_DESC(SYS_ESR_EL1), access_vm_reg, reset_unknown, ESR_EL1 },
- 
--	{ SYS_DESC(SYS_ERRIDR_EL1), trap_raz_wi },
--	{ SYS_DESC(SYS_ERRSELR_EL1), trap_raz_wi },
--	{ SYS_DESC(SYS_ERXFR_EL1), trap_raz_wi },
--	{ SYS_DESC(SYS_ERXCTLR_EL1), trap_raz_wi },
--	{ SYS_DESC(SYS_ERXSTATUS_EL1), trap_raz_wi },
--	{ SYS_DESC(SYS_ERXADDR_EL1), trap_raz_wi },
--	{ SYS_DESC(SYS_ERXMISC0_EL1), trap_raz_wi },
--	{ SYS_DESC(SYS_ERXMISC1_EL1), trap_raz_wi },
-+	{ SYS_DESC(SYS_ERRIDR_EL1), access_ras },
-+	{ SYS_DESC(SYS_ERRSELR_EL1), access_ras },
-+	{ SYS_DESC(SYS_ERXFR_EL1), access_ras },
-+	{ SYS_DESC(SYS_ERXCTLR_EL1), access_ras },
-+	{ SYS_DESC(SYS_ERXSTATUS_EL1), access_ras },
-+	{ SYS_DESC(SYS_ERXADDR_EL1), access_ras },
-+	{ SYS_DESC(SYS_ERXMISC0_EL1), access_ras },
-+	{ SYS_DESC(SYS_ERXMISC1_EL1), access_ras },
- 
- 	MTE_REG(TFSR_EL1),
- 	MTE_REG(TFSRE0_EL1),
+ static u64 __compute_hcr(struct kvm_vcpu *vcpu)
+ {
 -- 
 2.39.2
 
