@@ -4,58 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51FCEC87FC8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 16:42:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F709C83F25
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 16:42:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+XjTvaaIQBfcTC1bFQF5CN2GqUwPleoMdB1Joaei7eo=; b=Ex6obLAZZRp2SUIyJ6+LtxITw7
-	B3J5fV38JPYKApw+9+BuIWc6NqTT2OIpSfCJWCz1q0mrtwYX7ouOPMBtSlsBfbz0BgzJNZHJdtcHn
-	sWIs4GjC8M55to3INg/8LbK2NF6q4n6R8plIYk0T2lYp5sbQanVp5V0lK2XbtMglxeGwIFqena/Ai
-	TUI8C9XnB20FEVSGPqbp2iLADBMIaYRaR2KwuSbGfKvjd20QCKbXg7Dt0Sy2raa0RqG01pTEBAoa6
-	9MKkg6oSIYYLL9ua1xYuK46KwospvOLriLJ5HuFTFbnGSNTJcvc3sbZ6CSNS78Hb3EOqDJPcxK+YG
-	ixkK39wQ==;
+	bh=Nh59/lkpsvmg1ZVKHRMN4ZHHZVoi4kbwnBYZr5gHbjk=; b=pDNetApy7b7p2Lo0Ca18RNf4+C
+	5yhrgv0TVlkI2bzhEjUx2wcSniD4YnRzG1+jKIbjXO44vPQrnUXi9R2Ioy5eWLxJ2DimyVXFwIEXi
+	sSzHrot9tDIni+67EQIFbkpQ6E99PU0Xq6Ibl/VqJde5LTbHntDjH1vW6cUqTp9LGL3ynmdoVxCxD
+	5m5DxjueINPTJVV2eXMylMxw6GXHhC4b4S6jsw7sMIlf2Ck3uRiyGzdQ6anBC8GxyeRqLE8hL8+9v
+	AWF7TyIhSHkSNIafQHp6+IPy3rQsDxGMU5rNTpRxV0ynIS6Jv36vO1vHv/9f7QuCW40kSXRNsSNw+
+	+x1cLdkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udtb0-00000000BpM-0Uuq;
-	Mon, 21 Jul 2025 16:42:34 +0000
-Received: from mail-m49198.qiye.163.com ([45.254.49.198])
+	id 1udtb5-00000000Btb-0gdz;
+	Mon, 21 Jul 2025 16:42:39 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udr4I-0000000HS2A-3zeG;
-	Mon, 21 Jul 2025 14:00:40 +0000
-Received: from localhost.localdomain (unknown [119.122.214.181])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 1cbe85dcb;
-	Mon, 21 Jul 2025 22:00:22 +0800 (GMT+08:00)
-From: Chukun Pan <amadeus@jmu.edu.cn>
-To: knaerzche@gmail.com
-Cc: amadeus@jmu.edu.cn,
-	devicetree@vger.kernel.org,
-	heiko@sntech.de,
-	jonas@kwiboo.se,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	ziyao@disroot.org
-Subject: Re: [PATCH v3 0/6] arm64: dts: rockchip: Add ROCK 2A/2F, Sige1 and NanoPi Zero2
-Date: Mon, 21 Jul 2025 22:00:16 +0800
-Message-Id: <20250721140016.308800-1-amadeus@jmu.edu.cn>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <3c83e8cc-9ef0-4560-b6d7-127abab50541@gmail.com>
-References: <3c83e8cc-9ef0-4560-b6d7-127abab50541@gmail.com>
+	id 1udrGR-0000000HTbG-1KIq
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 21 Jul 2025 14:13:12 +0000
+Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 56LED2k1822189;
+	Mon, 21 Jul 2025 09:13:02 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1753107182;
+	bh=Nh59/lkpsvmg1ZVKHRMN4ZHHZVoi4kbwnBYZr5gHbjk=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=Tan0eiZcqW0I4uKlbNIWRM0tM9SYQhScxKr03owyfIXsdfK6Eg2wbd4rpAVZT3mHK
+	 LJFMV0SATt60zWidBxtGSs2JPgwg0KciWceCgh6iOwIzZ87vjLxNE+WDLN9Skg4Qmg
+	 2P62ufFNwCpBx3CIv/H0Mbrx9LFEnvVcwgVgdwh0=
+Received: from DLEE108.ent.ti.com (dlee108.ent.ti.com [157.170.170.38])
+	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 56LED2ux1417486
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Mon, 21 Jul 2025 09:13:02 -0500
+Received: from DLEE113.ent.ti.com (157.170.170.24) by DLEE108.ent.ti.com
+ (157.170.170.38) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Mon, 21
+ Jul 2025 09:13:02 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE113.ent.ti.com
+ (157.170.170.24) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Mon, 21 Jul 2025 09:13:02 -0500
+Received: from [10.249.141.75] ([10.249.141.75])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 56LECvBl3955460;
+	Mon, 21 Jul 2025 09:12:58 -0500
+Message-ID: <86bbb4c1-18a9-4917-8554-97d540b72b5a@ti.com>
+Date: Mon, 21 Jul 2025 19:42:57 +0530
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a982d491b8e03a2kunm89436e991815c0
-X-HM-MType: 10
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVkZQ0IaVkseGRgYTksZTU8ZTlYeHw5VEwETFhoSFy
-	QUDg9ZV1kYEgtZQVlKSkJVSklJVUlKT1VKQ0pZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0tVSktLVU
-	tZBg++
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/7] arm64: dts: ti: k3-j721s2-main: Add interrupts
+ property
+To: Krzysztof Kozlowski <krzk@kernel.org>,
+        Yemike Abhilash Chandra
+	<y-abhilashchandra@ti.com>, <nm@ti.com>,
+        <vigneshr@ti.com>
+CC: <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+        <conor+dt@kernel.org>, <vaishnav.a@ti.com>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <imx@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
+        <u-kumar1@ti.com>
+References: <20250714092708.3944641-1-y-abhilashchandra@ti.com>
+ <20250714092708.3944641-2-y-abhilashchandra@ti.com>
+ <72545187-4605-40bb-9c68-54670c2e5332@ti.com>
+ <92627ace-1fc8-45a7-a25e-76f410427f0c@kernel.org>
+Content-Language: en-US
+From: "Kumar, Udit" <u-kumar1@ti.com>
+In-Reply-To: <92627ace-1fc8-45a7-a25e-76f410427f0c@kernel.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250721_070039_184481_139D6AE3 
-X-CRM114-Status: GOOD (  11.23  )
+X-CRM114-CacheID: sfid-20250721_071311_406308_F960F2A6 
+X-CRM114-Status: UNSURE (   9.42  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,34 +95,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
 
-> I'm not sure where you are getting your information from, but as I told
-> before I actually *own* this board in the non-development version and it
-> has an RK3528 SoC/silkscreen - I just was too lazy to photograph it my own
-> but I did now [0]
+On 7/21/2025 7:39 PM, Krzysztof Kozlowski wrote:
+> On 21/07/2025 16:07, Kumar, Udit wrote:
+>>> diff --git a/arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi b/arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi
+>>> index 62f45377a2c9..6f32a2b0c40c 100644
+>>> --- a/arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi
+>>> +++ b/arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi
+>>> @@ -1248,6 +1248,9 @@ ti_csi2rx0: ticsi2rx@4500000 {
+>>>    		cdns_csi2rx0: csi-bridge@4504000 {
+>>>    			compatible = "ti,j721e-csi2rx", "cdns,csi2rx";
+>>>    			reg = <0x00 0x04504000 0x00 0x1000>;
+>>> +			interrupts = <GIC_SPI 153 IRQ_TYPE_LEVEL_HIGH>,
+>>> +				     <GIC_SPI 152 IRQ_TYPE_LEVEL_HIGH>;
+>> Just cosmetic thing, if you are doing v2 then consider 152 first ,
+>> followed by 153.
+>
+> No, you cannot just randomly change numbers or the order.
+>
+To be precise both , interrupt-names and interrupts,
 
-I have the MangoPi M28S, M28K and M28C boards.
-The M28K board does have a silkscreen of RK3528A. [2]
-Regardless of whether the silkscreen is RK3528 or RK3528A,
-U-Boot reports that the SoC on these boards is RK3528A. (via OTP [1])
-So one possibility is that Rockchip forgot to update the silkscreen.
+if this make sense to change.
 
-Comparison chip block diagram:
-1. Earlier version: https://docs.armsom.org/img/sige/rk3528.png
-2. Final   version: https://docs.radxa.com/img/e/e20c/radxa-e20c-chip-diagram.webp
 
-The difference seems to be that RK3528 uses I2S while RK3528A uses SAI.
-But from the updated diagram here [3], RK3528 also uses the SAI interface.
-
-Rockchip BSP does not make any distinction between RK3528 and RK3528A,
-so it is meaningless to continue to worry about non-A versions.
-
-[1] https://github.com/u-boot/u-boot/blob/master/arch/arm/mach-rockchip/rk3528/rk3528.c#L131
-[2] https://x.com/mangopi_sbc/status/1847851624804602316?t=5hwScxgwCAAid0eCJgrP5w&s=19
-[3] https://x.com/mangopi_sbc/status/1785115827437760769?t=H5PXRDwbjOfBYa7QotjIZw&s=19
-
---
-2.25.1
-
+> Best regards,
+> Krzysztof
 
