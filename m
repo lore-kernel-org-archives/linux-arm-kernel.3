@@ -4,83 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00420C83F25
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 13:17:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98741C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 13:20:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0ZUgBqx92qBG7YxcgchOSk9zrFJ4dI1nB3VhodBS568=; b=Fi7BNTf9nHAYKsR29m2pk28sy3
-	lBBkmsuYZGcd6Fn21ufOyoW1mD6uLtShoHhdymHKPYxWXUWfjSGKXHl5AVV1cI4KoIsxf8qVB84KZ
-	2JCquAzu1g96u2l89mQVxdHC1L0vtgCwZQBMpXoNDCoBAzX7jIDN2ZItYsblLgoqN8QXokgwPw7n5
-	v6h9kEFE05vBJJb5dkOg5imxUmIWMbgSlohtPn8NYY6LwJ6WHsTfMyGt+vBUg7g/reJXfWtn15MGN
-	YJrLzSTE25miTN9wPxrKPGxo9ExBnTx44dSv+E+o0D/K+O0QgLsxzG5aZPnozwv04zxGm3fglZCJU
-	L2jKGYEg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=19237Phl5a29kIuQoBtWKWdcClHzbHbn1GScbMbhpvc=; b=Y2uPjtCHKrb+rnWs8179P4yOj2
+	NWQp0c8BYhh72NVfbA+LaAYdVi9+nfq0Xz4hZyM4Af0lLzXaNHiO+jw+mHRiwNkScza3nhEUCbeqd
+	B6YxENrPVAJtuV07ozZzQ84wBYZ2FIwoevQHQeDpTToO207e5nwkfcbf6EfNcaXsSl1EwKCT3qkSZ
+	M/arsZp0kNlqsg6fLTHSc//xn1cLNsSoweEzJc+5PZVCZohmq3Rv1PuqyEnkDgoNZo7fa7kIzIwHH
+	83e+0KPkVpPDXywmVwEcP7JWObKV8GEGRAS1rS/APBqVZY4lGvhCXHfr0p/J0CChN+Te7sgKaF9Hb
+	acxwufbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udqOe-0000000HMrm-3wFw;
-	Mon, 21 Jul 2025 13:17:36 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1udqR4-0000000HN5z-2xFp;
+	Mon, 21 Jul 2025 13:20:06 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udohN-0000000H5PF-3uNn
+	id 1udojN-0000000H5j6-1DJR
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Jul 2025 11:28:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=0ZUgBqx92qBG7YxcgchOSk9zrFJ4dI1nB3VhodBS568=; b=0Dw7LcU4IbmDlG8F3HK/dH3mNC
-	kmeTh2bcWVTzXjyJVMqXg3wQ76dFrx/HO3L7pLaA2sJKblmKg0f4P7Bxnp3HSv3Usb8hLtY4eXo9R
-	04yA3YHQoqwdYfT4R8gseeR8PYNpoGtiRwDVB0fo5QDED4IGKQz6lgqGAdrzVTGq7VWBgP2hFrvK+
-	3leX5BI1MRCdfce+CLH6smel8QBOLGKhFRa9Vz2800x6OP7S0lGSN0qDyRptpSi+v22YP2dO2w3ga
-	uix/Z+iEhNHoA7BzmNAiRbuLDeUrmWV7Po1TtNtdNqMAFOjsEJg8Hu5TD6892xi9HOn2CTtaNqBeQ
-	c6L+ElgA==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:51126)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1udoh1-0006cW-0F;
-	Mon, 21 Jul 2025 12:28:27 +0100
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1udogu-00067a-2M;
-	Mon, 21 Jul 2025 12:28:20 +0100
-Date: Mon, 21 Jul 2025 12:28:20 +0100
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Gatien Chevallier <gatien.chevallier@foss.st.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Christophe Roullier <christophe.roullier@foss.st.com>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Simon Horman <horms@kernel.org>,
-	Tristram Ha <Tristram.Ha@microchip.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	netdev@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net-next 3/4] net: phy: smsc: fix and improve WoL support
-Message-ID: <aH4kVBTxd4zRYv2l@shell.armlinux.org.uk>
-References: <20250721-wol-smsc-phy-v1-0-89d262812dba@foss.st.com>
- <20250721-wol-smsc-phy-v1-3-89d262812dba@foss.st.com>
+	Mon, 21 Jul 2025 11:30:54 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 65F67A52AAC;
+	Mon, 21 Jul 2025 11:30:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 23914C4CEED;
+	Mon, 21 Jul 2025 11:30:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1753097452;
+	bh=19237Phl5a29kIuQoBtWKWdcClHzbHbn1GScbMbhpvc=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=uNYSJelqAC+hxrFwcnPAuuSDfWXTFSu7GuAjjiQ3WoI3EYGEjn7nTuDtFtsbCRbgn
+	 YxOyFaVZ56HeIi3ZJ7Eq87K69wLG/1sKH47O/nZVDgdU05MqtqhKEEl73pzVocOuaC
+	 ljeCCP54vjQ/HLIMQnFhFEHiHUBhSzz2QhiVz0P8VOZvKRvz4IpXR1qWYqAq2dF0gS
+	 nIca35Qxj2pp3Ss2JlwJxQdFvr7oT6fzmod0Q9PKgbM2I/oG0nxav7wJMrzfeuOzZD
+	 asiy/Pwf+rjLnn8CIDAmSrnRBQwxNBMK2hc91TrAeJOFORk+Dir0c80uKac+NnVWhr
+	 w5J93GnGcjBYQ==
+Message-ID: <faea23d5-9d5d-4fbb-9c6a-a7bc38c04866@kernel.org>
+Date: Mon, 21 Jul 2025 13:30:45 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250721-wol-smsc-phy-v1-3-89d262812dba@foss.st.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next 1/4] dt-bindings: net: document st,phy-wol
+ property
+To: Gatien Chevallier <gatien.chevallier@foss.st.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Christophe Roullier <christophe.roullier@foss.st.com>,
+ Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
+ Russell King <linux@armlinux.org.uk>, Simon Horman <horms@kernel.org>,
+ Tristram Ha <Tristram.Ha@microchip.com>,
+ Florian Fainelli <florian.fainelli@broadcom.com>
+Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250721-wol-smsc-phy-v1-0-89d262812dba@foss.st.com>
+ <20250721-wol-smsc-phy-v1-1-89d262812dba@foss.st.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20250721-wol-smsc-phy-v1-1-89d262812dba@foss.st.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250721_042850_257750_133740CE 
-X-CRM114-Status: GOOD (  15.76  )
+X-CRM114-CacheID: sfid-20250721_043053_461140_3886A7CE 
+X-CRM114-Status: UNSURE (   7.98  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,54 +132,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 21, 2025 at 01:14:45PM +0200, Gatien Chevallier wrote:
-> +static int smsc_phy_suspend(struct phy_device *phydev)
-> +{
-> +	if (!phydev->wol_enabled)
-> +		return genphy_suspend(phydev);
+On 21/07/2025 13:14, Gatien Chevallier wrote:
+> The "st,phy-wol" property can be set to use the wakeup capability of
+> the PHY instead of the MAC.
 
-This should not be necessary. Take a look at phy_suspend(). Notice:
 
-        phydev->wol_enabled = phy_drv_wol_enabled(phydev) ||
-                              (netdev && netdev->ethtool->wol_enabled);
-        /* If the device has WOL enabled, we cannot suspend the PHY */
-        if (phydev->wol_enabled && !(phydrv->flags & PHY_ALWAYS_CALL_SUSPEND))
-                return -EBUSY;
+And why would that be property of a SoC or board? Word "can" suggests
+you are documenting something which exists, but this does not exist.
 
-PHY_ALWAYS_CALL_SUSPEND is not set for this PHY, therefore if
-phydev->wol_enabled is set by the above code, phydrv->suspend will
-not be called.
-
-> +
-> +	return 0;
-> +}
-> +
-> +static int smsc_phy_resume(struct phy_device *phydev)
-> +{
-> +	int rc;
-> +
-> +	if (!phydev->wol_enabled)
-> +		return genphy_resume(phydev);
-> +
-> +	rc = phy_read_mmd(phydev, MDIO_MMD_PCS, MII_LAN874X_PHY_MMD_WOL_WUCSR);
-> +	if (rc < 0)
-> +		return rc;
-> +
-> +	if (!(rc & MII_LAN874X_PHY_WOL_STATUS_MASK))
-> +		return 0;
-> +
-> +	dev_info(&phydev->mdio.dev, "Woke up from LAN event.\n");
-> +	rc = phy_write_mmd(phydev, MDIO_MMD_PCS, MII_LAN874X_PHY_MMD_WOL_WUCSR,
-> +			   rc | MII_LAN874X_PHY_WOL_STATUS_MASK);
-> +
-> +	return rc;
-
-Note that this will be called multiple times, e.g. during attachment of
-the PHY to the network device, when the device is opened, etc even
-without ->suspend having been called, and before ->wol_enabled has
-been set. Make sure your code is safe for this.
-
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+Best regards,
+Krzysztof
 
