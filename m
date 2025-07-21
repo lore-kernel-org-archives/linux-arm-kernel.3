@@ -4,65 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5498DC83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 17:46:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 375AAC83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 17:49:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Plfy83lHaQP2u1DomfTBngev2A9FCiEv/H4cmv5vTNU=; b=pek/RwWFsER6uJtY37WjSa7AGn
-	c5ITPmhbBEVXungb28KDCJM8aNVoPvAQyzeyRgF1godYWnLng7XzMqwiBy0edPEksxQW8ybijBAvm
-	N/UdIXLwYlDUNFMeTVcN3MukYN5+HdgURsYodQZ5wg5VFSQAL4tU6T6tpM7Klj7ctIUAf8xAt/EgY
-	cX08aKy2bnVvHpkqQSubl/UJHguo3VuvRsHKCwGlstVq2MzWt/AVNda/P7RcpLlt2KuklUAoXPyvL
-	eLuvGK2/AdzLU3XIsKEsL2TQVVYHWGYg+6w1OaVTwLi0zrxxnFLYVcKMnRU2V+TJPRRmMLSdxOkRK
-	GIYb7ZEw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=F0WeBj2bGuuRDUrwwzYEPFuv3oAaANMb0rzB3x/zEGs=; b=3ng/+iwW6V8xPyffchX+rPtT5K
+	o2vTz7To7CrskaPXq1c/UU2bHXkTc2c7dJkPb7/3smUVmIpXLXNQSKWoNNWqClf3sA1TtlKAXfCnq
+	DxOrDmPwCCKQxPXKCLtzbTIP3CjZ9sshSWV5CwiaX+/a5p45kVsgyVkm+0OP4DxVilyCtjrbbIRJr
+	pWiUIv2lgEGKuTOIKuH5f9NAo8pr+AWcychwccBA7NRIYcHLxAze3V82Wix+4Xb/STq+wajnuGA/C
+	SWz2uzoYltPDYG9i0Eb8ZSfRW+Z9RJiQ8as1Sx/clur96SHJEG4laTjfFOXe67SRl3zjGGYlCgvCw
+	Pqyll7NQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udub3-00000000M9w-1Sao;
-	Mon, 21 Jul 2025 17:46:41 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udu6O-00000000Hz5-0iT5
+	id 1ududU-00000000Mcd-0m5S;
+	Mon, 21 Jul 2025 17:49:12 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uduC9-00000000It1-2BEB
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Jul 2025 17:15:01 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C3B4B45CAC;
-	Mon, 21 Jul 2025 17:14:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 01D09C4CEED;
-	Mon, 21 Jul 2025 17:14:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753118099;
-	bh=c0l5eADL3DJiA5CLjuYvNt1KKuvoQU9z9pZBTTWVbtA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ZWFF9F6IBAY5fFf2QnyIqqBC9pEYTodsSPjIt6odICY1lu7aiHBApakvbkoMmbuBJ
-	 Ctqo22Mxyi4b7Mb7bw4/F/Qd22n0Otz45sDtH1lCFRECJCr4PTjw21Q7Zgi+Nei1L1
-	 eJW0SXy4vZouNmcijmGUnRJEtkOC8sEGpXjrRZB3S9U34QIGbz0Bfwx/S7O792LNKv
-	 7urlFTyOczxy/uqyTik9fch0fb1xtgVeK2lwEV/xcLjms7ALF5az6YwWecPJNWm0GW
-	 zK63l93FlwLkjDCSSJuQG0MKMoNxxodrJsZlLVuF11nnSieQoQWaQeh4JM/kM5Lpuh
-	 wFJ0YPyEtz+nQ==
-Date: Mon, 21 Jul 2025 18:14:53 +0100
-From: Will Deacon <will@kernel.org>
-To: Marc Zyngier <maz@kernel.org>
-Cc: Jack Thomson <jackabt.amazon@gmail.com>, mark.rutland@arm.com,
-	lpieralisi@kernel.org, sudeep.holla@arm.com, arnd@arndb.de,
-	wei.liu@kernel.org, romank@linux.microsoft.com,
-	mhklinux@outlook.com, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, oliver.upton@linux.dev,
-	kvmarm@lists.linux.dev, roypat@amazon.com,
-	Jack Thomson <jackabt@amazon.com>
-Subject: Re: [PATCH] arm64: kvm, smccc: Fix vendor uuid
-Message-ID: <aH51jfOmPfF3XEke@willie-the-truck>
-References: <20250721130558.50823-1-jackabt.amazon@gmail.com>
- <86jz418rh3.wl-maz@kernel.org>
+	Mon, 21 Jul 2025 17:20:58 +0000
+Received: from [10.137.184.60] (unknown [131.107.160.188])
+	by linux.microsoft.com (Postfix) with ESMTPSA id 82C482115836;
+	Mon, 21 Jul 2025 10:20:54 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 82C482115836
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1753118454;
+	bh=F0WeBj2bGuuRDUrwwzYEPFuv3oAaANMb0rzB3x/zEGs=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=M6lAY38nEFF6SPpxTb0jBP9+abnYKMYir5Krk+urbD9Y4Z3t0/8JxNOMoSNX0fUsO
+	 FpNzv3YTYyKxz1aNCxTInjwirrXdr/tAAFV9m67PV5iaHZKfIqy5hqXiBd9RY4hSKN
+	 QIvH+QrTMRImtRgveFS0jbwSC3/UPzX3dY5iu3vc=
+Message-ID: <55e5f8d2-2b81-4883-a9ac-ad1a426c4222@linux.microsoft.com>
+Date: Mon, 21 Jul 2025 10:20:54 -0700
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <86jz418rh3.wl-maz@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: kvm, smccc: Fix vendor uuid
+To: Sudeep Holla <sudeep.holla@arm.com>,
+ Jack Thomson <jackabt.amazon@gmail.com>
+Cc: mark.rutland@arm.com, lpieralisi@kernel.org, arnd@arndb.de,
+ wei.liu@kernel.org, mhklinux@outlook.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ maz@kernel.org, oliver.upton@linux.dev, kvmarm@lists.linux.dev,
+ roypat@amazon.com, Jack Thomson <jackabt@amazon.com>
+References: <20250721130558.50823-1-jackabt.amazon@gmail.com>
+ <20250721-proficient-carrot-cockatoo-393ae1@sudeepholla>
+Content-Language: en-US
+From: Roman Kisel <romank@linux.microsoft.com>
+In-Reply-To: <20250721-proficient-carrot-cockatoo-393ae1@sudeepholla>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250721_101500_230488_C31E9625 
-X-CRM114-Status: GOOD (  24.68  )
+X-CRM114-CacheID: sfid-20250721_102057_597919_B791E61E 
+X-CRM114-Status: GOOD (  15.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,61 +74,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 21, 2025 at 04:59:36PM +0100, Marc Zyngier wrote:
-> [+Will]
-> 
-> On Mon, 21 Jul 2025 14:05:58 +0100,
-> Jack Thomson <jackabt.amazon@gmail.com> wrote:
-> > 
-> > From: Jack Thomson <jackabt@amazon.com>
-> > 
-> > Commit 13423063c7cb ("arm64: kvm, smccc: Introduce and use API for
-> > getting hypervisor UUID") replaced the explicit register constants
-> > with the UUID_INIT macro. However, there is an endian issue, meaning
-> > the UUID generated and used in the handshake didn't match UUID prior to
-> > the commit.
-> > 
-> > The change in UUID causes the SMCCC vendor handshake to fail with older
-> > guest kernels, meaning devices such as PTP were not available in the
-> > guest.
-> > 
-> > This patch updates the parameters to the macro to generate a UUID which
-> > matches the previous value, and re-establish backwards compatibility
-> > with older guest kernels.
-> > 
-> > Fixes: 13423063c7cb ("arm64: kvm, smccc: Introduce and use API for getting hypervisor UUID")
-> > getting hypervisor UUID")
-> > Signed-off-by: Jack Thomson <jackabt@amazon.com>
-> > ---
-> >  include/linux/arm-smccc.h | 2 +-
-> >  1 file changed, 1 insertion(+), 1 deletion(-)
-> > 
-> > diff --git a/include/linux/arm-smccc.h b/include/linux/arm-smccc.h
-> > index 784ebe4607a4..50b47eba7d01 100644
-> > --- a/include/linux/arm-smccc.h
-> > +++ b/include/linux/arm-smccc.h
-> > @@ -113,7 +113,7 @@
-> >  
-> >  /* KVM UID value: 28b46fb6-2ec5-11e9-a9ca-4b564d003a74 */
-> >  #define ARM_SMCCC_VENDOR_HYP_UID_KVM UUID_INIT(\
-> > -	0xb66fb428, 0xc52e, 0xe911, \
-> > +	0x28b46fb6, 0x2ec5, 0x11e9, \
-> >  	0xa9, 0xca, 0x4b, 0x56, \
-> >  	0x4d, 0x00, 0x3a, 0x74)
-> >  
-> > 
-> 
-> Irk. This is remarkably embarrassing, and needs to be addressed ASAP,
-> before 6.16 ships. FWIW, I've just posted a quickly whipped selftest
-> that shows the problem[1].
-> 
-> Will, is there a chance you can pick this up and ferry it to Linus?
-> If you do, please add:
-> 
-> Reviewed-by: Marc Zyngier <maz@kernel.org>
-> Tested-by: Marc Zyngier <maz@kernel.org>
 
-Sure, I'll grab it. Thanks!
 
-Will
+On 7/21/2025 9:15 AM, Sudeep Holla wrote:
+> (I can't see this original patch in my mailbox, got only Marc's response)
+> 
+> On Mon, Jul 21, 2025 at 02:05:58PM +0100, Jack Thomson wrote:
+>> From: Jack Thomson <jackabt@amazon.com>
+>>
+>> Commit 13423063c7cb ("arm64: kvm, smccc: Introduce and use API for
+>> getting hypervisor UUID") replaced the explicit register constants
+>> with the UUID_INIT macro. However, there is an endian issue, meaning
+>> the UUID generated and used in the handshake didn't match UUID prior to
+>> the commit.
+>>
+>> The change in UUID causes the SMCCC vendor handshake to fail with older
+>> guest kernels, meaning devices such as PTP were not available in the
+>> guest.
+>>
+>> This patch updates the parameters to the macro to generate a UUID which
+>> matches the previous value, and re-establish backwards compatibility
+>> with older guest kernels.
+>>
+> 
+> Nice catch. This is result of classic confusion with UUID and GUID especially
+> coming from Microsoft who tend to use GUID more.
+> 
+> Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
+> 
+> This also makes me wonder if the initialisation in arch/arm64/hyperv/mshyperv.c
+> is also wrong or may be that's correct only MS guys can confirm as I couldn't
+> find the UUID string for that.
+
+MUCH appreciated!! Apologies for that miss in testing of the older
+kernels. I'll check on our side and will fix what needs fixing.
+
+> 
+
+-- 
+Thank you,
+Roman
+
 
