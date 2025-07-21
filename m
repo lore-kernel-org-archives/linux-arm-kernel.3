@@ -4,86 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C8A7C83F25
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 12:42:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66B82C83F25
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 12:45:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U+yohKllp5E0ZNtqftV3jf3BOhUioxYcgztGZ8NKK8w=; b=d8j6ipJeUpTcIe8sM//lZvEBA1
-	DZOGMZcp60NqET29Kte7u7Kc3+Rq/rebVINR3KHYQ5f9PsFqoxMrFtaV6Q60RqwNVTDYsuHYdF2gs
-	KZw9rZpQr1o+69/q15RwryHRqBx0b/hOOawIVNzZOpXKowPLA0TIIRe611NavlR/MnKTlBdXOq/DS
-	s73o7AJ38qqTGXhJb7bV/pyNlo+pop3pZ3jTB19JVvjl5EiW/rBijJtrzI012lEVkwV6mnFCrWERw
-	ngKQ1aWUG7kOluKV0bzv4WrX/pzlHNyO9709tgr5TbKeEOpC8Vck0F4YiHHjcu49CkhiAACCPHhi5
-	OeC7vk8w==;
+	bh=VctJMslEYVZcVlpXvooYWTcgUZ/ZQQB8V6K7a7pI+oY=; b=BuQtMPq6ZqOKOHNSdp3PhlVjOk
+	OrzMOQxIJni6CnRk0cWz67ykRa7bDtKFy4N5EFh5EWx2wr/aHUNtJwgHKZbs9dFLRFwO666gA3cov
+	0iGCx8GZnmktKYN4VkjYIjJHRO2f6jouwZ1f2sebPfBsF5GGAgicBcDUOcZjsIzEO+eI9jpumqYDW
+	H0PVJ4p5A1VIiKqz8FLfJMZsWbpKzZCh6RBYhm1XY89Py0KAlVexiRUkoUlrWau/gz/DbpnRbQXuO
+	uvOq5yIsxNWOgBRLaND9DUpObKCqqv0F8OEtVsciuAI9dP668omFrNAXFV+dMrdM+SfdGXtC2hcw5
+	J+OhJA1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udpqc-0000000HHH3-0fQa;
-	Mon, 21 Jul 2025 12:42:26 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udoBL-0000000H0bn-1SA0;
-	Mon, 21 Jul 2025 10:55:45 +0000
-X-UUID: 3c3fa182662111f09eb0dd999d3936bf-20250721
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=U+yohKllp5E0ZNtqftV3jf3BOhUioxYcgztGZ8NKK8w=;
-	b=A784vMu8IbkQtGlZqrQ9ddE4p+Gek78a8+xIbBYqbxtrCrEPVtkzCFnjJX3HBGfy8NJotZCPn7cG89RfRr59YzycbT7+WN3DyLnSBjy9Ti6o8zP/qeeDk1dK+44Bjzs4x2h2lTOIRLkpnoTDxj0PzwV9reHXPJgpZ1xJdtxUYeo=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.2,REQID:86e2bf48-593d-42d6-b613-4c3bbdf43af6,IP:0,UR
-	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
-	elease,TS:0
-X-CID-META: VersionHash:9eb4ff7,CLOUDID:94a0ab84-a7ec-4748-8ac1-dca5703e241f,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:nil,Content:0|50,EDM:-3
-	,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV
-	:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0
-X-CID-BAS: 0,_,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 3c3fa182662111f09eb0dd999d3936bf-20250721
-Received: from mtkmbs09n2.mediatek.inc [(172.21.101.94)] by mailgw02.mediatek.com
-	(envelope-from <kyrie.wu@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 611529570; Mon, 21 Jul 2025 03:55:37 -0700
-Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
- MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Mon, 21 Jul 2025 18:55:34 +0800
-Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
- mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.39 via Frontend Transport; Mon, 21 Jul 2025 18:55:32 +0800
-From: Kyrie Wu <kyrie.wu@mediatek.com>
-To: Tiffany Lin <tiffany.lin@mediatek.com>, Andrew-CT Chen
-	<andrew-ct.chen@mediatek.com>, Yunfei Dong <yunfei.dong@mediatek.com>, Mauro
- Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>, Kyrie Wu <kyrie.wu@mediatek.com>,
-	Hans Verkuil <hverkuil@xs4all.nl>, Nicolas Dufresne
-	<nicolas.dufresne@collabora.com>, Christophe JAILLET
-	<christophe.jaillet@wanadoo.fr>, Sebastian Fricke
-	<sebastian.fricke@collabora.com>, Nathan Hebert <nhebert@chromium.org>, Arnd
- Bergmann <arnd@arndb.de>, Irui Wang <irui.wang@mediatek.com>, George Sun
-	<george.sun@mediatek.com>, <linux-media@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>
-CC: Neil Armstrong <neil.armstrong@linaro.org>, Andrzej Pietrasiewicz
-	<andrzejtp2010@gmail.com>
-Subject: [PATCH v1 7/8] dt-bindings: media: Add MT8189 mediatek,vcodec-encoder
-Date: Mon, 21 Jul 2025 18:55:19 +0800
-Message-ID: <20250721105520.5625-8-kyrie.wu@mediatek.com>
-X-Mailer: git-send-email 2.46.0
-In-Reply-To: <20250721105520.5625-1-kyrie.wu@mediatek.com>
-References: <20250721105520.5625-1-kyrie.wu@mediatek.com>
+	id 1udpt2-0000000HHY0-3wJb;
+	Mon, 21 Jul 2025 12:44:56 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1udoCT-0000000H0rF-3REG
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 21 Jul 2025 10:56:54 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4F9A3153B;
+	Mon, 21 Jul 2025 03:56:47 -0700 (PDT)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 48F6D3F6A8;
+	Mon, 21 Jul 2025 03:56:51 -0700 (PDT)
+Date: Mon, 21 Jul 2025 11:56:48 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: catalin.marinas@arm.com, will@kernel.org, broonie@kernel.org,
+	oliver.upton@linux.dev, ardb@kernel.org, frederic@kernel.org,
+	james.morse@arm.com, joey.gouly@arm.com,
+	scott@os.amperecomputing.com, maz@kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 4/7] arm64/futex: move futex atomic logic with
+ clearing PAN bit
+Message-ID: <aH4c8J3-qp9guE__@J2N7QTR9R3>
+References: <20250721083618.2743569-1-yeoreum.yun@arm.com>
+ <20250721083618.2743569-5-yeoreum.yun@arm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-MTK: N
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250721083618.2743569-5-yeoreum.yun@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250721_035543_382027_0BF45AF6 
-X-CRM114-Status: GOOD (  10.20  )
+X-CRM114-CacheID: sfid-20250721_035653_934631_4D59D848 
+X-CRM114-Status: GOOD (  23.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,34 +67,152 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add MT8189 encoder compatible string, which will reference SCP device.
+On Mon, Jul 21, 2025 at 09:36:15AM +0100, Yeoreum Yun wrote:
+> Move current futex atomic logics which uses ll/sc method with cleraing
+> PSTATE.PAN to separate file (futex_ll_sc_u.h) so that
+> former method will be used only when FEAT_LSUI isn't supported.
 
-Signed-off-by: Kyrie Wu <kyrie.wu@mediatek.com>
----
- .../devicetree/bindings/media/mediatek,vcodec-encoder.yaml      | 2 ++
- 1 file changed, 2 insertions(+)
+This isn't moving logic, this is *duplicating* the existing logic. As of
+this patch, this logic in the <asm/futex_ll_sc_u.h> header is unused,
+and the existing logic in <asm/futex.h> is still used as-is.
 
-diff --git a/Documentation/devicetree/bindings/media/mediatek,vcodec-encoder.yaml b/Documentation/devicetree/bindings/media/mediatek,vcodec-encoder.yaml
-index 7675391d7eb0..faee838d684e 100644
---- a/Documentation/devicetree/bindings/media/mediatek,vcodec-encoder.yaml
-+++ b/Documentation/devicetree/bindings/media/mediatek,vcodec-encoder.yaml
-@@ -25,6 +25,7 @@ properties:
-               - mediatek,mt8192-vcodec-enc
-               - mediatek,mt8195-vcodec-enc
-               - mediatek,mt8196-vcodec-enc
-+              - mediatek,mt8189-vcodec-enc
-       - items:
-           - const: mediatek,mt8186-vcodec-enc
-           - const: mediatek,mt8183-vcodec-enc
-@@ -97,6 +98,7 @@ allOf:
-               - mediatek,mt8188-vcodec-enc
-               - mediatek,mt8192-vcodec-enc
-               - mediatek,mt8195-vcodec-enc
-+              - mediatek,mt8189-vcodec-enc
- 
-     then:
-       required:
--- 
-2.46.0
+Please refactor the existing logic first. The deletion of the existing
+code should happen at the same time as this addition. That way it's
+possible to see that the deleted logic corresponds to what is being
+added in the header, and it's generally nicer for bisection.
 
+Mark.
+
+> 
+> Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+> ---
+>  arch/arm64/include/asm/futex_ll_sc_u.h | 115 +++++++++++++++++++++++++
+>  1 file changed, 115 insertions(+)
+>  create mode 100644 arch/arm64/include/asm/futex_ll_sc_u.h
+> 
+> diff --git a/arch/arm64/include/asm/futex_ll_sc_u.h b/arch/arm64/include/asm/futex_ll_sc_u.h
+> new file mode 100644
+> index 000000000000..6702ba66f1b2
+> --- /dev/null
+> +++ b/arch/arm64/include/asm/futex_ll_sc_u.h
+> @@ -0,0 +1,115 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only */
+> +/*
+> + * Copyright (C) 2025 Arm Ltd.
+> + */
+> +#ifndef __ASM_FUTEX_LL_SC_U_H
+> +#define __ASM_FUTEX_LL_SC_U_H
+> +
+> +#include <linux/uaccess.h>
+> +#include <linux/stringify.h>
+> +
+> +#define FUTEX_ATOMIC_OP(op, asm_op)					\
+> +static __always_inline int						\
+> +__ll_sc_u_futex_atomic_##op(int oparg, u32 __user *uaddr, int *oval)	\
+> +{									\
+> +	unsigned int loops = LL_SC_MAX_LOOPS;				\
+> +	int ret, val, tmp;						\
+> +									\
+> +	uaccess_enable_privileged();					\
+> +	asm volatile("// __ll_sc_u_futex_atomic_" #op "\n"		\
+> +	"	prfm	pstl1strm, %2\n"				\
+> +	"1:	ldxr	%w1, %2\n"					\
+> +	"	" #asm_op "	%w3, %w1, %w5\n"			\
+> +	"2:	stlxr	%w0, %w3, %2\n"					\
+> +	"	cbz	%w0, 3f\n"					\
+> +	"	sub	%w4, %w4, %w0\n"				\
+> +	"	cbnz	%w4, 1b\n"					\
+> +	"	mov	%w0, %w6\n"					\
+> +	"3:\n"								\
+> +	"	dmb	ish\n"						\
+> +	_ASM_EXTABLE_UACCESS_ERR(1b, 3b, %w0)				\
+> +	_ASM_EXTABLE_UACCESS_ERR(2b, 3b, %w0)				\
+> +	: "=&r" (ret), "=&r" (val), "+Q" (*uaddr), "=&r" (tmp),		\
+> +	  "+r" (loops)							\
+> +	: "r" (oparg), "Ir" (-EAGAIN)					\
+> +	: "memory");							\
+> +	uaccess_disable_privileged();					\
+> +									\
+> +	if (!ret)							\
+> +		*oval = val;						\
+> +									\
+> +	return ret;							\
+> +}
+> +
+> +FUTEX_ATOMIC_OP(add, add)
+> +FUTEX_ATOMIC_OP(or, orr)
+> +FUTEX_ATOMIC_OP(and, and)
+> +FUTEX_ATOMIC_OP(eor, eor)
+> +
+> +#undef FUTEX_ATOMIC_OP
+> +
+> +static __always_inline int
+> +__ll_sc_u_futex_atomic_set(int oparg, u32 __user *uaddr, int *oval)
+> +{
+> +	unsigned int loops = LL_SC_MAX_LOOPS;
+> +	int ret, val;
+> +
+> +	uaccess_enable_privileged();
+> +	asm volatile("//__ll_sc_u_futex_xchg\n"
+> +	"	prfm	pstl1strm, %2\n"
+> +	"1:	ldxr	%w1, %2\n"
+> +	"2:	stlxr	%w0, %w4, %2\n"
+> +	"	cbz	%w3, 3f\n"
+> +	"	sub	%w3, %w3, %w0\n"
+> +	"	cbnz	%w3, 1b\n"
+> +	"	mov	%w0, %w5\n"
+> +	"3:\n"
+> +	"	dmb	ish\n"
+> +	_ASM_EXTABLE_UACCESS_ERR(1b, 3b, %w0)
+> +	_ASM_EXTABLE_UACCESS_ERR(2b, 3b, %w0)
+> +	: "=&r" (ret), "=&r" (val), "+Q" (*uaddr), "+r" (loops)
+> +	: "r" (oparg), "Ir" (-EAGAIN)
+> +	: "memory");
+> +	uaccess_disable_privileged();
+> +
+> +	if (!ret)
+> +		*oval = val;
+> +
+> +	return ret;
+> +}
+> +
+> +static __always_inline int
+> +__ll_sc_u_futex_cmpxchg(u32 __user *uaddr, u32 oldval, u32 newval, u32 *oval)
+> +{
+> +	int ret = 0;
+> +	unsigned int loops = LL_SC_MAX_LOOPS;
+> +	u32 val, tmp;
+> +
+> +	uaccess_enable_privileged();
+> +	asm volatile("//__ll_sc_u_futex_cmpxchg\n"
+> +	"	prfm	pstl1strm, %2\n"
+> +	"1:	ldxr	%w1, %2\n"
+> +	"	eor	%w3, %w1, %w5\n"
+> +	"	cbnz	%w3, 4f\n"
+> +	"2:	stlxr	%w3, %w6, %2\n"
+> +	"	cbz	%w3, 3f\n"
+> +	"	sub	%w4, %w4, %w3\n"
+> +	"	cbnz	%w4, 1b\n"
+> +	"	mov	%w0, %w7\n"
+> +	"3:\n"
+> +	"	dmb	ish\n"
+> +	"4:\n"
+> +	_ASM_EXTABLE_UACCESS_ERR(1b, 4b, %w0)
+> +	_ASM_EXTABLE_UACCESS_ERR(2b, 4b, %w0)
+> +	: "+r" (ret), "=&r" (val), "+Q" (*uaddr), "=&r" (tmp), "+r" (loops)
+> +	: "r" (oldval), "r" (newval), "Ir" (-EAGAIN)
+> +	: "memory");
+> +	uaccess_disable_privileged();
+> +
+> +	if (!ret)
+> +		*oval = val;
+> +
+> +	return ret;
+> +}
+> +
+> +#endif /* __ASM_FUTEX_LL_SC_U_H */
+> -- 
+> LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
+> 
+> 
 
