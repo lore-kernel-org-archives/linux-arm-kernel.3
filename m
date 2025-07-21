@@ -4,72 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 859AEC87FC5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 11:39:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B241FC83F25
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 11:39:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Wymr5DPyr9UcQwytV6Y0LOBfEz/pKmcBvYGZjuVzQrI=; b=3X3DitXlBUfeMBsmFBhG7QWlvF
-	+yJPo++xGRr6iYPXSqTzwWdFW86ntXB0g91g1UTS1d30QNCrKqJRqHFp81BJiIXruEXoH6fW+fu0M
-	2jCBG0IDlL/rJwRGNSeyEfqUkDqPkFyOUrlzEem/kNBvgwqIFAyqp3iHSjwX/c431huGjskRK3j7A
-	9xAPCxGocOqax01zqSP5grxPKI9e5UhKu+b6WyQJ11OzUhMvl6eObJtkYRK4d2UU5uycNOGklQhr2
-	qizkappy17cw+g0UiLzffTCP54MJVsgky20ti2ND7ANeO+vK+mTg09/OnsiFW2P+2hyLpgQuYNAzP
-	SGeoLaPg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=hOPi555g1R1nQnwbYf65VIBf8GYSuV0PguYr5CDG9HE=; b=usPCqp3B9MmOexwrE09+wPopNe
+	WM8nG6CjvhIkqGnJTZxx8vSGlHMpctBqzhLhX7wSbhA30W5R2322r3BzoX22UWC2mKUCHQTbQN8iA
+	+UZCpcmsoYa66Yfrq4tuWOjzQNsOEi0QT+Nz0nN9L/feMqeqtRaxgH6v9lRM+PH7W8AdrGnBIfusk
+	CRtgRelbZ72vV3ychEBURVv//G+soCG2ygRjpHeXU4Jncc7sjuCLP7PYj59FPJRLjhR4upEoLo1J1
+	YbNzmgEeSl4uzwxRgPqZwboroMDQQVrTfwnuEu/WpmkDySspojgCRsVzcuzJK7qcQkt3CjznS4myB
+	6atHmufw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udorb-0000000H7SF-1yG1;
-	Mon, 21 Jul 2025 11:39:23 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1udorX-0000000H7Nu-38Qw;
+	Mon, 21 Jul 2025 11:39:19 +0000
+Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udncu-0000000Gwl3-32ql
+	id 1udnSG-0000000Gv13-0Lth
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Jul 2025 10:20:08 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id DBEF960205;
-	Mon, 21 Jul 2025 10:20:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 812B0C4CEF1;
-	Mon, 21 Jul 2025 10:20:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753093207;
-	bh=+398xTfyPjG6r7g/gjMZKa7+vZ8AGhHVgFuqAGzWumw=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=dEOJeD/Z6p+mVFRTLhivCVVNclshHZDejVkOPJiUrqRSTopxjFZQQXK9bcKWbkFjw
-	 EeaNr23QfwjkmdFdz+spyjEn9gpiD5pJxk58sLzAmKruTydIk3zSPvhK1ejocP1qAi
-	 Xzd/qEjm5Rjp0kM8lwEeZZCS4/I3jbFyRt9TP6BJ9WOuZV7mfFVS4YWE20AMnixgpY
-	 vXAiiaSn18qonsF0sQ7Sl8CHFtuh3G7mWBjud/QhSADDkf1zDcnzt4r4f7PPSQZa9j
-	 xhAfn5YsgDGHFsR+CIK85+Xv7vdvxJ00ZWhd60p6N1FG2UY4g8GJOwYpC5/XyZwFsJ
-	 RR8ofAdBOxKvg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1udncr-00HZDF-KA;
-	Mon, 21 Jul 2025 11:20:05 +0100
-From: Marc Zyngier <maz@kernel.org>
-To: kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	kvm@vger.kernel.org
-Cc: Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Will Deacon <will@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>
-Subject: [PATCH 1/7] arm64: Add capability denoting FEAT_RASv1p1
-Date: Mon, 21 Jul 2025 11:19:49 +0100
-Message-Id: <20250721101955.535159-2-maz@kernel.org>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20250721101955.535159-1-maz@kernel.org>
-References: <20250721101955.535159-1-maz@kernel.org>
+	Mon, 21 Jul 2025 10:09:09 +0000
+Received: by mail-ej1-x62d.google.com with SMTP id a640c23a62f3a-ae9be1697easo949759166b.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Jul 2025 03:09:07 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=tuxon.dev; s=google; t=1753092546; x=1753697346; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=hOPi555g1R1nQnwbYf65VIBf8GYSuV0PguYr5CDG9HE=;
+        b=fN9PKB5es4lKdYbnbQ0pvdLhXfbSog37aiQFuFKPwrSZR0mHBUZvVB5ueXAJGQg7WI
+         Vztyd5aQsdf+Lp3LNfenhMeO+3Gj11LLMrlLlcSS0j2jUU8nzC5c3H+cFAXNzWhlFN3H
+         JXAGQVnmyOuyyMtqPWBh2q7g+r0XjGGcXMiQE7WR9u7PkDNxeD884+l13NgELqr60q6/
+         eHb3a7qCLpZEiK81vyR2CTzcENlgQal8iyusJK0DulERgudXQU/FKWDu0jPUjDnf6mB3
+         yD5wje3i9/DN70SqpN5JhRXVJAzz/KqEyzuvw96FcmRe9o7uaDldqSUNXRYR7cZrptEQ
+         WxHQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1753092546; x=1753697346;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=hOPi555g1R1nQnwbYf65VIBf8GYSuV0PguYr5CDG9HE=;
+        b=oVqkl/PIjYnjcendwCiE7pMl765SFV4AwP5UUGxDZT60KSYgO37dsUMxodAQHOIj7/
+         9txUekKuCZl/CmhZLCC/bFPgSJYnCeR9g3rNWzNmWHBA5lWjQQNuknw5qRA18DPHfGnY
+         PXJOTGym0m84ibx1DM/MleWx1/HWddoKNUxDWwfO12/gZFEz5/mn9nhmlPTnHJfTvhd0
+         1LsJFU5I3vfpY6aXExstlxWT9bsXBcLEfgcoJo3xQVVW7N5jv3PLJTOwy7axx9L8ZAn8
+         s/HS7nQhA6AugIHs6zR+YtcbyMfRjKevZkQ1sBLwL7K+gMGaIFZGLPYbQIbWxo2+Fksy
+         erpw==
+X-Gm-Message-State: AOJu0YwTNSc0oi7rgTng7pSar2V2hTyMHjC8sgFvGWJtNp1D6WZFir8E
+	6BDvPdZHo+/QTZqiStuWfD1R/NR55mGRzGS/7YgXYIAo5fAOst/VOuDdOAK/z0Meikpdj0atw3I
+	ukmOY
+X-Gm-Gg: ASbGnct0Zeecu20D8B3sZHwWNs8TudNoOgCA+221V2N/T7MAQj79BlNjbjN/pT+aFcv
+	XPBmLuJGt9MUxCNO76P+cUqGIr4QPkmV3+h1Di98xpCTweORBjOJlZPGbfIT52TYfrinEN/GaxS
+	cyXZClnyohS/SfDnS4aDoi90tpNH3JJfQqtxpHmq5fX0slOYAg2bRO8Tj+V9Lq3ClqMIv2sk849
+	ey6YM66CJV8SYioEG3v5XPR7ydFQf7pWlAfbQrXTKF0p81zCe4s8cJc3WMLnQ44RBDIK+hJCZOv
+	KV4uokaub3TSmt00rciwsErBCr+4f+iJrUsqInwDaERSfBgaoKHx9IIaWhZcc8M4MQLARmQfRbo
+	+TCB/BiiAOr4Ebcnn2SVrRdV1fSCdioPoN/4t4sUH
+X-Google-Smtp-Source: AGHT+IG/sZ0fRnLRzNDazSyxk5d4XUySLdxtGzOE7Ju/SX6SozwXYOit0mXXfrFc3DkmltPmuHnQ5w==
+X-Received: by 2002:a17:907:5ce:b0:aca:95eb:12e with SMTP id a640c23a62f3a-aec4df004a1mr1302412266b.24.1753092545787;
+        Mon, 21 Jul 2025 03:09:05 -0700 (PDT)
+Received: from claudiu-X670E-Pro-RS.. ([82.78.167.30])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aec6c7d68a1sm647649766b.46.2025.07.21.03.09.04
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 21 Jul 2025 03:09:05 -0700 (PDT)
+From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+To: arnd@arndb.de,
+	arm@kernel.org,
+	soc@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org,
+	nicolas.ferre@microchip.com,
+	alexandre.belloni@bootlin.com,
+	claudiu.beznea@tuxon.dev
+Subject: [GIT PULL] Microchip AT91 defconfig updates for v6.17
+Date: Mon, 21 Jul 2025 13:09:03 +0300
+Message-ID: <20250721100904.568575-1-claudiu.beznea@tuxon.dev>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, will@kernel.org, catalin.marinas@arm.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250721_030908_298796_4F18B729 
+X-CRM114-Status: UNSURE (   6.43  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,74 +100,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Detecting FEAT_RASv1p1 is rather complicated, as there are two
-ways for the architecture to advertise the same thing (always a
-delight...).
+The following changes since commit 19272b37aa4f83ca52bdf9c16d5d81bdd1354494:
 
-Add a capability that will advertise this in a synthetic way to
-the rest of the kernel.
+  Linux 6.16-rc1 (2025-06-08 13:44:43 -0700)
 
-Signed-off-by: Marc Zyngier <maz@kernel.org>
----
- arch/arm64/kernel/cpufeature.c | 24 ++++++++++++++++++++++++
- arch/arm64/tools/cpucaps       |  1 +
- 2 files changed, 25 insertions(+)
+are available in the Git repository at:
 
-diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-index a40b94f8e14e1..2da246b593ff7 100644
---- a/arch/arm64/kernel/cpufeature.c
-+++ b/arch/arm64/kernel/cpufeature.c
-@@ -2235,6 +2235,24 @@ static void cpu_clear_disr(const struct arm64_cpu_capabilities *__unused)
- 	/* Firmware may have left a deferred SError in this register. */
- 	write_sysreg_s(0, SYS_DISR_EL1);
- }
-+static bool has_rasv1p1(const struct arm64_cpu_capabilities *__unused, int scope)
-+{
-+	const struct arm64_cpu_capabilities rasv1p1_caps[] = {
-+		{
-+			ARM64_CPUID_FIELDS(ID_AA64PFR0_EL1, RAS, V1P1)
-+		},
-+		{
-+			ARM64_CPUID_FIELDS(ID_AA64PFR0_EL1, RAS, IMP)
-+		},
-+		{
-+			ARM64_CPUID_FIELDS(ID_AA64PFR1_EL1, RAS_frac, RASv1p1)
-+		},
-+	};
-+
-+	return (has_cpuid_feature(&rasv1p1_caps[0], scope) ||
-+		(has_cpuid_feature(&rasv1p1_caps[1], scope) &&
-+		 has_cpuid_feature(&rasv1p1_caps[2], scope)));
-+}
- #endif /* CONFIG_ARM64_RAS_EXTN */
- 
- #ifdef CONFIG_ARM64_PTR_AUTH
-@@ -2653,6 +2671,12 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
- 		.cpu_enable = cpu_clear_disr,
- 		ARM64_CPUID_FIELDS(ID_AA64PFR0_EL1, RAS, IMP)
- 	},
-+	{
-+		.desc = "RASv1p1 Extension Support",
-+		.capability = ARM64_HAS_RASV1P1_EXTN,
-+		.type = ARM64_CPUCAP_SYSTEM_FEATURE,
-+		.matches = has_rasv1p1,
-+	},
- #endif /* CONFIG_ARM64_RAS_EXTN */
- #ifdef CONFIG_ARM64_AMU_EXTN
- 	{
-diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
-index 115161dd9a24d..eb7f1f5622a8f 100644
---- a/arch/arm64/tools/cpucaps
-+++ b/arch/arm64/tools/cpucaps
-@@ -52,6 +52,7 @@ HAS_S1PIE
- HAS_S1POE
- HAS_SCTLR2
- HAS_RAS_EXTN
-+HAS_RASV1P1_EXTN
- HAS_RNG
- HAS_SB
- HAS_STAGE2_FWB
--- 
-2.39.2
+  https://git.kernel.org/pub/scm/linux/kernel/git/at91/linux.git tags/at91-defconfig-6.17
 
+for you to fetch changes up to fac62e76b870292648c62522efd1cfb72aefc079:
+
+  ARM: configs: sama5_defconfig: Select CONFIG_WILC1000_SDIO (2025-06-24 10:06:38 +0300)
+
+----------------------------------------------------------------
+Microchip AT91 defconfig updates for v6.17
+
+This update includes:
+- the WILC1000 SDIO module
+
+----------------------------------------------------------------
+Fabio Estevam (1):
+      ARM: configs: sama5_defconfig: Select CONFIG_WILC1000_SDIO
+
+ arch/arm/configs/sama5_defconfig | 1 +
+ 1 file changed, 1 insertion(+)
 
