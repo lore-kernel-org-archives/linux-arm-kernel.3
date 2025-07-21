@@ -4,54 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9CFCC87FC5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 07:39:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E15BC87FC8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 21 Jul 2025 07:41:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Subject:To:From:Date:Message-ID:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=RSy3akR1+Z0TK1MqUcCTAhuNDshd4oA9g7Cu4aFIABY=; b=FQoKzABj4XILf5O3Ia872zyA8e
-	CJBje88WZxbpmU/JzzRayiApyJfzYE4UOYh5yZsZ1CfF4toR+Do4R8707XFp7qESEtaB3NudTmeUm
-	EUjJUv+InfMktbuT5tk6TmS3f8vQqJzSUGIPZXU1uj8vOpUDmZWso0KOX3MlHgjP8ElveK6MYuzbq
-	ymRT4XaWUy6AqdK/WxCq3vrs5XckA1vWJ7RIIfWRTCQh/ueD0l3jOgFvGD/hlh4AKs8dGwPSfqxTG
-	P0EHE00c7OZu2cXhIrngHxhqX/89ZrRoGGnXtxUsGpISi9LE8yYZa962TOCG1wa5t3LVqsuATIhD6
-	LBCCuNnA==;
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BcqKufxdH6F7LtnCk0e0JkGxUW+ENO9nSfoURV4nsTs=; b=ir1LAHmXrfymujpTtRirI6L7ZU
+	Sp/EVuzTaa1f2yPrrRgoeXuhCK5HxpwPp1jaqU9uKQfICGD99e//rePzr2m6M/o5tOlGV7wSknMOL
+	lQjpI7hswl4NWGQg5acIv2zoWuAzaPPAt6/iadaNNeY5R1hT1XiabwPltuVXHzjEZ8hZM/zTyb09U
+	s+a5wIYxI+6ABKbFKfwIxkIKQaOSxT09ebsXl8TRF7apvul9N0atM48Y4G2JSh2XXoA+7paOuWi6Z
+	5R0P20BXjfk4/Up7VpRql1tQD2chxzI4rZw9IXAuPvoole66GykslKU2piouqDpgBFUKUNB9RdPcc
+	hU4/uDPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udl75-0000000GVtE-14eR;
-	Mon, 21 Jul 2025 07:39:07 +0000
-Received: from mail.growora.pl ([51.254.119.49])
+	id 1udl9S-0000000GWEn-2kzG;
+	Mon, 21 Jul 2025 07:41:34 +0000
+Received: from mail-m49195.qiye.163.com ([45.254.49.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1udl4e-0000000GVOE-1jya
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 21 Jul 2025 07:36:37 +0000
-Received: by mail.growora.pl (Postfix, from userid 1002)
-	id C7FB522DFC; Mon, 21 Jul 2025 09:36:09 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=growora.pl; s=mail;
-	t=1753083394; bh=RSy3akR1+Z0TK1MqUcCTAhuNDshd4oA9g7Cu4aFIABY=;
-	h=Date:From:To:Subject:From;
-	b=Ku7Y7JcSIodBrvMuEasOGhCd8c9QeoEUil/k6k7c9Qw/VmLVRlZaZHi9UhXNWGy6s
-	 E5192Bis8rypNjZykNCFUAMDJSkCKSb79u87KhCIfPbqr6v4desu2SOjvJmJJVGZcD
-	 iB57JXrFrnnh0yZMfL7+vikmh5vpore1RrnUK+VZZY40nAjI+oYuOsJ01cAxcthGwL
-	 8sUWTS4EkInJ4cchCg4E27oLb0ZA9uW61E3VowyXEhdNIG6ZpaA3cl21GtSqyMmexL
-	 qV0PZxaGcj80/l0gae1xb1CCZmHcD9qR1mgqq3A2EVsPi5DE9DCzRvu2JvQ4Dp3sIM
-	 QUNIC0+LGZDqg==
-Received: by mail.growora.pl for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Jul 2025 07:35:59 GMT
-Message-ID: <20250721084500-0.1.kq.29q70.0.6ji9q5np19@growora.pl>
-Date: Mon, 21 Jul 2025 07:35:59 GMT
-From: "Mateusz Hopczak" <mateusz.hopczak@growora.pl>
-To: <linux-arm-kernel@lists.infradead.org>
-Subject: Wsparcie programistyczne - termin spotkania 
-X-Mailer: mail.growora.pl
+	id 1udl50-0000000GVRi-29Qk;
+	Mon, 21 Jul 2025 07:37:00 +0000
+Received: from [172.16.12.26] (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 1cb3df4bc;
+	Mon, 21 Jul 2025 15:36:41 +0800 (GMT+08:00)
+Message-ID: <f122492f-7f2a-4d3f-af74-3b807c9cd742@rock-chips.com>
+Date: Mon, 21 Jul 2025 15:36:40 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 07/12] drm/bridge: analogix_dp: Add support to find
+ panel or bridge
+From: Damon Ding <damon.ding@rock-chips.com>
+To: =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
+ andrzej.hajda@intel.com, neil.armstrong@linaro.org, rfoss@kernel.org
+Cc: Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
+ jernej.skrabec@gmail.com, maarten.lankhorst@linux.intel.com,
+ mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
+ jingoohan1@gmail.com, inki.dae@samsung.com, sw0312.kim@samsung.com,
+ kyungmin.park@samsung.com, krzk@kernel.org, alim.akhtar@samsung.com,
+ hjc@rock-chips.com, andy.yan@rock-chips.com,
+ dmitry.baryshkov@oss.qualcomm.com, l.stach@pengutronix.de,
+ dianders@chromium.org, dri-devel@lists.freedesktop.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, linux-rockchip@lists.infradead.org
+References: <20250709070139.3130635-1-damon.ding@rock-chips.com>
+ <20250709070139.3130635-8-damon.ding@rock-chips.com>
+ <4555084.IFkqi6BYcA@diego>
+ <0a4d5e97-a143-4293-987c-5682be60023d@rock-chips.com>
+Content-Language: en-US
+In-Reply-To: <0a4d5e97-a143-4293-987c-5682be60023d@rock-chips.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0a982be9d47603a3kunmf0036496274134
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQ0pOGFZOTh5JQ0IfGU8fTk5WFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
+	hVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=EMNzdqeOdDlKBOOh7gKY5lvBoJzZz8n2CRLGROufJnK6PLGQKvzZoO0aFgSUCAW00tzdnoo7j+vy+8rJ7RfLspNoAWLHoCr2AgqbinG5qPCrWGgeqQ7CpYYZ/bGGjDJsSsuLR9okEiHEnpoMW5W6Ka27Wl13J3KRAMUp2Bm0hto=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=BcqKufxdH6F7LtnCk0e0JkGxUW+ENO9nSfoURV4nsTs=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250721_003636_597103_00FB188F 
-X-CRM114-Status: UNSURE (   1.98  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250721_003658_775905_B4581AFE 
+X-CRM114-Status: GOOD (  21.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,32 +83,197 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Szanowni Pa=C5=84stwo,
+On 2025/7/11 15:41, Damon Ding wrote:
+> Hi Heiko,
+> 
+> On 2025/7/10 4:07, Heiko Stübner wrote:
+>> Hi Damon,
+>>
+>> Am Mittwoch, 9. Juli 2025, 09:01:34 Mitteleuropäische Sommerzeit 
+>> schrieb Damon Ding:
+>>> Since the panel/bridge should logically be positioned behind the
+>>> Analogix bridge in the display pipeline, it makes sense to handle
+>>> the panel/bridge parsing on the Analogix side.
+>>>
+>>> Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
+>>> ---
+>>>   .../drm/bridge/analogix/analogix_dp_core.c    | 48 +++++++++++++++++++
+>>>   include/drm/bridge/analogix_dp.h              |  2 +
+>>>   2 files changed, 50 insertions(+)
+>>>
+>>> diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c b/ 
+>>> drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
+>>> index 78d68310e4f6..660f95e90490 100644
+>>> --- a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
+>>> +++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
+>>> @@ -19,12 +19,14 @@
+>>>   #include <linux/platform_device.h>
+>>>   #include <drm/bridge/analogix_dp.h>
+>>> +#include <drm/display/drm_dp_aux_bus.h>
+>>>   #include <drm/drm_atomic.h>
+>>>   #include <drm/drm_atomic_helper.h>
+>>>   #include <drm/drm_bridge.h>
+>>>   #include <drm/drm_crtc.h>
+>>>   #include <drm/drm_device.h>
+>>>   #include <drm/drm_edid.h>
+>>> +#include <drm/drm_of.h>
+>>>   #include <drm/drm_panel.h>
+>>>   #include <drm/drm_print.h>
+>>>   #include <drm/drm_probe_helper.h>
+>>> @@ -1707,6 +1709,52 @@ struct drm_dp_aux *analogix_dp_get_aux(struct 
+>>> analogix_dp_device *dp)
+>>>   }
+>>>   EXPORT_SYMBOL_GPL(analogix_dp_get_aux);
+>>> +static int analogix_dp_aux_done_probing(struct drm_dp_aux *aux)
+>>> +{
+>>> +    struct analogix_dp_device *dp = to_dp(aux);
+>>> +    struct analogix_dp_plat_data *plat_data = dp->plat_data;
+>>> +    int port = plat_data->dev_type == EXYNOS_DP ? 0 : 1;
+>>> +    int ret;
+>>> +
+>>> +    /*
+>>> +     * If drm_of_find_panel_or_bridge() returns -ENODEV, there may 
+>>> be no valid panel
+>>> +     * or bridge nodes. The driver should go on for the driver-free 
+>>> bridge or the DP
+>>> +     * mode applications.
+>>> +     */
+>>> +    ret = drm_of_find_panel_or_bridge(dp->dev->of_node, port, 0,
+>>> +                      &plat_data->panel, &plat_data->bridge);
+>>
+>> Could you check if this can use a panel-bridge?
+>> See for example
+>> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/ 
+>> tree/drivers/gpu/drm/rockchip/rockchip_rgb.c#n138
+>> or a lot of other places for drm_panel_bridge_add()
+>>
+>> So if drm_of_find_panel_or_bridge() finds a bridge, just use it; if it
+>> finds a panel, drm_panel_bridge_add() just wraps a bridge around it
+>> and all the code can just assume everything is bridge after that.
+>>
+>>
+> 
+> Yes, that is a good approach. Using the panel-bridge will make the 
+> related checks more concise.
+> 
+>>
+>>> +    if (ret && ret != -ENODEV)
+>>> +        return ret;
+>>> +
+>>> +    return component_add(dp->dev, plat_data->ops);
+>>> +}
+>>> +
+>>> +int analogix_dp_find_panel_or_bridge(struct analogix_dp_device *dp)
+>>> +{
+>>> +    int ret;
+>>> +
+>>> +    ret = devm_of_dp_aux_populate_bus(&dp->aux, 
+>>> analogix_dp_aux_done_probing);
+>>> +    if (ret) {
+>>> +        /*
+>>> +         * If devm_of_dp_aux_populate_bus() returns -ENODEV, the 
+>>> done_probing() will
+>>> +         * not be called because there are no EP devices. Then the 
+>>> callback function
+>>> +         * analogix_dp_aux_done_probing() will be called directly in 
+>>> order to support
+>>> +         * the other valid DT configurations.
+>>> +         *
+>>> +         * NOTE: The devm_of_dp_aux_populate_bus() is allowed to 
+>>> return -EPROBE_DEFER.
+>>> +         */
+>>> +        if (ret != -ENODEV) {
+>>> +            dev_err(dp->dev, "failed to populate aux bus\n");
+>>> +            return ret;
+>>> +        }
+>>> +
+>>> +        return analogix_dp_aux_done_probing(&dp->aux);
+>>> +    }
+>>> +
+>>> +    return 0;
+>>> +}
+>>> +EXPORT_SYMBOL_GPL(analogix_dp_find_panel_or_bridge);
+>>> +
+>>>   MODULE_AUTHOR("Jingoo Han <jg1.han@samsung.com>");
+>>>   MODULE_DESCRIPTION("Analogix DP Core Driver");
+>>>   MODULE_LICENSE("GPL v2");
+>>> diff --git a/include/drm/bridge/analogix_dp.h b/include/drm/bridge/ 
+>>> analogix_dp.h
+>>> index 202e5eafb2cc..0b6d85f1924e 100644
+>>> --- a/include/drm/bridge/analogix_dp.h
+>>> +++ b/include/drm/bridge/analogix_dp.h
+>>> @@ -30,6 +30,7 @@ struct analogix_dp_plat_data {
+>>>       struct drm_bridge *bridge;
+>>>       struct drm_encoder *encoder;
+>>>       struct drm_connector *connector;
+>>> +    const struct component_ops *ops;
+>>>       int (*power_on)(struct analogix_dp_plat_data *);
+>>>       int (*power_off)(struct analogix_dp_plat_data *);
+>>> @@ -52,5 +53,6 @@ int analogix_dp_stop_crc(struct drm_connector 
+>>> *connector);
+>>>   struct analogix_dp_plat_data *analogix_dp_aux_to_plat_data(struct 
+>>> drm_dp_aux *aux);
+>>>   struct drm_dp_aux *analogix_dp_get_aux(struct analogix_dp_device *dp);
+>>> +int analogix_dp_find_panel_or_bridge(struct analogix_dp_device *dp);
+>>>   #endif /* _ANALOGIX_DP_H_ */
+>>>
+>>
+> 
 
-czy w Pa=C5=84stwa firmie rozwa=C5=BCaj=C4=85 Pa=C5=84stwo rozw=C3=B3j no=
-wego oprogramowania lub potrzebuj=C4=85 zaufanego zespo=C5=82u, kt=C3=B3r=
-y przejmie odpowiedzialno=C5=9B=C4=87 za stron=C4=99 technologiczn=C4=85 =
-projektu?
+While preparing the v3 patch series, I encountered a question regarding 
+the mode retrieval process. The relevant code in 
+drivers/gpu/drm/display/drm_bridge_connector.c is as follows:
 
-Jeste=C5=9Bmy butikowym software housem z 20-osobowym zespo=C5=82em in=C5=
-=BCynier=C3=B3w. Specjalizujemy si=C4=99 w projektach high-tech i deeptec=
-h =E2=80=93 od zaawansowanych system=C3=B3w AI/ML, przez blockchain i IoT=
-, a=C5=BC po aplikacje mobilne, webowe i symulacyjne (m.in. Unreal Engine=
-).
+static int drm_bridge_connector_get_modes(struct drm_connector *connector)
+{
+......
+	/*
+	 * If display exposes EDID, then we parse that in the normal way to
+	 * build table of supported modes.
+	 */
+	bridge = bridge_connector->bridge_edid;
+	if (bridge)
+		return drm_bridge_connector_get_modes_edid(connector, bridge);
 
-Wspieramy firmy technologiczne oraz startupy na r=C3=B3=C5=BCnych etapach=
-: od koncepcji, przez development, po skalowanie i optymalizacj=C4=99. Dz=
-ia=C5=82amy elastycznie =E2=80=93 jako partnerzy, podwykonawcy lub ventur=
-e builderzy.
+	/*
+	 * Otherwise if the display pipeline reports modes (e.g. with a fixed
+	 * resolution panel or an analog TV output), query it.
+	 */
+	bridge = bridge_connector->bridge_modes;
+	if (bridge)
+		return bridge->funcs->get_modes(bridge, connector);
+......
+}
 
-Je=C5=9Bli szukaj=C4=85 Pa=C5=84stwo zespo=C5=82u, kt=C3=B3ry rozumie z=C5=
-=82o=C5=BCono=C5=9B=C4=87 projekt=C3=B3w i wnosi realn=C4=85 warto=C5=9B=C4=
-=87 technologiczn=C4=85 =E2=80=93 ch=C4=99tnie porozmawiamy.
+The &drm_bridge_funcs.get_modes() will never be called if the 
+bridge_connector supports DRM_BRIDGE_OP_EDID. This suggests that 
+DRM_BRIDGE_OP_EDID and DRM_BRIDGE_OP_MODES might be mutually exclusive.
+And the following comments also ​confirm it(include/drm/drm_bridge.h):
 
-Czy mogliby=C5=9Bmy um=C3=B3wi=C4=87 si=C4=99 na kr=C3=B3tk=C4=85 rozmow=C4=
-=99, by sprawdzi=C4=87 potencja=C5=82 wsp=C3=B3=C5=82pracy?
+......
+	/**
+	 * @get_modes:
+	 *
+	 * Fill all modes currently valid for the sink into the &drm_connector
+	 * with drm_mode_probed_add().
+	 *
+	 * The @get_modes callback is mostly intended to support non-probeable
+	 * displays such as many fixed panels. Bridges that support reading
+	 * EDID shall leave @get_modes unimplemented and implement the
+	 * &drm_bridge_funcs->edid_read callback instead.
+	 *
+......
 
+I want to use drm_panel_get_modes()/drm_bridge_get_modes() as a fallback 
+when drm_bridge_connector_get_modes_edid() returns no modes, compatible 
+with the historical behavior. Should I apply the related code with 
+&drm_bridge_funcs.edid_read() then abandon the 
+&drm_bridge_funcs.get_modes()? or the opposite?
 
-Z pozdrowieniami
-Mateusz Hopczak
+Or maybe the DRM_BRIDGE_OP_MODES can be a certain fallback of 
+DRM_BRIDGE_OP_EDID for the bridge_connector?
+
+Best regards,
+Damon
+
 
