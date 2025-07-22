@@ -4,60 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81DA7C83F27
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 23:48:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C57AC83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 23:53:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=RcSuioHgqQvCMYpuNH5o7E0rW1clnpzbAkq57g8dlHs=; b=ASTFCxHejcP/Au/v+93AnGnBKX
-	aBzB59hgqZLbtVhk70bp6h7GjKQton4uLmzZea1+Hv5eMR7Nygy3r59QFfHq2qIL2q2XrObqER4zP
-	3YvG5SJQGpVnoeoLNjwhTODzto+7AsTjaCZm33cTDfi3bWy8KvkbdxVqlhFuGnO+sU/HBnroIWiQI
-	hPL77lTl2EmXP7BClXAxBM5kkQ494d3tqmbIU1yFfjzYuv/T1HYTsYUmY1NR6muNuJMwLciwpp7cN
-	X74y/Z9srZaVBuDSdDUptTj4qmX2C9XVhy3Nkujphq0vNsIFP8gu/fPwkF7MwGlqB5JRqTA59quG9
-	va7NhCCQ==;
+	bh=rFLT+SZL2lnoHRgvDZSzdIXwzoOFqOZM/J0nc7Kd06A=; b=nbKrl/MfMMiG5C5EQcrd8b1TZw
+	5OmNSCV6EtiXmb96FAFtKmOBlAANccRB3S5p4R+FOaWfBSQBn1Hu3jMRRQQ/McReU7OQcqWa34vsI
+	GZhZABXf0jR5ywrWVDNRSGOiap2rkBt4OxQb6el2CuwjDFtjiGCI3vpQokDz1GSNotIHAe/GZeEkK
+	d9ElwO5YtFlOtTcx/VdTZ6dDpHIjwm+jEMaoUsIpbI3RH3zeergXeZNFzG2NQ7ah9YEEJI/4rTC3Z
+	P8+ITfmtYy3i9MOcQiog5bnlu3GEW0W5yrQKicSe+vOXU8qgbkLpvMPU0dPKobpnWZLg70XlAF3Tu
+	SflTB5yw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueMiw-00000003gua-0BcN;
-	Tue, 22 Jul 2025 23:48:42 +0000
+	id 1ueMnr-00000003hFc-083O;
+	Tue, 22 Jul 2025 23:53:47 +0000
 Received: from gandalf.ozlabs.org ([150.107.74.76] helo=mail.ozlabs.org)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueMgO-00000003goU-1to5
+	id 1ueMlM-00000003h1u-2Z6L
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Jul 2025 23:46:09 +0000
+	Tue, 22 Jul 2025 23:51:13 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canb.auug.org.au;
-	s=202503; t=1753227796;
-	bh=RcSuioHgqQvCMYpuNH5o7E0rW1clnpzbAkq57g8dlHs=;
+	s=202503; t=1753228107;
+	bh=rFLT+SZL2lnoHRgvDZSzdIXwzoOFqOZM/J0nc7Kd06A=;
 	h=Date:From:To:Cc:Subject:From;
-	b=s6jcfCpUsBKTqHO4zuns4rOE2gE/EkPJ8Ps6wEQv9hscbZ3IIDlBwvgKI+un0wnoV
-	 uOSCfKFFESl1RX2g8YkPFxKhkHjimIvdo9d7cM8SIETPnOGvpoGkR0PFeUEtGaJ8hv
-	 55BfZn1Y/jSvHqpWMngX+kSVCHjJ2wQiaRK7QNQDdpWtA//ERPuetFrI4R0z1NYlCY
-	 vllbD/v/JQ/kXYyaSiIWz6JVkm2JpIvgoeEiP9Cw6RMB+fq+kqclUKqS3Lq8rBHcWU
-	 J6xntTfbpeA/b12ITSVaio+ovyqyn0ANtzna86MYREbG4cjNqUb1zQrALkJ0crok8C
-	 nmC9imENwZU/Q==
+	b=cX1LCA9EWTvEukeVI/CIUA9T61cB3vvBhyN3D6GZTaGITpTC5jZQiMP+M0XDJv8sr
+	 cIsCZSb8yrkwn+4wVz+dJvjKk45DpqI7RfFu6KfdRHCvdubGRnXTiXus4nBm0sPwb8
+	 9MbYjz3mPcSBkcwK5LtFHmJ2EMFzYboSn/WsJ98ZmIhU4TA+ReKZX1doYIdXkn06KF
+	 jNby971zU+HN88zoyKmlF1ktxHLUSrneWJVvPApjclJP7Pxx59qbOURLzNFXBG8vHE
+	 zIeXwS9xtJtsddyrAQi7UjlYMsZNzD2xLiNMqPjMvX782mPGVdfdRl04N73p80g2na
+	 Cv131KXY58RpQ==
 Received: from authenticated.ozlabs.org (localhost [127.0.0.1])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(Client did not present a certificate)
-	by mail.ozlabs.org (Postfix) with ESMTPSA id 4bmv372pPKz4wbY;
-	Wed, 23 Jul 2025 09:43:15 +1000 (AEST)
-Date: Wed, 23 Jul 2025 09:45:58 +1000
+	by mail.ozlabs.org (Postfix) with ESMTPSA id 4bmv971KSRz4wbY;
+	Wed, 23 Jul 2025 09:48:27 +1000 (AEST)
+Date: Wed, 23 Jul 2025 09:51:10 +1000
 From: Stephen Rothwell <sfr@canb.auug.org.au>
-To: Christophe Leroy <christophe.leroy@csgroup.eu>, Arnd Bergmann
- <arnd@arndb.de>
+To: Kevin Hilman <khilman@baylibre.com>, Arnd Bergmann <arnd@arndb.de>
 Cc: ARM <linux-arm-kernel@lists.infradead.org>, Linux Kernel Mailing List
  <linux-kernel@vger.kernel.org>, Linux Next Mailing List
  <linux-next@vger.kernel.org>
-Subject: linux-next: duplicate patch in the fsl tree
-Message-ID: <20250723094558.5bcfca69@canb.auug.org.au>
+Subject: linux-next: duplicate patches in the omap tree
+Message-ID: <20250723095110.2038c205@canb.auug.org.au>
 MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="Sig_/WJAG2PuqecvQ03WJeBM4B/8";
+Content-Type: multipart/signed; boundary="Sig_/9Jjba41b6jUujwXjIUhf+dV";
  protocol="application/pgp-signature"; micalg=pgp-sha256
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250722_164604_846455_F5BC9589 
-X-CRM114-Status: UNSURE (   9.04  )
+X-CRM114-CacheID: sfid-20250722_165112_796020_AB23D25D 
+X-CRM114-Status: UNSURE (   8.53  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -73,22 +72,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---Sig_/WJAG2PuqecvQ03WJeBM4B/8
+--Sig_/9Jjba41b6jUujwXjIUhf+dV
 Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: quoted-printable
 
 Hi all,
 
-The following commit is also in the arm-soc tree as a different commit
-(but the same patch):
+The following commits are also in the arm-soc tree as different commits
+(but the same patches):
 
-  8b3da0519ae6 ("soc: fsl: qe: convert set_multiple() to returning an integ=
-er")
+  0711a8dcea2a ("bus: del unnecessary init var")
+  536407b5b87d ("arm: multi_v7_defconfig: Enable TPS65219 regulator")
+  299c277aa74c ("arm: omap2plus_defconfig: Enable TPS65219 regulator")
 
-This is commit
+These are commits
 
-  12702f0c3834 ("soc: fsl: qe: convert set_multiple() to returning an integ=
-er")
+  8adc8e1657e1 ("bus: del unnecessary init var")
+  acbf491e07ad ("arm: multi_v7_defconfig: Enable TPS65219 regulator")
+  d50faff72218 ("arm: omap2plus_defconfig: Enable TPS65219 regulator")
 
 in the arm-soc tree.
 
@@ -96,21 +97,21 @@ in the arm-soc tree.
 Cheers,
 Stephen Rothwell
 
---Sig_/WJAG2PuqecvQ03WJeBM4B/8
+--Sig_/9Jjba41b6jUujwXjIUhf+dV
 Content-Type: application/pgp-signature
 Content-Description: OpenPGP digital signature
 
 -----BEGIN PGP SIGNATURE-----
 
-iQEzBAEBCAAdFiEENIC96giZ81tWdLgKAVBC80lX0GwFAmiAIrYACgkQAVBC80lX
-0Gz8tAgAm64hSR4znmbazwp3rKdkOF6D+jSnwMdhch4uF3Uqf1MXN+YdkAaa7hOj
-tuHgKe6uZ+olwXIP+dK7ZStD9GFcLCZ0hNc4Y3PZQJduvMJKtffSlwAqKBLVsDuQ
-UuwqdTE09kHoCYebJR2eHiO0PI2gBOhY1OSOH/jFl+Kj7UlLzqNrGT4Lt1RU8sqX
-6A+rVmFkHFaESbLP0oXC5u/zzifIXM5weeaXmHWEK8uyeB8WuloY9CWMcJGLhgbC
-QkGC/CIK2422WnGG/9ORThsbENFwCUBhbJGuYGMnbTyMIw7XQWW035egC7XXt5BP
-y8GiSa2aQanEXYgK4QHxdLdpwZczLw==
-=SgVy
+iQEzBAEBCAAdFiEENIC96giZ81tWdLgKAVBC80lX0GwFAmiAI+4ACgkQAVBC80lX
+0GxvPQf/a/LXGMlP3GXcKR+2jPIo52PRVCiO3jTFD2NbPtZWPW0ITEw89cPDxvlw
+u5lj8RvNnr8ZnBr4onOCR2GCmCIyzKpP6E0eKnc8HElUXpBnj2/iEryc1v947Wq7
+s7SgLQWSfHQJl4UEd/Cb2SY4mSyxHNWjl9+ITMsYqQSMbgtq2inWhrJgMahwyulL
+/e5GmweKtHzoDRHLD4S+QxLI29byL12U7toysLGQumhpX3ESMPkHd55IZhOu2qtq
+nJJZ0hPshcLqN2Lzlr58QC5oLwyEXdI3AbUHeIAUhKKKwtvlY6VxhaG1e8MFFx4E
+qDm+WMYh0Rm8Vntfv7PI3b5LDZ72pw==
+=Gpci
 -----END PGP SIGNATURE-----
 
---Sig_/WJAG2PuqecvQ03WJeBM4B/8--
+--Sig_/9Jjba41b6jUujwXjIUhf+dV--
 
