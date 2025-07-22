@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBD23C83F27
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 15:09:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A559BC83F27
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 15:11:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c84xGmzk0WDtYO8pxiXJLl1Oz2OVFtl3JU/pJXFAfdc=; b=kOai3/8cJRKSmROhqhNW7zNQNy
-	R0O2mIf+Q6N8LBwEME9IjR++ELqwGbLCgTT1ifc5iZT+/riBZ93R7wRCoq5aoEWWCwjxZDrgfDWLe
-	AR6K7ip/IXY7Xi9uAnqzXBr+flAu7pDGEldBopCbrFMQXTk3R0akIbNKQ5rECeRsW5jQjUXjZpSoV
-	1z7l2g7w7GNqDDNyW3XSTmNrRibN+vPasgMhvEirerTjiy6fe6iQT8x4cJ3rUG1ayzE5rdFxRXPQw
-	3RTH/xOQdhuPDBaEDxP9ESOeLe2T01z8KtDcAW7BcC3E8G4NlvOoMZB3ZXeirLWLqcn2rwSeFAllA
-	0xgNdrlA==;
+	bh=+oFosf+Y2aWw9hUSMPebh2RDsEkKVFT8bx1JKOIHJNs=; b=ZJYbwOPZrm5RXcAEaVWPl5hJm6
+	Y5NLZ7fKhTGxXTx4vPlR9TGaJia0vuskmVrTRs3LX9F83f12pcD4wyhUzaYnWCKGAnWDNt57Pbv5h
+	v22MDhi8WOxFUbNbOETOv1UakFCc6QcSqe4UNjLYyofTa7/d7SWLa1hkSH+xdr1GD1kjT7MSa431e
+	3AD0HTIqZ8MzzlGlWEAAmtGGPTs/GA1qyu2P2G1WAeSMyyJL8cGAPy+3EG0H9+C7D7nIUdRHigTqL
+	FEwI2gvAkgPMHNJ3jXmeFKUKAEAIpeasEx0CgX1ASKwtd7fTLxhDmYXM9SrsUplL7UU0p1Dl9pBXe
+	MTtRxlPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueEc6-00000002p7j-1Xaz;
-	Tue, 22 Jul 2025 15:09:06 +0000
+	id 1ueEea-00000002pWQ-1mMD;
+	Tue, 22 Jul 2025 15:11:40 +0000
 Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueDeE-00000002dgr-1ex4
+	id 1ueDeH-00000002dhn-0pAL
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Jul 2025 14:07:16 +0000
+	Tue, 22 Jul 2025 14:07:18 +0000
 Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56MDrtXm021978;
-	Tue, 22 Jul 2025 16:07:07 +0200
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56ME4cYI008425;
+	Tue, 22 Jul 2025 16:07:10 +0200
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	c84xGmzk0WDtYO8pxiXJLl1Oz2OVFtl3JU/pJXFAfdc=; b=qhtybQRaU+3hoGzd
-	G+u6uuKvYBjvHy7FvRCXgM792AlPkqK73QOjZVJDqQYBHPYZ9RsTtC7NmPUAQvQR
-	m1zs5StB+6/AY/irHFABpQpWZK4irlrFoW2gIrxQhxhwfcsNkVsQSWIYAByTcO+A
-	KSy6YVs+LtihaHLjeJPsrPzCZ6Yi7yAHOaWvP2+mTIUF4Nr63WYjyJ+D7OMDuXNz
-	gtj1iJXOJvKWjZva+tidrpuI4D/ExH/WQUB/6YDrBuAc93LRZTnmTsOR/cCRJOHN
-	nSAImafHVFnfSCiB5y3ba+ALwZE2XvV/Wp7sQKn/jcpDAC1odihszppS1jabF+Ne
-	T4rtSg==
+	+oFosf+Y2aWw9hUSMPebh2RDsEkKVFT8bx1JKOIHJNs=; b=HUnfTO/yFhseqaDF
+	URXJ6QqXIlC7xPtlQ3Or0KhE1JwClxgcd4/YjYg7voDVEhfNwQ2zmDDGJxCoXjsI
+	o5GEXBoecAG9H+jVuoqdNeW6R03SbuaScJ/RbJ6D+Iwzv/QCtYQi6/f827udSYVJ
+	ybvD/6I+C/Fdivdr+EbdoE2SdDLefvP2Kk+kAR43w6tHt+67BcMeP8Cv4jMFQm/l
+	Lzg7CuLM9hc1BPcvASRhs6f8UWwyymT1m2Gv8rqDABGVHqva9f8RwdCWlCkERYTn
+	VmctBTjewOrqgGucLNAg0YPnQwVi9EPsZokIF9GE3flLOdEqi9ra5z4W6pwLjats
+	Uxgxkg==
 Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 4800g8pc7y-1
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 4800g8pc8a-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 22 Jul 2025 16:07:07 +0200 (MEST)
+	Tue, 22 Jul 2025 16:07:10 +0200 (MEST)
 Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 11CC940044;
-	Tue, 22 Jul 2025 16:05:12 +0200 (CEST)
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id A8BBA40047;
+	Tue, 22 Jul 2025 16:05:23 +0200 (CEST)
 Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 93FE27A2A46;
-	Tue, 22 Jul 2025 16:03:51 +0200 (CEST)
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id B50297A31FC;
+	Tue, 22 Jul 2025 16:04:00 +0200 (CEST)
 Received: from localhost (10.48.86.185) by SHFDAG1NODE2.st.com (10.75.129.70)
  with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Tue, 22 Jul
- 2025 16:03:51 +0200
+ 2025 16:04:00 +0200
 From: =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>
-Date: Tue, 22 Jul 2025 16:03:20 +0200
-Subject: [PATCH v3 03/19] clk: stm32mp25: add firewall grant_access ops
+Date: Tue, 22 Jul 2025 16:03:32 +0200
+Subject: [PATCH v3 15/19] ARM: dts: stm32: add ddrperfm on stm32mp131
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-ID: <20250722-ddrperfm-upstream-v3-3-7b7a4f3dc8a0@foss.st.com>
+Message-ID: <20250722-ddrperfm-upstream-v3-15-7b7a4f3dc8a0@foss.st.com>
 References: <20250722-ddrperfm-upstream-v3-0-7b7a4f3dc8a0@foss.st.com>
 In-Reply-To: <20250722-ddrperfm-upstream-v3-0-7b7a4f3dc8a0@foss.st.com>
 To: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
@@ -98,8 +98,9 @@ X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
  definitions=2025-07-22_02,2025-07-21_02,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250722_070714_756081_6535475C 
-X-CRM114-Status: GOOD (  16.83  )
+X-CRM114-CacheID: sfid-20250722_070717_539159_9803D76A 
+X-CRM114-Status: UNSURE (   9.46  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,96 +115,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On STM32MP25, the RCC peripheral manages the secure level of resources
-that are used by other devices such as clocks.
-Declare this peripheral as a firewall controller.
+The DDRPERFM is the DDR Performance Monitor embedded in STM32MP131 SoC.
 
 Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
 ---
- drivers/clk/stm32/clk-stm32mp25.c | 40 ++++++++++++++++++++++++++++++++++++++-
- 1 file changed, 39 insertions(+), 1 deletion(-)
+ arch/arm/boot/dts/st/stm32mp131.dtsi | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-diff --git a/drivers/clk/stm32/clk-stm32mp25.c b/drivers/clk/stm32/clk-stm32mp25.c
-index 52f0e8a12926..af4bc06d703a 100644
---- a/drivers/clk/stm32/clk-stm32mp25.c
-+++ b/drivers/clk/stm32/clk-stm32mp25.c
-@@ -4,8 +4,10 @@
-  * Author: Gabriel Fernandez <gabriel.fernandez@foss.st.com> for STMicroelectronics.
-  */
+diff --git a/arch/arm/boot/dts/st/stm32mp131.dtsi b/arch/arm/boot/dts/st/stm32mp131.dtsi
+index 492bcf586361..e097723789aa 100644
+--- a/arch/arm/boot/dts/st/stm32mp131.dtsi
++++ b/arch/arm/boot/dts/st/stm32mp131.dtsi
+@@ -998,6 +998,13 @@ iwdg2: watchdog@5a002000 {
+ 			status = "disabled";
+ 		};
  
-+#include <linux/bus/stm32_firewall.h>
- #include <linux/bus/stm32_firewall_device.h>
- #include <linux/clk-provider.h>
-+#include <linux/device.h>
- #include <linux/io.h>
- #include <linux/platform_device.h>
- 
-@@ -1602,6 +1604,11 @@ static int stm32_rcc_get_access(void __iomem *base, u32 index)
- 	return 0;
- }
- 
-+static int stm32mp25_rcc_grant_access(struct stm32_firewall_controller *ctrl, u32 firewall_id)
-+{
-+	return stm32_rcc_get_access(ctrl->mmio, firewall_id);
-+}
++		ddrperfm: perf@5a007000 {
++			compatible = "st,stm32mp131-ddr-pmu";
++			reg = <0x5a007000 0x400>;
++			clocks = <&rcc DDRPERFM>;
++			resets = <&rcc DDRPERFM_R>;
++		};
 +
- static int stm32mp25_check_security(struct device_node *np, void __iomem *base,
- 				    const struct clock_config *cfg)
- {
-@@ -1970,6 +1977,7 @@ MODULE_DEVICE_TABLE(of, stm32mp25_match_data);
- 
- static int stm32mp25_rcc_clocks_probe(struct platform_device *pdev)
- {
-+	struct stm32_firewall_controller *rcc_controller;
- 	struct device *dev = &pdev->dev;
- 	void __iomem *base;
- 	int ret;
-@@ -1982,7 +1990,36 @@ static int stm32mp25_rcc_clocks_probe(struct platform_device *pdev)
- 	if (ret)
- 		return ret;
- 
--	return stm32_rcc_init(dev, stm32mp25_match_data, base);
-+	ret = stm32_rcc_init(dev, stm32mp25_match_data, base);
-+	if (ret)
-+		return ret;
-+
-+	rcc_controller = devm_kzalloc(&pdev->dev, sizeof(*rcc_controller), GFP_KERNEL);
-+	if (!rcc_controller)
-+		return -ENOMEM;
-+
-+	rcc_controller->dev = dev;
-+	rcc_controller->mmio = base;
-+	rcc_controller->name = dev_driver_string(dev);
-+	rcc_controller->type = STM32_PERIPHERAL_FIREWALL;
-+	rcc_controller->grant_access = stm32mp25_rcc_grant_access;
-+
-+	platform_set_drvdata(pdev, rcc_controller);
-+
-+	ret = stm32_firewall_controller_register(rcc_controller);
-+	if (ret) {
-+		dev_err(dev, "Couldn't register as a firewall controller: %d\n", ret);
-+		return ret;
-+	}
-+
-+	return 0;
-+}
-+
-+static void stm32mp25_rcc_clocks_remove(struct platform_device *pdev)
-+{
-+	struct stm32_firewall_controller *rcc_controller = platform_get_drvdata(pdev);
-+
-+	stm32_firewall_controller_unregister(rcc_controller);
- }
- 
- static struct platform_driver stm32mp25_rcc_clocks_driver = {
-@@ -1991,6 +2028,7 @@ static struct platform_driver stm32mp25_rcc_clocks_driver = {
- 		.of_match_table = stm32mp25_match_data,
- 	},
- 	.probe = stm32mp25_rcc_clocks_probe,
-+	.remove = stm32mp25_rcc_clocks_remove,
- };
- 
- static int __init stm32mp25_clocks_init(void)
+ 		rtc: rtc@5c004000 {
+ 			compatible = "st,stm32mp1-rtc";
+ 			reg = <0x5c004000 0x400>;
 
 -- 
 2.43.0
