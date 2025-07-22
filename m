@@ -4,93 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7843FC83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 21:52:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 322EAC83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 22:00:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QekdXNQU2gB5u6wAx4HFWIhwWvDRVo65LWC/6zm1k0s=; b=oQk2OpdPjJTInYd/6pibjcBSOB
-	KCK9SvgnzZTgIcv3b2g/yuaDhith21mPp+6w6lfIkoSPQb6qm/fBy16mqdWg6krVl1zWj1KMarCVS
-	Dr8xeR57PbNvcGhv+D5GfwsJC7JaQR9OOzdigK53lhyzAj2TZLi1WFdyogOVXa3cOAxYGZKp/Z3Hr
-	MGYK8XNBCGIuLoQz/HNjV726FsQRLUyiPUAb4rEiE8rl+Ev92fwBNCSsATyCyI1xBxsiuVb2PC6Zp
-	NzzBRs3dQ9Vx+6Q6+/GbS8seGjVfRBKr7DmxsTR9XH1UIakFI4hg+naYS791+w5EXsvJ9B/cAj3hp
-	JLh9Rewg==;
+	bh=cwvuUXqMXjlcbclmWLcZY6jJ7xmd1w9ykxymttXedcE=; b=HqxOVOt0zZRPHsRnHG+T6wFttx
+	4t14CwnGEKRPIlshR22Mzau1XXbCuBYKRO+i2x2rBG4Fy7QWi8lIzbv5tAISPk0Wx56HZglF78YKy
+	EZ8fuVCfiINUtNkSHMC5vYUqfUbamk8X9TLWEpY47Y0rl4YFWbTljmTv3gFVXhG9kIZtl84uk7/V0
+	tCsZznJmUKSqWEidFSpyphw9SXm/iX79JMSImXLW4IC29+lQ5B+7DuaE7vYSQ3vx8RBuhELrrVJTL
+	SMOX1w/h2SYGDgzoSX+CtEnPOP/2AZA41E1XrcglQm/eeDuFC97iZhaVCWAMArmYAYQPUnr5K9EVx
+	j7/aKJoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueKu3-00000003Xsn-0ObQ;
-	Tue, 22 Jul 2025 21:52:03 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1ueL26-00000003Ypc-1IDh;
+	Tue, 22 Jul 2025 22:00:22 +0000
+Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueKig-00000003Wvw-1yu6
+	id 1ueKzZ-00000003YGE-0dHu
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Jul 2025 21:40:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=QekdXNQU2gB5u6wAx4HFWIhwWvDRVo65LWC/6zm1k0s=; b=aX37a1Rz2YzyNrGAowMhxVDcRg
-	arIHJPBJkAEkkPtbjiC0svOsEC4EvGT0Z0R8NoxNQYMfpulErUWNaBuh/yKy7odP2J7DkW083mbIM
-	CPAMjoE9TGoJHHTUNHnS5qnY5uSz2WCPorKksvp8dASKu9BU69Ymtp6HQXCiRnI8BXNWH2LPnCOz4
-	lxrrbmd7P47utevVl/XfQqwnlTF0Tup/8OckYwp1zGawnPLhorxrkS8nUhDX287pGn1Xc4Ci8hoiH
-	E94mOUnJHd2N9YQJW9i/E753Dy/mj7PDOhsMMwhnBYZlUv47rhBy8ZBtnH/+wXCqQv5C+YgdZWivq
-	Abd//GWw==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:53462)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1ueKiM-0000f5-0Q;
-	Tue, 22 Jul 2025 22:39:58 +0100
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1ueKiH-0007U5-22;
-	Tue, 22 Jul 2025 22:39:53 +0100
-Date: Tue, 22 Jul 2025 22:39:53 +0100
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Gatien CHEVALLIER <gatien.chevallier@foss.st.com>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Christophe Roullier <christophe.roullier@foss.st.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Simon Horman <horms@kernel.org>,
-	Tristram Ha <Tristram.Ha@microchip.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	netdev@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net-next 1/4] dt-bindings: net: document st,phy-wol
- property
-Message-ID: <aIAFKcJApcl5r7tL@shell.armlinux.org.uk>
-References: <20250721-wol-smsc-phy-v1-1-89d262812dba@foss.st.com>
- <faea23d5-9d5d-4fbb-9c6a-a7bc38c04866@kernel.org>
- <f5c4bb6d-4ff1-4dc1-9d27-3bb1e26437e3@foss.st.com>
- <e3c99bdb-649a-4652-9f34-19b902ba34c1@lunn.ch>
- <38278e2a-5a1b-4908-907e-7d45a08ea3b7@foss.st.com>
- <5b8608cb-1369-4638-9cda-1cf90412fc0f@lunn.ch>
- <383299bb-883c-43bf-a52a-64d7fda71064@foss.st.com>
- <2563a389-4e7c-4536-b956-476f98e24b37@lunn.ch>
- <aH_yiKJURZ80gFEv@shell.armlinux.org.uk>
- <ae31d10f-45cf-47c8-a717-bb27ba9b7fbe@lunn.ch>
+	Tue, 22 Jul 2025 21:57:46 +0000
+Received: by mail-ed1-x52c.google.com with SMTP id 4fb4d7f45d1cf-609b169834cso4709a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Jul 2025 14:57:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1753221463; x=1753826263; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=cwvuUXqMXjlcbclmWLcZY6jJ7xmd1w9ykxymttXedcE=;
+        b=aBiUYXoZsCCYjSa8ANgtrU+xbA28pLncEwN8MVc4cPz67pJn33SkpzhRDXfwhme6RW
+         jmJclWBSLx+TshX5Vo1jfxgdOmAoqn2DqB48DenGFTZ58RShkgKF3xtuNkl9mPOTNNhV
+         Ei8TQEljCKfwuFjTOocNe99BNlT0HUJ3ou41s=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1753221463; x=1753826263;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=cwvuUXqMXjlcbclmWLcZY6jJ7xmd1w9ykxymttXedcE=;
+        b=fq9xQ1/nHIwCq/ARdE0Sg2XtOnHvjg0D24fRodEiH3bfdjEV/UMg/Ren6ODWdJidxo
+         8B/Ph19fFxzGwjfZ1AEzwp7Vvlfq49opCkzaIVF8HY4/07OBv7oskYrGH2ZbjGsAc+T9
+         AmEzZMh9hzHJIhvAa4kBMtUQtLUISO4hMLEpe/76qgEbLC3nldNgYs32ZIKV7HyWB/KI
+         nRidSGC4uvN1uCWYbo4LA1VjT4kSumwLSOk1eeInkfokrW5qRFmfgLUNcP0a80Y6HzM8
+         VVYcTjFPYyJkY5HrppXREpfyZGgnqXjEIwqghYVx31OC1J8ml5d0jKxQ+ghsQppiFF0u
+         Hf8A==
+X-Forwarded-Encrypted: i=1; AJvYcCVf5UyhGBndKe1d/5BWWJEk6qf/RQVsvbbDAmtYmU7MLRzjOQs1fzSQRL+8dmVwMz4wXbAWlSmmverPD4Cien0D@lists.infradead.org
+X-Gm-Message-State: AOJu0YxXCLrRxCXVZ+1oMnMYiQw9C7OmtRJWeehVM+tEUjCfFFVdq7mQ
+	0oH58yCVu4PRxcNqip9vqKHEaktPyvEigAXuqFVvxJzeWjAQ/aUjSmbrnHyJJFSVtggVSOZfWAC
+	7OU9HJie0wH4ZTJc3V1cKXCcilLfoBcXMn1HJKzcY
+X-Gm-Gg: ASbGncudJDKVo7BDQs7DCDe1Z/pcRX7CelyleAICRkCRL+2rt1TEhJG9C8jHWsgStz4
+	AmpdAwKreSGVHBmIdr7lc4J2pL7OFPxp0K/+HIhdMf9x6/+mEcoRw1owQv4zMjxSeVG3JVv7G2e
+	OauLymGzLA9AcOHpGui3v4tg9GHnCdFyyg2tRkIIDNwz+zUL7N9GXmN39DwKux5n7gmTtr6dYta
+	1FbatZLUuhV009VMtC6cWXPEgSukSknlNwuD5Zmcl7e
+X-Google-Smtp-Source: AGHT+IHkklfoV2jGZf2D1jPpYNy6n0EzpENuUlCVLYxgOK9YU79IkYyUGg7ZPnpy5rOLdzOyNuNgg4SRmVW6s9CMDc0=
+X-Received: by 2002:a50:aa87:0:b0:609:99a7:efdb with SMTP id
+ 4fb4d7f45d1cf-6149a3beea3mr33693a12.2.1753221462404; Tue, 22 Jul 2025
+ 14:57:42 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <ae31d10f-45cf-47c8-a717-bb27ba9b7fbe@lunn.ch>
+References: <20250722-ddrperfm-upstream-v3-0-7b7a4f3dc8a0@foss.st.com> <20250722-ddrperfm-upstream-v3-5-7b7a4f3dc8a0@foss.st.com>
+In-Reply-To: <20250722-ddrperfm-upstream-v3-5-7b7a4f3dc8a0@foss.st.com>
+From: Julius Werner <jwerner@chromium.org>
+Date: Tue, 22 Jul 2025 14:57:28 -0700
+X-Gm-Features: Ac12FXxqqdXiBOsL8hY8DFhm2tyZoxR-txMizljLW540w1cjvBjPCidmbvKnAZQ
+Message-ID: <CAODwPW_fDPY78bmwvLmLkt1yWpVdG=VC8h2NSdWtoiEknajhNw@mail.gmail.com>
+Subject: Re: [PATCH v3 05/19] dt-bindings: memory: factorise LPDDR props into
+ memory props
+To: =?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>
+Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, Jonathan Corbet <corbet@lwn.net>, 
+	Gatien Chevallier <gatien.chevallier@foss.st.com>, Michael Turquette <mturquette@baylibre.com>, 
+	Stephen Boyd <sboyd@kernel.org>, Gabriel Fernandez <gabriel.fernandez@foss.st.com>, 
+	Krzysztof Kozlowski <krzk@kernel.org>, Le Goffic <legoffic.clement@gmail.com>, 
+	Julius Werner <jwerner@chromium.org>, linux-arm-kernel@lists.infradead.org, 
+	linux-perf-users@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, linux-kernel@vger.kernel.org, 
+	linux-doc@vger.kernel.org, linux-clk@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250722_144018_516434_7EA755EE 
-X-CRM114-Status: GOOD (  25.81  )
+X-CRM114-CacheID: sfid-20250722_145745_219796_21926247 
+X-CRM114-Status: GOOD (  12.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,75 +100,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 22, 2025 at 10:59:51PM +0200, Andrew Lunn wrote:
-> >         if (!priv->plat->pmt) {
-> 
-> Let me start with maybe a dumb question. What does pmt mean? Why would
-> it be true?
+>        Compatible strings can be either explicit vendor names and part numbers
+>        (e.g. elpida,ECB240ABACN), or generated strings of the form
+>        lpddrX-YY,ZZZZ where X is the LPDDR version, YY is the manufacturer ID
 
-->pmt being true means the MAC supports remote wakeup (in other words,
-magic packet or unicast), and the glue driver has not set the
-STMMAC_FLAG_USE_PHY_WOL flag to force the use of PHY WoL.
+When you say "in case of LPDDR" below, you should also change this
+line to take other cases into account. Maybe the best way to write
+this would be something like:
 
-->pmt being false means that the MAC doesn't support remote wakeup
-(in other words, has no ability to wake the system itself) _or_ the
-platform wishes to force the use of PHY WoL when the MAC does support
-remote wakeup.
+...or generated strings of a memory type dependent form. For LPDDR
+types, that form is lpddrX-YY,ZZZZ where X is [...same text...]. For
+DDR types, that form is ddrX-YY,ZZZZZ... where X is [...new definition
+for DDR types, based on what's available in SPD...].
 
-> 
-> >                 struct ethtool_wolinfo wol = { .cmd = ETHTOOL_GWOL };
-> > 
-> >                 phylink_ethtool_get_wol(priv->phylink, &wol);
-> >                 device_set_wakeup_capable(priv->device, !!wol.supported);
-> >                 device_set_wakeup_enable(priv->device, !!wol.wolopts);
-> 
-> Without knowing what pmt means, this is pure speculation....  Maybe it
-> means the WoL output from the PHY is connected to a pin of the stmmac.
-> It thus needs stmmac to perform the actual wakeup of the system, as a
-> proxy for the PHY?
+>    revision-id:
+>      $ref: /schemas/types.yaml#/definitions/uint32-array
+>      description:
+> -      Revision IDs read from Mode Register 6 and 7. One byte per uint32 cell (i.e. <MR6 MR7>).
+> +      Revision IDs read from Mode Register 6 and 7 in case of LPDDR.
+> +      One byte per uint32 cell (i.e. <MR6 MR7>).
 
-stmmac itself doesn't have an input for PHY interrupts, so a PHY
-which signals WoL via its interrupt pin (e.g. AR8035) wouldn't go
-through stmmac.
+If this doesn't exist for DDR, then rather than "in case of LPDDR"
+this should probably say something like "LPDDR only"?
 
+>    density:
+>      $ref: /schemas/types.yaml#/definitions/uint32
+>      description:
+> -      Density in megabits of SDRAM chip. Decoded from Mode Register 8.
+> +      Density in megabits of SDRAM chip. Decoded from Mode Register 8 in case of
+> +      LPDDR.
 
-I mentioned above the STMMAC_FLAG_USE_PHY_WOL flag. To see why this
-flag is needed, on the Jetson Xavier NX platform, a RTL8211 PHY is used
-with stmmac - I think it's RTL8211F (without powering it back up, I
-can't check.) This PHY supports WoL, but signals wake-up through a
-dedicated PMEB pin. If a platform decides not to wire the PMEB pin, WoL
-on the PHY is unusable.
-
-rtl8211f_get_wol() does not take account of whether the PMEB pin is
-wired or not. Thus, stmmac can't just forward the get_wol() and
-set_wol() ops to the PHY driver and let it decide, as suggested
-earlier. As stmmac gets used with multiple PHYs, (and hey, we can't
-tell what they are, because DT doesn't list what the PHY actually is!)
-we can't know how many other PHY drivers also have this problem.
-
-So, the idea put forward that ethernet drivers should forward get_wol()
-and set_wol() to the PHY driver and only do WoL at the MAC if the PHY
-doesn't support it is, I'm afraid, now fundamentally flawed.
-
-We can't retrofit such detection into PHY drivers - if we do so, we'll
-break WoL on lots of boards (we'd need to e.g. describe PMEB in DT for
-RTL8211F PHYs. While we can add it, if a newer kernel that expects
-PMEB to be described to allow WoL is run with an older DT, then that
-will be a regression.) Thus, I don't see how we could retrofit PHY
-WoL support detection to MAC drivers.
-
-So, while it is undesirable to have a flag in DT to say "we can use
-PHY WoL on this platform" and we can whinge that it isn't "describing
-hardware", DT _hasn't_ been describing the hardware, and trying to fix
-DT to properly describe the hardware now is going to cause _lots_ of
-breakage.
-
-I can't see a way forward on this unless someone is willing to relax
-over what seem to be hard requirements (e.g. no we don't want a flag
-in DT to say use PHY WoL.) We have collectively boxed ourselves into
-a corner on this.
-
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+Can you list here where in SPD density and I/O width are stored for
+the various DDR types?
 
