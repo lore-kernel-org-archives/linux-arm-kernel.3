@@ -4,54 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CBDFC83F27
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 10:32:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CDDEC83F25
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 10:35:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=g2YZhtgtm394RnnixdV7wmfgGT2M2V2KUAeO2GpI0Os=; b=dVnhXnnukEhD+muz+lUg4jcXcR
-	GBgVGHjAhqmJenPGe2ZWWN+YEyrtLWmrwTRHc49EYNIBbeWC1UDSgnSLwwhZVuXAHX5nK0a30qMwT
-	IA9dT47NaxMkGlFyCS8Wdx9x3/q+DsSOK8SmTNJDUsQBvaJ2DT541LEZmd/Alz/N/qyLfFp1KVrXp
-	ivBn6huVKYPytVkA4rFAK7dAojg5QBTrvRTckPoyrbEHb+kbIdtFfiyFra+GyOmfE+zlPriO8fkOY
-	Z2lUoCQjGgueWBLc0FFKqA40GGWwTGES+iA0kSh48y03e74UrzMjGPUKfiSOggtY+MFlevZPk1B7R
-	3gqLvpxQ==;
+	bh=adCVBrgCh9OTG2beEK1CjZOLEhKnwDCiaJsQo7XYgxk=; b=MHGvt5yIezv9ogCMMoIyYsqgLO
+	EFQwvWF0P8dEBdrO1tGDMXGl05GlCCbpRpluct79q4kRq/XRbPIwkC2TrrwNJRDNQk12Vj/mHNmjJ
+	hbOhuRhdIQtdFF0t33xQ794E9PkUk5CzloEj1awxC1TCED9zVgd/Tli8ikKtxRyK40YzimXEPxqqM
+	d/6xqKmbmkbbMzHgpaElrY0XZqshSHehu6oY2GiL2tgeHjgtrOvK+G9/aTd5T75sGjHUpiGjbUS4W
+	xDeAM5CiUbYLMcdS1RJuv8rnORDlVPhqHw732klZ77P6O1TUZeXqGKPls8cxpN7kSrjyQArhMTpmf
+	e+i7w8Qg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueAIY-00000002AIo-1sDL;
-	Tue, 22 Jul 2025 10:32:38 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1ueAL1-00000002AWr-1Evu;
+	Tue, 22 Jul 2025 10:35:11 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ue9xq-000000027ho-0Vu7
+	id 1ue9xz-000000027kT-0o6c
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Jul 2025 10:11:15 +0000
+	Tue, 22 Jul 2025 10:11:23 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 9ED1C5C53B6;
-	Tue, 22 Jul 2025 10:11:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C3A3AC4CEEB;
-	Tue, 22 Jul 2025 10:11:11 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 73F3A601D2;
+	Tue, 22 Jul 2025 10:11:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CF2F5C4CEEB;
+	Tue, 22 Jul 2025 10:11:20 +0000 (UTC)
 From: Catalin Marinas <catalin.marinas@arm.com>
-To: Will Deacon <will@kernel.org>,
-	Shuah Khan <shuah@kernel.org>,
-	Mark Brown <broonie@kernel.org>
-Cc: Mark Rutland <mark.rutland@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] kselftest/arm64: Test FPSIMD format data writes via NT_ARM_SVE in fp-ptrace
-Date: Tue, 22 Jul 2025 11:11:09 +0100
-Message-Id: <175317903265.3058188.1426905529254051034.b4-ty@arm.com>
+To: linux-arm-kernel@lists.infradead.org,
+	Kevin Brodsky <kevin.brodsky@arm.com>
+Cc: Will Deacon <will@kernel.org>,
+	linux-kernel@vger.kernel.org,
+	"Aneesh Kumar K.V" <aneesh.kumar@linux.ibm.com>,
+	Joey Gouly <joey.gouly@arm.com>
+Subject: Re: (subset) [PATCH 0/2] Improve POE handling for uaccess
+Date: Tue, 22 Jul 2025 11:11:18 +0100
+Message-Id: <175317907573.3058594.12056270289383660598.b4-ty@arm.com>
 X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250718-arm64-fp-ptrace-sve-fpsimd-v1-1-7ecda32aa297@kernel.org>
-References: <20250718-arm64-fp-ptrace-sve-fpsimd-v1-1-7ecda32aa297@kernel.org>
+In-Reply-To: <20250619160042.2499290-1-kevin.brodsky@arm.com>
+References: <20250619160042.2499290-1-kevin.brodsky@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250722_031114_212652_5B5CC748 
-X-CRM114-Status: GOOD (  11.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,20 +62,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 18 Jul 2025 23:03:26 +0100, Mark Brown wrote:
-> The NT_ARM_SVE register set supports two data formats, the native SVE one
-> and an alternative format where we embed a copy of user_fpsimd_data as used
-> for NT_PRFPREG in the SVE register set. The register data is set as for a
-> write to NT_PRFPREG and changes in vector length and streaming mode are
-> handled as for any NT_ARM_SVE write. This has not previously been tested by
-> fp-ptrace, add coverage of it.
+On Thu, 19 Jun 2025 17:00:40 +0100, Kevin Brodsky wrote:
+> This short series attempts to approach POE (Overlay) faults consistently
+> w.r.t. uaccess. We currently assume that spurious Overlay faults are
+> handled by retrying the access [1], but this isn't the case.
+> 
+> Patch 1 ensures that spurious Overlay faults are indeed ignored. This
+> being done, it typically isn't worth using an ISB when writing to
+> POR_EL0. Patch 2 removes the remaining ISB in the signal handling code.
 > 
 > [...]
 
-Applied to arm64 (for-next/kselftest), thanks!
+Applied to arm64 (for-next/misc), thanks!
 
-[1/1] kselftest/arm64: Test FPSIMD format data writes via NT_ARM_SVE in fp-ptrace
-      https://git.kernel.org/arm64/c/b84d2b27954f
+[2/2] arm64: signal: Remove ISB when resetting POR_EL0
+      https://git.kernel.org/arm64/c/1a665a71ef0f
 
 -- 
 Catalin
