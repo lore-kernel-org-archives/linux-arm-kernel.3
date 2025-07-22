@@ -4,67 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B8F3C83F25
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 01:50:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 412B1C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 02:04:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JJqS25+tm0t7CWltPikdOoykwtYsQ0Ghy810YY755OA=; b=RIFNQoFxH9ZtSnqtQjI8irQu+f
-	m9AAdxb9pfL/vME+NMluiL1YY2DQfhCkqYYGZiv7rzpUHEskqpEDfuuIueTL/V0euBG2m+QKfya0g
-	+LWlbTJkynNw/GTd4rUUmzMSl+sPF04hcRnSBU27BIT2HkjcHAfWZBQAp5XH5Xna/F0aaypG2D+Yx
-	gbY7pvkczA7EhEw6IpNJWNUhuo13Zw9LgBJOcOnLPX5Nxz83ocClCcTflruViKt/Ce8w0oFKwTxIB
-	6iQGn+/jv782Qq3rsERXsa4CiESl9kf3x0ZjlLbZHxB0SGR4V2KElOOxnHLQ5HIXF7O0PQrog3eaa
-	h9nMBzdg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JXNM3pwI7U37QIp2W81rPzC0o3Xw9VVk8ohyCB9V5Ac=; b=OCz6akvqzoUOYoB4sAUt7y3ekm
+	RSNwcNon+TiiR/1OLhlaHs/1xVNHQNsnp0vyfCrkwOWNSZGDjDv4jkCOl9KSrevAz9+yF2ZVlVpm4
+	vvdHwZWqO82sJ1WGjwXHV85dLzSsjZIzSAx7HzrJGGAFi7EaqgO9QcpEf8DB3rczUt6zHCYtJpBWI
+	J734+gVOtUkk9C0PfJEZM9kSEKg0ZW1b6ojKmbH4hVEmop4xxTT90cXAb8AWKN4I36kRFdQa9zUz0
+	V491QkSvyVyRf+oyJuAIB8Fslg3FwPfUA0FXpFhLase+lQf1SGM6XGgXyOEIpyeOU4GIZHy1aNd9F
+	UyCZ8Vug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ue295-00000001339-0vBu;
-	Tue, 22 Jul 2025 01:50:19 +0000
-Received: from szxga05-in.huawei.com ([45.249.212.191])
+	id 1ue2MT-000000014Hv-3aFo;
+	Tue, 22 Jul 2025 02:04:09 +0000
+Received: from out30-98.freemail.mail.aliyun.com ([115.124.30.98])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ue26a-000000012ff-2EQb
+	id 1ue2K0-0000000147t-2OqM
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Jul 2025 01:47:46 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.17])
-	by szxga05-in.huawei.com (SkyGuard) with ESMTP id 4bmKpY56Yjz2FbQq;
-	Tue, 22 Jul 2025 09:45:25 +0800 (CST)
-Received: from dggemv705-chm.china.huawei.com (unknown [10.3.19.32])
-	by mail.maildlp.com (Postfix) with ESMTPS id D62E71A0191;
-	Tue, 22 Jul 2025 09:47:36 +0800 (CST)
-Received: from kwepemq200011.china.huawei.com (7.202.195.155) by
- dggemv705-chm.china.huawei.com (10.3.19.32) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Tue, 22 Jul 2025 09:47:31 +0800
-Received: from [10.67.110.108] (10.67.110.108) by
- kwepemq200011.china.huawei.com (7.202.195.155) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Tue, 22 Jul 2025 09:47:30 +0800
-Message-ID: <1b17f637-ecba-43cc-8ca6-e4bb73bd152e@huawei.com>
-Date: Tue, 22 Jul 2025 09:47:30 +0800
+	Tue, 22 Jul 2025 02:01:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1753149690; h=Date:From:To:Subject:Message-ID:MIME-Version:Content-Type;
+	bh=JXNM3pwI7U37QIp2W81rPzC0o3Xw9VVk8ohyCB9V5Ac=;
+	b=bkUueReBquK3YE2XjjQf+5e+2qnJePmiNa8gV2Cy29h3tq/+OBnW6uUiGVzCr94R6cNXTHNoG1VsJEXew9HpbNf3KC6HjgoDCHMiMHxxC2uoRswcUHAHw6zWBPTPSAGTXYVC/e0lWXwQd802zSgw0THXzyx+Eg8UvCjMqWixSDU=
+Received: from localhost(mailfrom:yaoyuan@linux.alibaba.com fp:SMTPD_---0WjTepwY_1753149687 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Tue, 22 Jul 2025 10:01:27 +0800
+Date: Tue, 22 Jul 2025 10:01:27 +0800
+From: Yao Yuan <yaoyuan@linux.alibaba.com>
+To: Keir Fraser <keirf@google.com>
+Cc: Yao Yuan <yaoyuan0329os@gmail.com>, 
+	Sean Christopherson <seanjc@google.com>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, kvm@vger.kernel.org, Eric Auger <eric.auger@redhat.com>, 
+	Oliver Upton <oliver.upton@linux.dev>, Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>, 
+	Paolo Bonzini <pbonzini@redhat.com>
+Subject: Re: [PATCH v2 2/4] KVM: arm64: vgic: Explicitly implement
+ vgic_dist::ready ordering
+Message-ID: <lb3i3h2rwq3kvm6tqoiiyrqcpqe2ctxcwmapgifii3dzqzfuqh@eqcqeudpfjlg>
+References: <20250716110737.2513665-1-keirf@google.com>
+ <20250716110737.2513665-3-keirf@google.com>
+ <kb7nwrco6s7e6catcareyic72pxvx52jbqbfc5gbqb5zu434kg@w3rrzbut3h34>
+ <aHphgd0fOjHXjPCI@google.com>
+ <5zpxxmymnyzncdnewdonnglvmvbtggjyxyqvkf6yars2bbyr4b@gottasrtoq2s>
+ <aHtQG_k_1q3862s3@google.com>
+ <4i65mgp4rtfox2ttchamijofcmwjtd6sefmuhdkfdrjwaznhoc@2uhcfv2ziegj>
+ <aH3w9t78dvxsDjhV@google.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC] SCTLR_EL1.TIDCP toggling for performance
-To: =?UTF-8?Q?Kristina_Mart=C5=A1enko?= <kristina.martsenko@arm.com>
-CC: <linux-kernel@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, <catalin.marinas@arm.com>,
-	<will@kernel.org>, <mark.rutland@arm.com>, <sashal@kernel.org>,
-	<yangjiangshui@h-partners.com>, <zouyipeng@huawei.com>, <justin.he@arm.com>,
-	<zengheng4@huawei.com>, <yangyicong@hisilicon.com>, ruanjinjie
-	<ruanjinjie@huawei.com>
-References: <24afb8de-622a-4865-bd8e-8e89ccfff8f4@huawei.com>
- <4b010cc5-9244-450d-9a03-4ff6bf5c9a20@arm.com>
-From: "Liao, Chang" <liaochang1@huawei.com>
-In-Reply-To: <4b010cc5-9244-450d-9a03-4ff6bf5c9a20@arm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.110.108]
-X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
- kwepemq200011.china.huawei.com (7.202.195.155)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aH3w9t78dvxsDjhV@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250721_184744_756912_4E443B25 
-X-CRM114-Status: GOOD (  12.07  )
+X-CRM114-CacheID: sfid-20250721_190136_925027_22124D5F 
+X-CRM114-Status: GOOD (  42.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,46 +75,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, Jul 21, 2025 at 07:49:10AM +0800, Keir Fraser wrote:
+> On Sun, Jul 20, 2025 at 08:08:30AM +0800, Yao Yuan wrote:
+> > On Sat, Jul 19, 2025 at 07:58:19AM +0000, Keir Fraser wrote:
+> > > On Sat, Jul 19, 2025 at 10:15:56AM +0800, Yao Yuan wrote:
+> > > > On Fri, Jul 18, 2025 at 08:00:17AM -0700, Sean Christopherson wrote:
+> > > > > On Thu, Jul 17, 2025, Yao Yuan wrote:
+> > > > > > On Wed, Jul 16, 2025 at 11:07:35AM +0800, Keir Fraser wrote:
+> > > > > > > In preparation to remove synchronize_srcu() from MMIO registration,
+> > > > > > > remove the distributor's dependency on this implicit barrier by
+> > > > > > > direct acquire-release synchronization on the flag write and its
+> > > > > > > lock-free check.
+> > > > > > >
+> > > > > > > Signed-off-by: Keir Fraser <keirf@google.com>
+> > > > > > > ---
+> > > > > > >  arch/arm64/kvm/vgic/vgic-init.c | 11 ++---------
+> > > > > > >  1 file changed, 2 insertions(+), 9 deletions(-)
+> > > > > > >
+> > > > > > > diff --git a/arch/arm64/kvm/vgic/vgic-init.c b/arch/arm64/kvm/vgic/vgic-init.c
+> > > > > > > index 502b65049703..bc83672e461b 100644
+> > > > > > > --- a/arch/arm64/kvm/vgic/vgic-init.c
+> > > > > > > +++ b/arch/arm64/kvm/vgic/vgic-init.c
+> > > > > > > @@ -567,7 +567,7 @@ int kvm_vgic_map_resources(struct kvm *kvm)
+> > > > > > >  	gpa_t dist_base;
+> > > > > > >  	int ret = 0;
+> > > > > > >
+> > > > > > > -	if (likely(dist->ready))
+> > > > > > > +	if (likely(smp_load_acquire(&dist->ready)))
+> > > > > > >  		return 0;
+> > > > > > >
+> > > > > > >  	mutex_lock(&kvm->slots_lock);
+> > > > > > > @@ -598,14 +598,7 @@ int kvm_vgic_map_resources(struct kvm *kvm)
+> > > > > > >  		goto out_slots;
+> > > > > > >  	}
+> > > > > > >
+> > > > > > > -	/*
+> > > > > > > -	 * kvm_io_bus_register_dev() guarantees all readers see the new MMIO
+> > > > > > > -	 * registration before returning through synchronize_srcu(), which also
+> > > > > > > -	 * implies a full memory barrier. As such, marking the distributor as
+> > > > > > > -	 * 'ready' here is guaranteed to be ordered after all vCPUs having seen
+> > > > > > > -	 * a completely configured distributor.
+> > > > > > > -	 */
+> > > > > > > -	dist->ready = true;
+> > > > > > > +	smp_store_release(&dist->ready, true);
+> > > > > >
+> > > > > > No need the store-release and load-acquire for replacing
+> > > > > > synchronize_srcu_expedited() w/ call_srcu() IIUC:
+> > > > >
+> > > > > This isn't about using call_srcu(), because it's not actually about kvm->buses.
+> > > > > This code is concerned with ensuring that all stores to kvm->arch.vgic are ordered
+> > > > > before the store to set kvm->arch.vgic.ready, so that vCPUs never see "ready==true"
+> > > > > with a half-baked distributor.
+> > > > >
+> > > > > In the current code, kvm_vgic_map_resources() relies on the synchronize_srcu() in
+> > > > > kvm_io_bus_register_dev() to provide the ordering guarantees.  Switching to
+> > > > > smp_store_release() + smp_load_acquire() removes the dependency on the
+> > > > > synchronize_srcu() so that the synchronize_srcu() call can be safely removed.
+> > > >
+> > > > Yes, I understand this and agree with your point.
+> > > >
+> > > > Just for discusstion: I thought it should also work even w/o
+> > > > introduce the load acqure + store release after switch to
+> > > > call_srcu(): The smp_mb() in call_srcu() order the all store
+> > > > to kvm->arch.vgic before store kvm->arch.vgic.ready in
+> > > > current implementation.
+> > >
+> > > The load-acquire would still be required, to ensure that accesses to
+> > > kvm->arch.vgic do not get reordered earlier than the lock-free check
+> > > of kvm->arch.vgic.ready. Otherwise that CPU could see that the vgic is
+> > > initialised, but then use speculated reads of uninitialised vgic state.
+> > >
+> >
+> > Thanks for your explanation.
+> >
+> > I see. But there's "mutex_lock(&kvm->slot_lock);" before later
+> > acccessing to the kvm->arch.vgic, so I think the order can be
+> > guaranteed. Of cause as you said a explicitly acquire-load +
+> > store-release is better than before implicitly implementation.
+>
+> If vgic_dist::ready is observed true by the lock-free read (the one
+> which is turned into load-acquire by this patch) then the function
+> immediately returns with no mutex_lock() executed. It is reads of
+> vgic_dist *after* return from kvm_vgic_map_resources() that you have
+> to worry about, and which require load-acquire semantics.
 
+I think this is the main purpose of such lock-free reading
+here, to avoid lock contention on VM w/ large vCPUs for
+vcpus' first time run together.
 
-在 2025/7/19 1:28, Kristina Martšenko 写道:
-> Hi Chang,
-> 
-> On 18/07/2025 03:32, Liao, Chang wrote:
->> Hi, Kristina
->>
->> I've reviewed your patch [1] for FEAT_TIDCP1 support, which by default traps EL0
->> accesses to implementation-defined system registers and instructions at EL1/EL2.
->>
->> Do you have any plans to add support for toggling the SCTLR_EL1.TIDCP1 bit? I'm
->> encountering performance degradation on CPU where certain implementation-defined
->> registers and instructions are designed for EL0 performance use. The trapping
->> overhead is substantial enough to compromise any benefits, and it's even worse
->> in virtualization. Therefore, I'm hoping there's a way to clear the SCTLR_EL1.TIDCP1
->> bit on such platforms, perhaps via a kernel config option or command-line parameter.
->> Alternatively, do you have a better solution for gracefully toggling this bit on
->> and off?
->>
->> Thanks
->>
->> [1] https://lore.kernel.org/linux-arm-kernel/Yrw3NWkH6D0CgRsF@sirena.org.uk/T/#m5cfdb27b48d9d7e30db73e991fc6c232ba8a7349
-> 
-> I don't have any plans to add support for toggling it. You could try sending a
-> patch for a Kconfig option or kernel command-line parameter. I'm not really
+store-release makes sure the changes to vgic_dist::ready
+become visible after the changes to vgic_dist become
+visible, but it doesn't guarantee the vgic_dist::ready
+becomes visible to reader on aother CPU **IMMEDIATELY**,
+thus load-acquire in reader side is request for this.
+Is above understanding correct ?
 
-Kristina, I am going to send a patch for command-line paramter as Catalin suggested.
-
-Thanks.
-
-> sure what the maintainers' view on supporting IMP-DEF features is.
-> 
-> Thanks,
-> Kristina
-> 
-> 
-
--- 
-BR
-Liao, Chang
-
+>
+> >
+> > > > >
 
