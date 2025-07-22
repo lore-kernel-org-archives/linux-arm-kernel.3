@@ -4,60 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74176C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 23:08:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81DA7C83F27
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 23:48:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JxNIUZNxJi5qlKN93dLziW8I6ljlPVV4y5DEy4ploQQ=; b=PXuhVjID1H0b3rGttdADN9jq5c
-	VVU8nOnB2BegHYnsgacZ8lEUKrfj+tGDvach/qAueyO7iGdBpe2UCpOz9Cf9ro6AaZWlXq5zoy3tt
-	HB8G5aZUxPRVAtTPFrg8AcL4XFSJ9RywzabhVd0TJ8aSbAF/VlAS209XoEo8w1G9S1QSsFW+OV1ph
-	JK4gd8/RSMgDIhC0t489E0D/IrNlfdQ3uxu/7OrgfcRKG2OCu4XI5Ts69MdBEHaP0jLtxIIwgvrIb
-	uNgSY4EYYWEsSH8VcEYAcnCDzb0Nxo/9EwHYoYjyIr8PgQyb7WfeN4Kp3ePrX6bk1reXd9B59lqjW
-	Ca0wJUww==;
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=RcSuioHgqQvCMYpuNH5o7E0rW1clnpzbAkq57g8dlHs=; b=ASTFCxHejcP/Au/v+93AnGnBKX
+	aBzB59hgqZLbtVhk70bp6h7GjKQton4uLmzZea1+Hv5eMR7Nygy3r59QFfHq2qIL2q2XrObqER4zP
+	3YvG5SJQGpVnoeoLNjwhTODzto+7AsTjaCZm33cTDfi3bWy8KvkbdxVqlhFuGnO+sU/HBnroIWiQI
+	hPL77lTl2EmXP7BClXAxBM5kkQ494d3tqmbIU1yFfjzYuv/T1HYTsYUmY1NR6muNuJMwLciwpp7cN
+	X74y/Z9srZaVBuDSdDUptTj4qmX2C9XVhy3Nkujphq0vNsIFP8gu/fPwkF7MwGlqB5JRqTA59quG9
+	va7NhCCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueM5s-00000003eSk-2VY8;
-	Tue, 22 Jul 2025 23:08:20 +0000
-Received: from mail.ozlabs.org ([2404:9400:2221:ea00::3])
+	id 1ueMiw-00000003gua-0BcN;
+	Tue, 22 Jul 2025 23:48:42 +0000
+Received: from gandalf.ozlabs.org ([150.107.74.76] helo=mail.ozlabs.org)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueM3M-00000003e5t-1lAh
+	id 1ueMgO-00000003goU-1to5
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Jul 2025 23:05:46 +0000
+	Tue, 22 Jul 2025 23:46:09 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canb.auug.org.au;
-	s=202503; t=1753225379;
-	bh=JxNIUZNxJi5qlKN93dLziW8I6ljlPVV4y5DEy4ploQQ=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=g2Qwx4+Fo8MOWubxPkSUCe4uejPOG6jfeJj0TKRxIjjrWbJXOBbm41z3mXfAS90Hd
-	 oPSad9BqZKkaC2zS3FyW2uzgzhX196q6J4jU64T8YKyfp1qdjYXfpgem37TI7QuBSX
-	 JOQ384Mm7a9to2MCUGt+hQZDszG8l3yl/IR6W5ubBylteWBNouOXi7/eMFEi0neIIN
-	 EMCqrxc/xYarRx5wWWUPLMEwFhNuuNKwo9OwkgsGY2gLgXSmoIMmHBc8WaNl3/TfRJ
-	 q15oZXkTz9c7fIO2XaMa1MKZ6ovs++OaYCrteFkCFSeltkuw3kBGsSEWImqYNOTQg2
-	 ETV/7Qotg4/8A==
+	s=202503; t=1753227796;
+	bh=RcSuioHgqQvCMYpuNH5o7E0rW1clnpzbAkq57g8dlHs=;
+	h=Date:From:To:Cc:Subject:From;
+	b=s6jcfCpUsBKTqHO4zuns4rOE2gE/EkPJ8Ps6wEQv9hscbZ3IIDlBwvgKI+un0wnoV
+	 uOSCfKFFESl1RX2g8YkPFxKhkHjimIvdo9d7cM8SIETPnOGvpoGkR0PFeUEtGaJ8hv
+	 55BfZn1Y/jSvHqpWMngX+kSVCHjJ2wQiaRK7QNQDdpWtA//ERPuetFrI4R0z1NYlCY
+	 vllbD/v/JQ/kXYyaSiIWz6JVkm2JpIvgoeEiP9Cw6RMB+fq+kqclUKqS3Lq8rBHcWU
+	 J6xntTfbpeA/b12ITSVaio+ovyqyn0ANtzna86MYREbG4cjNqUb1zQrALkJ0crok8C
+	 nmC9imENwZU/Q==
 Received: from authenticated.ozlabs.org (localhost [127.0.0.1])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(Client did not present a certificate)
-	by mail.ozlabs.org (Postfix) with ESMTPSA id 4bmt8g1jWLz4w2R;
-	Wed, 23 Jul 2025 09:02:58 +1000 (AEST)
-Date: Wed, 23 Jul 2025 09:05:41 +1000
+	by mail.ozlabs.org (Postfix) with ESMTPSA id 4bmv372pPKz4wbY;
+	Wed, 23 Jul 2025 09:43:15 +1000 (AEST)
+Date: Wed, 23 Jul 2025 09:45:58 +1000
 From: Stephen Rothwell <sfr@canb.auug.org.au>
-To: Wei Xu <xuwei5@hisilicon.com>
-Cc: <linux-next@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- Krzysztof Kozlowski <krzk@kernel.org>
-Subject: Re: Add the hisilicon branch to linux-next
-Message-ID: <20250723090541.5652a182@canb.auug.org.au>
-In-Reply-To: <687F7586.9040302@hisilicon.com>
-References: <687F7586.9040302@hisilicon.com>
+To: Christophe Leroy <christophe.leroy@csgroup.eu>, Arnd Bergmann
+ <arnd@arndb.de>
+Cc: ARM <linux-arm-kernel@lists.infradead.org>, Linux Kernel Mailing List
+ <linux-kernel@vger.kernel.org>, Linux Next Mailing List
+ <linux-next@vger.kernel.org>
+Subject: linux-next: duplicate patch in the fsl tree
+Message-ID: <20250723094558.5bcfca69@canb.auug.org.au>
 MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="Sig_/g7xmY+KOIpqpxv_vI22_5P3";
+Content-Type: multipart/signed; boundary="Sig_/WJAG2PuqecvQ03WJeBM4B/8";
  protocol="application/pgp-signature"; micalg=pgp-sha256
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250722_160544_815203_CF2C3167 
-X-CRM114-Status: GOOD (  16.10  )
+X-CRM114-CacheID: sfid-20250722_164604_846455_F5BC9589 
+X-CRM114-Status: UNSURE (   9.04  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,61 +73,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---Sig_/g7xmY+KOIpqpxv_vI22_5P3
+--Sig_/WJAG2PuqecvQ03WJeBM4B/8
 Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: quoted-printable
 
-Hi Wei,
+Hi all,
 
-On Tue, 22 Jul 2025 19:27:02 +0800 Wei Xu <xuwei5@hisilicon.com> wrote:
->
-> Could you please add the following to linux-next?
->=20
->    Repo: https://github.com/hisilicon/linux-hisi.git
->    Branch: for-next
->=20
-> This aligns with the MAINTAINERS for the HiSilicon tree.
-> Thanks!
+The following commit is also in the arm-soc tree as a different commit
+(but the same patch):
 
-Added from today.
+  8b3da0519ae6 ("soc: fsl: qe: convert set_multiple() to returning an integ=
+er")
 
-Thanks for adding your subsystem tree as a participant of linux-next.  As
-you may know, this is not a judgement of your code.  The purpose of
-linux-next is for integration testing and to lower the impact of
-conflicts between subsystems in the next merge window.=20
+This is commit
 
-You will need to ensure that the patches/commits in your tree/series have
-been:
-     * submitted under GPL v2 (or later) and include the Contributor's
-        Signed-off-by,
-     * posted to the relevant mailing list,
-     * reviewed by you (or another maintainer of your subsystem tree),
-     * successfully unit tested, and=20
-     * destined for the current or next Linux merge window.
+  12702f0c3834 ("soc: fsl: qe: convert set_multiple() to returning an integ=
+er")
 
-Basically, this should be just what you would send to Linus (or ask him
-to fetch).  It is allowed to be rebased if you deem it necessary.
+in the arm-soc tree.
 
 --=20
 Cheers,
-Stephen Rothwell=20
-sfr@canb.auug.org.au
+Stephen Rothwell
 
---Sig_/g7xmY+KOIpqpxv_vI22_5P3
+--Sig_/WJAG2PuqecvQ03WJeBM4B/8
 Content-Type: application/pgp-signature
 Content-Description: OpenPGP digital signature
 
 -----BEGIN PGP SIGNATURE-----
 
-iQEzBAEBCAAdFiEENIC96giZ81tWdLgKAVBC80lX0GwFAmiAGUUACgkQAVBC80lX
-0GwmSQf+PnHWc3pRsQ5yggv5+B7VDHQfccUSW1vL9KuXWVTP7Sk9ku4+n+Wg9P5A
-jRkcbcSlctXmJK4bbBnE0t7de/7ZdZp+zTUTU6hEshelNQ/+FNGqnoBe43F1cpXf
-H2rlv51mb7CW9YTAqiik1cOiZ3KhqtrVE+8Mh3vbVAanSKh2F4jfYpfz5k24dSPI
-H8F70WjCjJJ4QVxI2Q1LFWAkM3nELvklAqOv8ISS/LvSKAC2oVsFrPQYjhMDYBQk
-dnVdP0dLfOgUyW0xU7k68N7cn54N7s28fcvqRt4LZqIMBESnrn3cQmYSlrTUI16G
-it6X6JwybXtA4R7fTMitVnfb5IsVWQ==
-=bxDj
+iQEzBAEBCAAdFiEENIC96giZ81tWdLgKAVBC80lX0GwFAmiAIrYACgkQAVBC80lX
+0Gz8tAgAm64hSR4znmbazwp3rKdkOF6D+jSnwMdhch4uF3Uqf1MXN+YdkAaa7hOj
+tuHgKe6uZ+olwXIP+dK7ZStD9GFcLCZ0hNc4Y3PZQJduvMJKtffSlwAqKBLVsDuQ
+UuwqdTE09kHoCYebJR2eHiO0PI2gBOhY1OSOH/jFl+Kj7UlLzqNrGT4Lt1RU8sqX
+6A+rVmFkHFaESbLP0oXC5u/zzifIXM5weeaXmHWEK8uyeB8WuloY9CWMcJGLhgbC
+QkGC/CIK2422WnGG/9ORThsbENFwCUBhbJGuYGMnbTyMIw7XQWW035egC7XXt5BP
+y8GiSa2aQanEXYgK4QHxdLdpwZczLw==
+=SgVy
 -----END PGP SIGNATURE-----
 
---Sig_/g7xmY+KOIpqpxv_vI22_5P3--
+--Sig_/WJAG2PuqecvQ03WJeBM4B/8--
 
