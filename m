@@ -4,63 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 412B1C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 02:04:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2E25C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 02:08:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JXNM3pwI7U37QIp2W81rPzC0o3Xw9VVk8ohyCB9V5Ac=; b=OCz6akvqzoUOYoB4sAUt7y3ekm
-	RSNwcNon+TiiR/1OLhlaHs/1xVNHQNsnp0vyfCrkwOWNSZGDjDv4jkCOl9KSrevAz9+yF2ZVlVpm4
-	vvdHwZWqO82sJ1WGjwXHV85dLzSsjZIzSAx7HzrJGGAFi7EaqgO9QcpEf8DB3rczUt6zHCYtJpBWI
-	J734+gVOtUkk9C0PfJEZM9kSEKg0ZW1b6ojKmbH4hVEmop4xxTT90cXAb8AWKN4I36kRFdQa9zUz0
-	V491QkSvyVyRf+oyJuAIB8Fslg3FwPfUA0FXpFhLase+lQf1SGM6XGgXyOEIpyeOU4GIZHy1aNd9F
-	UyCZ8Vug==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FC3yvRWGyaEerEFkky/lXdjnRYSQ2y+Y4Lf3dI4+DrQ=; b=iGnnuiaah/hBl2ARODXJFIq3RL
+	rpqBg7i0fUbZ+NpvU/iC/43Gn7BiAbUKImZ+tVtf78qnm9VBv/kSu2XNWa0C7kParR01UFYuuvVap
+	IgDkhReHYF4WObWYLq1zurOHfTw6oOhEL4EcM3Y6P5hL3J4xOjzUTeV7LAl4rGliSKOC/lvHl10GB
+	b6QOQW/JsveKCAutjKJ2Poq9fyicVU7Kwtx6zMvO+E2MErn4yU7WTBeVnngBT0G7Mb0wgMZ5c4Uux
+	bebjmCR+aftFKzA9bDuxzt4fBdPkx6+sdB0phGfMFjg+NsaBbgyvs3cnORCdBDLwjIZRMh3vClOEJ
+	phKfQYFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ue2MT-000000014Hv-3aFo;
-	Tue, 22 Jul 2025 02:04:09 +0000
-Received: from out30-98.freemail.mail.aliyun.com ([115.124.30.98])
+	id 1ue2Qd-0000000153V-3WBB;
+	Tue, 22 Jul 2025 02:08:27 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ue2K0-0000000147t-2OqM
+	id 1ue2OB-000000014vV-0fMz
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Jul 2025 02:01:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1753149690; h=Date:From:To:Subject:Message-ID:MIME-Version:Content-Type;
-	bh=JXNM3pwI7U37QIp2W81rPzC0o3Xw9VVk8ohyCB9V5Ac=;
-	b=bkUueReBquK3YE2XjjQf+5e+2qnJePmiNa8gV2Cy29h3tq/+OBnW6uUiGVzCr94R6cNXTHNoG1VsJEXew9HpbNf3KC6HjgoDCHMiMHxxC2uoRswcUHAHw6zWBPTPSAGTXYVC/e0lWXwQd802zSgw0THXzyx+Eg8UvCjMqWixSDU=
-Received: from localhost(mailfrom:yaoyuan@linux.alibaba.com fp:SMTPD_---0WjTepwY_1753149687 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Tue, 22 Jul 2025 10:01:27 +0800
-Date: Tue, 22 Jul 2025 10:01:27 +0800
-From: Yao Yuan <yaoyuan@linux.alibaba.com>
-To: Keir Fraser <keirf@google.com>
-Cc: Yao Yuan <yaoyuan0329os@gmail.com>, 
-	Sean Christopherson <seanjc@google.com>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, kvm@vger.kernel.org, Eric Auger <eric.auger@redhat.com>, 
-	Oliver Upton <oliver.upton@linux.dev>, Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>, 
-	Paolo Bonzini <pbonzini@redhat.com>
-Subject: Re: [PATCH v2 2/4] KVM: arm64: vgic: Explicitly implement
- vgic_dist::ready ordering
-Message-ID: <lb3i3h2rwq3kvm6tqoiiyrqcpqe2ctxcwmapgifii3dzqzfuqh@eqcqeudpfjlg>
-References: <20250716110737.2513665-1-keirf@google.com>
- <20250716110737.2513665-3-keirf@google.com>
- <kb7nwrco6s7e6catcareyic72pxvx52jbqbfc5gbqb5zu434kg@w3rrzbut3h34>
- <aHphgd0fOjHXjPCI@google.com>
- <5zpxxmymnyzncdnewdonnglvmvbtggjyxyqvkf6yars2bbyr4b@gottasrtoq2s>
- <aHtQG_k_1q3862s3@google.com>
- <4i65mgp4rtfox2ttchamijofcmwjtd6sefmuhdkfdrjwaznhoc@2uhcfv2ziegj>
- <aH3w9t78dvxsDjhV@google.com>
+	Tue, 22 Jul 2025 02:05:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1753149954;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=FC3yvRWGyaEerEFkky/lXdjnRYSQ2y+Y4Lf3dI4+DrQ=;
+	b=e2X2D92zZYs8Zq5pp2BjuTnn80pTpJbOswoDi8Ui27G134HzBtkRF/cOlQyVXUfIjQTiuC
+	mQhWcsK4EwX7/Gp57wDGRAzAgqiS/WgF+HL35LfCrYU3xIkkej4fM/zmS/yknt0ycbccK1
+	aizxnIWmjcZ5Hg1m5RHDwUaBcDAAdx4=
+Received: from mx-prod-mc-04.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-167-krhlqYdLNpmfvhBQlmR6zg-1; Mon,
+ 21 Jul 2025 22:05:49 -0400
+X-MC-Unique: krhlqYdLNpmfvhBQlmR6zg-1
+X-Mimecast-MFC-AGG-ID: krhlqYdLNpmfvhBQlmR6zg_1753149947
+Received: from mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.93])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-04.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 0274719560AA;
+	Tue, 22 Jul 2025 02:05:47 +0000 (UTC)
+Received: from fedora.redhat.com (unknown [10.72.112.104])
+	by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 9F8F718003FC;
+	Tue, 22 Jul 2025 02:05:36 +0000 (UTC)
+From: Pingfan Liu <piliu@redhat.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: Pingfan Liu <piliu@redhat.com>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	John Fastabend <john.fastabend@gmail.com>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Song Liu <song@kernel.org>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	Jeremy Linton <jeremy.linton@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Simon Horman <horms@kernel.org>,
+	Gerd Hoffmann <kraxel@redhat.com>,
+	Vitaly Kuznetsov <vkuznets@redhat.com>,
+	Philipp Rudo <prudo@redhat.com>,
+	Viktor Malik <vmalik@redhat.com>,
+	Jan Hendrik Farr <kernel@jfarr.cc>,
+	Baoquan He <bhe@redhat.com>,
+	Dave Young <dyoung@redhat.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	kexec@lists.infradead.org,
+	bpf@vger.kernel.org
+Subject: [PATCHv4 10/12] arm64/kexec: Add PE image format support
+Date: Tue, 22 Jul 2025 10:03:17 +0800
+Message-ID: <20250722020319.5837-11-piliu@redhat.com>
+In-Reply-To: <20250722020319.5837-1-piliu@redhat.com>
+References: <20250722020319.5837-1-piliu@redhat.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aH3w9t78dvxsDjhV@google.com>
+Content-Transfer-Encoding: 8bit
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.93
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250721_190136_925027_22124D5F 
-X-CRM114-Status: GOOD (  42.19  )
+X-CRM114-CacheID: sfid-20250721_190555_269218_626861CA 
+X-CRM114-Status: GOOD (  11.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,102 +104,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 21, 2025 at 07:49:10AM +0800, Keir Fraser wrote:
-> On Sun, Jul 20, 2025 at 08:08:30AM +0800, Yao Yuan wrote:
-> > On Sat, Jul 19, 2025 at 07:58:19AM +0000, Keir Fraser wrote:
-> > > On Sat, Jul 19, 2025 at 10:15:56AM +0800, Yao Yuan wrote:
-> > > > On Fri, Jul 18, 2025 at 08:00:17AM -0700, Sean Christopherson wrote:
-> > > > > On Thu, Jul 17, 2025, Yao Yuan wrote:
-> > > > > > On Wed, Jul 16, 2025 at 11:07:35AM +0800, Keir Fraser wrote:
-> > > > > > > In preparation to remove synchronize_srcu() from MMIO registration,
-> > > > > > > remove the distributor's dependency on this implicit barrier by
-> > > > > > > direct acquire-release synchronization on the flag write and its
-> > > > > > > lock-free check.
-> > > > > > >
-> > > > > > > Signed-off-by: Keir Fraser <keirf@google.com>
-> > > > > > > ---
-> > > > > > >  arch/arm64/kvm/vgic/vgic-init.c | 11 ++---------
-> > > > > > >  1 file changed, 2 insertions(+), 9 deletions(-)
-> > > > > > >
-> > > > > > > diff --git a/arch/arm64/kvm/vgic/vgic-init.c b/arch/arm64/kvm/vgic/vgic-init.c
-> > > > > > > index 502b65049703..bc83672e461b 100644
-> > > > > > > --- a/arch/arm64/kvm/vgic/vgic-init.c
-> > > > > > > +++ b/arch/arm64/kvm/vgic/vgic-init.c
-> > > > > > > @@ -567,7 +567,7 @@ int kvm_vgic_map_resources(struct kvm *kvm)
-> > > > > > >  	gpa_t dist_base;
-> > > > > > >  	int ret = 0;
-> > > > > > >
-> > > > > > > -	if (likely(dist->ready))
-> > > > > > > +	if (likely(smp_load_acquire(&dist->ready)))
-> > > > > > >  		return 0;
-> > > > > > >
-> > > > > > >  	mutex_lock(&kvm->slots_lock);
-> > > > > > > @@ -598,14 +598,7 @@ int kvm_vgic_map_resources(struct kvm *kvm)
-> > > > > > >  		goto out_slots;
-> > > > > > >  	}
-> > > > > > >
-> > > > > > > -	/*
-> > > > > > > -	 * kvm_io_bus_register_dev() guarantees all readers see the new MMIO
-> > > > > > > -	 * registration before returning through synchronize_srcu(), which also
-> > > > > > > -	 * implies a full memory barrier. As such, marking the distributor as
-> > > > > > > -	 * 'ready' here is guaranteed to be ordered after all vCPUs having seen
-> > > > > > > -	 * a completely configured distributor.
-> > > > > > > -	 */
-> > > > > > > -	dist->ready = true;
-> > > > > > > +	smp_store_release(&dist->ready, true);
-> > > > > >
-> > > > > > No need the store-release and load-acquire for replacing
-> > > > > > synchronize_srcu_expedited() w/ call_srcu() IIUC:
-> > > > >
-> > > > > This isn't about using call_srcu(), because it's not actually about kvm->buses.
-> > > > > This code is concerned with ensuring that all stores to kvm->arch.vgic are ordered
-> > > > > before the store to set kvm->arch.vgic.ready, so that vCPUs never see "ready==true"
-> > > > > with a half-baked distributor.
-> > > > >
-> > > > > In the current code, kvm_vgic_map_resources() relies on the synchronize_srcu() in
-> > > > > kvm_io_bus_register_dev() to provide the ordering guarantees.  Switching to
-> > > > > smp_store_release() + smp_load_acquire() removes the dependency on the
-> > > > > synchronize_srcu() so that the synchronize_srcu() call can be safely removed.
-> > > >
-> > > > Yes, I understand this and agree with your point.
-> > > >
-> > > > Just for discusstion: I thought it should also work even w/o
-> > > > introduce the load acqure + store release after switch to
-> > > > call_srcu(): The smp_mb() in call_srcu() order the all store
-> > > > to kvm->arch.vgic before store kvm->arch.vgic.ready in
-> > > > current implementation.
-> > >
-> > > The load-acquire would still be required, to ensure that accesses to
-> > > kvm->arch.vgic do not get reordered earlier than the lock-free check
-> > > of kvm->arch.vgic.ready. Otherwise that CPU could see that the vgic is
-> > > initialised, but then use speculated reads of uninitialised vgic state.
-> > >
-> >
-> > Thanks for your explanation.
-> >
-> > I see. But there's "mutex_lock(&kvm->slot_lock);" before later
-> > acccessing to the kvm->arch.vgic, so I think the order can be
-> > guaranteed. Of cause as you said a explicitly acquire-load +
-> > store-release is better than before implicitly implementation.
->
-> If vgic_dist::ready is observed true by the lock-free read (the one
-> which is turned into load-acquire by this patch) then the function
-> immediately returns with no mutex_lock() executed. It is reads of
-> vgic_dist *after* return from kvm_vgic_map_resources() that you have
-> to worry about, and which require load-acquire semantics.
+Now everything is ready for kexec PE image parser. Select it on arm64
+for zboot and UKI image support.
 
-I think this is the main purpose of such lock-free reading
-here, to avoid lock contention on VM w/ large vCPUs for
-vcpus' first time run together.
+Signed-off-by: Pingfan Liu <piliu@redhat.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Will Deacon <will@kernel.org>
+To: linux-arm-kernel@lists.infradead.org
+---
+ arch/arm64/Kconfig                     | 1 +
+ arch/arm64/include/asm/kexec.h         | 1 +
+ arch/arm64/kernel/machine_kexec_file.c | 3 +++
+ 3 files changed, 5 insertions(+)
 
-store-release makes sure the changes to vgic_dist::ready
-become visible after the changes to vgic_dist become
-visible, but it doesn't guarantee the vgic_dist::ready
-becomes visible to reader on aother CPU **IMMEDIATELY**,
-thus load-acquire in reader side is request for this.
-Is above understanding correct ?
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index 55fc331af3371..8973697ed1479 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -1606,6 +1606,7 @@ config ARCH_SELECTS_KEXEC_FILE
+ 	def_bool y
+ 	depends on KEXEC_FILE
+ 	select HAVE_IMA_KEXEC if IMA
++	select KEXEC_PE_IMAGE
+ 
+ config ARCH_SUPPORTS_KEXEC_SIG
+ 	def_bool y
+diff --git a/arch/arm64/include/asm/kexec.h b/arch/arm64/include/asm/kexec.h
+index 4d9cc7a76d9ca..d50796bd2f1e6 100644
+--- a/arch/arm64/include/asm/kexec.h
++++ b/arch/arm64/include/asm/kexec.h
+@@ -120,6 +120,7 @@ struct kimage_arch {
+ 
+ #ifdef CONFIG_KEXEC_FILE
+ extern const struct kexec_file_ops kexec_image_ops;
++extern const struct kexec_file_ops kexec_pe_image_ops;
+ 
+ int arch_kimage_file_post_load_cleanup(struct kimage *image);
+ #define arch_kimage_file_post_load_cleanup arch_kimage_file_post_load_cleanup
+diff --git a/arch/arm64/kernel/machine_kexec_file.c b/arch/arm64/kernel/machine_kexec_file.c
+index af1ca875c52ce..7c544c385a9ab 100644
+--- a/arch/arm64/kernel/machine_kexec_file.c
++++ b/arch/arm64/kernel/machine_kexec_file.c
+@@ -24,6 +24,9 @@
+ 
+ const struct kexec_file_ops * const kexec_file_loaders[] = {
+ 	&kexec_image_ops,
++#ifdef CONFIG_KEXEC_PE_IMAGE
++	&kexec_pe_image_ops,
++#endif
+ 	NULL
+ };
+ 
+-- 
+2.49.0
 
->
-> >
-> > > > >
 
