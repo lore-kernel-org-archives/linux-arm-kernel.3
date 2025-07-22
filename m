@@ -4,100 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35239C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 15:58:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52013C83F27
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 15:58:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UUXfcJXt3yUtERWhIkgUGnNxGAtGAIrftLIQwcp3snI=; b=gowH+PkZKqfOd4QV4fa/IAn9DF
-	Uh9WHGwxqbP6wAx7Ixk+BeMDizGFIojYlvDm761TMH33tTkjDIirfF/DNMmD6aTQ39U45FCJ7UX9o
-	biMttsKe2XBpjAL5airSsynzawp19N5vsDrA7pnS/NVbsbGmTPpbY02/au0UwbTFHAB55l88RoXeG
-	9wcdMVB/mx4vvg0+70BM2bpiBGLbxQ0+atvOt9bRzLZfgGMPG8OoJzK2rbu9JTDIzNMSV/vWxWe66
-	JfdIEeXma0FsWC5aOBdKVdhpowMhzkJbM8xEijyB80emuO5iV1IzuuDKAg/H4qzPA+pxxWwLqve6u
-	GNdyy62Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=tZ/12hBfiNA+ef7wf7pGi2LbWSbCG67Kisyn4R6l8cc=; b=gYTOAZcpIIyb1DK3swLt4ZIWir
+	xUsabREk6f+tKFTnsaXp+FYkTS7ACQW5qkXKibnS8TtPUqdBprPrfQnJxvHiVVZBci7AHhp1SOi8a
+	fuQIwWs7hLK07NdLRVddhgS1g4vZTfNrO5sRt/Ab1YMg/1eUf9cXkWbNCiKZiZj8Wsv03h62+IVkb
+	ZwtGaPG9Xm4B9AWzqAI09XCf3GuQ0t0tzedxlv0kpDfyFuxPurSkG/q1F9EJCWepsLSQSc1nLMpyH
+	UWBk8ir5X3z+Pzjo9JDIUBZ8I5QNJ2TZsoCXZAU6Gj7x1OdzHNCR0EGFalrriSfJA4r3+PuQ3qFG6
+	XvsYFgkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueFO1-00000002w0S-2vAI;
-	Tue, 22 Jul 2025 15:58:37 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1ueFO0-00000002vz7-1tgM;
+	Tue, 22 Jul 2025 15:58:36 +0000
+Received: from smtprelay0011.hostedemail.com ([216.40.44.11] helo=relay.hostedemail.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueEBE-00000002js4-3waE
+	id 1ueE6q-00000002jJb-35uD
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Jul 2025 14:41:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1753195199;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=UUXfcJXt3yUtERWhIkgUGnNxGAtGAIrftLIQwcp3snI=;
-	b=I23pAlhBvBTrfUYnUaTVUc4RgZt3RSzw/kGYPNpDPGcXF2+JR2PvEXTLMVd3KaioDUivDi
-	qJ/c8lyHSvRgnKojLtcdaihsGAj69BNtLCSjm8HIfDVYHZorfv8RN0D3dpUzJkY2/xMaII
-	u9aAVcqqtYZn8JePMuoK26Pl02fe2dw=
-Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com
- [209.85.128.70]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-615-3Th7_bVWNH-j9739CZZeaQ-1; Tue, 22 Jul 2025 10:39:53 -0400
-X-MC-Unique: 3Th7_bVWNH-j9739CZZeaQ-1
-X-Mimecast-MFC-AGG-ID: 3Th7_bVWNH-j9739CZZeaQ_1753195192
-Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-455e9daab1cso12400265e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Jul 2025 07:39:53 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753195192; x=1753799992;
-        h=mime-version:references:message-id:in-reply-to:subject:cc:to:from
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=UUXfcJXt3yUtERWhIkgUGnNxGAtGAIrftLIQwcp3snI=;
-        b=CVhV5y6Sr8qnZjkZkHUglxzLmS3ITaSY9cC6+oalMjhkVudDzepiULCfjbN8sp9XiC
-         VV1iNmrZ6axCLMIePKgDe+wkVUzwpIeCA9yzrRKL6Fyg0xMlbaTRs+x8/rWqT51xD3ub
-         Rs0cps8VzIpIdqz6oWjz4tC9oGUFySOTs4qZrbOy9Z86F66LDjRhTRFaP93IIFBCZ/21
-         snpSg0sUkzJsVNfa1OCqrTMWTs2OflK26+Q50JzLe3SNGMErK3ouKAfs77dtqoKGfgzw
-         Nrg7FOs2WnxaJUBZc02lFTavIg4bVIhb5TFfQXQ55FO3rI31mAtxJAw8QKRlMCu4G2+j
-         FEsg==
-X-Forwarded-Encrypted: i=1; AJvYcCW1dHUYfHmfb3k11FDnlZowYKn376G3Vc7mJFVYHhBWhqSzKPCNvZ/HXZz0Nl7RkFnHaAus5eGV1w80HoNKJqmT@lists.infradead.org
-X-Gm-Message-State: AOJu0YxMm90L8ceGBPuFwOXIIOoikxVH6FMGZB+IqyUg/YOSNg8y/Sbm
-	dlAeITof6HiGgjVRFeeRsf3VSDw1LmCNspPcJLze9c/Nk8sMGM2AEPEnPnzYNDg9rzUfoSUqQZl
-	0Zjcyiy6QOAHEZJhA6natSvFZMX744HEWm9UFBhhC3Byte3abxQ0MsaNDilHbP25qVngxQG517C
-	Hb
-X-Gm-Gg: ASbGncvXqkW5ZjBRy3cRZABwKM51UVa0/t6MaDibRCu5iLFlaZz08JS7RrVa4qhnaXE
-	3Fm8bCaKHj577uMAclX7gcqhD8RMiU9ISYe9CYfZ4zSGfmI3uT+F7iWtkK0shTbNxvDC+JqkJXm
-	ncSvcgJ1o7tsEyzjS9mciOrRlgedsOa4/SWSEdYhsRCbDVwy3GFSqgVhocUVlKWbwqm7fdyjRSW
-	eFiC4mAwkmshIh5FUKqWpf/BzqGtGFQ2Zw1ehCjFW7Hg6kgQCJ1ZuDwKGiR7NBrHhD/bUN2M6in
-	9po7MQwV6uz+/jskDZEf025yfniRbYRhFtBRBXj5JGWMOHtnxNVCioJQCxqQf7bdBK7xwRn5QWD
-	Pa2ucpgj1FFXY
-X-Received: by 2002:a05:600c:310b:b0:453:9b7:c214 with SMTP id 5b1f17b1804b1-4562e29c33emr210945195e9.29.1753195192085;
-        Tue, 22 Jul 2025 07:39:52 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IEiFVJztAJAsGCwFkVWQjDHWa5km7SIwfTibnU0fsbIHs3oWXWzepmUGBqcNc5EYazTcDWqmA==
-X-Received: by 2002:a05:600c:310b:b0:453:9b7:c214 with SMTP id 5b1f17b1804b1-4562e29c33emr210944865e9.29.1753195191605;
-        Tue, 22 Jul 2025 07:39:51 -0700 (PDT)
-Received: from rh (p200300f6af1bce00e6fe5f11c0a7f4a1.dip0.t-ipconnect.de. [2003:f6:af1b:ce00:e6fe:5f11:c0a7:f4a1])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4562e886113sm196183095e9.23.2025.07.22.07.39.50
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 22 Jul 2025 07:39:51 -0700 (PDT)
-Date: Tue, 22 Jul 2025 16:39:49 +0200 (CEST)
-From: Sebastian Ott <sebott@redhat.com>
-To: Marc Zyngier <maz@kernel.org>
-cc: kvmarm@lists.linux.dev, kvm@vger.kernel.org, 
-    linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-    Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-    Oliver Upton <oliver.upton@linux.dev>, Zenghui Yu <yuzenghui@huawei.com>, 
-    Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-    jackabt@amazon.com
-Subject: Re: [PATCH] KVM: arm64: selftest: Add standalone test checking for
- KVM's own UUID
-In-Reply-To: <20250721155136.892255-1-maz@kernel.org>
-Message-ID: <aa2bbb09-c9bb-100e-b4dd-a3010c8458eb@redhat.com>
-References: <20250721155136.892255-1-maz@kernel.org>
+	Tue, 22 Jul 2025 14:36:49 +0000
+Received: from omf10.hostedemail.com (a10.router.float.18 [10.200.18.1])
+	by unirelay10.hostedemail.com (Postfix) with ESMTP id 07119C03E0;
+	Tue, 22 Jul 2025 14:36:44 +0000 (UTC)
+Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf10.hostedemail.com (Postfix) with ESMTPA id 453A040;
+	Tue, 22 Jul 2025 14:36:42 +0000 (UTC)
+Date: Tue, 22 Jul 2025 10:37:14 -0400
+From: Steven Rostedt <rostedt@goodmis.org>
+To: LKML <linux-kernel@vger.kernel.org>, Linux Trace Kernel
+ <linux-trace-kernel@vger.kernel.org>, linux-arm-kernel@lists.infradead.org
+Cc: Masami Hiramatsu <mhiramat@kernel.org>, Mathieu Desnoyers
+ <mathieu.desnoyers@efficios.com>, Catalin Marinas
+ <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Russell King
+ <linux@armlinux.org.uk>, Mark Rutland <mark.rutland@arm.com>, Thomas
+ Gleixner <tglx@linutronix.de>, Valentin Schneider <vschneid@redhat.com>,
+ Nicolas Pitre <nico@fluxnic.net>, Peter Zijlstra <peterz@infradead.org>
+Subject: [PATCH] tracing: arm: arm64: Hide trace events ipi_raise, ipi_entry
+ and ipi_exit
+Message-ID: <20250722103714.64eba013@gandalf.local.home>
+X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: Im4SMA_jpXCN43Pj-aZotQQIkUAp8LS2oFMCHIGv__Q_1753195192
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset=US-ASCII; format=flowed
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-Stat-Signature: 6ktp76e7ym1dtny3k5r5zy6o536nog3p
+X-Rspamd-Server: rspamout05
+X-Rspamd-Queue-Id: 453A040
+X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
+X-Session-ID: U2FsdGVkX18HeXsKfKa6DOY2kst9FtohhJJ4c6jfuKQ=
+X-HE-Tag: 1753195002-979874
+X-HE-Meta: U2FsdGVkX1/C7DoKNVwGVKuc/nG3UGqBcstBGU+veKqTtMQfq4csxcDB0KegYzvIKJVnFY2HooHGv+jVbIgZ6KP6z0BxwduUzfsQ4/v05Wk1pLlBmfiUeEX9yu30HCZ2N61WyXNsI3HR6hEvX2KZd2ZgilhaSFueiZnkYsV2KzoAMH4tDjw1y8/GieFuccP8XztDlhF7sQiKdMprZtlUlgqPmQo779H7kDaGVN6yAPGkt4h7M7zCLL5v4t5fvAR4kxlhwpOiRqW4ofcRGEKHMbSFhK3VspYID80jkKY9a2h+wUB8MSzY6A4cg/9S8XRJxsjWbZkZ3MXNGmG/CC0kR1u3WKFJE/emO7HmQBoqPXNBR10K0KCKa12hZsVWRSVu
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250722_074121_051693_38D7F669 
-X-CRM114-Status: UNSURE (   8.33  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250722_073648_826920_EAEB3678 
+X-CRM114-Status: GOOD (  17.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,14 +73,150 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 21 Jul 2025, Marc Zyngier wrote:
-> Tinkering with UUIDs is a perilious task, and the KVM UUID gets
-> broken at times. In order to spot this early enough, add a selftest
-> that will shout if the expected value isn't found.
->
-> Signed-off-by: Marc Zyngier <maz@kernel.org>
-> Link: https://lore.kernel.org/r/20250721130558.50823-1-jackabt.amazon@gmail.com
+From: Steven Rostedt <rostedt@goodmis.org>
 
-Reviewed-by: Sebastian Ott <sebott@redhat.com>
+The ipi tracepoints are mostly generic, but the tracepoints ipi_raise,
+ipi_entry and ipi_exit are only used by arm and arm64. This means these
+trace events are wasting memory in all the other architectures that do not
+use them.
+
+Add CONFIG_HAVE_EXTRA_IPI_TRACEPOINTS and have arm and arm64 select it to
+enable these trace events. The config makes it easy if other architectures
+decide to trace these as well.
+
+Signed-off-by: Steven Rostedt (Google) <rostedt@goodmis.org>
+---
+ arch/arm/Kconfig           |  1 +
+ arch/arm64/Kconfig         |  1 +
+ include/trace/events/ipi.h | 58 ++++++++++++++++++++------------------
+ kernel/trace/Kconfig       |  6 ++++
+ 4 files changed, 38 insertions(+), 28 deletions(-)
+
+diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
+index c531b49aa98e..33c8ce986ea6 100644
+--- a/arch/arm/Kconfig
++++ b/arch/arm/Kconfig
+@@ -100,6 +100,7 @@ config ARM
+ 	select HAVE_BUILDTIME_MCOUNT_SORT
+ 	select HAVE_DEBUG_KMEMLEAK if !XIP_KERNEL
+ 	select HAVE_DMA_CONTIGUOUS if MMU
++	select HAVE_EXTRA_IPI_TRACEPOINTS
+ 	select HAVE_DYNAMIC_FTRACE if !XIP_KERNEL && !CPU_ENDIAN_BE32 && MMU
+ 	select HAVE_DYNAMIC_FTRACE_WITH_REGS if HAVE_DYNAMIC_FTRACE
+ 	select HAVE_EFFICIENT_UNALIGNED_ACCESS if (CPU_V6 || CPU_V6K || CPU_V7) && MMU
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index c58fe08d2897..68a8246d9fb3 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -134,6 +134,7 @@ config ARM64
+ 	select CPU_PM if (SUSPEND || CPU_IDLE)
+ 	select CPUMASK_OFFSTACK if NR_CPUS > 256
+ 	select DCACHE_WORD_ACCESS
++	select HAVE_EXTRA_IPI_TRACEPOINTS
+ 	select DYNAMIC_FTRACE if FUNCTION_TRACER
+ 	select DMA_BOUNCE_UNALIGNED_KMALLOC
+ 	select DMA_DIRECT_REMAP
+diff --git a/include/trace/events/ipi.h b/include/trace/events/ipi.h
+index 3de9bfc982ce..9912f0ded81d 100644
+--- a/include/trace/events/ipi.h
++++ b/include/trace/events/ipi.h
+@@ -7,34 +7,6 @@
+ 
+ #include <linux/tracepoint.h>
+ 
+-/**
+- * ipi_raise - called when a smp cross call is made
+- *
+- * @mask: mask of recipient CPUs for the IPI
+- * @reason: string identifying the IPI purpose
+- *
+- * It is necessary for @reason to be a static string declared with
+- * __tracepoint_string.
+- */
+-TRACE_EVENT(ipi_raise,
+-
+-	TP_PROTO(const struct cpumask *mask, const char *reason),
+-
+-	TP_ARGS(mask, reason),
+-
+-	TP_STRUCT__entry(
+-		__bitmask(target_cpus, nr_cpumask_bits)
+-		__field(const char *, reason)
+-	),
+-
+-	TP_fast_assign(
+-		__assign_bitmask(target_cpus, cpumask_bits(mask), nr_cpumask_bits);
+-		__entry->reason = reason;
+-	),
+-
+-	TP_printk("target_mask=%s (%s)", __get_bitmask(target_cpus), __entry->reason)
+-);
+-
+ TRACE_EVENT(ipi_send_cpu,
+ 
+ 	TP_PROTO(const unsigned int cpu, unsigned long callsite, void *callback),
+@@ -79,6 +51,35 @@ TRACE_EVENT(ipi_send_cpumask,
+ 		  __get_cpumask(cpumask), __entry->callsite, __entry->callback)
+ );
+ 
++#ifdef CONFIG_HAVE_EXTRA_IPI_TRACEPOINTS
++/**
++ * ipi_raise - called when a smp cross call is made
++ *
++ * @mask: mask of recipient CPUs for the IPI
++ * @reason: string identifying the IPI purpose
++ *
++ * It is necessary for @reason to be a static string declared with
++ * __tracepoint_string.
++ */
++TRACE_EVENT(ipi_raise,
++
++	TP_PROTO(const struct cpumask *mask, const char *reason),
++
++	TP_ARGS(mask, reason),
++
++	TP_STRUCT__entry(
++		__bitmask(target_cpus, nr_cpumask_bits)
++		__field(const char *, reason)
++	),
++
++	TP_fast_assign(
++		__assign_bitmask(target_cpus, cpumask_bits(mask), nr_cpumask_bits);
++		__entry->reason = reason;
++	),
++
++	TP_printk("target_mask=%s (%s)", __get_bitmask(target_cpus), __entry->reason)
++);
++
+ DECLARE_EVENT_CLASS(ipi_handler,
+ 
+ 	TP_PROTO(const char *reason),
+@@ -127,6 +128,7 @@ DEFINE_EVENT(ipi_handler, ipi_exit,
+ 
+ 	TP_ARGS(reason)
+ );
++#endif /* CONFIG_HAVE_EXTRA_IPI_TRACEPOINTS */
+ 
+ #endif /* _TRACE_IPI_H */
+ 
+diff --git a/kernel/trace/Kconfig b/kernel/trace/Kconfig
+index 6c28b06c9231..187318802fc5 100644
+--- a/kernel/trace/Kconfig
++++ b/kernel/trace/Kconfig
+@@ -53,6 +53,12 @@ config HAVE_DYNAMIC_FTRACE_WITH_DIRECT_CALLS
+ config HAVE_DYNAMIC_FTRACE_WITH_CALL_OPS
+ 	bool
+ 
++config HAVE_EXTRA_IPI_TRACEPOINTS
++	bool
++	help
++	 For architectures that use ipi_raise, ipi_entry and ipi_exit
++	 tracepoints.
++
+ config HAVE_DYNAMIC_FTRACE_WITH_ARGS
+ 	bool
+ 	help
+-- 
+2.47.2
 
 
