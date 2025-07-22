@@ -4,81 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE8B4C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 16:24:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41C02C83F27
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 16:29:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U0Dld3xl0M7OQTCJp+DIYFZ5tnxvV2rQ59QAxnMVF08=; b=FJ/bhlvibm5gUW3CWJdd3zk+7/
-	pNCg1sdnU3DX/e522yXxlXUCPXrs9EsfHPyws0KPBUx+DaEYxolwNCLt/HKmfdKev4V5lGOPSh1OD
-	jWe5PeKKY+EdsZsWGtr4uKmowqNLDuJHgtrytoXb3iawMlHwdUscOu54lbxjxAdC0RBdNkldKuaSS
-	3gSA2IGGAcRamI+/a7QySanU3xnD4lsHtWuhxO5xe1AMZtn/gph90oI9Z/AQYUQRcG4Yk5LL2vZfw
-	Bj4JX8lImw+DGD/AMXYv+2OuQKtVd25Heccku/FyKn/y2YVlu+s1g8Kx4Pp7VPhn2uqvYWR5p4MVY
-	Hx25dbWg==;
+	bh=j7CBUCrUTibww/WuUm88nbfdALlxMcMVcuBQeFlu0ms=; b=ms3egSI3ebW8Z1VtTBGK8dWakz
+	AmNYPvjv7A7o3fwmuo2PGqKR3dXvk3XvrGaaVsifCvEEs2rDH1rMBx6Idh4xKEbq+i9n9tKDzd+fN
+	SUhCL+pOHOUg5Re0eGHH8gg8hz6uAMb9/Td0UQ46M3DPIHMloORVhd7A6IHElxt9pdVcqApQv0cU6
+	S10WXIe1MMnL2q77mtlMoOoz7ah1rFFIo4YBqR6Crb/xBk66E6wdu9XplswcHbn0/7hlSX2ZyohR2
+	tQUO1KABc2VysfNYh74CQHjn04EEUtxBTyUOHDG2yxSYwEQ7eLoVbYxuAF0DwQkfDtfjxg2BbgUwD
+	pSaRHX3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueFmr-000000030nI-284A;
-	Tue, 22 Jul 2025 16:24:17 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1ueFrn-000000031WO-3XJw;
+	Tue, 22 Jul 2025 16:29:23 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueFDG-00000002ujh-0XJx
+	id 1ueFL8-00000002veO-3wQv
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Jul 2025 15:47:31 +0000
+	Tue, 22 Jul 2025 15:55:40 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 718D343A68;
-	Tue, 22 Jul 2025 15:47:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4BBC1C4CEEB;
-	Tue, 22 Jul 2025 15:47:29 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 4D0A841AB5;
+	Tue, 22 Jul 2025 15:55:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9A1FDC4CEEB;
+	Tue, 22 Jul 2025 15:55:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753199249;
-	bh=M3Mc51dw7b8Gz9b/pdMV6wSzhw/d2UXhK7/Q+XXRt9c=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=U3eI/aviIJXp8gXKT1xbu+rMiWmUs7riUKvyqXgOQ+FepLvXOfJPUAtaeByyVeygF
-	 kxYHkSq9sEubs3CmSIQ4L8sUo08d7jLBwKQX9gM1C0hjs8oTyb/dLu3WVQK25AUNWe
-	 /DbCBI3o6o1qcXSKoeSr1MapTL4L5ANg8tC2x8e37JEqPwJRCwQV+0QN0KXwwQpbDK
-	 UijxJh72OZFEhsu4YCP4o4gtBhTpRD6LRXe0XvB9XOdvzqFB8XDbJpFk1xCxGoy+bA
-	 oPEkQxjUulFPw2ZrCzLBiJTbNUOlZLVpqMsBOzRpLd0VSxTzQNLx9c2fTGZ7Sil44k
-	 8TjrJJCjgHx8Q==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1ueFDD-000P2e-0K;
-	Tue, 22 Jul 2025 16:47:27 +0100
-Date: Tue, 22 Jul 2025 16:47:26 +0100
-Message-ID: <86h5z48bxt.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Andrew Jones <ajones@ventanamicro.com>
-Cc: kvmarm@lists.linux.dev,
-	kvm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
+	s=k20201202; t=1753199738;
+	bh=qCAlLytfe5uxUR+Ym8p1FvfXAOoNuadaGk+KsaQe0GE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=uEx3cvh4RQAKwfDQDSG1z19MJSzX0YiEluAR3i27plhReW9oFMQX2Zf08RebVDp28
+	 1Ax+KPJISu+JpTeItf9SHNhIsA9PF6jrcTZiOBhAn8thphl4xr9HcQOa32wW6YesJi
+	 cD40Jv2F/53isZEfm1vwqCAGlJTi3sDiEpOXD+R+B4ljbPtogaP3IcngE5+U42Q5+T
+	 Dbt/sUvi/ye2+P5bcWJU/8YR8pnf67HfDEtGZCwohcsFEp0uM+8azAk66lRN/YFZkT
+	 clK3/7rUq7gDBFVBLwwhrGJFYsvrUeVorIeSOjyKGzzj/im4WhtLPzHKmZ/hB4dYt/
+	 pG/J9FCWTSagw==
+Date: Tue, 22 Jul 2025 16:55:31 +0100
+From: Will Deacon <will@kernel.org>
+To: Per Larsen <perl@immunant.com>, sudeep.holla@arm.com,
+	mark.rutland@arm.com
+Cc: Arve =?iso-8859-1?B?SGr4bm5lduVn?= <arve@android.com>,
+	Marc Zyngier <maz@kernel.org>, perlarsen@google.com,
+	Oliver Upton <oliver.upton@linux.dev>,
 	Joey Gouly <joey.gouly@arm.com>,
 	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
 	Zenghui Yu <yuzenghui@huawei.com>,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	jackabt@amazon.com
-Subject: Re: [PATCH] KVM: arm64: selftest: Add standalone test checking for KVM's own UUID
-In-Reply-To: <20250722-87ac9d7e0b27cf7c67a4fbd3@orel>
-References: <20250721155136.892255-1-maz@kernel.org>
-	<20250722-87ac9d7e0b27cf7c67a4fbd3@orel>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: ajones@ventanamicro.com, kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, will@kernel.org, mark.rutland@arm.com, jackabt@amazon.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Catalin Marinas <catalin.marinas@arm.com>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org, ahomescu@google.com,
+	armellel@google.com, ayrton@google.com, qperret@google.com,
+	sebastianene@google.com, qwandor@google.com
+Subject: Re: [PATCH v7 2/5] KVM: arm64: Use SMCCC 1.2 for FF-A initialization
+ and in host handler
+Message-ID: <aH-0cx9YhdWRe2nq@willie-the-truck>
+References: <20250701-virtio-msg-ffa-v7-0-995afc3d385e@google.com>
+ <20250701-virtio-msg-ffa-v7-2-995afc3d385e@google.com>
+ <8634bdbgaz.wl-maz@kernel.org>
+ <3b10fa81-bfdd-4325-a330-c79df2e21621@immunant.com>
+ <aHpOClH1k-3NhI_y@willie-the-truck>
+ <67cc6766-6493-4171-a6b1-2a105c3e6ff5@immunant.com>
+ <CAMP5XgeUwDnf=PbySy6aoF_zc7dtxymDQZEp8DuRSOLg4WEnFQ@mail.gmail.com>
+ <dd136db0-1ac7-4f75-b550-ccf7e14c032a@immunant.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <dd136db0-1ac7-4f75-b550-ccf7e14c032a@immunant.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250722_084730_211941_D386388F 
-X-CRM114-Status: GOOD (  33.09  )
+X-CRM114-CacheID: sfid-20250722_085539_020389_E5F189BC 
+X-CRM114-Status: GOOD (  55.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,152 +90,140 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 22 Jul 2025 10:18:10 +0100,
-Andrew Jones <ajones@ventanamicro.com> wrote:
-> 
-> Hi Marc,
-> 
-> On Mon, Jul 21, 2025 at 04:51:36PM +0100, Marc Zyngier wrote:
-> > Tinkering with UUIDs is a perilious task, and the KVM UUID gets
-> > broken at times. In order to spot this early enough, add a selftest
-> > that will shout if the expected value isn't found.
+[Sudeep & Mark to To:]
+
+On Mon, Jul 21, 2025 at 05:20:01PM -0700, Per Larsen wrote:
+> On 7/21/25 4:01 AM, Arve Hjønnevåg wrote:
+> > On Fri, Jul 18, 2025 at 10:54 PM Per Larsen <perl@immunant.com> wrote:
+> > > On 7/18/25 6:37 AM, Will Deacon wrote:
+> > > > On Mon, Jul 07, 2025 at 05:06:23PM -0700, Per Larsen wrote:
+> > > > > On 7/3/25 5:38 AM, Marc Zyngier wrote:
+> > > > > > On Tue, 01 Jul 2025 23:06:35 +0100,
+> > > > > > Per Larsen via B4 Relay <devnull+perlarsen.google.com@kernel.org> wrote:
+> > > > > > > +  /*
+> > > > > > > +   * DEN0028C 2.6: SMC32/HVC32 call from aarch64 must preserve x8-x30.
+> > > > > > > +   *
+> > > > > > > +   * The most straightforward approach is to look at the function ID
+> > > > > > > +   * sent by the caller. However, the caller could send FFA_MSG_WAIT
+> > > > > > > +   * which is a 32-bit interface but the reply could very well be 64-bit
+> > > > > > > +   * such as FFA_FN64_MSG_SEND_DIRECT_REQ or FFA_MSG_SEND_DIRECT_REQ2.
+> > > > > > > +   *
+> > > > > > > +   * Instead, we could look at the function ID in the response (a0) but
+> > > > > > > +   * that doesn't work either as FFA_VERSION responses put the version
+> > > > > > > +   * number (or error code) in w0.
+> > > > > > > +   *
+> > > > > > > +   * Set x8-x17 iff response contains 64-bit function ID in a0.
+> > > > > > > +   */
+> > > > > > > +  if (func_id != FFA_VERSION && ARM_SMCCC_IS_64(res->a0)) {
+> > > > > > > +          cpu_reg(ctxt, 8) = res->a8;
+> > > > > > > +          cpu_reg(ctxt, 9) = res->a9;
+> > > > > > > +          cpu_reg(ctxt, 10) = res->a10;
+> > > > > > > +          cpu_reg(ctxt, 11) = res->a11;
+> > > > > > > +          cpu_reg(ctxt, 12) = res->a12;
+> > > > > > > +          cpu_reg(ctxt, 13) = res->a13;
+> > > > > > > +          cpu_reg(ctxt, 14) = res->a14;
+> > > > > > > +          cpu_reg(ctxt, 15) = res->a15;
+> > > > > > > +          cpu_reg(ctxt, 16) = res->a16;
+> > > > > > > +          cpu_reg(ctxt, 17) = res->a17;
+> > > > > > > +  }
+> > > > > > >     }
+> > > > > > 
+> > > > > > I don't see how that can ever work.
+> > > > > > 
+> > > > > > Irrespective of how FFA_MSG_WAIT actually works (and I couldn't find
+> > > > > > anything in the spec that supports the above), the requester will
+> > > > > > fully expect its registers to be preserved based on the initial
+> > > > > > function type, and that alone. No ifs, no buts.
+> > > > > > 
+> > > > > > If what you describe can happen (please provide a convincing example),
+> > > > > > then the spec is doomed.
+> > > > > 
+> > > > > DEN0077A 1.2 Section 8.2 (Runtime Model for FFA_RUN) and 8.3 (Runtime Model
+> > > > > for Direct request ABIs) contains Figures 8.1 and 8.2. Each figure shows
+> > > > > transitions between states "waiting", "blocked", "running", and "preempted".
+> > > > > Key to my understanding is that the waiting state in Figure 8.1 and Figure
+> > > > > 8.2 is the exact same state. This appears to be the case per Section 4.10.
+> > > > > 
+> > > > > So we have to consider the ways to get in and out of the waiting state by
+> > > > > joining the state machines in Figures 8.1 and 8.2. Figure 8.1 has an edge
+> > > > > between "running" and "waiting" caused by FFA_MSG_WAIT. Figure 8.2 has an
+> > > > > edge between "waiting" and "running" caused by a "Direct request ABI".
+> > > > > 
+> > > > > Direct request ABIs include FFA_MSG_SEND_DIRECT_REQ2 which is why the FF-A
+> > > > > 1.2 spec, in my read, permits the response to a 32-bit FFA_MSG_WAIT call can
+> > > > > be a 64-bit FFA_MSG_SEND_DIRECT_REQ2 reply.
+> > > > 
+> > > > That seems bonkers to me and I agree with Marc's assessment above. The
+> > > > SMCCC is crystal clear that a caller using the SM32/HVC32 calling
+> > > > convention can rely on x8-x30 (as well as the stack pointers) being
+> > > > preserved. If FF-A has a problem with that then it needs to be fixed
+> > > > there and not bodged in Linux.
+> > > Ack. Patchset v8 addresses Marc's feedback by using the func_id detect
+> > > SMC64 instead.>
+> > > > Setting that aside, I'm still not sure I follow this part of your check:
+> > > > 
+> > > >        if (... && ARM_SMCCC_IS_64(res->a0))
+> > > > 
+> > > > won't res->a0 contain something like FFA_SUCCESS? The FFA spec states:
+> > > > 
+> > > >     FFA_SUCCESS64, is used only if any result register encodes a 64-bit
+> > > >     parameter.
+> > > > 
+> > > > which doesn't really seem related to whether or not the initial call
+> > > > was using SMC32 or SMC64. What am I missing?I agree that we cannot use res->a0 to distinguish SMC32/SMC64 for the
+> > > reason you stated.
 > > 
-> > Signed-off-by: Marc Zyngier <maz@kernel.org>
-> > Link: https://lore.kernel.org/r/20250721130558.50823-1-jackabt.amazon@gmail.com
-> > ---
-> >  tools/testing/selftests/kvm/Makefile.kvm     |  1 +
-> >  tools/testing/selftests/kvm/arm64/kvm-uuid.c | 67 ++++++++++++++++++++
-> >  2 files changed, 68 insertions(+)
-> >  create mode 100644 tools/testing/selftests/kvm/arm64/kvm-uuid.c
+> > I don't think using the function-id of the original call works
+> > correctly in this context though. If you look at
+> > drivers/firmware/arm_ffa/driver.c:ffa_msg_send_direct_req2 it has the
+> > same problem as the FFA_MSG_WAIT example in your comment. In the
+> > simple case it will use FFA_MSG_SEND_DIRECT_REQ2 for the call and
+> > FFA_MSG_SEND_DIRECT_RESP2 for the response, both 64 bit opcodes, and
+> > either approach here will have the same correct result. However if
+> > FFA_MSG_SEND_DIRECT_REQ2 responds with FFA_INTERRUPT or FFA_YIELD,
+> > then the driver will resume the call with FFA_RUN, a 32 bit opcode,
+> > and still expect a 64 bit FFA_MSG_SEND_DIRECT_RESP2 response with a
+> > full response in x4-17. If you use ARM_SMCCC_IS_64(func_id) here
+> > instead of ARM_SMCCC_IS_64(res->a0), then the part of response in
+> > x8-x17 will be lost.
+
+Can't we just update the FF-A driver? This is clearly all the result of
+a half-baked spec...
+
+Sudeep -- any chance you can add support for the hot-off-the-press
+64-bit FFA_RUN call to the Linux driver, please? Without that, I don't
+see how the REQ2/RESP2 calls can work properly.
+
+> > The FF-A 1.3 ALP2 fixes this by adding a 64 bit FF-A run opcode, but
+> > at the current patchstack only adds ff-a 1.2 support and the linux
+> > ff-a driver does not yet support the new 1.3 ALP2 call flow either so
+> > I think the current v7 patch here is the best option for now.
 > > 
-> > diff --git a/tools/testing/selftests/kvm/Makefile.kvm b/tools/testing/selftests/kvm/Makefile.kvm
-> > index ce817a975e50a..e1eb1ba238a2a 100644
-> > --- a/tools/testing/selftests/kvm/Makefile.kvm
-> > +++ b/tools/testing/selftests/kvm/Makefile.kvm
-> > @@ -167,6 +167,7 @@ TEST_GEN_PROGS_arm64 += arm64/vgic_irq
-> >  TEST_GEN_PROGS_arm64 += arm64/vgic_lpi_stress
-> >  TEST_GEN_PROGS_arm64 += arm64/vpmu_counter_access
-> >  TEST_GEN_PROGS_arm64 += arm64/no-vgic-v3
-> > +TEST_GEN_PROGS_arm64 += arm64/kvm-uuid
-> >  TEST_GEN_PROGS_arm64 += access_tracking_perf_test
-> >  TEST_GEN_PROGS_arm64 += arch_timer
-> >  TEST_GEN_PROGS_arm64 += coalesced_io_test
-> > diff --git a/tools/testing/selftests/kvm/arm64/kvm-uuid.c b/tools/testing/selftests/kvm/arm64/kvm-uuid.c
-> > new file mode 100644
-> > index 0000000000000..89d9c8b182ae5
-> > --- /dev/null
-> > +++ b/tools/testing/selftests/kvm/arm64/kvm-uuid.c
-> > @@ -0,0 +1,67 @@
-> > +#include <errno.h>
-> > +#include <linux/arm-smccc.h>
-> > +#include <asm/kvm.h>
-> > +#include <kvm_util.h>
-> > +
-> > +#include "processor.h"
-> > +
-> > +/*
-> > + * Do NOT redefine these constants, or try to replace them with some
-> > + * "common" version. They are hardcoded here to detect any potential
-> > + * breakage happening in the rest of the kernel.
-> > + *
-> > + * KVM UID value: 28b46fb6-2ec5-11e9-a9ca-4b564d003a74
-> > + */
-> > +#define ARM_SMCCC_VENDOR_HYP_UID_KVM_REG_0	0xb66fb428U
-> > +#define ARM_SMCCC_VENDOR_HYP_UID_KVM_REG_1	0xe911c52eU
-> > +#define ARM_SMCCC_VENDOR_HYP_UID_KVM_REG_2	0x564bcaa9U
-> > +#define ARM_SMCCC_VENDOR_HYP_UID_KVM_REG_3	0x743a004dU
-> > +
-> > +static void guest_code(void)
-> > +{
-> > +	struct arm_smccc_res res = {};
-> > +
-> > +	smccc_hvc(ARM_SMCCC_VENDOR_HYP_CALL_UID_FUNC_ID, 0, 0, 0, 0, 0, 0, 0, &res);
-> > +
-> > +	__GUEST_ASSERT(res.a0 != SMCCC_RET_NOT_SUPPORTED, "a0 = %lx\n", res.a0);
-> 
-> Should this check res.a0 == SMCCC_RET_SUCCESS instead?
+> FFA_RUN is passed through to EL3 by kvm_host_ffa_handler so I'm not sure
+> there is a code path where func_id == FFA_RUN in set_ffa_retval.
 
-Yeah, probably.
+That's actually a really interesting point...
 
-> 
-> > +	__GUEST_ASSERT(res.a0 == ARM_SMCCC_VENDOR_HYP_UID_KVM_REG_0 &&
-> > +		       res.a1 == ARM_SMCCC_VENDOR_HYP_UID_KVM_REG_1 &&
-> > +		       res.a2 == ARM_SMCCC_VENDOR_HYP_UID_KVM_REG_2 &&
-> > +		       res.a3 == ARM_SMCCC_VENDOR_HYP_UID_KVM_REG_3,
-> > +		       "Unexpected KVM-specific UID %lx %lx %lx %lx\n", res.a0, res.a1, res.a2, res.a3);
-> > +	GUEST_DONE();
-> > +}
-> > +
-> > +int main (int argc, char *argv[])
-> > +{
-> > +	struct kvm_vcpu *vcpu;
-> > +	struct kvm_vm *vm;
-> > +	struct ucall uc;
-> > +	bool guest_done = false;
-> > +
-> > +	vm = vm_create_with_one_vcpu(&vcpu, guest_code);
-> > +
-> > +	while (!guest_done) {
-> > +		vcpu_run(vcpu);
-> > +
-> > +		switch (get_ucall(vcpu, &uc)) {
-> > +		case UCALL_SYNC:
-> > +			break;
-> > +		case UCALL_DONE:
-> > +			guest_done = true;
-> > +			break;
-> > +		case UCALL_ABORT:
-> > +			REPORT_GUEST_ASSERT(uc);
-> > +			break;
-> > +		case UCALL_PRINTF:
-> > +			printf("%s", uc.buffer);
-> > +			break;
-> > +		default:
-> > +			TEST_FAIL("Unexpected guest exit");
-> > +		}
-> > +	}
-> 
-> This is becoming a very common and useful pattern. I wonder if it's time
-> for a ucall helper
-> 
-> static void ucall_vcpu_run(struct kvm_vcpu *vcpu,
->                            void (*sync_func)(struct kvm_vcpu *, void *),
->                            void *sync_data)
-> {
->         bool guest_done = false;
->         struct ucall uc;
-> 
->         while (!guest_done) {
->                 vcpu_run(vcpu);
-> 
->                 switch (get_ucall(vcpu, &uc)) {
->                 case UCALL_SYNC:
->                         if (sync_func)
->                                 sync_func(vcpu, sync_data);
->                         break;
->                 case UCALL_DONE:
->                         guest_done = true;
->                         break;
->                 case UCALL_ABORT:
->                         REPORT_GUEST_ASSERT(uc);
->                         break;
->                 case UCALL_PRINTF:
->                         printf("%s", uc.buffer);
->                         break;
->                 default:
->                         TEST_FAIL("Unexpected guest exit");
->                 }
->         }
-> }
+The passthrough code in __kvm_hyp_host_forward_smc() assumes SMC64 and
+populates/reloads X0-X17 across the SMC. If the firmware replies to an
+SMC32 call with an SMC64, then so be it, but it's not the hypervisor's
+job to fix that up and the same problem would presumably happen even if
+the hypervisor wasn't present.
 
-Honestly, I don't know. My understanding is that the common kvm
-selftest code is now mostly a pile of x86-specific stuff, and I've
-made it a goal not to touch any of it.
+So perhaps there's an argument that the proxy should be consistent with
+that behaviour, otherwise we end up with different semantics depending
+on whether we chose to proxy the call or pass it through. That would
+mean always populating X8-X17 in the return value, regardless of the
+function ID or anything else.
 
-Thanks,
+The spec should still be fixed because the current wording makes very
+little sense in this area, but in the meantime maybe it's best just to
+pass the hot potato between the host and the firmware rather than try to
+fix it up ourselves.
 
-	M.
+Marc -- what do you think? We're damned if we do, damned if we don't,
+but there's something to be said for being consistent when we get into
+this messy situation.
 
--- 
-Without deviation from the norm, progress is not possible.
+Will
 
