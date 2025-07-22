@@ -4,61 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1634C83F27
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 14:02:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81FA0C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 14:05:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5PF6ylaxf/gzcoLgi7RbR7JAegQRu4QI8hjuHXDHN8A=; b=luDDj1Xr+vPboGnDdLTHo12Ukx
-	9tg3vm0TghleL/Uzn21F+rc1dEgWrWIlww/5ePzOqNPJvLJ7ee2EzGMz01ieBsB6iQHfM/bEgXCUs
-	AKFDtkQQSariK8xvSuhnfj989hgZMlQMSkqijJ1PxSBcl5vtNhXOoyhyxfk3KmAJXiRwub9F9AC3V
-	vTsQmwJ5/C/bJsFTWZRpA9vnh4tvapf/K3/Nm+5nGPLsKW61QhFr5c+w/+JSqeLhqG2MdDsLqN9fW
-	46TKZAISroRow2MZiUFVTDFLrzAV0hGqPsB4KvOp1t8KFKh6SwGGmYS1hY517uAb7/5HBB+M/nFNz
-	7oNlNZXw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=VVxlCasGvPD0vHM4A5qIkLztkUEsEen4oWPld/Qyku0=; b=mXxEDGFRcHyzN3tSMOEQaQ8A1e
+	b+7qdBAsZOnFI0HyrTnZoFWJZGk7kyOaOJQ8JfgNg4b9+fTMOKMNfdxsBC7ZD0snr8WvA1nFuD7nY
+	v3IqSM8Jwhup5t+HYnRSYOXJdj8VRfdCuagTwhBxevJMp4lYD4sWuvCaoWbm/txUt4uBwqpJ9Mf6q
+	QqESHW5el2s/M6pHWNBn5UzXUAAACCINP0R0IKAfoDMF2ePaVr223bciWElZcMQ5ji/gTwRybYs8w
+	pC8B2FtFlo+1FVg0x77PHGdZiL7t58pQ01hOARUjG55LywAXHhEwuEEcRqN85gfyP94KXZZbyMqSn
+	OmIfYitQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueDZb-00000002d5R-1BnY;
-	Tue, 22 Jul 2025 14:02:27 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueCzm-00000002Xak-0of7
+	id 1ueDc3-00000002dK4-1nDp;
+	Tue, 22 Jul 2025 14:04:59 +0000
+Received: from server.couthit.com ([162.240.164.96])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ueD2O-00000002Xsr-2SBR
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Jul 2025 13:25:27 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 09304152B;
-	Tue, 22 Jul 2025 06:25:20 -0700 (PDT)
-Received: from [10.1.36.73] (Suzukis-MBP.cambridge.arm.com [10.1.36.73])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 570583F6A8;
-	Tue, 22 Jul 2025 06:25:24 -0700 (PDT)
-Message-ID: <8285b872-ecfa-42a6-9ead-e84ae409f79d@arm.com>
-Date: Tue, 22 Jul 2025 14:25:23 +0100
+	Tue, 22 Jul 2025 13:28:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=couthit.com
+	; s=default; h=Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject
+	:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=VVxlCasGvPD0vHM4A5qIkLztkUEsEen4oWPld/Qyku0=; b=Xk/WwlN2Et0Xp38VihPCprWW2K
+	+Prh6A1KPapqmK6ZC8ogXESKpNBIYtjOz4EFgpNgQUJaFeJUswq2PlGXHqvtrerCqXB0k+RK2QpjS
+	smZCD4W/lJBa3BK7RcbRl/vS/XMewnBy60BE3G/G3z7ODHhA4iK8HwcYmUoHIJwrSUXeQ5Gk0kk3X
+	s+jEm5JgJoszrBivi9YIRYnkAPA3IPVuD2D0xGuaXVwRPVK3vFimnxIbvxvsyJgx62rEjHUK4va4y
+	FUhtoA4CmDNfsyyJld4AFgFHYe5/GMJAPhxxvXTEYK0FGA2JKe91zIk32s2hUcNovcQbnHwR/MLpY
+	HT+TxJNw==;
+Received: from [122.175.9.182] (port=11834 helo=cypher.couthit.local)
+	by server.couthit.com with esmtpa (Exim 4.98.1)
+	(envelope-from <parvathi@couthit.com>)
+	id 1ueD1d-00000005anL-2ZVP;
+	Tue, 22 Jul 2025 09:27:22 -0400
+From: Parvathi Pudi <parvathi@couthit.com>
+To: danishanwar@ti.com,
+	rogerq@kernel.org,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	ssantosh@kernel.org,
+	richardcochran@gmail.com,
+	s.hauer@pengutronix.de,
+	m-karicheri2@ti.com,
+	glaroque@baylibre.com,
+	afd@ti.com,
+	saikrishnag@marvell.com,
+	m-malladi@ti.com,
+	jacob.e.keller@intel.com,
+	kory.maincent@bootlin.com,
+	diogo.ivo@siemens.com,
+	javier.carrasco.cruz@gmail.com,
+	horms@kernel.org,
+	s-anna@ti.com,
+	basharath@couthit.com,
+	parvathi@couthit.com
+Cc: linux-arm-kernel@lists.infradead.org,
+	netdev@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	vadim.fedorenko@linux.dev,
+	pratheesh@ti.com,
+	prajith@ti.com,
+	vigneshr@ti.com,
+	praneeth@ti.com,
+	srk@ti.com,
+	rogerq@ti.com,
+	krishna@couthit.com,
+	pmohan@couthit.com,
+	mohan@couthit.com
+Subject: [PATCH net-next v11 0/5] PRU-ICSSM Ethernet Driver
+Date: Tue, 22 Jul 2025 18:55:00 +0530
+Message-ID: <20250722132700.2655208-1-parvathi@couthit.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 04/10] coresight: Appropriately disable programming
- clocks
-Content-Language: en-GB
-To: Leo Yan <leo.yan@arm.com>
-Cc: Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>,
- Anshuman Khandual <anshuman.khandual@arm.com>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, coresight@lists.linaro.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250627-arm_cs_fix_clock_v4-v4-0-0ce0009c38f8@arm.com>
- <20250627-arm_cs_fix_clock_v4-v4-4-0ce0009c38f8@arm.com>
- <5a5f1355-563d-498a-9dec-3479a257b3e6@arm.com>
- <20250721104834.GC3137075@e132581.arm.com>
- <607c03a2-267c-46e6-a7fa-e733c1970e60@arm.com>
- <20250721135958.GE3137075@e132581.arm.com>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <20250721135958.GE3137075@e132581.arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - server.couthit.com
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - couthit.com
+X-Get-Message-Sender-Via: server.couthit.com: authenticated_id: parvathi@couthit.com
+X-Authenticated-Sender: server.couthit.com: parvathi@couthit.com
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250722_062526_278840_46282787 
-X-CRM114-Status: GOOD (  15.41  )
+X-CRM114-CacheID: sfid-20250722_062808_645952_B58F61A1 
+X-CRM114-Status: GOOD (  16.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,55 +118,168 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 21/07/2025 14:59, Leo Yan wrote:
-> On Mon, Jul 21, 2025 at 12:40:38PM +0100, Suzuki Kuruppassery Poulose wrote:
->> On 21/07/2025 11:48, Leo Yan wrote:
->>> On Mon, Jul 21, 2025 at 10:15:22AM +0100, Suzuki Kuruppassery Poulose wrote:
->>>
->>> [...]
->>>
->>>>> diff --git a/include/linux/coresight.h b/include/linux/coresight.h
->>>>> index 4ac65c68bbf44b98db22c3dad2d83a224ce5278e..dd2b4cc7a2b70cf060a3207548fe80e3824c489f 100644
->>>>> --- a/include/linux/coresight.h
->>>>> +++ b/include/linux/coresight.h
->>>>> @@ -480,26 +480,16 @@ static inline bool is_coresight_device(void __iomem *base)
->>>>>      * Returns:
->>>>>      *
->>>>>      * clk   - Clock is found and enabled
->>>>> - * NULL  - clock is not found
->>>>
->>>> This is still valid, right ?
->>>
->>> No. Since this patch uses devm_clk_get_enabled() to get a clock, if the
->>> pclk is not found, it returns -ENOENT (see of_parse_clkspec()).
->>>
->>> Only the optional clock APIs (e.g., devm_clk_get_optional_enabled())
->>> return a NULL pointer instead of -ENOENT when the clock is not found.
->>
->> This will break ACPI based systems, as we may not have a "pclk" described
->> for them. We should be able to tolerate "no pclk"
-> 
-> Get it. How about change the code like below?
-> 
->    static inline struct clk *coresight_get_enable_apb_pclk(struct device *dev)
->    {
->        struct clk *pclk;
-> 
->        pclk = devm_clk_get_enabled(dev, "apb_pclk");
->        if (IS_ERR(pclk))
->            pclk = devm_clk_get_enabled(dev, "apb");
-> 
->        /* Tolerate no pclk for ACPI device */
->        if ((pclk == ERR_PTR(-ENOENT)) && has_acpi_companion(dev))
+Hi,
 
-That might be OK, please could you test this out ?
+The Programmable Real-Time Unit Industrial Communication Sub-system (PRU-ICSS)
+is available on the TI SOCs in two flavors: Gigabit ICSS (ICSSG) and the older
+Megabit ICSS (ICSSM).
 
+Support for ICSSG Dual-EMAC mode has already been mainlined [1] and the
+fundamental components/drivers such as PRUSS driver, Remoteproc driver,
+PRU-ICSS INTC, and PRU-ICSS IEP drivers are already available in the mainline
+Linux kernel. The current set of patch series builds on top of these components
+and introduces changes to support the Dual-EMAC using ICSSM on the TI AM57xx,
+AM437x and AM335x devices.
 
+AM335x, AM437x and AM57xx devices may have either one or two PRU-ICSS instances
+with two 32-bit RISC PRU cores. Each PRU core has (a) dedicated Ethernet interface
+(MII, MDIO), timers, capture modules, and serial communication interfaces, and
+(b) dedicated data and instruction RAM as well as shared RAM for inter PRU
+communication within the PRU-ICSS.
 
+These patches add support for basic RX and TX  functionality over PRU Ethernet
+ports in Dual-EMAC mode.
 
->            return NULL;
-> 
->        return pclk;
->    }
+Further, note that these are the initial set of patches for a single instance of
+PRU-ICSS Ethernet.  Additional features such as Ethtool support, VLAN Filtering,
+Multicast Filtering, Promiscuous mode, Storm prevention, Interrupt coalescing,
+Linux PTP (ptp4l) Ordinary clock and Switch mode support for AM335x, AM437x
+and AM57x along with support for a second instance of  PRU-ICSS on AM57x
+will be posted subsequently.
+
+The patches presented in this series have gone through the patch verification
+tools and no warnings or errors are reported. Sample test logs obtained from AM33x,
+AM43x and AM57x verifying the functionality on Linux next kernel are available here:
+
+[Interface up Testing](https://gist.github.com/ParvathiPudi/75f951eea607048de20c81911243e550)
+
+[Ping Testing](https://gist.github.com/ParvathiPudi/a43a9330523db67ecd7957b3590befa8)
+
+[Iperf Testing](https://gist.github.com/ParvathiPudi/9b8a88ab7aa7a5d3e4f343616e5fa019)
+
+[1] https://lore.kernel.org/all/20230106121046.886863-1-danishanwar@ti.com/
+[2] https://lore.kernel.org/all/20250108125937.10604-1-basharath@couthit.com/
+
+This is the v11 of the patch series [v1]. This version of the patchset
+addresses the comments made on [v10] of the series.
+
+Changes from v10 to v11 :
+
+*) Reduced patch series size by removing features such as Ethtool support,
+VLAN filtering, Multicast filtering, Promiscuous mode handling, Storm Prevention,
+Interrupt coalescing, and Linux PTP (ptp4l) ordinary clock support. This was done
+based on Jakub Kicinski's feedback regarding the large patch size (~5kLoC).
+Excluded features will be resubmitted.
+*) Addressed Jakub Kicinski comments on patch 2, and 3 of the series.
+*) Addressed Jakub Kicinski's comment on patch 4 of the series by implementing
+hrtimer based TX resume logic to notify upper layers in case of TX busy.
+*) Rebased the series on latest net-next.
+
+Changes from v9 to v10 :
+
+*) Addressed Vadim Fedorenko comments on patch 6 and 11 of the series.
+*) Rebased the series on latest net-next.
+
+Changes from v8 to v9 :
+
+*) Addressed Vadim Fedorenko comments on patch 6 of the series.
+*) Rebased the series on latest net-next.
+
+Changes from v7 to v8 :
+
+*) Addressed Paolo Abeni comments on patch 3 and 4 of the series.
+*) Replaced threaded IRQ logic with NAPI logic based on feedback from Paolo Abeni.
+*) Added Reviewed-by: tag from Rob Herring for patch 1.
+*) Rebased the series on latest net-next.
+
+Changes from v6 to v7 :
+
+*) Addressed Rob Herring comments on patch 1 of the series.
+*) Addressed Jakub Kicinski comments on patch 4, 5 and 6 of the series.
+*) Addressed Alok Tiwari comments on Patch 1, 4 and 5 of the series.
+*) Rebased the series on latest net-next.
+
+Changes from v5 to v6 :
+
+*) Addressed Simon Horman comments on patch 2, 7 and 11 of the series.
+*) Addressed Andrew Lunn comments on patch 5 of the series.
+*) Rebased the series on latest net-next.
+
+Changes from v4 to v5 :
+
+*) Addressed Andrew Lunn and Keller, Jacob E comments on patch 5 of the series.
+*) Rebased the series on latest net-next.
+
+Changes from v3 to v4 :
+
+*) Added support for AM33x and AM43x platforms.
+*) Removed SOC patch [2] and its dependencies.
+*) Addressed Jakub Kicinski, MD Danish Anwar and Nishanth Menon comments on cover
+   letter of the series.
+*) Addressed Rob Herring comments on patch 1 of the series.
+*) Addressed Ratheesh Kannoth comments on patch 2 of the series.
+*) Addressed Maxime Chevallier comments on patch 4 of the series.
+*) Rebased the series on latest net-next.
+
+Changes from v2 to v3 :
+
+*) Addressed Conor Dooley comments on patch 1 of the series.
+*) Addressed Simon Horman comments on patch 2, 3, 4, 5 and 6 of the series.
+*) Addressed Joe Damato comments on patch 4 of the series.
+*) Rebased the series on latest net-next.
+
+Changes from v1 to v2 :
+
+*) Addressed Andrew Lunn, Rob Herring comments on patch 1 of the series.
+*) Addressed Andrew Lunn comments on patch 2, 3, and 4 of the series.
+*) Addressed Richard Cochran, Jason Xing comments on patch 6 of the series.
+*) Rebased patchset on next-202401xx linux-next.
+
+[v1] https://lore.kernel.org/all/20250109105600.41297-1-basharath@couthit.com/
+[v2] https://lore.kernel.org/all/20250124122353.1457174-1-basharath@couthit.com/
+[v3] https://lore.kernel.org/all/20250214054702.1073139-1-parvathi@couthit.com/
+[v4] https://lore.kernel.org/all/20250407102528.1048589-1-parvathi@couthit.com/
+[v5] https://lore.kernel.org/all/20250414113458.1913823-1-parvathi@couthit.com/
+[v6] https://lore.kernel.org/all/20250423060707.145166-1-parvathi@couthit.com/
+[v7] https://lore.kernel.org/all/20250503121107.1973888-1-parvathi@couthit.com/
+[v8] https://lore.kernel.org/all/20250610105721.3063503-1-parvathi@couthit.com/
+[v9] https://lore.kernel.org/all/20250623135949.254674-1-parvathi@couthit.com/
+[v10] https://lore.kernel.org/all/20250702140633.1612269-1-parvathi@couthit.com/
+
+Thanks and Regards,
+Parvathi.
+
+Parvathi Pudi (2):
+  dt-bindings: net: ti: Adds DUAL-EMAC mode support on PRU-ICSS2 for
+    AM57xx, AM43xx and AM33xx SOCs
+  net: ti: prueth: Adds IEP support for PRUETH on AM33x, AM43x and AM57x
+    SOCs
+
+Roger Quadros (3):
+  net: ti: prueth: Adds ICSSM Ethernet driver
+  net: ti: prueth: Adds PRUETH HW and SW configuration
+  net: ti: prueth: Adds link detection, RX and TX support.
+
+ .../devicetree/bindings/net/ti,icss-iep.yaml  |   10 +-
+ .../bindings/net/ti,icssm-prueth.yaml         |  233 +++
+ .../bindings/net/ti,pruss-ecap.yaml           |   32 +
+ .../devicetree/bindings/soc/ti/ti,pruss.yaml  |    9 +
+ drivers/net/ethernet/ti/Kconfig               |   12 +
+ drivers/net/ethernet/ti/Makefile              |    3 +
+ drivers/net/ethernet/ti/icssg/icss_iep.c      |  103 +
+ drivers/net/ethernet/ti/icssm/icssm_prueth.c  | 1737 +++++++++++++++++
+ drivers/net/ethernet/ti/icssm/icssm_prueth.h  |  255 +++
+ .../net/ethernet/ti/icssm/icssm_prueth_ptp.h  |   85 +
+ drivers/net/ethernet/ti/icssm/icssm_switch.h  |  257 +++
+ 11 files changed, 2733 insertions(+), 3 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/net/ti,icssm-prueth.yaml
+ create mode 100644 Documentation/devicetree/bindings/net/ti,pruss-ecap.yaml
+ create mode 100644 drivers/net/ethernet/ti/icssm/icssm_prueth.c
+ create mode 100644 drivers/net/ethernet/ti/icssm/icssm_prueth.h
+ create mode 100644 drivers/net/ethernet/ti/icssm/icssm_prueth_ptp.h
+ create mode 100644 drivers/net/ethernet/ti/icssm/icssm_switch.h
+
+-- 
+2.43.0
 
 
