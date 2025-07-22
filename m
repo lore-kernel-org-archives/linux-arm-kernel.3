@@ -4,86 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFF33C83F25
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 10:14:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8E6CC83F27
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 10:17:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
 	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8p5LfuSX/Mmlw4uTxhLrmQy+4Ez8VbT/jSY03w1rUEM=; b=Fj+NVRanCi8SW9qOar3/MJEpEf
-	R8duOsRHeIA/lc0kfPgTd7Fy/W5SpGdc836ddkhCj/ZCjdIWB1c1tp6CZBYZ+qnA79eoocceaZR4/
-	TDNIxG6z5fZ+npYYHZhFymKQ7DIV1z3KYgzgSN+1sLiIGdWWwVsuT5sNNwh2r2YNL7v7zy/4xjToB
-	/H3ady5mCmyqZazKneeeTYcnJe9/qqKlFC/ytlqYKDjEaUEuiZvqB/6DZCkVNrxHHhl8vdkpT15qn
-	NfKPDlTonfcZwL4sGUIEl3FSVVtG8ambwopT48A0Hi9orkIxaw0069zchaGTrYSEONN8FQ3CbE06L
-	Bwjf6bRg==;
+	bh=th8LkjBfkv7nYvFuNNGaT8FWdqcCdRHWy+pWo6pVRT4=; b=fxSqsdVRfB4pSxI9KLfFtmPPEJ
+	kutoG+PMH8eHDN794apPQgToPe2ci2c5A2f5DEJn/Wuh96bbIspgZ+L+978avTzhQCA0RFgGi0JnI
+	TV0+/W6cX7Kg72wES5eY0kGatwoNVNE+E9IoIsZ6MD+JB8j7wYEj6jRo/yMbWtxPZgWlESxnve//5
+	uaWmHWGXTbhm2HUj17QfPqSFKZ2ZBpkBlxMMMwvPvzDKT+/1UYByzfHtgqP8zNb3BX4L+oN+G0cVh
+	lruw+2PIZfrZvDXC1HHb5MZwvQgZYaVHboe013K6QdcD4Ome4pkEaTu7bcSVMjtxJ3ZiTZpH/9RQi
+	m0EM2A0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueA1A-000000028Ci-31pC;
-	Tue, 22 Jul 2025 10:14:40 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1ueA3g-000000028Xx-3uJ0;
+	Tue, 22 Jul 2025 10:17:16 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ue9qy-00000002608-3BKt
+	id 1ue9rP-0000000267y-18br
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Jul 2025 10:04:10 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-455b00339c8so37760565e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Jul 2025 03:04:08 -0700 (PDT)
+	Tue, 22 Jul 2025 10:04:36 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-45618ddd62fso54318015e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Jul 2025 03:04:35 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1753178647; x=1753783447; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1753178674; x=1753783474; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:organization:autocrypt
          :content-language:references:cc:to:subject:reply-to:from:user-agent
          :mime-version:date:message-id:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=8p5LfuSX/Mmlw4uTxhLrmQy+4Ez8VbT/jSY03w1rUEM=;
-        b=x5gqhj3vcHCwpAAvZn0hYZpbVXaelUeUWkrMiSh/71+o2Rwm+r1LXwZvjUWzbHE6il
-         nXZNgyv+tw69esLnVJa9aeibQqJ/UYhLk71wqczs03quz86ZKCnWb/rG3stpV04O5UN2
-         KX0HHhzvILxNKZDjKnKsXGo//160hu62MYnMd4LIMDL8yjXCXUYgfYU5tPWwJEvy9lxA
-         0iTUolG/+uHbZMgRjeVPUGOi7xQfcOpsvAVKWgy6NEtZjapmX79UtYx0Fxtmn3xe/mZp
-         94eYj5prnsknPyUqbLno6WWJ1nBRY9wGdUZdnT8bzlOIx/DWgo7cclJ48zcDq/PkbE+P
-         62VQ==
+        bh=th8LkjBfkv7nYvFuNNGaT8FWdqcCdRHWy+pWo6pVRT4=;
+        b=Q2anXAKrnoEru4X3dvRfdOubp9NzXxaS6vNXtHGCzxn6udwZbm7mi5BOTQlu1a7Gv2
+         Fq8/ktRIqh9Vfwx8uZRrhTZUnNv9fHNf4G3A5Dv0fGKtaBaYAE7AjU1+yzg40uBMrl/X
+         Yx5cUbPeex9rI11mEI45VCi6buZ5AVvkt/K51GVnNLa4j7Dct00jEDawKLvztwjRaIup
+         qqnBeEfq5Y4O5PUttCrRE+altxbvEbbgW/tDUvRlBXTNDDF2QyyRUUgV63ISR0thjUOK
+         UYZzVnZ9cYCgKr7LXKvR76BGThvLx5F6MlU5xmXQmpDKVDvnCA7R4sL2qc9UWqw5T0No
+         Ckbw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753178647; x=1753783447;
+        d=1e100.net; s=20230601; t=1753178674; x=1753783474;
         h=content-transfer-encoding:in-reply-to:organization:autocrypt
          :content-language:references:cc:to:subject:reply-to:from:user-agent
          :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
          :date:message-id:reply-to;
-        bh=8p5LfuSX/Mmlw4uTxhLrmQy+4Ez8VbT/jSY03w1rUEM=;
-        b=CIvAuq/sUWWaWrZdMWSD2OSnqHGXKGTOuLA05ndvFFKavNxiwnziZUJGUrl/FQZDhV
-         lVfLno9p5WIb34d1FkloTUSzfkEh8kkBzx07yedZ0QxaObKQ+6NP52fSMMsEmuV8JrK1
-         9QgkTnAFDPPhSdPcQ2DjbnTlCWxD3j+wpmnU18VMkukYmlWvUm5VZJfVYAWKNmmbfEP7
-         fQUzB3guFoiANOiAmnIaRdSc3FFYAGP30UAJBzIc61SNefVAeF6I1SzPYMtfAT5A4l2o
-         e2vbcpssPP73SlyKx84aAiacpXvPlVIKEiau034ikAYYQKTvISso+h1SRNdXGrT2WA47
-         tBYQ==
-X-Gm-Message-State: AOJu0YzhMgXiDMHajz8Q4EP8uOxkLyKLML87/inaK1aXjzsY8ryRNgaC
-	G7yKFTpU4oZtUhOfaZ5cCazNHp7DI5RMdZ51AggX5/PFSObs0J+Mv6rs2hT+yfsmyMs=
-X-Gm-Gg: ASbGncsuvzXkp5T6zK3N7pIg2ea8kVnxTVHtgXRvnS/JHT+lkbdJqnN9A7cz24DP6Ig
-	XnUZSua+p/hJ0SCriYHn36tzbjMOYM95QPx6mF0hUrEUE14Rx4fQqWEkEYUNAIggnLAX6uCH15L
-	zreMdw/x4AvueMmZjFBQCvjI+ZvD9QQX6LF0ND38nf6jD1xZsS4t/5PD3D2BITRoPTaO2/JiFNC
-	oi2YCvYOStmiB39RPa6UG6pIbkONNwxWSKT5aREEgSDPgIlYz4RqblP5kaR5vJaQt3ylxcsidCp
-	p+VJJj3lEBX+o65H5/yzLPTykGb0Jp5I87dnVtdPxsDInCXzbC/nvyffApOKV9o0pabin+AOP47
-	5o/riETeo5y9bN3oa4UyJJT32ZGOIsUEUbCkTLXsMJFg3peddFxU+qfOKbtNn56M86cOjtAcllY
-	8=
-X-Google-Smtp-Source: AGHT+IH5isWZZMV6lAZUl2wzToF7WffjH1cxA2l1CmGXi9Cw3lTE/r5VaLV4Z3CfBiDjNOhMbKQDEg==
-X-Received: by 2002:a05:600c:4e03:b0:456:8eb:a35c with SMTP id 5b1f17b1804b1-4562e38b16emr259056935e9.31.1753178647077;
-        Tue, 22 Jul 2025 03:04:07 -0700 (PDT)
+        bh=th8LkjBfkv7nYvFuNNGaT8FWdqcCdRHWy+pWo6pVRT4=;
+        b=pjztxwtXHUPAyj+z4l6cPuurjr+Sbkv/xsGDwd++oUfahK/rphwuW1ZA1WawcMUTyb
+         beaFMZf/M0x6h9czLrykIDemEljJmEx3E4IFyGTxuA6EkpMluL/a8imCmuhYhQn6A2VG
+         pkxkFAS4qkvsqBUd0MdSneu9mOvD+nRw7rJcOmSQWF9vdM7uxhaNkRAjaocS+zRRqoAl
+         ujqHrYJxRCXS9/5VDjSFFbo2OLPcpYy55zLiulTUuGJuy3w1+DLrKpjmiFxwUKFnodJM
+         6YyVdTvI640Fhj3/cB+qGWpyZZd4UWFrpuh9CemWUI8x8toKvEHVgGoR+NMw4Uad1T7K
+         jnOA==
+X-Forwarded-Encrypted: i=1; AJvYcCURRcx0vKls3vpzrsMsPr0AbDVZf8C5JvyWXFSnUFwvCYhCpVDOydl8WosDw7WJY4a+b54THVtF1NzGmuRVj6wW@lists.infradead.org
+X-Gm-Message-State: AOJu0YwLApy9+WnvR6/ny/ZMbHA/NGWKlYF1xkklr679+gn2Q0ZttLEI
+	gbH+dFz7s7wiJrZpWm2CKDrb/A0usgej1zh28YNlroOlNgzS/Fgd8SjXmP3zaG8yL78=
+X-Gm-Gg: ASbGnct8PC4wRp+Vs2mqrqn6vMUR4EU9EVfOPPOeIgMm3v6rHB8Lk58L/tZ9EBR2J0j
+	0/ohPsL4C3mSXqDpw0MVh9fqFTgZmMRKb2NhwABoLzg2hAS9NkWeVq7iL3XJIyBI2WZDzw70ZB1
+	WER8Xwok2i7CrafeKksw3lIzhBD8PvowCSWeg6r0xv7ks2KbBYI48ddpAiNc22XICYXMmkTOrSF
+	CFmth8lgo4lg/rd8OGDO4sEKXlcTr8+Fcuu2Eby+Yn6+pxEnmXoGIc4V/gjiSX+iwOuJFoCPuXi
+	VIdCkk/2J52url4f94gKyYvM5Ms5HirS3CpXNI53i39qvqk018PePIfVEKmNofWbIdzfmsK/iKv
+	+iaWERqAZ8ShRmSpPtbwUbqEuqy9XhD0BVZx+Fk/zYDiaUqSsE0Ln/ll9P2I02X68dlyURerqsr
+	Q=
+X-Google-Smtp-Source: AGHT+IFejVtWV8JytlClgGlAbQ/sASXBqbtoY0roVwh48A/QZMJB/xCFqE4nYCMj0t7+saAYfB6ttw==
+X-Received: by 2002:a05:600c:4688:b0:456:a1b:e906 with SMTP id 5b1f17b1804b1-4562e3cbb03mr196476655e9.33.1753178673594;
+        Tue, 22 Jul 2025 03:04:33 -0700 (PDT)
 Received: from ?IPV6:2a01:e0a:3d9:2080:bce4:725d:6922:d1ba? ([2a01:e0a:3d9:2080:bce4:725d:6922:d1ba])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3b75baa6f78sm6114413f8f.3.2025.07.22.03.04.06
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4562e7f33f0sm184133915e9.2.2025.07.22.03.04.32
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 22 Jul 2025 03:04:06 -0700 (PDT)
-Message-ID: <3bc3e7f9-ef8f-4d09-8da8-c965540f624c@linaro.org>
-Date: Tue, 22 Jul 2025 12:04:06 +0200
+        Tue, 22 Jul 2025 03:04:33 -0700 (PDT)
+Message-ID: <942aa300-fc49-47e8-93b7-85fd1e1fd123@linaro.org>
+Date: Tue, 22 Jul 2025 12:04:32 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 From: Neil Armstrong <neil.armstrong@linaro.org>
-Subject: Re: [PATCH v2] soc: amlogic: clk-measure: Optimize measurement
- accuracy
-To: chuan.liu@amlogic.com, Kevin Hilman <khilman@baylibre.com>,
+Subject: Re: [PATCH 2/3] thermal: amlogic: Support C3 thermal controller
+ driver
+To: xianwei.zhao@amlogic.com, Guillaume La Roque <glaroque@baylibre.com>,
+ "Rafael J. Wysocki" <rafael@kernel.org>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>,
+ Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Kevin Hilman <khilman@baylibre.com>,
  Jerome Brunet <jbrunet@baylibre.com>,
  Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20250722-optimize_clk-measure_accuracy-v2-1-cb121fd57e6d@amlogic.com>
+Cc: linux-pm@vger.kernel.org, linux-amlogic@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, Liming Xue <liming.xue@amlogic.com>
+References: <20250718-c3-thermal-v1-0-674f9a991690@amlogic.com>
+ <20250718-c3-thermal-v1-2-674f9a991690@amlogic.com>
 Content-Language: en-US, fr
 Autocrypt: addr=neil.armstrong@linaro.org; keydata=
  xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
@@ -110,12 +118,12 @@ Autocrypt: addr=neil.armstrong@linaro.org; keydata=
  4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
  QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
 Organization: Linaro
-In-Reply-To: <20250722-optimize_clk-measure_accuracy-v2-1-cb121fd57e6d@amlogic.com>
+In-Reply-To: <20250718-c3-thermal-v1-2-674f9a991690@amlogic.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250722_030408_804079_6874C17C 
-X-CRM114-Status: GOOD (  23.94  )
+X-CRM114-CacheID: sfid-20250722_030435_329361_19E19B77 
+X-CRM114-Status: GOOD (  16.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,161 +139,50 @@ Reply-To: Neil Armstrong <neil.armstrong@linaro.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-On 22/07/2025 08:06, Chuan Liu via B4 Relay wrote:
-> From: Chuan Liu <chuan.liu@amlogic.com>
+On 18/07/2025 08:37, Xianwei Zhao via B4 Relay wrote:
+> From: Xianwei Zhao <xianwei.zhao@amlogic.com>
 > 
-> The cycle count register has a 20-bit effective width, but the driver
-> only utilizes 16 bits. This reduces the sampling window when measuring
-> high-frequency clocks, resulting in (slightly) degraded measurement
-> accuracy.
+> Add the thermal controller driver for the C3 SoC family.
 > 
-> The input clock signal path from gate (Controlled by MSR_RUN) to internal
-> sampling circuit in clk-measure has a propagation delay requirement: 24
-> clock cycles must elapse after mux selection before sampling.
+> The main difference compared to other Amlogic chips lies in the
+> offset of the sec_ao base (referred to as u_efuse_off), which is
+> handled differently. Everything else remains consistent.
 > 
-> The measurement circuit employs single-edge sampling for clock frequency
-> detection, resulting in a ±1 cycle count error within the measurement window.
-> 
-> +1 cycle: 3 rising edges captured in 2-cycle measurement window.
->      __    __    __
->   __↑  |__↑  |__↑  |__
->    ^             ^
-> 
-> -1 cycle: 2 rising edges captured in 3-cycle measurement window.
->      __    __    __
->   __↑  |__↑  |__↑  |__↑
->      ^               ^
-> 
-> Change-Id: If367c013fe2a8d0c8f5f06888bb8f30a1e46b927
-
-Please drop Change-Id
-
-> Signed-off-by: Chuan Liu <chuan.liu@amlogic.com>
+> Signed-off-by: Liming Xue <liming.xue@amlogic.com>
+> Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
 > ---
-> Improve measurement accuracy by increasing the bit width of the cycle
-> counter register and adding delay during measurement.
+>   drivers/thermal/amlogic_thermal.c | 10 ++++++++++
+>   1 file changed, 10 insertions(+)
 > 
-> The 800μs delay between enabling the input clock gate and activating
-> sampling is determined by the minimum sampling frequency of 30kHz (the
-> lowest commonly used frequency in applications is 32.768kHz).
-> 
-> Here are the test comparisons based on C3:
-> 
-> Pre-optimization:
-> cat /sys/kernel/debug/meson-clk-msr/measure_summary
->    clock                     rate    precision
-> ---------------------------------------------
->   sys_clk               166664063    +/-5208Hz
->   axi_clk               499968750    +/-15625Hz
->   rtc_clk                23982813    +/-3125Hz
->   p20_usb2_ckout        479968750    +/-15625Hz
->   eth_mpll_test         499992188    +/-15625Hz
->   sys_pll              1919875000    +/-62500Hz
->   cpu_clk_div16         119998162    +/-3676Hz
->   ts_pll                        0    +/-3125Hz
->   fclk_div2             999843750    +/-31250Hz
->   fclk_div2p5           799953125    +/-31250Hz
->   fclk_div3             666625000    +/-20833Hz
->   fclk_div4             499914063    +/-15625Hz
->   fclk_div5             399987500    +/-12500Hz
->   fclk_div7             285709821    +/-8928Hz
->   fclk_50m               49982813    +/-3125Hz
->   sys_oscin32k_i            26563    +/-3125Hz
-> 
-> Post-optimization:
-> cat /sys/kernel/debug/meson-clk-msr/measure_summary
->    clock                     rate    precision
-> ---------------------------------------------
->   sys_clk               166665625    +/-1562Hz
->   axi_clk               499996875    +/-1562Hz
->   rtc_clk                24000000    +/-1562Hz
->   p20_usb2_ckout        479996875    +/-1562Hz
->   eth_mpll_test         499996875    +/-1562Hz
->   sys_pll              1919987132    +/-1838Hz
->   cpu_clk_div16         119998438    +/-1562Hz
->   ts_pll                        0    +/-1562Hz
->   fclk_div2             999993750    +/-1562Hz
->   fclk_div2p5           799995313    +/-1562Hz
->   fclk_div3             666656250    +/-1562Hz
->   fclk_div4             499996875    +/-1562Hz
->   fclk_div5             399993750    +/-1562Hz
->   fclk_div7             285712500    +/-1562Hz
->   fclk_50m               49998438    +/-1562Hz
->   sys_oscin32k_i            32813    +/-1562Hz
-> ---
-> Changes in v2:
-> - Change "HACK" in comments to "NOTE" according to Martin's suggestion.
-> - Link to v1: https://lore.kernel.org/r/20250717-optimize_clk-measure_accuracy-v1-1-3b82d7ccd743@amlogic.com
-> ---
->   drivers/soc/amlogic/meson-clk-measure.c | 27 ++++++++++++++++++---------
->   1 file changed, 18 insertions(+), 9 deletions(-)
-> 
-> diff --git a/drivers/soc/amlogic/meson-clk-measure.c b/drivers/soc/amlogic/meson-clk-measure.c
-> index d862e30a244e..df395e015f26 100644
-> --- a/drivers/soc/amlogic/meson-clk-measure.c
-> +++ b/drivers/soc/amlogic/meson-clk-measure.c
-> @@ -22,7 +22,7 @@ static DEFINE_MUTEX(measure_lock);
->   #define MSR_CLK_SRC		GENMASK(26, 20)
->   #define MSR_BUSY		BIT(31)
+> diff --git a/drivers/thermal/amlogic_thermal.c b/drivers/thermal/amlogic_thermal.c
+> index 5448d772db12..d1b08119c818 100644
+> --- a/drivers/thermal/amlogic_thermal.c
+> +++ b/drivers/thermal/amlogic_thermal.c
+> @@ -226,6 +226,12 @@ static const struct amlogic_thermal_data amlogic_thermal_a1_cpu_param = {
+>   	.regmap_config = &amlogic_thermal_regmap_config_g12a,
+>   };
 >   
-> -#define MSR_VAL_MASK		GENMASK(15, 0)
-> +#define MSR_VAL_MASK		GENMASK(19, 0)
->   
->   #define DIV_MIN			32
->   #define DIV_STEP		32
-> @@ -805,14 +805,23 @@ static int meson_measure_id(struct meson_msr_id *clk_msr_id,
->   	regmap_update_bits(priv->regmap, reg->freq_ctrl, MSR_DURATION,
->   			   FIELD_PREP(MSR_DURATION, duration - 1));
->   
-> -	/* Set ID */
-> -	regmap_update_bits(priv->regmap, reg->freq_ctrl, MSR_CLK_SRC,
-> -			   FIELD_PREP(MSR_CLK_SRC, clk_msr_id->id));
-> +	/* Set the clock channel ID and enable the input clock gate. */
-> +	regmap_update_bits(priv->regmap, reg->freq_ctrl, MSR_CLK_SRC | MSR_RUN,
-> +			   FIELD_PREP(MSR_CLK_SRC, clk_msr_id->id) | MSR_RUN);
->   
-> -	/* Enable & Start */
-> -	regmap_update_bits(priv->regmap, reg->freq_ctrl,
-> -			   MSR_RUN | MSR_ENABLE,
-> -			   MSR_RUN | MSR_ENABLE);
-> +	/*
-> +	 * NOTE: The input clock signal path from gate (Controlled by MSR_RUN)
-> +	 * to internal sampling circuit in clk-measure has a propagation delay
-> +	 * requirement: 24 clock cycles must elapse after mux selection before
-> +	 * sampling.
-> +	 *
-> +	 * For a 30kHz measurement clock, this translates to an 800μs delay:
-> +	 * 800us = 24 / 30000Hz.
-> +	 */
-> +	fsleep(800);
+> +static const struct amlogic_thermal_data amlogic_thermal_c3_cpu_param = {
+> +	.u_efuse_off = 0x108,
+> +	.calibration_parameters = &amlogic_thermal_g12a,
+> +	.regmap_config = &amlogic_thermal_regmap_config_g12a,
+> +};
 > +
-> +	/* Enable the internal sampling circuit and start clock measurement. */
-> +	regmap_update_bits(priv->regmap, reg->freq_ctrl, MSR_ENABLE, MSR_ENABLE);
->   
->   	ret = regmap_read_poll_timeout(priv->regmap, reg->freq_ctrl,
->   				       val, !(val & MSR_BUSY), 10, 10000);
-> @@ -846,7 +855,7 @@ static int meson_measure_best_id(struct meson_msr_id *clk_msr_id,
->   	do {
->   		ret = meson_measure_id(clk_msr_id, duration);
->   		if (ret >= 0)
-> -			*precision = (2 * 1000000) / duration;
-> +			*precision = 1000000 / duration;
->   		else
->   			duration -= DIV_STEP;
->   	} while (duration >= DIV_MIN && ret == -EINVAL);
+>   static const struct of_device_id of_amlogic_thermal_match[] = {
+>   	{
+>   		.compatible = "amlogic,g12a-ddr-thermal",
+> @@ -239,6 +245,10 @@ static const struct of_device_id of_amlogic_thermal_match[] = {
+>   		.compatible = "amlogic,a1-cpu-thermal",
+>   		.data = &amlogic_thermal_a1_cpu_param,
+>   	},
+> +	{
+> +		.compatible = "amlogic,c3-cpu-thermal",
+> +		.data = &amlogic_thermal_c3_cpu_param,
+> +	},
+>   	{ /* sentinel */ }
+>   };
+>   MODULE_DEVICE_TABLE(of, of_amlogic_thermal_match);
 > 
-> ---
-> base-commit: 58abdca0eb653c1a2e755ba9ba406ee475d87636
-> change-id: 20250523-optimize_clk-measure_accuracy-9e16ee346dd2
-> 
-> Best regards,
 
-
-Thanks a lot for this great work, please send a v3 without the Change-Id and add my:
 Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
-
-Neil
-
 
