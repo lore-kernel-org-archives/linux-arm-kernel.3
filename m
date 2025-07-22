@@ -4,54 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EFD1C83F27
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 15:58:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AE27C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 15:58:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n+m7iXhIvbL6NvxwaQ5jFPlWoCarF/fT+9eU9v3tAto=; b=L1Ns4OjJHlXE6ul4SXfN8A9D57
-	I8Oxj9nXqBVuCHrG6bgeItaKChm0oxakQB4wX0l5cfUHs/aeYgGFxyAZBoZxlDJYe/RorI/r0M376
-	lubtFFwa6qF+SAkXfSeq90rsdMmadJfbM1xOa8cNOmqiC4bCT1O6fQmdjtE/SigHrvOo7H8ZZYUGi
-	7rvoZIdnSneFTvzBSqLOIz9Vvu37Z+Ju4x+9PNv9d3jCpPc20PDdV0piBpwbX8MlfRjMXUZesfLoJ
-	rnIkhETZk3uKPdup07bcDUDH+3LGaBKNUiRP80vOjRyYIo8vJ0X1Dt36YwGz1C39BfQamWK9+0Bw3
-	YyfLbKzQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Lkqk3GmyGUv2A8kEAkTb58VZlsk88hdNWO/g4AHrcn0=; b=CyEsx24TtdrYChecFRf4uKQD/p
+	rJwo77/Siscm3yaW5urjYFt4qg8m9OTCCQR8XABEqX53dgPgYZ8C/3pQaEUGRDZYbwcXzp1GUh6Az
+	DHmtYCRYZ3I4JzD881Z58aC3tKoRPeU+bl0FwOEm+8az/QFkAH/CcEF5IPAY7aqJWT7jD9vnWukRu
+	dvSY6NpM+X/OoC/nIo5lpfXh1fDbKYEdgEMozHu4lv/y6ipjlbUX6eKqJ0R4o1jGdTzKuVPhaLQsN
+	wi8I6phGDB2V2Yu/XyiSFXmTBkKOgras9riWi8W8fk6knPJI/iLcubtf9y9HWILK/yxo/CC2rtYbn
+	TTwzNgSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueFO7-00000002w8l-0ea3;
-	Tue, 22 Jul 2025 15:58:43 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueEPt-00000002n1z-3gu6
+	id 1ueFNv-00000002vup-2EdU;
+	Tue, 22 Jul 2025 15:58:31 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ueDya-00000002hfA-2aBp
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Jul 2025 14:56:31 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3425A152B;
-	Tue, 22 Jul 2025 07:56:21 -0700 (PDT)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B543F3F6A8;
-	Tue, 22 Jul 2025 07:56:25 -0700 (PDT)
-Date: Tue, 22 Jul 2025 15:56:20 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: Weikang Guo <guoweikang.kernel@gmail.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64: mm: Ensure phys_to_ttbr on pgdir for
- idmap_cpu_replace_ttbr1
-Message-ID: <aH-mlN88NrTzahfM@J2N7QTR9R3>
-References: <20250722082117.1777570-1-guoweikang.kernel@gmail.com>
+	Tue, 22 Jul 2025 14:28:17 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.31])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4bmffD2LSjz6L4sV;
+	Tue, 22 Jul 2025 22:24:20 +0800 (CST)
+Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
+	by mail.maildlp.com (Postfix) with ESMTPS id A7A961402C8;
+	Tue, 22 Jul 2025 22:28:10 +0800 (CST)
+Received: from localhost (10.203.177.66) by frapeml500008.china.huawei.com
+ (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Tue, 22 Jul
+ 2025 16:28:09 +0200
+Date: Tue, 22 Jul 2025 15:28:07 +0100
+From: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+To: James Morse <james.morse@arm.com>
+CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	"Rob Herring" <robh@kernel.org>, Ben Horgan <ben.horgan@arm.com>, Rohit
+ Mathew <rohit.mathew@arm.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+	"Zeng Heng" <zengheng4@huawei.com>, Lecopzer Chen <lecopzerc@nvidia.com>,
+	"Carl Worth" <carl@os.amperecomputing.com>,
+	<shameerali.kolothum.thodi@huawei.com>, D Scott Phillips OS
+	<scott@os.amperecomputing.com>, <lcherian@marvell.com>,
+	<bobo.shaobowang@huawei.com>, <tan.shaopeng@fujitsu.com>,
+	<baolin.wang@linux.alibaba.com>, Jamie Iles <quic_jiles@quicinc.com>, Xin Hao
+	<xhao@linux.alibaba.com>, <peternewman@google.com>, <dfustini@baylibre.com>,
+	<amitsinght@marvell.com>, David Hildenbrand <david@redhat.com>, Rex Nie
+	<rex.nie@jaguarmicro.com>, Dave Martin <dave.martin@arm.com>, Koba Ko
+	<kobak@nvidia.com>, Sudeep Holla <sudeep.holla@arm.com>
+Subject: Re: [RFC PATCH 05/36] ACPI / PPTT: Add a helper to fill a cpumask
+ from a processor container
+Message-ID: <20250722152807.000069d3@huawei.com>
+In-Reply-To: <20250711183648.30766-6-james.morse@arm.com>
+References: <20250711183648.30766-1-james.morse@arm.com>
+	<20250711183648.30766-6-james.morse@arm.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250722082117.1777570-1-guoweikang.kernel@gmail.com>
+Content-Type: text/plain; charset="US-ASCII"
+Content-Transfer-Encoding: quoted-printable
+X-Originating-IP: [10.203.177.66]
+X-ClientProxiedBy: lhrpeml500006.china.huawei.com (7.191.161.198) To
+ frapeml500008.china.huawei.com (7.182.85.71)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250722_075629_994764_A122F1BF 
-X-CRM114-Status: GOOD (  27.90  )
+X-CRM114-CacheID: sfid-20250722_072816_796700_232692FC 
+X-CRM114-Status: GOOD (  14.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,83 +83,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 22, 2025 at 04:21:13PM +0800, Weikang Guo wrote:
-> Commit 5ffdfaedfa0a ("arm64: mm: Support Common Not Private translations")
-> changed the contract of idmap_cpu_replace_ttbr1, requiring that the TTBR
-> argument passed in should already be processed by phys_to_ttbr (i.e., in
-> TTBR format, not just a raw physical address).
-> 
-> However, the current map_kernel implementation does not always convert the
-> pgdir/ttbr argument via phys_to_ttbr before calling
-> idmap_cpu_replace_ttbr1. This can lead to issues on systems with
-> CONFIG_ARM64_PA_BITS_52 enabled, as the TTBR would not be properly folded
-> per the ARMv8.2+ requirements.
+On Fri, 11 Jul 2025 18:36:17 +0000
+James Morse <james.morse@arm.com> wrote:
 
-For the cases below I don't believe that this is actually a problem.
-Since commit:
+> The PPTT describes CPUs and caches, as well as processor containers.
+> The ACPI table for MPAM describes the set of CPUs that can access an MSC
+> with the UID of a processor container.
+>=20
+> Add a helper to find the processor container by its id, then walk
+> the possible CPUs to fill a cpumask with the CPUs that have this
+> processor container as a parent.
+>=20
+> CC: Dave Martin <dave.martin@arm.com>
+> Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
+> Signed-off-by: James Morse <james.morse@arm.com>
 
-  453dfcee70c5c344 ("arm64: booting: Require placement within 48-bit addressable memory")
 
-... we require that the kernel Image (including any trailing unallocated
-bytes accounted for in image_size) are below the 48-bit address limit,
-and so there should be no difference between the PA and TTBR format.
+> +/**
+> + * acpi_pptt_get_cpus_from_container() - Populate a cpumask with all CPU=
+s in a
+> + *                                       processor containers
+> + * @acpi_cpu_id:	The UID of the processor container.
+> + * @cpus		The resulting CPU mask.
+Missing colon.
 
-We could probably test and enforce that in the early boot code somehow,
-if we're not doing that already.
-
-If we were going to change things to avoid accidents in future, I think
-it would be better to enforce this with the type system. e.g. we could
-have a ttbr_val type that's distinct from phys_addr_t. Even then, for
-the idmap code I think it's better to avoid the phys_to_ttbr() dance,
-since that has runtime patching.
-
-Mark.
-
-> 
-> Signed-off-by: Weikang Guo <guoweikang.kernel@gmail.com>
-> 
-> ---
-> Note: I do not currently have access to ARM64 hardware or an emulation
-> environment that supports 52-bit physical address (PA52). I would
-> greatly appreciate if anyone with such a platform could help test
-> this patch. Thank you!
-> ---
->  arch/arm64/kernel/pi/map_kernel.c | 6 +++---
->  1 file changed, 3 insertions(+), 3 deletions(-)
-> 
-> diff --git a/arch/arm64/kernel/pi/map_kernel.c b/arch/arm64/kernel/pi/map_kernel.c
-> index 0f4bd7771859..05a04eb91e81 100644
-> --- a/arch/arm64/kernel/pi/map_kernel.c
-> +++ b/arch/arm64/kernel/pi/map_kernel.c
-> @@ -18,7 +18,7 @@
->  
->  extern const u8 __eh_frame_start[], __eh_frame_end[];
->  
-> -extern void idmap_cpu_replace_ttbr1(void *pgdir);
-> +extern void idmap_cpu_replace_ttbr1(phys_addr_t);
->  
->  static void __init map_segment(pgd_t *pg_dir, u64 *pgd, u64 va_offset,
->  			       void *start, void *end, pgprot_t prot,
-> @@ -90,7 +90,7 @@ static void __init map_kernel(u64 kaslr_offset, u64 va_offset, int root_level)
->  		    true, root_level);
->  	dsb(ishst);
->  
-> -	idmap_cpu_replace_ttbr1(init_pg_dir);
-> +	idmap_cpu_replace_ttbr1(phys_to_ttbr((u64)init_pg_dir));
->  
->  	if (twopass) {
->  		if (IS_ENABLED(CONFIG_RELOCATABLE))
-> @@ -129,7 +129,7 @@ static void __init map_kernel(u64 kaslr_offset, u64 va_offset, int root_level)
->  	/* Copy the root page table to its final location */
->  	memcpy((void *)swapper_pg_dir + va_offset, init_pg_dir, PAGE_SIZE);
->  	dsb(ishst);
-> -	idmap_cpu_replace_ttbr1(swapper_pg_dir);
-> +	idmap_cpu_replace_ttbr1(phys_to_ttbr((u64)swapper_pg_dir));
->  }
->  
->  static void noinline __section(".idmap.text") set_ttbr0_for_lpa2(u64 ttbr)
-> -- 
-> 2.25.1
-> 
-> 
+=46rom a W=3D1 build (and hence kernel-doc warning).
+> + *
+> + * Find the specified Processor Container, and fill @cpus with all the c=
+pus
+> + * below it.
+> + *
+> + * Not all 'Processor' entries in the PPTT are either a CPU or a Process=
+or
+> + * Container, they may exist purely to describe a Private resource. CPUs
+> + * have to be leaves, so a Processor Container is a non-leaf that has the
+> + * 'ACPI Processor ID valid' flag set.
+> + *
+> + * Return: 0 for a complete walk, or an error if the mask is incomplete.
+> + */
+> +int acpi_pptt_get_cpus_from_container(u32 acpi_cpu_id, cpumask_t *cpus)
 
