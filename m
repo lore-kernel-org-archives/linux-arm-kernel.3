@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D25A9C83F25
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 11:14:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB700C83F27
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 11:17:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NBIkzRMUwk5Z3pMkyBCH1AE3E32h+tl5IABY6Hyzwi0=; b=38DKhNJIOeqLqqfGRVMX9GuIyv
-	4ktY3Su+lWUIW1zMUq92pNdkN5Wqxq0jPwvO8ivxPsXETJzQokVAAtfB0AmnTcLHVHU1B+nbMhJXG
-	wEL+PbxnzSy/s0slkb2UBqYwUySDUPhp4KvftFNgPD74u5mgEXK9J6xgl4keraYyDBleiwjZCWIZB
-	FzMtmnbvDMaDY0sbtiZkUrf3LL8X/ynppQ1k+s1LIoaf+jCGCj37JN0LA14ccbb8XM8uzhMZ0OB96
-	7nxkKnVtkn0qEr0nO9FvRD6yCrnTluBNYkfz3Cx+8R9UQeHcYb5QcWPI/yovOgR6DkiDERcgmh/0N
-	IbcIRXsw==;
+	bh=ADDBe1UjCWeerB1lj8K6/kscNWOqJl5O1FOIrs5KCxw=; b=EO/Ii9YemvKGpq8h9bmVLjwHyT
+	lJyEeduxAtll/DljOSStGiarcDZM4s6ngxe3vYUFUIvpOIEH4HkDBy+aF/0/DjVJ5/rVvMtuaexeH
+	HwWefEtMsf6LuVBnrNReX4czaXptrAAZFE9rZa1q37V7tWuvl9KxSrK8ZncDMw6p1kcCmZpmR1a7+
+	B5Qe1qKBSx0J5CdG0C2GeTkLd3KKgAtG0LANtWSYx3RsVePkcbHqaBBYmKGAn97nzYEVAU8GEXcT6
+	g50Hgynjrk5Oej/91BLOOws9MH60tAWEbRuejUGyrker9648EOMGE8ih9f7cmNJTF+376VejpvJBn
+	PH0jwmgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueAxB-00000002FqS-1BCS;
-	Tue, 22 Jul 2025 11:14:37 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1ueAzc-00000002GA0-1U8e;
+	Tue, 22 Jul 2025 11:17:08 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueAs2-00000002Eyd-33JD;
-	Tue, 22 Jul 2025 11:09:19 +0000
+	id 1ueAsd-00000002F84-0Ktz;
+	Tue, 22 Jul 2025 11:09:56 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2B1CC43A0C;
-	Tue, 22 Jul 2025 11:09:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 29DEFC4CEEB;
-	Tue, 22 Jul 2025 11:09:11 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 7633245D34;
+	Tue, 22 Jul 2025 11:09:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 21F23C4CEEB;
+	Tue, 22 Jul 2025 11:09:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753182558;
-	bh=beXaQ6bn7VZ4kwXIr7bZnROMX0CLkZfQr4F/O0JFJTk=;
+	s=k20201202; t=1753182594;
+	bh=knCHRYIvYTmiYB6u/STPa5dxiHcIx2CJey7pqvImmZo=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=ssYsamx7ZfqFjggJyRK7l+C1u3LcnNCAuoLrcPp6hQWVaqh5lkmnVccDMhaLi0eC8
-	 /k9xi7NS3UC0ElAnmomm+hSWroEXYNVeHOd6kPCvIG7Ut1QQD+HGmln3ilcLgWlZm7
-	 oig8yV30RHJeHg/JUbjOHcRR/27+0M7tV77dJqCgWypNxCuMRR2OTSpGhIxmVX9L59
-	 BZjpoMg85PmwXTsIdURUVZO+Ff5hgaSG8UqtnL4QlG9nANfcxej579H39t/kuYzMrA
-	 N72OULbtS/j0hl6gwOv7vLXFTVbTuxpb8S3gqE5CLjvg03dBlXo83U+TolmCKTNnhn
-	 23MHIc7ks6FdA==
-Message-ID: <31e72f14-bb61-411a-86c8-19c7212d2d31@kernel.org>
-Date: Tue, 22 Jul 2025 13:09:09 +0200
+	b=kjirIiKcte0nSMAytRQyqR0+bJMRxy/akYEtt4sihCHMu+oTxKlD8TDiO6j5Hlo/V
+	 LBM5lb+Kc1LQmyz+/xXzKCn0zZHPEC7Kq0ps7r5rS4Dl+vsKMxx8yDMH/LBIvwZ6Hd
+	 PCq4pT3i0JKOpNskKTNlDTvJoA2kxB3VmN7+Mdi9CjOAGjaT5KhThGv+R2Mrg09rNa
+	 7QIeoGOpdYwMtY9lJIjzWLhqxcmCjWHlqVkiRoIS8kugr9QEkWMlQdgB9KLgqAs/uC
+	 sWXqqa/1GRwenVygyrnCVw+eiu+c+CaMegoc0fzdQXc68FBFzMePe7hU1GW9MDikFB
+	 YjiTiS5H6VLmw==
+Message-ID: <86ee9383-d3dd-40f4-adb8-1f7375018bf5@kernel.org>
+Date: Tue, 22 Jul 2025 13:09:47 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 7/8] dt-bindings: media: Add MT8189
- mediatek,vcodec-encoder
+Subject: Re: [PATCH v1 1/8] dt-bindings: media: mediatek: decoder: Add MT8189
+ mediatek,vcodec-decoder
 To: =?UTF-8?B?S3lyaWUgV3UgKOWQtOaZlyk=?= <Kyrie.Wu@mediatek.com>
 Cc: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
  "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
@@ -74,9 +74,9 @@ Cc: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
  AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
  "neil.armstrong@linaro.org" <neil.armstrong@linaro.org>
 References: <20250721105520.5625-1-kyrie.wu@mediatek.com>
- <20250721105520.5625-8-kyrie.wu@mediatek.com>
- <20250722-lovely-mustard-scorpion-e07e92@kuoka>
- <1d51ab1398ea0eec7bcaeaa31f52e4c39d11bd7b.camel@mediatek.com>
+ <20250721105520.5625-2-kyrie.wu@mediatek.com>
+ <20250722-sly-sparkling-kangaroo-6ab9ed@kuoka>
+ <7e148282f683f8e0e00a1ad29ada8319ee9e24f4.camel@mediatek.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -122,12 +122,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <1d51ab1398ea0eec7bcaeaa31f52e4c39d11bd7b.camel@mediatek.com>
+In-Reply-To: <7e148282f683f8e0e00a1ad29ada8319ee9e24f4.camel@mediatek.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250722_040918_811783_252D6D10 
-X-CRM114-Status: GOOD (  11.16  )
+X-CRM114-CacheID: sfid-20250722_040955_161699_713A40F5 
+X-CRM114-Status: GOOD (  11.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,31 +142,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 22/07/2025 10:16, Kyrie Wu (吴晗) wrote:
-> On Tue, 2025-07-22 at 09:26 +0200, Krzysztof Kozlowski wrote:
+On 22/07/2025 10:11, Kyrie Wu (吴晗) wrote:
+> On Tue, 2025-07-22 at 09:25 +0200, Krzysztof Kozlowski wrote:
 >> External email : Please do not click links or open attachments until
 >> you have verified the sender or the content.
 >>
 >>
->> On Mon, Jul 21, 2025 at 06:55:19PM +0800, Kyrie Wu wrote:
->>> Add MT8189 encoder compatible string, which will reference SCP
->>> device.
+>> On Mon, Jul 21, 2025 at 06:55:13PM +0800, Kyrie Wu wrote:
+>>> Add compatible for video decoder on MT8189 platform, which is a
+>>> pure single core architecture.
 >>
->> And the device is not compatible or is different because of what?
->>
->> Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+>> Looks compatible with existing ones and nothing in commit msg
+>> explains
+>> why it was not made compatible. Describe the hardware, say something
+>> useful to avoid such questions.
 >>
 >> Best regards,
 >> Krzysztof
 >>
 > Dear Krzysztof,
 > 
-> The reason, adding a new compatible strings for the MT8189 encoder, is
-> same as for decoder, to use different of_device_id data and to
-> distinguish the chip name.
+> There are two reasons for adding a new compatible string to MT8189:
+> On the one hand, MT8189 is a pure single-core hardware chip, so the
+> of_device_id data is different;
 
-You speak about drivers, this is not relevant. Explain the hardware -
-WHY it is not compatible, what is the difference
+Not relevant. Your of_device_id is wrong and based on that you claim the
+hardware is different?
+
+Describe the hardware.
 
 Best regards,
 Krzysztof
