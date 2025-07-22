@@ -4,70 +4,139 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2E59C83F27
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 16:19:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BB21C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 16:21:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:Subject:References:Cc:To:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xb8gow27XZB8mMI82InhQ+4PI5DXkeTP3ZBLLO0PSos=; b=U95H0wBnQCT8vY7pu7d+JD8M4t
-	1ua1E4+lXBRkls/CwO7gK4v6A1zPl9oaneNZVIUO5szLgZrGISolM6G2jdhX+lzco1TlYM/hf+bIe
-	tDL0HntkiCDPWUSuy8cucp/kv05nDs1rXrL0iNpPAY/xbkRhMCj2VgrEGXQEhTA6X/xzfAXVBxtBK
-	e8SURQKHYgQSLQsdxN3q6awch+BDhUBm/VJUKm9c0Qu7VdtCJrJ5JSLMtMYX1nRYMtx03okQma0yE
-	+68GiPuUNMyOfgCzqQ3hnI8VEMA1IKa0qh2vg4BdwpLRYI78BgMum+WqPPwSjDuyI1FIA7shje2CE
-	gp5sLGQw==;
+	bh=NaK6/RFxq9QNHVkIk7snI9Kx/nnfVL4eDyfpZlhWR6s=; b=dNFSJz9mYbKanSaKNzcCnn5NoK
+	TI1FHGtQOiOHq4ZIMwLPOi8moakGhsXR/+OILl9eC1TaD5rs33K1VpatZsuRY+++aeBY/dQNTjaKy
+	OjxjNjSw+1eM84qRcrOM44++a+s577yzK+OGaxg7NZ6xBTBp7urQ08NS7XBgllPRky8ePM5BBDmkh
+	8qjojS48eWmzYM+vDmLmyNnSY6nQQR1NtlxgJ+rL32c+jSz94pm/Wd23kJJEHku6w4zEpfMfi6+u6
+	kHqvr17gdM+5GDuCZrT5UOTQIfWTjn2KKfEiErDRB3fOdnkMiDIepexK+GqUuVdUa3Ks/XmIRPI1O
+	chchcaMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueFhs-00000002zx0-3cTX;
-	Tue, 22 Jul 2025 16:19:08 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1ueFkN-000000030Rm-29LN;
+	Tue, 22 Jul 2025 16:21:43 +0000
+Received: from mout.web.de ([212.227.15.4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueEZY-00000002ohV-4BUd
+	id 1ueF3i-00000002tYU-290F
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Jul 2025 15:06:30 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.231])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4bmgY56zWsz6H7X6;
-	Tue, 22 Jul 2025 23:04:57 +0800 (CST)
-Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
-	by mail.maildlp.com (Postfix) with ESMTPS id 08056140446;
-	Tue, 22 Jul 2025 23:06:22 +0800 (CST)
-Received: from localhost (10.203.177.66) by frapeml500008.china.huawei.com
- (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Tue, 22 Jul
- 2025 17:06:20 +0200
-Date: Tue, 22 Jul 2025 16:06:18 +0100
-From: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-To: James Morse <james.morse@arm.com>
-CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	"Rob Herring" <robh@kernel.org>, Ben Horgan <ben.horgan@arm.com>, Rohit
- Mathew <rohit.mathew@arm.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
-	"Zeng Heng" <zengheng4@huawei.com>, Lecopzer Chen <lecopzerc@nvidia.com>,
-	"Carl Worth" <carl@os.amperecomputing.com>,
-	<shameerali.kolothum.thodi@huawei.com>, D Scott Phillips OS
-	<scott@os.amperecomputing.com>, <lcherian@marvell.com>,
-	<bobo.shaobowang@huawei.com>, <tan.shaopeng@fujitsu.com>,
-	<baolin.wang@linux.alibaba.com>, Jamie Iles <quic_jiles@quicinc.com>, Xin Hao
-	<xhao@linux.alibaba.com>, <peternewman@google.com>, <dfustini@baylibre.com>,
-	<amitsinght@marvell.com>, David Hildenbrand <david@redhat.com>, Rex Nie
-	<rex.nie@jaguarmicro.com>, Dave Martin <dave.martin@arm.com>, Koba Ko
-	<kobak@nvidia.com>
-Subject: Re: [RFC PATCH 25/36] arm_mpam: Register and enable IRQs
-Message-ID: <20250722160618.0000598f@huawei.com>
-In-Reply-To: <20250711183648.30766-26-james.morse@arm.com>
-References: <20250711183648.30766-1-james.morse@arm.com>
-	<20250711183648.30766-26-james.morse@arm.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	Tue, 22 Jul 2025 15:37:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1753198618; x=1753803418; i=markus.elfring@web.de;
+	bh=NaK6/RFxq9QNHVkIk7snI9Kx/nnfVL4eDyfpZlhWR6s=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:References:
+	 Subject:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 cc:content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=TntS18SDmVH+ZTtQOt5/4Q6XyHUPsnU2rp8adTXXxk0ZW7WARSngDd1SbgD9j09L
+	 G80+CKxJ33SuqaJGsrz3eOieG7SBA5oSKgvBdnQuI+vWPQIz27o2jbxbo58NHoyY6
+	 ELiBhnyZKZlJX0DEsitQ5PdLBlt5RkjX0ozDPdNR8swFhnktC3Kur3v+47QJohADO
+	 RIIqfuTP/8A/P1d+DtgaPk2SMF0sHUACx8hf3n4PJxuKI4YcHM5qhVOtQPDQCyiAq
+	 9OLILo/CZoR3yOhDv0jy3TLT5cIjgdaMHLmgl9WmH5WHKXBnr3qzf/SpHP44bdrK/
+	 tRiZVR51TSkFwqm1qw==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from [192.168.178.29] ([94.31.92.215]) by smtp.web.de (mrweb005
+ [213.165.67.108]) with ESMTPSA (Nemesis) id 1Mf3qY-1v698l2nn8-00i12h; Tue, 22
+ Jul 2025 17:36:57 +0200
+Message-ID: <46fb997f-ba83-44af-aad3-c8406fc7cbea@web.de>
+Date: Tue, 22 Jul 2025 17:36:50 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.203.177.66]
-X-ClientProxiedBy: lhrpeml500005.china.huawei.com (7.191.163.240) To
- frapeml500008.china.huawei.com (7.182.85.71)
+User-Agent: Mozilla Thunderbird
+To: "Andrew F. Davis" <afd@ti.com>,
+ Basharath Hussain Khaja <basharath@couthit.com>,
+ Parvathi Pudi <parvathi@couthit.com>, Roger Quadros <rogerq@ti.com>,
+ netdev@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, Andrew Lunn <andrew+netdev@lunn.ch>,
+ Conor Dooley <conor+dt@kernel.org>, "David S. Miller" <davem@davemloft.net>,
+ Diogo Ivo <diogo.ivo@siemens.com>, Eric Dumazet <edumazet@google.com>,
+ Guillaume La Roque <glaroque@baylibre.com>,
+ Jacob Keller <jacob.e.keller@intel.com>, Jakub Kicinski <kuba@kernel.org>,
+ Javier Carrasco <javier.carrasco.cruz@gmail.com>,
+ Kory Maincent <kory.maincent@bootlin.com>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ MD Danish Anwar <danishanwar@ti.com>, Meghana Malladi <m-malladi@ti.com>,
+ Murali Karicheri <m-karicheri2@ti.com>, Paolo Abeni <pabeni@redhat.com>,
+ Richard Cochran <richardcochran@gmail.com>, Rob Herring <robh@kernel.org>,
+ Sai Krishna <saikrishnag@marvell.com>,
+ Santosh Shilimkar <ssantosh@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>, Simon Horman <horms@kernel.org>,
+ Suman Anna <s-anna@ti.com>
+Cc: LKML <linux-kernel@vger.kernel.org>, krishna@couthit.com,
+ mohan@couthit.com, pmohan@couthit.com, prajith@ti.com,
+ Praneeth Bajjuri <praneeth@ti.com>, Pratheesh Gangadhar <pratheesh@ti.com>,
+ Sriramakrishnan <srk@ti.com>, Roger Quadros <rogerq@kernel.org>,
+ Vadim Fedorenko <vadim.fedorenko@linux.dev>,
+ Vignesh Raghavendra <vigneshr@ti.com>
+References: <20250722132700.2655208-3-parvathi@couthit.com>
+Subject: Re: [PATCH net-next v11 2/5] net: ti: prueth: Adds ICSSM Ethernet
+ driver
+Content-Language: en-GB, de-DE
+From: Markus Elfring <Markus.Elfring@web.de>
+In-Reply-To: <20250722132700.2655208-3-parvathi@couthit.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:Q4vxNDLCNYUx/MWdxPaTqvyXy0TYyiEQrItXy+6yjhKJeurUc39
+ iabfAOmXG6R1Xij5VZILZVi7owC38NoG9RQqTd8jQo5OTvqZOfsSslyjU806hovQC1yUsoS
+ arWmk5++wRYYiZNSh2RbYYajjEWMp/cYSi2YtXLSPzhhFNRXNyztmCHgBynh1dQzAB5amxh
+ LR67e9vxzYMKjqKVsKR+w==
+UI-OutboundReport: notjunk:1;M01:P0:N1nOrVbTMis=;/rgcWO5i1NflaRGjsOEhKmS3+02
+ 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
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250722_080629_322648_A0EDDF57 
-X-CRM114-Status: GOOD (  19.76  )
+X-CRM114-CacheID: sfid-20250722_083738_838580_785A0838 
+X-CRM114-Status: UNSURE (   8.77  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,79 +151,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 11 Jul 2025 18:36:37 +0000
-James Morse <james.morse@arm.com> wrote:
-
-> Register and enable error IRQs. All the MPAM error interrupts indicate a
-> software bug, e.g. out of range partid. If the error interrupt is ever
-> signalled, attempt to disable MPAM.
-> 
-> Only the irq handler accesses the ESR register, so no locking is needed.
-> The work to disable MPAM after an error needs to happen at process
-> context, use a threaded interrupt.
-> 
-> There is no support for percpu threaded interrupts, for now schedule
-> the work to be done from the irq handler.
-> 
-> Enabling the IRQs in the MSC may involve cross calling to a CPU that
-> can access the MSC.
-> 
-> CC: Rohit Mathew <rohit.mathew@arm.com>
-> Tested-by: Rohit Mathew <rohit.mathew@arm.com>
-> Signed-off-by: James Morse <james.morse@arm.com>
-Sparse gives an imbalance warning in mpam_register_irqs()
-
-> +static int mpam_register_irqs(void)
+=E2=80=A6
+> +++ b/drivers/net/ethernet/ti/icssm/icssm_prueth.c
+> @@ -0,0 +1,609 @@
+=E2=80=A6
+> +static int icssm_prueth_probe(struct platform_device *pdev)
 > +{
-> +	int err, irq, idx;
-> +	struct mpam_msc *msc;
-> +
-> +	lockdep_assert_cpus_held();
-> +
-> +	idx = srcu_read_lock(&mpam_srcu);
-> +	list_for_each_entry_srcu(msc, &mpam_all_msc, glbl_list, srcu_read_lock_held(&mpam_srcu)) {
-> +		irq = platform_get_irq_byname_optional(msc->pdev, "error");
-> +		if (irq <= 0)
-> +			continue;
-> +
-> +		/* The MPAM spec says the interrupt can be SPI, PPI or LPI */
-> +		/* We anticipate sharing the interrupt with other MSCs */
-> +		if (irq_is_percpu(irq)) {
-> +			err = request_percpu_irq(irq, &mpam_ppi_handler,
-> +						 "mpam:msc:error",
-> +						 msc->error_dev_id);
-> +			if (err)
-> +				return err;
-
-Looks like the srcu_read_lock is still held.
-
-There is a DEFINE_LOCK_GUARD_1() in srcu.h so you can do
-
-	guard(srcu)(&mpam_srcu, idx);
-
-I think and not worry about releasing it in errors or the good path.
-
-> +
-> +			msc->reenable_error_ppi = irq;
-> +			smp_call_function_many(&msc->accessibility,
-> +					       &_enable_percpu_irq, &irq,
-> +					       true);
-> +		} else {
-> +			err = devm_request_threaded_irq(&msc->pdev->dev, irq,
-> +							&mpam_spi_handler,
-> +							&mpam_disable_thread,
-> +							IRQF_SHARED,
-> +							"mpam:msc:error", msc);
-> +			if (err)
-> +				return err;
-> +		}
-> +
-> +		msc->error_irq_requested = true;
-> +		mpam_touch_msc(msc, mpam_enable_msc_ecr, msc);
-> +		msc->error_irq_hw_enabled = true;
+=E2=80=A6
+> +	/* register the network devices */
+> +	if (eth0_node) {
+=E2=80=A6
 > +	}
-> +	srcu_read_unlock(&mpam_srcu, idx);
 > +
+> +	if (eth1_node) {
+=E2=80=A6
+> +	}
+> +
+> +	if (eth1_node)
+> +		of_node_put(eth1_node);
+> +	if (eth0_node)
+> +		of_node_put(eth0_node);
 > +	return 0;
-> +}
+=E2=80=A6
+
+I suggest to avoid duplicate condition checks for such a function implemen=
+tation.
+Can any code be reused from another function?
+
+Regards,
+Markus
 
