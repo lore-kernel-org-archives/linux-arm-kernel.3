@@ -4,74 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4ECE5C83F27
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 16:50:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4970C83F27
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 17:04:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=YZLQ/KQSkKRnb395MkT7V8sdOgtE5Lh7Itth4XUf8aE=; b=cBL/vK5CQ/WNMhMgie857BWO/w
-	As588h+r4/N1NfZjg64fFG0uIcQZPvo6i2X8YaE6/UasiWfAVv5ZQnvsogMN4/X42WNNINcL+X+pX
-	Cs5wz+w12nhsMvXVfa03ZuCMvBdE93Sw2FtUaB0DKGdx/soTOD8WyZPztjwfPlSeJ0xBuH6TJtOHb
-	x6VB56wkFS70oObCcx/aM9B59Z4WIKLsUvufdgRiA4kU5Z01qKiZiV3uQKBhc/tYo6xxsvMAhAgkg
-	M0VKWaW/df2wqxtz4XxXZTYv8FdC6sUFv89vsrb/Qu4piOt7c3yMoC/jp1/SFEFGHsfanNdDYoICm
-	g32/Oa5A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eKB6gNFEIrgaeKTQOkToma4zoeyJbKtBVeqploJ//e8=; b=t+sUVa600lbtXqgsxF12FszJJ6
+	qn0LKWXx8PtZ9xZz+s6OSIXKBboProq8J/NnMY6DtIGMrpMasmL6am4aBKPlm780IpDl1k2rRw/WO
+	8rpZpXHALkS51AX1QScUQgMsGYNriiLVRu56XmqBeFtAkL2KbcTjNmVrTF5NbmoeyuJZjdsxSBmjl
+	KjsAzd3JtEhks19PKUNIDLZDUl0SBiYaJhBM0dwNpTDavSg5tnlae+iemJyzPE0vyUf+qoxD7JDtv
+	ItTD1YpDexu+n32V84Ty8BTqWxwM8SgfxyiPSjY7dI6vVmWDKNRAwMPoLdyXuG6IP7f/4tKZ0Tkej
+	lOSklEoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueGBf-000000033z8-3rmN;
-	Tue, 22 Jul 2025 16:49:55 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1ueGQ2-000000035pt-0po3;
+	Tue, 22 Jul 2025 17:04:46 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueFvW-000000032MH-2DMF
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 22 Jul 2025 16:33:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=YZLQ/KQSkKRnb395MkT7V8sdOgtE5Lh7Itth4XUf8aE=; b=lkynhxnASiO6hqLn7OATFawn18
-	lFWYST/rBrrKCRy7vpyUAU9eixfV1hJWPfrL3b/14xPR9RW3KJ0Pduow5o5h/KGpfgq+HuZ7iN7oY
-	LRfAlvUJx1spG2Vi3Cjnj3enL565hUQmpgr6OSInsHr8CKiFHfJ6iX4rrPlGEAGtcUnGFkO/bl3uI
-	5iTQFUq+3uPmlOA/spx5DdPfN4mkNMmIzW1oRw889VcvQyU3Ru8BncdXE40GziZG+3ob1Hrt54blA
-	5eP+tahseAaNL3kMi3GzMiR4N9tEaVqEE78nzdg75FUf+e6l6D9VW9WU/IUhAZ1vOj0bZwTLc8Vm1
-	aJJQFJWQ==;
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueFvS-0000000BJU3-3qtT
+	id 1ueGMj-000000035Q1-0Dnp
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Jul 2025 16:33:13 +0000
+	Tue, 22 Jul 2025 17:01:22 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 8C7775C45DC
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Jul 2025 16:33:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D2EF4C4CEEB;
-	Tue, 22 Jul 2025 16:33:04 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 75EA95C48BA;
+	Tue, 22 Jul 2025 17:01:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 034DDC4CEEB;
+	Tue, 22 Jul 2025 17:01:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753201986;
-	bh=HOrXnADP7UreaaGT5Tj68vMJPVVKA1rs/NitPY59mv8=;
-	h=From:To:Cc:Subject:Date:From;
-	b=SzfIGf7FM2DDMqURKHa7wAoobKre8lX1YP9pa7QJ18b/2Y5p5q0jtHbdBMrXz70b1
-	 oEKItR04r1mR8v0TwXieEJY5MqhEoVLrYQnoZks6AT4DZsshLfk9/HunQlXRGaXtYJ
-	 2lBkANT7kP/fBEcg9nblZqhllpNs9I8ilXmWPo/0rOyODzGgpjkdg8ajT339w0r7uV
-	 S5DYn0GaMm7eg85m0FEJAOFNWt3RqfyMS4RAU8IIl4u1jYA8wSWK7XKgDij/uHE9XP
-	 lXVLJj1UO6n5qY7f+TssU0993Gg3O+YV2gJ6ufG00WgPq/duNq07SH3DaE+TwaPHiA
-	 +5uA4qxAICnbQ==
-From: Sven Peter <sven@kernel.org>
-To: soc@lists.linux.dev
-Cc: asahi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Sven Peter <sven@kernel.org>
-Subject: [GIT PULL 1/2] Apple SoC driver changes for v6.17
-Date: Tue, 22 Jul 2025 18:32:57 +0200
-Message-Id: <20250722163258.62424-1-sven@kernel.org>
-X-Mailer: git-send-email 2.39.5 (Apple Git-154)
-MIME-Version: 1.0
+	s=k20201202; t=1753203680;
+	bh=4ExxWF210EVKXVfZ8XRUE1perdO4miFY1lWLlDpGXyE=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=o1qzI20yrVdhUnbNKS9chhnWZwfsufwiVXUoOBR5Nzqdw4VuznVLUtui48AqcvckC
+	 dksJVF+i5y4kslxWQZQSbXWGchZw/2Vnydl1hmZ8MCBw3tTb7lKjvZ80/jWQKNNGzF
+	 PxTgOs34OjapDTx9a2Y80Wk4bp7d1/jrUPkELzwhXxJn6f8UrfOIX0PIPqIVfqO2Df
+	 CJHRsHhmxBuI6EjTWH+DSFGpZpqzQ559K9Vt3euNX2h57Hoqhp123HjpkZUmQHGvrl
+	 OaieU6ya2bzCTb4dzFod3SamD0A9iFYEGl0+ELuDNjUWsaLEWupl7EPr1vj26f83VY
+	 MM1BiQ/ZB1Qbg==
+Date: Tue, 22 Jul 2025 12:01:19 -0500
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+MIME-Version: 1.0
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Will Deacon <will@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
+ linux-arm-kernel@lists.infradead.org, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Gatien Chevallier <gatien.chevallier@foss.st.com>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-kernel@vger.kernel.org, 
+ Michael Turquette <mturquette@baylibre.com>, devicetree@vger.kernel.org, 
+ Mark Rutland <mark.rutland@arm.com>, Jonathan Corbet <corbet@lwn.net>, 
+ linux-clk@vger.kernel.org, linux-doc@vger.kernel.org, 
+ Gabriel Fernandez <gabriel.fernandez@foss.st.com>, 
+ Conor Dooley <conor+dt@kernel.org>, linux-perf-users@vger.kernel.org, 
+ Krzysztof Kozlowski <krzk@kernel.org>, Julius Werner <jwerner@chromium.org>, 
+ Le Goffic <legoffic.clement@gmail.com>, 
+ linux-stm32@st-md-mailman.stormreply.com, Stephen Boyd <sboyd@kernel.org>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>
+To: =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>
+In-Reply-To: <20250722-ddrperfm-upstream-v3-11-7b7a4f3dc8a0@foss.st.com>
+References: <20250722-ddrperfm-upstream-v3-0-7b7a4f3dc8a0@foss.st.com>
+ <20250722-ddrperfm-upstream-v3-11-7b7a4f3dc8a0@foss.st.com>
+Message-Id: <175320367908.42297.8460265656019241171.robh@kernel.org>
+Subject: Re: [PATCH v3 11/19] dt-bindings: perf: stm32: introduce DDRPERFM
+ dt-bindings
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250722_173311_778938_018DC0EC 
-X-CRM114-Status: GOOD (  11.54  )
+X-CRM114-CacheID: sfid-20250722_100121_132196_43496291 
+X-CRM114-Status: GOOD (  12.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,61 +85,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Arnd,
 
-Sorry for the very late pull requests this time, last weeks at work have been very
-busy and I wasn't able to find time earlier.
+On Tue, 22 Jul 2025 16:03:28 +0200, Clément Le Goffic wrote:
+> DDRPERFM is the DDR Performance Monitor embedded in STM32MPU SoC.
+> It allows to monitor DDR events that come from the DDR Controller
+> such as read or write events.
+> 
+> Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
+> ---
+>  .../devicetree/bindings/perf/st,stm32-ddr-pmu.yaml | 94 ++++++++++++++++++++++
+>  1 file changed, 94 insertions(+)
+> 
 
-This time we have two PRs for 6.17, the details are also in the signed tags:
+My bot found errors running 'make dt_binding_check' on your patch:
 
-- Driver updates which include making a rtkit memory management callback
-  optional and dropping default ARCH_APPLE from our drivers in Kconfig.
-  I wanted to instead select these in defconfig but that change isn't ready
-  for this cycle.
+yamllint warnings/errors:
 
-- Device tree updates which include the bindings and nodes for our GPU driver.
-  The driver itself isn't ready yet mainly due to rust dependencies but we're
-  confident about the bindings and want to commit to keeping them stable.
-  Otherwise there are a two smaller changes: removing another W=1 warning
-  (which required a change to the binding itelf that'll also land in 6.17
-  through the NVMEM tree) and adding a missing touchbar framebuffer node to
-  the Apple T2 SoC device tree.
+dtschema/dtc warnings/errors:
+Documentation/devicetree/bindings/perf/st,stm32-ddr-pmu.example.dtb: /example-1/ddr3-channel: failed to match any schema with compatible: ['jedec,ddr3-channel']
 
+doc reference errors (make refcheckdocs):
 
-Best,
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250722-ddrperfm-upstream-v3-11-7b7a4f3dc8a0@foss.st.com
 
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
 
-Sven
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
 
+pip3 install dtschema --upgrade
 
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
 
-The following changes since commit 19272b37aa4f83ca52bdf9c16d5d81bdd1354494:
-
-  Linux 6.16-rc1 (2025-06-08 13:44:43 -0700)
-
-are available in the Git repository at:
-
-  git://git.kernel.org/pub/scm/linux/kernel/git/sven/linux.git tags/apple-soc-drivers-6.17
-
-for you to fetch changes up to 0445eee835d6e59d635e242ba1d9273f168035fa:
-
-  soc: apple: rtkit: Make shmem_destroy optional (2025-07-19 14:52:36 +0200)
-
-----------------------------------------------------------------
-Apple SoC driver changes for v6.17
-
-- Dropped default ARCH_APPLE from Kconfig
-- Made shmem_destroy for coprocessor-managed buffers in the rtkit
-  library optional since it's not required for e.g. SMC
-
-Signed-off-by: Sven Peter <sven@kernel.org>
-
-----------------------------------------------------------------
-Sven Peter (2):
-      soc: apple: Drop default ARCH_APPLE in Kconfig
-      soc: apple: rtkit: Make shmem_destroy optional
-
- drivers/soc/apple/Kconfig | 3 ---
- drivers/soc/apple/rtkit.c | 3 +--
- 2 files changed, 1 insertion(+), 5 deletions(-)
 
