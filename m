@@ -4,117 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE3CCC83F27
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 07:40:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C2FDC83F27
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 07:43:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0zlU1QEnD+GWl8jLtn5YK4PZ5fpcfWzBw9uHGSBFh90=; b=XJND6yiE/sMfA1ufsGyQVYYx0q
-	VmFixVo7qHe79g3nEUf+Cis62XpXccr5yqZCeyoW932ghRI6auZKoYds6vLrF/zEdszjp8fbdFNSD
-	t83VWA25bjs6Re8QBIZ/hVa5obsE2CvEk/tx31oRf0QYA9tO5kPqz4kiDG+/rbr5JXCW/UMKrhj3Z
-	y3t390Q8aHI7eh0yBLB9mgU8jIaIUmQqaIblF8pj9hfc3oHUB9eHH8CUxiskpkT989QMHS+wOvrxd
-	764VUexmACU0myPO6Og2Hxj41mhnEzwhHVhmmphNs2hc5EVIBNQQV5GECfwRb7w1PRBPorGRfdJcz
-	RWyqyxog==;
+	bh=p1N+wgj9qJtb+bRk0/YzXSA+bhNFySP+cY66IIckDgM=; b=fav9v72WiU4DA4jm6+CpuSMtUy
+	cscU1J6j5wXDyfb95Gu0l1lqAvspAHTCMMBKl4h5FGziv6AiqMgteKCDcyRnCiZIoH9c24hRZXLeu
+	+52b4Qg/AW+D5MGM6SDU2/kMbpIDLRfBTlZ4kShwZDnHS623IhjFPssiPpS1yQLV7vSqmRPyMoHCK
+	daS83Kl+2+Vg+yjkQAoAI19BZIRbISljnol3z+UJN2NZyOhvf1LhhLRaRnAsBAyuKLYimf1KSsxxP
+	PsIJbNzMdt0X2y51Jwnhe06KUPXkEudcn1iYOkT+DQITg4fq0icp7VnDuwQa1VigsUhqwWFtetCPJ
+	kF49glUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ue7c8-00000001hmt-2HYJ;
-	Tue, 22 Jul 2025 07:40:40 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1ue7ea-00000001iJE-3mWz;
+	Tue, 22 Jul 2025 07:43:12 +0000
+Received: from mail-lj1-f169.google.com ([209.85.208.169])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ue7Ze-00000001hHQ-0nrN
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 22 Jul 2025 07:38:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=0zlU1QEnD+GWl8jLtn5YK4PZ5fpcfWzBw9uHGSBFh90=; b=eibaBKwUqWBKDv+Pr4/R9KiOCP
-	VwcBWjShe8CaXzqygJ96UpxY3YGN0aayoIwXStiejcJ2qkecDySy7nr7jyCPHws4+ItGL/JzA1iJA
-	I6oLMcV3XQYkagT61bltjJK1PyF2D7iqJDljKbevR+s7oFJ7tv4GYapF8qBoOXTTP6SUJ3MGv3toh
-	zQxQ12RcnSMvKdDQHv2wOSbrfkADnIypOsn0uvGrobSYADtpKFpavzzM5jVIbefksZgxD2tgErdaY
-	b2Tnh0JUo/NGRUajOJ1nz6WlS53h65Ynm+cZyCT7oNutZAioXu7zayEjd2wzUsW+YGX+cedx0WEmp
-	MrXORFgA==;
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ue7Za-0000000BE9f-1bGZ
+	id 1ue7Zq-00000001hK7-33lV
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Jul 2025 07:38:05 +0000
-Received: from pps.filterd (m0369458.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56M7YcI1017113;
-	Tue, 22 Jul 2025 09:37:50 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	0zlU1QEnD+GWl8jLtn5YK4PZ5fpcfWzBw9uHGSBFh90=; b=6eOnM2juSbRcr0EU
-	IFyVZkojXeQ6Q+YR1EBl3sKBCrityklC8iGDAreH+nVxIlQpGGJ1de2LWFwc4l+l
-	GHdzI1aEcjrUG02EEdibktt04EsuROdoHalxZc6A/VFGiV2d32zsW/LP3ZkEoX8L
-	ed7/sijJ7vkE5DhE2qQgYCwZk7ehjOBdHFYiVBGxRKng/BGeMgMSFprH5ze62kZr
-	rdI9euM21E3mDHLQTqM0HE2BU2fY7b1L1YSL/0CRLPYRX5Nqjz+RIPRaUovQk6Au
-	arroznHHnk0RY1lQ6URTxAejKDuzunNFX2iACfiTmpBsv3BZltL9HBZqRv3WTZUo
-	DVCk5Q==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 480mx4hq09-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 22 Jul 2025 09:37:50 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 571CB4005B;
-	Tue, 22 Jul 2025 09:36:26 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 1132476DC2F;
-	Tue, 22 Jul 2025 09:35:09 +0200 (CEST)
-Received: from [10.48.86.185] (10.48.86.185) by SHFDAG1NODE2.st.com
- (10.75.129.70) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Tue, 22 Jul
- 2025 09:35:07 +0200
-Message-ID: <ed0efd83-8471-4fce-9745-54d85d6268f9@foss.st.com>
-Date: Tue, 22 Jul 2025 09:35:06 +0200
+	Tue, 22 Jul 2025 07:38:19 +0000
+Received: by mail-lj1-f169.google.com with SMTP id 38308e7fff4ca-32b4876dfecso54682791fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Jul 2025 00:38:18 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1753169897; x=1753774697; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=p1N+wgj9qJtb+bRk0/YzXSA+bhNFySP+cY66IIckDgM=;
+        b=KAomp+UmzsqjK9yOKliV9aJWnbWRIHRbRk+/iG2e2GC7C3+cjPaTomY1/GgsmSX0YN
+         sksof9v6HmcnI3HozqnniqpoIHTiNks6zjYanqQVTIH7gbZBFi8vVxn5jsu5NdQWDb8q
+         iqEU4lTxFKbLAGZUXfmKBE/S5otSwKYngq2rA=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1753169897; x=1753774697;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=p1N+wgj9qJtb+bRk0/YzXSA+bhNFySP+cY66IIckDgM=;
+        b=WmSQYXai54WUSuZPYSRGfcJT0lQikvnldOJAjDPLZtx+8um4VreFXOcgF+36H3u0sB
+         KAQdCGUw+nrieR0N30y8pK9TrUhCxEwjcp6Zwtv5DJ5LMAOiuFeN216IxgcFT/f91F1z
+         Ie/HXiETfj6FtmoTK8g9GScYlCvPLWS8O3XAXmIFIpA1z9dSjLRvBnlFGs4Fa8ORaQjF
+         4uyZ73rsAq/ftS43LJodtjssVYWDUpHtd+f5gm0rAFIBx1kipkwEt22fXGTXMlOVXgal
+         srx8Shc7n+AnWzbYT9xs9hABgRWSfgf0VagOJdf5CajMZIS6k8zI8ILXdkumaOkxKGc+
+         kkUw==
+X-Forwarded-Encrypted: i=1; AJvYcCWOvdz8/FcROxGgBEtCYIKw4mLPu4qCMJNXzbLYKUzkGeksa54yGqoMIFfqjRu84CAv6Zt47dn+7cWtY7UW6gkY@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxr9a365NgtEbW8ACqnIxWqnBm0oyFB+nV9GlIqfSQF+HzEjhBa
+	jtYG3colXi6N+zEjQdXFE287ndQE4VfDjswYtzxihulwT8MpIfIMMJAb/GpTues/FHFyw7ZZvPb
+	PJRJ3O3Tx+OOE0nH5rt6dr19m7WP6wK0gCSnzuhpA
+X-Gm-Gg: ASbGncvcyK57vqby5gSrmZf1F1Q37eIMbrmveBKsqoKdVp0pDtKRgh9Y4Snsf6OoFFO
+	N/GeK0s4N0kHe0JVtf0BdHpR4lZKPlXeP+hoHiZlN9fppfcdmJvd1JBwR4doz1Xcw7PYOH/PUjR
+	kL16TqnnXP/AG6BMpcMmit63rGXncAdr8+6R6Z3u5jFGPqFAJI/ArcOqQzxh5qp3LuU31tAEOB0
+	ASeQDo77LoMuuaSpBxn7F6tPQHfGDGPfsM=
+X-Google-Smtp-Source: AGHT+IHIEXGhSQKNLTR3joj0qjwcB1T77Dp8iSOMV7/+3N11OuF7i8eFvD4xY1tQQW+z6w+ni2WlHZTcDNTAtH00llM=
+X-Received: by 2002:a2e:b8d1:0:b0:32a:e7b9:1dc9 with SMTP id
+ 38308e7fff4ca-330d24f7ef4mr6438751fa.3.1753169896490; Tue, 22 Jul 2025
+ 00:38:16 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 05/16] dt-bindings: memory: add jedec,ddr[3-4]-channel
- binding
-To: Rob Herring <robh@kernel.org>
-CC: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue
-	<alexandre.torgue@foss.st.com>,
-        Philipp Zabel <p.zabel@pengutronix.de>,
-        Jonathan Corbet <corbet@lwn.net>,
-        Gatien Chevallier
-	<gatien.chevallier@foss.st.com>,
-        Michael Turquette <mturquette@baylibre.com>,
-        Stephen Boyd <sboyd@kernel.org>,
-        Gabriel Fernandez
-	<gabriel.fernandez@foss.st.com>,
-        Krzysztof Kozlowski <krzk@kernel.org>,
-        Le
- Goffic <legoffic.clement@gmail.com>,
-        <linux-arm-kernel@lists.infradead.org>,
-        <linux-perf-users@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-kernel@vger.kernel.org>, <linux-doc@vger.kernel.org>,
-        <linux-clk@vger.kernel.org>
-References: <20250711-ddrperfm-upstream-v2-0-cdece720348f@foss.st.com>
- <20250711-ddrperfm-upstream-v2-5-cdece720348f@foss.st.com>
- <20250721200926.GA1179079-robh@kernel.org>
-Content-Language: en-US
-From: Clement LE GOFFIC <clement.legoffic@foss.st.com>
-In-Reply-To: <20250721200926.GA1179079-robh@kernel.org>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.48.86.185]
-X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SHFDAG1NODE2.st.com
- (10.75.129.70)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-07-22_01,2025-07-21_02,2025-03-28_01
+References: <20250708111806.3992-1-darren.ye@mediatek.com> <20250708111806.3992-2-darren.ye@mediatek.com>
+In-Reply-To: <20250708111806.3992-2-darren.ye@mediatek.com>
+From: Chen-Yu Tsai <wenst@chromium.org>
+Date: Tue, 22 Jul 2025 15:38:05 +0800
+X-Gm-Features: Ac12FXx-ybyxFVMO-dZm2uMvhIKao-9eybKP9nlbQtMW_02h967WNikXB-wqqjk
+Message-ID: <CAGXv+5HQcGiUnsaOxHz86Y8JxUHh6e0ypusFEBLKchNx3fqKBA@mail.gmail.com>
+Subject: Re: [PATCH v6 01/10] ASoC: mediatek: common: modify mtk afe platform
+ driver for mt8196
+To: "Darren.Ye" <darren.ye@mediatek.com>
+Cc: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Jaroslav Kysela <perex@perex.cz>, 
+	Takashi Iwai <tiwai@suse.com>, Linus Walleij <linus.walleij@linaro.org>, 
+	Bartosz Golaszewski <brgl@bgdev.pl>, linux-sound@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org, linux-gpio@vger.kernel.org, 
+	Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250722_083803_060941_4C812130 
-X-CRM114-Status: GOOD (  21.16  )
+X-CRM114-CacheID: sfid-20250722_003818_801363_0244054E 
+X-CRM114-Status: GOOD (  24.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,82 +100,142 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Rob,
+Hi,
 
-On 7/21/25 22:09, Rob Herring wrote:
-> On Fri, Jul 11, 2025 at 04:48:57PM +0200, Clément Le Goffic wrote:
->> Introduce as per jedec,lpddrX-channel binding, jdec,ddr[3-4]-channel
->> binding.
->>
->> Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
->> ---
->>   .../memory-controllers/ddr/jedec,ddr-channel.yaml  | 53 ++++++++++++++++++++++
->>   1 file changed, 53 insertions(+)
->>
->> diff --git a/Documentation/devicetree/bindings/memory-controllers/ddr/jedec,ddr-channel.yaml b/Documentation/devicetree/bindings/memory-controllers/ddr/jedec,ddr-channel.yaml
->> new file mode 100644
->> index 000000000000..31daa22bcd4a
->> --- /dev/null
->> +++ b/Documentation/devicetree/bindings/memory-controllers/ddr/jedec,ddr-channel.yaml
->> @@ -0,0 +1,53 @@
->> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
->> +%YAML 1.2
->> +---
->> +$id: http://devicetree.org/schemas/memory-controllers/ddr/jedec,ddr-channel.yaml#
->> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->> +
->> +title: DDR channel with chip/rank topology description
->> +
->> +description:
->> +  A DDR channel is a logical grouping of memory chips that are connected
->> +  to a host system. The main purpose of this node is to describe the
->> +  overall DDR topology of the system, including the amount of individual
->> +  DDR chips.
->> +
->> +maintainers:
->> +  - Clément Le Goffic <legoffic.clement@gmail.com>
->> +
->> +properties:
->> +  compatible:
->> +    enum:
->> +      - jedec,ddr3-channel
->> +      - jedec,ddr4-channel
->> +
->> +  io-width:
->> +    description:
->> +      The number of DQ pins in the channel. If this number is different
->> +      from (a multiple of) the io-width of the DDR chip, that means that
->> +      multiple instances of that type of chip are wired in parallel on this
->> +      channel (with the channel's DQ pins split up between the different
->> +      chips, and the CA, CS, etc. pins of the different chips all shorted
->> +      together).  This means that the total physical memory controlled by a
->> +      channel is equal to the sum of the densities of each rank on the
->> +      connected DDR chip, times the io-width of the channel divided by
->> +      the io-width of the DDR chip.
->> +    enum:
->> +      - 8
->> +      - 16
->> +      - 32
->> +      - 64
->> +      - 128
-> 
-> This is duplicating what's in jedec,lpddr-channel.yaml. Refactor or add
-> to it rather than duplicating.
+On Tue, Jul 8, 2025 at 7:33=E2=80=AFPM Darren.Ye <darren.ye@mediatek.com> w=
+rote:
+>
+> From: Darren Ye <darren.ye@mediatek.com>
+>
+> Mofify the pcm pointer interface to support 64-bit address access.
 
-Yes I wanted something unique as "jedec,lpddr-channel.yaml" is 
-specifically for lpddr.
-I think I'll refactor and rename it "jedec,memory-channel.yaml" so it is 
-more generic.
+  ^ Modify
 
-> Is there some reason regular DDR3/4 doesn't have ranks? I'm pretty sure
-> it can...
+And the subject should say the same, or shorter:
 
-Yes it does but I wasn't needing it and they are not required in case of 
-lpddr. It will be fixed by refactoring jedec,lpddr-channel.yaml binding.
+    Support 64-bit addresses in PCM pointer callback
 
-Best regards,
-Clément
+> Signed-off-by: Darren Ye <darren.ye@mediatek.com>
+> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collab=
+ora.com>
+> Tested-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+> ---
+>  .../mediatek/common/mtk-afe-platform-driver.c | 47 ++++++++++++-------
+>  .../mediatek/common/mtk-afe-platform-driver.h |  2 +
+>  2 files changed, 33 insertions(+), 16 deletions(-)
+>
+> diff --git a/sound/soc/mediatek/common/mtk-afe-platform-driver.c b/sound/=
+soc/mediatek/common/mtk-afe-platform-driver.c
+> index 70fd05d5ff48..cab4ef035199 100644
+> --- a/sound/soc/mediatek/common/mtk-afe-platform-driver.c
+> +++ b/sound/soc/mediatek/common/mtk-afe-platform-driver.c
+> @@ -86,29 +86,44 @@ snd_pcm_uframes_t mtk_afe_pcm_pointer(struct snd_soc_=
+component *component,
+>         const struct mtk_base_memif_data *memif_data =3D memif->data;
+>         struct regmap *regmap =3D afe->regmap;
+>         struct device *dev =3D afe->dev;
+> -       int reg_ofs_base =3D memif_data->reg_ofs_base;
+> -       int reg_ofs_cur =3D memif_data->reg_ofs_cur;
+> -       unsigned int hw_ptr =3D 0, hw_base =3D 0;
+> -       int ret, pcm_ptr_bytes;
+> -
+> -       ret =3D regmap_read(regmap, reg_ofs_cur, &hw_ptr);
+> -       if (ret || hw_ptr =3D=3D 0) {
+> -               dev_err(dev, "%s hw_ptr err\n", __func__);
+> -               pcm_ptr_bytes =3D 0;
+> +       unsigned int hw_ptr_lower32 =3D 0, hw_ptr_upper32 =3D 0;
+> +       unsigned int hw_base_lower32 =3D 0, hw_base_upper32 =3D 0;
+> +       unsigned long long hw_ptr =3D 0, hw_base =3D 0;
+> +       int ret;
+> +       unsigned long long pcm_ptr_bytes =3D 0;
+> +
+> +       ret =3D regmap_read(regmap, memif_data->reg_ofs_cur, &hw_ptr_lowe=
+r32);
+> +       if (ret || hw_ptr_lower32 =3D=3D 0) {
+
+I'm not sure how the hardware is, but I think hw_ptr_lower32 =3D=3D 0
+should no longer be a failure, since it could be 0x100000000 or
+some other address with the lower 32-bits all zero. Instead the
+check should be done once the addresses are put together.
+
+> +               dev_err(dev, "%s hw_ptr_lower32 err\n", __func__);
+>                 goto POINTER_RETURN_FRAMES;
+
+This is out of scope, but maybe this should just return zero directly
+to simplify reading.
+
+>         }
+>
+> -       ret =3D regmap_read(regmap, reg_ofs_base, &hw_base);
+> -       if (ret || hw_base =3D=3D 0) {
+> -               dev_err(dev, "%s hw_ptr err\n", __func__);
+> -               pcm_ptr_bytes =3D 0;
+> -               goto POINTER_RETURN_FRAMES;
+> +       if (memif_data->reg_ofs_cur_msb) {
+> +               ret =3D regmap_read(regmap, memif_data->reg_ofs_cur_msb, =
+&hw_ptr_upper32);
+> +               if (ret) {
+> +                       dev_err(dev, "%s hw_ptr_upper32 err\n", __func__)=
+;
+> +                       goto POINTER_RETURN_FRAMES;
+> +               }
+>         }
+>
+> -       pcm_ptr_bytes =3D hw_ptr - hw_base;
+> +       ret =3D regmap_read(regmap, memif_data->reg_ofs_base, &hw_base_lo=
+wer32);
+> +       if (ret || hw_base_lower32 =3D=3D 0) {
+
+Same here.
+
+> +               dev_err(dev, "%s hw_base_lower32 err\n", __func__);
+> +               goto POINTER_RETURN_FRAMES;
+> +       }
+> +       if (memif_data->reg_ofs_base_msb) {
+> +               ret =3D regmap_read(regmap, memif_data->reg_ofs_base_msb,=
+ &hw_base_upper32);
+> +               if (ret) {
+> +                       dev_err(dev, "%s hw_base_upper32 err\n", __func__=
+);
+> +                       goto POINTER_RETURN_FRAMES;
+> +               }
+> +       }
+> +       hw_ptr =3D ((unsigned long long)hw_ptr_upper32 << 32) + hw_ptr_lo=
+wer32;
+> +       hw_base =3D ((unsigned long long)hw_base_upper32 << 32) + hw_base=
+_lower32;
+
+Instead the check should be here. And to follow the original logic,
+if either pointer value is zero, the function should return zero here
+directly.
 
 
+ChenYu
 
+>  POINTER_RETURN_FRAMES:
+> -       return bytes_to_frames(substream->runtime, pcm_ptr_bytes);
+> +       pcm_ptr_bytes =3D MTK_ALIGN_16BYTES(hw_ptr - hw_base);
+> +       return bytes_to_frames(substream->runtime, (ssize_t)pcm_ptr_bytes=
+);
+>  }
+>  EXPORT_SYMBOL_GPL(mtk_afe_pcm_pointer);
+>
+> diff --git a/sound/soc/mediatek/common/mtk-afe-platform-driver.h b/sound/=
+soc/mediatek/common/mtk-afe-platform-driver.h
+> index fcc923b88f12..71070b26f8f8 100644
+> --- a/sound/soc/mediatek/common/mtk-afe-platform-driver.h
+> +++ b/sound/soc/mediatek/common/mtk-afe-platform-driver.h
+> @@ -12,6 +12,8 @@
+>  #define AFE_PCM_NAME "mtk-afe-pcm"
+>  extern const struct snd_soc_component_driver mtk_afe_pcm_platform;
+>
+> +#define MTK_ALIGN_16BYTES(x) ((x) & GENMASK_ULL(39, 4))
+> +
+>  struct mtk_base_afe;
+>  struct snd_pcm;
+>  struct snd_soc_component;
+> --
+> 2.45.2
+>
+>
 
