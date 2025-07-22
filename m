@@ -4,64 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B1F0C83F25
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 02:25:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4669CC83F25
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 02:28:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rnddjr1TA6eWUS4Z0+c9ZMpNcvutQ6Idh5vDJofAMV4=; b=rJvMB8D+c/9z+yJXWsELnCKjOI
-	Q4oWsvaO4/A9kKQD05/OFKE5qFTsFH8HM3pf3AhLAEAjghcV+7rU9VLRF6HtRDiupimK1eJ4euzOb
-	xb4Sb6Hhcc+gjErkqGplSutBQo2XErkCZYbaYl+17McEUX0M45qrZe6jG+dFJnO5SpMjGOuA4bCf1
-	d3K1veY5zZTQoUQU4oK76aA63pmVXmfHyIFiSSvRc0AheCcdo1ttTzNtjwNILt7AY5TdgYvd/RYrK
-	GjcoGI3+0qPEZ9dRgobenpGZq5+tqC2DupeJ1h6uCJjdwMWM3kgClzzyzhc5bjWa2vseQqRO33w44
-	c1g9pA3Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:
+	Content-Type:Content-Transfer-Encoding:References:In-Reply-To:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wmgjnn0LAOZvIo5oEmrzZfWX39RXEORohD/jyIPrn/k=; b=lgHwmVxk6YJDTVBK37PKJ8DEAD
+	ERgyx3u71jP26UUcqRI4FCuI8PfzTXKl/7CZFb/3HjWhoZ8morgnibJgBvB46XprOVCdK2fT5AGmJ
+	dSMEEWY4tsV7ihn910NqIHMwuiHqcWZtzq1Ru0KSR/ggslbzmw6/OSFCvJdrVIfkHSZr76WNs3TYW
+	P7XiGDBkZ7nFQeAQm4kHWR8LP7UGxB72urdazaa2e6IeRbmpAd/dKyZi0SzTWpa8DGbocLPnFopyD
+	vjO7MHw3LlcpL2PCfmkmoPWHwmjS0inZA37DyVJ23c7EvkIdOOMcNqLhmO2t+tj6/TQxR8i5caMAn
+	QfkKcTzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ue2gk-000000015zg-2CST;
-	Tue, 22 Jul 2025 02:25:06 +0000
-Received: from out30-99.freemail.mail.aliyun.com ([115.124.30.99])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ue2eE-000000015lm-3zHA
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Jul 2025 02:22:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1753150947; h=Date:From:To:Subject:Message-ID:MIME-Version:Content-Type;
-	bh=rnddjr1TA6eWUS4Z0+c9ZMpNcvutQ6Idh5vDJofAMV4=;
-	b=NYydIyw+h0Efb4xeksI1MwNI9i8Y+FVFfwE729kHrzJZEUV9/FY/fnq6pjfKz/b5o1UFKxmrNn9YEPsrh7wlFj1MUq9/KRhk0DEpVKyRx8fH0czaT3EJmeqQGpi4aVitS/N5oZvoLA1P5zVoPUIOPyx9lHXDkblMeijCqlWzLTg=
-Received: from localhost(mailfrom:yaoyuan@linux.alibaba.com fp:SMTPD_---0WjTxcb9_1753150945 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Tue, 22 Jul 2025 10:22:26 +0800
-Date: Tue, 22 Jul 2025 10:22:25 +0800
-From: Yao Yuan <yaoyuan@linux.alibaba.com>
-To: Keir Fraser <keirf@google.com>
-Cc: Yao Yuan <yaoyuan0329os@gmail.com>, 
-	Sean Christopherson <seanjc@google.com>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, kvm@vger.kernel.org, Eric Auger <eric.auger@redhat.com>, 
-	Oliver Upton <oliver.upton@linux.dev>, Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>, 
-	Paolo Bonzini <pbonzini@redhat.com>
-Subject: Re: [PATCH v2 2/4] KVM: arm64: vgic: Explicitly implement
- vgic_dist::ready ordering
-Message-ID: <icgg7uqbhoj674wjhngwf3svbvikofjgubtgcua64epaf4kxil@oyjyydk7asxp>
-References: <20250716110737.2513665-1-keirf@google.com>
- <20250716110737.2513665-3-keirf@google.com>
- <kb7nwrco6s7e6catcareyic72pxvx52jbqbfc5gbqb5zu434kg@w3rrzbut3h34>
- <aHphgd0fOjHXjPCI@google.com>
- <5zpxxmymnyzncdnewdonnglvmvbtggjyxyqvkf6yars2bbyr4b@gottasrtoq2s>
- <aHtQG_k_1q3862s3@google.com>
- <4i65mgp4rtfox2ttchamijofcmwjtd6sefmuhdkfdrjwaznhoc@2uhcfv2ziegj>
- <aH3w9t78dvxsDjhV@google.com>
- <lb3i3h2rwq3kvm6tqoiiyrqcpqe2ctxcwmapgifii3dzqzfuqh@eqcqeudpfjlg>
+	id 1ue2jZ-000000016AE-1F7a;
+	Tue, 22 Jul 2025 02:28:01 +0000
+Received: from m16.mail.163.com ([220.197.31.3])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ue2h5-00000001624-3EvB;
+	Tue, 22 Jul 2025 02:25:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=Date:From:To:Subject:Content-Type:MIME-Version:
+	Message-ID; bh=F3/1wngqX+Wu+6lJd15onh+YsYAHkVuHju6ffWNz/Ys=; b=N
+	60RubnKQTQSyjckW9X7NJikEvhIHYF86Z27XDEWwqgdtE9jVCzgMgzgI4hKTpVkc
+	WCB+GNRiZ71hhLoMkUvI+XWolCanQxiaOimPKmVF837NM3k8yAIjHdyJmMlHK3gO
+	116V6irr/FcNutrxFjXml0GpZGFB4ju657cmd/3BZs=
+Received: from andyshrk$163.com ( [58.22.7.114] ) by
+ ajax-webmail-wmsvr-40-106 (Coremail) ; Tue, 22 Jul 2025 10:24:41 +0800
+ (CST)
+X-Originating-IP: [58.22.7.114]
+Date: Tue, 22 Jul 2025 10:24:41 +0800 (CST)
+From: "Andy Yan" <andyshrk@163.com>
+To: "Cristian Ciocaltea" <cristian.ciocaltea@collabora.com>,
+	"Algea Cao" <algea.cao@rock-chips.com>
+Cc: "Sandy Huang" <hjc@rock-chips.com>,
+	=?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
+	"Andy Yan" <andy.yan@rock-chips.com>,
+	"Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>,
+	"Maxime Ripard" <mripard@kernel.org>,
+	"Thomas Zimmermann" <tzimmermann@suse.de>,
+	"David Airlie" <airlied@gmail.com>,
+	"Simona Vetter" <simona@ffwll.ch>,
+	"Andrzej Hajda" <andrzej.hajda@intel.com>,
+	"Neil Armstrong" <neil.armstrong@linaro.org>,
+	"Robert Foss" <rfoss@kernel.org>,
+	"Laurent Pinchart" <Laurent.pinchart@ideasonboard.com>,
+	"Jonas Karlman" <jonas@kwiboo.se>,
+	"Jernej Skrabec" <jernej.skrabec@gmail.com>, kernel@collabora.com,
+	dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re:[PATCH 1/5] drm/rockchip: vop2: Add high color depth support
+X-Priority: 3
+X-Mailer: Coremail Webmail Server Version XT5.0.14 build 20250519(9504565a)
+ Copyright (c) 2002-2025 www.mailtech.cn 163com
+In-Reply-To: <20250721-rk3588-10bpc-v1-1-e95a4abcf482@collabora.com>
+References: <20250721-rk3588-10bpc-v1-0-e95a4abcf482@collabora.com>
+ <20250721-rk3588-10bpc-v1-1-e95a4abcf482@collabora.com>
+X-NTES-SC: AL_Qu2eAf2evkgj5yOeYukfmUkTh+o2Xca5uf0j3YBWOZh+jCDp+QI/WUd7PHfV+c6FAj2WqyCvXhFv2v9ITLdpdJIwTpaeYzlfUPg8tbtiKtr9eA==
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset=UTF-8
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <lb3i3h2rwq3kvm6tqoiiyrqcpqe2ctxcwmapgifii3dzqzfuqh@eqcqeudpfjlg>
+Message-ID: <3ceb2c70.2145.1982ff28b9c.Coremail.andyshrk@163.com>
+X-Coremail-Locale: zh_CN
+X-CM-TRANSID: aigvCgD3V1dp9n5ohpQDAA--.33785W
+X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/xtbB0huSXmh+8qp0lQABsr
+X-Coremail-Antispam: 1U5529EdanIXcx71UUUUU7vcSsGvfC2KfnxnUU==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250721_192231_644895_3D787EF7 
-X-CRM114-Status: GOOD (  45.36  )
+X-CRM114-CacheID: sfid-20250721_192528_115272_AE9D4259 
+X-CRM114-Status: UNSURE (   6.41  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,110 +91,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 22, 2025 at 10:01:27AM +0800, Yao Yuan wrote:
-> On Mon, Jul 21, 2025 at 07:49:10AM +0800, Keir Fraser wrote:
-> > On Sun, Jul 20, 2025 at 08:08:30AM +0800, Yao Yuan wrote:
-> > > On Sat, Jul 19, 2025 at 07:58:19AM +0000, Keir Fraser wrote:
-> > > > On Sat, Jul 19, 2025 at 10:15:56AM +0800, Yao Yuan wrote:
-> > > > > On Fri, Jul 18, 2025 at 08:00:17AM -0700, Sean Christopherson wrote:
-> > > > > > On Thu, Jul 17, 2025, Yao Yuan wrote:
-> > > > > > > On Wed, Jul 16, 2025 at 11:07:35AM +0800, Keir Fraser wrote:
-> > > > > > > > In preparation to remove synchronize_srcu() from MMIO registration,
-> > > > > > > > remove the distributor's dependency on this implicit barrier by
-> > > > > > > > direct acquire-release synchronization on the flag write and its
-> > > > > > > > lock-free check.
-> > > > > > > >
-> > > > > > > > Signed-off-by: Keir Fraser <keirf@google.com>
-> > > > > > > > ---
-> > > > > > > >  arch/arm64/kvm/vgic/vgic-init.c | 11 ++---------
-> > > > > > > >  1 file changed, 2 insertions(+), 9 deletions(-)
-> > > > > > > >
-> > > > > > > > diff --git a/arch/arm64/kvm/vgic/vgic-init.c b/arch/arm64/kvm/vgic/vgic-init.c
-> > > > > > > > index 502b65049703..bc83672e461b 100644
-> > > > > > > > --- a/arch/arm64/kvm/vgic/vgic-init.c
-> > > > > > > > +++ b/arch/arm64/kvm/vgic/vgic-init.c
-> > > > > > > > @@ -567,7 +567,7 @@ int kvm_vgic_map_resources(struct kvm *kvm)
-> > > > > > > >  	gpa_t dist_base;
-> > > > > > > >  	int ret = 0;
-> > > > > > > >
-> > > > > > > > -	if (likely(dist->ready))
-> > > > > > > > +	if (likely(smp_load_acquire(&dist->ready)))
-> > > > > > > >  		return 0;
-> > > > > > > >
-> > > > > > > >  	mutex_lock(&kvm->slots_lock);
-> > > > > > > > @@ -598,14 +598,7 @@ int kvm_vgic_map_resources(struct kvm *kvm)
-> > > > > > > >  		goto out_slots;
-> > > > > > > >  	}
-> > > > > > > >
-> > > > > > > > -	/*
-> > > > > > > > -	 * kvm_io_bus_register_dev() guarantees all readers see the new MMIO
-> > > > > > > > -	 * registration before returning through synchronize_srcu(), which also
-> > > > > > > > -	 * implies a full memory barrier. As such, marking the distributor as
-> > > > > > > > -	 * 'ready' here is guaranteed to be ordered after all vCPUs having seen
-> > > > > > > > -	 * a completely configured distributor.
-> > > > > > > > -	 */
-> > > > > > > > -	dist->ready = true;
-> > > > > > > > +	smp_store_release(&dist->ready, true);
-> > > > > > >
-> > > > > > > No need the store-release and load-acquire for replacing
-> > > > > > > synchronize_srcu_expedited() w/ call_srcu() IIUC:
-> > > > > >
-> > > > > > This isn't about using call_srcu(), because it's not actually about kvm->buses.
-> > > > > > This code is concerned with ensuring that all stores to kvm->arch.vgic are ordered
-> > > > > > before the store to set kvm->arch.vgic.ready, so that vCPUs never see "ready==true"
-> > > > > > with a half-baked distributor.
-> > > > > >
-> > > > > > In the current code, kvm_vgic_map_resources() relies on the synchronize_srcu() in
-> > > > > > kvm_io_bus_register_dev() to provide the ordering guarantees.  Switching to
-> > > > > > smp_store_release() + smp_load_acquire() removes the dependency on the
-> > > > > > synchronize_srcu() so that the synchronize_srcu() call can be safely removed.
-> > > > >
-> > > > > Yes, I understand this and agree with your point.
-> > > > >
-> > > > > Just for discusstion: I thought it should also work even w/o
-> > > > > introduce the load acqure + store release after switch to
-> > > > > call_srcu(): The smp_mb() in call_srcu() order the all store
-> > > > > to kvm->arch.vgic before store kvm->arch.vgic.ready in
-> > > > > current implementation.
-> > > >
-> > > > The load-acquire would still be required, to ensure that accesses to
-> > > > kvm->arch.vgic do not get reordered earlier than the lock-free check
-> > > > of kvm->arch.vgic.ready. Otherwise that CPU could see that the vgic is
-> > > > initialised, but then use speculated reads of uninitialised vgic state.
-> > > >
-> > >
-> > > Thanks for your explanation.
-> > >
-> > > I see. But there's "mutex_lock(&kvm->slot_lock);" before later
-> > > acccessing to the kvm->arch.vgic, so I think the order can be
-> > > guaranteed. Of cause as you said a explicitly acquire-load +
-> > > store-release is better than before implicitly implementation.
-> >
-> > If vgic_dist::ready is observed true by the lock-free read (the one
-> > which is turned into load-acquire by this patch) then the function
-> > immediately returns with no mutex_lock() executed. It is reads of
-> > vgic_dist *after* return from kvm_vgic_map_resources() that you have
-> > to worry about, and which require load-acquire semantics.
->
-> I think this is the main purpose of such lock-free reading
-> here, to avoid lock contention on VM w/ large vCPUs for
-> vcpus' first time run together.
->
-> store-release makes sure the changes to vgic_dist::ready
-> become visible after the changes to vgic_dist become
-> visible, but it doesn't guarantee the vgic_dist::ready
-> becomes visible to reader on aother CPU **IMMEDIATELY**,
-> thus load-acquire in reader side is request for this.
-> Is above understanding correct ?
-
-No. I get your point, the load-acuqire here for:
-
-There's code path that the cpu read the vgic_dist reorder
-before the vgic_dist::ready in case of the cpu get
-vgic_dist::ready is true w/o the load_acquire here.
-
->
-> >
-> > >
-> > > > > >
+CkhlbGxvIENyaXN0aWFu77yMCgpBdCAyMDI1LTA3LTIyIDAxOjM5OjA0LCAiQ3Jpc3RpYW4gQ2lv
+Y2FsdGVhIiA8Y3Jpc3RpYW4uY2lvY2FsdGVhQGNvbGxhYm9yYS5jb20+IHdyb3RlOgo+VGFrZSB0
+aGUgYml0cyBwZXIgY29sb3IgY2hhbm5lbCBpbnRvIGNvbnNpZGVyYXRpb24gd2hlbiBjb21wdXRp
+bmcgRENMSwo+cmF0ZS4KPgo+U2lnbmVkLW9mZi1ieTogQ3Jpc3RpYW4gQ2lvY2FsdGVhIDxjcmlz
+dGlhbi5jaW9jYWx0ZWFAY29sbGFib3JhLmNvbT4KPi0tLQo+IGRyaXZlcnMvZ3B1L2RybS9yb2Nr
+Y2hpcC9yb2NrY2hpcF9kcm1fdm9wMi5jIHwgMyArKysKPiAxIGZpbGUgY2hhbmdlZCwgMyBpbnNl
+cnRpb25zKCspCj4KPmRpZmYgLS1naXQgYS9kcml2ZXJzL2dwdS9kcm0vcm9ja2NoaXAvcm9ja2No
+aXBfZHJtX3ZvcDIuYyBiL2RyaXZlcnMvZ3B1L2RybS9yb2NrY2hpcC9yb2NrY2hpcF9kcm1fdm9w
+Mi5jCj5pbmRleCAxODZmNjQ1MmE3ZDM1OWYwNzk2NjJiYzU4MDg1MDkyOTYzMmVhOGZlLi5hNzE0
+YmNiYjAyZGUxNjI2N2U3ZmViYmFlYjFlYjI3MGM3MGFhZWYyIDEwMDY0NAo+LS0tIGEvZHJpdmVy
+cy9ncHUvZHJtL3JvY2tjaGlwL3JvY2tjaGlwX2RybV92b3AyLmMKPisrKyBiL2RyaXZlcnMvZ3B1
+L2RybS9yb2NrY2hpcC9yb2NrY2hpcF9kcm1fdm9wMi5jCj5AQCAtMTczMSw2ICsxNzMxLDkgQEAg
+c3RhdGljIHZvaWQgdm9wMl9jcnRjX2F0b21pY19lbmFibGUoc3RydWN0IGRybV9jcnRjICpjcnRj
+LAo+IAkJY2xvY2sgKj0gMjsKPiAJfQo+IAo+KwlpZiAodmNzdGF0ZS0+b3V0cHV0X2JwYyA+IDgp
+Cj4rCQljbG9jayA9IERJVl9ST1VORF9DTE9TRVNUKGNsb2NrICogdmNzdGF0ZS0+b3V0cHV0X2Jw
+YywgOCk7CgoKVGhpcyBzZWVtcyBub3QgcmlnaHQsICByZWdhcmRsZXNzIG9mIHRoZSB2YWx1ZSBv
+ZiBicGMsIHRoZSBkY2xrIG9mIFZPUCBtdXN0IGJlCmNvbnNpc3RlbnQgd2l0aCBtb2RlLT5jcnRj
+X2Nsb2NrLgpJZiB0aGUgZGNsayBvZiBWT1AgaXMgaW5jcmVhc2VkIGluIGFjY29yZGFuY2Ugd2l0
+aCB0aGUgQlBDIHJhdGlvIGhlcmUsIHRoZW4gdGhlIHJlZnJlc2ggcmF0ZSBvZiBWT1Agd2lsbCBh
+bHNvIGluY3JlYXNlIHByb3BvcnRpb25hbGx5LgpUaGlzIHdvdWxkIGJlIGluY29uc2lzdGVudCB3
+aXRoIHRoZSB0aW1pbmcgZGVzY3JpYmVkIGluIHRoZSBtb2RlLgpGb3IgYSBoaWdodCBjb2xvciBk
+ZXB0aCwgIHRoZSBmcmVxdWVuY3kgbmVlZHMgdG8gYmUgaW5jcmVhc2VkIGZvciB0aGUgSERNSSBQ
+SFkncyBjbG9jay4KCgo+Kwo+IAl2b3AyX3ZwX3dyaXRlKHZwLCBSSzM1NjhfVlBfTUlQSV9DVFJM
+LCAwKTsKPiAKPiAJLyoKPgo+LS0gCj4yLjUwLjAK
 
