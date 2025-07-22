@@ -4,72 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BC06C83F27
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 16:16:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2E59C83F27
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 16:19:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Kdf8X4J/jcert7Oy366J013o511ypI3G7B5H2prGBPQ=; b=JW22bEhY0oFYIPrfSXWumF0uM7
-	o8QjO39iSh38jDmKiMQgzcrmDug+8f1EzBLQ2riL7E8/EeEqwQr28lOeovcxgBRvE0GV6tQg0tQM4
-	zzDqmx6VUpskS2v+RF4A65urXiKVXrwhDGgTIl5tWjcYTxYbt8O73QgS5rwr/lSq82TV8JbbEsQnY
-	6exQRRf548vsKE+AShH+uIMYvNWGxqDt8XR7pCO/0bVY6Bilux66Y7vnZdjeLqkRdlrvBvI2DT+OL
-	Tn3bZelT06NIsQMFmM1vSetqJIhiJ4jbjjXa3ObJ0e5DbO+sEn/nK+FAZYZMddEHDrZ4ztVbTAT9/
-	KSuj64qQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xb8gow27XZB8mMI82InhQ+4PI5DXkeTP3ZBLLO0PSos=; b=U95H0wBnQCT8vY7pu7d+JD8M4t
+	1ua1E4+lXBRkls/CwO7gK4v6A1zPl9oaneNZVIUO5szLgZrGISolM6G2jdhX+lzco1TlYM/hf+bIe
+	tDL0HntkiCDPWUSuy8cucp/kv05nDs1rXrL0iNpPAY/xbkRhMCj2VgrEGXQEhTA6X/xzfAXVBxtBK
+	e8SURQKHYgQSLQsdxN3q6awch+BDhUBm/VJUKm9c0Qu7VdtCJrJ5JSLMtMYX1nRYMtx03okQma0yE
+	+68GiPuUNMyOfgCzqQ3hnI8VEMA1IKa0qh2vg4BdwpLRYI78BgMum+WqPPwSjDuyI1FIA7shje2CE
+	gp5sLGQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueFfP-00000002zb1-07yf;
-	Tue, 22 Jul 2025 16:16:35 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1ueFhs-00000002zx0-3cTX;
+	Tue, 22 Jul 2025 16:19:08 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueEWa-00000002oFj-296k
+	id 1ueEZY-00000002ohV-4BUd
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Jul 2025 15:03:25 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id AD6F6A56212;
-	Tue, 22 Jul 2025 15:03:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1AF76C4CEEB;
-	Tue, 22 Jul 2025 15:03:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753196603;
-	bh=kXPT0dANIkrJJY1VuefhAj1+pXyPTF/bsoGD7gD8RZQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=bxvFj3Ids7b5ooeDjHKGD+kxXcO/wCmcOJUTUv+9O4ljd/fMgmlBWSkkNk6lP+VH2
-	 Dv6d+/9uw7ecXZ4YTO3Kl036ISUbGBztHVqOYvF4Ap7a9napJt1E5bYBBiK403YiK6
-	 Gof5xNITzx1V4i7n1S8R/aFOqN9pgO7eAeO/IaT/oF6Kvy9d5iqY9IC350JAQEefF+
-	 Kg9ldnZreptFPNqnyT4Ooi7IgSxESJ2X3Im0QQsm9qL8rQNc/qUBx3MDQI5bz/yNA6
-	 0q33fmsR3m21zc+YxPqJSVT10XBF597UISvKN6EHl8SQA2v4MdZ32wvcue7R8Fv6p8
-	 JnnQhHwwj4otQ==
-Date: Tue, 22 Jul 2025 16:03:16 +0100
-From: Will Deacon <will@kernel.org>
-To: Per Larsen <perl@immunant.com>
-Cc: perlarsen@google.com, Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org, ahomescu@google.com,
-	armellel@google.com, arve@android.com, ayrton@google.com,
-	qperret@google.com, sebastianene@google.com, qwandor@google.com
-Subject: Re: [PATCH v7 5/5] KVM: arm64: Support FFA_MSG_SEND_DIRECT_REQ2 in
- host handler
-Message-ID: <aH-oNE4xTakicyC_@willie-the-truck>
-References: <20250701-virtio-msg-ffa-v7-0-995afc3d385e@google.com>
- <20250701-virtio-msg-ffa-v7-5-995afc3d385e@google.com>
- <aHpRvBO864x1vvqP@willie-the-truck>
- <25ba5929-79c0-40b8-b529-79a37914605d@immunant.com>
+	Tue, 22 Jul 2025 15:06:30 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.231])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4bmgY56zWsz6H7X6;
+	Tue, 22 Jul 2025 23:04:57 +0800 (CST)
+Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
+	by mail.maildlp.com (Postfix) with ESMTPS id 08056140446;
+	Tue, 22 Jul 2025 23:06:22 +0800 (CST)
+Received: from localhost (10.203.177.66) by frapeml500008.china.huawei.com
+ (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Tue, 22 Jul
+ 2025 17:06:20 +0200
+Date: Tue, 22 Jul 2025 16:06:18 +0100
+From: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+To: James Morse <james.morse@arm.com>
+CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	"Rob Herring" <robh@kernel.org>, Ben Horgan <ben.horgan@arm.com>, Rohit
+ Mathew <rohit.mathew@arm.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+	"Zeng Heng" <zengheng4@huawei.com>, Lecopzer Chen <lecopzerc@nvidia.com>,
+	"Carl Worth" <carl@os.amperecomputing.com>,
+	<shameerali.kolothum.thodi@huawei.com>, D Scott Phillips OS
+	<scott@os.amperecomputing.com>, <lcherian@marvell.com>,
+	<bobo.shaobowang@huawei.com>, <tan.shaopeng@fujitsu.com>,
+	<baolin.wang@linux.alibaba.com>, Jamie Iles <quic_jiles@quicinc.com>, Xin Hao
+	<xhao@linux.alibaba.com>, <peternewman@google.com>, <dfustini@baylibre.com>,
+	<amitsinght@marvell.com>, David Hildenbrand <david@redhat.com>, Rex Nie
+	<rex.nie@jaguarmicro.com>, Dave Martin <dave.martin@arm.com>, Koba Ko
+	<kobak@nvidia.com>
+Subject: Re: [RFC PATCH 25/36] arm_mpam: Register and enable IRQs
+Message-ID: <20250722160618.0000598f@huawei.com>
+In-Reply-To: <20250711183648.30766-26-james.morse@arm.com>
+References: <20250711183648.30766-1-james.morse@arm.com>
+	<20250711183648.30766-26-james.morse@arm.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <25ba5929-79c0-40b8-b529-79a37914605d@immunant.com>
+Content-Type: text/plain; charset="US-ASCII"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.203.177.66]
+X-ClientProxiedBy: lhrpeml500005.china.huawei.com (7.191.163.240) To
+ frapeml500008.china.huawei.com (7.182.85.71)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250722_080324_680499_B33B388F 
-X-CRM114-Status: GOOD (  31.85  )
+X-CRM114-CacheID: sfid-20250722_080629_322648_A0EDDF57 
+X-CRM114-Status: GOOD (  19.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,76 +82,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 21, 2025 at 03:43:42PM -0700, Per Larsen wrote:
+On Fri, 11 Jul 2025 18:36:37 +0000
+James Morse <james.morse@arm.com> wrote:
+
+> Register and enable error IRQs. All the MPAM error interrupts indicate a
+> software bug, e.g. out of range partid. If the error interrupt is ever
+> signalled, attempt to disable MPAM.
 > 
+> Only the irq handler accesses the ESR register, so no locking is needed.
+> The work to disable MPAM after an error needs to happen at process
+> context, use a threaded interrupt.
 > 
-> On 7/18/25 6:53 AM, Will Deacon wrote:
-> > On Tue, Jul 01, 2025 at 10:06:38PM +0000, Per Larsen via B4 Relay wrote:
-> > > From: Per Larsen <perlarsen@google.com>
-> > > 
-> > > FF-A 1.2 adds the DIRECT_REQ2 messaging interface which is similar to
-> > > the existing FFA_MSG_SEND_DIRECT_{REQ,RESP} functions except that it
-> > > uses the SMC calling convention v1.2 which allows calls to use x4-x17 as
-> > > argument and return registers. Add support for FFA_MSG_SEND_DIRECT_REQ2
-> > > in the host ffa handler.
-> > > 
-> > > Signed-off-by: Per Larsen <perlarsen@google.com>
-> > > ---
-> > >   arch/arm64/kvm/hyp/nvhe/ffa.c | 24 +++++++++++++++++++++++-
-> > >   include/linux/arm_ffa.h       |  2 ++
-> > >   2 files changed, 25 insertions(+), 1 deletion(-)
-> > > 
-> > > diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
-> > > index 79d834120a3f3d26e17e9170c60012b60c6f5a5e..21225988a9365219ccfd69e8e599d7403b5cdf05 100644
-> > > --- a/arch/arm64/kvm/hyp/nvhe/ffa.c
-> > > +++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
-> > > @@ -679,7 +679,6 @@ static bool ffa_call_supported(u64 func_id)
-> > >   	case FFA_NOTIFICATION_GET:
-> > >   	case FFA_NOTIFICATION_INFO_GET:
-> > >   	/* Optional interfaces added in FF-A 1.2 */
-> > > -	case FFA_MSG_SEND_DIRECT_REQ2:		/* Optional per 7.5.1 */
-> > 
-> > I think that's the only change needed. In fact, maybe just don't add it
-> > in the earlier patch?
-> > 
-> > >   	case FFA_MSG_SEND_DIRECT_RESP2:		/* Optional per 7.5.1 */
-> > >   	case FFA_CONSOLE_LOG:			/* Optional per 13.1: not in Table 13.1 */
-> > >   	case FFA_PARTITION_INFO_GET_REGS:	/* Optional for virtual instances per 13.1 */
-> > > @@ -862,6 +861,22 @@ static void do_ffa_part_get(struct arm_smccc_1_2_regs *res,
-> > >   	hyp_spin_unlock(&host_buffers.lock);
-> > >   }
-> > > +static void do_ffa_direct_msg2(struct arm_smccc_1_2_regs *regs,
-> > > +			       struct kvm_cpu_context *ctxt,
-> > > +			       u64 vm_handle)
-> > > +{
-> > > +	DECLARE_REG(u32, endp, ctxt, 1);
-> > > +
-> > > +	struct arm_smccc_1_2_regs *args = (void *)&ctxt->regs.regs[0];
-> > > +
-> > > +	if (FIELD_GET(FFA_SRC_ENDPOINT_MASK, endp) != vm_handle) {
-> > > +		ffa_to_smccc_error(regs, FFA_RET_INVALID_PARAMETERS);
-> > > +		return;
-> > > +	}
-> > 
-> > Why do we care about checking the src id? We don't check that for
-> > FFA_MSG_SEND_DIRECT_REQ and I don't think we need to care about it here
-> > either.
-> FFA_MSG_SEND_DIRECT_REQ is handled by do_ffa_direct_msg [0] (in the android
-> common kernels, I'm not aware of efforts to upstream this).
->
-> I patterned the check in do_ffa_direct_msg2 off the checking done in
-> do_ffa_direct_msg. I pressume your reasoning is that this check can
-> never fail since we pass in HOST_FFA_ID in kvm_host_ffa_handler. My
-> thinking was that we do need to validate the source ID once we start
-> using this function for requests that come from a guest VM. I could
-> of course add the check in an android-specific patch, WDYT is best?
+> There is no support for percpu threaded interrupts, for now schedule
+> the work to be done from the irq handler.
+> 
+> Enabling the IRQs in the MSC may involve cross calling to a CPU that
+> can access the MSC.
+> 
+> CC: Rohit Mathew <rohit.mathew@arm.com>
+> Tested-by: Rohit Mathew <rohit.mathew@arm.com>
+> Signed-off-by: James Morse <james.morse@arm.com>
+Sparse gives an imbalance warning in mpam_register_irqs()
 
-As long as upstream only has one ID for the whole of non-secure, I don't
-think it makes sense to check it. So either we drop this patch or teach
-upstream about different IDs, which is probably a separate series.
+> +static int mpam_register_irqs(void)
+> +{
+> +	int err, irq, idx;
+> +	struct mpam_msc *msc;
+> +
+> +	lockdep_assert_cpus_held();
+> +
+> +	idx = srcu_read_lock(&mpam_srcu);
+> +	list_for_each_entry_srcu(msc, &mpam_all_msc, glbl_list, srcu_read_lock_held(&mpam_srcu)) {
+> +		irq = platform_get_irq_byname_optional(msc->pdev, "error");
+> +		if (irq <= 0)
+> +			continue;
+> +
+> +		/* The MPAM spec says the interrupt can be SPI, PPI or LPI */
+> +		/* We anticipate sharing the interrupt with other MSCs */
+> +		if (irq_is_percpu(irq)) {
+> +			err = request_percpu_irq(irq, &mpam_ppi_handler,
+> +						 "mpam:msc:error",
+> +						 msc->error_dev_id);
+> +			if (err)
+> +				return err;
 
-What I want to avoid is upstream becoming a frankenkernel comprised of
-random parts of Android that don't make sense in isolation.
+Looks like the srcu_read_lock is still held.
 
-Will
+There is a DEFINE_LOCK_GUARD_1() in srcu.h so you can do
+
+	guard(srcu)(&mpam_srcu, idx);
+
+I think and not worry about releasing it in errors or the good path.
+
+> +
+> +			msc->reenable_error_ppi = irq;
+> +			smp_call_function_many(&msc->accessibility,
+> +					       &_enable_percpu_irq, &irq,
+> +					       true);
+> +		} else {
+> +			err = devm_request_threaded_irq(&msc->pdev->dev, irq,
+> +							&mpam_spi_handler,
+> +							&mpam_disable_thread,
+> +							IRQF_SHARED,
+> +							"mpam:msc:error", msc);
+> +			if (err)
+> +				return err;
+> +		}
+> +
+> +		msc->error_irq_requested = true;
+> +		mpam_touch_msc(msc, mpam_enable_msc_ecr, msc);
+> +		msc->error_irq_hw_enabled = true;
+> +	}
+> +	srcu_read_unlock(&mpam_srcu, idx);
+> +
+> +	return 0;
+> +}
 
