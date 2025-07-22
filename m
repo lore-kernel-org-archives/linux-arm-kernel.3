@@ -4,90 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45918C83F27
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 09:29:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FC14C83F25
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 09:32:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xnES4CkHik4n+XCGU7bJoql3BaxRdweXbLtakclHrz4=; b=2fDiIynC92fxTxR03jnd1SKZHD
-	3mHK/RrSA3sX8PJ8IVTMFFaf4W6bAgxFIM88bnhkVGj/KWHQfOknA83MBCq10fwF0eSvCmCjP2OKK
-	w8zx94jJjONQLsY1xyl7ygDpBL4VanZNIW/sbYZyRbtLGXnlYXLVCa4pDzZbUpsWqwoh7O3pfciMB
-	NdpSjfg5QWKQqVXnvmcV6FCw8WrSrk1zJS2J+QPpwPcXevrgrxKJnz9mwyczkBdsDDJMI94m71VZI
-	d9ebowYYDXXTwYvbhwzb6zOIcM6kkMbvhF1V7cHf8KC+awKcoiP31taBASzg+ex0IAS/zKEJkHWGH
-	fAlqixbw==;
+	bh=wMXbMf5qgozOolSCgikP3V4rvJ/9Vyx9zQpEEleuu3A=; b=t8j8pQtp3MmA6YG4TfS7QUlT/t
+	rjyiZhOY0D4ZvrVKUmVvFIf+LkQsZVesgZxJd+oH+bNPAO63EcfoVcuOmonyrhSQo7IbFk0t3UNXm
+	ORs4IxNSshNQYJrwJuE/yGuid4xBEkFdAxYHcYd0WxuATDVoNYb84AYXrQ5VJzfM63xiyJ04R0eHt
+	mmz5TcdHYy4O+ZmeGGb73ZvBE6FU6+xoVWOx8jrFvFkoED2n7AFWQ1tx/eWHd+tx4odifWmP+VHsK
+	WNvdknE5NrBaa7698wv7zOSCHbGtEeuDpJXerSBpIgd6ZHNX++dF8v+L1mVhtLdUXRszv1KP0hn0b
+	MbTIa3Jg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ue9JW-0000000217U-2nQm;
-	Tue, 22 Jul 2025 09:29:34 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ue94e-00000001xvO-2Cu6
+	id 1ue9Lx-000000021Ln-1l7b;
+	Tue, 22 Jul 2025 09:32:05 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ue94u-00000001xyp-0pz1
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Jul 2025 09:14:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=xnES4CkHik4n+XCGU7bJoql3BaxRdweXbLtakclHrz4=; b=u/nfxHQbWSa54l6Q24jW2OAPoX
-	6Yj4+uH0hBvTF+kb6dENrFod4oSsYqikrJzzCEzGxBoEtih/Zm5LtJDHAZz3mPqIYIyTZbZC9AVts
-	FJgoWVYUEL3EqlXJthKYUSxUQadSpYz9xqY5TxZha6h/I5HPyPMMdU9YzX96ch9JsIWpPGG2XI/mh
-	rTntgtN0DsVjmK1lSXDYXlUc8IdGkV68hmBuwOltT9+ymQhFFnlomQHoapJWhQ19w1VhArh0+OsC6
-	PAOLE2tr9DgBWoaryTp/9sVO06DPoEhKUEZYZdVabSXOt3rgWY/yjJCERjHz+n+XhKh8UP53zYLtJ
-	cFjESOiw==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:36626)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1ue94M-00088E-02;
-	Tue, 22 Jul 2025 10:13:54 +0100
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1ue94H-00072H-35;
-	Tue, 22 Jul 2025 10:13:49 +0100
-Date: Tue, 22 Jul 2025 10:13:49 +0100
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Gatien CHEVALLIER <gatien.chevallier@foss.st.com>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
+	Tue, 22 Jul 2025 09:14:29 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E237F152B;
+	Tue, 22 Jul 2025 02:14:21 -0700 (PDT)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 002423F66E;
+	Tue, 22 Jul 2025 02:14:26 -0700 (PDT)
+Date: Tue, 22 Jul 2025 10:14:25 +0100
+From: Leo Yan <leo.yan@arm.com>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: Mao Jinlong <quic_jinlmao@quicinc.com>,
+	Mike Leach <mike.leach@linaro.org>,
+	James Clark <james.clark@linaro.org>, Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Christophe Roullier <christophe.roullier@foss.st.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Simon Horman <horms@kernel.org>,
-	Tristram Ha <Tristram.Ha@microchip.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	netdev@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net-next 1/4] dt-bindings: net: document st,phy-wol
- property
-Message-ID: <aH9WTYwty-tso66J@shell.armlinux.org.uk>
-References: <20250721-wol-smsc-phy-v1-0-89d262812dba@foss.st.com>
- <20250721-wol-smsc-phy-v1-1-89d262812dba@foss.st.com>
- <faea23d5-9d5d-4fbb-9c6a-a7bc38c04866@kernel.org>
- <f5c4bb6d-4ff1-4dc1-9d27-3bb1e26437e3@foss.st.com>
- <e3c99bdb-649a-4652-9f34-19b902ba34c1@lunn.ch>
- <38278e2a-5a1b-4908-907e-7d45a08ea3b7@foss.st.com>
- <5b8608cb-1369-4638-9cda-1cf90412fc0f@lunn.ch>
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Yingchao Deng <quic_yingdeng@quicinc.com>,
+	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org
+Subject: Re: [PATCH v3 1/2] dt-bindings: arm: Add Qualcomm extended CTI
+Message-ID: <20250722091425.GH3137075@e132581.arm.com>
+References: <20250722081405.2947294-1-quic_jinlmao@quicinc.com>
+ <20250722081405.2947294-2-quic_jinlmao@quicinc.com>
+ <727fa9f4-fe25-495e-9d8d-48e504fbe6b0@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <5b8608cb-1369-4638-9cda-1cf90412fc0f@lunn.ch>
+In-Reply-To: <727fa9f4-fe25-495e-9d8d-48e504fbe6b0@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250722_021412_605009_0934B858 
-X-CRM114-Status: GOOD (  31.67  )
+X-CRM114-CacheID: sfid-20250722_021428_280524_A11F05FC 
+X-CRM114-Status: GOOD (  19.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,68 +72,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 21, 2025 at 07:07:11PM +0200, Andrew Lunn wrote:
-> > Regarding this property, somewhat similar to "mediatek,mac-wol",
-> > I need to position a flag at the mac driver level. I thought I'd go
-> > using the same approach.
+On Tue, Jul 22, 2025 at 09:49:28AM +0100, Suzuki Kuruppassery Poulose wrote:
+> On 22/07/2025 09:14, Mao Jinlong wrote:
+> > From: Yingchao Deng <quic_yingdeng@quicinc.com>
+> > 
+> > Add Qualcomm extended CTI support in CTI binding file. Qualcomm
+> > extended CTI supports up to 128 triggers.
+> > 
+> > Signed-off-by: Yingchao Deng <quic_yingdeng@quicinc.com>
+> > Signed-off-by: Mao Jinlong <quic_jinlmao@quicinc.com>
+> > ---
+> >   Documentation/devicetree/bindings/arm/arm,coresight-cti.yaml | 4 +++-
+> >   1 file changed, 3 insertions(+), 1 deletion(-)
+> > 
+> > diff --git a/Documentation/devicetree/bindings/arm/arm,coresight-cti.yaml b/Documentation/devicetree/bindings/arm/arm,coresight-cti.yaml
+> > index 2d5545a2b49c..1aa27461f5bc 100644
+> > --- a/Documentation/devicetree/bindings/arm/arm,coresight-cti.yaml
+> > +++ b/Documentation/devicetree/bindings/arm/arm,coresight-cti.yaml
+> > @@ -84,7 +84,9 @@ properties:
+> >             - const: arm,coresight-cti
+> >             - const: arm,primecell
+> >         - items:
+> > -          - const: arm,coresight-cti-v8-arch
+> > +          - enum:
+> > +              - arm,coresight-cti-v8-arch
+> > +              - qcom,coresight-cti-extended
 > 
-> Ideally, you don't need such a flag. WoL should be done as low as
-> possible. If the PHY can do the WoL, the PHY should be used. If not,
-> fall back to MAC.
+> Why not call it qcom,coresight-cti ?
 > 
-> Many MAC drivers don't support this, or they get the implementation
-> wrong. So it could be you need to fix the MAC driver.
+> There are no other "qcom,coresight-cti", so "extended" is not required.
+> Is this specific to CPU (i.e., CPU bound) ?
+
+I roughly went through the second path. Combining two patches in this
+series, I am wandering if can directly check registers (e.g. PID/CID)
+to find CTI with qcom extension. If so, you do not need an extra DT
+binding, right?
+
+Thanks,
+Leo
+
+> Suzuki
 > 
-> MAC get_wol() should ask the PHY what it supports, and then OR in what
-> the MAC supports.
+> >             - const: arm,coresight-cti
+> >             - const: arm,primecell
 > 
-> When set_wol() is called, the MAC driver should ask the PHY driver to
-> do it. If it return 0, all is good, and the MAC driver can be
-> suspended when times comes. If the PHY driver returns EOPNOTSUPP, it
-> means it cannot support all the enabled WoL operations, so the MAC
-> driver needs to do some of them. The MAC driver then needs to ensure
-> it is not suspended.
-> 
-> If the PHY driver is missing the interrupt used to wake the system,
-> the get_wol() call should not return any supported WoL modes. The MAC
-> will then do WoL. Your "vendor,mac-wol" property is then pointless.
-> 
-> Correctly describe the PHY in DT, list the interrupt it uses for
-> waking the system.
-
-This would be a good idea if we were talking about a new PHY and MAC
-driver, but we aren't.
-
-Given the number of platform drivers that stmmac has with numerous
-PHY drivers, changing how this works _now_ will likely break current
-setups. Whether PHY-side WoL is used is dependent on a
-priv->plat->pmt flag which depends on MAC capabilties and also
-whether the platform glue sets/clears the STMMAC_FLAG_USE_PHY_WOL
-flag.
-
-Yes, it's a mess, and it could do with being improved, which will
-likely take considerable time to do to shake out any regressions
-caused - both in stmmac and PHY drivers.
-
-I bet there are _numerous_ PHY drivers that report and accept WoL
-even when the hardware isn't wired to support WoL. For example,
-AT8031 reports that it supports WAKE_KAGIC irrespective of whether
-WOL_INT is wired, and whether or not the INT pin is capable of
-waking the system. I don't think we have any way that a driver can
-determine whether a particular interrupt _can_ wake the system.
-
-The problem for stmmac is that the PHY driver may support WAKE_MAGIC,
-but so can the MAC core. If the PHY isn't electrically capable of
-waking the system for whatever reason, but the PHY driver still
-reports that it can (like AT803x) and we don't program the MAC core,
-then under your idea, WoL will no longer work.
-
-The only thing I can think we can now do is to have yet another
-STMMAC_FLAG_xxx which platform glue can set to enable a new behaviour.
-Yay, a driver with multiple different behaviours depending on flags
-for the same feature.
-
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+> _______________________________________________
+> CoreSight mailing list -- coresight@lists.linaro.org
+> To unsubscribe send an email to coresight-leave@lists.linaro.org
 
