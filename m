@@ -4,61 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2A46C83F25
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 01:17:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A48C6C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 01:34:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=IbtrKg/FwI2zyW7puEU3DT9rKVvustOl2IwtxnY+xWA=; b=p0D8stHHggdjrgK6VUtWYnl8Qj
-	NyEgDSiHEfYVpmTBAvIh42ZHx81iEmK3efb6McR1wA4wQjCh3VjFpHPl5GbCKgoUOJl4aYK/LVnrC
-	FRIb6UuoSIyPkLhvRmemUToyCK0ASKj0SVeIN3qMgpItw+T60V/l1rC5pSFQ/pM7qxMW6XxpFtCgq
-	xP8W2OvQEt0XC5KqCl26iKpbtw+Yorlpq+KqySPFPt5TZNzhbgXR7Lx3RK5k1sfmf55Pg3+hV10ot
-	Aq3b3SrOSCjZ7uS+U1+g3H1ZLCRgLmrfviCFjA9Er87z03Vok2xhUDWzuuA6ZS3J59kZLbz6LL5Gr
-	ZNTR5NRw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:To:From:
+	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=dCyFAUvoRleK2K0riYHFLR/do0dEHDRd7+3vCkIL4+U=; b=m1IpRK/IZd1rDy
+	q7RGXI6nXNAXIcXot6bPH8jljFn/WvWf7vlDeM5snwRoFnXpsjTyLKDxeEOPKCt6GSU790ln+B5GR
+	rw0fd6T3TA/zOL2810q9x8Fo9kvjd/hcMu7d6SJrp3BVy/DQ138/9BW0hHgNnA+oTffyU0g6Ma70T
+	eU7gOwfJCGU3io7tfoMuyV5SbZuEnTs8CHQGiFBgat3OI/RKWTKjLVE53UI22zrAhrAP6Cm7/HEB7
+	WTqGMsLVNAj7iqtaKEwu+8yVquoALVIVc/KfZTzGczN+FZBdLzqSOwh2kUaWgUpb/8bAxUJdZ5oqZ
+	EWntW9nFIpW/JEbJ+XDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ue1dE-000000010Qc-3h4m;
-	Tue, 22 Jul 2025 01:17:24 +0000
-Received: from mail.ozlabs.org ([2404:9400:2221:ea00::3])
+	id 1ue1tO-000000011KN-0JXL;
+	Tue, 22 Jul 2025 01:34:06 +0000
+Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ue1al-000000010JZ-23Dm
+	id 1ue1qs-00000001138-4BQI
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Jul 2025 01:14:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canb.auug.org.au;
-	s=202503; t=1753146732;
-	bh=IbtrKg/FwI2zyW7puEU3DT9rKVvustOl2IwtxnY+xWA=;
-	h=Date:From:To:Cc:Subject:From;
-	b=ZjVwWu9PU/v0TNnqSr2TGvOeNbGsYNMTBM7dKIrxH9Ydj3MXO+Lv579psaSUzkTkJ
-	 ZzdoXJvkdnyCL4Wv7t49oV2axlEAQ5emCMrCDg3IQ9NQ0pQc//CabamJ85rf16yR5W
-	 XOgHqHl1Fxa0VWBMUrty7+n0y2U/NHPw1QNfR7QctB/dCS8hsXdMAjkN/cNGWrNZEF
-	 e0hkqZKGHQzC4gLijM0rUxNF0t02AMEBe3qPae+7kspI+DuYzu8pNvsjtYr/SWgsSC
-	 onjszdIQrOUTTYbDgglq79WJLc6KF3Ltts+3d/KgFlje77vcTg2rKNkwjr/OuKz9bY
-	 ni3cfZlHbJIig==
-Received: from authenticated.ozlabs.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(Client did not present a certificate)
-	by mail.ozlabs.org (Postfix) with ESMTPSA id 4bmK4C6B6Cz4x11;
-	Tue, 22 Jul 2025 11:12:11 +1000 (AEST)
-Date: Tue, 22 Jul 2025 11:14:48 +1000
-From: Stephen Rothwell <sfr@canb.auug.org.au>
-To: Jassi Brar <jassisinghbrar@gmail.com>, Arnd Bergmann <arnd@arndb.de>
-Cc: ARM <linux-arm-kernel@lists.infradead.org>, Gary Yang
- <gary.yang@cixtech.com>, Guomin Chen <Guomin.Chen@cixtech.com>, Justin Chen
- <justin.chen@broadcom.com>, Lihua Liu <Lihua.Liu@cixtech.com>, Linux Kernel
- Mailing List <linux-kernel@vger.kernel.org>, Linux Next Mailing List
- <linux-next@vger.kernel.org>, Peter Chen <peter.chen@cixtech.com>
-Subject: linux-next: manual merge of the mailbox tree with the arc-soc tree
-Message-ID: <20250722111448.2426a159@canb.auug.org.au>
+	Tue, 22 Jul 2025 01:31:34 +0000
+Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Tue, 22 Jul
+ 2025 09:31:18 +0800
+Received: from mail.aspeedtech.com (192.168.10.13) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
+ Transport; Tue, 22 Jul 2025 09:31:18 +0800
+From: Jammy Huang <jammy_huang@aspeedtech.com>
+To: <jassisinghbrar@gmail.com>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+	<conor+dt@kernel.org>, <joel@jms.id.au>, <andrew@codeconstruct.com.au>,
+	<linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-aspeed@lists.ozlabs.org>
+Subject: [PATCH v7 0/2] ASPEED: Add mailbox driver for AST2700 series
+Date: Tue, 22 Jul 2025 09:31:15 +0800
+Message-ID: <20250722013117.2561025-1-jammy_huang@aspeedtech.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="Sig_/Z+.EPQLc.AK9CfzH83iy0fK";
- protocol="application/pgp-signature"; micalg=pgp-sha256
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250721_181451_954670_855E1EEA 
-X-CRM114-Status: GOOD (  17.78  )
+X-CRM114-CacheID: sfid-20250721_183131_038268_14622ABF 
+X-CRM114-Status: UNSURE (   9.38  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,96 +64,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---Sig_/Z+.EPQLc.AK9CfzH83iy0fK
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: quoted-printable
+Add mailbox controller driver for AST27XX SoCs, which provides
+independent tx/rx mailbox between different processors. There are 4
+channels for each tx/rx mailbox and each channel has an 32-byte FIFO.
 
-Hi all,
+ v7 changes:
+  - Update driver
+     1. clean for loop
 
-Today's linux-next merge of the mailbox tree got conflicts in:
+ v6 changes:
+  - Update document
+     1. Update description to preserve paragraphs.
+     2. Update for property, reg.
+     3. Add reg-names.
+     4. Add 'Reviewed-by' from Krok.
+  - Update driver
+     1. Use devm_platform_ioremap_resource_byname since we add reg-names now.
+     2. Update error code for ch not enabled. 
+ 
+ v5 changes:
+  - Update document
+     1. Separate reg from 1 to 2. 1st is tx controller; 2nd is rx.
+     2. Remove 'Reviewed-by' since the patch has changed.
+  - Update driver, no functional changes.
+     1. Update since there is 2 reg base now.
+     2. Refine reg definitions
+     3. Add spinlock to protect registers
+     4. Use bool as return value for ast2700_mbox_tx_done
+     5. Rename variable from drv_data to dev_data.
 
-  drivers/mailbox/Kconfig
-  drivers/mailbox/Makefile
+ v4 changes:
+  - Update driver, no functional changes.
+     1. Remove unused variable, rx_buff, in struct ast2700_mbox.
+     2. Remove unneeded cast on device_get_match_data.
+     3. Remove the usage of writel/readl_relaxed.
+     4. Improve readability.
+ v3 changes:
+  - Correct document
+     1. Use 32-bit addressing in dts example property, reg.
+ v2 changes:
+  - Update document
+     1. Correct error in dts example.
+     2. Drop description for mbox-cell per suggestion previously.
 
-between commit:
+Jammy Huang (2):
+  dt-bindings: mailbox: Add ASPEED AST2700 series SoC
+  mailbox: aspeed: add mailbox driver for AST27XX series SoC
 
-  fe2aa2361ddb ("mailbox: add CIX mailbox driver")
+ .../mailbox/aspeed,ast2700-mailbox.yaml       |  68 +++++
+ drivers/mailbox/Kconfig                       |   8 +
+ drivers/mailbox/Makefile                      |   2 +
+ drivers/mailbox/ast2700-mailbox.c             | 235 ++++++++++++++++++
+ 4 files changed, 313 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/mailbox/aspeed,ast2700-mailbox.yaml
+ create mode 100644 drivers/mailbox/ast2700-mailbox.c
 
-from the arc-soc tree and commit:
 
-  6aecd1f31f8e ("mailbox: Add support for bcm74110")
+base-commit: 8c2e52ebbe885c7eeaabd3b7ddcdc1246fc400d2
+-- 
+2.25.1
 
-from the mailbox tree.
-
-I fixed it up (see below) and can carry the fix as necessary. This
-is now fixed as far as linux-next is concerned, but any non trivial
-conflicts should be mentioned to your upstream maintainer when your tree
-is submitted for merging.  You may also want to consider cooperating
-with the maintainer of the conflicting tree to minimise any particularly
-complex conflicts.
-
---=20
-Cheers,
-Stephen Rothwell
-
-diff --cc drivers/mailbox/Kconfig
-index 4fef4797b110,865da8986e53..000000000000
---- a/drivers/mailbox/Kconfig
-+++ b/drivers/mailbox/Kconfig
-@@@ -340,14 -349,14 +349,24 @@@ config THEAD_TH1520_MBO
-  	  kernel is running, and E902 core used for power management among other
-  	  things.
- =20
- +config CIX_MBOX
- +        tristate "CIX Mailbox"
- +        depends on ARCH_CIX || COMPILE_TEST
- +        depends on OF
- +        help
- +          Mailbox implementation for CIX IPC system. The controller suppo=
-rts
- +          11 mailbox channels with different operating mode and every cha=
-nnel
- +          is unidirectional. Say Y here if you want to use the CIX Mailbox
- +          support.
- +
-+ config BCM74110_MAILBOX
-+ 	tristate "Brcmstb BCM74110 Mailbox"
-+ 	depends on ARCH_BRCMSTB || COMPILE_TEST
-+ 	default ARCH_BRCMSTB
-+ 	help
-+ 	  Broadcom STB mailbox driver present starting with brcmstb bcm74110
-+ 	  SoCs. The mailbox is a communication channel between the host
-+ 	  processor and coprocessor that handles various power management task
-+ 	  and more.
-+=20
-  endif
-diff --cc drivers/mailbox/Makefile
-index 786a46587ba1,1c0627297474..000000000000
---- a/drivers/mailbox/Makefile
-+++ b/drivers/mailbox/Makefile
-@@@ -73,4 -75,4 +75,6 @@@ obj-$(CONFIG_QCOM_IPCC)		+=3D qcom-ipcc.
- =20
-  obj-$(CONFIG_THEAD_TH1520_MBOX)	+=3D mailbox-th1520.o
- =20
- +obj-$(CONFIG_CIX_MBOX)	+=3D cix-mailbox.o
-++
-+ obj-$(CONFIG_BCM74110_MAILBOX)	+=3D bcm74110-mailbox.o
-
---Sig_/Z+.EPQLc.AK9CfzH83iy0fK
-Content-Type: application/pgp-signature
-Content-Description: OpenPGP digital signature
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAEBCAAdFiEENIC96giZ81tWdLgKAVBC80lX0GwFAmh+5ggACgkQAVBC80lX
-0GxaAgf/RCHyEV46T8yTy+kQyZz5scJxBQN/bm7G/e9/JZJtpgut1ES8QvxKf9ys
-PqFRNIIHyRIgRCvbiGqzq7KCrsrQMZ5EoPvWHwEUTUo+waAC+t7+iqw/3U5WHPs7
-W2X/dOv0/W1hHToT/ktArSnHKgnA6xB1jFAQTqS0risUgM/jM5U4dJLpNLBSaj+B
-BEgZmLWhFfkLN5ny5ZXCMa/xyS++aiSgGfVkGH2/SjUz93+xOKLH8Qez10oWqEPi
-VCYB+2p4QShv94r5thFgAn6HmLtwveKXwLK2gMZs1IsVQjH4X/UQCrLXxaEqp+WH
-TVQOztMFQ+ebKwVnlrYrxebnJll+qA==
-=W1aI
------END PGP SIGNATURE-----
-
---Sig_/Z+.EPQLc.AK9CfzH83iy0fK--
 
