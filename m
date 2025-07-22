@@ -4,69 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1577C83F27
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 21:31:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 968F9C83F27
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 21:34:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=48867Pal/1jOpEz3/91Ogv4kveVZARbA4EPs2QFDNFE=; b=yUFvCZqRP3N1K2hii8kBdfMltW
-	oEkn8VDXCcJ/U0CedMsKb7JXPJLwBmB/zdXguT1xyxiIp/RIWH2oiI6lLgJZ+1kLN3DsmDr/XyjZa
-	6vsGcvWQ3vF3Rdt8s1kmfxf7QdVvw6dBwngja/x1ACjQa7IFBci8p2Axzs6H+LDrhdSmwllXK2apI
-	8ObkM7+wnGJyniVzhG/X5x3C/rL2n3yWuyPRA93IKLaTSm/U0fgCB+TExBu+o7iJEMJfxX78AxM4A
-	FJjKKS2C4GzW1uB0aznt+a50TW8Dqpfr19fA3FLscNrihqQWSXoij8lHkiVrjSdoycW9WJRSSOE1v
-	dFvKxW0Q==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YPsJ4CMcMe9NfhSzbVCOjzfDWB1kVY5Qa247gGHQe3o=; b=ink1+MxxYFKjz2tP+qlt98akDR
+	8w9Rq0E46e/wFLPSXyiKFOYSORtuICk1GL4dN4GigSplCWWXzD4tvSjL+SM1h1c5gFzk4LMHYJGNZ
+	NRBrYRGpGl36bWkutc7UnDLcog5XD45Qxga6tRSrMVoAOJcuPgZxLVRVbWQ5GDKvYK0CTBTLnC7q/
+	s28NE3LwrBog3HF4n4gcijQ/+dsCBtq/z8BK9ZQ1wp3bitBQ7TmKQ0J/LCg8V5w+xVrekzLuIl84O
+	XPtS/KI2B2jYv0iwkUpjr/t/zYWLzB0pfBNoq4wKES3ewfZ5uZoHogV8YjfQrVrbvE7kL/YCk3gVJ
+	TBkMsAzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueKaG-00000003WBv-0Yqn;
-	Tue, 22 Jul 2025 21:31:36 +0000
-Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
+	id 1ueKcj-00000003WO1-0l6c;
+	Tue, 22 Jul 2025 21:34:09 +0000
+Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueKXj-00000003Vnl-1Mhj;
-	Tue, 22 Jul 2025 21:29:00 +0000
-Received: by mail-pj1-x1035.google.com with SMTP id 98e67ed59e1d1-3138b2f0249so4680857a91.2;
-        Tue, 22 Jul 2025 14:28:58 -0700 (PDT)
+	id 1ueKXk-00000003Vny-0Knh;
+	Tue, 22 Jul 2025 21:29:01 +0000
+Received: by mail-pj1-x1030.google.com with SMTP id 98e67ed59e1d1-311da0bef4aso5933884a91.3;
+        Tue, 22 Jul 2025 14:28:59 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1753219738; x=1753824538; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=48867Pal/1jOpEz3/91Ogv4kveVZARbA4EPs2QFDNFE=;
-        b=bud0vRxvxyAGfipRjcp0Qk3yMu0h4gzf4NnWnyUaMLqr/B1cD0vYHLJCVsJvzlEIQV
-         KnhrSJYZjlw1Mymx8752hLQ94lC/nTTduDtX8bVR2KEVj7xgvs6YayZjogUntnhDzV1F
-         MH/J07g0X7fCbVVtzvAkWubkPawYjOvUppXFg1yUI9OUiwTIeKjQbHjf0wGqWSSkriLE
-         z52LgE7SRcrF6r90POMhGmtS3rKMRDSyub2qwqIwHxfRGesF9ZcHK6ymNjQsfmzNLyIV
-         n6Quh7defPUkMuxNuL2/pOjCMFdBuaw0ibDo2wqCKKqEKYkwBK9vXS1w1IpIWmZQNf2Y
-         v5lA==
+        d=gmail.com; s=20230601; t=1753219739; x=1753824539; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=YPsJ4CMcMe9NfhSzbVCOjzfDWB1kVY5Qa247gGHQe3o=;
+        b=L6+LE7ebXd2indS7gntbMKiSbjbDWQfdnaMxdr5O9uTJNSP3JPmJUNv+6ZqtDgCb8m
+         jZrMV5cXIjFOo1tA+paXJXizqccIbgJTr0LyNa8S69dD5Qn4euscJHQRdZ//vIDEc9pT
+         G2HluMBMSv/qA+rCgbTz8E0lJZyVeyv7Bl7uNkEXBdZlg9NU1E3oAwTZw72xlHvgRx2L
+         FtuhOfL3Zq/XfpM7zXW/AriLBzd93qrpOtwcUchNtuC94Bu0pVVuDosZK9/2yRA9I897
+         0jyFSFv4P6LTVOSCcuTb3f+eKtDjO+dzAXxSveEKFeL7BrMmdaKqnvhAJxKgIUQ17jTm
+         PxTA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753219738; x=1753824538;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=48867Pal/1jOpEz3/91Ogv4kveVZARbA4EPs2QFDNFE=;
-        b=ufNRPW6oLBneX33Al6vx3RCSFKmNMIII6SjEr7W1uu9GxPR+YTUE6XRfTcvc7oeJ/O
-         laMUdMzwRY0Wh7yGJjVwNRIqC2INj7O340gvVIcqSoFwlFgBkWjadgriTdveLfXuaJqC
-         08SKqQvfQgXJmf6e8zqCZmNs9NawTm9mFvibj5miYbBfOsU5iyvgLwhV5JZaMXDlJjnV
-         yfCIF3+YiPr9dafawpGN0rCC9T0znQS/EFN80WkwDcTx6w35PWvtOOagSbzT/ymo31bV
-         hoW0xJXylv9qjNOsO+oIkgEeproyNEqDNc2UmDy2AFDnFqvgXS7636zu0WUm7BIW7wVU
-         kWig==
-X-Forwarded-Encrypted: i=1; AJvYcCUp6C/PDno3wzpqe/iqv9Nf0Db/2v6NCUrwWlcW0XcLiLqcWDqp/5NSOLi0s4bROqXJKLJE3fC7aERiUBVgjQ42@lists.infradead.org, AJvYcCVljltqO9KHLYxug6nZXWqSKN47Gyn46+QdAsw6/EZvWptCzLZNLZGVQBeWngyxqniTzCBvPKq9dJMgdQyw35M=@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyx7Mmyix5Bu/XOHOjA35K5uCkZAnSwcTdG8h/1z4BauZfYOO31
-	BrRmYLMpRJ0gV2x0kankGunSV/PUFu6fns1NyWqX9MtI8btYoe0jg1+N
-X-Gm-Gg: ASbGncsEe7wvhEyuhXE6TtazMmcCmS/aemLo82htIemTrWCNbZZ/6HGUoVsTlE2gWDg
-	aBAo4JRY6mjJHbGnL3F31bRUxW5E2TqMWoK0Axch3Lq/EbI0UufSNOLZeds1DXGrNCUhzoL7JnJ
-	r49RsD1Zf78umBR3Nh4vmtWmXdu66J2pZF9uITBKrg+9QPzcp5PdZpJFPEsOET/8qpqCG3WSp/x
-	vBvtvrBK2VB9aml2Vt+E6Ia9ovc/LsqmleUdrLOE5FZPNf3w0WKqj1miQVfgW3M5M+QFlNzdSX6
-	WnYYJO8SvnTqekmM0/NHCaq9Ic7zLDmzKhm3IfLIyIGgYHSjoyh/a5zf2qGQwV40xsQ9taxO7Rc
-	fPxI=
-X-Google-Smtp-Source: AGHT+IGdeHskm5Ee4Q3qMconqScb7wNu5KePjyblDVvV/Acs8WP6sY23sealp7liXFINeKE+T0WJQQ==
-X-Received: by 2002:a17:90b:4b0f:b0:311:d258:3473 with SMTP id 98e67ed59e1d1-31e5076a94emr948092a91.13.1753219737973;
-        Tue, 22 Jul 2025 14:28:57 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1753219739; x=1753824539;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=YPsJ4CMcMe9NfhSzbVCOjzfDWB1kVY5Qa247gGHQe3o=;
+        b=qDExv3uQHpVFt6rSEj5ScaFX6s6NgYV1F4rBNnPH7TZOGQN7hHCBMZEUU9NgohsZfp
+         2kwnpoWL9uRiDMhpuOBTq3bNZ/XD+Dt0/f4WNW2dJWvl8R3kIH2sWU4P3oWaiNV8x3LW
+         KkmH1c54Nuh/1jZPDyU1rDWv1GMGcoRoQqxYT8KZXBYWq/2aeM9fqp4kRcdXcvsuqpRV
+         dka90WkAuikGDc/x4QDwtazTl7qsTHV/nXU4XdlOc/8XwSUA2kLMNiEcu1r/G94uNdWF
+         dAywm4+Akd0hq3F+OfsWTiCx1yUmLyTCiuCszg7s+tTsqkt2YwnuPXBUsHtUuL88+1Yj
+         yHOQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVIlyqtCXDeP+fGsbjIwv7FkMn7geW9lm/7EXJFxH2gGa1EYmPgRTGw4953JyoGvqK+Q7EI+n8ZjgsrAkNNQgM=@lists.infradead.org, AJvYcCWHXUdS4LoJjxsajcth6XHHcE05wIwnutQw/eEZDmIpEcIWt3iC+eISZVUwMMWmaUo2tnu9o39C/9dAZsTkoirh@lists.infradead.org
+X-Gm-Message-State: AOJu0Yys7xIddaRVArqNO1yR/bactL6JF8yjgo0a4TORL6A7t21nC5wk
+	lqXkCRetLNLWY/IPhx5gU61TTLs/Ga/ZE5Z8FG4in4NPoGMyphKPyhIZ
+X-Gm-Gg: ASbGncsSVJjOoQn7g+VEVUEC2dBHpjCxf9DwmkPq7Fn4d3tKsSaNbV+j8ZfMaW6krBc
+	LvwggxIESaZ+Wbwbvy20iuWwe+B10yxaf/FdGTfBxyGn0GmRphHUptvykXM5C3LP7U+dCcLtS53
+	XKbNJx9xEIROAKb9sqBy3Ro82j6qleuz8RM4OityUC+qeC3aHWeC0YxKYwaVAHk/V5f5dWnbxAn
+	P+28rW/eS5aP2+zoDzzX892dT1wsDHcQXv2SuMs7zMlUsAYuYint3rAkn/rDWOkAV2YBzgv34Xi
+	iInIpn2Aq3UdqOsRFFmyyCylICcKlm1O9sgeIneyxJkIj42C6PvEeXWa0d5bzPKypwG6yJz+evZ
+	6OuFXjOa5SvB4qw==
+X-Google-Smtp-Source: AGHT+IEbbYJBzvZDQvAsIkV3QlZ0kiIfsWL443r6EXrQLyZIxgWxL6sqZ7lB3fbfVSpJVV97L3dmqw==
+X-Received: by 2002:a17:90b:47:b0:314:2840:8b21 with SMTP id 98e67ed59e1d1-31e507fe4femr824094a91.32.1753219739276;
+        Tue, 22 Jul 2025 14:28:59 -0700 (PDT)
 Received: from archlinux.lan ([2601:644:8200:dab8::1f6])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-31e519ce384sm94942a91.2.2025.07.22.14.28.56
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-31e519ce384sm94942a91.2.2025.07.22.14.28.58
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 22 Jul 2025 14:28:57 -0700 (PDT)
+        Tue, 22 Jul 2025 14:28:58 -0700 (PDT)
 From: Rosen Penev <rosenp@gmail.com>
 To: linux-wireless@vger.kernel.org
 Cc: Johannes Berg <johannes@sipsolutions.net>,
@@ -82,16 +83,17 @@ Cc: Johannes Berg <johannes@sipsolutions.net>,
 	linux-mips@vger.kernel.org (open list:MIPS),
 	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Mediatek SoC support),
 	linux-mediatek@lists.infradead.org (moderated list:ARM/Mediatek SoC support)
-Subject: [PATCHv5 wireless-next 0/7] wifi: rt2x00: add OF bindings + cleanup
-Date: Tue, 22 Jul 2025 14:28:49 -0700
-Message-ID: <20250722212856.11343-1-rosenp@gmail.com>
+Subject: [PATCHv5 wireless-next 1/7] wifi: rt2x00: add COMPILE_TEST
+Date: Tue, 22 Jul 2025 14:28:50 -0700
+Message-ID: <20250722212856.11343-2-rosenp@gmail.com>
 X-Mailer: git-send-email 2.50.0
+In-Reply-To: <20250722212856.11343-1-rosenp@gmail.com>
+References: <20250722212856.11343-1-rosenp@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250722_142859_363117_E7401787 
-X-CRM114-Status: UNSURE (   8.80  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250722_142900_120630_9394C603 
+X-CRM114-Status: GOOD (  11.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,41 +108,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-It doesn't even compile. Added OF bindings, documentation, and other
-stuff to hopefully this doesn't happen again.
+While this driver is for a specific arch, there is nothing preventing it
+from being compiled on other platforms.
 
-v2: move all of 2x00soc to 2800soc. I didn't realize only two functions
-remained for no good reason.
-Fixed typos.
-Slightly changed probe for clarity.
+Allows the various bots to test compilation and complain if a patch is
+bad.
 
-v3: fix wrong compatible in Documentation.
+Signed-off-by: Rosen Penev <rosenp@gmail.com>
+Acked-by: Stanislaw Gruszka <stf_xl@wp.pl>
+Reviewed-by: Sergio Paracuellos <sergio.paracuellos@gmail.com>
+---
+ drivers/net/wireless/ralink/rt2x00/Kconfig | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-v4: renamed documentation file as there's only a single compatible.
-
-v5: made clocks and interrupts required in the documentation.
-
-Rosen Penev (7):
-  wifi: rt2x00: add COMPILE_TEST
-  wifi: rt2x00: remove mod_name from platform_driver
-  wifi: rt2800soc: allow loading from OF
-  wifi: rt2800: move 2x00soc to 2800soc
-  wifi: rt2x00: soc: modernize probe
-  MIPS: dts: ralink: mt7620a: add wifi
-  dt-bindings: net: wireless: rt2800: add
-
- .../bindings/net/wireless/ralink,rt2800.yaml  |  47 ++++++
- arch/mips/boot/dts/ralink/mt7620a.dtsi        |  10 ++
- drivers/net/wireless/ralink/rt2x00/Kconfig    |   7 +-
- drivers/net/wireless/ralink/rt2x00/Makefile   |   1 -
- .../net/wireless/ralink/rt2x00/rt2800soc.c    | 102 +++++++++++-
- .../net/wireless/ralink/rt2x00/rt2x00soc.c    | 151 ------------------
- .../net/wireless/ralink/rt2x00/rt2x00soc.h    |  29 ----
- 7 files changed, 156 insertions(+), 191 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/net/wireless/ralink,rt2800.yaml
- delete mode 100644 drivers/net/wireless/ralink/rt2x00/rt2x00soc.c
- delete mode 100644 drivers/net/wireless/ralink/rt2x00/rt2x00soc.h
-
+diff --git a/drivers/net/wireless/ralink/rt2x00/Kconfig b/drivers/net/wireless/ralink/rt2x00/Kconfig
+index d1fd66d44a7e..3a32ceead54f 100644
+--- a/drivers/net/wireless/ralink/rt2x00/Kconfig
++++ b/drivers/net/wireless/ralink/rt2x00/Kconfig
+@@ -202,7 +202,7 @@ endif
+ 
+ config RT2800SOC
+ 	tristate "Ralink WiSoC support"
+-	depends on SOC_RT288X || SOC_RT305X || SOC_MT7620
++	depends on SOC_RT288X || SOC_RT305X || SOC_MT7620 || COMPILE_TEST
+ 	select RT2X00_LIB_SOC
+ 	select RT2X00_LIB_MMIO
+ 	select RT2X00_LIB_CRYPTO
 -- 
 2.50.0
 
