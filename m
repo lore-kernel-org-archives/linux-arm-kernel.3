@@ -4,74 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DF1BC83F27
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 10:37:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7A38C83F27
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 10:40:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ub61d+GKqIiiSUeXbA0wZ1Ao5bgA07c0VDrjVnS3nvI=; b=Pel3d7qIjgUDWAFon6Ojl845Qm
-	nEloZCX1oBhs/Zd1cSVW7r/7LqOyEjaRiFp22rrF4z8NG/ws2BLJ7wnyGJJFWJxktaHtfwAKtEbOK
-	2gzh+a2TOaIf4lLs7FVM2npHIkkXxooTmf2y6Klic/E7r0xn4xxx3I6/jhm9dHvIUcsCBDxewnUIs
-	cUpHhEqzoDYWX46sKQlifU9COz+tPRrT0NcQjjizn64+ETly32gVFaT1PHlrVLuqEAw2pW3T81n64
-	b6JrTXCyLLEkwE/s+jPcv3wvgN9z6BxZWm22nTmVCS7itibUSInvTFgiXNW0sN05p8wWOUmsGQr3W
-	pmwz9sng==;
+	bh=1+7j+pmA/KhL8MRyhxdXyVz9K0L8G5MGilv/L7f1I2k=; b=Uwnh2r/8weyRHOjx5QwSEpJlVv
+	FPTlbACxfc7vfBJJLV2EwxWS9pNTEJydbzIVWPdrjTTt52DGDIRvEyf4WgrYrrQeiWxrx2H8LyRGe
+	dzQ83C5STMETF9c7g4cVKw3tr+llPFSNK/C1Te8AzRTAbMFgdzU86qjWKI+M/CSqXxFquSWtp0zYi
+	lEQRiuY4cty9sxUbJseowBmqyb4ManfVsWCz1QkExR5Ygj8DhAokdKT5RW4uXRgV3fhsoG6Si2Xpj
+	Z1Sxg70Kyiwvv74XwH3XP8vVnS+zncYllb0lIRLz40vwDf9P1ZmKtBUUuIe75+HLJjHA38liqwlvH
+	JRxXOLLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueANV-00000002Ato-0XR0;
-	Tue, 22 Jul 2025 10:37:45 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1ueAPy-00000002BEj-03Wz;
+	Tue, 22 Jul 2025 10:40:18 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueA6h-000000028xM-2Xc8
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Jul 2025 10:20:25 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.31])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4bmY8949v4z6GDDg;
-	Tue, 22 Jul 2025 18:16:25 +0800 (CST)
-Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
-	by mail.maildlp.com (Postfix) with ESMTPS id 6FA181400E3;
-	Tue, 22 Jul 2025 18:20:15 +0800 (CST)
-Received: from localhost (10.203.177.66) by frapeml500008.china.huawei.com
- (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Tue, 22 Jul
- 2025 12:20:14 +0200
-Date: Tue, 22 Jul 2025 11:20:13 +0100
-From: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-To: Guenter Roeck <linux@roeck-us.net>
-CC: <hs@denx.de>, Krzysztof Kozlowski <krzk@kernel.org>, Mark Brown
-	<broonie@kernel.org>, <linux-spi@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, Andrei Lalaev <andrey.lalaev@gmail.com>,
-	Chanh Nguyen <chanh@os.amperecomputing.com>, Conor Dooley
-	<conor+dt@kernel.org>, Fabio Estevam <festevam@gmail.com>, Grant Peltier
-	<grantpeltier93@gmail.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Laurent
- Pinchart <laurent.pinchart@ideasonboard.com>, Michal Simek
-	<michal.simek@amd.com>, Naresh Solanki <naresh.solanki@9elements.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Rob Herring
-	<robh@kernel.org>, Rodrigo Gobbi <rodrigo.gobbi.7@gmail.com>, Sascha Hauer
-	<s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>,
-	<devicetree@vger.kernel.org>, <imx@lists.linux.dev>,
-	<linux-arm-kernel@lists.infradead.org>
-Subject: Re: (subset) [PATCH v1 0/3] spidev: introduce trivial abb sensor
- device
-Message-ID: <20250722112013.0000597e@huawei.com>
-In-Reply-To: <2e9c96c6-6dfb-4232-a9ab-a3e78b718fc2@roeck-us.net>
-References: <20250719063355.73111-1-hs@denx.de>
-	<175311337130.327079.7374455187420344577.b4-ty@kernel.org>
-	<d677ecd9-42d6-43fe-8fe1-a5afd4d270e2@kernel.org>
-	<8a8106ea-83d3-e02a-9ae7-ea4a66e4c248@denx.de>
-	<2e9c96c6-6dfb-4232-a9ab-a3e78b718fc2@roeck-us.net>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	id 1ueADl-000000029jy-2DGR;
+	Tue, 22 Jul 2025 10:27:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1753180059;
+	bh=9lvqZk5oEPRo1rY1fpzcNNUqnPMnD9A+snxT1q84jkE=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=VbF9q9TM9iU5hikHWxzeBS6I11iDTIJOgU24E63elkGQegue9c0JhTAJ64AMaQX91
+	 LfvBCXWbCmcQ6rTHckq5/Ld2LjTmbe5O1xUuFFYuRKNPcJNHE3ZCTQr4R4oe13qFk2
+	 m/jl1fSN6S4AMSwjUZCIHefXhHByPwoss4CSd/zKWxdHZalC4vravkj+OgSE+8ivrU
+	 o0sCRzh90Wsg0wrJ/W5PPBuOYIB/awoXdlHIHXhZIrmFgM+ep1IlCf1+zCKe+b/9ZK
+	 dAH/Nvdfdth3BURdamdHwCG+Ze+mkU/0p2zEnS3gMd7bC9K3tV/4EgufCeWCLOaot8
+	 SbYbUbwvRHngQ==
+Received: from laura.lan (unknown [IPv6:2001:b07:646b:e2:bd9c:eae9:88b0:783c])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: laura.nao)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 804F217E0B72;
+	Tue, 22 Jul 2025 12:27:38 +0200 (CEST)
+From: Laura Nao <laura.nao@collabora.com>
+To: wenst@chromium.org
+Cc: andrew-ct.chen@mediatek.com,
+	angelogioacchino.delregno@collabora.com,
+	arnd@arndb.de,
+	bchihi@baylibre.com,
+	colin.i.king@gmail.com,
+	conor+dt@kernel.org,
+	daniel.lezcano@linaro.org,
+	devicetree@vger.kernel.org,
+	kernel@collabora.com,
+	krzk+dt@kernel.org,
+	lala.lin@mediatek.com,
+	laura.nao@collabora.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
+	linux-pm@vger.kernel.org,
+	lukasz.luba@arm.com,
+	matthias.bgg@gmail.com,
+	nfraprado@collabora.com,
+	rafael@kernel.org,
+	robh@kernel.org,
+	rui.zhang@intel.com,
+	srini@kernel.org,
+	u.kleine-koenig@baylibre.com
+Subject: Re: [PATCH 5/9] thermal/drivers/mediatek/lvts: Add lvts_temp_to_raw variant for positive temp_factor
+Date: Tue, 22 Jul 2025 12:26:53 +0200
+Message-Id: <20250722102653.30851-1-laura.nao@collabora.com>
+X-Mailer: git-send-email 2.39.5
+In-Reply-To: <CAGXv+5F9NwJ7uGFPWZM-Dywbbk4f6aiYS5M4m6_VFETVGEwr9A@mail.gmail.com>
+References: <CAGXv+5F9NwJ7uGFPWZM-Dywbbk4f6aiYS5M4m6_VFETVGEwr9A@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="ISO-8859-1"
-Content-Transfer-Encoding: quoted-printable
-X-Originating-IP: [10.203.177.66]
-X-ClientProxiedBy: lhrpeml500009.china.huawei.com (7.191.174.84) To
- frapeml500008.china.huawei.com (7.182.85.71)
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250722_032023_936910_EDBE9B5E 
-X-CRM114-Status: GOOD (  25.71  )
+X-CRM114-CacheID: sfid-20250722_032741_720850_63D1A77C 
+X-CRM114-Status: GOOD (  27.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,88 +95,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 21 Jul 2025 21:58:10 -0700
-Guenter Roeck <linux@roeck-us.net> wrote:
+On 7/21/25 13:12, Chen-Yu Tsai wrote:
+> On Mon, Jul 21, 2025 at 4:31 PM Laura Nao <laura.nao@collabora.com> wrote:
+>>
+>> The current lvts_temp_to_raw() implementation assumes a negative
+>> temperature-to-raw slope (temp_factor), which holds for the SoCs
+>> currently supported by the driver. However, this assumption breaks on
+>> MT8196/MT6991, where the slope is positive.
+>
+> I don't think that's really a problem. The formula is:
+>
+>     temp = (raw * factor) >> 14 + golden
+>
+> If we move the terms around we get
+>
+>     ((temp - golden) << 14) / factor = raw
+>
+> Or
+>
+>     raw = ((golden - temp) << 14) / -factor
+>
+>
+> The calculations should work regardless of whether the factor is positive
+> or negative, as long as the intermediate and final values are within
+> the range of s64.
+>
+>> Add a variant of the function that inverts the calculation logic
+>> accordingly. This ensures accurate raw value generation for temperature
+>> thresholds,avoiding spurious thermal interrupts or unintended hardware
+>> resets on MT8196/MT6991.
+>>
+>> Signed-off-by: Laura Nao <laura.nao@collabora.com>
+>> ---
+>>  drivers/thermal/mediatek/lvts_thermal.c | 12 ++++++++++++
+>>  1 file changed, 12 insertions(+)
+>>
+>> diff --git a/drivers/thermal/mediatek/lvts_thermal.c b/drivers/thermal/mediatek/lvts_thermal.c
+>> index db83137c7537..3c34956e37c1 100644
+>> --- a/drivers/thermal/mediatek/lvts_thermal.c
+>> +++ b/drivers/thermal/mediatek/lvts_thermal.c
+>> @@ -296,6 +296,18 @@ static u32 lvts_temp_to_raw(int temperature, int temp_factor)
+>>         return div_s64(raw_temp, -temp_factor);
+>>  }
+>>
+>> +static u32 lvts_temp_to_raw_v2(int temperature, int temp_factor)
+>> +{
+>> +       u32 raw_temp;
+>> +
+>> +       if (temp_factor == 0)
+>> +               return temperature;
+>> +
+>> +       raw_temp = temperature - golden_temp_offset;
+>> +
+>> +       return div_s64((s64)temp_factor << 14, raw_temp);
+>> +}
+>
+> Here you have
+>
+>     raw = (factor << 14) / (temp - golden)
+>
+> which, barring integer arithmetic limitations, is actually the
+> multiplicative inverse of the original version.
+>
+> So I think the commit message is misleading. It's not negative or
+> positive that matters, but that the hardware expects the
+> multiplicative inverse in this version.
+>
+> (or the downstream code is just botched.)
+>
 
-> On 7/21/25 21:05, Heiko Schocher wrote:
-> > Hello Krzysztof,
-> >=20
-> > On 21.07.25 18:24, Krzysztof Kozlowski wrote: =20
-> >> On 21/07/2025 17:56, Mark Brown wrote: =20
-> >>> On Sat, 19 Jul 2025 08:33:51 +0200, Heiko Schocher wrote: =20
-> >>>> This series introduces the changes needed for trivial spi
-> >>>> based sensors from ABB, currently operated from userspace.
-> >>>>
-> >>>> The last patch adds the spidevices to the DTS files, already
-> >>>> in mainline.
-> >>>>
-> >>>> make dtbs_check showed no errors/warnings for the dts files
-> >>>>
-> >>>> [...] =20
-> >>>
-> >>> Applied to
-> >>>
-> >>> =A0=A0=A0 https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi=
-.git for-next
-> >>>
-> >>> Thanks!
-> >>>
-> >>> [1/3] dt-bindings: trivial-devices: Document ABB sensors
-> >>> =A0=A0=A0=A0=A0=A0 commit: aad2f87cbcab56b322109d26d7b11842a09df91f
-> >>> [2/3] spi: spidev: Add an entry for the ABB spi sensors
-> >>> =A0=A0=A0=A0=A0=A0 commit: d60f7cab7c04944a79af16caa43c141e780a59c6
-> >>> =20
-> >>
-> >>
-> >> That's unexpected, Mark. Patches received two objections/comments and I
-> >> don't think discussion was resolved.
-> >>
-> >> ABB is huge company, probably making hundreds or more of sensors. The
-> >> patchset basically claims that all of them work with spidev. It does n=
-ot
-> >> providing any model names or details, so it seems really incomplete to
-> >> call them trivial devices. =20
-> >=20
-> > I do not know how many different sensors they have, nor if that departm=
-ent can
-> > speak for the whole company...
-> >=20
-> > What I have as information is:
-> > https://lore.kernel.org/linux-spi/2477dc64-92a0-9dc9-d168-56646d0d796e@=
-denx.de/
-> >=20
-> > and I get no more information about them currently. May I should
-> > add some sort of trivial into compatible name? Something like
-> >=20
-> > "abb,spi-trivial-sensor"
-> > or
-> > "abb,spidev-trivial-sensor"
-> >=20
-> > which makes it clearer, that only ABB trivial sensor, controlled throug=
-h spidev
-> > driver, is connected here?
-> >  =20
->=20
-> FWIW, I always thought that devicetree is not supposed to contain such ge=
-neric
-> information. Is it even appropriate to list something like this in device=
-tree
-> in the first place ?
->=20
-> If so, what prevents anyone from submitting hundreds of
-> "<company>,spidev-trivial-<device-type>" entries, using the same line of =
-argument ?
+Right - the positive temp_factor on MT8196 is one distinction from older 
+SoCs, and I initially assumed that was the reason a different conversion 
+formula was needed. That assumption was partly based on the original 
+lvts_temp_to_raw() implementation, which assigns 
+((s64)(golden_temp_offset - temperature) << 14) to a u32, losing the 
+sign when golden_temp_offset is negative. However, even correcting that 
+to preserve the sign doesn't make the function work on MT8196 as it 
+still requires using the multiplicative inverse form of the formula. 
 
-Agreed.  These should have separate compatibles based on what any OS etc
-might want to bind to them.  Just because their model in Linux is spidev etc
-that shouldn't mean a generic ID is appropriate.
+I'll reword the commit message to clarify this.
 
-Can we at least have some examples to motivate the discussion?
+Thanks!
 
-Jonathan
+Laura
 
->=20
-> Guenter
->=20
+> ChenYu
+>
+>> +
+>>  static int lvts_get_temp(struct thermal_zone_device *tz, int *temp)
+>>  {
+>>         struct lvts_sensor *lvts_sensor = thermal_zone_device_priv(tz);
+>> --
+>> 2.39.5
+>>
+>>
 
 
