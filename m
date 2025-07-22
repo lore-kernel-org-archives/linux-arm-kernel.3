@@ -4,94 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F8B4C83F25
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 10:19:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F440C83F27
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 10:22:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
 	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eACVn/AeNUkJSj6fqs1SPdUKZxcJXedSP1FDf4UsU+0=; b=brvaEe2Nae/hgbdh6AKyA/E+yZ
-	Cq5LN23HHx1abwCrtFB+KHCBAIC7ulvtSQEY5yZq2zmotYfGioXhLPq4+gTcOUtd1RhkJX9Qg4mrM
-	EB8udMvOco6F9AStd9iN/wSDTF3fNHEBfSsCoYFeAX3sQMOSynvmy8E9ipoF1an1zcShPAlZUsMZd
-	ReFOodRZwI+kLnspCgj6rUX9G/vsCMGzjFjoSCz/Vtx/WNuUL5m0zZLviddhwAS0HJIti8FMI5lBH
-	c8oemHrZfWjy3cJoIGwnS0CUipbNZE8llxmGo5E+Lq5U3nvwF/epaZLHpDLO5iYWf/jckwIVyUEAn
-	+HoUNxlQ==;
+	bh=K6tvj/DkNBulYt/YV/mLvh6U0WsYjvJUAB4Jgyqsz68=; b=KWxi50XdMOWSHH4zKao5ZM3qA9
+	Z6J2I1QAAAMMk2TEnjJ2AExm/msU047J2xkyn3yGi5vu82WU9D9tVNMsHv4STyYrAq/gJTczyuhKd
+	I0eO6azNpLCXoWaHpKTSg/RT4VuEMnoMLx/c26tgjumGV29CGSu0XgmBYidWbTsTlCy7EtAhaSrD/
+	iEtSV+XPK+AgCtxB2y1mgdAvgrx2ziFEQMBb2JV7IXv8Yqgyk2ABxv9m/Q4RLDnOKZMrU3o1vNJBz
+	cEF2JRZQDLIwgrk6vlRkbfI+IwhNuyfPL95Emi+uCLKBSH3IQbagsy0Xv3bepu/6MjApmXxei0Zm3
+	jKitqRvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueA6C-000000028nx-1QH9;
-	Tue, 22 Jul 2025 10:19:52 +0000
-Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
+	id 1ueA8g-0000000296l-0bJL;
+	Tue, 22 Jul 2025 10:22:26 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ue9s7-000000026JC-3i2f
+	id 1ue9sj-000000026S1-1MlI
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Jul 2025 10:05:21 +0000
-Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-3b611665b96so2966808f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Jul 2025 03:05:19 -0700 (PDT)
+	Tue, 22 Jul 2025 10:05:58 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-4563cfac2d2so39181455e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Jul 2025 03:05:57 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1753178718; x=1753783518; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1753178756; x=1753783556; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:organization:autocrypt
          :content-language:references:cc:to:subject:reply-to:from:user-agent
          :mime-version:date:message-id:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=eACVn/AeNUkJSj6fqs1SPdUKZxcJXedSP1FDf4UsU+0=;
-        b=JvyFTyZ3jgqS0SEub8L+X3bW0YoI7TR7JyaT+59N5j8DkXhbKfpbwJ3PqH3lnp736q
-         +gM2BtM2Hs43EMHg/FPeTzNnlqdP/9bBDOmjbb0qz88DtPB3LTm6MvXiocYSAn7mf41q
-         w6Lxye+VHv2vN2I8aib8b+R5XTnzU1RhXRH0I0NFcTIcdiRXSyurv//paV8FIcZNF/yQ
-         NQkhXNFK9VHMkmToU42tJQrQPoULIKF8+PSkn4QDG0G5kVP6w/XQA5/hMciMOBDN35oQ
-         ZbDDe+4sPxKVP5sjk3fnbvRUJSTvDIug/0wihwYy4yUGzfstuwdgmrjgMc53VEAGxPcH
-         fg5A==
+        bh=K6tvj/DkNBulYt/YV/mLvh6U0WsYjvJUAB4Jgyqsz68=;
+        b=ZDUqmCnlXkyoV7etnCNNr5pSHgNoYPD+cQjwCaBp005o8nRK6HtKSE4Zg88Z9ReGpn
+         nyk4VgTPrlumktKDZ/DVtbbgOwM9R8P4O4ohGhaBB3yeH5bf+NFV2+nIRI9WlVot6ruR
+         r48hFCbiZuU/ZLYJCQz98lZ5j2sZ3MqqRU77ZSiUZc1DP0Mz7jNIwnSbquiWyYN0/NB/
+         jasbYDnOOGHr1VwU4mGNtAch4lJaT8D0nJV+XKt/YvfoVWaOYWqRqTov6psxqAfl1j5z
+         HxLoNFhaDvI1rOkSxJfp1aSGJR/5koMFzDM37piSHOlcJVBlZqS9Q32//LtBSST1N7Je
+         u4gA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753178718; x=1753783518;
+        d=1e100.net; s=20230601; t=1753178756; x=1753783556;
         h=content-transfer-encoding:in-reply-to:organization:autocrypt
          :content-language:references:cc:to:subject:reply-to:from:user-agent
          :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
          :date:message-id:reply-to;
-        bh=eACVn/AeNUkJSj6fqs1SPdUKZxcJXedSP1FDf4UsU+0=;
-        b=et5C9jw0O1vS3Fnu5qQaQhaDNUt0S+nkpCWieZuFUi3rVOBMKId49K8QDb6PhzfzM8
-         HNSOpbYKL94OCCSC04G+BEZ8uPV+WhAytNvXRFZ84aIEt8DK6QjukjUtCYkaDA2OgGai
-         G9dIqFIeA6Py9HM/1t3MKADRldaX+hJfARfWlqI3cF8RBzISlfhFgZBitEMWalmg6H9c
-         gim9wEGO48pDuRDQHDHsuVlPcEInXY1dOC+ecMQAtawTJHrANyx+6cDNKgw9TkUWBCRW
-         ooA0AWc/NzukkK1NVsy327BefeJzysOxz1HOK2eE2R7hDSnSUNrqe7xKY4hjTgcMVtEb
-         beUQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWKbPZz2GddxcGqsWoHzSGrT1dYgHuus4hFvKmF9RT4U08BdpW1Dth5v/ywJxipMiVMgRniQvhbD74YTxV8XCBm@lists.infradead.org
-X-Gm-Message-State: AOJu0YwKepdBLREcNKKi+YJ5/Oh36y8l7QqTCJXM69qbWUWU8KewU1j9
-	VfKNbNWyAMmEPtEa63nDZbrr0c5RO2OvWKcucJB0dvMXOa+15LM29HGX3Xezp3P+TL0=
-X-Gm-Gg: ASbGnctvrRX9Ttw8N2MvVLLk7Zbbs/xVq/M7dckaD/XsT0ESCGmbh57fQxEwM3wOEhf
-	nA1Yu9KMQL6QyMjjVC9U1RGQKmMrmgzr7fDzfTcCOA8cnpqFfXiM6b3/uzsuNXZe6GklHwAFFY9
-	0As1DCVnNxn+FIR7DQ877A6EAoqe80iwPCikh018eXhkjWZa8SAUwLJKwOfuhrRso1NPDSgFako
-	EZGwgEsqfItl5SJKUfsg0ZIXNb65XizWnkXFJ6T5vjFrDbiQ6PFRUpFlLNPCQC+UU4Eq68IoFyN
-	cdAmdP4UVRMiUhfnG25+1ff1F11iFYjIxFjum5bVHj61O1zmkpQUHp9oO7lTxcyVY1IO5HRuDVd
-	g3FKwGB8l6XtkP1nQSXuxojJfcLicTCxxaP9+nMe3FF3R5hvaLHUS/lYAPFsKjZyf6S/eip9+7A
-	E=
-X-Google-Smtp-Source: AGHT+IGRKY81gkhXWhMn/9LTWKt4F1bWwxEHclEpgsQnRjAMZGrMWAwlAapyO/AgjZWzNQLVWrBoIw==
-X-Received: by 2002:a5d:5f46:0:b0:3a5:2d42:aa17 with SMTP id ffacd0b85a97d-3b60e5127efmr20108404f8f.31.1753178718150;
-        Tue, 22 Jul 2025 03:05:18 -0700 (PDT)
+        bh=K6tvj/DkNBulYt/YV/mLvh6U0WsYjvJUAB4Jgyqsz68=;
+        b=OjRKnHOU23vfcsAjcJoKa8Rkph3jY0MD0A4haFq75ec2pNtYkly39QTc/B8dxHoap7
+         9IyOmodPbpjmnVJld3NM56nxsGbXV1oZuwc3tMB87YEy8+oAP+hT8r4oWldtDvbd27Eq
+         J4HGfcUHmGrvcA9wl52l/KWQfG9YVgRJ/f2NrPd+a6ulFpvdFwJIdLge4w4nJCnOG7SM
+         +j8kkB6ztP74Keb5gGHc3j1Vblk0i9sR0Rnpx0BMDpF1cakSuhbHPb1XDx70vdvwT40s
+         eFLXLtT6b2vkYX8W7bbO2p1zzLQ+XghS1+Vc74y+/QmmAUJLv6NaYMLOKc/ddJ2uXQQK
+         t9WQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXG5lMi/nM81QhZeXrvqaBxVW4dy/ZsbFAe/MYhVBtiKd1E6Nnz0gsbtRc9Z1vc5brhg4GOptBIwO0eNJngxIXZ@lists.infradead.org
+X-Gm-Message-State: AOJu0YwrokMIjwILO3lIMdkrEd3Z1bIOmRr4Igrm6xI1jgrUY/VIQ2H9
+	dHcE+QIyyON+okhv+0NNkJY6z1ehjfWzUBAc3PYqRnglKmbz0zvIjyxBgOOStciuiQpmvyH2arg
+	Z5K/k
+X-Gm-Gg: ASbGncuQKmVqLAh4qXBxzFUEdYzbXizg+EYdnPOTfu1YdqWCcEfoBC5Byz4k/3868tO
+	whUKRnZY0rVAtLX8NFKSroQEaDCvjvzK1pktsPboN09f1hWHLoZnSVaAK4SmNROPkTiCLS5kjkc
+	FjcpnvnKWPlBr9pF8gFjC39SXBpewSL3J5RuzXBeWObbTm8bl4aG8WWLkTTn6xPVjBBpzn9jMte
+	TzKySZFQe2BmcStuqIqachxPm5YFseF4yK226Cm6qr253NLogKuLCcimcgZBYd/nmmgup9wRRxj
+	0oRabzEn1eT1T4M+jYFp6guvRLB1ZmqJcJ7nQrUQ4kuNtHR2Wi4F7Djz3EpkCUE1M3Bq6s5/B4P
+	U2aChl3PDjQ0a0wSHI6DBYlCqsWrGRc3g/ZAYmw6ZND476DyQa2q4xCW8OKUwaTdUULNA+zL/Y9
+	6+oTfYFrYEoA==
+X-Google-Smtp-Source: AGHT+IF6xHLS/NKb0FDDLslT+SQ8Ge7DpH9qHjfZKBiFCLY7EOoCDjUS/Zdn1Tv9T1Zp8mEzCtRq7w==
+X-Received: by 2002:a05:600c:3acf:b0:456:e39:ec1a with SMTP id 5b1f17b1804b1-456348e70f4mr208884215e9.14.1753178755675;
+        Tue, 22 Jul 2025 03:05:55 -0700 (PDT)
 Received: from ?IPV6:2a01:e0a:3d9:2080:bce4:725d:6922:d1ba? ([2a01:e0a:3d9:2080:bce4:725d:6922:d1ba])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3b75baa7072sm6012611f8f.2.2025.07.22.03.05.17
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3b61c9f16d9sm13213953f8f.0.2025.07.22.03.05.54
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 22 Jul 2025 03:05:17 -0700 (PDT)
-Message-ID: <6692f1e4-978e-4138-9d76-ac2b80613a65@linaro.org>
-Date: Tue, 22 Jul 2025 12:05:16 +0200
+        Tue, 22 Jul 2025 03:05:55 -0700 (PDT)
+Message-ID: <4a78f570-62fd-4779-aba2-1c9c558989f2@linaro.org>
+Date: Tue, 22 Jul 2025 12:05:54 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 From: Neil Armstrong <neil.armstrong@linaro.org>
-Subject: Re: [PATCH 3/3] arm64: dts: amlogic: c3: Add tempsensor controller
- node
-To: xianwei.zhao@amlogic.com, Guillaume La Roque <glaroque@baylibre.com>,
- "Rafael J. Wysocki" <rafael@kernel.org>,
- Daniel Lezcano <daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>,
- Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Kevin Hilman <khilman@baylibre.com>,
+Subject: Re: [PATCH 2/2] arm64: dts: amlogic: C3: Add RTC controller node
+To: xianwei.zhao@amlogic.com, Yiting Deng <yiting.deng@amlogic.com>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Kevin Hilman <khilman@baylibre.com>,
  Jerome Brunet <jbrunet@baylibre.com>,
  Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Cc: linux-pm@vger.kernel.org, linux-amlogic@lists.infradead.org,
+Cc: linux-amlogic@lists.infradead.org, linux-rtc@vger.kernel.org,
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, Liming Xue <liming.xue@amlogic.com>
-References: <20250718-c3-thermal-v1-0-674f9a991690@amlogic.com>
- <20250718-c3-thermal-v1-3-674f9a991690@amlogic.com>
+ linux-arm-kernel@lists.infradead.org
+References: <20250717-rtc-c3-node-v1-0-4f9ae059b8e6@amlogic.com>
+ <20250717-rtc-c3-node-v1-2-4f9ae059b8e6@amlogic.com>
 Content-Language: en-US, fr
 Autocrypt: addr=neil.armstrong@linaro.org; keydata=
  xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
@@ -118,12 +116,12 @@ Autocrypt: addr=neil.armstrong@linaro.org; keydata=
  4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
  QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
 Organization: Linaro
-In-Reply-To: <20250718-c3-thermal-v1-3-674f9a991690@amlogic.com>
+In-Reply-To: <20250717-rtc-c3-node-v1-2-4f9ae059b8e6@amlogic.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250722_030519_927926_DB2AE8B0 
-X-CRM114-Status: GOOD (  13.30  )
+X-CRM114-CacheID: sfid-20250722_030557_376658_92C7F02A 
+X-CRM114-Status: GOOD (  13.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,39 +137,50 @@ Reply-To: Neil Armstrong <neil.armstrong@linaro.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 18/07/2025 08:37, Xianwei Zhao via B4 Relay wrote:
+On 17/07/2025 11:38, Xianwei Zhao via B4 Relay wrote:
 > From: Xianwei Zhao <xianwei.zhao@amlogic.com>
 > 
-> Add the Tempsensor controller node for C3 SoC family.
+> Add the RTC controller node for C3 SoC family.
 > 
-> Signed-off-by: Liming Xue <liming.xue@amlogic.com>
 > Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
 > ---
->   arch/arm64/boot/dts/amlogic/amlogic-c3.dtsi | 11 +++++++++++
->   1 file changed, 11 insertions(+)
+>   arch/arm64/boot/dts/amlogic/amlogic-c3.dtsi | 16 ++++++++++++++++
+>   1 file changed, 16 insertions(+)
 > 
 > diff --git a/arch/arm64/boot/dts/amlogic/amlogic-c3.dtsi b/arch/arm64/boot/dts/amlogic/amlogic-c3.dtsi
-> index cb9ea3ca6ee0..c853390eca6c 100644
+> index cb9ea3ca6ee0..b81bffac7732 100644
 > --- a/arch/arm64/boot/dts/amlogic/amlogic-c3.dtsi
 > +++ b/arch/arm64/boot/dts/amlogic/amlogic-c3.dtsi
-> @@ -727,6 +727,17 @@ clkc_pll: clock-controller@8000 {
->   					      "fix";
->   			};
+> @@ -53,6 +53,13 @@ xtal: xtal-clk {
+>   		#clock-cells = <0>;
+>   	};
 >   
-> +			temperature-sensor@20000 {
-> +				compatible = "amlogic,c3-cpu-thermal";
-> +				reg = <0x0 0x20000 0x0 0x50>;
-> +				interrupts = <GIC_SPI 30 IRQ_TYPE_LEVEL_HIGH>;
-> +				clocks = <&clkc_periphs CLKID_TS>;
-> +				assigned-clocks = <&clkc_periphs CLKID_TS>;
-> +				assigned-clock-rates = <500000>;
-> +				amlogic,ao-secure = <&sec_ao>;
-> +				#thermal-sensor-cells = <0>;
-> +			};
+> +	xtal_32k: xtal-clk-32k {
+> +		compatible = "fixed-clock";
+> +		clock-frequency = <32768>;
+> +		clock-output-names = "xtal_32k";
+> +		#clock-cells = <0>;
+> +	};
 > +
->   			eth_phy: mdio-multiplexer@28000 {
->   				compatible = "amlogic,g12a-mdio-mux";
->   				reg = <0x0 0x28000 0x0 0xa4>;
+>   	sm: secure-monitor {
+>   		compatible = "amlogic,meson-gxbb-sm";
+>   
+> @@ -967,6 +974,15 @@ nand: nand-controller@8d000 {
+>   				clock-names = "core", "device";
+>   				status = "disabled";
+>   			};
+> +
+> +			rtc@9a000 {
+> +				compatible = "amlogic,c3-rtc",
+> +					     "amlogic,a5-rtc";
+> +				reg = <0x0 0x9a000 0x0 0x38>;
+> +				interrupts = <GIC_SPI 131 IRQ_TYPE_EDGE_RISING>;
+> +				clocks = <&xtal_32k>, <&clkc_periphs CLKID_SYS_RTC>;
+> +				clock-names = "osc", "sys";
+> +			};
+>   		};
+>   
+>   		ethmac: ethernet@fdc00000 {
 > 
 
 Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
