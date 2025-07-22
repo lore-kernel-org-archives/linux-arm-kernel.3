@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD47BC83F27
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 16:09:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDD8EC83F27
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 16:11:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
 	Message-ID:Date:References:In-Reply-To:Subject:To:From:Reply-To:Cc:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7m/XuAzAuznwNYeAO8xDbMoWfLWG/BV9jH86cwzm7kM=; b=AcLLSQIRQDsBMQLHki1ny6+3uM
-	USp1u+byzG73mwVGmRG1qoYa7B/vRa4kiC09uk5B7pLMtw6Ou6GT9w0mxGfi5JfITtPIXbfZx9NCH
-	MpYMABeROcQ5Rc1VIryBE6OaSQL1zoPRpjnos5rZPclPMSTnIqTFM0rVD3x0YdcZSZ5AwznW3jsmI
-	+RhtRkUr3S2eeX7MzIep/zPCqYbTcD+e+qMPQRSFIDOlGEpx7ytGKtjJmCljEkEl5ep6TRSJBIrUz
-	WyNOCpEG9IkxdSOBEvtuHWp+Vi6zlM/69vOH9QXwJIG2CGbRHECQ2dqok7/SCGH2CL8o6KPiImRxG
-	/5QQW4DQ==;
+	bh=85XrHWG9Jv3VTDn16FMltpEf586hn4QJABtiSR/Wwvs=; b=iCows0vooH8WVypv9ysOGJkNph
+	RFqBhESmySFgeOvjhK81/VEFt+j7j3XyXlR7twXydKHXDrAD6MBXf6fDS73NVs2LN1axFNVRovQCK
+	YO5+NSh9jS+jEVT1gQM4hioCVvnbAbMZvakrSuN8zHGNvtOIoUWm6LIcJrAEHAmjA5iQPnyrEoMJy
+	vJPprHhkfic9FM16hA5NRYLhHWLDxeSHn40fkfKw3zyrgrjv8ZA96mpd/acWXooiELh/I34sz+b8D
+	6NDmlqCCfrmBqMXh8w9PW5ewUEbyA9hV5sEFx2SwkmCrJwIkcjFo7PxK9zwmQYD8O3Mo0wnhIzqHG
+	gTTSJN+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueFXw-00000002yV9-1Hdz;
-	Tue, 22 Jul 2025 16:08:52 +0000
+	id 1ueFaR-00000002yxP-0MX1;
+	Tue, 22 Jul 2025 16:11:27 +0000
 Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueEu1-00000002s4t-0b1O
+	id 1ueEun-00000002sCl-2kMO
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Jul 2025 15:27:38 +0000
+	Tue, 22 Jul 2025 15:28:26 +0000
 From: Thomas Gleixner <tglx@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1753198050;
+	s=2020; t=1753198104;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:mime-version:mime-version:content-type:content-type:
 	 in-reply-to:in-reply-to:references:references;
-	bh=7m/XuAzAuznwNYeAO8xDbMoWfLWG/BV9jH86cwzm7kM=;
-	b=kkLWUgiMBeBkuMrm+74J4ZxDj1nFTwnSBaSfHvdPmNOftscpA1c8uI+4rQFNcQkbgLCRW0
-	n5Rt6j3tuvIkM798JI888IZRgJ6039UN9TB62oygfg9U+d9c3Vazs6iu7Sm8hCARwcC0mq
-	R/qZGGoAStqRnaYxcRbXq+3oAob1reB/W3BoVhct+cAma/6N9I9KRw1j4hQjmbCTvzW4ng
-	i2EFkzqF0m3kL93G1+yxnsNFvqXzGCt1C1nLskIVNuPYcR1hAdF5d6RR3QtvgE0feMsNcg
-	Q2b2zWMfntC2LQrsw1enEGMn1xjog+QGsyoFHfmqwDlToj1gr8BQDcwtobwjNw==
+	bh=85XrHWG9Jv3VTDn16FMltpEf586hn4QJABtiSR/Wwvs=;
+	b=PVcXdh0a6fdgzThlV2t988DT7q7CAo1ZE4pfVnd2r9kJnW0ZZzKeSQR/7lZYqzfG9szsKY
+	e5ri3xfR+DlYoP9g3JymbTygs+bX/evN+HtDtQaaFUyOUvtUlT2sggNJE7l17DW2+QLt8h
+	FKCnMJKvY5nQeUVwhvrBhP+jpERaMqtvJZM3kY4fn07vLLVBVSfkKVzlbeflEVDutThOiZ
+	Iv6/lU7GlnbZW9xi1iRbeowXeEpdGscP28u8aiB3VaP4v/carXHeZMTBMls64E4/Ba/yc5
+	OOPRDAgpqPKgz/f6+2o40R9HUN2hD6N5A3Ty9OiSWR/nJO+xPTJKMRZLLc2fYQ==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1753198050;
+	s=2020e; t=1753198104;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:mime-version:mime-version:content-type:content-type:
 	 in-reply-to:in-reply-to:references:references;
-	bh=7m/XuAzAuznwNYeAO8xDbMoWfLWG/BV9jH86cwzm7kM=;
-	b=bzfZ8NoEaQr2P+9CRQbsWj/TA2vOvdMnlb7wwbXgbLsNfTgB9rjFc34IetmI+ISP6yU7KH
-	UGzulKrg6K+tfrCw==
+	bh=85XrHWG9Jv3VTDn16FMltpEf586hn4QJABtiSR/Wwvs=;
+	b=2aMI2TLLvKRpRzdAWE6LR5GQ+UaMV1YrI5ZndoTpBlbt7m2b4vzw6/NttvrmH/VtNLuDzL
+	j2RFiW2PS4UfWyAg==
 To: Ryan Chen <ryan_chen@aspeedtech.com>, ryan_chen
  <ryan_chen@aspeedtech.com>, Rob Herring <robh@kernel.org>, Krzysztof
  Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Joel
@@ -54,18 +54,19 @@ To: Ryan Chen <ryan_chen@aspeedtech.com>, ryan_chen
  Kevin Chen <kevin_chen@aspeedtech.com>, linux-kernel@vger.kernel.org,
  devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-aspeed@lists.ozlabs.org
-Subject: Re: [PATCH v3 2/2] irqchip: aspeed: add debugfs support and AST2700
- INTC0/INTC1 routing/protection display
-In-Reply-To: <20250722095156.1672873-3-ryan_chen@aspeedtech.com>
+Subject: Re: [PATCH v3 1/2] dt-bindings: interrupt-controller: aspeed: Add
+ parent node compatibles and refine documentation
+In-Reply-To: <20250722095156.1672873-2-ryan_chen@aspeedtech.com>
 References: <20250722095156.1672873-1-ryan_chen@aspeedtech.com>
- <20250722095156.1672873-3-ryan_chen@aspeedtech.com>
-Date: Tue, 22 Jul 2025 17:27:29 +0200
-Message-ID: <8734aotfdq.ffs@tglx>
+ <20250722095156.1672873-2-ryan_chen@aspeedtech.com>
+Date: Tue, 22 Jul 2025 17:28:23 +0200
+Message-ID: <87zfcws0rs.ffs@tglx>
 MIME-Version: 1.0
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250722_082737_330546_2220D33C 
-X-CRM114-Status: GOOD (  35.28  )
+X-CRM114-CacheID: sfid-20250722_082825_833856_481DC24D 
+X-CRM114-Status: UNSURE (   6.79  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,258 +82,20 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On Tue, Jul 22 2025 at 17:51, Ryan Chen wrote:
+> -        interrupt-controller@12101b00 {
+> -            compatible = "aspeed,ast2700-intc-ic";
+> -            reg = <0 0x12101b00 0 0x10>;
+> -            #interrupt-cells = <2>;
+> -            interrupt-controller;
+> -            interrupts = <GIC_SPI 192 IRQ_TYPE_LEVEL_HIGH>,
+> -                         <GIC_SPI 193 IRQ_TYPE_LEVEL_HIGH>,
+> -                         <GIC_SPI 194 IRQ_TYPE_LEVEL_HIGH>,
+> -                         <GIC_SPI 195 IRQ_TYPE_LEVEL_HIGH>,
+> -                         <GIC_SPI 196 IRQ_TYPE_LEVEL_HIGH>,
+> -                         <GIC_SPI 197 IRQ_TYPE_LEVEL_HIGH>;
+> +        intc1_0: interrupt-controller@100 {
+> +          compatible = "aspeed,ast2700-intc-ic";
+> +          reg = <0x0 0x100 0x0 0x10>;
 
-The subsystem prefix is made up. See:
-
-https://www.kernel.org/doc/html/latest/process/maintainer-tip.html#patch-submission-notes
-
-> AST2700 INTC0/INTC1 nodes ("aspeed,ast2700-intc0/1") not only
-> include the interrupt controller child node ("aspeed,ast2700-intc-ic"),
-> but also provide interrupt routing and register protection features.
-
-> This patch adds debugfs entries for interrupt routing and protection
-
-# git grep 'This patch' Documentation/process
-
-> status for AST2700 INTC0/INTC1.
->
-> - Register platform driver for "aspeed,ast2700-intc0" and
->  "aspeed,ast2700-intc1" compatible nodes.
-> - Add show_routing/show_prot callbacks for both intc0 and intc1,
->  displaying current interrupt routing and protection register status.
-> - Expose routing/protection information via debugfs for debugging
->  and validation.
-> +
-> +struct aspeed_intc {
-> +	void __iomem *base;
-> +	struct device *dev;
-> +	struct dentry *dbg_root;
-> +	int (*show_routing)(struct seq_file *s, void *unused);
-> +	int (*show_prot)(struct seq_file *s, void *unused);
-> +};
-
-See the chapter about struct declarations and initializers in the
-documentation I linked to above.
-
-> +static int aspeed_intc1_show_prot(struct seq_file *s, void *unused)
-> +{
-> +	struct aspeed_intc *intc = s->private;
-> +	u32 prot = readl(intc->base);
-> +
-> +	seq_printf(s, "INTC1: 0x%08x\n", prot);
-> +
-> +	static const char * const prot_bits[] = {
-> +		"pprot_ca35: Protect INTC100~150,280~2D0,300~350 write by PSP only",
-> +		"pprot_ssp: Protect INTC180~1D0 write by SSP only",
-> +		"pprot_tsp: Protect INTC200~250 write by TSP only",
-> +		"pprot_reg_prot: Protect INTC080~0D4 to be read only",
-> +		"pprot_regrd: Protect INTC080~0D4 to be read protected",
-> +		"pprot_regrd2: Protect INTC100~150,280~2D0,300~350 read by PSP only",
-> +		"pprot_regrd3: Protect INTC180~1D0 read by SSP only",
-> +		"pprot_regrd4: Protect INTC200~250 read by TSP only",
-> +		"pprot_mcu0: Protect INTC010,014 write by MCU0 only",
-> +		"pprot_regrd5: Protect INTC010,014 read by MCU0 only",
-> +		"pprot_treg: Protect INTC040~054 to be read protected"
-> +	};
-> +
-> +	for (int i = 0; i < 11; i++)
-> +		seq_printf(s, "  [%2d] %s: %s\n", i, prot_bits[i],
-> +			   (prot & BIT(i)) ? "Enable" : "Disable");
-> +	return 0;
-> +}
-
-I really have to ask, what the value of this metric ton of string
-constants and decoding is. This is a debug interface, which is intended
-for developers and experts. As these are hardware bits, which are
-immutable, it's completely sufficient to print out the raw values here
-and let the engineer decode it, no?
-
-> +static int aspeed_intc_probe(struct platform_device *pdev)
-> +{
-> +	struct aspeed_intc *intc;
-> +	struct resource *res;
-> +
-> +	intc = devm_kzalloc(&pdev->dev, sizeof(*intc), GFP_KERNEL);
-> +	if (!intc)
-> +		return -ENOMEM;
-> +	intc->dev = &pdev->dev;
-
-intc->dev is not used anywhere.
-
-> +	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
-> +	intc->base = devm_ioremap_resource(&pdev->dev, res);
-> +	if (IS_ERR(intc->base))
-> +		return PTR_ERR(intc->base);
-> +
-> +	if (of_device_is_compatible(pdev->dev.of_node, "aspeed,ast2700-intc0")) {
-> +		intc->show_routing = aspeed_intc0_show_routing;
-> +		intc->show_prot    = aspeed_intc0_show_prot;
-> +	} else if (of_device_is_compatible(pdev->dev.of_node, "aspeed,ast2700-intc1")) {
-> +		intc->show_routing = aspeed_intc1_show_routing;
-> +		intc->show_prot    = aspeed_intc1_show_prot;
-> +	} else {
-> +		intc->show_routing = NULL;
-> +		intc->show_prot = NULL;
-
-What's the point of creating the debugfs entry instead of bailing out?
-
-> +	}
-> +
-> +	platform_set_drvdata(pdev, intc);
-> +
-> +	intc->dbg_root = debugfs_create_dir(dev_name(&pdev->dev), NULL);
-
-Why storing this? It's just used for setting up the debugfs entry, no?
-
-> +	if (intc->dbg_root) {
-> +		debugfs_create_file("routing", 0400, intc->dbg_root, intc,
-> +				    &aspeed_intc_routing_fops);
-> +		debugfs_create_file("protection", 0400, intc->dbg_root, intc,
-> +				    &aspeed_intc_prot_fops);
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static const struct of_device_id aspeed_intc_of_match[] = {
-> +	{ .compatible = "aspeed,ast2700-intc0", },
-> +	{ .compatible = "aspeed,ast2700-intc1", },
-> +	{},
-> +};
-> +
-> +static struct platform_driver aspeed_intc_driver = {
-> +	.probe  = aspeed_intc_probe,
-> +	.driver = {
-> +		.name = "ast2700-intc",
-> +		.of_match_table = aspeed_intc_of_match,
-> +	},
-> +};
-> +builtin_platform_driver(aspeed_intc_driver);
-
-Why has this to be builtin and not a module? It has zero dependencies on
-the existing code in this file, right?
-
-Just stick it into a seperate source file and make it modular with a
-seperate Kconfig switch. No point in carrying this code as built-in in
-multi-platform builds.
-
-This whole platform driver muck is just there to expose the routing and
-protection registers in debugfs even if debugfs is disabled. Seriously?
-
-It's completely disconnected from the interrupt delivery chain as far as
-the kernel is concerned, i.e. it does not provide a interrupt
-domain/chip. So that interface dumps just some register values with a
-lot of effort and leaves it to the user to decode which actual linux
-interrupt in the real intc-ic interrupt domains is affected, right?
-
-I'm still failing to see the value of all of this. As the kernel does
-not even modify these registers, you are basically implementing a dump
-facility for decoding what the firmware put into those registers, right?
-
-I don't have a strong opinion about it, but if it has a value, then all
-of this can be done with way smaller code by just dumping the raw
-register values all in one go. No need for two files and string
-encoding. That's what user space is for.
-
-Something like the completely uncompiled below, which I cobbled together
-quickly for illustration. You get the idea.
-
-Thanks,
-
-        tglx
----
-
-#define INTC_TYPE_C0	0
-#define INTC_TYPE_C1	1
-
-struct aspeed_intc {
-	void __iomem	*base;
-	unsigned int	type;
-};
-
-const struct aspeed_intc_data {
-	char		*name;
-	unsigned int	groups;
-	unsigned int	prot_offs;
-	unsigned int	rout_offs;
-	unsigned int	rout_gap;
-} aspeed_intc_data[2] = {
-	{
-		.name		= "INTC0",
-		.groups		= 4,
-		.prot_offs	= 0x40,
-		.rout_offs	= 0x200,
-		.rout_gap	= 0x100,
-	},
-	{
-		.name		= "INTC1",
-		.groups		= 6,
-		.prot_offs	= 0x0,
-		.rout_offs	= 0x80,
-		.rout_gap	= 0x20,
-	},
-};
-
-static int aspeed_intc_show(struct seq_file *m, void *unused)
-{
-	struct aspeed_intc *intc = m->private;
-	const struct aspeed_intc_data *d = &aspeed_intc_data[intc->type];
-	void __iomem *base = intc->base;
-
-	seq_printf(m, "%s\n", d->name)
-	seq_printf(m, "P: 0x%08x\n", readl(base + d->prot_offs));
-
-	base += d->rout_offs;
-	for (unsigned int i = 0; i < d->groups; i++, base += 4) {
-		seq_printf(m, "R%d: 0x%08x 0x%08x 0x%08x\n", i, readl(base),
-			   readl(base + d->rout_gap), readl(base + 2 * d->rout_gap));
-	}
-	return 0;
-}
-DEFINE_SHOW_ATTRIBUTE(aspeed_intc);
-
-static int aspeed_intc_probe(struct platform_device *pdev)
-{
-	struct aspeed_intc *intc;
-	struct resource *res;
-	struct dentry *dir;
-
-	intc = devm_kzalloc(&pdev->dev, sizeof(*intc), GFP_KERNEL);
-	if (!intc)
-		return -ENOMEM;
-
-	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
-	intc->base = devm_ioremap_resource(&pdev->dev, res);
-	if (IS_ERR(intc->base))
-		return PTR_ERR(intc->base);
-
-	if (of_device_is_compatible(pdev->dev.of_node, "aspeed,ast2700-intc0"))
-		intc->type = INTC_TYPE_C0;
-	else if (of_device_is_compatible(pdev->dev.of_node, "aspeed,ast2700-intc1"))
-		intc->type = INTC_TYPE_C1;
-	else
-		return -ENOTSUPP;
-
-	platform_set_drvdata(pdev, intc);
-
-	dir = debugfs_create_dir(dev_name(&pdev->dev), NULL);
-	debugfs_create_file("intc_regs", 0400, dir, intc, &aspeed_intc_fops);
-	return 0;
-}
-
-static const struct of_device_id aspeed_intc_of_match[] = {
-	{ .compatible	= "aspeed,ast2700-intc0", },
-	{ .compatible	= "aspeed,ast2700-intc1", },
-	{ },
-};
-MODULE_DEVICE_TABLE(of, aspeed_intc_of_match);
-
-static struct platform_driver aspeed_intc_driver = {
-	.probe  = aspeed_intc_probe,
-	.driver = {
-		.name		= "ast2700-intc",
-		.of_match_table	= aspeed_intc_of_match,
-	},
-};
-module_platform_driver(aspeed_intc_driver);
+I doubt that the controller base address is at 0x100 ...
 
