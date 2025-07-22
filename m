@@ -4,79 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8BFFC83F27
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 22:45:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 907B5C83F27
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 22:49:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b5Yg+pdTXpo6t0O7UQl+RIbiB4LOKOnIdXdXoBOJyck=; b=c0tvGnyGBAsOhzJ9CQF0cz5CC3
-	YC4KvxuXSw5IErWq3Xqg+kM1NDJNLB3msv48QCm3dhbbT7LsZXfw8rsnEHFeY70dQigdKRuOI+bHd
-	tI4pMychiwikHyjBWOgVb5BzSmL/KISC40+/wF+TQ1GGLu6MZYhM8gDMca1XXAlTCprXuxXRebmMG
-	aLF8Ys7o8kAvS/CeADDHdxUESny8Q1OERKMw8xyG/XOhgz3DuS9j2CQPM9Hmp7oVUdqLFlEkmZHCK
-	EAxdW93Eqq5mAm14+nIcWZ98kyA1+EaDhN9LahjRLMqbBs8u/MnJMjvTkrWOxDuv5RbLzweLHlsHl
-	vzEg/PVw==;
+	bh=poYuBLo+FyteJvotbUIRXGnKl0U6/ba9ipHaVlY2UUk=; b=QU2kb7KbOu/5dnERrcNLJM8NNN
+	AvDG0WTan2cK8GfoDEdCXdUwLmkxiDlgBa4wgK7BPJhnvsl5AkpnucQnN72w3LBx493MUjgzlJbNt
+	TNuE5FdcUp/MJZdLlVr4JtlsMqmkmFaEw8AH+p1kdQ6NVG7S1jm4K8IXyNq8+b+Qkubzi51ciZmvz
+	L6WmOErNOF2WNQla0G40YufWPrHIY47jTpsskoPNjFbV1m3FPQkbCqrHMa/zB+ZQyQhn22fhYx5bc
+	9bi4EoqByT0FD2eiiSv/BVSPlCrYNDSS8cAomkZRPL9y4UkLeQBoWZmK1SA3sVA3kTIfIzcLdT63G
+	fErs/8cQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueLjG-00000003cJ7-1rGG;
-	Tue, 22 Jul 2025 22:44:58 +0000
-Received: from relay5-d.mail.gandi.net ([2001:4b98:dc4:8::225])
+	id 1ueLnP-00000003cgk-2R5P;
+	Tue, 22 Jul 2025 22:49:15 +0000
+Received: from out-183.mta0.migadu.com ([2001:41d0:1004:224b::b7])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueLgj-00000003c7R-2Klx;
-	Tue, 22 Jul 2025 22:42:23 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 69C9943275;
-	Tue, 22 Jul 2025 22:42:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1753224136;
+	id 1ueLkt-00000003cVg-1urR
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 22 Jul 2025 22:46:40 +0000
+Date: Tue, 22 Jul 2025 15:46:29 -0700
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1753224395;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 in-reply-to:in-reply-to:references:references;
-	bh=b5Yg+pdTXpo6t0O7UQl+RIbiB4LOKOnIdXdXoBOJyck=;
-	b=OiwP4pKbiIk4mcSLaL9RdN2P/6K+rHryH62SPWAsZd52iz5Z/rFoylJzCtRSvzA2tb7on4
-	Cc+C1huFf+QizyFqpxlSeHww+c27B+NZbxavUsmSYrsFLRmzmwATEOBRdHu/X4+i8rNedF
-	2Rt+a/ijrDx8kZhxNeKML482g2M6o/w7sLBzT7INqvxOROp87kjKZhylh0BO0pXsSKSaAm
-	8TCPBtxwgM1FWhZWQj5TMO6jTubmAUh0Ad+QSa1VcFrFdJ291BxVmw0E+cYdPHvpUTuVT3
-	uHDpKLgC1+i+WXdaDsm52o61H8G7VrwA+8WYRlDT/vS+J283lNr85hBFHGxudw==
-Date: Wed, 23 Jul 2025 00:42:14 +0200
-From: Alexandre Belloni <alexandre.belloni@bootlin.com>
-To: Harshit Shah <hshah@axiado.com>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	Michal Simek <michal.simek@amd.com>,
-	=?utf-8?Q?Przemys=C5=82aw?= Gaj <pgaj@cadence.com>,
-	Frank Li <Frank.Li@nxp.com>,
-	Boris Brezillon <bbrezillon@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>, Arnd Bergmann <arnd@arndb.de>,
+	bh=poYuBLo+FyteJvotbUIRXGnKl0U6/ba9ipHaVlY2UUk=;
+	b=PtSYDgQFY+/+9zqYqgARX+ymZRw3lpYC9Glbw49QLvz3LG4D9WkGmnMOXQG1/coRucFm4z
+	NEJB45btLP54Mqum3AV4BNAef/AKdNP+37zPFzRu7Pz1JHBWUSHktsWuZ1iDymyinECMnF
+	iYOUj29fbNw1VimnSv879a6LwYWQU8k=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Oliver Upton <oliver.upton@linux.dev>
+To: David Woodhouse <dwmw2@infradead.org>
+Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
 	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, soc@lists.linux.dev,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org,
-	Jan Kotas <jank@cadence.com>, linux-serial@vger.kernel.org,
-	linux-i3c@lists.infradead.org,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: Re: [PATCH v6 06/10] dt-bindings: i3c: cdns: add Axiado AX3000 I3C
- controller
-Message-ID: <20250722224214cd72ae8b@mail.local>
-References: <20250722-axiado-ax3000-soc-and-evaluation-board-support-v6-0-543979a60ccf@axiado.com>
- <20250722-axiado-ax3000-soc-and-evaluation-board-support-v6-6-543979a60ccf@axiado.com>
+	Will Deacon <will@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
+	Sebastian Ott <sebott@redhat.com>,
+	Andre Przywara <andre.przywara@arm.com>,
+	Thorsten Blum <thorsten.blum@linux.dev>,
+	Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>,
+	David Woodhouse <dwmw@amazon.co.uk>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org, kvm@vger.kernel.org
+Subject: Re: [RFC PATCH 2/2] KVM: arm64: vgic-its: Unmap all vPEs on shutdown
+Message-ID: <aIAUxarULx3vC2MO@linux.dev>
+References: <20250623132714.965474-1-dwmw2@infradead.org>
+ <20250623132714.965474-2-dwmw2@infradead.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250722-axiado-ax3000-soc-and-evaluation-board-support-v6-6-543979a60ccf@axiado.com>
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdejiedufecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepfffhvfevuffkfhggtggujgesthdtredttddtvdenucfhrhhomheptehlvgigrghnughrvgcuuegvlhhlohhnihcuoegrlhgvgigrnhgurhgvrdgsvghllhhonhhisegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeegieduueethefhkeegjeevfefhiedujeeuhffgleejgfejgeekueejuefgheeggfenucffohhmrghinhepsghoohhtlhhinhdrtghomhenucfkphepvdgrtddumegvtdgrmegsieehmegsvdhftdemkegsleekmeejledtheemrggsvgelmeduhedvvdenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtudemvgdtrgemsgeiheemsgdvfhdtmeeksgelkeemjeeltdehmegrsggvleemudehvddvpdhhvghloheplhhotggrlhhhohhsthdpmhgrihhlfhhrohhmpegrlhgvgigrnhgurhgvrdgsvghllhhonhhisegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopedvgedprhgtphhtthhopehhshhhrghhsegrgihirgguohdrtghomhdprhgtphhtthhopehgrhgvghhkhheslhhinhhugihfohhunhgurghtihhonhdrohhrghdprhgtphhtthhopehjihhrihhsl
- hgrsgihsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehmihgthhgrlhdrshhimhgvkhesrghmugdrtghomhdprhgtphhtthhopehpghgrjhestggruggvnhgtvgdrtghomhdprhgtphhtthhopefhrhgrnhhkrdfnihesnhigphdrtghomhdprhgtphhtthhopegssghrvgiiihhllhhonheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheprhhosghhsehkvghrnhgvlhdrohhrgh
-X-GND-Sasl: alexandre.belloni@bootlin.com
+In-Reply-To: <20250623132714.965474-2-dwmw2@infradead.org>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250722_154222_249755_84CE4F05 
-X-CRM114-Status: GOOD (  14.59  )
+X-CRM114-CacheID: sfid-20250722_154639_697607_C641F7F0 
+X-CRM114-Status: GOOD (  22.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,46 +78,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 22/07/2025 13:15:34-0700, Harshit Shah wrote:
-> Add binding for AX3000 I3C controller. So far, no changes known,
-> so it can fallback to default compatible.
+On Mon, Jun 23, 2025 at 02:27:14PM +0100, David Woodhouse wrote:
+> From: David Woodhouse <dwmw@amazon.co.uk>
 > 
-> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> Signed-off-by: Harshit Shah <hshah@axiado.com>
-
-Acked-by: Alexandre Belloni <alexandre.belloni@bootlin.com>
-
-
-
+> We observed systems going dark on kexec, due to corruption of the new
+> kernel's text (and sometimes the initrd). This was eventually determined
+> to be caused by the vLPI pending tables used by the GIC in the previous
+> kernel, which were not being quiesced properly.
+> 
+> Signed-off-by: David Woodhouse <dwmw@amazon.co.uk>
 > ---
->  Documentation/devicetree/bindings/i3c/cdns,i3c-master.yaml | 7 ++++++-
->  1 file changed, 6 insertions(+), 1 deletion(-)
+>  arch/arm64/kvm/arm.c          |  5 +++++
+>  arch/arm64/kvm/vgic/vgic-v3.c | 14 ++++++++++++++
+>  include/kvm/arm_vgic.h        |  2 ++
+>  3 files changed, 21 insertions(+)
 > 
-> diff --git a/Documentation/devicetree/bindings/i3c/cdns,i3c-master.yaml b/Documentation/devicetree/bindings/i3c/cdns,i3c-master.yaml
-> index cad6d53d0e2e35ddaaad35215ec93dd182f28319..6fa3078074d0298d9786a26d7f1f2dd2c15329a7 100644
-> --- a/Documentation/devicetree/bindings/i3c/cdns,i3c-master.yaml
-> +++ b/Documentation/devicetree/bindings/i3c/cdns,i3c-master.yaml
-> @@ -14,7 +14,12 @@ allOf:
+> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+> index 38a91bb5d4c7..2b76f506bc2d 100644
+> --- a/arch/arm64/kvm/arm.c
+> +++ b/arch/arm64/kvm/arm.c
+> @@ -2164,6 +2164,11 @@ void kvm_arch_disable_virtualization_cpu(void)
+>  		cpu_hyp_uninit(NULL);
+>  }
 >  
->  properties:
->    compatible:
-> -    const: cdns,i3c-master
-> +    oneOf:
-> +      - const: cdns,i3c-master
-> +      - items:
-> +          - enum:
-> +              - axiado,ax3000-i3c
-> +          - const: cdns,i3c-master
+> +void kvm_arch_shutdown(void)
+> +{
+> +	kvm_vgic_v3_shutdown();
+> +}
+> +
+>  #ifdef CONFIG_CPU_PM
+>  static int hyp_init_cpu_pm_notifier(struct notifier_block *self,
+>  				    unsigned long cmd,
+> diff --git a/arch/arm64/kvm/vgic/vgic-v3.c b/arch/arm64/kvm/vgic/vgic-v3.c
+> index b9ad7c42c5b0..6591e8d84855 100644
+> --- a/arch/arm64/kvm/vgic/vgic-v3.c
+> +++ b/arch/arm64/kvm/vgic/vgic-v3.c
+> @@ -382,6 +382,20 @@ static void map_all_vpes(struct kvm *kvm)
+>  						dist->its_vm.vpes[i]->irq));
+>  }
 >  
->    reg:
->      maxItems: 1
-> 
-> -- 
-> 2.25.1
-> 
+> +void kvm_vgic_v3_shutdown(void)
+> +{
+> +	struct kvm *kvm;
+> +
+> +	if (!kvm_vgic_global_state.has_gicv4_1)
+> +		return;
+> +
+> +	mutex_lock(&kvm_lock);
+> +	list_for_each_entry(kvm, &vm_list, vm_list) {
+> +		unmap_all_vpes(kvm);
+> +	}
+> +	mutex_unlock(&kvm_lock);
+> +}
+> +
 
--- 
-Alexandre Belloni, co-owner and COO, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+This presumes the vCPUs have already been quiesced which I'm guessing
+is the case for you. The vPEs need to be made nonresident from the
+redistributors prior to unmapping from the ITS to avoid consuming
+unknown vPE state (IHI0069H.b 8.6.2).
+
+So we'd probably need to deschedule the vPE in
+kvm_arch_disable_virtualization_cpu() along with some awareness of
+'kvm_rebooting'.
+
+Thanks,
+Oliver
 
