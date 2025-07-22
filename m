@@ -4,73 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4970C83F27
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 17:04:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 978C2C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 17:19:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eKB6gNFEIrgaeKTQOkToma4zoeyJbKtBVeqploJ//e8=; b=t+sUVa600lbtXqgsxF12FszJJ6
-	qn0LKWXx8PtZ9xZz+s6OSIXKBboProq8J/NnMY6DtIGMrpMasmL6am4aBKPlm780IpDl1k2rRw/WO
-	8rpZpXHALkS51AX1QScUQgMsGYNriiLVRu56XmqBeFtAkL2KbcTjNmVrTF5NbmoeyuJZjdsxSBmjl
-	KjsAzd3JtEhks19PKUNIDLZDUl0SBiYaJhBM0dwNpTDavSg5tnlae+iemJyzPE0vyUf+qoxD7JDtv
-	ItTD1YpDexu+n32V84Ty8BTqWxwM8SgfxyiPSjY7dI6vVmWDKNRAwMPoLdyXuG6IP7f/4tKZ0Tkej
-	lOSklEoQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ibyjI5E3qW6kSn6XqkbCf4AS/khULVCPNIJfzv5g85s=; b=LLyNkxoI84dghYOHt6ncUCmokC
+	rFO3tKC5kQk/X5u+W8PO0pu0yvPgEh+QNWYjdisPRVWWhhG70tysn9aFiSRcgMr4Rph0G9JCimn2Y
+	f4ICyoE+tdaovtPluAqZg6zC+LAdHikJo31EAbGyDogw4EkcUfBVcZUJXdfqOaQvWsZE59SB5wmyX
+	+79ekFR6ZQwqfjt39GFK2ZxDvuqdZ11TU/vwfdl56l/Q8Jxwh9IGA7xw5PfuYRMVy3XMRhS/gEeZo
+	BLgxarDs7pEbLZy9rfYZFZnZP5U43jsrGKwGhdUWkq6XFsikozS/PlQfzBhF9vmkPqRN13TiDaiUa
+	S0r404tA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueGQ2-000000035pt-0po3;
-	Tue, 22 Jul 2025 17:04:46 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1ueGeQ-000000037VB-0iW4;
+	Tue, 22 Jul 2025 17:19:38 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueGMj-000000035Q1-0Dnp
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Jul 2025 17:01:22 +0000
+	id 1ueGbv-000000037GB-0SFM;
+	Tue, 22 Jul 2025 17:17:03 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 75EA95C48BA;
-	Tue, 22 Jul 2025 17:01:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 034DDC4CEEB;
-	Tue, 22 Jul 2025 17:01:19 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 6819E61444;
+	Tue, 22 Jul 2025 17:17:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 01743C4CEEB;
+	Tue, 22 Jul 2025 17:17:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753203680;
-	bh=4ExxWF210EVKXVfZ8XRUE1perdO4miFY1lWLlDpGXyE=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=o1qzI20yrVdhUnbNKS9chhnWZwfsufwiVXUoOBR5Nzqdw4VuznVLUtui48AqcvckC
-	 dksJVF+i5y4kslxWQZQSbXWGchZw/2Vnydl1hmZ8MCBw3tTb7lKjvZ80/jWQKNNGzF
-	 PxTgOs34OjapDTx9a2Y80Wk4bp7d1/jrUPkELzwhXxJn6f8UrfOIX0PIPqIVfqO2Df
-	 CJHRsHhmxBuI6EjTWH+DSFGpZpqzQ559K9Vt3euNX2h57Hoqhp123HjpkZUmQHGvrl
-	 OaieU6ya2bzCTb4dzFod3SamD0A9iFYEGl0+ELuDNjUWsaLEWupl7EPr1vj26f83VY
-	 MM1BiQ/ZB1Qbg==
-Date: Tue, 22 Jul 2025 12:01:19 -0500
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-MIME-Version: 1.0
+	s=k20201202; t=1753204622;
+	bh=w1K4bvODgaupuZ6rTZXJyHZe+HGhv/jTyPnbCIz8yz0=;
+	h=From:To:Cc:Subject:Date:From;
+	b=CFA8FgKUfxPDnZ3oYkOZ86kNnByY29sDQi+lr7AXgJlmDghA5oCtLETsYqBplCXGm
+	 2WmCp4OG7tGny1nCj94jOPRaEeJHXqNZRJaCZ+Kv0v2olRyLTCQGd6+9jrNjkk3XAO
+	 dGHLQuDsbQbNoNsbvwobiov9EVpkqHJRmylodK4BiIFECMrg32GIbtx8DXhLULx2YW
+	 JTBW7kEWqZ6Ue9VsZmgzh4mMlDT74ZbPErX8rAw6cUSWyhL9B4dIr+wWRIQUVcFatE
+	 bL3MjD15bGo15RDXnRubQMG1WfsxDxJB+0rd7CS3s1ogVMkUjZVyRPJSHU+6A0dPKb
+	 LliRIGvFiU4+Q==
 From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Will Deacon <will@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
- linux-arm-kernel@lists.infradead.org, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- Gatien Chevallier <gatien.chevallier@foss.st.com>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-kernel@vger.kernel.org, 
- Michael Turquette <mturquette@baylibre.com>, devicetree@vger.kernel.org, 
- Mark Rutland <mark.rutland@arm.com>, Jonathan Corbet <corbet@lwn.net>, 
- linux-clk@vger.kernel.org, linux-doc@vger.kernel.org, 
- Gabriel Fernandez <gabriel.fernandez@foss.st.com>, 
- Conor Dooley <conor+dt@kernel.org>, linux-perf-users@vger.kernel.org, 
- Krzysztof Kozlowski <krzk@kernel.org>, Julius Werner <jwerner@chromium.org>, 
- Le Goffic <legoffic.clement@gmail.com>, 
- linux-stm32@st-md-mailman.stormreply.com, Stephen Boyd <sboyd@kernel.org>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>
-To: =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>
-In-Reply-To: <20250722-ddrperfm-upstream-v3-11-7b7a4f3dc8a0@foss.st.com>
-References: <20250722-ddrperfm-upstream-v3-0-7b7a4f3dc8a0@foss.st.com>
- <20250722-ddrperfm-upstream-v3-11-7b7a4f3dc8a0@foss.st.com>
-Message-Id: <175320367908.42297.8460265656019241171.robh@kernel.org>
-Subject: Re: [PATCH v3 11/19] dt-bindings: perf: stm32: introduce DDRPERFM
- dt-bindings
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250722_100121_132196_43496291 
-X-CRM114-Status: GOOD (  12.05  )
+To: Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Enric Balletbo i Serra <eballetbo@kernel.org>,
+	Ben Ho <Ben.Ho@mediatek.com>,
+	Fabien Parent <fparent@baylibre.com>
+Cc: devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH] arm64: dts: mediatek: mt8183: Fix out of range pull values
+Date: Tue, 22 Jul 2025 12:11:52 -0500
+Message-ID: <20250722171152.58923-2-robh@kernel.org>
+X-Mailer: git-send-email 2.47.2
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,40 +73,148 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+A value of 10 is not valid for "mediatek,pull-down-adv" and
+"mediatek,pull-up-adv" properties which have defined values of 0-3. It
+appears the "10" was written as a binary value. The driver only looks at
+the lowest 2 bits, so the value "10" decimal works out the same as if
+"2" was used.
 
-On Tue, 22 Jul 2025 16:03:28 +0200, Clément Le Goffic wrote:
-> DDRPERFM is the DDR Performance Monitor embedded in STM32MPU SoC.
-> It allows to monitor DDR events that come from the DDR Controller
-> such as read or write events.
-> 
-> Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
-> ---
->  .../devicetree/bindings/perf/st,stm32-ddr-pmu.yaml | 94 ++++++++++++++++++++++
->  1 file changed, 94 insertions(+)
-> 
+Fixes: cd894e274b74 ("arm64: dts: mt8183: Add krane-sku176 board")
+Fixes: 19b6403f1e2a ("arm64: dts: mt8183: add mt8183 pumpkin board")
+Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+---
+This is just a few of the warnings related to mt8183-pinctrl... Mediatek 
+is #1 for DT warnings on arm64. And by #1, I mean worst. :( It would be 
+nice to see some progress on fixing them. Otherwise, seeing new Mediatek 
+bindings rather than fixing the existing stuff makes me grumpy.
 
-My bot found errors running 'make dt_binding_check' on your patch:
+ arch/arm64/boot/dts/mediatek/mt8183-kukui.dtsi  | 14 +++++++-------
+ arch/arm64/boot/dts/mediatek/mt8183-pumpkin.dts | 14 +++++++-------
+ 2 files changed, 14 insertions(+), 14 deletions(-)
 
-yamllint warnings/errors:
-
-dtschema/dtc warnings/errors:
-Documentation/devicetree/bindings/perf/st,stm32-ddr-pmu.example.dtb: /example-1/ddr3-channel: failed to match any schema with compatible: ['jedec,ddr3-channel']
-
-doc reference errors (make refcheckdocs):
-
-See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250722-ddrperfm-upstream-v3-11-7b7a4f3dc8a0@foss.st.com
-
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
-
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
-
-pip3 install dtschema --upgrade
-
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
+diff --git a/arch/arm64/boot/dts/mediatek/mt8183-kukui.dtsi b/arch/arm64/boot/dts/mediatek/mt8183-kukui.dtsi
+index 400c61d11035..fff93e26eb76 100644
+--- a/arch/arm64/boot/dts/mediatek/mt8183-kukui.dtsi
++++ b/arch/arm64/boot/dts/mediatek/mt8183-kukui.dtsi
+@@ -580,7 +580,7 @@ pins-cmd-dat {
+ 		pins-clk {
+ 			pinmux = <PINMUX_GPIO124__FUNC_MSDC0_CLK>;
+ 			drive-strength = <MTK_DRIVE_14mA>;
+-			mediatek,pull-down-adv = <10>;
++			mediatek,pull-down-adv = <2>;
+ 		};
+ 
+ 		pins-rst {
+@@ -609,13 +609,13 @@ pins-cmd-dat {
+ 		pins-clk {
+ 			pinmux = <PINMUX_GPIO124__FUNC_MSDC0_CLK>;
+ 			drive-strength = <MTK_DRIVE_14mA>;
+-			mediatek,pull-down-adv = <10>;
++			mediatek,pull-down-adv = <2>;
+ 		};
+ 
+ 		pins-ds {
+ 			pinmux = <PINMUX_GPIO131__FUNC_MSDC0_DSL>;
+ 			drive-strength = <MTK_DRIVE_14mA>;
+-			mediatek,pull-down-adv = <10>;
++			mediatek,pull-down-adv = <2>;
+ 		};
+ 
+ 		pins-rst {
+@@ -633,13 +633,13 @@ pins-cmd-dat {
+ 				 <PINMUX_GPIO33__FUNC_MSDC1_DAT2>,
+ 				 <PINMUX_GPIO30__FUNC_MSDC1_DAT3>;
+ 			input-enable;
+-			mediatek,pull-up-adv = <10>;
++			mediatek,pull-up-adv = <2>;
+ 		};
+ 
+ 		pins-clk {
+ 			pinmux = <PINMUX_GPIO29__FUNC_MSDC1_CLK>;
+ 			input-enable;
+-			mediatek,pull-down-adv = <10>;
++			mediatek,pull-down-adv = <2>;
+ 		};
+ 	};
+ 
+@@ -652,13 +652,13 @@ pins-cmd-dat {
+ 				 <PINMUX_GPIO30__FUNC_MSDC1_DAT3>;
+ 			drive-strength = <6>;
+ 			input-enable;
+-			mediatek,pull-up-adv = <10>;
++			mediatek,pull-up-adv = <2>;
+ 		};
+ 
+ 		pins-clk {
+ 			pinmux = <PINMUX_GPIO29__FUNC_MSDC1_CLK>;
+ 			drive-strength = <8>;
+-			mediatek,pull-down-adv = <10>;
++			mediatek,pull-down-adv = <2>;
+ 			input-enable;
+ 		};
+ 	};
+diff --git a/arch/arm64/boot/dts/mediatek/mt8183-pumpkin.dts b/arch/arm64/boot/dts/mediatek/mt8183-pumpkin.dts
+index dbdee604edab..7c3010889ae7 100644
+--- a/arch/arm64/boot/dts/mediatek/mt8183-pumpkin.dts
++++ b/arch/arm64/boot/dts/mediatek/mt8183-pumpkin.dts
+@@ -324,7 +324,7 @@ pins_cmd_dat {
+ 		pins_clk {
+ 			pinmux = <PINMUX_GPIO124__FUNC_MSDC0_CLK>;
+ 			drive-strength = <MTK_DRIVE_14mA>;
+-			mediatek,pull-down-adv = <10>;
++			mediatek,pull-down-adv = <2>;
+ 		};
+ 
+ 		pins_rst {
+@@ -353,13 +353,13 @@ pins_cmd_dat {
+ 		pins_clk {
+ 			pinmux = <PINMUX_GPIO124__FUNC_MSDC0_CLK>;
+ 			drive-strength = <MTK_DRIVE_14mA>;
+-			mediatek,pull-down-adv = <10>;
++			mediatek,pull-down-adv = <2>;
+ 		};
+ 
+ 		pins_ds {
+ 			pinmux = <PINMUX_GPIO131__FUNC_MSDC0_DSL>;
+ 			drive-strength = <MTK_DRIVE_14mA>;
+-			mediatek,pull-down-adv = <10>;
++			mediatek,pull-down-adv = <2>;
+ 		};
+ 
+ 		pins_rst {
+@@ -377,13 +377,13 @@ pins_cmd_dat {
+ 				 <PINMUX_GPIO33__FUNC_MSDC1_DAT2>,
+ 				 <PINMUX_GPIO30__FUNC_MSDC1_DAT3>;
+ 			input-enable;
+-			mediatek,pull-up-adv = <10>;
++			mediatek,pull-up-adv = <2>;
+ 		};
+ 
+ 		pins_clk {
+ 			pinmux = <PINMUX_GPIO29__FUNC_MSDC1_CLK>;
+ 			input-enable;
+-			mediatek,pull-down-adv = <10>;
++			mediatek,pull-down-adv = <2>;
+ 		};
+ 
+ 		pins_pmu {
+@@ -401,13 +401,13 @@ pins_cmd_dat {
+ 				 <PINMUX_GPIO30__FUNC_MSDC1_DAT3>;
+ 			drive-strength = <6>;
+ 			input-enable;
+-			mediatek,pull-up-adv = <10>;
++			mediatek,pull-up-adv = <2>;
+ 		};
+ 
+ 		pins_clk {
+ 			pinmux = <PINMUX_GPIO29__FUNC_MSDC1_CLK>;
+ 			drive-strength = <8>;
+-			mediatek,pull-down-adv = <10>;
++			mediatek,pull-down-adv = <2>;
+ 			input-enable;
+ 		};
+ 	};
+-- 
+2.47.2
 
 
