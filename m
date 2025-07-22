@@ -4,88 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D950C83F27
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 13:19:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 749EFC83F27
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 13:21:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ad0eWcS05AQtec3r1PLfGkWoKzWnCdTiBnJpsCLhEdY=; b=asxvTaz1/YmU0Yj7p2krzKQnfd
-	NSNSyOn55HeTV6XO/Sb23ZZS91JkcVpywGwfSIIgjmdPf74+VsWVLi3JpfMAk46khYdT7FB87xEpY
-	oFdhHPQ36fqXXCpsMDR/QJ18VuTCk+onl3Ne+56HsV7hgNnpYKOw9UZ8ScUb8blVgD1+5DBAConHg
-	NsWJkcIzZi2H/O5EIlJHbSNu1tn66yRmRcZSy1hQ9fH5MC0RO8dL40mz/aOmyr4DfhzmUIz9nawEx
-	pCkavCOnYfxtPIB79ZVuNX6hezAHDFoPNGMPYJuvUkdc59Mqu8MBwJ3J0KK6njkKUBag6S41iG2gC
-	mrIbyg2g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=o9zVmz81PD3EcDqh5BGdUlKDbC/PBBgCXACORglCMmc=; b=E5YuiSSQgUPcW7V3kzzN70gvVk
+	1CxL1o0Gl/ADJW3idHrTZDH3zoY29pc+VTJr+Z4P6yW9CqopbFkgkTHTpWv4gT15MpkwLQRC3XVjo
+	QDyVIwh6JHHMk325f1NIMD8lmwPilWr0Zr6mzBwEaNom1bi/1XN4KGZoXP1qa8mDuo53kNmYmU6Ok
+	lrWlejIwyZ95But6RHeG2TvGa9ONL0sdbRYPBHogqUMShRj/4R1jtR9RSZZkrExLWiILfEqu/qoRb
+	p6+m+BhRFAjC7Q/xnzXl/ZoiRBNLjJtZmv36UcRckhyyy4N4NYajozJGCCz9YGD1bPjcUqTzohzoT
+	fCNv1rMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueCtU-00000002X3C-3Odu;
-	Tue, 22 Jul 2025 13:18:56 +0000
-Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
+	id 1ueCvx-00000002XIa-3PPT;
+	Tue, 22 Jul 2025 13:21:29 +0000
+Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueC0B-00000002PnC-0fqi
+	id 1ueC2G-00000002QBC-2KVK
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Jul 2025 12:21:48 +0000
-Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-3a528243636so3269211f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Jul 2025 05:21:46 -0700 (PDT)
+	Tue, 22 Jul 2025 12:23:57 +0000
+Received: by mail-ej1-x62d.google.com with SMTP id a640c23a62f3a-ae0bc7aa21bso1066504366b.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Jul 2025 05:23:56 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1753186905; x=1753791705; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=ad0eWcS05AQtec3r1PLfGkWoKzWnCdTiBnJpsCLhEdY=;
-        b=Ld2Dkl4zDxMdQz4nn0j0V08jFBGmAz7qB6Dqu/7ov38CBTYQsOi0uevpSxZYzIyXbT
-         cWcRXHpAmD00EdMO8CIFY5NyRcpL+x/KYZAcXaaybzWb7oIOiOlEbQhkEimjp6hdVKTs
-         ygmUc3BQeM/SgwZg/Pb9/yiWRjbL6TXLPRYDjLNlxoprOl9h6pLxUwh7D/+fXW3+XiRS
-         vyGWOkPHYAxKuDt9T50J00X1LZ0Rn7JBvB9u76Hiw2kqJGS8vFSOQBHxCQSkWaMv3l/+
-         zJQe6gIJuMiRWItjTh2aBu92zRxGBpxrTha+BByUdkJ+clEko/PXWaNwrenMpHYZjuz8
-         8Psg==
+        d=gmail.com; s=20230601; t=1753187035; x=1753791835; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=o9zVmz81PD3EcDqh5BGdUlKDbC/PBBgCXACORglCMmc=;
+        b=SuKLI+FNlzJnfwt8lxkuM7a8hzPEMi+jrwUOyHEoRIp6dF63tHJH47xjPyxTvQLv0U
+         2akurGsK4GUMDtID91Bh75z6dB2qrO2KchA+HBCBdATdr3XXxTuF2uF3dUpKSi0zmop+
+         Rm/4iOpbNMvF0QhWkfb9UlAGO8h1OrbpinmsrccdqNky7YmXcK55daiHRtM/yfva5xlV
+         J/ZNiooKwFACbJiPHqz8/Yj47jPULnN0AYgQ8Bkn9gakyar+MkpD5ayGfPbMcgxyZf0j
+         Lrtz5NYcJdmOeJI6mVr7xrhPCQyw8s7HvKCvh927JU+NfyPqLMahkbtvgLSmUyNSfUyb
+         nNyg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753186905; x=1753791705;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ad0eWcS05AQtec3r1PLfGkWoKzWnCdTiBnJpsCLhEdY=;
-        b=BboVcNiMQmNsO3NHmenh4rIUbZ1FZb5kZkFLtbSezpjdottL7NKEf7VBPiR8A9KtvV
-         W0bZdFIcfsiuFcurQrVxcNMMu95KcgJm8kCOiobakHE1gM5KLhCZOaLVI4BB/kLrZA90
-         DD0A6sOlU5qg8I0HINAq1FmsCeFNRWTzwrAiL4CFjybTUp7IZvWFTcmUQs0gnxs2EpP4
-         iZ18ZoSfBvXoesAobfJSx3Tw88BzU07GIssjWhmW4EGC/IxK2Jsso8M4Syzoyk9ETLcR
-         W6vhKk/dKF8m4nk+s8w6OKEZc8/He1UL+78xcdmvJhEvojdPdVqa83Z/D7Kb1n350VDr
-         ijFw==
-X-Forwarded-Encrypted: i=1; AJvYcCVCvJ/qcGRS0lM5T7FcHOFErMWQ8JAT3BqIG7Ksahh1JX2n/cdGBE4ItqPxqhlFfZ6lUMVXJD7SgfTge1iNcKxu@lists.infradead.org
-X-Gm-Message-State: AOJu0YxF5Jrw0IlxU97ffIIpdW2Rtnt8iGgseerTe5A4ku8ozqP2w5hw
-	K7y7jvVe3okdBvwTg2ppwa1Aog6jnbK+yB69nZ0j1geaekAsxvycwVSs
-X-Gm-Gg: ASbGncs/3yUdfJMcpOeTMXlljvp8idfrI0HppdAGAVMzf4q+ZcUg0MsSf00J587z2t1
-	LHO44zF+LUfE1gMh6+ubTbfr9XopNR803yWJzznOmgOMHvD8dVF7PaS10HKxGmhvjme+q22lIOq
-	urUdhZjAi23N2I4nPHTRY4todtBLi9E2QwTw3bU62YrFzGfV9QcUaZsmzE9uXirmsnXtvsRk9jo
-	i2E6DPTZRVQSMmkEVMZXdpWltXa937IoApxG8oOy545qJo/DTp7O1kKH3K2CGk+9G/3VAZ/YBYT
-	ET6Knx0b0M6mZfucahsQSf5bdpN+SH8lNtY1ZvsDWXb8K9OwHW+NUlS0drU47d9Yg+L8vXBMaMg
-	kSbnsHduQPr/wOuy7WX3PsUZVPQHyapAwAS3s2fvIE3mMJLcKz38PasZkx/6TnQPNlpRGU+vI0Z
-	1eMqAb97hr
-X-Google-Smtp-Source: AGHT+IGNcA3sbhxOlCqY/l1NPEPhYR5vIqHTTHrl6r+GnoE5v0L0OgDqGJHa+qfDhsDIJ6agL7cTFg==
-X-Received: by 2002:a05:6000:40cd:b0:3b7:662b:705d with SMTP id ffacd0b85a97d-3b7662b7496mr910235f8f.48.1753186904968;
-        Tue, 22 Jul 2025 05:21:44 -0700 (PDT)
-Received: from orome (p200300e41f4e9b00f22f74fffe1f3a53.dip0.t-ipconnect.de. [2003:e4:1f4e:9b00:f22f:74ff:fe1f:3a53])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3b76455e57asm1897701f8f.21.2025.07.22.05.21.43
+        d=1e100.net; s=20230601; t=1753187035; x=1753791835;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=o9zVmz81PD3EcDqh5BGdUlKDbC/PBBgCXACORglCMmc=;
+        b=Q6T7zN7+GB5xRCt7kBlxbCz27FB1vWJQp/aP07RkCFghq2Olgu+Ppv8Qqcc0AYyjb7
+         if4mxIgTNdZvRW6YQaj/OzwKWBDEf7Z1LWMWQpB7VTNQIDfpg3W/X44S2kTbcOqwx8ai
+         CQnNuI3YXAeKrq0fKWI8chG7c2RSeJYr2AuPTWt63p61gf7NVNqFh4DMJV5bXIxO+/qC
+         XLMgptX8GFVjwpV/fIGrlp9yx3AAgY7mInBAVkhAH/05SA65KSYjwRtWgl+KqhytHKsU
+         mKzyZcO64UAsAMlBuCBMUVIt/aV3Iu2kCEg2HRrimPitXexqG4DIJt14cdHZju1mHzUT
+         P16g==
+X-Forwarded-Encrypted: i=1; AJvYcCVjZwPc79QESH3n4k3wxPYc01Mkkw7DlHHzixsHOT5uFPJug/Nk9WAFt7IZWpb9p+uhK/rWtq9fGOCA7gsuwVSH@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzj6eFxsCdK8b/Fg2CNJmuOwvx2K45ifdckSJDEyYRAvX1qExCR
+	a6+OjSyxlssvzqgMvZMUJhoBDAEn5pE7XIZILDJHJQAD8VLJujieSoxq
+X-Gm-Gg: ASbGncvCnfp4Z8sdfBL2snnV+AifIxT4+1oxsYa9wriwAD3FrpElkK92AP05Mz09YjV
+	D9wXbZlHCqQzPg3KCOgNBk4t/iVR9/FpcuLZIFBPC71rP+KWXIcBqqB/IjHW68OhF0eNQT8TZZf
+	SDNeWSh1IX8caVWf+yyE7X7YeDECQQNmyTq1U+NRR4zFd8lYvPRJIkEWSLC9IxwGwxFrVpYauUW
+	mjE+7bM9gDE2behxGO+qJ/SIZpJnXO/u2CQI84/sAA5rUpCHpUowezwtwblQXZJe2eL9uKLys9S
+	AJjrvo97d5feR3tEeqUamZ1wc8+ErFeSUM2rP9icQwrWGRsmHBdtwEIreqFDjyd5E1zUcWSp2lh
+	vWy+K7S8U+vcj5W1EoDDwO7W0kRPQJRf015L2MIxvXR7asDmDs6JWehXer3Z9k6C2uOLRWWrSVg
+	==
+X-Google-Smtp-Source: AGHT+IGLZ9hBnU0L+6iBn36Ar8EtrC0DggxduYejAe7GRNOw5gatUgZQ863G8i/REynVRkoMww08NQ==
+X-Received: by 2002:a17:906:c00f:b0:ae3:7058:7b48 with SMTP id a640c23a62f3a-ae9cde31899mr1973204166b.25.1753187034636;
+        Tue, 22 Jul 2025 05:23:54 -0700 (PDT)
+Received: from ivaylo-T580.. (91-139-201-119.stz.ddns.bulsat.com. [91.139.201.119])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aec6c79a056sm861358466b.14.2025.07.22.05.23.53
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 22 Jul 2025 05:21:43 -0700 (PDT)
-Date: Tue, 22 Jul 2025 14:21:41 +0200
-From: Thierry Reding <thierry.reding@gmail.com>
-To: arm@kernel.org, soc@kernel.org
-Cc: Jon Hunter <jonathanh@nvidia.com>, linux-tegra@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [GIT PULL 7/8] arm64: tegra: Changes for v6.17-rc1
-Message-ID: <izdiwbkuipbzunqot7zhillohtfcm32xrk5ydu54bamumfgkpx@p6ikuhkv3bkj>
-References: <20250711220943.2389322-1-thierry.reding@gmail.com>
- <20250711220943.2389322-7-thierry.reding@gmail.com>
+        Tue, 22 Jul 2025 05:23:54 -0700 (PDT)
+From: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+To: Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Rob Herring <robh@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: linux-samsung-soc@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v1 0/4] arm64: dts: exynos2200: introduce serial busses, except spi
+Date: Tue, 22 Jul 2025 15:23:46 +0300
+Message-ID: <20250722122350.444019-1-ivo.ivanov.ivanov1@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="fqns36t46xkf43gi"
-Content-Disposition: inline
-In-Reply-To: <20250711220943.2389322-7-thierry.reding@gmail.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250722_052147_199456_8DBAEC8A 
-X-CRM114-Status: GOOD (  12.68  )
+X-CRM114-CacheID: sfid-20250722_052356_592872_9DF5D78C 
+X-CRM114-Status: UNSURE (   9.03  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,60 +102,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hey, folks!
 
---fqns36t46xkf43gi
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [GIT PULL 7/8] arm64: tegra: Changes for v6.17-rc1
-MIME-Version: 1.0
+Before anything, this patchset only has binding dependencies, without
+which it will have undocumented compatibles. They are the following:
 
-On Sat, Jul 12, 2025 at 12:09:40AM +0200, Thierry Reding wrote:
-> Hi ARM SoC maintainers,
->=20
-> The following changes since commit 19272b37aa4f83ca52bdf9c16d5d81bdd13544=
-94:
->=20
->   Linux 6.16-rc1 (2025-06-08 13:44:43 -0700)
->=20
-> are available in the Git repository at:
->=20
->   git://git.kernel.org/pub/scm/linux/kernel/git/tegra/linux.git tags/tegr=
-a-for-6.17-arm64-dt
->=20
-> for you to fetch changes up to d01e4f1e7aa8833f549ac61a0bbcdc395533269b:
->=20
->   arm64: tegra: Add p3971-0089+p3834-0008 support (2025-07-11 16:57:47 +0=
-200)
+[1] - https://lore.kernel.org/all/20250722120859.443283-1-ivo.ivanov.ivanov1@gmail.com/
+[2] - https://lore.kernel.org/all/20250722121037.443385-1-ivo.ivanov.ivanov1@gmail.com/
+[3] - https://lore.kernel.org/all/20250722121434.443648-1-ivo.ivanov.ivanov1@gmail.com/
 
-Hi Arnd,
+This patchset adds serial busses, implemented in usi, as well as serial_0
+and serial_1 for exynos2200. It's missing spi, due to me having troubles
+with reads when testing.
 
-it looks like you haven't pulled this yet, in which case, please hold
-off for a little. There's a missing dependency on another branch, so I
-need to redo this. I'll send an updated pull request ASAP.
+Best regards,
+Ivaylo
 
-Thanks,
-Thierry
+Ivaylo Ivanov (4):
+  arm64: dts: exynos2200: fix typo in hsi2c23 bus pins label
+  arm64: dts: exynos2200: increase peric1 and cmgp syscon sizes
+  arm64: dts: exynos2200: add serial_0/1 nodes
+  arm64: dts: exynos2200: define all usi nodes
 
---fqns36t46xkf43gi
-Content-Type: application/pgp-signature; name="signature.asc"
+ .../boot/dts/exynos/exynos2200-pinctrl.dtsi   |    2 +-
+ arch/arm64/boot/dts/exynos/exynos2200.dtsi    | 1391 ++++++++++++++++-
+ 2 files changed, 1390 insertions(+), 3 deletions(-)
 
------BEGIN PGP SIGNATURE-----
+-- 
+2.43.0
 
-iQIzBAABCgAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAmh/glUACgkQ3SOs138+
-s6ERKxAAmFMQZ/Cz4E1/SKyZNnC9aV8KA+fjrVHYHZzCnkwFSKmoC9NkwCWgbdrF
-E1h3r1fxrb8nPtej1NiDuwnKhxs6aOsmtlRoBhcUGKO5PatgVWtjSgb1cCcIjdPk
-rQnedQ0CYn/RHmB0lJbwST4jzqFL5FHGJ/90/XBA9AXGi0JqfWtzUeymAXk7RbpQ
-YANpZwnoLtRNx/F7zEJRNXEA7pQR/5tizYVJoEREqJjS+wSpcNJzwA7d45wYmmkS
-AnFmFNut+Uxt+UeY/DE7I8Xk+Lisex/EyirsiPsjRLWp4eYOOZIOlBqZjqIR99da
-RqoOqIhXbuqYiZF2pI1RrJDQW4xlSoo922bQvr1EjmMKUZ+A8DyURYGkHxxxf95g
-x+yjya0vWkFr5bZI4JoonbEXpBPkE/WJx84fnKH8t/M4xQaxtsWtdZTO9kpJxsGF
-mzLtIpwdIxr5uXL07gwcoE/BjBxvmeCig1rqhTt0VL9RLFDAhe2eVLd9mEe5SkmO
-2PIyCknJfDDbSpt5tDbzd+y5Zn0/hWfxbqZtD1KEg1QUGxncZc4/rc/s2fr2LQg/
-SjlgViowGlhj/+o/QLBkyfp5hy5kK0ZjSi5rJsOC+iUefpXgLFhehwGbX/OPfI+R
-qwtbt/DbrtWjMNS+/jCBZ0ZEMr4tIdFHnDVzCj0Wx9TzZokl1PQ=
-=rtRy
------END PGP SIGNATURE-----
-
---fqns36t46xkf43gi--
 
