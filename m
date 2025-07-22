@@ -4,81 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8E6CC83F27
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 10:17:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F8B4C83F25
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 10:19:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
 	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=th8LkjBfkv7nYvFuNNGaT8FWdqcCdRHWy+pWo6pVRT4=; b=fxSqsdVRfB4pSxI9KLfFtmPPEJ
-	kutoG+PMH8eHDN794apPQgToPe2ci2c5A2f5DEJn/Wuh96bbIspgZ+L+978avTzhQCA0RFgGi0JnI
-	TV0+/W6cX7Kg72wES5eY0kGatwoNVNE+E9IoIsZ6MD+JB8j7wYEj6jRo/yMbWtxPZgWlESxnve//5
-	uaWmHWGXTbhm2HUj17QfPqSFKZ2ZBpkBlxMMMwvPvzDKT+/1UYByzfHtgqP8zNb3BX4L+oN+G0cVh
-	lruw+2PIZfrZvDXC1HHb5MZwvQgZYaVHboe013K6QdcD4Ome4pkEaTu7bcSVMjtxJ3ZiTZpH/9RQi
-	m0EM2A0A==;
+	bh=eACVn/AeNUkJSj6fqs1SPdUKZxcJXedSP1FDf4UsU+0=; b=brvaEe2Nae/hgbdh6AKyA/E+yZ
+	Cq5LN23HHx1abwCrtFB+KHCBAIC7ulvtSQEY5yZq2zmotYfGioXhLPq4+gTcOUtd1RhkJX9Qg4mrM
+	EB8udMvOco6F9AStd9iN/wSDTF3fNHEBfSsCoYFeAX3sQMOSynvmy8E9ipoF1an1zcShPAlZUsMZd
+	ReFOodRZwI+kLnspCgj6rUX9G/vsCMGzjFjoSCz/Vtx/WNuUL5m0zZLviddhwAS0HJIti8FMI5lBH
+	c8oemHrZfWjy3cJoIGwnS0CUipbNZE8llxmGo5E+Lq5U3nvwF/epaZLHpDLO5iYWf/jckwIVyUEAn
+	+HoUNxlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueA3g-000000028Xx-3uJ0;
-	Tue, 22 Jul 2025 10:17:16 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1ueA6C-000000028nx-1QH9;
+	Tue, 22 Jul 2025 10:19:52 +0000
+Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ue9rP-0000000267y-18br
+	id 1ue9s7-000000026JC-3i2f
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Jul 2025 10:04:36 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-45618ddd62fso54318015e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Jul 2025 03:04:35 -0700 (PDT)
+	Tue, 22 Jul 2025 10:05:21 +0000
+Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-3b611665b96so2966808f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Jul 2025 03:05:19 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1753178674; x=1753783474; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1753178718; x=1753783518; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:organization:autocrypt
          :content-language:references:cc:to:subject:reply-to:from:user-agent
          :mime-version:date:message-id:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=th8LkjBfkv7nYvFuNNGaT8FWdqcCdRHWy+pWo6pVRT4=;
-        b=Q2anXAKrnoEru4X3dvRfdOubp9NzXxaS6vNXtHGCzxn6udwZbm7mi5BOTQlu1a7Gv2
-         Fq8/ktRIqh9Vfwx8uZRrhTZUnNv9fHNf4G3A5Dv0fGKtaBaYAE7AjU1+yzg40uBMrl/X
-         Yx5cUbPeex9rI11mEI45VCi6buZ5AVvkt/K51GVnNLa4j7Dct00jEDawKLvztwjRaIup
-         qqnBeEfq5Y4O5PUttCrRE+altxbvEbbgW/tDUvRlBXTNDDF2QyyRUUgV63ISR0thjUOK
-         UYZzVnZ9cYCgKr7LXKvR76BGThvLx5F6MlU5xmXQmpDKVDvnCA7R4sL2qc9UWqw5T0No
-         Ckbw==
+        bh=eACVn/AeNUkJSj6fqs1SPdUKZxcJXedSP1FDf4UsU+0=;
+        b=JvyFTyZ3jgqS0SEub8L+X3bW0YoI7TR7JyaT+59N5j8DkXhbKfpbwJ3PqH3lnp736q
+         +gM2BtM2Hs43EMHg/FPeTzNnlqdP/9bBDOmjbb0qz88DtPB3LTm6MvXiocYSAn7mf41q
+         w6Lxye+VHv2vN2I8aib8b+R5XTnzU1RhXRH0I0NFcTIcdiRXSyurv//paV8FIcZNF/yQ
+         NQkhXNFK9VHMkmToU42tJQrQPoULIKF8+PSkn4QDG0G5kVP6w/XQA5/hMciMOBDN35oQ
+         ZbDDe+4sPxKVP5sjk3fnbvRUJSTvDIug/0wihwYy4yUGzfstuwdgmrjgMc53VEAGxPcH
+         fg5A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753178674; x=1753783474;
+        d=1e100.net; s=20230601; t=1753178718; x=1753783518;
         h=content-transfer-encoding:in-reply-to:organization:autocrypt
          :content-language:references:cc:to:subject:reply-to:from:user-agent
          :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
          :date:message-id:reply-to;
-        bh=th8LkjBfkv7nYvFuNNGaT8FWdqcCdRHWy+pWo6pVRT4=;
-        b=pjztxwtXHUPAyj+z4l6cPuurjr+Sbkv/xsGDwd++oUfahK/rphwuW1ZA1WawcMUTyb
-         beaFMZf/M0x6h9czLrykIDemEljJmEx3E4IFyGTxuA6EkpMluL/a8imCmuhYhQn6A2VG
-         pkxkFAS4qkvsqBUd0MdSneu9mOvD+nRw7rJcOmSQWF9vdM7uxhaNkRAjaocS+zRRqoAl
-         ujqHrYJxRCXS9/5VDjSFFbo2OLPcpYy55zLiulTUuGJuy3w1+DLrKpjmiFxwUKFnodJM
-         6YyVdTvI640Fhj3/cB+qGWpyZZd4UWFrpuh9CemWUI8x8toKvEHVgGoR+NMw4Uad1T7K
-         jnOA==
-X-Forwarded-Encrypted: i=1; AJvYcCURRcx0vKls3vpzrsMsPr0AbDVZf8C5JvyWXFSnUFwvCYhCpVDOydl8WosDw7WJY4a+b54THVtF1NzGmuRVj6wW@lists.infradead.org
-X-Gm-Message-State: AOJu0YwLApy9+WnvR6/ny/ZMbHA/NGWKlYF1xkklr679+gn2Q0ZttLEI
-	gbH+dFz7s7wiJrZpWm2CKDrb/A0usgej1zh28YNlroOlNgzS/Fgd8SjXmP3zaG8yL78=
-X-Gm-Gg: ASbGnct8PC4wRp+Vs2mqrqn6vMUR4EU9EVfOPPOeIgMm3v6rHB8Lk58L/tZ9EBR2J0j
-	0/ohPsL4C3mSXqDpw0MVh9fqFTgZmMRKb2NhwABoLzg2hAS9NkWeVq7iL3XJIyBI2WZDzw70ZB1
-	WER8Xwok2i7CrafeKksw3lIzhBD8PvowCSWeg6r0xv7ks2KbBYI48ddpAiNc22XICYXMmkTOrSF
-	CFmth8lgo4lg/rd8OGDO4sEKXlcTr8+Fcuu2Eby+Yn6+pxEnmXoGIc4V/gjiSX+iwOuJFoCPuXi
-	VIdCkk/2J52url4f94gKyYvM5Ms5HirS3CpXNI53i39qvqk018PePIfVEKmNofWbIdzfmsK/iKv
-	+iaWERqAZ8ShRmSpPtbwUbqEuqy9XhD0BVZx+Fk/zYDiaUqSsE0Ln/ll9P2I02X68dlyURerqsr
-	Q=
-X-Google-Smtp-Source: AGHT+IFejVtWV8JytlClgGlAbQ/sASXBqbtoY0roVwh48A/QZMJB/xCFqE4nYCMj0t7+saAYfB6ttw==
-X-Received: by 2002:a05:600c:4688:b0:456:a1b:e906 with SMTP id 5b1f17b1804b1-4562e3cbb03mr196476655e9.33.1753178673594;
-        Tue, 22 Jul 2025 03:04:33 -0700 (PDT)
+        bh=eACVn/AeNUkJSj6fqs1SPdUKZxcJXedSP1FDf4UsU+0=;
+        b=et5C9jw0O1vS3Fnu5qQaQhaDNUt0S+nkpCWieZuFUi3rVOBMKId49K8QDb6PhzfzM8
+         HNSOpbYKL94OCCSC04G+BEZ8uPV+WhAytNvXRFZ84aIEt8DK6QjukjUtCYkaDA2OgGai
+         G9dIqFIeA6Py9HM/1t3MKADRldaX+hJfARfWlqI3cF8RBzISlfhFgZBitEMWalmg6H9c
+         gim9wEGO48pDuRDQHDHsuVlPcEInXY1dOC+ecMQAtawTJHrANyx+6cDNKgw9TkUWBCRW
+         ooA0AWc/NzukkK1NVsy327BefeJzysOxz1HOK2eE2R7hDSnSUNrqe7xKY4hjTgcMVtEb
+         beUQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWKbPZz2GddxcGqsWoHzSGrT1dYgHuus4hFvKmF9RT4U08BdpW1Dth5v/ywJxipMiVMgRniQvhbD74YTxV8XCBm@lists.infradead.org
+X-Gm-Message-State: AOJu0YwKepdBLREcNKKi+YJ5/Oh36y8l7QqTCJXM69qbWUWU8KewU1j9
+	VfKNbNWyAMmEPtEa63nDZbrr0c5RO2OvWKcucJB0dvMXOa+15LM29HGX3Xezp3P+TL0=
+X-Gm-Gg: ASbGnctvrRX9Ttw8N2MvVLLk7Zbbs/xVq/M7dckaD/XsT0ESCGmbh57fQxEwM3wOEhf
+	nA1Yu9KMQL6QyMjjVC9U1RGQKmMrmgzr7fDzfTcCOA8cnpqFfXiM6b3/uzsuNXZe6GklHwAFFY9
+	0As1DCVnNxn+FIR7DQ877A6EAoqe80iwPCikh018eXhkjWZa8SAUwLJKwOfuhrRso1NPDSgFako
+	EZGwgEsqfItl5SJKUfsg0ZIXNb65XizWnkXFJ6T5vjFrDbiQ6PFRUpFlLNPCQC+UU4Eq68IoFyN
+	cdAmdP4UVRMiUhfnG25+1ff1F11iFYjIxFjum5bVHj61O1zmkpQUHp9oO7lTxcyVY1IO5HRuDVd
+	g3FKwGB8l6XtkP1nQSXuxojJfcLicTCxxaP9+nMe3FF3R5hvaLHUS/lYAPFsKjZyf6S/eip9+7A
+	E=
+X-Google-Smtp-Source: AGHT+IGRKY81gkhXWhMn/9LTWKt4F1bWwxEHclEpgsQnRjAMZGrMWAwlAapyO/AgjZWzNQLVWrBoIw==
+X-Received: by 2002:a5d:5f46:0:b0:3a5:2d42:aa17 with SMTP id ffacd0b85a97d-3b60e5127efmr20108404f8f.31.1753178718150;
+        Tue, 22 Jul 2025 03:05:18 -0700 (PDT)
 Received: from ?IPV6:2a01:e0a:3d9:2080:bce4:725d:6922:d1ba? ([2a01:e0a:3d9:2080:bce4:725d:6922:d1ba])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4562e7f33f0sm184133915e9.2.2025.07.22.03.04.32
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3b75baa7072sm6012611f8f.2.2025.07.22.03.05.17
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 22 Jul 2025 03:04:33 -0700 (PDT)
-Message-ID: <942aa300-fc49-47e8-93b7-85fd1e1fd123@linaro.org>
-Date: Tue, 22 Jul 2025 12:04:32 +0200
+        Tue, 22 Jul 2025 03:05:17 -0700 (PDT)
+Message-ID: <6692f1e4-978e-4138-9d76-ac2b80613a65@linaro.org>
+Date: Tue, 22 Jul 2025 12:05:16 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 From: Neil Armstrong <neil.armstrong@linaro.org>
-Subject: Re: [PATCH 2/3] thermal: amlogic: Support C3 thermal controller
- driver
+Subject: Re: [PATCH 3/3] arm64: dts: amlogic: c3: Add tempsensor controller
+ node
 To: xianwei.zhao@amlogic.com, Guillaume La Roque <glaroque@baylibre.com>,
  "Rafael J. Wysocki" <rafael@kernel.org>,
  Daniel Lezcano <daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>,
@@ -91,7 +91,7 @@ Cc: linux-pm@vger.kernel.org, linux-amlogic@lists.infradead.org,
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, Liming Xue <liming.xue@amlogic.com>
 References: <20250718-c3-thermal-v1-0-674f9a991690@amlogic.com>
- <20250718-c3-thermal-v1-2-674f9a991690@amlogic.com>
+ <20250718-c3-thermal-v1-3-674f9a991690@amlogic.com>
 Content-Language: en-US, fr
 Autocrypt: addr=neil.armstrong@linaro.org; keydata=
  xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
@@ -118,12 +118,12 @@ Autocrypt: addr=neil.armstrong@linaro.org; keydata=
  4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
  QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
 Organization: Linaro
-In-Reply-To: <20250718-c3-thermal-v1-2-674f9a991690@amlogic.com>
+In-Reply-To: <20250718-c3-thermal-v1-3-674f9a991690@amlogic.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250722_030435_329361_19E19B77 
-X-CRM114-Status: GOOD (  16.93  )
+X-CRM114-CacheID: sfid-20250722_030519_927926_DB2AE8B0 
+X-CRM114-Status: GOOD (  13.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,46 +142,36 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On 18/07/2025 08:37, Xianwei Zhao via B4 Relay wrote:
 > From: Xianwei Zhao <xianwei.zhao@amlogic.com>
 > 
-> Add the thermal controller driver for the C3 SoC family.
-> 
-> The main difference compared to other Amlogic chips lies in the
-> offset of the sec_ao base (referred to as u_efuse_off), which is
-> handled differently. Everything else remains consistent.
+> Add the Tempsensor controller node for C3 SoC family.
 > 
 > Signed-off-by: Liming Xue <liming.xue@amlogic.com>
 > Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
 > ---
->   drivers/thermal/amlogic_thermal.c | 10 ++++++++++
->   1 file changed, 10 insertions(+)
+>   arch/arm64/boot/dts/amlogic/amlogic-c3.dtsi | 11 +++++++++++
+>   1 file changed, 11 insertions(+)
 > 
-> diff --git a/drivers/thermal/amlogic_thermal.c b/drivers/thermal/amlogic_thermal.c
-> index 5448d772db12..d1b08119c818 100644
-> --- a/drivers/thermal/amlogic_thermal.c
-> +++ b/drivers/thermal/amlogic_thermal.c
-> @@ -226,6 +226,12 @@ static const struct amlogic_thermal_data amlogic_thermal_a1_cpu_param = {
->   	.regmap_config = &amlogic_thermal_regmap_config_g12a,
->   };
+> diff --git a/arch/arm64/boot/dts/amlogic/amlogic-c3.dtsi b/arch/arm64/boot/dts/amlogic/amlogic-c3.dtsi
+> index cb9ea3ca6ee0..c853390eca6c 100644
+> --- a/arch/arm64/boot/dts/amlogic/amlogic-c3.dtsi
+> +++ b/arch/arm64/boot/dts/amlogic/amlogic-c3.dtsi
+> @@ -727,6 +727,17 @@ clkc_pll: clock-controller@8000 {
+>   					      "fix";
+>   			};
 >   
-> +static const struct amlogic_thermal_data amlogic_thermal_c3_cpu_param = {
-> +	.u_efuse_off = 0x108,
-> +	.calibration_parameters = &amlogic_thermal_g12a,
-> +	.regmap_config = &amlogic_thermal_regmap_config_g12a,
-> +};
+> +			temperature-sensor@20000 {
+> +				compatible = "amlogic,c3-cpu-thermal";
+> +				reg = <0x0 0x20000 0x0 0x50>;
+> +				interrupts = <GIC_SPI 30 IRQ_TYPE_LEVEL_HIGH>;
+> +				clocks = <&clkc_periphs CLKID_TS>;
+> +				assigned-clocks = <&clkc_periphs CLKID_TS>;
+> +				assigned-clock-rates = <500000>;
+> +				amlogic,ao-secure = <&sec_ao>;
+> +				#thermal-sensor-cells = <0>;
+> +			};
 > +
->   static const struct of_device_id of_amlogic_thermal_match[] = {
->   	{
->   		.compatible = "amlogic,g12a-ddr-thermal",
-> @@ -239,6 +245,10 @@ static const struct of_device_id of_amlogic_thermal_match[] = {
->   		.compatible = "amlogic,a1-cpu-thermal",
->   		.data = &amlogic_thermal_a1_cpu_param,
->   	},
-> +	{
-> +		.compatible = "amlogic,c3-cpu-thermal",
-> +		.data = &amlogic_thermal_c3_cpu_param,
-> +	},
->   	{ /* sentinel */ }
->   };
->   MODULE_DEVICE_TABLE(of, of_amlogic_thermal_match);
+>   			eth_phy: mdio-multiplexer@28000 {
+>   				compatible = "amlogic,g12a-mdio-mux";
+>   				reg = <0x0 0x28000 0x0 0xa4>;
 > 
 
 Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
