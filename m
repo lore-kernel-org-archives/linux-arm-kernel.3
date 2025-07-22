@@ -4,84 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00EB1C83F27
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 11:43:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA488C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 11:45:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Gdlrd0m6qmMRniATbixY3CWNuvG25zrge2jtFo59cTM=; b=kCC11hwVB6XVNduzYqVKESiCy2
-	gGr7Osgr4SP1KssAWGsAWTNofwnUgfOrW2ImSNITRvw8LVM/LGunR/rvHIRciQex14EkKZA357Boq
-	DXYqD3apPiv+oxTc1EYv3w4vac5eN3NO50opCV2136A894ZpjDiwHCbmR7q4v4w2z0LkpapdpzGIM
-	hgoNQc1LhHTDJbDlZ+vdSSBHE68d3rTNtr2q6dUpWBgk4cveNIP9BMd6zExZsQ0KhmXT/6VV+onm0
-	LR38u5EBFBBIBqYboaRTGjyxdx5fJd5LrpFiB94GJycTHviyoFAJwwrsJNEnn2J+TPnVMI2GmkQ2l
-	snlSRxaA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:CC:To:MIME-Version:From:Date:Message-ID:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=sc4gWV+PtWva0XvczE1W0cjdYuD7vA92piaEvJt06Ao=; b=dVHq6wsPFI5DP+fyOV2kKT9CqQ
+	QyIFuAAOgQemW+7GB9M/0H2y5noxn9L4jn9Vclo3/jq3nHutsRXKaNNu9KTefeLjAtEWgUvl6WF+9
+	335PTEfc8MeCp5hjFz1owxBYUpTavN7+GtyU+KknfKXt7O3Daqwtl0javZKXA3ffJ3Kwq6Za6Fxk5
+	rKILP3idIZGPfid7zgMLD6v0ntPlq8nZ1gxfPl8uEcqCnLPRtDd/VpzKPKw3Cu2zx9rwKyTN3vyjk
+	hzIya+fEBwDyWl5ylEXMSHwB4/XGJcJSDdWVkseZYEjKtDu1wWPVguNJfTzHYD92Zb/Vxsb+j7Uqx
+	1P+tAp+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueBOj-00000002K0o-0b4a;
-	Tue, 22 Jul 2025 11:43:05 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1ueBRC-00000002KKj-3roJ;
+	Tue, 22 Jul 2025 11:45:38 +0000
+Received: from szxga06-in.huawei.com ([45.249.212.32])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueB8h-00000002HNq-0Onu;
-	Tue, 22 Jul 2025 11:26:33 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 284755C5EC1;
-	Tue, 22 Jul 2025 11:26:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id BC823C4CEF7;
-	Tue, 22 Jul 2025 11:26:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753183589;
-	bh=gpUTUqXOWbULFlsiYSGEN3jZoAtqx3OWjHms0p86oTg=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=nZ87M1xL6Yk0BG7E0SFkozay2PjlaXgqwer7C0N6jR664uq26o+naJBL59ZRez01w
-	 4TE5jePrre9dRrcoC3Tj5u2CxZ+K8JrPsOZCeOMVmucV63ZNO+vFHJDlwqy0jbEVPi
-	 6+IEqOHUMtEx4yEyFGYP4b8CnNMnFPLJFmLja2ahGXwQdHArBl1W6SOPwuvQiG7+9C
-	 ZkhYyDqHK1RfRO6gCiDeTuK+2nfRPpDXEHsN+Tnav1D1pNrlbQ7hnbhaSv9JXqIWgr
-	 dE4WiETx19O8cz3oKSUW85vNHjoTjj9OPwClFJ+85m2y9Hjy8KdvSOaqbKo92/xAJm
-	 vfxRn+F7uVJYg==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id B1FC1C87FC5;
-	Tue, 22 Jul 2025 11:26:29 +0000 (UTC)
-From: Xianwei Zhao via B4 Relay <devnull+xianwei.zhao.amlogic.com@kernel.org>
-Date: Tue, 22 Jul 2025 19:26:29 +0800
-Subject: [PATCH v2 3/3] arm64: dts: amlogic: c3: Add tempsensor controller
- node
+	id 1ueB9L-00000002HW4-3CUt
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 22 Jul 2025 11:27:13 +0000
+Received: from mail.maildlp.com (unknown [172.19.162.112])
+	by szxga06-in.huawei.com (SkyGuard) with ESMTP id 4bmZkr0Tpwz16THR;
+	Tue, 22 Jul 2025 19:28:04 +0800 (CST)
+Received: from dggemv705-chm.china.huawei.com (unknown [10.3.19.32])
+	by mail.maildlp.com (Postfix) with ESMTPS id 02CA61402C1;
+	Tue, 22 Jul 2025 19:27:04 +0800 (CST)
+Received: from kwepemq100003.china.huawei.com (7.202.195.72) by
+ dggemv705-chm.china.huawei.com (10.3.19.32) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Tue, 22 Jul 2025 19:27:03 +0800
+Received: from [10.67.113.98] (10.67.113.98) by kwepemq100003.china.huawei.com
+ (7.202.195.72) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Tue, 22 Jul
+ 2025 19:27:03 +0800
+Message-ID: <687F7586.9040302@hisilicon.com>
+Date: Tue, 22 Jul 2025 19:27:02 +0800
+From: Wei Xu <xuwei5@hisilicon.com>
+User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; rv:24.0) Gecko/20100101 Thunderbird/24.2.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+To: <sfr@canb.auug.org.au>
+CC: <linux-next@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>, <xuwei5@hisilicon.com>
+Subject: Add the hisilicon branch to linux-next
+Content-Type: text/plain; charset="ISO-8859-1"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250722-c3-thermal-v2-3-b2231b4be79e@amlogic.com>
-References: <20250722-c3-thermal-v2-0-b2231b4be79e@amlogic.com>
-In-Reply-To: <20250722-c3-thermal-v2-0-b2231b4be79e@amlogic.com>
-To: Guillaume La Roque <glaroque@baylibre.com>, 
- "Rafael J. Wysocki" <rafael@kernel.org>, 
- Daniel Lezcano <daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>, 
- Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Cc: linux-pm@vger.kernel.org, linux-amlogic@lists.infradead.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, 
- Xianwei Zhao <xianwei.zhao@amlogic.com>, 
- Liming Xue <liming.xue@amlogic.com>
-X-Mailer: b4 0.12.4
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1753183587; l=1174;
- i=xianwei.zhao@amlogic.com; s=20231208; h=from:subject:message-id;
- bh=IoRBkt3TWKHWrtMJz187CwMxwu8yF7DTD3qyajQTJnE=;
- b=LmYFK1+8fHyOjr607kbVF4ATEFnyzGdngoasYURRQr2BWxwHZ8cPDjAMx45X65KAZp/FxwlMx
- Wbt4Q7TQ7uSApW4HfcfFSbzCQjIKrOLYrapEVKroqNXJs8E1KIBHOc7
-X-Developer-Key: i=xianwei.zhao@amlogic.com; a=ed25519;
- pk=o4fDH8ZXL6xQg5h17eNzRljf6pwZHWWjqcOSsj3dW24=
-X-Endpoint-Received: by B4 Relay for xianwei.zhao@amlogic.com/20231208 with
- auth_id=107
-X-Original-From: Xianwei Zhao <xianwei.zhao@amlogic.com>
+X-Originating-IP: [10.67.113.98]
+X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
+ kwepemq100003.china.huawei.com (7.202.195.72)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250722_042631_224545_4A5A5748 
-X-CRM114-Status: UNSURE (   8.49  )
+X-CRM114-CacheID: sfid-20250722_042711_955217_48950A13 
+X-CRM114-Status: UNSURE (   3.57  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -94,46 +70,19 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: xianwei.zhao@amlogic.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Xianwei Zhao <xianwei.zhao@amlogic.com>
+Hi Stephen,
 
-Add the Tempsensor controller node for C3 SoC family.
+Could you please add the following to linux-next?
 
-Signed-off-by: Liming Xue <liming.xue@amlogic.com>
-Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
-Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
----
- arch/arm64/boot/dts/amlogic/amlogic-c3.dtsi | 11 +++++++++++
- 1 file changed, 11 insertions(+)
+   Repo: https://github.com/hisilicon/linux-hisi.git
+   Branch: for-next
 
-diff --git a/arch/arm64/boot/dts/amlogic/amlogic-c3.dtsi b/arch/arm64/boot/dts/amlogic/amlogic-c3.dtsi
-index cb9ea3ca6ee0..c853390eca6c 100644
---- a/arch/arm64/boot/dts/amlogic/amlogic-c3.dtsi
-+++ b/arch/arm64/boot/dts/amlogic/amlogic-c3.dtsi
-@@ -727,6 +727,17 @@ clkc_pll: clock-controller@8000 {
- 					      "fix";
- 			};
- 
-+			temperature-sensor@20000 {
-+				compatible = "amlogic,c3-cpu-thermal";
-+				reg = <0x0 0x20000 0x0 0x50>;
-+				interrupts = <GIC_SPI 30 IRQ_TYPE_LEVEL_HIGH>;
-+				clocks = <&clkc_periphs CLKID_TS>;
-+				assigned-clocks = <&clkc_periphs CLKID_TS>;
-+				assigned-clock-rates = <500000>;
-+				amlogic,ao-secure = <&sec_ao>;
-+				#thermal-sensor-cells = <0>;
-+			};
-+
- 			eth_phy: mdio-multiplexer@28000 {
- 				compatible = "amlogic,g12a-mdio-mux";
- 				reg = <0x0 0x28000 0x0 0xa4>;
+This aligns with the MAINTAINERS for the HiSilicon tree.
+Thanks!
 
--- 
-2.37.1
-
-
+Best Regards,
+Wei
 
