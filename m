@@ -4,134 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EA2BC83F25
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 07:08:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 893CCC83F27
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 07:18:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Transfer-Encoding:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=4wSxFYPnJad7bm+jV/SYavTLH96P2ba3VZaWS9Ifz3A=; b=SgV6x5P4frIRFfE97cNXqkEDO5
-	w0ta20vlSWBaiEQAi/0yTeTyiQ5AkhLO1I5w18SoVWErk8zbn8ijgXMQm0bqMFt09vKa+E8y2UkxX
-	HvpiQ/TP9Oj5KiJ4kG2yqi4Q/zdnj+pbjtog9t85e2756T4ZOZ3MV5NncZdzxisUQcb9Gp0HIOiMs
-	xFXnYNHt9bKuGsw0PHIlm9HzraSdc6f1Zo1gtRdkboX+Tg7HYzcx5pY1pGR0uTbWaCdks1i+WDeoW
-	FFn7Bzx93FiLA3pUajkVWVWvnCWf/XQPHmNuQsurQyCAUFgncZXIOYXFNx1EvDC8AOqqE69jD6ZAY
-	iCGRruvg==;
+	bh=yQ3vEmjwKiSfWo9bCKh2Tpilewzv/3IegJxtxqqielQ=; b=T9IbLeP5xGrIg39ELpaiZqaF80
+	fSemSZS0CDc9dR6czxGeX9awabrpgKlsFYA7r9aE9nsNd+BuDidQ7ikFNMw/UQV44qeSkj84smU3f
+	NvIcS+qc8OypgS6s3OUKXXX21SIMC4lvQruigg+BiBrYmDKOI6874CIiVAStLAWmxJHKa0q56p9/m
+	y4QVj82ysWq9J4LzJhwvXjC5jJPtpA0aO50kTad3pcmJBDfw2AuoK0c/hD1QegJeKJdSfTW/2A5J4
+	eESImI0LZEXs0W3QqeE+XqpjXtFJI8BbFmsknnGX0Zn4PRs3TsXFm0JbdDLaMmw1mr02CDrAGj7gK
+	+2A5qOAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ue77F-00000001YY9-0hEm;
-	Tue, 22 Jul 2025 07:08:45 +0000
-Received: from mail-bn7nam10on20605.outbound.protection.outlook.com ([2a01:111:f403:2009::605] helo=NAM10-BN7-obe.outbound.protection.outlook.com)
+	id 1ue7Ga-00000001aaa-3Gxp;
+	Tue, 22 Jul 2025 07:18:24 +0000
+Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ue74f-00000001Xi1-1JZV
+	id 1ue7E6-00000001a96-2nSq
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Jul 2025 07:06:07 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=yTT/cB+wMNwQfIkrHU4y7QvzW7/5VwVZi1XcLd6hfL+ZocR/LLgIk+rj3Cmq7qkGdO+6Cj6Ia2NKM5dYQLaM/9usRKH8IoH3/Kd7K3j+4BCrLA9eXpzPLxXELKOx9KfByvhom/bExovvj7a/cOf5J77uxgWe2hPY5V5aTykvy7Di0wk5u7a1rRd/ScCjkLeiesLVF24IhTDlRjVXxTYZibCXtOLvQ38y70+WSkTOtaW18vwDqNTRdFlEaXl1TzK032Ivf3YOsNZvdCEdBj0yDLU1l2VtX30B71sTmuvlUXBQ3KomzrtVxs+Ahh758NhCEDLAfZG4/y8WCltxBfAy3g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=4wSxFYPnJad7bm+jV/SYavTLH96P2ba3VZaWS9Ifz3A=;
- b=q875rlUlfFouwf9sclzcKvU9DDyS2czWPL6gHeHZc+AryWe4tIN46HD7huayAUhdq8wKsjOzJQdpfLvm8/gN+maZMAsM8XIwPrZhnnES6osjZyfAH8M8RX5uShdQ/5jwM59A+nTdlNUK8WM5rm0dVaA/nFUcLMcsXhts9FRm+/kKFUJbiVhoB731uHphgVbEyXpYwQUn+FNjyVwny2iyDF6tz4+EOalI3i1eUNnJxX/ACj4PuVsj8oFcq7BbuyVtce3OdLl91/br0g2RXqRqOwwrwn+Xqwa0NkVu2jsiUHBjqOmzc2yGgSDAIdfE7yI8iVaa9Q4q4xDJ+MyZisx/RA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=kernel.org smtp.mailfrom=amd.com; dmarc=pass
- (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=4wSxFYPnJad7bm+jV/SYavTLH96P2ba3VZaWS9Ifz3A=;
- b=CdBWmK4sfK48p7bSwN8zk5R2F8liG6tfdw2J2+YbKSXzuC92H3QS73syyoM0KIC0onVN8v3KsphDKcvZzrJcesKomU+d5Id8t0FNwNvJaBOxo9GFxdB8PqSerJW/OLMJVCuLHzPOf2534A3X0FWK6hHrSm1S2qIrAfbOS63nZuE=
-Received: from SJ0PR13CA0039.namprd13.prod.outlook.com (2603:10b6:a03:2c2::14)
- by SA1PR12MB7294.namprd12.prod.outlook.com (2603:10b6:806:2b8::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8943.30; Tue, 22 Jul
- 2025 07:05:57 +0000
-Received: from MWH0EPF000989E9.namprd02.prod.outlook.com
- (2603:10b6:a03:2c2:cafe::a8) by SJ0PR13CA0039.outlook.office365.com
- (2603:10b6:a03:2c2::14) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8964.12 via Frontend Transport; Tue,
- 22 Jul 2025 07:05:57 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=SATLEXMB03.amd.com; pr=C
-Received: from SATLEXMB03.amd.com (165.204.84.17) by
- MWH0EPF000989E9.mail.protection.outlook.com (10.167.241.136) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.20.8964.20 via Frontend Transport; Tue, 22 Jul 2025 07:05:57 +0000
-Received: from SATLEXMB06.amd.com (10.181.40.147) by SATLEXMB03.amd.com
- (10.181.40.144) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Tue, 22 Jul
- 2025 02:04:44 -0500
-Received: from SATLEXMB03.amd.com (10.181.40.144) by SATLEXMB06.amd.com
- (10.181.40.147) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Tue, 22 Jul
- 2025 02:02:58 -0500
-Received: from xhdharinik40.xilinx.com (10.180.168.240) by SATLEXMB03.amd.com
- (10.181.40.144) with Microsoft SMTP Server id 15.1.2507.39 via Frontend
- Transport; Tue, 22 Jul 2025 02:02:55 -0500
-From: Abin Joseph <abin.joseph@amd.com>
-To: <vkoul@kernel.org>, <michal.simek@amd.com>, <yanzhen@vivo.com>,
-	<radhey.shyam.pandey@amd.com>, <palmer@rivosinc.com>,
-	<u.kleine-koenig@baylibre.com>
-CC: <git@amd.com>, <abin.joseph@amd.com>, <dmaengine@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH v3] dmaengine: zynqmp_dma: Add shutdown operation support
-Date: Tue, 22 Jul 2025 12:32:55 +0530
-Message-ID: <20250722070255.28944-1-abin.joseph@amd.com>
-X-Mailer: git-send-email 2.17.1
+	Tue, 22 Jul 2025 07:15:52 +0000
+Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-3a6d77b43c9so3867535f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Jul 2025 00:15:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1753168549; x=1753773349; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=yQ3vEmjwKiSfWo9bCKh2Tpilewzv/3IegJxtxqqielQ=;
+        b=CoDZhX4IyFtCTjOzT145B912mO3z27hHIkgX2EPlvBk8VkXzoBZsmyd5zT5urpmyTu
+         zyK6R+MTfLd9bZUrEfmAzMmcWCkZj5AinAVG5lfWNqO5MPCAvarUKYj0NEFLkyDk6S8a
+         xXLbxjMPxe6QJckW4R1IOwN3Cf4JLIiiy9ABvvBGkXSmCCXO0BuZ/42JptthU0HVet5r
+         SEnVbEBdArUS6qMMmnmf3gadB8ovnM8nvfI4eEtuD+vBrqTLCP5mGlLHF4IPmNPkqT7C
+         2WvPVX88ZEGkdtGRHB6nMsGJIYX4P3BEwPgyFR3uHHP0rdaJUBJWdM5vgoP3gem/s6c7
+         kVGw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1753168549; x=1753773349;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=yQ3vEmjwKiSfWo9bCKh2Tpilewzv/3IegJxtxqqielQ=;
+        b=fkqq09v9m858+KohYuMZPAScCHTXzgXtiYKb+p7rZlhq6evwvLeNJO8xkHi0f9jU1l
+         2vzSeNkmp6nAK+921s6X88fRnvH/9p3j5xv18gVh7GtJn9oBXNeYm1wBAqRTmOGoxH3U
+         F0I/WeHMnaXErjMLyDa94ALyQN9ox6mEOBUBs6QEZufmf/GeRPATPh1D25qTK43iXnNZ
+         cz20i9zE9pkVM0M+676Dt90+7EBXHekLxma6CctTt6BRHsbhN8eVQbHMG5QLDKWyBTXp
+         S0w6jtoDsvy1/7O6SOx03Vper5z1JBWnBXMKL+0ZB1jAamPhA9g0B0QxMbLHR88wKlYa
+         oC2w==
+X-Gm-Message-State: AOJu0Yx1gakHHml0gVywC2sIr+FTPlvYHAR/oO68oZg/+HCDHcfAEd4D
+	FIvx1OZ8aS2W6FKftKFJdEjtt/gx4uO88JA0DmUp44LL/ggjGO7wNAeFLe4UBak6q10=
+X-Gm-Gg: ASbGncvekgF/sjW/WHvwRBnFvWGlcMi3LG4Uj5MYtUI6m9ZBGKvarlV2WgM7YQqe0Qb
+	SAL/CMjyuaZTxE7e3cnuNOFDogQ4QoR5/R5RfaHqn28TpSXxG6iRMQlEFWZI+htS8DMQ8iqoPyR
+	qFSU9g54d0xNFkOli09slS7LlXW/WO1a2K1qvP6NDAYg512D9M3W9+EkIfykDBOZMQa5Ss+9I+A
+	0MML25VY5RLKaV0NEhQLrpfgaX4NhtHC0hw0ACQbkRwmuD+2oTzwyCR+YqKqCsRuQy5GmcUUA4H
+	G6wttF++2/VO6wzHQu9yo4uJFB0E03gJFUYS0dzF1ib67menm0eR7UfXwjFWl7zquSlj82GFxyf
+	JDSVId0NtubY2fWOQ8BBf1nMZ9vKcIQK9
+X-Google-Smtp-Source: AGHT+IHYIREMnXqJzvIrKSlpu72TKoCe2oI41qKi1zUISJbrlyCEP1q0OUDLmdmVYJabSs5VX3PelA==
+X-Received: by 2002:a5d:64c3:0:b0:3a3:71cb:f0bd with SMTP id ffacd0b85a97d-3b60e4d2b7amr16271092f8f.23.1753168548308;
+        Tue, 22 Jul 2025 00:15:48 -0700 (PDT)
+Received: from brgl-uxlite.home ([2a01:cb1d:dc:7e00:2548:4ac:d051:6197])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3b61ca5c632sm12725706f8f.80.2025.07.22.00.15.47
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 22 Jul 2025 00:15:47 -0700 (PDT)
+From: Bartosz Golaszewski <brgl@bgdev.pl>
+To: Arnd Bergmann <arnd@arndb.de>,
+	Russell King <linux@armlinux.org.uk>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Jiri Slaby <jirislaby@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-gpio@vger.kernel.org,
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Subject: [PATCH] ARM: sa110/gpio: convert set_multiple() to returning an integer
+Date: Tue, 22 Jul 2025 09:15:42 +0200
+Message-ID: <20250722071542.19030-1-brgl@bgdev.pl>
+X-Mailer: git-send-email 2.48.1
 MIME-Version: 1.0
-Content-Type: text/plain
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MWH0EPF000989E9:EE_|SA1PR12MB7294:EE_
-X-MS-Office365-Filtering-Correlation-Id: 17cdf52f-7709-40f8-86e9-08ddc8ee34f5
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|82310400026|36860700013;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?dfhZ1gqjoFUZaHdJ/Lzik0z/3g3paRKXnzAcArmcjDA7Tz2wpSvYLD5ZpJWP?=
- =?us-ascii?Q?av8qtE/DLj6R9aCdArHYanjUxvNEMJm3jsgm028ViGszUhHD1fzRnVPruzkD?=
- =?us-ascii?Q?TSoRQ+8aG2klsj0mrnmg58ka4C0nvrxe7gNWLu203KMzh0oApV8SCBQ286ea?=
- =?us-ascii?Q?TepD6r0Xd5+7t+L4bjWgQpTEISq9dI2QVQI/QJTzS5cLQSqi81mlNMc25jsI?=
- =?us-ascii?Q?Dk7cuUHX20DBxZN72BHVE/Q/c42uH8YWHCLZJEh+Wg8hNjIi6aF5BRPjyroq?=
- =?us-ascii?Q?U1Uc7fhRJ2mUIXACCEp/mXON2r5D7XUfWNWmuc8dTF908t+h1+NESMazV84Q?=
- =?us-ascii?Q?FYBcNKyRzX9kX1dREm/028KJJSTcro4CX8ptBhF5EV02eyytSoBF8MdctrwW?=
- =?us-ascii?Q?G0i40nF+6ivE0i0gbksBcThGCQi3Ni4QG9PJjyIAUzuZeferP9LqutbDTF8A?=
- =?us-ascii?Q?hpJEnJrB7W5G9rJbRgjc25HbVKduQ4DEscsdihETLMEZEVqk9ejAiid8Rz2p?=
- =?us-ascii?Q?MGzUmJr0wwpFoy27s9Brp9t7Ofe0+BCcQZFBbohG9ZYfT53LlbuyqoHOrEaN?=
- =?us-ascii?Q?vhac/dhgLRzlSXvFHUzUBOPmxnDIp+OsgCfkyR1XaXXSrTmabYf4TB8Tf9Mt?=
- =?us-ascii?Q?+vvqr/CAuIlDf809f91CDwdWIE1bfED9aoZpxXlRdUCwOhMtwtUc4FswxtmS?=
- =?us-ascii?Q?KxNdpD0BIi8R06l/Z9IhVhH6XV3JaGxXVd2Zb6Yk4NLJWCCp9NREDgFt9sh0?=
- =?us-ascii?Q?0TUr7Y3DWkr+BstwSMOXiv582vnBDBQ3JXCNz7hPZU3v4gsBwt6MaMIgCxFV?=
- =?us-ascii?Q?jYmeUz5chWEZ7i4D3YGAuV4Ls8dYkKbm848NEsVfZrWUjK2VsUh1RtTouebE?=
- =?us-ascii?Q?w4y4eSb5kWEo6fbcfYGawNGqAAyVjZqEf/9mmxqnK56qf3k1S2yeQR3kq6WE?=
- =?us-ascii?Q?v4njFk4WyZsKOPv/AG7DE6SY/8f99mv/GO3Fvdfa+ZnYu7WipyrtZPiCJkJ1?=
- =?us-ascii?Q?vN5VQItdr7Xg1765mIIqYPqbSlF+OAPPqXML5fXz8N5HWC0pMOecBq/qkVWj?=
- =?us-ascii?Q?35yUxtx40tO0Bia0yvdBkdHnAzikuUqWB3FIVOMr/HufLk9boorCW2Hiqy9L?=
- =?us-ascii?Q?epp8IujK0y6kWC1o78+2SpeHmjT8vGzNvxoNw8jJe2gkZqz57l/M0Ke1jV9c?=
- =?us-ascii?Q?bNgbMB1zknqVjWLMgOL+BXPiPw0INFmEd9/BffQBaG5Aks09pCiJRxUbx9pu?=
- =?us-ascii?Q?xzh3SxqyKrz106M7NAqbLw0HLRqGgNnYeZ+qnLXsfxTubM3Vg05MeXRwKjz/?=
- =?us-ascii?Q?yzHzBD0+AK7VOvPu3guZSZFFcFTC1ypPTaGNkKKGXD7iUdgsvsJv3S/MYmVR?=
- =?us-ascii?Q?ftX3HC9wz3HxIXISwKW6BYkza+kQLsAKibZTG7CYzRgiJM1c3RV0uA8DQ0jl?=
- =?us-ascii?Q?frYuRgwEmUU11ouianjmm/GcCVlLb5jxEzohIXf7GtL8BkiPka4c1k0utLKO?=
- =?us-ascii?Q?rJy4w3Ll8ZdfXzwlPp/gQ5xlsCjwOO/0X+QW?=
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:SATLEXMB03.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(1800799024)(82310400026)(36860700013);DIR:OUT;SFP:1101;
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Jul 2025 07:05:57.1399
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 17cdf52f-7709-40f8-86e9-08ddc8ee34f5
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[SATLEXMB03.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: MWH0EPF000989E9.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB7294
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250722_000605_354995_53B93CB3 
-X-CRM114-Status: GOOD (  17.90  )
+X-CRM114-CacheID: sfid-20250722_001550_942955_65A2B313 
+X-CRM114-Status: GOOD (  14.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,62 +100,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add shutdown callback to ensure that DMA operations are properly stopped
-and resources are released during system shutdown or kexec operations.
-Fix incorrect PM state handling in the remove function that was causing
-clock disable warnings during the shutdown operations, which was not
-implemented earlier. The original logic used pm_runtime_enabled() check
-after calling the pm_runtime_disable(), would always evaluate to true
-after the disable call, which leads to unconditionally calling the
-runtime_suspend regardless of the device's actual power state.
+From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 
-During shutdown, the device may already be suspended with clock disabled
-from the autosuspend timer, causing the clock framework to warn about
-the double-disable attempt. The pm_runtime_active() function checks the
-actual device power state rather than the PM subsystem's enabled/disabled
-status. ensuring the runtime_suspend is only called when the device is in
-active power state. This prevents clock warnings during shutdown while
-maintaining proper cleanup during normal remove operations.
+The conversion to using the new GPIO line setter callbacks missed the
+set_multiple() in this file. Convert it to using the new callback.
 
-Signed-off-by: Abin Joseph <abin.joseph@amd.com>
+Fixes: 9c3782118a57 ("ARM: sa1100/gpio: use new line value setter callbacks")
+Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 ---
+ arch/arm/common/sa1111.c | 8 +++++---
+ 1 file changed, 5 insertions(+), 3 deletions(-)
 
-Changes in v3:
-Update the commit description
-Update to call remove directly from shutdown hook.
-
-Changes in v2:
-Update the shutdown to perform same operations as remove.
-
----
- drivers/dma/xilinx/zynqmp_dma.c | 5 +++--
- 1 file changed, 3 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/dma/xilinx/zynqmp_dma.c b/drivers/dma/xilinx/zynqmp_dma.c
-index d05fc5fcc77d..f7e584de4335 100644
---- a/drivers/dma/xilinx/zynqmp_dma.c
-+++ b/drivers/dma/xilinx/zynqmp_dma.c
-@@ -1173,9 +1173,9 @@ static void zynqmp_dma_remove(struct platform_device *pdev)
- 	dma_async_device_unregister(&zdev->common);
- 
- 	zynqmp_dma_chan_remove(zdev->chan);
--	pm_runtime_disable(zdev->dev);
--	if (!pm_runtime_enabled(zdev->dev))
-+	if (pm_runtime_active(zdev->dev))
- 		zynqmp_dma_runtime_suspend(zdev->dev);
-+	pm_runtime_disable(zdev->dev);
+diff --git a/arch/arm/common/sa1111.c b/arch/arm/common/sa1111.c
+index 86b271cc29e1..d7e2ea27ce59 100644
+--- a/arch/arm/common/sa1111.c
++++ b/arch/arm/common/sa1111.c
+@@ -578,8 +578,8 @@ static int sa1111_gpio_set(struct gpio_chip *gc, unsigned int offset, int value)
+ 	return 0;
  }
  
- static const struct of_device_id zynqmp_dma_of_match[] = {
-@@ -1193,6 +1193,7 @@ static struct platform_driver zynqmp_dma_driver = {
- 	},
- 	.probe = zynqmp_dma_probe,
- 	.remove = zynqmp_dma_remove,
-+	.shutdown = zynqmp_dma_remove,
- };
+-static void sa1111_gpio_set_multiple(struct gpio_chip *gc, unsigned long *mask,
+-	unsigned long *bits)
++static int sa1111_gpio_set_multiple(struct gpio_chip *gc, unsigned long *mask,
++				    unsigned long *bits)
+ {
+ 	struct sa1111 *sachip = gc_to_sa1111(gc);
+ 	unsigned long flags;
+@@ -597,6 +597,8 @@ static void sa1111_gpio_set_multiple(struct gpio_chip *gc, unsigned long *mask,
+ 	sa1111_gpio_modify(reg + SA1111_GPIO_PCDWR, (msk >> 12) & 255, val >> 12);
+ 	sa1111_gpio_modify(reg + SA1111_GPIO_PCSSR, (msk >> 12) & 255, val >> 12);
+ 	spin_unlock_irqrestore(&sachip->lock, flags);
++
++	return 0;
+ }
  
- module_platform_driver(zynqmp_dma_driver);
+ static int sa1111_gpio_to_irq(struct gpio_chip *gc, unsigned offset)
+@@ -616,7 +618,7 @@ static int sa1111_setup_gpios(struct sa1111 *sachip)
+ 	sachip->gc.direction_output = sa1111_gpio_direction_output;
+ 	sachip->gc.get = sa1111_gpio_get;
+ 	sachip->gc.set_rv = sa1111_gpio_set;
+-	sachip->gc.set_multiple = sa1111_gpio_set_multiple;
++	sachip->gc.set_multiple_rv = sa1111_gpio_set_multiple;
+ 	sachip->gc.to_irq = sa1111_gpio_to_irq;
+ 	sachip->gc.base = -1;
+ 	sachip->gc.ngpio = 18;
 -- 
-2.43.0
+2.48.1
 
 
