@@ -4,105 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4149C83F27
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 08:22:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0AD4C83F27
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 08:24:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:CC:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Cit3qNaFBhyClJVYY8maFQV5LaVQuv8NVExDNtVd3eE=; b=qb6jpTRIVdHEq0o09jT8mrrTs+
-	v8E/CR4AgX4UVvZ0KGwZCcpPOPG5A7CDTt+XjB3F9yk0Qa5n6wq85mf3Za4ITbQirIi7nj2Wpsmgs
-	nLK3K8yVj6TV3BmkTtbLGSSpUmRhWJFyhvPSDNkVsdRfOHLJ2vTeGZfxf9WdtrPOAM+dQ/DKj0TOF
-	oNr0U3h6e3SdOoR/KunGSfMvkjaXDGI7rMdV3OykX0K4zklUzKBte0qPlkXZl6pPnoAj/XuoVfAU7
-	wHKF9PMdam30k3SRHeNlanNkZHhGJAFfr2lMRmvMjtQqjKOFEkPDXTkTeCOyZrLBjPhcZKOQdxYeh
-	NAZSqFqw==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QoWALDdgH/PSWUc5XJnMY3pphm5Xv/7hJKvUUbR5Q4w=; b=V7aTLVznic5AxH+Twchv0Fr5XX
+	c3e1EWsQZbL8fX3Nlu1DM+at521EgRg3WqYJUdjXBe5tSIBzIVaUgb+UAkvdIVm5HCoqIYTzDe+we
+	kF8I47ao9tT4BkZH4B7X/hG5CoNcJMzd7f/YkEjQBwkVhw9Cd0d4Dr9lUbWrDtdXZxiLmncKJKlO4
+	3hvhSl66NN/XLrlCjHLR5hf1wjPgRZHVDR7cHSveMEnfC8b6tX6hhhlky9WvtlOB6btdK/iexZ0eP
+	76yEVSH7Y8buqVX3afsQZ/XvPbjw7PGx5O+WAQzC2TCGwoYhOX4fVCjFuBCBlGJYGcAI8PhFbxaWj
+	OoVlb2HQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ue8GC-00000001oSS-1O7O;
-	Tue, 22 Jul 2025 08:22:04 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1ue8Ie-00000001p6J-0Qa2;
+	Tue, 22 Jul 2025 08:24:36 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ue88o-00000001mWx-30rO
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Jul 2025 08:14:29 +0000
-Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56M7eClo010559;
-	Tue, 22 Jul 2025 08:14:18 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=qcppdkim1; bh=Cit3qNaFBhyClJVYY8maFQ
-	V5LaVQuv8NVExDNtVd3eE=; b=Uo6jUbtGl2ENSB0wo/dx4QazPl9VfcBZxM9uY1
-	n9RgVG0OfR0/6hP/wcbL4S5QsnuX7UvJsX4fFbnTEQ1bPsUXfnjaobRXL32+BBii
-	SeTo8vP1WK2FyFrjktpl4S+r1q9Czam/eSXe7Camb3JugsdsQWffEpjJfpeBKDKQ
-	Eixfoeowjs9KA+7oTT7zQ7tvXKYa+jvug03WT125j/5//0i0UJOL30aRzp4IgbPZ
-	ZKE7MwJNU43Zm2F6MddOWDn4sTdkCRiuLNXwgcYkchOHBBD2PP8ZULbAVFUHTYPJ
-	lol/+XkQLHsE0tN/gyBcArRGQZQBjiHdWSww9fGPkUdPuOXw==
-Received: from nalasppmta05.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 480459q617-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 22 Jul 2025 08:14:18 +0000 (GMT)
-Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
-	by NALASPPMTA05.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 56M8EH5Y018840
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 22 Jul 2025 08:14:17 GMT
-Received: from hu-jinlmao-lv.qualcomm.com (10.49.16.6) by
- nalasex01a.na.qualcomm.com (10.47.209.196) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1748.10; Tue, 22 Jul 2025 01:14:17 -0700
-From: Mao Jinlong <quic_jinlmao@quicinc.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Mike Leach
-	<mike.leach@linaro.org>,
-        James Clark <james.clark@linaro.org>, Rob Herring
-	<robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
-	<conor+dt@kernel.org>,
-        Alexander Shishkin
-	<alexander.shishkin@linux.intel.com>
-CC: Mao Jinlong <quic_jinlmao@quicinc.com>, <coresight@lists.linaro.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>
-Subject: [PATCH v3 0/2] Add Qualcomm extended CTI support 
-Date: Tue, 22 Jul 2025 01:14:03 -0700
-Message-ID: <20250722081405.2947294-1-quic_jinlmao@quicinc.com>
-X-Mailer: git-send-email 2.25.1
+	id 1ue8AN-00000001mud-240M;
+	Tue, 22 Jul 2025 08:16:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1753172161;
+	bh=UkCnmPho3pULlm+TI+Fx5qHx7xa44iEJ1ZUh0duF0WI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=k1VuapnJr6IYB6PW1xKh+FvjUfiBa6DptAWcpTRKLD88/1nlzC3gSUsc0Y38WLEUA
+	 YSQj0IPO/hxw8xgojj5TghKqZJaPGABLGRloMcCXPzZqEqx/6T83VreCIzVMyOpJx0
+	 IdZ1Wj9hRLOTURxz//4x9nvIsQs0D7Ljjry+HWSMb2gKn1vVv+Hwhl4mMPqtY4nmyQ
+	 uke7breOBQXaR7qs+MV0qOGRDuQQ0S855nSM6teTdrubCiEosBKgQhKIboNipdv+wA
+	 38yHj5N7rHWmxnDoL0fwyRu22Ge0adrGwc4o/MJYyJTWDHCx7tmNVL+DWtKa21kIdJ
+	 dM1r/7AzimK8g==
+Received: from [192.168.1.90] (unknown [82.79.138.60])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 2C89217E0FA8;
+	Tue, 22 Jul 2025 10:16:00 +0200 (CEST)
+Message-ID: <cf988216-fb46-4761-bbfd-7ac3a000e542@collabora.com>
+Date: Tue, 22 Jul 2025 11:15:59 +0300
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/5] drm/rockchip: vop2: Add high color depth support
+To: Andy Yan <andyshrk@163.com>
+Cc: Algea Cao <algea.cao@rock-chips.com>, Sandy Huang <hjc@rock-chips.com>,
+ =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
+ Andy Yan <andy.yan@rock-chips.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Andrzej Hajda <andrzej.hajda@intel.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ kernel@collabora.com, dri-devel@lists.freedesktop.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20250721-rk3588-10bpc-v1-0-e95a4abcf482@collabora.com>
+ <20250721-rk3588-10bpc-v1-1-e95a4abcf482@collabora.com>
+ <3ceb2c70.2145.1982ff28b9c.Coremail.andyshrk@163.com>
+ <c5624dad-93cb-4cc3-88ad-808dcc43274d@collabora.com>
+ <4966b602.5395.19830ea1e2f.Coremail.andyshrk@163.com>
+Content-Language: en-US
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+In-Reply-To: <4966b602.5395.19830ea1e2f.Coremail.andyshrk@163.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.49.16.6]
-X-ClientProxiedBy: nalasex01b.na.qualcomm.com (10.47.209.197) To
- nalasex01a.na.qualcomm.com (10.47.209.196)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: G70P_n4C_ApmawawMerbJv1ni4tPAGmE
-X-Authority-Analysis: v=2.4 cv=fdyty1QF c=1 sm=1 tr=0 ts=687f485a cx=c_pps
- a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
- a=3H110R4YSZwA:10 a=IkcTkHD0fZMA:10 a=Wb1JkmetP80A:10 a=VwQbUJbxAAAA:8
- a=COk6AnOGAAAA:8 a=NlEFJK3W8fm6xuedzVAA:9 a=NqO74GWdXPXpGKcKHaDJD/ajO6k=:19
- a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10 a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-GUID: G70P_n4C_ApmawawMerbJv1ni4tPAGmE
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNzIyMDA2NyBTYWx0ZWRfXwBRdeZS4m+c4
- 3GTot5i3A/dsZaLnGm9aQjhlK2wemazxQOXckkt5TiJIAngsPtyCpIs2UL6H2Exl7xEVLy/whgd
- 5PEvXTFkjLpwXP7q40mfSmbc4TAI9drgCGZruTwlcEYddMZxYm1nnOp3BwjQEcYayYp1I7lGRi0
- L7LYI2SACdvqsc5Js/tN9CGTEcmFkut2iFT5q+rkThfneXmU/5fbXW0q0M1ZIKd6E/QdsVYx8dI
- IkEprIJwsqFosycW9PmVv3Ws0ezrikBy4pFXu8Z++tzdOyf0eWYtnkCWMkPJN3IMe1EXoYVF0I6
- 2JRVcF+DMEEGzqtyblZ5eAbntLpnXWP73Y/jl3WcM1fnSsNAkseupf1Ijk5VrXcDAD4Dv6eOaPU
- jFFCmU3x6bcrwsH00JBlk6CM++7fGAfviPdvNQM6yiDrV5+L7Y5i1wgis7ul6rS7dxa5+A+H
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-07-22_01,2025-07-21_02,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 priorityscore=1501 phishscore=0 impostorscore=0
- mlxlogscore=999 mlxscore=0 spamscore=0 bulkscore=0 malwarescore=0
- lowpriorityscore=0 adultscore=0 clxscore=1015 classifier=spam authscore=0
- authtc=n/a authcc= route=outbound adjust=0 reason=mlx scancount=1
- engine=8.19.0-2505280000 definitions=main-2507220067
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250722_011426_764331_1D84D3D5 
-X-CRM114-Status: GOOD (  12.73  )
+X-CRM114-CacheID: sfid-20250722_011603_681614_0D1C8C11 
+X-CRM114-Status: GOOD (  28.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,39 +89,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The QCOM extended CTI is a heavily parameterized version of ARM’s CSCTI.
-It allows a debugger to send to trigger events to a processor or to send
-a trigger event to one or more processors when a trigger event occurs on
-another processor on the same SoC, or even between SoCs.
+Hi Andy,
 
-QCOM extended CTI supports up to 128 triggers. And some of the register
-offsets are changed.
+On 7/22/25 9:55 AM, Andy Yan wrote:
+> 
+> Hello Cristian,
+> 
+> 在 2025-07-22 14:16:26，"Cristian Ciocaltea" <cristian.ciocaltea@collabora.com> 写道：
+>> Hi Andy,
+>>
+>> On 7/22/25 5:24 AM, Andy Yan wrote:
+>>>
+>>> Hello Cristian，
+>>>
+>>> At 2025-07-22 01:39:04, "Cristian Ciocaltea" <cristian.ciocaltea@collabora.com> wrote:
+>>>> Take the bits per color channel into consideration when computing DCLK
+>>>> rate.
+>>>>
+>>>> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+>>>> ---
+>>>> drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 3 +++
+>>>> 1 file changed, 3 insertions(+)
+>>>>
+>>>> diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+>>>> index 186f6452a7d359f079662bc580850929632ea8fe..a714bcbb02de16267e7febbaeb1eb270c70aaef2 100644
+>>>> --- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+>>>> +++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+>>>> @@ -1731,6 +1731,9 @@ static void vop2_crtc_atomic_enable(struct drm_crtc *crtc,
+>>>> 		clock *= 2;
+>>>> 	}
+>>>>
+>>>> +	if (vcstate->output_bpc > 8)
+>>>> +		clock = DIV_ROUND_CLOSEST(clock * vcstate->output_bpc, 8);
+>>>
+>>>
+>>> This seems not right,  regardless of the value of bpc, the dclk of VOP must be
+>>> consistent with mode->crtc_clock.
+>>> If the dclk of VOP is increased in accordance with the BPC ratio here, then the refresh rate of VOP will also increase proportionally.
+>>> This would be inconsistent with the timing described in the mode.
+>>> For a hight color depth,  the frequency needs to be increased for the HDMI PHY's clock.
+>>
+>> The HDMI PHY's clock is actually computed at HDMI connector framework level
+>> [1], taking into account the current bpc value, which is determined as part
+>> of hdmi_compute_config() [2].
+>>
+>> That means conn_state->hdmi.tmds_char_rate in
+>> dw_hdmi_qp_rockchip_encoder_atomic_check() does already include the bpc
+>> related adjustment, and we pass that directly to the PHY via
+>> phy_configure().  Note there's still the need to handle bpc separately via
+>> phy_configure_opts in order to setup CMN_REG(0086) [3].
+>>
+>> Since VOP2 switches to PHY PLL as DCLK source for modes up to 4K@60Hz, it
+>> needs to take color depth into account, to keep them in sync.  As a matter
+>> of fact, the clock adjustment in VOP2 is mainly necessary for legacy
+>> reasons, since HDPTX PHY allowed changing TMDS char rate via the Common
+>> Clock Framework API.  We landed a proper solution for that via the HDMI PHY
+>> API, hence the plan would be to make CCF API readonly after the switch to
+>> PHY API is completed, which means VOP2 shouldn't deal anymore with clock
+>> calculations when using the PHY PLL as DCLK source.
+> 
+> What I want to emphasize is that on the vop/crtc side, what we should be concerned about is mode -> clock, 
+> not the HDMI PHY clock. The HDMI PHY clock is something that the HDMI bridge or the HDMI PHY driver needs to pay attention to.
+> 
+> This patch works just because currently, on RK3576 and RK3588, the HDMI PHY PLL can be used as the dclk source for the vop.
+> After correctly setting CMN_REG0086, it can precisely adjust the HDMI HPY PLL clock adjusted according to the bpc further to
+> the frequency of mode->clock, and then use it as the dclk for the vop.
+> However, we also need to be aware of the following situations:
+> 
+> 1) When we are using HDMI, we can still choose the system PLL instead of the HDMI PHY PLL as
+>     the clock source for dclk. In this case, this patch will cause incorrect mode->clock.
+> 2)  When we are using HDMI above the 4K60 mode(4K120), we can only use the system PLL instead
+>      of the HDMIPHY PLL as the clock source for the vop dclk,  this patch will cause incorrect mode->clock.
+> 3) For RK3576 and RK3588,  interfaces such as DP, eDP, and DSI also support 10-bit mode. 
+>     However, in most cases, they will choose the system PLL as the vop dclk clock source,this patch will cause incorrect mode->clock.
+> 4) There are also other platforms, such as RK3568, even for HDMI , it still uses the system PLL as the dclk clock source for vop.
+>      this patch will cause incorrect mode->clock.
 
-The commands to configure CTI triggers are the same as ARM's CTI.
+Oh, I wrongly assumed high color depth is not currently supported/in use for vop2.
 
-Changes in v3:
-1. Rename is_extended_cti() to of_is_extended_cti().
-2. Add the missing 'i' when write the CTI trigger registers.
-3. Convert the multi-line output in sysfs to single line.
-4. Initialize offset arrays using designated initializer.
-Link to V2 - https://lore.kernel.org/all/20250429071841.1158315-3-quic_jinlmao@quicinc.com/
+In that case my suggestion below is actually a mandatory thing to do, as it should 
+correctly reduce the scope to RK3576 & RK3588 only.
 
-Changes in V2:
-1. Add enum for compatible items.
-2. Move offset arrays to coresight-cti-core
-
-Yingchao Deng (2):
-  dt-bindings: arm: Add Qualcomm extended CTI
-  coresight: cti: Add Qualcomm extended CTI support
-
- .../bindings/arm/arm,coresight-cti.yaml       |   4 +-
- .../hwtracing/coresight/coresight-cti-core.c  | 127 +++++++++++++----
- .../coresight/coresight-cti-platform.c        |  16 ++-
- .../hwtracing/coresight/coresight-cti-sysfs.c | 128 ++++++++++++++----
- drivers/hwtracing/coresight/coresight-cti.h   |  75 +++++-----
- 5 files changed, 248 insertions(+), 102 deletions(-)
-
--- 
-2.25.1
+>>
+>> Regardless, I should probably move this clock adjustment to the conditional
+>> block handling DCLK source switch.
+>>
+>> [1] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/gpu/drm/display/drm_hdmi_state_helper.c?h=v6.16-rc7#n525
+>> [2] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/gpu/drm/display/drm_hdmi_state_helper.c?h=v6.16-rc7#n608
+>> [3] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c?h=v6.16-rc7#n1034
 
 
