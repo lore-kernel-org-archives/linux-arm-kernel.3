@@ -4,52 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3E45C83F25
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 08:46:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71839C83F25
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 08:49:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TpC2CuLLVKImVsax3ves5ivKtHIs3qQIrkEy2aJN8Cc=; b=3RDnygcTMQF41NZOIYVWt6JPVv
-	jhT/lzsFaMDxWbfO7JUtlpc4IwCh4Wttkqw6SEUf3f9nE3FDItENGCprqK4EDREthYZn6HugXvA5t
-	93s/9ypXZuWC+nhjOudO+k+wj9lRhs+lzh6wGSsLXEBatRKYJG577URqqNzApRLYAZ/RpqJHrSsAQ
-	FN1LkmdhGqqUeiy5H3kEtovMHcchhcClX+n4Hi2N250U+HEwu59+/mcDO+C2lKbq8qTLbI5P1WW3P
-	aH0trzqqPFXWMkZfLZHK/I35Txx5SrkfJ5KDmPck6oBqG2nTPB7+XPRMGhPe9bPSuwxJJ3FQQF8T5
-	JRjfjZvw==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=+cxsUj0Y5gyKrSSgcqbSIsRn5/3YWg5fh9lkz0I+ON0=; b=29m6oFTS2z+Sm7
+	Yl/eS6SYR/v5W32a70a4mcFj71flsx6a31K3Skou8SKh+HiZ/XckjnTrHfHW08QciKqVW4/zuFIaM
+	pURkcDjRbrwTChzE0Px7YfB7x4TPArNPPr9JxdK5l4ovMWWlYDHfXlVurjvvnvFsz1xKClgYPCIOr
+	w0tUvMh2m6Iu3S+9jU+zGEG7YqPqVyqFtphyp2zsUn/rZ5ciNKxddHgZtEL/9QkXcIIgYSTINHhWa
+	n5sS/9txRgctVQumzpYqMBo5C+wkN8l/x5Ds1xd5AltHrAD2k8w8t20K0pGr9skOzxEY1nBPaKHD3
+	pb7zYOStuL7tNX7PCcJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ue8dt-00000001sGf-08uV;
-	Tue, 22 Jul 2025 08:46:33 +0000
+	id 1ue8gL-00000001stL-2AdK;
+	Tue, 22 Jul 2025 08:49:05 +0000
 Received: from relay6-d.mail.gandi.net ([2001:4b98:dc4:8::226])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ue8bO-00000001rjt-0tvx;
+	id 1ue8bO-00000001rjp-0VCT;
 	Tue, 22 Jul 2025 08:44:00 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 99F37431F2;
-	Tue, 22 Jul 2025 08:43:53 +0000 (UTC)
+Received: by mail.gandi.net (Postfix) with ESMTPSA id B0ACA431F6;
+	Tue, 22 Jul 2025 08:43:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1753173834;
+	t=1753173833;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=TpC2CuLLVKImVsax3ves5ivKtHIs3qQIrkEy2aJN8Cc=;
-	b=eQFfUCmX3KsNmIset3YASPBzN2xYqBJB90c0VNm9Gg5aC00xQ3zKarLQuDpjMo6OHRcjcl
-	jJxl1HGe0I1BYTpqRI+8LRxHS7/mdx8Qz6iZIzIbyPhBVYmSZNF7drizRiJ+0kYjmxG2ds
-	It3RKjfnNaWXOYIoKfaJVMN4zHu/o0PR5h6O/QKksFVebQn2JYjvy97VFhNNakcx11tz6Q
-	pYkYCRd7tDB917gLwig8DgoNY6PiwC6Kq6Gbrp0FU6u0oLEVGn303/DgDf4olqbEysmx3g
-	dm5FNRz+xL0ENftjnZYfbnMeKApKNsi6eZg4bJKn7FveVVoSBrPMMCizBnk7ew==
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=+cxsUj0Y5gyKrSSgcqbSIsRn5/3YWg5fh9lkz0I+ON0=;
+	b=DOeDTaxwDRa5w94xOL7msLEtOmiCPzSv27A298ZuvkvgcBl2j+vjF7X+/ELjEq/K4kPFCF
+	IUxaNrjszfyaNyrbwmFWFkUDqPrVfmZFx/9j40aj8yq/7RX0aGBZOI40pv5LYd7+r+iADT
+	iyZ95gu90RA9DmxJmzSX3bcgLREFM5n4Zw/xhYUVOm/q8UVIktyWMuWXPc6b3n7NqalYpc
+	ktwQvV8Qxvq4Pk7lZ2HZYyiKXPlzHd82SFHibRC47/AMJlo8pBVHfvnycq3zD9m1GbaPvh
+	uhaLbi8NZVUy0s6aLI28Qv+7caMfYQxDYXE5fc+524ul/ZJXQtKunLbKKG3FKQ==
 From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Date: Tue, 22 Jul 2025 10:43:43 +0200
-Subject: [PATCH 1/2] phy: rockchip: inno-usb2: fix disconnection in gadget
- mode
+Subject: [PATCH 0/2] phy: rockchip: inno-usb2: fix gadget mode
+ disconnection after 6 seconds
+Date: Tue, 22 Jul 2025 10:43:42 +0200
+Message-Id: <20250722-rk3308-fix-usb-gadget-phy-disconnect-v1-0-239872f05f17@bootlin.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250722-rk3308-fix-usb-gadget-phy-disconnect-v1-1-239872f05f17@bootlin.com>
-References: <20250722-rk3308-fix-usb-gadget-phy-disconnect-v1-0-239872f05f17@bootlin.com>
-In-Reply-To: <20250722-rk3308-fix-usb-gadget-phy-disconnect-v1-0-239872f05f17@bootlin.com>
+X-B4-Tracking: v=1; b=H4sIAD5Pf2gC/x2NQQqDMBAAvyJ77kISWxL6ldKDya5xKUTJaqmIf
+ zf0OIeZOUC5Cis8uwMqf0VlLg3srYM0DSUzCjUGZ9zDeBuwfvreBBzlh5tGzANlXnGZdiTRNJf
+ CaUXyxN6O0YV4h5ZaKjfhv3m9z/MC6Z5r7XYAAAA=
+X-Change-ID: 20250718-rk3308-fix-usb-gadget-phy-disconnect-d7de71fb28b4
 To: Vinod Koul <vkoul@kernel.org>, 
  Kishon Vijay Abraham I <kishon@kernel.org>, 
  Heiko Stuebner <heiko@sntech.de>, William Wu <wulf@rock-chips.com>
@@ -65,12 +66,13 @@ Cc: Kever Yang <kever.yang@rock-chips.com>,
 X-Mailer: b4 0.14.2
 X-GND-State: clean
 X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdejgeeggecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhephfffufggtgfgkfhfjgfvvefosehtjeertdertdejnecuhfhrohhmpefnuhgtrgcuvegvrhgvshholhhiuceolhhutggrrdgtvghrvghsohhlihessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepheejgfdugedvudekgeevtdfgudduhedtgfetfeevgfehkeejhedviefhtdffhfeknecuffhomhgrihhnpehkvghrnhgvlhdrohhrghenucfkphepvdgrtddvmeeijedtmedvtddvtdemvggrtddumegsvgegudemleehvgejmeefgeefmeeludefvgenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtvdemieejtdemvddtvddtmegvrgdtudemsggvgedumeelhegvjeemfeegfeemledufegvpdhhvghloheplgduledvrdduieekrddujeekrdejhegnpdhmrghilhhfrhhomheplhhutggrrdgtvghrvghsohhlihessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepudeipdhrtghpthhtohepvhhkohhulheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepkhgvvhgvrhdrhigrnhhgsehrohgtkhdqtghhihhpshdrtghomhdprhgtphhtthhopehthhhomhgrshdrphgvthgri
- iiiohhnihessghoohhtlhhinhdrtghomhdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopefoihhnrghsrdfjrghruhhthihunhihrghnsehshihnohhpshihshdrtghomhdprhgtphhtthhopehhvghikhhosehsnhhtvggthhdruggvpdhrtghpthhtohepfihulhhfsehrohgtkhdqtghhihhpshdrtghomhdprhgtphhtthhopehkihhshhhonheskhgvrhhnvghlrdhorhhg
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdejgeeggecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhephffufffkgggtgffvvefosehtjeertdertdejnecuhfhrohhmpefnuhgtrgcuvegvrhgvshholhhiuceolhhutggrrdgtvghrvghsohhlihessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepgfeiteekkefgtdduveeuffeuffevkeehieduhfefvdfhueekuefhhfdttddvkeefnecuffhomhgrihhnpehkvghrnhgvlhdrohhrghenucfkphepvdgrtddvmeeijedtmedvtddvtdemvggrtddumegsvgegudemleehvgejmeefgeefmeeludefvgenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtvdemieejtdemvddtvddtmegvrgdtudemsggvgedumeelhegvjeemfeegfeemledufegvpdhhvghloheplgduledvrdduieekrddujeekrdejhegnpdhmrghilhhfrhhomheplhhutggrrdgtvghrvghsohhlihessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepudeipdhrtghpthhtohepvhhkohhulheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepkhgvvhgvrhdrhigrnhhgsehrohgtkhdqtghhihhpshdrtghomhdprhgtphhtthhopehthhhomhgrshdrphgvthgriiiio
+ hhnihessghoohhtlhhinhdrtghomhdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopefoihhnrghsrdfjrghruhhthihunhihrghnsehshihnohhpshihshdrtghomhdprhgtphhtthhopehhvghikhhosehsnhhtvggthhdruggvpdhrtghpthhtohepfihulhhfsehrohgtkhdqtghhihhpshdrtghomhdprhgtphhtthhopehkihhshhhonheskhgvrhhnvghlrdhorhhg
 X-GND-Sasl: luca.ceresoli@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250722_014358_971432_988973B7 
-X-CRM114-Status: GOOD (  15.82  )
+X-CRM114-CacheID: sfid-20250722_014358_970409_6D15721E 
+X-CRM114-Status: UNSURE (   9.54  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,82 +87,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Louis Chauvet <louis.chauvet@bootlin.com>
+The USB OTG port of the RK3308 exibits a bug when:
 
-When the OTG USB port is used to power to SoC, configured as peripheral and
-used in gadget mode, there is a disconnection about 6 seconds after the
-gadget is configured and enumerated.
+ - configured as peripheral, and
+ - used in gadget mode, and
+ - the USB cable is connected since before booting
 
-The problem was observed on a Radxa Rock Pi S board, which can only be
-powered by the only USB-C connector. That connector is the only one usable
-in gadget mode. This implies the USB cable is connected from before boot
-and never disconnects while the kernel runs.
+The symptom is: about 6 seconds after configuring gadget mode the device is
+disconnected and then re-enumerated. This happens only once per boot.
 
-The problem happens because of the PHY driver code flow, summarized as:
+Investigation showed that in this configuration the charger detection code
+turns off the PHY after 6 seconds. Patch 1 avoids this when a cable is
+connected (VBUS present).
 
- * UDC start code (triggered via configfs at any time after boot)
-   -> phy_init
-       -> rockchip_usb2phy_init
-           -> schedule_delayed_work(otg_sm_work [A], 6 sec)
-   -> phy_power_on
-       -> rockchip_usb2phy_power_on
-           -> enable clock
-           -> rockchip_usb2phy_reset
+After patch 1 the connection is stable but communication stops after 6
+seconds. this is addressed by patch 2.
 
- * Now the gadget interface is up and running.
+The topic had been discussed in [0]. Thanks Alan and Minas for the
+discussion and Louis for having found the 1st issue, leading to patch 1.
 
- * 6 seconds later otg_sm_work starts [A]
-   -> rockchip_usb2phy_otg_sm_work():
-       if (B_IDLE state && VBUS present && ...):
-           schedule_delayed_work(&rport->chg_work [B], 0);
+[0] https://lore.kernel.org/lkml/20250414185458.7767aabc@booty/
 
- * immediately the chg_detect_work starts [B]
-   -> rockchip_chg_detect_work():
-       if chg_state is UNDEFINED:
-           if (!rport->suspended):
-               rockchip_usb2phy_power_off() <--- [X]
+Luca
 
-At [X], the PHY is powered off, causing a disconnection. This quickly
-triggers a new connection and following re-enumeration, but any connection
-that had been established during the 6 seconds is broken.
-
-The code already checks for !rport->suspended, so add a guard for VBUS as
-well to avoid a disconnection when a cable is connected.
-
-Fixes: 98898f3bc83c ("phy: rockchip-inno-usb2: support otg-port for rk3399")
-Closes: https://lore.kernel.org/lkml/20250414185458.7767aabc@booty/
-Co-developed-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Signed-off-by: Louis Chauvet <louis.chauvet@bootlin.com>
 ---
- drivers/phy/rockchip/phy-rockchip-inno-usb2.c | 6 ++++--
- 1 file changed, 4 insertions(+), 2 deletions(-)
+Louis Chauvet (1):
+      phy: rockchip: inno-usb2: fix disconnection in gadget mode
 
-diff --git a/drivers/phy/rockchip/phy-rockchip-inno-usb2.c b/drivers/phy/rockchip/phy-rockchip-inno-usb2.c
-index b0f23690ec3002202c0f33a6988f5509622fa10e..0106d7b7ae24ead91d9c996daaa56671de02a39a 100644
---- a/drivers/phy/rockchip/phy-rockchip-inno-usb2.c
-+++ b/drivers/phy/rockchip/phy-rockchip-inno-usb2.c
-@@ -821,14 +821,16 @@ static void rockchip_chg_detect_work(struct work_struct *work)
- 		container_of(work, struct rockchip_usb2phy_port, chg_work.work);
- 	struct rockchip_usb2phy *rphy = dev_get_drvdata(rport->phy->dev.parent);
- 	struct regmap *base = get_reg_base(rphy);
--	bool is_dcd, tmout, vout;
-+	bool is_dcd, tmout, vout, vbus_attach;
- 	unsigned long delay;
- 
-+	vbus_attach = property_enabled(rphy->grf, &rport->port_cfg->utmi_bvalid);
-+
- 	dev_dbg(&rport->phy->dev, "chg detection work state = %d\n",
- 		rphy->chg_state);
- 	switch (rphy->chg_state) {
- 	case USB_CHG_STATE_UNDEFINED:
--		if (!rport->suspended)
-+		if (!rport->suspended && !vbus_attach)
- 			rockchip_usb2phy_power_off(rport->phy);
- 		/* put the controller in non-driving mode */
- 		property_enable(base, &rphy->phy_cfg->chg_det.opmode, false);
+Luca Ceresoli (1):
+      phy: rockchip: inno-usb2: fix communication disruption in gadget mode
 
+ drivers/phy/rockchip/phy-rockchip-inno-usb2.c | 12 ++++++++----
+ 1 file changed, 8 insertions(+), 4 deletions(-)
+---
+base-commit: 15240745d6cd14183d112249a9fff87fb968b859
+change-id: 20250718-rk3308-fix-usb-gadget-phy-disconnect-d7de71fb28b4
+
+Best regards,
 -- 
-2.50.1
+Luca Ceresoli <luca.ceresoli@bootlin.com>
 
 
