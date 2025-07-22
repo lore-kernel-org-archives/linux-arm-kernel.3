@@ -4,190 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38F39C83F34
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 08:29:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45B02C83F27
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 08:32:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j2zT3mfQl3fH2HBgU623RtMScSF41RdNhTUXj7TxYjU=; b=xwUjpV47wNDycfGtu42Hj2n5cy
-	e63/YsSL6aWEftO8yrUA8bD2TCe4PVD1nkB1uuTpn3UZL8ezZzwVtBeraGPTJWMG//g46b7GIqoT5
-	HZ1I2idLWh76AXZWllyhu3uQoPYiWthCLEeF43q2Wi/qW85nPkI4B0zEyVx3wQASObrlmxzQSkjQf
-	zY6lS2UVG6t4voSlRW4T4tVlfhNJdkjsOgimddsFT6kR3e6qaKKqe+DJKpePfN5Ge/xvIeAHbj4F1
-	7+aKw013xGhCoTc2xI+Zrlg+NmMSCsr4EZsmMOWwuStoLCkiYI7DZwDFZICnxrZSJ+j5DWijAazmw
-	vdlRIK+A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Mvsu2vjVRIsk6oZmKXVbnoH+nR7s7OCeL0T9nIIghGo=; b=KHBmdV/Bb6ZsMvkob9y71F0r3x
+	WLk6M3U6yi2qzoMnN4UF4YzKkubnMb9ZGhOYV/uOqo3ROiMSvJIVsyyGX0l2ZHmCRBnx1InT5/Y1+
+	XmDPIfC3DJPOcvEBzXMLKMesGxfYEP4rMqjd42M47ay486jGzJnbMJzf73SNQJA3v5A4p5rhOzaqR
+	k2023/qt2ub90VxtB7YUcnJQK4IoafjRZqUmC9aDrI1/XMAmAO67ZubkWyfGqGSdkS0IixDw4Eix/
+	InsHw5p7p0BCmE83dCs/pv2+6FYlrR6EDFMQz22cnK7af/lXAIB4XlqalPV9M7yzdKiHqlc4tlBL5
+	fVqGJy/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ue8NY-00000001pox-1f5y;
-	Tue, 22 Jul 2025 08:29:40 +0000
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1ue8Q0-00000001qEJ-0agh;
+	Tue, 22 Jul 2025 08:32:12 +0000
+Received: from mail-pg1-x52c.google.com ([2607:f8b0:4864:20::52c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ue8CZ-00000001nTS-3JfW
+	id 1ue8Fy-00000001oNW-30WY
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Jul 2025 08:18:21 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=buxvMXwoIN/8hTLFRUj0GXh6RcF75kX9cl0nmGpvOFINuvP8IOMwLCNWfk9+AliNYmYmiGFE7F0m1560oWG+2P4hD7aDPAIcfNDIZFb2EiRrndXxWWXy1ELvkx2+93I7f1yUXgIlfHrm23CPOYveGXtwhX4GZOnztQSX8F/+7vMt74MVSRKXbhxf5fVKR+cdO6UDDLY2TalsTuJYMP/wwpjUGsO0ScBmiIONO6xTbTE+AU/RdQEKcnXit+jWp1COrZVuAIlTfezL5ERa6SECXxpgymZA+vyIjFm3MHEO01Av0TaMzhu20XF5olLWhY2R16PZUCFicRA57O92O1+yNA==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=j2zT3mfQl3fH2HBgU623RtMScSF41RdNhTUXj7TxYjU=;
- b=Yd1khqQzf9JFQAQuOYSN+5zk4gyxJnkxUO+k5y0qw7PI72HuvPi+bQMpUtZKOJjWSOz/cmR9nzNN3BH3Sqg3HYCz2DJz2OvnujRQPKFsmZ6y9dedMVl2on4D661WtrzHDbcRW9jX7Ab3oNlNZrQ93TDkYSd5qMMMF2kaGOcEu7VYJP6dEOrOpBYoeUOef2E/lJ3u9Q9x1ncy9ftNCKKR5kayk6OVI4LUUEGb7z18lapzyLJflehfHhTM6n+8mqJ+9hOXO6nytU3DUCu9CSjiQSACSuNcnTh4qHleToSPg84SfiiV8lNc+Zu/+a+5QShDaynuW8gp9CBuSiUbffw0ng==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=kernel.org smtp.mailfrom=arm.com; dmarc=pass
- (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
- (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=j2zT3mfQl3fH2HBgU623RtMScSF41RdNhTUXj7TxYjU=;
- b=mGZApaZTAdIs76fhDaOCR9rFZ0/HrfEdJL+NFDRQU5vaiLFh7grZhQmOhJjxCxgBoOGfGG6gvKc2lk2jR80g5XbDfcowzUahR+Yv6RSH0uh1s6QHEFu2NGw/J+HnymtI54csE+3fpDa4yM5Q8YfLeMTaemPqCiIJbFa/sZm1N/M=
-Received: from PR1P264CA0137.FRAP264.PROD.OUTLOOK.COM (2603:10a6:102:2ce::9)
- by AM8PR08MB6530.eurprd08.prod.outlook.com (2603:10a6:20b:315::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8943.30; Tue, 22 Jul
- 2025 08:18:12 +0000
-Received: from AM4PEPF00025F96.EURPRD83.prod.outlook.com
- (2603:10a6:102:2ce:cafe::ec) by PR1P264CA0137.outlook.office365.com
- (2603:10a6:102:2ce::9) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8964.21 via Frontend Transport; Tue,
- 22 Jul 2025 08:18:12 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- AM4PEPF00025F96.mail.protection.outlook.com (10.167.16.5) with Microsoft SMTP
- Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.8989.1 via
- Frontend Transport; Tue, 22 Jul 2025 08:18:10 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=KXgCSA74J1GFj5wNVrD8twAboLkEgLGaPi4s1DZnGgnsPge2jt5tV3na5aMttn7B7s6g3ZASL9vpJ6CWbPhZdBH1Sw77AJLYIiU554ekE07NQdehnAC81UGX873cJYi2jUga38QS6TMxTCu5uhv3qVIK9Z2cX0Nq8YRTUinjxdVUrLbU13YdnnFvs8int2V4b9W8U9Cnp8h9QGIwmhy2nIxkJvUcpenSdk34hKclXMR5uAmwXFEYZPb1R3exxUT4qkVrrg1v7VzYrOqJMM+u3qZ5FReDcdaLTLrkTjpc8tubwxxHuZJKQDURWWSRUnMX+6JUX/2HA4Kfga7C2fl3Fw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=j2zT3mfQl3fH2HBgU623RtMScSF41RdNhTUXj7TxYjU=;
- b=Fy5lcThwxiR1xbI15YupDsvlRv/hcDruVhvGCrK9uIHK6LZ4NFviIp2A1+YnlrUSJJXLvN5ouVB72ZHUZRMa6xMJHm02KSd0MWyIHV5mRy6g7RxV5jDWPWs2GoD5j7LGlLjDlTUKYE1skWvdle+eUS+P0zt5pzgRHgvgYvFq0Y6rZZllPpuf2Sr/BBcH8t9rQPVTQSo+pG859YrX6A0i8B/lPRqacyoa2H2Pt6q4Z4MJB7nI56CBj12M6ynTHoXdGUaxbAvCGMcPCudfRlSb6qqSKxSD1ODyhL4PF1MN4bphnG3YyK1QS65/lWsyFwZnQU5SQatW34bEUFOlD58dTw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=j2zT3mfQl3fH2HBgU623RtMScSF41RdNhTUXj7TxYjU=;
- b=mGZApaZTAdIs76fhDaOCR9rFZ0/HrfEdJL+NFDRQU5vaiLFh7grZhQmOhJjxCxgBoOGfGG6gvKc2lk2jR80g5XbDfcowzUahR+Yv6RSH0uh1s6QHEFu2NGw/J+HnymtI54csE+3fpDa4yM5Q8YfLeMTaemPqCiIJbFa/sZm1N/M=
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
- (2603:10a6:150:163::20) by DU4PR08MB11215.eurprd08.prod.outlook.com
- (2603:10a6:10:570::18) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8943.30; Tue, 22 Jul
- 2025 08:17:38 +0000
-Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
- ([fe80::d430:4ef9:b30b:c739]) by GV1PR08MB10521.eurprd08.prod.outlook.com
- ([fe80::d430:4ef9:b30b:c739%7]) with mapi id 15.20.8943.029; Tue, 22 Jul 2025
- 08:17:38 +0000
-Date: Tue, 22 Jul 2025 09:17:35 +0100
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: Mark Rutland <mark.rutland@arm.com>
-Cc: catalin.marinas@arm.com, will@kernel.org, broonie@kernel.org,
-	oliver.upton@linux.dev, ardb@kernel.org, frederic@kernel.org,
-	james.morse@arm.com, joey.gouly@arm.com,
-	scott@os.amperecomputing.com, maz@kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 3/7] arm64/Kconfig: add LSUI Kconfig
-Message-ID: <aH9JH6WSTLKNYgXS@e129823.arm.com>
-References: <20250721083618.2743569-1-yeoreum.yun@arm.com>
- <20250721083618.2743569-4-yeoreum.yun@arm.com>
- <aH4b4G2DSxG5FnHb@J2N7QTR9R3>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aH4b4G2DSxG5FnHb@J2N7QTR9R3>
-X-ClientProxiedBy: LO4P123CA0437.GBRP123.PROD.OUTLOOK.COM
- (2603:10a6:600:1a9::10) To GV1PR08MB10521.eurprd08.prod.outlook.com
- (2603:10a6:150:163::20)
+	Tue, 22 Jul 2025 08:21:51 +0000
+Received: by mail-pg1-x52c.google.com with SMTP id 41be03b00d2f7-b26f7d2c1f1so5027122a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Jul 2025 01:21:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1753172509; x=1753777309; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=Mvsu2vjVRIsk6oZmKXVbnoH+nR7s7OCeL0T9nIIghGo=;
+        b=E+vocKbidxc5JuOfayxsAk+doM28gjETzt8HpJ1lrEzPRO6F7OTtMEl+5gMtl6/+M7
+         +Em5BpQyfCFVuvdGYsNS6l4vSMbFlfk4ois9aZXiUsPUgN3uYvINjt3aoPLQIadQMj9d
+         +PlSeehvKdSdkXzWpXLcN4PV3KHEuNPOwmrYGPNV1mEdhi7RDjwxU5USOYKNgjn7hWWX
+         hQKN3HhM6VK/Cqn3H7uID4xqaH6pmn93VJZgY2s3jXG9tF745zPJHbHfO04Wkzp3tCYQ
+         ih5H2KH7KCvliCMqpxDtSyv34HhuZ1c6v44kVoIN2PvyGmt7ZMtMjDHUkRHI2KnqjJAi
+         igCQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1753172509; x=1753777309;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Mvsu2vjVRIsk6oZmKXVbnoH+nR7s7OCeL0T9nIIghGo=;
+        b=fA3DqtEjMmfFiqOdxxY1eBirmeaE8MAz1B941Avc9CpnvkAJYcywL7fR5mcT5k5dD1
+         PtpdQFtms8p5cH/ZEKt8aCJ4+xhGRjRoxleTYO8Fdunah0qEMgJR7DJxkWHT3sk5/A5P
+         6aD7cMwcwNj2RDrD3pEiA4ekGHXCI9M7lLChzan/D7bJKKAZjFOGyGnZvYjgAGF6dIq3
+         O9x2l2lq2AS3+zL0Lr47QMEpRrjQfNDO6ssrV0pRJ9AkERm7E0rfzUynrj5KK0wvZo0Y
+         AGEcieefsL+xRgCQFyGyg63qgXqyxbw3SV5ot3Ap/Nz5CNIVbDPLu++s97UvvzWdl3VA
+         quKQ==
+X-Gm-Message-State: AOJu0YwuMYxrqe6D8G1nlpw5NBbxVs65/Eph6R9YRa6xaxdA5FQ8BAnQ
+	YC8w1ebcw9KPBf3iG6r+IikmYKD4qD7+uwwWEM81BC5VQx9gneqDBKoIcvLSwEUr6Es=
+X-Gm-Gg: ASbGnctVNZxtqJp69gOXllGrX/p7EmfH51Nd90JQ+J2FwEEWqBTYO4oZDvhQBS1tksv
+	6P9c3d7Ne5hIq5ok8MbF3nXfjdRZnkQ289YPws9q6bFS2hO297Ix6IJZdindBOEzOrUmoKPPvTz
+	nILElZiHAfhI2TBCJCJdbAhubNL1ZISNADR6iWtTZct+USp9dXuxPeWRaIACNGallMXl67OXbiO
+	9FaYnrs+aNDR4tTuNs3/X46Iw3FadfNaniO7glNF4fvXql18AJlqglATqZ5CzW4T4CMB1MHleX7
+	aii9gxrTY0kpuvJWuea8SQ8GsiWnzMCsRIICQheeMmbjr5qwQekdxilADDMD5geb+o0eZUgu5iS
+	WqlQ2pfjvuiTdPwLH0anWqkW3yC7zQICC75LMKj/VgHqK6w==
+X-Google-Smtp-Source: AGHT+IEjJOxKFCMA/W05J86dcoXFeTq9z2VaU8ffTPvx80au0umrXWr+q+XebdIcsaID7+0UviaoUw==
+X-Received: by 2002:a17:90b:5485:b0:311:b0ec:135b with SMTP id 98e67ed59e1d1-31c9f47c799mr33546230a91.24.1753172509476;
+        Tue, 22 Jul 2025 01:21:49 -0700 (PDT)
+Received: from localhost.localdomain ([36.110.106.149])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23e3c3a5d15sm70337265ad.62.2025.07.22.01.21.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 22 Jul 2025 01:21:49 -0700 (PDT)
+From: Weikang Guo <guoweikang.kernel@gmail.com>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Weikang Guo <guoweikang.kernel@gmail.com>,
+	Ard Biesheuvel <ardb@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] arm64: mm: Ensure phys_to_ttbr on pgdir for idmap_cpu_replace_ttbr1
+Date: Tue, 22 Jul 2025 16:21:13 +0800
+Message-Id: <20250722082117.1777570-1-guoweikang.kernel@gmail.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: GV1PR08MB10521:EE_|DU4PR08MB11215:EE_|AM4PEPF00025F96:EE_|AM8PR08MB6530:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6985cd61-a1b9-4ea9-13ba-08ddc8f84bff
-x-checkrecipientrouted: true
-NoDisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|376014|1800799024|366016;
-X-Microsoft-Antispam-Message-Info-Original: =?us-ascii?Q?fyo1pFxjly7B00r6/iPTZ8LcFoyO9UcXUdr4XlRc2UWpefPPTtJ4EOfLulkY?=
- =?us-ascii?Q?703z+T51TBls3nUpJG1rmaWaOMAG0LMg5oEoi3Iu1d3/wqhXlgYh8PO82fIi?=
- =?us-ascii?Q?ezpIyhGbaaCJIKPhorIycEzOp86yTqdd+IU2Gj3Bes1c89irlkNM7dS/cssx?=
- =?us-ascii?Q?EEjW5ajV/tW01eSHnxo4G/NLq0QkBAVqoVgcKbepEahi8OB5WP6/wSfmYZsA?=
- =?us-ascii?Q?yOmQEN8NFsJO4LQHimTBFN5PfJme4l49wnuwO3zSNmoRDnsHQjjvBmNbJMmp?=
- =?us-ascii?Q?xSY+cuJI2QelbW6ouejqS+LNZqaOm5J5ivGsg7Rl0ZxM9+55WXv4q8IM8Ftk?=
- =?us-ascii?Q?jDjcy6C0Pm8IwtTRBXNhPk03trKOKdj7ze79i7n7jfGaPTpiDt7eWr06yy22?=
- =?us-ascii?Q?1ow1I+sqklKojt1j6r/aI/hPcAYvA/dWX4oNJpfz+62WLELQpDKATPViVLy1?=
- =?us-ascii?Q?3zT8prou63sdpJ01iW75wFkI7Z6Aca7E95t4LKTnBytdxa6yOHs439vz5wyM?=
- =?us-ascii?Q?ps247UsGzWyQ5LplORZ/WmZjjKtvU5DNAuJQy2IEysIpnVwxAyTlBBqXxSFw?=
- =?us-ascii?Q?R8bQ34QiuSolJaoR3sAATxN9/KQz0+el6cWtGYgOMm1ab/kwbA1Jo93sqidD?=
- =?us-ascii?Q?vy3mck7HrtPOvwrYwxmDSglbpnT+XsFEdSTd7TIXN0h6J0W24NLSo0vnqqvD?=
- =?us-ascii?Q?0kDNjtC8FddTptNSesDZm1B1i5acUOiIzWWrxE0ibLRanEHwsGaQCexV8i3A?=
- =?us-ascii?Q?p6dFYf59mrGArhrSd+vprCsNiz27EOS7ozpS8OB2YWl2Im/Ux4YNhd+Ttok2?=
- =?us-ascii?Q?EBHaaXWv2D41kCb3F4M+5q1ZslgbSn0JenKm9VND4iO82wzl65KIhc6UhKgU?=
- =?us-ascii?Q?hyrtlZd3saA+oxieGYdiD66anP7+yLGavr7GGFJV+ieFUIUKsomKLgGfJ0UQ?=
- =?us-ascii?Q?OHCGcfp9OwBdX0ZmwVAX1pERo3f+JNDQs4ju8J/j/7l+Qc2yTYWZZuB/XXwN?=
- =?us-ascii?Q?DAe3OQQiGDHv7VohazYbkK6ojadssgHJKiJORJOZhupJfJg+RERBvQHLiOF0?=
- =?us-ascii?Q?Nodd3bhhExAQtpMXFjivvamo4H8th1+N+SIX2Fa+Vd4TVxULvKUf8SEm+seP?=
- =?us-ascii?Q?n0dZFrbW7l7dzjpNPtqhXPv3QWOjui9NHc0xAqnHGB9VEyW8Hyul5mcglaKm?=
- =?us-ascii?Q?Hg+Xkt/gTYNyBbv5VTwMte2c8PLMQYgpsseHpdWwnCiswQNQDIyAyqPO8ZKI?=
- =?us-ascii?Q?pN3kFIWOBjQkrTYUDBlU9rxii8xgYGsSk9ocaO0ZI1ppB3ABGhThXX7xbB+u?=
- =?us-ascii?Q?mdwLcKAx1X3A0Zjb7muhKSlWyyZVa+RqYmqscnS3Wk5R7AnAKKcmC6ZixnwB?=
- =?us-ascii?Q?P3KE+8MY5O38h242r9r+4ywzL0Ju9cVJhKfzt3tZzrBpKF2cK/gpLr5d9rz7?=
- =?us-ascii?Q?PoqgrbDCXvI=3D?=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR08MB10521.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR08MB11215
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: AM4PEPF00025F96.EURPRD83.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: c6d3b6cf-c748-4e51-2479-08ddc8f83875
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|35042699022|1800799024|82310400026|36860700013|14060799003;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?StW8WfdNPkMVpdW+6QAin0GiRftcTU28Vgq6s+xi9jFriv+dT8WHQiZdzgIh?=
- =?us-ascii?Q?Wl0D/jwd05ddWRUvXvrALkxIVK9hUFCY1PeIZzQx2D3tVr8Kfbi/QqwMjpFz?=
- =?us-ascii?Q?zmENQ7stv0xQ5UdT6/2zlvPteX7E1Ii1kwzrK5iOaIF9/n0Xnscn+tZ8nbfj?=
- =?us-ascii?Q?WG+0/8o5/LThm71byaGEBrXEJ43kteF6//ebRTPIxN4D10l5r8v6jtugOT3l?=
- =?us-ascii?Q?DCTgWcJF03GGiCXb29OGC52lwPaCP17arP5RsknuH+GTAcjnd4JmFq9OheS9?=
- =?us-ascii?Q?A7CE05KKTI8ws2h8k2vOelLpEIxxAB/6C26eNLBcVCvGqmx17D1W6FqW8wwL?=
- =?us-ascii?Q?TQ+ffV2hedc+tIDP+zEWV9deKCeNZwNGLqQbTN88ETRDlAuPbyn69l9TEKfe?=
- =?us-ascii?Q?R0HHxbcopyF5u/7LsD+eJb5SySbdZq5v64RmgFSka3UkfmVqXdH0+d6ayJAQ?=
- =?us-ascii?Q?WV8knjck4ZGt8Q+4lwNtcKR/SaF19qHmCGwMZ4j4htzkZ5rcX0lmpKzrotbt?=
- =?us-ascii?Q?AuuwsuLB94pTi/YsWnOPbiFP15UfjtmkIK4LiGZ/S4L17ztwCSprD+k7LzL8?=
- =?us-ascii?Q?36E7E5jjjg9coR6RFxEATU1jUqdmKwWvvBkrKZwZnAmgKNunJcawu8dlOjbo?=
- =?us-ascii?Q?3y06JjgSU9PshlGjg1BoV9iAt5SvYCD6Q9FYdbnMSCshCKtqnrXPZjLqSSeB?=
- =?us-ascii?Q?6vetT8CfXb8Turl+PwfMwUq5QRMB9T0iT/x87GNxU4BTh8wfpDG/l2yghUMm?=
- =?us-ascii?Q?VMC1tVM4Z87mIh5nCgcG7qYGioX/0z27KGZUos8p2iJWMUQKRyFEncdcumr0?=
- =?us-ascii?Q?0MNTXgrnskFOacET64hP9+Y/ulh/6RVeYttdDDDVWcT4xdBvsIUMPTPV5WhT?=
- =?us-ascii?Q?oiUJyYAKH+s+XwSIX05MaN3kFQZcZkL7/1ikzIkF5viH+JNsX5MX5jpiVXTD?=
- =?us-ascii?Q?TzkKHmy9lIhcoHLwslXhgAizQeVsJ31qBR6PYYcdLODCvGYYuRfP9a7j+zC+?=
- =?us-ascii?Q?hAGpTVqjEgA4AOH7FHwd/c1i4aRbb1bKGLe0Kml4dz8ODqHwa+PQ2Vk3OJhh?=
- =?us-ascii?Q?6EmYDyZ549eeUOvj+9snuGqcJk1phjlHNiPpTUkXlpitMUooMEhKurZkSel4?=
- =?us-ascii?Q?e1qMToSPciV2awI5jzt4q123TIoclhZkEdFq+Tuc33+FlC/jr0+Zc+Awgx7j?=
- =?us-ascii?Q?xZob7SJw9kaJYLupsqwkbO37waWPNIwwq1JBMXGxJV8VmSd+41GUBVUh+ukt?=
- =?us-ascii?Q?U20yViUAmnLWC+nx0+ihvr63S11l5kcmT7KxU/fM/alOk4Ur3r5PJtCUvr8z?=
- =?us-ascii?Q?uIZd5IYME+pnaJR1mcQSwhFVj+Dz9c70aLigHC5s309pIUlj3IU/m1+cZ9/E?=
- =?us-ascii?Q?gmar+QOSn3WCv47imdjGmftCLIz7RPKrMAT2mcjkL47WPkt4HCNNhPrgsEaW?=
- =?us-ascii?Q?hd2XJFWa1ZhYki2nDNYGMQlcMdovI+b4EvLK82/PcSiM5jwrUD8VPcTGe50p?=
- =?us-ascii?Q?RTCCkS/kN6q1YL4ra936Q5A4Dm9RvTMYJKlA?=
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(35042699022)(1800799024)(82310400026)(36860700013)(14060799003);DIR:OUT;SFP:1101;
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Jul 2025 08:18:10.8009
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6985cd61-a1b9-4ea9-13ba-08ddc8f84bff
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: AM4PEPF00025F96.EURPRD83.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM8PR08MB6530
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250722_011819_976728_83413D88 
-X-CRM114-Status: GOOD (  20.95  )
+X-CRM114-CacheID: sfid-20250722_012150_758013_B2A65BA6 
+X-CRM114-Status: GOOD (  14.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -202,60 +99,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Mark,
+Commit 5ffdfaedfa0a ("arm64: mm: Support Common Not Private translations")
+changed the contract of idmap_cpu_replace_ttbr1, requiring that the TTBR
+argument passed in should already be processed by phys_to_ttbr (i.e., in
+TTBR format, not just a raw physical address).
 
-> On Mon, Jul 21, 2025 at 09:36:14AM +0100, Yeoreum Yun wrote:
-> > Since Armv9.6, FEAT_LSUI supplies the load/store instructions for
-> > previleged level to access to access user memory without clearing
-> > PSTATE.PAN bit.
-> > It's enough to add CONFIG_AS_HAS_LSUI only because the code for LUSI uses
->
-> Nit: s/LUSI/LSUI/
->
-> > indiviual `.arch_extension` entries.
->
-> Nit: s/indiviual/individual/
+However, the current map_kernel implementation does not always convert the
+pgdir/ttbr argument via phys_to_ttbr before calling
+idmap_cpu_replace_ttbr1. This can lead to issues on systems with
+CONFIG_ARM64_PA_BITS_52 enabled, as the TTBR would not be properly folded
+per the ARMv8.2+ requirements.
 
-Sorry. I'll change it...
+Signed-off-by: Weikang Guo <guoweikang.kernel@gmail.com>
 
+---
+Note: I do not currently have access to ARM64 hardware or an emulation
+environment that supports 52-bit physical address (PA52). I would
+greatly appreciate if anyone with such a platform could help test
+this patch. Thank you!
+---
+ arch/arm64/kernel/pi/map_kernel.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
-> > Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
-> > ---
-> >  arch/arm64/Kconfig | 9 +++++++++
-> >  1 file changed, 9 insertions(+)
-> >
-> > diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> > index 393d71124f5d..c0beb44ed5b8 100644
-> > --- a/arch/arm64/Kconfig
-> > +++ b/arch/arm64/Kconfig
-> > @@ -2238,6 +2238,15 @@ config ARM64_GCS
-> >
-> >  endmenu # "v9.4 architectural features"
-> >
-> > +config AS_HAS_LSUI
-> > +	def_bool $(as-instr,.arch_extension lsui)
-> > +	help
-> > +	 Unprivileged Load Store is an extension to introduce unprivileged
-> > +	 variants of load and store instructions so that clearing PSTATE.PAN
-> > +	 is never required in privileged mode.
-> > +	 This feature is available with clang version 20 and later and not yet
-> > +	 supported by gcc.
->
-> I don't think we need to describe the feature in detail for the AS_HAS_*
-> config symbol; I think all we need to say is:
->
-> 	Supported by LLVM 20 and later, not yet supported by GNU AS.
->
+diff --git a/arch/arm64/kernel/pi/map_kernel.c b/arch/arm64/kernel/pi/map_kernel.c
+index 0f4bd7771859..05a04eb91e81 100644
+--- a/arch/arm64/kernel/pi/map_kernel.c
++++ b/arch/arm64/kernel/pi/map_kernel.c
+@@ -18,7 +18,7 @@
+ 
+ extern const u8 __eh_frame_start[], __eh_frame_end[];
+ 
+-extern void idmap_cpu_replace_ttbr1(void *pgdir);
++extern void idmap_cpu_replace_ttbr1(phys_addr_t);
+ 
+ static void __init map_segment(pgd_t *pg_dir, u64 *pgd, u64 va_offset,
+ 			       void *start, void *end, pgprot_t prot,
+@@ -90,7 +90,7 @@ static void __init map_kernel(u64 kaslr_offset, u64 va_offset, int root_level)
+ 		    true, root_level);
+ 	dsb(ishst);
+ 
+-	idmap_cpu_replace_ttbr1(init_pg_dir);
++	idmap_cpu_replace_ttbr1(phys_to_ttbr((u64)init_pg_dir));
+ 
+ 	if (twopass) {
+ 		if (IS_ENABLED(CONFIG_RELOCATABLE))
+@@ -129,7 +129,7 @@ static void __init map_kernel(u64 kaslr_offset, u64 va_offset, int root_level)
+ 	/* Copy the root page table to its final location */
+ 	memcpy((void *)swapper_pg_dir + va_offset, init_pg_dir, PAGE_SIZE);
+ 	dsb(ishst);
+-	idmap_cpu_replace_ttbr1(swapper_pg_dir);
++	idmap_cpu_replace_ttbr1(phys_to_ttbr((u64)swapper_pg_dir));
+ }
+ 
+ static void noinline __section(".idmap.text") set_ttbr0_for_lpa2(u64 ttbr)
+-- 
+2.25.1
 
-Okay. I'll change it.
-
-> Otherwise this looks fine.
-
-Thanks!
-
-[...]
-
---
-Sincerely,
-Yeoreum Yun
 
