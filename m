@@ -4,169 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DEEEC83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 01:41:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2438FC83F25
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 01:44:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MMaA81rDgxPq8so74Puxj9z5EX9BSXN4J+31eBa79a4=; b=lccRpNTVOnhIhWwGtqfgBOJ17N
-	xFgU+mn8bPz45YkutwnwWmtVcarYCA7tUi2S6yGUrKDNBaRwCk2xDep5OlHwta+tmgkli0hBdZv+J
-	gyAoHRc8FgArq/nSxRdLICpDrlWCe2Z6pNVb2996bqWubkUGlsBLjnK1AIbYv1gxw2EDDFMfM7uV7
-	xkNZkAJSHbCBO8gKTdksfUR06eYCRS+w6Hnu6qlgO1lnk/2ewTrDIu1V5TrmKTOQxMgJv5dh7pkRR
-	RHJvJMFyV/qlmstV+7+Aop82TnAkA7zweW3NqqzGPY1ArBadg3Pu3Wt1tCxa93hDlaukIMp/EmIFr
-	btFDI6Yw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1BOL1qYMWR3O2znqmM5i4r2htXkqnEWXRuKcVY1Fd80=; b=H2REO1NKmFl6cI3rwB9ijgYpdx
+	x0oJ1XbkkwD28/gDfzXEqF03BOdnIziiEEYqxkg3V3qRLrFR/ZfDcPULub29qdK9/IAI8ICAINEQX
+	1cj49iemjusFq56PGVf3XBmAsvOfZjH7W04mx0TKZ+dhEfERlS6wArTt0hivvtBeNObb7SrHDYCrv
+	70Pv9kthjK0gwRkm7/GViczc/7ALM3l1k0+VpvnaPbSHedqm+DkpS1n60Tol+vW8sKk2EJcoJprgg
+	nP1dB1/Ub0emvLm0QLmGPgd4r3qZxKGamhDnTfBSFk2MSJ97sgPYejTFh1xTxahhAif/HkAk5g96a
+	FJXcP3VQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ue20i-00000001290-1sF1;
-	Tue, 22 Jul 2025 01:41:40 +0000
-Received: from mail-westeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c201::5] helo=AS8PR03CU001.outbound.protection.outlook.com)
+	id 1ue23D-000000012SH-1D16;
+	Tue, 22 Jul 2025 01:44:15 +0000
+Received: from out30-111.freemail.mail.aliyun.com ([115.124.30.111])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ue1tC-000000011Hu-3cE8
+	id 1ue1wR-000000011df-3oth
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Jul 2025 01:33:56 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ubamCOAAHNbwzc+GoBIz5oRI5BvRLBef9YswK8dRyOCF5HnRxdmpiL7hFBzjujVc5e7Q1XnOu28tdiC6iKPDul7IbqfzkBNN9WrjkOpgIjyufItrwrkIrmKXyoVTTNmb5EZYlviY1TYd6Ds8rI9KRz/FBL8h3Wlnlunhe+t22efJcuVUJtP5M39R7RYe14JZqkA0KQbHoIoI1DlCSagYaxxyP/kRYRitaFaqGDhvoqlqSMdxvwHQ5hrfNix8nQ6e1+huWBoNksiZQwM6b3FuGJMHkN43RozJsiL4tPggKMPtaj9AMVtRBLuODH3c2UuswGekL97jzOPjkGA/rkW2/g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=MMaA81rDgxPq8so74Puxj9z5EX9BSXN4J+31eBa79a4=;
- b=irWKakBfjrKAH5hFKNoNqe9wzfs48uTYe1y/EDMVqOdDl1A7zbBmWJp5bSCa5NtId4tqzIYMQnFnQTflL2AsV1Z9oLlyCl7SfB+iZt1srBF92CyxB/J6nevs+HePwIbFMXA5+B3TC9KQ2VnTcoMzpP6fjSC78zNUlB+WbfaKiQdBntouaFTNaxBG51d3qol9yO13FCzPd0ifcTgr6kicbQ/zwp/GKyI04JdqhXve6yswwt9SmGnSSd3US6944a5fag0ZV2DYuGWiPWAigNvggkB42Pk3FSJVkwl8R162EH+4xCJkO7RFkrvdI5O5VH/CLJQICqtypitUW7FKTHQwFA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=MMaA81rDgxPq8so74Puxj9z5EX9BSXN4J+31eBa79a4=;
- b=qn1WnlQ3gsalCceSEEGdJ2j8I/2t6PLdkoOOi84t5JwZPRGjXbTelczBzb4hEQQ5EcuadPY/YBjwJIyGYnmaO+lYYL/XIp30QSZVcbMq/XvhkV6JGnes6Xn9gXdz8NZASyX4MEZiHHCR8FavufZqwB/3upfpkeVK/bIJy8aT8/du6pmBt5Hj5qAHuxTnEs5iFVhU5BMbcEfz8+lfTXXW15U5AqE9rWsWE203QdohYgwTklgSB0bSpbeOkb2tNEKn406008EzL9pWlRy+u+kLL1Ms7mI+eEOPawr8os7uq+s9sgeBJUM8bT60OveyYfKFGihhOQ9R6ko1yOgQS7+Ceg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by VI1PR04MB9738.eurprd04.prod.outlook.com (2603:10a6:800:1dc::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8943.30; Tue, 22 Jul
- 2025 01:33:50 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630%7]) with mapi id 15.20.8943.029; Tue, 22 Jul 2025
- 01:33:50 +0000
-Date: Tue, 22 Jul 2025 10:44:12 +0800
-From: Peng Fan <peng.fan@oss.nxp.com>
-To: Mathieu Poirier <mathieu.poirier@linaro.org>
-Cc: Peng Fan <peng.fan@nxp.com>, "Rob Herring (Arm)" <robh@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	Frank Li <frank.li@nxp.com>, Bjorn Andersson <andersson@kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Iuliana Prodan <iuliana.prodan@nxp.com>,
-	Fabio Estevam <festevam@gmail.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	"linux-remoteproc@vger.kernel.org" <linux-remoteproc@vger.kernel.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Daniel Baluta <daniel.baluta@nxp.com>
-Subject: Re: [PATCH v4 0/5] remoteproc: imx_rproc: Support i.MX95
-Message-ID: <20250722024412.GA11182@nxa18884-linux.ap.freescale.net>
-References: <20250710-imx95-rproc-1-v4-0-a7123e857dfb@nxp.com>
- <175224423523.783161.17907302929832941912.robh@kernel.org>
- <PAXPR04MB845959EF2767C96794EAE6DD8854A@PAXPR04MB8459.eurprd04.prod.outlook.com>
- <aHkNS51jgV5ulsNB@p14s>
- <20250718082033.GA25126@nxa18884-linux>
- <aHp-_BRk7Iz81OFp@p14s>
- <20250721041823.GA4844@nxa18884-linux.ap.freescale.net>
- <CANLsYkwZz4xLOG25D6S-AEGFeUBWwyp1=ytmu2q90NyEpkoX9g@mail.gmail.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CANLsYkwZz4xLOG25D6S-AEGFeUBWwyp1=ytmu2q90NyEpkoX9g@mail.gmail.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-ClientProxiedBy: MA5PR01CA0011.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:174::17) To PAXPR04MB8459.eurprd04.prod.outlook.com
- (2603:10a6:102:1da::15)
+	Tue, 22 Jul 2025 01:37:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1753148231; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
+	bh=1BOL1qYMWR3O2znqmM5i4r2htXkqnEWXRuKcVY1Fd80=;
+	b=qqJxG486elMgYi6npWCpF5r8Bjxwaz9xxxA8/efq+9a0/+ZE7Yct6kWpq8vXx7IDwh6FaSBTG4y6GMpXIEf0tVF3MjBHVCq1PNyFV14AyDlnF406UAGCp9/2kwu6SQccTFWp/3yjne/q8cLszly3QyWvzK0r4yJ5jtadi/szAHE=
+Received: from 30.246.160.95(mailfrom:xueshuai@linux.alibaba.com fp:SMTPD_---0WjTgZZ2_1753148229 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Tue, 22 Jul 2025 09:37:10 +0800
+Message-ID: <87ed033c-f2b1-4858-8438-f9935c4f12cf@linux.alibaba.com>
+Date: Tue, 22 Jul 2025 09:37:08 +0800
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|VI1PR04MB9738:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9bda1915-082d-4e0c-23c2-08ddc8bfcf2c
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|19092799006|376014|7416014|52116014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?KW5ONRaM7E5B5QehQGJsPGvKsGZqkRZ+SssEpsLPtHpdpX+0z4YbgHyiM4Ix?=
- =?us-ascii?Q?kEk8wl2veY273Py478hy+K8z9nZ4ZbdnuTNLXd6rhbENNH8Q+i7tAO/ZzTWw?=
- =?us-ascii?Q?iOjqlt25UkK1rAaSxuCeQY+OyT7t0CEKG+aasJ6vu9vgUQ9d70YGdB7To/db?=
- =?us-ascii?Q?4ehUHTD1HBoI20nSGMkJ0syzCUAcVoqPATJALu142CtTEBLcAu5gLD8tj0nU?=
- =?us-ascii?Q?Vq0ekQWtpBhBUP8RFRjCWLN7xtT3nvP/QoRyE6Xj7S5eYzuxDrG/VTLkWPKJ?=
- =?us-ascii?Q?vT3tbYDRia9MxdcRPIJmu7Upwo1QrjDdXnck+BrDRuf7oSrSHCo5XAekwGt9?=
- =?us-ascii?Q?9lrQ1hhdIR8Ic/AdWDAiaP1v1xwhrsbsjsPPBaCbtWBAV2EZR+53mFUcdyiR?=
- =?us-ascii?Q?HilarCy3bnYz5MXGC1R6WpAZmewIgIO/S9AeZBtrXv5eWhIR2uKjpSpB0uDI?=
- =?us-ascii?Q?p2+cBHqqQQtVN4xwl2XslQAaGbN3w9jEQvBNOsQgmoc3q663g3A4fPHZDVvp?=
- =?us-ascii?Q?3n0yNsYSpYPJ8fcz+nsJjVnUahakPHoJYJZXiD4l585i2gQRRXYRjfmyzg0A?=
- =?us-ascii?Q?6rusjSbRAwix7Ci3Ozz9sBZ2P9b71F6gTYY3aoo9TTPouREw+0TihfrmkPa0?=
- =?us-ascii?Q?STbHCOaU02LkpGZIbVXyc5VVHDeLSQBIPbjARtYiVNDpRHuBjcNLL1271vhB?=
- =?us-ascii?Q?7GXukRzA1kKRK6BtXu7zJikHHqmPYJcYIJ0dVxcZBdHmRrxCfe6DFimGYhE3?=
- =?us-ascii?Q?xwRv07JHzixAeMSnPFFkGtmq5jG5FhKyPHJGjLgG0gcaXDmdXpDcu/9tGg1C?=
- =?us-ascii?Q?QnbdFrXF7UQiqaq4sGXapX7f77dE7sGFMoiu+xq0r4EvSoDBKafS+j6ChyFG?=
- =?us-ascii?Q?GeYE3yeutFw1BppuYp+ZxW33fDxD18Z01QTJTlUOzjXakEbWkO0n7QYg1Z7Z?=
- =?us-ascii?Q?Ytd4vT/5Pu4395YH064iaQB+1Rx59h4Ed2cJttZFfd0BHjRXAG7eQWyJA4EV?=
- =?us-ascii?Q?CF+WmiW/2FeuxXQ7hKrhduLgnjqVli/koOdtPC56TCcBg92ym7B3QWV6j5C7?=
- =?us-ascii?Q?z4CpUnKxfDCFRr+e8LXC+qjKD1r3XjtwWZ94BTqXBlyeiL8z08ofxHN69nSW?=
- =?us-ascii?Q?OT/GE+GggEghMFQkBIWGQIBDAP/3EetQ/iALHAxkVCX9ivU4TsA552xPSFHL?=
- =?us-ascii?Q?YtfcC807aDeECOyQECF4W9LoRRzLajtSU0pPZvoKzNAb0CO5aHBMZlff873w?=
- =?us-ascii?Q?nTCWUbv6Wtv1Gel4atvWjOkraJvURMm9Z3uwLBJsZmRyOM/ttWG3NVVhQcCA?=
- =?us-ascii?Q?2EMMsU5Fb1wduIuqIQz8izRQphmgFT7wtu4BrIdHj/VgCChqxtjNpAQGBy6f?=
- =?us-ascii?Q?UAGNPh0wIZKzSFOns8TJ2vf8lv/8oI6xmzd/aFxVqcX7ITkmxlMJT6dYz4Jz?=
- =?us-ascii?Q?oRohRreIcQjk7Vi0hptWdIqWjZdVuciPLNGSTbRmTLwefEr6VJpBv3pKvJ1J?=
- =?us-ascii?Q?Ikun41M6tc6jPMI=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(19092799006)(376014)(7416014)(52116014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?6vFf5LHSMax6P1GX9hMRzlTvaFE3SUFlv9qQD13cgeNKBF7Dm9bERMq5XEGX?=
- =?us-ascii?Q?jYI9Rv6uzIr8QlwZbFK4tYcMnbRez80KEb702LcQNNl29c/QVb72DpD+yzq7?=
- =?us-ascii?Q?rPUDadEm8aPfRgBWGk+bFQFo4rlV8YtfXhluSyUbHC0akw3RMZ0aMNfzmuW/?=
- =?us-ascii?Q?qDYMm6xW9HYCno+vLQwsStclkrJjIscizflz+SM9rB/l890ucKBMUYyhwlR8?=
- =?us-ascii?Q?TlbWm5y1TMdSmqFOYUhgaDgEwaGF15OIhp1N3gtmtdPCbOScCNqYTkwgkBkc?=
- =?us-ascii?Q?WJj5eopYSh3Jd00bMUwGzXwhGhWGhaJy9WxB7+E6GXi0Y/Hr/B2NxolPkXSC?=
- =?us-ascii?Q?IFY8LIvgiWyT7rohVB7i/NCXGARJv7ENq28YNuUViwTnQoGeUCGBm61+4iXR?=
- =?us-ascii?Q?4ObE8z40TxTJ04M8X2cjGPiRQsjVzjlOCj8Z7DutUoaXGgLdYf2WAw9Szt3Z?=
- =?us-ascii?Q?Ud3Sud9KPsK4gchP5/ADsHCG/2EX1ai4lH2kvWFpeUm3V8aPxT4n/3ce/4Iv?=
- =?us-ascii?Q?t049LWwhQf0PS5aLPY5qrTAU69Dix6n2eMKWK0QDdF/Um0OqhWYdICSEXgDB?=
- =?us-ascii?Q?MHNTOwAUMhV8HmdpSpEBzDCqDNhP+WHYOzn8k/0jkvLP6G2LRCUh1QtOG9QL?=
- =?us-ascii?Q?x0Sn903w4VjWtd9a4pWe7n3n4EslOI41o7laRGM7H5+a8dsZL7HxnhttNHgH?=
- =?us-ascii?Q?i25sY8NpbcQG9SxFnNL4axfUPt307Stnvu46xdlikt1wp34VKOXIrEODE+sd?=
- =?us-ascii?Q?qA+WGRJ4QUC1WTZSIu2sM4GnqMDwu6/0Nyol5MHz9OrkCaL7qxivi0L4ed6E?=
- =?us-ascii?Q?OCqyTdImIu2SH6hU1BBJrQCfzyJhTBG8ByYlYisCFp7SlSjcfBk9PSjv2VEF?=
- =?us-ascii?Q?X9Uz5mxwCozexjC/AmDFJNM0ak5WYchC+0bkQzGYL6SKrxRthMzZ/8hWhGgd?=
- =?us-ascii?Q?nTSi6p0ZXfXvyohqKLps4pYQgO6RJzW539W7YarQZ80TCHKQsq2KALNlR+kr?=
- =?us-ascii?Q?JvaRNqNx6B41njQrjwSlZ7MnmehHp8nkTUq0tKJ5lUbAW3dfT2mUfmdeaS7b?=
- =?us-ascii?Q?0S4isPXTWJYNMJouM4Bbd2vAM67EcN5eqN2F8QDvPQipBVzeraEm/esBSrQt?=
- =?us-ascii?Q?Nha9d2FaKRu8LhPxM3Fi9ChaqlyiyXKlCMsGVP2YhdWHquzXeTP+vX1HC/tF?=
- =?us-ascii?Q?Cin7UOyL2XcUtSvfB85/XXwgUsQWYyQXpWBRZSgjG7OFFvwpPH/oJpmEQax+?=
- =?us-ascii?Q?dx0lirNEE6iZ5k4x8w1MRDccPb6mn3mwQh7hLlmOAu98E3CTFgB7Qm6i1vNh?=
- =?us-ascii?Q?HwKD+VnEUKjWelPwzvKjSkc1ysXhJzUfS3MJcARVXyp+paeY77r6k3OLFNnk?=
- =?us-ascii?Q?d0Q+VDNbnMm/TNsz1AVWl2sAwEsONY/6Ubf41Hxc2vOgIeromZSzs69iuQnO?=
- =?us-ascii?Q?aYAF8+K0OTkGUUU7G7icKuT731D9UAL2Yfr99IzX1IAH4Px0arS7P5pWBvBe?=
- =?us-ascii?Q?A2kb3tCrVcq4PX70eWG2FZurb+Y4+CKdOYbeBdSHIp0w5GEcO9sBmVautbq/?=
- =?us-ascii?Q?TM7SI1E29pLamn8OCValYX3zfv2czxmuchqfIb8l?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9bda1915-082d-4e0c-23c2-08ddc8bfcf2c
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Jul 2025 01:33:50.5520
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: MqhJ1xeCuGtGQbliwakLPFR70xrvH66GlgQSU87GJfLAh8e+RnPhwOi/9QT1mzdlm6BUfDK+gMupRnQ1ZZxkYA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB9738
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RESEND PATCH] selftests/pidfd: align stack to fix SP alignment
+ exception
+To: Will Deacon <will@kernel.org>, Shuah Khan <skhan@linuxfoundation.org>
+Cc: brauner@kernel.org, shuah@kernel.org, linux-kernel@vger.kernel.org,
+ linux-kselftest@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ baolin.wang@linux.alibaba.com, tianruidong@linux.alibaba.com,
+ catalin.marinas@arm.com, mark.rutland@arm.com
+References: <20250616050648.58716-1-xueshuai@linux.alibaba.com>
+ <ee095fdd-b3c1-4c41-9b06-a8e3695c1863@linuxfoundation.org>
+ <0a8d5fdb-28b9-41f5-a601-cf36641bddbf@linux.alibaba.com>
+ <821acc51-1429-4625-bae5-daa67bddc7bc@linux.alibaba.com>
+ <c6dca956-d0ea-4c63-a48f-d02f21d38b9d@linuxfoundation.org>
+ <aH5NiFDmnLwh7J_w@willie-the-truck>
+From: Shuai Xue <xueshuai@linux.alibaba.com>
+In-Reply-To: <aH5NiFDmnLwh7J_w@willie-the-truck>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250721_183354_916107_6E461CA0 
-X-CRM114-Status: GOOD (  20.44  )
+X-CRM114-CacheID: sfid-20250721_183716_439249_AD4EC4E4 
+X-CRM114-Status: GOOD (  12.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -181,73 +73,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 21, 2025 at 08:23:42AM -0600, Mathieu Poirier wrote:
->On Sun, 20 Jul 2025 at 21:08, Peng Fan <peng.fan@oss.nxp.com> wrote:
->>
->> On Fri, Jul 18, 2025 at 11:06:04AM -0600, Mathieu Poirier wrote:
->> >On Fri, Jul 18, 2025 at 04:20:34PM +0800, Peng Fan wrote:
->> >> On Thu, Jul 17, 2025 at 08:48:43AM -0600, Mathieu Poirier wrote:
->> >> >On Mon, Jul 14, 2025 at 11:52:05AM +0000, Peng Fan wrote:
->> >> >> > Subject: Re: [PATCH v4 0/5] remoteproc: imx_rproc: Support i.MX95
->> >> >> >
->> >> >> [...]
->> >> >> > New warnings running 'make CHECK_DTBS=y for
->> >> >> > arch/arm64/boot/dts/freescale/' for 20250710-imx95-rproc-1-v4-0-
->> >> >> > a7123e857dfb@nxp.com:
->> >> >> >
->> >> >> > arch/arm64/boot/dts/freescale/imx95-tqma9596sa-mb-smarc-2.dtb:
->> >> >> > scmi (arm,scmi): Unevaluated properties are not allowed
->> >> >> > ('protocol@80', 'protocol@81', 'protocol@82', 'protocol@84' were
->> >> >> > unexpected)
->> >> >>
->> >> >> Same as replied in v3.
->> >> >> This is because [1] is still not picked, not because of my patchset.
->> >> >
->> >> >I won't move on this patchset until this is resolved.
->> >> >
->> >>
->> >> Not understand why hold on this patchset. I suppose you may not
->> >> understand what the error means. The warning is totally irrelevant
->> >> to this patchset, there is no dependency.
->> >>
->> >> Others added a property to arch/arm64/boot/dts/freescale/imx95-tqma9596sa.dtsi
->> >> &scmi_bbm {
->> >>         linux,code = <KEY_POWER>;
->> >> };
->> >> But this "linux,code" property not landed(missed to be picked up) to DT binding.
->> >>
->> >> This patchset does not touch scmi_bbm. I could help address the warning
->> >> in the other patch, but I do not see why "linux,code" under scmi_bbm node
->> >> could block this patchset.
->> >>
->> >> Please help clarify if you still think to hold on this patchset.
->> >>
->> >> BTW: with [1] "remoteproc: imx_rproc: skip clock enable when M-core is managed by the SCU"
->> >> merged in Ulf's tree, there is a minor conflict with patch 2. Please suggest
->> >> what I should do with this patchset.
->> >>
->> >
->> >I was afraid of that.  The best way forward with this work is to wait for the
->> >"linux,code" property to be picked up by Sudeep.  I suggest you make sure that
->> >he, or anyone else, picks it up for the next merge window.  If that happens
->>
->>
->> I respect you as maintainer, but there is no reason to block this patch
->> because of "linux,code" property. It is totally irrelevant.
->>
->> Even if I help to resubmit that "linux,code" patch, there is no chance to
->> land into 6.17-rc1, both Sudeep and Shawn sent their PR to arm-soc earlier
->> before your comments. You could raise in V3.. which there was time left.
->>
->
->I don't know what you mean by V3.
 
-Patch version 3 got same CHECK_DTBS warning.
-https://lore.kernel.org/all/20250626035602.GA13855@nxa18884-linux/
 
-Anyway, it doesn't matter now.
+在 2025/7/21 22:24, Will Deacon 写道:
+> On Fri, Jul 18, 2025 at 03:10:32PM -0600, Shuah Khan wrote:
+>> Can you take a look at this and let me know if this change looks
+>> good to you both.
+>>
+>> I can take this through my tree after your reviews.
+> 
+> I never got to the point of fully understanding how the test was
+> supposed to work, but it is true that arm64 requires a 16-byte aligned
+> stack pointer and this patch appears to achieve that.
+> 
+> Will
 
-Thanks,
-Peng
 
+Hi, Will,
+
+In case you missed I reply in last version. I just paste the original
+reply, I hope it can help you understand the root cause.
+
+ From man page of clone():
+
+	The stack argument specifies the location of the stack used by the
+         child process.  Since the child and calling process may share
+         memory, it is not possible for the child process to execute in the
+         same stack as the calling process.  *The calling process must
+         therefore set up memory space for the child stack and pass a
+         pointer to this space to clone()*.  Stacks grow downward on all
+         processors that run Linux (except the HP PA processors), so stack
+         usually points to the topmost address of the memory space set up
+         for the child stack.  Note that clone() does not provide a means
+         whereby the caller can inform the kernel of the size of the stack
+         area.
+
+The glibc will do the sanity check:
+
+/* int clone(int (*fn)(void *arg),            x0
+	     void *child_stack,               x1
+	     int flags,                       x2
+	     void *arg,                       x3
+	     pid_t *ptid,                     x4
+	     struct user_desc *tls,           x5
+              pid_t *ctid);                    x6
+  */
+         .text
+ENTRY(__clone)
+	PTR_ARG (0)
+	PTR_ARG (1)
+	PTR_ARG (3)
+	PTR_ARG (4)
+	PTR_ARG (5)
+	PTR_ARG (6)
+	/* Save args for the child.  */
+	mov	x10, x0
+	mov	x11, x2
+	mov	x12, x3
+
+	/* Sanity check args.  */
+	mov	x0, #-EINVAL
+	cbz	x10, .Lsyscall_error
+	/* Align sp.  */
+	and	x1, x1, -16		
+	cbz	x1, .Lsyscall_error	// this line
+
+
+When the stack pointer is set to NULL, the aligned stack pointer remains
+zero, leading __clone to perform a syscall error, returning -EINVAL due
+to an invalid argument.
+
+In summary, Whether or not CLONE_VM is used, an address-aligned child
+stack needs to be allocated.
+
+
+Thanks.
+Shuai
 
