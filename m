@@ -4,74 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D872C83F25
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 06:19:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCF85C83F25
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 06:22:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HxWhRXQrVEcxn5gObXZuxtAZC+0PEh2V+jVxRbLYFoM=; b=I0qY2UdMYaJ5SsWa3nTi7a/25B
-	xG2cELly+bJ3dKuw9QGdnjnU3AOqntJ1IKfMxoQWhm+BagT3HUSVGHz7m+gSHcqMcWrL8PYu3N2li
-	EM7eTKFBcX09bjvV+9ncAT2ssMVnEQer5wx4LrvR/7XSgy9bwqJQANo8pBvKDchR2eKNvLKhMhqZR
-	DDvIOzeSn15w+9aU6fh99Mfk9vowUJw/AAy/ZbkxZxgFqMLJ+euIRs2Uuz7iJefoqhEnWnlYpuJBz
-	Cm6L3BhsxIKrkJUfkU065tNwO66gm/NUdWflWvsS2oakL1PhFQRzhQ7bHby6SYrjpZGIlhpdhdRMG
-	XCpQe98w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=bNfeeVhyE6xoY1GE8kbPaez7GqdJ/UZM8+dfE+lE4bk=; b=1FlPfYlTexwUsMnVVgQ7yFiv0x
+	+JCT9AJpXj3FPQfS2a5Os02WLqcLLKQvtH3Rig924Z9iXcqgJb5/csWLbOcYKVYsizCpl11ErqpG2
+	fnpRct9KtsKeisoM4v3c5eIEr+3WUqUwcU0D9hDwem5AgWwq0l60AWnmitdTQUciTD9Qiv3cc/eWM
+	PTB1fBjspZL4+b0nVxHw9gznS2Rucxjq3mcVJAVaJz5drpvvSYQKxQ9JA+cd/Qwy/mwW/owDOBJXx
+	T4sohY5opqzwK/ZCHDR+lLQHzzZx8533J+pSKJZOkAB7SlHNngLTLKi/yhoAfu1mwe/WJgs9sHm0M
+	vljuRxVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ue6L9-00000001PWM-1upX;
-	Tue, 22 Jul 2025 06:19:03 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1ue6Nw-00000001PhW-2TaO;
+	Tue, 22 Jul 2025 06:21:56 +0000
+Received: from mgamail.intel.com ([192.198.163.14])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ue6If-00000001PNU-1PSB;
-	Tue, 22 Jul 2025 06:16:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1753164987;
-	bh=hQmYNw1nxxnjx5AEwNuBdEzfygugW6y3m3bQETQLK1A=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=oNLRZH830rm/on4tkN3zXpzMq0pa4V7HFVCHhV+cb5mNxE5g84KOmLHpDLkzEroQX
-	 +olYVd9AZj6OIj+GO5ETwk/R34sIhslu+G57OM03t1nOL4FIYTKo0UxIrVh4PrxeT8
-	 5426rc6mK3G1PE+4HLHi5RLL7W9+LKjuSxWeBWpYZsIRJ6o1sP0o1po2+55EhCfpro
-	 ymeA9lxg/w4n9gglwocZs6bqKz+dY7pk4cukbRtX5cQnycKHinZEvr+JqbAqXJnaQ2
-	 tQY9xoK//oO9DHgu9nonm6PRg2fCxhuGqKiBG9Lwsgi/Q7WnXyCHD31Mn/fkFxi017
-	 bkSfPZ1/PoXvg==
-Received: from [192.168.1.90] (unknown [82.79.138.60])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id BB2AC17E0F66;
-	Tue, 22 Jul 2025 08:16:26 +0200 (CEST)
-Message-ID: <c5624dad-93cb-4cc3-88ad-808dcc43274d@collabora.com>
-Date: Tue, 22 Jul 2025 09:16:26 +0300
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/5] drm/rockchip: vop2: Add high color depth support
-To: Andy Yan <andyshrk@163.com>, Algea Cao <algea.cao@rock-chips.com>
-Cc: Sandy Huang <hjc@rock-chips.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?=
- <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Andrzej Hajda <andrzej.hajda@intel.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- kernel@collabora.com, dri-devel@lists.freedesktop.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20250721-rk3588-10bpc-v1-0-e95a4abcf482@collabora.com>
- <20250721-rk3588-10bpc-v1-1-e95a4abcf482@collabora.com>
- <3ceb2c70.2145.1982ff28b9c.Coremail.andyshrk@163.com>
-Content-Language: en-US
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-In-Reply-To: <3ceb2c70.2145.1982ff28b9c.Coremail.andyshrk@163.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+	id 1ue6LS-00000001PZO-1Hsd
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 22 Jul 2025 06:19:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1753165162; x=1784701162;
+  h=date:from:to:cc:subject:message-id;
+  bh=ZVFekai3shhTf5SR/eHeD667lAYTV5UCZqMSWdJ7blc=;
+  b=JfHySfdyiwDPRhZ4HizukcRhB7J+DoMnIIBdBsSyj9DyIyQHoxjX5rzo
+   LyuNr+063m6PBKCYa2onNFp8trfO6JXvH3lUDXhDM6CWBk4kjUJVOzkm3
+   T7zxjzYA6ELmgEejwneLdab3p6EQMZR1DiOvBaWPHH6yp47F+Ebn1OjGw
+   dGJhwC2xl+4AnYz+z617I6KaMKTqI6h0OOlspEVil27mjE2gPbgXrLRmR
+   sWwIhlJofaRHz43YghFcEh/C6T2AmwExIzemOBLNqdUKyGewy595vydvc
+   ncYPp46tNhAK95Wl6QGL76GI1hp9e7bnGaxIQWCjkG1cg+E5BCT3bNOah
+   Q==;
+X-CSE-ConnectionGUID: JsKnN6cjTsaojtBJEUYIbg==
+X-CSE-MsgGUID: nu4nqSzSRWmhiOUskVSxEQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11499"; a="55486532"
+X-IronPort-AV: E=Sophos;i="6.16,330,1744095600"; 
+   d="scan'208";a="55486532"
+Received: from orviesa006.jf.intel.com ([10.64.159.146])
+  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Jul 2025 23:19:19 -0700
+X-CSE-ConnectionGUID: ZnAYUWmsTjuZjxQcq/GyLw==
+X-CSE-MsgGUID: 2NObYKzgQA+y2esjAMCqqA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.16,330,1744095600"; 
+   d="scan'208";a="158365270"
+Received: from lkp-server01.sh.intel.com (HELO 9ee84586c615) ([10.239.97.150])
+  by orviesa006.jf.intel.com with ESMTP; 21 Jul 2025 23:19:18 -0700
+Received: from kbuild by 9ee84586c615 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1ue6LL-000HWE-1p;
+	Tue, 22 Jul 2025 06:19:15 +0000
+Date: Tue, 22 Jul 2025 14:18:42 +0800
+From: kernel test robot <lkp@intel.com>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
+Subject: [soc:soc/newsoc] BUILD SUCCESS
+ c5b9bff35a9823c4dd803f0eda3b34be88bbcded
+Message-ID: <202507221430.SjvL1Gbh-lkp@intel.com>
+User-Agent: s-nail v14.9.24
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250721_231629_522993_DB066F95 
-X-CRM114-Status: GOOD (  18.61  )
+X-CRM114-CacheID: sfid-20250721_231922_365913_2A15B47C 
+X-CRM114-Status: UNSURE (   5.66  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,62 +83,140 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andy,
+tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git soc/newsoc
+branch HEAD: c5b9bff35a9823c4dd803f0eda3b34be88bbcded  Merge branch 'newsoc/cix-p1' into soc/newsoc
 
-On 7/22/25 5:24 AM, Andy Yan wrote:
-> 
-> Hello Cristian，
-> 
-> At 2025-07-22 01:39:04, "Cristian Ciocaltea" <cristian.ciocaltea@collabora.com> wrote:
->> Take the bits per color channel into consideration when computing DCLK
->> rate.
->>
->> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
->> ---
->> drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 3 +++
->> 1 file changed, 3 insertions(+)
->>
->> diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
->> index 186f6452a7d359f079662bc580850929632ea8fe..a714bcbb02de16267e7febbaeb1eb270c70aaef2 100644
->> --- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
->> +++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
->> @@ -1731,6 +1731,9 @@ static void vop2_crtc_atomic_enable(struct drm_crtc *crtc,
->> 		clock *= 2;
->> 	}
->>
->> +	if (vcstate->output_bpc > 8)
->> +		clock = DIV_ROUND_CLOSEST(clock * vcstate->output_bpc, 8);
-> 
-> 
-> This seems not right,  regardless of the value of bpc, the dclk of VOP must be
-> consistent with mode->crtc_clock.
-> If the dclk of VOP is increased in accordance with the BPC ratio here, then the refresh rate of VOP will also increase proportionally.
-> This would be inconsistent with the timing described in the mode.
-> For a hight color depth,  the frequency needs to be increased for the HDMI PHY's clock.
+elapsed time: 884m
 
-The HDMI PHY's clock is actually computed at HDMI connector framework level
-[1], taking into account the current bpc value, which is determined as part
-of hdmi_compute_config() [2].
+configs tested: 120
+configs skipped: 3
 
-That means conn_state->hdmi.tmds_char_rate in
-dw_hdmi_qp_rockchip_encoder_atomic_check() does already include the bpc
-related adjustment, and we pass that directly to the PHY via
-phy_configure().  Note there's still the need to handle bpc separately via
-phy_configure_opts in order to setup CMN_REG(0086) [3].
+The following configs have been built successfully.
+More configs may be tested in the coming days.
 
-Since VOP2 switches to PHY PLL as DCLK source for modes up to 4K@60Hz, it
-needs to take color depth into account, to keep them in sync.  As a matter
-of fact, the clock adjustment in VOP2 is mainly necessary for legacy
-reasons, since HDPTX PHY allowed changing TMDS char rate via the Common
-Clock Framework API.  We landed a proper solution for that via the HDMI PHY
-API, hence the plan would be to make CCF API readonly after the switch to
-PHY API is completed, which means VOP2 shouldn't deal anymore with clock
-calculations when using the PHY PLL as DCLK source.
+tested configs:
+alpha                             allnoconfig    gcc-15.1.0
+alpha                            allyesconfig    gcc-15.1.0
+arc                              allmodconfig    gcc-15.1.0
+arc                               allnoconfig    gcc-15.1.0
+arc                              allyesconfig    gcc-15.1.0
+arc                        nsimosci_defconfig    gcc-15.1.0
+arc                   randconfig-001-20250722    gcc-10.5.0
+arc                   randconfig-002-20250722    gcc-11.5.0
+arm                              allmodconfig    gcc-15.1.0
+arm                               allnoconfig    clang-22
+arm                              allyesconfig    gcc-15.1.0
+arm                   randconfig-001-20250722    gcc-12.5.0
+arm                   randconfig-002-20250722    clang-22
+arm                   randconfig-003-20250722    gcc-8.5.0
+arm                   randconfig-004-20250722    clang-17
+arm                           spitz_defconfig    gcc-15.1.0
+arm64                            allmodconfig    clang-19
+arm64                             allnoconfig    gcc-15.1.0
+arm64                 randconfig-001-20250722    clang-22
+arm64                 randconfig-002-20250722    clang-22
+arm64                 randconfig-003-20250722    clang-22
+arm64                 randconfig-004-20250722    gcc-8.5.0
+csky                              allnoconfig    gcc-15.1.0
+csky                  randconfig-001-20250722    gcc-11.5.0
+csky                  randconfig-002-20250722    gcc-15.1.0
+hexagon                          allmodconfig    clang-17
+hexagon                           allnoconfig    clang-22
+hexagon                          allyesconfig    clang-22
+hexagon               randconfig-001-20250722    clang-20
+hexagon               randconfig-002-20250722    clang-18
+i386                             allmodconfig    gcc-12
+i386                              allnoconfig    gcc-12
+i386                             allyesconfig    gcc-12
+i386        buildonly-randconfig-001-20250721    clang-20
+i386        buildonly-randconfig-002-20250721    clang-20
+i386        buildonly-randconfig-003-20250721    gcc-12
+i386        buildonly-randconfig-004-20250721    gcc-12
+i386        buildonly-randconfig-005-20250721    clang-20
+i386        buildonly-randconfig-006-20250721    clang-20
+i386                                defconfig    clang-20
+loongarch                        alldefconfig    clang-20
+loongarch                        allmodconfig    clang-19
+loongarch                         allnoconfig    clang-22
+loongarch             randconfig-001-20250722    gcc-15.1.0
+loongarch             randconfig-002-20250722    clang-22
+m68k                             allmodconfig    gcc-15.1.0
+m68k                              allnoconfig    gcc-15.1.0
+m68k                             allyesconfig    gcc-15.1.0
+microblaze                       allmodconfig    gcc-15.1.0
+microblaze                        allnoconfig    gcc-15.1.0
+microblaze                       allyesconfig    gcc-15.1.0
+microblaze                          defconfig    gcc-15.1.0
+microblaze                      mmu_defconfig    gcc-15.1.0
+mips                              allnoconfig    gcc-15.1.0
+nios2                             allnoconfig    gcc-11.5.0
+nios2                               defconfig    gcc-11.5.0
+nios2                 randconfig-001-20250722    gcc-11.5.0
+nios2                 randconfig-002-20250722    gcc-8.5.0
+openrisc                          allnoconfig    gcc-15.1.0
+openrisc                         allyesconfig    gcc-15.1.0
+parisc                           allmodconfig    gcc-15.1.0
+parisc                            allnoconfig    gcc-15.1.0
+parisc                           allyesconfig    gcc-15.1.0
+parisc                              defconfig    gcc-15.1.0
+parisc                randconfig-001-20250722    gcc-8.5.0
+parisc                randconfig-002-20250722    gcc-8.5.0
+parisc64                            defconfig    gcc-15.1.0
+powerpc                          allmodconfig    gcc-15.1.0
+powerpc                           allnoconfig    gcc-15.1.0
+powerpc                          allyesconfig    clang-22
+powerpc                 mpc832x_rdb_defconfig    gcc-15.1.0
+powerpc                  mpc885_ads_defconfig    clang-22
+powerpc               randconfig-001-20250722    gcc-13.4.0
+powerpc               randconfig-002-20250722    clang-22
+powerpc               randconfig-003-20250722    gcc-14.3.0
+powerpc64             randconfig-001-20250722    gcc-8.5.0
+powerpc64             randconfig-002-20250722    clang-22
+powerpc64             randconfig-003-20250722    clang-22
+riscv                            allmodconfig    clang-22
+riscv                             allnoconfig    gcc-15.1.0
+riscv                            allyesconfig    clang-16
+riscv                 randconfig-001-20250722    clang-16
+riscv                 randconfig-002-20250722    gcc-12.5.0
+s390                             allmodconfig    clang-18
+s390                              allnoconfig    clang-22
+s390                             allyesconfig    gcc-15.1.0
+s390                  randconfig-001-20250722    clang-22
+s390                  randconfig-002-20250722    gcc-12.5.0
+sh                               allmodconfig    gcc-15.1.0
+sh                                allnoconfig    gcc-15.1.0
+sh                               allyesconfig    gcc-15.1.0
+sh                    randconfig-001-20250722    gcc-15.1.0
+sh                    randconfig-002-20250722    gcc-15.1.0
+sh                           se7206_defconfig    gcc-15.1.0
+sh                        sh7757lcr_defconfig    gcc-15.1.0
+sparc                            allmodconfig    gcc-15.1.0
+sparc                             allnoconfig    gcc-15.1.0
+sparc                               defconfig    gcc-15.1.0
+sparc                 randconfig-001-20250722    gcc-13.4.0
+sparc                 randconfig-002-20250722    gcc-15.1.0
+sparc64               randconfig-001-20250722    gcc-8.5.0
+sparc64               randconfig-002-20250722    gcc-8.5.0
+um                               allmodconfig    clang-19
+um                                allnoconfig    clang-22
+um                               allyesconfig    gcc-12
+um                    randconfig-001-20250722    gcc-12
+um                    randconfig-002-20250722    gcc-12
+x86_64                            allnoconfig    clang-20
+x86_64                           allyesconfig    clang-20
+x86_64      buildonly-randconfig-001-20250722    gcc-12
+x86_64      buildonly-randconfig-002-20250722    gcc-12
+x86_64      buildonly-randconfig-003-20250722    gcc-12
+x86_64      buildonly-randconfig-004-20250722    clang-20
+x86_64      buildonly-randconfig-005-20250722    gcc-12
+x86_64      buildonly-randconfig-006-20250722    gcc-12
+x86_64                              defconfig    gcc-11
+x86_64                          rhel-9.4-rust    clang-20
+xtensa                            allnoconfig    gcc-15.1.0
+xtensa                randconfig-001-20250722    gcc-15.1.0
+xtensa                randconfig-002-20250722    gcc-10.5.0
 
-Regardless, I should probably move this clock adjustment to the conditional
-block handling DCLK source switch.
-
-[1] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/gpu/drm/display/drm_hdmi_state_helper.c?h=v6.16-rc7#n525
-[2] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/gpu/drm/display/drm_hdmi_state_helper.c?h=v6.16-rc7#n608
-[3] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c?h=v6.16-rc7#n1034
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
