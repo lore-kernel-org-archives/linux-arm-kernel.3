@@ -4,66 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D0F8C83F27
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 14:28:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDCFBC83F27
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 14:30:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CZ/47zCz0AxvlC0JOjpioiJlI8QJLni0zmgQ/7sWDYA=; b=1dj/vGWPG48Xxs0/F6cJ87t8Bn
-	AL+GusWgv44g1XD0GNkph5KRTLXnVnUxADiMpmRteUC0k7EZSn9jqeV3iB0m3Jmm9O+Sz2rq4PIGw
-	arBkdaop3I9sERczJUhMG4Odat2NQm91faHZWxjbgBAi3mrXfs04RKeYHIBmC0tTxUqrL2MCxRWNv
-	VCAdSeHXVojA4kbrTK/PKIKhvulhKmin+sIXExF7zln7BzGYphVkxGucbCB1w48O5qhbSK76Fkyqa
-	9Ti7IetWKIN0DV8yE+DJlgxjxpU5ntl3KTvRGgTltNrwBRgOFdWkCXgRI4McYUSoHk4icFzSc2KKS
-	3pJDWO+A==;
+	bh=JWzD99WB5KN2vaRYPTzKx8K4XzMyZwRHO6NZZmlHLEY=; b=WxZP8/7E5RiR6pJ+obMbFzX6AJ
+	wu3mcn7Rfiy8tP9/BLVJxGOaUzszjPj4FlwlwpHXiG7k2o1fN/X8/3p8BH/b9x6p91dC5roCqH2TS
+	jMp5FKVFXdeRLKDqvFkCTvXOU7AONEFLeGDMpwQYY1ZGWAaJcU+524Yyh7cOr3z7epJpvoFxwNYAT
+	HMpB93XatevwcqeP5KukayL+OxwfT/Y8853moOeKisIycJlnVjfd7v1WwidebcWyKyX9GGaeh8xde
+	R6geZGuSJvaTaIbRm7rgt+6/dKnXuHpEhP8jorRNa8G4VOG+8r4bPztJ9jHMe847I50PUjgpKPPIy
+	fMsr25jw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueDyN-00000002hbd-2bMi;
-	Tue, 22 Jul 2025 14:28:03 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1ueE0r-00000002iBp-45Rq;
+	Tue, 22 Jul 2025 14:30:37 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueDZ9-00000002d4O-1feB
+	id 1ueDbh-00000002dGs-1jR5
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Jul 2025 14:02:00 +0000
+	Tue, 22 Jul 2025 14:04:37 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id CB6FE5C65F4;
-	Tue, 22 Jul 2025 14:01:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7561AC4CEF7;
-	Tue, 22 Jul 2025 14:01:56 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 91608601FB;
+	Tue, 22 Jul 2025 14:04:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 85268C4CEF1;
+	Tue, 22 Jul 2025 14:04:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753192918;
-	bh=oujexYziHgPEDcDx7x1RYjfQC+/RIpBUJRP2MbMPYJE=;
+	s=k20201202; t=1753193075;
+	bh=uPFuamjn8JgXag9RFI74J/C90ZWWlQSjqj7GpBmomJ4=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=G44437V6zc3RRb1EuCGCfuuEnJ07kAW/wsYjpBm8OmiB9hTdtAv80wb1ej2FX2EnN
-	 6+HmEVHCE1bDMhZAF+Vt8TYCvH71Q+HtgWWukjAJu+KaZYNC5GbBhqeuC12GXOz6Va
-	 bvPuGtxnV8YqXpR1IpQ/+pRPFEp1/pI5hgv0np+dO5+J5xFiknR3J61cL0A9o7cJZm
-	 54PdtwRRVaTH5sPuotqtWT7QjUQdIDJUMNs7cGWIRCJSe5cUHKOSbvi2EqsyGZqtTL
-	 sEF6B9IiUtrnq3AaEUQZNOd4FjMOE4x2mbp5enjjF0v21taQAIZvOY4DcMHV3dSUNF
-	 NwFyFRSblIffg==
-Date: Tue, 22 Jul 2025 15:01:53 +0100
-From: Will Deacon <will@kernel.org>
-To: James Morse <james.morse@arm.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Rafael J . Wysocki" <rafael@kernel.org>, sudeep.holla@arm.com,
-	Rob Herring <robh@kernel.org>, Ben Horgan <ben.horgan@arm.com>,
-	Jonathan Cameron <jonathan.cameron@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Gavin Shan <gshan@redhat.com>
-Subject: Re: [PATCH v3 3/3] arm64: cacheinfo: Provide helper to compress
- MPIDR value into u32
-Message-ID: <aH-Z0SNzNVz0cToB@willie-the-truck>
-References: <20250711182743.30141-1-james.morse@arm.com>
- <20250711182743.30141-4-james.morse@arm.com>
+	b=sWkFl8nCPLNDlOJMG6Ch0dE8liwQT/TjEDMiX0lMwJnuLusjuKrCzLod80NRSELUo
+	 u8NHIk9I5drvAO5b8cWaslWSSVtrI12ORXbU6cnC3czmox0Gpc/eBFVmQbv7WsXDHP
+	 7XI0tTvIdC3OANtPZeGtvVmL87/AUfVlow3h8BPE2czQ//X9ztlbTiQMaD2B0vzKbf
+	 q9hGEfFkRTSDPXvxHMcUnuRjST9bZDk/bPZV2PYpDIsFdoH6g089xiau1VqsOdWm+K
+	 5yrtXZWYlUbYU8EfrX/vfKb1ZfK13RF2n1xAXnRVjHWsiZpxmDlx7rVQTbvJetcEdK
+	 Bwqfe2NYx+UOw==
+Date: Tue, 22 Jul 2025 16:04:31 +0200
+From: Andi Shyti <andi.shyti@kernel.org>
+To: Herve Codina <herve.codina@bootlin.com>
+Cc: Andrew Lunn <andrew@lunn.ch>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael@kernel.org>, 
+	Danilo Krummrich <dakr@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Michael Turquette <mturquette@baylibre.com>, 
+	Stephen Boyd <sboyd@kernel.org>, Wolfram Sang <wsa+renesas@sang-engineering.com>, 
+	Peter Rosin <peda@axentia.se>, Derek Kiernan <derek.kiernan@amd.com>, 
+	Dragan Cvetic <dragan.cvetic@amd.com>, Arnd Bergmann <arnd@arndb.de>, Rob Herring <robh@kernel.org>, 
+	Saravana Kannan <saravanak@google.com>, Bjorn Helgaas <bhelgaas@google.com>, 
+	Mark Brown <broonie@kernel.org>, Len Brown <lenb@kernel.org>, 
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>, Daniel Scally <djrscally@gmail.com>, 
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>, Sakari Ailus <sakari.ailus@linux.intel.com>, 
+	Wolfram Sang <wsa@kernel.org>, Geert Uytterhoeven <geert+renesas@glider.be>, 
+	Davidlohr Bueso <dave@stgolabs.net>, Dave Jiang <dave.jiang@intel.com>, 
+	Alison Schofield <alison.schofield@intel.com>, Vishal Verma <vishal.l.verma@intel.com>, 
+	Ira Weiny <ira.weiny@intel.com>, Dan Williams <dan.j.williams@intel.com>, 
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-clk@vger.kernel.org, linux-i2c@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-pci@vger.kernel.org, linux-spi@vger.kernel.org, linux-acpi@vger.kernel.org, 
+	linux-cxl@vger.kernel.org, Allan Nielsen <allan.nielsen@microchip.com>, 
+	Horatiu Vultur <horatiu.vultur@microchip.com>, Steen Hegelund <steen.hegelund@microchip.com>, 
+	Luca Ceresoli <luca.ceresoli@bootlin.com>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>
+Subject: Re: [PATCH v3 15/28] i2c: core: Introduce i2c_get_adapter_physdev()
+Message-ID: <sk6dwbont52x7zt3woqghurkkkms72f3zxubbadi2gp2yj3sbw@wdstymdtzouc>
+References: <20250613134817.681832-1-herve.codina@bootlin.com>
+ <20250613134817.681832-16-herve.codina@bootlin.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250711182743.30141-4-james.morse@arm.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250722_070159_478267_1BB31311 
-X-CRM114-Status: GOOD (  25.98  )
+In-Reply-To: <20250613134817.681832-16-herve.codina@bootlin.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,61 +89,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 11, 2025 at 06:27:43PM +0000, James Morse wrote:
-> Filesystems like resctrl use the cache-id exposed via sysfs to identify
-> groups of CPUs. The value is also used for PCIe cache steering tags. On
-> DT platforms cache-id is not something that is described in the
-> device-tree, but instead generated from the smallest MPIDR of the CPUs
-> associated with that cache. The cache-id exposed to user-space has
-> historically been 32 bits.
-> 
-> MPIDR values may be larger than 32 bits.
-> 
-> MPIDR only has 32 bits worth of affinity data, but the aff3 field lives
-> above 32bits. The corresponding lower bits are masked out by
-> MPIDR_HWID_BITMASK and contain an SMT flag and Uni-Processor flag.
-> 
-> Swizzzle the aff3 field into the bottom 32 bits and using that.
-> 
-> In case more affinity fields are added in the future, the upper RES0
-> area should be checked. Returning a value greater than 32 bits from
-> this helper will cause the caller to give up on allocating cache-ids.
-> 
-> Signed-off-by: James Morse <james.morse@arm.com>
-> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-> Reviewed-by: Gavin Shan <gshan@redhat.com>
-> ---
-> Changes since v1:
->  * Removal of unrelated changes.
->  * Added a comment about how the RES0 bit safety net works.
-> ---
->  arch/arm64/include/asm/cache.h | 17 +++++++++++++++++
->  1 file changed, 17 insertions(+)
-> 
-> diff --git a/arch/arm64/include/asm/cache.h b/arch/arm64/include/asm/cache.h
-> index 99cd6546e72e..09963004ceea 100644
-> --- a/arch/arm64/include/asm/cache.h
-> +++ b/arch/arm64/include/asm/cache.h
-> @@ -87,6 +87,23 @@ int cache_line_size(void);
->  
->  #define dma_get_cache_alignment	cache_line_size
->  
-> +/* Compress a u64 MPIDR value into 32 bits. */
-> +static inline u64 arch_compact_of_hwid(u64 id)
-> +{
-> +	u64 aff3 = MPIDR_AFFINITY_LEVEL(id, 3);
-> +
-> +	/*
-> +	 * These bits are expected to be RES0. If not, return a value with
-> +	 * the upper 32 bits set to force the caller to give up on 32 bit
-> +	 * cache ids.
-> +	 */
-> +	if (FIELD_GET(GENMASK_ULL(63, 40), id))
-> +		return id;
+Hi Herve,
 
-Why is it safe to ignore the other RES bits (i.e. 31, 29:25)? If the
-architects decide to pack some additional affinity information in there,
-we're in trouble, no?
+On Fri, Jun 13, 2025 at 03:47:55PM +0200, Herve Codina wrote:
+> The physical device providing an I2C adapter is the device that calls
+> i2c_add_adapter() or variants and i2c_del_adapter().
+> 
+> Most of the time this physical device is the parent of the adapter
+> device.
+> 
+> Exceptions exist with i2c muxes. Indeed, in case of i2c muxes, the
+> parent of the mux adapter device points to the adapter device the mux is
+> connected to instead of the physical of this mux adapter.
+> 
+> Introduce i2c_get_adapter_physdev() and a new physdev field in the
+> adapter structure in order to ease the adapter physical device
+> retrieval.
+> 
+> Signed-off-by: Herve Codina <herve.codina@bootlin.com>
 
-Will
+Makes sense to me,
+
+Reviewed-by: Andi Shyti <andi.shyti@kernel.org>
+
+Thanks,
+Andi
 
