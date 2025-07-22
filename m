@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC5D1C83F27
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 14:33:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 592C7C83F34
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 14:35:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UlvgFLkq2jemy3eeMnwVN+pbz6Mlls5h0vESyT1iEYI=; b=viTWfNAS9x8E+Pc+wdjlDA3+Bt
-	6/57AifpuAYH3Cn8U9cUXGdDoubwOZxv33sCv+wv/PUYT9m+hey0M/T7uhoyShDFCmg7+b2K8ng4w
-	kIom73yyRd5CxBZnODku18JtsQxIuvrWbZWUHsi89HSAI0eZVTq38yWEAYjop+QoprZSlsdioyasv
-	gq0K2gsfGoklz7ujiYdYUEuFzAUQUGpcT/xtYwC/7ZfYIZ+6ndlAaWo7N8UUB392ZzcQwFfD5QxL3
-	D/MyBAxo8BWidpTMVoBm9Z5+LSbeUeeulWhSblFf5NwN8LlUiIArfUJtzWoCPEMzxvnhRTMu04l68
-	1oYhbaeQ==;
+	bh=1S+/fxjBGM9OThOsnlJiBdnI+RCOnybmlz6yPJOrPUQ=; b=ui+/hr/FmYYGuvp3DiU2XDlrAE
+	zwECZXCzUH37ENzeDwXl8IAVgUCuakARevKHyyoWfayzllFAnbR6Ex+F3TSzMXCTAy01mcQCKRFxh
+	63QwE5hEcRHI++zekG+DxEm49S26G/1iP3G5Wjhb/zIFrE+ovTv8kXLWfShF7YscBhRBhW+TMAgMf
+	qvQ3mejbANRuvwG668Fg2uJLhvPCT3Rnd5/ekj6B4QOhhB73MvtnmhUowrd1cR3Zj5Pij/lo7qFao
+	pbO8eNKxbEnZKMmHtCBQWGZ9WKrsdXI30LALB67inO8z7nXGh+82HwZKdMuID10cY0qSgNwoeq+jK
+	/HNAH1Hw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueE3L-00000002ieA-0qwg;
-	Tue, 22 Jul 2025 14:33:11 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	id 1ueE5p-00000002j3n-06Eb;
+	Tue, 22 Jul 2025 14:35:45 +0000
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueDdf-00000002dZz-1J2O
+	id 1ueDdh-00000002dag-45TD
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Jul 2025 14:06:41 +0000
-Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56MDZ8P7023388;
+	Tue, 22 Jul 2025 14:06:43 +0000
+Received: from pps.filterd (m0369458.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56MDdKAF013598;
 	Tue, 22 Jul 2025 16:06:22 +0200
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	UlvgFLkq2jemy3eeMnwVN+pbz6Mlls5h0vESyT1iEYI=; b=JGutnnqllpK00GWp
-	S5eLgRGc9Q+uWn+xvldDzWOKcreZBSMpGjclT+p82p1ND7tORmUryntXuPolOgyB
-	sXjr3D73zdHHRD+w3acdb2QefJ2iTjRk3IOpqpeOUc4MqJsXtpjJfe7phxSCj/9u
-	Vg0b1Un2wTuHVF+4WTtWTKv1sBQ4amYljUg3fh9x5oVBCpMq0Ofvh2JGPnt97NK9
-	RnQTNn6nsowm0EpIxAPQYdGwRxPjgotJhnTjyUeUIgKENgUtRwgrwbahY1Y5QNgK
-	Ic8jumjIh27iwyRJtf+QtFQ9owU6mEQwN7B8+UZEI6y0RvfKNvQE0tVG+ekKVGLU
-	H8cv5A==
+	1S+/fxjBGM9OThOsnlJiBdnI+RCOnybmlz6yPJOrPUQ=; b=zK7U4cq3eIBnlomy
+	7MJ+7nS0AO3BTgn8rSi+m/5o5qJUbYpKBQD+Zr30BWAW817UF946O1q9csOMOKF6
+	v25Y5LaFOWfEdbMrtQT8sONW52vFg2ipIoXMnQKCTtMygrAO6/4iuHrAoXIGFdnA
+	4E4uqGXVU3tIuzsZH+vTyQMlvuWLTUX+1HaO2v5QFtDhL2JqMggAHBPuDMQNXXPa
+	XgkEZdwmGZCLmAUEgYyf7weuLBgDvSni/80pbViUIw8GMxX9598Gne67E9tRmBVk
+	5nZuuc6w8/EKbbbDqogM4vg+/34yhiXefOawmgNTZE4Lmk6UORHOyuw+r91WIGaZ
+	B+96Tw==
 Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 4800g8pc4g-1
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 480mx4kja0-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
 	Tue, 22 Jul 2025 16:06:21 +0200 (MEST)
 Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 54C3A40045;
-	Tue, 22 Jul 2025 16:05:03 +0200 (CEST)
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 1E6ED40046;
+	Tue, 22 Jul 2025 16:05:08 +0200 (CEST)
 Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id E620F7A320C;
-	Tue, 22 Jul 2025 16:04:02 +0200 (CEST)
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 1A8CB7A1A57;
+	Tue, 22 Jul 2025 16:03:50 +0200 (CEST)
 Received: from localhost (10.48.86.185) by SHFDAG1NODE2.st.com (10.75.129.70)
  with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Tue, 22 Jul
- 2025 16:04:02 +0200
+ 2025 16:03:49 +0200
 From: =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>
-Date: Tue, 22 Jul 2025 16:03:35 +0200
-Subject: [PATCH v3 18/19] arm64: dts: st: support ddrperfm on
- stm32mp257f-dk
+Date: Tue, 22 Jul 2025 16:03:18 +0200
+Subject: [PATCH v3 01/19] bus: firewall: move stm32_firewall header file in
+ include folder
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-ID: <20250722-ddrperfm-upstream-v3-18-7b7a4f3dc8a0@foss.st.com>
+Message-ID: <20250722-ddrperfm-upstream-v3-1-7b7a4f3dc8a0@foss.st.com>
 References: <20250722-ddrperfm-upstream-v3-0-7b7a4f3dc8a0@foss.st.com>
 In-Reply-To: <20250722-ddrperfm-upstream-v3-0-7b7a4f3dc8a0@foss.st.com>
 To: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
@@ -99,8 +99,8 @@ X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
  definitions=2025-07-22_02,2025-07-21_02,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250722_070639_983030_401407E8 
-X-CRM114-Status: GOOD (  10.55  )
+X-CRM114-CacheID: sfid-20250722_070642_332205_9A0EE15E 
+X-CRM114-Status: GOOD (  13.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,31 +115,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Configure DDRPERFM node on stm32mp257f-dk board.
-Disable the node as DDRPERFM will produce an error message if it's clock
-(shared with the DDRCTRL on STM32MP25x) is secured by common bootloaders.
+Other driver than rifsc and etzpc can implement firewall ops, such as
+rcc.
+In order for them to have access to the ops and type of this framework,
+we need to get the `stm32_firewall.h` file in the include/ folder.
 
 Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
 ---
- arch/arm64/boot/dts/st/stm32mp257f-dk.dts | 5 +++++
- 1 file changed, 5 insertions(+)
+ drivers/bus/stm32_etzpc.c                       | 3 +--
+ drivers/bus/stm32_firewall.c                    | 3 +--
+ drivers/bus/stm32_rifsc.c                       | 3 +--
+ {drivers => include/linux}/bus/stm32_firewall.h | 0
+ 4 files changed, 3 insertions(+), 6 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/st/stm32mp257f-dk.dts b/arch/arm64/boot/dts/st/stm32mp257f-dk.dts
-index a97b41f14ecc..d236ebf2bb10 100644
---- a/arch/arm64/boot/dts/st/stm32mp257f-dk.dts
-+++ b/arch/arm64/boot/dts/st/stm32mp257f-dk.dts
-@@ -84,6 +84,11 @@ &arm_wdt {
- 	status = "okay";
- };
+diff --git a/drivers/bus/stm32_etzpc.c b/drivers/bus/stm32_etzpc.c
+index 7fc0f16960be..4918a14e507e 100644
+--- a/drivers/bus/stm32_etzpc.c
++++ b/drivers/bus/stm32_etzpc.c
+@@ -5,6 +5,7 @@
  
-+&ddrperfm {
-+	memory-channel = <&lpddr_channel>;
-+	status = "disabled";
-+};
-+
- &scmi_regu {
- 	scmi_vddio1: regulator@0 {
- 		regulator-min-microvolt = <1800000>;
+ #include <linux/bitfield.h>
+ #include <linux/bits.h>
++#include <linux/bus/stm32_firewall.h>
+ #include <linux/device.h>
+ #include <linux/err.h>
+ #include <linux/init.h>
+@@ -16,8 +17,6 @@
+ #include <linux/platform_device.h>
+ #include <linux/types.h>
+ 
+-#include "stm32_firewall.h"
+-
+ /*
+  * ETZPC registers
+  */
+diff --git a/drivers/bus/stm32_firewall.c b/drivers/bus/stm32_firewall.c
+index 2fc9761dadec..ef4988054b44 100644
+--- a/drivers/bus/stm32_firewall.c
++++ b/drivers/bus/stm32_firewall.c
+@@ -5,6 +5,7 @@
+ 
+ #include <linux/bitfield.h>
+ #include <linux/bits.h>
++#include <linux/bus/stm32_firewall.h>
+ #include <linux/bus/stm32_firewall_device.h>
+ #include <linux/device.h>
+ #include <linux/err.h>
+@@ -18,8 +19,6 @@
+ #include <linux/types.h>
+ #include <linux/slab.h>
+ 
+-#include "stm32_firewall.h"
+-
+ /* Corresponds to STM32_FIREWALL_MAX_EXTRA_ARGS + firewall ID */
+ #define STM32_FIREWALL_MAX_ARGS		(STM32_FIREWALL_MAX_EXTRA_ARGS + 1)
+ 
+diff --git a/drivers/bus/stm32_rifsc.c b/drivers/bus/stm32_rifsc.c
+index 4cf1b60014b7..643ddd0a5f54 100644
+--- a/drivers/bus/stm32_rifsc.c
++++ b/drivers/bus/stm32_rifsc.c
+@@ -5,6 +5,7 @@
+ 
+ #include <linux/bitfield.h>
+ #include <linux/bits.h>
++#include <linux/bus/stm32_firewall.h>
+ #include <linux/device.h>
+ #include <linux/err.h>
+ #include <linux/init.h>
+@@ -16,8 +17,6 @@
+ #include <linux/platform_device.h>
+ #include <linux/types.h>
+ 
+-#include "stm32_firewall.h"
+-
+ /*
+  * RIFSC offset register
+  */
+diff --git a/drivers/bus/stm32_firewall.h b/include/linux/bus/stm32_firewall.h
+similarity index 100%
+rename from drivers/bus/stm32_firewall.h
+rename to include/linux/bus/stm32_firewall.h
 
 -- 
 2.43.0
