@@ -4,84 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EB2CC83F27
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 05:21:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2968CC83F27
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 05:24:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fbjWKy8Lcwc8GEbZTAM6i4MM4xiUxqjSvPPv7uBUtNY=; b=mIwwh12bJ6ilaIeyyTyhLfyUer
-	q2+8MoXk3300r5qQjvz71bfV0qmmjViXyJ7Go0QTJuWubGQNqlVMGywg7osiLaLG2lWjWPRNLxi+p
-	wKKNAzqLbedS5031nV5FC5WXfYRCNsdkTlBQSj5C9Gf+x3OAkFW+hF8IpKgtBTf/mwukEMExecKUd
-	Fd+0bhnqaD5jKggD4S7188L1UVHbvRYVmiqA9h2/4r86YLtJ5I5vtvjRmjbSKBw4+IPo/ch5IHqqb
-	WcDkYmAIIvXiEon0TZu4nQKYzDTX86cJS+WT6Vt67PtKCExOdL+M4EEthwwPe59xuKBQzq936sA0S
-	nnQp+ruQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=/V2WLr69BP7uK6hDMVszpRWnIj7yNhy/LjLYPY1Z1sw=; b=EHWLzuhDYBX/iFen1kYQGSiAPX
+	/xX1XezeSySKluxh2VIzQFYcFf0Z4hSvMUQ5FgfTtZkHRpJZ4MU9ciaMTG/eB818maLbK5qtzLyex
+	yBDTORu4gbJa+SHgBiZI45+8thThG/CnT1flaRb+wLbNoMNqLBdC8kce2LZKaUQQVECT4At7bHoft
+	+HJgzLL7ZjK2bPLeMvo3HK0wXqqLJLn2AEtWm1cxsPC6KHJQeESs7e5u/K+GHxFbyLMwsOVSD4Gbh
+	pqjMTn8RtV52jkGVv54XevRJGlGear/JDXSfb89Dv4Wqjwy1Ft5cVuckIZ8Kdz9lCMNX1PFMnbM/a
+	f54gEodw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ue5RT-00000001KAZ-3scq;
-	Tue, 22 Jul 2025 05:21:31 +0000
-Received: from mail-lj1-x234.google.com ([2a00:1450:4864:20::234])
+	id 1ue5U0-00000001KN1-2sEI;
+	Tue, 22 Jul 2025 05:24:08 +0000
+Received: from mgamail.intel.com ([198.175.65.21])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ue5Ow-00000001JwK-0UBt
+	id 1ue5RD-00000001K9y-0EB0
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Jul 2025 05:18:55 +0000
-Received: by mail-lj1-x234.google.com with SMTP id 38308e7fff4ca-32ce1b2188dso42707951fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Jul 2025 22:18:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1753161531; x=1753766331; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=fbjWKy8Lcwc8GEbZTAM6i4MM4xiUxqjSvPPv7uBUtNY=;
-        b=GOKsWYC7pe7sE0Ia5/+O2YxDDbCCM6AQkdCXr/6+AmZdRReRdh/Zh+jAV4DcF92zA/
-         eR1RqlWTSDE/AaAj2NsuOYCQSt9EMaqBkmBr4FxuUHDl6YgYB/mlwmDHBrKjNv5sPTbW
-         FiJFCdeTWxvDLzH6mdjt+wy/u+KraFZ93vXHk=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753161531; x=1753766331;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=fbjWKy8Lcwc8GEbZTAM6i4MM4xiUxqjSvPPv7uBUtNY=;
-        b=CD70IQxijb1AuL8Kdldp3lSvbhOqhcZIexnvPrNF4Vrw2Lw7YAuaQ0ogc1aYPUzR5Y
-         hvxm2nGBPaXlTjulnyHiGqgdGachVZ97GsNm3ZPRdTfE2DwI6eHYelkR93lCJsKjbPAm
-         v4Fpu2af8h9FTmLgM74UIGyqBTZojsNEB7+C1ypQNxjj3Luub4RqmpmLl7up5bPyFsZq
-         LxftrYFZEgFbeZPk0FjwjONfbRR9zfuHwU124eYM06CmJ+R2aYbfFv5Tl1IBtp+ZXm2Q
-         L/bphh7rULl81O76QfBge4fb8LtbuF6BoVEsemHKyO1Zed5L9oNwooWG6z+GjAX53VwC
-         XWug==
-X-Forwarded-Encrypted: i=1; AJvYcCUOa2cwbSedZdHpf6dd76usGvosGlNAbtvD+htkRuK52jCFeRH4F+FqGBHlFLiAvlhaVPFCxSfBFBVkPDoxK/hB@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxwd8Dhc4yCFXBdpt2GglRcX5OrYTfux9qiVwsbFngv/ZsGXAbi
-	us+CA7lVhVf3TMRIrfNA1RTmA97uymcwrJco34nqvVBGktI88a79o4ciDpoKNfIhYYKyK8nRbBH
-	SxM99npmZT57qvSsdXrc/Dn0ZtZaoPqtTGaPc1UpJ
-X-Gm-Gg: ASbGncuUKkDyLNecf8+tGuSD6vuYuAsXJ4VBIbWtC5pzJwsFTVsGAYpFvq48RubWLqv
-	NFgUweX4555sMfX0EcOFri+nd35ka6G0jSA+bZjaG6+1siXuSdcApyIgpzrfICMXyEomjGHCJB4
-	GGen+zLDZLKZ+EAWIMzu7a71dvZCp9mb5+cp6xa0m76k4fBdCfbwlbIeWVdyijTbYmlJY6YlAPV
-	hn2QHwwq0qXlNcJDvTdIe+2jkC2TpQjS50=
-X-Google-Smtp-Source: AGHT+IHXtp8/VRaNj5ad5vofsP+NxzY4Q7oTBNoQECt/CXJUr6VzTFYU6ZxOTJqcdAuOysJwJg5n/tSQs5v+X4qLoE4=
-X-Received: by 2002:a2e:a984:0:b0:32b:7ddd:278d with SMTP id
- 38308e7fff4ca-3309a466439mr46938661fa.3.1753161531420; Mon, 21 Jul 2025
- 22:18:51 -0700 (PDT)
-MIME-Version: 1.0
-References: <20250715140224.206329-1-angelogioacchino.delregno@collabora.com> <20250715140224.206329-3-angelogioacchino.delregno@collabora.com>
-In-Reply-To: <20250715140224.206329-3-angelogioacchino.delregno@collabora.com>
-From: Chen-Yu Tsai <wenst@chromium.org>
-Date: Tue, 22 Jul 2025 13:18:40 +0800
-X-Gm-Features: Ac12FXxOEwd1JP0Dvkx8jUbcy4EUYQzj1kXlmFlLaoGVbfWV7CBCgyEc3biTeW0
-Message-ID: <CAGXv+5GiKOTqmaJai-494XWDqk+onvrpqFyvwANr+_4_y-1WuA@mail.gmail.com>
-Subject: Re: [PATCH v5 2/8] regulator: Add support for MediaTek MT6316 SPMI
- PMIC Regulators
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: linux-mediatek@lists.infradead.org, lee@kernel.org, robh@kernel.org, 
-	krzk+dt@kernel.org, conor+dt@kernel.org, matthias.bgg@gmail.com, 
-	lgirdwood@gmail.com, broonie@kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	kernel@collabora.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+	Tue, 22 Jul 2025 05:21:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1753161675; x=1784697675;
+  h=date:from:to:cc:subject:message-id;
+  bh=PmuDOnqvfyZhVj+Ov4RchtLsQmDFXQbk7I+A2LRaFyg=;
+  b=Bi46r3YwSA9OnT55LHQXOCgjoM2wGC4UxSVmZBdLHGwiTArTWWj+laA5
+   07LuTs1R6oIKPFcym3xfDU8dcoG5n9e9hDIUFZ8kEiOBnI5v1TbnTKzSu
+   ZfcY1tNZ3VWTTRxDvHHbShWWO91EGaLq6/mWLWbfe2jMAE0S7ctNTvlQd
+   BzblnURg/GJEVVq2Om+FFbSqtIpnjvlKSukPdHMY4vnVPvr1w0FXJBwCP
+   gpp0oCy7StYXb3ZKoLBD8N6KbcDWeNdZDCGJZc1YYug1S4l/JGenvem+9
+   SQq0OUuVTxP8KYMHsuuNqoK0B2FuX9bV9XutZ3zeMuchWRod672svwFiu
+   Q==;
+X-CSE-ConnectionGUID: swxsiD+BSP6NLBaimph6UA==
+X-CSE-MsgGUID: cLAY0ryDQVqNv25o3lqPbg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11499"; a="55277571"
+X-IronPort-AV: E=Sophos;i="6.16,330,1744095600"; 
+   d="scan'208";a="55277571"
+Received: from orviesa007.jf.intel.com ([10.64.159.147])
+  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Jul 2025 22:21:13 -0700
+X-CSE-ConnectionGUID: DZYSsaYETHW6Nyi0xlvOEQ==
+X-CSE-MsgGUID: 7ZMvQhm1S0GBdVy4MwFTrQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.16,330,1744095600"; 
+   d="scan'208";a="159125474"
+Received: from lkp-server01.sh.intel.com (HELO 9ee84586c615) ([10.239.97.150])
+  by orviesa007.jf.intel.com with ESMTP; 21 Jul 2025 22:21:12 -0700
+Received: from kbuild by 9ee84586c615 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1ue5R7-000HTt-2D;
+	Tue, 22 Jul 2025 05:21:09 +0000
+Date: Tue, 22 Jul 2025 13:20:17 +0800
+From: kernel test robot <lkp@intel.com>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
+Subject: [soc:for-next] BUILD SUCCESS
+ 7dfbf3176d886ff9a0c7786942d3a89809d0641e
+Message-ID: <202507221304.bmi7c25m-lkp@intel.com>
+User-Agent: s-nail v14.9.24
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250721_221854_168931_8B82B70C 
-X-CRM114-Status: GOOD (  27.05  )
+X-CRM114-CacheID: sfid-20250721_222115_371283_473ACDA1 
+X-CRM114-Status: UNSURE (   5.66  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,189 +83,137 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 15, 2025 at 10:03=E2=80=AFPM AngeloGioacchino Del Regno
-<angelogioacchino.delregno@collabora.com> wrote:
->
-> Add a driver for the regulators found on all types of the MediaTek
-> MT6316 SPMI PMIC, fully controlled by SPMI interface and featuring
-> four step down DCDC (buck) converters.
->
-> In particular, this includes support for:
->  - MT6316(BP/VP):    2+2 Phase (Phase 1: buck1+2, Phase 2: buck3+4)
->  - MT6316(CP/HP/KP): 3+1 Phase (Phase 1: buck1+2+4, Phase 2: buck3)
->  - MT6316(DP/TP):    4+0 Phase (Single phase, buck1+2+3+4)
+tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git for-next
+branch HEAD: 7dfbf3176d886ff9a0c7786942d3a89809d0641e  Merge branch 'soc/newsoc' into for-next
 
-You should probably mention here or in the driver with comments that
-some parts are not described in the datasheet, or even contradict what
-the datasheet says. Examples include:
+elapsed time: 827m
 
-  - set / clear registers for the enable bits
-  - voltage selector being in weird format
+configs tested: 117
+configs skipped: 3
 
-> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@coll=
-abora.com>
-> ---
->  drivers/regulator/Kconfig            |   9 +
->  drivers/regulator/Makefile           |   1 +
->  drivers/regulator/mt6316-regulator.c | 345 +++++++++++++++++++++++++++
->  3 files changed, 355 insertions(+)
->  create mode 100644 drivers/regulator/mt6316-regulator.c
->
-> diff --git a/drivers/regulator/Kconfig b/drivers/regulator/Kconfig
-> index 7423954153b0..81f2acd0f960 100644
-> --- a/drivers/regulator/Kconfig
-> +++ b/drivers/regulator/Kconfig
-> @@ -864,6 +864,15 @@ config REGULATOR_MT6315
->           This driver supports the control of different power rails of de=
-vice
->           through regulator interface.
->
-> +config REGULATOR_MT6316
-> +       tristate "MT6316 SPMI PMIC regulator driver"
-> +       depends on SPMI || COMPILE_TEST
-> +       help
-> +          Say Y here to enable support for 2+2, 3+1 and 4 phase regulato=
-rs
-> +          found in the MediaTek MT6316 BP, CP, DP, HP, VP and TP SPMI PM=
-ICs.
-> +         This driver supports the control of different power rails of de=
-vice
-> +         through regulator interface.
-> +
->  config REGULATOR_MT6323
->         tristate "MediaTek MT6323 PMIC"
->         depends on MFD_MT6397
-> diff --git a/drivers/regulator/Makefile b/drivers/regulator/Makefile
-> index be98b29d6675..46c0e75f6107 100644
-> --- a/drivers/regulator/Makefile
-> +++ b/drivers/regulator/Makefile
-> @@ -103,6 +103,7 @@ obj-$(CONFIG_REGULATOR_MP886X) +=3D mp886x.o
->  obj-$(CONFIG_REGULATOR_MPQ7920) +=3D mpq7920.o
->  obj-$(CONFIG_REGULATOR_MT6311) +=3D mt6311-regulator.o
->  obj-$(CONFIG_REGULATOR_MT6315) +=3D mt6315-regulator.o
-> +obj-$(CONFIG_REGULATOR_MT6315)  +=3D mt6316-regulator.o
->  obj-$(CONFIG_REGULATOR_MT6323) +=3D mt6323-regulator.o
->  obj-$(CONFIG_REGULATOR_MT6331) +=3D mt6331-regulator.o
->  obj-$(CONFIG_REGULATOR_MT6332) +=3D mt6332-regulator.o
-> diff --git a/drivers/regulator/mt6316-regulator.c b/drivers/regulator/mt6=
-316-regulator.c
-> new file mode 100644
-> index 000000000000..952852bbe923
-> --- /dev/null
-> +++ b/drivers/regulator/mt6316-regulator.c
-> @@ -0,0 +1,345 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +//
-> +// Copyright (c) 2024 MediaTek Inc.
-> +// Copyright (c) 2025 Collabora Ltd
-> +//                    AngeloGioacchino Del Regno <angelogioacchino.delre=
-gno@collabora.com>
-> +
-> +#include <linux/module.h>
-> +#include <linux/of.h>
-> +#include <linux/regmap.h>
-> +#include <linux/spmi.h>
-> +
-> +#include <linux/regulator/driver.h>
-> +#include <linux/regulator/machine.h>
-> +#include <linux/regulator/of_regulator.h>
-> +
-> +#define MT6316_BUCK_MODE_AUTO                  0
-> +#define MT6316_BUCK_MODE_FORCE_PWM             1
-> +#define MT6316_BUCK_MODE_LP                    2
-> +
-> +#define MT6316_CHIP_ID                         0x20b
-> +#define MT6316_BUCK_TOP_CON0                   0x1440
-> +#define EN_SET_OFFSET                          0x1
-> +#define EN_CLR_OFFSET                          0x2
-> +
-> +#define MT6316_BUCK_TOP_CON1                   0x1443
-> +
-> +#define MT6316_BUCK_TOP_ELR0                   0x1448
-> +#define MT6316_BUCK_TOP_ELR2                   0x144a
-> +#define MT6316_BUCK_TOP_ELR4                   0x144c
-> +#define MT6316_BUCK_TOP_ELR6                   0x144e
-> +#define MT6316_VSEL_MASK                       GENMASK(8, 0)
-> +
-> +#define MT6316_VBUCK1_DBG                      0x14a8
-> +#define MT6316_VBUCK2_DBG                      0x1528
-> +#define MT6316_VBUCK3_DBG                      0x15a8
-> +#define MT6316_VBUCK4_DBG                      0x1628
-> +#define MT6316_BUCK_QI                         BIT(0)
-> +
-> +#define MT6316_BUCK_TOP_4PHASE_TOP_ANA_CON0    0x1688
-> +#define MT6316_BUCK_TOP_4PHASE_TOP_ELR_0       0x1690
-> +
-> +enum mt6316_type {
-> +       MT6316_TYPE_2PHASE,
-> +       MT6316_TYPE_3PHASE,
-> +       MT6316_TYPE_4PHASE
-> +};
-> +
-> +/**
-> + * struct mt6316_regulator_info - MT6316 regulators information
-> + * @desc: Regulator description structure
-> + * @debug_reg: Debug register for regulator status
-> + * @lp_mode_reg: Low Power mode register (normal/idle)
-> + * @lp_mode_mask: Low Power mode regulator mask
-> + * @modeset_reg: AUTO/PWM mode register
-> + * @modeset_mask: AUTO/PWM regulator mask
-> + */
-> +struct mt6316_regulator_info {
-> +       struct regulator_desc desc;
-> +       u16 debug_reg;
-> +       u16 lp_mode_reg;
-> +       u16 lp_mode_mask;
-> +       u16 modeset_reg;
-> +       u16 modeset_mask;
-> +};
-> +
-> +#define MT6316_BUCK(match, vreg_id, min, max, step, vs_reg)            \
-> +{                                                                      \
-> +       .desc =3D {                                                      =
- \
-> +               .name =3D match,                                         =
- \
+The following configs have been built successfully.
+More configs may be tested in the coming days.
 
-.supply_name should probably be added for completeness.
+tested configs:
+alpha                             allnoconfig    gcc-15.1.0
+alpha                            allyesconfig    gcc-15.1.0
+arc                              allmodconfig    gcc-15.1.0
+arc                               allnoconfig    gcc-15.1.0
+arc                              allyesconfig    gcc-15.1.0
+arc                        nsimosci_defconfig    gcc-15.1.0
+arc                   randconfig-001-20250722    gcc-10.5.0
+arc                   randconfig-002-20250722    gcc-11.5.0
+arm                              allmodconfig    gcc-15.1.0
+arm                               allnoconfig    clang-22
+arm                              allyesconfig    gcc-15.1.0
+arm                   randconfig-001-20250722    gcc-12.5.0
+arm                   randconfig-002-20250722    clang-22
+arm                   randconfig-003-20250722    gcc-8.5.0
+arm                   randconfig-004-20250722    clang-17
+arm                           spitz_defconfig    gcc-15.1.0
+arm64                            allmodconfig    clang-19
+arm64                             allnoconfig    gcc-15.1.0
+arm64                 randconfig-001-20250722    clang-22
+arm64                 randconfig-002-20250722    clang-22
+arm64                 randconfig-003-20250722    clang-22
+arm64                 randconfig-004-20250722    gcc-8.5.0
+csky                              allnoconfig    gcc-15.1.0
+csky                  randconfig-001-20250722    gcc-11.5.0
+csky                  randconfig-002-20250722    gcc-15.1.0
+hexagon                          allmodconfig    clang-17
+hexagon                           allnoconfig    clang-22
+hexagon                          allyesconfig    clang-22
+hexagon               randconfig-001-20250722    clang-20
+hexagon               randconfig-002-20250722    clang-18
+i386                             allmodconfig    gcc-12
+i386                              allnoconfig    gcc-12
+i386                             allyesconfig    gcc-12
+i386        buildonly-randconfig-001-20250722    gcc-12
+i386        buildonly-randconfig-002-20250722    gcc-12
+i386        buildonly-randconfig-003-20250722    clang-20
+i386        buildonly-randconfig-004-20250722    gcc-12
+i386        buildonly-randconfig-005-20250722    clang-20
+i386        buildonly-randconfig-006-20250722    clang-20
+i386                                defconfig    clang-20
+loongarch                        alldefconfig    clang-20
+loongarch                        allmodconfig    clang-19
+loongarch                         allnoconfig    clang-22
+loongarch             randconfig-001-20250722    gcc-15.1.0
+loongarch             randconfig-002-20250722    clang-22
+m68k                             allmodconfig    gcc-15.1.0
+m68k                              allnoconfig    gcc-15.1.0
+m68k                             allyesconfig    gcc-15.1.0
+microblaze                       allmodconfig    gcc-15.1.0
+microblaze                        allnoconfig    gcc-15.1.0
+microblaze                       allyesconfig    gcc-15.1.0
+microblaze                          defconfig    gcc-15.1.0
+microblaze                      mmu_defconfig    gcc-15.1.0
+mips                              allnoconfig    gcc-15.1.0
+nios2                             allnoconfig    gcc-11.5.0
+nios2                               defconfig    gcc-11.5.0
+nios2                 randconfig-001-20250722    gcc-11.5.0
+nios2                 randconfig-002-20250722    gcc-8.5.0
+openrisc                          allnoconfig    gcc-15.1.0
+openrisc                         allyesconfig    gcc-15.1.0
+parisc                           allmodconfig    gcc-15.1.0
+parisc                            allnoconfig    gcc-15.1.0
+parisc                           allyesconfig    gcc-15.1.0
+parisc                              defconfig    gcc-15.1.0
+parisc                randconfig-001-20250722    gcc-8.5.0
+parisc                randconfig-002-20250722    gcc-8.5.0
+parisc64                            defconfig    gcc-15.1.0
+powerpc                          allmodconfig    gcc-15.1.0
+powerpc                           allnoconfig    gcc-15.1.0
+powerpc                          allyesconfig    clang-22
+powerpc                 mpc832x_rdb_defconfig    gcc-15.1.0
+powerpc                  mpc885_ads_defconfig    clang-22
+powerpc               randconfig-001-20250722    gcc-13.4.0
+powerpc               randconfig-002-20250722    clang-22
+powerpc               randconfig-003-20250722    gcc-14.3.0
+powerpc64             randconfig-001-20250722    gcc-8.5.0
+powerpc64             randconfig-002-20250722    clang-22
+powerpc64             randconfig-003-20250722    clang-22
+riscv                            allmodconfig    clang-22
+riscv                             allnoconfig    gcc-15.1.0
+riscv                            allyesconfig    clang-16
+riscv                 randconfig-001-20250722    clang-16
+riscv                 randconfig-002-20250722    gcc-12.5.0
+s390                             allmodconfig    clang-18
+s390                              allnoconfig    clang-22
+s390                             allyesconfig    gcc-15.1.0
+s390                  randconfig-001-20250722    clang-22
+s390                  randconfig-002-20250722    gcc-12.5.0
+sh                               allmodconfig    gcc-15.1.0
+sh                               allyesconfig    gcc-15.1.0
+sh                    randconfig-001-20250722    gcc-15.1.0
+sh                    randconfig-002-20250722    gcc-15.1.0
+sh                           se7206_defconfig    gcc-15.1.0
+sh                        sh7757lcr_defconfig    gcc-15.1.0
+sparc                            allmodconfig    gcc-15.1.0
+sparc                               defconfig    gcc-15.1.0
+sparc                 randconfig-001-20250722    gcc-13.4.0
+sparc                 randconfig-002-20250722    gcc-15.1.0
+sparc64               randconfig-001-20250722    gcc-8.5.0
+sparc64               randconfig-002-20250722    gcc-8.5.0
+um                               allmodconfig    clang-19
+um                                allnoconfig    clang-22
+um                               allyesconfig    gcc-12
+um                    randconfig-001-20250722    gcc-12
+um                    randconfig-002-20250722    gcc-12
+x86_64                            allnoconfig    clang-20
+x86_64                           allyesconfig    clang-20
+x86_64      buildonly-randconfig-001-20250722    gcc-12
+x86_64      buildonly-randconfig-002-20250722    gcc-12
+x86_64      buildonly-randconfig-003-20250722    gcc-12
+x86_64      buildonly-randconfig-004-20250722    clang-20
+x86_64      buildonly-randconfig-005-20250722    gcc-12
+x86_64      buildonly-randconfig-006-20250722    gcc-12
+x86_64                              defconfig    gcc-11
+x86_64                          rhel-9.4-rust    clang-20
+xtensa                randconfig-001-20250722    gcc-15.1.0
+xtensa                randconfig-002-20250722    gcc-10.5.0
 
-> +               .of_match =3D of_match_ptr(match),                       =
- \
-> +               .ops =3D &mt6316_vreg_setclr_ops,                        =
- \
-> +               .type =3D REGULATOR_VOLTAGE,                             =
- \
-> +               .owner =3D THIS_MODULE,                                  =
- \
-> +               .n_voltages =3D (max - min) / step + 1,                  =
- \
-> +               .min_uV =3D min,                                         =
- \
-> +               .uV_step =3D step,                                       =
- \
-
-Given that the selector _always_ starts from 0 volts, I think this
-should have:
-
-                  .linear_min_sel =3D min / step,
-
-So that different minimum values work. Or the minimum value should just
-be dropped altogether to prevent miscalculation.
-
-See below for more.
-
-[...]
-
-> +/* MT6316BP/VP - 2+2 phase buck */
-> +static struct mt6316_regulator_info mt6316bv_regulators[] =3D {
-> +       MT6316_BUCK("vbuck12", 1, 0, 1277500, 2500, MT6316_BUCK_TOP_ELR0)=
-,
-
-I just noticed that the overview section of the datasheet mentions that
-the lowest voltage is 0.4V for all the regulators.
-
-
-ChenYu
-
-[...]
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
