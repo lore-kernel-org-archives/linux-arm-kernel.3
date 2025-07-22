@@ -4,91 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 008CCC83F27
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 12:12:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA4BBC83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 12:15:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=i/zN+BCB9PDyNDE9R4NEw3s0veUZFcpZLCmrjf9UE/w=; b=XTQDNMfUWkPP3RSUiTMCKxvUdv
-	wbjo2gLFgdMzP+2EvxXfjLZDmkZbU4p82hvUojHc1sUbmcucJedWWgyG4FgIr/+LvpG69VChO44k2
-	F9tGKGYBz+d582JneQ2DK6JLh10eKY+OGOYn8tGxT1k0HZ5F3AxstZpKilo2dW36JN8thRuq5bpTv
-	Z2WnGMVwXwym5gBrYtketJWfbvhdPBQ279aPV+bC2Np5PNaEfYv1aIYNFatcWKW0EJpGOUk5R60CQ
-	ZAvIECZm5ND20uY+N1SDo6DaoWoB2Lq98bN5kmi2jgF9lrDIkdNMmUGynB+nUYZBkCqqivBCPdpeA
-	7SC8BK3A==;
+	bh=lx+ZVMuygWM6iK3n5i4Qy5l+eUl2JVt18wiRP2PvZQs=; b=LnNvehUos567XkOkPypYXsp8Zw
+	jTQLsWOw+nYVkC5Hw+TsupQqxvOzlqvhipklUDHwobzrEaTAPwdFGPc+t4p5EloJNZW7dHWXAI3ZA
+	y0aHyVLMrEotqm6i+1Z2p5SlBxuMI0CHy63UHmkiivUY8qf62f/vw0cFrX8c/idiEeiKhrWq2FhXa
+	jrkhdclh9rBPLBOmdIikHBsKvIVV2yqlwjqpUE32jgpL6wcbyy7Hdw24CXLGHrcqWSpnsoSPsZrv6
+	FmpxdwDmO0wo5qZAcExeECZraNwCJ6i4Sz9048XXAAM7jXhnCGBckSF8JjWievV52mIh5NTq1s+C6
+	OUKyDvBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueBrH-00000002OIW-2t1E;
-	Tue, 22 Jul 2025 12:12:35 +0000
-Received: from mail-ej1-x635.google.com ([2a00:1450:4864:20::635])
+	id 1ueBtl-00000002OeL-1zox;
+	Tue, 22 Jul 2025 12:15:09 +0000
+Received: from mail-ed1-x532.google.com ([2a00:1450:4864:20::532])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueBnt-00000002NhS-0vU6
+	id 1ueBpz-00000002O50-1ZG4
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Jul 2025 12:09:06 +0000
-Received: by mail-ej1-x635.google.com with SMTP id a640c23a62f3a-ae360b6249fso840403966b.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Jul 2025 05:09:04 -0700 (PDT)
+	Tue, 22 Jul 2025 12:11:16 +0000
+Received: by mail-ed1-x532.google.com with SMTP id 4fb4d7f45d1cf-611f74c1837so10397971a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Jul 2025 05:11:15 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1753186143; x=1753790943; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1753186274; x=1753791074; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=i/zN+BCB9PDyNDE9R4NEw3s0veUZFcpZLCmrjf9UE/w=;
-        b=I84lvE0an1k9nS7fjm+86oVEyTRS7OMsHxtoGfCcGIvgD5XfGmv5NPdb6Jbp4gDqv0
-         vujXzgfKg1YU+les2Yv6H9DD9cS2Btkp3YJFNUOST9KbetwH4Yghoz87bCO0rmuvbx4I
-         UW3duCMUOCFVoI4fuSJkXQB/KLWkIEtwM1sIz5lMfxDqI5lISDrq36VjMMxZmKcCKGwg
-         xswiadFsoyQ7cE1rwAySZhJ3e7tX732vJY9hyCkJpgLl0MSDwp9FIdZCAlsjl/twmRq0
-         yl520iZfYZQgoYNHmXZxHxhUUOi2c7zup+RQ7teW14Zub5v6K+iiyEdE2GwGrVvYFHKG
-         kD4Q==
+        bh=lx+ZVMuygWM6iK3n5i4Qy5l+eUl2JVt18wiRP2PvZQs=;
+        b=Y9kUErFsT3LQjyB8oAanEQQIsBq9LYop9QUkeAI9irSJ19CDsPNgWK70WGSgvQVBKc
+         V3I/6tSVag6QEVA1TRCF5mqzOe1T/X1UDmtdb3gcc1kkhc8p6pr9M32gUTte06EqYE4L
+         xU9mIRemBUSBTDmDl5nIw4g8mL1KOnG8bSSexPCbwdSViOmRLMu4CVWJdvKyJVIgkaDv
+         M5kQHq/dTQvEPzw19BmidmRq4w7iVnGw0Q4kFfgpBZtJRq3nlj20kxXZLWwmg0lkfz/z
+         uDQggSy+6FvGUt4r4POF9JcAGeOmdK5H16FXWSpSeyO2fDXCL+shRJkfxR6qVw68SYkf
+         esjQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753186143; x=1753790943;
+        d=1e100.net; s=20230601; t=1753186274; x=1753791074;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=i/zN+BCB9PDyNDE9R4NEw3s0veUZFcpZLCmrjf9UE/w=;
-        b=MnizUh/Lxk1cCsI4g6zpxVaUUBnJNUeOdUj3p3QZAwHgbRwlWcnZL7RQK+RNhPRrip
-         9bFSyxQOUKrsVEC29kCOWm5LjyKj0Xg5Q79iwqx9xLod7vtL1fVvZ9BqzZHmuODXZ7gu
-         xXTNBAS25Y4L/0ZmSJ78owWYVLfmI2dg6X+qhoShfv26xu325mU/QQ6jMwjJ2CkD+BzC
-         42VJd77GHRMMdv3CloK4tU+xYfVcdiF/JKYy2BUsCAh2g8WHofHPb+QANAy3eHnvJ7yr
-         YeBH+KaZ0TkdMbVc79SG+AgrdDB1IujzZEkMX5gaTwJbi+OvTXd/HfMLi0u4cCxYW/x0
-         SHAQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWDnHpfLxRwhaGHIoSk4A8AJzg+ED1kb6kP4A8xhXRF9K9Kv/XXsb8wUfapNxcnRBuaTWFmcY7ftxmWPeLirAyz@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywqd1pxeT3rqdOdkHC3sGfHhguYnvqgqJx9wk64JeV/JEGBUvQi
-	YzyymgfAEWD8vcCgE79Bl8jWPsDyoVSGmmuwrnd+Hi0MYVTSO75M69OB
-X-Gm-Gg: ASbGncueP+SzJ4C7JJ+Wk4XZoUgq1TnHhAkfR9c0tZLkoXthHC7c1xBV+9Z9gZKo7ql
-	z0pERk0n4vg3q6oOEXFuvBuFXzDVOJIh9E9NJClgCAi8Y6ag9MaWzE2F1qS8hY8pPJZAHMLvIPI
-	4kCzS11oQVt4hsvABwJJwgv/ZFTxTuhWN1K3nf3qSoSyAQLCUz3T6Uof7nvy1qYRTVZ1/6Ig6fc
-	uv81oGfa6hWZem0tygtEuDGQDtO61tBuxr8q+t01sMTaxP/rmBWuiEOsfMuh/J+oxLX4l0Qi0+u
-	kYAYXHXBSdyULuUKQTzOCYfWANaDrVMy3G9alXBeEzBFwpv5Q0ImMObuRrWtteWO3a/KnCvn980
-	gqimETzXmq9sMxYguD0x34qisjwVRtp/vYNfDyDPyBt7GSpsth6M/BUV/OmRdHte39Oo8BdJ90w
+        bh=lx+ZVMuygWM6iK3n5i4Qy5l+eUl2JVt18wiRP2PvZQs=;
+        b=DnHNM9hDjFFF8Jzl77Q1S79Zth+chXImggwH2rhV7Up686kp8d8/fPMQ8wdJsF8856
+         IhMmuxWW51jxIdb4fCxAEjHDvII+m4rl4mVC75LWYEXDmNnskbrrum7Vf3tCyDePnZZq
+         CRpOT4MNvXstWK4f4/AZjeXYUho9x7Cv4fAAFwSxOUG8jxhFvSMYj9b7SBMnzbEuia0B
+         8rSoW2q62xpabgLo45g2pRyuDJpsMHGh7120fgOTizoH6bBDSBC8cN4IGFVXyFWbigJ6
+         H0bJ7qVEhb/ttIQ2ZEzxXN0vDED6lAjeT6fp7jvZBiuReZUnjFx2hyXTcDDzAXZq36mG
+         bVyw==
+X-Forwarded-Encrypted: i=1; AJvYcCX////hrdkDpzr1pfXSf1St2XTiwVbFzaawi7Spk5IJohiZ+RQQAJTqS2JaFltARln+SFsjifAPfKYMihlzOLzl@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx7k9+XTmZ9OWI9YPwyrX+x86l6QQQTVLjjSECgr1tGJPPIRsQG
+	21GzbWOv5mxqJRiPR0LipHQl6Igv+EHQ2AUcc/rak79R07Pq6I9CjMPC
+X-Gm-Gg: ASbGnctZl547xOy8tl+0+hO1bmA0WVppa0NSfhfseycbu9+BEb2XOlKUCd/DF+HkMgI
+	5U0buXa+pLwiPbal9KbJujK2aGVna+UUKY9mc8l8TSh4d+amde0xArA+DaarzZH5EqqFfrXD9Iw
+	PtR84S0lUAcFyqYvXUzoJ2mH+Wyu2r9QOJUhNl2gC/DLcZJtgjxC6GsKJQjPyHpqGCaPEkO98uS
+	tFW+GDVTxnJcrpYB0/rPtqC9Jbr8TIhxVbw8wCCrHnKQa+B4A1Q8IaOJ5NymZBZ9bYOsW3GG6PB
+	sc3nOxNjE2K3B5S3mUFFsnOLITDAxrrVzXW2bSD+iAqgu1fyRBSY7Jndz+XPNVAkZVhF3qaZnwH
+	OaM7RWxYyaDN4IAVTWH6OTygHyVIOT2X0dhJDGqUwgAKIo7v7LhoWUkocwZ3bltDpCt4vU9UpRQ
 	==
-X-Google-Smtp-Source: AGHT+IELdo3U27oOgtv6Kv6ED6xgavO/dGRHioarTGley0NsAKeI8rQbhsUM6DVDUWHgEzZ0n6rdvw==
-X-Received: by 2002:a17:907:3e9f:b0:ae3:a812:a780 with SMTP id a640c23a62f3a-ae9c9ba7b98mr2301348066b.61.1753186142732;
-        Tue, 22 Jul 2025 05:09:02 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGED88fhPyhrYgJcmSWIkwvCbWfNUN8i7LvAClr6ahEphO0Z2rfiWIHbCtX4nZVH0UIjwz71g==
+X-Received: by 2002:a05:6402:2689:b0:612:b67f:d512 with SMTP id 4fb4d7f45d1cf-612c731f0a7mr14639047a12.4.1753186273485;
+        Tue, 22 Jul 2025 05:11:13 -0700 (PDT)
 Received: from ivaylo-T580.. (91-139-201-119.stz.ddns.bulsat.com. [91.139.201.119])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aec6c79551esm850878566b.4.2025.07.22.05.09.01
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-612f15f596dsm5090257a12.51.2025.07.22.05.11.12
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 22 Jul 2025 05:09:02 -0700 (PDT)
+        Tue, 22 Jul 2025 05:11:13 -0700 (PDT)
 From: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
 To: Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Sam Protsenko <semen.protsenko@linaro.org>,
 	Rob Herring <robh@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>
 Cc: linux-samsung-soc@vger.kernel.org,
-	linux-serial@vger.kernel.org,
 	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v1] dt-bindings: serial: samsung: add samsung,exynos2200-uart compatible
-Date: Tue, 22 Jul 2025 15:08:59 +0300
-Message-ID: <20250722120859.443283-1-ivo.ivanov.ivanov1@gmail.com>
+Subject: [PATCH v1 1/2] dt-bindings: soc: samsung: usi: allow 64-bit address space
+Date: Tue, 22 Jul 2025 15:10:36 +0300
+Message-ID: <20250722121037.443385-1-ivo.ivanov.ivanov1@gmail.com>
 X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250722_050905_258175_F7109B88 
-X-CRM114-Status: GOOD (  10.15  )
+X-CRM114-CacheID: sfid-20250722_051115_410502_332085D7 
+X-CRM114-Status: GOOD (  11.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,32 +102,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add dedicated samsung,exynos2200-uart compatible to the dt-schema for
-representing uart of the exynos2200.
-
-Like GS101, it has a required DT property samsung,uart-fifosize and
-exhibits the 32 bit register access limit, so reuse support for it.
+Some device trees, like the exynos2200 one, configure the root node
+with #address-cells and #size-cells set to 2. However, the usi binding
+expects 32 bit address space only. Allow these determining properties to
+be set as 1 or 2 instead of a constant 1.
 
 Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
 ---
- Documentation/devicetree/bindings/serial/samsung_uart.yaml | 4 ++++
- 1 file changed, 4 insertions(+)
+ Documentation/devicetree/bindings/soc/samsung/exynos-usi.yaml | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/serial/samsung_uart.yaml b/Documentation/devicetree/bindings/serial/samsung_uart.yaml
-index 83d9986d8..1a1f991d5 100644
---- a/Documentation/devicetree/bindings/serial/samsung_uart.yaml
-+++ b/Documentation/devicetree/bindings/serial/samsung_uart.yaml
-@@ -28,6 +28,10 @@ properties:
-           - samsung,exynos5433-uart
-           - samsung,exynos850-uart
-           - samsung,exynos8895-uart
-+      - items:
-+          - enum:
-+              - samsung,exynos2200-uart
-+          - const: google,gs101-uart
-       - items:
-           - enum:
-               - samsung,exynos7-uart
+diff --git a/Documentation/devicetree/bindings/soc/samsung/exynos-usi.yaml b/Documentation/devicetree/bindings/soc/samsung/exynos-usi.yaml
+index cb2263709..4ce871676 100644
+--- a/Documentation/devicetree/bindings/soc/samsung/exynos-usi.yaml
++++ b/Documentation/devicetree/bindings/soc/samsung/exynos-usi.yaml
+@@ -57,10 +57,10 @@ properties:
+   ranges: true
+ 
+   "#address-cells":
+-    const: 1
++    enum: [1, 2]
+ 
+   "#size-cells":
+-    const: 1
++    enum: [1, 2]
+ 
+   samsung,sysreg:
+     $ref: /schemas/types.yaml#/definitions/phandle-array
 -- 
 2.43.0
 
