@@ -4,95 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76A22C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 19:43:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79CB4C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 19:46:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:Date:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oWwanWZIN6VJqRUWaw2x8mt5qLkeBEti+V7m7T7sRfo=; b=JtgyTFKR0sOF2O6qpyR+kFAhOc
-	STS3nYjkxbUPW3LSi43j6CEwa2XDxuWnSKlUSXPcrX3WE7k8OLCvBUv1IRLC/1Mj9yqWpvxAhbpbZ
-	xlRyaJ1Ku0cgtclU83qtN+V5uGHg+PbEnCGAJvaPL/cyA1+3PL4EawvuEE/lEmcv+mHXD5xy+rH2c
-	I/IHt5nvSmuUBwNhqJXGIciGKSqRkYm5YMyKvbAGRhlYKtKZkIpFonudkdtGZxWOP3ZcSC5LqPA3+
-	Gna+qQvtDcNBK3rzUph8kdiCuDxXvHECLYWQSKG25yWzA6IZceOzHk1ZYUjpqw0REQWCRzvhUbI1O
-	5iF21S7w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MFHh26tngjjOWxvj7gs0dFekGysBV5VC2fWJw/vtwp0=; b=oOEBbEBQV4j8QxwCPXOikLh7x3
+	GmzvHh/gP1OfLxdweNWlIgq8jkQretrS9w8phDd4XxsJ5STj3+c+FAFZcKIusrJVhN25nnLCuGyTf
+	8AZ/yxsVqOMU99B99MhTvzclQADtwUDqoDM2w7LIp7JMNj86rmM8f4DVk69jVAriH9GqqbUj0FdhR
+	giS37OhIL1ItJMW2FXbz2ciTCfJjUf9TFlzYkLw0v9WVuu5X0iyqOq3tOiCODDbiVg0e0v029u7e2
+	9VowcK7E8t22gfQOB2oyPf/SazAcJq0MRgv4Btv6g+wd6ViqzDsKvzEMFAukhcH6oiM7gB1mX1N3s
+	L8e7tDGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueItz-00000003Muh-1sFD;
-	Tue, 22 Jul 2025 19:43:51 +0000
-Received: from mail-lf1-x130.google.com ([2a00:1450:4864:20::130])
+	id 1ueIwS-00000003N1z-19Tj;
+	Tue, 22 Jul 2025 19:46:24 +0000
+Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueIq0-00000003Mbo-3MhW
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Jul 2025 19:39:45 +0000
-Received: by mail-lf1-x130.google.com with SMTP id 2adb3069b0e04-55a4e55d3a9so690980e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Jul 2025 12:39:43 -0700 (PDT)
+	id 1ueIqK-00000003Mgq-0MsS;
+	Tue, 22 Jul 2025 19:40:05 +0000
+Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-23aeac7d77aso50029395ad.3;
+        Tue, 22 Jul 2025 12:40:03 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1753213182; x=1753817982; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=oWwanWZIN6VJqRUWaw2x8mt5qLkeBEti+V7m7T7sRfo=;
-        b=EI/pnjAUyVmXfrYgHXyrfgTLY6If5w/kOC576DBqz+uTpTiy245wStMaYnTAUi5qCq
-         psedE7jwNIocOmaOZMf3sw7xGXqg5nsYDdbB/9lxrNg3SXOnVvKP5RBj1XyNAASmb7OV
-         HoDEnqz6U4ST6mRq3z8a24ITYbsDzgAVGpZevSzLDMrX6ONLF2yC4BSe+H6ZPXqSmOYQ
-         IWkskOfNiVwqHu/wM/dCWSY+xrkmF4iWEiTu3PA8q21nLlP8JJKdjdShkHtEPlaObRlt
-         nlO25I3aIiPdacX1ggvB+ZWlZDFyBOFdB0iFsTMcJpiToqgDb4SeEXfXH5tMpXCMZzYT
-         NShQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753213182; x=1753817982;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:date:from:x-gm-message-state:from:to:cc:subject:date
+        d=googlemail.com; s=20230601; t=1753213203; x=1753818003; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=oWwanWZIN6VJqRUWaw2x8mt5qLkeBEti+V7m7T7sRfo=;
-        b=Hvpa2NvWuTRGuoZkHNN07FzVlappKbXwRllpbwAPO25pd51kM0bz1LUuS2/+dQ5e9f
-         TnQxwfV+OZrlmUctqJdoJnzHDhF1PGMPh5SIQ0i+S7yFsp7R234LDUVWg0LFUJ5Tyw5t
-         0bUxDJNTBK0N2dtuNbjSNNWxXydj/vN3wp2gEy+7sTKfotQ++d208qE82+9RKiq919oD
-         +4mVdsdZH8EbfEzL/Z4kgf1YHhIdrxmsuf0wS1T+yJ1Y04mGpOqIXYb3XMa3ckbVDRNj
-         8HxUBDdwRiGFfLG4/UMkMQwcISFubwO0QvKU+nQ9miBV14M9wBU0LaIJRATXsGj3PhKw
-         mU3w==
-X-Forwarded-Encrypted: i=1; AJvYcCWMKEu0POwhR0ykwIiurgbplQpY/hh/YY8HAudkvGrdhPOR2mtQ6athpxpmaOAX+RCimkJC9jyS50kqp2Ss4etN@lists.infradead.org
-X-Gm-Message-State: AOJu0YzSHmL6xIzR2nzec4JPWUBOlcOmrWJL8bKWWpnrBfWw4MV8NfL8
-	IHzgwSeA5eB4AMVs1pL3l7Bvbi3B2o7V7mRLk6OrrQhxWLUB+YPAo9sH
-X-Gm-Gg: ASbGncub1uqdZwxmraXLKGAOe+aVguzqkvnSehzwyBuoFiZVANzAuPcj8JxH+6lJkin
-	pwRlZds37n/srEE2EdFYJZ5cDGYPHuY4rxfJzmNXj59iiQKgZ2HezhuHJ5eSgzEEfY/8woKUS5p
-	XpkPyER76n1c2iiVGj0mBXIFoUg4CgA9DXkbLoAzF+gr27fZZhPzydrKCXKaflgUvNsXctqWyuT
-	zfPXPQC35l9DHRWxVA11gOWz9qkmCMh64Bv9ztvzLJwDqWPTlU9zc0C5CopJI5Hqs+5VHMJ+az1
-	Uh8xGw09UJNNAUd6FhJP0E/GZ9dQTG5oOMpRv+uI7s5lwdBelWxc5PQWMYiaFVh/
-X-Google-Smtp-Source: AGHT+IFbHt2xpyOsVVT8UPF6x/qDC9IiOeFqzRPNDED4QfUqrtireW40AQuhtFawGjwFKenKZbGixg==
-X-Received: by 2002:a05:6512:3daa:b0:553:2f50:5dff with SMTP id 2adb3069b0e04-55a5136aab3mr87983e87.17.1753213182060;
-        Tue, 22 Jul 2025 12:39:42 -0700 (PDT)
-Received: from pc636 ([2001:9b1:d5a0:a500::800])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-55a4eb36cf9sm139815e87.222.2025.07.22.12.39.40
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 22 Jul 2025 12:39:41 -0700 (PDT)
-From: Uladzislau Rezki <urezki@gmail.com>
-X-Google-Original-From: Uladzislau Rezki <urezki@pc636>
-Date: Tue, 22 Jul 2025 21:39:39 +0200
-To: Jia He <justin.he@arm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Uladzislau Rezki <urezki@gmail.com>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Ryan Roberts <ryan.roberts@arm.com>, Peter Xu <peterx@redhat.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Yicong Yang <yangyicong@hisilicon.com>,
-	"Matthew Wilcox (Oracle)" <willy@infradead.org>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org
-Subject: Re: [PATCH] mm: vmalloc: use VMALLOC_EARLY_START boundary for early
- vmap area
-Message-ID: <aH_o-85T-EexGWrg@pc636>
-References: <20250722040850.2017769-1-justin.he@arm.com>
+        bh=MFHh26tngjjOWxvj7gs0dFekGysBV5VC2fWJw/vtwp0=;
+        b=DkBEW+5QC9CZUUANIZ9kRHliSNnHlXjmteWauhouHws29A7vKmkuxO2cZK3Iee5+Yn
+         vSFzdFiyHDDgjPB23Hl7pnS+DPeDpMO+ngLBmuElBco9aFE2JmrsExF/ocOIEtayZ4s0
+         YzMcgumHsmSPMNwUz62SX+c5vLs+YEcnP0jOi473ZPLmSy7e4rKDJO6RfvyYk1yC8yJK
+         KuSM7LQ99JJa99ceCJ29nVSftxuEw7t46nC+SO591ZkLqvakc5STbbw4o9UV685KxaKo
+         wyJ44770lo/g6Ahz51s//e6l1NKLNnD7/2a0R5wG/prcOJ4zqXWrnTWBD3vhEQgyESP3
+         zJTg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1753213203; x=1753818003;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=MFHh26tngjjOWxvj7gs0dFekGysBV5VC2fWJw/vtwp0=;
+        b=bPkckR6a3Wh0hg5XtWiszYrS7Jsiu+OQFP6mIrMM13bs1bupvoMBYexzq+fQeyTFwB
+         EK7klj2xLfGv4mE6RpZuzM/cc2W7234dw6I+wYn98xicoUrtYaY5vODKSYLh1mQJZWMV
+         XTr/StlsGgf9kV96i+T7jojsEr5/SI7DKU1qg7vHfzUR/g7qWfrwhTDv8mDy4eE6AOpj
+         RUY9OJtn3PUNUzcKkNYmzgPhRgh2zMwFXrEKcmj6kp6I4XCmWTyyTksivoWSAXE8N8VY
+         Xa42Z2tKuTDbvf6FfuK7lipzBH8h7b2mhnREuF6XJtYzUVx6U6CfCUqxmYNNLbQu8HBJ
+         VROA==
+X-Forwarded-Encrypted: i=1; AJvYcCUTxpgpb1fJQy9XdmpzUd41vPWfRH7fWNaJOOHmoKlKIyTWN2lVzUvRTyGTOq6G/s7hC6/fQcRTg65YHeeK@lists.infradead.org, AJvYcCVIBfACAnqA9GF0GgEiKaQNEt4cpkoD6WvAsDP5P5rNT2fOfHVrmKBRs0ltZIFObRzf2zVhCKwHeUNYh6j2Vpy/pw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzLbBkcPqMmpQzYqYE6FFte2he3CzLu1+jwn2MQPglbDgEFVRsb
+	IbrmlnIYO54PeTHdLgdVeGtBLAsAcc94EGiqyPEujGPhzUt69ZAeMKdlmNIOQR3UIrhb12hB07j
+	dIBV8lO3V+RgXZ6/znOV1qdOVnjsUI6A=
+X-Gm-Gg: ASbGncsvNOWqn9UCA20+1pwJlowiQ5zDuLH//9yOUC4bsjn7GaCsoHXVwVpfuMvhM1Y
+	M7zC+Vqmi7DxZz2TA/JKFZ6eSbhJJ1NP7NuxZiz+BbHU0myRrTmFs+swLD+n/H78pxxFBdnu8ib
+	DUR2ISqWlRE7L/PVHjt+abfim28C148xW2Zn2UTtAF7iQvIpEuyVAiPN21Awjj1qDJJtp6tsE5P
+	XqVMH9vD5Rwqa6OvbAdlw==
+X-Google-Smtp-Source: AGHT+IFIqpmViQQPAMoz9A8CgWPtW74p4X/bJekUGHNRxdcVs5bjkGSvAitsvNLAJCN+CgYdarBLE7R9a1p3Lo1pKgI=
+X-Received: by 2002:a17:902:c94c:b0:234:914b:3841 with SMTP id
+ d9443c01a7336-23f9821d17dmr2411785ad.39.1753213203378; Tue, 22 Jul 2025
+ 12:40:03 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250722040850.2017769-1-justin.he@arm.com>
+References: <20250722-optimize_clk-measure_accuracy-v2-1-cb121fd57e6d@amlogic.com>
+In-Reply-To: <20250722-optimize_clk-measure_accuracy-v2-1-cb121fd57e6d@amlogic.com>
+From: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Date: Tue, 22 Jul 2025 21:39:52 +0200
+X-Gm-Features: Ac12FXzqGorcphSDKwJZcIy0MTfbMgQR4dWhRz0iZJDpFAl1w4AsnBzrEgOES8M
+Message-ID: <CAFBinCAvLzDQCDh6z9soDiyq4sBXZ7XUQf3-Np4pFZTPmHN2AA@mail.gmail.com>
+Subject: Re: [PATCH v2] soc: amlogic: clk-measure: Optimize measurement accuracy
+To: chuan.liu@amlogic.com
+Cc: Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, 
+	Jerome Brunet <jbrunet@baylibre.com>, linux-arm-kernel@lists.infradead.org, 
+	linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250722_123944_843144_47F172AF 
-X-CRM114-Status: GOOD (  10.94  )
+X-CRM114-CacheID: sfid-20250722_124004_130059_269FDDE4 
+X-CRM114-Status: UNSURE (   8.99  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,15 +96,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 22, 2025 at 04:08:50AM +0000, Jia He wrote:
-> When VMALLOC_START is redefined to a new boundary, most subsystems
-> continue to function correctly. However, vm_area_register_early()
-> assumes the use of the global _vmlist_ structure before vmalloc_init()
-> is invoked. This assumption can lead to issues during early boot.
-> 
-But we just should not redefine the macro. If there are such places
-those are should be fixed, IMO.
+On Tue, Jul 22, 2025 at 8:09=E2=80=AFAM Chuan Liu via B4 Relay
+<devnull+chuan.liu.amlogic.com@kernel.org> wrote:
+>
+> From: Chuan Liu <chuan.liu@amlogic.com>
+>
+> The cycle count register has a 20-bit effective width, but the driver
+> only utilizes 16 bits. This reduces the sampling window when measuring
+> high-frequency clocks, resulting in (slightly) degraded measurement
+> accuracy.
+>
+> The input clock signal path from gate (Controlled by MSR_RUN) to internal
+> sampling circuit in clk-measure has a propagation delay requirement: 24
+> clock cycles must elapse after mux selection before sampling.
+>
+> The measurement circuit employs single-edge sampling for clock frequency
+> detection, resulting in a =C2=B11 cycle count error within the measuremen=
+t window.
+>
+> +1 cycle: 3 rising edges captured in 2-cycle measurement window.
+>     __    __    __
+>  __=E2=86=91  |__=E2=86=91  |__=E2=86=91  |__
+>   ^             ^
+>
+> -1 cycle: 2 rising edges captured in 3-cycle measurement window.
+>     __    __    __
+>  __=E2=86=91  |__=E2=86=91  |__=E2=86=91  |__=E2=86=91
+>     ^               ^
+>
+> Change-Id: If367c013fe2a8d0c8f5f06888bb8f30a1e46b927
+> Signed-off-by: Chuan Liu <chuan.liu@amlogic.com>
+Tested-by: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+and with the Change-Id (sorry, I missed that part) dropped as Neil
+suggested also:
+Reviewed-by: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
 
---
-Uladzislau Rezki
+
+Best regards,
+Martin
 
