@@ -4,61 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 978C2C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 17:19:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B56AFC83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 17:23:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ibyjI5E3qW6kSn6XqkbCf4AS/khULVCPNIJfzv5g85s=; b=LLyNkxoI84dghYOHt6ncUCmokC
-	rFO3tKC5kQk/X5u+W8PO0pu0yvPgEh+QNWYjdisPRVWWhhG70tysn9aFiSRcgMr4Rph0G9JCimn2Y
-	f4ICyoE+tdaovtPluAqZg6zC+LAdHikJo31EAbGyDogw4EkcUfBVcZUJXdfqOaQvWsZE59SB5wmyX
-	+79ekFR6ZQwqfjt39GFK2ZxDvuqdZ11TU/vwfdl56l/Q8Jxwh9IGA7xw5PfuYRMVy3XMRhS/gEeZo
-	BLgxarDs7pEbLZy9rfYZFZnZP5U43jsrGKwGhdUWkq6XFsikozS/PlQfzBhF9vmkPqRN13TiDaiUa
-	S0r404tA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LxAdZVy5bnkl4KqmKmn73hf8YAbhvCFGtW8F9Kd55hQ=; b=dk2NteMcCy0Dz00+jcLwOfyGpL
+	9312l3UdTk1mYkMM+/vJ+S9wTvWl2h0Ar5Pd041l2jHVBJ6Lx9UwFYo+nknn2l562Z0BTGwgbAaal
+	WeGVzkkXeQqQNmfHQ17/k4fmFkTTyljOAhw7zzZpHzYyFVeFwMeezbhcjswus0NR4hZDA4r/tWOr1
+	U0oT19GHbrVolA109V1tBlgefqWlyB+DOMck5Mk0ctUtIQHeEY/PDkXLtVnunVhzUFaI3c11BELeR
+	TghP9O2Dm+3MzC8OD66VoSUQM28ugEtFfQmqz9qd7FERNfLE85CfpH0d9s7RDMbQkr2KN/GZStR3i
+	MWWBYuzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueGeQ-000000037VB-0iW4;
-	Tue, 22 Jul 2025 17:19:38 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1ueGhh-000000037tg-2y6W;
+	Tue, 22 Jul 2025 17:23:01 +0000
+Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueGbv-000000037GB-0SFM;
-	Tue, 22 Jul 2025 17:17:03 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6819E61444;
-	Tue, 22 Jul 2025 17:17:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 01743C4CEEB;
-	Tue, 22 Jul 2025 17:17:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753204622;
-	bh=w1K4bvODgaupuZ6rTZXJyHZe+HGhv/jTyPnbCIz8yz0=;
-	h=From:To:Cc:Subject:Date:From;
-	b=CFA8FgKUfxPDnZ3oYkOZ86kNnByY29sDQi+lr7AXgJlmDghA5oCtLETsYqBplCXGm
-	 2WmCp4OG7tGny1nCj94jOPRaEeJHXqNZRJaCZ+Kv0v2olRyLTCQGd6+9jrNjkk3XAO
-	 dGHLQuDsbQbNoNsbvwobiov9EVpkqHJRmylodK4BiIFECMrg32GIbtx8DXhLULx2YW
-	 JTBW7kEWqZ6Ue9VsZmgzh4mMlDT74ZbPErX8rAw6cUSWyhL9B4dIr+wWRIQUVcFatE
-	 bL3MjD15bGo15RDXnRubQMG1WfsxDxJB+0rd7CS3s1ogVMkUjZVyRPJSHU+6A0dPKb
-	 LliRIGvFiU4+Q==
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Enric Balletbo i Serra <eballetbo@kernel.org>,
-	Ben Ho <Ben.Ho@mediatek.com>,
-	Fabien Parent <fparent@baylibre.com>
-Cc: devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH] arm64: dts: mediatek: mt8183: Fix out of range pull values
-Date: Tue, 22 Jul 2025 12:11:52 -0500
-Message-ID: <20250722171152.58923-2-robh@kernel.org>
-X-Mailer: git-send-email 2.47.2
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+	id 1ueGfC-000000037g2-3Crq
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 22 Jul 2025 17:20:28 +0000
+Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-2356ce66d7cso90671935ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Jul 2025 10:20:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1753204825; x=1753809625; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=LxAdZVy5bnkl4KqmKmn73hf8YAbhvCFGtW8F9Kd55hQ=;
+        b=JvpO2IXpxEJwkPtwujauH7AZmLJVP9zvfrXTFESKBE3Sf35FApwbdhVSIiso3m9psC
+         uQMZrAT9dx9700uO9gZ07RJpYRCaFlphVUYUrl/DJr2X7o0ESvYvGXsluXmcggSYiVhC
+         u/CDiTiTiZu9XarbrYKn1/Gae1r0/gUM+UQQoZCA/DSO5GgYRMOuYptGZGYrgX//ixmh
+         ghHvA5LzewpEZKfgOqwU0ed3/j2IluWKlPksTR5wNeENpVHVUoIvR3H4BKeG2SiQqtGx
+         oxEY6bfPbgcrQh4A7piOXQibHZSSjm0mShb3yTg0B57nkZZlxtD5rTG5YeSM4zkA9NcE
+         OB4A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1753204825; x=1753809625;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=LxAdZVy5bnkl4KqmKmn73hf8YAbhvCFGtW8F9Kd55hQ=;
+        b=dySvCCe6kFxaxuGuZ1wnX8+3E3fyyWs4mt+l0rdw1qvBlp1MFnG6/5cX3gdQfdWj9H
+         9kYasP5Hr+3pg/UpGy9WgRSlezidI9iSDogOsqwbPxQAJWV0fS/9TOsOMcCoXYXGxCoQ
+         3qOQlIOFT4QaKwhSClAkbuNf8/uUrF72f5VZ058OalAuvFEP6Z3o1yRwnzW/wqPUJv45
+         lxiJt+UftkQaHRMVky8nrKI7UfWajvb5/v3fKB6TsxzLjS9esL/mF1kOnmghtNmqurSR
+         spZ8zkamu11+eXBJkCWwtAbhTcomlfSyFKa9S5+Pr+1txFoG2+j3zu3SB90v26FqNAmR
+         7svw==
+X-Forwarded-Encrypted: i=1; AJvYcCXlbhS7UBNPCGK15lE2XjXzM0GHA1lLg/F15DP7cyGXqVNZrXUynrfq04jFfbVtJWPXtVF+765AhZ6wZGcJ9Een@lists.infradead.org
+X-Gm-Message-State: AOJu0YzQujjQbZtO6GhDZapG+YHKI2XZ0o3Jq4vtnbE0V7/V5IXyBbAz
+	kXKv5u5f/gZdGBuU7uIR+qALrRtAlWiDtfKTUwnnaGGOpIjINfynC1fvp2mer3WZt3T7I1GwjFW
+	yDWm3zw==
+X-Google-Smtp-Source: AGHT+IFPwqe8zheAvHey8s0KE1DDyf7guFt8iRaY4PC5Rd3QBhN41iFPFY93hbtWc17LP1SCCWCPuinQiL0=
+X-Received: from pjbnt20.prod.google.com ([2002:a17:90b:2494:b0:31e:40d4:1d0e])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:903:2342:b0:235:ea29:28e9
+ with SMTP id d9443c01a7336-23e25764c41mr424140005ad.38.1753204825492; Tue, 22
+ Jul 2025 10:20:25 -0700 (PDT)
+Date: Tue, 22 Jul 2025 10:20:24 -0700
+In-Reply-To: <20250721-pmu_event_info-v4-6-ac76758a4269@rivosinc.com>
+Mime-Version: 1.0
+References: <20250721-pmu_event_info-v4-0-ac76758a4269@rivosinc.com> <20250721-pmu_event_info-v4-6-ac76758a4269@rivosinc.com>
+Message-ID: <aH_IWJUFVODUGuva@google.com>
+Subject: Re: [PATCH v4 6/9] KVM: Add a helper function to validate vcpu gpa range
+From: Sean Christopherson <seanjc@google.com>
+To: Atish Patra <atishp@rivosinc.com>
+Cc: Anup Patel <anup@brainfault.org>, Will Deacon <will@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Mayuresh Chitale <mchitale@ventanamicro.com>, 
+	linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, kvm@vger.kernel.org, 
+	kvm-riscv@lists.infradead.org
+Content-Type: text/plain; charset="us-ascii"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250722_102026_794473_47101886 
+X-CRM114-Status: GOOD (  15.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,148 +92,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-A value of 10 is not valid for "mediatek,pull-down-adv" and
-"mediatek,pull-up-adv" properties which have defined values of 0-3. It
-appears the "10" was written as a binary value. The driver only looks at
-the lowest 2 bits, so the value "10" decimal works out the same as if
-"2" was used.
+On Mon, Jul 21, 2025, Atish Patra wrote:
+> diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
+> index 3bde4fb5c6aa..9532da14b451 100644
+> --- a/include/linux/kvm_host.h
+> +++ b/include/linux/kvm_host.h
+> @@ -1387,6 +1387,8 @@ static inline int kvm_vcpu_map_readonly(struct kvm_vcpu *vcpu, gpa_t gpa,
+>  
+>  unsigned long kvm_vcpu_gfn_to_hva(struct kvm_vcpu *vcpu, gfn_t gfn);
+>  unsigned long kvm_vcpu_gfn_to_hva_prot(struct kvm_vcpu *vcpu, gfn_t gfn, bool *writable);
+> +int kvm_vcpu_validate_gpa_range(struct kvm_vcpu *vcpu, gpa_t gpa, unsigned long len,
+> +				bool write_access);
+>  int kvm_vcpu_read_guest_page(struct kvm_vcpu *vcpu, gfn_t gfn, void *data, int offset,
+>  			     int len);
+>  int kvm_vcpu_read_guest_atomic(struct kvm_vcpu *vcpu, gpa_t gpa, void *data,
+> diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
+> index 222f0e894a0c..11bb5c24ed0d 100644
+> --- a/virt/kvm/kvm_main.c
+> +++ b/virt/kvm/kvm_main.c
+> @@ -3361,6 +3361,27 @@ int kvm_vcpu_write_guest(struct kvm_vcpu *vcpu, gpa_t gpa, const void *data,
+>  }
+>  EXPORT_SYMBOL_GPL(kvm_vcpu_write_guest);
+>  
+> +int kvm_vcpu_validate_gpa_range(struct kvm_vcpu *vcpu, gpa_t gpa, unsigned long len,
+> +				bool write_access)
 
-Fixes: cd894e274b74 ("arm64: dts: mt8183: Add krane-sku176 board")
-Fixes: 19b6403f1e2a ("arm64: dts: mt8183: add mt8183 pumpkin board")
-Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
----
-This is just a few of the warnings related to mt8183-pinctrl... Mediatek 
-is #1 for DT warnings on arm64. And by #1, I mean worst. :( It would be 
-nice to see some progress on fixing them. Otherwise, seeing new Mediatek 
-bindings rather than fixing the existing stuff makes me grumpy.
+Please no.  "validate" is way too ambiguous, the result is inherently unstable,
+I don't want to add vCPU-scoped APIs (too much x86-centric baggage), taking an
+arbitrary range without a user adds complexity for no benefit, and this is basically
+the same as kvm_is_gpa_in_memslot(), but with write requirements.
 
- arch/arm64/boot/dts/mediatek/mt8183-kukui.dtsi  | 14 +++++++-------
- arch/arm64/boot/dts/mediatek/mt8183-pumpkin.dts | 14 +++++++-------
- 2 files changed, 14 insertions(+), 14 deletions(-)
+I would much prefer to add a simpler helper to complement kvm_is_gpa_in_memslot(),
+that makes it as obvious as possible exactly what is being "validated", e.g.
 
-diff --git a/arch/arm64/boot/dts/mediatek/mt8183-kukui.dtsi b/arch/arm64/boot/dts/mediatek/mt8183-kukui.dtsi
-index 400c61d11035..fff93e26eb76 100644
---- a/arch/arm64/boot/dts/mediatek/mt8183-kukui.dtsi
-+++ b/arch/arm64/boot/dts/mediatek/mt8183-kukui.dtsi
-@@ -580,7 +580,7 @@ pins-cmd-dat {
- 		pins-clk {
- 			pinmux = <PINMUX_GPIO124__FUNC_MSDC0_CLK>;
- 			drive-strength = <MTK_DRIVE_14mA>;
--			mediatek,pull-down-adv = <10>;
-+			mediatek,pull-down-adv = <2>;
- 		};
+diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
+index 3bde4fb5c6aa..29be907d28b0 100644
+--- a/include/linux/kvm_host.h
++++ b/include/linux/kvm_host.h
+@@ -1915,6 +1915,14 @@ static inline bool kvm_is_gpa_in_memslot(struct kvm *kvm, gpa_t gpa)
+        return !kvm_is_error_hva(hva);
+ }
  
- 		pins-rst {
-@@ -609,13 +609,13 @@ pins-cmd-dat {
- 		pins-clk {
- 			pinmux = <PINMUX_GPIO124__FUNC_MSDC0_CLK>;
- 			drive-strength = <MTK_DRIVE_14mA>;
--			mediatek,pull-down-adv = <10>;
-+			mediatek,pull-down-adv = <2>;
- 		};
- 
- 		pins-ds {
- 			pinmux = <PINMUX_GPIO131__FUNC_MSDC0_DSL>;
- 			drive-strength = <MTK_DRIVE_14mA>;
--			mediatek,pull-down-adv = <10>;
-+			mediatek,pull-down-adv = <2>;
- 		};
- 
- 		pins-rst {
-@@ -633,13 +633,13 @@ pins-cmd-dat {
- 				 <PINMUX_GPIO33__FUNC_MSDC1_DAT2>,
- 				 <PINMUX_GPIO30__FUNC_MSDC1_DAT3>;
- 			input-enable;
--			mediatek,pull-up-adv = <10>;
-+			mediatek,pull-up-adv = <2>;
- 		};
- 
- 		pins-clk {
- 			pinmux = <PINMUX_GPIO29__FUNC_MSDC1_CLK>;
- 			input-enable;
--			mediatek,pull-down-adv = <10>;
-+			mediatek,pull-down-adv = <2>;
- 		};
- 	};
- 
-@@ -652,13 +652,13 @@ pins-cmd-dat {
- 				 <PINMUX_GPIO30__FUNC_MSDC1_DAT3>;
- 			drive-strength = <6>;
- 			input-enable;
--			mediatek,pull-up-adv = <10>;
-+			mediatek,pull-up-adv = <2>;
- 		};
- 
- 		pins-clk {
- 			pinmux = <PINMUX_GPIO29__FUNC_MSDC1_CLK>;
- 			drive-strength = <8>;
--			mediatek,pull-down-adv = <10>;
-+			mediatek,pull-down-adv = <2>;
- 			input-enable;
- 		};
- 	};
-diff --git a/arch/arm64/boot/dts/mediatek/mt8183-pumpkin.dts b/arch/arm64/boot/dts/mediatek/mt8183-pumpkin.dts
-index dbdee604edab..7c3010889ae7 100644
---- a/arch/arm64/boot/dts/mediatek/mt8183-pumpkin.dts
-+++ b/arch/arm64/boot/dts/mediatek/mt8183-pumpkin.dts
-@@ -324,7 +324,7 @@ pins_cmd_dat {
- 		pins_clk {
- 			pinmux = <PINMUX_GPIO124__FUNC_MSDC0_CLK>;
- 			drive-strength = <MTK_DRIVE_14mA>;
--			mediatek,pull-down-adv = <10>;
-+			mediatek,pull-down-adv = <2>;
- 		};
- 
- 		pins_rst {
-@@ -353,13 +353,13 @@ pins_cmd_dat {
- 		pins_clk {
- 			pinmux = <PINMUX_GPIO124__FUNC_MSDC0_CLK>;
- 			drive-strength = <MTK_DRIVE_14mA>;
--			mediatek,pull-down-adv = <10>;
-+			mediatek,pull-down-adv = <2>;
- 		};
- 
- 		pins_ds {
- 			pinmux = <PINMUX_GPIO131__FUNC_MSDC0_DSL>;
- 			drive-strength = <MTK_DRIVE_14mA>;
--			mediatek,pull-down-adv = <10>;
-+			mediatek,pull-down-adv = <2>;
- 		};
- 
- 		pins_rst {
-@@ -377,13 +377,13 @@ pins_cmd_dat {
- 				 <PINMUX_GPIO33__FUNC_MSDC1_DAT2>,
- 				 <PINMUX_GPIO30__FUNC_MSDC1_DAT3>;
- 			input-enable;
--			mediatek,pull-up-adv = <10>;
-+			mediatek,pull-up-adv = <2>;
- 		};
- 
- 		pins_clk {
- 			pinmux = <PINMUX_GPIO29__FUNC_MSDC1_CLK>;
- 			input-enable;
--			mediatek,pull-down-adv = <10>;
-+			mediatek,pull-down-adv = <2>;
- 		};
- 
- 		pins_pmu {
-@@ -401,13 +401,13 @@ pins_cmd_dat {
- 				 <PINMUX_GPIO30__FUNC_MSDC1_DAT3>;
- 			drive-strength = <6>;
- 			input-enable;
--			mediatek,pull-up-adv = <10>;
-+			mediatek,pull-up-adv = <2>;
- 		};
- 
- 		pins_clk {
- 			pinmux = <PINMUX_GPIO29__FUNC_MSDC1_CLK>;
- 			drive-strength = <8>;
--			mediatek,pull-down-adv = <10>;
-+			mediatek,pull-down-adv = <2>;
- 			input-enable;
- 		};
- 	};
--- 
-2.47.2
-
++static inline bool kvm_is_gpa_in_writable_memslot(struct kvm *kvm, gpa_t gpa)
++{
++       bool writable;
++       unsigned long hva = gfn_to_hva_prot(kvm, gpa_to_gfn(gpa), &writable);
++
++       return !kvm_is_error_hva(hva) && writable;
++}
++
+ static inline void kvm_gpc_mark_dirty_in_slot(struct gfn_to_pfn_cache *gpc)
+ {
+        lockdep_assert_held(&gpc->lock);
 
