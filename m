@@ -4,68 +4,183 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89278C83F27
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 05:34:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2997C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 05:48:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:To:
-	Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sVMXmYryI27X+k6C+3JPZc/OW08qobGZWXfOZhg3D5E=; b=Fn0pwV8a+nUunqDcDg3t0otanu
-	3fzeTqey35kN6K3b7yIJA4nUk4EK0EqeqGDwd3530L7R0edRLb15gtGc+DeMHxmmiwMoDcrV84FYj
-	W4WLLw92RAJRSoSswcKIhZvdQFJ+rqEWEXViq4N794jlxOawiAnsTkGkhpsqCxHyiBK8xbsIpmOA+
-	EzFpr7lBnWukG2SVqAgAlsMfVF2S0zOUUHFErdZUY/+IfOXueRLO1lyZhbkZ4k+Mch8UZ7KHRS4hX
-	j4wuf9Xh/wO6eSoYUiq823XEt+oOXS6+Gvnfvkshr1/aGCOtOniu+LVJJkbTdOaRWk2Ls7eXEcYPY
-	Kx8LAG8A==;
+	bh=nfwOWGtBPTwXPum0toKv42azmtvawkn4PnIXRnVwLyE=; b=h7OGAiuQh3ow5xOVdZ/GOEljaA
+	I+xKuLO4y0XCcSxCH4WbLRjvA3Hn06lx8M/6kVX3pTyUn0h1soeeAEPAf37VSteUJFyXy+yhTDMp7
+	yCN5EgcmayJ8zHoFoTcqfvPR5Faso6d1O8e48QvjE0pSeAPmLCbLZrMfONQMS2xrm1HqsjnaNTs/j
+	5oHNvi7YxE7TePiIIR3R6HtvxSmlnxDoCDqIdOABXsYC1jDSMfah2S1iTvxbkGvCtfSzkkUjlbdA8
+	q6NBYAe4ZHjSHf4ANkBKC8YeeBsrw9wJX9HXvrziidDDjjzByeUtp29Y5UkyyZCewZs4u6JEjsSIF
+	tu5ETuOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ue5e7-00000001LHS-0lrc;
-	Tue, 22 Jul 2025 05:34:35 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1ue5r4-00000001M5m-2KcO;
+	Tue, 22 Jul 2025 05:47:58 +0000
+Received: from mail-japanwestazlp170120003.outbound.protection.outlook.com ([2a01:111:f403:c406::3] helo=OS8PR02CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ue5ba-00000001L2y-0Gih
+	id 1ue5nj-00000001LuD-3at3
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Jul 2025 05:31:59 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A1260418A4
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Jul 2025 05:31:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 81D1DC4CEF1
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Jul 2025 05:31:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753162317;
-	bh=jwCZJ228g/XxK4rmoBUGmvkBnia7AFUz1V6Ln7YFp5U=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=Hv5st3PjM58WLE8Odte8yZY81vZOwHHnrXOr3YySyB+12261yynaGpgZ6wOt6uPW5
-	 BTKzBGEGKSlH/22i6WyauEwKQp3gfmNitrUxcyp4M5UffgqUwaYYCiJGbw0izQvscq
-	 0q3TKcFNWFgEMK3oQtwqdgYobtT/FOvGqQ/3fIwn3Bb1jegpgOQkjde8weW5SaV618
-	 VBevfN4WIyH1rYuz4h3O0H0tm9uNhzPUNAGR6zQikQ1XXpTy+BNRDjO2BXedbMNVNX
-	 3gjkLVx5ZxbQiXcVaHbQEKxbhrrl5p459YjnghbmaOCgKG+FfBjO+0S7LIgwBpD8wq
-	 Vh46XQpLyzqYw==
-Received: by mail-lf1-f45.google.com with SMTP id 2adb3069b0e04-553b5165cf5so6005933e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Jul 2025 22:31:57 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCVUNUKdhfuW0Ww3GIysnSYcxO1PxwEUKl07eRT9ahSuHBElUwX205IpFG24qMFc5oI/lqK3/GV4CPiBI7CTKOaY@lists.infradead.org
-X-Gm-Message-State: AOJu0YwEXRxGF88gzvfJpjXdnGeDiUf5Uj46zng4tteCBXI1Cj4uLHZW
-	RTA/5XQkInSrJit0TB2m4a8r1L55pgoG4NZ1xCceEN3p1R08/Q2pUQZgg3+X82rKQ3ZjaE5rwfj
-	NmnAlQHwASPRx17MuvZW/S8/ZY5T85kI=
-X-Google-Smtp-Source: AGHT+IFdYr4M4GzDek3WNNiCy5w9d4Vlxjdh/+71vUadHqoKtocuI7NncX81ueO448QUkaNGSNUTzPtI2nxXvI8aJro=
-X-Received: by 2002:a05:6512:131a:b0:55a:32c4:8716 with SMTP id
- 2adb3069b0e04-55a32c48fe8mr4590748e87.28.1753162315823; Mon, 21 Jul 2025
- 22:31:55 -0700 (PDT)
+	Tue, 22 Jul 2025 05:44:33 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=UttJ3wUBXboixDJ92werW7UE3v+WY1sw35DaDiWotQvjVloQxuoaUl2MEaM99Vb16zbkEw1PaWug6FA/WYW3+G6fNivxT6+3E8JnCvr4Ga5TFS4m4oeg0XVrckjAMDpIfsJtddcu0GR5MTofZZEI/TmbBbH6Ai7RAEj69uiFy4nRG3C1QeFroJwz2duDLvG5a9Hd+lrD4ZVud1XfVWHlQtuDhtbhi33uIfZYy13KzQZdTVEdfhWaGRvaAVmtVMe1kWWv1S8jbqBsYYS0/hlSEqavx6ft0iHIZppukY1ToXaJYU2crhO8FazNdP5H14rcX+GbSHHYAoMrvDl4l1LB0w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=nfwOWGtBPTwXPum0toKv42azmtvawkn4PnIXRnVwLyE=;
+ b=gsomdR8YXplodM32SInvUTolDOpjomCxGeHQ2I/qFeFHlxG/GBeWEpO4zsCm3wCR4eyL7c19KsO7OUisLfyzSN+ZyC/2gw+POp84MSfKOVgw+pZNueftfB2iU/rDQM+9QrZqe+Qrgf7Yvzwt0gtBVBGW+9Oejn9RY4fC+aDwTKRtAmCyHp0lpUDizztDKOE9kZ5HCJG08o5X/MKwW+NDVgKOmMT6wiaoZxGMMySztTviILBtB31DeYxJntp+a3r3nwtzoqCWYIDFWAm2pDV5T5uwH40ciACenOCyQ+q8x+Ox3T9g5CaChwNoUuD5nDKDH6oC0B0elxHBIHMnVexVRQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=aspeedtech.com; dmarc=pass action=none
+ header.from=aspeedtech.com; dkim=pass header.d=aspeedtech.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aspeedtech.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=nfwOWGtBPTwXPum0toKv42azmtvawkn4PnIXRnVwLyE=;
+ b=YjBQruUAXRL/UGeMJXfX5FAOJb8+JhUoHUFLlJ8bZDA6usRDFBnvIXOUtvuMjcwq+QDf+Yp8Ekn1BNcME2Jw6pCv9lXjcU9W3h5DBg7Ca8mGN1PGc3yaZp4X83UOnh666Tc3FVh+Ca1TdBswp0bJxpoOz2gtyAPboquB/cdwoEAhZhKz5TCYBPXqY7NXppJrQ6ejInw6YDkTE8+r6yT/CDbVdxiCB2NUCuN02GV+vAHt3mKfgklGFj7JtMB9g3C14m+7ZcgOh+UpeQ7sf/tsGtUMAlZi2WAy56XwpnoStSNI5uEoiXTxqMhYhJg8iTvQRHebDFomDiHT4v28UswFeQ==
+Received: from SEYPR06MB5134.apcprd06.prod.outlook.com (2603:1096:101:5a::12)
+ by SEYPR06MB8067.apcprd06.prod.outlook.com (2603:1096:101:2dc::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8943.30; Tue, 22 Jul
+ 2025 05:29:04 +0000
+Received: from SEYPR06MB5134.apcprd06.prod.outlook.com
+ ([fe80::6b58:6014:be6e:2f28]) by SEYPR06MB5134.apcprd06.prod.outlook.com
+ ([fe80::6b58:6014:be6e:2f28%7]) with mapi id 15.20.8943.028; Tue, 22 Jul 2025
+ 05:29:03 +0000
+From: Jacky Chou <jacky_chou@aspeedtech.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+CC: "bhelgaas@google.com" <bhelgaas@google.com>, "lpieralisi@kernel.org"
+	<lpieralisi@kernel.org>, "kwilczynski@kernel.org" <kwilczynski@kernel.org>,
+	"mani@kernel.org" <mani@kernel.org>, "robh@kernel.org" <robh@kernel.org>,
+	"krzk+dt@kernel.org" <krzk+dt@kernel.org>, "conor+dt@kernel.org"
+	<conor+dt@kernel.org>, "joel@jms.id.au" <joel@jms.id.au>,
+	"andrew@codeconstruct.com.au" <andrew@codeconstruct.com.au>,
+	"linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
+	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "openbmc@lists.ozlabs.org"
+	<openbmc@lists.ozlabs.org>, "linux-gpio@vger.kernel.org"
+	<linux-gpio@vger.kernel.org>, "linus.walleij@linaro.org"
+	<linus.walleij@linaro.org>, "p.zabel@pengutronix.de"
+	<p.zabel@pengutronix.de>, BMC-SW <BMC-SW@aspeedtech.com>
+Subject: [PATCH v2 03/10] dt-bindings: PCI: Add ASPEED PCIe RC support
+Thread-Topic: [PATCH v2 03/10] dt-bindings: PCI: Add ASPEED PCIe RC support
+Thread-Index: AQHb+smJ4A6F7+Uu40Oh+NzeT7dm5Q==
+Date: Tue, 22 Jul 2025 05:29:03 +0000
+Message-ID: <SEYPR06MB5134F7C1CEA391249D0E1AB79D5CA@SEYPR06MB5134.apcprd06.prod.outlook.com>
+References: <20250715034320.2553837-1-jacky_chou@aspeedtech.com>
+ <20250715034320.2553837-4-jacky_chou@aspeedtech.com>
+ <20250716-watchful-enigmatic-condor-0fc6b3@krzk-bin>
+ <SEYPR06MB5134F8732785F280CB4339309D5DA@SEYPR06MB5134.apcprd06.prod.outlook.com>
+ <61ced029-987e-4484-9a0a-7c911518ffd8@kernel.org>
+In-Reply-To: <61ced029-987e-4484-9a0a-7c911518ffd8@kernel.org>
+Accept-Language: zh-TW, en-US
+Content-Language: zh-TW
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=aspeedtech.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: SEYPR06MB5134:EE_|SEYPR06MB8067:EE_
+x-ms-office365-filtering-correlation-id: 0497dfc1-6201-439e-ab81-08ddc8e0abda
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024|38070700018;
+x-microsoft-antispam-message-info: =?utf-8?B?Undqc1JDL00wa0pMcTdVeVVRYVlpVWZaMi94QU5oQkE0cmNNanNRRE1JaSt6?=
+ =?utf-8?B?WUtTVEh4YXdDMVJCQ2Q0SUdpcHczWFdiSEQ4SEJzZlFtNmtCTDdBbXBORUd1?=
+ =?utf-8?B?MDFwbittand1ajJRQThKUlkwbTFwaU5VQ3pHWU85aFI0VmRxa3Jscm5kSWhF?=
+ =?utf-8?B?bmNIZHl5RnBOVW1MMTVwV0pURG43UDc2ZEdhL3JTdngyTWZhMVQwaHFabkky?=
+ =?utf-8?B?QmdUT05LTkQxU2JPU3E4QXFZRkx3Yk5lYlQwNVdhNzNhbGtsMk1QcTFiT3lo?=
+ =?utf-8?B?MTJvVTIvbjE2UzRpbnU4Uy9MckkrMmV3bkk4bUIybEQvOTBOVmFVWmhmMlNX?=
+ =?utf-8?B?dTZJUy9Cd1Bod2Q3Yk45U0h5bmluU1ZQQXdJbkp1NlNiclhNUHJSVk5KL01h?=
+ =?utf-8?B?ZkZ3SC92YlloVzE2SFBIeHhLOFE0Y1FWYnl5ZjNKakZYRjFNSENoTGRscFpR?=
+ =?utf-8?B?SkFhVEU5bVJXK2NkVTduMkFNRkJYdm1NenUxdll4L0cxNkNwVVAvRGNydDBN?=
+ =?utf-8?B?MXc2b0V6UUFUTVcxNkVXV1FQc3pBN3NxTWh5Q0dwd3Q2djNoMTJsVVEvRi96?=
+ =?utf-8?B?R1Z3WkRXTXF4K1JJRWc2ZElSUXRqaGVZcWRld0xzRllKMXFnOEFBQXhDRnVz?=
+ =?utf-8?B?WVY5bEd1QkRSN1U4bFdXUzNJTllsYkJwakdWYnFtTytwVStZTWR4TytGVVNs?=
+ =?utf-8?B?WHBocVJwZ3QvZk10K3N6NEhwRnVEaHlsaGN5QnR2YmIyKysrbHhqOThjNGpu?=
+ =?utf-8?B?dk1MbmtIVmFXMzBpa29CMHUybkJBTi8yaEdMdzB0empCK1FFMXkwdm9IZitB?=
+ =?utf-8?B?SUpkMXVXb2V2WEJvQ2RkUjd5OURXNjFpV2c5NzZLdGdjTUY4cVBCWmtKUEJJ?=
+ =?utf-8?B?allQdWRIVHRCQUg4WnRabjExVnpGMmR6ZE1hT2dPT0h4ZXdnYlRkMm5tQVlT?=
+ =?utf-8?B?WlI1ZXRLSDlwaTBjREV4K3ZwdERvbzIvMjJkZFFsN0ROb25OM0doOGFDcWxJ?=
+ =?utf-8?B?QWx1cHB5UnNDbGVTOGcyM2pHdWxrdEZpV2pyc1pXWmRUOWZUZzJRLzZLZmlU?=
+ =?utf-8?B?dHRDQklzTGlmTkdraUwvQXlxQTMwdzBqSWovM0dJWTZ2dUtKNlUvR3F3Wk1q?=
+ =?utf-8?B?VFNFYlF4N1JOL0ovV2lhdjM3aUVnU3lGVHRzbkFSVDFiMUROZ1hIT3JPOW1u?=
+ =?utf-8?B?dXErT05kU1JaVlVQUWJTdXhndGVqWkJiQ2IzUTJ3QTJWS0ZxZFRLVHpQWHhq?=
+ =?utf-8?B?L3hsNVVFVkMyU1ZDb1dBczRmRFB3Z3lsOUJzS011VjlHckFmeXFmd1BSVHBF?=
+ =?utf-8?B?bFFLR2hadG9ZL0t0ZGwrTmw0aS80eFRxM3V5dUJKd2V0Y1MxWWlQVkEvb1dp?=
+ =?utf-8?B?emhBUkhLaU5UWnZhbFBFMTN4dEtydStyL0RVTE56cmtiM3I3M0NSNndCOTNs?=
+ =?utf-8?B?eVBObDVnWE1HeE9tOW9uK0V5Y1VGN3ZDZGdXR1lUZjd1em5tMG9wekFRTFB6?=
+ =?utf-8?B?WnNIQnNsREFYUEhrcWNleDNWdXR5SEVHdW5Nb1l4V0xwbSt0U0FDL3RSUFda?=
+ =?utf-8?B?c2FSWVZGNHNNN0JxS0JsY0k2cDRvSGMyWTFWQmthS2VyWXNhdVFPTEUvcndU?=
+ =?utf-8?B?UUZhcHpETW82ajdUdUMzWWFCQWJrR0F3MHQxdEEwN2JWVWVONnlNVVBTMm5Q?=
+ =?utf-8?B?bkkvenVlMzNFZTJ1QXBCOFNhck8zZHU5WGtlcCt5OTRJdGZqN1EyVTNKVGYx?=
+ =?utf-8?B?UTNTUTVoSHZqUWlQQllQVnFpMzFwR0xDSEhsOU92NEU3REpJSUpOOGRNUldS?=
+ =?utf-8?B?cEp1dC9XblhRMEkvNVJnVnlWU1VHa2p4UkNyeENyNlFpVjJJS0Z0bVUzSmVr?=
+ =?utf-8?B?M3o5TTRkNWpkYWR5bGZIcEExNzJlZjUvVE1BMUZrNXZzOTE5ci9tZnpSa2la?=
+ =?utf-8?B?T2F2aC9LODEzUVhic2xCUFcvL2pKSFVhRy9YejYxbG00STNhb2NwYmNXZTkw?=
+ =?utf-8?B?by9lU1pOdU5nPT0=?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:zh-tw;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SEYPR06MB5134.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024)(38070700018);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?czUwZUdhSm5rd2NKODVPQS9sOTZhY2dUNzVQa1FZc2JqNnVrdzZ1eDFRc0Nz?=
+ =?utf-8?B?VGxSU3BFWWRRY29ZSzRLQXQ1VDJvOXRod01GMjZDZll3S0JKSEpDS1ZMK0NP?=
+ =?utf-8?B?Sk9zbHc5SlB4eTM5N01KWWhOSGFwWXQrWExLU1lpK2Z5VHdaYzFzQkxWd3ZV?=
+ =?utf-8?B?b3E5K3JQdVlQTWdoQkhvRldjUVVuNVRYMnI4Sjk0a2RpWnArOEU1SWpEeHZh?=
+ =?utf-8?B?a1NLNGFySDE1a0RLMXFGa2VqVW5sT1J2a0lvS3lhNWNMLzN5MzhQTUM0MnVi?=
+ =?utf-8?B?OENPRTlzUHhsRm9PQURBV3NwVHJlbGNQcFltdWg4YXRyN1RRc0pVbFV4V2FJ?=
+ =?utf-8?B?NFdtNTJocmlDYVZIS2QvUzJsdS9OdThpQitTcHJrQVVESFdMK2FFTTZXMVVS?=
+ =?utf-8?B?UGlDNjJYa29PZ1dQVmx0R2VObUZBU2NkeG1zVWhDcGU3YTI5bytBWkFweWNY?=
+ =?utf-8?B?OTdnSVU2Y0poRTdVRVNET0hGN25EUG9jNlAyUmp5eG5jV0xDakc0ZHIzZDlL?=
+ =?utf-8?B?dmxidXV2S3BxV2JvQmgxZW5MR3VoSUJjK1VnSWt4UXdSVFNsTWxpWVZsRG5j?=
+ =?utf-8?B?VFhMdU5YbForeDBGbTJ4K1U4SUJwZHFlYTIyVjBGNDdmSUk2cjFPZlhyMkI5?=
+ =?utf-8?B?MU5qK2lEZmk5bldhZG9vSVErODN6NHVXTnBicE1waTYvVVZDZUljOUEzQ2NZ?=
+ =?utf-8?B?N0JpVDQ4ay9HUUhSalhwK0JrV2pVWTFQM3Z2VXFJSFBTYkhwVHlVZGszd0ZI?=
+ =?utf-8?B?Yis3OEdOenpodStWdVFkNWlMaE9pYWppSzdWVjEvcngwTWNFT3lFNEsrSFpl?=
+ =?utf-8?B?NlR2K1VrakgwMC9zeDI4dk51NlAwcEtBc1pBbnJJbk1DUEk3YWJyMUc4N21r?=
+ =?utf-8?B?bnRmaHMzNkloaC9OYi9uVFFRdllyM1ozRE1JM1hwb1pJdGZOSjkyV1hyZGJH?=
+ =?utf-8?B?NCt0VWpjS3ArVlJSeDdlUDc3T3dVSDFIMzRDQjRDbHg1TUk5dENoQ3FXdVRE?=
+ =?utf-8?B?b3Z0dDVJM3NhMDgwdHFKTTJ6NFA2VmdhbVFaVXd3cDcwd09xMXFUa0d5UjJk?=
+ =?utf-8?B?YzR6bU02eHhXMmZWa2hqbmRvU2Q1Y3NIYi9VZElWK2plaFVjU1B5cTh2MkJV?=
+ =?utf-8?B?bFZaZktpV1AyenozMXMvRCt2bFRwb2RmY0Rxang4L1BuMDNGeWZtbkhwRVlX?=
+ =?utf-8?B?WEdQb1VmZDlvZEQ1RUFLYTk2VksxRUZBQURuUW1tbDRNVFE5RE0xWlFMcjZ3?=
+ =?utf-8?B?YUtnRzVUMTMrNmNmK2gwVWlFRDVqeUN2QzNydnNTTG9WWVZpVkZ3Nlo0Wklu?=
+ =?utf-8?B?UFc4SWxQNUVPWTJDd3dyZjhPZVpBZHJKdkZIcWZHL09ib05YTzhMb3ZJM21h?=
+ =?utf-8?B?Z09oR0E5bHliRVJZYjd6c2RWdGQzL1lrNjUwbFQ0bjRCV2cxdWpLYk1PRXJm?=
+ =?utf-8?B?Wi8wdmVNS1Q0Mmp1MERtOE1PZVpPVDhlSVpCNzFrZEZ5a1R2aXJEUGp0R0Zu?=
+ =?utf-8?B?ZDNRejE1Mno3YXJPb2FvcG9CbU4rNGpNd01zeUMxdktxTDNybW8xSTdTZFor?=
+ =?utf-8?B?VkZ5dGNNS1hwY2ppalhhbEVCSE5qdkZMWlgzUmdiQzhZZis3dXZHSVhzZmVI?=
+ =?utf-8?B?ZnZ0ZjBFSnAzYmdYNS9MZXFZb01idERhTGp0TmpJVDR4aGVONmZJREFwT2VJ?=
+ =?utf-8?B?M0lXSm10bVY5cnp4Q1R4dUdLQ3JHUFExcStJVHZFbitJbElVbG5aYS9HeWE0?=
+ =?utf-8?B?VTVGYWhIRDdFckRsc1VLUmFNc25uaDlPOEdpY0hUNVJOaFp4UjVNb216ZUdo?=
+ =?utf-8?B?dXd5SHg1N2JTYk4ySWVBUmw5ZitPeEJDUFo4cFR4SEkwdlJ1dFJyWGQxWk91?=
+ =?utf-8?B?V2IzUStla0QwbWNlWmlxei9LS3lMVHEyMkxad0VobnhZV1FmUXZpckV0d3cw?=
+ =?utf-8?B?QUkzV05lYkZpaWJsSE1ZS1JXRFp1ZzFFcVpscW9XQkZTQ0tnanhBdmhkd3J3?=
+ =?utf-8?B?cmRiYUNZY0tZTm1xOHFPTmtiM0NtZE5jTXhXcFFLd0N0M05HY1F2R0Q4MEtU?=
+ =?utf-8?B?VzJpM2FmRHFDaHk1V3FBcXJ4SmJyU1hhYnJ0UDFIMkdhK2dCUVhuY211SHkr?=
+ =?utf-8?Q?EprOpVBkrWIONoiy13nyhC3hf?=
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-References: <20250718142814.133329-1-ada.coupriediaz@arm.com> <aH5MPwJJzFZxOtfr@willie-the-truck>
-In-Reply-To: <aH5MPwJJzFZxOtfr@willie-the-truck>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Tue, 22 Jul 2025 15:31:44 +1000
-X-Gmail-Original-Message-ID: <CAMj1kXG40=hymhdL1GM0dDfp3F_-TzYqzkda3DY1CSRGAhme+g@mail.gmail.com>
-X-Gm-Features: Ac12FXxsehLts9bXJJL5Ho3Iq_Q0lDwcTFs75oe7u7MscSAhEQxKVlgGauWooSk
-Message-ID: <CAMj1kXG40=hymhdL1GM0dDfp3F_-TzYqzkda3DY1CSRGAhme+g@mail.gmail.com>
-Subject: Re: [PATCH] arm64/entry: Mask DAIF in cpu_switch_to(), call_on_irq_stack()
-To: Will Deacon <will@kernel.org>, Sami Tolvanen <samitolvanen@google.com>
-Content-Type: text/plain; charset="UTF-8"
+X-OriginatorOrg: aspeedtech.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: SEYPR06MB5134.apcprd06.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0497dfc1-6201-439e-ab81-08ddc8e0abda
+X-MS-Exchange-CrossTenant-originalarrivaltime: 22 Jul 2025 05:29:03.7631
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 43d4aa98-e35b-4575-8939-080e90d5a249
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: l8sTpw/rnmDH6e4PjHs5G7H+0OYWBpQeyteuldbRfwoLIEMjmc+qCzqKcquPZavGKsHGOTucVpqDCgHfarawV0tJB2vjTwPosr8JLQyN//0=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEYPR06MB8067
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250721_223158_150038_C503ADFD 
-X-CRM114-Status: GOOD (  40.87  )
+X-CRM114-CacheID: sfid-20250721_224432_083533_44245B32 
+X-CRM114-Status: GOOD (  14.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,152 +192,18 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, Catalin Marinas <catalin.marinas@arm.com>, Mark Brown <broonie@kernel.org>, Cristian Prundeanu <cpru@amazon.com>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-(cc Sami)
-
-On Tue, 22 Jul 2025 at 00:18, Will Deacon <will@kernel.org> wrote:
->
-> On Fri, Jul 18, 2025 at 03:28:14PM +0100, Ada Couprie Diaz wrote:
-> > `cpu_switch_to()` and `call_on_irq_stack()` manipulate SP to change
-> > to different stacks along with the Shadow Call Stack if it is enabled.
-> > Those two stack changes cannot be done atomically and both functions
-> > can be interrupted by SErrors or Debug Exceptions which, though unlikely,
-> > is very much broken : if interrupted, we can end up with mismatched stacks
-> > and Shadow Call Stack leading to clobbered stacks.
-> >
-> > In `cpu_switch_to()`, it can happen when SP_EL0 points to the new task,
-> > but x18 stills points to the old task's SCS. When the interrupt handler
-> > tries to save the task's SCS pointer, it will save the old task
-> > SCS pointer (x18) into the new task struct (pointed to by SP_EL0),
-> > clobbering it.
-> >
-
-In this case, the 'interrupt handler' is not the entry code, but
-call_on_irq_stack(), right?
-
-> > In `call_on_irq_stack()`, it can happen when switching from the task stack
-> > to the IRQ stack and when switching back. In both cases, we can be
-> > interrupted when the SCS pointer points to the IRQ SCS, but SP points to
-> > the task stack. The nested interrupt handler pushes its return addresses
-> > on the IRQ SCS. It then detects that SP points to the task stack,
-> > calls `call_on_irq_stack()` and clobbers the task SCS pointer with
-> > the IRQ SCS pointer, which it will also use !
-> >
-> > This leads to tasks returning to addresses on the wrong SCS,
-> > or even on the IRQ SCS, triggering kernel panics via CONFIG_VMAP_STACK
-> > or FPAC if enabled.
-> >
-> > This is possible on a default config, but unlikely.
-> > However, when enabling CONFIG_ARM64_PSEUDO_NMI, DAIF is unmasked and
-> > instead the GIC is responsible for filtering what interrupts the CPU
-> > should receive based on priority.
-> > Given the goal of emulating NMIs, pseudo-NMIs can be received by the CPU
-> > even in `cpu_switch_to()` and `call_on_irq_stack()`, possibly *very*
-> > frequently depending on the system configuration and workload, leading
-> > to unpredictable kernel panics.
-> >
-> > Completely mask DAIF in `cpu_switch_to()` and restore it when returning.
-> > Do the same in `call_on_irq_stack()`, but restore and mask around
-> > the branch.
-> > Mask DAIF even if CONFIG_SHADOW_CALL_STACK is not enabled for consistency
-> > of behaviour between all configurations.
-> >
-> > Introduce and use an assembly macro for saving and masking DAIF,
-> > as the existing one saves but only masks IF.
-> >
-> > Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-> > Reported-by: Cristian Prundeanu <cpru@amazon.com>
-> > Fixes: 59b37fe52f49955791a460752c37145f1afdcad1 ("arm64: Stash shadow stack pointer in the task struct on interrupt")
-> > ---
-> > Hi,
-> > I spent some time evaluating the performance impact of this change
-> > to make sure that it would be OK to mask in those functions.
-> > They have very few instructions so have few chances to be interrupted
-> > to begin with so the impact should be minimal.
->
-> It's definitely worthwhile doing the benchmarking, so thanks for that,
-> but realistically I don't think we have an awful lot of choice but to
-> fix this, do we?
->
-
-So AIUI, the problem is that both cpu_switch_to() and
-call_on_irq_stack() itself can be interrupted by the latter, resulting
-in the shadow call stack pointer recorded in the task struct to be
-incorrect, either because the task struct pointer is pointing to the
-wrong task, or the shadow stack pointer is pointing to the wrong
-stack.
-
-Commit 59b37fe52f49955 changed this code to ensure that the shadow
-stack pointer is not preserved to/restored from the ordinary stack,
-because that turns call_on_irq_stack() into a rather useful gadget but
-use the task struct instead.
-
-What we could do instead is record the caller's SCS pointer on the IRQ
-shadow stack, avoiding the task struct altogether. This should be the
-only occurrence of scs_save that may interrupt cpu_switch_to(), so it
-should address both issues AFAICT.
-
-The only minor issue is that loading the IRQ shadow stack pointer
-before assigning SP is problematic, because when call_on_irq_stack()
-is re-entered over the top of an exception that is taken at that
-point, the clobbering of scs_sp will interfere with the return from
-that exception, and so scs_sp should be left untouched until after SP
-is assigned (which is what prevents call_on_irq_stack() from
-re-entering). This creates a tiny window where we may end up servicing
-a (nested) IRQ running on the IRQ stack but on the task shadow stack,
-but I don't think that is a thing to obsess about tbh. (Sami?) If it
-is, we'll need your DAIF changes to turn that into a proper critical
-section, but I doubt whether that is necessary.
-
-
---- a/arch/arm64/kernel/entry.S
-+++ b/arch/arm64/kernel/entry.S
-@@ -874,12 +874,6 @@ NOKPROBE(ret_from_fork)
-  * Calls func(regs) using this CPU's irq stack and shadow irq stack.
-  */
- SYM_FUNC_START(call_on_irq_stack)
--#ifdef CONFIG_SHADOW_CALL_STACK
--       get_current_task x16
--       scs_save x16
--       ldr_this_cpu scs_sp, irq_shadow_call_stack_ptr, x17
--#endif
--
-        /* Create a frame record to save our LR and SP (implicit in FP) */
-        stp     x29, x30, [sp, #-16]!
-        mov     x29, sp
-@@ -888,7 +882,23 @@ SYM_FUNC_START(call_on_irq_stack)
-
-        /* Move to the new stack and call the function there */
-        add     sp, x16, #IRQ_STACK_SIZE
-+#ifdef CONFIG_SHADOW_CALL_STACK
-+       mov     x16, scs_sp
-+       ldr_this_cpu scs_sp, irq_shadow_call_stack_ptr, x17
-+#ifdef CONFIG_DYNAMIC_SCS
-+       cbz     scs_sp, 0f
-+#endif
-+       str     x16, [scs_sp], #8
-+0:
-+#endif
-        blr     x1
-+#ifdef CONFIG_SHADOW_CALL_STACK
-+#ifdef CONFIG_DYNAMIC_SCS
-+       cbz     scs_sp, 1f
-+#endif
-+       ldr     scs_sp, [scs_sp, #-8]
-+1:
-+#endif
-
-        /*
-         * Restore the SP from the FP, and restore the FP and LR from the
-@@ -896,7 +906,6 @@ SYM_FUNC_START(call_on_irq_stack)
-         */
-        mov     sp, x29
-        ldp     x29, x30, [sp], #16
--       scs_load_current
-        ret
- SYM_FUNC_END(call_on_irq_stack)
- NOKPROBE(call_on_irq_stack)
+PiA+Pj4gK3BhdHRlcm5Qcm9wZXJ0aWVzOg0KPiA+Pj4gKyAgIl5wY2llQFswLTlhLWYsXSskIjoN
+Cj4gPj4NCj4gPj4gV2h5IGRvIHlvdSBuZWVkIGl0PyBBbHNvLCBvcmRlciB0aGluZ3MgYWNjb3Jk
+aW5nIHRvIGV4YW1wbGUgc2NoZW1hLg0KPiA+Pg0KPiA+DQo+ID4gVGhhbmtzIGZvciB5b3VyIHF1
+ZXN0aW9uLg0KPiA+DQo+ID4gSW4gdGhlIHYxIGRpc2N1c3Npb24sIGFub3RoZXIgcmV2aWV3ZXIg
+c3VnZ2VzdGVkIHRoYXQgd2Ugc2hvdWxkDQo+ID4gc3VwcG9ydCBhIG11bHRpLXBvcnQgc3RydWN0
+dXJlIGZvciB0aGUgUENJZSByb290IGNvbXBsZXgsIHdoZXJlIGVhY2gNCj4gPiBwb3J0IGlzIHJl
+cHJlc2VudGVkIGFzIGEgY2hpbGQgbm9kZSAoZS5nLiwgcGNpZUAuLi4pLg0KPiA+IFRoYXQncyB3
+aHkgcGF0dGVyblByb3BlcnRpZXMgd2FzIGFkZGVkIGhlcmUg4oCUIHRvIGV4cGxpY2l0bHkgYWxs
+b3cgc3VjaA0KPiA+IHN1Ym5vZGVzIGFuZCB2YWxpZGF0ZSB0aGVtIHByb3Blcmx5Lg0KPiANCj4g
+QW5kIHNjaGVtYSBkb2VzIG5vdCBhbGxvdyBpdCBhbHJlYWR5Pw0KPiANCg0KQWdyZWVkLA0KSSB3
+aWxsIHJlbW92ZSBpdCBpbiBuZXh0IHZlcnNpb24uDQoNClRoYW5rcywNCkphY2t5DQoNCg==
 
