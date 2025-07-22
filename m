@@ -4,64 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A45D6C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 13:16:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D950C83F27
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 13:19:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jYvuCVKQT8NTdb9Lf/C8zjOTvvbVuj9XjmraiJXjyT8=; b=XWq+/AU3MhAaG1dPtWZRkac/hL
-	7JZoxmLVrBuXei6a85E2ykGlBoJFRYm0SgihbJhi7F+wX07PKY3ZptLglBYqbCo9UVAADQ+28a4Lc
-	1kFpL0GPp7oWdJfNWGuU0Jepr62ZNItXZccexSjeHIPkFYqT6fD/a8DY1llLc5GwR/ig/0s3QH9Fy
-	JBqu3SvMKXq2fJqeuwYJIKXnqUK5C77ktI2PSbjE8AGU6EuCaHjcROfGWV1ZIAliZAoR2JE9MPdNz
-	NPFAS57gSDvAjOFdZK8Y+5veQmhg7MUzrnXQzeY5fSNNuUdewALxOW4qn+IS/uQKTitgQQmAGMoKd
-	tp/chAxA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ad0eWcS05AQtec3r1PLfGkWoKzWnCdTiBnJpsCLhEdY=; b=asxvTaz1/YmU0Yj7p2krzKQnfd
+	NSNSyOn55HeTV6XO/Sb23ZZS91JkcVpywGwfSIIgjmdPf74+VsWVLi3JpfMAk46khYdT7FB87xEpY
+	oFdhHPQ36fqXXCpsMDR/QJ18VuTCk+onl3Ne+56HsV7hgNnpYKOw9UZ8ScUb8blVgD1+5DBAConHg
+	NsWJkcIzZi2H/O5EIlJHbSNu1tn66yRmRcZSy1hQ9fH5MC0RO8dL40mz/aOmyr4DfhzmUIz9nawEx
+	pCkavCOnYfxtPIB79ZVuNX6hezAHDFoPNGMPYJuvUkdc59Mqu8MBwJ3J0KK6njkKUBag6S41iG2gC
+	mrIbyg2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueCr2-00000002Wiz-40Vm;
-	Tue, 22 Jul 2025 13:16:24 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueByg-00000002PV6-15xI
+	id 1ueCtU-00000002X3C-3Odu;
+	Tue, 22 Jul 2025 13:18:56 +0000
+Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ueC0B-00000002PnC-0fqi
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Jul 2025 12:20:15 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8A5CE169E;
-	Tue, 22 Jul 2025 05:20:08 -0700 (PDT)
-Received: from e129823.cambridge.arm.com (e129823.arm.com [10.1.197.6])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 8C9103F59E;
-	Tue, 22 Jul 2025 05:20:11 -0700 (PDT)
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: catalin.marinas@arm.com,
-	will@kernel.org,
-	broonie@kernel.org,
-	maz@kernel.org,
-	oliver.upton@linux.dev,
-	shameerali.kolothum.thodi@huawei.com,
-	joey.gouly@arm.com,
-	james.morse@arm.com,
-	ardb@kernel.org,
-	scott@os.amperecomputing.com,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com,
-	mark.rutland@arm.com
-Cc: linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Yeoreum Yun <yeoreum.yun@arm.com>
-Subject: [PATCH v5 5/5] arm64: futex: support futex with FEAT_LSUI
-Date: Tue, 22 Jul 2025 13:19:56 +0100
-Message-Id: <20250722121956.1509403-6-yeoreum.yun@arm.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250722121956.1509403-1-yeoreum.yun@arm.com>
-References: <20250722121956.1509403-1-yeoreum.yun@arm.com>
+	Tue, 22 Jul 2025 12:21:48 +0000
+Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-3a528243636so3269211f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Jul 2025 05:21:46 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1753186905; x=1753791705; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=ad0eWcS05AQtec3r1PLfGkWoKzWnCdTiBnJpsCLhEdY=;
+        b=Ld2Dkl4zDxMdQz4nn0j0V08jFBGmAz7qB6Dqu/7ov38CBTYQsOi0uevpSxZYzIyXbT
+         cWcRXHpAmD00EdMO8CIFY5NyRcpL+x/KYZAcXaaybzWb7oIOiOlEbQhkEimjp6hdVKTs
+         ygmUc3BQeM/SgwZg/Pb9/yiWRjbL6TXLPRYDjLNlxoprOl9h6pLxUwh7D/+fXW3+XiRS
+         vyGWOkPHYAxKuDt9T50J00X1LZ0Rn7JBvB9u76Hiw2kqJGS8vFSOQBHxCQSkWaMv3l/+
+         zJQe6gIJuMiRWItjTh2aBu92zRxGBpxrTha+BByUdkJ+clEko/PXWaNwrenMpHYZjuz8
+         8Psg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1753186905; x=1753791705;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ad0eWcS05AQtec3r1PLfGkWoKzWnCdTiBnJpsCLhEdY=;
+        b=BboVcNiMQmNsO3NHmenh4rIUbZ1FZb5kZkFLtbSezpjdottL7NKEf7VBPiR8A9KtvV
+         W0bZdFIcfsiuFcurQrVxcNMMu95KcgJm8kCOiobakHE1gM5KLhCZOaLVI4BB/kLrZA90
+         DD0A6sOlU5qg8I0HINAq1FmsCeFNRWTzwrAiL4CFjybTUp7IZvWFTcmUQs0gnxs2EpP4
+         iZ18ZoSfBvXoesAobfJSx3Tw88BzU07GIssjWhmW4EGC/IxK2Jsso8M4Syzoyk9ETLcR
+         W6vhKk/dKF8m4nk+s8w6OKEZc8/He1UL+78xcdmvJhEvojdPdVqa83Z/D7Kb1n350VDr
+         ijFw==
+X-Forwarded-Encrypted: i=1; AJvYcCVCvJ/qcGRS0lM5T7FcHOFErMWQ8JAT3BqIG7Ksahh1JX2n/cdGBE4ItqPxqhlFfZ6lUMVXJD7SgfTge1iNcKxu@lists.infradead.org
+X-Gm-Message-State: AOJu0YxF5Jrw0IlxU97ffIIpdW2Rtnt8iGgseerTe5A4ku8ozqP2w5hw
+	K7y7jvVe3okdBvwTg2ppwa1Aog6jnbK+yB69nZ0j1geaekAsxvycwVSs
+X-Gm-Gg: ASbGncs/3yUdfJMcpOeTMXlljvp8idfrI0HppdAGAVMzf4q+ZcUg0MsSf00J587z2t1
+	LHO44zF+LUfE1gMh6+ubTbfr9XopNR803yWJzznOmgOMHvD8dVF7PaS10HKxGmhvjme+q22lIOq
+	urUdhZjAi23N2I4nPHTRY4todtBLi9E2QwTw3bU62YrFzGfV9QcUaZsmzE9uXirmsnXtvsRk9jo
+	i2E6DPTZRVQSMmkEVMZXdpWltXa937IoApxG8oOy545qJo/DTp7O1kKH3K2CGk+9G/3VAZ/YBYT
+	ET6Knx0b0M6mZfucahsQSf5bdpN+SH8lNtY1ZvsDWXb8K9OwHW+NUlS0drU47d9Yg+L8vXBMaMg
+	kSbnsHduQPr/wOuy7WX3PsUZVPQHyapAwAS3s2fvIE3mMJLcKz38PasZkx/6TnQPNlpRGU+vI0Z
+	1eMqAb97hr
+X-Google-Smtp-Source: AGHT+IGNcA3sbhxOlCqY/l1NPEPhYR5vIqHTTHrl6r+GnoE5v0L0OgDqGJHa+qfDhsDIJ6agL7cTFg==
+X-Received: by 2002:a05:6000:40cd:b0:3b7:662b:705d with SMTP id ffacd0b85a97d-3b7662b7496mr910235f8f.48.1753186904968;
+        Tue, 22 Jul 2025 05:21:44 -0700 (PDT)
+Received: from orome (p200300e41f4e9b00f22f74fffe1f3a53.dip0.t-ipconnect.de. [2003:e4:1f4e:9b00:f22f:74ff:fe1f:3a53])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3b76455e57asm1897701f8f.21.2025.07.22.05.21.43
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 22 Jul 2025 05:21:43 -0700 (PDT)
+Date: Tue, 22 Jul 2025 14:21:41 +0200
+From: Thierry Reding <thierry.reding@gmail.com>
+To: arm@kernel.org, soc@kernel.org
+Cc: Jon Hunter <jonathanh@nvidia.com>, linux-tegra@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [GIT PULL 7/8] arm64: tegra: Changes for v6.17-rc1
+Message-ID: <izdiwbkuipbzunqot7zhillohtfcm32xrk5ydu54bamumfgkpx@p6ikuhkv3bkj>
+References: <20250711220943.2389322-1-thierry.reding@gmail.com>
+ <20250711220943.2389322-7-thierry.reding@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="fqns36t46xkf43gi"
+Content-Disposition: inline
+In-Reply-To: <20250711220943.2389322-7-thierry.reding@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250722_052014_391114_9C68BEBF 
-X-CRM114-Status: GOOD (  14.20  )
+X-CRM114-CacheID: sfid-20250722_052147_199456_8DBAEC8A 
+X-CRM114-Status: GOOD (  12.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,194 +100,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Current futex atomic operations are implemented with ll/sc instructions
-and clearing PSTATE.PAN.
 
-Since Armv9.6, FEAT_LSUI supplies not only load/store instructions but
-also atomic operation for user memory access in kernel it doesn't need
-to clear PSTATE.PAN bit anymore.
+--fqns36t46xkf43gi
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [GIT PULL 7/8] arm64: tegra: Changes for v6.17-rc1
+MIME-Version: 1.0
 
-With theses instructions some of futex atomic operations don't need to
-be implmented with ldxr/stlxr pair instead can be implmented with
-one atomic operation supplied by FEAT_LSUI.
+On Sat, Jul 12, 2025 at 12:09:40AM +0200, Thierry Reding wrote:
+> Hi ARM SoC maintainers,
+>=20
+> The following changes since commit 19272b37aa4f83ca52bdf9c16d5d81bdd13544=
+94:
+>=20
+>   Linux 6.16-rc1 (2025-06-08 13:44:43 -0700)
+>=20
+> are available in the Git repository at:
+>=20
+>   git://git.kernel.org/pub/scm/linux/kernel/git/tegra/linux.git tags/tegr=
+a-for-6.17-arm64-dt
+>=20
+> for you to fetch changes up to d01e4f1e7aa8833f549ac61a0bbcdc395533269b:
+>=20
+>   arm64: tegra: Add p3971-0089+p3834-0008 support (2025-07-11 16:57:47 +0=
+200)
 
-However, some of futex atomic operations still need to use ll/sc way
-via ldtxr/stltxr supplied by FEAT_LSUI since there is no correspondant
-atomic instruction or doesn't support word size operation.
-(i.e) eor, cas{mb}t
+Hi Arnd,
 
-But It's good to work without clearing PSTATE.PAN bit.
+it looks like you haven't pulled this yet, in which case, please hold
+off for a little. There's a missing dependency on another branch, so I
+need to redo this. I'll send an updated pull request ASAP.
 
-Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
----
- arch/arm64/include/asm/futex.h | 142 ++++++++++++++++++++++++++++++++-
- 1 file changed, 141 insertions(+), 1 deletion(-)
+Thanks,
+Thierry
 
-diff --git a/arch/arm64/include/asm/futex.h b/arch/arm64/include/asm/futex.h
-index fdec4f3f2b15..38fc98f4af46 100644
---- a/arch/arm64/include/asm/futex.h
-+++ b/arch/arm64/include/asm/futex.h
-@@ -9,6 +9,8 @@
- #include <linux/uaccess.h>
- #include <linux/stringify.h>
- 
-+#include <asm/alternative.h>
-+#include <asm/alternative-macros.h>
- #include <asm/errno.h>
- 
- #define LLSC_MAX_LOOPS	128 /* What's the largest number you can think of? */
-@@ -115,11 +117,149 @@ __llsc_futex_cmpxchg(u32 __user *uaddr, u32 oldval, u32 newval, u32 *oval)
- 	return ret;
- }
- 
-+#ifdef CONFIG_AS_HAS_LSUI
-+
-+#define __LSUI_PREAMBLE	".arch_extension lsui\n"
-+
-+#define LSUI_FUTEX_ATOMIC_OP(op, asm_op, mb)				\
-+static __always_inline int						\
-+__lsui_futex_atomic_##op(int oparg, u32 __user *uaddr, int *oval)	\
-+{									\
-+	int ret = 0;							\
-+	int val;							\
-+									\
-+	mte_enable_tco();						\
-+	uaccess_ttbr0_enable();						\
-+									\
-+	asm volatile("// __lsui_futex_atomic_" #op "\n"			\
-+	__LSUI_PREAMBLE							\
-+	"1:	" #asm_op #mb "	%w3, %w2, %1\n"				\
-+	"2:\n"								\
-+	_ASM_EXTABLE_UACCESS_ERR(1b, 2b, %w0)				\
-+	: "+r" (ret), "+Q" (*uaddr), "=r" (val)				\
-+	: "r" (oparg)							\
-+	: "memory");							\
-+									\
-+	mte_disable_tco();						\
-+	uaccess_ttbr0_disable();					\
-+									\
-+	if (!ret)							\
-+		*oval = val;						\
-+									\
-+	return ret;							\
-+}
-+
-+LSUI_FUTEX_ATOMIC_OP(add, ldtadd, al)
-+LSUI_FUTEX_ATOMIC_OP(or, ldtset, al)
-+LSUI_FUTEX_ATOMIC_OP(andnot, ldtclr, al)
-+LSUI_FUTEX_ATOMIC_OP(set, swpt, al)
-+
-+static __always_inline int
-+__lsui_futex_atomic_and(int oparg, u32 __user *uaddr, int *oval)
-+{
-+	return __lsui_futex_atomic_andnot(~oparg, uaddr, oval);
-+}
-+
-+static __always_inline int
-+__lsui_futex_atomic_eor(int oparg, u32 __user *uaddr, int *oval)
-+{
-+	unsigned int loops = LLSC_MAX_LOOPS;
-+	int ret, val, tmp;
-+
-+	mte_enable_tco();
-+	uaccess_ttbr0_enable();
-+
-+	/*
-+	 * there are no ldteor/stteor instructions...
-+	 */
-+	asm volatile("// __lsui_futex_atomic_eor\n"
-+	__LSUI_PREAMBLE
-+	"	prfm	pstl1strm, %2\n"
-+	"1:	ldtxr	%w1, %2\n"
-+	"	eor	%w3, %w1, %w5\n"
-+	"2:	stltxr	%w0, %w3, %2\n"
-+	"	cbz	%w0, 3f\n"
-+	"	sub	%w4, %w4, %w0\n"
-+	"	cbnz	%w4, 1b\n"
-+	"	mov	%w0, %w6\n"
-+	"3:\n"
-+	"	dmb	ish\n"
-+	_ASM_EXTABLE_UACCESS_ERR(1b, 3b, %w0)
-+	_ASM_EXTABLE_UACCESS_ERR(2b, 3b, %w0)
-+	: "=&r" (ret), "=&r" (val), "+Q" (*uaddr), "=&r" (tmp),
-+	  "+r" (loops)
-+	: "r" (oparg), "Ir" (-EAGAIN)
-+	: "memory");
-+
-+	mte_disable_tco();
-+	uaccess_ttbr0_disable();
-+
-+	if (!ret)
-+		*oval = val;
-+
-+	return ret;
-+}
-+
-+static __always_inline int
-+__lsui_futex_cmpxchg(u32 __user *uaddr, u32 oldval, u32 newval, u32 *oval)
-+{
-+	int ret = 0;
-+	unsigned int loops = LLSC_MAX_LOOPS;
-+	u32 val, tmp;
-+
-+	mte_enable_tco();
-+	uaccess_ttbr0_enable();
-+
-+	/*
-+	 * cas{al}t doesn't support word size...
-+	 */
-+	asm volatile("//__lsui_futex_cmpxchg\n"
-+	__LSUI_PREAMBLE
-+	"	prfm	pstl1strm, %2\n"
-+	"1:	ldtxr	%w1, %2\n"
-+	"	eor	%w3, %w1, %w5\n"
-+	"	cbnz	%w3, 4f\n"
-+	"2:	stltxr	%w3, %w6, %2\n"
-+	"	cbz	%w3, 3f\n"
-+	"	sub	%w4, %w4, %w3\n"
-+	"	cbnz	%w4, 1b\n"
-+	"	mov	%w0, %w7\n"
-+	"3:\n"
-+	"	dmb	ish\n"
-+	"4:\n"
-+	_ASM_EXTABLE_UACCESS_ERR(1b, 4b, %w0)
-+	_ASM_EXTABLE_UACCESS_ERR(2b, 4b, %w0)
-+	: "+r" (ret), "=&r" (val), "+Q" (*uaddr), "=&r" (tmp), "+r" (loops)
-+	: "r" (oldval), "r" (newval), "Ir" (-EAGAIN)
-+	: "memory");
-+
-+	mte_disable_tco();
-+	uaccess_ttbr0_disable();
-+
-+	if (!ret)
-+		*oval = oldval;
-+
-+	return ret;
-+}
-+
-+#define __lsui_llsc_body(op, ...)					\
-+({									\
-+	alternative_has_cap_likely(ARM64_HAS_LSUI) ?			\
-+		__lsui_##op(__VA_ARGS__) : __llsc_##op(__VA_ARGS__);	\
-+})
-+
-+#else	/* CONFIG_AS_HAS_LSUI */
-+
-+#define __lsui_llsc_body(op, ...)	__llsc_##op(__VA_ARGS__)
-+
-+#endif	/* CONFIG_AS_HAS_LSUI */
-+
-+
- #define FUTEX_ATOMIC_OP(op)						\
- static __always_inline int						\
- __futex_atomic_##op(int oparg, u32 __user *uaddr, int *oval)		\
- {									\
--	return __llsc_futex_atomic_##op(oparg, uaddr, oval);		\
-+	return __lsui_llsc_body(futex_atomic_##op, oparg, uaddr, oval);	\
- }
- 
- FUTEX_ATOMIC_OP(add)
--- 
-LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
+--fqns36t46xkf43gi
+Content-Type: application/pgp-signature; name="signature.asc"
 
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAmh/glUACgkQ3SOs138+
+s6ERKxAAmFMQZ/Cz4E1/SKyZNnC9aV8KA+fjrVHYHZzCnkwFSKmoC9NkwCWgbdrF
+E1h3r1fxrb8nPtej1NiDuwnKhxs6aOsmtlRoBhcUGKO5PatgVWtjSgb1cCcIjdPk
+rQnedQ0CYn/RHmB0lJbwST4jzqFL5FHGJ/90/XBA9AXGi0JqfWtzUeymAXk7RbpQ
+YANpZwnoLtRNx/F7zEJRNXEA7pQR/5tizYVJoEREqJjS+wSpcNJzwA7d45wYmmkS
+AnFmFNut+Uxt+UeY/DE7I8Xk+Lisex/EyirsiPsjRLWp4eYOOZIOlBqZjqIR99da
+RqoOqIhXbuqYiZF2pI1RrJDQW4xlSoo922bQvr1EjmMKUZ+A8DyURYGkHxxxf95g
+x+yjya0vWkFr5bZI4JoonbEXpBPkE/WJx84fnKH8t/M4xQaxtsWtdZTO9kpJxsGF
+mzLtIpwdIxr5uXL07gwcoE/BjBxvmeCig1rqhTt0VL9RLFDAhe2eVLd9mEe5SkmO
+2PIyCknJfDDbSpt5tDbzd+y5Zn0/hWfxbqZtD1KEg1QUGxncZc4/rc/s2fr2LQg/
+SjlgViowGlhj/+o/QLBkyfp5hy5kK0ZjSi5rJsOC+iUefpXgLFhehwGbX/OPfI+R
+qwtbt/DbrtWjMNS+/jCBZ0ZEMr4tIdFHnDVzCj0Wx9TzZokl1PQ=
+=rtRy
+-----END PGP SIGNATURE-----
+
+--fqns36t46xkf43gi--
 
