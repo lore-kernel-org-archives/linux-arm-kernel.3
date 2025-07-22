@@ -4,80 +4,134 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F826C83F27
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 06:58:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EA2BC83F25
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 07:08:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:
-	Content-Type:Content-Transfer-Encoding:References:In-Reply-To:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=a61F7LqyyZ88hlE8b82eUkHYVRSQ4f/MKO5zAqlG+a0=; b=yJ7sQcH4uVBLP2FbxXvkb3Y34R
-	Is5FoMwHt0/EsvGrAPVazgjX7MvNSpxru7iHmS3T6MJgbQo+gM6o1OhNZFFmD8n+SvGH3BcgXCnqh
-	za/fuAApjukqvzl/W6i0TeVD5/3I600lj+DJpS3JLbDp4/Ib/uA9unDRODoKWfx9tR8mjRbmMEoMT
-	f063SniQoeQ38KD6jTPVpALtYGjqzRAmPKdeUoGtc7Yxyxxn7AbISYZVlBzTR9K/uU1eXjneh2I9H
-	ZdM8dhNJlTUidXrMyTTNduq7VvNBJU+m3IKC90tE0dXu/bwUBacTN36nf4zzS2ZN9gIZOPrhHXh0U
-	GQ9zzY+A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=4wSxFYPnJad7bm+jV/SYavTLH96P2ba3VZaWS9Ifz3A=; b=SgV6x5P4frIRFfE97cNXqkEDO5
+	w0ta20vlSWBaiEQAi/0yTeTyiQ5AkhLO1I5w18SoVWErk8zbn8ijgXMQm0bqMFt09vKa+E8y2UkxX
+	HvpiQ/TP9Oj5KiJ4kG2yqi4Q/zdnj+pbjtog9t85e2756T4ZOZ3MV5NncZdzxisUQcb9Gp0HIOiMs
+	xFXnYNHt9bKuGsw0PHIlm9HzraSdc6f1Zo1gtRdkboX+Tg7HYzcx5pY1pGR0uTbWaCdks1i+WDeoW
+	FFn7Bzx93FiLA3pUajkVWVWvnCWf/XQPHmNuQsurQyCAUFgncZXIOYXFNx1EvDC8AOqqE69jD6ZAY
+	iCGRruvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ue6xJ-00000001WvP-18zy;
-	Tue, 22 Jul 2025 06:58:29 +0000
-Received: from m16.mail.163.com ([220.197.31.5])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ue6ul-00000001WOf-09rn;
-	Tue, 22 Jul 2025 06:55:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=Date:From:To:Subject:Content-Type:MIME-Version:
-	Message-ID; bh=Od2N/35x0n354N5QbOs1x7Zwbn1xkujRTkM0QU+Krc4=; b=j
-	Lm3ReU3BJJa092GingCNVpiE8NPy8AFOpwXf9oyRdkpHwZ4kPJeWedm/vN9X79CS
-	u92+uU4vb+6usS+PEElSMslBVDDtSk+lg3D8OjakzMRt5ogj71Lcl55XAmt13xpV
-	Q2kvPEymIbedrkQ1cpEhHPHmjiwrp1LKpZddxZ1O0g=
-Received: from andyshrk$163.com ( [58.22.7.114] ) by
- ajax-webmail-wmsvr-40-106 (Coremail) ; Tue, 22 Jul 2025 14:55:06 +0800
- (CST)
-X-Originating-IP: [58.22.7.114]
-Date: Tue, 22 Jul 2025 14:55:06 +0800 (CST)
-From: "Andy Yan" <andyshrk@163.com>
-To: "Cristian Ciocaltea" <cristian.ciocaltea@collabora.com>
-Cc: "Algea Cao" <algea.cao@rock-chips.com>,
-	"Sandy Huang" <hjc@rock-chips.com>,
-	=?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
-	"Andy Yan" <andy.yan@rock-chips.com>,
-	"Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>,
-	"Maxime Ripard" <mripard@kernel.org>,
-	"Thomas Zimmermann" <tzimmermann@suse.de>,
-	"David Airlie" <airlied@gmail.com>,
-	"Simona Vetter" <simona@ffwll.ch>,
-	"Andrzej Hajda" <andrzej.hajda@intel.com>,
-	"Neil Armstrong" <neil.armstrong@linaro.org>,
-	"Robert Foss" <rfoss@kernel.org>,
-	"Laurent Pinchart" <Laurent.pinchart@ideasonboard.com>,
-	"Jonas Karlman" <jonas@kwiboo.se>,
-	"Jernej Skrabec" <jernej.skrabec@gmail.com>, kernel@collabora.com,
-	dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re:Re: [PATCH 1/5] drm/rockchip: vop2: Add high color depth support
-X-Priority: 3
-X-Mailer: Coremail Webmail Server Version XT5.0.14 build 20250519(9504565a)
- Copyright (c) 2002-2025 www.mailtech.cn 163com
-In-Reply-To: <c5624dad-93cb-4cc3-88ad-808dcc43274d@collabora.com>
-References: <20250721-rk3588-10bpc-v1-0-e95a4abcf482@collabora.com>
- <20250721-rk3588-10bpc-v1-1-e95a4abcf482@collabora.com>
- <3ceb2c70.2145.1982ff28b9c.Coremail.andyshrk@163.com>
- <c5624dad-93cb-4cc3-88ad-808dcc43274d@collabora.com>
-X-NTES-SC: AL_Qu2eAf2duEsr4CKQZekfmUkTh+o2Xca5uf0j3YBWOZh+jCDp+QI/WUd7PHfV+c6FAj2WqyCvXhFv2v9ITLdpdJIwnenVIiESySmfHn87IETmow==
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset=UTF-8
+	id 1ue77F-00000001YY9-0hEm;
+	Tue, 22 Jul 2025 07:08:45 +0000
+Received: from mail-bn7nam10on20605.outbound.protection.outlook.com ([2a01:111:f403:2009::605] helo=NAM10-BN7-obe.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ue74f-00000001Xi1-1JZV
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 22 Jul 2025 07:06:07 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=yTT/cB+wMNwQfIkrHU4y7QvzW7/5VwVZi1XcLd6hfL+ZocR/LLgIk+rj3Cmq7qkGdO+6Cj6Ia2NKM5dYQLaM/9usRKH8IoH3/Kd7K3j+4BCrLA9eXpzPLxXELKOx9KfByvhom/bExovvj7a/cOf5J77uxgWe2hPY5V5aTykvy7Di0wk5u7a1rRd/ScCjkLeiesLVF24IhTDlRjVXxTYZibCXtOLvQ38y70+WSkTOtaW18vwDqNTRdFlEaXl1TzK032Ivf3YOsNZvdCEdBj0yDLU1l2VtX30B71sTmuvlUXBQ3KomzrtVxs+Ahh758NhCEDLAfZG4/y8WCltxBfAy3g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=4wSxFYPnJad7bm+jV/SYavTLH96P2ba3VZaWS9Ifz3A=;
+ b=q875rlUlfFouwf9sclzcKvU9DDyS2czWPL6gHeHZc+AryWe4tIN46HD7huayAUhdq8wKsjOzJQdpfLvm8/gN+maZMAsM8XIwPrZhnnES6osjZyfAH8M8RX5uShdQ/5jwM59A+nTdlNUK8WM5rm0dVaA/nFUcLMcsXhts9FRm+/kKFUJbiVhoB731uHphgVbEyXpYwQUn+FNjyVwny2iyDF6tz4+EOalI3i1eUNnJxX/ACj4PuVsj8oFcq7BbuyVtce3OdLl91/br0g2RXqRqOwwrwn+Xqwa0NkVu2jsiUHBjqOmzc2yGgSDAIdfE7yI8iVaa9Q4q4xDJ+MyZisx/RA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=kernel.org smtp.mailfrom=amd.com; dmarc=pass
+ (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=4wSxFYPnJad7bm+jV/SYavTLH96P2ba3VZaWS9Ifz3A=;
+ b=CdBWmK4sfK48p7bSwN8zk5R2F8liG6tfdw2J2+YbKSXzuC92H3QS73syyoM0KIC0onVN8v3KsphDKcvZzrJcesKomU+d5Id8t0FNwNvJaBOxo9GFxdB8PqSerJW/OLMJVCuLHzPOf2534A3X0FWK6hHrSm1S2qIrAfbOS63nZuE=
+Received: from SJ0PR13CA0039.namprd13.prod.outlook.com (2603:10b6:a03:2c2::14)
+ by SA1PR12MB7294.namprd12.prod.outlook.com (2603:10b6:806:2b8::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8943.30; Tue, 22 Jul
+ 2025 07:05:57 +0000
+Received: from MWH0EPF000989E9.namprd02.prod.outlook.com
+ (2603:10b6:a03:2c2:cafe::a8) by SJ0PR13CA0039.outlook.office365.com
+ (2603:10b6:a03:2c2::14) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8964.12 via Frontend Transport; Tue,
+ 22 Jul 2025 07:05:57 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
+ smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=SATLEXMB03.amd.com; pr=C
+Received: from SATLEXMB03.amd.com (165.204.84.17) by
+ MWH0EPF000989E9.mail.protection.outlook.com (10.167.241.136) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.20.8964.20 via Frontend Transport; Tue, 22 Jul 2025 07:05:57 +0000
+Received: from SATLEXMB06.amd.com (10.181.40.147) by SATLEXMB03.amd.com
+ (10.181.40.144) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Tue, 22 Jul
+ 2025 02:04:44 -0500
+Received: from SATLEXMB03.amd.com (10.181.40.144) by SATLEXMB06.amd.com
+ (10.181.40.147) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Tue, 22 Jul
+ 2025 02:02:58 -0500
+Received: from xhdharinik40.xilinx.com (10.180.168.240) by SATLEXMB03.amd.com
+ (10.181.40.144) with Microsoft SMTP Server id 15.1.2507.39 via Frontend
+ Transport; Tue, 22 Jul 2025 02:02:55 -0500
+From: Abin Joseph <abin.joseph@amd.com>
+To: <vkoul@kernel.org>, <michal.simek@amd.com>, <yanzhen@vivo.com>,
+	<radhey.shyam.pandey@amd.com>, <palmer@rivosinc.com>,
+	<u.kleine-koenig@baylibre.com>
+CC: <git@amd.com>, <abin.joseph@amd.com>, <dmaengine@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: [PATCH v3] dmaengine: zynqmp_dma: Add shutdown operation support
+Date: Tue, 22 Jul 2025 12:32:55 +0530
+Message-ID: <20250722070255.28944-1-abin.joseph@amd.com>
+X-Mailer: git-send-email 2.17.1
 MIME-Version: 1.0
-Message-ID: <4966b602.5395.19830ea1e2f.Coremail.andyshrk@163.com>
-X-Coremail-Locale: zh_CN
-X-CM-TRANSID: aigvCgD3lz_KNX9oftoDAA--.34909W
-X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/xtbBEgCSXmh-NBYeHAABso
-X-Coremail-Antispam: 1U5529EdanIXcx71UUUUU7vcSsGvfC2KfnxnUU==
+Content-Type: text/plain
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MWH0EPF000989E9:EE_|SA1PR12MB7294:EE_
+X-MS-Office365-Filtering-Correlation-Id: 17cdf52f-7709-40f8-86e9-08ddc8ee34f5
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|82310400026|36860700013;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?dfhZ1gqjoFUZaHdJ/Lzik0z/3g3paRKXnzAcArmcjDA7Tz2wpSvYLD5ZpJWP?=
+ =?us-ascii?Q?av8qtE/DLj6R9aCdArHYanjUxvNEMJm3jsgm028ViGszUhHD1fzRnVPruzkD?=
+ =?us-ascii?Q?TSoRQ+8aG2klsj0mrnmg58ka4C0nvrxe7gNWLu203KMzh0oApV8SCBQ286ea?=
+ =?us-ascii?Q?TepD6r0Xd5+7t+L4bjWgQpTEISq9dI2QVQI/QJTzS5cLQSqi81mlNMc25jsI?=
+ =?us-ascii?Q?Dk7cuUHX20DBxZN72BHVE/Q/c42uH8YWHCLZJEh+Wg8hNjIi6aF5BRPjyroq?=
+ =?us-ascii?Q?U1Uc7fhRJ2mUIXACCEp/mXON2r5D7XUfWNWmuc8dTF908t+h1+NESMazV84Q?=
+ =?us-ascii?Q?FYBcNKyRzX9kX1dREm/028KJJSTcro4CX8ptBhF5EV02eyytSoBF8MdctrwW?=
+ =?us-ascii?Q?G0i40nF+6ivE0i0gbksBcThGCQi3Ni4QG9PJjyIAUzuZeferP9LqutbDTF8A?=
+ =?us-ascii?Q?hpJEnJrB7W5G9rJbRgjc25HbVKduQ4DEscsdihETLMEZEVqk9ejAiid8Rz2p?=
+ =?us-ascii?Q?MGzUmJr0wwpFoy27s9Brp9t7Ofe0+BCcQZFBbohG9ZYfT53LlbuyqoHOrEaN?=
+ =?us-ascii?Q?vhac/dhgLRzlSXvFHUzUBOPmxnDIp+OsgCfkyR1XaXXSrTmabYf4TB8Tf9Mt?=
+ =?us-ascii?Q?+vvqr/CAuIlDf809f91CDwdWIE1bfED9aoZpxXlRdUCwOhMtwtUc4FswxtmS?=
+ =?us-ascii?Q?KxNdpD0BIi8R06l/Z9IhVhH6XV3JaGxXVd2Zb6Yk4NLJWCCp9NREDgFt9sh0?=
+ =?us-ascii?Q?0TUr7Y3DWkr+BstwSMOXiv582vnBDBQ3JXCNz7hPZU3v4gsBwt6MaMIgCxFV?=
+ =?us-ascii?Q?jYmeUz5chWEZ7i4D3YGAuV4Ls8dYkKbm848NEsVfZrWUjK2VsUh1RtTouebE?=
+ =?us-ascii?Q?w4y4eSb5kWEo6fbcfYGawNGqAAyVjZqEf/9mmxqnK56qf3k1S2yeQR3kq6WE?=
+ =?us-ascii?Q?v4njFk4WyZsKOPv/AG7DE6SY/8f99mv/GO3Fvdfa+ZnYu7WipyrtZPiCJkJ1?=
+ =?us-ascii?Q?vN5VQItdr7Xg1765mIIqYPqbSlF+OAPPqXML5fXz8N5HWC0pMOecBq/qkVWj?=
+ =?us-ascii?Q?35yUxtx40tO0Bia0yvdBkdHnAzikuUqWB3FIVOMr/HufLk9boorCW2Hiqy9L?=
+ =?us-ascii?Q?epp8IujK0y6kWC1o78+2SpeHmjT8vGzNvxoNw8jJe2gkZqz57l/M0Ke1jV9c?=
+ =?us-ascii?Q?bNgbMB1zknqVjWLMgOL+BXPiPw0INFmEd9/BffQBaG5Aks09pCiJRxUbx9pu?=
+ =?us-ascii?Q?xzh3SxqyKrz106M7NAqbLw0HLRqGgNnYeZ+qnLXsfxTubM3Vg05MeXRwKjz/?=
+ =?us-ascii?Q?yzHzBD0+AK7VOvPu3guZSZFFcFTC1ypPTaGNkKKGXD7iUdgsvsJv3S/MYmVR?=
+ =?us-ascii?Q?ftX3HC9wz3HxIXISwKW6BYkza+kQLsAKibZTG7CYzRgiJM1c3RV0uA8DQ0jl?=
+ =?us-ascii?Q?frYuRgwEmUU11ouianjmm/GcCVlLb5jxEzohIXf7GtL8BkiPka4c1k0utLKO?=
+ =?us-ascii?Q?rJy4w3Ll8ZdfXzwlPp/gQ5xlsCjwOO/0X+QW?=
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:SATLEXMB03.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(1800799024)(82310400026)(36860700013);DIR:OUT;SFP:1101;
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Jul 2025 07:05:57.1399
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 17cdf52f-7709-40f8-86e9-08ddc8ee34f5
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[SATLEXMB03.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: MWH0EPF000989E9.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB7294
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250721_235551_432329_E63D185B 
-X-CRM114-Status: GOOD (  19.16  )
+X-CRM114-CacheID: sfid-20250722_000605_354995_53B93CB3 
+X-CRM114-Status: GOOD (  17.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,84 +146,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-CkhlbGxvIENyaXN0aWFuLAoK5ZyoIDIwMjUtMDctMjIgMTQ6MTY6MjbvvIwiQ3Jpc3RpYW4gQ2lv
-Y2FsdGVhIiA8Y3Jpc3RpYW4uY2lvY2FsdGVhQGNvbGxhYm9yYS5jb20+IOWGmemBk++8mgo+SGkg
-QW5keSwKPgo+T24gNy8yMi8yNSA1OjI0IEFNLCBBbmR5IFlhbiB3cm90ZToKPj4gCj4+IEhlbGxv
-IENyaXN0aWFu77yMCj4+IAo+PiBBdCAyMDI1LTA3LTIyIDAxOjM5OjA0LCAiQ3Jpc3RpYW4gQ2lv
-Y2FsdGVhIiA8Y3Jpc3RpYW4uY2lvY2FsdGVhQGNvbGxhYm9yYS5jb20+IHdyb3RlOgo+Pj4gVGFr
-ZSB0aGUgYml0cyBwZXIgY29sb3IgY2hhbm5lbCBpbnRvIGNvbnNpZGVyYXRpb24gd2hlbiBjb21w
-dXRpbmcgRENMSwo+Pj4gcmF0ZS4KPj4+Cj4+PiBTaWduZWQtb2ZmLWJ5OiBDcmlzdGlhbiBDaW9j
-YWx0ZWEgPGNyaXN0aWFuLmNpb2NhbHRlYUBjb2xsYWJvcmEuY29tPgo+Pj4gLS0tCj4+PiBkcml2
-ZXJzL2dwdS9kcm0vcm9ja2NoaXAvcm9ja2NoaXBfZHJtX3ZvcDIuYyB8IDMgKysrCj4+PiAxIGZp
-bGUgY2hhbmdlZCwgMyBpbnNlcnRpb25zKCspCj4+Pgo+Pj4gZGlmZiAtLWdpdCBhL2RyaXZlcnMv
-Z3B1L2RybS9yb2NrY2hpcC9yb2NrY2hpcF9kcm1fdm9wMi5jIGIvZHJpdmVycy9ncHUvZHJtL3Jv
-Y2tjaGlwL3JvY2tjaGlwX2RybV92b3AyLmMKPj4+IGluZGV4IDE4NmY2NDUyYTdkMzU5ZjA3OTY2
-MmJjNTgwODUwOTI5NjMyZWE4ZmUuLmE3MTRiY2JiMDJkZTE2MjY3ZTdmZWJiYWViMWViMjcwYzcw
-YWFlZjIgMTAwNjQ0Cj4+PiAtLS0gYS9kcml2ZXJzL2dwdS9kcm0vcm9ja2NoaXAvcm9ja2NoaXBf
-ZHJtX3ZvcDIuYwo+Pj4gKysrIGIvZHJpdmVycy9ncHUvZHJtL3JvY2tjaGlwL3JvY2tjaGlwX2Ry
-bV92b3AyLmMKPj4+IEBAIC0xNzMxLDYgKzE3MzEsOSBAQCBzdGF0aWMgdm9pZCB2b3AyX2NydGNf
-YXRvbWljX2VuYWJsZShzdHJ1Y3QgZHJtX2NydGMgKmNydGMsCj4+PiAJCWNsb2NrICo9IDI7Cj4+
-PiAJfQo+Pj4KPj4+ICsJaWYgKHZjc3RhdGUtPm91dHB1dF9icGMgPiA4KQo+Pj4gKwkJY2xvY2sg
-PSBESVZfUk9VTkRfQ0xPU0VTVChjbG9jayAqIHZjc3RhdGUtPm91dHB1dF9icGMsIDgpOwo+PiAK
-Pj4gCj4+IFRoaXMgc2VlbXMgbm90IHJpZ2h0LCAgcmVnYXJkbGVzcyBvZiB0aGUgdmFsdWUgb2Yg
-YnBjLCB0aGUgZGNsayBvZiBWT1AgbXVzdCBiZQo+PiBjb25zaXN0ZW50IHdpdGggbW9kZS0+Y3J0
-Y19jbG9jay4KPj4gSWYgdGhlIGRjbGsgb2YgVk9QIGlzIGluY3JlYXNlZCBpbiBhY2NvcmRhbmNl
-IHdpdGggdGhlIEJQQyByYXRpbyBoZXJlLCB0aGVuIHRoZSByZWZyZXNoIHJhdGUgb2YgVk9QIHdp
-bGwgYWxzbyBpbmNyZWFzZSBwcm9wb3J0aW9uYWxseS4KPj4gVGhpcyB3b3VsZCBiZSBpbmNvbnNp
-c3RlbnQgd2l0aCB0aGUgdGltaW5nIGRlc2NyaWJlZCBpbiB0aGUgbW9kZS4KPj4gRm9yIGEgaGln
-aHQgY29sb3IgZGVwdGgsICB0aGUgZnJlcXVlbmN5IG5lZWRzIHRvIGJlIGluY3JlYXNlZCBmb3Ig
-dGhlIEhETUkgUEhZJ3MgY2xvY2suCj4KPlRoZSBIRE1JIFBIWSdzIGNsb2NrIGlzIGFjdHVhbGx5
-IGNvbXB1dGVkIGF0IEhETUkgY29ubmVjdG9yIGZyYW1ld29yayBsZXZlbAo+WzFdLCB0YWtpbmcg
-aW50byBhY2NvdW50IHRoZSBjdXJyZW50IGJwYyB2YWx1ZSwgd2hpY2ggaXMgZGV0ZXJtaW5lZCBh
-cyBwYXJ0Cj5vZiBoZG1pX2NvbXB1dGVfY29uZmlnKCkgWzJdLgo+Cj5UaGF0IG1lYW5zIGNvbm5f
-c3RhdGUtPmhkbWkudG1kc19jaGFyX3JhdGUgaW4KPmR3X2hkbWlfcXBfcm9ja2NoaXBfZW5jb2Rl
-cl9hdG9taWNfY2hlY2soKSBkb2VzIGFscmVhZHkgaW5jbHVkZSB0aGUgYnBjCj5yZWxhdGVkIGFk
-anVzdG1lbnQsIGFuZCB3ZSBwYXNzIHRoYXQgZGlyZWN0bHkgdG8gdGhlIFBIWSB2aWEKPnBoeV9j
-b25maWd1cmUoKS4gIE5vdGUgdGhlcmUncyBzdGlsbCB0aGUgbmVlZCB0byBoYW5kbGUgYnBjIHNl
-cGFyYXRlbHkgdmlhCj5waHlfY29uZmlndXJlX29wdHMgaW4gb3JkZXIgdG8gc2V0dXAgQ01OX1JF
-RygwMDg2KSBbM10uCj4KPlNpbmNlIFZPUDIgc3dpdGNoZXMgdG8gUEhZIFBMTCBhcyBEQ0xLIHNv
-dXJjZSBmb3IgbW9kZXMgdXAgdG8gNEtANjBIeiwgaXQKPm5lZWRzIHRvIHRha2UgY29sb3IgZGVw
-dGggaW50byBhY2NvdW50LCB0byBrZWVwIHRoZW0gaW4gc3luYy4gIEFzIGEgbWF0dGVyCj5vZiBm
-YWN0LCB0aGUgY2xvY2sgYWRqdXN0bWVudCBpbiBWT1AyIGlzIG1haW5seSBuZWNlc3NhcnkgZm9y
-IGxlZ2FjeQo+cmVhc29ucywgc2luY2UgSERQVFggUEhZIGFsbG93ZWQgY2hhbmdpbmcgVE1EUyBj
-aGFyIHJhdGUgdmlhIHRoZSBDb21tb24KPkNsb2NrIEZyYW1ld29yayBBUEkuICBXZSBsYW5kZWQg
-YSBwcm9wZXIgc29sdXRpb24gZm9yIHRoYXQgdmlhIHRoZSBIRE1JIFBIWQo+QVBJLCBoZW5jZSB0
-aGUgcGxhbiB3b3VsZCBiZSB0byBtYWtlIENDRiBBUEkgcmVhZG9ubHkgYWZ0ZXIgdGhlIHN3aXRj
-aCB0bwo+UEhZIEFQSSBpcyBjb21wbGV0ZWQsIHdoaWNoIG1lYW5zIFZPUDIgc2hvdWxkbid0IGRl
-YWwgYW55bW9yZSB3aXRoIGNsb2NrCj5jYWxjdWxhdGlvbnMgd2hlbiB1c2luZyB0aGUgUEhZIFBM
-TCBhcyBEQ0xLIHNvdXJjZS4KCldoYXQgSSB3YW50IHRvIGVtcGhhc2l6ZSBpcyB0aGF0IG9uIHRo
-ZSB2b3AvY3J0YyBzaWRlLCB3aGF0IHdlIHNob3VsZCBiZSBjb25jZXJuZWQgYWJvdXQgaXMgbW9k
-ZSAtPiBjbG9jaywgCm5vdCB0aGUgSERNSSBQSFkgY2xvY2suIFRoZSBIRE1JIFBIWSBjbG9jayBp
-cyBzb21ldGhpbmcgdGhhdCB0aGUgSERNSSBicmlkZ2Ugb3IgdGhlIEhETUkgUEhZIGRyaXZlciBu
-ZWVkcyB0byBwYXkgYXR0ZW50aW9uIHRvLgoKVGhpcyBwYXRjaCB3b3JrcyBqdXN0IGJlY2F1c2Ug
-Y3VycmVudGx5LCBvbiBSSzM1NzYgYW5kIFJLMzU4OCwgdGhlIEhETUkgUEhZIFBMTCBjYW4gYmUg
-dXNlZCBhcyB0aGUgZGNsayBzb3VyY2UgZm9yIHRoZSB2b3AuCkFmdGVyIGNvcnJlY3RseSBzZXR0
-aW5nIENNTl9SRUcwMDg2LCBpdCBjYW4gcHJlY2lzZWx5IGFkanVzdCB0aGUgSERNSSBIUFkgUExM
-IGNsb2NrIGFkanVzdGVkIGFjY29yZGluZyB0byB0aGUgYnBjIGZ1cnRoZXIgdG8KdGhlIGZyZXF1
-ZW5jeSBvZiBtb2RlLT5jbG9jaywgYW5kIHRoZW4gdXNlIGl0IGFzIHRoZSBkY2xrIGZvciB0aGUg
-dm9wLgpIb3dldmVyLCB3ZSBhbHNvIG5lZWQgdG8gYmUgYXdhcmUgb2YgdGhlIGZvbGxvd2luZyBz
-aXR1YXRpb25zOgoKMSkgV2hlbiB3ZSBhcmUgdXNpbmcgSERNSSwgd2UgY2FuIHN0aWxsIGNob29z
-ZSB0aGUgc3lzdGVtIFBMTCBpbnN0ZWFkIG9mIHRoZSBIRE1JIFBIWSBQTEwgYXMKICAgIHRoZSBj
-bG9jayBzb3VyY2UgZm9yIGRjbGsuIEluIHRoaXMgY2FzZSwgdGhpcyBwYXRjaCB3aWxsIGNhdXNl
-IGluY29ycmVjdCBtb2RlLT5jbG9jay4KMikgIFdoZW4gd2UgYXJlIHVzaW5nIEhETUkgYWJvdmUg
-dGhlIDRLNjAgbW9kZSg0SzEyMCksIHdlIGNhbiBvbmx5IHVzZSB0aGUgc3lzdGVtIFBMTCBpbnN0
-ZWFkCiAgICAgb2YgdGhlIEhETUlQSFkgUExMIGFzIHRoZSBjbG9jayBzb3VyY2UgZm9yIHRoZSB2
-b3AgZGNsaywgIHRoaXMgcGF0Y2ggd2lsbCBjYXVzZSBpbmNvcnJlY3QgbW9kZS0+Y2xvY2suCjMp
-IEZvciBSSzM1NzYgYW5kIFJLMzU4OCwgIGludGVyZmFjZXMgc3VjaCBhcyBEUCwgZURQLCBhbmQg
-RFNJIGFsc28gc3VwcG9ydCAxMC1iaXQgbW9kZS4gCiAgICBIb3dldmVyLCBpbiBtb3N0IGNhc2Vz
-LCB0aGV5IHdpbGwgY2hvb3NlIHRoZSBzeXN0ZW0gUExMIGFzIHRoZSB2b3AgZGNsayBjbG9jayBz
-b3VyY2UsdGhpcyBwYXRjaCB3aWxsIGNhdXNlIGluY29ycmVjdCBtb2RlLT5jbG9jay4KNCkgVGhl
-cmUgYXJlIGFsc28gb3RoZXIgcGxhdGZvcm1zLCBzdWNoIGFzIFJLMzU2OCwgZXZlbiBmb3IgSERN
-SSAsIGl0IHN0aWxsIHVzZXMgdGhlIHN5c3RlbSBQTEwgYXMgdGhlIGRjbGsgY2xvY2sgc291cmNl
-IGZvciB2b3AuCiAgICAgdGhpcyBwYXRjaCB3aWxsIGNhdXNlIGluY29ycmVjdCBtb2RlLT5jbG9j
-ay4KCgo+Cj5SZWdhcmRsZXNzLCBJIHNob3VsZCBwcm9iYWJseSBtb3ZlIHRoaXMgY2xvY2sgYWRq
-dXN0bWVudCB0byB0aGUgY29uZGl0aW9uYWwKPmJsb2NrIGhhbmRsaW5nIERDTEsgc291cmNlIHN3
-aXRjaC4KPgo+WzFdIGh0dHBzOi8vZ2l0Lmtlcm5lbC5vcmcvcHViL3NjbS9saW51eC9rZXJuZWwv
-Z2l0L3RvcnZhbGRzL2xpbnV4LmdpdC90cmVlL2RyaXZlcnMvZ3B1L2RybS9kaXNwbGF5L2RybV9o
-ZG1pX3N0YXRlX2hlbHBlci5jP2g9djYuMTYtcmM3I241MjUKPlsyXSBodHRwczovL2dpdC5rZXJu
-ZWwub3JnL3B1Yi9zY20vbGludXgva2VybmVsL2dpdC90b3J2YWxkcy9saW51eC5naXQvdHJlZS9k
-cml2ZXJzL2dwdS9kcm0vZGlzcGxheS9kcm1faGRtaV9zdGF0ZV9oZWxwZXIuYz9oPXY2LjE2LXJj
-NyNuNjA4Cj5bM10gaHR0cHM6Ly9naXQua2VybmVsLm9yZy9wdWIvc2NtL2xpbnV4L2tlcm5lbC9n
-aXQvdG9ydmFsZHMvbGludXguZ2l0L3RyZWUvZHJpdmVycy9waHkvcm9ja2NoaXAvcGh5LXJvY2tj
-aGlwLXNhbXN1bmctaGRwdHguYz9oPXY2LjE2LXJjNyNuMTAzNAo=
+Add shutdown callback to ensure that DMA operations are properly stopped
+and resources are released during system shutdown or kexec operations.
+Fix incorrect PM state handling in the remove function that was causing
+clock disable warnings during the shutdown operations, which was not
+implemented earlier. The original logic used pm_runtime_enabled() check
+after calling the pm_runtime_disable(), would always evaluate to true
+after the disable call, which leads to unconditionally calling the
+runtime_suspend regardless of the device's actual power state.
+
+During shutdown, the device may already be suspended with clock disabled
+from the autosuspend timer, causing the clock framework to warn about
+the double-disable attempt. The pm_runtime_active() function checks the
+actual device power state rather than the PM subsystem's enabled/disabled
+status. ensuring the runtime_suspend is only called when the device is in
+active power state. This prevents clock warnings during shutdown while
+maintaining proper cleanup during normal remove operations.
+
+Signed-off-by: Abin Joseph <abin.joseph@amd.com>
+---
+
+Changes in v3:
+Update the commit description
+Update to call remove directly from shutdown hook.
+
+Changes in v2:
+Update the shutdown to perform same operations as remove.
+
+---
+ drivers/dma/xilinx/zynqmp_dma.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/dma/xilinx/zynqmp_dma.c b/drivers/dma/xilinx/zynqmp_dma.c
+index d05fc5fcc77d..f7e584de4335 100644
+--- a/drivers/dma/xilinx/zynqmp_dma.c
++++ b/drivers/dma/xilinx/zynqmp_dma.c
+@@ -1173,9 +1173,9 @@ static void zynqmp_dma_remove(struct platform_device *pdev)
+ 	dma_async_device_unregister(&zdev->common);
+ 
+ 	zynqmp_dma_chan_remove(zdev->chan);
+-	pm_runtime_disable(zdev->dev);
+-	if (!pm_runtime_enabled(zdev->dev))
++	if (pm_runtime_active(zdev->dev))
+ 		zynqmp_dma_runtime_suspend(zdev->dev);
++	pm_runtime_disable(zdev->dev);
+ }
+ 
+ static const struct of_device_id zynqmp_dma_of_match[] = {
+@@ -1193,6 +1193,7 @@ static struct platform_driver zynqmp_dma_driver = {
+ 	},
+ 	.probe = zynqmp_dma_probe,
+ 	.remove = zynqmp_dma_remove,
++	.shutdown = zynqmp_dma_remove,
+ };
+ 
+ module_platform_driver(zynqmp_dma_driver);
+-- 
+2.43.0
+
 
