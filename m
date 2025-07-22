@@ -4,80 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B56AFC83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 17:23:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B59B9C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 17:26:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LxAdZVy5bnkl4KqmKmn73hf8YAbhvCFGtW8F9Kd55hQ=; b=dk2NteMcCy0Dz00+jcLwOfyGpL
-	9312l3UdTk1mYkMM+/vJ+S9wTvWl2h0Ar5Pd041l2jHVBJ6Lx9UwFYo+nknn2l562Z0BTGwgbAaal
-	WeGVzkkXeQqQNmfHQ17/k4fmFkTTyljOAhw7zzZpHzYyFVeFwMeezbhcjswus0NR4hZDA4r/tWOr1
-	U0oT19GHbrVolA109V1tBlgefqWlyB+DOMck5Mk0ctUtIQHeEY/PDkXLtVnunVhzUFaI3c11BELeR
-	TghP9O2Dm+3MzC8OD66VoSUQM28ugEtFfQmqz9qd7FERNfLE85CfpH0d9s7RDMbQkr2KN/GZStR3i
-	MWWBYuzA==;
+	bh=ex9FmglyVKBQIa3cLqGvOXxHA97cbemSf3f184T2yuM=; b=q3ED/Bl8RUt7fbop5QGWdCOJJV
+	BtsG2pSrjPBWeGrMN4WyUi8N98ZMMiqelzdRPhyEbymaItOPmsSBpRmncCvxfa/eTdU+O160ifKAo
+	uZrbfdj3b9Y6FS8OVKOSdKlgkR5Ol+PF/fwqfGthv3D5IAqKJC8Ayi/h00/J7n6PbFimwCyoW3jz8
+	C5QlyHECt2wQNME6c8evka5QAxsngwOPDxQZ5+3AW1JTPnUjWQXhWJDJMDVQ4UP9FY27nemicgEVb
+	rQHfOVyUBBucTYEoP3Q7IzF4mq9msu2zlSFwIThw0Rf28CaUB8G0agfW5j2CK/WwOA4H0pS1HGVzF
+	ASdzAsnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueGhh-000000037tg-2y6W;
-	Tue, 22 Jul 2025 17:23:01 +0000
-Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
+	id 1ueGkj-000000038IM-2KAv;
+	Tue, 22 Jul 2025 17:26:09 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueGfC-000000037g2-3Crq
+	id 1ueGiF-0000000381g-3YZY
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 22 Jul 2025 17:23:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=ex9FmglyVKBQIa3cLqGvOXxHA97cbemSf3f184T2yuM=; b=q001L+Klap9aeYBrf7FJ4w0irO
+	0rbL5kOzwrQR6hcd+fnbofrFtheX59nz1lK7WHxm5kI+7lkjoJCaMPfnNpx7MvTO5n+Gc2BZMXy+E
+	S38nJixZf2fuIYACJ9uXfyOwJszGfk+jJ2U8q1S5QqRUS3wDKXDZ7Zm0lZc3MynjLCyE4psfZRSgw
+	iwFcYBSTUov9rHtRgZM1hws8KALVkT3s74j1umsuw2gn7WHxhRTm9kfNDk59w6F9claIK+ODooJcr
+	fWnqeW5K9iy2XaRXHBWiFJ8UBoUUUFyxUpix5FWyOpMeI4uWtKt0nIcgm42uTDl3IzoWysBDBop1M
+	TGs3vU0Q==;
+Received: from mgamail.intel.com ([192.198.163.18])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ueGiC-0000000BK5E-0UGu
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Jul 2025 17:20:28 +0000
-Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-2356ce66d7cso90671935ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Jul 2025 10:20:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1753204825; x=1753809625; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=LxAdZVy5bnkl4KqmKmn73hf8YAbhvCFGtW8F9Kd55hQ=;
-        b=JvpO2IXpxEJwkPtwujauH7AZmLJVP9zvfrXTFESKBE3Sf35FApwbdhVSIiso3m9psC
-         uQMZrAT9dx9700uO9gZ07RJpYRCaFlphVUYUrl/DJr2X7o0ESvYvGXsluXmcggSYiVhC
-         u/CDiTiTiZu9XarbrYKn1/Gae1r0/gUM+UQQoZCA/DSO5GgYRMOuYptGZGYrgX//ixmh
-         ghHvA5LzewpEZKfgOqwU0ed3/j2IluWKlPksTR5wNeENpVHVUoIvR3H4BKeG2SiQqtGx
-         oxEY6bfPbgcrQh4A7piOXQibHZSSjm0mShb3yTg0B57nkZZlxtD5rTG5YeSM4zkA9NcE
-         OB4A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753204825; x=1753809625;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=LxAdZVy5bnkl4KqmKmn73hf8YAbhvCFGtW8F9Kd55hQ=;
-        b=dySvCCe6kFxaxuGuZ1wnX8+3E3fyyWs4mt+l0rdw1qvBlp1MFnG6/5cX3gdQfdWj9H
-         9kYasP5Hr+3pg/UpGy9WgRSlezidI9iSDogOsqwbPxQAJWV0fS/9TOsOMcCoXYXGxCoQ
-         3qOQlIOFT4QaKwhSClAkbuNf8/uUrF72f5VZ058OalAuvFEP6Z3o1yRwnzW/wqPUJv45
-         lxiJt+UftkQaHRMVky8nrKI7UfWajvb5/v3fKB6TsxzLjS9esL/mF1kOnmghtNmqurSR
-         spZ8zkamu11+eXBJkCWwtAbhTcomlfSyFKa9S5+Pr+1txFoG2+j3zu3SB90v26FqNAmR
-         7svw==
-X-Forwarded-Encrypted: i=1; AJvYcCXlbhS7UBNPCGK15lE2XjXzM0GHA1lLg/F15DP7cyGXqVNZrXUynrfq04jFfbVtJWPXtVF+765AhZ6wZGcJ9Een@lists.infradead.org
-X-Gm-Message-State: AOJu0YzQujjQbZtO6GhDZapG+YHKI2XZ0o3Jq4vtnbE0V7/V5IXyBbAz
-	kXKv5u5f/gZdGBuU7uIR+qALrRtAlWiDtfKTUwnnaGGOpIjINfynC1fvp2mer3WZt3T7I1GwjFW
-	yDWm3zw==
-X-Google-Smtp-Source: AGHT+IFPwqe8zheAvHey8s0KE1DDyf7guFt8iRaY4PC5Rd3QBhN41iFPFY93hbtWc17LP1SCCWCPuinQiL0=
-X-Received: from pjbnt20.prod.google.com ([2002:a17:90b:2494:b0:31e:40d4:1d0e])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:903:2342:b0:235:ea29:28e9
- with SMTP id d9443c01a7336-23e25764c41mr424140005ad.38.1753204825492; Tue, 22
- Jul 2025 10:20:25 -0700 (PDT)
-Date: Tue, 22 Jul 2025 10:20:24 -0700
-In-Reply-To: <20250721-pmu_event_info-v4-6-ac76758a4269@rivosinc.com>
-Mime-Version: 1.0
-References: <20250721-pmu_event_info-v4-0-ac76758a4269@rivosinc.com> <20250721-pmu_event_info-v4-6-ac76758a4269@rivosinc.com>
-Message-ID: <aH_IWJUFVODUGuva@google.com>
-Subject: Re: [PATCH v4 6/9] KVM: Add a helper function to validate vcpu gpa range
-From: Sean Christopherson <seanjc@google.com>
-To: Atish Patra <atishp@rivosinc.com>
-Cc: Anup Patel <anup@brainfault.org>, Will Deacon <will@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Mayuresh Chitale <mchitale@ventanamicro.com>, 
-	linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, kvm@vger.kernel.org, 
-	kvm-riscv@lists.infradead.org
-Content-Type: text/plain; charset="us-ascii"
+	Tue, 22 Jul 2025 17:23:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1753205012; x=1784741012;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=iY8DNW2TAKM17+S3GE59sF3ZE1JUQqgmoNS4oXSaDTI=;
+  b=K4MjJsxfYky9Un9P42NZ49NjzENijzbzELAQpL+FwyImwmQGEmppFdSW
+   fwsU4/PElm7ZHCcbfFO3T440mp+QppqtU0sm4mLwYOfFYXevZ1kXlHhMY
+   w0dSjs1KUfT7hOOlYfI/2YIPgL28CK+DA/vjaHe1pbld6tvjtW5OLRTWA
+   EOO/ew5fHbzueOm2kVSHtBXuL23jn0Xyjh9I/ysKBXUPN7q0YNf3aV/2V
+   t9lW8oXGan8A//tlVOsnHt5RNWo6lHTElIZv2+/+nbaOBxzOSO5nHVvl2
+   ajnRq/rjuo+iY0GrOXVaAKB6rrxcn/A6PqSYHVfsrygZdq63lVlGPOJYL
+   Q==;
+X-CSE-ConnectionGUID: NOc0aVzPQuSSOibErMuA4w==
+X-CSE-MsgGUID: vYPGIK90RwSZdxsUY3CmWA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11500"; a="54686980"
+X-IronPort-AV: E=Sophos;i="6.16,332,1744095600"; 
+   d="scan'208";a="54686980"
+Received: from orviesa004.jf.intel.com ([10.64.159.144])
+  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Jul 2025 10:23:24 -0700
+X-CSE-ConnectionGUID: uaWWmbRTSpWBbZdK7pVGwA==
+X-CSE-MsgGUID: lepFhLzqSUi9A8Qk/GF6wQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.16,332,1744095600"; 
+   d="scan'208";a="163750882"
+Received: from lkp-server01.sh.intel.com (HELO 9ee84586c615) ([10.239.97.150])
+  by orviesa004.jf.intel.com with ESMTP; 22 Jul 2025 10:23:18 -0700
+Received: from kbuild by 9ee84586c615 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1ueGhv-000IaB-1e;
+	Tue, 22 Jul 2025 17:23:15 +0000
+Date: Wed, 23 Jul 2025 01:22:57 +0800
+From: kernel test robot <lkp@intel.com>
+To: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>,
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Souvik Chakravarty <Souvik.Chakravarty@arm.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Andy Yan <andy.yan@rock-chips.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	cros-qcom-dts-watchers@chromium.org, Vinod Koul <vkoul@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>
+Cc: oe-kbuild-all@lists.linux.dev, Dmitry Baryshkov <lumag@kernel.org>,
+	Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
+	Stephen Boyd <swboyd@chromium.org>,
+	Andre Draszik <andre.draszik@linaro.org>, linux-pm@vger.kernel.org,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	Elliot Berman <quic_eberman@quicinc.com>,
+	Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>,
+	Srinivas Kandagatla <srini@kernel.org>
+Subject: Re: [PATCH v12 8/8] power: reset: reboot-mode: Expose sysfs for
+ registered reboot_modes
+Message-ID: <202507230101.w90DnJxJ-lkp@intel.com>
+References: <20250721-arm-psci-system_reset2-vendor-reboots-v12-8-87bac3ec422e@oss.qualcomm.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250721-arm-psci-system_reset2-vendor-reboots-v12-8-87bac3ec422e@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250722_102026_794473_47101886 
-X-CRM114-Status: GOOD (  15.42  )
+X-CRM114-CacheID: sfid-20250722_182332_641575_76F4C312 
+X-CRM114-Status: GOOD (  10.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,56 +126,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 21, 2025, Atish Patra wrote:
-> diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
-> index 3bde4fb5c6aa..9532da14b451 100644
-> --- a/include/linux/kvm_host.h
-> +++ b/include/linux/kvm_host.h
-> @@ -1387,6 +1387,8 @@ static inline int kvm_vcpu_map_readonly(struct kvm_vcpu *vcpu, gpa_t gpa,
->  
->  unsigned long kvm_vcpu_gfn_to_hva(struct kvm_vcpu *vcpu, gfn_t gfn);
->  unsigned long kvm_vcpu_gfn_to_hva_prot(struct kvm_vcpu *vcpu, gfn_t gfn, bool *writable);
-> +int kvm_vcpu_validate_gpa_range(struct kvm_vcpu *vcpu, gpa_t gpa, unsigned long len,
-> +				bool write_access);
->  int kvm_vcpu_read_guest_page(struct kvm_vcpu *vcpu, gfn_t gfn, void *data, int offset,
->  			     int len);
->  int kvm_vcpu_read_guest_atomic(struct kvm_vcpu *vcpu, gpa_t gpa, void *data,
-> diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
-> index 222f0e894a0c..11bb5c24ed0d 100644
-> --- a/virt/kvm/kvm_main.c
-> +++ b/virt/kvm/kvm_main.c
-> @@ -3361,6 +3361,27 @@ int kvm_vcpu_write_guest(struct kvm_vcpu *vcpu, gpa_t gpa, const void *data,
->  }
->  EXPORT_SYMBOL_GPL(kvm_vcpu_write_guest);
->  
-> +int kvm_vcpu_validate_gpa_range(struct kvm_vcpu *vcpu, gpa_t gpa, unsigned long len,
-> +				bool write_access)
+Hi Shivendra,
 
-Please no.  "validate" is way too ambiguous, the result is inherently unstable,
-I don't want to add vCPU-scoped APIs (too much x86-centric baggage), taking an
-arbitrary range without a user adds complexity for no benefit, and this is basically
-the same as kvm_is_gpa_in_memslot(), but with write requirements.
+kernel test robot noticed the following build warnings:
 
-I would much prefer to add a simpler helper to complement kvm_is_gpa_in_memslot(),
-that makes it as obvious as possible exactly what is being "validated", e.g.
+[auto build test WARNING on 97987520025658f30bb787a99ffbd9bbff9ffc9d]
 
-diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
-index 3bde4fb5c6aa..29be907d28b0 100644
---- a/include/linux/kvm_host.h
-+++ b/include/linux/kvm_host.h
-@@ -1915,6 +1915,14 @@ static inline bool kvm_is_gpa_in_memslot(struct kvm *kvm, gpa_t gpa)
-        return !kvm_is_error_hva(hva);
- }
- 
-+static inline bool kvm_is_gpa_in_writable_memslot(struct kvm *kvm, gpa_t gpa)
-+{
-+       bool writable;
-+       unsigned long hva = gfn_to_hva_prot(kvm, gpa_to_gfn(gpa), &writable);
-+
-+       return !kvm_is_error_hva(hva) && writable;
-+}
-+
- static inline void kvm_gpc_mark_dirty_in_slot(struct gfn_to_pfn_cache *gpc)
- {
-        lockdep_assert_held(&gpc->lock);
+url:    https://github.com/intel-lab-lkp/linux/commits/Shivendra-Pratap/power-reset-reboot-mode-Add-device-tree-node-based-registration/20250722-023323
+base:   97987520025658f30bb787a99ffbd9bbff9ffc9d
+patch link:    https://lore.kernel.org/r/20250721-arm-psci-system_reset2-vendor-reboots-v12-8-87bac3ec422e%40oss.qualcomm.com
+patch subject: [PATCH v12 8/8] power: reset: reboot-mode: Expose sysfs for registered reboot_modes
+config: arc-randconfig-r111-20250722 (https://download.01.org/0day-ci/archive/20250723/202507230101.w90DnJxJ-lkp@intel.com/config)
+compiler: arc-linux-gcc (GCC) 8.5.0
+reproduce: (https://download.01.org/0day-ci/archive/20250723/202507230101.w90DnJxJ-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202507230101.w90DnJxJ-lkp@intel.com/
+
+sparse warnings: (new ones prefixed by >>)
+>> drivers/power/reset/reboot-mode.c:82:76: sparse: sparse: Using plain integer as NULL pointer
+
+vim +82 drivers/power/reset/reboot-mode.c
+
+    74	
+    75	static ssize_t reboot_modes_show(struct device *dev, struct device_attribute *attr, char *buf)
+    76	{
+    77		struct reboot_mode_driver **devres_reboot;
+    78		struct reboot_mode_driver *reboot;
+    79		struct mode_info *info;
+    80		ssize_t size = 0;
+    81	
+  > 82		devres_reboot = devres_find(dev, release_reboot_mode_device, NULL, 0);
+    83		reboot = *devres_reboot;
+    84		mutex_lock(&reboot->rb_lock);
+    85		list_for_each_entry(info, &reboot->head, list) {
+    86			size += sprintf(buf + size, "%s,", info->mode);
+    87		}
+    88		mutex_unlock(&reboot->rb_lock);
+    89	
+    90		if (size) {
+    91			size += sprintf(buf + size - 1, "\n");
+    92			return size;
+    93		}
+    94	
+    95		return -ENODATA;
+    96	}
+    97	static DEVICE_ATTR_RO(reboot_modes);
+    98	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
