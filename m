@@ -4,102 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81659C83F26
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 00:23:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B869C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 00:32:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IfkBShQYqZzNM9BpYGzZaeeLyc06cdxi5vaNJkw+Xtk=; b=WTluy14YUrMsTs+Cxz4FQrFfla
-	tZJmdhT1gstbEflhDpEOW0H7Fv5F+9fN2MQm3iHYOXqOFSCb6pSgO+eaeq5S/81gI2MFD+/wNMAQ6
-	z1O5wgi7vcQFaDpDkoEZN8rxc5s1VCd1vIn6JnhTP3JZg8MHafeI6U630+tpAcz7flUv6LTqh8ugR
-	cr61bbAI/xuyIw+R3EMbSk74iYcd85arP5xjwF4kX/Na6R4cvW6cj9isdOZ9dWbbTMbwNrOSNAJvh
-	u8vJqkxD9aQdux4ka8T5s9t7XiuS7GjOeAy4pPXDu2EQh9jFSHUwPdPThr40SX3N70SeB/+R2KGnb
-	seBuJu+g==;
+	bh=7pp4FFW5WKodAE4xjZQ2NzlV+b/LCYa18rre+bnZt+4=; b=ruh7mZsnULPiyl8nx3TmUyUKGT
+	p9spb3LiE5qfeG+MjfUO3TtsJLwfyPSwTCksyJxMpjNnASgKC7WTKGBWNtsQucDfgW82Pi0VIvRLv
+	5Px5XwSQffO2zK0BxWe9YLxcSlGP/kGvSzcLTZcBaFeB2UXsP+UZx/y9ae2i+7elI9bkIY6tM9qcn
+	iqq19Ikx/5D+QGYITMF9+qliY0APbn5+et5jOlpKrOMGaEtBVuQdWGERVYug3Dz3QT8u3HMN7qP+m
+	Mlsy2caXusr1L8Xg+PpFNN0xOU/gC9FbO5Ax3yGjQ9OYO+hyamwE/6BpCOVxZmwamxCt2N/jPP8Hr
+	ThTki7Ng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ue0nB-00000000wpb-1dCH;
-	Tue, 22 Jul 2025 00:23:37 +0000
-Received: from mail-yb1-xb30.google.com ([2607:f8b0:4864:20::b30])
+	id 1ue0w2-00000000xSM-0r6I;
+	Tue, 22 Jul 2025 00:32:46 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ue0jk-00000000wa2-3rVG
+	id 1ue0tV-00000000xH1-30Z3
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Jul 2025 00:20:06 +0000
-Received: by mail-yb1-xb30.google.com with SMTP id 3f1490d57ef6-e818a572828so3360825276.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Jul 2025 17:20:04 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=immunant-com.20230601.gappssmtp.com; s=20230601; t=1753143604; x=1753748404; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=IfkBShQYqZzNM9BpYGzZaeeLyc06cdxi5vaNJkw+Xtk=;
-        b=T66k4aLcWmy1bOtlDTz6PfjQrqwA3WRbs8qP9ly/rkJ+SRxMnxBsBrTTQCJz1Uabxu
-         zdf7HXFb2Wr0g4euGbznk+6NtekWaaqEXL4fMFPxafNHqzuyrE0C+Tw4cW8oX+d9OOuZ
-         XiEwIbjEl/qa8Jyzq9gnvw19ZU9GFZcSVqYfFEN0FpIKv88skggUozKvoRt/+mWsRdLk
-         LdeCpeD8bfhbVnaVLzGFCUdAlXC88eG32bkAt0/9zDVAthw6uEm00rnHYJzxGwmxSFAm
-         S94aGZ3XIdj9zgneaun3tkiH9ULq1Ya68nFRVKP/6MIiez3C9Yxaa2JylFYfnIdUhz09
-         CaEQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753143604; x=1753748404;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=IfkBShQYqZzNM9BpYGzZaeeLyc06cdxi5vaNJkw+Xtk=;
-        b=wmPaAX7/d4JxIPoSfSAGHoNAEggyKm8HJNVwMCETWCpI2tPtzhuiaB0M5nu2mb9+1y
-         /40QLcLXvgmERmynBHVa+rkxnQRc30mLrbf4CufYaSviIm+toMn1hUQGpXDsdQNIA8pn
-         3LDnRLH6VXTXOLCMnReWh15dtcJOKtg/NUkK8C66d8tgrBMCniuH3di5HZMKWLiE+N15
-         en2zzwRiGoyIOcvsQzjepgFLF/Je0Ua4KqSXBIx/oS11cRqvnhRNcLY29i12D302zmqd
-         gOVEKq1o9t+Bl8B4ohpwvXv40Equ3BXcs1AivTsILBHxFZ8tQ58dCwjyGm/+P9jklLfx
-         Hf+Q==
-X-Forwarded-Encrypted: i=1; AJvYcCV6We6x8NnJhSoNlt6yUPlsMKPT+gGhda2Rt4jjbIes9DMmZCTezVOQ3n10NAHSdfIJWmcWPQvOEO5L+T4ORngG@lists.infradead.org
-X-Gm-Message-State: AOJu0YzyLXnGTsQll9Ik5x2khFWo4Ti+hqYiHE0jMOmlprVpKLNlw3t/
-	sp1fMHM32iMAPAY2s8V+4vphCVePIVPxBcf26lrer3tkxYMiXpiLmkXcpHiQwMpg6sY=
-X-Gm-Gg: ASbGncvE6hPUbMd0D5JbHMqCxc6LPdykar37osf5Nfak/VgI78Qa72qxJK020Gc4voZ
-	mhkflo8WplozbmrpRSXsnpF4i3SoxtAQ4v9YvHCcRS9S2GDtyiPtLoHn1S/AP55Ttz3qVinp6OM
-	zF6tAE2/1CFYIwZK13ROyTCwn6Muzvx0QJkIIXYIwd4qyUR0lesJpt5ntLY/ziGVPqJT8vg3/L6
-	9npQvzzJ+GZ0KZUAMdvCC4QdfhYky6905TpgKNKBZyylWBIepbxwZuUtXlURraEQ9Szfe6WMhhC
-	Isx0nyYY2M3rKl8IDP7FKTq9A3I/nR4qHZ1sdZFW5b/lNfgBLUzr3CgQQeWp3H6RAsuV5s8ZPx6
-	h1HWFuLntJq2bunQtOOrWo+FwbKQ=
-X-Google-Smtp-Source: AGHT+IF9PP9Of97pBf/TTFLrE74utZsiyNln4ZN1vWt/7rWvIC6coXHB2XHenq6hbcE9b8QXOwrztg==
-X-Received: by 2002:a05:6902:1541:b0:e82:17a1:5c15 with SMTP id 3f1490d57ef6-e8d7a3559fbmr17255356276.10.1753143603631;
-        Mon, 21 Jul 2025 17:20:03 -0700 (PDT)
-Received: from [10.87.48.44] ([12.9.190.2])
-        by smtp.gmail.com with ESMTPSA id 3f1490d57ef6-e8d7cc3a41asm2889567276.16.2025.07.21.17.20.01
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 21 Jul 2025 17:20:03 -0700 (PDT)
-Message-ID: <dd136db0-1ac7-4f75-b550-ccf7e14c032a@immunant.com>
-Date: Mon, 21 Jul 2025 17:20:01 -0700
+	Tue, 22 Jul 2025 00:30:12 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 4D017A55E36;
+	Tue, 22 Jul 2025 00:30:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 18B36C4CEF7;
+	Tue, 22 Jul 2025 00:30:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1753144208;
+	bh=EuXF+5F3Ni9nk0OZtht9On3rD4KnpjFnW5CiFlFPJ4U=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=hNvVM2ILTkgT2tJhvZUztstWQeW8RdLLShELouOYs4IMW5F81FnEhAePJrVZN1iZA
+	 LnRxGkRwfNx1V3F+vHpPpLbycJ52oZx4as5KD1Mq/OP2a3Mp8141w1YZdOnd6DVZsv
+	 V7ml8aNpHm+5fYhrOWAfCYOCD8sVDD/1+RTYoz8DZFh9IrkYDIgCQCH65Mte84SzNq
+	 LvYA3Xp8xB8zNX49Dx0UTdQhQup4aNiOkynqE5qbV7M+m/hZ8ufSOrMG6F1QJYTJjD
+	 ulTMxFwpCH14Ze7CDqzNDZkRO9nxNX9K8ycX14X03wId75FQ0nHQNR6aiNoKXTLf+J
+	 xYHdQ/G1KxnzQ==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EAE02383B267;
+	Tue, 22 Jul 2025 00:30:27 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 2/5] KVM: arm64: Use SMCCC 1.2 for FF-A initialization
- and in host handler
-To: =?UTF-8?Q?Arve_Hj=C3=B8nnev=C3=A5g?= <arve@android.com>
-Cc: Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
- perlarsen@google.com, Oliver Upton <oliver.upton@linux.dev>,
- Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
- Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas
- <catalin.marinas@arm.com>, Sudeep Holla <sudeep.holla@arm.com>,
- linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
- linux-kernel@vger.kernel.org, ahomescu@google.com, armellel@google.com,
- ayrton@google.com, qperret@google.com, sebastianene@google.com,
- qwandor@google.com
-References: <20250701-virtio-msg-ffa-v7-0-995afc3d385e@google.com>
- <20250701-virtio-msg-ffa-v7-2-995afc3d385e@google.com>
- <8634bdbgaz.wl-maz@kernel.org>
- <3b10fa81-bfdd-4325-a330-c79df2e21621@immunant.com>
- <aHpOClH1k-3NhI_y@willie-the-truck>
- <67cc6766-6493-4171-a6b1-2a105c3e6ff5@immunant.com>
- <CAMP5XgeUwDnf=PbySy6aoF_zc7dtxymDQZEp8DuRSOLg4WEnFQ@mail.gmail.com>
-Content-Language: en-US
-From: Per Larsen <perl@immunant.com>
-In-Reply-To: <CAMP5XgeUwDnf=PbySy6aoF_zc7dtxymDQZEp8DuRSOLg4WEnFQ@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net-next v2] net: stmmac: dwmac-renesas-gbeth: Add PM
+ suspend/resume callbacks
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <175314422650.243210.16859795582435366531.git-patchwork-notify@kernel.org>
+Date: Tue, 22 Jul 2025 00:30:26 +0000
+References: <20250717071109.8213-1-biju.das.jz@bp.renesas.com>
+In-Reply-To: <20250717071109.8213-1-biju.das.jz@bp.renesas.com>
+To: Biju Das <biju.das.jz@bp.renesas.com>
+Cc: prabhakar.mahadev-lad.rj@bp.renesas.com, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
+ mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+ netdev@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ geert+renesas@glider.be, biju.das.au@gmail.com, rmk+kernel@armlinux.org.uk
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250721_172005_296255_8300915F 
-X-CRM114-Status: GOOD (  38.33  )
+X-CRM114-CacheID: sfid-20250721_173009_887067_62B05220 
+X-CRM114-Status: UNSURE (   9.73  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,188 +81,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/21/25 4:01 AM, Arve Hjønnevåg wrote:
-> On Fri, Jul 18, 2025 at 10:54 PM Per Larsen <perl@immunant.com> wrote:
->>
->> On 7/18/25 6:37 AM, Will Deacon wrote:
->>> On Mon, Jul 07, 2025 at 05:06:23PM -0700, Per Larsen wrote:
->>>> On 7/3/25 5:38 AM, Marc Zyngier wrote:
->>>>> On Tue, 01 Jul 2025 23:06:35 +0100,
->>>>> Per Larsen via B4 Relay <devnull+perlarsen.google.com@kernel.org> wrote:
->>>>>> diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
->>>>>> index 2c199d40811efb5bfae199c4a67d8ae3d9307357..65d241ba32403d014b43cc4ef4d5bf9693813809 100644
->>>>>> --- a/arch/arm64/kvm/hyp/nvhe/ffa.c
->>>>>> +++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
->>>>>> @@ -71,36 +71,68 @@ static u32 hyp_ffa_version;
->>>>>>     static bool has_version_negotiated;
->>>>>>     static hyp_spinlock_t version_lock;
->>>>>> -static void ffa_to_smccc_error(struct arm_smccc_res *res, u64 ffa_errno)
->>>>>> +static void ffa_to_smccc_error(struct arm_smccc_1_2_regs *res, u64 ffa_errno)
->>>>>>     {
->>>>>> -  *res = (struct arm_smccc_res) {
->>>>>> +  *res = (struct arm_smccc_1_2_regs) {
->>>>>>                     .a0     = FFA_ERROR,
->>>>>>                     .a2     = ffa_errno,
->>>>>>             };
->>>>>>     }
->>>>>> -static void ffa_to_smccc_res_prop(struct arm_smccc_res *res, int ret, u64 prop)
->>>>>> +static void ffa_to_smccc_res_prop(struct arm_smccc_1_2_regs *res, int ret, u64 prop)
->>>>>>     {
->>>>>>             if (ret == FFA_RET_SUCCESS) {
->>>>>> -          *res = (struct arm_smccc_res) { .a0 = FFA_SUCCESS,
->>>>>> -                                          .a2 = prop };
->>>>>> +          *res = (struct arm_smccc_1_2_regs) { .a0 = FFA_SUCCESS,
->>>>>> +                                                .a2 = prop };
->>>>>>             } else {
->>>>>>                     ffa_to_smccc_error(res, ret);
->>>>>>             }
->>>>>>     }
->>>>>> -static void ffa_to_smccc_res(struct arm_smccc_res *res, int ret)
->>>>>> +static void ffa_to_smccc_res(struct arm_smccc_1_2_regs *res, int ret)
->>>>>>     {
->>>>>>             ffa_to_smccc_res_prop(res, ret, 0);
->>>>>>     }
->>>>>>     static void ffa_set_retval(struct kvm_cpu_context *ctxt,
->>>>>> -                     struct arm_smccc_res *res)
->>>>>> +                     struct arm_smccc_1_2_regs *res)
->>>>>>     {
->>>>>> +  DECLARE_REG(u64, func_id, ctxt, 0);
->>>>>>             cpu_reg(ctxt, 0) = res->a0;
->>>>>>             cpu_reg(ctxt, 1) = res->a1;
->>>>>>             cpu_reg(ctxt, 2) = res->a2;
->>>>>>             cpu_reg(ctxt, 3) = res->a3;
->>>>>> +  cpu_reg(ctxt, 4) = res->a4;
->>>>>> +  cpu_reg(ctxt, 5) = res->a5;
->>>>>> +  cpu_reg(ctxt, 6) = res->a6;
->>>>>> +  cpu_reg(ctxt, 7) = res->a7;
->>>>>
->>>>>    From DEN0028G 2.6:
->>>>>
->>>>> <quote>
->>>>> Registers W4-W7 must be preserved unless they contain results, as
->>>>> specified in the function definition.
->>>>> </quote>
->>>>>
->>>>> On what grounds can you blindly change these registers?
->>>>   From DEN0077A 1.2 Section 11.2: Reserved parameter convention
->>>>
->>>> <quote>
->>>> Unused parameter registers in FF-A ABIs are reserved for future use by the
->>>> Framework.
->>>>
->>>> [...]
->>>>
->>>> The caller is expected to write zeroes to these registers. The callee
->>>> ignores the values in these registers.
->>>> </quote>
->>>>
->>>> My read is that, as long as we are writing zeroes into reserved registers
->>>> (which I believe we are), we comply with DEN0026G 2.6.>
->>>
->>> Right, the specs make this far more difficult to decipher than necessary
->>> but I think SMCCC defers to the definition of the specific call being
->>> made and then FF-A is basically saying that unused argument registers
->>> are always zeroed.
->>>
->>> Rather than have the EL2 proxy treat each call differently based on the
->>> used argument registers, we can rely on EL3 doing the right thing and
->>> blindly copy everything back, which is what you've done. So I think
->>> that's ok.
->>>
->>>>>> +
->>>>>> +  /*
->>>>>> +   * DEN0028C 2.6: SMC32/HVC32 call from aarch64 must preserve x8-x30.
->>>>>> +   *
->>>>>> +   * The most straightforward approach is to look at the function ID
->>>>>> +   * sent by the caller. However, the caller could send FFA_MSG_WAIT
->>>>>> +   * which is a 32-bit interface but the reply could very well be 64-bit
->>>>>> +   * such as FFA_FN64_MSG_SEND_DIRECT_REQ or FFA_MSG_SEND_DIRECT_REQ2.
->>>>>> +   *
->>>>>> +   * Instead, we could look at the function ID in the response (a0) but
->>>>>> +   * that doesn't work either as FFA_VERSION responses put the version
->>>>>> +   * number (or error code) in w0.
->>>>>> +   *
->>>>>> +   * Set x8-x17 iff response contains 64-bit function ID in a0.
->>>>>> +   */
->>>>>> +  if (func_id != FFA_VERSION && ARM_SMCCC_IS_64(res->a0)) {
->>>>>> +          cpu_reg(ctxt, 8) = res->a8;
->>>>>> +          cpu_reg(ctxt, 9) = res->a9;
->>>>>> +          cpu_reg(ctxt, 10) = res->a10;
->>>>>> +          cpu_reg(ctxt, 11) = res->a11;
->>>>>> +          cpu_reg(ctxt, 12) = res->a12;
->>>>>> +          cpu_reg(ctxt, 13) = res->a13;
->>>>>> +          cpu_reg(ctxt, 14) = res->a14;
->>>>>> +          cpu_reg(ctxt, 15) = res->a15;
->>>>>> +          cpu_reg(ctxt, 16) = res->a16;
->>>>>> +          cpu_reg(ctxt, 17) = res->a17;
->>>>>> +  }
->>>>>>     }
->>>>>
->>>>> I don't see how that can ever work.
->>>>>
->>>>> Irrespective of how FFA_MSG_WAIT actually works (and I couldn't find
->>>>> anything in the spec that supports the above), the requester will
->>>>> fully expect its registers to be preserved based on the initial
->>>>> function type, and that alone. No ifs, no buts.
->>>>>
->>>>> If what you describe can happen (please provide a convincing example),
->>>>> then the spec is doomed.
->>>>
->>>> DEN0077A 1.2 Section 8.2 (Runtime Model for FFA_RUN) and 8.3 (Runtime Model
->>>> for Direct request ABIs) contains Figures 8.1 and 8.2. Each figure shows
->>>> transitions between states "waiting", "blocked", "running", and "preempted".
->>>> Key to my understanding is that the waiting state in Figure 8.1 and Figure
->>>> 8.2 is the exact same state. This appears to be the case per Section 4.10.
->>>>
->>>> So we have to consider the ways to get in and out of the waiting state by
->>>> joining the state machines in Figures 8.1 and 8.2. Figure 8.1 has an edge
->>>> between "running" and "waiting" caused by FFA_MSG_WAIT. Figure 8.2 has an
->>>> edge between "waiting" and "running" caused by a "Direct request ABI".
->>>>
->>>> Direct request ABIs include FFA_MSG_SEND_DIRECT_REQ2 which is why the FF-A
->>>> 1.2 spec, in my read, permits the response to a 32-bit FFA_MSG_WAIT call can
->>>> be a 64-bit FFA_MSG_SEND_DIRECT_REQ2 reply.
->>>
->>> That seems bonkers to me and I agree with Marc's assessment above. The
->>> SMCCC is crystal clear that a caller using the SM32/HVC32 calling
->>> convention can rely on x8-x30 (as well as the stack pointers) being
->>> preserved. If FF-A has a problem with that then it needs to be fixed
->>> there and not bodged in Linux.
->> Ack. Patchset v8 addresses Marc's feedback by using the func_id detect
->> SMC64 instead.>
->>> Setting that aside, I'm still not sure I follow this part of your check:
->>>
->>>        if (... && ARM_SMCCC_IS_64(res->a0))
->>>
->>> won't res->a0 contain something like FFA_SUCCESS? The FFA spec states:
->>>
->>>     FFA_SUCCESS64, is used only if any result register encodes a 64-bit
->>>     parameter.
->>>
->>> which doesn't really seem related to whether or not the initial call
->>> was using SMC32 or SMC64. What am I missing?I agree that we cannot use res->a0 to distinguish SMC32/SMC64 for the
->> reason you stated.
+Hello:
+
+This patch was applied to netdev/net-next.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
+
+On Thu, 17 Jul 2025 08:11:06 +0100 you wrote:
+> Add PM suspend/resume callbacks for RZ/G3E SMARC EVK.
 > 
-> I don't think using the function-id of the original call works
-> correctly in this context though. If you look at
-> drivers/firmware/arm_ffa/driver.c:ffa_msg_send_direct_req2 it has the
-> same problem as the FFA_MSG_WAIT example in your comment. In the
-> simple case it will use FFA_MSG_SEND_DIRECT_REQ2 for the call and
-> FFA_MSG_SEND_DIRECT_RESP2 for the response, both 64 bit opcodes, and
-> either approach here will have the same correct result. However if
-> FFA_MSG_SEND_DIRECT_REQ2 responds with FFA_INTERRUPT or FFA_YIELD,
-> then the driver will resume the call with FFA_RUN, a 32 bit opcode,
-> and still expect a 64 bit FFA_MSG_SEND_DIRECT_RESP2 response with a
-> full response in x4-17. If you use ARM_SMCCC_IS_64(func_id) here
-> instead of ARM_SMCCC_IS_64(res->a0), then the part of response in
-> x8-x17 will be lost.
+> The PM deep entry is executed by pressing the SLEEP button and exit from
+> entry is by pressing the power button.
 > 
-> The FF-A 1.3 ALP2 fixes this by adding a 64 bit FF-A run opcode, but
-> at the current patchstack only adds ff-a 1.2 support and the linux
-> ff-a driver does not yet support the new 1.3 ALP2 call flow either so
-> I think the current v7 patch here is the best option for now.
+> Logs:
+> root@smarc-rzg3e:~# PM: suspend entry (deep)
+> Filesystems sync: 0.115 seconds
+> Freezing user space processes
+> Freezing user space processes completed (elapsed 0.002 seconds)
+> OOM killer disabled.
+> Freezing remaining freezable tasks
+> Freezing remaining freezable tasks completed (elapsed 0.001 seconds)
+> printk: Suspending console(s) (use no_console_suspend to debug)
+> NOTICE:  BL2: v2.10.5(release):2.10.5/rz_soc_dev-162-g7148ba838
+> NOTICE:  BL2: Built : 14:23:58, Jul  5 2025
+> NOTICE:  BL2: SYS_LSI_MODE: 0x13e06
+> NOTICE:  BL2: SYS_LSI_DEVID: 0x8679447
+> NOTICE:  BL2: SYS_LSI_PRR: 0x0
+> NOTICE:  BL2: Booting BL31
+> renesas-gbeth 15c30000.ethernet end0: Link is Down
+> Disabling non-boot CPUs ...
+> psci: CPU3 killed (polled 0 ms)
+> psci: CPU2 killed (polled 0 ms)
+> psci: CPU1 killed (polled 0 ms)
+> Enabling non-boot CPUs ...
+> Detected VIPT I-cache on CPU1
+> GICv3: CPU1: found redistributor 100 region 0:0x0000000014960000
+> CPU1: Booted secondary processor 0x0000000100 [0x412fd050]
+> CPU1 is up
+> Detected VIPT I-cache on CPU2
+> GICv3: CPU2: found redistributor 200 region 0:0x0000000014980000
+> CPU2: Booted secondary processor 0x0000000200 [0x412fd050]
+> CPU2 is up
+> Detected VIPT I-cache on CPU3
+> GICv3: CPU3: found redistributor 300 region 0:0x00000000149a0000
+> CPU3: Booted secondary processor 0x0000000300 [0x412fd050]
+> CPU3 is up
+> dwmac4: Master AXI performs fixed burst length
+> 15c30000.ethernet end0: No Safety Features support found
+> 15c30000.ethernet end0: IEEE 1588-2008 Advanced Timestamp supported
+> 15c30000.ethernet end0: configuring for phy/rgmii-id link mode
+> dwmac4: Master AXI performs fixed burst length
+> 15c40000.ethernet end1: No Safety Features support found
+> 15c40000.ethernet end1: IEEE 1588-2008 Advanced Timestamp supported
+> 15c40000.ethernet end1: configuring for phy/rgmii-id link mode
+> OOM killer enabled.
+> Restarting tasks: Starting
+> Restarting tasks: Done
+> random: crng reseeded on system resumption
+> PM: suspend exit
 > 
-FFA_RUN is passed through to EL3 by kvm_host_ffa_handler so I'm not sure 
-there is a code path where func_id == FFA_RUN in set_ffa_retval.
+> [...]
+
+Here is the summary with links:
+  - [net-next,v2] net: stmmac: dwmac-renesas-gbeth: Add PM suspend/resume callbacks
+    https://git.kernel.org/netdev/net-next/c/72b4612af36f
+
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
 
 
