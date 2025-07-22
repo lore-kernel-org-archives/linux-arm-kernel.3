@@ -4,88 +4,174 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C2FDC83F27
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 07:43:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AD14C83F25
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 07:45:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p1N+wgj9qJtb+bRk0/YzXSA+bhNFySP+cY66IIckDgM=; b=fav9v72WiU4DA4jm6+CpuSMtUy
-	cscU1J6j5wXDyfb95Gu0l1lqAvspAHTCMMBKl4h5FGziv6AiqMgteKCDcyRnCiZIoH9c24hRZXLeu
-	+52b4Qg/AW+D5MGM6SDU2/kMbpIDLRfBTlZ4kShwZDnHS623IhjFPssiPpS1yQLV7vSqmRPyMoHCK
-	daS83Kl+2+Vg+yjkQAoAI19BZIRbISljnol3z+UJN2NZyOhvf1LhhLRaRnAsBAyuKLYimf1KSsxxP
-	PsIJbNzMdt0X2y51Jwnhe06KUPXkEudcn1iYOkT+DQITg4fq0icp7VnDuwQa1VigsUhqwWFtetCPJ
-	kF49glUA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QyKL1sNMM/rAunt65IASn7CfBD+F9gtj3RAslIbeg/8=; b=ZGTjrtbet0nLWyOZXZ3v5CKpkk
+	5E/ZczBrqU4P+c6or8mhJTo3onxaZ2X9SvLr6Ip2DBDsfwfLmbwWHtkop7B6IGxdb6r9q15J6ov1C
+	qKAL/2SNP7RtBvWCuYpYORuhDIKK8LrAitfcxwqAIpPtdUZbsZrPvL5Da/shxkl7RVY84MC3XEo6Y
+	hCWsQ+Ql9ihys4elAKKgKX99ytgNFv/PZH6iVRFHZPQ6jCPbbv8DPuOsg+ZN8PzgxaTQWT+nmVv6X
+	MlFPWpjvQ5FGYT9eD5H536azwv5d4L/r+qPRlpAWZQjC8S1TGEdYz0ZWUY8OKvC/SeOZX7wCfeZHl
+	6YbqGzVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ue7ea-00000001iJE-3mWz;
-	Tue, 22 Jul 2025 07:43:12 +0000
-Received: from mail-lj1-f169.google.com ([209.85.208.169])
+	id 1ue7h2-00000001imZ-0ZHe;
+	Tue, 22 Jul 2025 07:45:44 +0000
+Received: from mail-swedencentralazon11013055.outbound.protection.outlook.com ([52.101.83.55] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ue7Zq-00000001hK7-33lV
+	id 1ue7a0-00000001hMa-0Bcw
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Jul 2025 07:38:19 +0000
-Received: by mail-lj1-f169.google.com with SMTP id 38308e7fff4ca-32b4876dfecso54682791fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Jul 2025 00:38:18 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1753169897; x=1753774697; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=p1N+wgj9qJtb+bRk0/YzXSA+bhNFySP+cY66IIckDgM=;
-        b=KAomp+UmzsqjK9yOKliV9aJWnbWRIHRbRk+/iG2e2GC7C3+cjPaTomY1/GgsmSX0YN
-         sksof9v6HmcnI3HozqnniqpoIHTiNks6zjYanqQVTIH7gbZBFi8vVxn5jsu5NdQWDb8q
-         iqEU4lTxFKbLAGZUXfmKBE/S5otSwKYngq2rA=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753169897; x=1753774697;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=p1N+wgj9qJtb+bRk0/YzXSA+bhNFySP+cY66IIckDgM=;
-        b=WmSQYXai54WUSuZPYSRGfcJT0lQikvnldOJAjDPLZtx+8um4VreFXOcgF+36H3u0sB
-         KAQdCGUw+nrieR0N30y8pK9TrUhCxEwjcp6Zwtv5DJ5LMAOiuFeN216IxgcFT/f91F1z
-         Ie/HXiETfj6FtmoTK8g9GScYlCvPLWS8O3XAXmIFIpA1z9dSjLRvBnlFGs4Fa8ORaQjF
-         4uyZ73rsAq/ftS43LJodtjssVYWDUpHtd+f5gm0rAFIBx1kipkwEt22fXGTXMlOVXgal
-         srx8Shc7n+AnWzbYT9xs9hABgRWSfgf0VagOJdf5CajMZIS6k8zI8ILXdkumaOkxKGc+
-         kkUw==
-X-Forwarded-Encrypted: i=1; AJvYcCWOvdz8/FcROxGgBEtCYIKw4mLPu4qCMJNXzbLYKUzkGeksa54yGqoMIFfqjRu84CAv6Zt47dn+7cWtY7UW6gkY@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxr9a365NgtEbW8ACqnIxWqnBm0oyFB+nV9GlIqfSQF+HzEjhBa
-	jtYG3colXi6N+zEjQdXFE287ndQE4VfDjswYtzxihulwT8MpIfIMMJAb/GpTues/FHFyw7ZZvPb
-	PJRJ3O3Tx+OOE0nH5rt6dr19m7WP6wK0gCSnzuhpA
-X-Gm-Gg: ASbGncvcyK57vqby5gSrmZf1F1Q37eIMbrmveBKsqoKdVp0pDtKRgh9Y4Snsf6OoFFO
-	N/GeK0s4N0kHe0JVtf0BdHpR4lZKPlXeP+hoHiZlN9fppfcdmJvd1JBwR4doz1Xcw7PYOH/PUjR
-	kL16TqnnXP/AG6BMpcMmit63rGXncAdr8+6R6Z3u5jFGPqFAJI/ArcOqQzxh5qp3LuU31tAEOB0
-	ASeQDo77LoMuuaSpBxn7F6tPQHfGDGPfsM=
-X-Google-Smtp-Source: AGHT+IHIEXGhSQKNLTR3joj0qjwcB1T77Dp8iSOMV7/+3N11OuF7i8eFvD4xY1tQQW+z6w+ni2WlHZTcDNTAtH00llM=
-X-Received: by 2002:a2e:b8d1:0:b0:32a:e7b9:1dc9 with SMTP id
- 38308e7fff4ca-330d24f7ef4mr6438751fa.3.1753169896490; Tue, 22 Jul 2025
- 00:38:16 -0700 (PDT)
+	Tue, 22 Jul 2025 07:38:29 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Eisn2s5m2RcaVcJPIDWZsf2QZonWbiFfF3e/OGPsVETx6rzdreAj9x4jCSoxFiwbTgnkdeT8GRU1Wyo1IB2gbJ3mEMcQr8p7eMXXwLQg04KwNLGhk6t/tkYsPeRqX5LJRzkFWNYdrEQ5uXv8bGL1Em0745BbjYcIQ17hqjyLRQNhzGAz1gwV6R2bBXKd4F09jGwe+WnF/f4R+TKJfXENvtsIcLITXlJoryvmgdfozBwRSS1P0yn7+U0S01w5cMHSsrEPe8pEvWGIwLcOl+rEqzk0TQlwrwSMXz/NJuLW/GR7SMxeHNkzTt6sJx1AM5SHts0N1m0dd4AwPJ63d4gQ8w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=QyKL1sNMM/rAunt65IASn7CfBD+F9gtj3RAslIbeg/8=;
+ b=V2e95qIbLjrbbIjAY+H6ik3ILj64ihjD9PGLBLc5WfSdcOJvrwscR3q/qYA99W6UY8Jo4TUmfi83U61N5DnkWrkKGDttNao0//UwZeMI4PmS1Wr1QzNO2YNdqEsPER6Uy4R097yCaC41B+adwvCg7w3KaSzx9rUQr2yfmtjO+xrsIvG5GUmRkTBUAeJspmRoKuUILY/W7q9a034G4aYkJkMFNnBVViGwtW7ZovPedpeDr/7z0f7oEEJ2ByB5IPfHUJTviWOgfLNkeBZR05sGC0udlb4MOk30dWKGprFas//DwBFTsfYY11AfcRL8gjz+LG9zn9v+4pxKr203Q0WG7w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=QyKL1sNMM/rAunt65IASn7CfBD+F9gtj3RAslIbeg/8=;
+ b=IeG1UAF5JDULwPj7tOYK0Ge0uzQMgjbCAPNHgNgP+LFae3Z1SS6J34dQ3UVO4tYjlEWyC1TUikUczc/6YM5sfJVpX4XLZI9d/JvHmJhf65y225hmF77s4IaeJdKH9nyLhOn3WjA1sknckrvF5wTKcu4JhUhyLJ5q7QWj2PVnRg+xaFWWg1EaF/AddiTX1qAlbn1dG2zqpnAw8bQxqpv1IPA5a7RMMQO28RXnauiWq9wP2zIjD9OEDqNsE8ug5/BXspdNJPpK7bJhb/JgEooVvTiqikttGJYf3cdGcBIc61LN60XFr4oohVg8ivDJ2o7XhqssImtfUBCaHZ+WId1DGA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AM7PR04MB7046.eurprd04.prod.outlook.com (2603:10a6:20b:113::22)
+ by VI1PR04MB6847.eurprd04.prod.outlook.com (2603:10a6:803:134::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8943.30; Tue, 22 Jul
+ 2025 07:38:18 +0000
+Received: from AM7PR04MB7046.eurprd04.prod.outlook.com
+ ([fe80::d1ce:ea15:6648:6f90]) by AM7PR04MB7046.eurprd04.prod.outlook.com
+ ([fe80::d1ce:ea15:6648:6f90%5]) with mapi id 15.20.8922.037; Tue, 22 Jul 2025
+ 07:38:17 +0000
+Message-ID: <4731eb9b-9a29-4065-8dac-06f558e78e02@nxp.com>
+Date: Tue, 22 Jul 2025 15:39:48 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/4] drm/bridge: dw-hdmi: Add function to get plat_data
+To: Shengjiu Wang <shengjiu.wang@nxp.com>, andrzej.hajda@intel.com,
+ neil.armstrong@linaro.org, rfoss@kernel.org,
+ Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
+ jernej.skrabec@gmail.com, maarten.lankhorst@linux.intel.com,
+ mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
+ lumag@kernel.org, dianders@chromium.org, cristian.ciocaltea@collabora.com,
+ luca.ceresoli@bootlin.com, dri-devel@lists.freedesktop.org,
+ linux-kernel@vger.kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de,
+ kernel@pengutronix.de, festevam@gmail.com, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, p.zabel@pengutronix.de, devicetree@vger.kernel.org,
+ l.stach@pengutronix.de, shengjiu.wang@gmail.com
+References: <20250718101150.3681002-1-shengjiu.wang@nxp.com>
+ <20250718101150.3681002-2-shengjiu.wang@nxp.com>
+From: Liu Ying <victor.liu@nxp.com>
+Content-Language: en-US
+In-Reply-To: <20250718101150.3681002-2-shengjiu.wang@nxp.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: MA5P287CA0013.INDP287.PROD.OUTLOOK.COM
+ (2603:1096:a01:179::11) To AM7PR04MB7046.eurprd04.prod.outlook.com
+ (2603:10a6:20b:113::22)
 MIME-Version: 1.0
-References: <20250708111806.3992-1-darren.ye@mediatek.com> <20250708111806.3992-2-darren.ye@mediatek.com>
-In-Reply-To: <20250708111806.3992-2-darren.ye@mediatek.com>
-From: Chen-Yu Tsai <wenst@chromium.org>
-Date: Tue, 22 Jul 2025 15:38:05 +0800
-X-Gm-Features: Ac12FXx-ybyxFVMO-dZm2uMvhIKao-9eybKP9nlbQtMW_02h967WNikXB-wqqjk
-Message-ID: <CAGXv+5HQcGiUnsaOxHz86Y8JxUHh6e0ypusFEBLKchNx3fqKBA@mail.gmail.com>
-Subject: Re: [PATCH v6 01/10] ASoC: mediatek: common: modify mtk afe platform
- driver for mt8196
-To: "Darren.Ye" <darren.ye@mediatek.com>
-Cc: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Jaroslav Kysela <perex@perex.cz>, 
-	Takashi Iwai <tiwai@suse.com>, Linus Walleij <linus.walleij@linaro.org>, 
-	Bartosz Golaszewski <brgl@bgdev.pl>, linux-sound@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org, linux-gpio@vger.kernel.org, 
-	Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM7PR04MB7046:EE_|VI1PR04MB6847:EE_
+X-MS-Office365-Filtering-Correlation-Id: ff2c42d9-9f37-46e6-d925-08ddc8f2b909
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024|19092799006|921020;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?dHVvNUR4MjhkYWNOaG5DcU4venRXNzRwLzBWc1JnZnJyVy9XUnBSU1J3dG5E?=
+ =?utf-8?B?alM5aHNtRVp5aXhjeUtVVmRCQ1NoNjBtSUVPVzJENDN4Sy9ZWkhUYUlrUjBF?=
+ =?utf-8?B?OTVSeTZsZndsYzhrNE5FbGNhZVVSMXB6QVJOOWJKeUFNOWtkcEloSXFQRWll?=
+ =?utf-8?B?V0VyaDcwQTFHNmU0MHRaTmZkZ2hEVXoxYXh5ZFE2M05lT1BhSTZQVzhVSEh3?=
+ =?utf-8?B?Zlljem9FWENEbisvdDRXWGR4WTBPckluN0pCNE1RMVA0QXA5RDQxeTFIZHJ6?=
+ =?utf-8?B?RFhkNkVMcnNzUU9oYzBKbllhOWlHRGhTNzVnN0k5WjFiOHR4a25jc3U4TjBv?=
+ =?utf-8?B?S1ZrM2V3YWxxSUpFdys1VWprMUJLTW1nc20zNTJ3aFExc00vWGwyblFOMWxI?=
+ =?utf-8?B?U1MvZjJQdWw2T1V2aFpqd1V3MFRDSjFKelRJQ1cwSExhditNYjFoMDBicHB4?=
+ =?utf-8?B?OGV5OHVBODZnVUxtdXRKcURUVXRKMmdIZDB0Y2dMa29LMGxxdlJOVW9jN3N3?=
+ =?utf-8?B?UFYrUEpFRVNNWjFQSXRpN3RvRjk4bWFSMDEvaUZVQmtXb2tpMitNei9nUkF5?=
+ =?utf-8?B?Y0U1cTZMWWMrY2xlUlJPNEtsaXBueDZncEpUbDJmU005MnQ5VTVTd0ZwRkQz?=
+ =?utf-8?B?eXM3SHJxVkpRUlNHN2VYYThMcFJySWhqdDcwMDJnUFFGZU14NU5ZRnF6VXBK?=
+ =?utf-8?B?UlE2UnhYODl1TSthY1c5ZE9URWw2YXNBaE0xTWR1QjE2bHNRYmdPYnVVbGxX?=
+ =?utf-8?B?VTIwUmNNT2toWnNNbHFKempUd2tLNm5kWDdsK2ZzUlpvVER1R3FhaUtITzdR?=
+ =?utf-8?B?WDRnQml0RGtSR2dJWms0Yk1PbWJxODBaTkNYUkFMM2VzVGdKRFBnNXBSK2E1?=
+ =?utf-8?B?UUlrMm1nbUJLL2NjVTdUb05ob1JSQkY4UUxwSUl3MzdhOVdlUk9UYWxaTWFs?=
+ =?utf-8?B?QzRxaCszMm9Wb01zeEhKTDJNUVZvM25QT2NSUzQydHpFSUFNTlQ2ZVdnakNX?=
+ =?utf-8?B?LzdRK2lIVFYwWnpEWlZsUkJsYTBNRlA2akFFdE4xVWgwVDk1WHVaWTF3UHRW?=
+ =?utf-8?B?QmZxMkRMbktwSWp0NzZVRFYvOUZKZmNSNy9qM1RQakdRQk9Xc2NiSGVzU09E?=
+ =?utf-8?B?L0p1eDBuZkNkVG1iUk5BTkVxdEtjR25odzF1NmN0VldvK2doNStrVDVQOVBz?=
+ =?utf-8?B?a3VNRmlKMU9ZaWRRY1BDenRjM3AxWjM4K3BwdmFWaDVlZkpSUElFT1V3eHBq?=
+ =?utf-8?B?cDJqRndpbU5QaDVPTHJvS0llakQxbVV6NldWOWk2am5JbEtYMkxXQW45SHlI?=
+ =?utf-8?B?a0lHaTdHTmJZU2NlMThLdWFaaDdrc1FqUDQ4aUZlSmJiSGFVNm80VXRIOFVF?=
+ =?utf-8?B?ZEdCaHVBZ2JWUSswMW9ZdXVlTkFmQitydWNjMnNPNUV0YVBjUlRTdVowaFFH?=
+ =?utf-8?B?clpTMytPUjArTTBIT1VKTCs4WTBKV0xQcGw3ZEhiMnFWUDd6OGU1akV3Tmtv?=
+ =?utf-8?B?TnFwK284b2ZlNFlZTVBhdmsvQ3dRS1NCMVVadk05eVRJV2Yrb2c5Rkl6ZU5O?=
+ =?utf-8?B?ZmRqTFlMUC9LYVE4UVBwd3dRbFphWWdPZnpGTkUvdWVqYnVDRTJ3RmQ1aEIz?=
+ =?utf-8?B?TERPaWFnUEZzczhUMHpTTlpIZnVYS2JCRFFveE1LUVJLT1kwSXEwRVlqNnZt?=
+ =?utf-8?B?V1JpTFUvSitNb3Vsa2NVQllOUkwweHJ5aEpvUE9VVVRCcXp2R0YyZG4wbVdP?=
+ =?utf-8?B?cjJrRXp2VkpFUWpieDhISjNKUzBwNFBCTlhDSTVycC8vY3BKWERudGdySlNV?=
+ =?utf-8?B?RXpDZUsyTG9DUG5adTdEZmRZelgrN1FyNEoyN2g3SzAwY08rNVNoZFVqZDhW?=
+ =?utf-8?B?Nkc4RWpWWlVwWENTV2ZqSzVqZjJ4QlkwVnNNVWdnOU1lZWp3azRSZXhZNVFZ?=
+ =?utf-8?B?ZjRUWEJBNjNqTitVLytZSEEvTU5mam4yRWdCemI4am5tRm1nb0hXbVp3aHJF?=
+ =?utf-8?B?SUJIWkJsaGJRPT0=?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM7PR04MB7046.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024)(19092799006)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?SG9UNS9Nbm1MWXllT3pOTTR3ZGpQdUxsaVNZWlE4TEhXa0dsUGVDMWh4QnRy?=
+ =?utf-8?B?d0VZdE5aYU5oVHpZT2RJYnNobHJsYVZTdWtVejJVc2xqN0Y3YVByeXZJaTQ5?=
+ =?utf-8?B?dkFkWFAzZnZaWllqanpHL054cjhwczFxS2tYbGxRWjFROXl4L0cwZHNqZndT?=
+ =?utf-8?B?SXpIdzRmTVJBMXNQS2pPOU5saGRJQVRHU0R2OUcrSFJ6YkVCb2pvSDJMdlUr?=
+ =?utf-8?B?RG9LOEhJcVNrSEVsQTlWTExjUlZXTndPSzcyN0w2bEdlOGhpZ2xoeXRtd2xl?=
+ =?utf-8?B?d0JTKy82YmxXM1VjT2hremdITmlETDhTY3hRMXN4RFNEVzJaK1lYRUE0VnBJ?=
+ =?utf-8?B?QmVlc3BxMTM3VDNIOHFtcmx1ZnJuVjRHMXR3U0h5blhYNWFVMk1yZEt1YmxH?=
+ =?utf-8?B?YjM3aEIwcWo2OWt1dHV4Z2c4ZUYwQ1kwQWlMY1JTcXpaRWdXaHY3eTQzdmx1?=
+ =?utf-8?B?QzR5YjhEUGxDaGZ6dys1VUt6RHh2NmMrR1NuRkhXUU02dGQvM3RFa0J6dWVJ?=
+ =?utf-8?B?dEtodFZOdzVqYWNyRE1wN2NjckRIVDBTTXRVTmx2Sy82K1U4dWViYU5SMjZE?=
+ =?utf-8?B?OFJWNDA1WDlHclE0QnBnWXQraEduWDRyc1NpKy8yaWpmMU55bitxL0dtL1hv?=
+ =?utf-8?B?OHJsb3ozMEYzZ2NscUdTbVR2NWovSDJIMmI4OTE4cHZ3TTdjYXR6Qlg5SzlL?=
+ =?utf-8?B?Z1pTNWV2TzJuc2Q1WmgyWUltTE01MzJ2VmpjM3JteTIxNFFkOFZqbE5hUUE3?=
+ =?utf-8?B?b0N2MHhXdHFFZU82eERsUnhXZnFHOG5XenEzS2licksrSkd3WE5yYWwwcFk0?=
+ =?utf-8?B?aHhPS2xUZUlreTZZdXZWcVAvRjh3bE1JdXcxOG8xNnNveWJFMDVpTmRZb2tt?=
+ =?utf-8?B?UHgxVUFRSDlwZUw5VmZRQU9FOU9RL2x0bStKc0VKQmhlVzZqUThwMmRIM2RC?=
+ =?utf-8?B?SS9MRS96aEsyTXMybCt5MTd2VlcvaG10R2psaG1VVVZTOEdUNFZNSkVhVjla?=
+ =?utf-8?B?d3lyMVlIWXhHSmlFU2tYVjlBc3VPT0JkM1hpNk5SaTZqOVdwUTdzU1dEUitM?=
+ =?utf-8?B?bFNuWnoxaFo2VStkMEdiYURSdmU5Y1RTcHBhVmhwUUcvZlBBaGlPZm9vQmxr?=
+ =?utf-8?B?TFBpaUhRU3M4WURoelBqQlRkT0FuSHRvY01URU1RRmFmTFg1SWhQcGl2djJn?=
+ =?utf-8?B?T3EwTlUrNTRkaGZ6L3FWU2FleFpJbXdIWkxQUlk1UEE2cTloRysvT2xUQzFy?=
+ =?utf-8?B?U0dIUjJwWmNaaHhDS3loYnE1UFBPbEtOZXlCZnJTdHpvVC92RldBWjFKeHoz?=
+ =?utf-8?B?Z1JRb21QR0QzOGpOMGZUWEo4KzdmdTg3Ymg0SDEvQXE4TzRYV1Bqcmx2QzVh?=
+ =?utf-8?B?b1h3MUhIT0phS0poNTJJNGtWbnViZnpLZFJjOEo1QmUxVzRXRUVWWDIxN2Ev?=
+ =?utf-8?B?YzRla3kzYkQ3RS9xdXI1Nmg3bmZBZHJUck5zYmJGaExaNk5TcW12VmxZNlh6?=
+ =?utf-8?B?RGhuNTBqS3RHM1EzcWE3VlJQNEtmbzVJY1g4UDZGM2N0NkdrNUVhRWJYaFRt?=
+ =?utf-8?B?SXV2bkxlekMySUlsbnNiWWIzc3dxYzVqRDEvQWl4MnZZbkJSb0k3eUpldVV1?=
+ =?utf-8?B?TDNWQytzeUlBWkQ5cU9QSERCMFJHYkpWbEVENHByQU5kdFo3M0F5MG5qU2pI?=
+ =?utf-8?B?SnpNS1pmTEo5Y0IzTkVWMVhYelBIaFV4N3RIM0I1eXI1V3NTeWtoWHZ6V3M5?=
+ =?utf-8?B?R3gvcW1qQnA4bndPb3VFb3d6TE1mUVJSM0M5ZlFvaGE5TkFQUDNzbkZWVkE0?=
+ =?utf-8?B?TmF2aEREQ3c2SUN6azBtNmZ4ZzFrZjZoTGY0eGVscVMvVnNrOFFqZkd4clRk?=
+ =?utf-8?B?UGxwcmo5em84RDlIRXFUQVRNMUQzRndKajJMM2tNMnhSSHV0MUJvRjB5allu?=
+ =?utf-8?B?bXA1M0JjVHdBb2N4a1ZoRG5aQXQ5SDRnV211Rmt2L2VZU3JNbm5lN3BhZy9V?=
+ =?utf-8?B?OXFqdkl2NS9WZ1hpdW1pTUpmNXJrWVRqREJjbEJFWEUzWk1ILzIvZm00TWY2?=
+ =?utf-8?B?aFoxQmV4Q3dmaGZDc2lObTZFUEhvUnlOWFJBZ1FJUGo1NWVSelBhSjJzS3p6?=
+ =?utf-8?Q?k7QXi3CVsmnqj7bF8nB0+EV54?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ff2c42d9-9f37-46e6-d925-08ddc8f2b909
+X-MS-Exchange-CrossTenant-AuthSource: AM7PR04MB7046.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Jul 2025 07:38:17.0061
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: AD8HDyZY2i+O9s3DJt26y/dKi2dCopIEyAdUTFr+HtgRWFSdxNOM0BmWtM4Z/rADPdNiu6lifddvGYcf34+ldw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB6847
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250722_003818_801363_0244054E 
-X-CRM114-Status: GOOD (  24.49  )
+X-CRM114-CacheID: sfid-20250722_003828_079309_FF31211D 
+X-CRM114-Status: GOOD (  18.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,142 +186,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Hi Shengjiu,
 
-On Tue, Jul 8, 2025 at 7:33=E2=80=AFPM Darren.Ye <darren.ye@mediatek.com> w=
-rote:
->
-> From: Darren Ye <darren.ye@mediatek.com>
->
-> Mofify the pcm pointer interface to support 64-bit address access.
+On 07/18/2025, Shengjiu Wang wrote:
+> The enable_audio() and disable_audio() callback pointers are in
+> plat_data structure, and the audio device driver needs to get plat_data
+> for assign these pointers. So add a function to export plat_data
 
-  ^ Modify
+{enable,disable}_audio pointers are directly assigned to plat_data in patch 2,
+instead of using dw_hdmi_to_plat_data().  dw_hdmi_to_plat_data() is only
+used in patch 2 to get hdmi_pai pointer through pdata->priv_audio.
 
-And the subject should say the same, or shorter:
+const struct dw_hdmi_plat_data *pdata = dw_hdmi_to_plat_data(dw_hdmi);
+struct imx8mp_hdmi_pai *hdmi_pai = (struct imx8mp_hdmi_pai *)pdata->priv_audio;
 
-    Support 64-bit addresses in PCM pointer callback
-
-> Signed-off-by: Darren Ye <darren.ye@mediatek.com>
-> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collab=
-ora.com>
-> Tested-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+> structure.
+> 
+> Signed-off-by: Shengjiu Wang <shengjiu.wang@nxp.com>
 > ---
->  .../mediatek/common/mtk-afe-platform-driver.c | 47 ++++++++++++-------
->  .../mediatek/common/mtk-afe-platform-driver.h |  2 +
->  2 files changed, 33 insertions(+), 16 deletions(-)
->
-> diff --git a/sound/soc/mediatek/common/mtk-afe-platform-driver.c b/sound/=
-soc/mediatek/common/mtk-afe-platform-driver.c
-> index 70fd05d5ff48..cab4ef035199 100644
-> --- a/sound/soc/mediatek/common/mtk-afe-platform-driver.c
-> +++ b/sound/soc/mediatek/common/mtk-afe-platform-driver.c
-> @@ -86,29 +86,44 @@ snd_pcm_uframes_t mtk_afe_pcm_pointer(struct snd_soc_=
-component *component,
->         const struct mtk_base_memif_data *memif_data =3D memif->data;
->         struct regmap *regmap =3D afe->regmap;
->         struct device *dev =3D afe->dev;
-> -       int reg_ofs_base =3D memif_data->reg_ofs_base;
-> -       int reg_ofs_cur =3D memif_data->reg_ofs_cur;
-> -       unsigned int hw_ptr =3D 0, hw_base =3D 0;
-> -       int ret, pcm_ptr_bytes;
-> -
-> -       ret =3D regmap_read(regmap, reg_ofs_cur, &hw_ptr);
-> -       if (ret || hw_ptr =3D=3D 0) {
-> -               dev_err(dev, "%s hw_ptr err\n", __func__);
-> -               pcm_ptr_bytes =3D 0;
-> +       unsigned int hw_ptr_lower32 =3D 0, hw_ptr_upper32 =3D 0;
-> +       unsigned int hw_base_lower32 =3D 0, hw_base_upper32 =3D 0;
-> +       unsigned long long hw_ptr =3D 0, hw_base =3D 0;
-> +       int ret;
-> +       unsigned long long pcm_ptr_bytes =3D 0;
+>  drivers/gpu/drm/bridge/synopsys/dw-hdmi.c | 6 ++++++
+>  include/drm/bridge/dw_hdmi.h              | 1 +
+>  2 files changed, 7 insertions(+)
+> 
+> diff --git a/drivers/gpu/drm/bridge/synopsys/dw-hdmi.c b/drivers/gpu/drm/bridge/synopsys/dw-hdmi.c
+> index 76c6570e2a85..3dfa42178f6c 100644
+> --- a/drivers/gpu/drm/bridge/synopsys/dw-hdmi.c
+> +++ b/drivers/gpu/drm/bridge/synopsys/dw-hdmi.c
+> @@ -198,6 +198,12 @@ struct dw_hdmi {
+>  	enum drm_connector_status last_connector_result;
+>  };
+>  
+> +const struct dw_hdmi_plat_data *dw_hdmi_to_plat_data(struct dw_hdmi *hdmi)
+> +{
+> +	return hdmi->plat_data;
+> +}
+> +EXPORT_SYMBOL_GPL(dw_hdmi_to_plat_data);
 > +
-> +       ret =3D regmap_read(regmap, memif_data->reg_ofs_cur, &hw_ptr_lowe=
-r32);
-> +       if (ret || hw_ptr_lower32 =3D=3D 0) {
+>  #define HDMI_IH_PHY_STAT0_RX_SENSE \
+>  	(HDMI_IH_PHY_STAT0_RX_SENSE0 | HDMI_IH_PHY_STAT0_RX_SENSE1 | \
+>  	 HDMI_IH_PHY_STAT0_RX_SENSE2 | HDMI_IH_PHY_STAT0_RX_SENSE3)
+> diff --git a/include/drm/bridge/dw_hdmi.h b/include/drm/bridge/dw_hdmi.h
+> index 6a46baa0737c..a56a3519a22a 100644
+> --- a/include/drm/bridge/dw_hdmi.h
+> +++ b/include/drm/bridge/dw_hdmi.h
+> @@ -208,4 +208,5 @@ void dw_hdmi_phy_setup_hpd(struct dw_hdmi *hdmi, void *data);
+>  
+>  bool dw_hdmi_bus_fmt_is_420(struct dw_hdmi *hdmi);
+>  
+> +const struct dw_hdmi_plat_data *dw_hdmi_to_plat_data(struct dw_hdmi *hdmi);
 
-I'm not sure how the hardware is, but I think hw_ptr_lower32 =3D=3D 0
-should no longer be a failure, since it could be 0x100000000 or
-some other address with the lower 32-bits all zero. Instead the
-check should be done once the addresses are put together.
+Nit: Add a blank line as it was here.
 
-> +               dev_err(dev, "%s hw_ptr_lower32 err\n", __func__);
->                 goto POINTER_RETURN_FRAMES;
+>  #endif /* __IMX_HDMI_H__ */
 
-This is out of scope, but maybe this should just return zero directly
-to simplify reading.
-
->         }
->
-> -       ret =3D regmap_read(regmap, reg_ofs_base, &hw_base);
-> -       if (ret || hw_base =3D=3D 0) {
-> -               dev_err(dev, "%s hw_ptr err\n", __func__);
-> -               pcm_ptr_bytes =3D 0;
-> -               goto POINTER_RETURN_FRAMES;
-> +       if (memif_data->reg_ofs_cur_msb) {
-> +               ret =3D regmap_read(regmap, memif_data->reg_ofs_cur_msb, =
-&hw_ptr_upper32);
-> +               if (ret) {
-> +                       dev_err(dev, "%s hw_ptr_upper32 err\n", __func__)=
-;
-> +                       goto POINTER_RETURN_FRAMES;
-> +               }
->         }
->
-> -       pcm_ptr_bytes =3D hw_ptr - hw_base;
-> +       ret =3D regmap_read(regmap, memif_data->reg_ofs_base, &hw_base_lo=
-wer32);
-> +       if (ret || hw_base_lower32 =3D=3D 0) {
-
-Same here.
-
-> +               dev_err(dev, "%s hw_base_lower32 err\n", __func__);
-> +               goto POINTER_RETURN_FRAMES;
-> +       }
-> +       if (memif_data->reg_ofs_base_msb) {
-> +               ret =3D regmap_read(regmap, memif_data->reg_ofs_base_msb,=
- &hw_base_upper32);
-> +               if (ret) {
-> +                       dev_err(dev, "%s hw_base_upper32 err\n", __func__=
-);
-> +                       goto POINTER_RETURN_FRAMES;
-> +               }
-> +       }
-> +       hw_ptr =3D ((unsigned long long)hw_ptr_upper32 << 32) + hw_ptr_lo=
-wer32;
-> +       hw_base =3D ((unsigned long long)hw_base_upper32 << 32) + hw_base=
-_lower32;
-
-Instead the check should be here. And to follow the original logic,
-if either pointer value is zero, the function should return zero here
-directly.
-
-
-ChenYu
-
->  POINTER_RETURN_FRAMES:
-> -       return bytes_to_frames(substream->runtime, pcm_ptr_bytes);
-> +       pcm_ptr_bytes =3D MTK_ALIGN_16BYTES(hw_ptr - hw_base);
-> +       return bytes_to_frames(substream->runtime, (ssize_t)pcm_ptr_bytes=
-);
->  }
->  EXPORT_SYMBOL_GPL(mtk_afe_pcm_pointer);
->
-> diff --git a/sound/soc/mediatek/common/mtk-afe-platform-driver.h b/sound/=
-soc/mediatek/common/mtk-afe-platform-driver.h
-> index fcc923b88f12..71070b26f8f8 100644
-> --- a/sound/soc/mediatek/common/mtk-afe-platform-driver.h
-> +++ b/sound/soc/mediatek/common/mtk-afe-platform-driver.h
-> @@ -12,6 +12,8 @@
->  #define AFE_PCM_NAME "mtk-afe-pcm"
->  extern const struct snd_soc_component_driver mtk_afe_pcm_platform;
->
-> +#define MTK_ALIGN_16BYTES(x) ((x) & GENMASK_ULL(39, 4))
-> +
->  struct mtk_base_afe;
->  struct snd_pcm;
->  struct snd_soc_component;
-> --
-> 2.45.2
->
->
+-- 
+Regards,
+Liu Ying
 
