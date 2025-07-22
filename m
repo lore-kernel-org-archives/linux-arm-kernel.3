@@ -4,85 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0CF5C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 05:27:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89278C83F27
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 05:34:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dqDwtUCqJNRnpiOi+aWGhs1F5rEMAyBkONqi7ZgeqbQ=; b=XYXfasddRpx3TphEhC5lOfInvU
-	0z4uS1ben/vb5BboduYVxDAEKuxYnbGojrKVKFIKn9ke2Q51t+CtrVK7Xi0BJWfQko23DQ7xMM80e
-	t/0o2mraaDZefDP0DJA12pBNOhI+qy6++ItlEPN3INpBl0lDfOPE8fJNswhqBnApukw1cnSz4e4dA
-	Zf9vIS0+kOd8Snhszd2UeOnGB/Dh8qBL6rXwff6A72Jojpk6mQR0nP7HXHcQ6yJn9tvJyBI4m0rWF
-	DexkIvAKz8Mjl4gUng304rIdNx2Ry2iM4hVKqpLLJENCjeVXub0m801jxIbRRo/HB/YHuonqWfnQC
-	H03ys1ww==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:To:
+	Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sVMXmYryI27X+k6C+3JPZc/OW08qobGZWXfOZhg3D5E=; b=Fn0pwV8a+nUunqDcDg3t0otanu
+	3fzeTqey35kN6K3b7yIJA4nUk4EK0EqeqGDwd3530L7R0edRLb15gtGc+DeMHxmmiwMoDcrV84FYj
+	W4WLLw92RAJRSoSswcKIhZvdQFJ+rqEWEXViq4N794jlxOawiAnsTkGkhpsqCxHyiBK8xbsIpmOA+
+	EzFpr7lBnWukG2SVqAgAlsMfVF2S0zOUUHFErdZUY/+IfOXueRLO1lyZhbkZ4k+Mch8UZ7KHRS4hX
+	j4wuf9Xh/wO6eSoYUiq823XEt+oOXS6+Gvnfvkshr1/aGCOtOniu+LVJJkbTdOaRWk2Ls7eXEcYPY
+	Kx8LAG8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ue5Wy-00000001Kh6-2T5v;
-	Tue, 22 Jul 2025 05:27:12 +0000
-Received: from mail-lj1-x22b.google.com ([2a00:1450:4864:20::22b])
+	id 1ue5e7-00000001LHS-0lrc;
+	Tue, 22 Jul 2025 05:34:35 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ue5UO-00000001KPX-0GSf
+	id 1ue5ba-00000001L2y-0Gih
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Jul 2025 05:24:34 +0000
-Received: by mail-lj1-x22b.google.com with SMTP id 38308e7fff4ca-32b7123edb9so52837241fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Jul 2025 22:24:31 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1753161870; x=1753766670; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=dqDwtUCqJNRnpiOi+aWGhs1F5rEMAyBkONqi7ZgeqbQ=;
-        b=UCNFyafO3jO3bpzpL/qHxkD9mam7SWAwbV8TIkzB+YCAhjyxjAz1DrWs9FryseSV3y
-         NGSM7G3dVMFl1zL5ia2mgU+/suMDlyWIaQy0DBY5LbAj6HM8q5+oZIecZpfVwMdbz23J
-         PePl9LjV5ARh7hmNDvIEVsP1TXKSeoFshPajU=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753161870; x=1753766670;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=dqDwtUCqJNRnpiOi+aWGhs1F5rEMAyBkONqi7ZgeqbQ=;
-        b=qo5DFRLspfLhuwy0WIUN424GvKC14BbHVXbjxAubG4oZ8GbJJ6qK0lS80A4ud6rv1W
-         86EPXRhDArOUKyhV3b+AdxSaH6LR5JKFhiZe4DZfttdQzL5AVsfz0vnCQWxvJnsRptnd
-         EMQnryU7l0s2bAockKYqIGLDOFAo/AL1ivhWzryTiUt9tBz5aos1djw2llhUbzKtnN3i
-         pXpnYTMJHVQYJAyCn2DhzvoNXdP7QfIq3bn925RFe4AplxRGTfLyIALQtLXSM/zr8dZA
-         dABS/+zc9OXJ36BW2R/1+RZ0Dn1Bg3tTllqxwMhzNMHB1Bgn8BwW0lrAzadmzed1FHwR
-         iGKg==
-X-Forwarded-Encrypted: i=1; AJvYcCXLDyjifvK7Dh6ep2SxsPtAnWlx9xYwgadYGIlkFU61L3Mvv6+nV0gdnq41T1BRbOw3NF5mY4AXvdJDhtqlFJhp@lists.infradead.org
-X-Gm-Message-State: AOJu0YwP/ZZ8ye/9UbIOFu4WsvRKajpm9it7Yu3A7DRjPGM9j8NZeLIZ
-	Sqc0gI9moUUuRF9nZ1KRQRtGJelg3Ty2y6bYxHAU7yeXosUwAPHCvGmFVN4oLyxMbF4IDzCmIKI
-	Nm6CGaau/X909EdQPJbFn1LkRa8bwd15AmSZyPNQD
-X-Gm-Gg: ASbGncvukIiiKEW1Qhp7tix46bgEMsIWyZ4Qd/4gMXs3i6OfGkrOgo+lobfbi7rnii+
-	8LMGcdpgV1Ia8okteCZ60fXO6lBooiJAGe733gHpR3AtaqAiej5377zD66VXqRGgGWn0DU088SC
-	NvTriyvflHPeB6r0LZFAJf3YVStc9MUKpj65ayrF5pFzrGqImd8UpS9WReb+JkJh2OWjkG0LqAD
-	ilBsxYQHej2VSCuQlbyQvED+Zp8UG9RFSGjynpsnIIMLg==
-X-Google-Smtp-Source: AGHT+IEdOx5zCqoNPg2UT45LQbL+jHOpKPo6tn9yxf52DBYuUr7UN/c4OmqYmGkjvaYN6I6H6AP02HgZdnn60DMD5bo=
-X-Received: by 2002:a05:651c:419b:b0:32f:425b:3278 with SMTP id
- 38308e7fff4ca-3308f5df835mr61834191fa.25.1753161870330; Mon, 21 Jul 2025
- 22:24:30 -0700 (PDT)
+	Tue, 22 Jul 2025 05:31:59 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id A1260418A4
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Jul 2025 05:31:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 81D1DC4CEF1
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Jul 2025 05:31:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1753162317;
+	bh=jwCZJ228g/XxK4rmoBUGmvkBnia7AFUz1V6Ln7YFp5U=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=Hv5st3PjM58WLE8Odte8yZY81vZOwHHnrXOr3YySyB+12261yynaGpgZ6wOt6uPW5
+	 BTKzBGEGKSlH/22i6WyauEwKQp3gfmNitrUxcyp4M5UffgqUwaYYCiJGbw0izQvscq
+	 0q3TKcFNWFgEMK3oQtwqdgYobtT/FOvGqQ/3fIwn3Bb1jegpgOQkjde8weW5SaV618
+	 VBevfN4WIyH1rYuz4h3O0H0tm9uNhzPUNAGR6zQikQ1XXpTy+BNRDjO2BXedbMNVNX
+	 3gjkLVx5ZxbQiXcVaHbQEKxbhrrl5p459YjnghbmaOCgKG+FfBjO+0S7LIgwBpD8wq
+	 Vh46XQpLyzqYw==
+Received: by mail-lf1-f45.google.com with SMTP id 2adb3069b0e04-553b5165cf5so6005933e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 21 Jul 2025 22:31:57 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCVUNUKdhfuW0Ww3GIysnSYcxO1PxwEUKl07eRT9ahSuHBElUwX205IpFG24qMFc5oI/lqK3/GV4CPiBI7CTKOaY@lists.infradead.org
+X-Gm-Message-State: AOJu0YwEXRxGF88gzvfJpjXdnGeDiUf5Uj46zng4tteCBXI1Cj4uLHZW
+	RTA/5XQkInSrJit0TB2m4a8r1L55pgoG4NZ1xCceEN3p1R08/Q2pUQZgg3+X82rKQ3ZjaE5rwfj
+	NmnAlQHwASPRx17MuvZW/S8/ZY5T85kI=
+X-Google-Smtp-Source: AGHT+IFdYr4M4GzDek3WNNiCy5w9d4Vlxjdh/+71vUadHqoKtocuI7NncX81ueO448QUkaNGSNUTzPtI2nxXvI8aJro=
+X-Received: by 2002:a05:6512:131a:b0:55a:32c4:8716 with SMTP id
+ 2adb3069b0e04-55a32c48fe8mr4590748e87.28.1753162315823; Mon, 21 Jul 2025
+ 22:31:55 -0700 (PDT)
 MIME-Version: 1.0
-References: <20250715140224.206329-1-angelogioacchino.delregno@collabora.com>
- <20250715140224.206329-4-angelogioacchino.delregno@collabora.com> <20250717152947.GA3411864-robh@kernel.org>
-In-Reply-To: <20250717152947.GA3411864-robh@kernel.org>
-From: Chen-Yu Tsai <wenst@chromium.org>
-Date: Tue, 22 Jul 2025 13:24:19 +0800
-X-Gm-Features: Ac12FXzJ2_kEeBPPtFnHpLPdeiuzsl4YpgJm_YvA17xvKg2-LMZYsB2VDzsxF1w
-Message-ID: <CAGXv+5Eajtt17rp2qGDDi6-Xvj6cxmhJBHjhp_XLDaX90WiNFg@mail.gmail.com>
-Subject: Re: [PATCH v5 3/8] dt-bindings: regulator: Document MediaTek MT6363
- PMIC Regulators
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: Rob Herring <robh@kernel.org>, linux-mediatek@lists.infradead.org, lee@kernel.org, 
-	krzk+dt@kernel.org, conor+dt@kernel.org, matthias.bgg@gmail.com, 
-	lgirdwood@gmail.com, broonie@kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	kernel@collabora.com
+References: <20250718142814.133329-1-ada.coupriediaz@arm.com> <aH5MPwJJzFZxOtfr@willie-the-truck>
+In-Reply-To: <aH5MPwJJzFZxOtfr@willie-the-truck>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Tue, 22 Jul 2025 15:31:44 +1000
+X-Gmail-Original-Message-ID: <CAMj1kXG40=hymhdL1GM0dDfp3F_-TzYqzkda3DY1CSRGAhme+g@mail.gmail.com>
+X-Gm-Features: Ac12FXxsehLts9bXJJL5Ho3Iq_Q0lDwcTFs75oe7u7MscSAhEQxKVlgGauWooSk
+Message-ID: <CAMj1kXG40=hymhdL1GM0dDfp3F_-TzYqzkda3DY1CSRGAhme+g@mail.gmail.com>
+Subject: Re: [PATCH] arm64/entry: Mask DAIF in cpu_switch_to(), call_on_irq_stack()
+To: Will Deacon <will@kernel.org>, Sami Tolvanen <samitolvanen@google.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250721_222432_133974_F2B6B9B5 
-X-CRM114-Status: GOOD (  20.14  )
+X-CRM114-CacheID: sfid-20250721_223158_150038_C503ADFD 
+X-CRM114-Status: GOOD (  40.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,120 +77,152 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Mark Rutland <mark.rutland@arm.com>, Catalin Marinas <catalin.marinas@arm.com>, Mark Brown <broonie@kernel.org>, Cristian Prundeanu <cpru@amazon.com>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 17, 2025 at 11:29=E2=80=AFPM Rob Herring <robh@kernel.org> wrot=
-e:
+(cc Sami)
+
+On Tue, 22 Jul 2025 at 00:18, Will Deacon <will@kernel.org> wrote:
 >
-> On Tue, Jul 15, 2025 at 04:02:19PM +0200, AngeloGioacchino Del Regno wrot=
-e:
-> > Add bindings for the regulators found in the MediaTek MT6363 PMIC,
-> > usually found in board designs using the MT6991 Dimensity 9400 and
-> > on MT8196 Kompanio SoC for Chromebooks, along with the MT6316 and
-> > MT6373 PMICs.
+> On Fri, Jul 18, 2025 at 03:28:14PM +0100, Ada Couprie Diaz wrote:
+> > `cpu_switch_to()` and `call_on_irq_stack()` manipulate SP to change
+> > to different stacks along with the Shadow Call Stack if it is enabled.
+> > Those two stack changes cannot be done atomically and both functions
+> > can be interrupted by SErrors or Debug Exceptions which, though unlikely,
+> > is very much broken : if interrupted, we can end up with mismatched stacks
+> > and Shadow Call Stack leading to clobbered stacks.
 > >
-> > Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@co=
-llabora.com>
+> > In `cpu_switch_to()`, it can happen when SP_EL0 points to the new task,
+> > but x18 stills points to the old task's SCS. When the interrupt handler
+> > tries to save the task's SCS pointer, it will save the old task
+> > SCS pointer (x18) into the new task struct (pointed to by SP_EL0),
+> > clobbering it.
+> >
+
+In this case, the 'interrupt handler' is not the entry code, but
+call_on_irq_stack(), right?
+
+> > In `call_on_irq_stack()`, it can happen when switching from the task stack
+> > to the IRQ stack and when switching back. In both cases, we can be
+> > interrupted when the SCS pointer points to the IRQ SCS, but SP points to
+> > the task stack. The nested interrupt handler pushes its return addresses
+> > on the IRQ SCS. It then detects that SP points to the task stack,
+> > calls `call_on_irq_stack()` and clobbers the task SCS pointer with
+> > the IRQ SCS pointer, which it will also use !
+> >
+> > This leads to tasks returning to addresses on the wrong SCS,
+> > or even on the IRQ SCS, triggering kernel panics via CONFIG_VMAP_STACK
+> > or FPAC if enabled.
+> >
+> > This is possible on a default config, but unlikely.
+> > However, when enabling CONFIG_ARM64_PSEUDO_NMI, DAIF is unmasked and
+> > instead the GIC is responsible for filtering what interrupts the CPU
+> > should receive based on priority.
+> > Given the goal of emulating NMIs, pseudo-NMIs can be received by the CPU
+> > even in `cpu_switch_to()` and `call_on_irq_stack()`, possibly *very*
+> > frequently depending on the system configuration and workload, leading
+> > to unpredictable kernel panics.
+> >
+> > Completely mask DAIF in `cpu_switch_to()` and restore it when returning.
+> > Do the same in `call_on_irq_stack()`, but restore and mask around
+> > the branch.
+> > Mask DAIF even if CONFIG_SHADOW_CALL_STACK is not enabled for consistency
+> > of behaviour between all configurations.
+> >
+> > Introduce and use an assembly macro for saving and masking DAIF,
+> > as the existing one saves but only masks IF.
+> >
+> > Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+> > Reported-by: Cristian Prundeanu <cpru@amazon.com>
+> > Fixes: 59b37fe52f49955791a460752c37145f1afdcad1 ("arm64: Stash shadow stack pointer in the task struct on interrupt")
 > > ---
-> >  .../regulator/mediatek,mt6363-regulator.yaml  | 193 ++++++++++++++++++
-> >  1 file changed, 193 insertions(+)
-> >  create mode 100644 Documentation/devicetree/bindings/regulator/mediate=
-k,mt6363-regulator.yaml
-> >
-> > diff --git a/Documentation/devicetree/bindings/regulator/mediatek,mt636=
-3-regulator.yaml b/Documentation/devicetree/bindings/regulator/mediatek,mt6=
-363-regulator.yaml
-> > new file mode 100644
-> > index 000000000000..ea1f6c92cffc
-> > --- /dev/null
-> > +++ b/Documentation/devicetree/bindings/regulator/mediatek,mt6363-regul=
-ator.yaml
-> > @@ -0,0 +1,193 @@
-> > +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-> > +%YAML 1.2
-> > +---
-> > +$id: http://devicetree.org/schemas/regulator/mediatek,mt6363-regulator=
-.yaml#
-> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > +
-> > +title: MediaTek MT6363 PMIC Regulators
-> > +
-> > +maintainers:
-> > +  - AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.co=
-m>
-> > +
-> > +description:
-> > +  The MT6363 SPMI PMIC provides 10 BUCK and 25 LDO (Low DropOut) regul=
-ators
-> > +  and can optionally provide overcurrent warnings with one ocp interru=
-pt
-> > +  for each voltage regulator.
-> > +
-> > +properties:
-> > +  compatible:
-> > +    const: mediatek,mt6363-regulator
-> > +
-> > +  reg:
-> > +    maxItems: 1
-> > +
-> > +  vsys-vbuck1-supply:
-> > +    description: Input supply for vbuck1
+> > Hi,
+> > I spent some time evaluating the performance impact of this change
+> > to make sure that it would be OK to mask in those functions.
+> > They have very few instructions so have few chances to be interrupted
+> > to begin with so the impact should be minimal.
 >
-> blank line
+> It's definitely worthwhile doing the benchmarking, so thanks for that,
+> but realistically I don't think we have an awful lot of choice but to
+> fix this, do we?
 >
-> > +  vsys-vbuck2-supply:
-> > +    description: Input supply for vbuck2
->
-> blank line, and so on...
->
-> > +  vsys-vbuck3-supply:
-> > +    description: Input supply for vbuck3
-> > +  vsys-vbuck4-supply:
-> > +    description: Input supply for vbuck4
-> > +  vsys-vbuck5-supply:
-> > +    description: Input supply for vbuck5
-> > +  vsys-vbuck6-supply:
-> > +    description: Input supply for vbuck6
-> > +  vsys-vbuck7-supply:
-> > +    description: Input supply for vbuck7
-> > +  vsys-vs1-supply:
-> > +    description: Input supply for vs1
-> > +  vsys-vs2-supply:
-> > +    description: Input supply for vs2
-> > +  vsys-vs3-supply:
-> > +    description: Input supply for vs3
 
-You could also merge the ones above with a regex and move it to
-patternProperties. Since these are one to one mappings that should
-work still.
+So AIUI, the problem is that both cpu_switch_to() and
+call_on_irq_stack() itself can be interrupted by the latter, resulting
+in the shadow call stack pointer recorded in the task struct to be
+incorrect, either because the task struct pointer is pointing to the
+wrong task, or the shadow stack pointer is pointing to the wrong
+stack.
 
-> > +  vs1-ldo1-supply:
-> > +    description: Input supply for va15, vio0p75, vm18, vrf18, vrf-io18
-> > +  vs1-ldo2-supply:
-> > +    description: Input supply for vcn15, vio18, vufs18
-> > +  vs2-ldo1-supply:
-> > +    description: Input supply for vsram-cpub, vsram-cpum, vrf12, vrf13=
-, vufs12
-> > +  vs2-ldo2-supply:
-> > +    description: Input supply for va12-1, va12-2, vcn13, vsram-cpul
-> > +  vs3-ldo1-supply:
-> > +    description: Input supply for vsram-apu, vsram-digrf, vsram-mdfe
-> > +  vs3-ldo2-supply:
-> > +    description: Input supply for vsram-modem, vrf0p9
-> > +  vsys-ldo1-supply:
-> > +    description: Input supply for vaux18, vemc, vtref18
+Commit 59b37fe52f49955 changed this code to ensure that the shadow
+stack pointer is not preserved to/restored from the ordinary stack,
+because that turns call_on_irq_stack() into a rather useful gadget but
+use the task struct instead.
 
-For these, I wonder if the description is really needed.
+What we could do instead is record the caller's SCS pointer on the IRQ
+shadow stack, avoiding the task struct altogether. This should be the
+only occurrence of scs_save that may interrupt cpu_switch_to(), so it
+should address both issues AFAICT.
 
-From a device tree writing point of view, the author is likely looking
-at the diagram and tracing each of these pins to a supply. They won't
-care which LDO it's actually feeding.
+The only minor issue is that loading the IRQ shadow stack pointer
+before assigning SP is problematic, because when call_on_irq_stack()
+is re-entered over the top of an exception that is taken at that
+point, the clobbering of scs_sp will interfere with the return from
+that exception, and so scs_sp should be left untouched until after SP
+is assigned (which is what prevents call_on_irq_stack() from
+re-entering). This creates a tiny window where we may end up servicing
+a (nested) IRQ running on the IRQ stack but on the task shadow stack,
+but I don't think that is a thing to obsess about tbh. (Sami?) If it
+is, we'll need your DAIF changes to turn that into a proper critical
+section, but I doubt whether that is necessary.
 
-From an implementer POV, the author is likely looking at the datasheet
-for other details not spelled out here, such as voltage steps and
-register offsets. The datasheet also says which supply pin feeds into
-which LDOs.
 
-ChenYu
+--- a/arch/arm64/kernel/entry.S
++++ b/arch/arm64/kernel/entry.S
+@@ -874,12 +874,6 @@ NOKPROBE(ret_from_fork)
+  * Calls func(regs) using this CPU's irq stack and shadow irq stack.
+  */
+ SYM_FUNC_START(call_on_irq_stack)
+-#ifdef CONFIG_SHADOW_CALL_STACK
+-       get_current_task x16
+-       scs_save x16
+-       ldr_this_cpu scs_sp, irq_shadow_call_stack_ptr, x17
+-#endif
+-
+        /* Create a frame record to save our LR and SP (implicit in FP) */
+        stp     x29, x30, [sp, #-16]!
+        mov     x29, sp
+@@ -888,7 +882,23 @@ SYM_FUNC_START(call_on_irq_stack)
+
+        /* Move to the new stack and call the function there */
+        add     sp, x16, #IRQ_STACK_SIZE
++#ifdef CONFIG_SHADOW_CALL_STACK
++       mov     x16, scs_sp
++       ldr_this_cpu scs_sp, irq_shadow_call_stack_ptr, x17
++#ifdef CONFIG_DYNAMIC_SCS
++       cbz     scs_sp, 0f
++#endif
++       str     x16, [scs_sp], #8
++0:
++#endif
+        blr     x1
++#ifdef CONFIG_SHADOW_CALL_STACK
++#ifdef CONFIG_DYNAMIC_SCS
++       cbz     scs_sp, 1f
++#endif
++       ldr     scs_sp, [scs_sp, #-8]
++1:
++#endif
+
+        /*
+         * Restore the SP from the FP, and restore the FP and LR from the
+@@ -896,7 +906,6 @@ SYM_FUNC_START(call_on_irq_stack)
+         */
+        mov     sp, x29
+        ldp     x29, x30, [sp], #16
+-       scs_load_current
+        ret
+ SYM_FUNC_END(call_on_irq_stack)
+ NOKPROBE(call_on_irq_stack)
 
