@@ -4,102 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 742E8C87FC5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 15:58:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 674B4C83F34
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 15:58:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+zRq6q+Q3aRIIcPAovmp38L5s64IDYxDAuFuBlXk1Vs=; b=WcfU7bWW9sChb7rlE6BAjN4Pz/
-	nCFpR9qDy6yWm4vNhoteRMLVaIp5Ie3iEccOAyb4hLCtoheEpxf2Fd5w25MQZLJlwqwQ30t8m51/R
-	qFqU9FfxkQjARBT9Ew5IlMQ2pNrCuUKon088M/J33IsO/RiVBg6LirNuAiIDBpQj3PbBjmC7q0lny
-	LNMjWeGdk19IfrizlOW7XgtTun3cOYvXuC97AfiTx8EiHJzHOUpYfJhh+GS2hP2aCJtOQmJxCkpvE
-	OFk+fxsk4eOkw+E6Lsua7aWL5LdmcsL7nEZFmak13CbWVRBY99nxByG7gMef54Ve8bQwff7ofSemL
-	MnrOwKjw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7h3OZgOFOWka6Sh7FDs0lzIp/bOpR21bNansrj8i0UI=; b=V4vfvObPgYPAtGuB8LZ99GelD/
+	gal4fL+sFEapFJp/MpKpPhJsgl5CHHNG3S33WM50WNzfyRuFEET97QYdMJPJ6ge0dnbl0eSyIO2uY
+	gvn1EQDgdfTujNeKGM+B0CN+8qzVOQxuPMXf+rPO6MJEKCg4GOlCIAg5yRC4NFQ2xBI1m0uF29Isp
+	CkhOj1lQwaoYtbZVNMvsFPcD1/5w4ba2/BxrwPbefFsO71f+c2m4CytLJqhSxqXqfQGcCNbN9cDwG
+	RmtsrbeWNWo+5XNtqpsD8PZ/01o0lJbqnyru/TxNC06MSFL9YGD1Uat9m1/IDyLsUwctFYpQOI5Nv
+	Bv0Z3b5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueFO2-00000002w28-3m9u;
-	Tue, 22 Jul 2025 15:58:38 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	id 1ueFO5-00000002w6d-3jN9;
+	Tue, 22 Jul 2025 15:58:41 +0000
+Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueEFz-00000002l5q-1Sdk
+	id 1ueEPr-00000002n1e-1Ngo
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Jul 2025 14:46:16 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-4563cfac19cso46613115e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Jul 2025 07:46:14 -0700 (PDT)
+	Tue, 22 Jul 2025 14:56:28 +0000
+Received: by mail-pj1-x102a.google.com with SMTP id 98e67ed59e1d1-313910f392dso4528382a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Jul 2025 07:56:27 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1753195573; x=1753800373; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=+zRq6q+Q3aRIIcPAovmp38L5s64IDYxDAuFuBlXk1Vs=;
-        b=fIXY4IJGaFu51zvQS87JDRH+u3kuhKeEAAMQY+TvwkW55OLDe+jlShozJBQVpv0fw+
-         5KzJ9sCtkSBsixfnKu26cvMC/b/crQj66s/X0WOLNSIpax1KtvpiXd9+5sWnDjERH6z0
-         3HtA6WlI7l/qH7Jpu00NXXb4SLls8kRumlbk87jokNUxtUTO9BRjfpLUUftJhsPHnjSZ
-         zNcQSgyxA1uHbeo/zA409n9B7xKyIzNYeYlGGWgoGZ6EHZ597sVFH0lM5qLj7JlMCr9w
-         Ld7pYNNQuW6/aIyD5BGJmhRt6BLLUgJlnRGNuGWwL8B2fSDXMBmG6MjQ2KhrRH7vdItO
-         8TrA==
+        d=linaro.org; s=google; t=1753196186; x=1753800986; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=7h3OZgOFOWka6Sh7FDs0lzIp/bOpR21bNansrj8i0UI=;
+        b=LBt4iqdPv71S20rkYKAGtcF42/J3tnbj/6Om3/7T3vtwdI+DPNHsoGJzkdI9cO1aXb
+         llI+8LgLPhpDOobpSOdiirDj1fzAGM6/LkNHCZUw4/qlnsaOPIgRu6uAZwPiQhKf4beT
+         wgFyQB7Le8m8f7N711dCec6iZfEw1cXcn3RYi0EHkCZOSHtpefKIqN4csMR+A+JszpKI
+         JSX85L+iGXnYP/0bE/AtkG3y+ikGMHJKY/IHVZ8Z9nXYGLTMAmsVgDP7OGnS2x8kaSan
+         BpSXJjS6kloqTvX9NntZF3VnyKUoFfQtDZdaLh9cFPkhcCE0M97JzsZSmyw5d34mD1l9
+         vCsQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753195573; x=1753800373;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=+zRq6q+Q3aRIIcPAovmp38L5s64IDYxDAuFuBlXk1Vs=;
-        b=U3s1JJY/bhzUA4ZnEnPHCcrhar2JxI5q1TozuXyyDW8M4sibLeimkatasukQpdRsN3
-         pi8lItO3bBz6MhU81T+4gBqeqet3RsgvQ49jEDXX26mTkY497xJ/YCmD3XY+fBnjNPBB
-         pdDCD4kW9nZqIqQhiDby46nfqjRpQVK0cLc57ehZgVSxcB8OQFMsbuL+k6K0Rc0V1jGT
-         wO6Kdbq9ee5Ptn5f5yRYBI+F7YJhRq5CUJ2U+63ueWJx8kccM8/tS0JtLbiFFE6Fo3ch
-         yuJmvO2dWKO7aRSnq2n9IWjJtXJAZc5tSs0R/Y7Drmv1a1n1uDTz1IQNZLCiBrv79roU
-         T9Rg==
-X-Forwarded-Encrypted: i=1; AJvYcCXrrS4EszZhKYffukbSJ98fSdctwwh2o6fG82ImF5h12MrQfRyML0APQolY8xZbTeYQcBKcj3XNmX6Yu8sW8f/o@lists.infradead.org
-X-Gm-Message-State: AOJu0YwcKAn1e6BPBvqLJrCA36iBq027NIcsPq3DJBt138CWSg0NGcqg
-	iI0KiW9iSZua5u83ylm1DPQfJFja1xfnLt7+LZE69yCn5qX7dS4ue3Q5oNk2aww74EfmRY8goMx
-	qNrlANkM=
-X-Gm-Gg: ASbGncsIIMLjI4kF+9yod8Hfp8uDpDs9qJAF39LvtA9PrnJAnV2i1c40/Jivci4rwFc
-	/j2v3d+S8KhFWvaAWF3HHsjyndxousUMOMVbAf2AmfG/CQkGfVwhkhPoRAnfipnYzqukoHCE8uN
-	sRgwH6vd/kVE5F5PStHjt921JKIDZEuJ3oYJe9iBttPqJCyY7oo8fCMJA+4xK3/lrJZFgbg5gbh
-	Gcbnap7dnUBXNsocnpgyB4FyVbwv00sbOc+0rrVhQ+8M5j9fej/Ngsez7xWYe8zUuS1kgCoi/I0
-	zpUFkyP87HWTulAwZgdADIExdGp+wDkL5DK68ErElmNEoQs8kzWBwZYBaeYaFBsubelrWFHcncm
-	Oju9DsNQSGSI32nrokyHy0/LvETk=
-X-Google-Smtp-Source: AGHT+IEzlWOgnfRNv4/fQDkTRc8GhsQBHo1Y57syH6gUs7Qb009+oIXJL35tfLadwhf4ZS07sILvoA==
-X-Received: by 2002:a05:600c:354c:b0:456:161c:3d61 with SMTP id 5b1f17b1804b1-4562e275c25mr216633925e9.22.1753195573391;
-        Tue, 22 Jul 2025 07:46:13 -0700 (PDT)
-Received: from [192.168.1.3] ([185.48.76.109])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4563b75cb86sm134030035e9.32.2025.07.22.07.46.12
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 22 Jul 2025 07:46:12 -0700 (PDT)
-Message-ID: <10e9cb52-2476-4c13-8632-0a85830f98dd@linaro.org>
-Date: Tue, 22 Jul 2025 15:46:11 +0100
+        d=1e100.net; s=20230601; t=1753196186; x=1753800986;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=7h3OZgOFOWka6Sh7FDs0lzIp/bOpR21bNansrj8i0UI=;
+        b=Q30K2qdI6mOCa8OxoqqdnU1r5fdPH/QqXQcqJe7xKA2f7y/8dCqiMkpbwSlqVNnEiL
+         hK/qpmrdluFiZiA5kLNlMyfcLcPckz/3OO5XYLGBfaFF6Gn4qD7n6VgPXmyrDOL8Evem
+         q+mjV1DLIqJow7ofcQCYxOHY3V3o/9DdOhypIIWeAHSJQ4YOGTciUn8fmZRksdSGgSuI
+         ndpsLARIHsUPzNMwCIYIxljlQqTONcL8VLUgaiiMFLgt77R6D3ZLI12BSb/fhT2mGD4f
+         PdQyxCFUZlzda1crNicsPP3F3paNzOO/Sb9PvMdJgZkX8AIHM7lhW0LBv1BZ1mBDxPop
+         yD6g==
+X-Forwarded-Encrypted: i=1; AJvYcCXb9aVcGODIr0VoSuzsRTdfClpvYz+khfqTi9dQvfDFoXXUT18i5DL5aWWnt3JHEPUc11ksf8TkAqngQqyJ6tfN@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxg+N7eV5zTe/B5PyLRw1oXkiH4pOVUVaNZre6YGOCu7oGh2YRp
+	/lVnIGpyL0O97b5IWxBWH0Xuis2ACpsenIBOHaIEZSJcSbbLdh47yNavkwyWyqpMi/chWxTfw6Q
+	EoMSkMpEOQfNF9hm9y+rbhkvT2r0T7StK1W3k90p5yrZtWyx8oW5u
+X-Gm-Gg: ASbGncv61y3Qsej+6fX62B/NxB7mokN94/9BjxFPWgSZKLgoZBtGRtazOHVNBN1Ug8V
+	6ZQCgt8MA2n2Nbe7K2Q/N3QFTmTtsKPShENdXnABSoHYuFPDlEIhVQ6QMy/60t+5BWji8fKnmal
+	vQ8mfIQpGJKmeRGDH+Fm+69hwk9n27DHpF8jboI6EvynDwbvCUGztHg0QD9LhYqPtSwUzg1MF/q
+	Vps0voX0DVLIASqDog=
+X-Google-Smtp-Source: AGHT+IEtP/5IDxeEhazTc4DWcg8EKlmHm0Tqj8Htda07oJVKsZ40WoeXfhlC2Cn75AZLmjlrFZm0wdgsuvPCCu8Lrro=
+X-Received: by 2002:a17:90b:1cc5:b0:312:e731:5a6b with SMTP id
+ 98e67ed59e1d1-31c9f4dfc33mr29080180a91.32.1753196186503; Tue, 22 Jul 2025
+ 07:56:26 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/3] perf: arm_spe: Disable buffer before writing to
- PMBPTR_EL1 or PMBSR_EL1
+References: <20250722081405.2947294-1-quic_jinlmao@quicinc.com>
+ <20250722081405.2947294-2-quic_jinlmao@quicinc.com> <727fa9f4-fe25-495e-9d8d-48e504fbe6b0@arm.com>
+ <20250722091425.GH3137075@e132581.arm.com> <CAJ9a7VhLLgAak_4FB=iW0izXprM4W+RsKfHUeo=XUHh9LwtUsA@mail.gmail.com>
+ <20250722140659.GI3137075@e132581.arm.com>
+In-Reply-To: <20250722140659.GI3137075@e132581.arm.com>
+From: Mike Leach <mike.leach@linaro.org>
+Date: Tue, 22 Jul 2025 15:56:15 +0100
+X-Gm-Features: Ac12FXws7BfWiZMqb7msBA7EUd24M1rUoi_ExDpG7uyl5EzW-3UU03wnPpGedF8
+Message-ID: <CAJ9a7ViUoSMV_HHKKRMhcQX=isU+feJvwCaVhu-6EBK4QXJbVg@mail.gmail.com>
+Subject: Re: [PATCH v3 1/2] dt-bindings: arm: Add Qualcomm extended CTI
 To: Leo Yan <leo.yan@arm.com>
-Cc: Alexandru Elisei <alexandru.elisei@arm.com>, Will Deacon
- <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Anshuman Khandual <Anshuman.Khandual@arm.com>,
- Rob Herring <Rob.Herring@arm.com>, Suzuki Poulose <Suzuki.Poulose@arm.com>,
- Robin Murphy <Robin.Murphy@arm.com>, linux-arm-kernel@lists.infradead.org,
- linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20250701-james-spe-vm-interface-v1-0-52a2cd223d00@linaro.org>
- <20250701-james-spe-vm-interface-v1-2-52a2cd223d00@linaro.org>
- <20250704155016.GI1039028@e132581.arm.com>
- <b77f12e7-ea3f-4c57-9706-ff8e32721cc8@linaro.org>
- <20250707153710.GB2182465@e132581.arm.com> <aG4_uYJgpMXo3QHQ@raptor>
- <20250714085849.GC1093654@e132581.arm.com>
- <0c53164a-306a-4cb7-9085-bba8985c32e7@linaro.org>
- <20250721152134.GF3137075@e132581.arm.com>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20250721152134.GF3137075@e132581.arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, Mao Jinlong <quic_jinlmao@quicinc.com>, 
+	James Clark <james.clark@linaro.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+	Yingchao Deng <quic_yingdeng@quicinc.com>, coresight@lists.linaro.org, 
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250722_074615_400793_78CE376F 
-X-CRM114-Status: GOOD (  29.06  )
+X-CRM114-CacheID: sfid-20250722_075627_380137_6261E102 
+X-CRM114-Status: GOOD (  28.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,120 +101,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 21/07/2025 4:21 pm, Leo Yan wrote:
-> On Mon, Jul 21, 2025 at 02:20:15PM +0100, James Clark wrote:
-> 
+On Tue, 22 Jul 2025 at 15:07, Leo Yan <leo.yan@arm.com> wrote:
+>
+> On Tue, Jul 22, 2025 at 01:00:18PM +0100, Mike Leach wrote:
+>
 > [...]
-> 
->>>> Thought about this some more.
->>>>
->>>> Before:
->>>>
->>>> arm_spe_pmu_buf_get_fault_act:
->>>>     <drain buffer>
->>>>     ISB
->>>> arm_spe_perf_aux_output_begin:
->>>>     PMBLIMITR_EL1.E = 1
->>>> ISB
->>>> PMBSR_EL1.S = 0
->>>> ERET
->>>>
->>>> Now:
->>>>
->>>> PMBLIMITR_EL1 = 0
->>>> ISB
->>>>
->>>> PMBSR_EL1.S = 0
->>>> arm_spe_perf_aux_output_begin:
->>>>     ISB
->>>>     PMBLIMITR_EL1.E = 1
->>>> ERET
->>>>
->>>> I don't see much of a difference between the two sequences - the point after
->>>> which we can be sure that profiling is enabled remains the ERET from the
->>>> exception return.  The only difference is that, before this change, the ERET
->>>> synchronized clearing the PMBSR_EL1.S bit, now it synchronizes setting the
->>>> PMBLIMITR_EL1.E bit.
->>>>
->>>> Thoughts?
->>>
->>> To make the discussion easier, I'll focus on the trace enabling flow
->>> in this reply.
->>>
->>> My understanding of a sane flow would be:
->>>
->>>     arm_spe_pmu_irq_handler() {
->>>       arm_spe_perf_aux_output_begin() {
->>>             SYS_PMBPTR_EL1 = base;
->>>
->>>             ISB // Synchronization between SPE register setting and
->>>                 // enabling profiling buffer.
->>>             PMBLIMITR_EL1.E = 1;
->>>       }
->>>       ISB // Context synchronization event to ensure visibility to SPE
->>>     }
->>>
->>>     ... start trace ... (Bottom half, e.g., softirq, etc)
->>>
->>>     ERET
->>>
->>> In the current code, arm_spe_perf_aux_output_begin() is followed by an
->>> ISB, which serves as a context synchronization event to ensure
->>> visibility to the SPE. After that, it ensures that the trace unit will
->>> function correctly.
->>>
->>
->> But I think Alex's point is that in the existing code the thing that finally
->> enables trace (PMBSR_EL1.S = 0) isn't followed by an isb(), only an ERET. So
->> the new flow isn't any different in that regard.
-> 
-> Thanks for explanation.
-> 
->>> I understand that the Software Usage PKLXF recommends using an ERET as
->>> the synchronization point. However, between enabling the profiling
->>> buffer and the ERET, the kernel might execute other operations (e.g.,
->>> softirqs, tasklets, etc.).
->>
->> Isn't preemption disabled? Surely that's not possible. Even if something did
->> run it wouldn't be anything that touches the SPE registers, and we're sure
->> there's an isb() between setting up the buffer and the final PMBLIMITR_EL1.E
->> = 1
-> 
-> Yes, bottom half runs in preemtion disabled state. See:
-> 
->    el1_interrupt() -> __el1_irq() -> irq_exit_rcu() -> invoke_softirq()
-> 
-> In some cases, sotfirq and tasklet might even cause long latency (I
-> believe it can be milliseconds or even longer), this is why ftrace
-> "irqsoff" tracer is used to profile latency caused by irq off state.
-> 
-> Bottom half does not modify SPE registsers, but it can be a long road
-> between enabling SPE trace and ERET.
-> 
->>> Therefore, it seems to me that using ERET as the synchronization point
->>> may be too late. This is why I think we should keep an ISB after
->>> arm_spe_perf_aux_output_begin().
->>
->> Wouldn't that make the ERET too late even in the current code then? But I
->> think we're agreeing there's no issue there?
-> 
-> I would say ERET is too late for current code as well.
-> 
+>
+> > For a change of this magnitude to a CS component, that the ID
+> > registers will also have to change. This is a requirement of the
+> > Visible Component Architecture in the CoreSight specification.
+> > External tools cannot see the device tree.
+> >
+> > This is effectively no longer an ARM designed component, so the
+> > CoreSight specification requires that the DEVARCH register change to
+> > show qualcomm as the designer, and the architecture value change to
+> > represent this component.
+> > DEVID should be used to allow the driver to pick up parameters such as
+> > number of triggers as per the existing CTI component.
+> >
+> > If this component is Coresight compliant then the driver can use the
+> > ID registers to configure to the extended trigger architecture.
+> >
+> > With complete remapping of most of the registers, and the dropping of
+> > claim tag compatibility - which appears to be a breach of the
+> > CoreSight specification - it may be better to have a completely
+> > separate driver for this component.
+>
+> Good point. I'd like to confirm with the Qualcomm team: apart from the
+> differences in register offsets and claim bits, does this CTI module
+> have exactly the same bit layout and usage as CTI standard
+> implementation?
+>
+> If yes, then from a maintenance perspective, we probably don't want to
+> have two CTI drivers with identical register settings. It seems plausible
+> to encapsulate register access and claim logic into several functions.
+>
+>   void cti_reg_writel(u32 val, struct cti_drvdata *drvdata, bool relax);
+>   u32 cti_reg_readl(struct cti_drvdata *drvdata, bool relax);
+>   int cti_claim_device(struct cti_drvdata *drvdata);
+>   int cti_disclaim_device(struct cti_drvdata *drvdata, bool unlocked);
+>
 > Thanks,
 > Leo
 
+The CTI supports 128 triggers  - which means many more registers to
+enable / connect etc.
+I need to study the changes to determine if there are functional
+differences too.
 
-Ok I get it now. The point is that there is stuff in between the return 
-in the SPE IRQ handler and the actual ERET. If someone is interested in 
-sampling the kernel then they might miss sampling a small amount of that.
+It might be feasible to divide the code into a common file and a pair
+of variants so some is reused.
 
-It's not a correctness thing, just reducing potential gaps in the 
-samples. I can add another commit to add it, but it doesn't look like it 
-would be a fixes commit either, just an improvement. And the same issue 
-applies to the existing code too.
+Mike
 
-James
-
+-- 
+Mike Leach
+Principal Engineer, ARM Ltd.
+Manchester Design Centre. UK
 
