@@ -4,130 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB700C83F27
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 11:17:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3587C83F27
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 11:27:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ADDBe1UjCWeerB1lj8K6/kscNWOqJl5O1FOIrs5KCxw=; b=EO/Ii9YemvKGpq8h9bmVLjwHyT
-	lJyEeduxAtll/DljOSStGiarcDZM4s6ngxe3vYUFUIvpOIEH4HkDBy+aF/0/DjVJ5/rVvMtuaexeH
-	HwWefEtMsf6LuVBnrNReX4czaXptrAAZFE9rZa1q37V7tWuvl9KxSrK8ZncDMw6p1kcCmZpmR1a7+
-	B5Qe1qKBSx0J5CdG0C2GeTkLd3KKgAtG0LANtWSYx3RsVePkcbHqaBBYmKGAn97nzYEVAU8GEXcT6
-	g50Hgynjrk5Oej/91BLOOws9MH60tAWEbRuejUGyrker9648EOMGE8ih9f7cmNJTF+376VejpvJBn
-	PH0jwmgw==;
+	bh=j7FmrljgJWMqEho9n3tScbu6030nDFWUZ/1cCus/DR0=; b=wiHUde1yUwbRUa0v9VpLlf29zi
+	14C9Xuy1w/S0L+DFYAO5N+7U54KutB1LhqZUiRnpKkg/WfnzctUKQRstkXrMSWeYM2Dgb4rBIgwaN
+	lq3l9g54vs/xr/4ddR/WaVSfVFfgBQhgUQQSyLW0sJmO7qcG1eJulspXmcmIE8N3SMpU/ss9NyfK6
+	cLPuThIRPyvK60bOeSQHEWJrslTkdj426JaohlSWRCYOtkiTJky7GNkmgyEkk20WckyFpwKGeOre8
+	EH81ydrjTVnucxFxaLLxvs0yUFUfMAu0xoPK9yrglWLB0KwvpWeqrLN5kKePdSOR3t5Q1cP93uLnO
+	5kXJDrTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueAzc-00000002GA0-1U8e;
-	Tue, 22 Jul 2025 11:17:08 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueAsd-00000002F84-0Ktz;
-	Tue, 22 Jul 2025 11:09:56 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7633245D34;
-	Tue, 22 Jul 2025 11:09:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 21F23C4CEEB;
-	Tue, 22 Jul 2025 11:09:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753182594;
-	bh=knCHRYIvYTmiYB6u/STPa5dxiHcIx2CJey7pqvImmZo=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=kjirIiKcte0nSMAytRQyqR0+bJMRxy/akYEtt4sihCHMu+oTxKlD8TDiO6j5Hlo/V
-	 LBM5lb+Kc1LQmyz+/xXzKCn0zZHPEC7Kq0ps7r5rS4Dl+vsKMxx8yDMH/LBIvwZ6Hd
-	 PCq4pT3i0JKOpNskKTNlDTvJoA2kxB3VmN7+Mdi9CjOAGjaT5KhThGv+R2Mrg09rNa
-	 7QIeoGOpdYwMtY9lJIjzWLhqxcmCjWHlqVkiRoIS8kugr9QEkWMlQdgB9KLgqAs/uC
-	 sWXqqa/1GRwenVygyrnCVw+eiu+c+CaMegoc0fzdQXc68FBFzMePe7hU1GW9MDikFB
-	 YjiTiS5H6VLmw==
-Message-ID: <86ee9383-d3dd-40f4-adb8-1f7375018bf5@kernel.org>
-Date: Tue, 22 Jul 2025 13:09:47 +0200
+	id 1ueB9s-00000002Hbo-1hXJ;
+	Tue, 22 Jul 2025 11:27:44 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ueB7M-00000002H6Z-0gQa
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 22 Jul 2025 11:25:09 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EBEB8152B;
+	Tue, 22 Jul 2025 04:24:58 -0700 (PDT)
+Received: from [10.1.30.167] (XHFQ2J9959.cambridge.arm.com [10.1.30.167])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5C27A3F66E;
+	Tue, 22 Jul 2025 04:25:01 -0700 (PDT)
+Message-ID: <dc0b5e94-f5aa-407e-bad2-150814dc4885@arm.com>
+Date: Tue, 22 Jul 2025 12:25:00 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 1/8] dt-bindings: media: mediatek: decoder: Add MT8189
- mediatek,vcodec-decoder
-To: =?UTF-8?B?S3lyaWUgV3UgKOWQtOaZlyk=?= <Kyrie.Wu@mediatek.com>
-Cc: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
- =?UTF-8?B?R2VvcmdlIFN1biAo5a2Z5p6XKQ==?= <George.Sun@mediatek.com>,
- =?UTF-8?B?VGlmZmFueSBMaW4gKOael+aFp+ePiik=?= <tiffany.lin@mediatek.com>,
- "andrzejtp2010@gmail.com" <andrzejtp2010@gmail.com>,
- "nhebert@chromium.org" <nhebert@chromium.org>,
- "linux-media@vger.kernel.org" <linux-media@vger.kernel.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "mchehab@kernel.org" <mchehab@kernel.org>,
- "hverkuil@xs4all.nl" <hverkuil@xs4all.nl>,
- "nicolas.dufresne@collabora.com" <nicolas.dufresne@collabora.com>,
- =?UTF-8?B?WXVuZmVpIERvbmcgKOiRo+S6kemjnik=?= <Yunfei.Dong@mediatek.com>,
- "conor+dt@kernel.org" <conor+dt@kernel.org>,
- =?UTF-8?B?SXJ1aSBXYW5nICjnjovnkZ4p?= <Irui.Wang@mediatek.com>,
- "robh@kernel.org" <robh@kernel.org>,
- "sebastian.fricke@collabora.com" <sebastian.fricke@collabora.com>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
- "christophe.jaillet@wanadoo.fr" <christophe.jaillet@wanadoo.fr>,
- "krzk+dt@kernel.org" <krzk+dt@kernel.org>, "arnd@arndb.de" <arnd@arndb.de>,
- =?UTF-8?B?QW5kcmV3LUNUIENoZW4gKOmZs+aZuui/qik=?=
- <Andrew-CT.Chen@mediatek.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- "neil.armstrong@linaro.org" <neil.armstrong@linaro.org>
-References: <20250721105520.5625-1-kyrie.wu@mediatek.com>
- <20250721105520.5625-2-kyrie.wu@mediatek.com>
- <20250722-sly-sparkling-kangaroo-6ab9ed@kuoka>
- <7e148282f683f8e0e00a1ad29ada8319ee9e24f4.camel@mediatek.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <7e148282f683f8e0e00a1ad29ada8319ee9e24f4.camel@mediatek.com>
+Subject: Re: [PATCH v5 1/7] mm: Refactor MM_CP_PROT_NUMA skipping case into
+ new function
+Content-Language: en-GB
+To: Dev Jain <dev.jain@arm.com>, akpm@linux-foundation.org
+Cc: david@redhat.com, willy@infradead.org, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org, catalin.marinas@arm.com, will@kernel.org,
+ Liam.Howlett@oracle.com, lorenzo.stoakes@oracle.com, vbabka@suse.cz,
+ jannh@google.com, anshuman.khandual@arm.com, peterx@redhat.com,
+ joey.gouly@arm.com, ioworker0@gmail.com, baohua@kernel.org,
+ kevin.brodsky@arm.com, quic_zhenhuah@quicinc.com,
+ christophe.leroy@csgroup.eu, yangyicong@hisilicon.com,
+ linux-arm-kernel@lists.infradead.org, hughd@google.com,
+ yang@os.amperecomputing.com, ziy@nvidia.com
+References: <20250718090244.21092-1-dev.jain@arm.com>
+ <20250718090244.21092-2-dev.jain@arm.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <20250718090244.21092-2-dev.jain@arm.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250722_040955_161699_713A40F5 
-X-CRM114-Status: GOOD (  11.42  )
+X-CRM114-CacheID: sfid-20250722_042508_285003_3980E17A 
+X-CRM114-Status: GOOD (  20.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,35 +73,141 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 22/07/2025 10:11, Kyrie Wu (吴晗) wrote:
-> On Tue, 2025-07-22 at 09:25 +0200, Krzysztof Kozlowski wrote:
->> External email : Please do not click links or open attachments until
->> you have verified the sender or the content.
->>
->>
->> On Mon, Jul 21, 2025 at 06:55:13PM +0800, Kyrie Wu wrote:
->>> Add compatible for video decoder on MT8189 platform, which is a
->>> pure single core architecture.
->>
->> Looks compatible with existing ones and nothing in commit msg
->> explains
->> why it was not made compatible. Describe the hardware, say something
->> useful to avoid such questions.
->>
->> Best regards,
->> Krzysztof
->>
-> Dear Krzysztof,
+On 18/07/2025 10:02, Dev Jain wrote:
+> Reduce indentation by refactoring the prot_numa case into a new function.
+> No functional change intended.
 > 
-> There are two reasons for adding a new compatible string to MT8189:
-> On the one hand, MT8189 is a pure single-core hardware chip, so the
-> of_device_id data is different;
+> Signed-off-by: Dev Jain <dev.jain@arm.com>
+> ---
+>  mm/mprotect.c | 101 +++++++++++++++++++++++++++-----------------------
+>  1 file changed, 55 insertions(+), 46 deletions(-)
+> 
+> diff --git a/mm/mprotect.c b/mm/mprotect.c
+> index 88709c01177b..2a9c73bd0778 100644
+> --- a/mm/mprotect.c
+> +++ b/mm/mprotect.c
+> @@ -83,6 +83,59 @@ bool can_change_pte_writable(struct vm_area_struct *vma, unsigned long addr,
+>  	return pte_dirty(pte);
+>  }
+>  
+> +static bool prot_numa_skip(struct vm_area_struct *vma, unsigned long addr,
+> +			   pte_t oldpte, pte_t *pte, int target_node)
+> +{
+> +	struct folio *folio;
+> +	bool toptier;
+> +	int nid;
+> +
+> +	/* Avoid TLB flush if possible */
+> +	if (pte_protnone(oldpte))
+> +		return true;
+> +
+> +	folio = vm_normal_folio(vma, addr, oldpte);
+> +	if (!folio)
+> +		return true;
+> +
+> +	if (folio_is_zone_device(folio) || folio_test_ksm(folio))
+> +		return true;
+> +
+> +	/* Also skip shared copy-on-write pages */
+> +	if (is_cow_mapping(vma->vm_flags) &&
+> +	    (folio_maybe_dma_pinned(folio) || folio_maybe_mapped_shared(folio)))
+> +		return true;
+> +
+> +	/*
+> +	 * While migration can move some dirty pages,
+> +	 * it cannot move them all from MIGRATE_ASYNC
+> +	 * context.
+> +	 */
+> +	if (folio_is_file_lru(folio) && folio_test_dirty(folio))
+> +		return true;
+> +
+> +	/*
+> +	 * Don't mess with PTEs if page is already on the node
+> +	 * a single-threaded process is running on.
+> +	 */
+> +	nid = folio_nid(folio);
+> +	if (target_node == nid)
+> +		return true;
+> +
+> +	toptier = node_is_toptier(nid);
+> +
+> +	/*
+> +	 * Skip scanning top tier node if normal numa
+> +	 * balancing is disabled
+> +	 */
+> +	if (!(sysctl_numa_balancing_mode & NUMA_BALANCING_NORMAL) && toptier)
+> +		return true;
+> +
+> +	if (folio_use_access_time(folio))
+> +		folio_xchg_access_time(folio, jiffies_to_msecs(jiffies));
 
-Not relevant. Your of_device_id is wrong and based on that you claim the
-hardware is different?
+Perhaps this bit should be kept in the original location? It's got nothing to do
+with determining if the pte should be skipped.
 
-Describe the hardware.
+Thanks,
+Ryan
 
-Best regards,
-Krzysztof
+> +	return false;
+> +}
+> +
+>  static long change_pte_range(struct mmu_gather *tlb,
+>  		struct vm_area_struct *vma, pmd_t *pmd, unsigned long addr,
+>  		unsigned long end, pgprot_t newprot, unsigned long cp_flags)
+> @@ -117,53 +170,9 @@ static long change_pte_range(struct mmu_gather *tlb,
+>  			 * pages. See similar comment in change_huge_pmd.
+>  			 */
+>  			if (prot_numa) {
+> -				struct folio *folio;
+> -				int nid;
+> -				bool toptier;
+> -
+> -				/* Avoid TLB flush if possible */
+> -				if (pte_protnone(oldpte))
+> -					continue;
+> -
+> -				folio = vm_normal_folio(vma, addr, oldpte);
+> -				if (!folio || folio_is_zone_device(folio) ||
+> -				    folio_test_ksm(folio))
+> -					continue;
+> -
+> -				/* Also skip shared copy-on-write pages */
+> -				if (is_cow_mapping(vma->vm_flags) &&
+> -				    (folio_maybe_dma_pinned(folio) ||
+> -				     folio_maybe_mapped_shared(folio)))
+> -					continue;
+> -
+> -				/*
+> -				 * While migration can move some dirty pages,
+> -				 * it cannot move them all from MIGRATE_ASYNC
+> -				 * context.
+> -				 */
+> -				if (folio_is_file_lru(folio) &&
+> -				    folio_test_dirty(folio))
+> -					continue;
+> -
+> -				/*
+> -				 * Don't mess with PTEs if page is already on the node
+> -				 * a single-threaded process is running on.
+> -				 */
+> -				nid = folio_nid(folio);
+> -				if (target_node == nid)
+> -					continue;
+> -				toptier = node_is_toptier(nid);
+> -
+> -				/*
+> -				 * Skip scanning top tier node if normal numa
+> -				 * balancing is disabled
+> -				 */
+> -				if (!(sysctl_numa_balancing_mode & NUMA_BALANCING_NORMAL) &&
+> -				    toptier)
+> +				if (prot_numa_skip(vma, addr, oldpte, pte,
+> +						   target_node))
+>  					continue;
+> -				if (folio_use_access_time(folio))
+> -					folio_xchg_access_time(folio,
+> -						jiffies_to_msecs(jiffies));
+>  			}
+>  
+>  			oldpte = ptep_modify_prot_start(vma, addr, pte);
+
 
