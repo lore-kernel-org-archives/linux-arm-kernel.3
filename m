@@ -4,174 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AD14C83F25
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 07:45:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BD95C83F27
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 22 Jul 2025 07:48:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QyKL1sNMM/rAunt65IASn7CfBD+F9gtj3RAslIbeg/8=; b=ZGTjrtbet0nLWyOZXZ3v5CKpkk
-	5E/ZczBrqU4P+c6or8mhJTo3onxaZ2X9SvLr6Ip2DBDsfwfLmbwWHtkop7B6IGxdb6r9q15J6ov1C
-	qKAL/2SNP7RtBvWCuYpYORuhDIKK8LrAitfcxwqAIpPtdUZbsZrPvL5Da/shxkl7RVY84MC3XEo6Y
-	hCWsQ+Ql9ihys4elAKKgKX99ytgNFv/PZH6iVRFHZPQ6jCPbbv8DPuOsg+ZN8PzgxaTQWT+nmVv6X
-	MlFPWpjvQ5FGYT9eD5H536azwv5d4L/r+qPRlpAWZQjC8S1TGEdYz0ZWUY8OKvC/SeOZX7wCfeZHl
-	6YbqGzVA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=41B/ekEx4m/gKNRr2HYhyza2JcZwd1YnIux2XMK+KqY=; b=PzLUIIcGpzs8NY6JIaUogi4FJI
+	+UXHTPq5UWS4TLIivl5Nru0DvC1rqkV+1/boIjDNCkz0FBFYQjgDEJ51n6ucKwr7Ft+ob7ECo9HyE
+	J8J6LHdk22hoYvh3bxPq0UxbDB9FQyPM9kYUjlVaNoDYR2mUhhWSoQbyZAdNq6X9k9SGQoqF70w4W
+	1uQhmFHjgpDK/26WU0LiLFCiUxK4cqKe7mfJlwAqY6o3IjwMm1TvDZtoSzCrINL4NDZgGzqOmISRj
+	gE2ZipJbKaBiXv+b9cpdun7RM1S1M5iffQA5yjowlhwJeRxwQJfiyJQ6YxCg01iSLrT3wPqGqTni0
+	p0Tbta7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ue7h2-00000001imZ-0ZHe;
-	Tue, 22 Jul 2025 07:45:44 +0000
-Received: from mail-swedencentralazon11013055.outbound.protection.outlook.com ([52.101.83.55] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1ue7jU-00000001jBk-0P7S;
+	Tue, 22 Jul 2025 07:48:16 +0000
+Received: from mail-lj1-x236.google.com ([2a00:1450:4864:20::236])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ue7a0-00000001hMa-0Bcw
+	id 1ue7c1-00000001hko-3BeA
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 22 Jul 2025 07:38:29 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Eisn2s5m2RcaVcJPIDWZsf2QZonWbiFfF3e/OGPsVETx6rzdreAj9x4jCSoxFiwbTgnkdeT8GRU1Wyo1IB2gbJ3mEMcQr8p7eMXXwLQg04KwNLGhk6t/tkYsPeRqX5LJRzkFWNYdrEQ5uXv8bGL1Em0745BbjYcIQ17hqjyLRQNhzGAz1gwV6R2bBXKd4F09jGwe+WnF/f4R+TKJfXENvtsIcLITXlJoryvmgdfozBwRSS1P0yn7+U0S01w5cMHSsrEPe8pEvWGIwLcOl+rEqzk0TQlwrwSMXz/NJuLW/GR7SMxeHNkzTt6sJx1AM5SHts0N1m0dd4AwPJ63d4gQ8w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=QyKL1sNMM/rAunt65IASn7CfBD+F9gtj3RAslIbeg/8=;
- b=V2e95qIbLjrbbIjAY+H6ik3ILj64ihjD9PGLBLc5WfSdcOJvrwscR3q/qYA99W6UY8Jo4TUmfi83U61N5DnkWrkKGDttNao0//UwZeMI4PmS1Wr1QzNO2YNdqEsPER6Uy4R097yCaC41B+adwvCg7w3KaSzx9rUQr2yfmtjO+xrsIvG5GUmRkTBUAeJspmRoKuUILY/W7q9a034G4aYkJkMFNnBVViGwtW7ZovPedpeDr/7z0f7oEEJ2ByB5IPfHUJTviWOgfLNkeBZR05sGC0udlb4MOk30dWKGprFas//DwBFTsfYY11AfcRL8gjz+LG9zn9v+4pxKr203Q0WG7w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=QyKL1sNMM/rAunt65IASn7CfBD+F9gtj3RAslIbeg/8=;
- b=IeG1UAF5JDULwPj7tOYK0Ge0uzQMgjbCAPNHgNgP+LFae3Z1SS6J34dQ3UVO4tYjlEWyC1TUikUczc/6YM5sfJVpX4XLZI9d/JvHmJhf65y225hmF77s4IaeJdKH9nyLhOn3WjA1sknckrvF5wTKcu4JhUhyLJ5q7QWj2PVnRg+xaFWWg1EaF/AddiTX1qAlbn1dG2zqpnAw8bQxqpv1IPA5a7RMMQO28RXnauiWq9wP2zIjD9OEDqNsE8ug5/BXspdNJPpK7bJhb/JgEooVvTiqikttGJYf3cdGcBIc61LN60XFr4oohVg8ivDJ2o7XhqssImtfUBCaHZ+WId1DGA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM7PR04MB7046.eurprd04.prod.outlook.com (2603:10a6:20b:113::22)
- by VI1PR04MB6847.eurprd04.prod.outlook.com (2603:10a6:803:134::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8943.30; Tue, 22 Jul
- 2025 07:38:18 +0000
-Received: from AM7PR04MB7046.eurprd04.prod.outlook.com
- ([fe80::d1ce:ea15:6648:6f90]) by AM7PR04MB7046.eurprd04.prod.outlook.com
- ([fe80::d1ce:ea15:6648:6f90%5]) with mapi id 15.20.8922.037; Tue, 22 Jul 2025
- 07:38:17 +0000
-Message-ID: <4731eb9b-9a29-4065-8dac-06f558e78e02@nxp.com>
-Date: Tue, 22 Jul 2025 15:39:48 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/4] drm/bridge: dw-hdmi: Add function to get plat_data
-To: Shengjiu Wang <shengjiu.wang@nxp.com>, andrzej.hajda@intel.com,
- neil.armstrong@linaro.org, rfoss@kernel.org,
- Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
- jernej.skrabec@gmail.com, maarten.lankhorst@linux.intel.com,
- mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
- lumag@kernel.org, dianders@chromium.org, cristian.ciocaltea@collabora.com,
- luca.ceresoli@bootlin.com, dri-devel@lists.freedesktop.org,
- linux-kernel@vger.kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de,
- kernel@pengutronix.de, festevam@gmail.com, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, p.zabel@pengutronix.de, devicetree@vger.kernel.org,
- l.stach@pengutronix.de, shengjiu.wang@gmail.com
-References: <20250718101150.3681002-1-shengjiu.wang@nxp.com>
- <20250718101150.3681002-2-shengjiu.wang@nxp.com>
-From: Liu Ying <victor.liu@nxp.com>
-Content-Language: en-US
-In-Reply-To: <20250718101150.3681002-2-shengjiu.wang@nxp.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: MA5P287CA0013.INDP287.PROD.OUTLOOK.COM
- (2603:1096:a01:179::11) To AM7PR04MB7046.eurprd04.prod.outlook.com
- (2603:10a6:20b:113::22)
+	Tue, 22 Jul 2025 07:40:35 +0000
+Received: by mail-lj1-x236.google.com with SMTP id 38308e7fff4ca-32b595891d2so40699331fa.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Jul 2025 00:40:33 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1753170032; x=1753774832; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=41B/ekEx4m/gKNRr2HYhyza2JcZwd1YnIux2XMK+KqY=;
+        b=M+8YFF1q6Xbv0h7CaTemFK1vMOubxWGY+2QFNGfwfA97XGsqSA98iA6XZNm4WuTaQA
+         8weI7pZEn1lK3VEbmjgoPwBvV2cjH0vVHLFvI1inWUr7I+0LXB4e3U/Jyujh6O/DNSqi
+         sx87M5zvwoB9zHjWqj7jf1RAldZh74SGBNS7E=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1753170032; x=1753774832;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=41B/ekEx4m/gKNRr2HYhyza2JcZwd1YnIux2XMK+KqY=;
+        b=RSaqJvosXWs6o8AStIo8dCQS2chgL7SpHRXtbEcbvga7BGKp1/kXiUy3gGiSM/dYHD
+         eYpdM5HzYHCB/8snTL+7+ppTrONDvBdLdmuKplwUnEy4sE2JArPrbko4BpY7TErqChhj
+         6OCeOoYxmxBHWs3VEhHlEgqnAzyH8UqSJsyUZUi/5C+IXDkMjqvGgR5dWkabNXZE51zl
+         GFc1BfLqetQzjBnALajHylVPuz59oGY5b23Airz1jau8uz+/rYABONEl4ABIBFI4NuT/
+         ZttmlpQvs9iWvrcs8RnFYQ0aqFN75x9BuJ/Yaij82F3gkrXWgzR+n/f08GI8tdm9LUj4
+         zheQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUH3iZWjKdWeDX9dXUTqCr7fO4eWxUqWc2vMltXHX6epErFYVF4kyX2r73KEsswf2K7WwgcLklfx8waiLySMMdI@lists.infradead.org
+X-Gm-Message-State: AOJu0YzYzvqihdZoo6RVSuk/n4+lopfb37QelS2zrzZ8wPPuQAqVMprl
+	0n2OsoX94r0dtjLMl3TWahXzt84PJ+NNAwt78U7izy7LU7MURmd0BTiQcNtTOlgxlD4qiCemtzF
+	S7BAKzSa2dowb996L3aWR39rURAQ3Pwa3KVgEkXL0
+X-Gm-Gg: ASbGnctGgHCVb/Rqsy9xCoPD1BGK/zXWBjTfhyFy4mEIhuIT8gxnf1FfXd3JJwljvy/
+	AIgBo3kBoyQ5LK6/v/210Wu1qx9PtWcut695hcFcpz44j3Q+XpjllYY8+8A0OUXumYWDaTsn+vu
+	PrPcC50pfhtqDWSKDcB35X5ur1UPfj6UoVIjM2tYAcvOh8K1b36QquhIPYaTK2bI5KitFRjLK79
+	Tl4DcqAUMlkPF4mzO/SivrbyEnVUqPmEWk=
+X-Google-Smtp-Source: AGHT+IEQ22SyB/ySXRKt1KC3gl7QbzYcQMLoMwBK32ZhmBBhXQtJp8OUPSRF0MOxntL5QFsaUhmhC/a9dY2DEPGCwaM=
+X-Received: by 2002:a2e:a58f:0:b0:32b:34c5:225d with SMTP id
+ 38308e7fff4ca-330a7ae1057mr36760231fa.1.1753170031911; Tue, 22 Jul 2025
+ 00:40:31 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM7PR04MB7046:EE_|VI1PR04MB6847:EE_
-X-MS-Office365-Filtering-Correlation-Id: ff2c42d9-9f37-46e6-d925-08ddc8f2b909
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024|19092799006|921020;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?dHVvNUR4MjhkYWNOaG5DcU4venRXNzRwLzBWc1JnZnJyVy9XUnBSU1J3dG5E?=
- =?utf-8?B?alM5aHNtRVp5aXhjeUtVVmRCQ1NoNjBtSUVPVzJENDN4Sy9ZWkhUYUlrUjBF?=
- =?utf-8?B?OTVSeTZsZndsYzhrNE5FbGNhZVVSMXB6QVJOOWJKeUFNOWtkcEloSXFQRWll?=
- =?utf-8?B?V0VyaDcwQTFHNmU0MHRaTmZkZ2hEVXoxYXh5ZFE2M05lT1BhSTZQVzhVSEh3?=
- =?utf-8?B?Zlljem9FWENEbisvdDRXWGR4WTBPckluN0pCNE1RMVA0QXA5RDQxeTFIZHJ6?=
- =?utf-8?B?RFhkNkVMcnNzUU9oYzBKbllhOWlHRGhTNzVnN0k5WjFiOHR4a25jc3U4TjBv?=
- =?utf-8?B?S1ZrM2V3YWxxSUpFdys1VWprMUJLTW1nc20zNTJ3aFExc00vWGwyblFOMWxI?=
- =?utf-8?B?U1MvZjJQdWw2T1V2aFpqd1V3MFRDSjFKelRJQ1cwSExhditNYjFoMDBicHB4?=
- =?utf-8?B?OGV5OHVBODZnVUxtdXRKcURUVXRKMmdIZDB0Y2dMa29LMGxxdlJOVW9jN3N3?=
- =?utf-8?B?UFYrUEpFRVNNWjFQSXRpN3RvRjk4bWFSMDEvaUZVQmtXb2tpMitNei9nUkF5?=
- =?utf-8?B?Y0U1cTZMWWMrY2xlUlJPNEtsaXBueDZncEpUbDJmU005MnQ5VTVTd0ZwRkQz?=
- =?utf-8?B?eXM3SHJxVkpRUlNHN2VYYThMcFJySWhqdDcwMDJnUFFGZU14NU5ZRnF6VXBK?=
- =?utf-8?B?UlE2UnhYODl1TSthY1c5ZE9URWw2YXNBaE0xTWR1QjE2bHNRYmdPYnVVbGxX?=
- =?utf-8?B?VTIwUmNNT2toWnNNbHFKempUd2tLNm5kWDdsK2ZzUlpvVER1R3FhaUtITzdR?=
- =?utf-8?B?WDRnQml0RGtSR2dJWms0Yk1PbWJxODBaTkNYUkFMM2VzVGdKRFBnNXBSK2E1?=
- =?utf-8?B?UUlrMm1nbUJLL2NjVTdUb05ob1JSQkY4UUxwSUl3MzdhOVdlUk9UYWxaTWFs?=
- =?utf-8?B?QzRxaCszMm9Wb01zeEhKTDJNUVZvM25QT2NSUzQydHpFSUFNTlQ2ZVdnakNX?=
- =?utf-8?B?LzdRK2lIVFYwWnpEWlZsUkJsYTBNRlA2akFFdE4xVWgwVDk1WHVaWTF3UHRW?=
- =?utf-8?B?QmZxMkRMbktwSWp0NzZVRFYvOUZKZmNSNy9qM1RQakdRQk9Xc2NiSGVzU09E?=
- =?utf-8?B?L0p1eDBuZkNkVG1iUk5BTkVxdEtjR25odzF1NmN0VldvK2doNStrVDVQOVBz?=
- =?utf-8?B?a3VNRmlKMU9ZaWRRY1BDenRjM3AxWjM4K3BwdmFWaDVlZkpSUElFT1V3eHBq?=
- =?utf-8?B?cDJqRndpbU5QaDVPTHJvS0llakQxbVV6NldWOWk2am5JbEtYMkxXQW45SHlI?=
- =?utf-8?B?a0lHaTdHTmJZU2NlMThLdWFaaDdrc1FqUDQ4aUZlSmJiSGFVNm80VXRIOFVF?=
- =?utf-8?B?ZEdCaHVBZ2JWUSswMW9ZdXVlTkFmQitydWNjMnNPNUV0YVBjUlRTdVowaFFH?=
- =?utf-8?B?clpTMytPUjArTTBIT1VKTCs4WTBKV0xQcGw3ZEhiMnFWUDd6OGU1akV3Tmtv?=
- =?utf-8?B?TnFwK284b2ZlNFlZTVBhdmsvQ3dRS1NCMVVadk05eVRJV2Yrb2c5Rkl6ZU5O?=
- =?utf-8?B?ZmRqTFlMUC9LYVE4UVBwd3dRbFphWWdPZnpGTkUvdWVqYnVDRTJ3RmQ1aEIz?=
- =?utf-8?B?TERPaWFnUEZzczhUMHpTTlpIZnVYS2JCRFFveE1LUVJLT1kwSXEwRVlqNnZt?=
- =?utf-8?B?V1JpTFUvSitNb3Vsa2NVQllOUkwweHJ5aEpvUE9VVVRCcXp2R0YyZG4wbVdP?=
- =?utf-8?B?cjJrRXp2VkpFUWpieDhISjNKUzBwNFBCTlhDSTVycC8vY3BKWERudGdySlNV?=
- =?utf-8?B?RXpDZUsyTG9DUG5adTdEZmRZelgrN1FyNEoyN2g3SzAwY08rNVNoZFVqZDhW?=
- =?utf-8?B?Nkc4RWpWWlVwWENTV2ZqSzVqZjJ4QlkwVnNNVWdnOU1lZWp3azRSZXhZNVFZ?=
- =?utf-8?B?ZjRUWEJBNjNqTitVLytZSEEvTU5mam4yRWdCemI4am5tRm1nb0hXbVp3aHJF?=
- =?utf-8?B?SUJIWkJsaGJRPT0=?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM7PR04MB7046.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024)(19092799006)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?SG9UNS9Nbm1MWXllT3pOTTR3ZGpQdUxsaVNZWlE4TEhXa0dsUGVDMWh4QnRy?=
- =?utf-8?B?d0VZdE5aYU5oVHpZT2RJYnNobHJsYVZTdWtVejJVc2xqN0Y3YVByeXZJaTQ5?=
- =?utf-8?B?dkFkWFAzZnZaWllqanpHL054cjhwczFxS2tYbGxRWjFROXl4L0cwZHNqZndT?=
- =?utf-8?B?SXpIdzRmTVJBMXNQS2pPOU5saGRJQVRHU0R2OUcrSFJ6YkVCb2pvSDJMdlUr?=
- =?utf-8?B?RG9LOEhJcVNrSEVsQTlWTExjUlZXTndPSzcyN0w2bEdlOGhpZ2xoeXRtd2xl?=
- =?utf-8?B?d0JTKy82YmxXM1VjT2hremdITmlETDhTY3hRMXN4RFNEVzJaK1lYRUE0VnBJ?=
- =?utf-8?B?QmVlc3BxMTM3VDNIOHFtcmx1ZnJuVjRHMXR3U0h5blhYNWFVMk1yZEt1YmxH?=
- =?utf-8?B?YjM3aEIwcWo2OWt1dHV4Z2c4ZUYwQ1kwQWlMY1JTcXpaRWdXaHY3eTQzdmx1?=
- =?utf-8?B?QzR5YjhEUGxDaGZ6dys1VUt6RHh2NmMrR1NuRkhXUU02dGQvM3RFa0J6dWVJ?=
- =?utf-8?B?dEtodFZOdzVqYWNyRE1wN2NjckRIVDBTTXRVTmx2Sy82K1U4dWViYU5SMjZE?=
- =?utf-8?B?OFJWNDA1WDlHclE0QnBnWXQraEduWDRyc1NpKy8yaWpmMU55bitxL0dtL1hv?=
- =?utf-8?B?OHJsb3ozMEYzZ2NscUdTbVR2NWovSDJIMmI4OTE4cHZ3TTdjYXR6Qlg5SzlL?=
- =?utf-8?B?Z1pTNWV2TzJuc2Q1WmgyWUltTE01MzJ2VmpjM3JteTIxNFFkOFZqbE5hUUE3?=
- =?utf-8?B?b0N2MHhXdHFFZU82eERsUnhXZnFHOG5XenEzS2licksrSkd3WE5yYWwwcFk0?=
- =?utf-8?B?aHhPS2xUZUlreTZZdXZWcVAvRjh3bE1JdXcxOG8xNnNveWJFMDVpTmRZb2tt?=
- =?utf-8?B?UHgxVUFRSDlwZUw5VmZRQU9FOU9RL2x0bStKc0VKQmhlVzZqUThwMmRIM2RC?=
- =?utf-8?B?SS9MRS96aEsyTXMybCt5MTd2VlcvaG10R2psaG1VVVZTOEdUNFZNSkVhVjla?=
- =?utf-8?B?d3lyMVlIWXhHSmlFU2tYVjlBc3VPT0JkM1hpNk5SaTZqOVdwUTdzU1dEUitM?=
- =?utf-8?B?bFNuWnoxaFo2VStkMEdiYURSdmU5Y1RTcHBhVmhwUUcvZlBBaGlPZm9vQmxr?=
- =?utf-8?B?TFBpaUhRU3M4WURoelBqQlRkT0FuSHRvY01URU1RRmFmTFg1SWhQcGl2djJn?=
- =?utf-8?B?T3EwTlUrNTRkaGZ6L3FWU2FleFpJbXdIWkxQUlk1UEE2cTloRysvT2xUQzFy?=
- =?utf-8?B?U0dIUjJwWmNaaHhDS3loYnE1UFBPbEtOZXlCZnJTdHpvVC92RldBWjFKeHoz?=
- =?utf-8?B?Z1JRb21QR0QzOGpOMGZUWEo4KzdmdTg3Ymg0SDEvQXE4TzRYV1Bqcmx2QzVh?=
- =?utf-8?B?b1h3MUhIT0phS0poNTJJNGtWbnViZnpLZFJjOEo1QmUxVzRXRUVWWDIxN2Ev?=
- =?utf-8?B?YzRla3kzYkQ3RS9xdXI1Nmg3bmZBZHJUck5zYmJGaExaNk5TcW12VmxZNlh6?=
- =?utf-8?B?RGhuNTBqS3RHM1EzcWE3VlJQNEtmbzVJY1g4UDZGM2N0NkdrNUVhRWJYaFRt?=
- =?utf-8?B?SXV2bkxlekMySUlsbnNiWWIzc3dxYzVqRDEvQWl4MnZZbkJSb0k3eUpldVV1?=
- =?utf-8?B?TDNWQytzeUlBWkQ5cU9QSERCMFJHYkpWbEVENHByQU5kdFo3M0F5MG5qU2pI?=
- =?utf-8?B?SnpNS1pmTEo5Y0IzTkVWMVhYelBIaFV4N3RIM0I1eXI1V3NTeWtoWHZ6V3M5?=
- =?utf-8?B?R3gvcW1qQnA4bndPb3VFb3d6TE1mUVJSM0M5ZlFvaGE5TkFQUDNzbkZWVkE0?=
- =?utf-8?B?TmF2aEREQ3c2SUN6azBtNmZ4ZzFrZjZoTGY0eGVscVMvVnNrOFFqZkd4clRk?=
- =?utf-8?B?UGxwcmo5em84RDlIRXFUQVRNMUQzRndKajJMM2tNMnhSSHV0MUJvRjB5allu?=
- =?utf-8?B?bXA1M0JjVHdBb2N4a1ZoRG5aQXQ5SDRnV211Rmt2L2VZU3JNbm5lN3BhZy9V?=
- =?utf-8?B?OXFqdkl2NS9WZ1hpdW1pTUpmNXJrWVRqREJjbEJFWEUzWk1ILzIvZm00TWY2?=
- =?utf-8?B?aFoxQmV4Q3dmaGZDc2lObTZFUEhvUnlOWFJBZ1FJUGo1NWVSelBhSjJzS3p6?=
- =?utf-8?Q?k7QXi3CVsmnqj7bF8nB0+EV54?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ff2c42d9-9f37-46e6-d925-08ddc8f2b909
-X-MS-Exchange-CrossTenant-AuthSource: AM7PR04MB7046.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Jul 2025 07:38:17.0061
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: AD8HDyZY2i+O9s3DJt26y/dKi2dCopIEyAdUTFr+HtgRWFSdxNOM0BmWtM4Z/rADPdNiu6lifddvGYcf34+ldw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB6847
+References: <20250721081459.16278-1-laura.nao@collabora.com>
+In-Reply-To: <20250721081459.16278-1-laura.nao@collabora.com>
+From: Chen-Yu Tsai <wenst@chromium.org>
+Date: Tue, 22 Jul 2025 15:40:21 +0800
+X-Gm-Features: Ac12FXwHVu2xheACj_ug47v0VGmRzFUiGV73WGs8r_Guigs_NEMfWXqCZqRQckQ
+Message-ID: <CAGXv+5EmigF=m1zDZ71AMv02XwyYWQxpiRpiwc7YMg=8vc2FZA@mail.gmail.com>
+Subject: Re: [PATCH 0/9] Add thermal sensor driver support for Mediatek MT8196
+To: Laura Nao <laura.nao@collabora.com>
+Cc: srini@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	rafael@kernel.org, daniel.lezcano@linaro.org, rui.zhang@intel.com, 
+	lukasz.luba@arm.com, matthias.bgg@gmail.com, 
+	angelogioacchino.delregno@collabora.com, andrew-ct.chen@mediatek.com, 
+	lala.lin@mediatek.com, arnd@arndb.de, linux-pm@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, nfraprado@collabora.com, 
+	devicetree@vger.kernel.org, u.kleine-koenig@baylibre.com, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+	kernel@collabora.com, colin.i.king@gmail.com, bchihi@baylibre.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250722_003828_079309_FF31211D 
-X-CRM114-Status: GOOD (  18.60  )
+X-CRM114-CacheID: sfid-20250722_004033_800541_50241299 
+X-CRM114-Status: GOOD (  18.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -186,60 +99,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Shengjiu,
+Hi,
 
-On 07/18/2025, Shengjiu Wang wrote:
-> The enable_audio() and disable_audio() callback pointers are in
-> plat_data structure, and the audio device driver needs to get plat_data
-> for assign these pointers. So add a function to export plat_data
+On Mon, Jul 21, 2025 at 4:18=E2=80=AFPM Laura Nao <laura.nao@collabora.com>=
+ wrote:
+>
+> This patch series extends the MediaTek LVTS thermal driver to support the
+> MT8196 SoC.
+>
+> MT8196 uses a positive temp_factor for temperature conversion, requiring
+> slight adjustments in the conversion logic.
+>
+> To support this, the series introduces:
+>
+> - A new struct lvts_platform_ops to allow platform-specific
+>   conversion logic between raw sensor values and temperature
+> - A variant of the lvts_temp_to_raw() implementation for SoCs with positi=
+ve
+>   temp_factor values
+> - Platform data and controller definitions for MT8196
 
-{enable,disable}_audio pointers are directly assigned to plat_data in patch 2,
-instead of using dw_hdmi_to_plat_data().  dw_hdmi_to_plat_data() is only
-used in patch 2 to get hdmi_pai pointer through pdata->priv_audio.
+I see the GPU and APU thermal sensors were left out. Was there a reason
+for this?
 
-const struct dw_hdmi_plat_data *pdata = dw_hdmi_to_plat_data(dw_hdmi);
-struct imx8mp_hdmi_pai *hdmi_pai = (struct imx8mp_hdmi_pai *)pdata->priv_audio;
+Thanks
+ChenYu
 
-> structure.
-> 
-> Signed-off-by: Shengjiu Wang <shengjiu.wang@nxp.com>
-> ---
->  drivers/gpu/drm/bridge/synopsys/dw-hdmi.c | 6 ++++++
->  include/drm/bridge/dw_hdmi.h              | 1 +
->  2 files changed, 7 insertions(+)
-> 
-> diff --git a/drivers/gpu/drm/bridge/synopsys/dw-hdmi.c b/drivers/gpu/drm/bridge/synopsys/dw-hdmi.c
-> index 76c6570e2a85..3dfa42178f6c 100644
-> --- a/drivers/gpu/drm/bridge/synopsys/dw-hdmi.c
-> +++ b/drivers/gpu/drm/bridge/synopsys/dw-hdmi.c
-> @@ -198,6 +198,12 @@ struct dw_hdmi {
->  	enum drm_connector_status last_connector_result;
->  };
->  
-> +const struct dw_hdmi_plat_data *dw_hdmi_to_plat_data(struct dw_hdmi *hdmi)
-> +{
-> +	return hdmi->plat_data;
-> +}
-> +EXPORT_SYMBOL_GPL(dw_hdmi_to_plat_data);
-> +
->  #define HDMI_IH_PHY_STAT0_RX_SENSE \
->  	(HDMI_IH_PHY_STAT0_RX_SENSE0 | HDMI_IH_PHY_STAT0_RX_SENSE1 | \
->  	 HDMI_IH_PHY_STAT0_RX_SENSE2 | HDMI_IH_PHY_STAT0_RX_SENSE3)
-> diff --git a/include/drm/bridge/dw_hdmi.h b/include/drm/bridge/dw_hdmi.h
-> index 6a46baa0737c..a56a3519a22a 100644
-> --- a/include/drm/bridge/dw_hdmi.h
-> +++ b/include/drm/bridge/dw_hdmi.h
-> @@ -208,4 +208,5 @@ void dw_hdmi_phy_setup_hpd(struct dw_hdmi *hdmi, void *data);
->  
->  bool dw_hdmi_bus_fmt_is_420(struct dw_hdmi *hdmi);
->  
-> +const struct dw_hdmi_plat_data *dw_hdmi_to_plat_data(struct dw_hdmi *hdmi);
-
-Nit: Add a blank line as it was here.
-
->  #endif /* __IMX_HDMI_H__ */
-
--- 
-Regards,
-Liu Ying
+> Laura Nao (9):
+>   dt-bindings: thermal: mediatek: Add LVTS thermal controller support
+>     for MT8196
+>   thermal/drivers/mediatek/lvts: Make number of calibration offsets
+>     configurable
+>   thermal/drivers/mediatek/lvts: Guard against zero temp_factor in
+>     lvts_raw_to_temp
+>   thermal: mediatek: lvts: Add platform ops to support alternative
+>     conversion logic
+>   thermal/drivers/mediatek/lvts: Add lvts_temp_to_raw variant for
+>     positive temp_factor
+>   thermal/drivers/mediatek/lvts: Add support for ATP mode
+>   thermal/drivers/mediatek/lvts: Support MSR offset for 16-bit
+>     calibration data
+>   thermal/drivers/mediatek/lvts_thermal: Add MT8196 support
+>   dt-bindings: nvmem: mediatek: efuse: Add support for MT8196
+>
+>  .../bindings/nvmem/mediatek,efuse.yaml        |   1 +
+>  .../thermal/mediatek,lvts-thermal.yaml        |   2 +
+>  drivers/thermal/mediatek/lvts_thermal.c       | 315 ++++++++++++++++--
+>  .../thermal/mediatek,lvts-thermal.h           |  26 ++
+>  4 files changed, 325 insertions(+), 19 deletions(-)
+>
+> --
+> 2.39.5
+>
+>
 
