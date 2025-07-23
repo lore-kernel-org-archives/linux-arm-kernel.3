@@ -4,39 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 063CCC83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 09:29:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A24EC83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 09:32:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VYMDQe/mQ1kKIZU+OHkaA1YB3avFSOAww6d1p3lXtB4=; b=em1DhhS+A2Fv5GcB+JAF3QASvQ
-	8ZwF8qC0Br2sVVSX7lsKBYPgOJ7dGXIvKUHAJFFcAvQgTQd+aTiPOp9OpQ99INtIMqRAMjslMK5em
-	uLzEg3QAws4phapSbluwe13tiBmS9VEYyD4npgO0Z/cqpNr6wvM1MlGxU7CnyrVWKcKd8+/Eoijps
-	tgnECP1+hV5h5mG8vP03+8+nISe4wGVpAkEyANz6SDynKuiBD9+XD45QXF2SvP0K0GfsL/PpwLOYV
-	T/M3YlZf+kli2od2VfQ9YkB6cYBvx64B7cfBFPAuVhLJOSLnl5Ec33U0zZTilv0VN9IfM+8DDaHof
-	fle6g/9w==;
+	bh=Da739bwPyzQ7G/L23+gHR9/t8GlZz/n/c0y0bZk0xxs=; b=hPaX/cUt1p8a/OjIg2Y2KJGvBM
+	bNy0wwxGUfWuVH+Inw5467407DuCOo37WF4FVS2Bzahq6cEX4B84QHByKnZipo8S12IRm09lk91Lv
+	PCSnJzOYQ8qY3urIGcunai9tl98yh5/T/aLW0qgyt6NJYhg6CWESYaOuKR4N27XcpyTlvkTmUQbOM
+	X4rewDDm8SMocBQBeG+OTpaHbBxAjLYxDgv8xIcJ21jClQj8xyTkzRD1OCa4W5bWyYWLtwnGoxrIY
+	9cgrt1EL3Z8vqiNZ59lc6A/dwxCflsX4Fei6po/RUJFYYipvlcvCt4xfhkDDwRI+d+T0c+llN60Wg
+	TU11tZGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueVn9-00000004VoG-0cna;
-	Wed, 23 Jul 2025 09:29:39 +0000
+	id 1ueVpa-00000004W55-1RQz;
+	Wed, 23 Jul 2025 09:32:10 +0000
 Received: from smtp.forwardemail.net ([149.28.215.223])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueVHz-00000004Qsn-32SJ
+	id 1ueVI3-00000004QuB-2kuE
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Jul 2025 08:57:29 +0000
+	Wed, 23 Jul 2025 08:57:32 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
  h=Content-Transfer-Encoding: MIME-Version: References: In-Reply-To:
  Message-ID: Date: Subject: Cc: To: From; q=dns/txt; s=fe-e1b5cab7be;
- t=1753261047; bh=VYMDQe/mQ1kKIZU+OHkaA1YB3avFSOAww6d1p3lXtB4=;
- b=ivb9MIBzoIRxiXQyivSLHxAPfvevfv03Z7luln+MSjpv9422AkNAyMF3Y9zvU4xM3xIQLGTJk
- Iu9R/40zX8tpweE2+BRzsATvA3RLL/sq0Ed691E2A650KdOVbfkG+qnAxKBJ3LIjJh6Oq5Opym8
- ChjB6zwLNhKwYpbZP9eB3lsKVmPTN6+Z9ZPdSByFuYcyCHoJWKpIVXCd56ULe8xhffBOCaYRhoC
- RGpWoLBhVTdaXdIvZ4EiwnQ2TWyU38aN/g04rHo0gv332+yunIMUv1b86EVBrpVYVNEFaX/WGZg
- 1+7QF1TMlcTi5rbh+Axlv73E+mJyx+eZrxsU9ksP7Yxw==
-X-Forward-Email-ID: 6880a3ed144dc4a5e5baee49
+ t=1753261051; bh=Da739bwPyzQ7G/L23+gHR9/t8GlZz/n/c0y0bZk0xxs=;
+ b=sNwP9gITXW9vHHwZJbtJ0E4DqH6c7yKCN0oi9FPDbkjeEx6p2fC6EHjHeVjitKKaBcwzXBwY8
+ 6SBqmCzso4iVr9B4aNE0k9DQrgJ6Ap3evQ7tFKoXFoCx9uZuAMN0pbFkswNOfcF6kdv+tWalQXx
+ sSTNGK5m9SVuppvwzKI2FhvfVm5dmfkVMjV2Uu59IAfmvxOx0g8kBOMKZ1H+OvG2h+NYp8T1POL
+ 7RaWPdLjG8qO6PIm+ngPcD9OvNMeAa17wAB/HtilElEgKW+BA62yLrq+zJPKt+YXbwVjLNvIFaS
+ fMnnC7BhEBfE8q1BMHZ9EHimGCAybohZKPCt0l3gp+2w==
+X-Forward-Email-ID: 6880a3f1144dc4a5e5baee5e
 X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
  149.28.215.223
 X-Forward-Email-Version: 1.1.6
@@ -48,28 +48,25 @@ From: Jonas Karlman <jonas@kwiboo.se>
 To: Heiko Stuebner <heiko@sntech.de>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>
+	Conor Dooley <conor+dt@kernel.org>
 Cc: Yao Zi <ziyao@disroot.org>,
 	Chukun Pan <amadeus@jmu.edu.cn>,
 	devicetree@vger.kernel.org,
 	linux-rockchip@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	Jonas Karlman <jonas@kwiboo.se>,
-	linux-serial@vger.kernel.org
-Subject: [PATCH v2 4/5] dt-bindings: serial: snps-dw-apb-uart: Allow use of a power-domain
-Date: Wed, 23 Jul 2025 08:56:46 +0000
-Message-ID: <20250723085654.2273324-5-jonas@kwiboo.se>
+	Jonas Karlman <jonas@kwiboo.se>
+Subject: [PATCH v2 5/5] arm64: dts: rockchip: Enable more power domains for RK3528
+Date: Wed, 23 Jul 2025 08:56:47 +0000
+Message-ID: <20250723085654.2273324-6-jonas@kwiboo.se>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20250723085654.2273324-1-jonas@kwiboo.se>
 References: <20250723085654.2273324-1-jonas@kwiboo.se>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250723_015727_793093_CFBC4E7F 
-X-CRM114-Status: GOOD (  10.45  )
+X-CRM114-CacheID: sfid-20250723_015731_739741_D852B9A6 
+X-CRM114-Status: GOOD (  11.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,42 +81,266 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The UART controllers in most Rockchip SoCs are part of power domains
-that are always powered on. These always powered on power domains have
-typically not been described in the device tree.
+Describe device power-domains and enable the PD_RKVENC, PD_VO and PD_VPU
+power-domains on RK3528.
 
-Because these power domains have been left out of the device tree there
-has not been any real need to properly describe the UART controllers
-power domain of Rockchip SoCs.
-
-On Rockchip RK3528 the UART controllers are spread out among the
-described PD_RKVENC, PD_VO and PD_VPU power domains. However, one UART
-controller belong to an undescribed always powered on power domain.
-
-Add support to describe an optional power-domains for the UART
-controllers.
+The PD_RKVDEC is used by RKVDEC and DDRPHY CRU, and is kept disabled to
+prevent a full system reset trying to read the rate of the SCMI_CLK_DDR
+clock.
 
 Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
 ---
-v2: New patch
+Changes in v2:
+- Add power-domains for spi nodes
+- Rebased on top of next-20250722
 ---
- Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml | 3 +++
- 1 file changed, 3 insertions(+)
+ arch/arm64/boot/dts/rockchip/rk3528.dtsi | 30 +++++++++++++++++++++---
+ 1 file changed, 27 insertions(+), 3 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml b/Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml
-index 8f1b7f704c5b..cb9da6c97afc 100644
---- a/Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml
-+++ b/Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml
-@@ -108,6 +108,9 @@ properties:
-       parameter. Define this if your UART does not implement the busy functionality.
-     type: boolean
+diff --git a/arch/arm64/boot/dts/rockchip/rk3528.dtsi b/arch/arm64/boot/dts/rockchip/rk3528.dtsi
+index 54fa8089c4d3..85bc3f5aa2c7 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3528.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3528.dtsi
+@@ -155,6 +155,7 @@ gpio1: gpio@ffaf0000 {
+ 			gpio-ranges = <&pinctrl 0 32 32>;
+ 			interrupt-controller;
+ 			#interrupt-cells = <2>;
++			power-domains = <&power RK3528_PD_VPU>;
+ 		};
  
-+  power-domains:
-+    maxItems: 1
-+
-   resets:
-     minItems: 1
-     maxItems: 2
+ 		gpio2: gpio@ffb00000 {
+@@ -167,6 +168,7 @@ gpio2: gpio@ffb00000 {
+ 			gpio-ranges = <&pinctrl 0 64 32>;
+ 			interrupt-controller;
+ 			#interrupt-cells = <2>;
++			power-domains = <&power RK3528_PD_VO>;
+ 		};
+ 
+ 		gpio3: gpio@ffb10000 {
+@@ -179,6 +181,7 @@ gpio3: gpio@ffb10000 {
+ 			gpio-ranges = <&pinctrl 0 96 32>;
+ 			interrupt-controller;
+ 			#interrupt-cells = <2>;
++			power-domains = <&power RK3528_PD_VPU>;
+ 		};
+ 
+ 		gpio4: gpio@ffb20000 {
+@@ -191,6 +194,7 @@ gpio4: gpio@ffb20000 {
+ 			gpio-ranges = <&pinctrl 0 128 32>;
+ 			interrupt-controller;
+ 			#interrupt-cells = <2>;
++			power-domains = <&power RK3528_PD_RKVENC>;
+ 		};
+ 	};
+ 
+@@ -501,7 +505,6 @@ power-domain@RK3528_PD_RKVENC {
+ 					reg = <RK3528_PD_RKVENC>;
+ 					pm_qos = <&qos_rkvenc>;
+ 					#power-domain-cells = <0>;
+-					status = "disabled";
+ 				};
+ 				power-domain@RK3528_PD_VO {
+ 					reg = <RK3528_PD_VO>;
+@@ -515,7 +518,6 @@ power-domain@RK3528_PD_VO {
+ 						 <&qos_vdpp>,
+ 						 <&qos_vop>;
+ 					#power-domain-cells = <0>;
+-					status = "disabled";
+ 				};
+ 				power-domain@RK3528_PD_VPU {
+ 					reg = <RK3528_PD_VPU>;
+@@ -529,7 +531,6 @@ power-domain@RK3528_PD_VPU {
+ 						 <&qos_usb3otg>,
+ 						 <&qos_vpu>;
+ 					#power-domain-cells = <0>;
+-					status = "disabled";
+ 				};
+ 			};
+ 		};
+@@ -571,6 +572,7 @@ spi0: spi@ff9c0000 {
+ 			interrupts = <GIC_SPI 131 IRQ_TYPE_LEVEL_HIGH>;
+ 			dmas = <&dmac 25>, <&dmac 24>;
+ 			dma-names = "tx", "rx";
++			power-domains = <&power RK3528_PD_RKVENC>;
+ 			#address-cells = <1>;
+ 			#size-cells = <0>;
+ 			status = "disabled";
+@@ -585,6 +587,7 @@ spi1: spi@ff9d0000 {
+ 			interrupts = <GIC_SPI 132 IRQ_TYPE_LEVEL_HIGH>;
+ 			dmas = <&dmac 31>, <&dmac 30>;
+ 			dma-names = "tx", "rx";
++			power-domains = <&power RK3528_PD_VPU>;
+ 			#address-cells = <1>;
+ 			#size-cells = <0>;
+ 			status = "disabled";
+@@ -609,6 +612,7 @@ uart1: serial@ff9f8000 {
+ 			clock-names = "baudclk", "apb_pclk";
+ 			interrupts = <GIC_SPI 41 IRQ_TYPE_LEVEL_HIGH>;
+ 			dmas = <&dmac 11>, <&dmac 10>;
++			power-domains = <&power RK3528_PD_RKVENC>;
+ 			reg-io-width = <4>;
+ 			reg-shift = <2>;
+ 			status = "disabled";
+@@ -621,6 +625,7 @@ uart2: serial@ffa00000 {
+ 			clock-names = "baudclk", "apb_pclk";
+ 			interrupts = <GIC_SPI 42 IRQ_TYPE_LEVEL_HIGH>;
+ 			dmas = <&dmac 13>, <&dmac 12>;
++			power-domains = <&power RK3528_PD_VPU>;
+ 			reg-io-width = <4>;
+ 			reg-shift = <2>;
+ 			status = "disabled";
+@@ -633,6 +638,7 @@ uart3: serial@ffa08000 {
+ 			clock-names = "baudclk", "apb_pclk";
+ 			interrupts = <GIC_SPI 43 IRQ_TYPE_LEVEL_HIGH>;
+ 			dmas = <&dmac 15>, <&dmac 14>;
++			power-domains = <&power RK3528_PD_RKVENC>;
+ 			reg-io-width = <4>;
+ 			reg-shift = <2>;
+ 			status = "disabled";
+@@ -645,6 +651,7 @@ uart4: serial@ffa10000 {
+ 			clock-names = "baudclk", "apb_pclk";
+ 			interrupts = <GIC_SPI 44 IRQ_TYPE_LEVEL_HIGH>;
+ 			dmas = <&dmac 17>, <&dmac 16>;
++			power-domains = <&power RK3528_PD_VO>;
+ 			reg-io-width = <4>;
+ 			reg-shift = <2>;
+ 			status = "disabled";
+@@ -657,6 +664,7 @@ uart5: serial@ffa18000 {
+ 			clock-names = "baudclk", "apb_pclk";
+ 			interrupts = <GIC_SPI 45 IRQ_TYPE_LEVEL_HIGH>;
+ 			dmas = <&dmac 19>, <&dmac 18>;
++			power-domains = <&power RK3528_PD_VPU>;
+ 			reg-io-width = <4>;
+ 			reg-shift = <2>;
+ 			status = "disabled";
+@@ -669,6 +677,7 @@ uart6: serial@ffa20000 {
+ 			clock-names = "baudclk", "apb_pclk";
+ 			interrupts = <GIC_SPI 46 IRQ_TYPE_LEVEL_HIGH>;
+ 			dmas = <&dmac 21>, <&dmac 20>;
++			power-domains = <&power RK3528_PD_VPU>;
+ 			reg-io-width = <4>;
+ 			reg-shift = <2>;
+ 			status = "disabled";
+@@ -681,6 +690,7 @@ uart7: serial@ffa28000 {
+ 			clock-names = "baudclk", "apb_pclk";
+ 			interrupts = <GIC_SPI 47 IRQ_TYPE_LEVEL_HIGH>;
+ 			dmas = <&dmac 23>, <&dmac 22>;
++			power-domains = <&power RK3528_PD_VPU>;
+ 			reg-io-width = <4>;
+ 			reg-shift = <2>;
+ 			status = "disabled";
+@@ -693,6 +703,7 @@ i2c0: i2c@ffa50000 {
+ 			clocks = <&cru CLK_I2C0>, <&cru PCLK_I2C0>;
+ 			clock-names = "i2c", "pclk";
+ 			interrupts = <GIC_SPI 61 IRQ_TYPE_LEVEL_HIGH>;
++			power-domains = <&power RK3528_PD_RKVENC>;
+ 			#address-cells = <1>;
+ 			#size-cells = <0>;
+ 			status = "disabled";
+@@ -705,6 +716,7 @@ i2c1: i2c@ffa58000 {
+ 			clocks = <&cru CLK_I2C1>, <&cru PCLK_I2C1>;
+ 			clock-names = "i2c", "pclk";
+ 			interrupts = <GIC_SPI 62 IRQ_TYPE_LEVEL_HIGH>;
++			power-domains = <&power RK3528_PD_RKVENC>;
+ 			#address-cells = <1>;
+ 			#size-cells = <0>;
+ 			status = "disabled";
+@@ -731,6 +743,7 @@ i2c3: i2c@ffa68000 {
+ 			clocks = <&cru CLK_I2C3>, <&cru PCLK_I2C3>;
+ 			clock-names = "i2c", "pclk";
+ 			interrupts = <GIC_SPI 64 IRQ_TYPE_LEVEL_HIGH>;
++			power-domains = <&power RK3528_PD_VPU>;
+ 			#address-cells = <1>;
+ 			#size-cells = <0>;
+ 			status = "disabled";
+@@ -745,6 +758,7 @@ i2c4: i2c@ffa70000 {
+ 			interrupts = <GIC_SPI 65 IRQ_TYPE_LEVEL_HIGH>;
+ 			pinctrl-names = "default";
+ 			pinctrl-0 = <&i2c4_xfer>;
++			power-domains = <&power RK3528_PD_VO>;
+ 			#address-cells = <1>;
+ 			#size-cells = <0>;
+ 			status = "disabled";
+@@ -757,6 +771,7 @@ i2c5: i2c@ffa78000 {
+ 			clocks = <&cru CLK_I2C5>, <&cru PCLK_I2C5>;
+ 			clock-names = "i2c", "pclk";
+ 			interrupts = <GIC_SPI 66 IRQ_TYPE_LEVEL_HIGH>;
++			power-domains = <&power RK3528_PD_VPU>;
+ 			#address-cells = <1>;
+ 			#size-cells = <0>;
+ 			status = "disabled";
+@@ -769,6 +784,7 @@ i2c6: i2c@ffa80000 {
+ 			clocks = <&cru CLK_I2C6>, <&cru PCLK_I2C6>;
+ 			clock-names = "i2c", "pclk";
+ 			interrupts = <GIC_SPI 67 IRQ_TYPE_LEVEL_HIGH>;
++			power-domains = <&power RK3528_PD_VPU>;
+ 			#address-cells = <1>;
+ 			#size-cells = <0>;
+ 			status = "disabled";
+@@ -783,6 +799,7 @@ i2c7: i2c@ffa88000 {
+ 			interrupts = <GIC_SPI 68 IRQ_TYPE_LEVEL_HIGH>;
+ 			pinctrl-names = "default";
+ 			pinctrl-0 = <&i2c7_xfer>;
++			power-domains = <&power RK3528_PD_VO>;
+ 			#address-cells = <1>;
+ 			#size-cells = <0>;
+ 			status = "disabled";
+@@ -874,6 +891,7 @@ saradc: adc@ffae0000 {
+ 			clocks = <&cru CLK_SARADC>, <&cru PCLK_SARADC>;
+ 			clock-names = "saradc", "apb_pclk";
+ 			interrupts = <GIC_SPI 140 IRQ_TYPE_LEVEL_HIGH>;
++			power-domains = <&power RK3528_PD_VPU>;
+ 			resets = <&cru SRST_P_SARADC>;
+ 			reset-names = "saradc-apb";
+ 			#io-channel-cells = <1>;
+@@ -894,6 +912,7 @@ gmac0: ethernet@ffbd0000 {
+ 			interrupt-names = "macirq", "eth_wake_irq";
+ 			phy-handle = <&rmii0_phy>;
+ 			phy-mode = "rmii";
++			power-domains = <&power RK3528_PD_VO>;
+ 			resets = <&cru SRST_A_MAC_VO>;
+ 			reset-names = "stmmaceth";
+ 			rockchip,grf = <&vo_grf>;
+@@ -952,6 +971,7 @@ gmac1: ethernet@ffbe0000 {
+ 			interrupts = <GIC_SPI 121 IRQ_TYPE_LEVEL_HIGH>,
+ 				     <GIC_SPI 124 IRQ_TYPE_LEVEL_HIGH>;
+ 			interrupt-names = "macirq", "eth_wake_irq";
++			power-domains = <&power RK3528_PD_VPU>;
+ 			resets = <&cru SRST_A_MAC>;
+ 			reset-names = "stmmaceth";
+ 			rockchip,grf = <&vpu_grf>;
+@@ -1002,6 +1022,7 @@ sdhci: mmc@ffbf0000 {
+ 			pinctrl-names = "default";
+ 			pinctrl-0 = <&emmc_bus8>, <&emmc_clk>, <&emmc_cmd>,
+ 				    <&emmc_strb>;
++			power-domains = <&power RK3528_PD_VPU>;
+ 			resets = <&cru SRST_C_EMMC>, <&cru SRST_H_EMMC>,
+ 				 <&cru SRST_A_EMMC>, <&cru SRST_B_EMMC>,
+ 				 <&cru SRST_T_EMMC>;
+@@ -1023,6 +1044,7 @@ sdio0: mmc@ffc10000 {
+ 			max-frequency = <200000000>;
+ 			pinctrl-names = "default";
+ 			pinctrl-0 = <&sdio0_bus4>, <&sdio0_clk>, <&sdio0_cmd>;
++			power-domains = <&power RK3528_PD_VPU>;
+ 			resets = <&cru SRST_H_SDIO0>;
+ 			reset-names = "reset";
+ 			status = "disabled";
+@@ -1042,6 +1064,7 @@ sdio1: mmc@ffc20000 {
+ 			max-frequency = <200000000>;
+ 			pinctrl-names = "default";
+ 			pinctrl-0 = <&sdio1_bus4>, <&sdio1_clk>, <&sdio1_cmd>;
++			power-domains = <&power RK3528_PD_VPU>;
+ 			resets = <&cru SRST_H_SDIO1>;
+ 			reset-names = "reset";
+ 			status = "disabled";
+@@ -1062,6 +1085,7 @@ sdmmc: mmc@ffc30000 {
+ 			pinctrl-names = "default";
+ 			pinctrl-0 = <&sdmmc_bus4>, <&sdmmc_clk>, <&sdmmc_cmd>,
+ 				    <&sdmmc_det>;
++			power-domains = <&power RK3528_PD_VO>;
+ 			resets = <&cru SRST_H_SDMMC0>;
+ 			reset-names = "reset";
+ 			rockchip,default-sample-phase = <90>;
 -- 
 2.50.1
 
