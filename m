@@ -4,93 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A062C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 09:39:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CDBEC83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 09:42:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vfi+7jzS+QroB9ovq5xCDmfLCYDKNlqIdXI2M9FMRkQ=; b=PFt+rxiWRccUS/os1bSmOLGRZE
-	6p0kSfAVBbYwTqxamzojPVFB4D4SeU1vZdvmQEJj7OhEX3lUfeZFrjm2BuID1TYpHWKrmSyPLMgio
-	wZRdZnFs1sIiT5OuCyZGuNe4z5j9YoWPM7/yDf3q6mlHsVNsBrtCGI44egKUpz3UYj18d0MtNOO5L
-	YnQYPP8z+NBQNfxlYgj+CTNZE6jUQtidsdGQawKJARW/mSO/DXQ/OHEUmvDRg2507nicchiT9vIgK
-	fAUUIp3WOgzyp7G2/6Agj6YXlgiG2CtpB/GgNIX6QHDfCVCT+BcCxWQgoW6DG1dZhUOt+C1cytwWC
-	n8f+2+zQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=CoZCnvfP/rwehZqm543p76Ydsjj+4/YJqR0zDLYGaAE=; b=sR5KmqzKPGIwmAEj2TYRGgwA4e
+	0wg8LmigUHXVFsAz6iCUWal7PK2SpR87/HK7dNdsSYE9fGhS9Z5L1e4ngSiLyi0sKq/aabFD6iSPh
+	WBjK1IsyjqMrJnc9VZR+qRxR3NKWb6uIsYJXmuUeLQu7XX5NOl+9GEq7bGJbV8iQmsmG2XgEkuR1m
+	TRaqxSEcBrzLQnQKSDmdzP7x5qnJKSZ/PJjo6ql+zJI8ZqTw0RI7AnLA/qS7UXyYlGiiQUtDgMb+O
+	s+fOb2Ogn7psOQkKB5zIwzOdZHo4WuSSS55m7v4ynhhjYT2NVvT5FhPmVievFXoe7A9owPHEe5+3y
+	AhxP0SzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueVwv-00000004XCd-2cAk;
-	Wed, 23 Jul 2025 09:39:45 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1ueVzO-00000004YLq-1QKn;
+	Wed, 23 Jul 2025 09:42:18 +0000
+Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueVLc-00000004Rv8-2Du1;
-	Wed, 23 Jul 2025 09:01:13 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-456108bf94bso45465795e9.0;
-        Wed, 23 Jul 2025 02:01:12 -0700 (PDT)
+	id 1ueVPM-00000004SPv-1MDP
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 23 Jul 2025 09:05:05 +0000
+Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-606a269d440so1108218a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Jul 2025 02:05:03 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1753261271; x=1753866071; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=vfi+7jzS+QroB9ovq5xCDmfLCYDKNlqIdXI2M9FMRkQ=;
-        b=AolbBUsb40mX2cJsj5VgF1DNHt5BvNaL64qWToY94ikZdJri4sduccw4h6QbwqhJHL
-         oZMV8p8U/AW5KbDKq2VOxWSCoaN8V7qgO1ikj38jT7Vhpqpjum1ra0Z98qq4m/aaE8d7
-         M0o0lX0hlxYJ+9oPUAJMU7te9orihBLCpsmyZXFLlBm5fl4ulIvAlS8MCZ5T20teLWOR
-         pCVD24tc5XBO3ztzXtoJyg9TNpdM+ScKlsKmgKcT0D3h1HSDJKGSbVepDyUkhARrUF8W
-         VhE22sC8SayjGdk+JC2kCCD7SgH4IWi8kEHJ5syJqZldwA0qGwLq3N4zu5Pd955i2r7L
-         mX4w==
+        d=linaro.org; s=google; t=1753261502; x=1753866302; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=CoZCnvfP/rwehZqm543p76Ydsjj+4/YJqR0zDLYGaAE=;
+        b=XNVESAet9zvyWIkaNtJhXn5jmYPxYw0BN8VmVoJP04Zbd79Q7HfzYY4HOd9JQI4UWJ
+         spptsBGnUovAAvdBEvm/IRsyQl7K0BgbphX7sxO+I4ZOquLuIKULbLG5IlHxWC8kKwlt
+         WLsnxSo4xprh6W0VGs6/KpGUdehaAkqvannzwxvpvUQcBtFbPdsIiH4hMBL8UtBSCYNr
+         vPe12qMVmb3eZubIOdl6TPQcO7jKSsJMyAKxfQgh+1gpePR6bXxQHmLcSxzcoZLVM77S
+         aQhT+rzGlX4OzEQsHYkT5WgIlkFuAQdivAa2zArM7MVw5tGR3v7CDEwxXTNW06o6WZzY
+         FjSg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753261271; x=1753866071;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=vfi+7jzS+QroB9ovq5xCDmfLCYDKNlqIdXI2M9FMRkQ=;
-        b=lYItXBArugPolO8ypiHgN1LQIFusqgpXKp9Sbay8sceH8XYGbntpw1xHX+4XsfiYJs
-         sFH/qI95lnDasc55S/VsOMJGjrC6GOBnvgsQNevhFmFBNXuzrifutZohhqftuLSqJlWK
-         76s7qqG8d2wJefJKDqHDQkPi4e4rOCvDas28iLgXS2vE52hnuwi2KoTkTA6tpvTTfnkB
-         RtAA+6hTtlcLbvVZuqC/Tht8UeuMe+ZpNmNmJQU/taWk3X6+R+YsJjb9j06fr4DfO680
-         huCzPkDWPvP7BPyOe7d0wWkb1pzQq/XJXs/JqbUCzONFUEfqIuDWHZ/NKycd9nSAPdcK
-         j0xQ==
-X-Forwarded-Encrypted: i=1; AJvYcCURtO3cAks9apBTQwMFgm78PQZMXchqRIpkbRpC7CNdmPrm0I8b9ci7AYHfE14TPclT1YJqYSe8FQwzVkOBS5Ok@lists.infradead.org, AJvYcCWxWDWlRTjYZR4r4izLeVSaLRZgd/Wd6knO5eT/Uk5+butJcIGKpxx+hdYlygIsQ+iHIT81xOiJ9kGNZPY=@lists.infradead.org
-X-Gm-Message-State: AOJu0YwZdDFjx6CK8BqmefK9qlpXj8fX36c6TAjyEjxN5A2wwNXrXxIK
-	pm+x0yB9e+wfAAcKM2fqxR8cf+1rOcmI1lQn9FF3K/IdnnKeQkLy3Rr0
-X-Gm-Gg: ASbGnctZZ8fHjdmQmZfxSS5BthUBsRf65poGAQym9sREX+xk+WvU2/UhiV+Av4es6X8
-	u2aRy5RAnlLC1erhbv5q26f1xAoaNV1o41X/7JJBHchLCSi45Vql1RW7s3gUtU1oQ8gcffC07e1
-	yVleecv0DcoF7cYsi+XUtSQ39HY7HDLPdqC+g/o/QloMmQzCrT5NRKWhTFdnPT/v7j6j6QxZcCp
-	09qYrv8QaPzGm/lCmV7pNZonNvCUsGs2VG5UOgdApJ9D6lsZ8C26QlqYHkmOQ1HEtE1+oxunoGX
-	8rf/ZAapCBnK4khuUgi1yJooh4cSiMvhhb/LIxhLlk6BD2YZ/AJffc9g0u7uH1xhJ9UEBTIvLQQ
-	uZi8FLOcO5e1kFGfz8S2YLUMUclFltrBUNyX8f5wtW2Cx1CZbZ0JMisVrCwrl5s+ePtDoafPzbS
-	0KIKbu7vnh
-X-Google-Smtp-Source: AGHT+IEknrstHg6cUD/SgoHhNho7BNCTRJA/GS5vJOJzPvYI6zayldv/5uJL7C58FRXa6VpYJz8Fmg==
-X-Received: by 2002:a05:600c:8b08:b0:456:1b93:76b with SMTP id 5b1f17b1804b1-45868c79052mr16967605e9.4.1753261270574;
-        Wed, 23 Jul 2025 02:01:10 -0700 (PDT)
-Received: from orome (p200300e41f4e9b00f22f74fffe1f3a53.dip0.t-ipconnect.de. [2003:e4:1f4e:9b00:f22f:74ff:fe1f:3a53])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3b61ca25533sm15448303f8f.11.2025.07.23.02.01.08
+        d=1e100.net; s=20230601; t=1753261502; x=1753866302;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=CoZCnvfP/rwehZqm543p76Ydsjj+4/YJqR0zDLYGaAE=;
+        b=cdrlH86DjlBftbxzXWJm7bm9J2sUQpyJslWCRrLd0RI2CretY4EwsH9mVuvZW9iIPZ
+         aOi42M8rY3F5PyzQNHEfILhCN2HItcntkHcHBs7SqcJmey+JKFmNtlfsZC87kaDDwQyv
+         sdFKAydhUNLeVjNMNlvFEEkW06aJBUOBD+SHScN4KR96vdTv8DSxx9gW0SZopD/kbvl6
+         OKqQnpcMrfKXT5xGUucYIPHaB1AaqUuXshoZAJHFuO7ZJ0jJYJMB3PKe24wS4gcTLkJ4
+         GgxUDZ6YfMamoaQ+TxmoZU1hFe+dglMFuuZpYOZ7m1zDJhOZ+mAloAbr/xJAN0NzlrEt
+         ripQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXlBxpptxCoaQWUm7IicxmqiZSjqgrX8JrnSwSKyd24aiAwyYGGgY24MMUrpkhLL4wNOQf59JlaTVaTeURwB/Df@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx0+b+6CNXew1/Jn9W9WvRikqeKiCsAvqvP6KAM2P6kqtsTu0Dz
+	Qdc1q0OR3bQ+LhVsWJ5k6rUr3xSUSa7WiBb6BvmJvMz+xXSn1G/Cxq0esBthWsoPaRI=
+X-Gm-Gg: ASbGncs506fFa0phoRfoXPfI03OfkNpsB3OYca42nLXxI1AsyrWs6GSp/pYBLASxQI6
+	KoFaqLSW7/AG7Es/kOTzdm2Etsz5wbljARgTzwtFrA2buNnpKvp7NSxqVYN58yQA8ENoC2Y9c1R
+	yYIf/2J9IU/PuDBuMjUkK8ZUKchLIHOo9EO9HA/4OVst/J7FWyILOwrv62urjqmFKmvp0p+j5MB
+	o4kDYaZgY1l/W7RzSA/xLrMzxwz+jDsiSGbfpQbkKZFLPFcFH6ZbktOGtq04a7OIcv6Hny9CoNR
+	FUOre/0LXzPqwOja4ZAK5dSfYbTdeERifI5niB+16EaWcZvudn3hLhtcmmN5DqcyCLDL4h3IUC+
+	9ZZ5ciWg/mYXbJ0g3VfsKXZqN3bLe7yGs
+X-Google-Smtp-Source: AGHT+IEfzsllmY1ddx+Lz3lhSzSUYagxITt83zhZt/m63TVAuXGg4evDnAWl67hB8SYpI35/gQ1tAw==
+X-Received: by 2002:a17:907:8688:b0:ae3:617a:c52 with SMTP id a640c23a62f3a-af2f64c62aamr72965566b.2.1753261502178;
+        Wed, 23 Jul 2025 02:05:02 -0700 (PDT)
+Received: from kuoka.. ([178.197.203.90])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-af22f6fa6afsm208165466b.120.2025.07.23.02.05.00
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 23 Jul 2025 02:01:09 -0700 (PDT)
-Date: Wed, 23 Jul 2025 11:01:07 +0200
-From: Thierry Reding <thierry.reding@gmail.com>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: x86@kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-mips@vger.kernel.org, loongarch@lists.linux.dev, 
-	linuxppc-dev@lists.ozlabs.org, linux-sh@vger.kernel.org, linux-pci@vger.kernel.org, 
-	linux-acpi@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 0/7] syscore: Pass context data to callbacks
-Message-ID: <awvdox3bgabbc42aamezlg33k4cje6y75qoxn7ruh3nhd4qv5n@u3spdahehad4>
-References: <20250717103241.2806798-1-thierry.reding@gmail.com>
- <2025071716-phoney-object-1648@gregkh>
- <rzbzah5iigz25jtxyqadnitkzkazxsaxntajhlfrfdslyioevk@pylcjkfh5n42>
- <2025071919-patience-cattishly-cf7c@gregkh>
- <l54i36uk33je744w4f47tehdopk5dsjotvozfv5b2hehmxrwpq@eins7awyq4dy>
- <2025072218-decipher-spree-327d@gregkh>
+        Wed, 23 Jul 2025 02:05:01 -0700 (PDT)
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+To: Arnd Bergmann <arnd@arndb.de>,
+	soc@lists.linux.dev
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Peter Griffin <peter.griffin@linaro.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Krzysztof Kozlowski <krzk@kernel.org>
+Subject: [GIT PULL 1/2] samsung: drivers for v6.17
+Date: Wed, 23 Jul 2025 11:04:55 +0200
+Message-ID: <20250723090455.25295-3-krzysztof.kozlowski@linaro.org>
+X-Mailer: git-send-email 2.48.1
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="t3b24mrvydogtoje"
-Content-Disposition: inline
-In-Reply-To: <2025072218-decipher-spree-327d@gregkh>
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1184; i=krzysztof.kozlowski@linaro.org;
+ h=from:subject; bh=jKxS63Re37hcFm6L5FR0wOlWb0i7sX+Y/k5+Rp76jT4=;
+ b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBogKW3mDzwNTJovQ3V2taqJr+0T0EUFr4aTJQrU
+ U2eCAEqgvCJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaICltwAKCRDBN2bmhouD
+ 1yR5D/wLSF3mWxeCh6hr0nA8CzfZto/VRm7x52o6glrfAIZHQ/zaOZ1570ojQRpZeJP5mZm4qGY
+ eCpgfc3Cl1f3osmJKLI+ojFPlK2gH/ipqWahqcUL3RsUoLEivfyXNMYgVXTlWkTORjB418lS8G4
+ fC+/aTu3X6UgYmwLBP8r10DUaCbsZDfBDbr0mNCU1VMLKphSgTRHrJ7Fg8HVk8mXucjIsd0J/5t
+ Wl9bVoa0hc/QJMAZO9hG2pK0KaAuIHgs/9GSO9HpcyHnlMKbMOvg09YptLZkXDUDs2zTlRF5wnB
+ NQXTtkM/pqAfz3z9cWqPeRK4OkEILvtOIFeYAIO+qd8n3Pa3B7DyBhlf2r/xLCh6FOKtNtHp1dX
+ tk1JND/+6NxXlw4Zt9WkiAj6vA4vu7Do4i1DEdR2dlB/C28jltww4CsTGu48nkO66/6iD1vCAA3
+ ZMeQciN0yfxEl7fRNBiHs5JSXdSW8axGHEtdSU8PkD71n0nSR0Fwxf4RY1JSEk7vFdeFJlUUuio
+ z03+FSDx3pT2g/B3sbq/trspGQa3YpomiGIBGJvvId9fUwkUa4CHy5DxEbDObIScg4zIs3oZ8W8
+ GikDwiW3shZzRPhee2lB943Ur5FpLQDYG1LGPmjsUY7oMlNhTaPs2mEsEmIWjvC7ivChoKGwVrB R22rNCovyB27l2A==
+X-Developer-Key: i=krzysztof.kozlowski@linaro.org; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250723_020112_571627_B04FC3B0 
-X-CRM114-Status: GOOD (  28.44  )
+X-CRM114-CacheID: sfid-20250723_020504_391843_205AC58D 
+X-CRM114-Status: UNSURE (   7.96  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,118 +116,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi,
 
---t3b24mrvydogtoje
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v2 0/7] syscore: Pass context data to callbacks
-MIME-Version: 1.0
+Late pull with minor things.
 
-On Tue, Jul 22, 2025 at 04:08:09PM +0200, Greg Kroah-Hartman wrote:
-> On Tue, Jul 22, 2025 at 03:56:40PM +0200, Thierry Reding wrote:
-> > On Sat, Jul 19, 2025 at 08:52:41AM +0200, Greg Kroah-Hartman wrote:
-> > > On Fri, Jul 18, 2025 at 03:49:37PM +0200, Thierry Reding wrote:
-> > > > On Thu, Jul 17, 2025 at 02:11:41PM +0200, Greg Kroah-Hartman wrote:
-> > > > > On Thu, Jul 17, 2025 at 12:32:34PM +0200, Thierry Reding wrote:
-> > [...]
-> > > > 	struct syscore;
-> > > >=20
-> > > > 	struct syscore_ops {
-> > > > 		int (*suspend)(struct syscore *syscore);
-> > > > 		void (*resume)(struct syscore *syscore);
-> > > > 		void (*shutdown)(struct syscore *syscore);
-> > > > 	};
-> > > >=20
-> > > > 	struct syscore {
-> > > > 		const struct syscore_ops *ops;
-> > > > 		struct list_head node;
-> > > > 	};
-> > > >=20
-> > > > Is that what you had in mind?
-> > >=20
-> > > I missed the list_head, so yes, this would be better, but don't pass
-> > > back the syscore structure, how about just a void * instead, making t=
-he
-> > > whole container_of() stuff go away?
-> >=20
-> > Yeah, that's a possibility. I personally don't like passing the void *
-> > around because it's easier to make mistakes that way. I also find it
-> > unintuitive because it doesn't immediately show you what the functions
-> > expect.
-> >=20
-> > My understanding is that the container_of() should get optimized away
-> > most of the time, so there aren't any obvious downsides that I can see.
->=20
-> container_of() is just pointer math, but a cast is even faster :)
->=20
-> > But I don't feel very strongly, so if you have a strong preference for
-> > void pointers, I can do that.
->=20
-> That's what you really want to have here, it's a syscore data type
-> thing, that the callback wants to reference.  Just like a irqrequest_t
-> function passes back a void * that the handler "knows" how to deal with
-> properly.
+Best regards,
+Krzysztof
 
-IRQ handlers are different, though, because you pass the void * data
-when you register the interrupt. That void * then gets stored and passed
-to the handler when the interrupt is processed.
 
-We'd have to change it to something like this:
+The following changes since commit 19272b37aa4f83ca52bdf9c16d5d81bdd1354494:
 
-	struct syscore_ops {
-		/* parameters now changed to driver-specific data */
-		int (*suspend)(void *data);
-		void (*resume)(void *data);
-		void (*shutdown)(void *data);
-	};
+  Linux 6.16-rc1 (2025-06-08 13:44:43 -0700)
 
-	struct syscore {
-		const struct syscore_ops *ops;
-		struct list_head node;
-		/* NEW driver-specific data */
-		void *data;
-	};
+are available in the Git repository at:
 
-It ends up increasing the syscore structure's size, about 33%, though
-given that there aren't a lot of these that's probably negligible.
+  https://git.kernel.org/pub/scm/linux/kernel/git/krzk/linux.git tags/samsung-drivers-6.17
 
-What I think is a bit more unnatural about it in this case is that we
-embed the struct syscore into some driver-private data anyway so that
-it becomes per instance, and then we have a circular reference:
+for you to fetch changes up to 687d974a218a719f7e729bef9c498ec36f18115e:
 
-	foo->syscore.ops =3D &foo_syscore_ops;
-	foo->syscore.data =3D foo;
+  dt-bindings: soc: samsung: exynos-sysreg: add hsi2 for ExynosAutov920 (2025-07-16 10:41:42 +0200)
 
-Which looks kind of weird. Alternatively I suppose we could completely
-rework it and make register_syscore_ops() allocate struct syscore, and
-hide the internals from drivers completely:
+----------------------------------------------------------------
+Samsung SoC drivers for v6.17
 
-	err =3D register_syscore(&foo_syscore_ops, foo);
+1. Google GS101: Minor improvement PMU binding.
+2. ExynosAutov920: Add HSI2 system registers binding.
 
-With that it may be problematic that register_syscore() can now fail.
+----------------------------------------------------------------
+Krzysztof Kozlowski (1):
+      dt-bindings: soc: samsung: exynos-pmu: Constrain google,pmu-intr-gen-syscon
 
-Thierry
+Sowon Na (1):
+      dt-bindings: soc: samsung: exynos-sysreg: add hsi2 for ExynosAutov920
 
---t3b24mrvydogtoje
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAmiApM8ACgkQ3SOs138+
-s6G76RAAlyjbBOBTf8eNokhrwb69GbuFv4iEunTnd/Xy91IhOncqHjdYHN3rqTn9
-GZWy+L9VFYLaEmLV5W1ChOD3rYHCxZ3gep+jdE5ThLQvJaK4IBB4oGZ0OGXLHmVy
-TqNy+Tq/dQi2jM2o7MW1DUDM8EunrbLmjBWZZONJzH18GqJPn3LWazuC7tBBL6vu
-bmowzEXxm+4NWx5Ow3IvFnLzDa05JLaBKtVREPuf/UdRHcjzrra1RyYLyaYUI9Gy
-pWZHkgUA+1gAO2hutK8eyL98cZlnl8zrArmduJZsyZQhcNe1ltwPTzUq9wejYOr+
-Vywgy/CxznLtvKd0e27hP/I7zCx64ktofCb6l0SwueraLWYTcpJLQ23T93g1bDwY
-02o6cq0874YQdndJytU7t3cKETe5uXF0AGmepX/+GKvcQN6lBqo04OL+Ge6yRMyy
-G9gv6P2nxqY+RWkDrFtqO6RwFB+lJSwc2J3RfxHC/2ygMy2Zr2AJ5oeeAKOtTZ/0
-smpK40Y2FB6y4ohGq3UK3uPyBvOJi/jw6sMuRyv2Ou7tJIFE2EtSpA5+m5DcwUcR
-gRcfO6O0V9Y6qWBx2Tt+i6Fzekj/0xBzlQdyvCom8xrhRZ9VGbZBfpIaXDs/Anp6
-ovlk/rkbo8DsYQQxINnmSBx2uQcWSCYAU53leg5fnr4EoSGPCsg=
-=l8CI
------END PGP SIGNATURE-----
-
---t3b24mrvydogtoje--
+ Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml          | 3 +++
+ .../devicetree/bindings/soc/samsung/samsung,exynos-sysreg.yaml         | 1 +
+ 2 files changed, 4 insertions(+)
 
