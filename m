@@ -4,71 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EF20C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 10:37:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E93DEC83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 11:04:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=liLtkU3MGUYaBlT4atSZJYYcKtTbrGW5Gl6wfgfS0lU=; b=ySHPPNW6iELD1gwhIbiAR1E/9D
-	gyIY0XVplUym+gigK5wwWpBYDQ1CrD7IwZ+dovSzr/xE+phNB1U51ITy125oH0qUlGHRLLYsiNjMi
-	9fRIQK9V7Hw47vyo2uCVViKLDh1d4mVMlaKRxzU7hYEtc9dlR/45VwhgnrPIQcUL0D2FUlKbDz/oc
-	xqlsDfZhadUnL7sbRLprdQCEolcMRGHg9gh/ywDq5E5x3YC5A87srEbLx+WzkGJekFyRnrEbL//d2
-	vtEJmQybPDcpX0ly+17/Ar21mK4oL/nxgbSLsAGy/1FgXmtFJxM5+qcZcnLLWMv+swWewVy5tZfSq
-	SAVRiLcA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KKajWv6iXD2DJpbp036dw7aZbKM62MvOz8OdjwDW124=; b=kgE0pBZpT6pudfNq8NcuR/6WaO
+	fWJIqEqH5oBtUTdKDYqatckDduH3Qv7TwTAp8AOMpwBdTF1m2CC9Cmkn8ywmBZCBGXquC3KUMdk0b
+	Szcr5riu02yqY5l0pXHpSSv7l7UxuSNqCBrJ5ryYAh20yQRsIoEdKaPSDbQDSCCkKZ1XE4aWkuvHv
+	yygZMkZcTMkMFnPTLo925fQp+aTtxJp4iDeAHIYKM/+j6z5nVNnEGPBtNUk2dMwlRLIAHAUVaAGMt
+	weCJ/BSEEp6GJvyzgbe5rP5yCur7vOz1GM42SLOaXgspGFAnLKHn6sdfm+3rdOMswVWJA4TyY1/eN
+	7idh/ndQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueWr5-00000004i3a-3esk;
-	Wed, 23 Jul 2025 10:37:47 +0000
-Received: from mgamail.intel.com ([192.198.163.9])
+	id 1ueXGM-00000004ly1-0yeI;
+	Wed, 23 Jul 2025 11:03:54 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueWmR-00000004hYg-2yzn
+	id 1ueXDp-00000004ljI-3WHV
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Jul 2025 10:33:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1753266779; x=1784802779;
-  h=date:from:to:cc:subject:message-id;
-  bh=3JYcOfrbwYMnm/nFjq6pC89xBJKhnbPlD/MgubM/JwY=;
-  b=YU/xzCAKNZAFvdUud3eNd+aj3d7T/SXHQutdzg14lq2L5q/Rc0t624cI
-   HDvzfUmnRe2xw6/jBcbMcc2yis1+zsZYWsckOarSSQ+/bvZLqzqXy4wUg
-   +fv3F2u/Po0UnJESfejQFprMjqkY59xrxEAj2qIpNb8s4xbEcDfQo7RJ2
-   coMLjt3B7D9VS1tUF48YlG7lLXokAAKFUFk1IJ/okbOJENojNa9ikX9eU
-   UrAUEz0QRYjEh/txwrO5ZHK7sYyJjIaQdNZa+bfLLETM5sOM22kBQg9kB
-   KA9E5IZsBS96n34L6v0QFz77NTGt/pVob58NAAfNQ/TXVHi27mqxjaUbt
-   w==;
-X-CSE-ConnectionGUID: FMXV5iILSBq3AMDDV0ZLJg==
-X-CSE-MsgGUID: kLi4fBriS6mxQx6QcNkGOw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11500"; a="66234351"
-X-IronPort-AV: E=Sophos;i="6.16,333,1744095600"; 
-   d="scan'208";a="66234351"
-Received: from fmviesa004.fm.intel.com ([10.60.135.144])
-  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Jul 2025 03:32:56 -0700
-X-CSE-ConnectionGUID: ofB90/EVSUGdIh0fKhHfZw==
-X-CSE-MsgGUID: O8MSpBsJR1ucsuqY4iFfHw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.16,333,1744095600"; 
-   d="scan'208";a="164862003"
-Received: from lkp-server01.sh.intel.com (HELO 9ee84586c615) ([10.239.97.150])
-  by fmviesa004.fm.intel.com with ESMTP; 23 Jul 2025 03:32:55 -0700
-Received: from kbuild by 9ee84586c615 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1ueWmL-000JFh-1J;
-	Wed, 23 Jul 2025 10:32:53 +0000
-Date: Wed, 23 Jul 2025 18:32:06 +0800
-From: kernel test robot <lkp@intel.com>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
-Subject: [soc:arm/fixes] BUILD SUCCESS
- 912b1f2a796ec73530a709b11821cb0c249fb23e
-Message-ID: <202507231854.WgeWekrr-lkp@intel.com>
-User-Agent: s-nail v14.9.24
+	Wed, 23 Jul 2025 11:01:18 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 9A282A4DC96;
+	Wed, 23 Jul 2025 11:01:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 944C9C4CEE7;
+	Wed, 23 Jul 2025 11:01:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1753268475;
+	bh=KKajWv6iXD2DJpbp036dw7aZbKM62MvOz8OdjwDW124=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=s7WqLMq1gn6eEdTj3TMTutLL3KlZCoLBMjOI/EgQYTXCGlZq28Z4K6pLpJU2Qz1YY
+	 Gh0CgCymRDVvjRrezkt4AdoMTM3tdUCA7mtRcTVJsD0K/6An6QRzxiNGC85SKmg4Q6
+	 QghHba9i5AD6EbfhZVnJK/dVInLRJ/PNY/rPXXntKEc5YJEvfIUP2hIp+4wEiQH5cj
+	 5+BwuYPkmNtrIP9lXHDg/VkMqDeR65oWkfjNalenSPudGEeELE4pSE01RdvrNQ2/qu
+	 kYbjM6aFejmagJMp51vOcP8IBlusSTFRVCp3T0+2zoT/h7oxXpuzJvvV+h6k6LMxJh
+	 BO2miA8JpLqvA==
+Date: Wed, 23 Jul 2025 12:01:07 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Jeremy Linton <jeremy.linton@arm.com>,
+	linux-trace-kernel@vger.kernel.org,
+	linux-perf-users@vger.kernel.org, mhiramat@kernel.org,
+	oleg@redhat.com, peterz@infradead.org, acme@kernel.org,
+	namhyung@kernel.org, mark.rutland@arm.com,
+	alexander.shishkin@linux.intel.com, jolsa@kernel.org,
+	irogers@google.com, adrian.hunter@intel.com,
+	kan.liang@linux.intel.com, thiago.bauermann@linaro.org,
+	yury.khrustalev@arm.com, kristina.martsenko@arm.com,
+	liaochang1@huawei.com, will@kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 4/8] arm64: uaccess: Add additional userspace GCS
+ accessors
+Message-ID: <6e4cf749-d146-4f41-afec-6c07b025be93@sirena.org.uk>
+References: <20250719043740.4548-1-jeremy.linton@arm.com>
+ <20250719043740.4548-5-jeremy.linton@arm.com>
+ <aICwaQZxK5Spjj8G@arm.com>
+MIME-Version: 1.0
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="pfS6fkSTDr7lad3R"
+Content-Disposition: inline
+In-Reply-To: <aICwaQZxK5Spjj8G@arm.com>
+X-Cookie: List was current at time of printing.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250723_033259_756348_386B255E 
-X-CRM114-Status: UNSURE (   5.40  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250723_040117_948724_BF1D528B 
+X-CRM114-Status: GOOD (  18.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,26 +85,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git arm/fixes
-branch HEAD: 912b1f2a796ec73530a709b11821cb0c249fb23e  arm64: dts: rockchip: Drop netdev led-triggers on NanoPi R5S
 
-elapsed time: 822m
+--pfS6fkSTDr7lad3R
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-configs tested: 6
-configs skipped: 125
+On Wed, Jul 23, 2025 at 10:50:33AM +0100, Catalin Marinas wrote:
+> On Fri, Jul 18, 2025 at 11:37:36PM -0500, Jeremy Linton wrote:
+> > +/*
+> > + * Unlike put_user_gcs() above, the use of copy_from_user() may provide
+> > + * an opening for non GCS pages to be used to source data. Therefore this
+> > + * should only be used in contexts where that is acceptable.
+> > + */
 
-The following configs have been built successfully.
-More configs may be tested in the coming days.
+> Even in user space, the GCS pages can be read with normal loads, so
+> already usable as a data source if one wants to (not that it's of much
+> use). So not sure the comment here is needed.
 
-tested configs:
-arm64             allmodconfig    clang-19
-arm64              allnoconfig    gcc-15.1.0
-arm64  randconfig-001-20250723    clang-22
-arm64  randconfig-002-20250723    clang-16
-arm64  randconfig-003-20250723    clang-16
-arm64  randconfig-004-20250723    clang-22
+The comment should probably be clarified to mention that the specific
+issue is the lack of an operation that does a load with GCS permission
+check to match what we have for stores, it'd be a bit of a landmine to
+have the operation available without anything that flags that it didn't
+validate the permissions (even assuming people read the comments in the
+header...).
 
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+--pfS6fkSTDr7lad3R
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmiAwPIACgkQJNaLcl1U
+h9C1HQf/SesyTkkHOj8BBOtDMpXqeILfxSDN+1YY9sPtQnVWuBzz/BNXvVGV8hKN
+WowF+nRWnOeP6E9pP9l3iApYCIMK5dYebcLOVVipocUI0q25/gy+HRLs6cyLKT07
+NYwlIXJyw09hqYru40+rmqtvXn1vAYiulM+H76WUOjTfhrqUHceh4ZjYx0pVzcHe
+2SDiw7M3K6m8VlWHuhIMx30P+82hAet2hhdxPXC1ry8tFx2Zm00KGl1Nl1KJ3ps8
+CICn1km24uu2V3zU2siImytm+2ICHBZsHM1lasvSrCT8yo+bQX8h0zleTnda+xYc
+OFPi+6eatJNwJXE4rZXOejC7vw75WQ==
+=F1EQ
+-----END PGP SIGNATURE-----
+
+--pfS6fkSTDr7lad3R--
 
