@@ -4,72 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0BCBC83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 11:16:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDE31C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 11:26:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ypF4ATmrVxGI+bbDERiXi6y89kUoL7bAQITiPKwExvI=; b=c4AfvjsS3/J6F70Q5mNJI46SNl
-	q4AF6xPOjBQeD23sazNDMLNpuyu9o3kyY1Zt+2saUvQP1R4Owsm1eFmJh0iw7afrqWYzJvxuCGK1Q
-	QlTYU/88wUiAuNzGQJDezFRqwhSJADZBfzKiw6X9QNNuTzUr687m6K7021FJxWd2W3NnrpPsMsOyg
-	CY3T0tx2XjEH/nK77N3/nJRRe8S6Q0cVFL8UcZZHlRAU41yw8IeCMT43zEeT+5kP9HH1KktuTdGtm
-	JnH7lmz2f7RuKbqsH9Y8cxeCr6oO0CCs77WXnO45tuZ9FtVRM3GCpPm5CTQ8yc95vlfVfHXw21q+c
-	67WMWS4w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=X1YmU1ykvA77GIulXJEMJLdju3jM88FFVo/Kazht9VA=; b=Hdir16oe1ST9GRZqUj0IONbbpc
+	LnFQDjO7N70cWhdlPaewm1U85emFajJtX2xCR5TZittl+Z0YMEWHfUhR5sKPMG9FoY8HdPKWBGcxB
+	Mj3wuES8SPzxAX2Flo3QwoYzhgcwUczL5z+q+o2Cu3EiGbKiNAoccbTAwz5K60zTS0T9XNgQXer6v
+	ZOeUIv4YiDj6tevKdfi7bWGVvH5xNFH5YnV9p8hdQTxWGuJCWSDRcYmjZCMg2s814LXjD/oqDqI1e
+	j0VGyUJJ1oncPzXkro7sYxsa2X4fOpUNwDX6gf2BDNqQhUlyHP0scJ/NKohPOEr/mMqDSk/7JeacP
+	e9osayFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueXS9-00000004nH0-09wG;
-	Wed, 23 Jul 2025 11:16:05 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1ueXbh-00000004noK-4BvN;
+	Wed, 23 Jul 2025 11:25:58 +0000
+Received: from mail-lj1-x233.google.com ([2a00:1450:4864:20::233])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueXPc-00000004mxo-1F4I
+	id 1ueXZF-00000004ndK-1lRY
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Jul 2025 11:13:30 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 7FD65A52807;
-	Wed, 23 Jul 2025 11:13:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2D80DC4CEE7;
-	Wed, 23 Jul 2025 11:13:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753269207;
-	bh=QS54HACGbgdMRs0EaSON+Zv0IttzLgk3Dxvba53hmEA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=VveC0p42ztQD01MnFfZlI0VMLsO/8qZp7VAoH72GvyCT1o3tfOA0XyRIjPFW5lYAi
-	 k/cIVCxaOvcMxuF8JK4oly+Gb+x9y18pTR8ZJEjd8EVkpIBuCRWDBWQUpbwfP4Q2eq
-	 +lPnxlk9lnVBTy4tpisJi/Tfy/ztJCXogsJqF913H6al3HBi7BHxRzVLX1pvKOUDSD
-	 u4nKNy3+XCK+OZZ12lH1OFoU2zW/+/VApEeCOQFhw2tJeQc8mtur2z1ClR3ALgloY8
-	 Ux9hfdhPXUvJYr0p5pe8eLDh/7We5RJ84askLuSNAHurpDXmcxDapbMFTnS9hOs+mi
-	 r4bOPw4jHoiAw==
-Date: Wed, 23 Jul 2025 12:13:20 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Jeremy Linton <jeremy.linton@arm.com>,
-	linux-trace-kernel@vger.kernel.org,
-	linux-perf-users@vger.kernel.org, mhiramat@kernel.org,
-	oleg@redhat.com, peterz@infradead.org, acme@kernel.org,
-	namhyung@kernel.org, mark.rutland@arm.com,
-	alexander.shishkin@linux.intel.com, jolsa@kernel.org,
-	irogers@google.com, adrian.hunter@intel.com,
-	kan.liang@linux.intel.com, thiago.bauermann@linaro.org,
-	yury.khrustalev@arm.com, kristina.martsenko@arm.com,
-	liaochang1@huawei.com, will@kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 5/8] arm64: probes: Add GCS support to bl/blr/ret
-Message-ID: <75faf0ec-79ee-4631-91d0-535c81c1bc85@sirena.org.uk>
-References: <20250719043740.4548-1-jeremy.linton@arm.com>
- <20250719043740.4548-6-jeremy.linton@arm.com>
- <aICywZ55EKfSYSIY@arm.com>
+	Wed, 23 Jul 2025 11:23:26 +0000
+Received: by mail-lj1-x233.google.com with SMTP id 38308e7fff4ca-32b43c5c04fso8656221fa.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Jul 2025 04:23:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1753269803; x=1753874603; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=X1YmU1ykvA77GIulXJEMJLdju3jM88FFVo/Kazht9VA=;
+        b=RXXkjm7TCTgyZNLBVFVEtz9V9Y6bA8GerU7R7Mxkd8IXmtN2EhWC44EYLLItcziV5N
+         GFzsUxjkc149w81xUubqWmKCXo2J5Ei134gGuyXXG9LDwjAL9AszcoXNxDAVzAzTebuJ
+         ieRYWy0AKabS4XMUkZlgZlxO5ez3XRbzqhKE2ep5UhoOquC+bYbF2L8gmVoenJjd7Rgn
+         Rzx32OxTuPZxJlR9Tp21MB+7DA5rv1xjA/JzZ6UwVs48XV8WpQ+y3aYFQiEektgpmICA
+         iRm+4woigEy/ZUtJv2pBjd/l/oRHZ0XLjR3w0Lp+PfOfLRPVdoD0fFy3wAbkPVSj9KDM
+         rpbA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1753269803; x=1753874603;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=X1YmU1ykvA77GIulXJEMJLdju3jM88FFVo/Kazht9VA=;
+        b=v2Oq1rkRnkUPJNs7CemU+gtxBCHCvMFxFNgRIHJ5heDPflKtTVeBF4331AeAoZRK99
+         XTqYvsS0xx6rpN7u72RFeWJ69rucYN8lgcqJIyS+wG0sQtuP3URCHAaBVaJPL9sYwfef
+         q8zybRp2nX6FD8eiS35uYUx9dmwmE0Pjb7cqJKmTHy63pHzgGBs4/7iMF3kCW7RnKtb0
+         ZrYbu9G8dDN/6ALGqa7MH7arpNanbfL7fvRZGIm9BqF/MZXS/9FcgZAFEmT5pW43lujC
+         IA9Uc5wMCWY77/qCZfapf4pOALwxw/9vYzo2O3fkUMYRdsCUhOqbCVRbFC9Tdoy+lHCl
+         YSeA==
+X-Forwarded-Encrypted: i=1; AJvYcCWcjEVuGKZkVAb7KBlw9WV5OMCTEMxi3MAjXZr6YrpImVNIzFgFQrRWxUfOy1g7tyuPAWZAdX7mb7Eu+2VJEyMh@lists.infradead.org
+X-Gm-Message-State: AOJu0YwvLPr97L+jw7OOJmjZMZOS9pSUc0Yak2NTMEH/WE1dka21srHC
+	5PlGn0FKDz+Poof02lz6iuORm7rIX6/oaXMj59B7x44ObyCIJ5WCk5voUemYj0wcZdYBM0BGsN2
+	HsuVoMlSSCMToNt06UnmgInTMhmbdmqlzyATu/CCKsw==
+X-Gm-Gg: ASbGncuJTc19ggYZAL6lv2zfPJuzAk4ftxUOrWHWeN9pLbYs3Qv654O7Tahh4mozLJX
+	VpGhxMF18rGfLUeKt4cL0FF3UAZLda2k608QMFza1oqvxzl8urC//TyOaKXuxfZPuLT7rwPWqdS
+	7wJzIy5F7VZ7s/hV7O+GsiiWbsftTk6PlhPTTkXLd5daPm9BZq/uQiB6J/msh4L2gnx7bJHkNI8
+	A4G4pM=
+X-Google-Smtp-Source: AGHT+IGJe5Uxr9HPFMmzv6FKaMGGq0DeXYb8MEs6LCeEdkH2Ux3eyASfDB2156qvlMRtXLw+FwseABeguK4wIAj2U48=
+X-Received: by 2002:a2e:bc1c:0:b0:32b:4441:e1d0 with SMTP id
+ 38308e7fff4ca-330dfb33727mr8322611fa.6.1753269802839; Wed, 23 Jul 2025
+ 04:23:22 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="LlK8+g0AOOO1HzK1"
-Content-Disposition: inline
-In-Reply-To: <aICywZ55EKfSYSIY@arm.com>
-X-Cookie: List was current at time of printing.
+References: <20250715034320.2553837-1-jacky_chou@aspeedtech.com> <20250715034320.2553837-8-jacky_chou@aspeedtech.com>
+In-Reply-To: <20250715034320.2553837-8-jacky_chou@aspeedtech.com>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Wed, 23 Jul 2025 13:23:11 +0200
+X-Gm-Features: Ac12FXzMES-g3RTrhXb0FNTMk2mTyN5VcSrw3I_gOJGbbpbB-aPDVFXKwi-6bIg
+Message-ID: <CACRpkdarn16N9637dL=Qo8X8o==7T=wBfHdXPczU=Rv3b270KQ@mail.gmail.com>
+Subject: Re: [PATCH v2 07/10] pinctrl: aspeed-g6: Add PCIe RC PERST pin group
+To: Jacky Chou <jacky_chou@aspeedtech.com>
+Cc: bhelgaas@google.com, lpieralisi@kernel.org, kwilczynski@kernel.org, 
+	mani@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	joel@jms.id.au, andrew@codeconstruct.com.au, linux-aspeed@lists.ozlabs.org, 
+	linux-pci@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	openbmc@lists.ozlabs.org, linux-gpio@vger.kernel.org, p.zabel@pengutronix.de, 
+	BMC-SW@aspeedtech.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250723_041328_418052_0B52376C 
-X-CRM114-Status: GOOD (  17.61  )
+X-CRM114-CacheID: sfid-20250723_042325_465296_B4A82909 
+X-CRM114-Status: UNSURE (   8.80  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,49 +101,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, Jul 15, 2025 at 5:43=E2=80=AFAM Jacky Chou <jacky_chou@aspeedtech.c=
+om> wrote:
 
---LlK8+g0AOOO1HzK1
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+> The PCIe RC PERST uses SSPRST# as PERST#  and enable this pin
+> to output.
+>
+> Signed-off-by: Jacky Chou <jacky_chou@aspeedtech.com>
 
-On Wed, Jul 23, 2025 at 11:00:33AM +0100, Catalin Marinas wrote:
-> On Fri, Jul 18, 2025 at 11:37:37PM -0500, Jeremy Linton wrote:
+This patch 7/10 applied to the pinctrl tree, why not.
 
-> > @@ -133,17 +147,26 @@ simulate_br_blr(u32 opcode, long addr, struct pt_=
-regs *regs)
-> >  	/* update pc first in case we're doing a "blr lr" */
-> >  	instruction_pointer_set(regs, get_x_reg(regs, xn));
-> > =20
-> > -	/* Link register is x30 */
-> >  	if (((opcode >> 21) & 0x3) =3D=3D 1)
-> > -		set_x_reg(regs, 30, addr + 4);
-> > +		update_lr(regs, addr);
-> >  }
-
-> I can see why this function was originally updating PC (in case of a blr
-> lr) but updating the LR was not supposed to fail. With GCS, I think we
-> should follow similar logic to simulate_b_bl() and skip updating PC/LR
-> if the write to the GCS failed (assuming that's what the hardware does,
-> I haven't checked the spec).
-
-Yes, the pseudocode does the GCS validation before it starts updating
-BTYPE or any of the registers.
-
---LlK8+g0AOOO1HzK1
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmiAw88ACgkQJNaLcl1U
-h9DmBQf+NT0Xig5/CJmpAvlNNkwAL72NZQH1v7bPz2tbKiHVjN1NwtBf/kvxhpEJ
-RMMUpmeXdnzJLb5ivMwiO+8bgLYvs+ac79pa1VQYELxVclezQ/cjk4wH0S4PH+gN
-neW8Elmceqi2i9Qdf5Bsk1bBwytFluoTnYxoivJsYUCkOR+Fd4ERBYdixoqjJ0iK
-+aORZ60biBcK47nd+hg41RbXRPovvPqiaSlwQFZaG+xaujmlKiFVA9raaxu6s/J8
-4etrlu666ZIaJpv0Dt559+M04Qi3MOld4/oJZcDMPUWyTxCpHV8Di6eEOAKTnRSn
-W8tJ7fswvUHErMIkOyCePEMdE1dAHw==
-=mw2L
------END PGP SIGNATURE-----
-
---LlK8+g0AOOO1HzK1--
+Yours,
+Linus Walleij
 
