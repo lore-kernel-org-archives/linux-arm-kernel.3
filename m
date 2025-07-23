@@ -4,89 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDE31C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 11:26:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C3EDC83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 11:30:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=X1YmU1ykvA77GIulXJEMJLdju3jM88FFVo/Kazht9VA=; b=Hdir16oe1ST9GRZqUj0IONbbpc
-	LnFQDjO7N70cWhdlPaewm1U85emFajJtX2xCR5TZittl+Z0YMEWHfUhR5sKPMG9FoY8HdPKWBGcxB
-	Mj3wuES8SPzxAX2Flo3QwoYzhgcwUczL5z+q+o2Cu3EiGbKiNAoccbTAwz5K60zTS0T9XNgQXer6v
-	ZOeUIv4YiDj6tevKdfi7bWGVvH5xNFH5YnV9p8hdQTxWGuJCWSDRcYmjZCMg2s814LXjD/oqDqI1e
-	j0VGyUJJ1oncPzXkro7sYxsa2X4fOpUNwDX6gf2BDNqQhUlyHP0scJ/NKohPOEr/mMqDSk/7JeacP
-	e9osayFA==;
+	bh=HCWuYRG63599CeGL0cu+BIdFInFPtoPb0KezmWqBc2U=; b=wtoxpSyK48jLYvIZ+rmbWv8gBl
+	g8QSM3w1y+X45dXVWlTD/rHAeNXPQWuwzrvNoUqG45NnZzd0+p9RXZkQLoIPxPhgMDdsDGFKlOk6U
+	BIzjjZd7VJjp8Qa/4wVKTRp28HkkaiDNJy3UB6vCZJWd/GhC5q+Gi7WSD77yC/H8MUfP6zfOqgvpl
+	YdZywg2shv6q+tJPegz+hJ2qemd17CKB6M56LDLnojms6M60vilSmhTnZsVWTtIXQQpxfZXPIkQio
+	U8hn5qrFQ+sYtXuGii5MtCBy/rT5QaooUo0Zf+TeuzR2t46ssFwOong8ycn4qjOl6Wov8tKQxTZJ0
+	VhbWDYeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueXbh-00000004noK-4BvN;
-	Wed, 23 Jul 2025 11:25:58 +0000
-Received: from mail-lj1-x233.google.com ([2a00:1450:4864:20::233])
+	id 1ueXfX-00000004o8I-0Kfi;
+	Wed, 23 Jul 2025 11:29:55 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueXZF-00000004ndK-1lRY
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Jul 2025 11:23:26 +0000
-Received: by mail-lj1-x233.google.com with SMTP id 38308e7fff4ca-32b43c5c04fso8656221fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Jul 2025 04:23:24 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1753269803; x=1753874603; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=X1YmU1ykvA77GIulXJEMJLdju3jM88FFVo/Kazht9VA=;
-        b=RXXkjm7TCTgyZNLBVFVEtz9V9Y6bA8GerU7R7Mxkd8IXmtN2EhWC44EYLLItcziV5N
-         GFzsUxjkc149w81xUubqWmKCXo2J5Ei134gGuyXXG9LDwjAL9AszcoXNxDAVzAzTebuJ
-         ieRYWy0AKabS4XMUkZlgZlxO5ez3XRbzqhKE2ep5UhoOquC+bYbF2L8gmVoenJjd7Rgn
-         Rzx32OxTuPZxJlR9Tp21MB+7DA5rv1xjA/JzZ6UwVs48XV8WpQ+y3aYFQiEektgpmICA
-         iRm+4woigEy/ZUtJv2pBjd/l/oRHZ0XLjR3w0Lp+PfOfLRPVdoD0fFy3wAbkPVSj9KDM
-         rpbA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753269803; x=1753874603;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=X1YmU1ykvA77GIulXJEMJLdju3jM88FFVo/Kazht9VA=;
-        b=v2Oq1rkRnkUPJNs7CemU+gtxBCHCvMFxFNgRIHJ5heDPflKtTVeBF4331AeAoZRK99
-         XTqYvsS0xx6rpN7u72RFeWJ69rucYN8lgcqJIyS+wG0sQtuP3URCHAaBVaJPL9sYwfef
-         q8zybRp2nX6FD8eiS35uYUx9dmwmE0Pjb7cqJKmTHy63pHzgGBs4/7iMF3kCW7RnKtb0
-         ZrYbu9G8dDN/6ALGqa7MH7arpNanbfL7fvRZGIm9BqF/MZXS/9FcgZAFEmT5pW43lujC
-         IA9Uc5wMCWY77/qCZfapf4pOALwxw/9vYzo2O3fkUMYRdsCUhOqbCVRbFC9Tdoy+lHCl
-         YSeA==
-X-Forwarded-Encrypted: i=1; AJvYcCWcjEVuGKZkVAb7KBlw9WV5OMCTEMxi3MAjXZr6YrpImVNIzFgFQrRWxUfOy1g7tyuPAWZAdX7mb7Eu+2VJEyMh@lists.infradead.org
-X-Gm-Message-State: AOJu0YwvLPr97L+jw7OOJmjZMZOS9pSUc0Yak2NTMEH/WE1dka21srHC
-	5PlGn0FKDz+Poof02lz6iuORm7rIX6/oaXMj59B7x44ObyCIJ5WCk5voUemYj0wcZdYBM0BGsN2
-	HsuVoMlSSCMToNt06UnmgInTMhmbdmqlzyATu/CCKsw==
-X-Gm-Gg: ASbGncuJTc19ggYZAL6lv2zfPJuzAk4ftxUOrWHWeN9pLbYs3Qv654O7Tahh4mozLJX
-	VpGhxMF18rGfLUeKt4cL0FF3UAZLda2k608QMFza1oqvxzl8urC//TyOaKXuxfZPuLT7rwPWqdS
-	7wJzIy5F7VZ7s/hV7O+GsiiWbsftTk6PlhPTTkXLd5daPm9BZq/uQiB6J/msh4L2gnx7bJHkNI8
-	A4G4pM=
-X-Google-Smtp-Source: AGHT+IGJe5Uxr9HPFMmzv6FKaMGGq0DeXYb8MEs6LCeEdkH2Ux3eyASfDB2156qvlMRtXLw+FwseABeguK4wIAj2U48=
-X-Received: by 2002:a2e:bc1c:0:b0:32b:4441:e1d0 with SMTP id
- 38308e7fff4ca-330dfb33727mr8322611fa.6.1753269802839; Wed, 23 Jul 2025
- 04:23:22 -0700 (PDT)
+	id 1ueXd7-00000004nxX-00fT;
+	Wed, 23 Jul 2025 11:27:25 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 2E1A46000A;
+	Wed, 23 Jul 2025 11:27:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D6568C4CEF5;
+	Wed, 23 Jul 2025 11:27:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1753270043;
+	bh=hD86L6FsrlkjppEeAolQw2+wF9G9eL2p4jeufpqBKxk=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=SUdVHNc/aWpcFyqi0c/ImfOYjRQUiFP+rK1f80HK+AmhVgduX5msiRWhEhg1s+hiW
+	 s7V5fsU/uhIBFeKySwzuXQ9BfdxVoYhid9ufOAKrdUj+5KF33m3lRUe8oxf0Cwfa3G
+	 PAj6KQ4HGDysGEzUeqbGoXcEsGrTE+WGU8uiIskXtyhHc5ZVmHBzSVzbhah+PdKtkJ
+	 B6bYI7NyCgjopp5nxtJIfyi2MQl9rYFcv0L6MFftn+yL2G/Azg205ACyhpuudVcnZK
+	 Tw9kNx5J4K7v3JXj2/qR5a6ofMcynO7+qNQVdxzBIuF42MddOCjUhYN2cf+cvhsSyT
+	 WFbNCzvSwVVDA==
+Received: by mail-oo1-f49.google.com with SMTP id 006d021491bc7-615df2e8c27so1827056eaf.2;
+        Wed, 23 Jul 2025 04:27:23 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCWdCmIcWioTq1EB+1IsWHMigfIVMOiQhe7XsdI9RpBxHh9C2lw3FIVAomO/cHZwPhcNAH987mAHGnK6QwE=@lists.infradead.org, AJvYcCXCGicThOq/26DLdKOgogVq8eD2S3SzJjFedyGBoyBcL7G5h4NbUJvF7aoATMwpckMPZ3ijGYa1D4doxhN8s7Fn@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz+4FxfqPRex3Aa7zFs9t3XkidYA3XmAsAWhFkUi9MYPooARZQM
+	xzEFHmeh3cGcMZeUWFBvFo1uSAF1m4TZU0c9hN46zzWq5k9ll5VbYuYL81LfvhrECo1bHrYrfhB
+	hJMvX64vefDdbONMxf+mEPaNI1QQxMQg=
+X-Google-Smtp-Source: AGHT+IFBBrTSzcKsgRsjEmVEi3AQj37BeFlkMYzSpLg5VvEYvowlyBOnql/yOqAWuu2WwDYjxLgaMwyjRGbr4TyyCQA=
+X-Received: by 2002:a05:6820:1792:b0:615:d742:6672 with SMTP id
+ 006d021491bc7-6187d90ed5dmr1918110eaf.8.1753270043105; Wed, 23 Jul 2025
+ 04:27:23 -0700 (PDT)
 MIME-Version: 1.0
-References: <20250715034320.2553837-1-jacky_chou@aspeedtech.com> <20250715034320.2553837-8-jacky_chou@aspeedtech.com>
-In-Reply-To: <20250715034320.2553837-8-jacky_chou@aspeedtech.com>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Wed, 23 Jul 2025 13:23:11 +0200
-X-Gm-Features: Ac12FXzMES-g3RTrhXb0FNTMk2mTyN5VcSrw3I_gOJGbbpbB-aPDVFXKwi-6bIg
-Message-ID: <CACRpkdarn16N9637dL=Qo8X8o==7T=wBfHdXPczU=Rv3b270KQ@mail.gmail.com>
-Subject: Re: [PATCH v2 07/10] pinctrl: aspeed-g6: Add PCIe RC PERST pin group
-To: Jacky Chou <jacky_chou@aspeedtech.com>
-Cc: bhelgaas@google.com, lpieralisi@kernel.org, kwilczynski@kernel.org, 
-	mani@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	joel@jms.id.au, andrew@codeconstruct.com.au, linux-aspeed@lists.ozlabs.org, 
-	linux-pci@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	openbmc@lists.ozlabs.org, linux-gpio@vger.kernel.org, p.zabel@pengutronix.de, 
-	BMC-SW@aspeedtech.com
+References: <20250717103241.2806798-1-thierry.reding@gmail.com>
+ <2025071716-phoney-object-1648@gregkh> <rzbzah5iigz25jtxyqadnitkzkazxsaxntajhlfrfdslyioevk@pylcjkfh5n42>
+ <2025071919-patience-cattishly-cf7c@gregkh> <l54i36uk33je744w4f47tehdopk5dsjotvozfv5b2hehmxrwpq@eins7awyq4dy>
+ <2025072218-decipher-spree-327d@gregkh> <awvdox3bgabbc42aamezlg33k4cje6y75qoxn7ruh3nhd4qv5n@u3spdahehad4>
+In-Reply-To: <awvdox3bgabbc42aamezlg33k4cje6y75qoxn7ruh3nhd4qv5n@u3spdahehad4>
+From: "Rafael J. Wysocki" <rafael@kernel.org>
+Date: Wed, 23 Jul 2025 13:27:09 +0200
+X-Gmail-Original-Message-ID: <CAJZ5v0iYBOephv29sj0DSKZVyF3JLBsoUCckhTbGcbYHUUhYyQ@mail.gmail.com>
+X-Gm-Features: Ac12FXzC6e4YCoK78tnnsrW1OvCOkcpvLKri7HC2f5clbN5j5h64RJlwkH_QRPE
+Message-ID: <CAJZ5v0iYBOephv29sj0DSKZVyF3JLBsoUCckhTbGcbYHUUhYyQ@mail.gmail.com>
+Subject: Re: [PATCH v2 0/7] syscore: Pass context data to callbacks
+To: Thierry Reding <thierry.reding@gmail.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, x86@kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, 
+	linux-mips@vger.kernel.org, loongarch@lists.linux.dev, 
+	linuxppc-dev@lists.ozlabs.org, linux-sh@vger.kernel.org, 
+	linux-pci@vger.kernel.org, linux-acpi@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250723_042325_465296_B4A82909 
-X-CRM114-Status: UNSURE (   8.80  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,16 +86,124 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 15, 2025 at 5:43=E2=80=AFAM Jacky Chou <jacky_chou@aspeedtech.c=
-om> wrote:
-
-> The PCIe RC PERST uses SSPRST# as PERST#  and enable this pin
-> to output.
+On Wed, Jul 23, 2025 at 11:01=E2=80=AFAM Thierry Reding
+<thierry.reding@gmail.com> wrote:
 >
-> Signed-off-by: Jacky Chou <jacky_chou@aspeedtech.com>
+> On Tue, Jul 22, 2025 at 04:08:09PM +0200, Greg Kroah-Hartman wrote:
+> > On Tue, Jul 22, 2025 at 03:56:40PM +0200, Thierry Reding wrote:
+> > > On Sat, Jul 19, 2025 at 08:52:41AM +0200, Greg Kroah-Hartman wrote:
+> > > > On Fri, Jul 18, 2025 at 03:49:37PM +0200, Thierry Reding wrote:
+> > > > > On Thu, Jul 17, 2025 at 02:11:41PM +0200, Greg Kroah-Hartman wrot=
+e:
+> > > > > > On Thu, Jul 17, 2025 at 12:32:34PM +0200, Thierry Reding wrote:
+> > > [...]
+> > > > >         struct syscore;
+> > > > >
+> > > > >         struct syscore_ops {
+> > > > >                 int (*suspend)(struct syscore *syscore);
+> > > > >                 void (*resume)(struct syscore *syscore);
+> > > > >                 void (*shutdown)(struct syscore *syscore);
+> > > > >         };
+> > > > >
+> > > > >         struct syscore {
+> > > > >                 const struct syscore_ops *ops;
+> > > > >                 struct list_head node;
+> > > > >         };
+> > > > >
+> > > > > Is that what you had in mind?
+> > > >
+> > > > I missed the list_head, so yes, this would be better, but don't pas=
+s
+> > > > back the syscore structure, how about just a void * instead, making=
+ the
+> > > > whole container_of() stuff go away?
+> > >
+> > > Yeah, that's a possibility. I personally don't like passing the void =
+*
+> > > around because it's easier to make mistakes that way. I also find it
+> > > unintuitive because it doesn't immediately show you what the function=
+s
+> > > expect.
+> > >
+> > > My understanding is that the container_of() should get optimized away
+> > > most of the time, so there aren't any obvious downsides that I can se=
+e.
+> >
+> > container_of() is just pointer math, but a cast is even faster :)
+> >
+> > > But I don't feel very strongly, so if you have a strong preference fo=
+r
+> > > void pointers, I can do that.
+> >
+> > That's what you really want to have here, it's a syscore data type
+> > thing, that the callback wants to reference.  Just like a irqrequest_t
+> > function passes back a void * that the handler "knows" how to deal with
+> > properly.
+>
+> IRQ handlers are different, though, because you pass the void * data
+> when you register the interrupt. That void * then gets stored and passed
+> to the handler when the interrupt is processed.
+>
+> We'd have to change it to something like this:
+>
+>         struct syscore_ops {
+>                 /* parameters now changed to driver-specific data */
+>                 int (*suspend)(void *data);
+>                 void (*resume)(void *data);
+>                 void (*shutdown)(void *data);
+>         };
+>
+>         struct syscore {
+>                 const struct syscore_ops *ops;
+>                 struct list_head node;
+>                 /* NEW driver-specific data */
+>                 void *data;
+>         };
 
-This patch 7/10 applied to the pinctrl tree, why not.
+I like this more than the original, but I would do
 
-Yours,
-Linus Walleij
+struct syscore_ops_ops {
+                 int (*suspend)(void *data);
+                 void (*resume)(void *data);
+                 void (*shutdown)(void *data);
+};
+
+struct syscore_ops {
+                 struct list_head node;
+                 const struct syscore_ops_ops *ops;
+                 void *data;
+};
+
+and change register_syscore_ops() to take three arguments, the struct
+syscore_ops pointer, the (constified) struct syscore_ops_ops one, and
+the (void *) data one.
+
+Note that it is not necessary to change the signature of
+unregister_syscore_ops() in this case.
+
+> It ends up increasing the syscore structure's size, about 33%, though
+> given that there aren't a lot of these that's probably negligible.
+
+That's not a problem IMV.
+
+> What I think is a bit more unnatural about it in this case is that we
+> embed the struct syscore into some driver-private data anyway so that
+> it becomes per instance, and then we have a circular reference:
+>
+>         foo->syscore.ops =3D &foo_syscore_ops;
+>         foo->syscore.data =3D foo;
+
+That depends because "data" need not be "foo" in all cases, but also
+see above.  If the initialization of struct syscore_ops is all done by
+register_syscore_ops(), it doesn't look circular any more.
+
+> Which looks kind of weird. Alternatively I suppose we could completely
+> rework it and make register_syscore_ops() allocate struct syscore, and
+> hide the internals from drivers completely:
+>
+>         err =3D register_syscore(&foo_syscore_ops, foo);
+>
+> With that it may be problematic that register_syscore() can now fail.
+
+Yes, that might be a problem.
 
