@@ -4,74 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C3EDC83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 11:30:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BA33C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 11:39:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HCWuYRG63599CeGL0cu+BIdFInFPtoPb0KezmWqBc2U=; b=wtoxpSyK48jLYvIZ+rmbWv8gBl
-	g8QSM3w1y+X45dXVWlTD/rHAeNXPQWuwzrvNoUqG45NnZzd0+p9RXZkQLoIPxPhgMDdsDGFKlOk6U
-	BIzjjZd7VJjp8Qa/4wVKTRp28HkkaiDNJy3UB6vCZJWd/GhC5q+Gi7WSD77yC/H8MUfP6zfOqgvpl
-	YdZywg2shv6q+tJPegz+hJ2qemd17CKB6M56LDLnojms6M60vilSmhTnZsVWTtIXQQpxfZXPIkQio
-	U8hn5qrFQ+sYtXuGii5MtCBy/rT5QaooUo0Zf+TeuzR2t46ssFwOong8ycn4qjOl6Wov8tKQxTZJ0
-	VhbWDYeA==;
+	bh=Ymp8NEpVvyDseXZYWN8c8ewcIRYFU5ldp7DE0o5dQsU=; b=boqfZz+lSDeqxQkiFuCAG8QPQy
+	YB0od691ibxoCft9/fjykZvKFT1w69xtUtaOrBdRb8Fp8g+101KTvZY/rhI29Wcl7TVQDAwdZRshL
+	gVYCdHFjeipVSdAKGVcqLk9dhFbqtICxQQGu77pxFE5kjy6g/oMfkurW9wg6HisJZxbzApFwchMCD
+	Oo0ruykRRqpbnib2g0Q5LpZdgGGODT1FNUKeai4P4MRkIi+b0w+l3mrAcI2Q280tN26CnO3bOrkIc
+	F6QPC/AlUNBwADjmPo3Nj5MpeCCmsiIw6truUQUUa+3mJyv4zAcEiFL2L8UoKlLA4uQMwxlSH16d9
+	UwuamnKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueXfX-00000004o8I-0Kfi;
-	Wed, 23 Jul 2025 11:29:55 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1ueXp3-00000004pYV-1IXV;
+	Wed, 23 Jul 2025 11:39:45 +0000
+Received: from mail-yw1-x1129.google.com ([2607:f8b0:4864:20::1129])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueXd7-00000004nxX-00fT;
-	Wed, 23 Jul 2025 11:27:25 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2E1A46000A;
-	Wed, 23 Jul 2025 11:27:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D6568C4CEF5;
-	Wed, 23 Jul 2025 11:27:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753270043;
-	bh=hD86L6FsrlkjppEeAolQw2+wF9G9eL2p4jeufpqBKxk=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=SUdVHNc/aWpcFyqi0c/ImfOYjRQUiFP+rK1f80HK+AmhVgduX5msiRWhEhg1s+hiW
-	 s7V5fsU/uhIBFeKySwzuXQ9BfdxVoYhid9ufOAKrdUj+5KF33m3lRUe8oxf0Cwfa3G
-	 PAj6KQ4HGDysGEzUeqbGoXcEsGrTE+WGU8uiIskXtyhHc5ZVmHBzSVzbhah+PdKtkJ
-	 B6bYI7NyCgjopp5nxtJIfyi2MQl9rYFcv0L6MFftn+yL2G/Azg205ACyhpuudVcnZK
-	 Tw9kNx5J4K7v3JXj2/qR5a6ofMcynO7+qNQVdxzBIuF42MddOCjUhYN2cf+cvhsSyT
-	 WFbNCzvSwVVDA==
-Received: by mail-oo1-f49.google.com with SMTP id 006d021491bc7-615df2e8c27so1827056eaf.2;
-        Wed, 23 Jul 2025 04:27:23 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCWdCmIcWioTq1EB+1IsWHMigfIVMOiQhe7XsdI9RpBxHh9C2lw3FIVAomO/cHZwPhcNAH987mAHGnK6QwE=@lists.infradead.org, AJvYcCXCGicThOq/26DLdKOgogVq8eD2S3SzJjFedyGBoyBcL7G5h4NbUJvF7aoATMwpckMPZ3ijGYa1D4doxhN8s7Fn@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz+4FxfqPRex3Aa7zFs9t3XkidYA3XmAsAWhFkUi9MYPooARZQM
-	xzEFHmeh3cGcMZeUWFBvFo1uSAF1m4TZU0c9hN46zzWq5k9ll5VbYuYL81LfvhrECo1bHrYrfhB
-	hJMvX64vefDdbONMxf+mEPaNI1QQxMQg=
-X-Google-Smtp-Source: AGHT+IFBBrTSzcKsgRsjEmVEi3AQj37BeFlkMYzSpLg5VvEYvowlyBOnql/yOqAWuu2WwDYjxLgaMwyjRGbr4TyyCQA=
-X-Received: by 2002:a05:6820:1792:b0:615:d742:6672 with SMTP id
- 006d021491bc7-6187d90ed5dmr1918110eaf.8.1753270043105; Wed, 23 Jul 2025
- 04:27:23 -0700 (PDT)
+	id 1ueXmc-00000004pD7-0mEn
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 23 Jul 2025 11:37:15 +0000
+Received: by mail-yw1-x1129.google.com with SMTP id 00721157ae682-710e344bbf9so62404747b3.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Jul 2025 04:37:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1753270633; x=1753875433; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Ymp8NEpVvyDseXZYWN8c8ewcIRYFU5ldp7DE0o5dQsU=;
+        b=XZpfSJqzFmNL1dZ17ROjaV9D3dovJAl42hGsKCsXeYJTIn4Y2xHgOc30FN9/R0EFYM
+         P5Q+gG3p5Vy0n7C/LMbAh/sZ21AZB0p4PcJVif9T64MePvpKboItVRxB6ruIBgDe/DAX
+         JY77G85ZOELezPR8XeudYc6WmTzmtfrTAVwznjYN3TXdBh3ky/bTBHsY/p4Cj1HGp4FN
+         k+sCw4C3k8yI+ADHrpTfiQj3zMEHrXHXMSRIZNJ7UmwRmxGJ/n/zdu266/0x2a5NezUD
+         RJhR2fShdplP9HEbWkIIY3fJ2Cxe1cOM8wItTYpZyk3L2vL8DKc22TM8L5MvHCN1vfNz
+         Gk4g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1753270633; x=1753875433;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Ymp8NEpVvyDseXZYWN8c8ewcIRYFU5ldp7DE0o5dQsU=;
+        b=vmEHTzXMVfM9Re59dtH/MA2iWpH30MQR6w4cfZjNFNr7QDA8U2DFtXuHYogmq/Npv4
+         s8/lrbcpaU2G+KPYFK2Yyytv9MCYhBDSuZw9GPZtyc5OcHX6rs/pCRpCUBYv4pfu9ME9
+         R1IQ2IqZMRyhlhKqgFBUO6EywBrMgs/sBJVtE37meGuBstsKeNBuCbW6tnEQBwIROKU0
+         dCv6tMbXqSbM1reVxzHtuFvOXj3Y7WWN4F2E+KEX8c3PZHafr5I7chrBdCvgynfJnSfR
+         2LruxbvC5rPFV3o8lb7hj+8CYVILNrjQsYR5DKT683pZQsL7+NNeM25gtaaj/QaPt0uu
+         JRiw==
+X-Forwarded-Encrypted: i=1; AJvYcCXW4QcPeV7i97pMFQ88kzeVKqT8dgN2bliFk/NDgFB/AgnebYT07/woPyj40QpXnYtgT/V3dw8c7UBSl8APfsno@lists.infradead.org
+X-Gm-Message-State: AOJu0YydeAi/P2b4iuO1vhLzQp3Ydn0vz3nNdUY7izUKCrQYxUHp8IyK
+	Hmq15U5dSeuJy3rPNJs1ZA/tiwWzJ2zB1Ukgxx+GuSFtMkMXRzHkbcT7ESdptaIGhbgkSyzQVzQ
+	Z3sopjIFJXMZvwgzqZB+IEW7ZDYy6LSiaGJjF9tokDQ==
+X-Gm-Gg: ASbGnctJR8yY1fnVoHfsTUcJlEgBCMjPYIj2To1nUvo3w3JUfcmgigf7Ux5bdIF7JSs
+	Y6T+zO26G6jVCRWiQxM0RrUDdC0/3f1jBvBNgQyLCdHdhxKsZAwmO5veU4+pzZd7xO8B3x2vG5v
+	6DILHfvtePlGZwsPqT4PLtGlfGQHp5WU2R2No2XTRMOS71w6rb/qvVqEmaj2oS7oXjKZ2Mqgx59
+	o6L0GQ=
+X-Google-Smtp-Source: AGHT+IG1u0oo2KG/eqAPkei9S9jpNUr6q6/qerBp5U6HD3spcuvFuQv+r1pMepeUgbYOloTl+BtEStxyrYSqeymqSxI=
+X-Received: by 2002:a05:690c:600d:b0:70c:a57c:94a3 with SMTP id
+ 00721157ae682-719b422713bmr31267587b3.19.1753270632818; Wed, 23 Jul 2025
+ 04:37:12 -0700 (PDT)
 MIME-Version: 1.0
-References: <20250717103241.2806798-1-thierry.reding@gmail.com>
- <2025071716-phoney-object-1648@gregkh> <rzbzah5iigz25jtxyqadnitkzkazxsaxntajhlfrfdslyioevk@pylcjkfh5n42>
- <2025071919-patience-cattishly-cf7c@gregkh> <l54i36uk33je744w4f47tehdopk5dsjotvozfv5b2hehmxrwpq@eins7awyq4dy>
- <2025072218-decipher-spree-327d@gregkh> <awvdox3bgabbc42aamezlg33k4cje6y75qoxn7ruh3nhd4qv5n@u3spdahehad4>
-In-Reply-To: <awvdox3bgabbc42aamezlg33k4cje6y75qoxn7ruh3nhd4qv5n@u3spdahehad4>
-From: "Rafael J. Wysocki" <rafael@kernel.org>
-Date: Wed, 23 Jul 2025 13:27:09 +0200
-X-Gmail-Original-Message-ID: <CAJZ5v0iYBOephv29sj0DSKZVyF3JLBsoUCckhTbGcbYHUUhYyQ@mail.gmail.com>
-X-Gm-Features: Ac12FXzC6e4YCoK78tnnsrW1OvCOkcpvLKri7HC2f5clbN5j5h64RJlwkH_QRPE
-Message-ID: <CAJZ5v0iYBOephv29sj0DSKZVyF3JLBsoUCckhTbGcbYHUUhYyQ@mail.gmail.com>
-Subject: Re: [PATCH v2 0/7] syscore: Pass context data to callbacks
-To: Thierry Reding <thierry.reding@gmail.com>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, x86@kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, 
-	linux-mips@vger.kernel.org, loongarch@lists.linux.dev, 
-	linuxppc-dev@lists.ozlabs.org, linux-sh@vger.kernel.org, 
-	linux-pci@vger.kernel.org, linux-acpi@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
+References: <20250711094513.17073-1-ot_cathy.xu@mediatek.com>
+In-Reply-To: <20250711094513.17073-1-ot_cathy.xu@mediatek.com>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Wed, 23 Jul 2025 13:36:57 +0200
+X-Gm-Features: Ac12FXyQQsvM0KPvnjy5H8NAQhVs4FHmng7Wc1VHONXxXWNwFzyha3AMuITkSaw
+Message-ID: <CACRpkdbe-0fQY7rF7u14bn4j_f3Qn7+thRzJQZRZBTadG9pjGQ@mail.gmail.com>
+Subject: Re: [PATCH v2 0/3] pinctrl: mediatek: Add pinctrl driver on mt8189
+To: Cathy Xu <ot_cathy.xu@mediatek.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Sean Wang <sean.wang@kernel.org>, 
+	Lei Xue <lei.xue@mediatek.com>, linux-gpio@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+	Yong Mao <yong.mao@mediatek.com>, Wenbin Mei <Wenbin.Mei@mediatek.com>, 
+	Axe Yang <Axe.Yang@mediatek.com>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250723_043714_225537_00C7694B 
+X-CRM114-Status: GOOD (  11.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,124 +101,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 23, 2025 at 11:01=E2=80=AFAM Thierry Reding
-<thierry.reding@gmail.com> wrote:
->
-> On Tue, Jul 22, 2025 at 04:08:09PM +0200, Greg Kroah-Hartman wrote:
-> > On Tue, Jul 22, 2025 at 03:56:40PM +0200, Thierry Reding wrote:
-> > > On Sat, Jul 19, 2025 at 08:52:41AM +0200, Greg Kroah-Hartman wrote:
-> > > > On Fri, Jul 18, 2025 at 03:49:37PM +0200, Thierry Reding wrote:
-> > > > > On Thu, Jul 17, 2025 at 02:11:41PM +0200, Greg Kroah-Hartman wrot=
-e:
-> > > > > > On Thu, Jul 17, 2025 at 12:32:34PM +0200, Thierry Reding wrote:
-> > > [...]
-> > > > >         struct syscore;
-> > > > >
-> > > > >         struct syscore_ops {
-> > > > >                 int (*suspend)(struct syscore *syscore);
-> > > > >                 void (*resume)(struct syscore *syscore);
-> > > > >                 void (*shutdown)(struct syscore *syscore);
-> > > > >         };
-> > > > >
-> > > > >         struct syscore {
-> > > > >                 const struct syscore_ops *ops;
-> > > > >                 struct list_head node;
-> > > > >         };
-> > > > >
-> > > > > Is that what you had in mind?
-> > > >
-> > > > I missed the list_head, so yes, this would be better, but don't pas=
-s
-> > > > back the syscore structure, how about just a void * instead, making=
- the
-> > > > whole container_of() stuff go away?
-> > >
-> > > Yeah, that's a possibility. I personally don't like passing the void =
-*
-> > > around because it's easier to make mistakes that way. I also find it
-> > > unintuitive because it doesn't immediately show you what the function=
-s
-> > > expect.
-> > >
-> > > My understanding is that the container_of() should get optimized away
-> > > most of the time, so there aren't any obvious downsides that I can se=
-e.
-> >
-> > container_of() is just pointer math, but a cast is even faster :)
-> >
-> > > But I don't feel very strongly, so if you have a strong preference fo=
-r
-> > > void pointers, I can do that.
-> >
-> > That's what you really want to have here, it's a syscore data type
-> > thing, that the callback wants to reference.  Just like a irqrequest_t
-> > function passes back a void * that the handler "knows" how to deal with
-> > properly.
->
-> IRQ handlers are different, though, because you pass the void * data
-> when you register the interrupt. That void * then gets stored and passed
-> to the handler when the interrupt is processed.
->
-> We'd have to change it to something like this:
->
->         struct syscore_ops {
->                 /* parameters now changed to driver-specific data */
->                 int (*suspend)(void *data);
->                 void (*resume)(void *data);
->                 void (*shutdown)(void *data);
->         };
->
->         struct syscore {
->                 const struct syscore_ops *ops;
->                 struct list_head node;
->                 /* NEW driver-specific data */
->                 void *data;
->         };
+On Fri, Jul 11, 2025 at 11:45=E2=80=AFAM Cathy Xu <ot_cathy.xu@mediatek.com=
+> wrote:
 
-I like this more than the original, but I would do
+> This patch series introduces support for the MT8189 pinctrl driver,
+> include the driver implementation, new binding document and pinctrl heade=
+r file.
 
-struct syscore_ops_ops {
-                 int (*suspend)(void *data);
-                 void (*resume)(void *data);
-                 void (*shutdown)(void *data);
-};
+> Cathy Xu (3):
 
-struct syscore_ops {
-                 struct list_head node;
-                 const struct syscore_ops_ops *ops;
-                 void *data;
-};
+>   dt-bindings: pinctrl: mediatek: Add support for mt8189
+(...)
+>   pinctrl: mediatek: Add pinctrl driver on mt8189
 
-and change register_syscore_ops() to take three arguments, the struct
-syscore_ops pointer, the (constified) struct syscore_ops_ops one, and
-the (void *) data one.
+Applied these patches, thanks for all your hard work and
+patience!
 
-Note that it is not necessary to change the signature of
-unregister_syscore_ops() in this case.
+>   arm64: dts: mediatek: mt8189: Add pinmux macro header file
 
-> It ends up increasing the syscore structure's size, about 33%, though
-> given that there aren't a lot of these that's probably negligible.
+Please funnel this through the mediatek SoC tree.
 
-That's not a problem IMV.
-
-> What I think is a bit more unnatural about it in this case is that we
-> embed the struct syscore into some driver-private data anyway so that
-> it becomes per instance, and then we have a circular reference:
->
->         foo->syscore.ops =3D &foo_syscore_ops;
->         foo->syscore.data =3D foo;
-
-That depends because "data" need not be "foo" in all cases, but also
-see above.  If the initialization of struct syscore_ops is all done by
-register_syscore_ops(), it doesn't look circular any more.
-
-> Which looks kind of weird. Alternatively I suppose we could completely
-> rework it and make register_syscore_ops() allocate struct syscore, and
-> hide the internals from drivers completely:
->
->         err =3D register_syscore(&foo_syscore_ops, foo);
->
-> With that it may be problematic that register_syscore() can now fail.
-
-Yes, that might be a problem.
+Yours,
+Linus Walleij
 
