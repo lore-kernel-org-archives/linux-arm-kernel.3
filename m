@@ -4,69 +4,176 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A24EC83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 09:32:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C9CEC83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 09:34:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Da739bwPyzQ7G/L23+gHR9/t8GlZz/n/c0y0bZk0xxs=; b=hPaX/cUt1p8a/OjIg2Y2KJGvBM
-	bNy0wwxGUfWuVH+Inw5467407DuCOo37WF4FVS2Bzahq6cEX4B84QHByKnZipo8S12IRm09lk91Lv
-	PCSnJzOYQ8qY3urIGcunai9tl98yh5/T/aLW0qgyt6NJYhg6CWESYaOuKR4N27XcpyTlvkTmUQbOM
-	X4rewDDm8SMocBQBeG+OTpaHbBxAjLYxDgv8xIcJ21jClQj8xyTkzRD1OCa4W5bWyYWLtwnGoxrIY
-	9cgrt1EL3Z8vqiNZ59lc6A/dwxCflsX4Fei6po/RUJFYYipvlcvCt4xfhkDDwRI+d+T0c+llN60Wg
-	TU11tZGQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YDlab+WoMlh3WvpFRAqch8rh4EcSLqpq/wpTMR/0938=; b=qCG6g1s1PwBXCZv7AhKORrFRy2
+	qmdkpQiwBZnNa6aktxrfMO+uYK8rbb+uBJjibAXS7QHYLvLbFv0z11p5li10QPYI4fAc9gSQOuJ3u
+	zRDBKNu1yliYrbiO9RjbpnIcxL5NOAgbUpoGL1Dd0CiYZ8XKrDs7Uhy1h4V+wg9L0WzGMfwB5/hlq
+	5oT0xxTJiI6HRdjgZIybNnq+n5pN7VtALvJrcmw0+UVdP5b+DzGRHVAAhxK7QmBF10Kas7X5BQtHS
+	+07KKb7zXa65HEaTrCxI/whCzdd9Hx/16sjc03lXLn+rZn7s9JgubDI6h7wEGYSJbEwzhsR7AcIjK
+	6pQtFqEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueVpa-00000004W55-1RQz;
-	Wed, 23 Jul 2025 09:32:10 +0000
-Received: from smtp.forwardemail.net ([149.28.215.223])
+	id 1ueVs1-00000004WU4-1ULB;
+	Wed, 23 Jul 2025 09:34:41 +0000
+Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueVI3-00000004QuB-2kuE
+	id 1ueVKC-00000004RWC-2OIO
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Jul 2025 08:57:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
- h=Content-Transfer-Encoding: MIME-Version: References: In-Reply-To:
- Message-ID: Date: Subject: Cc: To: From; q=dns/txt; s=fe-e1b5cab7be;
- t=1753261051; bh=Da739bwPyzQ7G/L23+gHR9/t8GlZz/n/c0y0bZk0xxs=;
- b=sNwP9gITXW9vHHwZJbtJ0E4DqH6c7yKCN0oi9FPDbkjeEx6p2fC6EHjHeVjitKKaBcwzXBwY8
- 6SBqmCzso4iVr9B4aNE0k9DQrgJ6Ap3evQ7tFKoXFoCx9uZuAMN0pbFkswNOfcF6kdv+tWalQXx
- sSTNGK5m9SVuppvwzKI2FhvfVm5dmfkVMjV2Uu59IAfmvxOx0g8kBOMKZ1H+OvG2h+NYp8T1POL
- 7RaWPdLjG8qO6PIm+ngPcD9OvNMeAa17wAB/HtilElEgKW+BA62yLrq+zJPKt+YXbwVjLNvIFaS
- fMnnC7BhEBfE8q1BMHZ9EHimGCAybohZKPCt0l3gp+2w==
-X-Forward-Email-ID: 6880a3f1144dc4a5e5baee5e
-X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
- 149.28.215.223
-X-Forward-Email-Version: 1.1.6
-X-Forward-Email-Website: https://forwardemail.net
-X-Complaints-To: abuse@forwardemail.net
-X-Report-Abuse: abuse@forwardemail.net
-X-Report-Abuse-To: abuse@forwardemail.net
-From: Jonas Karlman <jonas@kwiboo.se>
-To: Heiko Stuebner <heiko@sntech.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: Yao Zi <ziyao@disroot.org>,
-	Chukun Pan <amadeus@jmu.edu.cn>,
-	devicetree@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Jonas Karlman <jonas@kwiboo.se>
-Subject: [PATCH v2 5/5] arm64: dts: rockchip: Enable more power domains for RK3528
-Date: Wed, 23 Jul 2025 08:56:47 +0000
-Message-ID: <20250723085654.2273324-6-jonas@kwiboo.se>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20250723085654.2273324-1-jonas@kwiboo.se>
-References: <20250723085654.2273324-1-jonas@kwiboo.se>
-MIME-Version: 1.0
+	Wed, 23 Jul 2025 08:59:45 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=oXirgwlfWfDWHM84uY7xdEAlqQVZeZBdbvuyPfkkrqIzS5KPgKv8LpmDf+YyuFC6LaAcMtdr94JIfFG92TfwI3h3wLn6ROTq8Agj5+MxzIGwf96Z+an/Dc+ug07OPA/j4KM4HCI4sqDm4ruNa9uM7gAvHQRzhmh8t2/xKYToSJKI/lldsfqWAkfUQJP8fnJe7dY1qf5UIE25UG400HPMr6eOFbamzJhuhn4SqNFzTG7Gxzci7WJbsnu83fP2kFtg6NT/mRcwwzYAR4mP2GIKcfSO+QldIlJSb3EboNYLDYfsAAPmKR2NmtlqSiIY3uQG+Z9Pe/olCSOpFraIhgFoiA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=YDlab+WoMlh3WvpFRAqch8rh4EcSLqpq/wpTMR/0938=;
+ b=egVI/yYxh66U5wb7l2tM3RiA6FjP56yryYWp3b5deCcHvPFc3c2G+CWyG/mzxp9bfztEPaNXC+mVOhuG0P6vDfYDYhigtxnjiLCtAu/18DPl3aIbOQen6irE1Hd8Yg6164V/nXAUo7JVwHTlkAJyUtAspKRZ7eQN+2siXqK6XxdG29lI5Q2m3hkDa5CaLRL6/2kihv9adOWDwKTJK/sUxKSdX7Oi21RzUrWssg0DH3/a4toUS0lESvFPjvy81qpNxckyeuMPC/5qARJm7wXL/Ho6V4waCqERNPKLtCGbZBMA1mt1A1qJR1QFQnEb1GE/uE0rQ0L3F0qwswjsOFmPWg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=YDlab+WoMlh3WvpFRAqch8rh4EcSLqpq/wpTMR/0938=;
+ b=Cp3YSihDscnivgq5KWgsdA9L06dpzZQDkynyAAaA9FlbPV7TNPWvPvpYSNJucb2l+5tLLMOh3T+AIN9CushmLMWMECha1Xqe7vcY5gxHXBAD2Tg2uuPr4O46aCUSPbCVZxrWXUKis93bWod7SHMPj9ULJCZigArkO228Bju4SqN65dwwn9sdgel5GpNJmYE3NdxKRhSMBTKWwhhCxLatMIl2UaxHE/5IMkFLqhPDpkHRnAc4ecshbpVxLS7stmB1Btg1N2wSHg95PufjMyjNsanDEhBDIsNe2ls5IiVSW/VD1/1oojB+23aN6iD1qdhNDnuvKtAj0d/v1dVD/u2tpw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AM7PR04MB7046.eurprd04.prod.outlook.com (2603:10a6:20b:113::22)
+ by DU4PR04MB10315.eurprd04.prod.outlook.com (2603:10a6:10:56b::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8964.21; Wed, 23 Jul
+ 2025 08:59:38 +0000
+Received: from AM7PR04MB7046.eurprd04.prod.outlook.com
+ ([fe80::d1ce:ea15:6648:6f90]) by AM7PR04MB7046.eurprd04.prod.outlook.com
+ ([fe80::d1ce:ea15:6648:6f90%5]) with mapi id 15.20.8964.019; Wed, 23 Jul 2025
+ 08:59:37 +0000
+Message-ID: <adf144c9-3c36-4806-b1bc-9122d511f338@nxp.com>
+Date: Wed, 23 Jul 2025 17:01:11 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/4] dt-bindings: display: imx: add binding for i.MX8MP
+ HDMI PAI
+To: Shengjiu Wang <shengjiu.wang@gmail.com>
+Cc: Shengjiu Wang <shengjiu.wang@nxp.com>, andrzej.hajda@intel.com,
+ neil.armstrong@linaro.org, rfoss@kernel.org,
+ Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
+ jernej.skrabec@gmail.com, maarten.lankhorst@linux.intel.com,
+ mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
+ lumag@kernel.org, dianders@chromium.org, cristian.ciocaltea@collabora.com,
+ luca.ceresoli@bootlin.com, dri-devel@lists.freedesktop.org,
+ linux-kernel@vger.kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de,
+ kernel@pengutronix.de, festevam@gmail.com, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, p.zabel@pengutronix.de, devicetree@vger.kernel.org,
+ l.stach@pengutronix.de
+References: <20250718101150.3681002-1-shengjiu.wang@nxp.com>
+ <20250718101150.3681002-4-shengjiu.wang@nxp.com>
+ <a5621775-5032-4422-80bb-5f8f60351dbe@nxp.com>
+ <CAA+D8ANb7kZETxO_CQazoz6-DiNCOGivLhJVwhw9p78ynP1ntQ@mail.gmail.com>
+From: Liu Ying <victor.liu@nxp.com>
+Content-Language: en-US
+In-Reply-To: <CAA+D8ANb7kZETxO_CQazoz6-DiNCOGivLhJVwhw9p78ynP1ntQ@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: MA0PR01CA0078.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a01:ad::20) To AM7PR04MB7046.eurprd04.prod.outlook.com
+ (2603:10a6:20b:113::22)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM7PR04MB7046:EE_|DU4PR04MB10315:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8b2559c2-9d9e-4106-3e15-08ddc9c7407f
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|7416014|1800799024|376014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?b3FjaFFBNVlBNjIrUUJzQURDVUZZN0NGZjhoNHVlUlZ4RUVuSHJ3UnR3OW1H?=
+ =?utf-8?B?bzBKTndtMEE4ZkFodVJ2RlJFVmY3YjZaNlhvbmZ3WG1RTEk5SXlieXNWTEwv?=
+ =?utf-8?B?eExiRUw0cGNZKzR0cVZZUUtDNzhrbC90c0RYSU1RblI4NGYvWWhPcDZFVU1R?=
+ =?utf-8?B?TTZaaC9KUmVaZ0FnWW5iL1Q1dGdSVmVCR3JVRFg3L280MC9na09lQ2duN2Nj?=
+ =?utf-8?B?clNScTRnQ2M3aEhEcHZlUnRYRi9jaW04YjN5UjY1NG4yRzhMeWpSZkRqeGxN?=
+ =?utf-8?B?WHQyamxWSjE5aWJna3BFSHZrWWtOOVZXcWVxSmV0SHdGNjUyNWVDamgrTjdB?=
+ =?utf-8?B?Vnc2MEwrOWpvdnB5Ky92d1hrMFR5WE9OTnZlZHd2QkVoZUtieERkK3RHU3E3?=
+ =?utf-8?B?TXpwcEI2SDBRa3BVQWhzdmt5VzFkWHNma2Q4ajA3ZFpxaDdFQy81VmNuYUJN?=
+ =?utf-8?B?LzNseHJRNktKV3U5UnJXTmhYa0ZEZThmcnRjYmViRWJiL05iaG1HZW84VE4x?=
+ =?utf-8?B?Y2pGZ1FxeDJJVzV1UUNBb3c5SlQ1RXhtTjZoUjJnNVRQcTNnaEdyRmNIR1J3?=
+ =?utf-8?B?VHVJWjVsOWxYcGk3aU40d3VuMDNMazRqMmpoL0hTc2MzZXZhNjVVdlhmWGp1?=
+ =?utf-8?B?YkJuUzVjMi9TcUJIN3FnT2ZDOE84MU9WTy9oRUErbXVpTEhkNHMySjlQNFhD?=
+ =?utf-8?B?UGVsd1RTVFVvOGwwUDk1MEpwREs1cGRVdU1EQzJOQVlqbmVOZ3RGczVqcXFv?=
+ =?utf-8?B?d0V3RW02MzhWdjBSN0lqZUthd1NEcWdOOVRkMGxlK1d6V29Nb1l0b2ljdjFk?=
+ =?utf-8?B?ejlaV1dnNXIyNi9udThMai81NUxMMENhbjVuSW9TK0U1N2Zpb2pmOWlkbzhJ?=
+ =?utf-8?B?azhGRXdXSDE1clJReUIvRUdGa3hTYW9XVHhQUzNnUjgzM0xjYXc0RmFXZGx5?=
+ =?utf-8?B?YWliZEtzTGk2VjVXQTNyZFY2Z1FyK0gyVk1aUE1kWWdocTFmYk9PaFUrQlFR?=
+ =?utf-8?B?K2w4NEhPbktPUkprbzFteDREUU4yMjg1Y0VGUVhQbUx0SU8zdStVVllocnlV?=
+ =?utf-8?B?NXprUE5MWjRmRHZWYjhvVmRjZk52OXBWVWdkc2g4MldZRUY2ZnB1OFY4TGtK?=
+ =?utf-8?B?Y1dSaUEvbFVLa1I2Wk5DVStKd2YvdThwOTBQRGw3MTRBWW04Z0N2VzFuL01U?=
+ =?utf-8?B?cHpQQ3V2NkV4dFFPVEltOE1RTDR6Y2tVNTREVmx2bmFDYkJSYi8vdU9kVzN5?=
+ =?utf-8?B?TlBYOHdtOWlxVkQ4bWhRK1dPYTdnc3o1Z0JQTlMvL2NRU0pDaFhOZ0wyK2lr?=
+ =?utf-8?B?S1RTOHNwY083WEhXZDduek1TTVdjQVNtU21OU1RsMVF6UklvSFNTQWRONTdY?=
+ =?utf-8?B?akVTZ3hyeGUyaUkxUjlKUjRaWGNNWEZOakp2TTBPVGxDeEsvblBWTEpOY2Ji?=
+ =?utf-8?B?OWg5Rjc2Z2RNeit4R3FrbiszTFdyMmZORmJhUTZPbWZUOVhIY0pjelhob3hs?=
+ =?utf-8?B?bWgrUHFweGJqd2xxYWt3U3BlYzdDdHByK25Ta1ZQYVZpWVJJQ1FIK1FSWWcv?=
+ =?utf-8?B?NUtNOTArWHI3MGhBN0k0RHViV2VXaUtjTm9vNEhuT1JqSHVLWWxIWWZXeGhV?=
+ =?utf-8?B?aTA5UCtDUGN6ODNPS0tsTGF0K2REajJYYVp3YSsvdHd6aUNtb3NWeFo1NnFp?=
+ =?utf-8?B?Tjh1MTZ6aWE4a3VEaU5Oa01NWnMydEVZYVA2VE92NWQzeFFUY1QyQXkvOU5h?=
+ =?utf-8?B?YUNFcjAzSGExU1JmY2xGckM1NUc2ZGIvR2F4YTg3ZDVVQWRGZk1VVFpmRHNV?=
+ =?utf-8?B?aWRvWnBSWkc4UzlKYjRYcHEvbEZFT3hINU5ycTVVT1NrRDlxUUtWYVl5Z3Zz?=
+ =?utf-8?B?TVpHWGxjUzEvcjdZS3lVWG9EQ2svQzBsUk10Y285MkVneWc9PQ==?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM7PR04MB7046.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(7416014)(1800799024)(376014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?cE41VlpRc3I0eGV4OGt1QUxCWVdUaFNySmI1SDBtVWpGRnQ1b053NnhsVEZa?=
+ =?utf-8?B?MVZsdmZLU0ZFd1VjcVVTMU4rSENlU1NMZFdoNWRSck1rMU5tV0dHdzhONGFn?=
+ =?utf-8?B?emF5UkhRNWNSdkNRMWRTWjVSMU1ZOGdEQXl3N1NSdThlRHQ4V2dXdG4xbzBx?=
+ =?utf-8?B?dW9RNCtBK1pnZ1VhcWx4SXlibVFGN1BHOGphSWVwWjJ0bENxQ2k2WHFPVU92?=
+ =?utf-8?B?YmQxOFJDbGcxeFBEWkVsU3pyUW55aklCYVZ6SjJ1cFNDUEEzSjhHV3Evamwr?=
+ =?utf-8?B?OVpqemticmE2OHNsYitxYjhibjZUSlJoK1JURDZrNWUva05LZ1VadExJTTNM?=
+ =?utf-8?B?SldObDhVMHJVTXA1Y0daODF3VWt4MzA2b2YyZHNoNlRKVHpibnJpOUZtdi9C?=
+ =?utf-8?B?RWNZWWlvSTg5bWpRbmFsYlFDbmx5bS8rekExWnZXRERBVEtKMzA3Yk9rbkw0?=
+ =?utf-8?B?a1RMTis1N3hPMC9kbVZlMlZHTmV0d2kyNGttRFoxNWRzb2dLVkVoRDZVc0Nv?=
+ =?utf-8?B?MGJjS2NaN1JRUXkvdGk0NFBpNHVMRkpsZUMxL2F6eFZsandJeStvSGdhZVR1?=
+ =?utf-8?B?UG9qSmdYWWF3anl6OEFiemxSM0V5cVk1V1Y1bVMrcnE5YWh5TE44dEZ6ckJv?=
+ =?utf-8?B?blRucTJGemtFVFozS2dpYk1DS0tFN3d5ZWhaaW5iWGl2SFA3UXJBbkN0Qnlm?=
+ =?utf-8?B?aHE5R3lSNXUrYWwrTVhHUHM4T0dYMm0reDZHSW81bUVmejJBTHZMWmhmZnoy?=
+ =?utf-8?B?cGh0d3ovV2lPMnpBZWR5ZTU2Y1EyMkh6UWdRZXVZNU0vSy9mNDJGK1hFck9l?=
+ =?utf-8?B?QTRCTW1JLzh3NGR4a3JEVk5mYzZrMXFHZTJqQ0VxdGV5ZVB5dGdJdXNzalY5?=
+ =?utf-8?B?Y1ZzV0lmcHM5RmhWR2tZeFNiK3lHcnB1NEJnMHpLOFBVZDlnMXNaNEhvRjlN?=
+ =?utf-8?B?OXBnZDJyVUdhREcveHVNamU3dXl2WmF0NURtbWhDRWpKZ3l1a1dUOTJ4Qk9j?=
+ =?utf-8?B?b21nSTZhVnNJbUZLTUJGMG0zdHhxelFhNFVTaS9CTEM2ZUpUdUgvOGZGa1VE?=
+ =?utf-8?B?aEo1YkxDQitFaW9iSjVEUk0zbFJTSndKYk5NMUlueHZ5d3RERDJZN1ZjUnI4?=
+ =?utf-8?B?dExLQWJUMThkdkZiTk8xRzAzTUNVT2Y2MjlwTERwSnk1bFVDc3piN0REV3FW?=
+ =?utf-8?B?UWtyS2E4Rjc4RWtWaHluTkNKYUl1cEpRSnZVSnBvbEFKcWNVU2dZVmJvVXRq?=
+ =?utf-8?B?YXVmVTJydkZ5ZDl5cllrMzBWanhpU1piRisrMlNONXlUeko1dzc0UU5hVXAy?=
+ =?utf-8?B?b0g3RmFKY1R0VXpuUDh3SnhwTlhubGhud2JjQjJmVSsxdnlQdHRjNk9Rd0NK?=
+ =?utf-8?B?Q2VYOXJJTk5ML0IrS2hNNEhPa0VYVTMycWhYZGR0MXUyT1k0cW9VTjZhYjVK?=
+ =?utf-8?B?eG44djBVdU1taWpjSHBzbmgzVjFOaE5ldHZQYk9BYm5kalBpa0pUNzlLVmpr?=
+ =?utf-8?B?UWwyeVg5ZXZVazR2cXFkcmwvNUJFNkpERXMzalNPazV3QWFXOE5UMFBmcGlD?=
+ =?utf-8?B?c2psQkxLdzRlM0RJeFZmaTB4bzI1WHIxRkx5alV4N0xFdUxUVktVUVNXUkFt?=
+ =?utf-8?B?eG80T1RKSUVqMmwwZkEza081VjU4SGZ2ZHR4Z0hCT0U0YnFQSGtyNkdZdEpO?=
+ =?utf-8?B?SnMvdlFUZkd1NVdoNmxsWmJ2bWY5Tkg0QWdQbld6V3UwVG1icStld0dLZjJr?=
+ =?utf-8?B?MGx3aSttUmlmRnF5UzRYRUpYTlNGVXdzdk1YM2txemJVK0ljZHU5QWVZNXV0?=
+ =?utf-8?B?UDQzSzh2a1o5Zy9LMWZtTWtOQkhNRjE1a1NuMHNNWmN5OWx5dGVaRUhrck5H?=
+ =?utf-8?B?bzFpaGNWMWJvZW9wYXZDalhhaXo1RFZlOVJhMVdkdmZEaGVLTXlINXl6eWRM?=
+ =?utf-8?B?K2pqRkdBMUJKUXN6dytrMURFWXJrTWJHVDAvVG5sY2hHNHVsblh5Slh5OHk4?=
+ =?utf-8?B?MHZ2RUkwSGhiMGIwWGk4WnlCU2FlMFRKMW5CR2NSR3I3dEZwSDNjSmo5Mzc0?=
+ =?utf-8?B?V0xEUkNBbWF4cTNMMWpucFZVV3ZuK0FmNXQvTHRvMlJObWw4SmlXeXRmTEVM?=
+ =?utf-8?Q?E9nqa9gZEJcHwUJGBfdZO1Sr5?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8b2559c2-9d9e-4106-3e15-08ddc9c7407f
+X-MS-Exchange-CrossTenant-AuthSource: AM7PR04MB7046.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Jul 2025 08:59:37.7657
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: cwNymLuPDMw8hWPOMlvYEC/7Z7++1PLAlobZd/DhsVauikosbMHr/uGl9AYtwnqBvVlEx6pFOCVpfxPK2/39UQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB10315
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250723_015731_739741_D852B9A6 
-X-CRM114-Status: GOOD (  11.64  )
+X-CRM114-CacheID: sfid-20250723_015944_605706_F938B29D 
+X-CRM114-Status: GOOD (  14.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,267 +188,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Describe device power-domains and enable the PD_RKVENC, PD_VO and PD_VPU
-power-domains on RK3528.
+On 07/23/2025, Shengjiu Wang wrote:
+> On Tue, Jul 22, 2025 at 3:16 PM Liu Ying <victor.liu@nxp.com> wrote:
+>>
+>> Hi Shengjiu,
+>>
+>> On 07/18/2025, Shengjiu Wang wrote:
+>>> Add binding for the i.MX8MP HDMI parallel Audio interface block.
+>>> As this port is linked to imx8mp-hdmi-tx, add port@2 in
+>>> fsl,imx8mp-hdmi-tx.yaml document.
+>>>
+>>> Signed-off-by: Shengjiu Wang <shengjiu.wang@nxp.com>
+>>> ---
+>>>  .../display/bridge/fsl,imx8mp-hdmi-tx.yaml    | 13 ++++
+>>>  .../display/imx/fsl,imx8mp-hdmi-pai.yaml      | 61 +++++++++++++++++++
+>>>  2 files changed, 74 insertions(+)
+>>>  create mode 100644 Documentation/devicetree/bindings/display/imx/fsl,imx8mp-hdmi-pai.yaml
 
-The PD_RKVDEC is used by RKVDEC and DDRPHY CRU, and is kept disabled to
-prevent a full system reset trying to read the rate of the SCMI_CLK_DDR
-clock.
+[...]
 
-Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
----
-Changes in v2:
-- Add power-domains for spi nodes
-- Rebased on top of next-20250722
----
- arch/arm64/boot/dts/rockchip/rk3528.dtsi | 30 +++++++++++++++++++++---
- 1 file changed, 27 insertions(+), 3 deletions(-)
+>>> +properties:
+>>
+>> In i.MX8MP TRM, HTX_PAI block diagram mentions an APB interface.
+>> Does it mean a clock is needed?
+> 
+> The APB clock is bound with the power domain, so no need to add it here.
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3528.dtsi b/arch/arm64/boot/dts/rockchip/rk3528.dtsi
-index 54fa8089c4d3..85bc3f5aa2c7 100644
---- a/arch/arm64/boot/dts/rockchip/rk3528.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3528.dtsi
-@@ -155,6 +155,7 @@ gpio1: gpio@ffaf0000 {
- 			gpio-ranges = <&pinctrl 0 32 32>;
- 			interrupt-controller;
- 			#interrupt-cells = <2>;
-+			power-domains = <&power RK3528_PD_VPU>;
- 		};
- 
- 		gpio2: gpio@ffb00000 {
-@@ -167,6 +168,7 @@ gpio2: gpio@ffb00000 {
- 			gpio-ranges = <&pinctrl 0 64 32>;
- 			interrupt-controller;
- 			#interrupt-cells = <2>;
-+			power-domains = <&power RK3528_PD_VO>;
- 		};
- 
- 		gpio3: gpio@ffb10000 {
-@@ -179,6 +181,7 @@ gpio3: gpio@ffb10000 {
- 			gpio-ranges = <&pinctrl 0 96 32>;
- 			interrupt-controller;
- 			#interrupt-cells = <2>;
-+			power-domains = <&power RK3528_PD_VPU>;
- 		};
- 
- 		gpio4: gpio@ffb20000 {
-@@ -191,6 +194,7 @@ gpio4: gpio@ffb20000 {
- 			gpio-ranges = <&pinctrl 0 128 32>;
- 			interrupt-controller;
- 			#interrupt-cells = <2>;
-+			power-domains = <&power RK3528_PD_RKVENC>;
- 		};
- 	};
- 
-@@ -501,7 +505,6 @@ power-domain@RK3528_PD_RKVENC {
- 					reg = <RK3528_PD_RKVENC>;
- 					pm_qos = <&qos_rkvenc>;
- 					#power-domain-cells = <0>;
--					status = "disabled";
- 				};
- 				power-domain@RK3528_PD_VO {
- 					reg = <RK3528_PD_VO>;
-@@ -515,7 +518,6 @@ power-domain@RK3528_PD_VO {
- 						 <&qos_vdpp>,
- 						 <&qos_vop>;
- 					#power-domain-cells = <0>;
--					status = "disabled";
- 				};
- 				power-domain@RK3528_PD_VPU {
- 					reg = <RK3528_PD_VPU>;
-@@ -529,7 +531,6 @@ power-domain@RK3528_PD_VPU {
- 						 <&qos_usb3otg>,
- 						 <&qos_vpu>;
- 					#power-domain-cells = <0>;
--					status = "disabled";
- 				};
- 			};
- 		};
-@@ -571,6 +572,7 @@ spi0: spi@ff9c0000 {
- 			interrupts = <GIC_SPI 131 IRQ_TYPE_LEVEL_HIGH>;
- 			dmas = <&dmac 25>, <&dmac 24>;
- 			dma-names = "tx", "rx";
-+			power-domains = <&power RK3528_PD_RKVENC>;
- 			#address-cells = <1>;
- 			#size-cells = <0>;
- 			status = "disabled";
-@@ -585,6 +587,7 @@ spi1: spi@ff9d0000 {
- 			interrupts = <GIC_SPI 132 IRQ_TYPE_LEVEL_HIGH>;
- 			dmas = <&dmac 31>, <&dmac 30>;
- 			dma-names = "tx", "rx";
-+			power-domains = <&power RK3528_PD_VPU>;
- 			#address-cells = <1>;
- 			#size-cells = <0>;
- 			status = "disabled";
-@@ -609,6 +612,7 @@ uart1: serial@ff9f8000 {
- 			clock-names = "baudclk", "apb_pclk";
- 			interrupts = <GIC_SPI 41 IRQ_TYPE_LEVEL_HIGH>;
- 			dmas = <&dmac 11>, <&dmac 10>;
-+			power-domains = <&power RK3528_PD_RKVENC>;
- 			reg-io-width = <4>;
- 			reg-shift = <2>;
- 			status = "disabled";
-@@ -621,6 +625,7 @@ uart2: serial@ffa00000 {
- 			clock-names = "baudclk", "apb_pclk";
- 			interrupts = <GIC_SPI 42 IRQ_TYPE_LEVEL_HIGH>;
- 			dmas = <&dmac 13>, <&dmac 12>;
-+			power-domains = <&power RK3528_PD_VPU>;
- 			reg-io-width = <4>;
- 			reg-shift = <2>;
- 			status = "disabled";
-@@ -633,6 +638,7 @@ uart3: serial@ffa08000 {
- 			clock-names = "baudclk", "apb_pclk";
- 			interrupts = <GIC_SPI 43 IRQ_TYPE_LEVEL_HIGH>;
- 			dmas = <&dmac 15>, <&dmac 14>;
-+			power-domains = <&power RK3528_PD_RKVENC>;
- 			reg-io-width = <4>;
- 			reg-shift = <2>;
- 			status = "disabled";
-@@ -645,6 +651,7 @@ uart4: serial@ffa10000 {
- 			clock-names = "baudclk", "apb_pclk";
- 			interrupts = <GIC_SPI 44 IRQ_TYPE_LEVEL_HIGH>;
- 			dmas = <&dmac 17>, <&dmac 16>;
-+			power-domains = <&power RK3528_PD_VO>;
- 			reg-io-width = <4>;
- 			reg-shift = <2>;
- 			status = "disabled";
-@@ -657,6 +664,7 @@ uart5: serial@ffa18000 {
- 			clock-names = "baudclk", "apb_pclk";
- 			interrupts = <GIC_SPI 45 IRQ_TYPE_LEVEL_HIGH>;
- 			dmas = <&dmac 19>, <&dmac 18>;
-+			power-domains = <&power RK3528_PD_VPU>;
- 			reg-io-width = <4>;
- 			reg-shift = <2>;
- 			status = "disabled";
-@@ -669,6 +677,7 @@ uart6: serial@ffa20000 {
- 			clock-names = "baudclk", "apb_pclk";
- 			interrupts = <GIC_SPI 46 IRQ_TYPE_LEVEL_HIGH>;
- 			dmas = <&dmac 21>, <&dmac 20>;
-+			power-domains = <&power RK3528_PD_VPU>;
- 			reg-io-width = <4>;
- 			reg-shift = <2>;
- 			status = "disabled";
-@@ -681,6 +690,7 @@ uart7: serial@ffa28000 {
- 			clock-names = "baudclk", "apb_pclk";
- 			interrupts = <GIC_SPI 47 IRQ_TYPE_LEVEL_HIGH>;
- 			dmas = <&dmac 23>, <&dmac 22>;
-+			power-domains = <&power RK3528_PD_VPU>;
- 			reg-io-width = <4>;
- 			reg-shift = <2>;
- 			status = "disabled";
-@@ -693,6 +703,7 @@ i2c0: i2c@ffa50000 {
- 			clocks = <&cru CLK_I2C0>, <&cru PCLK_I2C0>;
- 			clock-names = "i2c", "pclk";
- 			interrupts = <GIC_SPI 61 IRQ_TYPE_LEVEL_HIGH>;
-+			power-domains = <&power RK3528_PD_RKVENC>;
- 			#address-cells = <1>;
- 			#size-cells = <0>;
- 			status = "disabled";
-@@ -705,6 +716,7 @@ i2c1: i2c@ffa58000 {
- 			clocks = <&cru CLK_I2C1>, <&cru PCLK_I2C1>;
- 			clock-names = "i2c", "pclk";
- 			interrupts = <GIC_SPI 62 IRQ_TYPE_LEVEL_HIGH>;
-+			power-domains = <&power RK3528_PD_RKVENC>;
- 			#address-cells = <1>;
- 			#size-cells = <0>;
- 			status = "disabled";
-@@ -731,6 +743,7 @@ i2c3: i2c@ffa68000 {
- 			clocks = <&cru CLK_I2C3>, <&cru PCLK_I2C3>;
- 			clock-names = "i2c", "pclk";
- 			interrupts = <GIC_SPI 64 IRQ_TYPE_LEVEL_HIGH>;
-+			power-domains = <&power RK3528_PD_VPU>;
- 			#address-cells = <1>;
- 			#size-cells = <0>;
- 			status = "disabled";
-@@ -745,6 +758,7 @@ i2c4: i2c@ffa70000 {
- 			interrupts = <GIC_SPI 65 IRQ_TYPE_LEVEL_HIGH>;
- 			pinctrl-names = "default";
- 			pinctrl-0 = <&i2c4_xfer>;
-+			power-domains = <&power RK3528_PD_VO>;
- 			#address-cells = <1>;
- 			#size-cells = <0>;
- 			status = "disabled";
-@@ -757,6 +771,7 @@ i2c5: i2c@ffa78000 {
- 			clocks = <&cru CLK_I2C5>, <&cru PCLK_I2C5>;
- 			clock-names = "i2c", "pclk";
- 			interrupts = <GIC_SPI 66 IRQ_TYPE_LEVEL_HIGH>;
-+			power-domains = <&power RK3528_PD_VPU>;
- 			#address-cells = <1>;
- 			#size-cells = <0>;
- 			status = "disabled";
-@@ -769,6 +784,7 @@ i2c6: i2c@ffa80000 {
- 			clocks = <&cru CLK_I2C6>, <&cru PCLK_I2C6>;
- 			clock-names = "i2c", "pclk";
- 			interrupts = <GIC_SPI 67 IRQ_TYPE_LEVEL_HIGH>;
-+			power-domains = <&power RK3528_PD_VPU>;
- 			#address-cells = <1>;
- 			#size-cells = <0>;
- 			status = "disabled";
-@@ -783,6 +799,7 @@ i2c7: i2c@ffa88000 {
- 			interrupts = <GIC_SPI 68 IRQ_TYPE_LEVEL_HIGH>;
- 			pinctrl-names = "default";
- 			pinctrl-0 = <&i2c7_xfer>;
-+			power-domains = <&power RK3528_PD_VO>;
- 			#address-cells = <1>;
- 			#size-cells = <0>;
- 			status = "disabled";
-@@ -874,6 +891,7 @@ saradc: adc@ffae0000 {
- 			clocks = <&cru CLK_SARADC>, <&cru PCLK_SARADC>;
- 			clock-names = "saradc", "apb_pclk";
- 			interrupts = <GIC_SPI 140 IRQ_TYPE_LEVEL_HIGH>;
-+			power-domains = <&power RK3528_PD_VPU>;
- 			resets = <&cru SRST_P_SARADC>;
- 			reset-names = "saradc-apb";
- 			#io-channel-cells = <1>;
-@@ -894,6 +912,7 @@ gmac0: ethernet@ffbd0000 {
- 			interrupt-names = "macirq", "eth_wake_irq";
- 			phy-handle = <&rmii0_phy>;
- 			phy-mode = "rmii";
-+			power-domains = <&power RK3528_PD_VO>;
- 			resets = <&cru SRST_A_MAC_VO>;
- 			reset-names = "stmmaceth";
- 			rockchip,grf = <&vo_grf>;
-@@ -952,6 +971,7 @@ gmac1: ethernet@ffbe0000 {
- 			interrupts = <GIC_SPI 121 IRQ_TYPE_LEVEL_HIGH>,
- 				     <GIC_SPI 124 IRQ_TYPE_LEVEL_HIGH>;
- 			interrupt-names = "macirq", "eth_wake_irq";
-+			power-domains = <&power RK3528_PD_VPU>;
- 			resets = <&cru SRST_A_MAC>;
- 			reset-names = "stmmaceth";
- 			rockchip,grf = <&vpu_grf>;
-@@ -1002,6 +1022,7 @@ sdhci: mmc@ffbf0000 {
- 			pinctrl-names = "default";
- 			pinctrl-0 = <&emmc_bus8>, <&emmc_clk>, <&emmc_cmd>,
- 				    <&emmc_strb>;
-+			power-domains = <&power RK3528_PD_VPU>;
- 			resets = <&cru SRST_C_EMMC>, <&cru SRST_H_EMMC>,
- 				 <&cru SRST_A_EMMC>, <&cru SRST_B_EMMC>,
- 				 <&cru SRST_T_EMMC>;
-@@ -1023,6 +1044,7 @@ sdio0: mmc@ffc10000 {
- 			max-frequency = <200000000>;
- 			pinctrl-names = "default";
- 			pinctrl-0 = <&sdio0_bus4>, <&sdio0_clk>, <&sdio0_cmd>;
-+			power-domains = <&power RK3528_PD_VPU>;
- 			resets = <&cru SRST_H_SDIO0>;
- 			reset-names = "reset";
- 			status = "disabled";
-@@ -1042,6 +1064,7 @@ sdio1: mmc@ffc20000 {
- 			max-frequency = <200000000>;
- 			pinctrl-names = "default";
- 			pinctrl-0 = <&sdio1_bus4>, <&sdio1_clk>, <&sdio1_cmd>;
-+			power-domains = <&power RK3528_PD_VPU>;
- 			resets = <&cru SRST_H_SDIO1>;
- 			reset-names = "reset";
- 			status = "disabled";
-@@ -1062,6 +1085,7 @@ sdmmc: mmc@ffc30000 {
- 			pinctrl-names = "default";
- 			pinctrl-0 = <&sdmmc_bus4>, <&sdmmc_clk>, <&sdmmc_cmd>,
- 				    <&sdmmc_det>;
-+			power-domains = <&power RK3528_PD_VO>;
- 			resets = <&cru SRST_H_SDMMC0>;
- 			reset-names = "reset";
- 			rockchip,default-sample-phase = <90>;
+That depends on OS's power domain driver implementation.
+From DT's point of view, the APB clock should be a property here.
+
+> 
+>>
+>>> +  compatible:
+>>> +    const: fsl,imx8mp-hdmi-pai
+>>> +
+>>> +  reg:
+>>> +    maxItems: 1
+>>> +
+>>> +  interrupts:
+>>> +    maxItems: 1
+>>> +
+>>> +  power-domains:
+>>> +    maxItems: 1
+>>> +
+>>> +  port:
+>>> +    $ref: /schemas/graph.yaml#/properties/port
+>>> +    description: Output to the HDMI TX controller.
+>>> +    unevaluatedProperties: false
+>>
+>> Why do you need this line?
+> 
+> per my understanding, this line can be added or removed.
+
+I'd choose to drop it :)
+
+[...]
+
 -- 
-2.50.1
-
+Regards,
+Liu Ying
 
