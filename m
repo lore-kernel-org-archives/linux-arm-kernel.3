@@ -4,133 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3F2AC83F25
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 03:32:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E317EC83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 03:45:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GcRiJdqepO/ljPzq51yX3pTfKYPsMIe1eMnpPQHw5lM=; b=V9SmyGhERlDQJCjdiatyQpunJD
-	6X2lhGU1lUhOxWXo2hrloqqbURb/8Lvdo7diakMEOkK+6cpkb+ZTmOtwRzitzOg1iyOmy2a7FO49q
-	IXILXgAeHgvW3AmLStA/eZv9mT+DdNrAgnfxi7SD9Zs5pfCqhO8BBe36RU50DOEA8MW8oMiNeYsvP
-	Y/TSmlxXB5tse0EV2K/Qldt0ixftAUrWbnqwaafpTV779J+cfG59Fp4lvC/sXpOvRhSuXbEBAg8Xu
-	MtrFVOzhWGZYXOkHUUEfE/+jXVcp3S5XHrbJdl3r/+gpgaCGj8ahWHndRme+aPSJ7DmcQ0dgsU/nd
-	LfHubQkg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=zYRwMvyfo/b0Z0fdscYgn1jvIel8XvwropGmloEytZI=; b=wQHrizaQfzRNb+
+	9bPZWHNqqHqMEX2K+5PmPWJXZtC7wZmPyxb66ajDHkOJjBt1DuoSfntuuOb/nemfShieuNu4dfyQr
+	k/5+AiWszt9zZABjgGkINL1J/C4KgrX3ZGe5ar+T8IXo/4O82qVk5ntmhS5fH2eDpUR9++7ziN9ul
+	vtYLqicQGkGdE0JOvtVnaKBI2gyB9iBc8Ci6gMBXAWz6JiKO1K/vPWjrD5qyya5q5PHIXqkwGTxgl
+	mzQmK4cE7VJEREextHnFBTQwjWJ6XAZTS1ykL/AaBeSA5gTDGujOpWXb6UCVSW7LfUN0u9SezG3At
+	YPL9wfB2ATusVsM3AcPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueQD2-00000003umT-154w;
-	Wed, 23 Jul 2025 03:32:00 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1ueQQ8-00000003veW-3Ocw;
+	Wed, 23 Jul 2025 03:45:32 +0000
+Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueQAX-00000003uXI-0Pbs
+	id 1ueQNd-00000003vPS-1fd0
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Jul 2025 03:29:26 +0000
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56MMPbm8025878
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Jul 2025 03:29:24 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	GcRiJdqepO/ljPzq51yX3pTfKYPsMIe1eMnpPQHw5lM=; b=LgDDuuYtvjfjdbfk
-	ukxxOgRGVQNnf52cnAPhdd4iAIevLrHx1Yei/W/9VA/sv+fb3OznEBFpv6OAUJQ5
-	NLmJGZUkinfImkPENSzlLxLfDH4o/0cHkIYWr5uQ+XnQsI0fQqw6QuEB8a/vvKKO
-	V9NUegxZMmMuCj1BuidjviST0AdS1BIDmUzIteTbwsrVIyDS+/0ktQxdIsrGWvxB
-	jH2KGjInZi+nfOKBaTlUiVWDfwL6SNdxy+uoTLeyURwMRoC3woHNalcpJyuKHciP
-	Yw6et6miFkG6Ad/Gg7ZCyGDxNl+fa/F0Efat7CJuOEHaGk0OTZXKvxCJlpeOw+Zk
-	YUQHUg==
-Received: from mail-pl1-f200.google.com (mail-pl1-f200.google.com [209.85.214.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 48044dkfrm-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Jul 2025 03:29:23 +0000 (GMT)
-Received: by mail-pl1-f200.google.com with SMTP id d9443c01a7336-234906c5e29so71111635ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Jul 2025 20:29:23 -0700 (PDT)
+	Wed, 23 Jul 2025 03:42:58 +0000
+Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-23f8d27eeeaso13468705ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Jul 2025 20:42:56 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1753242176; x=1753846976; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=zYRwMvyfo/b0Z0fdscYgn1jvIel8XvwropGmloEytZI=;
+        b=DUss4yfT5CxTRIfns/NtuCgJGKkQcW2hGilsS5gdlspf4Ic6AfeoHdGkkzBiqxtoyf
+         EKLooP7ClfcNaSEXew9JFuQtfRrQRKYL8RB+IGUoQ+BVkLKHP1wdIiwtVI5lrOWD08Ky
+         2q+QKGbuLdg/wNR8RkTZNZqvFlpjXitf+ChoFTdPGMpYzOiA85TUGvrrrnfH2hXMBySf
+         zXLXYgYLN/Ju6gyTk2hCvyKLW7NpoETo3rNVZZVmfOwgPKArDnHEd6fv+rPVauCMjFy5
+         xb4ZsUy7kYrT5QNtJnoXWcn/mV4v5fpyD0Ow4Vfn22dWoPD2EUwRe4MMgk5qRIuq3M71
+         mENQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753241362; x=1753846162;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=GcRiJdqepO/ljPzq51yX3pTfKYPsMIe1eMnpPQHw5lM=;
-        b=Jz0unpfg7VfwijEbsr2+1a+ab2zS5wmX7kM+qTwo0UchadQTEfmwS/tJ/Plah93lXn
-         h7Yj0XoGl1SOMYFdsYF4J/i1YYLg0c0vtXm4MsfIxl9sEfGbD7nnVyMEH1F1KvaiWImi
-         EvlaHIbPGaMTCaU9yeRVyKs5kyjKC5qLh56hld4kO1q3v9KDq5rwZmNj8H2GPeS/jVvH
-         Ygxsi220GAwKIkA33nq0G9j/te0Zxuxlz9It4PoPJFy6go0pSzM0rQCBckptvIBcJq8B
-         ZdHXAJjeatC+Ces3kMxRoHDHeXdN3istH9dOyjkau9cayKY7EHvh8rYhVB/y+5Sec9DN
-         +VyQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVjjPXnRIqWlVUmqtP/8HF1JC/ELpYdmqTpQS2U2D4ow5+ZP86E1CQM0AhLRkjjUlly0S7AtyZF21xe1IJT2vvR@lists.infradead.org
-X-Gm-Message-State: AOJu0YxoHPaqaIMrqMexbgFIEYVwVg+ugx1qoWE1FBt29Oz2FTsKQX1j
-	D4aPX0NdDh+Q5j365oRXlcKydWphL2itHa+2l3J5NBvPbf7bbY5fs+mvdJEw7JvlqoNZ+ExKSvx
-	XDgzxmI3PeuqqKiXjUXjQLWwdrTXtSHGXIUhQLFpV0Q9tRIfUNBhZicACyPt4Sb+poXXU6BH47m
-	DOzw==
-X-Gm-Gg: ASbGncuHg18qY3tApAAGNvDlN4ts9UQmGFDk89xz8dJC/15VyH+XbVgGWogpQt/lZQu
-	aIr9jm7z0gjyFrC/q02R+IVKQ3ORupIyFfoMS0GDi3zVg+LQUZP6TXs+jSLL/EYD6bOPtOk17UI
-	jBpu7+N5cnx+9RRGagCGeHzfyHm286/8SWC4eBuAUafdEyAM5pWIkRCS+eAtRzo0HgXc5qPtvx+
-	To1V490Zo4IEaFtE6/nckJw/vx60WO7TxMjLyo1eVRrqn4PCr3sx+wmsmLpXIJmpSSCZae4oS5L
-	f4QAp4cStqHHG3ckcpbh/awfshJuTkBqrwFzPHEdDqW/awlB9gRicl/zvZ7zdKGC6u74kHvoZXV
-	P3++/6C1z8/8NR/pl4ftvlFU=
-X-Received: by 2002:a17:902:f684:b0:234:ed31:fca7 with SMTP id d9443c01a7336-23f981db976mr18720765ad.48.1753241362424;
-        Tue, 22 Jul 2025 20:29:22 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFy1PnWRL2YDKxRY1ylTuYEKI0uH+mVP5x4g+cnb66HuHnPlsooq1YxXsS2pw2RklDksMxGAg==
-X-Received: by 2002:a17:902:f684:b0:234:ed31:fca7 with SMTP id d9443c01a7336-23f981db976mr18720395ad.48.1753241361974;
-        Tue, 22 Jul 2025 20:29:21 -0700 (PDT)
-Received: from [10.133.33.27] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23e3b6f2306sm86067305ad.213.2025.07.22.20.29.17
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 22 Jul 2025 20:29:21 -0700 (PDT)
-Message-ID: <85cada69-a0ad-48c6-9a6d-42b26a51c971@oss.qualcomm.com>
-Date: Wed, 23 Jul 2025 11:29:16 +0800
+        d=1e100.net; s=20230601; t=1753242176; x=1753846976;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=zYRwMvyfo/b0Z0fdscYgn1jvIel8XvwropGmloEytZI=;
+        b=WFMWYnRZjzkBObfu3IDb6X35VvzpnIIlpon1ILC3Kxbpk9Xyk/1OaM6v0Bocisf5DC
+         C4byZ6TeMs8wXtKnNCivvYZvfhUYnHkwisB3b7FLCFBibl9xmfVG7aP1YTNhjN1Aan7l
+         KPSquciyp5acY85jT2d429k60AezYvx1yIjO8YQR3iIqEYJp9xHRfZw9V/4IQU5eLLrV
+         fAEDJOjLsNKeeXJVGlyImzmMS+h1Xy2Lrp3vx1zlP5ZbroztSUmDgBYKa8yzEyLyJ5tH
+         6D7xm8vl6L4qQae2i1Jsdo5jtv2JDNfZy+iCNL7uAZtodUn6PZ3wP8h2pcNCnUHwzVuv
+         P61w==
+X-Forwarded-Encrypted: i=1; AJvYcCWndEJEnpzh9HlYrYdlq32hHbrrd43HzKq1d6TU8/mD7MRf8I1PnmwpBIYJZOglR9VRpl7380cmKu8gt5L6CosL@lists.infradead.org
+X-Gm-Message-State: AOJu0YwJk/d7+6te1I/41hvMgMGpNnQUz5CJcuro+Zs39Fvqu2w7cgja
+	96FDaEMRQkwcnkA+PvVnn19YMMY3ORI+q4hIV1od+2MXzhGnAewDWIMI
+X-Gm-Gg: ASbGncuRqRGYcUrKiwYVlMC9wTXKYzu/1hEzZiJdmnZhii5bIDovu1vjkbFFQ2YA9Xi
+	7lx3mCxxAGH0RNzvNp4cHZnHwAkymAZ1RKR4EBs5lzt9r1G7bXK0vWG20AbKOFMoJWN9QBmBP0I
+	x2azt7gHl+rFEdq6rudbkeaI2UrFbcAdqdNVMnRlrGYXR5sIBOsqAuKScZYud18gGu6TksbF5mG
+	NPB85TBra9asJf6sHQ8s0NzmLXH+LofdSOgY8SnUNfWMmmfRTom7+lVIdX2teWf4kb8ZeP1B9C9
+	Cq/Qvq0WTStmnnzUr3A8hrNxegFtL8Jg1RLLPtKlbvvOQZqFzorPRgXkCxFf/5tOqKVHCUKdLq/
+	4S5rt7YkavC+BNCFW4VAX4xcGD4ZjF8cC+o/XbaZe8Tk5R4B02u6K2P7UALA0bmPCjjU=
+X-Google-Smtp-Source: AGHT+IHgMmQu7p8TJdr89s8prYT42MP3mN0kb1mkNyslHGE6mS1Jt2errHLIA3LNcROo3VW3v/R5OQ==
+X-Received: by 2002:a17:902:d50d:b0:236:94ac:cc1a with SMTP id d9443c01a7336-23f98193560mr20187515ad.27.1753242175660;
+        Tue, 22 Jul 2025 20:42:55 -0700 (PDT)
+Received: from [172.17.0.2] (125-227-29-20.hinet-ip.hinet.net. [125.227.29.20])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23e3b6b4d47sm86197605ad.99.2025.07.22.20.42.52
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 22 Jul 2025 20:42:55 -0700 (PDT)
+From: Leo Wang <leo.jt.wang@gmail.com>
+X-Google-Original-From: Leo Wang <leo.jt.wang@fii-foxconn.com>
+Subject: [PATCH v9 0/3] ARM: dts: Add support for Meta Clemente BMC
+Date: Wed, 23 Jul 2025 11:42:39 +0800
+Message-Id: <20250723-add-support-for-meta-clemente-bmc-v9-0-b76e7de4d6c8@fii-foxconn.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 RESEND 08/10] coresight: tmc: add a switch buffer
- function for byte-cntr
-To: Mike Leach <mike.leach@linaro.org>, Jie Gan <jie.gan@oss.qualcomm.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
-        James Clark <james.clark@linaro.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
- <conor+dt@kernel.org>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-        Tingwei Zhang <quic_tingweiz@quicinc.com>,
-        Yuanfang Zhang <quic_yuanfang@quicinc.com>,
-        Mao Jinlong <quic_jinlmao@quicinc.com>, coresight@lists.linaro.org,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org
-References: <20250714063109.591-1-jie.gan@oss.qualcomm.com>
- <20250714063109.591-9-jie.gan@oss.qualcomm.com>
- <CAJ9a7VhLXrdP_CPQPgAYTAGWJfsVUa9SG9Bzv9dLtFzR4nFROg@mail.gmail.com>
-Content-Language: en-US
-From: Jie Gan <jie.gan@oss.qualcomm.com>
-In-Reply-To: <CAJ9a7VhLXrdP_CPQPgAYTAGWJfsVUa9SG9Bzv9dLtFzR4nFROg@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-Authority-Analysis: v=2.4 cv=BJ6zrEQG c=1 sm=1 tr=0 ts=68805713 cx=c_pps
- a=IZJwPbhc+fLeJZngyXXI0A==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
- a=IkcTkHD0fZMA:10 a=Wb1JkmetP80A:10 a=EUspDBNiAAAA:8 a=3p4PawPDRryEjlqJgAUA:9
- a=QEXdDO2ut3YA:10 a=uG9DUKGECoFWVXl0Dc02:22
-X-Proofpoint-GUID: 4ICJzz5tytwlE1_pqUfVQ7UkQh3jCZ76
-X-Proofpoint-ORIG-GUID: 4ICJzz5tytwlE1_pqUfVQ7UkQh3jCZ76
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNzIzMDAyNyBTYWx0ZWRfX0A3xCt0fP2Kp
- sHxsgIIgIBctbXD3Ji3K/BZmX3Y5u8TFU7LqFr45tbD8lHbHBxRN/E8haQpNSlCdMnm5gtGGfC/
- awENmERYeSUdYNi45zMXZLB6qbaPwX62hgpy6/6CaqRZBZ23KdLe/giS2GHxjaxi54ohVM7Cz+z
- 98cYs47ebYc4Sjyvem4bFEBKXmvyorkrSEE9KRB0tji80Zf1A2RxJog45na/d0pxM1Qf+pCBCjM
- aGUCF1tmxxKpCHUspVQW82c+AbYmSx4MMWajXeksDl3+jEPkQar4+fDCAG0x7YI6x5QJUE9X1Ki
- 2T1UTn6ZxARz0kjxPSkD08/3SAoiwtyBmoVwlUkKvA6VbMFgGR2AkDdGfEuoDlxXBWIzFsJx8db
- ZB/HcMNvisLIPwtKrFc1Owp84B3JFRiajtA9OZEjKjBi6s2lmLt1gj4g6sDHmTFG2vAXd1BS
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-07-23_01,2025-07-22_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 lowpriorityscore=0 clxscore=1015 spamscore=0
- mlxlogscore=999 suspectscore=0 impostorscore=0 phishscore=0 adultscore=0
- mlxscore=0 malwarescore=0 bulkscore=0 classifier=spam authscore=0 authtc=n/a
- authcc= route=outbound adjust=0 reason=mlx scancount=1
- engine=8.19.0-2505280000 definitions=main-2507230027
+X-B4-Tracking: v=1; b=H4sIAC9agGgC/5XRTWrDMBAF4KsEraui35HVVe9RupDGM42gtoPtm
+ pSQu1fJpoa64CzfIL43aC5iorHQJF4OFzHSUqYy9DXEp4PAY+o/SJa2ZmGU8Qp0I1PbyunrdBr
+ GWfIwyo7mJPGTOupnkrlDGZ1ODmJGb6yozmkkLud7x9t7zccyzcP4fa9c9G36iL5oqSR5TACRy
+ IX8yqXUt2cc+v4Zh07cOhazco3e45rqAnpi5aN2Ebddu3btHtdWF42xzMgOkLddt3bDHtfdXAr
+ MxjpQ6LZd/7Drq6tsQy2wxhz/2Rd+3aB23Q2qG9iSD7lV1sK2G1auhj1uqG7rcw7OR/QpbbvN2
+ t31D011DTMkzhayor/u9Xr9AaF65QhAAwAA
+X-Change-ID: 20250618-add-support-for-meta-clemente-bmc-941a469bc523
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
+ Andrew Jeffery <andrew@codeconstruct.com.au>, Kees Cook <kees@kernel.org>, 
+ Tony Luck <tony.luck@intel.com>, 
+ "Guilherme G. Piccoli" <gpiccoli@igalia.com>, 
+ Geert Uytterhoeven <geert+renesas@glider.be>, 
+ Magnus Damm <magnus.damm@gmail.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
+ linux-hardening@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
+ leo.jt.wang@fii-foxconn.com, george.kw.lee@fii-foxconn.com, 
+ bruce.jy.hung@fii-foxconn.com, Leo Wang <leo.jt.wang@gmail.com>, 
+ Conor Dooley <conor.dooley@microchip.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1753242171; l=2850;
+ i=leo.jt.wang@fii-foxconn.com; s=20250618; h=from:subject:message-id;
+ bh=AuSAmkqHcM4OHqTPBGVEv3kpwNw3rYsqqDHlncqpHCc=;
+ b=jkX0xnPl1Vav8XFrtAj/GFS9wUTsOPnX24pKpHMomGWsUEABEEgRbz2vJNi0ABEwzZN+MnGG8
+ G/9njjuRVmeD5DHubis+ZuzI6RhPD/s3XRDqu3Gr8e0JUMY3jRefu32
+X-Developer-Key: i=leo.jt.wang@fii-foxconn.com; a=ed25519;
+ pk=x+DKjAtU/ZbbMkkAVdwfZzKpvNUVgiV1sLJbidVIwSQ=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250722_202925_262081_99D2A202 
-X-CRM114-Status: GOOD (  34.46  )
+X-CRM114-CacheID: sfid-20250722_204257_444052_977A032D 
+X-CRM114-Status: GOOD (  13.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,136 +121,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+This series adds initial support for the Meta Clemente BMC based on the
+ASPEED AST2600 SoC.
 
+Patch 1 documents the compatible string.
+Patch 2 adds the device tree for the board.
 
-On 7/22/2025 10:09 PM, Mike Leach wrote:
-> Hi,
-> 
-> This buffer swap code looks OK in principle. The ETR is stopped,
-> memory synced and set to be read.
-> See other comments inline.
-> 
-> On Mon, 14 Jul 2025 at 07:31, Jie Gan <jie.gan@oss.qualcomm.com> wrote:
->>
->> Switching the sysfs_buf when current buffer is full or the timeout is
->> triggered and resets rrp and rwp registers after switched the buffer.
->> Disable the ETR device if it cannot find an available buffer to switch.
->>
->> Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
->> ---
->>   .../hwtracing/coresight/coresight-tmc-etr.c   | 52 +++++++++++++++++++
->>   1 file changed, 52 insertions(+)
->>
->> diff --git a/drivers/hwtracing/coresight/coresight-tmc-etr.c b/drivers/hwtracing/coresight/coresight-tmc-etr.c
->> index 2b73bd8074bb..3e3e1b5e78ca 100644
->> --- a/drivers/hwtracing/coresight/coresight-tmc-etr.c
->> +++ b/drivers/hwtracing/coresight/coresight-tmc-etr.c
->> @@ -1287,6 +1287,58 @@ static struct etr_buf *tmc_etr_get_sysfs_buffer(struct coresight_device *csdev)
->>          return ret ? ERR_PTR(ret) : drvdata->sysfs_buf;
->>   }
->>
->> +static bool tmc_byte_cntr_switch_buffer(struct tmc_drvdata *drvdata,
->> +                                       struct ctcu_byte_cntr *byte_cntr_data)
->> +{
-> 
-> This entire function should be in one of the byte_cntr source files,
-> not in the main etr files. Please keep byte cntr code separate as far
-> as possible
-> 
->> +       struct etr_buf_node *nd, *next, *curr_node, *picked_node;
->> +       struct etr_buf *curr_buf = drvdata->sysfs_buf;
->> +       bool found_free_buf = false;
->> +
->> +       if (WARN_ON(!drvdata || !byte_cntr_data))
->> +               return found_free_buf;
->> +
->> +       /* Stop the ETR before we start the switching process */
->> +       if (coresight_get_mode(drvdata->csdev) == CS_MODE_SYSFS)
-> 
-> Can this function be called if the mode is not CS_MODE_SYSFS?
+Signed-off-by: Leo Wang <leo.jt.wang@gmail.com>
+---
+Changes in v9:
+- Fix comment alignment for // PDB TEMP SENSOR.
+- Drop non-standard aspeed,enable-byte property from i2c11 node.
+- Move NCSI3 and NCSI4 pinctrl nodes into a separate patch as requested.
+- Link to v8: https://lore.kernel.org/r/20250717-add-support-for-meta-clemente-bmc-v8-0-2ff6afb36b0e@fii-foxconn.com
 
-Should be ok with called if the the is DISABLED.
-I will check the condition.
+Changes in v8:
+- Relocate IOBx_NICx_TEMP TMP421 sensors
+- Enable byte mode for i2c11
+- Link to v7: https://lore.kernel.org/r/20250716-add-support-for-meta-clemente-bmc-v7-0-d5bb7459c5aa@fii-foxconn.com
 
-> 
->> +               __tmc_etr_disable_hw(drvdata);
->> +
->> +       list_for_each_entry_safe(nd, next, &drvdata->etr_buf_list, node) {
->> +               /* curr_buf is free for next round */
->> +               if (nd->sysfs_buf == curr_buf) {
->> +                       nd->is_free = true;
->> +                       curr_node = nd;
->> +               }
->> +
->> +               if (!found_free_buf && nd->is_free && nd->sysfs_buf != curr_buf) {
->> +                       if (nd->reading)
->> +                               continue;
->> +
->> +                       picked_node = nd;
->> +                       found_free_buf = true;
->> +               }
->> +       }
->> +
->> +       if (found_free_buf) {
->> +               curr_node->reading = true;
->> +               curr_node->pos = 0;
->> +               drvdata->reading_node = curr_node;
->> +               drvdata->sysfs_buf = picked_node->sysfs_buf;
->> +               drvdata->etr_buf = picked_node->sysfs_buf;
->> +               picked_node->is_free = false;
->> +               /* Reset irq_cnt for next etr_buf */
->> +               atomic_set(&byte_cntr_data->irq_cnt, 0);
->> +               /* Reset rrp and rwp when the system has switched the buffer*/
->> +               CS_UNLOCK(drvdata->base);
->> +               tmc_write_rrp(drvdata, 0);
->> +               tmc_write_rwp(drvdata, 0);
-> 
-> This cannot possibly be correct. RWP / RRP are pointers into the
-> system memory where the ETR stores data.
+Changes in v7:
+- Relocate CBC FRU EEPROMs from i2c13 to i2c12.
+- Link to v6: https://lore.kernel.org/r/20250708-add-support-for-meta-clemente-bmc-v6-0-7f3e57bd0336@fii-foxconn.com
 
-It should be sysfs_buf->hwaddr here.
-I made a mistake.
+Changes in v6:
+- Correct Author email to match Signed-off-by email address.
+- Link to v5: https://lore.kernel.org/r/20250627-add-support-for-meta-clemente-bmc-v5-0-038ed6f1cb9f@fii-foxconn.com
 
-will fix it.
+Changes in v5:
+- Remove accidentally pasted texts.
+- Link to v4: https://lore.kernel.org/r/20250627-add-support-for-meta-clemente-bmc-v4-0-ce7ff23460c4@fii-foxconn.com
 
-> 
->> +               CS_LOCK(drvdata->base);
->> +               /* Restart the ETR when we find a free buffer */
->> +               if (coresight_get_mode(drvdata->csdev) == CS_MODE_SYSFS)
->> +                       __tmc_etr_enable_hw(drvdata);
-> 
-> What happens if the ETR is not restarted? Using __tmc_etr_disable_hw()
-> is correct for this use case, but if you do not restart then the extra
-> shutdown that would ordinarily happen in tmc_etr_disable_hw() does not
-> occur. How is this handled in the rest of the update?
+Changes in v4:
+- Move properties of nodes defined in the same file from label ref back to where they belong.
+- Move pinctrl default configs for ncsi3 and ncsi4 to aspeed-g6-pinctrl.dtsi.
+- Add properties to i2c10 and i2c15 to enable MCTP.
+- Link to v3: https://lore.kernel.org/r/20250623-add-support-for-meta-clemente-bmc-v3-0-c223ffcf46cf@fii-foxconn.com
 
-Yes, there is a problem here. It's incorrectly put a strict condition here.
+Changes in v3:
+- Modify leakage sensor to reflect current design.
+- Link to v2: https://lore.kernel.org/r/20250621-add-support-for-meta-clemente-bmc-v2-0-6c5ef059149c@fii-foxconn.com
 
-I will check the logic here and fix in next version.
+Changes in v2:
+- Fix patch 1/2 subject line to match dt-bindings convention.
+- Reorder device tree nodes in patch 2/2 to follow upstream DTS style.
+- Link to v1: https://lore.kernel.org/r/20250618-add-support-for-meta-clemente-bmc-v1-0-e5ca669ee47b@fii-foxconn.com
 
-Thanks,
-Jie
+---
+Leo Wang (3):
+      dt-bindings: arm: aspeed: add Meta Clemente board
+      ARM: dts: aspeed: clemente: add Meta Clemente BMC
+      ARM: dts: aspeed: clemente: add NCSI3 and NCSI4 pinctrl nodes
 
-> 
->> +       }
->> +
->> +       return found_free_buf;
->> +}
->> +
->>   static int tmc_enable_etr_sink_sysfs(struct coresight_device *csdev)
->>   {
->>          int ret = 0;
->> --
->> 2.34.1
->>
-> 
-> Regards
-> 
-> Mike
-> 
-> --
-> Mike Leach
-> Principal Engineer, ARM Ltd.
-> Manchester Design Centre. UK
+ .../devicetree/bindings/arm/aspeed/aspeed.yaml     |    1 +
+ arch/arm/boot/dts/aspeed/Makefile                  |    1 +
+ .../dts/aspeed/aspeed-bmc-facebook-clemente.dts    | 1294 ++++++++++++++++++++
+ arch/arm/boot/dts/aspeed/aspeed-g6-pinctrl.dtsi    |   10 +
+ 4 files changed, 1306 insertions(+)
+---
+base-commit: 52da431bf03b5506203bca27fe14a97895c80faf
+change-id: 20250618-add-support-for-meta-clemente-bmc-941a469bc523
+
+Best regards,
+-- 
+Leo Wang <leo.jt.wang@fii-foxconn.com>
 
 
