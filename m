@@ -4,126 +4,157 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8AFDC83F25
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 08:14:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A2D8C83F25
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 08:16:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
-	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wJr/hw1dHQH58OkL2qscj1xdCFrGFtnGhH2Sn1vmVSA=; b=F2ekCY8TUnKgvBRjrkWLZfuQ6O
-	qc5wfg1Sq6Xpr+1REp3irgkahZ1nrDxPmnRm6megJ1HKz+hvSRSlCTS/Dgn4cmYDKwbA9sMvDqpGJ
-	fLyNS/lKZQjb3b5gFHGmbYFJWbSVrCHpcMg1mnmXSCYWV/TyKOjz9rICsYrmEq1ON2MT8xSsHTye5
-	gelDCK2KSApYYoVb6Y59sOY3107T7eVBCtLdaWGmUOFh2pTh9EUol2xwSyWCv6++qm1eCtemmxuCu
-	kmP8AYcXfk54GfyDZnE1kjU8lIQLY59DiJCTQziVqKwPeG38BfQCxD2SKjWE8hqj+owzBa3Zb1YlD
-	LLDxhU3w==;
+	bh=F0zvcPVgo+2fOBzfabx0n956537MpCTydj0jg4qP7tw=; b=mysyNumWD2FCN/njXI7FbL8eeA
+	7hKHSJ36N9E7Z/uSQdmhVZo9NdbafO+btUV7hDwqnIEfKgbgi8ioJfhMPG7Y8YRQ8qL+efm28RnpS
+	BBP4YHMx4daYDQslbpJaVZ6D2UBK2NCSo6UQYxQHdV2ix20LrPJ8XZhh89jn5jJakuZXDiTO2IRFA
+	p+9cTmLkYTT2rupUs6F4/DPKtw2jqZU5Eg1uuNbzIhdu6+gsEIVSymWMgQBAO+WDddF7yExJNZVmV
+	Np7m8yAvBxU6XY6g7TMMX9a2l+3hJd8VZcv63Wfk3+hVWAtsJBgXvOss3fmI9tAxHWDP1eLFmcIT4
+	QTVVexHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueUbz-00000004LY2-3h5F;
-	Wed, 23 Jul 2025 08:14:03 +0000
-Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
+	id 1ueUeQ-00000004Lms-3JNt;
+	Wed, 23 Jul 2025 08:16:34 +0000
+Received: from mail-japanwestazlp170120003.outbound.protection.outlook.com ([2a01:111:f403:c406::3] helo=OS8PR02CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueUHC-00000004IPK-45wz
+	id 1ueULG-00000004Iwi-2SDg
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Jul 2025 07:52:36 +0000
-Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-3a54700a46eso3525068f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Jul 2025 00:52:34 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1753257153; x=1753861953; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=wJr/hw1dHQH58OkL2qscj1xdCFrGFtnGhH2Sn1vmVSA=;
-        b=rSGb/I4I+FGTbNKMTldcZ4YlghhzJwbc4DTyBtYbVxnNxwfquWpopBCmli04U+G6dM
-         x4akROnnGjbs4Un7BU1vc3Y/2RFiOacnm/1RofSgk/4uGMZg26qpnlVVr7GD3iaTXs2z
-         hbaabcgumK3SDdAMryzI7q5RBXXv4QTRLu5uCFbJZ10jjebMmU1GYlWWJ6w5T6ND2nbs
-         tY/xkK2spSQ0HRXUHngt2a7IYNO3n+1AT1dJPx4M/FaNWVXWwlyLoylERpcgDcN7eWKr
-         ZbBe+6AR8Z+qD1qQmNPh4SwTIKOKgrs4nrZ8fT1kM5x7JNmbOww3pYzGNqgfiqrg8EJL
-         I6MA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753257153; x=1753861953;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=wJr/hw1dHQH58OkL2qscj1xdCFrGFtnGhH2Sn1vmVSA=;
-        b=IJdKL5DsA1rBIuk3i+xp8fRzKczThhQ0Os8t8pDhUgHCLP92nOdICwmdLK22wzmM7l
-         uzz1P2tyjwYXOBNvVYWTqDanh8HC8Z6E+7yN9ThWYDk2XbzZ5/OG0wgFwmY6CBjKi+Pv
-         jPEpH1fLqUSCiytu99Dky/hKYumBlWUm7pYCeCKFBKL0wNlEYBhOgJZIIknhHVvlTDuC
-         DrrR0eXEP6gp3spoptpyuUjUaZRkfQ+Z1bym2Rp5IdK89qDZJxKHqkJjpXjb6kKWAHxA
-         bfeUhsQPnb3ltaXXDpk7KDShnuHGONzH4WRM4YV1rdv6CL1Pr5a4pDF2CiexWlZC/Y1B
-         9K1Q==
-X-Forwarded-Encrypted: i=1; AJvYcCUYPKbbl9NJM4JJMqci9Rt2b9ej5qUJVe76P8qRayRX5ZcYgMhc1/9kf1TD5s6AY1LP9TMnpBZU2/hIeP5b6XVs@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw+FoFOAE9+is48bjD1phaxp1Lv6QKHtQJCEQAwP2QRGC0pf1Nd
-	swZwsKzZIEbG7711vJFq545ZrQ3w7KZ5gAsA+xpnbkWdgq4Z9nnPBN8Z+haQDKuinTk=
-X-Gm-Gg: ASbGncvIGVK9/D1r3ArktFcwxuUh6Cz9YfAkNoqIpMewB/qT40mEOk9NLfB6CFtyFkZ
-	rBSDzK0P4X1ogV617zwG3oyaw6FpucV6QcrW9Dsqd8vygwUWAskAdqo+Z/1cimwiWbPEq6l+V4n
-	FqeDDmlC3CmSWZcBq4/PvFEkX3YvBEK/ZiLkrL6RGefwMwH5ybCk8CHyxmSOspclf1/+FSPwRC/
-	GmSv89WxLZyTBccqq52btXcj1/jLZ+T7090tz5prQBqy3f+HGqNQQuLfkKdn41o0Mu16ynbWRcE
-	DwZYnDKHq03YLJxQi7IP7NL5V8uHrgMGConrZJsX4TLxwmSX0iZRqEz8qtXkX9kOdgnFw89S6uP
-	GgRrv6SOO3vdQnvzoeOTYJumr1gqClssQxLApKpGDcSh6Ga2couhQ+e6etWSeRhiwfXHdjLZMxz
-	c=
-X-Google-Smtp-Source: AGHT+IH1+KGiK7+CPpG7hfWiA/jq/1R1SSgKNRLgfm5//YxJ7f7pwzncw9zDFJZ9mt07q0lMm4XQyQ==
-X-Received: by 2002:a05:6000:4024:b0:3b6:1630:9204 with SMTP id ffacd0b85a97d-3b768ec8a1bmr1439039f8f.19.1753257152837;
-        Wed, 23 Jul 2025 00:52:32 -0700 (PDT)
-Received: from ?IPV6:2a01:e0a:3d9:2080:8813:2f0d:f9e0:5294? ([2a01:e0a:3d9:2080:8813:2f0d:f9e0:5294])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45869199605sm14357735e9.14.2025.07.23.00.52.31
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 23 Jul 2025 00:52:32 -0700 (PDT)
-Message-ID: <d1c67441-85d6-42d7-9ace-c4884f767dc8@linaro.org>
-Date: Wed, 23 Jul 2025 09:52:31 +0200
+	Wed, 23 Jul 2025 07:56:48 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=WfrgJjg36rYswzhw0/xnaVkp8OoKfn2KYtQiN8hguL0HwHj8KPSzhhhOTyf+QVTy+eq+DFqCo3rTyI3RuSMaLTy+dVLQrONjgpXPqWgU7pPKBv2ecIsQtZHXQbCE71KgUdVChYhz89EhWwUgupSCzFWCCFHMBX1pKi1fMH+XL44eh44rei0tLxxIIMhOnCCj0BnTYZ/K6JiYeXHkSZIXAS78LMCyZIl3OgMUGkYE388u4w2dzH1vkyyArHPtJcCtHwVsQIYC6+UfUBV46ZihGZEOwpuBPyT7tLxie9xvtnABHpklu68aJNwlpqklvqwreJZScrnmmJ1U3fp5nkQ46w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=F0zvcPVgo+2fOBzfabx0n956537MpCTydj0jg4qP7tw=;
+ b=hRMmN4pGX1QGylTMh7KiStIcCtKr2+tgg6tIwnVGyz/4lzWVS61J3LlpgzCLRN7G+ioWOMR1E0Rs9iHr2eWBqXLxQgngjDxTU+w6htexH/LqYAx8YtIu4ZSDgrcO4SfnA3uU0BoP3rBH9RA71EsMJrZJk4jpfjVi+rX6BvBB4jkiV/TCN8LCEj2tCFQ4T3rWMI55HwZZfKSL9/EyeUYiJjLugl0FCdriYbcSu0HW/GBgjXxIJ4nW+lhB7UMRj7m5v9qiXlcfM2ra0GpfNjAIb00lAza5Knrf7y0sK0blXBqwjujpCuwvI1SHGVwrKEOR17/eIctsnpXOk7L2IfvPYQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=aspeedtech.com; dmarc=pass action=none
+ header.from=aspeedtech.com; dkim=pass header.d=aspeedtech.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aspeedtech.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=F0zvcPVgo+2fOBzfabx0n956537MpCTydj0jg4qP7tw=;
+ b=gK8kl1SRrUFAfn9Tb+diaue3HFED+yDE7N9WrCCOsJWt/ReXlNrUcspn+ILCGt+SccTGEzrcOLq0GJmd+hw6HQJgY8LjUvbsyFpic/uLmEIlJyIgoMoy3d/F2xIW0AmsHModWSZk76mDs95I9OhEWW1nBpn6rvTZ5iP9Hz3cx5+JUhWCI4S+9OItG+EObIzKcAfpAV92OWKR5CH7Xcn8RU7ohUObponiZdsrUIu5pCE3iykgE//rrN+n9mbXZFao0muKgwZArPtii1SzZATEjFjW21ECSMY83gmQdOpss20ZllizxDK8DzICeZmm7N+DY4VdfCcDpYnwHAS3ObTeaw==
+Received: from OS8PR06MB7541.apcprd06.prod.outlook.com (2603:1096:604:2b1::11)
+ by TYPPR06MB8020.apcprd06.prod.outlook.com (2603:1096:405:316::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8943.30; Wed, 23 Jul
+ 2025 07:56:37 +0000
+Received: from OS8PR06MB7541.apcprd06.prod.outlook.com
+ ([fe80::9f51:f68d:b2db:da11]) by OS8PR06MB7541.apcprd06.prod.outlook.com
+ ([fe80::9f51:f68d:b2db:da11%5]) with mapi id 15.20.8964.019; Wed, 23 Jul 2025
+ 07:56:37 +0000
+From: Ryan Chen <ryan_chen@aspeedtech.com>
+To: Rob Herring <robh@kernel.org>
+CC: Thomas Gleixner <tglx@linutronix.de>, Krzysztof Kozlowski
+	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Joel Stanley
+	<joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>, Kevin Chen
+	<kevin_chen@aspeedtech.com>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-aspeed@lists.ozlabs.org"
+	<linux-aspeed@lists.ozlabs.org>
+Subject: RE: [PATCH v3 1/2] dt-bindings: interrupt-controller: aspeed: Add
+ parent node compatibles and refine documentation
+Thread-Topic: [PATCH v3 1/2] dt-bindings: interrupt-controller: aspeed: Add
+ parent node compatibles and refine documentation
+Thread-Index: AQHb+u5GGJR1Lh1PR0C5h6er79qfsbQ/J8sAgAAvhtA=
+Date: Wed, 23 Jul 2025 07:56:37 +0000
+Message-ID: <OS8PR06MB7541F7F2775C3BF46C97957BF25FA@OS8PR06MB7541.apcprd06.prod.outlook.com>
+References: <20250722095156.1672873-1-ryan_chen@aspeedtech.com>
+ <20250722095156.1672873-2-ryan_chen@aspeedtech.com>
+ <20250723050120.GA1231854-robh@kernel.org>
+In-Reply-To: <20250723050120.GA1231854-robh@kernel.org>
+Accept-Language: zh-TW, en-US
+Content-Language: zh-TW
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=aspeedtech.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: OS8PR06MB7541:EE_|TYPPR06MB8020:EE_
+x-ms-office365-filtering-correlation-id: 15e6a5e5-df5b-426c-691e-08ddc9be7387
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|38070700018;
+x-microsoft-antispam-message-info: =?us-ascii?Q?oi1jvt7AIYNzWisCYq/eNxTCtJ7ZaBfQIM4+2K5bmhLjbEMAbzHK+7nGDjb9?=
+ =?us-ascii?Q?NBq0I40XfpB5uSHY1QpIxSegLFraLxaTUt4PMpmn++hpPmPGEluXszFtnAaY?=
+ =?us-ascii?Q?z6oZXKOBZkzC8VRFYIM8oNEoe9jBIovxHFWU+i/Ga92q0KZgXtfNqYdxoQVU?=
+ =?us-ascii?Q?VqvB693B/9Fd9hXNrpfnJNHRA7CFwkEbUHOmBwkBamm/bJPH9UXyOVYLMlOd?=
+ =?us-ascii?Q?0g08lYDBkQ4VON2ZuxdOhWfKUE113KaNbR53Q4TmRkSaEQeAMl/G/JLYIcmK?=
+ =?us-ascii?Q?NoaSzRksgVnOkb4EdSHdH/00kFFQETB8NqJqO0qZdHpjR9mZrKpLvzgZUgQ/?=
+ =?us-ascii?Q?PjEiDj7LYyOYtXofTmDifcytiFxaIVMMAQxMgDkg94F7cnMSyU/kbRa6/q2r?=
+ =?us-ascii?Q?skPSMqRViqWXS8oKsAu2ZdQsh2rY6LgnH8Xg3QXRQrb8sKF/ysIj5xNUuAR+?=
+ =?us-ascii?Q?CnXEAuwUbGyHnTCY6Bragt9gsF7qoE9ClZHbjPKYQn2F1lJq0tzZnZUYG3DY?=
+ =?us-ascii?Q?3PuoHQtpaNankWJlOZ2cv19oPB0CTOB2hHgqRmM89wh5xTAKCLdCcgfACLKQ?=
+ =?us-ascii?Q?AWB1NCYyAGwjdFmhtdlPxvUcqK6Fp57i+exGZDQxh1dCLbyNbiYSNbOSFcz4?=
+ =?us-ascii?Q?b1yQqMWBW5VvOPK1XJwbzKIGWA4aj+j0ddktSRzojjlgeiFcp9dHYhW3eSv3?=
+ =?us-ascii?Q?kkANsj01DpkDYpYbjQzWORbk4PQBw1RbLT0C4bvRg6gQ7perCl6PnWhBQVLN?=
+ =?us-ascii?Q?BmXZTapogLJ1kqAeE+HbFb8egg1u+oUWN5+e3e/JmZNuYzkORV9ZxBSw3Hnq?=
+ =?us-ascii?Q?yXiA3zm+Iuiys+uCgZnClNnFeBPYS4Z+ZfFNdqrB6XrJl0sx0AkOi6cN31iY?=
+ =?us-ascii?Q?cfLrIHygtmbeNAAyUr8MAaSV3vqLrvT3vLALwgx7ksEu+RYEb4R9EKwRIwKb?=
+ =?us-ascii?Q?oJ10JDP6DWLxrjaOdwXc1USOGsvvzyMEDjg3GoO4b+hYXGCxh4XUybg3Ng6D?=
+ =?us-ascii?Q?EPWxXyCjVSxVFxaX8TbjtDqQ92SSwQXZ4DM1arCtc5U1QTJKgH3RLMG491qG?=
+ =?us-ascii?Q?PaVctasYQGZ3mXG4ILBnBMFmdz1SXcdqfFH8SvLKI6YUdRklVmdZxDd4//xA?=
+ =?us-ascii?Q?1ZlofxYTBrl8D/ojP4q/C1iqKTX18y4NZgcSMEl0j/fgfN/zLPOriXmkpiG5?=
+ =?us-ascii?Q?Z+sWXZxZ0f3pvkTFlfTZ2IJOmJs02x1hNWNAAvl4A/zWl1FLALKAQiIV0JTQ?=
+ =?us-ascii?Q?lusGCEx7CixEB5IdSubImyJ4kWlYsleaXOYUEe81SQ9+bRKLQs2UzcFZ42Xt?=
+ =?us-ascii?Q?ZLHZoA/gDvg3RgGkq+Fjb2+zhQ5fCt2pyKzBFmZ5sSiL2G2FLiw+bo+/CbSl?=
+ =?us-ascii?Q?Z+0YdrNAZftLLuW2ht8Rv4U+NkoDDkHEzp/UXlWB2pAsCgbt/sT2h8erf6kd?=
+ =?us-ascii?Q?SJ2sVjMCrcQ=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:OS8PR06MB7541.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(38070700018);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?hbcC9dskq5cHZlQymyPYT5/w5CgjiIbh1P7TuFlLvVrzjBZR0KDl045uamYK?=
+ =?us-ascii?Q?CkeW/deh9jgwNchkvYtN1+euQ+HNntoQgEFzhLIs1wxvqAtD22uiqnh4glRB?=
+ =?us-ascii?Q?P9gfQKS3Sey3OFKVP7kWBMIuPu5V6XjWyRKRg/1/gMXzrP565ZN9q8xrf9I0?=
+ =?us-ascii?Q?XNHFZb6HGuUT0MZhZ02c1A53mwJIMe1T7EXKW8qA5EdFuY6ue68L3t6zCVjt?=
+ =?us-ascii?Q?GUxlmQITPVYJ+0Vhr9TAvyB42hIeupyT9jUCftPdGLrSDprfeA2Ee5ES3aVK?=
+ =?us-ascii?Q?0S/sONCZ8EAbaCVbc9pXfqbVzA2Tw73RhtB+ynKepD5vq2eyH9p6wUsEnk4b?=
+ =?us-ascii?Q?R6CMHRL4ClpQHNHJrjQ7EjZMlhy8zdQQko5rbuBcFi/P5bW1poNpW2eanaj1?=
+ =?us-ascii?Q?iVlXIvhy+UbMWMFgIjDEjauSeKrnC7NomIjhKQpH9BImIrZ64xz/qcmENt6Y?=
+ =?us-ascii?Q?aSgpZkSG48xZSX+HblW/mzqY/swqgnxyHyb1buCGF46BHry1nV+6+eIHcxCq?=
+ =?us-ascii?Q?IUWIco8n2gZbXLlR6ufKwB+sN6M7oiMsUuZJTEJLEp7SnlNKK/IzneLaXOMF?=
+ =?us-ascii?Q?TwMpkeSclJ20qc3Z41+KfLrdlh5njsgaHScWmffpDy7/hp4ql5MfQX0YsYSZ?=
+ =?us-ascii?Q?46mbHnGccjNVkhLlXM0+Nt5ZVucnEAxiEA7v7i45kCoKyIhD+2UUgsII9/eA?=
+ =?us-ascii?Q?bdI0KxR6VjSkLTWrPAJ7NthXLQcT7aPTH6I7N7h/0bZ9EXoAayqxloyp3Nd/?=
+ =?us-ascii?Q?5xfenLruU9a5WRVGWnk2AynnXMndS72lpCicTd8ILXowhkGC0dqMd9AuwwcX?=
+ =?us-ascii?Q?nR9BiKuQ5Bc7MOQfKrjYKVqC8gZKwXe0K+Z5ZJGavD2F86BdklGEwBeksBlw?=
+ =?us-ascii?Q?yaUk8EJ84izsDOQgG14ZKiWCc4kic29/xAa4ee6q8g+vafBzIAPnZsJ54nrC?=
+ =?us-ascii?Q?x+QIFAo5rkgpUAivqMgDNlpxvIOOdhN0iHy2vmrgn/We9EXUJ4hi2Ysi6aYU?=
+ =?us-ascii?Q?RTSofT1Avi6pw13agvow5V3Ju6xonslKbe6r+REmVWZSwZ1YlkQqD+d5lokI?=
+ =?us-ascii?Q?O5la719qX8X8jvOKjLmfNQiqboSuMddJ6zfHINaL4XYrO3ga91/KnzQdii11?=
+ =?us-ascii?Q?g2k9crHiGpScM5FmtIIwzJhlv/V+xBSYYpWP3CUXGZBchVuipCp0ZgG8Qtu1?=
+ =?us-ascii?Q?BHA90p5bInOYNh6PpVUqjT6xEmX3pwKKj/APrH7i6+cSynJ2ZvBWJUQG1sbd?=
+ =?us-ascii?Q?/4gWhCyVATYvp/xEhGIPbgMk0SK4/PYv4nrJZG2IuK5GLUwGYizp8vMV7RJX?=
+ =?us-ascii?Q?AWZigysT8r5hp3IJc31MKxoTdbcUklSDR4JAumAut/LvN8Oml9nne3W1HDkm?=
+ =?us-ascii?Q?z8NsK+PUZqcjive27YezHOpbr5MQAhYcXk1GjJwS6aMvV060yAB2/KM+DUnc?=
+ =?us-ascii?Q?bkXUaSZrIUEyRbh8v0XdL273yzPO9F3d4LQamJvwuxJayU+SC6OGjh1qIomQ?=
+ =?us-ascii?Q?4eVCqJPrbnRqRNAxY3BVvkZegF8sXE9WK2Pe3tT7b/mhlqiJmSO8bWFG+rzC?=
+ =?us-ascii?Q?Gt7ovVScLp0R+alhL6199vVBcUsDdBjKcK3y/EAg?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: neil.armstrong@linaro.org
-Subject: Re: [PATCH v2 1/2] phy: add new phy_notify_pmstate() api
-To: Vinod Koul <vkoul@kernel.org>, Manivannan Sadhasivam <mani@kernel.org>
-Cc: Peter Griffin <peter.griffin@linaro.org>,
- Kishon Vijay Abraham I <kishon@kernel.org>,
- =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- Tudor Ambarus <tudor.ambarus@linaro.org>,
- Alim Akhtar <alim.akhtar@samsung.com>, Krzysztof Kozlowski
- <krzk@kernel.org>, linux-phy@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, kernel-team@android.com,
- William Mcvicker <willmcvicker@google.com>
-References: <20250703-phy-notify-pmstate-v2-0-fc1690439117@linaro.org>
- <20250703-phy-notify-pmstate-v2-1-fc1690439117@linaro.org>
- <e2lhm237c3xtbdjux2wuesq5fwu7nky3w7oq2fnsgn2pqcg5kh@xhxktriooyes>
- <aICKM-ebp9SMAkZ_@vaman>
-Content-Language: en-US, fr
-Autocrypt: addr=neil.armstrong@linaro.org; keydata=
- xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
- GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
- BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
- qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
- 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
- AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
- OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
- Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
- YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
- GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
- UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
- GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
- yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
- QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
- SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
- 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
- Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
- oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
- M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
- 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
- KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
- 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
- QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
-Organization: Linaro
-In-Reply-To: <aICKM-ebp9SMAkZ_@vaman>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+X-OriginatorOrg: aspeedtech.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: OS8PR06MB7541.apcprd06.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 15e6a5e5-df5b-426c-691e-08ddc9be7387
+X-MS-Exchange-CrossTenant-originalarrivaltime: 23 Jul 2025 07:56:37.5202
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 43d4aa98-e35b-4575-8939-080e90d5a249
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: ZyInrYg0XcSFw2ThoKuXHnugPutOTZeACEBqIXRf1cmyWokViwH08/6NoK/P5M2d4qKnQ1NFqk2JvN14dAIlOFMg0+eLI39Ef7YsgQvu71k=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYPPR06MB8020
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250723_005235_027133_A33648FB 
-X-CRM114-Status: GOOD (  19.48  )
+X-CRM114-CacheID: sfid-20250723_005646_746009_4DC855C8 
+X-CRM114-Status: GOOD (  26.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,73 +166,358 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: Neil Armstrong <neil.armstrong@linaro.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 23/07/2025 09:07, Vinod Koul wrote:
-> On 22-07-25, 22:04, Manivannan Sadhasivam wrote:
->> On Thu, Jul 03, 2025 at 02:03:22PM GMT, Peter Griffin wrote:
->>> Add a new phy_notify_pmstate() api that notifies and configures a phy for a
->>> given PM link state transition.
->>>
->>> This is intended to be by phy drivers which need to do some runtime
->>> configuration of parameters during the transition that can't be handled by
->>> phy_calibrate() or phy_power_{on|off}().
->>>
->>> The first usage of this API is in the Samsung UFS phy that needs to issue
->>> some register writes when entering and exiting the hibernate link state.
->>>
->>> Signed-off-by: Peter Griffin <peter.griffin@linaro.org>
->>> ---
->>>   drivers/phy/phy-core.c  | 25 +++++++++++++++++++++++++
->>>   include/linux/phy/phy.h | 25 +++++++++++++++++++++++++
->>>   2 files changed, 50 insertions(+)
->>>
->>> diff --git a/drivers/phy/phy-core.c b/drivers/phy/phy-core.c
->>> index 04a5a34e7a950ae94fae915673c25d476fc071c1..0b29bc2c709890d7fc27d1480a35cda6a826fd30 100644
->>> --- a/drivers/phy/phy-core.c
->>> +++ b/drivers/phy/phy-core.c
->>> @@ -520,6 +520,31 @@ int phy_notify_disconnect(struct phy *phy, int port)
->>>   }
->>>   EXPORT_SYMBOL_GPL(phy_notify_disconnect);
->>>   
->>> +/**
->>> + * phy_notify_pmstate() - phy link state notification
->>
->> 'pmstate' doesn't correspond to 'link state'. So how about,
->> phy_notify_link_state()?
->>
->> s/phy/PHY (here and below)
->>
->>> + * @phy: the phy returned by phy_get()
->>> + * @state: the link state
->>> + *
->>> + * Notify the phy of some PM link state transition. Used to notify and
->>
->> Link state change is common for the PHY. So remove 'PM'.
-> 
-> Is it really link or phy state?
+> Subject: Re: [PATCH v3 1/2] dt-bindings: interrupt-controller: aspeed: Ad=
+d
+> parent node compatibles and refine documentation
+>=20
+> On Tue, Jul 22, 2025 at 05:51:55PM +0800, Ryan Chen wrote:
+> > The AST2700 SoC contains two independent top-level interrupt
+> > controllers
+> > (INTC0 and INTC1), each responsible for handling different peripheral
+> > groups and occupying separate register spaces. Above them, PSP(CA35)
+> > GIC controller acts as the root interrupt aggregator. Accurately
+> > describing this hierarchical hardware structure in the device tree
+> > requires distinct compatible strings for the parent nodes of INTC0 and =
+INTC1.
+> >
+> > - Adds 'aspeed,ast2700-intc0' and 'aspeed,ast2700-intc1' compatible
+> > strings for parent interrupt controller nodes. (in addition to the
+> > existing 'aspeed,ast2700-intc-ic' for child nodes)
+> > - Clarifies the relationship and function of INTC0 parent
+> >  (intc0_0~x: child), INTC1 parent (intc1_0~x: child), and the GIC  in
+> > the documentation.
+> > - Updates block diagrams and device tree examples to illustrate  the
+> > hierarchy and compatible usage.
+> > - Refines documentation and example formatting.
+> >
+> > This change allows the device tree and driver to distinguish between
+> > parent (top-level) and child (group) interrupt controller nodes,
+> > enabling more precise driver matching SOC register space allocation.
+>=20
+> That's nice, but is an ABI break.
 
-It seems to be a link state, and I think adding a way to force
-a link state to a phy, which is basically the role of a phy,
-more coherent.
+Sorry, Is it an ABI break?
+I keep the compatible aspeed,ast2700-intc-ic, not change it.
+Just move it to be child, and make aspeed,ast2700-intc0/1 to be parent for =
+aspeed,ast2700-intc-ic.
 
-Neil
+Older : https://github.com/torvalds/linux/blob/master/Documentation/devicet=
+ree/bindings/interrupt-controller/aspeed%2Cast2700-intc.yaml#L70C2-L86C7
+     bus {
+        #address-cells =3D <2>;
+        #size-cells =3D <2>;
 
-> 
->>
->>> + * configure the phy accordingly.
->>> + *
->>> + * Returns: %0 if successful, a negative error code otherwise
->>> + */
->>> +int phy_notify_pmstate(struct phy *phy, enum phy_linkstate state)
->>
->> I think you need to use 'int state' and let drivers pass their own link state
->> values. You cannot have generic link states across all peripherals.
-> 
-> I would avoid that, people start overloading this if we let it keep
-> open! I would like to avoid the api -(ab)use
-> 
+        interrupt-controller@12101b00 {
+            compatible =3D "aspeed,ast2700-intc-ic";
+            reg =3D <0 0x12101b00 0 0x10>;
+            #interrupt-cells =3D <2>;
+            interrupt-controller;
+            interrupts =3D <GIC_SPI 192 IRQ_TYPE_LEVEL_HIGH>,
+                         <GIC_SPI 193 IRQ_TYPE_LEVEL_HIGH>,
+                         <GIC_SPI 194 IRQ_TYPE_LEVEL_HIGH>,
+                         <GIC_SPI 195 IRQ_TYPE_LEVEL_HIGH>,
+                         <GIC_SPI 196 IRQ_TYPE_LEVEL_HIGH>,
+                         <GIC_SPI 197 IRQ_TYPE_LEVEL_HIGH>;
+        };
+    };=20
 
+New parent and child
+    bus {
+      #address-cells =3D <2>;
+      #size-cells =3D <2>;
+
+      intc0: interrupt-controller@12100000 {
+        compatible =3D "aspeed,ast2700-intc0";
+        reg =3D <0 0x12100000 0 0x4000>;
+        ranges =3D <0x0 0x0 0x0 0x12100000 0x0 0x4000>;
+        #address-cells =3D <2>;
+        #size-cells =3D <2>;
+
+        intc0_11: interrupt-controller@1b00 {
+          compatible =3D "aspeed,ast2700-intc-ic";
+          reg =3D <0 0x12101b00 0 0x10>;
+          #interrupt-cells =3D <2>;
+          interrupt-controller;
+          interrupts =3D <GIC_SPI 192 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LE=
+VEL_HIGH)>,
+                       <GIC_SPI 193 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVE=
+L_HIGH)>,
+                       <GIC_SPI 194 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVE=
+L_HIGH)>,
+                       <GIC_SPI 195 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVE=
+L_HIGH)>,
+                       <GIC_SPI 196 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVE=
+L_HIGH)>,
+                       <GIC_SPI 197 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVE=
+L_HIGH)>;
+        };
+      };
+
+      intc1: interrupt-controller@14c18000 {
+        compatible =3D "aspeed,ast2700-intc1";
+        reg =3D <0 0x14c18000 0 0x400>;
+        ranges =3D <0x0 0x0 0x0 0x14c18000 0x0 0x400>;
+        #address-cells =3D <2>;
+        #size-cells =3D <2>;
+
+        intc1_0: interrupt-controller@100 {
+          compatible =3D "aspeed,ast2700-intc-ic";
+          reg =3D <0x0 0x100 0x0 0x10>;
+          #interrupt-cells =3D <2>;
+          interrupt-controller;
+          interrupts-extended =3D <&intc0_11 0 (GIC_CPU_MASK_SIMPLE(4) | IR=
+Q_TYPE_LEVEL_HIGH)>;
+        };
+      };
+    };
+
+>=20
+> >
+> > Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
+> > ---
+> >  .../aspeed,ast2700-intc.yaml                  | 158
+> +++++++++++++-----
+> >  1 file changed, 115 insertions(+), 43 deletions(-)
+> >
+> > diff --git
+> > a/Documentation/devicetree/bindings/interrupt-controller/aspeed,ast270
+> > 0-intc.yaml
+> > b/Documentation/devicetree/bindings/interrupt-controller/aspeed,ast270
+> > 0-intc.yaml index 55636d06a674..bdc4d8835843 100644
+> > ---
+> > a/Documentation/devicetree/bindings/interrupt-controller/aspeed,ast270
+> > 0-intc.yaml
+> > +++ b/Documentation/devicetree/bindings/interrupt-controller/aspeed,as
+> > +++ t2700-intc.yaml
+> > @@ -10,6 +10,33 @@ description:
+> >    This interrupt controller hardware is second level interrupt control=
+ler
+> that
+> >    is hooked to a parent interrupt controller. It's useful to combine m=
+ultiple
+> >    interrupt sources into 1 interrupt to parent interrupt controller.
+> > +  Depend to which INTC0 or INTC1 used.
+> > +  INTC0 and INTC1 are two kinds of interrupt controller with enable
+> > + and raw  status registers for use.
+> > +  INTC0 is used to assert GIC if interrupt in INTC1 asserted.
+> > +  INTC1 is used to assert INTC0 if interrupt of modules asserted.
+> > +  +-----+   +---------+
+> > +  | GIC |---|  INTC0  |
+> > +  +-----+   +---------+
+> > +            +---------+
+> > +            |         |---module0
+> > +            | INTC0_0 |---module1
+> > +            |         |---...
+> > +            +---------+---module31
+> > +            |---....  |
+> > +            +---------+
+> > +            |         |     +---------+
+> > +            | INTC0_11| +---| INTC1   |
+> > +            |         |     +---------+
+> > +            +---------+     +---------+---module0
+> > +                            | INTC1_0 |---module1
+> > +                            |         |---...
+> > +                            +---------+---module31
+> > +                            ...
+> > +                            +---------+---module0
+> > +                            | INTC1_5 |---module1
+> > +                            |         |---...
+> > +                            +---------+---module31
+> >
+> >  maintainers:
+> >    - Kevin Chen <kevin_chen@aspeedtech.com> @@ -17,49 +44,70 @@
+> > maintainers:
+> >  properties:
+> >    compatible:
+> >      enum:
+> > -      - aspeed,ast2700-intc-ic
+> > +      - aspeed,ast2700-intc0
+> > +      - aspeed,ast2700-intc1
+> >
+> >    reg:
+> >      maxItems: 1
+> >
+> > -  interrupt-controller: true
+> > +  '#address-cells':
+> > +    const: 2
+> >
+> > -  '#interrupt-cells':
+> > +  '#size-cells':
+> >      const: 2
+> > -    description:
+> > -      The first cell is the IRQ number, the second cell is the trigger
+> > -      type as defined in interrupt.txt in this directory.
+> > -
+> > -  interrupts:
+> > -    maxItems: 6
+> > -    description: |
+> > -      Depend to which INTC0 or INTC1 used.
+> > -      INTC0 and INTC1 are two kinds of interrupt controller with enabl=
+e
+> and raw
+> > -      status registers for use.
+> > -      INTC0 is used to assert GIC if interrupt in INTC1 asserted.
+> > -      INTC1 is used to assert INTC0 if interrupt of modules asserted.
+> > -      +-----+   +-------+     +---------+---module0
+> > -      | GIC |---| INTC0 |--+--| INTC1_0 |---module2
+> > -      |     |   |       |  |  |         |---...
+> > -      +-----+   +-------+  |  +---------+---module31
+> > -                           |
+> > -                           |   +---------+---module0
+> > -                           +---| INTC1_1 |---module2
+> > -                           |   |         |---...
+> > -                           |   +---------+---module31
+> > -                          ...
+> > -                           |   +---------+---module0
+> > -                           +---| INTC1_5 |---module2
+> > -                               |         |---...
+> > -                               +---------+---module31
+> >
+> > +  ranges: true
+> > +
+> > +patternProperties:
+> > +  "^interrupt-controller@":
+> > +    type: object
+> > +    description: Interrupt group child nodes
+> > +    additionalProperties: false
+> > +
+> > +    properties:
+> > +      compatible:
+> > +        enum:
+> > +          - aspeed,ast2700-intc-ic
+> > +
+> > +      reg:
+> > +        maxItems: 1
+> > +
+> > +      interrupt-controller: true
+> > +
+> > +      '#interrupt-cells':
+> > +        const: 2
+> > +        description: |
+>=20
+> Don't need '|'.
+>=20
+> > +          The first cell is the IRQ number, the second cell is the tri=
+gger
+> > +          type as defined in interrupt.txt in this directory.
+>=20
+> Don't add links to legacy documents.
+>=20
+> > +
+> > +      interrupts:
+> > +        minItems: 1
+> > +        maxItems: 6
+> > +        description: |
+> > +          The interrupts provided by this interrupt controller.
+> > +
+> > +      interrupts-extended:
+>=20
+> Why do you have both interrupts and interrupts-extended? They are mutuall=
+y
+> exclusive and both are auto-magically supported. The schemas only have to
+> document 'interrupts'.
+>=20
+> > +        minItems: 1
+> > +        maxItems: 6
+> > +        description: |
+> > +          This property is required when defining a cascaded interrupt
+> controller
+> > +          that is connected under another interrupt controller. It spe=
+cifies
+> the
+> > +          parent interrupt(s) in the upstream controller to which this
+> controller
+> > +          is connected.
+> > +
+> > +    oneOf:
+> > +      - required: [interrupts]
+> > +      - required: [interrupts-extended]
+> > +
+> > +    required:
+> > +      - compatible
+> > +      - reg
+> > +      - interrupt-controller
+> > +      - '#interrupt-cells'
+> >
+> >  required:
+> >    - compatible
+> >    - reg
+> > -  - interrupt-controller
+> > -  - '#interrupt-cells'
+> > -  - interrupts
+> >
+> >  additionalProperties: false
+> >
+> > @@ -68,19 +116,43 @@ examples:
+> >      #include <dt-bindings/interrupt-controller/arm-gic.h>
+> >
+> >      bus {
+> > +      #address-cells =3D <2>;
+> > +      #size-cells =3D <2>;
+> > +
+> > +      intc0: interrupt-controller@12100000 {
+>=20
+> This node isn't an interrupt-controller.
+>=20
+> > +        compatible =3D "aspeed,ast2700-intc0";
+> > +        reg =3D <0 0x12100000 0 0x4000>;
+> > +        ranges =3D <0x0 0x0 0x0 0x12100000 0x0 0x4000>;
+> > +        #address-cells =3D <2>;
+> > +        #size-cells =3D <2>;
+> > +
+> > +        intc0_11: interrupt-controller@1b00 {
+> > +          compatible =3D "aspeed,ast2700-intc-ic";
+> > +          reg =3D <0 0x12101b00 0 0x10>;
+> > +          #interrupt-cells =3D <2>;
+> > +          interrupt-controller;
+> > +          interrupts =3D <GIC_SPI 192 (GIC_CPU_MASK_SIMPLE(4) |
+> IRQ_TYPE_LEVEL_HIGH)>,
+> > +                       <GIC_SPI 193 (GIC_CPU_MASK_SIMPLE(4) |
+> IRQ_TYPE_LEVEL_HIGH)>,
+> > +                       <GIC_SPI 194 (GIC_CPU_MASK_SIMPLE(4) |
+> IRQ_TYPE_LEVEL_HIGH)>,
+> > +                       <GIC_SPI 195 (GIC_CPU_MASK_SIMPLE(4) |
+> IRQ_TYPE_LEVEL_HIGH)>,
+> > +                       <GIC_SPI 196 (GIC_CPU_MASK_SIMPLE(4) |
+> IRQ_TYPE_LEVEL_HIGH)>,
+> > +                       <GIC_SPI 197 (GIC_CPU_MASK_SIMPLE(4) |
+> IRQ_TYPE_LEVEL_HIGH)>;
+> > +        };
+> > +      };
+> > +
+> > +      intc1: interrupt-controller@14c18000 {
+> > +        compatible =3D "aspeed,ast2700-intc1";
+> > +        reg =3D <0 0x14c18000 0 0x400>;
+> > +        ranges =3D <0x0 0x0 0x0 0x14c18000 0x0 0x400>;
+> >          #address-cells =3D <2>;
+> >          #size-cells =3D <2>;
+> >
+> > -        interrupt-controller@12101b00 {
+> > -            compatible =3D "aspeed,ast2700-intc-ic";
+> > -            reg =3D <0 0x12101b00 0 0x10>;
+> > -            #interrupt-cells =3D <2>;
+> > -            interrupt-controller;
+> > -            interrupts =3D <GIC_SPI 192 IRQ_TYPE_LEVEL_HIGH>,
+> > -                         <GIC_SPI 193 IRQ_TYPE_LEVEL_HIGH>,
+> > -                         <GIC_SPI 194 IRQ_TYPE_LEVEL_HIGH>,
+> > -                         <GIC_SPI 195 IRQ_TYPE_LEVEL_HIGH>,
+> > -                         <GIC_SPI 196 IRQ_TYPE_LEVEL_HIGH>,
+> > -                         <GIC_SPI 197 IRQ_TYPE_LEVEL_HIGH>;
+> > +        intc1_0: interrupt-controller@100 {
+> > +          compatible =3D "aspeed,ast2700-intc-ic";
+> > +          reg =3D <0x0 0x100 0x0 0x10>;
+> > +          #interrupt-cells =3D <2>;
+> > +          interrupt-controller;
+> > +          interrupts-extended =3D <&intc0_11 0
+> (GIC_CPU_MASK_SIMPLE(4)
+> > + | IRQ_TYPE_LEVEL_HIGH)>;
+> >          };
+> > +      };
+> >      };
+> > --
+> > 2.34.1
+> >
 
