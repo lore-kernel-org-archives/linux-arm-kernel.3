@@ -4,74 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAE67C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 15:13:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C961C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 15:16:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i8rKZEkFrLRFaYQBc3BIIxI8WYrqNMHpEOrc29zdPS4=; b=PCdX0iZMQ5TNO9xIwDrklJ9pEW
-	L6a50KSYvyOd9DSecKkktHa6Cpu6SU4BsrUmDz41bOsvf3kb6EygPJhU5bJSRFLEui0WHFrTKlIQu
-	l+1QNoSixaN8hMcvPe8+AqeHUevzBx+o5ghxoGde0WaYla2XoYFBVbpbQrWlIBF8Lplf0a82F8zAF
-	NMwHAprBUg+29qyaCXs5eWS9xt2cK6HPIMLv9mB+kme+9KRXsUrNrzdXgrG5XZS+aUKydvz7nl7Of
-	1IE6C6jxVEQUug8t7jfXlF+E3psFRqnxSwe0TAVCGwVIca+MIMsWM98KPS+yWaWsxLGpJ+XCglCIe
-	PzPsuI2Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=c3wDLxoVc+HEdX2GMJxvGVJZTBNah2ZOjTXwELNejXA=; b=YqJqr3Ct3cMtKZshlm0ZwGYRoc
+	b3uC2rTPLKLJdGxSucG+2nez8z5+doIn1FjMYxVJlNGwMvOnleQVjl7aNsAmviVGrDU0NzdnOuAx7
+	ETFn3INri04qFC4neTgIk8Vb/Tkez2b8rpRJKxNDr8x3jnuI9K8fL+mEuu1K5XukgXiozYvmFiet/
+	v8dRh9gPz8QET/SRZyEsuvggUCNOdEAM5K6hfDKGUsfMb4cXat9z3lGTuHwG/PQaxEPb4WjMFfNOd
+	qI3rgVnh6EWdGQo+cFJ74spJIlw4x69mYC95xYCRf6xLMn63/0Qv9zT696AKrAbvHnXDbJ6gw/+FU
+	2mFQ7NKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uebAA-00000005Lhk-30mm;
-	Wed, 23 Jul 2025 15:13:46 +0000
-Received: from smtp.forwardemail.net ([149.28.215.223])
+	id 1uebCb-00000005MCy-3MZV;
+	Wed, 23 Jul 2025 15:16:17 +0000
+Received: from mail-ej1-f47.google.com ([209.85.218.47])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueap6-00000005HBK-385c
+	id 1ueb1T-00000005K3T-44d7
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Jul 2025 14:52:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
- h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
- Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
- s=fe-e1b5cab7be; t=1753282320;
- bh=i8rKZEkFrLRFaYQBc3BIIxI8WYrqNMHpEOrc29zdPS4=;
- b=a1PJZcWHk1Omv9qfFHjPglV4PNASM1w4JJ8eMYDq69DctxkUGWurmgYUzdAekd1HOHLe9u//g
- i/46JSnkTugxpGACg8+YQplWSuhlr9eWRS7yU/Ko3BQ6UTVd1hj3zW8ItMsXv0iV7Fo7rwtmeC9
- 3JyTI+qMA+eTof3xibj92lMiRh3t5oNtdvb5L9C+DQszX/QQlBjGSrxtSexmXbmpkjioBFEi0Ow
- qQJCGyKDbfP3Ix9VNWNNfeaL0iUTZaLO/Jabqrd6qhLK0dEptLp2+CHcVbEbZe7hunASuKdkMZL
- 1H1Ebo3mS2ccP5SBKOeNS85N/VwVPHcZc1c7rjnWfWHQ==
-X-Forward-Email-ID: 6880f6eacb0ee86f9731d64d
-X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
- 149.28.215.223
-X-Forward-Email-Version: 1.1.6
-X-Forward-Email-Website: https://forwardemail.net
-X-Complaints-To: abuse@forwardemail.net
-X-Report-Abuse: abuse@forwardemail.net
-X-Report-Abuse-To: abuse@forwardemail.net
-Message-ID: <eb7c9e40-3c17-488f-98a2-17b972f61e75@kwiboo.se>
-Date: Wed, 23 Jul 2025 16:51:15 +0200
+	Wed, 23 Jul 2025 15:04:49 +0000
+Received: by mail-ej1-f47.google.com with SMTP id a640c23a62f3a-af0dc229478so488745266b.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Jul 2025 08:04:47 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1753283086; x=1753887886;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=c3wDLxoVc+HEdX2GMJxvGVJZTBNah2ZOjTXwELNejXA=;
+        b=oB0AJnYlZVBRxA7c0Wjnl02jljMdYG8oe56MRfV5z2F0BAzpuL87X09heWZv0f1YML
+         cfAW29cgEjcmb0BEu0QgXrybXwhAfAd3FWiAcF20QbtALVIP9Jw4Tx3lAGH4oDG60gB9
+         TkWlOAlZV8FENXeoq/VsuJmqc5FyiPbjdlzJCN/RGdSgrPJNXog2ONobtTdPceOvkmLG
+         t5mDndaXNe7Z1NFR6m6N0WoMMqeFpoHotcLwd7gGTu/jNZDfzKvK5KdG8K1fo05bHYWG
+         Sd8wlXMJ4/qXXjLv1HgzawSRNA8Qe4Kz+okFwtT3ajcON89FiPc2eBOCR0SgU9TTb1i0
+         8CSw==
+X-Gm-Message-State: AOJu0YxgNS3swtMUo+fQvp6mjNbbP8mCGeCLnHyy7u3ZMBuDeM0PZULk
+	KwoVq6/NIue9scAmqpxXpC+0d4JzGg4HbH68/lpn22pqzrRq8vQ1imTf
+X-Gm-Gg: ASbGncsy5J8DfdRjd+0kVk5kx1Iu3yQUh3iZbF9mZoV7fMHkQSSQrN9fPVZ62cacxLA
+	efwDdrwUQs9DH4q8+tSmb9g3GHRpKRb+CiKEityc08cfn9GQ4PiPNC4GaSOUE1GGI1DVWuldV0Z
+	UIdkKT3cbTnfrXbgzI+ULwX0d2zEOl2JLF9jvQ+2lwT4nS94izzhcZfcqGkn4Vl+5eZ4AxxrjKx
+	lbqRgDTNCjkwqQ54XicmzvodtGOXme02hBwzfQfRx9QWMxdh0SbbNDkUqrjYGhVy6+auEmNfhwv
+	mtpAeGk04G6bMvCGQFfihYDMOwmOa38vhDAgAJkB5i0Zt22vP9PnLFNfLhU+LlY+/CkhptENRjx
+	y9xxNncQv6sam
+X-Google-Smtp-Source: AGHT+IG4M07vIFs4hMRP/029gmdq+4cUNxE2P9XhlYCoD20ic0NnH4DJ8ZRKHcH+ho3414YcpwkJ5g==
+X-Received: by 2002:a17:907:3d09:b0:ae3:a240:7ad2 with SMTP id a640c23a62f3a-af2f64bb5bbmr298750266b.2.1753283085272;
+        Wed, 23 Jul 2025 08:04:45 -0700 (PDT)
+Received: from gmail.com ([2a03:2880:30ff:6::])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aec6cadd8bbsm1053308066b.154.2025.07.23.08.04.44
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 23 Jul 2025 08:04:44 -0700 (PDT)
+Date: Wed, 23 Jul 2025 08:04:42 -0700
+From: Breno Leitao <leitao@debian.org>
+To: mst@redhat.com, jasowang@redhat.com, eperezma@redhat.com
+Cc: linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org
+Subject: vhost: linux-next: crash at vhost_dev_cleanup()
+Message-ID: <vosten2rykookljp6u6qc4hqhsqb6uhdy2iuhpl54plbq2tkr4@kphfpgst3e7c>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 5/6] phy: rockchip: naneng-combphy: Add RK3528 support
-To: Yao Zi <ziyao@disroot.org>
-Cc: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I
- <kishon@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Frank Wang <frank.wang@rock-chips.com>, Andy Yan <andy.yan@rock-chips.com>,
- Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
- Detlev Casanova <detlev.casanova@collabora.com>,
- Shresth Prasad <shresthprasad7@gmail.com>, Chukun Pan <amadeus@jmu.edu.cn>,
- linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, Neil Armstrong <neil.armstrong@linaro.org>
-References: <20250624033733.50197-1-ziyao@disroot.org>
- <20250624033733.50197-6-ziyao@disroot.org>
-Content-Language: en-US
-From: Jonas Karlman <jonas@kwiboo.se>
-In-Reply-To: <20250624033733.50197-6-ziyao@disroot.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250723_075200_807865_726B7684 
-X-CRM114-Status: GOOD (  26.34  )
+X-CRM114-CacheID: sfid-20250723_080448_014037_6BE627E9 
+X-CRM114-Status: UNSURE (   9.33  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,261 +82,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Yao Zi,
+Hello,
 
-On 6/24/2025 5:37 AM, Yao Zi wrote:
-> Rockchip RK3528 integrates one naneng-combphy that is able to operate in
-> PCIe and USB3 mode. The control logic is similar to previous variants of
-> naneng-combphy but the register layout is apperantly different from the
-> RK3568 one.
-> 
-> Signed-off-by: Yao Zi <ziyao@disroot.org>
-> Reviewed-by: Heiko Stuebner <heiko@sntech.de>
-> Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
-> ---
->  .../rockchip/phy-rockchip-naneng-combphy.c    | 186 +++++++++++++++++-
->  1 file changed, 185 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c b/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c
-> index 1d1c7723584b..bf00a85a113b 100644
-> --- a/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c
-> +++ b/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c
-> @@ -20,7 +20,46 @@
->  #define REF_CLOCK_25MHz			(25 * HZ_PER_MHZ)
->  #define REF_CLOCK_100MHz		(100 * HZ_PER_MHZ)
->  
-> -/* COMBO PHY REG */
-> +/* RK3528 COMBO PHY REG */
-> +#define RK3528_PHYREG6				0x18
-> +#define RK3528_PHYREG6_PLL_KVCO			GENMASK(12, 10)
-> +#define RK3528_PHYREG6_PLL_KVCO_VALUE		0x2
-> +#define RK3528_PHYREG6_SSC_DIR			GENMASK(5, 4)
-> +#define RK3528_PHYREG6_SSC_UPWARD		0
-> +#define RK3528_PHYREG6_SSC_DOWNWARD		1
-> +
-> +#define RK3528_PHYREG40				0x100
-> +#define RK3528_PHYREG40_SSC_EN			BIT(20)
-> +#define RK3528_PHYREG40_SSC_CNT			GENMASK(10, 0)
-> +#define RK3528_PHYREG40_SSC_CNT_VALUE		0x17d
-> +
-> +#define RK3528_PHYREG42				0x108
-> +#define RK3528_PHYREG42_CKDRV_CLK_SEL		BIT(29)
-> +#define RK3528_PHYREG42_CKDRV_CLK_PLL		0
-> +#define RK3528_PHYREG42_CKDRV_CLK_CKRCV		1
-> +#define RK3528_PHYREG42_PLL_LPF_R1_ADJ		GENMASK(10, 7)
-> +#define RK3528_PHYREG42_PLL_LPF_R1_ADJ_VALUE	0x9
-> +#define RK3528_PHYREG42_PLL_CHGPUMP_CUR_ADJ	GENMASK(6, 4)
-> +#define RK3528_PHYREG42_PLL_CHGPUMP_CUR_ADJ_VALUE 0x7
-> +#define RK3528_PHYREG42_PLL_KVCO_ADJ		GENMASK(2, 0)
-> +#define RK3528_PHYREG42_PLL_KVCO_ADJ_VALUE	0x0
-> +
-> +#define RK3528_PHYREG80				0x200
-> +#define RK3528_PHYREG80_CTLE_EN			BIT(17)
-> +
-> +#define RK3528_PHYREG81				0x204
-> +#define RK3528_PHYREG81_CDR_PHASE_PATH_GAIN_2X	BIT(5)
-> +#define RK3528_PHYREG81_SLEW_RATE_CTRL		GENMASK(2, 0)
-> +#define RK3528_PHYREG81_SLEW_RATE_CTRL_SLOW	0x7
-> +
-> +#define RK3528_PHYREG83				0x20c
-> +#define RK3528_PHYREG83_RX_SQUELCH		GENMASK(2, 0)
-> +#define RK3528_PHYREG83_RX_SQUELCH_VALUE	0x6
-> +
-> +#define RK3528_PHYREG86				0x218
-> +#define RK3528_PHYREG86_RTERM_DET_CLK_EN	BIT(14)
-> +
-> +/* RK3568 COMBO PHY REG */
->  #define RK3568_PHYREG6				0x14
->  #define RK3568_PHYREG6_PLL_DIV_MASK		GENMASK(7, 6)
->  #define RK3568_PHYREG6_PLL_DIV_SHIFT		6
-> @@ -398,6 +437,147 @@ static int rockchip_combphy_probe(struct platform_device *pdev)
->  	return PTR_ERR_OR_ZERO(phy_provider);
->  }
->  
-> +static int rk3528_combphy_cfg(struct rockchip_combphy_priv *priv)
-> +{
-> +	const struct rockchip_combphy_grfcfg *cfg = priv->cfg->grfcfg;
-> +	unsigned long rate;
-> +	u32 val;
-> +
-> +	/* Set SSC downward spread spectrum */
-> +	val = FIELD_PREP(RK3528_PHYREG6_SSC_DIR, RK3528_PHYREG6_SSC_DOWNWARD);
-> +	rockchip_combphy_updatel(priv, RK3528_PHYREG6_SSC_DIR, val, RK3528_PHYREG6);
-> +
-> +	switch (priv->type) {
-> +	case PHY_TYPE_PCIE:
-> +		rockchip_combphy_param_write(priv->phy_grf, &cfg->con0_for_pcie, true);
-> +		rockchip_combphy_param_write(priv->phy_grf, &cfg->con1_for_pcie, true);
-> +		rockchip_combphy_param_write(priv->phy_grf, &cfg->con2_for_pcie, true);
-> +		rockchip_combphy_param_write(priv->phy_grf, &cfg->con3_for_pcie, true);
-> +		break;
-> +	case PHY_TYPE_USB3:
-> +		/* Enable adaptive CTLE for USB3.0 Rx */
-> +		rockchip_combphy_updatel(priv, RK3528_PHYREG80_CTLE_EN, RK3528_PHYREG80_CTLE_EN,
-> +					 RK3528_PHYREG80);
-> +
-> +		/* Set slow slew rate control for PI */
-> +		val = FIELD_PREP(RK3528_PHYREG81_SLEW_RATE_CTRL,
-> +				 RK3528_PHYREG81_SLEW_RATE_CTRL_SLOW);
-> +		rockchip_combphy_updatel(priv, RK3528_PHYREG81_SLEW_RATE_CTRL, val,
-> +					 RK3528_PHYREG81);
-> +
-> +		/* Set CDR phase path with 2x gain */
-> +		rockchip_combphy_updatel(priv, RK3528_PHYREG81_CDR_PHASE_PATH_GAIN_2X,
-> +					 RK3528_PHYREG81_CDR_PHASE_PATH_GAIN_2X, RK3528_PHYREG81);
-> +
-> +		/* Set Rx squelch input filler bandwidth */
-> +		val = FIELD_PREP(RK3528_PHYREG83_RX_SQUELCH, RK3528_PHYREG83_RX_SQUELCH_VALUE);
-> +		rockchip_combphy_updatel(priv, RK3528_PHYREG83_RX_SQUELCH, val, RK3528_PHYREG83);
-> +
-> +		rockchip_combphy_param_write(priv->phy_grf, &cfg->pipe_txcomp_sel, false);
-> +		rockchip_combphy_param_write(priv->phy_grf, &cfg->pipe_txelec_sel, false);
-> +		rockchip_combphy_param_write(priv->phy_grf, &cfg->usb_mode_set, true);
+I've seen a crash in linux-next for a while on my arm64 server, and
+I decided to report.
 
-I suggest we add something like following here:
+While running stress-ng on linux-next, I see the crash below.
 
-		rockchip_combphy_param_write(priv->pipe_grf, &cfg->u3otg0_port_en, true);
+This is happening in a kernel configure with some debug options (KASAN,
+LOCKDEP and KMEMLEAK).
 
-to ensure that U3 is enabled in case boot firmware disable the U3 port.
+Basically running stress-ng in a loop would crash the host in 15-20
+minutes:
+	# while (true); do stress-ng -r 10 -t 10; done
+	
+From the early warning "virt_to_phys used for non-linear address",
+I suppose corrupted data is at vq->nheads.
 
-> +		break;
-> +	default:
-> +		dev_err(priv->dev, "incompatible PHY type\n");
-> +		return -EINVAL;
-> +	}
-> +
-> +	rate = clk_get_rate(priv->refclk);
-> +
-> +	switch (rate) {
-> +	case REF_CLOCK_24MHz:
-> +		rockchip_combphy_param_write(priv->phy_grf, &cfg->pipe_clk_24m, true);
-> +		if (priv->type == PHY_TYPE_USB3) {
-> +			/* Set ssc_cnt[10:0]=00101111101 & 31.5KHz */
-> +			val = FIELD_PREP(RK3528_PHYREG40_SSC_CNT, RK3528_PHYREG40_SSC_CNT_VALUE);
-> +			rockchip_combphy_updatel(priv, RK3528_PHYREG40_SSC_CNT, val,
-> +						 RK3528_PHYREG40);
-> +		} else if (priv->type == PHY_TYPE_PCIE) {
-> +			/* tx_trim[14]=1, Enable the counting clock of the rterm detect */
-> +			rockchip_combphy_updatel(priv, RK3528_PHYREG86_RTERM_DET_CLK_EN,
-> +						 RK3528_PHYREG86_RTERM_DET_CLK_EN, RK3528_PHYREG86);
-> +		}
-> +		break;
-> +	case REF_CLOCK_100MHz:
-> +		rockchip_combphy_param_write(priv->phy_grf, &cfg->pipe_clk_100m, true);
-> +		if (priv->type == PHY_TYPE_PCIE) {
-> +			/* PLL KVCO tuning fine */
-> +			val = FIELD_PREP(RK3528_PHYREG6_PLL_KVCO, RK3528_PHYREG6_PLL_KVCO_VALUE);
-> +			rockchip_combphy_updatel(priv, RK3528_PHYREG6_PLL_KVCO, val,
-> +						 RK3528_PHYREG6);
-> +
-> +			/* su_trim[6:4]=111, [10:7]=1001, [2:0]=000, swing 650mv */
-> +			writel(0x570804f0, priv->mmio + RK3528_PHYREG42);
-> +		}
-> +		break;
-> +	default:
-> +		dev_err(priv->dev, "Unsupported rate: %lu\n", rate);
-> +		return -EINVAL;
-> +	}
-> +
-> +	if (device_property_read_bool(priv->dev, "rockchip,ext-refclk")) {
-> +		rockchip_combphy_param_write(priv->phy_grf, &cfg->pipe_clk_ext, true);
-> +
-> +		if (priv->type == PHY_TYPE_PCIE && rate == REF_CLOCK_100MHz) {
-> +			val = FIELD_PREP(RK3528_PHYREG42_CKDRV_CLK_SEL,
-> +					 RK3528_PHYREG42_CKDRV_CLK_CKRCV);
-> +			val |= FIELD_PREP(RK3528_PHYREG42_PLL_LPF_R1_ADJ,
-> +					  RK3528_PHYREG42_PLL_LPF_R1_ADJ_VALUE);
-> +			val |= FIELD_PREP(RK3528_PHYREG42_PLL_CHGPUMP_CUR_ADJ,
-> +					  RK3528_PHYREG42_PLL_CHGPUMP_CUR_ADJ_VALUE);
-> +			val |= FIELD_PREP(RK3528_PHYREG42_PLL_KVCO_ADJ,
-> +					  RK3528_PHYREG42_PLL_KVCO_ADJ_VALUE);
-> +			rockchip_combphy_updatel(priv,
-> +						 RK3528_PHYREG42_CKDRV_CLK_SEL		|
-> +						 RK3528_PHYREG42_PLL_LPF_R1_ADJ		|
-> +						 RK3528_PHYREG42_PLL_CHGPUMP_CUR_ADJ	|
-> +						 RK3528_PHYREG42_PLL_KVCO_ADJ,
-> +						 val, RK3528_PHYREG42);
-> +
-> +			val = FIELD_PREP(RK3528_PHYREG6_PLL_KVCO, RK3528_PHYREG6_PLL_KVCO_VALUE);
-> +			rockchip_combphy_updatel(priv, RK3528_PHYREG6_PLL_KVCO, val,
-> +						 RK3528_PHYREG6);
-> +		}
-> +	}
-> +
-> +	if (priv->type == PHY_TYPE_PCIE) {
-> +		if (device_property_read_bool(priv->dev, "rockchip,enable-ssc"))
-> +			rockchip_combphy_updatel(priv, RK3528_PHYREG40_SSC_EN,
-> +						 RK3528_PHYREG40_SSC_EN, RK3528_PHYREG40);
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static const struct rockchip_combphy_grfcfg rk3528_combphy_grfcfgs = {
-> +	/* pipe-phy-grf */
-> +	.pcie_mode_set		= { 0x0000, 5, 0, 0x00, 0x11 },
-> +	.usb_mode_set		= { 0x0000, 5, 0, 0x00, 0x04 },
-> +	.pipe_rxterm_set	= { 0x0000, 12, 12, 0x00, 0x01 },
-> +	.pipe_txelec_set	= { 0x0004, 1, 1, 0x00, 0x01 },
-> +	.pipe_txcomp_set	= { 0x0004, 4, 4, 0x00, 0x01 },
-> +	.pipe_clk_24m		= { 0x0004, 14, 13, 0x00, 0x00 },
-> +	.pipe_clk_100m		= { 0x0004, 14, 13, 0x00, 0x02 },
-> +	.pipe_rxterm_sel	= { 0x0008, 8, 8, 0x00, 0x01 },
-> +	.pipe_txelec_sel	= { 0x0008, 12, 12, 0x00, 0x01 },
-> +	.pipe_txcomp_sel	= { 0x0008, 15, 15, 0x00, 0x01 },
-> +	.pipe_clk_ext		= { 0x000c, 9, 8, 0x02, 0x01 },
-> +	.pipe_phy_status	= { 0x0034, 6, 6, 0x01, 0x00 },
-> +	.con0_for_pcie		= { 0x0000, 15, 0, 0x00, 0x110 },
-> +	.con1_for_pcie		= { 0x0004, 15, 0, 0x00, 0x00 },
-> +	.con2_for_pcie		= { 0x0008, 15, 0, 0x00, 0x101 },
-> +	.con3_for_pcie		= { 0x000c, 15, 0, 0x00, 0x0200 },
+Here is the decoded stack against 9798752 ("Add linux-next specific
+files for 20250721")
 
-And adding something like this:
 
-	/* pipe-grf */
-	.u3otg0_port_en		= { 0x0044, 15, 0, 0x0181, 0x1100 },
+	[  620.685144] [ T250731] VFIO - User Level meta-driver version: 0.3
+	[  622.394448] [ T250254] ------------[ cut here ]------------
+	[  622.413492] [ T250254] virt_to_phys used for non-linear address: 000000006e69fe64 (0xcfcecdcccbcac9c8)
+	[  622.447771] [     T250254] WARNING: arch/arm64/mm/physaddr.c:15 at __virt_to_phys+0x64/0x90, CPU#57: stress-ng-dev/250254 
+	[  622.487227] [ T250254] Modules linked in: vhost_vsock(E) vfio_iommu_type1(E) vfio(E) unix_diag(E) sch_fq(E) ghes_edac(E) tls(E) tcp_diag(E) inet_diag(E) act_gact(E) cls_bpf(E) nvidia_cspmu(E) ipmi_ssif(E) coresight_trbe(E) arm_cspmu_module(E) arm_smmuv3_pmu(E) ipmi_devintf(E) coresight_stm(E) coresight_funnel(E) coresight_etm4x(E) coresight_tmc(E) stm_core(E) ipmi_msghandler(E) coresight(E) cppc_cpufreq(E) sch_fq_codel(E) drm(E) backlight(E) drm_panel_orientation_quirks(E) sm3_ce(E) sha3_ce(E) spi_tegra210_quad(E) vhost_net(E) tap(E) tun(E) vhost(E) vhost_iotlb(E) mpls_gso(E) mpls_iptunnel(E) mpls_router(E) fou(E) acpi_power_meter(E) loop(E) efivarfs(E) autofs4(E) [last unloaded: test_bpf(E)]
+	[  622.734524] [ T250254] Tainted: [W]=WARN, [E]=UNSIGNED_MODULE, [N]=TEST
+	[  622.734525] [ T250254] Hardware name: ...
+	[  622.734526] [ T250254] pstate: 63401009 (nZCv daif +PAN -UAO +TCO +DIT +SSBS BTYPE=--)
+	[  622.734529] [     T250254] pc : __virt_to_phys (/home/user/Devel/linux-next/arch/arm64/mm/physaddr.c:?) 
+	[  622.734531] [     T250254] lr : __virt_to_phys (/home/user/Devel/linux-next/arch/arm64/mm/physaddr.c:?) 
+	[  622.734533] [ T250254] sp : ffff800158e8fc60
+	[  622.734534] [ T250254] x29: ffff800158e8fc60 x28: ffff0034a7cc7900 x27: 0000000000000000
+	[  622.734537] [ T250254] x26: 0000000000000000 x25: ffff0034a7cc7900 x24: 00000000040e001f
+	[  622.734539] [ T250254] x23: ffff0010858afb00 x22: cfcecdcccbcac9c8 x21: ffff0033526a01e0
+	[  622.734541] [ T250254] x20: 0000000000008000 x19: ffcecdcccbcac9c8 x18: ffff80008149c8e4
+	[  622.734543] [ T250254] x17: 0000000000000001 x16: 0000000000000000 x15: 0000000000000003
+	[  622.734545] [ T250254] x14: ffff800082962e78 x13: 0000000000000003 x12: ffff003bc6231630
+	[  622.734546] [ T250254] x11: 0000000000000000 x10: 0000000000000000 x9 : ed44a220ae716b00
+	[  622.734548] [ T250254] x8 : 0001000000000000 x7 : 0720072007200720 x6 : ffff80008018710c
+	[  622.734550] [ T250254] x5 : 0000000000000001 x4 : 00000090ecc72ac0 x3 : 0000000000000000
+	[  622.734552] [ T250254] x2 : 0000000000000000 x1 : ffff800081a72bc6 x0 : 000000000000004f
+	[  622.734554] [ T250254] Call trace:
+	[  622.734555] [     T250254] __virt_to_phys (/home/user/Devel/linux-next/arch/arm64/mm/physaddr.c:?) (P)
+	[  622.734557] [     T250254] kfree (/home/user/Devel/linux-next/./include/linux/mm.h:1180 /home/user/Devel/linux-next/mm/slub.c:4871) 
+	[  622.734562] [     T250254] vhost_dev_cleanup (/home/user/Devel/linux-next/drivers/vhost/vhost.c:506 /home/user/Devel/linux-next/drivers/vhost/vhost.c:542 /home/user/Devel/linux-next/drivers/vhost/vhost.c:1214) vhost 
+	[  622.734571] [     T250254] vhost_vsock_dev_release (/home/user/Devel/linux-next/drivers/vhost/vsock.c:756) vhost_vsock 
+	[  622.734575] [     T250254] __fput (/home/user/Devel/linux-next/fs/file_table.c:469) 
+	[  622.734578] [     T250254] fput_close_sync (/home/user/Devel/linux-next/fs/file_table.c:?) 
+	[  622.734579] [     T250254] __arm64_sys_close (/home/user/Devel/linux-next/fs/open.c:1589 /home/user/Devel/linux-next/fs/open.c:1572 /home/user/Devel/linux-next/fs/open.c:1572) 
+	[  622.734584] [     T250254] invoke_syscall (/home/user/Devel/linux-next/arch/arm64/kernel/syscall.c:50) 
+	[  622.734589] [     T250254] el0_svc_common (/home/user/Devel/linux-next/./include/linux/thread_info.h:135 /home/user/Devel/linux-next/arch/arm64/kernel/syscall.c:140) 
+	[  622.734591] [     T250254] do_el0_svc (/home/user/Devel/linux-next/arch/arm64/kernel/syscall.c:152) 
+	[  622.734594] [     T250254] el0_svc (/home/user/Devel/linux-next/arch/arm64/kernel/entry-common.c:169 /home/user/Devel/linux-next/arch/arm64/kernel/entry-common.c:182 /home/user/Devel/linux-next/arch/arm64/kernel/entry-common.c:880) 
+	[  622.734600] [     T250254] el0t_64_sync_handler (/home/user/Devel/linux-next/arch/arm64/kernel/entry-common.c:958) 
+	[  622.734603] [     T250254] el0t_64_sync (/home/user/Devel/linux-next/arch/arm64/kernel/entry.S:596) 
+	[  622.734605] [ T250254] irq event stamp: 0
+	[  622.734606] [     T250254] hardirqs last enabled at (0): 0x0 
+	[  622.734610] [     T250254] hardirqs last disabled at (0): copy_process (/home/user/Devel/linux-next/kernel/fork.c:?) 
+	[  622.734614] [     T250254] softirqs last enabled at (0): copy_process (/home/user/Devel/linux-next/kernel/fork.c:?) 
+	[  622.734616] [     T250254] softirqs last disabled at (0): 0x0 
+	[  622.734618] [ T250254] ---[ end trace 0000000000000000 ]---
+	[  622.734697] [ T250254] Unable to handle kernel paging request at virtual address 003ff3b33312f288
+	[  622.734700] [ T250254] Mem abort info:
+	[  622.734701] [ T250254]   ESR = 0x0000000096000004
+	[  622.734702] [ T250254]   EC = 0x25: DABT (current EL), IL = 32 bits
+	[  622.734704] [ T250254]   SET = 0, FnV = 0
+	[  622.734705] [ T250254]   EA = 0, S1PTW = 0
+	[  622.734706] [ T250254]   FSC = 0x04: level 0 translation fault
+	[  622.734708] [ T250254] Data abort info:
+	[  622.734709] [ T250254]   ISV = 0, ISS = 0x00000004, ISS2 = 0x00000000
+	[  622.734711] [ T250254]   CM = 0, WnR = 0, TnD = 0, TagAccess = 0
+	[  622.734712] [ T250254]   GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
+	[  622.734713] [ T250254] [003ff3b33312f288] address between user and kernel address ranges
+	[  622.734715] [ T250254] Internal error: Oops: 0000000096000004 [#1]  SMP
+	[  622.734718] [ T250254] Modules linked in: vhost_vsock(E) vfio_iommu_type1(E) vfio(E) unix_diag(E) sch_fq(E) ghes_edac(E) tls(E) tcp_diag(E) inet_diag(E) act_gact(E) cls_bpf(E) nvidia_cspmu(E) ipmi_ssif(E) coresight_trbe(E) arm_cspmu_module(E) arm_smmuv3_pmu(E) ipmi_devintf(E) coresight_stm(E) coresight_funnel(E) coresight_etm4x(E) coresight_tmc(E) stm_core(E) ipmi_msghandler(E) coresight(E) cppc_cpufreq(E) sch_fq_codel(E) drm(E) backlight(E) drm_panel_orientation_quirks(E) sm3_ce(E) sha3_ce(E) spi_tegra210_quad(E) vhost_net(E) tap(E) tun(E) vhost(E) vhost_iotlb(E) mpls_gso(E) mpls_iptunnel(E) mpls_router(E) fou(E) acpi_power_meter(E) loop(E) efivarfs(E) autofs4(E) [last unloaded: test_bpf(E)]
+	[  622.734740] [ T250254] Tainted: [W]=WARN, [E]=UNSIGNED_MODULE, [N]=TEST
+	[  622.734740] [ T250254] Hardware name: ...
+	[  622.734741] [ T250254] pstate: 63401009 (nZCv daif +PAN -UAO +TCO +DIT +SSBS BTYPE=--)
+	[  622.734742] [     T250254] pc : kfree (/home/user/Devel/linux-next/./include/linux/page-flags.h:284 /home/user/Devel/linux-next/./include/linux/mm.h:1182 /home/user/Devel/linux-next/mm/slub.c:4871) 
+	[  622.734745] [     T250254] lr : kfree (/home/user/Devel/linux-next/./include/linux/mm.h:1180 /home/user/Devel/linux-next/mm/slub.c:4871) 
+	[  622.734747] [ T250254] sp : ffff800158e8fc80
+	[  622.734748] [ T250254] x29: ffff800158e8fc90 x28: ffff0034a7cc7900 x27: 0000000000000000
+	[  622.734749] [ T250254] x26: 0000000000000000 x25: ffff0034a7cc7900 x24: 00000000040e001f
+	[  622.734751] [ T250254] x23: ffff0010858afb00 x22: cfcecdcccbcac9c8 x21: ffff0033526a01e0
+	[  622.734752] [ T250254] x20: 003ff3b33312f280 x19: ffff80000acd1a20 x18: ffff80008149c8e4
+	[  622.734754] [ T250254] x17: 0000000000000001 x16: 0000000000000000 x15: 0000000000000003
+	[  622.734755] [ T250254] x14: ffff800082962e78 x13: 0000000000000003 x12: ffff003bc6231630
+	[  622.734757] [ T250254] x11: 0000000000000000 x10: 0000000000000000 x9 : ffffffdfc0000000
+	[  622.734758] [ T250254] x8 : 003ff3d37312f280 x7 : 0720072007200720 x6 : ffff80008018710c
+	[  622.734760] [ T250254] x5 : 0000000000000001 x4 : 00000090ecc72ac0 x3 : 0000000000000000
+	[  622.734761] [ T250254] x2 : 0000000000000000 x1 : ffff800081a72bc6 x0 : ffcf4dcccbcac9c8
+	[  622.734763] [ T250254] Call trace:
+	[  622.734763] [     T250254] kfree (/home/user/Devel/linux-next/./include/linux/page-flags.h:284 /home/user/Devel/linux-next/./include/linux/mm.h:1182 /home/user/Devel/linux-next/mm/slub.c:4871) (P)
+	[  622.734766] [     T250254] vhost_dev_cleanup (/home/user/Devel/linux-next/drivers/vhost/vhost.c:506 /home/user/Devel/linux-next/drivers/vhost/vhost.c:542 /home/user/Devel/linux-next/drivers/vhost/vhost.c:1214) vhost 
+	[  622.734769] [     T250254] vhost_vsock_dev_release (/home/user/Devel/linux-next/drivers/vhost/vsock.c:756) vhost_vsock 
+	[  622.734771] [     T250254] __fput (/home/user/Devel/linux-next/fs/file_table.c:469) 
+	[  622.734772] [     T250254] fput_close_sync (/home/user/Devel/linux-next/fs/file_table.c:?) 
+	[  622.734773] [     T250254] __arm64_sys_close (/home/user/Devel/linux-next/fs/open.c:1589 /home/user/Devel/linux-next/fs/open.c:1572 /home/user/Devel/linux-next/fs/open.c:1572) 
+	[  622.734776] [     T250254] invoke_syscall (/home/user/Devel/linux-next/arch/arm64/kernel/syscall.c:50) 
+	[  622.734778] [     T250254] el0_svc_common (/home/user/Devel/linux-next/./include/linux/thread_info.h:135 /home/user/Devel/linux-next/arch/arm64/kernel/syscall.c:140) 
+	[  622.734781] [     T250254] do_el0_svc (/home/user/Devel/linux-next/arch/arm64/kernel/syscall.c:152) 
+	[  622.734783] [     T250254] el0_svc (/home/user/Devel/linux-next/arch/arm64/kernel/entry-common.c:169 /home/user/Devel/linux-next/arch/arm64/kernel/entry-common.c:182 /home/user/Devel/linux-next/arch/arm64/kernel/entry-common.c:880) 
+	[  622.734787] [     T250254] el0t_64_sync_handler (/home/user/Devel/linux-next/arch/arm64/kernel/entry-common.c:958) 
+	[  622.734790] [     T250254] el0t_64_sync (/home/user/Devel/linux-next/arch/arm64/kernel/entry.S:596) 
+	[ 622.734792] [ T250254] Code: f2dffbe9 927abd08 cb141908 8b090114 (f9400688)
+	All code
+	========
+	0:*	e9 fb df f2 08       	jmp    0x8f2e000		<-- trapping instruction
+	5:	bd 7a 92 08 19       	mov    $0x1908927a,%ebp
+	a:	14 cb                	adc    $0xcb,%al
+	c:	14 01                	adc    $0x1,%al
+	e:	09 8b 88 06 40 f9    	or     %ecx,-0x6bff978(%rbx)
 
-Should be possible with ("phy: rockchip: naneng-combphy: Enable U3 OTG
-port for RK3568") [1].
-
-Most RK3528 boards I have come across this far seem to use PCIe instead
-of USB3, so having boot firmware disable U3 early (to help support USB
-gadget in boot firmware) and instead having this PHY driver re-enable U3
-when needed seem most logical to me.
-
-I will push an updated U-Boot rk3528 branch [2] where I include such
-early U3 port disable once source.denx.de is back online again.
-
-[1] https://lore.kernel.org/r/20250723072324.2246498-1-jonas@kwiboo.se
-[2] https://source.denx.de/u-boot/contributors/kwiboo/u-boot/-/commits/rk3528
-
-Regards,
-Jonas
-
-> +};
-> +
-> +static const struct rockchip_combphy_cfg rk3528_combphy_cfgs = {
-> +	.num_phys	= 1,
-> +	.phy_ids	= {
-> +		0xffdc0000,
-> +	},
-> +	.grfcfg		= &rk3528_combphy_grfcfgs,
-> +	.combphy_cfg	= rk3528_combphy_cfg,
-> +};
-> +
->  static int rk3562_combphy_cfg(struct rockchip_combphy_priv *priv)
->  {
->  	const struct rockchip_combphy_grfcfg *cfg = priv->cfg->grfcfg;
-> @@ -1213,6 +1393,10 @@ static const struct rockchip_combphy_cfg rk3588_combphy_cfgs = {
->  };
->  
->  static const struct of_device_id rockchip_combphy_of_match[] = {
-> +	{
-> +		.compatible = "rockchip,rk3528-naneng-combphy",
-> +		.data = &rk3528_combphy_cfgs,
-> +	},
->  	{
->  		.compatible = "rockchip,rk3562-naneng-combphy",
->  		.data = &rk3562_combphy_cfgs,
+	Code starting with the faulting instruction
+	===========================================
+	0:	88 06                	mov    %al,(%rsi)
+	2:	40 f9                	rex stc 
+	[  622.734795] [ T250254] SMP: stopping secondary CPUs
+	[  622.735089] [ T250254] Starting crashdump kernel...
+	[  622.735091] [ T250254] Bye!
 
 
