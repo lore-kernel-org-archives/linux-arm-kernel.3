@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 308A0C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 04:10:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5D9BC83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 04:13:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q/BKbhuL0vKp+y2KpfAqEHa8O7EtSQwyOm6GZvSm+1w=; b=1alH20UICiwXgwPRZS51XAkm5d
-	mMXGDZYRNUzHaKKnpG1cttO3BgVn7A9l3OxowUJ8dSM/oCM3Au4BlD59B1iAD/OOWDIbGnUetLJHk
-	qOSuXMxUZtB423PQlfwN09ch1cwOiGAKAiyOJelHYC4Yx4mHnA48S452RmA7uxulGVDRPMO7npVbr
-	KZKDy/pcHZ6Zb/0OyscHkTvZ6hgeUdW1NE7aIwE2kAXkWbdeM0/c4bxYx0I4wFRnPny4OcG/m2Vnb
-	b4DbFMIviY/g1AbYj4f8DaSNuN9yUezXlDVlFr6j6fxyLtjXspzjxILBQrsxCvMmKqGgaSC1wEH0d
-	9DYVkJ1A==;
+	bh=QtN0VLE566TlGeRyALZ6z/tV9w0Xq9AqMnDzZ2gCzX0=; b=c+QnBa0YMJ/TGVQmM1Fs4h7URd
+	PeqyG1DLbC72HpUXg10V/GIqbQqePd/5KnyoCATGL3UJJIBzw+SF/17ciu1kwoR9Nhdigen7YxREf
+	FBrPoAU0cAhVj0AdQBlSZwb9ARE0ASJINMkA7sv2UEwH7p6v1yTIuIOfSZJjs0iUy0Vfrvc4pFG2F
+	/v60tpEvyJ/dttSkMZvnsF/qLDgR1x6FZx07maIqA8HdMl79bX7efw+56FLeqELKONaaUKtzg/A+Q
+	eapIzP+141fmP5qNgljUqMHKmkxL+o/9EoJgHXu8WuNNiSGfqtS6fVS/xu8mQWWljlN9L/ipmkNNJ
+	OT1g08ow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueQof-00000003y63-07ZE;
-	Wed, 23 Jul 2025 04:10:53 +0000
-Received: from mta-64-226.siemens.flowmailer.net ([185.136.64.226])
+	id 1ueQr7-00000003yHe-0QKA;
+	Wed, 23 Jul 2025 04:13:25 +0000
+Received: from mta-64-228.siemens.flowmailer.net ([185.136.64.228])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueQQo-00000003vno-3G3z
+	id 1ueQQv-00000003vqO-3Jb6
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Jul 2025 03:46:16 +0000
-Received: by mta-64-226.siemens.flowmailer.net with ESMTPSA id 20250723034611a53b66df05a6d9c56a
+	Wed, 23 Jul 2025 03:46:23 +0000
+Received: by mta-64-228.siemens.flowmailer.net with ESMTPSA id 202507230346183e30db78c9937c052c
         for <linux-arm-kernel@lists.infradead.org>;
-        Wed, 23 Jul 2025 05:46:11 +0200
+        Wed, 23 Jul 2025 05:46:18 +0200
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; s=fm1;
  d=siemens.com; i=huaqian.li@siemens.com;
  h=Date:From:Subject:To:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding:Cc:References:In-Reply-To;
- bh=q/BKbhuL0vKp+y2KpfAqEHa8O7EtSQwyOm6GZvSm+1w=;
- b=nOQK70L0wurZhAnvK5iaoQ+5hpiOKwaLW3s34lsI/Xu6qMM7VcehDgsu8NixfNe9/eEKFR
- PPAlSJFX9MEhm5iOi+XYpbMCu6C5MsHnYT1tSHB6Y5YxhFogbBOfFIidbaoobRIb9EcCO7Jr
- KjbUj/N8P9YEztbFH9hRgGXr2QN0qHNR5mjbG8DlReW0O0WCRys9ftrYbt212RcXnPlBiVzC
- 8eo3/hDbISciIL/NUeUc5ym4zRVKCJYMcv8zPV+2e/I93sDqYpx1m0Zg2NrZfz4DsqHZ9XOi
- vIfxxYcZ44lX0bco/SCFR7o+Xtv96sbhX1j6cRnO1CLE0FEgdauA67Dw==;
+ bh=QtN0VLE566TlGeRyALZ6z/tV9w0Xq9AqMnDzZ2gCzX0=;
+ b=ZTkwXmB2iQBKPVsq3R7cQGpm83jWq/vqSIXkEMNuW6S/OlXtiDlEpR9CY8K3GiPCFikW5M
+ LsbdPAsVYIcB4Pp5mx9W7lweMlnOLq9gRk+95l+UCcNcd4Nlwu/K6XLwB2xbco0JCB40Yc3r
+ Fi4WZ80jO8iMPwuOCpfvCCggwWu25pApG09T1XSXSM3EyjC+e5uyIJ11owjb/3ukYanChe9p
+ ICcjkUBOUHH/OErKmdn1OLJroNmvJMd1SHo9wOADMfpIdd/1r5HrrOqaerVXaTORrNEUSAZ+
+ hOkKT5K5++/CIspsNjjSauu/Kz070uByi6jOXDL325NE3HNU0IsOPwOw==;
 From: huaqian.li@siemens.com
 To: christophe.jaillet@wanadoo.fr
 Cc: baocheng.su@siemens.com,
@@ -61,9 +61,9 @@ Cc: baocheng.su@siemens.com,
 	s-vadapalli@ti.com,
 	ssantosh@kernel.org,
 	vigneshr@ti.com
-Subject: [PATCH v11 5/7] arm64: dts: ti: k3-am65-main: Add PVU nodes
-Date: Wed, 23 Jul 2025 11:45:19 +0800
-Message-Id: <20250723034521.138695-6-huaqian.li@siemens.com>
+Subject: [PATCH v11 6/7] arm64: dts: ti: k3-am65-main: Add VMAP registers to PCI root complexes
+Date: Wed, 23 Jul 2025 11:45:20 +0800
+Message-Id: <20250723034521.138695-7-huaqian.li@siemens.com>
 In-Reply-To: <20250723034521.138695-1-huaqian.li@siemens.com>
 References: <20250723034521.138695-1-huaqian.li@siemens.com>
 MIME-Version: 1.0
@@ -71,8 +71,8 @@ Content-Transfer-Encoding: 8bit
 X-Flowmailer-Platform: Siemens
 Feedback-ID: 519:519-959203:519-21489:flowmailer
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250722_204614_943331_EDB9DDF0 
-X-CRM114-Status: UNSURE (   7.93  )
+X-CRM114-CacheID: sfid-20250722_204621_955470_2AA5DAFD 
+X-CRM114-Status: UNSURE (   6.78  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -90,47 +90,50 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Jan Kiszka <jan.kiszka@siemens.com>
 
-Add nodes for the two PVUs of the AM65. Keep them disabled, though,
-because the board has to additionally define DMA pools and the devices
-to be isolated.
+Rewrap the long lines at this chance.
 
 Signed-off-by: Jan Kiszka <jan.kiszka@siemens.com>
 Signed-off-by: Li Hua Qian <huaqian.li@siemens.com>
 ---
- arch/arm64/boot/dts/ti/k3-am65-main.dtsi | 20 ++++++++++++++++++++
- 1 file changed, 20 insertions(+)
+ arch/arm64/boot/dts/ti/k3-am65-main.dtsi | 18 ++++++++++++++----
+ 1 file changed, 14 insertions(+), 4 deletions(-)
 
 diff --git a/arch/arm64/boot/dts/ti/k3-am65-main.dtsi b/arch/arm64/boot/dts/ti/k3-am65-main.dtsi
-index b085e7361116..be65e6aa7b80 100644
+index be65e6aa7b80..d0036b0aa818 100644
 --- a/arch/arm64/boot/dts/ti/k3-am65-main.dtsi
 +++ b/arch/arm64/boot/dts/ti/k3-am65-main.dtsi
-@@ -843,6 +843,26 @@ main_cpts_mux: refclk-mux {
- 				assigned-clock-parents = <&k3_clks 118 5>;
- 			};
- 		};
-+
-+		ti_pvu0: iommu@30f80000 {
-+			compatible = "ti,am654-pvu";
-+			reg = <0 0x30f80000 0 0x1000>,
-+			<0 0x36000000 0 0x100000>;
-+			reg-names = "cfg", "tlbif";
-+			interrupts-extended = <&intr_main_navss 390>;
-+			interrupt-names = "pvu";
-+			status = "disabled";
-+		};
-+
-+		ti_pvu1: iommu@30f81000 {
-+			compatible = "ti,am654-pvu";
-+			reg = <0 0x30f81000 0 0x1000>,
-+			<0 0x36100000 0 0x100000>;
-+			reg-names = "cfg", "tlbif";
-+			interrupts-extended = <&intr_main_navss 389>;
-+			interrupt-names = "pvu";
-+			status = "disabled";
-+		};
- 	};
+@@ -897,8 +897,13 @@ main_gpio1: gpio@601000 {
  
- 	main_gpio0: gpio@600000 {
+ 	pcie0_rc: pcie@5500000 {
+ 		compatible = "ti,am654-pcie-rc";
+-		reg = <0x0 0x5500000 0x0 0x1000>, <0x0 0x5501000 0x0 0x1000>, <0x0 0x10000000 0x0 0x2000>, <0x0 0x5506000 0x0 0x1000>;
+-		reg-names = "app", "dbics", "config", "atu";
++		reg = <0x0 0x5500000 0x0 0x1000>,
++		      <0x0 0x5501000 0x0 0x1000>,
++		      <0x0 0x10000000 0x0 0x2000>,
++		      <0x0 0x5506000 0x0 0x1000>,
++		      <0x0 0x2900000 0x0 0x1000>,
++		      <0x0 0x2908000 0x0 0x1000>;
++		reg-names = "app", "dbics", "config", "atu", "vmap_lp", "vmap_hp";
+ 		power-domains = <&k3_pds 120 TI_SCI_PD_EXCLUSIVE>;
+ 		#address-cells = <3>;
+ 		#size-cells = <2>;
+@@ -918,8 +923,13 @@ pcie0_rc: pcie@5500000 {
+ 
+ 	pcie1_rc: pcie@5600000 {
+ 		compatible = "ti,am654-pcie-rc";
+-		reg = <0x0 0x5600000 0x0 0x1000>, <0x0 0x5601000 0x0 0x1000>, <0x0 0x18000000 0x0 0x2000>, <0x0 0x5606000 0x0 0x1000>;
+-		reg-names = "app", "dbics", "config", "atu";
++		reg = <0x0 0x5600000 0x0 0x1000>,
++		      <0x0 0x5601000 0x0 0x1000>,
++		      <0x0 0x18000000 0x0 0x2000>,
++		      <0x0 0x5606000 0x0 0x1000>,
++		      <0x0 0x2910000 0x0 0x1000>,
++		      <0x0 0x2918000 0x0 0x1000>;
++		reg-names = "app", "dbics", "config", "atu", "vmap_lp", "vmap_hp";
+ 		power-domains = <&k3_pds 121 TI_SCI_PD_EXCLUSIVE>;
+ 		#address-cells = <3>;
+ 		#size-cells = <2>;
 -- 
 2.34.1
 
