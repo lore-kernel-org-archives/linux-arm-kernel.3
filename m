@@ -4,207 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 794BDC83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 15:08:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C25EC83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 15:11:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nIbAO55wzjPHIFYrMI09rcE9v+bE/NEExaDwAQvevsM=; b=mc9tHLAB3R9+RuvYqs097ZbHY3
-	Q66cwDEdzJCxWFtrMFTPcZhVzZS6XE11sCN8w4L0N2E0IS6wmE60+OaVzamxFaS2bawCYEaQExpTe
-	VFe3qixcXN/Boqf5DuqJ12Zx5R+2aFqPS9U3MPQJDLRpEfnGVIVYyjns+nespsbcK/b3dGbg8cyQo
-	yQ3xO27a/vc1GZyVz+CoLhcicBtBkQuPcQVd29LOnaeG11wY4E0C2moqR/sO/mObqlNTg3JrWEVFZ
-	V61Ujn4MBrQYjiMD7F0GkbiE4cZf0WnKl6CC+LPPYZwfazbeUbiY/ONLrcY+c+05u3P1M2ecvMn53
-	dNR4E/WA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LjtQVgyC6aebje4X9xjGXGD8jOjCq+st2YHAXeZLavs=; b=ENZZD3VfK88MVWKs6Qp9Aj1yho
+	Kg/IyC9TzMRR/WPH/g8dUp1HI0qBFBKOjAA04H1zwxoXtdIK8MGhar/TPfXQnIvu0J6tTaGqolSVd
+	Eo7KeW03nwCYZ9L4YCJ7Yg7mPXLSYtwh7IcA7q1AQE90+SnXJ5RY9COQH9bWyKMHpvpGd0RNtLHFa
+	pihWSb3JnvSQEfug74KCv6aVDnbep7E7TyjfAeu/3xY1mj+fBexlvp6srRbNoKDQ5dl0RM7Vq/CCp
+	duM9MukNLJqp9WeeXe+Q/5OJyV5F26FG2ZYm2rv1YSUO0ASPTRnemsSSwMcKDT7dpgGkr3riN3EMp
+	4YhNYF/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueb5K-00000005Km1-07pZ;
-	Wed, 23 Jul 2025 15:08:46 +0000
-Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueade-00000005EIw-3phR
+	id 1ueb7k-00000005LHV-1cYx;
+	Wed, 23 Jul 2025 15:11:16 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ueagP-00000005EmI-3TZ5
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Jul 2025 14:40:12 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=ElFWmYzWFuyfboKwBcyvz5EHFx73XOlWqglJW0Uuj9ij2IKUdkFFKhh0KwfeZiuBQ63dGuO2g+a5Mu4jX4/Qfc4WbMi1W3fiO9N096ln9xwkcLRtdjl2lUCEMrV5ZoUZHkQrPDm3PNKRySRuTi/ywdcf9XLaMexSMtI5qBYqi3ByQjGAF/3pD3mgB3VC4UHKx5vtOcpLJsGQLPZgcs6efirBhNgZqKksOox1ACU0dYEVK/olSyu6rSl+WYSJW5lr1JRavhOtf7sGGvkxHU2IVZSZ5dpdM/Sb2HQAAbQJkf7LeX+tLnJhlevuKYp+338SisxSKbbrDXdx2ODk74KFlQ==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=nIbAO55wzjPHIFYrMI09rcE9v+bE/NEExaDwAQvevsM=;
- b=Eos7dqGni1bXzoTP8SLZkdW9itk9NaF9rEWSKOIjtRTZhAaZEA4AJTjKi9TdneOyBc5xHcuJIEQFzHN7enimkrTp7lnWFAA9rVPnJRevxz7WlCR4K3BelBE/DVSgYVr5bV6BpGZicfTdk7XCd2t99a2FYXx4obxJ8ExkHsJLG6sfc1+M9CAWT91+S8KjHuhxY8ONHZhnLKW9VVZ1R8Jrr9bteebYQwaMR2vZ3emjDcY1jrz//NcTy53Ffj9f+za8z/HeIYRQyZht0/4htlNiH67cQ4uVoOtY5zZqNcUsEhIDMXSPLmO8F98mGFvDI7bH04PpOmGJZZuYffOu7sNy0A==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=kernel.org smtp.mailfrom=arm.com; dmarc=pass
- (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
- (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=nIbAO55wzjPHIFYrMI09rcE9v+bE/NEExaDwAQvevsM=;
- b=WtE4WfoMoQICzRUKLv9t50oH9i4EK3WHBHx8k6lf0ngtfmUgaPXN11sMKrJnFexWj/5x3QeBvDYZFW3YD2xvefJlnRVZsinJa85YU/h2twiqGzFOWGpsapPxB7kOMC7ZayofAp5P4pD2SB9SrJ5q0EuFxG6THj6WywvBiZH/p58=
-Received: from DU7P190CA0014.EURP190.PROD.OUTLOOK.COM (2603:10a6:10:550::12)
- by DU2PR08MB10037.eurprd08.prod.outlook.com (2603:10a6:10:49a::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8943.30; Wed, 23 Jul
- 2025 14:40:00 +0000
-Received: from DU2PEPF00028D02.eurprd03.prod.outlook.com
- (2603:10a6:10:550:cafe::bd) by DU7P190CA0014.outlook.office365.com
- (2603:10a6:10:550::12) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8964.22 via Frontend Transport; Wed,
- 23 Jul 2025 14:40:00 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- DU2PEPF00028D02.mail.protection.outlook.com (10.167.242.186) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.8964.20
- via Frontend Transport; Wed, 23 Jul 2025 14:39:59 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ororQ4JHhIsVrIEGGy2RHu3zuh/sIXiuyLl8+ln1Np57VbA+dnHukGhnmLKKtl/AGNKqUnLbSmTqaWyWpf6ll+0yDnhpnLcCFud+HrwjdP1+xOFa0VgJE8UF+wSOQBYWf+ybQ7FFYa9TIuMgW1Ptr0gONv0OD1a/lwcwDNm6BFFN3//+L5oOkbR55xrZtxzLopL/HdCXg/XjqeSe9TLB7XE0fUOU9Y6xKCsDpC19hEJyGJ3AMjFfDOHbcajwXFjPWoMni3sdnmxQQuxf+8MZaPZ3XOVHioZ4HRXskbo1kepn3McTGhbrHWHvLfwUAHYbY+FkWiviHV2RYvaeHTN2Tw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=nIbAO55wzjPHIFYrMI09rcE9v+bE/NEExaDwAQvevsM=;
- b=GHRTXnBygqu2ju5DrjsIDLxSZQXZqxVbU79d1UQJdYoQ+tl2SfyChP648pt2pZBDdypsvMyvvISVxIyvVTi21cqYqMHo0jE3VR/5xJSRQikRC1z8MgGx1tZtB4ffHwRBc0bIpIc9Pd59Gg7WVC+XVjQ1vYIMN98YlXFI72Wbg0sHl00/mBrfMUfWVLQuUgR0W7UwANN8NgUutiIXjqXjn4vcnqzFsD5QuOQ1dvpoixgjUIe+hmdCctGhdWPcco6/kkDmcdljUPlsQsYeDvdYCTcOHbXN/o4vnpUCNQefrAC299pzifXw5IUERs4nfntC5nwkr4R02LG6K6RT/AuWlw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=nIbAO55wzjPHIFYrMI09rcE9v+bE/NEExaDwAQvevsM=;
- b=WtE4WfoMoQICzRUKLv9t50oH9i4EK3WHBHx8k6lf0ngtfmUgaPXN11sMKrJnFexWj/5x3QeBvDYZFW3YD2xvefJlnRVZsinJa85YU/h2twiqGzFOWGpsapPxB7kOMC7ZayofAp5P4pD2SB9SrJ5q0EuFxG6THj6WywvBiZH/p58=
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-Received: from AM9PR08MB7120.eurprd08.prod.outlook.com (2603:10a6:20b:3dc::22)
- by DU0PR08MB9728.eurprd08.prod.outlook.com (2603:10a6:10:444::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8943.30; Wed, 23 Jul
- 2025 14:39:28 +0000
-Received: from AM9PR08MB7120.eurprd08.prod.outlook.com
- ([fe80::2933:29aa:2693:d12e]) by AM9PR08MB7120.eurprd08.prod.outlook.com
- ([fe80::2933:29aa:2693:d12e%5]) with mapi id 15.20.8964.019; Wed, 23 Jul 2025
- 14:39:28 +0000
-Message-ID: <55f8c7a4-4535-42ff-abb7-a7cf7cd08684@arm.com>
-Date: Wed, 23 Jul 2025 20:09:22 +0530
+	Wed, 23 Jul 2025 14:43:03 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6394322C7;
+	Wed, 23 Jul 2025 07:42:52 -0700 (PDT)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8C6003F6A8;
+	Wed, 23 Jul 2025 07:42:54 -0700 (PDT)
+Message-ID: <46e3ead8-411d-4e51-b38b-da791e568b94@arm.com>
+Date: Wed, 23 Jul 2025 15:42:52 +0100
+MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5] arm64: Enable vmalloc-huge with ptdump
-To: catalin.marinas@arm.com, will@kernel.org
-Cc: anshuman.khandual@arm.com, quic_zhenhuah@quicinc.com,
- ryan.roberts@arm.com, kevin.brodsky@arm.com, yangyicong@hisilicon.com,
- joey.gouly@arm.com, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, david@redhat.com, mark.rutland@arm.com
-References: <20250723102905.7894-1-dev.jain@arm.com>
+Subject: Re: [RFC PATCH 05/36] ACPI / PPTT: Add a helper to fill a cpumask
+ from a processor container
+To: James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+Cc: Rob Herring <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
+ Shanker Donthineni <sdonthineni@nvidia.com>, Zeng Heng
+ <zengheng4@huawei.com>, Lecopzer Chen <lecopzerc@nvidia.com>,
+ Carl Worth <carl@os.amperecomputing.com>,
+ shameerali.kolothum.thodi@huawei.com,
+ D Scott Phillips OS <scott@os.amperecomputing.com>, lcherian@marvell.com,
+ bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
+ baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
+ Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
+ dfustini@baylibre.com, amitsinght@marvell.com,
+ David Hildenbrand <david@redhat.com>, Rex Nie <rex.nie@jaguarmicro.com>,
+ Dave Martin <dave.martin@arm.com>, Koba Ko <kobak@nvidia.com>,
+ Sudeep Holla <sudeep.holla@arm.com>
+References: <20250711183648.30766-1-james.morse@arm.com>
+ <20250711183648.30766-6-james.morse@arm.com>
 Content-Language: en-US
-From: Dev Jain <dev.jain@arm.com>
-In-Reply-To: <20250723102905.7894-1-dev.jain@arm.com>
+From: Ben Horgan <ben.horgan@arm.com>
+In-Reply-To: <20250711183648.30766-6-james.morse@arm.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: MA1PR01CA0162.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a00:71::32) To AM9PR08MB7120.eurprd08.prod.outlook.com
- (2603:10a6:20b:3dc::22)
-MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: AM9PR08MB7120:EE_|DU0PR08MB9728:EE_|DU2PEPF00028D02:EE_|DU2PR08MB10037:EE_
-X-MS-Office365-Filtering-Correlation-Id: e5f8a6a1-6e0f-493c-8302-08ddc9f6cd50
-x-checkrecipientrouted: true
-NoDisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|376014|1800799024|366016;
-X-Microsoft-Antispam-Message-Info-Original: =?utf-8?B?ZVpwWlkwbnAzWjdIQ1lqYzJXZUNiMWN1a3lMblVjQnk3UWQyb2w5dEcwSHUr?=
- =?utf-8?B?R2FNR3JaZEhnK1dIbVJkeWxQeWNldzhxUm9YZkFCZ0tvVFAvem5kQmZjSnBx?=
- =?utf-8?B?SUViQkZvc1orQzBaTEVzSXBOT3BaMkVCY0VrcEdTVDZTaktENUVhWDhKbmI0?=
- =?utf-8?B?WmhDZFdCVGY0TUdUaE5PWjRYcW5OSHBwT21mRlBBMmFXTVo1RUF0VGlocnhp?=
- =?utf-8?B?STc4aU9FaGNSRjVoMHBnZHhOOWRXSmtBdzcxODhxbUpYMEdLM1VGc3FmZDdv?=
- =?utf-8?B?QmhtaUJhYWtpVXZoZExqZXVMTXBZZ2RKVEFsZkhQd1plZzF6c2lMK29TRjBC?=
- =?utf-8?B?UjdoallRSnBRbGpVMVhYV3dDeStTb0t5WVdPT1ZoL3dhK1lOZVgxQUxHdDh4?=
- =?utf-8?B?cW5uOFoxQW9tVlJlck5VS3Y0eWo0d05TVno0K1JDb3V6VDZua1lHaFgreFBP?=
- =?utf-8?B?djBRcUhmMzBWcWF6WDNkSXpBNkNZdkRIcmE4Z2pQQWFpV2lKcnM3Sk1Tay83?=
- =?utf-8?B?aHMyR0pMVXY4WWdITUZIOEtBVzI2Q01GcjRFVFNHZGxYWVBBV1ZXY3FLTkdw?=
- =?utf-8?B?YmE1Y1dwRzdjSUxCbmNSanFFMGpoWW95Y2NaV2F1QWlkTzZNdDBSYmVtSFZm?=
- =?utf-8?B?TGNxMGhOZVpobXc3YVd3NGl2ekFyTjhQU1VvZWZrc1FnZHRDQW1jS1RMR0dE?=
- =?utf-8?B?NFpENmhsbXg4SHMyalJOSXhhWUdmQmFYalhxMTQ3YU43NUdTWXl6S2NSc2Ur?=
- =?utf-8?B?T2JEaVErVThCNUlhWXdqZWlja0cxWTRrYU1lRGF0MmJCUm5lVUhmUkdFNFk3?=
- =?utf-8?B?T2Y5OHNUNmJBODUrUHh5bHdSR2pES0hNNHYxdGFjTGlYRWQrenBCR2ptRENs?=
- =?utf-8?B?RDFnY0ZheFNjVnJFbmFQRjM2eWNsY28rMnVMZ3h0bFJjRVJtS25BeUVOaFAy?=
- =?utf-8?B?STB0YkdOamI1OWZvTWxXZVhUMUF6SHJTeWtodDhqeS9RWGlHVkRtekdzaUxq?=
- =?utf-8?B?TE5OZmFhSU1uTGJqVktJWmpveXhTVVIxMEFyYlc5c3Q0ZnB2MUE2Rm5iTlBa?=
- =?utf-8?B?d05QYkt2d1J6SitIRnpwelpwWGxpRHY5eXRwYTVkSllXMU4rSGV5Nm9iWTlV?=
- =?utf-8?B?Qis0dFRXMEdOb0EvU0d6Z2ZPUUlQaDRVTUt6Y1JvekJ6TDU2aS9lNXhPQ2xD?=
- =?utf-8?B?U1hMb0lGWUdmdXB5NTZndU5vN3hIazRKTXl5MkZzd3MvS215ZG9JZjRkZTcx?=
- =?utf-8?B?cjlxdW1la2tIOGZyak1vRDB6dVNhY1dXRnBuWk5EbzFVZFllWXNaajdtZFI5?=
- =?utf-8?B?S0czOXAxdGQ0ZHJ5VndPSjVQSjJlYlJlY05MN2p5Qi9QUGlveC9sSWtxdnlm?=
- =?utf-8?B?S0lpaDdIdG5UZy9sbWtnWVpWV3ZVTFhnOE1JSFhNckZTUS9EVW03M3V5eDds?=
- =?utf-8?B?dDhCMnYyMUZYbE5HNXlVQjRzYzBvS2Zib3ZBYXMzNVcyOSsvS0UxVDM5Z2w5?=
- =?utf-8?B?cmNFbmVjWDlQZ09FckZHLytUZGFucVF4MURVSk9WWkk1SVVPR2t5UU5SWURM?=
- =?utf-8?B?cnA2Rk1OWmFJckdyVzlCUFk3VHJnSld1Vkl1ZHllT2xENkpBNTRRNEQ5ZEdF?=
- =?utf-8?B?VEhhdTBta0JjQ3RFRmxEMVFjSmkvNjVTelNaMkpXRDE3NUtBd2dhT3lZNEJQ?=
- =?utf-8?B?MzNhakx3ZnlKbGNTR2srbjFIZ3VLWFlTWHhZUDJCMjFhVEdDcUhEWDBMYVJ0?=
- =?utf-8?B?clB6TTZYZHBNd2MyL3MrWGp3RXQ2amg0MW5wR28rVlhmQnM0MjRGZEZKZDh6?=
- =?utf-8?B?K0pZRXJuZ2lNNDJxOXpkWDJoQXZLSzZicVFINzZwbTBzK0F0L2VDQXBmbW43?=
- =?utf-8?B?bXhOeHlyZUxWWkRUR3RrcGhieVNMNlp0YzVSN1hqejVvd3NYbWVJS2JpSENF?=
- =?utf-8?Q?ovRGugIqUKw=3D?=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR08MB7120.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR08MB9728
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: DU2PEPF00028D02.eurprd03.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: ff96479b-cd4f-43da-a190-08ddc9f6ba17
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|36860700013|82310400026|14060799003|35042699022;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?QUcyQS9qS01Bdk9iSGxkaEdEY1paT0I5bXZKZXhoUHVZaDhTZHlIM05vRUxL?=
- =?utf-8?B?alNmTW0zWFZKSlBWL0Y0OERROE9UZW9pcjhiQzk2L2J6SXdicHJuL0VkV0FI?=
- =?utf-8?B?V1N3Q3RoMjdRRDRWUitNeXJuRGZIcnVzUmZZOUw3cUMrNytzaGlTVFZMN2Jl?=
- =?utf-8?B?WXA1bFA2VHBxbHVYSlVjZVpaWHNVdEE4Rktkb2JkVWpKbWlNdXFLbnExaEFa?=
- =?utf-8?B?OW80eXNDRysweDFveGxSN3A5QnJWbmpCL0p4REl3Z2ttNHZXRDlQNkQ0YThB?=
- =?utf-8?B?VTZLdWd2VmZLVC9tL3dlbnVjdFF0dk9ndzBPdWhaY2Y3Kyt0emFHaEs3K0M1?=
- =?utf-8?B?YS9CNjlxeDQvamtmM2wvVHN5MTJCYVdpbE9RRm5XL3JtV3VSeTcwcnl5M0xQ?=
- =?utf-8?B?N2p1b2dJZHVqT1R5eU8yRHlkTy9CYTBucUd4QllNdEpHK2taRjlUZGFLeHpi?=
- =?utf-8?B?TWNvNE9FaldaeDJqc0xWa0k2MHRhL0NDS0FQYTZKWkt1OTRVVnl5dFVsYUIr?=
- =?utf-8?B?dC82NmxxOHhFb0dHKzJyYnJac1gvc3pnUGNYNEc0S250Q083UVBOZGJ4OFha?=
- =?utf-8?B?RVM1bTI4UjJsR3pQdGRnTGN3N1BKYmJIMjNxQmpxb2pTZTZCR1hPQnlpbVh6?=
- =?utf-8?B?a3daVERlbnlxbTFpMUUraVdkZUowYzVlSUl4TVVsTUNSb0NLRTAySTI1WVd3?=
- =?utf-8?B?QmRnOXUwU2s5eGNUdGlWb3lzVTZXYlp0M0RKQW5ZSGFueG9LNGc0WG1wSXha?=
- =?utf-8?B?ckJFUGtGTnFvV25oUTF4T3o3N2J6R09hU01pT0FCcGdEZW03L2ZZUnZQWXFH?=
- =?utf-8?B?VUZFangyUzBrR0tSTUNZQjhOK2xVS09DbWttOWJ0Y0hWSE9GN1ZoRU5ySHpq?=
- =?utf-8?B?YVpyeThBVTM1TTJvM3A1b3JwOGxQYSs1MHFNMzhUQ3ZYUWw5dGVNRTkwRzVO?=
- =?utf-8?B?K1h2ZUl6SEFQQWVaTWNHRW92ZWZxbDJ1R2RMNE04Q0hVYzVZSmM2ZzJjZG0z?=
- =?utf-8?B?OGN5Y1paZG9NMCtKeUZVV0V6OXE1VUxyMzdMRmtIcFE2QmVDalY4b1RKMFY5?=
- =?utf-8?B?RHNSZEZtcXh6WXNLSTdEQjZrUVh3MkhkOHBocVd5amFxNGNGVzBFTFdKcjhD?=
- =?utf-8?B?ZHZUQVFmbTAvWm5KNlR1cVF4a21ObDZvenRqVGtDLzNGTEtrS2NZWFRjRnQ2?=
- =?utf-8?B?SWRBOHp5TWZkczBPVm1mdVovemlRNzRhSlMzUG8rTWdGanNnVUorNWFXTElT?=
- =?utf-8?B?Nk9SM0JjTzJrNU4rQVBHTTFiWHBRTFJXanJ0V2cvQjRyWG1oOHAwL3pmOWs0?=
- =?utf-8?B?eHpxQUlJUjlZMThSWkVhYjAvVmdHd0xpei9RSnZyVmt2TGFGOVdDVUEzckFn?=
- =?utf-8?B?QXMxaDZtR2ZRVTM0dk9GeVdrOFFuczNJdnhnNGRZNzZoYjF1cDhYZEk4aU9w?=
- =?utf-8?B?aUc0SW9NTnhjNlcyM2FlK3NhOW5RbU50S1NGS2JmS2YvazFMSzBnMFFBT2NI?=
- =?utf-8?B?TWpvVGtkMFo2ODgzOUxDMnJuVVUzMWxQMVMzQi9yL2VPemRoUlhxNlptT1RD?=
- =?utf-8?B?eUhLanRFU3N6VWJsTEFIZVdYSnp3YXNMTWFBMVpOVG1qWjl1Wkt6Qk1manRQ?=
- =?utf-8?B?dDcvYkgwaVk3Rm9CNE9mVkkrZ0U2WUhxUnJUYzVZT2RMUUtzN1huZ0hRbGtl?=
- =?utf-8?B?U0Z2bUtuM01wU3hmTXdRRXFMM3VUeVh4RGFzTHo4UWc1RmhIbEdsRVlJaGVK?=
- =?utf-8?B?S1FRbUd5ZTh1UHVGcFRDYnpvdHptVWI1ekJidy96a1d1VUtPM2dveDErZm9R?=
- =?utf-8?B?NUpRVXpSNlF2SHd3azJIUitxaGR1Ni9PdHhIbDF3V3BSQml1WHV1R293RmVt?=
- =?utf-8?B?aG1MODg2Q3VIU3hUYWltSitSeGp2Q3l1c0NpWkRBaGQ1ZTZLTE9iK0lCblBH?=
- =?utf-8?B?b0NTamtWME4yNVBtK3BRVWxQOHdFSlVXSHV3UTlWdHY5VUZCUmR1UWEvb0hZ?=
- =?utf-8?B?SmprRmxCdmxaaURkMmFrU21BbFJ5T1NnRVNPSlZkQzRldFdNb0F2a21uTkQz?=
- =?utf-8?Q?2Qjl8K?=
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(376014)(36860700013)(82310400026)(14060799003)(35042699022);DIR:OUT;SFP:1101;
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Jul 2025 14:39:59.9252
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: e5f8a6a1-6e0f-493c-8302-08ddc9f6cd50
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: DU2PEPF00028D02.eurprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR08MB10037
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250723_074011_014963_31322441 
-X-CRM114-Status: UNSURE (   8.20  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250723_074301_964877_89D11F76 
+X-CRM114-Status: GOOD (  28.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -219,33 +78,160 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi James,
 
-On 23/07/25 3:59 pm, Dev Jain wrote:
-> [--- snip ---]
-
->   void ptdump_walk(struct seq_file *s, struct ptdump_info *info)
->   {
->   	unsigned long end = ~0UL;
-> @@ -311,7 +319,7 @@ void ptdump_walk(struct seq_file *s, struct ptdump_info *info)
->   		}
->   	};
->   
-> -	ptdump_walk_pgd(&st.ptdump, info->mm, NULL);
-> +	arm64_ptdump_walk_pgd(&st.ptdump, info->mm, NULL);
+On 7/11/25 19:36, James Morse wrote:
+> The PPTT describes CPUs and caches, as well as processor containers.
+> The ACPI table for MPAM describes the set of CPUs that can access an MSC
+> with the UID of a processor container.
+> 
+> Add a helper to find the processor container by its id, then walk
+> the possible CPUs to fill a cpumask with the CPUs that have this
+> processor container as a parent.
+> 
+> CC: Dave Martin <dave.martin@arm.com>
+> Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
+> Signed-off-by: James Morse <james.morse@arm.com>
+> ---
+>   drivers/acpi/pptt.c  | 93 ++++++++++++++++++++++++++++++++++++++++++++
+>   include/linux/acpi.h |  6 +++
+>   2 files changed, 99 insertions(+)
+> 
+> diff --git a/drivers/acpi/pptt.c b/drivers/acpi/pptt.c
+> index 54676e3d82dd..13619b1b821b 100644
+> --- a/drivers/acpi/pptt.c
+> +++ b/drivers/acpi/pptt.c
+> @@ -298,6 +298,99 @@ static struct acpi_pptt_processor *acpi_find_processor_node(struct acpi_table_he
+>   	return NULL;
 >   }
 >   
->   static void __init ptdump_initialize(void)
-> @@ -353,7 +361,7 @@ bool ptdump_check_wx(void)
->   		}
->   	};
+> +/**
+> + * acpi_pptt_get_child_cpus() - Find all the CPUs below a PPTT processor node
+> + * @table_hdr:		A reference to the PPTT table.
+> + * @parent_node:	A pointer to the processor node in the @table_hdr.
+> + * @cpus:		A cpumask to fill with the CPUs below @parent_node.
+> + *
+> + * Walks up the PPTT from every possible CPU to find if the provided
+> + * @parent_node is a parent of this CPU.
+> + */
+> +static void acpi_pptt_get_child_cpus(struct acpi_table_header *table_hdr,
+> +				     struct acpi_pptt_processor *parent_node,
+> +				     cpumask_t *cpus)
+> +{
+> +	struct acpi_pptt_processor *cpu_node;
+> +	u32 acpi_id;
+> +	int cpu;
+> +
+> +	cpumask_clear(cpus);
+> +
+> +	for_each_possible_cpu(cpu) {
+> +		acpi_id = get_acpi_id_for_cpu(cpu);
+> +		cpu_node = acpi_find_processor_node(table_hdr, acpi_id);
+> +
+> +		while (cpu_node) {
+> +			if (cpu_node == parent_node) {
+> +				cpumask_set_cpu(cpu, cpus);
+> +				break;
+> +			}
+> +			cpu_node = fetch_pptt_node(table_hdr, cpu_node->parent);
+> +		}
+> +	}
+> +}
+> +
+> +/**
+> + * acpi_pptt_get_cpus_from_container() - Populate a cpumask with all CPUs in a
+> + *                                       processor containers
+> + * @acpi_cpu_id:	The UID of the processor container.
+> + * @cpus		The resulting CPU mask.
+> + *
+> + * Find the specified Processor Container, and fill @cpus with all the cpus
+> + * below it.
+> + *
+> + * Not all 'Processor' entries in the PPTT are either a CPU or a Processor
+> + * Container, they may exist purely to describe a Private resource. CPUs
+> + * have to be leaves, so a Processor Container is a non-leaf that has the
+> + * 'ACPI Processor ID valid' flag set.
+> + *
+> + * Return: 0 for a complete walk, or an error if the mask is incomplete.
+> + */
+> +int acpi_pptt_get_cpus_from_container(u32 acpi_cpu_id, cpumask_t *cpus)
+> +{
+> +	struct acpi_pptt_processor *cpu_node;
+> +	struct acpi_table_header *table_hdr;
+> +	struct acpi_subtable_header *entry;
+> +	bool leaf_flag, has_leaf_flag = false;
+> +	unsigned long table_end;
+> +	acpi_status status;
+> +	u32 proc_sz;
+> +	int ret = 0;
+> +
+> +	cpumask_clear(cpus);
+> +
+> +	status = acpi_get_table(ACPI_SIG_PPTT, 0, &table_hdr);
+> +	if (ACPI_FAILURE(status))
+> +		return 0;
+> +
+> +	if (table_hdr->revision > 1)
+> +		has_leaf_flag = true;
+> +
+> +	table_end = (unsigned long)table_hdr + table_hdr->length;
+> +	entry = ACPI_ADD_PTR(struct acpi_subtable_header, table_hdr,
+> +			     sizeof(struct acpi_table_pptt));
+> +	proc_sz = sizeof(struct acpi_pptt_processor);
+> +	while ((unsigned long)entry + proc_sz <= table_end) {
+> +		cpu_node = (struct acpi_pptt_processor *)entry;
+> +		if (entry->type == ACPI_PPTT_TYPE_PROCESSOR &&
+> +		    cpu_node->flags & ACPI_PPTT_ACPI_PROCESSOR_ID_VALID) {
+> +			leaf_flag = cpu_node->flags & ACPI_PPTT_ACPI_LEAF_NODE;
+> +			if ((has_leaf_flag && !leaf_flag) ||
+> +			    (!has_leaf_flag && !acpi_pptt_leaf_node(table_hdr, cpu_node))) {
+> +				if (cpu_node->acpi_processor_id == acpi_cpu_id)
+> +					acpi_pptt_get_child_cpus(table_hdr, cpu_node, cpus);
+> +			}
+acpi_pptt_leaf_node() returns early based on the leaf flag so you can 
+just rely on that here; remove has_leaf_flag and the corresponding extra 
+logic.
+> +		}
+> +		entry = ACPI_ADD_PTR(struct acpi_subtable_header, entry,
+> +				     entry->length);
+> +	}
+> +
+> +	acpi_put_table(table_hdr);
+> +
+> +	return ret;
+> +}
+> +
+>   static u8 acpi_cache_type(enum cache_type type)
+>   {
+>   	switch (type) {
+> diff --git a/include/linux/acpi.h b/include/linux/acpi.h
+> index f102c0fe3431..8c3165c2b083 100644
+> --- a/include/linux/acpi.h
+> +++ b/include/linux/acpi.h
+> @@ -1541,6 +1541,7 @@ int find_acpi_cpu_topology(unsigned int cpu, int level);
+>   int find_acpi_cpu_topology_cluster(unsigned int cpu);
+>   int find_acpi_cpu_topology_package(unsigned int cpu);
+>   int find_acpi_cpu_topology_hetero_id(unsigned int cpu);
+> +int acpi_pptt_get_cpus_from_container(u32 acpi_cpu_id, cpumask_t *cpus);
+>   #else
+>   static inline int acpi_pptt_cpu_is_thread(unsigned int cpu)
+>   {
+> @@ -1562,6 +1563,11 @@ static inline int find_acpi_cpu_topology_hetero_id(unsigned int cpu)
+>   {
+>   	return -EINVAL;
+>   }
+> +static inline int acpi_pptt_get_cpus_from_container(u32 acpi_cpu_id,
+> +						    cpumask_t *cpus)
+> +{
+> +	return -EINVAL;
+> +}
+>   #endif
 >   
-> -	ptdump_walk_pgd(&st.ptdump, &init_mm, NULL);
-> +	arm64_ptdump_walk_pgd(&st.ptdump, info->mm, NULL);
+>   void acpi_arch_init(void);
 
-Brilliant, due to copy-paste I passed in info->mm here instead of init_mm.
-Let me resend.
 
->   
->   	if (st.wx_pages || st.uxn_pages) {
->   		pr_warn("Checked W+X mappings: FAILED, %lu W+X pages found, %lu non-UXN pages found\n",
+Thanks,
+
+Ben
+
 
