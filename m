@@ -4,67 +4,170 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DED7FC83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 15:53:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46021C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 15:56:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yScz7m11w1CgL4gyCO+xM5xM3mLOlhu+Xx1r1wOaY6Q=; b=POMTHnhu900T9xATV2+jnQMCXB
-	zo7H1W4IIsVjKkKlLGV2YYyKxtNOfufZVi6caijHaooGnDOuaD9yxrTholJdILN7ydOSTs/4tdMEN
-	2ksn/nqUqX33g6Br7CdsI+bCdig3uTx41A+SPVe8vhh6z0WP7KO/13lguLqB00A/DqhaZlSYMJMMJ
-	wBhRO2rlJ7izPWnwG+RDVq48BkMUMzCloOHoZd1tx3JFWVp4NDGo0grK63zPvWaJ5DDlvyK8uT7N1
-	8DUPL5OjqZdWChf+vhsFh/Ewj+jUo8R17ncDozn1cuVe+scK0cOT/0pBMi4NcjsgntZwVbtqPhJ3M
-	SJHZYeqA==;
+	bh=11Dxp1tfrq8Q9aC+e+RtFCxo0VHeUEc3DhhTdpcNBZQ=; b=AjEbOI5kRq7GHOuW3ZgITCPpHh
+	1IiDnm+atRPBHMPANGVznkyWjcONX6XsTTKXBvip9u6Vfl27/7+LhorbBzxmak7z2EF2AtJIppdja
+	QAva3BZJ+b6i5Ivb1AXrqjFSm7LUOY88cwJfFbcBokpA2p8vSmx4QXFjoT/B4O5k8vIVuBgmypI13
+	zqOQoaP06h8c9uudFYfPLiOmtdwGJkylnXhW0DzPJTAORG8nTMzf4Ij5F4Rw3dRzJxe2oJNrABTwp
+	LC9xJ7C7xQF9cC470yBbcYGraUXuswTvawiCVuCS+Y6xBzzkQccGfI2ynrT4XD/l6kwuAo3oTRMe5
+	hz1SzC3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uebmB-00000005RNe-3omW;
-	Wed, 23 Jul 2025 15:53:03 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uebp0-00000005RdN-0eL9;
+	Wed, 23 Jul 2025 15:55:58 +0000
+Received: from smtp-out2.suse.de ([195.135.223.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uebjj-00000005QxZ-3Sr7;
-	Wed, 23 Jul 2025 15:50:33 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1340945A2C;
-	Wed, 23 Jul 2025 15:50:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 51412C4CEE7;
-	Wed, 23 Jul 2025 15:50:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753285830;
-	bh=q0RdIwl2onvcmCTOyNGzyc8T7XKOzlJKJ3pq4M0YgrQ=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=SmBKNNWav95G3vsgJvAXo6iiufNuKUnjGCOlLlJ6awlSazcT+GVpf/l5k87yZbNFn
-	 K3w14Y242PXRz3nw78+h6Bohl6wG5U54VpWGUqdcp902wpdo/m8CZ9QcdbAXqoUkC/
-	 E88MH/T5icJwck0NvRSwhX42ciMp0O4yRqq3ubK7dtAfV0yROA1MpfN0wepLgWQH2p
-	 pyIZKgqzA8UmZShrY5ukSSCQS83TLa3qcZKjZhtLj10JUjMMS6eHuhtoAd7S5qsi3k
-	 g6OXWs2k+9kN0XPOPyAYmdCVHrVdoerUCnEJG5Zsw9QA9QM5ruBrYV7+OvfkZZJipn
-	 G9io2fsDkj9ZA==
-Date: Wed, 23 Jul 2025 16:50:21 +0100
-From: Jonathan Cameron <jic23@kernel.org>
-To: Jonas Karlman <jonas@kwiboo.se>
-Cc: Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, David Lechner <dlechner@baylibre.com>, Nuno
- =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>,
- Yao Zi <ziyao@disroot.org>, Chukun Pan <amadeus@jmu.edu.cn>,
- devicetree@vger.kernel.org, linux-rockchip@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-iio@vger.kernel.org
-Subject: Re: [PATCH v2 3/5] dt-bindings: iio: adc: rockchip-saradc: Allow
- use of a power-domain
-Message-ID: <20250723165021.4e2dd324@jic23-huawei>
-In-Reply-To: <20250723085654.2273324-4-jonas@kwiboo.se>
-References: <20250723085654.2273324-1-jonas@kwiboo.se>
-	<20250723085654.2273324-4-jonas@kwiboo.se>
-X-Mailer: Claws Mail 4.3.1 (GTK 3.24.49; x86_64-pc-linux-gnu)
+	id 1uebmX-00000005RTp-04MN
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 23 Jul 2025 15:53:28 +0000
+Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out2.suse.de (Postfix) with ESMTPS id EF58E1F78C;
+	Wed, 23 Jul 2025 15:53:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
+	t=1753286001; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=11Dxp1tfrq8Q9aC+e+RtFCxo0VHeUEc3DhhTdpcNBZQ=;
+	b=yC54PZn2p+qEwWRc9qWXEmO6ztl+1UhK3eteqZr9sUNccsthH5jNR27Oh0B0I1CCZFHHsi
+	kT+mv9N44a+KcIk93iyZvsrNQkSQ8PuQ2yl8SpJcgK0H2MrZDJt2X0UxOqoesQhUZhNsSF
+	azw6bovVnKR0L+IfUkYTU+Q+yO5HtSo=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
+	s=susede2_ed25519; t=1753286001;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=11Dxp1tfrq8Q9aC+e+RtFCxo0VHeUEc3DhhTdpcNBZQ=;
+	b=xvyNXEcWLJ0PPb9YAhkMxXRXTg/xB3YUP8J5NaCETlUIO6KsQeVc37dV/rmPQ9P8a+1JVV
+	LfdoBC2yDAmLtUDQ==
+Authentication-Results: smtp-out2.suse.de;
+	dkim=pass header.d=suse.cz header.s=susede2_rsa header.b=i1ULbYev;
+	dkim=pass header.d=suse.cz header.s=susede2_ed25519 header.b=njKeaHth
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
+	t=1753286000; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=11Dxp1tfrq8Q9aC+e+RtFCxo0VHeUEc3DhhTdpcNBZQ=;
+	b=i1ULbYevXyePknDq6jjszkmpRNebzYMikx8jh9djo35UsZeMFi/G0BP73sNb1/ke/+nL8Q
+	TKNashOnKLJvEj2vllaNRjitkf70ONhgSNA5mzyvJ6dvDR84alJkPhSCGEkkzTNyjR3ltj
+	2iG+bqKtkgS8+h/R6tlZhhTsKMY2CS4=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
+	s=susede2_ed25519; t=1753286000;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=11Dxp1tfrq8Q9aC+e+RtFCxo0VHeUEc3DhhTdpcNBZQ=;
+	b=njKeaHtheJUha9sjQjpaSMwLDZm21OO+9hsYAtqcqogYhRLt7N/lJrJ6iJEKbq+yiYetum
+	xyUxlIQgcdEjmpBQ==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id D16F813ABE;
+	Wed, 23 Jul 2025 15:53:20 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id NADRMnAFgWgDTQAAD6G6ig
+	(envelope-from <vbabka@suse.cz>); Wed, 23 Jul 2025 15:53:20 +0000
+Message-ID: <276a28fa-c0a2-4ab7-8391-2c20831469e1@suse.cz>
+Date: Wed, 23 Jul 2025 17:53:20 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/5] KVM: arm64: Config driven dependencies for
+ TCR2/SCTLR/MDCR
+Content-Language: en-US
+To: Oliver Upton <oliver.upton@linux.dev>, kvmarm@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org,
+ Marc Zyngier <maz@kernel.org>
+Cc: Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose
+ <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>,
+ Stephen Rothwell <sfr@canb.auug.org.au>
+References: <20250714115503.3334242-1-maz@kernel.org>
+ <175268446558.2457435.12236491763380805714.b4-ty@linux.dev>
+From: Vlastimil Babka <vbabka@suse.cz>
+Autocrypt: addr=vbabka@suse.cz; keydata=
+ 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
+ m6M14QORSWTLRg==
+In-Reply-To: <175268446558.2457435.12236491763380805714.b4-ty@linux.dev>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-Rspamd-Queue-Id: EF58E1F78C
+X-Rspamd-Action: no action
+X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
+X-Spamd-Result: default: False [-4.51 / 50.00];
+	BAYES_HAM(-3.00)[99.99%];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	R_DKIM_ALLOW(-0.20)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	MX_GOOD(-0.01)[];
+	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
+	FUZZY_RATELIMITED(0.00)[rspamd.com];
+	ARC_NA(0.00)[];
+	MIME_TRACE(0.00)[0:+];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	RCPT_COUNT_SEVEN(0.00)[9];
+	RCVD_TLS_ALL(0.00)[];
+	TO_DN_SOME(0.00)[];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	MID_RHS_MATCH_FROM(0.00)[];
+	RCVD_COUNT_TWO(0.00)[2];
+	DKIM_SIGNED(0.00)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	DKIM_TRACE(0.00)[suse.cz:+]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250723_085031_897929_2892CC12 
-X-CRM114-Status: GOOD (  19.76  )
+X-CRM114-CacheID: sfid-20250723_085325_212837_EC427E8C 
+X-CRM114-Status: GOOD (  10.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,50 +182,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 23 Jul 2025 08:56:45 +0000
-Jonas Karlman <jonas@kwiboo.se> wrote:
-
-> The SARADC controller in most Rockchip SoCs are part of power domains
-> that are always powered on, i.e. PD_BUS or PD_PERI. These always powered
-> on power domains have typically not been described in the device tree.
+On 7/16/25 18:47, Oliver Upton wrote:
+> On Mon, 14 Jul 2025 12:54:58 +0100, Marc Zyngier wrote:
+>> Here's a very short (and hopefully not too controversial) series
+>> converting a few more registers to the config-driven sanitisation
+>> framework (this is mostly a leftover from the corresponding 6.16
+>> monster series).
+>> 
+>> Patches on top of -rc3.
+>> 
+>> [...]
 > 
-> Because these power domains have been left out of the device tree there
-> has not been any real need to properly describe the power domain of the
-> SARADC controller.
-> 
-> On RK3528 the SARADC controller is part of the PD_VPU power domain.
-> 
-> Add support to describe an optional power-domains for the SARADC
-> controller in Rockchip SoCs.
-> 
-> Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
-Applied to the testing branch of iio.git.
+> Applied to next, thanks!
 
-I'll be rebasing on rc1 once available.
+The following merge commit creates a ./diff file. Found out because I had
+some local leftover one which prevented git checkout of current next.
 
-Thanks,
+commit 811ec70dcf9cc411e4fdf36db608dc9bcffb7a06
+Merge: 5ba04149822c 3096d238ec49
+Author: Oliver Upton <oliver.upton@linux.dev>
+Date:   Tue Jul 15 20:40:59 2025 -0700
 
-Jonathan
+    Merge branch 'kvm-arm64/config-masks' into kvmarm/next
 
-> ---
-> v2: Update commit message
-> ---
->  Documentation/devicetree/bindings/iio/adc/rockchip-saradc.yaml | 3 +++
->  1 file changed, 3 insertions(+)
+    Signed-off-by: Oliver Upton <oliver.upton@linux.dev>
+
+
+> [1/5] arm64: sysreg: Add THE/ASID2 controls to TCR2_ELx
+>       https://git.kernel.org/kvmarm/kvmarm/c/a3ed7da911c1
+> [2/5] KVM: arm64: Convert TCR2_EL2 to config-driven sanitisation
+>       https://git.kernel.org/kvmarm/kvmarm/c/001e032c0f3f
+> [3/5] KVM: arm64: Convert SCTLR_EL1 to config-driven sanitisation
+>       https://git.kernel.org/kvmarm/kvmarm/c/6bd4a274b026
+> [4/5] KVM: arm64: Convert MDCR_EL2 to config-driven sanitisation
+>       https://git.kernel.org/kvmarm/kvmarm/c/cd64587f10b1
+> [5/5] KVM: arm64: Tighten the definition of FEAT_PMUv3p9
+>       https://git.kernel.org/kvmarm/kvmarm/c/3096d238ec49
 > 
-> diff --git a/Documentation/devicetree/bindings/iio/adc/rockchip-saradc.yaml b/Documentation/devicetree/bindings/iio/adc/rockchip-saradc.yaml
-> index 41e0c56ef8e3..f776041fd08f 100644
-> --- a/Documentation/devicetree/bindings/iio/adc/rockchip-saradc.yaml
-> +++ b/Documentation/devicetree/bindings/iio/adc/rockchip-saradc.yaml
-> @@ -47,6 +47,9 @@ properties:
->        - const: saradc
->        - const: apb_pclk
->  
-> +  power-domains:
-> +    maxItems: 1
-> +
->    resets:
->      maxItems: 1
->  
+> --
+> Best,
+> Oliver
+> 
 
 
