@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36AD9C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 09:49:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE2ACC83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 09:52:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jtyXDAbchD+ujNyFyIw8Kuiv1V26MM0ceC3YK26OqoU=; b=VpWe1zoXafds4JaN+NvUZGbOrZ
-	+yzSOL+LPUza1PCWb9vqlGVnNgVH51xMbjBVt0jyq3qV1aXjBde7vlZpEFg2V/+xeWfWLhGKu0gJa
-	ZGD6c0BXY99SZSBiwZFumQq3qXZlGmnjRhPLcMW1cRg/gxFFvsD3gMshBwNIQsIrk6BxhE9/UBPT+
-	mqJ1a1WKZhRgGhL0525V4nGEeSFjeLmelsy0oukg0wnb8aTH8/3bsOdbK4JTWHOfauHAVm7prRJrB
-	dSWP40F6z3fH4zEkRciW2An3QrrHMtGSHJ9C8wQviicwyWLXkzBzJFrg87qvQv+9FfVrzbbzSRdPI
-	ExsO+ORA==;
+	bh=RQQNlB7I/R+hz0Pu8a7A7amzzOyNcSagtZOh2OuR264=; b=Z+K384XRXATyw0Ulx/ki9XqXRs
+	dUK2EWlBk0im+kVkByUdBQGWiUZrvSiLB8bt2NAErqJjX2KT3279j8ran5SkfhwEk6IVhZktiYtZv
+	0e8utRlnkoy4p/UtREEjI/HVNJKX719NwXEqpq5n+fYcYiptpepn1Xp4X5zm5PD08Xc2tOcdFh6Dm
+	ATx40tyPFwSbjV/v3cKMFeVo9lvwqyDf7sIEWq+4X1jh66Ml3g6Izq3aVzjcJ8WhoHbq6UbUKeYfO
+	FIGAWr5s6HEyucKW5J0A7oVriF9ysJ8k7IASxJzqdBp5HOpU8yvVkgD1+6UvFXtSCUzRdX6lOnzNq
+	BHikSdVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueW6i-00000004ZHK-06jz;
-	Wed, 23 Jul 2025 09:49:52 +0000
+	id 1ueW99-00000004ZWZ-3XjN;
+	Wed, 23 Jul 2025 09:52:23 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueVf9-00000004UOl-0Ctw
+	id 1ueVjQ-00000004VHo-2oM6
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Jul 2025 09:21:24 +0000
+	Wed, 23 Jul 2025 09:25:50 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
 	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=jtyXDAbchD+ujNyFyIw8Kuiv1V26MM0ceC3YK26OqoU=; b=dSO24jNlgvoSlEHlcgr1p7E1SK
-	hp8iXPeZ3QxgCVbnbEydNBjv4SqSleULWSLgbxmhJcsGmzBMLCbQGwOdaRKuXRRPltE1Olq+avDXr
-	Uy11BYnClHrXefVKZ3L/cm5ftZifI5HJfI2zgDHfzgtGbke/hXqmI3R+VRhuuLvNddmv95DM/psJ7
-	ctdDEMqZEyD77UWF089swc+Y0lMtI5CzmIhvikUIIEE5W0nZ7sAyi8JdB55xWe9Khm6ccv+jFi2ip
-	6uLD9IBrEcPCFCOx86atSJue+A6XIE+X5at70NmtFx/JYZ1tqrvX3dxaDsrCJL0UpvKg4XPM78gxX
-	RdPQs0SQ==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:41512)
+	bh=RQQNlB7I/R+hz0Pu8a7A7amzzOyNcSagtZOh2OuR264=; b=WZh6BmN8hQuSFxA834dDH6kvHr
+	6SE3fOtagej8RVCHO+0bc9gYSxOLat7qdCtP1argbaypPp9KTTL48yPBCyeXWL7bufvDhgiiZzZW0
+	QxUS9kXhOIh12/uAVF1hrtwrNqCGTvM3N4HLwhZYE+7kfRm6aksFTDzKT+NYOh9IVPzDaJrFoiuXi
+	dyVtSMnykJmX4bX5BOATpSENv1AJYnlW6Vp5Fvjd+a8x5KZb1xrLcCEUw15jdcNLdfzuS+Ck+B41n
+	wSNRlEqXRc4WNGFTlQv1iPhgoO8fgYiNTxZIuLOW+4kxj6a8nh0nN9/ES8MU3zEewbPqD6+19jcii
+	o92g88QQ==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:37166)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <linux@armlinux.org.uk>)
-	id 1ueVeq-0001PX-0W;
-	Wed, 23 Jul 2025 10:21:04 +0100
+	id 1ueVjC-0001QJ-0A;
+	Wed, 23 Jul 2025 10:25:34 +0100
 Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
 	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1ueVem-00082G-07;
-	Wed, 23 Jul 2025 10:21:00 +0100
-Date: Wed, 23 Jul 2025 10:20:59 +0100
+	id 1ueVj9-00082Q-34;
+	Wed, 23 Jul 2025 10:25:31 +0100
+Date: Wed, 23 Jul 2025 10:25:31 +0100
 From: "Russell King (Oracle)" <linux@armlinux.org.uk>
 To: Gatien CHEVALLIER <gatien.chevallier@foss.st.com>
 Cc: Andrew Lunn <andrew@lunn.ch>, Krzysztof Kozlowski <krzk@kernel.org>,
@@ -72,9 +72,8 @@ Cc: Andrew Lunn <andrew@lunn.ch>, Krzysztof Kozlowski <krzk@kernel.org>,
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
 Subject: Re: [PATCH net-next 1/4] dt-bindings: net: document st,phy-wol
  property
-Message-ID: <aICpe63iqldl9NFd@shell.armlinux.org.uk>
-References: <20250721-wol-smsc-phy-v1-1-89d262812dba@foss.st.com>
- <faea23d5-9d5d-4fbb-9c6a-a7bc38c04866@kernel.org>
+Message-ID: <aICqi9eRi-vB1i1m@shell.armlinux.org.uk>
+References: <faea23d5-9d5d-4fbb-9c6a-a7bc38c04866@kernel.org>
  <f5c4bb6d-4ff1-4dc1-9d27-3bb1e26437e3@foss.st.com>
  <e3c99bdb-649a-4652-9f34-19b902ba34c1@lunn.ch>
  <38278e2a-5a1b-4908-907e-7d45a08ea3b7@foss.st.com>
@@ -83,13 +82,15 @@ References: <20250721-wol-smsc-phy-v1-1-89d262812dba@foss.st.com>
  <2563a389-4e7c-4536-b956-476f98e24b37@lunn.ch>
  <aH_yiKJURZ80gFEv@shell.armlinux.org.uk>
  <5a2e0cd8-6d20-4f5a-a3a0-9010305509e3@foss.st.com>
+ <9c9499e3-10c9-4245-938a-65831fe10c05@foss.st.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
-In-Reply-To: <5a2e0cd8-6d20-4f5a-a3a0-9010305509e3@foss.st.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <9c9499e3-10c9-4245-938a-65831fe10c05@foss.st.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250723_022123_244500_55DEC657 
-X-CRM114-Status: GOOD (  49.41  )
+X-CRM114-CacheID: sfid-20250723_022548_717900_EE06B712 
+X-CRM114-Status: GOOD (  44.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,123 +105,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 23, 2025 at 10:50:12AM +0200, Gatien CHEVALLIER wrote:
-> On 7/22/25 22:20, Russell King (Oracle) wrote:
-> > On Tue, Jul 22, 2025 at 03:40:16PM +0200, Andrew Lunn wrote:
-> > > I know Russell has also replied about issues with stmmac. Please
-> > > consider that when reading what i say... It might be not applicable.
-> > > 
-> > > > Seems like a fair and logical approach. It seems reasonable that the
-> > > > MAC driver relies on the get_wol() API to know what's supported.
+On Wed, Jul 23, 2025 at 10:53:55AM +0200, Gatien CHEVALLIER wrote:
+> On 7/23/25 10:50, Gatien CHEVALLIER wrote:
+> > On 7/22/25 22:20, Russell King (Oracle) wrote:
+> > > On Tue, Jul 22, 2025 at 03:40:16PM +0200, Andrew Lunn wrote:
+> > > > I know Russell has also replied about issues with stmmac. Please
+> > > > consider that when reading what i say... It might be not applicable.
 > > > > 
-> > > > The tricky thing for the PHY used in this patchset is to get this
-> > > > information:
+> > > > > Seems like a fair and logical approach. It seems reasonable that the
+> > > > > MAC driver relies on the get_wol() API to know what's supported.
+> > > > > 
+> > > > > The tricky thing for the PHY used in this patchset is to get this
+> > > > > information:
+> > > > > 
+> > > > > Extract from the documentation of the LAN8742A PHY:
+> > > > > "The WoL detection can be configured to assert the nINT interrupt pin
+> > > > > or nPME pin"
 > > > > 
-> > > > Extract from the documentation of the LAN8742A PHY:
-> > > > "The WoL detection can be configured to assert the nINT interrupt pin
-> > > > or nPME pin"
+> > > > https://www.kernel.org/doc/Documentation/devicetree/bindings/power/wakeup-source.txt
+> > > > 
+> > > > It is a bit messy, but in the device tree, you could have:
+> > > > 
+> > > >      interrupts = <&sirq 0 IRQ_TYPE_LEVEL_LOW>
+> > > >                   <&pmic 42 IRQ_TYPE_LEVEL_LOW>;
+> > > >      interrupt-names = "nINT", "wake";
+> > > >      wakeup-source
+> > > > 
+> > > > You could also have:
+> > > > 
+> > > >      interrupts = <&sirq 0 IRQ_TYPE_LEVEL_LOW>;
+> > > >      interrupt-names = "wake";
+> > > >      wakeup-source
+> > > > 
+> > > > In the first example, since there are two interrupts listed, it must
+> > > > be using the nPME. For the second, since there is only one, it must be
+> > > > using nINT.
+> > > > 
+> > > > Where this does not work so well is when you have a board which does
+> > > > not have nINT wired, but does have nPME. The phylib core will see
+> > > > there is an interrupt and request it, and disable polling. And then
+> > > > nothing will work. We might be able to delay solving that until such a
+> > > > board actually exists?
 > > > 
-> > > https://www.kernel.org/doc/Documentation/devicetree/bindings/power/wakeup-source.txt
+> > > (Officially, I'm still on vacation...)
 > > > 
-> > > It is a bit messy, but in the device tree, you could have:
+> > > At this point, I'd like to kick off a discussion about PHY-based
+> > > wakeup that is relevant to this thread.
 > > > 
-> > >      interrupts = <&sirq 0 IRQ_TYPE_LEVEL_LOW>
-> > >                   <&pmic 42 IRQ_TYPE_LEVEL_LOW>;
-> > >      interrupt-names = "nINT", "wake";
-> > >      wakeup-source
+> > > The kernel has device-based wakeup support. We have:
 > > > 
-> > > You could also have:
+> > > - device_set_wakeup_capable(dev, flag) - indicates that the is
+> > >    capable of waking the system depending on the flag.
 > > > 
-> > >      interrupts = <&sirq 0 IRQ_TYPE_LEVEL_LOW>;
-> > >      interrupt-names = "wake";
-> > >      wakeup-source
+> > > - device_set_wakeup_enable(dev, flag) - indicates whether "dev"
+> > >    has had wake-up enabled or disabled depending on the flag.
 > > > 
-> > > In the first example, since there are two interrupts listed, it must
-> > > be using the nPME. For the second, since there is only one, it must be
-> > > using nINT.
+> > > - dev*_pm_set_wake_irq(dev, irq) - indicates to the wake core that
+> > >    the indicated IRQ is capable of waking the system, and the core
+> > >    will handle enabling/disabling irq wake capabilities on the IRQ
+> > >    as appropriate (dependent on device_set_wakeup_enable()). Other
+> > >    functions are available for wakeup IRQs that are dedicated to
+> > >    only waking up the system (e.g. the WOL_INT pin on AR8031).
 > > > 
-> > > Where this does not work so well is when you have a board which does
-> > > not have nINT wired, but does have nPME. The phylib core will see
-> > > there is an interrupt and request it, and disable polling. And then
-> > > nothing will work. We might be able to delay solving that until such a
-> > > board actually exists?
+> > > Issue 1. In stmmac_init_phy(), we have this code:
+> > > 
+> > >          if (!priv->plat->pmt) {
+> > >                  struct ethtool_wolinfo wol = { .cmd = ETHTOOL_GWOL };
+> > > 
+> > >                  phylink_ethtool_get_wol(priv->phylink, &wol);
+> > >                  device_set_wakeup_capable(priv->device,
+> > > !!wol.supported);
+> > >                  device_set_wakeup_enable(priv->device, !!wol.wolopts);
+> > >          }
+> > > 
+> > > This reads the WoL state from the PHY (a different struct device)
+> > > and sets the wakeup capability and enable state for the _stmmac_
+> > > device accordingly, but in the case of PHY based WoL, it's the PHY
+> > > doing the wakeup, not the MAC. So this seems wrong on the face of
+> > > it.
 > > 
-> > (Officially, I'm still on vacation...)
+> > 2 cents: Maybe even remove in stmmac_set_wol() if !priv->plat->pmt.
 > > 
-> > At this point, I'd like to kick off a discussion about PHY-based
-> > wakeup that is relevant to this thread.
-> > 
-> > The kernel has device-based wakeup support. We have:
-> > 
-> > - device_set_wakeup_capable(dev, flag) - indicates that the is
-> >    capable of waking the system depending on the flag.
-> > 
-> > - device_set_wakeup_enable(dev, flag) - indicates whether "dev"
-> >    has had wake-up enabled or disabled depending on the flag.
-> > 
-> > - dev*_pm_set_wake_irq(dev, irq) - indicates to the wake core that
-> >    the indicated IRQ is capable of waking the system, and the core
-> >    will handle enabling/disabling irq wake capabilities on the IRQ
-> >    as appropriate (dependent on device_set_wakeup_enable()). Other
-> >    functions are available for wakeup IRQs that are dedicated to
-> >    only waking up the system (e.g. the WOL_INT pin on AR8031).
-> > 
-> > Issue 1. In stmmac_init_phy(), we have this code:
-> > 
-> >          if (!priv->plat->pmt) {
-> >                  struct ethtool_wolinfo wol = { .cmd = ETHTOOL_GWOL };
-> > 
-> >                  phylink_ethtool_get_wol(priv->phylink, &wol);
-> >                  device_set_wakeup_capable(priv->device, !!wol.supported);
-> >                  device_set_wakeup_enable(priv->device, !!wol.wolopts);
-> >          }
-> > 
-> > This reads the WoL state from the PHY (a different struct device)
-> > and sets the wakeup capability and enable state for the _stmmac_
-> > device accordingly, but in the case of PHY based WoL, it's the PHY
-> > doing the wakeup, not the MAC. So this seems wrong on the face of
-> > it.
 > 
-> 2 cents: Maybe even remove in stmmac_set_wol() if !priv->plat->pmt.
+> Sorry, that's not very clear. I was thinking of removing:
+> device_set_wakeup_enable(priv->device, !!wol->wolopts); in
+> stmmac_set_wol()
 
-On the face of it, that seems like a sane solution, but sadly we
-can't do that. If we did, then at least Jetson Xavier NX would break if
-WoL were enabled, because DT describes the PHY interrupt, and currently
-the PHY driver switches the interrupt pin from interrupt mode (where it
-signals link changes) to PMEB mode (where it only pulses when a wake-up
-packet is received) when WoL is enabled at the PHY. This will mean
-phylib won't receive link state interrupts anymore, so unplugging/
-replugging the cable won't be detected by phylib.
+Yes, I think that's something which should be looked into, along with
+the code at the bottom of stmmac_init_phy() calling
+device_set_wakeup_capable() and device_set_wakeup_enable() depending on
+the PHY state. However, that's something which needs testing by folk
+who have stmmac setups that use PHY-side WoL.
 
-Even my further suggestions do not get us to a state where we can pass
-the set_wol() to the PHY, and then work out what the MAC needs to do,
-because e.g. in the case of RTL8211F, even if we use the "wakeup-source"
-to fix the above, we still have the problem of "is wake-up supported
-by the PHY wiring or is it not". We just have not described that in the
-DT trees for platforms, so this is basically unknown.
-
-Adding any logic to the kernel to make that decision will cause
-regressions - either by making WoL unavailable on platforms where it
-previously worked (e.g. because PHY WoL was being used) or the opposite
-(where MAC WoL was used but now PHY WoL gets used but isn't wired.)
-
-This is why I say we've boxed ourselves into a corner on this - this is
-not phylib maintainers fault, because we can't know everything about
-every device out there, and we don't have time to read every damn data
-sheet which may or may not be publically available. We have to go by
-what submitters provide us, which leads to problems like this.
-
-So, we need flexibility from everyone to try and find a way forward.
-We can't have people sticking to ideals - such as DT maintainers being
-rigid about "DT describes hardware only". As I've already stated, our
-DT currently does *not* describe hardware with respect to PHY wake-up,
-and because this has been overlooked, we're now in a mess where there
-is *no* easy solutions, and no solution that could be said to purely
-describe hardware.
-
-If we didn't have any PHY drivers, and were starting afresh, then we
-would have the latitude to come up with something clean. That boat has
-long since sailed.
+It appears that my Jetson Xavier NX currently doesn't, although
+MAC-side WoL also doesn't appear to work, so I've asked nVidia folk
+for assistance. It could be it's supposed to use PHY-side, or maybe
+there's something missing to support MAC-side (e.g. clk_rx_i is
+being turned off in suspend despite WoL being enabled.)
 
 -- 
 RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
