@@ -4,59 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1AD7C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 16:22:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15FEFC83F34
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 16:32:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=yxdbF1lpWuT9Ovkz6Fc3Sq+61kQGAJBOyBc7d0s4ZXQ=; b=IFFP6VFfgF3TSnvnXB6FM3YiwZ
-	BPWpULsBtJ8uKMB2hWvlFwNA8a/3HKf1Gnp6YAUU0ltDk8UpRYaNADRQc3CJmHfBLQ+VEcdSOHWup
-	eVvNlTf9Anabm0gjT0U+viOBp0fkvBbKaFvrRZBuyggiUI8NazzL8zAgVsVeDNFpxiQ2J7mHta9YR
-	2uRdRQd3pxySko6aVfcrmGr3OinbshT/zCSVpszIDmG5zkkUYzmzXfqYjIutZDVK/WLhevdOZMaNu
-	xWm93DF3wCBDM5PckSP/jJf1dHM6gZivt1wHHi16mgKDTFOQMMLgbCMJym+xeeBicFetnvkn9Ty1I
-	uM7OjA1g==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2oLVQ+wEF7L0i9K+mBIHWmF3qtu8o6QfrkYubSnBjN0=; b=bwL1ZHmQZzBQvHp+rW559zwxQo
+	aVceZaCXvMgcrvZ80ZzSQ074vZ2d7qVZXlVeNgc8mJ8cbsX4+dG4U7mE6UvOQvh89Vu2RAdfGy6dI
+	7v6Z4QIGBuBX7OfOUZWsqd25XyZzURtz7uMfZn37UBD2pDCg1Tu43GSeIAtCKyxI5SZyHlk7g7iWJ
+	NL6SUzDd4oDyxsCdUgdtJGHvkX1+xCbBmEW2DdUVik+6T6QRpLUgibM0bmC39TSAjX81EMkpxrUZe
+	RFp7d9OrCQXxtEZ5qrUObFcfjpf9ZrN0QAYmrPydJz2r60Z3xgOanyrQGRjOcdFP6hfmCkT6lJFK0
+	br0P7KDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uecE4-00000005UEM-1ZEz;
-	Wed, 23 Jul 2025 16:21:52 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uecBd-00000005Tv1-18Hq
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Jul 2025 16:19:23 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B75911CE2;
-	Wed, 23 Jul 2025 09:19:13 -0700 (PDT)
-Received: from localhost.localdomain (unknown [10.163.93.73])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id B8A093F6A8;
-	Wed, 23 Jul 2025 09:19:14 -0700 (PDT)
-From: Dev Jain <dev.jain@arm.com>
-To: catalin.marinas@arm.com,
-	will@kernel.org
-Cc: anshuman.khandual@arm.com,
-	quic_zhenhuah@quicinc.com,
-	ryan.roberts@arm.com,
-	kevin.brodsky@arm.com,
-	yangyicong@hisilicon.com,
-	joey.gouly@arm.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	david@redhat.com,
-	mark.rutland@arm.com,
-	urezki@gmail.com,
-	Dev Jain <dev.jain@arm.com>
-Subject: [RESEND PATCH v5] arm64: Enable vmalloc-huge with ptdump
-Date: Wed, 23 Jul 2025 21:48:27 +0530
-Message-Id: <20250723161827.15802-1-dev.jain@arm.com>
-X-Mailer: git-send-email 2.39.5 (Apple Git-154)
+	id 1uecOS-00000005VRM-2z42;
+	Wed, 23 Jul 2025 16:32:36 +0000
+Received: from mail-pg1-x52c.google.com ([2607:f8b0:4864:20::52c])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uecM1-00000005VBP-0x9y;
+	Wed, 23 Jul 2025 16:30:06 +0000
+Received: by mail-pg1-x52c.google.com with SMTP id 41be03b00d2f7-b26f5f47ba1so129067a12.1;
+        Wed, 23 Jul 2025 09:30:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1753288204; x=1753893004; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=2oLVQ+wEF7L0i9K+mBIHWmF3qtu8o6QfrkYubSnBjN0=;
+        b=i1FDjT5CKzGiK9VlqxB9F6iR8vWFLT97xMaFjUJ3bb1UBEHK5BcMFt65XjMvNRHBFK
+         yOgWPn6ivSxRrIbGu+nDhoPJSWwtOWPf/ZrxIU5e6i4n23y6nKPtsX7xC4FXHBjbfMmj
+         hDT5cTE35MGhwNFnuA94JhQisSJ4nhj26xvn730reX3fIfkkml8kg6zZ0KAEFV5H/9kn
+         duX7UQuIh8Uc4a7zIzOgNNnH08HC8/fG+YGIkBQ5UZHakkxi+vyA6SGpSBJT8Pylscd2
+         47xFy52gosW6qQyjIWzcwRLYtjW8xk4Z2CsXl6gzcg9+wUjBOkM/WnXfxfOx5MKVGgMG
+         T5dw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1753288204; x=1753893004;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=2oLVQ+wEF7L0i9K+mBIHWmF3qtu8o6QfrkYubSnBjN0=;
+        b=ZC/4MtHQ80UEal4Une3IXbZlBjFwXvuKTcvVVL/mytmYeNMQ3h19bhWDGPMkILXdWk
+         y74b+mOcO27+4XPEL0Qy8j8Csg0+JeEJNQ+RxUxz9xmNIkrb/CSFT92a9JvoWC9MOsjM
+         MjCfvRvPu1JBLH5aa0rtsqItkQXpJPtfulsXxGDfzulFcZFiWBXHSuy62sRxbq/S6hIa
+         OarLGuuGi2Y8CBJkxZyCA/4BIHVPdUoh/7Lm2ACc2fH9S2EJDt6+4uRC1PBg0ymLVKkP
+         HDhrKCOvDjS4hx42Bdurf8gBuo2Ef0AFDm0E3CdYBrNOIJi6aD25JGwXmqWUQgK4S6hg
+         ehZg==
+X-Forwarded-Encrypted: i=1; AJvYcCVOTbgVo67Xa23HtSSqP6MRHtsRrywqMiuHZwm1KzqSIvHQY/zZh+nqnlBWobxLRrWvvvKWt9nVoDbRy8sbDQlVzg==@lists.infradead.org, AJvYcCVbfc7rVB4kMDMtsM/RD1okfxDAKuJz14JEqwSpvYd5IUL71ABGw/FTUc76pbBxLTgP4CzKxU1YRAwJHhXq@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz2PFEhSj9+y1wPyWsUyq9EUQpqgfZd4NuXgPtJWvk91NQ6RmjX
+	6ym2hIntrScLCMZbQ8XzNJ1CHKRKBJbD6y5KvmeYol++58JSpGVStIUvUAMZ+R+GnWY=
+X-Gm-Gg: ASbGnctd/FNerYcgWtcbeBCgNuPTQsiPXfuT3uPmgLN9o4/r4j/KrS7z7QqKyyXDlvb
+	61HsQqzIR9uJ7HTM9siP1BSkM/kvKcBssiCv8v056NIGe4PYuKYsN4NPaXu2pjtM0Gja/XMyhL0
+	9t5A5r2cpKmmh15BvwEB9fxHPPUGh+x0N1wKJTYls6x6c9M6cTMXuufIJj0h4hz1sBQTWcfkVHr
+	qi1byoLYaxftncdVPJEvwVBucuV+OAFY83XmFhSgRBTPKZ6FZ6tXlnaSIBv5+rR+pslyHZSD0rf
+	Zu15Y02zbi82kppl2ovIMxjaudVN2w4scgyU6bFOHqeBK9KcumD1rc5/PqAoJXKBL2na84kiV8f
+	WY6CPhWD+GhK7ExSoKW9uO2dhbItUJHLx7amGojU=
+X-Google-Smtp-Source: AGHT+IE8R/cLesETtxNTKi6GADIN03ysXQ0xFDkmBNduvgzLi3IKVKIBX5o6E4+QQ7bIBNKgOSkiiw==
+X-Received: by 2002:a17:90b:3f8d:b0:311:e8cc:424c with SMTP id 98e67ed59e1d1-31e507cdcebmr5060289a91.25.1753288204285;
+        Wed, 23 Jul 2025 09:30:04 -0700 (PDT)
+Received: from [192.168.1.143] ([49.207.192.227])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-31e519b11d1sm2037415a91.5.2025.07.23.09.29.56
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 23 Jul 2025 09:30:03 -0700 (PDT)
+Message-ID: <8e5e1d09-0706-42b3-8ae1-00a0e2f5139a@gmail.com>
+Date: Wed, 23 Jul 2025 21:59:53 +0530
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3] dt-bindings: cleanup: fix duplicated 'is is' in YAML
+ docs
+To: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-iio@vger.kernel.org, netdev@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org,
+ ribalda@kernel.org, jic23@kernel.org, dlechner@baylibre.com,
+ nuno.sa@analog.com, andy@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
+ neil.armstrong@linaro.org, khilman@baylibre.com, jbrunet@baylibre.com
+References: <20250722170513.5854-1-sanjaysuthar661996@gmail.com>
+ <CAFBinCCmsw=XGPtrk1XbphOu=OwhxmAiZ+2h4x_M-_f64Vo-7A@mail.gmail.com>
+Content-Language: en-US
+From: Sanjay Suthar <sanjaysuthar661996@gmail.com>
+In-Reply-To: <CAFBinCCmsw=XGPtrk1XbphOu=OwhxmAiZ+2h4x_M-_f64Vo-7A@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250723_091921_395372_A7B6D55D 
-X-CRM114-Status: GOOD (  28.18  )
+X-CRM114-CacheID: sfid-20250723_093005_268246_3F6ECD40 
+X-CRM114-Status: GOOD (  13.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,270 +107,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Our goal is to move towards enabling vmalloc-huge by default on arm64 so
-as to reduce TLB pressure. Therefore, we need a way to analyze the portion
-of block mappings in vmalloc space we can get on a production system; this
-can be done through ptdump, but currently we disable vmalloc-huge if
-CONFIG_PTDUMP_DEBUGFS is on. The reason is that lazy freeing of kernel
-pagetables via vmap_try_huge_pxd() may race with ptdump, so ptdump
-may dereference a bogus address.
+On 23/07/25 01:08, Martin Blumenstingl wrote:
 
-To solve this, we need to synchronize ptdump_walk_pgd() with
-pud_free_pmd_page() and pmd_free_pte_page().
+> On Tue, Jul 22, 2025 at 7:06 PM Sanjay Suthar
+> <sanjaysuthar661996@gmail.com> wrote:
+>> Fix minor grammatical issues by removing duplicated "is" in two devicetree
+>> binding documents:
+>>
+>> - net/amlogic,meson-dwmac.yaml
+>> - iio/dac/ti,dac7612.yaml
+>>
+>> Signed-off-by: Sanjay Suthar <sanjaysuthar661996@gmail.com>
+> Reviewed-by: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+>
+> Thank you for spotting and fixing this!
+>
+> To my knowledge nobody else is currently working on amlogic,meson-dwmac changes.
+> Meaning: with an ACK from the netdev or iio maintainers this patch can
+> go through any tree (iio, netdev, devicetree).
+>
+>
+> Best regards,
+> Martin
 
-Since this race is very unlikely to happen in practice, we do not want to
-penalize other code paths taking the init_mm mmap_lock. Therefore, we use
-static keys. ptdump will enable the static key - upon observing that, the
-vmalloc table freeing path will get patched in with an
-mmap_read_lock/unlock sequence. A code comment explains in detail, how
-a combination of acquire sematics of static_branch_enable() and the
-barriers in __flush_tlb_kernel_pgtable() ensures that ptdump will never
-get a hold on the address of a freed PMD or PTE table.
+Thanks for reviewing the patch. So you mentioned, now the patch can go 
+through any of above mentioned tree, Is there any Action item left on my 
+end related to this patch? Also will I be notified about when the patch 
+will be approved and merged by the respective owner?
 
-For an (almost) rigorous proof of correctness, one may look at:
-https://lore.kernel.org/all/e1e87f16-1c48-481b-8f7c-9333ac5d13e7@arm.com/
+Best regards,
 
-Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
-Signed-off-by: Dev Jain <dev.jain@arm.com>
----
-Rebased on 6.16-rc7.
-
-mm-selfests pass. No issues were observed while parallelly running
-test_vmalloc.sh (which stresses the vmalloc subsystem) and dumping the
-kernel pagetable through sysfs in a loop.
-
-v4->v5:
- - The arch_vmap_pxd_supported() changes were dropped by mistake in between
-   the revisions, add them back (Anshuman)
- - Rewrite cover letter, drop stray change, add arm64_ptdump_walk_pgd()
-   helper, rename ptdump_lock_key -> arm64_ptdump_lock_key, add comment
-   above __pmd_free_pte_page() to explain when the lock won't
-   be taken (Anshuman)
- - Rewrite the comment explaining the synchronization logic (Catalin)
-
-v3->v4:
- - Lock-unlock immediately
- - Simplify includes
-
-v2->v3:
- - Use static key mechanism
-
-v1->v2:
- - Take lock only when CONFIG_PTDUMP_DEBUGFS is on
- - In case of pud_free_pmd_page(), isolate the PMD table to avoid taking
-   the lock 512 times again via pmd_free_pte_page()
-
----
- arch/arm64/include/asm/ptdump.h  |  2 +
- arch/arm64/include/asm/vmalloc.h |  6 +--
- arch/arm64/mm/mmu.c              | 86 ++++++++++++++++++++++++++++++--
- arch/arm64/mm/ptdump.c           | 11 +++-
- 4 files changed, 95 insertions(+), 10 deletions(-)
-
-diff --git a/arch/arm64/include/asm/ptdump.h b/arch/arm64/include/asm/ptdump.h
-index fded5358641f..baff24004459 100644
---- a/arch/arm64/include/asm/ptdump.h
-+++ b/arch/arm64/include/asm/ptdump.h
-@@ -7,6 +7,8 @@
- 
- #include <linux/ptdump.h>
- 
-+DECLARE_STATIC_KEY_FALSE(arm64_ptdump_lock_key);
-+
- #ifdef CONFIG_PTDUMP
- 
- #include <linux/mm_types.h>
-diff --git a/arch/arm64/include/asm/vmalloc.h b/arch/arm64/include/asm/vmalloc.h
-index 12f534e8f3ed..e835fd437ae0 100644
---- a/arch/arm64/include/asm/vmalloc.h
-+++ b/arch/arm64/include/asm/vmalloc.h
-@@ -12,15 +12,13 @@ static inline bool arch_vmap_pud_supported(pgprot_t prot)
- 	/*
- 	 * SW table walks can't handle removal of intermediate entries.
- 	 */
--	return pud_sect_supported() &&
--	       !IS_ENABLED(CONFIG_PTDUMP_DEBUGFS);
-+	return pud_sect_supported();
- }
- 
- #define arch_vmap_pmd_supported arch_vmap_pmd_supported
- static inline bool arch_vmap_pmd_supported(pgprot_t prot)
- {
--	/* See arch_vmap_pud_supported() */
--	return !IS_ENABLED(CONFIG_PTDUMP_DEBUGFS);
-+	return true;
- }
- 
- #define arch_vmap_pte_range_map_size arch_vmap_pte_range_map_size
-diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-index 00ab1d648db6..49932c1dd34e 100644
---- a/arch/arm64/mm/mmu.c
-+++ b/arch/arm64/mm/mmu.c
-@@ -46,6 +46,8 @@
- #define NO_CONT_MAPPINGS	BIT(1)
- #define NO_EXEC_MAPPINGS	BIT(2)	/* assumes FEAT_HPDS is not used */
- 
-+DEFINE_STATIC_KEY_FALSE(arm64_ptdump_lock_key);
-+
- enum pgtable_type {
- 	TABLE_PTE,
- 	TABLE_PMD,
-@@ -1267,7 +1269,12 @@ int pmd_clear_huge(pmd_t *pmdp)
- 	return 1;
- }
- 
--int pmd_free_pte_page(pmd_t *pmdp, unsigned long addr)
-+/*
-+ * If PMD has been isolated via pud_free_pmd_page(), ptdump cannot get
-+ * a hold to it, so no need to serialize with mmap_lock, hence lock
-+ * will be passed as false here. Otherwise, lock will be true.
-+ */
-+static int __pmd_free_pte_page(pmd_t *pmdp, unsigned long addr, bool lock)
- {
- 	pte_t *table;
- 	pmd_t pmd;
-@@ -1279,13 +1286,24 @@ int pmd_free_pte_page(pmd_t *pmdp, unsigned long addr)
- 		return 1;
- 	}
- 
-+	/* See comment in pud_free_pmd_page for static key logic */
- 	table = pte_offset_kernel(pmdp, addr);
- 	pmd_clear(pmdp);
- 	__flush_tlb_kernel_pgtable(addr);
-+	if (static_branch_unlikely(&arm64_ptdump_lock_key) && lock) {
-+		mmap_read_lock(&init_mm);
-+		mmap_read_unlock(&init_mm);
-+	}
-+
- 	pte_free_kernel(NULL, table);
- 	return 1;
- }
- 
-+int pmd_free_pte_page(pmd_t *pmdp, unsigned long addr)
-+{
-+	return __pmd_free_pte_page(pmdp, addr, true);
-+}
-+
- int pud_free_pmd_page(pud_t *pudp, unsigned long addr)
- {
- 	pmd_t *table;
-@@ -1301,16 +1319,76 @@ int pud_free_pmd_page(pud_t *pudp, unsigned long addr)
- 	}
- 
- 	table = pmd_offset(pudp, addr);
-+
-+	/*
-+	 * Our objective is to prevent ptdump from reading a PMD table which has
-+	 * been freed.  Assume that ptdump_walk_pgd() (call this thread T1)
-+	 * executes completely on CPU1 and pud_free_pmd_page() (call this thread
-+	 * T2) executes completely on CPU2. Let the region sandwiched by the
-+	 * mmap_write_lock/unlock in T1 be called CS (the critical section).
-+	 *
-+	 * Claim: The CS of T1 will never operate on a freed PMD table.
-+	 *
-+	 * Proof:
-+	 *
-+	 * Case 1: The static branch is visible to T2.
-+	 *
-+	 * Case 1 (a): T1 acquires the lock before T2 can.
-+	 * T2 will block until T1 drops the lock, so pmd_free() will only be
-+	 * executed after T1 exits CS.
-+	 *
-+	 * Case 1 (b): T2 acquires the lock before T1 can.
-+	 * The sequence of barriers issued in __flush_tlb_kernel_pgtable()
-+	 * ensures that an empty PUD (via pud_clear()) is visible to T1 before
-+	 * T1 can enter CS, therefore it is impossible for the CS to get hold
-+	 * of the address of the isolated PMD table.
-+	 *
-+	 * Case 2: The static branch is not visible to T2.
-+	 *
-+	 * Since static_branch_enable() (via dmb(ish)) and mmap_write_lock()
-+	 * have acquire semantics, it is guaranteed that the static branch
-+	 * will be visible to all CPUs before T1 can enter CS. The static
-+	 * branch not being visible to T2 therefore guarantees that T1 has
-+	 * not yet entered CS .... (i)
-+	 * The sequence of barriers via __flush_tlb_kernel_pgtable() in T2
-+	 * implies that if the invisibility of the static branch has been
-+	 * observed by T2 (i.e static_branch_unlikely() is observed as false),
-+	 * then all CPUs will have observed an empty PUD ... (ii)
-+	 * Combining (i) and (ii), we conclude that T1 observes an empty PUD
-+	 * before entering CS => it is impossible for the CS to get hold of
-+	 * the address of the isolated PMD table. Q.E.D
-+	 *
-+	 * We have proven that the claim is true on the assumption that
-+	 * there is no context switch for T1 and T2. Note that the reasoning
-+	 * of the proof uses barriers operating on the inner shareable domain,
-+	 * which means that they will affect all CPUs, and also a context switch
-+	 * will insert extra barriers into the code paths => the claim will
-+	 * stand true even if we drop the assumption.
-+	 *
-+	 * It is also worth reasoning whether something can go wrong via
-+	 * pud_free_pmd_page() -> __pmd_free_pte_page(), since the latter
-+	 * will be called locklessly on this code path.
-+	 *
-+	 * For Case 1 (a), T2 will block until CS is finished, so we are safe.
-+	 * For Case 1 (b) and Case 2, the PMD table will be isolated before
-+	 * T1 can enter CS, therefore it is safe for T2 to operate on the
-+	 * PMD table locklessly.
-+	 */
-+	pud_clear(pudp);
-+	__flush_tlb_kernel_pgtable(addr);
-+	if (static_branch_unlikely(&arm64_ptdump_lock_key)) {
-+		mmap_read_lock(&init_mm);
-+		mmap_read_unlock(&init_mm);
-+	}
-+
- 	pmdp = table;
- 	next = addr;
- 	end = addr + PUD_SIZE;
- 	do {
- 		if (pmd_present(pmdp_get(pmdp)))
--			pmd_free_pte_page(pmdp, next);
-+			__pmd_free_pte_page(pmdp, next, false);
- 	} while (pmdp++, next += PMD_SIZE, next != end);
- 
--	pud_clear(pudp);
--	__flush_tlb_kernel_pgtable(addr);
- 	pmd_free(NULL, table);
- 	return 1;
- }
-diff --git a/arch/arm64/mm/ptdump.c b/arch/arm64/mm/ptdump.c
-index 421a5de806c6..65335c7ba482 100644
---- a/arch/arm64/mm/ptdump.c
-+++ b/arch/arm64/mm/ptdump.c
-@@ -283,6 +283,13 @@ void note_page_flush(struct ptdump_state *pt_st)
- 	note_page(pt_st, 0, -1, pte_val(pte_zero));
- }
- 
-+static void arm64_ptdump_walk_pgd(struct ptdump_state *st, struct mm_struct *mm)
-+{
-+	static_branch_enable(&arm64_ptdump_lock_key);
-+	ptdump_walk_pgd(st, mm, NULL);
-+	static_branch_disable(&arm64_ptdump_lock_key);
-+}
-+
- void ptdump_walk(struct seq_file *s, struct ptdump_info *info)
- {
- 	unsigned long end = ~0UL;
-@@ -311,7 +318,7 @@ void ptdump_walk(struct seq_file *s, struct ptdump_info *info)
- 		}
- 	};
- 
--	ptdump_walk_pgd(&st.ptdump, info->mm, NULL);
-+	arm64_ptdump_walk_pgd(&st.ptdump, info->mm);
- }
- 
- static void __init ptdump_initialize(void)
-@@ -353,7 +360,7 @@ bool ptdump_check_wx(void)
- 		}
- 	};
- 
--	ptdump_walk_pgd(&st.ptdump, &init_mm, NULL);
-+	arm64_ptdump_walk_pgd(&st.ptdump, &init_mm);
- 
- 	if (st.wx_pages || st.uxn_pages) {
- 		pr_warn("Checked W+X mappings: FAILED, %lu W+X pages found, %lu non-UXN pages found\n",
--- 
-2.30.2
+Sanjay Suthar
 
 
