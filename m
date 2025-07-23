@@ -4,64 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A80E0C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 13:49:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB316C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 13:52:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H6V/0Vtel7CGpYiJefJ3wfM3AtMizX6MiI5SBYa0KkU=; b=vYFgV41HfwQNrPgYr9KVtSpaq9
-	Dzwtj3tq1tpujuiWBt86ETx691VxWjmtC+TI9PmCWxoydcFNElawUSqK9yNjuwSDIZOWkRe0pkHWh
-	n5cF7e6fq40pZ7S8MwXqhQ57QuSWx+dT4UJuXA+SelT+3jWdnEqtI+QshNTSQxWFlI+6X6J70INF0
-	NTUpaisT+6Gc4FWRD/9cC8mBuyR67ZP3rCwYiMjpz9YwJHFIuF+DABaGad/WDZxgdB9qK5r8GxiuG
-	P0Uz6vbnd7r1YPUFMXux2OLCRCS5zfzo2nfEdZ1d0xXOUw31lnD3ucz2GDd9Jl0bg43g05qLwcQ+h
-	HyfFy6/w==;
+	bh=a7LWlOLtHEVsw7QyER6FfjOKmrZdqB2/hdIwi6Hbs9U=; b=J4LnIhmnNcArJ0S6Q6OyZ9x5Oj
+	Fj4cb261v56bw2YwZMMixAdN4ZQbRoNjqOWm3ngMVbMvD4iAkK2B04ous10Vg3CwraX3tgMPBqHIE
+	N8Dw80NZ3rWVWtMsL4/b6w5Tbe7hNhZ0zm/QKN0cM6YCayloxECwgX7+qXbqfSmN+Zr1s0fl/ef+y
+	UoaTz5H81SU/w4yrob2YBP+JQx2L/Y17NAylbiQ3E98JzFxXvVBleTeMcgPcSOWbXmYLFqmu7TO98
+	eIdFVXNz8W+IDRDRg27KfEUUXEdjDfV+5Kw8K4mKUGQdoUQ8MJm1iWcC7bn+fwAaj/OhOoljIufc8
+	+qfhRBaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueZqf-000000056Vs-3bZB;
-	Wed, 23 Jul 2025 13:49:33 +0000
+	id 1ueZt9-000000056vs-38bB;
+	Wed, 23 Jul 2025 13:52:07 +0000
 Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueZDx-00000004zqW-1A6g
+	id 1ueZDy-00000004zrX-3Ouk
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Jul 2025 13:09:35 +0000
+	Wed, 23 Jul 2025 13:09:36 +0000
 Received: from pps.filterd (m0046661.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56NCMCII025318;
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56NCYuVC013793;
 	Wed, 23 Jul 2025 15:09:26 +0200
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	H6V/0Vtel7CGpYiJefJ3wfM3AtMizX6MiI5SBYa0KkU=; b=xv53SFm46ipTWxs+
-	GyitTWhKcsPNC3I6JagGHZ+eRkPLSwx7bEBprp7hSLRw1BmhuyRrpT+FE/e0YQ5c
-	2dXBGJe0esKUwZGTmoCiKuADOKaok0y83mLBTj82LlDhOKHfUoSkntFkn/XXm3yc
-	4Vwnv3JZ47AbEO/4F1vWAhRg4a0KnJzvvYRjaVa2HJzq2cmIucGykwDfzmmJbF7v
-	F6mFxKuNQK8Xg8v0kiw7kzXPvUOKqAyQsF9scP/TlefED64dD01s3gSBoj6SXaPk
-	tB68PNQo/8oxKzTil8kxJUEPa4u1AHw0mxBnUCEz007U3rTQLt9J1Ny4UbsJd0r5
-	mSTW0A==
+	a7LWlOLtHEVsw7QyER6FfjOKmrZdqB2/hdIwi6Hbs9U=; b=RNUdW3xLRK+T7n4N
+	OsclMBk/a2oLLihjjH3s2svJ3bjJSNQWVdQk1N2MLkS/uo+rXIAKnERQFmubMzQK
+	q2WjUUuHnOLQekjWuOCROU1DJAlbZ/paaM5pyVH4PwpfEge8OvXS1NT74Y4ucyr2
+	q3DYYrei6xRhThGtEqUjRUHflytfqZd3Q/b3tTra38SDeUXKVbTnzBpR7+SGrR2S
+	Zf3IQoJgMzbrNatpz9HddWcGWlg/3R0BF5yKChYG3bqpumdUKQjawyDcyKzPbv3+
+	TYYpXtwJwyZ2NWszogiMbGPaMdHa7fU96s1L4vQSm+Tgdr5hze4L6XYkv5HyqZNF
+	J8/8UA==
 Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 48028gbkj8-1
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 48028gbkkt-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 23 Jul 2025 15:09:25 +0200 (MEST)
+	Wed, 23 Jul 2025 15:09:26 +0200 (MEST)
 Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 7D87240050;
-	Wed, 23 Jul 2025 15:07:36 +0200 (CEST)
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 555834004B;
+	Wed, 23 Jul 2025 15:07:33 +0200 (CEST)
 Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id F410A7961B1;
-	Wed, 23 Jul 2025 15:06:11 +0200 (CEST)
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 75A83799890;
+	Wed, 23 Jul 2025 15:06:07 +0200 (CEST)
 Received: from localhost (10.48.86.185) by SHFDAG1NODE2.st.com (10.75.129.70)
  with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 23 Jul
- 2025 15:06:11 +0200
+ 2025 15:06:07 +0200
 From: =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>
-Date: Wed, 23 Jul 2025 15:05:56 +0200
-Subject: [PATCH v4 12/20] dt-bindings: perf: stm32: introduce DDRPERFM
- dt-bindings
+Date: Wed, 23 Jul 2025 15:05:50 +0200
+Subject: [PATCH v4 06/20] dt-bindings: memory: introduce DDR4
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-ID: <20250723-ddrperfm-upstream-v4-12-1aa53ca319f4@foss.st.com>
+Message-ID: <20250723-ddrperfm-upstream-v4-6-1aa53ca319f4@foss.st.com>
 References: <20250723-ddrperfm-upstream-v4-0-1aa53ca319f4@foss.st.com>
 In-Reply-To: <20250723-ddrperfm-upstream-v4-0-1aa53ca319f4@foss.st.com>
 To: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
@@ -99,8 +98,8 @@ X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
  definitions=2025-07-23_02,2025-07-22_01,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250723_060933_582971_EF0351BD 
-X-CRM114-Status: GOOD (  12.32  )
+X-CRM114-CacheID: sfid-20250723_060935_111636_6404653A 
+X-CRM114-Status: GOOD (  11.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,114 +114,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-DDRPERFM is the DDR Performance Monitor embedded in STM32MPU SoC.
-It allows to monitor DDR events that come from the DDR Controller
-such as read or write events.
+Introduce JEDEC compliant DDR bindings, that use new memory-props binding.
 
 Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
 ---
- .../devicetree/bindings/perf/st,stm32-ddr-pmu.yaml | 94 ++++++++++++++++++++++
- 1 file changed, 94 insertions(+)
+ .../memory-controllers/ddr/jedec,ddr4.yaml         | 34 ++++++++++++++++++++++
+ 1 file changed, 34 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/perf/st,stm32-ddr-pmu.yaml b/Documentation/devicetree/bindings/perf/st,stm32-ddr-pmu.yaml
+diff --git a/Documentation/devicetree/bindings/memory-controllers/ddr/jedec,ddr4.yaml b/Documentation/devicetree/bindings/memory-controllers/ddr/jedec,ddr4.yaml
 new file mode 100644
-index 000000000000..1d97861e3d44
+index 000000000000..f457066a2f8b
 --- /dev/null
-+++ b/Documentation/devicetree/bindings/perf/st,stm32-ddr-pmu.yaml
-@@ -0,0 +1,94 @@
++++ b/Documentation/devicetree/bindings/memory-controllers/ddr/jedec,ddr4.yaml
+@@ -0,0 +1,34 @@
 +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
 +%YAML 1.2
 +---
-+$id: http://devicetree.org/schemas/perf/st,stm32-ddr-pmu.yaml#
++$id: http://devicetree.org/schemas/memory-controllers/ddr/jedec,ddr4.yaml#
 +$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-+maintainers:
-+  - Clément Le Goffic <legoffic.clement@gmail.com>
++title: DDR3 SDRAM compliant to JEDEC JESD79-4D
 +
-+title: STMicroelectronics STM32 DDR Performance Monitor (DDRPERFM)
++maintainers:
++  - Krzysztof Kozlowski <krzk@kernel.org>
++
++allOf:
++  - $ref: jedec,sdram-props.yaml#
 +
 +properties:
 +  compatible:
-+    oneOf:
-+      - items:
-+          - const: st,stm32mp131-ddr-pmu
-+      - items:
-+          - enum:
-+              - st,stm32mp151-ddr-pmu
-+          - const: st,stm32mp131-ddr-pmu
-+      - items:
-+          - const: st,stm32mp251-ddr-pmu
-+
-+  reg:
-+    maxItems: 1
-+
-+  clocks:
-+    maxItems: 1
-+
-+  resets:
-+    maxItems: 1
-+
-+  access-controllers:
-+    minItems: 1
-+    maxItems: 2
-+
-+  memory-channel:
-+    description:
-+      The memory channel this DDRPERFM is attached to.
-+    $ref: /schemas/types.yaml#/definitions/phandle
++    items:
++      - pattern: "^ddr4-[0-9a-f]{2},[0-9a-f]{1}$"
++      - const: jedec,ddr4
 +
 +required:
 +  - compatible
-+  - reg
++  - density
++  - io-width
 +
-+allOf:
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: st,stm32mp131-ddr-pmu
-+    then:
-+      required:
-+        - clocks
-+        - resets
-+
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: st,stm32mp251-ddr-pmu
-+    then:
-+      required:
-+        - access-controllers
-+        - memory-channel
-+
-+additionalProperties: false
++unevaluatedProperties: false
 +
 +examples:
 +  - |
-+    #include <dt-bindings/clock/stm32mp1-clks.h>
-+    #include <dt-bindings/reset/stm32mp1-resets.h>
-+
-+    perf@5a007000 {
-+        compatible = "st,stm32mp151-ddr-pmu", "st,stm32mp131-ddr-pmu";
-+        reg = <0x5a007000 0x400>;
-+        clocks = <&rcc DDRPERFM>;
-+        resets = <&rcc DDRPERFM_R>;
-+    };
-+
-+  - |
-+    ddr_channel: sdram-channel-0 {
-+        #address-cells = <1>;
-+        #size-cells = <0>;
-+        compatible = "jedec,ddr4-channel";
-+        io-width = <16>;
-+    };
-+
-+    perf@48041000 {
-+      compatible = "st,stm32mp251-ddr-pmu";
-+      reg = <0x48041000 0x400>;
-+      access-controllers = <&rcc 104>;
-+      memory-channel = <&ddr_channel>;
++    ddr {
++        compatible = "ddr4-ff,f", "jedec,ddr4";
++        density = <8192>;
++        io-width = <8>;
 +    };
 
 -- 
