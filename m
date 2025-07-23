@@ -4,92 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FE85C83F27
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 00:51:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5136C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 01:08:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DDWwMCWNmNg13/uNfIiBkoY/WSAIAnYmTPwjUuO5SDo=; b=JDYR71nuDeZ2YNcAmfzSWr6zF2
-	kexdLKzoqxXjXZ/SrhAErAu6fl7jiFnHOAzkMS/sE26lzo017RYvHFHhoJLmB/uebHCwZ9mT0O4f4
-	OHRFdAs+9a1k1+Clb21sh6NWLZROpNEHF/hgadGUlbFff9LhT32drAYZnra+S+o2PmtQlp+qw3UAN
-	k7isLPNiMzqbnvITOnXJ3TzLhSZ1fwacxspuXujWDXM+viMUp98YNzgDr/qFEwJ6VXwh6y9l/UoHE
-	s87LvuprJHf50LlYv4N6D3RxifF56v0LdXVG2WGsvanDNFc07AW7oEcSNGoUKPsg6mHUnk97jrTr9
-	e0OzOWIg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RfMI3/YM29H9nxME616vS9NjUnzzm/RgsziWQdK3lW4=; b=XSTlSjifX5r9XD5WVCEvjTxETY
+	79wQP1kZm43k/TvumbD7wd6VPwhM2gU8/HwlE6QiM06d4SLZ8GS2ewOjMRwbWKObJc/EpXWKWx1LE
+	LP/6N3RON5TRy0dEJjmYgsRON999bEGG1QwuiXJx0tZrbADj/Nnw5dfCCNnPJdKimkZsEsp0g32Pp
+	DLHBOs3+AoFyKXffx0XH9nYLWTRH6nFjmcSKw982y6smVgKGQfIc71ldOEQ4dPJqso+7764O1jrfI
+	LE8bm5kE37Yg29kUS35nbeL1yrsjvItDMjOtWVcxMgw7rB8SzN6uHaYGa9GNJfcDRxZf1CaNx7shz
+	fVCs1p9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueNhN-00000003kKF-1HBz;
-	Wed, 23 Jul 2025 00:51:09 +0000
-Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
+	id 1ueNxv-00000003lH7-2Vym;
+	Wed, 23 Jul 2025 01:08:15 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueNes-00000003k9b-03Pd;
-	Wed, 23 Jul 2025 00:48:35 +0000
-Received: by mail-pj1-x102a.google.com with SMTP id 98e67ed59e1d1-313bcf6e565so235104a91.0;
-        Tue, 22 Jul 2025 17:48:33 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1753231713; x=1753836513; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=DDWwMCWNmNg13/uNfIiBkoY/WSAIAnYmTPwjUuO5SDo=;
-        b=nCgAi/1e0h6Mn0USw/CK9rvN+3OfCcDwSxZUg6WWkxsBPzdzA5Y0rfY26BWvN4wTld
-         lRizI9/kGCytLhX0ybCn6fRyIHi1MEiiIB335iu1wzJghB7ikaCUH/kvQo/g2oJZ1G53
-         zr+Ky3w6FwTLCVuCJUFXWZYOo34K9WitZuFsZs92Ogdmx+QFHR4Y1OlbZcBA9wENZ6Tm
-         YebmXpJAv3UaSmu5lE4bj/kA94rzS0BSXQXCclaeYRXQMZ4e7J6ucZlPRDvLeGYTwvE/
-         Lra0W6jlWhSsyt2BqhNpkAnbKwRGeSrz6s2IpNKD/Tq/1QjvZ7Oh2OCu4xgkmD94tdfm
-         HsWg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753231713; x=1753836513;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=DDWwMCWNmNg13/uNfIiBkoY/WSAIAnYmTPwjUuO5SDo=;
-        b=w1vTiN6Jts80Y1SC3mLWgxFZjv6EzDqirE367pnxW7P98EMD93YV8X4iYZ9wyZSouR
-         pu2WZVriu81PQddQC+w2xBVHO1qqb/PxBnGkBd5EQaHCqRT/2dyau2z0ouaZBJdHcRjO
-         VrJQEp2dKK2ZL8no6veZjLiZvTrJGRuDV0WyySyoopC8A2G52xFuqWiOFxea5xrjhKY3
-         6KMFlmpm3mlaYHZqzwjfXdj1DW9UJnJiQiVnjhcAyXPU34mi8U+5oaAdbvFyTZsikQzf
-         d7YQ1uBV1OaTFMEgXh/dBMgj8gcJpGOdF/1Hz8DSw88SfreLteY730pkAm/abgEFxQIU
-         4Y6g==
-X-Forwarded-Encrypted: i=1; AJvYcCW7c1RwjJ3bYWZYFFIXxui0uwOaUzhRvZpUfupYFv80rqnDSteSf7dh/3J6A0g2+xoqqYPat31D4r3OXho=@lists.infradead.org, AJvYcCWLKM/gvhgwb7aGNXanofQU/BA5Ly+2EFJNYyAV77oPIVb+SrO6+fwzXstpL9muQ4EzTPA0oByWhOAgOdTEcuWP@lists.infradead.org
-X-Gm-Message-State: AOJu0YyIIGQ5jL05D4mQ3IRfxW8yvjwHd5nbkSeF2rghhpDi3L9NTvFb
-	kW7oS17kZlNzj2S7Q9mNBnlcCLuuzgLSTW7B0bU5iNgHlRQbtAn/DsltCyzQJgziGm61jG+FzH/
-	k1xzz3Gtt6LBEOcMrIR/zDisQVdgQZOg=
-X-Gm-Gg: ASbGncuI24RwjptTkM5RwaJZFizLVyyYYmGu6+7Oti8lNwnjbUIugU5HZJYM3Gawzjb
-	NRqH0C5lCRFyp5G6siFbtHkItNAHJ2wWWyRdMhvSVrFr62lCmuBEg1+mbXnt92IylzAYjlE5gf+
-	SdolEHMx+wYCXrvjYHslGTt/Z9B1YazIsfOp0aw1vx59jRyEjm0j9DYQm/nDjvRk7qX5iL7q5jU
-	+R0KdWv
-X-Google-Smtp-Source: AGHT+IEROY3xKK1boGx8uMtw+7HtkmcD7Il1aBqwfuxTsZ79ub1lx8jvxICoebRQamqfzBv+TelUdZ/qR6LkFSGFHEw=
-X-Received: by 2002:a17:90b:4d08:b0:310:cf92:7899 with SMTP id
- 98e67ed59e1d1-31e50812d7cmr712415a91.3.1753231712760; Tue, 22 Jul 2025
- 17:48:32 -0700 (PDT)
+	id 1ueNvR-00000003l2p-2U9i;
+	Wed, 23 Jul 2025 01:05:43 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 912BAA4D736;
+	Wed, 23 Jul 2025 01:05:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 64A1AC4CEEB;
+	Wed, 23 Jul 2025 01:05:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1753232740;
+	bh=e2DyZmmSsCT3bMt2g8K8/Y1GL9j82NXslnA1an1SnSY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=rhrJrcpxZM6pvFEQtZRlMwqaiAeQSTkK/AR6+GQWCxMmbsPCJGvEKjkYp3CDjV0mR
+	 JkO2hnI+ClH75XAEXQzehaAKYvYLkWsk1uB5W5XeIXj4QVLiK8LIvjiiAYKuvZADkC
+	 K25vnIGNPSWG/fmTN2ro6KZBoCu87Z71SIBKrA8tynwBFB+jV3l0hmowPI3KhHfV3H
+	 gyVab42sfid5DIa52gJz4gubuhTAHnO4Vk8dWo1DhxX0fGqR8xAqqb9S4+OI65gtLD
+	 3mw8pESVVKFLcZfI/70/0SwdOEqBLSXTQOwxEN5HA4AeW0njsElTANJQTxxJ0z1A6N
+	 4yL8HQL8f4KhQ==
+Date: Tue, 22 Jul 2025 18:05:38 -0700
+From: Namhyung Kim <namhyung@kernel.org>
+To: "Falcon, Thomas" <thomas.falcon@intel.com>
+Cc: "linux-actions@lists.infradead.org" <linux-actions@lists.infradead.org>,
+	"alexander.shishkin@linux.intel.com" <alexander.shishkin@linux.intel.com>,
+	"Biggers, Caleb" <caleb.biggers@intel.com>,
+	"Hunter, Adrian" <adrian.hunter@intel.com>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-perf-users@vger.kernel.org" <linux-perf-users@vger.kernel.org>,
+	"mingo@redhat.com" <mingo@redhat.com>,
+	"irogers@google.com" <irogers@google.com>,
+	"kan.liang@linux.intel.com" <kan.liang@linux.intel.com>,
+	"mark.rutland@arm.com" <mark.rutland@arm.com>,
+	"peterz@infradead.org" <peterz@infradead.org>,
+	"Wang, Weilin" <weilin.wang@intel.com>,
+	"mani@kernel.org" <mani@kernel.org>,
+	"acme@kernel.org" <acme@kernel.org>,
+	"afaerber@suse.de" <afaerber@suse.de>,
+	"jolsa@kernel.org" <jolsa@kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH v1 00/19] Intel TMA 5.1 metrics and event updates
+Message-ID: <aIA1YubpL7wpiC0X@google.com>
+References: <20250719034515.2000467-1-irogers@google.com>
+ <e09bab119c9fb6b0c2b5bcd39c6f2b508445ca37.camel@intel.com>
 MIME-Version: 1.0
-References: <20250502094537.231725-1-fujita.tomonori@gmail.com>
-In-Reply-To: <20250502094537.231725-1-fujita.tomonori@gmail.com>
-From: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
-Date: Wed, 23 Jul 2025 02:48:20 +0200
-X-Gm-Features: Ac12FXwgRZoR7Zgn1XC8m0WPG0N61nJSGet7-c0jdjdrsFebOoekk-VJ_EoxJF4
-Message-ID: <CANiq72=Hr5rg7tYta8aUoxt8hOPjR2ik5_-xMWZwacr63=-7KA@mail.gmail.com>
-Subject: Re: [PATCH v6 0/4] rust: Add bug/warn abstractions
-To: FUJITA Tomonori <fujita.tomonori@gmail.com>
-Cc: linux-kernel@vger.kernel.org, rust-for-linux@vger.kernel.org, 
-	x86@kernel.org, linux-riscv@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev, 
-	tglx@linutronix.de, mingo@redhat.com, bp@alien8.de, 
-	dave.hansen@linux.intel.com, peterz@infradead.org, hpa@zytor.com, 
-	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
-	catalin.marinas@arm.com, will@kernel.org, chenhuacai@kernel.org, 
-	kernel@xen0n.name, tangyouling@loongson.cn, hejinyang@loongson.cn, 
-	yangtiezhu@loongson.cn, ojeda@kernel.org, alex.gaynor@gmail.com, 
-	boqun.feng@gmail.com, gary@garyguo.net, bjorn3_gh@protonmail.com, 
-	benno.lossin@proton.me, a.hindborg@kernel.org, aliceryhl@google.com, 
-	tmgross@umich.edu, dakr@kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <e09bab119c9fb6b0c2b5bcd39c6f2b508445ca37.camel@intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250722_174834_052946_FC6DE59D 
-X-CRM114-Status: GOOD (  16.67  )
+X-CRM114-CacheID: sfid-20250722_180541_769732_5A13A31F 
+X-CRM114-Status: GOOD (  15.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,52 +86,138 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 2, 2025 at 11:46=E2=80=AFAM FUJITA Tomonori
-<fujita.tomonori@gmail.com> wrote:
->
-> This patchset adds warn_on macro with the bug/warn abstraction that
-> utilizes the kernel's BUG/WARN feature via assembly.
+On Tue, Jul 22, 2025 at 06:14:30PM +0000, Falcon, Thomas wrote:
+> On Fri, 2025-07-18 at 20:44 -0700, Ian Rogers wrote:
+> > Update events from:
+> > v1.31 -> v1.33 for alderlake
+> > v1.09 -> v1.12 for arrowlake
+> > v1.14 -> v1.16 for emeraldrapids
+> > v1.10 -> v1.12 for graniterpaids
+> > v1.14 -> v1.17 for lunarlake
+> > v1.14 -> v1.16 for meteorlake
+> > v1.28 -> v1.30 for sapphirerapids
+> > 
+> > Update TMA 5.0 to 5.1 removing the slots event workaround as the patch series:
+> > https://lore.kernel.org/lkml/20250719030517.1990983-1-irogers@google.com/
+> > is assumed.
 
-Ok, let's move forward with this.
+So I'll merge this series after the above patchset.
 
-I took a look at the first three patches and compared the expanded
-output for the existing macros, to make sure we (hopefully) don't
-break anything else.
+> > 
+> > The patches are generated by:
+> > https://github.com/intel/perfmon/blob/main/scripts/create_perf_json.py
+> > with pull requests 323 and 324 applied.
+> > 
+> 
+> Hi Ian, metrics tests look good on my alder lake and arrow lake.
+> 
+> Tested-by: Thomas Falcon <thomas.falcon@intel.com>
 
-It seems OK, I only noticed a removed newline. Was that intentional?
-There was also a bad parameter name, but that was not hurting anything
-since it was unused.
+Thanks for the test!
+Namhyung
 
-(For the x86 one could be closer removing a couple spaces, but it
-should not matter and other x86 files format it that way, so I didn't
-change it. I also noticed unexpected spaces used for aligning the
-macro, but it turned out it was in the original already, so I left it
-also unchanged.)
-
-Then I found a few more bits on the last patch.
-
-Tomo, could you please double-check you are OK with all the changes,
-and please run the tests you did back then on `rust-next` again for
-all arches, given it has been a while since you posted it (plus I did
-a few changes on top, after all)? I would appreciate it, thanks in
-advance!
-
-To be clear, I didn't re-check every single thing/combination, but
-hopefully what I caught helps. Since there are no users anyway (of the
-last patch) right now, it should be fairly safe.
-
-Applied to `rust-next` -- thanks everyone!
-
-    [ Fixed typo in macro parameter name. - Miguel ]
-
-    [ Remove ending newline in `ARCH_WARN_ASM` content to be closer to the
-      original. - Miguel ]
-
-    [ Avoid evaluating the condition twice (a good idea in general,
-      but it also matches the C side). Simplify with `as_char_ptr()`
-      to avoid a cast. Cast to `ffi` integer types for
-      `warn_slowpath_fmt`. Avoid cast for `null()`. - Miguel ]
-
-Cheers,
-Miguel
+> 
+> > Ian Rogers (19):
+> >   perf vendor events: Update alderlake events/metrics
+> >   perf vendor events: Update arrowlake events/metrics
+> >   perf vendor events: Update broadwell metrics
+> >   perf vendor events: Update cascadelakex metrics
+> >   perf vendor events: Update emeraldrapids events/metrics
+> >   perf vendor events: Update grandridge metrics
+> >   perf vendor events: Update graniterapids events/metrics
+> >   perf vendor events: Update haswell metrics
+> >   perf vendor events: Update icelake metrics
+> >   perf vendor events: Update ivybridge/ivytown metrics
+> >   perf vendor events: Update jaketown metrics
+> >   perf vendor events: Update lunarlake events/metrics
+> >   perf vendor events: Update meteorlake events/metrics
+> >   perf vendor events: Update rocketlake metrics
+> >   perf vendor events: Update sandybridge metrics
+> >   perf vendor events: Update sapphirerapids events/metrics
+> >   perf vendor events: Update sierraforest metrics
+> >   perf vendor events: Update skylake metrics
+> >   perf vendor events: Update tigerlake metrics
+> > 
+> >  .../arch/x86/alderlake/adl-metrics.json       | 104 ++++----
+> >  .../pmu-events/arch/x86/alderlake/cache.json  |  99 ++++----
+> >  .../arch/x86/alderlake/floating-point.json    |  28 +--
+> >  .../arch/x86/alderlake/frontend.json          |  42 ++--
+> >  .../pmu-events/arch/x86/alderlake/memory.json |  12 +-
+> >  .../pmu-events/arch/x86/alderlake/other.json  |   8 +-
+> >  .../arch/x86/alderlake/pipeline.json          | 163 +++++--------
+> >  .../x86/alderlake/uncore-interconnect.json    |   2 -
+> >  .../arch/x86/alderlake/virtual-memory.json    |  40 +--
+> >  .../arch/x86/alderlaken/adln-metrics.json     |  20 +-
+> >  .../x86/alderlaken/uncore-interconnect.json   |   2 -
+> >  .../arch/x86/arrowlake/arl-metrics.json       | 180 ++++++++------
+> >  .../pmu-events/arch/x86/arrowlake/cache.json  | 122 +++++++---
+> >  .../arch/x86/arrowlake/frontend.json          |  40 +--
+> >  .../pmu-events/arch/x86/arrowlake/memory.json |  22 +-
+> >  .../arch/x86/arrowlake/pipeline.json          |  94 +++++---
+> >  .../arch/x86/broadwell/bdw-metrics.json       |  30 +--
+> >  .../arch/x86/broadwellde/bdwde-metrics.json   |  30 +--
+> >  .../arch/x86/broadwellx/bdx-metrics.json      |  33 ++-
+> >  .../arch/x86/cascadelakex/clx-metrics.json    | 139 ++++++++---
+> >  .../arch/x86/emeraldrapids/cache.json         | 100 ++++----
+> >  .../arch/x86/emeraldrapids/emr-metrics.json   | 131 +++++-----
+> >  .../x86/emeraldrapids/floating-point.json     |  43 ++--
+> >  .../arch/x86/emeraldrapids/frontend.json      |  42 ++--
+> >  .../arch/x86/emeraldrapids/memory.json        |  30 +--
+> >  .../arch/x86/emeraldrapids/other.json         |  28 ++-
+> >  .../arch/x86/emeraldrapids/pipeline.json      | 167 +++++--------
+> >  .../arch/x86/emeraldrapids/uncore-memory.json |  82 +++++++
+> >  .../x86/emeraldrapids/virtual-memory.json     |  40 +--
+> >  .../arch/x86/grandridge/grr-metrics.json      |  20 +-
+> >  .../arch/x86/graniterapids/cache.json         | 227 +++++++++++++-----
+> >  .../x86/graniterapids/floating-point.json     |  43 ++--
+> >  .../arch/x86/graniterapids/frontend.json      |  42 ++--
+> >  .../arch/x86/graniterapids/gnr-metrics.json   | 131 +++++-----
+> >  .../arch/x86/graniterapids/memory.json        |  33 ++-
+> >  .../arch/x86/graniterapids/other.json         |  30 ++-
+> >  .../arch/x86/graniterapids/pipeline.json      | 167 ++++++-------
+> >  .../arch/x86/graniterapids/uncore-io.json     |   1 -
+> >  .../arch/x86/graniterapids/uncore-memory.json |  31 ---
+> >  .../x86/graniterapids/virtual-memory.json     |  40 +--
+> >  .../arch/x86/haswell/hsw-metrics.json         |  32 ++-
+> >  .../arch/x86/haswellx/hsx-metrics.json        |  35 ++-
+> >  .../arch/x86/icelake/icl-metrics.json         |  96 ++++----
+> >  .../arch/x86/icelakex/icx-metrics.json        | 155 ++++++++----
+> >  .../arch/x86/ivybridge/ivb-metrics.json       |  30 +--
+> >  .../arch/x86/ivytown/ivt-metrics.json         |  33 ++-
+> >  .../arch/x86/jaketown/jkt-metrics.json        |  20 +-
+> >  .../pmu-events/arch/x86/lunarlake/cache.json  | 104 ++++++--
+> >  .../arch/x86/lunarlake/frontend.json          |  40 +--
+> >  .../arch/x86/lunarlake/lnl-metrics.json       | 216 +++++++++--------
+> >  .../pmu-events/arch/x86/lunarlake/memory.json |  22 +-
+> >  .../arch/x86/lunarlake/pipeline.json          |  85 ++++---
+> >  .../x86/lunarlake/uncore-interconnect.json    |  10 +
+> >  .../arch/x86/lunarlake/uncore-memory.json     |   8 +
+> >  tools/perf/pmu-events/arch/x86/mapfile.csv    |  16 +-
+> >  .../pmu-events/arch/x86/meteorlake/cache.json | 129 +++++-----
+> >  .../arch/x86/meteorlake/floating-point.json   |  28 +--
+> >  .../arch/x86/meteorlake/frontend.json         |  42 ++--
+> >  .../arch/x86/meteorlake/memory.json           |  15 +-
+> >  .../arch/x86/meteorlake/mtl-metrics.json      | 103 ++++----
+> >  .../pmu-events/arch/x86/meteorlake/other.json |   5 +-
+> >  .../arch/x86/meteorlake/pipeline.json         | 173 ++++++-------
+> >  .../arch/x86/meteorlake/virtual-memory.json   |  40 +--
+> >  .../arch/x86/rocketlake/rkl-metrics.json      |  97 ++++----
+> >  .../arch/x86/sandybridge/snb-metrics.json     |  19 +-
+> >  .../arch/x86/sapphirerapids/cache.json        | 100 ++++----
+> >  .../x86/sapphirerapids/floating-point.json    |  43 ++--
+> >  .../arch/x86/sapphirerapids/frontend.json     |  42 ++--
+> >  .../arch/x86/sapphirerapids/memory.json       |  30 +--
+> >  .../arch/x86/sapphirerapids/other.json        |  28 ++-
+> >  .../arch/x86/sapphirerapids/pipeline.json     | 167 +++++--------
+> >  .../arch/x86/sapphirerapids/spr-metrics.json  | 153 +++++++-----
+> >  .../x86/sapphirerapids/uncore-memory.json     |  82 +++++++
+> >  .../x86/sapphirerapids/virtual-memory.json    |  40 +--
+> >  .../arch/x86/sierraforest/srf-metrics.json    |  20 +-
+> >  .../arch/x86/skylake/skl-metrics.json         | 101 +++++---
+> >  .../arch/x86/skylakex/skx-metrics.json        | 101 +++++---
+> >  .../arch/x86/tigerlake/tgl-metrics.json       |  97 ++++----
+> >  78 files changed, 2870 insertions(+), 2325 deletions(-)
+> >  create mode 100644 tools/perf/pmu-events/arch/x86/lunarlake/uncore-interconnect.json
+> > 
+> 
 
