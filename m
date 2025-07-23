@@ -4,159 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1530AC83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 11:51:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C916EC83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 12:09:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4RD+/FGx0grKRhSt0u+v0Xirb80yvm3MNNaEa+dMW6g=; b=N1yxc/bMCFaocZdrj9Ds3Wjx5a
-	kcdAbdKVaYp4xq5f9Uz0OBcVeAQaqNF7Qzexk68Hyf84vIpWn56bPwpzpy8uUYygMaeuzJn/Z1Jxz
-	vTQ/i3jULqFZn2PdphnfB4Kzq1FrROAC6p1OsJd+M6nu0rj+x++spRKC7+trYzelPsN4lfMfnRsgQ
-	7wNANFmIjUoXutZhHduzcbwfHcInD7peM+5omeiFDGB0NIkP2cl6glcQRJWc1+E1wsci9SDTKTK7p
-	3UHUDhkYxGabLdYC24OMA0MGuF8Tun2nLLKDc4Mrd/EkUigxLvNJd+x6/aDqNF+c4NXeDyVChRcSz
-	U/9ZWhlA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FVcJX6f+q3EXcgJzIGoC9bNqE5gUBpU3/WwfAaYpaQQ=; b=uO8FKW+2exht0copKC2XvxBSlA
+	EwDYE/HjDE2ZQkljdUtKuKTQwTORtRpfR5jkOwiHLRjuKSKWW/QzUDHvEksKQHhNBrMTYf12hXrrH
+	yL0a8ikip/b10RBN32zcB51PM+QIhBslcpBhj1YIeKTDQKQ3LDfO5v8r56MmhhcWkyvUmaWw2x3gJ
+	J61LRBGzUkeka+CRrFn4x/OsjuDkW9onJbQBOd2t1Vae55T3qldwTDbkbhKtSlr6Unqgx3wRb2JCg
+	dMI/OvZTlp+QjTTfEPGTHNdYI/jSlsP6csUUEiz/4dfyYqM++7+NEBpIgZwFLSFEwmgMj7368kDVj
+	xtcTNcTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueY0m-00000004qtS-2mpT;
-	Wed, 23 Jul 2025 11:51:52 +0000
-Received: from mail-dm6nam12on20627.outbound.protection.outlook.com ([2a01:111:f403:2417::627] helo=NAM12-DM6-obe.outbound.protection.outlook.com)
+	id 1ueYHk-00000004sY3-0BLI;
+	Wed, 23 Jul 2025 12:09:24 +0000
+Received: from [195.187.100.5] (helo=ni.piap.pl)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueXyJ-00000004qXN-48TE
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Jul 2025 11:49:21 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=gtlOSx92o2kRBOd9Eu0IJ1tnJsmQJSSCv1YDFrKAlwbbmoi0PUv95I/JGSyzqLk2CxnhO1YcWfZkvqYemQqSwP2KnkQAoiWDSBjI1odpdSBloAp2IvwuyRkz9LM9s0LLotkJOJcYk4lA1a6oG/74a6xaCWA4GtA2qHJaul+fdwcvn838sLIIU/tlEGTbbLXFGZAlv3BaunxSiEjO4NCNDmNPmGCCQP5NddWgNQPGCGG5eh9KgZ/EkexOcum6NFBTFzN2K4Syj0FyG0e3heFcQp60S/5HSh3/iwkS6R0ii1GLca6T8JQMI95asxpHlA4Obip5hbPqPVPCSHVi3r9DSg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=4RD+/FGx0grKRhSt0u+v0Xirb80yvm3MNNaEa+dMW6g=;
- b=fQ+aKyiLbdGbIYa0NypYzyFouJKm/8/oDneTtrwLtaqHlkDjXT3fFzIXyXqFvW/NtMTBPz2UiUB9/ptV7oOUo45IvjnCLNcbBHBsU/SdjjQjNHOJdLpZuXrbdoWkuiluT/wcp16VNx3GaNr+eg76sGp7QxOpMPcqoMw2aPxS4FKM3ySRtMBeOvXc4qhQTQ5O/k8GTzeGczv/5oLWAHYAYt/1tZYWBB83fgiiPhlvXpqn+8W8pdIrmwVNiYtVqym/5bfaIrvVL1Hppia9fbPTJ4R3Tgp46sAGiZXtDqDbzmEl9n/kTwueGMamwLSkPCl1R1BfDw6ln7GmkRQT01AXlQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=4RD+/FGx0grKRhSt0u+v0Xirb80yvm3MNNaEa+dMW6g=;
- b=x3Ive0iqpziZ47GhKXTxaPOtd7t0Kla5nM+a4k3xJ9lJ83iU42RH2QC1S1GEqe7DvCM+AbfruQbETAIXlA7WIhBsrklwQBkicn5eC6et2lxMb+TdyF8YK0xXpxphtQRzQgKzyX6+eSSXRMpWeCcUEFls989Z2DgD2RdzCo1s6YA=
-Received: from BL3PR12MB6571.namprd12.prod.outlook.com (2603:10b6:208:38e::18)
- by SJ0PR12MB5635.namprd12.prod.outlook.com (2603:10b6:a03:42a::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8943.30; Wed, 23 Jul
- 2025 11:49:11 +0000
-Received: from BL3PR12MB6571.namprd12.prod.outlook.com
- ([fe80::4cf2:5ba9:4228:82a6]) by BL3PR12MB6571.namprd12.prod.outlook.com
- ([fe80::4cf2:5ba9:4228:82a6%5]) with mapi id 15.20.8943.028; Wed, 23 Jul 2025
- 11:49:10 +0000
-From: "Gupta, Suraj" <Suraj.Gupta2@amd.com>
-To: Vinod Koul <vkoul@kernel.org>
-CC: "andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>, "davem@davemloft.net"
-	<davem@davemloft.net>, "kuba@kernel.org" <kuba@kernel.org>,
-	"pabeni@redhat.com" <pabeni@redhat.com>, "Simek, Michal"
-	<michal.simek@amd.com>, "Pandey, Radhey Shyam" <radhey.shyam.pandey@amd.com>,
-	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "dmaengine@vger.kernel.org"
-	<dmaengine@vger.kernel.org>, "Katakam, Harini" <harini.katakam@amd.com>
-Subject: RE: [PATCH V2 1/4] dmaengine: Add support to configure and read IRQ
- coalescing parameters
-Thread-Topic: [PATCH V2 1/4] dmaengine: Add support to configure and read IRQ
- coalescing parameters
-Thread-Index: AQHb8YM8lgBJJ/PUwEqjiAtds0zT8rQ/ZD+AgABF+uA=
-Date: Wed, 23 Jul 2025 11:49:10 +0000
-Message-ID: <BL3PR12MB65713879CB569E3B330C1E76C95FA@BL3PR12MB6571.namprd12.prod.outlook.com>
-References: <20250710101229.804183-1-suraj.gupta2@amd.com>
- <20250710101229.804183-2-suraj.gupta2@amd.com> <aICPiS1_ITwELrxq@vaman>
-In-Reply-To: <aICPiS1_ITwELrxq@vaman>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-msip_labels: MSIP_Label_f265efc6-e181-49d6-80f4-fae95cf838a0_Enabled=True;MSIP_Label_f265efc6-e181-49d6-80f4-fae95cf838a0_SiteId=3dd8961f-e488-4e60-8e11-a82d994e183d;MSIP_Label_f265efc6-e181-49d6-80f4-fae95cf838a0_SetDate=2025-07-23T11:41:30.0000000Z;MSIP_Label_f265efc6-e181-49d6-80f4-fae95cf838a0_Name=Open
- Source;MSIP_Label_f265efc6-e181-49d6-80f4-fae95cf838a0_ContentBits=3;MSIP_Label_f265efc6-e181-49d6-80f4-fae95cf838a0_Method=Privileged
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: BL3PR12MB6571:EE_|SJ0PR12MB5635:EE_
-x-ms-office365-filtering-correlation-id: 2064e7b1-b2c2-46e4-4098-08ddc9def029
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|1800799024|376014|38070700018;
-x-microsoft-antispam-message-info: =?us-ascii?Q?496Mo1SOU0ttNtf9I1q/lSjHdB4fFk2Wy1P691Qs+nnfEVKguSQ9GXnhMKh8?=
- =?us-ascii?Q?WXoxcovS807OMdpGwpyl5OX0xeHGEyO2jTbOqG8MR2wMms6g5kRBho5XVAiP?=
- =?us-ascii?Q?ckpQnRgWKKsV6PX2yIv7TyylF0+SLFIvHpB00fxzAHpJ8xGL5ky9kN0OQPYb?=
- =?us-ascii?Q?C9Y5LstQhWng5UToNQHkR5m82RxHjhKys3mg3HSaL+uii18T8wA8vZoTGkHU?=
- =?us-ascii?Q?XVwnpam6qgg9xJWEnfvV+JYfq4z4Hh73ik3fA8fukP1xfzwzGP1MIYjmeHOZ?=
- =?us-ascii?Q?kw6n2c9nwuOt7hFIUxJMj3Bp/CAqtIbmBY1cwooVLZSBmicHdnaRQb0RCagQ?=
- =?us-ascii?Q?GKEMogsHw9I7RlboCIo1ukW2pMyRIkxxio/Sotei/QREQITpJk3GBGoug55H?=
- =?us-ascii?Q?eejWFD0B5aYdMv0mZ7HCNyNrEwdmcPrTijAySWK7gkwTu1eMpS8OkYhFQJa6?=
- =?us-ascii?Q?X15ec0L7GOD5AjnPLjCZB0YPZnY+lMq+HUhOWj4vXacm24Ke9DRmjfU423P6?=
- =?us-ascii?Q?3877CLU6XOPB6WblFiATHFZimlHhguR1lJRc7T5oKN/7IAHQl9o90uPtiuVK?=
- =?us-ascii?Q?b3GSfaPzs/CgjpIsciviSdwkFfVRc4X4fiCE9B4Sw1atq6UmT2AIzH/IhFrf?=
- =?us-ascii?Q?BbrcWwCKhtdQJhDQNV0q0LY3YgRoWBRNOXegD/GlQIWfEd8favFi4iXKdNGx?=
- =?us-ascii?Q?AAhm26FZL1CfHXBI0ZN2KpT0WDdm4VawPLf9ZyMjoJ8spulHnJkCxXiK7g9Q?=
- =?us-ascii?Q?BOHgVKNaEEvpudwq1hOHvEjKFit2NGrIQkTNWRIIi6PAgIEckFsbD3eQ/Un9?=
- =?us-ascii?Q?xQlSQJLBWanFpNBNjtCLzJftdXCYIMWwm7EVCYB6v1R9tjbVvxg3dgfI9poJ?=
- =?us-ascii?Q?Us+hKypsQfCPCgQMK/5A1dY6UYfeWHfND1pcFPn9MZOPSCf+vZG8XFSesOHN?=
- =?us-ascii?Q?hUCdWi0JR3BIlZZGb1fgL8nVa5VFkSEOt3aKvnNdnrkRIUbdQllNt4JZk05r?=
- =?us-ascii?Q?ziKtsNw3guv39/whFxMcD+Hu46tGhemW4JzIinVzLK2vzDKL7ir/d1MLkSGs?=
- =?us-ascii?Q?PXaDUIi4Z4ojJJYsi5IuYjuF9j+tZUrQUZHzJpfA4aNoRKfeNjDpA43NQsY2?=
- =?us-ascii?Q?XCwpl25M/KxAD/NRG+HoofAqSXswGs39dPgLjKRehot7jQ5BhqO8e3yt4e8P?=
- =?us-ascii?Q?vNAMZvO3JFD08YHZvlPhOxBdSTb3wx74WC4wVFF8Ib8oZzdLam+mLjeMq2/V?=
- =?us-ascii?Q?5hvXc1ekqnkyxb4vHRhJasgd9eKQYfd4iauwSPRboxVsGuSMKRvPE0luRxv6?=
- =?us-ascii?Q?KgG1AWpNXW3fA+Bx5kgcbMdMXvuNHS+fhiV9qvArltOsA9GEd+WbhyfRnZeO?=
- =?us-ascii?Q?IHCsN8Y+c/x1FepPloeAojcIqjCc+W6zLHgNZ2F3opZBqXncnFAR0XZ9M3uv?=
- =?us-ascii?Q?yVhdy8+3X0Xw0Ri7xZvy0E/99KFNh1GCGN3NfjORoETnWZAKsJb1ghn8JHxV?=
- =?us-ascii?Q?Sq9Qf6peZbT7ACo=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BL3PR12MB6571.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?rZMWCOOvka22NZ1gwn3l3GZc2wQAslJts8MXcnfe9poS5Za4Z4jr78eoqgFz?=
- =?us-ascii?Q?cz6tWdgtx0HWJxFUBBzm8HglkX2Twi9KK2ppOwQcJH66h3qH9nYaBXVQaH6/?=
- =?us-ascii?Q?zEywyXIEMlmyZ1vhTUoJR6Tv86nYY5rxPRZ9vlPJLCJhhr0kjhlDnkX94fTM?=
- =?us-ascii?Q?U1h6MQHDdjlvPoz4btCKFBegyDzwle0CaD91qZQUcpcifko8Ql/0TMCIKCmY?=
- =?us-ascii?Q?/MMtWhFgHiJ8mdHx/SvtZJHZhQ748tGc3I+NWldDamvhqFYzps06UYJFyJa4?=
- =?us-ascii?Q?hsmeDvCJn2kLanSwIyjuY1mskM69mLHLMY0FfIBetlLsgZzPGP+5/I4n1gZm?=
- =?us-ascii?Q?+1nHpR3acZwNbYZ3bXybuPPwRY+Y7SqW4XeFPC/4W6Utu2XZpwIp7+w9GCGc?=
- =?us-ascii?Q?zzLlL1rWlGnzM7kGZZA9GKZKvUJ2FnJf4saSX7gwUINSGmgj38SJvVmsyBL1?=
- =?us-ascii?Q?bzICpERMu3BgBeJX4IRn9pg6KebVskfd76Vgoo6mY1mzVZOsD6GKd0XQ9iC7?=
- =?us-ascii?Q?qwqwsubZk4bvp0dYDx2Os8qal3p0adHPE0Bt4HNxqd2Jk6oQi7UU+Toid5dL?=
- =?us-ascii?Q?XHlP9ABepgisR0ynOVRU9YduOLfIErNZDgMvAQN1IZOp6UKpX37oVIJxhHoM?=
- =?us-ascii?Q?c3XPXH9bmZNZZAxL0JKHOoTASx8f283nnmIJthqNN5WZknWiX9CWiGZTcLEj?=
- =?us-ascii?Q?WJQNBvQSMqGgbo3NO72e1+qnA8pyfxrPLuj0XfRqHqWtiT3I/WE0FfB2xsul?=
- =?us-ascii?Q?OhZlmalcYqHhlyxT5hodBCKX+weHrsUoLdFjHE62/CGWJR4LHw0KBlqCZGzi?=
- =?us-ascii?Q?mcI6LfxuKmbZMaaNkHECFjEdqdLir9Qra/0qtg3LzBNImSGip/TNwY1ST6V7?=
- =?us-ascii?Q?a3gMtu6fa8iPOg1TcbOGUTtn4pgBYh5rzk2GyJUkrtAFJ4FKd93tZLZhvnAr?=
- =?us-ascii?Q?XiM0Igf+zlatzmVAxH8ZWwmCrFY/v4oy2Oj2NqRuOvbMm8Fr4j3ioQNzPaTc?=
- =?us-ascii?Q?87sDvWglz5DV3pUjT+oOgDGMCLwptOjv2bzMLeN6o0VDkHzYTsZ3kr3amCfe?=
- =?us-ascii?Q?reTryJ1XTsTiblDJU7yaLzuUY6cYm2g4zdM3DQtKzK412IFrHcodd9a+PVRo?=
- =?us-ascii?Q?bk0WjT+u0/uVaKJ84mq4pWOY7AtToSMrtVoEaftD91LwOfgvHmRVsa4e7brP?=
- =?us-ascii?Q?MvWgaeysOyYAQiz6HFps6Ep9qIovh1YH+Sfq+Dba/b0LJzVG6slwYIiuU2n5?=
- =?us-ascii?Q?YHBuuqK3ouWnQAePCtdyeGioPR0lPpVjW7yOsRWB+5bTxB0l3wF7dnYucin7?=
- =?us-ascii?Q?IHer4stpw6gqlC/YxifRcJf4s4i04BNmXAwI1WwFyAUIaKRGZZuwildAr1Kt?=
- =?us-ascii?Q?gWxeJRStUFego6JIqPA17BDVnYDzbVO/VkGDjrY81imMV7N0laiS0ZAya2tE?=
- =?us-ascii?Q?/vptjOjnzTMG/6mx6x0x5cVvI/vkWz4qOq9aW0s/WNVrdhwcHrjC/YSbDh8d?=
- =?us-ascii?Q?LRp++w/S7nfu8x26xgf8VyPNwidw0aKShmKYuSBl4Z+4cxDIe+IcNquFAtTq?=
- =?us-ascii?Q?vsyESEDqQs03UUZDyBI=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	id 1ueYFI-00000004sLj-0IqA;
+	Wed, 23 Jul 2025 12:06:55 +0000
+Received: from t19.piap.pl (OSB1819.piap.pl [10.0.9.19])
+	by ni.piap.pl (Postfix) with ESMTPS id BF790C3E4DE9;
+	Wed, 23 Jul 2025 14:06:43 +0200 (CEST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 ni.piap.pl BF790C3E4DE9
+From: =?utf-8?Q?Krzysztof_Ha=C5=82asa?= <khalasa@piap.pl>
+To: Stefan Klug <stefan.klug@ideasonboard.com>
+Cc: Dafna Hirschfeld <dafna@fastmail.com>,  Laurent Pinchart
+ <laurent.pinchart@ideasonboard.com>,  Heiko Stuebner <heiko@sntech.de>,
+  Paul Elder <paul.elder@ideasonboard.com>,  Jacopo Mondi
+ <jacopo.mondi@ideasonboard.com>,  Ondrej Jirman <megi@xff.cz>,
+  linux-media@vger.kernel.org,  linux-rockchip@lists.infradead.org,
+  linux-arm-kernel@lists.infradead.org,  linux-kernel@vger.kernel.org
+Subject: Re: FYI: i.MX8MP ISP (RKISP1) MI registers corruption
+In-Reply-To: <175326599663.2811177.16620980968274114885@localhost> (Stefan
+	Klug's message of "Wed, 23 Jul 2025 12:19:56 +0200")
+References: <m3h5zbxkc6.fsf@t19.piap.pl> <m38qknx939.fsf@t19.piap.pl>
+	<175308758352.3134829.9472501038683860006@localhost>
+	<m31pq9y98z.fsf@t19.piap.pl>
+	<175326599663.2811177.16620980968274114885@localhost>
+Date: Wed, 23 Jul 2025 14:06:43 +0200
+Message-ID: <m3seinw1po.fsf@t19.piap.pl>
 MIME-Version: 1.0
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: BL3PR12MB6571.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2064e7b1-b2c2-46e4-4098-08ddc9def029
-X-MS-Exchange-CrossTenant-originalarrivaltime: 23 Jul 2025 11:49:10.5308
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: hAQJAzPegcFCSrPRTT3pm4FpFWGKo0TCN9jRuX4EP+GZXG56ECOyahHhpywE2Dp6wbca1EPwO2JO5W0fOgsKlQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR12MB5635
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250723_044920_213030_53336956 
-X-CRM114-Status: GOOD (  27.91  )
+X-CRM114-CacheID: sfid-20250723_050652_272797_EA186D81 
+X-CRM114-Status: GOOD (  17.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -171,110 +67,152 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-[Public]
+Hi Stefan,
 
-Hi Vinod,
+Stefan Klug <stefan.klug@ideasonboard.com> writes:
 
-> -----Original Message-----
-> From: Vinod Koul <vkoul@kernel.org>
-> Sent: Wednesday, July 23, 2025 1:00 PM
-> To: Gupta, Suraj <Suraj.Gupta2@amd.com>
-> Cc: andrew+netdev@lunn.ch; davem@davemloft.net; kuba@kernel.org;
-> pabeni@redhat.com; Simek, Michal <michal.simek@amd.com>; Pandey, Radhey
-> Shyam <radhey.shyam.pandey@amd.com>; netdev@vger.kernel.org; linux-arm-
-> kernel@lists.infradead.org; linux-kernel@vger.kernel.org;
-> dmaengine@vger.kernel.org; Katakam, Harini <harini.katakam@amd.com>
-> Subject: Re: [PATCH V2 1/4] dmaengine: Add support to configure and read =
-IRQ
-> coalescing parameters
+> Just a quick heads up. I ran the tester and so far no unexpected
+> results. I'll run it from time to time after a reboot to see if I ever
+> hit that condition.
 >
-> Caution: This message originated from an External Source. Use proper caut=
-ion when
-> opening attachments, clicking links, or responding.
->
->
-> On 10-07-25, 15:42, Suraj Gupta wrote:
-> > Interrupt coalescing is a mechanism to reduce the number of hardware
-> > interrupts triggered ether until a certain amount of work is pending,
-> > or a timeout timer triggers. Tuning the interrupt coalesce settings
-> > involves adjusting the amount of work and timeout delay.
-> > Many DMA controllers support to configure coalesce count and delay.
-> > Add support to configure them via dma_slave_config and read using
-> > dma_slave_caps.
-> >
-> > Signed-off-by: Suraj Gupta <suraj.gupta2@amd.com>
-> > ---
-> >  include/linux/dmaengine.h | 10 ++++++++++
-> >  1 file changed, 10 insertions(+)
-> >
-> > diff --git a/include/linux/dmaengine.h b/include/linux/dmaengine.h
-> > index bb146c5ac3e4..c7c1adb8e571 100644
-> > --- a/include/linux/dmaengine.h
-> > +++ b/include/linux/dmaengine.h
-> > @@ -431,6 +431,9 @@ enum dma_slave_buswidth {
-> >   * @peripheral_config: peripheral configuration for programming periph=
-eral
-> >   * for dmaengine transfer
-> >   * @peripheral_size: peripheral configuration buffer size
-> > + * @coalesce_cnt: Maximum number of transfers before receiving an inte=
-rrupt.
-> > + * @coalesce_usecs: How many usecs to delay an interrupt after a
-> > + transfer
-> > + * is completed.
-> >   *
-> >   * This struct is passed in as configuration data to a DMA engine
-> >   * in order to set up a certain channel for DMA transport at runtime.
-> > @@ -457,6 +460,8 @@ struct dma_slave_config {
-> >       bool device_fc;
-> >       void *peripheral_config;
-> >       size_t peripheral_size;
-> > +     u32 coalesce_cnt;
-> > +     u32 coalesce_usecs;
-> >  };
-> >
-> >  /**
-> > @@ -507,6 +512,9 @@ enum dma_residue_granularity {
-> >   * @residue_granularity: granularity of the reported transfer residue
-> >   * @descriptor_reuse: if a descriptor can be reused by client and
-> >   * resubmitted multiple times
-> > + * @coalesce_cnt: Maximum number of transfers before receiving an inte=
-rrupt.
-> > + * @coalesce_usecs: How many usecs to delay an interrupt after a
-> > + transfer
-> > + * is completed.
-> >   */
-> >  struct dma_slave_caps {
-> >       u32 src_addr_widths;
-> > @@ -520,6 +528,8 @@ struct dma_slave_caps {
-> >       bool cmd_terminate;
-> >       enum dma_residue_granularity residue_granularity;
-> >       bool descriptor_reuse;
-> > +     u32 coalesce_cnt;
-> > +     u32 coalesce_usecs;
->
-> Why not selectively set interrupts for the descriptor. The dma descriptor=
-s are in order,
-> so one a descriptor is notified and complete, you can also complete the d=
-escriptors
-> before that. I would suggest to use that rather than define a new interfa=
-ce for this
->
-> --
-> ~Vinod
+> How does your device tree look like? Any chance the ISP is clocked for
+> overdrive but the device is not or something similar? Although I have a
+> hard time imagining how that would lead to such effects.
 
-The reason I used struct dma_slave_config to pass coalesce and delay inform=
-ation to DMA driver is that the coalesce count is configured per channel in=
- AXI DMA channel control register[1].
-AXI DMA IP doesn't have provision to set interrupt per descriptor[2].
-I can explore other ways to pass this information via struct dma_async_tx_d=
-escriptor or metadata, or any other way.
-Please let me know your thoughts.
+Interesting.
+I tested it on two different devices (a Compulab UCM-based camera and
+a Solidrun Hummingboard Mate) and it's the same on both. I think the
+first one uses 1600 MHz industrial CPU:
 
-References:
-[1]: https://docs.amd.com/r/en-US/pg021_axi_dma/MM2S_DMACR-MM2S-DMA-Control=
--Register-Offset-00h ("IRQ Threshold" and "IRQ Delay" fields)
-[2]: https://docs.amd.com/r/en-US/pg021_axi_dma/Scatter-Gather-Descriptor
+(U-boot) CPU: i.MX8MP[8] rev1.1 at 1200 MHz
 
-Thanks,
-Suraj
+Not sure about the Hummingboard.
+
+Both cameras apparently are connected to the second MIPI.
+
+Well... maybe if it's only the second ISP, and there is only one camera,
+then we could reroute the data to the first ISP? The MIPI receiver has
+a crossbar I think.
+And the other way around: for a test, one could reroute MIPI0 to ISP1.
+Will have a look.
+
+The DT has the usual stuff (for the second MIPI/ISP):
+
+&i2c6 {
+	clock-frequency =3D <400000>;
+	pinctrl-names =3D "default";
+	pinctrl-0 =3D <&pinctrl_i2c6>;
+	single-master;
+	status =3D "okay";
+
+	imx462_camera@1a {
+		compatible =3D "sony,imx462";
+		reg =3D <0x1a>;
+		clocks =3D <&clk IMX8MP_CLK_IPP_DO_CLKO2>;
+		clock-names =3D "xclk";
+		clock-frequency =3D <37125000>;
+		reset-gpios =3D <&gpio2 1 GPIO_ACTIVE_HIGH>;
+		status =3D "okay";
+
+		port {
+			imx462_mipi_ep: endpoint {
+				data-lanes =3D <1 2 3 4>;
+				clock-lanes =3D <0>;
+				link-frequencies =3D /bits/ 64 <222750000 148500000>;
+				remote-endpoint =3D <&mipi_csi_1_in>;
+			};
+		};
+	};
+
+};
+
+&mipi_csi_1 {
+    status =3D "okay";
+
+    ports {
+        port@0 {
+            reg =3D <0>;
+            mipi_csi_1_in: endpoint {
+                remote-endpoint =3D <&imx462_mipi_ep>;
+                data-lanes =3D <1 2 3 4>;
+            };
+        };
+
+        port@1 {
+            reg =3D <1>;
+            mipi_csi_1_out: endpoint {
+                remote-endpoint =3D <&isp_1_in>;
+            };
+        };
+    };
+};
+
+&isp_1 {
+    status =3D "okay";
+
+    ports {
+        port@1 {
+            isp_1_in: endpoint {
+                bus-type =3D <MEDIA_BUS_TYPE_PARALLEL>;
+                remote-endpoint =3D <&mipi_csi_1_out>;
+            };
+        };
+    };
+};
+
+The CCM registers show basically (p. 229 in i.MX8MP ref manual):
+  8 MEDIA_ISP           mux 7       post 0 SYSTEM_PLL2_DIV2 =3D 500 MHz
+ 20 MEDIA_AXI           mux 1 pre 1 post 0 SYSTEM_PLL2_CLK / 2 =3D 500 MHz
+ 21 MEDIA_APB           mux 2 pre 3 post 0 SYSTEM_PLL1_CLK / 4 =3D 200 MHz
+123 MEDIA_MIPI_PHY1_REF mux 0 pre 0 post 0 24M_REF_CLK =3D 24 MHz
+125 MEDIA_CAM2_PIX      mux 2 pre 0 post 0 SYSTEM_PLL2_DIV4 =3D 250 MHz
+
+The first 3 are at the max values, MEDIA_MIPI_PHY1_REF max is 125 MHz,
+MEDIA_CAM2_PIX max is 266 MHz. Maybe I should try changing these clocks,
+but not sure how do I do that (any change causes rkisp1 driver loading
+to fail). Will look at it.
+
+BTW the double read and double write in NXP driver (isp-vvcam) were
+introduced by (in their repo):
+
+Author: hexing <Xing.He@verisilicon.com>  2022-08-05 10:19:49
+Committer: Robby Cai <robby.cai@nxp.com>  2022-08-08 04:50:48
+
+M865SW-1031: the second isp port jump frames
+
+Reason:mi read or write reg occasionally it does not take effect
+
+WorkAround:read or write twice of mi reg
+
+---------------------------- vvcam/isp/isp_ioctl.c ------------------------=
+----
+index 60741bd..e0d3048 100644
+@@ -118,5 +118,8 @@ void isp_write_reg(struct isp_ic_dev *dev, u32 offset, =
+u32 val)
+ 	if (offset >=3D ISP_REG_SIZE)
+ 		return;
+-	__raw_writel(val, dev->base + offset);
++	writel(val, dev->base + offset);
++	if ((offset >=3D REG_ADDR(mi_mp_y_base_ad_init))
++		&& (offset <=3D REG_ADDR(mi_mp_y_pic_size)))
++		writel(val, dev->base + offset);
+ //	  isp_info("%s	addr 0x%08x val 0x%08x\n", __func__, offset, val);
+ }
+@@ -128,5 +131,8 @@ u32 isp_read_reg(struct isp_ic_dev *dev, u32 offset)
+ 	if (offset >=3D ISP_REG_SIZE)
+ 		return 0;
+-	val =3D __raw_readl(dev->base + offset);
++	val =3D readl(dev->base + offset);
++	if ((offset >=3D REG_ADDR(mi_mp_y_base_ad_init))
++		&& (offset <=3D REG_ADDR(mi_mp_y_pic_size)))
++		val =3D readl(dev->base + offset);
+ //	  isp_info("%s	addr 0x%08x val 0x%08x\n", __func__, offset, val);
+ 	return val;
+
+--=20
+Krzysztof "Chris" Ha=C5=82asa
+
+Sie=C4=87 Badawcza =C5=81ukasiewicz
+Przemys=C5=82owy Instytut Automatyki i Pomiar=C3=B3w PIAP
+Al. Jerozolimskie 202, 02-486 Warszawa
 
