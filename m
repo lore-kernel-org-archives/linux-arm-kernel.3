@@ -4,95 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66F2CC83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 08:59:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5023CC83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 09:02:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8F3pQMHzn57/+12Z4uNur6aObL1w83B09wCI7//oKZ4=; b=g2GCk6wUuBTSGLsvXqpcNTdp/v
-	ZKD1glhKyYkEW/URf6Ii9ppYvL0cvPmCeDyksCe3MmQgoiqnYM+TQe5RO3UGjPb/5gbH++YaxtvOw
-	a8JhDYhpysgmgxuglZUqzOopRp/9G21s4ZoQdPmxp4BvtkCTDrwR7uEyRQRxD1eVVZFnN8lVnr7vW
-	K6v6TAo1r9uqaLTgXwo11S6TB5wZ1UIhjoRrTyibeGPt5h+Ze0AT4zCCErh46gObifK0cS0SERKQq
-	cWE+LHXAhklXMHlOrJSUGjHNIobAvoIMfKINpW7MmbtGbYF4nvu3ZYV1E1H2p+9miZuzE23VKP4i8
-	6eCVB3Dw==;
+	bh=vLCNSJ4DxVZDJPQ7cVNRDySeLw0NidDKviv2DX8YsFo=; b=LHR+5YXbwbf5RFa72OPSdKw6kr
+	h8sADXWuHxz5JjnKuFc4mshRcc2O8093MHmnhsWJyMVpTqegPNL5Z+MQ+KB1eVRFqy5Tc0y+n7sxc
+	XA+4OuOvJ+O6boS9OsM5lfz0GcXrP8ypF3a3u64MjtbfS9/0HUMHhLQoUMw9I39m4Gtpe223k5W4+
+	pEO6UBZtW5wb5W+4M7fef/LNmMZ80f1DtoM6KbUfl6lbVhDB9Zlep6OQU/MH4Ywbk9a7Anksvr/So
+	mhmzHpwCEo07pbuoNvYrBEOJHJnpMduhSAn5YJPUN1LTS34AEzB5yap+Ix+G7LMUoOKNlnwLgU87I
+	TcHDdpxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueVJt-00000004RPc-1epp;
-	Wed, 23 Jul 2025 08:59:25 +0000
-Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
+	id 1ueVMK-00000004S17-2spJ;
+	Wed, 23 Jul 2025 09:01:56 +0000
+Received: from mail-pg1-x531.google.com ([2607:f8b0:4864:20::531])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueUjK-00000004MWY-3nBb
+	id 1ueUnX-00000004Mza-09Wy
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Jul 2025 08:21:40 +0000
-Received: by mail-ej1-x62e.google.com with SMTP id a640c23a62f3a-ae708b0e83eso1151605966b.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Jul 2025 01:21:38 -0700 (PDT)
+	Wed, 23 Jul 2025 08:26:00 +0000
+Received: by mail-pg1-x531.google.com with SMTP id 41be03b00d2f7-879d2e419b9so4201141a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Jul 2025 01:25:58 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1753258897; x=1753863697; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=8F3pQMHzn57/+12Z4uNur6aObL1w83B09wCI7//oKZ4=;
-        b=Iv5EKv2rzA45QyyD0pWiHlZ0EIca16UJOgWXAcrzijLg8i7c0hlJmCACROUd6SM/2A
-         OLCaUc6w52nnx7ChN2LVAyNn8kP9ONoEStY6QbjW/tzTQDpdxul2+PZYvYZ0lVn1GaF/
-         AcehE8Tz1y9etwwvdzD34jXBntecBHJTa20YLFwPhG8dq/nhzB8iHR3rW0kVoi3iIV/L
-         lG6wqKWsD526nhz0Aowa83Jp5orbJf0lpxfo5yViMCJhKGPA93cL7ZRJ9Ep656x8/559
-         +lhNN4mE+R+efjYLhpz9tW2n8kTvFyjETzAGSzXjFCoR8aqrLlA0ZmazP73un42je3l5
-         gpEQ==
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1753259158; x=1753863958; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=vLCNSJ4DxVZDJPQ7cVNRDySeLw0NidDKviv2DX8YsFo=;
+        b=DFT1ZCJHMZcPYrQJQzRnqa/m1n+9S/2uoZv3KXxjY1B6ZS6sc5vXurJiiQ+DrQLBKP
+         ajWZgcrnUPHZoa1lkxeTvTdHRfcyRsqyf0+5uXYbMI5UcEP0RVKX6bKyfMCdA6sH3oXl
+         tIwMKpyMyYQ2gvKoozvIO4KfXyv9Rs8q2IVnJWEaKJmdkfmpw7XIfbW+HLgUnrYucx2K
+         Gu9b28N5yfup8su49Wrd+e7TzCCCUkJNdwiNfKDDtk8QMXfy6qTdkg2yAsD4AwG7G2My
+         mlh8UScyDjf+iPQrYwWqWyRG8iYgPz5p1X+5+03Ri1h4UGLRtJkz7oiYoUMeTCIdOEGB
+         G2oA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753258897; x=1753863697;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=8F3pQMHzn57/+12Z4uNur6aObL1w83B09wCI7//oKZ4=;
-        b=KXJnVBAqwxPtKMUfwtOEWon5zoaXF9pvjgrSD0uaNG8LGlCyncTnYQiXMLAk/kDoeU
-         wLACym+vNql1LGhrTsEPuafjnSbJUfGx/b7mHk79IeimqDfcWRU/wsuJbAkI089/rCjH
-         trSsuW5y+c2HiNbNDpsBK6swNMp7tIELn82B0ivKpXQZnl7R2qZ8K+bIRCgr+49PFXez
-         OqcxMW03LCFJ9IfKi9u61GawSZJ9/B1Vu9cf4Jzsb/sOyMle/DR8r9L2KYaxZKiQvZX+
-         Mpp5wb58NQ4z9fIzy9QqC6YzMNfj7f056ktUTZLP6KNksc/V9EVax2mxBBCZWtr3awUt
-         BRcA==
-X-Forwarded-Encrypted: i=1; AJvYcCXtozWAtRguZ+csGiBvKDSl//5WZNseFq20iJKSwypv66IvIzsj+SmgwYo1VhpcexsQfUxobPIls18Gep/N92Hb@lists.infradead.org
-X-Gm-Message-State: AOJu0YwhZoHLynK7wwKxCo/k1tCMbxIs+kJrx129h1B8J6RfLEvJE2IJ
-	doEKONzhJU9NuSb4sDVFkNovrg74n7YTpq0Ua5EQNtGeF1mwRKVEgrvO
-X-Gm-Gg: ASbGncvtR/IQZzes7rYy0f/8MfwWp4NMYRD1Ar9ZznVufGW/NZ9lc/X4cdxSdUrVfM3
-	cosR1iTS+b/0KHGZGELB6p6lwsQpR0O1F50xQDESAsyKsHhsMchk+E3qQ7KzFwFi11kLbdQkZTt
-	Ocdx1QcvnAmmNRDyTBkJWay/zcvnkcdznoZyVeXO1KjL/0Cm6T64+jQK10UbE/cTMFPTFwD/Kpt
-	88dtc7Y7mWFQdUo9Y2LzQV0dEQGB2VdCjLcZujB4o8Krkxdpv+9sXUzb4Hh0jdpMxbBYVmFVxH7
-	4j8DEMrdeBgv61l1UKVLR8AZcRbfkBm3R5aaVhd/9Xq225L+9lX5Ar9zI+yAwp/qMxJCRpK/dC0
-	sGFY4W/ssyfYUkpSjBPHGv4Ip++Of3hndhmqG9zim+fdFQ4GwLrGhX204DGcUriCCQOG9bxSAJU
-	tUh6GH86StW30=
-X-Google-Smtp-Source: AGHT+IFkHHbkODiYmV8sFSEk8SQuRIN7oO8/OiWydt0ur7eqjtb3ORcfV4x9u44p8Y75cAtJBRVFpA==
-X-Received: by 2002:a17:907:971a:b0:ae3:67c7:54a6 with SMTP id a640c23a62f3a-af2f865c46bmr173733466b.34.1753258896982;
-        Wed, 23 Jul 2025 01:21:36 -0700 (PDT)
-Received: from [192.168.1.107] (91-139-201-119.stz.ddns.bulsat.com. [91.139.201.119])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aec6ca7e074sm1002144766b.124.2025.07.23.01.21.35
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 23 Jul 2025 01:21:36 -0700 (PDT)
-Message-ID: <3e1d7be9-e99f-41c3-8b0d-aaa426aa9de8@gmail.com>
-Date: Wed, 23 Jul 2025 11:21:35 +0300
+        d=1e100.net; s=20230601; t=1753259158; x=1753863958;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=vLCNSJ4DxVZDJPQ7cVNRDySeLw0NidDKviv2DX8YsFo=;
+        b=Chcfu2zg2KDhGJahjJE4w1AddStCt+j0SdoNBJcmrZcRxNlOYetLcyyF9OjB2Hngjw
+         SdBJdny++SNG0eDyt/gGj6/UUOIGdgpr3Dt1YDp71VpXWDCojVM1Sfb5y1C+W1WRaUkV
+         8rBpzMlIGtzrmn7Elw96T7RE3enQ2Mu0nX93XuCi/Gl6ZkNygPWUMUWnvejGDYl2+qSd
+         TTBUmUynXXzbZtCiK6gFXBbUVmaeixy3x0YNtJSHGPYY7dJstoNBpZlCLN+qXfoe6t23
+         cZlkdvr71aUp46DQ1OA4QUuF5OlUrSgD0SOdIAEs4E00u0r2rchzqWGkFcwaodUPgL6+
+         kuGQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWG89EiFZ9P1R5GvScwRSsO/JfN+ssfbdRGs0hka4237lHdUn9TaZOTnWvYhSh0rdzon5CtRdDCAEoOyHtVM8AB@lists.infradead.org
+X-Gm-Message-State: AOJu0YxhWtpinI1Rbc1dXI03pY0AMPT5y4+9b8uhhl55GDCQZZuKIxr0
+	jbNDWEB1rtaBbTD1WH2qRso+YfeZu0/iz9UiRlQp36fIHj+CAZLVOFpPH3GMfRdWsYQOEqUImei
+	Tzsxv5H99iK0dICS/GprHF77UWZjCmPucXnijREZewg==
+X-Gm-Gg: ASbGncvRjyvV0+229JP7potaC2f/waLbqkp0IWCaSialAKXN5teo5GR44uICkdXZf1r
+	NB60Pem+t28KaiHIWRbLiRCvGh277SvYf0+zWnJnVDWGVN/A/dmMvmxbYycs57GFKiwloVbP4be
+	RkSA9O7x5qKq31dKRAVpmoqjX+XBGQpyXGitV9AfJ2X4BNYTJd8BtEuBObGXrN+34zMVVydgvJK
+	oMMe/i3qKlN4oY/aR9mzxEm5QN8bFvhwcFuQygfqHChWxY4
+X-Google-Smtp-Source: AGHT+IFzwCafFosCdx131zbcEFY3D64m+7mo0loj5vAsYVkMFUgy5UAHuuRGjg5yAkxctR2cI5zO8+e+kqhHgdsFxCw=
+X-Received: by 2002:a17:90b:53d0:b0:315:aa28:9501 with SMTP id
+ 98e67ed59e1d1-31e507dc7b4mr4498294a91.24.1753259157929; Wed, 23 Jul 2025
+ 01:25:57 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 1/2] dt-bindings: soc: samsung: usi: allow 64-bit
- address space
-Content-Language: en-US
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Alim Akhtar <alim.akhtar@samsung.com>,
- Sam Protsenko <semen.protsenko@linaro.org>, Rob Herring <robh@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, linux-samsung-soc@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20250722121037.443385-1-ivo.ivanov.ivanov1@gmail.com>
- <20250723-hypnotic-malkoha-of-trust-9efdb6@kuoka>
-From: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
-In-Reply-To: <20250723-hypnotic-malkoha-of-trust-9efdb6@kuoka>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20250722-axiado-ax3000-soc-and-evaluation-board-support-v6-0-543979a60ccf@axiado.com>
+In-Reply-To: <20250722-axiado-ax3000-soc-and-evaluation-board-support-v6-0-543979a60ccf@axiado.com>
+From: Bartosz Golaszewski <brgl@bgdev.pl>
+Date: Wed, 23 Jul 2025 10:25:43 +0200
+X-Gm-Features: Ac12FXyLbBDcOzrp8fBxUqR9jIu-gUOTaGAF4LxjwERQBqGacqdoGbliH_T9iv8
+Message-ID: <CAMRc=MdFoAa2omJgL__4mRqX5CYyhZ3VU_Uy-Tf1oPSuZdV93g@mail.gmail.com>
+Subject: Re: [PATCH v6 00/10] Axiado AX3000 SoC and Evaluation Board Support
+To: Harshit Shah <hshah@axiado.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Jiri Slaby <jirislaby@kernel.org>, 
+	Michal Simek <michal.simek@amd.com>, =?UTF-8?Q?Przemys=C5=82aw_Gaj?= <pgaj@cadence.com>, 
+	Alexandre Belloni <alexandre.belloni@bootlin.com>, Frank Li <Frank.Li@nxp.com>, 
+	Boris Brezillon <bbrezillon@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Linus Walleij <linus.walleij@linaro.org>, Arnd Bergmann <arnd@arndb.de>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, soc@lists.linux.dev, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org, 
+	Jan Kotas <jank@cadence.com>, linux-serial@vger.kernel.org, 
+	linux-i3c@lists.infradead.org, 
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250723_012138_954714_48288F58 
-X-CRM114-Status: GOOD (  13.95  )
+X-CRM114-CacheID: sfid-20250723_012559_185136_CEAB5FA8 
+X-CRM114-Status: GOOD (  13.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,27 +105,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/23/25 11:15, Krzysztof Kozlowski wrote:
-> On Tue, Jul 22, 2025 at 03:10:36PM +0300, Ivaylo Ivanov wrote:
->> Some device trees, like the exynos2200 one, configure the root node
->> with #address-cells and #size-cells set to 2. However, the usi binding
->> expects 32 bit address space only. Allow these determining properties to
-> So if USI expects 32 bit, then why do we allow 64?
+On Tue, Jul 22, 2025 at 10:16=E2=80=AFPM Harshit Shah <hshah@axiado.com> wr=
+ote:
 >
-> Switching this to 2 means you use 64-bit addressing for children
-
-I don't, but the main point was to avoid defining ranges for every single usi
-node, because they are a lot.
-
-Best regards,
-Ivaylo
-
->  and
-> allowing DMA for >32 bit. This should be the true reason - what is the
-> address space and DMA range for children?
+> -------------------------------
+> Hello SoC maintainers,
 >
-> Best regards,
-> Krzysztof
+> This patch series adds initial support for the Axiado AX3000 SoC and its
+> evaluation board.
+>
+> Change from v6
+> - Ran "b4 trailer -u" and add reviewed by Krzysztof
+>
+> Add soc@lists.linux.dev in the to list and send this series again as per
+> suggestion by Krzysztof and Arnd. Thank you.
+>
+> Checked locally and able to apply these patchset to soc git.
+> (git/soc/soc.git, for-next, checked commit: 7dfbf3176d886ff9a0c7786942d3a=
+89809d0641e)
+>
+> Sorry for late request, please consider this series for the 6.17.
 >
 
+I can't speak for the rest but do you want me to take the GPIO
+dt-bindings patches through the GPIO tree for v6.17 separately?
+
+Bartosz
 
