@@ -4,66 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F740C83F25
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 08:21:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1730C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 08:24:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GgMCEelREMSB63NKXySj628l6amD3USq3iPvkC04eQw=; b=EsPe/4UwR+oLMxTyFxO9FMqyBh
-	XkfjxXxCVBrKorgaZ6jrRgI7ubzXSkmfcXsiIRWZTsJ8kFHj1fIylulKr9rtX1m303jcx0NMSvwyA
-	rsWNNu7qKlKQKMlosMUGXOuIQ2WWmC8hTQqtOFe0a5KZDyKqolbEEdwQ3pEswahpap/5sZqfiuTJG
-	ARPICx/MaK9TGCN5cD+pZQKazaLOFLPwaR/OYeWpGdyzJfAhYP3AaxfRVt4/tN8RRpgUziPCKf5v2
-	f3w/VbNqdOm3gbDz+7Qo4VJ37t+cvnkg6gti0Hi3bi/ZEQTbUaLSo01N//V+ohVFcgnYvq2X4VhRs
-	8shEX9eg==;
+	bh=8woWsbfd951+/iT+z5JJiOGgA2o0r1ZKuiQm9twWNcE=; b=XTO+X3WD0SdV9THyzElXm2sjYd
+	AxRMlXwEDejIzx9aWQ0cLSO1TpSpw7L9g22yxUQpTN1/TVnfiNXXIsM6tR2iWvwj4SVRggAdo8udb
+	0VQ7dtkISNzvuMOaJvisQ0YUqhQaJcJcfw+SU2EZXNubJT1sG2HZAlqvOv5NyDjV/kbrGYHahw1pZ
+	QLvek3X7hMI4TKobYXqNG4+kX4ol8eqg4ybZ4waG9SLrItx9LzcOn54wXhtfqXyAbIVw7OFYDUBXB
+	LW57VhBJ1dudkR/WvT3KEdRFQmHIJ+MWX9UzgiHUZ8c8WTHwzrnQwUG7rl3mLsOLQLXNDk46nzJha
+	UfPiNwvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueUjK-00000004MWZ-1hMW;
-	Wed, 23 Jul 2025 08:21:38 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1ueUlk-00000004Mli-1ugG;
+	Wed, 23 Jul 2025 08:24:08 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueUSS-00000004Jrk-0nVK;
-	Wed, 23 Jul 2025 08:04:13 +0000
+	id 1ueUUZ-00000004KKM-0KSN
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 23 Jul 2025 08:06:23 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 5EB695C593F;
-	Wed, 23 Jul 2025 08:04:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7A6BAC4CEE7;
-	Wed, 23 Jul 2025 08:04:06 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 3E3B1601D5;
+	Wed, 23 Jul 2025 08:06:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0D561C4CEE7;
+	Wed, 23 Jul 2025 08:06:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753257851;
-	bh=5G0MzIPGQyVzSDEfSUskutOnD5XbLYr6VIzJy8hOBhA=;
+	s=k20201202; t=1753257981;
+	bh=WnDG1UA1bGrhEYDV9mKGmbyJ7Yrsf0tyvjUYJ1ZzAvo=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=TvK5C2/fwmiSxXzWTRkggiNfcnyKIjny40VwN1Iu+CBZ1S39waBVQlHolf1xIA0Xt
-	 TK5zIgXYTW8ZuXP2B+q48VTDm5AmPwfzuIc/4N3oQPphbF+AaEOf1g4FJIdL3JARUy
-	 qyhtk6UgCl6sPP4PmVreb+IpEEpXpxBx94fmxIHGjaA+yUsR9Gt3fKGw3/A2v85Q84
-	 FtmhCs70ViIr6RsOPpzQKp5yfDSd+tLJgqKTyKp+QBARrdCgfxEfA4dFP73MJAGWmB
-	 uQQJl2gW580fJJXyZJ97+j7n2gpNTZRiN7P/A8lPx3GU7npGE+dSKb3NrLMjLFtO8r
-	 Eig/hwOm4gQnQ==
-Date: Wed, 23 Jul 2025 13:34:01 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Vinod Koul <vkoul@kernel.org>
-Cc: Peter Griffin <peter.griffin@linaro.org>, 
-	Kishon Vijay Abraham I <kishon@kernel.org>, =?utf-8?B?QW5kcsOp?= Draszik <andre.draszik@linaro.org>, 
-	Tudor Ambarus <tudor.ambarus@linaro.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
-	Krzysztof Kozlowski <krzk@kernel.org>, linux-phy@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, kernel-team@android.com, 
-	William Mcvicker <willmcvicker@google.com>
-Subject: Re: [PATCH v2 1/2] phy: add new phy_notify_pmstate() api
-Message-ID: <yaz4ozb55t3pkwd2gj4l4d2hdspdcsqjm2dfsux7lfdxy6lxjl@uae2qz2vjo64>
-References: <20250703-phy-notify-pmstate-v2-0-fc1690439117@linaro.org>
- <20250703-phy-notify-pmstate-v2-1-fc1690439117@linaro.org>
- <e2lhm237c3xtbdjux2wuesq5fwu7nky3w7oq2fnsgn2pqcg5kh@xhxktriooyes>
- <aICKM-ebp9SMAkZ_@vaman>
+	b=RQmfOxACvj52LQJCTXJJSVC97NHeii7RnfXwQtZajVUVCh6qVVnKCQhXtLVKTubzS
+	 qEMuTVr1bnUw/YdzP7GBpJNzsA+Bk6Na7SMh+sPJgWxGdJZ1qRXJfEJdUcKX85onE3
+	 k8k74Ywa9X4YdCH5RrJ8GaDdkRNjGwS77CwvWJBBRZHc8gbOcwESB6TaozTRID0yDU
+	 g3y1GnTvIWGMgetQ8SSpavu1oma51gSVxmKqqJ0/2+SxuCDUoi/dx2hovZvFfx6vyg
+	 UFPEcIHsmvF/6gg6AlIUJE1oOljDZSlzETOpQspQ+3KZ+O13D48FFOrBB75u/mUoqe
+	 FKQxr+lpmAWlQ==
+Date: Wed, 23 Jul 2025 09:06:15 +0100
+From: Lee Jones <lee@kernel.org>
+To: Sven Peter <sven@kernel.org>
+Cc: Nick Chan <towinchenmi@gmail.com>, asahi@lists.linux.dev,
+	Neal Gompa <neal@gompa.dev>, linux-arm-kernel@lists.infradead.org,
+	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
+	Linus Walleij <linus.walleij@linaro.org>,
+	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+	Hector Martin <marcan@marcan.st>,
+	Conor Dooley <conor+dt@kernel.org>, Janne Grunau <j@jannau.net>,
+	Sebastian Reichel <sebastian.reichel@collabora.com>,
+	Sebastian Reichel <sre@kernel.org>,
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+	Bartosz Golaszewski <brgl@bgdev.pl>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Marc Zyngier <maz@kernel.org>
+Subject: Re: [PATCH v7 07/10] power: reset: macsmc-reboot: Add driver for
+ rebooting via Apple SMC
+Message-ID: <20250723080615.GM11056@google.com>
+References: <20250610-smc-6-15-v7-0-556cafd771d3@kernel.org>
+ <20250610-smc-6-15-v7-7-556cafd771d3@kernel.org>
+ <7297d4b1-84a2-4bb1-8a33-29c827247df7@gmail.com>
+ <d6b778ee-02c0-4dd2-b33f-cec16c17807c@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <aICKM-ebp9SMAkZ_@vaman>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250723_010412_317960_7F6413B9 
-X-CRM114-Status: GOOD (  27.52  )
+In-Reply-To: <d6b778ee-02c0-4dd2-b33f-cec16c17807c@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,75 +85,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 23, 2025 at 12:37:31PM GMT, Vinod Koul wrote:
-> On 22-07-25, 22:04, Manivannan Sadhasivam wrote:
-> > On Thu, Jul 03, 2025 at 02:03:22PM GMT, Peter Griffin wrote:
-> > > Add a new phy_notify_pmstate() api that notifies and configures a phy for a
-> > > given PM link state transition.
+On Sat, 21 Jun 2025, Sven Peter wrote:
+
+> On 16.06.25 06:13, Nick Chan wrote:
+> > 
+> > 
+> > On 10/6/2025 23:29, Sven Peter wrote:
+> > > From: Hector Martin <marcan@marcan.st>
 > > > 
-> > > This is intended to be by phy drivers which need to do some runtime
-> > > configuration of parameters during the transition that can't be handled by
-> > > phy_calibrate() or phy_power_{on|off}().
+> > > This driver implements the reboot/shutdown support exposed by the SMC
+> > > on Apple Silicon machines, such as Apple M1 Macs.
 > > > 
-> > > The first usage of this API is in the Samsung UFS phy that needs to issue
-> > > some register writes when entering and exiting the hibernate link state.
-> > > 
-> > > Signed-off-by: Peter Griffin <peter.griffin@linaro.org>
+> > > Signed-off-by: Hector Martin <marcan@marcan.st>
+> > > Reviewed-by: Alyssa Rosenzweig <alyssa@rosenzweig.io>
+> > > Reviewed-by: Neal Gompa <neal@gompa.dev>
+> > > Reviewed-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+> > > Signed-off-by: Sven Peter <sven@kernel.org>
 > > > ---
-> > >  drivers/phy/phy-core.c  | 25 +++++++++++++++++++++++++
-> > >  include/linux/phy/phy.h | 25 +++++++++++++++++++++++++
-> > >  2 files changed, 50 insertions(+)
-> > > 
-> > > diff --git a/drivers/phy/phy-core.c b/drivers/phy/phy-core.c
-> > > index 04a5a34e7a950ae94fae915673c25d476fc071c1..0b29bc2c709890d7fc27d1480a35cda6a826fd30 100644
-> > > --- a/drivers/phy/phy-core.c
-> > > +++ b/drivers/phy/phy-core.c
-> > > @@ -520,6 +520,31 @@ int phy_notify_disconnect(struct phy *phy, int port)
-> > >  }
-> > >  EXPORT_SYMBOL_GPL(phy_notify_disconnect);
-> > >  
-> > > +/**
-> > > + * phy_notify_pmstate() - phy link state notification
+> > >   MAINTAINERS                         |   1 +
+> > >   drivers/power/reset/Kconfig         |   9 ++
+> > >   drivers/power/reset/Makefile        |   1 +
+> > >   drivers/power/reset/macsmc-reboot.c | 290 ++++++++++++++++++++++++++++++++++++
+> > >   4 files changed, 301 insertions(+)
+> > [...]
 > > 
-> > 'pmstate' doesn't correspond to 'link state'. So how about,
-> > phy_notify_link_state()?
-> > 
-> > s/phy/PHY (here and below)
-> > 
-> > > + * @phy: the phy returned by phy_get()
-> > > + * @state: the link state
-> > > + *
-> > > + * Notify the phy of some PM link state transition. Used to notify and
-> > 
-> > Link state change is common for the PHY. So remove 'PM'.
+> > It seems that the reboot driver still probes even without the smc_reboot node in the smc node:
 > 
-> Is it really link or phy state?
 > 
-
-This is a bit of ambiguity. But as per the spec, Hibern8 is the low power state
-of the M-PHY and Unipro controller.
-
-Maybe, phy_notify_state()?
-
-> > 
-> > > + * configure the phy accordingly.
-> > > + *
-> > > + * Returns: %0 if successful, a negative error code otherwise
-> > > + */
-> > > +int phy_notify_pmstate(struct phy *phy, enum phy_linkstate state)
-> > 
-> > I think you need to use 'int state' and let drivers pass their own link state
-> > values. You cannot have generic link states across all peripherals.
+> That's odd...
 > 
-> I would avoid that, people start overloading this if we let it keep
-> open! I would like to avoid the api -(ab)use
+> Lee, is it expected that a mfd sub-device declared with
+> MFD_CELL_OF("macsmc-reboot", NULL, NULL, 0, 0, "apple,smc-reboot"),
+> is loaded even if there's no corresponding node in the device tree?
 > 
+> I'll have to re-add the check that makes sure the sub-device is available
+> then.
 
-Then we will end up with peripheral specific enums in include/linux/phy/phy.h.
-If you are OK with that, fine with me.
+Yes, that's expected.  MFD is orthogonal to DT with respect to device
+registration, unless you specifically disable the node in DT.  If the
+node is missing, the device will still be registered, but no link will
+be made from the (non-existent) node to the 'of_node' pointer.
 
-- Mani
+You have 3 choices; provide a DT node and explicitly set the status to
+'disabled', optionally omit registration from MFD (i.e. do not call
+mfd_add_devices()) or check for (!pdev->dev.of_node) in the sub-device's
+.probe() and bomb out early if true.
 
 -- 
-மணிவண்ணன் சதாசிவம்
+Lee Jones [李琼斯]
 
