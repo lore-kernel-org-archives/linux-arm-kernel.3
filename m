@@ -4,63 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E07B7C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 14:12:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA3CDC83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 14:15:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+oFosf+Y2aWw9hUSMPebh2RDsEkKVFT8bx1JKOIHJNs=; b=0kXjD4sCaXsqV4KnBkH/lwbz8z
-	Kc85v9AKMO0o4NP8i+E++kvVk8+eYyAJbDZyIomdxdfZSp5Y67bs/v8bvg5Li0ndSrxmcD2RbszZl
-	ZNKqQ1uYomrWoXOjJ8jtD5j1WG1mHwWycaznBZ094tE86vShWzY3j3uXllgR9O2Nv1VUBweiXF7t6
-	sEHrqvbsrYU3VHnAcYJv/xL8Frmfu0aTfSFV9GRhYBoYosYu8AhO20nNVzn2s1SaetETxoBiAkVum
-	Bp3++bBRFlaD4S9ra9URjDBee7IRd5dhn88dVfdNJMQNYHCH5xnu+IEL010oPAbl2kav8QQj9pJ+W
-	41iayLxw==;
+	bh=eJrc2cACDhSOzVDLTaVrQsrujHpWGGs7dlhdmyDAAho=; b=Y7y31gupMXXa+TvcNNfVsImIoT
+	FQmBWzC5XbkvgLkuSElJE0HcSNCcDFZbVZ1JYeafTw/9Z2SnU51K5TQGfMwYxU656Y+5rW6fOUMJD
+	qVG6KbvwV9jkJNuDJG3FKVWdWAA3tNPSe2LRkq7hT+Cvy2PVjGiFiPxfTaUF17NckO3HxmhqJK900
+	nBxPt/6XaJkb1V5bWfTK7XV+xFEo7JgGduvadQIUMmLIox3I7fQchpUiADfcoUTN5Kyvf8m6juzUD
+	gbBcY8r6jgcLkg4Qm3OYzCQbgigXD9s9Z7XMARaRjeJICLjTS0aeCQ8eewFaVs+ncwm+DXWAii8+H
+	4P6ZHDew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueaCv-000000059fB-0l3E;
-	Wed, 23 Jul 2025 14:12:33 +0000
+	id 1ueaFO-00000005A3E-2VxG;
+	Wed, 23 Jul 2025 14:15:06 +0000
 Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueZES-0000000501h-0zDs
+	id 1ueZEo-0000000506a-14Rx
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Jul 2025 13:10:05 +0000
+	Wed, 23 Jul 2025 13:10:27 +0000
 Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56NCX8Lx000944;
-	Wed, 23 Jul 2025 15:09:55 +0200
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56NCdO5j011745;
+	Wed, 23 Jul 2025 15:10:19 +0200
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	+oFosf+Y2aWw9hUSMPebh2RDsEkKVFT8bx1JKOIHJNs=; b=35oZvwN1an/ggBlG
-	31NT3I5thUhT8nm5gZOeUMI6VmQ+GF/4bYSYtFHUlj0QwtoLw3dra+qKYMu3CaFl
-	f1SomLpRIhDtKsUmOxGdooqhcLs5jphObQn755T7WsaviQtgxekE8/ygwfhicfyi
-	RnDNdrThVF7Oi02ARll+gSS7qZoonVtmiC38GRlneNqRaUgY7asHue6klueH6q0j
-	hdwVQwNRTTF1FPqN2JvVKn7N4R2olVkirrEHQv/UObjhlNO7pdAgVl/gufsqn4oU
-	4bk+IponXsA96vyoEBBYqcAXZbS4WVOWx9Z0Nlh6a2z9en7tB0yKF4MHbYykeJes
-	4NzA6w==
+	eJrc2cACDhSOzVDLTaVrQsrujHpWGGs7dlhdmyDAAho=; b=s3esZPP0f2302i9X
+	pAR1321AM5JqN+umO4XEDaPgg0A7xVIb8G1WgUH/FyF2Hs6hCAbjiIcfes19wMSE
+	e4Vdxjg7hp11CRami6FvKDoryND8uzscTJT5kDVH6ynpgLTMeaAbsg1qJNd0I7XF
+	yeqiQ2JWG8NKDFT/09SHD1erc2NXg8Pyhy4+uKt9J6G1HgtYsvCsB3eLCthzLrmc
+	mJKBXSrbJXL5nL4iI7I5J1aV3wfHzixRPZkZYfy5K5bgYXge/p9t4+zRPgeJQ0zG
+	1Dnjxb69xMu/9+m4TBQ9qLGolTfm9Vgkjr3Oqh359Qc7QxOUceXGedirSOk24qy9
+	XVTRrg==
 Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 4800g8uvef-1
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 4800g8uvgw-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 23 Jul 2025 15:09:55 +0200 (MEST)
+	Wed, 23 Jul 2025 15:10:17 +0200 (MEST)
 Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 40F6C40055;
-	Wed, 23 Jul 2025 15:08:18 +0200 (CEST)
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 78AFF40058;
+	Wed, 23 Jul 2025 15:08:29 +0200 (CEST)
 Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 1C6A3372B47;
-	Wed, 23 Jul 2025 15:06:15 +0200 (CEST)
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 5840877E331;
+	Wed, 23 Jul 2025 15:06:17 +0200 (CEST)
 Received: from localhost (10.48.86.185) by SHFDAG1NODE2.st.com (10.75.129.70)
  with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 23 Jul
- 2025 15:06:14 +0200
+ 2025 15:06:17 +0200
 From: =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>
-Date: Wed, 23 Jul 2025 15:06:00 +0200
-Subject: [PATCH v4 16/20] ARM: dts: stm32: add ddrperfm on stm32mp131
+Date: Wed, 23 Jul 2025 15:06:03 +0200
+Subject: [PATCH v4 19/20] arm64: dts: st: support ddrperfm on
+ stm32mp257f-dk
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-ID: <20250723-ddrperfm-upstream-v4-16-1aa53ca319f4@foss.st.com>
+Message-ID: <20250723-ddrperfm-upstream-v4-19-1aa53ca319f4@foss.st.com>
 References: <20250723-ddrperfm-upstream-v4-0-1aa53ca319f4@foss.st.com>
 In-Reply-To: <20250723-ddrperfm-upstream-v4-0-1aa53ca319f4@foss.st.com>
 To: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
@@ -98,9 +99,8 @@ X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
  definitions=2025-07-23_02,2025-07-22_01,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250723_061004_527252_C03A76D7 
-X-CRM114-Status: UNSURE (   9.59  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250723_061026_558003_7C45B5F6 
+X-CRM114-Status: GOOD (  10.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,31 +115,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The DDRPERFM is the DDR Performance Monitor embedded in STM32MP131 SoC.
+Configure DDRPERFM node on stm32mp257f-dk board.
+Disable the node as DDRPERFM will produce an error message if it's clock
+(shared with the DDRCTRL on STM32MP25x) is secured by common bootloaders.
 
 Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
 ---
- arch/arm/boot/dts/st/stm32mp131.dtsi | 7 +++++++
- 1 file changed, 7 insertions(+)
+ arch/arm64/boot/dts/st/stm32mp257f-dk.dts | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-diff --git a/arch/arm/boot/dts/st/stm32mp131.dtsi b/arch/arm/boot/dts/st/stm32mp131.dtsi
-index 492bcf586361..e097723789aa 100644
---- a/arch/arm/boot/dts/st/stm32mp131.dtsi
-+++ b/arch/arm/boot/dts/st/stm32mp131.dtsi
-@@ -998,6 +998,13 @@ iwdg2: watchdog@5a002000 {
- 			status = "disabled";
- 		};
+diff --git a/arch/arm64/boot/dts/st/stm32mp257f-dk.dts b/arch/arm64/boot/dts/st/stm32mp257f-dk.dts
+index 45ffa358c800..81b115280bd4 100644
+--- a/arch/arm64/boot/dts/st/stm32mp257f-dk.dts
++++ b/arch/arm64/boot/dts/st/stm32mp257f-dk.dts
+@@ -84,6 +84,11 @@ &arm_wdt {
+ 	status = "okay";
+ };
  
-+		ddrperfm: perf@5a007000 {
-+			compatible = "st,stm32mp131-ddr-pmu";
-+			reg = <0x5a007000 0x400>;
-+			clocks = <&rcc DDRPERFM>;
-+			resets = <&rcc DDRPERFM_R>;
-+		};
++&ddrperfm {
++	memory-channel = <&lpddr_channel>;
++	status = "disabled";
++};
 +
- 		rtc: rtc@5c004000 {
- 			compatible = "st,stm32mp1-rtc";
- 			reg = <0x5c004000 0x400>;
+ &scmi_regu {
+ 	scmi_vddio1: regulator@0 {
+ 		regulator-min-microvolt = <1800000>;
 
 -- 
 2.43.0
