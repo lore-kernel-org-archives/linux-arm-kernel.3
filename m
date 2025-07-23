@@ -4,101 +4,141 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 835C6C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 13:11:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC2EFC83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 13:14:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PEOfka7o20zIZPmyJjhDlnK3FdIZ1ayZnAmiWFOAY8o=; b=s4u0dw7IyjAk0OQD0sOBB4raWP
-	Zh1iXG2yS5v6SvYV9GUzZRvlf2jHxVQn3W/GNSwwk4aqZp4rAADmQmKutbJOW38lPFajcmwx5pTYG
-	6hhhtTeOeqth84j2Tu65G+QTwXlzHaR6Ppf+rUpXSDOXDg5w0WMiRsQROGQI8vUqgIvZynoCvy8XS
-	XBIUWhgdwZGVccF48UvCkS7VuS6UyGwJjP8bNz2WhsNEIcDRR7sRQGE/CbLKn85Aebsby9eivd7Aa
-	4ADFoI9NQEv2vn9JCU55vVZOWtU69qJwZvdXY1xKtuetiqVkLJ+2LXqKRLK3lhMZWjnQdPST24f2h
-	GFLmDkVQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZoR9DWiLuFVtslF4AGhL2XlKPFkCpSt4Y4IUkH5QXKY=; b=okgm+wikUhcYtGCIuxoM+N5ZLY
+	02U/b7E+OvY7IdXQIVmQt7C7wO/CW0W4t7If/eGNb7cJLkT1fQNEZ8vonSgXjiLfjdsVHqkVsiVVp
+	/i7TQGl3/LEtcq10ci9CcJexIV5FZyQ1aw9s5vY73iH1uqacPiPaULFpeaRLyvEFL8AwagkFjm72g
+	c+v2Iv4oJjGbE2lOFIptTA00Qnlu33UAaDpxVP5i/VnY0gJ7rqw2D1fm5nX5L0cXXcMx5Z57X/TtW
+	f9KCfLWyI6uDaS0X1OBwZJPdfDvHDx2sfcJym9DfIRSTC4OT7yt/0pP5jKJokWewQ8ksno+MxHKwD
+	O7QTaFYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueZG4-000000050MP-2wrX;
-	Wed, 23 Jul 2025 13:11:45 +0000
-Received: from mailout2.samsung.com ([203.254.224.25])
+	id 1ueZIU-000000050xo-1shE;
+	Wed, 23 Jul 2025 13:14:14 +0000
+Received: from mail-sn1nam02on20623.outbound.protection.outlook.com ([2a01:111:f403:2406::623] helo=NAM02-SN1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueYqY-00000004wHQ-1RbV
+	id 1ueZ8i-00000004ygH-0RIs
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Jul 2025 12:45:26 +0000
-Received: from epcas5p2.samsung.com (unknown [182.195.41.40])
-	by mailout2.samsung.com (KnoxPortal) with ESMTP id 20250723124516epoutp022eccc6b3f3aacb0ba089b1e18366ef5c~U4hC0E6mw1406514065epoutp024
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Jul 2025 12:45:16 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.samsung.com 20250723124516epoutp022eccc6b3f3aacb0ba089b1e18366ef5c~U4hC0E6mw1406514065epoutp024
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1753274716;
-	bh=PEOfka7o20zIZPmyJjhDlnK3FdIZ1ayZnAmiWFOAY8o=;
-	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
-	b=Th3ykaYLsbUr7KCPyz3pnLe7ntpQviosxGR/2/NTX7YjsIa2F6uvGG4/t8bK2qXi6
-	 +7KYSWEKgoP+QUS/P1ZtifH1h4YMgmiBvknkZH2QImhHyU2qDjLbf0tW2ADHno+lLk
-	 KQa+ncSUwSb50Qbsz0xYXyxOlH4+NZjURykH1CZE=
-Received: from epsnrtp04.localdomain (unknown [182.195.42.156]) by
-	epcas5p1.samsung.com (KnoxPortal) with ESMTPS id
-	20250723124515epcas5p1aaf594fdd1861aef3eb2f4883c0973b8~U4hBuY4AX2230822308epcas5p1z;
-	Wed, 23 Jul 2025 12:45:15 +0000 (GMT)
-Received: from epcas5p3.samsung.com (unknown [182.195.38.90]) by
-	epsnrtp04.localdomain (Postfix) with ESMTP id 4bnDPQ1b3Qz6B9m6; Wed, 23 Jul
-	2025 12:45:14 +0000 (GMT)
-Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
-	epcas5p4.samsung.com (KnoxPortal) with ESMTPA id
-	20250723124513epcas5p40a7150ee82c674eb479589288323da54~U4hAQiFXe2820028200epcas5p4a;
-	Wed, 23 Jul 2025 12:45:13 +0000 (GMT)
-Received: from INBRO002756 (unknown [107.122.3.168]) by epsmtip2.samsung.com
-	(KnoxPortal) with ESMTPA id
-	20250723124510epsmtip201e2e3138007aeaccacf564c5214f1c8~U4g9PPG5e2748727487epsmtip2V;
-	Wed, 23 Jul 2025 12:45:10 +0000 (GMT)
-From: "Alim Akhtar" <alim.akhtar@samsung.com>
-To: "'Krzysztof Kozlowski'" <krzk@kernel.org>, "'Pritam Manohar Sutar'"
-	<pritam.sutar@samsung.com>, "'Krzysztof Kozlowski'"
-	<krzysztof.kozlowski@linaro.org>
-Cc: <vkoul@kernel.org>, <kishon@kernel.org>, <robh@kernel.org>,
-	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <andre.draszik@linaro.org>,
-	<peter.griffin@linaro.org>, <neil.armstrong@linaro.org>,
-	<kauschluss@disroot.org>, <ivo.ivanov.ivanov1@gmail.com>,
-	<m.szyprowski@samsung.com>, <s.nawrocki@samsung.com>,
-	<linux-phy@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-samsung-soc@vger.kernel.org>, <rosa.pila@samsung.com>,
-	<dev.tailor@samsung.com>, <faraz.ata@samsung.com>,
-	<muhammed.ali@samsung.com>, <selvarasu.g@samsung.com>
-In-Reply-To: <6e1c67d2-9bfa-442a-9d53-8c5970a2a9ef@kernel.org>
-Subject: RE: [PATCH v4 1/6] dt-bindings: phy: samsung,usb3-drd-phy: add
- ExynosAutov920 HS phy compatible
-Date: Wed, 23 Jul 2025 18:15:08 +0530
-Message-ID: <2a1901dbfbcf$a21b45e0$e651d1a0$@samsung.com>
+	Wed, 23 Jul 2025 13:04:09 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=sKzVvNXYhLnPqa7IyWdAuPFK5txruKjWGNr8uIIYOkak7cvnbBKUa98bzbYsTwUdPk5xgFzOYt0tj5J/UM7GDBZ1RgnmWIVGXzMDA4nVO91lJEsPc+UZ49X7mBav4Um6MtD9oYbfa+nLpqh+PBHkBT9epIFGL1tHSpYQ2tU3diKfITejWawt4ZCeu/9st5qVWqWqNOvmajQWQWqKWAQTiJB9JvniOqTbO8uPiCaSHtRJdxwOSa/43dBr5slQMQxZUw3HxyntqxxzhCjLCwDHqpIre8+u9PT1WRHgRkjuwPz4sehMLnLZXTBkgK9tuh10DkWHk0ZyJIAnq8AqjdXdAQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ZoR9DWiLuFVtslF4AGhL2XlKPFkCpSt4Y4IUkH5QXKY=;
+ b=gmXOVMqu8U8cxs23BSOMP5RW6WzsnnFh7YYG9DAAOi79GYKfftEd2ywVVj79OkQqjnmp/JI1WbxiXJ2WVZwOqaAVJDtkFkYnmaEDgXhTri0jp24T6DjllLxbOaOsn/tWo3JDYcx/DfLhV2LebMJjAXZtw1aS3wM2dhNcoOix2lJpz/Dj0iMCqHRklwxpOBBO9+9DaN85ntuJGXFY+ad0v74yjGp9TD0KtJX4S17oc97sELBt8mF88e2U1QwPzGnv1S9VSZvwhXW2VbvQjn8qq02nXLj/EpNauFg6PaoOttWjBqBONgYyu6z3NjZithikLWxTBCnD6MEc2r7xKA1XrA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.118.233) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ZoR9DWiLuFVtslF4AGhL2XlKPFkCpSt4Y4IUkH5QXKY=;
+ b=H2myhLPJPulHrFaJoDdHvJhaRjTycRRsAWpapTSJavV3x5xy14draKXgPpSjVeiUKQSTAD0Tsxd0kEut8N0qT6cyipwV+F58IW2vZy2wd0A97lw8BIbT6Dnz4ekTi99SKpMoEZP4g/8QxXyunbG1AqOzkdF4t2j9We+lua1bM5f9LNVZtWzLTqkqyTzESvsSSXFTj+QIBcrsvgRDuHqmS3ozPDa8Hujjs06lbKKwEvUyb8ntICC4cm82f7nCkp/JzluBlv/wac/5rs72E9xpBmsbkyvE3VipBDUFYlpia++veQKje8nYx6kPFbXe0wGHlEU8nGfbIBSOwwvceYF1+Q==
+Received: from CH2PR03CA0011.namprd03.prod.outlook.com (2603:10b6:610:59::21)
+ by DS7PR12MB5864.namprd12.prod.outlook.com (2603:10b6:8:7b::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8943.25; Wed, 23 Jul
+ 2025 13:04:01 +0000
+Received: from CH2PEPF00000144.namprd02.prod.outlook.com
+ (2603:10b6:610:59:cafe::13) by CH2PR03CA0011.outlook.office365.com
+ (2603:10b6:610:59::21) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8964.21 via Frontend Transport; Wed,
+ 23 Jul 2025 13:04:01 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.233)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.118.233) by
+ CH2PEPF00000144.mail.protection.outlook.com (10.167.244.101) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8964.20 via Frontend Transport; Wed, 23 Jul 2025 13:04:01 +0000
+Received: from drhqmail203.nvidia.com (10.126.190.182) by mail.nvidia.com
+ (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Wed, 23 Jul
+ 2025 06:03:48 -0700
+Received: from drhqmail203.nvidia.com (10.126.190.182) by
+ drhqmail203.nvidia.com (10.126.190.182) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.14; Wed, 23 Jul 2025 06:03:48 -0700
+Received: from build-shgarg-noble-20250715.internal (10.127.8.11) by
+ mail.nvidia.com (10.126.190.182) with Microsoft SMTP Server id 15.2.1544.14
+ via Frontend Transport; Wed, 23 Jul 2025 06:03:48 -0700
+From: Shubhi Garg <shgarg@nvidia.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Catalin Marinas
+	<catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Alexandre Belloni
+	<alexandre.belloni@bootlin.com>, Jonathan Hunter <jonathanh@nvidia.com>
+CC: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-rtc@vger.kernel.org>, <linux-tegra@vger.kernel.org>, Shubhi Garg
+	<shgarg@nvidia.com>
+Subject: [PATCH v5 2/4] arm64: tegra: Add device-tree node for NVVRS RTC
+Date: Wed, 23 Jul 2025 13:03:41 +0000
+Message-ID: <20250723130343.2861866-3-shgarg@nvidia.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250723130343.2861866-1-shgarg@nvidia.com>
+References: <20250723130343.2861866-1-shgarg@nvidia.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-X-Mailer: Microsoft Outlook 16.0
-Content-Language: en-us
-Thread-Index: AQJAgQZ9LFXBZrDskwNBYris6jFv1AKCX9A9Aa5wAf0Bi5UAqwCML2yKAWUlSf8CRPacEQIi1iyNAmb2xVkCD/Nw+wC0VRd5AgU5Triy3GiwIA==
-X-CMS-MailID: 20250723124513epcas5p40a7150ee82c674eb479589288323da54
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-CMS-TYPE: 105P
-cpgsPolicy: CPGSC10-542,Y
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250701115955epcas5p320cfe73ca33522cd2f9f7970cfde1c63
-References: <20250701120706.2219355-1-pritam.sutar@samsung.com>
-	<CGME20250701115955epcas5p320cfe73ca33522cd2f9f7970cfde1c63@epcas5p3.samsung.com>
-	<20250701120706.2219355-2-pritam.sutar@samsung.com>
-	<20250706-fresh-meaty-cougar-5af170@krzk-bin>
-	<07d301dbf0ae$0658cbe0$130a63a0$@samsung.com>
-	<9a2d0ad7-cb1f-473d-a91a-3a1b59b71280@kernel.org>
-	<000c01dbf70b$ccdbf630$6693e290$@samsung.com>
-	<a43cfe4f-8ff9-4dbd-b7f4-07ccc3d8e01b@kernel.org>
-	<00ff01dbfac1$ee528860$caf79920$@samsung.com>
-	<9a97cc9e-2221-44d6-83e9-25b1bec10a6f@kernel.org>
-	<000901dbfb90$42873060$c7959120$@samsung.com>
-	<6e1c67d2-9bfa-442a-9d53-8c5970a2a9ef@kernel.org>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-NV-OnPremToCloud: AnonymousSubmission
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH2PEPF00000144:EE_|DS7PR12MB5864:EE_
+X-MS-Office365-Filtering-Correlation-Id: 34f579cb-f0e9-49eb-ff90-08ddc9e964c9
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|1800799024|82310400026|7416014|376014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?wXvxEf1WCnWBM1bE4hCscehwm1qVrDJ2DfUFWL4vCfwb3cEdWq0QJHwoiXx9?=
+ =?us-ascii?Q?zwr5EnbVBtNET721h5WuigdBXyR6H0TMiszzfRLQlDffpo9Z1R9d1vfU/zKd?=
+ =?us-ascii?Q?Y0NVJZa0MMWudPqy4lfTAwxqdWaV5VR2v3aFDw61RxISTeHWbSSXl75a4Q5L?=
+ =?us-ascii?Q?w1L1RoepCGxu7ZQdfLUK6omEVX9dm0xM/CSCK0awam9z9VzUyF5srr190pY5?=
+ =?us-ascii?Q?Lq4NWRxjg6JCScM8cwbBs0Ul3H7v++dr+SGE7M0+Mm/l0OVlAjISn5KJOlyG?=
+ =?us-ascii?Q?37deDCdX11AJYIT66fC0RsPZmNPCxhVVkZ2BLmMT22UUju5uJkL9LhiP4Dgn?=
+ =?us-ascii?Q?I5Q5FLPjiZyOKfn7JUSPcUh+ezp7thTcYrsu+DN2vrRM2UYwc0MhDVIwFXyl?=
+ =?us-ascii?Q?nZOEPtWA53fffLM6MMNMAJtsFzcFuMpBEvEq/QdJAa3mXPZ2rF0DnSlPNZg1?=
+ =?us-ascii?Q?1XLv8vjTan4QPr5c4bSzh/oMiGAux/4BTm89HrJwEI2cCnGKlPFC0/Aqv7Ow?=
+ =?us-ascii?Q?kghgjlK032kAKIeCV0biaFT2GYDfj86nohsYyzjZT8b1gt6jjPvKZb2tPEwd?=
+ =?us-ascii?Q?Jn3ImhS4RWgb3FvUXXZYvna5otq2dP8tg1Nv8rCgP/PKN05zhUrgDRIJJj34?=
+ =?us-ascii?Q?eG4GVmLn88JR0/qGgLKzk2mA7TGYTLzoZ8BFzTWRTLIbhHCTEVc33JkYJcD7?=
+ =?us-ascii?Q?HjtQ2zQWaHOpZhhFo7VWi8Gm0VCWKHYWeNvjO9fUedHcmcG8ne1Rn3+PDSe3?=
+ =?us-ascii?Q?XOMxDPHik0C2wFHubOy1Z7gdmyuujAW3rJ5rZ5vgQwHHPVc/6uv3r121PSgL?=
+ =?us-ascii?Q?dt7HLSuypOiwNR2jYV/u9lUsYscolGHTujeLcTJgMeOU57aSpzPPT8dApE8B?=
+ =?us-ascii?Q?7yLTA6qMTOfyX+ROPBWM9vetKBsFPgrxGwliQfUpBf7MfNNIf1M/98ESF7hz?=
+ =?us-ascii?Q?2WZg7EnAvnM7ASNfGdISkWAZTZEFpa4N1E+XmfNsNrYA4aS0vz7Hu63pzl8Z?=
+ =?us-ascii?Q?hQycaZ54ItrUD2TtaciJtZjKkpmwIzEZvhZMc/0LkLMKvuG4fJ0W9jmLgm05?=
+ =?us-ascii?Q?rfgzSkw5hHsbpt3WJcxUiKUBdQDvFs3i2QegujCKe6N9pIS8E21EmWb0pTEk?=
+ =?us-ascii?Q?ubRPNiXI2F3EZgtTdtZRr4c0U3mxH4dIjYiNYN+Cq5UZD4e1QL2S+CAgf9pe?=
+ =?us-ascii?Q?Kqgqa3xDXSEYA7Cgf/tmd5DJwAF3iv4lMFPCzKJB4C5ae7kVfzGX3oD5NAAb?=
+ =?us-ascii?Q?Xi/mqmW9w2DlOs+qjDk+DL07gSuoqe/KlIe1Te0U9tR9o6/vGpB2Cd/y05uK?=
+ =?us-ascii?Q?61QXhx3sWXP9iCgEWQbkYPmFCNjV/rDzIqXrOKM5JKAlYulXO44AC15PGA76?=
+ =?us-ascii?Q?6JKqKfxuufKpSmleIkZF62uk+abs9HHc0YoTFDEqZ8NG2r09qkJWv5Z4clgI?=
+ =?us-ascii?Q?wvVSP/GvxjGX6rSQ+78ZveRuqUSKF/B5FYKvAshITZ6jcojq8ccNPs9o1trF?=
+ =?us-ascii?Q?sBchny5hKM1lEmtn4iI96RllSTBWT2Ytqyow?=
+X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(36860700013)(1800799024)(82310400026)(7416014)(376014);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Jul 2025 13:04:01.0490
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 34f579cb-f0e9-49eb-ff90-08ddc9e964c9
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: CH2PEPF00000144.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR12MB5864
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250723_054524_623056_66E68443 
-X-CRM114-Status: GOOD (  20.54  )
+X-CRM114-CacheID: sfid-20250723_060408_143846_CB52F135 
+X-CRM114-Status: GOOD (  10.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,75 +153,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Add NVIDIA VRS (Voltage Regulator Specification) RTC device tree node for
+Tegra234 P3701 and P3767 platforms. Assign VRS RTC as primary RTC (rtc0).
 
+Signed-off-by: Shubhi Garg <shgarg@nvidia.com>
+---
 
-> -----Original Message-----
-> From: Krzysztof Kozlowski <krzk=40kernel.org>
-> Sent: Wednesday, July 23, 2025 2:13 PM
-> To: Pritam Manohar Sutar <pritam.sutar=40samsung.com>; 'Krzysztof
-> Kozlowski' <krzysztof.kozlowski=40linaro.org>
-> Cc: vkoul=40kernel.org; kishon=40kernel.org; robh=40kernel.org;
-=5Bsnip=5D
-> >>>>> Ok got it. Will change supplies name as below avdd075_usb =3D>
-> >>>>> avdd075-usb
-> >>>>> avdd18_usb20 =3D> avdd18-usb20
-> >>>>> avdd33_usb20 =3D> avdd33-usb20
-> >>>>>
-> >>>>> Confirm the above change that is meant in terms of DTS style.
-> >>>> Yes. I have doubts that actual supplies have suffix usb20. Are
-> >>>> there more than one avdd18 for this block?
-> >>>>
-> >>>
-> >>> Yes, there are more than one vdd18 supplies for this block.
-> >>
-> >> And their names are?
-> >>
-> >>>
-> >>> Re-analysed your comment on adding new supplies.
-> >>> Going to re-use existing supplies as mentioned below, rather than
-> >>> introducing new supplies
-> >>>
-> >>>   dvdd-usb20-supply   =3D> for 0.75v
-> >>>   vddh-usb20-supply   =3D> for 1.8v
-> >>>   vdd33-usb20-supply =3D> for 3.3v
-> >>
-> >>
-> >> You just expect us to guess whether this is correct...
-> >
-> > Sorry about not being clear so far.
-> >
-> > V920 needs three supplies, 0.75v, 1.8v and 3.3v for USB PHY The naming
-> > convention used in the schematic are avdd075-usb, avdd18_usb20,
-> > avdd33_usb20.
-> >
-> > However, PHY's user manual just mentions DVDD, VDD33 and VDD18.
->=20
->=20
-> Then dvdd, vdd33 and vdd18.
->=20
-> > Since GS101 binding already using supply names similar to what is
-> mentioned in the PHY user manual.
->=20
->=20
-> GS101 has USB 2.0 and DP, thus the suffix made some sense. I think you ha=
-ve
-> only USB 2.0, that's why I question the suffix.
->=20
-I cross checked the schematic of v920 SADK, this is a combo PHY which suppo=
-rt USB-3.0 as well.=20
-=40 Pritam
-Schema should capture all the supplies including USB-3.0, similar to GS101 =
-(which has USB2.0 and DP combo).
-So that would be as below:
-dvdd075-usb20-supply
-vdd18-usb20-supply
-vdd33-usb20-supply
-dvdd075-usb30-supply
-vdd18-usb30-supply
-please cross check the supply at your end and do the needful.=20
+v5:
+- changed dtb node name to rtc@3c
 
->=20
-> Best regards,
-> Krzysztof
+v4:
+- fixed device tree node name to "pmic@3c" in aliases
+
+v3:
+- fixed device tree node name to generic "pmic@3c"
+
+v2:
+- added alias to assign VRS RTC to rtc0
+- removed status node from VRS DTB node
+
+ arch/arm64/boot/dts/nvidia/tegra234-p3701.dtsi | 11 +++++++++++
+ arch/arm64/boot/dts/nvidia/tegra234-p3767.dtsi | 15 +++++++++++++++
+ 2 files changed, 26 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/nvidia/tegra234-p3701.dtsi b/arch/arm64/boot/dts/nvidia/tegra234-p3701.dtsi
+index 9086a0d010e5..caa8d42438a4 100644
+--- a/arch/arm64/boot/dts/nvidia/tegra234-p3701.dtsi
++++ b/arch/arm64/boot/dts/nvidia/tegra234-p3701.dtsi
+@@ -8,6 +8,7 @@ / {
+ 	aliases {
+ 		mmc0 = "/bus@0/mmc@3460000";
+ 		mmc1 = "/bus@0/mmc@3400000";
++		rtc0 = "/bpmp/i2c/rtc@3c";
+ 	};
+ 
+ 	bus@0 {
+@@ -170,6 +171,16 @@ bpmp {
+ 		i2c {
+ 			status = "okay";
+ 
++			rtc@3c {
++				compatible = "nvidia,vrs10-rtc";
++				reg = <0x3c>;
++				interrupt-parent = <&pmc>;
++				/* VRS Wake ID is 24 */
++				interrupts = <24 IRQ_TYPE_LEVEL_LOW>;
++				interrupt-controller;
++				#interrupt-cells = <2>;
++			};
++
+ 			thermal-sensor@4c {
+ 				compatible = "ti,tmp451";
+ 				status = "okay";
+diff --git a/arch/arm64/boot/dts/nvidia/tegra234-p3767.dtsi b/arch/arm64/boot/dts/nvidia/tegra234-p3767.dtsi
+index 84db7132e8fc..565b613e0684 100644
+--- a/arch/arm64/boot/dts/nvidia/tegra234-p3767.dtsi
++++ b/arch/arm64/boot/dts/nvidia/tegra234-p3767.dtsi
+@@ -7,6 +7,7 @@ / {
+ 
+ 	aliases {
+ 		mmc0 = "/bus@0/mmc@3400000";
++		rtc0 = "/bpmp/i2c/rtc@3c";
+ 	};
+ 
+ 	bus@0 {
+@@ -121,6 +122,20 @@ pmc@c360000 {
+ 		};
+ 	};
+ 
++	bpmp {
++		i2c {
++			rtc@3c {
++				compatible = "nvidia,vrs10-rtc";
++				reg = <0x3c>;
++				interrupt-parent = <&pmc>;
++				/* VRS Wake ID is 24 */
++				interrupts = <24 IRQ_TYPE_LEVEL_LOW>;
++				interrupt-controller;
++				#interrupt-cells = <2>;
++			};
++		};
++	};
++
+ 	vdd_5v0_sys: regulator-vdd-5v0-sys {
+ 		compatible = "regulator-fixed";
+ 		regulator-name = "VDD_5V0_SYS";
+-- 
+2.43.0
 
 
