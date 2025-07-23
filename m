@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2B1BC83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 06:14:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7609FC83F25
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 06:17:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
 	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xedG6/E6Bc2BhKTwAJ6lpmj2DXrbW9ft7OJKes9Z0DE=; b=l5LkB/PEhmttOHRmPb4FATpwW1
-	bH8+ZJrB3DC1+zNLpiX4U2UJyXoTzRGV4Goc5uMEs6k6lJZrG+H9DdRrvr2s8FbkYq6BytipUQoss
-	J7JScD9Sh0W8/ZwWLhOEHv2Yyp6aXLx0mnNb7umPvyPTfsZD0R99hkfBV3l7sxnAnX9qpwUnxTGKB
-	GTsZTZV8a1Oi/DBHau41WixOrnU9rXx2vHW8VGov0eUrTV0LaLxDt6nOeiEuX56hIGucd8TbMYFj0
-	4A5Ygz4LcKCj2piMTEpUB35tcZHYZDWewCNOS1VMAVzhh5VJp5z9Yy5IxvHGl7dPlbknG8HyXj64l
-	bI64M16A==;
+	bh=eYhmyhOtx/GiGrArmyDynCsyp1cKBZyhiaSN9POA/14=; b=XXZnLsM6OO84gSAz6B5wdyPut4
+	iSM/6kOPkBLhhIg2Vh09zodWlFfdx85TiI4SiCyoSFYFQRnJrkcjU9O577zVnKBXGV4wG7KM1h3Jt
+	kpzzLbG5wIJkV3ClZ3FgvnoLMfUyP77ebTN0CJGBOpe+6YQZHXWXUNc47wveGagsTgv5uxWnKvh+f
+	4roUrY9Q03M2NQEWmW0D7frw9ERJKBowclJ3X2hoX4q7mJ89YsTcIb9ELG/LCfNDMaDY/fAgiIZlQ
+	p3UvYy3/KAIrS1lp8uDTAd8tKPZ3wnf5/tw8toZ0h/vwS9WRufE9hCvASb49WaCTrYn2llgMzK/MZ
+	wDK9I3uw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueSkC-0000000470E-26qV;
-	Wed, 23 Jul 2025 06:14:24 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1ueSme-000000047N5-1JyP;
+	Wed, 23 Jul 2025 06:16:56 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueShi-000000046la-1qv6
+	id 1ueSj1-000000046va-0oyL
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Jul 2025 06:11:51 +0000
+	Wed, 23 Jul 2025 06:13:12 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B244846323;
-	Wed, 23 Jul 2025 06:11:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C9EE0C4CEE7;
-	Wed, 23 Jul 2025 06:11:46 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id C240245DF9;
+	Wed, 23 Jul 2025 06:13:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0EA5C4CEF1;
+	Wed, 23 Jul 2025 06:13:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753251109;
-	bh=7KD0TY/wF93d5hyr/h7jkZ4IAKzTZ7thaLsaJUTLmj8=;
+	s=k20201202; t=1753251190;
+	bh=DEsrGV5+27jvFGqrXcClV0fRtpxtgFqr1qvc2Ieck5w=;
 	h=Date:Subject:To:References:From:In-Reply-To:From;
-	b=lh8W2PMDHY0ih+6EBXlSrGFW8YGUS89tCC0NVRzToezLCSChYYnPhA0e4Spfg2be7
-	 wMy9q5UHi6FeNGgD8Dp8O9Gtc4HWQHoqAIChh0c92e/QaDvD6Y803fVc4qAnk+l5Z+
-	 GVT2JLXcmcyAr6Xsvk4DlGbAuF3qulImPdq875y3GktTML7O1JJhEuTXVIoFoQnqtK
-	 RI0WYcJe+NrWl5kVC7br/cCxk/EkU+WGKo5DO4Cg5u+li+MocSEIRWCrMmwuE5jh63
-	 kdLROs4XRY2S/u1wA5uSvpJvsecpMv1UT4tvg5OGpKRLdJdS14YFuwKDxZjNVWbK+T
-	 WALlvpjlCmg4Q==
-Message-ID: <a9294387-ce7f-482e-89e1-7c85feaeeee9@kernel.org>
-Date: Wed, 23 Jul 2025 08:11:44 +0200
+	b=Qe9rIbhEo1QJP+4dyCirCEc2zOMFqO1LIsAzVxRcs630AFrhxUXbvfdWPJyklxILZ
+	 D9xm0VIGpJjIlyRGvl7UpOmXDDeeNbtsWYM2jSMVi40ckEWN5Ma5meDPWYKo0TcNzf
+	 zFkBtRMQtcdnKLiW9fecBIAsjy7W2DjYC6b1pkjVsotOoAXGGZ/ALb7jj1Jvp8fSDD
+	 fNrALZ2mdrVLeL5wLFRxQsToonraDTkSn42P3wUnfF0VwoHzXuHOEzhty7kNnXNjOr
+	 YfIceBeQP4Zfn3K0vEjcsOTJuODnQc/Ubjs/dRkUCq6ZIdqznN/vy+wFGwxB5wk06J
+	 4sXjjsH148NbQ==
+Message-ID: <001d37c7-f704-4554-a4db-0cc130e07dd6@kernel.org>
+Date: Wed, 23 Jul 2025 08:13:06 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v3 1/2] dt-bindings: interrupt-controller: aspeed: Add
@@ -107,8 +107,9 @@ In-Reply-To: <20250722095156.1672873-2-ryan_chen@aspeedtech.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250722_231150_528919_4E3A1F72 
-X-CRM114-Status: GOOD (  14.63  )
+X-CRM114-CacheID: sfid-20250722_231311_278484_B27DA4E9 
+X-CRM114-Status: UNSURE (   8.66  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,37 +125,35 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 22/07/2025 11:51, Ryan Chen wrote:
-> The AST2700 SoC contains two independent top-level interrupt controllers
-> (INTC0 and INTC1), each responsible for handling different peripheral
-> groups and occupying separate register spaces. Above them, PSP(CA35) GIC
-> controller acts as the root interrupt aggregator. Accurately describing
-> this hierarchical hardware structure in the device tree requires distinct
-> compatible strings for the parent nodes of INTC0 and INTC1.
-> 
-> - Adds 'aspeed,ast2700-intc0' and 'aspeed,ast2700-intc1' compatible
->  strings for parent interrupt controller nodes. (in addition to the
->  existing 'aspeed,ast2700-intc-ic' for child nodes)
+> +  INTC0 is used to assert GIC if interrupt in INTC1 asserted.
+> +  INTC1 is used to assert INTC0 if interrupt of modules asserted.
+> +  +-----+   +---------+
+> +  | GIC |---|  INTC0  |
+> +  +-----+   +---------+
+> +            +---------+
+> +            |         |---module0
+> +            | INTC0_0 |---module1
+> +            |         |---...
+> +            +---------+---module31
+> +            |---....  |
+> +            +---------+
+> +            |         |     +---------+
+> +            | INTC0_11| +---| INTC1   |
+> +            |         |     +---------+
+> +            +---------+     +---------+---module0
+> +                            | INTC1_0 |---module1
+> +                            |         |---...
+> +                            +---------+---module31
+> +                            ...
+> +                            +---------+---module0
+> +                            | INTC1_5 |---module1
+> +                            |         |---...
+> +                            +---------+---module31
 
-I don't understand how this solves your problem at all. Look at old
-diagram - is it correct? If not, what makes you think that new diagram
-is correct?
+You binding also said intc1 is the parent of intc-ic, so where is here
+intc-ic?
 
-What is the meaning of existing binding and existing intc-ic compatible?
-
-
-> - Clarifies the relationship and function of INTC0 parent
->  (intc0_0~x: child), INTC1 parent (intc1_0~x: child), and the GIC
->  in the documentation.
-> - Updates block diagrams and device tree examples to illustrate
->  the hierarchy and compatible usage.
-> - Refines documentation and example formatting.
-> 
-> This change allows the device tree and driver to distinguish between
-> parent (top-level) and child (group) interrupt controller nodes,
-> enabling more precise driver matching SOC register space allocation.
-
-And how it was not possible before? That's poor argument especially that
-DT does not have to ever distinguish that.
+This diagram and new binding do not match at all.
 
 
 Best regards,
