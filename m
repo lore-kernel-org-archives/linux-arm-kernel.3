@@ -4,66 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 634DEC83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 10:05:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7902FC83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 10:07:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6c077I1RSBowU6xDJVwopXrSusY0xQYRPoalBYci8Aw=; b=VohvB4DUqIs7vT+FP5G83nQ+N7
-	FTj7y76mRwBJqO95PPa2muOHjFZOwVhCDn7JHj12j4b/gWFH5/6qbrpcI33mJGQ4eZfMtOd+fGvoL
-	POO6Oe8+AkaA1v8OmsGmDSl84xQkx9EMeWOdJnnBF8W4hNyJ3wI9y/d6UqwIeosz9H5DXx7BGX5DL
-	v9G7aBou9NVsHTevfvyAij34uy/RGjtcAqANM0mYc/C22tbxLClR9EPB0+LBaeHRkOzq7TxEkP/0b
-	Ky89gZaAlJyck497XTC49Pjg5N9tBSvmT9QObPHclt49FOcu74InEig8wAIQyAC2H6qthDMdQ2TDb
-	LHyTqi2w==;
+	bh=cInzkVJ5dOKLbRAfnT6Ha0JnJ5QWBrOHCpsObXpeswM=; b=cwinywUJt2Bc9TmnJixjD+2yRF
+	yeUkWRQbFGj5sck9x/vRjcM4+lj6ibIBpaQWSnh683ny3+rX65xJXPJCYikwaxe57lTjoPoFMggK9
+	16TXpJAgPAwvJUYzump3o9/YfjJolDue/yMDrtKuuugQToxQY3cZUrBH1laV247biQpcCynfTgrGj
+	BJWplmhywbnytlE6cGi4AdVPltMu7KPBsY9wCVEuwUFcFwS+GS+JcqzWrROIpNJ3vMCUhZzPciA2M
+	T6ubfM+JCMSl9Sgm+7tzdck9C5gRt3S0IKDJnaogfUZd956JQPmfRn05KwH7oxzT54hzMnaQHHpsF
+	wr4nSeZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueWLM-00000004c8r-1xdB;
-	Wed, 23 Jul 2025 10:05:00 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1ueWNp-00000004cnE-1R9X;
+	Wed, 23 Jul 2025 10:07:33 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueVzc-00000004YTr-3ckR
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 23 Jul 2025 09:42:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=MIME-Version:Content-Type:References:
-	In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=6c077I1RSBowU6xDJVwopXrSusY0xQYRPoalBYci8Aw=; b=XQfUwyXQ35eTM56dFmxc9++ViX
-	9+n6OB4zXy1yZ93MOahWNJA5IO6CmDX7dHGaQGJHLDC40ASazl8q8YITrJpafLoGOpMSgjEwSBceq
-	9maqKqtXQhsR0bYsakvjUT+8PqlFq800U6GQCn8WxUXy/mjSanMAb4iiFeoz18+AXX2SN0eOrZ5jr
-	B8wS6THjOG7cUIinzjFDTVbJ22T52Snz+4l2s0X29KRet38GOhbLCLwBgL0dsm9eXASBR3qVs1Zov
-	Pa6ALnOHdD2f2bJkDUbfSaTgG38rVKaTIsFVSop9umgGYOU/JVAefdomVekXVfNn7HSaklSK79Xr+
-	FOuAyY6g==;
-Received: from [54.239.6.190] (helo=edge-cache-169.e-lhr50.amazon.com)
-	by casper.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueVzY-00000008khV-1Hnr;
-	Wed, 23 Jul 2025 09:42:29 +0000
-Message-ID: <590aa43842aa1e6667d6a564cfdcb86a2ca02160.camel@infradead.org>
-Subject: Re: [RFC PATCH 2/2] KVM: arm64: vgic-its: Unmap all vPEs on shutdown
-From: David Woodhouse <dwmw2@infradead.org>
-To: Oliver Upton <oliver.upton@linux.dev>
-Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>, Suzuki K
- Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Paolo Bonzini <pbonzini@redhat.com>, Sebastian Ott <sebott@redhat.com>,
- Andre Przywara <andre.przywara@arm.com>, Thorsten Blum
- <thorsten.blum@linux.dev>, Shameer Kolothum
- <shameerali.kolothum.thodi@huawei.com>,
- linux-arm-kernel@lists.infradead.org,  kvmarm@lists.linux.dev,
- linux-kernel@vger.kernel.org, kvm@vger.kernel.org,  "Saidi, Ali"
- <alisaidi@amazon.com>
-Date: Wed, 23 Jul 2025 11:42:26 +0200
-In-Reply-To: <aIAUxarULx3vC2MO@linux.dev>
-References: <20250623132714.965474-1-dwmw2@infradead.org>
-	 <20250623132714.965474-2-dwmw2@infradead.org> <aIAUxarULx3vC2MO@linux.dev>
-Content-Type: multipart/signed; micalg="sha-256"; protocol="application/pkcs7-signature";
-	boundary="=-cwbpnR8RpG6qtbrpv5c5"
-User-Agent: Evolution 3.52.3-0ubuntu1 
+	id 1ueW1I-00000004Yi4-0Tw3
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 23 Jul 2025 09:44:17 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id B0FB6419AE;
+	Wed, 23 Jul 2025 09:44:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DE4ABC4CEE7;
+	Wed, 23 Jul 2025 09:44:11 +0000 (UTC)
+Date: Wed, 23 Jul 2025 10:44:09 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Jeremy Linton <jeremy.linton@arm.com>
+Cc: linux-trace-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
+	mhiramat@kernel.org, oleg@redhat.com, peterz@infradead.org,
+	acme@kernel.org, namhyung@kernel.org, mark.rutland@arm.com,
+	alexander.shishkin@linux.intel.com, jolsa@kernel.org,
+	irogers@google.com, adrian.hunter@intel.com,
+	kan.liang@linux.intel.com, thiago.bauermann@linaro.org,
+	broonie@kernel.org, yury.khrustalev@arm.com,
+	kristina.martsenko@arm.com, liaochang1@huawei.com, will@kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 2/8] arm64: probes: Break ret out from bl/blr
+Message-ID: <aICu6a1kggJ42xZe@arm.com>
+References: <20250719043740.4548-1-jeremy.linton@arm.com>
+ <20250719043740.4548-3-jeremy.linton@arm.com>
 MIME-Version: 1.0
-X-SRS-Rewrite: SMTP reverse-path rewritten from <dwmw2@infradead.org> by casper.infradead.org. See http://www.infradead.org/rpr.html
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250719043740.4548-3-jeremy.linton@arm.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250723_024416_173693_4C543B8E 
+X-CRM114-Status: UNSURE (   8.44  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,216 +70,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, Jul 18, 2025 at 11:37:34PM -0500, Jeremy Linton wrote:
+> Prepare for GCS by breaking RET out into its own function, where
+> it makes more sense to encapsulate the new behavior independent
+> from the branch instructions.
+> 
+> Signed-off-by: Jeremy Linton <jeremy.linton@arm.com>
 
---=-cwbpnR8RpG6qtbrpv5c5
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-
-On Tue, 2025-07-22 at 15:46 -0700, Oliver Upton wrote:
-> On Mon, Jun 23, 2025 at 02:27:14PM +0100, David Woodhouse wrote:
-> > From: David Woodhouse <dwmw@amazon.co.uk>
-> >=20
-> > We observed systems going dark on kexec, due to corruption of the
-> > new
-> > kernel's text (and sometimes the initrd). This was eventually
-> > determined
-> > to be caused by the vLPI pending tables used by the GIC in the
-> > previous
-> > kernel, which were not being quiesced properly.
-> >=20
-> > Signed-off-by: David Woodhouse <dwmw@amazon.co.uk>
-> > ---
-> > =C2=A0arch/arm64/kvm/arm.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0 |=C2=A0 5 +++++
-> > =C2=A0arch/arm64/kvm/vgic/vgic-v3.c | 14 ++++++++++++++
-> > =C2=A0include/kvm/arm_vgic.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 =
-|=C2=A0 2 ++
-> > =C2=A03 files changed, 21 insertions(+)
-> >=20
-> > diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-> > index 38a91bb5d4c7..2b76f506bc2d 100644
-> > --- a/arch/arm64/kvm/arm.c
-> > +++ b/arch/arm64/kvm/arm.c
-> > @@ -2164,6 +2164,11 @@ void
-> > kvm_arch_disable_virtualization_cpu(void)
-> > =C2=A0		cpu_hyp_uninit(NULL);
-> > =C2=A0}
-> > =C2=A0
-> > +void kvm_arch_shutdown(void)
-> > +{
-> > +	kvm_vgic_v3_shutdown();
-> > +}
-> > +
-> > =C2=A0#ifdef CONFIG_CPU_PM
-> > =C2=A0static int hyp_init_cpu_pm_notifier(struct notifier_block *self,
-> > =C2=A0				=C2=A0=C2=A0=C2=A0 unsigned long cmd,
-> > diff --git a/arch/arm64/kvm/vgic/vgic-v3.c
-> > b/arch/arm64/kvm/vgic/vgic-v3.c
-> > index b9ad7c42c5b0..6591e8d84855 100644
-> > --- a/arch/arm64/kvm/vgic/vgic-v3.c
-> > +++ b/arch/arm64/kvm/vgic/vgic-v3.c
-> > @@ -382,6 +382,20 @@ static void map_all_vpes(struct kvm *kvm)
-> > =C2=A0						dist-
-> > >its_vm.vpes[i]->irq));
-> > =C2=A0}
-> > =C2=A0
-> > +void kvm_vgic_v3_shutdown(void)
-> > +{
-> > +	struct kvm *kvm;
-> > +
-> > +	if (!kvm_vgic_global_state.has_gicv4_1)
-> > +		return;
-> > +
-> > +	mutex_lock(&kvm_lock);
-> > +	list_for_each_entry(kvm, &vm_list, vm_list) {
-> > +		unmap_all_vpes(kvm);
-> > +	}
-> > +	mutex_unlock(&kvm_lock);
-> > +}
-> > +
->=20
-> This presumes the vCPUs have already been quiesced which I'm guessing
-> is the case for you.
-
-Yeah. With KHO we aspire to be able to do a kexec with some pCPUs
-actually still *running* guest vCPUs instead of pointlessly taking them
-offline just for *one* pCPU to do the kexec work. But that's a way off
-yet, and in that case all these tables will need to be in memory which
-persists across the kexec so we won't need to quiesce anything. But
-those fantasies are a way off for now...
-
-> The vPEs need to be made nonresident from the
-> redistributors prior to unmapping from the ITS to avoid consuming
-> unknown vPE state (IHI0069H.b 8.6.2).
-
-Right, I think that's what's being done in the second patch I sent,
-saying, "FWIW this is a previous hack we attempted which *didn't work".
-To be clear, we do still *have* that hack, in addition to the explicit
-unmap_all_vpes() call.
-
-I would love a definitive answer about what the hypervisor is
-*expected* to do here. It's very suboptimal that the GIC doesn't
-actually stop accessing memory when it is quiesced, and that the GIC
-doesn't live behind an IOMMU which would at least allow stray DMA to be
-prevented.
-
-> So we'd probably need to deschedule the vPE in
-> kvm_arch_disable_virtualization_cpu() along with some awareness of
-> 'kvm_rebooting'.
-
-Yeah, I also pondered doing it *all* from there, but it looked like it
-would have required some kind of counting to work out when the *last*
-CPU was taken down as there's only a per-CPU arch hook. So I didn't
-bother with that for the early RFC.
-
-Note that this issue with the GIC's scattershot DMA doesn't only affect
-KVM hosts and the vLPI pending tables. We *also* have similar issues on
-the guest side with hibernate. The boot kernel sends a MAPD command to
-set up an ITT, then transfers control back to the resumed kernel which
-had previously set up that ITT at a *different* address, and nobody
-ever tells the (v)GIC. Which means that if the host subsequently
-serializes that guest for LU/LM, it corrupts memory that the running
-kernel didn't expect it to. I guess this would happen for hibernate on
-real hardware too? And maybe even kexec but that one just hasn't bitten
-us yet?
-
-
-
---=-cwbpnR8RpG6qtbrpv5c5
-Content-Type: application/pkcs7-signature; name="smime.p7s"
-Content-Disposition: attachment; filename="smime.p7s"
-Content-Transfer-Encoding: base64
-
-MIAGCSqGSIb3DQEHAqCAMIACAQExDzANBglghkgBZQMEAgEFADCABgkqhkiG9w0BBwEAAKCCD9Aw
-ggSOMIIDdqADAgECAhAOmiw0ECVD4cWj5DqVrT9PMA0GCSqGSIb3DQEBCwUAMGUxCzAJBgNVBAYT
-AlVTMRUwEwYDVQQKEwxEaWdpQ2VydCBJbmMxGTAXBgNVBAsTEHd3dy5kaWdpY2VydC5jb20xJDAi
-BgNVBAMTG0RpZ2lDZXJ0IEFzc3VyZWQgSUQgUm9vdCBDQTAeFw0yNDAxMzAwMDAwMDBaFw0zMTEx
-MDkyMzU5NTlaMEExCzAJBgNVBAYTAkFVMRAwDgYDVQQKEwdWZXJva2V5MSAwHgYDVQQDExdWZXJv
-a2V5IFNlY3VyZSBFbWFpbCBHMjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMjvgLKj
-jfhCFqxYyRiW8g3cNFAvltDbK5AzcOaR7yVzVGadr4YcCVxjKrEJOgi7WEOH8rUgCNB5cTD8N/Et
-GfZI+LGqSv0YtNa54T9D1AWJy08ZKkWvfGGIXN9UFAPMJ6OLLH/UUEgFa+7KlrEvMUupDFGnnR06
-aDJAwtycb8yXtILj+TvfhLFhafxroXrflspavejQkEiHjNjtHnwbZ+o43g0/yxjwnarGI3kgcak7
-nnI9/8Lqpq79tLHYwLajotwLiGTB71AGN5xK+tzB+D4eN9lXayrjcszgbOv2ZCgzExQUAIt98mre
-8EggKs9mwtEuKAhYBIP/0K6WsoMnQCcCAwEAAaOCAVwwggFYMBIGA1UdEwEB/wQIMAYBAf8CAQAw
-HQYDVR0OBBYEFIlICOogTndrhuWByNfhjWSEf/xwMB8GA1UdIwQYMBaAFEXroq/0ksuCMS1Ri6en
-IZ3zbcgPMA4GA1UdDwEB/wQEAwIBhjAdBgNVHSUEFjAUBggrBgEFBQcDBAYIKwYBBQUHAwIweQYI
-KwYBBQUHAQEEbTBrMCQGCCsGAQUFBzABhhhodHRwOi8vb2NzcC5kaWdpY2VydC5jb20wQwYIKwYB
-BQUHMAKGN2h0dHA6Ly9jYWNlcnRzLmRpZ2ljZXJ0LmNvbS9EaWdpQ2VydEFzc3VyZWRJRFJvb3RD
-QS5jcnQwRQYDVR0fBD4wPDA6oDigNoY0aHR0cDovL2NybDMuZGlnaWNlcnQuY29tL0RpZ2lDZXJ0
-QXNzdXJlZElEUm9vdENBLmNybDARBgNVHSAECjAIMAYGBFUdIAAwDQYJKoZIhvcNAQELBQADggEB
-ACiagCqvNVxOfSd0uYfJMiZsOEBXAKIR/kpqRp2YCfrP4Tz7fJogYN4fxNAw7iy/bPZcvpVCfe/H
-/CCcp3alXL0I8M/rnEnRlv8ItY4MEF+2T/MkdXI3u1vHy3ua8SxBM8eT9LBQokHZxGUX51cE0kwa
-uEOZ+PonVIOnMjuLp29kcNOVnzf8DGKiek+cT51FvGRjV6LbaxXOm2P47/aiaXrDD5O0RF5SiPo6
-xD1/ClkCETyyEAE5LRJlXtx288R598koyFcwCSXijeVcRvBB1cNOLEbg7RMSw1AGq14fNe2cH1HG
-W7xyduY/ydQt6gv5r21mDOQ5SaZSWC/ZRfLDuEYwggWbMIIEg6ADAgECAhAH5JEPagNRXYDiRPdl
-c1vgMA0GCSqGSIb3DQEBCwUAMEExCzAJBgNVBAYTAkFVMRAwDgYDVQQKEwdWZXJva2V5MSAwHgYD
-VQQDExdWZXJva2V5IFNlY3VyZSBFbWFpbCBHMjAeFw0yNDEyMzAwMDAwMDBaFw0yODAxMDQyMzU5
-NTlaMB4xHDAaBgNVBAMME2R3bXcyQGluZnJhZGVhZC5vcmcwggIiMA0GCSqGSIb3DQEBAQUAA4IC
-DwAwggIKAoICAQDali7HveR1thexYXx/W7oMk/3Wpyppl62zJ8+RmTQH4yZeYAS/SRV6zmfXlXaZ
-sNOE6emg8WXLRS6BA70liot+u0O0oPnIvnx+CsMH0PD4tCKSCsdp+XphIJ2zkC9S7/yHDYnqegqt
-w4smkqUqf0WX/ggH1Dckh0vHlpoS1OoxqUg+ocU6WCsnuz5q5rzFsHxhD1qGpgFdZEk2/c//ZvUN
-i12vPWipk8TcJwHw9zoZ/ZrVNybpMCC0THsJ/UEVyuyszPtNYeYZAhOJ41vav1RhZJzYan4a1gU0
-kKBPQklcpQEhq48woEu15isvwWh9/+5jjh0L+YNaN0I//nHSp6U9COUG9Z0cvnO8FM6PTqsnSbcc
-0j+GchwOHRC7aP2t5v2stVx3KbptaYEzi4MQHxm/0+HQpMEVLLUiizJqS4PWPU6zfQTOMZ9uLQRR
-ci+c5xhtMEBszlQDOvEQcyEG+hc++fH47K+MmZz21bFNfoBxLP6bjR6xtPXtREF5lLXxp+CJ6KKS
-blPKeVRg/UtyJHeFKAZXO8Zeco7TZUMVHmK0ZZ1EpnZbnAhKE19Z+FJrQPQrlR0gO3lBzuyPPArV
-hvWxjlO7S4DmaEhLzarWi/ze7EGwWSuI2eEa/8zU0INUsGI4ywe7vepQz7IqaAovAX0d+f1YjbmC
-VsAwjhLmveFjNwIDAQABo4IBsDCCAawwHwYDVR0jBBgwFoAUiUgI6iBOd2uG5YHI1+GNZIR//HAw
-HQYDVR0OBBYEFFxiGptwbOfWOtMk5loHw7uqWUOnMDAGA1UdEQQpMCeBE2R3bXcyQGluZnJhZGVh
-ZC5vcmeBEGRhdmlkQHdvb2Rob3Uuc2UwFAYDVR0gBA0wCzAJBgdngQwBBQEBMA4GA1UdDwEB/wQE
-AwIF4DAdBgNVHSUEFjAUBggrBgEFBQcDAgYIKwYBBQUHAwQwewYDVR0fBHQwcjA3oDWgM4YxaHR0
-cDovL2NybDMuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNybDA3oDWgM4YxaHR0
-cDovL2NybDQuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNybDB2BggrBgEFBQcB
-AQRqMGgwJAYIKwYBBQUHMAGGGGh0dHA6Ly9vY3NwLmRpZ2ljZXJ0LmNvbTBABggrBgEFBQcwAoY0
-aHR0cDovL2NhY2VydHMuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNydDANBgkq
-hkiG9w0BAQsFAAOCAQEAQXc4FPiPLRnTDvmOABEzkIumojfZAe5SlnuQoeFUfi+LsWCKiB8Uextv
-iBAvboKhLuN6eG/NC6WOzOCppn4mkQxRkOdLNThwMHW0d19jrZFEKtEG/epZ/hw/DdScTuZ2m7im
-8ppItAT6GXD3aPhXkXnJpC/zTs85uNSQR64cEcBFjjoQDuSsTeJ5DAWf8EMyhMuD8pcbqx5kRvyt
-JPsWBQzv1Dsdv2LDPLNd/JUKhHSgr7nbUr4+aAP2PHTXGcEBh8lTeYea9p4d5k969pe0OHYMV5aL
-xERqTagmSetuIwolkAuBCzA9vulg8Y49Nz2zrpUGfKGOD0FMqenYxdJHgDCCBZswggSDoAMCAQIC
-EAfkkQ9qA1FdgOJE92VzW+AwDQYJKoZIhvcNAQELBQAwQTELMAkGA1UEBhMCQVUxEDAOBgNVBAoT
-B1Zlcm9rZXkxIDAeBgNVBAMTF1Zlcm9rZXkgU2VjdXJlIEVtYWlsIEcyMB4XDTI0MTIzMDAwMDAw
-MFoXDTI4MDEwNDIzNTk1OVowHjEcMBoGA1UEAwwTZHdtdzJAaW5mcmFkZWFkLm9yZzCCAiIwDQYJ
-KoZIhvcNAQEBBQADggIPADCCAgoCggIBANqWLse95HW2F7FhfH9bugyT/danKmmXrbMnz5GZNAfj
-Jl5gBL9JFXrOZ9eVdpmw04Tp6aDxZctFLoEDvSWKi367Q7Sg+ci+fH4KwwfQ8Pi0IpIKx2n5emEg
-nbOQL1Lv/IcNiep6Cq3DiyaSpSp/RZf+CAfUNySHS8eWmhLU6jGpSD6hxTpYKye7PmrmvMWwfGEP
-WoamAV1kSTb9z/9m9Q2LXa89aKmTxNwnAfD3Ohn9mtU3JukwILRMewn9QRXK7KzM+01h5hkCE4nj
-W9q/VGFknNhqfhrWBTSQoE9CSVylASGrjzCgS7XmKy/BaH3/7mOOHQv5g1o3Qj/+cdKnpT0I5Qb1
-nRy+c7wUzo9OqydJtxzSP4ZyHA4dELto/a3m/ay1XHcpum1pgTOLgxAfGb/T4dCkwRUstSKLMmpL
-g9Y9TrN9BM4xn24tBFFyL5znGG0wQGzOVAM68RBzIQb6Fz758fjsr4yZnPbVsU1+gHEs/puNHrG0
-9e1EQXmUtfGn4InoopJuU8p5VGD9S3Ikd4UoBlc7xl5yjtNlQxUeYrRlnUSmdlucCEoTX1n4UmtA
-9CuVHSA7eUHO7I88CtWG9bGOU7tLgOZoSEvNqtaL/N7sQbBZK4jZ4Rr/zNTQg1SwYjjLB7u96lDP
-sipoCi8BfR35/ViNuYJWwDCOEua94WM3AgMBAAGjggGwMIIBrDAfBgNVHSMEGDAWgBSJSAjqIE53
-a4blgcjX4Y1khH/8cDAdBgNVHQ4EFgQUXGIam3Bs59Y60yTmWgfDu6pZQ6cwMAYDVR0RBCkwJ4ET
-ZHdtdzJAaW5mcmFkZWFkLm9yZ4EQZGF2aWRAd29vZGhvdS5zZTAUBgNVHSAEDTALMAkGB2eBDAEF
-AQEwDgYDVR0PAQH/BAQDAgXgMB0GA1UdJQQWMBQGCCsGAQUFBwMCBggrBgEFBQcDBDB7BgNVHR8E
-dDByMDegNaAzhjFodHRwOi8vY3JsMy5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVtYWlsRzIu
-Y3JsMDegNaAzhjFodHRwOi8vY3JsNC5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVtYWlsRzIu
-Y3JsMHYGCCsGAQUFBwEBBGowaDAkBggrBgEFBQcwAYYYaHR0cDovL29jc3AuZGlnaWNlcnQuY29t
-MEAGCCsGAQUFBzAChjRodHRwOi8vY2FjZXJ0cy5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVt
-YWlsRzIuY3J0MA0GCSqGSIb3DQEBCwUAA4IBAQBBdzgU+I8tGdMO+Y4AETOQi6aiN9kB7lKWe5Ch
-4VR+L4uxYIqIHxR7G2+IEC9ugqEu43p4b80LpY7M4KmmfiaRDFGQ50s1OHAwdbR3X2OtkUQq0Qb9
-6ln+HD8N1JxO5nabuKbymki0BPoZcPdo+FeRecmkL/NOzzm41JBHrhwRwEWOOhAO5KxN4nkMBZ/w
-QzKEy4PylxurHmRG/K0k+xYFDO/UOx2/YsM8s138lQqEdKCvudtSvj5oA/Y8dNcZwQGHyVN5h5r2
-nh3mT3r2l7Q4dgxXlovERGpNqCZJ624jCiWQC4ELMD2+6WDxjj03PbOulQZ8oY4PQUyp6djF0keA
-MYIDuzCCA7cCAQEwVTBBMQswCQYDVQQGEwJBVTEQMA4GA1UEChMHVmVyb2tleTEgMB4GA1UEAxMX
-VmVyb2tleSBTZWN1cmUgRW1haWwgRzICEAfkkQ9qA1FdgOJE92VzW+AwDQYJYIZIAWUDBAIBBQCg
-ggE3MBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTI1MDcyMzA5NDIy
-NlowLwYJKoZIhvcNAQkEMSIEINQAJXmn1zKH1aw3XR5fNyRKX4AqeY7yJpd1AcKh141sMGQGCSsG
-AQQBgjcQBDFXMFUwQTELMAkGA1UEBhMCQVUxEDAOBgNVBAoTB1Zlcm9rZXkxIDAeBgNVBAMTF1Zl
-cm9rZXkgU2VjdXJlIEVtYWlsIEcyAhAH5JEPagNRXYDiRPdlc1vgMGYGCyqGSIb3DQEJEAILMVeg
-VTBBMQswCQYDVQQGEwJBVTEQMA4GA1UEChMHVmVyb2tleTEgMB4GA1UEAxMXVmVyb2tleSBTZWN1
-cmUgRW1haWwgRzICEAfkkQ9qA1FdgOJE92VzW+AwDQYJKoZIhvcNAQEBBQAEggIAI+MgZUXVZCtU
-hIGNVUXDBETy3DNPmjtJHnVEjIcGU4ZgQ/7sgK+c8hF7mi/5UhOsbQsTiB6vqI9dHGODvuVzFV2P
-vdD/0UOz6HPfke13MvWQ6jGqDmLf9WquJbeGhU12a4yDci6pMjL69U03VWH6HVoClFNX5NE9mG8s
-UCkUkZencwk1mjOASIlP0/WHu8qcBnW+5+pBAuegEJLZKmeB/mxY46AmdyXz+GK5bVqbgBmYkHaS
-0QU3IatTxtNRodl1YnYgCun6zwDmqlof451MVNOey7Xi5yPSZKHEKI+QlcxhSHpqQ8fcPMnOOhhf
-ECo5/htcmr61nNPq1sXNSgMpcm0iAdpH+nZZXtUeQ7Qb5y/XlSMgiubwKikIg6aAsD+3SrhZ8mLy
-37862KLtdVaZ96ppI7rOsy+rlF8wDrgzeRb2GcASs5GrX9ldu+r7jvNYHKDPLa1wrEhzguPeYcMc
-eFlieilD2HjmakBeD6tDehXVK+UBGcBrbkW9DaLLUvWIlUh6CSpmJT8SbPCZNkI1WjrTF0bz5c6U
-Cjb+eGxolB0dTCAj2ndndhaEfgCsCGerlNAOJzWAUPYU9/4Rltr8DQtcIxJz7XeTMRfqjtdld2HD
-uBUPXAgU/aWB22cVHpV4uJj0pOmEvLjc43xZjQAE2/jQqtGIPBbhNJ/calmc2yAAAAAAAAA=
-
-
---=-cwbpnR8RpG6qtbrpv5c5--
+Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
 
