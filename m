@@ -4,69 +4,151 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C961C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 15:16:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E32ABC83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 15:18:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=c3wDLxoVc+HEdX2GMJxvGVJZTBNah2ZOjTXwELNejXA=; b=YqJqr3Ct3cMtKZshlm0ZwGYRoc
-	b3uC2rTPLKLJdGxSucG+2nez8z5+doIn1FjMYxVJlNGwMvOnleQVjl7aNsAmviVGrDU0NzdnOuAx7
-	ETFn3INri04qFC4neTgIk8Vb/Tkez2b8rpRJKxNDr8x3jnuI9K8fL+mEuu1K5XukgXiozYvmFiet/
-	v8dRh9gPz8QET/SRZyEsuvggUCNOdEAM5K6hfDKGUsfMb4cXat9z3lGTuHwG/PQaxEPb4WjMFfNOd
-	qI3rgVnh6EWdGQo+cFJ74spJIlw4x69mYC95xYCRf6xLMn63/0Qv9zT696AKrAbvHnXDbJ6gw/+FU
-	2mFQ7NKQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=V7LbttFiHziZqXpZ0IXLgg78CKB6G+IxjTAVAcAbr7U=; b=e854rNF5aumLIjkCwaFcFmNtx8
+	aC1c1mR47OGOVRRs69kQq2EXcKKd0Yj8z2Up6nFcpBiU3HcimssEZ5e4ZeXtQjKjCOP7ZFSsAM6DI
+	qDvDXN7rvP8WGdt0EXd9YfeGaKW2wI404o6ZZukhwqDHnTqKcEIigc5SJ+7rnm7o7N5pBw/IYg8JH
+	u5yUKHN6X1WA6dO8+qX1JTwSvrmu9vuLnO7lM5p3dDSFlTt7ZLHipSX8M5awLLS0rlptg7sidN/3i
+	qBsTHHFSjHwkaVLhFXA14pjIDBJ5CLfSW4IJoT5aUaa5hQ7s7IvINx6MXJaZwvppBd6rEHxrWDb9G
+	iQka90og==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uebCb-00000005MCy-3MZV;
-	Wed, 23 Jul 2025 15:16:17 +0000
-Received: from mail-ej1-f47.google.com ([209.85.218.47])
+	id 1uebF2-00000005McN-0rzZ;
+	Wed, 23 Jul 2025 15:18:48 +0000
+Received: from mail-dm6nam12on2062c.outbound.protection.outlook.com ([2a01:111:f403:2417::62c] helo=NAM12-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueb1T-00000005K3T-44d7
+	id 1ueb64-00000005KxD-0f1W
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Jul 2025 15:04:49 +0000
-Received: by mail-ej1-f47.google.com with SMTP id a640c23a62f3a-af0dc229478so488745266b.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Jul 2025 08:04:47 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753283086; x=1753887886;
-        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=c3wDLxoVc+HEdX2GMJxvGVJZTBNah2ZOjTXwELNejXA=;
-        b=oB0AJnYlZVBRxA7c0Wjnl02jljMdYG8oe56MRfV5z2F0BAzpuL87X09heWZv0f1YML
-         cfAW29cgEjcmb0BEu0QgXrybXwhAfAd3FWiAcF20QbtALVIP9Jw4Tx3lAGH4oDG60gB9
-         TkWlOAlZV8FENXeoq/VsuJmqc5FyiPbjdlzJCN/RGdSgrPJNXog2ONobtTdPceOvkmLG
-         t5mDndaXNe7Z1NFR6m6N0WoMMqeFpoHotcLwd7gGTu/jNZDfzKvK5KdG8K1fo05bHYWG
-         Sd8wlXMJ4/qXXjLv1HgzawSRNA8Qe4Kz+okFwtT3ajcON89FiPc2eBOCR0SgU9TTb1i0
-         8CSw==
-X-Gm-Message-State: AOJu0YxgNS3swtMUo+fQvp6mjNbbP8mCGeCLnHyy7u3ZMBuDeM0PZULk
-	KwoVq6/NIue9scAmqpxXpC+0d4JzGg4HbH68/lpn22pqzrRq8vQ1imTf
-X-Gm-Gg: ASbGncsy5J8DfdRjd+0kVk5kx1Iu3yQUh3iZbF9mZoV7fMHkQSSQrN9fPVZ62cacxLA
-	efwDdrwUQs9DH4q8+tSmb9g3GHRpKRb+CiKEityc08cfn9GQ4PiPNC4GaSOUE1GGI1DVWuldV0Z
-	UIdkKT3cbTnfrXbgzI+ULwX0d2zEOl2JLF9jvQ+2lwT4nS94izzhcZfcqGkn4Vl+5eZ4AxxrjKx
-	lbqRgDTNCjkwqQ54XicmzvodtGOXme02hBwzfQfRx9QWMxdh0SbbNDkUqrjYGhVy6+auEmNfhwv
-	mtpAeGk04G6bMvCGQFfihYDMOwmOa38vhDAgAJkB5i0Zt22vP9PnLFNfLhU+LlY+/CkhptENRjx
-	y9xxNncQv6sam
-X-Google-Smtp-Source: AGHT+IG4M07vIFs4hMRP/029gmdq+4cUNxE2P9XhlYCoD20ic0NnH4DJ8ZRKHcH+ho3414YcpwkJ5g==
-X-Received: by 2002:a17:907:3d09:b0:ae3:a240:7ad2 with SMTP id a640c23a62f3a-af2f64bb5bbmr298750266b.2.1753283085272;
-        Wed, 23 Jul 2025 08:04:45 -0700 (PDT)
-Received: from gmail.com ([2a03:2880:30ff:6::])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aec6cadd8bbsm1053308066b.154.2025.07.23.08.04.44
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 23 Jul 2025 08:04:44 -0700 (PDT)
-Date: Wed, 23 Jul 2025 08:04:42 -0700
-From: Breno Leitao <leitao@debian.org>
-To: mst@redhat.com, jasowang@redhat.com, eperezma@redhat.com
-Cc: linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org
-Subject: vhost: linux-next: crash at vhost_dev_cleanup()
-Message-ID: <vosten2rykookljp6u6qc4hqhsqb6uhdy2iuhpl54plbq2tkr4@kphfpgst3e7c>
+	Wed, 23 Jul 2025 15:09:33 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=vzITIrbjLE7A2pJm8b7P7jl+MYdfhD2rCLfEFGAbDSwTMkmmWEzfBDEjd9SbLHZ8sUYsFma8c1B4DOsXIv/Zq7Ej16db5xBU8yLBCIZGimVYoif3Yi7vIy1yALnilfN/8CEw+5Mo53gnad90CcPWWiUoqjEg2zSEn0pyO9YtY9fSDe/6Mosk2ecU8k0/kjm3KQXHyP4LbCBwegphJQOTpHN5sTwBlr0B03AE6oLTTQhSDXPlPGmoSvUzf4WULp7AuCMlDi4/jgkx+QBg3toxY8JVdipTSOmKRPEU7d8ij09ocS5zsoHcRgCUOhzxqW6ppXKieLg2jShu+VhJV42gug==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=V7LbttFiHziZqXpZ0IXLgg78CKB6G+IxjTAVAcAbr7U=;
+ b=o1v6+WBe/aHW/w4709/m7cOytBc+7pMizSApoTcsTzQrNZIFAH/7ov670tX2xb3tHYDqUXVMy/ONtWE3IPnGv3Djo6lHOWLUv7h6nIiaPuiwXGmpl49F1aiB4Llf66Qk90YnG5xuHIkU0Un8os8HEUL/UfuH/WIonIlfhtIRRdklDE18pQvlploqxRuMEkhR/E1U9A1I4MNScUsH+siXHnlG5K8Q+ega9Jvz+v5w7ypnPYxJhQ4T5INKk+k9Yj23YjzyT77dUgCN2jfEQYKCcvbGSwwDcQpCrMzbh3XY85Zm8kfkch2v4VYJS6CcQBmdcojgydWHJlRhOb1lAjAxdw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=V7LbttFiHziZqXpZ0IXLgg78CKB6G+IxjTAVAcAbr7U=;
+ b=ooBIyhSKemKLXbn30xfddfr4lVRWdIa4WtXajsAzwTQloEXCTQetBdRc2uxSiw6Tek8wbksDaP17NVuHrTHNMDZ1wgc5BeLphd/OTmtCU6/bskXh9a8hsJ5IjmImxJM9p8UW/dSi70bfXrW57bQsgIvKD2iIEt/ybHbhNUtAL4KylJii0O1h0Nw+DJq0eLc8XrisPWurrBPADRkhfjJkSBmU85796OE+94lGNiqjXAnH5JLsWM2qDvTjBnvmma6PW69ZxVRDLGZCKC5n60VlflEjaAPlxLP10+JM9nWKO4Le3La/7N1Fcnl798ojG2wpwgS/MgvioGZ1eK2ThudEmQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from DS7PR12MB9473.namprd12.prod.outlook.com (2603:10b6:8:252::5) by
+ DS0PR12MB9347.namprd12.prod.outlook.com (2603:10b6:8:193::19) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8964.21; Wed, 23 Jul 2025 15:09:26 +0000
+Received: from DS7PR12MB9473.namprd12.prod.outlook.com
+ ([fe80::5189:ecec:d84a:133a]) by DS7PR12MB9473.namprd12.prod.outlook.com
+ ([fe80::5189:ecec:d84a:133a%6]) with mapi id 15.20.8922.037; Wed, 23 Jul 2025
+ 15:09:26 +0000
+From: Zi Yan <ziy@nvidia.com>
+To: Dev Jain <dev.jain@arm.com>
+Cc: akpm@linux-foundation.org, ryan.roberts@arm.com, david@redhat.com,
+ willy@infradead.org, linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+ catalin.marinas@arm.com, will@kernel.org, Liam.Howlett@oracle.com,
+ lorenzo.stoakes@oracle.com, vbabka@suse.cz, jannh@google.com,
+ anshuman.khandual@arm.com, peterx@redhat.com, joey.gouly@arm.com,
+ ioworker0@gmail.com, baohua@kernel.org, kevin.brodsky@arm.com,
+ quic_zhenhuah@quicinc.com, christophe.leroy@csgroup.eu,
+ yangyicong@hisilicon.com, linux-arm-kernel@lists.infradead.org,
+ hughd@google.com, yang@os.amperecomputing.com
+Subject: Re: [PATCH v5 3/7] mm: Add batched versions of
+ ptep_modify_prot_start/commit
+Date: Wed, 23 Jul 2025 11:09:22 -0400
+X-Mailer: MailMate (2.0r6272)
+Message-ID: <4526856B-A908-431C-AB9A-063BAF810AFC@nvidia.com>
+In-Reply-To: <20250718090244.21092-4-dev.jain@arm.com>
+References: <20250718090244.21092-1-dev.jain@arm.com>
+ <20250718090244.21092-4-dev.jain@arm.com>
+Content-Type: text/plain
+X-ClientProxiedBy: SA9PR13CA0138.namprd13.prod.outlook.com
+ (2603:10b6:806:27::23) To DS7PR12MB9473.namprd12.prod.outlook.com
+ (2603:10b6:8:252::5)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS7PR12MB9473:EE_|DS0PR12MB9347:EE_
+X-MS-Office365-Filtering-Correlation-Id: 880f2e23-6110-4d1f-99aa-08ddc9faea38
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?fuEua9cYCYctU+GariTSygse58rgVI7UyzsbrsFf1vHKdkQ4bSMTMaUmmS9X?=
+ =?us-ascii?Q?Q5azySaLvFQZcd0XQOWsd5FAVCh2nWlyvyjcZm9HJjcCEBKFQNLKsoheRdHT?=
+ =?us-ascii?Q?vRuSjOm45/bZRMoq/iCUa4mAetl+SVyOblUEz+bK5VoC32IOff7cWMJ/86Ro?=
+ =?us-ascii?Q?3MWh85ZhEiyDx+nm57UYM6MC1QWi4JLldcE0JTAvffzRcAHC/Kg7iUgd/zEv?=
+ =?us-ascii?Q?hy9kTDMqP6UzVNvEGG4+3WgCpR2c3EA48oxh0zKJsSnk7O39fWhiXhDWJHyx?=
+ =?us-ascii?Q?dyr094nGK/+zSrQuZ1H4tpGgc1icD6cu7vThl3HVugq6K+ugOgy953loB6MV?=
+ =?us-ascii?Q?DOWKEz4lHLoeBKrrbPvKDK5Ll7uCGC6FmPz1adNzjq3yPBPzShKvBfKtQgEX?=
+ =?us-ascii?Q?JeYpfYy1i9bzqRaDJ8LZyIHLftWRjPeh8TnbcurA+15xC+x9bxv097nLd7Hh?=
+ =?us-ascii?Q?y1D2BCYo9/03q66LvvMwofk68e8t6fsM7KnoshrTUKZdXzcAJvg78FNjlAh5?=
+ =?us-ascii?Q?1qG0l8lIXCLjjNvyceRL4O278Q3Awx/vkeYmo3SnYQuKlzp+g6jj7IjkvHwS?=
+ =?us-ascii?Q?B9/KGUy3l+MKXpMVprq+i82wqhqOqmy1WmB/HJFE1o8gzzKOJQUgA1uP7i6K?=
+ =?us-ascii?Q?7HaJ6H14caf4B056Y2gk+Tk6mgXEKjs5ubeftdjuWuDrGc4WKBuelKmIGFQH?=
+ =?us-ascii?Q?5fW8tFrzAG9RTWVARPEQqFa0/zPX0AL8L56unK3A6PN7/xOUn/HBjthvWtd9?=
+ =?us-ascii?Q?hb1z3cpq2w+lwMHwGWN0VTYyqFOXR9L/cvR/v2Fvv0pBtqcuH4WjX0Jusx+V?=
+ =?us-ascii?Q?jvV7CsWjrXzK3LYnzTUDmJGbUPiMm4FOM6fFnPtteUgx1CGPPlWs9A2lIfKG?=
+ =?us-ascii?Q?pHW+lFTW2LheI9ivLW4PRXmdQZHXupW/ON4mNgdsMdctZ5xdUbeIuyZrzsfQ?=
+ =?us-ascii?Q?5hKXGV9Yd/z3Y57td79Te290HvSqKtd7ydfRQkAW9O1oG5vuBrmnj87FU7cx?=
+ =?us-ascii?Q?Zaq/3WGN2cRaRbnq6zxaE3CMSCTIJcS5oyr3wOC1CwUVoM8azfCC8OXJdwB0?=
+ =?us-ascii?Q?X126ReEvTggmBCdG6gmksXwJhtdEw5JrNpibQXW9yo/L/YotPiHxUpD1fSdO?=
+ =?us-ascii?Q?cNONCGpxslTC79tYDfvd3L+PqUtPocBdLdKwmd22+qAyQbLxILFoLAnr2jqG?=
+ =?us-ascii?Q?Pjj0/lKs1HvCze0KcYB1qwGKwMbSDAXvMYOWDTJScep1dB+BqsczJHuFqWpP?=
+ =?us-ascii?Q?deDiLnCLWssL5DtBzgJjuUpLn9379mFHRLEzXri27wAHHVIFQgZvB5Px9rzD?=
+ =?us-ascii?Q?Uittzd7poKEqmSRR4WPUo8jxRjW/jVORg9dpqkxm6yoy7a5dVWZ+y8Vnqg5O?=
+ =?us-ascii?Q?hOg2bIkVO31Z9fvwdetYz1qhkxNEq2Isqs5IqyqqL6cTZX2uhA=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS7PR12MB9473.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?5K68X9repAjFR4K2IQG80Q+v+RhtWRx7CLDcnfdx6dqJvrHB8trT2j9d4zCZ?=
+ =?us-ascii?Q?DTLoqMH1bGPezH6WhuuZiNfUcAChc91HVh0sSTMLKm3p76AYulplVMkYo6OG?=
+ =?us-ascii?Q?hhMqvqadvCF7ZO/xGpIigpji1RtmY3gt6YxncrNGXa/n/RI3pJnW4peMiM2d?=
+ =?us-ascii?Q?ZT2JzHnJ3o7YkFgDowm5NNbvSmY38IV3L/2DnHdMEjnz/VB2Oll+Jzly4gck?=
+ =?us-ascii?Q?eDAEE6YEMddwCpkRBttBOWakIF+Op1gEDpRfoy/EyXSQ1WhAvxcLVW4hID9h?=
+ =?us-ascii?Q?Bacn360udUksnblSRwNNfuw2ZtAlWLm2QTZ7zbPJ0T6BEYr2AdGI6JD1FCef?=
+ =?us-ascii?Q?2z7pHGeTx3N5VZqgciQ894M4IHV4l6i/YciU8RPwydsmtt/yhGDBSvvZI17w?=
+ =?us-ascii?Q?7Y6Jvw+7zNnPpnWUDtxuzc7p3wPUycPTYtDRRIgM+gEorhw0arXj20Mb5aRR?=
+ =?us-ascii?Q?rMU4UxEEB6gj1Rf5UOni2W8IKYWNds5BI3O/GpCRnrfnutk9RNTdfLLCE8C5?=
+ =?us-ascii?Q?URUKLVe9ahVumafGG4QV/80BUko2o1330u04Hbhy3u2acc+PebGo5ZGT0d15?=
+ =?us-ascii?Q?n5u/UKNVBscdYpdS6oaShrMoQoyPKvw6Xf+iOftUDvHU/GVp8oJOMpjg/6zj?=
+ =?us-ascii?Q?FYLD6NxkDquHfvnBq3NN8zCJR5iglk5NIoWEMr2FEQdBzorL6VPS5rWtXTDu?=
+ =?us-ascii?Q?TaAfE6h/v5i6KS9mVBxs+Kai3v6uVB+CTxPyv2M+qQRe9hSgfQdNu/YesGG/?=
+ =?us-ascii?Q?at2ZjtR/eaz4Kpv1vnJsj40aCuaCGbckmSwBc6xjV94fx3z4XBzb7OGDE+M+?=
+ =?us-ascii?Q?n9KGA3uTQ18gxybUf9p2b0b/1oukODk+IWSo2v3ZhCs85Kv2gw1dRbn5kUNN?=
+ =?us-ascii?Q?0ZEVbGH40Vw6Ms/IIO+eWU0wI3V/Co+JtaqPnZqerKR1XjszHZhmdEAc8t0F?=
+ =?us-ascii?Q?UXiW2e2AMSOEPrP7mrlRBLY4GGxOa6j9akeQm2e6j46so0wnnwIsOYYQiF06?=
+ =?us-ascii?Q?Hs1KSrzBm+g69JOhQvQkbo+oCFHAL8o20KWCyqDPqFGw6EWriNvUwylk7XmJ?=
+ =?us-ascii?Q?xRj/cDro6eb91xRMOsZQWyEw9l4+4HLLNECyjEP5S3Df3mLffNuxba+RbV5G?=
+ =?us-ascii?Q?DSRIJVpJ8J1NNlgjO2ftE+sSFFZDaeeUHjUlycEUmyY4BzMAPrutU/I1p3Jx?=
+ =?us-ascii?Q?Rt0LXlFyDASIn/ihL6kARZNeTt3YyaLdEVG2F36AGaymmEPoq2HtRstPqcL/?=
+ =?us-ascii?Q?uK/sVdwkpWaioIA4CZNoMM2BT5QG5WqDCvdcvceEwP1SFDF8GwaitI4R0YXP?=
+ =?us-ascii?Q?o84gataqQxzLqjxXOm1iAV1EGVpRd/8TFlEiNpnHsbbeegoL1a+XBxRD6Abt?=
+ =?us-ascii?Q?sACi0QwG/91JrUhOj/Pq1y4I5ND0gHiz93+dHRzcAjzbJ6K9kADaLl+PO3hr?=
+ =?us-ascii?Q?gCgLmJDvasKvazWa/Osl0zmRpeNhyqTJERRgS4uDYmROmL3dmd8RBE6iGJyU?=
+ =?us-ascii?Q?EOqfC+drxV6Dl5IwGvaqoLBaHSvk+rha1w+cCOG+ivjfEfyTc/fb0SMLSkRS?=
+ =?us-ascii?Q?2G15oIzBg4Qmm5BP09ZCerGKFKEDhyvlz5SQGEtU?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 880f2e23-6110-4d1f-99aa-08ddc9faea38
+X-MS-Exchange-CrossTenant-AuthSource: DS7PR12MB9473.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Jul 2025 15:09:26.7197
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: R4Jt1ellmlGGNcsso15cQyrD7bM7gQN1T4gPxq3mYpc6qs8bsNKtWBVBP06bOLzo
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB9347
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250723_080448_014037_6BE627E9 
-X-CRM114-Status: UNSURE (   9.33  )
+X-CRM114-CacheID: sfid-20250723_080932_195799_89DB1F0A 
+X-CRM114-Status: UNSURE (   7.70  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -82,126 +164,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
+On 18 Jul 2025, at 5:02, Dev Jain wrote:
 
-I've seen a crash in linux-next for a while on my arm64 server, and
-I decided to report.
+> Batch ptep_modify_prot_start/commit in preparation for optimizing mprotect,
+> implementing them as a simple loop over the corresponding single pte
+> helpers. Architecture may override these helpers.
+>
+> Signed-off-by: Dev Jain <dev.jain@arm.com>
+> ---
+>  include/linux/pgtable.h | 84 ++++++++++++++++++++++++++++++++++++++++-
+>  mm/mprotect.c           |  4 +-
+>  2 files changed, 85 insertions(+), 3 deletions(-)
+>
 
-While running stress-ng on linux-next, I see the crash below.
+LGTM. Reviewed-by: Zi Yan <ziy@nvidia.com>
 
-This is happening in a kernel configure with some debug options (KASAN,
-LOCKDEP and KMEMLEAK).
-
-Basically running stress-ng in a loop would crash the host in 15-20
-minutes:
-	# while (true); do stress-ng -r 10 -t 10; done
-	
-From the early warning "virt_to_phys used for non-linear address",
-I suppose corrupted data is at vq->nheads.
-
-Here is the decoded stack against 9798752 ("Add linux-next specific
-files for 20250721")
-
-
-	[  620.685144] [ T250731] VFIO - User Level meta-driver version: 0.3
-	[  622.394448] [ T250254] ------------[ cut here ]------------
-	[  622.413492] [ T250254] virt_to_phys used for non-linear address: 000000006e69fe64 (0xcfcecdcccbcac9c8)
-	[  622.447771] [     T250254] WARNING: arch/arm64/mm/physaddr.c:15 at __virt_to_phys+0x64/0x90, CPU#57: stress-ng-dev/250254 
-	[  622.487227] [ T250254] Modules linked in: vhost_vsock(E) vfio_iommu_type1(E) vfio(E) unix_diag(E) sch_fq(E) ghes_edac(E) tls(E) tcp_diag(E) inet_diag(E) act_gact(E) cls_bpf(E) nvidia_cspmu(E) ipmi_ssif(E) coresight_trbe(E) arm_cspmu_module(E) arm_smmuv3_pmu(E) ipmi_devintf(E) coresight_stm(E) coresight_funnel(E) coresight_etm4x(E) coresight_tmc(E) stm_core(E) ipmi_msghandler(E) coresight(E) cppc_cpufreq(E) sch_fq_codel(E) drm(E) backlight(E) drm_panel_orientation_quirks(E) sm3_ce(E) sha3_ce(E) spi_tegra210_quad(E) vhost_net(E) tap(E) tun(E) vhost(E) vhost_iotlb(E) mpls_gso(E) mpls_iptunnel(E) mpls_router(E) fou(E) acpi_power_meter(E) loop(E) efivarfs(E) autofs4(E) [last unloaded: test_bpf(E)]
-	[  622.734524] [ T250254] Tainted: [W]=WARN, [E]=UNSIGNED_MODULE, [N]=TEST
-	[  622.734525] [ T250254] Hardware name: ...
-	[  622.734526] [ T250254] pstate: 63401009 (nZCv daif +PAN -UAO +TCO +DIT +SSBS BTYPE=--)
-	[  622.734529] [     T250254] pc : __virt_to_phys (/home/user/Devel/linux-next/arch/arm64/mm/physaddr.c:?) 
-	[  622.734531] [     T250254] lr : __virt_to_phys (/home/user/Devel/linux-next/arch/arm64/mm/physaddr.c:?) 
-	[  622.734533] [ T250254] sp : ffff800158e8fc60
-	[  622.734534] [ T250254] x29: ffff800158e8fc60 x28: ffff0034a7cc7900 x27: 0000000000000000
-	[  622.734537] [ T250254] x26: 0000000000000000 x25: ffff0034a7cc7900 x24: 00000000040e001f
-	[  622.734539] [ T250254] x23: ffff0010858afb00 x22: cfcecdcccbcac9c8 x21: ffff0033526a01e0
-	[  622.734541] [ T250254] x20: 0000000000008000 x19: ffcecdcccbcac9c8 x18: ffff80008149c8e4
-	[  622.734543] [ T250254] x17: 0000000000000001 x16: 0000000000000000 x15: 0000000000000003
-	[  622.734545] [ T250254] x14: ffff800082962e78 x13: 0000000000000003 x12: ffff003bc6231630
-	[  622.734546] [ T250254] x11: 0000000000000000 x10: 0000000000000000 x9 : ed44a220ae716b00
-	[  622.734548] [ T250254] x8 : 0001000000000000 x7 : 0720072007200720 x6 : ffff80008018710c
-	[  622.734550] [ T250254] x5 : 0000000000000001 x4 : 00000090ecc72ac0 x3 : 0000000000000000
-	[  622.734552] [ T250254] x2 : 0000000000000000 x1 : ffff800081a72bc6 x0 : 000000000000004f
-	[  622.734554] [ T250254] Call trace:
-	[  622.734555] [     T250254] __virt_to_phys (/home/user/Devel/linux-next/arch/arm64/mm/physaddr.c:?) (P)
-	[  622.734557] [     T250254] kfree (/home/user/Devel/linux-next/./include/linux/mm.h:1180 /home/user/Devel/linux-next/mm/slub.c:4871) 
-	[  622.734562] [     T250254] vhost_dev_cleanup (/home/user/Devel/linux-next/drivers/vhost/vhost.c:506 /home/user/Devel/linux-next/drivers/vhost/vhost.c:542 /home/user/Devel/linux-next/drivers/vhost/vhost.c:1214) vhost 
-	[  622.734571] [     T250254] vhost_vsock_dev_release (/home/user/Devel/linux-next/drivers/vhost/vsock.c:756) vhost_vsock 
-	[  622.734575] [     T250254] __fput (/home/user/Devel/linux-next/fs/file_table.c:469) 
-	[  622.734578] [     T250254] fput_close_sync (/home/user/Devel/linux-next/fs/file_table.c:?) 
-	[  622.734579] [     T250254] __arm64_sys_close (/home/user/Devel/linux-next/fs/open.c:1589 /home/user/Devel/linux-next/fs/open.c:1572 /home/user/Devel/linux-next/fs/open.c:1572) 
-	[  622.734584] [     T250254] invoke_syscall (/home/user/Devel/linux-next/arch/arm64/kernel/syscall.c:50) 
-	[  622.734589] [     T250254] el0_svc_common (/home/user/Devel/linux-next/./include/linux/thread_info.h:135 /home/user/Devel/linux-next/arch/arm64/kernel/syscall.c:140) 
-	[  622.734591] [     T250254] do_el0_svc (/home/user/Devel/linux-next/arch/arm64/kernel/syscall.c:152) 
-	[  622.734594] [     T250254] el0_svc (/home/user/Devel/linux-next/arch/arm64/kernel/entry-common.c:169 /home/user/Devel/linux-next/arch/arm64/kernel/entry-common.c:182 /home/user/Devel/linux-next/arch/arm64/kernel/entry-common.c:880) 
-	[  622.734600] [     T250254] el0t_64_sync_handler (/home/user/Devel/linux-next/arch/arm64/kernel/entry-common.c:958) 
-	[  622.734603] [     T250254] el0t_64_sync (/home/user/Devel/linux-next/arch/arm64/kernel/entry.S:596) 
-	[  622.734605] [ T250254] irq event stamp: 0
-	[  622.734606] [     T250254] hardirqs last enabled at (0): 0x0 
-	[  622.734610] [     T250254] hardirqs last disabled at (0): copy_process (/home/user/Devel/linux-next/kernel/fork.c:?) 
-	[  622.734614] [     T250254] softirqs last enabled at (0): copy_process (/home/user/Devel/linux-next/kernel/fork.c:?) 
-	[  622.734616] [     T250254] softirqs last disabled at (0): 0x0 
-	[  622.734618] [ T250254] ---[ end trace 0000000000000000 ]---
-	[  622.734697] [ T250254] Unable to handle kernel paging request at virtual address 003ff3b33312f288
-	[  622.734700] [ T250254] Mem abort info:
-	[  622.734701] [ T250254]   ESR = 0x0000000096000004
-	[  622.734702] [ T250254]   EC = 0x25: DABT (current EL), IL = 32 bits
-	[  622.734704] [ T250254]   SET = 0, FnV = 0
-	[  622.734705] [ T250254]   EA = 0, S1PTW = 0
-	[  622.734706] [ T250254]   FSC = 0x04: level 0 translation fault
-	[  622.734708] [ T250254] Data abort info:
-	[  622.734709] [ T250254]   ISV = 0, ISS = 0x00000004, ISS2 = 0x00000000
-	[  622.734711] [ T250254]   CM = 0, WnR = 0, TnD = 0, TagAccess = 0
-	[  622.734712] [ T250254]   GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
-	[  622.734713] [ T250254] [003ff3b33312f288] address between user and kernel address ranges
-	[  622.734715] [ T250254] Internal error: Oops: 0000000096000004 [#1]  SMP
-	[  622.734718] [ T250254] Modules linked in: vhost_vsock(E) vfio_iommu_type1(E) vfio(E) unix_diag(E) sch_fq(E) ghes_edac(E) tls(E) tcp_diag(E) inet_diag(E) act_gact(E) cls_bpf(E) nvidia_cspmu(E) ipmi_ssif(E) coresight_trbe(E) arm_cspmu_module(E) arm_smmuv3_pmu(E) ipmi_devintf(E) coresight_stm(E) coresight_funnel(E) coresight_etm4x(E) coresight_tmc(E) stm_core(E) ipmi_msghandler(E) coresight(E) cppc_cpufreq(E) sch_fq_codel(E) drm(E) backlight(E) drm_panel_orientation_quirks(E) sm3_ce(E) sha3_ce(E) spi_tegra210_quad(E) vhost_net(E) tap(E) tun(E) vhost(E) vhost_iotlb(E) mpls_gso(E) mpls_iptunnel(E) mpls_router(E) fou(E) acpi_power_meter(E) loop(E) efivarfs(E) autofs4(E) [last unloaded: test_bpf(E)]
-	[  622.734740] [ T250254] Tainted: [W]=WARN, [E]=UNSIGNED_MODULE, [N]=TEST
-	[  622.734740] [ T250254] Hardware name: ...
-	[  622.734741] [ T250254] pstate: 63401009 (nZCv daif +PAN -UAO +TCO +DIT +SSBS BTYPE=--)
-	[  622.734742] [     T250254] pc : kfree (/home/user/Devel/linux-next/./include/linux/page-flags.h:284 /home/user/Devel/linux-next/./include/linux/mm.h:1182 /home/user/Devel/linux-next/mm/slub.c:4871) 
-	[  622.734745] [     T250254] lr : kfree (/home/user/Devel/linux-next/./include/linux/mm.h:1180 /home/user/Devel/linux-next/mm/slub.c:4871) 
-	[  622.734747] [ T250254] sp : ffff800158e8fc80
-	[  622.734748] [ T250254] x29: ffff800158e8fc90 x28: ffff0034a7cc7900 x27: 0000000000000000
-	[  622.734749] [ T250254] x26: 0000000000000000 x25: ffff0034a7cc7900 x24: 00000000040e001f
-	[  622.734751] [ T250254] x23: ffff0010858afb00 x22: cfcecdcccbcac9c8 x21: ffff0033526a01e0
-	[  622.734752] [ T250254] x20: 003ff3b33312f280 x19: ffff80000acd1a20 x18: ffff80008149c8e4
-	[  622.734754] [ T250254] x17: 0000000000000001 x16: 0000000000000000 x15: 0000000000000003
-	[  622.734755] [ T250254] x14: ffff800082962e78 x13: 0000000000000003 x12: ffff003bc6231630
-	[  622.734757] [ T250254] x11: 0000000000000000 x10: 0000000000000000 x9 : ffffffdfc0000000
-	[  622.734758] [ T250254] x8 : 003ff3d37312f280 x7 : 0720072007200720 x6 : ffff80008018710c
-	[  622.734760] [ T250254] x5 : 0000000000000001 x4 : 00000090ecc72ac0 x3 : 0000000000000000
-	[  622.734761] [ T250254] x2 : 0000000000000000 x1 : ffff800081a72bc6 x0 : ffcf4dcccbcac9c8
-	[  622.734763] [ T250254] Call trace:
-	[  622.734763] [     T250254] kfree (/home/user/Devel/linux-next/./include/linux/page-flags.h:284 /home/user/Devel/linux-next/./include/linux/mm.h:1182 /home/user/Devel/linux-next/mm/slub.c:4871) (P)
-	[  622.734766] [     T250254] vhost_dev_cleanup (/home/user/Devel/linux-next/drivers/vhost/vhost.c:506 /home/user/Devel/linux-next/drivers/vhost/vhost.c:542 /home/user/Devel/linux-next/drivers/vhost/vhost.c:1214) vhost 
-	[  622.734769] [     T250254] vhost_vsock_dev_release (/home/user/Devel/linux-next/drivers/vhost/vsock.c:756) vhost_vsock 
-	[  622.734771] [     T250254] __fput (/home/user/Devel/linux-next/fs/file_table.c:469) 
-	[  622.734772] [     T250254] fput_close_sync (/home/user/Devel/linux-next/fs/file_table.c:?) 
-	[  622.734773] [     T250254] __arm64_sys_close (/home/user/Devel/linux-next/fs/open.c:1589 /home/user/Devel/linux-next/fs/open.c:1572 /home/user/Devel/linux-next/fs/open.c:1572) 
-	[  622.734776] [     T250254] invoke_syscall (/home/user/Devel/linux-next/arch/arm64/kernel/syscall.c:50) 
-	[  622.734778] [     T250254] el0_svc_common (/home/user/Devel/linux-next/./include/linux/thread_info.h:135 /home/user/Devel/linux-next/arch/arm64/kernel/syscall.c:140) 
-	[  622.734781] [     T250254] do_el0_svc (/home/user/Devel/linux-next/arch/arm64/kernel/syscall.c:152) 
-	[  622.734783] [     T250254] el0_svc (/home/user/Devel/linux-next/arch/arm64/kernel/entry-common.c:169 /home/user/Devel/linux-next/arch/arm64/kernel/entry-common.c:182 /home/user/Devel/linux-next/arch/arm64/kernel/entry-common.c:880) 
-	[  622.734787] [     T250254] el0t_64_sync_handler (/home/user/Devel/linux-next/arch/arm64/kernel/entry-common.c:958) 
-	[  622.734790] [     T250254] el0t_64_sync (/home/user/Devel/linux-next/arch/arm64/kernel/entry.S:596) 
-	[ 622.734792] [ T250254] Code: f2dffbe9 927abd08 cb141908 8b090114 (f9400688)
-	All code
-	========
-	0:*	e9 fb df f2 08       	jmp    0x8f2e000		<-- trapping instruction
-	5:	bd 7a 92 08 19       	mov    $0x1908927a,%ebp
-	a:	14 cb                	adc    $0xcb,%al
-	c:	14 01                	adc    $0x1,%al
-	e:	09 8b 88 06 40 f9    	or     %ecx,-0x6bff978(%rbx)
-
-	Code starting with the faulting instruction
-	===========================================
-	0:	88 06                	mov    %al,(%rsi)
-	2:	40 f9                	rex stc 
-	[  622.734795] [ T250254] SMP: stopping secondary CPUs
-	[  622.735089] [ T250254] Starting crashdump kernel...
-	[  622.735091] [ T250254] Bye!
-
+Best Regards,
+Yan, Zi
 
