@@ -4,141 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACA0CC83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 13:24:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3998C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 13:26:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yaNrghf/apmMhlGc0WC3NekSbUTn65fpoMhFBoEhYzA=; b=Txpda+safwCiwTYyWoEBYBCHTj
-	zEHLEdrA7Iv6cFNcNJmY2mAmtOYvNiihYrEViDDZKcLIyOBUomseXsLsQ+7VIy3Z70E1l0w7FtBv3
-	0yXy2Dpk58mBeDDPgeabnmOUZ2wXaXNfkTlJ6Mtt7HZFiFuZ/ILR3Iv8lUMRpeUnfHH3wpY8Jf//4
-	yi/agnwMqU5+YiC0aE0dpmL0OQdiOd93yD2iU+DzpVxkg+/NNSN2d2JEt3nPUzOdsFwaG5BQSmq6R
-	DavRsXZCJB3mFnWcgsuPYvjMhWqS8+pjhdnLI6VckAlh2udOGFcNfv0cliJHPekBNfWohJq3fuAyT
-	EZ3qykxA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=L5U4iOIMzTLQcNGAWLcYUHl7amMuMgZWgZO8MaFVrQk=; b=N8o6clDy25/hc61OtlqxFMUUNc
+	cKydTVTQqeUdSSoK8JnpMW//XfdLot61j6hIGt4TrpjpR2DG+7umolZSaFGlW8j0gBaVjLAkk2c/a
+	clg1KSJamb7mbhpJaftIEz3wx3CtXvKdXi0+li+fqtK/N4eW/5GO0z0ZlNvao1/DWGoraHXwD+Q5W
+	FD9211q8XKarL4GSQxz7nMvP0uSuSOgdstNuVHi+pU0jIN3gYng+Jj6CyotwVME0JldaMHkYUvfIL
+	R4IqcHAv39f7zqRKgHOK1rDEdeV4hQ0/+TMK4ta/XlmvKScwQq5TNfJzkk/KKHUyTdZQTaxOEplyq
+	s6mFSGWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueZS8-000000052vS-26qi;
-	Wed, 23 Jul 2025 13:24:12 +0000
-Received: from mail-co1nam11on2060e.outbound.protection.outlook.com ([2a01:111:f403:2416::60e] helo=NAM11-CO1-obe.outbound.protection.outlook.com)
+	id 1ueZUX-000000053Cz-1AUS;
+	Wed, 23 Jul 2025 13:26:41 +0000
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueZ8q-00000004yjm-0lfw
+	id 1ueZDO-00000004zfL-2LUp
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Jul 2025 13:04:17 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=KtkJP9Ja2M3LsiYHAnZJUsqbk1BVLOvs7dBXcrIBr/BKdijaMCkYyElFT/E62HfJ8NrcTdZUvcwkw/Rg4FmPqst5nqYMi21fxoMXRNh1VLyjr3lp1CmT/2xCb9kh8gZEXW1qVWYHRxlUwt1LWNjQIJVQevzsp7vge0MJb3yJLdHqDv6TAk5VNesUG0iyas7xenkyvqnpxwTCmYRU9tkO4kyquLUP9/fxO+YvciZ3M0cJat5CaN7gqllIBaqZjVkfzuNdNWumCI+c7KH4N1Qzp8E4h7eGyDTTC424dszr8UispQly8+nlEbKzxtHtFo4XaX4mCZhzuDg7TA3XnZp1Cg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=yaNrghf/apmMhlGc0WC3NekSbUTn65fpoMhFBoEhYzA=;
- b=Zfxb6PvOjuwQ+GMN9mcdbDp8waeMM63vVbHZkWZVsxsxZ8T+X+nxaBI6xkxbiqawp5K5YaCC83vwA3487jSax9uCQhx6L9cHkU4/jwzOKa8LnO72qfddd7mPfoZLVS8OrtXQKhkVO9Gl/xTk42oWiLKsX9mmCsLM5RYujNxjKRIDqu6wnigZYQe+IriBWzMM71/yPwBNyk2W9+eK5QzgEPlLqvpLdqwOTiaDNlJQOtmPYDZXkDiu3p3aVkwFlNOd2slFyUp8+sXjI2ifdXalh2KmsAusm8HVBXS6UGux0eKf3a3DfZgACupBXr1/tMKvaCjeF/C+jddAyrnt8E67Lw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.232) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=yaNrghf/apmMhlGc0WC3NekSbUTn65fpoMhFBoEhYzA=;
- b=rznCI1QkGBhwvw8pDuEL+fZkQHRlJ9Jbur/I2RNKvb9suhLn84pRCsi94JTz7t0W04it0GM+bJK2rJwHPgMPPi3O1l6btPLgQTS615wxA9+Fk0EQYJSA0q2Ly8c1J0q0L7gmAq7uQJx5CXcnTsvah+QgLRrCHey9yOnbrHBYRevMEP1RCZiR+oL/RWcbU6/PkuGKjA77f1nOjqYDgcMdkEuWXbmCNgIR7MWmGq92xtCp8H50KFavfy5ypFt/de791UqabAe//8ojCvtaKbbTbt4I2ZF0+pp8BPUNzJzH4TXhJe7Cw8WfweEK0J1SZcNxhCOBeXTHvxa7EVYE/LhvAg==
-Received: from PH5P222CA0008.NAMP222.PROD.OUTLOOK.COM (2603:10b6:510:34b::10)
- by BN5PR12MB9462.namprd12.prod.outlook.com (2603:10b6:408:2ac::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8922.39; Wed, 23 Jul
- 2025 13:04:08 +0000
-Received: from SN1PEPF00036F3C.namprd05.prod.outlook.com
- (2603:10b6:510:34b:cafe::75) by PH5P222CA0008.outlook.office365.com
- (2603:10b6:510:34b::10) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8964.22 via Frontend Transport; Wed,
- 23 Jul 2025 13:04:07 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.232)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.232) by
- SN1PEPF00036F3C.mail.protection.outlook.com (10.167.248.20) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8964.20 via Frontend Transport; Wed, 23 Jul 2025 13:04:07 +0000
-Received: from drhqmail203.nvidia.com (10.126.190.182) by mail.nvidia.com
- (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Wed, 23 Jul
- 2025 06:03:50 -0700
-Received: from drhqmail203.nvidia.com (10.126.190.182) by
- drhqmail203.nvidia.com (10.126.190.182) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.14; Wed, 23 Jul 2025 06:03:50 -0700
-Received: from build-shgarg-noble-20250715.internal (10.127.8.11) by
- mail.nvidia.com (10.126.190.182) with Microsoft SMTP Server id 15.2.1544.14
- via Frontend Transport; Wed, 23 Jul 2025 06:03:50 -0700
-From: Shubhi Garg <shgarg@nvidia.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Catalin Marinas
-	<catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Alexandre Belloni
-	<alexandre.belloni@bootlin.com>, Jonathan Hunter <jonathanh@nvidia.com>
-CC: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-rtc@vger.kernel.org>, <linux-tegra@vger.kernel.org>, Shubhi Garg
-	<shgarg@nvidia.com>
-Subject: [PATCH v5 3/4] rtc: nvvrs: add NVIDIA VRS device driver
-Date: Wed, 23 Jul 2025 13:03:42 +0000
-Message-ID: <20250723130343.2861866-4-shgarg@nvidia.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250723130343.2861866-1-shgarg@nvidia.com>
-References: <20250723130343.2861866-1-shgarg@nvidia.com>
+	Wed, 23 Jul 2025 13:09:00 +0000
+Received: from pps.filterd (m0369458.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56NCtTBC005217;
+	Wed, 23 Jul 2025 15:08:46 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	L5U4iOIMzTLQcNGAWLcYUHl7amMuMgZWgZO8MaFVrQk=; b=Vf/ghlj4LOnnGwAM
+	MEKaHOvkQvO269m/0QQ7PU8A/f3ltmSQsOJc8XbFq3dOViOPmHndk6knvLGA/N8F
+	l9wfr4mxiknsz+fgWJwfIhBDKT8cMB49VhrjgomgrsAIaJXuSHsFliKNldnNL5Cg
+	VCI/g6TDwXUooW7OwzC4iOye5nTDyN1pEcrHHrgnVAmM07P3Z8AIySH25gViBB4+
+	/D3O18F6RXPiR8Yur+4pGYrvbf0M3aC50U41AQKaJFWPb6l3Z02JnsgE+BJ14IT6
+	HQp//FYTCPY1P7IF3SyGP2ivSrLUE0OzmiTWTderTIj3UW/QhoJQtIRAj59Hr99b
+	KJ1h2g==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 480mx4s4gw-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 23 Jul 2025 15:08:46 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 8F5144002D;
+	Wed, 23 Jul 2025 15:07:17 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 77E357939DD;
+	Wed, 23 Jul 2025 15:06:04 +0200 (CEST)
+Received: from localhost (10.48.86.185) by SHFDAG1NODE2.st.com (10.75.129.70)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 23 Jul
+ 2025 15:06:04 +0200
+From: =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>
+Date: Wed, 23 Jul 2025 15:05:46 +0200
+Subject: [PATCH v4 02/20] dt-bindings: stm32: stm32mp25: add
+ `access-controller-cell` property
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-NV-OnPremToCloud: AnonymousSubmission
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SN1PEPF00036F3C:EE_|BN5PR12MB9462:EE_
-X-MS-Office365-Filtering-Correlation-Id: 39034596-181f-4ec4-83b0-08ddc9e968c5
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|36860700013|82310400026|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?sy8Rkc1uUOVn+7ldGKBBvKMvWi8sMyL2oiZDsORYo/bikD09lX8EQQ2PXXQw?=
- =?us-ascii?Q?llIp8cl4QDJVLt1759zpDttDSY9VX9WyU2x+C8gasCVWH+EDenLtLa13lmRe?=
- =?us-ascii?Q?K67tpgTy8m86hvWWXdXnfC1aleKQsugHihxWpVmPITpqY3COrz6ZyhHFE6Qn?=
- =?us-ascii?Q?hGNo2TOszlIXD9o1AwqC7YgPRG1LOrY0KwY5UeAM4rL+cGAJyzuNvp/5WkYe?=
- =?us-ascii?Q?go8znE3G5HkZBO0djFqV2IvoK3vZNrh402f4m4TpKwcshxktPP6Vx7ophzfx?=
- =?us-ascii?Q?dYIdMUDDKINJFHjDKmHEIqRR91ccjbKxt7NHWmd4qXtP5WvmaJ8bjy+pLh8v?=
- =?us-ascii?Q?CswXOhX6m1K3nUKOdQPu9FpF6XwNW/leJjbQ/Cu/9twIQKWJ4HC+NV6AZxrU?=
- =?us-ascii?Q?ycg+A2dSv9vHrf5xeh3sOGGjF4CtgM66aBXdy3+F/OerxE7aV+Y7H1U+VXwt?=
- =?us-ascii?Q?IQTuPvV15Oy3PocgL8R4E0WLyigqN1ucIw4Dop4A/V7lmBgiZPc+0MCR3kek?=
- =?us-ascii?Q?NjvxRBFy6U7kuWWDj8kKUDO6PTDv38Hi9iUuTrRNrB5lcA+f+eq1ruLS/gR9?=
- =?us-ascii?Q?ZjCqrEPYCEOoLMLhPySic/t8nsD08c1XL1XbiU29NGeGXQCwVRp1tTvwiwza?=
- =?us-ascii?Q?uArir10WoW2m+D8Rvy31r+WmeYbsHd/f+lXZO3/mNMP/fNengzikK3YyvW/P?=
- =?us-ascii?Q?o172AEW57Gahkv6DI2Ina5NknrAY1EgE/+76AsQeF8Rhw3+3H69BfBpci+u/?=
- =?us-ascii?Q?9RQrYNoamVoWAAVzfkkQh50z71ERlLkAlYFM/I6LOrhfEvWEEKOaQ8HZLkgh?=
- =?us-ascii?Q?5Y8x7OSXuj8B3ADU4zcH+C1f4ajRZ8FIznR/w5Ly3h9dUiMW4Xg1pLgWZdxI?=
- =?us-ascii?Q?FG0A9ZfAOlSAzvqAGQX3lK2RZqtUg6jZDN/4qN+BKA15ruVCQRdZl/YsoR4J?=
- =?us-ascii?Q?LozEj8q5VvX/Jr/+ikq43INS1ALpIP072JRgV3eNek6vyxaa5qp6izwz9NeT?=
- =?us-ascii?Q?OyYcXsoUtTQLVkILApKD+qpisyXOZp3tsOXdMLg2XP0XQCjaUelMiiKMAmpF?=
- =?us-ascii?Q?TUm7Qpsyoe0urxpBOZiRpwvv332gc4OQPemE0xf0jIKkFyXJ8d7owlGId0Ce?=
- =?us-ascii?Q?CplsQz2oS2k0YEqrcg8zolVmRf6cYn5H5pEa6v2W+9Rt8idbr69bHLjv10Ba?=
- =?us-ascii?Q?keSis/osSOJMoHYEDa/4DIzPNNiRfRAu/Eg1+lzKh+3I2ncAfn7RQ81vijx8?=
- =?us-ascii?Q?VQONtOBsZqSgDpTLKzJVmhtVmEio/FyV7rwOXguP17Ryj/0tP6djvspEKy2Z?=
- =?us-ascii?Q?iyPLdwYtQVBww1DkARnl+03HRq/IcLS0TlL2/YnpWmllRnWqbKuoxQl0+jAJ?=
- =?us-ascii?Q?MhtRoldQcGdmdsymIK/6lzs/48faOeEFyBCl9e93FsUGdkbzWpP8FPM1TRfg?=
- =?us-ascii?Q?l0zC070S1exjcu4cb/ET1hUlH5iiO89p7H/6klFkVEm23QtAONJLdC/zpw2q?=
- =?us-ascii?Q?4D6vOxulGIwSZxO6VMJ+5AZPn8RIl6zSJceK?=
-X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(7416014)(36860700013)(82310400026)(1800799024);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Jul 2025 13:04:07.7521
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 39034596-181f-4ec4-83b0-08ddc9e968c5
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: SN1PEPF00036F3C.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BN5PR12MB9462
+Message-ID: <20250723-ddrperfm-upstream-v4-2-1aa53ca319f4@foss.st.com>
+References: <20250723-ddrperfm-upstream-v4-0-1aa53ca319f4@foss.st.com>
+In-Reply-To: <20250723-ddrperfm-upstream-v4-0-1aa53ca319f4@foss.st.com>
+To: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+        Rob
+ Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor
+ Dooley <conor+dt@kernel.org>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Philipp Zabel
+	<p.zabel@pengutronix.de>,
+        Jonathan Corbet <corbet@lwn.net>,
+        Gatien Chevallier
+	<gatien.chevallier@foss.st.com>,
+        Michael Turquette <mturquette@baylibre.com>,
+        Stephen Boyd <sboyd@kernel.org>,
+        Gabriel Fernandez
+	<gabriel.fernandez@foss.st.com>,
+        Krzysztof Kozlowski <krzk@kernel.org>,
+        Le
+ Goffic <legoffic.clement@gmail.com>,
+        Julius Werner <jwerner@chromium.org>
+CC: <linux-arm-kernel@lists.infradead.org>, <linux-perf-users@vger.kernel.org>,
+        <devicetree@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-kernel@vger.kernel.org>, <linux-doc@vger.kernel.org>,
+        <linux-clk@vger.kernel.org>,
+        =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>
+X-Mailer: b4 0.15-dev-8018a
+X-Originating-IP: [10.48.86.185]
+X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SHFDAG1NODE2.st.com
+ (10.75.129.70)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-07-23_02,2025-07-22_01,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250723_060416_302777_947C6C70 
-X-CRM114-Status: GOOD (  24.60  )
+X-CRM114-CacheID: sfid-20250723_060859_091599_BADE65EA 
+X-CRM114-Status: GOOD (  10.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,703 +115,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for NVIDIA VRS (Voltage Regulator Specification) RTC device
-driver. The driver provides functionality to get/set system time, retain
-system time across boot, wake system from suspend and shutdown state.
+RCC is able to check the availability of a clock.
+Allow to query the RCC with a firewall ID.
 
-Supported platforms:
-- NVIDIA Jetson AGX Orin Developer Kit
-- NVIDIA IGX Orin Development Kit
-- NVIDIA Jetson Orin NX Developer Kit
-- NVIDIA Jetson Orin Nano Developer Kit
-
-Signed-off-by: Shubhi Garg <shgarg@nvidia.com>
+Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
 ---
+ Documentation/devicetree/bindings/clock/st,stm32mp25-rcc.yaml | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-v5:
-- removed unused register definitions from header
-- added VRS to maintainers list
-- removed MFD dependency from Kconfig
-- improved driver filename and CONFIG name
-- handle all VRS interrupts in RTC driver
-- validate chip vendor info during RTC probe
-- clear any pending IRQs during RTC probe
-
-v4:
-- no changes
-
-v3:
-- fixed return value in RTC read_time and read_alarm functions
-- fixed sizeof(*variable) inside rtc driver devm_kzalloc
-- switch to devm_device_init_wakeup() for automatic cleanup
-
-v2:
-- removed regmap struct since it is not required
-- removed rtc_map definition to directly use register definition
-- removed unnecessary dev_err logs
-- fixed dev_err logs to dev_dbg
-- used rtc_lock/unlock in irq handler
-- changed RTC allocation and register APIs as per latest kernel
-- removed nvvrs_rtc_remove function since it's not required
-
- MAINTAINERS                          |   8 +
- drivers/rtc/Kconfig                  |   9 +
- drivers/rtc/Makefile                 |   1 +
- drivers/rtc/rtc-nvidia-vrs10.c       | 508 +++++++++++++++++++++++++++
- include/linux/rtc/rtc-nvidia-vrs10.h |  78 ++++
- 5 files changed, 604 insertions(+)
- create mode 100644 drivers/rtc/rtc-nvidia-vrs10.c
- create mode 100644 include/linux/rtc/rtc-nvidia-vrs10.h
-
-diff --git a/MAINTAINERS b/MAINTAINERS
-index ffb35359f1e2..944ef074352d 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -18008,6 +18008,14 @@ S:	Maintained
- F:	drivers/video/fbdev/nvidia/
- F:	drivers/video/fbdev/riva/
+diff --git a/Documentation/devicetree/bindings/clock/st,stm32mp25-rcc.yaml b/Documentation/devicetree/bindings/clock/st,stm32mp25-rcc.yaml
+index 88e52f10d1ec..4d471e3d89bc 100644
+--- a/Documentation/devicetree/bindings/clock/st,stm32mp25-rcc.yaml
++++ b/Documentation/devicetree/bindings/clock/st,stm32mp25-rcc.yaml
+@@ -31,6 +31,11 @@ properties:
+   '#reset-cells':
+     const: 1
  
-+NVIDIA VRS RTC DRIVER
-+M:	Shubhi Garg <shgarg@nvidia.com>
-+L:	linux-tegra@vger.kernel.org
-+S:	Maintained
-+F:	Documentation/devicetree/bindings/rtc/nvidia,vrs10-rtc.yaml
-+F:	drivers/rtc/rtc-nvidia-vrs10.c
-+F:	include/linux/rtc/rtc-nvidia-vrs10.h
++  '#access-controller-cells':
++    const: 1
++    description:
++      Contains the firewall ID associated to the peripheral.
 +
- NVIDIA WMI EC BACKLIGHT DRIVER
- M:	Daniel Dadap <ddadap@nvidia.com>
- L:	platform-driver-x86@vger.kernel.org
-diff --git a/drivers/rtc/Kconfig b/drivers/rtc/Kconfig
-index 9aec922613ce..4a573919d4fa 100644
---- a/drivers/rtc/Kconfig
-+++ b/drivers/rtc/Kconfig
-@@ -406,6 +406,15 @@ config RTC_DRV_MAX77686
- 	  This driver can also be built as a module. If so, the module
- 	  will be called rtc-max77686.
+   clocks:
+     items:
+       - description: CK_SCMI_HSE High Speed External oscillator (8 to 48 MHz)
+@@ -123,6 +128,7 @@ required:
+   - reg
+   - '#clock-cells'
+   - '#reset-cells'
++  - '#access-controller-cells'
+   - clocks
  
-+config RTC_DRV_NVIDIA_VRS10
-+	tristate "NVIDIA VRS10 RTC device"
-+	help
-+	  If you say yes here you will get support for the battery backed RTC device
-+	  of NVIDIA VRS (Voltage Regulator Specification). The RTC is connected via
-+	  I2C interface and supports alarm functionality.
-+	  This driver can also be built as a module. If so, the module will be called
-+	  rtc-nvidia-vrs10.
-+
- config RTC_DRV_NCT3018Y
- 	tristate "Nuvoton NCT3018Y"
- 	depends on OF
-diff --git a/drivers/rtc/Makefile b/drivers/rtc/Makefile
-index 4619aa2ac469..4311b42438ea 100644
---- a/drivers/rtc/Makefile
-+++ b/drivers/rtc/Makefile
-@@ -120,6 +120,7 @@ obj-$(CONFIG_RTC_DRV_MXC_V2)	+= rtc-mxc_v2.o
- obj-$(CONFIG_RTC_DRV_GAMECUBE)	+= rtc-gamecube.o
- obj-$(CONFIG_RTC_DRV_NCT3018Y)	+= rtc-nct3018y.o
- obj-$(CONFIG_RTC_DRV_NTXEC)	+= rtc-ntxec.o
-+obj-$(CONFIG_RTC_DRV_NVIDIA_VRS10)+= rtc-nvidia-vrs10.o
- obj-$(CONFIG_RTC_DRV_OMAP)	+= rtc-omap.o
- obj-$(CONFIG_RTC_DRV_OPAL)	+= rtc-opal.o
- obj-$(CONFIG_RTC_DRV_OPTEE)	+= rtc-optee.o
-diff --git a/drivers/rtc/rtc-nvidia-vrs10.c b/drivers/rtc/rtc-nvidia-vrs10.c
-new file mode 100644
-index 000000000000..54b4afe89afb
---- /dev/null
-+++ b/drivers/rtc/rtc-nvidia-vrs10.c
-@@ -0,0 +1,508 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * NVIDIA Voltage Regulator Specification RTC
-+ *
-+ * SPDX-FileCopyrightText: Copyright (c) 2025 NVIDIA CORPORATION & AFFILIATES.
-+ * All rights reserved.
-+ */
-+
-+#include <linux/err.h>
-+#include <linux/i2c.h>
-+#include <linux/interrupt.h>
-+#include <linux/module.h>
-+#include <linux/mutex.h>
-+#include <linux/rtc.h>
-+#include <linux/rtc/rtc-nvidia-vrs10.h>
-+
-+#define ALARM_RESET_VAL		0xffffffff
-+#define NVVRS_MIN_MODEL_REV	0x40
-+
-+struct nvvrs_rtc_info {
-+	struct device          *dev;
-+	struct i2c_client      *client;
-+	struct rtc_device      *rtc;
-+	unsigned int           irq;
-+	/* Mutex to protect RTC operations */
-+	struct mutex           lock;
-+};
-+
-+static int nvvrs_update_bits(struct nvvrs_rtc_info *info, u8 reg,
-+			     u8 mask, u8 value)
-+{
-+	int ret;
-+	u8 val;
-+
-+	ret = i2c_smbus_read_byte_data(info->client, reg);
-+	if (ret < 0)
-+		return ret;
-+
-+	val = (u8)ret;
-+	val &= ~mask;
-+	val |= (value & mask);
-+
-+	return i2c_smbus_write_byte_data(info->client, reg, val);
-+}
-+
-+static int nvvrs_rtc_write_alarm(struct i2c_client *client, u8 *time)
-+{
-+	int ret;
-+
-+	ret = i2c_smbus_write_byte_data(client, NVVRS_REG_RTC_A3, time[3]);
-+	if (ret < 0)
-+		return ret;
-+
-+	ret = i2c_smbus_write_byte_data(client, NVVRS_REG_RTC_A2, time[2]);
-+	if (ret < 0)
-+		return ret;
-+
-+	ret = i2c_smbus_write_byte_data(client, NVVRS_REG_RTC_A1, time[1]);
-+	if (ret < 0)
-+		return ret;
-+
-+	return i2c_smbus_write_byte_data(client, NVVRS_REG_RTC_A0, time[0]);
-+}
-+
-+static int nvvrs_rtc_enable_alarm(struct nvvrs_rtc_info *info)
-+{
-+	int ret;
-+
-+	/* Set RTC_WAKE bit for autonomous wake from sleep */
-+	ret = nvvrs_update_bits(info, NVVRS_REG_CTL_2, NVVRS_REG_CTL_2_RTC_WAKE,
-+				NVVRS_REG_CTL_2_RTC_WAKE);
-+	if (ret < 0) {
-+		dev_err(info->dev, "Failed to set RTC_WAKE bit (%d)\n", ret);
-+		return ret;
-+	}
-+
-+	/* Set RTC_PU bit for autonomous wake from shutdown */
-+	ret = nvvrs_update_bits(info, NVVRS_REG_CTL_2, NVVRS_REG_CTL_2_RTC_PU,
-+				NVVRS_REG_CTL_2_RTC_PU);
-+	if (ret < 0) {
-+		dev_err(info->dev, "Failed to set RTC_PU bit (%d)\n", ret);
-+		return ret;
-+	}
-+
-+	return 0;
-+}
-+
-+static int nvvrs_rtc_disable_alarm(struct nvvrs_rtc_info *info)
-+{
-+	struct i2c_client *client = info->client;
-+	u8 val[4];
-+	int ret;
-+
-+	/* Clear RTC_WAKE bit */
-+	ret = nvvrs_update_bits(info, NVVRS_REG_CTL_2, NVVRS_REG_CTL_2_RTC_WAKE,
-+				0);
-+	if (ret < 0) {
-+		dev_err(info->dev, "Failed to clear RTC_WAKE bit (%d)\n", ret);
-+		return ret;
-+	}
-+
-+	/* Clear RTC_PU bit */
-+	ret = nvvrs_update_bits(info, NVVRS_REG_CTL_2, NVVRS_REG_CTL_2_RTC_PU,
-+				0);
-+	if (ret < 0) {
-+		dev_err(info->dev, "Failed to clear RTC_PU bit (%d)\n", ret);
-+		return ret;
-+	}
-+
-+	/* Write ALARM_RESET_VAL in RTC Alarm register to disable alarm */
-+	val[0] = 0xff;
-+	val[1] = 0xff;
-+	val[2] = 0xff;
-+	val[3] = 0xff;
-+
-+	ret = nvvrs_rtc_write_alarm(client, val);
-+	if (ret < 0)
-+		dev_err(info->dev, "Failed to disable Alarm (%d)\n", ret);
-+
-+	return 0;
-+}
-+
-+static int nvvrs_rtc_read_time(struct device *dev, struct rtc_time *tm)
-+{
-+	struct nvvrs_rtc_info *info = dev_get_drvdata(dev);
-+	time64_t secs = 0;
-+	int ret;
-+	u8 val;
-+
-+	mutex_lock(&info->lock);
-+
-+	/*
-+	 * Multi-byte transfers are not supported with PEC enabled
-+	 * Read MSB first to avoid coherency issues
-+	 */
-+	ret = i2c_smbus_read_byte_data(info->client, NVVRS_REG_RTC_T3);
-+	if (ret < 0)
-+		goto out;
-+
-+	val = (u8)ret;
-+	secs |= (time64_t)val << 24;
-+
-+	ret = i2c_smbus_read_byte_data(info->client, NVVRS_REG_RTC_T2);
-+	if (ret < 0)
-+		goto out;
-+
-+	val = (u8)ret;
-+	secs |= (time64_t)val << 16;
-+
-+	ret = i2c_smbus_read_byte_data(info->client, NVVRS_REG_RTC_T1);
-+	if (ret < 0)
-+		goto out;
-+
-+	val = (u8)ret;
-+	secs |= (time64_t)val << 8;
-+
-+	ret = i2c_smbus_read_byte_data(info->client, NVVRS_REG_RTC_T0);
-+	if (ret < 0)
-+		goto out;
-+
-+	val = (u8)ret;
-+	secs |= val;
-+
-+	rtc_time64_to_tm(secs, tm);
-+	ret = 0;
-+out:
-+	mutex_unlock(&info->lock);
-+	return ret;
-+}
-+
-+static int nvvrs_rtc_set_time(struct device *dev, struct rtc_time *tm)
-+{
-+	struct nvvrs_rtc_info *info = dev_get_drvdata(dev);
-+	time64_t secs;
-+	u8 time[4];
-+	int ret;
-+
-+	mutex_lock(&info->lock);
-+
-+	secs = rtc_tm_to_time64(tm);
-+	time[0] = secs & 0xff;
-+	time[1] = (secs >> 8) & 0xff;
-+	time[2] = (secs >> 16) & 0xff;
-+	time[3] = (secs >> 24) & 0xff;
-+
-+	ret = i2c_smbus_write_byte_data(info->client, NVVRS_REG_RTC_T3, time[3]);
-+	if (ret < 0)
-+		goto out;
-+
-+	ret = i2c_smbus_write_byte_data(info->client, NVVRS_REG_RTC_T2, time[2]);
-+	if (ret < 0)
-+		goto out;
-+
-+	ret = i2c_smbus_write_byte_data(info->client, NVVRS_REG_RTC_T1, time[1]);
-+	if (ret < 0)
-+		goto out;
-+
-+	ret = i2c_smbus_write_byte_data(info->client, NVVRS_REG_RTC_T0, time[0]);
-+out:
-+	mutex_unlock(&info->lock);
-+	return ret;
-+}
-+
-+static int nvvrs_rtc_read_alarm(struct device *dev, struct rtc_wkalrm *alrm)
-+{
-+	struct nvvrs_rtc_info *info = dev_get_drvdata(dev);
-+	time64_t alarm_val = 0;
-+	int ret;
-+	u8 val;
-+
-+	mutex_lock(&info->lock);
-+
-+	/* Multi-byte transfers are not supported with PEC enabled */
-+	ret = i2c_smbus_read_byte_data(info->client, NVVRS_REG_RTC_A3);
-+	if (ret < 0)
-+		goto out;
-+
-+	val = (u8)ret;
-+	alarm_val |= (time64_t)val << 24;
-+
-+	ret = i2c_smbus_read_byte_data(info->client, NVVRS_REG_RTC_A2);
-+	if (ret < 0)
-+		goto out;
-+
-+	val = (u8)ret;
-+	alarm_val |= (time64_t)val << 16;
-+
-+	ret = i2c_smbus_read_byte_data(info->client, NVVRS_REG_RTC_A1);
-+	if (ret < 0)
-+		goto out;
-+
-+	val = (u8)ret;
-+	alarm_val |= (time64_t)val << 8;
-+
-+	ret = i2c_smbus_read_byte_data(info->client, NVVRS_REG_RTC_A0);
-+	if (ret < 0)
-+		goto out;
-+
-+	val = (u8)ret;
-+	alarm_val |= val;
-+
-+	if (alarm_val == ALARM_RESET_VAL)
-+		alrm->enabled = 0;
-+	else
-+		alrm->enabled = 1;
-+
-+	rtc_time64_to_tm(alarm_val, &alrm->time);
-+	ret = 0;
-+out:
-+	mutex_unlock(&info->lock);
-+	return ret;
-+}
-+
-+static int nvvrs_rtc_set_alarm(struct device *dev, struct rtc_wkalrm *alrm)
-+{
-+	struct nvvrs_rtc_info *info = dev_get_drvdata(dev);
-+	time64_t secs;
-+	u8 time[4];
-+	int ret;
-+
-+	mutex_lock(&info->lock);
-+
-+	if (!alrm->enabled) {
-+		ret = nvvrs_rtc_disable_alarm(info);
-+		if (ret < 0)
-+			goto out;
-+	}
-+
-+	ret = nvvrs_rtc_enable_alarm(info);
-+	if (ret < 0)
-+		goto out;
-+
-+	secs = rtc_tm_to_time64(&alrm->time);
-+	time[0] = secs & 0xff;
-+	time[1] = (secs >> 8) & 0xff;
-+	time[2] = (secs >> 16) & 0xff;
-+	time[3] = (secs >> 24) & 0xff;
-+
-+	ret = nvvrs_rtc_write_alarm(info->client, time);
-+
-+out:
-+	mutex_unlock(&info->lock);
-+	return ret;
-+}
-+
-+static int nvvrs_pseq_irq_clear(struct nvvrs_rtc_info *info)
-+{
-+	unsigned int i;
-+	int ret;
-+
-+	for (i = 0; i < NVVRS_IRQ_REG_COUNT; i++) {
-+		ret = i2c_smbus_read_byte_data(info->client,
-+					       NVVRS_REG_INT_SRC1 + i);
-+		if (ret < 0) {
-+			dev_err(info->dev, "Failed to read INT_SRC%d : %d\n",
-+				i + 1, ret);
-+			return ret;
-+		}
-+
-+		ret = i2c_smbus_write_byte_data(info->client,
-+						NVVRS_REG_INT_SRC1 + i,
-+						(u8)ret);
-+		if (ret < 0) {
-+			dev_err(info->dev, "Failed to clear INT_SRC%d : %d\n",
-+				i + 1, ret);
-+			return ret;
-+		}
-+	}
-+
-+	return 0;
-+}
-+
-+static irqreturn_t nvvrs_rtc_irq_handler(int irq, void *data)
-+{
-+	struct nvvrs_rtc_info *info = data;
-+	int ret;
-+
-+	/* Check for RTC alarm interrupt */
-+	ret = i2c_smbus_read_byte_data(info->client, NVVRS_REG_INT_SRC1);
-+	if (ret < 0) {
-+		dev_err(info->dev, "Failed to read INT_SRC1: %d\n", ret);
-+		return IRQ_NONE;
-+	}
-+
-+	if (ret & NVVRS_INT_SRC1_RTC_MASK) {
-+		rtc_lock(info->rtc);
-+		rtc_update_irq(info->rtc, 1, RTC_IRQF | RTC_AF);
-+		rtc_unlock(info->rtc);
-+	}
-+
-+	/* Clear all interrupts */
-+	if (nvvrs_pseq_irq_clear(info) < 0)
-+		return IRQ_NONE;
-+
-+	return IRQ_HANDLED;
-+}
-+
-+static int nvvrs_rtc_alarm_irq_enable(struct device *dev, unsigned int enabled)
-+{
-+	/*
-+	 * This hardware does not support enabling/disabling the alarm IRQ
-+	 * independently. The alarm is disabled by clearing the alarm time
-+	 * via set_alarm().
-+	 */
-+	return 0;
-+}
-+
-+static const struct rtc_class_ops nvvrs_rtc_ops = {
-+	.read_time = nvvrs_rtc_read_time,
-+	.set_time = nvvrs_rtc_set_time,
-+	.read_alarm = nvvrs_rtc_read_alarm,
-+	.set_alarm = nvvrs_rtc_set_alarm,
-+	.alarm_irq_enable = nvvrs_rtc_alarm_irq_enable,
-+};
-+
-+static int nvvrs_pseq_vendor_info(struct nvvrs_rtc_info *info)
-+{
-+	struct i2c_client *client = info->client;
-+	u8 vendor_id, model_rev;
-+	int ret;
-+
-+	ret = i2c_smbus_read_byte_data(client, NVVRS_REG_VENDOR_ID);
-+	if (ret < 0)
-+		return dev_err_probe(&client->dev, ret,
-+				     "Failed to read Vendor ID\n");
-+
-+	vendor_id = (u8)ret;
-+
-+	ret = i2c_smbus_read_byte_data(client, NVVRS_REG_MODEL_REV);
-+	if (ret < 0)
-+		return dev_err_probe(&client->dev, ret,
-+				     "Failed to read Model Revision\n");
-+
-+	model_rev = (u8)ret;
-+
-+	if (model_rev < NVVRS_MIN_MODEL_REV) {
-+		return dev_err_probe(&client->dev, -ENODEV,
-+				     "Chip revision 0x%02x is not supported!\n",
-+				     model_rev);
-+	}
-+
-+	dev_dbg(&client->dev, "NVVRS Vendor ID: 0x%02x, Model Rev: 0x%02x\n",
-+		vendor_id, model_rev);
-+
-+	return 0;
-+}
-+
-+static int nvvrs_rtc_probe(struct i2c_client *client)
-+{
-+	struct nvvrs_rtc_info *info;
-+	int ret;
-+
-+	info = devm_kzalloc(&client->dev, sizeof(*info), GFP_KERNEL);
-+	if (!info)
-+		return -ENOMEM;
-+
-+	mutex_init(&info->lock);
-+
-+	if (client->irq <= 0)
-+		return dev_err_probe(&client->dev, -EINVAL, "No IRQ specified\n");
-+
-+	info->irq = client->irq;
-+	info->dev = &client->dev;
-+	client->flags |= I2C_CLIENT_PEC;
-+	i2c_set_clientdata(client, info);
-+	info->client = client;
-+
-+	/* Check vendor info */
-+	if (nvvrs_pseq_vendor_info(info) < 0)
-+		return dev_err_probe(&client->dev, -EINVAL,
-+				     "Failed to get vendor info\n");
-+
-+	/* Clear any pending IRQs before requesting IRQ handler */
-+	if (nvvrs_pseq_irq_clear(info) < 0)
-+		return dev_err_probe(&client->dev, -EINVAL,
-+				     "Failed to clear interrupts\n");
-+
-+	/* Allocate RTC device */
-+	info->rtc = devm_rtc_allocate_device(info->dev);
-+	if (IS_ERR(info->rtc))
-+		return PTR_ERR(info->rtc);
-+
-+	info->rtc->ops = &nvvrs_rtc_ops;
-+	info->rtc->range_min = RTC_TIMESTAMP_BEGIN_2000;
-+	info->rtc->range_max = RTC_TIMESTAMP_END_2099;
-+
-+	/* Request RTC IRQ */
-+	ret = devm_request_threaded_irq(info->dev, info->irq, NULL,
-+					nvvrs_rtc_irq_handler, IRQF_ONESHOT,
-+					"nvvrs-rtc", info);
-+	if (ret < 0) {
-+		dev_err_probe(info->dev, ret, "Failed to request RTC IRQ\n");
-+		return ret;
-+	}
-+
-+	/* RTC as a wakeup source */
-+	devm_device_init_wakeup(info->dev);
-+
-+	return devm_rtc_register_device(info->rtc);
-+}
-+
-+#ifdef CONFIG_PM_SLEEP
-+static int nvvrs_rtc_suspend(struct device *dev)
-+{
-+	struct nvvrs_rtc_info *info = dev_get_drvdata(dev);
-+	int ret;
-+
-+	if (device_may_wakeup(dev)) {
-+		/* Set RTC_WAKE bit for auto wake system from suspend state */
-+		ret = nvvrs_update_bits(info, NVVRS_REG_CTL_2,
-+					NVVRS_REG_CTL_2_RTC_WAKE,
-+					NVVRS_REG_CTL_2_RTC_WAKE);
-+		if (ret < 0) {
-+			dev_err(info->dev, "Failed to set RTC_WAKE bit (%d)\n",
-+				ret);
-+			return ret;
-+		}
-+
-+		return enable_irq_wake(info->irq);
-+	}
-+
-+	return 0;
-+}
-+
-+static int nvvrs_rtc_resume(struct device *dev)
-+{
-+	struct nvvrs_rtc_info *info = dev_get_drvdata(dev);
-+	int ret;
-+
-+	if (device_may_wakeup(dev)) {
-+		/* Clear FORCE_ACT bit */
-+		ret = nvvrs_update_bits(info, NVVRS_REG_CTL_1,
-+					NVVRS_REG_CTL_1_FORCE_ACT, 0);
-+		if (ret < 0) {
-+			dev_err(info->dev, "Failed to clear FORCE_ACT bit (%d)\n",
-+				ret);
-+			return ret;
-+		}
-+
-+		return disable_irq_wake(info->irq);
-+	}
-+
-+	return 0;
-+}
-+
-+#endif
-+static SIMPLE_DEV_PM_OPS(nvvrs_rtc_pm_ops, nvvrs_rtc_suspend, nvvrs_rtc_resume);
-+
-+static const struct of_device_id nvvrs_rtc_of_match[] = {
-+	{ .compatible = "nvidia,vrs10-rtc" },
-+	{ },
-+};
-+MODULE_DEVICE_TABLE(of, nvvrs_rtc_of_match);
-+
-+static struct i2c_driver nvvrs_rtc_driver = {
-+	.driver		= {
-+		.name   = "rtc-nvidia-vrs10",
-+		.pm     = &nvvrs_rtc_pm_ops,
-+		.of_match_table = nvvrs_rtc_of_match,
-+	},
-+	.probe		= nvvrs_rtc_probe,
-+};
-+
-+module_i2c_driver(nvvrs_rtc_driver);
-+
-+MODULE_AUTHOR("Shubhi Garg <shgarg@nvidia.com>");
-+MODULE_DESCRIPTION("NVIDIA Voltage Regulator Specification RTC driver");
-+MODULE_LICENSE("GPL");
-diff --git a/include/linux/rtc/rtc-nvidia-vrs10.h b/include/linux/rtc/rtc-nvidia-vrs10.h
-new file mode 100644
-index 000000000000..3c9c46abf555
---- /dev/null
-+++ b/include/linux/rtc/rtc-nvidia-vrs10.h
-@@ -0,0 +1,78 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+/*
-+ * SPDX-FileCopyrightText: Copyright (c) 2025 NVIDIA CORPORATION & AFFILIATES.
-+ * All rights reserved
-+ */
-+
-+#ifndef _RTC_NVIDIA_VRS_H_
-+#define _RTC_NVIDIA_VRS_H_
-+
-+#include <linux/types.h>
-+
-+/* Vendor Info */
-+#define NVVRS_REG_VENDOR_ID			0x00
-+#define NVVRS_REG_MODEL_REV			0x01
-+
-+/*  Interrupts registers */
-+#define NVVRS_REG_INT_SRC1			0x10
-+#define NVVRS_REG_INT_SRC2			0x11
-+#define NVVRS_REG_INT_VENDOR			0x12
-+
-+/* Control Registers */
-+#define NVVRS_REG_CTL_1				0x28
-+#define NVVRS_REG_CTL_2				0x29
-+
-+/* RTC Registers */
-+#define NVVRS_REG_RTC_T3			0x70
-+#define NVVRS_REG_RTC_T2			0x71
-+#define NVVRS_REG_RTC_T1			0x72
-+#define NVVRS_REG_RTC_T0			0x73
-+#define NVVRS_REG_RTC_A3			0x74
-+#define NVVRS_REG_RTC_A2			0x75
-+#define NVVRS_REG_RTC_A1			0x76
-+#define NVVRS_REG_RTC_A0			0x77
-+
-+/* Interrupt Mask */
-+#define NVVRS_INT_SRC1_RSTIRQ_MASK		BIT(0)
-+#define NVVRS_INT_SRC1_OSC_MASK			BIT(1)
-+#define NVVRS_INT_SRC1_EN_MASK			BIT(2)
-+#define NVVRS_INT_SRC1_RTC_MASK			BIT(3)
-+#define NVVRS_INT_SRC1_PEC_MASK			BIT(4)
-+#define NVVRS_INT_SRC1_WDT_MASK			BIT(5)
-+#define NVVRS_INT_SRC1_EM_PD_MASK		BIT(6)
-+#define NVVRS_INT_SRC1_INTERNAL_MASK		BIT(7)
-+#define NVVRS_INT_SRC2_PBSP_MASK		BIT(0)
-+#define NVVRS_INT_SRC2_ECC_DED_MASK		BIT(1)
-+#define NVVRS_INT_SRC2_TSD_MASK			BIT(2)
-+#define NVVRS_INT_SRC2_LDO_MASK			BIT(3)
-+#define NVVRS_INT_SRC2_BIST_MASK		BIT(4)
-+#define NVVRS_INT_SRC2_RT_CRC_MASK		BIT(5)
-+#define NVVRS_INT_SRC2_VENDOR_MASK		BIT(7)
-+#define NVVRS_INT_VENDOR0_MASK			BIT(0)
-+#define NVVRS_INT_VENDOR1_MASK			BIT(1)
-+#define NVVRS_INT_VENDOR2_MASK			BIT(2)
-+#define NVVRS_INT_VENDOR3_MASK			BIT(3)
-+#define NVVRS_INT_VENDOR4_MASK			BIT(4)
-+#define NVVRS_INT_VENDOR5_MASK			BIT(5)
-+#define NVVRS_INT_VENDOR6_MASK			BIT(6)
-+#define NVVRS_INT_VENDOR7_MASK			BIT(7)
-+
-+/* Controller Register Mask */
-+#define NVVRS_REG_CTL_1_FORCE_SHDN		(BIT(0) | BIT(1))
-+#define NVVRS_REG_CTL_1_FORCE_ACT		BIT(2)
-+#define NVVRS_REG_CTL_1_FORCE_INT		BIT(3)
-+#define NVVRS_REG_CTL_2_EN_PEC			BIT(0)
-+#define NVVRS_REG_CTL_2_REQ_PEC			BIT(1)
-+#define NVVRS_REG_CTL_2_RTC_PU			BIT(2)
-+#define NVVRS_REG_CTL_2_RTC_WAKE		BIT(3)
-+#define NVVRS_REG_CTL_2_RST_DLY			0xF0
-+
-+enum nvvrs_irq_regs {
-+	NVVRS_IRQ_REG_INT_SRC1 = 0,
-+	NVVRS_IRQ_REG_INT_SRC2 = 1,
-+	NVVRS_IRQ_REG_INT_VENDOR = 2,
-+	NVVRS_IRQ_REG_COUNT = 3,
-+};
-+
-+#endif /* _RTC_NVIDIA_VRS_H_ */
-+
+ additionalProperties: false
+@@ -136,6 +142,7 @@ examples:
+         reg = <0x44200000 0x10000>;
+         #clock-cells = <1>;
+         #reset-cells = <1>;
++        #access-controller-cells = <1>;
+         clocks =  <&scmi_clk CK_SCMI_HSE>,
+                   <&scmi_clk CK_SCMI_HSI>,
+                   <&scmi_clk CK_SCMI_MSI>,
+
 -- 
 2.43.0
 
