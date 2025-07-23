@@ -4,64 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DBAFC83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 08:41:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91871C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 08:44:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eiSeklGXTHNclYYVVOQI8EShKXdV+LksKQOEcVg5v+M=; b=vtcIbJp+ey/1FlT7BssgFv5jtw
-	ZVBv5ioDx0EijLgdHZdH1xcP2vJY/EfcDpf5ej95QZcH2VHArJk7N935WIoKd3e4ioPdeN+42KfVT
-	zJUUIlTfwb68kK+BceFavaJGUEM7CiXyoET6WYokEE3QZ2dgMoM7iq8E0NAJ9U78n2NdCakRZTE6x
-	XAhLmP3B3UmSJJLQ9OI2ryR3dux2tfIjMSckgrmkNKgRVA2/wPsMfwA0ynM9GC4A2CdlawFUmfVjG
-	3NpyZy8Y33nXyq00fIq9uP6LN4h/AvEKvMs5b4J87a2Bt5mnqSsPqcg0e2fwaoBTOpWJ7OCcg7f0W
-	mt9yW4LA==;
+	bh=s7gA9FLl1vP8NvjAN5WjWgEXaUpwCdKmANjgPxdwySc=; b=ILHWIsSbQ0WrBmQHzpmK0lorvO
+	Lg6+OSExsxU9B006BP6UV/DYwTq/HCSuB2FcGEamibXxpuFklQZVmYFX1h0AIuzEZcvnT5fXUNMTI
+	9X5A4UAOciQ8eBielaJvZeMHCZ9atyajhITJVwgYQlG2qZvVLQj4e9s7hnAXqPqBIgBQdmY1JCPYo
+	huNMWSuJSCGa1SAzyZ4SJTPsSuxkWl2CmYiZmiRejpjJ3hzqhY6NgGT+PeB6E1l+UYDfPmqWiGml0
+	iYn/OcsmtgB91Woq8bdLBoYlPD95HASojxc4jIxnQdqIgGvlisqgxAQkuKTQWgOzUjXeYz3mVjAEA
+	2vpukHqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueV2n-00000004Okk-3I1G;
-	Wed, 23 Jul 2025 08:41:45 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1ueV5F-00000004P6b-2HZw;
+	Wed, 23 Jul 2025 08:44:17 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueUdA-00000004LgW-0Hqj
+	id 1ueUdf-00000004Lk8-0ITD
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Jul 2025 08:15:17 +0000
+	Wed, 23 Jul 2025 08:15:48 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5A74945694;
-	Wed, 23 Jul 2025 08:15:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA6CEC4CEE7;
-	Wed, 23 Jul 2025 08:15:14 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id EADCBA42694;
+	Wed, 23 Jul 2025 08:15:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9B26FC4CEE7;
+	Wed, 23 Jul 2025 08:15:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753258515;
-	bh=eiSeklGXTHNclYYVVOQI8EShKXdV+LksKQOEcVg5v+M=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=i6Zn7yIZs/V8rT/TV1qly7sPAgTI4oeD4vCse/IUYII6mdfRnTdnMiK2ac8SCngrp
-	 E6P1kvB8KBToFobjj5a3IJt4d9GIqrIyoA4EsS/9SsgwH82oOCdmQ/E8H4CQn0BCb1
-	 NjnYdu0BZGL++jD9ciwQcewr/7CTRVCThweq1Okg+RFs2v/Nvur2bA+xWvmmpFrz8o
-	 t1Ob9T8u8jVJefuajdX2QGQVnlw5Tln0hhZnrIsUAyEdz9WRvXFnsa5PMvURgeJgNZ
-	 9lZGnDxS9TPYwKS9fMntWNTlZ54gT0wD0Rx57GLHp6M09gn0XhQ2HOpFQjD3CxYMT/
-	 vo/LxXcu56/6w==
-Date: Wed, 23 Jul 2025 10:15:12 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Alim Akhtar <alim.akhtar@samsung.com>, Sam Protsenko <semen.protsenko@linaro.org>, 
-	Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1 1/2] dt-bindings: soc: samsung: usi: allow 64-bit
- address space
-Message-ID: <20250723-hypnotic-malkoha-of-trust-9efdb6@kuoka>
-References: <20250722121037.443385-1-ivo.ivanov.ivanov1@gmail.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20250722121037.443385-1-ivo.ivanov.ivanov1@gmail.com>
+	s=k20201202; t=1753258545;
+	bh=LOANSXNjao9DlLM6WkAOe+kFIJ2QNG6SQWQjfjQeWc8=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=aif8To8PAU+6nsiTwyGOaehSwMU+/RfleVl6mgNvderChLF5PX2vWaPpT2WsQevx6
+	 VWjYYg5CzVUCjaEO3uis6DzhF9UBlBfPba0R5WerzmJtKufKWQMbVRsucSogmUtfWv
+	 CfUCpbAP7Kek0Vx125KR5mxOvxHnZFDaPMsxF9li/Eht4qjxYytLN/VK0E/iXg8INe
+	 LSJBfqemz+QChuxX9+j13uPco2AchkxXXDnlbtJl6A+LzM5DiRfNdwWoBsEugiFXL7
+	 wceQcMsSc78DDUbEn9OKUR4xRcOnA7XkJd1Ha1/nZ+HBfIffg35OZr+VC/eJKqQenW
+	 /RXEv632AOKHw==
+Received: from 82-132-236-66.dab.02.net ([82.132.236.66] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1ueUda-000bfX-UY;
+	Wed, 23 Jul 2025 09:15:43 +0100
+Date: Wed, 23 Jul 2025 09:15:34 +0100
+Message-ID: <87qzy7tja1.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Itaru Kitayama <itaru.kitayama@linux.dev>
+Cc: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Eric Auger <eric.auger@redhat.com>
+Subject: Re: [PATCH 4/4] KVM: arm64: selftest: vgic-v3: Add basic GICv3 sysreg userspace access test
+In-Reply-To: <aIBseJ3aO+hMVAee@vm4>
+References: <20250718111154.104029-1-maz@kernel.org>
+	<20250718111154.104029-5-maz@kernel.org>
+	<aIBseJ3aO+hMVAee@vm4>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 82.132.236.66
+X-SA-Exim-Rcpt-To: itaru.kitayama@linux.dev, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, eric.auger@redhat.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250723_011516_127731_404587B7 
-X-CRM114-Status: UNSURE (   9.75  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250723_011547_235508_2C4E658A 
+X-CRM114-Status: GOOD (  16.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,18 +91,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 22, 2025 at 03:10:36PM +0300, Ivaylo Ivanov wrote:
-> Some device trees, like the exynos2200 one, configure the root node
-> with #address-cells and #size-cells set to 2. However, the usi binding
-> expects 32 bit address space only. Allow these determining properties to
+On Wed, 23 Jul 2025 06:00:40 +0100,
+Itaru Kitayama <itaru.kitayama@linux.dev> wrote:
+> 
+> On Fri, Jul 18, 2025 at 12:11:54PM +0100, Marc Zyngier wrote:
+> > We have a lot of more or less useful vgic tests, but none of them
+> > tracks the availability of GICv3 system registers, which is a bit
+> > annoying.
+> > 
+> > Add one such test, which covers both EL1 and EL2 registers.
+> > 
+> > Signed-off-by: Marc Zyngier <maz@kernel.org>
+> 
+> I've tested this selftest on the RevC FVP with kvm-arm.mode=nested.
+> 
+> Tested-by: Itaru Kitayama <itaru.kitayama@fujitsu.com>
+> 
+> Running GIC_v3 tests.
+> __vm_create: mode='PA-bits:40,  VA-bits:48,  4K pages' type='0', pages='672'
+> __vm_create: mode='PA-bits:40,  VA-bits:48,  4K pages' type='0', pages='657'
+> __vm_create: mode='PA-bits:40,  VA-bits:48,  4K pages' type='0', pages='672'
+> __vm_create: mode='PA-bits:40,  VA-bits:48,  4K pages' type='0', pages='672'
+> __vm_create: mode='PA-bits:40,  VA-bits:48,  4K pages' type='0', pages='672'
+> __vm_create: mode='PA-bits:40,  VA-bits:48,  4K pages' type='0', pages='672'
+> __vm_create: mode='PA-bits:40,  VA-bits:48,  4K pages' type='0', pages='682'
+> __vm_create: mode='PA-bits:40,  VA-bits:48,  4K pages' type='0', pages='682'
+> __vm_create: mode='PA-bits:40,  VA-bits:48,  4K pages' type='0', pages='657'
+> __vm_create: mode='PA-bits:40,  VA-bits:48,  4K pages' type='0', pages='672'
+> __vm_create: mode='PA-bits:40,  VA-bits:48,  4K pages' type='0', pages='657'
 
-So if USI expects 32 bit, then why do we allow 64?
+I have no idea what you tested it on, because I get none of this
+nonsense.
 
-Switching this to 2 means you use 64-bit addressing for children and
-allowing DMA for >32 bit. This should be the true reason - what is the
-address space and DMA range for children?
+Where is it coming from?
 
-Best regards,
-Krzysztof
+	M.
 
+-- 
+Jazz isn't dead. It just smells funny.
 
