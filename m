@@ -4,87 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E63DC83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 12:49:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19475C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 12:51:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TWJ1vaC9mhdphahBr4AxdkgQcamHOy69P9zg4SNDFJE=; b=Uw0IGz9tMNifTTphTtKOUAHrkk
-	1nfNGD8mew7SLKbSkcExCTIzT1RLpJxVzBkJIOyYRoJ4Z/N/XP68//1sS71z4ar7hyPBtTVHWoLuH
-	JZD09wQgGM8QltJJTuv+2egmiZTeJ+vdEmyn6uJnt3RxxZhhPy5qDS2PETOhTL4c4FFyIzxXh/b3v
-	UsxryIGRkLRxpr22sbV6WX629jw1WVkkqIBoTzER5lbRkGX2pnFNe458/PRlWCkRhK+NTxOCNX4zX
-	fbxxckoZkxxdVupenl4qnG4c8+P2MX2QpMOSv4WX5P+M7BoCotrp3/Bug6EY69PlrDtbncYaduzVo
-	poHARnhA==;
+	bh=C3Sf3TjZd+mvtKJHnbLP2Cb4CrvYDvInYr+aLRUdZlM=; b=LSQYmb77fsIiUOM2PG/mSgaTFp
+	0PkNOZfeEqPnxSJv38hXd1rBUq9zyruvf5XRypEsOQgs76P+KebcD3F6fueDr+qsUbgRafMNRqwkd
+	7o+7zqcaJbn4RYy10eXbuJLQQZjnDoH1NC/6emSmf9vTA3JzopmIiVj37+bT9QKe4K8UuFxJKpY0+
+	i4Yd6Dl69wlwAOiIvXZIfD8C6E9hF9qRrt18xDLZb7xXzC2WbRBFD/KqCOsyNQkr7cvNwTczSEotI
+	YNKpnBKjAJmfjx12F87URZbWwRCPiXqIvkMHP+hQRbLVLSpxz3miD4EzbeNMb9lytuVnXxkALTpjt
+	GC6qx0Og==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueYuU-00000004waF-152m;
-	Wed, 23 Jul 2025 12:49:26 +0000
-Received: from mail-lf1-x12a.google.com ([2a00:1450:4864:20::12a])
+	id 1ueYwl-00000004wuu-45zw;
+	Wed, 23 Jul 2025 12:51:47 +0000
+Received: from smtp.forwardemail.net ([149.28.215.223])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueXib-00000004ojF-2ZYw
+	id 1ueYW7-00000004tx9-23NV
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Jul 2025 11:33:06 +0000
-Received: by mail-lf1-x12a.google.com with SMTP id 2adb3069b0e04-55622414cf4so5734914e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Jul 2025 04:33:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1753270384; x=1753875184; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=TWJ1vaC9mhdphahBr4AxdkgQcamHOy69P9zg4SNDFJE=;
-        b=A1ny37NXn8/xYQ+AJwsidc0dENQD+8kF1fnStkIjIXhIoQ/HSrR2NcX9PwmIVqL6iq
-         SBnbAPKuiIaQ1L2E/Cv6kw1b6nemxj5yW0u0tNgKdUw6QXGRUYEJuzQio2defdgiTDYm
-         lthMMGw6vHLz7UhZEv6KlnRssaI5FtdwB1oSDyemydcSUkIv9wk0zSuCgG3wnmEcZbVi
-         TASLDHJIkt3FjuVj+YMViqMRHNUiG+ipDhkBvwOLinvCR1KddVq+XM6zUviuIjSKUkgV
-         kbYp24LcgX2Z8TKdSuzm0u6Rmss8vqJC/zfVvjqYW8791rz+VjJc3LQ+bGN6tFjMDl7Y
-         KpHw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753270384; x=1753875184;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=TWJ1vaC9mhdphahBr4AxdkgQcamHOy69P9zg4SNDFJE=;
-        b=kNVWFX2xSAIPds7wKad2lqtqxn3/C1WeoQiKnF4pQMhL7nNhYERzXpJtc9yE4S+7Xj
-         kpcjDlvW+kUHQfvn7W4Fa7N/FwdVvxOukpe6KdFwGkYigIai3f5B6oBxCAmqmWZMBdBm
-         RNBjhjQb4dl/xqsfX0nlNv8Ax789Q3bYpRnpNdcGoHCDgrp258UTlyOfqxrWuDeCXG2n
-         eyRpVNDOxje+vC8jx6EBXDJeg0+AIR7TxEe4rjgDziF4EBDYK5/q0TsWPvR+bi6hG0s7
-         QDqejSLFvbFEU5u84vZX/AzwryfWZT4iu93rUzmtlja7ZVdXndL/ChRbNSu7acpMc4Jo
-         /kzg==
-X-Forwarded-Encrypted: i=1; AJvYcCUXgCbeovuNrdUI8XYmAb3RVkPPa/6UkHgebbvVSRIqaHThf6DDywnI3pXtSFCp5/s/QtQHzmWcQ5kfiRynsL0E@lists.infradead.org
-X-Gm-Message-State: AOJu0YyOjlwqeo6GYUw4GEgg7MMVn+O16VjyQtIHFt1J/vMAzy2V2IbB
-	uMRoDR2rU/JFhdcFS2SrBIUzudAXrW7Z7SgpmPEZqHzJYp6FMKkgz1MGiqipY0Hb8XBqcn+E5Es
-	cruoxKMfsV37lDhCY1QBvR0J7441LU/wJEm0pzsylEQ==
-X-Gm-Gg: ASbGncu6t0uo4+eCao561fMyxhCtt9/To/G6AES/F3abUgZxICl172E6oq/q/dHED61
-	g6pnoKh51Hf0ZXjJZP1bUifoNayyfUcfm8GSxwrpOFwTJLP9bxGwBd/Dtc/zDxHm6UCfFNShR0O
-	S/uvk4L2pIv953yR/8Cwj6feaWZ+OlRlh7pJIItSMJbWx+0mf12ArZyxwi+S1tUo9FkToVZzoCf
-	hdoV8s=
-X-Google-Smtp-Source: AGHT+IGAxN/JXh1EsU6InJKjwWnNX99YeFSCDuYAjM788AXYCd+mzZfDQU6t+N5nE5+MTj/X0VenBnfY0SKgi/lR+VM=
-X-Received: by 2002:a05:6512:3e1f:b0:55a:826d:fa31 with SMTP id
- 2adb3069b0e04-55a826dfcfemr569462e87.37.1753270383732; Wed, 23 Jul 2025
- 04:33:03 -0700 (PDT)
+	Wed, 23 Jul 2025 12:24:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
+ h=Content-Transfer-Encoding: MIME-Version: References: In-Reply-To:
+ Message-ID: Date: Subject: Cc: To: From; q=dns/txt; s=fe-e1b5cab7be;
+ t=1753273455; bh=C3Sf3TjZd+mvtKJHnbLP2Cb4CrvYDvInYr+aLRUdZlM=;
+ b=uMhjSf4ZhopE7OzFLpOWWoKf7tnluASInCuuxsn+IjxhDyt9X/by2c0AUKEEnQJCGpkOHCMzn
+ pIlWugbqoDXU+q3SIgcMR9Y/QYXUJBn19zulYxryAbgVbpdPL8enVMvuAbaBFJHdKLVUdMj7ZxX
+ 8A7yMXzeNJ0uMxTXOgRzsXvkfyftShSXl5s5Q8+o77N/l+dW6F+EVTGI+UCIutDY2PntwZLHBwV
+ 4RUqfw0fsnC449TtF4p2aZlECAqXN3Ku1Rj0zGGVGNH1WsIcU6Dm+jUtFQyoKJ3tLnFyCAd9lWU
+ KIA7xiaRpJlmJF8yk5cxax58CADoiPfXE/K4IOelmuWg==
+X-Forward-Email-ID: 6880d469cb0ee86f9731a11f
+X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
+ 149.28.215.223
+X-Forward-Email-Version: 1.1.6
+X-Forward-Email-Website: https://forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Report-Abuse-To: abuse@forwardemail.net
+From: Jonas Karlman <jonas@kwiboo.se>
+To: Heiko Stuebner <heiko@sntech.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>
+Cc: Yao Zi <ziyao@disroot.org>,
+	Chukun Pan <amadeus@jmu.edu.cn>,
+	linux-rockchip@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-phy@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Jonas Karlman <jonas@kwiboo.se>
+Subject: [PATCH 09/11] arm64: dts: rockchip: Enable USB 2.0 ports on Radxa ROCK 2A/2F
+Date: Wed, 23 Jul 2025 12:23:07 +0000
+Message-ID: <20250723122323.2344916-10-jonas@kwiboo.se>
+X-Mailer: git-send-email 2.50.1
+In-Reply-To: <20250723122323.2344916-1-jonas@kwiboo.se>
+References: <20250723122323.2344916-1-jonas@kwiboo.se>
 MIME-Version: 1.0
-References: <20250717063042.2236524-1-christian.bruel@foss.st.com>
-In-Reply-To: <20250717063042.2236524-1-christian.bruel@foss.st.com>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Wed, 23 Jul 2025 13:32:52 +0200
-X-Gm-Features: Ac12FXz0suPsP2VK94jurXo8uzOTltHa9LM0UQkrYO80w5wNLroNiLg4heFForw
-Message-ID: <CACRpkdZHw8am05Qcjp7FJyo7D7bZcvzZKVjdB7BUCq3FuQCy8A@mail.gmail.com>
-Subject: Re: [RESEND PATCH 0/2] Add pinctrl_pm_select_init_state helper function
-To: Christian Bruel <christian.bruel@foss.st.com>
-Cc: lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org, 
-	robh@kernel.org, bhelgaas@google.com, mcoquelin.stm32@gmail.com, 
-	alexandre.torgue@foss.st.com, linux-pci@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-gpio@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250723_043305_647979_0EED4DB2 
-X-CRM114-Status: GOOD (  14.73  )
+X-CRM114-CacheID: sfid-20250723_052415_558258_814CF910 
+X-CRM114-Status: UNSURE (   9.92  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,34 +85,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 17, 2025 at 8:33=E2=80=AFAM Christian Bruel
-<christian.bruel@foss.st.com> wrote:
+The ROCK 2A has three USB 2.0 Type-A HOST ports behind an onboard
+USB hub, and one USB 3.0 Type-A port.
 
-> We have the helper functions pinctrl_pm_select_default_state and
-> pinctrl_pm_select_sleep_state.
-> This patch adds the missing pinctrl_pm_select_init_state function.
->
-> The STM32MP2 needs to set the pinctrl to an initial state during
-> pm_resume, just like in probe. To achieve this, the function
-> pinctrl_pm_select_init_state is added.
->
-> This allows a driver to balance pinctrl_pm_select_sleep_state()
-> with pinctrl_pm_select_default_state() and
-> pinctrl_pm_select_init_state() in pm_runtime_suspend and pm_runtime_resum=
-e.
->
-> Christian Bruel (2):
->   pinctrl: Add pinctrl_pm_select_init_state helper function
->   PCI: stm32: use pinctrl_pm_select_init_state() in
->     stm32_pcie_resume_noirq()
+And the ROCK 2F has two USB 2.0 Type-A HOST ports behind an onboard
+USB hub, and one USB 2.0 Type-C OTG port.
 
-If Bjorn Helgaas is OK with it I can apply this to the pinctrl tree.
+Add support for using the USB 2.0 ports on Radxa ROCK 2A/2F.
 
-Otherwise I can also just apply patch 1/2, but that doesn't solve
-any problem.
+The onboard USB hub handles OHCI so only the EHCI controller is enabled.
 
-What should I do?
+Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
+---
+ arch/arm64/boot/dts/rockchip/rk3528-rock-2.dtsi | 13 +++++++++++++
+ arch/arm64/boot/dts/rockchip/rk3528-rock-2f.dts | 12 ++++++++++++
+ 2 files changed, 25 insertions(+)
 
-Yours,
-Linus Walleij
+diff --git a/arch/arm64/boot/dts/rockchip/rk3528-rock-2.dtsi b/arch/arm64/boot/dts/rockchip/rk3528-rock-2.dtsi
+index aedc7ee9ee46..aeced80f1ef2 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3528-rock-2.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3528-rock-2.dtsi
+@@ -286,8 +286,21 @@ &sdmmc {
+ 	status = "okay";
+ };
+ 
++&u2phy {
++	status = "okay";
++};
++
++&u2phy_host {
++	phy-supply = <&vcc5v0_usb20>;
++	status = "okay";
++};
++
+ &uart0 {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&uart0m0_xfer>;
+ 	status = "okay";
+ };
++
++&usb_host0_ehci {
++	status = "okay";
++};
+diff --git a/arch/arm64/boot/dts/rockchip/rk3528-rock-2f.dts b/arch/arm64/boot/dts/rockchip/rk3528-rock-2f.dts
+index 3e2b9b685cb2..a517dfe9930e 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3528-rock-2f.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3528-rock-2f.dts
+@@ -8,3 +8,15 @@ / {
+ 	model = "Radxa ROCK 2F";
+ 	compatible = "radxa,rock-2f", "rockchip,rk3528";
+ };
++
++&u2phy_otg {
++	status = "okay";
++};
++
++&usb_host0_xhci {
++	extcon = <&u2phy>;
++	maximum-speed = "high-speed";
++	phys = <&u2phy_otg>;
++	phy-names = "usb2-phy";
++	status = "okay";
++};
+-- 
+2.50.1
+
 
