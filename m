@@ -4,68 +4,137 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 886AFC83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 15:49:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8945DC83F34
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 15:49:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FhP6rOtQvB4VYIXnnNpu3xwHjjjJTBlHfuZIWCxLQIE=; b=IKtXVyJ6WxOIP0TAMSVtZQfzvs
-	Ko31z9GgTmg3NWfGR8l5pC/qSCgt8MIxwY7ekcmww2X+djQG+ZFCDC4VjchoatltvH/xnqn4Uf1IK
-	CtuMwK9mm25GOPvKBLlCqBj2lUeIhNPgMdCAx0voPD1yFin5ztQBrYnCTQGIUR24wTMd3riIeC3vw
-	6q6PqePtKqbwDKnKLpUr/TJl5VS5AzhmL8zVAyg6rSajx9mazS8WJhyvgHy6PoENJZ+z5kpkNOC2M
-	Bu29Z3zjr5fUbzNTHK3z2Q8VHAOn6O36+bXmbGG4qm1P2v40uqf/ANx4NeoS5qZMelcrYtoRm35N/
-	Ai/5++0w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
+	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yopYTcaLHy/YngxUjGRVUYbmllYbCh12wVB+pNQbzC0=; b=2so6nxJLWtgCnBHr3/OnNleT4T
+	fp2PiBdRvbZGSf/EYS7yPBkx53Yl5tnkshOLfsxzKWVF9Jes4r1KjSrsAzevLK3uqqK9oKxDzF4gR
+	xOybGkT4RjGubkoTd7Rj4Agl0bO21/sxBdxtMb68nP6DVAICLVhWlaiCM2G3FSuY4H0ACxQOQdetb
+	4uODUZovGqLGQ84pdic86emtYX98/gGEUMkc2fOcqYXhgx3ZKWv1PfByMza+tRfAi3aHYF6zdYjT7
+	mltgWHd+Tn02v1s5DlKg/M2s8+ebUJ4t08jeCzEBQWPf5mjdzeVsuY8DizCVSsITU5tjbVaAghATi
+	3sGb+3Bw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uebiz-00000005QTY-3d9M;
-	Wed, 23 Jul 2025 15:49:45 +0000
-Received: from smtp.forwardemail.net ([121.127.44.73])
+	id 1uebj1-00000005QUg-49Zp;
+	Wed, 23 Jul 2025 15:49:48 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uebQe-00000005O5v-1KIc
+	id 1uebVx-00000005Oiz-3LUx
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Jul 2025 15:30:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
- h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
- Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
- s=fe-e1b5cab7be; t=1753284647;
- bh=FhP6rOtQvB4VYIXnnNpu3xwHjjjJTBlHfuZIWCxLQIE=;
- b=yQ+sQpsVWFym/IY/+l4Yygit1JpbaBJXr7tmTBfx8cEv2Jw98S08DHzQfTYTWt8Tb/ACYtMFh
- kM3IODCU+Pt+7vai8zeVrWEDQt4d1m1Zj/r0GcqEoQHpX8NkeGDjo09wFyZ2lw8z+liWC9ay3qc
- t0wmcGOOEaqLMGbTf1VGEkxraZXZM1t12+lA9++UD7kCPR2tWsJbHhAHLBZRFu5G2TTqRhbXZHi
- DFlAtbw50g9tUIthRnRoEACqIvOmh6jLB3Mzj6wj+TNG5r5X5UPM4I1gGplW5/1IPVj0cz5qwLR
- ueGeHug1gaYA06B1iHhajsymKatSbOUozRu5zmMwYGhw==
-X-Forward-Email-ID: 68810025cb0ee86f9731e6c0
-X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
- 121.127.44.73
-X-Forward-Email-Version: 1.1.6
-X-Forward-Email-Website: https://forwardemail.net
-X-Complaints-To: abuse@forwardemail.net
-X-Report-Abuse: abuse@forwardemail.net
-X-Report-Abuse-To: abuse@forwardemail.net
-Message-ID: <94357eb2-d8aa-4928-8816-9f6529530170@kwiboo.se>
-Date: Wed, 23 Jul 2025 17:30:39 +0200
+	Wed, 23 Jul 2025 15:36:19 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-4560add6cd2so686405e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Jul 2025 08:36:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1753284976; x=1753889776; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:references:cc:to:subject:reply-to:from:user-agent
+         :mime-version:date:message-id:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=yopYTcaLHy/YngxUjGRVUYbmllYbCh12wVB+pNQbzC0=;
+        b=nMhbGuutm57Njv/a3kbiaj4RKDIQxigCaRqyr3xS/tYgmE3GK/DQ7JpBQ5mEv6GpxC
+         i7TCcP78HumVMvvQhr3XH+CxQo8hv8T69tNwxj3Xg+sBEs+gCW55enoPV1mZznOKvbDr
+         r46d2u+nXeKTdrsnThBTvzkQrIl+2yW/JAEUU4ub6fOtczelMrezPOtvKzJfu0jF7i6I
+         ZZNBZVh8QS9u8f9vpRyWH//pDL67l2Kmgl7SDa21up78EZ2s6Wh83g1lEQsCvy/Mzkdj
+         5AsuIyhQ0+IdKuIUrpuJ66WyJYrGfUilIioedW2J1YDTY30+198xnBwptayRUHgqky2p
+         nP8g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1753284976; x=1753889776;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:references:cc:to:subject:reply-to:from:user-agent
+         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=yopYTcaLHy/YngxUjGRVUYbmllYbCh12wVB+pNQbzC0=;
+        b=RKFnMS22+DI1x3zWhDxIeVqin6E02fz3MBlWT+Xmf3ZpESciiFTbXO57OH3lMkKiuC
+         3yWrkUpJqCrH2YXOd5ON0TkFQvNrAKnZvH8SdtNT9GeinRgizoRETSYqpS7YiFKxTncE
+         aJpGcLqP8H6bmYq6ULiNBrkkS52+zWGGFT1xlpzgcQxq8FkMG+8Ne6Hr0+pkQ3sd6+RC
+         R0b3QOhdiEizSXBe4x6PZzNTkLQP0Gy8JXhC1Tbtv56OiPX1/fJBHKLUxAFjqzzIbOOa
+         2d/Tj/pJBUmZzxI1hWfjebyeEK0qjAXxb5kaalpvTdD8dZrcIVA5IoF4KooH1xi6N5CZ
+         020Q==
+X-Forwarded-Encrypted: i=1; AJvYcCX6RZnyuvDcmvTc9D2o681kyMbsbvdRC0mfym/PAgw4HzBVo+k3rJiF63vLJRjPnJXdkZdN72b/zYj9CljbLM91@lists.infradead.org
+X-Gm-Message-State: AOJu0YySlFoFazCJqXEjcfyb0QTJYc/JNTajNo5V8roaN1orvc6LUi6O
+	mguhWt1DfaiwPQII5fY0BVBg/Tt6EwamE+KgSPxyN9MQzL2CsTC3kaGEjOh8vJlM7xg=
+X-Gm-Gg: ASbGncvQgHW74f3JuBY3t4kyCH8ByhcTAOlp+ct5Nd1bqbeb/3CY9BqcWcsvRGQoKh+
+	mRNGnEn/DsdEPW7orcdhet033YYtb0IqisaBE6TLYL89qhFtlvlAdsquxECZ6giqKfpaMEkY9kB
+	9NagqOhJ4mJH/DXiHez2ZQ2pTNdpHZNpfmM0oQs2Xj/bQNzJcvAGS/wBhe0W29cFZEZ/4hy6g9D
+	WNyKyz/F0XAKqz/3gPsUckE+uiQ5MEFksHAuAvFJbtdGiGtnklmxBx6EuwWk6Fca4Yv5Ix0eUbY
+	LsKAOpy1COdmrjZNlTTrwJfYiz2geLlreM8Xd243li+YLDO8CNXjP0vYbRmTAup/KpH45D1a54N
+	roDWl4t1TngsQZyIn+BTF74WPDB6Pt0JYdRka6QVbuVwYDs5QEdUCvTVRPYR6l8PyLKHom4PbIj
+	2W1Z7jD7jPWs4h
+X-Google-Smtp-Source: AGHT+IE36FCAwkzfiHLT8YUTKB5dl8mhn5lwwrUiNUjYfXCamvnt7XB94dMS1C8m5vdXXhKPLuuwTA==
+X-Received: by 2002:a05:600c:4fc9:b0:456:1157:59ac with SMTP id 5b1f17b1804b1-45868b23d24mr31817135e9.7.1753284975917;
+        Wed, 23 Jul 2025 08:36:15 -0700 (PDT)
+Received: from ?IPV6:2a01:cb14:150f:cf00:b6af:e6a0:6569:3a1? ([2a01:cb14:150f:cf00:b6af:e6a0:6569:3a1])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4586918094csm26728745e9.2.2025.07.23.08.36.14
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 23 Jul 2025 08:36:15 -0700 (PDT)
+Message-ID: <268811ba-03c5-4957-b073-1dfbad77747b@linaro.org>
+Date: Wed, 23 Jul 2025 17:36:14 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 07/11] arm64: dts: rockchip: Add USB nodes for RK3528
-To: Chukun Pan <amadeus@jmu.edu.cn>
-Cc: conor+dt@kernel.org, devicetree@vger.kernel.org, heiko@sntech.de,
- kishon@kernel.org, krzk+dt@kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org,
- linux-rockchip@lists.infradead.org, robh@kernel.org, vkoul@kernel.org,
- ziyao@disroot.org
-References: <20250723122323.2344916-8-jonas@kwiboo.se>
- <20250723143006.1083489-1-amadeus@jmu.edu.cn>
-Content-Language: en-US
-From: Jonas Karlman <jonas@kwiboo.se>
-In-Reply-To: <20250723143006.1083489-1-amadeus@jmu.edu.cn>
-Content-Type: text/plain; charset=UTF-8
+From: neil.armstrong@linaro.org
+Subject: Re: [PATCH v2 14/15] arm64: dts: qcom: Add initial Milos dtsi
+To: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+ Luca Weiss <luca.weiss@fairphone.com>, Will Deacon <will@kernel.org>,
+ Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, "Rafael J. Wysocki" <rafael@kernel.org>,
+ Viresh Kumar <viresh.kumar@linaro.org>,
+ Manivannan Sadhasivam <mani@kernel.org>,
+ Herbert Xu <herbert@gondor.apana.org.au>,
+ "David S. Miller" <davem@davemloft.net>, Vinod Koul <vkoul@kernel.org>,
+ Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konradybcio@kernel.org>, Robert Marko <robimarko@gmail.com>,
+ Das Srinagesh <quic_gurus@quicinc.com>, Thomas Gleixner
+ <tglx@linutronix.de>, Jassi Brar <jassisinghbrar@gmail.com>,
+ Amit Kucheria <amitk@kernel.org>, Thara Gopinath <thara.gopinath@gmail.com>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>,
+ Lukasz Luba <lukasz.luba@arm.com>, Ulf Hansson <ulf.hansson@linaro.org>
+Cc: ~postmarketos/upstreaming@lists.sr.ht, phone-devel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-pm@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+ linux-crypto@vger.kernel.org, dmaengine@vger.kernel.org,
+ linux-mmc@vger.kernel.org
+References: <20250713-sm7635-fp6-initial-v2-0-e8f9a789505b@fairphone.com>
+ <20250713-sm7635-fp6-initial-v2-14-e8f9a789505b@fairphone.com>
+ <3e0299ad-766a-4876-912e-438fe2cc856d@oss.qualcomm.com>
+Content-Language: en-US, fr
+Autocrypt: addr=neil.armstrong@linaro.org; keydata=
+ xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
+ GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
+ BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
+ qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
+ 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
+ AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
+ OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
+ Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
+ YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
+ GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
+ UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
+ GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
+ yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
+ QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
+ SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
+ 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
+ Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
+ oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
+ M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
+ 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
+ KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
+ 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
+ QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
+Organization: Linaro
+In-Reply-To: <3e0299ad-766a-4876-912e-438fe2cc856d@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250723_083048_428638_D8DACFF2 
-X-CRM114-Status: GOOD (  21.29  )
+X-CRM114-CacheID: sfid-20250723_083617_848405_BAC8364A 
+X-CRM114-Status: GOOD (  10.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,103 +146,34 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: Neil Armstrong <neil.armstrong@linaro.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Chukun,
+Hi,
 
-On 7/23/2025 4:30 PM, Chukun Pan wrote:
-> Hi,
+<snip>
 > 
->> The DWC3 node does not contain any default phys because out of current
->> and pending supported boards only one board, ROCK 2A, can use USB3.
->> Remaining boards use the Naneng Combo PHY for PCIe instead of USB3.
+>> +	pmu-a520 {
+>> +		compatible = "arm,cortex-a520-pmu";
+>> +		interrupts = <GIC_PPI 7 IRQ_TYPE_LEVEL_LOW>;
+>> +	};
+>> +
+>> +	pmu-a720 {
+>> +		compatible = "arm,cortex-a720-pmu";
+>> +		interrupts = <GIC_PPI 7 IRQ_TYPE_LEVEL_LOW>;
+>> +	};
 > 
-> I have other RK3528 boards with USB3 and can test this in a few days.
-> Or do you think that usb3-phy should be added in the dts of the device?
-
-That is what I did for ROCK 2A testing I added the usb3-phy to the board
-dts. Mostly for two reasons, first because I did not want to make this
-series fully depend on the naneng-combphy series. And secondly because
-the ROCK 2A also have some sort of GPIO controlled mux for USB3 and PCIe
-signals that may affect how usb3 support is described in the device tree.
-
-I am open to ideas on how or what default phys to include in soc dtsi.
-
-For the ROCK 2A usb3-phy example, please see the commit "arm64: dts:
-rockchip: Enable USB 3.0 port on ROCK 2A" at [1].
-
-[1] https://github.com/Kwiboo/linux-rockchip/commits/next-20250722-rk3528/
-
+> See:
 > 
->> diff --git a/arch/arm64/boot/dts/rockchip/rk3528.dtsi b/arch/arm64/boot/dts/rockchip/rk3528.dtsi
->> index 85bc3f5aa2c7..3e51a3f51e05 100644
->> --- a/arch/arm64/boot/dts/rockchip/rk3528.dtsi
->> +++ b/arch/arm64/boot/dts/rockchip/rk3528.dtsi
->> @@ -243,6 +243,29 @@ soc {
->>  		#address-cells = <2>;
->>  		#size-cells = <2>;
->>
->> +		usb_host0_xhci: usb@fe500000 {
->> +			compatible = "rockchip,rk3528-dwc3", "snps,dwc3";
->> +			reg = <0x0 0xfe500000 0x0 0x400000>;
->> +			clocks = <&cru CLK_REF_USB3OTG>,
->> +				 <&cru CLK_SUSPEND_USB3OTG>,
->> +				 <&cru ACLK_USB3OTG>;
->> +			clock-names = "ref_clk", "suspend_clk", "bus_clk";
->> +			interrupts = <GIC_SPI 152 IRQ_TYPE_LEVEL_HIGH>;
->> +			power-domains = <&power RK3528_PD_VPU>;
->> +			resets = <&cru SRST_A_USB3OTG>;
->> +			dr_mode = "otg";
->> +			phy_type = "utmi_wide";
->> +			snps,dis_enblslpm_quirk;
->> +			snps,dis-del-phy-power-chg-quirk;
->> +			snps,dis-tx-ipgap-linecheck-quirk;
->> +			snps,dis-u1-entry-quirk;
->> +			snps,dis-u2-entry-quirk;
->> +			snps,dis-u2-freeclk-exists-quirk;
->> +			snps,parkmode-disable-hs-quirk;
->> +			snps,parkmode-disable-ss-quirk;
+> 9ce52e908bd5 ("arm64: dts: qcom: sm8650: switch to interrupt-cells 4 to add PPI partitions")
+> 2c06e0797c32 ("arm64: dts: qcom: sm8650: add PPI interrupt partitions for the ARM PMUs")
 > 
-> Maybe "snps,dis_u2_susphy_quirk" is needed?
 
-Maybe, it did not seem to be needed when I tested USB2.0 only or USB3.0,
-will run some more tests on my boards.
+Yeah switch to 4 cells now, so you can properly route the PMU PPI interrupt to the right core.
 
-Any issues you know that snps,dis_u2_susphy_quirk would help fix?
+New SoCs DTs should have 4 interrupts-cells from now, I'll migrate sm8550 shortly.
 
-For my latest USB testing I have included a few USB related changes in
-U-Boot, e.g. early disable of U3 port. Will push and updated rk3528
-branch [2] once source.denx.de is fully back online again.
-
-[2] https://source.denx.de/u-boot/contributors/kwiboo/u-boot/-/commits/rk3528
-
-> Downstream kernels add this on USB2.0 only devices:
-> https://github.com/rockchip-linux/kernel/blob/develop-5.10/arch/arm64/boot/dts/rockchip/rk3528-demo.dtsi#L474
-> 
->> +		u2phy: usb2phy@ffdf0000 {
->> +			u2phy_otg: otg-port {
->> +			u2phy_host: host-port {
-> 
-> I think it would be better to call it usb2phy, usb2phy0_otg and usb2phy0_host?
-> In this way, we can put these USB nodes close together in the device's dts.
-
-From what I could see these nodes are named u2phy for 8 other Rockchip
-SoCs and only named usb2phy for 3. So I went with what the majority seem
-to be calling them.
-
-I fully understand wanting to sort them closer, however we also have the
-forthcoming combphy for USB3 that also will be sorted away from the usb
-controller nodes. Hopefully someone more can chime in on node naming
-suggestions :-)
-
-Regards,
-Jonas
-
-> 
-> --
-> 2.25.1
-> 
-> 
+Neil
 
 
