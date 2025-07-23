@@ -4,57 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 247B9C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 10:20:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1616C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 10:22:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KgKlPbWZZXKeznfsYICDciTjPFizLXKBxvlDVfuQxck=; b=fi137bt6pDOeTMd+FlY8bBX9tP
-	NmifUoSvgI0nm8ETcU064n8js2Coyy25BfeeNrKH3TRpKVbJI7K61hVpD8CmhfCgtCiv1DQsFRcJz
-	I8ubWS90uwJj8Tu0t4d6Kfvv4n3THX+gouNraZbFC9kKRqQ0TfWjBbAn/HJ/XMsXVtwkclmcOCWRm
-	hxloMvuZBn8uY33cIVJYoXq0voRC/lmWRuXbwGFnA7iWfuEL5VivrINmxYaEpdv6b9h4pCg+NGGqv
-	dVEmpm9kd2rymjSlxf44d0S7TqyurUHCV3ePAp9PPdjvT6OxNfn0cplNA5SBVosPpQg6vYeUGHPGR
-	iS9FO73Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Date:To:From:Subject:Message-ID:Reply-To:Cc:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=zpmQSAKkTebQQVtBM+I5jqudosBZ23Mrm7KNGcAFI7k=; b=Btjs3FPZSVP5vOp3tTSLcz+t2b
+	61629Qdys1XNociTWg8A78OybAiEN/fUvS5NMLTOh48kNx6rkPo4fUTYPSL5s8ZEYH7ZbJdmVpLPc
+	ZgpgkChj/qXW2TBkrwofLvPfcBcHwKofT+wC/X+VzcyHMFThLUuzHc7sEWj7q3fTli4EXVOzJbxgl
+	Mo1cqif664F6CCgrCGSRJnyx6cPyQ4BJjpyG5BrmRkX6Ar6i7j8uVB8fharleB++dTKugMl4igl5k
+	PDfBLCxoaApbbmPGV59QCPw+nOV0nqUEohU15kbHQ4zFIkCvDQ2AC2w/j/asbs2hdZBsDAGxWNXXH
+	olgwjxFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueWZz-00000004fCp-3bik;
-	Wed, 23 Jul 2025 10:20:07 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1ueWcQ-00000004fWX-0TW7;
+	Wed, 23 Jul 2025 10:22:38 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueWHB-00000004bKa-21ut
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Jul 2025 10:00:42 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D58BA45D40;
-	Wed, 23 Jul 2025 10:00:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2A5A8C4CEF5;
-	Wed, 23 Jul 2025 10:00:36 +0000 (UTC)
-Date: Wed, 23 Jul 2025 11:00:33 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Jeremy Linton <jeremy.linton@arm.com>
-Cc: linux-trace-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
-	mhiramat@kernel.org, oleg@redhat.com, peterz@infradead.org,
-	acme@kernel.org, namhyung@kernel.org, mark.rutland@arm.com,
-	alexander.shishkin@linux.intel.com, jolsa@kernel.org,
-	irogers@google.com, adrian.hunter@intel.com,
-	kan.liang@linux.intel.com, thiago.bauermann@linaro.org,
-	broonie@kernel.org, yury.khrustalev@arm.com,
-	kristina.martsenko@arm.com, liaochang1@huawei.com, will@kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 5/8] arm64: probes: Add GCS support to bl/blr/ret
-Message-ID: <aICywZ55EKfSYSIY@arm.com>
-References: <20250719043740.4548-1-jeremy.linton@arm.com>
- <20250719043740.4548-6-jeremy.linton@arm.com>
+	id 1ueWLA-00000004c88-33Rc
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 23 Jul 2025 10:04:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=MIME-Version:Content-Type:Date:To:From:
+	Subject:Message-ID:Sender:Reply-To:Cc:Content-Transfer-Encoding:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=zpmQSAKkTebQQVtBM+I5jqudosBZ23Mrm7KNGcAFI7k=; b=GtBQbcauQxElSIfkYE17RKQoG6
+	CsZS2WUF80iW6T0AbPHJsD6iLLH4UTpupU0RkQH2MgkXIbF0iAsfjI2l3htIbLnhT0J3QEHZTzpg4
+	qqpbRdR9G580rIKifDwN4MxOUTsZN/IjF7CJiBMkXUBytQwvIyEdBlGAPptp1DVdpU04+77OvclS7
+	Z/hRPD4YrWQP7xW6JbD3XJfRvCU5Xqx+d236KTKVu/m7kHVPBOkAy7ks/KCQQ0X2pllkCMG23xVVz
+	deTXBAmP5fAgO/S4/e+PMCN8IPNgbqSbPpRKQBn9wL5kIcPxS7sRmE1tRcNOYuNiUtQNSlscDKlFk
+	LS4hxWHQ==;
+Received: from [54.239.6.190] (helo=edge-cache-169.e-lhr50.amazon.com)
+	by casper.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ueWL8-000000098Eb-139A;
+	Wed, 23 Jul 2025 10:04:47 +0000
+Message-ID: <c69938cffd4002a93a95a396affaa945e0f69206.camel@infradead.org>
+Subject: Memory corruption after resume from hibernate with Arm GICv3 ITS
+From: David Woodhouse <dwmw2@infradead.org>
+To: "Rafael J. Wysocki" <rafael@kernel.org>, Pavel Machek
+ <pavel@kernel.org>,  linux-pm <linux-pm@vger.kernel.org>, Marc Zyngier
+ <maz@kernel.org>,  linux-arm-kernel@lists.infradead.org, "Saidi, Ali"
+ <alisaidi@amazon.com>,  "oliver.upton" <oliver.upton@linux.dev>, Joey Gouly
+ <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
+ <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, Will
+ Deacon <will@kernel.org>, linux-kernel <linux-kernel@vger.kernel.org>,
+ "Heyne, Maximilian" <mheyne@amazon.de>,  Alexander Graf <graf@amazon.com>,
+ "Stamatis, Ilias" <ilstam@amazon.com>
+Date: Wed, 23 Jul 2025 12:04:44 +0200
+Content-Type: multipart/signed; micalg="sha-256"; protocol="application/pkcs7-signature";
+	boundary="=-CFNOq1sONN3HM3P5oRjg"
+User-Agent: Evolution 3.52.3-0ubuntu1 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250719043740.4548-6-jeremy.linton@arm.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250723_030041_543741_D5B0FA9A 
-X-CRM114-Status: GOOD (  20.50  )
+X-SRS-Rewrite: SMTP reverse-path rewritten from <dwmw2@infradead.org> by casper.infradead.org. See http://www.infradead.org/rpr.html
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,92 +73,312 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 18, 2025 at 11:37:37PM -0500, Jeremy Linton wrote:
-> diff --git a/arch/arm64/kernel/probes/simulate-insn.c b/arch/arm64/kernel/probes/simulate-insn.c
-> index 09a0b36122d0..c75dce7bbe13 100644
-> --- a/arch/arm64/kernel/probes/simulate-insn.c
-> +++ b/arch/arm64/kernel/probes/simulate-insn.c
-> @@ -13,6 +13,7 @@
->  #include <asm/traps.h>
->  
->  #include "simulate-insn.h"
-> +#include "asm/gcs.h"
->  
->  #define bbl_displacement(insn)		\
->  	sign_extend32(((insn) & 0x3ffffff) << 2, 27)
-> @@ -49,6 +50,20 @@ static inline u32 get_w_reg(struct pt_regs *regs, int reg)
->  	return lower_32_bits(pt_regs_read_reg(regs, reg));
->  }
->  
-> +static inline void update_lr(struct pt_regs *regs, long addr)
-> +{
-> +	int err = 0;
-> +
-> +	if (user_mode(regs) && task_gcs_el0_enabled(current)) {
-> +		push_user_gcs(addr + 4,	 &err);
-> +		if (err) {
-> +			force_sig(SIGSEGV);
-> +			return;
-> +		}
-> +	}
-> +	procedure_link_pointer_set(regs, addr + 4);
-> +}
-> +
->  static bool __kprobes check_cbz(u32 opcode, struct pt_regs *regs)
->  {
->  	int xn = opcode & 0x1f;
-> @@ -107,9 +122,8 @@ simulate_b_bl(u32 opcode, long addr, struct pt_regs *regs)
->  {
->  	int disp = bbl_displacement(opcode);
->  
-> -	/* Link register is x30 */
->  	if (opcode & (1 << 31))
-> -		set_x_reg(regs, 30, addr + 4);
-> +		update_lr(regs, addr);
 
-Why not pass (addr + 4) here and skip the addition in update_lr()?
+--=-CFNOq1sONN3HM3P5oRjg
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
->  
->  	instruction_pointer_set(regs, addr + disp);
->  }
-> @@ -133,17 +147,26 @@ simulate_br_blr(u32 opcode, long addr, struct pt_regs *regs)
->  	/* update pc first in case we're doing a "blr lr" */
->  	instruction_pointer_set(regs, get_x_reg(regs, xn));
->  
-> -	/* Link register is x30 */
->  	if (((opcode >> 21) & 0x3) == 1)
-> -		set_x_reg(regs, 30, addr + 4);
-> +		update_lr(regs, addr);
->  }
+We have seen guests crashing when, after they resume from hibernate,
+the hypervisor serializes their state for live update or live
+migration.
 
-I can see why this function was originally updating PC (in case of a blr
-lr) but updating the LR was not supposed to fail. With GCS, I think we
-should follow similar logic to simulate_b_bl() and skip updating PC/LR
-if the write to the GCS failed (assuming that's what the hardware does,
-I haven't checked the spec).
+The Arm Generic Interrupt Controller is a complicated beast, and it
+does scattershot DMA to little tables all across the guest's address
+space, without even living behind an IOMMU.
 
->  void __kprobes
->  simulate_ret(u32 opcode, long addr, struct pt_regs *regs)
->  {
-> -	int xn = (opcode >> 5) & 0x1f;
-> +	u64 ret_addr;
-> +	int err = 0;
-> +	unsigned long lr = procedure_link_pointer(regs);
->  
-> -	instruction_pointer_set(regs, get_x_reg(regs, xn));
-> +	if (user_mode(regs) && task_gcs_el0_enabled(current)) {
-> +		ret_addr = pop_user_gcs(&err);
-> +		if (err || ret_addr != lr) {
-> +			force_sig(SIGSEGV);
-> +			return;
-> +		}
-> +	}
-> +
-> +	instruction_pointer_set(regs, lr);
->  }
+Rather than simply turning it off overall, the guest has to explicitly
+tear down *every* one of the individual tables which were previously
+configured, in order to ensure that the memory is no longer used.
 
-What happened to the RET Xn case?
+KVM's implementation of the virtual GIC only uses this guest memory
+when asked to serialize its state. Instead of passing the information
+up to userspace as most KVM devices will do for serialization, KVM
+*only* supports scribbling it to guest memory.
 
--- 
-Catalin
+So, when the transition from boot to resumed kernel leaves the vGIC
+pointing at the *wrong* addresses, that's why a subsequent LU/LM of
+that guest triggers the memory corruption by writing the KVM state to a
+guest address that the now-running kernel did *not* expect.
+
+I tried this, just to get some more information:
+
+--- a/drivers/irqchip/irq-gic-v3-its.c
++++ b/drivers/irqchip/irq-gic-v3-its.c
+@@ -720,7 +720,7 @@ static struct its_collection *its_build_mapd_cmd(struct=
+ its_node *its,
+        its_encode_valid(cmd, desc->its_mapd_cmd.valid);
+=20
+        its_fixup_cmd(cmd);
+-
++       printk("%s dev 0x%x valid %d addr 0x%lx\n", __func__, desc->its_map=
+d_cmd.dev->device_id, desc->its_mapd_cmd.valid, itt_addr);
+        return NULL;
+ }
+=20
+@@ -4996,10 +4996,15 @@ static int its_save_disable(void)
+        struct its_node *its;
+        int err =3D 0;
+=20
++       printk("%s\n", __func__);
+        raw_spin_lock(&its_lock);
+        list_for_each_entry(its, &its_nodes, entry) {
++               struct its_device *its_dev;
+                void __iomem *base;
+=20
++               list_for_each_entry(its_dev, &its->its_device_list, entry) =
+{
++                       its_send_mapd(its_dev, 0);
++               }
+                base =3D its->base;
+                its->ctlr_save =3D readl_relaxed(base + GITS_CTLR);
+                err =3D its_force_quiescent(base);
+@@ -5032,8 +5037,10 @@ static void its_restore_enable(void)
+        struct its_node *its;
+        int ret;
+=20
++       printk("%s\n", __func__);
+        raw_spin_lock(&its_lock);
+        list_for_each_entry(its, &its_nodes, entry) {
++               struct its_device *its_dev;
+                void __iomem *base;
+                int i;
+=20
+@@ -5083,6 +5090,10 @@ static void its_restore_enable(void)
+                if (its->collections[smp_processor_id()].col_id <
+                    GITS_TYPER_HCC(gic_read_typer(base + GITS_TYPER)))
+                        its_cpu_init_collection(its);
++
++               list_for_each_entry(its_dev, &its->its_device_list, entry) =
+{
++                       its_send_mapd(its_dev, 1);
++               }
+        }
+        raw_spin_unlock(&its_lock);
+ }
+
+
+Running on a suitable host with qemu, I reproduce with
+  # echo reboot > /sys/power/disk
+  # echo disk > /sys/power/state
+
+Example qemu command line:
+ qemu-system-aarch64  -serial mon:stdio -M virt,gic-version=3Dhost -cpu max=
+ -enable-kvm -drive file=3D~/Fedora-Cloud-Base-Generic-42-1.1.aarch64.qcow2=
+,id=3Dnvm,if=3Dnone,snapshot=3Doff,format=3Dqcow2 -device nvme,drive=3Dnvm,=
+serial=3D1 -m 8g -nographic  -nic user,model=3Dvirtio -kernel vmlinuz-6.16.=
+0-rc7-dirty  -initrd initramfs-6.16.0-rc7-dirty.img -append 'root=3DUUID=3D=
+6c7b9058-d040-4047-a892-d2f1c7dee687 ro rootflags=3Dsubvol=3Droot no_timer_=
+check console=3Dtty1 console=3DttyAMA0,115200n8 systemd.firstboot=3Doff roo=
+tflags=3Dsubvol=3Droot no_console_suspend=3D1 resume_offset=3D366703 resume=
+=3D/dev/nvme0n1p3' -trace gicv3_its\*
+
+As the kernel boots up for the first time, it sends a normal MAPD command:
+
+[    1.292956] its_build_mapd_cmd dev 0x10 valid 1 addr 0x10f010000
+
+On hibernation, my newly added code unmaps and then *remaps* the same:
+
+[root@localhost ~]# echo disk > /sys/power/state
+[   42.118573] PM: hibernation: hibernation entry
+[   42.134574] Filesystems sync: 0.015 seconds
+[   42.134899] Freezing user space processes
+[   42.135566] Freezing user space processes completed (elapsed 0.000 secon=
+ds)
+[   42.136040] OOM killer disabled.
+[   42.136307] PM: hibernation: Preallocating image memory
+[   42.371141] PM: hibernation: Allocated 297401 pages for snapshot
+[   42.371163] PM: hibernation: Allocated 1189604 kbytes in 0.23 seconds (5=
+172.19 MB/s)
+[   42.371170] Freezing remaining freezable tasks
+[   42.373465] Freezing remaining freezable tasks completed (elapsed 0.002 =
+seconds)
+[   42.378350] Disabling non-boot CPUs ...
+[   42.378363] its_save_disable
+[   42.378363] its_build_mapd_cmd dev 0x10 valid 0 addr 0x10f010000
+[   42.378363] PM: hibernation: Creating image:
+[   42.378363] PM: hibernation: Need to copy 153098 pages
+[   42.378363] PM: hibernation: Image created (115354 pages copied, 37744 z=
+ero pages)
+[   42.378363] its_restore_enable
+[   42.378363] its_build_mapd_cmd dev 0x10 valid 1 addr 0x10f010000
+[   42.383601] nvme nvme0: 1/0/0 default/read/poll queues
+[   42.384411] nvme nvme0: Ignoring bogus Namespace Identifiers
+[   42.384924] hibernate: Hibernating on CPU 0 [mpidr:0x0]
+[   42.387742] PM: Using 1 thread(s) for lzo compression
+[   42.387748] PM: Compressing and saving image data (115654 pages)...
+[   42.387757] PM: Image saving progress:   0%
+[   43.485794] PM: Image saving progress:  10%
+[   44.739662] PM: Image saving progress:  20%
+[   46.617453] PM: Image saving progress:  30%
+[   48.437644] PM: Image saving progress:  40%
+[   49.857855] PM: Image saving progress:  50%
+[   52.156928] PM: Image saving progress:  60%
+[   53.344810] PM: Image saving progress:  70%
+[   54.472998] PM: Image saving progress:  80%
+[   55.083950] PM: Image saving progress:  90%
+[   56.406480] PM: Image saving progress: 100%
+[   56.407088] PM: Image saving done
+[   56.407100] PM: hibernation: Wrote 462616 kbytes in 14.01 seconds (33.02=
+ MB/s)
+[   56.407106] PM: Image size after compression: 148041 kbytes
+[   56.408210] PM: S|
+[   56.642393] Flash device refused suspend due to active operation (state =
+20)
+[   56.642871] Flash device refused suspend due to active operation (state =
+20)
+[   56.643432] reboot: Restarting system
+[    0.000000] Booting Linux on physical CPU 0x0000000000 [0x410fd4f1]
+
+Then the *boot* kernel comes up, does its own MAPD using a slightly differe=
+nt address:
+
+[    1.270652] its_build_mapd_cmd dev 0x10 valid 1 addr 0x10f009000
+
+ ... and then transfers control to the hibernated kernel, which again
+tries to unmap and remap the ITT at its original address due to my
+suspend/resume hack (which is clearly hooking the wrong thing, but is
+at least giving us useful information):
+
+Starting systemd-hibernate-resume.service - Resume from hibernation...
+[    1.391340] PM: hibernation: resume from hibernation
+[    1.391861] random: crng reseeded on system resumption
+[    1.391927] Freezing user space processes
+[    1.392984] Freezing user space processes completed (elapsed 0.001 secon=
+ds)
+[    1.393473] OOM killer disabled.
+[    1.393486] Freezing remaining freezable tasks
+[    1.395012] Freezing remaining freezable tasks completed (elapsed 0.001 =
+seconds)
+[    1.400817] PM: Using 1 thread(s) for lzo decompression
+[    1.400832] PM: Loading and decompressing image data (115654 pages)...
+[    1.400836] hibernate: Hibernated on CPU 0 [mpidr:0x0]
+[    1.438621] PM: Image loading progress:   0%
+[    1.554623] PM: Image loading progress:  10%
+[    1.594714] PM: Image loading progress:  20%
+[    1.639317] PM: Image loading progress:  30%
+[    1.683055] PM: Image loading progress:  40%
+[    1.720726] PM: Image loading progress:  50%
+[    1.768878] PM: Image loading progress:  60%
+[    1.800203] PM: Image loading progress:  70%
+[    1.822833] PM: Image loading progress:  80%
+[    1.840985] PM: Image loading progress:  90%
+[    1.871253] PM: Image loading progress: 100%
+[    1.871611] PM: Image loading done
+[    1.871617] PM: hibernation: Read 462616 kbytes in 0.47 seconds (984.28 =
+MB/s)
+[   42.378350] Disabling non-boot CPUs ...
+[   42.378363] its_save_disable
+[   42.378363] its_build_mapd_cmd dev 0x10 valid 0 addr 0x10f010000
+[   42.378363] PM: hibernation: Creating image:
+[   42.378363] PM: hibernation: Need to copy 153098 pages
+[   42.378363] hibernate: Restored 0 MTE pages
+[   42.378363] its_restore_enable
+[   42.378363] its_build_mapd_cmd dev 0x10 valid 1 addr 0x10f010000
+[   42.417445] OOM killer enabled.
+[   42.417455] Restarting tasks: Starting
+[   42.419915] nvme nvme0: 1/0/0 default/read/poll queues
+[   42.420407] Restarting tasks: Done
+[   42.420781] PM: hibernation: hibernation exit
+[   42.421149] nvme nvme0: Ignoring bogus Namespace Identifiers
+
+
+
+
+--=-CFNOq1sONN3HM3P5oRjg
+Content-Type: application/pkcs7-signature; name="smime.p7s"
+Content-Disposition: attachment; filename="smime.p7s"
+Content-Transfer-Encoding: base64
+
+MIAGCSqGSIb3DQEHAqCAMIACAQExDzANBglghkgBZQMEAgEFADCABgkqhkiG9w0BBwEAAKCCD9Aw
+ggSOMIIDdqADAgECAhAOmiw0ECVD4cWj5DqVrT9PMA0GCSqGSIb3DQEBCwUAMGUxCzAJBgNVBAYT
+AlVTMRUwEwYDVQQKEwxEaWdpQ2VydCBJbmMxGTAXBgNVBAsTEHd3dy5kaWdpY2VydC5jb20xJDAi
+BgNVBAMTG0RpZ2lDZXJ0IEFzc3VyZWQgSUQgUm9vdCBDQTAeFw0yNDAxMzAwMDAwMDBaFw0zMTEx
+MDkyMzU5NTlaMEExCzAJBgNVBAYTAkFVMRAwDgYDVQQKEwdWZXJva2V5MSAwHgYDVQQDExdWZXJv
+a2V5IFNlY3VyZSBFbWFpbCBHMjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMjvgLKj
+jfhCFqxYyRiW8g3cNFAvltDbK5AzcOaR7yVzVGadr4YcCVxjKrEJOgi7WEOH8rUgCNB5cTD8N/Et
+GfZI+LGqSv0YtNa54T9D1AWJy08ZKkWvfGGIXN9UFAPMJ6OLLH/UUEgFa+7KlrEvMUupDFGnnR06
+aDJAwtycb8yXtILj+TvfhLFhafxroXrflspavejQkEiHjNjtHnwbZ+o43g0/yxjwnarGI3kgcak7
+nnI9/8Lqpq79tLHYwLajotwLiGTB71AGN5xK+tzB+D4eN9lXayrjcszgbOv2ZCgzExQUAIt98mre
+8EggKs9mwtEuKAhYBIP/0K6WsoMnQCcCAwEAAaOCAVwwggFYMBIGA1UdEwEB/wQIMAYBAf8CAQAw
+HQYDVR0OBBYEFIlICOogTndrhuWByNfhjWSEf/xwMB8GA1UdIwQYMBaAFEXroq/0ksuCMS1Ri6en
+IZ3zbcgPMA4GA1UdDwEB/wQEAwIBhjAdBgNVHSUEFjAUBggrBgEFBQcDBAYIKwYBBQUHAwIweQYI
+KwYBBQUHAQEEbTBrMCQGCCsGAQUFBzABhhhodHRwOi8vb2NzcC5kaWdpY2VydC5jb20wQwYIKwYB
+BQUHMAKGN2h0dHA6Ly9jYWNlcnRzLmRpZ2ljZXJ0LmNvbS9EaWdpQ2VydEFzc3VyZWRJRFJvb3RD
+QS5jcnQwRQYDVR0fBD4wPDA6oDigNoY0aHR0cDovL2NybDMuZGlnaWNlcnQuY29tL0RpZ2lDZXJ0
+QXNzdXJlZElEUm9vdENBLmNybDARBgNVHSAECjAIMAYGBFUdIAAwDQYJKoZIhvcNAQELBQADggEB
+ACiagCqvNVxOfSd0uYfJMiZsOEBXAKIR/kpqRp2YCfrP4Tz7fJogYN4fxNAw7iy/bPZcvpVCfe/H
+/CCcp3alXL0I8M/rnEnRlv8ItY4MEF+2T/MkdXI3u1vHy3ua8SxBM8eT9LBQokHZxGUX51cE0kwa
+uEOZ+PonVIOnMjuLp29kcNOVnzf8DGKiek+cT51FvGRjV6LbaxXOm2P47/aiaXrDD5O0RF5SiPo6
+xD1/ClkCETyyEAE5LRJlXtx288R598koyFcwCSXijeVcRvBB1cNOLEbg7RMSw1AGq14fNe2cH1HG
+W7xyduY/ydQt6gv5r21mDOQ5SaZSWC/ZRfLDuEYwggWbMIIEg6ADAgECAhAH5JEPagNRXYDiRPdl
+c1vgMA0GCSqGSIb3DQEBCwUAMEExCzAJBgNVBAYTAkFVMRAwDgYDVQQKEwdWZXJva2V5MSAwHgYD
+VQQDExdWZXJva2V5IFNlY3VyZSBFbWFpbCBHMjAeFw0yNDEyMzAwMDAwMDBaFw0yODAxMDQyMzU5
+NTlaMB4xHDAaBgNVBAMME2R3bXcyQGluZnJhZGVhZC5vcmcwggIiMA0GCSqGSIb3DQEBAQUAA4IC
+DwAwggIKAoICAQDali7HveR1thexYXx/W7oMk/3Wpyppl62zJ8+RmTQH4yZeYAS/SRV6zmfXlXaZ
+sNOE6emg8WXLRS6BA70liot+u0O0oPnIvnx+CsMH0PD4tCKSCsdp+XphIJ2zkC9S7/yHDYnqegqt
+w4smkqUqf0WX/ggH1Dckh0vHlpoS1OoxqUg+ocU6WCsnuz5q5rzFsHxhD1qGpgFdZEk2/c//ZvUN
+i12vPWipk8TcJwHw9zoZ/ZrVNybpMCC0THsJ/UEVyuyszPtNYeYZAhOJ41vav1RhZJzYan4a1gU0
+kKBPQklcpQEhq48woEu15isvwWh9/+5jjh0L+YNaN0I//nHSp6U9COUG9Z0cvnO8FM6PTqsnSbcc
+0j+GchwOHRC7aP2t5v2stVx3KbptaYEzi4MQHxm/0+HQpMEVLLUiizJqS4PWPU6zfQTOMZ9uLQRR
+ci+c5xhtMEBszlQDOvEQcyEG+hc++fH47K+MmZz21bFNfoBxLP6bjR6xtPXtREF5lLXxp+CJ6KKS
+blPKeVRg/UtyJHeFKAZXO8Zeco7TZUMVHmK0ZZ1EpnZbnAhKE19Z+FJrQPQrlR0gO3lBzuyPPArV
+hvWxjlO7S4DmaEhLzarWi/ze7EGwWSuI2eEa/8zU0INUsGI4ywe7vepQz7IqaAovAX0d+f1YjbmC
+VsAwjhLmveFjNwIDAQABo4IBsDCCAawwHwYDVR0jBBgwFoAUiUgI6iBOd2uG5YHI1+GNZIR//HAw
+HQYDVR0OBBYEFFxiGptwbOfWOtMk5loHw7uqWUOnMDAGA1UdEQQpMCeBE2R3bXcyQGluZnJhZGVh
+ZC5vcmeBEGRhdmlkQHdvb2Rob3Uuc2UwFAYDVR0gBA0wCzAJBgdngQwBBQEBMA4GA1UdDwEB/wQE
+AwIF4DAdBgNVHSUEFjAUBggrBgEFBQcDAgYIKwYBBQUHAwQwewYDVR0fBHQwcjA3oDWgM4YxaHR0
+cDovL2NybDMuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNybDA3oDWgM4YxaHR0
+cDovL2NybDQuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNybDB2BggrBgEFBQcB
+AQRqMGgwJAYIKwYBBQUHMAGGGGh0dHA6Ly9vY3NwLmRpZ2ljZXJ0LmNvbTBABggrBgEFBQcwAoY0
+aHR0cDovL2NhY2VydHMuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNydDANBgkq
+hkiG9w0BAQsFAAOCAQEAQXc4FPiPLRnTDvmOABEzkIumojfZAe5SlnuQoeFUfi+LsWCKiB8Uextv
+iBAvboKhLuN6eG/NC6WOzOCppn4mkQxRkOdLNThwMHW0d19jrZFEKtEG/epZ/hw/DdScTuZ2m7im
+8ppItAT6GXD3aPhXkXnJpC/zTs85uNSQR64cEcBFjjoQDuSsTeJ5DAWf8EMyhMuD8pcbqx5kRvyt
+JPsWBQzv1Dsdv2LDPLNd/JUKhHSgr7nbUr4+aAP2PHTXGcEBh8lTeYea9p4d5k969pe0OHYMV5aL
+xERqTagmSetuIwolkAuBCzA9vulg8Y49Nz2zrpUGfKGOD0FMqenYxdJHgDCCBZswggSDoAMCAQIC
+EAfkkQ9qA1FdgOJE92VzW+AwDQYJKoZIhvcNAQELBQAwQTELMAkGA1UEBhMCQVUxEDAOBgNVBAoT
+B1Zlcm9rZXkxIDAeBgNVBAMTF1Zlcm9rZXkgU2VjdXJlIEVtYWlsIEcyMB4XDTI0MTIzMDAwMDAw
+MFoXDTI4MDEwNDIzNTk1OVowHjEcMBoGA1UEAwwTZHdtdzJAaW5mcmFkZWFkLm9yZzCCAiIwDQYJ
+KoZIhvcNAQEBBQADggIPADCCAgoCggIBANqWLse95HW2F7FhfH9bugyT/danKmmXrbMnz5GZNAfj
+Jl5gBL9JFXrOZ9eVdpmw04Tp6aDxZctFLoEDvSWKi367Q7Sg+ci+fH4KwwfQ8Pi0IpIKx2n5emEg
+nbOQL1Lv/IcNiep6Cq3DiyaSpSp/RZf+CAfUNySHS8eWmhLU6jGpSD6hxTpYKye7PmrmvMWwfGEP
+WoamAV1kSTb9z/9m9Q2LXa89aKmTxNwnAfD3Ohn9mtU3JukwILRMewn9QRXK7KzM+01h5hkCE4nj
+W9q/VGFknNhqfhrWBTSQoE9CSVylASGrjzCgS7XmKy/BaH3/7mOOHQv5g1o3Qj/+cdKnpT0I5Qb1
+nRy+c7wUzo9OqydJtxzSP4ZyHA4dELto/a3m/ay1XHcpum1pgTOLgxAfGb/T4dCkwRUstSKLMmpL
+g9Y9TrN9BM4xn24tBFFyL5znGG0wQGzOVAM68RBzIQb6Fz758fjsr4yZnPbVsU1+gHEs/puNHrG0
+9e1EQXmUtfGn4InoopJuU8p5VGD9S3Ikd4UoBlc7xl5yjtNlQxUeYrRlnUSmdlucCEoTX1n4UmtA
+9CuVHSA7eUHO7I88CtWG9bGOU7tLgOZoSEvNqtaL/N7sQbBZK4jZ4Rr/zNTQg1SwYjjLB7u96lDP
+sipoCi8BfR35/ViNuYJWwDCOEua94WM3AgMBAAGjggGwMIIBrDAfBgNVHSMEGDAWgBSJSAjqIE53
+a4blgcjX4Y1khH/8cDAdBgNVHQ4EFgQUXGIam3Bs59Y60yTmWgfDu6pZQ6cwMAYDVR0RBCkwJ4ET
+ZHdtdzJAaW5mcmFkZWFkLm9yZ4EQZGF2aWRAd29vZGhvdS5zZTAUBgNVHSAEDTALMAkGB2eBDAEF
+AQEwDgYDVR0PAQH/BAQDAgXgMB0GA1UdJQQWMBQGCCsGAQUFBwMCBggrBgEFBQcDBDB7BgNVHR8E
+dDByMDegNaAzhjFodHRwOi8vY3JsMy5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVtYWlsRzIu
+Y3JsMDegNaAzhjFodHRwOi8vY3JsNC5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVtYWlsRzIu
+Y3JsMHYGCCsGAQUFBwEBBGowaDAkBggrBgEFBQcwAYYYaHR0cDovL29jc3AuZGlnaWNlcnQuY29t
+MEAGCCsGAQUFBzAChjRodHRwOi8vY2FjZXJ0cy5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVt
+YWlsRzIuY3J0MA0GCSqGSIb3DQEBCwUAA4IBAQBBdzgU+I8tGdMO+Y4AETOQi6aiN9kB7lKWe5Ch
+4VR+L4uxYIqIHxR7G2+IEC9ugqEu43p4b80LpY7M4KmmfiaRDFGQ50s1OHAwdbR3X2OtkUQq0Qb9
+6ln+HD8N1JxO5nabuKbymki0BPoZcPdo+FeRecmkL/NOzzm41JBHrhwRwEWOOhAO5KxN4nkMBZ/w
+QzKEy4PylxurHmRG/K0k+xYFDO/UOx2/YsM8s138lQqEdKCvudtSvj5oA/Y8dNcZwQGHyVN5h5r2
+nh3mT3r2l7Q4dgxXlovERGpNqCZJ624jCiWQC4ELMD2+6WDxjj03PbOulQZ8oY4PQUyp6djF0keA
+MYIDuzCCA7cCAQEwVTBBMQswCQYDVQQGEwJBVTEQMA4GA1UEChMHVmVyb2tleTEgMB4GA1UEAxMX
+VmVyb2tleSBTZWN1cmUgRW1haWwgRzICEAfkkQ9qA1FdgOJE92VzW+AwDQYJYIZIAWUDBAIBBQCg
+ggE3MBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTI1MDcyMzEwMDQ0
+NFowLwYJKoZIhvcNAQkEMSIEIJRcmGIMTMwLWVL6bKQMuTFIsyStkMHTcfyk47kgwNT6MGQGCSsG
+AQQBgjcQBDFXMFUwQTELMAkGA1UEBhMCQVUxEDAOBgNVBAoTB1Zlcm9rZXkxIDAeBgNVBAMTF1Zl
+cm9rZXkgU2VjdXJlIEVtYWlsIEcyAhAH5JEPagNRXYDiRPdlc1vgMGYGCyqGSIb3DQEJEAILMVeg
+VTBBMQswCQYDVQQGEwJBVTEQMA4GA1UEChMHVmVyb2tleTEgMB4GA1UEAxMXVmVyb2tleSBTZWN1
+cmUgRW1haWwgRzICEAfkkQ9qA1FdgOJE92VzW+AwDQYJKoZIhvcNAQEBBQAEggIAhiJJWCIq4l4G
+4x0xw4iPqhLigjUa7U83nxEiAGGClMi9uPNfB1Tg0oF1Sw58e0nwbppJHYlNf8SqZp9P9TrDX+x0
+Y+cmK8dj7aNIxsmVdvoxWzONN8SdnVq7Ji780/Q0UdCseFS7ppQ3525v4WwlUQ48I4fkwQV+1A+v
+k+tTxr3g4ROHz2OwBfrQLj+qzOCABvlBGZOvmajipZh2/U1lETmUWZJsTuFxQrA/bcDeEyK796ZC
+t4y2N2uIjfSH2d7OQPMqcsWArYBgSpmx+gWpG+D1OCcn6x8C6gt9sA9MESHaG2PpK0X+PUeHuwsN
+6Mh4JHyGFRWlJyNXd8uvrEPdHS0XTz/NH/JlBMS+WlKueg5mszXMwdTkIZRhAz7jdeLZ4PMDuIK5
+LgIfwrBmZoa5+omaLF5ZzzRMnmVJoviNasBkBsqKG0UipwCm0bEWpvGRIw0/NUQs4f8soioAlJk7
+HqUbx5tcxIukmVY7fOmod85pfO1XMxaRW3NcFiPxAqMwk+49gA7uUzmyLjyTLqSksCVsWk50QhVO
+bTh5X3fW6JpqGqAagp9Mo4R6BR3hZkp2bALMJIoH10y6UG6TV0chrDg5NsitwZwKbr+5JSOyg9L8
+uvxKCS3r92ToRjqtxA9Ao2iG8FA59EB5dLhnmoR8W4X+5egaB/r54J9owqBAaXIAAAAAAAA=
+
+
+--=-CFNOq1sONN3HM3P5oRjg--
 
