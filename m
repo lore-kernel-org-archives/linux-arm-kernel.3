@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6063C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 23:40:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19DB5C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 23:42:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hexKS3OBdUuka6mz2tsiA5AZ62DQZfbT13EVs55U9NQ=; b=f7994MzxK7xz0nPm6nyhgkLRNb
-	D0o9m19wiAslxxAFeQXpHUc5S0cggOtal/+zhOpJHI0u8ZvlHfI2sTEPnUWqs3HjhYiEnhI/2KQCw
-	7sr0O5n9oWAfMtLqNXyufmL4lx6HuWYa3rwjLa5kaGjXLp8lxdtoFrVHqNgsr1zjEYTQpYK9+tTGk
-	ZQPdT3CXzxxdvEtZoSQr59ztUbsUNQL4CuuoC5sNfmYT+9hoWCybuXEKe5nxU8FL7APjlb9Ltwp/5
-	gYuzkDKa8Nq3RaVdVVECJcRG7y6Je7uopdUf15KZAN7/wP9TyPpH774287jvKzlR24wiDAzMICSbu
-	yBbAy+yQ==;
+	bh=RkVzo5NE0GNCbJSinTR7TyExPK/C8GmZwMd+EFgVEoM=; b=qh/MDuT0/BhvCzuEYzMqY2SmCi
+	Eafh9ASKCiKhJAD+gDXpIaogdGnFxvvFN/ii79d/4CwkmM7LjtkSuQlolNhCRkcsyL3RNC0Tj57m3
+	u8LqvAhi8AUqkR4q4gGYpE1itMkNZFO4S7GmsAbEySvs2rsb5jG8/j1n4VNXes2Oe9npCRHuy1ZUf
+	FPK4A5aMsz3yn0/FtiGfmp87KFd11ULP+SiaGQcIZQYe4XX+r7ZZmUb1obCTxHqQVPl424gRZYI6Q
+	RVCoYTvUZ+KpRZ6vRKNI9jhic1h7MELUhTGlQEbvTxO+jeLGX7irrIKaYV+f7+kbEpFk+PEQBCHxB
+	RbesnjoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uej4P-00000006ARv-34TW;
-	Wed, 23 Jul 2025 23:40:21 +0000
-Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	id 1uej6o-00000006AaJ-1trj;
+	Wed, 23 Jul 2025 23:42:50 +0000
+Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueiun-000000069Ib-2w4D
+	id 1ueiup-000000069Ix-1Jty
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Jul 2025 23:30:27 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-235f9e87f78so3704765ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Jul 2025 16:30:25 -0700 (PDT)
+	Wed, 23 Jul 2025 23:30:28 +0000
+Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-23f8d27eeeaso3074615ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Jul 2025 16:30:27 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1753313425; x=1753918225; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1753313426; x=1753918226; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=hexKS3OBdUuka6mz2tsiA5AZ62DQZfbT13EVs55U9NQ=;
-        b=Ib4EZLWriAQH+PV5bMZaJmS8BWjcnwxVuNBdBMhfc3Lrt76NFjfeQMJK+B2/r2wwlU
-         kChzPyPJz1P/ZGxxVbPIlDuwIsPNPFxSukimwvSr1LYOU6LFmULNiEQ8DnmaKGyJ4sgv
-         APBmpKmX//BVyKrMBkmvP6RcBLGmWh4HDnLRnPTVv5LraTVAIFo9YBnJSfNEzoZBNig1
-         EmT/5o27ysFfZXQlr9cW4NWfF5UivKOEf2Sly8n5clcgUTPdF9ftSLhCvX6TGTQc2cF9
-         A0Z8jRmEGIwNtLwwQuIStQLfAH4FB33VvM28iHDEsARSxWPfC9VPXRn/vSMgvv73NTIl
-         Sk3w==
+        bh=RkVzo5NE0GNCbJSinTR7TyExPK/C8GmZwMd+EFgVEoM=;
+        b=bsgGMI2PXEhrVEFhgON+VHOl1k9Lav/3ZBDchE+K3MwCZieGa8+GQqZMRfBf5B8qBv
+         gswYTGvTr4LXg0WKk0s4phUELLL2wPqHlARIfF237VGpRXr2PU5pef2WbjhWPziCw/M/
+         aEbkVsBuI1CTMet3QF2tdtdHVigk+udNiOon8njiIMPS59A+e4fepCHqU87NOaobFg3I
+         b1u079GZloUrimeIdnGFHZpidpNpdSvbcvKq1UnJh6skqc0OwDXJRPv5eclGKskE+O67
+         Zrcy8Po1ZXY8gQlSHibz9XpbY2DUFoho4EltnhBgqmvgUGV6gBIA9ilHUstG+HdRKlRf
+         BGGw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753313425; x=1753918225;
+        d=1e100.net; s=20230601; t=1753313426; x=1753918226;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=hexKS3OBdUuka6mz2tsiA5AZ62DQZfbT13EVs55U9NQ=;
-        b=iIzwPPUsJLRmE768psIvcSpqBXus5E0gtLONVOYz0wFYgPrVH2JGns/Zv8K+kcUbL7
-         4BpXt9DKfWWXgpaN1XRy9Zyh1cy1Ja1P5WvqWGohtiO3zmtA1FC6l/VDV9On6/vVNW+w
-         nzqdV9XWF3JSxY8kgUfx9WbyxfVxPf+ZTiBSEGgRkjj6/2au6fZfgOZlL3pmFIh8Wyhj
-         YFYC+YZuDJJ9OVt/LkyMH219ZqSf1wwwvKq5nKgCFSY1l93BNeGLA4rmXcyimkZ7CtQS
-         1pxfT7OGduzgeTzb+4NfqufVAVImGR4ZKAn0An8PgEWugq81vS9ITwjki+/PFXlO1XNo
-         5vdA==
-X-Forwarded-Encrypted: i=1; AJvYcCVyXHSTdV/lguIAiVL9R4MI2n6LP08jPPliQABdIMCqCDZ9QlnpZhnKTaqSv1gaH1nnDKIWKPVkKPyQ9oVmmXnQ@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy6rpBAJfSrVqzI9X2VsL1tHSlUV7mMPXyqkYa0DPqxrsVAVvWa
-	dohW0T6cQodWKsci6gPm1BmvIPX6JM5DcqAxLVwX9z4tiIhkgTCAlY7o
-X-Gm-Gg: ASbGncuS2wxfhrexsQ6hMBVVwfjtOlZrBc3BEUCEbFuojfASmOcNxWSWH5uDSkbqSMq
-	wEt0GXsKPqr6fJpPIiVNDLK2pKG8F4boemz3bpAxAS2nVqaSivPqcA12bAPqQmb/dZU4PuQe7RR
-	gPOnL2NxR4qH2NG/0FR/QJjcJ9g9FhLXHoE4gia9SXhq+r4RN5HS5bINJaFxD8jfbMAUnfDTgk4
-	p/5owHDSpgKqS+0GADRI+WXCfrZgoEQEwSAgCgIDKDyIAKdiEX4ThMQYwDfQlhbwEhacxenuume
-	M3RKUWDxibLb3OqOjUOrZYxPUTJbGBM3abqEudN7qlPczyXK1xOeBpawLsfUR2+6wr6bXvPmkgJ
-	0Xhc5mYqY8h9ZTmDWq64WOWNrkTwdvg38VJ4GiS/l1M/t9PTJq/a98yVN5FIQF4klJkSHtZaNWL
-	c=
-X-Google-Smtp-Source: AGHT+IGI7TnYck3w9Hntb7EBGOSxlq7HH1YPFTWNRaeivNj40fXsheG0i19dTMp3Dq/70CdQsBEbvQ==
-X-Received: by 2002:a17:902:ce11:b0:21f:617a:f1b2 with SMTP id d9443c01a7336-23f981da200mr67178985ad.46.1753313424830;
-        Wed, 23 Jul 2025 16:30:24 -0700 (PDT)
+        bh=RkVzo5NE0GNCbJSinTR7TyExPK/C8GmZwMd+EFgVEoM=;
+        b=XSFEhwPnvZC4JBEd2O5br8PQ17Ay29TC07RayEnj9cxewN+qlRkK50TvNiRVScTZBd
+         hrAzwxptZa1SsUgOAk6I9vOvN7SGAYjgEt32uPjTn/zdk63CjIo71/eK0U3XGEdISNVy
+         Y4ATNfR0bpty0kYJyZwqvQ8dxJHNyZTg+G7PfkmYmRGFvU5feXLC26gMBCYC8kxCuUH8
+         umRWHokj9+Uzw00+GC82Mb4lkpS8uWgkiH1fJTUbujRoManKDzFX65MM2Z9dgNZDt7BD
+         XXbQR+dlY4Wce7G8mVAFiebt5pMqSnoPu4LfoYd6v3zpVpQWOZ/K1qVs5lVXde/iv2m2
+         DEiQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVYBwwuHz0EHL3cmfQrxFw/4kw5s7ve2P4MMcs55RylFcy61O1FVbFXtv3mtyhZbQ+PMcK07jyT6OHNdHHiL52a@lists.infradead.org
+X-Gm-Message-State: AOJu0YygQBQBvYb7mtULrZyuDVmNmCxQxZRucHYppzqx3U6hcLpW51xW
+	2C9Pj0YcLJ8vH4pV3Rnf4mLwWy48YtNG9pSI8VwjVxL2hT8O4OcPUv5X
+X-Gm-Gg: ASbGncvwN3zzIkOULp/CsYVfqjCjno/iK25dGaFXB37VblaTiUZrkkEoPAUcuIInuy+
+	OvB261caAvY0O4hmla7eF3jFH73Zkyvo2leAYZXAasGisu9Uuz6TApbDxPhKrlebQLzZNmi1liC
+	ZY2jv/1prn10I0sluvyOxn6lpbJgnMf5rMUV7BEXjEgHmQoNSorC+QC1DgbQdi4nMgN6P8Y0ABz
+	pspahxIXXzIEYXQHL5m+zPdRBBhNtJtwxLv/wPzu6nAcDCganJiESt3La6QvoP+6JBpC6XA+N2f
+	G+p/kFGohdCUf6aAFnF+SQVJdUqdU7XA7MBabrUjR0YPOoBMYlvsm5NCjkqN5bf3BTOULVtVSM9
+	aOI+V2BBKPYRqiH0pVtFaUGbDWAYM5kLmiXVS2Y5ad/cFcBbPAsck5MHYAHJixvWLsBd2O2kZUV
+	U=
+X-Google-Smtp-Source: AGHT+IHzWqipQFV1rlMjfGMj2ZYctdbfed8wRJ1YF4iYb6xdbsKUiD0L697jJ9ynyQV7v99kSM5TEg==
+X-Received: by 2002:a17:903:2b03:b0:234:c549:da10 with SMTP id d9443c01a7336-23f981d2e75mr67924515ad.47.1753313426507;
+        Wed, 23 Jul 2025 16:30:26 -0700 (PDT)
 Received: from localhost.localdomain (c-76-133-73-115.hsd1.ca.comcast.net. [76.133.73.115])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23fa48bc6fbsm1260765ad.120.2025.07.23.16.30.23
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23fa48bc6fbsm1260765ad.120.2025.07.23.16.30.25
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 23 Jul 2025 16:30:24 -0700 (PDT)
+        Wed, 23 Jul 2025 16:30:26 -0700 (PDT)
 From: rentao.bupt@gmail.com
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -83,17 +83,17 @@ To: Rob Herring <robh@kernel.org>,
 	Andrew Lunn <andrew@lunn.ch>,
 	Tao Ren <taoren@meta.com>
 Cc: Tao Ren <rentao.bupt@gmail.com>
-Subject: [PATCH v3 03/13] ARM: dts: aspeed: Fix DTB warnings in ast2600-facebook-netbmc-common.dtsi
-Date: Wed, 23 Jul 2025 16:29:59 -0700
-Message-ID: <20250723233013.142337-4-rentao.bupt@gmail.com>
+Subject: [PATCH v3 04/13] ARM: dts: aspeed: Move eMMC out of ast2600-facebook-netbmc-common.dtsi
+Date: Wed, 23 Jul 2025 16:30:00 -0700
+Message-ID: <20250723233013.142337-5-rentao.bupt@gmail.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20250723233013.142337-1-rentao.bupt@gmail.com>
 References: <20250723233013.142337-1-rentao.bupt@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250723_163025_738729_4266F8FC 
-X-CRM114-Status: GOOD (  12.18  )
+X-CRM114-CacheID: sfid-20250723_163027_360521_56CCAD08 
+X-CRM114-Status: GOOD (  12.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,39 +110,85 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Tao Ren <rentao.bupt@gmail.com>
 
-Fix deprecated spi-gpio properties in ast2600-facebook-netbmc-common.dtsi.
+Move eMMC entries from ast2600-facebook-netbmc-common.dtsi to each
+platform because eMMC is removed from future Meta/Facebook AST2600
+Network BMC platforms.
 
 Signed-off-by: Tao Ren <rentao.bupt@gmail.com>
 ---
 Changes in v3:
   - None.
 Changes in v2:
-  - None (the patch is introduced in v2).
+  - The 3 emmc-related patches in v1 are squashed into this patch.
 
- .../dts/aspeed/ast2600-facebook-netbmc-common.dtsi     | 10 +++++++---
- 1 file changed, 7 insertions(+), 3 deletions(-)
+ .../boot/dts/aspeed/aspeed-bmc-facebook-elbert.dts   | 12 ++++++++++++
+ .../arm/boot/dts/aspeed/aspeed-bmc-facebook-fuji.dts | 12 ++++++++++++
+ .../dts/aspeed/ast2600-facebook-netbmc-common.dtsi   | 12 ------------
+ 3 files changed, 24 insertions(+), 12 deletions(-)
 
+diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-elbert.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-elbert.dts
+index 74f3c67e0eff..ff1009ea1c49 100644
+--- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-elbert.dts
++++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-elbert.dts
+@@ -201,3 +201,15 @@ fixed-link {
+ 		full-duplex;
+ 	};
+ };
++
++&emmc_controller {
++	status = "okay";
++};
++
++&emmc {
++	status = "okay";
++
++	non-removable;
++	max-frequency = <25000000>;
++	bus-width = <4>;
++};
+diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-fuji.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-fuji.dts
+index 840d19d6b1d4..d0331980d082 100644
+--- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-fuji.dts
++++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-fuji.dts
+@@ -1243,3 +1243,15 @@ &mac3 {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&pinctrl_rgmii4_default>;
+ };
++
++&emmc_controller {
++	status = "okay";
++};
++
++&emmc {
++	status = "okay";
++
++	non-removable;
++	max-frequency = <25000000>;
++	bus-width = <4>;
++};
 diff --git a/arch/arm/boot/dts/aspeed/ast2600-facebook-netbmc-common.dtsi b/arch/arm/boot/dts/aspeed/ast2600-facebook-netbmc-common.dtsi
-index 00e5887c926f..208cf6567ed4 100644
+index 208cf6567ed4..0ef225acddfc 100644
 --- a/arch/arm/boot/dts/aspeed/ast2600-facebook-netbmc-common.dtsi
 +++ b/arch/arm/boot/dts/aspeed/ast2600-facebook-netbmc-common.dtsi
-@@ -31,9 +31,13 @@ spi_gpio: spi {
- 		#address-cells = <1>;
- 		#size-cells = <0>;
+@@ -156,18 +156,6 @@ &vhub {
+ 	status = "okay";
+ };
  
--		gpio-sck = <&gpio0 ASPEED_GPIO(X, 3) GPIO_ACTIVE_HIGH>;
--		gpio-mosi = <&gpio0 ASPEED_GPIO(X, 4) GPIO_ACTIVE_HIGH>;
--		gpio-miso = <&gpio0 ASPEED_GPIO(X, 5) GPIO_ACTIVE_HIGH>;
-+		/*
-+		 * chipselect pins are defined in platform .dts files
-+		 * separately.
-+		 */
-+		sck-gpios = <&gpio0 ASPEED_GPIO(X, 3) GPIO_ACTIVE_HIGH>;
-+		mosi-gpios = <&gpio0 ASPEED_GPIO(X, 4) GPIO_ACTIVE_HIGH>;
-+		miso-gpios = <&gpio0 ASPEED_GPIO(X, 5) GPIO_ACTIVE_HIGH>;
- 
- 		tpm@0 {
- 			compatible = "infineon,slb9670", "tcg,tpm_tis-spi";
+-&emmc_controller {
+-	status = "okay";
+-};
+-
+-&emmc {
+-	status = "okay";
+-
+-	non-removable;
+-	max-frequency = <25000000>;
+-	bus-width = <4>;
+-};
+-
+ &rtc {
+ 	status = "okay";
+ };
 -- 
 2.47.3
 
