@@ -4,111 +4,207 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CBE7C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 15:06:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 794BDC83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 15:08:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ybWW2x8fDcj+N5hV7PM0YQEibulS1fH0S8JJpPe47GY=; b=B2N1IhYVtSMfOp0Cfgx6IRFdVt
-	+Inq+dveCZ+RFnziLL3L8M1nQ50xFIsJc6Enxgro6288R3qhfvvBnTeibjxd8HNT/3kzgkO0zSt/l
-	w4dAWPQTx9XgdV9jS6tSkT1rHzgUZaF8bmcuDJkLsyv/KszJYeN4jtTR4+LrcDHRi8Et5iFm8GuIv
-	iiJE9iF+yQ6zlPDzoqF+TCCoYSbjs4UFJGRhjKXjHYH7qTjyvsuSlnuMJQVVmrGGoRfQrW1iBXS7G
-	+7IDnBv5ffrQjnAXqc3GFnFAyksbRRkoMXwEKIzVj1mXj25tO/6cR2t1sHFhRBMJFCZJl2TyObG04
-	Aq4KO1Xw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nIbAO55wzjPHIFYrMI09rcE9v+bE/NEExaDwAQvevsM=; b=mc9tHLAB3R9+RuvYqs097ZbHY3
+	Q66cwDEdzJCxWFtrMFTPcZhVzZS6XE11sCN8w4L0N2E0IS6wmE60+OaVzamxFaS2bawCYEaQExpTe
+	VFe3qixcXN/Boqf5DuqJ12Zx5R+2aFqPS9U3MPQJDLRpEfnGVIVYyjns+nespsbcK/b3dGbg8cyQo
+	yQ3xO27a/vc1GZyVz+CoLhcicBtBkQuPcQVd29LOnaeG11wY4E0C2moqR/sO/mObqlNTg3JrWEVFZ
+	V61Ujn4MBrQYjiMD7F0GkbiE4cZf0WnKl6CC+LPPYZwfazbeUbiY/ONLrcY+c+05u3P1M2ecvMn53
+	dNR4E/WA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueb2t-00000005KIV-0eAC;
-	Wed, 23 Jul 2025 15:06:15 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	id 1ueb5K-00000005Km1-07pZ;
+	Wed, 23 Jul 2025 15:08:46 +0000
+Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueabv-00000005E3B-3Lmo
+	id 1ueade-00000005EIw-3phR
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Jul 2025 14:38:25 +0000
-Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56NDqKnl004953;
-	Wed, 23 Jul 2025 16:38:02 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	ybWW2x8fDcj+N5hV7PM0YQEibulS1fH0S8JJpPe47GY=; b=LybQKPjRkNFAQoU9
-	jItT0px77hEvmRmGQGwlo1zkH7+hdzJESsucEbEjPfO9Shhwb23BFMH3CtJ1CNoa
-	PDKwJjTf0D7Pep+h+c2+IS70t9IB4OwLQU1AVRdhGvSXPbvl6182Q8+4IXFOBZm0
-	EeXVOGrWybDqCpSmHuokH7MKzCUEoDbrbiQyqKn9o16voLXmvGKBo5HOOdvZXRB5
-	/3pNmrQ+U2AO778De/wACI3+ZXPu8zvJkFusYHtxJFuPhlXhiI9fwTFTbVGIbxFc
-	xWBdmUhOz5RkOd2jITayDh21zcAKqAYgCsU/yTU2ysR4Zl9QduPsLgVvgND8DZ97
-	BA4+7A==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 4800g8v8ss-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 23 Jul 2025 16:38:01 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id C013440046;
-	Wed, 23 Jul 2025 16:36:18 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 26AD077F15C;
-	Wed, 23 Jul 2025 16:35:14 +0200 (CEST)
-Received: from [10.48.87.141] (10.48.87.141) by SHFDAG1NODE1.st.com
- (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 23 Jul
- 2025 16:35:13 +0200
-Message-ID: <7a900f56-355e-42f7-93fe-be5a586cc083@foss.st.com>
-Date: Wed, 23 Jul 2025 16:35:12 +0200
-MIME-Version: 1.0
+	Wed, 23 Jul 2025 14:40:12 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=ElFWmYzWFuyfboKwBcyvz5EHFx73XOlWqglJW0Uuj9ij2IKUdkFFKhh0KwfeZiuBQ63dGuO2g+a5Mu4jX4/Qfc4WbMi1W3fiO9N096ln9xwkcLRtdjl2lUCEMrV5ZoUZHkQrPDm3PNKRySRuTi/ywdcf9XLaMexSMtI5qBYqi3ByQjGAF/3pD3mgB3VC4UHKx5vtOcpLJsGQLPZgcs6efirBhNgZqKksOox1ACU0dYEVK/olSyu6rSl+WYSJW5lr1JRavhOtf7sGGvkxHU2IVZSZ5dpdM/Sb2HQAAbQJkf7LeX+tLnJhlevuKYp+338SisxSKbbrDXdx2ODk74KFlQ==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=nIbAO55wzjPHIFYrMI09rcE9v+bE/NEExaDwAQvevsM=;
+ b=Eos7dqGni1bXzoTP8SLZkdW9itk9NaF9rEWSKOIjtRTZhAaZEA4AJTjKi9TdneOyBc5xHcuJIEQFzHN7enimkrTp7lnWFAA9rVPnJRevxz7WlCR4K3BelBE/DVSgYVr5bV6BpGZicfTdk7XCd2t99a2FYXx4obxJ8ExkHsJLG6sfc1+M9CAWT91+S8KjHuhxY8ONHZhnLKW9VVZ1R8Jrr9bteebYQwaMR2vZ3emjDcY1jrz//NcTy53Ffj9f+za8z/HeIYRQyZht0/4htlNiH67cQ4uVoOtY5zZqNcUsEhIDMXSPLmO8F98mGFvDI7bH04PpOmGJZZuYffOu7sNy0A==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 4.158.2.129) smtp.rcpttodomain=kernel.org smtp.mailfrom=arm.com; dmarc=pass
+ (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
+ (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
+ dmarc=[1,1,header.from=arm.com])
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=nIbAO55wzjPHIFYrMI09rcE9v+bE/NEExaDwAQvevsM=;
+ b=WtE4WfoMoQICzRUKLv9t50oH9i4EK3WHBHx8k6lf0ngtfmUgaPXN11sMKrJnFexWj/5x3QeBvDYZFW3YD2xvefJlnRVZsinJa85YU/h2twiqGzFOWGpsapPxB7kOMC7ZayofAp5P4pD2SB9SrJ5q0EuFxG6THj6WywvBiZH/p58=
+Received: from DU7P190CA0014.EURP190.PROD.OUTLOOK.COM (2603:10a6:10:550::12)
+ by DU2PR08MB10037.eurprd08.prod.outlook.com (2603:10a6:10:49a::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8943.30; Wed, 23 Jul
+ 2025 14:40:00 +0000
+Received: from DU2PEPF00028D02.eurprd03.prod.outlook.com
+ (2603:10a6:10:550:cafe::bd) by DU7P190CA0014.outlook.office365.com
+ (2603:10a6:10:550::12) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8964.22 via Frontend Transport; Wed,
+ 23 Jul 2025 14:40:00 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
+ smtp.mailfrom=arm.com; dkim=pass (signature was verified)
+ header.d=arm.com;dmarc=pass action=none header.from=arm.com;
+Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
+ 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
+ client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
+Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
+ DU2PEPF00028D02.mail.protection.outlook.com (10.167.242.186) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.8964.20
+ via Frontend Transport; Wed, 23 Jul 2025 14:39:59 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ororQ4JHhIsVrIEGGy2RHu3zuh/sIXiuyLl8+ln1Np57VbA+dnHukGhnmLKKtl/AGNKqUnLbSmTqaWyWpf6ll+0yDnhpnLcCFud+HrwjdP1+xOFa0VgJE8UF+wSOQBYWf+ybQ7FFYa9TIuMgW1Ptr0gONv0OD1a/lwcwDNm6BFFN3//+L5oOkbR55xrZtxzLopL/HdCXg/XjqeSe9TLB7XE0fUOU9Y6xKCsDpC19hEJyGJ3AMjFfDOHbcajwXFjPWoMni3sdnmxQQuxf+8MZaPZ3XOVHioZ4HRXskbo1kepn3McTGhbrHWHvLfwUAHYbY+FkWiviHV2RYvaeHTN2Tw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=nIbAO55wzjPHIFYrMI09rcE9v+bE/NEExaDwAQvevsM=;
+ b=GHRTXnBygqu2ju5DrjsIDLxSZQXZqxVbU79d1UQJdYoQ+tl2SfyChP648pt2pZBDdypsvMyvvISVxIyvVTi21cqYqMHo0jE3VR/5xJSRQikRC1z8MgGx1tZtB4ffHwRBc0bIpIc9Pd59Gg7WVC+XVjQ1vYIMN98YlXFI72Wbg0sHl00/mBrfMUfWVLQuUgR0W7UwANN8NgUutiIXjqXjn4vcnqzFsD5QuOQ1dvpoixgjUIe+hmdCctGhdWPcco6/kkDmcdljUPlsQsYeDvdYCTcOHbXN/o4vnpUCNQefrAC299pzifXw5IUERs4nfntC5nwkr4R02LG6K6RT/AuWlw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
+ header.d=arm.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=nIbAO55wzjPHIFYrMI09rcE9v+bE/NEExaDwAQvevsM=;
+ b=WtE4WfoMoQICzRUKLv9t50oH9i4EK3WHBHx8k6lf0ngtfmUgaPXN11sMKrJnFexWj/5x3QeBvDYZFW3YD2xvefJlnRVZsinJa85YU/h2twiqGzFOWGpsapPxB7kOMC7ZayofAp5P4pD2SB9SrJ5q0EuFxG6THj6WywvBiZH/p58=
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=arm.com;
+Received: from AM9PR08MB7120.eurprd08.prod.outlook.com (2603:10a6:20b:3dc::22)
+ by DU0PR08MB9728.eurprd08.prod.outlook.com (2603:10a6:10:444::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8943.30; Wed, 23 Jul
+ 2025 14:39:28 +0000
+Received: from AM9PR08MB7120.eurprd08.prod.outlook.com
+ ([fe80::2933:29aa:2693:d12e]) by AM9PR08MB7120.eurprd08.prod.outlook.com
+ ([fe80::2933:29aa:2693:d12e%5]) with mapi id 15.20.8964.019; Wed, 23 Jul 2025
+ 14:39:28 +0000
+Message-ID: <55f8c7a4-4535-42ff-abb7-a7cf7cd08684@arm.com>
+Date: Wed, 23 Jul 2025 20:09:22 +0530
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next 1/4] dt-bindings: net: document st,phy-wol
- property
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-CC: Andrew Lunn <andrew@lunn.ch>, Krzysztof Kozlowski <krzk@kernel.org>,
-        Andrew Lunn <andrew+netdev@lunn.ch>,
-        "David S. Miller" <davem@davemloft.net>,
-        Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
-        Paolo
- Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski
-	<krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Maxime Coquelin
-	<mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Christophe Roullier <christophe.roullier@foss.st.com>,
-        Heiner Kallweit
-	<hkallweit1@gmail.com>,
-        Simon Horman <horms@kernel.org>,
-        Tristram Ha
-	<Tristram.Ha@microchip.com>,
-        Florian Fainelli
-	<florian.fainelli@broadcom.com>,
-        <netdev@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-References: <20250721-wol-smsc-phy-v1-1-89d262812dba@foss.st.com>
- <faea23d5-9d5d-4fbb-9c6a-a7bc38c04866@kernel.org>
- <f5c4bb6d-4ff1-4dc1-9d27-3bb1e26437e3@foss.st.com>
- <e3c99bdb-649a-4652-9f34-19b902ba34c1@lunn.ch>
- <38278e2a-5a1b-4908-907e-7d45a08ea3b7@foss.st.com>
- <5b8608cb-1369-4638-9cda-1cf90412fc0f@lunn.ch>
- <383299bb-883c-43bf-a52a-64d7fda71064@foss.st.com>
- <2563a389-4e7c-4536-b956-476f98e24b37@lunn.ch>
- <aH_yiKJURZ80gFEv@shell.armlinux.org.uk>
- <5a2e0cd8-6d20-4f5a-a3a0-9010305509e3@foss.st.com>
- <aICpe63iqldl9NFd@shell.armlinux.org.uk>
+Subject: Re: [PATCH v5] arm64: Enable vmalloc-huge with ptdump
+To: catalin.marinas@arm.com, will@kernel.org
+Cc: anshuman.khandual@arm.com, quic_zhenhuah@quicinc.com,
+ ryan.roberts@arm.com, kevin.brodsky@arm.com, yangyicong@hisilicon.com,
+ joey.gouly@arm.com, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, david@redhat.com, mark.rutland@arm.com
+References: <20250723102905.7894-1-dev.jain@arm.com>
 Content-Language: en-US
-From: Gatien CHEVALLIER <gatien.chevallier@foss.st.com>
-In-Reply-To: <aICpe63iqldl9NFd@shell.armlinux.org.uk>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+From: Dev Jain <dev.jain@arm.com>
+In-Reply-To: <20250723102905.7894-1-dev.jain@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.48.87.141]
-X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE1.st.com
- (10.75.129.69)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-07-23_02,2025-07-23_01,2025-03-28_01
+X-ClientProxiedBy: MA1PR01CA0162.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a00:71::32) To AM9PR08MB7120.eurprd08.prod.outlook.com
+ (2603:10a6:20b:3dc::22)
+MIME-Version: 1.0
+X-MS-TrafficTypeDiagnostic: AM9PR08MB7120:EE_|DU0PR08MB9728:EE_|DU2PEPF00028D02:EE_|DU2PR08MB10037:EE_
+X-MS-Office365-Filtering-Correlation-Id: e5f8a6a1-6e0f-493c-8302-08ddc9f6cd50
+x-checkrecipientrouted: true
+NoDisclaimer: true
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|376014|1800799024|366016;
+X-Microsoft-Antispam-Message-Info-Original: =?utf-8?B?ZVpwWlkwbnAzWjdIQ1lqYzJXZUNiMWN1a3lMblVjQnk3UWQyb2w5dEcwSHUr?=
+ =?utf-8?B?R2FNR3JaZEhnK1dIbVJkeWxQeWNldzhxUm9YZkFCZ0tvVFAvem5kQmZjSnBx?=
+ =?utf-8?B?SUViQkZvc1orQzBaTEVzSXBOT3BaMkVCY0VrcEdTVDZTaktENUVhWDhKbmI0?=
+ =?utf-8?B?WmhDZFdCVGY0TUdUaE5PWjRYcW5OSHBwT21mRlBBMmFXTVo1RUF0VGlocnhp?=
+ =?utf-8?B?STc4aU9FaGNSRjVoMHBnZHhOOWRXSmtBdzcxODhxbUpYMEdLM1VGc3FmZDdv?=
+ =?utf-8?B?QmhtaUJhYWtpVXZoZExqZXVMTXBZZ2RKVEFsZkhQd1plZzF6c2lMK29TRjBC?=
+ =?utf-8?B?UjdoallRSnBRbGpVMVhYV3dDeStTb0t5WVdPT1ZoL3dhK1lOZVgxQUxHdDh4?=
+ =?utf-8?B?cW5uOFoxQW9tVlJlck5VS3Y0eWo0d05TVno0K1JDb3V6VDZua1lHaFgreFBP?=
+ =?utf-8?B?djBRcUhmMzBWcWF6WDNkSXpBNkNZdkRIcmE4Z2pQQWFpV2lKcnM3Sk1Tay83?=
+ =?utf-8?B?aHMyR0pMVXY4WWdITUZIOEtBVzI2Q01GcjRFVFNHZGxYWVBBV1ZXY3FLTkdw?=
+ =?utf-8?B?YmE1Y1dwRzdjSUxCbmNSanFFMGpoWW95Y2NaV2F1QWlkTzZNdDBSYmVtSFZm?=
+ =?utf-8?B?TGNxMGhOZVpobXc3YVd3NGl2ekFyTjhQU1VvZWZrc1FnZHRDQW1jS1RMR0dE?=
+ =?utf-8?B?NFpENmhsbXg4SHMyalJOSXhhWUdmQmFYalhxMTQ3YU43NUdTWXl6S2NSc2Ur?=
+ =?utf-8?B?T2JEaVErVThCNUlhWXdqZWlja0cxWTRrYU1lRGF0MmJCUm5lVUhmUkdFNFk3?=
+ =?utf-8?B?T2Y5OHNUNmJBODUrUHh5bHdSR2pES0hNNHYxdGFjTGlYRWQrenBCR2ptRENs?=
+ =?utf-8?B?RDFnY0ZheFNjVnJFbmFQRjM2eWNsY28rMnVMZ3h0bFJjRVJtS25BeUVOaFAy?=
+ =?utf-8?B?STB0YkdOamI1OWZvTWxXZVhUMUF6SHJTeWtodDhqeS9RWGlHVkRtekdzaUxq?=
+ =?utf-8?B?TE5OZmFhSU1uTGJqVktJWmpveXhTVVIxMEFyYlc5c3Q0ZnB2MUE2Rm5iTlBa?=
+ =?utf-8?B?d05QYkt2d1J6SitIRnpwelpwWGxpRHY5eXRwYTVkSllXMU4rSGV5Nm9iWTlV?=
+ =?utf-8?B?Qis0dFRXMEdOb0EvU0d6Z2ZPUUlQaDRVTUt6Y1JvekJ6TDU2aS9lNXhPQ2xD?=
+ =?utf-8?B?U1hMb0lGWUdmdXB5NTZndU5vN3hIazRKTXl5MkZzd3MvS215ZG9JZjRkZTcx?=
+ =?utf-8?B?cjlxdW1la2tIOGZyak1vRDB6dVNhY1dXRnBuWk5EbzFVZFllWXNaajdtZFI5?=
+ =?utf-8?B?S0czOXAxdGQ0ZHJ5VndPSjVQSjJlYlJlY05MN2p5Qi9QUGlveC9sSWtxdnlm?=
+ =?utf-8?B?S0lpaDdIdG5UZy9sbWtnWVpWV3ZVTFhnOE1JSFhNckZTUS9EVW03M3V5eDds?=
+ =?utf-8?B?dDhCMnYyMUZYbE5HNXlVQjRzYzBvS2Zib3ZBYXMzNVcyOSsvS0UxVDM5Z2w5?=
+ =?utf-8?B?cmNFbmVjWDlQZ09FckZHLytUZGFucVF4MURVSk9WWkk1SVVPR2t5UU5SWURM?=
+ =?utf-8?B?cnA2Rk1OWmFJckdyVzlCUFk3VHJnSld1Vkl1ZHllT2xENkpBNTRRNEQ5ZEdF?=
+ =?utf-8?B?VEhhdTBta0JjQ3RFRmxEMVFjSmkvNjVTelNaMkpXRDE3NUtBd2dhT3lZNEJQ?=
+ =?utf-8?B?MzNhakx3ZnlKbGNTR2srbjFIZ3VLWFlTWHhZUDJCMjFhVEdDcUhEWDBMYVJ0?=
+ =?utf-8?B?clB6TTZYZHBNd2MyL3MrWGp3RXQ2amg0MW5wR28rVlhmQnM0MjRGZEZKZDh6?=
+ =?utf-8?B?K0pZRXJuZ2lNNDJxOXpkWDJoQXZLSzZicVFINzZwbTBzK0F0L2VDQXBmbW43?=
+ =?utf-8?B?bXhOeHlyZUxWWkRUR3RrcGhieVNMNlp0YzVSN1hqejVvd3NYbWVJS2JpSENF?=
+ =?utf-8?Q?ovRGugIqUKw=3D?=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR08MB7120.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR08MB9728
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: DU2PEPF00028D02.eurprd03.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: ff96479b-cd4f-43da-a190-08ddc9f6ba17
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|36860700013|82310400026|14060799003|35042699022;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?QUcyQS9qS01Bdk9iSGxkaEdEY1paT0I5bXZKZXhoUHVZaDhTZHlIM05vRUxL?=
+ =?utf-8?B?alNmTW0zWFZKSlBWL0Y0OERROE9UZW9pcjhiQzk2L2J6SXdicHJuL0VkV0FI?=
+ =?utf-8?B?V1N3Q3RoMjdRRDRWUitNeXJuRGZIcnVzUmZZOUw3cUMrNytzaGlTVFZMN2Jl?=
+ =?utf-8?B?WXA1bFA2VHBxbHVYSlVjZVpaWHNVdEE4Rktkb2JkVWpKbWlNdXFLbnExaEFa?=
+ =?utf-8?B?OW80eXNDRysweDFveGxSN3A5QnJWbmpCL0p4REl3Z2ttNHZXRDlQNkQ0YThB?=
+ =?utf-8?B?VTZLdWd2VmZLVC9tL3dlbnVjdFF0dk9ndzBPdWhaY2Y3Kyt0emFHaEs3K0M1?=
+ =?utf-8?B?YS9CNjlxeDQvamtmM2wvVHN5MTJCYVdpbE9RRm5XL3JtV3VSeTcwcnl5M0xQ?=
+ =?utf-8?B?N2p1b2dJZHVqT1R5eU8yRHlkTy9CYTBucUd4QllNdEpHK2taRjlUZGFLeHpi?=
+ =?utf-8?B?TWNvNE9FaldaeDJqc0xWa0k2MHRhL0NDS0FQYTZKWkt1OTRVVnl5dFVsYUIr?=
+ =?utf-8?B?dC82NmxxOHhFb0dHKzJyYnJac1gvc3pnUGNYNEc0S250Q083UVBOZGJ4OFha?=
+ =?utf-8?B?RVM1bTI4UjJsR3pQdGRnTGN3N1BKYmJIMjNxQmpxb2pTZTZCR1hPQnlpbVh6?=
+ =?utf-8?B?a3daVERlbnlxbTFpMUUraVdkZUowYzVlSUl4TVVsTUNSb0NLRTAySTI1WVd3?=
+ =?utf-8?B?QmRnOXUwU2s5eGNUdGlWb3lzVTZXYlp0M0RKQW5ZSGFueG9LNGc0WG1wSXha?=
+ =?utf-8?B?ckJFUGtGTnFvV25oUTF4T3o3N2J6R09hU01pT0FCcGdEZW03L2ZZUnZQWXFH?=
+ =?utf-8?B?VUZFangyUzBrR0tSTUNZQjhOK2xVS09DbWttOWJ0Y0hWSE9GN1ZoRU5ySHpq?=
+ =?utf-8?B?YVpyeThBVTM1TTJvM3A1b3JwOGxQYSs1MHFNMzhUQ3ZYUWw5dGVNRTkwRzVO?=
+ =?utf-8?B?K1h2ZUl6SEFQQWVaTWNHRW92ZWZxbDJ1R2RMNE04Q0hVYzVZSmM2ZzJjZG0z?=
+ =?utf-8?B?OGN5Y1paZG9NMCtKeUZVV0V6OXE1VUxyMzdMRmtIcFE2QmVDalY4b1RKMFY5?=
+ =?utf-8?B?RHNSZEZtcXh6WXNLSTdEQjZrUVh3MkhkOHBocVd5amFxNGNGVzBFTFdKcjhD?=
+ =?utf-8?B?ZHZUQVFmbTAvWm5KNlR1cVF4a21ObDZvenRqVGtDLzNGTEtrS2NZWFRjRnQ2?=
+ =?utf-8?B?SWRBOHp5TWZkczBPVm1mdVovemlRNzRhSlMzUG8rTWdGanNnVUorNWFXTElT?=
+ =?utf-8?B?Nk9SM0JjTzJrNU4rQVBHTTFiWHBRTFJXanJ0V2cvQjRyWG1oOHAwL3pmOWs0?=
+ =?utf-8?B?eHpxQUlJUjlZMThSWkVhYjAvVmdHd0xpei9RSnZyVmt2TGFGOVdDVUEzckFn?=
+ =?utf-8?B?QXMxaDZtR2ZRVTM0dk9GeVdrOFFuczNJdnhnNGRZNzZoYjF1cDhYZEk4aU9w?=
+ =?utf-8?B?aUc0SW9NTnhjNlcyM2FlK3NhOW5RbU50S1NGS2JmS2YvazFMSzBnMFFBT2NI?=
+ =?utf-8?B?TWpvVGtkMFo2ODgzOUxDMnJuVVUzMWxQMVMzQi9yL2VPemRoUlhxNlptT1RD?=
+ =?utf-8?B?eUhLanRFU3N6VWJsTEFIZVdYSnp3YXNMTWFBMVpOVG1qWjl1Wkt6Qk1manRQ?=
+ =?utf-8?B?dDcvYkgwaVk3Rm9CNE9mVkkrZ0U2WUhxUnJUYzVZT2RMUUtzN1huZ0hRbGtl?=
+ =?utf-8?B?U0Z2bUtuM01wU3hmTXdRRXFMM3VUeVh4RGFzTHo4UWc1RmhIbEdsRVlJaGVK?=
+ =?utf-8?B?S1FRbUd5ZTh1UHVGcFRDYnpvdHptVWI1ekJidy96a1d1VUtPM2dveDErZm9R?=
+ =?utf-8?B?NUpRVXpSNlF2SHd3azJIUitxaGR1Ni9PdHhIbDF3V3BSQml1WHV1R293RmVt?=
+ =?utf-8?B?aG1MODg2Q3VIU3hUYWltSitSeGp2Q3l1c0NpWkRBaGQ1ZTZLTE9iK0lCblBH?=
+ =?utf-8?B?b0NTamtWME4yNVBtK3BRVWxQOHdFSlVXSHV3UTlWdHY5VUZCUmR1UWEvb0hZ?=
+ =?utf-8?B?SmprRmxCdmxaaURkMmFrU21BbFJ5T1NnRVNPSlZkQzRldFdNb0F2a21uTkQz?=
+ =?utf-8?Q?2Qjl8K?=
+X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(376014)(36860700013)(82310400026)(14060799003)(35042699022);DIR:OUT;SFP:1101;
+X-OriginatorOrg: arm.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Jul 2025 14:39:59.9252
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: e5f8a6a1-6e0f-493c-8302-08ddc9f6cd50
+X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
+X-MS-Exchange-CrossTenant-AuthSource: DU2PEPF00028D02.eurprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR08MB10037
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250723_073824_112096_99840FB1 
-X-CRM114-Status: GOOD (  39.57  )
+X-CRM114-CacheID: sfid-20250723_074011_014963_31322441 
+X-CRM114-Status: UNSURE (   8.20  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,137 +220,32 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
+On 23/07/25 3:59 pm, Dev Jain wrote:
+> [--- snip ---]
 
-On 7/23/25 11:20, Russell King (Oracle) wrote:
-> On Wed, Jul 23, 2025 at 10:50:12AM +0200, Gatien CHEVALLIER wrote:
->> On 7/22/25 22:20, Russell King (Oracle) wrote:
->>> On Tue, Jul 22, 2025 at 03:40:16PM +0200, Andrew Lunn wrote:
->>>> I know Russell has also replied about issues with stmmac. Please
->>>> consider that when reading what i say... It might be not applicable.
->>>>
->>>>> Seems like a fair and logical approach. It seems reasonable that the
->>>>> MAC driver relies on the get_wol() API to know what's supported.
->>>>>
->>>>> The tricky thing for the PHY used in this patchset is to get this
->>>>> information:
->>>>>
->>>>> Extract from the documentation of the LAN8742A PHY:
->>>>> "The WoL detection can be configured to assert the nINT interrupt pin
->>>>> or nPME pin"
->>>>
->>>> https://www.kernel.org/doc/Documentation/devicetree/bindings/power/wakeup-source.txt
->>>>
->>>> It is a bit messy, but in the device tree, you could have:
->>>>
->>>>       interrupts = <&sirq 0 IRQ_TYPE_LEVEL_LOW>
->>>>                    <&pmic 42 IRQ_TYPE_LEVEL_LOW>;
->>>>       interrupt-names = "nINT", "wake";
->>>>       wakeup-source
->>>>
->>>> You could also have:
->>>>
->>>>       interrupts = <&sirq 0 IRQ_TYPE_LEVEL_LOW>;
->>>>       interrupt-names = "wake";
->>>>       wakeup-source
->>>>
->>>> In the first example, since there are two interrupts listed, it must
->>>> be using the nPME. For the second, since there is only one, it must be
->>>> using nINT.
->>>>
->>>> Where this does not work so well is when you have a board which does
->>>> not have nINT wired, but does have nPME. The phylib core will see
->>>> there is an interrupt and request it, and disable polling. And then
->>>> nothing will work. We might be able to delay solving that until such a
->>>> board actually exists?
->>>
->>> (Officially, I'm still on vacation...)
->>>
->>> At this point, I'd like to kick off a discussion about PHY-based
->>> wakeup that is relevant to this thread.
->>>
->>> The kernel has device-based wakeup support. We have:
->>>
->>> - device_set_wakeup_capable(dev, flag) - indicates that the is
->>>     capable of waking the system depending on the flag.
->>>
->>> - device_set_wakeup_enable(dev, flag) - indicates whether "dev"
->>>     has had wake-up enabled or disabled depending on the flag.
->>>
->>> - dev*_pm_set_wake_irq(dev, irq) - indicates to the wake core that
->>>     the indicated IRQ is capable of waking the system, and the core
->>>     will handle enabling/disabling irq wake capabilities on the IRQ
->>>     as appropriate (dependent on device_set_wakeup_enable()). Other
->>>     functions are available for wakeup IRQs that are dedicated to
->>>     only waking up the system (e.g. the WOL_INT pin on AR8031).
->>>
->>> Issue 1. In stmmac_init_phy(), we have this code:
->>>
->>>           if (!priv->plat->pmt) {
->>>                   struct ethtool_wolinfo wol = { .cmd = ETHTOOL_GWOL };
->>>
->>>                   phylink_ethtool_get_wol(priv->phylink, &wol);
->>>                   device_set_wakeup_capable(priv->device, !!wol.supported);
->>>                   device_set_wakeup_enable(priv->device, !!wol.wolopts);
->>>           }
->>>
->>> This reads the WoL state from the PHY (a different struct device)
->>> and sets the wakeup capability and enable state for the _stmmac_
->>> device accordingly, but in the case of PHY based WoL, it's the PHY
->>> doing the wakeup, not the MAC. So this seems wrong on the face of
->>> it.
->>
->> 2 cents: Maybe even remove in stmmac_set_wol() if !priv->plat->pmt.
-> 
-> On the face of it, that seems like a sane solution, but sadly we
-> can't do that. If we did, then at least Jetson Xavier NX would break if
-> WoL were enabled, because DT describes the PHY interrupt, and currently
-> the PHY driver switches the interrupt pin from interrupt mode (where it
-> signals link changes) to PMEB mode (where it only pulses when a wake-up
-> packet is received) when WoL is enabled at the PHY. This will mean
-> phylib won't receive link state interrupts anymore, so unplugging/
-> replugging the cable won't be detected by phylib.
-> 
-> Even my further suggestions do not get us to a state where we can pass
-> the set_wol() to the PHY, and then work out what the MAC needs to do,
-> because e.g. in the case of RTL8211F, even if we use the "wakeup-source"
-> to fix the above, we still have the problem of "is wake-up supported
-> by the PHY wiring or is it not". We just have not described that in the
-> DT trees for platforms, so this is basically unknown.
-> 
+>   void ptdump_walk(struct seq_file *s, struct ptdump_info *info)
+>   {
+>   	unsigned long end = ~0UL;
+> @@ -311,7 +319,7 @@ void ptdump_walk(struct seq_file *s, struct ptdump_info *info)
+>   		}
+>   	};
+>   
+> -	ptdump_walk_pgd(&st.ptdump, info->mm, NULL);
+> +	arm64_ptdump_walk_pgd(&st.ptdump, info->mm, NULL);
+>   }
+>   
+>   static void __init ptdump_initialize(void)
+> @@ -353,7 +361,7 @@ bool ptdump_check_wx(void)
+>   		}
+>   	};
+>   
+> -	ptdump_walk_pgd(&st.ptdump, &init_mm, NULL);
+> +	arm64_ptdump_walk_pgd(&st.ptdump, info->mm, NULL);
 
-Yes but the PHY is described as board level, so for each board, each
-vendor/industrial/amateur has the knowledge of the pin being wired.
-or not. Therefore, the "wakeup-source" property could be added only
-if that's the case, couldn't it? Maybe I'm missing something.
+Brilliant, due to copy-paste I passed in info->mm here instead of init_mm.
+Let me resend.
 
-This way, the PHY driver could ultimately return an AND of the property
-being present and the PHY WoL capabilities for wol.supported field.
-However, that's seems a bit messy and suggests not relying on pmt being
-present when setting WoL for stmmac and other reworks in other places.
-
-TBH I'm not sure how to handle this without massive changes...
-
-> Adding any logic to the kernel to make that decision will cause
-> regressions - either by making WoL unavailable on platforms where it
-> previously worked (e.g. because PHY WoL was being used) or the opposite
-> (where MAC WoL was used but now PHY WoL gets used but isn't wired.)
-> 
-> This is why I say we've boxed ourselves into a corner on this - this is
-> not phylib maintainers fault, because we can't know everything about
-> every device out there, and we don't have time to read every damn data
-> sheet which may or may not be publically available. We have to go by
-> what submitters provide us, which leads to problems like this.
-> 
-> So, we need flexibility from everyone to try and find a way forward.
-> We can't have people sticking to ideals - such as DT maintainers being
-> rigid about "DT describes hardware only". As I've already stated, our
-> DT currently does *not* describe hardware with respect to PHY wake-up,
-> and because this has been overlooked, we're now in a mess where there
-> is *no* easy solutions, and no solution that could be said to purely
-> describe hardware.
-> 
-> If we didn't have any PHY drivers, and were starting afresh, then we
-> would have the latitude to come up with something clean. That boat has
-> long since sailed.
-> 
+>   
+>   	if (st.wx_pages || st.uxn_pages) {
+>   		pr_warn("Checked W+X mappings: FAILED, %lu W+X pages found, %lu non-UXN pages found\n",
 
