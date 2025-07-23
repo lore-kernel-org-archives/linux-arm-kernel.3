@@ -4,68 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FF04C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 06:59:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F01F1C83F25
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 07:02:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s022kua0cUEAxtsoBnjljjHlntUp4fU9k6QUycSxTlk=; b=R7n/qj9grviCGZYDF/H6O6QjhM
-	JSTtxoNBcDL5i+AHRg8gxp9VZnvzpXq9kUGcjPz7FJKq7GscGvTFw1fIyfLJPI4aJdBf82sNAzPE0
-	XmY14sYtp7R/V68C+XvG41a9SAq+k6/nG0pA8UgUjcNJ/cPWm3lcVjRd0KI1mlAJmb7q7NSPmkpu9
-	SDTFafvhrkwd+HMg+YBHisFlEdhbbkzG9rGwlLz/KZJbzxXr8NzKh53UiiC7jT5+zFNTcMnvsXB5S
-	lhrQn5tu22ZtHzb9COpIYcFKBJyrGEfuyZuPnq4+NYezJyXjk/GL7yAbFHj7niBrC0tch6Sl1BzU6
-	rKcgE8mA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=IW64XxtWB3loxLkaTfVE71+NTrk/5zxg+NXL4WIDjrc=; b=SfPr9ZjBoGgJkD7/CkUyoTm4A2
+	Sl1glhjGjo6EsHIqPK1JikBaaXMpaDJuRR6QXPc7BHY4Ai8sYmeyTGG3RqQ4baI0JMyEbVQmORZJa
+	dubNdrH/7hgdzkYLrScSRtw6ZwfG/g57DY9+nf1eHooVuPleop1kl7chFpZMKQOzp7UmCYaZdTuqR
+	rtuq3Al4+n5xrUX3LqGw+GMjOdxtcVI58pSIps8RRryMy8jqxOvn/lkGg2jvu5ZJH6fh9aO3dtKWj
+	z4yHocfMwCxrDuvOeDejjRJIW9QxHLwSTvwTV1LoojYfejQLUvR17/Mv3q5hq82mprVLoyCIZIL+X
+	CS+GtPqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueTS8-00000004BQ3-2Ayc;
-	Wed, 23 Jul 2025 06:59:48 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1ueTUa-00000004BhS-1Ql4;
+	Wed, 23 Jul 2025 07:02:20 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueTPf-00000004Asq-19J7
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Jul 2025 06:57:15 +0000
+	id 1ueTRZ-00000004BHy-2jq8;
+	Wed, 23 Jul 2025 06:59:14 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3DA5C66911;
-	Wed, 23 Jul 2025 06:57:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4E611C4CEF4;
-	Wed, 23 Jul 2025 06:57:13 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id EAC80445E3;
+	Wed, 23 Jul 2025 06:59:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EE3BEC4CEE7;
+	Wed, 23 Jul 2025 06:59:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753253833;
-	bh=JIfE9XgM6zvzb89Yq0cMzIJaAN+lyRfDNIOGeiBWxII=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=s0iXpUXSq5lTOFR2KZjz0yWzsRJGefnwMpQCGHqr2UHa+TIw2Dh6DzOZXkf8/imon
-	 0bGr7Kgp/lD+i2mZIEJHxxOrDZmTrjQijh2UL2b84WaquG04VZ9Ut5MFYvOnr049Z9
-	 LuUu7yzOLeUrjOixMjKJ+PacUYHUpY3rvXeDFGyFjVRco6nszYyy1P+4Y8UFZ2ZySJ
-	 sfOXhwU16i3QFTgGWkkM9J+on6wmCtANTQAqUNKz8E/sT7me5gRRseuJpGvOTgIysJ
-	 jdEOoygpFDk7HA1ZMpBca197nzb3zukm8DY8FJySkg1wd+/LExayXRMrnNsEsWI7oe
-	 MKCdWHMbjk7GQ==
-Date: Wed, 23 Jul 2025 08:57:11 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: =?utf-8?Q?Cl=C3=A9ment?= Le Goffic <clement.legoffic@foss.st.com>
-Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Jonathan Corbet <corbet@lwn.net>, Gatien Chevallier <gatien.chevallier@foss.st.com>, 
-	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
-	Gabriel Fernandez <gabriel.fernandez@foss.st.com>, Le Goffic <legoffic.clement@gmail.com>, 
-	Julius Werner <jwerner@chromium.org>, linux-arm-kernel@lists.infradead.org, 
-	linux-perf-users@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com, linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, 
-	linux-clk@vger.kernel.org
-Subject: Re: [PATCH v3 07/19] dt-bindings: memory: factorise LPDDR channel
- binding into memory channel
-Message-ID: <20250723-zealous-turtle-of-perfection-e67aee@kuoka>
-References: <20250722-ddrperfm-upstream-v3-0-7b7a4f3dc8a0@foss.st.com>
- <20250722-ddrperfm-upstream-v3-7-7b7a4f3dc8a0@foss.st.com>
+	s=k20201202; t=1753253952;
+	bh=zeuIaU8cqKTdhTRyjKP+bKeTvoJA6oWm+SnTvG8Gs0A=;
+	h=From:To:Cc:Subject:Date:From;
+	b=EK36zhtZGaE+lCdwPOm076nMdFqFhA11W3IVIuimZf5L9SUbpc3745cCpqdJIVNbK
+	 jJY34ERQBuRtvp8yFxIefvuUjHb0SH/HT+1WMglQ8cY4Vhnv47bibqftB6Wp0iFCLY
+	 5lxlLFSmp9wBRfUmMZ6NKSK/WDGoBT+1JcVJqrYvF3jg2rKiFNAYypB/wcbsgOoqLk
+	 MbN6jcparCj4qB2XAiA4pQtW8k7yO8MmJdCTTiyvXLMEoS3XYGwx3lIEUq8zmXPg/y
+	 QsqbOxekTyl69bcI7Iptao+V6F6B+sCpLRsmGwvj+goC5moSHnHddWxJXSfHAyHUOO
+	 yaVcwXKW7mK2Q==
+From: "Jiri Slaby (SUSE)" <jirislaby@kernel.org>
+To: bhelgaas@google.com
+Cc: tglx@linutronix.de,
+	linux-kernel@vger.kernel.org,
+	"Jiri Slaby (SUSE)" <jirislaby@kernel.org>,
+	Jingoo Han <jingoohan1@gmail.com>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Karthikeyan Mitran <m.karthikeyan@mobiveil.co.in>,
+	Hou Zhiqiang <Zhiqiang.Hou@nxp.com>,
+	Joyce Ooi <joyce.ooi@intel.com>,
+	Ryder Lee <ryder.lee@mediatek.com>,
+	Jianjun Wang <jianjun.wang@mediatek.com>,
+	Michal Simek <michal.simek@amd.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	linux-pci@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH] PCI: controller: use dev_fwnode()
+Date: Wed, 23 Jul 2025 08:59:07 +0200
+Message-ID: <20250723065907.1841758-1-jirislaby@kernel.org>
+X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <20250722-ddrperfm-upstream-v3-7-7b7a4f3dc8a0@foss.st.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250722_235913_730829_92BD2159 
+X-CRM114-Status: GOOD (  12.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,118 +85,161 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 22, 2025 at 04:03:24PM +0200, Cl=C3=A9ment Le Goffic wrote:
-> LPDDR and DDR channels exist and share the same properties, they have a
-> compatible, ranks, and an io-width.
+All irq_domain functions now accept fwnode instead of of_node. But many
+PCI controllers still extract dev to of_node and then of_node to fwnode.
 
-Maybe it is true for all types of SDRAM, like RDRAM and eDRAM, but I
-don't think all memory types do.
+Instead, clean this up and simply use the dev_fwnode() helper to extract
+fwnode directly from dev. Internally, it still does dev => of_node =>
+fwnode steps, but it's now hidden from the users.
 
-I think this should be renamed to sdram-channel.
+Signed-off-by: Jiri Slaby (SUSE) <jirislaby@kernel.org>
+Link: https://lore.kernel.org/all/4ee9c7c0-4a3f-4afa-ae5a-7fd8a750c92b@kernel.org/
+Link: https://lore.kernel.org/all/4bc0e1ca-a523-424a-8759-59e353317fba@kernel.org/
+Cc: Jingoo Han <jingoohan1@gmail.com>
+Cc: Manivannan Sadhasivam <mani@kernel.org>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>
+Cc: "Krzysztof Wilczyński" <kwilczynski@kernel.org>
+Cc: Rob Herring <robh@kernel.org>
+Cc: Bjorn Helgaas <bhelgaas@google.com>
+Cc: Karthikeyan Mitran <m.karthikeyan@mobiveil.co.in>
+Cc: Hou Zhiqiang <Zhiqiang.Hou@nxp.com>
+Cc: Joyce Ooi <joyce.ooi@intel.com>
+Cc: Ryder Lee <ryder.lee@mediatek.com>
+Cc: Jianjun Wang <jianjun.wang@mediatek.com>
+Cc: Michal Simek <michal.simek@amd.com>
+Cc: Daire McNamara <daire.mcnamara@microchip.com>
+---
+Cc: linux-pci@vger.kernel.org
+Cc: linux-mediatek@lists.infradead.org
+Cc: linux-arm-kernel@lists.infradead.org
+---
+ drivers/pci/controller/dwc/pcie-designware-host.c    | 3 +--
+ drivers/pci/controller/mobiveil/pcie-mobiveil-host.c | 3 +--
+ drivers/pci/controller/pcie-altera-msi.c             | 3 +--
+ drivers/pci/controller/pcie-mediatek.c               | 4 +---
+ drivers/pci/controller/pcie-xilinx-dma-pl.c          | 3 +--
+ drivers/pci/controller/pcie-xilinx-nwl.c             | 3 +--
+ drivers/pci/controller/plda/pcie-plda-host.c         | 3 +--
+ 7 files changed, 7 insertions(+), 15 deletions(-)
 
->=20
-> Signed-off-by: Cl=C3=A9ment Le Goffic <clement.legoffic@foss.st.com>
-> ---
->  ...pddr-channel.yaml =3D> jedec,memory-channel.yaml} | 26 +++++++++++---=
---------
->  1 file changed, 13 insertions(+), 13 deletions(-)
->=20
-> diff --git a/Documentation/devicetree/bindings/memory-controllers/ddr/jed=
-ec,lpddr-channel.yaml b/Documentation/devicetree/bindings/memory-controller=
-s/ddr/jedec,memory-channel.yaml
-> similarity index 82%
-> rename from Documentation/devicetree/bindings/memory-controllers/ddr/jede=
-c,lpddr-channel.yaml
-> rename to Documentation/devicetree/bindings/memory-controllers/ddr/jedec,=
-memory-channel.yaml
-> index 34b5bd153f63..3bf3a63466eb 100644
-> --- a/Documentation/devicetree/bindings/memory-controllers/ddr/jedec,lpdd=
-r-channel.yaml
-> +++ b/Documentation/devicetree/bindings/memory-controllers/ddr/jedec,memo=
-ry-channel.yaml
-> @@ -1,16 +1,16 @@
->  # SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
->  %YAML 1.2
->  ---
-> -$id: http://devicetree.org/schemas/memory-controllers/ddr/jedec,lpddr-ch=
-annel.yaml#
-> +$id: http://devicetree.org/schemas/memory-controllers/ddr/jedec,memory-c=
-hannel.yaml#
->  $schema: http://devicetree.org/meta-schemas/core.yaml#
-> =20
-> -title: LPDDR channel with chip/rank topology description
-> +title: Memory channel with chip/rank topology description
-> =20
->  description:
-> -  An LPDDR channel is a completely independent set of LPDDR pins (DQ, CA=
-, CS,
-> -  CK, etc.) that connect one or more LPDDR chips to a host system. The m=
-ain
-> -  purpose of this node is to overall LPDDR topology of the system, inclu=
-ding the
-> -  amount of individual LPDDR chips and the ranks per chip.
-> +  A memory channel is a completely independent set of pins (DQ, CA, CS,
-
-A memory channel of SDRAM memory like DDR SDRAM or LPDDR SDRAM is ...
-
-> +  CK, etc.) that connect one or more memory chips to a host system. The =
-main
-> +  purpose of this node is to overall memory topology of the system, incl=
-uding the
-> +  amount of individual memory chips and the ranks per chip.
-> =20
->  maintainers:
->    - Julius Werner <jwerner@chromium.org>
-> @@ -26,14 +26,14 @@ properties:
->    io-width:
->      description:
->        The number of DQ pins in the channel. If this number is different
-> -      from (a multiple of) the io-width of the LPDDR chip, that means th=
-at
-> +      from (a multiple of) the io-width of the memory chip, that means t=
-hat
->        multiple instances of that type of chip are wired in parallel on t=
-his
->        channel (with the channel's DQ pins split up between the different
->        chips, and the CA, CS, etc. pins of the different chips all shorted
->        together).  This means that the total physical memory controlled b=
-y a
->        channel is equal to the sum of the densities of each rank on the
-> -      connected LPDDR chip, times the io-width of the channel divided by
-> -      the io-width of the LPDDR chip.
-> +      connected memory chip, times the io-width of the channel divided by
-> +      the io-width of the memory chip.
->      enum:
->        - 8
->        - 16
-> @@ -51,8 +51,8 @@ patternProperties:
->    "^rank@[0-9]+$":
->      type: object
->      description:
-> -      Each physical LPDDR chip may have one or more ranks. Ranks are
-> -      internal but fully independent sub-units of the chip. Each LPDDR b=
-us
-> +      Each physical memory chip may have one or more ranks. Ranks are
-> +      internal but fully independent sub-units of the chip. Each memory =
-bus
->        transaction on the channel targets exactly one rank, based on the
->        state of the CS pins. Different ranks may have different densities=
- and
->        timing requirements.
-> @@ -107,7 +107,7 @@ additionalProperties: false
-> =20
->  examples:
->    - |
-> -    lpddr-channel0 {
-> +    memory-channel0 {
-
-If doing this, then separate commit based on generic node name
-convention. But then we need to come with generic node name first,
-sdram-channel?
-
-And also '-0', not '0' suffix.
-
-Best regards,
-Krzysztof
+diff --git a/drivers/pci/controller/dwc/pcie-designware-host.c b/drivers/pci/controller/dwc/pcie-designware-host.c
+index 4af7da14b350..952f8594b501 100644
+--- a/drivers/pci/controller/dwc/pcie-designware-host.c
++++ b/drivers/pci/controller/dwc/pcie-designware-host.c
+@@ -214,9 +214,8 @@ static const struct irq_domain_ops dw_pcie_msi_domain_ops = {
+ int dw_pcie_allocate_domains(struct dw_pcie_rp *pp)
+ {
+ 	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
+-	struct fwnode_handle *fwnode = of_fwnode_handle(pci->dev->of_node);
+ 	struct irq_domain_info info = {
+-		.fwnode		= fwnode,
++		.fwnode		= dev_fwnode(pci->dev),
+ 		.ops		= &dw_pcie_msi_domain_ops,
+ 		.size		= pp->num_vectors,
+ 		.host_data	= pp,
+diff --git a/drivers/pci/controller/mobiveil/pcie-mobiveil-host.c b/drivers/pci/controller/mobiveil/pcie-mobiveil-host.c
+index d17e887b6b61..dbc72c73fd0a 100644
+--- a/drivers/pci/controller/mobiveil/pcie-mobiveil-host.c
++++ b/drivers/pci/controller/mobiveil/pcie-mobiveil-host.c
+@@ -439,13 +439,12 @@ static const struct irq_domain_ops msi_domain_ops = {
+ static int mobiveil_allocate_msi_domains(struct mobiveil_pcie *pcie)
+ {
+ 	struct device *dev = &pcie->pdev->dev;
+-	struct fwnode_handle *fwnode = of_fwnode_handle(dev->of_node);
+ 	struct mobiveil_msi *msi = &pcie->rp.msi;
+ 
+ 	mutex_init(&msi->lock);
+ 
+ 	struct irq_domain_info info = {
+-		.fwnode		= fwnode,
++		.fwnode		= dev_fwnode(dev),
+ 		.ops		= &msi_domain_ops,
+ 		.host_data	= pcie,
+ 		.size		= msi->num_of_vectors,
+diff --git a/drivers/pci/controller/pcie-altera-msi.c b/drivers/pci/controller/pcie-altera-msi.c
+index 2e48acd632c5..ea2ca2e70f20 100644
+--- a/drivers/pci/controller/pcie-altera-msi.c
++++ b/drivers/pci/controller/pcie-altera-msi.c
+@@ -166,9 +166,8 @@ static const struct irq_domain_ops msi_domain_ops = {
+ 
+ static int altera_allocate_domains(struct altera_msi *msi)
+ {
+-	struct fwnode_handle *fwnode = of_fwnode_handle(msi->pdev->dev.of_node);
+ 	struct irq_domain_info info = {
+-		.fwnode		= fwnode,
++		.fwnode		= dev_fwnode(&msi->pdev->dev),
+ 		.ops		= &msi_domain_ops,
+ 		.host_data	= msi,
+ 		.size		= msi->num_of_vectors,
+diff --git a/drivers/pci/controller/pcie-mediatek.c b/drivers/pci/controller/pcie-mediatek.c
+index 3ac5d14dd543..24cc30a2ab6c 100644
+--- a/drivers/pci/controller/pcie-mediatek.c
++++ b/drivers/pci/controller/pcie-mediatek.c
+@@ -487,12 +487,10 @@ static const struct msi_parent_ops mtk_msi_parent_ops = {
+ 
+ static int mtk_pcie_allocate_msi_domains(struct mtk_pcie_port *port)
+ {
+-	struct fwnode_handle *fwnode = of_fwnode_handle(port->pcie->dev->of_node);
+-
+ 	mutex_init(&port->lock);
+ 
+ 	struct irq_domain_info info = {
+-		.fwnode		= fwnode,
++		.fwnode		= dev_fwnode(port->pcie->dev),
+ 		.ops		= &msi_domain_ops,
+ 		.host_data	= port,
+ 		.size		= MTK_MSI_IRQS_NUM,
+diff --git a/drivers/pci/controller/pcie-xilinx-dma-pl.c b/drivers/pci/controller/pcie-xilinx-dma-pl.c
+index fbc379fd118b..b037c8f315e4 100644
+--- a/drivers/pci/controller/pcie-xilinx-dma-pl.c
++++ b/drivers/pci/controller/pcie-xilinx-dma-pl.c
+@@ -465,9 +465,8 @@ static int xilinx_pl_dma_pcie_init_msi_irq_domain(struct pl_dma_pcie *port)
+ 	struct device *dev = port->dev;
+ 	struct xilinx_msi *msi = &port->msi;
+ 	int size = BITS_TO_LONGS(XILINX_NUM_MSI_IRQS) * sizeof(long);
+-	struct fwnode_handle *fwnode = of_fwnode_handle(port->dev->of_node);
+ 	struct irq_domain_info info = {
+-		.fwnode		= fwnode,
++		.fwnode		= dev_fwnode(port->dev),
+ 		.ops		= &dev_msi_domain_ops,
+ 		.host_data	= port,
+ 		.size		= XILINX_NUM_MSI_IRQS,
+diff --git a/drivers/pci/controller/pcie-xilinx-nwl.c b/drivers/pci/controller/pcie-xilinx-nwl.c
+index de76c836915f..05b8c205493c 100644
+--- a/drivers/pci/controller/pcie-xilinx-nwl.c
++++ b/drivers/pci/controller/pcie-xilinx-nwl.c
+@@ -498,10 +498,9 @@ static int nwl_pcie_init_msi_irq_domain(struct nwl_pcie *pcie)
+ {
+ #ifdef CONFIG_PCI_MSI
+ 	struct device *dev = pcie->dev;
+-	struct fwnode_handle *fwnode = of_fwnode_handle(dev->of_node);
+ 	struct nwl_msi *msi = &pcie->msi;
+ 	struct irq_domain_info info = {
+-		.fwnode		= fwnode,
++		.fwnode		= dev_fwnode(dev),
+ 		.ops		= &dev_msi_domain_ops,
+ 		.host_data	= pcie,
+ 		.size		= INT_PCI_MSI_NR,
+diff --git a/drivers/pci/controller/plda/pcie-plda-host.c b/drivers/pci/controller/plda/pcie-plda-host.c
+index 92866840875e..8e2db2e5b64b 100644
+--- a/drivers/pci/controller/plda/pcie-plda-host.c
++++ b/drivers/pci/controller/plda/pcie-plda-host.c
+@@ -153,13 +153,12 @@ static const struct msi_parent_ops plda_msi_parent_ops = {
+ static int plda_allocate_msi_domains(struct plda_pcie_rp *port)
+ {
+ 	struct device *dev = port->dev;
+-	struct fwnode_handle *fwnode = of_fwnode_handle(dev->of_node);
+ 	struct plda_msi *msi = &port->msi;
+ 
+ 	mutex_init(&port->msi.lock);
+ 
+ 	struct irq_domain_info info = {
+-		.fwnode		= fwnode,
++		.fwnode		= dev_fwnode(dev),
+ 		.ops		= &msi_domain_ops,
+ 		.host_data	= port,
+ 		.size		= msi->num_vectors,
+-- 
+2.50.1
 
 
