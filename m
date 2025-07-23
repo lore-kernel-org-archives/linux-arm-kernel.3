@@ -4,97 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37912C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 16:37:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EBD4C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 16:42:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=E9Xd/U2z4tmfw6ztPMpuZGjzJCTGLEXhl3vszeoyDjk=; b=f1jph47r2J+lVuMeAjWM+KDg83
-	hi4rxOoF9wT48h5vzURlnZShAQQ5o+B99VdeseCZ83GQfNm09iweo5nNscObqyu8+xuDVjghkNCAa
-	GkaH0udaa+ETtqtawnsP3KdW5muoJSrwGwQiCL4pGDalIPyuv3HasyvzdNaRb2nqNEJzth1w+GDDV
-	wi78ysyVJwtq1PzWMYK8OEry9O2C30orpUMw/ooLxQjMPGkEI2dQgdBnaaaQkniVnBN/bEITTacHv
-	8+fxyskkUpfMoN8jJcyc/xByBAeHXzEM81/EOmNSViOyBFr55nQuqJkGd4O2E8Kfy5hiHY9rWJ2N9
-	sLtJapmA==;
+	bh=zhyTxnonkbQLnC3fjLO8mzzlxV3OMCjGBPnUgJAU6LE=; b=mswyilQRUccR7wKYm8bHYl+B+l
+	IBsWrcTbji87EiDKyw88OZ2VMw/Xpc1+wMF3f0LTbRj7IKYcd8N6aabhVr+Y6L4SKNp7YAAh81qZZ
+	J191qoJRS4mF/u4Frsz7dl8LOfnAX2I6P7rm2WV0OCVoCBfZ8CLGtPJHmKaYwdhliTvFsfVVX8egq
+	1XiHqeCaaoMzTEy5YAW4nVGpbrSLirq3fcfOKdOYi2sj+huP7zX3m8uiwuUjo9+AScNUP5BPDCgNG
+	kbI7/brytzNBHJp6yOqU7aggNMRLo2nDUST3wpEMpFT0/52E9RKZpmX1nfgCr0a6OVIKmxum3PVlr
+	YwnK03kA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uecSj-00000005Vmk-3sPA;
-	Wed, 23 Jul 2025 16:37:01 +0000
-Received: from mail-pj1-x1033.google.com ([2607:f8b0:4864:20::1033])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uecQI-00000005Vei-0qLk;
-	Wed, 23 Jul 2025 16:34:31 +0000
-Received: by mail-pj1-x1033.google.com with SMTP id 98e67ed59e1d1-31e3d29b0ffso54480a91.0;
-        Wed, 23 Jul 2025 09:34:30 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1753288469; x=1753893269; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=E9Xd/U2z4tmfw6ztPMpuZGjzJCTGLEXhl3vszeoyDjk=;
-        b=mi3JrWV9zs3IzsgR+U+HIbHbn2SxfPeKHPSIQD+nSXhyOFeh/ZUes9e/KwhcaQqyp+
-         EJRXKP2LLnlCqJOoHGqmMgoyz7A+44EkcqErIJZAKV+s9uaFZlTcMx+vaBkCi8XhH1Uv
-         CE9mwTfTaoXVW0mFVCGinefIcYcK/CgrCcE8+Ui/+UVP/eL9GKYxCggA0u7T6+GFBYgw
-         jLtSUsMQinTQtAciN0D9iDKzz8ii5k2wyUtUg6cUCgUJRwIfHY8fp0mKPcltPY5rYruM
-         uf0jr0yRml5exv8kaVLqc2zt1skMray2UBlXGBnAkWodBAhiTqgNBeLfdelhxYLvQWV4
-         FQOg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753288469; x=1753893269;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=E9Xd/U2z4tmfw6ztPMpuZGjzJCTGLEXhl3vszeoyDjk=;
-        b=NGlXs3agS+6qonBXKr38y0Ni6LBthI9sx5xXFouk5Njyg9pN/uJJ3gv1loRdQTTKB0
-         M+C4kK5XYiliUFNB7wA90C+SuIrsmfpCKnTFIkRv5H/Y9YTNw0EuSsCEYW6DyIFMOcrA
-         tQ1kRe1Qd+Fj2UmnpoqdLw1IuZu8WTb6sZZ+NrikxsWLbN5x4OVSwtpbsTTfyjsqxBJW
-         GdimfE0h4ERUaYAdEdBG9RmO+4N5rQhKPGPGIIfvQgxLoVcRVJZNm7RNEk7bj1692e5j
-         wPqIyWJ2Z36X6yVeQfuWyyOOoLsBNI7Mxm+Q1DrZ+lib56ese597rvxNJkwwUkxZv4Tg
-         HRdQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWEr1ft94yl50R2MoMoR2oQCEyOxZPy4mSonujddvWO2Z/lMj34YK9xswxE0DhqkqO9fUUgF5BklQIeEaKH@lists.infradead.org, AJvYcCWVVHf76FkZJbYbGM0dDzxTjye1QcuapC85eh2zPoCjZo1JAIbSB2GvqgL6hJxieelUH7imzv2kaTPvY3H5FHMDew==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxAPu3QNehAnJx59iDQnkprPcUK1anHj5zkwqmqwqYCfC5wpCSg
-	O1I764OdVbEZKSGIBmVx97xDjgNFOJt28Pk6DhaVogZT6y8UPJFYktkA
-X-Gm-Gg: ASbGncsUBNw9fjjH2xjnuoRnM8r8Usq11wVJ3GQ/p8u2atbY0gQRQGw9SNrAW82noYM
-	gLc3afDo+aKt7slErG1WqFBziYgS/ZGC7uRQL0KK1bHMm472o/I8v6zJdG4IcUJuxxEGLmq3ZKz
-	E/ndhZwZ+V+fvj0YNZO6dpDTFkXIUcI7AAevK+WP3JcZ7rSXCHnWlZe2t3wVVUyBpWMmSh6RNTj
-	nq5Stn5XfC5JF8p5AP8615JTLS9oruf7yJJX8PgpNz6GcVQpCzQoOV9WfYqP2zl7uqP7MNA8/Rj
-	fhIpo1JbEFODiLMAt4+lh4B785ph03FC5gWX4WK8EEshiyWqG1qdLA6WdgsuZvsOQ8QiGq24QpI
-	m+WPo56KbjV/ebMI5o4vTvWZKGwdMZu0No5Et3+hX5uiSIX8P/w==
-X-Google-Smtp-Source: AGHT+IHk3A6YXkSfq5EiTOgSQfJLMSFz6qiFQuW3inOO+ZCDhCMcwUobbP9gZ2q3IPF2326ki+C4wQ==
-X-Received: by 2002:a17:90b:2b86:b0:311:e605:f60e with SMTP id 98e67ed59e1d1-31e507c19f9mr5756344a91.20.1753288469351;
-        Wed, 23 Jul 2025 09:34:29 -0700 (PDT)
-Received: from [192.168.1.143] ([49.207.192.227])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-31e519ce288sm2047652a91.6.2025.07.23.09.34.22
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 23 Jul 2025 09:34:29 -0700 (PDT)
-Message-ID: <169f4fd7-7ea6-4764-aaca-c08cafb36762@gmail.com>
-Date: Wed, 23 Jul 2025 22:04:19 +0530
+	id 1uecXT-00000005WNj-119X;
+	Wed, 23 Jul 2025 16:41:55 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uecV0-00000005W4Z-3Hd5
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 23 Jul 2025 16:39:24 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D152722C7;
+	Wed, 23 Jul 2025 09:39:15 -0700 (PDT)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 70C4C3F6A8;
+	Wed, 23 Jul 2025 09:39:18 -0700 (PDT)
+Message-ID: <84e52287-e46a-40c3-90b7-ab7e9f2c7431@arm.com>
+Date: Wed, 23 Jul 2025 17:39:17 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3] dt-bindings: cleanup: fix duplicated 'is is' in YAML
- docs
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- linux-iio@vger.kernel.org, netdev@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org,
- ribalda@kernel.org, jic23@kernel.org, dlechner@baylibre.com,
- nuno.sa@analog.com, andy@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
- neil.armstrong@linaro.org, khilman@baylibre.com, jbrunet@baylibre.com,
- martin.blumenstingl@googlemail.com
-References: <20250722170513.5854-1-sanjaysuthar661996@gmail.com>
- <20250723-foamy-glaring-tench-561fe2@kuoka>
+Subject: Re: [RFC PATCH 10/36] ACPI / MPAM: Parse the MPAM table
+To: Jonathan Cameron <Jonathan.Cameron@huawei.com>,
+ James Morse <james.morse@arm.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ Rob Herring <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
+ Shanker Donthineni <sdonthineni@nvidia.com>, Zeng Heng
+ <zengheng4@huawei.com>, Lecopzer Chen <lecopzerc@nvidia.com>,
+ Carl Worth <carl@os.amperecomputing.com>,
+ shameerali.kolothum.thodi@huawei.com,
+ D Scott Phillips OS <scott@os.amperecomputing.com>, lcherian@marvell.com,
+ bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
+ baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
+ Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
+ dfustini@baylibre.com, amitsinght@marvell.com,
+ David Hildenbrand <david@redhat.com>, Rex Nie <rex.nie@jaguarmicro.com>,
+ Dave Martin <dave.martin@arm.com>, Koba Ko <kobak@nvidia.com>
+References: <20250711183648.30766-1-james.morse@arm.com>
+ <20250711183648.30766-11-james.morse@arm.com>
+ <20250716180725.0000452d@huawei.com>
 Content-Language: en-US
-From: Sanjay Suthar <sanjaysuthar661996@gmail.com>
-In-Reply-To: <20250723-foamy-glaring-tench-561fe2@kuoka>
+From: Ben Horgan <ben.horgan@arm.com>
+In-Reply-To: <20250716180725.0000452d@huawei.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250723_093430_244020_B52A84A2 
-X-CRM114-Status: UNSURE (   5.74  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250723_093922_909791_AA172E7A 
+X-CRM114-Status: GOOD (  53.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,15 +78,421 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 23/07/25 13:12, Krzysztof Kozlowski wrote:
+Hi James, Jonathan,
 
->> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+On 7/16/25 18:07, Jonathan Cameron wrote:
+> On Fri, 11 Jul 2025 18:36:22 +0000
+> James Morse <james.morse@arm.com> wrote:
+> 
+>> Add code to parse the arm64 specific MPAM table, looking up the cache
+>> level from the PPTT and feeding the end result into the MPAM driver.
+> 
+> Throw in a link to the spec perhaps?  Particularly useful to know which
+> version this was written against when reviewing it.
+
+As I comment below this code checks the table revision is 1 and so we 
+can assume it was written against version 2 of the spec. As of Monday, 
+there is a new version hot off the press,
+https://developer.arm.com/documentation/den0065/3-0bet/?lang=en which 
+introduces an "MMIO size" field to allow for disabled nodes. This should 
+be considered here to avoid advertising msc that aren't present.
+> 
 >>
->> Best regards,
->> Krzysztof
+>> CC: Carl Worth <carl@os.amperecomputing.com>
+>> Signed-off-by: James Morse <james.morse@arm.com>
+>> ---
+>>   arch/arm64/Kconfig          |   1 +
+>>   drivers/acpi/arm64/Kconfig  |   3 +
+>>   drivers/acpi/arm64/Makefile |   1 +
+>>   drivers/acpi/arm64/mpam.c   | 365 ++++++++++++++++++++++++++++++++++++
+>>   drivers/acpi/tables.c       |   2 +-
+>>   include/linux/arm_mpam.h    |  46 +++++
+>>   6 files changed, 417 insertions(+), 1 deletion(-)
+>>   create mode 100644 drivers/acpi/arm64/mpam.c
+>>   create mode 100644 include/linux/arm_mpam.h
+>>
+> 
+>> diff --git a/drivers/acpi/arm64/Makefile b/drivers/acpi/arm64/Makefile
+>> index 05ecde9eaabe..27b872249baa 100644
+>> --- a/drivers/acpi/arm64/Makefile
+>> +++ b/drivers/acpi/arm64/Makefile
+>> @@ -6,5 +6,6 @@ obj-$(CONFIG_ACPI_GTDT) 	+= gtdt.o
+>>   obj-$(CONFIG_ACPI_IORT) 	+= iort.o
+>>   obj-$(CONFIG_ACPI_PROCESSOR_IDLE) += cpuidle.o
+>>   obj-$(CONFIG_ARM_AMBA)		+= amba.o
+>> +obj-$(CONFIG_ACPI_MPAM) 	+= mpam.o
+> 
+> Keep it with the ACPI ones?  There doesn't seem to be a lot of order in here
+> though so I guess maybe there is logic behind putting it here I'm missing.
+> 
+>>   obj-y				+= dma.o init.o
+>>   obj-y				+= thermal_cpufreq.o
+>> diff --git a/drivers/acpi/arm64/mpam.c b/drivers/acpi/arm64/mpam.c
+>> new file mode 100644
+>> index 000000000000..f4791bac9a2a
+>> --- /dev/null
+>> +++ b/drivers/acpi/arm64/mpam.c
+>> @@ -0,0 +1,365 @@
+>> +// SPDX-License-Identifier: GPL-2.0
+>> +// Copyright (C) 2025 Arm Ltd.
+>> +
+>> +/* Parse the MPAM ACPI table feeding the discovered nodes into the driver */
+>> +
+>> +#define pr_fmt(fmt) "ACPI MPAM: " fmt
+>> +
+>> +#include <linux/acpi.h>
+>> +#include <linux/arm_mpam.h>
+>> +#include <linux/cpu.h>
+>> +#include <linux/cpumask.h>
+>> +#include <linux/platform_device.h>
+>> +
+>> +#include <acpi/processor.h>
+>> +
+>> +/* Flags for acpi_table_mpam_msc.*_interrupt_flags */
+> 
+> References.. I'm looking at 3.0-alpha table 5 to check this.
+> I can see why you might be reluctant to point at an alpha if that
+> is what you are using ;)
+> 
+> 
+>> +#define ACPI_MPAM_MSC_IRQ_MODE_EDGE                    1
+>> +#define ACPI_MPAM_MSC_IRQ_TYPE_MASK                    (3 << 1)
+> 
+> GENMASK(3, 2) would be my preference for how to do masks in new code.
+> 
+>> +#define ACPI_MPAM_MSC_IRQ_TYPE_WIRED                   0
+>> +#define ACPI_MPAM_MSC_IRQ_AFFINITY_PROCESSOR_CONTAINER BIT(3)
+>> +#define ACPI_MPAM_MSC_IRQ_AFFINITY_VALID               BIT(4)
+>> +
+>> +static bool frob_irq(struct platform_device *pdev, int intid, u32 flags,
+>> +		     int *irq, u32 processor_container_uid)
+>> +{
+>> +	int sense;
+>> +
+>> +	if (!intid)
+>> +		return false;
+>> +
+>> +	/* 0 in this field indicates a wired interrupt */
+>> +	if (flags & ACPI_MPAM_MSC_IRQ_TYPE_MASK)
+> I'd prefer more explicit code (and probably no comment)
+> 
+> 	if (FIELD_GET(flags, ACPI_MPAM_MSC_IRQ_TYPE_MASK) !=
+> 	    ACPI_MPAM_MSC_IRQ_TYPE_WIRED)
+> 		return false;
+> 
+>> +		return false;
+>> +
+>> +	if (flags & ACPI_MPAM_MSC_IRQ_MODE_EDGE)
+>> +		sense = ACPI_EDGE_SENSITIVE;
+>> +	else
+>> +		sense = ACPI_LEVEL_SENSITIVE;
+> 
+> If the spec is supposed to be using standard ACPI_* types for this field
+> (I don't think the connection is explicitly documented though) then
+> 
+> 	sense = FIELD_GET(flags, ACPI_MPAM_MSC_IRQ_MODE_MASK);
+> Assuming a change to define the mask and rely on the ACPI defs for the values
+> 
+> This one is entirely up to you.
+> 
+>> +
+>> +	/*
+>> +	 * If the GSI is in the GIC's PPI range, try and create a partitioned
+>> +	 * percpu interrupt.
+>> +	 */
+>> +	if (16 <= intid && intid < 32 && processor_container_uid != ~0) {
+>> +		pr_err_once("Partitioned interrupts not supported\n");
+>> +		return false;
+>> +	}
+>> +
+>> +	*irq = acpi_register_gsi(&pdev->dev, intid, sense, ACPI_ACTIVE_HIGH);
+>> +	if (*irq <= 0) {
+>> +		pr_err_once("Failed to register interrupt 0x%x with ACPI\n",
+>> +			    intid);
+>> +		return false;
+>> +	}
+>> +
+>> +	return true;
+>> +}
+>> +
+>> +static void acpi_mpam_parse_irqs(struct platform_device *pdev,
+>> +				 struct acpi_mpam_msc_node *tbl_msc,
+>> +				 struct resource *res, int *res_idx)
+>> +{
+>> +	u32 flags, aff = ~0;
+>> +	int irq;
+>> +
+>> +	flags = tbl_msc->overflow_interrupt_flags;
+>> +	if (flags & ACPI_MPAM_MSC_IRQ_AFFINITY_VALID &&
+>> +	    flags & ACPI_MPAM_MSC_IRQ_AFFINITY_PROCESSOR_CONTAINER)
+>> +		aff = tbl_msc->overflow_interrupt_affinity;
+> Just to make the two cases look the same I'd do
+> 
+> 	else
+> 		aff = ~0;
+> 
+> here as well and not initialize above.  It's not quite worth using
+> a helper function for these two identical blocks but it's close.
+> 
+>> +	if (frob_irq(pdev, tbl_msc->overflow_interrupt, flags, &irq, aff)) {
+>> +		res[*res_idx].start = irq;
+>> +		res[*res_idx].end = irq;
+>> +		res[*res_idx].flags = IORESOURCE_IRQ;
+>> +		res[*res_idx].name = "overflow";
+> 
+> 		res[*res_idx] = DEFINE_RES_IRQ_NAMED(irq, 1, "overflow");
+>> +
+>> +		(*res_idx)++;
+> Can roll this in as well.
+> 
+>> +	}
+>> +
+>> +	flags = tbl_msc->error_interrupt_flags;
+>> +	if (flags & ACPI_MPAM_MSC_IRQ_AFFINITY_VALID &&
+>> +	    flags & ACPI_MPAM_MSC_IRQ_AFFINITY_PROCESSOR_CONTAINER)
+>> +		aff = tbl_msc->error_interrupt_affinity;
+>> +	else
+>> +		aff = ~0;
+>> +	if (frob_irq(pdev, tbl_msc->error_interrupt, flags, &irq, aff)) {
+>> +		res[*res_idx].start = irq;
+>> +		res[*res_idx].end = irq;
+>> +		res[*res_idx].flags = IORESOURCE_IRQ;
+>> +		res[*res_idx].name = "error";
+> 
+> Similar to above.
+> 
+>> +
+>> +		(*res_idx)++;
+>> +	}
+>> +}
+>> +
+> 
+> 
+>> +static bool __init parse_msc_pm_link(struct acpi_mpam_msc_node *tbl_msc,
+>> +				     struct platform_device *pdev,
+>> +				     u32 *acpi_id)
+>> +{
+>> +	bool acpi_id_valid = false;
+>> +	struct acpi_device *buddy;
+>> +	char hid[16], uid[16];
+>> +	int err;
+>> +
+>> +	memset(&hid, 0, sizeof(hid));
+>> +	memcpy(hid, &tbl_msc->hardware_id_linked_device,
+>> +	       sizeof(tbl_msc->hardware_id_linked_device));
+>> +
+>> +	if (!strcmp(hid, ACPI_PROCESSOR_CONTAINER_HID)) {
+>> +		*acpi_id = tbl_msc->instance_id_linked_device;
+>> +		acpi_id_valid = true;
+>> +	}
+>> +
+>> +	err = snprintf(uid, sizeof(uid), "%u",
+>> +		       tbl_msc->instance_id_linked_device);
+>> +	if (err < 0 || err >= sizeof(uid))
+> 
+> Does snprintf() ever return < 0 ?  It's documented as returning
+> number of chars printed (without the NULL) so that can only be 0 or
+> greater.
+> 
+> Can it return >= sizeof(uid) ? Looks odd.
+> 
+> +		return acpi_id_valid;
+>> +
+>> +	buddy = acpi_dev_get_first_match_dev(hid, uid, -1);
+>> +	if (buddy)
+>> +		device_link_add(&pdev->dev, &buddy->dev, DL_FLAG_STATELESS);
+>> +
+>> +	return acpi_id_valid;
+>> +}
+> 
+>> +static int __init _parse_table(struct acpi_table_header *table)
+>> +{
+>> +	char *table_end, *table_offset = (char *)(table + 1);
+>> +	struct property_entry props[4]; /* needs a sentinel */
+>> +	struct acpi_mpam_msc_node *tbl_msc;
+>> +	int next_res, next_prop, err = 0;
+>> +	struct acpi_device *companion;
+>> +	struct platform_device *pdev;
+>> +	enum mpam_msc_iface iface;
+>> +	struct resource res[3];
+>> +	char uid[16];
+>> +	u32 acpi_id;
+>> +
+>> +	table_end = (char *)table + table->length;
+>> +
+>> +	while (table_offset < table_end) {
+>> +		tbl_msc = (struct acpi_mpam_msc_node *)table_offset;
+>> +		table_offset += tbl_msc->length;
+>> +
+>> +		/*
+>> +		 * If any of the reserved fields are set, make no attempt to
+>> +		 * parse the msc structure. This will prevent the driver from
+>> +		 * probing all the MSC, meaning it can't discover the system
+>> +		 * wide supported partid and pmg ranges. This avoids whatever
+>> +		 * this MSC is truncating the partids and creating a screaming
+>> +		 * error interrupt.
+>> +		 */
+>> +		if (tbl_msc->reserved || tbl_msc->reserved1 || tbl_msc->reserved2)
+>> +			continue;
+>> +
+>> +		if (decode_interface_type(tbl_msc, &iface))
+>> +			continue;
+>> +
+>> +		next_res = 0;
+>> +		next_prop = 0;
+>> +		memset(res, 0, sizeof(res));
+>> +		memset(props, 0, sizeof(props));
+>> +
+>> +		pdev = platform_device_alloc("mpam_msc", tbl_msc->identifier);
+>> +		if (IS_ERR(pdev)) {
+> 
+> returns NULL in at least some error cases (probably all, I'm just to lazy to check)
+> 
+>> +			err = PTR_ERR(pdev);
+>> +			break;
+>> +		}
+>> +
+>> +		if (tbl_msc->length < sizeof(*tbl_msc)) {
+>> +			err = -EINVAL;
+>> +			break;
+>> +		}
+>> +
+>> +		/* Some power management is described in the namespace: */
+>> +		err = snprintf(uid, sizeof(uid), "%u", tbl_msc->identifier);
+>> +		if (err > 0 && err < sizeof(uid)) {
+>> +			companion = acpi_dev_get_first_match_dev("ARMHAA5C", uid, -1);
+>> +			if (companion)
+>> +				ACPI_COMPANION_SET(&pdev->dev, companion);
+>> +		}
+>> +
+>> +		if (iface == MPAM_IFACE_MMIO) {
+>> +			res[next_res].name = "MPAM:MSC";
+>> +			res[next_res].start = tbl_msc->base_address;
+>> +			res[next_res].end = tbl_msc->base_address + tbl_msc->mmio_size - 1;
+>> +			res[next_res].flags = IORESOURCE_MEM;
+>> +			next_res++;
+> 
+> DEFINE_RES_MEM_NAMED()?
+> 
+>> +		} else if (iface == MPAM_IFACE_PCC) {
+>> +			props[next_prop++] = PROPERTY_ENTRY_U32("pcc-channel",
+>> +								tbl_msc->base_address);
+>> +			next_prop++;
+>> +		}
+>> +
+>> +		acpi_mpam_parse_irqs(pdev, tbl_msc, res, &next_res);
+>> +		err = platform_device_add_resources(pdev, res, next_res);
+>> +		if (err)
+>> +			break;
+>> +
+>> +		props[next_prop++] = PROPERTY_ENTRY_U32("arm,not-ready-us",
+>> +							tbl_msc->max_nrdy_usec);
+>> +
+>> +		/*
+>> +		 * The MSC's CPU affinity is described via its linked power
+>> +		 * management device, but only if it points at a Processor or
+>> +		 * Processor Container.
+>> +		 */
+>> +		if (parse_msc_pm_link(tbl_msc, pdev, &acpi_id)) {
+>> +			props[next_prop++] = PROPERTY_ENTRY_U32("cpu_affinity",
+>> +								acpi_id);
+>> +		}
+>> +
+>> +		err = device_create_managed_software_node(&pdev->dev, props,
+>> +							  NULL);
+>> +		if (err)
+>> +			break;
+>> +
+>> +		/* Come back later if you want the RIS too */
+>> +		err = platform_device_add_data(pdev, tbl_msc, tbl_msc->length);
+>> +		if (err)
+>> +			break;
+>> +
+>> +		platform_device_add(pdev);
+> 
+> Can fail.
+> 
+>> +	}
+>> +
+>> +	if (err)
+>> +		platform_device_put(pdev);
+>> +
+>> +	return err;
+>> +}
+>> +
+>> +static struct acpi_table_header *get_table(void)
+>> +{
+>> +	struct acpi_table_header *table;
+>> +	acpi_status status;
+>> +
+>> +	if (acpi_disabled || !system_supports_mpam())
+>> +		return NULL;
+>> +
+>> +	status = acpi_get_table(ACPI_SIG_MPAM, 0, &table);
+>> +	if (ACPI_FAILURE(status))
+>> +		return NULL;
+>> +
+>> +	if (table->revision != 1)
+>> +		return NULL;
+Indicates that this was written against version 2 of the spec.
+>> +
+>> +	return table;
+>> +}
+>> +
+>> +static int __init acpi_mpam_parse(void)
+>> +{
+>> +	struct acpi_table_header *mpam;
+>> +	int err;
+>> +
+>> +	mpam = get_table();
+>> +	if (!mpam)
+>> +		return 0;
+> 
+> Just what I was suggesting for the PPTT case in early patches. Nice :)
+> 
+>> +
+>> +	err = _parse_table(mpam);
+>> +	acpi_put_table(mpam);
+>> +
+>> +	return err;
+>> +}
+>> +
+>> +static int _count_msc(struct acpi_table_header *table)
+>> +{
+>> +	char *table_end, *table_offset = (char *)(table + 1);
+>> +	struct acpi_mpam_msc_node *tbl_msc;
+>> +	int ret = 0;
+> 
+> Call it count as it only ever contains the count?
+> 
+>> +
+>> +	tbl_msc = (struct acpi_mpam_msc_node *)table_offset;
+>> +	table_end = (char *)table + table->length;
+>> +
+>> +	while (table_offset < table_end) {
+>> +		if (tbl_msc->length < sizeof(*tbl_msc))
+>> +			return -EINVAL;
+>> +
+>> +		ret++;
+> 
+> count++ would feel more natural here.
+> 
+>> +
+>> +		table_offset += tbl_msc->length;
+>> +		tbl_msc = (struct acpi_mpam_msc_node *)table_offset;
+>> +	}
+>> +
+>> +	return ret;
+>> +}
+> 
+> That's all I have time for today. Will get to the rest of the series soonish.
+> 
+> Jonathan
+> 
+> 
 
-Thanks for the review and suggestion throughout the patch review 
-process. Let me know if any action item needed from my end related to 
-this patch. Best Regards, Sanjay Suthar
+Thanks,
+
+Ben
 
 
