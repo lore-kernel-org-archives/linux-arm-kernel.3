@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3971C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 23:52:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 895A1C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 23:55:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MpuI4weQQaay/ttiq5NTjlywcepu4aZ90xK0F7mRywY=; b=kviqSHmcUYH1nCWJKZnZCiDozJ
-	S+6Hh7+8VlNPr6N3ebKuyeLktVezxG/P1sSyyiUqdrqbmEsjs/kMeiwIXjbj79gGgCEWCXdTcftgq
-	1X/G/3mZnZ1VNJt751+qMDxB+KlHfRNXYLWtFpRo/q4Rk0i1ta5Dc4iBqcvvY2FLNBH0RZBeFmvMf
-	D3SufCdA/ISYmbP/HWSyYc9IK0CgZnvg95BzgOrANO9OfCYBHjwa+3X0JxRrergwc/Ytxyc3PbtUy
-	CUqRnfHCuuzGKMHzhjR3A+GZf2+TbdzQHCb6DiogH8UgDINsBjw4yYzhiV4wL7UYVKlIJysm21Mzs
-	DNmiFXzg==;
+	bh=BZdmnC8PcEOZPd/qRotPAi5bThc5SgobYaLTba1a6rA=; b=x+aJTIg/4xQ7ooXMDkcR1NIEc+
+	9/BYqIUn8QOviNz7zrPkr87/RcHPntdZn1dNsYHY+7dUkZlISedtKZxBGRONtOxyJdrub+liDWpz6
+	8LSjxpYsEnTOTzucjQyCFPOjxgDeCbbDJSAjmiPP09iOH/yWJadu6iXfo6odq3K4JjUbGs0jhQmUW
+	CLsUWN4UBplqwPbydMiimqS4qVAlrajEOU+bf9enVYxPLym75EIGLHPvkHf5/heCMyepKF5dSJqAR
+	x6YiKGQluP/wT4Xzr8cLd/5GOhej0MHSOs291eiVCBiLu4M/Ea/XFbrHu+/wVkW9Z1h5UAeKKEbCq
+	GoHmllzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uejGR-00000006BHn-21uN;
-	Wed, 23 Jul 2025 23:52:47 +0000
-Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
+	id 1uejIq-00000006BUD-1ZOO;
+	Wed, 23 Jul 2025 23:55:16 +0000
+Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueiuw-000000069MJ-02nF
+	id 1ueiux-000000069Mz-2VTi
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Jul 2025 23:30:35 +0000
-Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-23f8d27eeeaso3075045ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Jul 2025 16:30:33 -0700 (PDT)
+	Wed, 23 Jul 2025 23:30:36 +0000
+Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-234bfe37cccso2716465ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Jul 2025 16:30:35 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1753313433; x=1753918233; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1753313435; x=1753918235; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=MpuI4weQQaay/ttiq5NTjlywcepu4aZ90xK0F7mRywY=;
-        b=QAXLDf7+ZC1mI22fLSAOE9MAZrdOi8AieK3ew5U00H5RO5SYHAIxQqdTWB/Om0lMFY
-         TxQew/26VU+Q98/41zEmcHRVwzIc+eoxUCnp2Kejz2mWBeuwV8eSnkeaNEC4iBIb9NZV
-         nj49r9+FVYPFTxxT5ivoJ8P8cMOkJRdLh1Jerxw8Q2wZ7XMwReGNNam/TyebMI5+lSO3
-         1vgDtOgsvdu3WaSdnXKPv9b+WFfU1k6qodD6xpljWpUjXjbicuITHRsJq76iCmLOAnB3
-         JB5YMvwxIis7VNifb2Gs845ZoHfFb2T+htzjEhz6FX3ZbNzaNg31V86YtGcSvjrTmWZo
-         O8QQ==
+        bh=BZdmnC8PcEOZPd/qRotPAi5bThc5SgobYaLTba1a6rA=;
+        b=OrOw8mIK0vhNkFJnDz3xezn8GKulD60AbLaNPTft4NAlx6hqpe/uFWg6SEYaoKn/mA
+         2FF3i64yPXl1l7gftwpAAlvgtJ0mDj4Lyv0GP+wZj7fnnXoqzE+0F1QhsczMRUmhriD8
+         igIVVgU0pUH1x1jbX8hg3KP6RJMN6UnaP3Sq8AXP84D8yeutzIAkQakxvSn1yjjOR1Ld
+         gFj81/QWXDJjkZsnN5UqFLcYN93fUZfql+MK+K0ydcnwdzqy+xe+EvbwHz2nhdTjSxBS
+         7JP8shaoC+HPkLOCc8zkKDhit2AgmnI7BDTAh8cZg48qoxL0qhsMNNCNQrOtUd+cf0KT
+         YxKQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753313433; x=1753918233;
+        d=1e100.net; s=20230601; t=1753313435; x=1753918235;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=MpuI4weQQaay/ttiq5NTjlywcepu4aZ90xK0F7mRywY=;
-        b=TJ4eiEXQa0sAGLMnyv37YLmdfVBw1HBhDScXifuitWa8Tn8AIUfLxEDz8/QtoGNeG5
-         dX1Y0Hxht2PgAgbk2pWN+1DR+hfYpVmdJxbeKA6KzD6ZhnivQSd+YBz5rfmFUbgSjVp1
-         Blh8a3jPb96beDR3j0Y4xg+xTm2pcI0DS8CQ+eRxtDiu1ASKC14PNpK8122S02Qs3lMl
-         ev5hqXP8aXcV+S1Td181Sl+YDjctNpCSUTNOWG3SJfVcr3QV/Imgn81DaWgQKFXy/fME
-         0Bez8KeRLqbT7Vc6jAXc5eT8UKf+IXVnZtYAsuidPQTbfEu3HfhiVw8xmT8OZeU6hieW
-         L6iw==
-X-Forwarded-Encrypted: i=1; AJvYcCXDE/yXPfg9cnserJXtjaGLmki5Oz5kLlBcUSfwe76kTPkGf4cfcyCY/LUeEXGqeD7TWZD6VNTLft00sOA091yk@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywr2ygWei+G7XhHr6YJWYcuYxD/rWr4THMuMeH9/Ks++3cy/lFn
-	OR1utfS65/miDhHe3aFzpJnggdir/tDUeBqtunwNNXyFcoSBGlfJlKAm
-X-Gm-Gg: ASbGnctYaWL770mLKEZ8XSmKTkdU2Q7WWXxRnjcl990s5Jyd9SJp7QfNRsBGZFQQCKW
-	TjuB7YHE8Yba4fuaNYnS6BVp66Fc2Uvqc+k+mObjGtXnnhWyts5dO6tlVhNi0oreaEJYZtKX5Zv
-	kHOvUYsPtk/tcirFtTmqplOGpyM56M6qMqvIBJhwPYc69rwi24yoH+oEcVzaOEs839mwqsGZ5DI
-	b7+sdn3DGfUy+oh8CFU3xUqe9xGvXduYTL7E8sJACI3tTZ55KEe8fhVhRZRLhaZ/59IbtKZKciD
-	VIsfZ2ov7k4ZoZGrmPexN4jWGeBqfq9v+JxwbnTmhiXmfeSxbat/I53gPOVWl/U6r/Up6/OYKb+
-	UqOCHjuSJKdGRzSJLTbkAfPHilc/MSEP+Xb3G+Extcg/S4SyQow6h13daNV3QGQ3BSbb8TWfmX8
-	4=
-X-Google-Smtp-Source: AGHT+IHuSACp56R7JFjqqbbVOFl8naZeaEXMeCAJrwdR3oTcvhmsICZkUtW81MHhki1qJ/awwU9oug==
-X-Received: by 2002:a17:903:198c:b0:234:d292:be83 with SMTP id d9443c01a7336-23f9812b3ddmr68861005ad.10.1753313433180;
-        Wed, 23 Jul 2025 16:30:33 -0700 (PDT)
+        bh=BZdmnC8PcEOZPd/qRotPAi5bThc5SgobYaLTba1a6rA=;
+        b=av5hhngDfQm5g8tvy+ctqDiXPSZwWCTtTOuSwsMDUfXJOadg4QvgKdl8EV8/JqmkX/
+         ZmDOEqIYLeKBEs2f8Swe6qFeXbReIZ4X7DCCM7xduTHQn92hDG4qyA8f6nZw0FDK/gSn
+         4Qidb/DpRgpbZ91/vUX74AoxIUDYgN74TqIrcpXdxIjuj1+ixOd+xRauPPiSQ/anlAbO
+         25oNI1tsr13/iMiv3klpsl6YjNf+B4C9ryLqwMwcReXP7jssSmXusNpIt3VxmX2RTGSQ
+         hSn93Ki0cTF59WDlkml2wGhs9D7wE9GCeEbEEdRdSSnD27fZS15LJEqsv1WgWgox00me
+         u62w==
+X-Forwarded-Encrypted: i=1; AJvYcCU+z08jvR5yotUy855YEg6ztF2WR4SWHvqy5m0IdCfTDaIh7g3LYqhmgtrqCvLZizBE5el2r6NhquYddnukxrbX@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzr+DFmkZeYFjsezeWPWi1aH3PxG85ta6IUrXNjfMuR81lDLOOC
+	bRxrJX0sLiqZLtsFgh9IUI+H5dSpt16sBRWbkN5/RQIH2X57Ti2lm68UUJmQtES5
+X-Gm-Gg: ASbGncu3CroxuD8g4XGtaGMDbqV/K5TMJbL52bXksikBiiIGTyTR/0fWgSi30rG52ul
+	ff48g910e3kyx+N8k8Ty7AUfgqs04rZbQVMsFzlwzNhWuJvsi5hDKx97H/rA5TqlMp4Q/Gtu6ao
+	4Lt3bk/dnF9NgixqQo/DCmrPvExCpT9M4g5Fog2xIMiNs4tQsk+nZ+DfgDBaxuBfSirS+zpyB7h
+	cpFLfH3/Cd/jFEaBQ5Vakx2uySeyTRCKwfoHxMtc/LUrL7FIwry3PSovTWorP4zJ7rzEJ9xaElk
+	5v/PYvXXn6bsqBSvQhKAm/D2nG/kCOO7G+EdAfKbYjUy4dCaf82hUHiN4KxTklrVUN/8g6jAqFA
+	qljG6rR2YCUVOIJW52XJGplFEQ4hDXXRjQiCTF3XK/znMnlhZKpHUl5FqiGrwHfEaoirZyuI7K2
+	k=
+X-Google-Smtp-Source: AGHT+IFIyOTSA2qmRbTVKiynYv9ixlJ90tvw04lgs/CHVeXhcLa/lbzWOVby0mnDzFVJ3P7H39lEgg==
+X-Received: by 2002:a17:903:2352:b0:234:8a4a:adb4 with SMTP id d9443c01a7336-23f9817696bmr78290955ad.21.1753313434862;
+        Wed, 23 Jul 2025 16:30:34 -0700 (PDT)
 Received: from localhost.localdomain (c-76-133-73-115.hsd1.ca.comcast.net. [76.133.73.115])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23fa48bc6fbsm1260765ad.120.2025.07.23.16.30.31
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23fa48bc6fbsm1260765ad.120.2025.07.23.16.30.33
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 23 Jul 2025 16:30:32 -0700 (PDT)
+        Wed, 23 Jul 2025 16:30:34 -0700 (PDT)
 From: rentao.bupt@gmail.com
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -83,17 +83,17 @@ To: Rob Herring <robh@kernel.org>,
 	Andrew Lunn <andrew@lunn.ch>,
 	Tao Ren <taoren@meta.com>
 Cc: Tao Ren <rentao.bupt@gmail.com>
-Subject: [PATCH v3 08/13] ARM: dts: aspeed: wedge400: Include wedge400-data64.dts
-Date: Wed, 23 Jul 2025 16:30:04 -0700
-Message-ID: <20250723233013.142337-9-rentao.bupt@gmail.com>
+Subject: [PATCH v3 09/13] dt-bindings: arm: aspeed: add Facebook Fuji-data64 board
+Date: Wed, 23 Jul 2025 16:30:05 -0700
+Message-ID: <20250723233013.142337-10-rentao.bupt@gmail.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20250723233013.142337-1-rentao.bupt@gmail.com>
 References: <20250723233013.142337-1-rentao.bupt@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250723_163034_053326_6E4B964E 
-X-CRM114-Status: GOOD (  12.94  )
+X-CRM114-CacheID: sfid-20250723_163035_635087_4B482AA8 
+X-CRM114-Status: GOOD (  10.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,401 +110,28 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Tao Ren <rentao.bupt@gmail.com>
 
-Include "wedge400-data64.dts" in wedge400 dts to avoid duplicated code.
-
-Wedge400-data64 and Wedge400 are identical except the BMC flash layout.
+Document the new compatibles used on Meta/Facebook Fuji-data64 board.
 
 Signed-off-by: Tao Ren <rentao.bupt@gmail.com>
 ---
 Changes in v3:
   - None (the patch is introduced in v3).
 
- .../aspeed/aspeed-bmc-facebook-wedge400.dts   | 366 +-----------------
- 1 file changed, 2 insertions(+), 364 deletions(-)
+ Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-wedge400.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-wedge400.dts
-index 3e4d30f0884d..ef0cfc51cda4 100644
---- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-wedge400.dts
-+++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-wedge400.dts
-@@ -1,376 +1,14 @@
- // SPDX-License-Identifier: GPL-2.0+
- // Copyright (c) 2019 Facebook Inc.
--/dts-v1/;
- 
--#include <dt-bindings/gpio/aspeed-gpio.h>
--#include "ast2500-facebook-netbmc-common.dtsi"
-+#include "aspeed-bmc-facebook-wedge400-data64.dts"
- 
- / {
- 	model = "Facebook Wedge 400 BMC";
- 	compatible = "facebook,wedge400-bmc", "aspeed,ast2500";
--
--	aliases {
--		/*
--		 * PCA9548 (2-0070) provides 8 channels connecting to
--		 * SCM (System Controller Module).
--		 */
--		i2c16 = &imux16;
--		i2c17 = &imux17;
--		i2c18 = &imux18;
--		i2c19 = &imux19;
--		i2c20 = &imux20;
--		i2c21 = &imux21;
--		i2c22 = &imux22;
--		i2c23 = &imux23;
--
--		/*
--		 * PCA9548 (8-0070) provides 8 channels connecting to
--		 * SMB (Switch Main Board).
--		 */
--		i2c24 = &imux24;
--		i2c25 = &imux25;
--		i2c26 = &imux26;
--		i2c27 = &imux27;
--		i2c28 = &imux28;
--		i2c29 = &imux29;
--		i2c30 = &imux30;
--		i2c31 = &imux31;
--
--		/*
--		 * PCA9548 (11-0076) provides 8 channels connecting to
--		 * FCM (Fan Controller Module).
--		 */
--		i2c32 = &imux32;
--		i2c33 = &imux33;
--		i2c34 = &imux34;
--		i2c35 = &imux35;
--		i2c36 = &imux36;
--		i2c37 = &imux37;
--		i2c38 = &imux38;
--		i2c39 = &imux39;
--
--		spi2 = &spi_gpio;
--	};
--
--	chosen {
--		stdout-path = &uart1;
--		bootargs = "console=ttyS0,9600n8 root=/dev/ram rw";
--	};
--
--	ast-adc-hwmon {
--		compatible = "iio-hwmon";
--		io-channels = <&adc 0>, <&adc 1>, <&adc 2>, <&adc 3>, <&adc 4>,
--			      <&adc 5>, <&adc 6>, <&adc 7>, <&adc 8>;
--	};
--
--	/*
--	 * GPIO-based SPI Master is required to access SPI TPM, because
--	 * full-duplex SPI transactions are not supported by ASPEED SPI
--	 * Controllers.
--	 */
--	spi_gpio: spi {
--		status = "okay";
--		compatible = "spi-gpio";
--		#address-cells = <1>;
--		#size-cells = <0>;
--
--		cs-gpios = <&gpio ASPEED_GPIO(R, 2) GPIO_ACTIVE_LOW>;
--		sck-gpios = <&gpio ASPEED_GPIO(R, 3) GPIO_ACTIVE_HIGH>;
--		mosi-gpios = <&gpio ASPEED_GPIO(R, 4) GPIO_ACTIVE_HIGH>;
--		miso-gpios = <&gpio ASPEED_GPIO(R, 5) GPIO_ACTIVE_HIGH>;
--		num-chipselects = <1>;
--
--		tpm@0 {
--			compatible = "infineon,slb9670", "tcg,tpm_tis-spi";
--			spi-max-frequency = <33000000>;
--			reg = <0>;
--		};
--	};
- };
- 
--/*
-- * Both firmware flashes are 128MB on Wedge400 BMC.
-- */
- &fmc_flash0 {
-+	/delete-node/partitions;
- #include "facebook-bmc-flash-layout-128.dtsi"
- };
--
--&fmc_flash1 {
--	partitions {
--		compatible = "fixed-partitions";
--		#address-cells = <1>;
--		#size-cells = <1>;
--
--		flash1@0 {
--			reg = <0x0 0x8000000>;
--			label = "flash1";
--		};
--	};
--};
--
--&uart2 {
--	status = "okay";
--	pinctrl-names = "default";
--	pinctrl-0 = <&pinctrl_txd2_default
--		     &pinctrl_rxd2_default>;
--};
--
--&uart4 {
--	status = "okay";
--	pinctrl-names = "default";
--	pinctrl-0 = <&pinctrl_txd4_default
--		     &pinctrl_rxd4_default>;
--};
--
--/*
-- * I2C bus #0 is multi-master environment dedicated for BMC and Bridge IC
-- * communication.
-- */
--&i2c0 {
--	status = "okay";
--	multi-master;
--	bus-frequency = <1000000>;
--};
--
--&i2c1 {
--	status = "okay";
--};
--
--&i2c2 {
--	status = "okay";
--
--	i2c-mux@70 {
--		compatible = "nxp,pca9548";
--		#address-cells = <1>;
--		#size-cells = <0>;
--		reg = <0x70>;
--		i2c-mux-idle-disconnect;
--
--		imux16: i2c@0 {
--			#address-cells = <1>;
--			#size-cells = <0>;
--			reg = <0>;
--		};
--
--		imux17: i2c@1 {
--			#address-cells = <1>;
--			#size-cells = <0>;
--			reg = <1>;
--		};
--
--		imux18: i2c@2 {
--			#address-cells = <1>;
--			#size-cells = <0>;
--			reg = <2>;
--		};
--
--		imux19: i2c@3 {
--			#address-cells = <1>;
--			#size-cells = <0>;
--			reg = <3>;
--		};
--
--		imux20: i2c@4 {
--			#address-cells = <1>;
--			#size-cells = <0>;
--			reg = <4>;
--		};
--
--		imux21: i2c@5 {
--			#address-cells = <1>;
--			#size-cells = <0>;
--			reg = <5>;
--		};
--
--		imux22: i2c@6 {
--			#address-cells = <1>;
--			#size-cells = <0>;
--			reg = <6>;
--		};
--
--		imux23: i2c@7 {
--			#address-cells = <1>;
--			#size-cells = <0>;
--			reg = <7>;
--		};
--	};
--};
--
--&i2c3 {
--	status = "okay";
--};
--
--&i2c4 {
--	status = "okay";
--};
--
--&i2c5 {
--	status = "okay";
--};
--
--&i2c6 {
--	status = "okay";
--};
--
--&i2c7 {
--	status = "okay";
--};
--
--&i2c8 {
--	status = "okay";
--
--	i2c-mux@70 {
--		compatible = "nxp,pca9548";
--		#address-cells = <1>;
--		#size-cells = <0>;
--		reg = <0x70>;
--		i2c-mux-idle-disconnect;
--
--		imux24: i2c@0 {
--			#address-cells = <1>;
--			#size-cells = <0>;
--			reg = <0>;
--		};
--
--		imux25: i2c@1 {
--			#address-cells = <1>;
--			#size-cells = <0>;
--			reg = <1>;
--		};
--
--		imux26: i2c@2 {
--			#address-cells = <1>;
--			#size-cells = <0>;
--			reg = <2>;
--		};
--
--		imux27: i2c@3 {
--			#address-cells = <1>;
--			#size-cells = <0>;
--			reg = <3>;
--		};
--
--		imux28: i2c@4 {
--			#address-cells = <1>;
--			#size-cells = <0>;
--			reg = <4>;
--		};
--
--		imux29: i2c@5 {
--			#address-cells = <1>;
--			#size-cells = <0>;
--			reg = <5>;
--		};
--
--		imux30: i2c@6 {
--			#address-cells = <1>;
--			#size-cells = <0>;
--			reg = <6>;
--		};
--
--		imux31: i2c@7 {
--			#address-cells = <1>;
--			#size-cells = <0>;
--			reg = <7>;
--		};
--
--	};
--};
--
--&i2c9 {
--	status = "okay";
--};
--
--&i2c10 {
--	status = "okay";
--};
--
--&i2c11 {
--	status = "okay";
--
--	i2c-mux@76 {
--		compatible = "nxp,pca9548";
--		#address-cells = <1>;
--		#size-cells = <0>;
--		reg = <0x76>;
--		i2c-mux-idle-disconnect;
--
--		imux32: i2c@0 {
--			#address-cells = <1>;
--			#size-cells = <0>;
--			reg = <0>;
--		};
--
--		imux33: i2c@1 {
--			#address-cells = <1>;
--			#size-cells = <0>;
--			reg = <1>;
--		};
--
--		imux34: i2c@2 {
--			#address-cells = <1>;
--			#size-cells = <0>;
--			reg = <2>;
--		};
--
--		imux35: i2c@3 {
--			#address-cells = <1>;
--			#size-cells = <0>;
--			reg = <3>;
--		};
--
--		imux36: i2c@4 {
--			#address-cells = <1>;
--			#size-cells = <0>;
--			reg = <4>;
--		};
--
--		imux37: i2c@5 {
--			#address-cells = <1>;
--			#size-cells = <0>;
--			reg = <5>;
--		};
--
--		imux38: i2c@6 {
--			#address-cells = <1>;
--			#size-cells = <0>;
--			reg = <6>;
--		};
--
--		imux39: i2c@7 {
--			#address-cells = <1>;
--			#size-cells = <0>;
--			reg = <7>;
--		};
--
--	};
--};
--
--&i2c12 {
--	status = "okay";
--};
--
--&i2c13 {
--	status = "okay";
--};
--
--&adc {
--	status = "okay";
--};
--
--&ehci1 {
--	status = "okay";
--};
--
--&uhci {
--	status = "okay";
--};
--
--&sdhci1 {
--	max-frequency = <25000000>;
--	/*
--	 * DMA mode needs to be disabled to avoid conflicts with UHCI
--	 * Controller in AST2500 SoC.
--	 */
--	sdhci-caps-mask = <0x0 0x580000>;
--};
+diff --git a/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml b/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
+index 0c9d6a30dce0..3cc6e62ae5f3 100644
+--- a/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
++++ b/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
+@@ -85,6 +85,7 @@ properties:
+               - facebook,cloudripper-bmc
+               - facebook,elbert-bmc
+               - facebook,fuji-bmc
++              - facebook,fuji-data64-bmc
+               - facebook,greatlakes-bmc
+               - facebook,harma-bmc
+               - facebook,minerva-cmc
 -- 
 2.47.3
 
