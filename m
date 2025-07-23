@@ -4,88 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFCB7C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 14:25:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2064AC83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 14:28:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m+JLK8o3lT0td/MYczWJEZnb2L8d00AyuRGacnswf14=; b=SeD10Gylry9zx2y07bF6UMhP1G
-	5GBWMM9vcB5HEuAAdP1vbtEycmCwP7mKInV768ZzyCcImlOTC6+yk+5qBZX5VNy8TQ9BJ8S3Pcmmc
-	atKO7H3q6D0Ic2Qi8aXlQshULTcrGv7xFVjN4gHmRR2C0UMa9MSf6nHy8q6zMmO8zSrcGl5Kg47b+
-	XPr4gmmmWj760JD2wKS9Sj0v8S4NrfCzdHZrxj35Ugh+R58X4m05Spwlj83AcYHjXLx+WFjaLsjxz
-	2OOA1UBqnhpc8oPpQOIgOZkIslvke+j70la51XGt4NaHeVVFaynQ4Ow6cROjQi4OXmCLDdCM9xw6K
-	i0awyx4w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=An0UywUWj2ZdHBQQHCyI/WduRdaaTUG4mi+2WVnp8YA=; b=f/HLbxzw5kXIzixSsB7fwJiWr8
+	W6knpmq8BYhFFILO0JItoyKLJcTwKWXULTWYKUflLz7inxyYIOBLvmm7DxEll5NMoUlbqvjUxd3GC
+	sn3a5sQObQrogsU2A4FCkDwRD99E6fZDPocn2SMLet50ykNUnoYi6jMshDLoPPLbV4lI90/i+FQGC
+	CcxWFjdPiEOWw1wtAO427lu0cmxZnfB8skX6zgRgaLCtHG6G5IwhDGIwzCgyi/+Dn44QILr8WttHI
+	rN9YrU/FRtFSLFgx4G+tAmR1AuokwT8W/8OZbo70+KXeTKp5xdBx7PkVYwoSnXrBMUV+5mt9+1EhV
+	XRof/yUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueaPK-00000005CCL-0t61;
-	Wed, 23 Jul 2025 14:25:22 +0000
-Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+	id 1ueaRn-00000005CXV-1gFX;
+	Wed, 23 Jul 2025 14:27:55 +0000
+Received: from mail-m49198.qiye.163.com ([45.254.49.198])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueZfU-000000054z6-0nAh
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Jul 2025 13:38:01 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-235e389599fso213765ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Jul 2025 06:37:59 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1753277879; x=1753882679; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=m+JLK8o3lT0td/MYczWJEZnb2L8d00AyuRGacnswf14=;
-        b=eN8RgMLg9w/t+UwCap/uucsHo/H6V+f2XkGL9gaA8/qynphielvmVA/10jB2EJFYoF
-         WarBQ3gSR1iYFRAULpbxmJU0+zp0JIjABRvAyXEkmfZJNB8Jnaa5vLmQmxtUrT/LQnuc
-         nU88wm38URa9ARNOeJ/QIXU8vDKXeHsW+yB6Pc01qi8IGIEw20t1ckudZy427NjlPNnp
-         srLQ6kvRYEd22ZKCllHVbBd19mdfvAr0P9tzCHX+32I7qdiqOGHwz5yycf4cmcVgp05C
-         NeBJPOWU58wK0+l4JDMqTa2Apo+mkee0SRsM6q9GlegritPsa04uY09t4CQPQvNXdVfq
-         rfTA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753277879; x=1753882679;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=m+JLK8o3lT0td/MYczWJEZnb2L8d00AyuRGacnswf14=;
-        b=OZVQ9Feq2Rcl/fSYAZxYScS6p2IEAXKWlB+8s/+7lrqCcUtvc3d1yoE3a5dMsU6ku2
-         ZC+uu5U30OtWVAcMsM+y4MuMH+uUm1jtCle0qWCyw7q2+peVKNKyafY2rruJU4Ho1vmJ
-         pQEpKw9ICOqSHkuQlVY3lG5pXsN9Cw4pMHQWDdNfV+//X8FVnaXwBKVcGnCmVVmPBv7Y
-         g7mBg2v4zNVqoQ4CtrjIehGSmoS6vzV8WN90B2l78Q6mNQ0bP5PP85WJPaDJuAwimgTj
-         UB+kjzoZYEw1rM2eO5pFp9aj0rMdSRcsHzcjYTMsbzTOZUZuOD1iqMT6ET2+EHd9F+8K
-         aO8Q==
-X-Forwarded-Encrypted: i=1; AJvYcCW0BYemlr3ZhSCTjC/+3z91/+HTYjUCQcc0MTYjv5d0ZtY13PYm1mkloJoq1yIidKV34qbRRDhua8yvVHuwk8qn@lists.infradead.org
-X-Gm-Message-State: AOJu0YzIllGjSB+bl1awwcSbDSjY/D2BR8p4Ep50ZdLt5Yl8N+FRHgOF
-	8sQ/C8qnPltdQ97B4f5Q5n1tKRW8jfQahcTLUAh7wZ6AAW0rMOj+md5ve298xUntSw==
-X-Gm-Gg: ASbGncuUNrIePz97BZmoCTAs2xIIPAaFgEGNdFdxqml4ROCM4LWr51olr74mOQnhf4Y
-	KzHZwepjeh5dBEWKdrN0ZYy7OBg1N84jiJYzWxtVoRbgMkSRNSoDOv23ZQ4WRves0e1xKUVw80V
-	PkSpjJtfK9c1g+NVR6ho2Tmaosjn4kdc1w8Wmk6lZFU5M3bYz2t6rWEGh4oP6ZO5R42nlQyuf/S
-	ol2Ar0G6mcpT5JWJbvZK4hu1qbNdZ435CGlZGhPsUPlQs9DELyRoKjYyxbSP4A4GLnEr0CvN85U
-	CzO7Rdt9aNUsw3QeJ/VyIORe74Npb4e26YGNuDphQrZDe2FpDPMbs4RFMrH0yXU+NvV62rqFWT9
-	tMNxx4xdi0zRWRojsLURg4ndclXFGtiAI4O/5CZEdNl+N+MGHGt+uFVZxhtyeU/yh9Ys=
-X-Google-Smtp-Source: AGHT+IHNDySI/nH+OMkMv0ChQEdtb4UFgDV0ZT5tuGjSaRubSm3kOT/oocHqF0dfxqVXTEfR3wYujw==
-X-Received: by 2002:a17:903:15c3:b0:234:13ad:7f9f with SMTP id d9443c01a7336-23f978e398cmr3323895ad.22.1753277878789;
-        Wed, 23 Jul 2025 06:37:58 -0700 (PDT)
-Received: from google.com (232.98.126.34.bc.googleusercontent.com. [34.126.98.232])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23f75d13bdfsm77086475ad.51.2025.07.23.06.37.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 23 Jul 2025 06:37:58 -0700 (PDT)
-Date: Wed, 23 Jul 2025 13:37:53 +0000
-From: Pranjal Shrivastava <praan@google.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: jgg@nvidia.com, will@kernel.org, joro@8bytes.org, robin.murphy@arm.com,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org, linux-tegra@vger.kernel.org
-Subject: Re: [PATCH v3 2/2] iommu/arm-smmu-v3: Replace vsmmu_size/type with
- get_viommu_size
-Message-ID: <aIDlsUvF2Xbdelvx@google.com>
-References: <20250721200444.1740461-1-nicolinc@nvidia.com>
- <20250721200444.1740461-3-nicolinc@nvidia.com>
+	id 1ueZi3-000000055KH-2k9A;
+	Wed, 23 Jul 2025 13:40:41 +0000
+Received: from localhost.localdomain (unknown [119.122.214.181])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 1d028433b;
+	Wed, 23 Jul 2025 21:40:24 +0800 (GMT+08:00)
+From: Chukun Pan <amadeus@jmu.edu.cn>
+To: knaerzche@gmail.com
+Cc: amadeus@jmu.edu.cn,
+	devicetree@vger.kernel.org,
+	heiko@sntech.de,
+	jonas@kwiboo.se,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	ziyao@disroot.org
+Subject: Re: [PATCH v3 0/6] arm64: dts: rockchip: Add ROCK 2A/2F, Sige1 and NanoPi Zero2
+Date: Wed, 23 Jul 2025 21:40:19 +0800
+Message-Id: <20250723134019.1076352-1-amadeus@jmu.edu.cn>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <6d93c92d-2bba-4247-960d-5f2e5e12b594@gmail.com>
+References: <6d93c92d-2bba-4247-960d-5f2e5e12b594@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250721200444.1740461-3-nicolinc@nvidia.com>
+Content-Transfer-Encoding: 8bit
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVlDHR8eVh8dGh9DGUxITkwdHVYeHw5VEwETFhoSFy
+	QUDg9ZV1kYEgtZQVlKSkJVSklJVUlKT1VKQ0pZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0tVSktLVU
+	tZBg++
+X-HM-Tid: 0a9837838c6c03a2kunm45ceffd2fb6d7
+X-HM-MType: 10
+X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6NhA6ATo4OTEdSTIsTCwhCw8Z
+	KBQaFDRVSlVKTE5ISUxDS0lOTEhCVTMWGhIXVRoWGh8eDgg7ERYOVR4fDlUYFUVZV1kSC1lBWUpK
+	QlVKSUlVSUpPVUpDSllXWQgBWUFKTEJMNwY+
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250723_063800_234525_0DF76E81 
-X-CRM114-Status: GOOD (  26.80  )
+X-CRM114-CacheID: sfid-20250723_064039_885750_5B270208 
+X-CRM114-Status: UNSURE (   9.46  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,141 +74,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 21, 2025 at 01:04:44PM -0700, Nicolin Chen wrote:
-> It's more flexible to have a get_viommu_size op. Replace static vsmmu_size
-> and vsmmu_type with that.
-> 
-> Suggested-by: Will Deacon <will@kernel.org>
-> Acked-by: Will Deacon <will@kernel.org>
-> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
-> ---
->  .../iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c    |  8 ++------
->  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c        |  4 ++--
->  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h        |  3 +--
->  drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c     | 14 ++++++++++++--
->  4 files changed, 17 insertions(+), 12 deletions(-)
-> 
-> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
-> index c034d6c5468f..8cd8929bbfdf 100644
-> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
-> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
-> @@ -423,10 +423,9 @@ size_t arm_smmu_get_viommu_size(struct device *dev,
->  	if (viommu_type == IOMMU_VIOMMU_TYPE_ARM_SMMUV3)
->  		return VIOMMU_STRUCT_SIZE(struct arm_vsmmu, core);
->  
-> -	if (!smmu->impl_ops || !smmu->impl_ops->vsmmu_size ||
-> -	    viommu_type != smmu->impl_ops->vsmmu_type)
-> +	if (!smmu->impl_ops || !smmu->impl_ops->get_viommu_size)
->  		return 0;
-> -	return smmu->impl_ops->vsmmu_size;
-> +	return smmu->impl_ops->get_viommu_size(viommu_type);
->  }
->  
->  int arm_vsmmu_init(struct iommufd_viommu *viommu,
-> @@ -451,9 +450,6 @@ int arm_vsmmu_init(struct iommufd_viommu *viommu,
->  		return 0;
->  	}
->  
-> -	/* Unsupported type was rejected in arm_smmu_get_viommu_size() */
-> -	if (WARN_ON(viommu->type != smmu->impl_ops->vsmmu_type))
-> -		return -EOPNOTSUPP;
->  	return smmu->impl_ops->vsmmu_init(vsmmu, user_data);
->  }
->  
-> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> index 9f4ad3705801..f56113107c8a 100644
-> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> @@ -4716,8 +4716,8 @@ static struct arm_smmu_device *arm_smmu_impl_probe(struct arm_smmu_device *smmu)
->  
->  	ops = new_smmu->impl_ops;
->  	if (ops) {
-> -		/* vsmmu_size and vsmmu_init ops must be paired */
-> -		if (WARN_ON(!ops->vsmmu_size != !ops->vsmmu_init)) {
-> +		/* get_viommu_size and vsmmu_init ops must be paired */
-> +		if (WARN_ON(!ops->get_viommu_size != !ops->vsmmu_init)) {
->  			ret = -EINVAL;
->  			goto err_remove;
->  		}
-> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-> index 3fa02c51df9f..e332f5ba2f8a 100644
-> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-> @@ -728,8 +728,7 @@ struct arm_smmu_impl_ops {
->  	 */
->  	void *(*hw_info)(struct arm_smmu_device *smmu, u32 *length,
->  			 enum iommu_hw_info_type *type);
-> -	const size_t vsmmu_size;
-> -	const enum iommu_viommu_type vsmmu_type;
-> +	size_t (*get_viommu_size)(enum iommu_viommu_type viommu_type);
->  	int (*vsmmu_init)(struct arm_vsmmu *vsmmu,
->  			  const struct iommu_user_data *user_data);
->  };
-> diff --git a/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c b/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c
-> index 4c86eacd36b1..46005ed52bc2 100644
-> --- a/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c
-> +++ b/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c
-> @@ -832,6 +832,13 @@ static void *tegra241_cmdqv_hw_info(struct arm_smmu_device *smmu, u32 *length,
->  	return info;
->  }
->  
-> +static size_t tegra241_cmdqv_get_vintf_size(enum iommu_viommu_type viommu_type)
-> +{
-> +	if (viommu_type != IOMMU_VIOMMU_TYPE_TEGRA241_CMDQV)
-> +		return 0;
-> +	return VIOMMU_STRUCT_SIZE(struct tegra241_vintf, vsmmu.core);
-> +}
-> +
->  static struct arm_smmu_impl_ops tegra241_cmdqv_impl_ops = {
->  	/* For in-kernel use */
->  	.get_secondary_cmdq = tegra241_cmdqv_get_cmdq,
-> @@ -839,8 +846,7 @@ static struct arm_smmu_impl_ops tegra241_cmdqv_impl_ops = {
->  	.device_remove = tegra241_cmdqv_remove,
->  	/* For user-space use */
->  	.hw_info = tegra241_cmdqv_hw_info,
-> -	.vsmmu_size = VIOMMU_STRUCT_SIZE(struct tegra241_vintf, vsmmu.core),
-> -	.vsmmu_type = IOMMU_VIOMMU_TYPE_TEGRA241_CMDQV,
-> +	.get_viommu_size = tegra241_cmdqv_get_vintf_size,
->  	.vsmmu_init = tegra241_cmdqv_init_vintf_user,
->  };
->  
-> @@ -1273,6 +1279,10 @@ tegra241_cmdqv_init_vintf_user(struct arm_vsmmu *vsmmu,
->  	phys_addr_t page0_base;
->  	int ret;
->  
-> +	/* Unsupported type was rejected in tegra241_cmdqv_get_vintf_size() */
-> +	if (WARN_ON(vsmmu->core.type != IOMMU_VIOMMU_TYPE_TEGRA241_CMDQV))
-> +		return -EOPNOTSUPP;
-> +
+Hi,
 
-Nit: I don't think we'd expect a call to this if the vintf_size returned
-0? I see that in iommufd_viommu_alloc_ioctl, we already have a check:
+> Nope.
+>
+> Are you really questioning my picture? Ridiculous ... see [0]
+
+No, I mean some boards of this model have SoC silkscreen RK3528 and
+others have RK3528A. The same is true for another Hinlink H28K SBC.
+
+> I'm sort of impressed on with which conviction you continue to claim
+> plain wrong things: [1], [2], [3].
+
+If you spend a few minutes running mainline u-boot or BSP kernel
+on your RK3528 board before blaming me:
+
+BL31:
+INFO:    rk_otp_init finish!
+INFO:    RK3528 SoC (0x101)
+
+mainline u-boot:
+------
+U-Boot 2025.07-...
+
+Model: Generic RK3528
+SoC:   RK3528A
+------
+
+BSP kernel:
+[    0.768514] rockchip-cpuinfo cpuinfo: SoC            : 35281000
+[    0.768990] rockchip-cpuinfo cpuinfo: Serial         : ...
+
+> I'm fine if upstream decides not to care. But it is and remains wrong
+> to claim that the other version does not exist
+
+Unless Rockchip says they fused the wrong OTP during production.
+Regardless of the SoC silkscreen, the chip type on OTP is the same,
+so how does Rockchip distinguish these chips?
+
+--
+2.25.1
 
 
-        viommu_size = ops->get_viommu_size(idev->dev, cmd->type);
-	        if (!viommu_size) {
-			rc = -EOPNOTSUPP;
-			goto out_put_idev;
-		}
-
-And call ops->viommu_init only when the above isn't met. Thus,
-if we still end up calling ops->viommu_init, shouldn't we BUG_ON() it?
-I'd rather have the core code handle such things (since the driver is
-simply implementing the ops) and BUG_ON() something that's terribly
-wrong..
-
-I can't see any ops->viommu_init being called elsewhere atm, let me
-know if there's a different path that I missed..
-
-Apart from the above nit,
-
-Reviewed-by: Pranjal Shrivastava <praan@google.com>
-
->  	if (!user_data)
->  		return -EINVAL;
->  
-> -- 
-> 2.43.0
-> 
-> 
 
