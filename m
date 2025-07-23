@@ -4,105 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B8EFC83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 06:48:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FF04C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 06:59:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/4pAPmqSacwR+3EC02TxfpVZ17kagCOTeEp5w4Nwn8g=; b=waJuaJetO8BYgPd8AW8dz91yfO
-	d7/AYkx+1p0GrlXcnsDmYTxQDt/L/s53As+Qm8A70eiFZ3tyF5lg13yOLM3v6Sjk3vFKMUAnz+yWZ
-	Vc/+jU0swR3tVrBoHcedkux8tTvsFh7GZScuf5RFF0fKR3pIYsUcWkyc50ep1RFsGnQgbMwGLPXdZ
-	nuhpPJBnlpT3nlJ6gsS0LqXlXrhh/tCwuwl2zmE8fyHqy3nQUTILr1dRGeD3zog2+XzJ0lgXL1yXx
-	VUCcAB2IwO9X0/KY5gfEWZlkUFG/nhJSWjgkNwQBZ+EamhW2cyaFJencLd9RUxXW6JVoU8+rja0ua
-	qGCc37hw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=s022kua0cUEAxtsoBnjljjHlntUp4fU9k6QUycSxTlk=; b=R7n/qj9grviCGZYDF/H6O6QjhM
+	JSTtxoNBcDL5i+AHRg8gxp9VZnvzpXq9kUGcjPz7FJKq7GscGvTFw1fIyfLJPI4aJdBf82sNAzPE0
+	XmY14sYtp7R/V68C+XvG41a9SAq+k6/nG0pA8UgUjcNJ/cPWm3lcVjRd0KI1mlAJmb7q7NSPmkpu9
+	SDTFafvhrkwd+HMg+YBHisFlEdhbbkzG9rGwlLz/KZJbzxXr8NzKh53UiiC7jT5+zFNTcMnvsXB5S
+	lhrQn5tu22ZtHzb9COpIYcFKBJyrGEfuyZuPnq4+NYezJyXjk/GL7yAbFHj7niBrC0tch6Sl1BzU6
+	rKcgE8mA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueTGq-00000004A6M-1tV9;
-	Wed, 23 Jul 2025 06:48:08 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1ueTS8-00000004BQ3-2Ayc;
+	Wed, 23 Jul 2025 06:59:48 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueTEL-000000049me-3zqr;
-	Wed, 23 Jul 2025 06:45:35 +0000
+	id 1ueTPf-00000004Asq-19J7
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 23 Jul 2025 06:57:15 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 60557458B1;
-	Wed, 23 Jul 2025 06:45:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 19EADC4CEE7;
-	Wed, 23 Jul 2025 06:45:30 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 3DA5C66911;
+	Wed, 23 Jul 2025 06:57:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4E611C4CEF4;
+	Wed, 23 Jul 2025 06:57:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753253133;
-	bh=zpMXT1JNlKpWE4v1/xzcp5eLVVd9jT4OGoI8wCrQzPA=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=iQd9hiUxH9+Iy/le0JwC0LZhqEYirZHIwYeuSInZprgDbWG9HA3hCqrPBAH5pjn0E
-	 AHfBwuZH27dH0qK5zSXDM6Kz6tINQVdoPWA0u5lV/dmilv1P7JXkmJC5WFcS/wWyxX
-	 UIfbOf9gCiRfUdWTpsMdK2YoF/50kv3YdxTdbhickdfQmVBwtkbcZkrWOHoGTdkQ+6
-	 UZIKqKSRc1mtgFohlkJ0El/hGUyLPyMNbe2u9MdZJH3oVSkjlou1xE4KSPLqVmr5kW
-	 74jtq7NZVjp82d3p9MHVKVQd7NR6w6hCw1sCDH0GGUyeQF/e4MiXoUKJWbYGeuil/q
-	 3ZC/MvgvcGP2g==
-Message-ID: <cabdf172-8de8-4b26-b7b6-ab97f940428b@kernel.org>
-Date: Wed, 23 Jul 2025 08:45:29 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2 v2a]: New board support,LinkStar-H68k-1432v1 (RK3568)
-To: Erik Beck <xunil@tahomasoft.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250721201714.233962-1-xunil@tahomasoft.com>
+	s=k20201202; t=1753253833;
+	bh=JIfE9XgM6zvzb89Yq0cMzIJaAN+lyRfDNIOGeiBWxII=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=s0iXpUXSq5lTOFR2KZjz0yWzsRJGefnwMpQCGHqr2UHa+TIw2Dh6DzOZXkf8/imon
+	 0bGr7Kgp/lD+i2mZIEJHxxOrDZmTrjQijh2UL2b84WaquG04VZ9Ut5MFYvOnr049Z9
+	 LuUu7yzOLeUrjOixMjKJ+PacUYHUpY3rvXeDFGyFjVRco6nszYyy1P+4Y8UFZ2ZySJ
+	 sfOXhwU16i3QFTgGWkkM9J+on6wmCtANTQAqUNKz8E/sT7me5gRRseuJpGvOTgIysJ
+	 jdEOoygpFDk7HA1ZMpBca197nzb3zukm8DY8FJySkg1wd+/LExayXRMrnNsEsWI7oe
+	 MKCdWHMbjk7GQ==
+Date: Wed, 23 Jul 2025 08:57:11 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250721201714.233962-1-xunil@tahomasoft.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250722_234534_037937_7270D25F 
-X-CRM114-Status: GOOD (  11.44  )
+To: =?utf-8?Q?Cl=C3=A9ment?= Le Goffic <clement.legoffic@foss.st.com>
+Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	Jonathan Corbet <corbet@lwn.net>, Gatien Chevallier <gatien.chevallier@foss.st.com>, 
+	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+	Gabriel Fernandez <gabriel.fernandez@foss.st.com>, Le Goffic <legoffic.clement@gmail.com>, 
+	Julius Werner <jwerner@chromium.org>, linux-arm-kernel@lists.infradead.org, 
+	linux-perf-users@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, 
+	linux-clk@vger.kernel.org
+Subject: Re: [PATCH v3 07/19] dt-bindings: memory: factorise LPDDR channel
+ binding into memory channel
+Message-ID: <20250723-zealous-turtle-of-perfection-e67aee@kuoka>
+References: <20250722-ddrperfm-upstream-v3-0-7b7a4f3dc8a0@foss.st.com>
+ <20250722-ddrperfm-upstream-v3-7-7b7a4f3dc8a0@foss.st.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <20250722-ddrperfm-upstream-v3-7-7b7a4f3dc8a0@foss.st.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,53 +80,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 21/07/2025 22:17, Erik Beck wrote:
-> 
-> Signed-off-by: Erik Beck <xunil@tahomasoft.com>
+On Tue, Jul 22, 2025 at 04:03:24PM +0200, Cl=C3=A9ment Le Goffic wrote:
+> LPDDR and DDR channels exist and share the same properties, they have a
+> compatible, ranks, and an io-width.
 
-Please run scripts/checkpatch.pl on the patches and fix reported
-warnings. After that, run also 'scripts/checkpatch.pl --strict' on the
-patches and (probably) fix more warnings. Some warnings can be ignored,
-especially from --strict run, but the code here looks like it needs a
-fix. Feel free to get in touch if the warning is not clear.
+Maybe it is true for all types of SDRAM, like RDRAM and eDRAM, but I
+don't think all memory types do.
 
+I think this should be renamed to sdram-channel.
 
-Please version your patches correctly, e.g. use b4 or git format-patch
--vX, and add changelog in cover letter or under '---' of individual
-patches describing changes from previous version.
-
-
+>=20
+> Signed-off-by: Cl=C3=A9ment Le Goffic <clement.legoffic@foss.st.com>
 > ---
->  arch/arm64/boot/dts/rockchip/Makefile         |   1 +
->  .../rockchip/rk3568-linkstar-h68k-1432v1.dts  | 740 ++++++++++++++++++
->  2 files changed, 741 insertions(+)
->  create mode 100644 arch/arm64/boot/dts/rockchip/rk3568-linkstar-h68k-1432v1.dts
-> 
+>  ...pddr-channel.yaml =3D> jedec,memory-channel.yaml} | 26 +++++++++++---=
+--------
+>  1 file changed, 13 insertions(+), 13 deletions(-)
+>=20
+> diff --git a/Documentation/devicetree/bindings/memory-controllers/ddr/jed=
+ec,lpddr-channel.yaml b/Documentation/devicetree/bindings/memory-controller=
+s/ddr/jedec,memory-channel.yaml
+> similarity index 82%
+> rename from Documentation/devicetree/bindings/memory-controllers/ddr/jede=
+c,lpddr-channel.yaml
+> rename to Documentation/devicetree/bindings/memory-controllers/ddr/jedec,=
+memory-channel.yaml
+> index 34b5bd153f63..3bf3a63466eb 100644
+> --- a/Documentation/devicetree/bindings/memory-controllers/ddr/jedec,lpdd=
+r-channel.yaml
+> +++ b/Documentation/devicetree/bindings/memory-controllers/ddr/jedec,memo=
+ry-channel.yaml
+> @@ -1,16 +1,16 @@
+>  # SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+>  %YAML 1.2
+>  ---
+> -$id: http://devicetree.org/schemas/memory-controllers/ddr/jedec,lpddr-ch=
+annel.yaml#
+> +$id: http://devicetree.org/schemas/memory-controllers/ddr/jedec,memory-c=
+hannel.yaml#
+>  $schema: http://devicetree.org/meta-schemas/core.yaml#
+> =20
+> -title: LPDDR channel with chip/rank topology description
+> +title: Memory channel with chip/rank topology description
+> =20
+>  description:
+> -  An LPDDR channel is a completely independent set of LPDDR pins (DQ, CA=
+, CS,
+> -  CK, etc.) that connect one or more LPDDR chips to a host system. The m=
+ain
+> -  purpose of this node is to overall LPDDR topology of the system, inclu=
+ding the
+> -  amount of individual LPDDR chips and the ranks per chip.
+> +  A memory channel is a completely independent set of pins (DQ, CA, CS,
 
-...
+A memory channel of SDRAM memory like DDR SDRAM or LPDDR SDRAM is ...
 
-> +        hdmi-con {
-> +                compatible = "hdmi-connector";
-> +                type = "a";
-> +
-> +                port {
-> +                        hdmi_con_in: endpoint {
-> +                                remote-endpoint = <&hdmi_out_con>;
-> +                        };
-> +                };
-> +        };
-> +
-> +        gpio-keys {
-> +                compatible = "gpio-keys";
-> +                pinctrl-0 = <&reset_button_pin>;
-> +                pinctrl-names = "default";
-> +
-> +        /* Middle inset/recessed button,
-> +                  marked by clockwise arrow/circle */
+> +  CK, etc.) that connect one or more memory chips to a host system. The =
+main
+> +  purpose of this node is to overall memory topology of the system, incl=
+uding the
+> +  amount of individual memory chips and the ranks per chip.
+> =20
+>  maintainers:
+>    - Julius Werner <jwerner@chromium.org>
+> @@ -26,14 +26,14 @@ properties:
+>    io-width:
+>      description:
+>        The number of DQ pins in the channel. If this number is different
+> -      from (a multiple of) the io-width of the LPDDR chip, that means th=
+at
+> +      from (a multiple of) the io-width of the memory chip, that means t=
+hat
+>        multiple instances of that type of chip are wired in parallel on t=
+his
+>        channel (with the channel's DQ pins split up between the different
+>        chips, and the CA, CS, etc. pins of the different chips all shorted
+>        together).  This means that the total physical memory controlled b=
+y a
+>        channel is equal to the sum of the densities of each rank on the
+> -      connected LPDDR chip, times the io-width of the channel divided by
+> -      the io-width of the LPDDR chip.
+> +      connected memory chip, times the io-width of the channel divided by
+> +      the io-width of the memory chip.
+>      enum:
+>        - 8
+>        - 16
+> @@ -51,8 +51,8 @@ patternProperties:
+>    "^rank@[0-9]+$":
+>      type: object
+>      description:
+> -      Each physical LPDDR chip may have one or more ranks. Ranks are
+> -      internal but fully independent sub-units of the chip. Each LPDDR b=
+us
+> +      Each physical memory chip may have one or more ranks. Ranks are
+> +      internal but fully independent sub-units of the chip. Each memory =
+bus
+>        transaction on the channel targets exactly one rank, based on the
+>        state of the CS pins. Different ranks may have different densities=
+ and
+>        timing requirements.
+> @@ -107,7 +107,7 @@ additionalProperties: false
+> =20
+>  examples:
+>    - |
+> -    lpddr-channel0 {
+> +    memory-channel0 {
 
-Messed indentation
+If doing this, then separate commit based on generic node name
+convention. But then we need to come with generic node name first,
+sdram-channel?
 
+And also '-0', not '0' suffix.
 
 Best regards,
 Krzysztof
+
 
