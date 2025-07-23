@@ -4,103 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 568B5C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 11:09:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0BCBC83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 11:16:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:References:
-	In-Reply-To:Message-ID:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tpUwu4il1VAiTMh13wOHJHOYU4uf2KEQd4xPzFOpTMk=; b=Z3u5x3qzsx5gfZ
-	VJmCyF4M/Ptqg+zbZ8H2rGiqRDYJKDjuxhJjiu+lGAIwt3JClnqyxBEjJm5P1tf+r837lOgHXUZWP
-	AXyRFg1P5sIBwdLpQbPgfUpxwqPoABc/gqTdQK2iPfN07tJCFoZXvHEQgyVdQKwn3Lok2pxFyGr46
-	TySaQ+PQItc6nI4Uou7CwFgMqvWDupdxZdN0lK78kZUvxmHHyHPhlGN77Oq282dFyPktfb4MayebL
-	ivMKHS8Hdt1liUXHYTAPioQAQPhrX1hrLkA82vO9MxPuEVcSH4AWVvDu9SqSdNmFfMkWqJPkDdJOW
-	OAj4eJnZ2kpyAhBIJOdw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ypF4ATmrVxGI+bbDERiXi6y89kUoL7bAQITiPKwExvI=; b=c4AfvjsS3/J6F70Q5mNJI46SNl
+	q4AF6xPOjBQeD23sazNDMLNpuyu9o3kyY1Zt+2saUvQP1R4Owsm1eFmJh0iw7afrqWYzJvxuCGK1Q
+	QlTYU/88wUiAuNzGQJDezFRqwhSJADZBfzKiw6X9QNNuTzUr687m6K7021FJxWd2W3NnrpPsMsOyg
+	CY3T0tx2XjEH/nK77N3/nJRRe8S6Q0cVFL8UcZZHlRAU41yw8IeCMT43zEeT+5kP9HH1KktuTdGtm
+	JnH7lmz2f7RuKbqsH9Y8cxeCr6oO0CCs77WXnO45tuZ9FtVRM3GCpPm5CTQ8yc95vlfVfHXw21q+c
+	67WMWS4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueXLH-00000004mLQ-3dKS;
-	Wed, 23 Jul 2025 11:08:59 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1ueXS9-00000004nH0-09wG;
+	Wed, 23 Jul 2025 11:16:05 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueXGY-00000004m0A-2MBZ
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 23 Jul 2025 11:04:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:Subject:References:In-Reply-To:Message-ID:Cc:To:From:Date:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=tpUwu4il1VAiTMh13wOHJHOYU4uf2KEQd4xPzFOpTMk=; b=a+k3aN9d1SXjLZWGre9QeKEY8c
-	EBYtaot1nFSOgdlMm5nKCT0qmq4CI8Qp+/smtGej/EaWit9DyEirNaRlCBCpn5+CFhnVhlCLJCT0x
-	AuC7IIMgAw8bZKaCN6HQsScuLrLA8ASS1l07w1qvCz57MRiaAcmTaU+walDQLGQhKLvUKyMeH6830
-	e4GpbAVuv/qtThkkJy4P4MbaeJFbg0NNeo8TvhfMo3SB/vz173vuoE11Id+9LLztzhvAuQqzzPSK2
-	iuYaogkwATg+Xiu2MYTMG4nA8fYHKDiBIdW837kFMQ8aMvvqaUdtLUcLUb4ORsQzxTLU0CWcEJait
-	7wOuJKLw==;
-Received: from server.couthit.com ([162.240.164.96])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueXGV-0000000BSN2-04cK
+	id 1ueXPc-00000004mxo-1F4I
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Jul 2025 11:04:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=couthit.com
-	; s=default; h=Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:
-	References:In-Reply-To:Message-ID:Cc:To:From:Date:Sender:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=tpUwu4il1VAiTMh13wOHJHOYU4uf2KEQd4xPzFOpTMk=; b=qfN29ILP5BDZQoV1YozWjQ2m92
-	ZlM0uuWGKU/sFaEY7+M0Upxd9Io6/DdLXOh/yhGIu9gvfBKELJgamULl8hSnqVSmdzk/JAf/uvW/S
-	kNsNOGwEbXYVdPHnKPXTLdyV2pDeMCFM+TOyt7qVKzVxtqxJZhPI3HyEooSuPSHHzqpw0mNIeLRbj
-	v0BRvORh1FxxPy1BmtUMToWTOFdCzsKIC3IcP7OCAYk9i6X/gVKFXglJZ4o16Lfz6pWuNHw8UFq6I
-	hRcivPL1CmMq7s4QIfwY7v9Q/wPYRAs77MOqmTo79Yi2ezt/4Z9QvxQV1pjeYU5eEEr3JoxzRMJqA
-	wt34HXPA==;
-Received: from [122.175.9.182] (port=24906 helo=zimbra.couthit.local)
-	by server.couthit.com with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.1)
-	(envelope-from <parvathi@couthit.com>)
-	id 1ueXFg-00000006TmQ-1gKW;
-	Wed, 23 Jul 2025 07:03:12 -0400
-Received: from zimbra.couthit.local (localhost [127.0.0.1])
-	by zimbra.couthit.local (Postfix) with ESMTPS id 231911782036;
-	Wed, 23 Jul 2025 16:33:03 +0530 (IST)
-Received: from localhost (localhost [127.0.0.1])
-	by zimbra.couthit.local (Postfix) with ESMTP id F36BA17823D4;
-	Wed, 23 Jul 2025 16:33:02 +0530 (IST)
-Received: from zimbra.couthit.local ([127.0.0.1])
-	by localhost (zimbra.couthit.local [127.0.0.1]) (amavisd-new, port 10026)
-	with ESMTP id kVxGdNqyNizW; Wed, 23 Jul 2025 16:33:02 +0530 (IST)
-Received: from zimbra.couthit.local (zimbra.couthit.local [10.10.10.103])
-	by zimbra.couthit.local (Postfix) with ESMTP id 948C61782036;
-	Wed, 23 Jul 2025 16:33:02 +0530 (IST)
-Date: Wed, 23 Jul 2025 16:33:02 +0530 (IST)
-From: Parvathi Pudi <parvathi@couthit.com>
-To: kuba <kuba@kernel.org>
-Message-ID: <1390395318.23287.1753268582122.JavaMail.zimbra@couthit.local>
-In-Reply-To: <20250722184749.0c04d669@kernel.org>
-References: <20250722132700.2655208-1-parvathi@couthit.com> <20250722132700.2655208-3-parvathi@couthit.com> <20250722184749.0c04d669@kernel.org>
-Subject: Re: [PATCH net-next v11 2/5] net: ti: prueth: Adds ICSSM Ethernet
- driver
+	Wed, 23 Jul 2025 11:13:30 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 7FD65A52807;
+	Wed, 23 Jul 2025 11:13:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2D80DC4CEE7;
+	Wed, 23 Jul 2025 11:13:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1753269207;
+	bh=QS54HACGbgdMRs0EaSON+Zv0IttzLgk3Dxvba53hmEA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=VveC0p42ztQD01MnFfZlI0VMLsO/8qZp7VAoH72GvyCT1o3tfOA0XyRIjPFW5lYAi
+	 k/cIVCxaOvcMxuF8JK4oly+Gb+x9y18pTR8ZJEjd8EVkpIBuCRWDBWQUpbwfP4Q2eq
+	 +lPnxlk9lnVBTy4tpisJi/Tfy/ztJCXogsJqF913H6al3HBi7BHxRzVLX1pvKOUDSD
+	 u4nKNy3+XCK+OZZ12lH1OFoU2zW/+/VApEeCOQFhw2tJeQc8mtur2z1ClR3ALgloY8
+	 Ux9hfdhPXUvJYr0p5pe8eLDh/7We5RJ84askLuSNAHurpDXmcxDapbMFTnS9hOs+mi
+	 r4bOPw4jHoiAw==
+Date: Wed, 23 Jul 2025 12:13:20 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Jeremy Linton <jeremy.linton@arm.com>,
+	linux-trace-kernel@vger.kernel.org,
+	linux-perf-users@vger.kernel.org, mhiramat@kernel.org,
+	oleg@redhat.com, peterz@infradead.org, acme@kernel.org,
+	namhyung@kernel.org, mark.rutland@arm.com,
+	alexander.shishkin@linux.intel.com, jolsa@kernel.org,
+	irogers@google.com, adrian.hunter@intel.com,
+	kan.liang@linux.intel.com, thiago.bauermann@linaro.org,
+	yury.khrustalev@arm.com, kristina.martsenko@arm.com,
+	liaochang1@huawei.com, will@kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 5/8] arm64: probes: Add GCS support to bl/blr/ret
+Message-ID: <75faf0ec-79ee-4631-91d0-535c81c1bc85@sirena.org.uk>
+References: <20250719043740.4548-1-jeremy.linton@arm.com>
+ <20250719043740.4548-6-jeremy.linton@arm.com>
+ <aICywZ55EKfSYSIY@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.10.10.103]
-X-Mailer: Zimbra 8.8.15_GA_3968 (ZimbraWebClient - GC138 (Linux)/8.8.15_GA_3968)
-Thread-Topic: prueth: Adds ICSSM Ethernet driver
-Thread-Index: CS6Pxk1Q6vpt0yapW6BMmVo7ZPHfVw==
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - server.couthit.com
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - couthit.com
-X-Get-Message-Sender-Via: server.couthit.com: authenticated_id: smtp@couthit.com
-X-Authenticated-Sender: server.couthit.com: smtp@couthit.com
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="LlK8+g0AOOO1HzK1"
+Content-Disposition: inline
+In-Reply-To: <aICywZ55EKfSYSIY@arm.com>
+X-Cookie: List was current at time of printing.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250723_120403_726757_B6924273 
-X-CRM114-Status: UNSURE (   3.71  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250723_041328_418052_0B52376C 
+X-CRM114-Status: GOOD (  17.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,30 +81,52 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: pratheesh <pratheesh@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, praneeth <praneeth@ti.com>, edumazet <edumazet@google.com>, glaroque <glaroque@baylibre.com>, pmohan <pmohan@couthit.com>, diogo ivo <diogo.ivo@siemens.com>, robh <robh@kernel.org>, javier carrasco cruz <javier.carrasco.cruz@gmail.com>, saikrishnag <saikrishnag@marvell.com>, m-karicheri2 <m-karicheri2@ti.com>, jacob e keller <jacob.e.keller@intel.com>, pabeni <pabeni@redhat.com>, richardcochran <richardcochran@gmail.com>, devicetree <devicetree@vger.kernel.org>, conor+dt <conor+dt@kernel.org>, mohan <mohan@couthit.com>, s hauer <s.hauer@pengutronix.de>, Prajith Jayarajan <prajith@ti.com>, rogerq <rogerq@kernel.org>, basharath <basharath@couthit.com>, ssantosh <ssantosh@kernel.org>, Vadim Fedorenko <vadim.fedorenko@linux.dev>, linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, rogerq <rogerq@ti.com>, srk <srk@ti.com>, kory maincent <kory.maincent@bootlin.com>, m-malladi <m-malladi@ti.com>, netdev <netdev@vger.kernel.org>, linux-kernel <linux-kernel@vger.kernel.org>, danishanwar <danishanwar@ti.com>, afd <afd@ti.com>, andrew+netdev <andrew+netdev@lunn.ch>, parvathi <parvathi@couthit.com>, horms <horms@kernel.org>, krishna <krishna@couthit.com>, krzk+dt <krzk+dt@kernel.org>, davem <davem@davemloft.net>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
 
-> On Tue, 22 Jul 2025 18:55:02 +0530 Parvathi Pudi wrote:
->> +	for_each_child_of_node(eth_ports_node, eth_node) {
->> +		u32 reg;
->> +
->> +		if (strcmp(eth_node->name, "ethernet-port"))
->> +			continue;
->> +		ret = of_property_read_u32(eth_node, "reg", &reg);
->> +		if (ret < 0) {
->> +			dev_err(dev, "%pOF error reading port_id %d\n",
->> +				eth_node, ret);
->> +			return ret;
-> 
-> missing put for eth_node
-> 
+--LlK8+g0AOOO1HzK1
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Yes, We will address this and post the next version shortly.
+On Wed, Jul 23, 2025 at 11:00:33AM +0100, Catalin Marinas wrote:
+> On Fri, Jul 18, 2025 at 11:37:37PM -0500, Jeremy Linton wrote:
 
+> > @@ -133,17 +147,26 @@ simulate_br_blr(u32 opcode, long addr, struct pt_=
+regs *regs)
+> >  	/* update pc first in case we're doing a "blr lr" */
+> >  	instruction_pointer_set(regs, get_x_reg(regs, xn));
+> > =20
+> > -	/* Link register is x30 */
+> >  	if (((opcode >> 21) & 0x3) =3D=3D 1)
+> > -		set_x_reg(regs, 30, addr + 4);
+> > +		update_lr(regs, addr);
+> >  }
 
-Thanks and Regards,
-Parvathi.
+> I can see why this function was originally updating PC (in case of a blr
+> lr) but updating the LR was not supposed to fail. With GCS, I think we
+> should follow similar logic to simulate_b_bl() and skip updating PC/LR
+> if the write to the GCS failed (assuming that's what the hardware does,
+> I haven't checked the spec).
+
+Yes, the pseudocode does the GCS validation before it starts updating
+BTYPE or any of the registers.
+
+--LlK8+g0AOOO1HzK1
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmiAw88ACgkQJNaLcl1U
+h9DmBQf+NT0Xig5/CJmpAvlNNkwAL72NZQH1v7bPz2tbKiHVjN1NwtBf/kvxhpEJ
+RMMUpmeXdnzJLb5ivMwiO+8bgLYvs+ac79pa1VQYELxVclezQ/cjk4wH0S4PH+gN
+neW8Elmceqi2i9Qdf5Bsk1bBwytFluoTnYxoivJsYUCkOR+Fd4ERBYdixoqjJ0iK
++aORZ60biBcK47nd+hg41RbXRPovvPqiaSlwQFZaG+xaujmlKiFVA9raaxu6s/J8
+4etrlu666ZIaJpv0Dt559+M04Qi3MOld4/oJZcDMPUWyTxCpHV8Di6eEOAKTnRSn
+W8tJ7fswvUHErMIkOyCePEMdE1dAHw==
+=mw2L
+-----END PGP SIGNATURE-----
+
+--LlK8+g0AOOO1HzK1--
 
