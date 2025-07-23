@@ -4,68 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0998BC83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 14:40:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 241FBC83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 14:43:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U11+qUDBFqdtzIwC9C/OC7CkSz8LcuQAkhGjD/qyD2I=; b=QUltaFohtFo3Bxtko6cKsbJXQi
-	T2cOPxfpUH2vc1INp3gbzNkveUs2YLjOdw2rdGRalFk6sUcQzhpErkz/+9ngQYMLlsADouj4zdUV8
-	PrjfXJYEPwxig3sctBKL3s6lenthi2d5Bi7bfiPBPNzS1gB8V1J+jFPv6vuWa+E77PVatVDEfpjmR
-	10k65tfqWqp3H7ibHGw9z2Ti1g4UYkJSl8zzfXr7MHlox22FFPkya3uhtgsKUZKhni3CG26C1/k1l
-	GKnwkQmJow/WuzNDJhQaOcEtDj7hFV+WCeDiPdno27YQ0XR918PWbxxdWZ+zSCv0EIAsJhghTFQFH
-	G1ypmabQ==;
+	bh=hHWFl4dMeHm4hV615rq3V80Z10qCPpLObYVROYilUEs=; b=SZYjaAr3eUpqTkAxjh2Gr4xw9N
+	jAgd39OCfoqrIxWtPb1Z3PDygG0JR2l13cnBYUkU1kCwHG2om44gEWwspjAYn2WdAMsWyE4q1qjnw
+	mLmxgJKBMZLwYR2PLIHcnGZEjKEEXK4mZ6SgPHVNbUy6NPHSPxjrwgTgyC33NNDWPWPxLF09at3pM
+	UFnuYrNffOx5MxXzvS4A/Cru7fVM7/ne9fUD+ma5BL8TodXndROSDW7R6TljDDjd+Gm1cd/2qybMo
+	CcRigtY12y+mwKSe2/ucKpCXd6i3wTWYOZxu1z2zNrvPjK8WN0JcIDjhWL+apCgpA8hIfhKU/RI1z
+	VQc614CQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueae8-00000005ENw-0860;
-	Wed, 23 Jul 2025 14:40:40 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1ueagb-00000005Eni-10kJ;
+	Wed, 23 Jul 2025 14:43:13 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueZol-000000056Co-3xRG;
-	Wed, 23 Jul 2025 13:47:37 +0000
+	id 1ueZox-000000056Er-1eDQ;
+	Wed, 23 Jul 2025 13:47:48 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 4A16A5C62BA;
-	Wed, 23 Jul 2025 13:47:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D21E6C4CEE7;
-	Wed, 23 Jul 2025 13:47:34 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id AE24BA5284A;
+	Wed, 23 Jul 2025 13:47:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 44745C4CEE7;
+	Wed, 23 Jul 2025 13:47:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753278454;
-	bh=e4iFmU4V8FdSQBveMXcP7eTilC+19QO83wN4KtTy+Ag=;
+	s=k20201202; t=1753278466;
+	bh=Ot/UdzeQO5DarxCrrxun4QJevXgk61ADtTLiX9hMKWE=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=eY8CsQHbcb2OswoT+ggFsv3c+SKfn4phee/f3jbk8YITne+7vWAvq+pKn+v41trYZ
-	 U6D+J+cibmnR0ZmBIszGLK9iU0OpXJuqBvH4y9Q0VJPGoQpOIA1zKDYP6ekqBERbDs
-	 QugPrw354rRa7o4rZZl7+YOJhT+wR0D2wY+tCaMLp17pDUPCumTsY7frUR4SUpOdAz
-	 NhMOBTZBPhuPXa/zUdu33rGWB/BYMSw6VLUkTST4KNKSZlc6m0gZ0Uw+jkHkOCiP7g
-	 QWHKnGcoWcxJf0LXcEpTS1HUvhCKP+60Sq3a93WUft148wYpbv3D1+0k5FGG+gd85N
-	 v9kXkk5W1rxuA==
-Date: Wed, 23 Jul 2025 08:47:34 -0500
+	b=ROmbDO1nOW0cPCfvJhA900URnUlCLj90ozJ8F7CM30IeqieCaoF/AL2a/Djfp7dUi
+	 H0L0gF0Ic8iw4wkct5db4uyGj5Cr/rNvxcA0KPKbjRuZNZFXBxsQQsVZQdlO2o8DqA
+	 YLpURgK3MvDmZAgCFAKPUvcnzk6+7nIFHN+s/tWuAOaYEm5//s3NwQKXlSgiDJKNE8
+	 arA7CThehzYsm69bja20t9VMvSTdbDk3/G8DiyzCh9ezn07QiY9fa8UZtZ0mlUh28/
+	 RbhvGxrwcpQxJvMEQckPzhEF4fQYG67yAAzwtGANP5yJDNpxMSSzJJYFYjpVxCx6B8
+	 8qYrTxRu5rzqg==
+Date: Wed, 23 Jul 2025 08:47:45 -0500
 From: "Rob Herring (Arm)" <robh@kernel.org>
 To: Jonas Karlman <jonas@kwiboo.se>
-Cc: Yao Zi <ziyao@disroot.org>, Andy Shevchenko <andy@kernel.org>,
-	Chukun Pan <amadeus@jmu.edu.cn>, Heiko Stuebner <heiko@sntech.de>,
-	linux-arm-kernel@lists.infradead.org,
-	Jonathan Cameron <jic23@kernel.org>,
+Cc: devicetree@vger.kernel.org, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Jiri Slaby <jirislaby@kernel.org>, Yao Zi <ziyao@disroot.org>,
+	Heiko Stuebner <heiko@sntech.de>, Chukun Pan <amadeus@jmu.edu.cn>,
+	linux-kernel@vger.kernel.org,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	linux-serial@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	Conor Dooley <conor+dt@kernel.org>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	linux-rockchip@lists.infradead.org,
-	David Lechner <dlechner@baylibre.com>, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-iio@vger.kernel.org,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>
-Subject: Re: [PATCH v2 3/5] dt-bindings: iio: adc: rockchip-saradc: Allow use
+	linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH v2 4/5] dt-bindings: serial: snps-dw-apb-uart: Allow use
  of a power-domain
-Message-ID: <175327845184.2145175.4601554796265618767.robh@kernel.org>
+Message-ID: <175327846490.2145535.759049072094464087.robh@kernel.org>
 References: <20250723085654.2273324-1-jonas@kwiboo.se>
- <20250723085654.2273324-4-jonas@kwiboo.se>
+ <20250723085654.2273324-5-jonas@kwiboo.se>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250723085654.2273324-4-jonas@kwiboo.se>
+In-Reply-To: <20250723085654.2273324-5-jonas@kwiboo.se>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250723_064736_023979_03AF821C 
-X-CRM114-Status: GOOD (  14.88  )
+X-CRM114-CacheID: sfid-20250723_064747_501824_5C2C161C 
+X-CRM114-Status: GOOD (  15.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,25 +79,27 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Wed, 23 Jul 2025 08:56:45 +0000, Jonas Karlman wrote:
-> The SARADC controller in most Rockchip SoCs are part of power domains
-> that are always powered on, i.e. PD_BUS or PD_PERI. These always powered
-> on power domains have typically not been described in the device tree.
+On Wed, 23 Jul 2025 08:56:46 +0000, Jonas Karlman wrote:
+> The UART controllers in most Rockchip SoCs are part of power domains
+> that are always powered on. These always powered on power domains have
+> typically not been described in the device tree.
 > 
 > Because these power domains have been left out of the device tree there
-> has not been any real need to properly describe the power domain of the
-> SARADC controller.
+> has not been any real need to properly describe the UART controllers
+> power domain of Rockchip SoCs.
 > 
-> On RK3528 the SARADC controller is part of the PD_VPU power domain.
+> On Rockchip RK3528 the UART controllers are spread out among the
+> described PD_RKVENC, PD_VO and PD_VPU power domains. However, one UART
+> controller belong to an undescribed always powered on power domain.
 > 
-> Add support to describe an optional power-domains for the SARADC
-> controller in Rockchip SoCs.
+> Add support to describe an optional power-domains for the UART
+> controllers.
 > 
 > Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
 > ---
-> v2: Update commit message
+> v2: New patch
 > ---
->  Documentation/devicetree/bindings/iio/adc/rockchip-saradc.yaml | 3 +++
+>  Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml | 3 +++
 >  1 file changed, 3 insertions(+)
 > 
 
