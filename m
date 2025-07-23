@@ -4,71 +4,141 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88A76C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 18:12:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B325C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 18:16:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=7UJIu1C1+2V9e0vv22lKbZ1vYNnDjkar1T80QMKXIN0=; b=vZv8louseTHbOzlhBBM5H76zuc
-	HCaJhl86WN45HjvK50hZsbPeuMRGtKDZD/YQXir5Yz2pB2/f5bvtbbByUOMDiLE3eGuH4ngCgZ6/I
-	lLrmrYMO3rjNBOqeZUCT7U5FSka00yJsMK3iw8AwCrknpaSYaDLmnKOOeAnCo/P56Q/zwKq8YuMAI
-	G1Zp6pgha7FBXgCU/fFRMhN6MaOLPSmSoGIXg6BUD3/ToATX53pcug95KB3t9NT375wiLpbLOdhTU
-	kZYtY9eZhGA66DpdqIBv6g+Qdrf6RgGxVWr9cfuge5nlfnWE504koWtzSN/TgDBupoboTWK56WSIW
-	MF8M2O0Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jRAUCvyU8pYPmWFn/9AeIOCYqe0g5gOFDinoFnUur9s=; b=FbPc87UMHQH19rEsDMyOdbG2N+
+	AfrHtihNNK8Y8T44APSvR5dSkBpdI5O/7Bo0q5QegDSFI00ztPG/omzxlL/c3qPlIEIzZ7tiLixXI
+	Hsf2TeKD5YU4GARxSz3RM9ieG9pj60cijCYlppFHNSB7DhUiae4rJQuyFE1eDM04P+sAaZAXqN/Pi
+	WMgm8B9/DaWg30dloFOLj56A7DHviqesAAgmapfgZ/yciCUKLvQGNW0ZY2VWKH11lwoSXtSnAs6rV
+	XXvuJmzL2zk7EHrIjsVaAQaxLgvQFGs7oc3ic0Di8XqbQxrn52o5+0edgoy6IY0eHvMIAlUm8aV/K
+	84oP2WAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uedx0-00000005iqc-1hdJ;
-	Wed, 23 Jul 2025 18:12:22 +0000
-Received: from mgamail.intel.com ([198.175.65.15])
+	id 1uee0d-00000005jKm-1BTB;
+	Wed, 23 Jul 2025 18:16:07 +0000
+Received: from mail-qt1-x82e.google.com ([2607:f8b0:4864:20::82e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueduZ-00000005idD-0G8d
+	id 1uedyA-00000005izv-2YUy
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Jul 2025 18:09:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1753294191; x=1784830191;
-  h=date:from:to:cc:subject:message-id;
-  bh=rXXv1X0iPwofx7wspiUXNjXtBXmqQ0RDDroP3/EcsLQ=;
-  b=MUgLxwufGR2CZUudRbHHGYFB4JCTQeF9GBIsHchV8lVixJ3r3rxq9gcr
-   HF5XE3bKylWiw4rlWKXKGqo9d0JJlBR7o0v3d5cdO2VLIRHUUUpEd512C
-   FP2erjF+HmgazTwc6o1lxiP8loLENxVniK2OnSD9siRG41xumv4wpzIJ1
-   9jcQAmyiE3wlG3Ff9k1ST0SN6LXjBLLJIT4QJhqOHRJfw98ZRi+CN6+zp
-   53qxwrVH5hx1nlljhU1Y63HaOc0oLbuAd3OhM2uFdiTGXoUzKo4tob6o1
-   3Lu+JLgMp2PCXrpzIt0aWr995h5riDrYivmMGzJNlkYGvBuDDPOm34MaQ
-   g==;
-X-CSE-ConnectionGUID: euNiPVUeRhGyMltQB3hsQw==
-X-CSE-MsgGUID: 6IBU9InqRw6EB7Ps1JMPDA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11501"; a="59247594"
-X-IronPort-AV: E=Sophos;i="6.16,335,1744095600"; 
-   d="scan'208";a="59247594"
-Received: from orviesa010.jf.intel.com ([10.64.159.150])
-  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Jul 2025 11:09:51 -0700
-X-CSE-ConnectionGUID: 6YnLUeOtQ0+BA6pp0DA9Wg==
-X-CSE-MsgGUID: qTHUredVTESr/ekzIXYgsw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.16,335,1744095600"; 
-   d="scan'208";a="158943134"
-Received: from lkp-server01.sh.intel.com (HELO 9ee84586c615) ([10.239.97.150])
-  by orviesa010.jf.intel.com with ESMTP; 23 Jul 2025 11:09:49 -0700
-Received: from kbuild by 9ee84586c615 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1ueduU-000Jf3-2K;
-	Wed, 23 Jul 2025 18:09:46 +0000
-Date: Thu, 24 Jul 2025 02:09:25 +0800
-From: kernel test robot <lkp@intel.com>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
-Subject: [soc:soc/defconfig] BUILD SUCCESS
- 5cfe03e1ca42fa97341fde7a8ad53be86a51d789
-Message-ID: <202507240213.OZAs333k-lkp@intel.com>
-User-Agent: s-nail v14.9.24
+	Wed, 23 Jul 2025 18:13:35 +0000
+Received: by mail-qt1-x82e.google.com with SMTP id d75a77b69052e-4ab7082b3f7so2700111cf.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Jul 2025 11:13:34 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=broadcom.com; s=google; t=1753294413; x=1753899213; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=jRAUCvyU8pYPmWFn/9AeIOCYqe0g5gOFDinoFnUur9s=;
+        b=hOZ6TRgi8wsQr7/Tc/3zTGbhF6XiiiFLkOWy473QvjUg/QFFUhjhsz32kngy1DeVgy
+         ts6ntT6yAXaVGvMOUmE/DXfMwgKlta6Pw+PSPFnsNM0Gak0T0o6C0sBiw3dxZMvEIIUi
+         zzEF4zb9fmAk1X9lsn8oCgzRpBKSTHbFWdAeg=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1753294413; x=1753899213;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=jRAUCvyU8pYPmWFn/9AeIOCYqe0g5gOFDinoFnUur9s=;
+        b=GTMaG//mWEYc8GvgzpWaPKOUo5pUIce0z6IT3kYiGYjCD+zuRAFbxg0fzCGCEdMST2
+         Mt6pkXec8xqkz4QX0WZe0TRr/cA57iWRMlMQuWIzXpuBl07yXupN2IjegT/X+JPpDtQK
+         O6tydoGAh5bTjy+43j/lJIJESjkFvYFERKTDD3HKlFfGTsFVOE7mWFSQ0sxZUzQzOZY8
+         ao2CR7uJ8RIbux3EKGxKRuH+/01UyKkkB8+2uDspWQLPLfrtWVlWMti+35JYDleJDjQp
+         fkrpHbZ2aOJL6LamMOIth3vmbzv9iaQzVcIQKx++sswJWV0LY17g8GzsWlI+gZI5Ujel
+         Xtyw==
+X-Forwarded-Encrypted: i=1; AJvYcCU28FsG5vW828mT49uVMe+PjUcR3DCcPcMKafIQV/h6LI7C+zRZ4KS+5ac8wXW5udb6qGkM8/Zg5/uLFu2cS6gP@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxix8EHASNMBsgnbVFTohZmLaozUzRvv385/YL16jAYs4c6itoy
+	VJR0W3WeuiPn2TWJ2/VU8h1ARpR0dRH51YdmairgqLx3mAlmVp2TYb8V63CnPtyKnw==
+X-Gm-Gg: ASbGncsHYHH3NtOM3YRLModd2Yce9MkVr+UheoOvZZL9kf7XrSKPHomeizQA2U0nE0x
+	UScqoeZraSavIJFyLNuWULR0P/KVktwrRoh+GZa44XSaLRnMeV/VHvqQ9NnmWIxbQIFMTfylCH8
+	9SGS6sRELfnMj61PBBH0UwalwGIErigYtuyVRI27czb/3LPbMuKLhbJR4XKmJkXyPYfLcvIhiCk
+	oDp7c8DUDeUL+D5Nvbbmv1cQKZnqjZDguDJinZNwdDhTxINv1BpCVkIIxCT5Rs4z8bs5ds97uGZ
+	V7FDa8dMPpbtBgpSPg/rZSRy4hdGaAAEQVKwr3uzwt/eGSkkQOKXlNbIQ59sVHhwTDVViEJqr3e
+	npruNa9NfREfBHy/KojjS7qn6h0lD0D4XLSAzc6XH+g4wvD25b98DGDkHzk9u3Q==
+X-Google-Smtp-Source: AGHT+IFEF43RiqqzhjaLFGYq5MEC9HWC1y8/iwg5IEvEfmbn8mT4shMSnIGatZImTK+5KIX285TGZw==
+X-Received: by 2002:a05:622a:59cf:b0:4ab:66d1:dcdd with SMTP id d75a77b69052e-4ae6df6ebecmr72328811cf.39.1753294412889;
+        Wed, 23 Jul 2025 11:13:32 -0700 (PDT)
+Received: from [10.67.48.245] ([192.19.223.252])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-4abbf5575bbsm62437351cf.24.2025.07.23.11.13.29
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 23 Jul 2025 11:13:32 -0700 (PDT)
+Message-ID: <69711c9c-b85b-4cd4-a5fe-2719b8e30438@broadcom.com>
+Date: Wed, 23 Jul 2025 11:13:28 -0700
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next 1/4] dt-bindings: net: document st,phy-wol
+ property
+To: Andrew Lunn <andrew@lunn.ch>,
+ "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: Gatien CHEVALLIER <gatien.chevallier@foss.st.com>,
+ Krzysztof Kozlowski <krzk@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Christophe Roullier <christophe.roullier@foss.st.com>,
+ Heiner Kallweit <hkallweit1@gmail.com>, Simon Horman <horms@kernel.org>,
+ Tristram Ha <Tristram.Ha@microchip.com>, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <faea23d5-9d5d-4fbb-9c6a-a7bc38c04866@kernel.org>
+ <f5c4bb6d-4ff1-4dc1-9d27-3bb1e26437e3@foss.st.com>
+ <e3c99bdb-649a-4652-9f34-19b902ba34c1@lunn.ch>
+ <38278e2a-5a1b-4908-907e-7d45a08ea3b7@foss.st.com>
+ <5b8608cb-1369-4638-9cda-1cf90412fc0f@lunn.ch>
+ <383299bb-883c-43bf-a52a-64d7fda71064@foss.st.com>
+ <2563a389-4e7c-4536-b956-476f98e24b37@lunn.ch>
+ <aH_yiKJURZ80gFEv@shell.armlinux.org.uk>
+ <ae31d10f-45cf-47c8-a717-bb27ba9b7fbe@lunn.ch>
+ <aIAFKcJApcl5r7tL@shell.armlinux.org.uk>
+ <9f00a6cf-c441-4b4c-84ca-5c41e6f0a9d9@lunn.ch>
+Content-Language: en-US
+From: Florian Fainelli <florian.fainelli@broadcom.com>
+Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
+ xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
+ M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
+ JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
+ PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
+ KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
+ AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
+ IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
+ ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
+ bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
+ Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
+ tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
+ TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
+ zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
+ WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
+ IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
+ U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
+ 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
+ pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
+ MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
+ IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
+ gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
+ obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
+ N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
+ CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
+ C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
+ wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
+ EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
+ fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
+ MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
+ 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
+ 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
+In-Reply-To: <9f00a6cf-c441-4b4c-84ca-5c41e6f0a9d9@lunn.ch>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250723_110951_159621_19BAA4A4 
-X-CRM114-Status: UNSURE (   5.27  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250723_111334_678286_81418B83 
+X-CRM114-Status: GOOD (  31.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,241 +153,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git soc/defconfig
-branch HEAD: 5cfe03e1ca42fa97341fde7a8ad53be86a51d789  Merge tag 'v6.17-rockchip-defconfig64-1' of https://git.kernel.org/pub/scm/linux/kernel/git/mmind/linux-rockchip into soc/defconfig
+On 7/23/25 07:23, Andrew Lunn wrote:
+>> We can't retrofit such detection into PHY drivers - if we do so, we'll
+>> break WoL on lots of boards (we'd need to e.g. describe PMEB in DT for
+>> RTL8211F PHYs. While we can add it, if a newer kernel that expects
+>> PMEB to be described to allow WoL is run with an older DT, then that
+>> will be a regression.) Thus, I don't see how we could retrofit PHY
+>> WoL support detection to MAC drivers.
+> 
+> WoL is a mess. I wounder on how many boards it actually works
+> correctly? How often is it tested?
+ > > I actually think this is similar to pause and EEE. Those were also a
+> mess, and mostly wrongly implemented. The solution to that was to take
+> as much as possible out of the driver and put it into the core,
+> phylink.
+> 
+> We probably want a similar solution. The MAC driver indicates its WoL
+> capabilities to phylink. The PHY driver indicates its capabilities to
+> phylink. phylink implements all the business logic, and just tells the
+> PHY what it should enable, and stay awake. phylink tells the MAC what
+> is should enable, and that it should stay awake.
 
-elapsed time: 1221m
+We would need both a phylib and a phylink set of helpers because not all 
+of the drivers need to be converted to phylink.
 
-configs tested: 221
-configs skipped: 4
+> 
+> Is this going to happen? Given Russell limited availability, i guess
+> not. It needs somebody else to step up and take this on. Are we going
+> to break working systems? Probably. But given how broken this is
+> overall, how much should we actually care? We can just fix up systems
+> as they are reported broken.
 
-The following configs have been built successfully.
-More configs may be tested in the coming days.
+Please just refrain from making such statements, it really just does not 
+help, and if you have no direct hands on experience with Wake-on-LAN, it 
+becomes purely gratuitous. I agree that there is a lack of adequate 
+consistency and guidelines for developers to implement Wake-on-LAN 
+properly, but I don't agree with the message and the way it is 
+delivered. It's just completely antagonistic to people like me and my 
+colleagues who have spent a great deal of time implementing Wake-on-LAN 
+for actively used systems, and I am talking hundred of millions of STBs 
+deployed each of them doing hundreds of system suspend/resume involving 
+Wake-on-LAN per day.
 
-tested configs:
-alpha                             allnoconfig    clang-22
-alpha                            allyesconfig    clang-19
-alpha                            allyesconfig    gcc-15.1.0
-alpha                               defconfig    clang-19
-arc                              allmodconfig    clang-19
-arc                              allmodconfig    gcc-15.1.0
-arc                               allnoconfig    clang-22
-arc                              allyesconfig    clang-19
-arc                              allyesconfig    gcc-15.1.0
-arc                                 defconfig    clang-19
-arc                 nsimosci_hs_smp_defconfig    gcc-15.1.0
-arc                   randconfig-001-20250723    clang-16
-arc                   randconfig-001-20250723    gcc-8.5.0
-arc                   randconfig-002-20250723    clang-16
-arc                   randconfig-002-20250723    gcc-9.5.0
-arm                              allmodconfig    clang-19
-arm                              allmodconfig    gcc-15.1.0
-arm                               allnoconfig    clang-22
-arm                              allyesconfig    clang-19
-arm                              allyesconfig    gcc-15.1.0
-arm                                 defconfig    clang-19
-arm                          pxa3xx_defconfig    gcc-15.1.0
-arm                   randconfig-001-20250723    clang-16
-arm                   randconfig-001-20250723    gcc-13.4.0
-arm                   randconfig-002-20250723    clang-16
-arm                   randconfig-002-20250723    gcc-13.4.0
-arm                   randconfig-003-20250723    clang-16
-arm                   randconfig-004-20250723    clang-16
-arm                   randconfig-004-20250723    clang-22
-arm64                            allmodconfig    clang-19
-arm64                             allnoconfig    clang-22
-arm64                               defconfig    clang-19
-arm64                 randconfig-001-20250723    clang-16
-arm64                 randconfig-001-20250723    clang-22
-arm64                 randconfig-002-20250723    clang-16
-arm64                 randconfig-003-20250723    clang-16
-arm64                 randconfig-004-20250723    clang-16
-arm64                 randconfig-004-20250723    clang-22
-csky                              allnoconfig    clang-22
-csky                                defconfig    clang-19
-csky                  randconfig-001-20250723    gcc-12.5.0
-csky                  randconfig-001-20250723    gcc-8.5.0
-csky                  randconfig-002-20250723    gcc-14.3.0
-csky                  randconfig-002-20250723    gcc-8.5.0
-hexagon                          allmodconfig    clang-17
-hexagon                          allmodconfig    clang-19
-hexagon                           allnoconfig    clang-22
-hexagon                          allyesconfig    clang-19
-hexagon                          allyesconfig    clang-22
-hexagon                             defconfig    clang-19
-hexagon               randconfig-001-20250723    clang-22
-hexagon               randconfig-001-20250723    gcc-8.5.0
-hexagon               randconfig-002-20250723    clang-22
-hexagon               randconfig-002-20250723    gcc-8.5.0
-i386                             allmodconfig    clang-20
-i386                              allnoconfig    clang-20
-i386                             allyesconfig    clang-20
-i386        buildonly-randconfig-001-20250723    clang-20
-i386        buildonly-randconfig-002-20250723    clang-20
-i386        buildonly-randconfig-003-20250723    clang-20
-i386        buildonly-randconfig-004-20250723    clang-20
-i386        buildonly-randconfig-005-20250723    clang-20
-i386        buildonly-randconfig-005-20250723    gcc-11
-i386        buildonly-randconfig-006-20250723    clang-20
-i386                                defconfig    clang-20
-i386                  randconfig-001-20250723    clang-20
-i386                  randconfig-002-20250723    clang-20
-i386                  randconfig-003-20250723    clang-20
-i386                  randconfig-004-20250723    clang-20
-i386                  randconfig-005-20250723    clang-20
-i386                  randconfig-006-20250723    clang-20
-i386                  randconfig-007-20250723    clang-20
-i386                  randconfig-011-20250723    clang-20
-i386                  randconfig-012-20250723    clang-20
-i386                  randconfig-013-20250723    clang-20
-i386                  randconfig-014-20250723    clang-20
-i386                  randconfig-015-20250723    clang-20
-i386                  randconfig-016-20250723    clang-20
-i386                  randconfig-017-20250723    clang-20
-loongarch                        allmodconfig    clang-19
-loongarch                         allnoconfig    clang-22
-loongarch                           defconfig    clang-19
-loongarch             randconfig-001-20250723    gcc-15.1.0
-loongarch             randconfig-001-20250723    gcc-8.5.0
-loongarch             randconfig-002-20250723    clang-22
-loongarch             randconfig-002-20250723    gcc-8.5.0
-m68k                             allmodconfig    clang-19
-m68k                             allmodconfig    gcc-15.1.0
-m68k                              allnoconfig    gcc-15.1.0
-m68k                             allyesconfig    clang-19
-m68k                             allyesconfig    gcc-15.1.0
-m68k                                defconfig    clang-19
-m68k                        m5307c3_defconfig    gcc-15.1.0
-m68k                           sun3_defconfig    gcc-15.1.0
-microblaze                       allmodconfig    clang-19
-microblaze                       allmodconfig    gcc-15.1.0
-microblaze                        allnoconfig    gcc-15.1.0
-microblaze                       allyesconfig    clang-19
-microblaze                       allyesconfig    gcc-15.1.0
-microblaze                          defconfig    gcc-15.1.0
-mips                              allnoconfig    gcc-15.1.0
-mips                         bigsur_defconfig    gcc-15.1.0
-mips                        qi_lb60_defconfig    gcc-15.1.0
-nios2                             allnoconfig    gcc-15.1.0
-nios2                               defconfig    gcc-15.1.0
-nios2                 randconfig-001-20250723    gcc-8.5.0
-nios2                 randconfig-002-20250723    gcc-11.5.0
-nios2                 randconfig-002-20250723    gcc-8.5.0
-openrisc                          allnoconfig    clang-22
-openrisc                         allyesconfig    gcc-15.1.0
-openrisc                            defconfig    gcc-12
-parisc                           allmodconfig    gcc-15.1.0
-parisc                            allnoconfig    clang-22
-parisc                           allyesconfig    gcc-15.1.0
-parisc                              defconfig    gcc-15.1.0
-parisc                randconfig-001-20250723    gcc-8.5.0
-parisc                randconfig-002-20250723    gcc-15.1.0
-parisc                randconfig-002-20250723    gcc-8.5.0
-parisc64                            defconfig    gcc-15.1.0
-powerpc                          allmodconfig    gcc-15.1.0
-powerpc                           allnoconfig    clang-22
-powerpc                          allyesconfig    clang-22
-powerpc                          allyesconfig    gcc-15.1.0
-powerpc               randconfig-001-20250723    gcc-10.5.0
-powerpc               randconfig-001-20250723    gcc-8.5.0
-powerpc               randconfig-002-20250723    gcc-8.5.0
-powerpc               randconfig-003-20250723    gcc-12.5.0
-powerpc               randconfig-003-20250723    gcc-8.5.0
-powerpc                     tqm8540_defconfig    gcc-15.1.0
-powerpc64             randconfig-001-20250723    clang-22
-powerpc64             randconfig-001-20250723    gcc-8.5.0
-powerpc64             randconfig-002-20250723    clang-22
-powerpc64             randconfig-002-20250723    gcc-8.5.0
-powerpc64             randconfig-003-20250723    clang-22
-powerpc64             randconfig-003-20250723    gcc-8.5.0
-riscv                            allmodconfig    clang-22
-riscv                            allmodconfig    gcc-15.1.0
-riscv                             allnoconfig    clang-22
-riscv                            allyesconfig    clang-16
-riscv                            allyesconfig    gcc-15.1.0
-riscv                               defconfig    gcc-12
-riscv                 randconfig-001-20250723    gcc-9.5.0
-riscv                 randconfig-002-20250723    clang-22
-riscv                 randconfig-002-20250723    gcc-9.5.0
-s390                             allmodconfig    clang-18
-s390                             allmodconfig    gcc-15.1.0
-s390                              allnoconfig    clang-22
-s390                             allyesconfig    gcc-15.1.0
-s390                                defconfig    gcc-12
-s390                  randconfig-001-20250723    clang-22
-s390                  randconfig-001-20250723    gcc-9.5.0
-s390                  randconfig-002-20250723    clang-20
-s390                  randconfig-002-20250723    gcc-9.5.0
-sh                               allmodconfig    gcc-15.1.0
-sh                                allnoconfig    gcc-15.1.0
-sh                               allyesconfig    gcc-15.1.0
-sh                                  defconfig    gcc-12
-sh                    randconfig-001-20250723    gcc-12.5.0
-sh                    randconfig-001-20250723    gcc-9.5.0
-sh                    randconfig-002-20250723    gcc-9.5.0
-sparc                            allmodconfig    gcc-15.1.0
-sparc                             allnoconfig    gcc-15.1.0
-sparc                               defconfig    gcc-15.1.0
-sparc                 randconfig-001-20250723    gcc-8.5.0
-sparc                 randconfig-001-20250723    gcc-9.5.0
-sparc                 randconfig-002-20250723    gcc-8.5.0
-sparc                 randconfig-002-20250723    gcc-9.5.0
-sparc                       sparc64_defconfig    gcc-15.1.0
-sparc64                             defconfig    gcc-12
-sparc64               randconfig-001-20250723    gcc-12.5.0
-sparc64               randconfig-001-20250723    gcc-9.5.0
-sparc64               randconfig-002-20250723    gcc-14.3.0
-sparc64               randconfig-002-20250723    gcc-9.5.0
-um                               allmodconfig    clang-19
-um                                allnoconfig    clang-22
-um                               allyesconfig    clang-19
-um                               allyesconfig    gcc-12
-um                                  defconfig    gcc-12
-um                             i386_defconfig    gcc-12
-um                    randconfig-001-20250723    gcc-12
-um                    randconfig-001-20250723    gcc-9.5.0
-um                    randconfig-002-20250723    clang-22
-um                    randconfig-002-20250723    gcc-9.5.0
-um                           x86_64_defconfig    gcc-12
-x86_64                            allnoconfig    clang-20
-x86_64                           allyesconfig    clang-20
-x86_64      buildonly-randconfig-001-20250723    gcc-11
-x86_64      buildonly-randconfig-001-20250723    gcc-12
-x86_64      buildonly-randconfig-002-20250723    gcc-11
-x86_64      buildonly-randconfig-003-20250723    gcc-11
-x86_64      buildonly-randconfig-004-20250723    clang-20
-x86_64      buildonly-randconfig-004-20250723    gcc-11
-x86_64      buildonly-randconfig-005-20250723    gcc-11
-x86_64      buildonly-randconfig-005-20250723    gcc-12
-x86_64      buildonly-randconfig-006-20250723    gcc-11
-x86_64      buildonly-randconfig-006-20250723    gcc-12
-x86_64                              defconfig    clang-20
-x86_64                                  kexec    clang-20
-x86_64                randconfig-001-20250723    gcc-12
-x86_64                randconfig-002-20250723    gcc-12
-x86_64                randconfig-003-20250723    gcc-12
-x86_64                randconfig-004-20250723    gcc-12
-x86_64                randconfig-005-20250723    gcc-12
-x86_64                randconfig-006-20250723    gcc-12
-x86_64                randconfig-007-20250723    gcc-12
-x86_64                randconfig-008-20250723    gcc-12
-x86_64                randconfig-071-20250723    clang-20
-x86_64                randconfig-072-20250723    clang-20
-x86_64                randconfig-073-20250723    clang-20
-x86_64                randconfig-074-20250723    clang-20
-x86_64                randconfig-075-20250723    clang-20
-x86_64                randconfig-076-20250723    clang-20
-x86_64                randconfig-077-20250723    clang-20
-x86_64                randconfig-078-20250723    clang-20
-x86_64                               rhel-9.4    clang-20
-x86_64                          rhel-9.4-rust    clang-20
-xtensa                            allnoconfig    gcc-15.1.0
-xtensa                randconfig-001-20250723    gcc-13.4.0
-xtensa                randconfig-001-20250723    gcc-9.5.0
-xtensa                randconfig-002-20250723    gcc-10.5.0
-xtensa                randconfig-002-20250723    gcc-9.5.0
+> 
+> I also think WoL, pause and EEE is a space we should have more tests
+> for. To fully test WoL and pause you need a link partner, but i
+> suspect you can do some basic API tests without one. WoL you
+> definitely need a link partner. So this makes testing a bit more
+> difficult. But that should not stop the community from writing such
+> tests and making them available for developers to use.
 
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+The tests are in premise very simple, but you need a link partner and 
+you need to be ideally on the same physical network and you need to have 
+a system that supports system wide wake-up, or if nothing else s2idle. 
+Then you need a secondary wake-up source like a RTC or GPIO in order to 
+ensure that there is an upper bound on when you timeout for not 
+receiving a proper wake-on-LAN trigger.
+
+It's not clear to me what needs to be contributed to the community, but 
+essentially the pseudo code is something like:
+
+- wait for DUT to boot
+for each support Wake-on-LAN mode:
+	- configure wake-on-LAN on DUT
+	- snapshot /sys/*/wakeup_count for the MAC/PHY device
+	- enter standby with e.g.: rtcwake -s <TIMEOUT> -m mem
+	- send Wake-on-LAN trigger from external device
+	- ensure DUT woke-up before <TIMEOUT> and check that /sys/*wakeup_count 
+is +1 compared to the previous snapshot
+-- 
+Florian
 
