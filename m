@@ -4,64 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E40F5C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 13:54:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AC28C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 13:57:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/PSRDUQqpavKCK+qf73ZwNuazN17nx7wwyTUKOPPPZQ=; b=YubHPob9kKbnBQafRHkVSPEDXa
-	vma2+KESt7UtmXUr4zixKVrdpYDJ9wDzC0VDMx4WNw2QE27R6F0Vvv6kgBY/rj3JCxyDnQuAuv9Oa
-	Wsz9lYn7qky21GZ59WlOuAPrDDO+DLNIqE9xQYouclOk54BWfqoRRJvqCwM3VEkMPLu5fW1luBH+q
-	BJ+cU8ip2AFrmjci8DJhkOvZ4TomVqSKsr3TvRPJZia2o8wOyniott5xeZOJdXYgGMOoc3I9OFb6L
-	ocoy3ZTK4/QzrJq6uxocw+Re84amt4HQru7PXdshT6eG4K56vli1pUrOsdil5J9yvG7dLZLmI+HRF
-	0hKCi4Vw==;
+	bh=JdpWMONuLacNIbyReTtl5COFJvZED0p6KDWBUgWc1mA=; b=oo0V8UD7xQqe+LRtduZsTwrsoc
+	QK1yvimnx+5YaDLrh3xX0tN2w9EoaKr8YeSdcj1qhMauiIlgy9EZdKMFFyCGW9jYlGSeVIJK3Fene
+	lhg4CVNI1zaVsLs9RFCzJRj/hRy6io9d/gcdtCnepZqwg6RO2dRMUyyaR5WTCBle+2rWTxpYhgt5F
+	3b8cI/Cc6iesAZHdI1CslYjsoxYX6k577XiOyDh+fI9UdFGT4aMX6gsC52T+AoAWAZtUWfxv+OWE7
+	3/DkM4D9FjVe8we0TaCEpXR3u85XsLSaxD6/JDnQ0i4yaza31MG6jGm/ycczrA1Dsw3RQY9IJKsiA
+	V5dCpBkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueZvd-000000057FP-37TO;
-	Wed, 23 Jul 2025 13:54:41 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93])
+	id 1ueZy6-000000057gA-3P5G;
+	Wed, 23 Jul 2025 13:57:14 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueZDz-00000004zrx-3EG0
+	id 1ueZE6-00000004zuM-2Irt
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Jul 2025 13:09:37 +0000
-Received: from pps.filterd (m0369457.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56NCqWxc004974;
-	Wed, 23 Jul 2025 15:09:29 +0200
+	Wed, 23 Jul 2025 13:09:43 +0000
+Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56NCQVTE022126;
+	Wed, 23 Jul 2025 15:09:33 +0200
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	/PSRDUQqpavKCK+qf73ZwNuazN17nx7wwyTUKOPPPZQ=; b=dgRIiCIHOb4Aeki7
-	b9bxrt1hft1vndxtBVWOXuSj7xnCB54exxKOc9hJH3FcTGJX8BsFnXCIyasjv6uZ
-	lB3YJatSXNaXLPB/vIYr6jNIJEwEm/DNtvO3auvNlTx8N6rNJa4Cd/TGxT8KT4t0
-	ggKC/MH60RAJN+SGnzWojEWNabrIOmdGCar+JNA80tP3yHGOZQMpnMVlZnr5A/JC
-	fNXOE2vXpyv2dWoerDY3u8Di/AahyvzAcIu81+evg6JfcV1Li0NMZmlVdhb4yJoo
-	v1KqCwG8M+u4dJ761nqZ66/EtmjBDpVvIjoW7e1JXoVnX8T7pI2ajUY7TU18wo4y
-	YM/rnA==
+	JdpWMONuLacNIbyReTtl5COFJvZED0p6KDWBUgWc1mA=; b=PjFCCpZLypXpFblR
+	4LVLMYn3OXeoVNLrMYSIgUpS/5LujeE+OnDOU2nR08nWIaT63sFD9+nDqkS3nOYX
+	za+4Ukd/wO3j/8+uzaSTt6AHwdw7P3sVVynVlpnkB8ML83Cw/10Hzjbk3MVuPd0v
+	WBcACXAS8oHJKByF/rBFeY0XoA3VsifrILKxIpa4lcIINhR7azhRP0SDmhxMUREv
+	jY0UxVASwNzasiEiHNB3wMkhEIeBr/Y9PiRQqHt8LQAEzsX4CMn5IG/S1HCaihRD
+	Dv0oi4f0YleolbqphISUKFuOoCgVi8rKc1+kfNm+fO51/yiwKpooYiJKaCVHAr9p
+	DXrjjA==
 Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 480pan0reh-1
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 4800g8uv9q-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 23 Jul 2025 15:09:29 +0200 (MEST)
+	Wed, 23 Jul 2025 15:09:33 +0200 (MEST)
 Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id CAF154004F;
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 4F25F40049;
 	Wed, 23 Jul 2025 15:07:33 +0200 (CEST)
 Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 3F6A0799A42;
-	Wed, 23 Jul 2025 15:06:11 +0200 (CEST)
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id F0EB6798911;
+	Wed, 23 Jul 2025 15:06:08 +0200 (CEST)
 Received: from localhost (10.48.86.185) by SHFDAG1NODE2.st.com (10.75.129.70)
  with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 23 Jul
- 2025 15:06:10 +0200
+ 2025 15:06:08 +0200
 From: =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>
-Date: Wed, 23 Jul 2025 15:05:55 +0200
-Subject: [PATCH v4 11/20] arm64: dts: st: add DDR channel to
- stm32mp257f-ev1 board
+Date: Wed, 23 Jul 2025 15:05:52 +0200
+Subject: [PATCH v4 08/20] dt-binding: memory: add DDR4 channel compatible
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-ID: <20250723-ddrperfm-upstream-v4-11-1aa53ca319f4@foss.st.com>
+Message-ID: <20250723-ddrperfm-upstream-v4-8-1aa53ca319f4@foss.st.com>
 References: <20250723-ddrperfm-upstream-v4-0-1aa53ca319f4@foss.st.com>
 In-Reply-To: <20250723-ddrperfm-upstream-v4-0-1aa53ca319f4@foss.st.com>
 To: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
@@ -99,8 +98,8 @@ X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
  definitions=2025-07-23_02,2025-07-22_01,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250723_060936_071764_213D477C 
-X-CRM114-Status: UNSURE (   9.69  )
+X-CRM114-CacheID: sfid-20250723_060942_852097_71A21A51 
+X-CRM114-Status: UNSURE (   9.38  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -116,31 +115,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add 32bits DDR4 channel to the stm32mp257f-dk board.
+Add in the memory channel binding the DDR4 compatible to support DDR4
+memory channel.
 
 Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
 ---
- arch/arm64/boot/dts/st/stm32mp257f-ev1.dts | 7 +++++++
- 1 file changed, 7 insertions(+)
+ .../bindings/memory-controllers/ddr/jedec,sdram-channel.yaml   | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/st/stm32mp257f-ev1.dts b/arch/arm64/boot/dts/st/stm32mp257f-ev1.dts
-index 2f561ad40665..e11ce66be948 100644
---- a/arch/arm64/boot/dts/st/stm32mp257f-ev1.dts
-+++ b/arch/arm64/boot/dts/st/stm32mp257f-ev1.dts
-@@ -41,6 +41,13 @@ pad_clk: pad-clk {
- 		};
- 	};
+diff --git a/Documentation/devicetree/bindings/memory-controllers/ddr/jedec,sdram-channel.yaml b/Documentation/devicetree/bindings/memory-controllers/ddr/jedec,sdram-channel.yaml
+index 9892da520fe4..866af40b654d 100644
+--- a/Documentation/devicetree/bindings/memory-controllers/ddr/jedec,sdram-channel.yaml
++++ b/Documentation/devicetree/bindings/memory-controllers/ddr/jedec,sdram-channel.yaml
+@@ -19,6 +19,7 @@ maintainers:
+ properties:
+   compatible:
+     enum:
++      - jedec,ddr4-channel
+       - jedec,lpddr2-channel
+       - jedec,lpddr3-channel
+       - jedec,lpddr4-channel
+@@ -61,6 +62,15 @@ patternProperties:
+       - reg
  
-+	ddr_channel: sdram-channel-0 {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+		compatible = "jedec,ddr4-channel";
-+		io-width = <32>;
-+	};
-+
- 	imx335_2v9: regulator-2v9 {
- 		compatible = "regulator-fixed";
- 		regulator-name = "imx335-avdd";
+ allOf:
++  - if:
++      properties:
++        compatible:
++          contains:
++            const: jedec,ddr4-channel
++    then:
++      patternProperties:
++        "^rank@[0-9]+$":
++          $ref: /schemas/memory-controllers/ddr/jedec,ddr4.yaml#
+   - if:
+       properties:
+         compatible:
 
 -- 
 2.43.0
