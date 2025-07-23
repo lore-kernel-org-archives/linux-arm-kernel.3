@@ -4,64 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90351C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 14:33:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 697B2C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 14:35:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eWmW202fKN2m55O+smSp46+HpeMk9N6O4tiZVZkb404=; b=fgVfWWu16ijZJPRe0xgdQDEUMm
-	+t704ZsuZC/IlJVMXfavAb0D4mSKwtcnPNR/l5rLsmCDc74glVrPnQqf9S0StZ9ZCJYmYYAbDY6ZX
-	nc6W2HIn+S07/j2NTfped0yrX77tyRRTOBEdTZykcUrP8cFtBv165k22ywjmTZoicHrfOS1sUYR/s
-	oGTIGd1eir/ZaknIuuM1sDA1KsQZPykgthxmBGZtHWD0Xs+b88IGbRvgohc/1WriZgommYGqAs9OQ
-	rEs45if69CgGmtT0bawEocmwCYX8mc+dc3RwxOqv64NZVTNylNuKE6QIvGlifODd0D6crdsLwWDBh
-	+eAmhkHQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZlV9rLMS+m6cSWh+Dn0/WPmoMhwq987guplhp1MndGc=; b=QfRksEpnxTgwMWMmCmpYNDgdD0
+	nvVePoc6+JC7YngG1X8i+tMSldiuMoJu5ZvLaa/l4pIo0FFnhF1ahO3WnSz45bM1CfWsE3da4KeiI
+	7ObH3Enm0vK4AqQnDGfN4dv4Be0iOhEsxW7gTWGyxZRoBO32Lp4dKYiwP8Kz6URzVFywlNwse4SQl
+	XwA+2ugB9EV0sOhuZFwlndZaIpAaTPgefs3RZgQS2lqJyaKn3O9B84k+nKkowNS7064xVAP4eomVS
+	aVIvOQnrQwl69aNB5pEnnHGAikbOx2WrMLEgMwZbwehSw9NpPGncwabAqh+Bx/VgymoqGeAvCb/yc
+	VK+TttUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueaWi-00000005D4n-4AXm;
-	Wed, 23 Jul 2025 14:33:01 +0000
-Received: from mail.adomerle.pw ([185.125.100.172])
+	id 1ueaZC-00000005DWR-1m6I;
+	Wed, 23 Jul 2025 14:35:34 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueZkW-000000055is-35sN;
-	Wed, 23 Jul 2025 13:43:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; s=202506r; d=adomerle.pw; c=relaxed/relaxed;
-	h=To:Subject:From:Date:Message-ID; t=1753278174; bh=eWmW202fKN2m55O+smSp46+
-	HpeMk9N6O4tiZVZkb404=; b=MyEuCp8jLg3wVPiud2UbpWmVecvRtsBgHmk0wFbcKT0UQGl5uB
-	+ULUxVUCfThbckljFSg4ucQsiD7wL43Yzn9WiyZcvKoVSWyZSOJRWxG+nej/xl8p5S7QjOm71aE
-	nkMXT22G29dBlb90mRNyTBciN1duOUOZTCVzalIQvVkStbM09kHinSlIMRJjePNvmBrS38d/Bn1
-	E2HhqIMZxbOoW2XP9KSMiqju9KPnFbA9vmGQFJvZzTcD24MNgMyifA4bkvK6GhAVq+aVZHwwCBs
-	8Kqg8AeNBcUbmQT2io5pUX6TxwfCAF3+VhUfLQE09teaq46mzT+Ty8akSgRpg+UQtCg==;
-DKIM-Signature: v=1; a=ed25519-sha256; s=202506e; d=adomerle.pw; c=relaxed/relaxed;
-	h=To:Subject:From:Date:Message-ID; t=1753278174; bh=eWmW202fKN2m55O+smSp46+
-	HpeMk9N6O4tiZVZkb404=; b=VrfC2+B5FlWRLIEq4PKFokKKZ4PVXdA4j+Osyj+L1kI9BPgFf8
-	hbg1/rpADS6lx/f2JfuFPIrm30tIKlfptwAw==;
-Message-ID: <3c6cb602-63c4-4384-b4f6-1705167d3759@adomerle.pw>
-Date: Wed, 23 Jul 2025 17:42:52 +0400
+	id 1ueZoJ-0000000567J-2fk2;
+	Wed, 23 Jul 2025 13:47:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id A8A93601D7;
+	Wed, 23 Jul 2025 13:47:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 35A99C4CEF1;
+	Wed, 23 Jul 2025 13:47:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1753278426;
+	bh=Px8gBix96tpJXZzdaFnoa/DdcC+iaCFv0QakGJFoD4g=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=JwamNn4BoaqZcQV4LZoAtTCdgd5OPftSTu2rR5gNkOGdFAdazCFAgmaZfxl6+Jxv6
+	 VYWmsNhSJtG56LNFRz3TCG/19X+dJk0aSwN3fr4jUFL0qqx+EhN1G/RYBBOrd11N1C
+	 DSJ9pSzZoseMtHdTzFGzgHo30nyO65+6UyPEpgaflDwHFyTlDcOpi9CcJjvNmajc+T
+	 6JGc2OdvDG1Y/3Ma7536Ke6KLNXQuqXnkuRzfdeZbjFoE478L2gmCtdbGsEXcHNe1l
+	 xvRZECH4gaaf7SNbTi/RtIcpos463/CzivhfAikaRiaFauEP3Gma4JoKbwNGp/VJXz
+	 u1Qx2NtfDr0BQ==
+Date: Wed, 23 Jul 2025 08:47:05 -0500
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Jonas Karlman <jonas@kwiboo.se>
+Cc: linux-arm-kernel@lists.infradead.org,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Yao Zi <ziyao@disroot.org>, Chukun Pan <amadeus@jmu.edu.cn>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org,
+	linux-gpio@vger.kernel.org, Heiko Stuebner <heiko@sntech.de>,
+	devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>
+Subject: Re: [PATCH v2 1/5] dt-bindings: gpio: rockchip: Allow use of a
+ power-domain
+Message-ID: <175327842469.2144459.7995862129200440475.robh@kernel.org>
+References: <20250723085654.2273324-1-jonas@kwiboo.se>
+ <20250723085654.2273324-2-jonas@kwiboo.se>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Arseniy Velikanov <me@adomerle.pw>
-Subject: Re: [PATCH v1] dt-bindings: spi: mt65xx: Add compatible for MT6789
-To: Rob Herring <robh@kernel.org>
-Cc: Mark Brown <broonie@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Leilk Liu <leilk.liu@mediatek.com>, linux-spi@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- ~postmarketos/upstreaming@lists.sr.ht
-References: <20250715231921.4527-1-me@adomerle.pw>
- <20250720223451.GA2915764-robh@kernel.org>
-Content-Language: en-US
-In-Reply-To: <20250720223451.GA2915764-robh@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250723_064312_936723_6D12AA41 
-X-CRM114-Status: UNSURE (   9.29  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250723085654.2273324-2-jonas@kwiboo.se>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,18 +75,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 21.07.2025 02:34, Rob Herring wrote:
-> On Wed, Jul 16, 2025 at 03:19:21AM +0400, Arseniy Velikanov wrote:
->> Add a SPI controller binding for the MT6789 SoC. As a note,
->> MT6893 SPI is fully compatible with this SoC.
-> 
-> Then you should have a fallback compatible. Otherwise, there is no
-> driver change here, so how would this even work?
->
-Thanks for feedback! I plan to send a fix in a new patch series, where I
-will add support for all compatible hardware.
 
--- 
-Kind regards,
-Arseniy.
+On Wed, 23 Jul 2025 08:56:43 +0000, Jonas Karlman wrote:
+> The GPIO controllers in most Rockchip SoCs are part of power domains
+> that are always powered on, i.e. PD_BUS or PD_PMU. These always powered
+> on power domains have typically not been described in the device tree.
+> 
+> Because these power domains have been left out of the device tree there
+> has not been any real need to properly describe the GPIO controllers
+> power domain.
+> 
+> On RK3528 the GPIO controllers are spread out among the described
+> PD_RKVENC, PD_VO and PD_VPU power domains. However, one GPIO controller
+> belong to an undescribed always powered on power domain.
+> 
+> Add support to describe an optional power-domains for the GPIO
+> controllers in Rockchip SoCs.
+> 
+> Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
+> ---
+> v2: Update commit message
+> ---
+>  Documentation/devicetree/bindings/gpio/rockchip,gpio-bank.yaml | 3 +++
+>  1 file changed, 3 insertions(+)
+> 
+
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+
 
