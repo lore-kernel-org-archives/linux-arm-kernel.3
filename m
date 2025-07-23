@@ -4,90 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEF5FC83F27
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 02:53:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7885C83F25
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 03:00:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Njbz1ZCRdxWo32AbPbTjAtv4EdlkoZ9UGiPpbN/Wgqw=; b=XKRPa2LFkxc0RDKAzad3WWmAj/
-	6WX1PvsPRQK5nvyNc9Ep//yLLHLgqkqRjv3dSCNeFdMu4IBi7uz9wn9Rwpwl4SQdePu9BQxtIRgZw
-	Rvxv0UsAo5afjwF36BmStmvk0LmWtvN0unig2Gm9NuDk7xrEZ059TvQHQbX8UZgP7JlaJ/DHj2W3w
-	7yrXqDIDYeSGCN3uM7JkVkALvVOyaacla0EwBehPRDxdVbrXvplJho9t8enTKAwi2vKSz3gk4/0HX
-	1J52pBtttbACw8gIpQpcMPcHuxy8S3Rx5FSEE9qm3S6ld8P5YGPV9F8coZ5oSpS46eurfh2prBIP/
-	/pEJumWA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FB3rPM3yt3uXhH5VZX+ye+pyPNsVLbKVwD9d2WguCtM=; b=pmAJ2LORFYcZqCNhov4QSgA89O
+	t113xqEOw9Rv7KG46hKJUOHuycz32y39XS85NwYwWmHgVJipPmbICqtguwCnGXlrhPVBFcoE5DuxJ
+	kMa61KaljwPQzf3fIqvnpok2uCBPhyCcPMSbDtW7gTlLRxpSRNDVX8NnqtoOLFcO+h6VOw7JAOHFr
+	fFohv6SQlIEU/mJmOke2X+6L1GLU9HSiVAFi3sIf0ePTnE8tD/fcn5aFEbc/61XXX3+nDtRlNbfcD
+	aru23wSHEAeW/T/PaCGYH/xIY+7hHGtpuyE88y07TnUBva8nxa5bcgt1k5c2te3JZyQL2KGQ3U1rI
+	xXuOxX8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uePbx-00000003sZZ-1SdV;
-	Wed, 23 Jul 2025 02:53:41 +0000
-Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
+	id 1uePir-00000003t3Q-29dM;
+	Wed, 23 Jul 2025 03:00:49 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uePZR-00000003sPH-2Ets
+	id 1uePgM-00000003suj-0G7v
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Jul 2025 02:51:09 +0000
-Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-748d982e97cso5550155b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Jul 2025 19:51:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1753239065; x=1753843865; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Njbz1ZCRdxWo32AbPbTjAtv4EdlkoZ9UGiPpbN/Wgqw=;
-        b=MgXfR+XmC3TlNZiEROxo1pETkDodVFbjGVTzmJ4TmvSi6scvWXDl+GP1Du1O1QEPgh
-         BKXSJlnAROLNVGkZ8vDiyg/+2QMPBpxoDANNwCNvwfjZl1FpHx95d5Hlv0iG+pYwcCR6
-         imDonZR8Zmxx1Ep0LbjhB9E51xCAhRDTcTYFeWkUNHOY2MeJgcZTzZ6XnipL63/SJFHC
-         dk2qEDN48lC201tAI0ed3BDju+M7ndTHaHX4KuFJRJhBW7GTCJTncXvvPI3SHAO+K+ZG
-         jBMcwnPcOSBWfX8h5OZkS0B1XavA1JjbJc7kykpI5Tmyoe0mTE6NUE77wJ8gTTDN28rn
-         fB8g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753239065; x=1753843865;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Njbz1ZCRdxWo32AbPbTjAtv4EdlkoZ9UGiPpbN/Wgqw=;
-        b=EHrNUWl/m73LwatZpiIrz5XOgeokuUv/UWGdTjK4La4WACQSzfOO4doS+zLrR54s2B
-         XKP+4x/SW6k6SZWJ3exGqUHIfmF13DxoZSupHCB1yQz/mYlOM5v5gY0f8H/nldkSqz5J
-         CUAfM95iKSkXKXtxLnNdRttZrSuGOpm47uoi0oCdy7YU9RYFklPggrEs6pUiUjEnuRUz
-         nS88LmMeHIBKqQRUn+PjI3Nq1tS7llR7TMTnOqjAIiYy3HkPczdvjXvE/N0FpFDD/czQ
-         jifNep1yEx8+eFYfxseVuPx2evUBp31iuOKqxs3ZLeKcB8YD8GmRZCCMe5eUgJUszP0/
-         tmLQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXSkpetCrY5YzywOLs7COhcdXm3BCiEb8hnBVhfrR5bs+z4qRiV7syl3niGeSDIvPF658ZxFonBE+PJfg3LhMKE@lists.infradead.org
-X-Gm-Message-State: AOJu0YxHuuhpS0VqAp0//s/dZEDQmc0hhIaW2clzLaJqjzX7xl6S+WC6
-	MYQkVVoi0u02qnqom/FVPBIs94Os5p/TgcjSuZCDri2yQ8T7TAXZ5FDrJAH+2T3kI4M=
-X-Gm-Gg: ASbGncv9Zu9wRDwClTuDuPDByoAvTTbG8TjjioHoPV1q1cu3WOnQ5p6nMJlk+8XK55o
-	vrmF6+wpiyM53EMtTtwTOh9LMixLnLxlOHO9en0HBKxrvQS+2EdoL5warOcUj0nZm0rjmCyqjHc
-	ExA+lqiDvSXoDf/NE9lUWl2sG+nlm30qFp4hS98V5ZItNebeP4IVUvlOSvlcIYwCfa4Tz5ycnhQ
-	TX0xMFsTLgjs28q/+WTEbIijy/kfTn0Mz2eGvYe1sE9jNV5mT7Q3UbMJEbKMmPKpNIA+tHAKUej
-	2DcpTSJF6OpCMtG03JIYv3MnoSuChA5KHqYhBWoequCqVDaAtIeu4/Vb5k7XALNFxC7DqI4YNrR
-	F0Ed3t126lV7Hmaaw+S37zk/iKzqZAe9UgPwnAgKy
-X-Google-Smtp-Source: AGHT+IHpuYhVl5YmWu5fXh0L3TBrW12X/BLK3whPpjge727ynUybGgha6/nx5iPQ68Qb526e4QMHUQ==
-X-Received: by 2002:a05:6a00:139c:b0:748:2ff7:5e22 with SMTP id d2e1a72fcca58-76034a014ddmr1950124b3a.10.1753239064659;
-        Tue, 22 Jul 2025 19:51:04 -0700 (PDT)
-Received: from localhost ([36.110.106.149])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-759cb1546a6sm8575236b3a.92.2025.07.22.19.51.01
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 22 Jul 2025 19:51:04 -0700 (PDT)
-Date: Wed, 23 Jul 2025 10:50:55 +0800
-From: Weikang Guo <guoweikang.kernel@gmail.com>
-To: Mark Rutland <mark.rutland@arm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64: mm: Ensure phys_to_ttbr on pgdir for
- idmap_cpu_replace_ttbr1
-Message-ID: <20250723024923.GA1884099@ubuntu-virtual-machine>
-References: <20250722082117.1777570-1-guoweikang.kernel@gmail.com>
- <aH-mlN88NrTzahfM@J2N7QTR9R3>
+	Wed, 23 Jul 2025 02:58:15 +0000
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56MMPJ0T031583;
+	Wed, 23 Jul 2025 02:58:02 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	FB3rPM3yt3uXhH5VZX+ye+pyPNsVLbKVwD9d2WguCtM=; b=KpUkCLqP5ZcyoIpO
+	OeL3ZxGAKi9fu2eiH2tamDOWdPnVGkPMRG9kcSFoUwBTJzsK0UsbNDG8GgB7Z8hU
+	0/BW5KC0bj642kUPVWqx9xq2AKpiDz2uPDHVrrRInn/HWxomZSj3yoS6DTZKrB6d
+	32ZJMvHBjjfPo92UFVnypcqOti9BZkEoU8Lg7ezwR5KnUPC5DmfjMmeV/rWMcQBH
+	kwxBTz+IgplYvOXlOfFdzVWaBvwUs3whGTEHA0nVgX+BqsYiKdYYXow4/gW2CJNz
+	thZbRXwBkgCq9igbmtFGwvh6GBr9OYWbG74JsLj+LnZHKMRZN4C2W2lBLUahG0No
+	2RPuZw==
+Received: from nalasppmta04.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 48048s3m4u-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 23 Jul 2025 02:58:02 +0000 (GMT)
+Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
+	by NALASPPMTA04.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 56N2w1M7007736
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 23 Jul 2025 02:58:01 GMT
+Received: from [10.133.33.47] (10.80.80.8) by nalasex01a.na.qualcomm.com
+ (10.47.209.196) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Tue, 22 Jul
+ 2025 19:57:57 -0700
+Message-ID: <de702854-aca1-4c78-9555-f2139d5376af@quicinc.com>
+Date: Wed, 23 Jul 2025 10:57:55 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aH-mlN88NrTzahfM@J2N7QTR9R3>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 1/2] dt-bindings: arm: Add Qualcomm extended CTI
+To: Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@arm.com>
+CC: Suzuki K Poulose <suzuki.poulose@arm.com>,
+        James Clark
+	<james.clark@linaro.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski
+	<krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Alexander Shishkin
+	<alexander.shishkin@linux.intel.com>,
+        Yingchao Deng
+	<quic_yingdeng@quicinc.com>,
+        <coresight@lists.linaro.org>, <linux-arm-kernel@lists.infradead.org>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-msm@vger.kernel.org>
+References: <20250722081405.2947294-1-quic_jinlmao@quicinc.com>
+ <20250722081405.2947294-2-quic_jinlmao@quicinc.com>
+ <727fa9f4-fe25-495e-9d8d-48e504fbe6b0@arm.com>
+ <20250722091425.GH3137075@e132581.arm.com>
+ <CAJ9a7VhLLgAak_4FB=iW0izXprM4W+RsKfHUeo=XUHh9LwtUsA@mail.gmail.com>
+ <20250722140659.GI3137075@e132581.arm.com>
+ <CAJ9a7ViUoSMV_HHKKRMhcQX=isU+feJvwCaVhu-6EBK4QXJbVg@mail.gmail.com>
+Content-Language: en-US
+From: Jinlong Mao <quic_jinlmao@quicinc.com>
+In-Reply-To: <CAJ9a7ViUoSMV_HHKKRMhcQX=isU+feJvwCaVhu-6EBK4QXJbVg@mail.gmail.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nalasex01a.na.qualcomm.com (10.47.209.196)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNzIzMDAyMyBTYWx0ZWRfX6ykturwn5DWU
+ S1F3fn7b+5ugIj++HFmL0rkYApWdxBqwkzagH5u4p1Jb2oMDsz9/v/+H3jF94T2JDLsWpmsiz+Z
+ Pqvd82kfQ4x16N9XDjcbcDHtOHkX2TSEWq4xLms4gpVtAOarKGjrN1u898DmO7sGtt0uOt+YmpT
+ 3hwnv8KBTC/X+rSNKlPb+44/Tgh+rGDqDMPzRmOg9ISMQlbZP2sWDYcxilcvIxZt4wh7IkI0t3x
+ QWGBGlO+2LxDKzAoZHO3aZpFa9QI9JBGqAyM8Z/kyEaQX8eVEn+ErqezWRzEtrkJRAehwRpFiqC
+ GKYCt8ersPSuYmm48VbOo6EZaqxnSjhyFP1aIPg3nOKcZYtg3EOlTe1PWT6oQ6rNtwPSWHikFrJ
+ EkOb2VukRKPEPSdfIYBLaEiLonKvkmA36XLXz3Pl07pNgYa8HJ8WdqaonZzTxfNYDoDgrRmG
+X-Proofpoint-ORIG-GUID: vVA81xI4G2ll7kSGqawiKMrZIIMs25EQ
+X-Proofpoint-GUID: vVA81xI4G2ll7kSGqawiKMrZIIMs25EQ
+X-Authority-Analysis: v=2.4 cv=OPUn3TaB c=1 sm=1 tr=0 ts=68804fba cx=c_pps
+ a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
+ a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=Wb1JkmetP80A:10 a=7CQSdrXTAAAA:8
+ a=BpXFY5eAunnYVu0cvbAA:9 a=QEXdDO2ut3YA:10 a=a-qgeE7W1pNrGK8U0ZQC:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-07-23_01,2025-07-22_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ adultscore=0 clxscore=1015 mlxlogscore=999 lowpriorityscore=0 suspectscore=0
+ spamscore=0 mlxscore=0 bulkscore=0 priorityscore=1501 phishscore=0
+ malwarescore=0 impostorscore=0 classifier=spam authscore=0 authtc=n/a authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2505280000
+ definitions=main-2507230023
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250722_195105_577326_716B1632 
-X-CRM114-Status: GOOD (  27.55  )
+X-CRM114-CacheID: sfid-20250722_195814_238319_AB19230E 
+X-CRM114-Status: GOOD (  22.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,63 +127,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 22, 2025 at 03:56:20PM +0100, Mark Rutland wrote:
-> On Tue, Jul 22, 2025 at 04:21:13PM +0800, Weikang Guo wrote:
-> > Commit 5ffdfaedfa0a ("arm64: mm: Support Common Not Private translations")
-> > changed the contract of idmap_cpu_replace_ttbr1, requiring that the TTBR
-> > argument passed in should already be processed by phys_to_ttbr (i.e., in
-> > TTBR format, not just a raw physical address).
-> > 
-> > However, the current map_kernel implementation does not always convert the
-> > pgdir/ttbr argument via phys_to_ttbr before calling
-> > idmap_cpu_replace_ttbr1. This can lead to issues on systems with
-> > CONFIG_ARM64_PA_BITS_52 enabled, as the TTBR would not be properly folded
-> > per the ARMv8.2+ requirements.
-> 
-> For the cases below I don't believe that this is actually a problem.
-> Since commit:
-> 
->   453dfcee70c5c344 ("arm64: booting: Require placement within 48-bit addressable memory")
-> 
-> ... we require that the kernel Image (including any trailing unallocated
-> bytes accounted for in image_size) are below the 48-bit address limit,
-> and so there should be no difference between the PA and TTBR format.
-> 
-> We could probably test and enforce that in the early boot code somehow,
-> if we're not doing that already.
-> 
-> If we were going to change things to avoid accidents in future, I think
-> it would be better to enforce this with the type system. e.g. we could
-> have a ttbr_val type that's distinct from phys_addr_t. Even then, for
-> the idmap code I think it's better to avoid the phys_to_ttbr() dance,
-> since that has runtime patching.
-> 
-> Mark.
->
 
-Thank you for your detailed explanation.
 
-As you mentioned, if we can guarantee that the kernel image is always within
-the 48-bit PA range,then there is indeed no real difference between the PA
-and TTBR formats in this context.
-In that case, does it mean that the conversion of `reserved_pg_dir`here is
-also redundant? (There may be other similar cases.)
+On 7/22/2025 10:56 PM, Mike Leach wrote:
+> On Tue, 22 Jul 2025 at 15:07, Leo Yan <leo.yan@arm.com> wrote:
+>>
+>> On Tue, Jul 22, 2025 at 01:00:18PM +0100, Mike Leach wrote:
+>>
+>> [...]
+>>
+>>> For a change of this magnitude to a CS component, that the ID
+>>> registers will also have to change. This is a requirement of the
+>>> Visible Component Architecture in the CoreSight specification.
+>>> External tools cannot see the device tree.
+>>>
+>>> This is effectively no longer an ARM designed component, so the
+>>> CoreSight specification requires that the DEVARCH register change to
+>>> show qualcomm as the designer, and the architecture value change to
+>>> represent this component.
+>>> DEVID should be used to allow the driver to pick up parameters such as
+>>> number of triggers as per the existing CTI component.
+>>>
+>>> If this component is Coresight compliant then the driver can use the
+>>> ID registers to configure to the extended trigger architecture.
+>>>
+>>> With complete remapping of most of the registers, and the dropping of
+>>> claim tag compatibility - which appears to be a breach of the
+>>> CoreSight specification - it may be better to have a completely
+>>> separate driver for this component.
+>>
+>> Good point. I'd like to confirm with the Qualcomm team: apart from the
+>> differences in register offsets and claim bits, does this CTI module
+>> have exactly the same bit layout and usage as CTI standard
+>> implementation?
+>>
+>> If yes, then from a maintenance perspective, we probably don't want to
+>> have two CTI drivers with identical register settings. It seems plausible
+>> to encapsulate register access and claim logic into several functions.
+>>
+>>    void cti_reg_writel(u32 val, struct cti_drvdata *drvdata, bool relax);
+>>    u32 cti_reg_readl(struct cti_drvdata *drvdata, bool relax);
+>>    int cti_claim_device(struct cti_drvdata *drvdata);
+>>    int cti_disclaim_device(struct cti_drvdata *drvdata, bool unlocked);
+>>
+>> Thanks,
+>> Leo
+> 
+> The CTI supports 128 triggers  - which means many more registers to
+> enable / connect etc.
+> I need to study the changes to determine if there are functional
+> differences too.
+> 
+> It might be feasible to divide the code into a common file and a pair
+> of variants so some is reused.
+> 
+> Mike
+Thanks Mike & Leo & Suzuki.
 
-If we already ensure the kernel is always mapped below 48 bits, it does
-seem safe to remove `phys_to_ttbr`here as well.
+There is no register to show the version ID to distinguish between ARM
+CTI and QCOM extended CTI.I will double confirm with internal HW team.
 
-.macro  __idmap_cpu_set_reserved_ttbr1, tmp1, tmp2
-    adrp    \tmp1, reserved_pg_dir
-    phys_to_ttbr \tmp2, \tmp1    // This might not be needed either?
-    offset_ttbr1 \tmp2, \tmp1
-    msr ttbr1_el1, \tmp2
-    isb
-    tlbi    vmalle1
-    dsb nsh
-    isb
-.endm
+For extended CTI, only trigger number changes and claim logic. Other
+functions are the same as ARM CTI(bit layout of the register and usage)
 
-Thanks again for the clarification!
+Thanks
+Jinlong Mao>
 
-WeiKang
+
 
