@@ -4,57 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D61D0C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 05:59:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 714B5C83F25
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 06:01:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9lP4JqTfxo8jFy6vvI8+kw9/cItb5o4YZnrGcoIvYrg=; b=1IFdXBQ2CTRrX7PfhZAtg7K1AT
-	8JITb3mU/uFi0XjcASOXEOfEjNLwQv+e9LbpF/VIVtj77pzZxlNA4yEYqfpblsJOL28gJA2SKDeGZ
-	2O3kAl4YAEpxmajeSz62C/aSHgf2nE1CF4wDRlXsCjHgcUnafAawD6ZnNc9rA18SXi1U0+hOSNpDs
-	6nte1xTy4r/qt2PChima/1M/r4gUGaLl6nsvLYDsbzgYuHAud375o4N7mXwANf4xbKI7OEqQimd+K
-	bSevpUvWzcboOViT/UBi5zk4uafP78E0kTz1mE913A2IgrjoAQ3t6R6LRDM2ISl/KWih2kPQWiSxh
-	ywN0vKGg==;
+	bh=lSiuC68y6vtJuKNcZmfjMMQdZhPKMTZuS/55Zu4nDvU=; b=fpFo4PRx9uqccSiHEzunOLv3Kb
+	L6XfR9kPJ6ZLlmO1SBCqGk2GgubgRJ9v5OAySVuiKgkNjNGeQk2aq/pJVpDtaa15IQaHk5labZrWm
+	fKm0vVTegRQ1xey3qKtwPxIRJsVlaXbPbh5sKUQFnT1rZAw6z84nX8tOLerZ9yIwURVXz5JjGmguk
+	LPTI72KoMOFdFA/taTgTY7TyT3uuKHvTqnZS6zGlEbKuco/tYLvpsLETjM0haEmb5c6wSDdYK/o78
+	GnvKtqZBdtpcFqsRRsgvzIQWeKckPhdQwH4Gv10GHb3OMbWiCPhWf36LW4GP25AiJOq0IHV89htJo
+	Q6Dt7Nxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueSVQ-000000045WG-2ZSs;
-	Wed, 23 Jul 2025 05:59:08 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1ueSXr-000000045kz-3KqC;
+	Wed, 23 Jul 2025 06:01:39 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueSSy-000000045N5-1spy
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Jul 2025 05:56:36 +0000
+	id 1ueSUu-000000045Rs-2qA7;
+	Wed, 23 Jul 2025 05:58:38 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id CF45F668F9;
-	Wed, 23 Jul 2025 05:56:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3B1EAC4CEE7;
-	Wed, 23 Jul 2025 05:56:33 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id D7513A5344C;
+	Wed, 23 Jul 2025 05:58:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0797BC4CEE7;
+	Wed, 23 Jul 2025 05:58:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753250195;
-	bh=KO9CAxkMtTRxZtE6bm/Kqegv2fEpZ+iUowyTx+BJpk8=;
+	s=k20201202; t=1753250315;
+	bh=mtV6PtNaUOkVWENMgyWOyGp2r589sffVzijjl/VKBVs=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=u6mvhaBg0bk6uew9MII51nmcfj9c95WCba34dvauGuIOaEbRgrvHnsZRsF4zWy+wW
-	 ROO+ZDIufU7bAhxwpc95hLXTnA6RgXFMiqoo8mdv0OwHCiEQgKL/ULW9dmp/FN/gJu
-	 P5pTwh4o7Td+/dDR7WZ9pN0ZLHjNorArPxH5jfntybyl/hH5fFb1hniRTJ2gO7f1wu
-	 qpxmCI2G/f288ANXlsHoh+1NXRcXDXbGZRNtIesh+lChQjIi9cxmsCjBAD+JrL/oyj
-	 pm72tbHWc62cjuKCwTf87WjAjW06rbbWbo92Wm9pUQ/V/isaSz6Qs/w8e5uWqGBS61
-	 HNuulVSmYee/g==
-Message-ID: <d85fa0c5-f155-431e-bc09-0bb74d96d670@kernel.org>
-Date: Wed, 23 Jul 2025 07:56:31 +0200
+	b=NkX4MEOcrd8F/ufhbz5yVg7ZqwkIWhm2IdBoB7eJLTs7yjtVm+EmSCCnGH3XS14Lj
+	 3/9WjCMMgrrKrSg8+MtIOHljZnoQkHSgLEzuvEj2F7hBXmIhOOjBJLgrsaeLF5sQNB
+	 yDunzZkKjcRTgF3/Sh1taA11PW/6kGDhN0beVhcFkVTL7uwSegXqbFcr19QGlm+oXj
+	 LgYe4qD5x/hghTRXalnoqrChtbWJ4WWPFbXhXsqF29Dp2zA+e8DszKLxGbUcHvRwj8
+	 Ftr45gPb7jmL+m9CapBFVEOzn8hFL1+/XUgjq8hQgbnon4zv2K4hpuoOTyhmNeE/cx
+	 P14fm0njw7pyg==
+Message-ID: <25f80663-c896-4bbd-b1a5-0b5a93e047e1@kernel.org>
+Date: Wed, 23 Jul 2025 07:58:30 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 1/2] dt-bindings: arm: aspeed: Add NVIDIA GB200-UT3.0b
- board
-To: Donald Shannon <donalds@nvidia.com>, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org
-Cc: joel@jms.id.au, andrew@codeconstruct.com.au, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
- linux-kernel@vger.kernel.org
-References: <20250723014239.22667-1-donalds@nvidia.com>
- <20250723014239.22667-2-donalds@nvidia.com>
+Subject: Re: [PATCHv5 wireless-next 7/7] dt-bindings: net: wireless: rt2800:
+ add SOC Wifi
+To: Rosen Penev <rosenp@gmail.com>, linux-wireless@vger.kernel.org
+Cc: Johannes Berg <johannes@sipsolutions.net>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Stanislaw Gruszka <stf_xl@wp.pl>,
+ "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
+ <devicetree@vger.kernel.org>, open list <linux-kernel@vger.kernel.org>,
+ "open list:MIPS" <linux-mips@vger.kernel.org>,
+ "moderated list:ARM/Mediatek SoC support"
+ <linux-arm-kernel@lists.infradead.org>,
+ "moderated list:ARM/Mediatek SoC support"
+ <linux-mediatek@lists.infradead.org>
+References: <20250722212856.11343-1-rosenp@gmail.com>
+ <20250722212856.11343-8-rosenp@gmail.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -100,9 +108,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250723014239.22667-2-donalds@nvidia.com>
+In-Reply-To: <20250722212856.11343-8-rosenp@gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250722_225836_847272_364090AE 
+X-CRM114-Status: GOOD (  10.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,21 +128,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 23/07/2025 03:42, Donald Shannon wrote:
-> This is an Aspeed AST2600 based unit testing platform for GB200.
-> UT3.0b is different than nvidia-gb200nvl-bmc due to networking topology
-> differences, additional gpio expanders, and voltage regulator gating
-> some devices.
+On 22/07/2025 23:28, Rosen Penev wrote:
+> Add device-tree bindings for the RT2800 SOC wifi device found in older
+> Ralink/Mediatek devices.
 > 
-> Reference to Ast2600 SOC [1].
-> Reference to Blackwell GB200NVL Platform [2].
-> 
-> Link: https://www.aspeedtech.com/server_ast2600/ [1]
-> Link: https://nvdam.widen.net/s/wwnsxrhm2w/blackwell-datasheet-3384703 [2]
-> Signed-off-by: Donald Shannon <donalds@nvidia.com>
-> Acked-by: Krzysztof Kozlowski <krzk@kernel.org>
+> Signed-off-by: Rosen Penev <rosenp@gmail.com>
 
-Why are you faking tags? No, you cannot just add whatever you want.
+<form letter>
+This is a friendly reminder during the review process.
+
+It looks like you received a tag and forgot to add it.
+
+If you do not know the process, here is a short explanation:
+Please add Acked-by/Reviewed-by/Tested-by tags when posting new versions
+of patchset, under or above your Signed-off-by tag, unless patch changed
+significantly (e.g. new properties added to the DT bindings). Tag is
+"received", when provided in a message replied to you on the mailing
+list. Tools like b4 can help here. However, there's no need to repost
+patches *only* to add the tags. The upstream maintainer will do that for
+tags received on the version they apply.
+
+Please read:
+https://elixir.bootlin.com/linux/v6.12-rc3/source/Documentation/process/submitting-patches.rst#L577
+
+If a tag was not added on purpose, please state why and what changed.
+</form letter>
 
 Best regards,
 Krzysztof
