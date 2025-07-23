@@ -4,99 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74ED9C83F25
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 05:16:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D61D0C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 05:59:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IoOtrbeFHn5e1/Xtu2aEuqosP9/5TZJzgfaIJ8FAwVw=; b=yzWB6GRMzFhC5idtY1elxyUIpz
-	KZJ9xS7zQlyXZ0oQZNlLtCsIGPZ3VK8v1RHq8U9gefTwQFBKC1KvvjIAowODJWn1t4E7ZG9MHD2hn
-	Cgnq/2BoC7rid/9l9vuhvvTIQbx0XUtoQYJHbLXYF64bg2OnmGZdpOFD0sCmc6CcCrwmop6NaiuUZ
-	oKgugrsSepyyB7RdfOX0+UkWm/gULCynOue2exEF9LUVh1tieKoE9K/owld4kRlGjcWFvrONC98Da
-	9IC9hMqB2Hn1qLbmVbXeNamf7ZxBKOy6Q35CDF2fofMJYqhyZ/m4PhYftTIjU0Up5gWTe6Eh+7Crh
-	iz94SnJw==;
+	bh=9lP4JqTfxo8jFy6vvI8+kw9/cItb5o4YZnrGcoIvYrg=; b=1IFdXBQ2CTRrX7PfhZAtg7K1AT
+	8JITb3mU/uFi0XjcASOXEOfEjNLwQv+e9LbpF/VIVtj77pzZxlNA4yEYqfpblsJOL28gJA2SKDeGZ
+	2O3kAl4YAEpxmajeSz62C/aSHgf2nE1CF4wDRlXsCjHgcUnafAawD6ZnNc9rA18SXi1U0+hOSNpDs
+	6nte1xTy4r/qt2PChima/1M/r4gUGaLl6nsvLYDsbzgYuHAud375o4N7mXwANf4xbKI7OEqQimd+K
+	bSevpUvWzcboOViT/UBi5zk4uafP78E0kTz1mE913A2IgrjoAQ3t6R6LRDM2ISl/KWih2kPQWiSxh
+	ywN0vKGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueRpx-000000042lI-25Q1;
-	Wed, 23 Jul 2025 05:16:17 +0000
-Received: from mailout4.samsung.com ([203.254.224.34])
+	id 1ueSVQ-000000045WG-2ZSs;
+	Wed, 23 Jul 2025 05:59:08 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueRmC-000000042UT-1pyU
+	id 1ueSSy-000000045N5-1spy
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Jul 2025 05:12:29 +0000
-Received: from epcas5p2.samsung.com (unknown [182.195.41.40])
-	by mailout4.samsung.com (KnoxPortal) with ESMTP id 20250723051215epoutp049a9e36f9df1a03f2f267bf43b6600c04~UyVhBuH6E0931309313epoutp04p
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Jul 2025 05:12:15 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout4.samsung.com 20250723051215epoutp049a9e36f9df1a03f2f267bf43b6600c04~UyVhBuH6E0931309313epoutp04p
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1753247535;
-	bh=IoOtrbeFHn5e1/Xtu2aEuqosP9/5TZJzgfaIJ8FAwVw=;
-	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
-	b=YzpXVGaeKBdahD4O1K7MxAae0WhiCSSMJ/4EqEiCWru/oOvUNtko+rgHcnJNA03hr
-	 94UXec9t3f7jWjVE0bpi72c6E5bY6BEY8VYztjvTqTpZcCapc4O83DDy5T6wWkvpdf
-	 tgcTdTJpoSP4byk6Y9GIFVEj0AvOSnPbA40pBn3k=
-Received: from epsnrtp01.localdomain (unknown [182.195.42.153]) by
-	epcas5p2.samsung.com (KnoxPortal) with ESMTPS id
-	20250723051215epcas5p212e2b5380f798498c5c80f442874a239~UyVgY52qc2028920289epcas5p2l;
-	Wed, 23 Jul 2025 05:12:15 +0000 (GMT)
-Received: from epcas5p3.samsung.com (unknown [182.195.38.92]) by
-	epsnrtp01.localdomain (Postfix) with ESMTP id 4bn2Lj5rTmz6B9m4; Wed, 23 Jul
-	2025 05:12:13 +0000 (GMT)
-Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
-	epcas5p1.samsung.com (KnoxPortal) with ESMTPA id
-	20250723051134epcas5p13eb4eedb2beb180423c5237f4a272f06~UyU66C8CP1233212332epcas5p1N;
-	Wed, 23 Jul 2025 05:11:34 +0000 (GMT)
-Received: from INBRO001840 (unknown [107.122.3.105]) by epsmtip2.samsung.com
-	(KnoxPortal) with ESMTPA id
-	20250723051131epsmtip2df639fe0e527bf88b1c968e311ad775e~UyU3yq7j60675706757epsmtip2K;
-	Wed, 23 Jul 2025 05:11:31 +0000 (GMT)
-From: "Pritam Manohar Sutar" <pritam.sutar@samsung.com>
-To: "'Krzysztof Kozlowski'" <krzk@kernel.org>, "'Krzysztof Kozlowski'"
-	<krzysztof.kozlowski@linaro.org>
-Cc: <vkoul@kernel.org>, <kishon@kernel.org>, <robh@kernel.org>,
-	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <alim.akhtar@samsung.com>,
-	<andre.draszik@linaro.org>, <peter.griffin@linaro.org>,
-	<neil.armstrong@linaro.org>, <kauschluss@disroot.org>,
-	<ivo.ivanov.ivanov1@gmail.com>, <m.szyprowski@samsung.com>,
-	<s.nawrocki@samsung.com>, <linux-phy@lists.infradead.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-samsung-soc@vger.kernel.org>,
-	<rosa.pila@samsung.com>, <dev.tailor@samsung.com>, <faraz.ata@samsung.com>,
-	<muhammed.ali@samsung.com>, <selvarasu.g@samsung.com>
-In-Reply-To: <9a97cc9e-2221-44d6-83e9-25b1bec10a6f@kernel.org>
-Subject: RE: [PATCH v4 1/6] dt-bindings: phy: samsung,usb3-drd-phy: add
- ExynosAutov920 HS phy compatible
-Date: Wed, 23 Jul 2025 10:41:30 +0530
-Message-ID: <000901dbfb90$42873060$c7959120$@samsung.com>
+	Wed, 23 Jul 2025 05:56:36 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id CF45F668F9;
+	Wed, 23 Jul 2025 05:56:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3B1EAC4CEE7;
+	Wed, 23 Jul 2025 05:56:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1753250195;
+	bh=KO9CAxkMtTRxZtE6bm/Kqegv2fEpZ+iUowyTx+BJpk8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=u6mvhaBg0bk6uew9MII51nmcfj9c95WCba34dvauGuIOaEbRgrvHnsZRsF4zWy+wW
+	 ROO+ZDIufU7bAhxwpc95hLXTnA6RgXFMiqoo8mdv0OwHCiEQgKL/ULW9dmp/FN/gJu
+	 P5pTwh4o7Td+/dDR7WZ9pN0ZLHjNorArPxH5jfntybyl/hH5fFb1hniRTJ2gO7f1wu
+	 qpxmCI2G/f288ANXlsHoh+1NXRcXDXbGZRNtIesh+lChQjIi9cxmsCjBAD+JrL/oyj
+	 pm72tbHWc62cjuKCwTf87WjAjW06rbbWbo92Wm9pUQ/V/isaSz6Qs/w8e5uWqGBS61
+	 HNuulVSmYee/g==
+Message-ID: <d85fa0c5-f155-431e-bc09-0bb74d96d670@kernel.org>
+Date: Wed, 23 Jul 2025 07:56:31 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-X-Mailer: Microsoft Outlook 16.0
-Thread-Index: AQJAgQZ9LFXBZrDskwNBYris6jFv1AKCX9A9Aa5wAf0Bi5UAqwCML2yKAWUlSf8CRPacEQIi1iyNAmb2xVkCD/Nw+7Lxui8Q
-Content-Language: en-in
-X-CMS-MailID: 20250723051134epcas5p13eb4eedb2beb180423c5237f4a272f06
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-Sendblock-Type: REQ_APPROVE
-CMS-TYPE: 105P
-cpgsPolicy: CPGSC10-542,Y
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250701115955epcas5p320cfe73ca33522cd2f9f7970cfde1c63
-References: <20250701120706.2219355-1-pritam.sutar@samsung.com>
-	<CGME20250701115955epcas5p320cfe73ca33522cd2f9f7970cfde1c63@epcas5p3.samsung.com>
-	<20250701120706.2219355-2-pritam.sutar@samsung.com>
-	<20250706-fresh-meaty-cougar-5af170@krzk-bin>
-	<07d301dbf0ae$0658cbe0$130a63a0$@samsung.com>
-	<9a2d0ad7-cb1f-473d-a91a-3a1b59b71280@kernel.org>
-	<000c01dbf70b$ccdbf630$6693e290$@samsung.com>
-	<a43cfe4f-8ff9-4dbd-b7f4-07ccc3d8e01b@kernel.org>
-	<00ff01dbfac1$ee528860$caf79920$@samsung.com>
-	<9a97cc9e-2221-44d6-83e9-25b1bec10a6f@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250722_221225_920350_7C386E7E 
-X-CRM114-Status: GOOD (  20.08  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 1/2] dt-bindings: arm: aspeed: Add NVIDIA GB200-UT3.0b
+ board
+To: Donald Shannon <donalds@nvidia.com>, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org
+Cc: joel@jms.id.au, andrew@codeconstruct.com.au, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
+ linux-kernel@vger.kernel.org
+References: <20250723014239.22667-1-donalds@nvidia.com>
+ <20250723014239.22667-2-donalds@nvidia.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20250723014239.22667-2-donalds@nvidia.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,90 +117,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
+On 23/07/2025 03:42, Donald Shannon wrote:
+> This is an Aspeed AST2600 based unit testing platform for GB200.
+> UT3.0b is different than nvidia-gb200nvl-bmc due to networking topology
+> differences, additional gpio expanders, and voltage regulator gating
+> some devices.
+> 
+> Reference to Ast2600 SOC [1].
+> Reference to Blackwell GB200NVL Platform [2].
+> 
+> Link: https://www.aspeedtech.com/server_ast2600/ [1]
+> Link: https://nvdam.widen.net/s/wwnsxrhm2w/blackwell-datasheet-3384703 [2]
+> Signed-off-by: Donald Shannon <donalds@nvidia.com>
+> Acked-by: Krzysztof Kozlowski <krzk@kernel.org>
 
-> -----Original Message-----
-> From: Krzysztof Kozlowski <krzk=40kernel.org>
-> Sent: 22 July 2025 11:37 AM
-> To: Pritam Manohar Sutar <pritam.sutar=40samsung.com>; 'Krzysztof Kozlows=
-ki'
-> <krzysztof.kozlowski=40linaro.org>
-> Cc: vkoul=40kernel.org; kishon=40kernel.org; robh=40kernel.org;
-> krzk+dt=40kernel.org; conor+dt=40kernel.org; alim.akhtar=40samsung.com;
-> andre.draszik=40linaro.org; peter.griffin=40linaro.org; neil.armstrong=40=
-linaro.org;
-> kauschluss=40disroot.org; ivo.ivanov.ivanov1=40gmail.com;
-> m.szyprowski=40samsung.com; s.nawrocki=40samsung.com; linux-
-> phy=40lists.infradead.org; devicetree=40vger.kernel.org; linux-
-> kernel=40vger.kernel.org; linux-arm-kernel=40lists.infradead.org; linux-s=
-amsung-
-> soc=40vger.kernel.org; rosa.pila=40samsung.com; dev.tailor=40samsung.com;
-> faraz.ata=40samsung.com; muhammed.ali=40samsung.com;
-> selvarasu.g=40samsung.com
-> Subject: Re: =5BPATCH v4 1/6=5D dt-bindings: phy: samsung,usb3-drd-phy: a=
-dd
-> ExynosAutov920 HS phy compatible
->=20
-> On 22/07/2025 06:34, Pritam Manohar Sutar wrote:
-> >>>> Nothing is explained in changelog/cover letter. You claim you only
-> >>>> added Rb
-> >> tag.
-> >>>> This is an entirely silent change while keeping the review.
-> >>>
-> >>> Will add more explanations in cover letter/changelog why this block i=
-s
-> added.
-> >>>
-> >>>> Combined with not even following DTS style=21
-> >>>
-> >>> Ok got it. Will change supplies name as below avdd075_usb =3D>
-> >>> avdd075-usb
-> >>> avdd18_usb20 =3D> avdd18-usb20
-> >>> avdd33_usb20 =3D> avdd33-usb20
-> >>>
-> >>> Confirm the above change that is meant in terms of DTS style.
-> >> Yes. I have doubts that actual supplies have suffix usb20. Are there
-> >> more than one avdd18 for this block?
-> >>
-> >
-> > Yes, there are more than one vdd18 supplies for this block.
->=20
-> And their names are?
->=20
-> >
-> > Re-analysed your comment on adding new supplies.
-> > Going to re-use existing supplies as mentioned below, rather than
-> > introducing new supplies
-> >
-> >   dvdd-usb20-supply   =3D> for 0.75v
-> >   vddh-usb20-supply   =3D> for 1.8v
-> >   vdd33-usb20-supply =3D> for 3.3v
->=20
->=20
-> You just expect us to guess whether this is correct...
+Why are you faking tags? No, you cannot just add whatever you want.
 
-Sorry about not being clear so far.=20
-
-V920 needs three supplies, 0.75v, 1.8v and 3.3v for USB PHY
-The naming convention used in the schematic are
-avdd075-usb,=20
-avdd18_usb20,=20
-avdd33_usb20.
-
-However, PHY's user manual just mentions DVDD, VDD33 and VDD18.
-Since GS101 binding already using supply names similar to what is mentioned=
- in the PHY user manual.
-I thought of using the same instead of earlier naming conventions (which wa=
-s as per v920 schematic).
-
-Let me know if this make sense or we should be just using as per schematic?
-
->=20
-> Best regards,
-> Krzysztof
-
-Regards,
-Pritam
-
-
+Best regards,
+Krzysztof
 
