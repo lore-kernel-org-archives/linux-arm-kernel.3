@@ -4,88 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41154C83F25
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 06:19:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF872C83F25
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 06:23:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/L2T2WbrDBkOj5NgHEVZycr71r0FjGHDnI1AHP29ZlA=; b=VBYsdXAdzso7OEfHcsn38TIjrs
-	BrNeQ5J8XW0nwcW4tWJSsTx/d0RyuMPBMHgaksClWIgenVfD5etKPnfPs4abylZRksEVt3AC3iPzS
-	AXHFYG38hUyxHN0vYTNyVyxAHpvlzcgzUjMhAw2Kp4zeNeMAXyuaoR9uZKt7LuZ1xMM+KOlSQPs9O
-	01TFF7s86y6jzKpSGevNa1YHHo5d79hgfb9qgEMSIDwWXNVNNPI0dRy6U2DLOLNXWu2xaAjtNwxZi
-	IYEdHjDYjIGp42Q+i1p32aOhNqOlJP8SfKtO+eeor/u4BjuPRkK56RhLYDn8jMXXK08PAOd2fVDbG
-	9baEzUdg==;
+	Content-Type:Mime-Version:References:In-Reply-To:From:Subject:Cc:To:
+	Message-Id:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uTJIJErGkkgE26dleTTxRjWov2b7YHYQZlVlu/+KP64=; b=Wd0NohvO1AatjMnJN3JlH8Rvmw
+	Q0KAyC7HEATNko+sBE3xZMcSWX45AMqp/f3sglCivoRM778ULup3fiSWuw2gT9fIAXvDMTrhu+DmY
+	ZBdL065rqsfpeJDHdXySOuVYu7zklnwBAo+O/soQv5Te6WDPw3Z24SJG8SrSIjHUcH60S/QOViDgK
+	MLNsIbj9cETsi0BnNzavBViWQf6H3rt6MqaPxWCr724JlfIQZF0zVhZLukjiSw1YvIRwX7L6sKejL
+	k86rreG/vSMqeB3hluCEW+ru6j9Sd1tETnQc9dh7r8aEQxkSbuSCA7+bK8v6BRsd0wcxtFK5mnpjI
+	kyiC//OA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueSp5-000000047Yg-0CYL;
-	Wed, 23 Jul 2025 06:19:27 +0000
-Received: from mail-yb1-xb2d.google.com ([2607:f8b0:4864:20::b2d])
+	id 1ueSt8-000000047z3-2Yb0;
+	Wed, 23 Jul 2025 06:23:38 +0000
+Received: from mail-pg1-x532.google.com ([2607:f8b0:4864:20::532])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueSkF-0000000470l-3mIQ
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Jul 2025 06:14:29 +0000
-Received: by mail-yb1-xb2d.google.com with SMTP id 3f1490d57ef6-e8d707b9bc2so4847289276.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 22 Jul 2025 23:14:27 -0700 (PDT)
+	id 1ueSqc-000000047h1-0Pg8;
+	Wed, 23 Jul 2025 06:21:05 +0000
+Received: by mail-pg1-x532.google.com with SMTP id 41be03b00d2f7-b3bad2f99f5so526361a12.1;
+        Tue, 22 Jul 2025 23:21:01 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=amarulasolutions.com; s=google; t=1753251267; x=1753856067; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=/L2T2WbrDBkOj5NgHEVZycr71r0FjGHDnI1AHP29ZlA=;
-        b=qMCz+tW/1ZNORppKGMwVNnLW8ATuiE4qMQet5OEgIE10TB699Ar2mqrobT0gk5521b
-         /4z75PhHRX7RtjEjinnmJp0r+wt24GwF49Rm/A/0WAtjIS/06ZPiF00Ax40sBbw/P5tw
-         BUkxxyCPQbbG2i+V5wA7lXTH1DhRSDua9OO3w=
+        d=gmail.com; s=20230601; t=1753251661; x=1753856461; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to:from
+         :subject:cc:to:message-id:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=uTJIJErGkkgE26dleTTxRjWov2b7YHYQZlVlu/+KP64=;
+        b=KRhymsbm4XjC22BenB7Zea7iDxjJN01/o2JsDtz1H72ibNyUQF/iNLU+SDFo97GR1e
+         sM9dv2pYmHVah7f96HT2w/AWYGBlgWajWPqiID+gfAQr34dF/pS/Wv6VxaZ5yIvbd+6i
+         0EZw+D+Qi572TGdXJJh6Aj2NCr3TnqQp7WWRTKCZzANAkgPwMA/kSMm86rZNoP9pRPzE
+         8OCta4dqyjZsBHbJdfX8FCP4hf0dXEzWuJUoeEOLlMrdrGxClBEoUHsrx+ty/Bru8/I4
+         lRsepJ45cJim2g3QEEWmPrS1bnKAPcBRAww82u/7rvQRgD+Om8090ZaYoeLBsbP8NXt9
+         RhNw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753251267; x=1753856067;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=/L2T2WbrDBkOj5NgHEVZycr71r0FjGHDnI1AHP29ZlA=;
-        b=XQaQeOwQS7BVmRW3jECdyRj9tV8Y2gQ2hkuB/BbkSJY9AvePnoqgPd4OXkFhY2lJ0g
-         YbJbrZ8lS5dspVAxw3uaSzi0TNEI54HogQJK0TZD3cive+oaaao0Tn6c5ihs65uggagj
-         o6mjzTNMT7pkXPAK2L3ZG7GsocEnTWAhINRbJzw/MMWavo1JgPQjdn8IIfpCcR8mZ4Yx
-         gjyQdXaihe6x3jYH80+ya/ewG00LC5jrz4kTSY9bDJSOWa2sqefKnAIazDCS4jhQomaX
-         nTGL9VTggxmPIMvAuGKdok+5qsN2UFGgwEqCO4LOPchWabvo1WGJRLsHk6eVED+Ci1lQ
-         vZ5A==
-X-Forwarded-Encrypted: i=1; AJvYcCVBjoshhKXip1QnlpgY9u+8Gm2NAft5zpnV42W+LQxhtAYmb3qgVUNDG+IPfl8Fr32Pj0zXdSZpSFMoYw/qOYov@lists.infradead.org
-X-Gm-Message-State: AOJu0YyN6XS2SwIVZOEq5I+bEP/xrUKjYfVLDH8RomYE00N77TrvD4vI
-	9IqYWtrBvTVpn2dwb87/Wn/G431yaLXQVudmibr7w7LkdgSk+Qq8EFyVNRrwpbrMOPIuiNy1oiS
-	7CvU1JaTPo0u62AVhQJYoiRF6+WD5ZBatT4Vih1n13g==
-X-Gm-Gg: ASbGnctXOBP8+YFQZY9gC8PPOj3TOeQccA+IY301+tBAMu+7cX8iotOH0vgi96ULRvH
-	4h9wwy7oR12phsrBnSx0wpwQ98E7ChG6Lsh3Q/RvGgInsraf3PfxVFvzxKt6sQPaEEP1GzOpz0K
-	AiaSglaQ0uREIIAp6nRC+BexCXX1lC8IVlOF7Ig3j0MueD7qXZfIkW0F18hJR9q/VzJVBqKAoFT
-	Vjrog==
-X-Google-Smtp-Source: AGHT+IGU0x3OvvND31qkZ6iwUV66X3FjLoR9rEUgX0VQD3a1aWSZZ/aNnjUtca65XDKxhVdatJlHhz31Mn+Kuu8/LA0=
-X-Received: by 2002:a05:6902:460a:b0:e8d:718f:cffa with SMTP id
- 3f1490d57ef6-e8dc57ce7c6mr2095334276.6.1753251266610; Tue, 22 Jul 2025
- 23:14:26 -0700 (PDT)
-MIME-Version: 1.0
-References: <20250722103706.3440777-1-dario.binacchi@amarulasolutions.com>
- <20250722103706.3440777-3-dario.binacchi@amarulasolutions.com> <DU0PR04MB94966B1D445966C0E7C1BDF2905FA@DU0PR04MB9496.eurprd04.prod.outlook.com>
-In-Reply-To: <DU0PR04MB94966B1D445966C0E7C1BDF2905FA@DU0PR04MB9496.eurprd04.prod.outlook.com>
-From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-Date: Wed, 23 Jul 2025 08:14:15 +0200
-X-Gm-Features: Ac12FXz0WI4bR7Hq_kkcybVAzkogiCFRyLtm4ogxkiM3lU26r-r_CiasJXOihmg
-Message-ID: <CABGWkvpDY99-0FKi2VO+Pa4hSoEfFCAt7ZAgaVfeqqCqcOYWrA@mail.gmail.com>
-Subject: Re: [PATCH 2/4] dt-bindings: input: touchscreen: fsl,imx6ul-tsc: add fsl,glitch-threshold
-To: Bough Chen <haibo.chen@nxp.com>
-Cc: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
-	"linux-amarula@amarulasolutions.com" <linux-amarula@amarulasolutions.com>, Conor Dooley <conor+dt@kernel.org>, 
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>, Fabio Estevam <festevam@gmail.com>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Rob Herring <robh@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Shawn Guo <shawnguo@kernel.org>, 
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>, 
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
-	"linux-input@vger.kernel.org" <linux-input@vger.kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+        d=1e100.net; s=20230601; t=1753251661; x=1753856461;
+        h=content-transfer-encoding:mime-version:references:in-reply-to:from
+         :subject:cc:to:message-id:date:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=uTJIJErGkkgE26dleTTxRjWov2b7YHYQZlVlu/+KP64=;
+        b=gm+9c0YqFhZglG8rZJ3KXtZnLbrMTpE0xOkz7Ufr5L/z86uWwl6HavUKUCWPGkZ8WT
+         dq7q5EcmLx0T7+brIchxkczAWVwEAtJOwJKl3gAaJmpjfcvWVe8tZasYVjZGoIrLkIGs
+         vu0yLEt42W2UJBl36XfKLMzLlRv9KCNbhn3k5XbeRkj2MKGdjWVJrnZlPTLDIxOv/GqC
+         jr5cD1rw8gG8SEczAMDecRWsTWO+UVEgp78TAIVwSGXEVLnmwPKUhaiLFS6b4EX0za5X
+         Btcp0A8L4l20IGXyQd2Hrunp8QEl13k3ZW6RKenh6D3Mz9eaSFS3wUKfYTY1VlQJO7dL
+         VJpQ==
+X-Forwarded-Encrypted: i=1; AJvYcCV/rmoPCYMr2InZOEbxlN11B12OnZ1T3S6ItxHGkUBgyAgXzjGMSdL17qLY1PqJjkNSwYBu/2j4v1TX284=@lists.infradead.org, AJvYcCVZ19pejEAp9fUL88CMaAYyZC2ekmVnw3U6ku4VwpcOKpYz3ImFKp86NRp9JnLeMPp6iuoCnwt2W6gBMEq9hk0p@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzb/gRDTkbfIOZ22IHolJHqV/fD1U04Zg/eagz1E14HSj8sGnvt
+	glHmq0WR7SZzkH7HVIMMsPJJTMLObG+k+0SqR5HV+OFiP3ogpGU+lHwA
+X-Gm-Gg: ASbGncux+oMsytUjqgHJXs3ePQo1IJl2DtqXVpeqTQU8Y9WCZhLJuyqcv7MA2MoUNnW
+	z2slyqlFg0pi6t3qcZmPlUXW55VPUDr3mStdzTsFaJbea4MzaL3GOF+h/uYF1jyJ+f29MQcL8gI
+	qp7WkHPzoMBkWpI6YlySvYyn6gd6aYSWu06OzlsY600LrGcuj8it3GNN2QbLGwJWns2RPwVKLcZ
+	vZ7Ip2HMwDOUOjGE3KxSeL4Buz29u8LFIfjnRszGPMaAEgOAMmjWPEvVMhJbinGGiv3W5DEi2T7
+	qZiSKeJ1C2jnymGGR0LQ7nsMJqi3RDXORogvj+miITsKk8wC48w6X32e0B+BoiA2eQWXv6+d2O9
+	+E7oc6iagpmnNFAXXxKHojNOWJk8oxa1N6/MZ5WqltvKLt6GoZY5qGJK5Zf+rVel+HrASFq68fy
+	V/O66WT5vxldw=
+X-Google-Smtp-Source: AGHT+IGCxo7rpM1rfk9awKmH6T4kvUglH+Vv6jkf+KqhCJfICKASDS6UxOL8YDc9W4DbQD/ruOaxfA==
+X-Received: by 2002:a05:6a21:1fc3:b0:225:ba92:447d with SMTP id adf61e73a8af0-23d48dbeaf4mr3003123637.9.1753251660919;
+        Tue, 22 Jul 2025 23:21:00 -0700 (PDT)
+Received: from localhost (p5332007-ipxg23901hodogaya.kanagawa.ocn.ne.jp. [180.34.120.7])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-759cb67901csm8977248b3a.100.2025.07.22.23.20.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 22 Jul 2025 23:21:00 -0700 (PDT)
+Date: Wed, 23 Jul 2025 15:20:42 +0900 (JST)
+Message-Id: <20250723.152042.1300024463910400.fujita.tomonori@gmail.com>
+To: miguel.ojeda.sandonis@gmail.com
+Cc: fujita.tomonori@gmail.com, linux-kernel@vger.kernel.org,
+ rust-for-linux@vger.kernel.org, x86@kernel.org,
+ linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ loongarch@lists.linux.dev, tglx@linutronix.de, mingo@redhat.com,
+ bp@alien8.de, dave.hansen@linux.intel.com, peterz@infradead.org,
+ hpa@zytor.com, paul.walmsley@sifive.com, palmer@dabbelt.com,
+ aou@eecs.berkeley.edu, catalin.marinas@arm.com, will@kernel.org,
+ chenhuacai@kernel.org, kernel@xen0n.name, tangyouling@loongson.cn,
+ hejinyang@loongson.cn, yangtiezhu@loongson.cn, ojeda@kernel.org,
+ alex.gaynor@gmail.com, boqun.feng@gmail.com, gary@garyguo.net,
+ bjorn3_gh@protonmail.com, benno.lossin@proton.me, a.hindborg@kernel.org,
+ aliceryhl@google.com, tmgross@umich.edu, dakr@kernel.org
+Subject: Re: [PATCH v6 0/4] rust: Add bug/warn abstractions
+From: FUJITA Tomonori <fujita.tomonori@gmail.com>
+In-Reply-To: <CANiq72=Hr5rg7tYta8aUoxt8hOPjR2ik5_-xMWZwacr63=-7KA@mail.gmail.com>
+References: <20250502094537.231725-1-fujita.tomonori@gmail.com>
+	<CANiq72=Hr5rg7tYta8aUoxt8hOPjR2ik5_-xMWZwacr63=-7KA@mail.gmail.com>
+Mime-Version: 1.0
+Content-Type: Text/Plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250722_231427_951575_9120700B 
-X-CRM114-Status: GOOD (  25.59  )
+X-CRM114-CacheID: sfid-20250722_232102_147071_1D8B18E1 
+X-CRM114-Status: GOOD (  27.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,131 +109,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Bough,
+On Wed, 23 Jul 2025 02:48:20 +0200
+Miguel Ojeda <miguel.ojeda.sandonis@gmail.com> wrote:
 
-On Wed, Jul 23, 2025 at 4:45=E2=80=AFAM Bough Chen <haibo.chen@nxp.com> wro=
-te:
->
-> > -----Original Message-----
-> > From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-> > Sent: 2025=E5=B9=B47=E6=9C=8822=E6=97=A5 18:36
-> > To: linux-kernel@vger.kernel.org
-> > Cc: linux-amarula@amarulasolutions.com; Dario Binacchi
-> > <dario.binacchi@amarulasolutions.com>; Conor Dooley
-> > <conor+dt@kernel.org>; Dmitry Torokhov <dmitry.torokhov@gmail.com>;
-> > Fabio Estevam <festevam@gmail.com>; Bough Chen <haibo.chen@nxp.com>;
-> > Krzysztof Kozlowski <krzk+dt@kernel.org>; Pengutronix Kernel Team
-> > <kernel@pengutronix.de>; Rob Herring <robh@kernel.org>; Sascha Hauer
-> > <s.hauer@pengutronix.de>; Shawn Guo <shawnguo@kernel.org>;
-> > devicetree@vger.kernel.org; imx@lists.linux.dev;
-> > linux-arm-kernel@lists.infradead.org; linux-input@vger.kernel.org
-> > Subject: [PATCH 2/4] dt-bindings: input: touchscreen: fsl,imx6ul-tsc: a=
-dd
-> > fsl,glitch-threshold
-> >
-> > Add support for glitch threshold configuration. A detected signal is va=
-lid only if it
-> > lasts longer than the set threshold; otherwise, it is regarded as a gli=
-tch.
-> >
-> > Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-> > ---
-> >
-> >  .../input/touchscreen/fsl,imx6ul-tsc.yaml      | 18 ++++++++++++++++++
-> >  1 file changed, 18 insertions(+)
-> >
-> > diff --git
-> > a/Documentation/devicetree/bindings/input/touchscreen/fsl,imx6ul-tsc.ya=
-ml
-> > b/Documentation/devicetree/bindings/input/touchscreen/fsl,imx6ul-tsc.ya=
-ml
-> > index 678756ad0f92..2fee2940213f 100644
-> > --- a/Documentation/devicetree/bindings/input/touchscreen/fsl,imx6ul-ts=
-c.yaml
-> > +++ b/Documentation/devicetree/bindings/input/touchscreen/fsl,imx6ul-ts=
-c
-> > +++ .yaml
-> > @@ -62,6 +62,23 @@ properties:
-> >      description: Number of data samples which are averaged for each re=
-ad.
-> >      enum: [ 1, 4, 8, 16, 32 ]
-> >
-> > +  fsl,glitch-threshold:
-> > +    $ref: /schemas/types.yaml#/definitions/uint32
-> > +    default: 0
->
-> Here the default should be 2 according to your third patch.
+>> This patchset adds warn_on macro with the bug/warn abstraction that
+>> utilizes the kernel's BUG/WARN feature via assembly.
+> 
+> Ok, let's move forward with this.
+> 
+> I took a look at the first three patches and compared the expanded
+> output for the existing macros, to make sure we (hopefully) don't
+> break anything else.
 
-I considered the default value of the register, not the driver's.
-If I'm not mistaken, the dt-bindings should be a description of the
-hardware, not of the associated driver implementation.
+Thanks a lot!
 
->
-> I'm okay for this patch set, let's waiting for comments about this yaml c=
-hange.
->
-> By the way, any real case which need to use other glitch threshod?
+> It seems OK, I only noticed a removed newline. Was that intentional?
 
-We recently submitted
-https://lore.kernel.org/all/aGUDza5XRGDqfz5n@dragon/#t, and in this
-initial contribution we removed all the custom parts that are not
-supported upstream. This is
-one such case. For our board, we need a de_glitch value of 1.
+The patch for arm64? I tried to minimize changes to the original code
+so not intentional.
 
-Thanks and regards,
-Dario
+> There was also a bad parameter name, but that was not hurting anything
+> since it was unused.
+> 
+> (For the x86 one could be closer removing a couple spaces, but it
+> should not matter and other x86 files format it that way, so I didn't
+> change it. I also noticed unexpected spaces used for aligning the
+> macro, but it turned out it was in the original already, so I left it
+> also unchanged.)
 
->
-> Regards
-> Haibo Chen
->
-> > +    enum: [ 0, 1, 2, 3 ]
-> > +    description: |
-> > +      Indicates the glitch threshold. The threshold is defined by numb=
-er
-> > +      of clock cycles. A detect signal is only valid if it is exist lo=
-nger
-> > +      than threshold; otherwise, it is regarded as a glitch.
-> > +      0: Normal function: 8191 clock cycles
-> > +         Low power mode: 9 clock cycles
-> > +      1: Normal function: 4095 clock cycles
-> > +         Low power mode: 7 clock cycles
-> > +      2: Normal function: 2047 clock cycles
-> > +         Low power mode: 5 clock cycles
-> > +      3: Normal function: 1023 clock cycles
-> > +         Low power mode: 3 clock cycles
-> > +
-> >  required:
-> >    - compatible
-> >    - reg
-> > @@ -94,4 +111,5 @@ examples:
-> >          measure-delay-time =3D <0xfff>;
-> >          pre-charge-time =3D <0xffff>;
-> >          touchscreen-average-samples =3D <32>;
-> > +        fsl,glitch-threshold =3D <2>;
-> >      };
-> > --
-> > 2.43.0
->
+Yeah, I followed the original code style.
 
+> Then I found a few more bits on the last patch.
+> 
+> Tomo, could you please double-check you are OK with all the changes,
+> and please run the tests you did back then on `rust-next` again for
+> all arches, given it has been a while since you posted it (plus I did
+> a few changes on top, after all)? I would appreciate it, thanks in
+> advance!
 
---=20
+I've just tested rust-next. Looks like all arches (x86, riscv, and
+arm64) works as expected.
 
-Dario Binacchi
+> To be clear, I didn't re-check every single thing/combination, but
+> hopefully what I caught helps. Since there are no users anyway (of the
+> last patch) right now, it should be fairly safe.
+> 
+> Applied to `rust-next` -- thanks everyone!
+> 
+>     [ Fixed typo in macro parameter name. - Miguel ]
+> 
+>     [ Remove ending newline in `ARCH_WARN_ASM` content to be closer to the
+>       original. - Miguel ]
+> 
+>     [ Avoid evaluating the condition twice (a good idea in general,
+>       but it also matches the C side). Simplify with `as_char_ptr()`
+>       to avoid a cast. Cast to `ffi` integer types for
+>       `warn_slowpath_fmt`. Avoid cast for `null()`. - Miguel ]
+> 
 
-Senior Embedded Linux Developer
+All the changes look good.
 
-dario.binacchi@amarulasolutions.com
-
-__________________________________
-
-
-Amarula Solutions SRL
-
-Via Le Canevare 30, 31100 Treviso, Veneto, IT
-
-T. +39 042 243 5310
-info@amarulasolutions.com
-
-www.amarulasolutions.com
+Thanks!
 
