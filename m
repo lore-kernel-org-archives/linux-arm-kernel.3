@@ -4,96 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA0E0C83F25
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 07:48:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D309AC83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 07:51:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=81Y9fywoqF7EeyNEvfPWdoet0imEzVFFJD69wE8Ijuo=; b=UUO5Z+HTDxvdFL42U0IFjcY0rE
-	qpXPT548eUaa+RGFOC0xqdN9Ri7q/s4ZPsLkSzleaIQNZ6YkPmv2CoouynhI1GgY8UBZeF6Ywpexe
-	0QypLa4uChpaKfgdVkWpGDrvjjizZ/LlfVFSj00TjCLDyvBAUg/BP0lKk9baoOgt1KBFLC6VzJ336
-	BiIDKw/WyHlAVDWRCvdHqfZtGQ7BWa+3Uu1RSLyiPkpo6+Z1pJmbLTUpmfXslsMoCvVqrjgDfRxFO
-	phQf9tDk+o+cAY62Mv0Id95Njx7VXgFBYzHpilVN1BsxQJvE9SiAWIIvi/6Ce1m5Gppl0fPF8Qkug
-	jm6giw5w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ozrFJSH6wnJI6HBf0GGRZJdc+g4xFJ+GJKX9/xbMslY=; b=fl6TxSF1jyE72UBFc4SpqOeHr7
+	NGaXM2MWmJgMA3fY0fpkp4lFcCbTJ/yhRAzgsGMi24LaOR3KCj7unRDZIt8sF+4l6vj0dchKuki0b
+	5RIdli6LwruIwu/6Qccm8kZW+Snmg153DFRnIxP5i4BrphJz1ACGMtSFCB5Gx4yyN17xZDXTM6A8T
+	SqzUloMNkhBSwD0V3REegeqiQ2r55IWwsLuYSqhQMQ3SpF/Xp6Z546mrPw3FLDvexi/KfyTWfjpis
+	znExhpJ9S/hEHyjOL4HpFQhe8gz2b0xWr2LDJxsBRIhnCHR8OQ/Za0ErPPA9bTQ+jNIxCyY3SEEkR
+	+oVdPGog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueUDX-00000004Hrw-0m9C;
-	Wed, 23 Jul 2025 07:48:47 +0000
-Received: from mail-il1-x12f.google.com ([2607:f8b0:4864:20::12f])
+	id 1ueUFz-00000004IER-0IaO;
+	Wed, 23 Jul 2025 07:51:19 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueU66-00000004GbY-2HQ8
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Jul 2025 07:41:07 +0000
-Received: by mail-il1-x12f.google.com with SMTP id e9e14a558f8ab-3e292dcc066so48715725ab.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Jul 2025 00:41:06 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1753256466; x=1753861266; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=81Y9fywoqF7EeyNEvfPWdoet0imEzVFFJD69wE8Ijuo=;
-        b=W4gm8LNX49ECMaPM9Tn6ajO9uG4r0wScizX162XETGOnQ7s+hdU27V1vhW0Z3snfFw
-         NjCM4u2gDTe3K2lB3tfn/B367vN3CVl3jdGYDyeotaQt293QOqkTebWMJh/OXl+hIR7m
-         GvewJD2e6H8O+A2OAlQr6iOI4Y4emfVzrOejTC62qJZgfNxcISULgbqilDXivLwrtoNm
-         xPXuXjqeZ6beoseub23js+cRMFgJNV5+HHB7I2R2HNUEf4t3Bmd52iSJ+202kbAjwOb5
-         JVVVarcayRtjGmpKL7jBztNgoBJyhFVphOrwKliblxsDnKz9wxWu4u6KFx82WrB83Va+
-         NUwA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753256466; x=1753861266;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=81Y9fywoqF7EeyNEvfPWdoet0imEzVFFJD69wE8Ijuo=;
-        b=IOGvzw2UmoN9lkq2aPI4Lp1wc/CmUDg3yJl8+AzXXHaoYhXaJWOPA2ExeYbUVqty1k
-         Wtn0Utv3T1scjC75dSTUxzUJ7B4nmSDVlMAv1rvJcfY6n/2CA193Zsw9QdOmlQt/Jriq
-         g+neWpxG1zwZNFjKXdJT38qaLYfSG6w9+AcftEd8UZfTn4vgVPMxLEJTWZ4ioyiTcdy1
-         rRe69FR+hJQXTdSgFAbEMvJwVMQgm6FfegxWupFMx3VlK3T3uJzx/jAU9nStMr2n7BrA
-         iDnB8lcWsiEZ6BxvCVVQBwugCYxf5RP1YGhQQ3FyQzNmJJwZn0AftD04132Qk6iwj1UB
-         dsRw==
-X-Forwarded-Encrypted: i=1; AJvYcCXAx3nm/tBhRCljarTwuPVo+rc5yXDDuNIxbxf7MCXKjsI0LB3YSyRyqFZumVPT/r6bmkxfWbhoq/b5d+pQbkF0@lists.infradead.org
-X-Gm-Message-State: AOJu0YyikYYpt6/H4jMGlFxu4hHL9N+vlAgD+telbYtT7+tm5Uku4rlO
-	L9uZt8+LeOIwOoYOeAh0GQTYIM/xtUpjERyMCEFK9uBqWwNRdIvGvV2FVt4z6Cled2KXlO0hXP2
-	jjupnfM0giNRZg1/LaV38bj7VSiK7dL8=
-X-Gm-Gg: ASbGnctgvxI9k/pqQaSNClkFeOKdYA72LAOlV7ekAVky1VbEin86q1s/NmJHLErd/3Y
-	AjrVmA9j3sOvqglMOJTlgvhhMBBSlCnHsTOcUc8PF0EEh83y1NZmn6MaEZTZeiYO0a3ddRuZEVt
-	9bfohw84nwnnz/ekdzPSzvOIqS2eK+C/kUSiTs2pY/vhCH0UbVFraV7MhJyPYaAtk/tB5LxC0iE
-	6fvT7A=
-X-Google-Smtp-Source: AGHT+IFxfL3iPUA5T5lDVBBDYyqD7VIFaDA3fQJ5O2oa4O2dCluRKQiYM4kl1jFwdLxNmmpTIZDHo7HQtauQmGufUFM=
-X-Received: by 2002:a05:6e02:2384:b0:3e2:c212:6164 with SMTP id
- e9e14a558f8ab-3e3354dfeb9mr37438145ab.12.1753256465669; Wed, 23 Jul 2025
- 00:41:05 -0700 (PDT)
+	id 1ueU7H-00000004Gjh-3s8q;
+	Wed, 23 Jul 2025 07:42:19 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 072EB6691D;
+	Wed, 23 Jul 2025 07:42:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 25A78C4CEE7;
+	Wed, 23 Jul 2025 07:42:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1753256538;
+	bh=fYh2NB4GUoqzaRVlaz/dvGLqiathfR8O8zqZOjCaDRo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=dUW962WOw9nxieE72WyF/Yus+q+umq2odPt2oyw0iM1A7fwa09VWCK+HgAINsLxfm
+	 4YyFn6tk1wLrFdpYoTtfFn6rGQ+/f2RslTqft+ne0kRbuPLyO0Uy2f8phKammS3vnA
+	 KkmlRCluerSgbYsDUjnOfYyOo0kXEcb8RmxffmqO/FCKPKIJMrKVGbHR92AGtRGDRf
+	 L65KJkOXNIqEVcH8tB9/2VSIwZ65prnYCxwtbJw8W5n0RERvyIHCXw9sHKse/xjhTN
+	 8Uhw9gYdJuATIypdsx1w+TY0YgFzGgmHBrcC/UrIbSZD9eT5LIPcC+HHpzmIx4n4Zl
+	 3iK/XMnPmBKrA==
+Date: Wed, 23 Jul 2025 09:42:16 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Sanjay Suthar <sanjaysuthar661996@gmail.com>
+Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-iio@vger.kernel.org, netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-amlogic@lists.infradead.org, ribalda@kernel.org, jic23@kernel.org, dlechner@baylibre.com, 
+	nuno.sa@analog.com, andy@kernel.org, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com, 
+	kuba@kernel.org, pabeni@redhat.com, neil.armstrong@linaro.org, 
+	khilman@baylibre.com, jbrunet@baylibre.com, martin.blumenstingl@googlemail.com
+Subject: Re: [PATCH v3] dt-bindings: cleanup: fix duplicated 'is is' in YAML
+ docs
+Message-ID: <20250723-foamy-glaring-tench-561fe2@kuoka>
+References: <20250722170513.5854-1-sanjaysuthar661996@gmail.com>
 MIME-Version: 1.0
-References: <20250718101150.3681002-1-shengjiu.wang@nxp.com>
- <20250718101150.3681002-3-shengjiu.wang@nxp.com> <4668607.LvFx2qVVIh@steina-w>
- <CAA+D8ANQdOuEiHrOWAbqVN2oFAAop2agBzKB2_YsoQ3_SFYYNw@mail.gmail.com> <85f1b9f3-0134-4385-9ac6-f3c6c2eb546f@nxp.com>
-In-Reply-To: <85f1b9f3-0134-4385-9ac6-f3c6c2eb546f@nxp.com>
-From: Shengjiu Wang <shengjiu.wang@gmail.com>
-Date: Wed, 23 Jul 2025 15:40:52 +0800
-X-Gm-Features: Ac12FXwt3CFjI2gmqrSV6-EQJlh4rFyR_XU_vqi0YUQRGTQLoRTFr6d47NZAQO4
-Message-ID: <CAA+D8AN6HSTwByHvqfkLnZ=UFPo8W48N5oRf2CtF6pXdCwSXag@mail.gmail.com>
-Subject: Re: [PATCH 2/4] drm/bridge: imx: add driver for HDMI TX Parallel
- Audio Interface
-To: Liu Ying <victor.liu@nxp.com>
-Cc: Alexander Stein <alexander.stein@ew.tq-group.com>, andrzej.hajda@intel.com, 
-	neil.armstrong@linaro.org, rfoss@kernel.org, 
-	Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se, jernej.skrabec@gmail.com, 
-	maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de, 
-	airlied@gmail.com, simona@ffwll.ch, lumag@kernel.org, dianders@chromium.org, 
-	cristian.ciocaltea@collabora.com, luca.ceresoli@bootlin.com, 
-	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
-	shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de, 
-	festevam@gmail.com, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	p.zabel@pengutronix.de, devicetree@vger.kernel.org, l.stach@pengutronix.de, 
-	Shengjiu Wang <shengjiu.wang@nxp.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250723_004106_861894_58EC4A17 
-X-CRM114-Status: GOOD (  12.32  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250722170513.5854-1-sanjaysuthar661996@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,43 +73,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 22, 2025 at 3:50=E2=80=AFPM Liu Ying <victor.liu@nxp.com> wrote=
-:
->
-> Hi Shengjiu,
->
-> On 07/21/2025, Shengjiu Wang wrote:
-> > On Fri, Jul 18, 2025 at 7:51=E2=80=AFPM Alexander Stein
-> > <alexander.stein@ew.tq-group.com> wrote:
->
-> [...]
->
-> >> Am Freitag, 18. Juli 2025, 12:11:48 CEST schrieb Shengjiu Wang:
->
-> [...]
->
-> >>> +     /* IEC60958 format */
-> >>> +     val =3D 31 << FIELD_CTRL_P_SEL_SHIFT;
-> >>> +     val |=3D 30 << FIELD_CTRL_C_SEL_SHIFT;
-> >>> +     val |=3D 29 << FIELD_CTRL_U_SEL_SHIFT;
-> >>> +     val |=3D 28 << FIELD_CTRL_V_SEL_SHIFT;
-> >>> +     val |=3D 4 << FIELD_CTRL_D_SEL_SHIFT;
-> >>> +     val |=3D 0 << FIELD_CTRL_PRE_SEL_SHIFT;
->
-> [...]
->
-> >> But where do these numbers come from? I can see that downstream kernel
-> >> sets these bits depending on audio config being passed.
-> >
-> > These numbers are defined in standard IEC958 spec.
->
-> Can these be defined by macros, even in a certain common header file,
-> include/sound/asoundef.h?
+On Tue, Jul 22, 2025 at 10:35:13PM +0530, Sanjay Suthar wrote:
+> Fix minor grammatical issues by removing duplicated "is" in two devicetree
+> binding documents:
+> 
+> - net/amlogic,meson-dwmac.yaml
+> - iio/dac/ti,dac7612.yaml
+> 
+> Signed-off-by: Sanjay Suthar <sanjaysuthar661996@gmail.com>
+> ---
+> Changes since V2:
+> - Corrected the subject line
+> - link to v2 : https://lore.kernel.org/linux-iio/20250720182627.39384-1-sanjaysuthar661996@gmail.com/T/#u
 
-yes, then will include ALSA maintainer for the change.
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
->
-> --
-> Regards,
-> Liu Ying
+Best regards,
+Krzysztof
+
 
