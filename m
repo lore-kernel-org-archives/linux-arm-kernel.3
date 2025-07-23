@@ -4,105 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7DB4C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 08:19:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F740C83F25
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 08:21:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B9CGQSY2Py+TZMZxIwRcfvLPf3wajH5A3vCs0pp3i9Q=; b=t2+uxYoMQNV2y+aFIfeBtGRjMS
-	+dTik8CtdGkkMGXGs78uoN+KDuGDoaBiqeSKPar67ptQPw7G8JT7JXEY+u6+7kKHQU6+cAMTVKUnj
-	0qIVQq0LmbvHPQNs0LB/zeTlN9mfLd2poOVTRkVQkbtrKAbTgZa3JFvcQYEbOmEcZzUwkEzYTlTex
-	a+XsNGwEf/7HLQO/rip4T4UF2UKdsfFClEo5xL6+SNgd1Hj8cATIQ4CiRCQFGg8e4wi9VM5tYDynd
-	yNHmk4eH45gY+NwGfWM461kPsWJ+i0Z0zljLfEVzdjcaN9hmfEk5FNCDM7kWlP80B44/m9Bwq2w9I
-	X4kUCsXg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GgMCEelREMSB63NKXySj628l6amD3USq3iPvkC04eQw=; b=EsPe/4UwR+oLMxTyFxO9FMqyBh
+	XkfjxXxCVBrKorgaZ6jrRgI7ubzXSkmfcXsiIRWZTsJ8kFHj1fIylulKr9rtX1m303jcx0NMSvwyA
+	rsWNNu7qKlKQKMlosMUGXOuIQ2WWmC8hTQqtOFe0a5KZDyKqolbEEdwQ3pEswahpap/5sZqfiuTJG
+	ARPICx/MaK9TGCN5cD+pZQKazaLOFLPwaR/OYeWpGdyzJfAhYP3AaxfRVt4/tN8RRpgUziPCKf5v2
+	f3w/VbNqdOm3gbDz+7Qo4VJ37t+cvnkg6gti0Hi3bi/ZEQTbUaLSo01N//V+ohVFcgnYvq2X4VhRs
+	8shEX9eg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueUgs-00000004M73-2IzN;
-	Wed, 23 Jul 2025 08:19:06 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	id 1ueUjK-00000004MWZ-1hMW;
+	Wed, 23 Jul 2025 08:21:38 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueULt-00000004J1I-3TvA
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Jul 2025 07:57:27 +0000
-Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56N7qgYZ031584;
-	Wed, 23 Jul 2025 09:57:15 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	B9CGQSY2Py+TZMZxIwRcfvLPf3wajH5A3vCs0pp3i9Q=; b=di8j4sub3XTf9LsH
-	X3dV4EP7HD0tF4hOkMzn7by90Vv+bnZ5O/eS2q7mX0dzb+5Z+3EI9uKK417Nvut0
-	HAut6dDHExdJRkhXw/hVUHj1nPUY0vSgbcIX/Tv8aB6IIy4jsAturVe4pFr8jJam
-	QJR6cRH7YRTfk0rZDL74wL1QYCCYPfMZ7LbftKm9bS/BVIg3YtAUjv1mewRUQoox
-	M5Ls81AP09y/0lwCpD6kIrOJbbUtCBcwHTFRTuhywhxRNyQBzyMueaqDtwxh48g+
-	oVJvJg2Dq5WRioKvQaUVZ/x/ybQmwrQxFlfx5sazxaBcOUpMAEl1izE6Fwm55F5O
-	OLZfXA==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 4800g8tc0d-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 23 Jul 2025 09:57:15 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 3848D40048;
-	Wed, 23 Jul 2025 09:55:45 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 5064A6BAAD0;
-	Wed, 23 Jul 2025 09:54:33 +0200 (CEST)
-Received: from [10.48.86.185] (10.48.86.185) by SHFDAG1NODE2.st.com
- (10.75.129.70) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 23 Jul
- 2025 09:54:32 +0200
-Message-ID: <d9432ec2-7075-4fef-ab39-aa93f4e91eb9@foss.st.com>
-Date: Wed, 23 Jul 2025 09:54:31 +0200
+	id 1ueUSS-00000004Jrk-0nVK;
+	Wed, 23 Jul 2025 08:04:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 5EB695C593F;
+	Wed, 23 Jul 2025 08:04:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7A6BAC4CEE7;
+	Wed, 23 Jul 2025 08:04:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1753257851;
+	bh=5G0MzIPGQyVzSDEfSUskutOnD5XbLYr6VIzJy8hOBhA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=TvK5C2/fwmiSxXzWTRkggiNfcnyKIjny40VwN1Iu+CBZ1S39waBVQlHolf1xIA0Xt
+	 TK5zIgXYTW8ZuXP2B+q48VTDm5AmPwfzuIc/4N3oQPphbF+AaEOf1g4FJIdL3JARUy
+	 qyhtk6UgCl6sPP4PmVreb+IpEEpXpxBx94fmxIHGjaA+yUsR9Gt3fKGw3/A2v85Q84
+	 FtmhCs70ViIr6RsOPpzQKp5yfDSd+tLJgqKTyKp+QBARrdCgfxEfA4dFP73MJAGWmB
+	 uQQJl2gW580fJJXyZJ97+j7n2gpNTZRiN7P/A8lPx3GU7npGE+dSKb3NrLMjLFtO8r
+	 Eig/hwOm4gQnQ==
+Date: Wed, 23 Jul 2025 13:34:01 +0530
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Vinod Koul <vkoul@kernel.org>
+Cc: Peter Griffin <peter.griffin@linaro.org>, 
+	Kishon Vijay Abraham I <kishon@kernel.org>, =?utf-8?B?QW5kcsOp?= Draszik <andre.draszik@linaro.org>, 
+	Tudor Ambarus <tudor.ambarus@linaro.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
+	Krzysztof Kozlowski <krzk@kernel.org>, linux-phy@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, kernel-team@android.com, 
+	William Mcvicker <willmcvicker@google.com>
+Subject: Re: [PATCH v2 1/2] phy: add new phy_notify_pmstate() api
+Message-ID: <yaz4ozb55t3pkwd2gj4l4d2hdspdcsqjm2dfsux7lfdxy6lxjl@uae2qz2vjo64>
+References: <20250703-phy-notify-pmstate-v2-0-fc1690439117@linaro.org>
+ <20250703-phy-notify-pmstate-v2-1-fc1690439117@linaro.org>
+ <e2lhm237c3xtbdjux2wuesq5fwu7nky3w7oq2fnsgn2pqcg5kh@xhxktriooyes>
+ <aICKM-ebp9SMAkZ_@vaman>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 07/19] dt-bindings: memory: factorise LPDDR channel
- binding into memory channel
-To: Julius Werner <jwerner@chromium.org>
-CC: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-        Rob
- Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor
- Dooley <conor+dt@kernel.org>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Philipp Zabel
-	<p.zabel@pengutronix.de>,
-        Jonathan Corbet <corbet@lwn.net>,
-        Gatien Chevallier
-	<gatien.chevallier@foss.st.com>,
-        Michael Turquette <mturquette@baylibre.com>,
-        Stephen Boyd <sboyd@kernel.org>,
-        Gabriel Fernandez
-	<gabriel.fernandez@foss.st.com>,
-        Krzysztof Kozlowski <krzk@kernel.org>,
-        Le
- Goffic <legoffic.clement@gmail.com>,
-        <linux-arm-kernel@lists.infradead.org>,
-        <linux-perf-users@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-kernel@vger.kernel.org>, <linux-doc@vger.kernel.org>,
-        <linux-clk@vger.kernel.org>
-References: <20250722-ddrperfm-upstream-v3-0-7b7a4f3dc8a0@foss.st.com>
- <20250722-ddrperfm-upstream-v3-7-7b7a4f3dc8a0@foss.st.com>
- <CAODwPW-kVcnVtVakXs7aBcwb_nv0bLTaK5PKNo4zmJaJ=VC8Wg@mail.gmail.com>
-Content-Language: en-US
-From: Clement LE GOFFIC <clement.legoffic@foss.st.com>
-In-Reply-To: <CAODwPW-kVcnVtVakXs7aBcwb_nv0bLTaK5PKNo4zmJaJ=VC8Wg@mail.gmail.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.48.86.185]
-X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SHFDAG1NODE2.st.com
- (10.75.129.70)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-07-23_01,2025-07-22_01,2025-03-28_01
+In-Reply-To: <aICKM-ebp9SMAkZ_@vaman>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250723_005726_127505_94233C09 
-X-CRM114-Status: GOOD (  16.68  )
+X-CRM114-CacheID: sfid-20250723_010412_317960_7F6413B9 
+X-CRM114-Status: GOOD (  27.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,46 +78,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/22/25 23:58, Julius Werner wrote:
->> +  purpose of this node is to overall memory topology of the system, including the
+On Wed, Jul 23, 2025 at 12:37:31PM GMT, Vinod Koul wrote:
+> On 22-07-25, 22:04, Manivannan Sadhasivam wrote:
+> > On Thu, Jul 03, 2025 at 02:03:22PM GMT, Peter Griffin wrote:
+> > > Add a new phy_notify_pmstate() api that notifies and configures a phy for a
+> > > given PM link state transition.
+> > > 
+> > > This is intended to be by phy drivers which need to do some runtime
+> > > configuration of parameters during the transition that can't be handled by
+> > > phy_calibrate() or phy_power_{on|off}().
+> > > 
+> > > The first usage of this API is in the Samsung UFS phy that needs to issue
+> > > some register writes when entering and exiting the hibernate link state.
+> > > 
+> > > Signed-off-by: Peter Griffin <peter.griffin@linaro.org>
+> > > ---
+> > >  drivers/phy/phy-core.c  | 25 +++++++++++++++++++++++++
+> > >  include/linux/phy/phy.h | 25 +++++++++++++++++++++++++
+> > >  2 files changed, 50 insertions(+)
+> > > 
+> > > diff --git a/drivers/phy/phy-core.c b/drivers/phy/phy-core.c
+> > > index 04a5a34e7a950ae94fae915673c25d476fc071c1..0b29bc2c709890d7fc27d1480a35cda6a826fd30 100644
+> > > --- a/drivers/phy/phy-core.c
+> > > +++ b/drivers/phy/phy-core.c
+> > > @@ -520,6 +520,31 @@ int phy_notify_disconnect(struct phy *phy, int port)
+> > >  }
+> > >  EXPORT_SYMBOL_GPL(phy_notify_disconnect);
+> > >  
+> > > +/**
+> > > + * phy_notify_pmstate() - phy link state notification
+> > 
+> > 'pmstate' doesn't correspond to 'link state'. So how about,
+> > phy_notify_link_state()?
+> > 
+> > s/phy/PHY (here and below)
+> > 
+> > > + * @phy: the phy returned by phy_get()
+> > > + * @state: the link state
+> > > + *
+> > > + * Notify the phy of some PM link state transition. Used to notify and
+> > 
+> > Link state change is common for the PHY. So remove 'PM'.
 > 
-> nit: Might take the opportunity to fix the typo here (missing words:
-> "is to describe the overall memory topology").
-
-Yes true.
-
+> Is it really link or phy state?
 > 
->>     - Julius Werner <jwerner@chromium.org>
+
+This is a bit of ambiguity. But as per the spec, Hibern8 is the low power state
+of the M-PHY and Unipro controller.
+
+Maybe, phy_notify_state()?
+
+> > 
+> > > + * configure the phy accordingly.
+> > > + *
+> > > + * Returns: %0 if successful, a negative error code otherwise
+> > > + */
+> > > +int phy_notify_pmstate(struct phy *phy, enum phy_linkstate state)
+> > 
+> > I think you need to use 'int state' and let drivers pass their own link state
+> > values. You cannot have generic link states across all peripherals.
 > 
-> Why remove me? (Although I'm also not really sure why I'm maintainer
-> for this file and Krzysztof for all the others, tbh.)
-
-I didn't remove you. It is just the minus of the maintainer list :-)
-
+> I would avoid that, people start overloading this if we let it keep
+> open! I would like to avoid the api -(ab)use
 > 
->>   examples:
->>     - |
-> 
-> I think that's a load-bearing pipe character you're removing here?
 
-Didn't remove either. There are spaces before so it it is not the git 
-minus char.
+Then we will end up with peripheral specific enums in include/linux/phy/phy.h.
+If you are OK with that, fine with me.
 
-> 
->> -    lpddr-channel0 {
->> +    memory-channel0 {
-> 
-> Just to double-check, the name of this node doesn't really mean
-> anything and isn't directly interpreted by the kernel, right? I'm fine
-> with changing the example here to fit better with the new expanded
-> scope of the schema, but we have existing firmware that generates
-> nodes with the `lpddr-channel0` name, I want to make sure that it
-> won't break from making changes here.
+- Mani
 
-Oh ok didn't know about that and didn't find it though.
-For now no pattern has been defined for the node name so it shouldn't 
-break anything.
-
-Best regards,
-Clément
+-- 
+மணிவண்ணன் சதாசிவம்
 
