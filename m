@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51287C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 23:33:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E308C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 23:35:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=tO98iZ6qt69jUEbguy5HbBMQSIcZbgLgv2m3GdQZx/0=; b=OywuoBMpHtqN7CdllGR0TjXrF2
-	0rlAZmpqsfmcHpZ7cWvvfRTs3S+qrENFkacamkzb1jOgBT7AwP6YiqA/4SREaKojQjXYbM2o6ZTLp
-	Rw5RYiJsY/1ny/zy8vt8zt1ZYbiPAwSZ39z9Vv8wTR/SwOkvCXycG7OCuDF/l6Od4em2FbmBngBuo
-	rGpBadnePMjhj+wbUr0plnzy57AGkiz7hUfWQpqUl/953sBfPbBL8fbZA83wkp9BHpDcfH55fJ+ck
-	VmiJgVuTj9FbTfDPzFXVQb/utVuRNcuQZTcrgMdGJ80b3k5coX8wi0EyNn9QKTw4XBSg4k65JXkp+
-	nWWJZ9Og==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PJcZT5sTnEC+iZOaFw42qNp6Oam8rPA+kK5DmNYfLB4=; b=d9yG3Uv/AhjzGLQZF062w4KIfm
+	On/FX2dt2tMQZ4URVCauq3DxkH5mI92+WNhsXxANUSxaayECbmKWY+TNjj4ruC71m1CmFJibL8pYY
+	U6MUMJm15W0mc1FNwZY4W2uGWxPnFksShgaXiwq3c/lnf1/tMo0jaA5fBKZmq2J4B6S+QNaS6bRdG
+	zWbudiN4mFJSwlHXocdyBmeMOSb2y9PL2oXSNcY4V043KYUfudF6ZDjYzAos+Jkqf3eCL1le3eqTo
+	701vFEVfIRz6ehLhVuxkEtp1/tN4AfVZ4W+RprakUAQ54neYxnJBH5dWpHLaPlxJyQnNAN2VTSZY6
+	bVdaL67A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueixB-000000069qE-1e54;
-	Wed, 23 Jul 2025 23:32:53 +0000
-Received: from mail-pg1-x530.google.com ([2607:f8b0:4864:20::530])
+	id 1ueizb-00000006A7R-0qRV;
+	Wed, 23 Jul 2025 23:35:23 +0000
+Received: from mail-pg1-x52c.google.com ([2607:f8b0:4864:20::52c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueiuj-000000069HQ-0jgI
+	id 1ueiuk-000000069Hn-26Ac
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Jul 2025 23:30:22 +0000
-Received: by mail-pg1-x530.google.com with SMTP id 41be03b00d2f7-b3507b63c6fso510731a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Jul 2025 16:30:20 -0700 (PDT)
+	Wed, 23 Jul 2025 23:30:23 +0000
+Received: by mail-pg1-x52c.google.com with SMTP id 41be03b00d2f7-b34a6d0c9a3so554966a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Jul 2025 16:30:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1753313420; x=1753918220; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=tO98iZ6qt69jUEbguy5HbBMQSIcZbgLgv2m3GdQZx/0=;
-        b=Yt1X8ijF+nlOwfQwWA8Invf0TXrCEBKTVF5PNVUwwN5fqvU3/o/OuyFpdEPAQqj1tF
-         IcN0qu6dzx7d99v1MzEjX50HUivFpTOdammDeXk312c3mu9HUaKlXxS+SxgR6K2V21LW
-         PzkGR6XQ3m1QyffnXKGtw+y9wCiXfEMtzbpDL50l45w01FeYzoDk2AyDkBEsn6Dq4unq
-         XL9iw0T82aTxHxo5C/ERvI1BXq/7J/mQ/onN7i+fJBWY6q3qnU+fT2cw09qNAbvzB/c1
-         yc1xNA+cISwG3Y6UnkDKDm3dgjPLY9lJTDQWYIcQJfxRdApKCPu3ZYFuGJrx+/D5jaqC
-         M2Lg==
+        d=gmail.com; s=20230601; t=1753313422; x=1753918222; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=PJcZT5sTnEC+iZOaFw42qNp6Oam8rPA+kK5DmNYfLB4=;
+        b=JmTK7WBkMReOCiEKzNWKX9Lnb7ilBMgP+Ieudvy1tHP1SiKjGTMbv9WXoaX1kSOq8S
+         9eil2bN9xTvtMdJSrJDNHwqH7iRLQRL4DNTWcxQ86z1np1+5G3BxF74DsgIQHZUqH+X4
+         vq5d8W97plUX6ixF5Bhb+j+OFGHLPM8n/YGVI/1wyK1iuYYUkivgxOb9CsU1RY6q2nIB
+         WthMbS0tX7f1t9aqq5Jv+bLwAn3D1J1RIS80WYQD1wgg7SSbtOD8zY94T85RAtbAf7Ci
+         Y2oMxfCNV/z0ZEYjX1h9PPYcyo2SBuK0s/KEgHsyAoafMFovN5P7heADs4Or6X0ajvMa
+         eM5Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753313420; x=1753918220;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=tO98iZ6qt69jUEbguy5HbBMQSIcZbgLgv2m3GdQZx/0=;
-        b=JhRLHg7CPF7v8xtqpP56D9n2iU+CO9kLjJK5UI7/1ITqqucFpGxZ5UWTzPfcTW0bao
-         eiBWDzxyxsuwNOgPSEANTxKRphxVuwDoKIr/JYMLCADqH3oteUYP9cwegOOkRH9EF8Dm
-         K3cm0qskm3WJuEDl705pFXvGwSWxv5ULIWG1/+UxnNQmMmOYH+KuaTwZmTSdpKy4rmJe
-         Fn0ZMjY/rlv3oAdeYvuyZMIuyYny2XCTqDBK/qmhZzy+KQEfb4KMEsauFdUXnATMi2na
-         YwKPkTqTdFX8mP29YH1VaewXEIIE6fX8BY/8BoTCnIayo0YMS4U4DaeHcQpvvqaVkDMR
-         ZyRQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVbOXj799N2HE7HEk5KDXQTH7OIHK5SgE43jPZPWu7X3LVMqHceeJJBh7FmjJMLU4Q9U+uLGLXdjzucdm0+CDzg@lists.infradead.org
-X-Gm-Message-State: AOJu0YzMcxN7g50/P4sv00cU1b2TYhpWlFEczjcfg7gTccb6dZ0RMCOO
-	EmwQ7TnK/cUiEcfXqYtsQztIMk/UACk47yCmUEImRBBXtDFbqs1iPYnM
-X-Gm-Gg: ASbGncuMEVqjOGRHs/FV0c2q9G+eD6S6b0mTHR/lQMh/L42TuWGfA1RSlIrdYF/WarT
-	TZUAfBTNKPaVD9RA8kT39hqZiLPEaud+Chk6lKe32NnLEnNlOC8QIOf6HmUYnWfK7Q9uglciMXk
-	8lHd1wKYwsSHz53EglYbkcrPDQKplAERSC74J2U5tPz2aQ7CTFAnck8F99woUrIXirSrpdMADmh
-	5PJCGSzYh4QfkAB7h8pEfLTgflD6bMLqHYqxA1xp8BOPvaIcq7fm5YsEogN0H9vTRdbgkHSjH6n
-	ex2RLyM9/ByTvrqZx/WcXjERyNe3buW4UMWhWtU6788Fq15acSHHbHXEK2IH1rsyD9VnJRrRFhe
-	AJfjEdmKqO0jJT4hdwAkBn9feF3KxJ2i6zM+yZuRZNO5ljpvtbtRuvV9Q+YuKCMlmNtJvqjnpzE
-	4=
-X-Google-Smtp-Source: AGHT+IHquOPa+liQqhO69zsGDdk2cs5CLA1oks7YvYmwOswhNilXRFUh4ud2Z4J4AOjCHvVS5OHHPA==
-X-Received: by 2002:a17:903:1b4d:b0:235:1706:1fe7 with SMTP id d9443c01a7336-23f9812b6c9mr72043025ad.4.1753313419923;
-        Wed, 23 Jul 2025 16:30:19 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1753313422; x=1753918222;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=PJcZT5sTnEC+iZOaFw42qNp6Oam8rPA+kK5DmNYfLB4=;
+        b=H25G/TPivn6xBTDGL8VjQVi7BuFcH+VEdTiGEe0+3iceb6F9x8GQ22JqA1c9E/F39i
+         /cpd2XQJr+rxhsjrGgi8HguTkpAT2ew+KTdlEBzTkMuIMBjFeTidqDjYgFTwkSVhokDG
+         pdEHnGGSUtWwpU0bI4drCYzoZNXYjQb6BlqVFB3On1Zplt9rmThGPrIdwK0e9jlqmIyF
+         DMBJctnHapqDMzS1fLijLJF3oStngY55V8My918xB2tAEvOrJS23VZgcFMyzlvSV72eo
+         Ekj+pNLsARdQCdaEpxzp4psf86VPXXA4hEB5xwkcIGGTSmPMtL0+XFaLsL+0Jd+QnN1c
+         yWyQ==
+X-Forwarded-Encrypted: i=1; AJvYcCW93ZdT5F3jYUEIhTiiXSdpZGU1aBsQnW+1U3dIvw24INgK6zbU/N+s/38TCijB2YgWFANaCGDg5QFjY8pn469F@lists.infradead.org
+X-Gm-Message-State: AOJu0YwjcJRazfX9b6SilzAb3JgM5z6IhzwqXwR9bedwZcV55JaCDVsK
+	PoW2sHvnD+lQgEadnZUPuVeyqkbyJvTv8jrk5J3xXsf5GO6/j/rbE+MQ
+X-Gm-Gg: ASbGncsi229E/8FB8NhWX85TGn096mocsyS4ebul0/aWKYz9/KEgffH9vmUJwe1Wuds
+	XXLYCZnvzTIHG/9n5wkSXs0q6w0/MghWNuWSCUrLHt4Tuf0sC3yUaIEOIPCn4Yh5xR+NSyZrMjm
+	RKCvUFAjd096ONzOHglJ4h4kpSbtKH6o6A/KqzdrZZEARrhwApT7utVnbknikdfiOutXpET/PtF
+	7ZnnNSZYOAiA6BVOIeEKkGAc4rv8pWqKnjTqjYGJ8vIn6jq3M1uqZhpXtQA+iklWpdpxnoPpzIS
+	/pJ9TERKH7VinyHWTcI2IDPZqHXGvYtXF5v/LWBTK5E3C3yNuQI4lU3pMEqqWJR9AOVTRDJRWE8
+	oUFstqkJPFx+GRHDI6lUIeOiI0UmjSr5pX0/z3BL9L2Tw4k61kVkqLjr6C/0NiiExXHWQzulXCi
+	w=
+X-Google-Smtp-Source: AGHT+IGSyr5vjHqYvqddRwSQUnOAlvyDwmDPLuFwE/6U7+8I2PtDzuTJhVb5R5FfzxoEVDx4YT0l1Q==
+X-Received: by 2002:a17:902:f151:b0:237:7802:da30 with SMTP id d9443c01a7336-23f981a83e8mr46507505ad.31.1753313421521;
+        Wed, 23 Jul 2025 16:30:21 -0700 (PDT)
 Received: from localhost.localdomain (c-76-133-73-115.hsd1.ca.comcast.net. [76.133.73.115])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23fa48bc6fbsm1260765ad.120.2025.07.23.16.30.18
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23fa48bc6fbsm1260765ad.120.2025.07.23.16.30.20
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 23 Jul 2025 16:30:19 -0700 (PDT)
+        Wed, 23 Jul 2025 16:30:21 -0700 (PDT)
 From: rentao.bupt@gmail.com
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -82,15 +83,17 @@ To: Rob Herring <robh@kernel.org>,
 	Andrew Lunn <andrew@lunn.ch>,
 	Tao Ren <taoren@meta.com>
 Cc: Tao Ren <rentao.bupt@gmail.com>
-Subject: [PATCH v3 00/13] ARM: dts: aspeed: Add Meta Darwin dts
-Date: Wed, 23 Jul 2025 16:29:56 -0700
-Message-ID: <20250723233013.142337-1-rentao.bupt@gmail.com>
+Subject: [PATCH v3 01/13] ARM: dts: aspeed: wedge400: Fix DTB warnings
+Date: Wed, 23 Jul 2025 16:29:57 -0700
+Message-ID: <20250723233013.142337-2-rentao.bupt@gmail.com>
 X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20250723233013.142337-1-rentao.bupt@gmail.com>
+References: <20250723233013.142337-1-rentao.bupt@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250723_163021_231905_71271B41 
-X-CRM114-Status: GOOD (  12.07  )
+X-CRM114-CacheID: sfid-20250723_163022_544548_44624632 
+X-CRM114-Status: GOOD (  11.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,59 +110,35 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Tao Ren <rentao.bupt@gmail.com>
 
-The patch series introduces the initial device tree for Meta/Facebook
-Darwin AST2600 BMC.
+Fix the deprecated spi-gpio properties in wedge400 dts.
 
-Patches #1, #2 and #3 fixes the DTB warnings in wedge400/fuji dts and
-ast2600-facebook-netbmc-common.dtsi.
+Signed-off-by: Tao Ren <rentao.bupt@gmail.com>
+---
+Changes in v3:
+  - None.
+Changes in v2:
+  - None (the patch is introduced in v2).
 
-Patch #4 moves eMMC entries from ast2600-facebook-netbmc-common.dtsi to
-each BMC platform because eMMC was removed from future Meta Network BMC
-platforms.
+ arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-wedge400.dts | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
-Patch #5 introduces new BMC flash layout with 64MB data partition.
-
-Patches #6, #7 and #8 add "wedge400-data64-bmc" board. "wedge400-bmc"
-and "wedge400-data64-bmc" are identical except BMC flash layout.
-
-Patches #9, #10 and #11 add "fuji-data64-bmc" board. "fuji-bmc" and
-"fuji-data64-bmc" are identical except BMC flash layout.
-
-Patches #12 and #13 add Meta Darwin BMC and updates devicetree
-bindings.
-
-Tao Ren (13):
-  ARM: dts: aspeed: wedge400: Fix DTB warnings
-  ARM: dts: aspeed: fuji: Fix DTB warnings
-  ARM: dts: aspeed: Fix DTB warnings in
-    ast2600-facebook-netbmc-common.dtsi
-  ARM: dts: aspeed: Move eMMC out of ast2600-facebook-netbmc-common.dtsi
-  ARM: dts: aspeed: Add facebook-bmc-flash-layout-128-data64.dtsi
-  dt-bindings: arm: aspeed: add Facebook Wedge400-data64 board
-  ARM: dts: aspeed: Add Facebook Wedge400-data64 (AST2500) BMC
-  ARM: dts: aspeed: wedge400: Include wedge400-data64.dts
-  dt-bindings: arm: aspeed: add Facebook Fuji-data64 board
-  ARM: dts: aspeed: Add Facebook Fuji-data64 (AST2600) Board
-  ARM: dts: aspeed: facebook-fuji: Include facebook-fuji-data64.dts
-  dt-bindings: arm: aspeed: add Facebook Darwin board
-  ARM: dts: aspeed: Add Facebook Darwin (AST2600) BMC
-
- .../bindings/arm/aspeed/aspeed.yaml           |    3 +
- arch/arm/boot/dts/aspeed/Makefile             |    3 +
- .../dts/aspeed/aspeed-bmc-facebook-darwin.dts |   72 +
- .../dts/aspeed/aspeed-bmc-facebook-elbert.dts |   12 +
- .../aspeed-bmc-facebook-fuji-data64.dts       | 1264 +++++++++++++++++
- .../dts/aspeed/aspeed-bmc-facebook-fuji.dts   | 1245 +---------------
- .../aspeed-bmc-facebook-wedge400-data64.dts   |  376 +++++
- .../aspeed/aspeed-bmc-facebook-wedge400.dts   |  366 +----
- .../ast2600-facebook-netbmc-common.dtsi       |   22 +-
- .../facebook-bmc-flash-layout-128-data64.dtsi |   60 +
- 10 files changed, 1804 insertions(+), 1619 deletions(-)
- create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-darwin.dts
- create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-fuji-data64.dts
- create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-wedge400-data64.dts
- create mode 100644 arch/arm/boot/dts/aspeed/facebook-bmc-flash-layout-128-data64.dtsi
-
+diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-wedge400.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-wedge400.dts
+index 5a8169bbda87..3e4d30f0884d 100644
+--- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-wedge400.dts
++++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-wedge400.dts
+@@ -75,9 +75,9 @@ spi_gpio: spi {
+ 		#size-cells = <0>;
+ 
+ 		cs-gpios = <&gpio ASPEED_GPIO(R, 2) GPIO_ACTIVE_LOW>;
+-		gpio-sck = <&gpio ASPEED_GPIO(R, 3) GPIO_ACTIVE_HIGH>;
+-		gpio-mosi = <&gpio ASPEED_GPIO(R, 4) GPIO_ACTIVE_HIGH>;
+-		gpio-miso = <&gpio ASPEED_GPIO(R, 5) GPIO_ACTIVE_HIGH>;
++		sck-gpios = <&gpio ASPEED_GPIO(R, 3) GPIO_ACTIVE_HIGH>;
++		mosi-gpios = <&gpio ASPEED_GPIO(R, 4) GPIO_ACTIVE_HIGH>;
++		miso-gpios = <&gpio ASPEED_GPIO(R, 5) GPIO_ACTIVE_HIGH>;
+ 		num-chipselects = <1>;
+ 
+ 		tpm@0 {
 -- 
 2.47.3
 
