@@ -4,69 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 083D9C83F25
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 05:08:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 049BAC83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 05:11:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9nN/wgLWV4/6RbrG4hZ9RMePW8FkpeBVdEvCLb+GB1Y=; b=SW/kx0Dgji9+GIgHOzmnp3uCYw
-	Hs8P9GzYi/n3t/7pJLG+uTcG986sqyF1eqvqbVG+FAUDgeOUiDITHHYs0WEM4pMFlxmP80HZZQNsK
-	Zk4AgizXHSXrYGgmtY+EOjFCmlP6i91k8RorV6L+FlFS1MaRYbzmk8TLOHQUEtr305Sti/xlGrfb8
-	a19CN6iyhXlTnXxZVth7N9Sc4GoLPalA6hCX+07mQ1vfpDwTU8LrKisWDc4VMjpftB29Ey65306bw
-	R2p92cyZEMkeue0xhHv1Med0F1Cg96ovD5esea89UjUFmQX7GaSDnFgkPfM1HmQwKtjXkbihfcyqg
-	nR+lTShg==;
+	bh=0FStFjQJRSnimXHyHWru2haWH8xozWmwOHfrR9egPvw=; b=tB3zwT1yI8oDUOoQ6gZruAfGX7
+	gszgKQWWlBKGZHmLPW9dvhwwDBUuUsB7xkgMOpf4nhSsB2T1/Mf/JAe+4Hqz6144vrdX6qF4RunDa
+	eJDAHlX0q/y2LRybyaqtP4S9zwHenV2bJtoDJIp4UzgR70qBxjirS0oJsdMOnVrTLovb9pb5DMqo7
+	T/noNDyky3/Kbsl2/U8mlShhLrdrvg+5iAQDlVHr3zHnHPaoR5hYhKlNPWlHxb8Xypbn9Aqx186YJ
+	RIoZOmGrEEGUHDNUWJYSucrTuBbqEY+SNdYD78r1nPGBJmCjzyPc5abcwg03OVYOS0euRIUcwlkgh
+	3H98oULA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueRib-000000042CM-3NG6;
-	Wed, 23 Jul 2025 05:08:41 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1ueRl3-000000042Pd-3qmK;
+	Wed, 23 Jul 2025 05:11:13 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueRdR-000000041sS-1LDK
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Jul 2025 05:03:22 +0000
+	id 1ueRdr-000000041w7-1PCG;
+	Wed, 23 Jul 2025 05:03:48 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 832C8A52920;
-	Wed, 23 Jul 2025 05:03:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA37BC4CEE7;
-	Wed, 23 Jul 2025 05:03:19 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 75495461FE;
+	Wed, 23 Jul 2025 05:03:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3714AC4CEE7;
+	Wed, 23 Jul 2025 05:03:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753247000;
-	bh=sGUgLIaP/Z0tvkzXFj01jJ3wxnd0SZ2j65uyOh60nU8=;
+	s=k20201202; t=1753247026;
+	bh=HNdcDInfR5691ALsx7YFA6KQ881CsZllB61Hu6dp+sc=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=FFgEIPu6EtnEWZfeCcl7APZas9ZV/jC40tp36n3EIp3UKg9u+eUDU/r7QPtMC6P4Q
-	 VQYwQyS/i9wKs4m6/WTcYuqrB42CNH3M1FmZ60WeahCovItnFKxozFtfertYHnbUac
-	 1lwlt44WaPTjHODh4/7ulZngjKNdV9IHvk7YzJ2a2DisyqywDmCHxM7+RXX2DV9Kvf
-	 eJdR7nLSOJbVCxJBS/E2+JMbiRVYS1KYhotkq+MFsBlK6p6BvbWdez+EGizC2tUBry
-	 fZE1OD8tADJ7hVdTk4vrrU/XxuL0AJT1jfF/IN1ljbMDcB1sJfPJT8xROh9fWCRdQk
-	 uv6LtbP0pa0MA==
-Date: Wed, 23 Jul 2025 00:03:19 -0500
-From: Rob Herring <robh@kernel.org>
-To: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-Cc: linux-kernel@vger.kernel.org, linux-amarula@amarulasolutions.com,
-	Conor Dooley <conor+dt@kernel.org>,
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
-	Fabio Estevam <festevam@gmail.com>, Haibo Chen <haibo.chen@nxp.com>,
+	b=T1eJpYtP362i6QpQB+Gyr3nVNU4ib/ncXo5a8bynYbCbVde1E4PIfSG1viBeQFXri
+	 rZLxYRWbemEoP9mMxnTuF8rtwfg06RtoWNz8PEsbqTHnts0Wd/mVt6y819T/xD6RuL
+	 mOFHzLVYKVP+pxhxcOYL4QotHxlwjOfbPo/CG7bHZ3R9w/FM9zzx8hvkrN+lR0uFOy
+	 8nlygR5DDHvtsEJREgk2Y0HvV+R97GxJwshMLUEnM+VMnSchUU/mvhERqjU8tbRDM3
+	 Tsen+b8Ztg/WXn7szBtQsSckYKxW5tObFakUNVKOcgxh8F21AF5wjxGYwH4C9rZreM
+	 w64dgibb0Ew6w==
+Date: Wed, 23 Jul 2025 00:03:45 -0500
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Xianwei Zhao <xianwei.zhao@amlogic.com>
+Cc: Liming Xue <liming.xue@amlogic.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Guillaume La Roque <glaroque@baylibre.com>,
+	linux-arm-kernel@lists.infradead.org,
+	Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-input@vger.kernel.org
-Subject: Re: [PATCH 2/4] dt-bindings: input: touchscreen: fsl,imx6ul-tsc: add
- fsl,glitch-threshold
-Message-ID: <20250723050319.GA1239529-robh@kernel.org>
-References: <20250722103706.3440777-1-dario.binacchi@amarulasolutions.com>
- <20250722103706.3440777-3-dario.binacchi@amarulasolutions.com>
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Lukasz Luba <lukasz.luba@arm.com>, Zhang Rui <rui.zhang@intel.com>,
+	linux-pm@vger.kernel.org
+Subject: Re: [PATCH v2 1/3] dt-bindings: thermal: amlogic: Add compatible
+ string for C3
+Message-ID: <175324702489.1243031.2642099886679126022.robh@kernel.org>
+References: <20250722-c3-thermal-v2-0-b2231b4be79e@amlogic.com>
+ <20250722-c3-thermal-v2-1-b2231b4be79e@amlogic.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250722103706.3440777-3-dario.binacchi@amarulasolutions.com>
+In-Reply-To: <20250722-c3-thermal-v2-1-b2231b4be79e@amlogic.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250722_220321_424731_8A7B5A57 
-X-CRM114-Status: GOOD (  17.12  )
+X-CRM114-CacheID: sfid-20250722_220347_394816_680E6D71 
+X-CRM114-Status: UNSURE (   9.08  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,56 +85,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 22, 2025 at 12:36:16PM +0200, Dario Binacchi wrote:
-> Add support for glitch threshold configuration. A detected signal is valid
-> only if it lasts longer than the set threshold; otherwise, it is regarded
-> as a glitch.
+
+On Tue, 22 Jul 2025 19:26:27 +0800, Xianwei Zhao wrote:
+> Add the compatible properties for Amlogic C3 SoC family.
+> C3 family supports only one thermal node - CPU thermal
+> sensor.
 > 
-> Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+> Signed-off-by: Liming Xue <liming.xue@amlogic.com>
+> Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
 > ---
+>  Documentation/devicetree/bindings/thermal/amlogic,thermal.yaml | 4 +++-
+>  1 file changed, 3 insertions(+), 1 deletion(-)
 > 
->  .../input/touchscreen/fsl,imx6ul-tsc.yaml      | 18 ++++++++++++++++++
->  1 file changed, 18 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/input/touchscreen/fsl,imx6ul-tsc.yaml b/Documentation/devicetree/bindings/input/touchscreen/fsl,imx6ul-tsc.yaml
-> index 678756ad0f92..2fee2940213f 100644
-> --- a/Documentation/devicetree/bindings/input/touchscreen/fsl,imx6ul-tsc.yaml
-> +++ b/Documentation/devicetree/bindings/input/touchscreen/fsl,imx6ul-tsc.yaml
-> @@ -62,6 +62,23 @@ properties:
->      description: Number of data samples which are averaged for each read.
->      enum: [ 1, 4, 8, 16, 32 ]
->  
-> +  fsl,glitch-threshold:
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    default: 0
-> +    enum: [ 0, 1, 2, 3 ]
-> +    description: |
-> +      Indicates the glitch threshold. The threshold is defined by number
-> +      of clock cycles. A detect signal is only valid if it is exist longer
-> +      than threshold; otherwise, it is regarded as a glitch.
-> +      0: Normal function: 8191 clock cycles
-> +         Low power mode: 9 clock cycles
-> +      1: Normal function: 4095 clock cycles
-> +         Low power mode: 7 clock cycles
-> +      2: Normal function: 2047 clock cycles
-> +         Low power mode: 5 clock cycles
-> +      3: Normal function: 1023 clock cycles
-> +         Low power mode: 3 clock cycles
 
-Don't we have common properties for this expressed in time? Debounce 
-time IIRC.
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 
-> +
->  required:
->    - compatible
->    - reg
-> @@ -94,4 +111,5 @@ examples:
->          measure-delay-time = <0xfff>;
->          pre-charge-time = <0xffff>;
->          touchscreen-average-samples = <32>;
-> +        fsl,glitch-threshold = <2>;
->      };
-> -- 
-> 2.43.0
-> 
 
