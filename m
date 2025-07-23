@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D4C7C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 14:53:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB795C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 14:56:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hnXBrp6nZj1igjITrTimshdIDwjv73qcH+GOPbSCUXk=; b=DO5OLKfxyseeH0ayNlVdCv5kge
-	pYLRzTLoGRwsNBjsDbGa9sv5QgWCyq32I4prMVcQS1IZ+bxOW76HLLbg5nK9yuO/YWcexA1o9N3B4
-	FlnzwyoARtuAVv/gVJwNkBhjOU+uW03EkUIPsSslB2NkVKZHDSYuDdFWlWCNA9wTRkzKGwSnAUQhD
-	VI4quonQ0CQbvcjQ+ILFp/gIuRy1agTpkY7Iwog5E5QKJYVDHJHxx8R2IuqimnApCpexxMUY3lH2q
-	YmusCPNQncQscTpW0Eg8rDAuKAt6zjR5CCy5i2e4XuX6rDIq66GLsBRfzxntLtaf9K7FgCRyzZUKm
-	Ilg9lCJQ==;
+	bh=wGnkEZQrJ+KCotninbE6PxpnOQMilZmp9uMJbvlcMQ8=; b=mH7Ads9w/t7NQI7e38aE+dj+WK
+	E6mSw/aMDn+D4wYEt+k/z/WcJTKYJA9dfCCMTYjImd4MxETU1jfoRmq6bXXJcrhwTaw6rV8MucPax
+	+MeaoBC+wXh4Yg3y8AeduE9MjtK67Kfpi+W2TvB/pz7AGLVx19fHYHLJxM89HNYkqJ5/YECYR39z4
+	QSA19D0ZOjBJ+U5ADycp7sxmup2w7wTO/QTtKbGXkAu0sK04TIzsuiFWsJPa1dEHG9R/osKUprgIe
+	KB+95oFxDeOxmpPMeCfeO+WTly0LUTaroAsGt+E+jfaiG3D3c6H1SZ5d0Chz+lP09QpwfeMC7igWu
+	0OvK4Whg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueaqX-00000005HYx-0iJk;
-	Wed, 23 Jul 2025 14:53:29 +0000
+	id 1ueat0-00000005IDv-2e02;
+	Wed, 23 Jul 2025 14:56:02 +0000
 Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uea35-000000058Ri-3klp
+	id 1ueaO8-00000005C0Z-1ima
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Jul 2025 14:02:25 +0000
+	Wed, 23 Jul 2025 14:24:09 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
 	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
 	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
 	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=hnXBrp6nZj1igjITrTimshdIDwjv73qcH+GOPbSCUXk=; b=gdY94EqZaE3KR5jXzRnewjo9j5
-	dUhX3/ZwF3t7tQ4kLjRQ80zgcsHZwbSkawzNvRgELZGmeQNNoi48mr4P3YBz1mIcSQbeHy1MooEf2
-	hRQNbLaUae0+pOCg6XV7N9BQQ9gLi593mxlmQeeNAuui0kCR8nF763Il9lhWAOPOhSZI=;
+	bh=wGnkEZQrJ+KCotninbE6PxpnOQMilZmp9uMJbvlcMQ8=; b=g8TAycskRftknN7I5qk+Oh1vKa
+	XMC4Bjn7iTfccsiY/vnnITO0PQk7GPx6zLqJLGwhzTxL6ojmsFudhTCkxcPWwZUefUvfMXt+R8PBp
+	BUDjLcdZFuXBBGXSRzWF1jCV8F/TP/P6zPwioNQfXHGfuwfUx9PwuBmPesqPQ1gmisFU=;
 Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
 	(envelope-from <andrew@lunn.ch>)
-	id 1uea2m-002aZn-6G; Wed, 23 Jul 2025 16:02:04 +0200
-Date: Wed, 23 Jul 2025 16:02:04 +0200
+	id 1ueaNv-002b7y-9m; Wed, 23 Jul 2025 16:23:55 +0200
+Date: Wed, 23 Jul 2025 16:23:55 +0200
 From: Andrew Lunn <andrew@lunn.ch>
 To: "Russell King (Oracle)" <linux@armlinux.org.uk>
 Cc: Gatien CHEVALLIER <gatien.chevallier@foss.st.com>,
@@ -62,8 +62,9 @@ Cc: Gatien CHEVALLIER <gatien.chevallier@foss.st.com>,
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
 Subject: Re: [PATCH net-next 1/4] dt-bindings: net: document st,phy-wol
  property
-Message-ID: <dea45ecd-c183-426b-abae-12220a2b6827@lunn.ch>
-References: <f5c4bb6d-4ff1-4dc1-9d27-3bb1e26437e3@foss.st.com>
+Message-ID: <9f00a6cf-c441-4b4c-84ca-5c41e6f0a9d9@lunn.ch>
+References: <faea23d5-9d5d-4fbb-9c6a-a7bc38c04866@kernel.org>
+ <f5c4bb6d-4ff1-4dc1-9d27-3bb1e26437e3@foss.st.com>
  <e3c99bdb-649a-4652-9f34-19b902ba34c1@lunn.ch>
  <38278e2a-5a1b-4908-907e-7d45a08ea3b7@foss.st.com>
  <5b8608cb-1369-4638-9cda-1cf90412fc0f@lunn.ch>
@@ -72,14 +73,13 @@ References: <f5c4bb6d-4ff1-4dc1-9d27-3bb1e26437e3@foss.st.com>
  <aH_yiKJURZ80gFEv@shell.armlinux.org.uk>
  <ae31d10f-45cf-47c8-a717-bb27ba9b7fbe@lunn.ch>
  <aIAFKcJApcl5r7tL@shell.armlinux.org.uk>
- <aIAKAlkdB5S8UiYx@shell.armlinux.org.uk>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <aIAKAlkdB5S8UiYx@shell.armlinux.org.uk>
+In-Reply-To: <aIAFKcJApcl5r7tL@shell.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250723_070223_942668_7CD80E23 
-X-CRM114-Status: GOOD (  19.51  )
+X-CRM114-CacheID: sfid-20250723_072408_451125_04DF552E 
+X-CRM114-Status: GOOD (  16.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,34 +94,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> I've just read a bit more of the RTL8211F datasheet, and looked at the
-> code, and I'm now wondering whether WoL has even been tested with
-> RTL8211F. What I'm about to state doesn't negate anything I've said
-> in my previous reply.
-> 
-> 
-> So, the RTL8211F doesn't have a separate PMEB pin. It has a pin that
-> is shared between "interrupt" and "PMEB".
-> 
-> Register 22, page 0xd40, bit 5 determines whether this pin is used for
-> PMEB (in which case it is pulsed on wake-up) or whether it is used as
-> an interrupt. It's one or the other function, but can't be both.
+> We can't retrofit such detection into PHY drivers - if we do so, we'll
+> break WoL on lots of boards (we'd need to e.g. describe PMEB in DT for
+> RTL8211F PHYs. While we can add it, if a newer kernel that expects
+> PMEB to be described to allow WoL is run with an older DT, then that
+> will be a regression.) Thus, I don't see how we could retrofit PHY
+> WoL support detection to MAC drivers.
 
-This sounds familiar.
+WoL is a mess. I wounder on how many boards it actually works
+correctly? How often is it tested?
 
-> rtl8211f_set_wol() manipulates this bit depending on whether
-> WAKE_MAGIC is enabled or not.
-> 
-> The effect of this is...
-> 
-> If we're using PHY interrupts from the RTL8211F, and then userspace
-> configures magic packet WoL on the PHY, then we reconfigure the
-> interrupt pin to become a wakeup pin, disabling the interrupt
-> function - we no longer receive interrupts from the RTL8211F !!!!!!!
+I actually think this is similar to pause and EEE. Those were also a
+mess, and mostly wrongly implemented. The solution to that was to take
+as much as possible out of the driver and put it into the core,
+phylink.
 
-Ah. I thought that switch happened in the PHY driver suspend() call,
-and it gets restored in the resume() call? That does required that
-suspend/resume actually gets called despite WoL being enabled...
+We probably want a similar solution. The MAC driver indicates its WoL
+capabilities to phylink. The PHY driver indicates its capabilities to
+phylink. phylink implements all the business logic, and just tells the
+PHY what it should enable, and stay awake. phylink tells the MAC what
+is should enable, and that it should stay awake.
+
+Is this going to happen? Given Russell limited availability, i guess
+not. It needs somebody else to step up and take this on. Are we going
+to break working systems? Probably. But given how broken this is
+overall, how much should we actually care? We can just fix up systems
+as they are reported broken.
+
+I also think WoL, pause and EEE is a space we should have more tests
+for. To fully test WoL and pause you need a link partner, but i
+suspect you can do some basic API tests without one. WoL you
+definitely need a link partner. So this makes testing a bit more
+difficult. But that should not stop the community from writing such
+tests and making them available for developers to use.
 
 	Andrew
 
