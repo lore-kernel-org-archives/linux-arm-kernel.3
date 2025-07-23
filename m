@@ -4,62 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B4B2C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 04:21:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C989C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Jul 2025 04:39:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yeNE89I3TIoOLqZdBpotgC3Ct9wIgGnac/QHuyMvn8Q=; b=y6u0yv+3Pg0/10SY40jLolzGLg
-	WjGIoa9nMwvWQgEqvIZGiIcEyGsgvOQMxZgNWLoNecDDgqlhKbcZuK3pW1Isxsky0G559uXNcfHN0
-	x6UD6B/CxJDR0yBXwfFbxZ9IXIvyfaPz5XtddWt9zAXhzEni3T8WAgsZz6pdGXBWTf/LnSzIRlICk
-	GrU5YFLSRFQNxK7vH/dlr1kWX0dZWqFxPRK27tRApsX3YtGa8eKP2cr6+jJqTQMdGk2rGwm5SCyWz
-	X16n68xRXvQd+Qrrs+CysB0mw1E7tuGH+GN3G88ggRQosdLOkFMLMQKvSKVvuSPyT66utQJ+anBM1
-	nNu4OZfQ==;
+	bh=kPfG3FnCj8t21Imaz+iRcuc2oJBUPOTz9xwgz75vhYQ=; b=lfQ8dFQAV6RVDg/UGgzaVsakgZ
+	tXx80bnaY5GrT45ZnFPUejgK5zcgHM74Ju9c/bnI/u7cZP78hsFapV6a1pU5n7EAZr+cwJWNiUzdd
+	hh5lZee/rHmIwKBpDnh5p16/SRvoDpfxKXk3bE1WpBkUTtWJrCaU2Bg1Twiul4pCZHGQ90DPM7xuZ
+	JhhFIJ6uebb6WsAu64407ya+Zvn724pQr4hilxlbr6QGRENmikqURi1zNHXhTMySkxHFb8L9Yncpi
+	pZrCokPZIniNoYw+frw4/Jqaxz9XQgnAFCYJ65erEGOkV9h9YuLg3ksw1ox8LDT9Iw9szidAw+xF9
+	okSu4zPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueQz7-00000003yyL-0a2O;
-	Wed, 23 Jul 2025 04:21:41 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1ueRGF-00000003zoi-2m4L;
+	Wed, 23 Jul 2025 04:39:23 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueQwd-00000003ykf-0MKy
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Jul 2025 04:19:08 +0000
+	id 1ueRDm-00000003zeF-2qMS;
+	Wed, 23 Jul 2025 04:36:51 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 72FE75C47CE;
-	Wed, 23 Jul 2025 04:19:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 03AC9C4CEE7;
-	Wed, 23 Jul 2025 04:19:05 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id EB38741B32;
+	Wed, 23 Jul 2025 04:36:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9522DC4CEE7;
+	Wed, 23 Jul 2025 04:36:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753244346;
-	bh=GacNtb7sskwb36O4NWQBdsR5VCTCEGIjnMoDH5/Rf+g=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=n4Ywp0M+HOmdlM2E2S1SUOJyvHJFHYQoVbYrlxUQgtibf2i+wnBM6r3ufWFqFnjut
-	 6OvIniy+jzyYeK27UyZCdmNJKPC9zoSppxpwA5kbsWMwJMZot95doY54YCP6Zc4obb
-	 HPIg9aahsrcdeGtXWVh+mosSroHorTEQBX5c7HnBXNliSwVwE5EKHJkO/bBCwi0iQ1
-	 8wT9+2NDOwcKwA0bZflhf3hREsifLsJHJk1vvprGfkVYOXSaM4nbAO7ZzEcXxAWUkz
-	 /AD1kQ6eKF75vmjOezJc7/g7QtNpEXeRlfZiDqKtnBmXRF9LwfxelSD1Y7gjR0s4Km
-	 w9kWO4QZ2L+qQ==
-Date: Tue, 22 Jul 2025 23:19:05 -0500
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	s=k20201202; t=1753245408;
+	bh=p74UQxL37h+qr7qVg6gSZ2EFfhn9ij8y2knb2vj/tS8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=u1XN4AoV+19gzg+G2YbU+hc/5erT24ot/DxijuT5PquMvXxd0voSi4pYmNhYNYlay
+	 tf+D35Tmv1hZ9SLgaHfsHMi0D//H90Ex3RKRvJH1PyTpQuIbkbkMQBq05sJlF6ANMx
+	 24DT9D8dQEldXjTNMGs1qgOO9ztMvWu7BklOD6yol70cNf14MbdqLDFf05hQ1wufVL
+	 lvS3gKMBL3nTvdQbIxF4hl4tvSiXp4IwZBL2V+sCCkBo5GTFe1joPPXqfntqFnFhGR
+	 Kbugk5NGriYPyTexgIjzph/fXP7ywPccDyMzIapaH5XlwBc4DCKBDw5YeveLMNl1pt
+	 OtqntMnO4l1CQ==
+Date: Tue, 22 Jul 2025 23:36:47 -0500
+From: Rob Herring <robh@kernel.org>
+To: Erik Beck <xunil@tahomasoft.com>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/2 v2a]: New board support,LinkStar-H68k-1432v1 (RK3568)
+Message-ID: <20250723043647.GA1201956-robh@kernel.org>
+References: <20250721201640.233818-1-xunil@tahomasoft.com>
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: conor+dt@kernel.org, krzk+dt@kernel.org, linux-kernel@vger.kernel.org, 
- joel@jms.id.au, linux-arm-kernel@lists.infradead.org, 
- andrew@codeconstruct.com.au, linux-aspeed@lists.ozlabs.org, 
- devicetree@vger.kernel.org
-To: Donald Shannon <donalds@nvidia.com>
-In-Reply-To: <20250723014239.22667-1-donalds@nvidia.com>
-References: <20250723014239.22667-1-donalds@nvidia.com>
-Message-Id: <175324420395.1136488.7622581130155119218.robh@kernel.org>
-Subject: Re: [PATCH v6 0/2] Adding device tree and binding for NVIDIA
- GB200-UT3.0b
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250721201640.233818-1-xunil@tahomasoft.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250722_211907_206257_84B55924 
-X-CRM114-Status: GOOD (  23.13  )
+X-CRM114-CacheID: sfid-20250722_213650_738515_95290416 
+X-CRM114-Status: GOOD (  12.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,161 +73,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, Jul 21, 2025 at 04:16:37PM -0400, Erik Beck wrote:
+> Signed-off-by: Erik Beck <xunil@tahomasoft.com>
 
-On Tue, 22 Jul 2025 18:42:37 -0700, Donald Shannon wrote:
-> Patch 1 adds the binding for the NVIDIA GB200-UT3.0b platform.
-> Patch 2 adds the device tree for the NVIDIA GB200-UT3.0b platform.
-> 
-> This is an Aspeed AST2600 based unit testing platform for GB200.
-> UT3.0b is different than nvidia-gb200nvl-bmc due to networking topology
-> differences, additional gpio expanders, and voltage regulator gating
-> some devices.
-> 
-> Reference to Ast2600 SOC [1].
-> Reference to Blackwell GB200NVL Platform [2].
-> 
-> Link: https://www.aspeedtech.com/server_ast2600/ [1]
-> Link: https://nvdam.widen.net/s/wwnsxrhm2w/blackwell-datasheet-3384703 [2]
-> Signed-off-by: Donald Shannon <donalds@nvidia.com>
+The threading of your emails is messed up. This is the only one in the 
+thread. You need a commit messsage. Perhaps it can explain about this 
+device/board some.
+
 > ---
-> Changes v1 -> v2:
->   - Changed phy-mode to rgmii-id [Lunn]
->   - Removed redundant max-speed for mac0 [Lunn]
->   - Fixed typo from gb200nvl to gb200 in Makefile
-> Changes v2 -> v3:
->  - Fixed whitespace issues [Krzysztof]
->  - Fixed schema validation issues from my end ( there are still issues
->  with the aspeed dtsi file that are not related to this new dts)
->  [Herring]
->  - Reordered to follow style guide [Krzysztof]
->  - Removed redundant status okays
->  - Changed vcc to vdd for the power gating on the gpio expanders
-> Changes v3 -> v4:
->   - Added changelog [Krzysztof]
->   - Added nvidia,gb200-ut30b board binding [Krzysztof]
->   - Removed unused imports
->   - Reordered a couple other style guide violations
->   - Added back in a couple needed "status okay"s
-> Changes v4 -> v5:
->  - Resumed my patch after a pause
->  - Don't plan to make this include of nvidia-gb200nvl-bmc due to some
->  platform differences
->  - Fixed io expanders that weren't gated by the 3.3V standby regulator
->  - Fixed incorrect interrupt pin for one IO expander
->  - Removed some IO expanders and I2C busses
-> Changes v5 -> v6:
->  - Fixed subject line
->  - Added missing gpio-key compatible type to buttons
-> ---
+>  Documentation/devicetree/bindings/arm/rockchip.yaml | 5 +++++
+>  1 file changed, 5 insertions(+)
 > 
-> Donald Shannon (2):
->   dt-bindings: arm: aspeed: Add NVIDIA GB200-UT3.0b  board
->   ARM: dts: aspeed: Add NVIDIA GB200 UT3.0b board
-> 
->  .../bindings/arm/aspeed/aspeed.yaml           |    1 +
->  arch/arm/boot/dts/aspeed/Makefile             |    1 +
->  .../aspeed/aspeed-bmc-nvidia-gb200-ut30b.dts  | 1028 +++++++++++++++++
->  3 files changed, 1030 insertions(+)
->  create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dts
-> 
-> 
-> base-commit: 05adbee3ad528100ab0285c15c91100e19e10138
-> --
+> diff --git a/Documentation/devicetree/bindings/arm/rockchip.yaml b/Documentation/devicetree/bindings/arm/rockchip.yaml
+> index 5772d905f390..7f3904b69293 100644
+> --- a/Documentation/devicetree/bindings/arm/rockchip.yaml
+> +++ b/Documentation/devicetree/bindings/arm/rockchip.yaml
+> @@ -1109,6 +1109,11 @@ properties:
+>            - const: rockchip,rk3588-toybrick-x0
+>            - const: rockchip,rk3588
+>  
+> +      - description: Seeed LinkStar H68K-1432v1 RK3568
+> +        items:
+> +          - const: seeed,rk3568-linkstar-h68k-1432v1
+> +          - const: rockchip,rk3568
+> +
+>        - description: Sinovoip RK3308 Banana Pi P2 Pro
+>          items:
+>            - const: sinovoip,rk3308-bpi-p2pro
+> -- 
 > 2.43.0
 > 
-> 
-> 
-
-
-My bot found new DTB warnings on the .dts files added or changed in this
-series.
-
-Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
-are fixed by another series. Ultimately, it is up to the platform
-maintainer whether these warnings are acceptable or not. No need to reply
-unless the platform maintainer has comments.
-
-If you already ran DT checks and didn't see these error(s), then
-make sure dt-schema is up to date:
-
-  pip3 install dtschema --upgrade
-
-
-This patch series was applied (using b4) to base:
- Base: using specified base-commit 05adbee3ad528100ab0285c15c91100e19e10138
-
-If this is not the correct base, please add 'base-commit' tag
-(or use b4 which does this automatically)
-
-New warnings running 'make CHECK_DTBS=y for arch/arm/boot/dts/aspeed/' for 20250723014239.22667-1-donalds@nvidia.com:
-
-arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-everest.dtb: /ahb/apb/fsi@1e79b000/cfam@0,0/hub@3400/cfam@5,0/hub@3400: failed to match any schema with compatible: ['fsi-master-hub']
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: timer (arm,armv7-timer): 'clocks' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/timer/arm,arch_timer.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: /sdram@1e6e0000: failed to match any schema with compatible: ['aspeed,ast2600-sdram-edac', 'syscon']
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: bus@1e600000 (aspeed,ast2600-ahbc): compatible: ['aspeed,ast2600-ahbc', 'syscon'] is too long
-	from schema $id: http://devicetree.org/schemas/bus/aspeed,ast2600-ahbc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-opp-zaius.dtb: /gpio-fsi/cfam@0,0/i2c@1800: failed to match any schema with compatible: ['ibm,fsi-i2c-master']
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: syscon@1e6e2000 (aspeed,ast2600-scu): 'smp-memram@180' does not match any of the regexes: '^interrupt-controller@[0-9a-f]+$', '^p2a-control@[0-9a-f]+$', '^pinctrl(@[0-9a-f]+)?$', '^pinctrl-[0-9]+$', '^silicon-id@[0-9a-f]+$'
-	from schema $id: http://devicetree.org/schemas/mfd/aspeed,ast2x00-scu.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: /ahb/apb/syscon@1e6e2000/smp-memram@180: failed to match any schema with compatible: ['aspeed,ast2600-smpmem']
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: /ahb/apb/display@1e6e6000: failed to match any schema with compatible: ['aspeed,ast2600-gfx', 'syscon']
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: adc@1e6e9000 (aspeed,ast2600-adc0): 'interrupts' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/iio/adc/aspeed,ast2600-adc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: adc@1e6e9100 (aspeed,ast2600-adc1): 'interrupts' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/iio/adc/aspeed,ast2600-adc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: crypto@1e6fa000 (aspeed,ast2600-acry): 'aspeed,ahbc' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/crypto/aspeed,ast2600-acry.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: lpc@1e789000 (aspeed,ast2600-lpc-v2): reg-io-width: 4 is not of type 'object'
-	from schema $id: http://devicetree.org/schemas/mfd/aspeed-lpc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: lpc@1e789000 (aspeed,ast2600-lpc-v2): lpc-snoop@80: 'clocks' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/mfd/aspeed-lpc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: kcs@24 (aspeed,ast2500-kcs-bmc-v2): 'clocks' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-kcs-bmc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: kcs@28 (aspeed,ast2500-kcs-bmc-v2): 'clocks' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-kcs-bmc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: kcs@2c (aspeed,ast2500-kcs-bmc-v2): 'clocks' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-kcs-bmc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: kcs@114 (aspeed,ast2500-kcs-bmc-v2): 'clocks' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-kcs-bmc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: /ahb/apb/lpc@1e789000/lhc@a0: failed to match any schema with compatible: ['aspeed,ast2600-lhc']
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: /ahb/apb/lpc@1e789000/ibt@140: failed to match any schema with compatible: ['aspeed,ast2600-ibt-bmc']
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: sdc@1e740000 (aspeed,ast2600-sd-controller): sdhci@1e740100:compatible: ['aspeed,ast2600-sdhci', 'sdhci'] is too long
-	from schema $id: http://devicetree.org/schemas/mmc/aspeed,sdhci.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: sdc@1e740000 (aspeed,ast2600-sd-controller): sdhci@1e740200:compatible: ['aspeed,ast2600-sdhci', 'sdhci'] is too long
-	from schema $id: http://devicetree.org/schemas/mmc/aspeed,sdhci.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: /ahb/apb/sdc@1e740000/sdhci@1e740100: failed to match any schema with compatible: ['aspeed,ast2600-sdhci', 'sdhci']
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: /ahb/apb/sdc@1e740000/sdhci@1e740200: failed to match any schema with compatible: ['aspeed,ast2600-sdhci', 'sdhci']
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: fsi@1e79b000 (aspeed,ast2600-fsi-master): compatible: ['aspeed,ast2600-fsi-master', 'fsi-master'] is too long
-	from schema $id: http://devicetree.org/schemas/fsi/aspeed,ast2600-fsi-master.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: /ahb/apb/fsi@1e79b000: failed to match any schema with compatible: ['aspeed,ast2600-fsi-master', 'fsi-master']
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: fsi@1e79b100 (aspeed,ast2600-fsi-master): compatible: ['aspeed,ast2600-fsi-master', 'fsi-master'] is too long
-	from schema $id: http://devicetree.org/schemas/fsi/aspeed,ast2600-fsi-master.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: /ahb/apb/fsi@1e79b100: failed to match any schema with compatible: ['aspeed,ast2600-fsi-master', 'fsi-master']
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: /ahb/apb/dma-controller@1e79e000: failed to match any schema with compatible: ['aspeed,ast2600-udma']
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: buttons (gpio-keys): button-power: 'anyOf' conditional failed, one must be fixed:
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: buttons (gpio-keys): button-power: 'oneOf' conditional failed, one must be fixed:
-		'interrupts' is a required property
-		'interrupts-extended' is a required property
-	'gpios' is a required property
-	from schema $id: http://devicetree.org/schemas/input/gpio-keys.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: buttons (gpio-keys): button-power: 'linux,code' is a required property
-	from schema $id: http://devicetree.org/schemas/input/gpio-keys.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: buttons (gpio-keys): button-power: Unevaluated properties are not allowed ('gpio' was unexpected)
-	from schema $id: http://devicetree.org/schemas/input/gpio-keys.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: buttons (gpio-keys): button-uid: 'anyOf' conditional failed, one must be fixed:
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: buttons (gpio-keys): button-uid: 'oneOf' conditional failed, one must be fixed:
-		'interrupts' is a required property
-		'interrupts-extended' is a required property
-	'gpios' is a required property
-	from schema $id: http://devicetree.org/schemas/input/gpio-keys.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: buttons (gpio-keys): button-uid: 'linux,code' is a required property
-	from schema $id: http://devicetree.org/schemas/input/gpio-keys.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: buttons (gpio-keys): button-uid: Unevaluated properties are not allowed ('gpio' was unexpected)
-	from schema $id: http://devicetree.org/schemas/input/gpio-keys.yaml#
-
-
-
-
-
 
