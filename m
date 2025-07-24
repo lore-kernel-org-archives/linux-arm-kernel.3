@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72273C83F26
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A239FC87FCA
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 15:28:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,63 +12,63 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lJKFOh1t0BpMtsqdCvtkoNZefWX67AppBNjz3MRLfF4=; b=RXyHayP4z6rmq8nf4ZMXrhP3CG
-	9gk4ErzS7+DAxOmNSp92ha+YlpqhHKyzHAUO2I1VYoHIKBYUZNYecn5Xz1t8UptQS+XDgyNkUzDVk
-	MU/Ca7DpjXy+aMZXbKs2updE+FgltlAn5JJCUcQika4HmJZQ50cWGpGk5kPoFZPo/haxcP4U9b8hT
-	+Gfmn3U2sU0d8ULo6bae2meHhTThICq1rFyC/Gj3R1XBxNnU3E2FI3XuKf6A5jq9aS5w/uhjiXVJt
-	sVQ4Ccq6f0pMaP2er5w6XaZivZ3tA/6kDurp7AcXi+iZTcdXynFIoHDqjXpRP11rh/OGoEs/NVENW
-	8IeXVmOQ==;
+	bh=phPxbutaSa2cHj8lQiAqRNXIpOiUr1sfgJg1sLmhr6Q=; b=mJRhjcIfxFDP3BzfxxSzOOmlOh
+	1fLkUnKjn48BBiwum9xKlfWYEiHXbOZ3919Hyge8rwMoQZqaZRoxIEOJE3LbmrpCDMBw0Gi/WyKdY
+	iO2/oNUn2UHIm1qXCYAlD8Y9bKwZiZiUFjl/u2UtGeyvy2BWuxNMeVlhLnK6GnjM8X4KbJ3YGCpKA
+	Hq04upUc7mYelcVRVHvnecxnSKkx4QGX3Fyv+kl45AQ9KCK2kgWFmmmlx+0RMeLIg2OXOxX84VokO
+	GPhYJPPz5lObgGb+YmPOgt4yAs0/wKC6Qo3Q4YWNl9K4Il7HRxfdF/zHizW+EfW4tJOc+BjKiLVf4
+	PCBA/OVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uexrU-00000007rGb-3HtF;
-	Thu, 24 Jul 2025 15:28:00 +0000
-Received: from mail-wm1-f43.google.com ([209.85.128.43])
+	id 1uexrT-00000007rEa-3NMW;
+	Thu, 24 Jul 2025 15:27:59 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uewR6-00000007er5-1zct
+	id 1uewR5-00000007eqd-0vCs
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Jul 2025 13:56:41 +0000
-Received: by mail-wm1-f43.google.com with SMTP id 5b1f17b1804b1-455b00339c8so6846115e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Jul 2025 06:56:40 -0700 (PDT)
+	Thu, 24 Jul 2025 13:56:40 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-4561ed868b5so7221845e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Jul 2025 06:56:38 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1753365399; x=1753970199; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1753365398; x=1753970198; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=lJKFOh1t0BpMtsqdCvtkoNZefWX67AppBNjz3MRLfF4=;
-        b=X9VvbsC8AR0/s/0rgeWUBkPMrIkYk50GokGVjxXhzxyGIDqW+9PhzTqwhkTDmF5urP
-         rmrVyB/Y0r/FP32OVgTGIrtLaOs3nCpX9+rdY7li/8YB4aZ0WKQLOuEzKzI5GAHDsKO8
-         Pex2tsM/EXIE2cPpjcQZd9+/QID/h8rHPYj+9EaxJLWX8kEuU7sdWVRRdQMZbT1mUc0X
-         BBzA2b7hvDCIno+67x6AWTfVdyuVZmgdwt5lj3DeOqukHFj652kU2vD2K1QhsanAGbBM
-         GDhnl6P7AjfG/6Qi7ibveKyJQO2afucb0z66UjsX8PNcOHKHfmjkxKO2YRRq72ZWRYkq
-         KWBA==
+        bh=phPxbutaSa2cHj8lQiAqRNXIpOiUr1sfgJg1sLmhr6Q=;
+        b=EFcGovTxvCsE8JLkBqSeroqoUNZ2kRpCIji50mvSn65UOzjTYA9J1Um/IYrCQpGvXH
+         qu58ozZIAL9tpznjvkNSWi2epqyZ0Z+51mpZ0vgBrWGX2rPc6u0DksqtmfO8QvNhglf4
+         h/OwbrWpJJHZJENR75QsdEDzlnh9Qj/ykZ3bA9QyKFnzqg8fKvoPQ/lCk3LyIg5VbBPd
+         Uaw8W79VThPtB8TVUniOdhDvCecgxnjhj9fX/gntWXI8slcxfqEU1wnzDsUasM8qrIdA
+         HLO4ieiLszP69wIbUelBvc7lvF/QRMOkYj9CBfD2pqZgORrG/yGPGTrUgydLC8xdGAQL
+         p18A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753365399; x=1753970199;
+        d=1e100.net; s=20230601; t=1753365398; x=1753970198;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=lJKFOh1t0BpMtsqdCvtkoNZefWX67AppBNjz3MRLfF4=;
-        b=gCtOaBg7IQbZEAhHGoHZW44u5v8ub6RvTdICLPgtFff5CLBgcq9icfF/7ppX9j2LXx
-         zazYIIeS/3dHQti16IMw5XKYbbhaF2j19UOWBizntTTkEF9UbeST/v5NCPfIX7yzMEDe
-         8eSDHe7GNIojFMoOz6wKae5HYBfYkFdaVle8j0B8m2+mlZy3JjtjUj3NRs6tlNK3wdZH
-         pzhZvE9DzDVPSGrH38QN7eB0BPQM1W8IIt4hbfpRjcZMTGnitU1sE+DZXHSoD/X4JrC/
-         bMveBi3jTpLoCm3gVeIbEWYhNuiuUJEd1c/hYbOkz8KvVK+aYOKt30eGDvrwMMn0GN+A
-         y3XA==
-X-Gm-Message-State: AOJu0YzWTC1yxeYo7RKP0mydNyo2hR4xahRq+9uQ4nn4cP++Lj29dXWF
-	5p3DOQVMDWYL6uKvreOT9R0vs/VrEZfkoODMtvX4EBlQdcGZpyseTnqe97oYYVMFfao=
-X-Gm-Gg: ASbGncsjR86jK66ioAFN8oQDMTb3M4WCPinFqjGK0CMY5QysuwVdd7+LifYYUpsSEgz
-	nDjdD2DUvqIPbTux4z8wCJcAGLbcrzJNeBzKh0U2NTHjcGANxFksGVq3/1QtEUyuj1SeXyOP4qy
-	xcvzkVQeNlerF2rLkRWHOgAi5P4yKUq1ZOl+d0Wje6Y2xDTuoRv7bDPZeg5qNBTQp5zVdEtycXP
-	67pfxg1pjxqgzY0vNjRmJPvIdEg7qbhmridkouLvMnhDwD4QL4HR5Wir57meWhBPSMIwKWzuvyj
-	5sFe0sW+dRpyH6w0DUX6S1bM76xDtqo4Tl6Z7MO65wONlzzl6ekvgxUmW/YoRqGfYM6XPG2rTD0
-	dFxm0UmC3CGLjY3FZ3e93T9h76cF5BYcXVIZkIFULpYn6JuEOt+KL9ERDvuW9SjL96waUMw0ptn
-	rmV5Ur7REcPpWG
-X-Google-Smtp-Source: AGHT+IFBpfszojCM9BH8+214LoTonUL/68z7rgbLH3wV7lPKq/S6zSGoTIX7zNxB5lRzwaUzCOOn2w==
-X-Received: by 2002:a05:600c:3ba0:b0:456:8eb:a35c with SMTP id 5b1f17b1804b1-4586ef5cdb4mr25803445e9.31.1753365398629;
-        Thu, 24 Jul 2025 06:56:38 -0700 (PDT)
+        bh=phPxbutaSa2cHj8lQiAqRNXIpOiUr1sfgJg1sLmhr6Q=;
+        b=j+34Ikeft+hfIm340hc8a5c358U/An8UsXubgOVe+4z1aa9jWMpwn8pXyB1xEHVEwK
+         rLOpclyQRxD4XAnOVyaLK6E4GNdIm1xOkBbJKISlDPSLraSbpQyeG26YKSepYCJ49Vgq
+         m4+wmdF+plVutX10YWxXa659nN5iyUeSIATVaYIQI3YZf2+M+Ly3PewHXzlZsxG/HZoZ
+         hrP3mIkqbcYXNhqOeN93380Mur59Kpo4LGugCH9UKFkgnGIL9me6NaXHCwUIJ8l1FBe8
+         L3vHLRno8aQiDl97qlZbF+N3jvAcLPYI7kFl3i4AQUw+J1uYe52GogbbLKucfvzVxAsC
+         6eVA==
+X-Gm-Message-State: AOJu0YzwjbzmMkN63FyL21SmRCCYMlGZ4XCyHThfkf8R506/BkPn3VMv
+	LqHAUD/qxCzl7Ei3cXI2Za7anfMjz9ATY2RCviQEXxAuNio+oRcheEm8s45xZDPda6g=
+X-Gm-Gg: ASbGncsif5PD1i+sd3PcboJhegxUWiHSqW5zxqRhrHmIdxCo4C05wPgNwnIIJ/gDcHx
+	g8Bofl/F/H6mWIKSP45XCRVNIZlkj4gdEBEzp8tnpi3zU/FKUdTGumT0S15MYBJrfaEx9cvnN32
+	uqmC2iN3fw1MgedqQPKhYa9TT0Q2EKl498bJKxpjRXbNjhSexj1nFYowh84wIGyVhwIaYNomN1P
+	GUM+uKfLTUfaw9ZohLc79KdXtTXhn1aneVSufJAlV5ezGvudE1gP5V7AMxvK8++cJLBza7j2r/5
+	VBzykuVjcTk3LmxaxECBhdy/13zV5fix6/oUNYTg7FW4CT+GShEcIlD4Hzcd0hkMRLW8C2IDzXc
+	b3rpgfxZuPT9U+nDWtWFJG3NgkJjCddDcxn3MLZ3CuHLOm6Pie/PnBvbgAiUYC2drVAsQTvLibs
+	3m3fHDnB5vhL9P
+X-Google-Smtp-Source: AGHT+IEzG7rA7SjcU5/IexjXqSf6MXBAUKpIcrbkFM4DkAzOo8wQtcA8euIhs0yEfuaDr3L1GJYTKw==
+X-Received: by 2002:a05:600d:d:b0:456:207e:fd83 with SMTP id 5b1f17b1804b1-45869ea827amr55222245e9.4.1753365397698;
+        Thu, 24 Jul 2025 06:56:37 -0700 (PDT)
 Received: from eugen-station.. (cpc148880-bexl9-2-0-cust354.2-3.cable.virginm.net. [82.11.253.99])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4587054e37dsm20889375e9.14.2025.07.24.06.56.37
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4587054e37dsm20889375e9.14.2025.07.24.06.56.36
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 24 Jul 2025 06:56:38 -0700 (PDT)
+        Thu, 24 Jul 2025 06:56:37 -0700 (PDT)
 From: Eugen Hristev <eugen.hristev@linaro.org>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-msm@vger.kernel.org,
@@ -85,18 +85,17 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	rostedt@goodmis.org,
 	jonechou@google.com,
 	tudor.ambarus@linaro.org
-Subject: [RFC][PATCH v2 18/29] mm/percpu: Annotate static information into Kmemdump
-Date: Thu, 24 Jul 2025 16:55:01 +0300
-Message-ID: <20250724135512.518487-19-eugen.hristev@linaro.org>
+Subject: [RFC][PATCH v2 17/29] mm/swapfile: Annotate static information into Kmemdump
+Date: Thu, 24 Jul 2025 16:55:00 +0300
+Message-ID: <20250724135512.518487-18-eugen.hristev@linaro.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250724135512.518487-1-eugen.hristev@linaro.org>
 References: <20250724135512.518487-1-eugen.hristev@linaro.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250724_065640_511637_9F4F9A22 
-X-CRM114-Status: UNSURE (   9.53  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250724_065639_254694_E1CEA5FD 
+X-CRM114-Status: GOOD (  10.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,36 +111,35 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 Annotate vital static information into kmemdump:
- - __per_cpu_offset
+ - nr_swapfiles
 
 Information on these variables is stored into dedicated kmemdump section.
 
 Signed-off-by: Eugen Hristev <eugen.hristev@linaro.org>
 ---
- mm/percpu.c | 3 +++
- 1 file changed, 3 insertions(+)
+ mm/swapfile.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/mm/percpu.c b/mm/percpu.c
-index d9cbaee92b60..0cfe4d7818e9 100644
---- a/mm/percpu.c
-+++ b/mm/percpu.c
-@@ -87,6 +87,7 @@
- #include <linux/sched.h>
- #include <linux/sched/mm.h>
- #include <linux/memcontrol.h>
+diff --git a/mm/swapfile.c b/mm/swapfile.c
+index b4f3cc712580..ac5a2307a278 100644
+--- a/mm/swapfile.c
++++ b/mm/swapfile.c
+@@ -42,6 +42,7 @@
+ #include <linux/suspend.h>
+ #include <linux/zswap.h>
+ #include <linux/plist.h>
 +#include <linux/kmemdump.h>
  
- #include <asm/cacheflush.h>
- #include <asm/sections.h>
-@@ -3342,6 +3343,8 @@ void __init setup_per_cpu_areas(void)
+ #include <asm/tlbflush.h>
+ #include <linux/swapops.h>
+@@ -64,6 +65,7 @@ static inline void unlock_cluster(struct swap_cluster_info *ci);
  
- #endif	/* CONFIG_SMP */
- 
-+KMEMDUMP_VAR_CORE(__per_cpu_offset, sizeof(__per_cpu_offset));
-+
+ static DEFINE_SPINLOCK(swap_lock);
+ static unsigned int nr_swapfiles;
++KMEMDUMP_VAR_CORE(nr_swapfiles, sizeof(nr_swapfiles));
+ atomic_long_t nr_swap_pages;
  /*
-  * pcpu_nr_pages - calculate total number of populated backing pages
-  *
+  * Some modules use swappable objects and may try to swap them out under
 -- 
 2.43.0
 
