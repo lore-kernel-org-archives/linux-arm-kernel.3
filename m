@@ -4,103 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FE7DC87FCA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 13:54:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00B19C87FC5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 13:54:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nyU692W3Jvmdf95k36VC5FdgflhzS2ZTohkfeWvfhbM=; b=2mFmHM6AGbDX1uFJgkupcWCfly
-	Aj1i8+9AFIlZpjueLiyXo1VuIizVfNujif7ZlDzgei1UymwWe8r1H0VFWWwWKDFdq4Dfr4D8rHiZb
-	gmUsZT05XUzcaLtC/8n+vscTTYI8keWakAC3uVWTClHxP1wTvfFPiXsEKlwitBMvwhwoqWBd07NnT
-	uBex7ghYVbR3TlQrEs6OoDr0O/En2+03PmH7HOhvclKKWaKY4ADTaiaMXkJYNOZw7Ec8FQZVmT0Rb
-	TiGr2Xxn2qKAPLjz+c9qAppaW52k+OVagcWWFq3Y7YN8zMKjcBaBau0n3jV1ZQI/h626znW7P0L8s
-	oZKcjSkQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GH8sHgoP9Qih0bCdB62CfXXvFay+SN+L0/LTCqd+3GI=; b=UrGA/i5ar0/5Y6PLVPbe8U6Eok
+	NQAnRl/Yw6V9vITnaGv4M1oslh5g+NLGERKrOkc1reFIpUQhTL1TrNmzKAVRI3TJFY/g8WxDpBV/a
+	x757Xvjkk4D1b5lt1sVC9iT2LH0t7rcfBKeuA0EhpoXkCOKYbMAWfzTxRnRUBTgd9olnhAx4/OFwl
+	IXKdpTHgG5UQgsNWriRlJQ8vswzEKiiO/IjVp68O/dv4ScmXkhnBkuff4/E4x8EHPb2kgv3V0T5Ix
+	PKHBd/q9UdSDmt6+kl+f3dnJDTUNpYO8md/rg9J3ibDrddg+R6tCsz9X2kgsWty7sHrBUYPDL5BWJ
+	L0MxnDOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uewPA-00000007cru-3Jnm;
-	Thu, 24 Jul 2025 13:54:40 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	id 1uewPB-00000007ctM-2LMW;
+	Thu, 24 Jul 2025 13:54:41 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uev8z-00000007Q8J-2Q4h
+	id 1uevAd-00000007QNK-1Ld5
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Jul 2025 12:33:54 +0000
-Received: from pps.filterd (m0288072.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56OCPeVY008693;
-	Thu, 24 Jul 2025 14:33:43 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	nyU692W3Jvmdf95k36VC5FdgflhzS2ZTohkfeWvfhbM=; b=Ud4Axkwu+0YWcOgi
-	Eh4nl/nesUnrIypOY5G9wZN8EP9LDhwLIIY9TnWKKLLQ/vcEVkws7lhJWQIUyLwa
-	7GKfylwrcls+sXWa8C4jr9h7Zpcs+OGvs+CSofJ2rCOqYCk572r8GE7789/s0frV
-	IcexsHP5kJqUrTH2qTOUTZEktTjThPSMaiUcK4sJidWI9P0STy9awL3WBZ5m8tdU
-	JQgjUfNTJG4crTX2aRcJXTDiDl/2EHCR5QqsSv7h4n858rLnC1epmlNsxxR4bqBk
-	LfodQKN5mnf8KCHj5fzjzN0/Ae4OOy48b0KkfLjzQfToTZEIyVrKAkC0t/VU9EUK
-	PrBpwg==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 4800sma0q2-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 24 Jul 2025 14:33:43 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 6E44B40045;
-	Thu, 24 Jul 2025 14:32:25 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id AA13E6CAE48;
-	Thu, 24 Jul 2025 14:31:39 +0200 (CEST)
-Received: from localhost (10.48.87.141) by SHFDAG1NODE1.st.com (10.75.129.69)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Thu, 24 Jul
- 2025 14:31:39 +0200
-From: Gatien Chevallier <gatien.chevallier@foss.st.com>
-Date: Thu, 24 Jul 2025 14:31:18 +0200
-Subject: [PATCH net-next 1/2] drivers: net: stmmac: add
- STMMAC_RELATIVE_FLEX_PPS
+	Thu, 24 Jul 2025 12:35:36 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id D5385A561F8;
+	Thu, 24 Jul 2025 12:35:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1145CC4CEED;
+	Thu, 24 Jul 2025 12:35:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1753360533;
+	bh=r+ZX3Es5yVhtnwa0qN+J3zKdrHltGFF3te0S2kpbSmU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ofEmwhS9Ugx7wxJO1zhgyrAfVPef58C7fkmlZaC94qqXoPe8mkhudepD1Mzm4a5Wy
+	 uF1Ca58XZM9+xPIoPeB6iJga3GX1Cfsd2qK1VzKcxpG1AzipUzLzx5+4LF3aIgW9E7
+	 1ijfw6oms1mt8/2oae1sgGCNoMIXQphjhbgiF1N7OL2qS+yLR/4Oe1XmRtIuFL0eTI
+	 6gH/yridgg3QksGtuO2BCYToU7hUmm7EVvksJ6vfgtZZChVcNAc9lPaTGoWnGnfn0L
+	 fReI8aGF0PYC7Y8szvE0nP10H3+Ag7CZjKHKZnKizNs20GvtNb750LcIjc57BshCQE
+	 4WWjnI5Nkin/w==
+Date: Thu, 24 Jul 2025 13:35:28 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Varshini.Rajendran@microchip.com
+Cc: claudiu.beznea@tuxon.dev, Andrei.Simion@microchip.com,
+	lgirdwood@gmail.com, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, Nicolas.Ferre@microchip.com,
+	alexandre.belloni@bootlin.com, linux-arm-kernel@lists.infradead.org,
+	linux-sound@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] ASoC: dt-bindings: atmel,at91-ssc: add
+ microchip,sam9x7-ssc
+Message-ID: <68996241-d49d-4680-863c-38e30e403bac@sirena.org.uk>
+References: <20250610065005.64070-1-varshini.rajendran@microchip.com>
+ <7989c547-2346-4e1e-8327-0c085885faf9@microchip.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20250724-relative_flex_pps-v1-1-37ca65773369@foss.st.com>
-References: <20250724-relative_flex_pps-v1-0-37ca65773369@foss.st.com>
-In-Reply-To: <20250724-relative_flex_pps-v1-0-37ca65773369@foss.st.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-        "David S. Miller"
-	<davem@davemloft.net>,
-        Eric Dumazet <edumazet@google.com>, Jakub Kicinski
-	<kuba@kernel.org>,
-        Paolo Abeni <pabeni@redhat.com>,
-        Maxime Coquelin
-	<mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Richard Cochran <richardcochran@gmail.com>
-CC: <netdev@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        Gatien Chevallier <gatien.chevallier@foss.st.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2314;
- i=gatien.chevallier@foss.st.com; h=from:subject:message-id;
- bh=tQuDVkAEuMKTMvmQ05pcXKXtdKrmxV6LqTedtmsA1wY=;
- b=owEB7QES/pANAwAKAar3Rq6G8cMoAcsmYgBogiepOJj+6zBgJKGR1QWpMHgCj/2KXISS9wYho
- SJvBiIKq8KJAbMEAAEKAB0WIQRuDsu+jpEBc9gaoV2q90auhvHDKAUCaIInqQAKCRCq90auhvHD
- KLaiC/9On+Ebw9p4ibBEYz07w/Jk1lDM7Mn//IQk4k38nWOC9u7CY1Hqa1omnHb3zbYTvmoA0ji
- ddEr4Nobe0F96RX0dMpibENzbvLZaGeTwkCbi220H64/5tgtKPXPrKBR0p4ls1mrUCde/TGNLJ5
- HXtxRZ8CFvMKY2TfCPHHOWGYpCJziiwrxJ/UkFouI6Ml9xI/Ymn7y27V1CPTDa39keLTUnN8SZZ
- 2np9QIYV0xRdry439Ag4h1MZwmFx85ySclx+7zLdezw/Lr4FA+KMBfL3YB96EzNq7X4XZGmaOIi
- OtJBZJhsvLTGNt/zZEY9UHOuf+YcDQOzOwrKtoPwT9yLgRB8NEOxZ3unNDIpLEvc6RvA9xgZu1m
- TVmFisUQlK6A6rcnPX0M/z5Ua6nfymh9TJKWWxwoWKtS2aJFfZXp78yW99tmo/jq3MmviBmK0ZU
- Ep5/4h3JtjcqFt+WIN4iu0SBmx0icv2rNlDeHx2pAzhHUtYxAMLrED2YZt8Jj8ncZ876I=
-X-Developer-Key: i=gatien.chevallier@foss.st.com; a=openpgp;
- fpr=6E0ECBBE8E910173D81AA15DAAF746AE86F1C328
-X-Originating-IP: [10.48.87.141]
-X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE1.st.com
- (10.75.129.69)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-07-24_02,2025-07-24_01,2025-03-28_01
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="GMCgj9FRHPHzUIgs"
+Content-Disposition: inline
+In-Reply-To: <7989c547-2346-4e1e-8327-0c085885faf9@microchip.com>
+X-Cookie: Did I say 2?  I lied.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250724_053353_910372_0112E09C 
-X-CRM114-Status: GOOD (  12.75  )
+X-CRM114-CacheID: sfid-20250724_053535_420273_3B5E54E2 
+X-CRM114-Status: GOOD (  13.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,61 +79,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the STMMAC_RELATIVE_FLEX_PPS config switch so that the MAC system
-time is added to the requested start time when configuring the flexible
-PPS signal start time.
 
-This eases the configuration of the generation of flexible PPS signals.
+--GMCgj9FRHPHzUIgs
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Signed-off-by: Gatien Chevallier <gatien.chevallier@foss.st.com>
----
- drivers/net/ethernet/stmicro/stmmac/Kconfig      |  9 +++++++++
- drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c | 13 +++++++++++++
- 2 files changed, 22 insertions(+)
+On Mon, Jul 21, 2025 at 05:26:22AM +0000, Varshini.Rajendran@microchip.com =
+wrote:
+> Hi,
+>=20
+> Gentle reminder to merge this patch.
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/Kconfig b/drivers/net/ethernet/stmicro/stmmac/Kconfig
-index 67fa879b1e521ef6d7bd2a8db30d812301eb4cf7..949c744d30f19f5ff480dca4811e678d2b93c450 100644
---- a/drivers/net/ethernet/stmicro/stmmac/Kconfig
-+++ b/drivers/net/ethernet/stmicro/stmmac/Kconfig
-@@ -357,3 +357,12 @@ config STMMAC_PCI
- 
- 	  If unsure, say N.
- endif
-+
-+config STMMAC_RELATIVE_FLEX_PPS
-+	bool "Support for STMMAC system time relative flexible PPS generation"
-+	default n
-+	help
-+	  Say Y to add the MAC system time to the arguments passed to the
-+	  PTP driver when requesting a flexible PPS generation. This avoids
-+	  the tedious task of passing an absolute time value when using sysfs
-+	  entry.
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c
-index 3767ba495e78d210b0529ee1754e5331f2dd0a47..cc898eab4df6a3e2530a8b03dfdaa9016d1bb0b9 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c
-@@ -180,6 +180,19 @@ static int stmmac_enable(struct ptp_clock_info *ptp,
- 
- 		cfg->start.tv_sec = rq->perout.start.sec;
- 		cfg->start.tv_nsec = rq->perout.start.nsec;
-+		if (IS_ENABLED(CONFIG_STMMAC_RELATIVE_FLEX_PPS)) {
-+			struct timespec64 curr_time;
-+			u64 ns = 0;
-+
-+			/* Be aware that an offset too low may not trigger flexible PPS generation
-+			 * if time spent in this configuration makes this relative time already
-+			 * outdated.
-+			 */
-+			stmmac_get_systime(priv, priv->ptpaddr, &ns);
-+			curr_time = ns_to_timespec64(ns);
-+			cfg->start.tv_sec += curr_time.tv_sec;
-+			cfg->start.tv_nsec += curr_time.tv_nsec;
-+		}
- 		cfg->period.tv_sec = rq->perout.period.sec;
- 		cfg->period.tv_nsec = rq->perout.period.nsec;
- 
+Please don't send content free pings and please allow a reasonable time
+for review.  People get busy, go on holiday, attend conferences and so=20
+on so unless there is some reason for urgency (like critical bug fixes)
+please allow at least a couple of weeks for review.  If there have been
+review comments then people may be waiting for those to be addressed.
 
--- 
-2.25.1
+Sending content free pings adds to the mail volume (if they are seen at
+all) which is often the problem and since they can't be reviewed
+directly if something has gone wrong you'll have to resend the patches
+anyway, so sending again is generally a better approach though there are
+some other maintainers who like them - if in doubt look at how patches
+for the subsystem are normally handled.
 
+--GMCgj9FRHPHzUIgs
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmiCKI8ACgkQJNaLcl1U
+h9Bt9Qf+Jror8xXrRp6GCl/0eJcVWRMzPkxTLvGzSnt10RAB7m5ivevvZcYq5FAV
+VJOozlsvMXpskkSyilo1gWpI8C/P0su943W6j7JP+vvrA6zeut9Mq6nnSuQuVq7h
+DiTeCXC9lS4g4xGYms25dLpMNd/hb/I1LbCCZcoyRklbVb4QpS+XwJvP47b+h5bI
+x0yXHh7nQMpeLlJdQRZejOy1CKGu6ViVtZ3ZuLV8hQu/l72jYSGJiwYeZvY9dOZL
+cZXLTWBYjBFvBXWSopSdl+oB1fNhrjKyLXBX++hxIzYg8ntVtqCEtFpVDBs9ivaM
+cSQcqvLcvIzGftir3L8A+J+A8nwegw==
+=pK06
+-----END PGP SIGNATURE-----
+
+--GMCgj9FRHPHzUIgs--
 
