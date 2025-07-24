@@ -4,130 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91C2FC83F26
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 10:49:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1587C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 10:51:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=h4a+gzu7f3EwTZaPbk859mLIqTYIGZRRwraHyXMWvss=; b=iSbatmKnEJuLrKqoO/WTdz8lZE
-	+wegCpdYvNn89LWuBlmI9KNRRUpX5f5e0v3Vh46oGYriDUrssmNEj9nRZAyS8D+LfKFMN3JZfC3yJ
-	62zzyG29JPG/udCbGOC+oQCrh3REYnpxw9IumQKQ8n4UnVCBkd9hy/d8Knp+VkjzC19y0kNaGpGe5
-	T0nJiplUF7r7ycgzJZpqRFsu0dygxdgTXuxTq0aTZOVyZYtMrEJMLN6tIxFEgF7uy/WldweUboGv8
-	tpG7osEfRYhc7wRqboj0okv2MX23W4TXu9nvzrY9ntrfPeNtzwEiyxuvAantuzXWAQsWizs1aj3dC
-	75Y1t9Cw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:To:From:Subject:Message-ID:Reply-To:Cc:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lJnn0FzOBqtUx2NHpiyCmqG6oy0sWVcJAeeQSO6lFNQ=; b=2dqA0AvkuuA2J42z7qL0rael86
+	HktAiDsyYW9RG3oAVwunDA5UJzobI286Gb7JCRTWm2rilKmjovSv/LuSxIeo5AOw+LYgjADudH9Rt
+	yoHQrfSX2lwfeGlZvk4CnLxDT4HxOpE1NZ05eNgziIYRBalY4phnjncROQ/a2HaMkOGSJoPZQvosM
+	5LraJEvQlCEpFHIlxFIMc8F8Tz6EvMg50YwRZEE/jdXmD9IqaGn303DHCUhjVN8YfqyEd4CEPEBxw
+	4SAlgttERErW9lkhI1u3LBO8HR1eGaxoHiEm3jKBCk78zkClnQn1FXnI0y0s0mDNBcKJ5k4RcPEuX
+	8SAAZ+Ng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uetVb-00000007Fbu-0YrY;
-	Thu, 24 Jul 2025 10:49:07 +0000
-Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
+	id 1uetY1-00000007G0c-2VPC;
+	Thu, 24 Jul 2025 10:51:37 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uesCG-000000071uG-21Bf
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Jul 2025 09:25:05 +0000
-Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-3b611665b96so449453f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Jul 2025 02:25:04 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1753349103; x=1753953903; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=h4a+gzu7f3EwTZaPbk859mLIqTYIGZRRwraHyXMWvss=;
-        b=RVKIWY7yEjbUkoCS2PbbrLsoUv33riSGqMaDRvzdVEsXs9EhiTGKr3WrSzI7FonE7d
-         ghkvv1/ccdo0Awmmi//tNvtlKPUfeWpJHiqH6CynkFxdeiTOT3pcy8YX96/AtlWIIfpE
-         OZSZI5zxNtsSbdQFoJglSis0wCjnXuiy9P0xMsWtnnjLuYxlQ21xUBHrJ1if76hJBrnx
-         7zmeofm5Uat0BWyIGDzE6GxIC6HXaOtbkqJNEyBggwpTp/Zn/5MAZLotkZ3lC+20PrLG
-         gEx7NNi8FMVGlJ2yLGnjQKaNw1BmfwHHCzT8aJ5j5xtZU4X1e7Bvx7xvXA7wH7iBp4vV
-         at/A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753349103; x=1753953903;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=h4a+gzu7f3EwTZaPbk859mLIqTYIGZRRwraHyXMWvss=;
-        b=D/sCmGhiKkXN7zIZr7Bo0G3ZwKh9zXIqHuiIEGyDHcQ8LY2cXNPGkpkLYWXQK6Oe8x
-         oqlDK0h1ZQ1w+W+Kr/NdBGYxMMqPzG4txC3ypAxRWHx8Xj7nhMop9iLegqHOTFcqpdVt
-         6Fzy9Cd/RzdjLeE2CGRT3tuoOtWgwdxmA5OnH8YxaCoAchhLmY/0ay5cq9VtVf+8w+mP
-         Nl4nga70sUpUmH+CUamEqoWA37ofnkCnKlFV035G3fz29vBxJCkbMASSzy5SvWQgEO54
-         iL9jesWg+WrSgG2hoGgARJJvy3iTduNRdRjPM8mgLa9DzK6/ERpo1gHCtnhvUT59PNC9
-         HMRg==
-X-Forwarded-Encrypted: i=1; AJvYcCU9Rn7i/c056iuz3pA9NKBTS8AYeoW22tbLK0RmZuW+5E8HGwXo2Cg1AHDnKxxHZgSu0sGSb+fHD+EUVVtvHl+0@lists.infradead.org
-X-Gm-Message-State: AOJu0YwGlgroMCMeOeg/lgsh5fdkWyVzdgeK+aqaP7aFtSCIot74J7o7
-	6rrxRuW6zHqXE1rcfBj99OOYT1sg1z9/eRuCjhjPzBHvtDhrNwQIRJXzlL3y8bZ8Cyk=
-X-Gm-Gg: ASbGncvAsFTkg4BhrnvT3WnaYHFi1wGQKRm10XS+QfDj+/q/YNigOyUP3LbFhip+B22
-	qt6huSIqkzUz3o6VhYBZNxe2nVPX7r0rktxv0dymq/aCGyoJ5fRymd9S8ld9ZWHgoXtvQ1ikPls
-	MfyTDTs6tsKmw3ymhBV9dwWMcB2MrvFvtmQGt7EDC8qO7omHPhNn48xnuBFR8S7tuquahOOnmRt
-	PBvx/xVlIKoRU3jxT3fnK8A4MLPxIQ6JFLaPYvEGIBlx1WUgT+YYNFGaiKhdr9/MIMECn0cPCAY
-	rKU0qJ5SfjXMShdWKmIskluCX+E0RARuNwKysW3mg10Xo6gENWu7hNUyKz/SiQAKM7JYZBTe2wk
-	IJJw4SzqcB8mNkpWJ
-X-Google-Smtp-Source: AGHT+IH0iAkuA6GzMHME9lyvaFVrb9WaSOmQdANpljoKy1DeZvDX7IaJl8X91dcX7f0LjUclpn3P5A==
-X-Received: by 2002:a05:6000:1447:b0:3a5:2b75:56cc with SMTP id ffacd0b85a97d-3b768cb3ac1mr4981697f8f.23.1753349103057;
-        Thu, 24 Jul 2025 02:25:03 -0700 (PDT)
-Received: from [127.0.1.1] ([2a01:cb1d:dc:7e00:f44c:20db:7ada:b556])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3b76fc72548sm1600833f8f.30.2025.07.24.02.25.01
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 24 Jul 2025 02:25:02 -0700 (PDT)
-From: Bartosz Golaszewski <brgl@bgdev.pl>
-Date: Thu, 24 Jul 2025 11:24:43 +0200
-Subject: [PATCH v3 15/15] pinctrl: qcom: make the pinmuxing strict
+	id 1uesD4-0000000727p-1Cns
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 24 Jul 2025 09:25:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=MIME-Version:Content-Type:References:
+	In-Reply-To:Date:To:From:Subject:Message-ID:Sender:Reply-To:Cc:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=lJnn0FzOBqtUx2NHpiyCmqG6oy0sWVcJAeeQSO6lFNQ=; b=PI75VHXU4tQL/6uzdgxemr245d
+	f3FhUbiVyIz+iPo76aQoqZyViiJyicojHvubyxStUlQyq6msprjfllm4razoqbN4kTe1sIrFOTkqC
+	C4BjcWi2QqkR+56uj2dBdG/WXr5BeiX5dOExg7a3zMBcHHkw7NgSnE2vftJDyaV1LV02LMer+6My6
+	/Un+fK+P4cZRQvv5Pu0llVYMcWyJW1DHzBwvdValIM+bZj9iEqVEhcEW6eIY1WoqbFNTZiiO/j3Zg
+	EcrGLYJJD06LI6lu5Km9oJ6fgO5/6KfEfts+uFVo22oEFmowg5Q+PwWbHlLahaa64zj6Kktvsj4eb
+	uvWjIpNA==;
+Received: from 54-240-197-235.amazon.com ([54.240.197.235] helo=u09cd745991455d.ant.amazon.com)
+	by casper.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uesCz-0000000B8jX-0DOc;
+	Thu, 24 Jul 2025 09:25:50 +0000
+Message-ID: <bc456c6b4b1ed51e568a37cf29b33d537e4bd94c.camel@infradead.org>
+Subject: Re: Memory corruption after resume from hibernate with Arm GICv3 ITS
+From: David Woodhouse <dwmw2@infradead.org>
+To: "Rafael J. Wysocki" <rafael@kernel.org>, Pavel Machek
+ <pavel@kernel.org>,  linux-pm <linux-pm@vger.kernel.org>, Marc Zyngier
+ <maz@kernel.org>,  linux-arm-kernel@lists.infradead.org, "Saidi, Ali"
+ <alisaidi@amazon.com>,  "oliver.upton" <oliver.upton@linux.dev>, Joey Gouly
+ <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
+ <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, Will
+ Deacon <will@kernel.org>, linux-kernel <linux-kernel@vger.kernel.org>,
+ "Heyne, Maximilian" <mheyne@amazon.de>,  Alexander Graf <graf@amazon.com>,
+ "Stamatis, Ilias" <ilstam@amazon.com>
+Date: Thu, 24 Jul 2025 11:25:46 +0200
+In-Reply-To: <c69938cffd4002a93a95a396affaa945e0f69206.camel@infradead.org>
+References: <c69938cffd4002a93a95a396affaa945e0f69206.camel@infradead.org>
+Content-Type: multipart/signed; micalg="sha-256"; protocol="application/pkcs7-signature";
+	boundary="=-B34Q4JwiZdVxHyUHxHEa"
+User-Agent: Evolution 3.52.3-0ubuntu1 
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250724-pinctrl-gpio-pinfuncs-v3-15-af4db9302de4@linaro.org>
-References: <20250724-pinctrl-gpio-pinfuncs-v3-0-af4db9302de4@linaro.org>
-In-Reply-To: <20250724-pinctrl-gpio-pinfuncs-v3-0-af4db9302de4@linaro.org>
-To: Linus Walleij <linus.walleij@linaro.org>, 
- Bjorn Andersson <andersson@kernel.org>, 
- Konrad Dybcio <konradybcio@kernel.org>, 
- Alexey Klimov <alexey.klimov@linaro.org>, 
- Lorenzo Bianconi <lorenzo@kernel.org>, Sean Wang <sean.wang@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Paul Cercueil <paul@crapouillou.net>, Kees Cook <kees@kernel.org>, 
- Andy Shevchenko <andy@kernel.org>, 
- Andrew Morton <akpm@linux-foundation.org>, 
- David Hildenbrand <david@redhat.com>, 
- Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, 
- "Liam R. Howlett" <Liam.Howlett@oracle.com>, 
- Vlastimil Babka <vbabka@suse.cz>, Mike Rapoport <rppt@kernel.org>, 
- Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, 
- Dong Aisheng <aisheng.dong@nxp.com>, Fabio Estevam <festevam@gmail.com>, 
- Shawn Guo <shawnguo@kernel.org>, Jacky Bai <ping.bai@nxp.com>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- NXP S32 Linux Team <s32@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
- Tony Lindgren <tony@atomide.com>, 
- Haojian Zhuang <haojian.zhuang@linaro.org>, 
- Geert Uytterhoeven <geert+renesas@glider.be>
-Cc: linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-msm@vger.kernel.org, linux-mediatek@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org, 
- linux-hardening@vger.kernel.org, linux-mm@kvack.org, imx@lists.linux.dev, 
- linux-omap@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
- Bartosz Golaszewski <bartosz.golaszewski@linaro.org>, 
- Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1142;
- i=bartosz.golaszewski@linaro.org; h=from:subject:message-id;
- bh=M36QPREHYk2Y1Ol3wL/sT7z2U9JVD+MimNp7WJSOHU0=;
- b=owEBbQKS/ZANAwAKARGnLqAUcddyAcsmYgBogfvUuNqnvhBaTQ7E02dLbZ93XPdMix/+wojXR
- G62efWlN2eJAjMEAAEKAB0WIQQWnetsC8PEYBPSx58Rpy6gFHHXcgUCaIH71AAKCRARpy6gFHHX
- csIEEACcYzcalCunEHwwLc8fC351P1QZ0/EviGqXfAPEAKDWr3P+rwFdN2Ta12zzVjBkLzjyQ91
- Zv3Pyd8ByzwdIUsKqqnTCqQXU561HpvlpivEPwqQfk2Fv1/z8zXTLdhqLYeWc2DtYwXVL47+ep1
- hvPNS0sKjxZZSbhD2Cv0so7lDbU9TIvO8FfROCo+OUmJ+fNRIHwJdm3DZ3UCBbKrfqj0JKqwStC
- SmdBFpZg+RC6pqBdqVp2puRBkrX4kkPXma3WhGUgbQa/jdRrzeKTzhOecZSN78aF+JYuAOuEWas
- 9ZYmbC12bDFImUccK4LcZfdm6UKPE66KoyCTfbJSdLsUaafuNUop1v3HMU+T1Qr/Xjdxcfc1d72
- xDxNII3sKlNkkl6WGjDNi7bqM437VkY4D3MqKo2PdUpL8pWVacs90dpKk/TeHcMZqMlSPpWf6Ir
- w0BoC8kdAtDjE9Xmx8h4NgBJrMuqyRB+w2H/MkSVj85rAH3A8nrxlRd/vqL77bGkehXfVeY7coP
- hWnYxxxDdbXZTNWgEpW4pWcbFrtw2pyKmva81FwQzEbINBVc2nQJQb2Qpd68J7/3170a6GFWyeN
- MElcFiUfHMZhzI5U6MPEUSceL4b9e10SrngoFXdrORgydvHqnRID4/lq5Qv8dryavy2pK7C0AN1
- RovE1kMQsSfBwRA==
-X-Developer-Key: i=bartosz.golaszewski@linaro.org; a=openpgp;
- fpr=169DEB6C0BC3C46013D2C79F11A72EA01471D772
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250724_022504_547179_398C69AE 
-X-CRM114-Status: GOOD (  11.77  )
+X-SRS-Rewrite: SMTP reverse-path rewritten from <dwmw2@infradead.org> by casper.infradead.org. See http://www.infradead.org/rpr.html
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,34 +75,403 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 
-The strict flag in struct pinmux_ops disallows the usage of the same pin
-as a GPIO and for another function. Without it, a rouge user-space
-process with enough privileges (or even a buggy driver) can request a
-used pin as GPIO and drive it, potentially confusing devices or even
-crashing the system. Set it globally for all pinctrl-msm users.
+--=-B34Q4JwiZdVxHyUHxHEa
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
----
- drivers/pinctrl/qcom/pinctrl-msm.c | 1 +
- 1 file changed, 1 insertion(+)
+On Wed, 2025-07-23 at 12:04 +0200, David Woodhouse wrote:
+> We have seen guests crashing when, after they resume from hibernate,
+> the hypervisor serializes their state for live update or live
+> migration.
+>=20
+> The Arm Generic Interrupt Controller is a complicated beast, and it
+> does scattershot DMA to little tables all across the guest's address
+> space, without even living behind an IOMMU.
+>=20
+> Rather than simply turning it off overall, the guest has to explicitly
+> tear down *every* one of the individual tables which were previously
+> configured, in order to ensure that the memory is no longer used.
+>=20
+> KVM's implementation of the virtual GIC only uses this guest memory
+> when asked to serialize its state. Instead of passing the information
+> up to userspace as most KVM devices will do for serialization, KVM
+> *only* supports scribbling it to guest memory.
+>=20
+> So, when the transition from boot to resumed kernel leaves the vGIC
+> pointing at the *wrong* addresses, that's why a subsequent LU/LM of
+> that guest triggers the memory corruption by writing the KVM state to a
+> guest address that the now-running kernel did *not* expect.
+>=20
+> I tried this, just to get some more information:
+>=20
+> --- a/drivers/irqchip/irq-gic-v3-its.c
+> +++ b/drivers/irqchip/irq-gic-v3-its.c
+> @@ -720,7 +720,7 @@ static struct its_collection *its_build_mapd_cmd(stru=
+ct its_node *its,
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 its_encode_valid(cmd, desc->it=
+s_mapd_cmd.valid);
+> =C2=A0
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 its_fixup_cmd(cmd);
+> -
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 printk("%s dev 0x%x valid %d addr 0=
+x%lx\n", __func__, desc->its_mapd_cmd.dev->device_id, desc->its_mapd_cmd.va=
+lid, itt_addr);
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 return NULL;
+> =C2=A0}
+> =C2=A0
+> @@ -4996,10 +4996,15 @@ static int its_save_disable(void)
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 struct its_node *its;
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 int err =3D 0;
+> =C2=A0
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 printk("%s\n", __func__);
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 raw_spin_lock(&its_lock);
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 list_for_each_entry(its, &its_=
+nodes, entry) {
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0 struct its_device *its_dev;
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0 void __iomem *base;
+> =C2=A0
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0 list_for_each_entry(its_dev, &its->its_device_list, entry) {
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 its_send_mapd(=
+its_dev, 0);
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0 }
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0 base =3D its->base;
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0 its->ctlr_save =3D readl_relaxed(base + GITS_CTLR);
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0 err =3D its_force_quiescent(base);
+> @@ -5032,8 +5037,10 @@ static void its_restore_enable(void)
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 struct its_node *its;
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 int ret;
+> =C2=A0
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 printk("%s\n", __func__);
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 raw_spin_lock(&its_lock);
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 list_for_each_entry(its, &its_=
+nodes, entry) {
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0 struct its_device *its_dev;
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0 void __iomem *base;
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0 int i;
+> =C2=A0
+> @@ -5083,6 +5090,10 @@ static void its_restore_enable(void)
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0 if (its->collections[smp_processor_id()].col_id <
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 GITS_TYPER_HCC(gic_read_typer(ba=
+se + GITS_TYPER)))
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 its_cpu_=
+init_collection(its);
+> +
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0 list_for_each_entry(its_dev, &its->its_device_list, entry) {
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 its_send_mapd(=
+its_dev, 1);
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0 }
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 }
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 raw_spin_unlock(&its_lock);
+> =C2=A0}
+>=20
+>=20
+> Running on a suitable host with qemu, I reproduce with
+> =C2=A0 # echo reboot > /sys/power/disk
+> =C2=A0 # echo disk > /sys/power/state
+>=20
+> Example qemu command line:
+> =C2=A0qemu-system-aarch64=C2=A0 -serial mon:stdio -M virt,gic-version=3Dh=
+ost -cpu max -enable-kvm -drive file=3D~/Fedora-Cloud-Base-Generic-42-1.1.a=
+arch64.qcow2,id=3Dnvm,if=3Dnone,snapshot=3Doff,format=3Dqcow2 -device nvme,=
+drive=3Dnvm,serial=3D1 -m 8g -nographic=C2=A0 -nic user,model=3Dvirtio -ker=
+nel vmlinuz-6.16.0-rc7-dirty=C2=A0 -initrd initramfs-6.16.0-rc7-dirty.img -=
+append 'root=3DUUID=3D6c7b9058-d040-4047-a892-d2f1c7dee687 ro rootflags=3Ds=
+ubvol=3Droot no_timer_check console=3Dtty1 console=3DttyAMA0,115200n8 syste=
+md.firstboot=3Doff rootflags=3Dsubvol=3Droot no_console_suspend=3D1 resume_=
+offset=3D366703 resume=3D/dev/nvme0n1p3' -trace gicv3_its\*
+>=20
+> As the kernel boots up for the first time, it sends a normal MAPD command=
+:
+>=20
+> [=C2=A0=C2=A0=C2=A0 1.292956] its_build_mapd_cmd dev 0x10 valid 1 addr 0x=
+10f010000
+>=20
+> On hibernation, my newly added code unmaps and then *remaps* the same:
+>=20
+> [root@localhost ~]# echo disk > /sys/power/state
+> [=C2=A0=C2=A0 42.118573] PM: hibernation: hibernation entry
+> [=C2=A0=C2=A0 42.134574] Filesystems sync: 0.015 seconds
+> [=C2=A0=C2=A0 42.134899] Freezing user space processes
+> [=C2=A0=C2=A0 42.135566] Freezing user space processes completed (elapsed=
+ 0.000 seconds)
+> [=C2=A0=C2=A0 42.136040] OOM killer disabled.
+> [=C2=A0=C2=A0 42.136307] PM: hibernation: Preallocating image memory
+> [=C2=A0=C2=A0 42.371141] PM: hibernation: Allocated 297401 pages for snap=
+shot
+> [=C2=A0=C2=A0 42.371163] PM: hibernation: Allocated 1189604 kbytes in 0.2=
+3 seconds (5172.19 MB/s)
+> [=C2=A0=C2=A0 42.371170] Freezing remaining freezable tasks
+> [=C2=A0=C2=A0 42.373465] Freezing remaining freezable tasks completed (el=
+apsed 0.002 seconds)
+> [=C2=A0=C2=A0 42.378350] Disabling non-boot CPUs ...
+> [=C2=A0=C2=A0 42.378363] its_save_disable
+> [=C2=A0=C2=A0 42.378363] its_build_mapd_cmd dev 0x10 valid 0 addr 0x10f01=
+0000
+> [=C2=A0=C2=A0 42.378363] PM: hibernation: Creating image:
+> [=C2=A0=C2=A0 42.378363] PM: hibernation: Need to copy 153098 pages
+> [=C2=A0=C2=A0 42.378363] PM: hibernation: Image created (115354 pages cop=
+ied, 37744 zero pages)
+> [=C2=A0=C2=A0 42.378363] its_restore_enable
+> [=C2=A0=C2=A0 42.378363] its_build_mapd_cmd dev 0x10 valid 1 addr 0x10f01=
+0000
+> [=C2=A0=C2=A0 42.383601] nvme nvme0: 1/0/0 default/read/poll queues
+> [=C2=A0=C2=A0 42.384411] nvme nvme0: Ignoring bogus Namespace Identifiers
+> [=C2=A0=C2=A0 42.384924] hibernate: Hibernating on CPU 0 [mpidr:0x0]
+> [=C2=A0=C2=A0 42.387742] PM: Using 1 thread(s) for lzo compression
+> [=C2=A0=C2=A0 42.387748] PM: Compressing and saving image data (115654 pa=
+ges)...
+> [=C2=A0=C2=A0 42.387757] PM: Image saving progress:=C2=A0=C2=A0 0%
+> [=C2=A0=C2=A0 43.485794] PM: Image saving progress:=C2=A0 10%
+> [=C2=A0=C2=A0 44.739662] PM: Image saving progress:=C2=A0 20%
+> [=C2=A0=C2=A0 46.617453] PM: Image saving progress:=C2=A0 30%
+> [=C2=A0=C2=A0 48.437644] PM: Image saving progress:=C2=A0 40%
+> [=C2=A0=C2=A0 49.857855] PM: Image saving progress:=C2=A0 50%
+> [=C2=A0=C2=A0 52.156928] PM: Image saving progress:=C2=A0 60%
+> [=C2=A0=C2=A0 53.344810] PM: Image saving progress:=C2=A0 70%
+> [=C2=A0=C2=A0 54.472998] PM: Image saving progress:=C2=A0 80%
+> [=C2=A0=C2=A0 55.083950] PM: Image saving progress:=C2=A0 90%
+> [=C2=A0=C2=A0 56.406480] PM: Image saving progress: 100%
+> [=C2=A0=C2=A0 56.407088] PM: Image saving done
+> [=C2=A0=C2=A0 56.407100] PM: hibernation: Wrote 462616 kbytes in 14.01 se=
+conds (33.02 MB/s)
+> [=C2=A0=C2=A0 56.407106] PM: Image size after compression: 148041 kbytes
+> [=C2=A0=C2=A0 56.408210] PM: S|
+> [=C2=A0=C2=A0 56.642393] Flash device refused suspend due to active opera=
+tion (state 20)
+> [=C2=A0=C2=A0 56.642871] Flash device refused suspend due to active opera=
+tion (state 20)
+> [=C2=A0=C2=A0 56.643432] reboot: Restarting system
+> [=C2=A0=C2=A0=C2=A0 0.000000] Booting Linux on physical CPU 0x0000000000 =
+[0x410fd4f1]
+>=20
+> Then the *boot* kernel comes up, does its own MAPD using a slightly diffe=
+rent address:
+>=20
+> [=C2=A0=C2=A0=C2=A0 1.270652] its_build_mapd_cmd dev 0x10 valid 1 addr 0x=
+10f009000
+>=20
+> =C2=A0... and then transfers control to the hibernated kernel, which agai=
+n
+> tries to unmap and remap the ITT at its original address due to my
+> suspend/resume hack (which is clearly hooking the wrong thing, but is
+> at least giving us useful information):
+>
+> Starting systemd-hibernate-resume.service - Resume from hibernation...
+> [=C2=A0=C2=A0=C2=A0 1.391340] PM: hibernation: resume from hibernation
+> [=C2=A0=C2=A0=C2=A0 1.391861] random: crng reseeded on system resumption
+> [=C2=A0=C2=A0=C2=A0 1.391927] Freezing user space processes
+> [=C2=A0=C2=A0=C2=A0 1.392984] Freezing user space processes completed (el=
+apsed 0.001 seconds)
+> [=C2=A0=C2=A0=C2=A0 1.393473] OOM killer disabled.
+> [=C2=A0=C2=A0=C2=A0 1.393486] Freezing remaining freezable tasks
+> [=C2=A0=C2=A0=C2=A0 1.395012] Freezing remaining freezable tasks complete=
+d (elapsed 0.001 seconds)
+> [=C2=A0=C2=A0=C2=A0 1.400817] PM: Using 1 thread(s) for lzo decompression
+> [=C2=A0=C2=A0=C2=A0 1.400832] PM: Loading and decompressing image data (1=
+15654 pages)...
+> [=C2=A0=C2=A0=C2=A0 1.400836] hibernate: Hibernated on CPU 0 [mpidr:0x0]
+> [=C2=A0=C2=A0=C2=A0 1.438621] PM: Image loading progress:=C2=A0=C2=A0 0%
+> [=C2=A0=C2=A0=C2=A0 1.554623] PM: Image loading progress:=C2=A0 10%
+> [=C2=A0=C2=A0=C2=A0 1.594714] PM: Image loading progress:=C2=A0 20%
+> [=C2=A0=C2=A0=C2=A0 1.639317] PM: Image loading progress:=C2=A0 30%
+> [=C2=A0=C2=A0=C2=A0 1.683055] PM: Image loading progress:=C2=A0 40%
+> [=C2=A0=C2=A0=C2=A0 1.720726] PM: Image loading progress:=C2=A0 50%
+> [=C2=A0=C2=A0=C2=A0 1.768878] PM: Image loading progress:=C2=A0 60%
+> [=C2=A0=C2=A0=C2=A0 1.800203] PM: Image loading progress:=C2=A0 70%
+> [=C2=A0=C2=A0=C2=A0 1.822833] PM: Image loading progress:=C2=A0 80%
+> [=C2=A0=C2=A0=C2=A0 1.840985] PM: Image loading progress:=C2=A0 90%
+> [=C2=A0=C2=A0=C2=A0 1.871253] PM: Image loading progress: 100%
+> [=C2=A0=C2=A0=C2=A0 1.871611] PM: Image loading done
+> [=C2=A0=C2=A0=C2=A0 1.871617] PM: hibernation: Read 462616 kbytes in 0.47=
+ seconds (984.28 MB/s)
+> [=C2=A0=C2=A0 42.378350] Disabling non-boot CPUs ...
+> [=C2=A0=C2=A0 42.378363] its_save_disable
+> [=C2=A0=C2=A0 42.378363] its_build_mapd_cmd dev 0x10 valid 0 addr 0x10f01=
+0000
+> [=C2=A0=C2=A0 42.378363] PM: hibernation: Creating image:
+> [=C2=A0=C2=A0 42.378363] PM: hibernation: Need to copy 153098 pages
+> [=C2=A0=C2=A0 42.378363] hibernate: Restored 0 MTE pages
+> [=C2=A0=C2=A0 42.378363] its_restore_enable
+> [=C2=A0=C2=A0 42.378363] its_build_mapd_cmd dev 0x10 valid 1 addr 0x10f01=
+0000
+> [=C2=A0=C2=A0 42.417445] OOM killer enabled.
+> [=C2=A0=C2=A0 42.417455] Restarting tasks: Starting
+> [=C2=A0=C2=A0 42.419915] nvme nvme0: 1/0/0 default/read/poll queues
+> [=C2=A0=C2=A0 42.420407] Restarting tasks: Done
+> [=C2=A0=C2=A0 42.420781] PM: hibernation: hibernation exit
+> [=C2=A0=C2=A0 42.421149] nvme nvme0: Ignoring bogus Namespace Identifiers
 
-diff --git a/drivers/pinctrl/qcom/pinctrl-msm.c b/drivers/pinctrl/qcom/pinctrl-msm.c
-index 7010be8d1ace062fcf7743e539d2065d4aed856b..ad572c923e2ab8caed134207ec02c4107d4dc2bd 100644
---- a/drivers/pinctrl/qcom/pinctrl-msm.c
-+++ b/drivers/pinctrl/qcom/pinctrl-msm.c
-@@ -268,6 +268,7 @@ static const struct pinmux_ops msm_pinmux_ops = {
- 	.function_is_gpio	= pinmux_generic_function_is_gpio,
- 	.gpio_request_enable	= msm_pinmux_request_gpio,
- 	.set_mux		= msm_pinmux_set_mux,
-+	.strict			= true,
- };
- 
- static int msm_config_reg(struct msm_pinctrl *pctrl,
+Rafael points out that the resumed kernel isn't doing the unmap/remap
+again; it's merely printing the *same* messages again from the printk
+buffer.
 
--- 
-2.48.1
+Before writing the hibernate image, the kernel calls the suspend op:
 
+[   42.378350] Disabling non-boot CPUs ...
+[   42.378363] its_save_disable
+[   42.378363] its_build_mapd_cmd dev 0x10 valid 0 addr 0x10f010000
+[   42.378363] PM: hibernation: Creating image:
+
+Those messages are stored in the printk buffer in the image. Then the
+hibernating kernel calls the resume op, and writes the image:
+
+[   42.378363] PM: hibernation: Image created (115354 pages copied, 37744 z=
+ero pages)
+[   42.378363] its_restore_enable
+[   42.378363] its_build_mapd_cmd dev 0x10 valid 1 addr 0x10f010000
+[   42.383601] nvme nvme0: 1/0/0 default/read/poll queues
+[   42.384411] nvme nvme0: Ignoring bogus Namespace Identifiers
+[   42.384924] hibernate: Hibernating on CPU 0 [mpidr:0x0]
+[   42.387742] PM: Using 1 thread(s) for lzo compression
+[   42.387748] PM: Compressing and saving image data (115654 pages)...
+[   42.387757] PM: Image saving progress:   0%
+[   43.485794] PM: Image saving progress:  10%
+...
+
+Then the boot kernel comes up and maps an ITT:
+
+[    1.270652] its_build_mapd_cmd dev 0x10 valid 1 addr 0x10f009000
+
+The boot kernel never seems to *unmap* that because the suspend method
+doesn't get called before resuming the image.
+
+On resume, the previous kernel flushes the messages which were in its
+printk buffer to the serial port again, and then prints these *new*
+messages...
+
+[   42.378363] hibernate: Restored 0 MTE pages
+[   42.378363] its_restore_enable
+[   42.378363] its_build_mapd_cmd dev 0x10 valid 1 addr 0x10f010000
+[   42.417445] OOM killer enabled.
+[   42.417455] Restarting tasks: Starting
+
+So the hibernated kernel seems to be doing the right thing in both
+suspend and resume phases but it looks like the *boot* kernel doesn't
+call the suspend method before transitioning; is that intentional? I
+think we *should* unmap all the ITTs from the boot kernel.
+
+At least for the vGIC, when the hibernated image resumes it will
+*change* the mapping for every device that it knows about, but there's
+a *possibility* that the boot kernel might have set up one that the
+hibernated kernel didn't know about (if a new PCI device exists now?).
+And I'm not sure what the real hardware will do if it gets a subsequent
+MAPD without the previous one being unmapped.=20
+
+
+
+--=-B34Q4JwiZdVxHyUHxHEa
+Content-Type: application/pkcs7-signature; name="smime.p7s"
+Content-Disposition: attachment; filename="smime.p7s"
+Content-Transfer-Encoding: base64
+
+MIAGCSqGSIb3DQEHAqCAMIACAQExDzANBglghkgBZQMEAgEFADCABgkqhkiG9w0BBwEAAKCCD9Aw
+ggSOMIIDdqADAgECAhAOmiw0ECVD4cWj5DqVrT9PMA0GCSqGSIb3DQEBCwUAMGUxCzAJBgNVBAYT
+AlVTMRUwEwYDVQQKEwxEaWdpQ2VydCBJbmMxGTAXBgNVBAsTEHd3dy5kaWdpY2VydC5jb20xJDAi
+BgNVBAMTG0RpZ2lDZXJ0IEFzc3VyZWQgSUQgUm9vdCBDQTAeFw0yNDAxMzAwMDAwMDBaFw0zMTEx
+MDkyMzU5NTlaMEExCzAJBgNVBAYTAkFVMRAwDgYDVQQKEwdWZXJva2V5MSAwHgYDVQQDExdWZXJv
+a2V5IFNlY3VyZSBFbWFpbCBHMjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMjvgLKj
+jfhCFqxYyRiW8g3cNFAvltDbK5AzcOaR7yVzVGadr4YcCVxjKrEJOgi7WEOH8rUgCNB5cTD8N/Et
+GfZI+LGqSv0YtNa54T9D1AWJy08ZKkWvfGGIXN9UFAPMJ6OLLH/UUEgFa+7KlrEvMUupDFGnnR06
+aDJAwtycb8yXtILj+TvfhLFhafxroXrflspavejQkEiHjNjtHnwbZ+o43g0/yxjwnarGI3kgcak7
+nnI9/8Lqpq79tLHYwLajotwLiGTB71AGN5xK+tzB+D4eN9lXayrjcszgbOv2ZCgzExQUAIt98mre
+8EggKs9mwtEuKAhYBIP/0K6WsoMnQCcCAwEAAaOCAVwwggFYMBIGA1UdEwEB/wQIMAYBAf8CAQAw
+HQYDVR0OBBYEFIlICOogTndrhuWByNfhjWSEf/xwMB8GA1UdIwQYMBaAFEXroq/0ksuCMS1Ri6en
+IZ3zbcgPMA4GA1UdDwEB/wQEAwIBhjAdBgNVHSUEFjAUBggrBgEFBQcDBAYIKwYBBQUHAwIweQYI
+KwYBBQUHAQEEbTBrMCQGCCsGAQUFBzABhhhodHRwOi8vb2NzcC5kaWdpY2VydC5jb20wQwYIKwYB
+BQUHMAKGN2h0dHA6Ly9jYWNlcnRzLmRpZ2ljZXJ0LmNvbS9EaWdpQ2VydEFzc3VyZWRJRFJvb3RD
+QS5jcnQwRQYDVR0fBD4wPDA6oDigNoY0aHR0cDovL2NybDMuZGlnaWNlcnQuY29tL0RpZ2lDZXJ0
+QXNzdXJlZElEUm9vdENBLmNybDARBgNVHSAECjAIMAYGBFUdIAAwDQYJKoZIhvcNAQELBQADggEB
+ACiagCqvNVxOfSd0uYfJMiZsOEBXAKIR/kpqRp2YCfrP4Tz7fJogYN4fxNAw7iy/bPZcvpVCfe/H
+/CCcp3alXL0I8M/rnEnRlv8ItY4MEF+2T/MkdXI3u1vHy3ua8SxBM8eT9LBQokHZxGUX51cE0kwa
+uEOZ+PonVIOnMjuLp29kcNOVnzf8DGKiek+cT51FvGRjV6LbaxXOm2P47/aiaXrDD5O0RF5SiPo6
+xD1/ClkCETyyEAE5LRJlXtx288R598koyFcwCSXijeVcRvBB1cNOLEbg7RMSw1AGq14fNe2cH1HG
+W7xyduY/ydQt6gv5r21mDOQ5SaZSWC/ZRfLDuEYwggWbMIIEg6ADAgECAhAH5JEPagNRXYDiRPdl
+c1vgMA0GCSqGSIb3DQEBCwUAMEExCzAJBgNVBAYTAkFVMRAwDgYDVQQKEwdWZXJva2V5MSAwHgYD
+VQQDExdWZXJva2V5IFNlY3VyZSBFbWFpbCBHMjAeFw0yNDEyMzAwMDAwMDBaFw0yODAxMDQyMzU5
+NTlaMB4xHDAaBgNVBAMME2R3bXcyQGluZnJhZGVhZC5vcmcwggIiMA0GCSqGSIb3DQEBAQUAA4IC
+DwAwggIKAoICAQDali7HveR1thexYXx/W7oMk/3Wpyppl62zJ8+RmTQH4yZeYAS/SRV6zmfXlXaZ
+sNOE6emg8WXLRS6BA70liot+u0O0oPnIvnx+CsMH0PD4tCKSCsdp+XphIJ2zkC9S7/yHDYnqegqt
+w4smkqUqf0WX/ggH1Dckh0vHlpoS1OoxqUg+ocU6WCsnuz5q5rzFsHxhD1qGpgFdZEk2/c//ZvUN
+i12vPWipk8TcJwHw9zoZ/ZrVNybpMCC0THsJ/UEVyuyszPtNYeYZAhOJ41vav1RhZJzYan4a1gU0
+kKBPQklcpQEhq48woEu15isvwWh9/+5jjh0L+YNaN0I//nHSp6U9COUG9Z0cvnO8FM6PTqsnSbcc
+0j+GchwOHRC7aP2t5v2stVx3KbptaYEzi4MQHxm/0+HQpMEVLLUiizJqS4PWPU6zfQTOMZ9uLQRR
+ci+c5xhtMEBszlQDOvEQcyEG+hc++fH47K+MmZz21bFNfoBxLP6bjR6xtPXtREF5lLXxp+CJ6KKS
+blPKeVRg/UtyJHeFKAZXO8Zeco7TZUMVHmK0ZZ1EpnZbnAhKE19Z+FJrQPQrlR0gO3lBzuyPPArV
+hvWxjlO7S4DmaEhLzarWi/ze7EGwWSuI2eEa/8zU0INUsGI4ywe7vepQz7IqaAovAX0d+f1YjbmC
+VsAwjhLmveFjNwIDAQABo4IBsDCCAawwHwYDVR0jBBgwFoAUiUgI6iBOd2uG5YHI1+GNZIR//HAw
+HQYDVR0OBBYEFFxiGptwbOfWOtMk5loHw7uqWUOnMDAGA1UdEQQpMCeBE2R3bXcyQGluZnJhZGVh
+ZC5vcmeBEGRhdmlkQHdvb2Rob3Uuc2UwFAYDVR0gBA0wCzAJBgdngQwBBQEBMA4GA1UdDwEB/wQE
+AwIF4DAdBgNVHSUEFjAUBggrBgEFBQcDAgYIKwYBBQUHAwQwewYDVR0fBHQwcjA3oDWgM4YxaHR0
+cDovL2NybDMuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNybDA3oDWgM4YxaHR0
+cDovL2NybDQuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNybDB2BggrBgEFBQcB
+AQRqMGgwJAYIKwYBBQUHMAGGGGh0dHA6Ly9vY3NwLmRpZ2ljZXJ0LmNvbTBABggrBgEFBQcwAoY0
+aHR0cDovL2NhY2VydHMuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNydDANBgkq
+hkiG9w0BAQsFAAOCAQEAQXc4FPiPLRnTDvmOABEzkIumojfZAe5SlnuQoeFUfi+LsWCKiB8Uextv
+iBAvboKhLuN6eG/NC6WOzOCppn4mkQxRkOdLNThwMHW0d19jrZFEKtEG/epZ/hw/DdScTuZ2m7im
+8ppItAT6GXD3aPhXkXnJpC/zTs85uNSQR64cEcBFjjoQDuSsTeJ5DAWf8EMyhMuD8pcbqx5kRvyt
+JPsWBQzv1Dsdv2LDPLNd/JUKhHSgr7nbUr4+aAP2PHTXGcEBh8lTeYea9p4d5k969pe0OHYMV5aL
+xERqTagmSetuIwolkAuBCzA9vulg8Y49Nz2zrpUGfKGOD0FMqenYxdJHgDCCBZswggSDoAMCAQIC
+EAfkkQ9qA1FdgOJE92VzW+AwDQYJKoZIhvcNAQELBQAwQTELMAkGA1UEBhMCQVUxEDAOBgNVBAoT
+B1Zlcm9rZXkxIDAeBgNVBAMTF1Zlcm9rZXkgU2VjdXJlIEVtYWlsIEcyMB4XDTI0MTIzMDAwMDAw
+MFoXDTI4MDEwNDIzNTk1OVowHjEcMBoGA1UEAwwTZHdtdzJAaW5mcmFkZWFkLm9yZzCCAiIwDQYJ
+KoZIhvcNAQEBBQADggIPADCCAgoCggIBANqWLse95HW2F7FhfH9bugyT/danKmmXrbMnz5GZNAfj
+Jl5gBL9JFXrOZ9eVdpmw04Tp6aDxZctFLoEDvSWKi367Q7Sg+ci+fH4KwwfQ8Pi0IpIKx2n5emEg
+nbOQL1Lv/IcNiep6Cq3DiyaSpSp/RZf+CAfUNySHS8eWmhLU6jGpSD6hxTpYKye7PmrmvMWwfGEP
+WoamAV1kSTb9z/9m9Q2LXa89aKmTxNwnAfD3Ohn9mtU3JukwILRMewn9QRXK7KzM+01h5hkCE4nj
+W9q/VGFknNhqfhrWBTSQoE9CSVylASGrjzCgS7XmKy/BaH3/7mOOHQv5g1o3Qj/+cdKnpT0I5Qb1
+nRy+c7wUzo9OqydJtxzSP4ZyHA4dELto/a3m/ay1XHcpum1pgTOLgxAfGb/T4dCkwRUstSKLMmpL
+g9Y9TrN9BM4xn24tBFFyL5znGG0wQGzOVAM68RBzIQb6Fz758fjsr4yZnPbVsU1+gHEs/puNHrG0
+9e1EQXmUtfGn4InoopJuU8p5VGD9S3Ikd4UoBlc7xl5yjtNlQxUeYrRlnUSmdlucCEoTX1n4UmtA
+9CuVHSA7eUHO7I88CtWG9bGOU7tLgOZoSEvNqtaL/N7sQbBZK4jZ4Rr/zNTQg1SwYjjLB7u96lDP
+sipoCi8BfR35/ViNuYJWwDCOEua94WM3AgMBAAGjggGwMIIBrDAfBgNVHSMEGDAWgBSJSAjqIE53
+a4blgcjX4Y1khH/8cDAdBgNVHQ4EFgQUXGIam3Bs59Y60yTmWgfDu6pZQ6cwMAYDVR0RBCkwJ4ET
+ZHdtdzJAaW5mcmFkZWFkLm9yZ4EQZGF2aWRAd29vZGhvdS5zZTAUBgNVHSAEDTALMAkGB2eBDAEF
+AQEwDgYDVR0PAQH/BAQDAgXgMB0GA1UdJQQWMBQGCCsGAQUFBwMCBggrBgEFBQcDBDB7BgNVHR8E
+dDByMDegNaAzhjFodHRwOi8vY3JsMy5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVtYWlsRzIu
+Y3JsMDegNaAzhjFodHRwOi8vY3JsNC5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVtYWlsRzIu
+Y3JsMHYGCCsGAQUFBwEBBGowaDAkBggrBgEFBQcwAYYYaHR0cDovL29jc3AuZGlnaWNlcnQuY29t
+MEAGCCsGAQUFBzAChjRodHRwOi8vY2FjZXJ0cy5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVt
+YWlsRzIuY3J0MA0GCSqGSIb3DQEBCwUAA4IBAQBBdzgU+I8tGdMO+Y4AETOQi6aiN9kB7lKWe5Ch
+4VR+L4uxYIqIHxR7G2+IEC9ugqEu43p4b80LpY7M4KmmfiaRDFGQ50s1OHAwdbR3X2OtkUQq0Qb9
+6ln+HD8N1JxO5nabuKbymki0BPoZcPdo+FeRecmkL/NOzzm41JBHrhwRwEWOOhAO5KxN4nkMBZ/w
+QzKEy4PylxurHmRG/K0k+xYFDO/UOx2/YsM8s138lQqEdKCvudtSvj5oA/Y8dNcZwQGHyVN5h5r2
+nh3mT3r2l7Q4dgxXlovERGpNqCZJ624jCiWQC4ELMD2+6WDxjj03PbOulQZ8oY4PQUyp6djF0keA
+MYIDuzCCA7cCAQEwVTBBMQswCQYDVQQGEwJBVTEQMA4GA1UEChMHVmVyb2tleTEgMB4GA1UEAxMX
+VmVyb2tleSBTZWN1cmUgRW1haWwgRzICEAfkkQ9qA1FdgOJE92VzW+AwDQYJYIZIAWUDBAIBBQCg
+ggE3MBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTI1MDcyNDA5MjU0
+NlowLwYJKoZIhvcNAQkEMSIEIFgLZrnFOc5PCAuakHCItfKAgZwq2zJtNtwRw8SMh5YTMGQGCSsG
+AQQBgjcQBDFXMFUwQTELMAkGA1UEBhMCQVUxEDAOBgNVBAoTB1Zlcm9rZXkxIDAeBgNVBAMTF1Zl
+cm9rZXkgU2VjdXJlIEVtYWlsIEcyAhAH5JEPagNRXYDiRPdlc1vgMGYGCyqGSIb3DQEJEAILMVeg
+VTBBMQswCQYDVQQGEwJBVTEQMA4GA1UEChMHVmVyb2tleTEgMB4GA1UEAxMXVmVyb2tleSBTZWN1
+cmUgRW1haWwgRzICEAfkkQ9qA1FdgOJE92VzW+AwDQYJKoZIhvcNAQEBBQAEggIApStw32kgf4i/
+st14VgA+hYG5ZY6S/CPc8Q4gM4xNMaTC2YTVjWoY/l6tD9DCKK6udQKUHRWQmSOdxAZKZaInHI21
+ETRbvrXDk6WSZguB6Vgg26Hk21Bft5ShM5AVkqIsUq7eZr6YkX62I0adj8gppPpxuXNe8BkG311F
+hO+q0ltxNUUj+42INlIgJoYcNnfVPQFGlWkrjq9ARaKbP1yZwTvh+lByiJ2nswUX5aqWfBWhoR4r
+Sk9EdZlkDQdqQ8oSHa8g7sljxYYjxugSxx9xyGV+Lj/9v+HAsyIWuvInnyBCpLxffHa2ptR7ud59
+/+2wdrCvImbrirQFaQ2874nJ+JK6H7VEKIKVDWS6JDO3/eihmBv9fh7sVSeFFzf5sRo5S8UYr9cz
+99vLXn3gmqRxwpBDkpNZLFbmkxdu+WAIjBdnxCktzr6LuU3zzzAjliAAxobpBG8U9CA3ukyy62As
+PFgi3kxuQN0/O+NanXVC4GKomDEbrU17ow/+JRZ7MFwY/3DN1nvjieDElbUfBxCTh5seEoo6+c4S
+WTJKUNuSKpCs3K5ObER1oa7TVlxAJFVd8IwhBeFYRObP4F7WfTsuPdCGmxbbCvCR7vZRs9XCnbBP
+A+btDlRAJtdhr0YsF5Ws+BOkNORNvifBPYawP58GxyCQlCZh8fgA7w77JUDKmL8AAAAAAAA=
+
+
+--=-B34Q4JwiZdVxHyUHxHEa--
 
