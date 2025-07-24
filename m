@@ -4,81 +4,163 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEE5CC83F26
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 18:34:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1579C87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 18:34:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=y/JpBdh0M/EG+e/B96ZkkL3gSS4VjATa7TJ4jrZrXTk=; b=qrkoyI6LCSdJtfy2Mdu3MZwXCJ
-	QxGok6t8bWjnjVFm5+whfF49xTehqJyb5ZjuVugFE2dRN66taJH1kJKguDrt6WIdGn3HlOq4lWB5g
-	G6SphwNfggPjVPVP/V9Gw3ZWG9ck1GV5ZvXMR7hZ4MtPjYdEm5BBzyk/ufEh7K7JKx9QJiJfDLwuK
-	81WSMrP9iss46MSmPmipqXfqRmwTk6zETrv5IJLDRlivVw25n9fmQfk1umJhzgjC77e2x6zXD3+OL
-	UcEcGCRXBn98/UazMXX4p8U2IJV3hGXqhK0WSaRCFgq79PWSFpcyhfkcjBvQooa9/C0+KY5CWE1wi
-	KFtJ4ngA==;
+	bh=JPGOWi2fIEKtqzZfN7o7wYhaU2JZTg0ipLRcDJ6uY9E=; b=EBxbAthD9WDDBCmWvfohOk/JwZ
+	qY0H636HkmNbfOyYOEiDxDbrvFFs3poO4uNi5LB2YaoCqhv04VhUh7zQMVqGDUtmrajBMYuk4I/pR
+	WsNhmjnSbs0V8HpqBiKg0c1zS00J9jYc9So1D+FzKPSWEA4WzLN63S+vioyP1TLyGjBpgbJXnVAMK
+	vKt/gzRabpLOVp2hHxNCnciCbVdvddSKoYJWzLU9JygXxf8TcuOYP1umlW2+JehDdr3anASuJptBu
+	KMwhfX/rk3y9IjfjiGWqewuUGfA9XEaA/JOD3DsWJG+BA0qKbqS0QoK/uJxHxe5hCDWk5slMXO+Cm
+	LZqo0aIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uf0lb-00000008CoM-19Bp;
-	Thu, 24 Jul 2025 18:34:07 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uf0lc-00000008Coz-32jn;
+	Thu, 24 Jul 2025 18:34:08 +0000
+Received: from mail-bn8nam12on20612.outbound.protection.outlook.com ([2a01:111:f403:2418::612] helo=NAM12-BN8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uexiM-00000007pTd-0StM
+	id 1uey60-00000007uOT-1L8n
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Jul 2025 15:18:35 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 842595C658E;
-	Thu, 24 Jul 2025 15:18:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B8B19C4CEED;
-	Thu, 24 Jul 2025 15:18:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753370313;
-	bh=+bp6pfjFYbsKUp64YHHqLCc5uIl+4qZHCE84GxhUcHU=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=LoPzUSrn6r1oXxb3kNWN4MtXMDylnjukws8Eed4h76plciZYjuQdZKsPSyXZ+PRCs
-	 eIjt7QadV3qJM0q1SD5SBIqf6ZEq8Nt3zsXTV+pdJEAnj9SEpBnOKnrKdAStVn8ld8
-	 vPe95RerhCKQdJai2hXcUGkECzpmsqM7Z4yEpoV8YqdPDFEI8eg9aGzzUJCZfgT4E0
-	 /GzO3OZotadoLxuBlYAWpt6jv09cHslne3hPY0KfRCyhRJQdsS3VJycJtBNG1aSqSf
-	 pYjJjVlF2eaivil87NuFLKdBfd353lhVQH3/uenQQXSZ0ugrEdft7ZD9tZWnXBF6xj
-	 murJ3JuU0V2zg==
-Date: Thu, 24 Jul 2025 16:18:20 +0100
-From: Jonathan Cameron <jic23@kernel.org>
-To: Bough Chen <haibo.chen@nxp.com>
-Cc: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>, Nuno S?
- <noname.nuno@gmail.com>, Primoz Fiser <primoz.fiser@norik.com>, David
- Lechner <dlechner@baylibre.com>, Nuno Sa <nuno.sa@analog.com>, Andy
- Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Shawn
- Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam
- <festevam@gmail.com>, "linux-iio@vger.kernel.org"
- <linux-iio@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
- <linux-kernel@vger.kernel.org>, "upstream@lists.phytec.de"
- <upstream@lists.phytec.de>, "andrej.picej@norik.com"
- <andrej.picej@norik.com>
-Subject: Re: [PATCH 1/2] dt-bindings: iio: adc: imx93: Add calibration
- properties
-Message-ID: <20250724161820.66e37f6c@jic23-huawei>
-In-Reply-To: <DU0PR04MB9496FCE8DF07CD0E270B72AF905DA@DU0PR04MB9496.eurprd04.prod.outlook.com>
-References: <20250710073905.1105417-1-primoz.fiser@norik.com>
-	<20250710073905.1105417-2-primoz.fiser@norik.com>
-	<2bcd758b-c2d0-488a-8ead-ec7fb39f93e2@baylibre.com>
-	<20250713160247.0f22bbfe@jic23-huawei>
-	<de2c8e15-14e9-4c61-9a13-97ef1ec567a4@norik.com>
-	<6b32118a13e9e28b7cf12152af33642c76367c34.camel@gmail.com>
-	<20250721093847.GD4844@nxa18884-linux.ap.freescale.net>
-	<DU0PR04MB9496FCE8DF07CD0E270B72AF905DA@DU0PR04MB9496.eurprd04.prod.outlook.com>
-X-Mailer: Claws Mail 4.3.1 (GTK 3.24.49; x86_64-pc-linux-gnu)
+	Thu, 24 Jul 2025 15:43:01 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Rpf2HS0JMlnYyaPNhS8OU789ikJ06Pzj5PEz+QF7QGJHCrIOlJe591G5sludoRbrhzSdb0iOEK9Km/KxMXUeVeOOKf33ohOMulkl55xXCNgne5lOHIVC5HOmNCHrSNJlXJ0I/NjyEQnV47okiwhhJHgSY2tZRmyzRPGlGrkYKbu/b1KCSoxWz5NGR7rJdJNButZLuyqIgxe4uQeACrnoCQ1LvU4MZg0yD/NADtmK95Pg62GaPBeiMac4zlY+/RKnh/QZeV1l8pGQf5hBEMSNshkcPdGtG/vUQMsG4/SAu74d+KagSPFPbhk0PC/qESfbw+TfHDA8jKHzFBNyjpm4Vw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=JPGOWi2fIEKtqzZfN7o7wYhaU2JZTg0ipLRcDJ6uY9E=;
+ b=TiBMVRUb0cpTdI1r5m6cESXblyN4im648P6r59t1ulo3aWwDdYKEx+EzXUmXIOHaOBKfem0jCQbbaRqVUOAY3tlqSJ+3LtkpKl/4YpyNAaHRn+63QEAesNa4yjFQv0K2NnjAaiXahMoVlyHSy5k2jLfTKw5Jz6f04Qm4xLzHycMiuKc1sQ/JHFckB89+zxgx60ztgwlqZlcwEbQr1VE4mHZh/HHZrdx2EAhzg6NZtQjntH+VcBQdSqB0UcOPNdlaXO22XsFRui4DiKfBv/oijZHaMq86BtbmjK1o5ehpTwzOU/rh5HHSZ6YjLJ20dv+yxhJop0uTQOhzE8xeBytNTw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=altera.com; dmarc=pass action=none header.from=altera.com;
+ dkim=pass header.d=altera.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=altera.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=JPGOWi2fIEKtqzZfN7o7wYhaU2JZTg0ipLRcDJ6uY9E=;
+ b=aPfbNgHhVi75AjF1xZckEy8t+3eCwbMmcJ8daGgut3S7eUn+oOU1AoomrGa27hw5LXRJokfFYhlF9odcvt//ekyU20rszS3X/20ku7t4T0C0r0mEHQfYr7a3jeb1pjkkrYZe+dUZT0Dq/roT+xdv8AYF0m3KiReT13dKItM0mehagxf6Z/Hv4MtoWATO7B35tQBWQtcL3RHUlZzq2ZFAE218nHu2ptMVS61DT8hgP5webL6s6xnv7EtcFY+ra+NkhAGwqyURumfLCDKeJhKuDX6p6J4zZtVOgOY21HqzoyfHA8ZY+5r4enepxtiqQ2W+MpXOB7LZYTGzCZ7l46ytJA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=altera.com;
+Received: from BYAPR03MB3461.namprd03.prod.outlook.com (2603:10b6:a02:b4::23)
+ by SJ2PR03MB7167.namprd03.prod.outlook.com (2603:10b6:a03:4f5::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8964.22; Thu, 24 Jul
+ 2025 15:42:52 +0000
+Received: from BYAPR03MB3461.namprd03.prod.outlook.com
+ ([fe80::706b:dd15:bc81:313c]) by BYAPR03MB3461.namprd03.prod.outlook.com
+ ([fe80::706b:dd15:bc81:313c%6]) with mapi id 15.20.8943.029; Thu, 24 Jul 2025
+ 15:42:50 +0000
+From: Matthew Gerlach <matthew.gerlach@altera.com>
+To: andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com,
+	dinguyen@kernel.org,
+	maxime.chevallier@bootlin.com,
+	richardcochran@gmail.com,
+	netdev@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: Matthew Gerlach <matthew.gerlach@altera.com>
+Subject: [PATCH v2 3/4] arm64: dts: socfpga: agilex5: enable gmac2 on the Agilex5 dev kit
+Date: Thu, 24 Jul 2025 08:40:50 -0700
+Message-ID: <20250724154052.205706-4-matthew.gerlach@altera.com>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20250724154052.205706-1-matthew.gerlach@altera.com>
+References: <20250724154052.205706-1-matthew.gerlach@altera.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SJ0PR05CA0094.namprd05.prod.outlook.com
+ (2603:10b6:a03:334::9) To BYAPR03MB3461.namprd03.prod.outlook.com
+ (2603:10b6:a02:b4::23)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BYAPR03MB3461:EE_|SJ2PR03MB7167:EE_
+X-MS-Office365-Filtering-Correlation-Id: c94c6144-c630-4be7-2c83-08ddcac8bf34
+X-MS-Exchange-AtpMessageProperties: SA
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|1800799024|376014|366016|921020;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?I+8Nl88eMASGmAu1WYjBKoCX5t94Xb1uwFt5ROvFiMu5u6AKYDMxLTYByGI3?=
+ =?us-ascii?Q?nbe/hIJ5t6+nFfftkhbMjuYhC6crVfkWhfy/YqeKIvCK1vzO/8QnbOYoXSMP?=
+ =?us-ascii?Q?7bYwUDifKWkup9c/FpJMWwqNaujtWsB8Opc4Ft+UuhTKSkXBanVa2NMo2fkn?=
+ =?us-ascii?Q?3WtScC3hNYOdD4QsxMdA+OFy0nrrNY4Fd5VRopxmKk++WxK7PNWuwjpd5XNh?=
+ =?us-ascii?Q?VzQ42vlfH59pQ5hL2xz+usJ84klika1qxs5PvwJXbIxPHfxIQoLTtm+gQXvp?=
+ =?us-ascii?Q?5+D56DrjmkUqg5oaxr6d9cubXqlqPOykfYh05PU+cWhWIxNqSsZaA/k7xJ8n?=
+ =?us-ascii?Q?HepCGeN7741SeGHZe6YxuYbdu2lrlshcuwuNIu93R5lc1aRwlzd1ayWCI3ar?=
+ =?us-ascii?Q?9sL7VGdQc60BD47BvKnQ7dAL00bw6nxt3DxCQUkSF5kB+cQTnAbnyfvJPmJ6?=
+ =?us-ascii?Q?eHgIFy5WDExOr0r74rXRJQwakXWDQxEQI4Ge8J+9ytSJpkN4NRVMqmI7PVyz?=
+ =?us-ascii?Q?VpEMwh3Gne5wYxpnPEfMSmd3dKMpVFjCWPDiYXYQGXhweAwkoqPjOCKfB+1c?=
+ =?us-ascii?Q?nYmkBRqfryEe5J7AUIWcVJ4qQyPM4v0dXGJLnpvXzyt522Nbkcuxn2iSws9M?=
+ =?us-ascii?Q?2bqOHb/gGQZmeryDRqhT7RGFdsQmkIcP/5nl0385Wvgy/OfUtTnCYmFynaUs?=
+ =?us-ascii?Q?nK21yDGXhaZHM6cXKEni1R+B/jmTh679ByT+icWX8Sa304nyBoz2rEDxYJLP?=
+ =?us-ascii?Q?+R22bOrUHCQKafH+VocnXqsM6vx4w9yTB9NPX4L0pgtUu+CDGK+yj41OT12z?=
+ =?us-ascii?Q?2urCG8dNJamMbNYjRC7mhRrnktlBarQV3ZsYvcOXi5rZnxfQZmn1RfNdEBF2?=
+ =?us-ascii?Q?/dRM1MIBbK2U1XPoB3nVQDF1oXcDB8n/8vvqaqPhe0VG5qaRSC3VQFeLxoyk?=
+ =?us-ascii?Q?59cmdLQTrydQEcMIaYdvH/s/Em4CJCENaTfnVdljhXD9TMoXHZDxQPYt+oEH?=
+ =?us-ascii?Q?mmtC8Xx6NWycWiJqU0op9aoQ9CnmKkdzYtHEx1EGgDR9j5kbJLkO6pfYhiIQ?=
+ =?us-ascii?Q?ukA8rFDn1PCVG6Y1Za7Pxa2kmeiK3hRQCGtv2b+xlUGs9nfW/mNZAPEcQX4N?=
+ =?us-ascii?Q?nw4Z4GJXhBJlidAdDWL66fpKJrY7nTBWNcd1uWJSm11cTvCwArLvfyxZZqdD?=
+ =?us-ascii?Q?WOtVfcqiAJoTQ+VSziKCWLB7gAHP4Jz+LWo8nHRA2uJEI15sMpufOhl4JzmU?=
+ =?us-ascii?Q?rkbu0jHUK6VKNV5PQhqIzyhicwo4kt+325V4RvyLkeD1CaLH82I93Gnz5Jj1?=
+ =?us-ascii?Q?mRd64dYBtw4Yx/1N1Yxvlc8K5NtoiR2MmI/Ln3mnZpGHg0PUn3kZcGRZGBFQ?=
+ =?us-ascii?Q?0eDk82VaJbNI5Anfy2F3mstpOtbVdmUF29lZ8uDm1afw9Xk5KnJmF3eo3QYS?=
+ =?us-ascii?Q?K3UTVIuL//ykkP0hsTgYguJKB8qQAGmbxM1x5iDwBDGH5q/sUVfzQA=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BYAPR03MB3461.namprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(376014)(366016)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?adeBRcGaIuk1hCEd7dIt0dASRkowphXWVSJI3SBhYIy8RgnHsyvq5RjG+NQQ?=
+ =?us-ascii?Q?EWCNBV58GVXRGDvqlVpe0/nqJF+eIqnFvb2D9wX19VPgaEHtve/aYJ9DF5+s?=
+ =?us-ascii?Q?bGDankz03MDuY2YYBuZOf37VlkVuTbixhpaF7C6sx2D5BmU6aV0OOR70981n?=
+ =?us-ascii?Q?zDj0mLKwMlCAlTo1dT3eSfhrTiKHA6p12Paj96Ai+OnA9C839oIehRSG0BAI?=
+ =?us-ascii?Q?J2yTila/7bezzdwJk7zoeKe+7m/GvI+kMfZLf/SxskUiL8OyM/q1JgvzEBcQ?=
+ =?us-ascii?Q?wSVMBK3NclfuI3yIHM4zrV7rscytVYCUzcPhSF57C6ibT2P6Hvj8tpbcVCC1?=
+ =?us-ascii?Q?vuI5ejNOXexmy+PNWCNhjm1AyJsWfUcztvXGnp+0BZNpsJNxf3Wwpq2n0HKG?=
+ =?us-ascii?Q?+qt9MGsQUC5kH/xzsWNWxJxS4CHZbikujTq7busEoz+G4yPXS0aFHHhKMH58?=
+ =?us-ascii?Q?hPny/D2oY7mnYgk4wbl/H9weouL2lev50zRqdYsIXh0yLvtk/O4XkNZdWQ2d?=
+ =?us-ascii?Q?ny3EMP434W+Y3M9o/Un84JWMCAx/c0tVhFIUouF/+JyGedHPlvcr3e8w1hMt?=
+ =?us-ascii?Q?NCxTLv5OBmSI6OqLWNp2cvXgki+cl/5j6aDS3A1A/e4EazoR7+f+cdmBkXVM?=
+ =?us-ascii?Q?JdX7mK/k5wKPZxngcvZy9rJsQR5n+tpbF3KGL0aBo95O7b9SxZftHCXnURiA?=
+ =?us-ascii?Q?WIp8u7yY+iFsDeaPIl25vUXr4uMBrFSSogXg229OFgmPWCN9AG2GCjp1k67v?=
+ =?us-ascii?Q?cG7nF4VCqQj3nzEldi5drCISGXeDWaiSCuFOAXrgqEL02GvUNTw07hJfUXfb?=
+ =?us-ascii?Q?EPW2oCh+59s27BBsnyj3lmqOGttCR5D7qJYU+W0FfNtrTDJRFhFO7Y7teNfb?=
+ =?us-ascii?Q?VXPjPpu39TkH6Z5KdcOK28U8IZNP3Pfh3Nfkq9LmCYKbpTi3OEpGGSHX7J/j?=
+ =?us-ascii?Q?IQoFD9K42QnD5fNU/pfyslxIUApRcomNBmXYW3GxMYF3unJq1e+ax2Qzdbri?=
+ =?us-ascii?Q?QetczL8BHU1dff0uMvkYA3eikf4rp1j5hMQJQS5TLRj8PGrGE7E2vZtOr3GL?=
+ =?us-ascii?Q?95UMoCWHyn6HOf9MC6ea+/gPXlaoyYsfpEk42OZYYwZj+SDiOkM/+3Z5/4p1?=
+ =?us-ascii?Q?d9Xuu3wrcuQ7j0fC7eIbjb5hkQmO8WBYVYx1mTqH8AZVECMzX3d4cy9ch+43?=
+ =?us-ascii?Q?Pjq4LWzj746jqZAAbt6AP7NpuCoxbXdRmls1tffvCLPRAYCmoGhm4c4MQGmc?=
+ =?us-ascii?Q?TwXSW8ul0IUFHBPwmexMrWrqE2dhUpPKiBKZG+oVYNr+7N605Nnkv5fkUMLa?=
+ =?us-ascii?Q?dQSosPe3vG3IQntXFtdW7bN1XvJJ2HcajqO4/+TG5de+i1ASfVgHsIz6/VYu?=
+ =?us-ascii?Q?Yhbss4hXJnhZVqwbOQ6lmDBGZU7650QmeDyRMhITNUeyuUd/oXcuHoERScoV?=
+ =?us-ascii?Q?PIP5ozK4zvDqxzHPW9sY5ED2aCvjc++W5AEdno5gtQ0WYc4XVtNekJBIFqOq?=
+ =?us-ascii?Q?7YaLCyeRfMZpyyGopXGLgisEHWsbZhIQyNAJwbZ58d4KuLPgkdTEn6qPDCLc?=
+ =?us-ascii?Q?dzot7xC6fBmAVm9J38+RKOOCBGHmFcMenjd6PFnzs2cH1BcTSUHc5kQSyxdp?=
+ =?us-ascii?Q?2A=3D=3D?=
+X-OriginatorOrg: altera.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c94c6144-c630-4be7-2c83-08ddcac8bf34
+X-MS-Exchange-CrossTenant-AuthSource: BYAPR03MB3461.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Jul 2025 15:42:50.8251
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: fbd72e03-d4a5-4110-adce-614d51f2077a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: nmNBONWBNVyC895xufl1gl/mqGnZgbXKopUm1qOq95RH4qi9/zt8qhqnOTHqAcZu8BqTHxQHRl/dtIyLgNeSETtDXokzbw8qbRGwk3Ore2s=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR03MB7167
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250724_081834_233500_22390624 
-X-CRM114-Status: GOOD (  43.49  )
+X-CRM114-CacheID: sfid-20250724_084300_367304_046712E8 
+X-CRM114-Status: GOOD (  10.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,189 +175,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 21 Jul 2025 09:09:06 +0000
-Bough Chen <haibo.chen@nxp.com> wrote:
+Enable gmac2 on the Agilex5 SOCFGPA Development Kit. The MAC is connected
+to a RGMII PHY on a daughter card. There are no RGMII clock delays
+implemented the on PCB.
 
-> > -----Original Message-----
-> > From: Peng Fan (OSS) <peng.fan@oss.nxp.com>
-> > Sent: 2025=E5=B9=B47=E6=9C=8821=E6=97=A5 17:39
-> > To: Nuno S? <noname.nuno@gmail.com>
-> > Cc: Primoz Fiser <primoz.fiser@norik.com>; Jonathan Cameron
-> > <jic23@kernel.org>; David Lechner <dlechner@baylibre.com>; Bough Chen
-> > <haibo.chen@nxp.com>; Nuno Sa <nuno.sa@analog.com>; Andy Shevchenko
-> > <andy@kernel.org>; Rob Herring <robh@kernel.org>; Krzysztof Kozlowski
-> > <krzk+dt@kernel.org>; Conor Dooley <conor+dt@kernel.org>; Shawn Guo
-> > <shawnguo@kernel.org>; Sascha Hauer <s.hauer@pengutronix.de>;
-> > Pengutronix Kernel Team <kernel@pengutronix.de>; Fabio Estevam
-> > <festevam@gmail.com>; linux-iio@vger.kernel.org; imx@lists.linux.dev;
-> > devicetree@vger.kernel.org; linux-arm-kernel@lists.infradead.org;
-> > linux-kernel@vger.kernel.org; upstream@lists.phytec.de;
-> > andrej.picej@norik.com
-> > Subject: Re: [PATCH 1/2] dt-bindings: iio: adc: imx93: Add calibration =
-properties
-> >=20
-> > On Mon, Jul 14, 2025 at 05:11:31PM +0100, Nuno S? wrote: =20
-> > >On Mon, 2025-07-14 at 07:56 +0200, Primoz Fiser wrote: =20
-> > >> Hi all,
-> > >>
-> > >> On 13. 07. 25 17:02, Jonathan Cameron wrote: =20
-> > >> > On Thu, 10 Jul 2025 10:46:44 -0500
-> > >> > David Lechner <dlechner@baylibre.com> wrote:
-> > >> > =20
-> > >> > > On 7/10/25 2:39 AM, Primoz Fiser wrote: =20
-> > >> > > > From: Andrej Picej <andrej.picej@norik.com>
-> > >> > > >
-> > >> > > > Document i.MX93 ADC calibration properties and how to set them.
-> > >> > > >
-> > >> > > > Signed-off-by: Andrej Picej <andrej.picej@norik.com>
-> > >> > > > Signed-off-by: Primoz Fiser <primoz.fiser@norik.com>
-> > >> > > > ---
-> > >> > > > ??.../bindings/iio/adc/nxp,imx93-adc.yaml???????????? | 21
-> > >> > > > +++++++++++++++++++
-> > >> > > > ??1 file changed, 21 insertions(+)
-> > >> > > >
-> > >> > > > diff --git
-> > >> > > > a/Documentation/devicetree/bindings/iio/adc/nxp,imx93-
-> > >> > > > adc.yaml
-> > >> > > > b/Documentation/devicetree/bindings/iio/adc/nxp,imx93-adc.yaml
-> > >> > > > index c2e5ff418920..d1c04cf85fe6 100644
-> > >> > > > ---
-> > >> > > > a/Documentation/devicetree/bindings/iio/adc/nxp,imx93-adc.yaml
-> > >> > > > +++ b/Documentation/devicetree/bindings/iio/adc/nxp,imx93-adc.y
-> > >> > > > +++ aml
-> > >> > > > @@ -52,6 +52,27 @@ properties:
-> > >> > > > ???? "#io-channel-cells":
-> > >> > > > ???????? const: 1
-> > >> > > > ??
-> > >> > > > +?? nxp,calib-avg-en:
-> > >> > > > +?????? default: 1
-> > >> > > > +?????? description:
-> > >> > > > +?????????? Enable or disable calibration averaging function (=
-AVGEN).
-> > >> > > > +?????? $ref: /schemas/types.yaml#/definitions/uint32
-> > >> > > > +?????? enum: [ 0, 1 ]
-> > >> > > > +
-> > >> > > > +?? nxp,calib-nr-samples:
-> > >> > > > +?????? default: 512
-> > >> > > > +?????? description:
-> > >> > > > +?????????? Selects number of samples (NRSMPL) to be used duri=
-ng =20
-> > calibration. =20
-> > >> > > > +?????? $ref: /schemas/types.yaml#/definitions/uint32
-> > >> > > > +?????? enum: [ 16, 32, 128, 512 ] =20
-> > >> >
-> > >> > Allow 1 as a value and drop the enabled above.???? Averaging over 1
-> > >> > sample is same as no averaging and gives simpler binding.
-> > >> > =20
-> > >> > > > +
-> > >> > > > +?? nxp,calib-t-sample:
-> > >> > > > +?????? default: 22
-> > >> > > > +?????? description:
-> > >> > > > +?????????? Selects sample time (TSAMP) of calibration
-> > >> > > > +conversions in ADC
-> > >> > > > clock cycles
-> > >> > > > +?????? $ref: /schemas/types.yaml#/definitions/uint32
-> > >> > > > +?????? enum: [ 8, 16, 22, 32 ]
-> > >> > > > +
-> > >> > > > ??required:
-> > >> > > > ???? - compatible
-> > >> > > > ???? - reg?? =20
-> > >> > >
-> > >> > > This seem like things that should be set at runtime rather than
-> > >> > > in the devicetree. Unless there is some justification on why
-> > >> > > these values depend on how the chip is wired up? =20
-> > >>
-> > >> It depends how ADC 1.8V Vref is wired up, especially how noisy it is.
-> > >> =20
-> > >> >
-> > >> > Further to that, I'd like to see some explanation of why we care to
-> > >> > change it at all. Is it ever a bad idea to enable averaging and
-> > >> > pick a large number of samples for calibration? =20
-> > >>
-> > >> This is a snippet from the i.MX93 TRM, chapter Analog-to-Digital
-> > >> Converter (SAR_ADC) describing calibration steps:
-> > >>
-> > >> 1. Wait for deassertion of functional reset.
-> > >> 2. Configure SAR controller operating clock (MCR[ADCLKSE] =3D 0).
-> > >> 3. Bring ADC out of Power-down state (MCR[PWDN] =3D 0).
-> > >> 4. Configure desired calibration settings (default values kept for
-> > >> highest accuracy maximum time).
-> > >> ??? MCR[TSAMP]: Sample time for calibration conversion ???
-> > >> MCR[NRSMPL]: Number of samples in averaging ??? MCR[AVGEN]: Averaging
-> > >> function enable in calibration 5. Run calibration by writing a one to
-> > >> MCR[CALSTART].
-> > >> 6. Check calibration run status in MSR[CALBUSY]???wait until
-> > >> MSR[CALBUSY] =3D 0; alternatively, MSR[ADCSTAT] can be used to check
-> > >> status.
-> > >> 7. Check calibration pass/fail status in MSR[CALFAIL] field. If
-> > >> MSR[CALFAIL] =3D 1 then calibration failed. Detailed status can be
-> > >> checked in CALSTAT.
-> > >>
-> > >>
-> > >> See point 4).
-> > >>
-> > >> Not sure why would there be an option to configure i.MX93 ADC
-> > >> calibration parameters if one use-case (max accuracy max time) to
-> > >> rule them all?
-> > >> =20
-> > >
-> > >Sometimes HW guys just want to give you some options. Does not mean we
-> > >have to use them all :).
-> > >
-> > >I guess what Jonathan is interested in, is to understand in what
-> > >conditions the defaults are no good for the calibration? If we can have
-> > >a set of values that should pretty much always work, no need to further
-> > >complicate the bindings or the driver. =20
-> >=20
-> > Just my understanding, it is hard to use one fixed settings to fit all =
-kinds of
-> > conditions.
-> >=20
-> >                  Noise induced from PCB tracks  Electro- magnetic noise
-> > 		     |                           |
-> > 		     V                           V
-> >  ---------
-> > |SOC(ADC)|   <---------------------------------<- (~) external Signal
-> >  ---------
-> >                  ^                 ^
-> >                  |                 |
-> >              I/O coupled noise    Internal noise
-> >=20
-> >=20
-> > So OEM A's board may needs different settings compared with OEM B's boa=
-rd. =20
->=20
-> The noise on Vref did impact the calibration, we did get report from cust=
-omer, and IC guys suggested to do like the following patch, what's your com=
-ments?
->=20
-> https://patchwork.kernel.org/project/linux-iio/patch/20250423-adcpatch-v1=
--1-b0e84c27ae98@nxp.com/
+Signed-off-by: Matthew Gerlach <matthew.gerlach@altera.com>
+---
+v2:
+ - change phy-mode to "rgmii-id"
+ - add newline before inner device tree nodes
+---
+ .../boot/dts/intel/socfpga_agilex5_socdk.dts  | 20 +++++++++++++++++++
+ 1 file changed, 20 insertions(+)
 
-To me warning and accepting a failed calibration is better than tweaking se=
-ttings.
-
-The reason is I'm still failing to understand why we should (for example) r=
-educe the
-time over which the signal is averaged.  Why would that make it more likely=
- to pass
-in some noise conditions than another set?  It might increase the chance of=
- passing
-I guess, but it's still likely to fail sometimes.
-
-Jonathan
-
->=20
-> Regards
-> Haibo Chen=20
-> >=20
-> > Regards,
-> > Peng
-> >  =20
-> > >
-> > >- Nuno S?? =20
-> > >> On the other hand, public TRM doesn't give much more information and=
- =20
-> > >> > =20
+diff --git a/arch/arm64/boot/dts/intel/socfpga_agilex5_socdk.dts b/arch/arm64/boot/dts/intel/socfpga_agilex5_socdk.dts
+index d3b913b7902c..e9776e1cdc9a 100644
+--- a/arch/arm64/boot/dts/intel/socfpga_agilex5_socdk.dts
++++ b/arch/arm64/boot/dts/intel/socfpga_agilex5_socdk.dts
+@@ -10,6 +10,9 @@ / {
+ 
+ 	aliases {
+ 		serial0 = &uart0;
++		ethernet0 = &gmac0;
++		ethernet1 = &gmac1;
++		ethernet2 = &gmac2;
+ 	};
+ 
+ 	chosen {
+@@ -37,6 +40,23 @@ &gpio0 {
+ 	status = "okay";
+ };
+ 
++&gmac2 {
++	status = "okay";
++	phy-mode = "rgmii-id";
++	phy-handle = <&emac2_phy0>;
++	max-frame-size = <9000>;
++
++	mdio0 {
++		#address-cells = <1>;
++		#size-cells = <0>;
++		compatible = "snps,dwmac-mdio";
++
++		emac2_phy0: ethernet-phy@0 {
++			reg = <0>;
++		};
++	};
++};
++
+ &gpio1 {
+ 	status = "okay";
+ };
+-- 
+2.35.3
 
 
