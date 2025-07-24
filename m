@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A424BC83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 09:45:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4154C87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 09:48:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xFwsDR9nS9CPwG8EUO+TSr+FVpQylptXjpi6T/0gA8Y=; b=HsaSyvu2fpd58GquqK/kGMTJXi
-	3dMyJxa1jHuFaUIM9psC09KvWM5+ALmpGVOw+3qCCnt0ppIASZPSo9VAxUHhzZeIeWF7uno7+imI2
-	8TfqoHBoPF3lz/gKkB9jdfyJZXSgc0u1NKjf4xdHy15pTAtMyk3hBSokz+F4qOXPjimITeuu2l1CE
-	Sv2YCOs1y3x38P7FXX8l3qeh+RKkNCbwsesKuqyo4/+rzTDc02y3pWe6RXKK/e+NZa3YLpl0UFIbi
-	Obd62n6m9hTNqbBAudjjHWE1EVRKYfgT8vhDwq/Xn6vVVKHpLK8Zzaz9tuGX9JiYGyjrFpetsa/S0
-	VLpXKzOQ==;
+	bh=MeKVcuQnhXsh+G4bmWTicbNkRPGFIlq15x1crTq7V+0=; b=28tlmV4WpfSCX/ASwW5sqZRaYp
+	UfPh9yiAoFS9jDUKkqNFCyDinLr35sfaXvFvyFq8Pmd2hMbqHNVE9TI38KE7WMpKhSNe+t4l42vIR
+	szjtU2Mw/6HE0d6jOKSOGSJyiw7QFvlNyFjDvo4Io5y09kzrrwKB2S3rva89iWMHlGB217sRYnpuV
+	WJy1OTBunfEjHZRmgLl8/sGEGdqFVpm+T2Lfzio8OAbw4Sex1L7rEXM1D8FCwaMFLHN0MzlEao+D6
+	6Z7I1yJTK3NcZwGbilFuu9IAXkKMCy1Rk9w5pDOd+fgtltmkhp8Hdsu7u1TFAIUA7giUDDdGNtU3B
+	yA4pxTyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uesWC-000000075ns-2a4A;
-	Thu, 24 Jul 2025 09:45:40 +0000
+	id 1uesYd-000000076Cb-2qm6;
+	Thu, 24 Jul 2025 09:48:11 +0000
 Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uerTs-00000006t6t-3RSs;
+	id 1uerTt-00000006t7B-30ED;
 	Thu, 24 Jul 2025 08:39:14 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1753346351;
-	bh=TbLsiYD2WKRADkZMF09I8y6SP9/pzpukwJSQWNOyHkI=;
+	s=mail; t=1753346352;
+	bh=k3CxvdIFne4d7WnWUFyHn9jMo/aAR5LTnqhS5VtHfmA=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=CL4kXhsJFkH8miuh3BMC765Je/N2G6/OiELhoJkKE0fTTcK6VPA5nnf36nd8a0Rts
-	 x/HpUKo54UMft6ezx5qaZTI6KoFoa7OPYsHKVHKYe+HSgmpgUWtffIMRZL5X+eDJkt
-	 9vnDGkiUK2vyydC9jNDolpDOwKI+D+/LPttmqK4qpcTz2kKwD6rjbq2H3hKMqAU2sb
-	 6EcS48XZ8yJktXo8hq8+uFRiM4WGSkc41ulFLRzaGSoT+wRVFebD1NM7QLxRpAIr1l
-	 44GBldk+SO2BzKbME8f5gohzbLzLWiFtFQKJauumCO6e0aV5nSNpybbYPQIE3YVtin
-	 Rb3r5osQSArig==
+	b=Pxusdln65wCWqLYwZuVfsCEnelwtqT+Nd6iQJaDo7Xk+5M/1q9kvkZgm9n38IjIml
+	 VS714qsiF9Q8EGHmCPh7tQ9oDi98BdkCKhKPPkzI1m9bxiZPO/fw8cVdNBBKUQ2L70
+	 kpuYBOr9GXvSrYV5Fe1RtxE/AoWD/Ij+uVu/C/V++qo2KjnlKUUPHPSFPCPPNHCiRB
+	 LGdCSwGQdENJCuJC3H28I1whEb+ju+k+IT48KlU/SMkCiNWoxyXNQ+YkLaM5Wdu1GI
+	 4PcGGLunD3YBILPKjhJp8xgp2jLIruxu3kU/WJbfU62vZlaYUmDgDafKuGLuxyOkl3
+	 K2qokTPUlYQgA==
 Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 9FC6217E1110;
-	Thu, 24 Jul 2025 10:39:10 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 89DBD17E11EE;
+	Thu, 24 Jul 2025 10:39:11 +0200 (CEST)
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 To: robh@kernel.org
 Cc: krzk+dt@kernel.org,
@@ -59,17 +59,17 @@ Cc: krzk+dt@kernel.org,
 	linux-mediatek@lists.infradead.org,
 	linux-clk@vger.kernel.org,
 	kernel@collabora.com
-Subject: [PATCH 2/3] clk: mediatek: mt7622-aud: Add missing AFE_MRGIF clock
-Date: Thu, 24 Jul 2025 10:39:06 +0200
-Message-ID: <20250724083907.61313-2-angelogioacchino.delregno@collabora.com>
+Subject: [PATCH 3/3] arm64: dts: mediatek: mt7622: Add missing audio_mrgif_pd clock
+Date: Thu, 24 Jul 2025 10:39:07 +0200
+Message-ID: <20250724083907.61313-3-angelogioacchino.delregno@collabora.com>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20250724083907.61313-1-angelogioacchino.delregno@collabora.com>
 References: <20250724083907.61313-1-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250724_013913_002008_C32EE3CD 
-X-CRM114-Status: UNSURE (   8.36  )
+X-CRM114-CacheID: sfid-20250724_013913_895637_82535475 
+X-CRM114-Status: UNSURE (   8.54  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -85,25 +85,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the AFE Merge Interface clock used for the audio subsystem.
+Add the missing audio merge interface clock to the audio-controller
+node to enable the ability to merge AFE connections.
 
 Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 ---
- drivers/clk/mediatek/clk-mt7622-aud.c | 1 +
- 1 file changed, 1 insertion(+)
+ arch/arm64/boot/dts/mediatek/mt7622.dtsi | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/clk/mediatek/clk-mt7622-aud.c b/drivers/clk/mediatek/clk-mt7622-aud.c
-index 931a0598e598..a4ea5e20efa2 100644
---- a/drivers/clk/mediatek/clk-mt7622-aud.c
-+++ b/drivers/clk/mediatek/clk-mt7622-aud.c
-@@ -75,6 +75,7 @@ static const struct mtk_gate audio_clks[] = {
- 	GATE_AUDIO1(CLK_AUDIO_A1SYS, "audio_a1sys", "a1sys_hp_sel", 21),
- 	GATE_AUDIO1(CLK_AUDIO_A2SYS, "audio_a2sys", "a2sys_hp_sel", 22),
- 	GATE_AUDIO1(CLK_AUDIO_AFE_CONN, "audio_afe_conn", "a1sys_hp_sel", 23),
-+	GATE_AUDIO1(CLK_AUDIO_AFE_MRGIF, "audio_afe_mrgif", "aud_mux1_sel", 25),
- 	/* AUDIO2 */
- 	GATE_AUDIO2(CLK_AUDIO_UL1, "audio_ul1", "a1sys_hp_sel", 0),
- 	GATE_AUDIO2(CLK_AUDIO_UL2, "audio_ul2", "a1sys_hp_sel", 1),
+diff --git a/arch/arm64/boot/dts/mediatek/mt7622.dtsi b/arch/arm64/boot/dts/mediatek/mt7622.dtsi
+index 917fa39a74f8..308c23b9de28 100644
+--- a/arch/arm64/boot/dts/mediatek/mt7622.dtsi
++++ b/arch/arm64/boot/dts/mediatek/mt7622.dtsi
+@@ -650,7 +650,8 @@ afe: audio-controller {
+ 				 <&audsys CLK_AUDIO_AFE>,
+ 				 <&audsys CLK_AUDIO_AFE_CONN>,
+ 				 <&audsys CLK_AUDIO_A1SYS>,
+-				 <&audsys CLK_AUDIO_A2SYS>;
++				 <&audsys CLK_AUDIO_A2SYS>,
++				 <&audsys CLK_AUDIO_AFE_MRGIF>;
+ 
+ 			clock-names = "infra_sys_audio_clk",
+ 				      "top_audio_mux1_sel",
+@@ -684,7 +685,8 @@ afe: audio-controller {
+ 				      "audio_afe_pd",
+ 				      "audio_afe_conn_pd",
+ 				      "audio_a1sys_pd",
+-				      "audio_a2sys_pd";
++				      "audio_a2sys_pd",
++				      "audio_mrgif_pd";
+ 
+ 			assigned-clocks = <&topckgen CLK_TOP_A1SYS_HP_SEL>,
+ 					  <&topckgen CLK_TOP_A2SYS_HP_SEL>,
 -- 
 2.50.1
 
