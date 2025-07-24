@@ -4,98 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 954F2C87FC5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 15:28:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DEB3C87FC5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 15:28:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fWG6liyAx+OC/k6NlOqOAiqfCofkENyDgSwiIXNmCrk=; b=YlUuyCxcvBxUT9OxyC9GFMb3Zc
-	t/A7dpq9B6EtU2/S/lVywbijQofSLvL/+dzZqiQ3UPXURZyo+1RpxA293OotCyJKLqVqF5SObBSOm
-	MuXSlOC+KiUaLTTgbvb3blGkTHIafJBs5iMAzpPIJJOZcZ2CU5aDGPufOsUzElOJYFfx/w/E1pkUF
-	Pm5BL6aZf3+q2WVRzM8aYOGEQt3EoAm2czwH88R91Pe5BBQ7YIg7mcEWAXLssgKkfNUD4pTm9biIh
-	l8k1fZ7o+b6cUYQVhAoiWAs/QHnEPGCJjxaKw8ZXcPIz9sc0L5gV/kiy/LSyt28RLVEDuZct+K8cT
-	KWXcP4uA==;
+	bh=fd/CEt0phtXq7CCDRndzffNa+6ZSq1b1/sknYNU/2kk=; b=kQfmB5TIxtnR6i2sEvOWCmeuB1
+	S60RjEx7eysdJGqz3JuDIootLi6/dsbJegz1hUsc4O01G+9P+Dl3ffmEZT/wq7KvQp9hUE7U7HzA8
+	pvDCQTmF9ZZEPoVLp2Ssg7VLV205O96FPG/r16JmQ37f96rCmGUSsG8+5/nTin+aDCeQ14UXIPCpn
+	dPWmkOY3skwfHddlGpWtrhFabbCBsgId8s0ZFmJikd3hnKAtGGjVT8Ayol9KWmOf6GObaFcWG4OAs
+	3dJD14JpXNtB/jC+ZAMv0YJx7luoXst+utKIOPTFJHPE/XzDYiSux/4GYFEcJzuGAViZsiSV8k2c8
+	3vPlDmdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uexrl-00000007rlY-20G0;
-	Thu, 24 Jul 2025 15:28:17 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uewRF-00000007ewI-3Z3q
+	id 1uexrn-00000007rpm-1hvz;
+	Thu, 24 Jul 2025 15:28:19 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uewXH-00000007gQ2-1qhf
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Jul 2025 13:56:51 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-4561a4a8bf2so11786365e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Jul 2025 06:56:49 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1753365408; x=1753970208; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=fWG6liyAx+OC/k6NlOqOAiqfCofkENyDgSwiIXNmCrk=;
-        b=TfIK32z/ZI/q+PY6ydEMMjD+zpkFKk8pGKafcg0ByNp7kTj5cSeLn4far9oKT0dutz
-         uR0InU4FCcbMd/a/hcfn+XKX7KOrhJ4UGvJNIZHbqc61qsvE7rnB20WCGoxsKC75KtNr
-         Lca4XKygrVx3PDCS1arqeR91fuITehbH+Ce44sQTd4uAXk4vhBd0IMV0dfBmcaFSwA29
-         t+Z7aebojOxPz5MZcS0/OFKd1ZfNYd6k0/z3JDl4wgzV6Srxo+fbwNdpWdl1PoNJhfQa
-         SpdOb3D9AMUvRLBkOIRz5Jx8K40N4u2MxZZOhfKV6It6JmKl6Q4ES8QN0sDhIPJmqn8q
-         Guhg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753365408; x=1753970208;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=fWG6liyAx+OC/k6NlOqOAiqfCofkENyDgSwiIXNmCrk=;
-        b=pz4m0J0tY83U8+nUefqGc/QIpST6PFdVV8WzJ2xTxI8Ca0Jsb+iDps0aUPFDKNRfdP
-         gCrVoXt8eUxBxIIHayBZL0jccIjU7Ll/e2yREdy00qcvYDCw0Hd5/b61x8RyMDDnkLvB
-         bUGC5dv7r3OB+7THsNndctU9UdkkjFkNH/rM4ePZlp+t8t0dwxOwKRa3PJJRYp34fQPC
-         0Cq3H95HfyxfQtIc87Gal/4/z/nFAulwxNWYwhLK8o7taNkfvZMIzx7sdJDBUA5e2s5o
-         VOElOs8+/R5D0qAhZyeYnkdzIga/TvH8EWLjSNEBkZTx6AxRXyitrYkh+fbHQlVvR7bg
-         A4NA==
-X-Gm-Message-State: AOJu0Yx+TE7mauX9+2Xxo34+ktIn9YAcykguwl/ycI4dBac6k8Cjvt+H
-	agaXIl8piv97hel66A2MgVwviKTxf+vK7pKWtyilqqVXHPHRwH2Z/8OcyNYB+YGuHsQ=
-X-Gm-Gg: ASbGncttahTVG0kdWKzCfMJDdRrnnGWj/XfmjDv7atMtuwpOsHOd0BUrZ7QE6jyJZaA
-	sejIcn7rO1JuN66OnM/SrOdQhrYIeWWKGn980Kk3BIymIP2gYREhvwo3rR32/qxLWWPNkmZNMee
-	/iW+qQpQInDdU35V0mwCHLAuItLmhhbHCu95iUiSm0lrhNkYR9npKc9rkBamXkMC1OtRIVcVcxB
-	Nl5naxUn4U6LkLHCX/Ha/jRKM4oN4nxBNDEOHGF/f6VfNj3h4res81riiOYdsXJQYYhNrHIHqtz
-	h2n6ztDbSwaK3XL16EcmStwFl6yzC8fUtV3T/ebRNjvkeMc43tFne+E/+jpfVEaxXziVuUlhV/d
-	Nhfg1UqGSqD141cCwRArxJIkMThcOpsOqTb9M7SnjJWP4UbevlWxj2zMRgTlPb9wfU+Slq76aB+
-	WEE9Rcw+XGMrml
-X-Google-Smtp-Source: AGHT+IGPJc7unar/DDQTk3kiLLtY/cjrcVJ4F2sYy/xaKu3cmlZTqIIza2uFiyGLrfIi1KWSYZcG+g==
-X-Received: by 2002:a05:600c:1554:b0:456:1c4a:82b2 with SMTP id 5b1f17b1804b1-4586d84cfb5mr49962935e9.10.1753365408340;
-        Thu, 24 Jul 2025 06:56:48 -0700 (PDT)
-Received: from eugen-station.. (cpc148880-bexl9-2-0-cust354.2-3.cable.virginm.net. [82.11.253.99])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4587054e37dsm20889375e9.14.2025.07.24.06.56.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 24 Jul 2025 06:56:48 -0700 (PDT)
-From: Eugen Hristev <eugen.hristev@linaro.org>
-To: linux-kernel@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org,
-	linux-arch@vger.kernel.org,
-	linux-mm@kvack.org,
-	tglx@linutronix.de,
-	andersson@kernel.org,
-	pmladek@suse.com
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-hardening@vger.kernel.org,
-	eugen.hristev@linaro.org,
-	corbet@lwn.net,
-	mojha@qti.qualcomm.com,
-	rostedt@goodmis.org,
-	jonechou@google.com,
-	tudor.ambarus@linaro.org
-Subject: [RFC][PATCH v2 29/29] kmemdump: Add Kinfo backend driver
-Date: Thu, 24 Jul 2025 16:55:12 +0300
-Message-ID: <20250724135512.518487-30-eugen.hristev@linaro.org>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250724135512.518487-1-eugen.hristev@linaro.org>
-References: <20250724135512.518487-1-eugen.hristev@linaro.org>
+	Thu, 24 Jul 2025 14:03:04 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CB21D1A00;
+	Thu, 24 Jul 2025 07:02:55 -0700 (PDT)
+Received: from [10.57.84.166] (unknown [10.57.84.166])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 01D7E3F66E;
+	Thu, 24 Jul 2025 07:02:58 -0700 (PDT)
+Message-ID: <45acead9-d734-42b2-a1cc-a565dbf5fe60@arm.com>
+Date: Thu, 24 Jul 2025 15:02:57 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 16/36] arm_mpam: Add MPAM MSC register layout
+ definitions
+Content-Language: en-GB
+To: James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+Cc: Rob Herring <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
+ Shanker Donthineni <sdonthineni@nvidia.com>, Zeng Heng
+ <zengheng4@huawei.com>, Lecopzer Chen <lecopzerc@nvidia.com>,
+ Carl Worth <carl@os.amperecomputing.com>,
+ shameerali.kolothum.thodi@huawei.com,
+ D Scott Phillips OS <scott@os.amperecomputing.com>, lcherian@marvell.com,
+ bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
+ baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
+ Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
+ dfustini@baylibre.com, amitsinght@marvell.com,
+ David Hildenbrand <david@redhat.com>, Rex Nie <rex.nie@jaguarmicro.com>,
+ Dave Martin <dave.martin@arm.com>, Koba Ko <kobak@nvidia.com>
+References: <20250711183648.30766-1-james.morse@arm.com>
+ <20250711183648.30766-17-james.morse@arm.com>
+From: Ben Horgan <ben.horgan@arm.com>
+In-Reply-To: <20250711183648.30766-17-james.morse@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250724_065649_973326_7E40B4F3 
-X-CRM114-Status: GOOD (  30.28  )
+X-CRM114-CacheID: sfid-20250724_070303_577263_FF73F99D 
+X-CRM114-Status: GOOD (  18.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,388 +77,308 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add Kinfo backend driver.
-This backend driver will select only regions of interest for the firmware,
-and it copy those into a shared memory area that is supplied via OF.
-The firmware is only interested in addresses for some symbols.
-The list format is kinfo-compatible, with devices like Google Pixel phone.
-Based on original work from Jone Chou <jonechou@google.com>
+Hi James,
 
-Signed-off-by: Eugen Hristev <eugen.hristev@linaro.org>
----
-As stated in the cover letter I did not test this on a device as I do not
-have one. Testing is appreciated and feedback welcome !
-This kinfo backend is how we envision it to look like, while preserving
-compatibility with existing devices and firmware.
-Yes I also know the compatible is not documented. But if we want to have
-this driver in the kernel, I can easily add one
+Nit: The file uses a mixture of tabs and spaces.
 
+On 11/07/2025 19:36, James Morse wrote:
+> Memory Partitioning and Monitoring (MPAM) has memory mapped devices
+> (MSCs) with an identity/configuration page.
+> 
+> Add the definitions for these registers as offset within the page(s).
+> 
+> Signed-off-by: James Morse <james.morse@arm.com>
+> ---
+>   drivers/platform/arm64/mpam/mpam_internal.h | 268 ++++++++++++++++++++
+>   1 file changed, 268 insertions(+)
+> 
+> diff --git a/drivers/platform/arm64/mpam/mpam_internal.h b/drivers/platform/arm64/mpam/mpam_internal.h
+> index d49bb884b433..9110c171d9d2 100644
+> --- a/drivers/platform/arm64/mpam/mpam_internal.h
+> +++ b/drivers/platform/arm64/mpam/mpam_internal.h
+> @@ -150,4 +150,272 @@ extern struct list_head mpam_classes;
+>   int mpam_get_cpumask_from_cache_id(unsigned long cache_id, u32 cache_level,
+>   				   cpumask_t *affinity);
+>   
+> +/*
+> + * MPAM MSCs have the following register layout. See:
+> + * Arm Architecture Reference Manual Supplement - Memory System Resource
+> + * Partitioning and Monitoring (MPAM), for Armv8-A. DDI 0598A.a
 
- MAINTAINERS            |   5 +
- drivers/debug/Kconfig  |  13 ++
- drivers/debug/Makefile |   1 +
- drivers/debug/kinfo.c  | 304 +++++++++++++++++++++++++++++++++++++++++
- 4 files changed, 323 insertions(+)
- create mode 100644 drivers/debug/kinfo.c
+I've been checking this against 
+https://developer.arm.com/documentation/ihi0099/latest/ as that looks to 
+be the current document although hopefully the contents are 
+non-contradictory.> + */
+> +#define MPAM_ARCHITECTURE_V1    0x10
+> +
+> +/* Memory mapped control pages: */
+> +/* ID Register offsets in the memory mapped page */
+> +#define MPAMF_IDR               0x0000  /* features id register */
+> +#define MPAMF_MSMON_IDR         0x0080  /* performance monitoring features */
+> +#define MPAMF_IMPL_IDR          0x0028  /* imp-def partitioning */
+> +#define MPAMF_CPOR_IDR          0x0030  /* cache-portion partitioning */
+> +#define MPAMF_CCAP_IDR          0x0038  /* cache-capacity partitioning */
+> +#define MPAMF_MBW_IDR           0x0040  /* mem-bw partitioning */
+> +#define MPAMF_PRI_IDR           0x0048  /* priority partitioning */
+> +#define MPAMF_CSUMON_IDR        0x0088  /* cache-usage monitor */
+> +#define MPAMF_MBWUMON_IDR       0x0090  /* mem-bw usage monitor */
+> +#define MPAMF_PARTID_NRW_IDR    0x0050  /* partid-narrowing */
+> +#define MPAMF_IIDR              0x0018  /* implementer id register */
+> +#define MPAMF_AIDR              0x0020  /* architectural id register */
+> +
+> +/* Configuration and Status Register offsets in the memory mapped page */
+> +#define MPAMCFG_PART_SEL        0x0100  /* partid to configure: */
+> +#define MPAMCFG_CPBM            0x1000  /* cache-portion config */
+> +#define MPAMCFG_CMAX            0x0108  /* cache-capacity config */
+> +#define MPAMCFG_CMIN            0x0110  /* cache-capacity config */
+> +#define MPAMCFG_MBW_MIN         0x0200  /* min mem-bw config */
+> +#define MPAMCFG_MBW_MAX         0x0208  /* max mem-bw config */
+> +#define MPAMCFG_MBW_WINWD       0x0220  /* mem-bw accounting window config */
+> +#define MPAMCFG_MBW_PBM         0x2000  /* mem-bw portion bitmap config */
+> +#define MPAMCFG_PRI             0x0400  /* priority partitioning config */
+> +#define MPAMCFG_MBW_PROP        0x0500  /* mem-bw stride config */
+> +#define MPAMCFG_INTPARTID       0x0600  /* partid-narrowing config */
+> +
+> +#define MSMON_CFG_MON_SEL       0x0800  /* monitor selector */
+> +#define MSMON_CFG_CSU_FLT       0x0810  /* cache-usage monitor filter */
+> +#define MSMON_CFG_CSU_CTL       0x0818  /* cache-usage monitor config */
+> +#define MSMON_CFG_MBWU_FLT      0x0820  /* mem-bw monitor filter */
+> +#define MSMON_CFG_MBWU_CTL      0x0828  /* mem-bw monitor config */
+> +#define MSMON_CSU               0x0840  /* current cache-usage */
+> +#define MSMON_CSU_CAPTURE       0x0848  /* last cache-usage value captured */
+> +#define MSMON_MBWU              0x0860  /* current mem-bw usage value */
+> +#define MSMON_MBWU_CAPTURE      0x0868  /* last mem-bw value captured */
+> +#define MSMON_CAPT_EVNT         0x0808  /* signal a capture event */
+> +#define MPAMF_ESR               0x00F8  /* error status register */
+> +#define MPAMF_ECR               0x00F0  /* error control register */
+> +
+> +/* MPAMF_IDR - MPAM features ID register */
+> +#define MPAMF_IDR_PARTID_MAX            GENMASK(15, 0)
+> +#define MPAMF_IDR_PMG_MAX               GENMASK(23, 16)
+> +#define MPAMF_IDR_HAS_CCAP_PART         BIT(24)
+> +#define MPAMF_IDR_HAS_CPOR_PART         BIT(25)
+> +#define MPAMF_IDR_HAS_MBW_PART          BIT(26)
+> +#define MPAMF_IDR_HAS_PRI_PART          BIT(27)
+> +#define MPAMF_IDR_HAS_EXT               BIT(28)
+MPAMF_IDR_EXT. The field name is ext rather than has_ext. > +#define 
+MPAMF_IDR_HAS_IMPL_IDR          BIT(29)
+> +#define MPAMF_IDR_HAS_MSMON             BIT(30)
+> +#define MPAMF_IDR_HAS_PARTID_NRW        BIT(31)
+> +#define MPAMF_IDR_HAS_RIS               BIT(32)
+> +#define MPAMF_IDR_HAS_EXT_ESR           BIT(38)
+MPAMF_IDR_HAS_EXTD_ESR. Missing D.> +#define MPAMF_IDR_HAS_ESR 
+     BIT(39)
+> +#define MPAMF_IDR_RIS_MAX               GENMASK(59, 56)
+> +
+> +/* MPAMF_MSMON_IDR - MPAM performance monitoring ID register */
+> +#define MPAMF_MSMON_IDR_MSMON_CSU               BIT(16)
+> +#define MPAMF_MSMON_IDR_MSMON_MBWU              BIT(17)
+> +#define MPAMF_MSMON_IDR_HAS_LOCAL_CAPT_EVNT     BIT(31)
+> +
+> +/* MPAMF_CPOR_IDR - MPAM features cache portion partitioning ID register */
+> +#define MPAMF_CPOR_IDR_CPBM_WD                  GENMASK(15, 0)
+> +
+> +/* MPAMF_CCAP_IDR - MPAM features cache capacity partitioning ID register */
+> +#define MPAMF_CCAP_IDR_HAS_CMAX_SOFTLIM         BIT(31)
+> +#define MPAMF_CCAP_IDR_NO_CMAX                  BIT(30)
+> +#define MPAMF_CCAP_IDR_HAS_CMIN                 BIT(29)
+> +#define MPAMF_CCAP_IDR_HAS_CASSOC               BIT(28)
+> +#define MPAMF_CCAP_IDR_CASSOC_WD                GENMASK(12, 8)
+> +#define MPAMF_CCAP_IDR_CMAX_WD                  GENMASK(5, 0)
+nit: Field ordering differs from the other registers.> +
+> +/* MPAMF_MBW_IDR - MPAM features memory bandwidth partitioning ID register */
+> +#define MPAMF_MBW_IDR_BWA_WD            GENMASK(5, 0)
+> +#define MPAMF_MBW_IDR_HAS_MIN           BIT(10)
+> +#define MPAMF_MBW_IDR_HAS_MAX           BIT(11)
+> +#define MPAMF_MBW_IDR_HAS_PBM           BIT(12)
+> +#define MPAMF_MBW_IDR_HAS_PROP          BIT(13)
+> +#define MPAMF_MBW_IDR_WINDWR            BIT(14)
+> +#define MPAMF_MBW_IDR_BWPBM_WD          GENMASK(28, 16)
+> +
+> +/* MPAMF_PRI_IDR - MPAM features priority partitioning ID register */
+> +#define MPAMF_PRI_IDR_HAS_INTPRI        BIT(0)
+> +#define MPAMF_PRI_IDR_INTPRI_0_IS_LOW   BIT(1)
+> +#define MPAMF_PRI_IDR_INTPRI_WD         GENMASK(9, 4)
+> +#define MPAMF_PRI_IDR_HAS_DSPRI         BIT(16)
+> +#define MPAMF_PRI_IDR_DSPRI_0_IS_LOW    BIT(17)
+> +#define MPAMF_PRI_IDR_DSPRI_WD          GENMASK(25, 20)
+> +
+> +/* MPAMF_CSUMON_IDR - MPAM cache storage usage monitor ID register */
+> +#define MPAMF_CSUMON_IDR_NUM_MON        GENMASK(15, 0)
+> +#define MPAMF_CSUMON_IDR_HAS_OFLOW_CAPT	BIT(24)
+> +#define MPAMF_CSUMON_IDR_HAS_CEVNT_OFLW	BIT(25)
+> +#define MPAMF_CSUMON_IDR_HAS_OFSR	BIT(26)
+> +#define MPAMF_CSUMON_IDR_HAS_OFLOW_LNKG	BIT(27)
+> +#define MPAMF_CSUMON_IDR_HAS_XCL	BIT(29)
+> +#define MPAMF_CSUMON_IDR_CSU_RO		BIT(30)
+> +#define MPAMF_CSUMON_IDR_HAS_CAPTURE    BIT(31)
+> +
+> +/* MPAMF_MBWUMON_IDR - MPAM memory bandwidth usage monitor ID register */
+> +#define MPAMF_MBWUMON_IDR_NUM_MON       GENMASK(15, 0)
+> +#define MPAMF_MBWUMON_IDR_HAS_RWBW      BIT(28)
+> +#define MPAMF_MBWUMON_IDR_LWD           BIT(29)
+> +#define MPAMF_MBWUMON_IDR_HAS_LONG      BIT(30)
+> +#define MPAMF_MBWUMON_IDR_HAS_CAPTURE   BIT(31)
+> +
+> +/* MPAMF_PARTID_NRW_IDR - MPAM PARTID narrowing ID register */
+> +#define MPAMF_PARTID_NRW_IDR_INTPARTID_MAX      GENMASK(15, 0)
+> +
+> +/* MPAMF_IIDR - MPAM implementation ID register */
+> +#define MPAMF_IIDR_PRODUCTID    GENMASK(31, 20)
+> +#define MPAMF_IIDR_PRODUCTID_SHIFT	20
+> +#define MPAMF_IIDR_VARIANT      GENMASK(19, 16)
+> +#define MPAMF_IIDR_VARIANT_SHIFT	16
+> +#define MPAMF_IIDR_REVISON      GENMASK(15, 12)
+> +#define MPAMF_IIDR_REVISON_SHIFT	12
+> +#define MPAMF_IIDR_IMPLEMENTER  GENMASK(11, 0)
+> +#define MPAMF_IIDR_IMPLEMENTER_SHIFT	0
+> +
+> +/* MPAMF_AIDR - MPAM architecture ID register */
+> +#define MPAMF_AIDR_ARCH_MAJOR_REV       GENMASK(7, 4)
+> +#define MPAMF_AIDR_ARCH_MINOR_REV       GENMASK(3, 0)
+> +
+> +/* MPAMCFG_PART_SEL - MPAM partition configuration selection register */
+> +#define MPAMCFG_PART_SEL_PARTID_SEL     GENMASK(15, 0)
+> +#define MPAMCFG_PART_SEL_INTERNAL       BIT(16)
+> +#define MPAMCFG_PART_SEL_RIS            GENMASK(27, 24)
+> +
+> +/* MPAMCFG_CMAX - MPAM cache capacity configuration register */
+> +#define MPAMCFG_CMAX_SOFTLIM            BIT(31)
+> +#define MPAMCFG_CMAX_CMAX               GENMASK(15, 0)
+> +
+> +/* MPAMCFG_CMIN - MPAM cache capacity configuration register */
+> +#define MPAMCFG_CMIN_CMIN               GENMASK(15, 0)
+> +
+> +/*
+> + * MPAMCFG_MBW_MIN - MPAM memory minimum bandwidth partitioning configuration
+> + *                   register
+> + */
+> +#define MPAMCFG_MBW_MIN_MIN             GENMASK(15, 0)
+> +
+> +/*
+> + * MPAMCFG_MBW_MAX - MPAM memory maximum bandwidth partitioning configuration
+> + *                   register
+> + */
+> +#define MPAMCFG_MBW_MAX_MAX             GENMASK(15, 0)
+> +#define MPAMCFG_MBW_MAX_HARDLIM         BIT(31)
+> +
+> +/*
+> + * MPAMCFG_MBW_WINWD - MPAM memory bandwidth partitioning window width
+> + *                     register
+> + */
+> +#define MPAMCFG_MBW_WINWD_US_FRAC       GENMASK(7, 0)
+> +#define MPAMCFG_MBW_WINWD_US_INT        GENMASK(23, 8)
+> +
+> +/* MPAMCFG_PRI - MPAM priority partitioning configuration register */
+> +#define MPAMCFG_PRI_INTPRI              GENMASK(15, 0)
+> +#define MPAMCFG_PRI_DSPRI               GENMASK(31, 16)
+> +
+> +/*
+> + * MPAMCFG_MBW_PROP - Memory bandwidth proportional stride partitioning
+> + *                    configuration register
+> + */
+> +#define MPAMCFG_MBW_PROP_STRIDEM1       GENMASK(15, 0)
+> +#define MPAMCFG_MBW_PROP_EN             BIT(31)
+> +
+> +/*
+> + * MPAMCFG_INTPARTID - MPAM internal partition narrowing configuration register
+> + */
+> +#define MPAMCFG_INTPARTID_INTPARTID     GENMASK(15, 0)
+> +#define MPAMCFG_INTPARTID_INTERNAL      BIT(16)
+> +
+> +/* MSMON_CFG_MON_SEL - Memory system performance monitor selection register */
+> +#define MSMON_CFG_MON_SEL_MON_SEL       GENMASK(15, 0)
+> +#define MSMON_CFG_MON_SEL_RIS           GENMASK(27, 24)
+> +
+> +/* MPAMF_ESR - MPAM Error Status Register */
+> +#define MPAMF_ESR_PARTID_OR_MON GENMASK(15, 0)Probably a better name but PARTID_MON is in the specification.> +#define 
+MPAMF_ESR_PMG           GENMASK(23, 16)
+> +#define MPAMF_ESR_ERRCODE       GENMASK(27, 24)
+> +#define MPAMF_ESR_OVRWR         BIT(31)
+> +#define MPAMF_ESR_RIS           GENMASK(35, 32)
+> +
+> +/* MPAMF_ECR - MPAM Error Control Register */
+> +#define MPAMF_ECR_INTEN         BIT(0)
+> +
+> +/* Error conditions in accessing memory mapped registers */
+> +#define MPAM_ERRCODE_NONE                       0
+> +#define MPAM_ERRCODE_PARTID_SEL_RANGE           1
+> +#define MPAM_ERRCODE_REQ_PARTID_RANGE           2
+> +#define MPAM_ERRCODE_MSMONCFG_ID_RANGE          3
+> +#define MPAM_ERRCODE_REQ_PMG_RANGE              4
+> +#define MPAM_ERRCODE_MONITOR_RANGE              5
+> +#define MPAM_ERRCODE_INTPARTID_RANGE            6
+> +#define MPAM_ERRCODE_UNEXPECTED_INTERNAL        7
+> +
+> +/*
+> + * MSMON_CFG_CSU_FLT - Memory system performance monitor configure cache storage
+> + *                    usage monitor filter register
+> + */
+> +#define MSMON_CFG_CSU_FLT_PARTID       GENMASK(15, 0)
+> +#define MSMON_CFG_CSU_FLT_PMG          GENMASK(23, 16)
+> +
+> +/*
+> + * MSMON_CFG_CSU_CTL - Memory system performance monitor configure cache storage
+> + *                    usage monitor control register
+> + * MSMON_CFG_MBWU_CTL - Memory system performance monitor configure memory
+> + *                     bandwidth usage monitor control register
+> + */
+> +#define MSMON_CFG_x_CTL_TYPE           GENMASK(7, 0)
+> +#define MSMON_CFG_x_CTL_OFLOW_STATUS_L BIT(15)
+No OFLOW_STATUS_L for csu.> +#define MSMON_CFG_x_CTL_MATCH_PARTID   BIT(16)
+> +#define MSMON_CFG_x_CTL_MATCH_PMG      BIT(17)
+> +#define MSMON_CFG_x_CTL_SCLEN          BIT(19)
+> +#define MSMON_CFG_x_CTL_SUBTYPE        GENMASK(23, 20)
+GENMASK(22,20)> +#define MSMON_CFG_x_CTL_OFLOW_FRZ      BIT(24)
+> +#define MSMON_CFG_x_CTL_OFLOW_INTR     BIT(25)
+> +#define MSMON_CFG_x_CTL_OFLOW_STATUS   BIT(26)
+> +#define MSMON_CFG_x_CTL_CAPT_RESET     BIT(27)
+> +#define MSMON_CFG_x_CTL_CAPT_EVNT      GENMASK(30, 28)
+> +#define MSMON_CFG_x_CTL_EN             BIT(31)
+> +
+> +#define MSMON_CFG_MBWU_CTL_TYPE_MBWU			0x42
+> +#define MSMON_CFG_MBWU_CTL_TYPE_CSU			0x43
+> +
+> +#define MSMON_CFG_MBWU_CTL_SUBTYPE_NONE                 0
+> +#define MSMON_CFG_MBWU_CTL_SUBTYPE_READ                 1
+> +#define MSMON_CFG_MBWU_CTL_SUBTYPE_WRITE                2
+> +#define MSMON_CFG_MBWU_CTL_SUBTYPE_BOTH                 3
+I'm not sure where these come from? SUBTYPE is marked unused in the 
+spec. Remove?> +
+> +#define MSMON_CFG_MBWU_CTL_SUBTYPE_MAX                  3
+> +#define MSMON_CFG_MBWU_CTL_SUBTYPE_MASK                 0x3
+Remove for same reason.> +
+> +/*
+> + * MSMON_CFG_MBWU_FLT - Memory system performance monitor configure memory
+> + *                     bandwidth usage monitor filter register
+> + */
+> +#define MSMON_CFG_MBWU_FLT_PARTID               GENMASK(15, 0)
+> +#define MSMON_CFG_MBWU_FLT_PMG                  GENMASK(23, 16)
+> +#define MSMON_CFG_MBWU_FLT_RWBW                 GENMASK(31, 30)
+> +
+> +/*
+> + * MSMON_CSU - Memory system performance monitor cache storage usage monitor
+> + *            register
+> + * MSMON_CSU_CAPTURE -  Memory system performance monitor cache storage usage
+> + *                     capture register
+> + * MSMON_MBWU  - Memory system performance monitor memory bandwidth usage
+> + *               monitor register
+> + * MSMON_MBWU_CAPTURE - Memory system performance monitor memory bandwidth usage
+> + *                     capture register
+> + */
+> +#define MSMON___VALUE          GENMASK(30, 0)
+> +#define MSMON___NRDY           BIT(31)
+> +#define MSMON_MBWU_L_VALUE     GENMASK(62, 0)
+This gets renamed in the series. I think all registers layout 
+definitions can be added in this commit.> +/*
+> + * MSMON_CAPT_EVNT - Memory system performance monitoring capture event
+> + *                  generation register
+> + */
+> +#define MSMON_CAPT_EVNT_NOW    BIT(0)
+> +
+>   #endif /* MPAM_INTERNAL_H */
+Thanks,
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 68797717175c..bc605480d6e8 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -13625,6 +13625,11 @@ F:	drivers/debug/kmemdump.c
- F:	drivers/debug/kmemdump_coreimage.c
- F:	include/linux/kmemdump.h
- 
-+KMEMDUMP KINFO BACKEND DRIVER
-+M:	Eugen Hristev <eugen.hristev@linaro.org>
-+S:	Maintained
-+F:	drivers/debug/kinfo.c
-+
- KMEMDUMP QCOM MINIDUMP BACKEND DRIVER
- M:	Eugen Hristev <eugen.hristev@linaro.org>
- S:	Maintained
-diff --git a/drivers/debug/Kconfig b/drivers/debug/Kconfig
-index d34ceaf99bd8..1a44990c2824 100644
---- a/drivers/debug/Kconfig
-+++ b/drivers/debug/Kconfig
-@@ -39,4 +39,17 @@ config KMEMDUMP_QCOM_MINIDUMP_BACKEND
- 	  into the minidump table of contents. Further on, the firmware
- 	  will be able to read the table of contents and extract the
- 	  memory regions on case-by-case basis.
-+
-+config KMEMDUMP_KINFO_BACKEND
-+	tristate "Shared memory KInfo compatible backend"
-+	depends on KMEMDUMP
-+	help
-+	  Say y here to enable the Shared memory KInfo compatible backend
-+	  driver.
-+	  With this backend, the registered regions are copied to a shared
-+	  memory zone at register time.
-+	  The shared memory zone is supplied via OF.
-+	  This backend will select only regions that are of interest,
-+	  and keep only addresses. The format of the list is Kinfo compatible.
-+
- endmenu
-diff --git a/drivers/debug/Makefile b/drivers/debug/Makefile
-index 7f70b84049cb..861f2e2c4fe2 100644
---- a/drivers/debug/Makefile
-+++ b/drivers/debug/Makefile
-@@ -3,3 +3,4 @@
- obj-$(CONFIG_KMEMDUMP) += kmemdump.o
- obj-$(CONFIG_KMEMDUMP_COREIMAGE) += kmemdump_coreimage.o
- obj-$(CONFIG_KMEMDUMP_QCOM_MINIDUMP_BACKEND) += qcom_minidump.o
-+obj-$(CONFIG_KMEMDUMP_KINFO_BACKEND) += kinfo.o
-diff --git a/drivers/debug/kinfo.c b/drivers/debug/kinfo.c
-new file mode 100644
-index 000000000000..bdf50254fa92
---- /dev/null
-+++ b/drivers/debug/kinfo.c
-@@ -0,0 +1,304 @@
-+// SPDX-License-Identifier: GPL-2.0
-+
-+#include <linux/platform_device.h>
-+#include <linux/kallsyms.h>
-+#include <linux/vmalloc.h>
-+#include <linux/module.h>
-+#include <linux/of.h>
-+#include <linux/of_address.h>
-+#include <linux/of_reserved_mem.h>
-+#include <linux/platform_device.h>
-+#include <linux/sizes.h>
-+#include <linux/slab.h>
-+#include <linux/kmemdump.h>
-+#include <linux/module.h>
-+#include <linux/utsname.h>
-+
-+#define BUILD_INFO_LEN		256
-+#define DEBUG_KINFO_MAGIC	0xCCEEDDFF
-+
-+/*
-+ * Header structure must be byte-packed, since the table is provided to
-+ * bootloader.
-+ */
-+struct kernel_info {
-+	/* For kallsyms */
-+	__u8 enabled_all;
-+	__u8 enabled_base_relative;
-+	__u8 enabled_absolute_percpu;
-+	__u8 enabled_cfi_clang;
-+	__u32 num_syms;
-+	__u16 name_len;
-+	__u16 bit_per_long;
-+	__u16 module_name_len;
-+	__u16 symbol_len;
-+	__u64 _relative_pa;
-+	__u64 _text_pa;
-+	__u64 _stext_pa;
-+	__u64 _etext_pa;
-+	__u64 _sinittext_pa;
-+	__u64 _einittext_pa;
-+	__u64 _end_pa;
-+	__u64 _offsets_pa;
-+	__u64 _names_pa;
-+	__u64 _token_table_pa;
-+	__u64 _token_index_pa;
-+	__u64 _markers_pa;
-+	__u64 _seqs_of_names_pa;
-+
-+	/* For frame pointer */
-+	__u32 thread_size;
-+
-+	/* For virt_to_phys */
-+	__u64 swapper_pg_dir_pa;
-+
-+	/* For linux banner */
-+	__u8 last_uts_release[__NEW_UTS_LEN];
-+
-+	/* Info of running build */
-+	__u8 build_info[BUILD_INFO_LEN];
-+
-+	/* For module kallsyms */
-+	__u32 enabled_modules_tree_lookup;
-+	__u32 mod_mem_offset;
-+	__u32 mod_kallsyms_offset;
-+} __packed;
-+
-+struct kernel_all_info {
-+	__u32 magic_number;
-+	__u32 combined_checksum;
-+	struct kernel_info info;
-+} __packed;
-+
-+struct debug_kinfo {
-+	struct device *dev;
-+	void *all_info_addr;
-+	u32 all_info_size;
-+	struct kmemdump_backend kinfo_be;
-+};
-+
-+static struct debug_kinfo *kinfo;
-+
-+#define be_to_kinfo(be) container_of(be, struct debug_kinfo, kinfo_be)
-+
-+static void update_kernel_all_info(struct kernel_all_info *all_info)
-+{
-+	int index;
-+	struct kernel_info *info;
-+	u32 *checksum_info;
-+
-+	all_info->magic_number = DEBUG_KINFO_MAGIC;
-+	all_info->combined_checksum = 0;
-+
-+	info = &all_info->info;
-+	checksum_info = (u32 *)info;
-+	for (index = 0; index < sizeof(*info) / sizeof(u32); index++)
-+		all_info->combined_checksum ^= checksum_info[index];
-+}
-+
-+static int build_info_set(const char *str, const struct kernel_param *kp)
-+{
-+	struct kernel_all_info *all_info = kinfo->all_info_addr;
-+	size_t build_info_size;
-+
-+	if (kinfo->all_info_addr == 0 || kinfo->all_info_size == 0)
-+		return -ENAVAIL;
-+
-+	all_info = (struct kernel_all_info *)kinfo->all_info_addr;
-+	build_info_size = sizeof(all_info->info.build_info);
-+
-+	memcpy(&all_info->info.build_info, str, min(build_info_size - 1,
-+						    strlen(str)));
-+	update_kernel_all_info(all_info);
-+
-+	if (strlen(str) > build_info_size) {
-+		pr_warn("%s: Build info buffer (len: %zd) can't hold entire string '%s'\n",
-+			__func__, build_info_size, str);
-+		return -ENOMEM;
-+	}
-+
-+	return 0;
-+}
-+
-+static const struct kernel_param_ops build_info_op = {
-+	.set = build_info_set,
-+};
-+
-+module_param_cb(build_info, &build_info_op, NULL, 0200);
-+MODULE_PARM_DESC(build_info, "Write build info to field 'build_info' of debug kinfo.");
-+
-+/**
-+ * register_kinfo_region() - Register a new kinfo region
-+ * @be: pointer to backend
-+ * @id: unique id to identify the region
-+ * @vaddr: virtual memory address of the region start
-+ * @size: size of the region
-+ *
-+ * Return: On success, it returns 0 and negative error value on failure.
-+ */
-+static int register_kinfo_region(const struct kmemdump_backend *be,
-+				 enum kmemdump_uid id, void *vaddr, size_t size)
-+{
-+	struct debug_kinfo *kinfo = be_to_kinfo(be);
-+	struct kernel_all_info *all_info = kinfo->all_info_addr;
-+	struct kernel_info *info = &all_info->info;
-+
-+	switch (id) {
-+	case KMEMDUMP_ID_COREIMAGE__sinittext:
-+		info->_sinittext_pa = (u64)__pa(vaddr);
-+		break;
-+	case KMEMDUMP_ID_COREIMAGE__einittext:
-+		info->_einittext_pa = (u64)__pa(vaddr);
-+		break;
-+	case KMEMDUMP_ID_COREIMAGE__end:
-+		info->_end_pa = (u64)__pa(vaddr);
-+		break;
-+	case KMEMDUMP_ID_COREIMAGE__text:
-+		info->_text_pa = (u64)__pa(vaddr);
-+		break;
-+	case KMEMDUMP_ID_COREIMAGE__stext:
-+		info->_stext_pa = (u64)__pa(vaddr);
-+		break;
-+	case KMEMDUMP_ID_COREIMAGE__etext:
-+		info->_etext_pa = (u64)__pa(vaddr);
-+		break;
-+	case KMEMDUMP_ID_COREIMAGE_kallsyms_num_syms:
-+		info->num_syms = *(__u32 *)vaddr;
-+		break;
-+	case KMEMDUMP_ID_COREIMAGE_kallsyms_relative_base:
-+		info->_relative_pa = (u64)__pa(vaddr);
-+		break;
-+	case KMEMDUMP_ID_COREIMAGE_kallsyms_offsets:
-+		info->_offsets_pa = (u64)__pa(vaddr);
-+		break;
-+	case KMEMDUMP_ID_COREIMAGE_kallsyms_names:
-+		info->_names_pa = (u64)__pa(vaddr);
-+		break;
-+	case KMEMDUMP_ID_COREIMAGE_kallsyms_token_table:
-+		info->_token_table_pa = (u64)__pa(vaddr);
-+		break;
-+	case KMEMDUMP_ID_COREIMAGE_kallsyms_token_index:
-+		info->_token_index_pa = (u64)__pa(vaddr);
-+		break;
-+	case KMEMDUMP_ID_COREIMAGE_kallsyms_markers:
-+		info->_markers_pa = (u64)__pa(vaddr);
-+		break;
-+	case KMEMDUMP_ID_COREIMAGE_kallsyms_seqs_of_names:
-+		info->_seqs_of_names_pa = (u64)__pa(vaddr);
-+		break;
-+	case KMEMDUMP_ID_COREIMAGE_swapper_pg_dir:
-+		info->swapper_pg_dir_pa = (u64)__pa(vaddr);
-+		break;
-+	case KMEMDUMP_ID_COREIMAGE_init_uts_ns_name:
-+		strscpy(info->last_uts_release, vaddr, __NEW_UTS_LEN);
-+		break;
-+	default:
-+	};
-+
-+	update_kernel_all_info(all_info);
-+	return 0;
-+}
-+
-+/**
-+ * unregister_md_region() - Unregister a previously registered kinfo region
-+ * @id: unique id to identify the region
-+ *
-+ * Return: On success, it returns 0 and negative error value on failure.
-+ */
-+static int unregister_kinfo_region(const struct kmemdump_backend *be,
-+				   enum kmemdump_uid id)
-+{
-+	return 0;
-+}
-+
-+static int debug_kinfo_probe(struct platform_device *pdev)
-+{
-+	struct device_node *mem_region;
-+	struct reserved_mem *rmem;
-+	struct kernel_info *info;
-+	struct kernel_all_info *all_info;
-+
-+	mem_region = of_parse_phandle(pdev->dev.of_node, "memory-region", 0);
-+	if (!mem_region) {
-+		dev_warn(&pdev->dev, "no such memory-region\n");
-+		return -ENODEV;
-+	}
-+
-+	rmem = of_reserved_mem_lookup(mem_region);
-+	if (!rmem) {
-+		dev_warn(&pdev->dev, "no such reserved mem of node name %s\n",
-+			 pdev->dev.of_node->name);
-+		return -ENODEV;
-+	}
-+
-+	/* Need to wait for reserved memory to be mapped */
-+	if (!rmem->priv)
-+		return -EPROBE_DEFER;
-+
-+	if (!rmem->base || !rmem->size) {
-+		dev_warn(&pdev->dev, "unexpected reserved memory\n");
-+		return -EINVAL;
-+	}
-+
-+	if (rmem->size < sizeof(struct kernel_all_info)) {
-+		dev_warn(&pdev->dev, "unexpected reserved memory size\n");
-+		return -EINVAL;
-+	}
-+
-+	kinfo = kzalloc(sizeof(*kinfo), GFP_KERNEL);
-+	if (!kinfo)
-+		return -ENOMEM;
-+
-+	kinfo->dev = &pdev->dev;
-+
-+	strscpy(kinfo->kinfo_be.name, "debug_kinfo");
-+	kinfo->kinfo_be.register_region = register_kinfo_region;
-+	kinfo->kinfo_be.unregister_region = unregister_kinfo_region;
-+	kinfo->all_info_addr = rmem->priv;
-+	kinfo->all_info_size = rmem->size;
-+
-+	all_info = kinfo->all_info_addr;
-+
-+	memset(all_info, 0, sizeof(struct kernel_all_info));
-+	info = &all_info->info;
-+	info->enabled_all = IS_ENABLED(CONFIG_KALLSYMS_ALL);
-+	info->enabled_absolute_percpu = IS_ENABLED(CONFIG_KALLSYMS_ABSOLUTE_PERCPU);
-+	info->enabled_cfi_clang = IS_ENABLED(CONFIG_CFI_CLANG);
-+	info->name_len = KSYM_NAME_LEN;
-+	info->bit_per_long = BITS_PER_LONG;
-+	info->module_name_len = MODULE_NAME_LEN;
-+	info->symbol_len = KSYM_SYMBOL_LEN;
-+	info->thread_size = THREAD_SIZE;
-+	info->enabled_modules_tree_lookup = IS_ENABLED(CONFIG_MODULES_TREE_LOOKUP);
-+	info->mod_mem_offset = offsetof(struct module, mem);
-+	info->mod_kallsyms_offset = offsetof(struct module, kallsyms);
-+
-+	return kmemdump_register_backend(&kinfo->kinfo_be);
-+}
-+
-+static void debug_kinfo_remove(struct platform_device *pdev)
-+{
-+	kfree(kinfo);
-+	kmemdump_unregister_backend(&kinfo->kinfo_be);
-+}
-+
-+static const struct of_device_id debug_kinfo_of_match[] = {
-+	{ .compatible	= "google,debug-kinfo" },
-+	{},
-+};
-+MODULE_DEVICE_TABLE(of, debug_kinfo_of_match);
-+
-+static struct platform_driver debug_kinfo_driver = {
-+	.probe = debug_kinfo_probe,
-+	.remove = debug_kinfo_remove,
-+	.driver = {
-+		.name = "debug-kinfo",
-+		.of_match_table = of_match_ptr(debug_kinfo_of_match),
-+	},
-+};
-+module_platform_driver(debug_kinfo_driver);
-+
-+MODULE_AUTHOR("Eugen Hristev <eugen.hristev@linaro.org>");
-+MODULE_AUTHOR("Jone Chou <jonechou@google.com>");
-+MODULE_DESCRIPTION("Debug Kinfo Driver");
-+MODULE_LICENSE("GPL");
--- 
-2.43.0
+Ben
 
 
