@@ -4,91 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0197C87FC5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 20:58:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B032FC83F26
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 21:03:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gTENdrjrQjKdf4LTtk0rNbYwdganBE87alZpnHbaQAo=; b=Chx75EPVnoHJzV1gOI5558wbBb
-	QqXZe2bgMX1DuQ08W1FHijLrjptiMkr+Oqx1iWoBXPtA6HBFIPqo1B0SWmqt6oSRURvIvDHqD4Sjm
-	3ZuZhCUPB28PwkuR7gevBt9glibwCKhwqkUOWFlWcyFn+7o3d4Azs7bSQocm/VL5ez85UY1psCdV7
-	L2YmJlbydfwEOFQ6xfn23sgfFBeWnSNNh5AxfjhlrMvIJ+IItCDgxGuTZiqDwKBr4F9YpjGk0F+QW
-	39XTOZPQC0KoDi8jTP4c7azJF1nS7j6cOQuXRpgcz+Inu2C7fxuelMM4QPr74z+zIax/t7WVxh6QV
-	bFbNqfPg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=7xPCtqIfSr2XyV23/N7+gLkr99UKT0q7DSJYMRI6ogM=; b=4/EVGTguht9x0lAGpw8bur/Foo
+	721tcxW6HF67gR59C94xxFY0D/jirBdCbBIni8rLqzmOlcgVmVYvJGmvC6lIkgEvrj7jSZLRyes6R
+	0IrQi8btPb9rP86camikB8RbaM6D4sygVTw/mmC4yZmZupzuLHMkcaLSW7B4EbM2ePpHjtI+tGDes
+	PhgPYMdpuwm+g+zY+YQXAZaMj+bDpkPLgKWE422Sz8A0XpgiF8pZNZZC3/9UT4JjVhKCXJaqk1/5/
+	k/os5MwXOg+jB4HiO1qaDpx+3yd34h2yf6+Jd14SKnvzj/E/LHgV5BSdp8zhIqnQAOL0D7ENqdaLQ
+	b1kEQ38w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uf31J-00000008RNU-3Gm7;
-	Thu, 24 Jul 2025 20:58:29 +0000
-Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
+	id 1uf364-00000008RpH-43v5;
+	Thu, 24 Jul 2025 21:03:24 +0000
+Received: from mail-ed1-x532.google.com ([2a00:1450:4864:20::532])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uf2yr-00000008RHX-4BNV
+	id 1uf33d-00000008RiP-1FMg
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Jul 2025 20:55:59 +0000
-Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-237f18108d2so59755ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Jul 2025 13:55:57 -0700 (PDT)
+	Thu, 24 Jul 2025 21:00:56 +0000
+Received: by mail-ed1-x532.google.com with SMTP id 4fb4d7f45d1cf-60780d74c8cso2548395a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Jul 2025 14:00:52 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1753390556; x=1753995356; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=gTENdrjrQjKdf4LTtk0rNbYwdganBE87alZpnHbaQAo=;
-        b=u1VS5d09sltyf6v2N9Fq2Yqg8iirNNtwuH3snaMNDcop0cAOq8a7BOg0vevYc1pBA8
-         VkogHx7M7fFvJ/4rB115voK+1FmHEKq6alK8dcMDrjhekdrD0vmQ3uAiEbnViwUD+2SX
-         7Fz1IWgcLX5KI4sMZaoUEGgA4b+lpWaktdXajMmLlci1NxdvZAJcq0mkIMu05ToyO+Zv
-         q/M8U5TLf7LF/RjaV3wR0gsB3ZmNeIIuv/BtqWagVpRyCnq5RuobB4OvWsvO6MU9SVNh
-         zgrPtfS2nHDLQYIBWtRx24gZirpaPUe+navMWZY5c+xEdmSPKlcaCuIPqjGzWWwX8n1B
-         Yg5g==
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1753390851; x=1753995651; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=7xPCtqIfSr2XyV23/N7+gLkr99UKT0q7DSJYMRI6ogM=;
+        b=3Yj2I25lUZNYVkXUitrxo+/CmvURoEbm4XNkO8Xbmg2SRe4y1gmsS3ZCoepC81HyJH
+         Wgl9664+1kfS3BDgtPLLP963hmeDpn0TphT1XE4f2nf+KXeSIFLbxyvjdl4yB9eBe+OO
+         7ZukxnUgJSE1jw0Wy7VRESk63LPSR6jsaxI1rN0AX6BCnLKa6U9QcLxsp5FkTLcbQcuM
+         yD1lobfSz27UzbNMgr/nqwtaeD39gg9klQb0KuQKxD5vYUSF25L8IV+Qyy9cNT2nL4Dj
+         nsCCJtvhkJqHkGvm63VqeCkquPv9r7xR+d+H510pJnV6dCB5+fmhh5JkNOagfPZL64J/
+         q+Eg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753390556; x=1753995356;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=gTENdrjrQjKdf4LTtk0rNbYwdganBE87alZpnHbaQAo=;
-        b=TtMfBGKG2C7U52iHA++i6qRNzunqCRDTbqBntpeCLXOmo8R1Ytw6wLwUN8pClmXfwJ
-         H3gentk5tyEbFw1Hgnj9EdtqWqQ/ABkFziP9H1DkTtAHsZZQZEROyDOxz8qViFDAstSw
-         ONfg5E0AAzBvn9OGqDCyPCzyXPnukKwQAkuOnS3q0r05VFvD1JL4RXybslC7oEQtBNZ6
-         K+gUnjPwvQt3DDS0c7PH+3pdTCZ6Bywy1rz8NptGK7AZk6zJVOghc34bk9Ji/rDSUajD
-         iF2mAAVws1HcE5zFCt8+mEiKdO3X9IP6/gttPE6J07/iiGIVaABR1xp7+jz4LUBkfsfp
-         UTwA==
-X-Forwarded-Encrypted: i=1; AJvYcCUk6GAQxVIeJ0eRNGjw+d3FJImV9+xr53ZpGLttpHOLrSEOu2BEdunSN6NcndYpfFYsPYdFV74s3yeUnMvyS+rQ@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx6UCSBIB8IePaRh+VIeEP0sIt63y5JB/iSQrVpM3s7KqiYj0Nr
-	nnWVnX3/j1ba0QRktLLlL7vosvyoKdy5pO4mN319+lSSqKpvsFfTvnkNQ1mYrynYTA==
-X-Gm-Gg: ASbGncurU0iG1QTRN1RtK3VSvP60eJ8+J4enUPxnw/fETHbOIviMAhIvpQUM0mlFWlg
-	HkztqeLQroO+6kYAnGii+Roe8SRnIHRzCqVhm05EDgwloRnhWPmlmxFCA4ubXH1AbYalBNAHnU3
-	7hDIgAdsDN8RQS3ccXFIJcPBWbXWj8MtHo95HWZqY/yO3VtYy1iAZoAmtpmVjrygzB9JDZMVANW
-	snRmO1aULUpwwgEmzyR6XspJlwv2luqUQJJJlBA3ti/3iyqJ3AII/mf5ohzaEB/3Rgw4E66gICH
-	lJLzQCfI1DB9fZMeVX3p+UeFMf9p5bEbe4UKPa1xLQUuEuf6iMQuTqAYK5BoijHemJVYCJ53Om8
-	5GuxaQPH4U2N5oKdHq7ZzFm4/hlffJOQbbIkKOnLUQKCH9tCyB9q0CICo
-X-Google-Smtp-Source: AGHT+IHAKLnuNj4dfO0gvzhHyjc+lG/rACu6++zv+Qt1qddir1QwuV7zgtdYIfUhlyrA+12IZWRoQw==
-X-Received: by 2002:a17:902:ef48:b0:223:ff93:322f with SMTP id d9443c01a7336-23fada587f0mr920885ad.2.1753390556054;
-        Thu, 24 Jul 2025 13:55:56 -0700 (PDT)
-Received: from google.com (232.98.126.34.bc.googleusercontent.com. [34.126.98.232])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23fa475deafsm22232285ad.11.2025.07.24.13.55.53
+        d=1e100.net; s=20230601; t=1753390851; x=1753995651;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=7xPCtqIfSr2XyV23/N7+gLkr99UKT0q7DSJYMRI6ogM=;
+        b=pZW8w99tY378frww/QyysnW1jf3V5JKlNWSldvF+bOzqXTAhgYs4qnf3zU3yRa1BqF
+         s7SWXXnJhdMck/S7OH7Ml+Gv+RrKM5QjdJbH9vC6N0p5+LBifSXYqoVcp0/jNwGxGPqF
+         qNPZDiKlpQ7E3a6KGPHnQLO9tBc0R1LbJ3UTnrAXrCvoxHIYelQgv8SZisaDBR5hgWMW
+         iO4lSE/HrROWJsOtSwi+arjCyllbIreNVtR5L/7wNp4+IAgaFHZFDQ+ZT/96QL2AcdoJ
+         yxhlRuN4kPeBWwrUecPyW1zR7uNeV/4Ei+5DwIef6yechdq3BAOwT/AmbSdeYXrO2lF0
+         36kw==
+X-Forwarded-Encrypted: i=1; AJvYcCXdFMzy4QXRfkki6J+jfDVm/JHJnXGr6yPtbtjgaEk1hEtmCik2XLJP8JdldDiuoLxCz7xwdVF/28B57qLb8oEw@lists.infradead.org
+X-Gm-Message-State: AOJu0YyGV6qVrlbke3dtN+DXtioD39OxCiU57eFDVlzZWMdh+5Ti2y1T
+	TXXvalvHuB35+I0dvKu5tJxs4r72T1I17qNUKXxeI9MoWOS82+TmBHrHe/ZbmBI+FI8=
+X-Gm-Gg: ASbGncsZDNBgYtur2+oiAVOeIGRdnDANuFuXtcveVCqWO1yLpMoHFCOdS3FEGBrPnO2
+	VCJ7qwIObtlVSqHxQvnG3TLfE1znLkv1D+Xq7OUu7wq5hih5FZKUQjAq7YQT93DbNOelzzsSMkd
+	cUhMjKFutArqV7pAr2J+jMUjgp4JLVitvaz5qjxh0Gq4qleQgZlDzZYS07zuB60L6P8AsIuPR/G
+	iFjyGT7YfOJiQT47eG1SKU0d9ZFwgVG7sFczm97efE3vgYolXJp9EFAPIT8KC1NoYK1qOTWMw3/
+	hHNT2dLXLELJMuFF3RaFIxTn3FWDiRmqTovWbhASJUEHVoSd9AuGRM6k2bawJgsfq9aLDdQk2Cm
+	JIMxrs28hd5e43Y7lQ+Ua4O4UaCK5RGfbkxRtNw==
+X-Google-Smtp-Source: AGHT+IEZuY7f15rGOKM3HvtvPUuX5++kJiRoaL2Bas2BgZ0IihvpCrXTSETkdjV6BlKAgBCSWD3W+w==
+X-Received: by 2002:a17:906:fe4d:b0:ae3:7c8c:351d with SMTP id a640c23a62f3a-af2f927b043mr869343866b.56.1753390850866;
+        Thu, 24 Jul 2025 14:00:50 -0700 (PDT)
+Received: from localhost ([2a02:8071:b783:6940:36f3:9aff:fec2:7e46])
+        by smtp.gmail.com with UTF8SMTPSA id a640c23a62f3a-af47c496eefsm162080166b.25.2025.07.24.14.00.49
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 24 Jul 2025 13:55:55 -0700 (PDT)
-Date: Thu, 24 Jul 2025 20:55:50 +0000
-From: Pranjal Shrivastava <praan@google.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: jgg@nvidia.com, will@kernel.org, joro@8bytes.org, robin.murphy@arm.com,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org, linux-tegra@vger.kernel.org
-Subject: Re: [PATCH v3 2/2] iommu/arm-smmu-v3: Replace vsmmu_size/type with
- get_viommu_size
-Message-ID: <aIKd1owebUNQeN1-@google.com>
-References: <20250721200444.1740461-1-nicolinc@nvidia.com>
- <20250721200444.1740461-3-nicolinc@nvidia.com>
- <aIDlsUvF2Xbdelvx@google.com>
- <aIEkZoTOSlQ0nMKd@Asurada-Nvidia>
- <aIEwzM7mKUI8-h9U@google.com>
+        Thu, 24 Jul 2025 14:00:50 -0700 (PDT)
+From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+To: Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	John Crispin <john@phrozen.org>
+Cc: linux-pwm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH v2] pwm: mediatek: Fix duty and period setting
+Date: Thu, 24 Jul 2025 23:00:42 +0200
+Message-ID: <20250724210041.2513590-2-u.kleine-koenig@baylibre.com>
+X-Mailer: git-send-email 2.50.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aIEwzM7mKUI8-h9U@google.com>
+Content-Type: text/plain; charset=UTF-8
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4935; i=u.kleine-koenig@baylibre.com; h=from:subject; bh=u/COFpILtxMU50fQ37820EdrCCDB7Kx/tpvicZGMpUo=; b=owEBbQGS/pANAwAKAY+A+1h9Ev5OAcsmYgBogp76/5Y3j1DqbR8NG5ev3MILN2GEJtJqSGxPz O65Ll6UeO6JATMEAAEKAB0WIQQ/gaxpOnoeWYmt/tOPgPtYfRL+TgUCaIKe+gAKCRCPgPtYfRL+ TsMMCAChbXNFn4tXrA9yspNC+kYupFpxX9nJ95SXw8tY89vKB6FXN3nh4+lC/dbsWAMytRshg1n tkbrix3dxa6+EbEnr1sKuxYQq1L/3RGN1OiEJ35VDrbas5Oh+RwC7AkA7ZtHbHpPuBxRAIOVr3Z RI/QpZBtUc5NI9YbFN2e4fATy8n9Ls9gyMG5FeZjR1kyHmWUGZgjtWlbS/6Da+bUuu4vH05jjrf G5OkisJR5ycLuUCCImRbsiRHwb1/jstC3uo1grs0+Ce546YqSEjeJQLDGetkx9y1ZTtdSXjLg44 zHhQyFi7HJrgp8T0C+NG6sSIrzbuimU4/N+npSx/oabuxCNy
+X-Developer-Key: i=u.kleine-koenig@baylibre.com; a=openpgp; fpr=0D2511F322BFAB1C1580266BE2DCDD9132669BD6
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250724_135558_035679_20A8D4F8 
-X-CRM114-Status: GOOD (  31.55  )
+X-CRM114-CacheID: sfid-20250724_140053_570311_F5F341BC 
+X-CRM114-Status: GOOD (  18.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,66 +101,167 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 23, 2025 at 06:58:20PM +0000, Pranjal Shrivastava wrote:
-> On Wed, Jul 23, 2025 at 11:05:26AM -0700, Nicolin Chen wrote:
-> > On Wed, Jul 23, 2025 at 01:37:53PM +0000, Pranjal Shrivastava wrote:
-> > > On Mon, Jul 21, 2025 at 01:04:44PM -0700, Nicolin Chen wrote:
-> > > > @@ -1273,6 +1279,10 @@ tegra241_cmdqv_init_vintf_user(struct arm_vsmmu *vsmmu,
-> > > >  	phys_addr_t page0_base;
-> > > >  	int ret;
-> > > >  
-> > > > +	/* Unsupported type was rejected in tegra241_cmdqv_get_vintf_size() */
+The period generated by the hardware is
 
-Sorry, if this wasn't clear in the previous comment. I meant this
-comment must be updated, the "unsupported type" wasn't rejected in
-vintf_size, rather the type got corrupted which brought us here. Had the
-vintf_size rejected it, we wouldn't be calling the init op.
+	(PWMDWIDTH + 1) << CLKDIV) / freq
 
-Thanks,
-Praan
+according to my tests with a signal analyser and also the documentation.
 
-> > > > +	if (WARN_ON(vsmmu->core.type != IOMMU_VIOMMU_TYPE_TEGRA241_CMDQV))
-> > > > +		return -EOPNOTSUPP;
-> > > > +
-> > > 
-> > > Nit: I don't think we'd expect a call to this if the vintf_size returned
-> > > 0? I see that in iommufd_viommu_alloc_ioctl, we already have a check:
-> > 
-> > It's added in the previous patch where I explained that this is
-> > to detect data corruption. When something like that happens, it
-> > would be often illogical.
-> > 
-> 
-> Right.. I got mis-led by the comment, my point is that if an
-> "unsupported type" was rejected in _get_vintf_size, we wouldn't be here
-> calling viommu_init since we error out based on the check in
-> iommufd_viommu_alloc_ioctl.. but yes, if there was some data corruption
-> that changed the viommu type between these calls, I guess it makes sense
-> to check and error out here.
-> 
-> > > And call ops->viommu_init only when the above isn't met. Thus,
-> > > if we still end up calling ops->viommu_init, shouldn't we BUG_ON() it?
-> > > I'd rather have the core code handle such things (since the driver is
-> > > simply implementing the ops) and BUG_ON() something that's terribly
-> > > wrong..
-> > 
-> > BUG_ON is discouraged following the coding style:
-> > https://docs.kernel.org/process/coding-style.html#use-warn-rather-than-bug
-> > 
-> 
-> Noted. Thanks.
-> 
-> > > I can't see any ops->viommu_init being called elsewhere atm, let me
-> > > know if there's a different path that I missed..
-> > 
-> > I see it as a precaution that should never get triggered. But in
-> > case that it happens, I don't want it to proceed further wasting
-> > precious HW resource given that this function allocates a VINTF.
-> > 
-> 
-> Agreed.
-> 
-> > Nicolin
-> 
-> Praan
+The current algorithm doesn't consider the `+ 1` part and so configures
+slightly too high periods. The same issue exists for the duty cycle
+setting. So subtract 1 from both the register values for period and
+duty cycle. If period is 0, bail out, if duty_cycle is 0, just disable
+the PWM which results in a constant low output.
+
+Note that clk handling is dropped from pwm_mediatek_{en,dis}able to
+handle duty_cycle = 0, so the calls in pwm_mediatek_apply() have to be
+modified to do clk handling, too.
+
+Fixes: caf065f8fd58 ("pwm: Add MediaTek PWM support")
+Signed-off-by: Uwe Kleine-König <u.kleine-koenig@baylibre.com>
+---
+Hello,
+
+changes since (implicit) v1,
+https://lore.kernel.org/linux-pwm/20250710163705.2095418-2-u.kleine-koenig@baylibre.com/:
+
+ - Drop superflous parenthesis from commit log
+ - To implement drop the enable register instead of bit 15 in the CON
+   register, adapt commit log accordingly.
+
+Best regards
+Uwe
+
+ drivers/pwm/pwm-mediatek.c | 76 ++++++++++++++++++++------------------
+ 1 file changed, 41 insertions(+), 35 deletions(-)
+
+diff --git a/drivers/pwm/pwm-mediatek.c b/drivers/pwm/pwm-mediatek.c
+index 6777c511622a..4460bbca2582 100644
+--- a/drivers/pwm/pwm-mediatek.c
++++ b/drivers/pwm/pwm-mediatek.c
+@@ -121,6 +121,26 @@ static inline void pwm_mediatek_writel(struct pwm_mediatek_chip *chip,
+ 	writel(value, chip->regs + chip->soc->reg_offset[num] + offset);
+ }
+ 
++static void pwm_mediatek_enable(struct pwm_chip *chip, struct pwm_device *pwm)
++{
++	struct pwm_mediatek_chip *pc = to_pwm_mediatek_chip(chip);
++	u32 value;
++
++	value = readl(pc->regs);
++	value |= BIT(pwm->hwpwm);
++	writel(value, pc->regs);
++}
++
++static void pwm_mediatek_disable(struct pwm_chip *chip, struct pwm_device *pwm)
++{
++	struct pwm_mediatek_chip *pc = to_pwm_mediatek_chip(chip);
++	u32 value;
++
++	value = readl(pc->regs);
++	value &= ~BIT(pwm->hwpwm);
++	writel(value, pc->regs);
++}
++
+ static int pwm_mediatek_config(struct pwm_chip *chip, struct pwm_device *pwm,
+ 			       int duty_ns, int period_ns)
+ {
+@@ -150,7 +170,10 @@ static int pwm_mediatek_config(struct pwm_chip *chip, struct pwm_device *pwm,
+ 	do_div(resolution, clk_rate);
+ 
+ 	cnt_period = DIV_ROUND_CLOSEST_ULL((u64)period_ns * 1000, resolution);
+-	while (cnt_period > 8191) {
++	if (!cnt_period)
++		return -EINVAL;
++
++	while (cnt_period > 8192) {
+ 		resolution *= 2;
+ 		clkdiv++;
+ 		cnt_period = DIV_ROUND_CLOSEST_ULL((u64)period_ns * 1000,
+@@ -173,9 +196,16 @@ static int pwm_mediatek_config(struct pwm_chip *chip, struct pwm_device *pwm,
+ 	}
+ 
+ 	cnt_duty = DIV_ROUND_CLOSEST_ULL((u64)duty_ns * 1000, resolution);
++
+ 	pwm_mediatek_writel(pc, pwm->hwpwm, PWMCON, BIT(15) | clkdiv);
+-	pwm_mediatek_writel(pc, pwm->hwpwm, reg_width, cnt_period);
+-	pwm_mediatek_writel(pc, pwm->hwpwm, reg_thres, cnt_duty);
++	pwm_mediatek_writel(pc, pwm->hwpwm, reg_width, cnt_period - 1);
++
++	if (cnt_duty) {
++		pwm_mediatek_writel(pc, pwm->hwpwm, reg_thres, cnt_duty - 1);
++		pwm_mediatek_enable(chip, pwm);
++	} else {
++		pwm_mediatek_disable(chip, pwm);
++	}
+ 
+ out:
+ 	pwm_mediatek_clk_disable(chip, pwm);
+@@ -183,35 +213,6 @@ static int pwm_mediatek_config(struct pwm_chip *chip, struct pwm_device *pwm,
+ 	return ret;
+ }
+ 
+-static int pwm_mediatek_enable(struct pwm_chip *chip, struct pwm_device *pwm)
+-{
+-	struct pwm_mediatek_chip *pc = to_pwm_mediatek_chip(chip);
+-	u32 value;
+-	int ret;
+-
+-	ret = pwm_mediatek_clk_enable(chip, pwm);
+-	if (ret < 0)
+-		return ret;
+-
+-	value = readl(pc->regs);
+-	value |= BIT(pwm->hwpwm);
+-	writel(value, pc->regs);
+-
+-	return 0;
+-}
+-
+-static void pwm_mediatek_disable(struct pwm_chip *chip, struct pwm_device *pwm)
+-{
+-	struct pwm_mediatek_chip *pc = to_pwm_mediatek_chip(chip);
+-	u32 value;
+-
+-	value = readl(pc->regs);
+-	value &= ~BIT(pwm->hwpwm);
+-	writel(value, pc->regs);
+-
+-	pwm_mediatek_clk_disable(chip, pwm);
+-}
+-
+ static int pwm_mediatek_apply(struct pwm_chip *chip, struct pwm_device *pwm,
+ 			      const struct pwm_state *state)
+ {
+@@ -221,8 +222,10 @@ static int pwm_mediatek_apply(struct pwm_chip *chip, struct pwm_device *pwm,
+ 		return -EINVAL;
+ 
+ 	if (!state->enabled) {
+-		if (pwm->state.enabled)
++		if (pwm->state.enabled) {
+ 			pwm_mediatek_disable(chip, pwm);
++			pwm_mediatek_clk_disable(chip, pwm);
++		}
+ 
+ 		return 0;
+ 	}
+@@ -231,8 +234,11 @@ static int pwm_mediatek_apply(struct pwm_chip *chip, struct pwm_device *pwm,
+ 	if (err)
+ 		return err;
+ 
+-	if (!pwm->state.enabled)
+-		err = pwm_mediatek_enable(chip, pwm);
++	if (!pwm->state.enabled) {
++		err = pwm_mediatek_clk_enable(chip, pwm);
++		if (err < 0)
++			return err;
++	}
+ 
+ 	return err;
+ }
+
+base-commit: a02b105fe9f2b82cbd13b13a98c2b9ffae4a7c27
+-- 
+2.50.0
+
 
