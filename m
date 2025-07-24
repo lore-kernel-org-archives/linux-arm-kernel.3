@@ -4,86 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F30A9C83F26
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 13:55:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 564C7C87FC5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 13:55:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w9y6lMVKoGSGbAQ4r7YRTQAIypLEALnPa938lwZnu4s=; b=Im/tSr8vuOkbYB20xIpFRKpXJa
-	g04+NY7W3Dn2diRKiyVWpflT7Nttb8Ufypg1l+o+buXlglpGTYsFOWZUK/3TKzVSKitEKrYsrbTYM
-	MJ+CiSOH/sAHrVRD1EIHqka/5oehfaxVZTAeozcQE16JdJF5v4HZQ3yhXB/HTLtBMDLjV+ibSsQM0
-	ac31tEx6ekjt3prke1m4CnCu/S6ap4/5dPStD0j6zWJUvTic4l0afIGkYGG35gNXWMGs6oPv6m/Zu
-	/dINu+uQpQe6thu+lDWNaYB07qZkhCnBt5wAVANi+UN3h935BTxcMTf+/7BDkVRFpPxX01n0yqAFw
-	AGmkcEkQ==;
+	bh=9mx5jn+Jiegl36tzFvgMjo5fHV9ciI2B5idbBi5A68c=; b=RC7b7YzTw19CXfPJHtsN5uovQc
+	SnAgHK2fkBgbSIJ90F+kj3CLYfxOt4dUzZd0syoRkSLozB0RLIpISY08v81x+bwFUOrW9ZjSjzSKf
+	7hbFalibQUGKzlE3ri7bW5JMo6lH9UCNbPfIsNxvPSaekFOmFbwcIPewc40T7n/zP/bwvHy4eE8u9
+	pUrwsj84/rb6sg7MDRtHsOrCxogpzCH8apf0+TEP3JlcV3YRkGY9Wzovl/YAjTIz2h2KTMFf7b7iX
+	Oynu1tBuO+/IlU9OzQUz27pejb9KrTKtlTky6zlfD1h03r7rcRT/R4cqFFP5H/FBKEUjG3YG6xeJe
+	KrFBVycQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uewPZ-00000007dcv-29Al;
-	Thu, 24 Jul 2025 13:55:06 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	id 1uewPk-00000007duL-47CK;
+	Thu, 24 Jul 2025 13:55:16 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uewA9-00000007X4L-1JEO
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Jul 2025 13:39:11 +0000
-Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56ODAgol018828;
-	Thu, 24 Jul 2025 15:38:57 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	w9y6lMVKoGSGbAQ4r7YRTQAIypLEALnPa938lwZnu4s=; b=8DuW1mVWb5Zmz+q0
-	7RKe020XQCaScSNVrCjpPnmByr2ryfDEsJqHwQPObJeuAtdyS46qENjf789qB2Gn
-	Y9jkz0gnExfyBxnDdCXcKF/U1bvmXiPSL0WnENoFzkBrzJOHYylmsIvuGCerLywl
-	ZaA9oZ7lKwFoF195X342XP1lYemLrGWn/qjVkHL6zChh+CpYuigHX7/+E62GiSba
-	SVAHo4H6Hei4POCBjTIbbBtR678I3fMIdBg41DlglPcRw9/urX+wij9vSihPDcRp
-	TxPHyIN2JW2TvS5/OuWkzhrAFqWa9uAwPyPD4tuvxnn6RfeIub6Uo+oLKBm8zZIJ
-	H13+MA==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 4800g91e0a-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 24 Jul 2025 15:38:57 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 4750C4005D;
-	Thu, 24 Jul 2025 15:37:50 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node3.st.com [10.75.129.71])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 594A6763978;
-	Thu, 24 Jul 2025 15:36:56 +0200 (CEST)
-Received: from [10.130.77.120] (10.130.77.120) by SHFDAG1NODE3.st.com
- (10.75.129.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Thu, 24 Jul
- 2025 15:36:55 +0200
-Message-ID: <99737d4f-488d-4208-91aa-83ce52957147@foss.st.com>
-Date: Thu, 24 Jul 2025 15:36:52 +0200
+	id 1uewLo-00000007Y4J-1xS7;
+	Thu, 24 Jul 2025 13:51:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 37E69436D4;
+	Thu, 24 Jul 2025 13:51:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 73387C4CEF5;
+	Thu, 24 Jul 2025 13:51:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1753365072;
+	bh=a5F5WdeNr+6UL1FTjKLm8yq2/Q45+2nnNzBSMbUAfjw=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=p/rhJZXJPL+hUu5+jASgQUGlnPJUr1Xc29vibLZ8cNKZe01Mj5RN+KYj7LDB+xhJb
+	 o/hSi4YULMPs3UbgtcGgxe/YDYUPUE8xO8HC5+Jmd0ahq+2sKqaMEivl3B75n/w2sQ
+	 tJaL41C7P/tqlizhqTU9Uq/xra5sXzQCbNBMnnzr+UXC/Uw0f+7ppybFg/Ny7vEvC8
+	 iRMRIWOpswAtwWBK926ekJULZhZcKmwdDTC/Sqteu2FiAd0MNEXULYbRqpCM8ANcGX
+	 JP0Zv3NVzmYt9jbIeeGkxoajWjxhIStbkfPpciaPsAuweTqnEBCI7LztQrWQ6+Nd9/
+	 VQf1lb2KCJLXQ==
+From: Pratyush Yadav <pratyush@kernel.org>
+To: Alexey Charkov <alchark@gmail.com>
+Cc: Pratyush Yadav <pratyush@kernel.org>,  Mark Brown <broonie@kernel.org>,
+  Rob Herring <robh@kernel.org>,  Krzysztof Kozlowski <krzk+dt@kernel.org>,
+  Conor Dooley <conor+dt@kernel.org>,  Tudor Ambarus
+ <tudor.ambarus@linaro.org>,  Michael Walle <mwalle@kernel.org>,  Miquel
+ Raynal <miquel.raynal@bootlin.com>,  Richard Weinberger <richard@nod.at>,
+  Vignesh Raghavendra <vigneshr@ti.com>,  Krzysztof Kozlowski
+ <krzk@kernel.org>,  linux-spi@vger.kernel.org,
+  devicetree@vger.kernel.org,  linux-kernel@vger.kernel.org,
+  linux-mtd@lists.infradead.org,  linux-arm-kernel@lists.infradead.org,
+ Mika Westerberg <mika.westerberg@linux.intel.com>
+Subject: Re: [PATCH 2/3] mtd: spi-nor: Add a driver for the VIA/WonderMedia
+ serial flash controller
+In-Reply-To: <CABjd4YyRScBgDbi8Sk0D3vxcmLF8+YBetUdkfhrS_4Y7M+gS1g@mail.gmail.com>
+References: <20250510-wmt-sflash-v1-0-02a1ac6adf12@gmail.com>
+	<20250510-wmt-sflash-v1-2-02a1ac6adf12@gmail.com>
+	<mafs01psu89sx.fsf@kernel.org>
+	<CABjd4YyRScBgDbi8Sk0D3vxcmLF8+YBetUdkfhrS_4Y7M+gS1g@mail.gmail.com>
+Date: Thu, 24 Jul 2025 15:51:08 +0200
+Message-ID: <mafs0h5z1snn7.fsf@kernel.org>
+User-Agent: Gnus/5.13 (Gnus v5.13)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RESEND PATCH 0/2] Add pinctrl_pm_select_init_state helper
- function
-To: Bjorn Helgaas <helgaas@kernel.org>,
-        Linus Walleij
-	<linus.walleij@linaro.org>
-CC: <lpieralisi@kernel.org>, <kwilczynski@kernel.org>, <mani@kernel.org>,
-        <robh@kernel.org>, <bhelgaas@google.com>, <mcoquelin.stm32@gmail.com>,
-        <alexandre.torgue@foss.st.com>, <linux-pci@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <linux-gpio@vger.kernel.org>
-References: <20250723210753.GA2911683@bhelgaas>
-From: Christian Bruel <christian.bruel@foss.st.com>
-Content-Language: en-US
-In-Reply-To: <20250723210753.GA2911683@bhelgaas>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.130.77.120]
-X-ClientProxiedBy: EQNCAS1NODE4.st.com (10.75.129.82) To SHFDAG1NODE3.st.com
- (10.75.129.71)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-07-24_02,2025-07-24_01,2025-03-28_01
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250724_063909_832271_20A4E24C 
-X-CRM114-Status: GOOD (  23.20  )
+X-CRM114-CacheID: sfid-20250724_065112_543659_98464277 
+X-CRM114-Status: GOOD (  32.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,90 +83,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Alexey,
 
+This email got buried in my inbox somewhere...
 
-On 7/23/25 23:07, Bjorn Helgaas wrote:
-> On Wed, Jul 23, 2025 at 01:32:52PM +0200, Linus Walleij wrote:
->> On Thu, Jul 17, 2025 at 8:33 AM Christian Bruel
->> <christian.bruel@foss.st.com> wrote:
+On Mon, May 12 2025, Alexey Charkov wrote:
+
+> Hi Pratyush,
+>
+> On Mon, May 12, 2025 at 1:20=E2=80=AFPM Pratyush Yadav <pratyush@kernel.o=
+rg> wrote:
 >>
->>> We have the helper functions pinctrl_pm_select_default_state and
->>> pinctrl_pm_select_sleep_state.
->>> This patch adds the missing pinctrl_pm_select_init_state function.
->>>
->>> The STM32MP2 needs to set the pinctrl to an initial state during
->>> pm_resume, just like in probe. To achieve this, the function
->>> pinctrl_pm_select_init_state is added.
->>>
->>> This allows a driver to balance pinctrl_pm_select_sleep_state()
->>> with pinctrl_pm_select_default_state() and
->>> pinctrl_pm_select_init_state() in pm_runtime_suspend and pm_runtime_resume.
->>>
->>> Christian Bruel (2):
->>>    pinctrl: Add pinctrl_pm_select_init_state helper function
->>>    PCI: stm32: use pinctrl_pm_select_init_state() in
->>>      stm32_pcie_resume_noirq()
+>> Hi Alexey,
 >>
->> If Bjorn Helgaas is OK with it I can apply this to the pinctrl tree.
+>> On Sat, May 10 2025, Alexey Charkov wrote:
 >>
->> Otherwise I can also just apply patch 1/2, but that doesn't solve
->> any problem.
-> 
-> The stm32 driver has been posted and is on this branch of the PCI
-> tree:
-> 
->    https://git.kernel.org/pub/scm/linux/kernel/git/pci/pci.git/log/?h=controller/dwc-stm32&id=5a972a01e24b
-> 
-> but it's not in mainline (or even in pci/next) yet, so you would only
-> be able to apply patch 2/2 if you took the whole driver, which is
-> probably more than you would want to do.
-> 
-> I haven't put it in pci/next yet because it doesn't build when
-> CONFIG_PINCTRL is not defined:
-> 
->    https://lore.kernel.org/r/20250716192418.GA2550861@bhelgaas
-> 
-> I don't know enough about pinctrl to know why stm32 needs this when
-> nobody else seems to.  I doubt it's really unique, so maybe it's just
-> not doing the right thing here.
+>> > The controller is tailored to SPI NOR flash memory and abstracts away =
+all
+>> > SPI communications behind a small set of MMIO registers and a physical
+>> > memory mapping of the actual chip contents.
+>> >
+>> > It doesn't expose chip probing functions beyond reading the ID though,=
+ so
+>> > use lower level chip opcodes via the "programmable command mode" of the
+>> > controller and the kernel's SPI NOR framework to avoid hard-coding chip
+>> > parameters for each ID the way the vendor kernel does it.
+>> >
+>> > Currently tested on a WonderMedia WM8950 SoC with a Macronix MX25L4005A
+>> > flash chip (APC Rock board), but should work on all VIA/WonderMedia So=
+Cs
+>> >
+>> > Signed-off-by: Alexey Charkov <alchark@gmail.com>
+>> > ---
+>> >  MAINTAINERS                                  |   1 +
+>> >  drivers/mtd/spi-nor/controllers/Kconfig      |  14 +
+>> >  drivers/mtd/spi-nor/controllers/Makefile     |   1 +
+>> >  drivers/mtd/spi-nor/controllers/wmt-sflash.c | 525 ++++++++++++++++++=
++++++++++
+>>
+>> Drivers in drivers/mtd/spi-nor/controllers/ are deprecated, and we want
+>> to eventually get rid of the API. The expected way is for drivers to use
+>> SPI MEM (drivers/spi/spi-mem.c). SPI MEM drivers are usually more
+>> general and not tailored specifically to SPI NOR flashes, so it might be
+>> a bit tricky to write drivers for specialized hardware with it. But I
+>> think the drivers/spi/spi-intel.c driver is written for similar kind of
+>> hardware so it should be possible.
+>
+> Oops. I've had a look at spi-mem, and it seems like it's not a
+> particularly fitting abstraction for this controller.
+>
+> From what I understood, spi-mem primarily expects to be talking SPI
+> opcodes to the controller, and for the controller/driver to bring
+> their own chip probing routines. This controller on the other hand
+> abstracts the opcodes away, and wants someone to tell it what its
+> flash chip can do (the controller itself can only get a chip ID in
+> "normal" mode, and it needs to somehow know the chip size and
+> standard/fast read capability of the chip). So pretty much the
+> opposite, huh.
 
-The STM32MP2 is unique because the core clock is gated on CLKREQ#. 
-Consequently, it is not possible to access the core registers from DBI 
-when no card is attached, causing the board to freeze. I don't know 
-another platform with this limitation
+Does it use SFDP to figure out which opcodes to use? Then it feels very
+similar to intel-spi. See [0] for example. I know this is fitting a
+square peg in a round hole, but if it isn't too painful then it would
+make maintenance on SPI NOR end a bit easier.
 
-To fix this, we use a GPIO to de-assert CLKREQ# during probe and restore 
-the pin to its default AF mode afterward. This works perfectly for 
-probe, but we lack functionality for PM resume unless we explicitly 
-select the state with pinctrl_pm_select_XXX_state().
+Mika (+Cc), you did the conversion of intel-spi to SPI MEM. Maybe you
+can share how painful/easy the conversion was, and if it ended up being
+maintainable?
 
-For reference, the init_state functionality was introduced in
-https://lkml.org/lkml/2015/10/21/1
+>
+> In the end, I only need something like spi_nor_detect() and can do the
+> rest directly on top of the MTD framework without touching any SPI
+> opcodes after the detection is done. Is there any other non-deprecated
+> framework that can provide something like this? Maybe physmap? It
+> looks even older than SPI NOR though :)
 
-If we prefer not to extend the pinctrl API in patch 1/2, I can fix the 
-case in patch 2/2 only with something like:
+[0] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree=
+/drivers/spi/spi-intel.c#n905
 
-in stm32_pcie_probe()
-      pinctrl = devm_pinctrl_get(dev);
-
-      if(pinctrl!= -ENODEV) // PINCTRL is defined
-           pinctrl_init = pinctrl_lookup_state(stm32_pcie>pinctrl, 
-PINCTRL_STATE_IN
-
-in stm32_pcie_resume_noirq()
-    if (pinctrl) {
-           ret = pinctrl_select_state(stm32_pcie->pinctrl, 
-stm32_pcie->pinctrl_init);
-
-What do you advise ?
-
-thank you
-
-Christian
-
-
-
-> 
-> Bjorn
-
+--=20
+Regards,
+Pratyush Yadav
 
