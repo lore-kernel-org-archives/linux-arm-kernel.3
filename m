@@ -4,65 +4,154 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3F79C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 13:53:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB8A9C83F26
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 13:53:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZVpIhgja0zwSBFEavWlasOrFkgrsI84mvEml5Pj28M4=; b=FEx3fbsDBzFz7MS9tbD0VhIVlO
-	MIEy1lDJE8++5JYk322PrjVrK34bRC+Ssjn+BqU4EedSvQaDZNG5/IXVlcMl2GcwvFtfFwFlCg2Aj
-	uAytWkgl2cMXvocmLGa9E8dPCV4n9IF0WenT8jNt+9gp5WYCmG/QMLsYr+jR/sd519QP5ey+nlXhm
-	fyBmf3O5LNtTGT+XlgjVJvNwCEsSjxlXmQ+RFlG5Yhxwjsp71EEIFMbS5zTuC9ugYNTgZy8JfmWNn
-	F1NCfUbRwOSENouXjy96fa3v3urTfB16c2/jaNz0Jg/83EzaFrdPaRFNiHPghV8YZKDgLvxSO/gl7
-	p/Pn7G0A==;
+	bh=frgttlq1wUpHfs85c6sOB8oFTBM5O4TFBHJ8W4S/2Zg=; b=AS6cD0otzRxhE+y3+atHZrH8sd
+	utPEu3SPqYZ5iEzHNjRAKSRisLxCh/JkSiNAOHoQQRHOvWTfcH2pXLdnVgKneYTBDds7W6DQfj2/5
+	3kyClKaZxwUeqn4IHX2IC7wOgMEzbnWbNLyxndD7PMKex72s+6Clp8VGfdvJDMxv+C1CW38njLO5M
+	zDa+OOeOwClbVvVPrpkBG7NQX3sgDD/BCBOxF6mApeFZ+FdsMKkgrjflVKDwHSEcvfdzJVNOglWMK
+	HV0rAC9hCGe+4muGLGg5MHAZX1T01fEVpT84LCXLeFd8yxfeisrPaZYd2fFhe+oJSkVGthAqaxdq0
+	7d1ndKJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uewNa-00000007a3O-2LPt;
-	Thu, 24 Jul 2025 13:53:02 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uetcu-00000007Gux-3Vbs
+	id 1uewNc-00000007a79-2WrO;
+	Thu, 24 Jul 2025 13:53:04 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uete1-00000007H6c-2Yrw
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Jul 2025 10:56:42 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D8D011A00;
-	Thu, 24 Jul 2025 03:56:33 -0700 (PDT)
-Received: from [10.57.84.166] (unknown [10.57.84.166])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E27CD3F66E;
-	Thu, 24 Jul 2025 03:56:36 -0700 (PDT)
-Message-ID: <d91f3a83-16d5-47c0-b227-941df5c25991@arm.com>
-Date: Thu, 24 Jul 2025 11:56:35 +0100
+	Thu, 24 Jul 2025 10:57:51 +0000
+Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56OAF30S006839
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Jul 2025 10:57:47 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	frgttlq1wUpHfs85c6sOB8oFTBM5O4TFBHJ8W4S/2Zg=; b=MCM9U+EIRXdUhkkj
+	RnaQHyphmlwj8ufux4uRqT1CeeRyh4WJeQyMhFCoM7HUZE8B54OyMur9MQ7pLAHK
+	q7Q1KVrS7BFGTDMUnHwdUrmlCjNOXtf0Rp/Gdwturu54n0TsR+qJU3AtKnFv2WhV
+	Ajeq9g9mm1HxhnKm5PMSdv09h5GF5GTeKQLa+UREcjMI+vHbBSZEp5ZsQOJYdrBc
+	29cuk/jHFBZqdsYWQeB8ET0R6F2HpIBhXtEQ0eTVFTrqxXZJKuhGlQ4XUWQjybWw
+	SQmEEyV1+dpeOxXC5puV3gSzpq8fRjewj3wouaPKzcYBH4zMbbbQ82M9zd+81FQV
+	uLJMxQ==
+Received: from mail-qv1-f69.google.com (mail-qv1-f69.google.com [209.85.219.69])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 481qh6tk2r-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Jul 2025 10:57:47 +0000 (GMT)
+Received: by mail-qv1-f69.google.com with SMTP id 6a1803df08f44-7071696f5eeso693616d6.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Jul 2025 03:57:47 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1753354666; x=1753959466;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=frgttlq1wUpHfs85c6sOB8oFTBM5O4TFBHJ8W4S/2Zg=;
+        b=ri4zVsNeZL2AOkLStWA2mlrOrT5rvvFyD+PybjqUU8dAyl7svZeXsft6aBbaaueT8B
+         v7edoYOaXdeFx89M0R+ayYzi9iz8/ZHxBZ56DIUkVODeKKEFIpNlneGj0TSwzn3kfTaZ
+         J7cNZOlU8NvDJ4jCLMTmWJoumuCdqnb3Y9kxeJXMqXjD/CQbIEvMYbJd6Re5sBoxPUiP
+         KauZyvdJQ2b05wgkbm0nIeyWpnajm4fycYfZqXNeqomFiLIziSFLAi4dsA8BQG2qvHvK
+         9g7nFxKm2JvGToEhnhY7vl/DggOkdnobNa+NH4rFMxPIuX3b16Wfed5reaYOG+4mIosS
+         bfMg==
+X-Forwarded-Encrypted: i=1; AJvYcCXyXD4MX34h5mXU9wGOaC0OL9vxcxTlJMie5lQWLy+vi95LBhPsBs+oyZsFELf3uzzlcRuNbmKiCSMD6AUSK8Lw@lists.infradead.org
+X-Gm-Message-State: AOJu0YyT1RLK9IOoqnxTWkyY7g5NIieGZrX6X6fbnf6vSRWKzBfQVW/c
+	Z+zQa3burIpCLzLyUabLYlfetBLBKc/RLSbkX35509n26Izs8ZOKMjeE+eXN3HQKFJIASIBNFD9
+	cxzGPi2bZ0if0CByZoN/ocgcBxFjbBg6FwvBW2OIh6vDDqGDE3ccO1+sDu1G0/W4lHd51XZ2e5m
+	abRA==
+X-Gm-Gg: ASbGncuHdrFU35bKCX+UiHXIAo5p2EHzufZa2ctWxVSmcw2kmEr4aTReotUDTpOwsKb
+	hMwMRXJR23Qjla+xSXhFTbuwxQp+QBAOpeeTVokWXxALDa2KWdS6XS9hwYva0usNa12Riw7fY3M
+	2idKI2JeV+Ci2PewyBbWQmLzmMzHe8SkWvWBegdVQs08Z0BW3y6aF+YknmRWqL1bZW3sxLgsPsQ
+	ltnyIkoUnTqXxuVQgqMdk1j0SUn5jO6g7NzaWqD8RF2GRbewnrTvH2QRCFbogpSkvIq05AYd9ri
+	aQVElhcY5TkfDB99BLf8HUcXqh5UlnnCMOMDBo/jyootZPYUU/QEm2V5ft2tspflyUF/RzUL+mB
+	ravTkOngmOYgGj9+ERw==
+X-Received: by 2002:a05:6214:1d2f:b0:702:d3c5:2bf1 with SMTP id 6a1803df08f44-70700537849mr43874936d6.3.1753354666076;
+        Thu, 24 Jul 2025 03:57:46 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGOPUGD8doV9+jglxqU2GB0DYEWEF7aTYg/TWGqOaOfQBWULvPms9oF3r1fFWzU0hBkNoKlEg==
+X-Received: by 2002:a05:6214:1d2f:b0:702:d3c5:2bf1 with SMTP id 6a1803df08f44-70700537849mr43874396d6.3.1753354665532;
+        Thu, 24 Jul 2025 03:57:45 -0700 (PDT)
+Received: from [192.168.43.16] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-af47cc6e753sm95191866b.50.2025.07.24.03.57.40
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 24 Jul 2025 03:57:44 -0700 (PDT)
+Message-ID: <bbb07270-cf7d-4fc6-9a74-334fcaf00f05@oss.qualcomm.com>
+Date: Thu, 24 Jul 2025 12:57:39 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 12/36] platform: arm64: Move ec devices to an ec
- subdirectory
-Content-Language: en-GB
-To: James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-Cc: Rob Herring <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
- Shanker Donthineni <sdonthineni@nvidia.com>, Zeng Heng
- <zengheng4@huawei.com>, Lecopzer Chen <lecopzerc@nvidia.com>,
- Carl Worth <carl@os.amperecomputing.com>,
- shameerali.kolothum.thodi@huawei.com,
- D Scott Phillips OS <scott@os.amperecomputing.com>, lcherian@marvell.com,
- bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
- baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
- Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
- dfustini@baylibre.com, amitsinght@marvell.com,
- David Hildenbrand <david@redhat.com>, Rex Nie <rex.nie@jaguarmicro.com>,
- Dave Martin <dave.martin@arm.com>, Koba Ko <kobak@nvidia.com>
-References: <20250711183648.30766-1-james.morse@arm.com>
- <20250711183648.30766-13-james.morse@arm.com>
-From: Ben Horgan <ben.horgan@arm.com>
-In-Reply-To: <20250711183648.30766-13-james.morse@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH v3 11/15] pinctrl: qcom: use generic pin function helpers
+To: Bartosz Golaszewski <brgl@bgdev.pl>,
+        Linus Walleij <linus.walleij@linaro.org>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Alexey Klimov <alexey.klimov@linaro.org>,
+        Lorenzo Bianconi <lorenzo@kernel.org>,
+        Sean Wang <sean.wang@kernel.org>,
+        Matthias Brugger <matthias.bgg@gmail.com>,
+        AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+        Paul Cercueil <paul@crapouillou.net>, Kees Cook <kees@kernel.org>,
+        Andy Shevchenko <andy@kernel.org>,
+        Andrew Morton
+ <akpm@linux-foundation.org>,
+        David Hildenbrand <david@redhat.com>,
+        Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+        "Liam R. Howlett" <Liam.Howlett@oracle.com>,
+        Vlastimil Babka
+ <vbabka@suse.cz>, Mike Rapoport <rppt@kernel.org>,
+        Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>,
+        Dong Aisheng <aisheng.dong@nxp.com>,
+        Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
+        Jacky Bai <ping.bai@nxp.com>,
+        Pengutronix Kernel Team <kernel@pengutronix.de>,
+        NXP S32 Linux Team <s32@nxp.com>,
+        Sascha Hauer <s.hauer@pengutronix.de>,
+        Tony Lindgren <tony@atomide.com>,
+        Haojian Zhuang
+ <haojian.zhuang@linaro.org>,
+        Geert Uytterhoeven <geert+renesas@glider.be>
+Cc: linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-arm-msm@vger.kernel.org, linux-mediatek@lists.infradead.org,
+        linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
+        linux-hardening@vger.kernel.org, linux-mm@kvack.org,
+        imx@lists.linux.dev, linux-omap@vger.kernel.org,
+        linux-renesas-soc@vger.kernel.org,
+        Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+References: <20250724-pinctrl-gpio-pinfuncs-v3-0-af4db9302de4@linaro.org>
+ <20250724-pinctrl-gpio-pinfuncs-v3-11-af4db9302de4@linaro.org>
+Content-Language: en-US
+From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+In-Reply-To: <20250724-pinctrl-gpio-pinfuncs-v3-11-af4db9302de4@linaro.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Authority-Analysis: v=2.4 cv=CZ4I5Krl c=1 sm=1 tr=0 ts=688211ab cx=c_pps
+ a=wEM5vcRIz55oU/E2lInRtA==:117 a=FpWmc02/iXfjRdCD7H54yg==:17
+ a=IkcTkHD0fZMA:10 a=Wb1JkmetP80A:10 a=KKAkSRfTAAAA:8 a=EUspDBNiAAAA:8
+ a=jpok1_DMC_Ne8w05vhoA:9 a=QEXdDO2ut3YA:10 a=OIgjcC2v60KrkQgK7BGD:22
+ a=cvBusfyB2V15izCimMoJ:22
+X-Proofpoint-ORIG-GUID: VNAO-bmjBHwjmlg0dwaJs0_EiWtjKM3V
+X-Proofpoint-GUID: VNAO-bmjBHwjmlg0dwaJs0_EiWtjKM3V
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNzI0MDA4MiBTYWx0ZWRfX8m09Ifdk1uwx
+ B7FlvQax4HcXBFrK4RUBeOFZuH4RebknLtpnkUkJyGWYqq6A0gz25EiHWIG1TXRsRc38wvSyQ0F
+ a5NzdPBTD63+jPB2QLaJ6Qt3yEhybQ8YPmFq757QoGRxfTAL7GMYI8LTDggw84XhENt9f1ZxGh5
+ u1CVBgOjC1Si3h3n4y9SR4ykuPGpovibI9y4Gn/9M4fHT2+/pquTAdVnPlRqONV/AVr7D2j9vUs
+ 1fl4JVDwb/Pn9Lb4PAxNmaFT/fJbGHnpWkO5Od5432W2QjfX/UL15a+ZKHpkEKxmP3RsN8dhZrK
+ Gi02VY90jhOJJ0RstXmjBqwwk98vsOKxW7JN6L37Ojbbf/+DGGCXixt+q5ArRuMrPvos3WR5qR0
+ dGdtWU5mu1hCJHRt+d+/mNEt19Tao/R36pPbavYiUTX50HSpvUH9I/s8fo07YA2sMntSXEt9
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-07-24_01,2025-07-24_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 suspectscore=0 mlxlogscore=516 impostorscore=0
+ clxscore=1015 mlxscore=0 lowpriorityscore=0 phishscore=0 adultscore=0
+ bulkscore=0 spamscore=0 malwarescore=0 classifier=spam authscore=0 authtc=n/a
+ authcc= route=outbound adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2505280000 definitions=main-2507240082
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250724_035640_976111_8C339922 
-X-CRM114-Status: GOOD (  31.39  )
+X-CRM114-CacheID: sfid-20250724_035749_771092_73F04C65 
+X-CRM114-Status: GOOD (  13.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,271 +166,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi James,
-
-On 11/07/2025 19:36, James Morse wrote:
-> commit 363c8aea257 "platform: Add ARM64 platform directory" added a
-> subdirectory for arm64 platform devices, but claims that all such
-> devices must be 'EC like'.
+On 7/24/25 11:24 AM, Bartosz Golaszewski wrote:
+> From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 > 
-> The arm64 MPAM driver manages an MMIO interface that appears in memory
-> controllers, caches, IOMMU and connection points on the interconnect.
-> It doesn't fit into any existing subsystem.
+> With the pinmux core no longer duplicating memory used to store the
+> struct pinfunction objects in .rodata, we can now use the existing
+> infrastructure for storing and looking up pin functions in qualcomm
+> drivers. Remove hand-crafted callbacks.
 > 
-> It would be convenient to use this subdirectory for drivers for other
-> arm64 platform devices which aren't closely coupled to the architecture
-> code and don't fit into any existing subsystem.
-> 
-> Move the existing code and maintainer entries to be under
-> drivers/platform/arm64/ec. The MPAM driver will be added under
-> drivers/platform/arm64/mpam.
-> 
-> Signed-off-by: James Morse <james.morse@arm.com>
+> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 > ---
->   MAINTAINERS                                   |  6 +-
->   drivers/platform/arm64/Kconfig                | 72 +-----------------
->   drivers/platform/arm64/Makefile               |  9 +--
->   drivers/platform/arm64/ec/Kconfig             | 73 +++++++++++++++++++
->   drivers/platform/arm64/ec/Makefile            | 10 +++
->   .../platform/arm64/{ => ec}/acer-aspire1-ec.c |  0
->   .../arm64/{ => ec}/huawei-gaokun-ec.c         |  0
->   .../arm64/{ => ec}/lenovo-yoga-c630.c         |  0
->   8 files changed, 88 insertions(+), 82 deletions(-)
->   create mode 100644 drivers/platform/arm64/ec/Kconfig
->   create mode 100644 drivers/platform/arm64/ec/Makefile
->   rename drivers/platform/arm64/{ => ec}/acer-aspire1-ec.c (100%)
->   rename drivers/platform/arm64/{ => ec}/huawei-gaokun-ec.c (100%)
->   rename drivers/platform/arm64/{ => ec}/lenovo-yoga-c630.c (100%)
-> 
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 4bac4ea21b64..bea01d413666 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -3549,15 +3549,15 @@ S:	Maintained
->   F:	arch/arm64/boot/Makefile
->   F:	scripts/make_fit.py
->   
-> -ARM64 PLATFORM DRIVERS
-> -M:	Hans de Goede <hansg@kernel.org>
-> +ARM64 EC PLATFORM DRIVERS
-> +M:	Hans de Goede <hdegoede@redhat.com>
->   M:	Ilpo Järvinen <ilpo.jarvinen@linux.intel.com>
->   R:	Bryan O'Donoghue <bryan.odonoghue@linaro.org>
->   L:	platform-driver-x86@vger.kernel.org
->   S:	Maintained
->   Q:	https://patchwork.kernel.org/project/platform-driver-x86/list/
->   T:	git git://git.kernel.org/pub/scm/linux/kernel/git/pdx86/platform-drivers-x86.git
-> -F:	drivers/platform/arm64/
-> +F:	drivers/platform/arm64/ec
->   
->   ARM64 PORT (AARCH64 ARCHITECTURE)
->   M:	Catalin Marinas <catalin.marinas@arm.com>
-> diff --git a/drivers/platform/arm64/Kconfig b/drivers/platform/arm64/Kconfig
-> index 06288aebc559..1eb8ab0855e5 100644
-> --- a/drivers/platform/arm64/Kconfig
-> +++ b/drivers/platform/arm64/Kconfig
-> @@ -1,73 +1,3 @@
->   # SPDX-License-Identifier: GPL-2.0-only
-> -#
-> -# EC-like Drivers for aarch64 based devices.
-> -#
->   
-> -menuconfig ARM64_PLATFORM_DEVICES
-> -	bool "ARM64 Platform-Specific Device Drivers"
-> -	depends on ARM64 || COMPILE_TEST
-> -	default ARM64
-> -	help
-> -	  Say Y here to get to see options for platform-specific device drivers
-> -	  for arm64 based devices, primarily EC-like device drivers.
-> -	  This option alone does not add any kernel code.
-> -
-> -	  If you say N, all options in this submenu will be skipped and disabled.
-> -
-> -if ARM64_PLATFORM_DEVICES
 
-> -
-> -config EC_ACER_ASPIRE1
-> -	tristate "Acer Aspire 1 Embedded Controller driver"
-> -	depends on ARCH_QCOM || COMPILE_TEST
-> -	depends on I2C
-> -	depends on DRM
-> -	depends on POWER_SUPPLY
-> -	depends on INPUT
-> -	help
-> -	  Say Y here to enable the EC driver for the (Snapdragon-based)
-> -	  Acer Aspire 1 laptop. The EC handles battery and charging
-> -	  monitoring as well as some misc functions like the lid sensor
-> -	  and USB Type-C DP HPD events.
-> -
-> -	  This driver provides battery and AC status support for the mentioned
-> -	  laptop where this information is not properly exposed via the
-> -	  standard ACPI devices.
-> -
-> -config EC_HUAWEI_GAOKUN
-> -	tristate "Huawei Matebook E Go Embedded Controller driver"
-> -	depends on ARCH_QCOM || COMPILE_TEST
-> -	depends on I2C
-> -	depends on INPUT
-> -	depends on HWMON
-> -	select AUXILIARY_BUS
-> -
-> -	help
-> -	  Say Y here to enable the EC driver for the Huawei Matebook E Go
-> -	  which is a sc8280xp-based 2-in-1 tablet. The driver handles battery
-> -	  (information, charge control) and USB Type-C DP HPD events as well
-> -	  as some misc functions like the lid sensor and temperature sensors,
-> -	  etc.
-> -
-> -	  This driver provides battery and AC status support for the mentioned
-> -	  laptop where this information is not properly exposed via the
-> -	  standard ACPI devices.
-> -
-> -	  Say M or Y here to include this support.
-> -
-> -config EC_LENOVO_YOGA_C630
-> -	tristate "Lenovo Yoga C630 Embedded Controller driver"
-> -	depends on ARCH_QCOM || COMPILE_TEST
-> -	depends on I2C
-> -	select AUXILIARY_BUS
-> -	help
-> -	  Driver for the Embedded Controller in the Qualcomm Snapdragon-based
-> -	  Lenovo Yoga C630, which provides battery and power adapter
-> -	  information.
-> -
-> -	  This driver provides battery and AC status support for the mentioned
-> -	  laptop where this information is not properly exposed via the
-> -	  standard ACPI devices.
-> -
-> -	  Say M or Y here to include this support.
-> -
-> -endif # ARM64_PLATFORM_DEVICES
-> +source "drivers/platform/arm64/ec/Kconfig"
-> diff --git a/drivers/platform/arm64/Makefile b/drivers/platform/arm64/Makefile
-> index 46a99eba3264..ce840a8cf8cc 100644
-> --- a/drivers/platform/arm64/Makefile
-> +++ b/drivers/platform/arm64/Makefile
-> @@ -1,10 +1,3 @@
->   # SPDX-License-Identifier: GPL-2.0-only
-> -#
-> -# Makefile for linux/drivers/platform/arm64
-> -#
-> -# This dir should only include drivers for EC-like devices.
-> -#
->   
-> -obj-$(CONFIG_EC_ACER_ASPIRE1)	+= acer-aspire1-ec.o
-> -obj-$(CONFIG_EC_HUAWEI_GAOKUN)	+= huawei-gaokun-ec.o
-> -obj-$(CONFIG_EC_LENOVO_YOGA_C630) += lenovo-yoga-c630.o
-> +obj-y             += ec/
-> diff --git a/drivers/platform/arm64/ec/Kconfig b/drivers/platform/arm64/ec/Kconfig
-> new file mode 100644
-> index 000000000000..06288aebc559
-> --- /dev/null
-> +++ b/drivers/platform/arm64/ec/Kconfig
-> @@ -0,0 +1,73 @@
-> +# SPDX-License-Identifier: GPL-2.0-only
-> +#
-> +# EC-like Drivers for aarch64 based devices.
-> +#
-> +
-> +menuconfig ARM64_PLATFORM_DEVICES
-> +	bool "ARM64 Platform-Specific Device Drivers"
-> +	depends on ARM64 || COMPILE_TEST
-> +	default ARM64
-> +	help
-> +	  Say Y here to get to see options for platform-specific device drivers
-> +	  for arm64 based devices, primarily EC-like device drivers.
-> +	  This option alone does not add any kernel code.
-> +
-> +	  If you say N, all options in this submenu will be skipped and disabled.
-> +
-> +if ARM64_PLATFORM_DEVICES
-Shouldn't this be kept in the directory above? By the description this 
-would be expected to apply to all drivers in drivers/platfrom/arm64.> +
-> +config EC_ACER_ASPIRE1
-> +	tristate "Acer Aspire 1 Embedded Controller driver"
-> +	depends on ARCH_QCOM || COMPILE_TEST
-> +	depends on I2C
-> +	depends on DRM
-> +	depends on POWER_SUPPLY
-> +	depends on INPUT
-> +	help
-> +	  Say Y here to enable the EC driver for the (Snapdragon-based)
-> +	  Acer Aspire 1 laptop. The EC handles battery and charging
-> +	  monitoring as well as some misc functions like the lid sensor
-> +	  and USB Type-C DP HPD events.
-> +
-> +	  This driver provides battery and AC status support for the mentioned
-> +	  laptop where this information is not properly exposed via the
-> +	  standard ACPI devices.
-> +
-> +config EC_HUAWEI_GAOKUN
-> +	tristate "Huawei Matebook E Go Embedded Controller driver"
-> +	depends on ARCH_QCOM || COMPILE_TEST
-> +	depends on I2C
-> +	depends on INPUT
-> +	depends on HWMON
-> +	select AUXILIARY_BUS
-> +
-> +	help
-> +	  Say Y here to enable the EC driver for the Huawei Matebook E Go
-> +	  which is a sc8280xp-based 2-in-1 tablet. The driver handles battery
-> +	  (information, charge control) and USB Type-C DP HPD events as well
-> +	  as some misc functions like the lid sensor and temperature sensors,
-> +	  etc.
-> +
-> +	  This driver provides battery and AC status support for the mentioned
-> +	  laptop where this information is not properly exposed via the
-> +	  standard ACPI devices.
-> +
-> +	  Say M or Y here to include this support.
-> +
-> +config EC_LENOVO_YOGA_C630
-> +	tristate "Lenovo Yoga C630 Embedded Controller driver"
-> +	depends on ARCH_QCOM || COMPILE_TEST
-> +	depends on I2C
-> +	select AUXILIARY_BUS
-> +	help
-> +	  Driver for the Embedded Controller in the Qualcomm Snapdragon-based
-> +	  Lenovo Yoga C630, which provides battery and power adapter
-> +	  information.
-> +
-> +	  This driver provides battery and AC status support for the mentioned
-> +	  laptop where this information is not properly exposed via the
-> +	  standard ACPI devices.
-> +
-> +	  Say M or Y here to include this support.
-> +
-> +endif # ARM64_PLATFORM_DEVICES
-> diff --git a/drivers/platform/arm64/ec/Makefile b/drivers/platform/arm64/ec/Makefile
-> new file mode 100644
-> index 000000000000..b3a7c4096f08
-> --- /dev/null
-> +++ b/drivers/platform/arm64/ec/Makefile
-> @@ -0,0 +1,10 @@
-> +# SPDX-License-Identifier: GPL-2.0-only
-> +#
-> +# Makefile for linux/drivers/platform/arm64/ec
-> +#
-> +# This dir should only include drivers for EC-like devices.
-> +#
-> +
-> +obj-$(CONFIG_EC_ACER_ASPIRE1)	+= acer-aspire1-ec.o
-> +obj-$(CONFIG_EC_HUAWEI_GAOKUN)	+= huawei-gaokun-ec.o
-> +obj-$(CONFIG_EC_LENOVO_YOGA_C630) += lenovo-yoga-c630.o
-> diff --git a/drivers/platform/arm64/acer-aspire1-ec.c b/drivers/platform/arm64/ec/acer-aspire1-ec.c
-> similarity index 100%
-> rename from drivers/platform/arm64/acer-aspire1-ec.c
-> rename to drivers/platform/arm64/ec/acer-aspire1-ec.c
-> diff --git a/drivers/platform/arm64/huawei-gaokun-ec.c b/drivers/platform/arm64/ec/huawei-gaokun-ec.c
-> similarity index 100%
-> rename from drivers/platform/arm64/huawei-gaokun-ec.c
-> rename to drivers/platform/arm64/ec/huawei-gaokun-ec.c
-> diff --git a/drivers/platform/arm64/lenovo-yoga-c630.c b/drivers/platform/arm64/ec/lenovo-yoga-c630.c
-> similarity index 100%
-> rename from drivers/platform/arm64/lenovo-yoga-c630.c
-> rename to drivers/platform/arm64/ec/lenovo-yoga-c630.c
-Thanks,
+Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
 
-Ben
-
+Konrad
 
