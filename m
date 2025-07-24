@@ -4,81 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A780DC83F26
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 13:59:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E6D0C87FC5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 15:25:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jPMAVc1TEXwwo2AqDC8mND5efIlxayspoxL+XnJ5jJc=; b=dbncUQTxyzBji46o2Cnxx8/2A/
-	XzrHQqDVYgRUkIKX9s1ltFz3lw8DiXHAbnNhiYG9NLMQPDd+cc2tqNyl9SA3uZO6Lp0u4hIWGsTK9
-	k8ZUdxYI2REOZOuaJebGZJKEGZ9xI80TiUBiPnA1k/lLs4QLT0whYOjRjd3HzzDxr0GhP4RIH6YtY
-	dbsGWAvA7HmGtMt3TTRxSknGErqN1FH27A5sxaEsCvG+tKZjBLbxeNqlOm+GoNZlpSH6bHo8Ktcuv
-	jfvRmHSPTetFNf3w6NNPxfnhW9ESMfsN8nXQHDyR0FVH2i21iml4ErOJdp+5sMqLix0Cg2T52pca4
-	Q44FZGlg==;
+	bh=otiHF8vmXrZe6C8r/Vlo2m+KyQe1lkaHRelm8Gub1Mg=; b=o82c9NJqV8/vSJKnd1RUBApNZi
+	Hve6UWFVx8JjUK649y0MFQmM2hfUqGauHNEHAqA8ISxmlNnBq7eLIUNvSS72yGEw/xb9IxtWmphwF
+	avMvF0YXmq/NJL+pN/AbtHN32BRBh1LTG5Eb9QKQ8AIldGUrMTxp/lPNGApgl+Wkv4oiZaz7mKJTN
+	u572VA178lM5WTN03elYbIeDRpRb8cadWXyj3Rx1N9lI12kdD7RfKr+Awnaer2MLygiiu64E9NTyB
+	6OHz3EXwu95C6HDf1JX8ERyc11dBH0mmS+1nJd2Ktja9uUKQQxaqQ1cv0LnQxfOLQOZRLKKFRwv8B
+	pxpOid0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uewU9-00000007fdf-2qBG;
-	Thu, 24 Jul 2025 13:59:49 +0000
-Received: from mail-ed1-f49.google.com ([209.85.208.49])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uewKW-00000007XbI-0K4z
+	id 1uexp8-00000007qGp-3A8X;
+	Thu, 24 Jul 2025 15:25:34 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uetnQ-00000007Ic0-37Xt
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Jul 2025 13:49:53 +0000
-Received: by mail-ed1-f49.google.com with SMTP id 4fb4d7f45d1cf-6129ff08877so3421080a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Jul 2025 06:49:51 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753364990; x=1753969790;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=jPMAVc1TEXwwo2AqDC8mND5efIlxayspoxL+XnJ5jJc=;
-        b=Xksf7FSm7QpxvFAT8iAFxmHOi5LvXbI28PPVJ+g1fXt7y/7hbZ2Ec/nJyE+NOGvODs
-         53ZESkOMCRNhQkFNyQapRhHDPEs5ckCvUBFvLEbs+xC0vUfuNWDJVBGU/eAwVVjwWrlZ
-         y3iDT1ThFZtNhRiH1M7sxCBfg4a/MP9i1U7XinUjioKbmJe+yLdCL+rlzCAuQK1E9yF6
-         FR6GHufNCVlz7tCkHHx5tV7Qr4r+wPOTLUdp2I/X5vh8dIVGxBPfknQK0nuEDKO3yPuA
-         fpezuelFw+rDW/AfHCDyLcBsc8sXU3Dz0wxg5xjiyDTsGF038T0pefBUkIpdesdUowc+
-         4/nQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXIvlED2rUDXe9zOu2/L6QWNoIdtHYgr6FsVnJCPx2tAUj9z75g015yWuDtN/hj4m5iYQwPdXJ2YDoJa/I+gpNc@lists.infradead.org
-X-Gm-Message-State: AOJu0YyaRzNzKxztdEl2Pa1jBb704l94iSFTMez7SH2wlehZTRH9rlDX
-	8rBaPpwdJtn+D1eLrq4rOZxsmoUCYSYNMdZ9UpPbsGJUhGvki41bWYow
-X-Gm-Gg: ASbGncusfU6MmvGf1HOIdbcHBAR+7Y6Tp75iEE1wennveaJf6TCNe8vZZyKB2bGVWfq
-	96jdWsoAV4WYrp01BcStbls78E3gU6nLBtZtVCSbTWCUPbNmOgjEXz/29ePmOAlrHERHKpBqKYy
-	MnDzk5XGZNdcizfB5qX+CLwNDbx0v1MsvoeqspHvKA4tqdm6KgfSw8bTlsMFdKlXexUQz5dEUFH
-	TLIaQ2uem0D91Euc2xB5DzNENuLOrW8W6rg6960oXyV8yjuGDVX1ZIAzwhjWCc+LSlaweI6OdZa
-	CieMTTGlraVPMjR59SAGUaDtxp+RIlcFQZjs3t3hweIBaU8vyw3mjS5aN7veDFvT9YcaenVTq/m
-	a+yvtN0OaY9AZhA==
-X-Google-Smtp-Source: AGHT+IGM2s4sUu/jhN+IOAyKTFmbKAHCm4pptThQJKfKfwXWs66uv+mhI7ywrX5sI8KK9oEJ65TEkw==
-X-Received: by 2002:a17:906:6a07:b0:ae3:6e5c:1c05 with SMTP id a640c23a62f3a-af4c490ad23mr238115666b.30.1753364989849;
-        Thu, 24 Jul 2025 06:49:49 -0700 (PDT)
-Received: from gmail.com ([2a03:2880:30ff:73::])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-af47f861477sm114887866b.99.2025.07.24.06.49.48
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 24 Jul 2025 06:49:49 -0700 (PDT)
-Date: Thu, 24 Jul 2025 06:49:47 -0700
-From: Breno Leitao <leitao@debian.org>
-To: Stefano Garzarella <sgarzare@redhat.com>
-Cc: Will Deacon <will@kernel.org>, "Michael S. Tsirkin" <mst@redhat.com>, 
-	jasowang@redhat.com, eperezma@redhat.com, linux-arm-kernel@lists.infradead.org, 
-	kvm@vger.kernel.org, Stefan Hajnoczi <stefanha@redhat.com>, netdev@vger.kernel.org
-Subject: Re: vhost: linux-next: crash at vhost_dev_cleanup()
-Message-ID: <bvjomrplpsjklglped5pmwttzmljigasdafjiizt2sfmytc5rr@ljpu455kx52j>
-References: <vosten2rykookljp6u6qc4hqhsqb6uhdy2iuhpl54plbq2tkr4@kphfpgst3e7c>
- <20250724034659-mutt-send-email-mst@kernel.org>
- <CAGxU2F76ueKm3H30vXL+jxMVsiQBuRkDN9NRfVU8VeTXzTVAWg@mail.gmail.com>
- <20250724042100-mutt-send-email-mst@kernel.org>
- <aIHydjBEnmkTt-P-@willie-the-truck>
- <fv6uhq6lcgjwrdp7fcxmokczjmavbc37ikrqz7zpd7puvrbsml@zkt2lidjrqm6>
- <CAGxU2F5Qy=vMD0z9_HTN2K9wyt+6EH-Yr0N9VqR4OT4O1asqZg@mail.gmail.com>
+	Thu, 24 Jul 2025 11:07:34 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B7EBE1A00;
+	Thu, 24 Jul 2025 04:07:25 -0700 (PDT)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 358173F66E;
+	Thu, 24 Jul 2025 04:07:30 -0700 (PDT)
+Date: Thu, 24 Jul 2025 12:07:25 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: Yunseong Kim <ysk@kzalloc.com>
+Cc: Will Deacon <will@kernel.org>, Austin Kim <austindh.kim@gmail.com>,
+	Michelle Jin <shjy180909@gmail.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Yeoreum Yun <yeoreum.yun@arm.com>, syzkaller@googlegroups.com,
+	Kan Liang <kan.liang@linux.intel.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Namhyung Kim <namhyung@kernel.org>
+Subject: Re: [PATCH] perf: arm_pmuv3: Fix kernel panic on UBSAN from negative
+ hw.idx in armv8pmu_enable/disable_event()
+Message-ID: <aIIT7fq3xG9qtRD8@J2N7QTR9R3>
+References: <20250723104359.364547-5-ysk@kzalloc.com>
+ <aIDXE3GsRVUbPmaz@J2N7QTR9R3>
+ <aIEePonPatjNrJVk@J2N7QTR9R3>
+ <14fb716a-dedf-482a-8518-e5cc26165e97@kzalloc.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <CAGxU2F5Qy=vMD0z9_HTN2K9wyt+6EH-Yr0N9VqR4OT4O1asqZg@mail.gmail.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <14fb716a-dedf-482a-8518-e5cc26165e97@kzalloc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250724_064952_120632_BBF47B33 
-X-CRM114-Status: GOOD (  27.80  )
+X-CRM114-CacheID: sfid-20250724_040732_878129_9772E401 
+X-CRM114-Status: GOOD (  31.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,194 +73,418 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 24, 2025 at 02:52:08PM +0200, Stefano Garzarella wrote:
-> On Thu, 24 Jul 2025 at 14:48, Breno Leitao <leitao@debian.org> wrote:
-> >
-> > On Thu, Jul 24, 2025 at 09:44:38AM +0100, Will Deacon wrote:
-> > > > > On Thu, 24 Jul 2025 at 09:48, Michael S. Tsirkin <mst@redhat.com> wrote:
-> > > > > >
-> > > > > > On Wed, Jul 23, 2025 at 08:04:42AM -0700, Breno Leitao wrote:
-> > > > > > > Hello,
-> > > > > > >
-> > > > > > > I've seen a crash in linux-next for a while on my arm64 server, and
-> > > > > > > I decided to report.
-> > > > > > >
-> > > > > > > While running stress-ng on linux-next, I see the crash below.
-> > > > > > >
-> > > > > > > This is happening in a kernel configure with some debug options (KASAN,
-> > > > > > > LOCKDEP and KMEMLEAK).
-> > > > > > >
-> > > > > > > Basically running stress-ng in a loop would crash the host in 15-20
-> > > > > > > minutes:
-> > > > > > >       # while (true); do stress-ng -r 10 -t 10; done
-> > > > > > >
-> > > > > > > >From the early warning "virt_to_phys used for non-linear address",
-> > > > >
-> > > > > mmm, we recently added nonlinear SKBs support in vhost-vsock [1],
-> > > > > @Will can this issue be related?
-> > > >
-> > > > Good point.
-> > > >
-> > > > Breno, if bisecting is too much trouble, would you mind testing the commits
-> > > > c76f3c4364fe523cd2782269eab92529c86217aa
-> > > > and
-> > > > c7991b44d7b44f9270dec63acd0b2965d29aab43
-> > > > and telling us if this reproduces?
-> > >
-> > > That's definitely worth doing, but we should be careful not to confuse
-> > > the "non-linear address" from the warning (which refers to virtual
-> > > addresses that lie outside of the linear mapping of memory, e.g. in the
-> > > vmalloc space) and "non-linear SKBs" which refer to SKBs with fragment
-> > > pages.
-> >
-> > I've tested both commits above, and I see the crash on both commits
-> > above, thus, the problem reproduces in both cases. The only difference
-> > I noted is the fact that I haven't seen the warning before the crash.
-> >
-> >
-> > Log against c76f3c4364fe ("vhost/vsock: Avoid allocating
-> > arbitrarily-sized SKBs")
-> >
-> >          Unable to handle kernel paging request at virtual address 0000001fc0000048
-> >          Mem abort info:
-> >            ESR = 0x0000000096000005
-> >            EC = 0x25: DABT (current EL), IL = 32 bits
-> >            SET = 0, FnV = 0
-> >            EA = 0, S1PTW = 0
-> >            FSC = 0x05: level 1 translation fault
-> >          Data abort info:
-> >            ISV = 0, ISS = 0x00000005, ISS2 = 0x00000000
-> >            CM = 0, WnR = 0, TnD = 0, TagAccess = 0
-> >            GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
-> >          user pgtable: 64k pages, 48-bit VAs, pgdp=0000000cdcf2da00
-> >          [0000001fc0000048] pgd=0000000000000000, p4d=0000000000000000, pud=0000000000000000
-> >          Internal error: Oops: 0000000096000005 [#1]  SMP
-> >          Modules linked in: vfio_iommu_type1 vfio md4 crc32_cryptoapi ghash_generic unix_diag vhost_net tun vhost vhost_iotlb tap mpls_gso mpls_iptunnel mpls_router fou sch_fq ghes_edac tls tcp_diag inet_diag act_gact cls_bpf nvidia_c
-> >          CPU: 34 UID: 0 PID: 1727297 Comm: stress-ng-dev Kdump: loaded Not tainted 6.16.0-rc6-upstream-00027-gc76f3c4364fe #19 NONE
-> >          pstate: 23401009 (nzCv daif +PAN -UAO +TCO +DIT +SSBS BTYPE=--)
-> >          pc : kfree+0x48/0x2a8
-> >          lr : vhost_dev_cleanup+0x138/0x2b8 [vhost]
-> >          sp : ffff80013a0cfcd0
-> >          x29: ffff80013a0cfcd0 x28: ffff0008fd0b6240 x27: 0000000000000000
-> >          x26: 0000000000000000 x25: 0000000000000000 x24: 0000000000000000
-> >          x23: 00000000040e001f x22: ffffffffffffffff x21: ffff00014f1d4ac0
-> >          x20: 0000000000000001 x19: ffff00014f1d0000 x18: 0000000000000000
-> >          x17: 0000000000000000 x16: 0000000000000000 x15: 0000000000000000
-> >          x14: 000000000000001f x13: 000000000000000f x12: 0000000000000001
-> >          x11: 0000000000000000 x10: 0000000000000402 x9 : ffffffdfc0000000
-> >          x8 : 0000001fc0000040 x7 : 0000000000000000 x6 : 0000000000000000
-> >          x5 : ffff000141931840 x4 : 0000000000000000 x3 : 0000000000000008
-> >          x2 : ffffffffffffffff x1 : ffffffffffffffff x0 : 0000000000010000
-> >          Call trace:
-> >           kfree+0x48/0x2a8 (P)
-> >           vhost_dev_cleanup+0x138/0x2b8 [vhost]
-> >           vhost_net_release+0xa0/0x1a8 [vhost_net]
+On Thu, Jul 24, 2025 at 03:57:42AM +0900, Yunseong Kim wrote:
+> On 7/24/25 2:39 오전, Mark Rutland wrote:
+> > On Wed, Jul 23, 2025 at 01:35:31PM +0100, Mark Rutland wrote:
+> >> [ dropping Hemendra, since he doens't need to be spammed with ML traffic ]
+> >>
+> >> On Wed, Jul 23, 2025 at 10:44:03AM +0000, Yunseong Kim wrote:
+> >>> When 'event->hw.idx' was negative in armv8pmu_enable/disable_event().
+> >>>
+> >>>   UBSAN: shift-out-of-bounds in drivers/perf/arm_pmuv3.c:716:25
+> >>>   shift exponent -1 is negative
+> >>>
+> >>>   UBSAN: shift-out-of-bounds in drivers/perf/arm_pmuv3.c:658:13
+> >>>   shift exponent -1 is negative
+
+> > I can reproduce this locally with:
+> > 
+> > | #include <stdio.h>
+> > | #include <stdlib.h>
+> > | #include <unistd.h>
+> > | 
+> > | #include <sys/syscall.h>
+> > | #include <sys/types.h>
+> > | 
+> > | #include <linux/perf_event.h>
+> > | 
+> > | static int perf_event_open(struct perf_event_attr *attr, pid_t pid, int cpu,
+> > |                            int group_fd, unsigned long flags)
+> > | {
+> > |         return syscall(__NR_perf_event_open, attr, pid, cpu, group_fd, flags);
+> > | }
+> > | 
+> > | struct perf_event_attr attr_parent = {
+> > |         .type = PERF_TYPE_HARDWARE,
+> > |         .size = sizeof(attr_parent),
+> > |         .config = PERF_COUNT_HW_CPU_CYCLES,
+> > |         .sample_period = 1,
+> > |         .exclude_kernel = 1,
+> > | };
+> > | 
+> > | struct perf_event_attr attr_child = {
+> > |         .type = PERF_TYPE_HARDWARE,
+> > |         .size = sizeof(attr_child),
+> > |         .config = PERF_COUNT_HW_CPU_CYCLES,
+> > |         .exclude_kernel = 1,
+> > |         .disabled = 1,
+> > | };
+> > | 
+> > | int main(int argc, char *argv[])
+> > | {
+> > |         int parent, child;
+> > | 
+> > |         parent = perf_event_open(&attr_parent, 0, -1, -1, 0);
+> > |         if (parent < 0) {
+> > |                 fprintf(stderr, "Unable to create event: %d\n", parent);
+> > |                 exit (-1);
+> > |         }
+> > | 
+> > |         child = perf_event_open(&attr_child, 0, -1, parent, 0);
+> > |         if (child < 0) {
+> > |                 fprintf(stderr, "Unable to create event: %d\n", child);
+> > |                 exit (-1);
+> > |         }
+> > | 
+> > |         for (;;) {
+> > |                 asm("" ::: "memory");
+> > |         }
+> > | 
+> > |         return 0;
+> > | }
+> > 
+> I attempted to reproduce the issue with the code you shared, but it didn’t seem
+> to work on my end. Do I need to run it with multiple processes?
+
+This should only need a single process. On my machine it triggers the
+PMEV* warnings and the UBSAN splats immediately. I'm using v6.16-rc2
+defconfig + CONFIG_UBSAN=y + CONFIG_UBSAN_SHIFT=y, built with GCC
+15.1.0, running under KVM on a ThunderX2 host.
+
+Just to rule out the obvious, are you sure you're testing a kernel
+*without* your proposed fix?
+
+The idea is that the period for the group_leader event is tiny and
+should cause some throttling, and the for-loop at the end should spin
+for long enough in userspace that multiple overflows occur and result in
+throttling. I don't currently see how that couldn't trigger the issue.
+
+FWIW, it also triggers a warning on x86-64 defconfig, e.g.
+
+| # ./perf-disabled-child 
+| perf: interrupt took too long (6615 > 6612), lowering kernel.perf_event_max_sample_rate to 30000
+| perf: interrupt took too long (8399 > 8268), lowering kernel.perf_event_max_sample_rate to 23000
+| perf: interrupt took too long (10626 > 10498), lowering kernel.perf_event_max_sample_rate to 18000
+| perf: interrupt took too long (13313 > 13282), lowering kernel.perf_event_max_sample_rate to 15000
+| perf: interrupt took too long (16644 > 16641), lowering kernel.perf_event_max_sample_rate to 12000
+| ------------[ cut here ]------------
+| WARNING: CPU: 5 PID: 445 at arch/x86/events/core.c:1521 x86_pmu_start+0x72/0x90
+| Modules linked in:
+| CPU: 5 UID: 0 PID: 445 Comm: perf-disabled-c Not tainted 6.16.0-rc7 #1 PREEMPT(full) 
+| Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.16.2-0-gea1b7a073390-prebuilt.qemu.org 04/01/2014
+| RIP: 0010:x86_pmu_start+0x72/0x90
+| Code: 00 00 00 00 4a 89 5c e5 00 48 81 c5 00 02 00 00 4c 0f ab 65 00 48 89 df e8 fb f9 00 00 48 89 df 5b 5d 41 5c e9 8f a7 1e 00 90 <0f> 0b 90 5b 5d 41 5c e9 c2 4d f8 00 90 0f 0b 90 eb f1 90 0f 0b 90
+| RSP: 0000:ffffb79441017d68 EFLAGS: 00010046
+| RAX: 0000000000000000 RBX: ffff95f502618468 RCX: 0000000000000020
+| RDX: 0000000000000000 RSI: 0000000000000000 RDI: ffff95f502618468
+| RBP: ffff95f57d154ca0 R08: 0000000000000001 R09: 000000000000000b
+| R10: 00000000000000c1 R11: 0000000000000001 R12: ffffffffffffffff
+| R13: 0000000000000001 R14: ffff95f502601330 R15: ffff95f57d15bb00
+| FS:  000000001188d300(0000) GS:ffff95f5e3e3f000(0000) knlGS:0000000000000000
+| CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+| CR2: 00000000004a2d58 CR3: 0000000004170005 CR4: 0000000000370ef0
+| Call Trace:
+|  <TASK>
+|  perf_event_unthrottle_group+0xc9/0xf0
+|  perf_adjust_freq_unthr_events+0x14c/0x180
+|  perf_adjust_freq_unthr_context+0x8b/0x120
+|  perf_event_task_tick+0x5c/0x70
+|  sched_tick+0xce/0x220
+|  update_process_times+0xa4/0xd0
+|  tick_nohz_handler+0x88/0x120
+|  ? __pfx_tick_nohz_handler+0x10/0x10
+|  __hrtimer_run_queues+0x12c/0x2a0
+|  hrtimer_interrupt+0xfa/0x220
+|  __sysvec_apic_timer_interrupt+0x50/0xf0
+|  sysvec_apic_timer_interrupt+0x31/0x80
+|  asm_sysvec_apic_timer_interrupt+0x1a/0x20
+| RIP: 0033:0x40169d
+| Code: 69 9c 04 00 85 c0 78 24 45 31 c9 41 89 c0 83 c9 ff 31 d2 31 c0 48 8d 35 71 0a 0b 00 bf 2a 01 00 00 e8 47 9c 04 00 85 c0 78 02 <eb> fe 48 8b 3d 22 11 0b 00 89 c2 48 8d 35 55 59 08 00 31 c0 e8 7a
+| RSP: 002b:00007ffc74f22e10 EFLAGS: 00000202
+| RAX: 0000000000000004 RBX: 0000000000400488 RCX: 000000000044b2f9
+| RDX: 00000000ffffffff RSI: 0000000000000000 RDI: 00000000004b2100
+| RBP: 0000000000402ba0 R08: 0000000000000000 R09: 0000000000400488
+| R10: 0000000000000003 R11: 0000000000000246 R12: 0000000000402c30
+| R13: 0000000000000000 R14: 00000000004b2018 R15: 0000000000400488
+|  </TASK>
+| ---[ end trace 0000000000000000 ]---
+
+... so I think this is pretty clearly a bug in the core code, but I'm
+not sure *exactly* how that should be handled, and I suspect there are
+some additional interactions with other concurrent enable/disable.
+
+> >> Has your syzkaller instance managed to generate a C reproducer that you
+> >> can share?
+> >> It should be possible to manually build a test from the above, but
+> >> that's rather tedious.
 > 
-> But here is the vhost_net, so I'm confused now.
-> Do you see the same (vhost_net) also on 9798752 ("Add linux-next
-> specific files for 20250721") ?
+> I’ve attached both the 'perf.syz' and the generated C reproducer file 'perf.c'
+> for the reference.
 
-I will need to reproduce, but, looking at my logs, I see the following
-against: c76f3c4364fe ("vhost/vsock: Avoid allocating arbitrarily-sized SKBs").
-The logs are a bit intermixed, probably there were multiple CPUs hitting
-the same code path.
+Thanks!
 
-           virt_to_phys used for non-linear address: 000000001b662678 (0xffe61984a460)
-           WARNING: CPU: 15 PID: 112846 at arch/arm64/mm/physaddr.c:15 __virt_to_phys+0x80/0xa8
-           Modules linked in: vhost_vsock(E) vhost(E) vhost_iotlb(E) ghes_edac(E) tls(E) act_gact(E) cls_bpf(E) tcp_diag(E) inet_diag(E) ipmi_ssif(E) ipmi_devintf(E) ipmi_msghandler(E) sch_fq_codel(E) drm(E) backlight(E) drm_panel_orientation_quirks(E) acpi_power_meter(E) loop(E) efivarfs(E) autofs4(E)
-           CPU: 15 UID: 0 PID: 112846 Comm: stress-ng-dev Kdump: loaded Tainted: G        W   E    N  6.16.0-rc6-upstream-00027-gc76f3c4364fe #16 PREEMPT(none) 
-           Tainted: [W]=WARN, [E]=UNSIGNED_MODULE, [N]=TEST
-           pstate: 63401009 (nZCv daif +PAN -UAO +TCO +DIT +SSBS BTYPE=--)
-           pc : __virt_to_phys+0x80/0xa8
-           lr : __virt_to_phys+0x7c/0xa8
-           sp : ffff8001184d7a30
-           x29: ffff8001184d7a30 x28: 00000000000045d8 x27: 1fffe000e7e88014
-           x26: 1fffe000e7e888f7 x25: ffff0007e578bf00 x24: 1fffe000e7e88013
-           x23: 0000000000000000 x22: 0000ffe61984a460 x21: ffff00073f440098
-           x20: ffffff1000080000 x19: 0000ffe61984a460 x18: 0000000000000002
-           x17: 6666783028203837 x16: 3632363662313030 x15: 0000000000000001
-           x14: 1fffe006d52e90f2 x13: 0000000000000000 x12: 0000000000000000
-           x11: ffff6006d52e90f3 x10: 0000000000000002 x9 : cfc659a21c727d00
-           x8 : ffff800083c19000 x7 : 0000000000000001 x6 : 0000000000000001
-           x5 : ffff8001184d7398 x4 : ffff800084866d60 x3 : ffff8000805fdd94
-           x2 : 0000000000000001 x1 : 0000000000000004 x0 : 000000000000004b
-           Call trace:
-            __virt_to_phys+0x80/0xa8 (P)
-            kfree+0xac/0x4b0
-            vhost_dev_cleanup+0x484/0x8b0 [vhost]
-            vhost_vsock_dev_release+0x2f4/0x358 [vhost_vsock]
-            __fput+0x2b4/0x608
-            fput_close_sync+0xe8/0x1e0
-            __arm64_sys_close+0x84/0xd0
-            invoke_syscall+0x8c/0x208
-            do_el0_svc+0x128/0x1a0
-            el0_svc+0x58/0x160
-            el0t_64_sync_handler+0x78/0x108
-            el0t_64_sync+0x198/0x1a0
-           irq event stamp: 0
-           hardirqs last  enabled at (0): [<0000000000000000>] 0x0
-           hardirqs last disabled at (0): [<ffff8000801d876c>] copy_process+0xd5c/0x29f8
-           softirqs last  enabled at (0): [<ffff8000801d879c>] copy_process+0xd8c/0x29f8
-           softirqs last disabled at (0): [<0000000000000000>] 0x0
-           ---[ end trace 0000000000000000 ]---
-           Unable to handle kernel paging request at virtual address 0000040053791288
-           ------------[ cut here ]------------
-           lr : kfree+0xac/0x4b0
-           virt_to_phys used for non-linear address: 00000000290839fd (0x2500000000)
-           WARNING: CPU: 41 PID: 112845 at arch/arm64/mm/physaddr.c:15 __virt_to_phys+0x80/0xa8
-           Modules linked in: vhost_vsock(E) vhost(E) vhost_iotlb(E) ghes_edac(E) tls(E) act_gact(E) cls_bpf(E) tcp_diag(E) inet_diag(E) ipmi_ssif(E) ipmi_devintf(E) ipmi_msghandler(E) sch_fq_codel(E) drm(E) backlight(E) drm_panel_orientation_quirks(E) acpi_power_meter(E) loop(E) efivarfs(E) autofs4(E)
-           CPU: 41 UID: 0 PID: 112845 Comm: stress-ng-dev Kdump: loaded Tainted: G        W   E    N  6.16.0-rc6-upstream-00027-gc76f3c4364fe #16 PREEMPT(none) 
-           x23: 0000000000000001
-           Tainted: [W]=WARN, [E]=UNSIGNED_MODULE, [N]=TEST
-           pstate: 63401009 (nZCv daif +PAN -UAO +TCO +DIT +SSBS BTYPE=--)
-           pc : __virt_to_phys+0x80/0xa8
-           lr : __virt_to_phys+0x7c/0xa8
-           sp : ffff8001a8277a30
-           x29: ffff8001a8277a30 x28: 00000000000045d8 x27: 1fffe000e7e3c014
-           x26: 1fffe000e7e3c8f7 x25: ffff0007bcff0000 x24: 1fffe000e7e3c013
-           x23: 0000000000000000 x22: 0000002500000000 x21: ffff00073f1e0098
-           x20: ffffff1000080000 x19: 0000002500000000 x18: 0000000000000004
-           x17: 00000000ffffffff x16: 0000000000000001 x15: 0000000000000001
-           x14: 1fffe006d53920f2 x13: 0000000000000000 x12: 0000000000000000
-           sp : ffff8001184d7a50
-           x29: ffff8001184d7a60 x28: 00000000000045d8 x27: 1fffe000e7e88014
-           x26: 1fffe000e7e888f7 x25: ffff0007e578bf00 x24: 1fffe000e7e88013
-           x23: 0000000000000000 x22: 0000ffe61984a460 x21: ffff00073f440098
-           x20: 0000040053791280 x19: ffff80000d0b8bbc x18: 0000000000000002
-           x17: 6666783028203837 x16: 3632363662313030 x15: 0000000000000001
-            x22: 0000ffe6199a459d
-           x14: 1fffe006d52e90f2
-            x21: ffff00073f7f0098
-           x20: ffffff1000080000 x19: 0000ffe6199a459d x18: 0000000000000004
-           x17: 54455320203b2d2c x16: 0000000000000011 x15: 0000000000000001
-           x14: 1fffe006d52bb8f2 x13: 0000000000000000 x12: 0000000000000000
-           x11: ffff6006d52bb8f3 x10: dfff800000000000 x9 : 77521a2bd3e0be00
-           x8 : ffff800083c19000 x7 : 0000000000000000 x6 : ffff80008036bc2c
-           x5 : 0000000000000000 x4 : 0000000000000001 x3 : ffff8000805fdd94
-           x2 : 0000000000000001 x1 : 0000000000000004 x0 : 000000000000004b
-           Call trace:
-            __virt_to_phys+0x80/0xa8 (P)
-            kfree+0xac/0x4b0
-            vhost_dev_cleanup+0x484/0x8b0 [vhost]
-            vhost_vsock_dev_release+0x2f4/0x358 [vhost_vsock]
-            __fput+0x2b4/0x608
-           x11: ffff6006d53920f3
-            fput_close_sync+0xe8/0x1e0
-            __arm64_sys_close+0x84/0xd0
-            invoke_syscall+0x8c/0x208
-            do_el0_svc+0x128/0x1a0
-            el0_svc+0x58/0x160
-            el0t_64_sync_handler+0x78/0x108
-            el0t_64_sync+0x198/0x1a0
-           irq event stamp: 0
-            x13: 0000000000000000
-           hardirqs last  enabled at (0): [<0000000000000000>] 0x0
-           hardirqs last disabled at (0): [<ffff8000801d876c>] copy_process+0xd5c/0x29f8
+FWIW, I had a go with the generated C reproducer, and it didn't seem to
+trigger the issue, even with ~100 instances launched in parallel.
 
+For the benefit of the mailing list archive, I've included your
+reproducer(s) inline below, but I've dropped the config as I don't
+belive there's anything important there beyond CONFIG_UBSAN=y +
+CONFIG_UBSAN_SHIFT=y.
 
-> The initial report contained only vhost_vsock traces IIUC, so I'm
-> suspecting something in the vhost core.
+It should be possible to figure out the exact perf_event_attr values
+used, but it's a bit painful to extract those manually.
 
-Right, it seems we are hitting the same code path, on on both
-vhost_vsock and vhost_net.
+Mark.
+
+// perf.c
+> // autogenerated by syzkaller (https://github.com/google/syzkaller)
+> 
+> #define _GNU_SOURCE
+> 
+> #include <endian.h>
+> #include <stdint.h>
+> #include <stdio.h>
+> #include <stdlib.h>
+> #include <string.h>
+> #include <sys/syscall.h>
+> #include <sys/types.h>
+> #include <unistd.h>
+> 
+> #ifndef __NR_mmap
+> #define __NR_mmap 222
+> #endif
+> #ifndef __NR_perf_event_open
+> #define __NR_perf_event_open 241
+> #endif
+> 
+> #define BITMASK(bf_off, bf_len) (((1ull << (bf_len)) - 1) << (bf_off))
+> #define STORE_BY_BITMASK(type, htobe, addr, val, bf_off, bf_len)               \
+>   *(type*)(addr) =                                                             \
+>       htobe((htobe(*(type*)(addr)) & ~BITMASK((bf_off), (bf_len))) |           \
+>             (((type)(val) << (bf_off)) & BITMASK((bf_off), (bf_len))))
+> 
+> uint64_t r[1] = {0xffffffffffffffff};
+> 
+> int main(void)
+> {
+>   syscall(__NR_mmap, /*addr=*/0x1ffff000ul, /*len=*/0x1000ul, /*prot=*/0ul,
+>           /*flags=MAP_FIXED|MAP_ANONYMOUS|MAP_PRIVATE*/ 0x32ul,
+>           /*fd=*/(intptr_t)-1, /*offset=*/0ul);
+>   syscall(__NR_mmap, /*addr=*/0x20000000ul, /*len=*/0x1000000ul,
+>           /*prot=PROT_WRITE|PROT_READ|PROT_EXEC*/ 7ul,
+>           /*flags=MAP_FIXED|MAP_ANONYMOUS|MAP_PRIVATE*/ 0x32ul,
+>           /*fd=*/(intptr_t)-1, /*offset=*/0ul);
+>   syscall(__NR_mmap, /*addr=*/0x21000000ul, /*len=*/0x1000ul, /*prot=*/0ul,
+>           /*flags=MAP_FIXED|MAP_ANONYMOUS|MAP_PRIVATE*/ 0x32ul,
+>           /*fd=*/(intptr_t)-1, /*offset=*/0ul);
+>   const char* reason;
+>   (void)reason;
+>   intptr_t res = 0;
+>   if (write(1, "executing program\n", sizeof("executing program\n") - 1)) {
+>   }
+>   *(uint32_t*)0x20000240 = 0;
+>   *(uint32_t*)0x20000244 = 0x80;
+>   *(uint8_t*)0x20000248 = 0;
+>   *(uint8_t*)0x20000249 = 0;
+>   *(uint8_t*)0x2000024a = 0;
+>   *(uint8_t*)0x2000024b = 0;
+>   *(uint32_t*)0x2000024c = 0;
+>   *(uint64_t*)0x20000250 = 0;
+>   *(uint64_t*)0x20000258 = 0;
+>   *(uint64_t*)0x20000260 = 0;
+>   STORE_BY_BITMASK(uint64_t, , 0x20000268, 0, 0, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x20000268, 0, 1, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x20000268, 0, 2, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x20000268, 0, 3, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x20000268, 0, 4, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x20000268, 0, 5, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x20000268, 0, 6, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x20000268, 0, 7, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x20000268, 0, 8, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x20000268, 0, 9, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x20000268, 0, 10, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x20000268, 0, 11, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x20000268, 0, 12, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x20000268, 0, 13, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x20000268, 0, 14, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x20000268, 0, 15, 2);
+>   STORE_BY_BITMASK(uint64_t, , 0x20000268, 0, 17, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x20000268, 0, 18, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x20000268, 0, 19, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x20000268, 0, 20, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x20000268, 0, 21, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x20000268, 0, 22, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x20000268, 0, 23, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x20000268, 0, 24, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x20000268, 0, 25, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x20000268, 0, 26, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x20000268, 0, 27, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x20000268, 0, 28, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x20000268, 0, 29, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x20000268, 0, 30, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x20000268, 0, 31, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x20000268, 0, 32, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x20000268, 0, 33, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x20000268, 0, 34, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x20000268, 0, 35, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x20000268, 0, 36, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x20000268, 0, 37, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x20000268, 0, 38, 26);
+>   *(uint32_t*)0x20000270 = 0;
+>   *(uint32_t*)0x20000274 = 0;
+>   *(uint64_t*)0x20000278 = 0;
+>   *(uint64_t*)0x20000280 = 0;
+>   *(uint64_t*)0x20000288 = 0;
+>   *(uint64_t*)0x20000290 = 0;
+>   *(uint32_t*)0x20000298 = 0;
+>   *(uint32_t*)0x2000029c = 0;
+>   *(uint64_t*)0x200002a0 = 0;
+>   *(uint32_t*)0x200002a8 = 0;
+>   *(uint16_t*)0x200002ac = 0;
+>   *(uint16_t*)0x200002ae = 0;
+>   *(uint32_t*)0x200002b0 = 0;
+>   *(uint32_t*)0x200002b4 = 0;
+>   *(uint64_t*)0x200002b8 = 0;
+>   res = syscall(__NR_perf_event_open, /*attr=*/0x20000240ul, /*pid=*/0,
+>                 /*cpu=*/0ul, /*group=*/(intptr_t)-1, /*flags=*/0ul);
+>   if (res != -1)
+>     r[0] = res;
+>   *(uint32_t*)0x20000280 = 0;
+>   *(uint32_t*)0x20000284 = 0x80;
+>   *(uint8_t*)0x20000288 = 0;
+>   *(uint8_t*)0x20000289 = 0;
+>   *(uint8_t*)0x2000028a = 0;
+>   *(uint8_t*)0x2000028b = 0;
+>   *(uint32_t*)0x2000028c = 0;
+>   *(uint64_t*)0x20000290 = 0;
+>   *(uint64_t*)0x20000298 = 0;
+>   *(uint64_t*)0x200002a0 = 0;
+>   STORE_BY_BITMASK(uint64_t, , 0x200002a8, 1, 0, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x200002a8, 0, 1, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x200002a8, 0, 2, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x200002a8, 0, 3, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x200002a8, 0, 4, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x200002a8, 0, 5, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x200002a8, 0, 6, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x200002a8, 0, 7, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x200002a8, 0, 8, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x200002a8, 0, 9, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x200002a8, 0, 10, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x200002a8, 0, 11, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x200002a8, 0, 12, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x200002a8, 0, 13, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x200002a8, 0, 14, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x200002a8, 0, 15, 2);
+>   STORE_BY_BITMASK(uint64_t, , 0x200002a8, 0, 17, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x200002a8, 0, 18, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x200002a8, 0, 19, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x200002a8, 0, 20, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x200002a8, 0, 21, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x200002a8, 0, 22, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x200002a8, 0, 23, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x200002a8, 0, 24, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x200002a8, 0, 25, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x200002a8, 0, 26, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x200002a8, 0, 27, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x200002a8, 0, 28, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x200002a8, 0, 29, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x200002a8, 0, 30, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x200002a8, 0, 31, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x200002a8, 0, 32, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x200002a8, 0, 33, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x200002a8, 0, 34, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x200002a8, 0, 35, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x200002a8, 0, 36, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x200002a8, 0, 37, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x200002a8, 0, 38, 26);
+>   *(uint32_t*)0x200002b0 = 0;
+>   *(uint32_t*)0x200002b4 = 0;
+>   *(uint64_t*)0x200002b8 = 0;
+>   *(uint64_t*)0x200002c0 = 0;
+>   *(uint64_t*)0x200002c8 = 0;
+>   *(uint64_t*)0x200002d0 = 0;
+>   *(uint32_t*)0x200002d8 = 0;
+>   *(uint32_t*)0x200002dc = 0;
+>   *(uint64_t*)0x200002e0 = 0;
+>   *(uint32_t*)0x200002e8 = 0;
+>   *(uint16_t*)0x200002ec = 0;
+>   *(uint16_t*)0x200002ee = 0;
+>   *(uint32_t*)0x200002f0 = 0;
+>   *(uint32_t*)0x200002f4 = 0;
+>   *(uint64_t*)0x200002f8 = 0;
+>   syscall(__NR_perf_event_open, /*attr=*/0x20000280ul, /*pid=*/0, /*cpu=*/0ul,
+>           /*group=*/r[0], /*flags=*/0ul);
+>   *(uint32_t*)0x20000540 = 3;
+>   *(uint32_t*)0x20000544 = 0x80;
+>   *(uint8_t*)0x20000548 = 0;
+>   *(uint8_t*)0x20000549 = 0;
+>   *(uint8_t*)0x2000054a = 0;
+>   *(uint8_t*)0x2000054b = 0;
+>   *(uint32_t*)0x2000054c = 0;
+>   *(uint64_t*)0x20000550 = 4;
+>   *(uint64_t*)0x20000558 = 0;
+>   *(uint64_t*)0x20000560 = 0;
+>   STORE_BY_BITMASK(uint64_t, , 0x20000568, 0, 0, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x20000568, 0, 1, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x20000568, 0, 2, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x20000568, 0, 3, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x20000568, 0, 4, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x20000568, 0, 5, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x20000568, 0, 6, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x20000568, 0, 7, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x20000568, 0, 8, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x20000568, 0, 9, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x20000568, 0, 10, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x20000568, 0, 11, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x20000568, 0, 12, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x20000568, 0, 13, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x20000568, 0, 14, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x20000568, 0, 15, 2);
+>   STORE_BY_BITMASK(uint64_t, , 0x20000568, 0, 17, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x20000568, 0, 18, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x20000568, 0, 19, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x20000568, 0, 20, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x20000568, 0, 21, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x20000568, 0, 22, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x20000568, 0, 23, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x20000568, 0, 24, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x20000568, 0, 25, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x20000568, 0, 26, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x20000568, 0, 27, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x20000568, 0, 28, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x20000568, 0, 29, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x20000568, 0, 30, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x20000568, 0, 31, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x20000568, 0, 32, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x20000568, 0, 33, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x20000568, 0, 34, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x20000568, 0, 35, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x20000568, 0, 36, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x20000568, 0, 37, 1);
+>   STORE_BY_BITMASK(uint64_t, , 0x20000568, 0, 38, 26);
+>   *(uint32_t*)0x20000570 = 0;
+>   *(uint32_t*)0x20000574 = 4;
+>   *(uint64_t*)0x20000578 = 0;
+>   *(uint64_t*)0x20000580 = 2;
+>   *(uint64_t*)0x20000588 = 0x20;
+>   *(uint64_t*)0x20000590 = 0;
+>   *(uint32_t*)0x20000598 = 0;
+>   *(uint32_t*)0x2000059c = 0;
+>   *(uint64_t*)0x200005a0 = 2;
+>   *(uint32_t*)0x200005a8 = 0;
+>   *(uint16_t*)0x200005ac = 0;
+>   *(uint16_t*)0x200005ae = 0;
+>   *(uint32_t*)0x200005b0 = 0;
+>   *(uint32_t*)0x200005b4 = 0;
+>   *(uint64_t*)0x200005b8 = 0x81;
+>   syscall(__NR_perf_event_open, /*attr=*/0x20000540ul, /*pid=*/0, /*cpu=*/0ul,
+>           /*group=*/r[0], /*flags=*/0ul);
+>   return 0;
+> }
+
+// perf.syz
+> r0 = perf_event_open(&(0x7f0000000240)={0x0, 0x80, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, @perf_config_ext}, 0x0, 0x0, 0xffffffffffffffff, 0x0)
+> perf_event_open(&(0x7f0000000280)={0x0, 0x80, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x1, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, @perf_config_ext}, 0x0, 0x0, r0, 0x0)
+> perf_event_open(&(0x7f0000000540)={0x3, 0x80, 0x0, 0x0, 0x0, 0x0, 0x0, 0x4, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x4, @perf_bp={0x0, 0x2}, 0x20, 0x0, 0x0, 0x0, 0x2, 0x0, 0x0, 0x0, 0x0, 0x0, 0x81}, 0x0, 0x0, r0, 0x0)
+
 
