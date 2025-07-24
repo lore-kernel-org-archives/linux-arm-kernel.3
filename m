@@ -4,128 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F06BC87FD3
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6142DC87FCF
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 17:05:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UHuEueO+ui51hT1DZz+A8665dEbT2NS+aPaD8xGYVLw=; b=aYA16seuRxIMBT1XFdeyNERYt4
-	PVBySPFKEM10KnZhAP/eh7QdyC7liXvia/9kZYTJAZawCikDwkWAhX1Qt1Cdrgh9HCumRM2ucQYFM
-	duo7XoIEJqsvtQyTTa4d6Lvldk/Q3gFJyvOrK+DBRVE5qIjvenlbw+ukzlyKBHPN/+yMBq3vTsTgm
-	dBBbhLX2hW4USu9rd3ra3aLPpx0dsyOIe6+STbgEqQv4WUf2I8D4MmSAR+Kh6DpGmC6q4UrVzADYm
-	MKiSmW4D6Q8D/XrEGUUIVaUHYAoDhRl59MeK8r3AzhEPalNsmwmghtea0/sn+99dUdC/KkfUbDe9u
-	IOK4zDWQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=5y2qMgmh1dasB/K2c0IiLoTqJYg9NRw6RvJp/6M1DKk=; b=s0RczLGAkBxb3m
+	5pbQX39yaEkETXqRNgaPVdl0gdOmQPyK0vydkTnEtjuB3fGlbYkOo+hrrAxLly2pmPwiXG/SHuutI
+	yyRZUWO/642lcYXckGPjEgpk/V+5/38CW1uermkqrPuw0BexwuCLQfc4CXxAbB5d79QSP+chgV3+h
+	gPbllxIGaKJWyUD4XDsBE3gjJL/VpwgsmgIOkIkYFkGriiDkYTdv/Ay7LHPfxDuQBSIrA16DyrZRR
+	OtpgjHPWrrgH3RoPr25kRM8NBY16PTtSi79bfWH+X/aPj2IAG9OGjz4oozNQgdc/5pE4BP47pdhBB
+	FGfqq5flXPAZFRu8FSXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uezNj-000000083EQ-3lo6;
-	Thu, 24 Jul 2025 17:05:23 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uezNO-000000082pm-3u3y;
+	Thu, 24 Jul 2025 17:05:02 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uex5Q-00000007lmp-3tf1
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Jul 2025 14:38:22 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 257E4A55EFA;
-	Thu, 24 Jul 2025 14:38:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 49ADFC4CEED;
-	Thu, 24 Jul 2025 14:38:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753367899;
-	bh=J+2CIa+PZT6ZTjOXWq7tTssnqG+kDDgqLvO7Suiluns=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=HsTFWnGtUktymKD/MzWoKPp9mMJ8J7hdPiYRwnH/gX9Yyk0YWoi1zQuKcwMKkqmTZ
-	 U4ENjChvi76/4WavXvO4QCBxC+2/YMObnfkttI8vQEU8YE6ce1JGsY+nABrE8iT1N5
-	 fsvrjy6Sxq4P7KFt0/HSAoKCCJm7TauRFzfFrz6pICC7V4MzcBlBoLnlO+UYMVH66T
-	 vWl/Xg2sk05tWJpYL02rUUx+Ym3KdwHC0Fni5rYKRSUMQJ3cdo5OA+RLTP9X2GeOVi
-	 gcc4BWEYQEwm7naAtF2czbFwmrqIiUbUyKnYg8p7mp1iHOkqkI4XCi0RqrKtP3/AuB
-	 ILa9KQXLxxcXg==
-Message-ID: <217dfc7f-97d6-4598-ad6a-1cb48464c91c@kernel.org>
-Date: Thu, 24 Jul 2025 16:38:11 +0200
+	id 1ueweV-00000007hb9-1buQ;
+	Thu, 24 Jul 2025 14:10:33 +0000
+Received: from [192.168.1.76] (unknown [IPv6:2001:b07:6462:5de2:520d:d7a3:63ca:99e8])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 05B1EC79;
+	Thu, 24 Jul 2025 16:09:46 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1753366188;
+	bh=I2DfFvSzoohaF8QaBJl3+Mx/Tsj5HbstN1YNZnjJmWM=;
+	h=From:Subject:Date:To:Cc:From;
+	b=n+vsQIU5+axMze5JAIq6Q/orPUNGoynBOU2+YS2j3l5XTpj+TPtANUEX/53Wf8AtP
+	 kvhIqBJ+Dt6No47eehM+pap3u+8qD0ZAsLSAVYeeplm9KI86yQ3KZvk+nk0horh2yd
+	 /XcJ5t8RCk2rlOHCV55ZILzda3i3UNo3lXruTIOg=
+From: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+Subject: [PATCH v2 00/27] media: Add support for multi-context operations
+Date: Thu, 24 Jul 2025 16:10:07 +0200
+Message-Id: <20250724-multicontext-mainline-2025-v2-0-c9b316773486@ideasonboard.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v12 0/8] Implement vendor resets for PSCI SYSTEM_RESET2
-To: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>,
- Florian Fainelli <florian.fainelli@broadcom.com>,
- Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
- Bjorn Andersson <andersson@kernel.org>, Sebastian Reichel <sre@kernel.org>,
- Rob Herring <robh@kernel.org>, Sudeep Holla <sudeep.holla@arm.com>,
- Souvik Chakravarty <Souvik.Chakravarty@arm.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Andy Yan <andy.yan@rock-chips.com>,
- Mark Rutland <mark.rutland@arm.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
- Konrad Dybcio <konradybcio@kernel.org>, cros-qcom-dts-watchers@chromium.org,
- Vinod Koul <vkoul@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>
-Cc: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
- Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
- Stephen Boyd <swboyd@chromium.org>, Andre Draszik
- <andre.draszik@linaro.org>, linux-pm@vger.kernel.org,
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
- Elliot Berman <quic_eberman@quicinc.com>,
- Srinivas Kandagatla <srini@kernel.org>,
- Elliot Berman <elliot.berman@oss.qualcomm.com>,
- Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-References: <20250721-arm-psci-system_reset2-vendor-reboots-v12-0-87bac3ec422e@oss.qualcomm.com>
- <beb26682-d2e4-40e6-89ac-87f18c0401d0@broadcom.com>
- <56599da9-0200-72b5-012e-942a1fc954b2@oss.qualcomm.com>
- <a1d3264f-a46a-42c4-b518-a66c8e0b70b4@kernel.org>
- <f4725f3f-1b45-ebd2-aaf4-4f986a44eb8e@oss.qualcomm.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <f4725f3f-1b45-ebd2-aaf4-4f986a44eb8e@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAL8+gmgC/32NQQ6CMBBFr0Jm7Zi2oEVX3sOwKGWUSaA1bSUYw
+ t0tJG5dvv+T9xaIFJgiXIsFAk0c2bsM6lCA7Y17EnKXGZRQJ6HlGcf3kNh6l2hOOBp2AzvC7ca
+ y0herrapabSALXoEePO/ye5O555h8+OytSW7rT6v/aSeJAmtprKwvOSDKG3dkonetN6E7Wj9Cs
+ 67rF+O3kcTLAAAA
+X-Change-ID: 20250716-multicontext-mainline-2025-3479c7c24b7a
+To: Sakari Ailus <sakari.ailus@linux.intel.com>, 
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+ Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, 
+ Kieran Bingham <kieran.bingham@ideasonboard.com>, 
+ Nicolas Dufresne <nicolas.dufresne@collabora.com>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Tomasz Figa <tfiga@chromium.org>, 
+ Marek Szyprowski <m.szyprowski@samsung.com>, 
+ Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
+ Florian Fainelli <florian.fainelli@broadcom.com>, 
+ Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+ Hans Verkuil <hverkuil@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
+ linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ Jacopo Mondi <jacopo.mondi@ideasonboard.com>, 
+ Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>, 
+ Hans Verkuil <hverkuil@kernel.org>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=11585;
+ i=jacopo.mondi@ideasonboard.com; h=from:subject:message-id;
+ bh=I2DfFvSzoohaF8QaBJl3+Mx/Tsj5HbstN1YNZnjJmWM=;
+ b=owEBbQKS/ZANAwAKAXI0Bo8WoVY8AcsmYgBogj7N+u8dCU4tewo31CN4YD5BPwaMD4AE8hxvv
+ al5DxHRCiSJAjMEAAEKAB0WIQS1xD1IgJogio9YOMByNAaPFqFWPAUCaII+zQAKCRByNAaPFqFW
+ PI1/EADD3AVRXdMSw09qi1KjFELdP795UEv3Tsp7We2TymIEvw9pRPr5l+HcLfT2FboxT3ioxHO
+ 9FgEzPrOzOptYKmKOLxfGKKLzKWGDPP+SJeRBBcjpyN4A3R/DRNTSLMxa1Ig3vX8+NLJ0ceU5Sg
+ oW6A83otc7/bZlVjXtRUaqM3/6LL8tD77sFLiKFHJygQDxqmKztHsk7kyTUOuqf+5m3LeCymT7D
+ BSUXoKceWHTTgVUMSLcfbtRkpzcRDOqBHJQvXTyTsIaB37Tc7z1ioym2Nhlkr1pOZEi6ltn/DtM
+ I/Z3n1uJOxbxkQTP7AQzhj5hhl6hNsDYkw2C6B5CRshZBkVjD6UPLcW/3FD3rbLjCRVz9HHmRkT
+ 02BKLtxcP63vYwm52SKNbUSSS395B1tkFwPk/oiznDqqKtJNHVxhuANWvA/uBied5/IHJ2ELmU8
+ Tf7ilNj7RlAlVnY8T9tpfjfsLNaAZhTZnzKDS26WUeRkCp0yTfWs/Z9Ic4rlAz2hHfOWQZztnO6
+ 91aujEAoKPXdW/nLEV+QcYhrVAA+FSLxBo9lx55WKH+dOilzgZg+hJ/giA/4axe0LnJEj96ePtR
+ 7EmEwQFjyUhadpfBTUQwjx9Ul5z7HISK+l6b8/gfBqCinoHlUBrEd3kRBbcOZM8VfGLvoBdCOaU
+ d1najEngK2+Uwxw==
+X-Developer-Key: i=jacopo.mondi@ideasonboard.com; a=openpgp;
+ fpr=72392EDC88144A65C701EA9BA5826A2587AD026B
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250724_073821_098054_1485AB38 
-X-CRM114-Status: GOOD (  12.79  )
+X-CRM114-CacheID: sfid-20250724_071031_710539_8DD3FD1C 
+X-CRM114-Status: GOOD (  24.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,45 +100,234 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 24/07/2025 16:04, Shivendra Pratap wrote:
->>>> For the sysfs bits, should not we be seeing "psci" instead of "reboot-mode" twice in this path:
->>>>
->>>> # cat /sys/class/reboot-mode/reboot-mode/reboot_modes
->>>> powercycle
->>> As per current patch, we create a class named - "reboot-mode".
->>> /sys/class/reboot-mode
->>>
->>> Then comes the DT node name of the registering driver.
->>> /sys/class/reboot-mode/<DT node name of the registering driver>/
->>
->> This means that node name becomes part of the ABI? I am not happy about
->> it. Where is such ABI documented? Because your last patch tells
->> something completely else!
->>
->> I strongly insist using compatible as way to find your device, not node
->> names.
-> It will look better to switch to compatible. Will define a compatible for
-> psci reboot-mode binding and align the patch to use the compatible for sysfs.
-> Current patch defines reboot-mode as a property to psci, hope its fine to
-> define a compatible for this property like "psci-vendor-reset" or
-> "psci-reboot-modes"?
+Modern ISPs are designed to handle multiple "streams" of data, not necessarily
+related to the same image or video stream.
 
+The hardware resources are generally time-multiplexed between different
+execution contexts at the hardware or firmware level and in order to operate the
+ISP with multiple video sources it is necessary for drivers to keep track of
+per-context data and resources.
 
-Hm, sorry, what? That's not what I ask, but considering inconsistency
-mentioned here and in actual ABI document I do not even know what to
-suggest.
+In V4L2 the M2M framework supports multiple contexts through multiple opens of
+the same video device. This doesn't however support drivers exposing multiple
+video devices and sub-devices. Several out-of-tree drivers implement
+multi-context support by registering multiple 'logical' instances of the same
+media graph, one for each context. This effectively multiplies the number of
+video device nodes and subdevice nodes. Userspace applications open one media
+graph instance and operate on the corresponding video devices, under the
+impression of dealing with a dedicated instance of the sole underlying hardware
+resource.
 
-> 
->>
->> In any case you need to document such ABI in Devicetree bindings,
->> because sysfs ABI is not enough.
-> should reboot-mode Devicetree binding document this ABI? Can you
-> please share some more detail on this?
+This solution is however a short term hack, it doesn't scale well when the
+number of contexts grow. ISPs such as the Mali C55 have been designed to process
+8 cameras concurrently, and other ISPs may do more.
 
+For this reason, a solution to expose and manage multiple execution contexts
+without duplicating the number of media, video and sub-devices registered to
+userspace is needed to improve support for multi-context devices in V4L2.
 
-The binding for the device, whose node name you are using here as ABI,
-should document the ABI.
+The series enables userspace to multiplex the usage of a media device and of
+video devices without duplicating the number of devnodes in userspace, by
+introducing the following concept in the framework:
+
+- Media Device Context: a context created at media-device open time and stored
+  in the media-fh file handle. To a media device context is associated a list
+  of media entity contexts which are 'bound' to it.
+
+- Video Device Context: represents an isolated execution context of a
+  video device. By storing the data and the configuration of a video
+  device userspace is allowed to effectively multiplex the usage of a
+  device node.
+
+- Video Subdevice Context: represents an isolated execution context of
+  v4l2 subdevice. It stores that subdev state which is now available in
+  three locations:
+  - in the file handle: for TRY formats
+  - in the subdevice: for ACTIVE formats to support operations of subdevices
+    drivers that do not implement context support
+  - in the subdevice default context: for ACTIVE formats to support
+    operations of subdevice drivers that implement context support and
+    are operated by non-context-aware userspace
+  - in the subdevice file-handle context: for ACTIVE formats to support
+    operations of subdevices drivers that implement context support and
+    are  bound to a media device context
+
+  Both the Video Device Context and the V4L2 Subdevice
+  Context extend the Media Entity Context base type so that the MC and
+  V4L2 layers are kept independent one from each other.
+
+- A Video Device Context is created by a new ioctl VIDIOC_BIND_CONTEXT and is
+  stored in the v4l2-fh file handle.
+
+- A V4L2 Subdevice context is created by a new ioctl
+  VIDIOC_SUBDEV_BIND_CONTEXT and is stored in the v4l2_subdev_fh file
+  handle.
+
+  The VIDIOC_BIND_CONTEXT and VIDIOC_SUBDEV_BIND_CONTEXT ioctls associates a
+  Video/Subdevice Context to a Media Device Context. By binding a set of video
+  devices and subdevices to a media device context userspace can create several
+  isolated 'execution contexts' which can be operated independently one from
+  each other.
+
+- A V4L2 Video Device and V4L2 Subdevice default context is made
+  created to allow drivers that implement multi-context support but are
+  operated by userspace that is not context aware (IOW doesn't call
+  VIDIOC_BIND_CONTEXT).
+
+The first 20 patches implement the above described changes in the
+framework:
+
+  media: v4l2-subdev: Validate media links with context
+  media: mc-entity: Add link_validate_context
+  media: media-entity: Support context in pipeline_start
+  media: v4l2-subdev: Get state from context
+  media: v4l2-subdev: Add subdev state accessor helpers
+  media: v4l2_subdev: Introduce default context
+  media: Documentation: Add VIDIOC_SUBDEV_BIND_CONTEXT
+  media: v4l2-subdv: Introduce VIDIOC_SUBDEV_BIND_CONTEXT
+  media: v4l2-subdev: Introduce v4l2 subdev context
+  media: videobuf2-v4l2: Support vb2_queue embedded in a context
+  media: v4l2-dev: Add video_device_context_from_queue()
+  media: v4l2-dev: Add video_device_context_from_file()
+  media: Introduce default contexts
+  media: v4l2-dev: Documentation: Add VIDIOC_BIND_CONTEXT
+  media: v4l2-ioctl: Introduce VIDIOC_BIND_CONTEXT
+  media: v4l2-dev: Introduce video device context
+  media: media-device: Introduce media device context
+  media: media-entity: Introduce media_entity_context
+  media: mc: Maintain a list of open file handles in a media device
+  media: mc: Add per-file-handle data support
+
+For testing the implementation I used a Raspberry Pi5, implementing
+support for multiple contexts in the ISP driver. The PiSP BE driver
+however only implements video devices, as the single ISP subdev is not
+exposed to userspace and doesn't require any configuration. To test the
+V4L2 subdev context operations I had to first expose the ISP subdev to
+userspace and implement link validation and pipeline allocation for it.
+This is implemented in the following 6 patches NOT FOR INCLUSION in
+mainline but just here for reference
+
+ [DNI] media: pisp_be: Register devnode to userspace
+ [DNI] media: pisp_be: Implement link validation
+ [DNI] media: pisp_be: Implement set/get_pad_fmt
+ [DNI] media: pisp_be: Add support for subdev state
+ [DNI] media: pisp_be: Start and stop the media pipeline
+
+Finally, the last patch (again NOT FOR INCLUSION) ports the ISP driver
+to support multi-context operations and provides a reference for the
+multi-context API usage by drivers:
+
+ [DNI] media: pisp_be: Add support for multi-context
+
+The multi-context support has been tested with a version of libcamera
+that binds all video devices and the ISP subdevice in an execution
+context and allows to stream two cameras at the same time using the same
+media graph.
+
+In order to validate the fact that introducing context support in
+drivers doesn't break existing userspace which is not context-aware,
+capturing from a single camera with [mainline libcamera + ISP subdev
+configuration] has been tested as well.
+
+CI pipeline:
+- https://gitlab.freedesktop.org/linux-media/users/jmondi/-/pipelines/1472617
+- checkpatch errors are due to "DNI" prefix in last patches
+- static check errors seems unrelated to this set of patches but to
+  existing code
+- checkpatch error are due to the usage of "Generic" which checkpatch
+  doesn't like
+
+Branch for testing:
+- kernel patches:
+  https://gitlab.freedesktop.org/linux-media/users/jmondi/-/commits/multicontext/mainline/2025
+- libcamera multi-context:
+  https://git.libcamera.org/libcamera/jmondi/libcamera.git/log/?h=multicontext/rpi/mc
+- libcamera single context:
+  https://git.libcamera.org/libcamera/jmondi/libcamera.git/log/?h=multicontext/rpi/subdev-no-multi-context
+
+Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+---
+Changes in v2:
+- Add "media: uapi: Add 'flags' to media_device_info"
+- Fix robots complaints by protecting users of symbols only defined if
+  CONFIG_MEDIA_CONTROLLER with pre-processor guards
+- Link to v1: https://lore.kernel.org/r/20250717-multicontext-mainline-2025-v1-0-81ac18979c03@ideasonboard.com
+
+rfc->v1 Compared to the RFC version sent in September 2024:
+  - Implement support for V4L2 Subdevice context
+  - Implement context-aware pipeline start and link validation
+  - Break out from Sakari's media lifetime series the only 2 required
+    patches that introduce media_device_fh
+  - Test the BE ISP subdevice by implementing support for the ISP
+    subdevice in the BE driver
+
+---
+Jacopo Mondi (25):
+      media: media-entity: Introduce media_entity_context
+      media: media-device: Introduce media device context
+      media: v4l2-dev: Introduce video device context
+      media: v4l2-ioctl: Introduce VIDIOC_BIND_CONTEXT
+      media: Documentation: Add VIDIOC_BIND_CONTEXT
+      media: v4l2-dev: Introduce default contexts
+      media: v4l2-dev: Add video_device_context_from_file()
+      media: v4l2-dev: Add video_device_context_from_queue()
+      media: videobuf2-v4l2: Support vb2_queue embedded in a context
+      media: v4l2-subdev: Introduce v4l2 subdev context
+      media: v4l2-subdev: Introduce VIDIOC_SUBDEV_BIND_CONTEXT
+      media: Documentation: Add VIDIOC_SUBDEV_BIND_CONTEXT
+      media: v4l2_subdev: Introduce default context
+      media: v4l2-subdev: Add subdev state accessor helpers
+      media: v4l2-subdev: Get state from context
+      media: media-entity: Support context in pipeline_start
+      media: mc-entity: Add link_validate_context
+      media: v4l2-subdev: Validate media links with context
+      media: uapi: Add 'flags' to media_device_info
+      [DNI] media: pisp_be: Start and stop the media pipeline
+      [DNI] media: pisp_be: Add support for subdev state
+      [DNI] media: pisp_be: Implement set/get_pad_fmt
+      [DNI] media: pisp_be: Implement link validation
+      [DNI] media: pisp_be: Register devnode to userspace
+      [DNI] media: pisp_be: Add support for multi-context
+
+Laurent Pinchart (1):
+      media: mc: Add per-file-handle data support
+
+Sakari Ailus (1):
+      media: mc: Maintain a list of open file handles in a media device
+
+ .../media/mediactl/media-ioc-device-info.rst       |   6 +-
+ .../userspace-api/media/mediactl/media-types.rst   |  13 +
+ .../userspace-api/media/v4l/user-func.rst          |   2 +
+ .../media/v4l/vidioc-bind-context.rst              |  80 +++
+ .../media/v4l/vidioc-subdev-bind-context.rst       |  81 +++
+ drivers/media/common/videobuf2/videobuf2-v4l2.c    | 139 ++--
+ drivers/media/mc/mc-device.c                       | 213 +++++-
+ drivers/media/mc/mc-devnode.c                      |  20 +-
+ drivers/media/mc/mc-entity.c                       | 220 +++++-
+ .../media/platform/raspberrypi/pisp_be/pisp_be.c   | 775 ++++++++++++++++-----
+ drivers/media/v4l2-core/v4l2-dev.c                 | 158 ++++-
+ drivers/media/v4l2-core/v4l2-device.c              |  11 +-
+ drivers/media/v4l2-core/v4l2-fh.c                  |   1 +
+ drivers/media/v4l2-core/v4l2-ioctl.c               |  72 ++
+ drivers/media/v4l2-core/v4l2-subdev.c              | 414 ++++++++++-
+ include/media/media-device.h                       | 230 ++++++
+ include/media/media-devnode.h                      |  21 +-
+ include/media/media-entity.h                       | 163 ++++-
+ include/media/media-fh.h                           |  37 +
+ include/media/v4l2-dev.h                           | 252 +++++++
+ include/media/v4l2-fh.h                            |   3 +
+ include/media/v4l2-ioctl.h                         |   7 +
+ include/media/v4l2-subdev.h                        | 293 ++++++--
+ include/uapi/linux/media.h                         |   6 +-
+ include/uapi/linux/v4l2-subdev.h                   |  11 +
+ include/uapi/linux/videodev2.h                     |  11 +
+ 26 files changed, 2890 insertions(+), 349 deletions(-)
+---
+base-commit: d968e50b5c26642754492dea23cbd3592bde62d8
+change-id: 20250716-multicontext-mainline-2025-3479c7c24b7a
 
 Best regards,
-Krzysztof
+-- 
+Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+
 
