@@ -4,173 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82ACEC87FCA
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7F76C87FC5
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 18:36:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ga6DK1JOUcqAYAkFGm/WsFM1U4RuG8dl2katZELsORI=; b=GbtwcRPALWJBEohX/JF82wQgm5
-	EdCRqbJyB4x7z1iL8mVpbWSuXtMpC16QETueeqfvnpc7odQgGyQxrGq4isZckQiQgdBzp0/ClIqG7
-	IRg8mA42XMxwAJVUMJ2vrqKIO8z83WNqLD0gBYtNcx6a0iQlTcSkr5SyGifL2eU9tDp3Tdnma0w7c
-	0r/2AxJSVS6JAkCowaBuBIS/SwPXXhAYVnYRbkW9HH89mr4KuwrfbILKH2xYxgy5X9wAv41GDNgJB
-	GDjZOF4xw3sGcGJDRvLf1JPIbtS36G+gWtB/BoyNwetAaO+BU96A/6iyna/XswkJ7rwSZZflfadS2
-	xssCLBeg==;
+	bh=bQFQPj5OkrlgSGmgjCpidYPoRZ9XFxm//ZWqJe9+QbI=; b=Qb7mqZXFvWnami7ueVW7PEQeQX
+	T4MV+SCsiCl8S/3fJSoXEwxhlRDoTCQMd1zN18Aj+TVE/B8KvlEjEZRuylIAE8ZGzJoezbM8/YkGZ
+	9XT+2OgL15I87h6eaplOWcOo7CjaFekpN3P2uvhcKCAeVbUFPVmPNJAZgL+wZOzR9bQJarDqf56ek
+	atBNl0nPmDB7N9oxYaKTcVEyPL6CzwOY09Z5Q/8QEMbPlms8+S8r0BEbtJMF0xEo5doKkGfwqheh/
+	mGF+y8zXwszDhXBk2VMPVzPnwzOlm3eIcxpLSPJyE+A11Xipibg+Xx84vHyERv+lf447eY6W9eZnK
+	WppXTOjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uf0oA-00000008DtC-19DL;
-	Thu, 24 Jul 2025 18:36:46 +0000
-Received: from mail-bn1nam02on20717.outbound.protection.outlook.com ([2a01:111:f403:2407::717] helo=NAM02-BN1-obe.outbound.protection.outlook.com)
+	id 1uf0o8-00000008DpM-0fCc;
+	Thu, 24 Jul 2025 18:36:44 +0000
+Received: from mgamail.intel.com ([198.175.65.14])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uf0E5-00000008AMJ-13Ud
+	id 1uf07m-000000089qj-2frq
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Jul 2025 17:59:30 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=rza5W6MpIDS2wZOa6hDTvEbmbj37XZBb1IVRAL52NK0+R8oaMBu5xRCP6vWep6itqscOWZAcZ/U5/3KakbOfUFZF69BFojJRdJjn8FxjrH2IwqcyBYhuzdb1NY24mQJTnYvgfclb8oVimlaXnxLrQR0uMZNgt61337U0jXNZglzk9L3IOsnArOATkOL4vv4PnQYSuRCuM8weNuP6p1BhTyx1WICNCdMAz4np6vW2BkauWgDNC1VZhqYifyYfY3fhUfQWdCWmHkvqY8kk/jGkYmCZHmC8kkB3qgydMWl+EA/vQXRURDrD3Bc4+QIsb3cg6Wx4mWj4t7lKaAncdUou6g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ga6DK1JOUcqAYAkFGm/WsFM1U4RuG8dl2katZELsORI=;
- b=R/xB51yMEcxRng3i5PMstaLEM+kpW2538k5uQjVNbmQJTbbZea4dlfR3mZxm/LEILstaZgmn2bWhdGMz9hZVrwa3C4XWuLPg5bZEpfEXnn5sCp+8MhQNBkq8wTz6ofrvuWwMdDX28YBVNqY6MbNGVN2mu8Ce5dykuz60s9Cw9atT8pog5ngs716M+LF7BAkD8wkNAe0QOnHGcBOuh7FuDRyH774ZRf0SDZMEVVVJzN4/JByskPIgL6y6xIV+uQ3z1z5xp45yM0vsBH/itWZihBD0WxT8F2ycvSCNM64rkL19amA7MO2O0skZuJ/Ono1XKYoCKufFu6aratiLi5V8oQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
- header.from=os.amperecomputing.com; dkim=pass
- header.d=os.amperecomputing.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=os.amperecomputing.com; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ga6DK1JOUcqAYAkFGm/WsFM1U4RuG8dl2katZELsORI=;
- b=aNT5FizfFlyV0eG75Ey3mWDwtQDPWUj2mj1AUSvRNUh830l+xez8gq0uZhVdbbWqlB5+BgteWf1hllifZx3RNJs4cfEd939Cngl/v8f/rZ7nLYjVa+4yITfoXJRKqR2BHOyW39qyrBW2xV5zyzcbtVdnCJ1HtgSx5yklwshDVxU=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
-Received: from CH0PR01MB6873.prod.exchangelabs.com (2603:10b6:610:112::22) by
- MW4PR01MB6481.prod.exchangelabs.com (2603:10b6:303:7f::20) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8964.23; Thu, 24 Jul 2025 17:59:22 +0000
-Received: from CH0PR01MB6873.prod.exchangelabs.com
- ([fe80::3850:9112:f3bf:6460]) by CH0PR01MB6873.prod.exchangelabs.com
- ([fe80::3850:9112:f3bf:6460%2]) with mapi id 15.20.8964.019; Thu, 24 Jul 2025
- 17:59:22 +0000
-Message-ID: <c99da082-23f5-41a2-9f50-3ce287f0e361@os.amperecomputing.com>
-Date: Thu, 24 Jul 2025 10:59:18 -0700
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/4] arm64: mm: support large block mapping when
- rodata=full
-To: Dev Jain <dev.jain@arm.com>, Ryan Roberts <ryan.roberts@arm.com>,
- will@kernel.org, catalin.marinas@arm.com, Miko.Lenczewski@arm.com,
- scott@os.amperecomputing.com, cl@gentwo.org
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250531024545.1101304-1-yang@os.amperecomputing.com>
- <20250531024545.1101304-4-yang@os.amperecomputing.com>
- <f036acea-1bd1-48a7-8600-75ddd504b8db@arm.com>
- <50a4f767-0007-4f6a-8c62-398962d54029@os.amperecomputing.com>
- <ed942c01-58e8-4d91-8f86-3b3645af6940@arm.com>
- <452be681-f28b-4b5b-848d-c967672b4f5e@arm.com>
- <3b3be4db-4f8e-4d81-8e52-dadad23dcd24@os.amperecomputing.com>
- <c77aa9e4-2209-4dbd-904e-daace1c929b6@arm.com>
-Content-Language: en-US
-From: Yang Shi <yang@os.amperecomputing.com>
-In-Reply-To: <c77aa9e4-2209-4dbd-904e-daace1c929b6@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: SA9PR13CA0060.namprd13.prod.outlook.com
- (2603:10b6:806:22::35) To CH0PR01MB6873.prod.exchangelabs.com
- (2603:10b6:610:112::22)
+	Thu, 24 Jul 2025 17:53:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1753379579; x=1784915579;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=gxDP/x72vErdUhHDu7ZYb3KxsYEkC9jJpG8VMxaDJ/0=;
+  b=CjXGGkyZuJFEl1ivyK5AuC1mB1/2F2Sb9wKIdLKyAVJD84QFExQ/NMc9
+   VDdLg+UM79EWakPuuA4rrJBXE6IGrOBYHL50YyPoGKcR9k5c+WwbZmecA
+   WsvzvYOqQGKEzONNsIOsk80mRaruUckF+mn/k5Gxt9Z/FmviFkae3PG1C
+   SS7Ee5KFgY7vV0SNEr/fE9Q001jFmF0NXn9RlwvlVoPgyl4+i2n0enGeS
+   iF65dpXljrA5bBM1TaSVM2XwJOjpwXxVGwG1uSgk1I/IKLtZj/gTmBldH
+   Z93WU1j+Dnc7BURvsqW5f0APvP/pS8kRUnPUOvPgdgDzCdyEQoD2rYOYM
+   g==;
+X-CSE-ConnectionGUID: YYwdkAmjQ/yO++1ZPSAB5w==
+X-CSE-MsgGUID: qlA8TdPlSNSWm+wdvxwW0g==
+X-IronPort-AV: E=McAfee;i="6800,10657,11501"; a="59513948"
+X-IronPort-AV: E=Sophos;i="6.16,337,1744095600"; 
+   d="scan'208";a="59513948"
+Received: from fmviesa002.fm.intel.com ([10.60.135.142])
+  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Jul 2025 10:52:54 -0700
+X-CSE-ConnectionGUID: v0GAKouXT6Wjl/qSpXusPg==
+X-CSE-MsgGUID: /mxl6SAJSDW+5F9O94puxg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.16,337,1744095600"; 
+   d="scan'208";a="184052772"
+Received: from lkp-server01.sh.intel.com (HELO 9ee84586c615) ([10.239.97.150])
+  by fmviesa002.fm.intel.com with ESMTP; 24 Jul 2025 10:52:51 -0700
+Received: from kbuild by 9ee84586c615 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1uf07d-000Khb-01;
+	Thu, 24 Jul 2025 17:52:49 +0000
+Date: Fri, 25 Jul 2025 01:52:39 +0800
+From: kernel test robot <lkp@intel.com>
+To: Ajay Neeli <ajay.neeli@amd.com>, git@amd.com, andi.shyti@kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	michal.simek@amd.com, srinivas.goud@amd.com,
+	radhey.shyam.pandey@amd.com, Ajay Neeli <ajay.neeli@amd.com>
+Subject: Re: [PATCH v2] i2c: cadence: Add shutdown handler
+Message-ID: <202507250134.05RWuclB-lkp@intel.com>
+References: <20250724051243.22051-1-ajay.neeli@amd.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH0PR01MB6873:EE_|MW4PR01MB6481:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6d7a9748-ccdf-4c84-7164-08ddcadbd190
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?Y2JtY3AyTTd6Sm9pa2VHWnJjNWt2cXZ6aUMreXlCWTRaaVpVcUxJelJsNmR3?=
- =?utf-8?B?dzZVVFgvdnhzeWlpYVhvaXdmTHJZNEZ1bk1tUHV1NWVNSDZhQjNOQ2IreXhP?=
- =?utf-8?B?cHQ2alVEWDdIRitLempUTFhpb096ZzUrcTVrWitYNkxHMWRTVHVIVjhsd1pK?=
- =?utf-8?B?b2hpVElNdGk4UnpiK0dVRnlqemlQaGhycTFNMHVMTWxsemltZGE5TkNBc3A5?=
- =?utf-8?B?OVNwQURiRlM0WW0wSHVXK3JqcDJQaWVpRW1HRkh1YWo3VWhOK3Q1Q1lqTkdz?=
- =?utf-8?B?V1l2eVZzTEI5c3dGbmMrYlFKK2E0b0dnNHRFcjlCZVQ1d1oyNHR0NS9UQ3Bu?=
- =?utf-8?B?bGs5Ykw1Y1FWQzgyZzRvbkVDdjUzMXlGRXlFV3dENDZ1dStocWNWVXpqZmVE?=
- =?utf-8?B?MlhmOEgvZGtiaCtyeHpGZGRweWk4RUd6OUZLaUMvWW4zdWlFSUgzLzNNc3gz?=
- =?utf-8?B?RWpHSkhIRmxibjJCUWVMSDBzS3ZvNlY1dEwrc2tPV2RtcnJ6SlNyS3BaMkFM?=
- =?utf-8?B?L1F1eGNNTVJXNzdoYTg1SUtrN3d5VXVnNTJ0aEVXWFFaYTEwV0NNR0EzRldI?=
- =?utf-8?B?Y3NtYTV1aDA4T0tmZC9HZWszRk5YaDRpVXREZlBjN0dHK1cwWk54OXpla3dX?=
- =?utf-8?B?TGtLaDQ3T2VyWjlmNFdyQkU3c0ROZFd3K2RoQi9XeHlZbUw2dWMxNkRYZjBz?=
- =?utf-8?B?V1czL1hSL01zdExNZmd3TGpJb05mNnk5aFJqOGFKTzV5dVB1QkUvTkV0d3B1?=
- =?utf-8?B?RFN4SVRsbkU5bHF0ek92eCtwODBZbGZkRXRZL3FCQjJ4bW52MkNGMU5oTWJ4?=
- =?utf-8?B?YmZxZUtDaXd6WEt2Rmp3d3dlU2NNTXJLUHRZaHZXZ1c4UXQvbWRBTkFQQjRq?=
- =?utf-8?B?cTM5RlI2UityTng2MVAwSWhJRjk5RmRaYVhhTDdMaU9CSmtKOEpTeGdIazlr?=
- =?utf-8?B?dE1nVUlOZ2FXK0ZDd213UDRGZk9oVTZTQWZrK3JwVFBtU3A5d0VxcVNVRUdu?=
- =?utf-8?B?Uk9jYTdEaEdGZDJIaDhFRmo0TWkwMDh6Wkw5VUw5aDZESlplLy9ETFdpV1M1?=
- =?utf-8?B?NFFaQ0VTbjFMQ0VPZVRYeGplaFpLUUltVXh1ZTZMVS8yTzZIY0RxTkhhZWxC?=
- =?utf-8?B?UWJhcEVKQUNpVFU4VVJBeFhNeTYzTzBSVkxacjJPTEtxeVA4U2pRc0RlMzE0?=
- =?utf-8?B?ZWNMU29ZeDNXRkFaZnc5VkowQng5L00xaHFCZU1TenNNNURnKzlnZEkxU0dN?=
- =?utf-8?B?amV2MS9JbG1hOTU5UVE3dk9iQUhwRjNWaENkYkRFYTVhdllLUm5TVXB3d1NK?=
- =?utf-8?B?TW9HTXpZWm9ZRk95YjcwUkNIR040RkltUUdxZVJNV0hQMWNNay9WdHR4a0hs?=
- =?utf-8?B?bEFPMmoxVWhzOGZjUkVhcWVoMXRGcVZsRnhySmY1ZnBGUEprQklWcU1rMXZO?=
- =?utf-8?B?T0l0L2Z0WTNkN2NkWjNOKzdiU0NtSys1Ny9kWkcxWDFpaDlyc2hqZGVnNnhU?=
- =?utf-8?B?Y1RhVE82NCtTMHhUQUV3ZjRxVkxqUFVJR1dMc21jSXJXUGVxenFEOHJXcHRC?=
- =?utf-8?B?ZEcrTDBZdUpHaXAvV090b2twSG1yWW4vUFZ6L2dLQy9sRElEakVXekEzaERR?=
- =?utf-8?B?aC9xSk05YzFDeWp1VWs2L3JUZFM2SzUrVGdjUkJSTEhXSHlZWVJLV3B4azVp?=
- =?utf-8?B?N211U2lFYjY2SWJDRXNFZjMwRjVGd3loUE9aeEtVc2dzaHUxQzE2cGNCVWZK?=
- =?utf-8?B?R2wva0U5U0RjQitFdWozcWZUZ0gxL3gveUs2dDFpVlE1RHhHNW1JWTBtdG54?=
- =?utf-8?B?NithK1VrSGZ2K2o3Z243OTQrM2FkUTcvbVRQUTI4eFpkekdNUUVlc2RpbEd6?=
- =?utf-8?B?WXJCWXNuTXZScjVYWEsvb3YrQWliUXJtc1lVVW9tMXViV1I1MkVOZXIxTEFy?=
- =?utf-8?Q?2fv+daeYydQ=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH0PR01MB6873.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?dXR0UGo0c2RDeEQ1cU1jOTNpV1ZKcXJlK3F4NUlwZDA5ZStTU1NSWkROWXZQ?=
- =?utf-8?B?L1R2bzUwcFA1TzNvbGJUdFZuNmRUVStrVDVTNDMzUnZtZGJEMlczQzFCc0hL?=
- =?utf-8?B?eGk2RE4rdStqeEhNd09KU0ZVZHFsd05lTFRzZ01uZkxaY2dXSjdXampxa01p?=
- =?utf-8?B?OE9Gb2swNGNWL2pzSHlYTkcwZFhBc0FFdVdBc1FwM3hlTVNwMHpJcXdra2Rh?=
- =?utf-8?B?cVBkaURhb3htbC9QU1FOanNqN3ZwbGhUTzFiTThlSGx6Y05ieXZ2QlFYU0dw?=
- =?utf-8?B?TytCUjliMk1GUVJFWk01Zm4vOGUxMFIzZWlxaWdIY0pVK2tkcE1Sc1RIUDAx?=
- =?utf-8?B?UXZlMU5xUUprU2VBbDk2Sy9vU2VNcjY1UW9NaG03SkgwOHhkbW56QnZtSkRo?=
- =?utf-8?B?bEdQbFdENi9iYnRXb2JtcjUreHNocEdyMmZXbkhoS3AvdlBTWUNJdzQxTzFa?=
- =?utf-8?B?WUlkTVFSVFNMamV3OEdrWVAxNnZrck0wMFI3cWR3L0VRcVVpYnpiOWo0L0hr?=
- =?utf-8?B?MUgyVGU2OXcveFc3eFk2VWpuUzdhQnlYS1pSZXdEUkJvTWRDakpuQWYzRDFO?=
- =?utf-8?B?c2M4QVlpRXVscitoaUxxSGRKZjNMMUt2bFRrRU5FcWhkaUhkNEpnWGh5YTB3?=
- =?utf-8?B?UGJmZWF5dkRRMk5hajh6dUN0cTBQc1cwd3lzOHdlblRvclNscHY5L0QzK0ZN?=
- =?utf-8?B?Y1YzamY4UmJqaEdvWlZhZjZiNVI2SmR6RFpYcnl1d2VRVXdJV1dMWVgzdjA5?=
- =?utf-8?B?WURJdEtHckdieng4M2ZJZlpvMFAvR0tsZ2tMSmU0S2ZDbitNdHlqRFQ1dkRQ?=
- =?utf-8?B?UWFESDRDTXlhK0ZranI4eVlxbUNtZEQ2bDByeDBNaHZpSjdWU3BNUEtUMlNH?=
- =?utf-8?B?S3hQdnNDMXZjWVFCeGpaRFppbjMwZ2ZVZTF6WHhHaFdsZnVjeXA0eHo1K0RU?=
- =?utf-8?B?aGxsNk1QeFlKR1FxQ2gxRnBoTWVRM0svY1lKVENYT2pvenNyczcwY1VzbE5I?=
- =?utf-8?B?anQ2b3NmR0svUURIUjF5ZExKY0pvQkhGd3ZYVUphTUNocmlBVGVkQTBlN2J6?=
- =?utf-8?B?Mk1xekxxYkRIa21sbFQvM2NibzUyWHZmUGJ1MXNteVFGM1RDRnFkRzdDS3Er?=
- =?utf-8?B?dGZtQ2ZIQzhGRVB5b3paaVIyWU05YUhYcERReWxJQzFyNkIydGFnZmxncHNY?=
- =?utf-8?B?M0lXRXlZZ0NRdnNEZnQ3ZkxsN1FaMENCazQ2a1N0QnhtRXQwcmhadGVZVURa?=
- =?utf-8?B?ZEhmWTA2dzdhdW5CdHVFRFppbmxtQ1lHeWJIblNQOTB3Q3VDWjNlWDVYT2gr?=
- =?utf-8?B?YldONHo5MGgzbk9qNm50NmFBa29GSFh3UjR1M3Fuemtza0g3aHcrYzhIZVRU?=
- =?utf-8?B?RjJrYVNRaVNWR2p1SlNlb1Z5cWY0WUx1cGNXQ3M4OGF4VWNRa2RJVnJHR2VP?=
- =?utf-8?B?R3Q5b1VjMUpybDY4NjFyRGlab2dhNUdtYVV1UlVFcG5iU1pFcTBqVS8vRTg3?=
- =?utf-8?B?bCtQQ2wwOFZWa0FFK2c5R0JDbDEzb1k5RXhOdGhxWFF2V0FuTUpIdS9zQ1c1?=
- =?utf-8?B?U3RjbWlJeGU5Ly9zd3FwZW44TXRsOHpWYWl6VmlRYnptaE0zd1VlWmxHRmtv?=
- =?utf-8?B?MmtYbmxwQ0tscXN2OUNuYllXV1Z0Mm5Rd2c3NURiUUpPWlc4RW5PVmwvSFI0?=
- =?utf-8?B?QzNmaDNEUE9JSm15QkVHMHRoMHlyYzlBV2hBMGhvK1NJK0M1TUR0cGFEbXM2?=
- =?utf-8?B?L3YvZW5LSElibWdkVlZHQnNYdnZGaHhsdUVDM2hzcnBIa2MrWk5LZzhrOWJr?=
- =?utf-8?B?THk0VUVFdm1CR2VsK0RrZDVBRW5ieHlSa3RiTVM3RXpuWWhPb1ErWStKMEdv?=
- =?utf-8?B?a25ZV1MwdUpmNkY0eTM3MG0waFYxVG1LRnNKNjB2RVRyZitsV3l1NGxic21V?=
- =?utf-8?B?VWhkNmJUY2J5VGtuNzN6T0paVE40OE8rRHVIVlFKMjk1aTVJTkdPNHY4UmVi?=
- =?utf-8?B?M29zWGxXQlJDbHJ5QUxjK1U0SmgwWkVWY0VWUWp5czVGcUp2UTkzTlNWdzJO?=
- =?utf-8?B?UUpFNzJ4TFBqVkpialQzZ1NMZktvSnFIeXdXNnRZRG13aG9SY2VIZ1MrT01N?=
- =?utf-8?B?REEvVkJQbVMxeWNicUkvQ1Y5QmZIMHp4cDBYeTQzS3Awc2oxTEg4TWFQOGtN?=
- =?utf-8?Q?JlHsRzNNMkRVZT1WD+RvKwA=3D?=
-X-OriginatorOrg: os.amperecomputing.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6d7a9748-ccdf-4c84-7164-08ddcadbd190
-X-MS-Exchange-CrossTenant-AuthSource: CH0PR01MB6873.prod.exchangelabs.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Jul 2025 17:59:22.1678
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: LDwuu+nMPh3u6sgLBQaxvVtchzyX/vT/dRLh3DVhb4VxYeEUxBoz5bXoKeksrXhQaL0+uJhu+cvt8rhY4F/nnMJUJTBVbxP/MvTgIECkUHU=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW4PR01MB6481
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250724051243.22051-1-ajay.neeli@amd.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250724_105929_290654_0C50682F 
-X-CRM114-Status: GOOD (  26.56  )
+X-CRM114-CacheID: sfid-20250724_105258_772092_570AEF61 
+X-CRM114-Status: GOOD (  14.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -185,99 +90,177 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Ajay,
+
+kernel test robot noticed the following build errors:
+
+[auto build test ERROR on andi-shyti/i2c/i2c-host]
+[also build test ERROR on soc/for-next linus/master v6.16-rc7 next-20250724]
+[cannot apply to xilinx-xlnx/master]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Ajay-Neeli/i2c-cadence-Add-shutdown-handler/20250724-131658
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/andi.shyti/linux.git i2c/i2c-host
+patch link:    https://lore.kernel.org/r/20250724051243.22051-1-ajay.neeli%40amd.com
+patch subject: [PATCH v2] i2c: cadence: Add shutdown handler
+config: x86_64-buildonly-randconfig-002-20250724 (https://download.01.org/0day-ci/archive/20250725/202507250134.05RWuclB-lkp@intel.com/config)
+compiler: clang version 20.1.8 (https://github.com/llvm/llvm-project 87f0227cb60147a26a1eeb4fb06e3b505e9c7261)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250725/202507250134.05RWuclB-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202507250134.05RWuclB-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+>> drivers/i2c/busses/i2c-cadence.c:1608:53: error: use of undeclared identifier 'irq'
+    1608 |                  id->i2c_clk / 1000, (unsigned long)r_mem->start, irq);
+         |                                                                   ^
+   1 error generated.
 
 
-On 7/24/25 4:43 AM, Dev Jain wrote:
->
-> On 24/07/25 2:21 am, Yang Shi wrote:
->>
->>
->> On 7/23/25 10:38 AM, Dev Jain wrote:
->>>
->>> On 23/06/25 6:56 pm, Ryan Roberts wrote:
->>>> [...]
->>>>
->>>>>> +
->>>>>> +int split_leaf_mapping(unsigned long addr)
->>>>> Thanks for coming up with the code. It does help to understand 
->>>>> your idea. Now I
->>>>> see why you suggested "split_mapping(start); split_mapping(end);" 
->>>>> model. It does
->>>>> make the implementation easier because we don't need a loop 
->>>>> anymore. But this
->>>>> may have a couple of problems:
->>>>>    1. We need walk the page table twice instead of once. It sounds 
->>>>> expensive.
->>>> Yes we need to walk twice. That may be more expensive or less 
->>>> expensive,
->>>> depending on the size of the range that you are splitting. If the 
->>>> range is large
->>>> then your approach loops through every leaf mapping between the 
->>>> start and end
->>>> which will be more expensive than just doing 2 walks. If the range 
->>>> is small then
->>>> your approach can avoid the second walk, but at the expense of all 
->>>> the extra
->>>> loop overhead.
->>>>
->>>> My suggestion requires 5 loads (assuming the maximum of 5 levels of 
->>>> lookup).
->>>> Personally I think this is probably acceptable? Perhaps we need 
->>>> some other
->>>> voices here.
->>>
->>> Hello all,
->>>
->>> I am starting to implement vmalloc-huge by default with BBML2 
->>> no-abort on arm64.
->>> I see that there is some disagreement related to the way the 
->>> splitting needs to
->>> be implemented - I skimmed through the discussions and it will 
->>> require some work
->>> to understand what is going on :) hopefully I'll be back soon to 
->>> give some of
->>> my opinions.
->>
->> Hi Dev,
->>
->> Thanks for the heads up.
->>
->> In the last email I suggested skip the leaf mappings in the split 
->> range in order to reduce page table walk overhead for 
->> split_mapping(start, end). In this way we can achieve:
->>     - reuse the most split code for repainting (just need 
->> NO_BLOCK_MAPPINGS | NO_CONT_MAPPINGS flag for repainting to split 
->> page table to PTEs)
->>     - just walk page table once
->>     - have similar page table walk overhead with 
->> split_mapping(start)/split_mapping(end) if the split range is large
->>
->> I'm basically done on a new spin to implement it and solve all the 
->> review comments from v4. I should be able to post the new spin by the 
->> end of this week.
->
-> Great! As Catalin notes on my huge-perm change series, that series 
-> doesn't have any user so it does not make sense for that to go in 
-> without your
->
-> series - can you merge that series into your work for the new version?
+vim +/irq +1608 drivers/i2c/busses/i2c-cadence.c
 
-Yeah, sure. But I saw Andrew had some nits on the generic mm code part. 
-The other way is you can have your patch applied on top of my series so 
-that we don't interlock each other. Anyway I will still keep it as 
-prerequisite of my series for now.
+ba064873ce5d19 Lars-Peter Clausen   2023-03-17  1485  
+df8eb5691c48d3 Soren Brinkmann      2014-04-04  1486  /**
+df8eb5691c48d3 Soren Brinkmann      2014-04-04  1487   * cdns_i2c_probe - Platform registration call
+df8eb5691c48d3 Soren Brinkmann      2014-04-04  1488   * @pdev:	Handle to the platform device structure
+df8eb5691c48d3 Soren Brinkmann      2014-04-04  1489   *
+df8eb5691c48d3 Soren Brinkmann      2014-04-04  1490   * This function does all the memory allocation and registration for the i2c
+df8eb5691c48d3 Soren Brinkmann      2014-04-04  1491   * device. User can modify the address mode to 10 bit address mode using the
+df8eb5691c48d3 Soren Brinkmann      2014-04-04  1492   * ioctl call with option I2C_TENBIT.
+df8eb5691c48d3 Soren Brinkmann      2014-04-04  1493   *
+df8eb5691c48d3 Soren Brinkmann      2014-04-04  1494   * Return: 0 on success, negative error otherwise
+df8eb5691c48d3 Soren Brinkmann      2014-04-04  1495   */
+df8eb5691c48d3 Soren Brinkmann      2014-04-04  1496  static int cdns_i2c_probe(struct platform_device *pdev)
+df8eb5691c48d3 Soren Brinkmann      2014-04-04  1497  {
+df8eb5691c48d3 Soren Brinkmann      2014-04-04  1498  	struct resource *r_mem;
+df8eb5691c48d3 Soren Brinkmann      2014-04-04  1499  	struct cdns_i2c *id;
+a11a46d7bd0877 Ajay Neeli           2025-07-24  1500  	int ret;
+63cab195bf4986 Anurag Kumar Vulisha 2015-07-10  1501  	const struct of_device_id *match;
+df8eb5691c48d3 Soren Brinkmann      2014-04-04  1502  
+df8eb5691c48d3 Soren Brinkmann      2014-04-04  1503  	id = devm_kzalloc(&pdev->dev, sizeof(*id), GFP_KERNEL);
+df8eb5691c48d3 Soren Brinkmann      2014-04-04  1504  	if (!id)
+df8eb5691c48d3 Soren Brinkmann      2014-04-04  1505  		return -ENOMEM;
+df8eb5691c48d3 Soren Brinkmann      2014-04-04  1506  
+7fa32329ca0314 Shubhrajyoti Datta   2015-11-24  1507  	id->dev = &pdev->dev;
+df8eb5691c48d3 Soren Brinkmann      2014-04-04  1508  	platform_set_drvdata(pdev, id);
+df8eb5691c48d3 Soren Brinkmann      2014-04-04  1509  
+63cab195bf4986 Anurag Kumar Vulisha 2015-07-10  1510  	match = of_match_node(cdns_i2c_of_match, pdev->dev.of_node);
+63cab195bf4986 Anurag Kumar Vulisha 2015-07-10  1511  	if (match && match->data) {
+63cab195bf4986 Anurag Kumar Vulisha 2015-07-10  1512  		const struct cdns_platform_data *data = match->data;
+63cab195bf4986 Anurag Kumar Vulisha 2015-07-10  1513  		id->quirks = data->quirks;
+63cab195bf4986 Anurag Kumar Vulisha 2015-07-10  1514  	}
+63cab195bf4986 Anurag Kumar Vulisha 2015-07-10  1515  
+58b924241d0a23 Shubhrajyoti Datta   2022-07-28  1516  	id->rinfo.pinctrl = devm_pinctrl_get(&pdev->dev);
+58b924241d0a23 Shubhrajyoti Datta   2022-07-28  1517  	if (IS_ERR(id->rinfo.pinctrl)) {
+8bfd4ec726945c Carsten Haitzler     2022-11-28  1518  		int err = PTR_ERR(id->rinfo.pinctrl);
+8bfd4ec726945c Carsten Haitzler     2022-11-28  1519  
+58b924241d0a23 Shubhrajyoti Datta   2022-07-28  1520  		dev_info(&pdev->dev, "can't get pinctrl, bus recovery not supported\n");
+8bfd4ec726945c Carsten Haitzler     2022-11-28  1521  		if (err != -ENODEV)
+8bfd4ec726945c Carsten Haitzler     2022-11-28  1522  			return err;
+8bfd4ec726945c Carsten Haitzler     2022-11-28  1523  	} else {
+8bfd4ec726945c Carsten Haitzler     2022-11-28  1524  		id->adap.bus_recovery_info = &id->rinfo;
+58b924241d0a23 Shubhrajyoti Datta   2022-07-28  1525  	}
+58b924241d0a23 Shubhrajyoti Datta   2022-07-28  1526  
+c02fb2b8067a4b Dejin Zheng          2020-04-14  1527  	id->membase = devm_platform_get_and_ioremap_resource(pdev, 0, &r_mem);
+df8eb5691c48d3 Soren Brinkmann      2014-04-04  1528  	if (IS_ERR(id->membase))
+df8eb5691c48d3 Soren Brinkmann      2014-04-04  1529  		return PTR_ERR(id->membase);
+df8eb5691c48d3 Soren Brinkmann      2014-04-04  1530  
+a11a46d7bd0877 Ajay Neeli           2025-07-24  1531  	id->irq = platform_get_irq(pdev, 0);
+a11a46d7bd0877 Ajay Neeli           2025-07-24  1532  	if (id->irq < 0)
+a11a46d7bd0877 Ajay Neeli           2025-07-24  1533  		return id->irq;
+df8eb5691c48d3 Soren Brinkmann      2014-04-04  1534  
+a1f64317bbf5fe Masahiro Yamada      2015-07-21  1535  	id->adap.owner = THIS_MODULE;
+df8eb5691c48d3 Soren Brinkmann      2014-04-04  1536  	id->adap.dev.of_node = pdev->dev.of_node;
+df8eb5691c48d3 Soren Brinkmann      2014-04-04  1537  	id->adap.algo = &cdns_i2c_algo;
+df8eb5691c48d3 Soren Brinkmann      2014-04-04  1538  	id->adap.timeout = CDNS_I2C_TIMEOUT;
+df8eb5691c48d3 Soren Brinkmann      2014-04-04  1539  	id->adap.retries = 3;		/* Default retry value. */
+df8eb5691c48d3 Soren Brinkmann      2014-04-04  1540  	id->adap.algo_data = id;
+df8eb5691c48d3 Soren Brinkmann      2014-04-04  1541  	id->adap.dev.parent = &pdev->dev;
+df8eb5691c48d3 Soren Brinkmann      2014-04-04  1542  	init_completion(&id->xfer_done);
+df8eb5691c48d3 Soren Brinkmann      2014-04-04  1543  	snprintf(id->adap.name, sizeof(id->adap.name),
+df8eb5691c48d3 Soren Brinkmann      2014-04-04  1544  		 "Cadence I2C at %08lx", (unsigned long)r_mem->start);
+df8eb5691c48d3 Soren Brinkmann      2014-04-04  1545  
+3d36dd1161ca31 Michal Simek         2025-02-06  1546  	id->clk = devm_clk_get_enabled(&pdev->dev, NULL);
+2d1a83a4f36f1a Krzysztof Kozlowski  2020-09-02  1547  	if (IS_ERR(id->clk))
+2d1a83a4f36f1a Krzysztof Kozlowski  2020-09-02  1548  		return dev_err_probe(&pdev->dev, PTR_ERR(id->clk),
+2d1a83a4f36f1a Krzysztof Kozlowski  2020-09-02  1549  				     "input clock not found.\n");
+2d1a83a4f36f1a Krzysztof Kozlowski  2020-09-02  1550  
+0cbc9a2c62d267 Lars-Peter Clausen   2023-04-06  1551  	id->reset = devm_reset_control_get_optional_shared(&pdev->dev, NULL);
+0cbc9a2c62d267 Lars-Peter Clausen   2023-04-06  1552  	if (IS_ERR(id->reset))
+0cbc9a2c62d267 Lars-Peter Clausen   2023-04-06  1553  		return dev_err_probe(&pdev->dev, PTR_ERR(id->reset),
+0cbc9a2c62d267 Lars-Peter Clausen   2023-04-06  1554  				     "Failed to request reset.\n");
+0cbc9a2c62d267 Lars-Peter Clausen   2023-04-06  1555  
+0cbc9a2c62d267 Lars-Peter Clausen   2023-04-06  1556  	ret = reset_control_deassert(id->reset);
+3d36dd1161ca31 Michal Simek         2025-02-06  1557  	if (ret)
+3d36dd1161ca31 Michal Simek         2025-02-06  1558  		return dev_err_probe(&pdev->dev, ret,
+0cbc9a2c62d267 Lars-Peter Clausen   2023-04-06  1559  				     "Failed to de-assert reset.\n");
+0cbc9a2c62d267 Lars-Peter Clausen   2023-04-06  1560  
+7fa32329ca0314 Shubhrajyoti Datta   2015-11-24  1561  	pm_runtime_set_autosuspend_delay(id->dev, CNDS_I2C_PM_TIMEOUT);
+7fa32329ca0314 Shubhrajyoti Datta   2015-11-24  1562  	pm_runtime_use_autosuspend(id->dev);
+7fa32329ca0314 Shubhrajyoti Datta   2015-11-24  1563  	pm_runtime_set_active(id->dev);
+db3fad841d9bf5 Topi Kuutela         2019-12-09  1564  	pm_runtime_enable(id->dev);
+7fa32329ca0314 Shubhrajyoti Datta   2015-11-24  1565  
+df8eb5691c48d3 Soren Brinkmann      2014-04-04  1566  	id->clk_rate_change_nb.notifier_call = cdns_i2c_clk_notifier_cb;
+df8eb5691c48d3 Soren Brinkmann      2014-04-04  1567  	if (clk_notifier_register(id->clk, &id->clk_rate_change_nb))
+df8eb5691c48d3 Soren Brinkmann      2014-04-04  1568  		dev_warn(&pdev->dev, "Unable to register clock notifier.\n");
+df8eb5691c48d3 Soren Brinkmann      2014-04-04  1569  	id->input_clk = clk_get_rate(id->clk);
+df8eb5691c48d3 Soren Brinkmann      2014-04-04  1570  
+df8eb5691c48d3 Soren Brinkmann      2014-04-04  1571  	ret = of_property_read_u32(pdev->dev.of_node, "clock-frequency",
+df8eb5691c48d3 Soren Brinkmann      2014-04-04  1572  			&id->i2c_clk);
+90224e6468e15d Andy Shevchenko      2020-03-24  1573  	if (ret || (id->i2c_clk > I2C_MAX_FAST_MODE_FREQ))
+90224e6468e15d Andy Shevchenko      2020-03-24  1574  		id->i2c_clk = I2C_MAX_STANDARD_MODE_FREQ;
+df8eb5691c48d3 Soren Brinkmann      2014-04-04  1575  
+1a351b10b9671f Radu Pirea           2020-01-06  1576  #if IS_ENABLED(CONFIG_I2C_SLAVE)
+1a351b10b9671f Radu Pirea           2020-01-06  1577  	/* Set initial mode to master */
+1a351b10b9671f Radu Pirea           2020-01-06  1578  	id->dev_mode = CDNS_I2C_MODE_MASTER;
+1a351b10b9671f Radu Pirea           2020-01-06  1579  	id->slave_state = CDNS_I2C_SLAVE_STATE_IDLE;
+1a351b10b9671f Radu Pirea           2020-01-06  1580  #endif
+8b51a8e64443b9 Shubhrajyoti Datta   2021-07-13  1581  	id->ctrl_reg = CDNS_I2C_CR_ACK_EN | CDNS_I2C_CR_NEA | CDNS_I2C_CR_MS;
+df8eb5691c48d3 Soren Brinkmann      2014-04-04  1582  
+a069fcd9fa1822 Lars-Peter Clausen   2023-03-17  1583  	id->fifo_depth = CDNS_I2C_FIFO_DEPTH_DEFAULT;
+a069fcd9fa1822 Lars-Peter Clausen   2023-03-17  1584  	of_property_read_u32(pdev->dev.of_node, "fifo-depth", &id->fifo_depth);
+a069fcd9fa1822 Lars-Peter Clausen   2023-03-17  1585  
+ba064873ce5d19 Lars-Peter Clausen   2023-03-17  1586  	cdns_i2c_detect_transfer_size(id);
+ba064873ce5d19 Lars-Peter Clausen   2023-03-17  1587  
+df8eb5691c48d3 Soren Brinkmann      2014-04-04  1588  	ret = cdns_i2c_setclk(id->input_clk, id);
+df8eb5691c48d3 Soren Brinkmann      2014-04-04  1589  	if (ret) {
+df8eb5691c48d3 Soren Brinkmann      2014-04-04  1590  		dev_err(&pdev->dev, "invalid SCL clock: %u Hz\n", id->i2c_clk);
+df8eb5691c48d3 Soren Brinkmann      2014-04-04  1591  		ret = -EINVAL;
+0cbc9a2c62d267 Lars-Peter Clausen   2023-04-06  1592  		goto err_clk_notifier_unregister;
+df8eb5691c48d3 Soren Brinkmann      2014-04-04  1593  	}
+df8eb5691c48d3 Soren Brinkmann      2014-04-04  1594  
+a11a46d7bd0877 Ajay Neeli           2025-07-24  1595  	ret = devm_request_irq(&pdev->dev, id->irq, cdns_i2c_isr, 0,
+df8eb5691c48d3 Soren Brinkmann      2014-04-04  1596  				 DRIVER_NAME, id);
+df8eb5691c48d3 Soren Brinkmann      2014-04-04  1597  	if (ret) {
+a11a46d7bd0877 Ajay Neeli           2025-07-24  1598  		dev_err(&pdev->dev, "cannot get irq %d\n", id->irq);
+0cbc9a2c62d267 Lars-Peter Clausen   2023-04-06  1599  		goto err_clk_notifier_unregister;
+df8eb5691c48d3 Soren Brinkmann      2014-04-04  1600  	}
+8b51a8e64443b9 Shubhrajyoti Datta   2021-07-13  1601  	cdns_i2c_init(id);
+681d15a0f527af Vishnu Motghare      2014-12-03  1602  
+0e1929dedea367 Mike Looijmans       2017-01-16  1603  	ret = i2c_add_adapter(&id->adap);
+0e1929dedea367 Mike Looijmans       2017-01-16  1604  	if (ret < 0)
+0cbc9a2c62d267 Lars-Peter Clausen   2023-04-06  1605  		goto err_clk_notifier_unregister;
+0e1929dedea367 Mike Looijmans       2017-01-16  1606  
+df8eb5691c48d3 Soren Brinkmann      2014-04-04  1607  	dev_info(&pdev->dev, "%u kHz mmio %08lx irq %d\n",
+2264997254ca11 Lars-Peter Clausen   2023-01-07 @1608  		 id->i2c_clk / 1000, (unsigned long)r_mem->start, irq);
+df8eb5691c48d3 Soren Brinkmann      2014-04-04  1609  
+df8eb5691c48d3 Soren Brinkmann      2014-04-04  1610  	return 0;
+df8eb5691c48d3 Soren Brinkmann      2014-04-04  1611  
+0cbc9a2c62d267 Lars-Peter Clausen   2023-04-06  1612  err_clk_notifier_unregister:
+3501f0c6630635 Satish Nagireddy     2022-06-28  1613  	clk_notifier_unregister(id->clk, &id->clk_rate_change_nb);
+7fa32329ca0314 Shubhrajyoti Datta   2015-11-24  1614  	pm_runtime_disable(&pdev->dev);
+db3fad841d9bf5 Topi Kuutela         2019-12-09  1615  	pm_runtime_set_suspended(&pdev->dev);
+61b804548e1744 Manikanta Guntupalli 2025-02-06  1616  	reset_control_assert(id->reset);
+df8eb5691c48d3 Soren Brinkmann      2014-04-04  1617  	return ret;
+df8eb5691c48d3 Soren Brinkmann      2014-04-04  1618  }
+df8eb5691c48d3 Soren Brinkmann      2014-04-04  1619  
 
-Yang
-
->
->
->>
->> Regards,
->> Yang
->>
->>>
->>>>
->>>>
->>
-
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
