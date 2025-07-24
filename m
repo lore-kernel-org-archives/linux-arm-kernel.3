@@ -4,71 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44510C83F26
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 23:47:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 625ECC83F26
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 23:56:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=Ox1ZdBKdE1+7cWyX+ZvTW2cCqppnnWI0+MrgMX4qxOQ=; b=i7hCWhcDaUUIZWUCg6efrnWUAd
-	2Vob72S0WQi4nOlUlBuFHIbLzxlGhikgjW9OdbLxepTRIzh0nLLhF4LQq0t9hfVkSxDtMGnzMD8bM
-	m/y0IA1QrzSH1JK8zvaaQvXXtwwLn7JyFiW4aeo1iBUWgiISZ7AvLpAbPTybSejPgobkFiI8EGQdr
-	anyttP943MXmTh/E3WvDEFfI/tYO3IG3bXXUz+el4G775cYAc4pFay37E06XsgAWIS+sUVNrhUCgC
-	/o5UAIwWLrRb+6ZM1vfhQQDpF5hU0ESmHf+OYJtLQHMhWiQdK0myt9mbhiCYc6gp6BLd642hGX25m
-	AyuqfZOw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RYe5nu6TpLkMvmAmuxkk2nqtf0ZOE6ibYgo684ah5AQ=; b=kJcflQY0uKFqD6zrMKE9mswrtE
+	l6fG0cC6I0D9yyt3ypwP56yHH61OSppxQ5TpYz1sqrynYSDPYFoQog1ECDvmsRRDZLYAeEAC2TZiQ
+	8pqDmr6qZG5QyV5eerRriIZQ6Bt3IUUfezGPVweDErbmTVron27ck56xti490m39UDns6ip6tYgMm
+	tUQBi0YFRUyk8e69jZq53160ZUSQ4pjCeqbe8pkN4dSv8pCVinudX9AI52h9PswHni/qlXD8w8ZoW
+	fAE4mEvtHUDbhL4/7gC9IjoraBjQfGhXXXbSgGAimy0YX3sx9jOjguZwOPevNGbdlDHtw9ElBY/ce
+	dZsYW89A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uf5ez-00000008i96-3aPg;
-	Thu, 24 Jul 2025 23:47:37 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uf5nu-00000008jks-2tzD;
+	Thu, 24 Jul 2025 23:56:50 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uf55I-00000008euU-0tQx;
-	Thu, 24 Jul 2025 23:10:45 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 146BCA55FD2;
-	Thu, 24 Jul 2025 23:10:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 991B9C4CEED;
-	Thu, 24 Jul 2025 23:10:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753398642;
-	bh=ctpeYJqI/YS0Fz29wSZX7bb68pB9rc2aEqPRsFb/1KE=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=lSLVJCpjYwUU6EPqgYYzdE0EdZ8oDFYV/0lJmwugU9tGIjO60nUjs09D8lBXA2yD2
-	 Fg+poR+eB1EfvBNYE2i3RVYyZPST5UK5sfIj0LypqPXmp1bLQmkPURstpTK+B6NMSp
-	 /Sfgh0pY4nlMuB4/0ij4qBxIT6xYfSu0rWD5a5iWx9teYnuxBtAVIOpRb4pEi2dvr6
-	 /+sNmOe5f5CmDySNo8eMIeR8BaeiOIXW+stkdtE+1inF9pSsOOSVuhZ3wj5IbR5BCb
-	 L9VNWckESPamfiqs1XMgM9OgC7CiGY92IF4J3JD1+WqxMkRUfrloP9aTViDrQ2cT2n
-	 UDut2GywlmQhg==
-Date: Thu, 24 Jul 2025 18:10:41 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: "Jiri Slaby (SUSE)" <jirislaby@kernel.org>
-Cc: bhelgaas@google.com, tglx@linutronix.de, linux-kernel@vger.kernel.org,
-	Jingoo Han <jingoohan1@gmail.com>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Karthikeyan Mitran <m.karthikeyan@mobiveil.co.in>,
-	Hou Zhiqiang <Zhiqiang.Hou@nxp.com>,
-	Joyce Ooi <joyce.ooi@intel.com>, Ryder Lee <ryder.lee@mediatek.com>,
-	Jianjun Wang <jianjun.wang@mediatek.com>,
-	Michal Simek <michal.simek@amd.com>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	linux-pci@vger.kernel.org, linux-mediatek@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, Arnd Bergmann <arnd@arndb.de>,
-	Nam Cao <namcao@linutronix.de>
-Subject: Re: [PATCH] PCI: controller: use dev_fwnode()
-Message-ID: <20250724231041.GA3079592@bhelgaas>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250723065907.1841758-1-jirislaby@kernel.org>
+	id 1uf5j9-00000008jRs-3lvp
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 24 Jul 2025 23:51:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
+	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=RYe5nu6TpLkMvmAmuxkk2nqtf0ZOE6ibYgo684ah5AQ=; b=hMNPbMbY1n/Mks+/3MLTEz3aqi
+	l1LWYkPUnet7oO5YbP08K7VzJg8i+hL0hobVJtp8VJCOfySTb3LcYTLYMz4p1xTOhuFZBWebWt0A2
+	8zKqazP++CoIB1H22sPdx+0rf93fx/Lp/waIW36/DL8dPKJYsRZaA90OAQCsALt+lfx/qLVRBc31G
+	ouSEzy9wWc2DrY+IDnjaspemE++IiGCY7GA3lGfg95O9x9MQIqOv0MsT6Ii4D6Pin6nRtFjQxPEBm
+	EDnN/fZdq9VVbux9DEPsYwzsAt6GJFDOxlzVNy4kRcDcjSXMZ7GZ6J7w1gDzJAOwoo/WeWgk3R5Uo
+	Z4R27x2w==;
+Received: from mail-io1-xd4a.google.com ([2607:f8b0:4864:20::d4a])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uf5j6-0000000Bj4R-3P3U
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 24 Jul 2025 23:51:54 +0000
+Received: by mail-io1-xd4a.google.com with SMTP id ca18e2360f4ac-87c73351935so135066939f.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Jul 2025 16:51:51 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1753401110; x=1754005910; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=RYe5nu6TpLkMvmAmuxkk2nqtf0ZOE6ibYgo684ah5AQ=;
+        b=fA2eQ9El6hDTrcet799SaVVcIepU+2aKC3MJdQ+F2N6dlM95DmFIqIPHefPbn1VhOk
+         DHAVMXzAGP10/+Vu8yTgAVogwIy/ctsucErSpLf0Sm+9rnwLDJ37BoricI/xoORyS+Qu
+         gvBtxFlMBa1LM4YockZKZ+U0HrZIKinD98QIsy2Ik0OHzrTRgwdOWchQccimCYNFoHRJ
+         OEe4MFNnR8pRtglfv3Q5X+Q22j9C2ijMpz27+3ZV8WRPVicoukfpzdmciYNhXqEnCN+O
+         mgxIrIDvjBV9ypF7AbTLm+lxGOrVJfqMZ687wOLQLaKwzuTnRw3wYYZvi/JFGDq8kraF
+         RVdg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1753401110; x=1754005910;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=RYe5nu6TpLkMvmAmuxkk2nqtf0ZOE6ibYgo684ah5AQ=;
+        b=F8ltmmUvudtU9TLTJNuOGWaeDU0hHLh8SxkHUcNyJV9MSDyndnI1U6nJmw8N/OkFD4
+         pLk8H9ptj8iBVWz+y1ZW07bGYst5bk32awSOw7KVem5CjU25iSsGVWw/Rvm/0dEnkxYM
+         B7+K55P43rdYJ/EnZoIvLUCCroufNvTx79+mGjXUf982LHcRt/yKmUZUOworh7jyHEKv
+         zlCMAP39sQDEB4gr8eR7IUqPuYscm40F5DDutQHSZRzlSaaAUAYEP7uj3Pa69tW8cJkP
+         bj10DqdGhzsTt89Jo8GBcCuTWUo4wt4D1sP9u86+tSHbHCm4qePM7yPONbJYcUQyegTJ
+         uS6w==
+X-Forwarded-Encrypted: i=1; AJvYcCXJKCjo/2gQ31uK1e/Qyg3fYwyt68nDFLqhpYkko3az0UiqJP0tbc3cTwebtt5/flr0OZrYQImfzCCXw1IIedV1@lists.infradead.org
+X-Gm-Message-State: AOJu0YxutiOg+gMOm4mcgnnfUIrXgaGXlSM1r/EJ+9XPJ0AqgterG6qf
+	dpqxdFzhXit8QCIJlj3ZIC0fEoyUf2hdd5SHi6olwj7Y14pRjvFT50PRY/4BKIFS3QnESB+M/yA
+	iFvPyoOkQaA==
+X-Google-Smtp-Source: AGHT+IGf/ljX3JnjXsIdWRx5WECI21rxocKvZGW0v63GazO3Xk3AULXotlNLZG82JFTKddhPsrZEmgpTkGDk
+X-Received: from iobfm16.prod.google.com ([2002:a05:6602:b90:b0:86c:9981:d21d])
+ (user=rananta job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6602:1486:b0:87c:1424:6189
+ with SMTP id ca18e2360f4ac-87c761bf0famr649235039f.3.1753401110609; Thu, 24
+ Jul 2025 16:51:50 -0700 (PDT)
+Date: Thu, 24 Jul 2025 23:51:44 +0000
+In-Reply-To: <20250724235144.2428795-1-rananta@google.com>
+Mime-Version: 1.0
+References: <20250724235144.2428795-1-rananta@google.com>
+X-Mailer: git-send-email 2.50.1.470.g6ba607880d-goog
+Message-ID: <20250724235144.2428795-3-rananta@google.com>
+Subject: [PATCH 2/2] KVM: arm64: Destroy the stage-2 page-table periodically
+From: Raghavendra Rao Ananta <rananta@google.com>
+To: Oliver Upton <oliver.upton@linux.dev>, Marc Zyngier <maz@kernel.org>
+Cc: Raghavendra Rao Anata <rananta@google.com>, Mingwei Zhang <mizhang@google.com>, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, kvm@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250724_161044_388069_08C43CD2 
-X-CRM114-Status: GOOD (  18.64  )
+X-CRM114-CacheID: sfid-20250725_005153_089951_24A98F5E 
+X-CRM114-Status: GOOD (  16.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,186 +105,134 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-[+cc Arnd, Nam]
+When a large VM, specifically one that holds a significant number of PTEs,
+gets abruptly destroyed, the following warning is seen during the
+page-table walk:
 
-On Wed, Jul 23, 2025 at 08:59:07AM +0200, Jiri Slaby (SUSE) wrote:
-> All irq_domain functions now accept fwnode instead of of_node. But many
-> PCI controllers still extract dev to of_node and then of_node to fwnode.
-> 
-> Instead, clean this up and simply use the dev_fwnode() helper to extract
-> fwnode directly from dev. Internally, it still does dev => of_node =>
-> fwnode steps, but it's now hidden from the users.
-> 
-> Signed-off-by: Jiri Slaby (SUSE) <jirislaby@kernel.org>
-> Link: https://lore.kernel.org/all/4ee9c7c0-4a3f-4afa-ae5a-7fd8a750c92b@kernel.org/
-> Link: https://lore.kernel.org/all/4bc0e1ca-a523-424a-8759-59e353317fba@kernel.org/
+ sched: CPU 0 need_resched set for > 100018840 ns (100 ticks) without schedule
+ CPU: 0 UID: 0 PID: 9617 Comm: kvm_page_table_ Tainted: G O 6.16.0-smp-DEV #3 NONE
+ Tainted: [O]=OOT_MODULE
+ Call trace:
+  show_stack+0x20/0x38 (C)
+  dump_stack_lvl+0x3c/0xb8
+  dump_stack+0x18/0x30
+  resched_latency_warn+0x7c/0x88
+  sched_tick+0x1c4/0x268
+  update_process_times+0xa8/0xd8
+  tick_nohz_handler+0xc8/0x168
+  __hrtimer_run_queues+0x11c/0x338
+  hrtimer_interrupt+0x104/0x308
+  arch_timer_handler_phys+0x40/0x58
+  handle_percpu_devid_irq+0x8c/0x1b0
+  generic_handle_domain_irq+0x48/0x78
+  gic_handle_irq+0x1b8/0x408
+  call_on_irq_stack+0x24/0x30
+  do_interrupt_handler+0x54/0x78
+  el1_interrupt+0x44/0x88
+  el1h_64_irq_handler+0x18/0x28
+  el1h_64_irq+0x84/0x88
+  stage2_free_walker+0x30/0xa0 (P)
+  __kvm_pgtable_walk+0x11c/0x258
+  __kvm_pgtable_walk+0x180/0x258
+  __kvm_pgtable_walk+0x180/0x258
+  __kvm_pgtable_walk+0x180/0x258
+  kvm_pgtable_walk+0xc4/0x140
+  kvm_pgtable_stage2_destroy+0x5c/0xf0
+  kvm_free_stage2_pgd+0x6c/0xe8
+  kvm_uninit_stage2_mmu+0x24/0x48
+  kvm_arch_flush_shadow_all+0x80/0xa0
+  kvm_mmu_notifier_release+0x38/0x78
+  __mmu_notifier_release+0x15c/0x250
+  exit_mmap+0x68/0x400
+  __mmput+0x38/0x1c8
+  mmput+0x30/0x68
+  exit_mm+0xd4/0x198
+  do_exit+0x1a4/0xb00
+  do_group_exit+0x8c/0x120
+  get_signal+0x6d4/0x778
+  do_signal+0x90/0x718
+  do_notify_resume+0x70/0x170
+  el0_svc+0x74/0xd8
+  el0t_64_sync_handler+0x60/0xc8
+  el0t_64_sync+0x1b0/0x1b8
 
-Thanks, Jiri, I applied this on pci/controller/msi-parent for v6.17;
-it's at
-https://git.kernel.org/pub/scm/linux/kernel/git/pci/pci.git/log/?h=controller/msi-parent
+The warning is seen majorly on the host kernels that are configured
+not to force-preempt, such as CONFIG_PREEMPT_NONE=y. To avoid this,
+instead of walking the entire page-table in one go, split it into
+smaller ranges, by checking for cond_resched() between each range.
+Since the path is executed during VM destruction, after the
+page-table structure is unlinked from the KVM MMU, relying on
+cond_resched_rwlock_write() isn't necessary.
 
-The dev_fwnode() conversions touched the same places as Nam's changes
-to use msi_create_parent_irq_domain().  The previous dev_fwnode()
-conversions were *before* Nam's changes and these are *after*, and it
-all ended up looking more complicated than I wanted, so I squashed all
-the dev_fwnode() conversions together in
-https://git.kernel.org/cgit/linux/kernel/git/pci/pci.git/commit/?id=a103d2dede56
-("PCI: controller: Use dev_fwnode() instead of of_fwnode_handle()")
-and then added Nam's msi_create_parent_irq_domain() patches on top.
+Signed-off-by: Raghavendra Rao Ananta <rananta@google.com>
+---
+ arch/arm64/kvm/mmu.c | 38 ++++++++++++++++++++++++++++++++++++--
+ 1 file changed, 36 insertions(+), 2 deletions(-)
 
-So a103d2dede56 ("PCI: controller: Use dev_fwnode() instead of
-of_fwnode_handle()") ends up *looking* different from the patch below,
-but I think having them all together makes it more obvious that
-they're all making the same conversion, and I think the end result is
-identical.
+diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+index 2942ec92c5a4..6c4b9fb1211b 100644
+--- a/arch/arm64/kvm/mmu.c
++++ b/arch/arm64/kvm/mmu.c
+@@ -387,6 +387,40 @@ static void stage2_flush_vm(struct kvm *kvm)
+ 	srcu_read_unlock(&kvm->srcu, idx);
+ }
+ 
++/*
++ * Assume that @pgt is valid and unlinked from the KVM MMU to free the
++ * page-table without taking the kvm_mmu_lock and without performing any
++ * TLB invalidations.
++ *
++ * Also, the range of addresses can be large enough to cause need_resched
++ * warnings, for instance on CONFIG_PREEMPT_NONE kernels. Hence, invoke
++ * cond_resched() periodically to prevent hogging the CPU for a long time
++ * and schedule something else, if required.
++ */
++static void stage2_destroy_range(struct kvm_pgtable *pgt, phys_addr_t addr,
++			      phys_addr_t end)
++{
++	u64 next;
++
++	do {
++		next = stage2_range_addr_end(addr, end);
++		kvm_pgtable_stage2_destroy_range(pgt, addr, next - addr);
++
++		if (next != end)
++			cond_resched();
++	} while (addr = next, addr != end);
++}
++
++static void kvm_destroy_stage2_pgt(struct kvm_pgtable *pgt)
++{
++	if (!is_protected_kvm_enabled()) {
++		stage2_destroy_range(pgt, 0, BIT(pgt->ia_bits));
++		kvm_pgtable_stage2_destroy_pgd(pgt);
++	} else {
++		pkvm_pgtable_stage2_destroy(pgt);
++	}
++}
++
+ /**
+  * free_hyp_pgds - free Hyp-mode page tables
+  */
+@@ -984,7 +1018,7 @@ int kvm_init_stage2_mmu(struct kvm *kvm, struct kvm_s2_mmu *mmu, unsigned long t
+ 	return 0;
+ 
+ out_destroy_pgtable:
+-	KVM_PGT_FN(kvm_pgtable_stage2_destroy)(pgt);
++	kvm_destroy_stage2_pgt(pgt);
+ out_free_pgtable:
+ 	kfree(pgt);
+ 	return err;
+@@ -1081,7 +1115,7 @@ void kvm_free_stage2_pgd(struct kvm_s2_mmu *mmu)
+ 	write_unlock(&kvm->mmu_lock);
+ 
+ 	if (pgt) {
+-		KVM_PGT_FN(kvm_pgtable_stage2_destroy)(pgt);
++		kvm_destroy_stage2_pgt(pgt);
+ 		kfree(pgt);
+ 	}
+ }
+-- 
+2.50.1.470.g6ba607880d-goog
 
-Bjorn
-
-> Cc: Jingoo Han <jingoohan1@gmail.com>
-> Cc: Manivannan Sadhasivam <mani@kernel.org>
-> Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>
-> Cc: "Krzysztof Wilczyński" <kwilczynski@kernel.org>
-> Cc: Rob Herring <robh@kernel.org>
-> Cc: Bjorn Helgaas <bhelgaas@google.com>
-> Cc: Karthikeyan Mitran <m.karthikeyan@mobiveil.co.in>
-> Cc: Hou Zhiqiang <Zhiqiang.Hou@nxp.com>
-> Cc: Joyce Ooi <joyce.ooi@intel.com>
-> Cc: Ryder Lee <ryder.lee@mediatek.com>
-> Cc: Jianjun Wang <jianjun.wang@mediatek.com>
-> Cc: Michal Simek <michal.simek@amd.com>
-> Cc: Daire McNamara <daire.mcnamara@microchip.com>
-> ---
-> Cc: linux-pci@vger.kernel.org
-> Cc: linux-mediatek@lists.infradead.org
-> Cc: linux-arm-kernel@lists.infradead.org
-> ---
->  drivers/pci/controller/dwc/pcie-designware-host.c    | 3 +--
->  drivers/pci/controller/mobiveil/pcie-mobiveil-host.c | 3 +--
->  drivers/pci/controller/pcie-altera-msi.c             | 3 +--
->  drivers/pci/controller/pcie-mediatek.c               | 4 +---
->  drivers/pci/controller/pcie-xilinx-dma-pl.c          | 3 +--
->  drivers/pci/controller/pcie-xilinx-nwl.c             | 3 +--
->  drivers/pci/controller/plda/pcie-plda-host.c         | 3 +--
->  7 files changed, 7 insertions(+), 15 deletions(-)
-> 
-> diff --git a/drivers/pci/controller/dwc/pcie-designware-host.c b/drivers/pci/controller/dwc/pcie-designware-host.c
-> index 4af7da14b350..952f8594b501 100644
-> --- a/drivers/pci/controller/dwc/pcie-designware-host.c
-> +++ b/drivers/pci/controller/dwc/pcie-designware-host.c
-> @@ -214,9 +214,8 @@ static const struct irq_domain_ops dw_pcie_msi_domain_ops = {
->  int dw_pcie_allocate_domains(struct dw_pcie_rp *pp)
->  {
->  	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
-> -	struct fwnode_handle *fwnode = of_fwnode_handle(pci->dev->of_node);
->  	struct irq_domain_info info = {
-> -		.fwnode		= fwnode,
-> +		.fwnode		= dev_fwnode(pci->dev),
->  		.ops		= &dw_pcie_msi_domain_ops,
->  		.size		= pp->num_vectors,
->  		.host_data	= pp,
-> diff --git a/drivers/pci/controller/mobiveil/pcie-mobiveil-host.c b/drivers/pci/controller/mobiveil/pcie-mobiveil-host.c
-> index d17e887b6b61..dbc72c73fd0a 100644
-> --- a/drivers/pci/controller/mobiveil/pcie-mobiveil-host.c
-> +++ b/drivers/pci/controller/mobiveil/pcie-mobiveil-host.c
-> @@ -439,13 +439,12 @@ static const struct irq_domain_ops msi_domain_ops = {
->  static int mobiveil_allocate_msi_domains(struct mobiveil_pcie *pcie)
->  {
->  	struct device *dev = &pcie->pdev->dev;
-> -	struct fwnode_handle *fwnode = of_fwnode_handle(dev->of_node);
->  	struct mobiveil_msi *msi = &pcie->rp.msi;
->  
->  	mutex_init(&msi->lock);
->  
->  	struct irq_domain_info info = {
-> -		.fwnode		= fwnode,
-> +		.fwnode		= dev_fwnode(dev),
->  		.ops		= &msi_domain_ops,
->  		.host_data	= pcie,
->  		.size		= msi->num_of_vectors,
-> diff --git a/drivers/pci/controller/pcie-altera-msi.c b/drivers/pci/controller/pcie-altera-msi.c
-> index 2e48acd632c5..ea2ca2e70f20 100644
-> --- a/drivers/pci/controller/pcie-altera-msi.c
-> +++ b/drivers/pci/controller/pcie-altera-msi.c
-> @@ -166,9 +166,8 @@ static const struct irq_domain_ops msi_domain_ops = {
->  
->  static int altera_allocate_domains(struct altera_msi *msi)
->  {
-> -	struct fwnode_handle *fwnode = of_fwnode_handle(msi->pdev->dev.of_node);
->  	struct irq_domain_info info = {
-> -		.fwnode		= fwnode,
-> +		.fwnode		= dev_fwnode(&msi->pdev->dev),
->  		.ops		= &msi_domain_ops,
->  		.host_data	= msi,
->  		.size		= msi->num_of_vectors,
-> diff --git a/drivers/pci/controller/pcie-mediatek.c b/drivers/pci/controller/pcie-mediatek.c
-> index 3ac5d14dd543..24cc30a2ab6c 100644
-> --- a/drivers/pci/controller/pcie-mediatek.c
-> +++ b/drivers/pci/controller/pcie-mediatek.c
-> @@ -487,12 +487,10 @@ static const struct msi_parent_ops mtk_msi_parent_ops = {
->  
->  static int mtk_pcie_allocate_msi_domains(struct mtk_pcie_port *port)
->  {
-> -	struct fwnode_handle *fwnode = of_fwnode_handle(port->pcie->dev->of_node);
-> -
->  	mutex_init(&port->lock);
->  
->  	struct irq_domain_info info = {
-> -		.fwnode		= fwnode,
-> +		.fwnode		= dev_fwnode(port->pcie->dev),
->  		.ops		= &msi_domain_ops,
->  		.host_data	= port,
->  		.size		= MTK_MSI_IRQS_NUM,
-> diff --git a/drivers/pci/controller/pcie-xilinx-dma-pl.c b/drivers/pci/controller/pcie-xilinx-dma-pl.c
-> index fbc379fd118b..b037c8f315e4 100644
-> --- a/drivers/pci/controller/pcie-xilinx-dma-pl.c
-> +++ b/drivers/pci/controller/pcie-xilinx-dma-pl.c
-> @@ -465,9 +465,8 @@ static int xilinx_pl_dma_pcie_init_msi_irq_domain(struct pl_dma_pcie *port)
->  	struct device *dev = port->dev;
->  	struct xilinx_msi *msi = &port->msi;
->  	int size = BITS_TO_LONGS(XILINX_NUM_MSI_IRQS) * sizeof(long);
-> -	struct fwnode_handle *fwnode = of_fwnode_handle(port->dev->of_node);
->  	struct irq_domain_info info = {
-> -		.fwnode		= fwnode,
-> +		.fwnode		= dev_fwnode(port->dev),
->  		.ops		= &dev_msi_domain_ops,
->  		.host_data	= port,
->  		.size		= XILINX_NUM_MSI_IRQS,
-> diff --git a/drivers/pci/controller/pcie-xilinx-nwl.c b/drivers/pci/controller/pcie-xilinx-nwl.c
-> index de76c836915f..05b8c205493c 100644
-> --- a/drivers/pci/controller/pcie-xilinx-nwl.c
-> +++ b/drivers/pci/controller/pcie-xilinx-nwl.c
-> @@ -498,10 +498,9 @@ static int nwl_pcie_init_msi_irq_domain(struct nwl_pcie *pcie)
->  {
->  #ifdef CONFIG_PCI_MSI
->  	struct device *dev = pcie->dev;
-> -	struct fwnode_handle *fwnode = of_fwnode_handle(dev->of_node);
->  	struct nwl_msi *msi = &pcie->msi;
->  	struct irq_domain_info info = {
-> -		.fwnode		= fwnode,
-> +		.fwnode		= dev_fwnode(dev),
->  		.ops		= &dev_msi_domain_ops,
->  		.host_data	= pcie,
->  		.size		= INT_PCI_MSI_NR,
-> diff --git a/drivers/pci/controller/plda/pcie-plda-host.c b/drivers/pci/controller/plda/pcie-plda-host.c
-> index 92866840875e..8e2db2e5b64b 100644
-> --- a/drivers/pci/controller/plda/pcie-plda-host.c
-> +++ b/drivers/pci/controller/plda/pcie-plda-host.c
-> @@ -153,13 +153,12 @@ static const struct msi_parent_ops plda_msi_parent_ops = {
->  static int plda_allocate_msi_domains(struct plda_pcie_rp *port)
->  {
->  	struct device *dev = port->dev;
-> -	struct fwnode_handle *fwnode = of_fwnode_handle(dev->of_node);
->  	struct plda_msi *msi = &port->msi;
->  
->  	mutex_init(&port->msi.lock);
->  
->  	struct irq_domain_info info = {
-> -		.fwnode		= fwnode,
-> +		.fwnode		= dev_fwnode(dev),
->  		.ops		= &msi_domain_ops,
->  		.host_data	= port,
->  		.size		= msi->num_vectors,
-> -- 
-> 2.50.1
-> 
 
