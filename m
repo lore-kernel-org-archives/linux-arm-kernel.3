@@ -4,82 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B92E8C83F26
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 08:57:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FD3DC83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 09:00:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nAwTUjL16khgdMfMVgzSxegkq3E4EUqY6J74Ws+fERM=; b=PECOUXWVrr8JkeC11bbQoNPjLZ
-	0J0vflQ6UqjfqPq5UmqXT2aXbbcdPjIfomIo/cZvdIw8XmmTIqSMXnykAXVWdKkfIg9BAshNKTf3F
-	dfHN+8p+zkm/9mvQiskyPDidK6qM6mePjInjla6trk85IEkzjN5IX/WV90T0MZZFLBCKDPoClhvrO
-	rmZEzGApIo/0Tt5FZTvJjEvBUju8kj/vJreL6tyq8rZ8TCnlg8fhNvDKrHavbYx+NyOIYMWyTeYfi
-	EpGgrEWwOa2JdJfRkIfAuItG89G1VzZyi9C9PYwsrakjpbnxE72JMyBNJYgq7s/oFXP/fRK3bWgqK
-	L5IB8ThQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MRFZSKKh935OBJE8qpoSceVGNtpTGpXTpzGaVT80ID0=; b=UYQLSAg7aldIMveweg6CTe67zw
+	BQ5Dzbf4xzM62MNGTCBqRWwPaEsxJFVhc+ZWRaulPkn04r8HVTvf3BZBeKvxn8dcOM9y7MLD8tom/
+	iAT0WyuQ3A+sX+HIqbMYJ4Tjgq7UsyJrQuuBs1EKW1CvURSikyGR86ZvQYaJUgDVJPg1HeCoOG6+B
+	QbQ6wZ+rD21Hm/RXPAMcainiO5E4o2trPytzpQE+NrYlAVJTsBcojks31b5JnsXTFUxrY+fE+KVk2
+	MFZqyRuM0ZP/u2Ned9Re+SJYx5Zi+u142XH5+jDStIfhv/G0h1PG0JMrE/35yfvuul86WEZGiWl0R
+	t17UvsUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uerlm-00000006xVL-1nuP;
-	Thu, 24 Jul 2025 08:57:42 +0000
-Received: from mail-m49236.qiye.163.com ([45.254.49.236])
+	id 1ueroF-00000006y11-167T;
+	Thu, 24 Jul 2025 09:00:15 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueqvh-00000006n0h-31B0;
-	Thu, 24 Jul 2025 08:03:55 +0000
-Received: from zyb-HP-ProDesk-680-G2-MT.. (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 1d1c3447a;
-	Thu, 24 Jul 2025 16:03:49 +0800 (GMT+08:00)
-From: Damon Ding <damon.ding@rock-chips.com>
-To: andrzej.hajda@intel.com,
-	neil.armstrong@linaro.org,
-	rfoss@kernel.org
-Cc: Laurent.pinchart@ideasonboard.com,
-	jonas@kwiboo.se,
-	jernej.skrabec@gmail.com,
-	maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	tzimmermann@suse.de,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	jingoohan1@gmail.com,
-	inki.dae@samsung.com,
-	sw0312.kim@samsung.com,
-	kyungmin.park@samsung.com,
-	krzk@kernel.org,
-	alim.akhtar@samsung.com,
-	hjc@rock-chips.com,
-	heiko@sntech.de,
-	andy.yan@rock-chips.com,
-	dmitry.baryshkov@oss.qualcomm.com,
-	l.stach@pengutronix.de,
-	dianders@chromium.org,
-	dri-devel@lists.freedesktop.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	Damon Ding <damon.ding@rock-chips.com>
-Subject: [PATCH v3 14/14] drm/bridge: analogix_dp: Apply panel_bridge helper
-Date: Thu, 24 Jul 2025 16:03:04 +0800
-Message-Id: <20250724080304.3572457-15-damon.ding@rock-chips.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250724080304.3572457-1-damon.ding@rock-chips.com>
-References: <20250724080304.3572457-1-damon.ding@rock-chips.com>
+	id 1ueqxT-00000006nNp-1fDx
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 24 Jul 2025 08:05:44 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1166D460C5;
+	Thu, 24 Jul 2025 08:05:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5D984C4CEED;
+	Thu, 24 Jul 2025 08:05:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1753344342;
+	bh=QQ/KUR9EUnReinV6lJwLLr0fnjQkBu0aezOtyeBubts=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=jMwAL61fiSNB5XAz4p2SUVMSHj4GsnjdjPunEMS0CWrz2TCLkANqT1xzJUjRcvNQQ
+	 cQkv0TRaEDZPgtV/oigHfWj/+Jg0O8D5V60g8GM+VKvxpZK10wM07tYX4W/VwSBTqP
+	 J3/eb9Y/iVNqRoXHHTxLaDbJ5VCPFP+zuW42sBCSWPEXyX2sTINfI2n2fLboGF12S1
+	 VYeXT5EmMHp8MMMSjmlnRfkxU9GgHbBpivtR0cZ5vqAIkkuheWdCZ8gZWKkFpUOZK7
+	 dYImub39SSfDGHOv3KPnDJYEr79kUA+uz9E/gc4E0EJdR+yIPYh+tbtO49si0YyCJ5
+	 4yQkyHskw5vqg==
+Date: Thu, 24 Jul 2025 10:05:40 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: rentao.bupt@gmail.com
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, Andrew Lunn <andrew@lunn.ch>, 
+	Tao Ren <taoren@meta.com>
+Subject: Re: [PATCH v3 07/13] ARM: dts: aspeed: Add Facebook Wedge400-data64
+ (AST2500) BMC
+Message-ID: <20250724-overjoyed-panther-from-camelot-f2ff4f@kuoka>
+References: <20250723233013.142337-1-rentao.bupt@gmail.com>
+ <20250723233013.142337-8-rentao.bupt@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a983b75bf9c03a3kunmbbba7af2a153
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQ09JQlZMSEtNSxpCQklLThhWFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
-	hVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=GKiL17nRWTjV+7m8krZ83CHFbhr6lLO+8pOW2q615Pyd5woG/FDZnWVErQrSFeS/YQda0ENtSXS7aGN0AHhkNsJLM1XAY6wokiSjh+glHH2DvFBvhm5ETYm5TzLisJ3Gx36DnP9veDd9QTXvaUUiGBK1So5Ra77F2PelVk/OH24=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=nAwTUjL16khgdMfMVgzSxegkq3E4EUqY6J74Ws+fERM=;
-	h=date:mime-version:subject:message-id:from;
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250723233013.142337-8-rentao.bupt@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250724_010353_968506_4C547DBB 
-X-CRM114-Status: GOOD (  13.65  )
+X-CRM114-CacheID: sfid-20250724_010543_460437_9AF269C6 
+X-CRM114-Status: UNSURE (   8.55  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,104 +78,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In order to unify the handling of the panel and bridge, apply
-panel_bridge helpers for Analogix DP driver. With this patch, the
-bridge support will also become available.
+On Wed, Jul 23, 2025 at 04:30:03PM -0700, rentao.bupt@gmail.com wrote:
+> +		/*
+> +		 * PCA9548 (11-0076) provides 8 channels connecting to
+> +		 * FCM (Fan Controller Module).
+> +		 */
+> +		i2c32 = &imux32;
+> +		i2c33 = &imux33;
+> +		i2c34 = &imux34;
+> +		i2c35 = &imux35;
+> +		i2c36 = &imux36;
+> +		i2c37 = &imux37;
+> +		i2c38 = &imux38;
+> +		i2c39 = &imux39;
+> +
+> +		spi2 = &spi_gpio;
+> +	};
+> +
+> +	chosen {
+> +		stdout-path = &uart1;
+> +		bootargs = "console=ttyS0,9600n8 root=/dev/ram rw";
 
-The following changes have ben made:
-- Apply plane_bridge helper to wrap the panel as the bridge.
-- Remove the explicit panel APIs calls, which can be replaced with
-  the automic bridge APIs calls wrapped by the panel.
-- Unify the API of getting modes to drm_bridge_get_modes().
+Drop bootargs. You are duplicating stdout path and choice of root is
+definitely not a mainline user friendly.
 
-Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
----
- .../drm/bridge/analogix/analogix_dp_core.c    | 30 +++++++++++--------
- 1 file changed, 17 insertions(+), 13 deletions(-)
-
-diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
-index bf0b1c0912e4..18f631c83300 100644
---- a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
-+++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
-@@ -948,11 +948,7 @@ static int analogix_dp_bridge_get_modes(struct drm_bridge *bridge, struct drm_co
- 	struct analogix_dp_device *dp = to_dp(bridge);
- 	int num_modes = 0;
- 
--	if (dp->plat_data->panel)
--		num_modes += drm_panel_get_modes(dp->plat_data->panel, connector);
--
--	if (dp->plat_data->bridge)
--		num_modes += drm_bridge_get_modes(dp->plat_data->bridge, connector);
-+	num_modes += drm_bridge_get_modes(dp->plat_data->bridge, connector);
- 
- 	if (dp->plat_data->get_modes)
- 		num_modes += dp->plat_data->get_modes(dp->plat_data, connector);
-@@ -995,7 +991,7 @@ analogix_dp_bridge_detect(struct drm_bridge *bridge)
- 	struct analogix_dp_device *dp = to_dp(bridge);
- 	enum drm_connector_status status = connector_status_disconnected;
- 
--	if (dp->plat_data->panel)
-+	if (drm_bridge_is_panel(dp->plat_data->bridge))
- 		return connector_status_connected;
- 
- 	if (!analogix_dp_detect_hpd(dp))
-@@ -1080,8 +1076,6 @@ static void analogix_dp_bridge_atomic_pre_enable(struct drm_bridge *bridge,
- 	/* Don't touch the panel if we're coming back from PSR */
- 	if (old_crtc_state && old_crtc_state->self_refresh_active)
- 		return;
--
--	drm_panel_prepare(dp->plat_data->panel);
- }
- 
- static int analogix_dp_set_bridge(struct analogix_dp_device *dp)
-@@ -1236,7 +1230,6 @@ static void analogix_dp_bridge_atomic_enable(struct drm_bridge *bridge,
- 	while (timeout_loop < MAX_PLL_LOCK_LOOP) {
- 		if (analogix_dp_set_bridge(dp) == 0) {
- 			dp->dpms_mode = DRM_MODE_DPMS_ON;
--			drm_panel_enable(dp->plat_data->panel);
- 			return;
- 		}
- 		dev_err(dp->dev, "failed to set bridge, retry: %d\n",
-@@ -1254,16 +1247,12 @@ static void analogix_dp_bridge_disable(struct drm_bridge *bridge)
- 	if (dp->dpms_mode != DRM_MODE_DPMS_ON)
- 		return;
- 
--	drm_panel_disable(dp->plat_data->panel);
--
- 	disable_irq(dp->irq);
- 
- 	analogix_dp_set_analog_power_down(dp, POWER_ALL, 1);
- 
- 	pm_runtime_put_sync(dp->dev);
- 
--	drm_panel_unprepare(dp->plat_data->panel);
--
- 	dp->fast_train_enable = false;
- 	dp->psr_supported = false;
- 	dp->dpms_mode = DRM_MODE_DPMS_OFF;
-@@ -1599,6 +1588,21 @@ int analogix_dp_bind(struct analogix_dp_device *dp, struct drm_device *drm_dev)
- 		goto err_unregister_aux;
- 	}
- 
-+	if (dp->plat_data->panel) {
-+		dp->plat_data->bridge = devm_drm_panel_bridge_add(dp->dev, dp->plat_data->panel);
-+		if (IS_ERR(dp->plat_data->bridge)) {
-+			ret = PTR_ERR(bridge);
-+			goto err_unregister_aux;
-+		}
-+	}
-+
-+	ret = drm_bridge_attach(dp->encoder, dp->plat_data->bridge, bridge,
-+				DRM_BRIDGE_ATTACH_NO_CONNECTOR);
-+	if (ret) {
-+		dev_err(dp->dev, "failed to attach following panel or bridge (%d)\n", ret);
-+		goto err_unregister_aux;
-+	}
-+
- 	return 0;
- 
- err_unregister_aux:
--- 
-2.34.1
+Best regards,
+Krzysztof
 
 
