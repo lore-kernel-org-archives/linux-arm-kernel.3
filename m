@@ -4,97 +4,177 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A44B7C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 07:41:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A154C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 07:44:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:To:
+	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=o8vH8JfnKijTJB45W87819LYq2SjUU3QszzdXJjSPeo=; b=uU3v6+x469/CbbAioPPmOxzZ4h
-	5FWxPi2CWFinCZQcC2qVt1aTEuua1MmrPJ1STcPGJMYV0zkwrbgk7h7e2nF9uUKchSQcpOIXJFqZA
-	rcd57mxhtH/JQl/q8M2tpB97oPz1fFny3qjkPqJS+5xhGFK+Dr2FwEzsi9SPbKyUc5D75GV8GzbUs
-	fZN9hKiajSDqpZGJQXWYOB5cyrhiZdJJrwZ0Sf/Th4kyX0ykMTCSwOIn1AiLRL0RRemZsEJB/Dqjs
-	1AF636RYNHQ3VTv8p8b8xVka7XDT09rcZkPqvOyIRXyFHbfClaW1Y47x1GWa5Mqlf/rruZjjjaJ+h
-	EW9d206g==;
+	bh=7taTqWMgOdVV5Uo+opymyCbS/QrTJvq/xL96hycnptE=; b=jnaCT3Lj5mkgcy98d2esGUdSA+
+	/imtMw4Z8sENGwziK8hITpp3/ec9Mho/YWCflVfhPruDuiGzPn9dGKBhADVgUIjKfuoPySSyTK93z
+	9o6ZAwjdJsiygC2r704Uu7x6TxEycqD4Jz0kSQnjeDnrPYsJHVuMpzwWBxVUnJzt9MoL0m6s62pAq
+	WEPBUBe4KtMhDaHTXC/yeRZBVwcUxUcwsIHpXXAmo6RQjxfUdr/ItF1TvtNcyNgpNV9C1r6ox9eqW
+	ihJDe/LQYVKs5JAb3XAxdYByKQ6O3VDsVbAAcX8jbb23cZiQASw77jcfvqgB52MvA6DKTxRf3qtQj
+	3Ci3FDDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueqa2-00000006jeI-47HY;
-	Thu, 24 Jul 2025 07:41:30 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1ueqcU-00000006jt7-3VNR;
+	Thu, 24 Jul 2025 07:44:02 +0000
+Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueqJJ-00000006h0E-3B3Z
+	id 1ueqJN-00000006h1L-3s1Q
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Jul 2025 07:24:15 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-454f428038eso5544645e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Jul 2025 00:24:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1753341852; x=1753946652; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=o8vH8JfnKijTJB45W87819LYq2SjUU3QszzdXJjSPeo=;
-        b=kosMgDX3g0Z738518ewai77AcmCW3ofRi4tq7GuXWa5RLmMhqQI6pXcloFwD/caG5p
-         aM1a2uQ26Kk2Em+GmBG8vYld6IITlQU6dW2QnR6722eIz/iQophAV/8GDQ/rGvQ5p+8E
-         Dv0qlvoUp1N1k94RbGXPzSKCbMXd805aE6A4f3YM2YD1bGtCMGJQY9xCMo+bm1a27RJ7
-         r9HuasgIakpFOWYRTnVlma9Tjm8AmaRv1klCS5UVXDE1COmQKAxWpbyCTbAOjJFDwfJ2
-         9Quyp1dskKB2CjF99ZSte6aOTys2yggvLEOlUk2bnulQkm7PVmyKd11yBRV+lypH4DtH
-         kgRw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753341852; x=1753946652;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=o8vH8JfnKijTJB45W87819LYq2SjUU3QszzdXJjSPeo=;
-        b=vYA0jJhZEIEeqSr0yjbctF/tpE33ju25w86yufeprDCBOebM4kLFIl9CAr/FeTOKqE
-         bH0sIqNEn4nSQHGD4VNJeIYf8Jg/zCFejnBFW4+rDkEuzQfTAZe3fk+f3jXvgVPmocnj
-         1RK4HT91jTjlujzWzwQGEMD40tgNfiHKRQBv9az0dvD6TarvuY0yV7ZIZhTVBbV76ykm
-         eSrfCLzfmBctf4OnTBYp137p/0pwGmoyErg3tYjpZk5bZ9LzcdgarQpGZqlK0NpNStk5
-         nZ7lmIJIAaYLniWfjtbcYdqhJqJf3cD6dnkycADzjz6vGHuFbgo1l9HAaZXCFQ95f7mL
-         UhTg==
-X-Forwarded-Encrypted: i=1; AJvYcCXLrCp85sTB9+cZGRgga7hq7sGv4ILwo0Rafw7l3ITUMMYjyIIoXGK7645pW8I859/A8e1b3DiqU2pZf4S+xy7b@lists.infradead.org
-X-Gm-Message-State: AOJu0YyatEKCpmqAVJV5PnGR0JExXOQ4fm80XT6b/Rtb7z8F1LRY44EA
-	b7oDLOMvJNuq+6N23yrQ52rQ2YQJUmUb7QCZ7c7SIC6YQtlB7Tw+T28E
-X-Gm-Gg: ASbGnctwd2KTQlqkes1eYBJlhcHojgGRDsuZE4GbCZsGCpTii4fl0QjK1+vnhDmrVLP
-	jr8KKSHn8jL0tgwZNgzNk1RFMZMSFlNozg9VYnEUf5wN/8eOr8v+gn960K0GVEggXJV5Xq/t6EA
-	Tbzj5G1x0EfglnV2g7r2VWDWIl0MNku/FhOknBoX6LlsKYMjZO8BBG6lNFsLvE4XlNPkdlfH2xR
-	As3pHXDlP8blRuUfbJofVXITQVO8oVjEqNvwfxNfIuYRMmCRos5SzL38q74X6s1PQcS+rDjqiCS
-	V2wFkN12KSR0dkqFqg+yL1QaAX2QBygl5f+1np54yMdDvuxBOiPul5yQaGS8a7J8g8w4SIUHQTT
-	/fm/p6rIMBnEYA+PDG6msZRAudfumZD7WiU91WI8VqwY2TdMKVUWAEZfGTI33ZaDJCeYygUeI8k
-	MF
-X-Google-Smtp-Source: AGHT+IHJ2yzAoWayRGrUS7izFIhkrxGchhvycroHp+KIHa7mpc3HqJKp+E42uRSyubs/rDl8+yH73g==
-X-Received: by 2002:a05:600c:8717:b0:455:fc16:9ed8 with SMTP id 5b1f17b1804b1-45868d4eaf7mr55550145e9.30.1753341851836;
-        Thu, 24 Jul 2025 00:24:11 -0700 (PDT)
-Received: from [192.168.1.107] (91-139-201-119.stz.ddns.bulsat.com. [91.139.201.119])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-458714605c2sm3269475e9.19.2025.07.24.00.24.10
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 24 Jul 2025 00:24:11 -0700 (PDT)
-Message-ID: <f5022fe7-c3f6-4bea-bb0c-98dfe461d555@gmail.com>
-Date: Thu, 24 Jul 2025 10:24:10 +0300
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 1/2] dt-bindings: soc: samsung: usi: allow 64-bit
- address space
-Content-Language: en-US
-To: Sam Protsenko <semen.protsenko@linaro.org>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Alim Akhtar <alim.akhtar@samsung.com>, Rob Herring <robh@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, linux-samsung-soc@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20250722121037.443385-1-ivo.ivanov.ivanov1@gmail.com>
- <20250723-hypnotic-malkoha-of-trust-9efdb6@kuoka>
- <3e1d7be9-e99f-41c3-8b0d-aaa426aa9de8@gmail.com>
- <CAPLW+4kPN65uX0tyG_F-4u5FQpPnwX9y6F1zrobq5UyVbks+-w@mail.gmail.com>
-From: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
-In-Reply-To: <CAPLW+4kPN65uX0tyG_F-4u5FQpPnwX9y6F1zrobq5UyVbks+-w@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
+	Thu, 24 Jul 2025 07:24:18 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=xTqeWq7O/piAmqtBSQ4fHX1lFKr+WAWb44oVGdrs4TYpqRKn365YGq/z3fn5LcU5oCOiuVPzW1/HxbkXpDmEGYVCZA8WP/guPCyblKJ7+Jg0BE6W9g1EF65mA2GYmtM4kflipIBEdXbBQz9fOGaS4iaHZKuWRVHLNMeM86ABMGHx/s7pamU1gocWQz/LekBhXuQ2wzYIFPcmNCHVk1TbOMHcW7EHwNxV8jZz5L9n586A2/9ynvfuSYjNkcSQV9MnWXRg1DuMYvG9e8Do1W3X6EvYgLL0yWfbpK8U8klmkFeSuW7pW32Zlm/KCXss9BbJGHj8w4Bh7JvXFs8nj0KdLw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=7taTqWMgOdVV5Uo+opymyCbS/QrTJvq/xL96hycnptE=;
+ b=NVoYJqglV64I60bWaEbXZ5/tXyITv9AiH/kHYx4399+vdDYdTILUotFIJ9Aahh/sBox7z4++XDx5l2KXGDPkeYU4ITOmUFV10wSFZFs4eYs7YmYF1UFpx5Sl9vG53ztBJEyFKox6dxdtF/cAxlOoiVRsfmu+mW9rTpvtTOIKiGklPbieJi/pM9DCXhqULRxpmzdVpE+iGLzc0Sc+VTa/J7MdQ78uSEvqj39sgV8Tg5sfx/UjQUzNS1hE6/sNZkwPRa7SZa8yvZCiqJZ33ym1ndcaXo4uN3XnOydmvjXgiie3kdyJ7rre56fonYTUCM9xapD6vqZ89K2uWn1Ts3ZwaA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=7taTqWMgOdVV5Uo+opymyCbS/QrTJvq/xL96hycnptE=;
+ b=ZbfOaE9E4otEeDE3qNUo9PYWr5ochHZmL2pf6sg8jKkcysDGRitlxqi0zPBifi7xJZZY2fQyj3m6ZURjqgjatSDtlvg2H9O7DwKh0yqZ8wfd3rtP/12Dt1OYeTJY1jpPRjgjuznf20OattJtkn/E16mCux671fMSe3xdiI8gck27gBSRuYMEVNmpdV9vCWEnSqPpsT3PAAS60QSaPTWtLJ5Sj4jwsD0gRCb5H2wilHLbebw+aJ0+mKrlphlGNSQRKK0UX+lS65LQIZGwJCrfT8vP8h/KTQTgibnTAU1BclDW8Jb12ScToKdE31IEhhVcHhzkQbPb86Q6Px8CMZKqgA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AM0PR04MB7044.eurprd04.prod.outlook.com (2603:10a6:208:191::20)
+ by AM0PR04MB6915.eurprd04.prod.outlook.com (2603:10a6:208:187::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8964.21; Thu, 24 Jul
+ 2025 07:24:13 +0000
+Received: from AM0PR04MB7044.eurprd04.prod.outlook.com
+ ([fe80::7be0:296:768c:e891]) by AM0PR04MB7044.eurprd04.prod.outlook.com
+ ([fe80::7be0:296:768c:e891%5]) with mapi id 15.20.8964.021; Thu, 24 Jul 2025
+ 07:24:12 +0000
+From: Shengjiu Wang <shengjiu.wang@nxp.com>
+To: andrzej.hajda@intel.com,
+	neil.armstrong@linaro.org,
+	rfoss@kernel.org,
+	Laurent.pinchart@ideasonboard.com,
+	jonas@kwiboo.se,
+	jernej.skrabec@gmail.com,
+	maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org,
+	tzimmermann@suse.de,
+	airlied@gmail.com,
+	simona@ffwll.ch,
+	lumag@kernel.org,
+	dianders@chromium.org,
+	cristian.ciocaltea@collabora.com,
+	luca.ceresoli@bootlin.com,
+	dri-devel@lists.freedesktop.org,
+	linux-kernel@vger.kernel.org,
+	victor.liu@nxp.com,
+	shawnguo@kernel.org,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	p.zabel@pengutronix.de,
+	devicetree@vger.kernel.org,
+	l.stach@pengutronix.de,
+	shengjiu.wang@gmail.com,
+	perex@perex.cz,
+	tiwai@suse.com,
+	linux-sound@vger.kernel.org
+Subject: [PATCH v2 6/6] arm64: dts: imx8mp: Add hdmi parallel audio interface node
+Date: Thu, 24 Jul 2025 15:22:48 +0800
+Message-Id: <20250724072248.1517569-7-shengjiu.wang@nxp.com>
+X-Mailer: git-send-email 2.37.1
+In-Reply-To: <20250724072248.1517569-1-shengjiu.wang@nxp.com>
+References: <20250724072248.1517569-1-shengjiu.wang@nxp.com>
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: MA0PR01CA0104.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a01:af::10) To AM0PR04MB7044.eurprd04.prod.outlook.com
+ (2603:10a6:208:191::20)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM0PR04MB7044:EE_|AM0PR04MB6915:EE_
+X-MS-Office365-Filtering-Correlation-Id: 91f61783-a01a-491b-e845-08ddca831682
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|7416014|376014|366016|1800799024|19092799006|38350700014|921020;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?hYzbJw0wYs+MpkZzW7tuYSJdMZExJVk4Xe4IxfmpYPxaqkCF656OC0zGaq+K?=
+ =?us-ascii?Q?5eVtRujz9CojZ0b7yoLiRP21iR/39TBQSKWkQGSU3olrESseMv0DBDfKZsWL?=
+ =?us-ascii?Q?M2Tn6d2ldgXlnqY5X+ZWcVBzUmCQNvLTzA4biaMpL1PfCCgFUD5LgkiKWqKi?=
+ =?us-ascii?Q?9V8BRrTyhw3keuAqzV6ILi2jho93PTRsw2SBIeqqoCTsyR6jgIQmwKL1Prh5?=
+ =?us-ascii?Q?1N6ESVo+uPMZ+0LNNfz0ZEV+0JrJu5qSgBdDertk1h0+VFb5N4JzoCcCS8g7?=
+ =?us-ascii?Q?OQEtxC/ylAuPmzk+XTsDk2s6NgLWowRA+7p3fTzIWdCgdGN4cCL2yLV7k3G4?=
+ =?us-ascii?Q?xuoxxyhYWmZZInHj9kpW+DxmNxQ7EiuHedlajMqr/BpWCYGTcdgi5q1LwoMb?=
+ =?us-ascii?Q?6Ogt4xAOf/Db5xU86QxFbITkN0AjBXRfNrxgl6UZSswyQh9URUKQn0n92e2U?=
+ =?us-ascii?Q?PJlHCxOYL6NreYUgdbGW7h+m0lso0awFHq6LaCMKOc4SyIHFmwfdEk0cuNfq?=
+ =?us-ascii?Q?9bUhjNEvXn8vTt4RgcQ6Tp0S5y4LvxZ2ueWGVZ7U/P6J8zHEmnAige0G6cSc?=
+ =?us-ascii?Q?//LnVYi8MKkBHtj4Wher9Fv7O+YAIy8pmmHGAaf60LdK0S3WaJS6nyEwp23D?=
+ =?us-ascii?Q?lYbZZbtJGIAxp4q1ukKfmwtsAGE1ostBRYEveneKfUmpw10z1aPHyjhzoopN?=
+ =?us-ascii?Q?pj7mthsKHziq9H3VgquH9XAmaghoBv6LVA82s7tX0K6K5L9Qx/qnXfxaA8gT?=
+ =?us-ascii?Q?1JcfWbcVHB/nL3Lj6XEtkvon0N5RFmmQlW9LWIZ+A+JoFUPH+CnrzOXYFF6T?=
+ =?us-ascii?Q?NXUOL80M8LLdSWypED26XIXCr4khfWY8jGjlekiNERXVH+C9uvzSlCPb7AZX?=
+ =?us-ascii?Q?YyIoArxRE9nTQmy39UYb827pEIXa+bxH79miwgB2Xjz9LPJ6lQ1Jlx5n4QI0?=
+ =?us-ascii?Q?41sqATmwfd5laNNSfeKCsSM8Ob7bnpKhtMcInClqTxEEGLQ18vcXfOyXqx2D?=
+ =?us-ascii?Q?aDAY8aLDcIgDNf+SHH5oaoqlm3+TbR6SzwjjhYA4v1CGVlFmSu2f86RVq4Ln?=
+ =?us-ascii?Q?Zbf8jhYO9BbklXK74oMJ6foRsGPZS6I0oLrMH0cHvncZ+F9j9Tf+bEbP8EWc?=
+ =?us-ascii?Q?cLEUlLLG56nMRJw54xsr86O3SAuh+FSnKVGzKN0/VIzl/qXsdsBx5rHYI86W?=
+ =?us-ascii?Q?MTqVQrqQhEQYs0QLwIdHBE8D2mqvZD4WRiaCLbDjfV8n4+CqfmSJZnOo4y7e?=
+ =?us-ascii?Q?hRPHMa17m38KixMIFdH2ffnuZo9elcuyckhDLZ2R7Cm9B8imnTOa+FNsi4DR?=
+ =?us-ascii?Q?GtutohiyC8S9DX1awSG2zAy3HUSmiDa2PVLr4RBaT5LeYn8KZmfq4QUIMnhW?=
+ =?us-ascii?Q?On7zDyy22PvQtaezrXNTsYIs381dLSMdV8RPr3R3Vl9aJC6vQk0Kx+2EuF87?=
+ =?us-ascii?Q?xIYQy/7qvEDAUHX3mRcDyx68R4wIwauVCWtY/V/IqTJHRe3cQFRN+AV7+Mip?=
+ =?us-ascii?Q?Rdf6AXhOHmM1o7s=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM0PR04MB7044.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(7416014)(376014)(366016)(1800799024)(19092799006)(38350700014)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?hi+xk9xqFChR+JVbwbtoNOpNWTiVBP4ZNk/J4YyaYsEz+l5L3MzKIJCeF7pe?=
+ =?us-ascii?Q?ZOIgj0vh2eGpThWFE8Wju4wY/aVVl300aVjvPSQYoehLsUHEpWpJtmz2xy7K?=
+ =?us-ascii?Q?eZdr+tbrp0/8isMGw+pk7+llRhO7weCfzl6R2CIsBuiLX2XByFiGz2XhZ0Gs?=
+ =?us-ascii?Q?LCvvwb9v0P3CWBw14R5I3G9dPxlZ6+F/PxNIphQujiW3cgoBmf7LHD2nyQma?=
+ =?us-ascii?Q?BwTBQtNugts8xV5ZP0ZGMAkYDVrGhynHpBJYBv7sB3M1nGVYboOCdJN3oU2y?=
+ =?us-ascii?Q?rIgPikz7aI6sC6G88OZKRz5CNoiFhmN/bnVDjHV7SIkkMjbU6Dz8e/JIUy/9?=
+ =?us-ascii?Q?QOg0P6tgdNjrnONfOhhz3AcwBCagtKLgHCxnZ/5SHbL6dN5kc81BXdRcrsNx?=
+ =?us-ascii?Q?QdmSwMnTvJrrmpLe9WHXJWBCW91oZ63WtV8KmDWEMFJT7MaaVT3u9br0R7/F?=
+ =?us-ascii?Q?KDoVGwKFH1hKs6SxB7Msk14rl1LwFmn+uWLtPQu2ARwd4lQaFQN+YRD07GPe?=
+ =?us-ascii?Q?syEyEC++F7h4ctpyUf/kPDdHpvXdrkKbNEHgyJteW4EXMSQqpmWL64DzDseC?=
+ =?us-ascii?Q?i94f5kc5jVuk/VWMnXZcigPiX188/AAEDaOhOpjCnGdC6PsTMHKUvzZ1MQvc?=
+ =?us-ascii?Q?UNB/mpnCXatJNYIb6L8bahqj35ufP1G7w2a6X4ItY1U9Oxcb1rRJ8cLy/o/5?=
+ =?us-ascii?Q?h5rHt3uOKmzmRyAZDBErhmHcIYUkjb2cWUkGsmv2z0xmPoPgEUV7zbl5Fa3j?=
+ =?us-ascii?Q?kj5KUy2CGrh6B/umgO1f/E1mO0wIG5QLvx2gbAa0Sl/AuXNz2f8s/DPEsIDk?=
+ =?us-ascii?Q?KiFWKOVNzS659qScwUwyrDkqtALQ/bKCaNtOTxrOdwrfIdgYItPbHtXB5mCW?=
+ =?us-ascii?Q?tR8CB3yG5adUzCpbZhDan7nd+9yADJ7YtdYO7D2xMGsW3kky5Ni/DCONZ6oq?=
+ =?us-ascii?Q?HJrISrQ48zVnM9JgJ6Jjj7sp/L8KWbH8cVr/7OFnVTAkGFW1OfBfy8RaU4rL?=
+ =?us-ascii?Q?5UNLK0a/rjaPWDKw5tNv3V9BTkUl4pf/kb0l+wM5QlDBGARKw+ZkdNjubNRn?=
+ =?us-ascii?Q?WvU9OTqP5Fla80sCpbBZkgQE1gWPZBq2jRfqHiu/0XhVzvccjVf/G8dxvCak?=
+ =?us-ascii?Q?X/l660DlbXb8Li7bu437t6UlfR9dIgwKoGh8nv4IW7nyPbjqzhT+MCCWaPDe?=
+ =?us-ascii?Q?mdTkQqd49JaNfu+c/bE+WZiLCwaHqHMKUKgZmW7nEzoZhVNY79tZB5aDbj2t?=
+ =?us-ascii?Q?SqWNBi3j71qlVlzAIlnrLVziYYwAm/mnjdJobklXIAmWbl1d8ayvQCP7fTWU?=
+ =?us-ascii?Q?JE36Xyi0QhVSXFb7O8dxsKttxPB79VD1+AZrc2u5Hp/sgjpGSm8bS4BXJDar?=
+ =?us-ascii?Q?3Cbr4MQbfDN9Fml5Zm4tT6UTzIvXLsvFiPTxgbBoF+Rvq8f5+82jYqC3Y438?=
+ =?us-ascii?Q?zGmGTw57hUCoGDqNRfpaeODtYt42UGjnQv7EUmyINSnOuxBEU0+aB4fj+9qR?=
+ =?us-ascii?Q?NtAlROrjS8XIGlC6DK/viu7H8+cz2ji0yCZL5AxMmF4Hrut9J7uIv22z9ufp?=
+ =?us-ascii?Q?E3ZER2aVfEG2h9WO3DWUJJ7OrSzskoWm5ABJevz6?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 91f61783-a01a-491b-e845-08ddca831682
+X-MS-Exchange-CrossTenant-AuthSource: AM0PR04MB7044.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Jul 2025 07:24:12.6307
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: ci2wuYMupttXx8nyzfWvsE/jkCirZ6APj63F3+NjClkASgJOnBwDwBNILqYzHkGX+p13xTnrZtIHSpov6OEw+g==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR04MB6915
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250724_002413_794825_DDE12651 
-X-CRM114-Status: GOOD (  22.16  )
+X-CRM114-CacheID: sfid-20250724_002417_963002_5D3F9133 
+X-CRM114-Status: GOOD (  12.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,65 +189,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/24/25 06:02, Sam Protsenko wrote:
-> On Wed, Jul 23, 2025 at 3:21 AM Ivaylo Ivanov
-> <ivo.ivanov.ivanov1@gmail.com> wrote:
->> On 7/23/25 11:15, Krzysztof Kozlowski wrote:
->>> On Tue, Jul 22, 2025 at 03:10:36PM +0300, Ivaylo Ivanov wrote:
->>>> Some device trees, like the exynos2200 one, configure the root node
->>>> with #address-cells and #size-cells set to 2. However, the usi binding
->>>> expects 32 bit address space only. Allow these determining properties to
->>> So if USI expects 32 bit, then why do we allow 64?
->>>
->>> Switching this to 2 means you use 64-bit addressing for children
->> I don't, but the main point was to avoid defining ranges for every single usi
->> node, because they are a lot.
->>
-> If all MMIO addresses in your SoC are 32-bit (they probably are), I
-> think it'd be neater to just make the entire "soc" bus 32-bit (so both
-> address and size cells = <1>), and map it to the root node's address
-> space with "ranges", like this:
->
->     soc: soc@0 {
->         compatible = "simple-bus";
->         #address-cells = <1>;
->         #size-cells = <1>;
->         ranges = <0x0 0x0 0x0 0x20000000>;
->         ...
->
-> That's how it's done in exynos850 and gs101 dts for example. This way
-> you could drop all those extra "reg = <0x0 ...>" in the child nodes,
-> also avoid declaring "ranges" arrays in each USI node (just "ranges;"
-> would be enough), and this patch won't be needed.
+The HDMI TX Parallel Audio Interface (HTX_PAI) is a bridge between the
+Audio Subsystem to the HDMI TX Controller.
 
-Yeah, but then we'll have one more DT patch that is way bigger, changing
-every single "reg =" in /soc. And the device tree for the SoC is merged already.
+Shrink register map size of hdmi_pvi to avoid overlapped hdmi_pai device.
 
-I do think that the neatest option is to avoid that and set an enum in the
-binding, as otherwise we'd be making a stylistic change that has no
-impact on functionality.
+Signed-off-by: Shengjiu Wang <shengjiu.wang@nxp.com>
+---
+ arch/arm64/boot/dts/freescale/imx8mp-evk.dts |  4 +++
+ arch/arm64/boot/dts/freescale/imx8mp.dtsi    | 28 +++++++++++++++++++-
+ 2 files changed, 31 insertions(+), 1 deletion(-)
 
-If we want the device tree to model hardware identically to how it is, then
-we'd want to define IPs per bus (which I cannot really do on my own, I don't
-even have TRMs).
-
-I'll leave it up to Krzysztof to decide what is best.
-
-Best regards,
-Ivaylo
-
-> Maybe I'm missing
-> some details though?
->
->> Best regards,
->> Ivaylo
->>
->>>  and
->>> allowing DMA for >32 bit. This should be the true reason - what is the
->>> address space and DMA range for children?
->>>
->>> Best regards,
->>> Krzysztof
->>>
+diff --git a/arch/arm64/boot/dts/freescale/imx8mp-evk.dts b/arch/arm64/boot/dts/freescale/imx8mp-evk.dts
+index c0cc5611048e..cc9351a5bd65 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mp-evk.dts
++++ b/arch/arm64/boot/dts/freescale/imx8mp-evk.dts
+@@ -442,6 +442,10 @@ &flexcan2 {
+ 	status = "disabled";/* can2 pin conflict with pdm */
+ };
+ 
++&hdmi_pai {
++	status = "okay";
++};
++
+ &hdmi_pvi {
+ 	status = "okay";
+ };
+diff --git a/arch/arm64/boot/dts/freescale/imx8mp.dtsi b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
+index bb24dba7338e..a0b00cbcb680 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mp.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
+@@ -2063,7 +2063,7 @@ irqsteer_hdmi: interrupt-controller@32fc2000 {
+ 
+ 			hdmi_pvi: display-bridge@32fc4000 {
+ 				compatible = "fsl,imx8mp-hdmi-pvi";
+-				reg = <0x32fc4000 0x1000>;
++				reg = <0x32fc4000 0x800>;
+ 				interrupt-parent = <&irqsteer_hdmi>;
+ 				interrupts = <12>;
+ 				power-domains = <&hdmi_blk_ctrl IMX8MP_HDMIBLK_PD_PVI>;
+@@ -2089,6 +2089,24 @@ pvi_to_hdmi_tx: endpoint {
+ 				};
+ 			};
+ 
++			hdmi_pai: audio-bridge@32fc4800 {
++				compatible = "fsl,imx8mp-hdmi-pai";
++				reg = <0x32fc4800 0x800>;
++				interrupt-parent = <&irqsteer_hdmi>;
++				interrupts = <14>;
++				clocks = <&clk IMX8MP_CLK_HDMI_APB>;
++				clock-names = "apb";
++				power-domains = <&hdmi_blk_ctrl IMX8MP_HDMIBLK_PD_PAI>;
++				status = "disabled";
++
++				port {
++
++					pai_to_hdmi_tx: endpoint {
++						remote-endpoint = <&hdmi_tx_from_pai>;
++					};
++				};
++			};
++
+ 			lcdif3: display-controller@32fc6000 {
+ 				compatible = "fsl,imx8mp-lcdif";
+ 				reg = <0x32fc6000 0x1000>;
+@@ -2140,6 +2158,14 @@ port@1 {
+ 						reg = <1>;
+ 						/* Point endpoint to the HDMI connector */
+ 					};
++
++					port@2 {
++						reg = <2>;
++
++						hdmi_tx_from_pai: endpoint {
++							remote-endpoint = <&pai_to_hdmi_tx>;
++						};
++					};
+ 				};
+ 			};
+ 
+-- 
+2.34.1
 
 
