@@ -4,93 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12AB8C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 09:18:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35712C83F26
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 09:20:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cJ02ByKeKesw6MmLXs1z5moyb7EKOu1a28e6JM2JXDQ=; b=oqH+ewrLih8WoaDvq1N+sVnHx0
-	x12swWyWr98hzZr6OPkhU9yET9N/7FVKjKicvoz2yQ7RLAYM681QuH+XGvsBp/Ki7C9muBjJx+H9M
-	s1lxZTKJ7XTCP5cJHlF6WDYK3DedebYOJrmSjmVgCkRtOpv5sEjBjOcxqveFegp97F8my8nLz3YSx
-	a3OrRRAgBEJ6brS4ot5+xa9aktSvzSDUvI3d+yVh6h+vvIfa7R5Qv7JJ+qoAfK4RgicaCXSB/CH19
-	VL/VR4CfnfwIhQrDlC42GbKMGHMRWqX22WBNkAkKQAfbjgPI/49O+kEOuLEVMIP9Rz4cirlX7HTyR
-	t8OQY5EA==;
+	bh=7kzT0Hpl/NFWqdqEQ0wKSVcFU9pNYe2twdBPGJnr/8o=; b=g2lK5tPHe2kSh7HGg9FjCmBfIN
+	YbrJwS5yVeP+6OQqy/Kp136fzTVlUtAN33jfDIOMAIT4q8k6f+ggyIpHZAJC6/H3EdCQjPl+AATnK
+	Q8GVD599x+qIgIJqV3zf82TIHRO72GRQrPNmGzn5vIqI2sKUBY1rW4PE/R5dFSmR65nby6enfGEmL
+	owH0w78/H9JnYgkfjUtBg2QjZTNxX0dRcTfWxAMJttKzdTNktWP+FKvEBYpAFoItWIOycUCQvqZMq
+	V+97EQopQ73kOkTiaODRgTt+McY3L1EOKE2+d7jHqqjcxh1BDgdrDHrx2RpnxQ5FZRJRh8dRQfKN3
+	AoPNqZpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ues5R-000000070ow-00o3;
-	Thu, 24 Jul 2025 09:18:01 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1ues7s-0000000717C-3Tal;
+	Thu, 24 Jul 2025 09:20:33 +0000
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uer6K-00000006pA0-2UdA
+	id 1uer8k-00000006pYd-2vq5
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Jul 2025 08:14:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1753344890;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=cJ02ByKeKesw6MmLXs1z5moyb7EKOu1a28e6JM2JXDQ=;
-	b=SjuvBQkLhhu+2iIGbIABYhvxhZBZxzdpClnCwz6djK4sg4bkXUa/BlqKhFMpbvQRDBCl/u
-	h/1fwvQWWLkNsYK2KqhsJLAd01nOeZNEttkbtEcFDXe2LjlsV8DH5Mje/Nl0Cug89mRdpq
-	EVSeOLOmCVbHd46dgCPTf0iTKxCd5GI=
-Received: from mail-yw1-f199.google.com (mail-yw1-f199.google.com
- [209.85.128.199]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-479-Io1A029-PTydj-GrKHchGQ-1; Thu, 24 Jul 2025 04:14:49 -0400
-X-MC-Unique: Io1A029-PTydj-GrKHchGQ-1
-X-Mimecast-MFC-AGG-ID: Io1A029-PTydj-GrKHchGQ_1753344889
-Received: by mail-yw1-f199.google.com with SMTP id 00721157ae682-70e73d3c474so11284187b3.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Jul 2025 01:14:49 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753344889; x=1753949689;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=cJ02ByKeKesw6MmLXs1z5moyb7EKOu1a28e6JM2JXDQ=;
-        b=Db6qijUILcJtWFX3TXEuAGd1cultCv4CgWvMZCUF7qi7fEersxSQ4XGz+ZbCeH9JFA
-         Il+QAB30xmtiSREy5siaDa6qCz3PawcZE+FB2nKkjAx0B7AzIhnLCV+oKjDgnE+qK8Lk
-         VgOe3OvVOw532b1DhSCgesY3dPjGRN5yD3QJJLPxLk/4T9bUTlZNnB0Us75ROyxGmh5W
-         HXDWthJlcouXA6UgfSE7fTpiU7mHcN1spuaEKuLjXtXNMF4YwyvEHrQJBlNAR8vucL74
-         uxEdylcfRFvje/1kQ9UfsLVzeTcUTGjesMEFgPaB9udBUUJsiiThbB3ms0Bz3iewO36T
-         I0mw==
-X-Forwarded-Encrypted: i=1; AJvYcCVKDAFdUWqrRWaOGXP+eJgF6NNzpVnwgUEA+knAug1DElW0ij5qbtoEC3ItgC8tBQIEYnB+nKgzN+atDN4KWvho@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywv+kVo87FCpIj7ylUFgHHn/bDo52P7BgQn4RE4RBzr16rryM4E
-	SAaF1ew5mmMEXFWO5HMsb2cQBeU15ZNdBYNrLRUUxNRxTvq72H3R0IyOBVRLZO257M19wZNDv10
-	VZQu9yaPP+F5onl2Jv6ayas0wGrQi/aErI/FVqBa9uV+2bZCEFAI2+LiwBC5zIGSa4w/qaD6QP+
-	B4zNbdhZHWUHQoebRulJTgRgaRAvXzKVYGS9mvyMgNlouA9Bubvgs=
-X-Gm-Gg: ASbGncsJmGJw2OJQv3g7ZcqXcXGX6+5hQdvbqoIboRgJse8c5sGg4sChQ/3NDMNG/A6
-	spSo97i3akqY2lq4WYrUF/gTlIM7d1OdDB5FKWGoB7VGuLZ1wGtXvQ2ZgcCvMuKQqn9N1tE21YI
-	zTItBOeBAdTdejA+y4dmqR
-X-Received: by 2002:a05:690c:314:b0:70d:ed5d:b4b2 with SMTP id 00721157ae682-719b41694d2mr79268507b3.13.1753344888531;
-        Thu, 24 Jul 2025 01:14:48 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFPvKRyNZLxuZc2LCwPGxrFyYTVxsjT7roo0HAnWfJQl2Ut22h5DTHOWlu7sekIJonGE+l2+DrYFw6tPUZf8IY=
-X-Received: by 2002:a05:690c:314:b0:70d:ed5d:b4b2 with SMTP id
- 00721157ae682-719b41694d2mr79268197b3.13.1753344887977; Thu, 24 Jul 2025
- 01:14:47 -0700 (PDT)
+	Thu, 24 Jul 2025 08:17:24 +0000
+Received: from pps.filterd (m0369458.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56O7xYXJ019443;
+	Thu, 24 Jul 2025 10:17:02 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	7kzT0Hpl/NFWqdqEQ0wKSVcFU9pNYe2twdBPGJnr/8o=; b=3xJHwG0+iD9m/4QN
+	rbFCod58Hm2lUpPt6E8AILpoUlGTdQX14xlcdHd0rAdE1Qdfn8FbSay3IhXbCyzC
+	Ea9Kfe3UIySUfRXHvSgtpRFa5RSue6d+0t9SiMuTqc75O3nINnaSFUAwPihCBHwG
+	AkRBgHAFolujHveqkRgwzzee0cIxOEtlkMMBFnsmn9W7tIUB6m4IF+gwJ8i28fhi
+	TcjRlFZX6i8zMOgLJ66dh2U4opER27vPA7m3LpejdCOr3Dc12wer/PfyC1UEKw7u
+	D/6RbrmfrVgRaVv0bh7c8ur44zDZK+/rgjCvAECMHwG6Ed3kc/GE9x7d3OHgUxif
+	rTaqPw==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 480mx4w9y6-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 24 Jul 2025 10:17:02 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id E75BB40049;
+	Thu, 24 Jul 2025 10:15:32 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 560CB781E01;
+	Thu, 24 Jul 2025 10:14:13 +0200 (CEST)
+Received: from [10.48.86.185] (10.48.86.185) by SHFDAG1NODE2.st.com
+ (10.75.129.70) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Thu, 24 Jul
+ 2025 10:14:12 +0200
+Message-ID: <204401b4-b483-47e2-ae73-0994b39bd30c@foss.st.com>
+Date: Thu, 24 Jul 2025 10:14:11 +0200
 MIME-Version: 1.0
-References: <vosten2rykookljp6u6qc4hqhsqb6uhdy2iuhpl54plbq2tkr4@kphfpgst3e7c> <20250724034659-mutt-send-email-mst@kernel.org>
-In-Reply-To: <20250724034659-mutt-send-email-mst@kernel.org>
-From: Stefano Garzarella <sgarzare@redhat.com>
-Date: Thu, 24 Jul 2025 10:14:36 +0200
-X-Gm-Features: Ac12FXzqfSEj1dVrbaSJdrllq6HfeMDxFTLlI3oLSZh4ILH_YbA_CktsAqGaAiE
-Message-ID: <CAGxU2F76ueKm3H30vXL+jxMVsiQBuRkDN9NRfVU8VeTXzTVAWg@mail.gmail.com>
-Subject: Re: vhost: linux-next: crash at vhost_dev_cleanup()
-To: "Michael S. Tsirkin" <mst@redhat.com>, Will Deacon <will@kernel.org>
-Cc: Breno Leitao <leitao@debian.org>, jasowang@redhat.com, eperezma@redhat.com, 
-	linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, 
-	Stefan Hajnoczi <stefanha@redhat.com>, netdev@vger.kernel.org
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: A5zmfSSGUCGOJsihCGJNXLKKk535_eb8XHOPjtN1MpM_1753344889
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 05/20] dt-bindings: memory: factorise LPDDR props into
+ SDRAM props
+To: Julius Werner <jwerner@chromium.org>
+CC: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+        Rob
+ Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor
+ Dooley <conor+dt@kernel.org>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Philipp Zabel
+	<p.zabel@pengutronix.de>,
+        Jonathan Corbet <corbet@lwn.net>,
+        Gatien Chevallier
+	<gatien.chevallier@foss.st.com>,
+        Michael Turquette <mturquette@baylibre.com>,
+        Stephen Boyd <sboyd@kernel.org>,
+        Gabriel Fernandez
+	<gabriel.fernandez@foss.st.com>,
+        Krzysztof Kozlowski <krzk@kernel.org>,
+        Le
+ Goffic <legoffic.clement@gmail.com>,
+        <linux-arm-kernel@lists.infradead.org>,
+        <linux-perf-users@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-kernel@vger.kernel.org>, <linux-doc@vger.kernel.org>,
+        <linux-clk@vger.kernel.org>
+References: <20250723-ddrperfm-upstream-v4-0-1aa53ca319f4@foss.st.com>
+ <20250723-ddrperfm-upstream-v4-5-1aa53ca319f4@foss.st.com>
+ <CAODwPW_kex5Agqxg_i-XC308scEpUJU0me55G7iZ8nB9LC0acg@mail.gmail.com>
+Content-Language: en-US
+From: Clement LE GOFFIC <clement.legoffic@foss.st.com>
+In-Reply-To: <CAODwPW_kex5Agqxg_i-XC308scEpUJU0me55G7iZ8nB9LC0acg@mail.gmail.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.48.86.185]
+X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SHFDAG1NODE2.st.com
+ (10.75.129.70)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-07-24_01,2025-07-23_01,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250724_011452_780637_2915798C 
-X-CRM114-Status: GOOD (  17.43  )
+X-CRM114-CacheID: sfid-20250724_011723_240412_CA69CC93 
+X-CRM114-Status: GOOD (  25.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,252 +117,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-CCing Will
+Hi Julius,
 
-On Thu, 24 Jul 2025 at 09:48, Michael S. Tsirkin <mst@redhat.com> wrote:
->
-> On Wed, Jul 23, 2025 at 08:04:42AM -0700, Breno Leitao wrote:
-> > Hello,
-> >
-> > I've seen a crash in linux-next for a while on my arm64 server, and
-> > I decided to report.
-> >
-> > While running stress-ng on linux-next, I see the crash below.
-> >
-> > This is happening in a kernel configure with some debug options (KASAN,
-> > LOCKDEP and KMEMLEAK).
-> >
-> > Basically running stress-ng in a loop would crash the host in 15-20
-> > minutes:
-> >       # while (true); do stress-ng -r 10 -t 10; done
-> >
-> > >From the early warning "virt_to_phys used for non-linear address",
+On 7/23/25 23:48, Julius Werner wrote:
+>> +      Compatible strings can be either explicit vendor names and part numbers
+>> +      (e.g. elpida,ECB240ABACN), or generated strings of the form
+>> +      (lp)?ddrX-Y,Z where X, Y and Z are in lower case hexadecimal with leading
+>> +      zeroes and :
+>> +        - X is the SDRAM version (2, 3, 4, etc.)
+>> +        - for LPDDR :
+>> +          - Y is the manufacturer ID (from MR5), 2 bytes
+>> +          - Z is the revision ID (from MR6 and MR7), 4 bytes
+> 
+> It's actually one byte manufacturer, two bytes revision. The YY,ZZZZ
+> is supposed to represent the amount of hex digits needed.
 
-mmm, we recently added nonlinear SKBs support in vhost-vsock [1],
-@Will can this issue be related?
+Oh yes I see my error..
 
-I checked next-20250721 tag and I confirm that contains those changes.
+> 
+>> +        - for DDR4 with SPD, according to JEDEC SPD4.1.2.L-6 :
+>> +          - Y is the manufacturer ID, 2 bytes, from bytes 320 and 321
+>> +          - Z is the revision ID, 1 byte, from byte 349
+> 
+> I don't think this will identify a part unambiguously, I would expect
+> the DDR revision ID to be specific to the part number. (In fact, we're
+> also not sure whether manufacturer+revision identifies LPDDR parts
+> unambiguously for every vendor, we just didn't have anything more to
+> work with there.) I would suggest to use either `ddrX-YYYY,AAA...,ZZ`
+> or `ddrX-YYYY,ZZ,AAA...` (where AAA... is the part number string from
+> SPD 329-348 without the trailing spaces). The first version looks a
+> bit more natural but it might get confusing on the off chance that
+> someone uses a comma in a part number string.
 
-[1] https://lore.kernel.org/virtualization/20250717090116.11987-1-will@kern=
-el.org/
+The first one seems better indeed.
+If the manufacturer put a comma in the part number we should handle it 
+at a software level to me and if it is a devicetree error it is up to 
+the devicetree writer to fix it.
+What do you think ?
 
-Thanks,
-Stefano
+> 
+>> +      The latter form can be useful when SDRAM nodes are created at runtime by
+>> +      boot firmware that doesn't have access to static part number information.
+> 
+> nit: This text slightly doesn't make sense anymore when in the DDR
+> case we do actually have the part number. I guess the real thing the
+> bootloader wouldn't have access to is the JEDEC manufacturer ID to
+> name mapping.
 
-> > I suppose corrupted data is at vq->nheads.
-> >
-> > Here is the decoded stack against 9798752 ("Add linux-next specific
-> > files for 20250721")
-> >
-> >
-> >       [  620.685144] [ T250731] VFIO - User Level meta-driver version: =
-0.3
-> >       [  622.394448] [ T250254] ------------[ cut here ]------------
-> >       [  622.413492] [ T250254] virt_to_phys used for non-linear addres=
-s: 000000006e69fe64 (0xcfcecdcccbcac9c8)
-> >       [  622.447771] [     T250254] WARNING: arch/arm64/mm/physaddr.c:1=
-5 at __virt_to_phys+0x64/0x90, CPU#57: stress-ng-dev/250254
-> >       [  622.487227] [ T250254] Modules linked in: vhost_vsock(E) vfio_=
-iommu_type1(E) vfio(E) unix_diag(E) sch_fq(E) ghes_edac(E) tls(E) tcp_diag(=
-E) inet_diag(E) act_gact(E) cls_bpf(E) nvidia_cspmu(E) ipmi_ssif(E) coresig=
-ht_trbe(E) arm_cspmu_module(E) arm_smmuv3_pmu(E) ipmi_devintf(E) coresight_=
-stm(E) coresight_funnel(E) coresight_etm4x(E) coresight_tmc(E) stm_core(E) =
-ipmi_msghandler(E) coresight(E) cppc_cpufreq(E) sch_fq_codel(E) drm(E) back=
-light(E) drm_panel_orientation_quirks(E) sm3_ce(E) sha3_ce(E) spi_tegra210_=
-quad(E) vhost_net(E) tap(E) tun(E) vhost(E) vhost_iotlb(E) mpls_gso(E) mpls=
-_iptunnel(E) mpls_router(E) fou(E) acpi_power_meter(E) loop(E) efivarfs(E) =
-autofs4(E) [last unloaded: test_bpf(E)]
-> >       [  622.734524] [ T250254] Tainted: [W]=3DWARN, [E]=3DUNSIGNED_MOD=
-ULE, [N]=3DTEST
-> >       [  622.734525] [ T250254] Hardware name: ...
-> >       [  622.734526] [ T250254] pstate: 63401009 (nZCv daif +PAN -UAO +=
-TCO +DIT +SSBS BTYPE=3D--)
-> >       [  622.734529] [     T250254] pc : __virt_to_phys (/home/user/Dev=
-el/linux-next/arch/arm64/mm/physaddr.c:?)
-> >       [  622.734531] [     T250254] lr : __virt_to_phys (/home/user/Dev=
-el/linux-next/arch/arm64/mm/physaddr.c:?)
-> >       [  622.734533] [ T250254] sp : ffff800158e8fc60
-> >       [  622.734534] [ T250254] x29: ffff800158e8fc60 x28: ffff0034a7cc=
-7900 x27: 0000000000000000
-> >       [  622.734537] [ T250254] x26: 0000000000000000 x25: ffff0034a7cc=
-7900 x24: 00000000040e001f
-> >       [  622.734539] [ T250254] x23: ffff0010858afb00 x22: cfcecdcccbca=
-c9c8 x21: ffff0033526a01e0
-> >       [  622.734541] [ T250254] x20: 0000000000008000 x19: ffcecdcccbca=
-c9c8 x18: ffff80008149c8e4
-> >       [  622.734543] [ T250254] x17: 0000000000000001 x16: 000000000000=
-0000 x15: 0000000000000003
-> >       [  622.734545] [ T250254] x14: ffff800082962e78 x13: 000000000000=
-0003 x12: ffff003bc6231630
-> >       [  622.734546] [ T250254] x11: 0000000000000000 x10: 000000000000=
-0000 x9 : ed44a220ae716b00
-> >       [  622.734548] [ T250254] x8 : 0001000000000000 x7 : 072007200720=
-0720 x6 : ffff80008018710c
-> >       [  622.734550] [ T250254] x5 : 0000000000000001 x4 : 00000090ecc7=
-2ac0 x3 : 0000000000000000
-> >       [  622.734552] [ T250254] x2 : 0000000000000000 x1 : ffff800081a7=
-2bc6 x0 : 000000000000004f
-> >       [  622.734554] [ T250254] Call trace:
-> >       [  622.734555] [     T250254] __virt_to_phys (/home/user/Devel/li=
-nux-next/arch/arm64/mm/physaddr.c:?) (P)
-> >       [  622.734557] [     T250254] kfree (/home/user/Devel/linux-next/=
-./include/linux/mm.h:1180 /home/user/Devel/linux-next/mm/slub.c:4871)
-> >       [  622.734562] [     T250254] vhost_dev_cleanup (/home/user/Devel=
-/linux-next/drivers/vhost/vhost.c:506 /home/user/Devel/linux-next/drivers/v=
-host/vhost.c:542 /home/user/Devel/linux-next/drivers/vhost/vhost.c:1214) vh=
-ost
-> >       [  622.734571] [     T250254] vhost_vsock_dev_release (/home/user=
-/Devel/linux-next/drivers/vhost/vsock.c:756) vhost_vsock
->
->
-> Cc more vsock maintainers.
->
->
->
->
-> >       [  622.734575] [     T250254] __fput (/home/user/Devel/linux-next=
-/fs/file_table.c:469)
-> >       [  622.734578] [     T250254] fput_close_sync (/home/user/Devel/l=
-inux-next/fs/file_table.c:?)
-> >       [  622.734579] [     T250254] __arm64_sys_close (/home/user/Devel=
-/linux-next/fs/open.c:1589 /home/user/Devel/linux-next/fs/open.c:1572 /home=
-/user/Devel/linux-next/fs/open.c:1572)
-> >       [  622.734584] [     T250254] invoke_syscall (/home/user/Devel/li=
-nux-next/arch/arm64/kernel/syscall.c:50)
-> >       [  622.734589] [     T250254] el0_svc_common (/home/user/Devel/li=
-nux-next/./include/linux/thread_info.h:135 /home/user/Devel/linux-next/arch=
-/arm64/kernel/syscall.c:140)
-> >       [  622.734591] [     T250254] do_el0_svc (/home/user/Devel/linux-=
-next/arch/arm64/kernel/syscall.c:152)
-> >       [  622.734594] [     T250254] el0_svc (/home/user/Devel/linux-nex=
-t/arch/arm64/kernel/entry-common.c:169 /home/user/Devel/linux-next/arch/arm=
-64/kernel/entry-common.c:182 /home/user/Devel/linux-next/arch/arm64/kernel/=
-entry-common.c:880)
-> >       [  622.734600] [     T250254] el0t_64_sync_handler (/home/user/De=
-vel/linux-next/arch/arm64/kernel/entry-common.c:958)
-> >       [  622.734603] [     T250254] el0t_64_sync (/home/user/Devel/linu=
-x-next/arch/arm64/kernel/entry.S:596)
-> >       [  622.734605] [ T250254] irq event stamp: 0
-> >       [  622.734606] [     T250254] hardirqs last enabled at (0): 0x0
-> >       [  622.734610] [     T250254] hardirqs last disabled at (0): copy=
-_process (/home/user/Devel/linux-next/kernel/fork.c:?)
-> >       [  622.734614] [     T250254] softirqs last enabled at (0): copy_=
-process (/home/user/Devel/linux-next/kernel/fork.c:?)
-> >       [  622.734616] [     T250254] softirqs last disabled at (0): 0x0
-> >       [  622.734618] [ T250254] ---[ end trace 0000000000000000 ]---
-> >       [  622.734697] [ T250254] Unable to handle kernel paging request =
-at virtual address 003ff3b33312f288
-> >       [  622.734700] [ T250254] Mem abort info:
-> >       [  622.734701] [ T250254]   ESR =3D 0x0000000096000004
-> >       [  622.734702] [ T250254]   EC =3D 0x25: DABT (current EL), IL =
-=3D 32 bits
-> >       [  622.734704] [ T250254]   SET =3D 0, FnV =3D 0
-> >       [  622.734705] [ T250254]   EA =3D 0, S1PTW =3D 0
-> >       [  622.734706] [ T250254]   FSC =3D 0x04: level 0 translation fau=
-lt
-> >       [  622.734708] [ T250254] Data abort info:
-> >       [  622.734709] [ T250254]   ISV =3D 0, ISS =3D 0x00000004, ISS2 =
-=3D 0x00000000
-> >       [  622.734711] [ T250254]   CM =3D 0, WnR =3D 0, TnD =3D 0, TagAc=
-cess =3D 0
-> >       [  622.734712] [ T250254]   GCS =3D 0, Overlay =3D 0, DirtyBit =
-=3D 0, Xs =3D 0
-> >       [  622.734713] [ T250254] [003ff3b33312f288] address between user=
- and kernel address ranges
-> >       [  622.734715] [ T250254] Internal error: Oops: 0000000096000004 =
-[#1]  SMP
-> >       [  622.734718] [ T250254] Modules linked in: vhost_vsock(E) vfio_=
-iommu_type1(E) vfio(E) unix_diag(E) sch_fq(E) ghes_edac(E) tls(E) tcp_diag(=
-E) inet_diag(E) act_gact(E) cls_bpf(E) nvidia_cspmu(E) ipmi_ssif(E) coresig=
-ht_trbe(E) arm_cspmu_module(E) arm_smmuv3_pmu(E) ipmi_devintf(E) coresight_=
-stm(E) coresight_funnel(E) coresight_etm4x(E) coresight_tmc(E) stm_core(E) =
-ipmi_msghandler(E) coresight(E) cppc_cpufreq(E) sch_fq_codel(E) drm(E) back=
-light(E) drm_panel_orientation_quirks(E) sm3_ce(E) sha3_ce(E) spi_tegra210_=
-quad(E) vhost_net(E) tap(E) tun(E) vhost(E) vhost_iotlb(E) mpls_gso(E) mpls=
-_iptunnel(E) mpls_router(E) fou(E) acpi_power_meter(E) loop(E) efivarfs(E) =
-autofs4(E) [last unloaded: test_bpf(E)]
-> >       [  622.734740] [ T250254] Tainted: [W]=3DWARN, [E]=3DUNSIGNED_MOD=
-ULE, [N]=3DTEST
-> >       [  622.734740] [ T250254] Hardware name: ...
-> >       [  622.734741] [ T250254] pstate: 63401009 (nZCv daif +PAN -UAO +=
-TCO +DIT +SSBS BTYPE=3D--)
-> >       [  622.734742] [     T250254] pc : kfree (/home/user/Devel/linux-=
-next/./include/linux/page-flags.h:284 /home/user/Devel/linux-next/./include=
-/linux/mm.h:1182 /home/user/Devel/linux-next/mm/slub.c:4871)
-> >       [  622.734745] [     T250254] lr : kfree (/home/user/Devel/linux-=
-next/./include/linux/mm.h:1180 /home/user/Devel/linux-next/mm/slub.c:4871)
-> >       [  622.734747] [ T250254] sp : ffff800158e8fc80
-> >       [  622.734748] [ T250254] x29: ffff800158e8fc90 x28: ffff0034a7cc=
-7900 x27: 0000000000000000
-> >       [  622.734749] [ T250254] x26: 0000000000000000 x25: ffff0034a7cc=
-7900 x24: 00000000040e001f
-> >       [  622.734751] [ T250254] x23: ffff0010858afb00 x22: cfcecdcccbca=
-c9c8 x21: ffff0033526a01e0
-> >       [  622.734752] [ T250254] x20: 003ff3b33312f280 x19: ffff80000acd=
-1a20 x18: ffff80008149c8e4
-> >       [  622.734754] [ T250254] x17: 0000000000000001 x16: 000000000000=
-0000 x15: 0000000000000003
-> >       [  622.734755] [ T250254] x14: ffff800082962e78 x13: 000000000000=
-0003 x12: ffff003bc6231630
-> >       [  622.734757] [ T250254] x11: 0000000000000000 x10: 000000000000=
-0000 x9 : ffffffdfc0000000
-> >       [  622.734758] [ T250254] x8 : 003ff3d37312f280 x7 : 072007200720=
-0720 x6 : ffff80008018710c
-> >       [  622.734760] [ T250254] x5 : 0000000000000001 x4 : 00000090ecc7=
-2ac0 x3 : 0000000000000000
-> >       [  622.734761] [ T250254] x2 : 0000000000000000 x1 : ffff800081a7=
-2bc6 x0 : ffcf4dcccbcac9c8
-> >       [  622.734763] [ T250254] Call trace:
-> >       [  622.734763] [     T250254] kfree (/home/user/Devel/linux-next/=
-./include/linux/page-flags.h:284 /home/user/Devel/linux-next/./include/linu=
-x/mm.h:1182 /home/user/Devel/linux-next/mm/slub.c:4871) (P)
-> >       [  622.734766] [     T250254] vhost_dev_cleanup (/home/user/Devel=
-/linux-next/drivers/vhost/vhost.c:506 /home/user/Devel/linux-next/drivers/v=
-host/vhost.c:542 /home/user/Devel/linux-next/drivers/vhost/vhost.c:1214) vh=
-ost
-> >       [  622.734769] [     T250254] vhost_vsock_dev_release (/home/user=
-/Devel/linux-next/drivers/vhost/vsock.c:756) vhost_vsock
-> >       [  622.734771] [     T250254] __fput (/home/user/Devel/linux-next=
-/fs/file_table.c:469)
-> >       [  622.734772] [     T250254] fput_close_sync (/home/user/Devel/l=
-inux-next/fs/file_table.c:?)
-> >       [  622.734773] [     T250254] __arm64_sys_close (/home/user/Devel=
-/linux-next/fs/open.c:1589 /home/user/Devel/linux-next/fs/open.c:1572 /home=
-/user/Devel/linux-next/fs/open.c:1572)
-> >       [  622.734776] [     T250254] invoke_syscall (/home/user/Devel/li=
-nux-next/arch/arm64/kernel/syscall.c:50)
-> >       [  622.734778] [     T250254] el0_svc_common (/home/user/Devel/li=
-nux-next/./include/linux/thread_info.h:135 /home/user/Devel/linux-next/arch=
-/arm64/kernel/syscall.c:140)
-> >       [  622.734781] [     T250254] do_el0_svc (/home/user/Devel/linux-=
-next/arch/arm64/kernel/syscall.c:152)
-> >       [  622.734783] [     T250254] el0_svc (/home/user/Devel/linux-nex=
-t/arch/arm64/kernel/entry-common.c:169 /home/user/Devel/linux-next/arch/arm=
-64/kernel/entry-common.c:182 /home/user/Devel/linux-next/arch/arm64/kernel/=
-entry-common.c:880)
-> >       [  622.734787] [     T250254] el0t_64_sync_handler (/home/user/De=
-vel/linux-next/arch/arm64/kernel/entry-common.c:958)
-> >       [  622.734790] [     T250254] el0t_64_sync (/home/user/Devel/linu=
-x-next/arch/arm64/kernel/entry.S:596)
-> >       [ 622.734792] [ T250254] Code: f2dffbe9 927abd08 cb141908 8b09011=
-4 (f9400688)
-> >       All code
-> >       =3D=3D=3D=3D=3D=3D=3D=3D
-> >       0:*     e9 fb df f2 08          jmp    0x8f2e000                <=
--- trapping instruction
-> >       5:      bd 7a 92 08 19          mov    $0x1908927a,%ebp
-> >       a:      14 cb                   adc    $0xcb,%al
-> >       c:      14 01                   adc    $0x1,%al
-> >       e:      09 8b 88 06 40 f9       or     %ecx,-0x6bff978(%rbx)
-> >
-> >       Code starting with the faulting instruction
-> >       =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
-> >       0:      88 06                   mov    %al,(%rsi)
-> >       2:      40 f9                   rex stc
-> >       [  622.734795] [ T250254] SMP: stopping secondary CPUs
-> >       [  622.735089] [ T250254] Starting crashdump kernel...
-> >       [  622.735091] [ T250254] Bye!
->
+Yes I will update it.
 
+> 
+>> +      SDRAM revision ID:
+>> +        - LPDDR SDRAM, decoded from Mode Register 6 and 7.
+>> +        - DDR4 SDRAM, decoded from the SPD from bytes 349 according to
+>> +          JEDEC SPD4.1.2.L-6.
+> 
+> nit: Clarify that this is always two bytes for LPDDR and always one
+> byte for DDR.
+
+Ok
+
+> 
+>> +      Density of SDRAM chip in megabits:
+>> +        - LPDDR SDRAM, decoded from Mode Register 8.
+>> +        - DDR4 SDRAM, decoded from the SPD from bytes 322 to 325 according to
+>> +          JEDEC SPD4.1.2.L-6.
+> 
+> Are these numbers correct? I downloaded SPD4.1.2.L-6 now and it looks
+> like 322 is manufacturing location and 323-324 are manufacturing date.
+> (Also, I think all of these are specific to DDR4 (and possibly 5?),
+> but not to earlier versions. I don't think we need to list it for
+> every version, but we should at least be specific what it applies to.)
+
+I just reopen the doc and you are right, didn't have my glasses on I guess.
+Accordingly to SPD4.1.2.L-6 it the info seems in the byte 4 on bits 3~0.
+
+Best regards,
+Clément
 
