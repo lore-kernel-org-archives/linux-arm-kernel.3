@@ -4,69 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D465C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 09:59:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B007C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 10:01:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HATfpXHfXAWXHNopV9iQV5NIBTpxqqzSArhU53RsAno=; b=CTG5JsflaTSYA/QaqTUmhFJ7gN
-	jdenBfTHYA3GYu2wh4NfSctsRDF11BCl9BdsKOCFaTRXntZnz3SDkmKwCF1VBQE+JvsqeJjgv1+Jy
-	N4cUTzcW2FaQQtxXU17+30kPWDcMePczItkA8i1D2gmlLWKICBv0R3Edg2P2rXAxbAog+jIq+VJ48
-	gJymYWR3iRHhPVvTFqOeCwJUdLfXTuMCUrLOwng/da9au04HNc495ri6S7u6KCtCmnX3GZnvmTuA3
-	FexauLaw+0iwABJZ2yEiLPPl/mG/n/EovG87Wm2cfWD1yvf7HLUhJ3dfMyq+ngJxANLmfLinFfeBZ
-	YBAD6fPg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9XzOQCdp3Cej628qd/tiIYrBQw2XGQnlxiQRKYscS8s=; b=YyBu3lcy1zWMWtDtfGLMtkRuvm
+	lZMN5YjsK1jVHzQXyK0AsNUGC2e3v2a29w+rPc7wQlg2WEDf7dhyRpT8j8yyae1zztwH/I0D7vatB
+	QW34h8PdSjAF3mGDj63SDXHiFhIiKWjStLXC7dckEgqzpNCNSI3L1wWZft3eKUmVPqunVlxK6ofAr
+	p0VFF3b7iFysRDg0zP65yYLl5ZSlH+K8hV92uKgyS2klM4jAT13aHPsktoV55gsv/X3P2WVtSUeTo
+	FKSyiLYfA/qtoF6HWEZu/FX27iLMZdxT/yubs23lAjk91T+Y1/WHL6ygt/WfYbXJsOjO+/NZ2kfXM
+	18LAkxww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uesj5-000000078jV-0v3f;
-	Thu, 24 Jul 2025 09:58:59 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1ueslW-000000079Jh-1kIB;
+	Thu, 24 Jul 2025 10:01:30 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uergr-00000006wWu-2Cm6
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Jul 2025 08:52:38 +0000
+	id 1uerjj-00000006xA1-0n9E;
+	Thu, 24 Jul 2025 08:55:35 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id CD4D7A55E64;
-	Thu, 24 Jul 2025 08:52:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E6FCDC4CEED;
-	Thu, 24 Jul 2025 08:52:35 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 5C184601D5;
+	Thu, 24 Jul 2025 08:55:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0E5E2C4CEED;
+	Thu, 24 Jul 2025 08:55:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753347156;
-	bh=lEUiukjpItIZOMLZybq8zVOV0E1VI31HPjpcqCCRXw0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Zfjmgph9vyQJ1Z52UaLvbtnXWS2GVe1JpGrut3ak0bCBBZw1wZjVZ//VT4dmUdI/2
-	 QoR2MDn1JkBNI121S3rhq4WChb5c/yoECIBnvhmPNxchnBFyOduvyiuUfaOr7BeCWb
-	 VXclpmlMokvspHjFgJBGkIMDxcpDqccxZY8BHMRBOidJpTAEGAJd/TjOQJoqTQDH9V
-	 8rjK97IQM5/zJ+lFH87y9FNJHqKKs93eG9to7basm5n/ECtEawU4o2JAxDERNzUDSa
-	 nW5V6aiTXZ/s2/89kJp6Trv+Cf+xHdyulQGLn/d6Je+d8oscg1CiDmqoM+oKXuGgLb
-	 J65mC6IVet3wA==
-Date: Thu, 24 Jul 2025 10:52:34 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Shengjiu Wang <shengjiu.wang@nxp.com>
-Cc: andrzej.hajda@intel.com, neil.armstrong@linaro.org, rfoss@kernel.org, 
-	Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se, jernej.skrabec@gmail.com, 
-	maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, 
-	simona@ffwll.ch, lumag@kernel.org, dianders@chromium.org, 
-	cristian.ciocaltea@collabora.com, luca.ceresoli@bootlin.com, dri-devel@lists.freedesktop.org, 
-	linux-kernel@vger.kernel.org, victor.liu@nxp.com, shawnguo@kernel.org, s.hauer@pengutronix.de, 
-	kernel@pengutronix.de, festevam@gmail.com, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	p.zabel@pengutronix.de, devicetree@vger.kernel.org, l.stach@pengutronix.de, 
-	shengjiu.wang@gmail.com, perex@perex.cz, tiwai@suse.com, linux-sound@vger.kernel.org
-Subject: Re: [PATCH v2 1/6] dt-bindings: display: imx: add HDMI PAI for
- i.MX8MP
-Message-ID: <20250724-straight-lorikeet-of-novelty-9124f8@kuoka>
-References: <20250724072248.1517569-1-shengjiu.wang@nxp.com>
- <20250724072248.1517569-2-shengjiu.wang@nxp.com>
+	s=k20201202; t=1753347334;
+	bh=7Rl73eTGs9cKwu4cmtief0kRNJb/4nA5rJoiL8w0XqM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=rhOgaKafB01JlDdf8OmBacQSgkKTNO0rtPHQuGkfk2YpR+UQC4jkIg+jZqJbYM5LJ
+	 0DIW9r+bhkHk2D1iCdal1VbYwvdmfFJ9XfQ3XvHKMuPQRIewqj0ajSGDnAVF3D9yjQ
+	 6SG7/adqin0lxOKllPMgWIp7x3coZFgazAjMDBJ6UvE0RjY0ZE+ylAqIMYeRWHvpwc
+	 KDFUDXL475ujpsLCGvjL+ubuHytUdY9FUcKlW+IdUfJDLv0TTOFePhLk8Sq56DhjHQ
+	 fG9ofvEWAbRq4hTLO719Tu37R1SIj8tQh/K6X1w9ehil3bqTeWTBZIy8egovpzbO1q
+	 YRXHVvo+4KZ9g==
+Message-ID: <03dece78-44d5-4b85-b71c-bb6794849ddd@kernel.org>
+Date: Thu, 24 Jul 2025 10:55:29 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20250724072248.1517569-2-shengjiu.wang@nxp.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250724_015237_719093_88629532 
-X-CRM114-Status: GOOD (  17.66  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8 2/2] memory: mtk-smi: mt8188: Add SMI reset and clamp
+ for MT8188
+To: =?UTF-8?B?RnJpZGF5IFlhbmcgKOadqOmYsyk=?= <Friday.Yang@mediatek.com>,
+ "robh@kernel.org" <robh@kernel.org>,
+ "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
+ =?UTF-8?B?WW9uZyBXdSAo5ZC05YuHKQ==?= <Yong.Wu@mediatek.com>,
+ "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
+ "conor+dt@kernel.org" <conor+dt@kernel.org>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ Project_Global_Chrome_Upstream_Group
+ <Project_Global_Chrome_Upstream_Group@mediatek.com>
+References: <20250521063347.31578-1-friday.yang@mediatek.com>
+ <20250521063347.31578-3-friday.yang@mediatek.com>
+ <fe4d93d1-fb6a-4985-8316-7a76fa1a481f@kernel.org>
+ <7421d8f4f3d5fdb392f46df93bfee21a97cc2e1c.camel@mediatek.com>
+ <633ea291-2e02-44be-bd03-220634b3c62d@kernel.org>
+ <d7e6e9f9da7adf5c806f29c577f6bf51b35fdeed.camel@mediatek.com>
+ <1e9de035-9d32-45d1-9f11-33c3439143be@kernel.org>
+ <2cc7a0be13d2b35b8728fb23e56097620a40fc05.camel@mediatek.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <2cc7a0be13d2b35b8728fb23e56097620a40fc05.camel@mediatek.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,104 +131,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 24, 2025 at 03:22:43PM +0800, Shengjiu Wang wrote:
-> Add binding for the i.MX8MP HDMI parallel Audio interface block.
+On 24/07/2025 10:43, Friday Yang (杨阳) wrote:
+>>
+>>> ignore this tag. What I intended to explain here was that I decided
+>>> not
+>>> to use 'devm_pm_runtime_enable' to replace 'pm_runtime_enable'
+>>> functions. Unfortunately, the fake tag didn't explain this clearly
+>>> in
+>>> the changelog, which was my fault. To address this, I updated
+>>> patchset
+>>> v8 to include an explanation.
+>>>
+>>> In patchset v6, I replaced 'pm_runtime_enable' with
+>>> 'devm_pm_runtime_enable'. However, in patchset v8, I reverted this
+>>> change and included the reason for this decision in the changelog.
+>>> Apologize for the delay and the trouble again.
+>>
+>> Nothing above is related to my question about the
+>> fake/invented/questioned tag.
+>>
 > 
-> In fsl,imx8mp-hdmi-tx.yaml, add port@2 that linked to pai_to_hdmi_tx.
+> I got your point, you refer to the 'reviewed-by' and 'acked-by' tag in
+> this patch.
+> These are the tags from two reviewers.
 > 
-> Signed-off-by: Shengjiu Wang <shengjiu.wang@nxp.com>
-> ---
->  .../display/bridge/fsl,imx8mp-hdmi-tx.yaml    | 12 ++++
->  .../display/imx/fsl,imx8mp-hdmi-pai.yaml      | 69 +++++++++++++++++++
->  2 files changed, 81 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/display/imx/fsl,imx8mp-hdmi-pai.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/display/bridge/fsl,imx8mp-hdmi-tx.yaml b/Documentation/devicetree/bindings/display/bridge/fsl,imx8mp-hdmi-tx.yaml
-> index 05442d437755..6211ab8bbb0e 100644
-> --- a/Documentation/devicetree/bindings/display/bridge/fsl,imx8mp-hdmi-tx.yaml
-> +++ b/Documentation/devicetree/bindings/display/bridge/fsl,imx8mp-hdmi-tx.yaml
-> @@ -49,6 +49,10 @@ properties:
->          $ref: /schemas/graph.yaml#/properties/port
->          description: HDMI output port
->  
-> +      port@2:
-> +        $ref: /schemas/graph.yaml#/properties/port
-> +        description: Parallel audio input port
-
-Which data path this represents? Feels like you are duplicating ASoC
-dai-links/cells...
+> https://lore.kernel.org/lkml/174172361378.44650.15345202042780383326.robh@kernel.org/
 
 
-> +
->      required:
->        - port@0
->        - port@1
-> @@ -98,5 +102,13 @@ examples:
->                      remote-endpoint = <&hdmi0_con>;
->                  };
->              };
-> +
-> +            port@2 {
-> +                reg = <2>;
-> +
-> +                endpoint {
-> +                    remote-endpoint = <&pai_to_hdmi_tx>;
-> +                };
-> +            };
->          };
->      };
-> diff --git a/Documentation/devicetree/bindings/display/imx/fsl,imx8mp-hdmi-pai.yaml b/Documentation/devicetree/bindings/display/imx/fsl,imx8mp-hdmi-pai.yaml
-> new file mode 100644
-> index 000000000000..4f99682a308d
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/display/imx/fsl,imx8mp-hdmi-pai.yaml
-> @@ -0,0 +1,69 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/display/imx/fsl,imx8mp-hdmi-pai.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Freescale i.MX8MP HDMI Parallel Audio Interface
-> +
-> +maintainers:
-> +  - Shengjiu Wang <shengjiu.wang@nxp.com>
-> +
-> +description:
-> +  The HDMI TX Parallel Audio Interface (HTX_PAI) is a bridge between the
-> +  Audio Subsystem to the HDMI TX Controller.
-
-What is Audio Subsystem? Like Linux Audio or some name matching actual
-hardware?
-
-
-> +
-> +properties:
-> +  compatible:
-> +    const: fsl,imx8mp-hdmi-pai
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  interrupts:
-> +    maxItems: 1
-> +
-> +  clocks:
-> +    maxItems: 1
-> +
-> +  clock-names:
-> +    const: apb
-> +
-> +  power-domains:
-> +    maxItems: 1
-> +
-> +  port:
-> +    $ref: /schemas/graph.yaml#/properties/port
-> +    description: Output to the HDMI TX controller.
-
-And how do you plug it into sound card? Where are any DAI links?
+You are really not responding to my initial comments and keep dragging
+this discussion in some confused directions. Do we talk here about that
+patch? No.
 
 Best regards,
 Krzysztof
-
 
