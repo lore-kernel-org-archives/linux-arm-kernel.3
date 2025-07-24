@@ -4,71 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DCEAC87FC5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 13:52:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC83BC83F26
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 13:52:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=+iAufx7EfPzwlkAH/Yme/sG8Jt4E+HOVWg0GKsKy0sY=; b=OUlQaLUKh0vggdn/D+yUQbT6r8
-	mGzzgAONyH2WRKLJHRyi70OXyy/9e3sq3YACusUFSLAJWeUkv5V1tCZDhA3IwgIUYttQJKgGJu14F
-	ac2rqbuc8ozFCd30mtPEq9qopvCz4S6YQM5qtUwNg7JP0JzlRq7nSgj5emb41i069gQSOKgPg3c7o
-	DHeZeMCe5WosG0uYKdJ9wweBl6Byx+JSnEJBwa4TdmvBZh8pRlJLd3iMeR2H+zvnTmLsvIW5MpK+E
-	I1gFkFX6JgBzo1cZdQbPdSu1fIHjNSMq1XP9FDbTmy7whKt3W2J0y4XX61HEQPLpXefOD55lrVBG1
-	PQEOKU/Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZTSfLJYNlqXiBKbfT0bFyt1W70U8n3PUIrBYj9GmIK0=; b=YscbyH3Rw2/ECHrWY3CyLStAok
+	b1qtDTlY1skEOcvd3crDezamrj5mMg3ZDex6R9iRX7bq9LFEsHvhPPIg6lA5/ISzqRPYFxrrTz/lF
+	9HonUWGSViR/7npxaf1+6+OCPEJlYMq/TQF3TVJYTDKuauUySRA7+KxEUju4W3YwuCNbHXtnWmHC5
+	lDp364My/GLLDABIUam6pEZbeB/oh4FznxlRl/Io2KHJKGuO3fT+7Cqw/vgN7xz6WFZPw9AgPJKhB
+	UPWMlqXnLzmVuNfUDIHktlOFg5rFhi76P63R2+iMyTBhCZvZmNlzUGHC1s+W0NvXwe7Slbc1vBDXE
+	5RWnlTlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uewN8-00000007ZDp-2sAp;
-	Thu, 24 Jul 2025 13:52:34 +0000
-Received: from mgamail.intel.com ([192.198.163.15])
+	id 1uewNA-00000007ZHE-28nE;
+	Thu, 24 Jul 2025 13:52:36 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uet9Q-00000007CRA-18xu
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Jul 2025 10:26:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1753352773; x=1784888773;
-  h=date:from:to:cc:subject:message-id;
-  bh=rRgo8t/VAQMx0wdRQZI4YsKM0NHb3+gLPKQXwdGQ9K0=;
-  b=kRztbKZLYsJCck9T43fb8pPhE4K/4PanR4NxrcTpRFglc+AgF3alVxRX
-   3AhOIzslIJV3P6NvxISLIKotXekv4CdBdtlO4lWbIdQa5hOFvF5Rd40cF
-   AmHD98SI3+dQFohml5tBj9pB+Kx2kTurFRpvLtapkoWDSryuxYVZUhs5o
-   CkTaD9EOfBO+I974bgn6ZxqA6Gdps1Pb2kFfJdDxOZ+QernoP19eTdPnB
-   YpXmxHr4Z7HWJ1EUhkKYtl5tZ7kL6ofmYLJEYG/Acwa0dcHnuo/vCMiS+
-   jiLo+8R0Ypa3VvTEFLGToDJeBdYQnhzm8UQKPGdCOzt+3L3UloQw3EFev
-   g==;
-X-CSE-ConnectionGUID: sE+Ug0O6SfW32zRdJSWxjg==
-X-CSE-MsgGUID: zSEbrxwXQEK4epAqrQQjSw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11501"; a="55807953"
-X-IronPort-AV: E=Sophos;i="6.16,336,1744095600"; 
-   d="scan'208";a="55807953"
-Received: from orviesa002.jf.intel.com ([10.64.159.142])
-  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Jul 2025 03:26:11 -0700
-X-CSE-ConnectionGUID: 2RZtA+I6SnaxNq6a0m5SGQ==
-X-CSE-MsgGUID: lElv4k3HQJGlN+Ghr4GF8Q==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.16,336,1744095600"; 
-   d="scan'208";a="191080349"
-Received: from lkp-server01.sh.intel.com (HELO 9ee84586c615) ([10.239.97.150])
-  by orviesa002.jf.intel.com with ESMTP; 24 Jul 2025 03:26:10 -0700
-Received: from kbuild by 9ee84586c615 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1uet9L-000KJX-0N;
-	Thu, 24 Jul 2025 10:26:07 +0000
-Date: Thu, 24 Jul 2025 18:25:45 +0800
-From: kernel test robot <lkp@intel.com>
-To: Inochi Amaoto <inochiama@gmail.com>
-Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
-Subject: [soc:sophgo/sg2000] BUILD SUCCESS
- fe4fd701938197c2bceeeff670da3ace9b488d09
-Message-ID: <202507241833.TmbKPVy5-lkp@intel.com>
-User-Agent: s-nail v14.9.24
+	id 1uetFR-00000007DI1-0Vj2;
+	Thu, 24 Jul 2025 10:32:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1753353143;
+	bh=itHtoJ3M+ZeANRW0vAxkLr2MjBaEu5vwDE7ZADcfbA4=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=MWaSIdnGoBwiZtZtbKK6XVz7WtAtEYZN8QFphI/pokVgkCFCXOweirTeO9wMLhAjM
+	 hbcWaqG8twtORyImZ8qfVHe53KxT9YFsorWXjGY8duDUGYl8leyK1aRWNxuXroMZ8w
+	 ANW2H5sexn0CouRfNFEuT08ZNoRGHBOfuSSAefkQ7SwtjeprR1WgVzjxm4OnBZaA4U
+	 sle4dpBTPm6ZSXrCz1/8BC9vpk20D73T9kawJm7J0U3AVKKVtISIvaqpc5d54YrZBn
+	 PHqJ8xT0SHcXoHWgls97p7ROY28YaFiIYWYiTyNj0f31CCRubYCYtv+GRnvhwm2Fh4
+	 uXeOf3YlnXj/Q==
+Received: from [192.168.1.90] (unknown [82.79.138.60])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 4894F17E046D;
+	Thu, 24 Jul 2025 12:32:22 +0200 (CEST)
+Message-ID: <230f25cb-52cb-4ae0-81a1-85e8de873891@collabora.com>
+Date: Thu, 24 Jul 2025 13:32:21 +0300
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/5] drm/rockchip: vop2: Add high color depth support
+To: Andy Yan <andyshrk@163.com>
+Cc: Sandy Huang <hjc@rock-chips.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?=
+ <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ Algea Cao <algea.cao@rock-chips.com>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>, Andrzej Hajda <andrzej.hajda@intel.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ kernel@collabora.com, dri-devel@lists.freedesktop.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20250721-rk3588-10bpc-v1-0-e95a4abcf482@collabora.com>
+ <20250721-rk3588-10bpc-v1-1-e95a4abcf482@collabora.com>
+ <3ceb2c70.2145.1982ff28b9c.Coremail.andyshrk@163.com>
+ <c5624dad-93cb-4cc3-88ad-808dcc43274d@collabora.com>
+ <12451b41.7627.1983ba589ec.Coremail.andyshrk@163.com>
+Content-Language: en-US
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+In-Reply-To: <12451b41.7627.1983ba589ec.Coremail.andyshrk@163.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250724_032612_326479_6A840DED 
-X-CRM114-Status: UNSURE (   5.19  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250724_033225_349890_DDB84EFA 
+X-CRM114-Status: GOOD (  25.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,134 +88,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git sophgo/sg2000
-branch HEAD: fe4fd701938197c2bceeeff670da3ace9b488d09  arm64: defconfig: Enable rudimentary Sophgo SG2000 support
+Hi Andy,
 
-elapsed time: 775m
+On 7/24/25 11:56 AM, Andy Yan wrote:
+> 
+> 
+> 
+> Hello Cristian，
+> 在 2025-07-22 14:16:26，"Cristian Ciocaltea" <cristian.ciocaltea@collabora.com> 写道：
+>> Hi Andy,
+>>
+>> On 7/22/25 5:24 AM, Andy Yan wrote:
+>>>
+>>> Hello Cristian，
+>>>
+>>> At 2025-07-22 01:39:04, "Cristian Ciocaltea" <cristian.ciocaltea@collabora.com> wrote:
+>>>> Take the bits per color channel into consideration when computing DCLK
+>>>> rate.
+>>>>
+>>>> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+>>>> ---
+>>>> drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 3 +++
+>>>> 1 file changed, 3 insertions(+)
+>>>>
+>>>> diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+>>>> index 186f6452a7d359f079662bc580850929632ea8fe..a714bcbb02de16267e7febbaeb1eb270c70aaef2 100644
+>>>> --- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+>>>> +++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+>>>> @@ -1731,6 +1731,9 @@ static void vop2_crtc_atomic_enable(struct drm_crtc *crtc,
+>>>> 		clock *= 2;
+>>>> 	}
+>>>>
+>>>> +	if (vcstate->output_bpc > 8)
+>>>> +		clock = DIV_ROUND_CLOSEST(clock * vcstate->output_bpc, 8);
+>>>
+>>>
+>>> This seems not right,  regardless of the value of bpc, the dclk of VOP must be
+>>> consistent with mode->crtc_clock.
+>>> If the dclk of VOP is increased in accordance with the BPC ratio here, then the refresh rate of VOP will also increase proportionally.
+>>> This would be inconsistent with the timing described in the mode.
+>>> For a hight color depth,  the frequency needs to be increased for the HDMI PHY's clock.
+>>
+>> The HDMI PHY's clock is actually computed at HDMI connector framework level
+>> [1], taking into account the current bpc value, which is determined as part
+>> of hdmi_compute_config() [2].
+>>
+>> That means conn_state->hdmi.tmds_char_rate in
+>> dw_hdmi_qp_rockchip_encoder_atomic_check() does already include the bpc
+>> related adjustment, and we pass that directly to the PHY via
+>> phy_configure().  Note there's still the need to handle bpc separately via
+>> phy_configure_opts in order to setup CMN_REG(0086) [3].
+>>
+>> Since VOP2 switches to PHY PLL as DCLK source for modes up to 4K@60Hz, it
+>> needs to take color depth into account, to keep them in sync.  As a matter
+>> of fact, the clock adjustment in VOP2 is mainly necessary for legacy
+> 
+> 
+> There might be a misunderstanding here. The values of hdmi.tmds_char_rate and vop dclk are not always equal in all cases.
+> For vop dclk always match mode->clock,  hdmi.tmds_char_rate will adjust with bpc.
+> For example,  for a 4KP30 YUV444 8 bit,   vop->dclk = hdmi.tmds_char_rate = 297MHZ,
+> for 4KP30 YUV444 10 bit,  hdmi.tmds_char_rate = 1.25 * vop->dclk.
+> 
+> In fact, for the HDMI PHY, there are two clocks. One is a clock with the same frequency as the HDMI PLL, namely.tmds_char_rate,
+>  and the other is a clock obtained by further frequency division of the HDMI PLL, which can be supplied to the vop dclk.
+> 
+>                       ----------------------- >tmds_char_rate 
+>                       |
+> PHY PLL------|
+> 
+>                       |
+>                       ------DIV(REG0086[3-1])-->vop dclk.
 
-configs tested: 114
-configs skipped: 115
+Oh, I missed the fact there's a divider between PLL and DCLK.
+All this makes sense now, thanks for clarifying!
 
-The following configs have been built successfully.
-More configs may be tested in the coming days.
+Regards,
+Cristian
 
-tested configs:
-alpha                             allnoconfig    clang-22
-alpha                            allyesconfig    clang-19
-arc                              allmodconfig    clang-19
-arc                               allnoconfig    clang-22
-arc                              allyesconfig    clang-19
-arc                   randconfig-001-20250724    clang-22
-arc                   randconfig-002-20250724    clang-22
-arm                              allmodconfig    clang-19
-arm                               allnoconfig    clang-22
-arm                              allyesconfig    clang-19
-arm                   randconfig-001-20250724    clang-22
-arm                   randconfig-002-20250724    clang-22
-arm                   randconfig-003-20250724    clang-22
-arm                   randconfig-004-20250724    clang-22
-arm64                            allmodconfig    clang-19
-arm64                             allnoconfig    clang-22
-arm64                 randconfig-001-20250724    clang-22
-arm64                 randconfig-001-20250724    gcc-8.5.0
-arm64                 randconfig-002-20250724    clang-22
-arm64                 randconfig-003-20250724    clang-22
-arm64                 randconfig-003-20250724    gcc-13.4.0
-arm64                 randconfig-004-20250724    clang-22
-csky                              allnoconfig    clang-22
-hexagon                          allmodconfig    clang-19
-hexagon                           allnoconfig    clang-22
-hexagon                          allyesconfig    clang-19
-i386                             allmodconfig    clang-20
-i386                              allnoconfig    clang-20
-i386                             allyesconfig    clang-20
-i386        buildonly-randconfig-001-20250724    gcc-12
-i386        buildonly-randconfig-002-20250724    gcc-12
-i386        buildonly-randconfig-003-20250724    gcc-12
-i386        buildonly-randconfig-004-20250724    gcc-12
-i386        buildonly-randconfig-005-20250724    gcc-12
-i386        buildonly-randconfig-006-20250724    gcc-12
-i386                                defconfig    clang-20
-i386                  randconfig-001-20250724    clang-20
-i386                  randconfig-002-20250724    clang-20
-i386                  randconfig-003-20250724    clang-20
-i386                  randconfig-004-20250724    clang-20
-i386                  randconfig-005-20250724    clang-20
-i386                  randconfig-006-20250724    clang-20
-i386                  randconfig-007-20250724    clang-20
-i386                  randconfig-011-20250724    gcc-12
-i386                  randconfig-012-20250724    gcc-12
-i386                  randconfig-013-20250724    gcc-12
-i386                  randconfig-014-20250724    gcc-12
-i386                  randconfig-015-20250724    gcc-12
-i386                  randconfig-016-20250724    gcc-12
-i386                  randconfig-017-20250724    gcc-12
-loongarch                         allnoconfig    clang-22
-m68k                              allnoconfig    gcc-15.1.0
-microblaze                        allnoconfig    gcc-15.1.0
-mips                              allnoconfig    gcc-15.1.0
-nios2                             allnoconfig    gcc-15.1.0
-openrisc                          allnoconfig    clang-22
-openrisc                            defconfig    gcc-12
-parisc                            allnoconfig    clang-22
-powerpc                           allnoconfig    clang-22
-riscv                             allnoconfig    clang-22
-riscv                               defconfig    gcc-12
-riscv                 randconfig-001-20250724    gcc-13.4.0
-riscv                 randconfig-002-20250724    gcc-13.4.0
-s390                              allnoconfig    clang-22
-s390                                defconfig    gcc-12
-s390                  randconfig-001-20250724    gcc-13.4.0
-s390                  randconfig-002-20250724    gcc-13.4.0
-sh                                allnoconfig    gcc-15.1.0
-sh                                  defconfig    gcc-12
-sh                    randconfig-001-20250724    gcc-13.4.0
-sh                    randconfig-002-20250724    gcc-13.4.0
-sparc                             allnoconfig    gcc-15.1.0
-sparc                 randconfig-001-20250724    gcc-13.4.0
-sparc                 randconfig-002-20250724    gcc-13.4.0
-sparc64                             defconfig    gcc-12
-sparc64               randconfig-001-20250724    gcc-13.4.0
-sparc64               randconfig-002-20250724    gcc-13.4.0
-um                               allmodconfig    clang-19
-um                                allnoconfig    clang-22
-um                               allyesconfig    clang-19
-um                                  defconfig    gcc-12
-um                             i386_defconfig    gcc-12
-um                    randconfig-001-20250724    gcc-13.4.0
-um                    randconfig-002-20250724    gcc-13.4.0
-um                           x86_64_defconfig    gcc-12
-x86_64                            allnoconfig    clang-20
-x86_64                           allyesconfig    clang-20
-x86_64      buildonly-randconfig-001-20250724    gcc-12
-x86_64      buildonly-randconfig-002-20250724    gcc-12
-x86_64      buildonly-randconfig-003-20250724    gcc-12
-x86_64      buildonly-randconfig-004-20250724    gcc-12
-x86_64      buildonly-randconfig-005-20250724    gcc-12
-x86_64      buildonly-randconfig-006-20250724    gcc-12
-x86_64                              defconfig    clang-20
-x86_64                randconfig-001-20250724    gcc-12
-x86_64                randconfig-002-20250724    gcc-12
-x86_64                randconfig-003-20250724    gcc-12
-x86_64                randconfig-004-20250724    gcc-12
-x86_64                randconfig-005-20250724    gcc-12
-x86_64                randconfig-006-20250724    gcc-12
-x86_64                randconfig-007-20250724    gcc-12
-x86_64                randconfig-008-20250724    gcc-12
-x86_64                randconfig-071-20250724    clang-20
-x86_64                randconfig-072-20250724    clang-20
-x86_64                randconfig-073-20250724    clang-20
-x86_64                randconfig-074-20250724    clang-20
-x86_64                randconfig-075-20250724    clang-20
-x86_64                randconfig-076-20250724    clang-20
-x86_64                randconfig-077-20250724    clang-20
-x86_64                randconfig-078-20250724    clang-20
-x86_64                          rhel-9.4-rust    clang-20
-xtensa                            allnoconfig    gcc-15.1.0
-xtensa                randconfig-001-20250724    gcc-13.4.0
-xtensa                randconfig-002-20250724    gcc-13.4.0
+> So in this case, my suggestion is still to follow the implementation of our BSP kernel:
+> On the crtc side, it shoud set dclk as the mode->clock.
+> At the PHY side(rk_hdptx_phy_clk_set_rate) when set the vop dclk, it should adjust the PLL clock according to the bpc:
+> if (bpc > 8)
+>                 bit_rate = clock * 10 / 8;
+> 
+> 
+> 
+>> reasons, since HDPTX PHY allowed changing TMDS char rate via the Common
+>> Clock Framework API.  We landed a proper solution for that via the HDMI PHY
+>> API, hence the plan would be to make CCF API readonly after the switch to
+>> PHY API is completed, which means VOP2 shouldn't deal anymore with clock
+>> calculations when using the PHY PLL as DCLK source.
+>>
+>> Regardless, I should probably move this clock adjustment to the conditional
+>> block handling DCLK source switch.
+>>
+>> [1] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/gpu/drm/display/drm_hdmi_state_helper.c?h=v6.16-rc7#n525
+>> [2] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/gpu/drm/display/drm_hdmi_state_helper.c?h=v6.16-rc7#n608
+>> [3] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c?h=v6.16-rc7#n1034
 
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
 
