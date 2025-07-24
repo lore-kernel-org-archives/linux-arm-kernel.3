@@ -4,154 +4,153 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1810DC87FC5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 22:18:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD69EC87FC5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 22:20:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/Uyw5Q0+gndKZkeMm6D3w50lqnd0tcVbSLyo9AZC6nc=; b=0KhRaXvQubslaO0b3q35f0I2Oi
-	OGIeGJXhbL/G/wpSqXIHo3cbAqgr26MxokO0go5jSpWp+qBXjxRKyQqHVJBiGj61Kuwst6Lx06weN
-	yoaxVlZeByfgrYZQJkpzmzvBLEdgfSRGUrziaOpfhZsZjZ/OvzdZdhBAb21MDyodHM7w+wTVRxAFY
-	w6tzdf/cp+V2QMNx+oJUdjfL1RfrupRl5fT8Qmai1ARaKtNlZ8iQQ/5FcMPgc/Lnii8irDcw0hBi9
-	RmEU2yqjD6BV5R3TkCH0u0BCv0/IqK0KlRfzwGbL7nxYHchTnibKUm+Ce51MVAxLddUWPvcjAsL3q
-	B00obx3A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Ev7HhyPztgJ5UsmV8KW1yc3wGVsHTuWCaPkCHSvZljM=; b=r0uTOJ8OweWSoEirez5ZZk8JiZ
+	JtUxin9uBALZGEhAGaoPO/IW9KhmMAoudl4jv2GomSAlvU6AI+ynokE8tTkTl4XuRiqpexmHTf4VA
+	6P6K+9lT3X6Gmc9thdV/i3I0l2CYqUF2SitpxlMPRMyyl6iY0ku8POVjGEwKa4JAI0SPcq148ZfaM
+	H1s81jrNqztO8oJWgOGQ0mbMN56HqEesp6m0qdJnAHYdiN0i52WXFkIbu3xyD5eCWQdVUlQ5Tq1Ii
+	CQIQKD+/TcAjKSebWOT5czbbdgDTdCFGk5keCqr3Ad3iteNg2CsYkMnyMQNsi15Hs/r4uT/HzCIeg
+	fN+O8q4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uf4GQ-00000008a2s-20tv;
-	Thu, 24 Jul 2025 22:18:10 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uf4Ip-00000008aG3-14C7;
+	Thu, 24 Jul 2025 22:20:39 +0000
+Received: from mail-co1nam11on2072b.outbound.protection.outlook.com ([2a01:111:f403:2416::72b] helo=NAM11-CO1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uf49t-00000008Z2w-1zCr
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 24 Jul 2025 22:11:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=/Uyw5Q0+gndKZkeMm6D3w50lqnd0tcVbSLyo9AZC6nc=; b=SMMMqENdfrOGUie9SCGon8wthJ
-	XwFRbITzXgjouV5p57NdC55VlwwJKTI9t0iSjVbhmUEhtcfIszfCmgQcz7bhcvVCYpmCdDXtNKCaf
-	//KwaBCvxnDvFQrIeHdnjcNpQF3sHpTnJxuC/Bv0QVKOyliXrCMIUr/3MzavO1XEYqMae41EN8ojQ
-	3yCyvlZlOzQAtKUOqQiUuXNBU4CNgDcUacu6qmy9XTWBrDDs+ozme6n1saEMxN1fTLgt5RE5XJs6Z
-	1ZO91S1S08uLKh8lfX7dxfaiSg+pgHtWh4EHgM+zgoMUGjjMHfIbYaPBR9I+Nwj7qOgPuqKgGWIW7
-	m56ku77A==;
-Received: from mail-bn8nam11on20630.outbound.protection.outlook.com ([2a01:111:f403:2414::630] helo=NAM11-BN8-obe.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uf498-0000000Bhvz-3eJU
+	id 1uf4BL-00000008Z6o-2iDv
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Jul 2025 22:11:24 +0000
+	Thu, 24 Jul 2025 22:12:56 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=TMZQsyUfx3fKCelSCi+0RjZw9Lh9B4YzkObSufr53885qYrMAJPF2i3iA9b3Ck97oB8lu9ykENflHYP5XZb0o11BRGAOKySrDxDn9lrwKpTsBgqDAXbnw449JoB75RHgWQI7frjeFRb6oiczizRZfjU8DnAORVxXJbYY/BgHSKaKR6PnczA9+LB7ahpRwC7yqsOXlDEzXpFv+5neKApvzzRmc/tWrUR/8TtFUDCOHmTJJZenbT+3plXptXmIPecAY+zf896S9SfjC5UJ725mIcBwXkq5xXi8Io7ScAIu266k0OA680bt5F2eb7MNVd9/zMIdLFXKUFU2tMCTcTWs0Q==
+ b=NzMKMp2c0G3A8HrCjTc6w6w2jD7d/Cbh2uQXatriDSGgKPFlHHdzZlGf3AZ0jm3gLUUciE8c3pn7O4yoxrllmcGINhA5+/HTbicwmuU4oea7dkoC+ZvSDlbtrDjFTMqvGHNLfYCw9VMnwlXnmqmArmjt2oYpQXZ8UI0moKAWgECuYKnqM+YAyNe6DRzFrRHSw5HSI4zIyf0xaAMoMJyVovKFDaCEbXN97g96xUU9PD+Z35IqOgcxLXomhVxIPBGEoyaJDbQUls3eP+VcyYdK0dZIrd3kD02x88xi1DwHCozN7OBpR4+b1ePdsaNcre29n6Z6fI6M387IIyQ8YyffJQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=/Uyw5Q0+gndKZkeMm6D3w50lqnd0tcVbSLyo9AZC6nc=;
- b=wZmDT+7Qb3DcZZMeNaXJ+uhM6V17OHtH6mCNws8k9tfQj3p0xGmPpjzyMAtyEBH8N1ZjmFgPzKXpnJityr/oKGOYotUG3jCPxMgV/2l5IWG+9T6+PDuhkR+nvTFiIe6qCZWnsPtaMU2t+fCzKaKwQJAM0eaSSvcIpJrq4ylWSWCk1NiZJAgsEcX7aMnzJiXbH4AdBYhYOSeoIW7ejwdLZL1K/t7ZIeDmDpzDs7w7v+haLa6/m8CE8/JetPXB7chLxTGYhoXe/jHRFCp9waXz6GayPTb3g9LapOrvoEM4FePeFPp+KExnrInhT4McvGknpC02WmV1U/pb8HN8vwrKQw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.161) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
+ bh=Ev7HhyPztgJ5UsmV8KW1yc3wGVsHTuWCaPkCHSvZljM=;
+ b=qMoHifn0xLd/fnB7DXLjt+CCcevERy2Hx5lqoZTBzxPFjVNDs0nwqgayJI3N3IA/DrqXkW+iFFWYlU6AZwyUZmVuD/I1/W2qkbJdVfDUpbNfxNf70Sk2n72lt18ZVLejaRDjgU/kTarur7HaXV7u8lji3oZyJZ1lLK+YVM2plDCiwUdf1Q8ZRVO/ircT0CUHu5DtAiFeoZN92cPRnMcoOYDUWn0quCIU24iED7Sf3bH3kSow56Nmek6yrlTFHMvVzkeWsqWIyVvrUcsK4rGVIAHqJZAJr367mHkX46YwVEtZ6Ah3QHH/vYzDJbZ7ITMfwkjmAh8bPrEkPaGH4dyAGA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
+ header.from=os.amperecomputing.com; dkim=pass
+ header.d=os.amperecomputing.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=os.amperecomputing.com; s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=/Uyw5Q0+gndKZkeMm6D3w50lqnd0tcVbSLyo9AZC6nc=;
- b=i6oBnzfEc/jQU2JG//zVGxVeLt7q6fQ0wreMVLQpBAuEcQGF18q3S4LqM6YyqRR+cQQPHUPCUnPjtg+Ms0J/SOmRwRz0X2gpKHUdD09D0LXAn9PXqrH0FiPv1ZjupemsF5XAwSWPuCqZ++vUP58jJwnowdVEpFBCcpRWuKbKlVO+Gfo+Nza9JryyIS3JDZbZv3kOsFxT9tBalk4YkM2iKx9R30k8mIeF/NDfsxaKEfRJWNmDdc3Sld7onPGENcbqBA4wGIti2cWCFBavvrPsRTphLVP1R9TgSxxQgXrhp2eXf3GbMcWDh3x3bUcWic0Tbu0lPHE8IDKGbWrzlo5yFg==
-Received: from BN0PR04CA0142.namprd04.prod.outlook.com (2603:10b6:408:ed::27)
- by MW6PR12MB7087.namprd12.prod.outlook.com (2603:10b6:303:238::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8964.22; Thu, 24 Jul
- 2025 22:10:28 +0000
-Received: from BL6PEPF0001AB50.namprd04.prod.outlook.com
- (2603:10b6:408:ed:cafe::3a) by BN0PR04CA0142.outlook.office365.com
- (2603:10b6:408:ed::27) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8964.21 via Frontend Transport; Thu,
- 24 Jul 2025 22:10:28 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.161) by
- BL6PEPF0001AB50.mail.protection.outlook.com (10.167.242.74) with Microsoft
+ bh=Ev7HhyPztgJ5UsmV8KW1yc3wGVsHTuWCaPkCHSvZljM=;
+ b=vgMp5Pj1PvBlr0c3ruGQxYCdQ7+1hUYymoxZ4qaiaLUpHcpt0x89Vvfbr+hvQK5g2UkhCFWFoiwXyMBB5jO5x6cOZn3CK+zTinh0Og4vn7tbb2iWY9o1e0mERA6V3LvfcqMQU+WZxus3A5BIdKP3Dbzm7dXHghy6rk/iV3Kc1yM=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
+Received: from CH0PR01MB6873.prod.exchangelabs.com (2603:10b6:610:112::22) by
+ SN7PR01MB8089.prod.exchangelabs.com (2603:10b6:806:32f::7) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8964.20 via Frontend Transport; Thu, 24 Jul 2025 22:10:28 +0000
-Received: from rnnvmail205.nvidia.com (10.129.68.10) by mail.nvidia.com
- (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Thu, 24 Jul
- 2025 15:10:10 -0700
-Received: from rnnvmail205.nvidia.com (10.129.68.10) by rnnvmail205.nvidia.com
- (10.129.68.10) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Thu, 24 Jul
- 2025 15:10:09 -0700
-Received: from Asurada-Nvidia.nvidia.com (10.127.8.14) by mail.nvidia.com
- (10.129.68.10) with Microsoft SMTP Server id 15.2.1544.14 via Frontend
- Transport; Thu, 24 Jul 2025 15:10:09 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: <jgg@nvidia.com>, <will@kernel.org>
-CC: <joro@8bytes.org>, <robin.murphy@arm.com>,
-	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>, <linux-tegra@vger.kernel.org>,
-	<praan@google.com>
-Subject: [PATCH v4 1/2] iommu/arm-smmu-v3: Do not bother impl_ops if IOMMU_VIOMMU_TYPE_ARM_SMMUV3
-Date: Thu, 24 Jul 2025 15:10:01 -0700
-Message-ID: <20250724221002.1883034-2-nicolinc@nvidia.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250724221002.1883034-1-nicolinc@nvidia.com>
-References: <20250724221002.1883034-1-nicolinc@nvidia.com>
-MIME-Version: 1.0
+ 15.20.8964.21; Thu, 24 Jul 2025 22:12:49 +0000
+Received: from CH0PR01MB6873.prod.exchangelabs.com
+ ([fe80::3850:9112:f3bf:6460]) by CH0PR01MB6873.prod.exchangelabs.com
+ ([fe80::3850:9112:f3bf:6460%2]) with mapi id 15.20.8964.019; Thu, 24 Jul 2025
+ 22:12:49 +0000
+From: Yang Shi <yang@os.amperecomputing.com>
+To: ryan.roberts@arm.com,
+	will@kernel.org,
+	catalin.marinas@arm.com,
+	akpm@linux-foundation.org,
+	Miko.Lenczewski@arm.com,
+	dev.jain@arm.com,
+	scott@os.amperecomputing.com,
+	cl@gentwo.org
+Cc: yang@os.amperecomputing.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [v5 PATCH 0/4] arm64: support FEAT_BBM level 2 and large block mapping when rodata=full
+Date: Thu, 24 Jul 2025 15:11:02 -0700
+Message-ID: <20250724221216.1998696-1-yang@os.amperecomputing.com>
+X-Mailer: git-send-email 2.50.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-NV-OnPremToCloud: AnonymousSubmission
-X-EOPAttributedMessage: 0
+X-ClientProxiedBy: CY5PR15CA0236.namprd15.prod.outlook.com
+ (2603:10b6:930:66::8) To CH0PR01MB6873.prod.exchangelabs.com
+ (2603:10b6:610:112::22)
+MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BL6PEPF0001AB50:EE_|MW6PR12MB7087:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5b626f9f-9154-4167-6c36-08ddcafee5f1
+X-MS-TrafficTypeDiagnostic: CH0PR01MB6873:EE_|SN7PR01MB8089:EE_
+X-MS-Office365-Filtering-Correlation-Id: 80b8c238-faf7-4a06-12a9-08ddcaff39ea
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|36860700013|376014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?nlGlLIJrQYQIKJSARoLe7yzTEOd8ezLU9Se6ND1hbeV5ndKuZUdZgdcMP9hS?=
- =?us-ascii?Q?6gBeX4pla0Q1g37HoK5kjCIrtYWBEUslZ7aYiAlKDlfTs2TmkA7t4VKrsMtb?=
- =?us-ascii?Q?Rph+GbR5aOIVoq/39XxkAYNn+jbi29sbKEr3MlS2bL8V7f5gOx1g1jBb0Ugw?=
- =?us-ascii?Q?FlviTItoN2pkKKk/tgoMvvxKWWeS5NjbYncYTuOYLxHrASzNjaAdAqsgKAE+?=
- =?us-ascii?Q?LXxTjQjRUrp4Vfy0c5xY/NbR3Z4/lHZfUdJ4vHeDrNDNNwD10ToAqcKJ3tXG?=
- =?us-ascii?Q?zjKUXLGJtrSn647QGkLR7gIymxCFygzgkdnaSeV6guaNQHHBjiXncmkNs9Y7?=
- =?us-ascii?Q?o/tmto/aBHfWK5zcvYidGRkgs1fgFryGGEM5rKrqmBQYWR7Dt04z728sHjkB?=
- =?us-ascii?Q?4T4q2J2Uy3SHVt9XWBzHQJNGleFX8GJg/FOXMB6PFmelAcikhU93kmPmFqHB?=
- =?us-ascii?Q?KZubPdo5eKBXgYUHZCP4qf2B2/i5VGNqVZ6rlCfKbZGZgRMKzsQrDP3CVtSI?=
- =?us-ascii?Q?48LQiKcS6/p05sTRn40R+taD07yErBqkDROv+yR7FvrbhAugtSoQXMPCrB/1?=
- =?us-ascii?Q?lXzWns19IQsfwNZTm5J+SWlT1k9+eTR6CH89actXt4pSo0lvUT59Ubyw+ChD?=
- =?us-ascii?Q?EAxuqZsn10QOyLtBVM8/bOIRlQ3eVtlGhr/q3h5TC94GJA+bpW67+zc0pexL?=
- =?us-ascii?Q?kgDmQ08oiFuimpcEmqHFLuW4E7DsBfpwviLJTxXe699JEjB9FM1Mg8svdmEG?=
- =?us-ascii?Q?HQxsXdrDEkU+5B46Uzt9SK5Dw1Tb5A/oegnBxiVHfOsbzbLkyplUJFG34gIj?=
- =?us-ascii?Q?0DMjVe8WzSiCMV+n8noNTrJQY055dWyM6ssOlDKDy2gPdlagHEfyY9gTq7+K?=
- =?us-ascii?Q?mptFr1OIQQ/UwcNuM6dB5MOPFu4UGX2YHlaQrv8T3/jCv+zknvIIq9iDB8xn?=
- =?us-ascii?Q?SP2a2Zbn1vxvJVaP4/TrtUxCBZrS//VGPtRGAkHLK/qyxQpNW/tJg9+19bYZ?=
- =?us-ascii?Q?tj6BOpR5RU+tQd4cJ/G34pyOQfZbDiJyUtR+izsdzC3zRbfNQB18+LyDuXh4?=
- =?us-ascii?Q?ZEY59h/EcZp87fQfQS+SgIUMBZAB2rd6ZP1mQ39h0BHng8I36WADXgqLoSvL?=
- =?us-ascii?Q?HVH0JwJlR4P157bC/iknXKl4DaBQ+3VF+2auoKT5TFJfAtuHt3f6JLOKyOR7?=
- =?us-ascii?Q?p1zTVcTSB5tmzokOUVMmvmKcdJrfBswMfyM+WKK4GMioFN7GCudE6X7FSnrd?=
- =?us-ascii?Q?8rggMa4CzubzIMy0Q2yUK8dcXZoW68DkATbZ6EbhZ7AJECXVG2JsAuEmZB2E?=
- =?us-ascii?Q?ps1TgkTl1UeS74N8X04RRAASMgZ32She5driZXXlsEwIg7Grz81yXfMXdWff?=
- =?us-ascii?Q?LimasQhBVns6bHFzcOe9yMQq4EhPHWkjH3Jalrejnpp3IfzsLBZZpo4Qhlxv?=
- =?us-ascii?Q?K6R/QQxrlNNLMPFad47b/mrHv8DzlNV1oeroig//1rWkWRIFgbHPuhI4jKLi?=
- =?us-ascii?Q?y5P3xezsK8cEbDHpPc+n27boe7aRj6qluio/?=
-X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(36860700013)(376014)(7053199007);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Jul 2025 22:10:28.2988
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|52116014|1800799024|38350700014|13003099007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?bFfkFjmB8AmEchEd3M4gIR9bX4orSUm/t/eKxwUgTxN/8cLaF2vMC5lqpsTf?=
+ =?us-ascii?Q?HWwQWu+T0hLpKi3C26chLuMbP1MdwFLV+GxzyIIb+W7yqXKqiYFbdqxWy2x3?=
+ =?us-ascii?Q?xMc6lf+x+owtplxucRiLSDSpRsep36pESpEogD3cvToluLxzMCe7xXafa0ve?=
+ =?us-ascii?Q?o0tsOOTM0f0pim1aiBTuJPCHjYN9tLgHWlKAI+uTx58VEZDjIlNezmtECdSm?=
+ =?us-ascii?Q?/bQpPcDEgsYaV/tzBf35lPjZyw3kH+Yu6i6xiIr/j+W2/63SrixDY2S+R3MC?=
+ =?us-ascii?Q?FcZv2iIoXc15jQrOHMgvS0/6dAr3/KsxSceOLLkScGAJyt7qbJWs4wIhB45p?=
+ =?us-ascii?Q?6P3JXv5N7m7mbhzvukZzUMgih71zSyLijmF3f0vPOr+E1qKt37sNaGVvLAPI?=
+ =?us-ascii?Q?clu7SSEAWm5IItJ38LMPxRfKQ6yDkRvTJL6UXb3d5tFBdSLr/k7mEOgRrdLB?=
+ =?us-ascii?Q?V211UtVGLAy34RD0yCiREbtRZvFoEPkbr2IBuYBaSB87dekGTBocM3KBZrIh?=
+ =?us-ascii?Q?92QTjqf8sfaukGIMHO1SWocrU0dQMm0VgLan5e459trKbjh/eFy47fcKdtzq?=
+ =?us-ascii?Q?XwFWcycgPmZoz6qJ0axEAgIcQTIvt9I/6a+frm7bJoJ5N3lKeeCGcbIUBHeI?=
+ =?us-ascii?Q?uBgmzLlb90OvgmHHlWHGWRbCAp6zrxXaDpKmD73Hjc4nL2AbPe9nGm3LaSWs?=
+ =?us-ascii?Q?o0qqAYmTCa64KtaRd7d7PxQREt9M7ZEiA8gWPfM88TXOkr091nW/++m9o6Gh?=
+ =?us-ascii?Q?rauNcCxvgcjC9MiQbwfi8nChlPoQWTO66g9Qd0unMEKBdZ93nXWzaWX6AAJQ?=
+ =?us-ascii?Q?QuJL1tZTbL8u02QwVddOsM0un5Yf8LxaBUh/YbmkvlAC2bX65p+bonAiruwF?=
+ =?us-ascii?Q?mtCtGRyvWAwGzUXz6e3q85h/hvfHqdsZp/QMqopxaYwADg6sjuxOqcnPtoGx?=
+ =?us-ascii?Q?AJkZ3bOSR49hkCeByGvrjSzYMC00ELb12E6Eof3+IfVj06rlBlKOiFV9xxAc?=
+ =?us-ascii?Q?gSw8gQX7J3KmHorMg4g5Q2Yl/j1VuHAJEy1VwKBQBoanJMaQo+WqbNPYUaC2?=
+ =?us-ascii?Q?B71EuFh0NRpoxX7NI1A2YbjBFIFRYcLDXMnm/q7yRunN37h75MmEB9QkmThu?=
+ =?us-ascii?Q?dbR5qATswQ8n6KPOl8bQjRkknqKaPNE05SLVqJ0FDFFkrJD1l7eUS2YJX/y4?=
+ =?us-ascii?Q?VLARtl1gzXcqjGRH4agewx2ilgUPvVrDlrR8zfH9zmI0gb9+k1cZ5F3zW2WS?=
+ =?us-ascii?Q?5ymTYG7uUI/qkRcjSuSA5ITkLERLH5H1VB3ASptABOqjS3gjBCIcjZzd1Gb1?=
+ =?us-ascii?Q?XySDMtxUXhZtkAVow4QwebVTnRstSGEdoZzP9A5wAptH10FTzYxMZuV2xuBR?=
+ =?us-ascii?Q?W8ijDloEbETfQhvnVJigTkl5EBpWqa0M7kf+RGRRPExZM1N2aZaK8szx8XTW?=
+ =?us-ascii?Q?Co/wFP7YzpFUcnqKpfhZZFGVGuCcb2a31viZLAphZ6VvElUfWeQff0JjNcUe?=
+ =?us-ascii?Q?5P3FgnoKXCHPF1M=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH0PR01MB6873.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(52116014)(1800799024)(38350700014)(13003099007);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?2gm+29eJyM6oIW0+UFapEq2OcX3X7tXjlRvAv4CRBywDxz0Op1a0xEj3kUtC?=
+ =?us-ascii?Q?hgeiest1Ae9UwN6pUvsRPlDsUkA7evfXsroDFINVzd5rVjuaTj/yNsvCYA+p?=
+ =?us-ascii?Q?JNd+UG+Px3XLHNCrN2pXGD6eNNgkEUFI3mNz8Ag33k+mSTrRhP0tQKad4scs?=
+ =?us-ascii?Q?gdsHrM4P+DihRh9Rkta83mqFyM/N8qSPMFLv9d3Wtb8LosN9aeSEYGGJHoKE?=
+ =?us-ascii?Q?pc5NOnfc9eMhlFG/NAn/jY6vt5UOFNywDgMKBDC+MX8ot63q5i1qvmdx7z4R?=
+ =?us-ascii?Q?8+RAI0uEh8vwA9Yww2u2S59WwXorklyXAXv3P4T1NI3dBJctj+oZSv7Q6Xqk?=
+ =?us-ascii?Q?Po6ThwSCyGiGsGccLZQklj33rng0nfYlZG+ZYyAeKWEYGFw6RaFjyXnrQwSw?=
+ =?us-ascii?Q?xvFkEVNxa2TqhQJdJlgF8LyFq/W0LPW5OxHOiKBbQzO5aX95D4x2nR5eC99K?=
+ =?us-ascii?Q?/YA9dejUZM88w7wpryUVpB8kXZaUW0CqWqTSWkXJI7tqUKKavV9+VgZW/D6Y?=
+ =?us-ascii?Q?NvE9xDo6tyUoVKSdJzRxYxxEp9S4iIINyPJ8k8lMHhMjto1Tht79LmqEDVZs?=
+ =?us-ascii?Q?jmvjzDPTuDF5Hg/JFEaL+sZOmUk6qTDok5EShHUPOLgFEkTvWJ/80kyBaJlc?=
+ =?us-ascii?Q?IeAvIWp4j1AwfH86Aa9aKONiDJir8JFDgP5fZv0jQ4m8Lcvxi79w0jEOQ5DP?=
+ =?us-ascii?Q?kEOOzID3XHS1nWtf2P2YqcpknJqbVHzL0N7yihmZ1M2Zpap7BOCOaN1j3u5H?=
+ =?us-ascii?Q?7kTAnLeOCVwOwEdOIDoHWOh/b0+cp8YtoC2UEnP6ZzKBsbVjb/M+AS5zR0I4?=
+ =?us-ascii?Q?x1s5qvcbBcR5u0Zwk7ehTpwsvnhxih7Pr20bZ6LSErKuwaXPmt0z+fIPm+xP?=
+ =?us-ascii?Q?arXVIAd/HVCKkQO8r+EMYp2Nl0O0eC7dZAj51kyOd78ix6AyPyZrm10X0hWV?=
+ =?us-ascii?Q?apDfXEMpck/6LKfI+xWTCv3zUX/Ak2ABI7TuUpPAWMZL0VJyXb7Abw/y9AHN?=
+ =?us-ascii?Q?a25TEpMdaevx1n/bGlf9FQqaiwOtGTDopWswV3gGAV33jfo1Vd7f6KegVJNZ?=
+ =?us-ascii?Q?23f8wI0i32cJ+ItGi4ukGhWq/lPUH7fX6giYPQypOGsKo/GRv1d1kWmPcBeY?=
+ =?us-ascii?Q?xmfTXK+N19nzKUPzHPWhd8le9ta9s2W15DcHiPqE7U+7Yn7ectSz1krlzTyO?=
+ =?us-ascii?Q?QOvGloBMnM1cWX+dC7rThPMqZSYdMcB4FlMIbS+RSEQe9E45LJjbQ5MFo4r0?=
+ =?us-ascii?Q?k4forNp49CZz0gIKUMPhnX9pPKWplQq6xbVqe2n9npZvVYLjyrqny/b2BRZR?=
+ =?us-ascii?Q?NJvTgtFlN0k9oxNGUTj8Yvz+UZnHusdMqZG6vkN73YMk46yuPhXIJz8v5Jvu?=
+ =?us-ascii?Q?tpPKUnrQ2Vt263PNdIS8rRTQUHiRrh7AVw1i5/FyWYogz+BxCcS1cLuhN8sA?=
+ =?us-ascii?Q?1Ngkd2Q8GEwI9Z9jKXrHn1QPCIgmIMHwpaVrvcBEUGXeqpXXOUitq8qF7Ak/?=
+ =?us-ascii?Q?PU3qyBooLkAS8zRqOUccjMAOzrZw6zPBFd3ljEFb7Ou3a3zuIqITt9w4yLW/?=
+ =?us-ascii?Q?pxYhW0lP5PzZr4+L4gS9aEY0R0hG/RF4EndB0bXiDJuV9J693fxSHFsyPi+c?=
+ =?us-ascii?Q?nniMlfe+aMxOAxvh2k+iC2s=3D?=
+X-OriginatorOrg: os.amperecomputing.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 80b8c238-faf7-4a06-12a9-08ddcaff39ea
+X-MS-Exchange-CrossTenant-AuthSource: CH0PR01MB6873.prod.exchangelabs.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Jul 2025 22:12:49.5826
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5b626f9f-9154-4167-6c36-08ddcafee5f1
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: BL6PEPF0001AB50.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW6PR12MB7087
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: AqmaGHruGy3Bu4+6SOTxuHcCPqCfzUEC2QxO6PY6gVEInZO/HF8f8KRR3QRQ05HuP3Bl+PJlZwY+kcXPUSlZ47fqCfKNACkgtNzJDYIzT24=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR01MB8089
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250724_231039_261826_7B00FC47 
-X-CRM114-Status: GOOD (  16.26  )
+X-CRM114-CacheID: sfid-20250724_151255_759869_1CED078F 
+X-CRM114-Status: GOOD (  21.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,109 +165,172 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When viommu type is IOMMU_VIOMMU_TYPE_ARM_SMMUV3, always return or init the
-standard struct arm_vsmmu, instead of going through impl_ops that must have
-its own viommu type than the standard IOMMU_VIOMMU_TYPE_ARM_SMMUV3.
 
-Given that arm_vsmmu_init() is called after arm_smmu_get_viommu_size(), any
-unsupported viommu->type must be a corruption. And it must be a driver bug
-that its vsmmu_size and vsmmu_init ops aren't paired. Warn these two cases.
+Changelog
+=========
+v5:
+  * Rebased to v6.16 rc.
+  * Based on Miko's v8 BBML2 cpufeature patch (https://lore.kernel.org/lkml/20250625113435.26849-3-miko.lenczewski@arm.com/).
+  * Based on Dev's "v4 enable permission change on kernel block mapping" patch (https://lore.kernel.org/lkml/20250703151441.60325-1-dev.jain@arm.com/),
+    also included this patch in this series per the sugestion from Catalin.
+    Andrew had some nits on the generic mm part for that patch, but I didn't change anything.
+  * Implemented split in dedicated function per Ryan.
+  * Dropped "make __create_pgd_mapping() and helpers non-void" patch. It is not
+    needed anymore.
+  * Optimized page table walk to reduce loop overhead if the range spans
+    multiple leaf mappings.
+  * Used dedicated lock to serialize split instead of init_mm's mmap_lock
+    per Ryan.
+  * Allowed split page table for kfence and realm per Ryan.
+  * Used lazy mmu to reduce unnecessary barriers per Ryan.
+  * Removed unnecessary TLB flush per Ryan.
+  * Cleaned up "wait for boot cpu" logic for repainting per Ryan.
+  * Misc clean up.
+v4:
+  * Rebased to v6.15-rc4.
+  * Based on Miko's latest BBML2 cpufeature patch (https://lore.kernel.org/linux-arm-kernel/20250428153514.55772-4-miko.lenczewski@arm.com/).
+  * Keep block mappings rather than splitting to PTEs if it is fully contained
+    per Ryan.
+  * Return -EINVAL if page table allocation failed instead of BUG_ON per Ryan.
+  * When page table allocation failed, return -1 instead of 0 per Ryan.
+  * Allocate page table with GFP_ATOMIC for repainting per Ryan.
+  * Use idmap to wait for repainting is done per Ryan.
+  * Some minor fixes per the discussion for v3.
+  * Some clean up to reduce redundant code.
 
-Suggested-by: Will Deacon <will@kernel.org>
-Acked-by: Will Deacon <will@kernel.org>
-Reviewed-by: Pranjal Shrivastava <praan@google.com>
-Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
----
- .../arm/arm-smmu-v3/arm-smmu-v3-iommufd.c     | 27 +++++++++++--------
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   | 14 ++++++++++
- 2 files changed, 30 insertions(+), 11 deletions(-)
+v3:
+  * Rebased to v6.14-rc4.
+  * Based on Miko's BBML2 cpufeature patch (https://lore.kernel.org/linux-arm-kernel/20250228182403.6269-3-miko.lenczewski@arm.com/).
+    Also included in this series in order to have the complete patchset.
+  * Enhanced __create_pgd_mapping() to handle split as well per Ryan.
+  * Supported CONT mappings per Ryan.
+  * Supported asymmetric system by splitting kernel linear mapping if such
+    system is detected per Ryan. I don't have such system to test, so the
+    testing is done by hacking kernel to call linear mapping repainting
+    unconditionally. The linear mapping doesn't have any block and cont
+    mappings after booting.
 
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
-index d9bea8f1f636d..b963b9b3de542 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
-@@ -420,14 +420,13 @@ size_t arm_smmu_get_viommu_size(struct device *dev,
- 	    !(smmu->features & ARM_SMMU_FEAT_S2FWB))
- 		return 0;
- 
--	if (smmu->impl_ops && smmu->impl_ops->vsmmu_size &&
--	    viommu_type == smmu->impl_ops->vsmmu_type)
--		return smmu->impl_ops->vsmmu_size;
-+	if (viommu_type == IOMMU_VIOMMU_TYPE_ARM_SMMUV3)
-+		return VIOMMU_STRUCT_SIZE(struct arm_vsmmu, core);
- 
--	if (viommu_type != IOMMU_VIOMMU_TYPE_ARM_SMMUV3)
-+	if (!smmu->impl_ops || !smmu->impl_ops->vsmmu_size ||
-+	    viommu_type != smmu->impl_ops->vsmmu_type)
- 		return 0;
--
--	return VIOMMU_STRUCT_SIZE(struct arm_vsmmu, core);
-+	return smmu->impl_ops->vsmmu_size;
- }
- 
- int arm_vsmmu_init(struct iommufd_viommu *viommu,
-@@ -447,12 +446,18 @@ int arm_vsmmu_init(struct iommufd_viommu *viommu,
- 	/* FIXME Move VMID allocation from the S2 domain allocation to here */
- 	vsmmu->vmid = s2_parent->s2_cfg.vmid;
- 
--	if (smmu->impl_ops && smmu->impl_ops->vsmmu_init &&
--	    viommu->type == smmu->impl_ops->vsmmu_type)
--		return smmu->impl_ops->vsmmu_init(vsmmu, user_data);
-+	if (viommu->type == IOMMU_VIOMMU_TYPE_ARM_SMMUV3) {
-+		viommu->ops = &arm_vsmmu_ops;
-+		return 0;
-+	}
- 
--	viommu->ops = &arm_vsmmu_ops;
--	return 0;
-+	/*
-+	 * Unsupported type should be rejected by arm_smmu_get_viommu_size.
-+	 * Seeing one here indicates a kernel bug or some data corruption.
-+	 */
-+	if (WARN_ON(viommu->type != smmu->impl_ops->vsmmu_type))
-+		return -EOPNOTSUPP;
-+	return smmu->impl_ops->vsmmu_init(vsmmu, user_data);
- }
- 
- int arm_vmaster_report_event(struct arm_smmu_vmaster *vmaster, u64 *evt)
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-index 181d07bc1a9d4..9f4ad37058010 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-@@ -4703,6 +4703,7 @@ static void arm_smmu_impl_remove(void *data)
- static struct arm_smmu_device *arm_smmu_impl_probe(struct arm_smmu_device *smmu)
- {
- 	struct arm_smmu_device *new_smmu = ERR_PTR(-ENODEV);
-+	const struct arm_smmu_impl_ops *ops;
- 	int ret;
- 
- 	if (smmu->impl_dev && (smmu->options & ARM_SMMU_OPT_TEGRA241_CMDQV))
-@@ -4713,11 +4714,24 @@ static struct arm_smmu_device *arm_smmu_impl_probe(struct arm_smmu_device *smmu)
- 	if (IS_ERR(new_smmu))
- 		return new_smmu;
- 
-+	ops = new_smmu->impl_ops;
-+	if (ops) {
-+		/* vsmmu_size and vsmmu_init ops must be paired */
-+		if (WARN_ON(!ops->vsmmu_size != !ops->vsmmu_init)) {
-+			ret = -EINVAL;
-+			goto err_remove;
-+		}
-+	}
-+
- 	ret = devm_add_action_or_reset(new_smmu->dev, arm_smmu_impl_remove,
- 				       new_smmu);
- 	if (ret)
- 		return ERR_PTR(ret);
- 	return new_smmu;
-+
-+err_remove:
-+	arm_smmu_impl_remove(new_smmu);
-+	return ERR_PTR(ret);
- }
- 
- static int arm_smmu_device_probe(struct platform_device *pdev)
--- 
-2.43.0
+RFC v2:
+  * Used allowlist to advertise BBM lv2 on the CPUs which can handle TLB
+    conflict gracefully per Will Deacon
+  * Rebased onto v6.13-rc5
+  * https://lore.kernel.org/linux-arm-kernel/20250103011822.1257189-1-yang@os.amperecomputing.com/
+
+v4: https://lore.kernel.org/lkml/20250531024545.1101304-1-yang@os.amperecomputing.com/
+v3: https://lore.kernel.org/linux-arm-kernel/20250304222018.615808-1-yang@os.amperecomputing.com/
+RFC v2: https://lore.kernel.org/linux-arm-kernel/20250103011822.1257189-1-yang@os.amperecomputing.com/
+RFC v1: https://lore.kernel.org/lkml/20241118181711.962576-1-yang@os.amperecomputing.com/
+
+Description
+===========
+When rodata=full kernel linear mapping is mapped by PTE due to arm's
+break-before-make rule.
+
+A number of performance issues arise when the kernel linear map is using
+PTE entries due to arm's break-before-make rule:
+  - performance degradation
+  - more TLB pressure
+  - memory waste for kernel page table
+
+These issues can be avoided by specifying rodata=on the kernel command
+line but this disables the alias checks on page table permissions and
+therefore compromises security somewhat.
+
+With FEAT_BBM level 2 support it is no longer necessary to invalidate the
+page table entry when changing page sizes.  This allows the kernel to
+split large mappings after boot is complete.
+
+This patch adds support for splitting large mappings when FEAT_BBM level 2
+is available and rodata=full is used. This functionality will be used
+when modifying page permissions for individual page frames.
+
+Without FEAT_BBM level 2 we will keep the kernel linear map using PTEs
+only.
+
+If the system is asymmetric, the kernel linear mapping may be repainted once
+the BBML2 capability is finalized on all CPUs.  See patch #4 for more details.
+
+We saw significant performance increases in some benchmarks with
+rodata=full without compromising the security features of the kernel.
+
+Testing
+=======
+The test was done on AmpereOne machine (192 cores, 1P) with 256GB memory and
+4K page size + 48 bit VA.
+
+Function test (4K/16K/64K page size)
+  - Kernel boot.  Kernel needs change kernel linear mapping permission at
+    boot stage, if the patch didn't work, kernel typically didn't boot.
+  - Module stress from stress-ng. Kernel module load change permission for
+    linear mapping.
+  - A test kernel module which allocates 80% of total memory via vmalloc(),
+    then change the vmalloc area permission to RO, this also change linear
+    mapping permission to RO, then change it back before vfree(). Then launch
+    a VM which consumes almost all physical memory.
+  - VM with the patchset applied in guest kernel too.
+  - Kernel build in VM with guest kernel which has this series applied.
+  - rodata=on. Make sure other rodata mode is not broken.
+  - Boot on the machine which doesn't support BBML2.
+
+Performance
+===========
+Memory consumption
+Before:
+MemTotal:       258988984 kB
+MemFree:        254821700 kB
+
+After:
+MemTotal:       259505132 kB
+MemFree:        255410264 kB
+
+Around 500MB more memory are free to use.  The larger the machine, the
+more memory saved.
+
+Performance benchmarking
+* Memcached
+We saw performance degradation when running Memcached benchmark with
+rodata=full vs rodata=on.  Our profiling pointed to kernel TLB pressure.
+With this patchset we saw ops/sec is increased by around 3.5%, P99
+latency is reduced by around 9.6%.
+The gain mainly came from reduced kernel TLB misses.  The kernel TLB
+MPKI is reduced by 28.5%.
+
+The benchmark data is now on par with rodata=on too.
+
+* Disk encryption (dm-crypt) benchmark
+Ran fio benchmark with the below command on a 128G ramdisk (ext4) with disk
+encryption (by dm-crypt with no read/write workqueue).
+fio --directory=/data --random_generator=lfsr --norandommap --randrepeat 1 \
+    --status-interval=999 --rw=write --bs=4k --loops=1 --ioengine=sync \
+    --iodepth=1 --numjobs=1 --fsync_on_close=1 --group_reporting --thread \
+    --name=iops-test-job --eta-newline=1 --size 100G
+
+The IOPS is increased by 90% - 150% (the variance is high, but the worst
+number of good case is around 90% more than the best number of bad case).
+The bandwidth is increased and the avg clat is reduced proportionally.
+
+* Sequential file read
+Read 100G file sequentially on XFS (xfs_io read with page cache populated).
+The bandwidth is increased by 150%.
+
+
+Dev Jain (1):
+      arm64: Enable permission change on arm64 kernel block mappings
+
+Yang Shi (3):
+      arm64: cpufeature: add AmpereOne to BBML2 allow list
+      arm64: mm: support large block mapping when rodata=full
+      arm64: mm: split linear mapping if BBML2 is not supported on secondary CPUs
+
+ arch/arm64/include/asm/cpufeature.h |  34 ++++++++++++++
+ arch/arm64/include/asm/mmu.h        |   5 +++
+ arch/arm64/include/asm/pgtable.h    |   5 +++
+ arch/arm64/kernel/cpufeature.c      |  37 ++++-----------
+ arch/arm64/mm/mmu.c                 | 408 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++----
+ arch/arm64/mm/pageattr.c            | 159 +++++++++++++++++++++++++++++++++++++++++++++++++++-------------
+ arch/arm64/mm/proc.S                |  57 ++++++++++++++++-------
+ include/linux/pagewalk.h            |   3 ++
+ mm/pagewalk.c                       |  24 ++++++++++
+ 9 files changed, 648 insertions(+), 84 deletions(-)
 
 
