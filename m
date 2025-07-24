@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 044E4C87FCC
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DA6EC87FCE
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 17:05:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,37 +12,38 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fQ5UISxBYxDM+28ZiOqgjc5u5zPalIxVUf3DW0H66yg=; b=45oGUSKRXdsBujSbvNOIgXo6ph
-	4RLu91fqHeRxLJiwg8mw3oj5slcsFL+eNYuhzQqLzpv3SIzmd9ggc0iq6uN8Zmt3B1h4oLiRAo+u1
-	6UGpZGid3ZhC3VKkzbc8AEYtOsHEUyDYN3NDwRacl9u6DbiGrJrf/p4FLPMNHwqqBSpWo5Dpnin9r
-	Atq+is83P0n2oeuEnQD0ZIMwel1tJgUH6nEkgK++PqQMFgyWJwsDenEgosiWiKFTZoHawmmy2pKgb
-	SGmYqWGGvKFnbjy4Pvpw7+qKMTsJD29CHVO6j0Wo0ZyW0FPrMWxcXj2oBggLoTO6TwErd1wEaxwK1
-	cimwwZuQ==;
+	bh=LW1r31MwKGRNcLBzK0O//PrqWckm/tPoioDCz9PbGQU=; b=GYA6rG7ogiW50Tm+G6adu3VvOM
+	BM9xmUdovwOMtHdyeV3OEVP+31LQTuU4J9QZXZLEs17rB5Xuc/XmTW0yS5wN4ckqHQ1dL9vK43OXq
+	s9hJo66JIsrdEtdLEKgPbkkqZ7BdccTvki2TQV40iYI+uINJl+4XESYzGuNdaX4Ijgw6x1PTW2qW0
+	rPd9liLwmgJPTyW/yKg6UaSd0JswNAEyFdSURhlWOVKcl8qOVEIEiCRlPVVL6gIFw9LhokwHU2R53
+	zaAakqmliJuWg+7lMz50vxqhksel8pJgn2P7v1gxIWzDTRXsicEuAtPbhlwD5Quz51vB+bQM2qMh0
+	no7GqBXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uezNW-000000082vL-1XAj;
-	Thu, 24 Jul 2025 17:05:10 +0000
+	id 1uezNV-000000082uq-3JQy;
+	Thu, 24 Jul 2025 17:05:09 +0000
 Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uewew-00000007htR-3G3H;
-	Thu, 24 Jul 2025 14:11:00 +0000
+	id 1ueweq-00000007hpk-3qQC;
+	Thu, 24 Jul 2025 14:10:54 +0000
 Received: from [192.168.1.76] (unknown [IPv6:2001:b07:6462:5de2:520d:d7a3:63ca:99e8])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id CF2DA1C0A;
-	Thu, 24 Jul 2025 16:10:17 +0200 (CEST)
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 033AF1E5F;
+	Thu, 24 Jul 2025 16:10:11 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1753366218;
-	bh=Ee9J4mCFwsXOb6mRepzI/4oK3qWzitZE/F4KVxjoUTk=;
+	s=mail; t=1753366212;
+	bh=Rakpl27ZFfuZPNzLUJwkywWxLHQibWoreQq3wqBUYHs=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=pzHa1tjZMGgYMU078QicAtgwWMuYcA9cnDrSFTuykjJHaoEKfgnLhDSXu5z0QhEpQ
-	 jY2bsX5Mv18P89zp/y6H9tdEG/sgVCEI0ob5Ee92O8SBobDukmlGqNtICsnABIJuKu
-	 5FNMJ4n9+HP2YVdteavsS1Rc9eQhjvmWcvzDGzxY=
+	b=rkxFX7sAQCEKaPxSPE2/4a3i2tkB56Hv+1ujwS7RD9Hz2U1UnNsTe3uPaUWJH7GW3
+	 HLSoIKsGP9BTmJMgra5HH9J+JPKG67vKyeLc9yKfvl8biarE5pljl5KzxoMafsKv4V
+	 lyYdm/h4N8Jn+soiQlInnqXT3NrO4mqIbySApqQ0=
 From: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-Date: Thu, 24 Jul 2025 16:10:32 +0200
-Subject: [PATCH DNI v2 25/27] media: pisp_be: Implement link validation
+Date: Thu, 24 Jul 2025 16:10:27 +0200
+Subject: [PATCH v2 20/27] media: v4l2-subdev: Validate media links with
+ context
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250724-multicontext-mainline-2025-v2-25-c9b316773486@ideasonboard.com>
+Message-Id: <20250724-multicontext-mainline-2025-v2-20-c9b316773486@ideasonboard.com>
 References: <20250724-multicontext-mainline-2025-v2-0-c9b316773486@ideasonboard.com>
 In-Reply-To: <20250724-multicontext-mainline-2025-v2-0-c9b316773486@ideasonboard.com>
 To: Sakari Ailus <sakari.ailus@linux.intel.com>, 
@@ -61,26 +62,26 @@ Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
  linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
  Jacopo Mondi <jacopo.mondi@ideasonboard.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3786;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=13600;
  i=jacopo.mondi@ideasonboard.com; h=from:subject:message-id;
- bh=Ee9J4mCFwsXOb6mRepzI/4oK3qWzitZE/F4KVxjoUTk=;
- b=owEBbQKS/ZANAwAKAXI0Bo8WoVY8AcsmYgBogj7RDaGW0mIc3AfkJWN26XnOzBGJjJeUiPFQd
- JH2LcAA4PWJAjMEAAEKAB0WIQS1xD1IgJogio9YOMByNAaPFqFWPAUCaII+0QAKCRByNAaPFqFW
- PG+CD/4mldTV0hLxTaCPPXBaV6zXOSZrS3SQeXmb5Q5F6gOH8g+iZNHcl1hnJbPLgT6JzC0yHiz
- 0fzTFmKzPy+AYJY64XeKBKK2UEgcYmPYRAt3GXtd1voVIepfSnhCEPBJ0j7qJoD9034kwsZNzRL
- Jyr//C+HnZJuWF3UHFXyQ5IupxB6fEAiOr+PgRB/b1WfaPMAY27JT1FTaJaDZkGR7cKb9m9ia44
- HUYWIWdP8t55v0R6Cry0RY7hJ+7YTj3kkeKbPimvKx6Cxaix5x7YvJT158VS5N1LSDUpqbt6+A7
- YWS6TveLGCrPaETMcQt0FEfIwwkF6mjoi+ceZkw4iyFe5NTQrK7tc8vNfHCpGyReLlLaFD8iFgh
- REgXFd/j7PMj3C1/Irhgl1W4a6zabgaeZn9VDmBVwridn6YL0lVqjv3lFov53waE5LG6nGEkRYU
- /56Bfb2ae4kbt0UeQXutV0qanklfaV1EOMn3CtrB4flUTj8h3V5/uN7PST8sjwfVF4ixIUuIGOL
- 7InbN3r3cbniY64r2sgzC+S/xJGMXVZjEEgz0pv70yOFq6j55sJzh+JYeacaD5qu+VvnSrIW2x/
- RFN3obsvJug96z1KROEyDfSla9RgVWmmBBEdPCIQgigpviGBqVGb+4dTsCrlcZigEhulkBvk58X
- 3hUMPlEKlUcYDgg==
+ bh=Rakpl27ZFfuZPNzLUJwkywWxLHQibWoreQq3wqBUYHs=;
+ b=owEBbQKS/ZANAwAKAXI0Bo8WoVY8AcsmYgBogj7Q/wJzxHEeiOyXCg/K0SW47Nh8MR3vvMnBO
+ cFG4qPLsvKJAjMEAAEKAB0WIQS1xD1IgJogio9YOMByNAaPFqFWPAUCaII+0AAKCRByNAaPFqFW
+ PPuHD/4vVZqoTvFMhF/X/zg35PTtWILmEfRXKwssYAm/KpZIwVz1sLTkBaU9dzzT1jkTlyhz5no
+ QshxJi3xBYeh1ts2t6caLdg0HtEQDkCFCxiubXzZMAIlaCQz8lWdLDR+MT4YOBqc9axvci+beKw
+ D9AErFlXR9yeVQ12NlhZdNxokMV8K6hZnfuVaDLfNwKdfHZtb4m6DWbIkPVkZdhXEj42Q3/6MhH
+ eUFRq9vpy/5CZ2ttyfekkfaQIKioyDmNND82ORl/14sWqHPIjCsLtLo/E78jaPOiW3Qzs62dEzZ
+ V00+PnMfBa1WT1vE3QCTr4/D+aHqCydDzLbv9CUdeSbZHugpTsYFfyxZGgKVJt4TsGVxeUz2rWl
+ Q1765PIuZ9HRAB2+iDUec6vLC8jjfgseNvsLP6vcmtRrHgVDKkPGIZe5dBh4SOM/h5Vy3rtzQqR
+ 7hIzN5p9aboB6k06VHXck1SdYaRclSL6eBTZ8TQ0nZgfrKtrPGhxIJcJRouqua2b+DtBTGfc5X2
+ OEQNVa1P4qGwMjW/1m+G+/qrr69QGNPdnBGyW//MyTLRKN5weSbDGrZ7XDiDIsr51cswU+7qoFi
+ pnc4qJWgiFNALqvzW1mx+31sU3eEwjTOrNAQ6Ey81QvMtenPikAwXDOYmACc9HfTJsTCRbbKWo4
+ e419l8FUQCiX2Yw==
 X-Developer-Key: i=jacopo.mondi@ideasonboard.com; a=openpgp;
  fpr=72392EDC88144A65C701EA9BA5826A2587AD026B
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250724_071058_964764_EB8DA230 
-X-CRM114-Status: GOOD (  13.14  )
+X-CRM114-CacheID: sfid-20250724_071053_248781_FF4679F6 
+X-CRM114-Status: GOOD (  23.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,114 +96,357 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Implement link validation to validate that the sizes of the format on
-the video device matches the size programmed on the ISP subdevice
-connected pad.
+The v4l2-subdev.c file provides an helper for subdevs to implement
+the media entity .link_validate() operation which can be used by
+subdevice drivers.
+
+Provide an 'overload' of the v4l2_subdev_link_validate() function
+that supports contexts to be used by context-aware subdev drivers to
+implement .link_validate_context().
+
+When v4l2_subdev_link_validate() is used to validate a subdev-to-subdev
+link, propagate the media_device_context to all the call chain and
+introduce (and use) helpers to get the subdevice state from either the
+context or the subdev in case no context is available.
 
 Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
 ---
- .../media/platform/raspberrypi/pisp_be/pisp_be.c   | 67 ++++++++++++++++++++++
- 1 file changed, 67 insertions(+)
+ drivers/media/v4l2-core/v4l2-subdev.c | 148 +++++++++++++++++++++++++++-------
+ include/media/v4l2-subdev.h           |  34 +++++++-
+ 2 files changed, 151 insertions(+), 31 deletions(-)
 
-diff --git a/drivers/media/platform/raspberrypi/pisp_be/pisp_be.c b/drivers/media/platform/raspberrypi/pisp_be/pisp_be.c
-index 22e440f387b5e5560b2cc80a8b3bf6064dc12d7c..2a8c09a9c70952c9f99e542271e994d62392c617 100644
---- a/drivers/media/platform/raspberrypi/pisp_be/pisp_be.c
-+++ b/drivers/media/platform/raspberrypi/pisp_be/pisp_be.c
-@@ -1362,6 +1362,67 @@ static const struct v4l2_ioctl_ops pispbe_node_ioctl_ops = {
- 	.vidioc_streamoff = vb2_ioctl_streamoff,
- };
+diff --git a/drivers/media/v4l2-core/v4l2-subdev.c b/drivers/media/v4l2-core/v4l2-subdev.c
+index 66c539d880127844893620d325a2b05ac4aa9e96..59f42a3a9755a77ea74442605dbbc2af1b67a0ea 100644
+--- a/drivers/media/v4l2-core/v4l2-subdev.c
++++ b/drivers/media/v4l2-core/v4l2-subdev.c
+@@ -1460,6 +1460,71 @@ int v4l2_subdev_get_fwnode_pad_1_to_1(struct media_entity *entity,
+ }
+ EXPORT_SYMBOL_GPL(v4l2_subdev_get_fwnode_pad_1_to_1);
  
-+static int pispbe_link_validate(struct media_link *link)
++/*
++ * Retrieve the subdevice state from the media device context or,
++ * if there is no context, use the active state from the subdevice.
++ *
++ * These three functions wraps the usual subdev state helpers:
++ *
++ * - get_unlocked
++ * - get_locked
++ * - lock_and_get
++ */
++
++static struct v4l2_subdev_state *
++v4l2_subdev_get_unlocked_state_from_mdev_ctx(struct v4l2_subdev *sd,
++					     struct media_device_context *mdev_ctx)
 +{
-+	const struct v4l2_mbus_framefmt *sd_fmt;
-+	struct v4l2_pix_format_mplane *pix_mp;
-+	struct v4l2_subdev_state *state;
-+	struct media_entity *vdev_ent;
-+	struct media_entity *sd_ent;
-+	struct pispbe_node *node;
-+	struct v4l2_subdev *sd;
++	struct v4l2_subdev_context *ctx = NULL;
 +
-+	if (is_media_entity_v4l2_video_device(link->source->entity)) {
-+		vdev_ent = link->source->entity;
-+		sd_ent = link->sink->entity;
-+	} else {
-+		sd_ent = link->source->entity;
-+		vdev_ent = link->sink->entity;
++	if (mdev_ctx) {
++		ctx =  v4l2_subdev_context_get(mdev_ctx, sd);
++		if (WARN_ON(!ctx))
++			return NULL;
 +	}
 +
-+	node = container_of(media_entity_to_video_device(vdev_ent),
-+			    struct pispbe_node, vfd);
-+	switch (node->id) {
-+	case TDN_INPUT_NODE:
-+		fallthrough;
-+	case STITCH_INPUT_NODE:
-+		fallthrough;
-+	case TDN_OUTPUT_NODE:
-+		fallthrough;
-+	case STITCH_OUTPUT_NODE:
-+		fallthrough;
-+	case CONFIG_NODE:
-+		/* Skip validation for these nodes. */
-+		return 0;
-+	}
-+	pix_mp = &node->format.fmt.pix_mp;
++	if (ctx)
++		return v4l2_subdev_get_unlocked_active_state(ctx);
 +
-+	sd = media_entity_to_v4l2_subdev(sd_ent);
-+	state = v4l2_subdev_get_unlocked_active_state(sd);
-+	sd_fmt = v4l2_subdev_state_get_format(state, node->id);
-+
-+	/* Only check for sizes. */
-+	if (pix_mp->width != sd_fmt->width) {
-+		dev_dbg(node->pispbe->dev,
-+			"%s: width does not match (vdev %u, sd %u)\n",
-+			__func__, pix_mp->width, sd_fmt->width);
-+		return -EPIPE;
-+	}
-+
-+	if (pix_mp->height != sd_fmt->height) {
-+		dev_dbg(node->pispbe->dev,
-+			"%s: height does not match (vdev %u, sd %u)\n",
-+			__func__, pix_mp->height, sd_fmt->height);
-+		return -EPIPE;
-+	}
-+
-+	return 0;
++	return v4l2_subdev_get_unlocked_active_state(sd);
 +}
 +
-+static const struct media_entity_operations pispbe_node_entity_ops = {
-+	.link_validate = pispbe_link_validate,
-+};
++static struct v4l2_subdev_state *
++v4l2_subdev_get_locked_state_from_mdev_ctx(struct v4l2_subdev *sd,
++					   struct media_device_context *mdev_ctx)
++{
++	struct v4l2_subdev_context *ctx = NULL;
 +
- static const struct video_device pispbe_videodev = {
- 	.name = PISPBE_NAME,
- 	.vfl_dir = VFL_DIR_M2M, /* gets overwritten */
-@@ -1445,6 +1506,7 @@ static int pispbe_init_node(struct pispbe_dev *pispbe, unsigned int id)
- 	vdev->device_caps = V4L2_CAP_STREAMING | node_desc[id].caps;
- 
- 	node->pad.flags = output ? MEDIA_PAD_FL_SOURCE : MEDIA_PAD_FL_SINK;
-+	entity->ops = &pispbe_node_entity_ops;
- 	ret = media_entity_pads_init(entity, 1, &node->pad);
- 	if (ret) {
- 		dev_err(pispbe->dev,
-@@ -1561,6 +1623,10 @@ static const struct v4l2_subdev_internal_ops pispbe_subdev_internal_ops = {
- 	.init_state = pispbe_init_state,
- };
- 
-+static const struct media_entity_operations pispbe_subdev_entity_ops = {
-+	.link_validate = v4l2_subdev_link_validate,
-+};
++	if (mdev_ctx) {
++		ctx =  v4l2_subdev_context_get(mdev_ctx, sd);
++		if (WARN_ON(!ctx))
++			return NULL;
++	}
 +
- static int pispbe_init_subdev(struct pispbe_dev *pispbe)
++	if (ctx)
++		return v4l2_subdev_get_locked_active_state(ctx);
++
++	return v4l2_subdev_get_locked_active_state(sd);
++}
++
++static struct v4l2_subdev_state *
++v4l2_subdev_lock_and_get_state_from_mdev_ctx(struct v4l2_subdev *sd,
++					     struct media_device_context *mdev_ctx)
++{
++	struct v4l2_subdev_context *ctx = NULL;
++
++	if (mdev_ctx) {
++		ctx =  v4l2_subdev_context_get(mdev_ctx, sd);
++		if (WARN_ON(!ctx))
++			return NULL;
++	}
++
++	if (ctx)
++		return v4l2_subdev_lock_and_get_active_state(ctx);
++
++	return v4l2_subdev_lock_and_get_active_state(sd);
++}
++
+ int v4l2_subdev_link_validate_default(struct v4l2_subdev *sd,
+ 				      struct media_link *link,
+ 				      struct v4l2_subdev_format *source_fmt,
+@@ -1518,8 +1583,9 @@ int v4l2_subdev_link_validate_default(struct v4l2_subdev *sd,
+ EXPORT_SYMBOL_GPL(v4l2_subdev_link_validate_default);
+ 
+ static int
+-v4l2_subdev_link_validate_get_format(struct media_pad *pad, u32 stream,
+-				     struct v4l2_subdev_format *fmt,
++v4l2_subdev_link_validate_get_format(struct media_pad *pad,
++				     struct media_device_context *mdev_context,
++				     u32 stream, struct v4l2_subdev_format *fmt,
+ 				     bool states_locked)
  {
- 	struct v4l2_subdev *sd = &pispbe->sd;
-@@ -1569,6 +1635,7 @@ static int pispbe_init_subdev(struct pispbe_dev *pispbe)
- 	v4l2_subdev_init(sd, &pispbe_sd_ops);
- 	sd->internal_ops = &pispbe_subdev_internal_ops;
- 	sd->entity.function = MEDIA_ENT_F_PROC_VIDEO_PIXEL_FORMATTER;
-+	sd->entity.ops = &pispbe_subdev_entity_ops;
- 	sd->owner = THIS_MODULE;
- 	sd->dev = pispbe->dev;
- 	strscpy(sd->name, PISPBE_NAME, sizeof(sd->name));
+ 	struct v4l2_subdev_state *state;
+@@ -1533,9 +1599,11 @@ v4l2_subdev_link_validate_get_format(struct media_pad *pad, u32 stream,
+ 	fmt->stream = stream;
+ 
+ 	if (states_locked)
+-		state = v4l2_subdev_get_locked_active_state(sd);
++		state = v4l2_subdev_get_locked_state_from_mdev_ctx(sd,
++								mdev_context);
+ 	else
+-		state = v4l2_subdev_lock_and_get_active_state(sd);
++		state = v4l2_subdev_lock_and_get_state_from_mdev_ctx(sd,
++								mdev_context);
+ 
+ 	ret = v4l2_subdev_call(sd, pad, get_fmt, state, fmt);
+ 
+@@ -1548,6 +1616,7 @@ v4l2_subdev_link_validate_get_format(struct media_pad *pad, u32 stream,
+ #if defined(CONFIG_VIDEO_V4L2_SUBDEV_API)
+ 
+ static void __v4l2_link_validate_get_streams(struct media_pad *pad,
++					     struct media_device_context *mdev_context,
+ 					     u64 *streams_mask,
+ 					     bool states_locked)
+ {
+@@ -1560,10 +1629,11 @@ static void __v4l2_link_validate_get_streams(struct media_pad *pad,
+ 	*streams_mask = 0;
+ 
+ 	if (states_locked)
+-		state = v4l2_subdev_get_locked_active_state(subdev);
++		state = v4l2_subdev_get_locked_state_from_mdev_ctx(subdev,
++								mdev_context);
+ 	else
+-		state = v4l2_subdev_lock_and_get_active_state(subdev);
+-
++		state = v4l2_subdev_lock_and_get_state_from_mdev_ctx(subdev,
++								mdev_context);
+ 	if (WARN_ON(!state))
+ 		return;
+ 
+@@ -1592,6 +1662,7 @@ static void __v4l2_link_validate_get_streams(struct media_pad *pad,
+ #endif /* CONFIG_VIDEO_V4L2_SUBDEV_API */
+ 
+ static void v4l2_link_validate_get_streams(struct media_pad *pad,
++					   struct media_device_context *mdev_context,
+ 					   u64 *streams_mask,
+ 					   bool states_locked)
+ {
+@@ -1604,14 +1675,17 @@ static void v4l2_link_validate_get_streams(struct media_pad *pad,
+ 	}
+ 
+ #if defined(CONFIG_VIDEO_V4L2_SUBDEV_API)
+-	__v4l2_link_validate_get_streams(pad, streams_mask, states_locked);
++	__v4l2_link_validate_get_streams(pad, mdev_context, streams_mask,
++					 states_locked);
+ #else
+ 	/* This shouldn't happen */
+ 	*streams_mask = 0;
+ #endif
+ }
+ 
+-static int v4l2_subdev_link_validate_locked(struct media_link *link, bool states_locked)
++static int v4l2_subdev_link_validate_locked(struct media_link *link,
++					    struct media_device_context *mdev_context,
++					    bool states_locked)
+ {
+ 	struct v4l2_subdev *sink_subdev =
+ 		media_entity_to_v4l2_subdev(link->sink->entity);
+@@ -1626,8 +1700,10 @@ static int v4l2_subdev_link_validate_locked(struct media_link *link, bool states
+ 		link->source->entity->name, link->source->index,
+ 		link->sink->entity->name, link->sink->index);
+ 
+-	v4l2_link_validate_get_streams(link->source, &source_streams_mask, states_locked);
+-	v4l2_link_validate_get_streams(link->sink, &sink_streams_mask, states_locked);
++	v4l2_link_validate_get_streams(link->source, mdev_context,
++				       &source_streams_mask, states_locked);
++	v4l2_link_validate_get_streams(link->sink, mdev_context,
++				       &sink_streams_mask, states_locked);
+ 
+ 	/*
+ 	 * It is ok to have more source streams than sink streams as extra
+@@ -1654,7 +1730,8 @@ static int v4l2_subdev_link_validate_locked(struct media_link *link, bool states
+ 			link->source->entity->name, link->source->index, stream,
+ 			link->sink->entity->name, link->sink->index, stream);
+ 
+-		ret = v4l2_subdev_link_validate_get_format(link->source, stream,
++		ret = v4l2_subdev_link_validate_get_format(link->source,
++							   mdev_context, stream,
+ 							   &source_fmt, states_locked);
+ 		if (ret < 0) {
+ 			dev_dbg(dev,
+@@ -1664,7 +1741,8 @@ static int v4l2_subdev_link_validate_locked(struct media_link *link, bool states
+ 			continue;
+ 		}
+ 
+-		ret = v4l2_subdev_link_validate_get_format(link->sink, stream,
++		ret = v4l2_subdev_link_validate_get_format(link->sink,
++							   mdev_context, stream,
+ 							   &sink_fmt, states_locked);
+ 		if (ret < 0) {
+ 			dev_dbg(dev,
+@@ -1693,7 +1771,8 @@ static int v4l2_subdev_link_validate_locked(struct media_link *link, bool states
+ 	return 0;
+ }
+ 
+-int v4l2_subdev_link_validate(struct media_link *link)
++int __v4l2_subdev_link_validate(struct media_link *link,
++				struct media_device_context *mdev_context)
+ {
+ 	struct v4l2_subdev *source_sd, *sink_sd;
+ 	struct v4l2_subdev_state *source_state, *sink_state;
+@@ -1716,28 +1795,35 @@ int v4l2_subdev_link_validate(struct media_link *link)
+ 	if (is_media_entity_v4l2_video_device(link->source->entity)) {
+ 		struct media_entity *source = link->source->entity;
+ 
+-		if (!source->ops || !source->ops->link_validate) {
++		if (!source->ops ||
++		    (mdev_context && !source->ops->link_validate_context) ||
++		    (!mdev_context && !source->ops->link_validate)) {
+ 			/*
+-			 * Many existing drivers do not implement the required
+-			 * .link_validate() operation for their video devices.
+-			 * Print a warning to get the drivers fixed, and return
+-			 * 0 to avoid breaking userspace. This should
+-			 * eventually be turned into a WARN_ON() when all
+-			 * drivers will have been fixed.
++			 * Many existing drivers do not implement the correct
++			 * .link_validate() or .link_validate_context()
++			 * operations for their video devices. Print a warning
++			 * to get the drivers fixed, and return 0 to avoid
++			 * breaking userspace. This should eventually be turned
++			 * into a WARN_ON() when all drivers will have been
++			 * fixed.
+ 			 */
+-			pr_warn_once("video device '%s' does not implement .link_validate(), driver bug!\n",
++			pr_warn_once("video device '%s' does not implement the correct .link_validate operation: driver bug!\n",
+ 				     source->name);
+ 			return 0;
+ 		}
+ 
+ 		/*
+ 		 * Avoid infinite loops in case a video device incorrectly uses
+-		 * this helper function as its .link_validate() handler.
++		 * this helper function as its .link_validate[_context]()
++		 * handler.
+ 		 */
+-		if (WARN_ON(source->ops->link_validate == v4l2_subdev_link_validate))
++		if (WARN_ON(source->ops->link_validate == v4l2_subdev_link_validate ||
++			    source->ops->link_validate_context == v4l2_subdev_link_validate_context))
+ 			return -EINVAL;
+ 
+-		return source->ops->link_validate(link);
++		return (mdev_context && source->ops->link_validate_context) ?
++		       source->ops->link_validate_context(link, mdev_context) :
++		       source->ops->link_validate(link);
+ 	}
+ 
+ 	/*
+@@ -1750,22 +1836,24 @@ int v4l2_subdev_link_validate(struct media_link *link)
+ 	sink_sd = media_entity_to_v4l2_subdev(link->sink->entity);
+ 	source_sd = media_entity_to_v4l2_subdev(link->source->entity);
+ 
+-	sink_state = v4l2_subdev_get_unlocked_active_state(sink_sd);
+-	source_state = v4l2_subdev_get_unlocked_active_state(source_sd);
+-
++	sink_state = v4l2_subdev_get_unlocked_state_from_mdev_ctx(sink_sd,
++								  mdev_context);
++	source_state = v4l2_subdev_get_unlocked_state_from_mdev_ctx(source_sd,
++								    mdev_context);
+ 	states_locked = sink_state && source_state;
+ 
+ 	if (states_locked)
+ 		v4l2_subdev_lock_states(sink_state, source_state);
+ 
+-	ret = v4l2_subdev_link_validate_locked(link, states_locked);
++	ret = v4l2_subdev_link_validate_locked(link, mdev_context, states_locked);
+ 
+ 	if (states_locked)
+ 		v4l2_subdev_unlock_states(sink_state, source_state);
+ 
+ 	return ret;
++
+ }
+-EXPORT_SYMBOL_GPL(v4l2_subdev_link_validate);
++EXPORT_SYMBOL_GPL(__v4l2_subdev_link_validate);
+ 
+ bool v4l2_subdev_has_pad_interdep(struct media_entity *entity,
+ 				  unsigned int pad0, unsigned int pad1)
+diff --git a/include/media/v4l2-subdev.h b/include/media/v4l2-subdev.h
+index 8087c0ae3bc0a0a95512b4b0ff5257522a104ca0..16b6b265e711cf2293ce2478ef90a622beb869e5 100644
+--- a/include/media/v4l2-subdev.h
++++ b/include/media/v4l2-subdev.h
+@@ -1223,6 +1223,7 @@ struct v4l2_subdev {
+  * @vfh: pointer to &struct v4l2_fh
+  * @state: pointer to &struct v4l2_subdev_state
+  * @owner: module pointer to the owner of this file handle
++ * @context: pointer to subdevice context associated with the file handle
+  * @client_caps: bitmask of ``V4L2_SUBDEV_CLIENT_CAP_*``
+  */
+ struct v4l2_subdev_fh {
+@@ -1351,6 +1352,9 @@ int v4l2_subdev_link_validate_default(struct v4l2_subdev *sd,
+ 				      struct v4l2_subdev_format *source_fmt,
+ 				      struct v4l2_subdev_format *sink_fmt);
+ 
++int __v4l2_subdev_link_validate(struct media_link *link,
++				struct media_device_context *mdev_context);
++
+ /**
+  * v4l2_subdev_link_validate - validates a media link
+  *
+@@ -1368,7 +1372,35 @@ int v4l2_subdev_link_validate_default(struct v4l2_subdev *sd,
+  * the video devices also implement their &media_entity_ops.link_validate
+  * operation.
+  */
+-int v4l2_subdev_link_validate(struct media_link *link);
++static inline int v4l2_subdev_link_validate(struct media_link *link)
++{
++	return __v4l2_subdev_link_validate(link, NULL);
++}
++
++/**
++ * v4l2_subdev_link_validate_context - validates a media link in a media context
++ *
++ * @link: pointer to &struct media_link
++ * @mdev_context: the media device context
++ *
++ * This function calls the subdev's link_validate_context ops to validate
++ * if a media link is valid for streaming in a media device context. It also
++ * internally calls v4l2_subdev_link_validate_default() to ensure that width,
++ * height and the media bus pixel code are equal on both source and sink of the
++ * link.
++ *
++ * The function can be used as a drop-in &media_entity_ops.link_validate_context
++ * implementation for v4l2_subdev instances. It supports all links between
++ * subdevs, as well as links between subdevs and video devices, provided that
++ * the video devices also implement their
++ * &media_entity_ops.link_validate_context operation.
++ */
++static inline int
++v4l2_subdev_link_validate_context(struct media_link *link,
++				  struct media_device_context *mdev_context)
++{
++	return __v4l2_subdev_link_validate(link, mdev_context);
++}
+ 
+ /**
+  * v4l2_subdev_has_pad_interdep - MC has_pad_interdep implementation for subdevs
 
 -- 
 2.49.0
