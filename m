@@ -4,177 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A154C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 07:44:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D17C6C83F26
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 07:46:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:To:
-	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7taTqWMgOdVV5Uo+opymyCbS/QrTJvq/xL96hycnptE=; b=jnaCT3Lj5mkgcy98d2esGUdSA+
-	/imtMw4Z8sENGwziK8hITpp3/ec9Mho/YWCflVfhPruDuiGzPn9dGKBhADVgUIjKfuoPySSyTK93z
-	9o6ZAwjdJsiygC2r704Uu7x6TxEycqD4Jz0kSQnjeDnrPYsJHVuMpzwWBxVUnJzt9MoL0m6s62pAq
-	WEPBUBe4KtMhDaHTXC/yeRZBVwcUxUcwsIHpXXAmo6RQjxfUdr/ItF1TvtNcyNgpNV9C1r6ox9eqW
-	ihJDe/LQYVKs5JAb3XAxdYByKQ6O3VDsVbAAcX8jbb23cZiQASw77jcfvqgB52MvA6DKTxRf3qtQj
-	3Ci3FDDw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=fjoeM1E08NfWeXnIaphYy3wknu3UeaOtsBsx2gpCbJI=; b=NSNhRKpPxM3aJypDku/DyBPz6i
+	L9w0fXaBNHEjimteBNCSOkdJqM4ZjqyZMfNXX19h4eoaRV9M8pJwwTMspz09WAEGGDgCBXq294yAH
+	g1S7iD/+GO69HoOz3eACw/Cb59wBla9IU8o1fK/Y9ebwLsjC9UnBRcoqi5A0Pl5lNLJWj6ISx+z2n
+	S9diXKUK0eI1Ussn86XIvugQrnUQgGzfJesF3pL5AGubPxqPrm0XPtjyBkmOzicEXDTixbDpGbdVs
+	zcHASsi+4XQ7Vwconzl8z2nGD0yMaxa1ROpwKESISPd0TqQmkQyaR+vls7G8H/papaBA7dFX5pbKN
+	hpxrZYlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueqcU-00000006jt7-3VNR;
-	Thu, 24 Jul 2025 07:44:02 +0000
-Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1ueqex-00000006k5P-2W8s;
+	Thu, 24 Jul 2025 07:46:35 +0000
+Received: from server.couthit.com ([162.240.164.96])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueqJN-00000006h1L-3s1Q
+	id 1ueqLj-00000006hNQ-1Hmi
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Jul 2025 07:24:18 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=xTqeWq7O/piAmqtBSQ4fHX1lFKr+WAWb44oVGdrs4TYpqRKn365YGq/z3fn5LcU5oCOiuVPzW1/HxbkXpDmEGYVCZA8WP/guPCyblKJ7+Jg0BE6W9g1EF65mA2GYmtM4kflipIBEdXbBQz9fOGaS4iaHZKuWRVHLNMeM86ABMGHx/s7pamU1gocWQz/LekBhXuQ2wzYIFPcmNCHVk1TbOMHcW7EHwNxV8jZz5L9n586A2/9ynvfuSYjNkcSQV9MnWXRg1DuMYvG9e8Do1W3X6EvYgLL0yWfbpK8U8klmkFeSuW7pW32Zlm/KCXss9BbJGHj8w4Bh7JvXFs8nj0KdLw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=7taTqWMgOdVV5Uo+opymyCbS/QrTJvq/xL96hycnptE=;
- b=NVoYJqglV64I60bWaEbXZ5/tXyITv9AiH/kHYx4399+vdDYdTILUotFIJ9Aahh/sBox7z4++XDx5l2KXGDPkeYU4ITOmUFV10wSFZFs4eYs7YmYF1UFpx5Sl9vG53ztBJEyFKox6dxdtF/cAxlOoiVRsfmu+mW9rTpvtTOIKiGklPbieJi/pM9DCXhqULRxpmzdVpE+iGLzc0Sc+VTa/J7MdQ78uSEvqj39sgV8Tg5sfx/UjQUzNS1hE6/sNZkwPRa7SZa8yvZCiqJZ33ym1ndcaXo4uN3XnOydmvjXgiie3kdyJ7rre56fonYTUCM9xapD6vqZ89K2uWn1Ts3ZwaA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=7taTqWMgOdVV5Uo+opymyCbS/QrTJvq/xL96hycnptE=;
- b=ZbfOaE9E4otEeDE3qNUo9PYWr5ochHZmL2pf6sg8jKkcysDGRitlxqi0zPBifi7xJZZY2fQyj3m6ZURjqgjatSDtlvg2H9O7DwKh0yqZ8wfd3rtP/12Dt1OYeTJY1jpPRjgjuznf20OattJtkn/E16mCux671fMSe3xdiI8gck27gBSRuYMEVNmpdV9vCWEnSqPpsT3PAAS60QSaPTWtLJ5Sj4jwsD0gRCb5H2wilHLbebw+aJ0+mKrlphlGNSQRKK0UX+lS65LQIZGwJCrfT8vP8h/KTQTgibnTAU1BclDW8Jb12ScToKdE31IEhhVcHhzkQbPb86Q6Px8CMZKqgA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM0PR04MB7044.eurprd04.prod.outlook.com (2603:10a6:208:191::20)
- by AM0PR04MB6915.eurprd04.prod.outlook.com (2603:10a6:208:187::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8964.21; Thu, 24 Jul
- 2025 07:24:13 +0000
-Received: from AM0PR04MB7044.eurprd04.prod.outlook.com
- ([fe80::7be0:296:768c:e891]) by AM0PR04MB7044.eurprd04.prod.outlook.com
- ([fe80::7be0:296:768c:e891%5]) with mapi id 15.20.8964.021; Thu, 24 Jul 2025
- 07:24:12 +0000
-From: Shengjiu Wang <shengjiu.wang@nxp.com>
-To: andrzej.hajda@intel.com,
-	neil.armstrong@linaro.org,
-	rfoss@kernel.org,
-	Laurent.pinchart@ideasonboard.com,
-	jonas@kwiboo.se,
-	jernej.skrabec@gmail.com,
-	maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	tzimmermann@suse.de,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	lumag@kernel.org,
-	dianders@chromium.org,
-	cristian.ciocaltea@collabora.com,
-	luca.ceresoli@bootlin.com,
-	dri-devel@lists.freedesktop.org,
-	linux-kernel@vger.kernel.org,
-	victor.liu@nxp.com,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
+	Thu, 24 Jul 2025 07:26:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=couthit.com
+	; s=default; h=Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject
+	:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=fjoeM1E08NfWeXnIaphYy3wknu3UeaOtsBsx2gpCbJI=; b=BZ0yRXGIRZWTnNRBYdjSHyTzB4
+	ouy7++0YzFcg0Mb1P1DWKtuFO/FS4oEpw/afiEXDJjcGtScn8imS6yFqyjcAdA4bTlY+ja2k2Krzf
+	NI11qB5r2qBogXr737tBp45LoBZLxJhWO572AYo4gEmlb7oy22CsEH2zIutlWo1mYE1iEPhQW+Zst
+	gWTIH9D7zW1tYuwS9Xsc3M5C6fWxPxt0FTb6LJ2PnrY4bozFD1tguq/1a8+ymvzg++nbjQ5COvVgp
+	0wk4JIn5LUH4ICeebEk9xVuIxG3vQTMmGQ5VR9BpTynnSUt3SNb7DoIWjXmmDNLs22MkG00SZ5lEp
+	OGhx3nKA==;
+Received: from [122.175.9.182] (port=8647 helo=cypher.couthit.local)
+	by server.couthit.com with esmtpa (Exim 4.98.1)
+	(envelope-from <parvathi@couthit.com>)
+	id 1ueqKx-000000072KP-0Lg7;
+	Thu, 24 Jul 2025 03:25:55 -0400
+From: Parvathi Pudi <parvathi@couthit.com>
+To: danishanwar@ti.com,
+	rogerq@kernel.org,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
 	robh@kernel.org,
 	krzk+dt@kernel.org,
 	conor+dt@kernel.org,
-	p.zabel@pengutronix.de,
+	ssantosh@kernel.org,
+	richardcochran@gmail.com,
+	s.hauer@pengutronix.de,
+	m-karicheri2@ti.com,
+	glaroque@baylibre.com,
+	afd@ti.com,
+	saikrishnag@marvell.com,
+	m-malladi@ti.com,
+	jacob.e.keller@intel.com,
+	kory.maincent@bootlin.com,
+	diogo.ivo@siemens.com,
+	javier.carrasco.cruz@gmail.com,
+	horms@kernel.org,
+	s-anna@ti.com,
+	basharath@couthit.com,
+	parvathi@couthit.com
+Cc: linux-arm-kernel@lists.infradead.org,
+	netdev@vger.kernel.org,
 	devicetree@vger.kernel.org,
-	l.stach@pengutronix.de,
-	shengjiu.wang@gmail.com,
-	perex@perex.cz,
-	tiwai@suse.com,
-	linux-sound@vger.kernel.org
-Subject: [PATCH v2 6/6] arm64: dts: imx8mp: Add hdmi parallel audio interface node
-Date: Thu, 24 Jul 2025 15:22:48 +0800
-Message-Id: <20250724072248.1517569-7-shengjiu.wang@nxp.com>
-X-Mailer: git-send-email 2.37.1
-In-Reply-To: <20250724072248.1517569-1-shengjiu.wang@nxp.com>
-References: <20250724072248.1517569-1-shengjiu.wang@nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: MA0PR01CA0104.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:af::10) To AM0PR04MB7044.eurprd04.prod.outlook.com
- (2603:10a6:208:191::20)
+	linux-kernel@vger.kernel.org,
+	vadim.fedorenko@linux.dev,
+	pratheesh@ti.com,
+	prajith@ti.com,
+	vigneshr@ti.com,
+	praneeth@ti.com,
+	srk@ti.com,
+	rogerq@ti.com,
+	krishna@couthit.com,
+	pmohan@couthit.com,
+	mohan@couthit.com
+Subject: [PATCH net-next v12 0/5] PRU-ICSSM Ethernet Driver
+Date: Thu, 24 Jul 2025 12:53:52 +0530
+Message-ID: <20250724072535.3062604-1-parvathi@couthit.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM0PR04MB7044:EE_|AM0PR04MB6915:EE_
-X-MS-Office365-Filtering-Correlation-Id: 91f61783-a01a-491b-e845-08ddca831682
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|7416014|376014|366016|1800799024|19092799006|38350700014|921020;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?hYzbJw0wYs+MpkZzW7tuYSJdMZExJVk4Xe4IxfmpYPxaqkCF656OC0zGaq+K?=
- =?us-ascii?Q?5eVtRujz9CojZ0b7yoLiRP21iR/39TBQSKWkQGSU3olrESseMv0DBDfKZsWL?=
- =?us-ascii?Q?M2Tn6d2ldgXlnqY5X+ZWcVBzUmCQNvLTzA4biaMpL1PfCCgFUD5LgkiKWqKi?=
- =?us-ascii?Q?9V8BRrTyhw3keuAqzV6ILi2jho93PTRsw2SBIeqqoCTsyR6jgIQmwKL1Prh5?=
- =?us-ascii?Q?1N6ESVo+uPMZ+0LNNfz0ZEV+0JrJu5qSgBdDertk1h0+VFb5N4JzoCcCS8g7?=
- =?us-ascii?Q?OQEtxC/ylAuPmzk+XTsDk2s6NgLWowRA+7p3fTzIWdCgdGN4cCL2yLV7k3G4?=
- =?us-ascii?Q?xuoxxyhYWmZZInHj9kpW+DxmNxQ7EiuHedlajMqr/BpWCYGTcdgi5q1LwoMb?=
- =?us-ascii?Q?6Ogt4xAOf/Db5xU86QxFbITkN0AjBXRfNrxgl6UZSswyQh9URUKQn0n92e2U?=
- =?us-ascii?Q?PJlHCxOYL6NreYUgdbGW7h+m0lso0awFHq6LaCMKOc4SyIHFmwfdEk0cuNfq?=
- =?us-ascii?Q?9bUhjNEvXn8vTt4RgcQ6Tp0S5y4LvxZ2ueWGVZ7U/P6J8zHEmnAige0G6cSc?=
- =?us-ascii?Q?//LnVYi8MKkBHtj4Wher9Fv7O+YAIy8pmmHGAaf60LdK0S3WaJS6nyEwp23D?=
- =?us-ascii?Q?lYbZZbtJGIAxp4q1ukKfmwtsAGE1ostBRYEveneKfUmpw10z1aPHyjhzoopN?=
- =?us-ascii?Q?pj7mthsKHziq9H3VgquH9XAmaghoBv6LVA82s7tX0K6K5L9Qx/qnXfxaA8gT?=
- =?us-ascii?Q?1JcfWbcVHB/nL3Lj6XEtkvon0N5RFmmQlW9LWIZ+A+JoFUPH+CnrzOXYFF6T?=
- =?us-ascii?Q?NXUOL80M8LLdSWypED26XIXCr4khfWY8jGjlekiNERXVH+C9uvzSlCPb7AZX?=
- =?us-ascii?Q?YyIoArxRE9nTQmy39UYb827pEIXa+bxH79miwgB2Xjz9LPJ6lQ1Jlx5n4QI0?=
- =?us-ascii?Q?41sqATmwfd5laNNSfeKCsSM8Ob7bnpKhtMcInClqTxEEGLQ18vcXfOyXqx2D?=
- =?us-ascii?Q?aDAY8aLDcIgDNf+SHH5oaoqlm3+TbR6SzwjjhYA4v1CGVlFmSu2f86RVq4Ln?=
- =?us-ascii?Q?Zbf8jhYO9BbklXK74oMJ6foRsGPZS6I0oLrMH0cHvncZ+F9j9Tf+bEbP8EWc?=
- =?us-ascii?Q?cLEUlLLG56nMRJw54xsr86O3SAuh+FSnKVGzKN0/VIzl/qXsdsBx5rHYI86W?=
- =?us-ascii?Q?MTqVQrqQhEQYs0QLwIdHBE8D2mqvZD4WRiaCLbDjfV8n4+CqfmSJZnOo4y7e?=
- =?us-ascii?Q?hRPHMa17m38KixMIFdH2ffnuZo9elcuyckhDLZ2R7Cm9B8imnTOa+FNsi4DR?=
- =?us-ascii?Q?GtutohiyC8S9DX1awSG2zAy3HUSmiDa2PVLr4RBaT5LeYn8KZmfq4QUIMnhW?=
- =?us-ascii?Q?On7zDyy22PvQtaezrXNTsYIs381dLSMdV8RPr3R3Vl9aJC6vQk0Kx+2EuF87?=
- =?us-ascii?Q?xIYQy/7qvEDAUHX3mRcDyx68R4wIwauVCWtY/V/IqTJHRe3cQFRN+AV7+Mip?=
- =?us-ascii?Q?Rdf6AXhOHmM1o7s=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM0PR04MB7044.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(7416014)(376014)(366016)(1800799024)(19092799006)(38350700014)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?hi+xk9xqFChR+JVbwbtoNOpNWTiVBP4ZNk/J4YyaYsEz+l5L3MzKIJCeF7pe?=
- =?us-ascii?Q?ZOIgj0vh2eGpThWFE8Wju4wY/aVVl300aVjvPSQYoehLsUHEpWpJtmz2xy7K?=
- =?us-ascii?Q?eZdr+tbrp0/8isMGw+pk7+llRhO7weCfzl6R2CIsBuiLX2XByFiGz2XhZ0Gs?=
- =?us-ascii?Q?LCvvwb9v0P3CWBw14R5I3G9dPxlZ6+F/PxNIphQujiW3cgoBmf7LHD2nyQma?=
- =?us-ascii?Q?BwTBQtNugts8xV5ZP0ZGMAkYDVrGhynHpBJYBv7sB3M1nGVYboOCdJN3oU2y?=
- =?us-ascii?Q?rIgPikz7aI6sC6G88OZKRz5CNoiFhmN/bnVDjHV7SIkkMjbU6Dz8e/JIUy/9?=
- =?us-ascii?Q?QOg0P6tgdNjrnONfOhhz3AcwBCagtKLgHCxnZ/5SHbL6dN5kc81BXdRcrsNx?=
- =?us-ascii?Q?QdmSwMnTvJrrmpLe9WHXJWBCW91oZ63WtV8KmDWEMFJT7MaaVT3u9br0R7/F?=
- =?us-ascii?Q?KDoVGwKFH1hKs6SxB7Msk14rl1LwFmn+uWLtPQu2ARwd4lQaFQN+YRD07GPe?=
- =?us-ascii?Q?syEyEC++F7h4ctpyUf/kPDdHpvXdrkKbNEHgyJteW4EXMSQqpmWL64DzDseC?=
- =?us-ascii?Q?i94f5kc5jVuk/VWMnXZcigPiX188/AAEDaOhOpjCnGdC6PsTMHKUvzZ1MQvc?=
- =?us-ascii?Q?UNB/mpnCXatJNYIb6L8bahqj35ufP1G7w2a6X4ItY1U9Oxcb1rRJ8cLy/o/5?=
- =?us-ascii?Q?h5rHt3uOKmzmRyAZDBErhmHcIYUkjb2cWUkGsmv2z0xmPoPgEUV7zbl5Fa3j?=
- =?us-ascii?Q?kj5KUy2CGrh6B/umgO1f/E1mO0wIG5QLvx2gbAa0Sl/AuXNz2f8s/DPEsIDk?=
- =?us-ascii?Q?KiFWKOVNzS659qScwUwyrDkqtALQ/bKCaNtOTxrOdwrfIdgYItPbHtXB5mCW?=
- =?us-ascii?Q?tR8CB3yG5adUzCpbZhDan7nd+9yADJ7YtdYO7D2xMGsW3kky5Ni/DCONZ6oq?=
- =?us-ascii?Q?HJrISrQ48zVnM9JgJ6Jjj7sp/L8KWbH8cVr/7OFnVTAkGFW1OfBfy8RaU4rL?=
- =?us-ascii?Q?5UNLK0a/rjaPWDKw5tNv3V9BTkUl4pf/kb0l+wM5QlDBGARKw+ZkdNjubNRn?=
- =?us-ascii?Q?WvU9OTqP5Fla80sCpbBZkgQE1gWPZBq2jRfqHiu/0XhVzvccjVf/G8dxvCak?=
- =?us-ascii?Q?X/l660DlbXb8Li7bu437t6UlfR9dIgwKoGh8nv4IW7nyPbjqzhT+MCCWaPDe?=
- =?us-ascii?Q?mdTkQqd49JaNfu+c/bE+WZiLCwaHqHMKUKgZmW7nEzoZhVNY79tZB5aDbj2t?=
- =?us-ascii?Q?SqWNBi3j71qlVlzAIlnrLVziYYwAm/mnjdJobklXIAmWbl1d8ayvQCP7fTWU?=
- =?us-ascii?Q?JE36Xyi0QhVSXFb7O8dxsKttxPB79VD1+AZrc2u5Hp/sgjpGSm8bS4BXJDar?=
- =?us-ascii?Q?3Cbr4MQbfDN9Fml5Zm4tT6UTzIvXLsvFiPTxgbBoF+Rvq8f5+82jYqC3Y438?=
- =?us-ascii?Q?zGmGTw57hUCoGDqNRfpaeODtYt42UGjnQv7EUmyINSnOuxBEU0+aB4fj+9qR?=
- =?us-ascii?Q?NtAlROrjS8XIGlC6DK/viu7H8+cz2ji0yCZL5AxMmF4Hrut9J7uIv22z9ufp?=
- =?us-ascii?Q?E3ZER2aVfEG2h9WO3DWUJJ7OrSzskoWm5ABJevz6?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 91f61783-a01a-491b-e845-08ddca831682
-X-MS-Exchange-CrossTenant-AuthSource: AM0PR04MB7044.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Jul 2025 07:24:12.6307
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ci2wuYMupttXx8nyzfWvsE/jkCirZ6APj63F3+NjClkASgJOnBwDwBNILqYzHkGX+p13xTnrZtIHSpov6OEw+g==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR04MB6915
+Content-Transfer-Encoding: 8bit
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - server.couthit.com
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - couthit.com
+X-Get-Message-Sender-Via: server.couthit.com: authenticated_id: parvathi@couthit.com
+X-Authenticated-Sender: server.couthit.com: parvathi@couthit.com
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250724_002417_963002_5D3F9133 
-X-CRM114-Status: GOOD (  12.35  )
+X-CRM114-CacheID: sfid-20250724_002643_363000_BF589348 
+X-CRM114-Status: GOOD (  16.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -189,86 +118,174 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The HDMI TX Parallel Audio Interface (HTX_PAI) is a bridge between the
-Audio Subsystem to the HDMI TX Controller.
+Hi,
 
-Shrink register map size of hdmi_pvi to avoid overlapped hdmi_pai device.
+The Programmable Real-Time Unit Industrial Communication Sub-system (PRU-ICSS)
+is available on the TI SOCs in two flavors: Gigabit ICSS (ICSSG) and the older
+Megabit ICSS (ICSSM).
 
-Signed-off-by: Shengjiu Wang <shengjiu.wang@nxp.com>
----
- arch/arm64/boot/dts/freescale/imx8mp-evk.dts |  4 +++
- arch/arm64/boot/dts/freescale/imx8mp.dtsi    | 28 +++++++++++++++++++-
- 2 files changed, 31 insertions(+), 1 deletion(-)
+Support for ICSSG Dual-EMAC mode has already been mainlined [1] and the
+fundamental components/drivers such as PRUSS driver, Remoteproc driver,
+PRU-ICSS INTC, and PRU-ICSS IEP drivers are already available in the mainline
+Linux kernel. The current set of patch series builds on top of these components
+and introduces changes to support the Dual-EMAC using ICSSM on the TI AM57xx,
+AM437x and AM335x devices.
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-evk.dts b/arch/arm64/boot/dts/freescale/imx8mp-evk.dts
-index c0cc5611048e..cc9351a5bd65 100644
---- a/arch/arm64/boot/dts/freescale/imx8mp-evk.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-evk.dts
-@@ -442,6 +442,10 @@ &flexcan2 {
- 	status = "disabled";/* can2 pin conflict with pdm */
- };
- 
-+&hdmi_pai {
-+	status = "okay";
-+};
-+
- &hdmi_pvi {
- 	status = "okay";
- };
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp.dtsi b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
-index bb24dba7338e..a0b00cbcb680 100644
---- a/arch/arm64/boot/dts/freescale/imx8mp.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
-@@ -2063,7 +2063,7 @@ irqsteer_hdmi: interrupt-controller@32fc2000 {
- 
- 			hdmi_pvi: display-bridge@32fc4000 {
- 				compatible = "fsl,imx8mp-hdmi-pvi";
--				reg = <0x32fc4000 0x1000>;
-+				reg = <0x32fc4000 0x800>;
- 				interrupt-parent = <&irqsteer_hdmi>;
- 				interrupts = <12>;
- 				power-domains = <&hdmi_blk_ctrl IMX8MP_HDMIBLK_PD_PVI>;
-@@ -2089,6 +2089,24 @@ pvi_to_hdmi_tx: endpoint {
- 				};
- 			};
- 
-+			hdmi_pai: audio-bridge@32fc4800 {
-+				compatible = "fsl,imx8mp-hdmi-pai";
-+				reg = <0x32fc4800 0x800>;
-+				interrupt-parent = <&irqsteer_hdmi>;
-+				interrupts = <14>;
-+				clocks = <&clk IMX8MP_CLK_HDMI_APB>;
-+				clock-names = "apb";
-+				power-domains = <&hdmi_blk_ctrl IMX8MP_HDMIBLK_PD_PAI>;
-+				status = "disabled";
-+
-+				port {
-+
-+					pai_to_hdmi_tx: endpoint {
-+						remote-endpoint = <&hdmi_tx_from_pai>;
-+					};
-+				};
-+			};
-+
- 			lcdif3: display-controller@32fc6000 {
- 				compatible = "fsl,imx8mp-lcdif";
- 				reg = <0x32fc6000 0x1000>;
-@@ -2140,6 +2158,14 @@ port@1 {
- 						reg = <1>;
- 						/* Point endpoint to the HDMI connector */
- 					};
-+
-+					port@2 {
-+						reg = <2>;
-+
-+						hdmi_tx_from_pai: endpoint {
-+							remote-endpoint = <&pai_to_hdmi_tx>;
-+						};
-+					};
- 				};
- 			};
- 
+AM335x, AM437x and AM57xx devices may have either one or two PRU-ICSS instances
+with two 32-bit RISC PRU cores. Each PRU core has (a) dedicated Ethernet interface
+(MII, MDIO), timers, capture modules, and serial communication interfaces, and
+(b) dedicated data and instruction RAM as well as shared RAM for inter PRU
+communication within the PRU-ICSS.
+
+These patches add support for basic RX and TX  functionality over PRU Ethernet
+ports in Dual-EMAC mode.
+
+Further, note that these are the initial set of patches for a single instance of
+PRU-ICSS Ethernet.  Additional features such as Ethtool support, VLAN Filtering,
+Multicast Filtering, Promiscuous mode, Storm prevention, Interrupt coalescing,
+Linux PTP (ptp4l) Ordinary clock and Switch mode support for AM335x, AM437x
+and AM57x along with support for a second instance of  PRU-ICSS on AM57x
+will be posted subsequently.
+
+The patches presented in this series have gone through the patch verification
+tools and no warnings or errors are reported. Sample test logs obtained from AM33x,
+AM43x and AM57x verifying the functionality on Linux next kernel are available here:
+
+[Interface up Testing](https://gist.github.com/ParvathiPudi/be377c886fa9aa7ecb3a9acb018878a4)
+
+[Ping Testing](https://gist.github.com/ParvathiPudi/5870cf198dc36bf172c409c6771fce13)
+
+[Iperf Testing](https://gist.github.com/ParvathiPudi/3093cf848476735f19a5625bbae2dc1a)
+
+[1] https://lore.kernel.org/all/20230106121046.886863-1-danishanwar@ti.com/
+[2] https://lore.kernel.org/all/20250108125937.10604-1-basharath@couthit.com/
+
+This is the v12 of the patch series [v1]. This version of the patchset
+addresses the comments made on [v11] of the series.
+
+Changes from v11 to v12 :
+
+*) Addressed Jakub Kicinski's comments on patch 2 of the series.
+*) Rebased the series on latest net-next.
+
+Changes from v10 to v11 :
+
+*) Reduced patch series size by removing features such as Ethtool support,
+VLAN filtering, Multicast filtering, Promiscuous mode handling, Storm Prevention,
+Interrupt coalescing, and Linux PTP (ptp4l) ordinary clock support. This was done
+based on Jakub Kicinski's feedback regarding the large patch size (~5kLoC).
+Excluded features will be resubmitted.
+*) Addressed Jakub Kicinski comments on patch 2, and 3 of the series.
+*) Addressed Jakub Kicinski's comment on patch 4 of the series by implementing
+hrtimer based TX resume logic to notify upper layers in case of TX busy.
+*) Rebased the series on latest net-next.
+
+Changes from v9 to v10 :
+
+*) Addressed Vadim Fedorenko comments on patch 6 and 11 of the series.
+*) Rebased the series on latest net-next.
+
+Changes from v8 to v9 :
+
+*) Addressed Vadim Fedorenko comments on patch 6 of the series.
+*) Rebased the series on latest net-next.
+
+Changes from v7 to v8 :
+
+*) Addressed Paolo Abeni comments on patch 3 and 4 of the series.
+*) Replaced threaded IRQ logic with NAPI logic based on feedback from Paolo Abeni.
+*) Added Reviewed-by: tag from Rob Herring for patch 1.
+*) Rebased the series on latest net-next.
+
+Changes from v6 to v7 :
+
+*) Addressed Rob Herring comments on patch 1 of the series.
+*) Addressed Jakub Kicinski comments on patch 4, 5 and 6 of the series.
+*) Addressed Alok Tiwari comments on Patch 1, 4 and 5 of the series.
+*) Rebased the series on latest net-next.
+
+Changes from v5 to v6 :
+
+*) Addressed Simon Horman comments on patch 2, 7 and 11 of the series.
+*) Addressed Andrew Lunn comments on patch 5 of the series.
+*) Rebased the series on latest net-next.
+
+Changes from v4 to v5 :
+
+*) Addressed Andrew Lunn and Keller, Jacob E comments on patch 5 of the series.
+*) Rebased the series on latest net-next.
+
+Changes from v3 to v4 :
+
+*) Added support for AM33x and AM43x platforms.
+*) Removed SOC patch [2] and its dependencies.
+*) Addressed Jakub Kicinski, MD Danish Anwar and Nishanth Menon comments on cover
+   letter of the series.
+*) Addressed Rob Herring comments on patch 1 of the series.
+*) Addressed Ratheesh Kannoth comments on patch 2 of the series.
+*) Addressed Maxime Chevallier comments on patch 4 of the series.
+*) Rebased the series on latest net-next.
+
+Changes from v2 to v3 :
+
+*) Addressed Conor Dooley comments on patch 1 of the series.
+*) Addressed Simon Horman comments on patch 2, 3, 4, 5 and 6 of the series.
+*) Addressed Joe Damato comments on patch 4 of the series.
+*) Rebased the series on latest net-next.
+
+Changes from v1 to v2 :
+
+*) Addressed Andrew Lunn, Rob Herring comments on patch 1 of the series.
+*) Addressed Andrew Lunn comments on patch 2, 3, and 4 of the series.
+*) Addressed Richard Cochran, Jason Xing comments on patch 6 of the series.
+*) Rebased patchset on next-202401xx linux-next.
+
+[v1] https://lore.kernel.org/all/20250109105600.41297-1-basharath@couthit.com/
+[v2] https://lore.kernel.org/all/20250124122353.1457174-1-basharath@couthit.com/
+[v3] https://lore.kernel.org/all/20250214054702.1073139-1-parvathi@couthit.com/
+[v4] https://lore.kernel.org/all/20250407102528.1048589-1-parvathi@couthit.com/
+[v5] https://lore.kernel.org/all/20250414113458.1913823-1-parvathi@couthit.com/
+[v6] https://lore.kernel.org/all/20250423060707.145166-1-parvathi@couthit.com/
+[v7] https://lore.kernel.org/all/20250503121107.1973888-1-parvathi@couthit.com/
+[v8] https://lore.kernel.org/all/20250610105721.3063503-1-parvathi@couthit.com/
+[v9] https://lore.kernel.org/all/20250623135949.254674-1-parvathi@couthit.com/
+[v10] https://lore.kernel.org/all/20250702140633.1612269-1-parvathi@couthit.com/
+[v11] https://lore.kernel.org/all/20250722132700.2655208-1-parvathi@couthit.com/
+
+Thanks and Regards,
+Parvathi.
+
+Parvathi Pudi (2):
+  dt-bindings: net: ti: Adds DUAL-EMAC mode support on PRU-ICSS2 for
+    AM57xx, AM43xx and AM33xx SOCs
+  net: ti: prueth: Adds IEP support for PRUETH on AM33x, AM43x and AM57x
+    SOCs
+
+Roger Quadros (3):
+  net: ti: prueth: Adds ICSSM Ethernet driver
+  net: ti: prueth: Adds PRUETH HW and SW configuration
+  net: ti: prueth: Adds link detection, RX and TX support.
+
+ .../devicetree/bindings/net/ti,icss-iep.yaml  |   10 +-
+ .../bindings/net/ti,icssm-prueth.yaml         |  233 +++
+ .../bindings/net/ti,pruss-ecap.yaml           |   32 +
+ .../devicetree/bindings/soc/ti/ti,pruss.yaml  |    9 +
+ drivers/net/ethernet/ti/Kconfig               |   12 +
+ drivers/net/ethernet/ti/Makefile              |    3 +
+ drivers/net/ethernet/ti/icssg/icss_iep.c      |  103 +
+ drivers/net/ethernet/ti/icssm/icssm_prueth.c  | 1738 +++++++++++++++++
+ drivers/net/ethernet/ti/icssm/icssm_prueth.h  |  255 +++
+ .../net/ethernet/ti/icssm/icssm_prueth_ptp.h  |   85 +
+ drivers/net/ethernet/ti/icssm/icssm_switch.h  |  257 +++
+ 11 files changed, 2734 insertions(+), 3 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/net/ti,icssm-prueth.yaml
+ create mode 100644 Documentation/devicetree/bindings/net/ti,pruss-ecap.yaml
+ create mode 100644 drivers/net/ethernet/ti/icssm/icssm_prueth.c
+ create mode 100644 drivers/net/ethernet/ti/icssm/icssm_prueth.h
+ create mode 100644 drivers/net/ethernet/ti/icssm/icssm_prueth_ptp.h
+ create mode 100644 drivers/net/ethernet/ti/icssm/icssm_switch.h
+
 -- 
-2.34.1
+2.43.0
 
 
