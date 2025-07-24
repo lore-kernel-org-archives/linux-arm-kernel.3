@@ -4,84 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FE8DC87FC5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 17:05:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54420C87FC5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 17:05:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1wfZiqyoMIkdNVGwHZy+CMiRdJypJbrqsshvmZY5qss=; b=JYVf1SzIhUrrvl+hE+YXUXNM4Q
-	bzCerjs2y4zGixf+BKWO9kLJRkdbBUrnLOFoUz34KlSFmlMNDlYzdIc3kcrne1p8Z6v43TRtrKp8f
-	DAWT5JU8CtccqqljNyTSkHSf6hiU9QGMbVMfpfQRvVTz/l97syhA4KVIlrREkfL2syyyU4AwSQIBf
-	XKcifqGH3P+1p0ORKRbsrydGsvW5b2sv5tP+AXApRnYp2GFCZL5l9t0boE6GRqVroYwAj1WPEV6QY
-	xNFhGBP/6tlfl6T4gUIQNrmOQpux5YbnlXXVKPt0/VZU3xCsJbSsNvENLCPDSQAwMbHT5gCrljnhD
-	gdwcT2qw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=f46adWkIVh1sMgckXCvT1JWP1ZCJysis6LeCi1UMlGA=; b=TqcOHw0OwkLtSBEalnT7MExzgp
+	7GJjpqMZmfpgvDjhB7IKoSDQBYfpCOi/aYoYMJ58mLcsOJTERM1mzoJ2C+RZ3ed9jHifdUNCqfFRH
+	xsbVld2O1Gr+FraFJ7DX6N2Us3NVsgZfYSVQPzTNWHE4x4NnehhL/ebafYDoui74dDYN66p8UTkVx
+	cnbkcXuPSXwiwaP+JUCeGHPWW9BXBhxc4CxzPjkQiOjEyU3IK7RHadLusYP+qRqkECMRZWxq3ZB1O
+	4vVdAoRaeFT2R/7k4WBaCdvuVuEWaM72LMBfBTgtGDgTcf4DVWH5d1evbwBHLcF111ZKU2CvIge8n
+	HaNM+duQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uezNP-000000082q2-26Gj;
-	Thu, 24 Jul 2025 17:05:03 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1uezNf-0000000836d-1xQq;
+	Thu, 24 Jul 2025 17:05:19 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueweV-00000007hc9-49eN;
-	Thu, 24 Jul 2025 14:10:33 +0000
-Received: from [192.168.1.76] (unknown [IPv6:2001:b07:6462:5de2:520d:d7a3:63ca:99e8])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id A6D0619E7;
-	Thu, 24 Jul 2025 16:09:50 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1753366191;
-	bh=MQRwA7fqy++hrn9wDtM90iaXfefqzRiYRYRIsmH0eBo=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=tS4ldUt26FugC4awS6WUaNpJW+zPQ3v7VVZYkN1Dp9g3s1ijuJrQdZPRah7y4BHul
-	 KxeumX7UTLx1vXstmFoMAga+FbhZH94WqKs/kCd1Vrr49FRw9f6msA1Z8MwdLYbO1V
-	 2cq2m+PsAk2z0KkQ2EelXuknxDZVvzSfpkPCcj8o=
-From: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-Date: Thu, 24 Jul 2025 16:10:10 +0200
-Subject: [PATCH v2 03/27] media: media-entity: Introduce
- media_entity_context
+	id 1uewyt-00000007l1F-1upd;
+	Thu, 24 Jul 2025 14:31:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1753367493;
+	bh=u9PdAYuALXEVozae3RfJMx3RFx6T5Oe/vgBOyHiZLK8=;
+	h=From:Date:Subject:To:Cc:From;
+	b=lSMuodqp7YZ23b38WJ2oV1WBi/fZCKhs4ma5VVLSiqYHgwSS0IYRYWhNg8xEu9vKv
+	 nT0U1beQPVNKE2vHcuzK7w63mbpITTrT9m7Isp1RE57o00oCk0yx9uslrBaYeStGYo
+	 tmBQSgqbR6UuoQXt3xiQIbALojBr6qlGBmrWH1U1ixxfRqWuo+8tIjqmyPeXKuxUrr
+	 ZlriQmuVFgYsImJ5jAA9v11QpPyZvsGDSg5hlaUeWCq5QZQNngzZZO9XFYAClYFVjA
+	 RD0uW4jl68BclIwhFNNsRD09gw0p9yySbMl9ND/InXNzt28GWYtiuW/QcBQ7Api17G
+	 OsQ7a+70z1xvw==
+Received: from jupiter.universe (dyndsl-091-248-210-114.ewe-ip-backbone.de [91.248.210.114])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: sre)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 5C15917E0B72;
+	Thu, 24 Jul 2025 16:31:33 +0200 (CEST)
+Received: by jupiter.universe (Postfix, from userid 1000)
+	id 07205480039; Thu, 24 Jul 2025 16:31:33 +0200 (CEST)
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+Date: Thu, 24 Jul 2025 16:31:25 +0200
+Subject: [PATCH] arm64: dts: rockchip: use MAC TX delay for ROCK 4D
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250724-multicontext-mainline-2025-v2-3-c9b316773486@ideasonboard.com>
-References: <20250724-multicontext-mainline-2025-v2-0-c9b316773486@ideasonboard.com>
-In-Reply-To: <20250724-multicontext-mainline-2025-v2-0-c9b316773486@ideasonboard.com>
-To: Sakari Ailus <sakari.ailus@linux.intel.com>, 
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
- Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, 
- Kieran Bingham <kieran.bingham@ideasonboard.com>, 
- Nicolas Dufresne <nicolas.dufresne@collabora.com>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, 
- Tomasz Figa <tfiga@chromium.org>, 
- Marek Szyprowski <m.szyprowski@samsung.com>, 
- Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
- Florian Fainelli <florian.fainelli@broadcom.com>, 
- Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
- Hans Verkuil <hverkuil@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
- linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
- Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+Message-Id: <20250724-rk3576-rock4d-phy-timings-v1-1-1cdce2b4aca4@kernel.org>
+X-B4-Tracking: v=1; b=H4sIALxDgmgC/x3MTQ5AMBBA4avIrE1C1U9cRSzaGkxEyVSEiLtrL
+ L/Few8EEqYAbfKA0MmBNx+Rpwm42fiJkIdoUJkqs1pplKUo6wplc4secJ9vPHhlPwWsrCarrWn
+ U6CD2u9DI1//u+vf9AMmpQXtrAAAA
+X-Change-ID: 20250724-rk3576-rock4d-phy-timings-6b4eb4ba82fc
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+ Andrew Lunn <andrew@lunn.ch>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ kernel@collabora.com, Sebastian Reichel <sebastian.reichel@collabora.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=7515;
- i=jacopo.mondi@ideasonboard.com; h=from:subject:message-id;
- bh=MQRwA7fqy++hrn9wDtM90iaXfefqzRiYRYRIsmH0eBo=;
- b=owEBbQKS/ZANAwAKAXI0Bo8WoVY8AcsmYgBogj7On0HmBG/yLewcQmpRACQsBQzuVlsMjyZo/
- CXVZ6zICjmJAjMEAAEKAB0WIQS1xD1IgJogio9YOMByNAaPFqFWPAUCaII+zgAKCRByNAaPFqFW
- PEuKD/4nrOfR5EUSGoAbVCcqjsRgd8stMiAo2Gw9Terar4dLAlL8CKGQemfPiePHDk8GZyKvxit
- WzrKSz6vljkJ57GsWQZ43pNedu45i+jrnB+ZBWkU82Nw0NmQ7o40LwqfnyT9FcLV/ewhgaG3YT5
- QG3mwzAtGX623qzCqfit4fwTatvOqIAs6gwOHmAdJYTUTcOgtTwuK8ElV7GAvDmRr5QoBWid9Le
- Qs3Yq1q3hVD0bt1VMUFTtXrUuYeDXDfiVGVWJiAyR+4lZhalK/2sUyzxQRRW7aMJOqkf4sbA33t
- +GNjSujZg9TpJKY4Tl8c2tGv5Rk497B58ehR5Y3/94Cu1YXA8lIWG4isFgO87EbyXhUHMygpOPR
- I1n9Vf02ETbIYLH7dScvsK3+fmLYDEszfpPERZ3pDbTa4V3El1ZSx01bmyhVuLAJXtOXf+YH8ow
- Vjg/f8mBXoMrD2F8memdd08yQ+xdRbz3JRMmDSZRM+2wIEjJUkDtMQ2z7r4D/BYNzgjPYjokRxd
- mJZRYgn9tQmI+9oXuZDNYOiYI0kZ7buBCONJz2kofTWZjXbzD+oMqI/wF8qmY/9dY9kRye8FOqC
- ulcscKizbMciqoLWBSLAbDDQMAe0Uxzn27e1CnP9eOOkYaSNelgwkWKzllbr89qMYP0BY3VbdxE
- MBED2pdSb089hlw==
-X-Developer-Key: i=jacopo.mondi@ideasonboard.com; a=openpgp;
- fpr=72392EDC88144A65C701EA9BA5826A2587AD026B
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2874; i=sre@kernel.org;
+ h=from:subject:message-id; bh=u9PdAYuALXEVozae3RfJMx3RFx6T5Oe/vgBOyHiZLK8=;
+ b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGiCQ8ROUfuRfo4mNRUGEaWZbqk0Wkbt8RBEL
+ w3/ULol4z1cW4kCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJogkPEAAoJENju1/PI
+ O/qaMSUP/13LhvhKXd0+OszgpGriuOkZE/79bCvrU1METdH/ofIq1UZMuht+thZw7M2dZejhYhB
+ LNgFfxK3ci+Ffmrt+Wl+m3ZG3fZ4itWPPRtmbS2Lpy3XZk9zsjw4TBZmwoELGT2A7RwQFC+iINr
+ gJMEHVDY5UlsnyonFSt8qu5Cy0vymNH+FqIDypFTP6uA6EX6PbpF17QqGlfGCrp2TppxBBKL8X1
+ sb9AFtoGFfrBUHwxVvCVPepWzOQdrS3CUHZ5oktAIS+eK6wO2fZoxHKPYwcFS+TxaN1RcJnM5kA
+ +M4FbuhevnUybNLdvxvoFevajz5bXo9J9PajrIlGnwXI3sPnVUioeymlPI9q7LLOhXAKMMIyVN2
+ kPMyjqTTW8Onfp4akskSaC0mNSNBPmvvvxvFjVdyPf7gJOGrEMuuA4ur9xUxObr4eQrtAuwoCBS
+ z/GMx1hWtvPnRZxVpeJXU6ZUNSwQYLyxhnZ/42vKgJjD4NQKzNgsTmldR9w5eoJAJmtZmktunQz
+ vfcT1zXSPNC3EuraiEKcS3p1RxUwnJlyCbgOiHhYyNBHmGwRCzeF+4toNmA+YfDRY5SWEcgfbel
+ OyF07/JiK8f7u31M2BgdHFbqhXdiHMHMEzHBae8QepHDNONnUWn5P1QbyoQAyxNcykXPVBUmjrl
+ GewoN3r2NJh5VXpayUnctgQ==
+X-Developer-Key: i=sre@kernel.org; a=openpgp;
+ fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250724_071032_188965_130C1862 
-X-CRM114-Status: GOOD (  18.36  )
+X-CRM114-CacheID: sfid-20250724_073135_677905_FF9C2B3D 
+X-CRM114-Status: GOOD (  20.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,213 +96,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce the 'struct media_entity_context' type, which serves for
-reference counting and introduce two new media entity operations to
-allow drivers to allocate and free a media entity context.
+According to the Ethernet controller device tree binding "rgmii-id"
+means, that the PCB does not have extra long lines to add the required
+delays. This is indeed the case for the ROCK 4D.
 
-The newly introduced type will be used as a base type for the
-device context types (video_device_context and v4l2_subdevice_context)
-that will be introduced in the next patches.
+The problem is, that the Rockchip MAC Linux driver interprets the
+interface type differently and abuses the information to configure
+RX and TX delays in the MAC using (vendor) properties 'rx_delay' and
+'tx_delay'.
 
-Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+When Detlev Casanova upstreamed the ROCK 4D device tree, he used the
+correct description for the board ("rgmii-id"). This results in no delays
+being configured in the MAC. At the same time the PHY will provide
+some delays.
+
+This works to some degree, but is not a stable configuration. All five
+ROCK 4D production boards, which have recently been added to the Collabora
+LAVA lab for CI purposes have trouble with data not getting through
+after a connection has been established.
+
+Using the same delay setup as the vendor device tree fixes the
+functionality (at the cost of not properly following the DT binding).
+As we cannot fix the driver behavior for RK3576 (some other boards
+already depend on this), let's update the ROCK 4D DT instead.
+
+Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
 ---
- drivers/media/mc/mc-entity.c |  46 ++++++++++++++++++++
- include/media/media-entity.h | 101 +++++++++++++++++++++++++++++++++++++++++++
- 2 files changed, 147 insertions(+)
+There is an additional problem, that the link does not come up in the
+first place. This has been handled by the recently merged (and less
+questionable) DT changes [0] combined with a PHY driver patch to trigger
+a PHY reset after the clock has been enabled [1] (I will send a new
+version of that patch after this one). Stable network support on the
+ROCK 4D requires all patches.
 
-diff --git a/drivers/media/mc/mc-entity.c b/drivers/media/mc/mc-entity.c
-index 045590905582054c46656e20463271b1f93fa6b4..b4a9f0a0aa7353d7a3333f20903980956b3df4a7 100644
---- a/drivers/media/mc/mc-entity.c
-+++ b/drivers/media/mc/mc-entity.c
-@@ -1673,3 +1673,49 @@ struct media_link *__media_entity_next_link(struct media_entity *entity,
- 	return NULL;
- }
- EXPORT_SYMBOL_GPL(__media_entity_next_link);
-+
-+static void media_entity_release_context(struct kref *refcount)
-+{
-+	struct media_entity_context *ctx =
-+		container_of(refcount, struct media_entity_context, refcount);
-+
-+	ctx->entity->ops->destroy_context(ctx);
-+}
-+
-+struct media_entity_context *
-+media_entity_context_get(struct media_entity_context *ctx)
-+{
-+	if (!ctx)
-+		return ERR_PTR(-EINVAL);
-+
-+	kref_get(&ctx->refcount);
-+
-+	return ctx;
-+}
-+EXPORT_SYMBOL_GPL(media_entity_context_get);
-+
-+void media_entity_context_put(struct media_entity_context *ctx)
-+{
-+	if (!ctx)
-+		return;
-+
-+	kref_put(&ctx->refcount, media_entity_release_context);
-+}
-+EXPORT_SYMBOL_GPL(media_entity_context_put);
-+
-+void media_entity_init_context(struct media_entity *entity,
-+			       struct media_entity_context *ctx)
-+{
-+	if (!ctx)
-+		return;
-+
-+	ctx->entity = entity;
-+	kref_init(&ctx->refcount);
-+	INIT_LIST_HEAD(&ctx->list);
-+}
-+EXPORT_SYMBOL_GPL(media_entity_init_context);
-+
-+void media_entity_cleanup_context(struct media_entity_context *ctx)
-+{
-+}
-+EXPORT_SYMBOL_GPL(media_entity_cleanup_context);
-diff --git a/include/media/media-entity.h b/include/media/media-entity.h
-index 64cf590b11343f68a456c5870ca2f32917c122f9..32298fe8a18c6ee3c1dbcff9ef869548904417a7 100644
---- a/include/media/media-entity.h
-+++ b/include/media/media-entity.h
-@@ -15,6 +15,7 @@
- #include <linux/bug.h>
- #include <linux/container_of.h>
- #include <linux/fwnode.h>
-+#include <linux/kref.h>
- #include <linux/list.h>
- #include <linux/media.h>
- #include <linux/minmax.h>
-@@ -248,6 +249,37 @@ struct media_pad {
- 	struct media_pipeline *pipe;
+[0] https://lore.kernel.org/linux-rockchip/20250704-rk3576-rock4d-phy-handling-fixes-v1-1-1d64130c4139@kernel.org/
+[1] https://lore.kernel.org/netdev/20250704-phy-realtek-clock-fix-v1-1-63b33d204537@kernel.org/
+---
+ arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts b/arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts
+index 0388d72076bf79ee4f20ac1d3bc04fe1859f857b..f105ed675d3671e93916c830a9a17dc240ca5fda 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts
+@@ -237,7 +237,7 @@ &cpu_l3 {
+ &gmac0 {
+ 	clock_in_out = "output";
+ 	phy-handle = <&rgmii_phy0>;
+-	phy-mode = "rgmii-id";
++	phy-mode = "rgmii-rxid";
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&eth0m0_miim
+ 		     &eth0m0_tx_bus2
+@@ -246,6 +246,8 @@ &eth0m0_rgmii_clk
+ 		     &eth0m0_rgmii_bus
+ 		     &ethm0_clk0_25m_out>;
+ 	status = "okay";
++	tx_delay = <0x20>;
++	rx_delay = <0x00>;
  };
  
-+/**
-+ * struct media_entity_context - A media entity execution context
-+ * @mdev_context: The media device context this media entity is bound to.
-+ *		  The field is initialized when the entity is bound to a media
-+ *		  device context.
-+ * @entity: The media entity this context belongs to
-+ * @refcount: The kref reference counter
-+ * list: The list entry to link the entity context in the media device context
-+ *
-+ * This type represent the 'base class' used to implement execution context for
-+ * video device contexts and subdevice contexts. Those types embedds an instance
-+ * of 'struct media_entity_context' as their first member, allowing the MC core
-+ * to implement type polymorphism and handle video device and subdevice contexts
-+ * transparently.
-+ *
-+ * The main function of this type is to provide reference counting for the
-+ * 'dervived' device context types. The video device and subdevice core
-+ * populates the 'context_release' function pointer that implement specific
-+ * clean-up operations, similar to what a 'virtual destructor' would do in C++.
-+ *
-+ * Drivers are not expected to use this type directly, but only the MC core
-+ * will.
-+ */
-+struct media_device_context;
-+struct media_entity_context {
-+	struct media_device_context *mdev_context;
-+	struct media_entity *entity;
-+	struct kref refcount;
-+	struct list_head list;
-+};
-+
- /**
-  * struct media_entity_operations - Media entity operations
-  * @get_fwnode_pad:	Return the pad number based on a fwnode endpoint or
-@@ -269,6 +301,15 @@ struct media_pad {
-  *			media_entity_has_pad_interdep().
-  *			Optional: If the operation isn't implemented all pads
-  *			will be considered as interdependent.
-+ * @alloc_context:	Allocate a media entity context. Drivers are allowed to
-+ *			sub-class the entity context type by defining a driver
-+ *			specific type that embeds an instance of either a
-+ *			video_device_context or subdevice_context as first
-+ *			member, and allocate the size of a driver-specific type
-+ *			in the implementation of this operation. Returns 0 for
-+ *			success, or an error code < 0 otherwise.
-+ * @destroy_context:	Release a media entity context previously allocated by
-+ *			the driver.
-  *
-  * .. note::
-  *
-@@ -284,6 +325,9 @@ struct media_entity_operations {
- 	int (*link_validate)(struct media_link *link);
- 	bool (*has_pad_interdep)(struct media_entity *entity, unsigned int pad0,
- 				 unsigned int pad1);
-+	int (*alloc_context)(struct media_entity *entity,
-+			     struct media_entity_context **context);
-+	void (*destroy_context)(struct media_entity_context *context);
- };
- 
- /**
-@@ -1448,3 +1492,60 @@ struct media_link *__media_entity_next_link(struct media_entity *entity,
- 					     MEDIA_LNK_FL_DATA_LINK))
- 
- #endif
-+
-+/**
-+ * media_entity_context_get - Increase the media entity context reference count
-+ *			      and return a reference to it
-+ *
-+ * @ctx: the media entity context
-+ *
-+ * Increase the media entity context reference count. The reference count
-+ * is increased by the V4L2 core when:
-+ *
-+ * * a new context is allocated when bounding a media entity to a media device
-+ *   context (by kref_init())
-+ * * the media pipeline the context is part of starts streaming
-+ *
-+ * The entity context gets automatically decreased by the V4L2 core when:
-+ *
-+ * * a context is unbound
-+ * * the pipeline stops streaming
-+ */
-+struct media_entity_context *
-+media_entity_context_get(struct media_entity_context *ctx);
-+
-+/**
-+ * media_entity_context_put - Decrease the media entity context reference count
-+ *
-+ * @ctx: the media entity context
-+ *
-+ * Decrease the media entity context reference count. The reference count
-+ * is decreased by the V4L2 core when:
-+ *
-+ * * the file handle the context is associated with is closed
-+ * * the media pipeline the context is part of is stopped
-+ */
-+void media_entity_context_put(struct media_entity_context *ctx);
-+
-+/**
-+ * media_entity_init_context - Initialize the media entity context
-+ *
-+ * @entity: the media entity this context belongs to
-+ * @ctx: the media entity context
-+ *
-+ * Initialize the media entity context by initializing the kref reference
-+ * counter. The intended caller of this function are the video device context
-+ * and subdevic context initialize functions.
-+ */
-+void media_entity_init_context(struct media_entity *entity,
-+			       struct media_entity_context *ctx);
-+
-+/**
-+ * media_entity_cleanup_context - Cleanup the media entity context
-+ *
-+ * @ctx: the media entity context
-+ *
-+ * Cleanup the media entity context. The intended caller of this function are
-+ * the video device and subdevice context cleanup functions.
-+ */
-+void media_entity_cleanup_context(struct media_entity_context *ctx);
+ &gpu {
 
+---
+base-commit: e05818ef75bee755fc56811cb54febf4174d7cf2
+change-id: 20250724-rk3576-rock4d-phy-timings-6b4eb4ba82fc
+
+Best regards,
 -- 
-2.49.0
+Sebastian Reichel <sre@kernel.org>
 
 
