@@ -4,69 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9FD2C83F26
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 21:47:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F83FC83F26
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 21:50:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JZR+GkXjKoNUDKQwwS4t4+n20XHfD6VRwfyFklGXZ0o=; b=2gpiG7X5PdPLOQhyY1qBNUdrlM
-	tiIxmkH1OX7sQAfCgPzKlXkFxyjOrDobBwiEBv10D0mGx1l/5BHMcq6vAqWB3p6Dp3/aKJVxm6KGq
-	ri5mxDUZIZkSM4WIewNyyZHBbfJz9FlbmGYnPfldm+e2Wqtr+rVa7Nf7hrKSQJQsWHV9fhiRte6gZ
-	aUjp1lTpCytGvhtuO5wl8OpIr1gDnDm0UsvkXR7qWVjcpYJBBZeIjJ+R2vFmgVBCa3/O0/rb4snMf
-	wPPS+X2TKH6sQ0rHPg0GvZFWoMmlcGHllucA7AYPUIMeiUH95CDCaSuI03pDQOoOFfda60SF9KYdV
-	52XukYQw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=GqN6yilQgJpKBQUejpm5KwY8ojufOUNl6Jv5stkj+tQ=; b=TvTi8pFNYqoOH9YvGI/u+o74ul
+	k9QRpBoEshtduFlDGzFwBdI1Osbaaov59zo0NnR2ff2HwW0vQi28vfcJSmyNFwhAhqOD9ffKyXlgg
+	H4dOIRGqg0ZJuNmd+yaKG4IA5Sc2Xq+cuSndpofMRDx0CxxWz8cKu8t6zBS4Pfpu+ItfaKKiYmODq
+	rBFoYw0BS4V1eqciLz1C5S2Wq5w4VPflqfYHvypVBGVdqiCq8oExyExGGy7+c5Yl2zNfk2FL2sXZ7
+	ti7uKQeZEG50k26DQtWBdTNqfaqwfFOAeUBB9GzgnTwfuI9Cry1xC6Aqs+uDTVLgt++LeEGhoerHS
+	QD+59Jeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uf3n6-00000008WoB-2cqr;
-	Thu, 24 Jul 2025 21:47:52 +0000
-Received: from chumsalmon.baetis.net ([209.222.21.150])
+	id 1uf3pV-00000008Wzn-03p8;
+	Thu, 24 Jul 2025 21:50:21 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uf3dr-00000008W5b-1DKb;
-	Thu, 24 Jul 2025 21:38:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=tahomasoft.com;
-	s=default; t=1753393093;
-	bh=Bej7n1VulpJFjVRU/+jwzDXKBMDFOQlrMVvdSDEL5qQ=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=l29KhmehOfRfc6eAFYtw1mF3/60r6+487DMwJ/XNkp8EZ7yIlqUNLdZqb6qXq5sEC
-	 D8+Be8rlPdGcbQgOvxtMzalh02AR/8Zv2+g3H/qdrzCdtUJlsI07xGxdfdfGQw+8FG
-	 9pqduyK1QoXN1Hf7jw8FHWup5jH4rej7/9EZm7zkASjKmnhNIC92dr21JU/tq9CvEZ
-	 Kp1IH2vuqw53NrczN6GshCW4qOdG2rBaEv6Hu2u8VKrD0lhxrny0NdJg8qh6xbPx09
-	 K2htQhV53gVmdT/9rcvkSMlVK0e4rrO4tf9gpl+Ckv95c8YSunROkSJJO30VydeJKo
-	 Qfh4sgbHFQAzA==
-Received: from localhost (unknown [IPv6:2600:4040:50b7:b604:ee41:bd43:23a9:712b])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by chumsalmon.baetis.net (Postfix) with ESMTPSA id 1374F27E48D;
-	Thu, 24 Jul 2025 21:38:13 +0000 (UTC)
-From: Erik Beck <xunil@tahomasoft.com>
-Date: Thu, 24 Jul 2025 17:37:59 -0400
-Subject: [PATCH v3 2/2] arm64: dts: rockchip: add LinkStar-H68k-1432v1
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250724-linkstar-h68k-patchv3-v3-2-b9f87b7306e5@tahomasoft.com>
-References: <20250724-linkstar-h68k-patchv3-v3-0-b9f87b7306e5@tahomasoft.com>
-In-Reply-To: <20250724-linkstar-h68k-patchv3-v3-0-b9f87b7306e5@tahomasoft.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Erik Beck <xunil@tahomasoft.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1753393091; l=17967;
- i=xunil@tahomasoft.com; s=20250724; h=from:subject:message-id;
- bh=Bej7n1VulpJFjVRU/+jwzDXKBMDFOQlrMVvdSDEL5qQ=;
- b=nnhic0KSOiM0LAbHVNrooMeuJ/KUvBVraFB6baA/4Hpbyo1QSV40QnNT7IEK7w5TAO3etvISq
- C7XhBbySOySBAb5Yj7PVw2yqxsVWsB5kWBjlKfBjBkEPNHL7tUHYVgd
-X-Developer-Key: i=xunil@tahomasoft.com; a=ed25519;
- pk=FTZVGUexvkWb4j8v0wbtm7CtJLijIAaa5x0XV72WWC0=
+	id 1uf3im-00000008WWB-3sEm
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 24 Jul 2025 21:43:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Message-ID:Subject:Cc:To:From:Date:
+	Sender:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:In-Reply-To:References;
+	bh=GqN6yilQgJpKBQUejpm5KwY8ojufOUNl6Jv5stkj+tQ=; b=EfVSfgScquOXGvMLfrOb2Uo1lB
+	+07rYny2YduvOShc/uDx1qWKK85aLIJJ576LAPy5spx2fTKoSyyMAQ8vx+6rFqGaUWLcBSGCdbeWC
+	dJJHxHe0ypK2dqNq/NHFsdu/tMXDpiPbSSqdi3likVmtxwxFB2K44YGEKS9iqdNP5x5EcgVjWfS3r
+	aYJkFqcgCNd/Omc6bxMA32vjEQF5jgPMj7oDw7ZPrx+NrrApq3v/zA2PqWQ5kZGRJjVsDsxhh3tT6
+	1rhvE8xaJI1y4mKcrFyXhebe+l2n3V6Ru4UqnXPFJkbGhVIW7ZSODzzzG7WvRBRY8uyveanyxIpRy
+	aEP8ixog==;
+Received: from mgamail.intel.com ([192.198.163.14])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uf3ih-0000000Bhet-1BKu
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 24 Jul 2025 21:43:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1753393399; x=1784929399;
+  h=date:from:to:cc:subject:message-id;
+  bh=0y+WaQHPFL9Jh9MnbyoM7gRPKRsn/Ev8TIS/gn6EH0k=;
+  b=OARQ6O1zWzUBxnOJ78QM8xQz0fDcb6okLod1OG5UMCld3vFY0/lyA3Jp
+   /dRmsgbVt3CP0K/NY81nUI4exOv608l4eg7RX5C1MSKQOemPArXy/ja7p
+   GegB6yjS2ArnQaY2kZWQB2JMGSIfZR2/GZ6yYZKm6gTGbzvtNADr/pyz+
+   tJcc+We3jisWB7SW+2iCzLtsBO2+2Jr1Y+19Y+nPHwxp+b+Z2vLhigWlM
+   AZAMtsZpf24kKDz/EhFUMVXBodf5JwzT+Va6i1sj0rIeHA8r6CaN58kKz
+   Ld15lQxxgpmVQNKOyqBo/K8f5F3ZVXfR4TGEoHhMm+BVnxI38EG5BCEd8
+   Q==;
+X-CSE-ConnectionGUID: 5BqHyx6mSeKchOl44oL2dA==
+X-CSE-MsgGUID: zV7LZJemRK6dCJuVUSVXrA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11501"; a="55812929"
+X-IronPort-AV: E=Sophos;i="6.16,337,1744095600"; 
+   d="scan'208";a="55812929"
+Received: from fmviesa001.fm.intel.com ([10.60.135.141])
+  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Jul 2025 14:43:13 -0700
+X-CSE-ConnectionGUID: hMcYEhhzTjWsSeOaMefQ9w==
+X-CSE-MsgGUID: IBnB5fNhTjyWbUgG+WGkFw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.16,337,1744095600"; 
+   d="scan'208";a="191481212"
+Received: from lkp-server01.sh.intel.com (HELO 9ee84586c615) ([10.239.97.150])
+  by fmviesa001.fm.intel.com with ESMTP; 24 Jul 2025 14:43:12 -0700
+Received: from kbuild by 9ee84586c615 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1uf3iX-000Kqh-1d;
+	Thu, 24 Jul 2025 21:43:09 +0000
+Date: Fri, 25 Jul 2025 05:42:13 +0800
+From: kernel test robot <lkp@intel.com>
+To: Inochi Amaoto <inochiama@gmail.com>
+Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
+Subject: [soc:sophgo/dt] BUILD SUCCESS
+ 7f90573099e8a506a6874d691d884d7f5b77ec74
+Message-ID: <202507250501.XNwJdQVV-lkp@intel.com>
+User-Agent: s-nail v14.9.24
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250724_143819_427183_8FC8EAF1 
-X-CRM114-Status: GOOD (  14.20  )
+X-CRM114-CacheID: sfid-20250724_224320_119733_6C34418E 
+X-CRM114-Status: UNSURE (   5.31  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,776 +98,276 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Adds dts for LinkStar-H68K-1432v1 board, using rk3568.  Also modifies
-dts/rockchip/Makefile to add a rule to make the dtb from this dts.
-This board is a compact travel router.
+tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git sophgo/dt
+branch HEAD: 7f90573099e8a506a6874d691d884d7f5b77ec74  riscv: dts: sophgo: fix mdio node name for CV180X
 
-Signed-off-by: Erik Beck <xunil@tahomasoft.com>
----
- arch/arm64/boot/dts/rockchip/Makefile              |   1 +
- .../dts/rockchip/rk3568-linkstar-h68k-1432v1.dts   | 740 +++++++++++++++++++++
- 2 files changed, 741 insertions(+)
+elapsed time: 1452m
 
-diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/dts/rockchip/Makefile
-index 4bf84622db473696f64b157ba94560f476d4f52f..baae5a9a3f06e0c7f74c9252eb244bb03989f2d7 100644
---- a/arch/arm64/boot/dts/rockchip/Makefile
-+++ b/arch/arm64/boot/dts/rockchip/Makefile
-@@ -128,6 +128,7 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568-bpi-r2-pro.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568-evb1-v10.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568-fastrhino-r66s.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568-fastrhino-r68s.dtb
-+dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568-linkstar-h68k-1432v1.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568-lubancat-2.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568-mecsbc.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568-nanopi-r5c.dtb
-diff --git a/arch/arm64/boot/dts/rockchip/rk3568-linkstar-h68k-1432v1.dts b/arch/arm64/boot/dts/rockchip/rk3568-linkstar-h68k-1432v1.dts
-new file mode 100644
-index 0000000000000000000000000000000000000000..1d05ce94746288299618961280378b50eb3ade42
---- /dev/null
-+++ b/arch/arm64/boot/dts/rockchip/rk3568-linkstar-h68k-1432v1.dts
-@@ -0,0 +1,740 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright (c) 2025 TahomaSoft xunil@tahomasoft.com
-+ */
-+
-+/dts-v1/;
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/leds/common.h>
-+#include <dt-bindings/input/input.h>
-+#include <dt-bindings/pinctrl/rockchip.h>
-+#include <dt-bindings/soc/rockchip,vop2.h>
-+#include "rk3568.dtsi"
-+
-+/ {
-+	model = "Seeed LinkStar H68K-1432V1 (RK3568) DDR4 Board";
-+	compatible = "seeed,rk3568-linkstar-h68k-1432v1", "rockchip,rk3568";
-+
-+	aliases {
-+		ethernet0 = &gmac0;
-+		ethernet1 = &gmac1;
-+
-+		/* fixed eMMC */
-+		mmc0 = &sdhci;
-+
-+		/* removable uSD/TF Card */
-+		mmc1 = &sdmmc0;
-+
-+		rtc0 = &rk809;
-+	};
-+
-+	chosen {
-+		stdout-path = "serial2:1500000n8";
-+	};
-+
-+	hdmi-con {
-+		compatible = "hdmi-connector";
-+		type = "a";
-+
-+		port {
-+			hdmi_con_in: endpoint {
-+				remote-endpoint = <&hdmi_out_con>;
-+			};
-+		};
-+	};
-+
-+	gpio-keys {
-+		compatible = "gpio-keys";
-+		pinctrl-0 = <&reset_button_pin>;
-+		pinctrl-names = "default";
-+
-+		/* Middle inset/recessed button,
-+		 * marked by clockwise arrow/circle
-+		 */
-+
-+		button-reset {
-+			label = "button:system:reset";
-+			gpios = <&gpio0 RK_PA0 GPIO_ACTIVE_LOW>;
-+			linux,code = <KEY_RESTART>;
-+			debounce-interval = <50>;
-+		};
-+	};
-+
-+	gpio-leds {
-+		compatible = "gpio-leds";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&led_white_pin>, <&led_green_pin>,
-+			<&led_amber_pin>, <&led_blue_pin>;
-+
-+		/* White LED inset in power button */
-+
-+		led_white: led-0   {
-+			color = <LED_COLOR_ID_WHITE>;
-+			default-state = "on";
-+			function = LED_FUNCTION_POWER;
-+			gpios = <&gpio0 RK_PB6 GPIO_ACTIVE_HIGH>;
-+			linux,default-trigger = "default-on";
-+		};
-+
-+		led_green: led-1 {
-+			color = <LED_COLOR_ID_GREEN>;
-+			default-state = "off";
-+			function = LED_FUNCTION_STATUS;
-+			gpios = <&gpio3 RK_PB0 GPIO_ACTIVE_HIGH>;
-+			linux,default-trigger = "none";
-+		};
-+
-+		led_amber: led-2 {
-+			color = <LED_COLOR_ID_AMBER>;
-+			default-state = "off";
-+			function = LED_FUNCTION_STATUS;
-+			gpios = <&gpio3 RK_PA7 GPIO_ACTIVE_HIGH>;
-+			linux,default-trigger = "none";
-+		};
-+
-+		led_blue: led-3 {
-+			color = <LED_COLOR_ID_BLUE>;
-+			default-state = "off";
-+			function = LED_FUNCTION_STATUS;
-+			gpios = <&gpio3 RK_PA5 GPIO_ACTIVE_HIGH>;
-+			linux,default-trigger = "heartbeat";
-+		};
-+	};
-+
-+	vcc12v_dcin: regulator-vcc12v-dcin {
-+		compatible = "regulator-fixed";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <12000000>;
-+		regulator-max-microvolt = <12000000>;
-+		regulator-name = "vcc12v_dcin";
-+	};
-+
-+	vcc3v3_sys: regulator-vcc3v3-sys {
-+		compatible = "regulator-fixed";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		regulator-name = "vcc3v3_sys";
-+		vin-supply = <&vcc12v_dcin>;
-+	};
-+
-+	vcc5v0_sys: regulator-vcc5v0-sys {
-+		compatible = "regulator-fixed";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+		regulator-name = "vcc5v0_sys";
-+		vin-supply = <&vcc12v_dcin>;
-+	};
-+
-+	vcc5v0_usb: regulator-vcc5v0-usb {
-+		compatible = "regulator-fixed";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+		regulator-name = "vcc5v0_usb";
-+		vin-supply = <&vcc12v_dcin>;
-+	};
-+
-+	vcc5v0_usb_host: regulator-vcc5v0-usb-host {
-+		compatible = "regulator-fixed";
-+		enable-active-high;
-+		gpio = <&gpio0 RK_PA5 GPIO_ACTIVE_HIGH>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&vcc5v0_usb_host_en>;
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+		regulator-name = "vcc5v0_usb_host";
-+		vin-supply = <&vcc5v0_usb>;
-+	};
-+
-+	vcc3v3_pcie: regulator-vcc3v3-pcie {
-+		compatible = "regulator-fixed";
-+		enable-active-high;
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		regulator-name = "vcc3v3_pcie";
-+		startup-delay-us = <5000>;
-+		vin-supply = <&vcc5v0_sys>;
-+	};
-+
-+	rk809-sound {
-+		compatible = "simple-audio-card";
-+		simple-audio-card,format = "i2s";
-+		simple-audio-card,name = "Analog RK809";
-+		simple-audio-card,mclk-fs = <256>;
-+
-+		simple-audio-card,cpu {
-+			sound-dai = <&i2s1_8ch>;
-+		};
-+		simple-audio-card,codec {
-+			sound-dai = <&rk809>;
-+		};
-+	};
-+};
-+
-+&gmac0 {
-+	assigned-clocks = <&cru SCLK_GMAC0_RX_TX>, <&cru SCLK_GMAC0>;
-+	assigned-clock-parents = <&cru SCLK_GMAC0_RGMII_SPEED>;
-+	assigned-clock-rates = <0>, <125000000>;
-+	clock_in_out = "output";
-+	phy-mode = "rgmii-id";
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&gmac0_miim
-+		     &gmac0_tx_bus2
-+		     &gmac0_rx_bus2
-+		     &gmac0_rgmii_clk
-+		     &gmac0_rgmii_bus>;
-+	snps,reset-gpio = <&gpio2 RK_PD3 GPIO_ACTIVE_LOW>;
-+	snps,reset-active-low;
-+	snps,reset-delays-us = <0 20000 100000>;
-+	phy-handle = <&rgmii_phy0>;
-+	status = "okay";
-+};
-+
-+&gmac1 {
-+	assigned-clocks = <&cru SCLK_GMAC1_RX_TX>, <&cru SCLK_GMAC1>;
-+	assigned-clock-parents = <&cru SCLK_GMAC1_RGMII_SPEED>;
-+	assigned-clock-rates = <0>, <125000000>;
-+	clock_in_out = "output";
-+	phy-mode = "rgmii-id";
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&gmac1m1_miim
-+		     &gmac1m1_tx_bus2
-+		     &gmac1m1_rx_bus2
-+		     &gmac1m1_rgmii_clk
-+		     &gmac1m1_rgmii_bus>;
-+	snps,reset-gpio = <&gpio1 RK_PB0 GPIO_ACTIVE_LOW>;
-+	snps,reset-active-low;
-+	snps,reset-delays-us = <0 20000 100000>;
-+	phy-handle = <&rgmii_phy1>;
-+	status = "okay";
-+};
-+
-+&combphy0 {
-+	status = "okay";
-+};
-+
-+&combphy1 {
-+	status = "okay";
-+};
-+
-+&combphy2 {
-+	status = "okay";
-+};
-+
-+&cpu0 {
-+	cpu-supply = <&vdd_cpu>;
-+};
-+
-+&cpu1 {
-+	cpu-supply = <&vdd_cpu>;
-+};
-+
-+&cpu2 {
-+	cpu-supply = <&vdd_cpu>;
-+};
-+
-+&cpu3 {
-+	cpu-supply = <&vdd_cpu>;
-+};
-+
-+&gpu {
-+	mali-supply = <&vdd_gpu>;
-+	status = "okay";
-+};
-+
-+&hdmi {
-+	avdd-0v9-supply = <&vdda0v9_image>;
-+	avdd-1v8-supply = <&vcca1v8_image>;
-+	status = "okay";
-+};
-+
-+&hdmi_in {
-+	hdmi_in_vp0: endpoint {
-+		remote-endpoint = <&vp0_out_hdmi>;
-+	};
-+};
-+
-+&hdmi_out {
-+	hdmi_out_con: endpoint {
-+		remote-endpoint = <&hdmi_con_in>;
-+	};
-+};
-+
-+&hdmi_sound {
-+	status = "okay";
-+};
-+
-+&i2c0 {
-+	status = "okay";
-+
-+	vdd_cpu: regulator@1c {
-+		compatible = "tcs,tcs4525";
-+		reg = <0x1c>;
-+		fcs,suspend-voltage-selector = <1>;
-+		regulator-name = "vdd_cpu";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <800000>;
-+		regulator-max-microvolt = <1150000>;
-+		regulator-ramp-delay = <2300>;
-+		vin-supply = <&vcc5v0_sys>;
-+
-+		regulator-state-mem {
-+			regulator-off-in-suspend;
-+		};
-+	};
-+
-+	rk809: pmic@20 {
-+		compatible = "rockchip,rk809";
-+		reg = <0x20>;
-+		interrupt-parent = <&gpio0>;
-+		interrupts = <RK_PA3 IRQ_TYPE_LEVEL_LOW>;
-+		assigned-clocks = <&cru I2S1_MCLKOUT_TX>;
-+		assigned-clock-parents = <&cru CLK_I2S1_8CH_TX>;
-+		#clock-cells = <1>;
-+		clock-names = "mclk";
-+		clocks = <&cru I2S1_MCLKOUT_TX>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pmic_int>, <&i2s1m0_mclk>;
-+		rockchip,system-power-controller;
-+		#sound-dai-cells = <0>;
-+		wakeup-source;
-+
-+		vcc1-supply = <&vcc3v3_sys>;
-+		vcc2-supply = <&vcc3v3_sys>;
-+		vcc3-supply = <&vcc3v3_sys>;
-+		vcc4-supply = <&vcc3v3_sys>;
-+		vcc5-supply = <&vcc3v3_sys>;
-+		vcc6-supply = <&vcc3v3_sys>;
-+		vcc7-supply = <&vcc3v3_sys>;
-+		vcc8-supply = <&vcc3v3_sys>;
-+		vcc9-supply = <&vcc3v3_sys>;
-+
-+		regulators {
-+			vdd_logic: DCDC_REG1 {
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-initial-mode = <0x2>;
-+				regulator-min-microvolt = <500000>;
-+				regulator-max-microvolt = <1350000>;
-+				regulator-name = "vdd_logic";
-+				regulator-ramp-delay = <6001>;
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+
-+			vdd_gpu: DCDC_REG2 {
-+				regulator-always-on;
-+				regulator-initial-mode = <0x2>;
-+				regulator-min-microvolt = <500000>;
-+				regulator-max-microvolt = <1350000>;
-+				regulator-name = "vdd_gpu";
-+				regulator-ramp-delay = <6001>;
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+
-+			vcc_ddr: DCDC_REG3 {
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-initial-mode = <0x2>;
-+				regulator-name = "vcc_ddr";
-+
-+				regulator-state-mem {
-+					regulator-on-in-suspend;
-+				};
-+			};
-+
-+			vdd_npu: DCDC_REG4 {
-+				regulator-initial-mode = <0x2>;
-+				regulator-min-microvolt = <500000>;
-+				regulator-max-microvolt = <1350000>;
-+				regulator-name = "vdd_npu";
-+				regulator-ramp-delay = <6001>;
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+
-+			vcc_1v8: DCDC_REG5 {
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-name = "vcc_1v8";
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+
-+			vdda0v9_image: LDO_REG1 {
-+				regulator-name = "vdda0v9_image";
-+				regulator-min-microvolt = <900000>;
-+				regulator-max-microvolt = <900000>;
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+
-+			vdda_0v9: LDO_REG2 {
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-min-microvolt = <900000>;
-+				regulator-max-microvolt = <900000>;
-+				regulator-name = "vdda_0v9";
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+
-+			vdda0v9_pmu: LDO_REG3 {
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-min-microvolt = <900000>;
-+				regulator-max-microvolt = <900000>;
-+				regulator-name = "vdda0v9_pmu";
-+
-+				regulator-state-mem {
-+					regulator-on-in-suspend;
-+					regulator-suspend-microvolt = <900000>;
-+				};
-+			};
-+
-+			vccio_acodec: LDO_REG4 {
-+				regulator-always-on;
-+				regulator-min-microvolt = <3300000>;
-+				regulator-max-microvolt = <3300000>;
-+				regulator-name = "vccio_acodec";
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+
-+			vccio_sd: LDO_REG5 {
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <3300000>;
-+				regulator-name = "vccio_sd";
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+
-+			vcc3v3_pmu: LDO_REG6 {
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-min-microvolt = <3300000>;
-+				regulator-max-microvolt = <3300000>;
-+				regulator-name = "vcc3v3_pmu";
-+
-+				regulator-state-mem {
-+					regulator-on-in-suspend;
-+					regulator-suspend-microvolt = <3300000>;
-+				};
-+			};
-+
-+			vcca_1v8: LDO_REG7 {
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-name = "vcca_1v8";
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+
-+			vcca1v8_pmu: LDO_REG8 {
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-name = "vcca1v8_pmu";
-+
-+				regulator-state-mem {
-+					regulator-on-in-suspend;
-+					regulator-suspend-microvolt = <1800000>;
-+				};
-+			};
-+
-+			vcca1v8_image: LDO_REG9 {
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-name = "vcca1v8_image";
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+
-+			vcc_3v3: SWITCH_REG1 {
-+				regulator-name = "vcc_3v3";
-+				regulator-always-on;
-+				regulator-boot-on;
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+
-+			vcc3v3_sd: SWITCH_REG2 {
-+				regulator-name = "vcc3v3_sd";
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+		};
-+
-+		codec {
-+			rockchip,mic-in-differential;
-+		};
-+	};
-+};
-+
-+&i2s0_8ch {
-+	status = "okay";
-+};
-+
-+&i2s1_8ch {
-+	rockchip,trcm-sync-tx-only;
-+	status = "okay";
-+};
-+
-+&mdio0 {
-+	rgmii_phy0: ethernet-phy@0 {
-+		compatible = "ethernet-phy-ieee802.3-c22";
-+		reg = <0x0>;
-+	};
-+};
-+
-+&mdio1 {
-+	rgmii_phy1: ethernet-phy@0 {
-+		compatible = "ethernet-phy-ieee802.3-c22";
-+		reg = <0x0>;
-+	};
-+};
-+
-+&pcie30phy {
-+	 data-lanes = <1 2>;
-+	 status = "okay";
-+};
-+
-+&pcie2x1 {
-+	 reset-gpios = <&gpio2 RK_PD6 GPIO_ACTIVE_HIGH>;
-+	 vpcie3v3-supply = <&vcc3v3_pcie>;
-+	 status = "okay";
-+};
-+
-+&pcie3x1 {
-+	 num-lanes= <1>;
-+	 bus-range = <0x10 0x1f>;
-+	 reset-gpios = <&gpio3 RK_PA4 GPIO_ACTIVE_HIGH>;
-+	 vpcie3v3-supply = <&vcc3v3_pcie>;
-+	 status = "okay";
-+
-+};
-+
-+&pcie3x2 {
-+	 num-lanes= <1>;
-+	 bus-range = <0x20 0x2f>;
-+	 reset-gpios = <&gpio2 RK_PD0 GPIO_ACTIVE_HIGH>;
-+	 vpcie3v3-supply = <&vcc3v3_pcie>;
-+	 status = "okay";
-+};
-+
-+&pinctrl {
-+	button {
-+		reset_button_pin: reset-button-pin {
-+			rockchip,pins = <0 RK_PA0 RK_FUNC_GPIO &pcfg_pull_up>;
-+		};
-+	};
-+
-+	bluetooth {
-+		bt_wake_host_h: bt-wake-host-h {
-+			rockchip,pins = <3 RK_PA1 RK_FUNC_GPIO &pcfg_pull_down>;
-+		};
-+
-+		host_wake_bt_h: host-wake-bt-h {
-+			rockchip,pins = <3 RK_PA2 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+
-+	gpio-leds {
-+	     led_white_pin: led-white-pin  {
-+		    rockchip,pins = <0 RK_PB6 RK_FUNC_GPIO &pcfg_pull_none>;
-+	     };
-+
-+	     led_green_pin: led-green-pin {
-+		    rockchip,pins = <3 RK_PB0 RK_FUNC_GPIO &pcfg_pull_none>;
-+	     };
-+
-+	     led_amber_pin: led-amber-pin {
-+		    rockchip,pins = <3 RK_PA7 RK_FUNC_GPIO &pcfg_pull_none>;
-+	     };
-+
-+	     led_blue_pin: led-blue-pin {
-+		    rockchip,pins = <3 RK_PA5 RK_FUNC_GPIO &pcfg_pull_none>;
-+	     };
-+
-+	};
-+
-+	pmic {
-+		pmic_int: pmic_int {
-+			rockchip,pins = <0 RK_PA3 RK_FUNC_GPIO &pcfg_pull_up>;
-+		};
-+	};
-+
-+	usb {
-+		vcc5v0_usb_host_en: vcc5v0_usb_host_en {
-+			rockchip,pins = <0 RK_PA5 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+};
-+
-+&pmu_io_domains {
-+	pmuio1-supply = <&vcc3v3_pmu>;
-+	pmuio2-supply = <&vcc3v3_pmu>;
-+	vccio1-supply = <&vccio_acodec>;
-+	vccio2-supply = <&vcc_1v8>;
-+	vccio3-supply = <&vccio_sd>;
-+	vccio4-supply = <&vcc_1v8>;
-+	vccio5-supply = <&vcc_3v3>;
-+	vccio6-supply = <&vcc_1v8>;
-+	vccio7-supply = <&vcc_3v3>;
-+	status = "okay";
-+};
-+
-+&rng {
-+	status = "okay";
-+};
-+
-+&saradc {
-+	vref-supply = <&vcca_1v8>;
-+	status = "okay";
-+};
-+
-+&sata0 {
-+	status = "disabled";
-+};
-+
-+&sata1 {
-+	status = "disabled";
-+};
-+
-+&sata2 {
-+	status = "disabled";
-+};
-+
-+&sdhci {
-+	bus-width = <8>;
-+	max-frequency = <200000000>;
-+	non-removable;
-+	pinctrl-0 = <&emmc_bus8 &emmc_clk &emmc_cmd &emmc_datastrobe>;
-+	status = "okay";
-+};
-+
-+&sdmmc0 {
-+	bus-width = <4>;
-+	cap-sd-highspeed;
-+	cd-gpios = <&gpio0 RK_PA4 GPIO_ACTIVE_LOW>;
-+	disable-wp;
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&sdmmc0_bus4 &sdmmc0_clk &sdmmc0_cmd &sdmmc0_det>;
-+	sd-uhs-sdr104;
-+	vmmc-supply = <&vcc3v3_sd>;
-+	vqmmc-supply = <&vccio_sd>;
-+	status = "okay";
-+};
-+
-+&tsadc {
-+	rockchip,hw-tshut-mode = <1>;
-+	rockchip,hw-tshut-polarity = <0>;
-+	status = "okay";
-+};
-+
-+&uart2 {
-+	status = "okay";
-+};
-+
-+&usb_host0_ehci {
-+	status = "okay";
-+};
-+
-+&usb_host1_ehci {
-+	status = "okay";
-+};
-+
-+&usb_host0_ohci {
-+	status = "okay";
-+};
-+
-+&usb_host1_ohci {
-+	status = "okay";
-+};
-+
-+&usb_host0_xhci {
-+	phys = <&combphy0 PHY_TYPE_USB3>;
-+	phy-names = "usb3-phy";
-+	status = "okay";
-+};
-+
-+&usb_host1_xhci {
-+	status = "okay";
-+};
-+
-+&usb2phy0 {
-+	status = "okay";
-+};
-+
-+&usb2phy0_host {
-+	phy-supply = <&vcc5v0_usb_host>;
-+	status = "okay";
-+};
-+
-+&usb2phy1 {
-+	status = "okay";
-+};
-+
-+&usb2phy1_host {
-+	phy-supply = <&vcc5v0_usb_host>;
-+	status = "okay";
-+};
-+
-+&usb2phy1_otg {
-+	phy-supply = <&vcc5v0_usb_host>;
-+	status = "okay";
-+};
-+
-+&vop {
-+	assigned-clocks = <&cru DCLK_VOP0>, <&cru DCLK_VOP1>;
-+	assigned-clock-parents = <&pmucru PLL_HPLL>, <&cru PLL_VPLL>;
-+	status = "okay";
-+};
-+
-+&vop_mmu {
-+	status = "okay";
-+};
-+
-+&vp0 {
-+	vp0_out_hdmi: endpoint@ROCKCHIP_VOP2_EP_HDMI0 {
-+		reg = <ROCKCHIP_VOP2_EP_HDMI0>;
-+		remote-endpoint = <&hdmi_in_vp0>;
-+	};
-+};
+configs tested: 256
+configs skipped: 5
 
--- 
-2.43.0
+The following configs have been built successfully.
+More configs may be tested in the coming days.
 
+tested configs:
+alpha                             allnoconfig    clang-22
+alpha                            allyesconfig    clang-19
+alpha                            allyesconfig    gcc-15.1.0
+alpha                               defconfig    clang-19
+arc                              allmodconfig    clang-19
+arc                               allnoconfig    clang-22
+arc                              allyesconfig    clang-19
+arc                                 defconfig    clang-19
+arc                   randconfig-001-20250724    clang-22
+arc                   randconfig-001-20250724    gcc-13.4.0
+arc                   randconfig-002-20250724    clang-22
+arc                   randconfig-002-20250724    gcc-15.1.0
+arm                              allmodconfig    clang-19
+arm                               allnoconfig    clang-22
+arm                              allyesconfig    clang-19
+arm                         at91_dt_defconfig    clang-22
+arm                                 defconfig    clang-19
+arm                           omap1_defconfig    gcc-15.1.0
+arm                   randconfig-001-20250724    clang-22
+arm                   randconfig-001-20250724    gcc-10.5.0
+arm                   randconfig-002-20250724    clang-22
+arm                   randconfig-003-20250724    clang-22
+arm                   randconfig-003-20250724    gcc-8.5.0
+arm                   randconfig-004-20250724    clang-22
+arm                   randconfig-004-20250724    gcc-12.5.0
+arm                           tegra_defconfig    clang-22
+arm64                            allmodconfig    clang-19
+arm64                             allnoconfig    clang-22
+arm64                               defconfig    clang-19
+arm64                 randconfig-001-20250724    clang-22
+arm64                 randconfig-001-20250724    gcc-8.5.0
+arm64                 randconfig-002-20250724    clang-22
+arm64                 randconfig-003-20250724    clang-22
+arm64                 randconfig-003-20250724    gcc-13.4.0
+arm64                 randconfig-004-20250724    clang-22
+csky                              allnoconfig    clang-22
+csky                                defconfig    clang-19
+csky                  randconfig-001-20250724    gcc-13.4.0
+csky                  randconfig-001-20250724    gcc-14.3.0
+csky                  randconfig-002-20250724    gcc-10.5.0
+csky                  randconfig-002-20250724    gcc-14.3.0
+hexagon                          allmodconfig    clang-17
+hexagon                          allmodconfig    clang-19
+hexagon                           allnoconfig    clang-22
+hexagon                          allyesconfig    clang-19
+hexagon                          allyesconfig    clang-22
+hexagon                             defconfig    clang-19
+hexagon               randconfig-001-20250724    clang-22
+hexagon               randconfig-001-20250724    gcc-14.3.0
+hexagon               randconfig-002-20250724    clang-22
+hexagon               randconfig-002-20250724    gcc-14.3.0
+i386                             allmodconfig    clang-20
+i386                              allnoconfig    clang-20
+i386                             allyesconfig    clang-20
+i386        buildonly-randconfig-001-20250724    gcc-12
+i386        buildonly-randconfig-001-20250725    gcc-12
+i386        buildonly-randconfig-002-20250724    clang-20
+i386        buildonly-randconfig-002-20250724    gcc-12
+i386        buildonly-randconfig-002-20250725    gcc-12
+i386        buildonly-randconfig-003-20250724    clang-20
+i386        buildonly-randconfig-003-20250724    gcc-12
+i386        buildonly-randconfig-003-20250725    gcc-12
+i386        buildonly-randconfig-004-20250724    clang-20
+i386        buildonly-randconfig-004-20250724    gcc-12
+i386        buildonly-randconfig-004-20250725    gcc-12
+i386        buildonly-randconfig-005-20250724    clang-20
+i386        buildonly-randconfig-005-20250724    gcc-12
+i386        buildonly-randconfig-005-20250725    gcc-12
+i386        buildonly-randconfig-006-20250724    clang-20
+i386        buildonly-randconfig-006-20250724    gcc-12
+i386        buildonly-randconfig-006-20250725    gcc-12
+i386                                defconfig    clang-20
+i386                  randconfig-001-20250724    clang-20
+i386                  randconfig-001-20250725    clang-20
+i386                  randconfig-002-20250724    clang-20
+i386                  randconfig-002-20250725    clang-20
+i386                  randconfig-003-20250724    clang-20
+i386                  randconfig-003-20250725    clang-20
+i386                  randconfig-004-20250724    clang-20
+i386                  randconfig-004-20250725    clang-20
+i386                  randconfig-005-20250724    clang-20
+i386                  randconfig-005-20250725    clang-20
+i386                  randconfig-006-20250724    clang-20
+i386                  randconfig-006-20250725    clang-20
+i386                  randconfig-007-20250724    clang-20
+i386                  randconfig-007-20250725    clang-20
+i386                  randconfig-011-20250724    gcc-12
+i386                  randconfig-011-20250725    gcc-12
+i386                  randconfig-012-20250724    gcc-12
+i386                  randconfig-012-20250725    gcc-12
+i386                  randconfig-013-20250724    gcc-12
+i386                  randconfig-013-20250725    gcc-12
+i386                  randconfig-014-20250724    gcc-12
+i386                  randconfig-014-20250725    gcc-12
+i386                  randconfig-015-20250724    gcc-12
+i386                  randconfig-015-20250725    gcc-12
+i386                  randconfig-016-20250724    gcc-12
+i386                  randconfig-016-20250725    gcc-12
+i386                  randconfig-017-20250724    gcc-12
+i386                  randconfig-017-20250725    gcc-12
+loongarch                        allmodconfig    clang-19
+loongarch                         allnoconfig    clang-22
+loongarch                           defconfig    clang-19
+loongarch             randconfig-001-20250724    clang-22
+loongarch             randconfig-001-20250724    gcc-14.3.0
+loongarch             randconfig-002-20250724    gcc-13.4.0
+loongarch             randconfig-002-20250724    gcc-14.3.0
+m68k                             allmodconfig    clang-19
+m68k                             allmodconfig    gcc-15.1.0
+m68k                              allnoconfig    gcc-15.1.0
+m68k                             allyesconfig    clang-19
+m68k                             allyesconfig    gcc-15.1.0
+m68k                                defconfig    clang-19
+m68k                          hp300_defconfig    clang-22
+m68k                       m5475evb_defconfig    clang-22
+m68k                        stmark2_defconfig    gcc-15.1.0
+m68k                          sun3x_defconfig    gcc-15.1.0
+microblaze                       allmodconfig    clang-19
+microblaze                       allmodconfig    gcc-15.1.0
+microblaze                        allnoconfig    gcc-15.1.0
+microblaze                       allyesconfig    clang-19
+microblaze                       allyesconfig    gcc-15.1.0
+microblaze                          defconfig    gcc-15.1.0
+mips                              allnoconfig    gcc-15.1.0
+nios2                         3c120_defconfig    gcc-15.1.0
+nios2                             allnoconfig    gcc-15.1.0
+nios2                               defconfig    gcc-15.1.0
+nios2                 randconfig-001-20250724    gcc-11.5.0
+nios2                 randconfig-001-20250724    gcc-14.3.0
+nios2                 randconfig-002-20250724    gcc-14.3.0
+nios2                 randconfig-002-20250724    gcc-8.5.0
+openrisc                          allnoconfig    clang-22
+openrisc                         allyesconfig    gcc-15.1.0
+openrisc                            defconfig    gcc-12
+openrisc                 simple_smp_defconfig    gcc-15.1.0
+parisc                           allmodconfig    gcc-15.1.0
+parisc                            allnoconfig    clang-22
+parisc                           allyesconfig    gcc-15.1.0
+parisc                              defconfig    gcc-15.1.0
+parisc                randconfig-001-20250724    gcc-14.3.0
+parisc                randconfig-002-20250724    gcc-14.3.0
+parisc                randconfig-002-20250724    gcc-8.5.0
+parisc64                            defconfig    gcc-15.1.0
+powerpc                          allmodconfig    gcc-15.1.0
+powerpc                           allnoconfig    clang-22
+powerpc                          allyesconfig    gcc-15.1.0
+powerpc                      chrp32_defconfig    clang-22
+powerpc               randconfig-001-20250724    clang-22
+powerpc               randconfig-001-20250724    gcc-14.3.0
+powerpc               randconfig-002-20250724    gcc-14.3.0
+powerpc               randconfig-002-20250724    gcc-8.5.0
+powerpc               randconfig-003-20250724    clang-22
+powerpc               randconfig-003-20250724    gcc-14.3.0
+powerpc                     tqm8541_defconfig    gcc-15.1.0
+powerpc64             randconfig-001-20250724    clang-22
+powerpc64             randconfig-001-20250724    gcc-14.3.0
+powerpc64             randconfig-002-20250724    gcc-13.4.0
+powerpc64             randconfig-002-20250724    gcc-14.3.0
+powerpc64             randconfig-003-20250724    gcc-14.3.0
+powerpc64             randconfig-003-20250724    gcc-15.1.0
+riscv                            allmodconfig    gcc-15.1.0
+riscv                             allnoconfig    clang-22
+riscv                            allyesconfig    gcc-15.1.0
+riscv                               defconfig    gcc-12
+riscv                 randconfig-001-20250724    gcc-13.4.0
+riscv                 randconfig-002-20250724    gcc-13.4.0
+riscv                 randconfig-002-20250724    gcc-8.5.0
+s390                             allmodconfig    clang-18
+s390                             allmodconfig    gcc-15.1.0
+s390                              allnoconfig    clang-22
+s390                             allyesconfig    gcc-15.1.0
+s390                                defconfig    clang-22
+s390                                defconfig    gcc-12
+s390                  randconfig-001-20250724    clang-22
+s390                  randconfig-001-20250724    gcc-13.4.0
+s390                  randconfig-002-20250724    gcc-10.5.0
+s390                  randconfig-002-20250724    gcc-13.4.0
+sh                               allmodconfig    gcc-15.1.0
+sh                                allnoconfig    gcc-15.1.0
+sh                               allyesconfig    gcc-15.1.0
+sh                                  defconfig    gcc-12
+sh                    randconfig-001-20250724    gcc-13.4.0
+sh                    randconfig-002-20250724    gcc-13.4.0
+sh                    randconfig-002-20250724    gcc-15.1.0
+sh                           se7722_defconfig    gcc-15.1.0
+sparc                            allmodconfig    gcc-15.1.0
+sparc                             allnoconfig    gcc-15.1.0
+sparc                               defconfig    gcc-15.1.0
+sparc                 randconfig-001-20250724    gcc-13.4.0
+sparc                 randconfig-001-20250724    gcc-15.1.0
+sparc                 randconfig-002-20250724    gcc-13.4.0
+sparc                 randconfig-002-20250724    gcc-8.5.0
+sparc                       sparc32_defconfig    clang-22
+sparc64                             defconfig    gcc-12
+sparc64               randconfig-001-20250724    gcc-13.4.0
+sparc64               randconfig-001-20250724    gcc-8.5.0
+sparc64               randconfig-002-20250724    clang-22
+sparc64               randconfig-002-20250724    gcc-13.4.0
+um                               allmodconfig    clang-19
+um                                allnoconfig    clang-22
+um                               allyesconfig    clang-19
+um                                  defconfig    gcc-12
+um                             i386_defconfig    gcc-12
+um                    randconfig-001-20250724    clang-22
+um                    randconfig-001-20250724    gcc-13.4.0
+um                    randconfig-002-20250724    gcc-12
+um                    randconfig-002-20250724    gcc-13.4.0
+um                           x86_64_defconfig    gcc-12
+x86_64                            allnoconfig    clang-20
+x86_64                           allyesconfig    clang-20
+x86_64      buildonly-randconfig-001-20250724    gcc-12
+x86_64      buildonly-randconfig-002-20250724    clang-20
+x86_64      buildonly-randconfig-002-20250724    gcc-12
+x86_64      buildonly-randconfig-003-20250724    gcc-12
+x86_64      buildonly-randconfig-004-20250724    gcc-12
+x86_64      buildonly-randconfig-005-20250724    clang-20
+x86_64      buildonly-randconfig-005-20250724    gcc-12
+x86_64      buildonly-randconfig-006-20250724    gcc-12
+x86_64                              defconfig    clang-20
+x86_64                                  kexec    clang-20
+x86_64                randconfig-001-20250724    gcc-12
+x86_64                randconfig-001-20250725    gcc-12
+x86_64                randconfig-002-20250724    gcc-12
+x86_64                randconfig-002-20250725    gcc-12
+x86_64                randconfig-003-20250724    gcc-12
+x86_64                randconfig-003-20250725    gcc-12
+x86_64                randconfig-004-20250724    gcc-12
+x86_64                randconfig-004-20250725    gcc-12
+x86_64                randconfig-005-20250724    gcc-12
+x86_64                randconfig-005-20250725    gcc-12
+x86_64                randconfig-006-20250724    gcc-12
+x86_64                randconfig-006-20250725    gcc-12
+x86_64                randconfig-007-20250724    gcc-12
+x86_64                randconfig-007-20250725    gcc-12
+x86_64                randconfig-008-20250724    gcc-12
+x86_64                randconfig-008-20250725    gcc-12
+x86_64                randconfig-071-20250724    clang-20
+x86_64                randconfig-072-20250724    clang-20
+x86_64                randconfig-073-20250724    clang-20
+x86_64                randconfig-074-20250724    clang-20
+x86_64                randconfig-075-20250724    clang-20
+x86_64                randconfig-076-20250724    clang-20
+x86_64                randconfig-077-20250724    clang-20
+x86_64                randconfig-078-20250724    clang-20
+x86_64                               rhel-9.4    clang-20
+x86_64                           rhel-9.4-bpf    gcc-12
+x86_64                    rhel-9.4-kselftests    clang-20
+x86_64                         rhel-9.4-kunit    gcc-12
+x86_64                           rhel-9.4-ltp    gcc-12
+x86_64                          rhel-9.4-rust    clang-20
+xtensa                            allnoconfig    gcc-15.1.0
+xtensa                randconfig-001-20250724    gcc-12.5.0
+xtensa                randconfig-001-20250724    gcc-13.4.0
+xtensa                randconfig-002-20250724    gcc-12.5.0
+xtensa                randconfig-002-20250724    gcc-13.4.0
+xtensa                    smp_lx200_defconfig    clang-22
+
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
