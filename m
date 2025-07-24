@@ -4,55 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41D34C87FCC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 18:36:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2D3AC87FCF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 18:36:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=P+bGKrVdNNAGbL3UvcGr0rJCn0rZL6e6bELkPoLaqak=; b=o3nV0Z/Gz3AVW6
-	KEMRu7KqbBD4wiP2xX8yfp3cssJB825gFRK5Qu5+FI5P6ME74HMThL10vew6ioGguNs15t1o7WqIp
-	jFE+uZTixmKGjnqKNaiRekNJQI7RjqCYpnjfbKyyrfS4xxI2KDwKlFSxi4B0AlEjVFgCJRyQLHYJP
-	iTFR2p+FsG8KTn7EE3CK0cs9pSVqlK9RAtdIOOZ6mxdSxvnbu7PKxmbEk2qrO7Zrb430QoQuhX8K8
-	OpfSa+Ajvjpy5vQUlFdOXVdJhf+BNa+kRAI+TkhNS+NaNHJaNa4DPHgtLkqLOZrQSUm/br7R03iIF
-	wXQIBPRAVxM8Nw0M8MGg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7+Hc/EJTpAN/zUBy6dWU21PJ3WMLmwKCsM/9bWx/tE4=; b=kcNGhyLc6EXXpKjeQGtMyTsw50
+	7tHhEJwlwmcVb5zvmGkK7aJWIJDwks0Il8SZSYS/hiDr2oqSmMEWnolgmDH6Esj2qsLkG3RxhPTcB
+	QEvS8MbyEyb2RIErthknGMN2boXGfR3/XpQePyCDPZqoWi+nipPszVnG6ZbYn4pOfr+1VPgr2BkU8
+	9eaaZFuF0xlHAQLDp7QyI9Eqrx4RVBRo8U3S6ugrsqKet/Oms3ypF9B+VK1BDAYtQPL4hnEXBv3vk
+	fkUHTk2JVCTMJFiWg/6LRMhnAhBxuJGxo/6nAXFFVFS9E68isc1LT7kPTkYFYg8MlkdPPiLjClUKY
+	rK/2AMWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uf0o6-00000008DnY-3qiT;
-	Thu, 24 Jul 2025 18:36:42 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uf05b-000000089js-0WbN
+	id 1uf0o8-00000008Dqe-3WOR;
+	Thu, 24 Jul 2025 18:36:44 +0000
+Received: from mail-lj1-x22f.google.com ([2a00:1450:4864:20::22f])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uf0Bc-00000008A64-09zU
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Jul 2025 17:50:44 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DF5482B;
-	Thu, 24 Jul 2025 10:50:35 -0700 (PDT)
-Received: from [10.57.3.78] (unknown [10.57.3.78])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5419D3F6A8;
-	Thu, 24 Jul 2025 10:50:40 -0700 (PDT)
-Message-ID: <f30c1eaf-6f5b-46c8-8d6c-fa81880da0cc@arm.com>
-Date: Thu, 24 Jul 2025 18:50:38 +0100
+	Thu, 24 Jul 2025 17:56:57 +0000
+Received: by mail-lj1-x22f.google.com with SMTP id 38308e7fff4ca-32b5226e6beso11456371fa.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Jul 2025 10:56:55 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1753379814; x=1753984614; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=7+Hc/EJTpAN/zUBy6dWU21PJ3WMLmwKCsM/9bWx/tE4=;
+        b=NLGE098fRSYQV1nWXM376s+K5mlY5QO3uqqPRYOsMBALhSyIQeoXr/oUX8/aK0sl5/
+         TANW2gxn4BB4UzCM5JWjpAXQ257wf+VFJ66cUCaRdaTTSjOuaS5J0NadP4TmQg2QeLeN
+         yiuifRf+Rk6+/VWC+eUHALkth9XGKAkyRImNFTRTHpbncb0/BPKE51M12tl2Xs3rogaC
+         g/C3Tbt9CoRMeEmjUGU4e3z/siWuFTKqtXVBJvNX/tJgNoftDtR8qh7Zt5YyaMVeofgq
+         8fAHoi1xE05UOEU+GpQPuZilU68R/Kzbvln6uMKNG9uPUki8pBFWSdfOn6qpTTgh1wz0
+         8QpQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1753379814; x=1753984614;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=7+Hc/EJTpAN/zUBy6dWU21PJ3WMLmwKCsM/9bWx/tE4=;
+        b=e7svFG3lT5r6/iKKlXyJfdmuuM/QMofTViKm0QfKv6e8QLXALJORbjHo3C4oP8XrEC
+         LsdyDXmDaeLp6IbaorPG30Jeobnas+dXS2bWeYvnpzR71Re/kXpy9V7lbIHU+2vLEhmp
+         H82eObaCpPckxLtElRhqtv/0T4omh0q6eZ5F8oBGXB5fWUaQ8wURpDbHW9ybB+YPOuN8
+         HTNDK6qWuK0rE60aZTCJMnwEcoPcHFH1RGvz1KmkimglDfwczxejs1w310nJX8YGGYZW
+         y17whMackM7jSjfJJDNVcb8to+TJbmmpm5/B1t8EYELY4MASAmW12I2Z+pwtXy702Ysq
+         p1GQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVzcysX8hcWcawekm5YVOjj0Sytqmsw+5fOG1oKCQjPdPFEKnfbJAbuMu8VMdR+1Vmcle08Q1zs+kBwu97x3W1v@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy9qAE+xIjY+2sR3LoODzxYh4yAn9B8/pEJ7pHWkBmjhxmdcTmz
+	PXDmSQQ7YQ1rF7qBClsX7PZs3anQyL6Lntxb5sPcY0FhB3dngbDGuTVI
+X-Gm-Gg: ASbGncvsPJCzHh5HNrAEyW22AFOX6Ld7lByjtHP30yWz1LfndEL7UEKC/ek0X1QgdGM
+	ng8HLFE36P31qhT1PXvIBZKY1jlVGDKLL66U269HgFr/R51xaE+j5zQfiF/XKLaoUUUpnqQD6Vw
+	/0YD22/KOcEeYLgIGcS74RO/iutQ7JlqWsX/iAFTVO8mE/6yND293K36riahrucevetOB70GvpP
+	awYFv+DMqyI70M+c0XFnOVBn2eixRsWfjiJTssxJzILast3W7oiJ0HwZ9xMLoIbOXagmtQDTxLT
+	krEWAgNB7+yJ5q8nmnWK275ZXjvyB97D2pfPow3ycd64HemcNfHgwQKIgOAIyONO/1EkQq97eBw
+	pkwFkTp3jK/zTNim/Hj3zH7ji39twBYu1NXUPIRgF
+X-Google-Smtp-Source: AGHT+IFN4Xrrwc5r0VQkcaQC/psZUUhsAWA2bd+XSOCuqzO1usstf65IZl+/xhZAoKMELAzl9zDBaw==
+X-Received: by 2002:a2e:9cc2:0:b0:32b:3104:f89c with SMTP id 38308e7fff4ca-330dfe3cf57mr22675651fa.29.1753379813377;
+        Thu, 24 Jul 2025 10:56:53 -0700 (PDT)
+Received: from mobilestation ([178.176.56.174])
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-331e08e98aesm4007631fa.54.2025.07.24.10.56.51
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 24 Jul 2025 10:56:52 -0700 (PDT)
+Date: Thu, 24 Jul 2025 20:56:06 +0300
+From: Serge Semin <fancer.lancer@gmail.com>
+To: "G Thomas, Rohan" <rohan.g.thomas@altera.com>
+Cc: Andrew Lunn <andrew@lunn.ch>, Andrew Lunn <andrew+netdev@lunn.ch>, 
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Romain Gantois <romain.gantois@bootlin.com>, netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Matthew Gerlach <matthew.gerlach@altera.com>
+Subject: Re: [PATCH net-next 2/3] net: stmmac: xgmac: Correct supported speed
+ modes
+Message-ID: <tcebsuesjejtk3vmzx77yuo7zil2xciucnnrakubrslwvnndas@utvi4r7ob3xa>
+References: <20250714-xgmac-minor-fixes-v1-0-c34092a88a72@altera.com>
+ <20250714-xgmac-minor-fixes-v1-2-c34092a88a72@altera.com>
+ <b192c96a-2989-4bdf-ba4f-8b7bcfd09cfa@lunn.ch>
+ <e903cb0f-3970-4ad2-a0a2-ee58551779dc@altera.com>
+ <6fsqayppkyubkucghk5i6m7jjgytajtzm4wxhtdkh7i2v3znk5@vwqbzz5uffyy>
+ <4df7133e-5dcd-4d3d-9a58-d09ad5fd7ec3@altera.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64/entry: Mask DAIF in cpu_switch_to(),
- call_on_irq_stack()
-To: Ard Biesheuvel <ardb@kernel.org>, Will Deacon <will@kernel.org>,
- Sami Tolvanen <samitolvanen@google.com>
-References: <20250718142814.133329-1-ada.coupriediaz@arm.com>
- <aH5MPwJJzFZxOtfr@willie-the-truck>
- <CAMj1kXG40=hymhdL1GM0dDfp3F_-TzYqzkda3DY1CSRGAhme+g@mail.gmail.com>
-From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-Content-Language: en-US
-Organization: Arm Ltd.
-In-Reply-To: <CAMj1kXG40=hymhdL1GM0dDfp3F_-TzYqzkda3DY1CSRGAhme+g@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <4df7133e-5dcd-4d3d-9a58-d09ad5fd7ec3@altera.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250724_105043_264891_863C2A0C 
-X-CRM114-Status: GOOD (  32.40  )
+X-CRM114-CacheID: sfid-20250724_105656_077473_187F6C71 
+X-CRM114-Status: GOOD (  23.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,128 +105,59 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, Catalin Marinas <catalin.marinas@arm.com>, Mark Brown <broonie@kernel.org>, Cristian Prundeanu <cpru@amazon.com>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-I think this has been clarified offline (?), but answering for the list.
+Hi Rohan
 
-On 22/07/2025 06:31, Ard Biesheuvel wrote:
+On Thu, Jul 24, 2025 at 09:48:29PM +0530, G Thomas, Rohan wrote:
+> On 7/17/2025 5:17 PM, Serge Semin wrote:
+> > DW XGMAC IP-core of v2.x and older don't support 10/100Mbps modes
+> > neither in the XGMII nor in the GMII interfaces. That's why I dropped
+> > the 10/100Mbps link capabilities retaining 1G, 2.5G and 10G speeds
+> > only (the only speeds supported for DW XGMAC 1.20a/2.11a Tx in the
+> > MAC_Tx_Configuration.SS register field). Although I should have
+> > dropped the MAC_5000FD too since it has been supported since v3.0
+> > IP-core version. My bad.(
+> > 
+> > Starting from DW XGMAC v3.00a IP-core the list of the supported speeds
+> > has been extended to: 10/100Mbps (MII), 1G/2.5G (GMII), 2.5G/5G/10G
+> > (XGMII). Thus the more appropriate fix here should take into account
+> > the IP-core version. Like this:
+> > 	if (dma_cap->mbps_1000 && MAC_Version.SNPSVER >= 0x30)
+> > 		dma_cap->mbps_10_100 = 1;
+> > 
+> > Then you can use the mbps_1000 and mbps_10_100 flags to set the proper
+> > MAC-capabilities to hw->link.caps in the dwxgmac2_setup() method. I
+> > would have added the XGMII 2.5G/5G MAC-capabilities setting up to the
+> > dwxgmac2_setup() method too for the v3.x IP-cores and newer.
+> 
+> Hi Serge,
+> 
+> From the databook, I noticed the condition:
+> (DWCXG_XGMII_GMII == 1) && <DWC-XGMAC-V2_20 feature authorized>
+> which seems to suggest that 10/100 Mbps support was introduced starting
+> from version 2.20.
+> 
+> Am I interpreting this correctly, or is this feature only fully
+> supported from v3.00 onwards.
 
-> (cc Sami)
->
-> On Tue, 22 Jul 2025 at 00:18, Will Deacon <will@kernel.org> wrote:
->> On Fri, Jul 18, 2025 at 03:28:14PM +0100, Ada Couprie Diaz wrote:
->>> `cpu_switch_to()` and `call_on_irq_stack()` manipulate SP to change
->>> to different stacks along with the Shadow Call Stack if it is enabled.
->>> Those two stack changes cannot be done atomically and both functions
->>> can be interrupted by SErrors or Debug Exceptions which, though unlikely,
->>> is very much broken : if interrupted, we can end up with mismatched stacks
->>> and Shadow Call Stack leading to clobbered stacks.
->>>
->>> In `cpu_switch_to()`, it can happen when SP_EL0 points to the new task,
->>> but x18 stills points to the old task's SCS. When the interrupt handler
->>> tries to save the task's SCS pointer, it will save the old task
->>> SCS pointer (x18) into the new task struct (pointed to by SP_EL0),
->>> clobbering it.
->>>
-> In this case, the 'interrupt handler' is not the entry code, but
-> call_on_irq_stack(), right?
+Hm. Interesting discovery. I've got only DW XGMAC v1.20a, v2.11a,
+v3.01a and v3.20a databooks at hands. So I can't prove for sure your
+inference. But the DW XGMAC v3.01a doc indeed states that
+DWCXG_FDUPLX_ONLY parameter is enabled if:
+(DWCXG_XGMII_GMII == 1) && <DWC-XGMAC-V2_20 feature authorized>
+which implies that the parameter was originally introduced in v2.20a
+IP-core.
 
-That is correct yes.
+So to speak you might be right. Perhaps it will be more correct to set
+dma_cap->mbps_10_100 for v2.20a (SNPSVER = 0x22) IP-cores too
+especially seeing another parameter DWCXG_MII_SUPPORT depends on
+SNPS_RSVDPARAM_16 which also depends on DWC-XGMAC-V2_20.
 
-[...]
+-Serge(y)
 
-> So AIUI, the problem is that both cpu_switch_to() and
-> call_on_irq_stack() itself can be interrupted by the latter, resulting
-> in the shadow call stack pointer recorded in the task struct to be
-> incorrect, either because the task struct pointer is pointing to the
-> wrong task, or the shadow stack pointer is pointing to the wrong
-> stack.
-
-Exactly : that is what I was trying to fix, which is why the commit message
-is focused on this.
-
-However, as per the other thread there's potentially other issues here
-that I was not well aware of at the time for which masking DAIF is still
-beneficial.
-
->
-> Commit 59b37fe52f49955 changed this code to ensure that the shadow
-> stack pointer is not preserved to/restored from the ordinary stack,
-> because that turns call_on_irq_stack() into a rather useful gadget but
-> use the task struct instead.
->
-> What we could do instead is record the caller's SCS pointer on the IRQ
-> shadow stack, avoiding the task struct altogether. This should be the
-> only occurrence of scs_save that may interrupt cpu_switch_to(), so it
-> should address both issues AFAICT.
-Will has pulled the DAIF fix as per the other discussion, but I did test 
-with
-your patch below : it does indeed fix the panics that were reported
-with pNMI+SCS as far as I can tell.
-
-Thanks for the details !
-Ada
-
-> The only minor issue is that loading the IRQ shadow stack pointer
-> before assigning SP is problematic, because when call_on_irq_stack()
-> is re-entered over the top of an exception that is taken at that
-> point, the clobbering of scs_sp will interfere with the return from
-> that exception, and so scs_sp should be left untouched until after SP
-> is assigned (which is what prevents call_on_irq_stack() from
-> re-entering). This creates a tiny window where we may end up servicing
-> a (nested) IRQ running on the IRQ stack but on the task shadow stack,
-> but I don't think that is a thing to obsess about tbh. (Sami?) If it
-> is, we'll need your DAIF changes to turn that into a proper critical
-> section, but I doubt whether that is necessary.
->
->
-> --- a/arch/arm64/kernel/entry.S
-> +++ b/arch/arm64/kernel/entry.S
-> @@ -874,12 +874,6 @@ NOKPROBE(ret_from_fork)
->    * Calls func(regs) using this CPU's irq stack and shadow irq stack.
->    */
->   SYM_FUNC_START(call_on_irq_stack)
-> -#ifdef CONFIG_SHADOW_CALL_STACK
-> -       get_current_task x16
-> -       scs_save x16
-> -       ldr_this_cpu scs_sp, irq_shadow_call_stack_ptr, x17
-> -#endif
-> -
->          /* Create a frame record to save our LR and SP (implicit in FP) */
->          stp     x29, x30, [sp, #-16]!
->          mov     x29, sp
-> @@ -888,7 +882,23 @@ SYM_FUNC_START(call_on_irq_stack)
->
->          /* Move to the new stack and call the function there */
->          add     sp, x16, #IRQ_STACK_SIZE
-> +#ifdef CONFIG_SHADOW_CALL_STACK
-> +       mov     x16, scs_sp
-> +       ldr_this_cpu scs_sp, irq_shadow_call_stack_ptr, x17
-> +#ifdef CONFIG_DYNAMIC_SCS
-> +       cbz     scs_sp, 0f
-> +#endif
-> +       str     x16, [scs_sp], #8
-> +0:
-> +#endif
->          blr     x1
-> +#ifdef CONFIG_SHADOW_CALL_STACK
-> +#ifdef CONFIG_DYNAMIC_SCS
-> +       cbz     scs_sp, 1f
-> +#endif
-> +       ldr     scs_sp, [scs_sp, #-8]
-> +1:
-> +#endif
->
->          /*
->           * Restore the SP from the FP, and restore the FP and LR from the
-> @@ -896,7 +906,6 @@ SYM_FUNC_START(call_on_irq_stack)
->           */
->          mov     sp, x29
->          ldp     x29, x30, [sp], #16
-> -       scs_load_current
->          ret
->   SYM_FUNC_END(call_on_irq_stack)
->   NOKPROBE(call_on_irq_stack)
+> 
+> Best Regards,
+> Rohan
 
