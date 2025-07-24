@@ -4,77 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70328C83F26
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 06:12:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FCFFC83F26
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 06:12:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zIXfUGDau1R1F000czVeK/WYeyuoKN/NfJ+li8Oka9U=; b=hmgpD19QdR7oaSaMicH7SrDW5q
-	SX5A7binlUH+jbXIP9Qvrge0KgXTaErXkDtkua5fIAdLagLx+Vll4a1P5E5RWoqlpOsmlX9O+W3pT
-	3rlYk8pnTGSOI00Y/F6ZiSUaVa4Fhb2YzbyEIr9E5pNQoiPaWlv+tZz9hdfW8fcN3rTAyo9zLM6UB
-	Q+tOmHeUf7G4MEC+AABk/mid2fpiTxdCXB/TqFiKad6HqcRRxZ0Sb9pjDf4tFxnUSZtOWQ+stMRb3
-	KHunu+RhhxmXvIIwnjBH6uMGTPvoPlWsG08aURHlcMj7m87rEw+Mnnl8oP/ExDV2Go8iRZ3qLEggS
-	rCLyxEhA==;
+	bh=PcqtFrXlhmcs0tO7hoxuK5bQDsVASZTvkmxva8sAz+A=; b=OOL0tLQNYqNIxl3S9mYtfqOos7
+	Jd7CRdXnOUryD/nxFw+IAvnxQ3oZthcmsY8cHnJ+FeclpnnUzuR+CpJWCo5lmBbYv2+Q0N19fyQUf
+	2Vzoqcl4nbnG73PN+0mYBbvqyu5SpC7Au7aRsL98PPjuaEZN4A5mEC88zxETlGkZSUyy9iTDEewgk
+	3hKeVk+oUiXVc28mzQ2mj4oKX03f54csXVIMZgFW4UEVYRzQUKh2pzmLbTE2+l3r6hGFZJMAyZAb1
+	xgz4byTQbl019BPhqUAsquCSJ39InhARYTL5YywpstBBMbsC+iq6ksThHdH+gFskTPet5oitO0Bzv
+	aSds2yRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uepBK-00000006a60-2Z7v;
-	Thu, 24 Jul 2025 06:11:54 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uepBJ-00000006a5U-161G;
+	Thu, 24 Jul 2025 06:11:53 +0000
+Received: from mailout2.samsung.com ([203.254.224.25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uep8E-00000006ZtJ-2jJz
+	id 1ueoyO-00000006Z6n-3AWP
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Jul 2025 06:08:43 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 7F2525C57CE;
-	Thu, 24 Jul 2025 06:08:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B2E60C4CEED;
-	Thu, 24 Jul 2025 06:08:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753337320;
-	bh=jnPA+iA9iLU7wadXEwXs4NfK0RtdyekHzyBGX5AWZsQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=EfynuZ5+9ifm4K+Q8RJf9Sc8h4rtAfwGv0gCHr2fvS4/5hlRSmSzyWCqdSeQFIdUv
-	 epQpwWEsigEcs12RdptljlIbcrSzmQfzy80xDo7W0irii5/Ytz+AVy/gVz+aION58e
-	 1NKWSAB4vMKZ2qk2Ba10DWpey7rUXVbAdjaiiqfS6z+9FsK9uyRQPfkCjGfvdVW7jm
-	 Qgvc0UYoncG6e3iwlztNMLAhE3yv3hqqpaNckyQxlqPLsJLSYckcgfJCtvhAA5JsBz
-	 PY13RW7hyRpf4H7n9nbf6DzqOgvgwZSG5jJt39SC0MhBWaGqfZksc2E4eN7L6n6XrP
-	 Pd+e+HqYUSojQ==
-Message-ID: <fd0770c8-e5e0-4bdb-a3da-b4b39f664e61@kernel.org>
-Date: Thu, 24 Jul 2025 08:08:34 +0200
+	Thu, 24 Jul 2025 05:58:34 +0000
+Received: from epcas5p1.samsung.com (unknown [182.195.41.39])
+	by mailout2.samsung.com (KnoxPortal) with ESMTP id 20250724055827epoutp02ade20a3b9a00a44733c680b46d105063~VGnIkPHD83000930009epoutp02g
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Jul 2025 05:58:27 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.samsung.com 20250724055827epoutp02ade20a3b9a00a44733c680b46d105063~VGnIkPHD83000930009epoutp02g
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1753336707;
+	bh=PcqtFrXlhmcs0tO7hoxuK5bQDsVASZTvkmxva8sAz+A=;
+	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
+	b=mYsbzx7NewkaXVHZQGfW9TW0WA+ptzFmKbQ8dycQfbVrQs6FWG7WHUqo/gcxB/9A5
+	 LkFMaaUpT8f227bCdpaUrSjoF7NCh1tlREo2Ktvcqfwv0ac4DD4RnEseV/55vY8Zmb
+	 LJmganNukGgVm+kQQsrJW3g/AnuvQsnJqIkDnby8=
+Received: from epsnrtp02.localdomain (unknown [182.195.42.154]) by
+	epcas5p4.samsung.com (KnoxPortal) with ESMTPS id
+	20250724055826epcas5p446cf77b5301b2e805b8b626dab172725~VGnH7j8ho2262122621epcas5p4q;
+	Thu, 24 Jul 2025 05:58:26 +0000 (GMT)
+Received: from epcas5p2.samsung.com (unknown [182.195.38.89]) by
+	epsnrtp02.localdomain (Postfix) with ESMTP id 4bngKY4JZLz2SSKj; Thu, 24 Jul
+	2025 05:58:25 +0000 (GMT)
+Received: from epsmtip1.samsung.com (unknown [182.195.34.30]) by
+	epcas5p1.samsung.com (KnoxPortal) with ESMTPA id
+	20250724055825epcas5p1b0b35277e5ded326d4377a3521f10179~VGnGbZnzb0629006290epcas5p1_;
+	Thu, 24 Jul 2025 05:58:25 +0000 (GMT)
+Received: from INBRO002756 (unknown [107.122.3.168]) by epsmtip1.samsung.com
+	(KnoxPortal) with ESMTPA id
+	20250724055824epsmtip1ec26a66e718f21098113071d7d8beaea~VGnFYqVnU3176031760epsmtip12;
+	Thu, 24 Jul 2025 05:58:23 +0000 (GMT)
+From: "Alim Akhtar" <alim.akhtar@samsung.com>
+To: "'Sangwook Shin'" <sw617.shin@samsung.com>, <krzk@kernel.org>,
+	<wim@linux-watchdog.org>, <linux@roeck-us.net>
+Cc: <linux-arm-kernel@lists.infradead.org>,
+	<linux-samsung-soc@vger.kernel.org>, <linux-watchdog@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>
+In-Reply-To: <20250714055440.3138135-6-sw617.shin@samsung.com>
+Subject: RE: [PATCH v3 RESEND 5/5] watchdog: s3c2410_wdt: exynosautov9:
+ Enable supported features
+Date: Thu, 24 Jul 2025 11:28:22 +0530
+Message-ID: <2b5f01dbfc5f$f7fb5d20$e7f21760$@samsung.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 07/10] power: reset: macsmc-reboot: Add driver for
- rebooting via Apple SMC
-To: Lee Jones <lee@kernel.org>
-Cc: Nick Chan <towinchenmi@gmail.com>, asahi@lists.linux.dev,
- Neal Gompa <neal@gompa.dev>, linux-arm-kernel@lists.infradead.org,
- linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
- Linus Walleij <linus.walleij@linaro.org>,
- "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
- Hector Martin <marcan@marcan.st>, Conor Dooley <conor+dt@kernel.org>,
- Janne Grunau <j@jannau.net>,
- Sebastian Reichel <sebastian.reichel@collabora.com>,
- Sebastian Reichel <sre@kernel.org>, Alyssa Rosenzweig
- <alyssa@rosenzweig.io>, Bartosz Golaszewski <brgl@bgdev.pl>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Marc Zyngier <maz@kernel.org>
-References: <20250610-smc-6-15-v7-0-556cafd771d3@kernel.org>
- <20250610-smc-6-15-v7-7-556cafd771d3@kernel.org>
- <7297d4b1-84a2-4bb1-8a33-29c827247df7@gmail.com>
- <d6b778ee-02c0-4dd2-b33f-cec16c17807c@kernel.org>
- <20250723080615.GM11056@google.com>
-Content-Language: en-US
-From: Sven Peter <sven@kernel.org>
-In-Reply-To: <20250723080615.GM11056@google.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
+X-Mailer: Microsoft Outlook 16.0
+Content-Language: en-us
+Thread-Index: AQIEaJ+ioIR5Yp9zWAA/UcLZjjUhMgLwxs4UAgINVK+zyFf1UA==
+X-CMS-MailID: 20250724055825epcas5p1b0b35277e5ded326d4377a3521f10179
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+CMS-TYPE: 105P
+cpgsPolicy: CPGSC10-542,Y
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20250714055900epcas2p1f082e73f1f30f7b3ec8e38c6f6501d61
+References: <20250714055440.3138135-1-sw617.shin@samsung.com>
+	<CGME20250714055900epcas2p1f082e73f1f30f7b3ec8e38c6f6501d61@epcas2p1.samsung.com>
+	<20250714055440.3138135-6-sw617.shin@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250723_230842_778897_D50E4B55 
-X-CRM114-Status: GOOD (  19.28  )
+X-CRM114-CacheID: sfid-20250723_225832_958259_DC9571A7 
+X-CRM114-Status: UNSURE (   9.90  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,70 +97,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 23.07.25 10:06, Lee Jones wrote:
-> On Sat, 21 Jun 2025, Sven Peter wrote:
+
+
+> -----Original Message-----
+> From: Sangwook Shin <sw617.shin@samsung.com>
+> Sent: Monday, July 14, 2025 11:25 AM
+> To: krzk@kernel.org; alim.akhtar@samsung.com; wim@linux-watchdog.org;
+> linux@roeck-us.net
+> Cc: linux-arm-kernel@lists.infradead.org; linux-samsung-
+> soc@vger.kernel.org; linux-watchdog@vger.kernel.org; linux-
+> kernel@vger.kernel.org; Sangwook Shin <sw617.shin@samsung.com>
+> Subject: [PATCH v3 RESEND 5/5] watchdog: s3c2410_wdt: exynosautov9:
+> Enable supported features
 > 
->> On 16.06.25 06:13, Nick Chan wrote:
->>>
->>>
->>> On 10/6/2025 23:29, Sven Peter wrote:
->>>> From: Hector Martin <marcan@marcan.st>
->>>>
->>>> This driver implements the reboot/shutdown support exposed by the SMC
->>>> on Apple Silicon machines, such as Apple M1 Macs.
->>>>
->>>> Signed-off-by: Hector Martin <marcan@marcan.st>
->>>> Reviewed-by: Alyssa Rosenzweig <alyssa@rosenzweig.io>
->>>> Reviewed-by: Neal Gompa <neal@gompa.dev>
->>>> Reviewed-by: Sebastian Reichel <sebastian.reichel@collabora.com>
->>>> Signed-off-by: Sven Peter <sven@kernel.org>
->>>> ---
->>>>    MAINTAINERS                         |   1 +
->>>>    drivers/power/reset/Kconfig         |   9 ++
->>>>    drivers/power/reset/Makefile        |   1 +
->>>>    drivers/power/reset/macsmc-reboot.c | 290 ++++++++++++++++++++++++++++++++++++
->>>>    4 files changed, 301 insertions(+)
->>> [...]
->>>
->>> It seems that the reboot driver still probes even without the smc_reboot node in the smc node:
->>
->>
->> That's odd...
->>
->> Lee, is it expected that a mfd sub-device declared with
->> MFD_CELL_OF("macsmc-reboot", NULL, NULL, 0, 0, "apple,smc-reboot"),
->> is loaded even if there's no corresponding node in the device tree?
->>
->> I'll have to re-add the check that makes sure the sub-device is available
->> then.
+> Enable supported features for ExynosAutov9 SoC.
+> - QUIRK_HAS_DBGACK_BIT
+> - QUIRK_HAS_32BIT_MAXCNT
 > 
-> Yes, that's expected.  MFD is orthogonal to DT with respect to device
-> registration, unless you specifically disable the node in DT.  If the
-> node is missing, the device will still be registered, but no link will
-> be made from the (non-existent) node to the 'of_node' pointer.
+> Signed-off-by: Sangwook Shin <sw617.shin@samsung.com>
+> ---
+Reviewed-by: Alim Akhtar <alim.akhtar@samsung.com>
 
-Makes sense!
-
-> 
-> You have 3 choices; provide a DT node and explicitly set the status to
-> 'disabled', optionally omit registration from MFD (i.e. do not call
-> mfd_add_devices()) or check for (!pdev->dev.of_node) in the sub-device's
-> .probe() and bomb out early if true.
-> 
-
-Alright, so everything's working as intended then and the series has all 
-required Acks. I'd suggest that we take it as-is then  (either now if
-you're still picking things up before the merge window or after -rc1 is
-out otherwise) since it only adds support for M1 and later and those
-have all subdevices added here.
-
-Once Nick adds support for pre-M1 SMC we can do one of those three
-things to disable the reboot sub-device then.
-
-
-Best,
-
-
-Sven
 
 
