@@ -4,60 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9F49C87FC5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 20:43:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0197C87FC5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 20:58:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CpbGOOgZdA4axGTJlkTbj4LVajokOExe680sklPfBco=; b=R9uMHYs1hFnJPNYpTUz5amOMke
-	1/BryrYryHRvq6BLLgXBSBMiWx5nkIfVwa38dpdCHiI5yB3cstCgLvrYVtW6vGNKAUZ5ybSAXi/VY
-	VSfvOW9Rk9Up4NTs/YEtdeGhITacSUGlR1USn19C1U6N5BhaIOjMeL+sRjNavSJPvUXVKvWX6maqG
-	9MhYY5XV+tAyuVFxr9gpx4L5NqBSV5k/RI7E8Ezhc+CsvcmIVQDCgNgKUlzY18tQGJig8aZ0as97I
-	0bzIsJcfZbHLpPgrLq66oXRIWMQx4cwZ2cYNIH/ydOFiQuKeWXwCruYtZO/RGBH3PEsOQnykaS3bA
-	PAUDTkXA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gTENdrjrQjKdf4LTtk0rNbYwdganBE87alZpnHbaQAo=; b=Chx75EPVnoHJzV1gOI5558wbBb
+	QqXZe2bgMX1DuQ08W1FHijLrjptiMkr+Oqx1iWoBXPtA6HBFIPqo1B0SWmqt6oSRURvIvDHqD4Sjm
+	3ZuZhCUPB28PwkuR7gevBt9glibwCKhwqkUOWFlWcyFn+7o3d4Azs7bSQocm/VL5ez85UY1psCdV7
+	L2YmJlbydfwEOFQ6xfn23sgfFBeWnSNNh5AxfjhlrMvIJ+IItCDgxGuTZiqDwKBr4F9YpjGk0F+QW
+	39XTOZPQC0KoDi8jTP4c7azJF1nS7j6cOQuXRpgcz+Inu2C7fxuelMM4QPr74z+zIax/t7WVxh6QV
+	bFbNqfPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uf2mz-00000008QAC-2YbP;
-	Thu, 24 Jul 2025 20:43:41 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uf2kY-00000008Pl1-2RO4
+	id 1uf31J-00000008RNU-3Gm7;
+	Thu, 24 Jul 2025 20:58:29 +0000
+Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uf2yr-00000008RHX-4BNV
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Jul 2025 20:41:12 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0F5F6168F;
-	Thu, 24 Jul 2025 13:41:01 -0700 (PDT)
-Received: from [172.27.42.155] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 311083F66E;
-	Thu, 24 Jul 2025 13:41:07 -0700 (PDT)
-Message-ID: <89f67ab9-f8ea-488a-a94b-4a0f32e41bc5@arm.com>
-Date: Thu, 24 Jul 2025 15:41:06 -0500
+	Thu, 24 Jul 2025 20:55:59 +0000
+Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-237f18108d2so59755ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Jul 2025 13:55:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1753390556; x=1753995356; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=gTENdrjrQjKdf4LTtk0rNbYwdganBE87alZpnHbaQAo=;
+        b=u1VS5d09sltyf6v2N9Fq2Yqg8iirNNtwuH3snaMNDcop0cAOq8a7BOg0vevYc1pBA8
+         VkogHx7M7fFvJ/4rB115voK+1FmHEKq6alK8dcMDrjhekdrD0vmQ3uAiEbnViwUD+2SX
+         7Fz1IWgcLX5KI4sMZaoUEGgA4b+lpWaktdXajMmLlci1NxdvZAJcq0mkIMu05ToyO+Zv
+         q/M8U5TLf7LF/RjaV3wR0gsB3ZmNeIIuv/BtqWagVpRyCnq5RuobB4OvWsvO6MU9SVNh
+         zgrPtfS2nHDLQYIBWtRx24gZirpaPUe+navMWZY5c+xEdmSPKlcaCuIPqjGzWWwX8n1B
+         Yg5g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1753390556; x=1753995356;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=gTENdrjrQjKdf4LTtk0rNbYwdganBE87alZpnHbaQAo=;
+        b=TtMfBGKG2C7U52iHA++i6qRNzunqCRDTbqBntpeCLXOmo8R1Ytw6wLwUN8pClmXfwJ
+         H3gentk5tyEbFw1Hgnj9EdtqWqQ/ABkFziP9H1DkTtAHsZZQZEROyDOxz8qViFDAstSw
+         ONfg5E0AAzBvn9OGqDCyPCzyXPnukKwQAkuOnS3q0r05VFvD1JL4RXybslC7oEQtBNZ6
+         K+gUnjPwvQt3DDS0c7PH+3pdTCZ6Bywy1rz8NptGK7AZk6zJVOghc34bk9Ji/rDSUajD
+         iF2mAAVws1HcE5zFCt8+mEiKdO3X9IP6/gttPE6J07/iiGIVaABR1xp7+jz4LUBkfsfp
+         UTwA==
+X-Forwarded-Encrypted: i=1; AJvYcCUk6GAQxVIeJ0eRNGjw+d3FJImV9+xr53ZpGLttpHOLrSEOu2BEdunSN6NcndYpfFYsPYdFV74s3yeUnMvyS+rQ@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx6UCSBIB8IePaRh+VIeEP0sIt63y5JB/iSQrVpM3s7KqiYj0Nr
+	nnWVnX3/j1ba0QRktLLlL7vosvyoKdy5pO4mN319+lSSqKpvsFfTvnkNQ1mYrynYTA==
+X-Gm-Gg: ASbGncurU0iG1QTRN1RtK3VSvP60eJ8+J4enUPxnw/fETHbOIviMAhIvpQUM0mlFWlg
+	HkztqeLQroO+6kYAnGii+Roe8SRnIHRzCqVhm05EDgwloRnhWPmlmxFCA4ubXH1AbYalBNAHnU3
+	7hDIgAdsDN8RQS3ccXFIJcPBWbXWj8MtHo95HWZqY/yO3VtYy1iAZoAmtpmVjrygzB9JDZMVANW
+	snRmO1aULUpwwgEmzyR6XspJlwv2luqUQJJJlBA3ti/3iyqJ3AII/mf5ohzaEB/3Rgw4E66gICH
+	lJLzQCfI1DB9fZMeVX3p+UeFMf9p5bEbe4UKPa1xLQUuEuf6iMQuTqAYK5BoijHemJVYCJ53Om8
+	5GuxaQPH4U2N5oKdHq7ZzFm4/hlffJOQbbIkKOnLUQKCH9tCyB9q0CICo
+X-Google-Smtp-Source: AGHT+IHAKLnuNj4dfO0gvzhHyjc+lG/rACu6++zv+Qt1qddir1QwuV7zgtdYIfUhlyrA+12IZWRoQw==
+X-Received: by 2002:a17:902:ef48:b0:223:ff93:322f with SMTP id d9443c01a7336-23fada587f0mr920885ad.2.1753390556054;
+        Thu, 24 Jul 2025 13:55:56 -0700 (PDT)
+Received: from google.com (232.98.126.34.bc.googleusercontent.com. [34.126.98.232])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23fa475deafsm22232285ad.11.2025.07.24.13.55.53
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 24 Jul 2025 13:55:55 -0700 (PDT)
+Date: Thu, 24 Jul 2025 20:55:50 +0000
+From: Pranjal Shrivastava <praan@google.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: jgg@nvidia.com, will@kernel.org, joro@8bytes.org, robin.murphy@arm.com,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org, linux-tegra@vger.kernel.org
+Subject: Re: [PATCH v3 2/2] iommu/arm-smmu-v3: Replace vsmmu_size/type with
+ get_viommu_size
+Message-ID: <aIKd1owebUNQeN1-@google.com>
+References: <20250721200444.1740461-1-nicolinc@nvidia.com>
+ <20250721200444.1740461-3-nicolinc@nvidia.com>
+ <aIDlsUvF2Xbdelvx@google.com>
+ <aIEkZoTOSlQ0nMKd@Asurada-Nvidia>
+ <aIEwzM7mKUI8-h9U@google.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 6/8] arm64: uprobes: Add GCS support to uretprobes
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: linux-trace-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
- mhiramat@kernel.org, oleg@redhat.com, peterz@infradead.org, acme@kernel.org,
- namhyung@kernel.org, mark.rutland@arm.com,
- alexander.shishkin@linux.intel.com, jolsa@kernel.org, irogers@google.com,
- adrian.hunter@intel.com, kan.liang@linux.intel.com,
- thiago.bauermann@linaro.org, broonie@kernel.org, yury.khrustalev@arm.com,
- kristina.martsenko@arm.com, liaochang1@huawei.com, will@kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Steve Capper <steve.capper@arm.com>
-References: <20250719043740.4548-1-jeremy.linton@arm.com>
- <20250719043740.4548-7-jeremy.linton@arm.com> <aIC06oEF5FV99ukl@arm.com>
-Content-Language: en-US
-From: Jeremy Linton <jeremy.linton@arm.com>
-In-Reply-To: <aIC06oEF5FV99ukl@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aIEwzM7mKUI8-h9U@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250724_134110_703108_54102081 
-X-CRM114-Status: GOOD (  24.41  )
+X-CRM114-CacheID: sfid-20250724_135558_035679_20A8D4F8 
+X-CRM114-Status: GOOD (  31.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,104 +103,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Wed, Jul 23, 2025 at 06:58:20PM +0000, Pranjal Shrivastava wrote:
+> On Wed, Jul 23, 2025 at 11:05:26AM -0700, Nicolin Chen wrote:
+> > On Wed, Jul 23, 2025 at 01:37:53PM +0000, Pranjal Shrivastava wrote:
+> > > On Mon, Jul 21, 2025 at 01:04:44PM -0700, Nicolin Chen wrote:
+> > > > @@ -1273,6 +1279,10 @@ tegra241_cmdqv_init_vintf_user(struct arm_vsmmu *vsmmu,
+> > > >  	phys_addr_t page0_base;
+> > > >  	int ret;
+> > > >  
+> > > > +	/* Unsupported type was rejected in tegra241_cmdqv_get_vintf_size() */
 
-On 7/23/25 5:09 AM, Catalin Marinas wrote:
-> On Fri, Jul 18, 2025 at 11:37:38PM -0500, Jeremy Linton wrote:
->> @@ -159,11 +160,41 @@ arch_uretprobe_hijack_return_addr(unsigned long trampoline_vaddr,
->>   				  struct pt_regs *regs)
->>   {
->>   	unsigned long orig_ret_vaddr;
->> +	unsigned long gcs_ret_vaddr;
->> +	int err = 0;
->> +	u64 gcspr;
->>   
->>   	orig_ret_vaddr = procedure_link_pointer(regs);
->> +
->> +	if (task_gcs_el0_enabled(current)) {
->> +		gcspr = read_sysreg_s(SYS_GCSPR_EL0);
->> +		gcs_ret_vaddr = load_user_gcs((unsigned long __user *)gcspr, &err);
->> +		if (err) {
->> +			force_sig(SIGSEGV);
->> +			goto out;
->> +		}
+Sorry, if this wasn't clear in the previous comment. I meant this
+comment must be updated, the "unsupported type" wasn't rejected in
+vintf_size, rather the type got corrupted which brought us here. Had the
+vintf_size rejected it, we wouldn't be calling the init op.
+
+Thanks,
+Praan
+
+> > > > +	if (WARN_ON(vsmmu->core.type != IOMMU_VIOMMU_TYPE_TEGRA241_CMDQV))
+> > > > +		return -EOPNOTSUPP;
+> > > > +
+> > > 
+> > > Nit: I don't think we'd expect a call to this if the vintf_size returned
+> > > 0? I see that in iommufd_viommu_alloc_ioctl, we already have a check:
+> > 
+> > It's added in the previous patch where I explained that this is
+> > to detect data corruption. When something like that happens, it
+> > would be often illogical.
+> > 
 > 
-> Nit: add an empty line here, I find it easier to read.
+> Right.. I got mis-led by the comment, my point is that if an
+> "unsupported type" was rejected in _get_vintf_size, we wouldn't be here
+> calling viommu_init since we error out based on the check in
+> iommufd_viommu_alloc_ioctl.. but yes, if there was some data corruption
+> that changed the viommu type between these calls, I guess it makes sense
+> to check and error out here.
 > 
->> +		/*
->> +		 * If the LR and GCS entry don't match, then some kind of PAC/control
->> +		 * flow happened. Likely because the user is attempting to retprobe
+> > > And call ops->viommu_init only when the above isn't met. Thus,
+> > > if we still end up calling ops->viommu_init, shouldn't we BUG_ON() it?
+> > > I'd rather have the core code handle such things (since the driver is
+> > > simply implementing the ops) and BUG_ON() something that's terribly
+> > > wrong..
+> > 
+> > BUG_ON is discouraged following the coding style:
+> > https://docs.kernel.org/process/coding-style.html#use-warn-rather-than-bug
+> > 
 > 
-> I don't full get the first sentence.
-
-I'm trying to succinctly warn people about some non-obvious behavior 
-that is being maintained.
-
-Really long version:
-
-So a Retprobe is intended to catch the function returning and run the 
-user specified probe logic. But the breakpoint itself isn't placed at 
-the 'ret' because there may be multiple 'ret's. Rather its intended to 
-be placed at the function entry point. When the breakpoint fires, it 
-runs this code to hijack the LR and point it at the actual probe 
-routine. Except, ha!, the breakpoint for the ret routine may not be at 
-the beginning of the function. Which is perfectly ok, even in some cases 
-desirable.
-
-But, if the user say places it after LR has been spilled to the stack, 
-the hijack will be discarded when LR is restored and the probe will 
-silently fail to run. The user will then eventually figure out that they 
-are dropping a retprobe in a location where its basically a NOP. PAC 
-messes with this behavior in an inconsistent manner. Is the target 
-function's just signing the LR, or is its signing and spilling it. In 
-the latter case the probe is again just a NOP, otherwise PAC fault.
-
-But then GCS comes along, and it needs to also update the GCS region. 
-but if we update it, and the LR gets restored its going to result in a 
-GCS exception where previously the behavior was just the probe being 
-NOPed. Now though, we have the advantage that for the most part anyplace 
-that GCS is enabled, we are also going to have PAC signing the LR. So 
-checking for LR != GCS value acts as both a sanity check and a bit of 
-safety that we aren't inside a sign/authenticate block, or that the LR 
-hasn't been tampered with via a blr/etc and we will restore a LR from 
-the stack that won't match the now updated GCS region.
-
-Hence the comment.
-
-:)
-
-
-
-
+> Noted. Thanks.
 > 
->> +		 * on something that isn't a function boundary or inside a leaf
->> +		 * function. Explicitly abort this retprobe because it will generate
->> +		 * a GCS exception.
->> +		 */
->> +		if (gcs_ret_vaddr != orig_ret_vaddr)	{
->> +			orig_ret_vaddr = -1;
->> +			goto out;
->> +		}
+> > > I can't see any ops->viommu_init being called elsewhere atm, let me
+> > > know if there's a different path that I missed..
+> > 
+> > I see it as a precaution that should never get triggered. But in
+> > case that it happens, I don't want it to proceed further wasting
+> > precious HW resource given that this function allocates a VINTF.
+> > 
 > 
-> Nit: another empty line here.
+> Agreed.
 > 
->> +		put_user_gcs(trampoline_vaddr, (unsigned long __user *) gcspr, &err);
+> > Nicolin
 > 
-> Nit: (... *)gcspr (no space after cast).
-> 
->> +		if (err) {
->> +			force_sig(SIGSEGV);
->> +			goto out;
->> +		}
->> +	}
->> +
->>   	/* Replace the return addr with trampoline addr */
->>   	procedure_link_pointer_set(regs, trampoline_vaddr);
->>   
->> +out:
->>   	return orig_ret_vaddr;
->>   }
-> 
-> Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
-
+> Praan
 
