@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2E14C83F26
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 15:40:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11EFBC87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 15:45:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=72qF7fxqGgOyqFtaJeY7jj9Ztoeu5thqUqJ3yho58sE=; b=fQIYRFWX7Gbqe8Cs9csQc6j6U6
-	6kPsQEc+647G/e+rRV7tjkpTj7GYjOOwGUdZxoWkS5OpSmnk0epwdEKM46dUENWL5SgK06Q9ZagU8
-	yEsz3gdufLe6c91iuzsxbXTFeccpr48O9zXjB8gQEwpBPBaK5/5cbiiiMKKBezaoNCqgvLMhzQvOy
-	cxRHkFdmF85gzc4BRf5q6wZ8nOEvJsbIlyn8/Hp1I0k0ROek09VCREZQlGmylGz92L4pFjyzytVMs
-	n17HhuRIr2123kySFWdGzEItVaFRYFkeMeWCjbSLpqrl7j31t0jYc66JfS378CgaqCx+l5/6WVDUj
-	T2iIZAXA==;
+	bh=F6Qr5wDSTK8e3Q/I1bsRlleQmenNsH0aWO4lCkj0NyE=; b=TE9AdpsGLqi82u7OT6qpcjvxLZ
+	UdYQgP4yYt2sDSDh4fLUL5xZKuxiI0RpDz9CkP09jRJAhuKnmTfGFl+6YsM0sjU2Hxf00OEGS845E
+	5+lv8fcdcueIr+486laOYmZCR6igS9lwypwcsPnhQ9qghKtRSS5bbK/b9AHxKcO4CvURWsx3Ew5wA
+	TsPAtQgV4orS7FvqHWym0V4fM3a6qrNmDYCnNbQz4h3ZeWkLbDDo45IdQH29sbTUkxrTVhVbzwgqG
+	Fw07/Gp0ZtDP1KOJLvZNxSZrtARQYkNB+TQFeaPnWcAa1QjZIZyWeWw3YDdT1zZetvLif8bW4eW9g
+	rfQtXObw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uey3j-00000007uCE-1uao;
-	Thu, 24 Jul 2025 15:40:39 +0000
+	id 1uey8f-00000007ur9-0DPS;
+	Thu, 24 Jul 2025 15:45:45 +0000
 Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uewen-00000007hnD-1qsu;
-	Thu, 24 Jul 2025 14:10:51 +0000
+	id 1uewep-00000007hov-3KYx;
+	Thu, 24 Jul 2025 14:10:53 +0000
 Received: from [192.168.1.76] (unknown [IPv6:2001:b07:6462:5de2:520d:d7a3:63ca:99e8])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 3280A1ACF;
-	Thu, 24 Jul 2025 16:10:08 +0200 (CEST)
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id CBD5F1A37;
+	Thu, 24 Jul 2025 16:10:10 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1753366209;
-	bh=Av+qDIxci6/rNYahjLOq/w3ykEkjt8C35QIlJVVOQlA=;
+	s=mail; t=1753366211;
+	bh=Vmfy9P6HgOvkJ1o2D9ktCyX+PB0ofnZcx1ytCaFVfCs=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=ZW7lFNdA65XXY3ybK3Q73IoMYzD/RWIj+d+DrncsIh+Dqeyw7iP+SuaKMH2EbE78N
-	 9Z5KWcqk3Jm3yGkHfMiv8wGCc9pzzOhf+IvT4qWCrQdDvQcL8No6/mmTCC6ZHX/UlA
-	 1+TEp4oAHeC4mGn52A4ocO9NCaZWkZbTrLNhXhgk=
+	b=e5FWXca7LlbJwCYMKZqouJ8vJW5NxXfPpEgJZqAPDd0bOIoz4Ic3Fn0iVaBckzNQT
+	 R8w0DSh6jiiDF8uz82213695+XnlVBOWmojdIYYLYFMhxqIoyZXITz1yGWtCjivgaM
+	 XXGqqpkPngpRtajtlfud5inEW5oSSc0d8FTVaIzs=
 From: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-Date: Thu, 24 Jul 2025 16:10:24 +0200
-Subject: [PATCH v2 17/27] media: v4l2-subdev: Get state from context
+Date: Thu, 24 Jul 2025 16:10:26 +0200
+Subject: [PATCH v2 19/27] media: mc-entity: Add link_validate_context
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250724-multicontext-mainline-2025-v2-17-c9b316773486@ideasonboard.com>
+Message-Id: <20250724-multicontext-mainline-2025-v2-19-c9b316773486@ideasonboard.com>
 References: <20250724-multicontext-mainline-2025-v2-0-c9b316773486@ideasonboard.com>
 In-Reply-To: <20250724-multicontext-mainline-2025-v2-0-c9b316773486@ideasonboard.com>
 To: Sakari Ailus <sakari.ailus@linux.intel.com>, 
@@ -61,26 +61,26 @@ Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
  linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
  Jacopo Mondi <jacopo.mondi@ideasonboard.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1875;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3666;
  i=jacopo.mondi@ideasonboard.com; h=from:subject:message-id;
- bh=Av+qDIxci6/rNYahjLOq/w3ykEkjt8C35QIlJVVOQlA=;
- b=owEBbQKS/ZANAwAKAXI0Bo8WoVY8AcsmYgBogj7QE00gkL8XXmeox2W9uHAwgb+JjO4ss6i47
- BwPdlK4VyqJAjMEAAEKAB0WIQS1xD1IgJogio9YOMByNAaPFqFWPAUCaII+0AAKCRByNAaPFqFW
- PG3YEAC+9w342JKOCDxd2dM51MvvRVUhx/BFvFwL4CgpDaC7ZVi/oNGBmTGPo0X8SKnmhry1qvy
- u5C6hhd4a/ZMEmm+m6YmEMVMegZPpuZ0RloG1SLMBbq3ad33vSRnxn4FgUJS+VeuuAzA1Uy8aSc
- T19MV2LhqB5ruFUQbVX5U27vR5Bv1YJhmJPRaa+RXjR8+fUuCZzVKhc4CVk8O1m5yUhebZcKua+
- e/67zxAvx93NTRKexaP3zIqKDE6N2h2lD4zwh2NGMu54zNcA6cL7oHmONzC/4qXqflG2u0eUrMT
- PR/jJbHUxudATsUcsmFOLQknJuaRz4od1CZQQzaoWRR95Zlso/gv+mv0TOlcT0VYrP/ANeUZGnH
- gs+isw5mjA6D/d8J6zW3xjpJddjZKlPNVL19+J6ujlkcLzSH9Nc46vVwlYchjZD0KANFdIXfHTu
- eR10UwhiRG03ouAYmL+Q52iDwVEhuqbpWc8FQE8/N1QhRRQTeUsXpn5RKUTQ2q587I3zoMN3Kiy
- Sa6O5+eANcaExxIqOmmmXHpgMGKEqEAMf5598moofsRxYfoNFofIcWlFtwpGl4tliS2BxhUsgPW
- J7h64tP9GYKN3vTVDq0mxmCNWft/+7Fn4a4+14zzGjC1r3XxcczqAn2K1xpSnJR98xYd/Xj1Zko
- mz5/wj+gouL6BVA==
+ bh=Vmfy9P6HgOvkJ1o2D9ktCyX+PB0ofnZcx1ytCaFVfCs=;
+ b=owEBbQKS/ZANAwAKAXI0Bo8WoVY8AcsmYgBogj7QICvUpwUUHAHWbWnmWUel95FZ9qcwgzNxS
+ 0oqDL1ZzTiJAjMEAAEKAB0WIQS1xD1IgJogio9YOMByNAaPFqFWPAUCaII+0AAKCRByNAaPFqFW
+ PHzjD/4xp+EwWa2WUaG5sW/TrEB0qMmWUkUDgbPEZc1cnQIHrW7C1xs8etc89pD+u/M+Fp0Lt18
+ k1WIMI5r4IBbeFG0XAG3I2AZlGevhedWPrS4/CE6v+b8N0mIslNcTH6jKlIw+i+Zx1y74JDADNw
+ /9dsneu6kjWuYpbI7KbzYEe64DJ50I6t93u5F8zVPGxlPL1M8uPMikcnHGclhIjOI7F3Tl6AXAR
+ CldHHZALbqUsiRPbggI5q0QZxljQLeNl362AZzC1SL6p2WX5NQ/TTxfrx4YE/hlk4WyrwjbbG7g
+ WYCWMMLg6A4i/u1XR4/wcdIJNl9yXrQ4k16UrzJGhq1t2wF+5+TtMsYjo1fDgoogqsGHOUPU1I5
+ NR7PsDoHb8cd4WFjHlCZNoG+Ph0gKXlqTRMkbFgJbbWrMYuxNFtx0qYCtVfryKBwJcwpq6AbZp/
+ SVGCJlfnyq1WqK0g3yQcbC+NwrjFKolBaayYC1R0RXTOlYi3WeWDUy4G8NVOSSg/05pSY6t9OW4
+ 1qC5IxvCIajRpSYQk8TuuXxBPmPQB8g2OQ2Yk1LT4WMh9Uk7MHPaMn1W7E0mHb2ohSsniAZv+Hd
+ CT8ei06YXGtiGhnshIcDM+bkDwcEdlpQAw+lNm2SSkcpKrXBCCMd0qiFJfobjspBAqQp2Fn4iE3
+ sLKOnx+KopjACjg==
 X-Developer-Key: i=jacopo.mondi@ideasonboard.com; a=openpgp;
  fpr=72392EDC88144A65C701EA9BA5826A2587AD026B
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250724_071049_653678_2769F8A3 
-X-CRM114-Status: GOOD (  12.20  )
+X-CRM114-CacheID: sfid-20250724_071051_976575_0155251B 
+X-CRM114-Status: GOOD (  12.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,51 +95,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The V4L2 subdev ioctl handler retrieves the correct subdev
-state inspecting the 'which' field of the ioctl argument.
-
-So far the subdev state either come from the file handle in case of
-V4L2_SUBDEV_FORMAT_TRY or from the active state stored in the subdev
-directly in case of V4L2_SUBDEV_FORMAT_ACTIVE.
-
-With the introduction of multi-contexts support, there will be a subdev
-state associated to each bound context. If we have a valid context,
-use the state from there in case of V4L2_SUBDEV_FORMAT_ACTIVE, and
-default to the subdev active state in case the context is not valid.
+Add an 'override' of the link_validate() media entity operation that
+accepts a media_device_context as second argument to allow entities
+to validate the link state in the provided media_device context.
 
 Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
 ---
- drivers/media/v4l2-core/v4l2-subdev.c | 17 ++++++++++++++---
- 1 file changed, 14 insertions(+), 3 deletions(-)
+ drivers/media/mc/mc-entity.c | 23 +++++++++++++++++++----
+ include/media/media-entity.h |  6 ++++++
+ 2 files changed, 25 insertions(+), 4 deletions(-)
 
-diff --git a/drivers/media/v4l2-core/v4l2-subdev.c b/drivers/media/v4l2-core/v4l2-subdev.c
-index 7372f61127c871cec44a3d1900e2b8bef34632b9..66c539d880127844893620d325a2b05ac4aa9e96 100644
---- a/drivers/media/v4l2-core/v4l2-subdev.c
-+++ b/drivers/media/v4l2-core/v4l2-subdev.c
-@@ -703,9 +703,20 @@ subdev_ioctl_get_state(struct v4l2_subdev *sd, struct v4l2_subdev_fh *subdev_fh,
- 		break;
- 	}
+diff --git a/drivers/media/mc/mc-entity.c b/drivers/media/mc/mc-entity.c
+index f421d6d74630bb96400d39d805c5db5d3d1ff913..675ceaede0d10a2420b8ea6a89e5963dcfde5ffe 100644
+--- a/drivers/media/mc/mc-entity.c
++++ b/drivers/media/mc/mc-entity.c
+@@ -884,6 +884,8 @@ __media_pipeline_start_context(struct media_pad *origin,
+ 		 * the connected sink pad to avoid duplicating checks.
+ 		 */
+ 		for_each_media_entity_data_link(entity, link) {
++			const struct media_entity_operations *ops;
++
+ 			/* Skip links unrelated to the current pad. */
+ 			if (link->sink != pad && link->source != pad)
+ 				continue;
+@@ -902,13 +904,23 @@ __media_pipeline_start_context(struct media_pad *origin,
+ 			if (link->sink != pad)
+ 				continue;
  
--	return which == V4L2_SUBDEV_FORMAT_TRY ?
--			     subdev_fh->state :
--			     v4l2_subdev_get_unlocked_active_state(sd);
-+	/*
-+	 * If which is FORMAT_TRY return the state stored in the file handle.
-+	 * If a context has been allocated because the subdev has been bound
-+	 * then return the state stored in the context. Otherwise default to the
-+	 * subdevice active state.
-+	 */
-+
-+	if (which == V4L2_SUBDEV_FORMAT_TRY)
-+		return subdev_fh->state;
-+
-+	if (subdev_fh->context)
-+		return v4l2_subdev_get_unlocked_active_state(subdev_fh->context);
-+
-+	return v4l2_subdev_get_unlocked_active_state(sd);
- }
+-			if (!entity->ops || !entity->ops->link_validate)
++			ops = entity->ops;
++			if (!ops || (!ops->link_validate &&
++				     !ops->link_validate_context))
+ 				continue;
  
- static int subdev_do_bind_context(struct v4l2_subdev *sd,
+-			ret = entity->ops->link_validate(link);
++			if (mdev_context && ops->link_validate_context)
++				ret = ops->link_validate_context(link,
++								 mdev_context);
++			else
++				ret = entity->ops->link_validate(link);
++
+ 			if (ret) {
+ 				dev_dbg(mdev->dev,
+-					"Link '%s':%u -> '%s':%u failed validation: %d\n",
++					"%sink '%s':%u -> '%s':%u failed validation: %d\n",
++					(mdev_context &&
++					 ops->link_validate_context) ?
++					"Context l" : "L",
+ 					link->source->entity->name,
+ 					link->source->index,
+ 					link->sink->entity->name,
+@@ -917,7 +929,10 @@ __media_pipeline_start_context(struct media_pad *origin,
+ 			}
+ 
+ 			dev_dbg(mdev->dev,
+-				"Link '%s':%u -> '%s':%u is valid\n",
++				"%sink '%s':%u -> '%s':%u is valid\n",
++				(mdev_context &&
++				 ops->link_validate_context) ?
++				"Context l" : "L",
+ 				link->source->entity->name,
+ 				link->source->index,
+ 				link->sink->entity->name,
+diff --git a/include/media/media-entity.h b/include/media/media-entity.h
+index b60c311ab390beb6931fe8f2bbe8939e11cda452..b053a0baee4031a464edf506d3d131bacb810f81 100644
+--- a/include/media/media-entity.h
++++ b/include/media/media-entity.h
+@@ -295,6 +295,10 @@ struct media_entity_context {
+  * @link_validate:	Return whether a link is valid from the entity point of
+  *			view. The media_pipeline_start() function
+  *			validates all links by calling this operation. Optional.
++ * @link_validate_context: Return whether a link is valid from the entity
++ *			context point of view. The
++ *			media_pipeline_start_context() function validates all
++ *			links calling this operation. Optional.
+  * @has_pad_interdep:	Return whether two pads of the entity are
+  *			interdependent. If two pads are interdependent they are
+  *			part of the same pipeline and enabling one of the pads
+@@ -327,6 +331,8 @@ struct media_entity_operations {
+ 			  const struct media_pad *local,
+ 			  const struct media_pad *remote, u32 flags);
+ 	int (*link_validate)(struct media_link *link);
++	int (*link_validate_context)(struct media_link *link,
++				     struct media_device_context *mdev_context);
+ 	bool (*has_pad_interdep)(struct media_entity *entity, unsigned int pad0,
+ 				 unsigned int pad1);
+ 	int (*alloc_context)(struct media_entity *entity,
 
 -- 
 2.49.0
