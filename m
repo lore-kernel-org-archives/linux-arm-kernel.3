@@ -4,108 +4,133 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD56CC83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 10:09:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F018C83F26
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 10:11:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aiQOGbb9qnwj4M8+qjtpGX5tix5CQv1woRea+cT3Mqo=; b=wSDJHtA2uYc9bm+nIAGicEvEG5
-	ClLcpFCcqCDMNhoNlJjNxXgXeSkXfhNKIg407QElZ6SPrCYotNnLIUhVSJBHR0QF5zS3Dj9QjMzTb
-	e3qkpIb7E0SVNI55gi6SvWXB3VoyhXoaBBoyNltqMhYqVxhL4Zb5Z4G83WSu7g4fdX/tBL5HD0+Hz
-	4yiKO4YIaCWCHMBRPlCjjAgklD7C9LMD4d64b7ee5VbgwoSIGt4AVcn/dIgwmEmgG7rLGEkUznKxM
-	TzZ8IYo78Ij2TexNDCF72DW2v6sTXWV4m4yf/ylL9BpXIRy58qwBKyvm112T/R9LKLfE1rglOIT+3
-	t4iTY5rg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=R+Jk1KCKeq5r1SUXMgObkBW3hrvYWAaOodBQW7tXaa4=; b=pAv5mDh4PR27A3
+	19TdVGKB4OMyDMRxNtxGydog+V7xEWInc/ap6zkmfgAQRksxNIvkd3a41N2vHSq5z2NFTfW7j1Bwp
+	dGuYoao5oY3qOH+YI2uow3gBaZWxskLvqirQTUz5x9c71x+UMODx+XNbPPAW6Y5ES4Sw88iGtbnQW
+	kvKA43eLLNu4C1JRNBVTE/0z7pMWa7ohlK85Dg1KAqeNWjU5eXZlTzgnbNUEeZraLbW+eK1GSRIBZ
+	D+9eWvxgU5IlsymgcOmzmFTmGnmupiWihGNGEniBZMzutXVbVpp7aIGcjt+sPBNgSKtiykex9WicY
+	HIEguLlrJTT046K7JB9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uessq-00000007AOB-0aE8;
-	Thu, 24 Jul 2025 10:09:04 +0000
-Received: from server.couthit.com ([162.240.164.96])
+	id 1uesvH-00000007Apo-3yZw;
+	Thu, 24 Jul 2025 10:11:35 +0000
+Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uerzq-00000006zoX-09mr
+	id 1uesBt-000000071cv-0Ol0
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Jul 2025 09:12:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=couthit.com
-	; s=default; h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=aiQOGbb9qnwj4M8+qjtpGX5tix5CQv1woRea+cT3Mqo=; b=f6Cb3e15Pc+JM8/7C0mBCDvYib
-	RTdHtaHO7V0Le42JTlQGq9Nvu4mei1zm+SAW7SFTjEMqbHVSgxin+YRVyH2oROwXQbKS3q6InaW7b
-	Jkl/nUIV+nvwSjk7UASokEB8hryj1fKVRy6yE/YDxdlXh4LsTCHBBODoK++yOC6kv5MeGAXaqvv2g
-	FPG0vA3VaMh5kNnAXBRncfQJD2VqnpPXNhEh78pmWF5Glws/S357CeAuNFifpOIopLCuXkNfB/JIM
-	nAOVjiL4IKdoKcmT3LVVsnsmRgyV5Nqot63zirQTlVpCETH+NWLNMYEEd0Ceus7q5R1X5OE4H+ogM
-	/o4uTfJA==;
-Received: from [122.175.9.182] (port=44539 helo=cypher.couthit.local)
-	by server.couthit.com with esmtpa (Exim 4.98.1)
-	(envelope-from <parvathi@couthit.com>)
-	id 1uerzj-00000007VrP-3XPL;
-	Thu, 24 Jul 2025 05:12:08 -0400
-From: Parvathi Pudi <parvathi@couthit.com>
-To: danishanwar@ti.com,
-	rogerq@kernel.org,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	ssantosh@kernel.org,
-	richardcochran@gmail.com,
-	s.hauer@pengutronix.de,
-	m-karicheri2@ti.com,
-	glaroque@baylibre.com,
-	afd@ti.com,
-	saikrishnag@marvell.com,
-	m-malladi@ti.com,
-	jacob.e.keller@intel.com,
-	kory.maincent@bootlin.com,
-	diogo.ivo@siemens.com,
-	javier.carrasco.cruz@gmail.com,
-	horms@kernel.org,
-	s-anna@ti.com,
-	basharath@couthit.com,
-	parvathi@couthit.com
-Cc: linux-arm-kernel@lists.infradead.org,
-	netdev@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	vadim.fedorenko@linux.dev,
-	pratheesh@ti.com,
-	prajith@ti.com,
-	vigneshr@ti.com,
-	praneeth@ti.com,
-	srk@ti.com,
-	rogerq@ti.com,
-	krishna@couthit.com,
-	pmohan@couthit.com,
-	mohan@couthit.com
-Subject: [PATCH net-next v12 5/5] net: ti: prueth: Adds IEP support for PRUETH on AM33x, AM43x and AM57x SOCs
-Date: Thu, 24 Jul 2025 14:40:07 +0530
-Message-ID: <20250724091122.3064350-6-parvathi@couthit.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250724072535.3062604-1-parvathi@couthit.com>
-References: <20250724072535.3062604-1-parvathi@couthit.com>
+	Thu, 24 Jul 2025 09:24:43 +0000
+Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-3a54690d369so675819f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Jul 2025 02:24:40 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1753349079; x=1753953879; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=R+Jk1KCKeq5r1SUXMgObkBW3hrvYWAaOodBQW7tXaa4=;
+        b=pd+2VQQew7GtHCiwmYNoJ3xvHNrQY/UHPqb8K/DvwtoCi/dBrGhLF61MZFlPZ/TkXB
+         pk/MbUKwXrOh2IAh8YIjOFMsuRZHlKP6XH8dXHSF8hV8ghNVQxN51nY5xdWjlXicbmav
+         Rx/cKd5hRl18JCqJlHWnAoxNVRT3TMbAHUcQVNtQUMEqNqQhK1jU1so1UkJK1JDEN2aE
+         uBV0xkpBzju2Ht7hmUq7FLepTMBVJeWEL5GixSPgy+5kf/1A1S4nSwf1HsRhG5NlkqOc
+         CN+pLZ2EDkaEyVW1svtjwDXi0Ca9TEffrVI2QI9kld93/2H6OWwFq9VuekE2w89+3aBn
+         DUtg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1753349079; x=1753953879;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=R+Jk1KCKeq5r1SUXMgObkBW3hrvYWAaOodBQW7tXaa4=;
+        b=mtuWSnRVUEM9Oa4auT8UHdRf5w8US1GHvSlWqZAgKwSmTiC5MHOM2kywPHzMmNnCmH
+         tZS7BTI5rcqm1PPovEIrVEPbGXaTtUGFN2Z/n8PJQu016gMMkYbR6SPwNKGSfUW1vcHs
+         DRnQeO2Kgu17L3aQsLzX2iZ8b+sme/G8zd1k197YerM/ZjZLvPdULJ70KsecN5Eeqqdr
+         4r0X5/n6N/swjVYeKOeTH33woSejLbklooQWu/ZVSDd3Td/PDKvOU0CUjpawGwcnhHs5
+         Rv6lQjoeGq4thVLOp+GrlATBDQC7F5dGQ/OnOfyc5Zn1QW5j1W+H6MHjHumiJDWKCJf3
+         id6Q==
+X-Forwarded-Encrypted: i=1; AJvYcCVXsnx/vXCw9KrLppM4hSJ7/C5evfVwjdjGAQQAs73gNQQeI7O8alxZr3M1P4M9R+Xt2zCJf9AOtPwaeYODo+5K@lists.infradead.org
+X-Gm-Message-State: AOJu0YyH9DAIQKbD1y3riVyTV5a0DWp4WySDzdE/Gd9sKt1dxkoUY5sb
+	dupAOIgxq1qs/fK+g8+kBxYzNzgZ7EnSWMnFbc0mEu0GVPyiATnF4iCJMmP96RhU2TM=
+X-Gm-Gg: ASbGnctFPosCdvow2QCzhN7ebnLgMrSdcnBKGucq4Hp6xfFviLX+EH4dp1xs/YTvRIU
+	uyLwi28iRQQoRh9QyprdX96ea6KQgH/y2S0kxEV7fRLutKUhnnBMoilvT3wxxIpa/nYTbOThVeX
+	Pu6WBtXp7nlnDcntlkyKMauArz5to/pkDRZVaSbl1WYQSxd0NkP3TTpctwDSjZdeg2moSfn4j4u
+	6OTL9dtOg//WZgBWzkGEGGbYXVVL/s9HnkyU4Pgok958Z86pOKxqtcJ5vX56JXnm2WGmJXpj9QZ
+	aomiR6Ct5zo5ujtDQI7ooUaXKRVrjjv5M4djsN4hOtKa27/FAQqOWqZcpL1TorPcZjwcUCsczeq
+	OU1Qz0viOM2vXnc8r
+X-Google-Smtp-Source: AGHT+IHiVNcL8dxsUjZ9ow9Nkc+BPBzrSJjl1Twm9rUjXxGqsNrfckwjhBUnI30ZoqBFVxil9UcxCw==
+X-Received: by 2002:a05:6000:220c:b0:3a4:cfbf:519b with SMTP id ffacd0b85a97d-3b768f00de3mr4831049f8f.44.1753349078746;
+        Thu, 24 Jul 2025 02:24:38 -0700 (PDT)
+Received: from [127.0.1.1] ([2a01:cb1d:dc:7e00:f44c:20db:7ada:b556])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3b76fc72548sm1600833f8f.30.2025.07.24.02.24.37
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 24 Jul 2025 02:24:38 -0700 (PDT)
+From: Bartosz Golaszewski <brgl@bgdev.pl>
+Subject: [PATCH v3 00/15] pinctrl: introduce the concept of a GPIO pin
+ function category
+Date: Thu, 24 Jul 2025 11:24:28 +0200
+Message-Id: <20250724-pinctrl-gpio-pinfuncs-v3-0-af4db9302de4@linaro.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - server.couthit.com
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - couthit.com
-X-Get-Message-Sender-Via: server.couthit.com: authenticated_id: parvathi@couthit.com
-X-Authenticated-Sender: server.couthit.com: parvathi@couthit.com
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAM37gWgC/3XNTQrDIBCG4auEWdei5qexq96jdGHUJANBRVNpC
+ bl7TaDQLrJ8P5hnFogmoIlwLRYIJmFEZ3OUpwLUKO1gCOrcwCmv6YUy4tGqOUxk8Oi26J9WRaJ
+ NyzstpFRVCfnWB9Pja3fvj9wjxtmF9/4msW39ivxATIxQYnRWaS+qptW3Ca0M7uzCABuZ+C8jj
+ hiema5hZc0qoagWf8y6rh/JREqyAgEAAA==
+X-Change-ID: 20250701-pinctrl-gpio-pinfuncs-de82bd9aac43
+To: Linus Walleij <linus.walleij@linaro.org>, 
+ Bjorn Andersson <andersson@kernel.org>, 
+ Konrad Dybcio <konradybcio@kernel.org>, 
+ Alexey Klimov <alexey.klimov@linaro.org>, 
+ Lorenzo Bianconi <lorenzo@kernel.org>, Sean Wang <sean.wang@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Paul Cercueil <paul@crapouillou.net>, Kees Cook <kees@kernel.org>, 
+ Andy Shevchenko <andy@kernel.org>, 
+ Andrew Morton <akpm@linux-foundation.org>, 
+ David Hildenbrand <david@redhat.com>, 
+ Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, 
+ "Liam R. Howlett" <Liam.Howlett@oracle.com>, 
+ Vlastimil Babka <vbabka@suse.cz>, Mike Rapoport <rppt@kernel.org>, 
+ Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, 
+ Dong Aisheng <aisheng.dong@nxp.com>, Fabio Estevam <festevam@gmail.com>, 
+ Shawn Guo <shawnguo@kernel.org>, Jacky Bai <ping.bai@nxp.com>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ NXP S32 Linux Team <s32@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Tony Lindgren <tony@atomide.com>, 
+ Haojian Zhuang <haojian.zhuang@linaro.org>, 
+ Geert Uytterhoeven <geert+renesas@glider.be>
+Cc: linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-msm@vger.kernel.org, linux-mediatek@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org, 
+ linux-hardening@vger.kernel.org, linux-mm@kvack.org, imx@lists.linux.dev, 
+ linux-omap@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
+ Bartosz Golaszewski <bartosz.golaszewski@linaro.org>, 
+ Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=9733;
+ i=bartosz.golaszewski@linaro.org; h=from:subject:message-id;
+ bh=KDOYk7d1hTlQEQ7jNP1FzXMIaIbaGvdp7Q2kHJYhtvk=;
+ b=owEBbQKS/ZANAwAKARGnLqAUcddyAcsmYgBogfvRru7ED4AJHRVdp9Kj4Fl5NEpjpe67nSkHi
+ V9JX28Zqt+JAjMEAAEKAB0WIQQWnetsC8PEYBPSx58Rpy6gFHHXcgUCaIH70QAKCRARpy6gFHHX
+ cqOhD/9NkukkbU4i8neVl4M1zDGb4hvB6yVojOnaSNoWwaxVnKVMQfpikAbVV/HfuxpzpwwVVQP
+ tJVltv8yEMK+cuD6u7m/wj6oVZjvj4t6i8hUIbbgMFoNzgUlJWxpCQOtINLTpjvzbHeE6Uh2W6f
+ 8jkFtAevV7SgP0dUz03+W7tFIOR1+6JSu6rdDGAx5qiJqohs3T8C8RO+3deQIH5KGWIowyzj5FT
+ okGFGNH2JC0Xne5rXd4JfXL2atbI3FSJLeKft2j3xtjDimXTMOcQdEd0DEI2FmFv7PJJOUuj20s
+ aRyBV6LZjwyNVq5TqdQf/oEgpEFxwcidA2kUfEz+off2/0I9UJmyZz6RRP/JRR5h+xrjtghKZni
+ 2g8iUlZaHo3JCAbJQcoC+2kQ4vrwh/vXzuyMpDKFVX4Pd+a+kuAiYuIvoGXDN4mIcgDDsq0pfZO
+ yH+8GZDLGTcOxnhPqR6sfmqjHUdmfR7p6SUILpMbM2dN4peWBNEskGyahCNKfzPzL0pBmro+cRV
+ wtbV2TZTwv2vhkkF1HnIKjYV25VDETtvtD0utHRWVt41PrqNN7lw9mn9rLwSGcotHgAQLj7vXF1
+ nuBuqhwLixjojObQfQ79GxdMLnTaNxi6djsDWYT1J1vWtAy4mstwLUY2g6XuDwOmGvLT8xaA5Wy
+ KmiLVNZOHlhKL0Q==
+X-Developer-Key: i=bartosz.golaszewski@linaro.org; a=openpgp;
+ fpr=169DEB6C0BC3C46013D2C79F11A72EA01471D772
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250724_021214_133632_7B5CB432 
-X-CRM114-Status: GOOD (  21.35  )
+X-CRM114-CacheID: sfid-20250724_022441_259730_6D0BF8AE 
+X-CRM114-Status: GOOD (  24.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,384 +145,180 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Added API hooks for IEP module (legacy 32-bit model) to support
-timestamping requests from application.
+NOTE: This is obviously targetting v6.18.
 
-Signed-off-by: Roger Quadros <rogerq@ti.com>
-Signed-off-by: Andrew F. Davis <afd@ti.com>
-Signed-off-by: Basharath Hussain Khaja <basharath@couthit.com>
-Signed-off-by: Parvathi Pudi <parvathi@couthit.com>
+NOTER: This series is a bit all over the place and looks like it should
+be split into at least two separate ones but I figured sending it in its
+entirety better shows the whole picture - namely the fact that the
+pinfunction handling rework is there to allow using the generic pinux
+functions in qualcomm drivers without ballooning up runtime memory
+usage.
+
+NOTEST: I tested several Qualcomm platforms but I have no means of
+testing Mediatek and others. Tested-by tags are appreciated.
+
+Problem: when pinctrl core binds pins to a consumer device and the
+pinmux ops of the underlying driver are marked as strict, the pin in
+question can no longer be requested as a GPIO using the GPIO descriptor
+API. It will result in the following error:
+
+[    5.095688] sc8280xp-tlmm f100000.pinctrl: pin GPIO_25 already requested by regulator-edp-3p3; cannot claim for f100000.pinctrl:570
+[    5.107822] sc8280xp-tlmm f100000.pinctrl: error -EINVAL: pin-25 (f100000.pinctrl:570)
+
+This typically makes sense except when the pins are muxed to a function
+that actually says "GPIO". Of course, the function name is just a string
+so it has no meaning to the pinctrl subsystem.
+
+We have many Qualcomm SoCs (and I can imagine it's a common pattern in
+other platforms as well) where we mux a pin to "gpio" function using the
+`pinctrl-X` property in order to configure bias or drive-strength and
+then access it using the gpiod API. This makes it impossible to mark the
+pin controller module as "strict".
+
+This series proposes to introduce a concept of a sub-category of
+pinfunctions: GPIO functions where the above is not true and the pin
+muxed as a GPIO can still be accessed via the GPIO consumer API even for
+strict pinmuxers.
+
+To that end: we first clean up the drivers that use struct function_desc
+and make them use the smaller struct pinfunction instead - which is the
+correct structure for drivers to describe their pin functions with. We
+also rework pinmux core to not duplicate memory used to store the
+pinfunctions unless they're allocated dynamically.
+
+First: provide the kmemdup_const() helper which only duplicates memory
+if it's not in the .rodata section. Then rework all pinctrl drivers that
+instantiate objects of type struct function_desc as they should only be
+created by pinmux core. Next constify the return value of the accessor
+used to expose these structures to users and finally convert the
+pinfunction object within struct function_desc to a pointer and use
+kmemdup_const() to assign it. With this done proceed to add
+infrastructure for the GPIO pin function category and use it in Qualcomm
+drivers. At the very end: make the Qualcomm pinmuxer strict.
+
+Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 ---
- drivers/net/ethernet/ti/icssg/icss_iep.c      | 103 ++++++++++++++++++
- drivers/net/ethernet/ti/icssm/icssm_prueth.c  |  72 +++++++++++-
- drivers/net/ethernet/ti/icssm/icssm_prueth.h  |   2 +
- .../net/ethernet/ti/icssm/icssm_prueth_ptp.h  |  85 +++++++++++++++
- 4 files changed, 260 insertions(+), 2 deletions(-)
- create mode 100644 drivers/net/ethernet/ti/icssm/icssm_prueth_ptp.h
+Changes in v3:
+- Add more patches in front: convert pinctrl drivers to stop defining
+  their own struct function_desc objects and make pinmux core not
+  duplicate .rodata memory in which struct pinfunction objects are
+  stored.
+- Add a patch constifying pinmux_generic_get_function().
+- Drop patches that were applied upstream.
+- Link to v2: https://lore.kernel.org/r/20250709-pinctrl-gpio-pinfuncs-v2-0-b6135149c0d9@linaro.org
 
-diff --git a/drivers/net/ethernet/ti/icssg/icss_iep.c b/drivers/net/ethernet/ti/icssg/icss_iep.c
-index 2a1c43316f46..59aca63e2fe5 100644
---- a/drivers/net/ethernet/ti/icssg/icss_iep.c
-+++ b/drivers/net/ethernet/ti/icssg/icss_iep.c
-@@ -968,11 +968,114 @@ static const struct icss_iep_plat_data am654_icss_iep_plat_data = {
- 	.config = &am654_icss_iep_regmap_config,
- };
- 
-+static const struct icss_iep_plat_data am57xx_icss_iep_plat_data = {
-+	.flags = ICSS_IEP_64BIT_COUNTER_SUPPORT |
-+		 ICSS_IEP_SLOW_COMPEN_REG_SUPPORT,
-+	.reg_offs = {
-+		[ICSS_IEP_GLOBAL_CFG_REG] = 0x00,
-+		[ICSS_IEP_COMPEN_REG] = 0x08,
-+		[ICSS_IEP_SLOW_COMPEN_REG] = 0x0C,
-+		[ICSS_IEP_COUNT_REG0] = 0x10,
-+		[ICSS_IEP_COUNT_REG1] = 0x14,
-+		[ICSS_IEP_CAPTURE_CFG_REG] = 0x18,
-+		[ICSS_IEP_CAPTURE_STAT_REG] = 0x1c,
-+
-+		[ICSS_IEP_CAP6_RISE_REG0] = 0x50,
-+		[ICSS_IEP_CAP6_RISE_REG1] = 0x54,
-+
-+		[ICSS_IEP_CAP7_RISE_REG0] = 0x60,
-+		[ICSS_IEP_CAP7_RISE_REG1] = 0x64,
-+
-+		[ICSS_IEP_CMP_CFG_REG] = 0x70,
-+		[ICSS_IEP_CMP_STAT_REG] = 0x74,
-+		[ICSS_IEP_CMP0_REG0] = 0x78,
-+		[ICSS_IEP_CMP0_REG1] = 0x7c,
-+		[ICSS_IEP_CMP1_REG0] = 0x80,
-+		[ICSS_IEP_CMP1_REG1] = 0x84,
-+
-+		[ICSS_IEP_CMP8_REG0] = 0xc0,
-+		[ICSS_IEP_CMP8_REG1] = 0xc4,
-+		[ICSS_IEP_SYNC_CTRL_REG] = 0x180,
-+		[ICSS_IEP_SYNC0_STAT_REG] = 0x188,
-+		[ICSS_IEP_SYNC1_STAT_REG] = 0x18c,
-+		[ICSS_IEP_SYNC_PWIDTH_REG] = 0x190,
-+		[ICSS_IEP_SYNC0_PERIOD_REG] = 0x194,
-+		[ICSS_IEP_SYNC1_DELAY_REG] = 0x198,
-+		[ICSS_IEP_SYNC_START_REG] = 0x19c,
-+	},
-+	.config = &am654_icss_iep_regmap_config,
-+};
-+
-+static bool am335x_icss_iep_valid_reg(struct device *dev, unsigned int reg)
-+{
-+	switch (reg) {
-+	case ICSS_IEP_GLOBAL_CFG_REG ... ICSS_IEP_CAPTURE_STAT_REG:
-+	case ICSS_IEP_CAP6_RISE_REG0:
-+	case ICSS_IEP_CMP_CFG_REG ... ICSS_IEP_CMP0_REG0:
-+	case ICSS_IEP_CMP8_REG0 ... ICSS_IEP_SYNC_START_REG:
-+		return true;
-+	default:
-+		return false;
-+	}
-+
-+	return false;
-+}
-+
-+static const struct regmap_config am335x_icss_iep_regmap_config = {
-+	.name = "icss iep",
-+	.reg_stride = 1,
-+	.reg_write = icss_iep_regmap_write,
-+	.reg_read = icss_iep_regmap_read,
-+	.writeable_reg = am335x_icss_iep_valid_reg,
-+	.readable_reg = am335x_icss_iep_valid_reg,
-+};
-+
-+static const struct icss_iep_plat_data am335x_icss_iep_plat_data = {
-+	.flags = 0,
-+	.reg_offs = {
-+		[ICSS_IEP_GLOBAL_CFG_REG] = 0x00,
-+		[ICSS_IEP_COMPEN_REG] = 0x08,
-+		[ICSS_IEP_COUNT_REG0] = 0x0C,
-+		[ICSS_IEP_CAPTURE_CFG_REG] = 0x10,
-+		[ICSS_IEP_CAPTURE_STAT_REG] = 0x14,
-+
-+		[ICSS_IEP_CAP6_RISE_REG0] = 0x30,
-+
-+		[ICSS_IEP_CAP7_RISE_REG0] = 0x38,
-+
-+		[ICSS_IEP_CMP_CFG_REG] = 0x40,
-+		[ICSS_IEP_CMP_STAT_REG] = 0x44,
-+		[ICSS_IEP_CMP0_REG0] = 0x48,
-+
-+		[ICSS_IEP_CMP8_REG0] = 0x88,
-+		[ICSS_IEP_SYNC_CTRL_REG] = 0x100,
-+		[ICSS_IEP_SYNC0_STAT_REG] = 0x108,
-+		[ICSS_IEP_SYNC1_STAT_REG] = 0x10C,
-+		[ICSS_IEP_SYNC_PWIDTH_REG] = 0x110,
-+		[ICSS_IEP_SYNC0_PERIOD_REG] = 0x114,
-+		[ICSS_IEP_SYNC1_DELAY_REG] = 0x118,
-+		[ICSS_IEP_SYNC_START_REG] = 0x11C,
-+	},
-+	.config = &am335x_icss_iep_regmap_config,
-+};
-+
- static const struct of_device_id icss_iep_of_match[] = {
- 	{
- 		.compatible = "ti,am654-icss-iep",
- 		.data = &am654_icss_iep_plat_data,
- 	},
-+	{
-+		.compatible = "ti,am5728-icss-iep",
-+		.data = &am57xx_icss_iep_plat_data,
-+	},
-+	{
-+		.compatible = "ti,am4376-icss-iep",
-+		.data = &am335x_icss_iep_plat_data,
-+	},
-+	{
-+		.compatible = "ti,am3356-icss-iep",
-+		.data = &am335x_icss_iep_plat_data,
-+	},
- 	{},
- };
- MODULE_DEVICE_TABLE(of, icss_iep_of_match);
-diff --git a/drivers/net/ethernet/ti/icssm/icssm_prueth.c b/drivers/net/ethernet/ti/icssm/icssm_prueth.c
-index 470f4ac956ef..e11a74671a12 100644
---- a/drivers/net/ethernet/ti/icssm/icssm_prueth.c
-+++ b/drivers/net/ethernet/ti/icssm/icssm_prueth.c
-@@ -30,6 +30,7 @@
- 
- #include "icssm_prueth.h"
- #include "../icssg/icssg_mii_rt.h"
-+#include "../icssg/icss_iep.h"
- 
- #define OCMC_RAM_SIZE		(SZ_64K)
- 
-@@ -894,6 +895,48 @@ static int icssm_emac_request_irqs(struct prueth_emac *emac)
- 	return ret;
- }
- 
-+static void icssm_ptp_dram_init(struct prueth_emac *emac)
-+{
-+	void __iomem *sram = emac->prueth->mem[PRUETH_MEM_SHARED_RAM].va;
-+	u64 temp64;
-+
-+	writew(0, sram + MII_RX_CORRECTION_OFFSET);
-+	writew(0, sram + MII_TX_CORRECTION_OFFSET);
-+
-+	/* Initialize RCF to 1 (Linux N/A) */
-+	writel(1 * 1024, sram + TIMESYNC_TC_RCF_OFFSET);
-+
-+	/* This flag will be set and cleared by firmware */
-+	/* Write Sync0 period for sync signal generation in PTP
-+	 * memory in shared RAM
-+	 */
-+	writel(200000000 / 50, sram + TIMESYNC_SYNC0_WIDTH_OFFSET);
-+
-+	/* Write CMP1 period for sync signal generation in PTP
-+	 * memory in shared RAM
-+	 */
-+	temp64 = 1000000;
-+	memcpy_toio(sram + TIMESYNC_CMP1_CMP_OFFSET, &temp64, sizeof(temp64));
-+
-+	/* Write Sync0 period for sync signal generation in PTP
-+	 * memory in shared RAM
-+	 */
-+	writel(1000000, sram + TIMESYNC_CMP1_PERIOD_OFFSET);
-+
-+	/* Configures domainNumber list. Firmware supports 2 domains */
-+	writeb(0, sram + TIMESYNC_DOMAIN_NUMBER_LIST);
-+	writeb(0, sram + TIMESYNC_DOMAIN_NUMBER_LIST + 1);
-+
-+	/* Configure 1-step/2-step */
-+	writeb(1, sram + DISABLE_SWITCH_SYNC_RELAY_OFFSET);
-+
-+	/* Configures the setting to Link local frame without HSR tag */
-+	writeb(0, sram + LINK_LOCAL_FRAME_HAS_HSR_TAG);
-+
-+	/* Enable E2E/UDP PTP message timestamping */
-+	writeb(1, sram + PTP_IPV4_UDP_E2E_ENABLE);
-+}
-+
- /**
-  * icssm_emac_ndo_open - EMAC device open
-  * @ndev: network adapter device
-@@ -916,9 +959,18 @@ static int icssm_emac_ndo_open(struct net_device *ndev)
- 
- 	icssm_prueth_emac_config(emac);
- 
-+	if (!prueth->emac_configured) {
-+		icssm_ptp_dram_init(emac);
-+		ret = icss_iep_init(prueth->iep, NULL, NULL, 0);
-+		if (ret) {
-+			netdev_err(ndev, "Failed to initialize iep: %d\n", ret);
-+			goto iep_exit;
-+		}
-+	}
-+
- 	ret = icssm_emac_set_boot_pru(emac, ndev);
- 	if (ret)
--		return ret;
-+		goto iep_exit;
- 
- 	ret = icssm_emac_request_irqs(emac);
- 	if (ret)
-@@ -942,6 +994,10 @@ static int icssm_emac_ndo_open(struct net_device *ndev)
- rproc_shutdown:
- 	rproc_shutdown(emac->pru);
- 
-+iep_exit:
-+	if (!prueth->emac_configured)
-+		icss_iep_exit(prueth->iep);
-+
- 	return ret;
- }
- 
-@@ -1434,12 +1490,19 @@ static int icssm_prueth_probe(struct platform_device *pdev)
- 		}
- 	}
- 
-+	prueth->iep = icss_iep_get(np);
-+	if (IS_ERR(prueth->iep)) {
-+		ret = PTR_ERR(prueth->iep);
-+		dev_err(dev, "unable to get IEP\n");
-+		goto netdev_exit;
-+	}
-+
- 	/* register the network devices */
- 	if (eth0_node) {
- 		ret = register_netdev(prueth->emac[PRUETH_MAC0]->ndev);
- 		if (ret) {
- 			dev_err(dev, "can't register netdev for port MII0");
--			goto netdev_exit;
-+			goto iep_put;
- 		}
- 
- 		prueth->registered_netdevs[PRUETH_MAC0] =
-@@ -1473,6 +1536,9 @@ static int icssm_prueth_probe(struct platform_device *pdev)
- 		unregister_netdev(prueth->registered_netdevs[i]);
- 	}
- 
-+iep_put:
-+	icss_iep_put(prueth->iep);
-+
- netdev_exit:
- 	for (i = 0; i < PRUETH_NUM_MACS; i++) {
- 		eth_node = prueth->eth_node[i];
-@@ -1541,6 +1607,8 @@ static void icssm_prueth_remove(struct platform_device *pdev)
- 						 &prueth->mem[i]);
- 	}
- 
-+	icss_iep_put(prueth->iep);
-+
- 	pruss_put(prueth->pruss);
- 
- 	if (prueth->eth_node[PRUETH_MAC0])
-diff --git a/drivers/net/ethernet/ti/icssm/icssm_prueth.h b/drivers/net/ethernet/ti/icssm/icssm_prueth.h
-index 6201276986de..c3f9c59ac6ff 100644
---- a/drivers/net/ethernet/ti/icssm/icssm_prueth.h
-+++ b/drivers/net/ethernet/ti/icssm/icssm_prueth.h
-@@ -14,6 +14,7 @@
- #include <linux/remoteproc/pruss.h>
- 
- #include "icssm_switch.h"
-+#include "icssm_prueth_ptp.h"
- 
- /* ICSSM size of redundancy tag */
- #define ICSSM_LRE_TAG_SIZE	6
-@@ -231,6 +232,7 @@ struct prueth {
- 	struct pruss_mem_region mem[PRUETH_MEM_MAX];
- 	struct gen_pool *sram_pool;
- 	struct regmap *mii_rt;
-+	struct icss_iep *iep;
- 
- 	const struct prueth_private_data *fw_data;
- 	struct prueth_fw_offsets *fw_offsets;
-diff --git a/drivers/net/ethernet/ti/icssm/icssm_prueth_ptp.h b/drivers/net/ethernet/ti/icssm/icssm_prueth_ptp.h
-new file mode 100644
-index 000000000000..e0bf692beda1
---- /dev/null
-+++ b/drivers/net/ethernet/ti/icssm/icssm_prueth_ptp.h
-@@ -0,0 +1,85 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/*
-+ * Copyright (C) 2020-2021 Texas Instruments Incorporated - https://www.ti.com
-+ */
-+#ifndef PRUETH_PTP_H
-+#define PRUETH_PTP_H
-+
-+#define RX_SYNC_TIMESTAMP_OFFSET_P1		0x8    /* 8 bytes */
-+#define RX_PDELAY_REQ_TIMESTAMP_OFFSET_P1	0x14   /* 12 bytes */
-+
-+#define DISABLE_PTP_FRAME_FORWARDING_CTRL_OFFSET 0x14	/* 1 byte */
-+
-+#define RX_PDELAY_RESP_TIMESTAMP_OFFSET_P1	0x20   /* 12 bytes */
-+#define RX_SYNC_TIMESTAMP_OFFSET_P2		0x2c   /* 12 bytes */
-+#define RX_PDELAY_REQ_TIMESTAMP_OFFSET_P2	0x38   /* 12 bytes */
-+#define RX_PDELAY_RESP_TIMESTAMP_OFFSET_P2	0x44   /* 12 bytes */
-+#define TIMESYNC_DOMAIN_NUMBER_LIST		0x50   /* 2 bytes */
-+#define P1_SMA_LINE_DELAY_OFFSET		0x52   /* 4 bytes */
-+#define P2_SMA_LINE_DELAY_OFFSET		0x56   /* 4 bytes */
-+#define TIMESYNC_SECONDS_COUNT_OFFSET		0x5a   /* 6 bytes */
-+#define TIMESYNC_TC_RCF_OFFSET			0x60   /* 4 bytes */
-+#define DUT_IS_MASTER_OFFSET			0x64   /* 1 byte */
-+#define MASTER_PORT_NUM_OFFSET			0x65   /* 1 byte */
-+#define SYNC_MASTER_MAC_OFFSET			0x66   /* 6 bytes */
-+#define TX_TS_NOTIFICATION_OFFSET_SYNC_P1	0x6c   /* 1 byte */
-+#define TX_TS_NOTIFICATION_OFFSET_PDEL_REQ_P1	0x6d   /* 1 byte */
-+#define TX_TS_NOTIFICATION_OFFSET_PDEL_RES_P1	0x6e   /* 1 byte */
-+#define TX_TS_NOTIFICATION_OFFSET_SYNC_P2	0x6f   /* 1 byte */
-+#define TX_TS_NOTIFICATION_OFFSET_PDEL_REQ_P2	0x70   /* 1 byte */
-+#define TX_TS_NOTIFICATION_OFFSET_PDEL_RES_P2	0x71   /* 1 byte */
-+#define TX_SYNC_TIMESTAMP_OFFSET_P1		0x72   /* 12 bytes */
-+#define TX_PDELAY_REQ_TIMESTAMP_OFFSET_P1	0x7e   /* 12 bytes */
-+#define TX_PDELAY_RESP_TIMESTAMP_OFFSET_P1	0x8a   /* 12 bytes */
-+#define TX_SYNC_TIMESTAMP_OFFSET_P2		0x96   /* 12 bytes */
-+#define TX_PDELAY_REQ_TIMESTAMP_OFFSET_P2	0xa2   /* 12 bytes */
-+#define TX_PDELAY_RESP_TIMESTAMP_OFFSET_P2	0xae   /* 12 bytes */
-+#define TIMESYNC_CTRL_VAR_OFFSET		0xba   /* 1 byte */
-+#define DISABLE_SWITCH_SYNC_RELAY_OFFSET	0xbb   /* 1 byte */
-+#define MII_RX_CORRECTION_OFFSET		0xbc   /* 2 bytes */
-+#define MII_TX_CORRECTION_OFFSET		0xbe   /* 2 bytes */
-+#define TIMESYNC_CMP1_CMP_OFFSET		0xc0   /* 8 bytes */
-+#define TIMESYNC_SYNC0_CMP_OFFSET		0xc8   /* 8 bytes */
-+#define TIMESYNC_CMP1_PERIOD_OFFSET		0xd0   /* 4 bytes */
-+#define TIMESYNC_SYNC0_WIDTH_OFFSET		0xd4   /* 4 bytes */
-+#define SINGLE_STEP_IEP_OFFSET_P1		0xd8   /* 8 bytes */
-+#define SINGLE_STEP_SECONDS_OFFSET_P1		0xe0   /* 8 bytes */
-+#define SINGLE_STEP_IEP_OFFSET_P2		0xe8   /* 8 bytes */
-+#define SINGLE_STEP_SECONDS_OFFSET_P2		0xf0   /* 8 bytes */
-+#define LINK_LOCAL_FRAME_HAS_HSR_TAG		0xf8   /* 1 bytes */
-+#define PTP_PREV_TX_TIMESTAMP_P1		0xf9  /* 8 bytes */
-+#define PTP_PREV_TX_TIMESTAMP_P2		0x101  /* 8 bytes */
-+#define PTP_CLK_IDENTITY_OFFSET			0x109  /* 8 bytes */
-+#define PTP_SCRATCH_MEM				0x111  /* 16 byte */
-+#define PTP_IPV4_UDP_E2E_ENABLE			0x121  /* 1 byte */
-+
-+enum {
-+	PRUETH_PTP_SYNC,
-+	PRUETH_PTP_DLY_REQ,
-+	PRUETH_PTP_DLY_RESP,
-+	PRUETH_PTP_TS_EVENTS,
-+};
-+
-+#define PRUETH_PTP_TS_SIZE		12
-+#define PRUETH_PTP_TS_NOTIFY_SIZE	1
-+#define PRUETH_PTP_TS_NOTIFY_MASK	0xff
-+
-+/* Bit definitions for TIMESYNC_CTRL */
-+#define TIMESYNC_CTRL_BG_ENABLE    BIT(0)
-+#define TIMESYNC_CTRL_FORCED_2STEP BIT(1)
-+
-+static inline u32 icssm_prueth_tx_ts_offs_get(u8 port, u8 event)
-+{
-+	return TX_SYNC_TIMESTAMP_OFFSET_P1 + port *
-+		PRUETH_PTP_TS_EVENTS * PRUETH_PTP_TS_SIZE +
-+		event * PRUETH_PTP_TS_SIZE;
-+}
-+
-+static inline u32 icssm_prueth_tx_ts_notify_offs_get(u8 port, u8 event)
-+{
-+	return TX_TS_NOTIFICATION_OFFSET_SYNC_P1 +
-+		PRUETH_PTP_TS_EVENTS * PRUETH_PTP_TS_NOTIFY_SIZE * port +
-+		event * PRUETH_PTP_TS_NOTIFY_SIZE;
-+}
-+
-+#endif /* PRUETH_PTP_H */
+Changes in v2:
+- Extend the series with providing pinmux_generic_add_pinfunction(),
+  using it in several drivers and converting pinctrl-msm to using
+  generic pinmux helpers
+- Add a generic function_is_gpio() callback for pinmux_ops
+- Convert all qualcomm drivers to using the new GPIO pin category so
+  that we can actually enable the strict flag
+- Link to v1: https://lore.kernel.org/r/20250702-pinctrl-gpio-pinfuncs-v1-0-ed2bd0f9468d@linaro.org
+
+---
+Bartosz Golaszewski (15):
+      lib: provide kmemdup_const()
+      pinctrl: ingenic: use struct pinfunction instead of struct function_desc
+      pinctrl: airoha: replace struct function_desc with struct pinfunction
+      pinctrl: mediatek: mt7988: use PINCTRL_PIN_FUNCTION()
+      pinctrl: mediatek: moore: replace struct function_desc with struct pinfunction
+      pinctrl: imx: don't access the pin function radix tree directly
+      pinctrl: keembay: release allocated memory in detach path
+      pinctrl: keembay: use a dedicated structure for the pinfunction description
+      pinctrl: constify pinmux_generic_get_function()
+      pinctrl: make struct pinfunction a pointer in struct function_desc
+      pinctrl: qcom: use generic pin function helpers
+      pinctrl: allow to mark pin functions as requestable GPIOs
+      pinctrl: qcom: add infrastructure for marking pin functions as GPIOs
+      pinctrl: qcom: mark the `gpio` and `egpio` pins function as non-strict functions
+      pinctrl: qcom: make the pinmuxing strict
+
+ drivers/pinctrl/freescale/pinctrl-imx.c          | 42 ++++++----------
+ drivers/pinctrl/mediatek/pinctrl-airoha.c        | 18 +++----
+ drivers/pinctrl/mediatek/pinctrl-moore.c         | 10 ++--
+ drivers/pinctrl/mediatek/pinctrl-moore.h         |  7 +--
+ drivers/pinctrl/mediatek/pinctrl-mt7622.c        |  2 +-
+ drivers/pinctrl/mediatek/pinctrl-mt7623.c        |  2 +-
+ drivers/pinctrl/mediatek/pinctrl-mt7629.c        |  2 +-
+ drivers/pinctrl/mediatek/pinctrl-mt7981.c        |  2 +-
+ drivers/pinctrl/mediatek/pinctrl-mt7986.c        |  2 +-
+ drivers/pinctrl/mediatek/pinctrl-mt7988.c        | 44 +++++++----------
+ drivers/pinctrl/mediatek/pinctrl-mtk-common-v2.h |  2 +-
+ drivers/pinctrl/pinctrl-equilibrium.c            |  2 +-
+ drivers/pinctrl/pinctrl-ingenic.c                | 49 +++++++++---------
+ drivers/pinctrl/pinctrl-keembay.c                | 25 ++++++----
+ drivers/pinctrl/pinctrl-single.c                 |  4 +-
+ drivers/pinctrl/pinmux.c                         | 63 +++++++++++++++++++++---
+ drivers/pinctrl/pinmux.h                         |  9 ++--
+ drivers/pinctrl/qcom/pinctrl-ipq5018.c           |  2 +-
+ drivers/pinctrl/qcom/pinctrl-ipq5332.c           |  2 +-
+ drivers/pinctrl/qcom/pinctrl-ipq5424.c           |  2 +-
+ drivers/pinctrl/qcom/pinctrl-ipq6018.c           |  2 +-
+ drivers/pinctrl/qcom/pinctrl-ipq8074.c           |  2 +-
+ drivers/pinctrl/qcom/pinctrl-ipq9574.c           |  2 +-
+ drivers/pinctrl/qcom/pinctrl-mdm9607.c           |  2 +-
+ drivers/pinctrl/qcom/pinctrl-mdm9615.c           |  2 +-
+ drivers/pinctrl/qcom/pinctrl-msm.c               | 45 ++++++-----------
+ drivers/pinctrl/qcom/pinctrl-msm.h               |  5 ++
+ drivers/pinctrl/qcom/pinctrl-msm8226.c           |  2 +-
+ drivers/pinctrl/qcom/pinctrl-msm8660.c           |  2 +-
+ drivers/pinctrl/qcom/pinctrl-msm8909.c           |  2 +-
+ drivers/pinctrl/qcom/pinctrl-msm8916.c           |  2 +-
+ drivers/pinctrl/qcom/pinctrl-msm8917.c           |  2 +-
+ drivers/pinctrl/qcom/pinctrl-msm8953.c           |  2 +-
+ drivers/pinctrl/qcom/pinctrl-msm8960.c           |  2 +-
+ drivers/pinctrl/qcom/pinctrl-msm8976.c           |  2 +-
+ drivers/pinctrl/qcom/pinctrl-msm8994.c           |  2 +-
+ drivers/pinctrl/qcom/pinctrl-msm8996.c           |  2 +-
+ drivers/pinctrl/qcom/pinctrl-msm8998.c           |  2 +-
+ drivers/pinctrl/qcom/pinctrl-msm8x74.c           |  2 +-
+ drivers/pinctrl/qcom/pinctrl-qcm2290.c           |  4 +-
+ drivers/pinctrl/qcom/pinctrl-qcs404.c            |  2 +-
+ drivers/pinctrl/qcom/pinctrl-qcs615.c            |  2 +-
+ drivers/pinctrl/qcom/pinctrl-qcs8300.c           |  4 +-
+ drivers/pinctrl/qcom/pinctrl-qdu1000.c           |  2 +-
+ drivers/pinctrl/qcom/pinctrl-sa8775p.c           |  4 +-
+ drivers/pinctrl/qcom/pinctrl-sar2130p.c          |  2 +-
+ drivers/pinctrl/qcom/pinctrl-sc7180.c            |  2 +-
+ drivers/pinctrl/qcom/pinctrl-sc7280.c            |  4 +-
+ drivers/pinctrl/qcom/pinctrl-sc8180x.c           |  2 +-
+ drivers/pinctrl/qcom/pinctrl-sc8280xp.c          |  4 +-
+ drivers/pinctrl/qcom/pinctrl-sdm660.c            |  2 +-
+ drivers/pinctrl/qcom/pinctrl-sdm670.c            |  2 +-
+ drivers/pinctrl/qcom/pinctrl-sdm845.c            |  2 +-
+ drivers/pinctrl/qcom/pinctrl-sdx55.c             |  2 +-
+ drivers/pinctrl/qcom/pinctrl-sdx65.c             |  2 +-
+ drivers/pinctrl/qcom/pinctrl-sdx75.c             |  2 +-
+ drivers/pinctrl/qcom/pinctrl-sm4450.c            |  2 +-
+ drivers/pinctrl/qcom/pinctrl-sm6115.c            |  2 +-
+ drivers/pinctrl/qcom/pinctrl-sm6125.c            |  2 +-
+ drivers/pinctrl/qcom/pinctrl-sm6350.c            |  2 +-
+ drivers/pinctrl/qcom/pinctrl-sm6375.c            |  2 +-
+ drivers/pinctrl/qcom/pinctrl-sm7150.c            |  2 +-
+ drivers/pinctrl/qcom/pinctrl-sm8150.c            |  2 +-
+ drivers/pinctrl/qcom/pinctrl-sm8250.c            |  2 +-
+ drivers/pinctrl/qcom/pinctrl-sm8350.c            |  2 +-
+ drivers/pinctrl/qcom/pinctrl-sm8450.c            |  4 +-
+ drivers/pinctrl/qcom/pinctrl-sm8550.c            |  2 +-
+ drivers/pinctrl/qcom/pinctrl-sm8650.c            |  4 +-
+ drivers/pinctrl/qcom/pinctrl-sm8750.c            |  4 +-
+ drivers/pinctrl/qcom/pinctrl-x1e80100.c          |  2 +-
+ drivers/pinctrl/renesas/pinctrl-rza1.c           |  2 +-
+ drivers/pinctrl/renesas/pinctrl-rza2.c           |  2 +-
+ drivers/pinctrl/renesas/pinctrl-rzg2l.c          |  2 +-
+ drivers/pinctrl/renesas/pinctrl-rzv2m.c          |  2 +-
+ include/linux/pinctrl/pinctrl.h                  | 14 ++++++
+ include/linux/pinctrl/pinmux.h                   |  2 +
+ include/linux/string.h                           |  1 +
+ mm/util.c                                        | 21 ++++++++
+ 78 files changed, 275 insertions(+), 224 deletions(-)
+---
+base-commit: 05adbee3ad528100ab0285c15c91100e19e10138
+change-id: 20250701-pinctrl-gpio-pinfuncs-de82bd9aac43
+
+Best regards,
 -- 
-2.43.0
+Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 
 
