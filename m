@@ -4,64 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40A17C83F26
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 17:05:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5286C87FCC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 17:05:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FDYBYXhi2fpIXmidMih0lla5P8/HwKyQKaeA3qjglN4=; b=Vo9eotVqWdmARwFx9FQdS0YVos
-	XrsLH3L8g2fwVKQW9Mnyohdxdr76ishum89p1kvBorCu8Mf6FazRN+dNqB2OW+w3InTN0PZK8DGDJ
-	S4klhZj8qKM9bAidAzZgSSqYQc53lVyv4TN3kPMQyFh49I47eF4HdbkV4QwtKO9QIdaJnSRz5xqol
-	ZY7ucveb/CFwqEpaQ+5mIRsuaBQFOuajKasZAVofGYhAVI7kIEMIjZtPGGqI0e+6OVSg/YvRKH06y
-	6i45UXarSnLYVkzCgF2L3nUceWeDHABXrhG7/WRFnjpK3Da4z/JBZNypcOHkNUzi/PrzSXszaDJKb
-	GFIbrerw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6mZm/Y7YVfF+nEcpgpSJB1Y57nWUjIF3vCADHLfVfnE=; b=3F2vHU+H6Xc5jO9SnRJ6BlbrwC
+	92DRjlyVclsmWkjzHQaZ1eduqFQTAIlLaHGbsPCJk0Ws7BaUTCBAaKA/O7DYIoB0mj16lVpy6+d0s
+	e+s0Xes60eVwW3EZPred6iY7e+yh5cn05QKTMZHcv3Uu1ZrYvTSuVlrrLHmoDDUTvpMUDgPsKdPur
+	0yRzBJ3W4qtpDpF7djiBYjQTJTwzskhKmlmimopOv+lkUpnkNDRBK1EAJDTy93T3Sf6Pcn8M2OJe4
+	La6AMN6rZKpQx9XHRRrA6oiDiHxwj1cD6KxJVVP3aSqMdle4tNUOCID5ZPKl6QngbplskH8U1LGk0
+	AbIK7Tpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uezNX-000000082wA-2I4I;
-	Thu, 24 Jul 2025 17:05:11 +0000
-Received: from ms.lwn.net ([2600:3c01:e000:3a1::42])
+	id 1uezNQ-000000082qU-0ErH;
+	Thu, 24 Jul 2025 17:05:04 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uewhW-00000007iIQ-3JLs
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Jul 2025 14:13:39 +0000
-DKIM-Filter: OpenDKIM Filter v2.11.0 ms.lwn.net 3A3B040AD2
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lwn.net; s=20201203;
-	t=1753366414; bh=FDYBYXhi2fpIXmidMih0lla5P8/HwKyQKaeA3qjglN4=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=pwq5tdM2vDY6APoBJuNEplILNdsyaU8ylKRxeCbXe8XwZITdA49KYYVSYTry8HpKV
-	 11JU1pkrDwmKYTn4Fl/PSS7PRD9lEUq9GYeo/HlJaKcFNthhWNgGaSbErWZpRksXU/
-	 2vcUlKH47OM35KhDFiJKYjv9eHZYQfJhlwveoisq76XE1Ph/wNujQEY4mwi+2EPI03
-	 C6Ge6wReBlahOFy06igmvLpUfGmMHNmMAtE5bIWSddnTvAo8pP5gNfRizJLIkJVMoq
-	 n+gO3mVS2lc+fqlOMygB0N/vI5gck9MYQxuB1GcL+iBGKHLpcflufHKZM8r4X1ng6W
-	 uqNwh/ttjzzkw==
-Received: from localhost (unknown [IPv6:2601:280:4600:2da9::1fe])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by ms.lwn.net (Postfix) with ESMTPSA id 3A3B040AD2;
-	Thu, 24 Jul 2025 14:13:34 +0000 (UTC)
-From: Jonathan Corbet <corbet@lwn.net>
-To: Eugen Hristev <eugen.hristev@linaro.org>, linux-kernel@vger.kernel.org,
- linux-arm-msm@vger.kernel.org, linux-arch@vger.kernel.org,
- linux-mm@kvack.org, tglx@linutronix.de, andersson@kernel.org,
- pmladek@suse.com
-Cc: linux-arm-kernel@lists.infradead.org, linux-hardening@vger.kernel.org,
- eugen.hristev@linaro.org, mojha@qti.qualcomm.com, rostedt@goodmis.org,
- jonechou@google.com, tudor.ambarus@linaro.org
-Subject: Re: [RFC][PATCH v2 02/29] Documentation: add kmemdump
-In-Reply-To: <20250724135512.518487-3-eugen.hristev@linaro.org>
-References: <20250724135512.518487-1-eugen.hristev@linaro.org>
- <20250724135512.518487-3-eugen.hristev@linaro.org>
-Date: Thu, 24 Jul 2025 08:13:33 -0600
-Message-ID: <87zfctad82.fsf@trenco.lwn.net>
+	id 1ueweX-00000007hbi-0AhH;
+	Thu, 24 Jul 2025 14:10:34 +0000
+Received: from [192.168.1.76] (unknown [IPv6:2001:b07:6462:5de2:520d:d7a3:63ca:99e8])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 4822511E6;
+	Thu, 24 Jul 2025 16:09:48 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1753366189;
+	bh=kncEHGUHBsOPEbj18mUjhjLaFdDTloHadGxnvcBRhXM=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=gAaY+DbrTVEhRUog6Y1tHYj8lkp5ax+jymeQIs6+3uVtcn7z+YxFdusv8C4Qu/p64
+	 gKFSZwqZFlEPAssB+7plXSZ8LZxHsnTuZ+tcQjNZ6hmfsZQOHe2cAJWD/uxI3SSIA6
+	 8KcE9stVQFHHDqFTYV0pgQqAGPVTS+EfBy9Yw050=
+From: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+Date: Thu, 24 Jul 2025 16:10:08 +0200
+Subject: [PATCH v2 01/27] media: mc: Add per-file-handle data support
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250724-multicontext-mainline-2025-v2-1-c9b316773486@ideasonboard.com>
+References: <20250724-multicontext-mainline-2025-v2-0-c9b316773486@ideasonboard.com>
+In-Reply-To: <20250724-multicontext-mainline-2025-v2-0-c9b316773486@ideasonboard.com>
+To: Sakari Ailus <sakari.ailus@linux.intel.com>, 
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+ Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, 
+ Kieran Bingham <kieran.bingham@ideasonboard.com>, 
+ Nicolas Dufresne <nicolas.dufresne@collabora.com>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Tomasz Figa <tfiga@chromium.org>, 
+ Marek Szyprowski <m.szyprowski@samsung.com>, 
+ Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
+ Florian Fainelli <florian.fainelli@broadcom.com>, 
+ Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+ Hans Verkuil <hverkuil@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
+ linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ Jacopo Mondi <jacopo.mondi@ideasonboard.com>, 
+ Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>, 
+ Hans Verkuil <hverkuil@kernel.org>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=7105;
+ i=jacopo.mondi@ideasonboard.com; h=from:subject:message-id;
+ bh=iZLPf77dc0oKef/FoIrNYxuY8wrefkX+9mbiaN7w1+U=;
+ b=owEBbQKS/ZANAwAKAXI0Bo8WoVY8AcsmYgBogj7OvS5BlVCgiF1gQqp9wy2UdrB4acbKilKqM
+ fhKRME9Q1WJAjMEAAEKAB0WIQS1xD1IgJogio9YOMByNAaPFqFWPAUCaII+zgAKCRByNAaPFqFW
+ PFwnD/9tMm5RSk04hMUf0xgme2U3HQKA5jq+FX5aJPpIj4pNU9WjhDYPOKRXvTVrPqa2a87lE0v
+ +2KyqJj0AYVdRG8PAqLIvfLgon0ttIlMHJRpsSY2XhX/KVhNtU78imxQsj+ZmR57o7IlKEfdaBE
+ 0NFZBgL4VmRkB0WSaM+sbMDdtsMBS+GVITGxu0FEH7bJTIGvqGADAoFfIZT3osz6ZL/ij4OS3lB
+ Y48H7lRZXIP0m97d26Qiph5Fa6ff7BnPXdulyG0ImDbE0cD9s5ndZPq0MNqjUr8Kq/OlzMKPJhC
+ u57FCHwiwiA8qdSK04kWtDA1cE99rYGYSYMHXJDkHjrvzHi4LEc74iCATILYLlGMT0LCh/7/Qht
+ Oz81NzymhC8coQxkylalaxhNzT+rcLO+ylaeB/Kj3wALxleEQAXsKzhUrcKfyDq9t7h9ECOZUsa
+ VGP9P5PX+OwHYRqZofSIToNxjcYSUpUmYWbjBd0YPdm6BfXs+fgT0bdDiPoanvhP23ifhPqWyml
+ /JZoke8BMxkZq4gtEtCmq75MT4XgZ+tBnQF6KzRpHCxJv6Mi+U+YbdPsV1E0HxWl6/BlsN7H81u
+ WvDeHEKvFwre4T5n12vQr6lfLAiy2wMd+8PobpzSyQNeCTeXuqK3fhXfJpGD1z23NS2r14CZLtz
+ 7/1Ne2kdcP5LNBQ==
+X-Developer-Key: i=jacopo.mondi@ideasonboard.com; a=openpgp;
+ fpr=72392EDC88144A65C701EA9BA5826A2587AD026B
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250724_071338_835473_719CD8D4 
-X-CRM114-Status: GOOD (  38.13  )
+X-CRM114-CacheID: sfid-20250724_071033_267151_A15ABACA 
+X-CRM114-Status: GOOD (  22.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,183 +97,226 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Eugen Hristev <eugen.hristev@linaro.org> writes:
+From: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
 
-> Document the new kmemdump kernel feature.
+The media devnode core associates devnodes with files by storing the
+devnode pointer in the file structure private_data field. In order to
+allow tracking of per-file-handle data introduce a new media devnode
+file handle structure that stores the devnode pointer, and store a
+pointer to that structure in the file private_data field.
 
-Thanks for including documentation!
+Users of the media devnode code (the only existing user being
+media_device) are responsible for managing their own subclass of the
+media_devnode_fh structure.
 
-> Signed-off-by: Eugen Hristev <eugen.hristev@linaro.org>
-> ---
->  Documentation/debug/index.rst    | 17 ++++++
->  Documentation/debug/kmemdump.rst | 98 ++++++++++++++++++++++++++++++++
->  MAINTAINERS                      |  1 +
->  3 files changed, 116 insertions(+)
->  create mode 100644 Documentation/debug/index.rst
->  create mode 100644 Documentation/debug/kmemdump.rst
->
-> diff --git a/Documentation/debug/index.rst b/Documentation/debug/index.rst
-> new file mode 100644
-> index 000000000000..9a9365c62f02
-> --- /dev/null
-> +++ b/Documentation/debug/index.rst
-> @@ -0,0 +1,17 @@
-> +.. SPDX-License-Identifier: GPL-2.0
-> +
-> +===
-> +kmemdump
-> +===
-> +
-> +.. toctree::
-> +   :maxdepth: 1
-> +
-> +   kmemdump
-> +
-> +.. only::  subproject and html
-> +
-> +   Indices
-> +   =======
-> +
-> +   * :ref:`genindex`
+Signed-off-by: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
 
-Please don't create a new top-level directory for just this tool - I've
-been working for years to get Documentation/ under control.  This seems
-best placed under Documentation/dev-tools/ ?
+Prepare struct media_device_fh to be used for maintaining file handle list
+to avoid shuffling things here and there right after.
 
+Signed-off-by: Sakari Ailus <sakari.ailus@linux.intel.com>
+Acked-by: Hans Verkuil <hverkuil-cisco@xs4all.nl>
+Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+---
+ drivers/media/mc/mc-device.c  | 14 +++++++++++++-
+ drivers/media/mc/mc-devnode.c | 20 +++++++++-----------
+ include/media/media-device.h  |  7 +++++++
+ include/media/media-devnode.h | 18 +++++++++++++++++-
+ include/media/media-fh.h      | 32 ++++++++++++++++++++++++++++++++
+ 5 files changed, 78 insertions(+), 13 deletions(-)
 
-> diff --git a/Documentation/debug/kmemdump.rst b/Documentation/debug/kmemdump.rst
-> new file mode 100644
-> index 000000000000..3301abcaed7e
-> --- /dev/null
-> +++ b/Documentation/debug/kmemdump.rst
-> @@ -0,0 +1,98 @@
-> +.. SPDX-License-Identifier: GPL-2.0
-> +
-> +==========================
-> +kmemdump
-> +==========================
+diff --git a/drivers/media/mc/mc-device.c b/drivers/media/mc/mc-device.c
+index c0dd4ae5722725f1744bc6fd6282d5c765438059..f298f8f67b8a84194d66126461e84228c0b20394 100644
+--- a/drivers/media/mc/mc-device.c
++++ b/drivers/media/mc/mc-device.c
+@@ -22,6 +22,7 @@
+ #include <media/media-device.h>
+ #include <media/media-devnode.h>
+ #include <media/media-entity.h>
++#include <media/media-fh.h>
+ #include <media/media-request.h>
+ 
+ #ifdef CONFIG_MEDIA_CONTROLLER
+@@ -35,7 +36,6 @@
+ #define MEDIA_ENT_SUBTYPE_MASK			0x0000ffff
+ #define MEDIA_ENT_T_DEVNODE_UNKNOWN		(MEDIA_ENT_F_OLD_BASE | \
+ 						 MEDIA_ENT_SUBTYPE_MASK)
+-
+ /* -----------------------------------------------------------------------------
+  * Userspace API
+  */
+@@ -47,11 +47,23 @@ static inline void __user *media_get_uptr(__u64 arg)
+ 
+ static int media_device_open(struct file *filp)
+ {
++	struct media_device_fh *fh;
++
++	fh = kzalloc(sizeof(*fh), GFP_KERNEL);
++	if (!fh)
++		return -ENOMEM;
++
++	filp->private_data = &fh->fh;
++
+ 	return 0;
+ }
+ 
+ static int media_device_close(struct file *filp)
+ {
++	struct media_device_fh *fh = media_device_fh(filp);
++
++	kfree(fh);
++
+ 	return 0;
+ }
+ 
+diff --git a/drivers/media/mc/mc-devnode.c b/drivers/media/mc/mc-devnode.c
+index 56444edaf13651874331e7c04e86b0a585067d38..312eb48ffc2f2a0c013e4744204995df0ff5b12c 100644
+--- a/drivers/media/mc/mc-devnode.c
++++ b/drivers/media/mc/mc-devnode.c
+@@ -142,6 +142,7 @@ static long media_compat_ioctl(struct file *filp, unsigned int cmd,
+ static int media_open(struct inode *inode, struct file *filp)
+ {
+ 	struct media_devnode *devnode;
++	struct media_devnode_fh *fh;
+ 	int ret;
+ 
+ 	/* Check if the media device is available. This needs to be done with
+@@ -162,17 +163,15 @@ static int media_open(struct inode *inode, struct file *filp)
+ 	get_device(&devnode->dev);
+ 	mutex_unlock(&media_devnode_lock);
+ 
+-	filp->private_data = devnode;
+-
+-	if (devnode->fops->open) {
+-		ret = devnode->fops->open(filp);
+-		if (ret) {
+-			put_device(&devnode->dev);
+-			filp->private_data = NULL;
+-			return ret;
+-		}
++	ret = devnode->fops->open(filp);
++	if (ret) {
++		put_device(&devnode->dev);
++		return ret;
+ 	}
+ 
++	fh = filp->private_data;
++	fh->devnode = devnode;
++
+ 	return 0;
+ }
+ 
+@@ -181,8 +180,7 @@ static int media_release(struct inode *inode, struct file *filp)
+ {
+ 	struct media_devnode *devnode = media_devnode_data(filp);
+ 
+-	if (devnode->fops->release)
+-		devnode->fops->release(filp);
++	devnode->fops->release(filp);
+ 
+ 	filp->private_data = NULL;
+ 
+diff --git a/include/media/media-device.h b/include/media/media-device.h
+index 53d2a16a70b0d9d6e5cc28fe1fc5d5ef384410d5..2fc750efef7c43814f019f12078e9c96c1bd6bf9 100644
+--- a/include/media/media-device.h
++++ b/include/media/media-device.h
+@@ -108,6 +108,10 @@ struct media_device_ops {
+  *		     other operations that stop or start streaming.
+  * @request_id: Used to generate unique request IDs
+  *
++ * @fh_list:	List of file handles in the media device
++ *		(struct media_device_fh.mdev_list).
++ * @fh_list_lock: Serialise access to fh_list list.
++ *
+  * This structure represents an abstract high-level media device. It allows easy
+  * access to entities and provides basic media device-level support. The
+  * structure can be allocated directly or embedded in a larger structure.
+@@ -180,6 +184,9 @@ struct media_device {
+ 
+ 	struct mutex req_queue_mutex;
+ 	atomic_t request_id;
++
++	struct list_head fh_list;
++	spinlock_t fh_list_lock;
+ };
+ 
+ /* We don't need to include usb.h here */
+diff --git a/include/media/media-devnode.h b/include/media/media-devnode.h
+index d27c1c646c2805171be3997d72210dd4d1a38e32..6c2e253dde498779dffd103dc5d00e50e14a0249 100644
+--- a/include/media/media-devnode.h
++++ b/include/media/media-devnode.h
+@@ -55,6 +55,20 @@ struct media_file_operations {
+ 	int (*release) (struct file *);
+ };
+ 
++/**
++ * struct media_devnode_fh - Media device node file handle
++ * @devnode:	pointer to the media device node
++ *
++ * This structure serves as a base for per-file-handle data storage. Media
++ * device node users embed media_devnode_fh in their custom file handle data
++ * structures and store the media_devnode_fh in the file private_data in order
++ * to let the media device node core locate the media_devnode corresponding to a
++ * file handle.
++ */
++struct media_devnode_fh {
++	struct media_devnode *devnode;
++};
++
+ /**
+  * struct media_devnode - Media device node
+  * @media_dev:	pointer to struct &media_device
+@@ -146,7 +160,9 @@ void media_devnode_unregister(struct media_devnode *devnode);
+  */
+ static inline struct media_devnode *media_devnode_data(struct file *filp)
+ {
+-	return filp->private_data;
++	struct media_devnode_fh *fh = filp->private_data;
++
++	return fh->devnode;
+ }
+ 
+ /**
+diff --git a/include/media/media-fh.h b/include/media/media-fh.h
+new file mode 100644
+index 0000000000000000000000000000000000000000..6f00744b81d6000a4b0c503fe6968dd7adcbb1c3
+--- /dev/null
++++ b/include/media/media-fh.h
+@@ -0,0 +1,32 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * Media device file handle
++ *
++ * Copyright (C) 2019--2023 Intel Corporation
++ */
++
++#ifndef MEDIA_FH_H
++#define MEDIA_FH_H
++
++#include <linux/list.h>
++#include <linux/file.h>
++
++#include <media/media-devnode.h>
++
++/**
++ * struct media_device_fh - File handle specific information on MC
++ *
++ * @fh: The media device file handle
++ * @mdev_list: This file handle in media device's list of file handles
++ */
++struct media_device_fh {
++	struct media_devnode_fh fh;
++	struct list_head mdev_list;
++};
++
++static inline struct media_device_fh *media_device_fh(struct file *filp)
++{
++	return container_of(filp->private_data, struct media_device_fh, fh);
++}
++
++#endif /* MEDIA_FH_H */
 
-A nit, but it's nicer to match the markup line lengths with the enclosed
-text. 
+-- 
+2.49.0
 
-> +This document provides information about the kmemdump feature.
-> +
-> +Overview
-> +========
-> +
-> +kmemdump is a mechanism that allows any driver or producer to register a
-> +chunk of memory into kmemdump, to be used at a later time for a specific
-> +purpose like debugging or memory dumping.
-> +
-> +kmemdump allows a backend to be connected, this backend interfaces a
-> +specific hardware that can debug or dump the memory registered into
-> +kmemdump.
-> +
-> +kmemdump Internals
-> +=============
-> +
-> +API
-> +----
-> +
-> +A memory region is being registered with a call to `kmemdump_register` which
-
-Please just say kmemdump_register() - that will let our carefully
-written automatic markup machinery do its thing.  Among other things, it
-will create a cross-reference link to the kerneldoc documentation for
-this function (if any).  All function references should be written that
-way. 
-
-> +takes as parameters the ID of the region, a pointer to the virtual memory
-> +start address and the size. If successful, this call returns an unique ID for
-> +the allocated zone (either the requested ID or an allocated ID).
-> +IDs are predefined in the kmemdump header. A second registration with the
-> +same ID is not allowed, the caller needs to deregister first.
-> +A dedicated NO_ID is defined, which has kmemdump allocate a new unique ID
-> +for the request and return it. This case is useful with multiple dynamic
-> +loop allocations where ID is not significant.
-> +
-> +The region would be registered with a call to `kmemdump_unregister` which
-> +takes the id as a parameter.
-> +
-> +For dynamically allocated memory, kmemdump defines a variety of wrappers
-> +on top of allocation functions which are given as parameters.
-> +This makes the dynamic allocation easy to use without additional calls
-> +to registration functions. However kmemdump still exposes the register API
-> +for cases where it may be needed (e.g. size is not exactly known at allocation
-> +time).
-> +
-> +For static variables, a variety of annotation macros are provided. These
-> +macros will create an annotation struct inside a separate section.
-> +
-> +
-> +Backend
-> +-------
-> +
-> +Backend is represented by a `struct kmemdump_backend` which has to be filled
-
-Structures, too, can be mentioned without explicit markup.
-
-> +in by the backend driver. Further, this struct is being passed to kmemdump
-> +with a `backend_register` call. `backend_unregister` will remove the backend
-> +from kmemdump.
-> +
-> +Once a backend is being registered, all previously registered regions are
-> +being sent to the backend for registration.
-> +
-> +When the backend is being removed, all regions are being first deregistered
-> +from the backend.
-> +
-> +kmemdump will request the backend to register a region with `register_region`
-> +call, and deregister a region with `unregister_region` call. These two
-> +functions are mandatory to be provided by a backend at registration time.
-> +
-> +Data structures
-> +---------------
-> +
-> +`struct kmemdump_backend` represents the kmemdump backend and it has two
-> +function pointers, one called `register_region` and the other
-> +`unregister_region`.
-> +There is a default backend that does a no-op that is initially registered
-> +and is registered back if the current working backend is being removed.
-
-Rather than this sort of handwavy description, why not just use the
-kerneldoc comments you have written for this structure?
-
-> +The regions are being stored in a simple fixed size array. It avoids
-> +memory allocation overhead. This is not performance critical nor does
-> +allocating a few hundred entries create a memory consumption problem.
-> +
-> +The static variables registered into kmemdump are being annotated into
-> +a dedicated `.kemdump` memory section. This is then walked by kmemdump
-> +at a later time and each variable is registered.
-> +
-> +kmemdump Initialization
-> +------------------
-> +
-> +After system boots, kmemdump will be ready to accept region registration
-> +from producer drivers. Even if the backend may not be registered yet,
-> +there is a default no-op backend that is registered. At any time the backend
-> +can be changed with a real backend in which case all regions are being
-> +registered to the new backend.
-> +
-> +backend functionality
-> +-----------------
-> +
-> +kmemdump backend can keep it's own list of regions and use the specific
-> +hardware available to dump the memory regions or use them for debugging.
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 7e8da575025c..ef0ffdfaf3de 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -13620,6 +13620,7 @@ F:	drivers/iio/accel/kionix-kx022a*
->  KMEMDUMP
->  M:	Eugen Hristev <eugen.hristev@linaro.org>
->  S:	Maintained
-> +F:	Documentation/debug/kmemdump.rst
->  F:	drivers/debug/kmemdump.c
->  F:	include/linux/kmemdump.h
-
-Thanks,
-
-jon
 
