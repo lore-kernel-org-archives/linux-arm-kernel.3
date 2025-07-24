@@ -4,87 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70FFEC87FC5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 18:34:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F5C3C87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 18:34:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=tYcAbkjc4Tkr2KyQs05DD+oyBfj2e0/3qety5W33Bjk=; b=jhz6mQfKR4ogJDzKW0hdtv3Epv
-	rfwuohcmw2LBgkwQlOWJMb2mpjVvv4xQFYAZdvvwFVXVADaa3tU5pR7ZXL8YBzmxIUdoBll08KcGQ
-	d8W5Fos4HQ6VQwhTyBU28smrVmt/+jdC1FLEjC/7O0Iat6XiSbwNcErADY/Qw2Ec3cJc63ycyLUo2
-	TsKUBlnPTn7xtiUggB1C5B8q9Bnu+kyfryAgSSjlUgmMGM1QirJl7QTRWk1UusDjXsEuFwxAJTKGM
-	qvD0y2XhVA1X95zFZanpe4TyU4OlfCQs8/UXZljdBBxk10QfHSiqsXmi34ub+SSjQT0g18OQelmku
-	2VeZmKeA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3JToIF83QS9jhKHoFkEEmiC2l54rS9rPeDNt8GAcq7s=; b=cuLk5UDw5Q1r8ZLezkguopmCrS
+	dmvJvCb+GVTXMxyWURbRwKEonCVL7YpESC+cEdSU7KH9Pg5PuDW4xOYkrrcbLaXstFBQ9tN4TvpjF
+	0aoicMN3ybV2/wdzsVD32zUe9cAXCyJOLWjb5QdG6x6Qm81vAodp9g8srKMOQkrpm+6eJNqv7l/7f
+	TtKbWsKm/omg28SmQhvKNRCztSteAFOeBzbSdaBdBTxWR6Z4iHFiG0KXOJ447j5u3c5NH4uq/qgu/
+	8Sxa20/2D1L9hGtJgYRRi51Y1G3Q7qDVyBhI6uLuYcVTl7pgix2IawMOetxhe9BN75p2vM46QMFPq
+	si+LNnEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uf0lm-00000008D0U-2V51;
-	Thu, 24 Jul 2025 18:34:18 +0000
-Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
+	id 1uf0ln-00000008D1z-24gZ;
+	Thu, 24 Jul 2025 18:34:19 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uezFT-000000081xd-18CA
+	id 1uezKC-000000082ZW-1v83
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Jul 2025 16:56:53 +0000
-Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-75b5be236deso1130071b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Jul 2025 09:56:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1753376210; x=1753981010; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=tYcAbkjc4Tkr2KyQs05DD+oyBfj2e0/3qety5W33Bjk=;
-        b=VC2w51SMnB8Y4KxSxLj05nazNIqvW9IjqT17FhA7LmBbq9T70L+E+1NlzJjytjh4yx
-         N0xCX+RLeIidNz1w0s7q2MbIdUCYgkuqcRDDrKMswImNwzX/igF4mLDtD3T+8nqvZS47
-         cu9wsvzK9U02UhuT054wND56SrCgG5l/Ar3vOIYNgiV1q0ElVCDh8Al1dSr0Ktr3V+mF
-         6HdJuBy4TY0OnFGuB/qIiufzWXh/seOIrAKXJQm/bN38m8mvnTmjPsEFVxUctymT/Zo2
-         zYSERE+BW+6c4LwqrGRK0ErDgglQkaaMjdT4R0zE//uJI5GV7qWHFWov+xKlVA/63jpT
-         aOsg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753376210; x=1753981010;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=tYcAbkjc4Tkr2KyQs05DD+oyBfj2e0/3qety5W33Bjk=;
-        b=tb+vhZwLo+iWDUIJfZYxzHvdHM2WZV6Wm/zHfwBS1sYxYrFXUj48oarR/P8EsMn78d
-         ddQJS/KWHeIZu1unrr2lW/nmUVLPxrw5nY2kk9dqXwB+sphp9zGwZ+4NUlOUNNVOW0VU
-         HnxmAiqtJjwOl6vrWg/PJMte3wVKzVzLuuMTxZ6AEMe5TGzMqgLlk6/w0gGhET56iAm0
-         klJajko2X5ele+c65r3E5gHfKGjQ7aVshL9KYtMIt7+3iNRMVb+DuEt2WDLY2L5+bNoB
-         E6cSPk2x7fggA2qS77ooCPJ5EZn4l7G7q0IGTnfbkRGVqxaFnNJkIVLfrlbbnHoaE6xL
-         LM2A==
-X-Forwarded-Encrypted: i=1; AJvYcCV/z0FEvyvnTcgIKy3POk5sMfflgKhSdbdbWmEc7BsXWI6vvfw4BFpuGRlOK+FAxaVpXtYsXrHhKQOjSBBYTVZn@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx+2HUMKwSUoKUtSi+LdC66Lv0xDUjxcPVqNHGsJD3F3eCjzyOI
-	SXAP5MRgAQkMxrBs0AUuYVD2xmMkHODzVbpFd5F+9DkjFLt35o2KysZC
-X-Gm-Gg: ASbGncsRT7+763qn27MAfvyEsIc6OacZNrQ+y3z/2ll+1dGrNeP79pqzFAnWks76796
-	mJIgaTvorrlSZv9Rt/5vnDltGpc5f7f1H0p/twUm4zvRxFVXFqg/HbcWyDpq/jCRoKjzi4gEVR6
-	SfUoT8bT77XqKULzwXSEchKVE5sKf6HoSXvLNi596e9iwbQRgsmgacfsooCD+uZziRnJMG78aoC
-	KkojUoymY4czwthVQjoV1EPHJxQojwZ3Jblq7fbXu2Y6oo4s5Qe572YZlBd8CZiqzFc5Z+Ztu5n
-	HaWenYFl0rL4LPRmfBXgf7XG1tHuPGyXIZx9NyT788ydHp3OMvzLpjyLw2Q2xxV86u0oaIHMGBf
-	sTlFbV/wZLTDeejvdLyDC9mOcw/5wAdLekg==
-X-Google-Smtp-Source: AGHT+IEx1SRGfdVyHhlPutv9dzQMR/t+xKkZ8lw/2GL680PVA3DqTsdXoJDkH0z2PXFFMimZ5OowSA==
-X-Received: by 2002:a05:6a20:9c8b:b0:23d:4777:49c3 with SMTP id adf61e73a8af0-23d491bf059mr10760796637.32.1753376209985;
-        Thu, 24 Jul 2025 09:56:49 -0700 (PDT)
-Received: from archlinux ([2401:4900:6318:9e23:f078:c919:e302:8d2b])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b3f6c1261e2sm1786314a12.66.2025.07.24.09.56.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 24 Jul 2025 09:56:49 -0700 (PDT)
-From: Suchit Karunakaran <suchitkarunakaran@gmail.com>
-To: catalin.marinas@arm.com,
-	will@kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Cc: skhan@linuxfoundation.org,
-	linux-kernel-mentees@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Suchit Karunakaran <suchitkarunakaran@gmail.com>
-Subject: [PATCH] arm64: allow NR_CPUS=1 for non-SMP and adjust default accordingly
-Date: Thu, 24 Jul 2025 22:26:39 +0530
-Message-ID: <20250724165639.13926-1-suchitkarunakaran@gmail.com>
-X-Mailer: git-send-email 2.50.1
+	Thu, 24 Jul 2025 17:01:44 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 84E6F601D5;
+	Thu, 24 Jul 2025 17:01:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5FEE8C4CEED;
+	Thu, 24 Jul 2025 17:01:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1753376503;
+	bh=hmbP0QQTz5tEu2Ah74mZzpxPXVcjiUnxRzSHt+ipYEk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=bmD8nzHSLbR6DydqTt3VzCI9LEO1iBSATrIZGYy/7bmbmHARkqPJrC2p6QhoGEkf2
+	 Qb/BIMlJOHvKl32m5v64vhdNblFThzFbKZM9VguJkvgQyZwvylelOdNTCxwLSfSNts
+	 QfxYlRTq/fYqF7IMHyh4kHESKNBypTLC6eePhphhhyz7ZW+j6oE24BRWzwo+acFLl7
+	 15RA7yCu6D7yQHIDblgWqHXuLW6MNBbPlyJZCNNYVB8DO9mEOsI1Hsq0BDTkzkLdSm
+	 /xhmgq8/u3KWgTxcr3QgaHBHyjD8F6g4fFzKnCEY1dHfiNMr9RPF4ECtUCCRuFbADy
+	 tZxyXwqic2jxg==
+Date: Thu, 24 Jul 2025 18:01:36 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Jeremy Linton <jeremy.linton@arm.com>,
+	linux-trace-kernel@vger.kernel.org,
+	linux-perf-users@vger.kernel.org, mhiramat@kernel.org,
+	oleg@redhat.com, peterz@infradead.org, acme@kernel.org,
+	namhyung@kernel.org, mark.rutland@arm.com,
+	alexander.shishkin@linux.intel.com, jolsa@kernel.org,
+	irogers@google.com, adrian.hunter@intel.com,
+	kan.liang@linux.intel.com, thiago.bauermann@linaro.org,
+	yury.khrustalev@arm.com, kristina.martsenko@arm.com,
+	liaochang1@huawei.com, will@kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 4/8] arm64: uaccess: Add additional userspace GCS
+ accessors
+Message-ID: <2f776bd9-1b18-492d-afa0-94af5585f4f2@sirena.org.uk>
+References: <20250719043740.4548-1-jeremy.linton@arm.com>
+ <20250719043740.4548-5-jeremy.linton@arm.com>
+ <aICwaQZxK5Spjj8G@arm.com>
+ <2a6e1c4b-e8b0-49e2-896c-65c55103b017@arm.com>
+ <aIHBQl9V0rMM1pjY@arm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250724_095651_304623_6D5673B2 
-X-CRM114-Status: GOOD (  10.53  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="p7mXyxgtij9d66+x"
+Content-Disposition: inline
+In-Reply-To: <aIHBQl9V0rMM1pjY@arm.com>
+X-Cookie: Did I say 2?  I lied.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,38 +84,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The arm64 Kconfig for NR_CPUS previously required a minimum of 2 CPUs.
-This patch changes the minimum allowed CPUs to 1, enabling single-core
-non-SMP configurations.
 
-Additionally, the default value for NR_CPUS is now conditional:
-- Defaults to 1 if SMP is not selected (non-SMP systems)
-- Defaults to 512 if SMP is enabled
+--p7mXyxgtij9d66+x
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-Signed-off-by: Suchit Karunakaran <suchitkarunakaran@gmail.com>
----
- arch/arm64/Kconfig | 7 ++++---
- 1 file changed, 4 insertions(+), 3 deletions(-)
+On Thu, Jul 24, 2025 at 06:14:42AM +0100, Catalin Marinas wrote:
+> On Wed, Jul 23, 2025 at 12:14:17PM -0500, Jeremy Linton wrote:
 
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index 393d71124f5d..9b2970f7c5ec 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -1528,9 +1528,10 @@ config SCHED_SMT
- 	  places. If unsure say N here.
- 
- config NR_CPUS
--	int "Maximum number of CPUs (2-4096)"
--	range 2 4096
--	default "512"
-+	int "Maximum number of CPUs (1-4096)"
-+	range 1 4096
-+	default "1" if !SMP
-+	default "512" if SMP
- 
- config HOTPLUG_CPU
- 	bool "Support for hot-pluggable CPUs"
--- 
-2.50.1
+> > Hence the comment to remind people that this routine isn't assuring the page
+> > is correctly marked.
 
+> I think the comment on the load function doesn't make much difference
+> since LDR is permitted on an GCS page anyway. It's the pop function that
+> we actually emulate without proper GCS instructions that's more
+> problematic and won't be checked against actual GCS permissions.
+
+This is used in the emulation of RET where it results in a similar lack
+of a permission check - that does:
+
++       if (task_gcs_el0_enabled(current)) {
++               gcspr = read_sysreg_s(SYS_GCSPR_EL0);
++               gcs_ret_vaddr = load_user_gcs((unsigned long __user *)gcspr, &err);
+
+When implemented by the hardware we would generate a fault if the
+address we're loading from is not in a page with GCS permissions.  The
+issue isn't that userspace wouldn't be permitted to read the value, the
+issue is that we are not checking that the value is being read from a
+page with GCS permissions.
+
+--p7mXyxgtij9d66+x
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmiCZu8ACgkQJNaLcl1U
+h9DlJQf/bZkySnCjsBKlHrkQ7LgdbiWlzRH3L43bJyunuKxDqwI38a2Vh4qmGZM8
+bldlwsd/XNnUv5JXtc/U9+P4BJfVkmcDY1wY/FpxEKfSE2UAItV1j3e/OGz+d+iQ
+lcDUYn4asBJFCpba2QhIMvgPIFgKJuVQvQCTBxsIsubOesDU9C8w/xQuALkmhVD5
+ZHdnIJpeDpR2aNc86Db/yOhkjKrxGelb0H9YGWfjnMpW/ra1Rdo7jwmfNFX7YOhU
+C+sVhOFrIljz32Cp/EWOSv25To7MmosIbIBZ+O4WDvgmsDO66GCdeaWwevaBfYLT
+YGYZe5Wu0LA7AeLcmyBhHJdG8/uhJQ==
+=ZBjO
+-----END PGP SIGNATURE-----
+
+--p7mXyxgtij9d66+x--
 
