@@ -4,111 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36A47C87FCE
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19CD4C87FCD
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 13:52:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0Uz418OxOSz/fMzRyHQlHe6FJDX30X6Iyj1yfPR5VGY=; b=b7TzSqo2HpwbC/6zi1uAHDzOas
-	uXGApk/vFeKsomZYvg5j4fFHBRTakUcIlmR/+DCp2bk14lr2eq1Xs1rzCOirN7TXNAmi4Io921aLF
-	ogOXE3KjNKIbCF5gVBIjfJwT6jVjAxraZs2gT/fnHOvgLFGZQeZVYiwJGTulhs/vGyuEaB6CynoXh
-	epbjlL6fNfYytNY3TnZzW7Ee3OejYfSJDcX6KEuFqImUCUyGBF6BNmjzVp3dXrT4FR34JiXpkcRCq
-	EKJV+ggLxogqmuspUtUEyrsQW+OZKfRhaTB8pkHL2pfe1AnbDyPncMw33leMUYB3fk++7JaxE6dxA
-	QWy0QksA==;
+	bh=u9kGzbP2QPnTerojC0M6PdIstHffL6YDLYBkr55PnyQ=; b=nmsEJ9bREHLROMvCglRflDbhMB
+	/EuMXZWQgbPDizhTWkpvk3F+QVuofcZNr1P+ts6pTSRcAfY/4ePYQUt4WKB0NyS1ggI/Qpcx7IZDc
+	a9ZC6CMIKe1ETBHFDn+CDFGP5XiFZVnfrn9rn2WAH0Zi4iH3ZtZoXP3ggs2QjM53/ioqUy89hmnNS
+	N+9Y4yU5pOVIByX6L0fp5tb6AEYP/VkLP4qmR6sCPhVk3vOYhYxMKZnLHiZuyEzHP7tcAoMeMpISA
+	U1+7QaFfoQ4h7GQu3BCa5BPgo9gZJRP3BWMt8uv9e+yyRHDGwiVSeVOE6uNdqXj6Qon1Y9Ymuk5hz
+	UKE3uCWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uewMs-00000007YlB-0ycl;
-	Thu, 24 Jul 2025 13:52:18 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uewMf-00000007YVA-2Q99;
+	Thu, 24 Jul 2025 13:52:05 +0000
+Received: from mailout4.samsung.com ([203.254.224.34])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uesq1-00000007A6O-1Ek5
+	id 1uesgT-000000078Iw-3dl6
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Jul 2025 10:06:10 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id A6AF95C5E07;
-	Thu, 24 Jul 2025 10:06:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 779F8C4CEED;
-	Thu, 24 Jul 2025 10:06:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753351568;
-	bh=CZQB8Gu6DwGDSg7j2DBqQNvibsRcjWZdAQ1gA39lJRA=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=vO0RCnciK35ngvsiAvS+HQ6LEeTAuHwG8wjHqGvuEShhR1VdjpK20T9CdegHhFmGy
-	 XcIrTgYrFAc089yLAbZ5J/CGJMzGVH1osr69M9+vnoc5l0WWW5snxGkns8BZE0egih
-	 WNlUbskjHtnxwwv7w4g5Mwyhs13S0nQcSdG2nTUxUt9yzFAeVrx4Qem/TPVG/+SFR6
-	 XfS3HUyjlo3dHQGpbTwKOMiwy4kgW37nngOLE/+r/8wt13AKUAmK48rw+IuhgzhM2M
-	 mjqhgJhC/zhIThDghIhePdCrOcowq0Kf5zjVCVFKuvsUMJG1JyNw6nPKWefg//fM8Y
-	 ZGAQkDdVYuOgg==
-Message-ID: <f69a76c5-157d-4cb4-bf46-1acdb6a87319@kernel.org>
-Date: Thu, 24 Jul 2025 12:06:03 +0200
+	Thu, 24 Jul 2025 09:56:19 +0000
+Received: from epcas5p3.samsung.com (unknown [182.195.41.41])
+	by mailout4.samsung.com (KnoxPortal) with ESMTP id 20250724095610epoutp04e7b385ac00b88bcc78efb01445ce98a2~VJ2sEDn9k1815218152epoutp04Y
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Jul 2025 09:56:10 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout4.samsung.com 20250724095610epoutp04e7b385ac00b88bcc78efb01445ce98a2~VJ2sEDn9k1815218152epoutp04Y
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1753350970;
+	bh=u9kGzbP2QPnTerojC0M6PdIstHffL6YDLYBkr55PnyQ=;
+	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
+	b=tXkLFpum7mpat6+Q/fQl/+zWboM7qSTARv5MQ60rP2NgdQh2zREwk5x/OgwCJm5al
+	 W+xnSoXjkNWYQYILSlCmiVs99fZHCMVTnvRJm0+q8WftqcM/JbEifzuPxwUWhUKSfK
+	 zTMAgiRRiw42zoNAp9+92fd9twRtNQrgHaxIWP/U=
+Received: from epsnrtp04.localdomain (unknown [182.195.42.156]) by
+	epcas5p1.samsung.com (KnoxPortal) with ESMTPS id
+	20250724095609epcas5p1f59c0b9b75b092d4b53af00a59df9b79~VJ2rY0ILh1609716097epcas5p1e;
+	Thu, 24 Jul 2025 09:56:09 +0000 (GMT)
+Received: from epcas5p1.samsung.com (unknown [182.195.38.93]) by
+	epsnrtp04.localdomain (Postfix) with ESMTP id 4bnmbr5q6pz6B9mJ; Thu, 24 Jul
+	2025 09:56:08 +0000 (GMT)
+Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
+	epcas5p3.samsung.com (KnoxPortal) with ESMTPA id
+	20250724095412epcas5p36b38fe9e1b835e731abdbcaf64be1174~VJ0_IgfWj0680206802epcas5p30;
+	Thu, 24 Jul 2025 09:54:12 +0000 (GMT)
+Received: from INBRO001840 (unknown [107.122.3.105]) by epsmtip2.samsung.com
+	(KnoxPortal) with ESMTPA id
+	20250724095409epsmtip2c71016c48766841f9a06c5d7f2a181f8~VJ069jbaJ1922819228epsmtip2E;
+	Thu, 24 Jul 2025 09:54:08 +0000 (GMT)
+From: "Pritam Manohar Sutar" <pritam.sutar@samsung.com>
+To: "'Alim Akhtar'" <alim.akhtar@samsung.com>, "'Krzysztof Kozlowski'"
+	<krzk@kernel.org>, "'Krzysztof Kozlowski'" <krzysztof.kozlowski@linaro.org>
+Cc: <vkoul@kernel.org>, <kishon@kernel.org>, <robh@kernel.org>,
+	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <andre.draszik@linaro.org>,
+	<peter.griffin@linaro.org>, <neil.armstrong@linaro.org>,
+	<kauschluss@disroot.org>, <ivo.ivanov.ivanov1@gmail.com>,
+	<m.szyprowski@samsung.com>, <s.nawrocki@samsung.com>,
+	<linux-phy@lists.infradead.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-samsung-soc@vger.kernel.org>, <rosa.pila@samsung.com>,
+	<dev.tailor@samsung.com>, <faraz.ata@samsung.com>,
+	<muhammed.ali@samsung.com>, <selvarasu.g@samsung.com>
+In-Reply-To: <2a1901dbfbcf$a21b45e0$e651d1a0$@samsung.com>
+Subject: RE: [PATCH v4 1/6] dt-bindings: phy: samsung,usb3-drd-phy: add
+ ExynosAutov920 HS phy compatible
+Date: Thu, 24 Jul 2025 15:24:07 +0530
+Message-ID: <000001dbfc80$e85fd690$b91f83b0$@samsung.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 1/4] dt-bindings: rtc: Document NVIDIA VRS RTC
-To: Jon Hunter <jonathanh@nvidia.com>, Shubhi Garg <shgarg@nvidia.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Catalin Marinas
- <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rtc@vger.kernel.org, linux-tegra@vger.kernel.org
-References: <20250723130343.2861866-1-shgarg@nvidia.com>
- <20250723130343.2861866-2-shgarg@nvidia.com>
- <20250724-peridot-chachalaca-of-progress-a9f2ee@kuoka>
- <2c59e665-6415-460b-8ff8-c06f8d94f9eb@nvidia.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
- cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
- JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
- gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
- J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
- NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
- BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
- vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
- Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
- TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
- S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
- FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJoF1BKBQkWlnSaAAoJEBuTQ307
- QWKbHukP/3t4tRp/bvDnxJfmNdNVn0gv9ep3L39IntPalBFwRKytqeQkzAju0whYWg+R/rwp
- +r2I1Fzwt7+PTjsnMFlh1AZxGDmP5MFkzVsMnfX1lGiXhYSOMP97XL6R1QSXxaWOpGNCDaUl
- ajorB0lJDcC0q3xAdwzRConxYVhlgmTrRiD8oLlSCD5baEAt5Zw17UTNDnDGmZQKR0fqLpWy
- 786Lm5OScb7DjEgcA2PRm17st4UQ1kF0rQHokVaotxRM74PPDB8bCsunlghJl1DRK9s1aSuN
- hL1Pv9VD8b4dFNvCo7b4hfAANPU67W40AaaGZ3UAfmw+1MYyo4QuAZGKzaP2ukbdCD/DYnqi
- tJy88XqWtyb4UQWKNoQqGKzlYXdKsldYqrLHGoMvj1UN9XcRtXHST/IaLn72o7j7/h/Ac5EL
- 8lSUVIG4TYn59NyxxAXa07Wi6zjVL1U11fTnFmE29ALYQEXKBI3KUO1A3p4sQWzU7uRmbuxn
- naUmm8RbpMcOfa9JjlXCLmQ5IP7Rr5tYZUCkZz08LIfF8UMXwH7OOEX87Y++EkAB+pzKZNNd
- hwoXulTAgjSy+OiaLtuCys9VdXLZ3Zy314azaCU3BoWgaMV0eAW/+gprWMXQM1lrlzvwlD/k
- whyy9wGf0AEPpLssLVt9VVxNjo6BIkt6d1pMg6mHsUEVzsFNBFVDXDQBEADNkrQYSREUL4D3
- Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
- MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
- OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
- GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
- 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
- YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
- 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
- BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
- JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
- 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
- YpsFAmgXUF8FCRaWWyoACgkQG5NDfTtBYptO0w//dlXJs5/42hAXKsk+PDg3wyEFb4NpyA1v
- qmx7SfAzk9Hf6lWwU1O6AbqNMbh6PjEwadKUk1m04S7EjdQLsj/MBSgoQtCT3MDmWUUtHZd5
- RYIPnPq3WVB47GtuO6/u375tsxhtf7vt95QSYJwCB+ZUgo4T+FV4hquZ4AsRkbgavtIzQisg
- Dgv76tnEv3YHV8Jn9mi/Bu0FURF+5kpdMfgo1sq6RXNQ//TVf8yFgRtTUdXxW/qHjlYURrm2
- H4kutobVEIxiyu6m05q3e9eZB/TaMMNVORx+1kM3j7f0rwtEYUFzY1ygQfpcMDPl7pRYoJjB
- dSsm0ZuzDaCwaxg2t8hqQJBzJCezTOIkjHUsWAK+tEbU4Z4SnNpCyM3fBqsgYdJxjyC/tWVT
- AQ18NRLtPw7tK1rdcwCl0GFQHwSwk5pDpz1NH40e6lU+NcXSeiqkDDRkHlftKPV/dV+lQXiu
- jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
- zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
- XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <2c59e665-6415-460b-8ff8-c06f8d94f9eb@nvidia.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: quoted-printable
+X-Mailer: Microsoft Outlook 16.0
+Thread-Index: AQJAgQZ9LFXBZrDskwNBYris6jFv1AKCX9A9Aa5wAf0Bi5UAqwCML2yKAWUlSf8CRPacEQIi1iyNAmb2xVkCD/Nw+wC0VRd5AgU5TrgBzoneLbLPVtqQ
+Content-Language: en-in
+X-CMS-MailID: 20250724095412epcas5p36b38fe9e1b835e731abdbcaf64be1174
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-Sendblock-Type: REQ_APPROVE
+CMS-TYPE: 105P
+cpgsPolicy: CPGSC10-542,Y
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20250701115955epcas5p320cfe73ca33522cd2f9f7970cfde1c63
+References: <20250701120706.2219355-1-pritam.sutar@samsung.com>
+	<CGME20250701115955epcas5p320cfe73ca33522cd2f9f7970cfde1c63@epcas5p3.samsung.com>
+	<20250701120706.2219355-2-pritam.sutar@samsung.com>
+	<20250706-fresh-meaty-cougar-5af170@krzk-bin>
+	<07d301dbf0ae$0658cbe0$130a63a0$@samsung.com>
+	<9a2d0ad7-cb1f-473d-a91a-3a1b59b71280@kernel.org>
+	<000c01dbf70b$ccdbf630$6693e290$@samsung.com>
+	<a43cfe4f-8ff9-4dbd-b7f4-07ccc3d8e01b@kernel.org>
+	<00ff01dbfac1$ee528860$caf79920$@samsung.com>
+	<9a97cc9e-2221-44d6-83e9-25b1bec10a6f@kernel.org>
+	<000901dbfb90$42873060$c7959120$@samsung.com>
+	<6e1c67d2-9bfa-442a-9d53-8c5970a2a9ef@kernel.org>
+	<2a1901dbfbcf$a21b45e0$e651d1a0$@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250724_030609_428071_AA1900F7 
-X-CRM114-Status: GOOD (  14.79  )
+X-CRM114-CacheID: sfid-20250724_025618_557219_ED70765C 
+X-CRM114-Status: GOOD (  25.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,45 +114,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 24/07/2025 11:41, Jon Hunter wrote:
-> 
-> On 24/07/2025 08:59, Krzysztof Kozlowski wrote:
->> On Wed, Jul 23, 2025 at 01:03:40PM +0000, Shubhi Garg wrote:
->>> +description:
->>> +  NVIDIA VRS (Voltage Regulator Specification) RTC provides 32kHz RTC clock
->>> +  support with backup battery for system timing. It provides alarm functionality
->>> +  to wake system from suspend and shutdown state. The device also acts as an
->>> +  interrupt controller for managing interrupts from the VRS.
->>> +
->>> +properties:
->>> +  compatible:
->>> +    const: nvidia,vrs10-rtc
->>
->> Nothing improved. You never replied to comments and then replaced one
->> redundant word into other redundant word.
->>
->> Respond to review or implement it fully, not partially.
->>
->> Or add COMPLETE bindings, not partial ones. See writing bindings doc.
-> 
-> OK, right so the DT binding should describe the overall PMIC device, 
-> even though the driver needs to support the RTC.
+Hi,=20
 
+> -----Original Message-----
+> From: Alim Akhtar <alim.akhtar=40samsung.com>
+> Sent: 23 July 2025 06:15 PM
+> To: 'Krzysztof Kozlowski' <krzk=40kernel.org>; 'Pritam Manohar Sutar'
+> <pritam.sutar=40samsung.com>; 'Krzysztof Kozlowski'
+> <krzysztof.kozlowski=40linaro.org>
+> Cc: vkoul=40kernel.org; kishon=40kernel.org; robh=40kernel.org;
+> krzk+dt=40kernel.org; conor+dt=40kernel.org; andre.draszik=40linaro.org;
+> peter.griffin=40linaro.org; neil.armstrong=40linaro.org; kauschluss=40dis=
+root.org;
+> ivo.ivanov.ivanov1=40gmail.com; m.szyprowski=40samsung.com;
+> s.nawrocki=40samsung.com; linux-phy=40lists.infradead.org;
+> devicetree=40vger.kernel.org; linux-kernel=40vger.kernel.org; linux-arm-
+> kernel=40lists.infradead.org; linux-samsung-soc=40vger.kernel.org;
+> rosa.pila=40samsung.com; dev.tailor=40samsung.com;
+> faraz.ata=40samsung.com; muhammed.ali=40samsung.com;
+> selvarasu.g=40samsung.com
+> Subject: RE: =5BPATCH v4 1/6=5D dt-bindings: phy: samsung,usb3-drd-phy: a=
+dd
+> ExynosAutov920 HS phy compatible
+>=20
+>=20
+>=20
+> > -----Original Message-----
+> > From: Krzysztof Kozlowski <krzk=40kernel.org>
+> > Sent: Wednesday, July 23, 2025 2:13 PM
+> > To: Pritam Manohar Sutar <pritam.sutar=40samsung.com>; 'Krzysztof
+> > Kozlowski' <krzysztof.kozlowski=40linaro.org>
+> > Cc: vkoul=40kernel.org; kishon=40kernel.org; robh=40kernel.org;
+> =5Bsnip=5D
+> > >>>>> Ok got it. Will change supplies name as below avdd075_usb =3D>
+> > >>>>> avdd075-usb
+> > >>>>> avdd18_usb20 =3D> avdd18-usb20
+> > >>>>> avdd33_usb20 =3D> avdd33-usb20
+> > >>>>>
+> > >>>>> Confirm the above change that is meant in terms of DTS style.
+> > >>>> Yes. I have doubts that actual supplies have suffix usb20. Are
+> > >>>> there more than one avdd18 for this block?
+> > >>>>
+> > >>>
+> > >>> Yes, there are more than one vdd18 supplies for this block.
+> > >>
+> > >> And their names are?
+> > >>
+> > >>>
+> > >>> Re-analysed your comment on adding new supplies.
+> > >>> Going to re-use existing supplies as mentioned below, rather than
+> > >>> introducing new supplies
+> > >>>
+> > >>>   dvdd-usb20-supply   =3D> for 0.75v
+> > >>>   vddh-usb20-supply   =3D> for 1.8v
+> > >>>   vdd33-usb20-supply =3D> for 3.3v
+> > >>
+> > >>
+> > >> You just expect us to guess whether this is correct...
+> > >
+> > > Sorry about not being clear so far.
+> > >
+> > > V920 needs three supplies, 0.75v, 1.8v and 3.3v for USB PHY The
+> > > naming convention used in the schematic are avdd075-usb,
+> > > avdd18_usb20, avdd33_usb20.
+> > >
+> > > However, PHY's user manual just mentions DVDD, VDD33 and VDD18.
+> >
+> >
+> > Then dvdd, vdd33 and vdd18.
+> >
+> > > Since GS101 binding already using supply names similar to what is
+> > mentioned in the PHY user manual.
+> >
+> >
+> > GS101 has USB 2.0 and DP, thus the suffix made some sense. I think you
+> > have only USB 2.0, that's why I question the suffix.
+> >
+> I cross checked the schematic of v920 SADK, this is a combo PHY which
+> support USB-3.0 as well.
+> =40 Pritam
+> Schema should capture all the supplies including USB-3.0, similar to GS10=
+1
+> (which has USB2.0 and DP combo).
+> So that would be as below:
+> dvdd075-usb20-supply
+> vdd18-usb20-supply
+> vdd33-usb20-supply
+> dvdd075-usb30-supply
+> vdd18-usb30-supply
+> please cross check the supply at your end and do the needful.
+>=20
 
-This is not a driver patch. This is patch for hardware. Sending
-incomplete pieces of a device, without complete picture is really not
-the right way. Knowing this is part of PMIC this should be rejected, but
-how can we decide on that if contributor never tells us this is a part
-of PMIC?
+Yes, we have a combo PHY that supports USB20 and USB30 and=20
+need these supplies. Will update the binding accordingly.
 
-> 
-> Shubhi, is vrs10 the version of the VRS spec for the PMIC device or just 
-> the RTC portion? If it is, the maybe 'nvidia,vrs10' is sufficient here.
-> 
-> Jon
-> 
+> >
+> > Best regards,
+> > Krzysztof
 
+Thank you.
 
-Best regards,
-Krzysztof
+Regards,
+Pritam
+
 
