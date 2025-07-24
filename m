@@ -4,129 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 236A7C83F26
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 17:05:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41991C87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 17:05:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JamhdNl4dTJLx3yXRICkjdGl8QlQkTi8DTbesVHoqrc=; b=hEAolnTCIpxW9GuDULNlA6qKy0
-	5Zp6vxe4DWaiHG6wJA2BnDp+SSuApOGvu5ONFO80MKxN3mhhsKUCQVfc7oQ0ICwHgi2MBwOKEmo0h
-	fw5sKpTGPkddDIIc3UO3JCyThRTlJs5l+Rvy8uDmCJEaoWyRo+PGOU3Clu6cpXFVL0qkIlkduoZiZ
-	8tx6f2Z7YeSe4WcB8Xa0/h/N4DlKXVpqdbLG1ErDccNd9tM13Haxj+PHkXOclpG94cfkn9yU0CNyL
-	io5C3lsNYzbC+AjyKlm8bD8UlAQNtu/bNAuZylspgz/hVUXqd5Z9FBhtTBffVVc9uESLhttjDob3I
-	pP41QuYA==;
+	bh=TMUfxu+RXOXtNJ0RQLJbLGemygho7LiDc9AzkkOqJ5c=; b=nlOyOmFuHqRLnzsefBwp0lyB//
+	Xhii5GRUhh5UhoOUg9U/kd7FBsuRDrWNMrE6oPbHQtqjAB8NW+0tRzxameAPnqnRDZogPDhBaUZ0y
+	4hY3su3RmjiWbI0ytcOqqRU7ZVaCAyvn0S9szAkGHwKz24ywPemBP32QvURIpyRD01+0keJ6SfFJ4
+	cfq0n+gE9zof8cba2JPSR9Z64Prx2t5Ls0WIkDvQhexdY0G7p59mPviQaTtb/hL5WtqVo8ulsm+L1
+	tkaX5d2jOk6Pq2nSvqZvf6w2TG2eYrqqYQkO8xVJfs3Amzr5Vzg3Xau3FLQx3+bQQo/uwJLy45MP0
+	zaGng6fw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uezNl-000000083H7-10Cm;
-	Thu, 24 Jul 2025 17:05:25 +0000
-Received: from fout-b5-smtp.messagingengine.com ([202.12.124.148])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uexB6-00000007mIW-2ijM
+	id 1uezNx-000000083dp-3qGd;
+	Thu, 24 Jul 2025 17:05:37 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uexYK-00000007oe7-2Al7
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Jul 2025 14:44:13 +0000
-Received: from phl-compute-05.internal (phl-compute-05.phl.internal [10.202.2.45])
-	by mailfout.stl.internal (Postfix) with ESMTP id 47B4F1D0016C;
-	Thu, 24 Jul 2025 10:44:10 -0400 (EDT)
-Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-05.internal (MEProxy); Thu, 24 Jul 2025 10:44:11 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1753368250;
-	 x=1753454650; bh=JamhdNl4dTJLx3yXRICkjdGl8QlQkTi8DTbesVHoqrc=; b=
-	JKU2CX+FGWUagV4JQOeb0mwj5Gk7wI02FowNJey+riPnzuOrcXZv+zS/RULFVj1y
-	WSKtvby7WQca8Yw2sb/zancTctCzkwiHGduID6uduyl62gSWX9qD+dZeFW/YHXP5
-	PPP27ciLVtuBAHS9FEjzVv/74Qz63/N6/1lwzD8lORakhYjl0ByMDta4otUI89DQ
-	VqBsRLcwKWYqbbcOua1TOhqHEBYShZO+GZZwRZBg2a25q1VXuFRD1097/d9iuVnH
-	HFIGE527fLMOSTWA6TzQpgfS2rW/yXQ7mRFsSrMHLsfRJs7JUZq1x+a5Lm2La9cR
-	vqRD8jn9kldvwNb983LyNg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1753368250; x=
-	1753454650; bh=JamhdNl4dTJLx3yXRICkjdGl8QlQkTi8DTbesVHoqrc=; b=J
-	oCnefbw55XPeundRqd0PQD+BfRNfvul2eCqLdxjJ3bzkLTUl3KQU74nKSn+pqEV1
-	W6Dv0PU6L8cKo1t+asOs/0xVa8HBsW3KV7U7gYN0BQO/VXkLMgXzbFcXqW90+nr2
-	Bxx7L8XLBoZLlX5+IpuEVndWPIvNvMnF82d5fvzzfh2EJU2LR/5CxLY/xcopfRpo
-	NLm7kFH9+5KVeKbSAbleo1g15rPPP0p3dxeesnhuqzDawzq639kCcZP/BHqmZEQJ
-	4XrFuNUQggb0FybWvV9TvtOnPF3pcqEO+SSP6yQJkoHnEGEt2KkF2gMqDBBfM+92
-	JT52c79r0V2cx6gMA/vCw==
-X-ME-Sender: <xms:uUaCaHAnPexKnsQ3Dk0AZSqQwKUzAst79JaPGAktrWyzPtpg3oRaog>
-    <xme:uUaCaNiGrkqq7Zek8s1bL3jvo7z65E4GbjFgbDjwbZOfLykUG857S1IecTaw98DT4
-    dRIZXitepX2-Yi6liI>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdektdelvdcutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
-    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
-    hrpefoggffhffvvefkjghfufgtgfesthejredtredttdenucfhrhhomhepfdetrhhnugcu
-    uegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrghtthgvrh
-    hnpefhtdfhvddtfeehudekteeggffghfejgeegteefgffgvedugeduveelvdekhfdvieen
-    ucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegrrhhnug
-    esrghrnhgusgdruggvpdhnsggprhgtphhtthhopeefvddpmhhouggvpehsmhhtphhouhht
-    pdhrtghpthhtohepshhouhhvihhkrdgthhgrkhhrrghvrghrthihsegrrhhmrdgtohhmpd
-    hrtghpthhtoheptggrthgrlhhinhdrmhgrrhhinhgrshesrghrmhdrtghomhdprhgtphht
-    thhopehmrghrkhdrrhhuthhlrghnugesrghrmhdrtghomhdprhgtphhtthhopehsuhguvg
-    gvphdrhhholhhlrgesrghrmhdrtghomhdprhgtphhtthhopehflhhorhhirghnrdhfrghi
-    nhgvlhhlihessghrohgruggtohhmrdgtohhmpdhrtghpthhtoheptghrohhsqdhqtghomh
-    dqughtshdqfigrthgthhgvrhhssegthhhrohhmihhumhdrohhrghdprhgtphhtthhopehs
-    figsohihugestghhrhhomhhiuhhmrdhorhhgpdhrtghpthhtoheprghnuggvrhhsshhonh
-    eskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheptghonhhorhdoughtsehkvghrnhgvlhdr
-    ohhrgh
-X-ME-Proxy: <xmx:uUaCaEXZBu6yk1VPDQP0HGcmV22HvohaVuM03F3MAFW1KxfnqJ2c_Q>
-    <xmx:uUaCaFABSoVK15_6YA28JsJFg_KWSddstFxVVLYfQ156MD3TWCtPQA>
-    <xmx:uUaCaPq5Tt4fWg4StMeBCIXZHnXFgrQDgLb9TXGreupGcu4dJp_cCQ>
-    <xmx:uUaCaJ3naF4CHCzmTjC1n9_jhJgTgm1r-0VNDjp-Oc9Y2ARhmBquWQ>
-    <xmx:ukaCaDB9fqHd5sczdwjl8ppjqRMePYBL_j59o_OykN9ZilsFfaeSOLql>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id EC469700065; Thu, 24 Jul 2025 10:44:08 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Thu, 24 Jul 2025 15:08:14 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2D1571A00;
+	Thu, 24 Jul 2025 08:08:03 -0700 (PDT)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4524E3F6A8;
+	Thu, 24 Jul 2025 08:08:06 -0700 (PDT)
+Message-ID: <eb8a395c-ca21-43d2-a1f9-739dbdc26dc4@arm.com>
+Date: Thu, 24 Jul 2025 16:08:04 +0100
 MIME-Version: 1.0
-X-ThreadId: T8f78d0e2b9c43c44
-Date: Thu, 24 Jul 2025 16:43:48 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Shivendra Pratap" <shivendra.pratap@oss.qualcomm.com>,
- "Krzysztof Kozlowski" <krzk@kernel.org>,
- "Florian Fainelli" <florian.fainelli@broadcom.com>,
- "Bartosz Golaszewski" <bartosz.golaszewski@linaro.org>,
- "Bjorn Andersson" <andersson@kernel.org>,
- "Sebastian Reichel" <sre@kernel.org>, "Rob Herring" <robh@kernel.org>,
- "Sudeep Holla" <sudeep.holla@arm.com>,
- "Souvik Chakravarty" <Souvik.Chakravarty@arm.com>,
- "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
- "Conor Dooley" <conor+dt@kernel.org>, "Andy Yan" <andy.yan@rock-chips.com>,
- "Mark Rutland" <mark.rutland@arm.com>,
- "Lorenzo Pieralisi" <lpieralisi@kernel.org>,
- "Konrad Dybcio" <konradybcio@kernel.org>,
- cros-qcom-dts-watchers@chromium.org, "Vinod Koul" <vkoul@kernel.org>,
- "Catalin Marinas" <catalin.marinas@arm.com>, "Will Deacon" <will@kernel.org>
-Cc: "Dmitry Baryshkov" <dmitry.baryshkov@oss.qualcomm.com>,
- "Mukesh Ojha" <mukesh.ojha@oss.qualcomm.com>,
- "Stephen Boyd" <swboyd@chromium.org>,
- =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-arm-msm@vger.kernel.org, "Elliot Berman" <quic_eberman@quicinc.com>,
- "Srinivas Kandagatla" <srini@kernel.org>,
- "Elliot Berman" <elliot.berman@oss.qualcomm.com>,
- "Konrad Dybcio" <konrad.dybcio@oss.qualcomm.com>
-Message-Id: <36f62026-9517-42bd-8f9a-92f39fcdc136@app.fastmail.com>
-In-Reply-To: <f4725f3f-1b45-ebd2-aaf4-4f986a44eb8e@oss.qualcomm.com>
-References: <20250721-arm-psci-system_reset2-vendor-reboots-v12-0-87bac3ec422e@oss.qualcomm.com>
- <beb26682-d2e4-40e6-89ac-87f18c0401d0@broadcom.com>
- <56599da9-0200-72b5-012e-942a1fc954b2@oss.qualcomm.com>
- <a1d3264f-a46a-42c4-b518-a66c8e0b70b4@kernel.org>
- <f4725f3f-1b45-ebd2-aaf4-4f986a44eb8e@oss.qualcomm.com>
-Subject: Re: [PATCH v12 0/8] Implement vendor resets for PSCI SYSTEM_RESET2
-Content-Type: text/plain
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 20/36] arm_mpam: Probe the hardware features resctrl
+ supports
+To: James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+Cc: Rob Herring <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
+ Shanker Donthineni <sdonthineni@nvidia.com>, Zeng Heng
+ <zengheng4@huawei.com>, Lecopzer Chen <lecopzerc@nvidia.com>,
+ Carl Worth <carl@os.amperecomputing.com>,
+ shameerali.kolothum.thodi@huawei.com,
+ D Scott Phillips OS <scott@os.amperecomputing.com>, lcherian@marvell.com,
+ bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
+ baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
+ Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
+ dfustini@baylibre.com, amitsinght@marvell.com,
+ David Hildenbrand <david@redhat.com>, Rex Nie <rex.nie@jaguarmicro.com>,
+ Dave Martin <dave.martin@arm.com>, Koba Ko <kobak@nvidia.com>
+References: <20250711183648.30766-1-james.morse@arm.com>
+ <20250711183648.30766-21-james.morse@arm.com>
+Content-Language: en-US
+From: Ben Horgan <ben.horgan@arm.com>
+In-Reply-To: <20250711183648.30766-21-james.morse@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250724_074412_741195_C6EFA4B4 
-X-CRM114-Status: GOOD (  12.12  )
+X-CRM114-CacheID: sfid-20250724_080812_648200_991C70E6 
+X-CRM114-Status: GOOD (  32.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,51 +77,306 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 24, 2025, at 16:04, Shivendra Pratap wrote:
-> On 7/24/2025 6:18 PM, Krzysztof Kozlowski wrote:
->> On 24/07/2025 14:24, Shivendra Pratap wrote:
+Hi James,
 
->> I strongly insist using compatible as way to find your device, not node
->> names.
-> It will look better to switch to compatible. Will define a compatible for
-> psci reboot-mode binding and align the patch to use the compatible for sysfs.
-> Current patch defines reboot-mode as a property to psci, hope its fine to
-> define a compatible for this property like "psci-vendor-reset" or
-> "psci-reboot-modes"?
->
+On 7/11/25 19:36, James Morse wrote:
+> Expand the probing support with the control and monitor types
+> we can use with resctrl.
+> 
+> CC: Dave Martin <Dave.Martin@arm.com>
+> Signed-off-by: James Morse <james.morse@arm.com>
+> ---
+>   drivers/platform/arm64/mpam/mpam_devices.c  | 154 +++++++++++++++++++-
+>   drivers/platform/arm64/mpam/mpam_internal.h |  53 +++++++
+>   2 files changed, 206 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/platform/arm64/mpam/mpam_devices.c b/drivers/platform/arm64/mpam/mpam_devices.c
+> index 8646fb85ad09..61911831ab39 100644
+> --- a/drivers/platform/arm64/mpam/mpam_devices.c
+> +++ b/drivers/platform/arm64/mpam/mpam_devices.c
+> @@ -102,7 +102,7 @@ static LLIST_HEAD(mpam_garbage);
+>   
+>   static u32 __mpam_read_reg(struct mpam_msc *msc, u16 reg)
+>   {
+> -	WARN_ON_ONCE(reg > msc->mapped_hwpage_sz);
+> +	WARN_ON_ONCE(reg + sizeof(u32) > msc->mapped_hwpage_sz);
+>   	WARN_ON_ONCE(!cpumask_test_cpu(smp_processor_id(), &msc->accessibility));
+>   
+>   	return readl_relaxed(msc->mapped_hwpage + reg);
+> @@ -131,6 +131,20 @@ static inline void _mpam_write_partsel_reg(struct mpam_msc *msc, u16 reg, u32 va
+>   }
+>   #define mpam_write_partsel_reg(msc, reg, val)  _mpam_write_partsel_reg(msc, MPAMCFG_##reg, val)
+>   
+> +static inline u32 _mpam_read_monsel_reg(struct mpam_msc *msc, u16 reg)
+> +{
+> +	mpam_mon_sel_lock_held(msc);
+> +	return __mpam_read_reg(msc, reg);
+> +}
+> +#define mpam_read_monsel_reg(msc, reg) _mpam_read_monsel_reg(msc, MSMON_##reg)
+> +
+> +static inline void _mpam_write_monsel_reg(struct mpam_msc *msc, u16 reg, u32 val)
+> +{
+> +	mpam_mon_sel_lock_held(msc);
+> +	__mpam_write_reg(msc, reg, val);
+> +}
+> +#define mpam_write_monsel_reg(msc, reg, val)   _mpam_write_monsel_reg(msc, MSMON_##reg, val)
+> +
+>   static u64 mpam_msc_read_idr(struct mpam_msc *msc)
+>   {
+>   	u64 idr_high = 0, idr_low;
+> @@ -645,6 +659,137 @@ static struct mpam_msc_ris *mpam_get_or_create_ris(struct mpam_msc *msc,
+>   	return found;
+>   }
+>   
+> +/*
+> + * IHI009A.a has this nugget: "If a monitor does not support automatic behaviour
+> + * of NRDY, software can use this bit for any purpose" - so hardware might not
+> + * implement this - but it isn't RES0.
+> + *
+> + * Try and see what values stick in this bit. If we can write either value,
+> + * its probably not implemented by hardware.
+> + */
+> +#define mpam_ris_hw_probe_hw_nrdy(_ris, _mon_reg, _result)			\
+> +do {										\
+> +	u32 now;								\
+> +	u64 mon_sel;								\
+> +	bool can_set, can_clear;						\
+> +	struct mpam_msc *_msc = _ris->vmsc->msc;				\
+> +										\
+> +	if (WARN_ON_ONCE(!mpam_mon_sel_inner_lock(_msc))) {			\
+> +		_result = false;						\
+> +		break;								\
+> +	}									\
+> +	mon_sel = FIELD_PREP(MSMON_CFG_MON_SEL_MON_SEL, 0) |			\
+> +		  FIELD_PREP(MSMON_CFG_MON_SEL_RIS, _ris->ris_idx);		\
+> +	mpam_write_monsel_reg(_msc, CFG_MON_SEL, mon_sel);			\
+> +										\
+> +	mpam_write_monsel_reg(_msc, _mon_reg, MSMON___NRDY);			\
+> +	now = mpam_read_monsel_reg(_msc, _mon_reg);				\
+> +	can_set = now & MSMON___NRDY;						\
+> +										\
+> +	mpam_write_monsel_reg(_msc, _mon_reg, 0);				\
+> +	now = mpam_read_monsel_reg(_msc, _mon_reg);				\
+> +	can_clear = !(now & MSMON___NRDY);					\
+> +	mpam_mon_sel_inner_unlock(_msc);					\
+> +										\
+> +	_result = (!can_set || !can_clear);					\
+> +} while (0)
+It is a bit surprising that something that looks like a function 
+modifies a boolean passed by value. Consider continuing the pattern you 
+have above:
+#define mpam_ris_hw_probe_hw_nrdy(_ris, _mon_reg, _result) 
+_mpam_ris_hw_probe_hw_nrdy(_ris, MSMON##_mon_reg, _result)
 
-How about using the reboot driver name as the identifier in sysfs
-instead of the compatible string? That would make it independent of
-devicetree.
+with signature:
+void _mpam_ris_hw_probe_hw_nrdy(struct mpam_msc *msc, u16 reg, bool 
+*hw_managed);
 
-I had a related idea to provide some namespacing on the actual
-reboot syscall parameter, as we have two (or more) orthogonal
-concepts here, when there is more than one reboot driver and
-drivers support multiple modes.
+and using the _mpam functions from the new _mpam_ris_hw_probe_hw_nrdy().
 
-E.g. you could use
+> +
+> +static void mpam_ris_hw_probe(struct mpam_msc_ris *ris)
+> +{
+> +	int err;
+> +	struct mpam_msc *msc = ris->vmsc->msc;
+> +	struct mpam_props *props = &ris->props;
+> +
+> +	lockdep_assert_held(&msc->probe_lock);
+> +	lockdep_assert_held(&msc->part_sel_lock);
+> +
+> +	/* Cache Portion partitioning */
+> +	if (FIELD_GET(MPAMF_IDR_HAS_CPOR_PART, ris->idr)) {
+> +		u32 cpor_features = mpam_read_partsel_reg(msc, CPOR_IDR);
+> +
+> +		props->cpbm_wd = FIELD_GET(MPAMF_CPOR_IDR_CPBM_WD, cpor_features);
+> +		if (props->cpbm_wd)
+> +			mpam_set_feature(mpam_feat_cpor_part, props);
+> +	}
+> +
+> +	/* Memory bandwidth partitioning */
+> +	if (FIELD_GET(MPAMF_IDR_HAS_MBW_PART, ris->idr)) {
+> +		u32 mbw_features = mpam_read_partsel_reg(msc, MBW_IDR);
+> +
+> +		/* portion bitmap resolution */
+> +		props->mbw_pbm_bits = FIELD_GET(MPAMF_MBW_IDR_BWPBM_WD, mbw_features);
+> +		if (props->mbw_pbm_bits &&
+> +		    FIELD_GET(MPAMF_MBW_IDR_HAS_PBM, mbw_features))
+> +			mpam_set_feature(mpam_feat_mbw_part, props);
+> +
+> +		props->bwa_wd = FIELD_GET(MPAMF_MBW_IDR_BWA_WD, mbw_features);
+> +		if (props->bwa_wd && FIELD_GET(MPAMF_MBW_IDR_HAS_MAX, mbw_features))
+> +			mpam_set_feature(mpam_feat_mbw_max, props);
+> +	}
+> +
+> +	/* Performance Monitoring */
+> +	if (FIELD_GET(MPAMF_IDR_HAS_MSMON, ris->idr)) {
+> +		u32 msmon_features = mpam_read_partsel_reg(msc, MSMON_IDR);
+> +
+> +		/*
+> +		 * If the firmware max-nrdy-us property is missing, the
+> +		 * CSU counters can't be used. Should we wait forever?
+> +		 */
+> +		err = device_property_read_u32(&msc->pdev->dev,
+> +					       "arm,not-ready-us",
+> +					       &msc->nrdy_usec);
+> +
+> +		if (FIELD_GET(MPAMF_MSMON_IDR_MSMON_CSU, msmon_features)) {
+> +			u32 csumonidr;
+> +
+> +			csumonidr = mpam_read_partsel_reg(msc, CSUMON_IDR);
+> +			props->num_csu_mon = FIELD_GET(MPAMF_CSUMON_IDR_NUM_MON, csumonidr);
+> +			if (props->num_csu_mon) {
+> +				bool hw_managed;
+> +
+> +				mpam_set_feature(mpam_feat_msmon_csu, props);
+> +
+> +				/* Is NRDY hardware managed? */
+> +				mpam_mon_sel_outer_lock(msc);
+> +				mpam_ris_hw_probe_hw_nrdy(ris, CSU, hw_managed);
+> +				mpam_mon_sel_outer_unlock(msc);
+> +				if (hw_managed)
+> +					mpam_set_feature(mpam_feat_msmon_csu_hw_nrdy, props);
+> +			}
+> +
+> +			/*
+> +			 * Accept the missing firmware property if NRDY appears
+> +			 * un-implemented.
+> +			 */
+> +			if (err && mpam_has_feature(mpam_feat_msmon_csu_hw_nrdy, props))
+> +				pr_err_once("Counters are not usable because not-ready timeout was not provided by firmware.");
+> +		}
+> +		if (FIELD_GET(MPAMF_MSMON_IDR_MSMON_MBWU, msmon_features)) {
+> +			bool hw_managed;
+> +			u32 mbwumonidr = mpam_read_partsel_reg(msc, MBWUMON_IDR);
+> +
+> +			props->num_mbwu_mon = FIELD_GET(MPAMF_MBWUMON_IDR_NUM_MON, mbwumonidr);
+> +			if (props->num_mbwu_mon)
+> +				mpam_set_feature(mpam_feat_msmon_mbwu, props);
+> +
+> +			if (FIELD_GET(MPAMF_MBWUMON_IDR_HAS_RWBW, mbwumonidr))
+> +				mpam_set_feature(mpam_feat_msmon_mbwu_rwbw, props);
+> +
+> +			/* Is NRDY hardware managed? */
+> +			mpam_mon_sel_outer_lock(msc);
+> +			mpam_ris_hw_probe_hw_nrdy(ris, MBWU, hw_managed);
+> +			mpam_mon_sel_outer_unlock(msc);
+> +			if (hw_managed)
+> +				mpam_set_feature(mpam_feat_msmon_mbwu_hw_nrdy, props);
+> +
+> +			/*
+> +			 * Don't warn about any missing firmware property for
+> +			 * MBWU NRDY - it doesn't make any sense!
+> +			 */
+> +		}
+> +	}
+> +}
+> +
+>   static int mpam_msc_hw_probe(struct mpam_msc *msc)
+>   {
+>   	u64 idr;
+> @@ -665,6 +810,7 @@ static int mpam_msc_hw_probe(struct mpam_msc *msc)
+>   
+>   	idr = mpam_msc_read_idr(msc);
+>   	mutex_unlock(&msc->part_sel_lock);
+> +
+>   	msc->ris_max = FIELD_GET(MPAMF_IDR_RIS_MAX, idr);
+>   
+>   	/* Use these values so partid/pmg always starts with a valid value */
+> @@ -685,6 +831,12 @@ static int mpam_msc_hw_probe(struct mpam_msc *msc)
+>   		ris = mpam_get_or_create_ris(msc, ris_idx);
+>   		if (IS_ERR(ris))
+>   			return PTR_ERR(ris);
+> +		ris->idr = idr;
+> +
+> +		mutex_lock(&msc->part_sel_lock);
+> +		__mpam_part_sel(ris_idx, 0, msc);
+> +		mpam_ris_hw_probe(ris);
+> +		mutex_unlock(&msc->part_sel_lock);
+>   	}
+>   
+>   	spin_lock(&partid_max_lock);
+> diff --git a/drivers/platform/arm64/mpam/mpam_internal.h b/drivers/platform/arm64/mpam/mpam_internal.h
+> index 42a454d5f914..ae6fd1f62cc4 100644
+> --- a/drivers/platform/arm64/mpam/mpam_internal.h
+> +++ b/drivers/platform/arm64/mpam/mpam_internal.h
+> @@ -136,6 +136,55 @@ static inline void mpam_mon_sel_lock_held(struct mpam_msc *msc)
+>   		lockdep_assert_preemption_enabled();
+>   }
+>   
+> +/*
+> + * When we compact the supported features, we don't care what they are.
+> + * Storing them as a bitmap makes life easy.
+> + */
+> +typedef u16 mpam_features_t;
+> +
+> +/* Bits for mpam_features_t */
+> +enum mpam_device_features {
+> +	mpam_feat_ccap_part = 0,
+> +	mpam_feat_cpor_part,
+> +	mpam_feat_mbw_part,
+> +	mpam_feat_mbw_min,
+> +	mpam_feat_mbw_max,
+> +	mpam_feat_mbw_prop,
+> +	mpam_feat_msmon,
+> +	mpam_feat_msmon_csu,
+> +	mpam_feat_msmon_csu_capture,
+> +	mpam_feat_msmon_csu_hw_nrdy,
+> +	mpam_feat_msmon_mbwu,
+> +	mpam_feat_msmon_mbwu_capture,
+> +	mpam_feat_msmon_mbwu_rwbw,
+> +	mpam_feat_msmon_mbwu_hw_nrdy,
+> +	mpam_feat_msmon_capt,
+> +	MPAM_FEATURE_LAST,
+> +};
+> +#define MPAM_ALL_FEATURES      ((1 << MPAM_FEATURE_LAST) - 1)
+> +
+> +struct mpam_props {
+> +	mpam_features_t		features;
+> +
+> +	u16			cpbm_wd;
+> +	u16			mbw_pbm_bits;
+> +	u16			bwa_wd;
+> +	u16			num_csu_mon;
+> +	u16			num_mbwu_mon;
+> +};
+> +
+> +static inline bool mpam_has_feature(enum mpam_device_features feat,
+> +				    struct mpam_props *props)
+> +{
+> +	return (1 << feat) & props->features;
+> +}
+> +
+> +static inline void mpam_set_feature(enum mpam_device_features feat,
+> +				    struct mpam_props *props)
+> +{
+> +	props->features |= (1 << feat);
+> +}
+> +
+>   struct mpam_class {
+>   	/* mpam_components in this class */
+>   	struct list_head	components;
+> @@ -175,6 +224,8 @@ struct mpam_vmsc {
+>   	/* mpam_msc_ris in this vmsc */
+>   	struct list_head	ris;
+>   
+> +	struct mpam_props	props;
+> +
+>   	/* All RIS in this vMSC are members of this MSC */
+>   	struct mpam_msc		*msc;
+>   
+> @@ -186,6 +237,8 @@ struct mpam_vmsc {
+>   
+>   struct mpam_msc_ris {
+>   	u8			ris_idx;
+> +	u64			idr;
+> +	struct mpam_props	props;
+>   
+>   	cpumask_t		affinity;
+>   
 
-    syscall(__NR_reboot, LINUX_REBOOT_MAGIC1, LINUX_REBOOT_MAGIC2, 
-            LINUX_REBOOT_CMD_RESTART2, "watchdog");
+-- 
+Thanks,
 
-vs
+Ben
 
-    syscall(__NR_reboot, LINUX_REBOOT_MAGIC1, LINUX_REBOOT_MAGIC2, 
-            LINUX_REBOOT_CMD_RESTART2, "psci");
-
-to pick one of the drivers, or
-
-    syscall(__NR_reboot, LINUX_REBOOT_MAGIC1, LINUX_REBOOT_MAGIC2, 
-            LINUX_REBOOT_CMD_RESTART2, "bootloader");
-
-    syscall(__NR_reboot, LINUX_REBOOT_MAGIC1, LINUX_REBOOT_MAGIC2, 
-            LINUX_REBOOT_CMD_RESTART2, "recovery");
-
-to ask for a reboot from any driver that supports a mode, or
-combine the two and ask a specific mode in a specific driver like
-
-    syscall(__NR_reboot, LINUX_REBOOT_MAGIC1, LINUX_REBOOT_MAGIC2, 
-            LINUX_REBOOT_CMD_RESTART2, "psci:bootloader");
-
-   Arnd
 
