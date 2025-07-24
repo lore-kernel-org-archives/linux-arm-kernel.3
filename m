@@ -4,68 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 554DCC83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 13:54:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5034C83F26
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 13:54:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:
-	Content-Type:Content-Transfer-Encoding:References:In-Reply-To:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w7PbfBqTgMeAz8Q4ObOiOZb3ZgS9tORtq/NJuJ9lQfM=; b=cVQBZEHk3C+kZfRC8oP6ehaPYJ
-	SHXEml1QEflZvvPSS7+4E80hYVk7fv571Dbo69zJCyet9T5dtp9aEmhm3iP1t/k8rUWFGfebJGVfe
-	CnoZi5A1r5/F1DRZ3TV5PzakP9X4quhUhcuNjf9Od8LvnNQdxCFhd0PKGmHrzJih1KBvXRHMgBylr
-	BvTh4RA0T5CxaThYQiJE5ki0flnACTo/tFuxEhLycHhM9QVnfjioM48QhTywkV9CQ8QByFWQjAWyy
-	GHrxRVsBQ/prPjMAnbjd0LxKOErVSMCYHi8F3VTPgBTQmiyszsJd0QoR0R2D32oSwXrw5xclKJsLe
-	gygvLNsw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=AZl1q9LmOXHZ/8XIAy4UC2IfNCdnuwk/LvRHnLrxDfs=; b=3DQPidSo1mzBICaywiUjvyKrRg
+	mH+t90oVg9Fy13R6CB62IeUU5qw+zHq8r6mpjd42v7l7VL/2clnaNquXJvvkI5BXVzrqipbjySDuT
+	p4xiDqjIy2V6D+uwy8sCSDQNyUzfSUO4mvlVUt74pYqHnbYUYs12I1v4H/h+LnexfK6tFOH7ATCji
+	VeXZMBhSLZnD8/lmU0jqhf6YzwPWAjreZU/nVQELF7JpoyIaZjp9uBycQQViRoOR705fxXx8JaYoG
+	AHXnDR9ZqJOWcyeuebPqeylRS17mlBj82jSmdpvGBXWirGORYiIJyYKanMlrJpe4Nd/2/BfDsDPtk
+	MfinGXug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uewOf-00000007c0a-2tzS;
-	Thu, 24 Jul 2025 13:54:09 +0000
-Received: from m16.mail.163.com ([220.197.31.4])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueucw-00000007NkL-26yR;
-	Thu, 24 Jul 2025 12:00:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=Date:From:To:Subject:Content-Type:MIME-Version:
-	Message-ID; bh=0sHiDwJliauha+2ZqYLG22+5Mn4RxXcnn7wzkYD5rxw=; b=R
-	SV9t1fr1yKy0AfQU48621iWwaFqxmsJwJmlGIA0XrCTF3nSF02C2a9iUpJJC0Fo6
-	Rj/IMsWnqp01xaZi1+38bno/9mCEO2+TD6/kYtcmG44XYKnuRzK+ydw4Zc7hgHB1
-	mNXUkAzZ3IuoLYUrMF9B4xyu73BBQ6h1Tq6Z1dtHdY=
-Received: from andyshrk$163.com ( [58.22.7.114] ) by
- ajax-webmail-wmsvr-40-106 (Coremail) ; Thu, 24 Jul 2025 20:00:05 +0800
- (CST)
-X-Originating-IP: [58.22.7.114]
-Date: Thu, 24 Jul 2025 20:00:05 +0800 (CST)
-From: "Andy Yan" <andyshrk@163.com>
-To: dmitry.baryshkov@oss.qualcomm.com, heiko@sntech.de
-Cc: hjc@rock-chips.com, mripard@kernel.org, naoki@radxa.com,
-	stephen@radxa.com, cristian.ciocaltea@collabora.com,
-	neil.armstrong@linaro.org, Laurent.pinchart@ideasonboard.com,
-	yubing.zhang@rock-chips.com, krzk+dt@kernel.org,
-	devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-rockchip@lists.infradead.org, robh@kernel.org,
-	sebastian.reichel@collabora.com,
-	"Andy Yan" <andy.yan@rock-chips.com>
-Subject: Re:[PATCH v5 00/10] Add support for RK3588 DisplayPort Controller
-X-Priority: 3
-X-Mailer: Coremail Webmail Server Version XT5.0.14 build 20250519(9504565a)
- Copyright (c) 2002-2025 www.mailtech.cn 163com
-In-Reply-To: <20250716100440.816351-1-andyshrk@163.com>
-References: <20250716100440.816351-1-andyshrk@163.com>
-X-NTES-SC: AL_Qu2eAf+et0wr4ymQZekfmUkTh+o2Xca5uf0j3YBWOZh+jCDp+QI/WUd7PHfV+c6FAj2WqyCvXhFv2v9ITLdpdJIwy+P6kRHwohgDB5b8O/wqyA==
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset=UTF-8
+	id 1uewOl-00000007cBX-3Rb6;
+	Thu, 24 Jul 2025 13:54:15 +0000
+Received: from szxga02-in.huawei.com ([45.249.212.188])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ueujZ-00000007OWh-1Yd4
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 24 Jul 2025 12:07:39 +0000
+Received: from mail.maildlp.com (unknown [172.19.88.194])
+	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4bnqQ23FPGzSjcp;
+	Thu, 24 Jul 2025 20:02:50 +0800 (CST)
+Received: from dggemv706-chm.china.huawei.com (unknown [10.3.19.33])
+	by mail.maildlp.com (Postfix) with ESMTPS id 0D58C1402ED;
+	Thu, 24 Jul 2025 20:07:23 +0800 (CST)
+Received: from kwepemq200018.china.huawei.com (7.202.195.108) by
+ dggemv706-chm.china.huawei.com (10.3.19.33) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Thu, 24 Jul 2025 20:07:22 +0800
+Received: from localhost.localdomain (10.50.165.33) by
+ kwepemq200018.china.huawei.com (7.202.195.108) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Thu, 24 Jul 2025 20:07:22 +0800
+From: Yicong Yang <yangyicong@huawei.com>
+To: <will@kernel.org>, <mark.rutland@arm.com>, <catalin.marinas@arm.com>,
+	<maz@kernel.org>, <broonie@kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>
+CC: <wangkefeng.wang@huawei.com>, <baohua@kernel.org>,
+	<jonathan.cameron@huawei.com>, <shameerali.kolothum.thodi@huawei.com>,
+	<prime.zeng@hisilicon.com>, <xuwei5@huawei.com>, <yangyicong@hisilicon.com>,
+	<linuxarm@huawei.com>, <tiantao6@hisilicon.com>
+Subject: [RFT PATCH] arm64: atomics: prefetch the destination prior to LSE operations
+Date: Thu, 24 Jul 2025 20:06:51 +0800
+Message-ID: <20250724120651.27983-1-yangyicong@huawei.com>
+X-Mailer: git-send-email 2.31.0
 MIME-Version: 1.0
-Message-ID: <3eeb9150.90fb.1983c4e1163.Coremail.andyshrk@163.com>
-X-Coremail-Locale: zh_CN
-X-CM-TRANSID: aigvCgD3_1hGIIJoZ_QFAA--.53340W
-X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/xtbBEhaUXmiCGCWvpgACsS
-X-Coremail-Antispam: 1U5529EdanIXcx71UUUUU7vcSsGvfC2KfnxnUU==
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.50.165.33]
+X-ClientProxiedBy: dggems701-chm.china.huawei.com (10.3.19.178) To
+ kwepemq200018.china.huawei.com (7.202.195.108)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250724_050046_912682_F3DA0A4F 
-X-CRM114-Status: GOOD (  12.06  )
+X-CRM114-CacheID: sfid-20250724_050737_729852_512F70F6 
+X-CRM114-Status: GOOD (  11.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,84 +76,123 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-CkhlbGxvIERtaXRyeSwKICAgIENvdWxkIHlvdSBwbGVhc2UgY29udGludWUgdG8gcmV2aWV3IHRo
-aXMgcGF0Y2ggc2VyaWVzIGF0IHlvdXIgY29udmVuaWVuY2U/CiAgICBUaGFuayB5b3UhCgpBdCAy
-MDI1LTA3LTE2IDE4OjA0OjI3LCAiQW5keSBZYW4iIDxhbmR5c2hya0AxNjMuY29tPiB3cm90ZToK
-PkZyb206IEFuZHkgWWFuIDxhbmR5LnlhbkByb2NrLWNoaXBzLmNvbT4KPgo+Cj5UaGVyZSBhcmUg
-dHdvIERXIERQVFggYmFzZWQgRGlzcGxheVBvcnQgQ29udHJvbGxlciBvbiByazM1ODggd2hpY2gK
-PmFyZSBjb21wbGlhbnQgd2l0aCB0aGUgRGlzcGxheVBvcnQgU3BlY2lmaWNhdGlvbiBWZXJzaW9u
-IDEuNCB3aXRoCj50aGUgZm9sbG93aW5nIGZlYXR1cmVzOgo+Cj4qIERpc3BsYXlQb3J0IDEuNGEK
-PiogTWFpbiBMaW5rOiAxLzIvNCBsYW5lcwo+KiBNYWluIExpbmsgU3VwcG9ydCAxLjYyR2Jwcywg
-Mi43R2JwcywgNS40R2JwcyBhbmQgOC4xR2Jwcwo+KiBBVVggY2hhbm5lbCAxTWJwcwo+KiBTaW5n
-bGUgU3RyZWFtIFRyYW5zcG9ydChTU1QpCj4qIE11bHRpc3RyZWFtIFRyYW5zcG9ydCAoTVNUKQo+
-KiBUeXBlLUMgc3VwcG9ydCAoYWx0ZXJuYXRlIG1vZGUpCj4qIEhEQ1AgMi4yLCBIRENQIDEuMwo+
-KiBTdXBwb3J0cyB1cCB0byA4LzEwIGJpdHMgcGVyIGNvbG9yIGNvbXBvbmVudAo+KiBTdXBwb3J0
-cyBSQkcsIFlDYkNyNDo0OjQsIFlDYkNyNDoyOjIsIFlDYkNyNDoyOjAKPiogUGl4ZWwgY2xvY2sg
-dXAgdG8gNTk0TUh6Cj4qIEkyUywgU1BESUYgYXVkaW8gaW50ZXJmYWNlCj4KPlRoZSBjdXJyZW50
-IHZlcnNpb24gb2YgdGhpcyBwYXRjaCBzZXJpZXMgb25seSBzdXBwb3J0cyBiYXNpYyBkaXNwbGF5
-IG91dHB1dHMuCj5JIGNvbmR1Y3RlZCB0ZXN0cyB3aXRoIERQMCBpbiAxMDgwcCBhbmQgNEtANjAg
-WUNiQ3I0OjI6MCBtb2RlczsgdGhlIEFMVC9UeXBlLUMKPm1vZGUgd2FzIHRlc3RlZCBvbiBSb2Nr
-IDVCLCBEUDEgd2FzIHRlc3RlZCBvbiBSb2NrIDUgSVRYIGJ5IFN0ZXBoZW4gYW5kIFBpb3RyLgo+
-SERDUCBhbmQgYXVkaW8gZmVhdHVyZXMgcmVtYWluIHVuaW1wbGVtZW50ZWQuCj5Gb3IgUkszNTg4
-LCBpdCdzIG9ubHkgc3VwcG9ydCBTU1QsIHdoaWxlIGluIHRoZSB1cGNvbWluZyBSSzM1NzYsIGl0
-IGNhbiBzdXBwb3J0Cj5NU1Qgb3V0cHV0Lgo+Cj4KPkNoYW5nZXMgaW4gdjU6Cj4tIFVzZSBkcm1f
-ZHBfcmVhZF9zaW5rX2NvdW50X2NhcCBpbnN0ZWFkIG9mIHRoZSBwcml2YXRlIGltcGxlbWVudGF0
-aW9uLgo+LSBBZGQgTUFJTlRBSU5FUlMgZW50cnkuCj4tIExpbmsgdG8gdjQ6IGh0dHBzOi8vbG9y
-ZS5rZXJuZWwub3JnL2xpbnV4LXJvY2tjaGlwLzIwMjUwNjE5MDYzOTAwLjcwMDQ5MS0xLWFuZHlz
-aHJrQDE2My5jb20vCj4KPkNoYW5nZXMgaW4gdjQ6Cj4tIERyb3AgdW5uZWNlc3NhcnkgaGVhZGVy
-IGZpbGVzCj4tIFN3aXRjaCB0byBkZXZtX2RybV9icmlkZ2VfYWxsb2MKPi0gRHJvcCB1bnVzZWQg
-ZnVuY3Rpb24KPi0gQWRkIHBsYXRmb3JtX3NldF9kcnZkYXRhCj4tIExpbmsgdG8gdjM6IGh0dHBz
-Oi8vbG9yZS5rZXJuZWwub3JnL2xpbnV4LXJvY2tjaGlwLzIwMjUwNDAzMDMzNzQ4LjI0NTAwNy0x
-LWFuZHlzaHJrQDE2My5jb20vCj4KPkNoYW5nZXMgaW4gdjM6Cj4tIFJlYmFzZSBvbiBkcm0tbWlz
-Yy1uZXh0Cj4tIFN3aXRjaCB0byBjb21tb24gaGVscGVycyB0byBwb3dlciB1cC9kb3duIGRwIGxp
-bmsKPi0gT25seSBwYXNzIHBhcmFtZXRlcnMgdG8gcGh5IHRoYXQgc2hvdWxkIGJlIHNldAo+LSBG
-aXJzdCBpbnRyb2R1Y2VkIGluIHRoaXMgdmVyc2lvbi4KPi0gRmlyc3QgaW50cm9kdWNlZCBpbiB0
-aGlzIHZlcnNpb24uCj4tIEFkZCBSQTYyMCBpbnRvIGJyaWRnZSBjaGFpbi4KPi0gTGluayB0byB2
-MjogaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGludXgtcm9ja2NoaXAvMjAyNTAzMTIxMDQyMTQu
-NTI1MjQyLTEtYW5keXNocmtAMTYzLmNvbS8KPgo+Q2hhbmdlcyBpbiB2MjoKPi0gTGluayB0byBW
-MTogaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGludXgtcm9ja2NoaXAvMjAyNTAyMjMxMTMwMzYu
-NzQyNTItMS1hbmR5c2hya0AxNjMuY29tLwo+LSBGaXggYSBjaGFyYWN0ZXIgZW5jb2RpbmcgaXNz
-dWUKPi0gRml4IGNvbXBpbGUgZXJyb3Igd2hlbiBidWlsZCBhcyBtb2R1bGUKPi0gQWRkIHBoeSBp
-bml0Cj4tIE9ubHkgdXNlIG9uZSBkd19kcF9saW5rX3RyYWluX3NldAo+LSBpbmxpbmUgZHdfZHBf
-cGh5X3VwZGF0ZV92c19lbXBoCj4tIFVzZSBkcF9zZHAKPi0gQ2hlY2sgcmV0dXJuIHZhbHVlIG9m
-IGRybV9tb2Rlc2V0X2xvY2sKPi0gTWVyZ2UgY29kZSBpbiBhdG9taWNfcHJlX2VuYWJsZS9tb2Rl
-X2ZpeHVwIHRvIGF0b21pY19jaGVjawo+LSBSZXR1cm4gTlVMTCBpZiBjYW4ndCBmaW5kIGEgc3Vw
-cG9ydGVkIG91dHB1dCBmb3JtYXQKPi0gRml4IG1heF9saW5rX3JhdGUgZnJvbSBwbGF0X2RhdGEK
-Pi0gbm8gaW5jbHVkZSB1YXBpIHBhdGgKPi0gc3dpdGNoIHRvIGRybW1fZW5jb2Rlcl9pbml0Cj4t
-IFNvcnQgaW4gYWxwaGFiZXRpY2FsIG9yZGVyCj4KPkFuZHkgWWFuICgxMCk6Cj4gIGR0LWJpbmRp
-bmdzOiBkaXNwbGF5OiByb2NrY2hpcDogQWRkIHNjaGVtYSBmb3IgUkszNTg4IERQVFggQ29udHJv
-bGxlcgo+ICBkcm0vYnJpZGdlOiBzeW5vcHN5czogQWRkIERXIERQVFggQ29udHJvbGxlciBzdXBw
-b3J0IGxpYnJhcnkKPiAgZHJtL3JvY2tjaGlwOiBBZGQgUkszNTg4IERQVFggb3V0cHV0IHN1cHBv
-cnQKPiAgTUFJTlRBSU5FUlM6IEFkZCBlbnRyeSBmb3IgRFcgRFBUWCBDb250cm9sbGVyIGJyaWRn
-ZQo+ICBkdC1iaW5kaW5nczogZGlzcGxheTogc2ltcGxlLWJyaWRnZTogQWRkIHJhNjIwIGNvbXBh
-dGlibGUKPiAgZHJtL2JpcmRnZTogc2ltcGxlLWJyaWRnZTogQWRkIHN1cHBvcnQgZm9yIHJhZHhh
-IHJhNjIwCj4gIGFybTY0OiBkdHM6IHJvY2tjaGlwOiBBZGQgRFAwIGZvciByazM1ODgKPiAgYXJt
-NjQ6IGR0czogcm9ja2NoaXA6IEFkZCBEUDEgZm9yIHJrMzU4OAo+ICBhcm02NDogZHRzOiByb2Nr
-Y2hpcDogRW5hYmxlIERpc3BsYXlQb3J0IGZvciByazM1ODhzIENvb2wgUGkgNEIKPiAgYXJtNjQ6
-IGR0czogcm9ja2NoaXA6IEVuYWJsZSBEUDJIRE1JIGZvciBST0NLIDUgSVRYCj4KPiAuLi4vZGlz
-cGxheS9icmlkZ2Uvc2ltcGxlLWJyaWRnZS55YW1sICAgICAgICAgfCAgICAxICsKPiAuLi4vZGlz
-cGxheS9yb2NrY2hpcC9yb2NrY2hpcCxkdy1kcC55YW1sICAgICAgfCAgMTUwICsrCj4gTUFJTlRB
-SU5FUlMgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHwgICAgOCArCj4gYXJjaC9h
-cm02NC9ib290L2R0cy9yb2NrY2hpcC9yazM1ODgtYmFzZS5kdHNpIHwgICAzMCArCj4gLi4uL2Fy
-bTY0L2Jvb3QvZHRzL3JvY2tjaGlwL3JrMzU4OC1leHRyYS5kdHNpIHwgICAzMCArCj4gLi4uL2Jv
-b3QvZHRzL3JvY2tjaGlwL3JrMzU4OC1yb2NrLTUtaXR4LmR0cyAgIHwgICA1OSArCj4gLi4uL2Jv
-b3QvZHRzL3JvY2tjaGlwL3JrMzU4OHMtY29vbHBpLTRiLmR0cyAgIHwgICAzNyArCj4gZHJpdmVy
-cy9ncHUvZHJtL2JyaWRnZS9zaW1wbGUtYnJpZGdlLmMgICAgICAgIHwgICAgNSArCj4gZHJpdmVy
-cy9ncHUvZHJtL2JyaWRnZS9zeW5vcHN5cy9LY29uZmlnICAgICAgIHwgICAgNyArCj4gZHJpdmVy
-cy9ncHUvZHJtL2JyaWRnZS9zeW5vcHN5cy9NYWtlZmlsZSAgICAgIHwgICAgMSArCj4gZHJpdmVy
-cy9ncHUvZHJtL2JyaWRnZS9zeW5vcHN5cy9kdy1kcC5jICAgICAgIHwgMjA0NCArKysrKysrKysr
-KysrKysrKwo+IGRyaXZlcnMvZ3B1L2RybS9yb2NrY2hpcC9LY29uZmlnICAgICAgICAgICAgICB8
-ICAgIDkgKwo+IGRyaXZlcnMvZ3B1L2RybS9yb2NrY2hpcC9NYWtlZmlsZSAgICAgICAgICAgICB8
-ICAgIDEgKwo+IGRyaXZlcnMvZ3B1L2RybS9yb2NrY2hpcC9kd19kcC1yb2NrY2hpcC5jICAgICB8
-ICAxNTAgKysKPiBkcml2ZXJzL2dwdS9kcm0vcm9ja2NoaXAvcm9ja2NoaXBfZHJtX2Rydi5jICAg
-fCAgICAxICsKPiBkcml2ZXJzL2dwdS9kcm0vcm9ja2NoaXAvcm9ja2NoaXBfZHJtX2Rydi5oICAg
-fCAgICAxICsKPiBpbmNsdWRlL2RybS9icmlkZ2UvZHdfZHAuaCAgICAgICAgICAgICAgICAgICAg
-fCAgIDIwICsKPiAxNyBmaWxlcyBjaGFuZ2VkLCAyNTU0IGluc2VydGlvbnMoKykKPiBjcmVhdGUg
-bW9kZSAxMDA2NDQgRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL2Rpc3BsYXkvcm9j
-a2NoaXAvcm9ja2NoaXAsZHctZHAueWFtbAo+IGNyZWF0ZSBtb2RlIDEwMDY0NCBkcml2ZXJzL2dw
-dS9kcm0vYnJpZGdlL3N5bm9wc3lzL2R3LWRwLmMKPiBjcmVhdGUgbW9kZSAxMDA2NDQgZHJpdmVy
-cy9ncHUvZHJtL3JvY2tjaGlwL2R3X2RwLXJvY2tjaGlwLmMKPiBjcmVhdGUgbW9kZSAxMDA2NDQg
-aW5jbHVkZS9kcm0vYnJpZGdlL2R3X2RwLmgKPgo+LS0gCj4yLjQzLjAKPgo+YmFzZS1jb21taXQ6
-IDYwODVhNDVhMDY5ZDJhZWFiNmJiM2U1ZjNmZGQzMmUyNTk3MDMxMDYKPmJyYW5jaDogcmszNTg4
-LWRwLXVwc3RyZWFtLXY1Cg==
+From: Yicong Yang <yangyicong@hisilicon.com>
+
+commit 0ea366f5e1b6 ("arm64: atomics: prefetch the destination word for write prior to stxr")
+adds prefetch prior to LL/SC operations due to performance concerns -
+change the cacheline status from exclusive could be significant. This is
+also true for LSE operations, so prefetch the destination prior to LSE
+operations.
+
+Tested on my HIP08 server (2 * 64 CPU) using `perf bench -r 100 futex all`
+which could stress the spinlock of the futex hash bucket:
+                        6.16-rc7 patched
+futex/hash(ops/sec)     171843   204757 +19.15%
+futex/wake(ms)          0.4630   0.4216 +8.94%
+futex/wake-parallel(ms) 0.0048   0.0039 +18.75%
+futex/requeue(ms)       0.1487   0.1508 -1.41%
+(2nd validation)                 0.1484 +0.2%
+futex/lock-pi(ops/sec)  125      126    +0.8%
+
+For a single wake test for different threads number using `perf bench
+-r 100 futex wake -t <threads>`:
+threads 6.16-rc7 patched
+1       0.0035   0.0032 +8.57%
+48      0.1454   0.1221 +16.02%
+96      0.3047   0.2304 +24.38%
+160     0.5489   0.5012 +8.69%
+192     0.6675   0.5906 +11.52%
+256     0.9445   0.8092 +14.33%
+
+There're some variation for close numbers but overall results
+look positive.
+
+Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
+---
+
+RFT for tests and feedbacks since not sure it's general or just the optimization
+on some specific implementations.
+
+ arch/arm64/include/asm/atomic_lse.h | 7 +++++++
+ arch/arm64/include/asm/cmpxchg.h    | 3 ++-
+ 2 files changed, 9 insertions(+), 1 deletion(-)
+
+diff --git a/arch/arm64/include/asm/atomic_lse.h b/arch/arm64/include/asm/atomic_lse.h
+index 87f568a94e55..a45e49d5d857 100644
+--- a/arch/arm64/include/asm/atomic_lse.h
++++ b/arch/arm64/include/asm/atomic_lse.h
+@@ -16,6 +16,7 @@ __lse_atomic_##op(int i, atomic_t *v)					\
+ {									\
+ 	asm volatile(							\
+ 	__LSE_PREAMBLE							\
++	"	prfm	pstl1strm, %[v]\n"				\
+ 	"	" #asm_op "	%w[i], %[v]\n"				\
+ 	: [v] "+Q" (v->counter)						\
+ 	: [i] "r" (i));							\
+@@ -41,6 +42,7 @@ __lse_atomic_fetch_##op##name(int i, atomic_t *v)			\
+ 									\
+ 	asm volatile(							\
+ 	__LSE_PREAMBLE							\
++	"	prfm	pstl1strm, %[v]\n"				\
+ 	"	" #asm_op #mb "	%w[i], %w[old], %[v]"			\
+ 	: [v] "+Q" (v->counter),					\
+ 	  [old] "=r" (old)						\
+@@ -123,6 +125,7 @@ __lse_atomic64_##op(s64 i, atomic64_t *v)				\
+ {									\
+ 	asm volatile(							\
+ 	__LSE_PREAMBLE							\
++	"	prfm	pstl1strm, %[v]\n"				\
+ 	"	" #asm_op "	%[i], %[v]\n"				\
+ 	: [v] "+Q" (v->counter)						\
+ 	: [i] "r" (i));							\
+@@ -148,6 +151,7 @@ __lse_atomic64_fetch_##op##name(s64 i, atomic64_t *v)			\
+ 									\
+ 	asm volatile(							\
+ 	__LSE_PREAMBLE							\
++	"	prfm	pstl1strm, %[v]\n"				\
+ 	"	" #asm_op #mb "	%[i], %[old], %[v]"			\
+ 	: [v] "+Q" (v->counter),					\
+ 	  [old] "=r" (old)						\
+@@ -230,6 +234,7 @@ static __always_inline s64 __lse_atomic64_dec_if_positive(atomic64_t *v)
+ 
+ 	asm volatile(
+ 	__LSE_PREAMBLE
++	"	prfm	pstl1strm, %[v]\n"				\
+ 	"1:	ldr	%x[tmp], %[v]\n"
+ 	"	subs	%[ret], %x[tmp], #1\n"
+ 	"	b.lt	2f\n"
+@@ -253,6 +258,7 @@ __lse__cmpxchg_case_##name##sz(volatile void *ptr,			\
+ {									\
+ 	asm volatile(							\
+ 	__LSE_PREAMBLE							\
++	"	prfm	pstl1strm, %[v]\n"				\
+ 	"	cas" #mb #sfx "	%" #w "[old], %" #w "[new], %[v]\n"	\
+ 	: [v] "+Q" (*(u##sz *)ptr),					\
+ 	  [old] "+r" (old)						\
+@@ -295,6 +301,7 @@ __lse__cmpxchg128##name(volatile u128 *ptr, u128 old, u128 new)		\
+ 									\
+ 	asm volatile(							\
+ 	__LSE_PREAMBLE							\
++	"	prfm	pstl1strm, %[v]\n"				\
+ 	"	casp" #mb "\t%[old1], %[old2], %[new1], %[new2], %[v]\n"\
+ 	: [old1] "+&r" (x0), [old2] "+&r" (x1),				\
+ 	  [v] "+Q" (*(u128 *)ptr)					\
+diff --git a/arch/arm64/include/asm/cmpxchg.h b/arch/arm64/include/asm/cmpxchg.h
+index d7a540736741..daacbabeadb7 100644
+--- a/arch/arm64/include/asm/cmpxchg.h
++++ b/arch/arm64/include/asm/cmpxchg.h
+@@ -32,8 +32,9 @@ static inline u##sz __xchg_case_##name##sz(u##sz x, volatile void *ptr)		\
+ 	"	cbnz	%w1, 1b\n"						\
+ 	"	" #mb,								\
+ 	/* LSE atomics */							\
++	"	prfm	pstl1strm, %2\n"					\
+ 	"	swp" #acq_lse #rel #sfx "\t%" #w "3, %" #w "0, %2\n"		\
+-		__nops(3)							\
++		__nops(2)							\
+ 	"	" #nop_lse)							\
+ 	: "=&r" (ret), "=&r" (tmp), "+Q" (*(u##sz *)ptr)			\
+ 	: "r" (x)								\
+-- 
+2.24.0
+
 
