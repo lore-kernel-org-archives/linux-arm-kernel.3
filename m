@@ -4,96 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2D3AC87FCF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 18:36:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D4BBC83F26
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 18:36:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7+Hc/EJTpAN/zUBy6dWU21PJ3WMLmwKCsM/9bWx/tE4=; b=kcNGhyLc6EXXpKjeQGtMyTsw50
-	7tHhEJwlwmcVb5zvmGkK7aJWIJDwks0Il8SZSYS/hiDr2oqSmMEWnolgmDH6Esj2qsLkG3RxhPTcB
-	QEvS8MbyEyb2RIErthknGMN2boXGfR3/XpQePyCDPZqoWi+nipPszVnG6ZbYn4pOfr+1VPgr2BkU8
-	9eaaZFuF0xlHAQLDp7QyI9Eqrx4RVBRo8U3S6ugrsqKet/Oms3ypF9B+VK1BDAYtQPL4hnEXBv3vk
-	fkUHTk2JVCTMJFiWg/6LRMhnAhBxuJGxo/6nAXFFVFS9E68isc1LT7kPTkYFYg8MlkdPPiLjClUKY
-	rK/2AMWw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uyd0m6/llDOLqTKGKBUszI5BSryEijFnil6SKX904AM=; b=sJmUyDs/muxJHkIn/V/AUsWdVZ
+	u0hJaGHLqvgp8a7XeCvkn+Dw4RZu1+BDp4QFVeNVGd+HrQsvUfL/ZTnMAmewSEtolPMbItW/2+2Um
+	2UCEOPSHmHN+hK55R3m7MIpSnD85Bv9F48izyYLq1HThag+FlMCGOVLaYJ6Jvhjyu2+qQKm0k2a2f
+	pqnCCypUil3RZnl5eebJXu1+DyNgA3yuctDwe39EFgZ1mSoP1BVqU/HrTR0k40TknVvN5F8edxWq1
+	SMLBQVnp8W+pXaSUb2OdzsVw93cOjVlpknE8/7+73ITimEbVSk9MO8KTlLevpNoo3kxJWBnP17e1i
+	fOeO5OdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uf0o8-00000008Dqe-3WOR;
-	Thu, 24 Jul 2025 18:36:44 +0000
-Received: from mail-lj1-x22f.google.com ([2a00:1450:4864:20::22f])
+	id 1uf0o9-00000008DrX-20Ed;
+	Thu, 24 Jul 2025 18:36:45 +0000
+Received: from mail-oa1-x30.google.com ([2001:4860:4864:20::30])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uf0Bc-00000008A64-09zU
+	id 1uf0CP-00000008ABA-1KDP
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Jul 2025 17:56:57 +0000
-Received: by mail-lj1-x22f.google.com with SMTP id 38308e7fff4ca-32b5226e6beso11456371fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Jul 2025 10:56:55 -0700 (PDT)
+	Thu, 24 Jul 2025 17:57:46 +0000
+Received: by mail-oa1-x30.google.com with SMTP id 586e51a60fabf-2ffa81b41d7so693987fac.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Jul 2025 10:57:45 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1753379814; x=1753984614; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=7+Hc/EJTpAN/zUBy6dWU21PJ3WMLmwKCsM/9bWx/tE4=;
-        b=NLGE098fRSYQV1nWXM376s+K5mlY5QO3uqqPRYOsMBALhSyIQeoXr/oUX8/aK0sl5/
-         TANW2gxn4BB4UzCM5JWjpAXQ257wf+VFJ66cUCaRdaTTSjOuaS5J0NadP4TmQg2QeLeN
-         yiuifRf+Rk6+/VWC+eUHALkth9XGKAkyRImNFTRTHpbncb0/BPKE51M12tl2Xs3rogaC
-         g/C3Tbt9CoRMeEmjUGU4e3z/siWuFTKqtXVBJvNX/tJgNoftDtR8qh7Zt5YyaMVeofgq
-         8fAHoi1xE05UOEU+GpQPuZilU68R/Kzbvln6uMKNG9uPUki8pBFWSdfOn6qpTTgh1wz0
-         8QpQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753379814; x=1753984614;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20230601; t=1753379864; x=1753984664; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=7+Hc/EJTpAN/zUBy6dWU21PJ3WMLmwKCsM/9bWx/tE4=;
-        b=e7svFG3lT5r6/iKKlXyJfdmuuM/QMofTViKm0QfKv6e8QLXALJORbjHo3C4oP8XrEC
-         LsdyDXmDaeLp6IbaorPG30Jeobnas+dXS2bWeYvnpzR71Re/kXpy9V7lbIHU+2vLEhmp
-         H82eObaCpPckxLtElRhqtv/0T4omh0q6eZ5F8oBGXB5fWUaQ8wURpDbHW9ybB+YPOuN8
-         HTNDK6qWuK0rE60aZTCJMnwEcoPcHFH1RGvz1KmkimglDfwczxejs1w310nJX8YGGYZW
-         y17whMackM7jSjfJJDNVcb8to+TJbmmpm5/B1t8EYELY4MASAmW12I2Z+pwtXy702Ysq
-         p1GQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVzcysX8hcWcawekm5YVOjj0Sytqmsw+5fOG1oKCQjPdPFEKnfbJAbuMu8VMdR+1Vmcle08Q1zs+kBwu97x3W1v@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy9qAE+xIjY+2sR3LoODzxYh4yAn9B8/pEJ7pHWkBmjhxmdcTmz
-	PXDmSQQ7YQ1rF7qBClsX7PZs3anQyL6Lntxb5sPcY0FhB3dngbDGuTVI
-X-Gm-Gg: ASbGncvsPJCzHh5HNrAEyW22AFOX6Ld7lByjtHP30yWz1LfndEL7UEKC/ek0X1QgdGM
-	ng8HLFE36P31qhT1PXvIBZKY1jlVGDKLL66U269HgFr/R51xaE+j5zQfiF/XKLaoUUUpnqQD6Vw
-	/0YD22/KOcEeYLgIGcS74RO/iutQ7JlqWsX/iAFTVO8mE/6yND293K36riahrucevetOB70GvpP
-	awYFv+DMqyI70M+c0XFnOVBn2eixRsWfjiJTssxJzILast3W7oiJ0HwZ9xMLoIbOXagmtQDTxLT
-	krEWAgNB7+yJ5q8nmnWK275ZXjvyB97D2pfPow3ycd64HemcNfHgwQKIgOAIyONO/1EkQq97eBw
-	pkwFkTp3jK/zTNim/Hj3zH7ji39twBYu1NXUPIRgF
-X-Google-Smtp-Source: AGHT+IFN4Xrrwc5r0VQkcaQC/psZUUhsAWA2bd+XSOCuqzO1usstf65IZl+/xhZAoKMELAzl9zDBaw==
-X-Received: by 2002:a2e:9cc2:0:b0:32b:3104:f89c with SMTP id 38308e7fff4ca-330dfe3cf57mr22675651fa.29.1753379813377;
-        Thu, 24 Jul 2025 10:56:53 -0700 (PDT)
-Received: from mobilestation ([178.176.56.174])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-331e08e98aesm4007631fa.54.2025.07.24.10.56.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 24 Jul 2025 10:56:52 -0700 (PDT)
-Date: Thu, 24 Jul 2025 20:56:06 +0300
-From: Serge Semin <fancer.lancer@gmail.com>
-To: "G Thomas, Rohan" <rohan.g.thomas@altera.com>
-Cc: Andrew Lunn <andrew@lunn.ch>, Andrew Lunn <andrew+netdev@lunn.ch>, 
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Romain Gantois <romain.gantois@bootlin.com>, netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Matthew Gerlach <matthew.gerlach@altera.com>
-Subject: Re: [PATCH net-next 2/3] net: stmmac: xgmac: Correct supported speed
- modes
-Message-ID: <tcebsuesjejtk3vmzx77yuo7zil2xciucnnrakubrslwvnndas@utvi4r7ob3xa>
-References: <20250714-xgmac-minor-fixes-v1-0-c34092a88a72@altera.com>
- <20250714-xgmac-minor-fixes-v1-2-c34092a88a72@altera.com>
- <b192c96a-2989-4bdf-ba4f-8b7bcfd09cfa@lunn.ch>
- <e903cb0f-3970-4ad2-a0a2-ee58551779dc@altera.com>
- <6fsqayppkyubkucghk5i6m7jjgytajtzm4wxhtdkh7i2v3znk5@vwqbzz5uffyy>
- <4df7133e-5dcd-4d3d-9a58-d09ad5fd7ec3@altera.com>
+        bh=uyd0m6/llDOLqTKGKBUszI5BSryEijFnil6SKX904AM=;
+        b=WG/9KSX/T36PYuiholTPh7y6joNwonrpJu4Ad//HDoP806n/4mlvViBsnDWuVHKUlF
+         VFQGDfl4TWn8zuyYSut1tMiBliQWJNVa/lb9Fqmy+HotdhwwsC2Yfiq6z8vKpU0thJC6
+         tXIzSdKaY9Xc6olePmSWexbTHW9F5sUOro5lELvav9isXh1PpS6bAljTzmbYRqqNx2ej
+         w6w9dPG0/zkVHD0rQhhRu7rL11qlYH6Q92mZTsz+GrIR+LPMVh7wrMcw0Z9Ugs2nLfXM
+         ewZ3Bq84tryTzyG8lfpcvzp4+Gz7UAuD/m7wodQSnGNOspDwoV5DEBVnqfc8miMgA8dN
+         vtzw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1753379864; x=1753984664;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=uyd0m6/llDOLqTKGKBUszI5BSryEijFnil6SKX904AM=;
+        b=UgyJwGyNTqWNhsx15tFFcZbmoerlgDsyr/FG6lZ2Tr7JIMT2XZQBxvmXrD9/53dWIH
+         pqrl6RESajidxXrYQSyh8pOvXDxbmDq2E50kpqaEoBVGRVfxSrFdfdpeaLlJPa/jSMoA
+         4KgEKoNua+n+IueWIU7qUj5Eo1WYbfWZBt84IehQ05MSpwx36o9FvWcQF3a78u4EmJlN
+         2S6r+mmpCLOBoxdwGpm/V4QYLHRbn44Aq+dmSVhxltQK82gtOqlViUlxFoOUAEToofO8
+         21cfrXMu6EX85YXgcJa1fRlH2VVsu7Z0Z2kXvHZUUZIwLIVDGVswdClHbQYT/c0OF/7O
+         5tsg==
+X-Forwarded-Encrypted: i=1; AJvYcCVsbxm3Dc9yesfw75ttbC3T3tw0dZGeYy9PXa2qQvGtU2vSaxgFby/nAIlOsxossEIQ4iIhVGLlPbql1GFwCWFS@lists.infradead.org
+X-Gm-Message-State: AOJu0YzsjBOHTh1SCKxfVWfbFMKGnNofReXSqGG0c/xXpPWPmSTlomsN
+	LqCsSsn44fwrlIKUnlRpWFsUj5CVyydiQGVeUASqJ35NDFIR18p6fo8ndsy4lSqmblg+pyhftb4
+	StXPYvgpWYWufNTKY9w83J45DfPZSXLg=
+X-Gm-Gg: ASbGncv32x3g+VOJyC1ip0YnBTrXhUwwDToO2BQ7fu9/4Z65BZtSgc0jnTuOF8rsJ2r
+	sH5vEd4Wp3lb5sRxQ98K6R6CMPoKpCoDCO5hd2ZFRugNRyGTHcVsPASyN/MamA8Cf7yf/dee6n1
+	TcOapwM2vDGHAP40UyxgJx0zfd6k1tzOQ3S73mfjfkGshg8DuRZSn6kZZMMhsHGf2IyWptH4fv2
+	nytCamqlg==
+X-Google-Smtp-Source: AGHT+IG3/GyCL+VU5AJJltRsP0Tqqxq0Yjumuw9YfIJLpjiZLw0Gf28GIuEQWGeaaejWHUNBndHaOx9Y7PVaKw3h+ig=
+X-Received: by 2002:a05:6871:56c2:b0:2ff:b276:97f5 with SMTP id
+ 586e51a60fabf-306c6ec5c4emr6012951fac.5.1753379864254; Thu, 24 Jul 2025
+ 10:57:44 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <4df7133e-5dcd-4d3d-9a58-d09ad5fd7ec3@altera.com>
+References: <20250724172603.18701-1-suchitkarunakaran@gmail.com> <aIJxVDBXyFgrz8AV@shell.armlinux.org.uk>
+In-Reply-To: <aIJxVDBXyFgrz8AV@shell.armlinux.org.uk>
+From: Suchit K <suchitkarunakaran@gmail.com>
+Date: Thu, 24 Jul 2025 23:27:33 +0530
+X-Gm-Features: Ac12FXx7y99oCagbZGmHtRkYJYdYeVHvbVt_84oh7Yoa7X7XzSgt_3Uy39Ssjzw
+Message-ID: <CAO9wTFitMEzPXNqrMs7U=+M3jAghZtO1iXYbw5YBL1bwpB_Ecg@mail.gmail.com>
+Subject: Re: [PATCH] arm: allow single CPU configuration by adjusting NR_CPUS
+ range and defaults
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: ardb@kernel.org, linus.walleij@linaro.org, ebiggers@google.com, 
+	nathan@kernel.org, lumag@kernel.org, dave@vasilevsky.ca, 
+	ruanjinjie@huawei.com, kees@kernel.org, liuyuntao12@huawei.com, 
+	linux-arm-kernel@lists.infradead.org, skhan@linuxfoundation.org, 
+	linux-kernel-mentees@lists.linux.dev, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250724_105656_077473_187F6C71 
-X-CRM114-Status: GOOD (  23.79  )
+X-CRM114-CacheID: sfid-20250724_105745_362435_C4FEA822 
+X-CRM114-Status: GOOD (  16.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,56 +99,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Rohan
+On Thu, 24 Jul 2025 at 23:16, Russell King (Oracle)
+<linux@armlinux.org.uk> wrote:
+>
+> On Thu, Jul 24, 2025 at 10:56:03PM +0530, Suchit Karunakaran wrote:
+> > Previously, the NR_CPUS config for ARM required a minimum of 2 CPUs.
+> > This patch changes the minimum NR_CPUS to 1 when SMP is not enabled,
+> > sets range to exactly 1 if !SMP, allowing only a single CPU setting and
+> > adds conditional defaults:
+> >     - default to 1 if SMP is disabled (uniprocessor)
+> >     - default to 4 if SMP is enabled (multiprocessor)
+> >
+> > Signed-off-by: Suchit Karunakaran <suchitkarunakaran@gmail.com>
+>
+> This hasn't been tested. NR_CPUS depends on SMP, so if SMP is not
+> enabled, then NR_CPUS doesn't exist in the configuration. Therefore,
+> providing a default for !SMP is meaningless.
+>
 
-On Thu, Jul 24, 2025 at 09:48:29PM +0530, G Thomas, Rohan wrote:
-> On 7/17/2025 5:17 PM, Serge Semin wrote:
-> > DW XGMAC IP-core of v2.x and older don't support 10/100Mbps modes
-> > neither in the XGMII nor in the GMII interfaces. That's why I dropped
-> > the 10/100Mbps link capabilities retaining 1G, 2.5G and 10G speeds
-> > only (the only speeds supported for DW XGMAC 1.20a/2.11a Tx in the
-> > MAC_Tx_Configuration.SS register field). Although I should have
-> > dropped the MAC_5000FD too since it has been supported since v3.0
-> > IP-core version. My bad.(
-> > 
-> > Starting from DW XGMAC v3.00a IP-core the list of the supported speeds
-> > has been extended to: 10/100Mbps (MII), 1G/2.5G (GMII), 2.5G/5G/10G
-> > (XGMII). Thus the more appropriate fix here should take into account
-> > the IP-core version. Like this:
-> > 	if (dma_cap->mbps_1000 && MAC_Version.SNPSVER >= 0x30)
-> > 		dma_cap->mbps_10_100 = 1;
-> > 
-> > Then you can use the mbps_1000 and mbps_10_100 flags to set the proper
-> > MAC-capabilities to hw->link.caps in the dwxgmac2_setup() method. I
-> > would have added the XGMII 2.5G/5G MAC-capabilities setting up to the
-> > dwxgmac2_setup() method too for the v3.x IP-cores and newer.
-> 
-> Hi Serge,
-> 
-> From the databook, I noticed the condition:
-> (DWCXG_XGMII_GMII == 1) && <DWC-XGMAC-V2_20 feature authorized>
-> which seems to suggest that 10/100 Mbps support was introduced starting
-> from version 2.20.
-> 
-> Am I interpreting this correctly, or is this feature only fully
-> supported from v3.00 onwards.
-
-Hm. Interesting discovery. I've got only DW XGMAC v1.20a, v2.11a,
-v3.01a and v3.20a databooks at hands. So I can't prove for sure your
-inference. But the DW XGMAC v3.01a doc indeed states that
-DWCXG_FDUPLX_ONLY parameter is enabled if:
-(DWCXG_XGMII_GMII == 1) && <DWC-XGMAC-V2_20 feature authorized>
-which implies that the parameter was originally introduced in v2.20a
-IP-core.
-
-So to speak you might be right. Perhaps it will be more correct to set
-dma_cap->mbps_10_100 for v2.20a (SNPSVER = 0x22) IP-cores too
-especially seeing another parameter DWCXG_MII_SUPPORT depends on
-SNPS_RSVDPARAM_16 which also depends on DWC-XGMAC-V2_20.
-
--Serge(y)
-
-> 
-> Best Regards,
-> Rohan
+Oops, I think I misunderstood the intent of commit
+278d1ed65e25d80af7c3a112d707b3f70516ddb4(cpumask: make CONFIG_NR_CPUS
+always valid). And sorry for not testing it, I wasn't exactly sure how
+to test it. Could you please point out the issues so I can fix them
+properly? I appreciate your patience. I=E2=80=99m still learning my way aro=
+und
+kernel development and trying to improve. Thanks!
 
