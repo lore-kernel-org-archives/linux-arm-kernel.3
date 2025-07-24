@@ -4,83 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E8D3C87FCC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 17:05:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F06BC87FD3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 17:05:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d16+YUiPtl7EZ7Mi65I1uv3nQbRaVfEJUXPyBM0BQrQ=; b=yO0eW42qeEOcPpPzXrA07lo/BH
-	muPJA6c43qzE+mGbHaTko0818JHDzmIZulDMdNCduUOrWAeu+U/7kfPifA44tMChryP8hZyVsDi8e
-	4sWqjijFCDeywCsnZ3WPxHYdvBrNMyGWf+MMgRMd8rtWzfkf2HQJXDnyuy8F3JtIEwUXUtxp313hn
-	TARKGGf0aDJuFq1qKlU1CTZqZHHFEmUi9pisLaNlNPIAIlCeYRQKUek9RqIRmdcfXINazjGirCG82
-	uft3og/3uuOpFSbL9oq7OZ6TpUYsSmOgM4/DMD1tYE/fX9St98FVUElbBmj8MvpyZ6+mxGjNvxAyM
-	OGZfMlkA==;
+	bh=UHuEueO+ui51hT1DZz+A8665dEbT2NS+aPaD8xGYVLw=; b=aYA16seuRxIMBT1XFdeyNERYt4
+	PVBySPFKEM10KnZhAP/eh7QdyC7liXvia/9kZYTJAZawCikDwkWAhX1Qt1Cdrgh9HCumRM2ucQYFM
+	duo7XoIEJqsvtQyTTa4d6Lvldk/Q3gFJyvOrK+DBRVE5qIjvenlbw+ukzlyKBHPN/+yMBq3vTsTgm
+	dBBbhLX2hW4USu9rd3ra3aLPpx0dsyOIe6+STbgEqQv4WUf2I8D4MmSAR+Kh6DpGmC6q4UrVzADYm
+	MKiSmW4D6Q8D/XrEGUUIVaUHYAoDhRl59MeK8r3AzhEPalNsmwmghtea0/sn+99dUdC/KkfUbDe9u
+	IOK4zDWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uezNS-000000082rX-1LJO;
-	Thu, 24 Jul 2025 17:05:06 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1uezNj-000000083EQ-3lo6;
+	Thu, 24 Jul 2025 17:05:23 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uewea-00000007hfU-1VNg;
-	Thu, 24 Jul 2025 14:10:37 +0000
-Received: from [192.168.1.76] (unknown [IPv6:2001:b07:6462:5de2:520d:d7a3:63ca:99e8])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 71877C79;
-	Thu, 24 Jul 2025 16:09:55 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1753366196;
-	bh=V29a6qX8KA0ELmVzRolMfVBPPzH85sU33AYkFGGSdRI=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=QwlwWrx9/bXH6s6L686gbmUSCanbKpOJt0Rv2wgRpyNVXfVpIhnj0jsfAQhzbSmVQ
-	 qgszdOGLzxyg6BONkbJWnBR52Vby5KQwlNPaE+S3ZsrTuCk0RiKuWR6gpwKfLzy3dM
-	 RThkXLiKp7KEwHcVbreBzOaGvNQHbt/T69t4nRCg=
-From: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-Date: Thu, 24 Jul 2025 16:10:14 +0200
-Subject: [PATCH v2 07/27] media: Documentation: Add VIDIOC_BIND_CONTEXT
+	id 1uex5Q-00000007lmp-3tf1
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 24 Jul 2025 14:38:22 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 257E4A55EFA;
+	Thu, 24 Jul 2025 14:38:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 49ADFC4CEED;
+	Thu, 24 Jul 2025 14:38:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1753367899;
+	bh=J+2CIa+PZT6ZTjOXWq7tTssnqG+kDDgqLvO7Suiluns=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=HsTFWnGtUktymKD/MzWoKPp9mMJ8J7hdPiYRwnH/gX9Yyk0YWoi1zQuKcwMKkqmTZ
+	 U4ENjChvi76/4WavXvO4QCBxC+2/YMObnfkttI8vQEU8YE6ce1JGsY+nABrE8iT1N5
+	 fsvrjy6Sxq4P7KFt0/HSAoKCCJm7TauRFzfFrz6pICC7V4MzcBlBoLnlO+UYMVH66T
+	 vWl/Xg2sk05tWJpYL02rUUx+Ym3KdwHC0Fni5rYKRSUMQJ3cdo5OA+RLTP9X2GeOVi
+	 gcc4BWEYQEwm7naAtF2czbFwmrqIiUbUyKnYg8p7mp1iHOkqkI4XCi0RqrKtP3/AuB
+	 ILa9KQXLxxcXg==
+Message-ID: <217dfc7f-97d6-4598-ad6a-1cb48464c91c@kernel.org>
+Date: Thu, 24 Jul 2025 16:38:11 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v12 0/8] Implement vendor resets for PSCI SYSTEM_RESET2
+To: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>,
+ Florian Fainelli <florian.fainelli@broadcom.com>,
+ Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
+ Bjorn Andersson <andersson@kernel.org>, Sebastian Reichel <sre@kernel.org>,
+ Rob Herring <robh@kernel.org>, Sudeep Holla <sudeep.holla@arm.com>,
+ Souvik Chakravarty <Souvik.Chakravarty@arm.com>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Andy Yan <andy.yan@rock-chips.com>,
+ Mark Rutland <mark.rutland@arm.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+ Konrad Dybcio <konradybcio@kernel.org>, cros-qcom-dts-watchers@chromium.org,
+ Vinod Koul <vkoul@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>
+Cc: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+ Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
+ Stephen Boyd <swboyd@chromium.org>, Andre Draszik
+ <andre.draszik@linaro.org>, linux-pm@vger.kernel.org,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+ Elliot Berman <quic_eberman@quicinc.com>,
+ Srinivas Kandagatla <srini@kernel.org>,
+ Elliot Berman <elliot.berman@oss.qualcomm.com>,
+ Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+References: <20250721-arm-psci-system_reset2-vendor-reboots-v12-0-87bac3ec422e@oss.qualcomm.com>
+ <beb26682-d2e4-40e6-89ac-87f18c0401d0@broadcom.com>
+ <56599da9-0200-72b5-012e-942a1fc954b2@oss.qualcomm.com>
+ <a1d3264f-a46a-42c4-b518-a66c8e0b70b4@kernel.org>
+ <f4725f3f-1b45-ebd2-aaf4-4f986a44eb8e@oss.qualcomm.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <f4725f3f-1b45-ebd2-aaf4-4f986a44eb8e@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250724-multicontext-mainline-2025-v2-7-c9b316773486@ideasonboard.com>
-References: <20250724-multicontext-mainline-2025-v2-0-c9b316773486@ideasonboard.com>
-In-Reply-To: <20250724-multicontext-mainline-2025-v2-0-c9b316773486@ideasonboard.com>
-To: Sakari Ailus <sakari.ailus@linux.intel.com>, 
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
- Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, 
- Kieran Bingham <kieran.bingham@ideasonboard.com>, 
- Nicolas Dufresne <nicolas.dufresne@collabora.com>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, 
- Tomasz Figa <tfiga@chromium.org>, 
- Marek Szyprowski <m.szyprowski@samsung.com>, 
- Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
- Florian Fainelli <florian.fainelli@broadcom.com>, 
- Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
- Hans Verkuil <hverkuil@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
- linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
- Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4469;
- i=jacopo.mondi@ideasonboard.com; h=from:subject:message-id;
- bh=V29a6qX8KA0ELmVzRolMfVBPPzH85sU33AYkFGGSdRI=;
- b=owEBbQKS/ZANAwAKAXI0Bo8WoVY8AcsmYgBogj7OHWG882uXaFEbSbt0Hr5/yWbNirgfhlDO1
- fH9BACuQ0GJAjMEAAEKAB0WIQS1xD1IgJogio9YOMByNAaPFqFWPAUCaII+zgAKCRByNAaPFqFW
- PMiXD/9ptjYvK6OodJsJm6frucZmguwClByRCBQIzmoIHod2NI+aXnplxYiBs004EFI+isBYOf2
- ofXGV85huvYTG8eBx/S7ocknJu/aU3fLMOsO+EDpLKJ3nzhz6eUp3yWo/pdv3MKQpNSu0vurBeq
- oVDbfgWZFi1K/HrVDfMVLptskMYg6FyAvrd9bNrAjaLO8Um8/GA1cv+xjhiq3ZY5XKgtE4/4MDU
- x11OIj9KnUfa0jHl9YwIThbaENit1LsIXtBoNUTUNZPBKKL9cqKLOfHfr3i5qr55rsH4opPaMsn
- gbvBwtxjggqTbqoZAi/nss8gvck/3VtS8FfB7LooadDdrWNA6yWhWcvEMdxEd4DWbiFpvxPyWiF
- TzBoePhTZjBd/FVrSDklaRJ36Gl6zq+5y7FLcvUyDfvCkMZZyYSrxOrcCdlN2sspyXtVnsWwGRv
- f1od1+T1q+UDQ/Xp1S6rfiHKbq9KURLqgSaarSkjjfRsUQ5xfbSBUjjcanix4U0Dilux9DOW8aF
- W3zHtE1JAUbNhv2auXcMpC+nOv7nizoQxUItCutHDFvjd4J2cPp74zgtRcMZ84FU9gA6XijuTd9
- T4pdogp3UHtV39jF0c7B8PrhnCICx7FZBd9sf6++rODg56jYiUYG2b5QVCJHBtWLM7OSpPHBjRG
- dFjZ4mFhvDKCdtw==
-X-Developer-Key: i=jacopo.mondi@ideasonboard.com; a=openpgp;
- fpr=72392EDC88144A65C701EA9BA5826A2587AD026B
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250724_071036_571784_F1F528D0 
-X-CRM114-Status: GOOD (  17.98  )
+X-CRM114-CacheID: sfid-20250724_073821_098054_1485AB38 
+X-CRM114-Status: GOOD (  12.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,114 +140,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Document the newly introduced VIDIOC_BIND_CONTEXT ioctl.
+On 24/07/2025 16:04, Shivendra Pratap wrote:
+>>>> For the sysfs bits, should not we be seeing "psci" instead of "reboot-mode" twice in this path:
+>>>>
+>>>> # cat /sys/class/reboot-mode/reboot-mode/reboot_modes
+>>>> powercycle
+>>> As per current patch, we create a class named - "reboot-mode".
+>>> /sys/class/reboot-mode
+>>>
+>>> Then comes the DT node name of the registering driver.
+>>> /sys/class/reboot-mode/<DT node name of the registering driver>/
+>>
+>> This means that node name becomes part of the ABI? I am not happy about
+>> it. Where is such ABI documented? Because your last patch tells
+>> something completely else!
+>>
+>> I strongly insist using compatible as way to find your device, not node
+>> names.
+> It will look better to switch to compatible. Will define a compatible for
+> psci reboot-mode binding and align the patch to use the compatible for sysfs.
+> Current patch defines reboot-mode as a property to psci, hope its fine to
+> define a compatible for this property like "psci-vendor-reset" or
+> "psci-reboot-modes"?
 
-Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
----
- .../userspace-api/media/v4l/user-func.rst          |  1 +
- .../media/v4l/vidioc-bind-context.rst              | 80 ++++++++++++++++++++++
- 2 files changed, 81 insertions(+)
 
-diff --git a/Documentation/userspace-api/media/v4l/user-func.rst b/Documentation/userspace-api/media/v4l/user-func.rst
-index 6f661138801cde2810997740ee8305085fe73a43..0d9aff56ab653b2a4f6afe4828f88bc5637addf1 100644
---- a/Documentation/userspace-api/media/v4l/user-func.rst
-+++ b/Documentation/userspace-api/media/v4l/user-func.rst
-@@ -12,6 +12,7 @@ Function Reference
- 
-     func-close
-     func-ioctl
-+    vidioc-bind-context
-     vidioc-create-bufs
-     vidioc-cropcap
-     vidioc-dbg-g-chip-info
-diff --git a/Documentation/userspace-api/media/v4l/vidioc-bind-context.rst b/Documentation/userspace-api/media/v4l/vidioc-bind-context.rst
-new file mode 100644
-index 0000000000000000000000000000000000000000..74c885169e22c495056a9364e722e2140d8f21c5
---- /dev/null
-+++ b/Documentation/userspace-api/media/v4l/vidioc-bind-context.rst
-@@ -0,0 +1,80 @@
-+.. SPDX-License-Identifier: GFDL-1.1-no-invariants-or-later
-+.. c:namespace:: V4L
-+
-+.. _vidioc_bind_context:
-+
-+*************************
-+ioctl VIDIOC_BIND_CONTEXT
-+*************************
-+
-+Name
-+====
-+
-+VIDIOC_BIND_CONTEXT - Bind a video device file handle to a media device context
-+
-+Synopsis
-+========
-+
-+.. c:macro:: VIDIOC_BIND_CONTEXT
-+
-+``int ioctl(int fd, VIDIOC_BIND_CONTEXT, struct v4l2_context *argp)``
-+
-+Arguments
-+=========
-+
-+``fd``
-+    File descriptor returned by :c:func:`open()`.
-+
-+``argp``
-+    Pointer to struct :c:type:`v4l2_context`.
-+
-+Description
-+===========
-+
-+Applications call the ``VIDIOC_BIND_CONTEXT`` ioctl to bind a video device file
-+handle to a media device  context. Binding a video device file handle to a media
-+device context creates an isolated execution context which allows to multiplex
-+the usage of a video device. This means, in practice, that the video device
-+configuration (format, sizes etc) applied on a file handle bound to a media
-+device context won't be visible on file handles bound to a different media
-+device context (or not bound at all).
-+
-+By opening a media device applications create a media device context to which
-+video devices and subdevices file handles can be bound to. The file descriptor
-+returned by a call to :c:func:`open()` on the media device identifies uniquely
-+the media device context. Application populates the ``context_fd`` field of
-+:c:type:`v4l2_context` with the file descriptor of an open media device to
-+identify the media context to which they want to bind a video device to.
-+
-+Applications can open a video device node multiple times, and call
-+``VIDIOC_BIND_CONTEXT`` on each file handle returned by a successful call to
-+:c:func:`open()` to isolate the operations performed on that file handle from
-+any operation performed on other file handles bound to different contexts. This
-+means, in example, that the video device format, sizes and the buffers are
-+isolated from the ones associated with a file descriptor, obtained by opening
-+the same video device but bound to a different media device context (or not
-+bound at all).
-+
-+The bounding operation realizes a permanent association valid until the video
-+device context is released by closing the file handle.
-+
-+A video device file handle can be bound to the same media device context once
-+only. Trying to bind the same file handle to the same media device context a
-+second time, without releasing the already established context by closing the
-+bound file descriptor first, will result in an error.
-+
-+Bounding is an opt-in feature that applications are free to ignore. Any
-+operation directed to a non bound file handle will continue to work as it used
-+to, and the video device configuration (formats, sizes etc) will be visible
-+across all the other non-bound file handles.
-+
-+Return Value
-+============
-+
-+On success 0 is returned, on error -1 and the ``errno`` variable is set
-+appropriately. The generic error codes are described at the
-+:ref:`Generic Error Codes <gen-errors>` chapter.
-+
-+EINVAL
-+    The media device context file handle ``context_fd`` is not valid or the
-+    video device file handle is already bound to a context.
+Hm, sorry, what? That's not what I ask, but considering inconsistency
+mentioned here and in actual ABI document I do not even know what to
+suggest.
 
--- 
-2.49.0
+> 
+>>
+>> In any case you need to document such ABI in Devicetree bindings,
+>> because sysfs ABI is not enough.
+> should reboot-mode Devicetree binding document this ABI? Can you
+> please share some more detail on this?
 
+
+The binding for the device, whose node name you are using here as ABI,
+should document the ABI.
+
+Best regards,
+Krzysztof
 
