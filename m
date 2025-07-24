@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EF58C87FC5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 13:52:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C059C83F26
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 13:52:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p9N4kKF1ybQ5CXgh1GBlu4OfVzelg+1wad03LAF0VVI=; b=zPDp1HmWuy8kC3738mj+bxwxVt
-	twGNUM4ekSLjQ5yaDX9kRei6WHEQYKpn1RMgICVBHIHvBmkRyXtMeHazEUgD4YnP774D79q217mSJ
-	y/HG8z1ljnJXYV2VqCXnlNjIrtwxlUSN4Z7hBf6W7f4Kjc7YXohNptVvvJkaP+isvZJ69BBxbxdZl
-	saiAAGUp5L0KrksTkM+eGxNznPBJAj8WEWovC5NLXHOi8U7RiJpN2gMTooLjR9XKxx9X7uMwA6QnL
-	GQZyHIvxb7G0DnOR3ziFwMPH92ceCXCC5ndLyihTH8IFxA9uG0VBlixIHlSo0/DdQOuVwaRDvL5qQ
-	b0nEDXiw==;
+	bh=RRDrY/4i4vxfV6KqLLQJM66rprUmL0CTshjnTnV2Pmk=; b=uhxEa5nhX8FQnCzYgzgMsnSll4
+	G1kIwpDq+rHf4RVoJb7ovSlOcO0DQLrshLQIvGYXyGFf14Ue/Pm03sADU3KLi4IZMBLKNVN+g7agN
+	dqXocw+70gUr8I21MKdqmjnVdwqrnzi4qfVKtZNkdCes/iNnrcSpm1t/Ut3APtAUGFy4cmEJgnWTk
+	V/PsMVTF82Tnawn4NKddZDnHKrKeJDIFnJ9z1QDowfHJietLipAOof1mBDHtfNgC3+DMaFtr/m8O0
+	laB2BEiZvxcbtpwxgF0oWIT48RGRk7nWrRuSG/lf2MJb8k/hYZZh5iNKzP6FPlzafLmh7DNRPyJ0o
+	wp/phqdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uewMy-00000007YwW-2wZM;
-	Thu, 24 Jul 2025 13:52:24 +0000
-Received: from out-173.mta1.migadu.com ([2001:41d0:203:375::ad])
+	id 1uewMz-00000007YyT-419U;
+	Thu, 24 Jul 2025 13:52:25 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uesvl-00000007Aeh-2cXo
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Jul 2025 10:12:07 +0000
-Message-ID: <ff106cec-7e63-4475-a0e6-452bfcb823b3@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1753351799;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=p9N4kKF1ybQ5CXgh1GBlu4OfVzelg+1wad03LAF0VVI=;
-	b=KT+7+EMiLruXAUoUM3EAPX6VEEuwHxr71sLBL9KEsUx/rQCdAEU7Ar1IUZ5DUhU8Byfm4z
-	JK+8WatmU+6FhG/+atS/1qr9O/p9vm9keg/LSGw9cFa8enrGbUqsiKmcMJWVVDAEtxFcCj
-	HL6W46KKPKBUZAkjlraCt+uufSgtjCQ=
-Date: Thu, 24 Jul 2025 11:09:56 +0100
+	id 1ueswe-00000007Azc-2BGN;
+	Thu, 24 Jul 2025 10:13:00 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 8281A61126;
+	Thu, 24 Jul 2025 10:12:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C8C04C4CEF4;
+	Thu, 24 Jul 2025 10:12:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1753351979;
+	bh=MKTJsXoh0ovoIVsPRZJbybf8oVQe3fF6tNG1svHyD9Q=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=F+KOmwgg+z7e6KttvqwjToMUUNQKbMcch6Kaqh7mZiJe+e9MtjQqK0QFMCc/r6Sja
+	 p+D1xm97+/1DEirZQdiS8y+/KFaz8D6qlqH/lfgk8mS6gp58TEMqhj6XVq6SYaXY5J
+	 zQuYjzsOKaKulq2ezVsbW2oiw0HNwtpngA5XWMEv7MyE5aSpR/zbmzYjpcXTHEcitb
+	 TfjwB0SaDiSzB8/wFtEMf3vnCWpMBWKbirWtqS8e6MvX9yNTXf0K3in3uJsMhAoGaZ
+	 Tmo1DaoDs2g06Y13IpqoEM1crzlFMx2a8w1h76uWBwcDwvJC1BSwoH7wUiLJemnoiU
+	 GobqWa0flpRbQ==
+Date: Thu, 24 Jul 2025 11:12:47 +0100
+From: Jonathan Cameron <jic23@kernel.org>
+To: Sanjay Suthar <sanjaysuthar661996@gmail.com>
+Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-iio@vger.kernel.org, netdev@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org,
+ ribalda@kernel.org, dlechner@baylibre.com, nuno.sa@analog.com,
+ andy@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, neil.armstrong@linaro.org,
+ khilman@baylibre.com, jbrunet@baylibre.com,
+ martin.blumenstingl@googlemail.com
+Subject: Re: [PATCH v3] dt-bindings: cleanup: fix duplicated 'is is' in YAML
+ docs
+Message-ID: <20250724111247.669d6955@jic23-huawei>
+In-Reply-To: <20250722170513.5854-1-sanjaysuthar661996@gmail.com>
+References: <20250722170513.5854-1-sanjaysuthar661996@gmail.com>
+X-Mailer: Claws Mail 4.3.1 (GTK 3.24.49; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Subject: Re: [PATCH net-next v5 3/7] net: airoha: npu: Add wlan_{send,get}_msg
- NPU callbacks
-To: Lorenzo Bianconi <lorenzo@kernel.org>, Andrew Lunn
- <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>,
- Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
-Cc: Simon Horman <horms@kernel.org>, Felix Fietkau <nbd@nbd.name>,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- netdev@vger.kernel.org, devicetree@vger.kernel.org
-References: <20250723-airoha-en7581-wlan-offlaod-v5-0-da92e0f8c497@kernel.org>
- <20250723-airoha-en7581-wlan-offlaod-v5-3-da92e0f8c497@kernel.org>
-Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Vadim Fedorenko <vadim.fedorenko@linux.dev>
-In-Reply-To: <20250723-airoha-en7581-wlan-offlaod-v5-3-da92e0f8c497@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
-X-Migadu-Flow: FLOW_OUT
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250724_031205_798938_66FCF908 
-X-CRM114-Status: GOOD (  15.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,65 +76,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 23/07/2025 18:19, Lorenzo Bianconi wrote:
-> Introduce wlan_send_msg() and wlan_get_msg() NPU wlan callbacks used
-> by the wlan driver (MT76) to initialize NPU module registers in order to
-> offload wireless-wired traffic.
-> This is a preliminary patch to enable wlan flowtable offload for EN7581
-> SoC with MT76 driver.
+On Tue, 22 Jul 2025 22:35:13 +0530
+Sanjay Suthar <sanjaysuthar661996@gmail.com> wrote:
+
+> Fix minor grammatical issues by removing duplicated "is" in two devicetree
+> binding documents:
 > 
-> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+> - net/amlogic,meson-dwmac.yaml
+> - iio/dac/ti,dac7612.yaml
+> 
+> Signed-off-by: Sanjay Suthar <sanjaysuthar661996@gmail.com>
+
+I'd have no problem with the argument that this can go through either
+tree if there was any interaction between the files or the changes, but
+here there isn't. This is just causing potential mess if either tree ends
+up with other changes overlapping this for no benefit.  Please split into
+two patches, one for each subsystem.  You should be fine to keep the
+various tags given here for the new patches.
+
+Jonathan
+
+
 > ---
->   drivers/net/ethernet/airoha/airoha_npu.c | 58 ++++++++++++++++++++++++++++++++
->   drivers/net/ethernet/airoha/airoha_npu.h | 21 ++++++++++++
->   2 files changed, 79 insertions(+)
+> Changes since V2:
+> - Corrected the subject line
+> - link to v2 : https://lore.kernel.org/linux-iio/20250720182627.39384-1-sanjaysuthar661996@gmail.com/T/#u
 > 
+>  Documentation/devicetree/bindings/iio/dac/ti,dac7612.yaml      | 2 +-
+>  Documentation/devicetree/bindings/net/amlogic,meson-dwmac.yaml | 2 +-
+>  2 files changed, 2 insertions(+), 2 deletions(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/iio/dac/ti,dac7612.yaml b/Documentation/devicetree/bindings/iio/dac/ti,dac7612.yaml
+> index 20dd1370660d..624c640be4c8 100644
+> --- a/Documentation/devicetree/bindings/iio/dac/ti,dac7612.yaml
+> +++ b/Documentation/devicetree/bindings/iio/dac/ti,dac7612.yaml
+> @@ -9,7 +9,7 @@ title: Texas Instruments DAC7612 family of DACs
+>  description:
+>    The DAC7612 is a dual, 12-bit digital-to-analog converter (DAC) with
+>    guaranteed 12-bit monotonicity performance over the industrial temperature
+> -  range. Is is programmable through an SPI interface.
+> +  range. It is programmable through an SPI interface.
+>  
+>  maintainers:
+>    - Ricardo Ribalda Delgado <ricardo@ribalda.com>
+> diff --git a/Documentation/devicetree/bindings/net/amlogic,meson-dwmac.yaml b/Documentation/devicetree/bindings/net/amlogic,meson-dwmac.yaml
+> index 0cd78d71768c..5c91716d1f21 100644
+> --- a/Documentation/devicetree/bindings/net/amlogic,meson-dwmac.yaml
+> +++ b/Documentation/devicetree/bindings/net/amlogic,meson-dwmac.yaml
+> @@ -149,7 +149,7 @@ properties:
+>        - description:
+>            The first register range should be the one of the DWMAC controller
+>        - description:
+> -          The second range is is for the Amlogic specific configuration
+> +          The second range is for the Amlogic specific configuration
+>            (for example the PRG_ETHERNET register range on Meson8b and newer)
+>  
+>    interrupts:
 
-[...]
-
-> @@ -131,6 +147,12 @@ struct wlan_mbox_data {
->   	u32 func_id;
->   	union {
->   		u32 data;
-> +		struct {
-> +			u32 dir;
-> +			u32 in_counter_addr;
-> +			u32 out_status_addr;
-> +			u32 out_counter_addr;
-> +		} txrx_addr;
->   		u8 stats[WLAN_MAX_STATS_SIZE];
->   	};
->   };
-> @@ -424,6 +446,30 @@ static int airoha_npu_wlan_msg_send(struct airoha_npu *npu, int ifindex,
->   	return err;
->   }
->   
-> +static int airoha_npu_wlan_msg_get(struct airoha_npu *npu, int ifindex,
-> +				   enum airoha_npu_wlan_get_cmd func_id,
-> +				   u32 *data, gfp_t gfp)
-> +{
-> +	struct wlan_mbox_data *wlan_data;
-> +	int err;
-> +
-> +	wlan_data = kzalloc(sizeof(*wlan_data), gfp);
-> +	if (!wlan_data)
-> +		return -ENOMEM;
-> +
-> +	wlan_data->ifindex = ifindex;
-> +	wlan_data->func_type = NPU_OP_GET;
-> +	wlan_data->func_id = func_id;
-> +
-> +	err = airoha_npu_send_msg(npu, NPU_FUNC_WIFI, wlan_data,
-> +				  sizeof(*wlan_data));
-> +	if (!err)
-> +		*data = wlan_data->data;
-> +	kfree(wlan_data);
-> +
-> +	return err;
-> +}
-
-Am I reading it correct, that on message_get you allocate 4408 + 8 byte, 
-setting it 0, then reallocate the same size in airoha_npu_send_msg() and
-copy the data, and then free both buffers, and this is all done just to
-get u32 value back?
 
