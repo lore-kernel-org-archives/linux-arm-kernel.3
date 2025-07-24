@@ -4,112 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB146C87FCA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 15:25:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7ABAC83F26
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 15:25:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XAYSetqh9eSNkwVhXRc1QeqVbL4i4v1DvR8ou7zVszs=; b=KjSrO1tYqzif3LOVyNs7eTq+0B
-	6u9+U6I+DQthUCoYGpjUBMay2KwpQfI5qY5wppZ7HqS+lIVQiUc7dFKk+2juBwOyskz034nna0uUN
-	DKxxFGsu1OJjfDkW7lMUERHbZORr2APOadY9iKczLC75oUS9jRLNBOrk8cm+OYnKB6v8bnP2ZshtA
-	FohIoOu4thOD9xSWyEKo0ErWFAkn92EOuEybXjcjlnUHc/25tC9WN7/N3N+EZIp4mDPPTLXMu+tsm
-	ESMg5Jd+mrUoS5uGJM3ds1BKV3AKSK9SWvDAHNpn3F1YY+JnbusG2VAxE9yQmCHj3NvxvWAeaUXYN
-	+Equm1TA==;
+	bh=2yUnl4vidy4gJvXblFDoJuJNs7hErSWbP5rsO2C/gB0=; b=qRP+cWSOB9yQyvNM+4Zv879NV+
+	IwzAamP7ZQUVL1dposNEUOaakhaFOcfiV3jI7C9lV3OBQTf7L/zyiBwsUio7xU4/DKnFvf81HELOw
+	osUCOuHoReJuTC11LmAb/IY2QJaRIl3q0ZxbA9/AxmOUwTS9oWKC6+ox8ppamsqVwYCWmFhgPI7uv
+	3UD3Mk9Z7fHtItlwdqaN7o9gYaB2cvNEQNyrVvvLaalDQwcBMZID4JWPBB8bmJBP284NqjJio04m5
+	YlDQm6Giy18Bu6JQNR9I+HXCSOJTumqZEqZRzHtgDMbCTe2JerESH7L3VbE7wrbdQ4Ni+xEgwnu+z
+	lIR/+INQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uexpA-00000007qIn-24wA;
-	Thu, 24 Jul 2025 15:25:36 +0000
-Received: from mgamail.intel.com ([198.175.65.14])
+	id 1uexpB-00000007qJI-0H4O;
+	Thu, 24 Jul 2025 15:25:37 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueuVE-00000007Myb-3sVM;
-	Thu, 24 Jul 2025 11:52:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1753357969; x=1784893969;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=skduPBA0XOiRRFwQNtjlPasZ0GUfqz6drj8febfSOhY=;
-  b=eARZHpmL96dD7ERSZtIFH0sQreI8UQ3n3gZ4+pwPPw3GKa4F3wnbUVdN
-   yQ1MJWrBTzS1Y8Y/ugkb/oAypHjL7ZfGvSE3Mbu+FyOuxEFiT1YXqfBDq
-   zex+Ebseehw1kmDECTTDvOoumikfnws0G6gf9Wi0L2FSLoItrvdU6y+G3
-   6BAg7EZhj9QExs5dVIdgkCAU0c8ngrv6FrEJaIEYATSJdUbQBazQ8/EjN
-   EG+38Ry2t49Fbg+4efxXyU19ltppw16CDFfRfJGrn5LCaxRNgU1SZzZPa
-   0sT6DpcTKQSS20DvSm0E3cPoaXnnePxiYaoDiBdvTuCOaidnukpXsNOtP
-   Q==;
-X-CSE-ConnectionGUID: OZdNWVHKRne2nn7eC9CIPw==
-X-CSE-MsgGUID: j8O0r9BdR0aoj1w9mzuJog==
-X-IronPort-AV: E=McAfee;i="6800,10657,11501"; a="59473459"
-X-IronPort-AV: E=Sophos;i="6.16,337,1744095600"; 
-   d="scan'208";a="59473459"
-Received: from fmviesa003.fm.intel.com ([10.60.135.143])
-  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Jul 2025 04:52:46 -0700
-X-CSE-ConnectionGUID: gH3texk5RoaLOe2vbIi/aw==
-X-CSE-MsgGUID: lF7KjgBaRhmOljQc+wknEA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.16,337,1744095600"; 
-   d="scan'208";a="164253907"
-Received: from smile.fi.intel.com ([10.237.72.52])
-  by fmviesa003.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Jul 2025 04:52:36 -0700
-Received: from andy by smile.fi.intel.com with local (Exim 4.98.2)
-	(envelope-from <andriy.shevchenko@intel.com>)
-	id 1ueuUx-00000000Yl0-3pfo;
-	Thu, 24 Jul 2025 14:52:31 +0300
-Date: Thu, 24 Jul 2025 14:52:31 +0300
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
-Cc: Andy Shevchenko <andy.shevchenko@gmail.com>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Alexey Klimov <alexey.klimov@linaro.org>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	Sean Wang <sean.wang@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Paul Cercueil <paul@crapouillou.net>, Kees Cook <kees@kernel.org>,
-	Andy Shevchenko <andy@kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	David Hildenbrand <david@redhat.com>,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Vlastimil Babka <vbabka@suse.cz>, Mike Rapoport <rppt@kernel.org>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Michal Hocko <mhocko@suse.com>, Dong Aisheng <aisheng.dong@nxp.com>,
-	Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
-	Jacky Bai <ping.bai@nxp.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	NXP S32 Linux Team <s32@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Tony Lindgren <tony@atomide.com>,
-	Haojian Zhuang <haojian.zhuang@linaro.org>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org, linux-mediatek@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
-	linux-hardening@vger.kernel.org, linux-mm@kvack.org,
-	imx@lists.linux.dev, linux-omap@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org,
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-Subject: Re: [PATCH v3 01/15] lib: provide kmemdup_const()
-Message-ID: <aIIef0MDcZiElgN1@smile.fi.intel.com>
-References: <20250724-pinctrl-gpio-pinfuncs-v3-0-af4db9302de4@linaro.org>
- <20250724-pinctrl-gpio-pinfuncs-v3-1-af4db9302de4@linaro.org>
- <e1253b8a-4940-417f-b530-09e57c6a8932@lucifer.local>
- <CAHp75VeWbhuL1pYvEza44Pnb5YUufgY=1WYXSx2nNMJVfcytTA@mail.gmail.com>
- <5c7edf57-bf13-4633-8348-791e0620cc79@lucifer.local>
+	id 1uevZj-00000007TJN-29Kh;
+	Thu, 24 Jul 2025 13:01:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=2yUnl4vidy4gJvXblFDoJuJNs7hErSWbP5rsO2C/gB0=; b=rqRYTOatipp8MXoMnYvt0IchBY
+	K6HjCQAtpimPUnQtSi/BNo/rhID2z3ZpYzeCo5d0nTA+EqsZqo5uResfrEERmPBEJ/EvesXgJL+pL
+	pMg1t4i0xSPMpGxNrZGdHKYQyXoWWsKrJZ36Exq8A3t6QCpWaxm8fQ3uFqFrLs7xHNTLDUcU8t3zu
+	ftz79uNn1goGeo7w3A2F+6RfZEXvpOjuNQJwC8wLypwf58/4o3AM8LoNA/PuO+GY/lg5qVStosIgY
+	GBPCcmPrkXmSbj22AvKy1UkHkeNInX+DT7hZLGIfaYV/Av2EIf/fzaSOnYT2v99DqxboLboE5UWBp
+	DGrJ3CaA==;
+Received: from i53875a38.versanet.de ([83.135.90.56] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1uevZ5-0005kZ-4F; Thu, 24 Jul 2025 15:00:51 +0200
+From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
+To: andrzej.hajda@intel.com, neil.armstrong@linaro.org, rfoss@kernel.org,
+ Damon Ding <damon.ding@rock-chips.com>
+Cc: Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
+ jernej.skrabec@gmail.com, maarten.lankhorst@linux.intel.com,
+ mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
+ jingoohan1@gmail.com, inki.dae@samsung.com, sw0312.kim@samsung.com,
+ kyungmin.park@samsung.com, krzk@kernel.org, alim.akhtar@samsung.com,
+ hjc@rock-chips.com, andy.yan@rock-chips.com,
+ dmitry.baryshkov@oss.qualcomm.com, l.stach@pengutronix.de,
+ dianders@chromium.org, dri-devel@lists.freedesktop.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ Damon Ding <damon.ding@rock-chips.com>
+Subject: Re: [PATCH v3 08/14] drm/bridge: analogix_dp: Apply drm_bridge_connector
+ helper
+Date: Thu, 24 Jul 2025 15:00:49 +0200
+Message-ID: <10694296.nUPlyArG6x@diego>
+In-Reply-To: <20250724080304.3572457-9-damon.ding@rock-chips.com>
+References: <20250724080304.3572457-1-damon.ding@rock-chips.com>
+ <20250724080304.3572457-9-damon.ding@rock-chips.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <5c7edf57-bf13-4633-8348-791e0620cc79@lucifer.local>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250724_045249_030680_767A6BA0 
-X-CRM114-Status: GOOD (  16.12  )
+X-CRM114-CacheID: sfid-20250724_060131_578592_B2164838 
+X-CRM114-Status: GOOD (  12.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,30 +81,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 24, 2025 at 12:15:11PM +0100, Lorenzo Stoakes wrote:
-> On Thu, Jul 24, 2025 at 01:12:49PM +0200, Andy Shevchenko wrote:
-> > On Thu, Jul 24, 2025 at 1:10 PM Lorenzo Stoakes
-> > <lorenzo.stoakes@oracle.com> wrote:
-> > > On Thu, Jul 24, 2025 at 11:24:29AM +0200, Bartosz Golaszewski wrote:
-> > > > +extern const void *kmemdup_const(const void *src, size_t len, gfp_t gfp);
-> > >
-> > > Please drop extern, it's unnecessary.
-> >
-> > It's all over the header. This should be done as a precursor patch and
-> > I know that usually people push back on doing that. I gave up on this.
-> > Kernel is going to rot sooner or later... :-(
-> 
-> In mm we just update as we go, this is probably the best approach to avoid
-> unnecessary churn.
+Hi Damon,
 
-I agree on the idea of eliminating it, but also I agree on the consistency over
-redundancy. That's why I prefer to see this done at once for all (in the same
-header) than doing one-by-one. And this approach got a lot of pushes back, while
-the former even more pushed back on the (in)consistency matters.
+Am Donnerstag, 24. Juli 2025, 10:02:58 Mitteleurop=C3=A4ische Sommerzeit sc=
+hrieb Damon Ding:
+> Apply drm_bridge_connector helper for Analogix DP driver.
+>=20
+> The following changes have been made:
+> - Apply drm_bridge_connector helper to get rid of &drm_connector_funcs
+>   and &drm_connector_helper_funcs.
+> - Remove unnecessary parameter struct drm_connector* for callback
+>   &analogix_dp_plat_data.attach.
+> - Remove &analogix_dp_device.connector.
+> - Convert analogix_dp_atomic_check()/analogix_dp_detect() to
+>   &drm_bridge_funcs.atomic_check()/&drm_bridge_funcs.detect().
+> - Split analogix_dp_get_modes() into &drm_bridge_funcs.get_modes() and
+>   &drm_bridge_funcs.edid_read().
+>=20
+> Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
 
--- 
-With Best Regards,
-Andy Shevchenko
+>  static enum drm_connector_status
+> -analogix_dp_detect(struct drm_connector *connector, bool force)
+> +analogix_dp_bridge_detect(struct drm_bridge *bridge)
+>  {
+> -	struct analogix_dp_device *dp =3D to_dp(connector);
+> +	struct analogix_dp_device *dp =3D to_dp(bridge);
+>  	enum drm_connector_status status =3D connector_status_disconnected;
+> =20
+>  	if (dp->plat_data->panel)
+
+this needs an update to
+
+ static enum drm_connector_status
+=2Danalogix_dp_bridge_detect(struct drm_bridge *bridge)
++analogix_dp_bridge_detect(struct drm_bridge *bridge, struct drm_connector =
+*connector)
+
+to follow Andy's patch [0] that got already applied to drm-misc-next
+
+Heiko
+
+
+[0] https://gitlab.freedesktop.org/drm/misc/kernel/-/commit/5d156a9c3d5ea3d=
+bec192121259dee2c2f938fa1
 
 
 
