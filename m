@@ -4,79 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58A42C83F26
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 10:19:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45B4FC83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 10:21:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6taTiAJxmvKWwV7MRUnViIWdyftorILSzVZsNGCp2D4=; b=wu/IhuxNyiRbm4XqF37HrmT3nR
-	ZbYrMI3dpG8QR6Hty8rsIlJoAsw0UxGHKxdUWgaEYu9kbH4rlmNp/C8YD/b6AlwAKQlDjcxy4n4Ry
-	9o+dyzPveGlGXwtR1dyruwSPWaCFslmmUdPlDSOPI5JQqqbM59vFyGNrE/I9sbYcZShtVIMmEhVhb
-	aizRWz53AXnXUC3lJfHVDvz7HV0JaEcKzy72rXjJPiZp4+3RMSoGFtsJx7ny/W182p9cWY19mznmv
-	G70/KSln32aqZLqCBpb2X1ijbSRLoDfsql/frGOVXM7HLUoRbEvG3aGwnpEETmk4H1x39FJbX4Txj
-	WTAPdbkg==;
+	bh=46QW0ZKTJsCdAnI774T47O1RlPj5t6dUczWWbfa0X0I=; b=rfDfIwBzA8E2EtWClOhNPkZywd
+	QqfE3wwWuSEjG+2MB0WtR/nniWl4hO3vlHwoKERAIY8D6C51XlRozefmz6QA3LqldqVdS3GyREyUU
+	wnpm3GIic93r5S117AUFnhUYW1wUu4RG/Pe9AoMlQV0J9vM2C+y812uqGUuZ7FfKl6txhFFCmTaBF
+	SvmOzChqVRgT5QpczOFhVcCTiVbsQQ2kd+5iB/f5znnITO3elSFu7ogaXRHX+G/OmulTWxSu6Ig97
+	5XtywBSi7tDhsnSGjtCp+iUEhs4vMyxvhQurTZg/jMWmJf5yE2mHCZi2T7rEhtO5xPU9P115BW6PT
+	820aqYOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uet2X-00000007BjC-0Vh6;
-	Thu, 24 Jul 2025 10:19:05 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1uet4x-00000007C1C-0zl9;
+	Thu, 24 Jul 2025 10:21:35 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uesBy-000000071gH-0Cvq
+	id 1uesBz-000000071i5-1ZDX
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Jul 2025 09:24:47 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-4537edf2c3cso7578875e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Jul 2025 02:24:45 -0700 (PDT)
+	Thu, 24 Jul 2025 09:24:48 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-4550709f2c1so5264365e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Jul 2025 02:24:47 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1753349084; x=1753953884; darn=lists.infradead.org;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1753349086; x=1753953886; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=6taTiAJxmvKWwV7MRUnViIWdyftorILSzVZsNGCp2D4=;
-        b=PrsYUF6SITyEH5SkxEVD/ySIJ97IUjYJicQvxl08lhp1031jP1nLeEQySgNj0IrhMV
-         aUzUM1BlBwHj5vG8yHGlhZ4SEewiQxVsKVOJ85qEa+y8KQnN2ouETX4grbjpA3c5mBPt
-         8BJ9vIOWavwLkahVFh2fjnnVyzyoV3i/EVg3ceW2/nBB3O+VgiWQYm7y2SqZlORWXv0Q
-         DQtXf9R2SPwgHbSXWggZNbaD1/Y+k4cxXvrzH1IScXjVz3OyqXiUXzww9gvg55KilZI2
-         WHlYD4ibhRpEzjsRm2bFSnt+2rQvien5OHaRU3s8gP3l61pdnbUKZmJtp51J5rtYa5b7
-         S/AQ==
+        bh=46QW0ZKTJsCdAnI774T47O1RlPj5t6dUczWWbfa0X0I=;
+        b=IHcnne5M2+UXuV8cqe/ENA3GQ/39n8pcbEj53BLByMfJq6c0//cOs8PgG7xBXqWymS
+         1IBfv0sTXK0hea+XMdsTy/oulIP+cT9t7wFaVpLvHNyTGa7xq9t+InV1hvBarZwKPA9Q
+         Afw0fVv6w2uVLTec6oocMrAPiTd84SrUn2e4/QUmXgnw1An7MLtSbVbGI0ZiOahMnP91
+         oGvqp1V86LLoZ2tpofQKMToUYJacsQcXrYHMV+bhnbZ8BBKKT1n7RZd+AMXoqmugxxNB
+         1BcDW7JO2xbYgrFp0TqXR8v+t4tV/7sRA4a//Rww79vncHhp6D8wko9Yc32TbDLs7E+d
+         Pl5A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753349084; x=1753953884;
+        d=1e100.net; s=20230601; t=1753349086; x=1753953886;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=6taTiAJxmvKWwV7MRUnViIWdyftorILSzVZsNGCp2D4=;
-        b=I61/TGiqnO4YpmfF2cVRCLyPc24pStAZAj5I3T6bxUWhPO7glwgyKxTmYbjegH6GPQ
-         tQiIyDVlw6zELxaxHQ3nIv48pGq9vE7MQ5eONtB/j8av5VapvZ0CRqKhDEvzlByoVimb
-         dbIUrJhiipyZW53HhaQeTjjkIdoUbL6R4kodd+UbCe+rYV5JSkRye9op55hqzDAeRPhj
-         YaoZDW13KOOmgcQJBu6uoXi9cvdkOr8qsNZYEgi+myF5W73Sds2NtecbdlL0Ojpi7etO
-         bQ7Q8VUmLjZBcQj51m34FYcmgL2QLIiffAiIdXstaxkuaTnEnrqQHJZrjwe1ZxXDysm/
-         CH/g==
-X-Forwarded-Encrypted: i=1; AJvYcCXvbzMUy4MJerWonRjif286x77NtU+BDs07PptWDeOvZz3nVJj2zyLX/JYy5drr57ShDflnkA1lEJKXmxVN9M80@lists.infradead.org
-X-Gm-Message-State: AOJu0YywErjspyEPxSxqG8dHinxXrHnhR8fxSU4JGGNULjPpLA6ESFhi
-	qvXjz3uYUeesAn3KYtpL/4/g+vcoX/UYoqnqSnjkrx2PugobKXUOjdpLONf7ktbnjTs=
-X-Gm-Gg: ASbGncst/AOmBp5rLSDdh1xVo1uhLCYjM6OgAC6XqLfaDKBswkHdKUfxRGbFXu0quGL
-	GnWcR7wwZHi28fcYFJD2bMXrJonJ0mZwFa8uYmydxGlvoqmSKGe9kynCSBHhMraXuYsXXz248ix
-	wMeHELjtmNcPjvOEY27FQ4jv7b8MaMoAE0y/12D7TXvLIog6UhK8aZFR4Labc9EGuVdB/lgksp5
-	mcvVRH+U36jQAPXIuzGXTdJQKKA+5zXJchhliZR2JZFK3iA3yhWEDLhO+61jvaoZ/aynU0seJDk
-	2/pQDmvK1rbOHmHlN8Rw4/VMV43uA5GCUCzUpGd7nuo/dWihhF96Rrlp440hLswqTA19PIjBg2C
-	PuDux0W9oqWzsQZ5QfOi0jvB0xCM=
-X-Google-Smtp-Source: AGHT+IHK0dYi3xsnoZaYbdsoppyUow3KIWIi5jwOyXEKrEo3jgO5fkBiWGVoSb9P3rLxzjmZh7JVig==
-X-Received: by 2002:a05:600c:1e26:b0:456:25e7:bed with SMTP id 5b1f17b1804b1-45868c97accmr58794135e9.14.1753349083444;
-        Thu, 24 Jul 2025 02:24:43 -0700 (PDT)
+        bh=46QW0ZKTJsCdAnI774T47O1RlPj5t6dUczWWbfa0X0I=;
+        b=kxcJXInUilPyyu6I6wWHaaIBpnwl3oHqnjTW+nzJhyLHj/jO+C98PjiVHA+kFhpD5J
+         fSjBZ9NI4vzOmHHVslvlKotLFNtcOsfE8ke8ifqke7ifVu2NNPognp33I0mdZe2dSbht
+         tNwXwitTFUclIo3lknOT0WZd7f4hyU9lb6Cu0POcH1Wz30XWeCNzaCxFqhVWPzIvVRMD
+         w7LUPjiPIfqOxZZKDtAApAvJghw7mEkBmwDU1JlKRuxgPCyXN/VwGZg2QDEFNc3gPjpV
+         Nng63RQX7eSrcqvSdkVAdKVXdO4BdtqOyiQ/j8IO+TeMdtEev0md8fn0gog9JfbUEv7B
+         glVA==
+X-Forwarded-Encrypted: i=1; AJvYcCWeGwegypZbtxDxBYRmQtMnx5DnKzvXibNWbyEugFhHjUN4Q1TYv8CDboo70vMvRLIqisEgUrdBjxYvGl2HPxTC@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy2LP86dvRw6j02YyA2K7zBSOgzsS+MqmbPwcKDFKHL1j2H6wJy
+	EohHO2TwE63VPLC/Moz/kiGVgtyKg1S3lNHnWTLgpS/ZefqgFZUpm2FJ37+KBAHpsnU=
+X-Gm-Gg: ASbGnctjJjO8vRtkHgudlo/KWH22qsIpM+qRM4WA/x1FLa7G329T9dIcdXk2zrG/+1g
+	S74qehYQxLfuqMW+qHViwCvSv1TcWgsHVI+v5edbDz+BC1veJv+tkrYvNzsThAcUAf83H+ap2gj
+	eTHicbS2NSN/jc6leGpwnUgW6+weW7W1qmtNH8zh6+GZmMjglbhg2wPtSQ/nFrp0WPbhmqLDWQD
+	r+hoyvekYNS0jvJrB/yvFNDM1JIL3xSC9UB9uaRZdiDqc/907tFx2hBFFwTkrRaHwtrWFxEh2Cc
+	5xDlleKWP/c7+MlpaV5wnqFu2tNTv+C8AiumQq6BqaMGaGb3urM4UiDObB1GlrZPBSkvN0R8RRT
+	ju0JmIgGUzS84EDO3gDChdbbcw8U=
+X-Google-Smtp-Source: AGHT+IFOeuH5zAlzFgvpD4Uz1Y06PKqXYxEckZmMDNMfNM7DLyHZBB1RdoHcgvW8waqnzfrmwOQl3w==
+X-Received: by 2002:a05:600c:524b:b0:456:1d4e:c14f with SMTP id 5b1f17b1804b1-45868d69f9bmr48489405e9.28.1753349085686;
+        Thu, 24 Jul 2025 02:24:45 -0700 (PDT)
 Received: from [127.0.1.1] ([2a01:cb1d:dc:7e00:f44c:20db:7ada:b556])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3b76fc72548sm1600833f8f.30.2025.07.24.02.24.41
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3b76fc72548sm1600833f8f.30.2025.07.24.02.24.43
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 24 Jul 2025 02:24:42 -0700 (PDT)
+        Thu, 24 Jul 2025 02:24:44 -0700 (PDT)
 From: Bartosz Golaszewski <brgl@bgdev.pl>
-Date: Thu, 24 Jul 2025 11:24:31 +0200
-Subject: [PATCH v3 03/15] pinctrl: airoha: replace struct function_desc
- with struct pinfunction
+Date: Thu, 24 Jul 2025 11:24:32 +0200
+Subject: [PATCH v3 04/15] pinctrl: mediatek: mt7988: use
+ PINCTRL_PIN_FUNCTION()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250724-pinctrl-gpio-pinfuncs-v3-3-af4db9302de4@linaro.org>
+Message-Id: <20250724-pinctrl-gpio-pinfuncs-v3-4-af4db9302de4@linaro.org>
 References: <20250724-pinctrl-gpio-pinfuncs-v3-0-af4db9302de4@linaro.org>
 In-Reply-To: <20250724-pinctrl-gpio-pinfuncs-v3-0-af4db9302de4@linaro.org>
 To: Linus Walleij <linus.walleij@linaro.org>, 
@@ -108,26 +108,26 @@ Cc: linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-omap@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
  Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2037;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2873;
  i=bartosz.golaszewski@linaro.org; h=from:subject:message-id;
- bh=9XGd4dmoHWG203pSJBEuuDLVpVNcYHStbs3CKo1ub7I=;
- b=owEBbQKS/ZANAwAKARGnLqAUcddyAcsmYgBogfvRgqw0m/InntV11HHUCE+MGVQkjCMalwIfS
- KMoPh5ezd+JAjMEAAEKAB0WIQQWnetsC8PEYBPSx58Rpy6gFHHXcgUCaIH70QAKCRARpy6gFHHX
- chrwD/oCtF7meIzX7ZXpLEsgWK2HnP775ycIOrhIwy5EPDMyiNJBCALS6V0nGhCUw2Z9MV0vPMu
- cMvZp0ZAetbm9VKmdQDWRldx4ebo8/xAdFA7QNSl2v9Py+AuX1OymRUpeGqWEgxZdMIMGLePvDD
- J41mLtcuKXxdpZzxVQkJ6eqotgtxLicQ3Kd5nyfAGpPv58pRiSOk8ShfVzgvbDt4Cm+4ZmI1b/g
- 6ADxlGARBw7Iv6e0y3aarJZY40cDArbMpSeMsthPxd2ckA3YzpqfFpPoYaqZLzPJLzS9qs+JS9m
- FTPjtr7zEsks8DyXoqQmEomYi7djHBa34IM/+cSpTShC+uUPWxn5WIh+e841X0NjZvqiYltThhF
- TwrnuYapLpqUE4A51spxZbKr86qfYwSaIvQX3GQGjYh7PEcsD8bupfDFxuoNPxI3VJG7QGRDOQv
- WZ3Vmi7GS8vyhYTBQS8uXK9ltMPRVoPNgmGHSR/k0ZSAN6h8loFb6wWYuxhqSgvLEbwtaWqGgH1
- zm84NgtIT/M6kXtus0iI/i4ig4d4UjPmMI/Jhq9pjP9RBSMZu/EKa21utlbG/Go5IGqI/n2vHDS
- SwCRIsWrcI2So3cc+c6i7Sawc/UqzfwIcEMaOpwtlssOTUANHxZLwMt12cdVdexmaqY5wPjLhmX
- qFbRaYrqSoXO3MQ==
+ bh=nunH5KiVSLA9eNaj6eipx8y2OBwu+tjBhQLeBJL1rQM=;
+ b=owEBbQKS/ZANAwAKARGnLqAUcddyAcsmYgBogfvSq96zx0eWj6bB9Wtc62trZyDHOOqVEGsjt
+ IdJru9X576JAjMEAAEKAB0WIQQWnetsC8PEYBPSx58Rpy6gFHHXcgUCaIH70gAKCRARpy6gFHHX
+ ciU7D/9ufNSr0xAVjM3jLOYmhiZYTdSmu9d5m+WcEwts4F/wCHyNf8esGOZyhn5wUjORYdUjIo7
+ eZFKz74xSLCU+omhJ1JyntwjO/u19pUr3cA16S53VWhQ8i8DyudgfzMCynaEO+AnlG8W6VDdloD
+ sjo/e3GaNpK6UIS4gfqVhDkQhxARxrFqHhSAQfpQcImogDC4D25D6WNHBCJ/Oo6cCCRTR/4axFR
+ 5fcvSZA2dU9/5y5djCi2V6yQjYVC5XxZag/q8vTGMaAcJjUmVLBnVtBFhjIotVORY0DFi89nEJL
+ y29d2wQbwZAOrDZPY9B07IB7CI52j77LdHf2SL2NvSselkHKMJKP02SNXEVQK7F/y3mXIHsbkK0
+ 6WgTHe/owJNiV3POTwFKWsLJOysiyDATr9qIvSJlM3/3ime6HlRo+lNLFtzONrpRFlkPeSRhiu0
+ iJL3dlJh7FlYdAqI3NxP0sv5V/OFNyZqhCCNgEQwxbCWnuXPUftsK8TO0Pgrg/d32RYhOzUXKTp
+ jt4cHWwTDpHenhDSF+VIkqTzNlyQ4S9TZbS5MACS9G87yVokvxr0o4q6us3KHaO5AVE1oqlDCdX
+ ooIVrJFsCF7yvuldW8SymXwAJYAFkarNAtra2A7hv7HoAO0kE1XOl/gDenndsNED8XaEQSmOW1C
+ uxnZKJm9mzswndw==
 X-Developer-Key: i=bartosz.golaszewski@linaro.org; a=openpgp;
  fpr=169DEB6C0BC3C46013D2C79F11A72EA01471D772
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250724_022446_081990_3B6EB7B4 
-X-CRM114-Status: GOOD (  16.32  )
+X-CRM114-CacheID: sfid-20250724_022447_424636_080A8CFF 
+X-CRM114-Status: GOOD (  11.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,61 +144,67 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 
-struct function_desc is a wrapper around struct pinfunction with an
-additional void *data pointer. This driver doesn't use the data pointer.
-We're also working towards reducing the usage of struct function_desc in
-pinctrl drivers - they should only be created by pinmux core and
-accessed by drivers using pinmux_generic_get_function(). Replace the
-struct function_desc objects in this driver with smaller struct
-pinfunction instances.
+We have a dedicated initializer macro for defining pin functions for
+mediatek drivers so use it here.
 
 Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 ---
- drivers/pinctrl/mediatek/pinctrl-airoha.c | 14 ++++++--------
- 1 file changed, 6 insertions(+), 8 deletions(-)
+ drivers/pinctrl/mediatek/pinctrl-mt7988.c | 42 ++++++++++++-------------------
+ 1 file changed, 16 insertions(+), 26 deletions(-)
 
-diff --git a/drivers/pinctrl/mediatek/pinctrl-airoha.c b/drivers/pinctrl/mediatek/pinctrl-airoha.c
-index 1737b88530c385644a360e8abe583416bd6d3fe9..aa71e02b661c992c117418af910ae157c4f75fff 100644
---- a/drivers/pinctrl/mediatek/pinctrl-airoha.c
-+++ b/drivers/pinctrl/mediatek/pinctrl-airoha.c
-@@ -36,11 +36,9 @@
- #define PINCTRL_FUNC_DESC(id)						\
- 	{								\
- 		.desc = {						\
--			.func = {					\
--				.name = #id,				\
--				.groups = id##_groups,			\
--				.ngroups = ARRAY_SIZE(id##_groups),	\
--			}						\
-+			.name = #id,					\
-+			.groups = id##_groups,				\
-+			.ngroups = ARRAY_SIZE(id##_groups),		\
- 		},							\
- 		.groups = id##_func_group,				\
- 		.group_size = ARRAY_SIZE(id##_func_group),		\
-@@ -334,7 +332,7 @@ struct airoha_pinctrl_func_group {
+diff --git a/drivers/pinctrl/mediatek/pinctrl-mt7988.c b/drivers/pinctrl/mediatek/pinctrl-mt7988.c
+index 68b4097792b88356babe4368db7d0f60194e7309..55c8674d8d66f12d2f2246c215056d4e51296a9b 100644
+--- a/drivers/pinctrl/mediatek/pinctrl-mt7988.c
++++ b/drivers/pinctrl/mediatek/pinctrl-mt7988.c
+@@ -1465,32 +1465,22 @@ static const char * const mt7988_usb_groups[] = {
  };
  
- struct airoha_pinctrl_func {
--	const struct function_desc desc;
-+	const struct pinfunction desc;
- 	const struct airoha_pinctrl_func_group *groups;
- 	u8 group_size;
+ static const struct function_desc mt7988_functions[] = {
+-	{ { "audio", mt7988_audio_groups, ARRAY_SIZE(mt7988_audio_groups) },
+-	  NULL },
+-	{ { "jtag", mt7988_jtag_groups, ARRAY_SIZE(mt7988_jtag_groups) },
+-	  NULL },
+-	{ { "int_usxgmii", mt7988_int_usxgmii_groups,
+-	    ARRAY_SIZE(mt7988_int_usxgmii_groups) },
+-	  NULL },
+-	{ { "pwm", mt7988_pwm_groups, ARRAY_SIZE(mt7988_pwm_groups) }, NULL },
+-	{ { "dfd", mt7988_dfd_groups, ARRAY_SIZE(mt7988_dfd_groups) }, NULL },
+-	{ { "i2c", mt7988_i2c_groups, ARRAY_SIZE(mt7988_i2c_groups) }, NULL },
+-	{ { "eth", mt7988_ethernet_groups, ARRAY_SIZE(mt7988_ethernet_groups) },
+-	  NULL },
+-	{ { "pcie", mt7988_pcie_groups, ARRAY_SIZE(mt7988_pcie_groups) },
+-	  NULL },
+-	{ { "pmic", mt7988_pmic_groups, ARRAY_SIZE(mt7988_pmic_groups) },
+-	  NULL },
+-	{ { "watchdog", mt7988_wdt_groups, ARRAY_SIZE(mt7988_wdt_groups) },
+-	  NULL },
+-	{ { "spi", mt7988_spi_groups, ARRAY_SIZE(mt7988_spi_groups) }, NULL },
+-	{ { "flash", mt7988_flash_groups, ARRAY_SIZE(mt7988_flash_groups) },
+-	  NULL },
+-	{ { "uart", mt7988_uart_groups, ARRAY_SIZE(mt7988_uart_groups) },
+-	  NULL },
+-	{ { "udi", mt7988_udi_groups, ARRAY_SIZE(mt7988_udi_groups) }, NULL },
+-	{ { "usb", mt7988_usb_groups, ARRAY_SIZE(mt7988_usb_groups) }, NULL },
+-	{ { "led", mt7988_led_groups, ARRAY_SIZE(mt7988_led_groups) }, NULL },
++	PINCTRL_PIN_FUNCTION("audio", mt7988_audio),
++	PINCTRL_PIN_FUNCTION("jtag", mt7988_jtag),
++	PINCTRL_PIN_FUNCTION("int_usxgmii", mt7988_int_usxgmii),
++	PINCTRL_PIN_FUNCTION("pwm", mt7988_pwm),
++	PINCTRL_PIN_FUNCTION("dfd", mt7988_dfd),
++	PINCTRL_PIN_FUNCTION("i2c", mt7988_i2c),
++	PINCTRL_PIN_FUNCTION("eth", mt7988_ethernet),
++	PINCTRL_PIN_FUNCTION("pcie", mt7988_pcie),
++	PINCTRL_PIN_FUNCTION("pmic", mt7988_pmic),
++	PINCTRL_PIN_FUNCTION("watchdog", mt7988_wdt),
++	PINCTRL_PIN_FUNCTION("spi", mt7988_spi),
++	PINCTRL_PIN_FUNCTION("flash", mt7988_flash),
++	PINCTRL_PIN_FUNCTION("uart", mt7988_uart),
++	PINCTRL_PIN_FUNCTION("udi", mt7988_udi),
++	PINCTRL_PIN_FUNCTION("usb", mt7988_usb),
++	PINCTRL_PIN_FUNCTION("led", mt7988_led),
  };
-@@ -2908,11 +2906,11 @@ static int airoha_pinctrl_probe(struct platform_device *pdev)
  
- 		func = &airoha_pinctrl_funcs[i];
- 		err = pinmux_generic_add_pinfunction(pinctrl->ctrl,
--						     &func->desc.func,
-+						     &func->desc,
- 						     (void *)func);
- 		if (err < 0) {
- 			dev_err(dev, "Failed to register function %s\n",
--				func->desc.func.name);
-+				func->desc.name);
- 			return err;
- 		}
- 	}
+ static const struct mtk_eint_hw mt7988_eint_hw = {
 
 -- 
 2.48.1
