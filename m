@@ -4,97 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04DF1C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 07:07:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 570FBC83F26
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 07:11:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OlUtBVs7mVLIbrf7opyOhCkogChwruSdb2WYQaTp8x8=; b=kOXPpnYbvzocjcJ4MfI+PWP1aX
-	6CO7+Cud/EWFkTzpM8nFTYKXqnalU0iSlX8pPIyjhv4oO+NFqaKYcPcpFZStbGuWh7p9Ity7yjFMG
-	vfXOnJu61LgPOZrTJx9wrXz3HfgDv8Aw5pMeHxMKkZZbnFWu+EDyDpzRyZ7QHzW3ruOzBHd1l5IN5
-	QdjVgJLkZgYSC5WHqRwmlBgXVaw9LJurDvCkKBb2hhmD2sTAvpQDrV7Kn2aszZIw/njbqSz4Ym7wJ
-	TGu4v/EefqiXYXyl85Elb6PmjknupQ1GLfFS8AgPBCe17pFS6vuA1r/TDl0s9poKCOx34FqG0GX4H
-	CSf5t15w==;
+	bh=3Wryq+TtiRdraYxR2k00Ymp9xPL/Wc+3/Fs7/D2hKzg=; b=k85Yx1fhiMoOx2TfhVYnD5kbUQ
+	GPDBBXBqniRqnrYfnjEAyxALnWKgOIgspj47RvLos6W2FAjWgMT8OUukTEpNwpmC+QToFwCTGsg8q
+	0TrcdHYH0Hm2DnuVsDiyRGsN9m6UmVBAS6pchVf1RoJwUzzdbY9y5RXSJkD84pkhElUaeuqpv5yJH
+	aCH8q8jSn2X9GzoNd1tF8u2QhhHlIRj61f6143rH6Cqdf8fNx6OVuplHpTqKydTtEoCIyUBTiVLjS
+	bPzo67bQ0ulzX9tU8ad0htH3qC8LErgEZ6pNbxrFamk6+sM98uQ9wAe6/PQIKwBVK7ZMVHD9rtIAK
+	qJTdB9VQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueq2t-00000006fN1-3sOi;
-	Thu, 24 Jul 2025 07:07:15 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1ueq6o-00000006ffY-15SK;
+	Thu, 24 Jul 2025 07:11:18 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uepxt-00000006eoL-0jMa
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Jul 2025 07:02:06 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-45629703011so3828945e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Jul 2025 00:02:04 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1753340523; x=1753945323; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=OlUtBVs7mVLIbrf7opyOhCkogChwruSdb2WYQaTp8x8=;
-        b=TwuqV79OGQcxd1avDALakCnyF2pA4trCiqIpSeClAlj4q5wl+bRsntIBAzENUBEhB9
-         ct/MurQNtxV+ZqTV6d5fm79mfJOt44ITfCmOppL/UW27NCMP3Usdl3OmvkS59LVfYv8y
-         ZodPku82/L0Hi3KME4x7mLRWPSS7KzbySCPSyFhy3pm5MgmM0xRTedXevr+/+7Jyr2Tt
-         uFPZ1iiPjR8jJ9XIeoYQRhAZ+4DAk6Ijpqf4A18M19fTcDcLS8KurGhQz4KV2hwnwelU
-         pGA2HoZb3waSEroOBKb21+pzMENjZAZqjQLpYjvm3rRL30bsmzyN2SHcuSoHsmh3+YRE
-         d2uw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753340523; x=1753945323;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=OlUtBVs7mVLIbrf7opyOhCkogChwruSdb2WYQaTp8x8=;
-        b=u9uCK+4stSOs7t8u0Wpff11hejnHkvjDO0RQdtAFIydyu2CiZKG6VafpI//2VQkyPj
-         LC36EqsFdvxxc8Irt0HKeTkaxwGKGApqZK6iHsAOPG0wDVj7t1KaCWs8RBQ1FwX6wXES
-         vp68Eegp5Porkn5mQvXlzmd15Bsnq216zP+B9FpuW0rmDdx14q55Nr5fmX+K2/QbizSd
-         NTM2uZw9G+JqmbY8+PhZKLbLu+BJasgHy/m1wZKMYQivqIBKyhw1wnO0jlLycQJeZkw3
-         ZbREa78MnDT8zSIDFQHz6aj0pIIhaaj8qq5clAoB43UKcFF4PGetlCNtxV5smcUnnpHE
-         IJGA==
-X-Forwarded-Encrypted: i=1; AJvYcCXuKiAhHXXqQOVEu2lkkWZ9kjB20WMFX6CkUpRAFuYioQ/d5yDz4yosiZP2r35+Cjg0wLYswHpj+1vKR8tOw20M@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxu6hZyB3NvNsaTIFLgDkBq0yCIJ7n1y8x08je0iZ1uYVSql4Zi
-	QKzdUX0s+AtRyxzQ+InEHGYFlvUM0fVlIIP/c2uuDfV9v6qHrrrBQ0XO
-X-Gm-Gg: ASbGncuyhsRyBB9BaVk49tJ4yot/h9Tywtmscre9MmuvZbZrS1pLm0hRGyQzAcoYdJL
-	+g/s8eDgAX4+WVJEiYmgnxB+CgREVZO+oF5vi+uJdQCw4Pb9SjyvDsg8fEnUGblr6BMVBWCH4UE
-	pXSwpo6K0z/vDNgYFq9vNcv5dUmVad6TKEtrBI5icSniqRk0u6tVlxdT3ICZLBjaIHdKuF+MjKG
-	aEln+lQXiLe6fRctP9aYelY+UVMWjdo3pTB0QSyuRyLixecWGTjZ2M4G4zQQXBuNxDBWceUrTWc
-	fe+eOwESpCB7cmNezJ1Zd1J0wZK31JSCxwi6Inby4Y67fAghNEcDjuDmxghvS1z8VwAphuXujkJ
-	2WC+EXeQfSr2eMC4F3jF7Ef0FK8MLDpf5uXQ0kJZ+/DTsgN6Bg+wPhzb/etD2WHp76vym6CftdA
-	hTFXAih4ns4Qg=
-X-Google-Smtp-Source: AGHT+IFGy6HODxEH7/PmTdmL1a3/zjPLMsIBH3rq+Xq0Tau9JAc9/MY1EEnrW2AphA2h+4ON6UFPxg==
-X-Received: by 2002:a05:600c:a408:b0:456:1904:27f3 with SMTP id 5b1f17b1804b1-45869e4b95dmr39641815e9.18.1753340522595;
-        Thu, 24 Jul 2025 00:02:02 -0700 (PDT)
-Received: from [192.168.1.107] (91-139-201-119.stz.ddns.bulsat.com. [91.139.201.119])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4586ec79441sm9982835e9.2.2025.07.24.00.02.01
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 24 Jul 2025 00:02:02 -0700 (PDT)
-Message-ID: <cf7030d4-a686-4edd-9698-1a9c301d1dd0@gmail.com>
-Date: Thu, 24 Jul 2025 10:02:00 +0300
+	id 1ueq4I-00000006fYU-4B3b;
+	Thu, 24 Jul 2025 07:08:44 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 3E0124573A;
+	Thu, 24 Jul 2025 07:08:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D7B14C4CEED;
+	Thu, 24 Jul 2025 07:08:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1753340922;
+	bh=BkVHoupSWkyMvwI8rPlu6Dj7+1NN/PAprKUqdrl/Zqk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=N6JblBsUab2WHL0y6JKDGtSTYVK5puKIhvqQ1v/lsBlJ+487Lx+SEZqJ/y9nwgBwi
+	 Fv7+nVqQBC4peWosR07vsSzzAX8C7c0T3qo66ILcPeu8R93JmIwpy1j8rrOWzKoyDZ
+	 rD2+TF/4Ttkrl53ktpGrjnrY7XR+tZg2ijcJfIZLAVS2L059DaNgCzhhfnShRaGBaJ
+	 Sq+vR4nrBilXYJX2yxceGpAr0ellAIfe5QXTss6H7nGU3xBjOd4FFzbwVwboDgnU+A
+	 fMVtdE07bPv3h6RE/FSFrnW5oTJ+4SSurpRFvwbENzbGZaHoSxRzncDPq6OnaheeFx
+	 Fel7DcV1lZSoQ==
+Message-ID: <633ea291-2e02-44be-bd03-220634b3c62d@kernel.org>
+Date: Thu, 24 Jul 2025 09:08:37 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 1/2] dt-bindings: soc: samsung: usi: allow 64-bit
- address space
+Subject: Re: [PATCH v8 2/2] memory: mtk-smi: mt8188: Add SMI reset and clamp
+ for MT8188
+To: =?UTF-8?B?RnJpZGF5IFlhbmcgKOadqOmYsyk=?= <Friday.Yang@mediatek.com>,
+ "robh@kernel.org" <robh@kernel.org>,
+ "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
+ =?UTF-8?B?WW9uZyBXdSAo5ZC05YuHKQ==?= <Yong.Wu@mediatek.com>,
+ "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
+ "conor+dt@kernel.org" <conor+dt@kernel.org>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ Project_Global_Chrome_Upstream_Group
+ <Project_Global_Chrome_Upstream_Group@mediatek.com>
+References: <20250521063347.31578-1-friday.yang@mediatek.com>
+ <20250521063347.31578-3-friday.yang@mediatek.com>
+ <fe4d93d1-fb6a-4985-8316-7a76fa1a481f@kernel.org>
+ <7421d8f4f3d5fdb392f46df93bfee21a97cc2e1c.camel@mediatek.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Alim Akhtar <alim.akhtar@samsung.com>,
- Sam Protsenko <semen.protsenko@linaro.org>, Rob Herring <robh@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, linux-samsung-soc@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20250722121037.443385-1-ivo.ivanov.ivanov1@gmail.com>
- <20250723-hypnotic-malkoha-of-trust-9efdb6@kuoka>
- <3e1d7be9-e99f-41c3-8b0d-aaa426aa9de8@gmail.com>
- <fbe025c9-2688-49f1-bd94-2cb0a1bbc8d2@kernel.org>
-From: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
-In-Reply-To: <fbe025c9-2688-49f1-bd94-2cb0a1bbc8d2@kernel.org>
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <7421d8f4f3d5fdb392f46df93bfee21a97cc2e1c.camel@mediatek.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250724_000205_215466_52A39D95 
-X-CRM114-Status: GOOD (  13.60  )
+X-CRM114-CacheID: sfid-20250724_000843_078214_A2AA1494 
+X-CRM114-Status: GOOD (  15.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,31 +130,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/24/25 09:56, Krzysztof Kozlowski wrote:
-> On 23/07/2025 10:21, Ivaylo Ivanov wrote:
->> On 7/23/25 11:15, Krzysztof Kozlowski wrote:
->>> On Tue, Jul 22, 2025 at 03:10:36PM +0300, Ivaylo Ivanov wrote:
->>>> Some device trees, like the exynos2200 one, configure the root node
->>>> with #address-cells and #size-cells set to 2. However, the usi binding
->>>> expects 32 bit address space only. Allow these determining properties to
->>> So if USI expects 32 bit, then why do we allow 64?
+On 24/07/2025 03:49, Friday Yang (杨阳) wrote:
+> On Thu, 2025-06-12 at 17:16 +0200, Krzysztof Kozlowski wrote:
+>> External email : Please do not click links or open attachments until
+>> you have verified the sender or the content.
+>>
+>>
+>> On 21/05/2025 08:33, Friday Yang wrote:
+>>> From: "Friday Yang" <friday.yang@mediatek.com>
 >>>
->>> Switching this to 2 means you use 64-bit addressing for children
->> I don't, but the main point was to avoid defining ranges for every single usi
-> I do not understand your "I don't", because you do.
+>>> To prevent handling glitch signals during MTCMOS on/off
+>>> transitions,
+>>> SMI requires clamp and reset operations. Parse the reset settings
+>>> for
+>>> SMI LARBs and the clamp settings for the SMI Sub-Common. Register
+>>> genpd callback for the SMI LARBs located in image, camera and IPE
+>>> subsystems, and apply reset and clamp operations within the
+>>> callback.
+>>>
+>>> Signed-off-by: Friday Yang <friday.yang@mediatek.com>
+>>> Reviewed-by: AngeloGioacchino Del Regno <
+>>> angelogioacchino.delregno@collabora.com>
+>>> Acked-by: Rob Herring <robh@kernel.org>
+>>
+>> You did not respond to previous review. Sending the same while
+>> ignoring
+>> previous review is obvious NAK.
+>>
+> 
+> Apologies for missing the message. In the v6 patch, I replaced
+> 'pm_runtime_enable' with 'devm_pm_runtime_enable'. You pointed out that
+> this change might alter the cleanup order and potentially introduce
+> errors.
+> 
+> v6:
+> https://lore.kernel.org/lkml/20250408033206.12176-3-friday.yang@mediatek.com/
+> 
+> Therefore, in the v7 patch, I reverted this change and continued using
+> 'pm_runtime_enable' in the SMI driver. However, I did not include a
+> clear description of the changes between v6 and v7 in the cover letter.
+> 
+> v7:
+> https://lore.kernel.org/lkml/9f01a9a4-89b2-4bfc-97cd-827be989ef16@kernel.org/
+> 
+> In the v8 patch, I have added a description in the cover letter.
+> This series just add functions for SMI clamp and not change anything
+> else. Is this acceptable to you?
 
-I meant it in the "I don't _need_ to explicitly use that, but it's _nice_ to have"
-way, so I don't have to clutter the nodes with address translations in ranges.
+That was month ago. Nothing form this thread is in my memory, nothing is
+in the mailbox. There is no cover letter to find anymore.
+
+Anyway, you did not respond to the actual comment and you send the same.
+Now you respond... to something else still ignoring the comment about
+fake tags.
+
+I will not be wasting more time on this patchset.
 
 Best regards,
-Ivaylo
-
->  You change the child
-> address space to 64 bit and switch to 36/64 bit DMA. That's the meaning
-> of address cells 2.
->
->
-> Best regards,
-> Krzysztof
-
+Krzysztof
 
