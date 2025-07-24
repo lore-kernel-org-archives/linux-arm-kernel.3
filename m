@@ -4,70 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B61FC83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 06:52:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23949C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 06:54:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YdPhV1djSORdygNBzM+zW90AvMnoqU9gTbw9K3O79nM=; b=XIukZpjwX1hNXugk3In5UdfaD1
-	h1UnvaPnYVjKSRaHH5xa4NCn2p1QeGOPgnuHrg21Jtsil/ZLWifJNWr5O6JKPZISsh0caUtl8c9cM
-	KFNI08tCrX+Q71D5Jde6ybvwGQomE6OFWaLl3Ye0gcns2wPw64l2XbNWq0TN+FjXlchQO8JvsfgTc
-	/ZFZDR8bYAPoNESPhI2dc6UpP8v+4ii+aoXMPbk7pM4pOGYgu6cXtSMLK3p26Ux2LOik8N2YapbKp
-	Kititp2B4pvL5gynb8hkOgqM2x+ZzT2Rp/YyITiuJPXUFucpEti8GXPRfp5X3QUu+LmU2L9kCMOOq
-	rZhD+XHA==;
+	bh=LeFQS5hveKm4hU0ToXW/iCGDnVMDNWtKTvmZJLGW35s=; b=TpHUvNBXO7ehrgFzy6DzeNKMzC
+	W14Ifxo8X2cPzLA9KuXI02kpB4jzHH5oTtMH9dwK9tCONMWbBaytDi/9b+Dobw0e36Oha18zdNe0K
+	yd7o7x7ZRvtjz//ULVi/OdRhbo0H47fGVz7CeJYQYDddaCPYMnutW+v6wmSJsYPY0Ijnp8UfW+ZdH
+	QDW5f/+9xs/YKpgA6vZCQNI0D7IH76YBY3ug60vqSZ+t0XgYgwe853S3h5eWSSyooulxKdP4zrHCa
+	EsQUBNHU3Ux8Fqo7k+QGxNXep8eY7qv3S/+fSeR5rL1I4ov/J/gKaRZL4eLmBfuBUT4iE8Z7UEGwe
+	8i+3IopQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uepoI-00000006di9-3Ywc;
-	Thu, 24 Jul 2025 06:52:10 +0000
-Received: from out-177.mta0.migadu.com ([2001:41d0:1004:224b::b1])
+	id 1uepqi-00000006dty-2YJx;
+	Thu, 24 Jul 2025 06:54:40 +0000
+Received: from out-185.mta0.migadu.com ([2001:41d0:1004:224b::b9])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueplp-00000006dNd-1KRY
+	id 1ueplp-00000006dNg-211c
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 24 Jul 2025 06:49:39 +0000
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1753339770;
+	t=1753339773;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=YdPhV1djSORdygNBzM+zW90AvMnoqU9gTbw9K3O79nM=;
-	b=w4JNZ6Yx5KIHPGvmSHnA9mjNs8BfRS+cx1o547/EFBYQ901cksc9I8GmD65dEvy3Cgfb2f
-	5OjCZrBdZJuj37MB1wjtzP+UBFNGYjKMUHbNqefIzapCKxhweYzWW12k07hrUJ+K6v15oH
-	CxXGvrrl1Di3Jqs0NcXBy0ePL3PJ5Dk=
+	bh=LeFQS5hveKm4hU0ToXW/iCGDnVMDNWtKTvmZJLGW35s=;
+	b=bz90vry+UZ7I7N7iDhq/F2EgBvJoxdq7WqdyYpQhRpfxU9F+rIGQ5lDFuCIaZ44BHsymq7
+	h03hw6qGswvz3oEK25H4yPQ5Unno5bQHPU9JEOBrpyP0QPn3WSqoBZsUkq1qNRR1XvmpFL
+	uZvRt1zhvjYkAc4uIAQ5Gv0cKe3cwOU=
 From: Oliver Upton <oliver.upton@linux.dev>
-To: Marc Zyngier <maz@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
+To: rmk+kernel@armlinux.org.uk,
 	Catalin Marinas <catalin.marinas@arm.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Marc Zyngier <maz@kernel.org>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
 	Will Deacon <will@kernel.org>,
-	Jing Zhang <jingzhangos@google.com>,
-	Kunkun Jiang <jiangkunkun@huawei.com>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Sebastian Ott <sebott@redhat.com>,
-	Maxim Levitsky <mlevitsk@redhat.com>,
-	Keisuke Nishimura <keisuke.nishimura@inria.fr>,
-	linux-arm-kernel@lists.infradead.org,
+	Zenghui Yu <yuzenghui@huawei.com>,
 	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	David Woodhouse <dwmw2@infradead.org>
+	linux-arm-kernel@lists.infradead.org,
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
 Cc: Oliver Upton <oliver.upton@linux.dev>
-Subject: Re: KVM: arm64: vgic-its: Return -ENXIO to invalid KVM_DEV_ARM_VGIC_GRP_CTRL attrs
-Date: Wed, 23 Jul 2025 23:49:13 -0700
-Message-Id: <175333974800.2689259.1785304263460558976.b4-ty@linux.dev>
-In-Reply-To: <bbbddd56135399baf699bc46ffb6e7f08d9f8c9f.camel@infradead.org>
-References: <bbbddd56135399baf699bc46ffb6e7f08d9f8c9f.camel@infradead.org>
+Subject: Re: [resend][PATCH 1/2] arm64: kvm: sys_regs: use string choices helper
+Date: Wed, 23 Jul 2025 23:49:14 -0700
+Message-Id: <175333974804.2689259.25654822874492399.b4-ty@linux.dev>
+In-Reply-To: <87pldy5ktb.wl-kuninori.morimoto.gx@renesas.com>
+References: <87pldy5ktb.wl-kuninori.morimoto.gx@renesas.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250723_234937_792885_43DA345E 
-X-CRM114-Status: UNSURE (   7.82  )
+X-CRM114-CacheID: sfid-20250723_234937_776990_A7236D80 
+X-CRM114-Status: UNSURE (   5.01  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,17 +77,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 23 Jun 2025 15:22:52 +0200, David Woodhouse wrote:
-> A preliminary version of a hack to invoke unmap_all_vpes() from an ioctl
-> didn't work very well. We eventually determined this was because we were
-> invoking it on the wrong file descriptor, but not getting an error.
+On Fri, 18 Jul 2025 01:50:24 +0000, Kuninori Morimoto wrote:
+> We can use string choices helper, let's use it.
 > 
 > 
 
 Applied to next, thanks!
 
-[1/1] KVM: arm64: vgic-its: Return -ENXIO to invalid KVM_DEV_ARM_VGIC_GRP_CTRL attrs
-      https://git.kernel.org/kvmarm/kvmarm/c/4530256f3699
+[1/2] arm64: kvm: sys_regs: use string choices helper
+      https://git.kernel.org/kvmarm/kvmarm/c/30a597e19f24
 
 --
 Best,
