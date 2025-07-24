@@ -4,105 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35712C83F26
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 09:20:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E58E6C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 09:23:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7kzT0Hpl/NFWqdqEQ0wKSVcFU9pNYe2twdBPGJnr/8o=; b=g2lK5tPHe2kSh7HGg9FjCmBfIN
-	YbrJwS5yVeP+6OQqy/Kp136fzTVlUtAN33jfDIOMAIT4q8k6f+ggyIpHZAJC6/H3EdCQjPl+AATnK
-	Q8GVD599x+qIgIJqV3zf82TIHRO72GRQrPNmGzn5vIqI2sKUBY1rW4PE/R5dFSmR65nby6enfGEmL
-	owH0w78/H9JnYgkfjUtBg2QjZTNxX0dRcTfWxAMJttKzdTNktWP+FKvEBYpAFoItWIOycUCQvqZMq
-	V+97EQopQ73kOkTiaODRgTt+McY3L1EOKE2+d7jHqqjcxh1BDgdrDHrx2RpnxQ5FZRJRh8dRQfKN3
-	AoPNqZpw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IxVyPqY+IZBGIEiIPjcN9KImvgd2N1QLi/uVwsIgNTI=; b=zezHHjQ5BWMf1ZQyvMTQNdLDd1
+	53WOt0rKDChpiETLOFIDHUO2MqSxyqEh1sULgn0G98yfx9j8nVSjV536Y4qhZAyqI7+qJQpwMh4AR
+	bngMEZGGtEZ5lg+rGuWLktLDtLtlTgFl+DkJUy5jNs5/ljc04QE/AT5LtNK0jfCGkLwTB0fqKB32g
+	QF46S86YgcL2BcRFVc76PK8oHQ7aNpL5JeNFM74Hpgp/B6JsjAxhShDLcIYoTBVLHvhwylMJLRE7N
+	+r2zM/NxmKXqRV4IdobdXi9HSRPoYD1bRvCCnVSXFZXgis2MjvWEsDOItmfkZFk7e8usbvSqo9nbK
+	vbb0sLOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ues7s-0000000717C-3Tal;
-	Thu, 24 Jul 2025 09:20:33 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	id 1uesAK-000000071VZ-3Crt;
+	Thu, 24 Jul 2025 09:23:04 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uer8k-00000006pYd-2vq5
+	id 1uerAl-00000006pvE-1fW1
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Jul 2025 08:17:24 +0000
-Received: from pps.filterd (m0369458.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56O7xYXJ019443;
-	Thu, 24 Jul 2025 10:17:02 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	7kzT0Hpl/NFWqdqEQ0wKSVcFU9pNYe2twdBPGJnr/8o=; b=3xJHwG0+iD9m/4QN
-	rbFCod58Hm2lUpPt6E8AILpoUlGTdQX14xlcdHd0rAdE1Qdfn8FbSay3IhXbCyzC
-	Ea9Kfe3UIySUfRXHvSgtpRFa5RSue6d+0t9SiMuTqc75O3nINnaSFUAwPihCBHwG
-	AkRBgHAFolujHveqkRgwzzee0cIxOEtlkMMBFnsmn9W7tIUB6m4IF+gwJ8i28fhi
-	TcjRlFZX6i8zMOgLJ66dh2U4opER27vPA7m3LpejdCOr3Dc12wer/PfyC1UEKw7u
-	D/6RbrmfrVgRaVv0bh7c8ur44zDZK+/rgjCvAECMHwG6Ed3kc/GE9x7d3OHgUxif
-	rTaqPw==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 480mx4w9y6-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 24 Jul 2025 10:17:02 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id E75BB40049;
-	Thu, 24 Jul 2025 10:15:32 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 560CB781E01;
-	Thu, 24 Jul 2025 10:14:13 +0200 (CEST)
-Received: from [10.48.86.185] (10.48.86.185) by SHFDAG1NODE2.st.com
- (10.75.129.70) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Thu, 24 Jul
- 2025 10:14:12 +0200
-Message-ID: <204401b4-b483-47e2-ae73-0994b39bd30c@foss.st.com>
-Date: Thu, 24 Jul 2025 10:14:11 +0200
+	Thu, 24 Jul 2025 08:19:27 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id CF924601EE;
+	Thu, 24 Jul 2025 08:19:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 61D28C4CEED;
+	Thu, 24 Jul 2025 08:19:23 +0000 (UTC)
+Date: Thu, 24 Jul 2025 09:19:20 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Dev Jain <dev.jain@arm.com>
+Cc: akpm@linux-foundation.org, david@redhat.com, will@kernel.org,
+	lorenzo.stoakes@oracle.com, Liam.Howlett@oracle.com, vbabka@suse.cz,
+	rppt@kernel.org, surenb@google.com, mhocko@suse.com,
+	linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+	suzuki.poulose@arm.com, steven.price@arm.com, gshan@redhat.com,
+	linux-arm-kernel@lists.infradead.org, yang@os.amperecomputing.com,
+	ryan.roberts@arm.com, anshuman.khandual@arm.com
+Subject: Re: [PATCH v4] arm64: Enable permission change on arm64 kernel block
+ mappings
+Message-ID: <aIHsiPtG0Ycm2DTe@arm.com>
+References: <20250703151441.60325-1-dev.jain@arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 05/20] dt-bindings: memory: factorise LPDDR props into
- SDRAM props
-To: Julius Werner <jwerner@chromium.org>
-CC: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-        Rob
- Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor
- Dooley <conor+dt@kernel.org>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Philipp Zabel
-	<p.zabel@pengutronix.de>,
-        Jonathan Corbet <corbet@lwn.net>,
-        Gatien Chevallier
-	<gatien.chevallier@foss.st.com>,
-        Michael Turquette <mturquette@baylibre.com>,
-        Stephen Boyd <sboyd@kernel.org>,
-        Gabriel Fernandez
-	<gabriel.fernandez@foss.st.com>,
-        Krzysztof Kozlowski <krzk@kernel.org>,
-        Le
- Goffic <legoffic.clement@gmail.com>,
-        <linux-arm-kernel@lists.infradead.org>,
-        <linux-perf-users@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-kernel@vger.kernel.org>, <linux-doc@vger.kernel.org>,
-        <linux-clk@vger.kernel.org>
-References: <20250723-ddrperfm-upstream-v4-0-1aa53ca319f4@foss.st.com>
- <20250723-ddrperfm-upstream-v4-5-1aa53ca319f4@foss.st.com>
- <CAODwPW_kex5Agqxg_i-XC308scEpUJU0me55G7iZ8nB9LC0acg@mail.gmail.com>
-Content-Language: en-US
-From: Clement LE GOFFIC <clement.legoffic@foss.st.com>
-In-Reply-To: <CAODwPW_kex5Agqxg_i-XC308scEpUJU0me55G7iZ8nB9LC0acg@mail.gmail.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.48.86.185]
-X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SHFDAG1NODE2.st.com
- (10.75.129.70)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-07-24_01,2025-07-23_01,2025-03-28_01
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250724_011723_240412_CA69CC93 
-X-CRM114-Status: GOOD (  25.02  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250703151441.60325-1-dev.jain@arm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,81 +64,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Julius,
+On Thu, Jul 03, 2025 at 08:44:41PM +0530, Dev Jain wrote:
+> This patch paves the path to enable huge mappings in vmalloc space and
+> linear map space by default on arm64. For this we must ensure that we can
+> handle any permission games on the kernel (init_mm) pagetable. Currently,
+> __change_memory_common() uses apply_to_page_range() which does not support
+> changing permissions for block mappings. We attempt to move away from this
+> by using the pagewalk API, similar to what riscv does right now;
 
-On 7/23/25 23:48, Julius Werner wrote:
->> +      Compatible strings can be either explicit vendor names and part numbers
->> +      (e.g. elpida,ECB240ABACN), or generated strings of the form
->> +      (lp)?ddrX-Y,Z where X, Y and Z are in lower case hexadecimal with leading
->> +      zeroes and :
->> +        - X is the SDRAM version (2, 3, 4, etc.)
->> +        - for LPDDR :
->> +          - Y is the manufacturer ID (from MR5), 2 bytes
->> +          - Z is the revision ID (from MR6 and MR7), 4 bytes
+RISC-V seems to do the splitting as well and then use
+walk_page_range_novma().
+
+> however,
+> it is the responsibility of the caller to ensure that we do not pass a
+> range overlapping a partial block mapping or cont mapping; in such a case,
+> the system must be able to support range splitting.
+
+How does the caller know what the underlying mapping is? It can't really
+be its responsibility, so we must support splitting at least at the
+range boundaries. If you meant the caller of the internal/static
+update_range_prot(), that's an implementation detail where a code
+comment would suffice. But you can't require such awareness from the
+callers of the public set_memory_*() API.
+
+> This patch is tied with Yang Shi's attempt [1] at using huge mappings
+> in the linear mapping in case the system supports BBML2, in which case
+> we will be able to split the linear mapping if needed without
+> break-before-make. Thus, Yang's series, IIUC, will be one such user of my
+> patch; suppose we are changing permissions on a range of the linear map
+> backed by PMD-hugepages, then the sequence of operations should look
+> like the following:
 > 
-> It's actually one byte manufacturer, two bytes revision. The YY,ZZZZ
-> is supposed to represent the amount of hex digits needed.
+> split_range(start)
+> split_range(end);
+> __change_memory_common(start, end);
 
-Oh yes I see my error..
+This makes sense if that's the end goal but it's not part of this patch.
 
+> However, this patch can be used independently of Yang's; since currently
+> permission games are being played only on pte mappings (due to
+> apply_to_page_range not supporting otherwise), this patch provides the
+> mechanism for enabling huge mappings for various kernel mappings
+> like linear map and vmalloc.
+
+Does this patch actually have any user without Yang's series?
+can_set_direct_map() returns true only if the linear map uses page
+granularity, so I doubt it can even be tested on its own. I'd rather see
+this patch included with the actual user or maybe add it later as an
+optimisation to avoid splitting the full range.
+
+> ---------------------
+> Implementation
+> ---------------------
 > 
->> +        - for DDR4 with SPD, according to JEDEC SPD4.1.2.L-6 :
->> +          - Y is the manufacturer ID, 2 bytes, from bytes 320 and 321
->> +          - Z is the revision ID, 1 byte, from byte 349
-> 
-> I don't think this will identify a part unambiguously, I would expect
-> the DDR revision ID to be specific to the part number. (In fact, we're
-> also not sure whether manufacturer+revision identifies LPDDR parts
-> unambiguously for every vendor, we just didn't have anything more to
-> work with there.) I would suggest to use either `ddrX-YYYY,AAA...,ZZ`
-> or `ddrX-YYYY,ZZ,AAA...` (where AAA... is the part number string from
-> SPD 329-348 without the trailing spaces). The first version looks a
-> bit more natural but it might get confusing on the off chance that
-> someone uses a comma in a part number string.
+> arm64 currently changes permissions on vmalloc objects locklessly, via
+> apply_to_page_range, whose limitation is to deny changing permissions for
+> block mappings. Therefore, we move away to use the generic pagewalk API,
+> thus paving the path for enabling huge mappings by default on kernel space
+> mappings, thus leading to more efficient TLB usage. However, the API
+> currently enforces the init_mm.mmap_lock to be held. To avoid the
+> unnecessary bottleneck of the mmap_lock for our usecase, this patch
+> extends this generic API to be used locklessly, so as to retain the
+> existing behaviour for changing permissions.
 
-The first one seems better indeed.
-If the manufacturer put a comma in the part number we should handle it 
-at a software level to me and if it is a devicetree error it is up to 
-the devicetree writer to fix it.
-What do you think ?
+Is it really a significant bottleneck if we take the lock? I suspect if
+we want to make this generic and allow splitting, we'll need a lock
+anyway (though maybe for shorter intervals if we only split the edges).
 
-> 
->> +      The latter form can be useful when SDRAM nodes are created at runtime by
->> +      boot firmware that doesn't have access to static part number information.
-> 
-> nit: This text slightly doesn't make sense anymore when in the DDR
-> case we do actually have the part number. I guess the real thing the
-> bootloader wouldn't have access to is the JEDEC manufacturer ID to
-> name mapping.
-
-Yes I will update it.
-
-> 
->> +      SDRAM revision ID:
->> +        - LPDDR SDRAM, decoded from Mode Register 6 and 7.
->> +        - DDR4 SDRAM, decoded from the SPD from bytes 349 according to
->> +          JEDEC SPD4.1.2.L-6.
-> 
-> nit: Clarify that this is always two bytes for LPDDR and always one
-> byte for DDR.
-
-Ok
-
-> 
->> +      Density of SDRAM chip in megabits:
->> +        - LPDDR SDRAM, decoded from Mode Register 8.
->> +        - DDR4 SDRAM, decoded from the SPD from bytes 322 to 325 according to
->> +          JEDEC SPD4.1.2.L-6.
-> 
-> Are these numbers correct? I downloaded SPD4.1.2.L-6 now and it looks
-> like 322 is manufacturing location and 323-324 are manufacturing date.
-> (Also, I think all of these are specific to DDR4 (and possibly 5?),
-> but not to earlier versions. I don't think we need to list it for
-> every version, but we should at least be specific what it applies to.)
-
-I just reopen the doc and you are right, didn't have my glasses on I guess.
-Accordingly to SPD4.1.2.L-6 it the info seems in the byte 4 on bits 3~0.
-
-Best regards,
-Clément
+-- 
+Catalin
 
