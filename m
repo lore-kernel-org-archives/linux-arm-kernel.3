@@ -4,57 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13C9AC83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 13:55:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F30A9C83F26
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 13:55:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mCAZJvHt06Ytv/HQyeVqpgjqz/qDucJlbp+EZk2a+fA=; b=s2piMc6uwuowRK8fjli2/rNp6U
-	UXEBPeYeU9h5f6LSi2TBTHyR1uC0NACAk48myw1RrK3jLXXk1HYNjTMdin+QpI84i0TRxFoYqdLKs
-	LgUMbAHOwWC/PA1dnnzkNT71uwKmWVromrh+LVpLkvi2cZo5oi9lkCsUJoWf+XJmBZTAZ3WLpi15V
-	F+MlZH2XxabzQVP64VVTKI/Y5E+axpLp9Vl5BKann8zadxe6hVJ84RdVDp+iNIK4RzaP4Anr9QZAm
-	BS7iAznicU83yq7wPfYHK47tLmd4oOH/QRhGKIYCwG3rAiA+CeWkVWIiEVRNvWW1H5vhqrVG0cgO3
-	K7NfESzA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=w9y6lMVKoGSGbAQ4r7YRTQAIypLEALnPa938lwZnu4s=; b=Im/tSr8vuOkbYB20xIpFRKpXJa
+	g04+NY7W3Dn2diRKiyVWpflT7Nttb8Ufypg1l+o+buXlglpGTYsFOWZUK/3TKzVSKitEKrYsrbTYM
+	MJ+CiSOH/sAHrVRD1EIHqka/5oehfaxVZTAeozcQE16JdJF5v4HZQ3yhXB/HTLtBMDLjV+ibSsQM0
+	ac31tEx6ekjt3prke1m4CnCu/S6ap4/5dPStD0j6zWJUvTic4l0afIGkYGG35gNXWMGs6oPv6m/Zu
+	/dINu+uQpQe6thu+lDWNaYB07qZkhCnBt5wAVANi+UN3h935BTxcMTf+/7BDkVRFpPxX01n0yqAFw
+	AGmkcEkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uewPV-00000007dW2-387s;
-	Thu, 24 Jul 2025 13:55:01 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uew17-00000007VZA-2fun
+	id 1uewPZ-00000007dcv-29Al;
+	Thu, 24 Jul 2025 13:55:06 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uewA9-00000007X4L-1JEO
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Jul 2025 13:29:51 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6448C1A00;
-	Thu, 24 Jul 2025 06:29:40 -0700 (PDT)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5C60E3F6A8;
-	Thu, 24 Jul 2025 06:29:46 -0700 (PDT)
-Date: Thu, 24 Jul 2025 14:29:44 +0100
-From: Leo Yan <leo.yan@arm.com>
-To: Anshuman Khandual <anshuman.khandual@arm.com>
-Cc: Dan Carpenter <dan.carpenter@linaro.org>,
-	Yuanfang Zhang <quic_yuanfang@quicinc.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@linaro.org>,
-	James Clark <james.clark@linaro.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, kernel-janitors@vger.kernel.org
-Subject: Re: [PATCH next] coresight: Fix a NULL vs IS_ERR() bug in probe
-Message-ID: <20250724132944.GK3137075@e132581.arm.com>
-References: <7bd9fae8-a15f-412a-8800-ce47acf0b5ce@sabinyo.mountain>
- <6fecd7d0-a5a5-4973-94ce-c63a3dff6bc7@arm.com>
+	Thu, 24 Jul 2025 13:39:11 +0000
+Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56ODAgol018828;
+	Thu, 24 Jul 2025 15:38:57 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	w9y6lMVKoGSGbAQ4r7YRTQAIypLEALnPa938lwZnu4s=; b=8DuW1mVWb5Zmz+q0
+	7RKe020XQCaScSNVrCjpPnmByr2ryfDEsJqHwQPObJeuAtdyS46qENjf789qB2Gn
+	Y9jkz0gnExfyBxnDdCXcKF/U1bvmXiPSL0WnENoFzkBrzJOHYylmsIvuGCerLywl
+	ZaA9oZ7lKwFoF195X342XP1lYemLrGWn/qjVkHL6zChh+CpYuigHX7/+E62GiSba
+	SVAHo4H6Hei4POCBjTIbbBtR678I3fMIdBg41DlglPcRw9/urX+wij9vSihPDcRp
+	TxPHyIN2JW2TvS5/OuWkzhrAFqWa9uAwPyPD4tuvxnn6RfeIub6Uo+oLKBm8zZIJ
+	H13+MA==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 4800g91e0a-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 24 Jul 2025 15:38:57 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 4750C4005D;
+	Thu, 24 Jul 2025 15:37:50 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node3.st.com [10.75.129.71])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 594A6763978;
+	Thu, 24 Jul 2025 15:36:56 +0200 (CEST)
+Received: from [10.130.77.120] (10.130.77.120) by SHFDAG1NODE3.st.com
+ (10.75.129.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Thu, 24 Jul
+ 2025 15:36:55 +0200
+Message-ID: <99737d4f-488d-4208-91aa-83ce52957147@foss.st.com>
+Date: Thu, 24 Jul 2025 15:36:52 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <6fecd7d0-a5a5-4973-94ce-c63a3dff6bc7@arm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RESEND PATCH 0/2] Add pinctrl_pm_select_init_state helper
+ function
+To: Bjorn Helgaas <helgaas@kernel.org>,
+        Linus Walleij
+	<linus.walleij@linaro.org>
+CC: <lpieralisi@kernel.org>, <kwilczynski@kernel.org>, <mani@kernel.org>,
+        <robh@kernel.org>, <bhelgaas@google.com>, <mcoquelin.stm32@gmail.com>,
+        <alexandre.torgue@foss.st.com>, <linux-pci@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <linux-gpio@vger.kernel.org>
+References: <20250723210753.GA2911683@bhelgaas>
+From: Christian Bruel <christian.bruel@foss.st.com>
+Content-Language: en-US
+In-Reply-To: <20250723210753.GA2911683@bhelgaas>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.130.77.120]
+X-ClientProxiedBy: EQNCAS1NODE4.st.com (10.75.129.82) To SHFDAG1NODE3.st.com
+ (10.75.129.71)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-07-24_02,2025-07-24_01,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250724_062949_765494_3D01D62B 
-X-CRM114-Status: GOOD (  19.40  )
+X-CRM114-CacheID: sfid-20250724_063909_832271_20A4E24C 
+X-CRM114-Status: GOOD (  23.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,84 +98,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 21, 2025 at 04:46:30PM +0530, Anshuman Khandual wrote:
 
-[...]
 
-> > diff --git a/drivers/hwtracing/coresight/coresight-tnoc.c b/drivers/hwtracing/coresight/coresight-tnoc.c
-> > index 0e4164707eea..d542df46ea39 100644
-> > --- a/drivers/hwtracing/coresight/coresight-tnoc.c
-> > +++ b/drivers/hwtracing/coresight/coresight-tnoc.c
-> > @@ -183,8 +183,8 @@ static int trace_noc_probe(struct amba_device *adev, const struct amba_id *id)
-> >  	dev_set_drvdata(dev, drvdata);
-> >  
-> >  	drvdata->base = devm_ioremap_resource(dev, &adev->res);
-> > -	if (!drvdata->base)
-> > -		return -ENOMEM;
-> > +	if (IS_ERR(drvdata->base))
-> > +		return PTR_ERR(drvdata->base);
-> >  
-> >  	spin_lock_init(&drvdata->spinlock);
-> >  
+On 7/23/25 23:07, Bjorn Helgaas wrote:
+> On Wed, Jul 23, 2025 at 01:32:52PM +0200, Linus Walleij wrote:
+>> On Thu, Jul 17, 2025 at 8:33 AM Christian Bruel
+>> <christian.bruel@foss.st.com> wrote:
+>>
+>>> We have the helper functions pinctrl_pm_select_default_state and
+>>> pinctrl_pm_select_sleep_state.
+>>> This patch adds the missing pinctrl_pm_select_init_state function.
+>>>
+>>> The STM32MP2 needs to set the pinctrl to an initial state during
+>>> pm_resume, just like in probe. To achieve this, the function
+>>> pinctrl_pm_select_init_state is added.
+>>>
+>>> This allows a driver to balance pinctrl_pm_select_sleep_state()
+>>> with pinctrl_pm_select_default_state() and
+>>> pinctrl_pm_select_init_state() in pm_runtime_suspend and pm_runtime_resume.
+>>>
+>>> Christian Bruel (2):
+>>>    pinctrl: Add pinctrl_pm_select_init_state helper function
+>>>    PCI: stm32: use pinctrl_pm_select_init_state() in
+>>>      stm32_pcie_resume_noirq()
+>>
+>> If Bjorn Helgaas is OK with it I can apply this to the pinctrl tree.
+>>
+>> Otherwise I can also just apply patch 1/2, but that doesn't solve
+>> any problem.
 > 
-> Do we still have more similar instances in coresight ?
+> The stm32 driver has been posted and is on this branch of the PCI
+> tree:
+> 
+>    https://git.kernel.org/pub/scm/linux/kernel/git/pci/pci.git/log/?h=controller/dwc-stm32&id=5a972a01e24b
+> 
+> but it's not in mainline (or even in pci/next) yet, so you would only
+> be able to apply patch 2/2 if you took the whole driver, which is
+> probably more than you would want to do.
+> 
+> I haven't put it in pci/next yet because it doesn't build when
+> CONFIG_PINCTRL is not defined:
+> 
+>    https://lore.kernel.org/r/20250716192418.GA2550861@bhelgaas
+> 
+> I don't know enough about pinctrl to know why stm32 needs this when
+> nobody else seems to.  I doubt it's really unique, so maybe it's just
+> not doing the right thing here.
 
-It is a bit shame that I have enabled smatch for static checking but
-did not verify this series.
+The STM32MP2 is unique because the core clock is gated on CLKREQ#. 
+Consequently, it is not possible to access the core registers from DBI 
+when no card is attached, causing the board to freeze. I don't know 
+another platform with this limitation
 
-I can confirm that the coresight driver does not have such issue in the
-current code base. After merging the CoreSight clock fix series, we
-should be able to dismiss all errors reported by smatch in CoreSight
-drivers.
+To fix this, we use a GPIO to de-assert CLKREQ# during probe and restore 
+the pin to its default AF mode afterward. This works perfectly for 
+probe, but we lack functionality for PM resume unless we explicitly 
+select the state with pinctrl_pm_select_XXX_state().
 
-A side topic, I observed that smatch does not like the long functions
-in drivers/hwtracing/coresight/coresight-etm4x-core.c. So I built a
-smatch version with relaxed limits.
+For reference, the init_state functionality was introduced in
+https://lkml.org/lkml/2015/10/21/1
 
----8<---
+If we prefer not to extend the pinctrl API in patch 1/2, I can fix the 
+case in patch 2/2 only with something like:
 
-diff --git a/smatch_implied.c b/smatch_implied.c                        
-index 9055d676..7469f1ac 100644                                         
---- a/smatch_implied.c                                                  
-+++ b/smatch_implied.c                                                  
-@@ -462,13 +462,13 @@ static int going_too_slow(void)                   
-                return 1;                                               
-        }                                                               
-                                                                        
--       if (time_parsing_function() < 60) {                             
-+       if (time_parsing_function() < 300) {                            
-                implications_off = false;                               
-                return 0;                                               
-        }                                                               
-                                                                        
-        if (!__inline_fn && printed != cur_func_sym) {                  
--               sm_perror("turning off implications after 60 seconds"); 
-+               sm_perror("turning off implications after 300 seconds");
-                printed = cur_func_sym;                                 
-        }                                                               
-        implications_off = true;                                        
-diff --git a/smatch_slist.c b/smatch_slist.c                            
-index cc3d73b7..039cdae7 100644                                         
---- a/smatch_slist.c                                                    
-+++ b/smatch_slist.c                                                    
-@@ -321,7 +321,7 @@ char *alloc_sname(const char *str)                  
- }                                                                      
-                                                                        
- static struct symbol *oom_func;                                        
--static int oom_limit = 3000000;  /* Start with a 3GB limit */          
-+static int oom_limit = 4000000;  /* Start with a 4GB limit */          
- int out_of_memory(void)                                                
- {                                                                      
-        if (oom_func)                                                   
-@@ -332,7 +332,7 @@ int out_of_memory(void)                             
-         * It works out OK for the kernel and so it should work         
-         * for most other projects as well.                             
-         */                                                             
--       if (sm_state_counter * sizeof(struct sm_state) >= 100000000)    
-+       if (sm_state_counter * sizeof(struct sm_state) >= 500000000)    
-                return 1;                                               
-                                                                        
-        /*                                                              
+in stm32_pcie_probe()
+      pinctrl = devm_pinctrl_get(dev);
 
+      if(pinctrl!= -ENODEV) // PINCTRL is defined
+           pinctrl_init = pinctrl_lookup_state(stm32_pcie>pinctrl, 
+PINCTRL_STATE_IN
+
+in stm32_pcie_resume_noirq()
+    if (pinctrl) {
+           ret = pinctrl_select_state(stm32_pcie->pinctrl, 
+stm32_pcie->pinctrl_init);
+
+What do you advise ?
+
+thank you
+
+Christian
+
+
+
+> 
+> Bjorn
 
 
