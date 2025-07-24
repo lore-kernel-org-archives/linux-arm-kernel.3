@@ -4,91 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B290C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 06:12:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70328C83F26
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 06:12:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Content-Type:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=md7ezImaC8aEPMY35qFAjPwWsP8CSm3ceVQj6sefxsg=; b=rK/mYmy5CCSAGyUtRnZQ32pFng
-	7xzLLPYRoI3ujjzqEfitQc3CWGl0kh2A7Sj8Z12TA8iz7Ka3mbz5kzPWFccXvbv2NwsO3ZZ1XQJIQ
-	n/pDeyQ5gMRy2zejFIgGD4HAcv9mqzxyjkykqLMKnV8eaMGli6t0/ZgcRxsviWGeG4dXcpsGMcp+A
-	3XbGSpLpPxvjv1yPinFwMyD6nuzKfqCatl/UHY2dHIDodRwMKte+ai1EB5B5FE9wvUE7mzIb1Pi0S
-	h4hPED8s9uy9iBFG/C5yfihIchXsctMMLCuXc0lrtv8t3hN2Cx0MjXMa+GbTzwf9hMIrp+gjsWmpu
-	f6tF2q4w==;
+	bh=zIXfUGDau1R1F000czVeK/WYeyuoKN/NfJ+li8Oka9U=; b=hmgpD19QdR7oaSaMicH7SrDW5q
+	SX5A7binlUH+jbXIP9Qvrge0KgXTaErXkDtkua5fIAdLagLx+Vll4a1P5E5RWoqlpOsmlX9O+W3pT
+	3rlYk8pnTGSOI00Y/F6ZiSUaVa4Fhb2YzbyEIr9E5pNQoiPaWlv+tZz9hdfW8fcN3rTAyo9zLM6UB
+	Q+tOmHeUf7G4MEC+AABk/mid2fpiTxdCXB/TqFiKad6HqcRRxZ0Sb9pjDf4tFxnUSZtOWQ+stMRb3
+	KHunu+RhhxmXvIIwnjBH6uMGTPvoPlWsG08aURHlcMj7m87rEw+Mnnl8oP/ExDV2Go8iRZ3qLEggS
+	rCLyxEhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uepBK-00000006a5Y-0LuM;
+	id 1uepBK-00000006a60-2Z7v;
 	Thu, 24 Jul 2025 06:11:54 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uep1r-00000006ZbF-3nQc
+	id 1uep8E-00000006ZtJ-2jJz
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Jul 2025 06:02:09 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-45618ddd62fso5869025e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Jul 2025 23:02:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1753336926; x=1753941726; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=md7ezImaC8aEPMY35qFAjPwWsP8CSm3ceVQj6sefxsg=;
-        b=kCFsVfHBXYZ9ymj7eAlEn6Jkzi0z+luOMckQIpClvfrq8YRnHDejFm8cyEvKv/dyck
-         WZCZCnhB6YhHoK8yx+ZjmeyYxFNO+8oo5RR17ZzB+xAMtqtEHknKYbtN5moaW6QEt+7X
-         JTgcG78M9xmxyUkousMbCjl0smgg1InkVfcLGKJ/93QIdN6Zz3wB4HDfWuvf2fiH8mf3
-         s0/Ni8SHuwUPSoTKpqZwtYmOPRYWJhnOeDPTYZTFn5ozjMKw8hU/3MNf+76g0w8iF80j
-         vuRCQ5IX71gODFgsUxhY6k2OV3M4NlZ8SyK5n9Zr6XPGNyBzAWTmBM5S9YUK7cqE/AEI
-         Komw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753336926; x=1753941726;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=md7ezImaC8aEPMY35qFAjPwWsP8CSm3ceVQj6sefxsg=;
-        b=A2RVcLvGOCKZLnD2wLrgxBF1EGX0eXrVVqlLAD44POK2vu5QuSzd4Amc4X1QdAWTQT
-         PlUfrpbuQg0Yqrg+xGXUqFRi3s/DJO/8kn2FCLgiNV9CYd6A3EX55V+IEGexV6EKXrH4
-         Er0Ds9htu8gxl2RZSr8TX4aSmyTdszHd6PLVvLg2B8mDYDfdLUukIfHF6nXsmSVMK0FW
-         dRtu7HFOZ/mWt7/k105nouZEX2onqTlML7ltBFb6uRfMk11nSp+VH5lA2sT01HSZhw1D
-         q6MqlnsdPWnlHoAC206uAHamCRMk1m8rKYpjAQKxo7pdFIvVB5Dc6RKVQUFindvtdJs+
-         Nc/Q==
-X-Forwarded-Encrypted: i=1; AJvYcCW7EgKwqTHaeC6RygEAzOfawNAg1ubh5XD8L+pBP9jc4tZ+KERFMOMllmw98i6thfeuYMfbkb5pGUFNLYM0Tf0P@lists.infradead.org
-X-Gm-Message-State: AOJu0YywfrfoLVdbvO4mVTEbD2ODfTLBEAifOHG1y25nwSwLGfnfvXO0
-	sFWnfGD6bKXmPGOnx3N2ghP7sV4CgvSx8KcIGxPuwDt1TocJVBE0g584
-X-Gm-Gg: ASbGnctrFpDdav96OPAvlClHonXZyyyIu3ztLQTR0PWvQdul/T8sErYAJuMeVLduwbj
-	U89uFDB1aOKH81bsrsTY0iuRU22oedpMsQwDJzbU1hmQcn3pdn30x00nqJb5pRmfNuRojo4MNLA
-	5DjV1M+foKhXJFIC0L6eJ0KpWJOUo7Sa7g851MLlYuT4zLHZFQQeW/Srj/Pp5xw0u4Owsp7XvPW
-	J/u7cQuBupEGB+DUmURkVyfGhsp6dZRZhlR+wk0qyTEh0nwIW4i6pvA7KzZh7KXuTmbKeZsLJ31
-	0+scaRE19cBcJlDa2GhM5WRqsfsfjgBfmTFcqHp6N5VmDjaenKQZeV4mxTr4/9LNaBQfn9I2e6Y
-	nh0GW7S8/dujjtM+sp4LCGXF4ikmuOAeXs6Y6L2OwrKHAfKm9jO3nYFipszdupL2bhiBQ4OJ5EH
-	15MXy6kCa9Lom92Q==
-X-Google-Smtp-Source: AGHT+IEk5vZ1UKWFwNAblqDfd6t+N0Mkjayt6bORHiyfg+et25uqHOWyD2FkHhqLkZP7Mco8q9JdgQ==
-X-Received: by 2002:a05:6000:1ac6:b0:3a4:f8e9:cef2 with SMTP id ffacd0b85a97d-3b768f1e40cmr4157399f8f.36.1753336925465;
-        Wed, 23 Jul 2025 23:02:05 -0700 (PDT)
-Received: from localhost (p200300e41f4e9b00f22f74fffe1f3a53.dip0.t-ipconnect.de. [2003:e4:1f4e:9b00:f22f:74ff:fe1f:3a53])
-        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-3b76fcad0f1sm1046656f8f.41.2025.07.23.23.02.03
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 23 Jul 2025 23:02:03 -0700 (PDT)
-From: Thierry Reding <thierry.reding@gmail.com>
-To: arm@kernel.org,
-	soc@kernel.org
-Cc: Thierry Reding <thierry.reding@gmail.com>,
-	Jon Hunter <jonathanh@nvidia.com>,
-	linux-tegra@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [GIT PULL v2] arm64: tegra: Changes for v6.17-rc1
-Date: Thu, 24 Jul 2025 08:02:02 +0200
-Message-ID: <20250724060202.2942616-1-thierry.reding@gmail.com>
-X-Mailer: git-send-email 2.50.0
-In-Reply-To: <20250711220943.2389322-7-thierry.reding@gmail.com>
-References: <20250711220943.2389322-7-thierry.reding@gmail.com>
-Content-Type: text/plain; charset="utf-8"
+	Thu, 24 Jul 2025 06:08:43 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 7F2525C57CE;
+	Thu, 24 Jul 2025 06:08:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B2E60C4CEED;
+	Thu, 24 Jul 2025 06:08:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1753337320;
+	bh=jnPA+iA9iLU7wadXEwXs4NfK0RtdyekHzyBGX5AWZsQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=EfynuZ5+9ifm4K+Q8RJf9Sc8h4rtAfwGv0gCHr2fvS4/5hlRSmSzyWCqdSeQFIdUv
+	 epQpwWEsigEcs12RdptljlIbcrSzmQfzy80xDo7W0irii5/Ytz+AVy/gVz+aION58e
+	 1NKWSAB4vMKZ2qk2Ba10DWpey7rUXVbAdjaiiqfS6z+9FsK9uyRQPfkCjGfvdVW7jm
+	 Qgvc0UYoncG6e3iwlztNMLAhE3yv3hqqpaNckyQxlqPLsJLSYckcgfJCtvhAA5JsBz
+	 PY13RW7hyRpf4H7n9nbf6DzqOgvgwZSG5jJt39SC0MhBWaGqfZksc2E4eN7L6n6XrP
+	 Pd+e+HqYUSojQ==
+Message-ID: <fd0770c8-e5e0-4bdb-a3da-b4b39f664e61@kernel.org>
+Date: Thu, 24 Jul 2025 08:08:34 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 07/10] power: reset: macsmc-reboot: Add driver for
+ rebooting via Apple SMC
+To: Lee Jones <lee@kernel.org>
+Cc: Nick Chan <towinchenmi@gmail.com>, asahi@lists.linux.dev,
+ Neal Gompa <neal@gompa.dev>, linux-arm-kernel@lists.infradead.org,
+ linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
+ Linus Walleij <linus.walleij@linaro.org>,
+ "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+ Hector Martin <marcan@marcan.st>, Conor Dooley <conor+dt@kernel.org>,
+ Janne Grunau <j@jannau.net>,
+ Sebastian Reichel <sebastian.reichel@collabora.com>,
+ Sebastian Reichel <sre@kernel.org>, Alyssa Rosenzweig
+ <alyssa@rosenzweig.io>, Bartosz Golaszewski <brgl@bgdev.pl>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Marc Zyngier <maz@kernel.org>
+References: <20250610-smc-6-15-v7-0-556cafd771d3@kernel.org>
+ <20250610-smc-6-15-v7-7-556cafd771d3@kernel.org>
+ <7297d4b1-84a2-4bb1-8a33-29c827247df7@gmail.com>
+ <d6b778ee-02c0-4dd2-b33f-cec16c17807c@kernel.org>
+ <20250723080615.GM11056@google.com>
+Content-Language: en-US
+From: Sven Peter <sven@kernel.org>
+In-Reply-To: <20250723080615.GM11056@google.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250723_230207_947403_FF1F0314 
-X-CRM114-Status: GOOD (  12.88  )
+X-CRM114-CacheID: sfid-20250723_230842_778897_D50E4B55 
+X-CRM114-Status: GOOD (  19.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,76 +89,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi ARM SoC maintainers,
+On 23.07.25 10:06, Lee Jones wrote:
+> On Sat, 21 Jun 2025, Sven Peter wrote:
+> 
+>> On 16.06.25 06:13, Nick Chan wrote:
+>>>
+>>>
+>>> On 10/6/2025 23:29, Sven Peter wrote:
+>>>> From: Hector Martin <marcan@marcan.st>
+>>>>
+>>>> This driver implements the reboot/shutdown support exposed by the SMC
+>>>> on Apple Silicon machines, such as Apple M1 Macs.
+>>>>
+>>>> Signed-off-by: Hector Martin <marcan@marcan.st>
+>>>> Reviewed-by: Alyssa Rosenzweig <alyssa@rosenzweig.io>
+>>>> Reviewed-by: Neal Gompa <neal@gompa.dev>
+>>>> Reviewed-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+>>>> Signed-off-by: Sven Peter <sven@kernel.org>
+>>>> ---
+>>>>    MAINTAINERS                         |   1 +
+>>>>    drivers/power/reset/Kconfig         |   9 ++
+>>>>    drivers/power/reset/Makefile        |   1 +
+>>>>    drivers/power/reset/macsmc-reboot.c | 290 ++++++++++++++++++++++++++++++++++++
+>>>>    4 files changed, 301 insertions(+)
+>>> [...]
+>>>
+>>> It seems that the reboot driver still probes even without the smc_reboot node in the smc node:
+>>
+>>
+>> That's odd...
+>>
+>> Lee, is it expected that a mfd sub-device declared with
+>> MFD_CELL_OF("macsmc-reboot", NULL, NULL, 0, 0, "apple,smc-reboot"),
+>> is loaded even if there's no corresponding node in the device tree?
+>>
+>> I'll have to re-add the check that makes sure the sub-device is available
+>> then.
+> 
+> Yes, that's expected.  MFD is orthogonal to DT with respect to device
+> registration, unless you specifically disable the node in DT.  If the
+> node is missing, the device will still be registered, but no link will
+> be made from the (non-existent) node to the 'of_node' pointer.
 
-The following changes since commit 19272b37aa4f83ca52bdf9c16d5d81bdd1354494:
+Makes sense!
 
-  Linux 6.16-rc1 (2025-06-08 13:44:43 -0700)
+> 
+> You have 3 choices; provide a DT node and explicitly set the status to
+> 'disabled', optionally omit registration from MFD (i.e. do not call
+> mfd_add_devices()) or check for (!pdev->dev.of_node) in the sub-device's
+> .probe() and bomb out early if true.
+> 
 
-are available in the Git repository at:
+Alright, so everything's working as intended then and the series has all 
+required Acks. I'd suggest that we take it as-is then  (either now if
+you're still picking things up before the merge window or after -rc1 is
+out otherwise) since it only adds support for M1 and later and those
+have all subdevices added here.
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/tegra/linux.git tags/tegra-for-6.17-arm64-dt-v2
+Once Nick adds support for pre-M1 SMC we can do one of those three
+things to disable the reboot sub-device then.
 
-for you to fetch changes up to 5897c161dc59e8d5237917406ac4be2d88e942bf:
 
-  arm64: tegra: Add p3971-0089+p3834-0008 support (2025-07-24 07:53:46 +0200)
+Best,
 
-Thanks,
-Thierry
 
-----------------------------------------------------------------
-arm64: tegra: Changes for v6.17-rc1
+Sven
 
-Add support for the Tegra264 SoC and the corresponding engineering
-reference hardware (P3971-0089+P3834-0008).
-
-----------------------------------------------------------------
-Sumit Gupta (1):
-      dt-bindings: memory: tegra: Add Tegra264 support
-
-Thierry Reding (13):
-      dt-bindings: tegra: pmc: Add Tegra264 compatible
-      dt-bindings: mailbox: tegra-hsp: Bump number of shared interrupts
-      dt-bindings: mailbox: tegra-hsp: Properly sort compatible string list
-      dt-bindings: firmware: Document Tegra264 BPMP
-      dt-bindings: misc: Document Tegra264 APBMISC compatible
-      dt-bindings: dma: Add Tegra264 compatible string
-      dt-bindings: rtc: tegra: Document Tegra264 RTC
-      dt-bindings: tegra: Document P3971-0089+P3834-0008 Platform
-      dt-bindings: Add Tegra264 clock and reset definitions
-      Merge branch 'for-6.17/dt-bindings' into for-6.17/arm64/dt
-      arm64: tegra: Add Tegra264 support
-      arm64: tegra: Add memory controller on Tegra264
-      arm64: tegra: Add p3971-0089+p3834-0008 support
-
- Documentation/devicetree/bindings/arm/tegra.yaml   |   5 +
- .../bindings/arm/tegra/nvidia,tegra186-pmc.yaml    |   1 +
- .../bindings/dma/nvidia,tegra186-gpc-dma.yaml      |   1 +
- .../bindings/firmware/nvidia,tegra186-bpmp.yaml    |   1 +
- .../bindings/mailbox/nvidia,tegra186-hsp.yaml      |  28 +-
- .../memory-controllers/nvidia,tegra186-mc.yaml     |  84 +++-
- .../bindings/misc/nvidia,tegra186-misc.yaml        |   1 +
- .../bindings/rtc/nvidia,tegra20-rtc.yaml           |   1 +
- arch/arm64/boot/dts/nvidia/Makefile                |   2 +
- .../arm64/boot/dts/nvidia/tegra264-p3834-0008.dtsi |   7 +
- arch/arm64/boot/dts/nvidia/tegra264-p3834.dtsi     |  30 ++
- .../dts/nvidia/tegra264-p3971-0089+p3834-0008.dts  |  11 +
- .../boot/dts/nvidia/tegra264-p3971-0089+p3834.dtsi |  14 +
- .../arm64/boot/dts/nvidia/tegra264-p3971-0089.dtsi |   3 +
- arch/arm64/boot/dts/nvidia/tegra264-p3971.dtsi     |   4 +
- arch/arm64/boot/dts/nvidia/tegra264.dtsi           | 412 ++++++++++++++++++
- include/dt-bindings/clock/nvidia,tegra264.h        | 466 +++++++++++++++++++++
- include/dt-bindings/memory/nvidia,tegra264.h       | 136 ++++++
- include/dt-bindings/reset/nvidia,tegra264.h        |  92 ++++
- 19 files changed, 1293 insertions(+), 6 deletions(-)
- create mode 100644 arch/arm64/boot/dts/nvidia/tegra264-p3834-0008.dtsi
- create mode 100644 arch/arm64/boot/dts/nvidia/tegra264-p3834.dtsi
- create mode 100644 arch/arm64/boot/dts/nvidia/tegra264-p3971-0089+p3834-0008.dts
- create mode 100644 arch/arm64/boot/dts/nvidia/tegra264-p3971-0089+p3834.dtsi
- create mode 100644 arch/arm64/boot/dts/nvidia/tegra264-p3971-0089.dtsi
- create mode 100644 arch/arm64/boot/dts/nvidia/tegra264-p3971.dtsi
- create mode 100644 arch/arm64/boot/dts/nvidia/tegra264.dtsi
- create mode 100644 include/dt-bindings/clock/nvidia,tegra264.h
- create mode 100644 include/dt-bindings/memory/nvidia,tegra264.h
- create mode 100644 include/dt-bindings/reset/nvidia,tegra264.h
 
