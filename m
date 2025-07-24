@@ -4,46 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52357C87FC5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 15:32:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E711C87FC5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 15:35:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dhQNBwDYjT5VF6v7m+e/PD65QuZr4t8niE48gQTispM=; b=CR3hVmP+rSYVyWHJblrd88TiNm
-	YDStPjynmp7d483I4yqU7Wk0iBYeK1Dw6oAPHgIPLt/+vIbeziTRlSDtCQx7KVltJvE02vTdaTq/J
-	jdRlGOHXk3CSXx8ymtclIgrEjp56iW6Uofc1B/6g33wdDkjcCK/OKkqu+oqwj0iB6pY9aI84NXGZA
-	9jhUwzvmWM4aG/g6Q3TBLHvCbcUpjSF8c4PEhZ6Sv4qjO6Ba9tnpt+IVTNv4tE0N99G1NfmgW5Dob
-	zJodrfS3ffdUnVuCYO8vymUy71QpPeYnvNi7kJwbz2xdwPUwNQdHFUDBPFgM/uFqvjwZWHG8CwD1z
-	n45+eRlQ==;
+	bh=0mAACpfGyk3MwPoipC2ki2uMiRAbAIIEPvB/FFT1yZo=; b=2vq4+pbG6K3T+DdT5FPvHH57Yv
+	SAaOWZjlVwurvvvZc0Ao2yccFMqkNNn24MmVTBIJZrt5OKbcCU3C6voD64+THkEkmojjzapu55LyR
+	o8YeAU0RglVXhsHlmmLE8/faUDYSJd6fmSvl1MhAk5Di42SCGEAcRF6BfmjyXAEHKem8D5iCykQUG
+	L3H7zvt7hO77vkA1Cc4/mlYhTLG6ophkNqEIzTQ+Neq5Ag0GvMeipqh8nl96C++dcbQjg7G64ZYzj
+	ymUDR5TyMw9wwRBffvecfF+qx/ltdhDMo3DnFhSGGlu6+MlBzhYJpjWtYe0uE8+lv9Vr/05BL850+
+	7/tJcfcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uexwA-00000007tYt-1QD5;
-	Thu, 24 Jul 2025 15:32:50 +0000
+	id 1uexyr-00000007tpF-3pw2;
+	Thu, 24 Jul 2025 15:35:37 +0000
 Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uewei-00000007hkD-0udd;
-	Thu, 24 Jul 2025 14:10:45 +0000
+	id 1uewek-00000007hlL-28wX;
+	Thu, 24 Jul 2025 14:10:47 +0000
 Received: from [192.168.1.76] (unknown [IPv6:2001:b07:6462:5de2:520d:d7a3:63ca:99e8])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 39D35C64;
-	Thu, 24 Jul 2025 16:10:03 +0200 (CEST)
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 8D0D9190D;
+	Thu, 24 Jul 2025 16:10:05 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1753366204;
-	bh=V4Bd2SEp0ALBPlJWG8EsVuj29YkOY/732hyVjUTvCTo=;
+	s=mail; t=1753366206;
+	bh=RMEJm/E/usNBixZcp+GBwmSg7HkpwQhhGNile6Mrpfg=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=XRjXhEEn13H6aY3oZsxLJY55/L9Tw65ogbxXhwI8kEvn9K4oZ1Re0eOFtrTRAbZH5
-	 kTHHgh06nTrI2tB/Zh8lEqR+YGZj6NLUTes5ev8kZ34Qpa7Ukj5XUbQ6HAvMBdQnDF
-	 aBk57paYgPL80JZd2zKCgWkJTo5Vu0czYxv7Vx9c=
+	b=KldGWVzhzELrAs96NQ9xfnzg0umN6bK5CgorjcgIdyNgJhUW7vG/LvV1YCSH8duET
+	 LaSJGklP/fPcnZYJRaAGKJchQGM8T9xCbFXV9UVMUWrK/qAx5QUxzVQD7Fx5nB4zlk
+	 C9TCugCnoeIO8mzUypMusl+C/3a24dd+XMNFyI64=
 From: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-Date: Thu, 24 Jul 2025 16:10:20 +0200
-Subject: [PATCH v2 13/27] media: v4l2-subdev: Introduce
- VIDIOC_SUBDEV_BIND_CONTEXT
+Date: Thu, 24 Jul 2025 16:10:22 +0200
+Subject: [PATCH v2 15/27] media: v4l2_subdev: Introduce default context
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250724-multicontext-mainline-2025-v2-13-c9b316773486@ideasonboard.com>
+Message-Id: <20250724-multicontext-mainline-2025-v2-15-c9b316773486@ideasonboard.com>
 References: <20250724-multicontext-mainline-2025-v2-0-c9b316773486@ideasonboard.com>
 In-Reply-To: <20250724-multicontext-mainline-2025-v2-0-c9b316773486@ideasonboard.com>
 To: Sakari Ailus <sakari.ailus@linux.intel.com>, 
@@ -62,26 +61,26 @@ Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
  linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
  Jacopo Mondi <jacopo.mondi@ideasonboard.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4492;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5859;
  i=jacopo.mondi@ideasonboard.com; h=from:subject:message-id;
- bh=V4Bd2SEp0ALBPlJWG8EsVuj29YkOY/732hyVjUTvCTo=;
- b=owEBbQKS/ZANAwAKAXI0Bo8WoVY8AcsmYgBogj7PdCfw+hprkRoPY/A7yYedTP/OgpDEkO/va
- XN9lVbNkHyJAjMEAAEKAB0WIQS1xD1IgJogio9YOMByNAaPFqFWPAUCaII+zwAKCRByNAaPFqFW
- PPgdD/4lyAybO0SI0vYiBbeWcj1BoSkTxEhslUbbePT7t3GYV30NNOF33+zC1FvxXCBrZVWheIv
- ExXotbLPGo+5ylE27Ds1z+iwCN8WitxhBphcGk/XU/9B/Q4unN8yWhl7spTmQWjsAydN+nvmIlm
- /ucxxvAiMCMk4atU0f2mOheMaZomAOp5aUbtihQ5tOhyUyzvQmADlhdz26CDjou9xO1eIzJQRu1
- 1ElveqRlXNyJEpQyQn/O1EGsLyC0ZorJMK2EQokUU/TBtJPUN5gcd2FYE31+7mGHSUrlbJwmJX4
- g/zQenllabIdoXMY0R8FKmh9are6EsXij64oDTi0lFzcWJoePUnyqagTaPYFdM6x2RzD4UGmbl0
- ho4N1l2MVqhCw4zIPu4lVWNRo5WThc1M+mrcK3ZMH2J2aJlckYz09UUxlLoM4NLS3j8AUQQnIeg
- KNnJmwvpJOeYsG8yCoy4idIYa06BbjizQRPw9OtVvgtyNrXWTKo2LTVeU6dEEKsxqxbNlMSNIqd
- URXJBoLhqi44hpsVUDun+2tPCY4LDd5pOBwvZhGti6pScMH7CtdR/4r2lFelG0XD+HysKdrQj+W
- ZzbipuLEVmacO1Y9BCxM3ZRfVCR84yDkoUTMT/+5iv+3/1QsY8W701xPrEdFTedp00QCvyJvMQA
- h4XBGzu5r5fOU2Q==
+ bh=RMEJm/E/usNBixZcp+GBwmSg7HkpwQhhGNile6Mrpfg=;
+ b=owEBbQKS/ZANAwAKAXI0Bo8WoVY8AcsmYgBogj7P1/MKU1Ktuh3wvx1qB/QU79/dRKxCfwG1p
+ 2Oo0BAz+F6JAjMEAAEKAB0WIQS1xD1IgJogio9YOMByNAaPFqFWPAUCaII+zwAKCRByNAaPFqFW
+ PCc7D/460AOKgiuGxo8oHW7UIhLM+ZqXE8WCJjPH6HxSRZm0imC+qVc+LJG8YwdZ7InirAUxNJW
+ C9Gzu7a9wEZOtDl2dgVtgsMTKBq4NCk83bEnIz1hdbIpiq8xsGMCpJFJW34QOzJHXmvi2bcFcZd
+ kIYJVjQ9nXdDLdPO0Hj1jqpI4noQ7q4cLaIRe+SxRdQ6lkK0fqmjrquYuoTBd4BqWfwBXO8gme9
+ 0EJXGZxMRTBtEOH+pfNYQV3n363wrs+smCkWubOKvSGmVffaSAntOqqT41zr9EiwJ9hBm3rZj1G
+ k6vcGDe70r0hId4CKCXPBLOfT67qnphMJlOCQsFgZQyXo3wU5VYjFGG+P5F0XxA+1EMmMBwdX7d
+ qlAXIx4YoeZKm+qKNZx1obWbWGSSQdu1CKZLnO96x00IiJ5CNr7fVi1Xr6MNvBLfl5MR3HRemmf
+ 2Xy30ENpV+uSdzsbUtFjOMXYwi/f56RnqR+L0xBKcQT9QnvM13hy3FBzvn8v8cN9f970tCueSFg
+ JKnnhPGSP3CBSwDIJtl2hrPTp7VUJNONCVq4g7jh2b7TA/3WnRp5cEWwjxeZrT2yVwirDFlUUyt
+ bTbxvDcc7wCzG8v+yZwZYQOV4XnA2Lt4vig1vJz6trijNEIxW3CGTO2IR0v4Wgk4D/Kz02GVHO2
+ /niTwqVtIfEzVVA==
 X-Developer-Key: i=jacopo.mondi@ideasonboard.com; a=openpgp;
  fpr=72392EDC88144A65C701EA9BA5826A2587AD026B
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250724_071044_417744_4B48C390 
-X-CRM114-Status: GOOD (  16.91  )
+X-CRM114-CacheID: sfid-20250724_071046_837106_67D72103 
+X-CRM114-Status: GOOD (  18.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,131 +95,170 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce a new ioctl in V4L2 subdev to allocate a subdevice context
-and associate it with a media device context.
+Introduce a default context for v4l2 subdvice.
 
-The ioctl handler calls the entity ops to let the driver allocate a
-new context and initialize the subdev state there contained.
+Drivers ported to use multi-context support that used to work with a
+non-context aware userspace (which doesn't call VIDIOC_SUBDEV_BIND_CONTEXT)
+shall continue to work even if they are context aware.
 
-The new subdevice context is bound to the media device context
-associated with the file descriptor provided by userspace as the new
-ioctl argument.
+Provide a default context in the v4l2 subdev and bind it to the media
+device default context when the subdevice is fully registered by
+providing a v4l2_subdev_registered() function.
 
-The newly allocated context is stored in the v4l2_subdev_fh handle
-that represent the open file handle on which the ioctl has been called.
+Release the context when the subdevice gets unregistered by the core,
+providing a v4l2_subdev_unregistered() helper.
 
 Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
 ---
- drivers/media/v4l2-core/v4l2-subdev.c | 59 +++++++++++++++++++++++++++++++++++
- include/uapi/linux/v4l2-subdev.h      | 11 +++++++
- 2 files changed, 70 insertions(+)
+ drivers/media/v4l2-core/v4l2-device.c | 11 +++-----
+ drivers/media/v4l2-core/v4l2-subdev.c | 50 +++++++++++++++++++++++++++++++++++
+ include/media/v4l2-subdev.h           | 29 ++++++++++++++++++++
+ 3 files changed, 83 insertions(+), 7 deletions(-)
 
+diff --git a/drivers/media/v4l2-core/v4l2-device.c b/drivers/media/v4l2-core/v4l2-device.c
+index 5e537454f5cd71b3c50a2a2864642f7d5548047b..bf3ebd77b7bb8b13c849a89d01e6d889e8a2e4fd 100644
+--- a/drivers/media/v4l2-core/v4l2-device.c
++++ b/drivers/media/v4l2-core/v4l2-device.c
+@@ -146,11 +146,9 @@ int __v4l2_device_register_subdev(struct v4l2_device *v4l2_dev,
+ 	}
+ #endif
+ 
+-	if (sd->internal_ops && sd->internal_ops->registered) {
+-		err = sd->internal_ops->registered(sd);
+-		if (err)
+-			goto error_unregister;
+-	}
++	err = v4l2_subdev_registered(sd);
++	if (err)
++		goto error_unregister;
+ 
+ 	sd->owner = module;
+ 
+@@ -274,8 +272,7 @@ void v4l2_device_unregister_subdev(struct v4l2_subdev *sd)
+ 	list_del(&sd->list);
+ 	spin_unlock(&v4l2_dev->lock);
+ 
+-	if (sd->internal_ops && sd->internal_ops->unregistered)
+-		sd->internal_ops->unregistered(sd);
++	v4l2_subdev_unregistered(sd);
+ 	sd->v4l2_dev = NULL;
+ 
+ #if defined(CONFIG_MEDIA_CONTROLLER)
 diff --git a/drivers/media/v4l2-core/v4l2-subdev.c b/drivers/media/v4l2-core/v4l2-subdev.c
-index 7307f57439499c8d5360c89f492944828ac23973..300f84317623dd082a4cd2caec97057f972e82a3 100644
+index 300f84317623dd082a4cd2caec97057f972e82a3..438f51980e5ac0f092ba6b0a979a376133968ddf 100644
 --- a/drivers/media/v4l2-core/v4l2-subdev.c
 +++ b/drivers/media/v4l2-core/v4l2-subdev.c
-@@ -607,6 +607,46 @@ subdev_ioctl_get_state(struct v4l2_subdev *sd, struct v4l2_subdev_fh *subdev_fh,
- 			     v4l2_subdev_get_unlocked_active_state(sd);
- }
+@@ -1275,6 +1275,56 @@ const struct v4l2_file_operations v4l2_subdev_fops = {
+ 	.poll = subdev_poll,
+ };
  
-+static int subdev_do_bind_context(struct v4l2_subdev *sd,
-+				  struct v4l2_subdev_context **context,
-+				  struct media_device_context *mdev_context)
++#ifdef CONFIG_MEDIA_CONTROLLER
++static int v4l2_subdev_register_default_context(struct v4l2_subdev *sd)
 +{
-+	static struct lock_class_key key;
-+	struct v4l2_subdev_state *state;
++	struct media_device_context *mdev_context;
++
++	/* If the driver does not support contexts, return here. */
++	if (!sd->entity.ops || !sd->entity.ops->alloc_context ||
++	    !sd->entity.ops->destroy_context)
++		return 0;
++
++	mdev_context = sd->entity.graph_obj.mdev->default_context;
++	return subdev_do_bind_context(sd, &sd->default_context, mdev_context);
++}
++#endif /* CONFIG_MEDIA_CONTROLLER */
++
++int v4l2_subdev_registered(struct v4l2_subdev *sd)
++{
 +	int ret;
 +
-+	ret = sd->entity.ops->alloc_context(&sd->entity,
-+					    (struct media_entity_context **)
-+					    context);
++#ifdef CONFIG_MEDIA_CONTROLLER
++	ret = v4l2_subdev_register_default_context(sd);
 +	if (ret)
 +		return ret;
++#endif /* CONFIG_MEDIA_CONTROLLER */
 +
-+	state = __v4l2_subdev_state_alloc(sd, "context->state->lock", &key);
-+	if (IS_ERR(state)) {
-+		ret = PTR_ERR(state);
-+		goto err_put_context;
++	if (sd->internal_ops && sd->internal_ops->registered) {
++		ret = sd->internal_ops->registered(sd);
++		if (ret)
++			goto err_registered;
 +	}
-+	(*context)->state = state;
-+
-+	/*
-+	 * Bind the newly created video device context to the media device
-+	 * context identified by the file descriptor.
-+	 */
-+	ret = media_device_bind_context(mdev_context,
-+					(struct media_entity_context *)
-+					*context);
-+	if (ret)
-+		goto err_free_state;
 +
 +	return 0;
 +
-+err_free_state:
-+	__v4l2_subdev_state_free((*context)->state);
-+err_put_context:
-+	v4l2_subdev_context_put(*context);
++err_registered:
++	if (sd->default_context)
++		v4l2_subdev_context_put(sd->default_context);
 +	return ret;
 +}
++EXPORT_SYMBOL_GPL(v4l2_subdev_registered);
 +
- static long subdev_do_ioctl(struct file *file, unsigned int cmd, void *arg,
- 			    struct v4l2_subdev_state *state)
- {
-@@ -1089,6 +1129,25 @@ static long subdev_do_ioctl(struct file *file, unsigned int cmd, void *arg,
- 		return 0;
- 	}
++void v4l2_subdev_unregistered(struct v4l2_subdev *sd)
++{
++	if (sd->default_context)
++		v4l2_subdev_context_put(sd->default_context);
++
++	if (sd->internal_ops && sd->internal_ops->unregistered)
++		sd->internal_ops->unregistered(sd);
++}
++EXPORT_SYMBOL_GPL(v4l2_subdev_unregistered);
++
+ #ifdef CONFIG_MEDIA_CONTROLLER
  
-+	case VIDIOC_SUBDEV_BIND_CONTEXT: {
-+		struct v4l2_subdev_bind_context *c = arg;
-+		struct media_device_context *mdev_context;
-+		int ret;
-+
-+		if (!sd->entity.ops || !sd->entity.ops->alloc_context ||
-+		    !sd->entity.ops->destroy_context)
-+			return -ENOTTY;
-+
-+		mdev_context = media_device_context_get_from_fd(c->context_fd);
-+		if (!mdev_context)
-+			return -EINVAL;
-+
-+		ret = subdev_do_bind_context(sd, &subdev_fh->context,
-+					     mdev_context);
-+		media_device_context_put(mdev_context);
-+		return ret;
-+	}
-+
- 	case VIDIOC_SUBDEV_G_CLIENT_CAP: {
- 		struct v4l2_subdev_client_capability *client_cap = arg;
- 
-diff --git a/include/uapi/linux/v4l2-subdev.h b/include/uapi/linux/v4l2-subdev.h
-index 2347e266cf7516b4073c1edd43b97a3ddddb183b..6184cc0153a9dd9fbfa6729e1b6127ba4a961395 100644
---- a/include/uapi/linux/v4l2-subdev.h
-+++ b/include/uapi/linux/v4l2-subdev.h
-@@ -243,6 +243,16 @@ struct v4l2_subdev_routing {
- 	__u32 reserved[11];
+ int v4l2_subdev_get_fwnode_pad_1_to_1(struct media_entity *entity,
+diff --git a/include/media/v4l2-subdev.h b/include/media/v4l2-subdev.h
+index 9d257b859acafb11cfe6976e906e7baabd0206f6..1fa42a9f322be0be44fc9308744f4f4ae0cf1606 100644
+--- a/include/media/v4l2-subdev.h
++++ b/include/media/v4l2-subdev.h
+@@ -1130,6 +1130,10 @@ struct v4l2_subdev_platform_data {
+  * @active_state: Active state for the subdev (NULL for subdevs tracking the
+  *		  state internally). Initialized by calling
+  *		  v4l2_subdev_init_finalize().
++ * @default_context: Default context for the subdev, allows to operate
++ *		     context-aware drivers with a context-unaware userspace.
++ *		     It is initialized when the subdev is registered in
++ *		     v4l2_subdev_registered().
+  * @enabled_pads: Bitmask of enabled pads used by v4l2_subdev_enable_streams()
+  *		  and v4l2_subdev_disable_streams() helper functions for
+  *		  fallback cases.
+@@ -1182,6 +1186,7 @@ struct v4l2_subdev {
+ 	 * doesn't support it.
+ 	 */
+ 	struct v4l2_subdev_state *active_state;
++	struct v4l2_subdev_context *default_context;
+ 	u64 enabled_pads;
+ 	bool s_stream_enabled;
  };
+@@ -1286,6 +1291,30 @@ static inline void *v4l2_get_subdev_hostdata(const struct v4l2_subdev *sd)
+ 	return sd->host_priv;
+ }
  
 +/**
-+ * struct v4l2_subdev_bind_context - Subdev context information
++ * v4l2_subdev_registered - Subdevice registered notification
 + *
-+ * @context_fd: The file descriptor of the media_device instance the subdevice
-+ *		has to be bound to
++ * @sd: The subdevice that has been registered
++ *
++ * Notify that a subdevice has been registered by the core. This function wraps
++ * a call to sd->internal_ops->registered (if available) and instantiates the
++ * default v4l2 subdevice context.
++ *
++ * Returns 0 on success, a negative error code otherwise.
 + */
-+struct v4l2_subdev_bind_context {
-+	__u32 context_fd;
-+};
++int v4l2_subdev_registered(struct v4l2_subdev *sd);
 +
- /*
-  * The client is aware of streams. Setting this flag enables the use of 'stream'
-  * fields (referring to the stream number) with various ioctls. If this is not
-@@ -285,6 +295,7 @@ struct v4l2_subdev_client_capability {
- #define VIDIOC_SUBDEV_S_SELECTION		_IOWR('V', 62, struct v4l2_subdev_selection)
- #define VIDIOC_SUBDEV_G_ROUTING			_IOWR('V', 38, struct v4l2_subdev_routing)
- #define VIDIOC_SUBDEV_S_ROUTING			_IOWR('V', 39, struct v4l2_subdev_routing)
-+#define VIDIOC_SUBDEV_BIND_CONTEXT		_IOWR('V', 50, struct v4l2_subdev_bind_context)
- #define VIDIOC_SUBDEV_G_CLIENT_CAP		_IOR('V',  101, struct v4l2_subdev_client_capability)
- #define VIDIOC_SUBDEV_S_CLIENT_CAP		_IOWR('V',  102, struct v4l2_subdev_client_capability)
++/**
++ * v4l2_subdev_unregistered - Subdevice unregistered notification
++ *
++ * @sd: The subdevice that has been unregistered
++ *
++ * Notify that a subdevice has been unregistered by the core. This function
++ * wraps a call to sd->internal_ops->unregistered (if available) and deletes
++ * the default v4l2 subdevice context.
++ */
++void v4l2_subdev_unregistered(struct v4l2_subdev *sd);
++
+ #ifdef CONFIG_MEDIA_CONTROLLER
  
+ /**
 
 -- 
 2.49.0
