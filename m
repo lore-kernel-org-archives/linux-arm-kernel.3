@@ -4,71 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92D6AC83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 01:03:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 119BFC83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 01:06:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=c5+d9Egidv/a1yFuUAzEWvY5Ntl1Jygw54WvCaRmnv8=; b=PkoQA+FvFiKcDMmJkDruhCK24B
-	CTE9Sq1ipPmeuDgKj6+aSbWkJEUk73QJDGlqUrdvmkTE+uELY/tcSbsjVLDsGxYgqo42bLcGuEoN5
-	c17C9CXRhCxdVC4cuJs+IQD8yEQDGrVkQsQjqeayS7qSR4jYQzA5fU5BzbzOvU8LEa+lGH0z7rpHq
-	bL7Ct+AWhGhfIxq7vPWZu8CyZNIOb7c0bO3VmtihHtruum/zV94XhHSEWWDQOip6QLV01W/pUqMuS
-	FWU5SNiOcyKtoPrdJlr0WA+zbT3yDJn7MurVQWSzQER0V518+ntEs4GN7uxM6qHkidzjYZ1OzKOcy
-	RzHMYxDg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ola36QVTNrbThBTKVTSKPubN1/zqev6+ed2BRlcpJ0o=; b=FC6Hj//8zs9u+/ic0vsjcgYpHh
+	AhBzxhTUAf3ajdUtfQ4pcskOKMYg7+jDIMHf/Uhs7B//NVREgJoK5+Bbgqo0K4u1/KTZfB9UXZVt5
+	9sXpgMFOHIj6h2KtnsR0Iz6tOIEcyKuFHR7cx+STQU5+Uo16VfQjHe8h1DvmKxsh/0jdeClaXSn1t
+	B1L2P9ESOpPe7MOef2DaCFqGi/zcWcr6Ck4zH9Q3Al06LM0PJnWgVw7etBK3rLYvGIIA7GHi9HNBt
+	CxDOqXvfH0zLAjBpivDHLnBhT9AvjZv41WqBaH8fJUV3bDqZHA9O8K/CFOGt3y8tnIbFli0YSN1cZ
+	+imhVcsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uekMg-00000006Gzh-43ty;
-	Thu, 24 Jul 2025 01:03:18 +0000
-Received: from mgamail.intel.com ([198.175.65.17])
+	id 1uekPh-00000006HC8-32wm;
+	Thu, 24 Jul 2025 01:06:25 +0000
+Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uekKF-00000006Gnq-2c9P
+	id 1uekNF-00000006H2Z-39nC
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Jul 2025 01:00:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1753318847; x=1784854847;
-  h=date:from:to:cc:subject:message-id;
-  bh=uphJFXX2koaRGllz+pKFF3hDz8hb9LNZr7F1sP4Uii0=;
-  b=MjVq9Dx6ZpMg6BcnE4cnjkFPoSBRynPb/XvHO7YBiu/f5AVqYLpFsEma
-   5GlnOvvQKmCX7rHB99WbmtWmLkSt+MfkOmPi9l3MUu93L88LCYSjg8b7q
-   nXysnHYanyE5AKOkvMTcph9/NeTTSTgk/q/EFUKNzH1MPFX5mC7934Y6A
-   9jVriRUKxLD9PBrPdYETbkujzJ8vA3pSUjlOKCLCuuBuyRKsOGSNW+RQl
-   AfD5TKp4FGMmougmd96FCLrIyrYrAvu2xKwZR82DJ41hQOEFPhz5wUH3a
-   T0zvaHybeMK9X/KRMvdcSudWi6d3Cosq40tyyl0dkYzvvXjpekumu5q7h
-   w==;
-X-CSE-ConnectionGUID: 2C65SP5FQjmwqc6wBNDgWA==
-X-CSE-MsgGUID: E7SRo9tlRyqws4koshgieg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11501"; a="55577964"
-X-IronPort-AV: E=Sophos;i="6.16,335,1744095600"; 
-   d="scan'208";a="55577964"
-Received: from fmviesa001.fm.intel.com ([10.60.135.141])
-  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Jul 2025 18:00:45 -0700
-X-CSE-ConnectionGUID: wwZKqAlRT62AFCnbrVLWsA==
-X-CSE-MsgGUID: ukNLDHeiS6uylsZ/VvEX8w==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.16,335,1744095600"; 
-   d="scan'208";a="190792606"
-Received: from lkp-server01.sh.intel.com (HELO 9ee84586c615) ([10.239.97.150])
-  by fmviesa001.fm.intel.com with ESMTP; 23 Jul 2025 18:00:43 -0700
-Received: from kbuild by 9ee84586c615 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1uekK9-000JyF-2x;
-	Thu, 24 Jul 2025 01:00:41 +0000
-Date: Thu, 24 Jul 2025 08:59:51 +0800
-From: kernel test robot <lkp@intel.com>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
-Subject: [soc:soc/arm] BUILD SUCCESS
- 8c1f5a11dad0a9043c17c4c0240f394e481baca6
-Message-ID: <202507240838.kI3hb54i-lkp@intel.com>
-User-Agent: s-nail v14.9.24
+	Thu, 24 Jul 2025 01:03:54 +0000
+Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-234fcadde3eso5405715ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Jul 2025 18:03:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1753319033; x=1753923833; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=ola36QVTNrbThBTKVTSKPubN1/zqev6+ed2BRlcpJ0o=;
+        b=Br+r6Zi0EjtcA3/Ych2gj+1QuUAr0OTYzCppFLmgjijM+2ZbatAr+gp8Sl1ncgnEj7
+         0LRsYlN8LjIyZkMnaSL+G7Wv+ajTOL/N08jZV3XmshN6X+r3OcC9DiS4hF44DaVGveye
+         f08x6bzgDaqrguIqEIWUCPH9aHu6olw/w28/UIYSSIxxI0q4HTVCsZ989f0dg0BW432P
+         yumNug9/bQPksYb8xbDryHdLvvay/RPl9quwrKX2MvSMpXG5AXDQp+4QzYGABQfaR7/M
+         5XJPvWJLpm5RVQppIyHOv8vTQ6dfhueGuiJA8CPAYfIQPWBUqqnTfO81gcjED8Xihuic
+         lmVw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1753319033; x=1753923833;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ola36QVTNrbThBTKVTSKPubN1/zqev6+ed2BRlcpJ0o=;
+        b=omutxoludZV94XVDUCCcXTv3jqUx+0iAhh/d5R2vgfa68njrsirxuRzBL1pIK4LKnj
+         zBBrMzUmkim0x70VdQ9auqNobsQOe6+hIig13J7SjDBaunBAyxaSMDdCuZCDX52kSBdL
+         0OwWIBnYwwZaENfLZW5+ytYizbxEQho0t12SNCcrbDi0di9CTaihrww8b9J/6bHEMbTe
+         ndmJBy+jsPv5/F1I51BZD5ZkyVqFIUI+iQADImSu8sjhVIZxbtFyHAPtdZTWgHAO/hLm
+         KEmgPARj9dHictJ3tkfbg3DYaC1pjNMUEdZigHz+q23ubULFgd8b118Eb+lI2RzQru9B
+         zY6A==
+X-Forwarded-Encrypted: i=1; AJvYcCURDVJ3PC55iGbY2tpr+RmO6NgGyxMCuMrpHcZAgwecTE/SlR7Zn/ePlps3ihgItHvigIQR8WOH7bSWjeX/YR9i@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx/lbzMR7FHjfKagN4Z1XoiRWy4PTnvMnEfavJQggYmcruOXPFH
+	1e1NSmEEoKLcOwCa3RLqlHJTckJ7koCMd17OdWefKjvy6rGxqmSDEx7O
+X-Gm-Gg: ASbGnctdCA1sEc2gS3lXgP/McLEU5vxDEF+XUvNjTYyGRW5FyV0BhVhMwKSG58ViwRb
+	8w2+9+8preqFswqGtGskIdFI156dNHFrD9cAZeoLo8rYsZlQbR+6Ec+9tt/OqBe8zz6cW2roqHx
+	E+X8c83/ZG4NSpeso/luYg2++xkPJR78w9eDX149oNwPcLTksZaT8JUPjjrsD691hewiB3jjVFM
+	TD3YXDzngr+iSYhkP1ryYLWbnrI5VQhzaCGa2K1ogZ3JcZ/kzyGaAez0Rrc9fhwQdxJ1Fw7ICbK
+	Ii/zpDB8lbU7pJ6w97fm/3CruYcfZS8Kjb5kIhvTA5+njGxbB+JTfJVrtysMNN+E4mn2cOdW6fl
+	izM7Rr7X5zQK/KhQfB1NF2qpHRY7jqKjrkSXsic43udCdJvmJ6bMPFwadI7o+HJNLXG8hzWlgax
+	0=
+X-Google-Smtp-Source: AGHT+IFgaOGMceKN4aw59L0CUk1l7GDQtyX01Zhw6G9VYFu6+CkQUCsVgi4C70MsUhb+musZe+qrOg==
+X-Received: by 2002:a17:903:1a2c:b0:234:e7aa:5d9b with SMTP id d9443c01a7336-23f9814c6damr56396695ad.23.1753319032958;
+        Wed, 23 Jul 2025 18:03:52 -0700 (PDT)
+Received: from localhost.localdomain (c-76-133-73-115.hsd1.ca.comcast.net. [76.133.73.115])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23fa48f04afsm2229035ad.163.2025.07.23.18.03.51
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 23 Jul 2025 18:03:52 -0700 (PDT)
+Date: Wed, 23 Jul 2025 18:03:49 -0700
+From: Tao Ren <rentao.bupt@gmail.com>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org,
+	Tao Ren <taoren@meta.com>
+Subject: Re: [PATCH v3 10/13] ARM: dts: aspeed: Add Facebook Fuji-data64
+ (AST2600) Board
+Message-ID: <aIGGdbIX9HaV4dB/@localhost.localdomain>
+References: <20250723233013.142337-1-rentao.bupt@gmail.com>
+ <20250723233013.142337-11-rentao.bupt@gmail.com>
+ <d09667e5-992e-4ced-ae30-7a4116a72c62@lunn.ch>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <d09667e5-992e-4ced-ae30-7a4116a72c62@lunn.ch>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250723_180047_730674_F9EE2E69 
-X-CRM114-Status: UNSURE (   5.18  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250723_180353_793473_BE8F6E41 
+X-CRM114-Status: GOOD (  13.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,33 +105,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git soc/arm
-branch HEAD: 8c1f5a11dad0a9043c17c4c0240f394e481baca6  Merge tag 'v6.17-rockchip-arm32-1' of https://git.kernel.org/pub/scm/linux/kernel/git/mmind/linux-rockchip into soc/arm
+On Thu, Jul 24, 2025 at 02:03:20AM +0200, Andrew Lunn wrote:
+> > +&mac3 {
+> > +	status = "okay";
+> > +	phy-mode = "rgmii";
+> 
+> Does the PCB have extra long clock lines to implement the 2ns delay?
+> 
+> 	Andrew
 
-elapsed time: 1097m
+Hi Andrew,
 
-configs tested: 13
-configs skipped: 118
+Thank you for catching it. I didn't notice the settings because the file
+is copied from the exiting fuji.dts with minor changes.
 
-The following configs have been built successfully.
-More configs may be tested in the coming days.
+The delay is currently introduced on MAC side (by manually setting SCU
+registers), but I guess I can update phy-mode to "rgmii-id" so the delay
+can be handled by the PHY?
 
-tested configs:
-arm               allmodconfig    gcc-15.1.0
-arm                allnoconfig    clang-22
-arm               allyesconfig    gcc-15.1.0
-arm    randconfig-001-20250723    gcc-13.4.0
-arm    randconfig-002-20250723    gcc-13.4.0
-arm    randconfig-003-20250723    clang-16
-arm    randconfig-004-20250723    clang-22
-arm64             allmodconfig    clang-19
-arm64              allnoconfig    gcc-15.1.0
-arm64  randconfig-001-20250723    clang-22
-arm64  randconfig-002-20250723    clang-16
-arm64  randconfig-003-20250723    clang-16
-arm64  randconfig-004-20250723    clang-22
 
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Thanks,
+
+Tao
 
