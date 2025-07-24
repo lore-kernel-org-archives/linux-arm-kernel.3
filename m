@@ -4,64 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C059C83F26
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EB35C83F1A
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 13:52:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RRDrY/4i4vxfV6KqLLQJM66rprUmL0CTshjnTnV2Pmk=; b=uhxEa5nhX8FQnCzYgzgMsnSll4
-	G1kIwpDq+rHf4RVoJb7ovSlOcO0DQLrshLQIvGYXyGFf14Ue/Pm03sADU3KLi4IZMBLKNVN+g7agN
-	dqXocw+70gUr8I21MKdqmjnVdwqrnzi4qfVKtZNkdCes/iNnrcSpm1t/Ut3APtAUGFy4cmEJgnWTk
-	V/PsMVTF82Tnawn4NKddZDnHKrKeJDIFnJ9z1QDowfHJietLipAOof1mBDHtfNgC3+DMaFtr/m8O0
-	laB2BEiZvxcbtpwxgF0oWIT48RGRk7nWrRuSG/lf2MJb8k/hYZZh5iNKzP6FPlzafLmh7DNRPyJ0o
-	wp/phqdA==;
+	bh=zoxQrE9BQllINJgA23hOAwgoifAhEszw6BlmYIQoAW8=; b=C20mRZRQfBV0HxyrAw0KWkfCKU
+	mrDvLIrbvwAuSnlU63pEJN9cSGLHCEzfLFQece+qWWDSXWetQMli+aBhq5oV+d0PufEZAUFTo7poW
+	QQnqkgp5BjpAVqHWeRpyFGs4LIMCJmHnNqYQp52Wozh3UmjwLYYa1NShao8dMYEeIM0KnMbf16uxg
+	QJcZdp5uCKHAyQJSa/ojn8YGEw/dqXHH7ejv7NNXkjStDry0A/Wo46QfuC7IkEDGB/mMbe2ChBdOz
+	8FnFGAKrxVntyqWt86UxI4i//HWls1gRlHH0KScX835JUoQ71gC+rt+X75PiWFAwIROLr1CzwJdF/
+	lApCpP7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uewMz-00000007YyT-419U;
-	Thu, 24 Jul 2025 13:52:25 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uewN0-00000007Yzg-3Lsf;
+	Thu, 24 Jul 2025 13:52:26 +0000
+Received: from mail-il1-x12b.google.com ([2607:f8b0:4864:20::12b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueswe-00000007Azc-2BGN;
-	Thu, 24 Jul 2025 10:13:00 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8281A61126;
-	Thu, 24 Jul 2025 10:12:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C8C04C4CEF4;
-	Thu, 24 Jul 2025 10:12:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753351979;
-	bh=MKTJsXoh0ovoIVsPRZJbybf8oVQe3fF6tNG1svHyD9Q=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=F+KOmwgg+z7e6KttvqwjToMUUNQKbMcch6Kaqh7mZiJe+e9MtjQqK0QFMCc/r6Sja
-	 p+D1xm97+/1DEirZQdiS8y+/KFaz8D6qlqH/lfgk8mS6gp58TEMqhj6XVq6SYaXY5J
-	 zQuYjzsOKaKulq2ezVsbW2oiw0HNwtpngA5XWMEv7MyE5aSpR/zbmzYjpcXTHEcitb
-	 TfjwB0SaDiSzB8/wFtEMf3vnCWpMBWKbirWtqS8e6MvX9yNTXf0K3in3uJsMhAoGaZ
-	 Tmo1DaoDs2g06Y13IpqoEM1crzlFMx2a8w1h76uWBwcDwvJC1BSwoH7wUiLJemnoiU
-	 GobqWa0flpRbQ==
-Date: Thu, 24 Jul 2025 11:12:47 +0100
-From: Jonathan Cameron <jic23@kernel.org>
-To: Sanjay Suthar <sanjaysuthar661996@gmail.com>
-Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- linux-iio@vger.kernel.org, netdev@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org,
- ribalda@kernel.org, dlechner@baylibre.com, nuno.sa@analog.com,
- andy@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, neil.armstrong@linaro.org,
- khilman@baylibre.com, jbrunet@baylibre.com,
- martin.blumenstingl@googlemail.com
-Subject: Re: [PATCH v3] dt-bindings: cleanup: fix duplicated 'is is' in YAML
- docs
-Message-ID: <20250724111247.669d6955@jic23-huawei>
-In-Reply-To: <20250722170513.5854-1-sanjaysuthar661996@gmail.com>
-References: <20250722170513.5854-1-sanjaysuthar661996@gmail.com>
-X-Mailer: Claws Mail 4.3.1 (GTK 3.24.49; x86_64-pc-linux-gnu)
+	id 1uesy0-00000007BAv-1Hv5
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 24 Jul 2025 10:14:25 +0000
+Received: by mail-il1-x12b.google.com with SMTP id e9e14a558f8ab-3d948ce7d9dso2960105ab.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Jul 2025 03:14:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1753352063; x=1753956863; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=zoxQrE9BQllINJgA23hOAwgoifAhEszw6BlmYIQoAW8=;
+        b=UrljdRXDVXusdJCt3AWq/0SG/w9ALgjAt4L9JYLHjBIZczfYlkoyIeAvELM0V5TJr8
+         16jZT4NdOOE1K/q8ybS2MAvg07ROq/NkZEjVHI6jPjL3VAUr9b8pwCJpw3liZcOa1f3q
+         sj5hpuZmQnidbvtZ7vwKyk85iqGiuqXiWMG2RZCruz5a6KqXvHkL0xGWijIGi7CLYc4d
+         YjZnJjIw8QNiUwqP5A9NLHw4Nj1UsdNqo80G25CKmoImptoI5e+qDkQA1RMi3IUyzqNo
+         XumcIRK4G+90KfVNFfdMJNSFjG9V2sGXxDeUtKIoNKbzB4OMdeYoxi4iBnFOpHtvg6so
+         femw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1753352063; x=1753956863;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=zoxQrE9BQllINJgA23hOAwgoifAhEszw6BlmYIQoAW8=;
+        b=XsiZ6CwDDPnomWpTWTCgdX0UK1soIcssDQVHwiK9mOlqTGNZ4eiNJ0v9kHOmpLmBze
+         9kRHezW1D4w6zPoRI3apwnxKRQDBvAl26sBVHD4DpSaivqGPrIm9tAZcBe8FIoXTKGv9
+         0HqSGnTt5hdSmB3tE8m9AjcRKDRVk4+tDLTlf/8edVCp+IJEu2rZkifmrUs4WzBVp1oG
+         MN68Kk/8AWmVcGYYiHYmY2mC2NmsQuiSczbMQQu8U1J0xFjBRRMlcueKpw5qHmNHiCdG
+         HL2RPr7VhmXKI6l/TILTGMvgkE5QtqfESP0nXH8HD2scU39A88/RCtIg18ZKUbWXweos
+         Pn3g==
+X-Forwarded-Encrypted: i=1; AJvYcCWNM4tVl5W/FrfxPFdePyzbTBShzSQJjn+Flj14ymQMrJAL6fzlIKPeApvUlTdGOpS6TTJyvHSZu+8KI1VALN86@lists.infradead.org
+X-Gm-Message-State: AOJu0YyxXveJukJcsXZXyVuQ4vAdcCskCcCJ9BDV5a33O0djx5YQWyn4
+	R3oKeY0lCzBOW8/W7uR5Osm1Rta08BaUh4c6p2KV9N62aKOl2eixYjhuunrSh8fmucTv+F2f3f8
+	IkntBdY7JlQjYL/ZaA+91UoC2WCtSn/8=
+X-Gm-Gg: ASbGncuGhNq2s1n0MxR4jd+HtAb5u7C6HKFRQ/y4a5T3VJtVg9cM+DaFky0Y0UHl81f
+	wj6R2SMQMXBYIp9hNjw0XDrNAynBGyWgUJ5mHgUeBcjC9X3V4HBaTqfmodfBkRxu2xKLb36TC7y
+	KyXP02JhZFPre3Sbal29LSabmqvI8ZHyrA9w+5lT5VI0/9CBzFaCqoBYj4xI47q4RUV41qjwFjw
+	QW6euM=
+X-Google-Smtp-Source: AGHT+IFuX+HkjjMmIqfOcPi1Vf9XVVv1BJDb7TK2k3LjKb0AvDjYDmsh1XyejNfF4igxDfky969ahsCQGQoG5Rin4/s=
+X-Received: by 2002:a05:6e02:1945:b0:3e2:a40e:d29f with SMTP id
+ e9e14a558f8ab-3e3418d71c5mr88504975ab.9.1753352063278; Thu, 24 Jul 2025
+ 03:14:23 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+References: <20250724072248.1517569-1-shengjiu.wang@nxp.com>
+ <20250724072248.1517569-3-shengjiu.wang@nxp.com> <87jz3ykpju.wl-tiwai@suse.de>
+ <20250724-fair-sheep-of-success-e02586-mkl@pengutronix.de>
+In-Reply-To: <20250724-fair-sheep-of-success-e02586-mkl@pengutronix.de>
+From: Shengjiu Wang <shengjiu.wang@gmail.com>
+Date: Thu, 24 Jul 2025 18:14:10 +0800
+X-Gm-Features: Ac12FXy8l34qKKJsPON1hex-xaVDf1J211wM6fAeHOddOjpvI8f17HQ8iYSYGc8
+Message-ID: <CAA+D8AN2B_RZ9iZ3qE5zMBfs7BMAkruSRQupoXyrsr7Tt+Gfkg@mail.gmail.com>
+Subject: Re: [PATCH v2 2/6] ALSA: Add definitions for the bits in IEC958 subframe
+To: Marc Kleine-Budde <mkl@pengutronix.de>
+Cc: Takashi Iwai <tiwai@suse.de>, Shengjiu Wang <shengjiu.wang@nxp.com>, imx@lists.linux.dev, 
+	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+	Laurent.pinchart@ideasonboard.com, andrzej.hajda@intel.com, 
+	festevam@gmail.com, simona@ffwll.ch, robh@kernel.org, rfoss@kernel.org, 
+	airlied@gmail.com, tiwai@suse.com, jernej.skrabec@gmail.com, 
+	p.zabel@pengutronix.de, luca.ceresoli@bootlin.com, devicetree@vger.kernel.org, 
+	conor+dt@kernel.org, tzimmermann@suse.de, jonas@kwiboo.se, victor.liu@nxp.com, 
+	s.hauer@pengutronix.de, maarten.lankhorst@linux.intel.com, mripard@kernel.org, 
+	linux-sound@vger.kernel.org, perex@perex.cz, 
+	linux-arm-kernel@lists.infradead.org, neil.armstrong@linaro.org, 
+	lumag@kernel.org, dianders@chromium.org, kernel@pengutronix.de, 
+	cristian.ciocaltea@collabora.com, krzk+dt@kernel.org, shawnguo@kernel.org, 
+	l.stach@pengutronix.de
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250724_031424_350183_0612B69D 
+X-CRM114-Status: GOOD (  23.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,61 +108,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 22 Jul 2025 22:35:13 +0530
-Sanjay Suthar <sanjaysuthar661996@gmail.com> wrote:
+On Thu, Jul 24, 2025 at 3:40=E2=80=AFPM Marc Kleine-Budde <mkl@pengutronix.=
+de> wrote:
+>
+> On 24.07.2025 09:37:09, Takashi Iwai wrote:
+> > On Thu, 24 Jul 2025 09:22:44 +0200,
+> > Shengjiu Wang wrote:
+> > >
+> > > The IEC958 subframe format SNDRV_PCM_FMTBIT_IEC958_SUBFRAME_LE are us=
+ed
+> > > in HDMI and DisplayPort to describe the audio stream, but hardware de=
+vice
+> > > may need to reorder the IEC958 bits for internal transmission, so nee=
+d
+> > > these standard bits definitions for IEC958 subframe format.
+> > >
+> > > Signed-off-by: Shengjiu Wang <shengjiu.wang@nxp.com>
+> > > ---
+> > >  include/sound/asoundef.h | 9 +++++++++
+> > >  1 file changed, 9 insertions(+)
+> > >
+> > > diff --git a/include/sound/asoundef.h b/include/sound/asoundef.h
+> > > index 09b2c3dffb30..7efd61568636 100644
+> > > --- a/include/sound/asoundef.h
+> > > +++ b/include/sound/asoundef.h
+> > > @@ -12,6 +12,15 @@
+> > >   *        Digital audio interface                                   =
+   *
+> > >   *                                                                  =
+        *
+> > >   *******************************************************************=
+*********/
+> > > +/* IEC958 subframe format */
+> > > +#define IEC958_SUBFRAME_PREAMBLE_MASK      (0xf)
+> > > +#define IEC958_SUBFRAME_AUXILIARY_MASK     (0xf<<4)
+> > > +#define IEC958_SUBFRAME_SAMPLE_24_MASK     (0xffffff<<4)
+> > > +#define IEC958_SUBFRAME_SAMPLE_20_MASK     (0xfffff<<8)
+> > > +#define IEC958_SUBFRAME_VALIDITY   (0x1<<28)
+> > > +#define IEC958_SUBFRAME_USER_DATA  (0x1<<29)
+> > > +#define IEC958_SUBFRAME_CHANNEL_STATUS     (0x1<<30)
+> > > +#define IEC958_SUBFRAME_PARITY             (0x1<<31)
+> >
+> > I'd use "U" suffix as it can reach to the MSB.
+> > Also, you can put spaces around the operators to align with the
+> > standard format, too.  I guess you followed to the other code there,
+> > but following to the standard coding style would be better.
+> >
+> > With those addressed, feel free to take my ack for this patch:
+>
+> Or make use of the BIT() and GEN_MASK() helpers.
 
-> Fix minor grammatical issues by removing duplicated "is" in two devicetree
-> binding documents:
-> 
-> - net/amlogic,meson-dwmac.yaml
-> - iio/dac/ti,dac7612.yaml
-> 
-> Signed-off-by: Sanjay Suthar <sanjaysuthar661996@gmail.com>
+Is it acceptable to include the headers in this file?
 
-I'd have no problem with the argument that this can go through either
-tree if there was any interaction between the files or the changes, but
-here there isn't. This is just causing potential mess if either tree ends
-up with other changes overlapping this for no benefit.  Please split into
-two patches, one for each subsystem.  You should be fine to keep the
-various tags given here for the new patches.
-
-Jonathan
+Best regards
+Shengjiu Wang
 
 
-> ---
-> Changes since V2:
-> - Corrected the subject line
-> - link to v2 : https://lore.kernel.org/linux-iio/20250720182627.39384-1-sanjaysuthar661996@gmail.com/T/#u
-> 
->  Documentation/devicetree/bindings/iio/dac/ti,dac7612.yaml      | 2 +-
->  Documentation/devicetree/bindings/net/amlogic,meson-dwmac.yaml | 2 +-
->  2 files changed, 2 insertions(+), 2 deletions(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/iio/dac/ti,dac7612.yaml b/Documentation/devicetree/bindings/iio/dac/ti,dac7612.yaml
-> index 20dd1370660d..624c640be4c8 100644
-> --- a/Documentation/devicetree/bindings/iio/dac/ti,dac7612.yaml
-> +++ b/Documentation/devicetree/bindings/iio/dac/ti,dac7612.yaml
-> @@ -9,7 +9,7 @@ title: Texas Instruments DAC7612 family of DACs
->  description:
->    The DAC7612 is a dual, 12-bit digital-to-analog converter (DAC) with
->    guaranteed 12-bit monotonicity performance over the industrial temperature
-> -  range. Is is programmable through an SPI interface.
-> +  range. It is programmable through an SPI interface.
->  
->  maintainers:
->    - Ricardo Ribalda Delgado <ricardo@ribalda.com>
-> diff --git a/Documentation/devicetree/bindings/net/amlogic,meson-dwmac.yaml b/Documentation/devicetree/bindings/net/amlogic,meson-dwmac.yaml
-> index 0cd78d71768c..5c91716d1f21 100644
-> --- a/Documentation/devicetree/bindings/net/amlogic,meson-dwmac.yaml
-> +++ b/Documentation/devicetree/bindings/net/amlogic,meson-dwmac.yaml
-> @@ -149,7 +149,7 @@ properties:
->        - description:
->            The first register range should be the one of the DWMAC controller
->        - description:
-> -          The second range is is for the Amlogic specific configuration
-> +          The second range is for the Amlogic specific configuration
->            (for example the PRG_ETHERNET register range on Meson8b and newer)
->  
->    interrupts:
-
+>
+> Marc
+>
+> --
+> Pengutronix e.K.                 | Marc Kleine-Budde          |
+> Embedded Linux                   | https://www.pengutronix.de |
+> Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
+> Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
 
