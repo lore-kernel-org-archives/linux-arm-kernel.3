@@ -4,46 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F1FEC87FC5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 15:28:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63BCDC87FC5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 15:30:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tMb+AEk5h9r7iXtnXJ71KNR+F7RouvWFOZHUDihm6cw=; b=hxm3v+1pG+sXEwA+8QsCR6toIQ
-	k1lmgePzznj8uzjv8HMfBPC5p4H4HUG+TswibAV3DtgaaSnswKjdiN618GIc1n43EdZZxkGtVpwQn
-	m/X3GIcCUwKz5jGp5R0L1lj2/FzcqIvB6f6hzMmPX6dWlrU8iwYgQKbmZ0CaMLRrkR3MysD6CFeDj
-	k2zuwHkLBPvZVlLItCZCR7vWBuXhzNy/BPL46sUXZnRrLCV4r59Zsjyl5BQ7zeLqnVJ5xrekJfaKj
-	5UbTNhJ3tAN5UXk7+4Oq/f/H0IfgSSNRSGPetu00GfaznXeL3knfc9j85v2RRYXuKHF8hPnsqEVU0
-	kbZDkTwQ==;
+	bh=OnoAQ5H+vrCZBLNHMzS65Mc2zzZuBqVrapsRvy4OT/w=; b=SkCx8+nZmWELi/Cv/plWCBFp76
+	IQT5sVfYM3IZNk9VKTDGjDSKseNCaU6MdJ7C+T9fHT3eGotERbqsbFSRbfVLTfhqaeiK9+uuYg8JY
+	jUKb7InMKUIdoJpBWv8lSNgS7yRhZhgnitCCY4NbQAEY959QwmA+/NfQ9xloGa+52U1LFI5bsRhrH
+	wDlzQZWXOPVU/r9qQixSK4IhxTLErKX042JLh9lEg5jA95zZe6L2EKTj8CGTs8N1VvQWMT7YH/A5u
+	k2xko41yJ8KeOZFe9RKWyATXdJ/F1WpxoPQWYll8bDTqeOn7bY8aKGx2Pp5NkZFXBWpBQ3RRneHcE
+	DU9arH/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uexrs-00000007rzi-2iNH;
-	Thu, 24 Jul 2025 15:28:24 +0000
+	id 1uextj-00000007tDI-0lWk;
+	Thu, 24 Jul 2025 15:30:19 +0000
 Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueweV-00000007hbr-25V0;
-	Thu, 24 Jul 2025 14:10:33 +0000
+	id 1ueweg-00000007hiz-4C0W;
+	Thu, 24 Jul 2025 14:10:44 +0000
 Received: from [192.168.1.76] (unknown [IPv6:2001:b07:6462:5de2:520d:d7a3:63ca:99e8])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 7DF17190D;
-	Thu, 24 Jul 2025 16:09:49 +0200 (CEST)
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 068741C0A;
+	Thu, 24 Jul 2025 16:10:01 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1753366190;
-	bh=zDLiKpcarRebLqHSrXV+LHH8PWDYb0+SfoPVzO8Rjbg=;
+	s=mail; t=1753366203;
+	bh=7I13wywrt99Sx2g/tHAlEPxkYo6PoehZ9YwsTffq1K4=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=CPY1KMtGLCOdP9TXQ0RqC350lFyac3obxfU6ySAP1MSXGMVHFV1KXmD1nWBn7Sj86
-	 GcrrlBUno3vW4ws4Ul6n9aOXK82mh3h47P9cOwkQLnvIdema0S34Jv+eqFnckyXeW2
-	 dUuKfNiE2KqEhwqZU5MRyCFNsRbH+cswobBEYBGw=
+	b=tYwCCeD2RqUwRsIjzK/MrXphoDB/aUZK2i51QbchEsEofYFWAYY9BWRVDRwoQrb0f
+	 ZJ4puZMiIqlUpeGTo7a1ewbO8ezql4t78FRdbZiUK+tp6HuhmL0JMe377jIBJvRn4J
+	 FqHG72/aODRUtH9z3YgXHA4vGaeirty6Xf/rqx6E=
 From: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-Date: Thu, 24 Jul 2025 16:10:09 +0200
-Subject: [PATCH v2 02/27] media: mc: Maintain a list of open file handles
- in a media device
+Date: Thu, 24 Jul 2025 16:10:19 +0200
+Subject: [PATCH v2 12/27] media: v4l2-subdev: Introduce v4l2 subdev context
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250724-multicontext-mainline-2025-v2-2-c9b316773486@ideasonboard.com>
+Message-Id: <20250724-multicontext-mainline-2025-v2-12-c9b316773486@ideasonboard.com>
 References: <20250724-multicontext-mainline-2025-v2-0-c9b316773486@ideasonboard.com>
 In-Reply-To: <20250724-multicontext-mainline-2025-v2-0-c9b316773486@ideasonboard.com>
 To: Sakari Ailus <sakari.ailus@linux.intel.com>, 
@@ -62,26 +61,26 @@ Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
  linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
  Jacopo Mondi <jacopo.mondi@ideasonboard.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3849;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=8677;
  i=jacopo.mondi@ideasonboard.com; h=from:subject:message-id;
- bh=/rqN2PeYLVGrC1gEE4q9OmKFqZ01RUXwuvcLLsZvWlg=;
- b=owEBbQKS/ZANAwAKAXI0Bo8WoVY8AcsmYgBogj7Ox96cpEe5xXWsnzWGaSEqnjMmgCxy9aH+k
- AExdRPrDUOJAjMEAAEKAB0WIQS1xD1IgJogio9YOMByNAaPFqFWPAUCaII+zgAKCRByNAaPFqFW
- PGARD/9IgoHSHjubJ8wckLbGKEcTrRCALPQOrJ7z58zOdGADWX8VyXQzCbLyueW5viFbsSkw2r+
- xy6DYTl45p7NrA2zXYKWzNAmVZ1aGWwOd48e1UNJfB2hJHA+xLhq6ilAOhKIrYBwOQdXdeOlfG/
- rk/TEo9azmYM70sVDjfIj8g+yjwywjeWx/WknjrfgfyrGfMeb3LZbXQ9mg3ujW88vYX/uAZyRMT
- HO0xsK0oT4rlI9FkBQMinnwqP8ERr+ux/GPvDz4fZnpQ2oCId6yD3RUGPPW+l7jNx5nA4d7ch6y
- qnsTrr4+KT7VamhKd7TzLVNYSt02Pu0AZFBLI6ZNe378He7HnyiqQ7wqW0y38XtTViJEcN/cwX3
- 7V0lBIN37VwfLQL2fC5Ll735DgmCjmhlg72deXC2x11UDN69ArR0ma67y6hNb3h5DaslQ+Y3uxQ
- 1rLsJjlxmKRtkmvKW488i2fwSsc7ok2tYmOSN5IYKIZW9CMnGI+0i8Ra11f5KDq802rrXl//wtA
- NZ9Wfu5PfIl6n+9C8f2ifEBdGGMLS9Epz8wNO/Zi1D2jaMdPlDpilAg1zqI9ZjHLblGoB5Iz1f0
- JJmFiUopCdq5RFXV4Rx7J3e+Th8LPXAlkyEOvylQdISsGQbRrDTCeTPkNioYRavPBefYX30PE1Q
- zwnMcz8n5rcp2/g==
+ bh=7I13wywrt99Sx2g/tHAlEPxkYo6PoehZ9YwsTffq1K4=;
+ b=owEBbQKS/ZANAwAKAXI0Bo8WoVY8AcsmYgBogj7PHgrGE7vDI9TcLTP8iMB0VR5TMItrWF5wa
+ lyRyEwBRYSJAjMEAAEKAB0WIQS1xD1IgJogio9YOMByNAaPFqFWPAUCaII+zwAKCRByNAaPFqFW
+ PI2OD/9XBflSxgvDX/sRzW+/cTbUgb+j2/OmOGJWBKOUskoqBrq3JTG3Kf0SemIUwimvXXUO+hP
+ Pgl0X+K+rziXGIGT1/0dA/PGsGZNg6emZs7zrpe5KG2yVki1n2WoOUkaftqKDmG/ZEnft615X5K
+ 3aJbfWBGJsLrnb8XYWf3uu4W5sfVwtvaeGVZuj6t2KB1O/joB5omnNvBJPKm22SLVAILRaDVokX
+ jBzBtlCuRwXBVeLvaCkVttjCNiQgP0FVy81CN0xK7P3OCRsb2H4ecff6ebhwqHMhyjFbDKQsOXb
+ O2NYMT5Sdh4FbRzoF5t6HlEhJlKbV9P09M2DbUXHGbF5i6tSJbI/kXh6IBAtZGc3AwhhEIj3KPc
+ +0rMebILHqugZU7ElmzLzq/feayH3wxmWdqbsds8l3p+/eqvaaR8OT8O2u1gF3mFKtlc7oKpt+j
+ SrkwMPmr57FtjLD909hYgR8y01o21uRO8HXxAL7HFOuGf6kHCVrklQ4pg8BLst/pg0lC6ac2WNB
+ NM6Nnv+O7CKjyMyceiXuKcbHLvLrA/5sWBv7iIaBHWzOz5qkIog67Krz/CvSsOuepVmSBmudZWh
+ 663+6udP5m34hl3sSGXzQJXRRQqC3wy5P8zvqavp5rgTqEif0PO1lS+nGgarfd+p6Se/aA48PA1
+ 8TlhNvKNT4hiIJg==
 X-Developer-Key: i=jacopo.mondi@ideasonboard.com; a=openpgp;
  fpr=72392EDC88144A65C701EA9BA5826A2587AD026B
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250724_071031_682611_CCA4BE60 
-X-CRM114-Status: GOOD (  13.36  )
+X-CRM114-CacheID: sfid-20250724_071043_196997_60E7C249 
+X-CRM114-Status: GOOD (  20.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,117 +95,218 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Sakari Ailus <sakari.ailus@linux.intel.com>
+Introduce a new type in v4l2 subdev that represents a v4l2 subdevice
+contex. It extends 'struct media_entity_context' and is intended to be
+extended by drivers that can store driver-specific information
+in their derived types.
 
-The list of file handles is needed to deliver media events as well as for
-other purposes in the future.
-
-Signed-off-by: Sakari Ailus <sakari.ailus@linux.intel.com>
-[Access media_device with devnode->media_dev]
 Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
 ---
- drivers/media/mc/mc-device.c  | 19 ++++++++++++++++++-
- drivers/media/mc/mc-devnode.c |  2 +-
- include/media/media-devnode.h |  3 ++-
- 3 files changed, 21 insertions(+), 3 deletions(-)
+ drivers/media/v4l2-core/v4l2-subdev.c |  39 +++++++++++
+ include/media/v4l2-subdev.h           | 126 ++++++++++++++++++++++++++++++++++
+ 2 files changed, 165 insertions(+)
 
-diff --git a/drivers/media/mc/mc-device.c b/drivers/media/mc/mc-device.c
-index f298f8f67b8a84194d66126461e84228c0b20394..e0cad87087d3863bf14207049a54e5e4dea1cdd4 100644
---- a/drivers/media/mc/mc-device.c
-+++ b/drivers/media/mc/mc-device.c
-@@ -45,8 +45,9 @@ static inline void __user *media_get_uptr(__u64 arg)
- 	return (void __user *)(uintptr_t)arg;
+diff --git a/drivers/media/v4l2-core/v4l2-subdev.c b/drivers/media/v4l2-core/v4l2-subdev.c
+index 4fd25fea3b58477056729665706ddbacc436379c..7307f57439499c8d5360c89f492944828ac23973 100644
+--- a/drivers/media/v4l2-core/v4l2-subdev.c
++++ b/drivers/media/v4l2-core/v4l2-subdev.c
+@@ -1577,6 +1577,45 @@ bool v4l2_subdev_has_pad_interdep(struct media_entity *entity,
  }
+ EXPORT_SYMBOL_GPL(v4l2_subdev_has_pad_interdep);
  
--static int media_device_open(struct file *filp)
-+static int media_device_open(struct media_devnode *devnode, struct file *filp)
- {
-+	struct media_device *mdev = devnode->media_dev;
- 	struct media_device_fh *fh;
- 
- 	fh = kzalloc(sizeof(*fh), GFP_KERNEL);
-@@ -55,13 +56,23 @@ static int media_device_open(struct file *filp)
- 
- 	filp->private_data = &fh->fh;
- 
-+	spin_lock_irq(&mdev->fh_list_lock);
-+	list_add(&fh->mdev_list, &mdev->fh_list);
-+	spin_unlock_irq(&mdev->fh_list_lock);
++struct v4l2_subdev_context *
++v4l2_subdev_context_get(struct media_device_context *mdev_context,
++			struct v4l2_subdev *sd)
++{
++	struct media_entity *entity = &sd->entity;
++	struct media_entity_context *ctx =
++		 media_device_get_entity_context(mdev_context, entity);
 +
- 	return 0;
- }
- 
- static int media_device_close(struct file *filp)
- {
-+	struct media_devnode *devnode = media_devnode_data(filp);
-+	struct media_device *mdev = devnode->media_dev;
- 	struct media_device_fh *fh = media_device_fh(filp);
- 
-+	spin_lock_irq(&mdev->fh_list_lock);
-+	list_del(&fh->mdev_list);
-+	spin_unlock_irq(&mdev->fh_list_lock);
++	if (!ctx)
++		return NULL;
 +
- 	kfree(fh);
- 
- 	return 0;
-@@ -698,10 +709,12 @@ void media_device_init(struct media_device *mdev)
- 	INIT_LIST_HEAD(&mdev->pads);
- 	INIT_LIST_HEAD(&mdev->links);
- 	INIT_LIST_HEAD(&mdev->entity_notify);
-+	INIT_LIST_HEAD(&mdev->fh_list);
- 
- 	mutex_init(&mdev->req_queue_mutex);
- 	mutex_init(&mdev->graph_mutex);
- 	ida_init(&mdev->entity_internal_idx);
-+	spin_lock_init(&mdev->fh_list_lock);
- 
- 	atomic_set(&mdev->request_id, 0);
- 
-@@ -809,6 +822,10 @@ void media_device_unregister(struct media_device *mdev)
- 		return;
- 	}
- 
-+	spin_lock_irq(&mdev->fh_list_lock);
-+	list_del_init(&mdev->fh_list);
-+	spin_unlock_irq(&mdev->fh_list_lock);
++	return container_of(ctx, struct v4l2_subdev_context, base);
++}
++EXPORT_SYMBOL_GPL(v4l2_subdev_context_get);
 +
- 	/* Clear the devnode register bit to avoid races with media dev open */
- 	media_devnode_unregister_prepare(mdev->devnode);
- 
-diff --git a/drivers/media/mc/mc-devnode.c b/drivers/media/mc/mc-devnode.c
-index 312eb48ffc2f2a0c013e4744204995df0ff5b12c..50435f102aa7cd6a7cde759eeef73a99b9b80239 100644
---- a/drivers/media/mc/mc-devnode.c
-+++ b/drivers/media/mc/mc-devnode.c
-@@ -163,7 +163,7 @@ static int media_open(struct inode *inode, struct file *filp)
- 	get_device(&devnode->dev);
- 	mutex_unlock(&media_devnode_lock);
- 
--	ret = devnode->fops->open(filp);
-+	ret = devnode->fops->open(devnode, filp);
- 	if (ret) {
- 		put_device(&devnode->dev);
- 		return ret;
-diff --git a/include/media/media-devnode.h b/include/media/media-devnode.h
-index 6c2e253dde498779dffd103dc5d00e50e14a0249..26b19373c6646bfd11cfded220c9e61c81130580 100644
---- a/include/media/media-devnode.h
-+++ b/include/media/media-devnode.h
-@@ -22,6 +22,7 @@
- #include <linux/cdev.h>
- 
- struct media_device;
-+struct media_devnode;
- 
- /*
-  * Flag to mark the media_devnode struct as registered. Drivers must not touch
-@@ -51,7 +52,7 @@ struct media_file_operations {
- 	__poll_t (*poll) (struct file *, struct poll_table_struct *);
- 	long (*ioctl) (struct file *, unsigned int, unsigned long);
- 	long (*compat_ioctl) (struct file *, unsigned int, unsigned long);
--	int (*open) (struct file *);
-+	int (*open) (struct media_devnode *, struct file *);
- 	int (*release) (struct file *);
++void v4l2_subdev_context_put(struct v4l2_subdev_context *ctx)
++{
++	if (!ctx)
++		return;
++
++	media_entity_context_put(&ctx->base);
++}
++EXPORT_SYMBOL_GPL(v4l2_subdev_context_put);
++
++int v4l2_subdev_init_context(struct v4l2_subdev *sd,
++			     struct v4l2_subdev_context *context)
++{
++	media_entity_init_context(&sd->entity, &context->base);
++
++	return 0;
++}
++EXPORT_SYMBOL_GPL(v4l2_subdev_init_context);
++
++void v4l2_subdev_cleanup_context(struct v4l2_subdev_context *context)
++{
++	media_entity_cleanup_context(&context->base);
++}
++EXPORT_SYMBOL_GPL(v4l2_subdev_cleanup_context);
++
+ struct v4l2_subdev_state *
+ __v4l2_subdev_state_alloc(struct v4l2_subdev *sd, const char *lock_name,
+ 			  struct lock_class_key *lock_key)
+diff --git a/include/media/v4l2-subdev.h b/include/media/v4l2-subdev.h
+index 5dcf4065708f32e7d3b5da003771810d5f7973b8..9d257b859acafb11cfe6976e906e7baabd0206f6 100644
+--- a/include/media/v4l2-subdev.h
++++ b/include/media/v4l2-subdev.h
+@@ -757,6 +757,78 @@ struct v4l2_subdev_state {
+ 	struct v4l2_subdev_stream_configs stream_configs;
  };
  
++/**
++ * struct v4l2_subdev_context - The v4l2 subdevice context
++ * @base: The media entity context base class member
++ * @state: The subdevice state associated with this context
++ *
++ * This structure represents an isolated execution context of a subdevice.
++ * This type 'derives' the base 'struct media_entity_context' type which
++ * implements refcounting on our behalf and allows instances of this type to be
++ * linked in the media_device_context contexts list.
++ *
++ * The subdevice context stores the subdev state in a per-file handle context,
++ * userspace is allowed to multiplex the usage of a subdevice devnode by opening
++ * it multiple times and by associating it with a media device context. This
++ * operation is called 'bounding' and is performed using the
++ * VIDIOC_SUBDEV_BIND_CONTEXT ioctl.
++ *
++ * A subdevice context is created and stored in the v4l2_fh file handle
++ * associated with an open file descriptor when a subdevice is 'bound' to a
++ * media device context. The 'bounding' operation realizes a permanent
++ * association valid until the subdevice context is released.
++ *
++ * A subdevice can be bound to the same media device context once only.
++ * Trying to bind the same subdevice to the same media device context a
++ * second time, without releasing the already established context by closing the
++ * bound file descriptor first, will result in an error.
++ *
++ * To create a subdevice context userspace shall use the
++ * VIDIOC_SUBDEV_BIND_CONTEXT ioctl that creates the subdevice context and
++ * uniquely associates it with a media device file descriptor.
++ *
++ * Once a subdevice file descriptor has been bound to a media device context,
++ * all the operations performed on the subdevice file descriptor will be
++ * directed on the just created subdevice context. This means, in example, that
++ * the subdevice state and configuration is isolated from the ones associated
++ * with a different file descriptor obtained by opening again the same subdevice
++ * devnode but bound to a different media device context.
++ *
++ * Drivers that implement multiplexing support have to provide a valid
++ * implementation of the context-related operations in the media entity
++ * operations.
++ *
++ * Drivers are allowed to sub-class the v4l2_subdevice_context structure by
++ * defining a driver-specific type which embeds a struct v4l2_subdevice_context
++ * instance as first member, and allocate the driver-specific structure size in
++ * their implementation of the `alloc_context` operation.
++ *
++ * Subdevice contexts are ref-counted by embedding an instance of 'struct
++ * media_entity_context' and are freed once all the references to it are
++ * released.
++ *
++ * A subdevice context ref-count is increased when:
++ * - The context is created by bounding a video device to a media device context
++ * - The media pipeline it is part of starts streaming
++ * A subdevice context ref-count is decreased when:
++ * - The associated file handle is closed
++ * - The media pipeline it is part of stops streaming
++ *
++ * The ref-count is increased by a call to v4l2_subdev_context_get() and is
++ * reponsibility of the caller to decrease the reference count with a call to
++ * v4l2_subdev_context_put().
++ */
++struct v4l2_subdev_context {
++	struct media_entity_context base;
++	/*
++	 * TODO: active_state should most likely be changed from a pointer to an
++	 * embedded field. For the time being it's kept as a pointer to more
++	 * easily catch uses of active_state in the cases where the driver
++	 * doesn't support it.
++	 */
++	struct v4l2_subdev_state *state;
++};
++
+ /**
+  * struct v4l2_subdev_pad_ops - v4l2-subdev pad level operations
+  *
+@@ -1152,6 +1224,7 @@ struct v4l2_subdev_fh {
+ 	struct module *owner;
+ #if defined(CONFIG_VIDEO_V4L2_SUBDEV_API)
+ 	struct v4l2_subdev_state *state;
++	struct v4l2_subdev_context *context;
+ 	u64 client_caps;
+ #endif
+ };
+@@ -1285,6 +1358,59 @@ int v4l2_subdev_link_validate(struct media_link *link);
+ bool v4l2_subdev_has_pad_interdep(struct media_entity *entity,
+ 				  unsigned int pad0, unsigned int pad1);
+ 
++/**
++ * v4l2_subdev_context_get - Helper to get a v4l2 subdev context from a
++ *			     media device context
++ *
++ * @mdev_context: The media device context
++ * @sd: The V4L2 subdevice the context refers to
++ *
++ * Helper function that wraps media_device_get_entity_context() and returns
++ * the v4l2 subdevice context associated with a subdevice in a media device
++ * context.
++ *
++ * The reference count of the returned v4l2 subdevice context is increased.
++ * Callers of this function are required to decrease the reference count of
++ * the context reference with a call to v4l2_subdev_context_put().
++ */
++struct v4l2_subdev_context *
++v4l2_subdev_context_get(struct media_device_context *mdev_context,
++			struct v4l2_subdev *sd);
++
++/**
++ * v4l2_subdev_context_put - Helper to decrease a v4l2 subdevice context
++ *			     reference count
++ *
++ * @ctx: The v4l2 subdevice context to put
++ */
++void v4l2_subdev_context_put(struct v4l2_subdev_context *ctx);
++
++/**
++ * v4l2_subdev_init_context - Initialize the v4l2 subdevice context
++ *
++ * @sd: The subdevice the context belongs to
++ * @ctx: The context to initialize
++ *
++ * Initialize the v4l2 subdevice context. The intended callers of this function
++ * are driver-specific implementations of the media_entity_ops.alloc_context()
++ * function that allocates their driver specific types that derive from
++ * struct v4l2_subdev_context.
++ */
++int v4l2_subdev_init_context(struct v4l2_subdev *sd,
++			     struct v4l2_subdev_context *ctx);
++
++/**
++ * v4l2_subdev_cleanup_context - Cleanup the v4l2 subdevice context
++ *
++ * @ctx: The context to cleanup.
++ *
++ * Cleanup the v4l2 subdevice context. The intended callers of this function are
++ * driver specific implementation of the media_entity_ops.destroy_context()
++ * function before releasing the memory previously allocated by
++ * media_entity_ops.alloc_context().
++ */
++void v4l2_subdev_cleanup_context(struct v4l2_subdev_context *ctx);
++
+ /**
+  * __v4l2_subdev_state_alloc - allocate v4l2_subdev_state
+  *
 
 -- 
 2.49.0
