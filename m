@@ -4,65 +4,162 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E223C83F26
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 18:49:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 550C6C83F26
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 18:49:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=84c6lcHumFFzr+dYNe17i6pcmgg5iEfbD5LAN8CFBA8=; b=0iOxSMM3Y+tEPNl/Pk5X9TBgXO
-	7nt+HxofqHLMr07+1YKUUxN2TQUShkRF9Gh+UhFh9axWDrjU0s+SNyUvenMFkFb8uUWmZ6U/1+WSF
-	lzTGsgS+Mx7ed0N76NwaiiNf+veMXb1TZEmnMdBNl2vzeAgdO6nTB13iogBOGcWsO4UnSivX7KDH8
-	VU6dBqpEcURzhCLfzDkqZo0uSWSoOwsTPF2iiFNUnJ1mTWij9qCvJUDUazbrR7aawvytAZD6SWRZt
-	wAtkjKRuAJdz6Tipw47slsGNBKIA2CBJSJb8lUIxUV50WyvgvLh+wN5bLNTPHi4dCuWg17ms3UpK3
-	2aKYAEaQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=I2D2qRlu7+nzVUuCmx1L1Sd66h6oIYWFXi5tUkc4Ok4=; b=MIe1IH7xLmm7h05SoeLAHAGiTz
+	xoNrij2p3I/j/TRgJGOqIhNItlGV4226wdlDFeK/ZkduV0VaKPDImQX2dydgA4gVarh2yyHyqvzlJ
+	57AYiME55GyvXuWhR3rDDOWFZHncjh5jkCacY1HhEYI2MuzBMQnyfa04+Ny521b6Qb7cCeU74mr2N
+	fRzTNI+PM270k5hzj/4zalAuYKEchNsdYY6Y4n4/C4pE2i9kIVYjD3qy7ItkSWGcYzcX2ItriwOtL
+	SwU3k6mHLUJhmTRBFb6mxrh7qtZd+B4my3ifOiiyW7yP2uFio33UOj7IdAUmNdFZlY/TjH2CwC0Fi
+	uGrGoyIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uf10b-00000008Fqz-2AXV;
+	id 1uf10b-00000008Fr3-3yxr;
 	Thu, 24 Jul 2025 18:49:37 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+Received: from mail-eastus2azlp170110002.outbound.protection.outlook.com ([2a01:111:f403:c110::2] helo=BN8PR05CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uexvq-00000007tW6-0EQp
+	id 1uey5x-00000007uOE-2neI
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Jul 2025 15:32:31 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6AB7444757;
-	Thu, 24 Jul 2025 15:32:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 70797C4CEED;
-	Thu, 24 Jul 2025 15:32:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753371149;
-	bh=pL9X6wBVQbvY3/cwyyVMcF73RrjD7dKiLTM7koIBeFk=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=OibhsSLgypSM5xeL5fgwkJ3cMf4Rj/60CVbD+4XRnxQiMz9i9Xspun4kfhRz2tDKN
-	 NuuTfFwGzs5EhQGJ/mgGL9y+yLd7iNs/edoPpD3NzbwM7gjjEQp3pYY/89S+yFbXdi
-	 Te0BEdFSqlUq8FpgPCtPN1IeAz0ii6jWNjYGoqplIRdqD6plynRdgmuDzwMUEr6ENm
-	 t9SrbB2hqt/WKCY6hvq24cJmYTwhAxrfwFlCcmEPhkzB02K+C4OSB5Jhg+PRiN5rx6
-	 qKFBjx11EYeS6f1eZuNLnbHucFCjJ6dPPl2VNmgtAc1dt5Y2Wced2casLXhapg4m0H
-	 2hEdr4SmbKCaw==
-Date: Thu, 24 Jul 2025 16:32:19 +0100
-From: Jonathan Cameron <jic23@kernel.org>
-To: Sean Anderson <sean.anderson@linux.dev>
-Cc: Anand Ashok Dumbre <anand.ashok.dumbre@xilinx.com>,
- linux-iio@vger.kernel.org, David Lechner <dlechner@baylibre.com>, Nuno
- =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>,
- linux-arm-kernel@lists.infradead.org, Michal Simek <michal.simek@amd.com>,
- Andy Shevchenko <andy@kernel.org>, Manish Narani
- <manish.narani@xilinx.com>, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] iio: xilinx-ams: Unmask interrupts after updating
- alarms
-Message-ID: <20250724163219.0098ced6@jic23-huawei>
-In-Reply-To: <20250715002847.2035228-1-sean.anderson@linux.dev>
-References: <20250715002847.2035228-1-sean.anderson@linux.dev>
-X-Mailer: Claws Mail 4.3.1 (GTK 3.24.49; x86_64-pc-linux-gnu)
+	Thu, 24 Jul 2025 15:42:58 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=v5/EoQrxl8y1yogpSaEx/1ERYj3LZtmnPtFgK00zkQuJnO2jPNtf6Pt60kqBImb6hOHvHBnsvozawcDJahlqL9pDuOoJ27OHpj+ix3ik6+U5ucq2rqmvbuJ7Uf9U/IAXaUZIOj2u84uBF/bXrDcmY1SKhW8RgNnE3N7VX8kMuzRaXzxFd1LrrKaexVdgmw340XEwG0VMJoOTJlnpObIf7mTqvxd0s+GOIckM5HEhrkG5QJ7J3AWq3e/lrYxgVWN4A4Bj44OHhN3O3F2jYojGfgUUJ1Wm3/qMHl4/KuxnOQL/VzGbX2mdwBNj5UhgSKSEeb0dA8oRYVLXotfFy5xTkQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=I2D2qRlu7+nzVUuCmx1L1Sd66h6oIYWFXi5tUkc4Ok4=;
+ b=DFMFHbNCFp3HlNNa23ikhL8dVfM0t3cuhHoVTAvtvx/VoSuBRQlQqtQyrcUqMFTOFaRWi1TvJg4mNG570aNm/ufsGOYgXTXjDPbvu4fsk77jZcKegRrQ7Gysh3Vt5H32sQM8NyIl073MBKebKFvdKJFLDrSsKMJ6NlD8qhVFgYmfw8vTZLFYA6Lp8qvWIRMCTGHp9J9YuuULAK5ymYWNOvG9+s2Kw3MZq+5aWZL0qtHtb/PvLgh/sbimlH0Ca7ecTTEBTPGjk5z8t3oYcXw/DxjztQP+mKVZ54YztXDpnV5DJclO0tM0M90rgg2lWIuj6P874D3arRHUI81w+Czdwg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=altera.com; dmarc=pass action=none header.from=altera.com;
+ dkim=pass header.d=altera.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=altera.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=I2D2qRlu7+nzVUuCmx1L1Sd66h6oIYWFXi5tUkc4Ok4=;
+ b=Dznx95HqwibDLo/7LLEP1ziufDiDLh9l8nhNcmHIRGNpcFqZn+cjxdmJJWytaQ3eOvAJXHgL/wDdeoWiPRRbIirSaD9TgNN1BJnTnIWzv+Q715ehqAxBHX/qTWYewkFdjGJrxD1zWaNAzSUuW9YECMopYmLVnHB3R8STWTKmcM+xc973Ly4q1sQeIzN/Ubsbhqm9r0uO6AaSJnl/9egadN9kbdaYYCf/RjFolbSsPZqgDMOZoF0eP/7VnRCL1nCJaenX50LWykiFkUmXGIgKUbjo1T0xpYOdVFoysVKcNrIvsGfBPpORMoOlLR/ZpcuvH7mbz2/ZpmXBCmNr4fM+6A==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=altera.com;
+Received: from BYAPR03MB3461.namprd03.prod.outlook.com (2603:10b6:a02:b4::23)
+ by SA6PR03MB7735.namprd03.prod.outlook.com (2603:10b6:806:43c::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8964.21; Thu, 24 Jul
+ 2025 15:42:47 +0000
+Received: from BYAPR03MB3461.namprd03.prod.outlook.com
+ ([fe80::706b:dd15:bc81:313c]) by BYAPR03MB3461.namprd03.prod.outlook.com
+ ([fe80::706b:dd15:bc81:313c%6]) with mapi id 15.20.8943.029; Thu, 24 Jul 2025
+ 15:42:47 +0000
+From: Matthew Gerlach <matthew.gerlach@altera.com>
+To: andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com,
+	dinguyen@kernel.org,
+	maxime.chevallier@bootlin.com,
+	richardcochran@gmail.com,
+	netdev@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: Matthew Gerlach <matthew.gerlach@altera.com>
+Subject: [PATCH v2 0/4] arm64: dts: socfpga: enable ethernet support for Agilex5
+Date: Thu, 24 Jul 2025 08:40:47 -0700
+Message-ID: <20250724154052.205706-1-matthew.gerlach@altera.com>
+X-Mailer: git-send-email 2.49.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SJ0PR05CA0094.namprd05.prod.outlook.com
+ (2603:10b6:a03:334::9) To BYAPR03MB3461.namprd03.prod.outlook.com
+ (2603:10b6:a02:b4::23)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BYAPR03MB3461:EE_|SA6PR03MB7735:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0537b6d0-0927-47c6-e8d2-08ddcac8bd1b
+X-MS-Exchange-AtpMessageProperties: SA
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|366016|376014|1800799024|921020;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?MktB2gteBBp1OG4/HyPJKcV0mX/dPMKsAhqcDVNM/o5gS0MO/g99MmSj+91+?=
+ =?us-ascii?Q?9doH++xUexwFGvkiPxK31FJjxBdwDBXNX3nxxoxZV2q/gbvLLcWlsy/WTSM+?=
+ =?us-ascii?Q?HPW/0ZCkNEfJK5/ynUequNXIQXXN5s9ui8hbcyZAMwVmEZ29YONiKWUptaoG?=
+ =?us-ascii?Q?h3rGA6RTxrqj7L70YpjvD4ZMYdPL9KJgWpqjcsNoJcmtJFZv9W0No67fqFkv?=
+ =?us-ascii?Q?kwyLIzzG/zt/zImM+giKZo05GVIAvmvOrjsMyWKDqxpKfdJbsR1leeyJWeGx?=
+ =?us-ascii?Q?ameC+BAaguqcyPvPnLl2/dKQ5myMF64nJgcE6m0Iy71D/RnySk3fg28sDMzt?=
+ =?us-ascii?Q?BoDuFPdyIQqUpdsMb24rAo4mTXDTbx7P4RRMrYO03ICrPBjwO3zqmK0ExNXp?=
+ =?us-ascii?Q?9ia6YseqmQurVm60jyFMwUFPue1odbC582sJbzjtKuPxof2xzfgST55NfyEE?=
+ =?us-ascii?Q?hL/cQjOVh9gbdZ36gUqmJzWUp9LO+A2mn3Oe8ub5seI9pSxjmhdG2niIU8Jw?=
+ =?us-ascii?Q?4hSSX6qPJDv4nXOrA2hja1pRJ0iZBM4IngrX8jVBnF+xKBQkyHc1XLtlsLOD?=
+ =?us-ascii?Q?vu0SXmynLWpfOLCC397+dzehzwHmq+4Br6XCc9ocWGW9qUMs/C6GbAvLDOSY?=
+ =?us-ascii?Q?5iLoXtskGj8hNJWYMOVzQviHBd9n5UP/d87+GrWzHcaCO0Ilk/eXlnnii5zU?=
+ =?us-ascii?Q?CN+sxTqJ5jJGLPraiN79qdc5uKfJt5nmPeyIlrTQYTbM4d9xafYPNWbV8IFM?=
+ =?us-ascii?Q?s98R/32kmwmQbZEUeF8BtIa3oPqhxFOdTEb417A+m7KJkhOK+3NgNE8iOXlX?=
+ =?us-ascii?Q?fL+Tk7kHD991fCPnynzhLXNYl4aHwThwABg5ZXSuTNQFqVZp6kZqHgvm2u4c?=
+ =?us-ascii?Q?4jChcfLPb1X0xdtPByCk9z/E37HSex2ySI56wOdT3heBmDn8czBg8if8pwJJ?=
+ =?us-ascii?Q?enqf8HYdA276uhVnpqTgsf8bxBkHydI1MDo42CwuTRGnAcGUB6FH6IH2D8Td?=
+ =?us-ascii?Q?fvxl7VQxb/g7968xb3TjJ8N5AgTYq9y+JH0FU2TW965ukyE/9ESyogVT/ewp?=
+ =?us-ascii?Q?KsDeKNFN5rbCrwQFoRSOJpsMCHiTk8FBdfzidUDmfK8iM107jftF37MFVjph?=
+ =?us-ascii?Q?Sulu/SSpP17LnbI2Tjd8+v5zcqk73usq9q5Vb1eVAbk4AQuu6e5eMTSbj/86?=
+ =?us-ascii?Q?xVR9Vz5Iw4lGuQu43Wju6dLiRy1FHxWje2pKOzAUeqWk64YgR1+SXMJXQuYJ?=
+ =?us-ascii?Q?xeKnXOsDYoTIK+B7i1qtkxXyprORylJ63E67iFFSozoGAIqSh0gxGP9dt4ff?=
+ =?us-ascii?Q?L+3lhe6gSFRv3Az/nzS6ifOBM7ITz5He8Odvv54NAt9ce+Hcv/H9DTuPFu1Y?=
+ =?us-ascii?Q?rH4/xLMf8PbzRSguI2J4gWYwgvAci98+hDpB4oLueM3QV0Ev2jXVSDLCPf4q?=
+ =?us-ascii?Q?7yXGr4LPlFbITiww/ec1A7wEtDfBUhsJt+TNizDV2137G7ttFxDRhg=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BYAPR03MB3461.namprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(366016)(376014)(1800799024)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?PeaO0Ten8Izxb03pSxqGQRVNiZ1TKKmwfi56ML/MQbdJYZpJxUUKIgbCZy6w?=
+ =?us-ascii?Q?jP8/WJoca6pTnzOiy447m4rZuTOSj3YixHG+WVMafn6xFAucNpSGuQioYHA1?=
+ =?us-ascii?Q?qKsynxZ9DBi9dl8g9dFJDfh5sKnZvzca9BtOeAXNw7o6TMzh1BcK//ns4WC+?=
+ =?us-ascii?Q?VS8frfZNnvv3CRh5ZLn8RuFIjJH4DlnUGwHmKgWeyGUJYQXQCnvUEPu0+OA9?=
+ =?us-ascii?Q?Om8+L8Z9O69g9RCKn+xEiz/78U8KibRXHW7ah51XwsO5RNOGWziXyv/pzf1y?=
+ =?us-ascii?Q?+OiZ4l3W0u1M255vYTJhxbqrlRcwRV+FLZFhNDf3+1sclLN5rdbB23m78lj+?=
+ =?us-ascii?Q?CiSK4BdKYxBRIX+mCYbZm4Rrt/C3jOyHuJo66aaq3eDLHVcvHqpnHy6Wi5Gk?=
+ =?us-ascii?Q?jfkIxN/lB9P/0viLnl0hY7kdowz1TixWBgsITNbWaNViH0dDgCQSTe96brB/?=
+ =?us-ascii?Q?XKt1YGtanB26S++DsVMHX9wVTTgvLGdh2OcTwTbm4QDFq/5BnKKC2youazdm?=
+ =?us-ascii?Q?XmkG1Zpb+D92YURb38D+NgO7jQz4L6RNjsI4DozhsB62AhfIC7ZckIvGNtOx?=
+ =?us-ascii?Q?kLxQwc93X5N3q2O3EmW+yVS7TApzaImYjkMTcK+7p6ewz4yvhdb6nynletZ4?=
+ =?us-ascii?Q?tFMfwvUD7bACXWuBlEckfuCtqbS1G2tKsRmSQ9I7+44YIgbr1aM3vZnRICet?=
+ =?us-ascii?Q?cEIuafzBVBuliqvWhqaYe0XCSWv5OXhw0E6rsrx0j3q7TRv+LVkWzqlqkwZ2?=
+ =?us-ascii?Q?du/Az0po6UAZkQ/SFN1/RlTGFHNoNG1VErKikHBmznUKVk4sgBKycuoXzz/S?=
+ =?us-ascii?Q?UFWM+RMdsY8Jidf3fP5JpBblVPxS8aZx5a67Hi8iigdN8scDJf7gRovkYyw7?=
+ =?us-ascii?Q?03/EvaiEZtsaukeAgoiyDnRVibhq+K+GUJXTynvcTX+Hlg7dSpE56/zK/yfp?=
+ =?us-ascii?Q?MRzp9712EBnSyTzPUOFhQLRFzbXjQA+G7I7v1x7MyHlkOFLDPqYX/x+AjnBx?=
+ =?us-ascii?Q?SPcxR4r0KOzaVcF3gi1wo522F8NUCUlA9J4DAJXvbVtmwEPkGrXxH+P8BYVz?=
+ =?us-ascii?Q?BLyEUzmUFVibtiirGSV6x63CWMvlPS575qr7GfO+aDHnV7yVYtj97IGopXqW?=
+ =?us-ascii?Q?K2O8NhBiAPUQn6WetnavsaRXS79IAWgohpaXZKAALHnq6cQ4oh2iXlwIMC0t?=
+ =?us-ascii?Q?91JyZU5Y+ydK7wS6mRsdiWZi+xQkwpRL4o1lQBnV/gJxI4aEZn4GOcs7SWxg?=
+ =?us-ascii?Q?vif9PDpQ6AYl6z2gJw59s2+n/iBfcmiRZULPWCBvsng2PB/Z5kIUmmt2clPY?=
+ =?us-ascii?Q?VXdNiLe99aI5K2111CYDqm6ER9SDzCCdF6dIo3s+Wmt8EKJwftr5ppy9OZ+X?=
+ =?us-ascii?Q?y9jbWJ6QNBWwRIep0+KZ4OGRvnKVPWxRFxAorILq47Q759dXfBVKpPXCApNj?=
+ =?us-ascii?Q?vH3MlKViu517cDbXPg/FMaHUCVSuMkw6g7/umgQhErYWUDw55gMwGkvy0i0U?=
+ =?us-ascii?Q?Y0CPW5jADFMx1cEGPSzpHBa+6MMavlmV0WdcgaIB35dFaZN1EFZtUSPZN1y1?=
+ =?us-ascii?Q?+OxOOUDUvcNp9xY/tj0gpjIZfrcx4TS4hacLsFb8qk0e6RafGfXo10RAOidB?=
+ =?us-ascii?Q?sA=3D=3D?=
+X-OriginatorOrg: altera.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0537b6d0-0927-47c6-e8d2-08ddcac8bd1b
+X-MS-Exchange-CrossTenant-AuthSource: BYAPR03MB3461.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Jul 2025 15:42:47.3535
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: fbd72e03-d4a5-4110-adce-614d51f2077a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: YCljc4Frc4QgiB8IFV9oayp8wX42hb1/wyHjKrOfNsK7Q+RjTVHaRajK5SdOX2xDmhUnMVooY54+AxEVHYJteD/0wdn52eR7pugdhBtNuxI=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA6PR03MB7735
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250724_083230_137314_2E0FE874 
-X-CRM114-Status: GOOD (  24.86  )
+X-CRM114-CacheID: sfid-20250724_084257_721558_B9E3633E 
+X-CRM114-Status: UNSURE (   9.68  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,106 +174,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 14 Jul 2025 20:28:47 -0400
-Sean Anderson <sean.anderson@linux.dev> wrote:
+This patch set enables ethernet support for the Agilex5 family of SOCFPGAs,
+and specifically enables gmac2 on the Agilex5 SOCFPGA Premium Development
+Kit.
 
-> To convert level-triggered alarms into edge-triggered IIO events, alarms
-> are masked when they are triggered. To ensure we catch subsequent
-> alarms, we then periodically poll to see if the alarm is still active.
-> If it isn't, we unmask it. Active but masked alarms are stored in
-> current_masked_alarm.
-> 
-> If an active alarm is disabled, it will remain set in
-> current_masked_alarm until ams_unmask_worker clears it. If the alarm is
-> re-enabled before ams_unmask_worker runs, then it will never be cleared
-> from current_masked_alarm. This will prevent the alarm event from being
-> pushed even if the alarm is still active.
-> 
-> Fix this by recalculating current_masked_alarm immediately when enabling
-> or disabling alarms.
-> 
-> Fixes: d5c70627a794 ("iio: adc: Add Xilinx AMS driver")
-> Signed-off-by: Sean Anderson <sean.anderson@linux.dev>
-> ---
-Anand?  
+Patch 1 defines Agilex5 compatibility string in the device tree bindings.
 
-This seems fine to me, but I'm not that familiar with the hardware or driver.
+Patch 2 defines the base gmac nodes it the Agilex5 DTSI.
 
-> 
->  drivers/iio/adc/xilinx-ams.c | 45 ++++++++++++++++++++----------------
->  1 file changed, 25 insertions(+), 20 deletions(-)
-> 
-> diff --git a/drivers/iio/adc/xilinx-ams.c b/drivers/iio/adc/xilinx-ams.c
-> index 76dd0343f5f7..180d4140993d 100644
-> --- a/drivers/iio/adc/xilinx-ams.c
-> +++ b/drivers/iio/adc/xilinx-ams.c
-> @@ -389,6 +389,29 @@ static void ams_update_pl_alarm(struct ams *ams, unsigned long alarm_mask)
->  	ams_pl_update_reg(ams, AMS_REG_CONFIG3, AMS_REGCFG3_ALARM_MASK, cfg);
->  }
->  
-> +static void ams_unmask(struct ams *ams)
-> +{
-> +	unsigned int status, unmask;
-> +
-> +	status = readl(ams->base + AMS_ISR_0);
-> +
-> +	/* Clear those bits which are not active anymore */
-> +	unmask = (ams->current_masked_alarm ^ status) & ams->current_masked_alarm;
-> +
-> +	/* Clear status of disabled alarm */
-> +	unmask |= ams->intr_mask;
-> +
-> +	ams->current_masked_alarm &= status;
-> +
-> +	/* Also clear those which are masked out anyway */
-> +	ams->current_masked_alarm &= ~ams->intr_mask;
-> +
-> +	/* Clear the interrupts before we unmask them */
-> +	writel(unmask, ams->base + AMS_ISR_0);
-> +
-> +	ams_update_intrmask(ams, ~AMS_ALARM_MASK, ~AMS_ALARM_MASK);
-> +}
-> +
->  static void ams_update_alarm(struct ams *ams, unsigned long alarm_mask)
->  {
->  	unsigned long flags;
-> @@ -401,6 +424,7 @@ static void ams_update_alarm(struct ams *ams, unsigned long alarm_mask)
->  
->  	spin_lock_irqsave(&ams->intr_lock, flags);
->  	ams_update_intrmask(ams, AMS_ISR0_ALARM_MASK, ~alarm_mask);
-> +	ams_unmask(ams);
->  	spin_unlock_irqrestore(&ams->intr_lock, flags);
->  }
->  
-> @@ -1035,28 +1059,9 @@ static void ams_handle_events(struct iio_dev *indio_dev, unsigned long events)
->  static void ams_unmask_worker(struct work_struct *work)
->  {
->  	struct ams *ams = container_of(work, struct ams, ams_unmask_work.work);
-> -	unsigned int status, unmask;
->  
->  	spin_lock_irq(&ams->intr_lock);
-> -
-> -	status = readl(ams->base + AMS_ISR_0);
-> -
-> -	/* Clear those bits which are not active anymore */
-> -	unmask = (ams->current_masked_alarm ^ status) & ams->current_masked_alarm;
-> -
-> -	/* Clear status of disabled alarm */
-> -	unmask |= ams->intr_mask;
-> -
-> -	ams->current_masked_alarm &= status;
-> -
-> -	/* Also clear those which are masked out anyway */
-> -	ams->current_masked_alarm &= ~ams->intr_mask;
-> -
-> -	/* Clear the interrupts before we unmask them */
-> -	writel(unmask, ams->base + AMS_ISR_0);
-> -
-> -	ams_update_intrmask(ams, ~AMS_ALARM_MASK, ~AMS_ALARM_MASK);
-> -
-> +	ams_unmask(ams);
->  	spin_unlock_irq(&ams->intr_lock);
->  
->  	/* If still pending some alarm re-trigger the timer */
+Patch 3 enables gmac2 on the Agilex5 SOCFPGA Premium Development Kit.
+
+Patch 4 add the new compatibility string to dwmac-socfpga.c.
+
+Matthew Gerlach (2):
+  dt-bindings: net: altr,socfpga-stmmac: Add compatible string for
+    Agilex5
+  arm64: dts: socfpga: agilex5: enable gmac2 on the Agilex5 dev kit
+
+Mun Yew Tham (2):
+  arm64: dts: Agilex5 Add gmac nodes to DTSI for Agilex5
+  net: stmmac: dwmac-socfpga: Add xgmac support for Agilex5
+
+ .../bindings/net/altr,socfpga-stmmac.yaml     |   8 +-
+ .../arm64/boot/dts/intel/socfpga_agilex5.dtsi | 336 ++++++++++++++++++
+ .../boot/dts/intel/socfpga_agilex5_socdk.dts  |  20 ++
+ .../ethernet/stmicro/stmmac/dwmac-socfpga.c   |   1 +
+ 4 files changed, 363 insertions(+), 2 deletions(-)
+
+-- 
+2.35.3
 
 
