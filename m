@@ -4,118 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 570FBC83F26
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 07:11:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7DF4C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 07:17:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3Wryq+TtiRdraYxR2k00Ymp9xPL/Wc+3/Fs7/D2hKzg=; b=k85Yx1fhiMoOx2TfhVYnD5kbUQ
-	GPDBBXBqniRqnrYfnjEAyxALnWKgOIgspj47RvLos6W2FAjWgMT8OUukTEpNwpmC+QToFwCTGsg8q
-	0TrcdHYH0Hm2DnuVsDiyRGsN9m6UmVBAS6pchVf1RoJwUzzdbY9y5RXSJkD84pkhElUaeuqpv5yJH
-	aCH8q8jSn2X9GzoNd1tF8u2QhhHlIRj61f6143rH6Cqdf8fNx6OVuplHpTqKydTtEoCIyUBTiVLjS
-	bPzo67bQ0ulzX9tU8ad0htH3qC8LErgEZ6pNbxrFamk6+sM98uQ9wAe6/PQIKwBVK7ZMVHD9rtIAK
-	qJTdB9VQ==;
+	bh=RYtiTl2/vcB5JjeNMht3FQUGQbOf7Sw/0g0qYc0qYCs=; b=srdYzOXdue9/XAD5/x29stlwqh
+	2e4b/NkFvHOAe8tNSbFwBa8PBj9SWT6/xvEmMYTy5ExWDrcL2Dylhh9sn7UWQ17gehTG8hJwFqcyi
+	nlLenTHKE0vWDiZzq1HJJeBjYI8cNzcPrFtHuras594es53I97ogs4XbsQtu89S1QpWa9oIkKkRN3
+	Oq2rRb6KZPNyfG5M3cDnRsEe6BDRqNducroLjqYGfJbeXPy13Tt8oDWrcmbNiHc5lzwvRE4OpErDL
+	IphoWAhsf0c7trcSA0H7erZ6MwrKNIBERNmUkHcZOaloNgYo8dX0rNwBYm7hh87DwC4z78o0wv4Uj
+	5EJx8BCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueq6o-00000006ffY-15SK;
-	Thu, 24 Jul 2025 07:11:18 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1ueqCI-00000006gAp-2W3U;
+	Thu, 24 Jul 2025 07:16:58 +0000
+Received: from mail-yb1-xb33.google.com ([2607:f8b0:4864:20::b33])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueq4I-00000006fYU-4B3b;
-	Thu, 24 Jul 2025 07:08:44 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3E0124573A;
-	Thu, 24 Jul 2025 07:08:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D7B14C4CEED;
-	Thu, 24 Jul 2025 07:08:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753340922;
-	bh=BkVHoupSWkyMvwI8rPlu6Dj7+1NN/PAprKUqdrl/Zqk=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=N6JblBsUab2WHL0y6JKDGtSTYVK5puKIhvqQ1v/lsBlJ+487Lx+SEZqJ/y9nwgBwi
-	 Fv7+nVqQBC4peWosR07vsSzzAX8C7c0T3qo66ILcPeu8R93JmIwpy1j8rrOWzKoyDZ
-	 rD2+TF/4Ttkrl53ktpGrjnrY7XR+tZg2ijcJfIZLAVS2L059DaNgCzhhfnShRaGBaJ
-	 Sq+vR4nrBilXYJX2yxceGpAr0ellAIfe5QXTss6H7nGU3xBjOd4FFzbwVwboDgnU+A
-	 fMVtdE07bPv3h6RE/FSFrnW5oTJ+4SSurpRFvwbENzbGZaHoSxRzncDPq6OnaheeFx
-	 Fel7DcV1lZSoQ==
-Message-ID: <633ea291-2e02-44be-bd03-220634b3c62d@kernel.org>
-Date: Thu, 24 Jul 2025 09:08:37 +0200
+	id 1ueq9m-00000006ftu-3drQ
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 24 Jul 2025 07:14:24 +0000
+Received: by mail-yb1-xb33.google.com with SMTP id 3f1490d57ef6-e8db917573dso506871276.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Jul 2025 00:14:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1753341262; x=1753946062; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=RYtiTl2/vcB5JjeNMht3FQUGQbOf7Sw/0g0qYc0qYCs=;
+        b=JS5JYaMSWFvQw7Twg1HDAEOP0cbxIuHx6IIq8PBafgalXcpqSb9PU/2/RqxjficWPr
+         wbaR5HYdD+K28WjO7/wKtyX8t4I/3t/t+tfOxGiMkK0CHDZ3UpotdofCJj3liMb4xMkf
+         JYm/2QBUGz0OBmXPDstHxyN/tY2HF0uYPwuaWsOEZRzOI2IYaCwjBr64vgRelJt8kaA8
+         Jj2qB59aaowfDPZoO9chEBy1fl5qtKh0kALQXbkeqc9SGYMwYnDJ3F0SGzqhMTLIOZAC
+         cUde0QPzLJzSau8r9UxPdDGdI4i/xRvaaOD38v32aIjzWRXmi07aaiVt5gVcmdRf+l7l
+         I9FQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1753341262; x=1753946062;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=RYtiTl2/vcB5JjeNMht3FQUGQbOf7Sw/0g0qYc0qYCs=;
+        b=HGndMkCJ29VFYfSUkiuLrvRLRh1BcltDLQlB2ELt1VrmKYxlPUtiMUklSelSU6iXGy
+         iRUByJDIOyk4yNp309UIV2A7S3lWh+I251YLduePEoZUzcTxRki5oCZEOdNNfocLrGR5
+         82y9r9FPkP1CiWO0i57CCsrfpeC2NXc7c7n8BRwwtESYiXDy25INUh4S3jc3lCHikT45
+         40kGaJ/zse2v3zHZNjz5TSEa2eufhQxAZhoJ1vEhrB0XUd///7NlJCloImWORC3PKMV+
+         DYYsyTKFV7wZM7m/3/mLWscHaIqwWpb8Prdt5+nJGZHKmk+hpu95lSv9LNsxM5yaoY51
+         H12w==
+X-Forwarded-Encrypted: i=1; AJvYcCU11UrlO4YswwvRdeejXu4gSABSkaE/vEuOevINQ+a/5SgH6t46ARxCtfZFFCHaOrQAna36skPBeUDpRjKPV8KW@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywswt9oIr9jJvU0WHekDcOHAuM0fd15pOw77ZpRA1uwaGHM5+dL
+	1GFWaPf12SqzKf3RS0OPuMmkwkMrnNBZlEb2tPVI7rudT1YUF9JVN3SscGbIvq4DggNrwQCXZit
+	lpw1A5P2NLjfRCL20zK0X8T1hgwbSBwduGFxZfygv8A==
+X-Gm-Gg: ASbGncut9JCNoscHfcF7UedJnObt1Q76BeCD9OqeFPzk2QsObpsAWQH6woNF3JsX0kT
+	OqF9NlfB8yEWY393zGfGaFD3dovubbb96VxjY51UePmiY2D4kT2H1JoapkdRWbGQbS0OnrNERGQ
+	TGyvyJ2ici6Otje+ng7KrIoqU3nx7SagW5CLxMcZWtoVD5Cxn/C7liz3tm9j/ImhITERpezmoTv
+	/PL+uQ=
+X-Google-Smtp-Source: AGHT+IFmnBw44RVqEQy61JKuL0iFrYaWpRDyxUhMmlPDwRzFw5AwUBOybBBoOUdWV5mpQDmcfwgotc7Tx/G30sPFLxE=
+X-Received: by 2002:a05:6902:4a0c:b0:e8b:d37b:86fa with SMTP id
+ 3f1490d57ef6-e8dc5a86969mr7074336276.37.1753341261694; Thu, 24 Jul 2025
+ 00:14:21 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 2/2] memory: mtk-smi: mt8188: Add SMI reset and clamp
- for MT8188
-To: =?UTF-8?B?RnJpZGF5IFlhbmcgKOadqOmYsyk=?= <Friday.Yang@mediatek.com>,
- "robh@kernel.org" <robh@kernel.org>,
- "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
- =?UTF-8?B?WW9uZyBXdSAo5ZC05YuHKQ==?= <Yong.Wu@mediatek.com>,
- "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
- "conor+dt@kernel.org" <conor+dt@kernel.org>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- Project_Global_Chrome_Upstream_Group
- <Project_Global_Chrome_Upstream_Group@mediatek.com>
-References: <20250521063347.31578-1-friday.yang@mediatek.com>
- <20250521063347.31578-3-friday.yang@mediatek.com>
- <fe4d93d1-fb6a-4985-8316-7a76fa1a481f@kernel.org>
- <7421d8f4f3d5fdb392f46df93bfee21a97cc2e1c.camel@mediatek.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <7421d8f4f3d5fdb392f46df93bfee21a97cc2e1c.camel@mediatek.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+References: <CGME20250714055853epcas2p1c8a30bbc61045c6a359d32989cfaf2f9@epcas2p1.samsung.com>
+ <20250714055440.3138135-1-sw617.shin@samsung.com> <20250714055440.3138135-2-sw617.shin@samsung.com>
+In-Reply-To: <20250714055440.3138135-2-sw617.shin@samsung.com>
+From: Sam Protsenko <semen.protsenko@linaro.org>
+Date: Thu, 24 Jul 2025 02:14:10 -0500
+X-Gm-Features: Ac12FXyeh_teX33m6-oCCNN--bnf0arq8tqlpYQ5bLEOmvlZqoOtQ8w9OKWGEX4
+Message-ID: <CAPLW+4=Gsd9VNv6T_e2QMWkPNbjp4c2GQEYpD9icU3r+0QuPww@mail.gmail.com>
+Subject: Re: [PATCH v3 RESEND 1/5] watchdog: s3c2410_wdt: Replace hardcoded
+ values with macro definitions
+To: Sangwook Shin <sw617.shin@samsung.com>
+Cc: krzk@kernel.org, alim.akhtar@samsung.com, wim@linux-watchdog.org, 
+	linux@roeck-us.net, linux-arm-kernel@lists.infradead.org, 
+	linux-samsung-soc@vger.kernel.org, linux-watchdog@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250724_000843_078214_A2AA1494 
-X-CRM114-Status: GOOD (  15.86  )
+X-CRM114-CacheID: sfid-20250724_001422_911743_61AE6DD4 
+X-CRM114-Status: GOOD (  16.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,62 +99,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 24/07/2025 03:49, Friday Yang (杨阳) wrote:
-> On Thu, 2025-06-12 at 17:16 +0200, Krzysztof Kozlowski wrote:
->> External email : Please do not click links or open attachments until
->> you have verified the sender or the content.
->>
->>
->> On 21/05/2025 08:33, Friday Yang wrote:
->>> From: "Friday Yang" <friday.yang@mediatek.com>
->>>
->>> To prevent handling glitch signals during MTCMOS on/off
->>> transitions,
->>> SMI requires clamp and reset operations. Parse the reset settings
->>> for
->>> SMI LARBs and the clamp settings for the SMI Sub-Common. Register
->>> genpd callback for the SMI LARBs located in image, camera and IPE
->>> subsystems, and apply reset and clamp operations within the
->>> callback.
->>>
->>> Signed-off-by: Friday Yang <friday.yang@mediatek.com>
->>> Reviewed-by: AngeloGioacchino Del Regno <
->>> angelogioacchino.delregno@collabora.com>
->>> Acked-by: Rob Herring <robh@kernel.org>
->>
->> You did not respond to previous review. Sending the same while
->> ignoring
->> previous review is obvious NAK.
->>
-> 
-> Apologies for missing the message. In the v6 patch, I replaced
-> 'pm_runtime_enable' with 'devm_pm_runtime_enable'. You pointed out that
-> this change might alter the cleanup order and potentially introduce
-> errors.
-> 
-> v6:
-> https://lore.kernel.org/lkml/20250408033206.12176-3-friday.yang@mediatek.com/
-> 
-> Therefore, in the v7 patch, I reverted this change and continued using
-> 'pm_runtime_enable' in the SMI driver. However, I did not include a
-> clear description of the changes between v6 and v7 in the cover letter.
-> 
-> v7:
-> https://lore.kernel.org/lkml/9f01a9a4-89b2-4bfc-97cd-827be989ef16@kernel.org/
-> 
-> In the v8 patch, I have added a description in the cover letter.
-> This series just add functions for SMI clamp and not change anything
-> else. Is this acceptable to you?
+On Mon, Jul 14, 2025 at 12:59=E2=80=AFAM Sangwook Shin <sw617.shin@samsung.=
+com> wrote:
+>
+> Modify the code to utilize macro-defined values instead of hardcoded
+> values. The value 0x100 in the s3c2410wdt_set_heartbeat function represen=
+ts
+> S3C2410_WTCON_PRESCALE_MAX + 1, but it is hardcoded, making its meaning
+> difficult to understand and reducing code readability.
+>
+> Signed-off-by: Sangwook Shin <sw617.shin@samsung.com>
+> ---
 
-That was month ago. Nothing form this thread is in my memory, nothing is
-in the mailbox. There is no cover letter to find anymore.
+Reviewed-by: Sam Protsenko <semen.protsenko@linaro.org>
 
-Anyway, you did not respond to the actual comment and you send the same.
-Now you respond... to something else still ignoring the comment about
-fake tags.
-
-I will not be wasting more time on this patchset.
-
-Best regards,
-Krzysztof
+>  drivers/watchdog/s3c2410_wdt.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/drivers/watchdog/s3c2410_wdt.c b/drivers/watchdog/s3c2410_wd=
+t.c
+> index 40901bdac426..95f7207e390a 100644
+> --- a/drivers/watchdog/s3c2410_wdt.c
+> +++ b/drivers/watchdog/s3c2410_wdt.c
+> @@ -587,7 +587,7 @@ static int s3c2410wdt_set_heartbeat(struct watchdog_d=
+evice *wdd,
+>         if (count >=3D 0x10000) {
+>                 divisor =3D DIV_ROUND_UP(count, 0xffff);
+>
+> -               if (divisor > 0x100) {
+> +               if (divisor > S3C2410_WTCON_PRESCALE_MAX + 1) {
+>                         dev_err(wdt->dev, "timeout %d too big\n", timeout=
+);
+>                         return -EINVAL;
+>                 }
+> --
+> 2.25.1
+>
+>
 
