@@ -4,55 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FB4CC83F26
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 21:35:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 516CFC83F26
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 21:40:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:
 	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
 	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IAOBmpOtdxPPvzIH6qwDi7+1fhSxZmdUYE8fD3ANbBY=; b=dNOQwei+4pHr2cuNR0JYEvUSv2
-	PLooxm9wBx0wJlsTiwcTBcD7AxxW1O5vsVDUp/z0Rf095EgCk0b+1AJsfgQs+W5pGya8Dw1tPc1d+
-	un2P+c5puOjcO7zwDMgllsVWzbAk+9f0naJ61kLHp1Ug6sr96xgLGT9TMzt3TgOzGzwElB70xv9Dj
-	4w1+wVbmE7Ca+FY3LgNQOeNF8a01pm5ILmuFSfIxh9Fzv3X77i7xJisdpZU7+DpJmRj2Rm2XnS3RL
-	gHkXH7OqgaSwiHNm1Wi8WYv7Yfshn2q+9vN6TIYLCwd4MZFK4NR7+G2yon75qAfn9WCwOzqpfoz6E
-	SF6rmiwA==;
+	bh=Kk78a+V8SCEPOMRyTIoa4fUSGyDQJ80SaoIOMYf4mxo=; b=hC/hlIrE2rQsCo/erNYvXTDP6u
+	sV8Za+wdnOuOmKSCJJnN7ICLPeDbgGRXq0iuvYOx+YtKKTiPO+Fyf1/kUhC2Z7IQ636QGWsD9OMYJ
+	R72/S8kGD4Ruv1/lNsN98TjLOd/6p+UrhcKcUn3bWAAKir9Hmz0U0f+EuD6jLsUIQo7sBWdhr4ZzM
+	PKCwpdo47M71YtJ9yRKFDLJqMlRIqOjh0An0OhfbMEBYtmMXolPTXR1Z5szhR5bkOO3Mgngc9ZVBo
+	8CzEgcoo2P5zOpDAtPs4Gvw8LEPuyIYwP2aQxAPgK+I3S4zPVloKbxikRMVJau9cI/aXxUHFWgl91
+	oyeqGCVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uf3ar-00000008VlH-2IUC;
-	Thu, 24 Jul 2025 21:35:13 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uf3ft-00000008WGM-3H8i;
+	Thu, 24 Jul 2025 21:40:25 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uf3YR-00000008VUQ-0wTh;
-	Thu, 24 Jul 2025 21:32:43 +0000
+	id 1uf3dT-00000008W1z-1kg0
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 24 Jul 2025 21:37:56 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 63A4D601D9;
-	Thu, 24 Jul 2025 21:32:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 084B7C4CEED;
-	Thu, 24 Jul 2025 21:32:41 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 18A5F5C5B90;
+	Thu, 24 Jul 2025 21:37:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A8CE6C4CEED;
+	Thu, 24 Jul 2025 21:37:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753392762;
-	bh=IAOBmpOtdxPPvzIH6qwDi7+1fhSxZmdUYE8fD3ANbBY=;
+	s=k20201202; t=1753393073;
+	bh=Kk78a+V8SCEPOMRyTIoa4fUSGyDQJ80SaoIOMYf4mxo=;
 	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
-	b=XoAd06lj/eeWJ5GgSpM3NPc4Gg5SL9Ui2VIAcWKfe0A5rQYrPaLmc/w3iBbtgJhG8
-	 PiYAsjXvUM6mBRCPoQ87yptu0fhZI8AIdC8cU9cTAXsyVKWO61xmJFDZhBc5bClgnq
-	 VMAFx4NsXVc5UtG34o2+VqZYmdBB73mMOeD+o16ECbBSrS6+eTJJsigpzQAZ+XNOE/
-	 Y6rgXQqyOBpuZkHU/tgfRLaFwCuIyGw3NPHIensUHPMKdtZOnTCBB4wHaTwkGfy7Cl
-	 +z4F8N6h+9twETCo5BHwYlBYcIUV8lU6Gu9WV5aucfP6ThpWcxq5b7o+01LB98dw7a
-	 sfyhTzvr6MgBg==
+	b=U0RaP6Qy2A85SHsCUAzQFXalB+ePzDyIXEVcPG7Wjg1GQlVN+ybFh6lCa7Y87G2Ql
+	 psvtI6Q3fiGY0ZCR/Z6kdnhd7ciIby68asBPKKV/Iunzy4+9Crz1CAdOcW3jiQWTkH
+	 BQIqhFcngs9jAS84Jty99lX3eVyyypy28eyCu8zPEMFUPxGTBOw1WhpIbJzDkFo5nR
+	 fvwH7Oopc5+E4mDFXiwigN6D9Vy/aC8+XhRjkbeWVqC3qSy+U9gIE2mHfi0a7d9OOs
+	 98/BlqFSwWx4E5akKTLMCc8+ZLN/x2FdBfKbn+9ZuzH1peQsrLoFF8ohF3KglOxcjR
+	 BFMfz4YZacAkQ==
 Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <20250703-clk-cocci-drop-round-rate-v1-1-3a8da898367e@redhat.com>
-References: <20250703-clk-cocci-drop-round-rate-v1-0-3a8da898367e@redhat.com> <20250703-clk-cocci-drop-round-rate-v1-1-3a8da898367e@redhat.com>
-Subject: Re: [PATCH 01/10] clk: bcm: bcm2835: convert from round_rate() to determine_rate()
+In-Reply-To: <20250704075400.3217126-1-sakari.ailus@linux.intel.com>
+References: <20250704075225.3212486-1-sakari.ailus@linux.intel.com> <20250704075400.3217126-1-sakari.ailus@linux.intel.com>
+Subject: Re: [PATCH 06/80] clk: imx: Remove redundant pm_runtime_mark_last_busy() calls
 From: Stephen Boyd <sboyd@kernel.org>
-Cc: linux-clk@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org, linux-sunxi@lists.linux.dev, Brian Masney <bmasney@redhat.com>
-To: Bjorn Andersson <andersson@kernel.org>, Brian Masney <bmasney@redhat.com>, Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Chen-Yu Tsai <wens@csie.org>, Florian Fainelli <florian.fainelli@broadcom.com>, Jernej Skrabec <jernej.skrabec@gmail.com>, Maxime Ripard <mripard@redhat.com>, Michael Turquette <mturquette@baylibre.com>, Ray Jui <rjui@broadcom.com>, Samuel Holland <samuel@sholland.org>, Scott Branden <sbranden@broadcom.com>
-Date: Thu, 24 Jul 2025 14:32:41 -0700
-Message-ID: <175339276117.3513.1051998064079293542@lazor>
+Cc: linux-clk@vger.kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+To: Abel Vesa <abelvesa@kernel.org>, Fabio Estevam <festevam@gmail.com>, Michael Turquette <mturquette@baylibre.com>, Peng Fan <peng.fan@nxp.com>, Pengutronix Kernel Team <kernel@pengutronix.de>, Sakari Ailus <sakari.ailus@linux.intel.com>, Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>
+Date: Thu, 24 Jul 2025 14:37:52 -0700
+Message-ID: <175339307281.3513.6881609632116291164@lazor>
 User-Agent: alot/0.11
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250724_143755_500316_7D547804 
+X-CRM114-Status: UNSURE (   6.55  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,12 +72,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Quoting Brian Masney (2025-07-03 16:22:25)
-> The round_rate() clk ops is deprecated, so migrate this driver from
-> round_rate() to determine_rate() using the Coccinelle semantic patch
-> on the cover letter of this series.
+Quoting Sakari Ailus (2025-07-04 00:54:00)
+> pm_runtime_put_autosuspend(), pm_runtime_put_sync_autosuspend(),
+> pm_runtime_autosuspend() and pm_request_autosuspend() now include a call
+> to pm_runtime_mark_last_busy(). Remove the now-reduntant explicit call to
+> pm_runtime_mark_last_busy().
 >=20
-> Signed-off-by: Brian Masney <bmasney@redhat.com>
+> Signed-off-by: Sakari Ailus <sakari.ailus@linux.intel.com>
 > ---
 
 Applied to clk-next
