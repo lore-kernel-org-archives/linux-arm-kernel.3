@@ -4,69 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7ABAC83F26
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 15:25:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAAC6C87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 15:25:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2yUnl4vidy4gJvXblFDoJuJNs7hErSWbP5rsO2C/gB0=; b=qRP+cWSOB9yQyvNM+4Zv879NV+
-	IwzAamP7ZQUVL1dposNEUOaakhaFOcfiV3jI7C9lV3OBQTf7L/zyiBwsUio7xU4/DKnFvf81HELOw
-	osUCOuHoReJuTC11LmAb/IY2QJaRIl3q0ZxbA9/AxmOUwTS9oWKC6+ox8ppamsqVwYCWmFhgPI7uv
-	3UD3Mk9Z7fHtItlwdqaN7o9gYaB2cvNEQNyrVvvLaalDQwcBMZID4JWPBB8bmJBP284NqjJio04m5
-	YlDQm6Giy18Bu6JQNR9I+HXCSOJTumqZEqZRzHtgDMbCTe2JerESH7L3VbE7wrbdQ4Ni+xEgwnu+z
-	lIR/+INQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=RGecDSfQkRQwOHSUrTvJEbSVKAprJg4maVsG15+73gY=; b=NLZiQi94G8K1JO6QzxRHJycZ5k
+	ItHDiM01c2K6D+U5ro/7Rh3VOD0hYkYnbvypgiu1bPJnV6spIhXCgbqSKZefq1GnxoLGCOIpCQSiA
+	s5E19QKY6MHurbVsJkmwllGkn4mnqPSlOW5TvjGjzP4i5O7V3jd42EnePjmA552g2GEp8/gs1bWvA
+	hLMOWlRvd+fL0790Zg3Kynk0W8K+Uohg/+1cvsEppsopjAvc17KUvnaKmMwqSieW+l/v0p6jHyiA3
+	aHqB+EBK8CirfUDv7+K6NczhtWFCQH2iZ4o1pPA+Y0RiZU5M+aPJUccaXivnCZ/Pp0LrcGhRb4QO7
+	TsSmsmfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uexpB-00000007qJI-0H4O;
-	Thu, 24 Jul 2025 15:25:37 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1uexp7-00000007qGc-36u3;
+	Thu, 24 Jul 2025 15:25:33 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uevZj-00000007TJN-29Kh;
-	Thu, 24 Jul 2025 13:01:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=2yUnl4vidy4gJvXblFDoJuJNs7hErSWbP5rsO2C/gB0=; b=rqRYTOatipp8MXoMnYvt0IchBY
-	K6HjCQAtpimPUnQtSi/BNo/rhID2z3ZpYzeCo5d0nTA+EqsZqo5uResfrEERmPBEJ/EvesXgJL+pL
-	pMg1t4i0xSPMpGxNrZGdHKYQyXoWWsKrJZ36Exq8A3t6QCpWaxm8fQ3uFqFrLs7xHNTLDUcU8t3zu
-	ftz79uNn1goGeo7w3A2F+6RfZEXvpOjuNQJwC8wLypwf58/4o3AM8LoNA/PuO+GY/lg5qVStosIgY
-	GBPCcmPrkXmSbj22AvKy1UkHkeNInX+DT7hZLGIfaYV/Av2EIf/fzaSOnYT2v99DqxboLboE5UWBp
-	DGrJ3CaA==;
-Received: from i53875a38.versanet.de ([83.135.90.56] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1uevZ5-0005kZ-4F; Thu, 24 Jul 2025 15:00:51 +0200
-From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
-To: andrzej.hajda@intel.com, neil.armstrong@linaro.org, rfoss@kernel.org,
- Damon Ding <damon.ding@rock-chips.com>
-Cc: Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
- jernej.skrabec@gmail.com, maarten.lankhorst@linux.intel.com,
- mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
- jingoohan1@gmail.com, inki.dae@samsung.com, sw0312.kim@samsung.com,
- kyungmin.park@samsung.com, krzk@kernel.org, alim.akhtar@samsung.com,
- hjc@rock-chips.com, andy.yan@rock-chips.com,
- dmitry.baryshkov@oss.qualcomm.com, l.stach@pengutronix.de,
- dianders@chromium.org, dri-devel@lists.freedesktop.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, linux-rockchip@lists.infradead.org,
- Damon Ding <damon.ding@rock-chips.com>
-Subject: Re: [PATCH v3 08/14] drm/bridge: analogix_dp: Apply drm_bridge_connector
- helper
-Date: Thu, 24 Jul 2025 15:00:49 +0200
-Message-ID: <10694296.nUPlyArG6x@diego>
-In-Reply-To: <20250724080304.3572457-9-damon.ding@rock-chips.com>
-References: <20250724080304.3572457-1-damon.ding@rock-chips.com>
- <20250724080304.3572457-9-damon.ding@rock-chips.com>
+	id 1uetef-00000007HCo-1bA1
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 24 Jul 2025 10:58:30 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-4537edf2c3cso8680345e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Jul 2025 03:58:28 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1753354707; x=1753959507; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=RGecDSfQkRQwOHSUrTvJEbSVKAprJg4maVsG15+73gY=;
+        b=Lh1e0IYDvmV2ghjmtfDCJGe0y3W0ZiF4qG2fcYXXypG8C2+F163M4UUFDlhM8OYbaK
+         yKbQK4iBBX8iV6yvk0EcPEenJKDxbZjLQTqAk1TBPTklCVB8d9ezoBbDCbMGbcsuMXep
+         sKqfCLk5yIJwGoImHj3jAFAo5z4f5AazPRN59C+hjJj7avdRx7ewguyjEo0Rmme132MU
+         nPTHdW2iHcDp6LMhU/hcNDeMmPFkp8YQeMETDTMs5MM/wbuD3+PvNPjaID7Aa3zmkm8O
+         m/sklq8Gk8ZWL49DRpu8hkH6vzX+3qZXw1f3YOK1sGrdsgeGoCIoYum7wPtSHZ5yZfnI
+         h6qg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1753354707; x=1753959507;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=RGecDSfQkRQwOHSUrTvJEbSVKAprJg4maVsG15+73gY=;
+        b=HEQh3oN1vZkbKqQVKNeJE+w/SOg4LIS/php0DEvRkWjE18MigBlRQplrVjUmZYEujv
+         5jxsk9mhKo7Bg2wpRrZ+qD4sGl/OScnSkW/2hgf+oiAdwNExs4HW65aU4ALPaAUYVSUR
+         f1pwqAzXFeNofkLrvsGM98t6xNK1bU+51QnPTcHqVvxrGUmn0K2yM3GWbPH/Fg5apTYY
+         I4Y9Y864/X0RqOE5+V//r3VjjePqdxer9VHgKITV7wAOD/01n8QS2SwrLFjROZ7/FHfF
+         WwAvEHBFTkXl2Xa6PB9rzx9fdnuOsDrs1zqUyoYJi7vH53jJkSOTOJ7Ev2k7/K0+7ZXd
+         2lnw==
+X-Forwarded-Encrypted: i=1; AJvYcCW47cUNoPINvUZ9hSyqAefc4Hy5OtaPFfu40Rin9jpvLoGTOH2/QALCMzBAPHn0pf/9JBjXKnzezBH4hrXVxjIP@lists.infradead.org
+X-Gm-Message-State: AOJu0YwXRpG8CCyfUCEj5RoVMjl9tLAEh3Lzp2yDUo7iIUcjN4dcvFz3
+	rPwpvU+fCdKs0VWxIbfQeAPHu2XutT7yCxMBEaYfxxMrGQtmfQXYPkXi4opvjKoH+aM=
+X-Gm-Gg: ASbGncs9qJACKWYwY6qK0RXsdleWOCVHlNar6a+wHfuD4gZ8hv11rCMTCeTs4444WnF
+	6DAnLcXHRlqb2ViprZir6VLkgBHqnDkfwSfUATbU2j4FkYDumNVfpB6qm0epVxUZgviEdz3PzwH
+	GV43yLeWDAEUhz21V3L3T8Ax78GCZKDBfNMzzXByNB6JpkPFoNMwaAqt4gN67t+xjaZP3l32jxE
+	qg+nmhry7+1KoR4zZhLk8HccerbPMxot6nlDPfVdHFFTqiikOBy2/wtBdmieh6ZzhfY85mTJGqN
+	wrlDP0Qo3NReLI4pwCHQ+0NAPSGXKi3zFmSnKl+5kP/0kKKXpYNa5x8td2Vj8s/hxSjJ7r0v4PX
+	2tomxt5dK/6w5W5IN+ay+
+X-Google-Smtp-Source: AGHT+IEec1gAogEhVNDlKxHHWHB5R0+lqM/g4ZlsnII2um+rpJwBJ/Nvy+vyPcI2BysN3G6ob2NnHw==
+X-Received: by 2002:a05:600c:3e83:b0:456:2000:2f3f with SMTP id 5b1f17b1804b1-45868d53693mr42892935e9.23.1753354706968;
+        Thu, 24 Jul 2025 03:58:26 -0700 (PDT)
+Received: from localhost ([87.254.0.133])
+        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-458705ce781sm15812735e9.31.2025.07.24.03.58.26
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 24 Jul 2025 03:58:26 -0700 (PDT)
+From: Colin Ian King <colin.i.king@gmail.com>
+To: Herbert Xu <herbert@gondor.apana.org.au>,
+	"David S . Miller" <davem@davemloft.net>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	linux-crypto@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org
+Cc: kernel-janitors@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH][next] crypto: stm32: Fix spelling mistake "STMicrolectronics" -> "STMicroelectronics"
+Date: Thu, 24 Jul 2025 11:57:54 +0100
+Message-ID: <20250724105754.140400-1-colin.i.king@gmail.com>
+X-Mailer: git-send-email 2.50.0
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250724_060131_578592_B2164838 
-X-CRM114-Status: GOOD (  12.34  )
+X-CRM114-CacheID: sfid-20250724_035829_439004_4406F86F 
+X-CRM114-Status: GOOD (  12.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,49 +102,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Damon,
+There is a spelling mistake in the module description text. Fix it.
 
-Am Donnerstag, 24. Juli 2025, 10:02:58 Mitteleurop=C3=A4ische Sommerzeit sc=
-hrieb Damon Ding:
-> Apply drm_bridge_connector helper for Analogix DP driver.
->=20
-> The following changes have been made:
-> - Apply drm_bridge_connector helper to get rid of &drm_connector_funcs
->   and &drm_connector_helper_funcs.
-> - Remove unnecessary parameter struct drm_connector* for callback
->   &analogix_dp_plat_data.attach.
-> - Remove &analogix_dp_device.connector.
-> - Convert analogix_dp_atomic_check()/analogix_dp_detect() to
->   &drm_bridge_funcs.atomic_check()/&drm_bridge_funcs.detect().
-> - Split analogix_dp_get_modes() into &drm_bridge_funcs.get_modes() and
->   &drm_bridge_funcs.edid_read().
->=20
-> Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
+Signed-off-by: Colin Ian King <colin.i.king@gmail.com>
+---
+ drivers/crypto/stm32/stm32-cryp.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
->  static enum drm_connector_status
-> -analogix_dp_detect(struct drm_connector *connector, bool force)
-> +analogix_dp_bridge_detect(struct drm_bridge *bridge)
->  {
-> -	struct analogix_dp_device *dp =3D to_dp(connector);
-> +	struct analogix_dp_device *dp =3D to_dp(bridge);
->  	enum drm_connector_status status =3D connector_status_disconnected;
-> =20
->  	if (dp->plat_data->panel)
-
-this needs an update to
-
- static enum drm_connector_status
-=2Danalogix_dp_bridge_detect(struct drm_bridge *bridge)
-+analogix_dp_bridge_detect(struct drm_bridge *bridge, struct drm_connector =
-*connector)
-
-to follow Andy's patch [0] that got already applied to drm-misc-next
-
-Heiko
-
-
-[0] https://gitlab.freedesktop.org/drm/misc/kernel/-/commit/5d156a9c3d5ea3d=
-bec192121259dee2c2f938fa1
-
+diff --git a/drivers/crypto/stm32/stm32-cryp.c b/drivers/crypto/stm32/stm32-cryp.c
+index a89b4c5d62a0..5e82e8a1f71a 100644
+--- a/drivers/crypto/stm32/stm32-cryp.c
++++ b/drivers/crypto/stm32/stm32-cryp.c
+@@ -2781,5 +2781,5 @@ static struct platform_driver stm32_cryp_driver = {
+ module_platform_driver(stm32_cryp_driver);
+ 
+ MODULE_AUTHOR("Fabien Dessenne <fabien.dessenne@st.com>");
+-MODULE_DESCRIPTION("STMicrolectronics STM32 CRYP hardware driver");
++MODULE_DESCRIPTION("STMicroelectronics STM32 CRYP hardware driver");
+ MODULE_LICENSE("GPL");
+-- 
+2.50.0
 
 
