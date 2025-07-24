@@ -4,58 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6ED11C83F1A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 10:59:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC647C87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 13:52:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=xvtnq9mQweBqJoluGgo+tMS9GnL9G2nNDRm+j95JWd8=; b=XK8ZpbElMYKF0A/S/lvLGrtCUb
-	8S2P98upVnyEZ0kCf+fX3/g+UeXFpmrHPBSDabCTHqC6hT+JG2AbBwt1y91Zi/GJB3HnFcw3eZgYZ
-	/m+JxMyMOdhAQaEkgfYVKFozFWMEBoWxHS76anx4w+2+VhoJcfG7kJB9BC8v4v0caAATFJ7h6tY1q
-	17v0uHNa/r7aGluql9wLJgrGbLZOGYXffsujijpJZZ6c89zHnWTnug/mlt2Ut5GNX1vwLVdRKgaMT
-	4yj5T3ERmBXavluU0nr3gW2410WeuDhjRPKRJgtH2GgprO/jbs97CIgjAdN+e/Vb3d021kRpHrB7Z
-	Q7opjyNg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hkXB2c1oP/E/k06GcTgcZXpElzLoIFNZDVG4i5HTvOM=; b=IUOXgHF+F09rvPSXWlMR+4c8nn
+	Q2xeQ8zGjAJFwCX4wtPSOsdr9RfK4Cp0rL0NCv7kShocge+f0i1Jcv3OMvTSlqRGhSd+ximu9oQyT
+	ksIDhOTR3uXqoAFTHeML7Y//ezhmi6fIRNzRmQn69ZTFCp23RDfRTzU6BItXsG7Oy0vgSwB2tKgsH
+	WwKuIi0uzqQ0dbcm40gIn0m7zQwkPpel+6b73WTR7UtXPwS0g17axM17OuR3G6rdVXBOK1MED22OR
+	28FXrjAPBQn8zKkVnXtFgaWO7M6nVjQD6dVF+DxjOi3owqScrpaqyi83fDYGBPm7dMiae1ycg1dTh
+	swsvJ4rQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uetfJ-00000007HID-35yZ;
-	Thu, 24 Jul 2025 10:59:09 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uewMe-00000007YU1-1Zg3;
+	Thu, 24 Jul 2025 13:52:04 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uesUl-000000075WL-2RD6
+	id 1uesfz-000000078Fo-1yuK
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Jul 2025 09:44:12 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1A3334562C;
-	Thu, 24 Jul 2025 09:44:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9393AC4CEED;
-	Thu, 24 Jul 2025 09:44:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753350251;
-	bh=D3byKs9Kwszr4DgyFzPmK6s1lfZaS5QDw8nvwjwooa0=;
-	h=Date:From:To:Cc:Subject:From;
-	b=jvgzl6inm2gUq6RWsC4X3qU5YA3tseV0s77NazxsGNHNKZU+RV/J4aXYPzcBZO0SJ
-	 aLg9nzUeejJM3S3on8hSjBPUoAm4Z5uOQENpBC2ClFxo8rLTEhcIvVEUEqW1HMhStL
-	 AxB+8eF/LRvlCDq+nhqsJfI/FhmoAQynzwzw5wiZxU2kOCJeSti0fXkOqpXJ9P0i9N
-	 mClsqG1Dk9gZK/2y+iLkAaoIoPEL6CPHNtAwXYz0vHSmfXy8qkF3lXXAQ4ofHxXhxK
-	 fLKeiAY/04T+VIPtMRMPTot+PKbYovUdVZvERcndlz4+YY8vn72WwxOVDUBpMuzME0
-	 XTEW7FN2TLqrg==
-Date: Thu, 24 Jul 2025 10:44:06 +0100
-From: Will Deacon <will@kernel.org>
-To: torvalds@linux-foundation.org
-Cc: catalin.marinas@arm.com, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, kernel-team@android.com,
-	maz@kernel.org, mark.rutland@arm.com
-Subject: [GIT PULL] arm64 fixes for 6.16
-Message-ID: <aIIAZiQ6ca3DFHpE@willie-the-truck>
+	Thu, 24 Jul 2025 09:55:48 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-451dbe494d6so8040015e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Jul 2025 02:55:47 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1753350946; x=1753955746; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=hkXB2c1oP/E/k06GcTgcZXpElzLoIFNZDVG4i5HTvOM=;
+        b=ipEzVgTrMNszcPIQDHNGRlfD1Tomg1QNYDDC5cFGFxmSGXwV48WCHPYbA21KAgkQEI
+         E3V1OssT1jXpmaklEGNUJYNlrqTsFnVFyV9gxDrYLMGGcvPmMuxEIpUjSJqHRId2djvU
+         YlwbbtM0RE9+NaQrE1BkGAEnsxtgRI0Ypv92NG0rMch52cPoe1IaKpNFwi3Lgq34JIOx
+         0D4B25QV9NCuQI7z6kF85GiKcjjdXjxjyVMkhSR7clWniLNj/GZTIWw4XqgLGZ7COWK/
+         ZyY3hrP7QaDSGD2SKh3vkoosFtz/h/YjAUnfuITmsGy5DDFbwQnjvv0AE01JvlWI/QJ1
+         4QrQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1753350946; x=1753955746;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=hkXB2c1oP/E/k06GcTgcZXpElzLoIFNZDVG4i5HTvOM=;
+        b=Cfk+qnUANJEXXX8y0Ctn4MCqvfgnM5e6HYvzug+6bz3bSjn+qkReIEryTwxuJLDI5O
+         tBaAp3Gq62cOqcHA847dTVS0Y1i785L6e/xC0R2IQ0yRGibF7Ptx0O6cbjWG3jN4bYFp
+         k78yfP4knKAVYlUoNEr4nmEenPD3cxEssx04SF6ntB1O58N7OK0KMuofGyoSaqZiW4Am
+         i2KFrnmneBIOwWy0JlUD3AZHfG+DNO/TLc2x2ncUqKdDe5qLYEXA0n470D/dE19BqK/D
+         +8x0EI2jm2jcu2iT6dUuyHhWD1wIkBQj8J3dda0B+LKuVNDfv4lvoOZZvzPaE0Fg+tOg
+         RPAA==
+X-Forwarded-Encrypted: i=1; AJvYcCXaWlxxyUIadmBVkUsVH6maLfXRpuRe2ccJAhAXG+i/P9ahHnyLTs1dv+Ucs+dk4z2dH2q4//GeGisx9MraKRNQ@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz5j6wulaO2YnkzXKVB6kianu+uUq2yyjN+UaaqLaNBsZc/iqUF
+	39DbgxdRVjNW57oRcBJhsemPko50yupahAPAzXL+fs/V3wI/Y2gqf/4gw9d9Wsx/48I=
+X-Gm-Gg: ASbGncuNYdrjxtBMAGyVWKnoc+duW9ffR6G7Qv0QYRsu1IDaflvgkssmFCwcXnRq8uf
+	+9m8jop6oLw4vSTL5KB2y81XQygXisOJrUaXi6YF3r2nn9xnI5xjtL5MGoRw6b5jn4NOjx8VJDb
+	6sIj+TKbVS9HvK8W6vZHWXwHpZ424Rr1pIhvCBFb4GMUr6qXhbRjX5y5y8RgjeK8ssru0MTBEM3
+	59IxdmUQHEnoADaFyjhD5f9C51bDZ94sGoGWAgZXs+gHouQCsCzUBoxAl4sEVhofw7KFED7p3n1
+	lrrxzfsa4LFUAaiR7XlS8edcUexmlL/IrUcFHVsTvTjljoGKq38RLV1+33S7PxCig3m4ZVbSlYO
+	sge+2j4uOqhg+47GyDAYBQfw=
+X-Google-Smtp-Source: AGHT+IGRP/pIwNEZN/YSf647P0VBiKuokrllq5cryuGfggOfcoyMAvsAeQOTeSXR8LCaWYe+gmrK6w==
+X-Received: by 2002:a05:600c:37c8:b0:456:cdf:1ecd with SMTP id 5b1f17b1804b1-45868d76755mr53246535e9.31.1753350945830;
+        Thu, 24 Jul 2025 02:55:45 -0700 (PDT)
+Received: from brgl-uxlite.home ([2a01:cb1d:dc:7e00:f44c:20db:7ada:b556])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4586f88cfe3sm10532965e9.0.2025.07.24.02.55.44
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 24 Jul 2025 02:55:45 -0700 (PDT)
+From: Bartosz Golaszewski <brgl@bgdev.pl>
+To: Heiko Stuebner <heiko@sntech.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Jonas Karlman <jonas@kwiboo.se>
+Cc: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
+	Yao Zi <ziyao@disroot.org>,
+	Chukun Pan <amadeus@jmu.edu.cn>,
+	devicetree@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: (subset) [PATCH v2 0/5] rockchip: Add power controller support for RK3528
+Date: Thu, 24 Jul 2025 11:55:43 +0200
+Message-ID: <175335094187.68378.6716301267666015992.b4-ty@linaro.org>
+X-Mailer: git-send-email 2.48.1
+In-Reply-To: <20250723085654.2273324-1-jonas@kwiboo.se>
+References: <20250723085654.2273324-1-jonas@kwiboo.se>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250724_024411_636428_AB04EE16 
-X-CRM114-Status: GOOD (  10.50  )
+X-CRM114-CacheID: sfid-20250724_025547_510171_6C3BB4F1 
+X-CRM114-Status: UNSURE (   9.85  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,57 +109,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Linus,
+From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 
-Please pull these two important arm64 fixes ahead of the 6.16 release.
 
-The first fixes a regression introduced during the merge window where
-the KVM UUID (which is used to advertise KVM-specific hypercalls for
-things like time synchronisation in the guest) was corrupted thanks to
-an endianness bug introduced when converting the code to use the
-UUID_INIT() helper.
+On Wed, 23 Jul 2025 08:56:42 +0000, Jonas Karlman wrote:
+> The Rockchip RK3528 support multiple power domains, one PD_GPU that can
+> fully be powered down, and other that can be idle requested.
+> 
+> Vendor kernel flag all power domains on RK3528 as always-on, this takes
+> a different route and instead tries to describe all devices power-domain
+> in the device tree, even for controllers with unsupported runtime status.
+> 
+> [...]
 
-The second fixes a stack-pointer corruption issue during context-switch
-which has been observed in the wild when taking a pseudo-NMI with
-shadow call stack enabled.
+Applied, thanks!
 
-Please pull.
+[1/5] dt-bindings: gpio: rockchip: Allow use of a power-domain
+      https://git.kernel.org/brgl/linux/c/cc2f156a33278d9b23b5cf8f738c55c842d0f225
 
-Cheers,
-
-Will
-
---->8
-
-The following changes since commit 9dd1757493416310a5e71146a08bc228869f8dae:
-
-  arm64/mm: Drop wrong writes into TCR2_EL1 (2025-07-04 16:46:04 +0100)
-
-are available in the Git repository at:
-
-  git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git tags/arm64-fixes
-
-for you to fetch changes up to d42e6c20de6192f8e4ab4cf10be8c694ef27e8cb:
-
-  arm64/entry: Mask DAIF in cpu_switch_to(), call_on_irq_stack() (2025-07-22 16:39:30 +0100)
-
-----------------------------------------------------------------
-arm64 fixes for 6.16
-
-- Fix broken UUID value for the KVM/arm64 hypervisor SMCCC interface.
-
-- Fix stack corruption on context-switch, primarily seen on (but not
-  limited to) configurations with both pNMI and SCS enabled.
-
-----------------------------------------------------------------
-Ada Couprie Diaz (1):
-      arm64/entry: Mask DAIF in cpu_switch_to(), call_on_irq_stack()
-
-Jack Thomson (1):
-      arm64: kvm, smccc: Fix vendor uuid
-
- arch/arm64/include/asm/assembler.h | 5 +++++
- arch/arm64/kernel/entry.S          | 6 ++++++
- include/linux/arm-smccc.h          | 2 +-
- 3 files changed, 12 insertions(+), 1 deletion(-)
+Best regards,
+-- 
+Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 
