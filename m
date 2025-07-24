@@ -4,149 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D85E7C87FCA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 15:28:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F1FEC87FC5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 15:28:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vgq0sS9bJuE54sZn99vBn48DqF4vg0XSEVpZVyXodU0=; b=TeimM/2F1WK571WFRQZA9A48L0
-	qU+HgiHLlI52JL6dEJs9KDTG33iO+y/BsfTgC0aXQEv1Uy4OPq9fDTaVIui1LhgECArafwh3YaOeD
-	TI5G0AlWw1jx2mYZA5/Afr/S5Ifnn3uH6yKSu6AX96BHBzWT9smMqWUa6ti/Lx5zGRub4UuMAeBie
-	XaIlsmU5UfJ0ANwMVg9wkxTSW0x7S+BoeXgD4dFjL9xEVlm+E1QUg/qtnvFDxuHS85qUXgfF51EVx
-	eW2CvpSZOGlb5sSur7WrvQ2sosXYu9NkG2JZrdQksKDh1b4pimpeD3E4wo0n8VnRKL5vUhrrd5WBS
-	/qOzCoXw==;
+	bh=tMb+AEk5h9r7iXtnXJ71KNR+F7RouvWFOZHUDihm6cw=; b=hxm3v+1pG+sXEwA+8QsCR6toIQ
+	k1lmgePzznj8uzjv8HMfBPC5p4H4HUG+TswibAV3DtgaaSnswKjdiN618GIc1n43EdZZxkGtVpwQn
+	m/X3GIcCUwKz5jGp5R0L1lj2/FzcqIvB6f6hzMmPX6dWlrU8iwYgQKbmZ0CaMLRrkR3MysD6CFeDj
+	k2zuwHkLBPvZVlLItCZCR7vWBuXhzNy/BPL46sUXZnRrLCV4r59Zsjyl5BQ7zeLqnVJ5xrekJfaKj
+	5UbTNhJ3tAN5UXk7+4Oq/f/H0IfgSSNRSGPetu00GfaznXeL3knfc9j85v2RRYXuKHF8hPnsqEVU0
+	kbZDkTwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uexrp-00000007ru5-2uXs;
-	Thu, 24 Jul 2025 15:28:21 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1uexrs-00000007rzi-2iNH;
+	Thu, 24 Jul 2025 15:28:24 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uewYd-00000007gdO-0Igd
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Jul 2025 14:04:28 +0000
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56O9fGEO022179
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Jul 2025 14:04:25 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	vgq0sS9bJuE54sZn99vBn48DqF4vg0XSEVpZVyXodU0=; b=W+qSkHEoDKvJqeGa
-	j9qzqsOiQGG3tf0XTfyzx7QwDXk5DI/xoPq9qJCLjDm8cOYm6hIxXufP7vtWMTwn
-	+DQBkJtaSF7Ff6gBisK/c82vyKR22b+RCCW5W0rJzbnl+91lQcFvypooKOQEspdu
-	YEa9IJxm97ilBHsHF7aXUfOgh6kHZ0vaJOzhW23pCRfUjyiJnY5SVz/O1vTpIt1s
-	adsG7yPAg1TR5rmuwncyn1OQu8jwFx/d1EfGjJRftiJHMyANiXF3jhdLs7V//apB
-	cR49Su2boGv9A8eiCQplxsEy9mvLOAMUG8n2MG2oJv/Cr0TNA5huNpqQykisxATa
-	aTuhbA==
-Received: from mail-pf1-f198.google.com (mail-pf1-f198.google.com [209.85.210.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 48044drqxb-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Jul 2025 14:04:24 +0000 (GMT)
-Received: by mail-pf1-f198.google.com with SMTP id d2e1a72fcca58-75e28bcec3bso1725607b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Jul 2025 07:04:24 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753365863; x=1753970663;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=vgq0sS9bJuE54sZn99vBn48DqF4vg0XSEVpZVyXodU0=;
-        b=VUdomLLlDgvTFs9PnMeXGfDAfqmklIEAztd/pxBV9y86c3T2cp2+u5lzevrFmKA1q4
-         NrEKJOi224ldV/s65OXgIaQ7A27LdEZtk5ACdueMzb4zfQK6Fk+GVosqEtJkWPpSU1Cg
-         gSg9k4SR3vO7qqL+k0BKzwj1nlZMa8cSCq31i81oE19YO762nHozRmGBZmOzIZMde2j1
-         De84zGaOheZPczd8M+4ex5UNE3TDSXlgtQ0G70W1HpKu5XJXAyfDK5VxxzITYEW4vZBh
-         afPnPAKE3PlcresOBz1EGwP4hZ8QEtla3WJO1d3VxaPUbR/8kXIguPpZhoks+FezK92i
-         TI+w==
-X-Forwarded-Encrypted: i=1; AJvYcCW5RoVBJS5LzyurxswAyt7u3qXf0K8smpw7dPYhkqYKxL3sfkm+qtHkewp3XlcBQDdtIA3+OniCHFC+so2pNk+/@lists.infradead.org
-X-Gm-Message-State: AOJu0YwQjhlvykr2h5qbpor5EKgGOO4DzbipZ54JRbbDLSG5OXWAjz1m
-	y+KnjJDAPdd1GrT234n91wiPaaxFU5iIFkleZ1mkuHlC7E9lxmhKhZqOn4vSsd0NtkpAA0zwkfN
-	VvaOHtrK/JaKPfDUxrrlenT289mT93QsNbYB5mdI1RibFRB8yQsxDkyg8no49lCl0M7GoDD4wTs
-	KXcw==
-X-Gm-Gg: ASbGnctCHUFP4HP2nwmS0EQgKe+RjHh+YcXP87hqshlO2eSLvwWUnMOtTOJB/32PXC1
-	7ghzWY0JiHtJFpKZXWgdn4VT0phs3qCineWQIED0eROeeI47E97LEzKlTvjHB19yKO5FaTLUfOy
-	R4mEZsyVQdccHy+yXC0B3vjpvuLe5/dzRukZFZZMssBDrBN96b0jvJzl1BKGTQVcqTyj1c0Q8Q5
-	/XmMI5QRvnyB2d1SOZfT9Qizu0VGuhPYLBSSQGq0lx+1sS5Gy9uOBdPJlSHSuBpxVzDBWolWaqd
-	agxRuqmmC/BjnHbiOjatrPPmjF12uQMfTGgxohlHdppFDcgpgcpq4V3KZdr7c5aEmQ5rxC+ZGA=
-	=
-X-Received: by 2002:a05:6a20:d80f:b0:1f5:8a1d:3905 with SMTP id adf61e73a8af0-23d48fe0706mr11806731637.7.1753365863375;
-        Thu, 24 Jul 2025 07:04:23 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGAk87SufmnhCrOrsDy9MKWBmmPKhBPtYqVHhRKiYJ5DGF4kGQc3VXG7/OhXCMjUqW31MLiAw==
-X-Received: by 2002:a05:6a20:d80f:b0:1f5:8a1d:3905 with SMTP id adf61e73a8af0-23d48fe0706mr11806617637.7.1753365862604;
-        Thu, 24 Jul 2025 07:04:22 -0700 (PDT)
-Received: from [10.219.57.35] ([202.46.23.19])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-761b06158acsm1757972b3a.109.2025.07.24.07.04.14
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 24 Jul 2025 07:04:22 -0700 (PDT)
-Message-ID: <f4725f3f-1b45-ebd2-aaf4-4f986a44eb8e@oss.qualcomm.com>
-Date: Thu, 24 Jul 2025 19:34:13 +0530
+	id 1ueweV-00000007hbr-25V0;
+	Thu, 24 Jul 2025 14:10:33 +0000
+Received: from [192.168.1.76] (unknown [IPv6:2001:b07:6462:5de2:520d:d7a3:63ca:99e8])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 7DF17190D;
+	Thu, 24 Jul 2025 16:09:49 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1753366190;
+	bh=zDLiKpcarRebLqHSrXV+LHH8PWDYb0+SfoPVzO8Rjbg=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=CPY1KMtGLCOdP9TXQ0RqC350lFyac3obxfU6ySAP1MSXGMVHFV1KXmD1nWBn7Sj86
+	 GcrrlBUno3vW4ws4Ul6n9aOXK82mh3h47P9cOwkQLnvIdema0S34Jv+eqFnckyXeW2
+	 dUuKfNiE2KqEhwqZU5MRyCFNsRbH+cswobBEYBGw=
+From: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+Date: Thu, 24 Jul 2025 16:10:09 +0200
+Subject: [PATCH v2 02/27] media: mc: Maintain a list of open file handles
+ in a media device
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.5.1
-Subject: Re: [PATCH v12 0/8] Implement vendor resets for PSCI SYSTEM_RESET2
-Content-Language: en-US
-To: Krzysztof Kozlowski <krzk@kernel.org>,
-        Florian Fainelli <florian.fainelli@broadcom.com>,
-        Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>,
-        Sudeep Holla <sudeep.holla@arm.com>,
-        Souvik Chakravarty <Souvik.Chakravarty@arm.com>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
- <conor+dt@kernel.org>,
-        Andy Yan <andy.yan@rock-chips.com>,
-        Mark Rutland <mark.rutland@arm.com>,
-        Lorenzo Pieralisi <lpieralisi@kernel.org>,
-        Arnd Bergmann <arnd@arndb.de>, Konrad Dybcio <konradybcio@kernel.org>,
-        cros-qcom-dts-watchers@chromium.org, Vinod Koul <vkoul@kernel.org>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>
-Cc: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-        Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
-        Stephen Boyd <swboyd@chromium.org>,
-        Andre Draszik
- <andre.draszik@linaro.org>, linux-pm@vger.kernel.org,
-        linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-        Elliot Berman <quic_eberman@quicinc.com>,
-        Srinivas Kandagatla <srini@kernel.org>,
-        Elliot Berman <elliot.berman@oss.qualcomm.com>,
-        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-References: <20250721-arm-psci-system_reset2-vendor-reboots-v12-0-87bac3ec422e@oss.qualcomm.com>
- <beb26682-d2e4-40e6-89ac-87f18c0401d0@broadcom.com>
- <56599da9-0200-72b5-012e-942a1fc954b2@oss.qualcomm.com>
- <a1d3264f-a46a-42c4-b518-a66c8e0b70b4@kernel.org>
-From: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
-In-Reply-To: <a1d3264f-a46a-42c4-b518-a66c8e0b70b4@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-Authority-Analysis: v=2.4 cv=BJ6zrEQG c=1 sm=1 tr=0 ts=68823d68 cx=c_pps
- a=m5Vt/hrsBiPMCU0y4gIsQw==:117 a=j4ogTh8yFefVWWEFDRgCtg==:17
- a=IkcTkHD0fZMA:10 a=Wb1JkmetP80A:10 a=VwQbUJbxAAAA:8 a=COk6AnOGAAAA:8
- a=EUspDBNiAAAA:8 a=Q-fNiiVtAAAA:8 a=QDcQmLXp8I0AkLLIQucA:9 a=3ZKOabzyN94A:10
- a=QEXdDO2ut3YA:10 a=IoOABgeZipijB_acs4fv:22 a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-GUID: QTW_kTFBM2jlPzHPEq41rJUSPI4-aXeT
-X-Proofpoint-ORIG-GUID: QTW_kTFBM2jlPzHPEq41rJUSPI4-aXeT
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNzI0MDEwNyBTYWx0ZWRfX/QaBRTFEk4XN
- gURZaqKHJHMLB26eVeGIiVjUhKD8Q3mvIQy0bK7XbaBvIUEjsk3JeiD2G4IdgOUATCe5ppCfGFu
- 5admCTxMwJ0W0TZDsknl9GafHZ7LifapYawOBJciNV1BIqvIk/UH5c2kQ4ghUQWglEHBAUfbgvt
- I6y1gK0jxzgFRnBJmIltGDI9zdf5T7Bc5sWUjsIx34nlWDmjmUPHPC6avNsG8MZc1+aRou1Kdoc
- v//UMY5Wm4AkYv89QIbG9veULBh0D+V+m6qCb1QYwL6BQeuP4xbMwFyxJbYlZaOmb38YbytEGAI
- 7SUfkXkNFvyQb/0YC3/GFHDT5uE+hNeAS6C8U63foUNPDV/4DKOgSXt0yX91i/XJhPcQ8oUmqmt
- E3jLF3lFopKJSK7TF+ORmaWEuX4816fDuRnmgbJaAtJenFIM0VHBiSunI8OtuklAtqhhRmdH
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-07-24_02,2025-07-24_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 lowpriorityscore=0 clxscore=1015 spamscore=0
- mlxlogscore=999 suspectscore=0 impostorscore=0 phishscore=0 adultscore=0
- mlxscore=0 malwarescore=0 bulkscore=0 classifier=spam authscore=0 authtc=n/a
- authcc= route=outbound adjust=0 reason=mlx scancount=1
- engine=8.19.0-2505280000 definitions=main-2507240107
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250724-multicontext-mainline-2025-v2-2-c9b316773486@ideasonboard.com>
+References: <20250724-multicontext-mainline-2025-v2-0-c9b316773486@ideasonboard.com>
+In-Reply-To: <20250724-multicontext-mainline-2025-v2-0-c9b316773486@ideasonboard.com>
+To: Sakari Ailus <sakari.ailus@linux.intel.com>, 
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+ Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, 
+ Kieran Bingham <kieran.bingham@ideasonboard.com>, 
+ Nicolas Dufresne <nicolas.dufresne@collabora.com>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Tomasz Figa <tfiga@chromium.org>, 
+ Marek Szyprowski <m.szyprowski@samsung.com>, 
+ Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
+ Florian Fainelli <florian.fainelli@broadcom.com>, 
+ Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+ Hans Verkuil <hverkuil@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
+ linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3849;
+ i=jacopo.mondi@ideasonboard.com; h=from:subject:message-id;
+ bh=/rqN2PeYLVGrC1gEE4q9OmKFqZ01RUXwuvcLLsZvWlg=;
+ b=owEBbQKS/ZANAwAKAXI0Bo8WoVY8AcsmYgBogj7Ox96cpEe5xXWsnzWGaSEqnjMmgCxy9aH+k
+ AExdRPrDUOJAjMEAAEKAB0WIQS1xD1IgJogio9YOMByNAaPFqFWPAUCaII+zgAKCRByNAaPFqFW
+ PGARD/9IgoHSHjubJ8wckLbGKEcTrRCALPQOrJ7z58zOdGADWX8VyXQzCbLyueW5viFbsSkw2r+
+ xy6DYTl45p7NrA2zXYKWzNAmVZ1aGWwOd48e1UNJfB2hJHA+xLhq6ilAOhKIrYBwOQdXdeOlfG/
+ rk/TEo9azmYM70sVDjfIj8g+yjwywjeWx/WknjrfgfyrGfMeb3LZbXQ9mg3ujW88vYX/uAZyRMT
+ HO0xsK0oT4rlI9FkBQMinnwqP8ERr+ux/GPvDz4fZnpQ2oCId6yD3RUGPPW+l7jNx5nA4d7ch6y
+ qnsTrr4+KT7VamhKd7TzLVNYSt02Pu0AZFBLI6ZNe378He7HnyiqQ7wqW0y38XtTViJEcN/cwX3
+ 7V0lBIN37VwfLQL2fC5Ll735DgmCjmhlg72deXC2x11UDN69ArR0ma67y6hNb3h5DaslQ+Y3uxQ
+ 1rLsJjlxmKRtkmvKW488i2fwSsc7ok2tYmOSN5IYKIZW9CMnGI+0i8Ra11f5KDq802rrXl//wtA
+ NZ9Wfu5PfIl6n+9C8f2ifEBdGGMLS9Epz8wNO/Zi1D2jaMdPlDpilAg1zqI9ZjHLblGoB5Iz1f0
+ JJmFiUopCdq5RFXV4Rx7J3e+Th8LPXAlkyEOvylQdISsGQbRrDTCeTPkNioYRavPBefYX30PE1Q
+ zwnMcz8n5rcp2/g==
+X-Developer-Key: i=jacopo.mondi@ideasonboard.com; a=openpgp;
+ fpr=72392EDC88144A65C701EA9BA5826A2587AD026B
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250724_070427_232123_FB3A36F9 
-X-CRM114-Status: GOOD (  28.77  )
+X-CRM114-CacheID: sfid-20250724_071031_682611_CCA4BE60 
+X-CRM114-Status: GOOD (  13.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,179 +96,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Sakari Ailus <sakari.ailus@linux.intel.com>
 
+The list of file handles is needed to deliver media events as well as for
+other purposes in the future.
 
-On 7/24/2025 6:18 PM, Krzysztof Kozlowski wrote:
-> On 24/07/2025 14:24, Shivendra Pratap wrote:
->>
->>
->> On 7/24/2025 5:46 AM, Florian Fainelli wrote:
->>> On 7/21/25 11:28, Shivendra Pratap wrote:
->>>> The PSCI SYSTEM_RESET2 call allows vendor firmware to define
->>>> additional reset types which could be mapped to the reboot
->>>> argument.
->>>>
->>>> User-space should be able to reboot a device into different
->>>> operational boot-states supported by underlying bootloader and
->>>> firmware. Generally, some HW registers need to be written, based
->>>> on which the bootloader and firmware decide the next boot state
->>>> of device, after the reset. For example, a requirement on
->>>> Qualcomm platforms may state that reboot with "bootloader"
->>>> command, should reboot the device into bootloader flashing mode
->>>> and reboot with “edl” command, should reboot the device into an
->>>> Emergency flashing mode.  Setting up such reboots on Qualcomm
->>>> devices can be inconsistent across SoC platforms and may require
->>>> setting different HW registers, where some of these registers may
->>>> not be accessible to HLOS. These knobs evolve over product
->>>> generations and require more drivers.  PSCI defines a
->>>> vendor-specific reset in SYSTEM_RESET2 spec, which enables the
->>>> firmware to take care of underlying setting for any such
->>>> supported vendor-specific reboot. Qualcomm firmwares are
->>>> beginning to support and expose PSCI SYSTEM_RESET2
->>>> vendor-specific reset types to simplify driver requirements from
->>>> Linux. With such support added in the firmware, we now need a
->>>> Linux interface which can make use of the firmware calls for PSCI
->>>> vendor-specific resets. This will align such reboot requirement
->>>> across platforms and vendors.
->>>>
->>>> The current psci driver supports two types of resets –
->>>> SYSTEM_RESET2 Arch warm-reset and SYSTEM_RESET cold-reset. The
->>>> patchset introduces the PSCI SYSTEM_RESET2 vendor-specific reset
->>>> into the reset path of the psci driver and aligns it to work with
->>>> reboot system call - LINUX_REBOOT_CMD_RESTART2, when used along
->>>> with a supported string-based command in “*arg”.
->>>>
->>>> The patchset uses reboot-mode based commands, to define the
->>>> supported vendor reset-types commands in psci device tree node
->>>> and registers these commands with the reboot-mode framework.
->>>>
->>>> The PSCI vendor-specific reset takes two arguments, being,
->>>> reset_type and cookie as defined by the spec. To accommodate this
->>>> requirement, enhance the reboot-mode framework to support two
->>>> 32-bit arguments by switching to 64-bit magic values.
->>>>
->>>> Along this line, the patchset also extends the reboot-mode
->>>> framework to add a non-device-based registration function, which
->>>> will allow drivers to register using device tree node, while
->>>> keeping backward compatibility for existing users of reboot-mode.
->>>> This will enable psci driver to register for reboot-mode and
->>>> implement a write function, which will save the magic and then
->>>> use it in psci reset path to make a vendor-specific reset call
->>>> into the firmware. In addition, the patchset will expose a sysfs
->>>> entry interface within reboot-mode which can be used by userspace
->>>> to view the supported reboot-mode commands.
->>>>
->>>> The list of vendor-specific reset commands remains open due to
->>>> divergent requirements across vendors, but this can be
->>>> streamlined and standardized through dedicated device tree
->>>> bindings.
->>>>
->>>> Currently three drivers register with reboot-mode framework -
->>>> syscon-reboot-mode, nvmem-reboot-mode and qcom-pon. Consolidated
->>>> list of commands currently added across various vendor DTs:
->>>>   mode-loader
->>>>   mode-normal
->>>>   mode-bootloader
->>>>   mode-charge
->>>>   mode-fastboot
->>>>   mode-reboot-ab-update
->>>>   mode-recovery
->>>>   mode-rescue
->>>>   mode-shutdown-thermal
->>>>   mode-shutdown-thermal-battery
->>>>
->>>> Detailed list of commands being used by syscon-reboot-mode:
->>>>      arm64/boot/dts/exynos/exynosautov9.dtsi:
->>>>     mode-bootloader = <EXYNOSAUTOV9_BOOT_BOOTLOADER>;
->>>>     mode-fastboot = <EXYNOSAUTOV9_BOOT_FASTBOOT>;
->>>>     mode-recovery = <EXYNOSAUTOV9_BOOT_RECOVERY>;
->>>>
->>>>      arm64/boot/dts/exynos/google/gs101.dtsi:
->>>>          mode-bootloader = <0xfc>;
->>>>          mode-charge = <0x0a>;
->>>>          mode-fastboot = <0xfa>;
->>>>          mode-reboot-ab-update = <0x52>;
->>>>          mode-recovery = <0xff>;
->>>>          mode-rescue = <0xf9>;
->>>>          mode-shutdown-thermal = <0x51>;
->>>>          mode-shutdown-thermal-battery = <0x51>;
->>>>
->>>>      arm64/boot/dts/hisilicon/hi3660-hikey960.dts:
->>>>          mode-normal = <0x77665501>;
->>>>          mode-bootloader = <0x77665500>;
->>>>          mode-recovery = <0x77665502>;
->>>>
->>>>      arm64/boot/dts/hisilicon/hi6220-hikey.dts:
->>>>          mode-normal = <0x77665501>;
->>>>          mode-bootloader = <0x77665500>;
->>>>          mode-recovery = <0x77665502>;
->>>>
->>>>      arm64/boot/dts/rockchip/px30.dtsi:
->>>>          mode-bootloader = <BOOT_BL_DOWNLOAD>;
->>>>          mode-fastboot = <BOOT_FASTBOOT>;
->>>>          mode-loader = <BOOT_BL_DOWNLOAD>;
->>>>          mode-normal = <BOOT_NORMAL>;
->>>>          mode-recovery = <BOOT_RECOVERY>;
->>>>
->>>>      arm64/boot/dts/rockchip/rk3308.dtsi:
->>>>          mode-bootloader = <BOOT_BL_DOWNLOAD>;
->>>>          mode-loader = <BOOT_BL_DOWNLOAD>;
->>>>          mode-normal = <BOOT_NORMAL>;
->>>>          mode-recovery = <BOOT_RECOVERY>;
->>>>          mode-fastboot = <BOOT_FASTBOOT>;
->>>>
->>>>      arm64/boot/dts/rockchip/rk3566-lckfb-tspi.dts:
->>>>          mode-normal = <BOOT_NORMAL>;
->>>>          mode-loader = <BOOT_BL_DOWNLOAD>;
->>>>             mode-recovery = <BOOT_RECOVERY>;
->>>>             mode-bootloader = <BOOT_FASTBOOT>;
->>>>
->>>> Detailed list of commands being used by nvmem-reboot-mode:
->>>>      arm64/boot/dts/qcom/pmXXXX.dtsi:(multiple qcom DTs)
->>>>             mode-recovery = <0x01>;
->>>>             mode-bootloader = <0x02>;
->>>>
->>>> Previous discussions around SYSTEM_RESET2:
->>>> - https://lore.kernel.org/lkml/20230724223057.1208122-2-quic_eberman@quicinc.com/T/
->>>> - https://lore.kernel.org/all/4a679542-b48d-7e11-f33a-63535a5c68cb@quicinc.com/
->>>>
->>>> Signed-off-by: Elliot Berman <quic_eberman@quicinc.com>
->>>> Signed-off-by: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
->>>
->>> On ARCH_BRCMSTB:
->>>
->>> Tested-by: Florian Fainelli <florian.fainelli@broadcom.com>
->>>
->>> For the sysfs bits, should not we be seeing "psci" instead of "reboot-mode" twice in this path:
->>>
->>> # cat /sys/class/reboot-mode/reboot-mode/reboot_modes
->>> powercycle
->> As per current patch, we create a class named - "reboot-mode".
->> /sys/class/reboot-mode
->>
->> Then comes the DT node name of the registering driver.
->> /sys/class/reboot-mode/<DT node name of the registering driver>/
-> 
-> This means that node name becomes part of the ABI? I am not happy about
-> it. Where is such ABI documented? Because your last patch tells
-> something completely else!
-> 
-> I strongly insist using compatible as way to find your device, not node
-> names.
-It will look better to switch to compatible. Will define a compatible for
-psci reboot-mode binding and align the patch to use the compatible for sysfs.
-Current patch defines reboot-mode as a property to psci, hope its fine to
-define a compatible for this property like "psci-vendor-reset" or
-"psci-reboot-modes"?
+Signed-off-by: Sakari Ailus <sakari.ailus@linux.intel.com>
+[Access media_device with devnode->media_dev]
+Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+---
+ drivers/media/mc/mc-device.c  | 19 ++++++++++++++++++-
+ drivers/media/mc/mc-devnode.c |  2 +-
+ include/media/media-devnode.h |  3 ++-
+ 3 files changed, 21 insertions(+), 3 deletions(-)
 
-> 
-> In any case you need to document such ABI in Devicetree bindings,
-> because sysfs ABI is not enough.
-should reboot-mode Devicetree binding document this ABI? Can you
-please share some more detail on this?
+diff --git a/drivers/media/mc/mc-device.c b/drivers/media/mc/mc-device.c
+index f298f8f67b8a84194d66126461e84228c0b20394..e0cad87087d3863bf14207049a54e5e4dea1cdd4 100644
+--- a/drivers/media/mc/mc-device.c
++++ b/drivers/media/mc/mc-device.c
+@@ -45,8 +45,9 @@ static inline void __user *media_get_uptr(__u64 arg)
+ 	return (void __user *)(uintptr_t)arg;
+ }
+ 
+-static int media_device_open(struct file *filp)
++static int media_device_open(struct media_devnode *devnode, struct file *filp)
+ {
++	struct media_device *mdev = devnode->media_dev;
+ 	struct media_device_fh *fh;
+ 
+ 	fh = kzalloc(sizeof(*fh), GFP_KERNEL);
+@@ -55,13 +56,23 @@ static int media_device_open(struct file *filp)
+ 
+ 	filp->private_data = &fh->fh;
+ 
++	spin_lock_irq(&mdev->fh_list_lock);
++	list_add(&fh->mdev_list, &mdev->fh_list);
++	spin_unlock_irq(&mdev->fh_list_lock);
++
+ 	return 0;
+ }
+ 
+ static int media_device_close(struct file *filp)
+ {
++	struct media_devnode *devnode = media_devnode_data(filp);
++	struct media_device *mdev = devnode->media_dev;
+ 	struct media_device_fh *fh = media_device_fh(filp);
+ 
++	spin_lock_irq(&mdev->fh_list_lock);
++	list_del(&fh->mdev_list);
++	spin_unlock_irq(&mdev->fh_list_lock);
++
+ 	kfree(fh);
+ 
+ 	return 0;
+@@ -698,10 +709,12 @@ void media_device_init(struct media_device *mdev)
+ 	INIT_LIST_HEAD(&mdev->pads);
+ 	INIT_LIST_HEAD(&mdev->links);
+ 	INIT_LIST_HEAD(&mdev->entity_notify);
++	INIT_LIST_HEAD(&mdev->fh_list);
+ 
+ 	mutex_init(&mdev->req_queue_mutex);
+ 	mutex_init(&mdev->graph_mutex);
+ 	ida_init(&mdev->entity_internal_idx);
++	spin_lock_init(&mdev->fh_list_lock);
+ 
+ 	atomic_set(&mdev->request_id, 0);
+ 
+@@ -809,6 +822,10 @@ void media_device_unregister(struct media_device *mdev)
+ 		return;
+ 	}
+ 
++	spin_lock_irq(&mdev->fh_list_lock);
++	list_del_init(&mdev->fh_list);
++	spin_unlock_irq(&mdev->fh_list_lock);
++
+ 	/* Clear the devnode register bit to avoid races with media dev open */
+ 	media_devnode_unregister_prepare(mdev->devnode);
+ 
+diff --git a/drivers/media/mc/mc-devnode.c b/drivers/media/mc/mc-devnode.c
+index 312eb48ffc2f2a0c013e4744204995df0ff5b12c..50435f102aa7cd6a7cde759eeef73a99b9b80239 100644
+--- a/drivers/media/mc/mc-devnode.c
++++ b/drivers/media/mc/mc-devnode.c
+@@ -163,7 +163,7 @@ static int media_open(struct inode *inode, struct file *filp)
+ 	get_device(&devnode->dev);
+ 	mutex_unlock(&media_devnode_lock);
+ 
+-	ret = devnode->fops->open(filp);
++	ret = devnode->fops->open(devnode, filp);
+ 	if (ret) {
+ 		put_device(&devnode->dev);
+ 		return ret;
+diff --git a/include/media/media-devnode.h b/include/media/media-devnode.h
+index 6c2e253dde498779dffd103dc5d00e50e14a0249..26b19373c6646bfd11cfded220c9e61c81130580 100644
+--- a/include/media/media-devnode.h
++++ b/include/media/media-devnode.h
+@@ -22,6 +22,7 @@
+ #include <linux/cdev.h>
+ 
+ struct media_device;
++struct media_devnode;
+ 
+ /*
+  * Flag to mark the media_devnode struct as registered. Drivers must not touch
+@@ -51,7 +52,7 @@ struct media_file_operations {
+ 	__poll_t (*poll) (struct file *, struct poll_table_struct *);
+ 	long (*ioctl) (struct file *, unsigned int, unsigned long);
+ 	long (*compat_ioctl) (struct file *, unsigned int, unsigned long);
+-	int (*open) (struct file *);
++	int (*open) (struct media_devnode *, struct file *);
+ 	int (*release) (struct file *);
+ };
+ 
 
-thanks.
-> 
-> Best regards,
-> Krzysztof
+-- 
+2.49.0
+
 
