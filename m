@@ -4,88 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB20AC83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 03:05:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A484C83F1A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 03:28:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G4szIC/lsRfoeS9xWMEZR5DrnZmuFrT5s30XlGRR6/U=; b=xnnRvvxaH+demOlnDmizf0ynH2
-	XKtEPUspbYphiB7zTyo0ZOircy6PqpIYBRnwcDjSAWaCLMPo+uVbXRWY9Ya+ao9MDtrsEMzlRmA6O
-	SODwgrGYcyEdls8TIm1Br5DA6T7cLqB6wkVpJw3X7xvKMmYKM4fA6W4R8iW2yDxDx0DfSrj73tzL8
-	oKdOAqg3kMfOKFmBY8n40gREL+CF506eTlcrDftic15Wv6MZYPHsTC5ex5D9of0zaROGj+9BeoctA
-	q1UsV1sen5H9++PSZJE05y/2qiaU5iK8lLxcs90aEGHXUIJBeaTzPN/gkhyzz/+EWjIQwwkx6/CjX
-	R3B4/JDQ==;
+	Content-Type:MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=6wVDs/1wpqhDY4HcSZTV4ZWp0eLuVHcvYN7ua0ivt9Y=; b=RHG2NUG2BeAvrtR/n6oo0v5W2k
+	CsiKfVerH0CDQWjvxfxgbqMKt/afJPrRCrQGp74U/8RaE/35/GUPqXDnT8nhpbn/Orbb4knvqAUux
+	7Bl6Us2cc6Vos1qxGGkO38qM1jQHmZkTjkiGdIcT/1hsGLJ+Ms7NkBRWfOHG9zlSXrARs+6V3O7pt
+	TYPSZeTonhFz2ITWJdEyCgDzWRzn8h5HlkGjUNqRpL5YtXVpJFQGfrQwz3bmGalnb5cDJH0k+s22n
+	vOeTBtAuLBHsX0Grrq5Btx29LNI+FH7tVl6OC8iEe3J9c4HaT0VtMtgQunshNujq3dVgpJ4Tmpq08
+	rzb2/Amg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uemGd-00000006O0e-1oC4;
-	Thu, 24 Jul 2025 03:05:11 +0000
-Received: from mail-yw1-x1135.google.com ([2607:f8b0:4864:20::1135])
+	id 1uemcr-00000006Ost-2QVm;
+	Thu, 24 Jul 2025 03:28:09 +0000
+Received: from mail-qt1-x835.google.com ([2607:f8b0:4864:20::835])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uemEA-00000006NqI-0Ha4
+	id 1uemaR-00000006OnV-0kE1
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Jul 2025 03:02:39 +0000
-Received: by mail-yw1-x1135.google.com with SMTP id 00721157ae682-70f862dbeaeso5633207b3.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Jul 2025 20:02:37 -0700 (PDT)
+	Thu, 24 Jul 2025 03:25:40 +0000
+Received: by mail-qt1-x835.google.com with SMTP id d75a77b69052e-4ab40633517so1383871cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Jul 2025 20:25:38 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1753326157; x=1753930957; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=G4szIC/lsRfoeS9xWMEZR5DrnZmuFrT5s30XlGRR6/U=;
-        b=gadBnDOl7woBNNGhdhBJAtEkEgsuUfQSZdEnKDAfr71QGfXOJkIQc9SLKsaPTWqnQm
-         /pMY6iKm201WONl3OjylOuhQM9BVQWdj+bQd4OTqxsZW/rs0LQVEeLr0FATTiHbubx2c
-         ykulakJlCGcIZ6RvNVWUojokDHZOurecBiez8dAv4OGjMcNiD4B3KiTQo9/Bzb87pGHW
-         Wgp4aPhEM7wIcTgyPt54Lb3rnds1kOiC9yfhmG7K6AylDEFb8scPTVwCcEa/vLwzwTR/
-         eZgo++6FoI9I8dq8xhwiWdGFQ0DTVAObbrvt7GSNjEa2k96H6QVsJDJ3edxChU/ATUGI
-         1XFw==
+        d=gmail.com; s=20230601; t=1753327538; x=1753932338; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=6wVDs/1wpqhDY4HcSZTV4ZWp0eLuVHcvYN7ua0ivt9Y=;
+        b=W5jZams/G4AD4BYM+E+cTA4khFWAIzVMjjjWAfZ4uvCATuCJSSr5ZmdkOFHoPabd1R
+         nN1z+DpiHL0k3T9/F0jdWKa+0x+ludNyJ+7nrc6ibagOkvHDXghyyiSjPYcDvLhpsC6Q
+         PcKC+1/kNAgElgFXjADcnWdDJYcdsJL6oNnmRpIe8/VYp5ohGUrmqXuwal+bFXcT03iC
+         BfoZ45fj0XjaMqekUh0KcmFBQsGOXBRG0A2wEkVoAYgMrJVa/YDCASNKXEbMTpZ1+52+
+         MG1G48lxCbBnL0CN5IWFGPy4Qh1LgLDStbN2stI16DJsNF/B5mTld2MbtLijhnpUimc8
+         QsEQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753326157; x=1753930957;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=G4szIC/lsRfoeS9xWMEZR5DrnZmuFrT5s30XlGRR6/U=;
-        b=mG+ujpDP56MTlseuu2/zJ/QfS/VEVBnmHsmtMxnjUHFLg6UX7oK7U8WR+BxyIGEUWg
-         uXrNHsBTSqb8Gy5gXPPG3Cnf/KaI2LMCLYh5NLyXX/PMuDLhgj/aTHrqgIwi+dP+rc36
-         6KwkFutwv++dW1fJB5YVIkYxnzRyPJ8AjMuUDDV0hpjlK9PvD4sQdmQxbZTeM0ViYuOk
-         Xisa8aULnn2iZ03Aw6nrkTzC7IQN2c9cNLZN0dqi2EhtvQoPeC9mhWb0KsS/1u0ED3sd
-         /1guMwBi38WwanlwDUzQUmQQHJVH2S5fCAuj887ZHrviLFSu68WN2+PTu96pLgO5JqzK
-         qrDQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXCVVVpfb9IpAwOnvfk2g27vO4JsLNqUVVUFMDDIh7AnuzSzYAnE/ynYk4TRKA3t1BphGbg0J/8MIN0hQkZP0NR@lists.infradead.org
-X-Gm-Message-State: AOJu0YxKif/KYP9ajcK0/mxBhAj/f0nh1B1Rs2MLPtWGLZ67WSJUFJfy
-	Osj/iBGOMfZnyewHGEXlr0aH76YfOXf/NhFKoA9zqumk1bwktoA3jKi+17UG58/5VcmgSpBUUaW
-	58o92uk98+1rJ4dpEAJw1lQFZkqKz+jl47ZsUr7B1uw==
-X-Gm-Gg: ASbGnctyZKukAqxlkqMVrW8tz2BsfzFkFKgKj6miPdAY8XqjFRTbYcMuOWJ5BnrPGWZ
-	+NwrH8+Wjwemd+O9UmDgsHYUAU/rV705mn0EN26hFBwlNEhtPH3kBXgkqVSD1znZJeODGL3MEi+
-	9Nhi8Kkcfq1x1bIcyvZ/YqxpfRN2+m+znK+BVltS9A0bNtNiW3Ixj10OimjsF3GbYsx0L2WYFp9
-	WKvuUo=
-X-Google-Smtp-Source: AGHT+IEIMtv289DTIkybfPfffRPAzee3+9DmTAuYGJM3UvEoqefg4H82jx7CiRhNSKxNLqGq+1drRcysqqTEjMpfosA=
-X-Received: by 2002:a05:690c:22c4:b0:70f:83af:7dab with SMTP id
- 00721157ae682-719b41e5925mr66244057b3.4.1753326156883; Wed, 23 Jul 2025
- 20:02:36 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1753327538; x=1753932338;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=6wVDs/1wpqhDY4HcSZTV4ZWp0eLuVHcvYN7ua0ivt9Y=;
+        b=CUES+aIxq2Fvsve6d+ekbogmbYTPp7tfEFzUU9TcPmyxl7sCVb7eb4kJS59PHLQgP0
+         w2bf/tJsf1dThuO/dV4ZP5mnPn5kNb1mydgtSPNIyIaGo0XvnTUxgLCGEG6Cj9kf29nC
+         14msaeONFw2p3iBR1vSMdSSlaSyaHdHL7VWdfYZiVouR9QKdQcy85OBEfH9M2VbHllcz
+         qnjZN7lkHnhGOZpaxHg/kp2OVHVmY/RMbu4K8EdbqNnpR+5GMVTgGbGXNyoTLrSWHr+6
+         Rca+nt2FgmiMkg6uoLs3q2c8mNhFTYhx3OtaGUroXGZ91QLt/dV0T+4rvJ2ZznAw88Ku
+         HuJg==
+X-Forwarded-Encrypted: i=1; AJvYcCU3NYn8LTRjHU+7GH0sVcDpLtv+mhg3unNQ9otJxRpAwbBAu6NmGRfkwxRv9ROc60q7Vxjem7X5DLZi/4sk1X1n@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz62gEQCcKGsHrCiAnDaSL0gIjG8wQablMd3D3yQV1bGL/CszG2
+	ZAInO1buX4uiLDgj5SwRhnQ7xhgE7pFb12crd4TXdMLGRkVSDVkHJy4=
+X-Gm-Gg: ASbGncvQ7aO8cKZF/Fm9uCvURNjgli2PYS9TL0TfxYSsW7bedabSh21ZC7BtHCkAifr
+	HPAcjh0Ik0MA8DRmgLplIKuVGLJv6WcI04xRtcHeVkpc6mDjgtQHtwR1mH/pA+nT26lyXnn+oUz
+	UZ9ic1fafnK5OFtqPQTXhmBlfcy6eGjuZVHBYW7B7Q0QqXgWnmllb5ffD4DYOq39O3gUxOhMh+P
+	xDI1GsvIaUwv0V/1wM/DJlCmE4ODmWhR4LgE/82nxOOyUyaYSBSwdivOtzprqbp80ZCVbSQ4eUp
+	L4ISbBMcQVW8PpYfc4hSMzZrFor2iiCLkz0RKhTrm/mXMnYFGMnU4SrlEV/v0LhpC3m6uwqey3Z
+	+yoDblyCngmm9y/xleWU=
+X-Google-Smtp-Source: AGHT+IHGnu+YAjFvpNlXoLdms3urmPpO5CFALkcBe0mKnj1jUfEF3394xo2fVnScG0OOVxyFL1h9pw==
+X-Received: by 2002:a05:620a:4687:b0:7e3:328f:61fa with SMTP id af79cd13be357-7e62a1410a7mr262258185a.5.1753327537421;
+        Wed, 23 Jul 2025 20:25:37 -0700 (PDT)
+Received: from ise-alpha.. ([2620:0:e00:550a:642:1aff:fee8:511b])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-7e632d4d48fsm54145685a.2.2025.07.23.20.25.36
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 23 Jul 2025 20:25:37 -0700 (PDT)
+From: Chenyuan Yang <chenyuan0y@gmail.com>
+To: s.hauer@pengutronix.de,
+	deller@gmx.de
+Cc: kernel@pengutronix.de,
+	shawnguo@kernel.org,
+	festevam@gmail.com,
+	msp@baylibre.com,
+	plagnioj@jcrosoft.com,
+	linux-fbdev@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	dri-devel@lists.freedesktop.org,
+	imx@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Chenyuan Yang <chenyuan0y@gmail.com>
+Subject: [PATCH] fbdev: Check fb_add_videomode to prevent null-ptr-deref
+Date: Wed, 23 Jul 2025 22:25:34 -0500
+Message-Id: <20250724032534.1638187-1-chenyuan0y@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-References: <20250722121037.443385-1-ivo.ivanov.ivanov1@gmail.com>
- <20250723-hypnotic-malkoha-of-trust-9efdb6@kuoka> <3e1d7be9-e99f-41c3-8b0d-aaa426aa9de8@gmail.com>
-In-Reply-To: <3e1d7be9-e99f-41c3-8b0d-aaa426aa9de8@gmail.com>
-From: Sam Protsenko <semen.protsenko@linaro.org>
-Date: Wed, 23 Jul 2025 22:02:25 -0500
-X-Gm-Features: Ac12FXzQwje0qjCw-CvN4blAJTQm7ENnYNl_ILs69QPBbFxu9MyH6hiUp_sqjVc
-Message-ID: <CAPLW+4kPN65uX0tyG_F-4u5FQpPnwX9y6F1zrobq5UyVbks+-w@mail.gmail.com>
-Subject: Re: [PATCH v1 1/2] dt-bindings: soc: samsung: usi: allow 64-bit
- address space
-To: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Alim Akhtar <alim.akhtar@samsung.com>, Rob Herring <robh@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, linux-samsung-soc@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250723_200238_133603_9A25C2C5 
-X-CRM114-Status: GOOD (  19.15  )
+X-CRM114-CacheID: sfid-20250723_202539_231502_028606F2 
+X-CRM114-Status: GOOD (  14.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,51 +106,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 23, 2025 at 3:21=E2=80=AFAM Ivaylo Ivanov
-<ivo.ivanov.ivanov1@gmail.com> wrote:
->
-> On 7/23/25 11:15, Krzysztof Kozlowski wrote:
-> > On Tue, Jul 22, 2025 at 03:10:36PM +0300, Ivaylo Ivanov wrote:
-> >> Some device trees, like the exynos2200 one, configure the root node
-> >> with #address-cells and #size-cells set to 2. However, the usi binding
-> >> expects 32 bit address space only. Allow these determining properties =
-to
-> > So if USI expects 32 bit, then why do we allow 64?
-> >
-> > Switching this to 2 means you use 64-bit addressing for children
->
-> I don't, but the main point was to avoid defining ranges for every single=
- usi
-> node, because they are a lot.
->
+fb_add_videomode() can fail with -ENOMEM when its internal kmalloc()
+cannot allocate a struct fb_modelist.
+If that happens, the modelist stays empty but the driver continues to
+register.
+Add a check for its return value to prevent poteintial null-ptr-deref,
+which is similar to the commit 17186f1f90d3
+("fbdev: Fix do_register_framebuffer to prevent null-ptr-deref in fb_videomode_to_var").
 
-If all MMIO addresses in your SoC are 32-bit (they probably are), I
-think it'd be neater to just make the entire "soc" bus 32-bit (so both
-address and size cells =3D <1>), and map it to the root node's address
-space with "ranges", like this:
+Fixes: 1b6c79361ba5 ("video: imxfb: Add DT support")
+Signed-off-by: Chenyuan Yang <chenyuan0y@gmail.com>
+---
+ drivers/video/fbdev/imxfb.c | 9 +++++++--
+ 1 file changed, 7 insertions(+), 2 deletions(-)
 
-    soc: soc@0 {
-        compatible =3D "simple-bus";
-        #address-cells =3D <1>;
-        #size-cells =3D <1>;
-        ranges =3D <0x0 0x0 0x0 0x20000000>;
-        ...
+diff --git a/drivers/video/fbdev/imxfb.c b/drivers/video/fbdev/imxfb.c
+index f30da32cdaed..a077bf346bdf 100644
+--- a/drivers/video/fbdev/imxfb.c
++++ b/drivers/video/fbdev/imxfb.c
+@@ -996,8 +996,13 @@ static int imxfb_probe(struct platform_device *pdev)
+ 	info->fix.smem_start = fbi->map_dma;
+ 
+ 	INIT_LIST_HEAD(&info->modelist);
+-	for (i = 0; i < fbi->num_modes; i++)
+-		fb_add_videomode(&fbi->mode[i].mode, &info->modelist);
++	for (i = 0; i < fbi->num_modes; i++) {
++		ret = fb_add_videomode(&fbi->mode[i].mode, &info->modelist);
++		if (ret) {
++			dev_err(&pdev->dev, "Failed to add videomode\n");
++			goto failed_cmap;
++		}
++	}
+ 
+ 	/*
+ 	 * This makes sure that our colour bitfield
+-- 
+2.34.1
 
-That's how it's done in exynos850 and gs101 dts for example. This way
-you could drop all those extra "reg =3D <0x0 ...>" in the child nodes,
-also avoid declaring "ranges" arrays in each USI node (just "ranges;"
-would be enough), and this patch won't be needed. Maybe I'm missing
-some details though?
-
-> Best regards,
-> Ivaylo
->
-> >  and
-> > allowing DMA for >32 bit. This should be the true reason - what is the
-> > address space and DMA range for children?
-> >
-> > Best regards,
-> > Krzysztof
-> >
->
 
