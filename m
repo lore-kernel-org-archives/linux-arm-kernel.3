@@ -4,111 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39901C87FCA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 13:52:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83C67C83F26
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 13:52:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Hi/vg1kL/q3f2SOnIwEgFWRYxdLUlPsmw9+hW3wwWdg=; b=eVP4NwcY/rJ9c6n4cVxPHBO3dC
-	GeD1JYnVY3+nczbgTUEcp273T3qsh5heVa/VRYDL8H6DfnuQbHe0/BZwlFfgOMQZZ02+5qpH09XYw
-	w42jbgHd1VOKyXGgqiit1678Hp4dbVaEagdx4RsMjjVA1mOTR8ili3WmMkgq8/CFf5IfjhBxDPtuP
-	egj5rxWkpVyNJ4/dvo8WjHVbmNc6wAQEL347Dw/ATdh1n15c0nm4+RYg+pmnbp31YIFhMLYhcDTsx
-	hp9zn4y1T36Q8Yfsjn7L7NxJ71QcgxUihP/xU2lvBBu7s3Ws21fsbTNnvvIeAmmIMzy7afEYLInkk
-	gEec+sww==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kj4amFwqYEl7jBzUdRGAvzqhzWmhrFtjzqmiEnS4Dag=; b=4trRjpTqjDTGWKH5IkqQdPYrrq
+	kDprcybR3yTWLszdQr+VXaLeuE6Cxy7O98RfOWiy8/1q97ucMTg2WF+Q+/rKX+oQuKmw7ek85nj/K
+	MyV518fXfpewCvAd1IwSa9PUPwwZib6t79pW6goaQpiwNKrUUzGjotNs3qyxll7gM78cMmvKLx2BE
+	iBvCq55zyRzDxXQ/5Mr6hLE+IuSjtJh5o3PX3cnBfk1bdUn2FfdBnvS12E95V/ypeymsoLQqn6018
+	EgfTG3DYZwTOH3ya4h+MKi7g4Jb/WC83/8HjEdnyscmciP9TRI0ZJmsvtLZTAl2n3VBB/WxFfQuBv
+	fnPpeXAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uewMl-00000007Yaq-1thK;
-	Thu, 24 Jul 2025 13:52:11 +0000
+	id 1uewMc-00000007YT8-3kto;
+	Thu, 24 Jul 2025 13:52:02 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uesnM-000000079bR-2LZs
+	id 1uescH-000000077kA-1eQd
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Jul 2025 10:03:25 +0000
+	Thu, 24 Jul 2025 09:51:58 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3F7F543B76;
-	Thu, 24 Jul 2025 10:03:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0E522C4CEF4;
-	Thu, 24 Jul 2025 10:03:20 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id CE61243CD8
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Jul 2025 09:51:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ABECCC4CEED
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Jul 2025 09:51:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753351404;
-	bh=BkGnaoDjwlnG5d1b9npKldBWzlpT8LO20JP5ekflE2E=;
-	h=Date:Subject:To:References:From:In-Reply-To:From;
-	b=ezvtvU99gUA8Pun4WBy42bxlMvIvPkqC2pO0ZHyvJBrHuz4idjHJY2dEZcXRPO38Z
-	 3qHJHg0VSEYUbIxTccizxFMPuOYcxTe80/GsJXOTNdO4s5agRJxg9QFqnagwqWM1lP
-	 U2ZxNSr71pPHD9+kmA7r+ChyEZc8i0lLCT5TEz1OQYXz2AcIME49N6DZWUgFAuedlx
-	 t1fVoRFuC6bHNW/cq14YjHgwan9906/30ATj+NuvS6P5eWtpg6OF/yRN0A7/nDgfix
-	 0JsQDaYcN2AN/xvPryMf/B+bNf9qCsM4Th7mY8pYSZ4nXBPb4rBJrN0ZeFuZOLYkBP
-	 ONfZBqjKQcA5Q==
-Message-ID: <83f69759-da06-4a20-8185-3f24f2ac5794@kernel.org>
-Date: Thu, 24 Jul 2025 12:03:19 +0200
+	s=k20201202; t=1753350716;
+	bh=JJe8KHsQAnu+gqVdwER/sMMdo6YDoZNcPOo+McX8d8U=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=spr/+tnSF0a+CeDxeJfG21KwMRxf8QNYNJLIVVGwZN6nR1g7XyVvc0m908tb79oU8
+	 z02m+hiXOzEm/jrT4eHdL3cTR2/H1KGYJoCvAuYjHLwkj15ylhZdy05FH+2Vp3fUFh
+	 727S5VD78AHN6cDHlQFMwZH7nsl4jAkxwYHTzxcxH4OJNSf5wwumICGNqoLP8QiLsn
+	 KBgNvF16tFDGx/UEqw+Zhb0BODFcSQVOaAjo/B88DXCUqaePCXrNq2YnA2JoCFNhiy
+	 EoqwG+gxLzkkYwQ/i5WUyOCc/SaHkWt4OQxCs1mxsJ4uLFhCRXMINCT1I6+GBmjIec
+	 G8CQBmsCesSrQ==
+Received: by mail-oo1-f43.google.com with SMTP id 006d021491bc7-61593d5f92bso439703eaf.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Jul 2025 02:51:56 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCUkJr9sIa0SrnJJjs3kN2jawRizRnEYEzvbFglNvqoNS9qPAU3bsWQ0cSEIBTeC+J4y+2cy61qkEcYA2FNayJi2@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz3Ja/qyovhmIysAvfFL7sLj1Eg3cqj/tWKkcXBgVLdLGACnXeQ
+	7cvAjm8u2kAszoD7IQYb3OaUDX3ErlH5wC+O8PruXZO64GPg0UxGrlZoiQHKy1MtO7B1mPuFHHo
+	k3RMgctkJ+gPqWT9tb2oQzTKBep77v0w=
+X-Google-Smtp-Source: AGHT+IGXZGemcHOaMknmg/vIr01gbXppnVlIe2EZaHDmt0zFa7IInSL12ytaASFNSxPE7uvNHvpcyGHxYIjLHxL/L/w=
+X-Received: by 2002:a05:6820:6ae3:b0:613:90e1:729a with SMTP id
+ 006d021491bc7-618fe1959f3mr673415eaf.4.1753350715798; Thu, 24 Jul 2025
+ 02:51:55 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 06/13] dt-bindings: arm: aspeed: add Facebook
- Wedge400-data64 board
-To: rentao.bupt@gmail.com, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
- Andrew Jeffery <andrew@codeconstruct.com.au>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
- linux-kernel@vger.kernel.org, Andrew Lunn <andrew@lunn.ch>,
- Tao Ren <taoren@meta.com>
-References: <20250723233013.142337-1-rentao.bupt@gmail.com>
- <20250723233013.142337-7-rentao.bupt@gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250723233013.142337-7-rentao.bupt@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <c69938cffd4002a93a95a396affaa945e0f69206.camel@infradead.org> <bc456c6b4b1ed51e568a37cf29b33d537e4bd94c.camel@infradead.org>
+In-Reply-To: <bc456c6b4b1ed51e568a37cf29b33d537e4bd94c.camel@infradead.org>
+From: "Rafael J. Wysocki" <rafael@kernel.org>
+Date: Thu, 24 Jul 2025 11:51:42 +0200
+X-Gmail-Original-Message-ID: <CAJZ5v0iF7xAF105byp4j777Aks8KDKAh0-hJyfzkUFq5pm-JVQ@mail.gmail.com>
+X-Gm-Features: Ac12FXwR9bMEVjkQxZtlOKnfFehKfKZhcvqVXqvBEZ65mSnP-S-ieJGH0Yqbk8g
+Message-ID: <CAJZ5v0iF7xAF105byp4j777Aks8KDKAh0-hJyfzkUFq5pm-JVQ@mail.gmail.com>
+Subject: Re: Memory corruption after resume from hibernate with Arm GICv3 ITS
+To: David Woodhouse <dwmw2@infradead.org>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>, Pavel Machek <pavel@kernel.org>, 
+	linux-pm <linux-pm@vger.kernel.org>, Marc Zyngier <maz@kernel.org>, 
+	linux-arm-kernel@lists.infradead.org, "Saidi, Ali" <alisaidi@amazon.com>, 
+	"oliver.upton" <oliver.upton@linux.dev>, Joey Gouly <joey.gouly@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	linux-kernel <linux-kernel@vger.kernel.org>, "Heyne, Maximilian" <mheyne@amazon.de>, 
+	Alexander Graf <graf@amazon.com>, "Stamatis, Ilias" <ilstam@amazon.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250724_030324_641475_2D9E7DBF 
-X-CRM114-Status: UNSURE (   5.85  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250724_025157_474545_32E936C3 
+X-CRM114-Status: GOOD (  44.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,16 +89,297 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 24/07/2025 01:30, rentao.bupt@gmail.com wrote:
-> From: Tao Ren <rentao.bupt@gmail.com>
-> 
-> Document the new compatibles used on Meta/Facebook Wedge400-data64
-> board.
-> 
-> Signed-off-by: Tao Ren <rentao.bupt@gmail.com>
+On Thu, Jul 24, 2025 at 11:26=E2=80=AFAM David Woodhouse <dwmw2@infradead.o=
+rg> wrote:
+>
+> On Wed, 2025-07-23 at 12:04 +0200, David Woodhouse wrote:
+> > We have seen guests crashing when, after they resume from hibernate,
+> > the hypervisor serializes their state for live update or live
+> > migration.
+> >
+> > The Arm Generic Interrupt Controller is a complicated beast, and it
+> > does scattershot DMA to little tables all across the guest's address
+> > space, without even living behind an IOMMU.
+> >
+> > Rather than simply turning it off overall, the guest has to explicitly
+> > tear down *every* one of the individual tables which were previously
+> > configured, in order to ensure that the memory is no longer used.
+> >
+> > KVM's implementation of the virtual GIC only uses this guest memory
+> > when asked to serialize its state. Instead of passing the information
+> > up to userspace as most KVM devices will do for serialization, KVM
+> > *only* supports scribbling it to guest memory.
+> >
+> > So, when the transition from boot to resumed kernel leaves the vGIC
+> > pointing at the *wrong* addresses, that's why a subsequent LU/LM of
+> > that guest triggers the memory corruption by writing the KVM state to a
+> > guest address that the now-running kernel did *not* expect.
+> >
+> > I tried this, just to get some more information:
+> >
+> > --- a/drivers/irqchip/irq-gic-v3-its.c
+> > +++ b/drivers/irqchip/irq-gic-v3-its.c
+> > @@ -720,7 +720,7 @@ static struct its_collection *its_build_mapd_cmd(st=
+ruct its_node *its,
+> >         its_encode_valid(cmd, desc->its_mapd_cmd.valid);
+> >
+> >         its_fixup_cmd(cmd);
+> > -
+> > +       printk("%s dev 0x%x valid %d addr 0x%lx\n", __func__, desc->its=
+_mapd_cmd.dev->device_id, desc->its_mapd_cmd.valid, itt_addr);
+> >         return NULL;
+> >  }
+> >
+> > @@ -4996,10 +4996,15 @@ static int its_save_disable(void)
+> >         struct its_node *its;
+> >         int err =3D 0;
+> >
+> > +       printk("%s\n", __func__);
+> >         raw_spin_lock(&its_lock);
+> >         list_for_each_entry(its, &its_nodes, entry) {
+> > +               struct its_device *its_dev;
+> >                 void __iomem *base;
+> >
+> > +               list_for_each_entry(its_dev, &its->its_device_list, ent=
+ry) {
+> > +                       its_send_mapd(its_dev, 0);
+> > +               }
+> >                 base =3D its->base;
+> >                 its->ctlr_save =3D readl_relaxed(base + GITS_CTLR);
+> >                 err =3D its_force_quiescent(base);
+> > @@ -5032,8 +5037,10 @@ static void its_restore_enable(void)
+> >         struct its_node *its;
+> >         int ret;
+> >
+> > +       printk("%s\n", __func__);
+> >         raw_spin_lock(&its_lock);
+> >         list_for_each_entry(its, &its_nodes, entry) {
+> > +               struct its_device *its_dev;
+> >                 void __iomem *base;
+> >                 int i;
+> >
+> > @@ -5083,6 +5090,10 @@ static void its_restore_enable(void)
+> >                 if (its->collections[smp_processor_id()].col_id <
+> >                     GITS_TYPER_HCC(gic_read_typer(base + GITS_TYPER)))
+> >                         its_cpu_init_collection(its);
+> > +
+> > +               list_for_each_entry(its_dev, &its->its_device_list, ent=
+ry) {
+> > +                       its_send_mapd(its_dev, 1);
+> > +               }
+> >         }
+> >         raw_spin_unlock(&its_lock);
+> >  }
+> >
+> >
+> > Running on a suitable host with qemu, I reproduce with
+> >   # echo reboot > /sys/power/disk
+> >   # echo disk > /sys/power/state
+> >
+> > Example qemu command line:
+> >  qemu-system-aarch64  -serial mon:stdio -M virt,gic-version=3Dhost -cpu=
+ max -enable-kvm -drive file=3D~/Fedora-Cloud-Base-Generic-42-1.1.aarch64.q=
+cow2,id=3Dnvm,if=3Dnone,snapshot=3Doff,format=3Dqcow2 -device nvme,drive=3D=
+nvm,serial=3D1 -m 8g -nographic  -nic user,model=3Dvirtio -kernel vmlinuz-6=
+.16.0-rc7-dirty  -initrd initramfs-6.16.0-rc7-dirty.img -append 'root=3DUUI=
+D=3D6c7b9058-d040-4047-a892-d2f1c7dee687 ro rootflags=3Dsubvol=3Droot no_ti=
+mer_check console=3Dtty1 console=3DttyAMA0,115200n8 systemd.firstboot=3Doff=
+ rootflags=3Dsubvol=3Droot no_console_suspend=3D1 resume_offset=3D366703 re=
+sume=3D/dev/nvme0n1p3' -trace gicv3_its\*
+> >
+> > As the kernel boots up for the first time, it sends a normal MAPD comma=
+nd:
+> >
+> > [    1.292956] its_build_mapd_cmd dev 0x10 valid 1 addr 0x10f010000
+> >
+> > On hibernation, my newly added code unmaps and then *remaps* the same:
+> >
+> > [root@localhost ~]# echo disk > /sys/power/state
+> > [   42.118573] PM: hibernation: hibernation entry
+> > [   42.134574] Filesystems sync: 0.015 seconds
+> > [   42.134899] Freezing user space processes
+> > [   42.135566] Freezing user space processes completed (elapsed 0.000 s=
+econds)
+> > [   42.136040] OOM killer disabled.
+> > [   42.136307] PM: hibernation: Preallocating image memory
+> > [   42.371141] PM: hibernation: Allocated 297401 pages for snapshot
+> > [   42.371163] PM: hibernation: Allocated 1189604 kbytes in 0.23 second=
+s (5172.19 MB/s)
+> > [   42.371170] Freezing remaining freezable tasks
+> > [   42.373465] Freezing remaining freezable tasks completed (elapsed 0.=
+002 seconds)
+> > [   42.378350] Disabling non-boot CPUs ...
+> > [   42.378363] its_save_disable
+> > [   42.378363] its_build_mapd_cmd dev 0x10 valid 0 addr 0x10f010000
+> > [   42.378363] PM: hibernation: Creating image:
+> > [   42.378363] PM: hibernation: Need to copy 153098 pages
+> > [   42.378363] PM: hibernation: Image created (115354 pages copied, 377=
+44 zero pages)
+> > [   42.378363] its_restore_enable
+> > [   42.378363] its_build_mapd_cmd dev 0x10 valid 1 addr 0x10f010000
+> > [   42.383601] nvme nvme0: 1/0/0 default/read/poll queues
+> > [   42.384411] nvme nvme0: Ignoring bogus Namespace Identifiers
+> > [   42.384924] hibernate: Hibernating on CPU 0 [mpidr:0x0]
+> > [   42.387742] PM: Using 1 thread(s) for lzo compression
+> > [   42.387748] PM: Compressing and saving image data (115654 pages)...
+> > [   42.387757] PM: Image saving progress:   0%
+> > [   43.485794] PM: Image saving progress:  10%
+> > [   44.739662] PM: Image saving progress:  20%
+> > [   46.617453] PM: Image saving progress:  30%
+> > [   48.437644] PM: Image saving progress:  40%
+> > [   49.857855] PM: Image saving progress:  50%
+> > [   52.156928] PM: Image saving progress:  60%
+> > [   53.344810] PM: Image saving progress:  70%
+> > [   54.472998] PM: Image saving progress:  80%
+> > [   55.083950] PM: Image saving progress:  90%
+> > [   56.406480] PM: Image saving progress: 100%
+> > [   56.407088] PM: Image saving done
+> > [   56.407100] PM: hibernation: Wrote 462616 kbytes in 14.01 seconds (3=
+3.02 MB/s)
+> > [   56.407106] PM: Image size after compression: 148041 kbytes
+> > [   56.408210] PM: S|
+> > [   56.642393] Flash device refused suspend due to active operation (st=
+ate 20)
+> > [   56.642871] Flash device refused suspend due to active operation (st=
+ate 20)
+> > [   56.643432] reboot: Restarting system
+> > [    0.000000] Booting Linux on physical CPU 0x0000000000 [0x410fd4f1]
+> >
+> > Then the *boot* kernel comes up, does its own MAPD using a slightly dif=
+ferent address:
+> >
+> > [    1.270652] its_build_mapd_cmd dev 0x10 valid 1 addr 0x10f009000
+> >
+> >  ... and then transfers control to the hibernated kernel, which again
+> > tries to unmap and remap the ITT at its original address due to my
+> > suspend/resume hack (which is clearly hooking the wrong thing, but is
+> > at least giving us useful information):
+> >
+> > Starting systemd-hibernate-resume.service - Resume from hibernation...
+> > [    1.391340] PM: hibernation: resume from hibernation
+> > [    1.391861] random: crng reseeded on system resumption
+> > [    1.391927] Freezing user space processes
+> > [    1.392984] Freezing user space processes completed (elapsed 0.001 s=
+econds)
+> > [    1.393473] OOM killer disabled.
+> > [    1.393486] Freezing remaining freezable tasks
+> > [    1.395012] Freezing remaining freezable tasks completed (elapsed 0.=
+001 seconds)
+> > [    1.400817] PM: Using 1 thread(s) for lzo decompression
+> > [    1.400832] PM: Loading and decompressing image data (115654 pages).=
+..
+> > [    1.400836] hibernate: Hibernated on CPU 0 [mpidr:0x0]
+> > [    1.438621] PM: Image loading progress:   0%
+> > [    1.554623] PM: Image loading progress:  10%
+> > [    1.594714] PM: Image loading progress:  20%
+> > [    1.639317] PM: Image loading progress:  30%
+> > [    1.683055] PM: Image loading progress:  40%
+> > [    1.720726] PM: Image loading progress:  50%
+> > [    1.768878] PM: Image loading progress:  60%
+> > [    1.800203] PM: Image loading progress:  70%
+> > [    1.822833] PM: Image loading progress:  80%
+> > [    1.840985] PM: Image loading progress:  90%
+> > [    1.871253] PM: Image loading progress: 100%
+> > [    1.871611] PM: Image loading done
+> > [    1.871617] PM: hibernation: Read 462616 kbytes in 0.47 seconds (984=
+.28 MB/s)
+> > [   42.378350] Disabling non-boot CPUs ...
+> > [   42.378363] its_save_disable
+> > [   42.378363] its_build_mapd_cmd dev 0x10 valid 0 addr 0x10f010000
+> > [   42.378363] PM: hibernation: Creating image:
+> > [   42.378363] PM: hibernation: Need to copy 153098 pages
+> > [   42.378363] hibernate: Restored 0 MTE pages
+> > [   42.378363] its_restore_enable
+> > [   42.378363] its_build_mapd_cmd dev 0x10 valid 1 addr 0x10f010000
+> > [   42.417445] OOM killer enabled.
+> > [   42.417455] Restarting tasks: Starting
+> > [   42.419915] nvme nvme0: 1/0/0 default/read/poll queues
+> > [   42.420407] Restarting tasks: Done
+> > [   42.420781] PM: hibernation: hibernation exit
+> > [   42.421149] nvme nvme0: Ignoring bogus Namespace Identifiers
+>
+> Rafael points out that the resumed kernel isn't doing the unmap/remap
+> again; it's merely printing the *same* messages again from the printk
+> buffer.
+>
+> Before writing the hibernate image, the kernel calls the suspend op:
+>
+> [   42.378350] Disabling non-boot CPUs ...
+> [   42.378363] its_save_disable
+> [   42.378363] its_build_mapd_cmd dev 0x10 valid 0 addr 0x10f010000
+> [   42.378363] PM: hibernation: Creating image:
+>
+> Those messages are stored in the printk buffer in the image. Then the
+> hibernating kernel calls the resume op, and writes the image:
+>
+> [   42.378363] PM: hibernation: Image created (115354 pages copied, 37744=
+ zero pages)
+> [   42.378363] its_restore_enable
+> [   42.378363] its_build_mapd_cmd dev 0x10 valid 1 addr 0x10f010000
+> [   42.383601] nvme nvme0: 1/0/0 default/read/poll queues
+> [   42.384411] nvme nvme0: Ignoring bogus Namespace Identifiers
+> [   42.384924] hibernate: Hibernating on CPU 0 [mpidr:0x0]
+> [   42.387742] PM: Using 1 thread(s) for lzo compression
+> [   42.387748] PM: Compressing and saving image data (115654 pages)...
+> [   42.387757] PM: Image saving progress:   0%
+> [   43.485794] PM: Image saving progress:  10%
+> ...
+>
+> Then the boot kernel comes up and maps an ITT:
+>
+> [    1.270652] its_build_mapd_cmd dev 0x10 valid 1 addr 0x10f009000
+>
+> The boot kernel never seems to *unmap* that because the suspend method
+> doesn't get called before resuming the image.
+>
+> On resume, the previous kernel flushes the messages which were in its
+> printk buffer to the serial port again, and then prints these *new*
+> messages...
+>
+> [   42.378363] hibernate: Restored 0 MTE pages
+> [   42.378363] its_restore_enable
+> [   42.378363] its_build_mapd_cmd dev 0x10 valid 1 addr 0x10f010000
+> [   42.417445] OOM killer enabled.
+> [   42.417455] Restarting tasks: Starting
+>
+> So the hibernated kernel seems to be doing the right thing in both
+> suspend and resume phases but it looks like the *boot* kernel doesn't
+> call the suspend method before transitioning;
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+No, it does this, but the messages are missing from the log.
 
-Best regards,
-Krzysztof
+The last message you see from the boot/restore kernel is about loading
+the image; a lot of stuff happens afterwards.
+
+This message:
+
+[    1.871617] PM: hibernation: Read 462616 kbytes in 0.47 seconds (984.28 =
+MB/s)
+
+is printed by load_compressed_image() which gets called by
+swsusp_read(), which is invoked by load_image_and_restore().
+
+It is successful, so hibernation_restore() gets called and it does
+quite a bit of work, including calling resume_target_kernel(), which
+among other things calls syscore_suspend(), from where your messages
+should be printed if I'm not mistaken.
+
+I have no idea why those messages don't get into the log (that would
+happen if your boot kernel were different from the image kernel and it
+didn't actually print them).
+
+> is that intentional? I think we *should* unmap all the ITTs from the boot=
+ kernel.
+
+Yes, it's better to unmap them, even though ->
+
+> At least for the vGIC, when the hibernated image resumes it will
+> *change* the mapping for every device that it knows about, but there's
+> a *possibility* that the boot kernel might have set up one that the
+> hibernated kernel didn't know about (if a new PCI device exists now?).
+
+-> HW configuration is not supposed to change across hibernation/restore.
+
+> And I'm not sure what the real hardware will do if it gets a subsequent
+> MAPD without the previous one being unmapped.
 
