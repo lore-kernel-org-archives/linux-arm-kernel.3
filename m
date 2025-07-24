@@ -4,86 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9E34C83F26
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 15:28:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B115C87FC5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 15:28:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tYTWTc09XiaelzjVtYPzYhjlFtDK3ChqlxDovLkTtoE=; b=X6if/XbDOLIRwNkWzujSStaDRZ
-	0h3hJ2E9CcTmdvyM0dtl9toYI23vdWuuB9rg2Ll9UtMdT6bldTHCvoM9GASI1lPW0gM5Xz13sO2r5
-	Pa5QdrO2XWRZZTE26rX8NCjuojb/d6t5CGlsOKafvx8rBzmPdamUiVZu6y/R9a0VHLSzVje/eY8Ix
-	3dMGpWfUAil98bB7vu/C9HTFtjcKYPqelxS9SsovJkN5D7PcxYt7GVkOCD8Y7SLa1exRYP2b/X/tR
-	aYBwElr8p4Ak1EhctmZHsDcFxEJJTHx3hRixGJBEn6CUiMfy79/YJyfNHWYMs/2Z9RIGFoPfMR7wt
-	y1XZMyEw==;
+	bh=io4h5WAIvfQT3VZkI4AOHF3Wp3PwROfn1AQPtlUH1DA=; b=bg8WdKonqhZfLIYYepLENPGcmQ
+	E6qfw/44HZJGlJkBJKfsYTcb0fl5ila/HFmu1Zjm87Ju+2D+/wWGDqIJ2avQbMwyxOTuSxnIGfMHw
+	5k0tA3ujHacKnPtFB2EDWmyXFbf/f0V+/njvyDR4OIBZ3WqcxMBfI9FlVTYBt2lljth09cDQnyqfV
+	9pbVCaS7wFjCl474zZjzRUdWSb4J4QGEWQUtDIa/m+YEx6vSPPbZrpmFAXdgGhiWyOP2Jm1wEjNV9
+	r0VTWNt1luRFkMc3x9nymVUiBivkwDCEQr22Flyug2J8/YXai34YL8Pwh9WwhMEqMXP0OpDyvQ6pQ
+	m28TUrPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uexra-00000007rRi-3zWQ;
-	Thu, 24 Jul 2025 15:28:06 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uexrc-00000007rUM-1lW4;
+	Thu, 24 Jul 2025 15:28:08 +0000
+Received: from mail-wm1-f48.google.com ([209.85.128.48])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uewRC-00000007euT-0A9H
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 24 Jul 2025 13:56:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=tYTWTc09XiaelzjVtYPzYhjlFtDK3ChqlxDovLkTtoE=; b=AVrkPqAROs/hOACImfHeCcvGjh
-	s783RDYqVgZu+1NsOW1xaDPPj6skxuogRaxo61GuJk1B3tx9otOpx0AZ+zS3/CKSc1A+3oid4B5VF
-	QjxB4D85a1ayYwUCPjUSZduCCiWjxYBRg+RVB+sEWYy5N2IJ5JzfV0oqoX+WkjZjcKN4ejkhDU+4A
-	gz2tx1U+WBdhvCFHPg2PrEYvNIRVWhVWpMwzeFA+q0r869R35ZtEKLmOo1PfA22S2yQuxdbVOPRQg
-	+b5t6Q9a4Gh8jiRFT79AaVpIFlfegP2wjn0jbMOAVXlld0sonS5vFYs0b/rRPBkDSnc9ZddxEYNoR
-	9HZ2Rf2A==;
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uewR7-0000000Bd4d-2kLG
+	id 1uewRB-00000007euC-2Fvd
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Jul 2025 13:56:44 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-451dbe494d6so10700135e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Jul 2025 06:56:40 -0700 (PDT)
+	Thu, 24 Jul 2025 13:56:46 +0000
+Received: by mail-wm1-f48.google.com with SMTP id 5b1f17b1804b1-4537edf2c3cso10996515e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Jul 2025 06:56:45 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1753365399; x=1753970199; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1753365404; x=1753970204; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=tYTWTc09XiaelzjVtYPzYhjlFtDK3ChqlxDovLkTtoE=;
-        b=MCeT1b2Ny25rpKxpNSb2bd5ddyxa1H9C3L9fOIcB9a9nUhEL1XL69S/5qYrfJYazEy
-         ZV3zXCR7dVidHZgsoiPwoWVc2+awCaudkc1As2aG7XzFQmuSt/ZUAFgivlyRtmGNraoV
-         78+RM/Bbe5fU6ZSZ62TQ4KB+HJIeSLj6tbJIlMWpvs9ANXufGGPPWAawKSrHfDJ8Ms4c
-         gWY087S+QhkIdg6vN82Fj8nBMlqvzJOGcrQ9o5YfnW4Cm5YJQexBBQoR2ULH8k/c8DBy
-         n/WJZEoYhiVrWHJQf61Lu8GFeAg3z/QwH1iNI1HyKbcZBTkXuCbhKP217/QLhVxhJEFb
-         OH3w==
+        bh=io4h5WAIvfQT3VZkI4AOHF3Wp3PwROfn1AQPtlUH1DA=;
+        b=l9uVYWFsrVfrphZOh3irWbZpFW13sTuQkXspqPgDeK0+At2DLq0tK/0Kg9JtheTC4+
+         INiTVFueigksVUbp50YmLswm2bff2QTxc3dfIibARvqHfA5MmnjnvkfCstmFPPyC5m3v
+         eiGo5bEtdg5gKU5JH8FWt2d+yJgRyDVWCyMmyoQcmx11ipmZRMWjgusITqyno+zhsqjO
+         WPMB7ilYewNzMOstkXxPRqYIbzWeYejnps6geHkt81Du5sm8CSBoHxDAKAl0SzaGmV1l
+         I2L8DzNqw2mcB1vsTvAV6Q2vzICJvEi48zBJgVl+6VSvwtSlhthWnTqcUoVnKoa5JCuZ
+         OMxA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753365399; x=1753970199;
+        d=1e100.net; s=20230601; t=1753365404; x=1753970204;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=tYTWTc09XiaelzjVtYPzYhjlFtDK3ChqlxDovLkTtoE=;
-        b=FuQPCKM0lMAs0pL+vBA/Gay4iPXmP8npSRLsqzILIpHpQSC5cFR+WKIFSz6McMUEUy
-         +ip4ZQLmLQbWu2f7hXqbp4hQjgr0b+F+L5fJ309QwCzRw+dZrcUlaxfdW2+kC4328jVJ
-         CvujRp26nLIhswKICMgZeGtkAZ4S1+zGblsmzs8kAidlDDPMCX6CUXpGOse6tfdCAdjb
-         qVAkQHk6kfWiDbO3AcURHzzDS4+NOFuVfbedD4c8vxcxceei4MuQ9cvlhVYziiXtnc9b
-         vJQdUhrjLrFVyreJAnd/MTQUhPGQXyqfuumA07ZNkBTYvzBj/u/pmh3J108uTh21e7OM
-         fgAg==
-X-Gm-Message-State: AOJu0Yy1YhC3JM9PslKEaPHZL83hQCDiMGKec4Rn5NVSC+/R2w18FSR8
-	AyrCXumaWpK0GuhkP8ipN49BVL60YZAXNy2Fwtn2VXQPYkNLdEv6hcEIh08F9AJN0iA=
-X-Gm-Gg: ASbGnctlkRRQJ96dn1qMu6YkEFirryFMaBm3BxBjVu9Y0tP94P5Worw0TJ+A1gRb2EW
-	8jEsavKLtcsHl9lEPdAx3EZETYUcB2cUuFKJurr+GuXrHABOKlu0MTUoqDAnAi/WK8+5deBBx4C
-	Yp9Wt672Gi728jsns7VG3Htkyu9xCMOvWoye7Ld5dlxQlsjeOzMgX8pCyy9xUOcwrl1ODIATJAP
-	bcjCJVU801wHpSe0NFSCOYrrQzRtkQJj38yfts3jKJUnfCh+o8KIax04OLNqR5U0LFERQNVkl0d
-	pJhQOKeWOh8+q9ZP7E5cCg556tOQrsJ5M6gLIwp35/GJDol5/DaVAlUl5iRWOd01w0sG74t9U/O
-	A2JcM5234CHzmRGm24ZAkT7ESyEVv54lfRX77YUCZD6appBe3jo9+zGvl7qMci/b1WdmaH+oHN+
-	nLMdB1T0PjXbM3
-X-Google-Smtp-Source: AGHT+IFkEigCZ6sJ1rjDkc3I8yrqrXhO4W8lU33Z9QEAlANeXLFiBfl+v0dIWKjOVtP26nHzmGjQhQ==
-X-Received: by 2002:a05:600c:1d22:b0:43c:fe5e:f03b with SMTP id 5b1f17b1804b1-45872668487mr2491595e9.30.1753365399512;
-        Thu, 24 Jul 2025 06:56:39 -0700 (PDT)
+        bh=io4h5WAIvfQT3VZkI4AOHF3Wp3PwROfn1AQPtlUH1DA=;
+        b=BRD0dHpEkH6/JBcVrlnJe/z9/mX4YtNjX/jF4wQtl2xP1dW8nOGNQ6TabAX8VXRjqX
+         xomNnV23AZU/FxeuHu2HkvLwAQO3DwFSx4womRurpixEqeHdbMusY3+kPvW+ZfRSyj6t
+         S3p6f4I/cvHZUep6p4Gbm9myjGmCdGLmUSqWFdGWvER7yhpOLwKN0Kd+5HgwNe8CIrsK
+         VSd+Rpm0/tfgVFZ7eZ1ZrYKvq7cuw741Jhd3SiFwb/S+YckY7CU7fESet1bItOrAIcn+
+         e+y6pzHQ+RnXwZEdjUgPTVxNOvGVWF9znUlhyD8uPJodFYBBE1me7OmzDqGCAIONDjsU
+         M7xQ==
+X-Gm-Message-State: AOJu0YzL1mAxs936HviTfrhxcQWRIirBonNmYQpL0jz75ZE4nk4FIVpE
+	4ndTOYDdkpGLuefx/DWtF7i4eOEIEEPS9Zqr+XdPnNMvjGsG1wvchNHiItHjXCAEjYc=
+X-Gm-Gg: ASbGncuQNf9CjbNANPSDFaRdqg1vKY1IpU7XLPzTjBu2QTYta8nmYzc2XFGhWMo+Uiq
+	wi32UHLudcsegY+SHci5p5+Ambcg/3dKDMlFLZnwFn1ZVpFX2zM1GAQEFXRO7MNKVklMyXufgCU
+	SmuFF1PNjjgWs0gRz1R72O3l6wTpQ4Dc00G/k/IBkOh9TsoeESUUdJQGOKvQ9VXf2j5JQkTuIW/
+	xNhGJZC20TbWh+vtQ5SrlxFTYwLvkHMAf1kZp2iarAz8mIOtU2ZgOg+TCLK8kAPlinLajICWq/p
+	6TQ4Igmge1gIgGUmjKFFhKoXmck8l5FmwBVTz1c5gsFkupU1vJynybTiRlx391Ycm95PLyQKkwI
+	V3VTTB4+3ih4RHRs9NARKwnlt0vlvOnCyaQ0AdJ/sJ73vR3ff0krSVUrz+FvGmC5zmY8dihkHkJ
+	AxPe9RZQhsJi3x
+X-Google-Smtp-Source: AGHT+IGKgu4NRvfPslcwd+sSrmwQP//isSIOnofkVKYWLLSsjM6dUJOy4a8soeLJ5d7o54vF2kp7ew==
+X-Received: by 2002:a05:600c:1c22:b0:442:f97f:8174 with SMTP id 5b1f17b1804b1-45868d31a2bmr69596125e9.18.1753365403699;
+        Thu, 24 Jul 2025 06:56:43 -0700 (PDT)
 Received: from eugen-station.. (cpc148880-bexl9-2-0-cust354.2-3.cable.virginm.net. [82.11.253.99])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4587054e37dsm20889375e9.14.2025.07.24.06.56.38
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4587054e37dsm20889375e9.14.2025.07.24.06.56.43
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 24 Jul 2025 06:56:39 -0700 (PDT)
+        Thu, 24 Jul 2025 06:56:43 -0700 (PDT)
 From: Eugen Hristev <eugen.hristev@linaro.org>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-msm@vger.kernel.org,
@@ -100,18 +85,17 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	rostedt@goodmis.org,
 	jonechou@google.com,
 	tudor.ambarus@linaro.org
-Subject: [RFC][PATCH v2 19/29] mm/mm_init: Annotate static information into Kmemdump
-Date: Thu, 24 Jul 2025 16:55:02 +0300
-Message-ID: <20250724135512.518487-20-eugen.hristev@linaro.org>
+Subject: [RFC][PATCH v2 24/29] kernel/vmcore_info: Register dynamic information into Kmemdump
+Date: Thu, 24 Jul 2025 16:55:07 +0300
+Message-ID: <20250724135512.518487-25-eugen.hristev@linaro.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250724135512.518487-1-eugen.hristev@linaro.org>
 References: <20250724135512.518487-1-eugen.hristev@linaro.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250724_145641_898322_96A8C2F5 
-X-CRM114-Status: UNSURE (   8.97  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250724_065645_574778_075AF7EE 
+X-CRM114-Status: GOOD (  12.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,36 +110,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Annotate vital static information into kmemdump:
- - high_memory
-
-Information on these variables is stored into dedicated kmemdump section.
+Register vmcoreinfo information into kmemdump.
+Because the size of the info is computed after all entries are being
+added, there is no point in registering the whole page, rather, call
+the kmemdump registration once everything is in place with the right size.
+A second reason is that the vmcoreinfo is added as a region inside
+the ELF coreimage note, there is no point in having blank space at the end.
 
 Signed-off-by: Eugen Hristev <eugen.hristev@linaro.org>
 ---
- mm/mm_init.c | 2 ++
- 1 file changed, 2 insertions(+)
+ kernel/vmcore_info.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
-diff --git a/mm/mm_init.c b/mm/mm_init.c
-index 5c21b3af216b..fd577f988f79 100644
---- a/mm/mm_init.c
-+++ b/mm/mm_init.c
-@@ -32,6 +32,7 @@
- #include <linux/vmstat.h>
- #include <linux/kexec_handover.h>
- #include <linux/hugetlb.h>
+diff --git a/kernel/vmcore_info.c b/kernel/vmcore_info.c
+index e066d31d08f8..d808c5e67f35 100644
+--- a/kernel/vmcore_info.c
++++ b/kernel/vmcore_info.c
+@@ -14,6 +14,7 @@
+ #include <linux/cpuhotplug.h>
+ #include <linux/memblock.h>
+ #include <linux/kmemleak.h>
 +#include <linux/kmemdump.h>
- #include "internal.h"
- #include "slab.h"
- #include "shuffle.h"
-@@ -52,6 +53,7 @@ EXPORT_SYMBOL(mem_map);
-  */
- void *high_memory;
- EXPORT_SYMBOL(high_memory);
-+KMEMDUMP_VAR_CORE(high_memory, sizeof(high_memory));
  
- #ifdef CONFIG_DEBUG_MEMORY_INIT
- int __meminitdata mminit_loglevel;
+ #include <asm/page.h>
+ #include <asm/sections.h>
+@@ -227,6 +228,8 @@ static int __init crash_save_vmcoreinfo_init(void)
+ 	arch_crash_save_vmcoreinfo();
+ 	update_vmcoreinfo_note();
+ 
++	kmemdump_register_id(KMEMDUMP_ID_COREIMAGE_VMCOREINFO,
++			     (void *)vmcoreinfo_data, vmcoreinfo_size);
+ 	return 0;
+ }
+ 
 -- 
 2.43.0
 
