@@ -4,46 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 258EAC83F26
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 15:51:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DCC7C83F26
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 15:53:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GZvB9LB7Gi2PdxCwvcGr4xUKBMwS0r+afhj/YLKh2sg=; b=eo1TQtOePDdTyfZJBAbVwFN6v7
-	nCot6C9eSN5inUJhzLwQKGEILG3PWmSAY0yJjAOlczNwBCTmt5pDjaCk5KKgexGN4OnAXttkp4za3
-	MdSBzqAcNKyCg0gpqcieT/VPKgGmrRS53nvob/9u4iD/K3Kxh9dteYo8P9pI5DbMSgyB41tFwH1u9
-	5BJOTWaOeDcsYUTaw/+P0r/yLhlA4oRWzV6QLI6SEUCihxLv8t0e5y/wfiZEVMQc+s8Ggl45NfIZs
-	TERSBE4HI8BAoogfmCq8G6Ry6gDpOUZzwRBC2l2DMz/CDiqCzVZRljLRolsZlWDx0Q+HTFiQE4dZY
-	ZhFXMFjA==;
+	bh=7txSPD2h9BT9cMsgGrzSuiJnopnqRS3A8l9r5XVabt0=; b=nFOCJdE3du15LJF18yXn2Us+Q0
+	w4lmsZ2eKsFgnHx7v8Cd8CL2py8uO79bqpHUK5QoxM3eyEbukmqL5Yilz9kHMwF8kbBLAjeLLOdKs
+	YJMcTEzq+xANgeBhtXr5Vlg535HiGm5OJ+kkzMIF6qfT165/FlEa4Qm+MUF/pKnXGaMWCIUNqz70L
+	4UYWJRm48xuk5Vy2Y44i0bbkKonFccjSPoCF7FtwHiC3kFuKnNmZU8agw+2UCwNXlRgGt8+4REwk6
+	67JdWNRCQ4SBgvpT3uKRxAvWdVWCValnkqHkXntleiV8poD3YE7hQhmVh9sn0EmsKCo3mhdoUhkrZ
+	CWa1/dKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ueyDx-00000007vhh-3mvD;
-	Thu, 24 Jul 2025 15:51:13 +0000
+	id 1ueyGQ-00000007w5D-3wJ2;
+	Thu, 24 Jul 2025 15:53:46 +0000
 Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uewet-00000007hr6-10iq;
-	Thu, 24 Jul 2025 14:10:56 +0000
+	id 1ueweu-00000007hs3-1aPD;
+	Thu, 24 Jul 2025 14:10:57 +0000
 Received: from [192.168.1.76] (unknown [IPv6:2001:b07:6462:5de2:520d:d7a3:63ca:99e8])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 4DB6E1AE0;
-	Thu, 24 Jul 2025 16:10:14 +0200 (CEST)
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 7131A1D4F;
+	Thu, 24 Jul 2025 16:10:15 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1753366215;
-	bh=NRkJxIVd0ZlILnv8udnGakJfoaHUIwP9DNE9boCy8vE=;
+	s=mail; t=1753366216;
+	bh=9aZhUEi8nzk0nQ1lg/OYG7ZJZJnqA3OQHgxh4Ti+sSs=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=UlL2edDMMY3vE+u6qV+WJ5BxDywdBIyB7RAh+Z1A2BSwPLSD/Tjbt5wH7jSgmXo2S
-	 pGBRsikEUIjG95tu0BC/fX+ieONc23GevfVFtkRlG6l/cs2+R/12EmFf/5GGga2ti2
-	 Yh0gHaKR3Na2WZ19pYJNQxwVJ5K8BZ+kgX9479Zs=
+	b=VRnt5rjtqSYNmPTP6tyBO9oGp/Borz7nHI+YpvDhvjT4GLS3/8WaSftJ2uUDR4J1I
+	 t/c2y5ZkTBolKfu8KtGPnsKpJUefza5a/IEMqhL9lXtWRs/75yTgbkRGaq0doWW9Q6
+	 /OClRfTTNWRe05cZ0f8t0rzsaugKE1ngi2M48MHs=
 From: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-Date: Thu, 24 Jul 2025 16:10:29 +0200
-Subject: [PATCH DNI v2 22/27] media: pisp_be: Start and stop the media
- pipeline
+Date: Thu, 24 Jul 2025 16:10:30 +0200
+Subject: [PATCH DNI v2 23/27] media: pisp_be: Add support for subdev state
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250724-multicontext-mainline-2025-v2-22-c9b316773486@ideasonboard.com>
+Message-Id: <20250724-multicontext-mainline-2025-v2-23-c9b316773486@ideasonboard.com>
 References: <20250724-multicontext-mainline-2025-v2-0-c9b316773486@ideasonboard.com>
 In-Reply-To: <20250724-multicontext-mainline-2025-v2-0-c9b316773486@ideasonboard.com>
 To: Sakari Ailus <sakari.ailus@linux.intel.com>, 
@@ -62,27 +61,26 @@ Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
  linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
  Jacopo Mondi <jacopo.mondi@ideasonboard.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1293;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2271;
  i=jacopo.mondi@ideasonboard.com; h=from:subject:message-id;
- bh=NRkJxIVd0ZlILnv8udnGakJfoaHUIwP9DNE9boCy8vE=;
- b=owEBbQKS/ZANAwAKAXI0Bo8WoVY8AcsmYgBogj7QEP+68dq8KkWsJ+v1ViUzSitaYErWzTwC/
- sRx00/o4rWJAjMEAAEKAB0WIQS1xD1IgJogio9YOMByNAaPFqFWPAUCaII+0AAKCRByNAaPFqFW
- PGUtD/sGh0joplnq6k8QTbkDJBZ7jg6en6tZ4O2bziq8gjtTEVqGjo6UzEq3/UweR5JgoZBb1/k
- Tx1QTAG0XQoByC1DXrmtvmywS+XInxq5IYbgYMAUXOU5uVhYsuewLsp4Agy4zYV3j4Xe/jHC0XZ
- YgLcevIjOuTFEFWEt0/aD/zvlF3gKqC24dX0fnHwxvU0MQbB8rdZCvgQFUdjrTtdeqD57bU8Uso
- H5XbNZpI5rxaNYKtt2OxPTTEfPENl7CxH0djPgtmT+hAutEd7i5KuTQbaaN0FjTV2RpIx3/Qfah
- VZOcfW2Qpeg6LVCBY5p1HjwzVDsxGeTwsKI7ZtIZvmlp2uffKF7QpQ1h4lJ/yRn8icuiVgoQaBi
- SkxqeU2qvUzeXb/kYEjpS01FX5pq4tMTeSJB2Tgd4yREA1S/+RQcQG9nFvWVdlMw+0nQuSttOMC
- qJNKCcMa87drjlDepLc9wMtSC5PzlGwJ8p1kBibetqLF2ZlxMQGBsZ+4KYBBUTKkwGhAz0LbXPf
- m3xRQ80J+9pkklAc0OfOHXwXjDPZ+ju9eFD24deqbVNLQJ3xj+OXMdWWCh7p7q1eY1waEBdNvmw
- zxSmDb3WIy2ThJL9y/r+52Usz+LasLT4o+qHPz+6yrtPHjZZLmm7fZ7sp8NCupM3s1wxJnt/zTK
- 4NxoG8FwDE/wjcA==
+ bh=9aZhUEi8nzk0nQ1lg/OYG7ZJZJnqA3OQHgxh4Ti+sSs=;
+ b=owEBbQKS/ZANAwAKAXI0Bo8WoVY8AcsmYgBogj7RY0e4xaDYYLJ3qoVCAQxIeUre2V57aqbY6
+ Ls6WAj3FueJAjMEAAEKAB0WIQS1xD1IgJogio9YOMByNAaPFqFWPAUCaII+0QAKCRByNAaPFqFW
+ PF4+EACO24TyFJ/23FdbJxiNhAcLd20SEuDeKlrG+PosKaIqqq1hcGdVXYWhUNWcCGOC8F4/Oqr
+ PCxSqmosJcV4j55zUC5d7cEQaM0P4JiKYchzFJXlFAwxEBUhL3sSjwZrx81jFKP74993ZfdqGoI
+ 9dsxHGiZ/0x+9fegBWuz6uMBY8dbuj4egcNInF6lW9CCtGv0/iqQznT9At45k0Ao08m/5BIki/+
+ 5Qvc+f0n49QjTw/oI1LyWUtsJJCXwowwHF8nTxke9QEhx5M5Q23aXMzbj71vpkLUxTmaBL1C5b5
+ FCtYXCrIvMjtyoMM70ACunHxbg02N5Mm3nREVE1SlMJgMa8VWFmradb+f58+PGIm1/YdIxCVpbc
+ XbBOKfmAztgAWQIwkXhJ3QyOf8P3Ms7CTMNqOHSzkcalh1VvwsUdEsAiFbW9mic8chNQSAGb+t5
+ ZvGO9uDao0xbxkoCB9mmbVdwDjjHoa0uzTSdGvrSCPaS6WYC8wDWcPpRXXW47W8HfkABA6+HDsV
+ 1y8RoiJaQEP14+RJZ2UwzTNzZPic96dgzB0ZhpGs7BU5FDw6Sf7/ChtKvFXJDZlVvlyqCAojdun
+ nw5BJkda5UQ5i6n4e+BJmVVUsm3JmNzP3d4KkhaldiggZrwjkDEkowYqsdt15JZvDPUsYYTZHk2
+ YisWCLbWiAtUaNQ==
 X-Developer-Key: i=jacopo.mondi@ideasonboard.com; a=openpgp;
  fpr=72392EDC88144A65C701EA9BA5826A2587AD026B
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250724_071055_418524_D09AA528 
-X-CRM114-Status: UNSURE (   8.08  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250724_071056_565912_B531E9FE 
+X-CRM114-Status: GOOD (  12.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,39 +95,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Call video_device_pipeline_alloc_start() and
-video_device_pipeline_stop() at streaming start/stop time for all
-video nodes.
+Add support for subdev state in the ISP subdevice by providing an
+init_state() callback and by calling init_finalize() before registering
+the subdev.
 
 Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
 ---
- drivers/media/platform/raspberrypi/pisp_be/pisp_be.c | 6 ++++++
- 1 file changed, 6 insertions(+)
+ .../media/platform/raspberrypi/pisp_be/pisp_be.c   | 41 ++++++++++++++++++++++
+ 1 file changed, 41 insertions(+)
 
 diff --git a/drivers/media/platform/raspberrypi/pisp_be/pisp_be.c b/drivers/media/platform/raspberrypi/pisp_be/pisp_be.c
-index b30891718d8df9c48ce1b83ad9fcafb201105625..423cb21298309c2ba51214b129fbf6e875370c98 100644
+index 423cb21298309c2ba51214b129fbf6e875370c98..5aec4f8979053500c870e71ce7171bbd1cac9606 100644
 --- a/drivers/media/platform/raspberrypi/pisp_be/pisp_be.c
 +++ b/drivers/media/platform/raspberrypi/pisp_be/pisp_be.c
-@@ -878,6 +878,10 @@ static int pispbe_node_start_streaming(struct vb2_queue *q, unsigned int count)
- 	if (ret < 0)
- 		goto err_return_buffers;
+@@ -1496,12 +1496,49 @@ static const struct v4l2_subdev_ops pispbe_sd_ops = {
+ 	.pad = &pispbe_pad_ops,
+ };
  
-+	ret = video_device_pipeline_alloc_start(&node->vfd);
++static int pispbe_init_state(struct v4l2_subdev *sd,
++			     struct v4l2_subdev_state *state)
++{
++	struct v4l2_mbus_framefmt *fmt;
++
++	for (unsigned int i = 0; i < PISPBE_NUM_NODES; i++) {
++		fmt = v4l2_subdev_state_get_format(state, i);
++
++		switch (i) {
++		case MAIN_INPUT_NODE:
++			fallthrough;
++		case OUTPUT0_NODE:
++			fallthrough;
++		case OUTPUT1_NODE:
++			fmt->width = 1920;
++			fmt->height = 1080;
++			fmt->code = MEDIA_BUS_FMT_FIXED;
++			break;
++		case CONFIG_NODE:
++			fmt->width =  sizeof(struct pisp_be_tiles_config);
++			fmt->height = 1;
++			fmt->code = MEDIA_BUS_FMT_METADATA_FIXED;
++			break;
++		default:
++			/* No need to configure other nodes. */
++			continue;
++		}
++	}
++
++	return 0;
++}
++
++static const struct v4l2_subdev_internal_ops pispbe_subdev_internal_ops = {
++	.init_state = pispbe_init_state,
++};
++
+ static int pispbe_init_subdev(struct pispbe_dev *pispbe)
+ {
+ 	struct v4l2_subdev *sd = &pispbe->sd;
+ 	int ret;
+ 
+ 	v4l2_subdev_init(sd, &pispbe_sd_ops);
++	sd->internal_ops = &pispbe_subdev_internal_ops;
+ 	sd->entity.function = MEDIA_ENT_F_PROC_VIDEO_PIXEL_FORMATTER;
+ 	sd->owner = THIS_MODULE;
+ 	sd->dev = pispbe->dev;
+@@ -1517,6 +1554,10 @@ static int pispbe_init_subdev(struct pispbe_dev *pispbe)
+ 	if (ret)
+ 		goto error;
+ 
++	ret = v4l2_subdev_init_finalize(sd);
 +	if (ret)
-+		goto err_return_buffers;
++		goto error;
 +
- 	scoped_guard(spinlock_irq, &pispbe->hw_lock) {
- 		node->pispbe->streaming_map |=  BIT(node->id);
- 		node->pispbe->sequence = 0;
-@@ -933,6 +937,8 @@ static void pispbe_node_stop_streaming(struct vb2_queue *q)
- 
- 	vb2_wait_for_all_buffers(&node->queue);
- 
-+	video_device_pipeline_stop(&node->vfd);
-+
- 	spin_lock_irq(&pispbe->hw_lock);
- 	pispbe->streaming_map &= ~BIT(node->id);
- 
+ 	ret = v4l2_device_register_subdev(&pispbe->v4l2_dev, sd);
+ 	if (ret)
+ 		goto error;
 
 -- 
 2.49.0
