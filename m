@@ -4,55 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F3FFC83F26
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 21:21:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FB4CC83F26
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 21:35:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:
 	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
 	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IdtfimAfbnNoflFww3wHpTZAa3JCqSHF6qHluxoM+AY=; b=bm5+lKfSlpDQZ6hRcR2aGFpExK
-	7OOIrck/qr9dbw3zgVCbSWDZmiskAU4ma+Dyh+JqMtlm4w+qNy1sIPzx8O2JhOqRYDkLReA+ThX0c
-	Nd2AeDoeS7h03QZWD8bIiVNYCEGVzhnlNw0NrvcBRNnUuJAO8M+RtkzusDJfdv7IoA2MSJC3urGdC
-	2hBTO9TTQVwcqthvSFSXHIkADmIMvz4Zy7flmxR+gltJ0ZAPpXX+g2KjrW7Y0jzucw8/5Ep72ta1S
-	cjK7n/2VFM7SsGmEzp3Zl6oa4Pw7PzBGvfk82nHzJW7eR7pvm2fkOztFVgXRu00wByQ/CDgkGAn8N
-	XCuxeCxA==;
+	bh=IAOBmpOtdxPPvzIH6qwDi7+1fhSxZmdUYE8fD3ANbBY=; b=dNOQwei+4pHr2cuNR0JYEvUSv2
+	PLooxm9wBx0wJlsTiwcTBcD7AxxW1O5vsVDUp/z0Rf095EgCk0b+1AJsfgQs+W5pGya8Dw1tPc1d+
+	un2P+c5puOjcO7zwDMgllsVWzbAk+9f0naJ61kLHp1Ug6sr96xgLGT9TMzt3TgOzGzwElB70xv9Dj
+	4w1+wVbmE7Ca+FY3LgNQOeNF8a01pm5ILmuFSfIxh9Fzv3X77i7xJisdpZU7+DpJmRj2Rm2XnS3RL
+	gHkXH7OqgaSwiHNm1Wi8WYv7Yfshn2q+9vN6TIYLCwd4MZFK4NR7+G2yon75qAfn9WCwOzqpfoz6E
+	SF6rmiwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uf3NB-00000008TbP-2ah4;
-	Thu, 24 Jul 2025 21:21:05 +0000
+	id 1uf3ar-00000008VlH-2IUC;
+	Thu, 24 Jul 2025 21:35:13 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uf3Km-00000008TNU-1lj9
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Jul 2025 21:18:36 +0000
+	id 1uf3YR-00000008VUQ-0wTh;
+	Thu, 24 Jul 2025 21:32:43 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id CED5860008;
-	Thu, 24 Jul 2025 21:18:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7DF81C4CEED;
-	Thu, 24 Jul 2025 21:18:35 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 63A4D601D9;
+	Thu, 24 Jul 2025 21:32:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 084B7C4CEED;
+	Thu, 24 Jul 2025 21:32:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753391915;
-	bh=IdtfimAfbnNoflFww3wHpTZAa3JCqSHF6qHluxoM+AY=;
+	s=k20201202; t=1753392762;
+	bh=IAOBmpOtdxPPvzIH6qwDi7+1fhSxZmdUYE8fD3ANbBY=;
 	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
-	b=qBuEp15ApxOomIh8MRz8TTIrolzvjwiIC+cs7NxzalnErdv6R7ZKg9tRNCP2Rqh+E
-	 bjcVZL4+xgm3T2ljWQua4Xj4V1luh/wzvwIga1MCyNhTGQRK7XvcBkosx5vt6W/Y4+
-	 nzN5lXkLFQk8cb9xnz7sVnCpXBI5PbT7P7u4T/aCKlLO4E58YXbMR+sMXEU1tFikRU
-	 rXaBwdxchLI5LI7Veq7kueiulurmWX+VYsH99mYio6TkWgdbMGEEbb62ZTynIqL4qS
-	 mSPMoqB+08774dcbilb/j7YvodDwBcJWe2R3Fx65f+BGIxKKxOOnNQ6sQ1KFa6U0TL
-	 msjwhq0lpJvhQ==
+	b=XoAd06lj/eeWJ5GgSpM3NPc4Gg5SL9Ui2VIAcWKfe0A5rQYrPaLmc/w3iBbtgJhG8
+	 PiYAsjXvUM6mBRCPoQ87yptu0fhZI8AIdC8cU9cTAXsyVKWO61xmJFDZhBc5bClgnq
+	 VMAFx4NsXVc5UtG34o2+VqZYmdBB73mMOeD+o16ECbBSrS6+eTJJsigpzQAZ+XNOE/
+	 Y6rgXQqyOBpuZkHU/tgfRLaFwCuIyGw3NPHIensUHPMKdtZOnTCBB4wHaTwkGfy7Cl
+	 +z4F8N6h+9twETCo5BHwYlBYcIUV8lU6Gu9WV5aucfP6ThpWcxq5b7o+01LB98dw7a
+	 sfyhTzvr6MgBg==
 Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <20250630232644.3700781-1-robh@kernel.org>
-References: <20250630232644.3700781-1-robh@kernel.org>
-Subject: Re: [PATCH] dt-bindings: clock: Convert moxa,moxart-clock to DT schema
+In-Reply-To: <20250703-clk-cocci-drop-round-rate-v1-1-3a8da898367e@redhat.com>
+References: <20250703-clk-cocci-drop-round-rate-v1-0-3a8da898367e@redhat.com> <20250703-clk-cocci-drop-round-rate-v1-1-3a8da898367e@redhat.com>
+Subject: Re: [PATCH 01/10] clk: bcm: bcm2835: convert from round_rate() to determine_rate()
 From: Stephen Boyd <sboyd@kernel.org>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, linux-clk@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-To: Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Michael Turquette <mturquette@baylibre.com>, Rob Herring (Arm) <robh@kernel.org>
-Date: Thu, 24 Jul 2025 14:18:34 -0700
-Message-ID: <175339191465.3513.9610109190156131662@lazor>
+Cc: linux-clk@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org, linux-sunxi@lists.linux.dev, Brian Masney <bmasney@redhat.com>
+To: Bjorn Andersson <andersson@kernel.org>, Brian Masney <bmasney@redhat.com>, Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Chen-Yu Tsai <wens@csie.org>, Florian Fainelli <florian.fainelli@broadcom.com>, Jernej Skrabec <jernej.skrabec@gmail.com>, Maxime Ripard <mripard@redhat.com>, Michael Turquette <mturquette@baylibre.com>, Ray Jui <rjui@broadcom.com>, Samuel Holland <samuel@sholland.org>, Scott Branden <sbranden@broadcom.com>
+Date: Thu, 24 Jul 2025 14:32:41 -0700
+Message-ID: <175339276117.3513.1051998064079293542@lazor>
 User-Agent: alot/0.11
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -68,8 +67,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Quoting Rob Herring (Arm) (2025-06-30 16:26:43)
-> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+Quoting Brian Masney (2025-07-03 16:22:25)
+> The round_rate() clk ops is deprecated, so migrate this driver from
+> round_rate() to determine_rate() using the Coccinelle semantic patch
+> on the cover letter of this series.
+>=20
+> Signed-off-by: Brian Masney <bmasney@redhat.com>
 > ---
 
 Applied to clk-next
