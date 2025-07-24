@@ -4,66 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E55C5C87FC5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 13:57:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A780DC83F26
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Jul 2025 13:59:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CScUHBoe48sWcyDLzRr2WCLL+EBzj5RNclqT8OZiKFY=; b=EW8XzocAR/X+IqcRhe5jbVa2kj
-	kF/rkXpT5AsIFBisb0j3Dpjhlvfn7CQ6UdU4MgXVetrwbOAdEwHUXH9k6PqrwmUR4e+NBpqcFAwTZ
-	VKh3PuGl3EQQtGyzZkmgu/kI1Efq/41l03t/UOS9VnBnSLIHRAapLbJtz9mjWessNv+GGxrCjb9qe
-	NZTY6BwT/neF6oRnf2IMpYJtx/fyJaPOCjcbvjTt/H25rKHrNcz2ktqmr6+UwkZoWwNDvQwhMF8cJ
-	AlbWtR86KOoN6qCM3kIFdQa4oqLXYUdELyg0dRf6ekBe7IQFlPxWHZcb9/CVrFq0p5IkKDrRTL54a
-	71UbR+Gg==;
+	bh=jPMAVc1TEXwwo2AqDC8mND5efIlxayspoxL+XnJ5jJc=; b=dbncUQTxyzBji46o2Cnxx8/2A/
+	XzrHQqDVYgRUkIKX9s1ltFz3lw8DiXHAbnNhiYG9NLMQPDd+cc2tqNyl9SA3uZO6Lp0u4hIWGsTK9
+	k8ZUdxYI2REOZOuaJebGZJKEGZ9xI80TiUBiPnA1k/lLs4QLT0whYOjRjd3HzzDxr0GhP4RIH6YtY
+	dbsGWAvA7HmGtMt3TTRxSknGErqN1FH27A5sxaEsCvG+tKZjBLbxeNqlOm+GoNZlpSH6bHo8Ktcuv
+	jfvRmHSPTetFNf3w6NNPxfnhW9ESMfsN8nXQHDyR0FVH2i21iml4ErOJdp+5sMqLix0Cg2T52pca4
+	Q44FZGlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uewRi-00000007f6z-3j7L;
-	Thu, 24 Jul 2025 13:57:18 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1uewU9-00000007fdf-2qBG;
+	Thu, 24 Jul 2025 13:59:49 +0000
+Received: from mail-ed1-f49.google.com ([209.85.208.49])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uewJd-00000007XVL-13yu
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 24 Jul 2025 13:48:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=MIME-Version:Content-Type:References:
-	In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=CScUHBoe48sWcyDLzRr2WCLL+EBzj5RNclqT8OZiKFY=; b=vHciKMNPYPzyPcJdztunPDqz6I
-	8DpoT8dbHwBO4EnJe+zjt8VwZR9tU1kxbHkx7zvw2J35z9YJJojlWioMkuRaP4noAgnfgVUdP6jZ6
-	sZBzSGHlEXIpNF46lMkW6p5uKzmMaBK0qBlejIxQAyhQ6hWqDfiRajmVfOD6vXJjVCrSkxHOjzmud
-	HXvVUB5epWZvDUp5Gh47oYncjia9/dGi6A4FtE2yvVWC/sciGzx44Y4e7VE8fSZ4Ql/DI+sJG8H5K
-	C7O0IplfuyVhIMJpsx1m1BQy8UvQEZrgL7yfuP/uoHVmJ7SuvATVUXQ6iBPVvi+6PhdcRb7VQvznx
-	UocO6NdA==;
-Received: from [54.239.6.185] (helo=freeip.amazon.com)
-	by casper.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uewJY-0000000Dw1c-1OUD;
-	Thu, 24 Jul 2025 13:48:53 +0000
-Message-ID: <aefe451c31d693cfe8f3cc157fd0009040fd48c7.camel@infradead.org>
-Subject: Re: Memory corruption after resume from hibernate with Arm GICv3 ITS
-From: David Woodhouse <dwmw2@infradead.org>
-To: "Rafael J. Wysocki" <rafael@kernel.org>
-Cc: Pavel Machek <pavel@kernel.org>, linux-pm <linux-pm@vger.kernel.org>, 
- Marc Zyngier <maz@kernel.org>, linux-arm-kernel@lists.infradead.org,
- "Saidi, Ali" <alisaidi@amazon.com>,  "oliver.upton"
- <oliver.upton@linux.dev>, Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose
- <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, Catalin
- Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- linux-kernel <linux-kernel@vger.kernel.org>, "Heyne, Maximilian"
- <mheyne@amazon.de>,  Alexander Graf <graf@amazon.com>, "Stamatis, Ilias"
- <ilstam@amazon.com>
-Date: Thu, 24 Jul 2025 15:48:51 +0200
-In-Reply-To: <CAJZ5v0iF7xAF105byp4j777Aks8KDKAh0-hJyfzkUFq5pm-JVQ@mail.gmail.com>
-References: <c69938cffd4002a93a95a396affaa945e0f69206.camel@infradead.org>
-	 <bc456c6b4b1ed51e568a37cf29b33d537e4bd94c.camel@infradead.org>
-	 <CAJZ5v0iF7xAF105byp4j777Aks8KDKAh0-hJyfzkUFq5pm-JVQ@mail.gmail.com>
-Content-Type: multipart/signed; micalg="sha-256"; protocol="application/pkcs7-signature";
-	boundary="=-aFgVqWTbHqggURVS1l3H"
-User-Agent: Evolution 3.52.3-0ubuntu1 
+	id 1uewKW-00000007XbI-0K4z
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 24 Jul 2025 13:49:53 +0000
+Received: by mail-ed1-f49.google.com with SMTP id 4fb4d7f45d1cf-6129ff08877so3421080a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Jul 2025 06:49:51 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1753364990; x=1753969790;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=jPMAVc1TEXwwo2AqDC8mND5efIlxayspoxL+XnJ5jJc=;
+        b=Xksf7FSm7QpxvFAT8iAFxmHOi5LvXbI28PPVJ+g1fXt7y/7hbZ2Ec/nJyE+NOGvODs
+         53ZESkOMCRNhQkFNyQapRhHDPEs5ckCvUBFvLEbs+xC0vUfuNWDJVBGU/eAwVVjwWrlZ
+         y3iDT1ThFZtNhRiH1M7sxCBfg4a/MP9i1U7XinUjioKbmJe+yLdCL+rlzCAuQK1E9yF6
+         FR6GHufNCVlz7tCkHHx5tV7Qr4r+wPOTLUdp2I/X5vh8dIVGxBPfknQK0nuEDKO3yPuA
+         fpezuelFw+rDW/AfHCDyLcBsc8sXU3Dz0wxg5xjiyDTsGF038T0pefBUkIpdesdUowc+
+         4/nQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXIvlED2rUDXe9zOu2/L6QWNoIdtHYgr6FsVnJCPx2tAUj9z75g015yWuDtN/hj4m5iYQwPdXJ2YDoJa/I+gpNc@lists.infradead.org
+X-Gm-Message-State: AOJu0YyaRzNzKxztdEl2Pa1jBb704l94iSFTMez7SH2wlehZTRH9rlDX
+	8rBaPpwdJtn+D1eLrq4rOZxsmoUCYSYNMdZ9UpPbsGJUhGvki41bWYow
+X-Gm-Gg: ASbGncusfU6MmvGf1HOIdbcHBAR+7Y6Tp75iEE1wennveaJf6TCNe8vZZyKB2bGVWfq
+	96jdWsoAV4WYrp01BcStbls78E3gU6nLBtZtVCSbTWCUPbNmOgjEXz/29ePmOAlrHERHKpBqKYy
+	MnDzk5XGZNdcizfB5qX+CLwNDbx0v1MsvoeqspHvKA4tqdm6KgfSw8bTlsMFdKlXexUQz5dEUFH
+	TLIaQ2uem0D91Euc2xB5DzNENuLOrW8W6rg6960oXyV8yjuGDVX1ZIAzwhjWCc+LSlaweI6OdZa
+	CieMTTGlraVPMjR59SAGUaDtxp+RIlcFQZjs3t3hweIBaU8vyw3mjS5aN7veDFvT9YcaenVTq/m
+	a+yvtN0OaY9AZhA==
+X-Google-Smtp-Source: AGHT+IGM2s4sUu/jhN+IOAyKTFmbKAHCm4pptThQJKfKfwXWs66uv+mhI7ywrX5sI8KK9oEJ65TEkw==
+X-Received: by 2002:a17:906:6a07:b0:ae3:6e5c:1c05 with SMTP id a640c23a62f3a-af4c490ad23mr238115666b.30.1753364989849;
+        Thu, 24 Jul 2025 06:49:49 -0700 (PDT)
+Received: from gmail.com ([2a03:2880:30ff:73::])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-af47f861477sm114887866b.99.2025.07.24.06.49.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 24 Jul 2025 06:49:49 -0700 (PDT)
+Date: Thu, 24 Jul 2025 06:49:47 -0700
+From: Breno Leitao <leitao@debian.org>
+To: Stefano Garzarella <sgarzare@redhat.com>
+Cc: Will Deacon <will@kernel.org>, "Michael S. Tsirkin" <mst@redhat.com>, 
+	jasowang@redhat.com, eperezma@redhat.com, linux-arm-kernel@lists.infradead.org, 
+	kvm@vger.kernel.org, Stefan Hajnoczi <stefanha@redhat.com>, netdev@vger.kernel.org
+Subject: Re: vhost: linux-next: crash at vhost_dev_cleanup()
+Message-ID: <bvjomrplpsjklglped5pmwttzmljigasdafjiizt2sfmytc5rr@ljpu455kx52j>
+References: <vosten2rykookljp6u6qc4hqhsqb6uhdy2iuhpl54plbq2tkr4@kphfpgst3e7c>
+ <20250724034659-mutt-send-email-mst@kernel.org>
+ <CAGxU2F76ueKm3H30vXL+jxMVsiQBuRkDN9NRfVU8VeTXzTVAWg@mail.gmail.com>
+ <20250724042100-mutt-send-email-mst@kernel.org>
+ <aIHydjBEnmkTt-P-@willie-the-truck>
+ <fv6uhq6lcgjwrdp7fcxmokczjmavbc37ikrqz7zpd7puvrbsml@zkt2lidjrqm6>
+ <CAGxU2F5Qy=vMD0z9_HTN2K9wyt+6EH-Yr0N9VqR4OT4O1asqZg@mail.gmail.com>
 MIME-Version: 1.0
-X-SRS-Rewrite: SMTP reverse-path rewritten from <dwmw2@infradead.org> by casper.infradead.org. See http://www.infradead.org/rpr.html
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CAGxU2F5Qy=vMD0z9_HTN2K9wyt+6EH-Yr0N9VqR4OT4O1asqZg@mail.gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250724_064952_120632_BBF47B33 
+X-CRM114-Status: GOOD (  27.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,209 +93,194 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, Jul 24, 2025 at 02:52:08PM +0200, Stefano Garzarella wrote:
+> On Thu, 24 Jul 2025 at 14:48, Breno Leitao <leitao@debian.org> wrote:
+> >
+> > On Thu, Jul 24, 2025 at 09:44:38AM +0100, Will Deacon wrote:
+> > > > > On Thu, 24 Jul 2025 at 09:48, Michael S. Tsirkin <mst@redhat.com> wrote:
+> > > > > >
+> > > > > > On Wed, Jul 23, 2025 at 08:04:42AM -0700, Breno Leitao wrote:
+> > > > > > > Hello,
+> > > > > > >
+> > > > > > > I've seen a crash in linux-next for a while on my arm64 server, and
+> > > > > > > I decided to report.
+> > > > > > >
+> > > > > > > While running stress-ng on linux-next, I see the crash below.
+> > > > > > >
+> > > > > > > This is happening in a kernel configure with some debug options (KASAN,
+> > > > > > > LOCKDEP and KMEMLEAK).
+> > > > > > >
+> > > > > > > Basically running stress-ng in a loop would crash the host in 15-20
+> > > > > > > minutes:
+> > > > > > >       # while (true); do stress-ng -r 10 -t 10; done
+> > > > > > >
+> > > > > > > >From the early warning "virt_to_phys used for non-linear address",
+> > > > >
+> > > > > mmm, we recently added nonlinear SKBs support in vhost-vsock [1],
+> > > > > @Will can this issue be related?
+> > > >
+> > > > Good point.
+> > > >
+> > > > Breno, if bisecting is too much trouble, would you mind testing the commits
+> > > > c76f3c4364fe523cd2782269eab92529c86217aa
+> > > > and
+> > > > c7991b44d7b44f9270dec63acd0b2965d29aab43
+> > > > and telling us if this reproduces?
+> > >
+> > > That's definitely worth doing, but we should be careful not to confuse
+> > > the "non-linear address" from the warning (which refers to virtual
+> > > addresses that lie outside of the linear mapping of memory, e.g. in the
+> > > vmalloc space) and "non-linear SKBs" which refer to SKBs with fragment
+> > > pages.
+> >
+> > I've tested both commits above, and I see the crash on both commits
+> > above, thus, the problem reproduces in both cases. The only difference
+> > I noted is the fact that I haven't seen the warning before the crash.
+> >
+> >
+> > Log against c76f3c4364fe ("vhost/vsock: Avoid allocating
+> > arbitrarily-sized SKBs")
+> >
+> >          Unable to handle kernel paging request at virtual address 0000001fc0000048
+> >          Mem abort info:
+> >            ESR = 0x0000000096000005
+> >            EC = 0x25: DABT (current EL), IL = 32 bits
+> >            SET = 0, FnV = 0
+> >            EA = 0, S1PTW = 0
+> >            FSC = 0x05: level 1 translation fault
+> >          Data abort info:
+> >            ISV = 0, ISS = 0x00000005, ISS2 = 0x00000000
+> >            CM = 0, WnR = 0, TnD = 0, TagAccess = 0
+> >            GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
+> >          user pgtable: 64k pages, 48-bit VAs, pgdp=0000000cdcf2da00
+> >          [0000001fc0000048] pgd=0000000000000000, p4d=0000000000000000, pud=0000000000000000
+> >          Internal error: Oops: 0000000096000005 [#1]  SMP
+> >          Modules linked in: vfio_iommu_type1 vfio md4 crc32_cryptoapi ghash_generic unix_diag vhost_net tun vhost vhost_iotlb tap mpls_gso mpls_iptunnel mpls_router fou sch_fq ghes_edac tls tcp_diag inet_diag act_gact cls_bpf nvidia_c
+> >          CPU: 34 UID: 0 PID: 1727297 Comm: stress-ng-dev Kdump: loaded Not tainted 6.16.0-rc6-upstream-00027-gc76f3c4364fe #19 NONE
+> >          pstate: 23401009 (nzCv daif +PAN -UAO +TCO +DIT +SSBS BTYPE=--)
+> >          pc : kfree+0x48/0x2a8
+> >          lr : vhost_dev_cleanup+0x138/0x2b8 [vhost]
+> >          sp : ffff80013a0cfcd0
+> >          x29: ffff80013a0cfcd0 x28: ffff0008fd0b6240 x27: 0000000000000000
+> >          x26: 0000000000000000 x25: 0000000000000000 x24: 0000000000000000
+> >          x23: 00000000040e001f x22: ffffffffffffffff x21: ffff00014f1d4ac0
+> >          x20: 0000000000000001 x19: ffff00014f1d0000 x18: 0000000000000000
+> >          x17: 0000000000000000 x16: 0000000000000000 x15: 0000000000000000
+> >          x14: 000000000000001f x13: 000000000000000f x12: 0000000000000001
+> >          x11: 0000000000000000 x10: 0000000000000402 x9 : ffffffdfc0000000
+> >          x8 : 0000001fc0000040 x7 : 0000000000000000 x6 : 0000000000000000
+> >          x5 : ffff000141931840 x4 : 0000000000000000 x3 : 0000000000000008
+> >          x2 : ffffffffffffffff x1 : ffffffffffffffff x0 : 0000000000010000
+> >          Call trace:
+> >           kfree+0x48/0x2a8 (P)
+> >           vhost_dev_cleanup+0x138/0x2b8 [vhost]
+> >           vhost_net_release+0xa0/0x1a8 [vhost_net]
+> 
+> But here is the vhost_net, so I'm confused now.
+> Do you see the same (vhost_net) also on 9798752 ("Add linux-next
+> specific files for 20250721") ?
 
---=-aFgVqWTbHqggURVS1l3H
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+I will need to reproduce, but, looking at my logs, I see the following
+against: c76f3c4364fe ("vhost/vsock: Avoid allocating arbitrarily-sized SKBs").
+The logs are a bit intermixed, probably there were multiple CPUs hitting
+the same code path.
 
-On Thu, 2025-07-24 at 11:51 +0200, Rafael J. Wysocki wrote:
->=20
-> > So the hibernated kernel seems to be doing the right thing in both
-> > suspend and resume phases but it looks like the *boot* kernel doesn't
-> > call the suspend method before transitioning;
->=20
-> No, it does this, but the messages are missing from the log.
->=20
-> The last message you see from the boot/restore kernel is about loading
-> the image; a lot of stuff happens afterwards.
->=20
-> This message:
->=20
-> [=C2=A0=C2=A0=C2=A0 1.871617] PM: hibernation: Read 462616 kbytes in 0.47=
- seconds (984.28 MB/s)
->=20
-> is printed by load_compressed_image() which gets called by
-> swsusp_read(), which is invoked by load_image_and_restore().
->=20
-> It is successful, so hibernation_restore() gets called and it does
-> quite a bit of work, including calling resume_target_kernel(), which
-> among other things calls syscore_suspend(), from where your messages
-> should be printed if I'm not mistaken.
->=20
-> I have no idea why those messages don't get into the log (that would
-> happen if your boot kernel were different from the image kernel and it
-> didn't actually print them).
-
-This is serial console output (stdout from 'qemu -serial mon:stdio'). I
-guess the missing messages were in the printk buffer of the boot kernel
-but just didn't get flushed? I added some --trace arguments to qemu to
-see what's actually happening.
-
-So when resuming, the boot looks like this:
-
-gicv3_its_process_command GICv3 ITS: processing command at offset 0x4: 0x8
-gicv3_its_cmd_mapd GICv3 ITS: command MAPD DeviceID 0x10 Size 0x6 ITT_addr =
-0x10f0a20 V 1
-gicv3_its_dte_write GICv3 ITS: Device Table write for DeviceID 0x10: valid =
-1 size 0x6 ITTaddr 0x10f0a20
-[   27.440351] its_build_mapd_cmd dev 0x10 valid 1 addr 0x10f0a2000
-
-And then the transition goes:
-
-[   47.668973] PM: Image loading progress:  90%
-[   48.030462] PM: Image loading progress: 100%
-[   48.031307] PM: Image loading done
-[   48.031773] PM: hibernation: Read 460728 kbytes in 13.11 seconds (35.14 =
-MB/s)
-gicv3_its_cmd_mapd GICv3 ITS: command MAPD DeviceID 0x10 Size 0x6 ITT_addr =
-0x10f0a20 V 0
-gicv3_its_dte_write GICv3 ITS: Device Table write for DeviceID 0x10: valid =
-0 size 0x6 ITTaddr 0x10f0a20
-gicv3_its_cmd_mapd GICv3 ITS: command MAPD DeviceID 0x10 Size 0x6 ITT_addr =
-0x10e3130 V 1
-gicv3_its_dte_write GICv3 ITS: Device Table write for DeviceID 0x10: valid =
-1 size 0x6 ITTaddr 0x10e3130
-[  178.261284] Disabling non-boot CPUs ...
-[  178.261674] its_save_disable
-[  178.261674] its_build_mapd_cmd dev 0x10 valid 0 addr 0x10e313000
-[  178.261674] PM: hibernation: Creating image:
-[  178.261674] PM: hibernation: Need to copy 152532 pages
-[  178.261674] hibernate: Restored 0 MTE pages
-[  178.261674] its_restore_enable
-[  178.261674] its_build_mapd_cmd dev 0x10 valid 1 addr 0x10e313000
-[  178.831481] OOM killer enabled.
-[  178.831614] Restarting tasks: Starting
-
-So we don't see the *printk* from the boot kernel, as you said. But it
-*is* unmapping from the old address (MAPD, ITT_addr 0x10f0a20, Valid 0)
-before the resumed kernel does the map at the address *it* was using
-(MAPD, ITT_addr 0x10e3130, Valid 1). Looking just at the MAPD traces:
-
-gicv3_its_cmd_mapd GICv3 ITS: command MAPD DeviceID 0x10 Size 0x6 ITT_addr =
-0x10e3130 V 1  =E2=86=90 Original clean boot
-gicv3_its_cmd_mapd GICv3 ITS: command MAPD DeviceID 0x10 Size 0x6 ITT_addr =
-0x10e3130 V 0  =E2=86=90 Prior to generating hibernate image
-gicv3_its_cmd_mapd GICv3 ITS: command MAPD DeviceID 0x10 Size 0x6 ITT_addr =
-0x10e3130 V 1  =E2=86=90 Before *writing* hibernate image and powering down=
- (actually reboot in this case)
-gicv3_its_cmd_mapd GICv3 ITS: command MAPD DeviceID 0x10 Size 0x6 ITT_addr =
-0x10f0a20 V 1  =E2=86=90 Boot kernel starting up prior to resume
-gicv3_its_cmd_mapd GICv3 ITS: command MAPD DeviceID 0x10 Size 0x6 ITT_addr =
-0x10f0a20 V 0  =E2=86=90 Boot kernel unmapping when we don't see its printk
-gicv3_its_cmd_mapd GICv3 ITS: command MAPD DeviceID 0x10 Size 0x6 ITT_addr =
-0x10e3130 V 1  =E2=86=90 Hibernated kernel remapping the ITT
-
-So it looks like my test patch is doing the right thing, at least for
-hibernation? I'm not sure about kexec?
-
-There are also *other* tables where the GIC scribbles on memory, for
-pending interrupts for KVM guests (vLPI pending tables). We've had
-problems with those too=C2=B9, causing machines to crash on kexec because
-the GIC scribbles on pages which are *actually* now the new kernel's
-text. I'm not sure if we should try to come up with a unified solution
-for that or deal with them separately... the solution there seems to
-involve iterating =E2=88=80 kvm =E2=88=80 vCPU so I suspect it does need to=
- live in
-KVM.
-
-=C2=B9 https://lore.kernel.org/all/20250623132714.965474-2-dwmw2@infradead.=
-org/
-
---=-aFgVqWTbHqggURVS1l3H
-Content-Type: application/pkcs7-signature; name="smime.p7s"
-Content-Disposition: attachment; filename="smime.p7s"
-Content-Transfer-Encoding: base64
-
-MIAGCSqGSIb3DQEHAqCAMIACAQExDzANBglghkgBZQMEAgEFADCABgkqhkiG9w0BBwEAAKCCD9Aw
-ggSOMIIDdqADAgECAhAOmiw0ECVD4cWj5DqVrT9PMA0GCSqGSIb3DQEBCwUAMGUxCzAJBgNVBAYT
-AlVTMRUwEwYDVQQKEwxEaWdpQ2VydCBJbmMxGTAXBgNVBAsTEHd3dy5kaWdpY2VydC5jb20xJDAi
-BgNVBAMTG0RpZ2lDZXJ0IEFzc3VyZWQgSUQgUm9vdCBDQTAeFw0yNDAxMzAwMDAwMDBaFw0zMTEx
-MDkyMzU5NTlaMEExCzAJBgNVBAYTAkFVMRAwDgYDVQQKEwdWZXJva2V5MSAwHgYDVQQDExdWZXJv
-a2V5IFNlY3VyZSBFbWFpbCBHMjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMjvgLKj
-jfhCFqxYyRiW8g3cNFAvltDbK5AzcOaR7yVzVGadr4YcCVxjKrEJOgi7WEOH8rUgCNB5cTD8N/Et
-GfZI+LGqSv0YtNa54T9D1AWJy08ZKkWvfGGIXN9UFAPMJ6OLLH/UUEgFa+7KlrEvMUupDFGnnR06
-aDJAwtycb8yXtILj+TvfhLFhafxroXrflspavejQkEiHjNjtHnwbZ+o43g0/yxjwnarGI3kgcak7
-nnI9/8Lqpq79tLHYwLajotwLiGTB71AGN5xK+tzB+D4eN9lXayrjcszgbOv2ZCgzExQUAIt98mre
-8EggKs9mwtEuKAhYBIP/0K6WsoMnQCcCAwEAAaOCAVwwggFYMBIGA1UdEwEB/wQIMAYBAf8CAQAw
-HQYDVR0OBBYEFIlICOogTndrhuWByNfhjWSEf/xwMB8GA1UdIwQYMBaAFEXroq/0ksuCMS1Ri6en
-IZ3zbcgPMA4GA1UdDwEB/wQEAwIBhjAdBgNVHSUEFjAUBggrBgEFBQcDBAYIKwYBBQUHAwIweQYI
-KwYBBQUHAQEEbTBrMCQGCCsGAQUFBzABhhhodHRwOi8vb2NzcC5kaWdpY2VydC5jb20wQwYIKwYB
-BQUHMAKGN2h0dHA6Ly9jYWNlcnRzLmRpZ2ljZXJ0LmNvbS9EaWdpQ2VydEFzc3VyZWRJRFJvb3RD
-QS5jcnQwRQYDVR0fBD4wPDA6oDigNoY0aHR0cDovL2NybDMuZGlnaWNlcnQuY29tL0RpZ2lDZXJ0
-QXNzdXJlZElEUm9vdENBLmNybDARBgNVHSAECjAIMAYGBFUdIAAwDQYJKoZIhvcNAQELBQADggEB
-ACiagCqvNVxOfSd0uYfJMiZsOEBXAKIR/kpqRp2YCfrP4Tz7fJogYN4fxNAw7iy/bPZcvpVCfe/H
-/CCcp3alXL0I8M/rnEnRlv8ItY4MEF+2T/MkdXI3u1vHy3ua8SxBM8eT9LBQokHZxGUX51cE0kwa
-uEOZ+PonVIOnMjuLp29kcNOVnzf8DGKiek+cT51FvGRjV6LbaxXOm2P47/aiaXrDD5O0RF5SiPo6
-xD1/ClkCETyyEAE5LRJlXtx288R598koyFcwCSXijeVcRvBB1cNOLEbg7RMSw1AGq14fNe2cH1HG
-W7xyduY/ydQt6gv5r21mDOQ5SaZSWC/ZRfLDuEYwggWbMIIEg6ADAgECAhAH5JEPagNRXYDiRPdl
-c1vgMA0GCSqGSIb3DQEBCwUAMEExCzAJBgNVBAYTAkFVMRAwDgYDVQQKEwdWZXJva2V5MSAwHgYD
-VQQDExdWZXJva2V5IFNlY3VyZSBFbWFpbCBHMjAeFw0yNDEyMzAwMDAwMDBaFw0yODAxMDQyMzU5
-NTlaMB4xHDAaBgNVBAMME2R3bXcyQGluZnJhZGVhZC5vcmcwggIiMA0GCSqGSIb3DQEBAQUAA4IC
-DwAwggIKAoICAQDali7HveR1thexYXx/W7oMk/3Wpyppl62zJ8+RmTQH4yZeYAS/SRV6zmfXlXaZ
-sNOE6emg8WXLRS6BA70liot+u0O0oPnIvnx+CsMH0PD4tCKSCsdp+XphIJ2zkC9S7/yHDYnqegqt
-w4smkqUqf0WX/ggH1Dckh0vHlpoS1OoxqUg+ocU6WCsnuz5q5rzFsHxhD1qGpgFdZEk2/c//ZvUN
-i12vPWipk8TcJwHw9zoZ/ZrVNybpMCC0THsJ/UEVyuyszPtNYeYZAhOJ41vav1RhZJzYan4a1gU0
-kKBPQklcpQEhq48woEu15isvwWh9/+5jjh0L+YNaN0I//nHSp6U9COUG9Z0cvnO8FM6PTqsnSbcc
-0j+GchwOHRC7aP2t5v2stVx3KbptaYEzi4MQHxm/0+HQpMEVLLUiizJqS4PWPU6zfQTOMZ9uLQRR
-ci+c5xhtMEBszlQDOvEQcyEG+hc++fH47K+MmZz21bFNfoBxLP6bjR6xtPXtREF5lLXxp+CJ6KKS
-blPKeVRg/UtyJHeFKAZXO8Zeco7TZUMVHmK0ZZ1EpnZbnAhKE19Z+FJrQPQrlR0gO3lBzuyPPArV
-hvWxjlO7S4DmaEhLzarWi/ze7EGwWSuI2eEa/8zU0INUsGI4ywe7vepQz7IqaAovAX0d+f1YjbmC
-VsAwjhLmveFjNwIDAQABo4IBsDCCAawwHwYDVR0jBBgwFoAUiUgI6iBOd2uG5YHI1+GNZIR//HAw
-HQYDVR0OBBYEFFxiGptwbOfWOtMk5loHw7uqWUOnMDAGA1UdEQQpMCeBE2R3bXcyQGluZnJhZGVh
-ZC5vcmeBEGRhdmlkQHdvb2Rob3Uuc2UwFAYDVR0gBA0wCzAJBgdngQwBBQEBMA4GA1UdDwEB/wQE
-AwIF4DAdBgNVHSUEFjAUBggrBgEFBQcDAgYIKwYBBQUHAwQwewYDVR0fBHQwcjA3oDWgM4YxaHR0
-cDovL2NybDMuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNybDA3oDWgM4YxaHR0
-cDovL2NybDQuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNybDB2BggrBgEFBQcB
-AQRqMGgwJAYIKwYBBQUHMAGGGGh0dHA6Ly9vY3NwLmRpZ2ljZXJ0LmNvbTBABggrBgEFBQcwAoY0
-aHR0cDovL2NhY2VydHMuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNydDANBgkq
-hkiG9w0BAQsFAAOCAQEAQXc4FPiPLRnTDvmOABEzkIumojfZAe5SlnuQoeFUfi+LsWCKiB8Uextv
-iBAvboKhLuN6eG/NC6WOzOCppn4mkQxRkOdLNThwMHW0d19jrZFEKtEG/epZ/hw/DdScTuZ2m7im
-8ppItAT6GXD3aPhXkXnJpC/zTs85uNSQR64cEcBFjjoQDuSsTeJ5DAWf8EMyhMuD8pcbqx5kRvyt
-JPsWBQzv1Dsdv2LDPLNd/JUKhHSgr7nbUr4+aAP2PHTXGcEBh8lTeYea9p4d5k969pe0OHYMV5aL
-xERqTagmSetuIwolkAuBCzA9vulg8Y49Nz2zrpUGfKGOD0FMqenYxdJHgDCCBZswggSDoAMCAQIC
-EAfkkQ9qA1FdgOJE92VzW+AwDQYJKoZIhvcNAQELBQAwQTELMAkGA1UEBhMCQVUxEDAOBgNVBAoT
-B1Zlcm9rZXkxIDAeBgNVBAMTF1Zlcm9rZXkgU2VjdXJlIEVtYWlsIEcyMB4XDTI0MTIzMDAwMDAw
-MFoXDTI4MDEwNDIzNTk1OVowHjEcMBoGA1UEAwwTZHdtdzJAaW5mcmFkZWFkLm9yZzCCAiIwDQYJ
-KoZIhvcNAQEBBQADggIPADCCAgoCggIBANqWLse95HW2F7FhfH9bugyT/danKmmXrbMnz5GZNAfj
-Jl5gBL9JFXrOZ9eVdpmw04Tp6aDxZctFLoEDvSWKi367Q7Sg+ci+fH4KwwfQ8Pi0IpIKx2n5emEg
-nbOQL1Lv/IcNiep6Cq3DiyaSpSp/RZf+CAfUNySHS8eWmhLU6jGpSD6hxTpYKye7PmrmvMWwfGEP
-WoamAV1kSTb9z/9m9Q2LXa89aKmTxNwnAfD3Ohn9mtU3JukwILRMewn9QRXK7KzM+01h5hkCE4nj
-W9q/VGFknNhqfhrWBTSQoE9CSVylASGrjzCgS7XmKy/BaH3/7mOOHQv5g1o3Qj/+cdKnpT0I5Qb1
-nRy+c7wUzo9OqydJtxzSP4ZyHA4dELto/a3m/ay1XHcpum1pgTOLgxAfGb/T4dCkwRUstSKLMmpL
-g9Y9TrN9BM4xn24tBFFyL5znGG0wQGzOVAM68RBzIQb6Fz758fjsr4yZnPbVsU1+gHEs/puNHrG0
-9e1EQXmUtfGn4InoopJuU8p5VGD9S3Ikd4UoBlc7xl5yjtNlQxUeYrRlnUSmdlucCEoTX1n4UmtA
-9CuVHSA7eUHO7I88CtWG9bGOU7tLgOZoSEvNqtaL/N7sQbBZK4jZ4Rr/zNTQg1SwYjjLB7u96lDP
-sipoCi8BfR35/ViNuYJWwDCOEua94WM3AgMBAAGjggGwMIIBrDAfBgNVHSMEGDAWgBSJSAjqIE53
-a4blgcjX4Y1khH/8cDAdBgNVHQ4EFgQUXGIam3Bs59Y60yTmWgfDu6pZQ6cwMAYDVR0RBCkwJ4ET
-ZHdtdzJAaW5mcmFkZWFkLm9yZ4EQZGF2aWRAd29vZGhvdS5zZTAUBgNVHSAEDTALMAkGB2eBDAEF
-AQEwDgYDVR0PAQH/BAQDAgXgMB0GA1UdJQQWMBQGCCsGAQUFBwMCBggrBgEFBQcDBDB7BgNVHR8E
-dDByMDegNaAzhjFodHRwOi8vY3JsMy5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVtYWlsRzIu
-Y3JsMDegNaAzhjFodHRwOi8vY3JsNC5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVtYWlsRzIu
-Y3JsMHYGCCsGAQUFBwEBBGowaDAkBggrBgEFBQcwAYYYaHR0cDovL29jc3AuZGlnaWNlcnQuY29t
-MEAGCCsGAQUFBzAChjRodHRwOi8vY2FjZXJ0cy5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVt
-YWlsRzIuY3J0MA0GCSqGSIb3DQEBCwUAA4IBAQBBdzgU+I8tGdMO+Y4AETOQi6aiN9kB7lKWe5Ch
-4VR+L4uxYIqIHxR7G2+IEC9ugqEu43p4b80LpY7M4KmmfiaRDFGQ50s1OHAwdbR3X2OtkUQq0Qb9
-6ln+HD8N1JxO5nabuKbymki0BPoZcPdo+FeRecmkL/NOzzm41JBHrhwRwEWOOhAO5KxN4nkMBZ/w
-QzKEy4PylxurHmRG/K0k+xYFDO/UOx2/YsM8s138lQqEdKCvudtSvj5oA/Y8dNcZwQGHyVN5h5r2
-nh3mT3r2l7Q4dgxXlovERGpNqCZJ624jCiWQC4ELMD2+6WDxjj03PbOulQZ8oY4PQUyp6djF0keA
-MYIDuzCCA7cCAQEwVTBBMQswCQYDVQQGEwJBVTEQMA4GA1UEChMHVmVyb2tleTEgMB4GA1UEAxMX
-VmVyb2tleSBTZWN1cmUgRW1haWwgRzICEAfkkQ9qA1FdgOJE92VzW+AwDQYJYIZIAWUDBAIBBQCg
-ggE3MBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTI1MDcyNDEzNDg1
-MVowLwYJKoZIhvcNAQkEMSIEIGdA8TLn5w0yM9m3hkArCF8ip/MthZYkUNAJRIFdZahOMGQGCSsG
-AQQBgjcQBDFXMFUwQTELMAkGA1UEBhMCQVUxEDAOBgNVBAoTB1Zlcm9rZXkxIDAeBgNVBAMTF1Zl
-cm9rZXkgU2VjdXJlIEVtYWlsIEcyAhAH5JEPagNRXYDiRPdlc1vgMGYGCyqGSIb3DQEJEAILMVeg
-VTBBMQswCQYDVQQGEwJBVTEQMA4GA1UEChMHVmVyb2tleTEgMB4GA1UEAxMXVmVyb2tleSBTZWN1
-cmUgRW1haWwgRzICEAfkkQ9qA1FdgOJE92VzW+AwDQYJKoZIhvcNAQEBBQAEggIAwKcTjqyTylX4
-8JU0heId4OrVxbhIKc/JaznYe+JOXl5Uhj94H3gkY567FqzDc/N5KlGIph4/OpOeE4zBffVjZdQj
-3xX+hv8Qonmq4lvWtEThJKMGklkq4jXNCcgxrhUJD5Ddrnujq+uA68+zkUHIqz2GmbjlU7OeeVpZ
-PJIr7rjjpJpBkfc7j51Ryb6ZTE/BlVm25kY18ChL5dxJxvcLfb6pwLWHgdyCyK8pkUVxz25O+9Ag
-51DxmLcWzvyGY1qeGr6KjCiL1sV5ywsBDLZMNCRTjgq5QY+1oepsVqilsDDc2PHj17T7OMlDf38d
-yOXOzx51UJpVALXkQEEOoAAxVmjqxXJY1Npf+ccv6MLPg1qG5us15oeZoM1Ao9HAP9gYY1BV7UZA
-+mEXJY2MHOvzF/O5cvGrLbcNQIZtD05HO2RV/5f8GXUEyKhKJPcqN8dKnVvfpy4lroAysU9OH8z2
-RJ3RL+cTGQNjGIQJ+0Qrljzw7EkGFViSjeVJ6Lo5tJnKJBWWF+IgN3yOfoxpIfqzp07QufSsPps2
-DvtKR9jNQQv0/+huaTvVJVJI8pTPq2XiIav/y5WZOakF/xaYzxob9TFaul6Y43cjPZQW+nqj+lm3
-8+g03iqhQXFRpkcLaC8ADFNAYKCE74+5uB4yly14l1IUliZiFUyic1QQJKGfx2YAAAAAAAA=
+           virt_to_phys used for non-linear address: 000000001b662678 (0xffe61984a460)
+           WARNING: CPU: 15 PID: 112846 at arch/arm64/mm/physaddr.c:15 __virt_to_phys+0x80/0xa8
+           Modules linked in: vhost_vsock(E) vhost(E) vhost_iotlb(E) ghes_edac(E) tls(E) act_gact(E) cls_bpf(E) tcp_diag(E) inet_diag(E) ipmi_ssif(E) ipmi_devintf(E) ipmi_msghandler(E) sch_fq_codel(E) drm(E) backlight(E) drm_panel_orientation_quirks(E) acpi_power_meter(E) loop(E) efivarfs(E) autofs4(E)
+           CPU: 15 UID: 0 PID: 112846 Comm: stress-ng-dev Kdump: loaded Tainted: G        W   E    N  6.16.0-rc6-upstream-00027-gc76f3c4364fe #16 PREEMPT(none) 
+           Tainted: [W]=WARN, [E]=UNSIGNED_MODULE, [N]=TEST
+           pstate: 63401009 (nZCv daif +PAN -UAO +TCO +DIT +SSBS BTYPE=--)
+           pc : __virt_to_phys+0x80/0xa8
+           lr : __virt_to_phys+0x7c/0xa8
+           sp : ffff8001184d7a30
+           x29: ffff8001184d7a30 x28: 00000000000045d8 x27: 1fffe000e7e88014
+           x26: 1fffe000e7e888f7 x25: ffff0007e578bf00 x24: 1fffe000e7e88013
+           x23: 0000000000000000 x22: 0000ffe61984a460 x21: ffff00073f440098
+           x20: ffffff1000080000 x19: 0000ffe61984a460 x18: 0000000000000002
+           x17: 6666783028203837 x16: 3632363662313030 x15: 0000000000000001
+           x14: 1fffe006d52e90f2 x13: 0000000000000000 x12: 0000000000000000
+           x11: ffff6006d52e90f3 x10: 0000000000000002 x9 : cfc659a21c727d00
+           x8 : ffff800083c19000 x7 : 0000000000000001 x6 : 0000000000000001
+           x5 : ffff8001184d7398 x4 : ffff800084866d60 x3 : ffff8000805fdd94
+           x2 : 0000000000000001 x1 : 0000000000000004 x0 : 000000000000004b
+           Call trace:
+            __virt_to_phys+0x80/0xa8 (P)
+            kfree+0xac/0x4b0
+            vhost_dev_cleanup+0x484/0x8b0 [vhost]
+            vhost_vsock_dev_release+0x2f4/0x358 [vhost_vsock]
+            __fput+0x2b4/0x608
+            fput_close_sync+0xe8/0x1e0
+            __arm64_sys_close+0x84/0xd0
+            invoke_syscall+0x8c/0x208
+            do_el0_svc+0x128/0x1a0
+            el0_svc+0x58/0x160
+            el0t_64_sync_handler+0x78/0x108
+            el0t_64_sync+0x198/0x1a0
+           irq event stamp: 0
+           hardirqs last  enabled at (0): [<0000000000000000>] 0x0
+           hardirqs last disabled at (0): [<ffff8000801d876c>] copy_process+0xd5c/0x29f8
+           softirqs last  enabled at (0): [<ffff8000801d879c>] copy_process+0xd8c/0x29f8
+           softirqs last disabled at (0): [<0000000000000000>] 0x0
+           ---[ end trace 0000000000000000 ]---
+           Unable to handle kernel paging request at virtual address 0000040053791288
+           ------------[ cut here ]------------
+           lr : kfree+0xac/0x4b0
+           virt_to_phys used for non-linear address: 00000000290839fd (0x2500000000)
+           WARNING: CPU: 41 PID: 112845 at arch/arm64/mm/physaddr.c:15 __virt_to_phys+0x80/0xa8
+           Modules linked in: vhost_vsock(E) vhost(E) vhost_iotlb(E) ghes_edac(E) tls(E) act_gact(E) cls_bpf(E) tcp_diag(E) inet_diag(E) ipmi_ssif(E) ipmi_devintf(E) ipmi_msghandler(E) sch_fq_codel(E) drm(E) backlight(E) drm_panel_orientation_quirks(E) acpi_power_meter(E) loop(E) efivarfs(E) autofs4(E)
+           CPU: 41 UID: 0 PID: 112845 Comm: stress-ng-dev Kdump: loaded Tainted: G        W   E    N  6.16.0-rc6-upstream-00027-gc76f3c4364fe #16 PREEMPT(none) 
+           x23: 0000000000000001
+           Tainted: [W]=WARN, [E]=UNSIGNED_MODULE, [N]=TEST
+           pstate: 63401009 (nZCv daif +PAN -UAO +TCO +DIT +SSBS BTYPE=--)
+           pc : __virt_to_phys+0x80/0xa8
+           lr : __virt_to_phys+0x7c/0xa8
+           sp : ffff8001a8277a30
+           x29: ffff8001a8277a30 x28: 00000000000045d8 x27: 1fffe000e7e3c014
+           x26: 1fffe000e7e3c8f7 x25: ffff0007bcff0000 x24: 1fffe000e7e3c013
+           x23: 0000000000000000 x22: 0000002500000000 x21: ffff00073f1e0098
+           x20: ffffff1000080000 x19: 0000002500000000 x18: 0000000000000004
+           x17: 00000000ffffffff x16: 0000000000000001 x15: 0000000000000001
+           x14: 1fffe006d53920f2 x13: 0000000000000000 x12: 0000000000000000
+           sp : ffff8001184d7a50
+           x29: ffff8001184d7a60 x28: 00000000000045d8 x27: 1fffe000e7e88014
+           x26: 1fffe000e7e888f7 x25: ffff0007e578bf00 x24: 1fffe000e7e88013
+           x23: 0000000000000000 x22: 0000ffe61984a460 x21: ffff00073f440098
+           x20: 0000040053791280 x19: ffff80000d0b8bbc x18: 0000000000000002
+           x17: 6666783028203837 x16: 3632363662313030 x15: 0000000000000001
+            x22: 0000ffe6199a459d
+           x14: 1fffe006d52e90f2
+            x21: ffff00073f7f0098
+           x20: ffffff1000080000 x19: 0000ffe6199a459d x18: 0000000000000004
+           x17: 54455320203b2d2c x16: 0000000000000011 x15: 0000000000000001
+           x14: 1fffe006d52bb8f2 x13: 0000000000000000 x12: 0000000000000000
+           x11: ffff6006d52bb8f3 x10: dfff800000000000 x9 : 77521a2bd3e0be00
+           x8 : ffff800083c19000 x7 : 0000000000000000 x6 : ffff80008036bc2c
+           x5 : 0000000000000000 x4 : 0000000000000001 x3 : ffff8000805fdd94
+           x2 : 0000000000000001 x1 : 0000000000000004 x0 : 000000000000004b
+           Call trace:
+            __virt_to_phys+0x80/0xa8 (P)
+            kfree+0xac/0x4b0
+            vhost_dev_cleanup+0x484/0x8b0 [vhost]
+            vhost_vsock_dev_release+0x2f4/0x358 [vhost_vsock]
+            __fput+0x2b4/0x608
+           x11: ffff6006d53920f3
+            fput_close_sync+0xe8/0x1e0
+            __arm64_sys_close+0x84/0xd0
+            invoke_syscall+0x8c/0x208
+            do_el0_svc+0x128/0x1a0
+            el0_svc+0x58/0x160
+            el0t_64_sync_handler+0x78/0x108
+            el0t_64_sync+0x198/0x1a0
+           irq event stamp: 0
+            x13: 0000000000000000
+           hardirqs last  enabled at (0): [<0000000000000000>] 0x0
+           hardirqs last disabled at (0): [<ffff8000801d876c>] copy_process+0xd5c/0x29f8
 
 
---=-aFgVqWTbHqggURVS1l3H--
+> The initial report contained only vhost_vsock traces IIUC, so I'm
+> suspecting something in the vhost core.
+
+Right, it seems we are hitting the same code path, on on both
+vhost_vsock and vhost_net.
 
