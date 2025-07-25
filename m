@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6268CC87FCA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Jul 2025 17:11:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E5B2C87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Jul 2025 17:13:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Boet0sQ6t0VHwTkIVD5mIWeVJs2/6kN6hXhM0zHjkC0=; b=zBh+iPFHMJqjGsY8jTVOErNmID
-	DnjLzLqeYnpF/BfYVTGEGJo8mLJmQcaW7FMjCb1ZJWOqExUWz57+7hkkzT+KJrzV1WVLovX8CbuVw
-	EFdiObchf3nywmrvVWuXP88IWfcumG2/4MiYRF1FrvLgsfRhjQuWDCADR1Y2YVdtvsI5FBxA8MMZO
-	dXgxSZi4ax2Q028xg+NPay+d3mV8Oy4SfayBx6U4CDnLJZpVDJSmtXjr2JEkOxUJbcZi6sBSTbi6K
-	QYDn23kyuuMTL/whW9r9vZRKxlI5256pPg/SL1K08YXfTW00VTPS3S2jFMJIe9GdCtG1fezRbLzmr
-	KaUEyM8w==;
+	bh=2ueWQAy9NKeOBPwY9q2/4YG3p/NKgE6FIhLz9uDT7E4=; b=4+OdT1juXjjejTiNCvl9iaKI7Q
+	yq4985/HrvxqVvd3rIYdyrWce680gbt/1aY02zQq4U6pr4nmpsFSHFKiIOlxvbZRtriMzHSIRvUpa
+	LHd8/nS+ySYxF0bq9+kuGbkjVDETBnjKZ5t8X6H3PCaCLUQmgFU6cTIg9p4WzVjCqiX2TIe49UibP
+	UuT61nWoIbPWdapU+2ZQEIM0gWEnUlUgPsLYj6KHagm/MoOevJEOCCw/rhr5V3n9UBshqw00GFx/o
+	b6CgjxEx5n4EUu3GBVT/URt+WHZqYHTf8W9MiMHO9kRXj0CO02bjn1FKW9hZHO2I0jN+yyQoxJHlx
+	TNeJXZIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufLwo-0000000AIpK-1J8n;
-	Fri, 25 Jul 2025 17:11:06 +0000
+	id 1ufLzG-0000000AJ29-0DU9;
+	Fri, 25 Jul 2025 17:13:38 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufLrs-0000000AICC-2jmH
+	id 1ufLrx-0000000AICs-1I2J
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Jul 2025 17:06:01 +0000
+	Fri, 25 Jul 2025 17:06:06 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 556171A00;
-	Fri, 25 Jul 2025 10:05:53 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 01C1E176C;
+	Fri, 25 Jul 2025 10:05:58 -0700 (PDT)
 Received: from [10.1.197.43] (eglon.cambridge.arm.com [10.1.197.43])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 17E913F66E;
-	Fri, 25 Jul 2025 10:05:55 -0700 (PDT)
-Message-ID: <1422ff0e-6aa3-42de-ba12-4dff32e7505d@arm.com>
-Date: Fri, 25 Jul 2025 18:05:50 +0100
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7A0BC3F66E;
+	Fri, 25 Jul 2025 10:06:00 -0700 (PDT)
+Message-ID: <1097d0cf-deb7-4247-93eb-2fe8b23dbd6c@arm.com>
+Date: Fri, 25 Jul 2025 18:05:58 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 06/36] ACPI / PPTT: Stop acpi_count_levels() expecting
- callers to clear levels
+Subject: Re: [RFC PATCH 05/36] ACPI / PPTT: Add a helper to fill a cpumask
+ from a processor container
 To: Jonathan Cameron <Jonathan.Cameron@huawei.com>
 Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  Rob Herring <robh@kernel.org>, Ben Horgan <ben.horgan@arm.com>,
@@ -56,16 +56,16 @@ Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  Dave Martin <dave.martin@arm.com>, Koba Ko <kobak@nvidia.com>,
  Sudeep Holla <sudeep.holla@arm.com>
 References: <20250711183648.30766-1-james.morse@arm.com>
- <20250711183648.30766-7-james.morse@arm.com>
- <20250716165142.00002c46@huawei.com>
+ <20250711183648.30766-6-james.morse@arm.com>
+ <20250722152807.000069d3@huawei.com>
 Content-Language: en-GB
 From: James Morse <james.morse@arm.com>
-In-Reply-To: <20250716165142.00002c46@huawei.com>
+In-Reply-To: <20250722152807.000069d3@huawei.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250725_100600_813930_9B81B023 
-X-CRM114-Status: GOOD (  24.81  )
+X-CRM114-CacheID: sfid-20250725_100605_396676_4EA12F13 
+X-CRM114-Status: GOOD (  10.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,76 +82,32 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hi Jonathan,
 
-On 16/07/2025 16:51, Jonathan Cameron wrote:
-> On Fri, 11 Jul 2025 18:36:18 +0000
+On 22/07/2025 15:28, Jonathan Cameron wrote:
+> On Fri, 11 Jul 2025 18:36:17 +0000
 > James Morse <james.morse@arm.com> wrote:
 > 
->> acpi_count_levels() passes the number of levels back via a pointer argument.
->> It also passes this to acpi_find_cache_level() as the starting_level, and
->> preserves this value as it walks up the cpu_node tree counting the levels.
+>> The PPTT describes CPUs and caches, as well as processor containers.
+>> The ACPI table for MPAM describes the set of CPUs that can access an MSC
+>> with the UID of a processor container.
 >>
->> The only caller acpi_get_cache_info() happens to have already initialised
->> levels to zero, which acpi_count_levels() depends on to get the correct
->> result.
->>
->> Explicitly zero the levels variable, so the count always starts at zero.
->> This saves any additional callers having to work out they need to do this.
+>> Add a helper to find the processor container by its id, then walk
+>> the possible CPUs to fill a cpumask with the CPUs that have this
+>> processor container as a parent.
 
-> This is all a bit fiddly as we now end up with that initialized in various
-> different places.
+>> +/**
+>> + * acpi_pptt_get_cpus_from_container() - Populate a cpumask with all CPUs in a
+>> + *                                       processor containers
+>> + * @acpi_cpu_id:	The UID of the processor container.
+>> + * @cpus		The resulting CPU mask.
 
-I've debugged this one a few times, (turns out I'm forgetful) ... I figured doing this
-was better than adding a comment to warn others.
-As its static, I figured it was something the compiler can optimise out if there is a
-duplicate. (I couldn't find any initialisation I could remove because of this)
-
-
-> Perhaps simpler to have acpi_count_levels() return the
-> number of levels rather than void. Then return number of levels rather
-> than 0 on success from acpi_get_cache_info(). Negative error codes used
-> for failure just like now.
+> Missing colon.
 > 
-> That would leave only a local variable in acpi_count_levels being
-> initialized to 0 and passed to acpi_find_cache_level() before being
-> returned when the loop terminates.
-> 
-> I think that sequence then makes it such that we can't fail to
-> initialize it at without the compiler noticing and screaming.
-> 
-> Requires a few changes from if (ret) to if (ret < 0) at callers
-> of acpi_get_cache_info() but looks simple (says the person who
-> hasn't actually coded it!)
+> From a W=1 build (and hence kernel-doc warning).
 
-Breaking the symmetry between levels and split_levels is an argument against this.
+Thanks!
 
-I think within pptt.c this is fine, because 'level's is used internally as
-'starting_level', and this expectation it was initialised to zero is a nasty surprise.
+W=1 spews so much output I tend to rely on the kbuild robot to report if I'm making it worse!
 
-But exposing that from acpi_get_cache_info() looks stranger - and would need to touch
-users in cacheinfo, arm64, riscv.
-
-I've updated acpi_count_levels() to look as you describe - that at least makes it harder
-to miss this in future. (not sure whether it saves anything)
-
-
->> diff --git a/drivers/acpi/pptt.c b/drivers/acpi/pptt.c
->> index 13619b1b821b..13ca2eee3b98 100644
->> --- a/drivers/acpi/pptt.c
->> +++ b/drivers/acpi/pptt.c
->> @@ -183,7 +183,7 @@ acpi_find_cache_level(struct acpi_table_header *table_hdr,
->>   * @cpu_node: processor node we wish to count caches for
->>   * @levels: Number of levels if success.
->>   * @split_levels:	Number of split cache levels (data/instruction) if
->> - *			success. Can by NULL.
->> + *			success. Can be NULL.
-> 
-> Grumpy reviewer hat.  Unrelated cleanup up - good to have but not in this patch where
-> it's a distraction.
-
-I was hoping diff would keep it as one hunk. Happy to leave it tyopd!
-
-
-Thanks,
 
 James
 
