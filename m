@@ -4,62 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EAC6C87FCD
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Jul 2025 07:43:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86429C87FCD
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Jul 2025 07:45:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Fxlm2i/mfs5Z7L01WVsPotaIFZ9MybRhdcSNsTyJcVo=; b=3HcIN2NRi8jbWFsBxqR9+FgwTc
-	e94i5ifqcCW/VSnEXK8J8QtuRyBrb8XUd0p8jMd7ZsgObXk4Eij782esFDm1HJbDdqB7KuvKRkh/m
-	Ml656k/+Ud2jv+tOsLdiBQFj5av54V5mowzr58VcIgmiigMZj75c5IB8pjSGI9OQ+5freicBR+gAm
-	9M32ZeKNi1mUc+m9xg4x/0kQiwSQeITWnlQn+6+Padtd1NbNPWLEwd2in5pY0IYJTvHN2IdXwcSQ2
-	bMq/1MWrrO0epZGbCAKxfg7uJOQmQhFWwEPDQCH1bW8SD48BWfRVXgWoEfhhDrAeLpuxBe5oBfocs
-	F1Q97EYQ==;
+	bh=//U4xBgQmJXzHDR4TWpPw/lnZBcBa8vCHXEttKSX0xI=; b=AQcxAfGEh1gnMvR661/2Suf/Qw
+	XXcar9ZHezR7FdYkTHJRJBY4AsMkDvJcWxF5JDYsb1JIPsrO5jtFbJlUm78JqOujsyuj6JAikBZSQ
+	Q2hFmquUPYK6nj3inbMFs4K9/M1k/Rn7Kl8j1xdQdMnqBRqL+sz64ZjcNIpz7l0dyiKuMJlT13w/w
+	POCw1uG/ebuv1dlfGpZCeyLa2DTN0Y0oyMzhiszg08M1sPP77O4KuvcxDv7ny/NgRLDor46Ppg83D
+	pAmaGMCYt8DfLrubmttW7GR0k74mlRukjIgZpEkFSp/WrsZvo9A51QY+YMAtvdt9McTfwqfSTjoqn
+	aLFNX4kQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufD5J-00000009Hcn-07JU;
-	Fri, 25 Jul 2025 07:43:17 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1ufD7j-00000009HqB-2HAq;
+	Fri, 25 Jul 2025 07:45:47 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufCpU-00000009G37-3DdA;
-	Fri, 25 Jul 2025 07:26:57 +0000
+	id 1ufCsu-00000009GQI-2OZ4
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 25 Jul 2025 07:30:29 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id ABDF4A55FA6;
-	Fri, 25 Jul 2025 07:26:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C35B1C4CEE7;
-	Fri, 25 Jul 2025 07:26:54 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id D896044B91;
+	Fri, 25 Jul 2025 07:30:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A1BCCC4CEF7;
+	Fri, 25 Jul 2025 07:30:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753428415;
-	bh=zkwE144btqrOh6f3+S/Z0K7VteOTSRKAEctuSxngV2Y=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=QDwJ1nJtPnvR1hvWu43yd/wUPqTVHDfBo1LeI2QDBk70GyjlUkLSWdacJK9Gxwowa
-	 XrrfUCEkchRJs79dxQ0zCilHLZmwn4kAvM9pJ/o0hC5Q9vCg7ZyjtqnMzbQiiQhJc5
-	 vuAPveSPLVF2wKrcvoxAu3f5Qk/jRhIv/6952re1iA6xuSTjyhxTbdmEV3fz6Fqcf4
-	 KZtwE+lJ2YesfNNR9PZwzAwaYb9Ezk1lCfRVEH8VoIbezIsp80mi7LFqgj7ckHloAI
-	 LryzejqzDhqmyVcXA5rb5M7LzRcC2VEW38wvw7yAGV79CgYfL/c8b2M4gZEINpR8v4
-	 bnU3Lo517+ipw==
-Date: Fri, 25 Jul 2025 09:26:52 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Erik Beck <xunil@tahomasoft.com>
-Cc: Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Heiko Stuebner <heiko@sntech.de>, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 2/2] arm64: dts: rockchip: add LinkStar-H68k-1432v1
-Message-ID: <20250725-muskox-of-authentic-gaiety-b8eda4@kuoka>
-References: <20250724-linkstar-h68k-patchv3-v3-0-b9f87b7306e5@tahomasoft.com>
- <20250724-linkstar-h68k-patchv3-v3-2-b9f87b7306e5@tahomasoft.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20250724-linkstar-h68k-patchv3-v3-2-b9f87b7306e5@tahomasoft.com>
+	s=k20201202; t=1753428625;
+	bh=nua92x0daTGPAa9Lcxv8VEukL2BqG6YUkO/iJsGHqfA=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=PktTho9E1qwbQ/oaxMdmeQZJbUc0K+8IsdTr+SwJFzoGdb0F6AeGY5Vqj4wuy38lH
+	 V23AMLL1R3Vn6AmmcLnifTbF6b/hkCJco73Njoa9ggokJklTYud+ujwle460wD7KAX
+	 DjJ2gEFn6v5RyCa1QrR9oSmtTXwEQtkP3xuy7DpNJJZ00olhAuIU/anO3JAeKbLO9W
+	 FTc2c0xKTsd6RDULQyZSrAiSFGdD+5X9rw/QPtOlr+Qqd1+jg4AawKXpgpP6NDf1lx
+	 y5i6bwaAHzg+gxvZLvK4hCxqKwuPoE0GGyAd9K+CtqwmECNBrVrhyPp2IdnlnqPih+
+	 o9LZ/32NZtH0Q==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1ufCsp-001GT7-59;
+	Fri, 25 Jul 2025 08:30:23 +0100
+Date: Fri, 25 Jul 2025 08:30:21 +0100
+Message-ID: <86frek9182.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Justin Stitt <justinstitt@google.com>
+Cc: James Morse <james.morse@arm.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Tom Rix <trix@redhat.com>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	llvm@lists.linux.dev,
+	stable@vger.kernel.org
+Subject: Re: [PATCH 6.1.y] KVM: arm64: silence -Wuninitialized-const-pointer warning
+In-Reply-To: <20250724-b4-clidr-unint-const-ptr-v1-1-67c4d620b6b6@google.com>
+References: <20250724-b4-clidr-unint-const-ptr-v1-1-67c4d620b6b6@google.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: justinstitt@google.com, james.morse@arm.com, alexandru.elisei@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, catalin.marinas@arm.com, will@kernel.org, nathan@kernel.org, trix@redhat.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, llvm@lists.linux.dev, stable@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250725_002656_875551_D2B5584A 
-X-CRM114-Status: UNSURE (   8.81  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250725_003028_651362_B7E20A28 
+X-CRM114-Status: GOOD (  23.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,19 +94,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 24, 2025 at 05:37:59PM -0400, Erik Beck wrote:
-> Adds dts for LinkStar-H68K-1432v1 board, using rk3568.  Also modifies
+[Dropping a few emails from the list, as they are very likely to
+ simply bounce]
 
-Add DTS
+On Fri, 25 Jul 2025 02:15:28 +0100,
+Justin Stitt <justinstitt@google.com> wrote:
+> 
+> A new warning in Clang 22 [1] complains that @clidr passed to
+> get_clidr_el1() is an uninitialized const pointer. get_clidr_el1()
+> doesn't really care since it casts away the const-ness anyways.
+> 
+> Silence the warning by initializing the struct.
+> 
+> This patch won't apply to anything past v6.1 as this code section was
+> reworked in Commit 7af0c2534f4c ("KVM: arm64: Normalize cache configuration").
+> 
+> Cc: stable@vger.kernel.org
+> Fixes: 7c8c5e6a9101e ("arm64: KVM: system register handling")
 
-> dts/rockchip/Makefile to add a rule to make the dtb from this dts.
+No, this really doesn't fix anything other than paper over an
+overzealous warning.
 
-This is obvious and redundant. We see it from the diff. Explain the
-hardware instead of stating obvious.
+> Link: https://github.com/llvm/llvm-project/commit/00dacf8c22f065cb52efb14cd091d441f19b319e [1]
+> Signed-off-by: Justin Stitt <justinstitt@google.com>
+> ---
+>  arch/arm64/kvm/sys_regs.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+> index f4a7c5abcbca..d7ebd7387221 100644
+> --- a/arch/arm64/kvm/sys_regs.c
+> +++ b/arch/arm64/kvm/sys_regs.c
+> @@ -2948,7 +2948,7 @@ int kvm_sys_reg_table_init(void)
+>  {
+>  	bool valid = true;
+>  	unsigned int i;
+> -	struct sys_reg_desc clidr;
+> +	struct sys_reg_desc clidr = {0};
+>  
+>  	/* Make sure tables are unique and in order. */
+>  	valid &= check_sysreg_table(sys_reg_descs, ARRAY_SIZE(sys_reg_descs), false);
+> 
 
-> This board is a compact travel router.
+Frankly, this sort of things is the worse you can do, as
 
-Best regards,
-Krzysztof
+- it perpetuates a bad design
 
+- it is completely pointless, as you pointed out
+
+- it is only going to make it harder to backport other patches
+
+The correct fix would be to backport the series described in
+e8789ab7047a8, which should be easy enough to apply. it would also
+make 6.1 less of a terrible kernel.
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
