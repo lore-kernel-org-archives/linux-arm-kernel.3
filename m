@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 216D8C83F26
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Jul 2025 07:50:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E0F9C87FCD
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Jul 2025 07:53:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
 	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zNH/CsduUWCvM5gELuAgq3p7E4AdZC3XhwuB0cWgsv0=; b=zdsYKKl0OCrBn2YVSo2vUJo7KD
-	VHPDQVxeg3FCvUsujYHniH3t1090bQ8O9HLfin/jqJEdjib1G3K6qJR8DJ8RgSev532lcshLZwvQX
-	V8X96uTYClQ0kDPoIZhJKW17ZXaEjzOz0LFxCyLgVSVEDkj4kX1WxWrOxO9Sfpb0vlS5k5suNCOc8
-	k33GQsg1SywMTGfJX2NR7DNG70/9420DVv80LWIhss7ZLHOQPdR1rJbp3yb9rg886NN9nLdFEGDNK
-	OVJidJotOGlMYgQoSwOrWGBghnVZ5U63/v7vXu2Pa1THzsepKdCTZk6i0FjAKYaxZ9ChR8WLSbzuL
-	sk9C7o/g==;
+	bh=6ZGxjiEdwRsMG9Q2E2qjJEU3/ioErAZD+Vn9eIyQP6Q=; b=vjEbXXlaeok4/5KdYrxFSVg/cJ
+	9a+eU9Xh8rdXhFWAHlpuh71YMAGrSkUeszzsAcNNhmdvluVbyPZ7xT/2pP/q9FRW+RrYFhvVOSIZR
+	vnpBKfbZCro9CQVkTpujTkdYBWBPj91G9nfSIU2Ofbhe+3LNhoaP5wfuI6CdS/CN7GU44BCB/GMub
+	0lNK1Y5z7VqTrVqN0Ea4+6l+IuEdJ8+g4Mi4FJWcEkgpIcOCVG+bHQB2Z8RSO0AERHoeE7PU9Uluh
+	gg7LhEFJnuL+6BpeqH6Iv8M25M1ACUFrWP615G13V1ao991h2oSe3yoGhD6JQ28tfAhsekjuc2Ytm
+	acUrc4Xw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufDCb-00000009IG0-0Tob;
-	Fri, 25 Jul 2025 07:50:49 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1ufDF2-00000009IVD-0thT;
+	Fri, 25 Jul 2025 07:53:20 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufD2M-00000009HB4-2H31
+	id 1ufD3y-00000009HUn-3A62
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Jul 2025 07:40:15 +0000
+	Fri, 25 Jul 2025 07:41:56 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 9C968A56052;
-	Fri, 25 Jul 2025 07:40:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7F5CAC4CEE7;
-	Fri, 25 Jul 2025 07:40:10 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 4DFF246831;
+	Fri, 25 Jul 2025 07:41:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5FA54C4CEE7;
+	Fri, 25 Jul 2025 07:41:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753429213;
-	bh=7VzQscuh58heLqHgPQucnd5aA5ZutPjS50+G0o0BO0Y=;
+	s=k20201202; t=1753429314;
+	bh=+oqH1MFh0BVgLR6cjPHsZ04ng4bYIfUcQCNQ4tKmWi4=;
 	h=Date:Subject:To:References:From:In-Reply-To:From;
-	b=fvLj/ANpkT2bNwQYRbeyhJMU70oyrqXfxsFj7Mou4iNQBHzz21IOMS24MZA4v65qm
-	 wMw8+QYyzq3avcoG94kfAnX2OHP6TVXc+UneLCbFDyPMVI5fR8AV7vjz59D6zatuJc
-	 7lTgFRvqsfeGAwzue0TY86lPQ4rtXGE6Zyed2I43w/fQvUTNMXAezuXx/HyXlFbKX+
-	 TjhEHkoRzVeSfT0e8RqofNNKSc8KvuQCUyZxSSBO7C2WMCKAtW0ZHkEocRTNSRS6jF
-	 FltryL1O+/oslxIaenw3ZSkLhBuSAvznsXbb2x0eQzaXtv3y41z6MAF4s2CphYvGmb
-	 oAvjrcKKlIeig==
-Message-ID: <384635a3-c6ed-44f8-a54a-2b20e20694cd@kernel.org>
-Date: Fri, 25 Jul 2025 09:40:08 +0200
+	b=OqcWCYGkZZjKAXS0oyQgUnyxOiO5YSu7EEyvEwzY0aFdXeonUNISxbTwyT8zG2f/J
+	 VO6lec445cOUHa9UF2myCCnl3vxSPv1Xr8qDDjgcngt1Rwp+zZ14SQipD+/IrTer6J
+	 Mj8oFL3cQINUMxpvC9TLtoYX+ZQNbWA6u5xFe/nN8UvmyBPZhTcbASae9uf5iJjVGh
+	 uXxOiDpwnbomzV5mUj4I8TKoRWex6SDdOu1TqW6aFd3cO+df9LoCAPCe9LXw6/u+EQ
+	 V8JViaZIU7tDLwwVF1ZkJTzBas0tqrna01soWBYkUtJR5L4RygSHCC4TfrYRSxJ7mX
+	 kT39XLIdOHE5g==
+Message-ID: <3c2ce865-0f9b-4b8b-a4c7-d869c6a4f717@kernel.org>
+Date: Fri, 25 Jul 2025 09:41:49 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v3 1/2] dt-bindings: interrupt-controller: aspeed: Add
@@ -61,8 +61,9 @@ To: Ryan Chen <ryan_chen@aspeedtech.com>, Thomas Gleixner
  "linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>
 References: <20250722095156.1672873-1-ryan_chen@aspeedtech.com>
  <20250722095156.1672873-2-ryan_chen@aspeedtech.com>
- <001d37c7-f704-4554-a4db-0cc130e07dd6@kernel.org>
- <OS8PR06MB7541F8D3AEE1A618DB31F07BF25FA@OS8PR06MB7541.apcprd06.prod.outlook.com>
+ <a9294387-ce7f-482e-89e1-7c85feaeeee9@kernel.org>
+ <OS8PR06MB754125722911782DBB3CFEFCF25FA@OS8PR06MB7541.apcprd06.prod.outlook.com>
+ <OS8PR06MB75418DB8CDD04D506EB13215F259A@OS8PR06MB7541.apcprd06.prod.outlook.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -108,12 +109,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <OS8PR06MB7541F8D3AEE1A618DB31F07BF25FA@OS8PR06MB7541.apcprd06.prod.outlook.com>
+In-Reply-To: <OS8PR06MB75418DB8CDD04D506EB13215F259A@OS8PR06MB7541.apcprd06.prod.outlook.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250725_004014_728554_341B331D 
-X-CRM114-Status: GOOD (  11.75  )
+X-CRM114-CacheID: sfid-20250725_004154_839410_F8C87B6D 
+X-CRM114-Status: GOOD (  22.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,66 +129,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 23/07/2025 10:08, Ryan Chen wrote:
->> Subject: Re: [PATCH v3 1/2] dt-bindings: interrupt-controller: aspeed: Add
->> parent node compatibles and refine documentation
->>
->> On 22/07/2025 11:51, Ryan Chen wrote:
->>> +  INTC0 is used to assert GIC if interrupt in INTC1 asserted.
->>> +  INTC1 is used to assert INTC0 if interrupt of modules asserted.
->>> +  +-----+   +---------+
->>> +  | GIC |---|  INTC0  |
->>> +  +-----+   +---------+
->>> +            +---------+
->>> +            |         |---module0
->>> +            | INTC0_0 |---module1
->>> +            |         |---...
->>> +            +---------+---module31
->>> +            |---....  |
->>> +            +---------+
->>> +            |         |     +---------+
->>> +            | INTC0_11| +---| INTC1   |
->>> +            |         |     +---------+
->>> +            +---------+     +---------+---module0
->>> +                            | INTC1_0 |---module1
->>> +                            |         |---...
->>> +                            +---------+---module31
->>> +                            ...
->>> +                            +---------+---module0
->>> +                            | INTC1_5 |---module1
->>> +                            |         |---...
->>> +                            +---------+---module31
->>
->> You binding also said intc1 is the parent of intc-ic, so where is here intc-ic?
->>
->> This diagram and new binding do not match at all.
+On 25/07/2025 09:18, Ryan Chen wrote:
 > 
-> The corresponded compatible is following.
+>> Subject: RE: [PATCH v3 1/2] dt-bindings: interrupt-controller: aspeed: Add parent
+>> node compatibles and refine documentation
+>>
+>>> Subject: Re: [PATCH v3 1/2] dt-bindings: interrupt-controller: aspeed:
+>>> Add parent node compatibles and refine documentation
+>>>
+>>> On 22/07/2025 11:51, Ryan Chen wrote:
+>>>> The AST2700 SoC contains two independent top-level interrupt
+>>>> controllers
+>>>> (INTC0 and INTC1), each responsible for handling different
+>>>> peripheral groups and occupying separate register spaces. Above
+>>>> them, PSP(CA35) GIC controller acts as the root interrupt
+>>>> aggregator. Accurately describing this hierarchical hardware
+>>>> structure in the device tree requires distinct compatible strings for the parent
+>> nodes of INTC0 and INTC1.
+>>>>
+>>>> - Adds 'aspeed,ast2700-intc0' and 'aspeed,ast2700-intc1' compatible
+>>>> strings for parent interrupt controller nodes. (in addition to the
+>>>> existing 'aspeed,ast2700-intc-ic' for child nodes)
+>>>
+>>> I don't understand how this solves your problem at all. Look at old
+>>> diagram - is it correct? If not, what makes you think that new diagram is
+>> correct?
+>>>
+>>> What is the meaning of existing binding and existing intc-ic compatible?
+>>>
+>> The new parent nodes (aspeed,ast2700-intc0/intc1) make the device tree layout
+>> match the actual hardware separation shown in the SoC datasheet.
+>> This allows us to register the full resource region, allocate platform resources
+>> properly, and cleanly extend/debug in the future.
+>>
+>> The previous "aspeed,ast2700-intc-ic" compatible only describes the interrupt
+>> controller instance, not the full register block. In practice, with only a single child
+>> node, there is no way to:
+>> map and manage the entire address space for each INTC block (0x12100000 and
+>> 0x14c18000), or cleanly expose debug features that must access
+>> routing/protection registers outside the intc-ic range.
+>>
+>> The old diagram was incomplete, since it implied that the interrupt controller
+>> block had only the intc-ic instance, but in hardware each INTC region contains
+>> multiple functions and register ranges.
+>>
+>> This binding change is mainly for clarity and correctness, aligning DT and driver
+>> with the real SoC register map and future-proofing for debug/maintenance.
+>>>
+>>>> - Clarifies the relationship and function of INTC0 parent
+>>>>  (intc0_0~x: child), INTC1 parent (intc1_0~x: child), and the GIC
+>>>> in the documentation.
+>>>> - Updates block diagrams and device tree examples to illustrate  the
+>>>> hierarchy and compatible usage.
+>>>> - Refines documentation and example formatting.
+>>>>
+>>>> This change allows the device tree and driver to distinguish between
+>>>> parent (top-level) and child (group) interrupt controller nodes,
+>>>> enabling more precise driver matching SOC register space allocation.
+>>>
+>>> And how it was not possible before? That's poor argument especially
+>>> that DT does not have to ever distinguish that.
+>>>
 > 
->   +-----+   +---------+
->   | GIC |---|  INTC0  | -> (parent : aspeed,ast2700-intc0)
->   +-----+   +---------+
->             +---------+
->             |        |---module0
->             | INTC0_0 |---module1
-> 			(child : aspeed,ast2700-intc-ic)
->             |        |---...
->             +---------+---module31
->             |---....  |
->             +---------+
->             |         |    					 +---------+
->             | INTC0_11 | +----------------------------	| INTC1   |  -> -> (parent : aspeed,ast2700-intc1)
+> Hi Krzysztof,
+> 
+> I wanted to follow up on my previous explanation about separating parent and child nodes for AST2700 INTC in the device tree.
+> There is other SoCs, such as Marvell’s CP110 ICU, also use a similar approach to separate parent controller and functional child nodes in the device tree, as shown here:
+> https://github.com/torvalds/linux/blob/master/Documentation/devicetree/bindings/interrupt-controller/marvell%2Ccp110-icu.yaml#L74-L98
+> Do you need me to provide further details or additional about our SOC design information?
+> Or is there anything specific you’d like clarified regarding the motivation or the binding structure?
 
-AGAIN (second time): that's not what your binding said.
+Start properly wrapping your email responses. All of them are
+misformatted, all the time!
 
-Your binding is explicit here, which is what we want in general. It says
-that inct1 is one of the parents of intc-ic.
-
-Let me be clear, because you will be dragging this talk with irrelevant
-arguments forever - changing this binding is close to no. If you come
-with correct arguments, maybe would work. But the main point is that you
-probably do not have to even change the binding to achieve proper
-hardware description. Work on that.
+You got replies from two DT binding maintainers. Work with that.
 
 Best regards,
 Krzysztof
