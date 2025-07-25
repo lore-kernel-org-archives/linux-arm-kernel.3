@@ -4,72 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D3AEC87FCA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Jul 2025 11:33:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7C06C87FCE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Jul 2025 11:35:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YaWeptwFmFTl0/+px3iUuNOqsj2l9uRyZ2IShzveQVA=; b=k34PxO20qE7uSBgKGxCE6iJthA
-	wrkI+YWXpCFD0s9FLcBHJHRQyYPI2uiIOz/Ub07VdhfkAEg9QO7w7TE6PCb37ugqiyDWNir+F/trB
-	yiLe/R6Vp6yIFtUv4oPuzfbyyunyoZqBv+4+/lkdPemn9e4PSBxlL92m032MZXiGnam4UL8M9qAAB
-	64ccFlQgOz/2XiiGiWJx9Hj9tbz120nPX5Kxta78V/AswS3MRGAOgo4LsFz0miDvDNZpsXGJkrJo2
-	s9KhtTexZ20NZ9O941WI3mYu4/OugKasTLRSPAIACyJ9YfqVjshrKtoPHRkJKt4uE0+gQk2cv/qoY
-	4fg7KA0Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9EUWlyjvWcmzezRZtLXmJwQA1armjqiBfjWknuecpsQ=; b=eOR71okNspPV8MssdtP9glulvN
+	WSWtDuAMtiFR6opAcQg8MeNC9CAnJqDyLJbacZHm/+9lXzWaMbjksKTGWG/OfJxM9atuRcbJWZaft
+	nA2MiI0adRJuzPAAA3OZ/9kT0WzKV1bVHt7KH6OO4cOcpdMr/1Q1tAnalcjIqFsgD39PJNL/p0fWR
+	0YXjmAnySdJHitDbbaCEnv50G2xmoc4WF6AkAXlrEaJXV4DeJIqPCKZGmGPKwknYbi2pTFLzGDs25
+	GmJZ5SdbNrXdxviZ6tyfg3mfLSdbZArHEO3W0jxSxW1HzBrGjpwo1Q53M2jE7CDEXTMTXX3aAwwMq
+	DqfL4mEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufGfX-00000009jB6-3NS7;
-	Fri, 25 Jul 2025 11:32:55 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1ufGhy-00000009jN3-2aFl;
+	Fri, 25 Jul 2025 11:35:26 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufG8y-00000009eQe-359I
+	id 1ufG9d-00000009eVJ-3dvs
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Jul 2025 10:59:17 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.31])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4bpPwC6pBLz6L56g;
-	Fri, 25 Jul 2025 18:57:31 +0800 (CST)
-Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
-	by mail.maildlp.com (Postfix) with ESMTPS id 3805F140159;
-	Fri, 25 Jul 2025 18:59:11 +0800 (CST)
-Received: from localhost (10.203.177.66) by frapeml500008.china.huawei.com
- (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Fri, 25 Jul
- 2025 12:59:10 +0200
-Date: Fri, 25 Jul 2025 11:59:08 +0100
-From: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-To: =?ISO-8859-1?Q?Cl=E9ment?= Le Goffic <clement.legoffic@foss.st.com>
-CC: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, "Rob
- Herring" <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor
- Dooley <conor+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, Philipp Zabel
-	<p.zabel@pengutronix.de>, Jonathan Corbet <corbet@lwn.net>, Gatien Chevallier
-	<gatien.chevallier@foss.st.com>, Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, "Gabriel Fernandez"
-	<gabriel.fernandez@foss.st.com>, Krzysztof Kozlowski <krzk@kernel.org>, Le
- Goffic <legoffic.clement@gmail.com>, Julius Werner <jwerner@chromium.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-perf-users@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
-	<linux-kernel@vger.kernel.org>, <linux-doc@vger.kernel.org>,
-	<linux-clk@vger.kernel.org>
-Subject: Re: [PATCH v3 12/19] perf: stm32: introduce DDRPERFM driver
-Message-ID: <20250725115908.000074d7@huawei.com>
-In-Reply-To: <20250725115655.00002304@huawei.com>
-References: <20250722-ddrperfm-upstream-v3-0-7b7a4f3dc8a0@foss.st.com>
-	<20250722-ddrperfm-upstream-v3-12-7b7a4f3dc8a0@foss.st.com>
-	<20250725115655.00002304@huawei.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
-MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.203.177.66]
-X-ClientProxiedBy: lhrpeml100005.china.huawei.com (7.191.160.25) To
- frapeml500008.china.huawei.com (7.182.85.71)
+	Fri, 25 Jul 2025 10:59:59 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id EB67F5C59B1;
+	Fri, 25 Jul 2025 10:59:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 98D28C4CEE7;
+	Fri, 25 Jul 2025 10:59:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1753441196;
+	bh=bUcU0cDobyQLiDEp8CMj60WJQEIv2TENj1HTo6Qkt9A=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=LouPv15IyL7WQztlYQATxazBJpsdsDswdQ1iYdVQB47FExi3Dm+QBnsxhItQ0IiFS
+	 Hsk1jXWPip8IpipAwm4pGCQQK4YTIKep8GzyKNciqYHe5ZyTJDdWhhJh/ZpucUZGm6
+	 HBZPVLkjihDL11jcyUeLTnicx/K4Wqjwc+GGEZG74BnubN1vSE5s+4/a7ueysM9PB1
+	 RZbPaJ4W00Kfuam5WTmxs7iY12nWVUwlXCGk/ucYDYfKDOafO8twOA2QnZ7ABFzHpT
+	 J8E1/KWOzzU4aq1sE0Qpdu4GtGOuzLQf4W6TpoS4/goTfNbrEL+mFtCsIlBB96TJMu
+	 NsRa76FZ+ffbw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1ufG9a-001JSg-4Q;
+	Fri, 25 Jul 2025 11:59:54 +0100
+Date: Fri, 25 Jul 2025 11:59:52 +0100
+Message-ID: <86ecu48riv.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>
+Cc: Eric Auger <eauger@redhat.com>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	oliver.upton@linux.dev,
+	joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	seanjc@google.com,
+	darren@os.amperecomputing.com
+Subject: Re: [RFC PATCH v2 0/9] KVM: Enable Nested Virt selftests
+In-Reply-To: <ccd8caba-95b9-450e-afb1-deb0c42b781b@os.amperecomputing.com>
+References: <20250512105251.577874-1-gankulkarni@os.amperecomputing.com>
+	<92c7e99c-5574-422c-92f1-62d5cde58fec@redhat.com>
+	<7bf7bd52-7553-42a7-afdb-a5e95f8699b5@os.amperecomputing.com>
+	<86a56veiyy.wl-maz@kernel.org>
+	<3be548bf-aee4-46ab-bcbf-15bf629b24da@os.amperecomputing.com>
+	<86jz58c5ut.wl-maz@kernel.org>
+	<9d5d82f1-b488-4b0a-98c2-27e95d63fc5c@os.amperecomputing.com>
+	<867c12czux.wl-maz@kernel.org>
+	<ccd8caba-95b9-450e-afb1-deb0c42b781b@os.amperecomputing.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: gankulkarni@os.amperecomputing.com, eauger@redhat.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, seanjc@google.com, darren@os.amperecomputing.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250725_035916_919288_64E391A9 
-X-CRM114-Status: UNSURE (   9.46  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250725_035957_992496_557F8E94 
+X-CRM114-Status: GOOD (  32.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,30 +100,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> > +
-> > +	platform_set_drvdata(pdev, pmu);
-> > +	pmu->dev = &pdev->dev;
-> > +
-> > +	pmu->cfg = device_get_match_data(pmu->dev);
-> > +
-> > +	pmu->membase = devm_platform_get_and_ioremap_resource(pdev, 0, &res);
-> > +	if (IS_ERR(pmu->membase))
-> > +		return PTR_ERR(pmu->membase);
-> > +
-> > +	if (of_property_present(pmu->dev->of_node, "access-controllers")) {
-> > +		ret = stm32_firewall_get_firewall(pmu->dev->of_node, &firewall, 1);  
+On Fri, 25 Jul 2025 11:01:05 +0100,
+Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com> wrote:
 > 
-> Jiri is busy driving dev_fwnode() thorugh to get rid of all the directly references
-> to of_node.  Probably better to use that here from the start.
 > 
-Need more coffee. Ignore this one, you still need an of_node here.
+> Hi Marc,
+> 
+> On 6/23/2025 7:41 PM, Marc Zyngier wrote:
+> > On Mon, 23 Jun 2025 11:31:32 +0100,
+> > Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com> wrote:
+> >> 
+> >> On 6/19/2025 5:15 PM, Marc Zyngier wrote:
+> >>>>    >
+> >>>>> Also, running EL2 is the least of our worries, because that's pretty
+> >>>>> easy to deal with. It is running at EL1/0 when EL2 is present that is
+> >>>>> interesting, and I see no coverage on that front.
+> >>>> 
+> >>>> Sorry, I did not get this comment fully.
+> >>>> When we run selftest on Host with -g option, the guest code will run in vEL2 as L1.
+> >>>> This is implemented as per comment in V1.
+> >>>> 
+> >>>> When we run same selftest from L1 shell, then guest_code will be running in EL0/1 like running from L0.
+> >>> 
+> >>> What good does this bring us if we need to boot a full guest OS to run
+> >>> tests? What we need is synthetic tests that implement the whole stack:
+> >>> 
+> >>> - L1 guest hypervisor
+> >>> - L2 guest hypervisor
+> >>> - L2 guest
+> >>> - L3 guest hypervisor
+> >>> - L3 guest
+> >>> - [...]
+> >> 
+> >> IIUC, selftest leverages host OS support and uses various IOCTLs to
+> >> support the guest_code run. Are you saying to implement all this
+> >> again (without OS help) in guest_code to run it as hypervisor and
+> >> launch guest_code2 as NestedVM?.
+> > 
+> > The whole point of having small selftests is to run something that is
+> > simpler several orders of magnitude simpler than the full blown
+> > OS/hypervisor. So indeed, I'm asking for selftests that build chains
+> > of guests up to some level and verify that the nesting, as described
+> > in the architecture, works correctly.
+> > 
+> 
+> Do you see value in the patches as they are, without the changes to
+> support the bare-metal hypervisor in guest or will you only consider
+> them if they are first reworked to support the recursive guests?
 
-> 
-> > +		if (ret)
-> > +			return dev_err_probe(pmu->dev, ret, "Failed to get firewall\n");
-> > +		ret = stm32_firewall_grant_access_by_id(&firewall, firewall.firewall_id);
-> > +		if (ret)
-> > +			return dev_err_probe(pmu->dev, ret, "Failed to grant access\n");
-> > +	}
-> > +
+Running existing tests at EL2 may an interesting goal, but the way
+you've gone about it is really wrong. These tests are not about
+"nested", they are about running at EL2. So getting rid of all the
+"nested" nonsense in patch #1 and focusing on the *two* flavours of
+EL2 would be a good start.
+
+Also, EL2 tests shouldn't be optional. If EL2 is available, the test
+should run, without any option, and things like
+
++	if (is_nested)
++		vm = nv_vm_create_with_vcpus_gic(1, &vcpu, &gic_fd, guest_main);
++	else
++		vm = vm_create_with_one_vcpu(&vcpu, guest_main);
+
+are just non-starters. You just need to either get rid of the whole
+vm_create_with_one_vcpu() nonsense, or teach it to take an execution
+context.
+
+But the real NV tests are not optional either. They need to happen,
+and I don't have the confidence that they will if I agree to what you
+are suggesting. Because it's been months since I asked for these
+things, and not much has happened in the interval.
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
