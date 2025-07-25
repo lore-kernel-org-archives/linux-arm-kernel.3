@@ -4,74 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DACEFC87FCF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Jul 2025 05:05:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A93A8C83F26
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Jul 2025 05:13:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ComV7yTmfwQTTvo3gRdvvmDbkDXcM3jd/yfZXbHLHkM=; b=4Ml6Axsohep8BdPkbiaCfetNZ5
-	LrbzhJXdh1Va7f1mt05ULSdq3DQJluzaXNpY9QtH7j+d/6jM6/lu7379U/+/7coed4LQ5VGVGa2DK
-	E9HXZmcSt+CipzyigiuitRCmsnlSnJIfeWqen8HV+b9L5bZdG0kaMb8E3oy/9XG27fP9/TZ8+17g+
-	2er2DfuIRiFoOs8q1k4+DNVL17tDBzMXdbe1HtM4futdqxyEhIAz6UiQtAhPVMjp5F/EMAsy5fFfN
-	9n136Am20SnBmyjXOUzd1CiJziqx7zRVT8TUHyBHBQ9nai9WfK5bRFIeqfCUfL8mWQDShA9r2YpMj
-	rmj650aA==;
+	bh=NJRrie+evisFjv3ojJcmxiW8N4BF+TiSqioS6un+K1k=; b=2MT0DrcrsPNR4uI++tGoTuM2oe
+	OMEzRT8nLLfPylh9G5xFKVaUalcEMOddE42FwfEbYI4JEJz15yvKYETorV+oNN/teWHE7m9+XOxG3
+	FtCoeDuI8k8/N/X5PP20s8JgAjoW6DDQvraXRDokg9dhgcFQgkjQKHkS/NrJNJonbD2aNKh4tXSAp
+	qm48RwAc3mtE/4echAajqsoMiOVxbaB0Jp+xgyj9DKbJDF4E6U6LXJyw8HSQ6kN3wlJgfEILUH+9z
+	rFnfk8He24LfyWg4ssPgpyxrLou5UdiiRWI/KOZ0FefuxAS2lbLPTjoS8Lc2V3oz8pf7yvS4dfMyz
+	nz011FfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufAcA-000000093kA-1dYR;
-	Fri, 25 Jul 2025 05:05:02 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1ufAka-000000094S0-2pP1;
+	Fri, 25 Jul 2025 05:13:44 +0000
+Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufAZi-0000000932Y-3dcH
+	id 1ufAiA-000000094DF-14Ii
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Jul 2025 05:02:32 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 1CF95A52938;
-	Fri, 25 Jul 2025 05:02:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AE946C4CEF5;
-	Fri, 25 Jul 2025 05:02:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1753419748;
-	bh=wDByJ5uADwgkr25ymazjxmukAUNM4cHMm2vqVskCphs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=wd4dLo2T/szStSn24bnGbyUfbKYvCzTtBhtlaBgG7nKRFlbJSpb5YnW6oueFA2dru
-	 zyeLW8XIbPSGsNHy7n5zXia/QW5opr+BGL7nTRfLLH8G4I0E260fQLZT6DWu01pDlf
-	 xc9C6Bn/lr0zX4ebXSdvxn2khOHREMigrJ1vq4A0=
-Date: Fri, 25 Jul 2025 07:02:24 +0200
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: Sean Anderson <sean.anderson@linux.dev>
-Cc: Leon Romanovsky <leon@kernel.org>,
-	Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	netdev@vger.kernel.org, Dave Ertman <david.m.ertman@intel.com>,
-	Saravana Kannan <saravanak@google.com>,
-	linux-kernel@vger.kernel.org, Michal Simek <michal.simek@amd.com>,
-	linux-arm-kernel@lists.infradead.org,
-	Ira Weiny <ira.weiny@intel.com>
-Subject: Re: [PATCH net v2 1/4] auxiliary: Support hexadecimal ids
-Message-ID: <2025072543-senate-hush-573d@gregkh>
-References: <2025071747-icing-issuing-b62a@gregkh>
- <5d8205e1-b384-446b-822a-b5737ea7bd6c@linux.dev>
- <2025071736-viscous-entertain-ff6c@gregkh>
- <03e04d98-e5eb-41c0-8407-23cccd578dbe@linux.dev>
- <2025071726-ramp-friend-a3e5@gregkh>
- <5ee4bac4-957b-481a-8608-15886da458c2@linux.dev>
- <20250720081705.GE402218@unreal>
- <e4b5e4fa-45c4-4b67-b8f1-7d9ff9f8654f@linux.dev>
- <20250723081356.GM402218@unreal>
- <991cbb9a-a1b5-4ab8-9deb-9ecea203ce0f@linux.dev>
+	Fri, 25 Jul 2025 05:11:15 +0000
+Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-237f18108d2so115685ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Jul 2025 22:11:14 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1753420273; x=1754025073; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=NJRrie+evisFjv3ojJcmxiW8N4BF+TiSqioS6un+K1k=;
+        b=dbfmKY5TwIhNCG1/01d+vTqIy+XGwEMG/TUvNrksCfFMLglvCF765Avam0JKUnvMdJ
+         Cj/dWehsIjBqcjdTXDSmp0Smck4dcs7nmfk+Der6WnCxrJoImCzyXyGjNmqykDdNgZa/
+         MHogP/HJ6QykhOBGQpsXXVi2szH+BS+AZnMoKbJtnvcnLU+g3/JJtIdfV+uecRzoFvm7
+         eDajxeQkNZVkqosfVrSwDOlHDy7EzfH5cIH8Hr5IXLHKvmH2KPawGZERX/iBTAnrHYhL
+         qK3ZQrDn3KHigByeVOr1R20PHioUc+B+Y8gkgWXgGUtmT+fKrJ/ACDqLxhrFThtWbBul
+         01HQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1753420273; x=1754025073;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=NJRrie+evisFjv3ojJcmxiW8N4BF+TiSqioS6un+K1k=;
+        b=H42d+nWkGM+rThe7fZR5BANS2U7vsq0/YVsb07zswEVRYBTbvfOTn97bW4Bq3q1D2N
+         kRT3cRMZwfzXztrWSCD/4/yKIIgldB0ox0qefcV5LVEtNBJVy2siV1zoMvvZs1XdKNhA
+         XVVRMp0a0TGmTJ/mtRscKQ2lA9suAgQPybAw8ZPg1a3fXkf+w8KpajIam3CleuyjWz6v
+         +SyVdPEBbmP2LjZ7u7ke6lds+ORgBY8HgW19GU28r6c5vuqPNHM25WLTZ4gOl2cePXjt
+         ckxWfbI6eHfHmFs8ffI/j+HYwO5K8MeKxaG0bUEKPVXgoFjQzRpTAuy7GVG17wfgO7sM
+         oILw==
+X-Forwarded-Encrypted: i=1; AJvYcCUcSde9MTJJbo26otbs+wcYjqpMBrDR52gd3OoU1eSZU69SSwC7Axa7DN/qQp4+MoPCHogZG0iSTnj2341NZjyK@lists.infradead.org
+X-Gm-Message-State: AOJu0YwwZfEXEPXiVJFfg1Mw74nmqo9Cb/VcaUAvVIV16t8UjpD94ZAS
+	lCNjjYeVWKXt2YM0J6pfsLk6MdeqhaunDm1x7WHKqPaR+D9OUL67++E3aHmnCxkA8w==
+X-Gm-Gg: ASbGncvira6Dv8lq1OwA9Mqr1TzaUUK/c80BLejzjKRs0MLjCzEggBHEa4k91WQqD0b
+	sT8nQs+NBle1mueOBW0I76sl9ag++DU4EHESDHC64AGu9f6FTbiVd6omRzxxA81s27RvSDMtA+h
+	PnTl93CNZdu9G3stZp06/87/tbCRs4lsQ2wFfaVWPuAliAfDhXpn6+KJWYoJiu4gl84YEgOcCxm
+	bZxfLvEfn+ZN6UT6PVULZAZEFMWb5IylpTR8WBtR6WkZeePFomF9pX3a50TeDRqN91QQ7HubqJv
+	gFjY7bBdUtoGz47/aNXb5fRndP2Uaaw0/+5SKlqThQ3zz7Qa5CVyW87W3KBRzNMf/7XpomQqbt9
+	ER9PcIfHM4abzWW5zOjACizNT+XPVHHhLfL84aVByBaW9k46ir6cyoL8lZsG09PyQeWk=
+X-Google-Smtp-Source: AGHT+IGG4QZQwavYhcLFszK2mSaWOfTBLnCc2XFKEIjBG7genN2zVTCSUApFR5trIV9DREmiDkhIQw==
+X-Received: by 2002:a17:903:4b04:b0:23c:8f12:7c4b with SMTP id d9443c01a7336-23fada582fcmr1953485ad.10.1753420272915;
+        Thu, 24 Jul 2025 22:11:12 -0700 (PDT)
+Received: from google.com (232.98.126.34.bc.googleusercontent.com. [34.126.98.232])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7630c947b6fsm575750b3a.33.2025.07.24.22.11.10
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 24 Jul 2025 22:11:12 -0700 (PDT)
+Date: Fri, 25 Jul 2025 05:11:07 +0000
+From: Pranjal Shrivastava <praan@google.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: jgg@nvidia.com, will@kernel.org, joro@8bytes.org, robin.murphy@arm.com,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org, linux-tegra@vger.kernel.org
+Subject: Re: [PATCH v3 2/2] iommu/arm-smmu-v3: Replace vsmmu_size/type with
+ get_viommu_size
+Message-ID: <aIMR6xxR3Jdpy8kX@google.com>
+References: <20250721200444.1740461-1-nicolinc@nvidia.com>
+ <20250721200444.1740461-3-nicolinc@nvidia.com>
+ <aIDlsUvF2Xbdelvx@google.com>
+ <aIEkZoTOSlQ0nMKd@Asurada-Nvidia>
+ <aIEwzM7mKUI8-h9U@google.com>
+ <aIKd1owebUNQeN1-@google.com>
+ <aIKqaGMMpsIuAVab@Asurada-Nvidia>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <991cbb9a-a1b5-4ab8-9deb-9ecea203ce0f@linux.dev>
+In-Reply-To: <aIKqaGMMpsIuAVab@Asurada-Nvidia>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250724_220231_035144_B7ECEF5B 
-X-CRM114-Status: GOOD (  23.39  )
+X-CRM114-CacheID: sfid-20250724_221114_288956_3983B4B9 
+X-CRM114-Status: GOOD (  23.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,55 +105,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 24, 2025 at 09:55:59AM -0400, Sean Anderson wrote:
-> On 7/23/25 04:13, Leon Romanovsky wrote:
-> > On Mon, Jul 21, 2025 at 10:29:32AM -0400, Sean Anderson wrote:
-> >> On 7/20/25 04:17, Leon Romanovsky wrote:
-> >> > On Thu, Jul 17, 2025 at 01:12:08PM -0400, Sean Anderson wrote:
-> >> >> On 7/17/25 12:33, Greg Kroah-Hartman wrote:
-> >> > 
-> >> > <...>
-> >> > 
-> >> >> Anyway, if you really think ids should be random or whatever, why not
-> >> >> just ida_alloc one in axiliary_device_init and ignore whatever's
-> >> >> provided? I'd say around half the auxiliary drivers just use 0 (or some
-> >> >> other constant), which is just as deterministic as using the device
-> >> >> address.
-> >> > 
-> >> > I would say that auxiliary bus is not right fit for such devices. This
-> >> > bus was introduced for more complex devices, like the one who has their
-> >> > own ida_alloc logic.
-> >> 
-> >> I'd say that around 2/3 of the auxiliary drivers that have non-constant
-> >> ids use ida_alloc solely for the auxiliary bus and for no other purpose.
-> >> I don't think that's the kind of complexity you're referring to.
-> >> 
-> >> >> Another third use ida_alloc (or xa_alloc) so all that could be
-> >> >> removed.
-> >> > 
-> >> > These ID numbers need to be per-device.
-> >> 
-> >> Why? They are arbitrary with no semantic meaning, right?
+On Thu, Jul 24, 2025 at 02:49:28PM -0700, Nicolin Chen wrote:
+> On Thu, Jul 24, 2025 at 08:55:50PM +0000, Pranjal Shrivastava wrote:
+> > On Wed, Jul 23, 2025 at 06:58:20PM +0000, Pranjal Shrivastava wrote:
+> > > On Wed, Jul 23, 2025 at 11:05:26AM -0700, Nicolin Chen wrote:
+> > > > On Wed, Jul 23, 2025 at 01:37:53PM +0000, Pranjal Shrivastava wrote:
+> > > > > On Mon, Jul 21, 2025 at 01:04:44PM -0700, Nicolin Chen wrote:
+> > > > > > @@ -1273,6 +1279,10 @@ tegra241_cmdqv_init_vintf_user(struct arm_vsmmu *vsmmu,
+> > > > > >  	phys_addr_t page0_base;
+> > > > > >  	int ret;
+> > > > > >  
+> > > > > > +	/* Unsupported type was rejected in tegra241_cmdqv_get_vintf_size() */
 > > 
-> > Yes, officially there is no meaning, and this is how we would like to
-> > keep it.
-> > 
-> > Right now, they are very correlated with with their respective PCI function number.
-> > Is it important? No, however it doesn't mean that we should proactively harm user
-> > experience just because we can do it.
-> > 
-> > [leonro@c ~]$ l /sys/bus/auxiliary/devices/
-> > ,,,
-> > rwxrwxrwx 1 root root 0 Jul 21 15:25 mlx5_core.rdma.0 -> ../../../devices/pci0000:00/0000:00:02.7/0000:0
-> > 8:00.0/mlx5_core.rdma.0
-> > lrwxrwxrwx 1 root root 0 Jul 21 15:25 mlx5_core.rdma.1 -> ../../../devices/pci0000:00/0000:00:02.7/0000:0
-> > 8:00.1/mlx5_core.rdma
+> > Sorry, if this wasn't clear in the previous comment. I meant this
+> > comment must be updated, the "unsupported type" wasn't rejected in
+> > vintf_size, rather the type got corrupted which brought us here.
 > 
-> Well, I would certainly like to have semantic meaning for ids. But apparently
-> that is only allowed if you can sneak it past the review process.
+> Any unsupported type would be indeed rejected by the init op
+> callback. There is nothing wrong with that statement.
 
-Do I need to dust off my "make all ids random" patch again and actually
-merge it just to prevent this from happening?
+The comment mentioned tegra241_cmdqv_get_vintf_size() which isn't the
+init op. The statement: 
 
-greg k-h
+"unsupported type would be indeed rejected by the init op" 
+
+isn't the same as:
+
+"Unsupported type was rejected in tegra241_cmdqv_get_vintf_size()"
+
+> 
+> It indicates that we shouldn't see an unsupported type here,
+> unless some serious kernel bug like data corruption happens,
+> which is implied by the WARN_ON itself.
+> 
+> > Had the
+> > vintf_size rejected it, we wouldn't be calling the init op.
+> 
+> A data corruption could happen any time, not related to the
+> init op. A concurrent buggy thread can overwrite the vIOMMU
+> object when a write access to its adjacent memory overflows.
+> 
+
+I'm agreeing with all of it, it's just that the comment says something 
+was rejected in by the size op, which raises confusion as to why we're
+in the init op. The init op rejecting something due to data corruption
+is a different thing..
+
+I totally get the point about data corruption, i.e.:
+
+size op -> returned something valid
+<data corruption>
+init op -> rejecting corrupted type
+
+Wheras I was just trying to understand a case where as per the comment:
+"Unsupported type was rejected in tegra241_cmdqv_get_vintf_size()", 
+i.e. ->size op returned 0, yet we ended up calling the init op
+
+I guess I should've been more clear. Sorry for all the confusion.
+
+> Nicolin
+
+Praan
 
