@@ -4,87 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3E7AC87FCA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Jul 2025 11:38:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2922C87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Jul 2025 11:40:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qujreTS4bctn8qeqfj2WaeFJTashbXnjXSmTLi09w1k=; b=Mh4NtvIREHQN+bOyfd+nVsX2ip
-	m9ofpndHf/Smk9MHBSz/jT/8W996infQNKwI/Rd/OPi5Dk0KbwTGXUqvUzVMV9xUi12Mtx3xtnZ/L
-	WqxxtuNbzw2SWeYnIxyjnqZjLf/wVUhVdvKoPISYuJfyH4EPuotoOw4lqpqaBqPYnCF3Ouorud223
-	NemvJgQbmue1o+tSvVvXMVAvOkfY805PfXz5btpZXFHPiX6AZeQ9oJKgSl08AqddrbwiLv2M6RNTY
-	Wa8WKCreUfQJCXaKzLDd8QMy5aDBVP++plwEhlrlcG7taC4x2L5TK6LkEyoMn/GGQc1/SMcAnPGga
-	soOnG9+w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AJdCaj309WnyPmnHqpla024Pl4ob/ND5anL3+OLN8Rw=; b=MqdtdWMbGUVvUiNg698G21Ghh2
+	3w6C/Bp+M1b5WbfhXPebeibHgadfPamxYsdt3cA2r2boetjTWyAorCKI/TLXAZCvx9JbQyU/3L8ky
+	wT4yO8t/eaFe9qlYKHLsKaINUt8FJ6zsEMQrcnU/eHv18qjTUrcstNiJuzFecHU5lRQjyEdl7J+hG
+	+hwvXPcF+2QLUQZVrnrH13XfNS1DOtfNsmzlmMb78s1RqaDtuDEmIs0u0GPv4SjaC2DhtWkxhN3KJ
+	cSDQ9aIeRRHHoZK+SaxzmapmLfj4mqvwAk6l3MI+a3Lijr+05USNTNYOinDv+x7C45q9wN1lO8eZA
+	kZ4ICAIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufGkP-00000009jbi-1Srq;
-	Fri, 25 Jul 2025 11:37:57 +0000
-Received: from mgamail.intel.com ([192.198.163.8])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufGFz-00000009fRV-1Ajr
+	id 1ufGmq-00000009jqZ-40SP;
+	Fri, 25 Jul 2025 11:40:28 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ufGIV-00000009fvx-2jx6
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Jul 2025 11:06:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1753441591; x=1784977591;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=4ODTp0UV/5yld+rfWin+qb9F8EdCt5NLU8TsGWCsgrM=;
-  b=fqxWnNzIZKsrbniX2R6rRff7dxwm4hXF5FRC4LCAL2qE/1Pr5iUKxP0B
-   Af8eKIi1ri1dBhyOXC6LzZF9PzQ9kqjKvpEbER5KibHiuJQAYdlNhhMRF
-   7aekOrSdxFH+D1oE8XO5k0It9zh2EnLT8mzIJG3b4c20CdAFZwpsml/z/
-   Nb2cAqIu5h5LnfHUZJmr6gj+eSVp5Ie5GDHhpBEMnF6k8lSe2PRT+8YoU
-   ZrXSMk64IpInrS4ZkDqznWAt58n0QMWIh0GZQFjnZX3Fu3m+0UzWDh2Y8
-   wssVEEfmFCFeSS4X/Zvj9m73unmo/OdW0Ilz/55tNhlv89VajEeXcKhzU
-   Q==;
-X-CSE-ConnectionGUID: XGIRETl7SIWqvztdPjYuOw==
-X-CSE-MsgGUID: 83G3hgW6TiCbQ3gZ5NEV4w==
-X-IronPort-AV: E=McAfee;i="6800,10657,11501"; a="73355872"
-X-IronPort-AV: E=Sophos;i="6.16,339,1744095600"; 
-   d="scan'208";a="73355872"
-Received: from fmviesa010.fm.intel.com ([10.60.135.150])
-  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Jul 2025 04:06:25 -0700
-X-CSE-ConnectionGUID: 4dpPtvj9S5OlyM73/KA5iw==
-X-CSE-MsgGUID: DbED2/rCRkSTnILVrQc1Vg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.16,339,1744095600"; 
-   d="scan'208";a="161593680"
-Received: from lkp-server01.sh.intel.com (HELO 9ee84586c615) ([10.239.97.150])
-  by fmviesa010.fm.intel.com with ESMTP; 25 Jul 2025 04:06:18 -0700
-Received: from kbuild by 9ee84586c615 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1ufGFk-000LGp-1A;
-	Fri, 25 Jul 2025 11:06:16 +0000
-Date: Fri, 25 Jul 2025 19:06:04 +0800
-From: kernel test robot <lkp@intel.com>
-To: Shengjiu Wang <shengjiu.wang@nxp.com>, andrzej.hajda@intel.com,
-	neil.armstrong@linaro.org, rfoss@kernel.org,
-	Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
-	jernej.skrabec@gmail.com, maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com,
-	simona@ffwll.ch, lumag@kernel.org, dianders@chromium.org,
-	cristian.ciocaltea@collabora.com, luca.ceresoli@bootlin.com,
-	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
-	victor.liu@nxp.com, shawnguo@kernel.org, s.hauer@pengutronix.de,
-	kernel@pengutronix.de, festevam@gmail.com, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, p.zabel@pengutronix.de,
-	devicetree@vger.kernel.org, l.stach@pengutronix.de
-Cc: oe-kbuild-all@lists.linux.dev
-Subject: Re: [PATCH v2 5/6] drm/bridge: imx: add driver for HDMI TX Parallel
- Audio Interface
-Message-ID: <202507251859.rtsTHw8u-lkp@intel.com>
-References: <20250724072248.1517569-6-shengjiu.wang@nxp.com>
+	Fri, 25 Jul 2025 11:09:09 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F389C1756;
+	Fri, 25 Jul 2025 04:08:59 -0700 (PDT)
+Received: from [10.57.31.179] (unknown [10.57.31.179])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 2E0053F66E;
+	Fri, 25 Jul 2025 04:09:05 -0700 (PDT)
+Message-ID: <9765ba29-91e1-42bd-bb46-14fdce7284fe@arm.com>
+Date: Fri, 25 Jul 2025 12:09:04 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250724072248.1517569-6-shengjiu.wang@nxp.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/3] arm64: acpi: Enable ACPI CCEL support
+Content-Language: en-GB
+To: Will Deacon <will@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, catalin.marinas@arm.com,
+ sami.mujawar@arm.com, aneesh.kumar@kernel.org, steven.price@arm.com,
+ linux-kernel@vger.kernel.org, sudeep.holla@arm.com
+References: <20250613111153.1548928-1-suzuki.poulose@arm.com>
+ <20250613111153.1548928-4-suzuki.poulose@arm.com>
+ <aHZeCKNyDeZEsuCt@willie-the-truck>
+ <bf56dab4-8a11-4e91-b330-2a8126c94acc@arm.com>
+ <aHZsgzNYwfCljX-G@willie-the-truck>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <aHZsgzNYwfCljX-G@willie-the-truck>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250725_040631_337575_86A33427 
-X-CRM114-Status: GOOD (  14.46  )
+X-CRM114-CacheID: sfid-20250725_040907_741573_47261850 
+X-CRM114-Status: GOOD (  19.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,120 +69,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Shengjiu,
+Hi Will
 
-kernel test robot noticed the following build errors:
+On 15/07/2025 15:58, Will Deacon wrote:
+> On Tue, Jul 15, 2025 at 03:38:41PM +0100, Suzuki K Poulose wrote:
+>> On 15/07/2025 14:56, Will Deacon wrote:
+>>> On Fri, Jun 13, 2025 at 12:11:53PM +0100, Suzuki K Poulose wrote:
+>>>> ACPI CCEL memory area is reported as Non-Volatile storage area. Map it as
+>>>> PAGE_KERNEL.
+>>>
+>>> It would be helpful to have a citation for that. I've tried digging it
+>>> out of the ACPI spec, but that pointed me to the Intel TDX site and I
+>>> got lost in whitepapers :/
+>>>
+>>
+>> https://uefi.org/specs/ACPI/6.5/05_ACPI_Software_Programming_Model.html#cc-event-log-acpi-table
+> 
+> Thanks, but I still can't spot where it specifies the memory attributes.
+> I think we should be able to refer to that as justification for ignoring
+> the attributes specified by EFI.
 
-[auto build test ERROR on shawnguo/for-next]
-[also build test ERROR on robh/for-next tiwai-sound/for-next tiwai-sound/for-linus linus/master v6.16-rc7 next-20250725]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+Here is the description for the Efi memory types.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Shengjiu-Wang/dt-bindings-display-imx-add-HDMI-PAI-for-i-MX8MP/20250724-152710
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/shawnguo/linux.git for-next
-patch link:    https://lore.kernel.org/r/20250724072248.1517569-6-shengjiu.wang%40nxp.com
-patch subject: [PATCH v2 5/6] drm/bridge: imx: add driver for HDMI TX Parallel Audio Interface
-config: nios2-randconfig-002-20250725 (https://download.01.org/0day-ci/archive/20250725/202507251859.rtsTHw8u-lkp@intel.com/config)
-compiler: nios2-linux-gcc (GCC) 8.5.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250725/202507251859.rtsTHw8u-lkp@intel.com/reproduce)
+https://uefi.org/specs/UEFI/2.10/07_Services_Boot_Services.html#memory-type-usage-before-exitbootservices
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202507251859.rtsTHw8u-lkp@intel.com/
+ From that I gather that OS must map the area as read only.
 
-All errors (new ones prefixed by >>):
+> 
+>>>> Cc: Sami Mujawar <sami.mujawar@arm.com>
+>>>> Cc: Will Deacon <will@kernel.org>
+>>>> Cc: Catalin Marinas <catalin.marinas@arm.com>
+>>>> Cc: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>
+>>>> Cc: Steven Price <steven.price@arm.com>
+>>>> Cc: Sudeep Holla <sudeep.holla@arm.com>
+>>>> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+>>>> ---
+>>>>    arch/arm64/kernel/acpi.c | 5 +++++
+>>>>    1 file changed, 5 insertions(+)
+>>>>
+>>>> diff --git a/arch/arm64/kernel/acpi.c b/arch/arm64/kernel/acpi.c
+>>>> index b9a66fc146c9..f52439d411a0 100644
+>>>> --- a/arch/arm64/kernel/acpi.c
+>>>> +++ b/arch/arm64/kernel/acpi.c
+>>>> @@ -356,6 +356,11 @@ void __iomem *acpi_os_ioremap(acpi_physical_address phys, acpi_size size)
+>>>>    			prot = PAGE_KERNEL_RO;
+>>>>    			break;
+>>>> +		case EFI_ACPI_MEMORY_NVS:
+>>>> +			/* Non-volatile storage, required for CCEL */
+>>>> +			prot = PAGE_KERNEL;
+>>>
+>>> By "storage" you just mean memory, right?
+>>
+>> Yep, it is just memory. I will drop the "NV storage" and simply mention,
+>> CCEL.
+> 
+> Thanks. Also, why don't we check against memblock_is_map_memory() for
+> this, like we do for all the other types apart from
+> EFI_RUNTIME_SERVICES_CODE?
 
-   drivers/gpu/drm/bridge/imx/imx8mp-hdmi-pai.c: In function 'imx8mp_hdmi_pai_enable':
->> drivers/gpu/drm/bridge/imx/imx8mp-hdmi-pai.c:20:26: error: implicit declaration of function 'FIELD_PREP' [-Werror=implicit-function-declaration]
-    #define   WTMK_HIGH(n)   FIELD_PREP(WTMK_HIGH_MASK, (n))
-                             ^~~~~~~~~~
-   drivers/gpu/drm/bridge/imx/imx8mp-hdmi-pai.c:53:9: note: in expansion of macro 'WTMK_HIGH'
-     val =  WTMK_HIGH(3) | WTMK_LOW(3);
-            ^~~~~~~~~
->> drivers/gpu/drm/bridge/imx/imx8mp-hdmi-pai.c:59:9: error: implicit declaration of function 'FIELD_PREP_CONST'; did you mean 'FILE_REF_NOREF'? [-Werror=implicit-function-declaration]
-      val = FIELD_PREP_CONST(P_SEL,
-            ^~~~~~~~~~~~~~~~
-            FILE_REF_NOREF
->> drivers/gpu/drm/bridge/imx/imx8mp-hdmi-pai.c:60:12: error: implicit declaration of function '__bf_shf'; did you mean '__ffs64'? [-Werror=implicit-function-declaration]
-               __bf_shf(IEC958_SUBFRAME_PARITY));
-               ^~~~~~~~
-               __ffs64
-   cc1: some warnings being treated as errors
+As per the spec, the NVS type must be reserved and we do that in the
+kernel. For the other types, you mentioned, they are usable by
+general OS and in Linux we only reserve them, if they are have
+WB attribute (See is_usable_memory()). Thus we do extra checks to
+make sure, if it is in use and mark them as RO.
 
+So, NVS is by default reserved and doesn't have to do extra checks.
 
-vim +/FIELD_PREP +20 drivers/gpu/drm/bridge/imx/imx8mp-hdmi-pai.c
+That said, I will fix the prot to PAGE_KERNEL_RO to make sure
+the OS doesn't write to it.
 
-    15	
-    16	#define HTX_PAI_CTRL_EXT		0x04
-    17	#define   WTMK_HIGH_MASK		GENMASK(31, 24)
-    18	#define   WTMK_LOW_MASK			GENMASK(23, 16)
-    19	#define   NUM_CH_MASK			GENMASK(10, 8)
-  > 20	#define   WTMK_HIGH(n)			FIELD_PREP(WTMK_HIGH_MASK, (n))
-    21	#define   WTMK_LOW(n)			FIELD_PREP(WTMK_LOW_MASK, (n))
-    22	
-    23	#define HTX_PAI_FIELD_CTRL		0x08
-    24	#define   B_FILT			BIT(31)
-    25	#define   PARITY_EN			BIT(30)
-    26	#define   END_SEL			BIT(29)
-    27	#define   PRE_SEL			GENMASK(28, 24)
-    28	#define   D_SEL				GENMASK(23, 20)
-    29	#define   V_SEL				GENMASK(19, 15)
-    30	#define   U_SEL				GENMASK(14, 10)
-    31	#define   C_SEL				GENMASK(9, 5)
-    32	#define   P_SEL				GENMASK(4, 0)
-    33	
-    34	#define HTX_PAI_STAT			0x0c
-    35	#define HTX_PAI_IRQ_NOMASK		0x10
-    36	#define HTX_PAI_IRQ_MASKED		0x14
-    37	#define HTX_PAI_IRQ_MASK		0x18
-    38	
-    39	struct imx8mp_hdmi_pai {
-    40		struct device	*dev;
-    41		struct regmap	*regmap;
-    42	};
-    43	
-    44	static void imx8mp_hdmi_pai_enable(struct dw_hdmi *dw_hdmi, int channel,
-    45					   int width, int rate, int non_pcm,
-    46					   int iec958)
-    47	{
-    48		const struct dw_hdmi_plat_data *pdata = dw_hdmi_to_plat_data(dw_hdmi);
-    49		struct imx8mp_hdmi_pai *hdmi_pai = (struct imx8mp_hdmi_pai *)pdata->priv_audio;
-    50		int val;
-    51	
-    52		/* PAI set control extended */
-    53		val =  WTMK_HIGH(3) | WTMK_LOW(3);
-    54		val |= FIELD_PREP(NUM_CH_MASK, channel - 1);
-    55		regmap_write(hdmi_pai->regmap, HTX_PAI_CTRL_EXT, val);
-    56	
-    57		/* IEC60958 format */
-    58		if (iec958) {
-  > 59			val = FIELD_PREP_CONST(P_SEL,
-  > 60					       __bf_shf(IEC958_SUBFRAME_PARITY));
-    61			val |= FIELD_PREP_CONST(C_SEL,
-    62						__bf_shf(IEC958_SUBFRAME_CHANNEL_STATUS));
-    63			val |= FIELD_PREP_CONST(U_SEL,
-    64						__bf_shf(IEC958_SUBFRAME_USER_DATA));
-    65			val |= FIELD_PREP_CONST(V_SEL,
-    66						__bf_shf(IEC958_SUBFRAME_VALIDITY));
-    67			val |= FIELD_PREP_CONST(D_SEL,
-    68						__bf_shf(IEC958_SUBFRAME_SAMPLE_24_MASK));
-    69			val |= FIELD_PREP_CONST(PRE_SEL,
-    70						__bf_shf(IEC958_SUBFRAME_PREAMBLE_MASK));
-    71		} else {
-    72			/* PCM choose 24bit*/
-    73			val = FIELD_PREP(D_SEL, width - 24);
-    74		}
-    75	
-    76		regmap_write(hdmi_pai->regmap, HTX_PAI_FIELD_CTRL, val);
-    77	
-    78		/* PAI start running */
-    79		regmap_write(hdmi_pai->regmap, HTX_PAI_CTRL, ENABLE);
-    80	}
-    81	
+Thanks
+Suzuki
 
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+> 
+> Will
+
 
