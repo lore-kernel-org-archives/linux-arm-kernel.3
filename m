@@ -4,62 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5512C87FCA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Jul 2025 07:20:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8179EC83F26
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Jul 2025 07:23:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XDvrRTEFuMCLtbPLEccOAzjUpJZIlgtMil5cTFgU7EA=; b=o846pI9UbzM23yAAvwaBV0bM0s
-	JiYhBm/lLDPuxsiHyB80pW7VJedH2HD9GdXG1v/Cx/QhiomzelwLVOMcqSFFlzpAiQXx5OY61vOoN
-	QbrVv6cuY3hjXEN+08dWjEu6u5VKpdZFmsWdEoBqQd+3rmM7AvcCPxsYwpl5PJPhUs8/gim6rPqIK
-	/a7cO7wvbOEotW30tW/6EaPgEGrODmmSYVvE2as5yaa9ce05qPvA/OeBb5QokwiB6VthxQNTnKnsa
-	GZ5TWafauq3bYkx5O1bIW9ggW+RHgLzef+av1l4z6SSAVtWpWzHYte1RdpH1v2SvJr1oaSStZ5JpM
-	CQKY1Nsg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=xvFMByaEOz99iBJ7NSHYWQOqz3P4t9DDrFX2j8+C6hA=; b=SBzzOgJj27hhwO6uTpVWtHLkv2
+	66IK4rI5fQ4KtP4h0qVStdt72ilDDt8SzpCY9QEqzz4Ra5FPsw/vGRxBGUbSzJP5jGLpwHXWhDNED
+	65E8Ib9L8qjSquQSQlWqHkSDp+KMLFtEuSj+I6jGdsqOwbf+StdhQxr4kXo4KCheoV3nRX0s8cROu
+	P2InIiTBabZumIQmpAEuoOvyhBdjaRxpyFjrfb5A7Hr0+Bjfkw33fNWIsPMDpAiP+dwAhQmNGfRdO
+	czjeJYp+FPHMqgvMZJrlbnDtOB70wGyHknIebkR4IOr/QHPzAUigcMu94mjBKFK8hylE+3bM1zt1n
+	3fm0Dd5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufCjO-00000009FWC-3ehL;
-	Fri, 25 Jul 2025 07:20:38 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1ufClq-00000009FgT-031X;
+	Fri, 25 Jul 2025 07:23:10 +0000
+Received: from mx1.tq-group.com ([93.104.207.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufCb0-00000009EZE-2mHi;
-	Fri, 25 Jul 2025 07:11:58 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A7F39601DC;
-	Fri, 25 Jul 2025 07:11:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6B42CC4CEE7;
-	Fri, 25 Jul 2025 07:11:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753427517;
-	bh=NIrSmkNaqlrDP1N8LHUNlwi4EoCzvpR2Fghdour3+lI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=f5DjHfnLxJRHxrPjixKz9e3HA4B5jay/iIi78te15+dbbNIE0kXL8+FKl9usFF17H
-	 hAyffWg4KLQWOsMgfLORmx9/b7N2uUrlXzbivw7rMtDcUphHTjr9GvssiRqDWArnaZ
-	 +vgPEilcy1tEERdqMPT7SZlKBiJy/OuTEQmufjIJv+falGZ9toEzooVaRQALQs587P
-	 8OX7gJrzRuWL4bneig6TgESlt7wUYZ8El/1dMOhJUzD22CJ/Z+oHqxqj8umMYS5Nfn
-	 StEOFycqJoRP376PkhQ7dbRiTk9AluSEuQB+X1uR9qr7hNNDOX+oLX0+C2Vexiy8lE
-	 5UN6/xybxXzWw==
-Date: Fri, 25 Jul 2025 09:11:54 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, 
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Simon Horman <horms@kernel.org>, Felix Fietkau <nbd@nbd.name>, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, netdev@vger.kernel.org, 
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH net-next v5 1/7] dt-bindings: net: airoha: npu: Add
- memory regions used for wlan offload
-Message-ID: <20250725-amiable-strict-pudu-5cce71@kuoka>
-References: <20250723-airoha-en7581-wlan-offlaod-v5-0-da92e0f8c497@kernel.org>
- <20250723-airoha-en7581-wlan-offlaod-v5-1-da92e0f8c497@kernel.org>
+	id 1ufCb7-00000009Eab-3TpA
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 25 Jul 2025 07:12:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
+  t=1753427525; x=1784963525;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=xvFMByaEOz99iBJ7NSHYWQOqz3P4t9DDrFX2j8+C6hA=;
+  b=cKfAUW4j3I3JmkOOJGU/YCyJ5Y6y2fdO02nWepK9R1+/6Uz3CXZxlrsj
+   MPZg8iGVyaKXAPuFQLeTQOKqVnsWasRZK6eIdlPmLRaRA7qP6IrV+Z2NV
+   s4qIYRldMZ0BX/JqqIU2dM5+g2Gdi1t2WnaSjbAOO33Dv4clo41qwZJD3
+   a3nCrYZ4FAXMwnT7iQ384cbzrEDZvDG1OS6uoBEJ8iafQgMDenA8FpVFa
+   l3XZ4oJ5zwLyai+LLSOgitP2kdsViRYABtBAY+S4w+0qDxNOxXSTY0vXC
+   c8+Ie/fEovJa15DSKjLhauJVJqabB+iclbGVmGMu4ozM6Z/w7DmUx+jKx
+   Q==;
+X-CSE-ConnectionGUID: bv4wrw58TomqhpSLsYv+Rg==
+X-CSE-MsgGUID: mi2/nxJnQXO7TUmO26w0Jw==
+X-IronPort-AV: E=Sophos;i="6.16,338,1744063200"; 
+   d="scan'208";a="45414799"
+Received: from vmailcow01.tq-net.de ([10.150.86.48])
+  by mx1.tq-group.com with ESMTP; 25 Jul 2025 09:12:00 +0200
+X-CheckPoint: {68832E40-2D-8CC3CD70-C1DBF452}
+X-MAIL-CPID: EC45E6D563B909B0A7AC09FCAAE3848B_1
+X-Control-Analysis: str=0001.0A002116.68832E72.002D,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 69C25164BC2;
+	Fri, 25 Jul 2025 09:11:55 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
+	s=dkim; t=1753427516;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=xvFMByaEOz99iBJ7NSHYWQOqz3P4t9DDrFX2j8+C6hA=;
+	b=GRGUZbp+a3LTjQwnJbRRa/pseIjyLhgxfEw3blzWJ0HjxzsDf7rFtCvZX+FbWLjjD/dS99
+	7PqxlbAcYSGGpi/E/GeCOiqWJAlgLrWPckiBuE15pKScyQEG4rowg2MMmMEMbFwoxP2wVf
+	ns4ey/Sx7KaYdueqXmlF1PTKXZASGVyGdU3XChW5LlReB3b7JWoqp7bF519JVOsyU1fNov
+	E4kN16bEYYW/9lHaYas17pcOqUYHnfmU/6i5uHLh/DZh4YC6nYm913IZqp5g/ICcLDGNnu
+	/nOhRhXkmC46sOPYpb5w3YvgUL5XxBA8lnoHFhGLKU/tVcLRQQMkGyd/83oZ2A==
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: Lee Jones <lee@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>
+Cc: Alexander Stein <alexander.stein@ew.tq-group.com>,
+	linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH 0/3] stmpe module support
+Date: Fri, 25 Jul 2025 09:11:48 +0200
+Message-ID: <20250725071153.338912-1-alexander.stein@ew.tq-group.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20250723-airoha-en7581-wlan-offlaod-v5-1-da92e0f8c497@kernel.org>
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250725_001206_173022_904E9727 
+X-CRM114-Status: UNSURE (   9.39  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,50 +95,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 23, 2025 at 07:19:50PM +0200, Lorenzo Bianconi wrote:
-> Document memory regions used by Airoha EN7581 NPU for wlan traffic
-> offloading. The brand new added memory regions do not introduce any
-> backward compatibility issues since they will be used just to offload
-> traffic to/from the MT76 wireless NIC and the MT76 probing will not fail
-> if these memory regions are not provide, it will just disable offloading
-> via the NPU module.
-> 
-> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
-> ---
->  .../devicetree/bindings/net/airoha,en7581-npu.yaml    | 19 +++++++++++++++----
->  1 file changed, 15 insertions(+), 4 deletions(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/net/airoha,en7581-npu.yaml b/Documentation/devicetree/bindings/net/airoha,en7581-npu.yaml
-> index 76dd97c3fb4004674dc30a54c039c1cc19afedb3..f99d60f75bb03931a1c4f35066c72c709e337fd2 100644
-> --- a/Documentation/devicetree/bindings/net/airoha,en7581-npu.yaml
-> +++ b/Documentation/devicetree/bindings/net/airoha,en7581-npu.yaml
-> @@ -41,9 +41,18 @@ properties:
->        - description: wlan irq line5
->  
->    memory-region:
-> -    maxItems: 1
-> -    description:
-> -      Memory used to store NPU firmware binary.
+Hi there,
 
-I still do not get why this cannot be kept backwards compatible. I
-looked at your driver code and NPU offload support RFC, and they look
-correct. Yet what stops any future developer from changing:
-
-	mt76_npu_init(mdev, pci_resource_start(pdev, 0),
-		pdev->bus && pci_domain_nr(pdev->bus) ? 3 : 2);
-
-into:
-
-	ret = mt76_npu_init(...)
-	if (ret)
-		goto err...;
-
-? Why would anyone NOT DO such change in the future?
-
-I think I asked about this last time as well - why you cannot keep new
-entries optional (minItems: 1)?
+this series adds support for building stmpe mfd driver as a module along with
+the bus driver for i2c and spi. This depends on the cleanup series [1]
+just for avoiding conflicts.
+I'm not sure in which order module support should be added, maybe even all at
+once. Please advice if necessary.
 
 Best regards,
-Krzysztof
+Alexander
+
+[1] https://lore.kernel.org/all/20250725070752.338376-1-alexander.stein@ew.tq-group.com/
+
+Alexander Stein (3):
+  mfd: stmpe-spi: Add missing MODULE_LICENSE
+  mfd: stmpe-i2c: Add missing MODULE_LICENSE
+  mfd: stmpe: Allow building as module
+
+ drivers/mfd/Kconfig     | 10 +++++-----
+ drivers/mfd/stmpe-i2c.c |  1 +
+ drivers/mfd/stmpe-spi.c |  1 +
+ drivers/mfd/stmpe.c     |  6 ++++++
+ 4 files changed, 13 insertions(+), 5 deletions(-)
+
+-- 
+2.43.0
 
 
