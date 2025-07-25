@@ -4,82 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67DD0C87FCA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Jul 2025 11:55:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47799C87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Jul 2025 11:58:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Gyzow8E6FNq86vlhg9ANsunLTD350jZTjub192oiNFM=; b=oNG4yYAR2BQjiTHY3Qw9/H2VpA
-	XrhxFFF0cSsd62IyWT0t/VcIVZVYYVFsC7ihBidw5trJ6v4llXxty/YzDtt97RHLRkCK8ZUGuX+nz
-	qH8S3g2+3cneGv8rcFAO1QQhBZFnnGl03XoUbZo1OKc1m9YSva8uuK3oeXVAtXKbwA2COO8rQhqs7
-	G8SHnhG6fBtVXcP5gSzd9RI8C+ofR0U2ZLD0IhdxtqhFOerPFrKzS1CkzU9ld1y5wVWq15Mi+KUAd
-	ibDGI0rba2nON9c30JR8ikC9GZp5eHOk9NoAAJtQzFPWU4eIgJs308o2BIJi9aAiKVNb/HzBvk5EY
-	wGTdrDTA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7EIFICZ6PcSv8Dm1Wx1IcEsY2QkDaiXmUkaUpQzq2mw=; b=t9Knwn181VzeK0mUUvUqRjD5BZ
+	y31dwJlGtvOs0K0tmUO/+4izLp9fP3ernebQ5AKlxLh5LO7C4C3Y/2R6dedR8apV9NFJOE5XbJpGx
+	pMAGc7uC0gL2tpJrqoFvCwAriPVsTyEji7iU1w5uQlSaFKHrO7iL/azlSHo1LHfmSIwEZ4xrqEFKe
+	dVZUNMmsjJCgub+sUJiRdFCJu8qia+9g8QRoV48askGn0hFyjDfjz3LM21x6w1jBqVcp5bJSsONcs
+	FkAu7JslKDSzyXrqumDwAll+Bgu2BgWTyB8fDhE5co4RJnVLxxAwAeQ0OpvoQmm/sKKJ9uL2tXeQo
+	z5xAFFDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufH1S-00000009lIK-3kbf;
-	Fri, 25 Jul 2025 11:55:34 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1ufH3t-00000009lX4-2bWZ;
+	Fri, 25 Jul 2025 11:58:05 +0000
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufGJJ-00000009g9b-3bZD
+	id 1ufGL0-00000009gTw-1LwN
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Jul 2025 11:09:57 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3E3F1601F0;
-	Fri, 25 Jul 2025 11:09:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id DD64DC4CEE7;
-	Fri, 25 Jul 2025 11:09:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753441766;
-	bh=KbANwn4NmNO7jNz4SGe7SAKLtyBDL4GI6/j143/N1/E=;
-	h=From:Subject:Date:To:Cc:Reply-To:From;
-	b=W9sPIwOCB5dNs2yTE7GskZjS3l63MyPbMenDtqb2FOXjCWml2zp9FjDmsmuJ+QGEn
-	 6yo9aMmWsR4WinMQt4VBv2eXbOD7modh25V/zbZ7tXfAt2qiFTEK0FzRI0MPMSxtnV
-	 LiHjfmIw4C2CTVY4dIKYaKs+DE6SOsEU/Rb4Mczs8Mw41I3S2Tp/JEyrgDeGNpfWMc
-	 XZ3owU0So9alJvD6pMSFMKuAijgYcqRpURpLZyOUeK+g7yv4874xrgKAzwZVEwzlRb
-	 mDu6wcPrA9iOkKgFydnEk7ZQJw8EPW4spzrmdY14hLh9sxQCa9fjCZ6Z5BlsiMumxL
-	 QPXqWBwUEpPZw==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C88D7C87FCD;
-	Fri, 25 Jul 2025 11:09:26 +0000 (UTC)
-From: Maud Spierings via B4 Relay <devnull+maudspierings.gocontroll.com@kernel.org>
-Subject: [PATCH 0/4] backlight: add new max25014 backlight driver
-Date: Fri, 25 Jul 2025 13:09:22 +0200
-Message-Id: <20250725-max25014-v1-0-0e8cce92078e@gocontroll.com>
+	Fri, 25 Jul 2025 11:11:44 +0000
+Received: from pps.filterd (m0288072.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56PA7CB4004324;
+	Fri, 25 Jul 2025 13:11:25 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	7EIFICZ6PcSv8Dm1Wx1IcEsY2QkDaiXmUkaUpQzq2mw=; b=N3M2Egl7vTiFztE5
+	eWo2u9sUVXirJiniHCzcbmnm41xHXf33B3ctG5RtYCk9GRh++0Sz5JzTNNeOUard
+	sPyHLHT1ipV3o770xZa2wnlHs2zl6ex/6pM3+PIhbuFun/95aqW3xttHRUDWEjQc
+	DaXeKT7wLq6SpwVUaIo+qyhjkUj8aPtzFqqW67TZSFfRyJd7MjaOZGgO+r3uBnOd
+	hJnDkqU+UvTrpxhWQFe4XxEgHYjeHOTcub0B/q+CpnKVWhc5GBlpBK0cakMJg1iY
+	vo427FXrD3VPZtlgCF9U+oQsmx3WXVAC92qSFtQQ11nZn/zqjDW4Lcp7h9saIfPZ
+	Lwyx9Q==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 483w3ett17-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 25 Jul 2025 13:11:25 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 03F9B4004D;
+	Fri, 25 Jul 2025 13:10:04 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id AE05C22306A;
+	Fri, 25 Jul 2025 13:09:00 +0200 (CEST)
+Received: from [10.48.86.185] (10.48.86.185) by SHFDAG1NODE2.st.com
+ (10.75.129.70) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Fri, 25 Jul
+ 2025 13:08:59 +0200
+Message-ID: <85673db7-d311-47cc-be52-291d94e136e4@foss.st.com>
+Date: Fri, 25 Jul 2025 13:08:58 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAOJlg2gC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDI1MDMyMz3dzECiDL0ETXxMjA3NTSMNUwMc1UCai8oCg1LbMCbFR0bG0tAB3
- YAxhaAAAA
-X-Change-ID: 20250626-max25014-4207591e1af5
-To: Lee Jones <lee@kernel.org>, Daniel Thompson <danielt@kernel.org>, 
- Jingoo Han <jingoohan1@gmail.com>, Pavel Machek <pavel@kernel.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Helge Deller <deller@gmx.de>, 
- Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>
-Cc: dri-devel@lists.freedesktop.org, linux-leds@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-fbdev@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, 
- Maud Spierings <maudspierings@gocontroll.com>, 
- "Maud Spierings maudspierings"@gocontroll.com
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1753441765; l=1452;
- i=maudspierings@gocontroll.com; s=20250214; h=from:subject:message-id;
- bh=KbANwn4NmNO7jNz4SGe7SAKLtyBDL4GI6/j143/N1/E=;
- b=PjTusrgPlZupmtwnWn9StKXy2DkRV3eFf5M+adbF+rEkvyz1mG3L2XP9PPZrorFH+PUwg5zR7
- EKaU2GeBddlCmwwgOer6BZEklYbXnOarE4DYHFsHnMYmH89T2htQs71
-X-Developer-Key: i=maudspierings@gocontroll.com; a=ed25519;
- pk=7chUb8XpaTQDvWhzTdHC0YPMkTDloELEC7q94tOUyPg=
-X-Endpoint-Received: by B4 Relay for maudspierings@gocontroll.com/20250214
- with auth_id=341
-X-Original-From: Maud Spierings <maudspierings@gocontroll.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [Linux-stm32] [PATCH 09/12] arm64: dts: st: add lvds support on
+ stm32mp255
+To: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>,
+        Yannick Fertre
+	<yannick.fertre@foss.st.com>,
+        Philippe Cornu <philippe.cornu@foss.st.com>,
+        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard
+	<mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>,
+        David Airlie
+	<airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Rob Herring
+	<robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre
+ Torgue <alexandre.torgue@foss.st.com>,
+        Catalin Marinas
+	<catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>,
+        Christophe Roullier
+	<christophe.roullier@foss.st.com>
+CC: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <dri-devel@lists.freedesktop.org>, <linux-kernel@vger.kernel.org>
+References: <20250725-drm-misc-next-v1-0-a59848e62cf9@foss.st.com>
+ <20250725-drm-misc-next-v1-9-a59848e62cf9@foss.st.com>
+Content-Language: en-US
+From: Clement LE GOFFIC <clement.legoffic@foss.st.com>
+In-Reply-To: <20250725-drm-misc-next-v1-9-a59848e62cf9@foss.st.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.48.86.185]
+X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SHFDAG1NODE2.st.com
+ (10.75.129.70)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-07-25_03,2025-07-24_01,2025-03-28_01
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250725_041142_870930_1E89932E 
+X-CRM114-Status: GOOD (  16.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,43 +113,56 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: maudspierings@gocontroll.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Maxim MAX25014 is an automotive grade backlight driver IC. Its
-datasheet can be found at [1].
+Hi Raphael,
 
-With its integrated boost controller, it can power 4 channels (led
-strings) and has a number of different modes using pwm and or i2c.
-Currently implemented is only i2c control.
+On 7/25/25 12:04, Raphael Gallais-Pou wrote:
+> The LVDS is used on STM32MP2 as a display interface.
+> 
+> Add the LVDS node.
+> 
+> Signed-off-by: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>
+> ---
+>   arch/arm64/boot/dts/st/stm32mp255.dtsi | 12 ++++++++++++
+>   1 file changed, 12 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/st/stm32mp255.dtsi b/arch/arm64/boot/dts/st/stm32mp255.dtsi
+> index f689b47c5010033120146cf1954d6624c0270045..a4d965f785fa42c4597494010855aec7e1b9fdd1 100644
+> --- a/arch/arm64/boot/dts/st/stm32mp255.dtsi
+> +++ b/arch/arm64/boot/dts/st/stm32mp255.dtsi
+> @@ -6,6 +6,18 @@
+>   #include "stm32mp253.dtsi"
+>   
+>   &rifsc {
+> +	lvds: lvds@48060000 {
+> +		compatible = "st,stm32mp25-lvds";
 
-link: https://www.analog.com/media/en/technical-documentation/data-sheets/MAX25014.pdf [1]
+For the compatible you now need one comaptible per SoC.
+It means your compatible should look like : "st,stm32mp251-lvds".
+This way, if on the 253 or 255 there is an issue you are able to easily 
+add match data in the driver with compatible "st,stm32mp253-lvds" or 
+"st,stm32mp255-lvds".
+A prior discussion on this subject has been raised on my V1 of HDP 
+involving Krzysztof and Alexandre :
+https://lore.kernel.org/all/418a80a9-8c08-4dd1-bf49-1bd7378321aa@kernel.org/
 
-Signed-off-by: Maud Spierings <maudspierings@gocontroll.com>
----
-Maud Spierings (4):
-      dt-bindings: backlight: Add max25014 bindings
-      backlight: add max25014atg backlight
-      arm64: dts: freescale: moduline-display-av101hdt-a10: add backlight
-      arm64: dts: freescale: moduline-display-av123z7m-n17: add backlight
-
- .../bindings/leds/backlight/maxim,max25014.yaml    |  78 ++++
- MAINTAINERS                                        |   7 +
- ...x8p-ml81-moduline-display-106-av101hdt-a10.dtso |  21 +
- ...x8p-ml81-moduline-display-106-av123z7m-n17.dtso |  19 +-
- drivers/video/backlight/Kconfig                    |   7 +
- drivers/video/backlight/Makefile                   |   1 +
- drivers/video/backlight/max25014.c                 | 449 +++++++++++++++++++++
- include/linux/platform_data/max25014.h             |  24 ++
- 8 files changed, 605 insertions(+), 1 deletion(-)
----
-base-commit: d7af19298454ed155f5cf67201a70f5cf836c842
-change-id: 20250626-max25014-4207591e1af5
+> +		#clock-cells = <0>;
+> +		reg = <0x48060000 0x2000>;
+> +		clocks = <&rcc CK_BUS_LVDS>, <&rcc CK_KER_LVDSPHY>;
+> +		clock-names = "pclk", "ref";
+> +		resets = <&rcc LVDS_R>;
+> +		access-controllers = <&rifsc 84>;
+> +		power-domains = <&CLUSTER_PD>;
+> +		status = "disabled";
+> +	};
+> +
+>   	vdec: vdec@480d0000 {
+>   		compatible = "st,stm32mp25-vdec";
+>   		reg = <0x480d0000 0x3c8>;
+> 
 
 Best regards,
--- 
-Maud Spierings <maudspierings@gocontroll.com>
-
-
+Clément
 
