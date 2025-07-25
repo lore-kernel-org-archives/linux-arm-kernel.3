@@ -4,71 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A153AC87FCC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Jul 2025 02:17:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF40DC87FCC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Jul 2025 02:20:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DLYgWqNIFGd0r4HW5nV9IESqFa9QNfwIUAHcBOdrhMg=; b=SO6p1TA3ITSH9/2UjgbTDPSKkG
-	VnuWG+grTpMKLHsUcZk5r+PTWKMRBKPpUDalYH4WB3jrz4XgVPy7iqCdsvIvqvqbQRAwoqYfIAn+S
-	qHawiOFCex195UyWDyHVf2DY6odEU2I0JT9N7LzGJXtrfdwNsqNtz+DkzCYekB1PxcKZR1fnDT4ki
-	abZ4DZZlhAd/dTBYKK+cwDsHMLfogCx1B+PV/VPm1Cagn3TPgxyiZnYv5gkqt/7bBFV9EgyMlKvoO
-	Eh483VUhR+M5L3OcJ4eIy5vql/YJqzv9shxVOeAtflSsxMdkWpq+Wull16cWdilsxQexmo+ziWH/R
-	wqhii+xQ==;
+	bh=Gm1IYV1nJ0jwPipfaqojaJIo57O27pxsSZEm6UjiBK8=; b=zmiX7Xk+0TCfvnKH6BN6rbHQ3O
+	OwA9+GsyOo4ATzOupVx4eA1CK9ssDa+1mqqNXmZ64LWUUe1j8wRohnW6mhm6vGRhDafe9nppG8lVD
+	FbMkZcI9XKmYbYrSrAhKZQWfn0dnpT71dUcdhoXdpvUbeEhHcV+6efkmgFfJ3XSc4wROQNARCOPZ+
+	uOpVswHb1k+OUz8WGfHVkRpyvq066b0PEl2LhKxpWJtBB3ESUXDPHMW4eEjqYb5eUhJaCpzZLHHPQ
+	/g+fdyAu8bXFOQfQPtvEMhGaIcYAQpfctrJdO3iSBuC/bT1GedwRM5Jg/D0paTXHzDCkeclocqMdd
+	ZNjww8KQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uf80H-00000008t1I-1ICQ;
-	Fri, 25 Jul 2025 02:17:45 +0000
-Received: from mail-m32117.qiye.163.com ([220.197.32.117])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uf7xp-00000008sjE-22PW;
-	Fri, 25 Jul 2025 02:15:15 +0000
-Received: from [172.16.12.26] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 1d30daf98;
-	Fri, 25 Jul 2025 10:15:07 +0800 (GMT+08:00)
-Message-ID: <b0ce0d8d-4ceb-419e-a892-d39b8633aa13@rock-chips.com>
-Date: Fri, 25 Jul 2025 10:15:06 +0800
+	id 1uf82g-00000008tDY-0AqK;
+	Fri, 25 Jul 2025 02:20:14 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uf7yp-00000008sq3-04se
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 25 Jul 2025 02:16:16 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 548881A00;
+	Thu, 24 Jul 2025 19:16:07 -0700 (PDT)
+Received: from [10.164.146.15] (unknown [10.164.146.15])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6A3693F5A1;
+	Thu, 24 Jul 2025 19:16:11 -0700 (PDT)
+Message-ID: <90864bf5-2edb-4901-9566-c89431c6d717@arm.com>
+Date: Fri, 25 Jul 2025 07:46:08 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 00/14] Apply drm_bridge_connector and panel_bridge
- helper for the Analogix DP driver
-To: =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
- andrzej.hajda@intel.com, neil.armstrong@linaro.org, rfoss@kernel.org
-Cc: Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
- jernej.skrabec@gmail.com, maarten.lankhorst@linux.intel.com,
- mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
- jingoohan1@gmail.com, inki.dae@samsung.com, sw0312.kim@samsung.com,
- kyungmin.park@samsung.com, krzk@kernel.org, alim.akhtar@samsung.com,
- hjc@rock-chips.com, andy.yan@rock-chips.com,
- dmitry.baryshkov@oss.qualcomm.com, l.stach@pengutronix.de,
- dianders@chromium.org, dri-devel@lists.freedesktop.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, linux-rockchip@lists.infradead.org
-References: <20250724080304.3572457-1-damon.ding@rock-chips.com>
- <3890785.kQq0lBPeGt@diego>
+Subject: Re: [PATCH] arm64: allow NR_CPUS=1 for non-SMP and adjust default
+ accordingly
+To: Suchit Karunakaran <suchitkarunakaran@gmail.com>,
+ catalin.marinas@arm.com, will@kernel.org,
+ linux-arm-kernel@lists.infradead.org
+Cc: skhan@linuxfoundation.org, linux-kernel-mentees@lists.linux.dev,
+ linux-kernel@vger.kernel.org
+References: <20250724165639.13926-1-suchitkarunakaran@gmail.com>
 Content-Language: en-US
-From: Damon Ding <damon.ding@rock-chips.com>
-In-Reply-To: <3890785.kQq0lBPeGt@diego>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a983f5cdd0d03a3kunm18dd1a7ad70d9
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGk8YSlYYQxpJTUhCQk1PSBlWFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
-	hVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=KMKARJPJW06jkInizHjvIBa2f9dBzLMKkAMK563pYRj3p2h0dxgKuirrWh301Xv0TuGwm0OOTALQT9/UErJ0HweSyG88BuTMnkDSZTAH9b5AoJC+/+Dzp6HROoAHvz1cWYDn25PVnk/mD/yU9OE2aag4cqZ10fbbzaXH1xMcwh4=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=DLYgWqNIFGd0r4HW5nV9IESqFa9QNfwIUAHcBOdrhMg=;
-	h=date:mime-version:subject:message-id:from;
-X-HMAIL-Slblob-Mailprops: v1_neYYFWAlZzU6u2dlJ0lhZxxW3LNr/WCm4T/Zs27CXRucL5kMTeaK3zjPaPc3+xDf0VaycF59W9UbzOeqsUypy93IvVGAp7EIBubMTc/Nt06gB9UeYFfpG7JNT+Y5puW4OW+6FkYrGV5kMDJPKhRndEU3OQhP/OI1WD0ctb7/jZaQ+vCyokORdz2Ph+0uw0sli3ZylNUMyRtRolfNPJgkc0QR8fyHosI9qk9ISzsXHYewwFeVLwmP+cPu7IpelpBm834g3VVGqhmDqG9rXq1NrA==
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <20250724165639.13926-1-suchitkarunakaran@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250724_191514_003985_EBE55B85 
-X-CRM114-Status: UNSURE (   8.42  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250724_191615_100260_97DC9E38 
+X-CRM114-Status: GOOD (  14.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,36 +67,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Heiko,
+On 24/07/25 10:26 PM, Suchit Karunakaran wrote:
+> The arm64 Kconfig for NR_CPUS previously required a minimum of 2 CPUs.
+> This patch changes the minimum allowed CPUs to 1, enabling single-core
+> non-SMP configurations.
+> 
+> Additionally, the default value for NR_CPUS is now conditional:
+> - Defaults to 1 if SMP is not selected (non-SMP systems)
+> - Defaults to 512 if SMP is enabled
 
-On 2025/7/24 21:10, Heiko Stübner wrote:
-> Am Donnerstag, 24. Juli 2025, 10:02:50 Mitteleuropäische Sommerzeit schrieb Damon Ding:
->> PATCH 1 is a small format optimization for struct analogid_dp_device.
->> PATCH 2 is to perform mode setting in &drm_bridge_funcs.atomic_enable.
->> PATCH 3 is to apply a better API for the encoder initialization.
->> PATCH 4-7 are preparations for apply drm_bridge_connector helper.
->> PATCH 8 is to apply the drm_bridge_connector helper.
->> PATCH 9-11 are to move the panel/bridge parsing to the Analogix side.
->> PATCH 12-13 are preparations for apply panel_bridge helper.
->> PATCH 14 is to apply the panel_bridge helper.
-> 
-> for future revisions, please provide a changelog on what changed since
-> the previous version, I guess ideally here in the cover-letter.
-> 
-> 
-> On my rk3588-tiger-displayport-carrier this works like a charm
-> Tested-by: Heiko Stuebner <heiko@sntech.de>
-> 
-> 
-> 
-> 
+Just curious - what actually prompted this change ?
 
-Glad to see your review and test. :-)
+> 
+> Signed-off-by: Suchit Karunakaran <suchitkarunakaran@gmail.com>
+> ---
+>  arch/arm64/Kconfig | 7 ++++---
+>  1 file changed, 4 insertions(+), 3 deletions(-)
+> 
+> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+> index 393d71124f5d..9b2970f7c5ec 100644
+> --- a/arch/arm64/Kconfig
+> +++ b/arch/arm64/Kconfig
+> @@ -1528,9 +1528,10 @@ config SCHED_SMT
+>  	  places. If unsure say N here.
+>  
+>  config NR_CPUS
+> -	int "Maximum number of CPUs (2-4096)"
+> -	range 2 4096
+> -	default "512"
+> +	int "Maximum number of CPUs (1-4096)"
+> +	range 1 4096
+> +	default "1" if !SMP
+> +	default "512" if SMP
+>  
+>  config HOTPLUG_CPU
+>  	bool "Support for hot-pluggable CPUs"
 
-I will include the version-to-version changelogs (v2 -> v3 and v3 -> v4) 
-in the next iteration.
-
-Best regards,
-Damon
 
 
