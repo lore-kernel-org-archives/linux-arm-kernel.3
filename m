@@ -4,62 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3CF5C87FCE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Jul 2025 17:54:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08776C87FCE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Jul 2025 18:00:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:From:Subject:To:
-	Message-Id:Date:Content-Type:Mime-Version:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=HOh2/7q7Oj21JFMLSwgw0cSPTuUuF6M/s5BwAyegtKM=; b=wh1a3BUwm0NurF4O0PAKmumIIS
-	UGh3/2lsyEdKz7S7QXY/Z8Y/CJFz+jrml8LV2chPuaoEOM8xPdLkmdAFouEcGnRdE7dKDWzkliDsM
-	McwiCebivBm8bVsQLQXxnJL7J2YR0fuO9vvJBrBIlmGzc4gpAQafKo1UfTha6v992PyqonPPJzyWo
-	mPpjDRf3ZrOtrDNOHOJ6kj7NcRdIXawjP+Eq/KVCG2mqUnBD45jO21kfyYnJJsQxYNW8EmX/0y/nU
-	5/t0VwPqq6k3h5S+tQv4rS9HN7qsY+Or/DYZ9Y+SmjtNBcWlvUU2sp7oMSbwrsYZ7tR3wx1QgdMAi
-	IncY2DiA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1EVrnJsceOV57c2tNdctaK4XJJ0MWKnP8xv9YojGc8k=; b=0LbsR6gRDPjZZseU7P3PXPElGe
+	wLsIOFXzJuAtW5dAa63iiaiERnhfKsahkMHqs3MWRgS4kxp6vxeMaav37ipG21H1zA/9tVAFoxtFH
+	AuomrICv6zhtkmsAcd/vaeCWTVusknWIMEuTglwz4ZKVgp2RwiY+7SgGclT2DVpJApreNlzHdSgBY
+	bI5OrPwzM7gAAoD2bA4wMwqIdDvWh2HmvHZ2TtVPH8EApXJfTqjF3UszgmfHThuW75omPX+DmB7J6
+	owkCXPGVIWnpZEEfo08oe8o1IUfDr4YE5GH1IGZH3QZzz8ogWMSHILU/BsuhzkXumTNp/XNpY5yh9
+	K6NToqOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufMcU-0000000AMpu-3FT4;
-	Fri, 25 Jul 2025 17:54:10 +0000
-Received: from out-179.mta0.migadu.com ([91.218.175.179])
+	id 1ufMi5-0000000ANuq-3QAj;
+	Fri, 25 Jul 2025 17:59:57 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufMWu-0000000AMB2-36cL
+	id 1ufMfb-0000000ANFg-3HSm
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Jul 2025 17:48:26 +0000
-Mime-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow.org; s=key1;
-	t=1753465692;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type;
-	bh=HOh2/7q7Oj21JFMLSwgw0cSPTuUuF6M/s5BwAyegtKM=;
-	b=rFKl1ERZJID/6udTNkn7bbOz3jMhx1YRXPhQ/+DM6N71sr9f6tcqGHkfFVOpL3GYSmRuzB
-	+ry464+i2ZYj7cZBFJcKkP9qiulJyKgjFPgAPCdF8BSXSWnREPtQrxfHJSiGV5DK/LSVa7
-	HpDf+A55pqU8Xy/+VH2zSXcrb8y2oxxrt+idzY6TV4GiUt8K6paeDU4a3JUuTk1aOkT3Qf
-	hybpY5DgYju3Ff3+Ak75B6Cq5SkTlRkaHIRA7r6ZG90CbWhYm3X9FDF98krk0Cr4b052Ws
-	U/ZGSslEpF5hgXQ2zgU3iFA8WVGoiGTWzgDeeDe08KTmp3PAhYNWHI3GmBoxzw==
-Content-Type: multipart/signed;
- boundary=05a4ad5a0d7fd99f8edf9ab4b2d58bf2d6e61cebf8097ca6d088ce78129d;
- micalg=pgp-sha512; protocol="application/pgp-signature"
-Date: Fri, 25 Jul 2025 19:48:03 +0200
-Message-Id: <DBLBPIBKFCJV.36AVW8JY88L7H@cknow.org>
-To: "Lee Jones" <lee@kernel.org>, "Pavel Machek" <pavel@kernel.org>, "Andrew
- Lunn" <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>,
- "Eric Dumazet" <edumazet@google.com>, "Jakub Kicinski" <kuba@kernel.org>,
- "Paolo Abeni" <pabeni@redhat.com>
-Subject: BUG: Circular locking dependency on netdev led trigger on NanoPi
- R5S
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: "Diederik de Haas" <didi.debian@cknow.org>
-Cc: "Robin Murphy" <robin.murphy@arm.com>, <linux-leds@vger.kernel.org>,
- <netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- <linux-rockchip@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
- "Diederik de Haas" <didi.debian@cknow.org>
-X-Migadu-Flow: FLOW_OUT
+	Fri, 25 Jul 2025 17:57:25 +0000
+Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
+	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 0FEA0C66;
+	Fri, 25 Jul 2025 19:56:36 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1753466197;
+	bh=5ldzZ9vyLUpLw7BH0/+el75YcJaK4n9pqdRVPuEkdaQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=GUoipYeI4r5hxShSrw8p3pKpANuUknHdeOB6tf2trLpU50/AJJHr2gSz0BvuCacl0
+	 0ntiCKiiL74GFeFu/Ve3GUvIUxwe9JPu+bCOJCB4aVY3Ls/b3dDYN3wABpEzw/GBgk
+	 YM80nWbUZ6egMPhVsFIE1V0L1aIEyGQr47DuN5Yo=
+Date: Fri, 25 Jul 2025 20:57:11 +0300
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Frank Li <Frank.li@nxp.com>
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Rui Miguel Silva <rmfrfs@gmail.com>,
+	Martin Kepplinger <martink@posteo.de>,
+	Purism Kernel Team <kernel@puri.sm>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>, linux-media@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	Alice Yuan <alice.yuan@nxp.com>,
+	Robert Chiras <robert.chiras@nxp.com>,
+	Zhipeng Wang <zhipeng.wang_1@nxp.com>
+Subject: Re: [PATCH v3 2/4] media: nxp: add V4L2 subdev driver for camera
+ parallel interface (CPI)
+Message-ID: <20250725175711.GA27425@pendragon.ideasonboard.com>
+References: <20250708-imx8qxp_pcam-v3-0-c8533e405df1@nxp.com>
+ <20250708-imx8qxp_pcam-v3-2-c8533e405df1@nxp.com>
+ <20250725000404.GW11202@pendragon.ideasonboard.com>
+ <aIOk9W/RBKmS8uVQ@lizhi-Precision-Tower-5810>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <aIOk9W/RBKmS8uVQ@lizhi-Precision-Tower-5810>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250725_104824_921781_FC762CD4 
-X-CRM114-Status: UNSURE (   9.58  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250725_105723_954033_4CFA2177 
+X-CRM114-Status: GOOD (  35.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,209 +84,181 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---05a4ad5a0d7fd99f8edf9ab4b2d58bf2d6e61cebf8097ca6d088ce78129d
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
+On Fri, Jul 25, 2025 at 11:38:29AM -0400, Frank Li wrote:
+> On Fri, Jul 25, 2025 at 03:04:04AM +0300, Laurent Pinchart wrote:
+> > Hi Frank,
+> >
+> > Thank you for the patch.
+> >
+> > On Tue, Jul 08, 2025 at 01:48:43PM -0400, Frank Li via B4 Relay wrote:
+> > > From: Alice Yuan <alice.yuan@nxp.com>
+> > >
+> > > Add a V4L2 sub-device driver for the CPI controller found on i.MX8QXP,
+> > > i.MX8QM, and i.MX93 SoCs. This controller supports parallel camera sensors
+> > > and enables image data capture through a parallel interface.
+> > >
+> > > Signed-off-by: Alice Yuan <alice.yuan@nxp.com>
+> > > Signed-off-by: Robert Chiras <robert.chiras@nxp.com>
+> > > Signed-off-by: Zhipeng Wang <zhipeng.wang_1@nxp.com>
+> > > Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> > > ---
+> > > change in v3
+> > > - replace csi with cpi
+> > > - use __free(fwnode_handle) to simpilfy code
+> > > - remove imx91 driver data, which is the same as imx93
+> > >
+> > > change in v2
+> > > - remove MODULE_ALIAS
+> > > - use devm_pm_runtime_enable() and cleanup remove function
+> > > - change output format to 1x16. controller convert 2x8 to 1x16 format
+> > > ---
+> > >  MAINTAINERS                                   |   1 +
+> > >  drivers/media/platform/nxp/Kconfig            |  11 +
+> > >  drivers/media/platform/nxp/Makefile           |   1 +
+> > >  drivers/media/platform/nxp/imx-parallel-cpi.c | 920 ++++++++++++++++++++++++++
+> > >  4 files changed, 933 insertions(+)
+> > >
+> > > diff --git a/MAINTAINERS b/MAINTAINERS
+> > > index 8ae0667d2bb41fb6a1549bd3b2b33f326cbd1303..14842a3b860a6f23846f12a684eedcbb9eb69e19 100644
+> > > --- a/MAINTAINERS
+> > > +++ b/MAINTAINERS
+> > > @@ -15112,6 +15112,7 @@ F:	Documentation/devicetree/bindings/media/nxp,imx-mipi-csi2.yaml
+> > >  F:	Documentation/devicetree/bindings/media/nxp,imx7-csi.yaml
+> > >  F:	Documentation/devicetree/bindings/media/nxp,imx8mq-mipi-csi2.yaml
+> > >  F:	drivers/media/platform/nxp/imx-mipi-csis.c
+> > > +F:	drivers/media/platform/nxp/imx-parallel-cpi.c
+> > >  F:	drivers/media/platform/nxp/imx7-media-csi.c
+> > >  F:	drivers/media/platform/nxp/imx8mq-mipi-csi2.c
+> > >
+> > > diff --git a/drivers/media/platform/nxp/Kconfig b/drivers/media/platform/nxp/Kconfig
+> > > index 40e3436669e213fdc5da70821dc0b420e1821f4f..504ae1c6494f331c16124a224421ac7acd433ba5 100644
+> > > --- a/drivers/media/platform/nxp/Kconfig
+> > > +++ b/drivers/media/platform/nxp/Kconfig
+> > > @@ -39,6 +39,17 @@ config VIDEO_IMX_MIPI_CSIS
+> > >  	  Video4Linux2 sub-device driver for the MIPI CSI-2 CSIS receiver
+> > >  	  v3.3/v3.6.3 found on some i.MX7 and i.MX8 SoCs.
+> > >
+> > > +config VIDEO_IMX_PARALLEL_CPI
+> > > +	tristate "NXP i.MX9/i.MX8 Parallel CPI Driver"
+> >
+> > I'd write it in numerical order, "i.MX8/i.MX9"
+> >
+> > > +	depends on ARCH_MXC || COMPILE_TEST
+> > > +	depends on VIDEO_DEV
+> > > +	select MEDIA_CONTROLLER
+> > > +	select V4L2_FWNODE
+> > > +	select VIDEO_V4L2_SUBDEV_API
+> > > +	help
+> > > +	  Video4Linux2 sub-device driver for PARALLEL CPI receiver found
+> > > +	  on some iMX8 and iMX9 SoCs.
+> > > +
+> > >  source "drivers/media/platform/nxp/imx8-isi/Kconfig"
+> > >
+> > >  # mem2mem drivers
+> > > diff --git a/drivers/media/platform/nxp/Makefile b/drivers/media/platform/nxp/Makefile
+> > > index 4d90eb71365259ebdda84ea58483e1c4131d3ac7..5346919d2f1083b51ec99b66981c5d38b3df960c 100644
+> > > --- a/drivers/media/platform/nxp/Makefile
+> > > +++ b/drivers/media/platform/nxp/Makefile
+> > > @@ -7,5 +7,6 @@ obj-y += imx8-isi/
+> > >  obj-$(CONFIG_VIDEO_IMX7_CSI) += imx7-media-csi.o
+> > >  obj-$(CONFIG_VIDEO_IMX8MQ_MIPI_CSI2) += imx8mq-mipi-csi2.o
+> > >  obj-$(CONFIG_VIDEO_IMX_MIPI_CSIS) += imx-mipi-csis.o
+> > > +obj-$(CONFIG_VIDEO_IMX_PARALLEL_CPI) += imx-parallel-cpi.o
+> > >  obj-$(CONFIG_VIDEO_IMX_PXP) += imx-pxp.o
+> > >  obj-$(CONFIG_VIDEO_MX2_EMMAPRP) += mx2_emmaprp.o
+> > > diff --git a/drivers/media/platform/nxp/imx-parallel-cpi.c b/drivers/media/platform/nxp/imx-parallel-cpi.c
+> > > new file mode 100644
+> > > index 0000000000000000000000000000000000000000..718f02bf70c4d0ae74ecf842c1ecb1a1afbcdd45
+> > > --- /dev/null
+> > > +++ b/drivers/media/platform/nxp/imx-parallel-cpi.c
+> > > @@ -0,0 +1,920 @@
+> > > +// SPDX-License-Identifier: GPL-2.0
+> > > +/*
+> > > + * i.MX Parallel CPI receiver driver.
+> > > + *
+> > > + * Copyright 2019-2025 NXP
+> > > + *
+> > > + */
+> > > +
+> > > +#include <linux/bits.h>
+> > > +#include <linux/clk.h>
+> > > +#include <linux/debugfs.h>
+> >
+> > I don't think you use this.
+> >
+> > > +#include <linux/delay.h>
+> > > +#include <linux/errno.h>
+> > > +#include <linux/interrupt.h>
+> >
+> > I don't think you use this either.
+> >
+> > > +#include <linux/io.h>
+> > > +#include <linux/kernel.h>
+> > > +#include <linux/module.h>
+> > > +#include <linux/mutex.h>
+> > > +#include <linux/mfd/syscon.h>
+> >
+> > Alphabetical order please.
+> >
+> > > +#include <linux/of.h>
+> > > +#include <linux/platform_device.h>
+> > > +#include <linux/pm_domain.h>
+> >
+> > This doesn't seem needed.
+> >
+> > > +#include <linux/pm_runtime.h>
+> > > +#include <linux/regulator/consumer.h>
+> > > +#include <linux/reset.h>
+> >
+> > Same here.
+> >
+> > > +#include <linux/spinlock.h>
+> >
+> > And here. Please verify all headers, drop the ones you don't need, and
+> > add any you may have forgotten. That includes the media/ headers.
+> 
+> Do you have good method to check it?
 
-Hi,
+There are tools such as include-what-you-use, but I haven't tested that
+one with the kernel.
 
-I have a FriendlyELEC NanoPi R5S (with rk3568 SoC) and in commit
-1631cbdb8089 ("arm64: dts: rockchip: Improve LED config for NanoPi R5S")
+> > > +
+> > > +#include <media/v4l2-common.h>
+> > > +#include <media/v4l2-device.h>
+> > > +#include <media/v4l2-event.h>
+> > > +#include <media/v4l2-fwnode.h>
+> > > +#include <media/v4l2-mc.h>
+> > > +#include <media/v4l2-subdev.h>
+> 
+> ...
+> 
+> > > +
+> > > +	/* Software Reset */
+> > > +	imx_cpi_sw_reset(pcpidev);
+> > > +
+> > > +	/* Config PL Data Type */
+> > > +	val = readl(pcpidev->regs + pdata->if_ctrl_reg);
+> > > +	val |= IF_CTRL_REG_DATA_TYPE(DATA_TYPE_OUT_YUV444);
+> >
+> > Don't you need to clear the field first ? Same everywhere else where
+> > applicable.
+> 
+> imx_cpi_sw_reset() clean all register.
 
-I tried to improve its LED configuration and that included
-``linux,default-trigger =3D "netdev"``
+OK. I wonder if you could then replace some (most ? all ?) of the
+read-update-write sequences with plain writes.
 
-Problem: sometimes I got a 'hung task' error which resulted in the WAN
-port not to come up (that's the only one I use) and logging in via
-serial also didn't work, so pulling the plug was the only remedy.
+> > > +	writel(val, pcpidev->regs + pdata->if_ctrl_reg);
+> > > +
+> > > +	/* Enable sync Force */
+> > > +	val = readl(pcpidev->regs + pdata->interface_ctrl_reg);
+> > > +	val |= (CPI_CTRL_REG_HSYNC_FORCE_EN | CPI_CTRL_REG_VSYNC_FORCE_EN);
+> > > +	writel(val, pcpidev->regs + pdata->interface_ctrl_reg);
+> 
+> ....
 
-Robin Murphy quickly identified that it likely had to do with led
-triggers and removing those netdev triggers made the problem go away[1].
-To find out what actually caused it, I built a kernel with PROOF_LOCKING
-and PRINTK_CALLER enabled, which after adding a patch which fixed an
-OOPS [2], showed the underlaying problem:
+-- 
+Regards,
 
-   =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D
-   WARNING: possible circular locking dependency detected
-   6.16-rc7+unreleased-arm64-cknow #1 Not tainted
-   ------------------------------------------------------
-   modprobe/936 is trying to acquire lock:
-   ffffc943e0edc3b0 (pernet_ops_rwsem){++++}-{4:4}, at: register_netdevice_=
-notifier+0x38/0x148
-
-   but task is already holding lock:
-   ffff0001f2762248 (&led_cdev->trigger_lock){+.+.}-{4:4}, at: led_trigger_=
-register+0x14c/0x1e0
-
-   which lock already depends on the new lock.
-
-
-   the existing dependency chain (in reverse order) is:
-
-   -> #3 (&led_cdev->trigger_lock){+.+.}-{4:4}:
-          lock_acquire+0x1cc/0x348
-          down_write+0x40/0xd8
-          led_trigger_set_default+0x5c/0x170
-          led_classdev_register_ext+0x340/0x488
-          __sdhci_add_host+0x190/0x368 [sdhci]
-          dwcmshc_probe+0x2b8/0x6b0 [sdhci_of_dwcmshc]
-          platform_probe+0x70/0xe8
-          really_probe+0xc8/0x3a0
-          __driver_probe_device+0x84/0x160
-          driver_probe_device+0x44/0x128
-          __device_attach_driver+0xc4/0x170
-          bus_for_each_drv+0x90/0xf8
-          __device_attach_async_helper+0xc0/0x120
-          async_run_entry_fn+0x40/0x180
-          process_one_work+0x23c/0x640
-          worker_thread+0x1b4/0x360
-          kthread+0x150/0x250
-          ret_from_fork+0x10/0x20
-
-   -> #2 (triggers_list_lock){++++}-{4:4}:
-          lock_acquire+0x1cc/0x348
-          down_write+0x40/0xd8
-          led_trigger_register+0x58/0x1e0
-          phy_led_triggers_register+0xf4/0x258 [libphy]
-          phy_attach_direct+0x328/0x3a8 [libphy]
-          phylink_fwnode_phy_connect+0xb0/0x138 [phylink]
-          __stmmac_open+0xec/0x520 [stmmac]
-          stmmac_open+0x4c/0xe8 [stmmac]
-          __dev_open+0x13c/0x310
-          __dev_change_flags+0x1d4/0x260
-          netif_change_flags+0x2c/0x80
-          dev_change_flags+0x90/0xd0
-          devinet_ioctl+0x55c/0x730
-          inet_ioctl+0x1e4/0x200
-          sock_do_ioctl+0x6c/0x140
-          sock_ioctl+0x328/0x3c0
-          __arm64_sys_ioctl+0xb4/0x118
-          invoke_syscall+0x6c/0x100
-          el0_svc_common.constprop.0+0x48/0xf0
-          do_el0_svc+0x24/0x38
-          el0_svc+0x54/0x1e0
-          el0t_64_sync_handler+0x10c/0x140
-          el0t_64_sync+0x198/0x1a0
-
-   -> #1 (rtnl_mutex){+.+.}-{4:4}:
-          lock_acquire+0x1cc/0x348
-          __mutex_lock+0xac/0x590
-          mutex_lock_nested+0x2c/0x40
-          rtnl_lock+0x24/0x38
-          register_netdevice_notifier+0x40/0x148
-          rtnetlink_init+0x40/0x68
-          netlink_proto_init+0x120/0x158
-          do_one_initcall+0x88/0x3b8
-          kernel_init_freeable+0x2d0/0x340
-          kernel_init+0x28/0x160
-          ret_from_fork+0x10/0x20
-
-   -> #0 (pernet_ops_rwsem){++++}-{4:4}:
-          check_prev_add+0x114/0xcb8
-          __lock_acquire+0x12e8/0x15f0
-          lock_acquire+0x1cc/0x348
-          down_write+0x40/0xd8
-          register_netdevice_notifier+0x38/0x148
-          netdev_trig_activate+0x18c/0x1e8 [ledtrig_netdev]
-          led_trigger_set+0x1d4/0x328
-          led_trigger_register+0x194/0x1e0
-          netdev_led_trigger_init+0x20/0xff8 [ledtrig_netdev]
-          do_one_initcall+0x88/0x3b8
-          do_init_module+0x5c/0x270
-          load_module+0x1ed8/0x2608
-          init_module_from_file+0x94/0x100
-          idempotent_init_module+0x1e8/0x2f0
-          __arm64_sys_finit_module+0x70/0xe8
-          invoke_syscall+0x6c/0x100
-          el0_svc_common.constprop.0+0x48/0xf0
-          do_el0_svc+0x24/0x38
-          el0_svc+0x54/0x1e0
-          el0t_64_sync_handler+0x10c/0x140
-          el0t_64_sync+0x198/0x1a0
-
-   other info that might help us debug this:
-
-   Chain exists of:
-     pernet_ops_rwsem --> triggers_list_lock --> &led_cdev->trigger_lock
-
-    Possible unsafe locking scenario:
-
-          CPU0                    CPU1
-          ----                    ----
-     lock(&led_cdev->trigger_lock);
-                                  lock(triggers_list_lock);
-                                  lock(&led_cdev->trigger_lock);
-     lock(pernet_ops_rwsem);
-
-    *** DEADLOCK ***
-
-   2 locks held by modprobe/936:
-    #0: ffffc943e0d2baa8 (leds_list_lock){++++}-{4:4}, at: led_trigger_regi=
-ster+0x10c/0x1e0
-    #1: ffff0001f2762248 (&led_cdev->trigger_lock){+.+.}-{4:4}, at: led_tri=
-gger_register+0x14c/0x1e0
-
-   stack backtrace:
-   CPU: 0 UID: 0 PID: 936 Comm: modprobe Not tainted 6.16-rc7+unreleased-ar=
-m64-cknow #1 PREEMPTLAZY  Debian 6.16~rc7-2~exp1
-   Hardware name: FriendlyElec NanoPi R5S (DT)
-   Call trace:
-    show_stack+0x34/0xa0 (C)
-    dump_stack_lvl+0x70/0x98
-    dump_stack+0x18/0x24
-    print_circular_bug+0x230/0x280
-    check_noncircular+0x174/0x188
-    check_prev_add+0x114/0xcb8
-    __lock_acquire+0x12e8/0x15f0
-    lock_acquire+0x1cc/0x348
-    down_write+0x40/0xd8
-    register_netdevice_notifier+0x38/0x148
-    netdev_trig_activate+0x18c/0x1e8 [ledtrig_netdev]
-    led_trigger_set+0x1d4/0x328
-    led_trigger_register+0x194/0x1e0
-    netdev_led_trigger_init+0x20/0xff8 [ledtrig_netdev]
-    do_one_initcall+0x88/0x3b8
-    do_init_module+0x5c/0x270
-    load_module+0x1ed8/0x2608
-    init_module_from_file+0x94/0x100
-    idempotent_init_module+0x1e8/0x2f0
-    __arm64_sys_finit_module+0x70/0xe8
-    invoke_syscall+0x6c/0x100
-    el0_svc_common.constprop.0+0x48/0xf0
-    do_el0_svc+0x24/0x38
-    el0_svc+0x54/0x1e0
-    el0t_64_sync_handler+0x10c/0x140
-    el0t_64_sync+0x198/0x1a0
-   leds-gpio gpio-leds: bus: 'platform': really_probe: bound device to driv=
-er leds-gpio
-
-Full serial log can be found at [3] which is quite verbose and the boot
-took way longer then normal as the following was added to cmdline:
-``dyndbg=3D"file dd.c func really_probe +p" maxcpus=3D1``
-
-Free free to ask for additional info and/or to run tests.
-
-Cheers,
-  Diederik
-
-[1] https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git/commit/?h=
-=3Darm/fixes&id=3D912b1f2a796ec73530a709b11821cb0c249fb23e
-[2] https://lore.kernel.org/linux-rockchip/f81b88df-9959-4968-a60a-b7efd3d5=
-ea24@arm.com/
-[3] https://paste.sr.ht/~diederik/142e92bfb29bbb58bca18a74cdffc5e0ba79081c
-
---05a4ad5a0d7fd99f8edf9ab4b2d58bf2d6e61cebf8097ca6d088ce78129d
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQT1sUPBYsyGmi4usy/XblvOeH7bbgUCaIPDVQAKCRDXblvOeH7b
-bnPAAQDYRsF+p1M4hDupJfWX0bALrNqxmOkDdi52tQ8G0+kYdQD/UQuyU6+40zJE
-CIAARZKfYH/t7AST8gNNJ+VTr0zm/ww=
-=bygX
------END PGP SIGNATURE-----
-
---05a4ad5a0d7fd99f8edf9ab4b2d58bf2d6e61cebf8097ca6d088ce78129d--
+Laurent Pinchart
 
