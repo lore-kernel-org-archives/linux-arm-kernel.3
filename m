@@ -4,69 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A043EC87FCE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Jul 2025 19:49:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04D6EC87FCE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Jul 2025 19:51:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=prxfnO3e15wcyBVTUn75ZWiKrjM1vcJUc4ZMMOjkQdc=; b=EwF7fQTx4oe/ExIi92+P7TvFSc
-	1OiN9Qzc9JYQxR1MgXAv5/wGpUi9NoTcYRrWoilrrO42Fn569dxfq2oJPrgITYktNN27c5J+03abF
-	FsbLJULASSezXGCE6cS7gNSbOoYobkoQpXXl/Vc15I5VJIVYkLzf6dTw7L05Vs4b512s49/8uDR8q
-	UDcy8U4Sx7BL6GJNU+re3ys3HYUX+sI4hJgqW8pbkxt1e6AJUMgAv3zF9Rw5vQasmV5KpAy45PtiC
-	5uAAfF6afVrECjF3q4osblYk6Ud/SOnQR+7Ps5Bkz8+iOkTl/pFZ/c1SkwNCNhHBvPc5/rbtWE/g5
-	9pw9Eddg==;
+	bh=61XCRCfOhXsOpRvEnTwofG9n7532SZZSh5JywwwlCUo=; b=bxcebpW8kojZ1fhIvY/VjWVJa7
+	vTLLsf3hStc2rSL+cq0f3Lm4BUQUIYWMNxWCWr8I0lm5ANi6hemcCEv1suxia7fwaalOsROeG3B+q
+	GgXOf2rWZcsxdfixXb+C0SETBZdV2GhkpKEHPoE+4dbzMZNOoayX+uKfJTyORC1m/oCqf8svxEX1Y
+	8kth262S88QBWlK9BLKqItobXvzeY6Cg/LRlvwUZaRs/jnwuuiBAY0nZvAq4SKW5H8jgH70KZwMQD
+	F8F6NnGvbIL9z1YtK9lTyPtpkB1F7xSPHyrlhUTzaGgTMzaSEAtscbQYWVfZXSJY+lhKZXyaBfqwA
+	cniYcegg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufOPn-0000000AaOz-1LMM;
-	Fri, 25 Jul 2025 19:49:11 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1ufOSF-0000000AafY-1cMC;
+	Fri, 25 Jul 2025 19:51:43 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufONJ-0000000AaEI-1Xqd;
-	Fri, 25 Jul 2025 19:46:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=prxfnO3e15wcyBVTUn75ZWiKrjM1vcJUc4ZMMOjkQdc=; b=TUlGwI1/sAOve1BDnS40gn7kgs
-	kTW+CEJ/5ZrPFaJVsXvbKD96K4fVK4onh7mCY+W1QNyAmftuwaWuPSoz3fo4FssF2Yo5YDvNa3sJ8
-	2T7h6tf6sbj8PxVBU0/HCm67EbS3YYerMTSrkFlyoe2NPpTlzPo9Kq4cfiTP5ueIHK0P2Zepr/X5N
-	d1JXv3m2iXoyYs90+kaHRB/AKb4DpBWeKRjBeq7UyBVWSCYmid48/1zrPnctmacHOYJsTY5XzAU56
-	RLuyUrtES+2uzO5BGabOI/YdRhqjfAvbjG1FmBdvn1QJE2Wy6BgppPo3vRfoxsMiiQ0k9WYS5U9HU
-	aQ3tGI3Q==;
-Received: from i53875ba0.versanet.de ([83.135.91.160] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1ufOMX-0000i6-FB; Fri, 25 Jul 2025 21:45:49 +0200
-From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
-To: andrzej.hajda@intel.com, neil.armstrong@linaro.org, rfoss@kernel.org,
- Damon Ding <damon.ding@rock-chips.com>
-Cc: Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
- jernej.skrabec@gmail.com, maarten.lankhorst@linux.intel.com,
- mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
- jingoohan1@gmail.com, inki.dae@samsung.com, sw0312.kim@samsung.com,
- kyungmin.park@samsung.com, krzk@kernel.org, alim.akhtar@samsung.com,
- hjc@rock-chips.com, andy.yan@rock-chips.com,
- dmitry.baryshkov@oss.qualcomm.com, l.stach@pengutronix.de,
- dianders@chromium.org, dri-devel@lists.freedesktop.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH v3 00/14] Apply drm_bridge_connector and panel_bridge helper for
- the Analogix DP driver
-Date: Fri, 25 Jul 2025 21:45:48 +0200
-Message-ID: <6070443.MhkbZ0Pkbq@diego>
-In-Reply-To: <b0ce0d8d-4ceb-419e-a892-d39b8633aa13@rock-chips.com>
-References: <20250724080304.3572457-1-damon.ding@rock-chips.com>
- <3890785.kQq0lBPeGt@diego>
- <b0ce0d8d-4ceb-419e-a892-d39b8633aa13@rock-chips.com>
+	id 1ufOO0-0000000AaIZ-3ieO
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 25 Jul 2025 19:47:20 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 029A9601ED;
+	Fri, 25 Jul 2025 19:47:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 74B26C4CEE7;
+	Fri, 25 Jul 2025 19:47:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1753472839;
+	bh=mEjzP9TaXNL8JMZBOaOKVilLLRlX5WpZm35D+dYFv7g=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=YIIqiaIOHmnOPsekUorf5BEBcRj+fEFfAZDMVt9C8ukV0wZbtK5MHMjSySX0M5YL1
+	 CKq170D/xgNjf1sSMPlJvD+ueVR1l99gaxpUEzhZZuRwM5fG7sV1/aIc3ySWRY9YAz
+	 PeLTRMVf3ehqQzneaddt/2l4JBJXP1PY/C8JBJIWIHDUph5Kf66sO9Ft2YpwA3gYRn
+	 mXPreQF4hIkv5GG87zPIDgRkH88e01KnB0KpYIf0S9vU58cn4UJE6ib2D9I5pZkVZs
+	 mo9vodS9M0ZQHeDN9Z8BCfqY/NxGLtFmsJ/C80+U/Xw4Zjn3J914HpEuFbNj4O43Ss
+	 8AWHBIN13FPYA==
+Date: Fri, 25 Jul 2025 14:47:18 -0500
+From: Rob Herring <robh@kernel.org>
+To: Alexander Stein <alexander.stein@ew.tq-group.com>
+Cc: Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/1] dt-bindings: fsl: fsl,rcpm: reference
+ power-domains.yaml
+Message-ID: <20250725194718.GA1727841-robh@kernel.org>
+References: <20250725055835.260930-1-alexander.stein@ew.tq-group.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250725_124637_580842_59B6990A 
-X-CRM114-Status: GOOD (  17.90  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250725055835.260930-1-alexander.stein@ew.tq-group.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,181 +72,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Damon,
-Am Freitag, 25. Juli 2025, 04:15:06 Mitteleurop=C3=A4ische Sommerzeit schri=
-eb Damon Ding:
-> On 2025/7/24 21:10, Heiko St=C3=BCbner wrote:
-> > Am Donnerstag, 24. Juli 2025, 10:02:50 Mitteleurop=C3=A4ische Sommerzei=
-t schrieb Damon Ding:
-> >> PATCH 1 is a small format optimization for struct analogid_dp_device.
-> >> PATCH 2 is to perform mode setting in &drm_bridge_funcs.atomic_enable.
-> >> PATCH 3 is to apply a better API for the encoder initialization.
-> >> PATCH 4-7 are preparations for apply drm_bridge_connector helper.
-> >> PATCH 8 is to apply the drm_bridge_connector helper.
-> >> PATCH 9-11 are to move the panel/bridge parsing to the Analogix side.
-> >> PATCH 12-13 are preparations for apply panel_bridge helper.
-> >> PATCH 14 is to apply the panel_bridge helper.
-> >=20
-> > for future revisions, please provide a changelog on what changed since
-> > the previous version, I guess ideally here in the cover-letter.
-> >=20
-> >=20
-> > On my rk3588-tiger-displayport-carrier this works like a charm
-> > Tested-by: Heiko Stuebner <heiko@sntech.de>
-> >=20
-> >=20
-> >=20
-> >=20
->=20
-> Glad to see your review and test. :-)
->=20
-> I will include the version-to-version changelogs (v2 -> v3 and v3 -> v4)=
-=20
-> in the next iteration.
+On Fri, Jul 25, 2025 at 07:58:34AM +0200, Alexander Stein wrote:
+> dtbs_check for ls1021.dtsi warns about unsupported property:
+>  power-controller@1ee2140 (fsl,ls1021a-rcpm): '#power-domain-cells' does not match any of the regexes: '^pinctrl-[0-9]+$'
+> 
+> But if removed the check warns about missing property:
+>  power-controller@1ee2140 (fsl,ls1021a-rcpm): '#power-domain-cells' is a required property
+> 
+> Given commit 8bcf67b8d893b ("ARM: dts: ls1021a: add #power-domain-cells
+> for power-controller node") explicitly added that property, add a
+> reference to the common bindings to fix the warning.
+> 
+> Fixes: ad21e3840a88 ("dt-bindings: soc: fsl: Convert rcpm to yaml format")
+> Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+> ---
+>  Documentation/devicetree/bindings/soc/fsl/fsl,rcpm.yaml | 5 ++++-
+>  1 file changed, 4 insertions(+), 1 deletion(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/soc/fsl/fsl,rcpm.yaml b/Documentation/devicetree/bindings/soc/fsl/fsl,rcpm.yaml
+> index 03d71ab930d79..5b7c0a1905545 100644
+> --- a/Documentation/devicetree/bindings/soc/fsl/fsl,rcpm.yaml
+> +++ b/Documentation/devicetree/bindings/soc/fsl/fsl,rcpm.yaml
+> @@ -13,6 +13,9 @@ description:
+>  maintainers:
+>    - Frank Li <Frank.Li@nxp.com>
+>  
+> +allOf:
+> +  - $ref: /schemas/power/power-domain.yaml#
 
-I have to amend that a bit, sadly. When doing a reboot with the edp
-running, I see logs like:
+This is not correct. The fix for the above warning is to add 
+'#power-domain-cells' to the properties list here. You can't just 
+reference the schema because you have to define the value of 
+'#power-domain-cells' for this provider.
 
-[...]
-[  139.614749] systemd-shutdown[1]: Syncing filesystems and block devices.
-[  139.622201] systemd-shutdown[1]: Rebooting.
-[  139.684845] ------------[ cut here ]------------
-[  139.690050] WARNING: CPU: 0 PID: 110 at drivers/iommu/rockchip-iommu.c:9=
-89 rk_iommu_identity_attach+0xac/0xbc
-[  139.701175] Modules linked in: panthor rockchip_vdec rocket drm_gpuvm v4=
-l2_vp9 v4l2_h264 drm_exec rockchip_rng drm_shmem_helper v4l2_mem2mem gpu_sc=
-hed rng_core fuse
-[  139.717685] CPU: 0 UID: 0 PID: 110 Comm: irq/58-HPD Not tainted 6.16.0-r=
-c7-00183-gd436cbe8e4b3 #1541 PREEMPT=20
-[  139.728799] Hardware name: Theobroma Systems RK3588-Q7 SoM on Tiger Disp=
-layport Carrier v1 (DT)
-[  139.738548] pstate: a0400009 (NzCv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=
-=3D--)
-[  139.746351] pc : rk_iommu_identity_attach+0xac/0xbc
-[  139.751821] lr : rk_iommu_identity_attach+0x70/0xbc
-[  139.757290] sp : ffff800080e4b7c0
-[  139.761001] x29: ffff800080e4b7c0 x28: ffff0001f6f98080 x27: ffff0001f0a=
-4b010
-[  139.769006] x26: ffff0001f6f98e58 x25: 0000000000000000 x24: 00000000000=
-00000
-[  139.777010] x23: 0000000000000000 x22: ffffdbf23c0485e0 x21: ffff0001f0e=
-9cc10
-[  139.785014] x20: ffff0001f0df17a0 x19: ffff0001f0e2cb80 x18: 00000000000=
-00038
-[  139.793018] x17: 0002550800000009 x16: 0000046c0446043e x15: 0438000008c=
-a080c
-[  139.801021] x14: 07d008ca07800780 x13: 0438000008ca080c x12: 07d00780000=
-25508
-[  139.809024] x11: 0002550800000009 x10: 0000046c0446043e x9 : ffffdbf23c1=
-37000
-[  139.817031] x8 : 0000000000000438 x7 : 0000000000000000 x6 : 00000000000=
-00000
-[  139.825034] x5 : ffffdbf23adbb9c0 x4 : ffff0001f0df1780 x3 : ffff0001f0d=
-f1780
-[  139.833038] x2 : 0000000000000081 x1 : ffff0001f6fad500 x0 : 00000000fff=
-fffea
-[  139.841042] Call trace:
-[  139.843780]  rk_iommu_identity_attach+0xac/0xbc (P)
-[  139.849252]  rk_iommu_attach_device+0x54/0x134
-[  139.854236]  __iommu_device_set_domain+0x7c/0x110
-[  139.859510]  __iommu_group_set_domain_internal+0x60/0x134
-[  139.865561]  __iommu_attach_group+0x88/0x9c
-[  139.870250]  iommu_attach_device+0x68/0xa0
-[  139.874841]  rockchip_drm_dma_attach_device+0x28/0x7c
-[  139.880508]  vop2_crtc_atomic_enable+0x620/0xaa0
-[  139.885678]  drm_atomic_helper_commit_modeset_enables+0xac/0x26c
-[  139.892413]  drm_atomic_helper_commit_tail_rpm+0x50/0xa0
-[  139.898369]  commit_tail+0xa0/0x1a0
-[  139.902279]  drm_atomic_helper_commit+0x17c/0x1b0
-[  139.907552]  drm_atomic_commit+0x8c/0xcc
-[  139.911951]  drm_client_modeset_commit_atomic+0x228/0x298
-[  139.918005]  drm_client_modeset_commit_locked+0x5c/0x188
-[  139.923960]  drm_client_modeset_commit+0x2c/0x58
-[  139.929137]  __drm_fb_helper_restore_fbdev_mode_unlocked+0xb4/0x100
-[  139.936164]  drm_fb_helper_hotplug_event+0xe8/0xf8
-[  139.941526]  drm_fbdev_client_hotplug+0x24/0xe0
-[  139.946605]  drm_client_hotplug+0x48/0xc4
-[  139.951100]  drm_client_dev_hotplug+0x9c/0xd4
-[  139.955984]  drm_kms_helper_connector_hotplug_event+0x20/0x30
-[  139.962426]  drm_bridge_connector_hpd_cb+0x88/0xa0
-[  139.967790]  drm_bridge_hpd_notify+0x3c/0x60
-[  139.972577]  display_connector_hpd_irq+0x30/0xa4
-[  139.978835]  irq_thread_fn+0x2c/0xb0
-[  139.983894]  irq_thread+0x170/0x304
-[  139.988833]  kthread+0x12c/0x204
-[  139.993468]  ret_from_fork+0x10/0x20
-[  139.998486] ---[ end trace 0000000000000000 ]---
-[  140.004737] ------------[ cut here ]------------
-[  140.010884] WARNING: CPU: 0 PID: 110 at drivers/iommu/rockchip-iommu.c:1=
-040 rk_iommu_attach_device+0x114/0x134
-[  140.023079] Modules linked in: panthor rockchip_vdec rocket drm_gpuvm v4=
-l2_vp9 v4l2_h264 drm_exec rockchip_rng drm_shmem_helper v4l2_mem2mem gpu_sc=
-hed rng_core fuse
-[  140.040577] CPU: 0 UID: 0 PID: 110 Comm: irq/58-HPD Tainted: G        W =
-          6.16.0-rc7-00183-gd436cbe8e4b3 #1541 PREEMPT=20
-[  140.054457] Tainted: [W]=3DWARN
-[  140.058804] Hardware name: Theobroma Systems RK3588-Q7 SoM on Tiger Disp=
-layport Carrier v1 (DT)
-[  140.069595] pstate: a0400009 (NzCv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=
-=3D--)
-[  140.078454] pc : rk_iommu_attach_device+0x114/0x134
-[  140.084989] lr : rk_iommu_attach_device+0x98/0x134
-[  140.091423] sp : ffff800080e4b7e0
-[  140.096197] x29: ffff800080e4b7e0 x28: ffff0001f6f98080 x27: ffff0001f0a=
-4b010
-[  140.105270] x26: ffff0001f6f98e58 x25: 0000000000000000 x24: 00000000000=
-00000
-[  140.114351] x23: ffff0001f6f843e0 x22: ffffdbf23c0485e0 x21: ffff0001f0e=
-9cc10
-[  140.123425] x20: ffff0001f0e2cb80 x19: ffff0001f6f843c0 x18: 00000000000=
-00038
-[  140.132489] x17: 0002550800000009 x16: 0000046c0446043e x15: 0438000008c=
-a080c
-[  140.141552] x14: 07d008ca07800780 x13: 0438000008ca080c x12: 07d00780000=
-25508
-[  140.150623] x11: 0002550800000009 x10: 0000046c0446043e x9 : ffffdbf23c1=
-37000
-[  140.159701] x8 : 0000000000000438 x7 : 0000000000000000 x6 : 00000000000=
-00000
-[  140.168772] x5 : ffffdbf23adbb9c0 x4 : ffff0001f0df1780 x3 : ffff0001f0e=
-2cbe0
-[  140.177825] x2 : 0000000000000081 x1 : ffff0001f6fad500 x0 : 00000000fff=
-fffea
-[  140.186858] Call trace:
-[  140.190627]  rk_iommu_attach_device+0x114/0x134 (P)
-[  140.197124]  __iommu_device_set_domain+0x7c/0x110
-[  140.203417]  __iommu_group_set_domain_internal+0x60/0x134
-[  140.210492]  __iommu_attach_group+0x88/0x9c
-[  140.216203]  iommu_attach_device+0x68/0xa0
-[  140.221802]  rockchip_drm_dma_attach_device+0x28/0x7c
-[  140.228479]  vop2_crtc_atomic_enable+0x620/0xaa0
-[  140.234664]  drm_atomic_helper_commit_modeset_enables+0xac/0x26c
-[  140.242400]  drm_atomic_helper_commit_tail_rpm+0x50/0xa0
-[  140.249349]  commit_tail+0xa0/0x1a0
-[  140.254246]  drm_atomic_helper_commit+0x17c/0x1b0
-[  140.260496]  drm_atomic_commit+0x8c/0xcc
-[  140.265866]  drm_client_modeset_commit_atomic+0x228/0x298
-[  140.272885]  drm_client_modeset_commit_locked+0x5c/0x188
-[  140.279791]  drm_client_modeset_commit+0x2c/0x58
-[  140.285914]  __drm_fb_helper_restore_fbdev_mode_unlocked+0xb4/0x100
-[  140.293889]  drm_fb_helper_hotplug_event+0xe8/0xf8
-[  140.300214]  drm_fbdev_client_hotplug+0x24/0xe0
-[  140.306248]  drm_client_hotplug+0x48/0xc4
-[  140.311695]  drm_client_dev_hotplug+0x9c/0xd4
-[  140.317531]  drm_kms_helper_connector_hotplug_event+0x20/0x30
-[  140.324930]  drm_bridge_connector_hpd_cb+0x88/0xa0
-[  140.331248]  drm_bridge_hpd_notify+0x3c/0x60
-[  140.336990]  display_connector_hpd_irq+0x30/0xa4
-[  140.343120]  irq_thread_fn+0x2c/0xb0
-[  140.348081]  irq_thread+0x170/0x304
-[  140.352937]  kthread+0x12c/0x204
-[  140.357501]  ret_from_fork+0x10/0x20
-[  140.362453] ---[ end trace 0000000000000000 ]---
+Generally, we only add a $ref to providers if they have child nodes 
+(e.g. are a bus).
 
-
-After some minutes of hanging it does reboot afterall.
-
-Heiko
-
-
+> +
+>  properties:
+>    compatible:
+>      oneOf:
+> @@ -75,7 +78,7 @@ properties:
+>        RCPM register block is Little Endian. Without it RCPM
+>        will be Big Endian (default case).
+>  
+> -additionalProperties: false
+> +unevaluatedProperties: false
+>  
+>  examples:
+>    - |
+> -- 
+> 2.43.0
+> 
 
