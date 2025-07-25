@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95B9EC87FCA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Jul 2025 11:48:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CA1AC87FCE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Jul 2025 11:50:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RXOlBkog1oeN3W6r4s05i0E001XtYVWY8fR5cyLGwKA=; b=d+0pimkbhaMnRhFpe5Ameu1aFx
-	mEPiRPBEX1dSeWg5bGR65xqSOoQASGANkf7879GjEy5XPE9aoGu5y88gxNaQLnOC9Sr/V8X8msUtf
-	lVmxyjh38cG91rn98TA6gbM4vG6keQj+zJeROnFkISv9mr5SkFmp6nYPiUhP54j3hFtbuviEYgqOa
-	Dd6E3bUYjGBCrqIfkqGAiKod4kIBXfI+5WqVkZte2aJBQ3s7hNiZwn/L0N6DlXEsR7P9XiH0Q22lU
-	DofH9qTg4GfKl58whsqM3mEVrKsASm0AkRg2UM+StgwODoSTc9MPkKNcmOa3BDYzR1Ngkl8MxAOHY
-	65wleDEg==;
+	bh=ZpHiiEBurp8nEv7Bro5iYvuvWsP7SMpgTxM1ioPbJlY=; b=sWaoxO3L4fqPM9G1j2UuRkDdlt
+	KJmBnnZ1XSVOwtlF0j9UDEsM+WkSkBvskZDa+g08KEfulD3LhRgw15PeDPoaojVCxUKUriObLe6Tw
+	0dTjPTcZp3MPEF5LHFAtaHeNVLbi2fRSolVLbwOpZ9EoQvEd5Q3ZjDGvpaqjdFSACAQuXX+Pvr78y
+	k+qnUvtJI2fEajuvZKvSYcUW2863SCIvMKUKJNknF6NGktQ1Tki+3SxmFzLVS3nqApc5iWJPJwP6/
+	GZJyKm9+suoCbHQ4I1TYYgtQYWpgj2+AHk/zWaYBKjCFHr2i9wObnl9UceIizAUHD5W9C5XmpI58E
+	9hLDIrZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufGu9-00000009kdc-2Vm0;
-	Fri, 25 Jul 2025 11:48:01 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1ufGwb-00000009kv1-1cWD;
+	Fri, 25 Jul 2025 11:50:33 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufGIq-00000009g0W-1WiI
+	id 1ufGIq-00000009g0S-1GAC
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Jul 2025 11:09:28 +0000
+	Fri, 25 Jul 2025 11:09:29 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id AA34C6111F;
+	by sea.source.kernel.org (Postfix) with ESMTP id A0F4646885;
 	Fri, 25 Jul 2025 11:09:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 11A50C4CEF9;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 239DBC4CEFD;
 	Fri, 25 Jul 2025 11:09:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1753441767;
-	bh=IqjXzr05zSduckLPDfWkg7xIEVFrdf8l5BHBSomO7vs=;
+	bh=4IkvT70nHT7DJuTLaCAnhM8pgdfF6Jlm4i+ijqif6h0=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=gpvEOr5t19O/SEk8/KGjR0fH6D+68/hErp3ZdkvQXrw1GbEkr6OqMnIcuB05HKVdm
-	 PvXcnQllOzJChFmw0IDhutMlUb36BguSBcW28L4SmHihdHhPaLcZI3YAZ9v9jmBJQq
-	 RZwmS8uefMmWku5ZJAeNMTxQqcqqyV8m6b96RWLHK1bErvS4MzgDTJt/BcXcxfQCqA
-	 Jyvw82Af5YsB8eHYv9oj7Ffu/OyRPPkGLauN5Uj5CVWBpsSno9T7YtVYljlrP5erRL
-	 QKkGpxDHV9oIS3Td1tPCnpCfKaQ253hgz8oq7BzFuMd927KZ2Byjfe0hiYwseh4H73
-	 t502tB9wtu/vg==
+	b=g/QKQP0605g1yilwpMFnSzZNmX+X9qJU6K+gVQagKWEbNSM+3wiDFPnGJtVk139HA
+	 5u+eBJo/4RhWPounHPjAa3qZB508K4CnOJYShTg/h4+94iREtAuPbhZYCTJ8J6WpQo
+	 PnhbEYKWvW4215WEwfMwFuH9MGfbuIhoigAcgmap1nQXJ0XYJY2J7AN30j/o96jbeT
+	 H2iypf0+hJIYUDqLmjAq5Yve4QijOOyYLDEItxB8Qers3SCk5Z2OSMwAPaZL/meGNV
+	 gETWRbf4snGPVDchQeetPJdbET4lO/ZKKiqMJfKVxYQooKBnHNS2seApd5sMqQQAKW
+	 kEJ8pl+X1hACw==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 0561AC87FCA;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 183A6C87FD1;
 	Fri, 25 Jul 2025 11:09:27 +0000 (UTC)
 From: Maud Spierings via B4 Relay <devnull+maudspierings.gocontroll.com@kernel.org>
-Date: Fri, 25 Jul 2025 13:09:25 +0200
-Subject: [PATCH 3/4] arm64: dts: freescale: moduline-display-av101hdt-a10:
+Date: Fri, 25 Jul 2025 13:09:26 +0200
+Subject: [PATCH 4/4] arm64: dts: freescale: moduline-display-av123z7m-n17:
  add backlight
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250725-max25014-v1-3-0e8cce92078e@gocontroll.com>
+Message-Id: <20250725-max25014-v1-4-0e8cce92078e@gocontroll.com>
 References: <20250725-max25014-v1-0-0e8cce92078e@gocontroll.com>
 In-Reply-To: <20250725-max25014-v1-0-0e8cce92078e@gocontroll.com>
 To: Lee Jones <lee@kernel.org>, Daniel Thompson <danielt@kernel.org>, 
@@ -68,16 +68,19 @@ Cc: dri-devel@lists.freedesktop.org, linux-leds@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, 
  Maud Spierings <maudspierings@gocontroll.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1753441765; l=1541;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1753441765; l=1572;
  i=maudspierings@gocontroll.com; s=20250214; h=from:subject:message-id;
- bh=hP/iMSDnGfJ92Bbev2fKqlJFdnLO6wB7nn/ebAUvpWI=;
- b=7ExsNftFWU7giIkLsBxUozc08FSHnvmeqMz49OuEqfUnvOHQgvirIv4NAx8H5k6YHws7RyYoi
- QUZLpcHBdCAA4XETnHLoYMP5tK/UlbJTh9GZlRFsE2wwO3lEMvQ/hKB
+ bh=xr006rWCG+GoAENJGxVDQaJVtVRYuMkX4hmKlW17MZE=;
+ b=tufAw+u70DzqIuX1/RzscpI25dr42wvmI6N6kvkriCu6DX0SMkVxenyZHcZ/LoA/JUx7Ob0oG
+ qq21cnRjhf8DO4vdpWpcZAbi7HQH+t2uhEONPb0ToKSLXMoe1o8mzV5
 X-Developer-Key: i=maudspierings@gocontroll.com; a=ed25519;
  pk=7chUb8XpaTQDvWhzTdHC0YPMkTDloELEC7q94tOUyPg=
 X-Endpoint-Received: by B4 Relay for maudspierings@gocontroll.com/20250214
  with auth_id=341
 X-Original-From: Maud Spierings <maudspierings@gocontroll.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250725_040928_391021_F327DDA7 
+X-CRM114-Status: GOOD (  10.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,30 +98,30 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Maud Spierings <maudspierings@gocontroll.com>
 
-Add the missing backlight driver.
+Add the missing backlight.
 
 Signed-off-by: Maud Spierings <maudspierings@gocontroll.com>
 ---
- ...tx8p-ml81-moduline-display-106-av101hdt-a10.dtso | 21 +++++++++++++++++++++
- 1 file changed, 21 insertions(+)
+ ...p-tx8p-ml81-moduline-display-106-av123z7m-n17.dtso | 19 ++++++++++++++++++-
+ 1 file changed, 18 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-tx8p-ml81-moduline-display-106-av101hdt-a10.dtso b/arch/arm64/boot/dts/freescale/imx8mp-tx8p-ml81-moduline-display-106-av101hdt-a10.dtso
-index e3965caca6be42a17aa89b77bd5b919382c84151..143243ba95cd7a69c7b043fa0fb32c37b67e1064 100644
---- a/arch/arm64/boot/dts/freescale/imx8mp-tx8p-ml81-moduline-display-106-av101hdt-a10.dtso
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-tx8p-ml81-moduline-display-106-av101hdt-a10.dtso
-@@ -17,6 +17,7 @@
+diff --git a/arch/arm64/boot/dts/freescale/imx8mp-tx8p-ml81-moduline-display-106-av123z7m-n17.dtso b/arch/arm64/boot/dts/freescale/imx8mp-tx8p-ml81-moduline-display-106-av123z7m-n17.dtso
+index 3eb665ce9d5d2a1c742ffb4feca046e406e29956..9124cd87cce54a5aa7b7ad674f70f814d1dc3515 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mp-tx8p-ml81-moduline-display-106-av123z7m-n17.dtso
++++ b/arch/arm64/boot/dts/freescale/imx8mp-tx8p-ml81-moduline-display-106-av123z7m-n17.dtso
+@@ -16,6 +16,7 @@
  
  	panel {
- 		compatible = "boe,av101hdt-a10";
+ 		compatible = "boe,av123z7m-n17";
 +		backlight = <&backlight>;
  		enable-gpios = <&gpio1 7 GPIO_ACTIVE_HIGH>;
  		pinctrl-0 = <&pinctrl_panel>;
  		pinctrl-names = "default";
-@@ -40,7 +41,27 @@ reg_vbus: regulator-vbus {
+@@ -91,10 +92,26 @@ lvds1_out: endpoint {
+ 		};
  	};
- };
  
-+&i2c4 {
+-	/* max25014 @ 0x6f */
 +	backlight: backlight@6f {
 +		reg = <0x6f>;
 +		compatible = "maxim,max25014";
@@ -127,10 +130,10 @@ index e3965caca6be42a17aa89b77bd5b919382c84151..143243ba95cd7a69c7b043fa0fb32c37
 +		pinctrl-names = "default";
 +		pinctrl-0 = <&pinctrl_backlight>;
 +		maxim,iset = <7>;
-+		maxim,strings = <1 1 1 0>;
++		maxim,strings = <1 1 1 1>;
 +	};
-+};
-+
+ };
+ 
  &iomuxc {
 +	pinctrl_backlight: backlightgrp {
 +		fsl,pins = <
@@ -139,9 +142,9 @@ index e3965caca6be42a17aa89b77bd5b919382c84151..143243ba95cd7a69c7b043fa0fb32c37
 +		>;
 +	};
 +
- 	pinctrl_panel: panelgrp {
+ 	pinctrl_lvds_bridge: lvdsbridgegrp {
  		fsl,pins = <
- 			MX8MP_IOMUXC_GPIO1_IO07__GPIO1_IO07
+ 			MX8MP_IOMUXC_SAI1_TXD2__GPIO4_IO14
 
 -- 
 2.50.1
