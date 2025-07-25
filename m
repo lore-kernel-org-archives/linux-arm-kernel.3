@@ -4,139 +4,174 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2180CC83F26
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Jul 2025 09:50:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03BCBC87FCD
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Jul 2025 10:04:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d++95DEEqRY9z7LqAnuNyrlBAMbvjNxXsrC0i45rWs8=; b=e4hzNN9e/KpSM7JlxMNCYdEDh8
-	PS0MTIC7uYb+ZkONys6JyFOZ7v8uizFBOzF74yt7jzwKwPEDZuleqJQoTJcZzhNP1pNLhoD6E8gdK
-	DN0Fmv8q+uwCW0otZmWUl7L2zJDQJUQpuKibVDFByEMsnm7ryR4mOkvuup+pdAbHeSoTDINVO+a2p
-	xMmjikvaGRJIuQUJgki7Zq6Ia76ontZQnS/5EBKIh9cWtKI0ni4qiqxB0zkBx/n2SWYWcf4ci7bug
-	vH60hhbOXZZyC8v6hNymJP6TfbrRhkZFpJgW5qBq050NW/HlV20ngaxm3Qzh2ty17Q+8b6/g2o7Ia
-	uyBPC6+A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MzNBfVGqB30JnX6wswO/vX3AbqnEPvnL+sx61WsjhoU=; b=1jRgt5q6rMArel2+Md7Ikz+R4R
+	b6gxBuAeHb96Cm+sTGx4laDG9MylRWXdBT0X6cKdIAiCtJ9IJKmoG3ti5rweR0LL3+YRXVNk6DOmA
+	SYOWKKKGySx0gijuUxq5ieS+AY3TSpp5TmLMYDbUWzy+n2DgLUGXmDke8Yk/P1WPDSCpsZ85xiIBV
+	iOmM1F213ro0GR4v/SSaabmhjP1+U1c6uIvcSLwZEa6TIIDPtuAURBUHe3K+uy9rOuL0rExyGUmRq
+	zx1qUyfD7/RGwjMPTnIA3Ch713Y6neacXJHr4PZfShyY42Z7tYB33h+dsLVPKaCChoJpHk/Snzk3F
+	yb6aNSag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufF4B-00000009U7X-3Tuj;
-	Fri, 25 Jul 2025 09:50:15 +0000
-Received: from mail-ed1-x532.google.com ([2a00:1450:4864:20::532])
+	id 1ufFHN-00000009WLR-1Eb8;
+	Fri, 25 Jul 2025 10:03:53 +0000
+Received: from mail-mw2nam10on20702.outbound.protection.outlook.com ([2a01:111:f403:2412::702] helo=NAM10-MW2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufF1j-00000009U0t-1W1Y
+	id 1ufFEt-00000009Vvz-0NKg
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Jul 2025 09:47:44 +0000
-Received: by mail-ed1-x532.google.com with SMTP id 4fb4d7f45d1cf-607fbf8acb6so215973a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Jul 2025 02:47:42 -0700 (PDT)
+	Fri, 25 Jul 2025 10:01:20 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=XygYQLocamtLXfc3/HraW4kNALlV5S6mzEkENAngqHsiJrsQWWaTyf0sRXGpBgWA9L83TGwU3tNERTIs2plY653Edi8fSrQR/fZtLfZUpN4RzT4i1uVnzBEskc15O96tAMatJn6bKlyI/NQOjN0BfQmL9qnD+j6h6rw+ejeCx4LwfYyCGHRn96n0pn1Bkqd0cnvqNh5OnbNDy3j08Qv4qz+v9oObqGycRiqi4xFqng/11wxYPZpXHEipl49Vad7qgXsc5iqo1+gJwHhS2fTlpkjhNwP2jkeTxr2YX0ig1Z/vd9TyjVIG8/Cs0iC2Mfff69ET9x6wCwLmr8PeTVBi+w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=MzNBfVGqB30JnX6wswO/vX3AbqnEPvnL+sx61WsjhoU=;
+ b=Wz5bB9MLy3iifAG2lyH+7i32FUjwFg1XxKAHYQ3S54hEG3sq4FqQyYHaCUxGWXWZaLnn2dosDWctu+1DYKDYMnErCLjS8nrcE3FX7ju54ewmL+quHsruoq5RYYyHNafUNGjNgdY1xLlpQbeqXFWt4dySvcVl5wAr8kzPIEN0W+fHpbOip24Ahj4ZN+/h5Sir9OgsX7ntwxSg8Ay6MjEpop/GqMUVryiyR7lYZRMYDUFp/gJHRyhCOYxRhqUu6h5Wgxoqi5YGnjkLbN/COBRDGJCs0De1rzb3lDfz9ebIO1Xix2aJMFrlMAAXyDx5OKkFhvflQXN7NE+yY8enBi+xhQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
+ header.from=os.amperecomputing.com; dkim=pass
+ header.d=os.amperecomputing.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1753436861; x=1754041661; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
-         :from:references:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=d++95DEEqRY9z7LqAnuNyrlBAMbvjNxXsrC0i45rWs8=;
-        b=K95c9Vfu5VKShqqIg1EW+Ue2AeRwMPktPGH0eLmzQCDmFkHka9M0zcVCx/2TibSuV8
-         yAmxwRtWsqbzfMxxLlYWefATMMRUQEV+vO+TlJ6ldQK25xHNVOAk0+xSjwMouYXWHrke
-         yB2L3gdPaguqvp3+pzEnCZkF7o8YqljUVobgTJ8pREwNqYZv9QnKOAUl2WSpJ17suRX+
-         3EcJ0AaxkKO7+1op6Hw7mdbc9yxyflXSJcJ+Rh461ZkaGv+5RMz3I93AIDZU40ZDEx3X
-         beauDYnpvO8GX1XKTXOGEuFxx0mivgJKxceinsdH5LjPo0bCbmqRfHp/ve7/adNxG1MB
-         KkbQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753436861; x=1754041661;
-        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
-         :from:references:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=d++95DEEqRY9z7LqAnuNyrlBAMbvjNxXsrC0i45rWs8=;
-        b=HoRE9v66OSMtm6Bh3I9X/3NoA2qdmUizxlo2k9VrKtjmYUglWUqhwiq4jTelgbe0zr
-         9yjGcOOTKNXHBwvCmg1GVom09Kr2GQjEY0+9sqj18Yex0hpWMrgQMW83HNauvFgEQ4H0
-         Sil4ptwnSBEjPaRCBeXrdt8dD7bjgJEchKrOqFbhjCA/d6HWBiy96LA8D8ChBQDSD58k
-         MkgRa3bro67tFaaJPsN+cZW1VyfHho16doukXRs9Gp9VAy31li7EZ5TBv+pxl0Fw4pvg
-         sUU5YqeiJX+33AuLplkfDjJtjXh5WAo9RGAU4whsJJJZL9CHuhWMWtOoHafIVTL4DUG8
-         L56A==
-X-Forwarded-Encrypted: i=1; AJvYcCU8P6YiTb7Jz6BwL2y5ayuHZu8Kig627J0wHYhD+jn7H3vtd1At64uvjF5OT5h7Sb6oJF3SGc3y8/Bc77AHtkgl@lists.infradead.org
-X-Gm-Message-State: AOJu0YxLq3FIc6sr2OIIl76Ptfvp7pgs+FnOGsgry1Rn6VrbX2v4JssQ
-	E1+XEUdiW09zTS/huDY60Eqzo5F6q2LBD/4ytPHPlZ6PvgVjYNcLCnYf9yyootIJJxw=
-X-Gm-Gg: ASbGncsaL/tptPvoUru3Z9TB88Ba8GIlJcWFSxlTBJJskgshOyasat8kmn1knYXE32F
-	XUY2V0wZGUJoiTYCt/3KLmewPviPFqfwwH0JNC50hqckNxUQSscNL+xGzHShxB+pUfR1srxfFOx
-	lzdIzo3fnkL6viXxHHqqCH0OXcfeg1pib3w8u2sBGaPVeoCScXXYVUd/AtB05FeWNwae0CslARJ
-	GNc3lWc04hG7nq22TTZ5WUqByL8WAyYi+TkpjsXgSnUb4rdx4sbc0IQCExxdQBU2KyTj9ii6QoU
-	kEyGDZ4IdtloKuOMF9JbfCZItAJdpB43V40J0g+lugceBRWY+VmmghXGR49UqfoNOcXlo38j+95
-	sKGmagcQx+snoPy22C+B0x5vH9V+ZbBPrgEcDRPfVWw==
-X-Google-Smtp-Source: AGHT+IGt4Tl+Ezasy8itQmEdKvcNMQR6PoUhq2rRmHXq00x0XuE90hd52Zy9YkCWuEt6FOh+JdkGdw==
-X-Received: by 2002:a17:907:1c8d:b0:ade:902e:7b4b with SMTP id a640c23a62f3a-af61cca78f4mr49006666b.7.1753436861413;
-        Fri, 25 Jul 2025 02:47:41 -0700 (PDT)
-Received: from [192.168.1.29] ([178.197.203.90])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-af47f44d8c9sm246902866b.68.2025.07.25.02.47.39
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 25 Jul 2025 02:47:40 -0700 (PDT)
-Message-ID: <a345528b-1641-4f10-a9ae-6b853f625df4@linaro.org>
-Date: Fri, 25 Jul 2025 11:47:39 +0200
-MIME-Version: 1.0
+ d=os.amperecomputing.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=MzNBfVGqB30JnX6wswO/vX3AbqnEPvnL+sx61WsjhoU=;
+ b=BfNgBgy0B0j3xkK8EzUrQ/3c0NjnewQg+hxcEUij3NsswIj5x8OxWb2SEbs9mQFMbuE1FoO2GZR2mb4VW0kgK0fz279DqBhgRsh/tjt//465QVynsN9xKlzFet2ZvMfKed6h+3Jmf2IZ3sEIrpqcxcoJtOZlA8kgSuVLWrzvAU8=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
+Received: from SJ2PR01MB8101.prod.exchangelabs.com (2603:10b6:a03:4f6::10) by
+ PH0PR01MB7492.prod.exchangelabs.com (2603:10b6:510:f3::6) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8964.23; Fri, 25 Jul 2025 10:01:14 +0000
+Received: from SJ2PR01MB8101.prod.exchangelabs.com
+ ([fe80::292:6d9c:eb9a:95c9]) by SJ2PR01MB8101.prod.exchangelabs.com
+ ([fe80::292:6d9c:eb9a:95c9%5]) with mapi id 15.20.8964.019; Fri, 25 Jul 2025
+ 10:01:14 +0000
+Message-ID: <ccd8caba-95b9-450e-afb1-deb0c42b781b@os.amperecomputing.com>
+Date: Fri, 25 Jul 2025 15:31:05 +0530
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] clocksource/drivers/exynos_mct: Revert commits causing
- section mismatches
-To: Daniel Lezcano <daniel.lezcano@linaro.org>,
- Thomas Gleixner <tglx@linutronix.de>, Krzysztof Kozlowski <krzk@kernel.org>,
- Alim Akhtar <alim.akhtar@samsung.com>,
- Will McVicker <willmcvicker@google.com>,
- Youngmin Nam <youngmin.nam@samsung.com>, Donghoon Yu <hoony.yu@samsung.com>,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org
-References: <20250725090349.87730-2-krzysztof.kozlowski@linaro.org>
- <63a6d253-305d-4ffd-9954-7cd665bd332d@linaro.org>
- <2f413942-8126-4d94-b64b-c4a05052b5a1@linaro.org>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: Re: [RFC PATCH v2 0/9] KVM: Enable Nested Virt selftests
+To: Marc Zyngier <maz@kernel.org>
+Cc: Eric Auger <eauger@redhat.com>, linux-arm-kernel@lists.infradead.org,
+ kvmarm@lists.linux.dev, linux-kselftest@vger.kernel.org,
+ linux-kernel@vger.kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com,
+ suzuki.poulose@arm.com, yuzenghui@huawei.com, seanjc@google.com,
+ darren@os.amperecomputing.com
+References: <20250512105251.577874-1-gankulkarni@os.amperecomputing.com>
+ <92c7e99c-5574-422c-92f1-62d5cde58fec@redhat.com>
+ <7bf7bd52-7553-42a7-afdb-a5e95f8699b5@os.amperecomputing.com>
+ <86a56veiyy.wl-maz@kernel.org>
+ <3be548bf-aee4-46ab-bcbf-15bf629b24da@os.amperecomputing.com>
+ <86jz58c5ut.wl-maz@kernel.org>
+ <9d5d82f1-b488-4b0a-98c2-27e95d63fc5c@os.amperecomputing.com>
+ <867c12czux.wl-maz@kernel.org>
 Content-Language: en-US
-Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
- 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
- 2+47PN9NZAOyb771QoVr8A==
-In-Reply-To: <2f413942-8126-4d94-b64b-c4a05052b5a1@linaro.org>
-Content-Type: text/plain; charset=UTF-8
+From: Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>
+In-Reply-To: <867c12czux.wl-maz@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: MA0PR01CA0106.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a01:af::16) To SJ2PR01MB8101.prod.exchangelabs.com
+ (2603:10b6:a03:4f6::10)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ2PR01MB8101:EE_|PH0PR01MB7492:EE_
+X-MS-Office365-Filtering-Correlation-Id: c14dee29-f487-466b-d691-08ddcb623090
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?c1VOUFREbTFHa3lleHA1ZTZtenpRTWN6eEwwWE1sa3JKbzZpVUhJR3AxbEtk?=
+ =?utf-8?B?eTg4OVBnbEcyU3NsVStGclZHVzZvcGk3VTdKNnQvVGtCVkFRb09YM1VibHVP?=
+ =?utf-8?B?VW1lV2ZTRWg5dEN2VmVpWXNOQ0QwYkJ6bnpLRWFibWxUbURRV0gyNE04MjVu?=
+ =?utf-8?B?c1RNVlAzQkd3bTRZVEZFbW5LeElCWVlYVjh6Nml4b29MVEloUG9GRGVseUhq?=
+ =?utf-8?B?TG1qWDgrVnU2cW9qcTlNUys2cm1leTR5SUVyd1g3Ti94akU2T3BnVnc3OUlw?=
+ =?utf-8?B?cGNXalBKdWs1WnNsUEtGMUlYWStva1ZPZFRGWldkMkRDeStxT0tvMWRFQTE5?=
+ =?utf-8?B?bVhCM1lpMktWbDV4WTJuRDNBVHo0V1RZazk4WHBHOWgxMFYzREo5K3NWajBi?=
+ =?utf-8?B?YWNySGdPbEc1a3BLb0FsWFRnbko0dFo5SE5zWEtwTUxBekdzaU5rb0VUdDhB?=
+ =?utf-8?B?ZWNwL1V0UkVhSXhJN1kyRGYxY2wxaWpUZXp2bTE4NDBsT3JZNEx3dkdqdXIw?=
+ =?utf-8?B?SlZCQVhCQk5SL2pDN2xQTzJIdmRRNSsya3ZCTjZLb1VBYllpdWU1WFBZQTlu?=
+ =?utf-8?B?UnF1WmlXYU1vU2I4RWhGOFNBNnJmZ0FjMU1nRm5mUSswL2pwSDVmVE05RENE?=
+ =?utf-8?B?eXlJaEFrRWI5T0N1WnJyNUFkSVJUdkJONDNObW5mWmdyWThIYUZmMmtaV0dY?=
+ =?utf-8?B?NFRCdmxSOUhwSmlEejdwUDRuMFRnWis5aDh4K2ljK2d3TmtYR2JMYVdqd0h6?=
+ =?utf-8?B?Y0FnMnhpbFM0TS8vM2huZ3p0cVoxM0dFRVVzeERrcWtvUkJxTUpSYyt4a0tF?=
+ =?utf-8?B?QU5tbGxpYkYzMlp4L25lT0ZPdWRsa0MyVklwN0htckVBTVF1Y01ROW1haWhZ?=
+ =?utf-8?B?YzJEamR3enlteFdDdzFlMXNJYktTanNHZmR6SENWcjlMSm5tSnkxMDlSTlFT?=
+ =?utf-8?B?U3NYemowUFQzbU1VcDAweVJrQVo2QVV4MFNTbFVlb3FQQ2o3aXlIZXZPQVE4?=
+ =?utf-8?B?WWVYS2w4NlZKdmgyWVhoUVRrRGE4WUlsVmVkRnBYMStpV3poV2pWa3BSRmd2?=
+ =?utf-8?B?MC9BQzhLODlXenBQNjV3ZHYwa0NnVXlBSlIyeGR4UmVIeEJ0K01KYTQrSWNm?=
+ =?utf-8?B?VXFrWXU1VnhHbTl4ZUVwTlZqTWVyL2gzRGVUcDZORGdZclBOL0d3UjdTdzBj?=
+ =?utf-8?B?SEZzZVRnOEJSNnVwWUZzUTVHUFZzN1k3dkJRWnJmZjlCeUxCSlVHbk50enhj?=
+ =?utf-8?B?ZE5ZZ3BMb3dCa0Y5S0tRVlpXcTlTcHZyaW5FMTIxa3JkaWd3eU1yKzdLczA5?=
+ =?utf-8?B?Rk0vb0kzQUdoY0laUGR4d3RiNm43d0pIRmtGN3EwOW5GTkNqdTNTRXBPR1lo?=
+ =?utf-8?B?eVJHZHhudmE0dWQwakxFeWRiT05rbTJJR3hiNnRUUXA3TnhBc2R0TTRXckpV?=
+ =?utf-8?B?MXVUdGlGbXRaYkU2NWFSaGM3dXFGWDBna2xZWEJrT2tCNkFzRXEzQkoxZnpm?=
+ =?utf-8?B?NWFsbWlWclNqTjdCOXlNQWpRaUVZYjY4bjFxVmVpMlRaTkNhSFlxOUxQZCsw?=
+ =?utf-8?B?UUxjMjdFKzViYkQ0NVlTcU1ZaDAvdjdwMGU4VlhFMzd0dzhsUnIxOVdIbU80?=
+ =?utf-8?B?NkZCMWtWQ3E1S0FkMFl0Um54Q04yNjRWeEJlMVJBdjRORXNrMThPc1Q4ckVp?=
+ =?utf-8?B?dXArNGZXWGZKT0VOcUFXQ0J1cW1WR2MwMjRjUGlFVVFVZnlUbGFnZHdLRm5x?=
+ =?utf-8?B?dWQyOUNOaEhKN2srUVFOajdwMVRReHFNTzk3MERtTVNWMkdpZWxFZnZTSHo1?=
+ =?utf-8?B?ekc5MSthdjMxREd6dzdDd1dXYzhNRVpqVmllNHhPV0JSbDljbWJJdlk2V1dr?=
+ =?utf-8?B?a0NCakU3QVVLS2NRYUxyaXZIWnNwM2ZQcjhYTnJ4dDNDYnh0QmplalhxMWVQ?=
+ =?utf-8?Q?kignUDLz410=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR01MB8101.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?K3BPSmlaN01wdFBpZGFzVndPNEI3MGVJSDJRbGx0a05wUGJhMHpRc0hZdU5L?=
+ =?utf-8?B?UUp6L2Qwc3UxRElQZ2g4d2FzOVZVZ3dERnZLUmZkWGM2OW5lV2R6aWh6bnNy?=
+ =?utf-8?B?WGx6NFpvU1lSeS9VdG5iblFYRU5YSDZCTDMwamRHZVM0RFRZSW4wWWJqak5E?=
+ =?utf-8?B?a1I3QThHTXBxaHJDK3JZZ1dFOVhXT0p6MWpSeGJDMmZnYjBneVlaVjhrbk5p?=
+ =?utf-8?B?TGtWZFkyTURwMTh4TGFia1VIVzZRVjVuNHVXTHhNNTNMK2lLT0ZEeHNqd1Qy?=
+ =?utf-8?B?QmpCSXh5MktPLzdJUVdVN0tSUUlFQTRlZGxVaWRCMUNMOEkvZUVPSkxyVlhp?=
+ =?utf-8?B?SlRVYnlHbGtmTXk2eUlHcFVybmt3TTljZGhkdHRmc1BNSXUrMkpDeE5QdXFK?=
+ =?utf-8?B?djBITVg1WkhkQmptNGNzNmFwWnVFMWd1QU5JRFU4TVRRVzlaY29CbkVXWjVZ?=
+ =?utf-8?B?Y0xiNlR4c3d0NXExaDMzdDVsRVhzbE9oYTNYOXVlRklBR0ozd1BZTWdBNnhL?=
+ =?utf-8?B?dFpZRk1Oa0dvUWZISGF2Tm9Ka2VERi9FVjYvd0VsZE1qa0oyTUpnSXhGeVAx?=
+ =?utf-8?B?VzJuaUUzUGo4RmdGMEVVVVluZG1IbGZaZ3Z0N3pSNjJEdXhoamF4Q3ZOcXhU?=
+ =?utf-8?B?cFJvbkNhY0M1M0UxNmt3Qm1ubExMOXVqMEw5RmpFWERWVE85bkQxLzNCVGJD?=
+ =?utf-8?B?TFByQUNNRmpPcDhYTllNYXArU2RkUGphUmFWcUIxK0s5ajRzMW5hdXZFMmV4?=
+ =?utf-8?B?bDBKSTUrRys2clExdmxJRUt1MGkrdnZDL2V2QnBnbVp1aTlnWlZ6bVN1TUV1?=
+ =?utf-8?B?SnlPdnRlWUM3UUI0QlBXNW4yOENGN2xVWWx6akxsUlpWcEZYK1RjLzQ1cUha?=
+ =?utf-8?B?QXBqb3JGekU3TlpoelEvM0VGN3Qya0JoREV1azJTc1RKOTZ0MzlMU2l5N2My?=
+ =?utf-8?B?SXY1cGtGTGhaQmgxbzIzd3ExY0NuaXNhWm5taUlMNGhCTDg1eXA5V0dPd2lZ?=
+ =?utf-8?B?aGl1TVJkaG5mMUtJOU5KSUtRUS9mZEFnNmxWbzJvdXhIK0IvcU5NNDdGOWhD?=
+ =?utf-8?B?Sjh3dGtBNktjYUhDWHBWdTc0KzI4Nk1Ob0Z4TUJLbkdEMGV4WWx5aEE5VmVn?=
+ =?utf-8?B?bTBDdTRDRzZpSjI2dlBHNjE1ZGVXdFFUKzBNdFpuV0NENUwvckdQSWVqR3Bp?=
+ =?utf-8?B?dDNTNlhVR3ZFMVFZaWJmVGNTczl4dUY3eEp2SXc4ZlpHZWpyOFN5OTVJc1hJ?=
+ =?utf-8?B?eitQaCsvSlhJNTRIRytKRHZKNVA0OE1KSVFhZlB4UTdaM3Y4MWN4NHp5T1kw?=
+ =?utf-8?B?SFlKNS9hLzB2MjRhZmp2bkZmQWJsdVJwaHdTRGw5dTY2N0N5b3UxeG5qMWpW?=
+ =?utf-8?B?TDhxbEQ0Y2cvYmo5U0FJdVVCZUtPelZuVWRDNHNhNmU5K0VCWG9lT2NQQzBZ?=
+ =?utf-8?B?WDNMK0txSGNFNTNIaXgyRjh1ZU1Ub3lObVV2QUFwcDh6SHo5RktEYi80cWNR?=
+ =?utf-8?B?RWovbkdvSGxiRnBwOWJwYzkvdDhTV1cyVG9BNWJuWjFOanhKUUNKK2pndEdL?=
+ =?utf-8?B?ZWtmN1VOd3YvVlNLUVFQYVJtOWZSV240VmJTS2tyMnloZGFFOEFNVTlINTFN?=
+ =?utf-8?B?ZWliaUtoZlcwSWp2bE9CS29xYzNUWUhpNnQ0T1ZpVlc1a012eUVVdGsyZVl0?=
+ =?utf-8?B?QldJUGpxdTNYeHl4Z2FNYVNoUklBRTNnSHpwbGlMUUhuZ1d0c25zcEN0UnNx?=
+ =?utf-8?B?TGVENW5BWVZaaEZ1TzJKb2xLSnNXaEtmZVRKRGNPVGtnK0dqb0ZpL2duWmZS?=
+ =?utf-8?B?ekwrWmZ4eFZJcEpoSEdJVXN6M0IyaTJPNTFnZi8zdHRQZnVRSGlaNVlNcHhu?=
+ =?utf-8?B?WDJXQys2ZWU5aWkzN2ZITytaMmlVaURVNE9TZitaQzU1cmFXdllTbFRCV05J?=
+ =?utf-8?B?NTJOUm1NVDRMM3RkbldXcFRLOHdaWlNRWi9KU3N2eHNRdmFOeHliMno5bnh5?=
+ =?utf-8?B?U1VXbjdOWFgwUWJCYzZ4V0QzSnAyTEtMTWI1OE9mT2xpN29hSVQ2Skl3TVo2?=
+ =?utf-8?B?S0R0NktiaThXbUdMQWtyYjdMbTZZSmxIREZaRUxJYjRPV2hxWVN6NWhac2w5?=
+ =?utf-8?B?d3QyMTR1dlo0S0pjT3dwM0l0Wi9aMDZ6UjRSRytHWU9WVlNaWFZ2ck13YnZK?=
+ =?utf-8?Q?bH3bbUL4w/2hzguiBh+WipwCHED+qxzr4UPjKvcNp3bG?=
+X-OriginatorOrg: os.amperecomputing.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c14dee29-f487-466b-d691-08ddcb623090
+X-MS-Exchange-CrossTenant-AuthSource: SJ2PR01MB8101.prod.exchangelabs.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Jul 2025 10:01:14.1520
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: IoHtSf+bE25U1Vanu/Vx612LOd0/iOxaJ4oT0vJnsK0a5fz3U1pPO90PImnY+/CkWiZ6UY0bsHUHUjTN76QHimi+S77ijhb8ayXWMRzqlwO9+Hz9ERG3Vyandqd1G4p4
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR01MB7492
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250725_024743_412901_4D80F307 
-X-CRM114-Status: GOOD (  19.04  )
+X-CRM114-CacheID: sfid-20250725_030119_145786_2F875B48 
+X-CRM114-Status: GOOD (  16.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,62 +186,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25/07/2025 11:35, Krzysztof Kozlowski wrote:
-> On 25/07/2025 11:28, Daniel Lezcano wrote:
->> On 25/07/2025 11:03, Krzysztof Kozlowski wrote:
->>> Commit 5d86e479193b ("clocksource/drivers/exynos_mct: Add module
->>> support") introduced section mismatch failures.
->>> Commit 7e477e9c4eb4 ("clocksource/drivers/exynos_mct: Fix section
->>> mismatch from the module conversion") replaced these to other section
->>> mismatch failures:
+
+Hi Marc,
+
+On 6/23/2025 7:41 PM, Marc Zyngier wrote:
+> On Mon, 23 Jun 2025 11:31:32 +0100,
+> Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com> wrote:
+>>
+>> On 6/19/2025 5:15 PM, Marc Zyngier wrote:
+>>>>    >
+>>>>> Also, running EL2 is the least of our worries, because that's pretty
+>>>>> easy to deal with. It is running at EL1/0 when EL2 is present that is
+>>>>> interesting, and I see no coverage on that front.
+>>>>
+>>>> Sorry, I did not get this comment fully.
+>>>> When we run selftest on Host with -g option, the guest code will run in vEL2 as L1.
+>>>> This is implemented as per comment in V1.
+>>>>
+>>>> When we run same selftest from L1 shell, then guest_code will be running in EL0/1 like running from L0.
 >>>
->>>    WARNING: modpost: vmlinux: section mismatch in reference: mct_init_dt+0x164 (section: .text) -> register_current_timer_delay (section: .init.text)
->>>    WARNING: modpost: vmlinux: section mismatch in reference: mct_init_dt+0x20c (section: .text) -> register_current_timer_delay (section: .init.text)
->>>    ERROR: modpost: Section mismatches detected.
+>>> What good does this bring us if we need to boot a full guest OS to run
+>>> tests? What we need is synthetic tests that implement the whole stack:
 >>>
->>> No progress on real fixing of these happened (intermediary fix was still
->>> not tested), so revert both commits till the work is prepared correctly.
+>>> - L1 guest hypervisor
+>>> - L2 guest hypervisor
+>>> - L2 guest
+>>> - L3 guest hypervisor
+>>> - L3 guest
+>>> - [...]
 >>
->> Please don't claim the fix was not tested. I reproduced the section 
+>> IIUC, selftest leverages host OS support and uses various IOCTLs to
+>> support the guest_code run. Are you saying to implement all this
+>> again (without OS help) in guest_code to run it as hypervisor and
+>> launch guest_code2 as NestedVM?.
 > 
+> The whole point of having small selftests is to run something that is
+> simpler several orders of magnitude simpler than the full blown
+> OS/hypervisor. So indeed, I'm asking for selftests that build chains
+> of guests up to some level and verify that the nesting, as described
+> in the architecture, works correctly.
 > 
-> section mismatch code MUST BE tested with enabled DEBUG_SECTION_MISMATCH
-> and disabled SECTION_MISMATCH_WARN_ONLY. If you have warnings which you
-> missed (although if you have warnings what did you fix?), means you did
-> not prepare testing setup.
-> 
->> mismatch, tested it and figured out it was indeed fixing the issue. I 
->> just missed the error because it sounds very close to the first one 
->> reported initially and I did the confusion.
->>
->> The driver is not supposed to be compiled as a module on ARM32.
->>
->> The option tristate "Exynos multi core timer driver" if ARM64 is 
->> misleading. From this change, the defconfig on ARM can do 
->> CONFIG_EXYNOS_MCT=m which should not be allowed.
->>
->> Before getting wild and revert everything, let's try to find a proper 
->> fix for that.
-> 
-> I am not wild here. The issue is there since 9 days.
-BTW, merge window will start anytime soon, so if you do not apply this
-revert and do not fix it soon, it means NOTHING during merge window will
-be tested on Exynos.
 
-Why?
+Do you see value in the patches as they are, without the changes to support the bare-metal hypervisor in guest, or will you only consider them if they are first reworked to support the recursive guests?
 
-Because my builds for Exynos rely on correct sections and they fail.
-Failed builds means: no boots.
-
-No boots means no testing.
-
-And if this reaches rc1 (imagine you send fixes AFTER rc1), then all my
-branches will be non-booting as well.
-
-Time to "not be wild" was 9 days ago when you received reply from Arnd.
-Now reverting these is the appropriate step. None of this work was
-tested on arm32 Exynos, BTW.
-
-Best regards,
-Krzysztof
+-- 
+Thanks,
+Gk
 
