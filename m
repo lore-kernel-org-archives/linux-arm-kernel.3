@@ -4,77 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C885C83F27
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Jul 2025 05:18:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BE25C83F26
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Jul 2025 05:21:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=46G8DD90VVrhpEQm7Mku51SwaoXM/jFS2E0FifwksX4=; b=UKwDCDry1VJICmeMQofadWfbdD
-	o5XDHsmnS/lXRaS+UymOEqK3m69MfdB1xJx1QZozmSbyDV9T0GD/cqKVucVzMHc1XeFNlKwe8pyES
-	BqaA6DURpiQhmfVH/bgFaM/LtVVxiO6V1GMcj8dm4gEAKXFnZc4n7IcVWPlvrX/Qncqnww8gEGXJl
-	zS/D5HgQUccHsJgZ+Am3Pt6oH3OTbkUs17ph6qsDC1V65RFJE3FrQUm70Cj9wXXqUGDhRtiHHFFyn
-	UxDKw3vwlTqoUvruyfTRRCIsYmxkDMr2OThFIMw0hsHUtmgAr+rmDe3fldSDW2ern1HnQzhCsm0Gz
-	Mz5K2/vA==;
+	bh=hwlCoX9n3S+W1I2p1kc9IDkLp+xJ/GgTuu9b7/n8qiY=; b=GF3uzCnkzAOMlutIBxI2NqaqxI
+	d17QwYDU13EEjydBC4na33RI81WbvBqc27W7TxRezbYTeUj36qdyq6PD96iOF0is96zIYuem5SL7r
+	det6Gt3dx5UzZjgQwpPA2hnIxWokpFllHXuDkFPMMwGSLWcYdewngAJ+jfNfjdSyW0h1SRyvqYWKl
+	IU3AJNXrpt/rSTz5p5otfx75BiBK5jFD3R4RQMhzM4phhv664Fdcwz1I3duj/iWeA6qsR7GYZZB+X
+	tinY48jSO5yeqZ0DK/jWoECocuya+0fXzzjRjKZTbF+6cbN6FeD9zVPzOBm0iwzCngN79Kfs0O3sh
+	oWdp1psg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufApR-000000094pV-0tSL;
-	Fri, 25 Jul 2025 05:18:45 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1ufAsG-0000000955b-15WT;
+	Fri, 25 Jul 2025 05:21:40 +0000
+Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufAmw-000000094i1-3WnD;
-	Fri, 25 Jul 2025 05:16:12 +0000
-X-UUID: 780cd6ec691611f09eb0dd999d3936bf-20250724
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=46G8DD90VVrhpEQm7Mku51SwaoXM/jFS2E0FifwksX4=;
-	b=Gff68kFJapmJYc1HJaAaIb2H6p55MIXAlkoUokMjyuvf2WMs1ies4gkkUfrr86bbec0LBCpNpdlSqzBvJbE+kLxlRm0Uo0vUITNoXU/rbePsr9jPGCS9XN74GSYgxPp7nTc6w1YazN7s6sSy99n4ZWZtkyMMWnpvfbGvcnYmWiM=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.2,REQID:094aa427-1588-4db7-aaa4-c7e785b1e73a,IP:0,UR
-	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
-	elease,TS:0
-X-CID-META: VersionHash:9eb4ff7,CLOUDID:cef9280f-6968-429c-a74d-a1cce2b698bd,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|83|102,TC:nil,Content:0|50,EDM
-	:-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0
-	,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0
-X-CID-BAS: 0,_,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 780cd6ec691611f09eb0dd999d3936bf-20250724
-Received: from mtkmbs14n2.mediatek.inc [(172.21.101.76)] by mailgw02.mediatek.com
-	(envelope-from <akash.tyagi@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 613910120; Thu, 24 Jul 2025 22:16:07 -0700
-Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
- MTKMBS09N2.mediatek.inc (172.21.101.94) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Fri, 25 Jul 2025 13:16:04 +0800
-Received: from mtisdccf01.mediatek.inc (10.18.1.155) by
- mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.39 via Frontend Transport; Fri, 25 Jul 2025 13:16:02 +0800
-From: akash.tyagi <akash.tyagi@mediatek.com>
-To: <david@redhat.com>
-CC: <akash.tyagi@mediatek.com>, <akpm@linux-foundation.org>, <vbabka@suse.cz>,
-	<matthias.bgg@gmail.com>, <angelogioacchino.delregno@collabora.com>,
-	<surenb@google.com>, <mhocko@suse.com>, <jackmanb@google.com>,
-	<hannes@cmpxchg.org>, <ziy@nvidia.com>, <linux-mm@kvack.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-mediatek@lists.infradead.org>, <wsd_upstream@mediatek.com>,
-	<chinwen.chang@mediatek.com>
-Subject: Re: [RFC PATCH] mm/page_alloc: Add PCP list for THP CMA
-Date: Fri, 25 Jul 2025 10:38:10 +0530
-Message-ID: <20250725050810.1164957-1-akash.tyagi@mediatek.com>
-X-Mailer: git-send-email 2.18.0
-In-Reply-To: <67a54f31-e568-427a-8fc8-9791fd34e11b@redhat.com>
-References: <67a54f31-e568-427a-8fc8-9791fd34e11b@redhat.com>
+	id 1ufApe-000000094rX-1Sjp
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 25 Jul 2025 05:18:59 +0000
+Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-748e81d37a7so1210362b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Jul 2025 22:18:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1753420737; x=1754025537; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=hwlCoX9n3S+W1I2p1kc9IDkLp+xJ/GgTuu9b7/n8qiY=;
+        b=jMCQy5xZi0AxMrEZkYOxy8NWR5bhHOOb0bU7839EiwQ5k0tvhBfPop3W/kfqJvHA1S
+         YYqBJqJXDDa/i9KICZLDL0onGwzLSn+45QuP1rzOc2vtqu/7jrGGHiH+WH7AuKNEEJxF
+         QeSnz3cXPRxj0wXkDB2B6111kJpxXLIOKocnf8A7AWrM1uLT3x1+MAzrkQem0hCBguKo
+         PMbu461ewhTMSvseBUhRMc6PpCrVJNZBQjplJpQa809f3ckKogc6oQaKJL8ma4pMzsHz
+         9uOlfKFkXE9XQzFUcCiFWrFw8Dwd1h5GD+BEBoD6KcZvARX+ao1Ex8nCOaxtvjo5Hwv+
+         uRXg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1753420737; x=1754025537;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=hwlCoX9n3S+W1I2p1kc9IDkLp+xJ/GgTuu9b7/n8qiY=;
+        b=d3armE5Pv/HQ3ZMYEwTNtxaLoXD49ERmnC351DqENS7drvrYTo7f1HowM4eEfYUoGg
+         9odGu/52AhSSXd2rxhUjEi2N2GAI62SIMLGn+czB7I4SJCyyw7SdxKqlwVfPOGT/me7T
+         yXLo9wS6UYFtpuZWRRnTt6KFyns8FuFeFN1B6FNZZz3zSxKQX+FFDFStCKJ4IVvnfn87
+         7URsxXrd/h80HtFXKcwAMQisvWF0HJZci4str7pRX/G6TAzGtmAct0zM7G29ygIP/RiY
+         H7HF1x/mWJRPGVFM13o908hhJrkTWvi2opiTzYH1Cr4RIzA3Qz6XRu2M2WVZ7uXtnSAb
+         yVDA==
+X-Forwarded-Encrypted: i=1; AJvYcCVFW0sZpkzhl8fsJgLDiN0gLQc0jEfVsAfUT//8f5xZnxZawcVy9j/8x6YL2zsT9k21sEb3UG7HfZ3jaNz7DJev@lists.infradead.org
+X-Gm-Message-State: AOJu0YyfwCQHuKZNWDElojTRW6TcsZSc8npfUBPvm0led228uynAcEQb
+	oIhz+pewuca4Mk3ggAuMOShqdlQ3dfInQb/tZRSRwe0yY98UUCoJppwmQajmSHAI
+X-Gm-Gg: ASbGncsBxnEbr2cHFKXKpWdLYfC8VvAN/nz1U6xagC8RT31JwqJkOFQaYGSqVwL0feT
+	MWbNpJE3bgrBhej3TDnxZeUhzLMIZkdtV7/57jZ61Xxzd92ld1g5i3CDYlcjEcrqJnL8LwgesQg
+	EQ8z1kTteLJw7tv2Z69nqtHfmEU/AHPOmdcBmXxY/lj40+5Von/zyZLU9mKjdJ+CHUdkEvjDq0P
+	27JYhc3NIfqmfDHdYC5XI5x6kurjq2AEC+wSHquVXKx/PZixF8r7f7L21CTSe6wrJeZp0zCQmT+
+	l2H1SJ/+rdsAUYmwqgI4/Le+tWaSeKWxsx2tSb2DKN1t9W9hLLeHWQPFuF3GyJ0q2Il9Pq5dDFT
+	AQX+spebStP5l5i8DLdFhyR/AiWGwU33zgchkYL16q9G11vNKKy1O+h4kQgE3/so46GjD8F+Wj+
+	c=
+X-Google-Smtp-Source: AGHT+IFPixTsfdXK9p29I79UGfIgXeOO9MD+/pKk+rfiR7TaXdWeo4fQpMcFgUkv1hBHXBF3FZnWGw==
+X-Received: by 2002:aa7:88c6:0:b0:748:f80c:b398 with SMTP id d2e1a72fcca58-763382d8395mr881883b3a.15.1753420737003;
+        Thu, 24 Jul 2025 22:18:57 -0700 (PDT)
+Received: from localhost.localdomain (c-76-133-73-115.hsd1.ca.comcast.net. [76.133.73.115])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-761ae15838csm2966301b3a.43.2025.07.24.22.18.55
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 24 Jul 2025 22:18:56 -0700 (PDT)
+Date: Thu, 24 Jul 2025 22:18:53 -0700
+From: Tao Ren <rentao.bupt@gmail.com>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org,
+	Tao Ren <taoren@meta.com>
+Subject: Re: [PATCH v3 10/13] ARM: dts: aspeed: Add Facebook Fuji-data64
+ (AST2600) Board
+Message-ID: <aIMTvUyHGd/ikKY9@localhost.localdomain>
+References: <20250723233013.142337-1-rentao.bupt@gmail.com>
+ <20250723233013.142337-11-rentao.bupt@gmail.com>
+ <d09667e5-992e-4ced-ae30-7a4116a72c62@lunn.ch>
+ <aIGGdbIX9HaV4dB/@localhost.localdomain>
+ <769d6817-ee97-4a23-b013-29bc875a00cb@lunn.ch>
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <769d6817-ee97-4a23-b013-29bc875a00cb@lunn.ch>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250724_221610_890816_090BA196 
-X-CRM114-Status: UNSURE (   9.95  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250724_221858_389366_0CA40CDC 
+X-CRM114-Status: GOOD (  22.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,69 +107,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi David,
+On Thu, Jul 24, 2025 at 02:53:39PM +0200, Andrew Lunn wrote:
+> On Wed, Jul 23, 2025 at 06:03:49PM -0700, Tao Ren wrote:
+> > On Thu, Jul 24, 2025 at 02:03:20AM +0200, Andrew Lunn wrote:
+> > > > +&mac3 {
+> > > > +	status = "okay";
+> > > > +	phy-mode = "rgmii";
+> > > 
+> > > Does the PCB have extra long clock lines to implement the 2ns delay?
+> > > 
+> > > 	Andrew
+> > 
+> > Hi Andrew,
+> > 
+> > Thank you for catching it. I didn't notice the settings because the file
+> > is copied from the exiting fuji.dts with minor changes.
+> > 
+> > The delay is currently introduced on MAC side (by manually setting SCU
+> > registers), but I guess I can update phy-mode to "rgmii-id" so the delay
+> > can be handled by the PHY?
+> 
+> That would be good, if it works. The problem with the current code is
+> that those SCU registers are not set as part of the MAC driver, so it
+> is hard to know what value they have.
+> 
+> 	Andrew
 
-Thank you for your feedback.
+Hi Andrew,
 
-We encountered this issue in the Android Common Kernel (version 6.12), which uses PCP lists for CMA pages.
+I set phy-mode to rgmii-id (letting BCM54616S handle RX/TX delay) and
+cleared SCU350 (MAC3/4 RGMII delay) register, but somehow BMC is not
+reachable over ethernet.
 
-page_owner trace-
-Page allocated via order 9, mask 0x52dc0(GFP_KERNEL|__GFP_NOWARN|__GFP_NORETRY|__GFP_COMP|__GFP_ZERO), pid 1, tgid 1 (swapper/0), ts 1065952310 ns
-PFN 0x23d200 type Unmovable Block 4585 type CMA Flags 0x4000000000000040(head|zone=1|kasantag=0x0)
- post_alloc_hook+0x228/0x230
- prep_new_page+0x28/0x148
- get_page_from_freelist+0x19d0/0x1a38
- __alloc_pages_noprof+0x1b0/0x440
- ___kmalloc_large_node+0xb4/0x1ec
- __kmalloc_large_node_noprof+0x2c/0xec
- __kmalloc_node_noprof+0x39c/0x548
- __kvmalloc_node_noprof+0xd8/0x18c
- nf_ct_alloc_hashtable+0x64/0x108
- nf_nat_init+0x3c/0xf8
- do_one_initcall+0x150/0x3c0
- do_initcall_level+0xa4/0x15c
- do_initcalls+0x70/0xc0
- do_basic_setup+0x1c/0x28
- kernel_init_freeable+0xcc/0x130
- kernel_init+0x20/0x1ac
- 
-This UNMOVABLE page was allocated from CMA, but it could not be migrated - so CMA alloc failed
-At first, we fixed this by adding CMA THP pages to the movable THP PCP list.  
-This fixed the issue of CMA pages being put in the wrong list, but now any movable allocation can use these CMA pages.
+Let me see if I missed other settings. I will drop the mac entry from v4
+if I cannot make it work by next Monday.
 
-Later, we saw that a movable allocation used a CMA page and was pinned by __filemap_get_folio(). This page was pinned for too long, and eventually, CMA allocation failed
+Thanks,
 
-page_owner trace-
-Page allocated via order 0, mask 0x140c48(GFP_NOFS|__GFP_COMP|__GFP_HARDWALL|__GFP_MOVABLE), pid 1198, tgid 1194 (ccci_mdinit), ts 17918751965 ns
-PFN 0x207233 type Movable Block 4153 type CMA Flags 0x4020000000008224(referenced|lru|workingset|private|zone=1|kasantag=0x0)
- post_alloc_hook+0x23c/0x254
- prep_new_page+0x28/0x148
- get_page_from_freelist+0x19d8/0x1a40
- __alloc_pages_noprof+0x1a8/0x430
- __folio_alloc_noprof+0x14/0x5c
- __filemap_get_folio+0x1bc/0x430
- bdev_getblk+0xd4/0x294
- __read_extent_tree_block+0x6c/0x260
- ext4_find_extent+0x22c/0x3dc
- ext4_ext_map_blocks+0x88/0x173c
- ext4_map_query_blocks+0x54/0xe0
- ext4_map_blocks+0xf8/0x518
- _ext4_get_block+0x70/0x188
- ext4_get_block+0x18/0x24
- ext4_block_write_begin+0x154/0x62c
- ext4_write_begin+0x20c/0x630
-Page has been migrated, last migrate reason: compaction
-Charged to memcg /
-
-
-Currently, free_unref_page treats CMA pages as movable. So, some MOVABLE allocations may use these CMA pages and pinned them. Later, when CMA needs these pages, these pages failed to migrate.
-free_unref_page()/free_unref_folios
-	migratetype = get_pfnblock_migratetype(page, pfn);
-	if (unlikely(migratetype >= MIGRATE_PCPTYPES)) {
-		migratetype = MIGRATE_MOVABLE;
-	}
-
-
-Best Regards,
-Akash Tyagi
+Tao
 
