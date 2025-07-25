@@ -4,105 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB61BC83F26
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Jul 2025 09:06:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36BCBC83F26
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Jul 2025 09:10:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ZsoNTEfmfMdvFP0lv+IxaAbjZbzLYpdHn40uDlPZMSg=; b=bM/dcMY2MVGXA4HGwSHqqqvG7H
-	pCFDeR7RSE1ktU78k12f4mblM76vBapw+hsQVfnlwZfjmunGN1YDhrB/EZu5qc70Zv2ZE41huh4gk
-	UWIO/1La8dwOr9awj+WLOIh6CFfhSXneV4zOrIjDm+4eXCLnU1lX7+smDlVkRb3SYvUlxwFv/mUrx
-	P1mn+rTZdvi584AnNAVra9qh9kc7q6sfW2lr23oAFlqtj3w36w+7RtmrFCcHvIRIs1eHiDjLp5oR/
-	c5Nlkg8AMB3nwNxdSKteoSFBtjyIYGytAy34HZcDooFAKrhl0WyaxnZOqQQUnZzZQnb+YbSx/UPD7
-	a8a3v/IQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Lp5Z9iTH+ugecgyteyY+wMw9FDVhLK20NW464bjciOY=; b=ZXWm4JRfKjY7phVwzDVwOzxzVK
+	p048vYvdwmuhpM99Ojw4sx7ap0g35fzlrpzjVlmrYP44qd8dGKeWMAlIUy3rOHVPyMcln67ITka1d
+	TdJlC9PdLJXzkTASOyB1+lRNZSQADcTiibHjLGE7Od/r5CFw8KKuRh52Rk5fzGfvk1tmKn3xO9ylU
+	LWiODCuobuRsEbkHx3S37eBa2vWrqUQDpqiCC9qWc8xjt2EtoOWti+f63JfJntwt4UkzJ6KpukGFN
+	N5CabJGKvLKDslBeprtPMDXYYcOfu9jDl7sFVRaTJFR7tKao0OyHMUFrGFK0UYjPVmpI6U+JNw2VJ
+	Z2yXzwCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufENu-00000009QLX-1Hi7;
-	Fri, 25 Jul 2025 09:06:34 +0000
-Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
+	id 1ufERJ-00000009Qig-3Oai;
+	Fri, 25 Jul 2025 09:10:05 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufELQ-00000009Q3F-0j0d
+	id 1ufEOq-00000009QVl-1G6h
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Jul 2025 09:04:01 +0000
-Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-3b7766698eeso34370f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Jul 2025 02:03:59 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1753434238; x=1754039038; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=ZsoNTEfmfMdvFP0lv+IxaAbjZbzLYpdHn40uDlPZMSg=;
-        b=y3dfSnazO6N1d5Us4+fc8sSNr61HOJzA/FivxmcMo6trpMFxUVcAfj1kSQzbrPG5ap
-         rJygUk63wawi6CwMEgJasW03XMJBdS+czlNXrwzMRzEJXInWixTsCg+xtV/sS6F4IHoA
-         +4sIrS26x13bCjq/pTUtyg6ZqqBjoYKy2gfszPj6wvVgbvtPfi7RkzxCNjuvDM/4Gfi6
-         rW9ITJ+uIBTO6/+UpGGe7pX8qL5A9FCYkwvkocZhWhQtQ04An/BCSd/j8n3EtsPX0i7C
-         RvmkwKHOeMp5Szc60UWGq7poFNPPvIVJ6MfBaRe081I8sM9bQfywPj8gUpk3L1ZRl7FS
-         FADQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753434238; x=1754039038;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=ZsoNTEfmfMdvFP0lv+IxaAbjZbzLYpdHn40uDlPZMSg=;
-        b=QgXZFAG4Qyfmc+rQ/EJJmwYw6JJz+2CYhJTo+O/KM1qvga+J9YGxhdj7+WEyX9wAmo
-         RaKUrqwBVdlvpm3//omwsv6vX8ouq07IZvtYkSC/mV+N1Ih7I9E433RCS7Jiubl5rBkL
-         vXX6MKyUEDGBRu2MeLNRiKqOnb8ceO3gpq1oAxchIIZuBlDuFz+funRkOMQ57vvUO/Kc
-         W5sbIAhK2f0Mr/zfU/UDiXoeDQXPmmlNctS1PPiZmq7ingqpNyNP6OxQN/goAlTlJRHK
-         JQ00fjPqqWTWdctlE6XUpZh7cBSTLCq4a7FjBFNz6t7tibN5CM+MJCPYsiSsCxHwBxs1
-         HuLA==
-X-Forwarded-Encrypted: i=1; AJvYcCWBEVn4nKzVxv/FmZkTEYNL8X3jc8xoOHlO//xC5D4NbrJMxsiZeoRMxymTT9bQVPNlR3xeZH0zPW8OFLVjZXG+@lists.infradead.org
-X-Gm-Message-State: AOJu0YxPrChq9woMvtpHkxL+dKFf272L9ItMMzXKrnZC7I8e04Ia/Xda
-	/6xQPK2fbA8YAd5xO0sY6/dU4Kc5Zvp+f/+ut7Izq18JET3QQdIz+eHJH2Wyv/pXx4Q=
-X-Gm-Gg: ASbGncsoCFMA38wcRvTcnv3MIA/GbVoQjRQvjXF/C81CtD7YU+qWaABZpPkEoMxGDgy
-	sdRjvlUFQ3kf4frlTefoz2wGn58YOJql3OGIHvGtuy0jbSm3LfISnxOwh8ZGBlck+We3Ep1fReQ
-	VP4ticsgdy8sQq/RF7jkzsuaTPhdBHmnzeuSs+foml91iHRMpjjEnBnT46oaavTgyyvIWRGoEx5
-	ttmIKd+kTiumdru8acdBQrU3UZh2Gm6BYHpQsiXN5aukPdAhZjTEUFAGtrbU1VGtMgC1o+w6S+/
-	crQadSGr1MAB2OpZpSBdcmWtNTjn0EBdoIn5TUxiYrAGlnkSufyyL2qy/P0nnPv3+JcCDcnAtGX
-	N8Qw44AxdL8hMUHHIhQDSlJIGEOfIPN6m
-X-Google-Smtp-Source: AGHT+IGNh7egRS4Kex6r927tL9H0Aj3/PBwDBRA+aKAvEzjTyuXGGLNytvVXgOYRLookHqQtsKhc7Q==
-X-Received: by 2002:a5d:5d84:0:b0:3a4:e0ad:9aa5 with SMTP id ffacd0b85a97d-3b77675b226mr421712f8f.11.1753434238420;
-        Fri, 25 Jul 2025 02:03:58 -0700 (PDT)
-Received: from kuoka.. ([178.197.203.90])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3b76fc6d1b0sm4457094f8f.18.2025.07.25.02.03.56
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 25 Jul 2025 02:03:57 -0700 (PDT)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Will McVicker <willmcvicker@google.com>,
-	Youngmin Nam <youngmin.nam@samsung.com>,
-	Donghoon Yu <hoony.yu@samsung.com>,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: [PATCH] clocksource/drivers/exynos_mct: Revert commits causing section mismatches
-Date: Fri, 25 Jul 2025 11:03:50 +0200
-Message-ID: <20250725090349.87730-2-krzysztof.kozlowski@linaro.org>
-X-Mailer: git-send-email 2.48.1
+	Fri, 25 Jul 2025 09:07:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=Lp5Z9iTH+ugecgyteyY+wMw9FDVhLK20NW464bjciOY=; b=U7Ux1+UTOOBLVFWeNvZ1LYBq4G
+	sS9UgAN7zUZWKWn4drP3pitmFQmIx9UmmoQDDvzbvEoUr731eiz7C+b8wIZItA/QEA9jnJtMpZa3z
+	9lNW4USW6c89aICyrodbuMP7SYh0Z5oPwJBgzupGZ9aMq35XWQNfHt4nyOZm5ZRUb98i2VnzqS1cM
+	dWRyfEwMSbDueGtu9E2uzKzhehLhAvUID33OLyv82Ew5iWrAbzLeUWBQevSkSHvvPhxqDEgz6TBtO
+	tArbcH2RsZEQME6uOr1J6iTTa2wKU6x1XLmGNBYzJDa6Qe8aJbWhaVjntrCQwLbXkBr+CqZIBbX2y
+	NnLvR+0g==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:56256)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1ufEOl-0004Zz-27;
+	Fri, 25 Jul 2025 10:07:27 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1ufEOi-0001di-3A;
+	Fri, 25 Jul 2025 10:07:25 +0100
+Date: Fri, 25 Jul 2025 10:07:24 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Naresh Kamboju <naresh.kamboju@linaro.org>
+Cc: Linux ARM <linux-arm-kernel@lists.infradead.org>,
+	open list <linux-kernel@vger.kernel.org>,
+	lkft-triage@lists.linaro.org,
+	Linux Regressions <regressions@lists.linux.dev>,
+	Arnd Bergmann <arnd@arndb.de>, kees@kernel.org,
+	Dan Carpenter <dan.carpenter@linaro.org>,
+	Anders Roxell <anders.roxell@linaro.org>,
+	Ben Copeland <benjamin.copeland@linaro.org>
+Subject: Re: next-20250723 arm atags_to_fdt.c undefined reference to
+ `__sanitizer_cov_stack_depth'
+Message-ID: <aINJTDD3je4XJ6VO@shell.armlinux.org.uk>
+References: <CA+G9fYtBk8qnpWvoaFwymCx5s5i-5KXtPGpmf=_+UKJddCOnLA@mail.gmail.com>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=6066; i=krzysztof.kozlowski@linaro.org;
- h=from:subject; bh=6vM1EJPOw6Q4Qtlb27Cb82oUvYEiD6W/XiM1RMs35fE=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBog0h1G5Uk9Pte6K2erF5TqunuTTBgTDpGsrvV8
- TEOHz0s63OJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaINIdQAKCRDBN2bmhouD
- 1wWRD/98MncWXJ487P4kJKVuFRECgj7W6JrPbTWD1EFBGsiBhmOGCRM2RSyKQZXGViRmQsThRHa
- g+al4JPMNu8ZgRgoH3scYChiRxjmHMa6WjuNpLtX5V2RoH3KwZciSSpvxXJgeakJ77f5NpzwsVx
- rzQwovhhoLN4sbRTX5R4a+Qc7aO/U0ClyYZjPFFPc44D6XBocWK/4q3Y21WGmSXSOGbIWCwNc5/
- EBZ1xXzPPQ2PyEkLQiLgkWpkoHCe+09gm0M/ACxlRm4mdiX9uNJ+4qTjSeIl04LnNX3qNQ+Lriv
- DLeJuuFv1Nqm7zo96pkaLRwt5itojLI/iMHiHwBjERAXVn3atyB7tsj/DZOp1hB9LXtzruJ5Kup
- 3/Hk+iDz2QXx8qjyvdK1r75tEg3nBBCCjLmEGbcGHHaSeU26N4auuX1FQTCqJXvV+hoTDNNhAtH
- ufJdEUHbyKyWQr6RyiJM3qRDjne0af36YX5iQcRJL+SAuw55jf6ITi3yIRqI/ygPC4uHNUOVOVw
- aU+/QY00QV0d0rrJvObAsiuj4pgMjRUgVGHLcq+J2WzDCnnr0mtqNVRGw2gmlLAN/0ZvsC7Z1PG
- Km9rBuMIgYmOBCqKlj/X7w5dfahbhLGiavdVXuI03ZtzHJeS5OLteenkWBtg5k3EgDcwSnrx92w Lji1FxNr7fmWU5w==
-X-Developer-Key: i=krzysztof.kozlowski@linaro.org; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CA+G9fYtBk8qnpWvoaFwymCx5s5i-5KXtPGpmf=_+UKJddCOnLA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250725_020400_222531_3122611E 
-X-CRM114-Status: GOOD (  19.04  )
+X-CRM114-CacheID: sfid-20250725_020732_337303_36406495 
+X-CRM114-Status: GOOD (  10.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,172 +85,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Commit 5d86e479193b ("clocksource/drivers/exynos_mct: Add module
-support") introduced section mismatch failures.
-Commit 7e477e9c4eb4 ("clocksource/drivers/exynos_mct: Fix section
-mismatch from the module conversion") replaced these to other section
-mismatch failures:
+On Fri, Jul 25, 2025 at 01:59:02PM +0530, Naresh Kamboju wrote:
+> Regressions noticed while building arm builds with gcc-13 and gcc-8
+> toolchains on the Linux next-20250723 to next-20250725 tags.
+> 
+> First seen on the Linux next-20250723
+> Good: next-20250722
+> Bad:  next-20250723 and next-20250725
+> 
+> Regression Analysis:
+> - New regression? Yes
+> - Reproducibility? Yes
+> 
+> ## Build regressions
+> * arm, build
+>   - gcc-13-lkftconfig-hardening
+>   - gcc-8-lkftconfig-hardening
+> 
+> Build regression: next-20250723 arm atags_to_fdt.c undefined reference
+> to `__sanitizer_cov_stack_depth'
 
-  WARNING: modpost: vmlinux: section mismatch in reference: mct_init_dt+0x164 (section: .text) -> register_current_timer_delay (section: .init.text)
-  WARNING: modpost: vmlinux: section mismatch in reference: mct_init_dt+0x20c (section: .text) -> register_current_timer_delay (section: .init.text)
-  ERROR: modpost: Section mismatches detected.
+"cov" suggests "coverty", and that the symbol is not available in the
+kernel suggests that coverty isn't supported.
 
-No progress on real fixing of these happened (intermediary fix was still
-not tested), so revert both commits till the work is prepared correctly.
+Maybe some kind of new support has been added, but no one has told the
+arm developers, and thus bits needed for it aren't present.
 
-Fixes: 7e477e9c4eb4 ("clocksource/drivers/exynos_mct: Fix section mismatch from the module conversion")
-Fixes: 5d86e479193b ("clocksource/drivers/exynos_mct: Add module support")
-Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Honestly, I'm not going to worry about it. If someone wishes to
+contribute 32-bit arm support, then fine, otherwise I'll just ignore
+this.
 
----
-
-First build failure:
-https://krzk.eu/#/builders/12/builds/3350
----
- drivers/clocksource/Kconfig      |  3 +-
- drivers/clocksource/exynos_mct.c | 51 ++++++--------------------------
- 2 files changed, 10 insertions(+), 44 deletions(-)
-
-diff --git a/drivers/clocksource/Kconfig b/drivers/clocksource/Kconfig
-index d657c8ddc96b..645f517a1ac2 100644
---- a/drivers/clocksource/Kconfig
-+++ b/drivers/clocksource/Kconfig
-@@ -451,8 +451,7 @@ config ATMEL_TCB_CLKSRC
- 	  Support for Timer Counter Blocks on Atmel SoCs.
- 
- config CLKSRC_EXYNOS_MCT
--	tristate "Exynos multi core timer driver" if ARM64
--	default y if ARCH_EXYNOS || COMPILE_TEST
-+	bool "Exynos multi core timer driver" if COMPILE_TEST
- 	depends on ARM || ARM64
- 	depends on ARCH_ARTPEC || ARCH_EXYNOS || COMPILE_TEST
- 	help
-diff --git a/drivers/clocksource/exynos_mct.c b/drivers/clocksource/exynos_mct.c
-index 80d263ee046d..62febeb4e1de 100644
---- a/drivers/clocksource/exynos_mct.c
-+++ b/drivers/clocksource/exynos_mct.c
-@@ -15,11 +15,9 @@
- #include <linux/cpu.h>
- #include <linux/delay.h>
- #include <linux/percpu.h>
--#include <linux/module.h>
- #include <linux/of.h>
- #include <linux/of_irq.h>
- #include <linux/of_address.h>
--#include <linux/platform_device.h>
- #include <linux/clocksource.h>
- #include <linux/sched_clock.h>
- 
-@@ -219,7 +217,6 @@ static struct clocksource mct_frc = {
- 	.mask		= CLOCKSOURCE_MASK(32),
- 	.flags		= CLOCK_SOURCE_IS_CONTINUOUS,
- 	.resume		= exynos4_frc_resume,
--	.owner		= THIS_MODULE,
- };
- 
- /*
-@@ -244,7 +241,7 @@ static cycles_t exynos4_read_current_timer(void)
- }
- #endif
- 
--static int exynos4_clocksource_init(bool frc_shared)
-+static int __init exynos4_clocksource_init(bool frc_shared)
- {
- 	/*
- 	 * When the frc is shared, the main processor should have already
-@@ -339,7 +336,6 @@ static struct clock_event_device mct_comp_device = {
- 	.set_state_oneshot	= mct_set_state_shutdown,
- 	.set_state_oneshot_stopped = mct_set_state_shutdown,
- 	.tick_resume		= mct_set_state_shutdown,
--	.owner			= THIS_MODULE,
- };
- 
- static irqreturn_t exynos4_mct_comp_isr(int irq, void *dev_id)
-@@ -480,7 +476,6 @@ static int exynos4_mct_starting_cpu(unsigned int cpu)
- 	evt->features = CLOCK_EVT_FEAT_PERIODIC | CLOCK_EVT_FEAT_ONESHOT |
- 			CLOCK_EVT_FEAT_PERCPU;
- 	evt->rating = MCT_CLKEVENTS_RATING;
--	evt->owner = THIS_MODULE;
- 
- 	exynos4_mct_write(TICK_BASE_CNT, mevt->base + MCT_L_TCNTB_OFFSET);
- 
-@@ -516,7 +511,7 @@ static int exynos4_mct_dying_cpu(unsigned int cpu)
- 	return 0;
- }
- 
--static int exynos4_timer_resources(struct device_node *np)
-+static int __init exynos4_timer_resources(struct device_node *np)
- {
- 	struct clk *mct_clk, *tick_clk;
- 
-@@ -544,7 +539,7 @@ static int exynos4_timer_resources(struct device_node *np)
-  * @local_idx: array mapping CPU numbers to local timer indices
-  * @nr_local: size of @local_idx array
-  */
--static int exynos4_timer_interrupts(struct device_node *np,
-+static int __init exynos4_timer_interrupts(struct device_node *np,
- 					   unsigned int int_type,
- 					   const u32 *local_idx,
- 					   size_t nr_local)
-@@ -657,7 +652,7 @@ static int exynos4_timer_interrupts(struct device_node *np,
- 	return err;
- }
- 
--static __init_or_module int mct_init_dt(struct device_node *np, unsigned int int_type)
-+static int __init mct_init_dt(struct device_node *np, unsigned int int_type)
- {
- 	bool frc_shared = of_property_read_bool(np, "samsung,frc-shared");
- 	u32 local_idx[MCT_NR_LOCAL] = {0};
-@@ -705,43 +700,15 @@ static __init_or_module int mct_init_dt(struct device_node *np, unsigned int int
- 	return exynos4_clockevent_init();
- }
- 
--static __init_or_module int mct_init_spi(struct device_node *np)
-+
-+static int __init mct_init_spi(struct device_node *np)
- {
- 	return mct_init_dt(np, MCT_INT_SPI);
- }
- 
--static __init_or_module int mct_init_ppi(struct device_node *np)
-+static int __init mct_init_ppi(struct device_node *np)
- {
- 	return mct_init_dt(np, MCT_INT_PPI);
- }
--
--static int exynos4_mct_probe(struct platform_device *pdev)
--{
--	struct device *dev = &pdev->dev;
--	int (*mct_init)(struct device_node *np);
--
--	mct_init = of_device_get_match_data(dev);
--	if (!mct_init)
--		return -EINVAL;
--
--	return mct_init(dev->of_node);
--}
--
--static const struct of_device_id exynos4_mct_match_table[] = {
--	{ .compatible = "samsung,exynos4210-mct", .data = &mct_init_spi, },
--	{ .compatible = "samsung,exynos4412-mct", .data = &mct_init_ppi, },
--	{}
--};
--MODULE_DEVICE_TABLE(of, exynos4_mct_match_table);
--
--static struct platform_driver exynos4_mct_driver = {
--	.probe		= exynos4_mct_probe,
--	.driver		= {
--		.name	= "exynos-mct",
--		.of_match_table = exynos4_mct_match_table,
--	},
--};
--module_platform_driver(exynos4_mct_driver);
--
--MODULE_DESCRIPTION("Exynos Multi Core Timer Driver");
--MODULE_LICENSE("GPL");
-+TIMER_OF_DECLARE(exynos4210, "samsung,exynos4210-mct", mct_init_spi);
-+TIMER_OF_DECLARE(exynos4412, "samsung,exynos4412-mct", mct_init_ppi);
 -- 
-2.48.1
-
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
